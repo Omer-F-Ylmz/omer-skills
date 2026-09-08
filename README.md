@@ -9,7 +9,11 @@
 /plugin install frontend-craft@omer-skills
 ```
 
-Yeni bir makinede skill'in screenshot/audit script'leri çalışmadan önce iki adım gerekir:
+## Yeni makinede
+
+Marketplace'i ekledikten sonra ortamın tam çalışması için gereken adımlar. Hepsi bir kez, makine başına yapılır.
+
+**1. frontend-craft script bağımlılıkları**
 
 ```
 cd ~/.claude/plugins/marketplaces/omer-skills/plugins/frontend-craft/skills/frontend-craft
@@ -18,6 +22,49 @@ npx @puppeteer/browsers install chrome
 ```
 
 `npm i` puppeteer'ı kurar; Chrome binary'si ayrı indirilir, ikinci komut olmadan `screenshot.mjs` çalışmaz.
+
+**2. context7 MCP (kütüphane dokümantasyonu)**
+
+```
+npm i -g @upstash/context7-mcp
+npm root -g          # global dist yolunu buradan al
+```
+
+MCP sunucusu `npx` ile değil, global dist'e doğrudan `node` ile bağlanır — `npx` Windows'ta stdin altında ölüyor:
+
+```json
+"context7": {
+  "type": "stdio",
+  "command": "node",
+  "args": [
+    "<npm root -g>\\@upstash\\context7-mcp\\dist\\index.js",
+    "--api-key",
+    "<context7 api key>"
+  ]
+}
+```
+
+**3. C# dil sunucusu**
+
+```
+dotnet tool install -g csharp-ls
+```
+
+`csharp-lsp` eklentisi bu tool'u bekler; kurulu değilse LSP sessizce devre dışı kalır.
+
+**4. Hook'lar**
+
+Hook'lar Windows PowerShell 5.1 ile çağrılır; `command` alanı `powershell.exe`, script `-File` ile verilir:
+
+```json
+{
+  "type": "command",
+  "command": "powershell.exe",
+  "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\pc\\.claude\\hooks\\<script>.ps1"]
+}
+```
+
+pwsh 7 opsiyonel — kuruluysa `command` `pwsh` yapılabilir, ama 5.1 her Windows'ta hazır geldiği için varsayılan bu.
 
 ## frontend-craft ne yapar
 
