@@ -36,6 +36,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - İkon: tek aile, SVG (Lucide outline); emoji yok.
 - Grid: kırık simetri — ≥1 bölüm asimetrik kolon/tam genişlik dışı; her şey ortalı ve eşit genişlik olmaz.
 - YASAK: mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · "h1+p+2 buton" hero kalıbı birebir · stok illüstrasyon/3D render hissi · eşit boyutlu kart tekrarı · her bölümde aynı boşluk.
+- Bu liste varsayılandır; projenin YASAK listesi DESIGN.md'de yazılır ve seçilen stille çelişen maddeler oradan çıkarılır (ör. Glassmorphism seçilen projede blur maddesi geçersiz).
 
 ## 4. Her iki modda kabul kriterleri
 - `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` → PASS; FREE modunda SLOP satırı boş.
@@ -69,7 +70,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 ## 9. SCREENSHOT DÖNGÜSÜ (zorunlu, kapalı çevrim)
 - Kendi ürettiğin görseli göremezsin. Render'ı puppeteer ile screenshot al (`scripts/screenshot.mjs`, Bölüm 2), geri besle.
 - Somut diff: sıfat değil SAYI ("spacing dar" değil → "kart içi padding 16px, 24px olmalı").
-- Tur sırası: 1) layout/hiyerarşi 2) renk/spacing 3) detay/hareket. 3. turdan sonra getiri düşer, DUR.
+- Tur sırası: 1) layout/hiyerarşi 2) renk/spacing 3) detay/hareket. En fazla 4 tur; 3. turdan sonra getiri düşer, gerek yoksa orada DUR.
 - Her turda: console temiz mi · tab sırası doğru mu · kontrast AA mı.
 
 ## 10. REFERANS KAYNAKLARI
