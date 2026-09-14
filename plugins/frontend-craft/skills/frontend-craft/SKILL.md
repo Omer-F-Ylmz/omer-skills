@@ -15,7 +15,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - static: `node ${CLAUDE_SKILL_DIR}/scripts/serve.mjs` arka planda → http://localhost:3000. Çalışıyorsa ikinci instance açma.
 - aspnet: `dotnet run --project <web csproj>` arka planda; URL `Properties/launchSettings.json`'dan.
 - `file:///` ile screenshot YASAK.
-- UI'a dokunan yeni proje veya yeni ana ekranda sıra — Bölüm 11 (yön keşfi) → DESIGN.md → iki-pass → kod → screenshot döngüsü. Mevcut bir DESIGN.md varsa Bölüm 11 atlanır.
+- UI'a dokunan yeni proje veya yeni ana ekranda sıra — Bölüm 11 (yön keşfi) → DESIGN.md → iki-pass → kod → screenshot döngüsü. Mevcut bir DESIGN.md varsa VEYA REF modundaysak (`reference/` klasörü var) Bölüm 11 atlanır.
 
 ## 2. Screenshot döngüsü
 - `node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs <url> [etiket]` → `.screens/` altına 390/768/1440 üç PNG. Her PNG'yi Read ile aç ve incele.
