@@ -1,6 +1,6 @@
 {
   "name": "frontend-craft",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "Web UI design and implementation discipline: brand-identity decision, reference matching, a screenshot loop at three widths, anti-generic guardrails, and a11y/performance acceptance criteria. Load it before touching HTML, CSS, Tailwind, or Razor.",
   "author": {
     "name": "Ömer Faruk Yılmaz"

@@ -15,6 +15,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - static: `node ${CLAUDE_SKILL_DIR}/scripts/serve.mjs` arka planda → http://localhost:3000. Çalışıyorsa ikinci instance açma.
 - aspnet: `dotnet run --project <web csproj>` arka planda; URL `Properties/launchSettings.json`'dan.
 - `file:///` ile screenshot YASAK.
+- UI'a dokunan yeni proje veya yeni ana ekranda sıra — Bölüm 11 (yön keşfi) → DESIGN.md → iki-pass → kod → screenshot döngüsü. Mevcut bir DESIGN.md varsa Bölüm 11 atlanır.
 
 ## 2. Screenshot döngüsü
 - `node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs <url> [etiket]` → `.screens/` altına 390/768/1440 üç PNG. Her PNG'yi Read ile aç ve incele.
@@ -30,6 +31,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Spacing: tek ölçek 8/16/24/32/48/64/96; ölçek dışı değer yok; bölümler arası boşluk ölçekten.
 - Gölge: düz `shadow-md` yok; katmanlı, marka renginden türetilmiş, düşük opaklık.
 - Arka plan bilinçli seçilir: düz zemin + tek radial vignette + yönsüz grain (opaklık ≤0.06) da geçerli bir karardır; katmanlı gradient zorunlu değildir. Zorunlu olan, seçimin DESIGN.md'de yazılı olması.
+- Audit yalnız adında noise/grain geçen ya da feTurbulence kullanan katmanları ölçer; raster grain görseli yakalanmaz, o durumda opaklığı sen beyan et.
 - Derinlik: 3 yüzey seviyesi (base → elevated → floating).
 - Görsel (logo/ikon hariç): görsel üstü gradient overlay YALNIZ metin görselin üstüne biniyorsa — o durumda `from-black/60` + `mix-blend-multiply` renk katmanı.
 - Animasyon: yalnız `transform`/`opacity`; `transition-all` yasak; easing `cubic-bezier(.22,1,.36,1)`; `prefers-reduced-motion` ile kapanır; gereksiz animasyon/kütüphane yok.
@@ -41,6 +43,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 
 ## 4. Her iki modda kabul kriterleri
 - `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` → PASS; FREE modunda SLOP satırı boş.
+- Audit'in ELLE BAKILACAK kalemleri tur raporunda ayrıca yanıtlanır; PASS bu kalemleri kapsamaz.
 - a11y: `html[lang]`, tek `h1`, `header/main/footer` landmark, her `img` alt+width+height, fold altı `loading="lazy"`, kontrast gövde ≥4.5:1 / büyük başlık ≥3:1 (hex'ten hesapla, çiftleri raporla).
 - perf: font ≤2 aile ≤4 dosya, `font-display: swap`, tüm medya boyutlu (CLS 0).
 - Prod teslim (kullanıcı "prod"/"yayın" dediğinde): Tailwind CDN kaldırılır → `npx @tailwindcss/cli -i src/input.css -o wwwroot/css/site.css --minify`; `audit.mjs <url> prod` PASS.
@@ -52,6 +55,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 
 ## 6. Tur raporu (her tur sonu, kısa)
 Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/nötr/vurgu hangi elemanlarda · font çifti nerede · ölçek hangi bölümlerde | sonraki adım / KAPANIŞ / DUR
+- Audit'in ELLE BAKILACAK kalemleri tur raporunda ayrıca yanıtlanır; PASS bu kalemleri kapsamaz.
 
 ## 7. ZORUNLU ÖN ADIM: DESIGN.md (Bölüm 0'dan sonra, koddan önce)
 - Her UI işinin ilk çıktısı proje kökünde `DESIGN.md`. Kod yazmadan önce üret, göster, DUR.
@@ -61,7 +65,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
   3. **Renk** — 4-6 İSİMLİ hex. Jenerik ad yasak (`brand-500` değil, `kavrulmuş-bakır` gibi).
   4. **Tipografi** — 2 isimli font + ölçek. Inter, Roboto, Arial, Space Grotesk, Poppins YASAK.
   5. **Hareket** — süre + easing, en fazla 3 kural.
-  6. **YASAK LİSTESİ** — mor degrade · aşırı glow · üçlü eşit kart · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
+  6. **YASAK LİSTESİ** — mor degrade · aşırı glow · üçlü eşit kart (özellik/fayda bölümlerinde; ürün ızgarası hariç) · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
 - DESIGN.md kalıcı hafızadır: sonraki her ekran onu miras alır, yeniden üretilmez. Değişecekse önce DESIGN.md güncellenir, sonra kod.
 
 ## 8. İKİ-PASS KURALI
@@ -78,3 +82,17 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 - Yön ararken önce referans çıkar, sonra dili yaz: 21st.dev · awwwards.com · lapa.ninja · recent.design · dribbble.com · figma.com/community · designprompts.dev
 - 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz.
 - Referansı kopyalama — ritim, kontrast, boşluk mantığını çıkar, projeye uygula.
+
+## 11. YÖN KEŞFİ (yeni proje / yeni ana ekran; DESIGN.md'den ÖNCE)
+- DESIGN.md yazılmadan önce üç yön üretilir ve kullanıcıya gösterilir. Amaç kod değil, karar.
+- Kapsam — her yön için TEK dosya, `.screens/yon/<n>.html`:
+  - Yalnız hero + bir içerik bölümü (ürün ızgarası ya da özellik şeridi).
+  - Sahte içerik, gerçek veri yok, backend bağlantısı yok.
+  - Yalnız 1440 genişlik; responsive, a11y, test, build YOK.
+  - Proje koduna dokunulmaz, hiçbir dosya import edilmez.
+- Üç yön BİRBİRİNDEN AYRI olmalı: üçü de aynı tipografi ailesinden, aynı zemin kararından, aynı yerleşim mantığından olamaz. Aynı fikrin üç tonu değil, üç fikir.
+- Her yön için 5 satırlık künye: stil adı · 2 font · 4 hex · zemin kararı · ayırt edici hamle.
+- Çıktı: puppeteer ile üç PNG (1440, tam sayfa) → `.screens/yon/`: `WIDTHS=1440 SCREENS_DIR=.screens/yon node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs http://localhost:3000/.screens/yon/<n>.html yon-<n>` (sunucu: proje kökünden `serve.mjs`, aspnet'te de; `file:///` yasak). Kullanıcıya üç künye + üç PNG yolu verilir, DUR.
+- Kullanıcı birini seçer → DESIGN.md o yönden yazılır → seçilmeyen iki dosya silinir.
+- Yönleri kendin değerlendirme, "bence bu daha iyi" yazma; seçim kullanıcınındır.
+- Referans: yön üretmeden önce Bölüm 10'daki kaynaklardan dil çıkarılır, kopyalanmaz.
