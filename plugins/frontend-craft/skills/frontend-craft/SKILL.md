@@ -50,3 +50,29 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 
 ## 6. Tur raporu (her tur sonu, kısa)
 Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/nötr/vurgu hangi elemanlarda · font çifti nerede · ölçek hangi bölümlerde | sonraki adım / KAPANIŞ / DUR
+
+## 7. ZORUNLU ÖN ADIM: DESIGN.md (Bölüm 0'dan sonra, koddan önce)
+- Her UI işinin ilk çıktısı proje kökünde `DESIGN.md`. Kod yazmadan önce üret, göster, DUR.
+- Tam olarak şu 6 başlık, fazlası yok:
+  1. **Stil adı** — Minimal | Brutalist | Glassmorphism | Retro | Corporate | Neobrutalism | Bento | Dark/Premium | Editorial — ya da isimli özgün bir yön.
+  2. **Token'lar** — 3-6 adet, her biri `ad: değer` (ör. `ölçü-birimi: 8px grid`, `satır-uzunluğu: 65ch`).
+  3. **Renk** — 4-6 İSİMLİ hex. Jenerik ad yasak (`brand-500` değil, `kavrulmuş-bakır` gibi).
+  4. **Tipografi** — 2 isimli font + ölçek. Inter, Roboto, Arial, Space Grotesk, Poppins YASAK.
+  5. **Hareket** — süre + easing, en fazla 3 kural.
+  6. **YASAK LİSTESİ** — mor degrade · aşırı glow · üçlü eşit kart · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
+- DESIGN.md kalıcı hafızadır: sonraki her ekran onu miras alır, yeniden üretilmez. Değişecekse önce DESIGN.md güncellenir, sonra kod.
+
+## 8. İKİ-PASS KURALI
+- Pass 1: token planı üret → brief'e karşı KENDİN eleştir (hangi madde yasak listesine takılıyor?).
+- Pass 2: sonra inşa et. Tek pass'te kod yazma.
+
+## 9. SCREENSHOT DÖNGÜSÜ (zorunlu, kapalı çevrim)
+- Kendi ürettiğin görseli göremezsin. Render'ı puppeteer ile screenshot al (`scripts/screenshot.mjs`, Bölüm 2), geri besle.
+- Somut diff: sıfat değil SAYI ("spacing dar" değil → "kart içi padding 16px, 24px olmalı").
+- Tur sırası: 1) layout/hiyerarşi 2) renk/spacing 3) detay/hareket. 3. turdan sonra getiri düşer, DUR.
+- Her turda: console temiz mi · tab sırası doğru mu · kontrast AA mı.
+
+## 10. REFERANS KAYNAKLARI
+- Yön ararken önce referans çıkar, sonra dili yaz: 21st.dev · awwwards.com · lapa.ninja · recent.design · dribbble.com · figma.com/community · designprompts.dev
+- 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz.
+- Referansı kopyalama — ritim, kontrast, boşluk mantığını çıkar, projeye uygula.
