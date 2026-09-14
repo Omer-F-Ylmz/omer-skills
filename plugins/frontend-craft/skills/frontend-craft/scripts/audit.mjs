@@ -12,7 +12,21 @@ const r = await page.evaluate(() => {
   const cls = q('[class]').map(e => e.getAttribute('class')).join(' ');
   const text = document.body.innerText || '';
   const has = p => css.includes(p) || cls.includes(p.slice(1) + ':');
+  const chain = e => { let o = 1; for (; e; e = e.parentElement) o *= +getComputedStyle(e).opacity; return o; };
+  const inner = s => Math.max(0, ...[...s.matchAll(/\sopacity=['"]?([\d.]+)/g)].map(m => +m[1])) || 1;
+  const dec = s => { try { return decodeURIComponent(s); } catch { return s; } };
+  const noiseIds = q('filter').filter(f => f.querySelector('feTurbulence') && f.id).map(f => f.id);
+  const grain = [];
+  for (const e of q('html, body, body *')) for (const p of [null, '::before', '::after']) {
+    const st = getComputedStyle(e, p);
+    if (p && st.content === 'none') continue;
+    const bg = dec(st.backgroundImage);
+    const byFilter = noiseIds.some(id => st.filter.includes('#' + id));
+    if (byFilter || /feTurbulence|noise|grain/i.test(bg)) grain.push(+(chain(e) * (p ? +st.opacity : 1) * (byFilter ? 1 : inner(bg))).toFixed(3));
+  }
+  for (const s of q('svg').filter(s => s.querySelector('feTurbulence') && s.getBoundingClientRect().width > 0)) grain.push(+(chain(s) * inner(s.outerHTML)).toFixed(3));
   return {
+    grain,
     lang: document.documentElement.lang || null,
     h1: q('h1').length,
     main: q('main').length,
@@ -55,7 +69,11 @@ if (r.slop.emoji) s.push(`${r.slop.emoji} emoji`);
 if (r.slop.backdropBlur) s.push('backdrop-filter blur');
 if (r.slop.loremIpsum) s.push('lorem ipsum');
 if (r.slop.purpleClasses) s.push(`${r.slop.purpleClasses} mor/indigo sınıfı`);
+const grainMax = Math.max(0, ...r.grain);
+if (grainMax > 0.06) s.push(`grain opaklığı ${grainMax} > 0.06`);
 console.log(JSON.stringify(r, null, 2));
 console.log('SLOP: ' + (s.length ? s.join(', ') : '-'));
+console.log('ELLE BAKILACAK: eşit boyutlu kart tekrarı yalnız ürün ızgarasında mı? (özellik/fayda bölümlerinde olmamalı — otomatik denetlenmez)');
+console.log('ELLE BAKILACAK: görsel üstü gradient overlay yalnız üstüne metin binen görsellerde mi? (otomatik denetlenmez)');
 console.log(f.length ? 'FAIL\n- ' + f.join('\n- ') : 'PASS');
 process.exit(f.length ? 1 : 0);

@@ -6,6 +6,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 
 ## 0. Mod tespiti (ilk adım, tek satır raporla)
 - Tara: `reference/` (png/jpg/pdf) var mı → REF modu; yoksa FREE modu. `brand_assets/` var mı. Proje türü: `*.csproj` + `Views/` veya `Pages/` → aspnet; değilse static.
+- `inspiration/` klasörü varsa yön için oku; hiçbir düzeni kopyalama.
 - REF: hedef birebir eşleme. Bölüm 3 UYGULANMAZ; referans her zaman kazanır. Referansta olmayan bölüm/özellik/metin eklenmez, referans "iyileştirilmez".
 - FREE: koddan önce MARKA KİMLİĞİ KARARI tek satır: `ana #hex · nötr #hex · vurgu #hex · display font · sans font · ölçek 8px`. Ana renk mor/indigo/menekşe olamaz. Sonra Bölüm 3 zorunlu. Kararı vermeden önce `ui-ux-pro-max` varsa `search.py "<sektör> <ürün>" --design-system -p <Proje>` çalıştır, öneriyi aday al; kararı yine tek satır yaz.
 - `frontend-design` skill'i listede varsa onu da yükle; yoksa Bölüm 3 onun yerine geçer.
@@ -28,14 +29,14 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Tipografi: başlık ≠ gövde ailesi (display/serif + sans). Büyük başlık `letter-spacing:-0.03em`; gövde `line-height:1.7`; 5 kademeli ölçek; h1 belirgin, h2/h3 kademeli.
 - Spacing: tek ölçek 8/16/24/32/48/64/96; ölçek dışı değer yok; bölümler arası boşluk ölçekten.
 - Gölge: düz `shadow-md` yok; katmanlı, marka renginden türetilmiş, düşük opaklık.
-- Arka plan: ≥2 radial gradient katmanı + SVG noise grain.
+- Arka plan bilinçli seçilir: düz zemin + tek radial vignette + yönsüz grain (opaklık ≤0.06) da geçerli bir karardır; katmanlı gradient zorunlu değildir. Zorunlu olan, seçimin DESIGN.md'de yazılı olması.
 - Derinlik: 3 yüzey seviyesi (base → elevated → floating).
-- Görsel (logo/ikon hariç): gradient overlay `from-black/60` + `mix-blend-multiply` renk katmanı.
+- Görsel (logo/ikon hariç): görsel üstü gradient overlay YALNIZ metin görselin üstüne biniyorsa — o durumda `from-black/60` + `mix-blend-multiply` renk katmanı.
 - Animasyon: yalnız `transform`/`opacity`; `transition-all` yasak; easing `cubic-bezier(.22,1,.36,1)`; `prefers-reduced-motion` ile kapanır; gereksiz animasyon/kütüphane yok.
 - Interaktif: her `a, button, [role=button], input, select, textarea` için hover + focus-visible + active.
 - İkon: tek aile, SVG (Lucide outline); emoji yok.
 - Grid: kırık simetri — ≥1 bölüm asimetrik kolon/tam genişlik dışı; her şey ortalı ve eşit genişlik olmaz.
-- YASAK: mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · "h1+p+2 buton" hero kalıbı birebir · stok illüstrasyon/3D render hissi · eşit boyutlu kart tekrarı · her bölümde aynı boşluk.
+- YASAK: mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · "h1+p+2 buton" hero kalıbı birebir · stok illüstrasyon/3D render hissi · eşit boyutlu kart tekrarı (özellik/fayda bölümlerinde; ürün ızgarası hariç — orada eşit kart zorunlu, kırık simetri sayfa/başlık düzeyinde aranır) · her bölümde aynı boşluk.
 - Bu liste varsayılandır; projenin YASAK listesi DESIGN.md'de yazılır ve seçilen stille çelişen maddeler oradan çıkarılır (ör. Glassmorphism seçilen projede blur maddesi geçersiz).
 
 ## 4. Her iki modda kabul kriterleri
