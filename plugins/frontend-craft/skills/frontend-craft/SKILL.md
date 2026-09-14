@@ -57,8 +57,8 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/nötr/vurgu hangi elemanlarda · font çifti nerede · ölçek hangi bölümlerde | sonraki adım / KAPANIŞ / DUR
 - Audit'in ELLE BAKILACAK kalemleri tur raporunda ayrıca yanıtlanır; PASS bu kalemleri kapsamaz.
 
-## 7. ZORUNLU ÖN ADIM: DESIGN.md (Bölüm 0'dan sonra, koddan önce)
-- Her UI işinin ilk çıktısı proje kökünde `DESIGN.md`. Kod yazmadan önce üret, göster, DUR.
+## 7. ZORUNLU ÖN ADIM: DESIGN.md (Bölüm 11 seçiminden sonra; Bölüm 11 atlanıyorsa Bölüm 0'dan sonra; koddan önce)
+- Yeni proje veya yeni ana ekranda ilk çıktı Bölüm 11'in yönleridir; DESIGN.md seçim yapıldıktan sonra yazılır. Mevcut DESIGN.md varsa ilk çıktı doğrudan DESIGN.md'dir. `DESIGN.md` proje kökündedir; kod yazmadan önce üret, göster, DUR.
 - Tam olarak şu 6 başlık, fazlası yok:
   1. **Stil adı** — Minimal | Brutalist | Glassmorphism | Retro | Corporate | Neobrutalism | Bento | Dark/Premium | Editorial — ya da isimli özgün bir yön.
   2. **Token'lar** — 3-6 adet, her biri `ad: değer` (ör. `ölçü-birimi: 8px grid`, `satır-uzunluğu: 65ch`).
@@ -85,6 +85,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 
 ## 11. YÖN KEŞFİ (yeni proje / yeni ana ekran; DESIGN.md'den ÖNCE)
 - DESIGN.md yazılmadan önce üç yön üretilir ve kullanıcıya gösterilir. Amaç kod değil, karar.
+- REF modunda (`reference/` klasörü varsa) Bölüm 11 ATLANIR; yön zaten referansla belirlenmiştir. Yön keşfi yalnız FREE modunda koşar.
 - Kapsam — her yön için TEK dosya, `.screens/yon/<n>.html`:
   - Yalnız hero + bir içerik bölümü (ürün ızgarası ya da özellik şeridi).
   - Sahte içerik, gerçek veri yok, backend bağlantısı yok.
@@ -92,7 +93,8 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
   - Proje koduna dokunulmaz, hiçbir dosya import edilmez.
 - Üç yön BİRBİRİNDEN AYRI olmalı: üçü de aynı tipografi ailesinden, aynı zemin kararından, aynı yerleşim mantığından olamaz. Aynı fikrin üç tonu değil, üç fikir.
 - Her yön için 5 satırlık künye: stil adı · 2 font · 4 hex · zemin kararı · ayırt edici hamle.
-- Çıktı: puppeteer ile üç PNG (1440, tam sayfa) → `.screens/yon/`: `WIDTHS=1440 SCREENS_DIR=.screens/yon node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs http://localhost:3000/.screens/yon/<n>.html yon-<n>` (sunucu: proje kökünden `serve.mjs`, aspnet'te de; `file:///` yasak). Kullanıcıya üç künye + üç PNG yolu verilir, DUR.
-- Kullanıcı birini seçer → DESIGN.md o yönden yazılır → seçilmeyen iki dosya silinir.
+- Çıktı: puppeteer ile üç PNG (1440, tam sayfa) → `.screens/yon/`: `$env:WIDTHS="1440"; $env:SCREENS_DIR=".screens/yon"; node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs http://localhost:3000/.screens/yon/<n>.html yon-<n>` (sunucu: proje kökünden `serve.mjs`, aspnet'te de; `file:///` yasak). Kullanıcıya üç künye + üç PNG yolu verilir, DUR.
+  - Ortam değişkenli komut `Bash(node *)` iznine takılabilir; Windows'ta PowerShell aracıyla çalıştır.
+- Kullanıcı birini seçer → DESIGN.md o yönden yazılır → seçilmeyen iki yönün HTML dosyaları silinir; üç PNG `.screens/yon/` altında KALIR (hangi yönler arasından seçildiğinin kaydı).
 - Yönleri kendin değerlendirme, "bence bu daha iyi" yazma; seçim kullanıcınındır.
 - Referans: yön üretmeden önce Bölüm 10'daki kaynaklardan dil çıkarılır, kopyalanmaz.
