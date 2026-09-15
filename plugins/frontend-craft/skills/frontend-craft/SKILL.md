@@ -8,6 +8,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Tara: `reference/` (png/jpg/pdf) var mı → REF modu; yoksa FREE modu. `brand_assets/` var mı. Proje türü: `*.csproj` + `Views/` veya `Pages/` → aspnet; değilse static.
 - `inspiration/` klasörü varsa yön için oku; hiçbir düzeni kopyalama.
 - REF: hedef birebir eşleme. Bölüm 3 UYGULANMAZ; referans her zaman kazanır. Referansta olmayan bölüm/özellik/metin eklenmez, referans "iyileştirilmez".
+- Referans hex'leri `node ${CLAUDE_SKILL_DIR}/scripts/olc-renk.mjs <referans.png>` ile ölçülür, elle okunmaz. olc-renk.mjs baskın renkleri ölçer (3-6 adet, pay ≥%0.5); daha az çıkarsa daha az renk vardır, tamamlanmaz.
 - Hareketli referans (scroll/hover animasyonu olan site): tek statik PNG yetmez — ekran kaydından kare dizisi ya da aynı öğenin çoklu durum screenshot'ı + "statik değil" notu + davranış dökümü (tetikleyici → ne olur) gerekir; eksikse kullanıcıdan istenir.
 - İşten önce var olan sayfaya dokunmadan önce salt-okuma analiz (yapı, bileşenler, animasyonlar) + dokunulmaz alan listesi (ör. hero, mevcut animasyonlar) raporlanır; listedeki alanlara dokunulmaz.
 - FREE: koddan önce MARKA KİMLİĞİ KARARI tek satır: `ana #hex · nötr #hex · vurgu #hex · display font · sans font · ölçek 8px`. Ana renk mor/indigo/menekşe olamaz. Sonra Bölüm 3 zorunlu. Kararı vermeden önce `ui-ux-pro-max` varsa `search.py "<sektör> <ürün>" --design-system -p <Proje>` çalıştır, öneriyi aday al; kararı yine tek satır yaz.
@@ -27,6 +28,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Tolerans: spacing ±2px, font-size ±1px, radius ±1px, hizalama ±2px, renk exact hex, font ailesi/ağırlık exact.
 - REF'te beklenen = referans; FREE'de beklenen = Bölüm 0 kararı + Bölüm 3 token'ları.
 - Kapanış: 3 genişlikte 0 tolerans-dışı sapma. 4. tur sonunda hâlâ sapma varsa DUR raporu (kalan sapmalar + neden).
+- Tüm butonlar/formlar tek bileşen ya da partial'dan gelir; sayfada kopya yok.
 
 ## 3. FREE modu guardrail'leri
 - Renk: Tailwind default paleti birincil olamaz; tek marka rengi, tint/shade türet, CSS değişkeni.
@@ -41,9 +43,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Görsel (logo/ikon hariç): görsel üstü gradient overlay YALNIZ metin görselin üstüne biniyorsa — o durumda `from-black/60` + `mix-blend-multiply` renk katmanı.
 - Animasyon: yalnız `transform`/`opacity`; `transition-all` yasak; easing `cubic-bezier(.22,1,.36,1)`; `prefers-reduced-motion` ile kapanır.
 - Kütüphane (GSAP, Three.js, R3F vb.) serbesttir; şart: DESIGN.md Hareket bölümünde ad + sürüm + hangi etkiyi neden karşıladığı yazılı olacak. Gerekçesiz kütüphane yasaktır.
-- Performans: ağır 3D/görselde yükleme durumu gösterilir · GLB hedefi ≤2 MB · arka plan videosu mobil ve desktop için ayrı dosya · kabul: animasyon mobil dahil kasmadan akar.
 - Interaktif: her `a, button, [role=button], input, select, textarea` için hover + focus-visible + active.
-- Etkileşim durum + cihaz başına tarif edilir (hover/focus/active × masaüstü/dokunmatik); hover ya da mouse'a bağlı efektin dokunmatikte karşılığı olur (dokunma durumu ya da kendiliğinden hareket).
 - İkon: tek aile, SVG (Lucide outline); emoji yok.
 - Grid: kırık simetri — ≥1 bölüm asimetrik kolon/tam genişlik dışı; her şey ortalı ve eşit genişlik olmaz.
 - YASAK: mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · "h1+p+2 buton" hero kalıbı birebir · stok illüstrasyon/3D render hissi · eşit boyutlu kart tekrarı (özellik/fayda bölümlerinde; ürün ızgarası hariç — orada eşit kart zorunlu, kırık simetri sayfa/başlık düzeyinde aranır) · her bölümde aynı boşluk.
@@ -54,10 +54,13 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Audit'in ELLE BAKILACAK kalemleri tur raporunda ayrıca yanıtlanır; PASS bu kalemleri kapsamaz.
 - a11y: `html[lang]`, tek `h1`, `header/main/footer` landmark, her `img` alt+width+height, fold altı `loading="lazy"`, kontrast gövde ≥4.5:1 / büyük başlık ≥3:1 (hex'ten hesapla, çiftleri raporla).
 - perf: font ≤2 aile ≤4 dosya, `font-display: swap`, tüm medya boyutlu (CLS 0).
+- Performans: ağır 3D/görselde yükleme durumu gösterilir · GLB hedefi ≤2 MB · arka plan videosu mobil ve desktop için ayrı dosya · kabul: animasyon mobil dahil kasmadan akar.
+- Etkileşim durum + cihaz başına tarif edilir (hover/focus/active × masaüstü/dokunmatik); hover ya da mouse'a bağlı efektin dokunmatikte karşılığı olur (dokunma durumu ya da kendiliğinden hareket).
 - Etkileşim kabulü davranış cümlesiyle yazılır ("menü butonuna tıklanınca panel açılır, Esc kapatır") ve gerçek tarayıcıda tıklanarak doğrulanır.
 - Kırık link 0.
+- Dış tasarım aracı (Claude Design, 21st) çıktısı görsel optimizasyon + audit'ten geçmeden teslim edilmez.
 - Prod teslim (kullanıcı "prod"/"yayın" dediğinde): Tailwind CDN kaldırılır → `npx @tailwindcss/cli -i src/input.css -o wwwroot/css/site.css --minify`; `audit.mjs <url> prod` PASS.
-- Prod teslimde ayrıca: sayfa başına `title` + meta description · favicon · manifest · `robots.txt` · `sitemap.xml` · footer'da KVKK/gizlilik + çerez onayı. REF'te referansta yoksa eklenmez, eksik olarak raporlanır.
+- Prod teslimde ayrıca: sayfa başına `title` + meta description · favicon · manifest · `robots.txt` · `sitemap.xml` · footer'da KVKK/gizlilik + çerez onayı · kullanıcı hesabı olan sitelerde footer'da "hesabımı sil" (KVKK). REF'te referansta yoksa eklenmez, eksik olarak raporlanır.
 
 ## 5. Çıktı ve içerik
 - static: `index.html` + `styles.css`; prototipte Tailwind CDN serbest. aspnet: Razor view/partial + `wwwroot/css/*.css`; inline `<style>` yasak; CSS değişkenleri site.css'te. Mobile-first.
