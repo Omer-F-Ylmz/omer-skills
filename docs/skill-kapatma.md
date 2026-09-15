@@ -19,6 +19,13 @@ claude plugin enable dotnet-nuget@dotnet-agent-skills -s user
 claude plugin enable plugin-dev@claude-plugins-official -s user
 ```
 
+**superpowers** (14 skill + `using-superpowers` SessionStart hook'u) · mekanizma: `claude plugin disable -s user` · 2026-09-15
+Gerekçe: 14 skill'in 12'si eldeki transkript geçmişinde (09-05 → 09-15) 0 çağrı (brainstorming 2, test-driven-development 3). Hook `startup|clear|compact` ile her oturumda ve her /clear'da ≈880 token ekliyordu; `skillOverrides` hook'u kapatmadığı için plugin geneli kapatıldı. TDD + kök neden kuralı `~/.claude/CLAUDE.md` "Hedef-güdümlü" satırına taşındı. Kaynak: `docs/kaynak-tarama/6.md`, `99-sentez.md`.
+settings.json: `enabledPlugins` altında `"superpowers@claude-plugins-official": false`; `env.SUPERPOWERS_DISABLE_TELEMETRY` geri açmada geçerli olsun diye yerinde bırakıldı.
+```
+claude plugin enable superpowers@claude-plugins-official -s user
+```
+
 **claude.ai / anthropic-skills** (canvas-design, docx, mcp-builder, pdf, pptx, skill-creator, theme-factory, web-artifacts-builder, xlsx) · mekanizma: `skillOverrides` → `"off"` · 2026-09-15
 Geri açma önceki duruma döner (canvas-design, theme-factory, web-artifacts-builder önceden `name-only` idi; morning, import-memory önceden de `off`):
 ```
@@ -74,3 +81,5 @@ Teşhis: 09-09'daki kapatma `/plugins` menüsünden heryerde_2aa'nın `.claude/s
 | Gerçek istek girdi token'ı (`--output-format json`, "Yalniz OK yaz.") | 38.888 | 27.107 (−11.781, −%30.3) |
 
 `/context` toplamı düşüşü eksik gösteriyor: kapatılan skill token'ları "System tools" satırına aynen ekleniyor (2.7k → 10.8k). Gerçek istek ölçümü bunu doğrulamıyor. "Önce" gerçek ölçümü, settings.json'a dokunmadan `--settings` bayrağıyla (pluginler `true`, override'lar `"on"`) alındı; global kopya taşındığı için ~90 token eksik.
+
+Kapatma adayı ararken ilk bakış `/skill-doctor` (kullanılmayan skill'ler + context maliyeti); kapatma kabulü yine gerçek istek girdi token'ıyla (`claude -p --output-format json`) ölçülür.
