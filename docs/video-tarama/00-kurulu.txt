@@ -65,7 +65,7 @@ Installed plugins:
   ❯ superpowers@claude-plugins-official
     Version: 6.3.0
     Scope: user
-    Status: ✔ enabled
+    Status: ✘ disabled
 
 ## claude mcp list
 
@@ -82,3 +82,7 @@ agent-reach
 graphify
 synced
 ui-ux-pro-max
+
+## uv tool (CLI)
+
+skillspector v2.11.2 (NVIDIA/skillspector; plugin/skill tarayıcı, `skillspector scan <klasör|repo-url> --no-llm`)
