@@ -88,6 +88,10 @@ Web arayüzüne (Razor/HTML/CSS/Tailwind) dokunan işlerde uygulanan disiplin:
 
 `ui-ux-pro-max` bu marketplace'te değil; kendi kaynağından `~/.claude/skills/` altına kurulur. `pptx` ve `canvas-design` Claude Code ile birlikte gelir, ayrıca kurulum istemez.
 
+## Sürüm kabulü
+
+Bir plugin sürümü şu ikisi yeşil olmadan yayınlanmaz: `claude plugin validate --strict --json <plugin>` ve eval suite varsa `claude plugin eval <plugin>`. Kırmızı-önce kuralına bağlıdır: davranış değişikliğinde önce onu yakalayan eval/test yazılır ve kırmızı görülür, sonra değişiklik yapılır.
+
 ## Kaynaklar ve atıflar
 
 - Guardrail listesi ve tasarım kabul kriterleri, **Burhan Kocabıyık**'ın Claude Code kitinden uyarlandı.
