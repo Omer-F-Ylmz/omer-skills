@@ -15,13 +15,7 @@ Marketplace'i ekledikten sonra ortamın tam çalışması için gereken adımlar
 
 **1. frontend-craft script bağımlılıkları**
 
-```
-cd ~/.claude/plugins/marketplaces/omer-skills/plugins/frontend-craft/skills/frontend-craft
-npm i
-npx @puppeteer/browsers install chrome
-```
-
-`npm i` puppeteer'ı kurar; Chrome binary'si ayrı indirilir, ikinci komut olmadan `screenshot.mjs` çalışmaz.
+Elle adım yok. Skill kurulu kopyadan yüklenince bağımlılıkları kendisi kurar; tek kaynak SKILL.md "Adım 0 · Bağımlılık".
 
 **2. context7 MCP (kütüphane dokümantasyonu)**
 

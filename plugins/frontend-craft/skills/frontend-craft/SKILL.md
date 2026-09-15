@@ -4,6 +4,9 @@ description: Web arayüzü (landing, vitrin, panel ekranı) tasarım ve uygulama
 allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 ---
 
+## Adım 0 · Bağımlılık
+- `${CLAUDE_SKILL_DIR}/node_modules` yoksa `${CLAUDE_SKILL_DIR}` içinde `npm ci --ignore-scripts` sonra `npx puppeteer browsers install chrome` çalıştır. Varsa atla. Bu adım her skill yüklemesinde ilk komuttur, hiçbir script ondan önce koşmaz.
+
 ## 0. Mod tespiti (ilk adım, tek satır raporla)
 - Tara: `reference/` (png/jpg/pdf) var mı → REF modu; yoksa FREE modu. `brand_assets/` var mı. Proje türü: `*.csproj` + `Views/` veya `Pages/` → aspnet; değilse static.
 - `inspiration/` klasörü varsa yön için oku; hiçbir düzeni kopyalama.
