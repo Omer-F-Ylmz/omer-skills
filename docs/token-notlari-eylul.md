@@ -22,3 +22,15 @@ Kaynak: Claude Code changelog (yerel önbellek, 2.1.274), KURULUM-2 dalgası, `/
 - Her dosya satırı ~5 token çerçeve yükü taşır (tek satır "x" = 7); iki yarının toplamından bir çerçeve düşülür.
 ## Alışkanlık
 - Yan soru → `/btw`: cevap konuşma geçmişine girmez, sonraki turlarda yeniden okunan context büyümez.
+## Bölüm 2 (KURULUM-3)
+- `promptCacheTtl: "1h"` eklendi (yedek `settings.json.bak3`). Abonelikte varsayılan zaten 1h (changelog: ayar API anahtarı/bulut için; "subscribers … 5-minute instead of 1 hour" düzeltmesi); açık yazıldı. env TTL yok.
+- İngilizce-AB (iki yarı, 2× `claude -p "/context"`): TR 648+651−5 = 1,294 · EN 487+496−5 = 978 → −%24.4 < %25 → CLAUDE.md DEĞİŞMEDİ.
+  - Gürültü: aynı MCP araçları 2. koşuda ~%5 yüksek sayıldı; sınırda sonuç, yeniden ölçüm ancak yeni tarifle.
+- opusplan → yalnız test/refactor dalgalarında A/B. FORCE-AB bekliyor. /rewind kuralı değişmedi.
+- Divisima CLAUDE.md (bugün 30.4k karakter; tarifte 54 KB) → `.claude/rules` paths'e taşıma Divisima chat'inde.
+### cclint (`@felixgeelhaar/cclint` 0.16.0; npm'de `cclint` adı 404)
+- bakım=push 2026-09-14, 12★, archived=false, 0 açık issue · çift=claude-md-improver (kapalı plugin) ile kısmi, `/context` token ölçmez yalnız boyut · izin=MIT; `lint` yerel, ağ yalnız `why --ai` (ANTHROPIC_API_KEY, opt-in) · context=0 (npx CLI; MCP/LSP modu kurulmaz)
+- SkillSpector `--no-llm`: 100/100 CRITICAL-skor, CRITICAL kural 0; HIGH/MEDIUM'lar test fixture (SecretDetectionRule), CHANGELOG/README `npx` satırları, lockfile (brace-expansion) kaynaklı → lint için kabul.
+- `~/.claude/CLAUDE.md`: 1 hata · 3 uyarı · 6 info. Hata yanlış pozitif: `@RTK.md` dosya dizini yerine cwd'ye çözülüyor. Uyarılar "Project Overview/Development Commands/Architecture" eksik (global dosyaya uymaz).
+- Divisima CLAUDE.md: 0 hata · 8 uyarı · 39 info (boyut 30k>10k, 2 dilsiz code block, kişisel bilgi olasılığı, önerilen bölümler).
+- Düzeltme yapılmadı. Kural değişikliği yok; kalıcı araç olarak kurulmadı.
