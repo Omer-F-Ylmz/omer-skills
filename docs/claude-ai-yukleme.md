@@ -6,7 +6,7 @@ Kaynak: support.claude.com/en/articles/12512198 · platform.claude.com/docs/en/a
 2. Zip yapısı `<ad>.zip → <ad>/SKILL.md`, klasör adı frontmatter `name` ile aynı (5 zip'te kontrol edildi). SKILL.md'nin zip kökünde olması dokümanda "yanlış yapı".
 
 ## Yükleme: Customize → Skills (claude.ai/customize/skills) → Add → zip yükle; sıra
-1. `frontend-craft-claudeai.zip` — UI işlerinin disiplin skill'i.
+1. `frontend-craft.zip` — UI işlerinin disiplin skill'i.
 2. `ui-ux-pro-max-claudeai.zip` — tüm data/ + scripts/ (Python) dahil.
 3. `impeccable-claudeai.zip` — SKILL.md + reference/ + LICENSE + NOTICE.md (Apache-2.0).
 4. `sdp-claudeai.zip`, `surec-claudeai.zip` — Divisima tarifleri için.
