@@ -7,6 +7,7 @@
 | c Reddit | DUR | 3 | 1 | 3 | reddit.com curl+Jina 403, Exa tarih filtresi işlemiyor → pencerede 0 gönderi; kalemler pencere dışı referans |
 | d X/Twitter | 0 | 0 | 0 | 0 | Jina x.com anonim 403, Exa tweet döndürmedi |
 | e Anthropic | changelog 2.1.235→2.1.274 · 8 docs sayfası · 1 blog yazısı | 7 | 1 | 2 | docs'ta pencerede yeni "As of" notu yok |
+Reddit/X: cookie'siz erişilemiyor, karar: taranmıyor.
 
 ## 1. ADAY (0)
 Beş ölçütü geçen kalem yok, kurulum komutu yok. Önerilen üç aday tur başı/compaction maliyeti ve kurulu kurallarla çiftlik yüzünden ELENDİ (§4).

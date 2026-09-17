@@ -148,3 +148,15 @@ Claude Docs kapatma sonrası (`/context`, yeni oturum): toplam 18.7k, MCP tools 
 `claude mcp list` çıktısı raporlanırken context7'nin `--api-key` alanı maskelenir (`<GİZLİ>`); ham çıktı oturum kaydına düşer (09-17'de düştü, transcript'lerde maskelendi).
 
 17 Eyl: context7 anahtarı yenilendi (eski değer transcript/yedeklerde geçmişti).
+
+## Denendi, uygulanmadı — plugin skill'lerinde user-invocable-only (2026-09-17, Claude Code 2.1.274, C:Projeleromer-skills, `claude -p`)
+
+Hedef: skill-creator:skill-creator (~120), impeccable:impeccable (~310), claude-md-management:claude-md-improver (~130), 21st:21st-ui (~90), claude-md-management:revise-claude-md (~30) · `/context` listeleme ≈680 token.
+`skillOverrides` → `"user-invocable-only"` etkisiz; settings-reference `skillOverrides`: "Overrides don't apply to plugin skills, which you manage through `/plugin`."
+
+| | önce | sonra |
+|---|---|---|
+| `/context` Skills | 3.4k | 3.4k (beş skill tabloda aynı token'la) |
+| Gerçek istek girdi token'ı (`--output-format json`, "Yalniz OK yaz.") | 26.340 | 26.340 |
+
+settings.json geri alındı (override öncesi kopyayla birebir); geri alma satırı gerekmiyor. Plugin skill'i için kalan yollar user-invocable-only değil: plugin geneli `claude plugin disable <plugin> -s user` (skill kullanıcıya da kapanır; 21st'te MCP sunucusu da gider) · plugin cache SKILL.md frontmatter `disable-model-invocation: true` (her plugin güncellemesinde silinir).

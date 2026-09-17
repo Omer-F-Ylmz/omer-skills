@@ -64,6 +64,8 @@ pwsh 7 opsiyonel — kuruluysa `command` `pwsh` yapılabilir, ama 5.1 her Window
 
 Dış plugin/skill kurulmadan önce `skillspector scan <klasör|repo-url> --no-llm` taraması yapılır; `execution_successful: true` ve bulgular okunmadan kurulum yapılmaz. `--no-llm` şart, çünkü LLM analizi açıkken dosya içeriği sağlayıcıya gider. Kurulum: `uv tool install git+https://github.com/NVIDIA/skillspector.git`
 
+Plugin kurmadan önce `hooks.json`'daki event'lere bakılır (SessionStart `clear`/`compact`, SubagentStart, PreToolUse/PostToolUse `*`) — her turda koşan hook = her turda maliyet.
+
 ## frontend-craft ne yapar
 
 Web arayüzüne (Razor/HTML/CSS/Tailwind) dokunan işlerde uygulanan disiplin:
