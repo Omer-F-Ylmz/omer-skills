@@ -38,12 +38,12 @@ Installed plugins:
     Status: ✘ disabled
 
   ❯ frontend-craft@omer-skills
-    Version: 1.3.2
+    Version: 1.4.3
     Scope: user
     Status: ✔ enabled
 
   ❯ frontend-design@claude-plugins-official
-    Version: da823e86c8fe
+    Version: ea0a38e1d671
     Scope: user
     Status: ✔ enabled
 
@@ -53,18 +53,40 @@ Installed plugins:
     Status: ✔ enabled
 
   ❯ plugin-dev@claude-plugins-official
-    Version: da823e86c8fe
+    Version: ea0a38e1d671
     Scope: user
     Status: ✘ disabled
 
   ❯ skill-creator@claude-plugins-official
-    Version: da823e86c8fe
+    Version: ea0a38e1d671
     Scope: user
     Status: ✔ enabled
 
   ❯ superpowers@claude-plugins-official
     Version: 6.3.0
     Scope: user
+    Status: ✘ disabled
+
+Synced from claude.ai:
+
+  ❯ engineering@synced
+    Version: 1.2.0
+    Path: ~/.claude/plugins/synced/<hesap-id>/engineering
+    Status: ✘ disabled
+
+  ❯ design@synced
+    Version: 1.2.0
+    Path: ~/.claude/plugins/synced/<hesap-id>/design
+    Status: ✘ disabled
+
+  ❯ product-management@synced
+    Version: 1.2.0
+    Path: ~/.claude/plugins/synced/<hesap-id>/product-management
+    Status: ✘ disabled
+
+  ❯ data@synced
+    Version: 1.1.0
+    Path: ~/.claude/plugins/synced/<hesap-id>/data
     Status: ✘ disabled
 
 ## claude mcp list

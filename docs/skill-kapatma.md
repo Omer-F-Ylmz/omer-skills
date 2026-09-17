@@ -84,6 +84,12 @@ claude plugin enable product-management@synced -s user
 claude plugin enable data@synced -s user
 ```
 
+**claude.ai bağlayıcıları (Claude Docs) + `anthropic-skills:docs`** · mekanizma: `disableClaudeAiConnectors: true` + `skillOverrides` → `"off"` · 2026-09-17
+Gerekçe: kullanılan dört MCP dışında kalan son sunucu. Kapsam yalnız Claude Code'un kendi çektiği bağlayıcılar; skill senkronu ayrı anahtarda (`syncClaudeAiSkills`), dokunulmadı. Kaynak: code.claude.com/docs/en/mcp.md#disable-claude-ai-connectors. `anthropic-skills:docs` skill'i bağlayıcı olmadan çalışamayacağı için kapatıldı.
+```
+node -e "const f=require('os').homedir()+'/.claude/settings.json',fs=require('fs'),s=JSON.parse(fs.readFileSync(f,'utf8'));delete s.disableClaudeAiConnectors;delete s.skillOverrides['anthropic-skills:docs'];fs.writeFileSync(f,JSON.stringify(s,null,2)+'\n')"
+```
+
 ## settings.json'a eklenen/değişen blok
 
 ```json
@@ -136,3 +142,7 @@ Kapatma adayı ararken ilk bakış `/skill-doctor` (kullanılmayan skill'ler + c
 | Gerçek istek girdi token'ı (`--output-format json`, "Yalniz OK yaz.") | 32.556 | 28.451 (−4.105, −%12.6) |
 
 `/context` toplamı yine değişmiyor: kapanan skill token'ları System tools satırına ekleniyor (09-15'teki gibi). MCP satırları değişmedi; düşüş Skills satırında.
+
+Claude Docs kapatma sonrası (`/context`, yeni oturum): toplam 18.7k, MCP tools satırı (591) yok, MCP tools (deferred) 21.7k, Skills 3.4k; `claude mcp list`'te yalnız mslearn, context7, claude-design, 21st.
+
+`claude mcp list` çıktısı raporlanırken context7'nin `--api-key` alanı maskelenir (`<GİZLİ>`); ham çıktı oturum kaydına düşer (09-17'de düştü, transcript'lerde maskelendi).
