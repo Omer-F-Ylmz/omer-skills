@@ -24,8 +24,9 @@ Kaynak: Claude Code changelog (yerel önbellek, 2.1.274), KURULUM-2 dalgası, `/
 - Yan soru → `/btw`: cevap konuşma geçmişine girmez, sonraki turlarda yeniden okunan context büyümez.
 ## Bölüm 2 (KURULUM-3)
 - `promptCacheTtl: "1h"` eklendi (yedek `settings.json.bak3`). Abonelikte varsayılan zaten 1h (changelog: ayar API anahtarı/bulut için; "subscribers … 5-minute instead of 1 hour" düzeltmesi); açık yazıldı. env TTL yok.
-- İngilizce-AB (iki yarı, 2× `claude -p "/context"`): TR 648+651−5 = 1,294 · EN 487+496−5 = 978 → −%24.4 < %25 → CLAUDE.md DEĞİŞMEDİ.
+- İngilizce-AB (iki yarı, 2× `claude -p "/context"`): TR 648+651−5 = 1,294 · EN 487+496−5 = 978 → −%24,4 → geçildi (eşik altı ama gürültü içinde; tavan altı ~320 token boşluk). `~/.claude/CLAUDE.md` İngilizce (26 satır, `@RTK.md` aynı, terimler Türkçe), yedek `CLAUDE.md.bak-tr`.
   - Gürültü: aynı MCP araçları 2. koşuda ~%5 yüksek sayıldı; sınırda sonuç, yeniden ölçüm ancak yeni tarifle.
+- `claude doctor` Git Bash/PowerShell'den exit 255 döner ama "No installation issues found" yazar; çıkış kodu değil metin esas.
 - opusplan → yalnız test/refactor dalgalarında A/B. FORCE-AB bekliyor. /rewind kuralı değişmedi.
 - Divisima CLAUDE.md (bugün 30.4k karakter; tarifte 54 KB) → `.claude/rules` paths'e taşıma Divisima chat'inde.
 ### cclint (`@felixgeelhaar/cclint` 0.16.0; npm'de `cclint` adı 404)
