@@ -12,7 +12,8 @@ Kaynak: Claude Code changelog (yerel önbellek, 2.1.274), KURULUM-2 dalgası, `/
 - `omitClaudeMd`: `~/.claude/agents` ve omer-skills'te subagent yok → değişiklik yok.
   - İleride yazılacak verbose subagent'lara (test/log/CI/çok dosyalı keşif) `omitClaudeMd: true`; karar veren / kod yazan agent'a eklenmez.
 - `/skill-doctor`: 11 plugin skill'i ve 3 claude.ai sync skill'i hiç çağrılmamış.
-  - `skillOverrides: off` plugin skill'ine işlemiyor (2.1.274'te skill-doctor: "Plugin skills can't be turned off individually — disable those plugins in /plugin"). Kapatma yalnız plugin düzeyinde; karar bekliyor.
+  - `skillOverrides: off` plugin skill'ine işlemiyor (2.1.274'te skill-doctor: "Plugin skills can't be turned off individually — disable those plugins in /plugin"). Kapatma yalnız plugin düzeyinde.
+  - claude-md-management kapatıldı (geri: `claude plugin enable claude-md-management`); dotnet-data · dotnet-aspnetcore · frontend-design bilinçli açık; tetikleyici: 30 gün 0× kalırsa yeniden bak.
 - Kalem 5 → env `DOTNET_NOLOGO=1` (yalnız CC oturumları); CLAUDE.md satır 17 değişmedi.
   - `-v q` ELENDİ: RTK filtresiyle çift. MTP `--no-banner` gerekirse proje CLAUDE.md'sine.
   - Gerekçe: satır genişletmesi CLAUDE.md'yi ~1,301 → ~1,373 token yapıyordu (kısa varyant ~1,349), ≤1300 sınırını aşıyor.
