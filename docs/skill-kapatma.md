@@ -162,6 +162,8 @@ Claude Docs kapatma sonrası (`/context`, yeni oturum): toplam 18.7k, MCP tools 
 
 17 Eyl: context7 anahtarı yenilendi (eski değer transcript/yedeklerde geçmişti).
 
+17 Eyl: MCP anahtarları ortam değişkeninde (`CONTEXT7_API_KEY`, `API_KEY_21ST`, User kapsamı), .claude.json'da `${VAR}`; claude mcp list / .claude.json okuma çıktıları maskelenir. Ölçüm: yeni süreçte `claude mcp list` → context7 + 21st Connected, eksik değişken uyarısı yok, çıktıda anahtar yok; eski context7/21st anahtarları API'de 401 (yeni 200, sahte 401).
+
 ## Denendi, uygulanmadı — plugin skill'lerinde user-invocable-only (2026-09-17, Claude Code 2.1.274, C:\Projeler\omer-skills, `claude -p`)
 
 Hedef: skill-creator:skill-creator (~120), impeccable:impeccable (~310), claude-md-management:claude-md-improver (~130), 21st:21st-ui (~90), claude-md-management:revise-claude-md (~30) · `/context` listeleme ≈680 token.
