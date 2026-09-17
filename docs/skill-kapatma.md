@@ -44,6 +44,46 @@ Move-Item C:\Users\pc\.claude\skills-yedek\frontend-craft-1.1.0 C:\Users\pc\.cla
 ```
 Teşhis: 09-09'daki kapatma `/plugins` menüsünden heryerde_2aa'nın `.claude/settings.local.json` dosyasına (`"frontend-craft": "off"`, local kapsam) yazılmıştı; user kapsamında hiç kapatılmadı. 8 çağrının 7'si 09-09 sonrası (Enver-abi 09-11, Corvano 09-14 ×6).
 
+**dotnet-test-filter hook'u** (PreToolUse, matcher `Bash`, `if: Bash(dotnet test *)`) · mekanizma: `settings.json` `hooks.PreToolUse` bloğu silindi; script `~/.claude/hooks/dotnet-test-filter.ps1` yerinde · 2026-09-16
+Gerekçe: RTK ile çift (`rtk hook claude`, Bash + PowerShell matcher). Geri açma komutu `settings.json.bak` (09-15) içindeki bloğu aynen geri koyar:
+```
+node -e "const f=require('os').homedir()+'/.claude/settings.json',fs=require('fs'),s=JSON.parse(fs.readFileSync(f,'utf8'));s.hooks.PreToolUse.push({matcher:'Bash',hooks:[{type:'command',command:'powershell.exe',args:['-NoProfile','-ExecutionPolicy','Bypass','-File','C:\\Users\\pc\\.claude\\hooks\\dotnet-test-filter.ps1'],if:'Bash(dotnet test *)',timeout:15}]});fs.writeFileSync(f,JSON.stringify(s,null,2)+'\n')"
+```
+
+**claude.ai'den senkronlanan plugin'ler: engineering, design, product-management, data** (35 skill + 1 komut + MCP sunucu tanımları) · mekanizma: `claude plugin disable <ad>@synced -s user` · 2026-09-17
+Gerekçe: kullanılan MCP'ler mslearn, context7, 21st, claude-design; dördü de plugin'den gelmiyor. `claude mcp list`'te kimlik doğrulama bekleyen 19 sunucunun (15 "Needs authentication" + 4 "Incompatible auth server: does not support dynamic client registration") hepsi bu 4 plugin'den geliyordu. Sunucular plugin'den geldiği için plugin geneli kapatıldı; çoğu birden çok plugin'in `.mcp.json`'unda tanımlı.
+
+| Sunucu | Durum | `mcp list` kaynağı | Aynı sunucuyu tanımlayan diğer plugin'ler |
+|---|---|---|---|
+| slack | Needs authentication | engineering | design, product-management |
+| linear | Needs authentication | engineering | design, product-management |
+| atlassian | Needs authentication | engineering | design, product-management, data |
+| notion | Needs authentication | engineering | design, product-management |
+| datadog | Needs authentication | engineering | — |
+| figma | Needs authentication | design | product-management |
+| intercom | Needs authentication | design | product-management |
+| monday | Needs authentication | product-management | — |
+| clickup | Needs authentication | product-management | — |
+| amplitude | Needs authentication | product-management | data |
+| amplitude-eu | Needs authentication | product-management | data |
+| pendo | Needs authentication | product-management | — |
+| fireflies | Needs authentication | product-management | — |
+| similarweb | Needs authentication | product-management | — |
+| hex | Needs authentication | data | — |
+| asana | Incompatible auth server | engineering | design, product-management |
+| github | Incompatible auth server | engineering | — |
+| pagerduty | Incompatible auth server | engineering | — |
+| bigquery | Incompatible auth server | data | — |
+
+Aynı plugin'lerle kapanan diğer tanımlar: definite (data, "MCP endpoint not found"); google calendar, gmail (engineering, design, product-management; "Not configured"); snowflake, databricks (data; "Not configured").
+settings.json: `enabledPlugins` altında `"engineering@synced": false`, `"design@synced": false`, `"product-management@synced": false`, `"data@synced": false`. Dosyalar `~/.claude/plugins/synced/` altında yerinde (`syncClaudeAiPlugins: false` hepsini `.trash`'e taşırdı; kullanılmadı).
+```
+claude plugin enable engineering@synced -s user
+claude plugin enable design@synced -s user
+claude plugin enable product-management@synced -s user
+claude plugin enable data@synced -s user
+```
+
 ## settings.json'a eklenen/değişen blok
 
 ```json
@@ -83,3 +123,16 @@ Teşhis: 09-09'daki kapatma `/plugins` menüsünden heryerde_2aa'nın `.claude/s
 `/context` toplamı düşüşü eksik gösteriyor: kapatılan skill token'ları "System tools" satırına aynen ekleniyor (2.7k → 10.8k). Gerçek istek ölçümü bunu doğrulamıyor. "Önce" gerçek ölçümü, settings.json'a dokunmadan `--settings` bayrağıyla (pluginler `true`, override'lar `"on"`) alındı; global kopya taşındığı için ~90 token eksik.
 
 Kapatma adayı ararken ilk bakış `/skill-doctor` (kullanılmayan skill'ler + context maliyeti); kapatma kabulü yine gerçek istek girdi token'ıyla (`claude -p --output-format json`) ölçülür.
+
+## Ölçüm — synced plugin kapatma (2026-09-17, Claude Code 2.1.274, C:\Projeler\omer-skills, `claude -p`)
+
+| | önce | sonra |
+|---|---|---|
+| `claude mcp list` Needs authentication / Failed to connect / Not configured | 15 / 5 / 8 | 0 / 0 / 0 |
+| `/context` Skills | 7.4k | 3.7k |
+| `/context` System tools | 7.5k | 11.2k |
+| `/context` MCP tools (deferred) | 23.4k | 23.4k |
+| `/context` toplam | 19.3k | 19.3k |
+| Gerçek istek girdi token'ı (`--output-format json`, "Yalniz OK yaz.") | 32.556 | 28.451 (−4.105, −%12.6) |
+
+`/context` toplamı yine değişmiyor: kapanan skill token'ları System tools satırına ekleniyor (09-15'teki gibi). MCP satırları değişmedi; düşüş Skills satırında.
