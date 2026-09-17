@@ -1,6 +1,6 @@
 ---
 name: frontend-craft
-description: Web arayüzü (landing, vitrin, panel ekranı) tasarım ve uygulama disiplini — marka kimliği kararı, referans eşleme, 3 genişlikte screenshot döngüsü, anti-generic + yasak liste, a11y/perf kabul kriterleri. HTML/CSS/Tailwind/Razor'a dokunan her işte önce bunu yükle.
+description: Web arayüzü (landing, vitrin, panel) tasarım-uygulama disiplini — marka kararı, referans eşleme, 3 genişlikte screenshot, yasak liste, a11y/perf kabulü. HTML/CSS/Tailwind/Razor işinde önce yükle.
 allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 ---
 
