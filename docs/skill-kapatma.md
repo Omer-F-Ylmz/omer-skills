@@ -90,6 +90,12 @@ Gerekçe: kullanılan dört MCP dışında kalan son sunucu. Kapsam yalnız Clau
 node -e "const f=require('os').homedir()+'/.claude/settings.json',fs=require('fs'),s=JSON.parse(fs.readFileSync(f,'utf8'));delete s.disableClaudeAiConnectors;delete s.skillOverrides['anthropic-skills:docs'];fs.writeFileSync(f,JSON.stringify(s,null,2)+'\n')"
 ```
 
+**design-dna** (`zanwei/design-dna`, `~/.claude/skills/design-dna` kopyası) · mekanizma: `npx skills remove` · 2026-09-15 · etiket: DENENDİ-KALDIRILDI (15 Eyl, hex uydurma)
+Gerekçe: deneme testi (aspensearch.com, 1440×900): skill'in 13 hex'inden 8'i görselde var (%61.5, eşik %80); şema tüm renk alanlarını doldurduğu için görselde olmayan hex üretiyor (warning/info/error) → frontend-craft "hex uydurma yok" ile uyuşmuyor. Deneme klasörleri ve `~/.agents/` onayla silindi. Geri kurma:
+```
+DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx skills add zanwei/design-dna -a claude-code -g -y
+```
+
 ## settings.json'a eklenen/değişen blok
 
 ```json
@@ -149,7 +155,7 @@ Claude Docs kapatma sonrası (`/context`, yeni oturum): toplam 18.7k, MCP tools 
 
 17 Eyl: context7 anahtarı yenilendi (eski değer transcript/yedeklerde geçmişti).
 
-## Denendi, uygulanmadı — plugin skill'lerinde user-invocable-only (2026-09-17, Claude Code 2.1.274, C:Projeleromer-skills, `claude -p`)
+## Denendi, uygulanmadı — plugin skill'lerinde user-invocable-only (2026-09-17, Claude Code 2.1.274, C:\Projeler\omer-skills, `claude -p`)
 
 Hedef: skill-creator:skill-creator (~120), impeccable:impeccable (~310), claude-md-management:claude-md-improver (~130), 21st:21st-ui (~90), claude-md-management:revise-claude-md (~30) · `/context` listeleme ≈680 token.
 `skillOverrides` → `"user-invocable-only"` etkisiz; settings-reference `skillOverrides`: "Overrides don't apply to plugin skills, which you manage through `/plugin`."

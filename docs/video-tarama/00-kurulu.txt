@@ -126,3 +126,5 @@ Read(**/node_modules/**)
 PreToolUse Bash|PowerShell: block-destructive.ps1 · PreToolUse Bash, PowerShell: rtk hook claude
 PostToolUse Edit|Write: dotnet-format.ps1
 SessionStart compact: dalga-durum.ps1 (proje .claude/dalga.md → additionalContext, ≤3800 kr)
+
+denenip kaldırılanlar: skill-kapatma.md

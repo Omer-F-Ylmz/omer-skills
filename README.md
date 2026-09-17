@@ -66,6 +66,10 @@ Dış plugin/skill kurulmadan önce `skillspector scan <klasör|repo-url> --no-l
 
 Plugin kurmadan önce `hooks.json`'daki event'lere bakılır (SessionStart `clear`/`compact`, SubagentStart, PreToolUse/PostToolUse `*`) — her turda koşan hook = her turda maliyet.
 
+## Tarama
+
+Altyazı/metin işleme sed·grep·heredoc ile değil Python ile (Türkçe karakter bozulmasın).
+
 ## frontend-craft ne yapar
 
 Web arayüzüne (Razor/HTML/CSS/Tailwind) dokunan işlerde uygulanan disiplin:

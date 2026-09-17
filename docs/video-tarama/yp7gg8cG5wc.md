@@ -5,7 +5,7 @@ ana iddia: Teable'da kriter tabanlı (yıldız sayısına değil) GPT-5.6 Sol de
 | ad | durum | etiket | not |
 |---|---|---|---|
 | Teable (teable.ai) | YENİ | ELENDİ | ücretli SaaS kanban/otomasyon/app-builder aracı; Claude Code kurulumu kapsamı dışı, video sponsoru (ref link) |
-| zanwei/design-dna | YENİ | ADAY | önceki taramada 39IlNR-P3-Q, fCc97Rv-60w — 99-sentez ADAY listesinde; altyazıda "dizayn DNA" (ASR) |
+| zanwei/design-dna | YENİ | DENENDİ-KALDIRILDI (15 Eyl, hex uydurma) | önceki taramada 39IlNR-P3-Q, fCc97Rv-60w — 15 Eyl kuruldu, testte hex'lerin %61.5'i görselde (eşik %80), kaldırıldı (skill-kapatma.md); altyazıda "dizayn DNA" (ASR) |
 | UI Skills? | ÇİFT | ELENDİ | repo adı/linki video veya açıklamada verilmemiş, doğrulanamadı; tarif edilen işlev (hazır tasarım dili, generic görünmeme) ui-ux-pro-max + frontend-craft anti-generic ile zaten karşılanıyor |
 | darkroomengineering/lenis | YENİ | ELENDİ | önceki taramada b-LZ_Y9wor8 — proje bağımlılığı (smooth scroll), Claude ortamına kurulan araç değil; videoda "klasik yetenek" (sözlü) |
 | awwwards.com | ZATEN VAR | ELENDİ | önceki taramada 39IlNR-P3-Q, b-LZ_Y9wor8, NyNScAc2u_o, fCc97Rv-60w, 1TI4Fd89fuw — Bölüm 10; altyazıda "Awards seviyesinde" (ASR) |
