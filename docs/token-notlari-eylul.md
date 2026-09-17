@@ -11,9 +11,11 @@ Kaynak: Claude Code changelog (yerel önbellek, 2.1.274), KURULUM-2 dalgası, `/
   - `bashEditDiffEnabled` ve `CLAUDE_CODE_ENABLE_TODO_TOOLS` zaten tanımsız.
 - `omitClaudeMd`: `~/.claude/agents` ve omer-skills'te subagent yok → değişiklik yok.
   - İleride yazılacak verbose subagent'lara (test/log/CI/çok dosyalı keşif) `omitClaudeMd: true`; karar veren / kod yazan agent'a eklenmez.
-- `/skill-doctor`: 11 plugin skill'i ve 3 claude.ai sync skill'i hiç çağrılmamış; kaldırma kararı bekliyor.
-- CLAUDE.md dotnet bayrakları (build/test `--nologo -v q`, build `--no-restore`, MTP `--no-banner`): DUR, uygulanmadı.
-  - Dosya zaten ~1,301 token; tam satır +72 → ~1,373; kısa varyant ~1,349. Yalnız o satırla ≤1300 sağlanamıyor.
+- `/skill-doctor`: 11 plugin skill'i ve 3 claude.ai sync skill'i hiç çağrılmamış.
+  - `skillOverrides: off` plugin skill'ine işlemiyor (2.1.274'te skill-doctor: "Plugin skills can't be turned off individually — disable those plugins in /plugin"). Kapatma yalnız plugin düzeyinde; karar bekliyor.
+- Kalem 5 → env `DOTNET_NOLOGO=1` (yalnız CC oturumları); CLAUDE.md satır 17 değişmedi.
+  - `-v q` ELENDİ: RTK filtresiyle çift. MTP `--no-banner` gerekirse proje CLAUDE.md'sine.
+  - Gerekçe: satır genişletmesi CLAUDE.md'yi ~1,301 → ~1,373 token yapıyordu (kısa varyant ~1,349), ≤1300 sınırını aşıyor.
 ## Ölçüm yöntemi
 - `/context` 1k üstünü yuvarlar ("1.3k"). Kesin sayı: dosya iki yarıya bölünüp scratch projede `CLAUDE.md` + `CLAUDE.local.md` olarak ölçülür.
 - Her dosya satırı ~5 token çerçeve yükü taşır (tek satır "x" = 7); iki yarının toplamından bir çerçeve düşülür.
