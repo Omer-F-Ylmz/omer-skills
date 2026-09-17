@@ -6,6 +6,7 @@ Kaynak: transcript'ler 09-10 → 09-17 (tüm projeler), effort A/B (Claude Code 
 - Thinking çıktı token'larının %41.1'i (4.46M / 10.86M); `usage.output_tokens_details.thinking_tokens` çıktının içinde, ayrıca faturalanmaz.
 - En pahalı 5 ($ · çıktı payı · çıktı/girdi token): heryerde 034f9506 $353 · %11.8 · 0.003 | heryerde bd6fd52c $207 · %12.8 · 0.003 | Divisima cc751c9c $159 · %13.9 · 0.004 | EgeYapiPanel ffa0b7f5 $113 · %7.3 · 0.002 | EgeYapiPanel 1a0d739d $94 · %19.8 · 0.006.
 - Maliyeti çıktı değil, büyük bağlamın her turda cache'ten yeniden okunması sürüklüyor (/usage 7 gün: kullanımın %82'si >150k context'te).
+- Ana maliyet kolu = her turda yeniden okunan context boyutu × tur sayısı; effort değil.
 ## Aşırı doğrulama (omer-skills, 27 KARAR bloğu)
 - "≤10 git satırı + ≥5 doğrulama (claude -p + denetçi subagent)" koşuluna uyan blok 0; doğrulama yoğun bloklar büyük değişiklikliydi (UZUN-OTURUM-1: 156 satır, 15 claude -p). Sayılar yaklaşık: script içi çağrı ve anahtar kelimeyle denetçi sınıflaması.
 ## Effort A/B (C# `Kisalt` + 4 xUnit, ~40 satır; 3'er koşu, medyan)
