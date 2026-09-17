@@ -96,6 +96,13 @@ Gerekçe: deneme testi (aspensearch.com, 1440×900): skill'in 13 hex'inden 8'i g
 DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx skills add zanwei/design-dna -a claude-code -g -y
 ```
 
+**permissions.deny `Read(./.screens/**)`** · mekanizma: `~/.claude/settings.json` deny satırı silindi · 2026-09-17
+Gerekçe: frontend-craft screenshot döngüsü (Bölüm 2/9) `.screens/` altındaki PNG'leri Read ile açtırıyor; kural bununla çelişiyordu (transcript'lerde `.screens` PNG okumalarının 4/474'ü bu kuralla reddedilmiş). Diğer dört deny kaldı. Geri ekleme:
+```
+node -e "const f=require('os').homedir()+'/.claude/settings.json',fs=require('fs'),s=JSON.parse(fs.readFileSync(f,'utf8'));s.permissions.deny.splice(2,0,'Read(./.screens/**)');fs.writeFileSync(f,JSON.stringify(s,null,2)+'\n')"
+```
+Deny testi (2026-09-17, Claude Code 2.1.274, geçici proje, `claude -p --tools Read`, transcript `a36697a8`): kalan dört kural (`Read(./bin/**)`, `Read(./obj/**)`, `Read(./graphify-out/**)`, `Read(**/node_modules/**)`) engelliyor. `bin/`, `obj/`, `graphify-out/`, `node_modules/pkg/` ve iç içe `src/Proje/bin/Debug/`, `src/Proje/obj/` altındaki okumaların altısı da `File is in a directory that is denied by your permission settings.` hatası aldı; kontrol dosyaları `serbest/acik.txt` ve `.screens/acik.txt` nonce'larıyla okundu. Sözdizimi düzeltmesi gerekmedi: `./bin/**` ve `./obj/**` iç içe klasörleri de kapsıyor.
+
 ## settings.json'a eklenen/değişen blok
 
 ```json
