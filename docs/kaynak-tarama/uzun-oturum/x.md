@@ -1,0 +1,9 @@
+# Uzun oturum tarama — X/Twitter · 2026-09-17
+Yöntem: Exa `web_search_exa` şemasında startPublishedDate/domain parametresi yok (yalnız query/numResults/objective) → tarih+site filtresi sorgu metnine gömüldü (`site:x.com`, "twitter thread", tarih ifadesi); ayrıca 5 sorgu varyantı ("claude code context/compaction/token/memory/hooks context") + yazar-adlı varyant (swyx/Simon Willison/mattpocockuk) denendi. Sonuç: 8 arama + 2 `web_fetch_exa` çağrısında (tavan 10/10) x.com/twitter.com'dan tek bir okunabilir tweet gelmedi — Exa sonuçları hep resmi doküman (code.claude.com/docs) veya GitHub repo'ydu; bulunan tek gerçek x.com URL'si (swyx/status/2047217611880984935) `web_fetch_exa` ile `SOURCE_NOT_AVAILABLE` verdi. Jina Reader ile x.com VE twitter.com arama sayfaları (2 deneme) domain-geneli "AbuseAlleviationError… blocked until …" (anonim erişim kilitli) döndü — kilit bu oturumdan bağımsız, tekrar denemek çözmez. Beğeni sayısı: hiçbir yöntemle okunamadı (0 tweet açılabildi). Sonuç: 30-gün/≥100-beğeni filtresini geçen 0 tweet bulundu; gh kullanılmadı (doğrulanacak tweet-kaynaklı isim yok). Tavan: Exa 10/10, Jina 2/25, gh 0/25.
+## Sonuç
+| araç/ayar | kaynak tweet (tarih · beğeni) | durum | etiket | not |
+|---|---|---|---|---|
+| — | — | — | — | 0 nitelikli tweet: x.com/twitter.com anonim erişim bu oturumda tamamen kapalı (Jina domain-bloklu, Exa arama/fetch boş/SOURCE_NOT_AVAILABLE) |
+## Not
+- Exa aramasında rastlanan ama TWEET KAYNAKLI OLMADIĞI için değerlendirmeye alınmayan (dolayısıyla ADAY/ELENDİ değil) ilgili repo adları: `povvo/claudikins-automatic-context-manager`, `enigma/claude-streaming-compactor` — kaynağı blog/GitHub arama sonucu, X/Twitter değil; bu tarama kapsamı dışı.
+- Görev talimatındaki "x.com girişsiz okunamıyorsa zorlamayın" koşulu bu oturumda gerçekleşti; tarama tekrar denenirse Jina blok süresinin geçmesi beklenmeli.
