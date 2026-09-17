@@ -4,6 +4,23 @@ description: Web arayüzü (landing, vitrin, panel ekranı) tasarım ve uygulama
 allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 ---
 
+## ÇEKİRDEK (özet; compaction sonrası da bu blok geçerli, ayrıntı ilgili bölümde)
+- Adım 0 · Bağımlılık: `${CLAUDE_SKILL_DIR}/node_modules` yoksa önce `npm ci --ignore-scripts` + `node node_modules/puppeteer/lib/puppeteer/node/cli.js browsers install chrome`; hiçbir script bundan önce koşmaz.
+- Mod tespiti (tek satır rapor): `reference/` varsa REF — birebir eşleme, referans kazanır, Bölüm 3 uygulanmaz, hex'ler `olc-renk.mjs` ile ölçülür. Yoksa FREE — koddan önce marka kimliği kararı `ana #hex · nötr #hex · vurgu #hex · display font · sans font · ölçek 8px` (ana renk mor/indigo/menekşe olamaz), Bölüm 3 zorunlu. `*.csproj` + `Views/`|`Pages/` → aspnet, değilse static.
+- SIRA (yeni proje / yeni ana ekran): yön keşfi (Bölüm 11: üç yön, künye + 1440 PNG, DUR, kullanıcı seçer) → DESIGN.md (Bölüm 7: göster, DUR) → iki-pass (Bölüm 8: token planı → yasak listesine karşı eleştiri → inşa) → kod → screenshot döngüsü (Bölüm 2/9). Mevcut DESIGN.md varsa ya da REF modundaysa yön keşfi atlanır.
+- Sunucu şart, `file:///` yasak: static `node ${CLAUDE_SKILL_DIR}/scripts/serve.mjs` (:3000) · aspnet `dotnet run --project <web csproj>`.
+- Screenshot döngüsü: `node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs <url> [etiket]` → 390/768/1440 PNG, her biri Read ile açılır. Tur = screenshot → sapma tablosu → düzelt; min 2, max 4 tur; 4. tur sonunda sapma kalırsa DUR raporu.
+- Kabul: `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` PASS (FREE'de SLOP boş); ELLE BAKILACAK kalemleri raporda ayrıca yanıtlanır; a11y/perf/etkileşim Bölüm 4.
+- DESIGN.md tam olarak 6 başlık, fazlası yok:
+  1. Stil adı
+  2. Token'lar — 3-6 adet `ad: değer`
+  3. Renk — 4-6 isimli hex, jenerik ad yok
+  4. Tipografi — 2 isimli font + ölçek; Inter, Roboto, Arial, Space Grotesk, Poppins yok
+  5. Hareket — süre + easing, en fazla 3 kural (tetikleyici + kütüphane/sürüm/gerekçe)
+  6. YASAK LİSTESİ
+- Yasak liste özeti (varsayılan; projeninki DESIGN.md'de, seçilen stille çelişen madde çıkar): mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · birebir "h1+p+2 buton" hero · stok illüstrasyon/3D render hissi · özellik/fayda bölümünde eşit kart tekrarı (ürün ızgarası hariç) · her bölümde aynı boşluk · aşırı glow · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
+- Tur raporu (her tur sonu; rapor yazılmadan iş kapanmaz): `Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/nötr/vurgu hangi elemanlarda · font çifti nerede · ölçek hangi bölümlerde | sonraki adım / KAPANIŞ / DUR`
+
 ## Adım 0 · Bağımlılık
 - `${CLAUDE_SKILL_DIR}/node_modules` yoksa `${CLAUDE_SKILL_DIR}` içinde `npm ci --ignore-scripts` sonra `node node_modules/puppeteer/lib/puppeteer/node/cli.js browsers install chrome` çalıştır. Varsa atla. Bu adım her skill yüklemesinde ilk komuttur, hiçbir script ondan önce koşmaz.
 

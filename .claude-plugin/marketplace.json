@@ -8,7 +8,7 @@
     {
       "name": "frontend-craft",
       "source": "./plugins/frontend-craft",
-      "version": "1.4.3",
+      "version": "1.5.0",
       "category": "development"
     }
   ]
