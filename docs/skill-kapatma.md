@@ -146,3 +146,5 @@ Kapatma adayı ararken ilk bakış `/skill-doctor` (kullanılmayan skill'ler + c
 Claude Docs kapatma sonrası (`/context`, yeni oturum): toplam 18.7k, MCP tools satırı (591) yok, MCP tools (deferred) 21.7k, Skills 3.4k; `claude mcp list`'te yalnız mslearn, context7, claude-design, 21st.
 
 `claude mcp list` çıktısı raporlanırken context7'nin `--api-key` alanı maskelenir (`<GİZLİ>`); ham çıktı oturum kaydına düşer (09-17'de düştü, transcript'lerde maskelendi).
+
+17 Eyl: context7 anahtarı yenilendi (eski değer transcript/yedeklerde geçmişti).
