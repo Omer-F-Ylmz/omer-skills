@@ -22,3 +22,4 @@
   3. form alanlarında uygun `autocomplete` değeri var (email/name/tel…)
   4. dokunma hedefi ≥24px, mobilde ≥44px (bbox ölçümü)
   5. submit düğmesi istek sürerken disabled (çift gönderim yok, puppeteer tıklama testi)
+- REF modu → Puppeteer `getComputedStyle` ile canlı DOM'dan token okuma (taste-skill'in tek farkı, PNG k-means yerine); ileride, şimdilik uygulanmadı

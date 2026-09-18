@@ -81,6 +81,12 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Dış tasarım aracı (Claude Design, 21st) çıktısı görsel optimizasyon + audit'ten geçmeden teslim edilmez.
 - Prod teslim (kullanıcı "prod"/"yayın" dediğinde): Tailwind CDN kaldırılır → `npx @tailwindcss/cli -i src/input.css -o wwwroot/css/site.css --minify`; `audit.mjs <url> prod` PASS.
 - Prod teslimde ayrıca: sayfa başına `title` + meta description · favicon · manifest · `robots.txt` · `sitemap.xml` · footer'da KVKK/gizlilik + çerez onayı · kullanıcı hesabı olan sitelerde footer'da "hesabımı sil" (KVKK). REF'te referansta yoksa eklenmez, eksik olarak raporlanır.
+- Forms/touch (source: vercel-labs/web-interface-guidelines, MIT):
+  - Inputs, selects and textareas render at font-size ≥16px on mobile (390 width), so iOS does not auto-zoom.
+  - `<meta name="viewport">` never disables zoom (`maximum-scale=1` / `user-scalable=no` forbidden).
+  - Form fields carry a fitting `autocomplete` value (email, name, tel, street-address, one-time-code…).
+  - Hit targets ≥24×24px, ≥44×44px on mobile; if the visual is smaller, the hit area is expanded.
+  - No double submit: the submit button is disabled while the request is in flight and keeps its label (verify with a puppeteer double click).
 
 ## 5. Çıktı ve içerik
 - static: `index.html` + `styles.css`; prototipte Tailwind CDN serbest. aspnet: Razor view/partial + `wwwroot/css/*.css`; inline `<style>` yasak; CSS değişkenleri site.css'te. Mobile-first.
