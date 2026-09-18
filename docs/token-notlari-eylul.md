@@ -35,3 +35,4 @@ Kaynak: Claude Code changelog (yerel önbellek, 2.1.274), KURULUM-2 dalgası, `/
 - `~/.claude/CLAUDE.md`: 1 hata · 3 uyarı · 6 info. Hata yanlış pozitif: `@RTK.md` dosya dizini yerine cwd'ye çözülüyor. Uyarılar "Project Overview/Development Commands/Architecture" eksik (global dosyaya uymaz).
 - Divisima CLAUDE.md: 0 hata · 8 uyarı · 39 info (boyut 30k>10k, 2 dilsiz code block, kişisel bilgi olasılığı, önerilen bölümler).
 - Düzeltme yapılmadı. Kural değişikliği yok; kalıcı araç olarak kurulmadı.
+- Output style Concise aktif (2026-09-18, settings.json `outputStyle`). A/B: ilk 3 dalgada rapor satır sayısı ve tur sayısı öncekiyle karşılaştırılır.
