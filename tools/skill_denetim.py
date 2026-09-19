@@ -23,6 +23,9 @@ YANLIS_ALARM = [
 ]
 LINK = re.compile(r"\[[^\]]*\]\(\s*<?([^)\s>]+)>?(?:\s+\"[^\"]*\")?\s*\)")
 TOKEN = re.compile(r"(?<![\w./~-])((?:\.\./)*(?:references|reference|scripts|assets|templates|examples)/[^\s)`'\"\],;*<>|]+|(?:\.\./)+[\w.-][^\s)`'\"\],;*<>|]*)")
+# "@": gstack playwright-core@1.62.1.patch ile claude.ai "invalid characters" reddi (7f); kabul edilen 146 zip'te yok
+YASAK_KAR = re.compile(r'[\x00-\x1f\x7f\\:*?"<>|@]')
+SHEBANG_SH = re.compile(rb"^#![^\n]*\b(ba)?sh\b")
 TEXT_EXT = {".md", ".txt", ".py", ".js", ".mjs", ".ts", ".json", ".yaml", ".yml", ".sh", ".ps1", ".html", ".css", ".csv", ".toml"}
 
 
@@ -70,6 +73,13 @@ def denetle(z, dist, uygulanan):
                 and not alarm(zname, "manifest", e, uygulanan)]
     if manifest:
         hatalar.append(("plugin manifest", f"{len(manifest)} öğe: {manifest[0]}"))
+    for e in zf.namelist():
+        if YASAK_KAR.search(e) or e.startswith("/") or ".." in e.split("/"):
+            hatalar.append(("yol karakteri", repr(e)))
+    for i in zf.infolist():
+        b = b"" if i.is_dir() else zf.read(i)
+        if b"\r" in b and (Path(i.filename).suffix.lower() in {".sh", ".bash"} or SHEBANG_SH.match(b)):
+            hatalar.append(("CRLF", i.filename))
     acik = sum(i.file_size for i in zf.infolist())
     if acik > 30 * 10**6:
         hatalar.append(("açık boyut", f"{acik / 10**6:.1f} MB > 30 MB"))

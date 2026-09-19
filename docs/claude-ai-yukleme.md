@@ -21,3 +21,4 @@ frontend-design yüklenmez: anthropics/skills'te var, claude.ai Directory'den ek
 - ui-ux-pro-max: komutlar `~/.claude/skills/ui-ux-pro-max/scripts/search.py` yolunu verir; claude.ai'de skill başka dizinde, yol düzeltilerek çalıştırılır.
 - surec: `dotnet build/test/format/run`, `git checkout`, `ci-izle.py` Divisima reposu + yerel araç ister; yalnız süreç metni işe yarar. sdp: `git diff` adımı aynı.
 - sdp/surec'teki proje yolu referansları olduğu gibi bırakıldı.
+- Yeni klonlar `git clone -c core.autocrlf=false <url>` ile alınır; sistem gitconfig autocrlf=true bash script'lerini CRLF yapar, claude.ai sandbox'ında (Linux) `bash -n` kırılır.

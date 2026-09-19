@@ -217,7 +217,7 @@ foreach ($n in 'superpowers-brainstorming','superpowers-subagent-driven-developm
 | worldflowai/everything-claude-code | strategic-compact | zaten var (everything-claude-code) · lisans yok — kişisel kullanım |
 | worldflowai/everything-claude-code | tdd-workflow | zaten var (everything-claude-code) · lisans yok — kişisel kullanım |
 | worldflowai/everything-claude-code | verification-loop | zaten var (everything-claude-code) · lisans yok — kişisel kullanım |
-| garrytan/gstack | gstack | yukle-7 (sync bekliyor) |
+| garrytan/gstack | gstack | CC native (7f: claude.ai'ye yüklenmez) |
 | awesome-skills/code-review-skill | code-review-skill | yukle-7 (sync bekliyor) |
 
 ## PLUGIN (kurulum-6-cc.md sırasıyla, 44 satır)
@@ -333,3 +333,9 @@ settings.json `hooks` bloğu .bak7 ile aynı (rtk / block-destructive / dotnet-f
 - gstack claude.ai: 59 alt skill, claude.ai'de yalnız kök router kayıtlı. Çekirdek akışı bun/binary istemeyen 23: careful, context-restore, context-save, document-release, freeze, guard, health, investigate, ios-clean, ios-design-review, ios-fix, learn, office-hours, openclaw gstack-openclaw-{ceo-review,investigate,office-hours,retro}, plan-ceo-review, plan-devex-review, plan-eng-review, retro, setup-deploy, spec, unfreeze (office-hours/retro'nun isteğe bağlı adımları bun ister). Bölme kararı Ömer'de.
 - gstack CC native: ~/.claude/skills/gstack taze klon (a6b3a57, v1.87.4.0), bun 1.4.2 (winget), `bash ./setup --host claude --no-team --no-prefix` → 55 skill ~/.claude/skills'e kopya + Playwright Chromium. settings.json değişmedi, hook yok; telemetry off (okundu), yalnız kimliksiz VERSION kontrolü açık. Preamble: "SKILL_START: unavailable" yok. Synced gstack kopyası 7b'de off.
 - Vercel CLI 59.23.2 (`npm.cmd i -g vercel`); `vercel login` Ömer'de. .gitignore'a logs/ (puppeteer MCP oturum logu).
+
+## KURULUM-7f · CRLF'li bash script'leri + yol karakteri + gstack claude.ai'den çıktı
+
+- CRLF: 7 bash script Linux'ta `bash -n` hatası (`{\r`). LF'ye çevrildi, diğer dosyalar bayt-aynı: agent-skills-deploy-to-vercel (deploy.sh, deploy-codex.sh) · superpowers-executing-plans (task-start, task-done) · superpowers-subagent-driven-development (task-brief, sdd-workspace, review-package). Kopyaları dist/yukle-7f (Replace), eskiler `.tmp-kurulum6\eski-7f`. CRLF'li .py/.mjs interpreter ile çağrıldığı için dokunulmadı. Kök neden: klonlarda core.autocrlf=true (C:/Program Files/Git/etc/gitconfig).
+- tools/skill_denetim.py: CRLF (.sh/.bash ya da bash/sh shebang'li dosyada \r) · yol karakteri (kontrol, `\ : * ? " < > | @`, baştaki `/`, `..`). `@` kabul edilmiş 146 zip'te hiç geçmiyor, gstack'te tek yolda: `gstack/patches/playwright-core@1.62.1.patch`.
+- gstack yalnız CC native v1.87.4.0. claude.ai kopyası çalışmaz (preamble yolu yer tutucu, bun/browse yok) ve "path with invalid characters" ile reddedildi → dist/yukle-7/gstack-gstack.zip eski-7f'ye taşındı. KURULUM-7b'deki "synced gstack off" adımı düşer. Beklenen kullanıcı skill'i: 146.
