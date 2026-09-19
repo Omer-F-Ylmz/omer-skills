@@ -4,3 +4,4 @@ docs/video-tarama/raw/
 dist/
 .tmp/
 graphify-out/
+logs/

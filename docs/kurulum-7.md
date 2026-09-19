@@ -324,3 +324,12 @@ settings.json `hooks` bloğu .bak7 ile aynı (rtk / block-destructive / dotnet-f
 
 - KÜTÜPHANE (18) ve ÖRNEK (2) kurulmadı; proje eşlemesi docs/kurulum-6-cc.md'de.
 
+
+## KURULUM-7c · claude.ai'nin reddettiği 3 zip
+
+- Ret: deploy-to-vercel iç içe zip (Archive.zip) · humanizer plugin manifest (.claude-plugin/) · gstack açık 44,2 MB > 30 MB. Eskiler `C:\Projeler\.tmp-kurulum6\eski-7c`.
+- Onarım (yukle-7'de aynı adla): deploy-to-vercel Archive.zip çıktı, 4 `deploy.sh` satırı `$(ls -d /mnt/skills/*/deploy-to-vercel | head -1)` ile yoldan bağımsız · humanizer .claude-plugin/ çıktı · gstack test/ .github/ CHANGELOG.md TODOS.md docs/designs çıktı. Açık boyut 0,03 / 0,1 / 22,6 MB.
+- tools/skill_denetim.py: iç içe zip · .claude-plugin/ veya plugin.json · açık > 30 MB. Eski 3 zip → 3 hata; onarılmış → 0; dist 115 zip ve dist/yukle-7 46 zip 0 hata (task-observer `.tessl-plugin/plugin.json` yanlış alarm: kurulum-7'de reddedilmedi).
+- gstack claude.ai: 59 alt skill, claude.ai'de yalnız kök router kayıtlı. Çekirdek akışı bun/binary istemeyen 23: careful, context-restore, context-save, document-release, freeze, guard, health, investigate, ios-clean, ios-design-review, ios-fix, learn, office-hours, openclaw gstack-openclaw-{ceo-review,investigate,office-hours,retro}, plan-ceo-review, plan-devex-review, plan-eng-review, retro, setup-deploy, spec, unfreeze (office-hours/retro'nun isteğe bağlı adımları bun ister). Bölme kararı Ömer'de.
+- gstack CC native: ~/.claude/skills/gstack taze klon (a6b3a57, v1.87.4.0), bun 1.4.2 (winget), `bash ./setup --host claude --no-team --no-prefix` → 55 skill ~/.claude/skills'e kopya + Playwright Chromium. settings.json değişmedi, hook yok; telemetry off (okundu), yalnız kimliksiz VERSION kontrolü açık. Preamble: "SKILL_START: unavailable" yok. Synced gstack kopyası 7b'de off.
+- Vercel CLI 59.23.2 (`npm.cmd i -g vercel`); `vercel login` Ömer'de. .gitignore'a logs/ (puppeteer MCP oturum logu).

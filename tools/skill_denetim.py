@@ -13,8 +13,9 @@ BSDTAR = r"C:\Windows\System32\tar.exe" if sys.platform == "win32" else "bsdtar"
 YERLESIK = set("""algorithmic-art brand-guidelines canvas-design internal-comms slack-gif-creator web-artifacts-builder
 theme-factory mcp-builder skill-creator docs import-memory morning docx pdf pptx xlsx product-self-knowledge
 frontend-design file-reading pdf-reading""".split())
-# (zip deseni, tür, öğe deseni, gerekçe) — tür "yol": SKILL.md'deki göreli yol; "claude": "dosya: satır" metni
+# (zip deseni, tür, öğe deseni, gerekçe) — tür "yol": SKILL.md'deki göreli yol; "claude": "dosya: satır" metni; "manifest": zip öğesi
 YANLIS_ALARM = [
+    ("one-skill-to-rule-them-all-task-observer.zip", "manifest", r"/\.tessl-plugin/plugin\.json$", "tessl manifest'i; claude.ai kurulum-7'de reddetmedi"),
     ("claude-design-skills-ux-research.zip", "claude", r"`~/\.claude/skills/` for local skills", "Obsidian/kişisel kurulum bölümü; repo dışı olarak belgelenmiş"),
     ("policy-monitor.zip", "claude", r"~/\.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE\.md", "isteğe bağlı profil; dosya yoksa profilsiz çalışır"),
     ("use-case-triage.zip", "claude", r"~/\.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE\.md", "isteğe bağlı profil; dosya yoksa profilsiz çalışır"),
@@ -61,6 +62,17 @@ def denetle(z, dist, uygulanan):
         return ad, [("yapı", f"{ad}/SKILL.md yok")]
     files = {e.rstrip("/") for e in ents}
     zf = zipfile.ZipFile(z)
+    # claude.ai Add ekranı ret kuralları
+    ic_zip = [e for e in ents if e.lower().endswith(".zip")]
+    if ic_zip:
+        hatalar.append(("iç içe zip", ", ".join(ic_zip)))
+    manifest = [e for e in ents if (".claude-plugin" in e.split("/") or e.endswith("/plugin.json"))
+                and not alarm(zname, "manifest", e, uygulanan)]
+    if manifest:
+        hatalar.append(("plugin manifest", f"{len(manifest)} öğe: {manifest[0]}"))
+    acik = sum(i.file_size for i in zf.infolist())
+    if acik > 30 * 10**6:
+        hatalar.append(("açık boyut", f"{acik / 10**6:.1f} MB > 30 MB"))
     md = zf.read(f"{ad}/SKILL.md").decode("utf-8", errors="replace")
     m = re.match(r"^\ufeff?---\s*\r?\n(.*?)\r?\n---", md, re.S)
     try:
