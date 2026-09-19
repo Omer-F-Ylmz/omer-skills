@@ -2,3 +2,5 @@ node_modules/
 docs/video-tarama/raw/
 .claude/dalga.md
 dist/
+.tmp/
+graphify-out/
