@@ -1,10 +1,10 @@
 """claude.ai skill zip denetimi.
 
 Kullanım: python tools/skill_denetim.py <dist> [--rapor docs/x.md]
-Kapsam: <dist>/*.zip + <dist>/yukle-6c/**/*.zip (_yerlesik hariç). Yalnız özet basar; ayrıntı rapora gider.
+Kapsam: <dist>/**/*.zip. Yalnız özet basar; ayrıntı (klasör başı sayı, CRLF uyarıları, çok klasörlü adlar) rapora gider.
 Çıkış kodu: hata varsa 1.
 """
-import argparse, fnmatch, hashlib, posixpath, re, subprocess, sys, zipfile
+import argparse, fnmatch, posixpath, re, subprocess, sys, zipfile
 from collections import Counter
 from pathlib import Path
 import yaml
@@ -26,6 +26,8 @@ TOKEN = re.compile(r"(?<![\w./~-])((?:\.\./)*(?:references|reference|scripts|ass
 # "@": gstack playwright-core@1.62.1.patch ile claude.ai "invalid characters" reddi (7f); kabul edilen 146 zip'te yok
 YASAK_KAR = re.compile(r'[\x00-\x1f\x7f\\:*?"<>|@]')
 SHEBANG_SH = re.compile(rb"^#![^\n]*\b(ba)?sh\b")
+# 7b: md/txt sayılmaz; öteki shebang'li betik uyarı, SKILL.md onu ./ ile doğrudan çağırıyorsa hata
+CRLF_SAYILMAZ = {".md", ".txt"}
 TEXT_EXT = {".md", ".txt", ".py", ".js", ".mjs", ".ts", ".json", ".yaml", ".yml", ".sh", ".ps1", ".html", ".css", ".csv", ".toml"}
 
 
@@ -51,7 +53,7 @@ def yollar(md):
             yield t
 
 
-def denetle(z, dist, uygulanan):
+def denetle(z, dist, uygulanan, uyarilar):
     hatalar, zname = [], z.name
     p = subprocess.run([BSDTAR, "-tf", str(z)], capture_output=True, text=True, encoding="utf-8", errors="replace")
     ents = [e for e in p.stdout.splitlines() if e.strip()]
@@ -76,14 +78,22 @@ def denetle(z, dist, uygulanan):
     for e in zf.namelist():
         if YASAK_KAR.search(e) or e.startswith("/") or ".." in e.split("/"):
             hatalar.append(("yol karakteri", repr(e)))
+    md = zf.read(f"{ad}/SKILL.md").decode("utf-8", errors="replace")
     for i in zf.infolist():
         b = b"" if i.is_dir() else zf.read(i)
-        if b"\r" in b and (Path(i.filename).suffix.lower() in {".sh", ".bash"} or SHEBANG_SH.match(b)):
+        ext = Path(i.filename).suffix.lower()
+        if b"\r" not in b or ext in CRLF_SAYILMAZ:
+            continue
+        if ext in {".sh", ".bash"} or SHEBANG_SH.match(b):
             hatalar.append(("CRLF", i.filename))
+        elif b.startswith(b"#!"):
+            if re.search(r"(?<![\w/.])\./" + re.escape(i.filename.split("/", 1)[-1]) + r"\b", md):
+                hatalar.append(("CRLF", f"{i.filename} (SKILL.md ./ ile çağırıyor)"))
+            else:
+                uyarilar.append(f"{z.relative_to(dist).as_posix()} · {i.filename}")
     acik = sum(i.file_size for i in zf.infolist())
     if acik > 30 * 10**6:
         hatalar.append(("açık boyut", f"{acik / 10**6:.1f} MB > 30 MB"))
-    md = zf.read(f"{ad}/SKILL.md").decode("utf-8", errors="replace")
     m = re.match(r"^\ufeff?---\s*\r?\n(.*?)\r?\n---", md, re.S)
     try:
         fm = yaml.safe_load(m.group(1)) if m else None
@@ -116,33 +126,36 @@ def main():
     ap.add_argument("--rapor")
     a = ap.parse_args()
     dist = Path(a.dist)
-    kok_zip = sorted(dist.glob("*.zip"))
-    yukle = sorted((dist / "yukle-6c").rglob("*.zip")) if (dist / "yukle-6c").exists() else []
-    uygulanan, sonuc, adlar = Counter(), [], {}
-    for z in kok_zip + yukle:
-        ad, h = denetle(z, dist, uygulanan)
+    zipler = sorted(dist.rglob("*.zip"))
+    klasor = Counter(z.parent.relative_to(dist).as_posix() for z in zipler)
+    uygulanan, sonuc, adlar, uyarilar = Counter(), [], {}, []
+    for z in zipler:
+        ad, h = denetle(z, dist, uygulanan, uyarilar)
         rel = z.relative_to(dist).as_posix()
         sonuc += [(rel, k, d) for k, d in h]
-        if z.parent == dist and ad:
+        if ad:
             adlar.setdefault(ad, []).append(rel)
+    coklu = []
     for ad, zs in adlar.items():
-        if len(zs) > 1:
-            sonuc += [(z, "ad tekil", f"{ad} {len(zs)} zip'te") for z in zs]
-        if ad in YERLESIK:
+        kl = Counter(posixpath.dirname(z) for z in zs)
+        sonuc += [(z, "ad tekil", f"{ad} {kl[posixpath.dirname(z)]} zip'te") for z in zs if kl[posixpath.dirname(z)] > 1]
+        if len(kl) > 1:
+            coklu.append(f"{ad}: {', '.join(zs)}")
+        # _yerlesik claude.ai yerleşiklerinin kasıtlı kopyası
+        if ad in YERLESIK and any(not z.startswith("_yerlesik/") for z in zs):
             sonuc += [(zs[0], "yerleşik ad", ad)]
-    sha = lambda f: hashlib.sha256(f.read_bytes()).hexdigest()
-    for z in yukle:
-        k = dist / z.name
-        if not k.exists() or sha(k) != sha(z):
-            sonuc.append((z.relative_to(dist).as_posix(), "kopya", "dist kökündeki eşiyle aynı değil"))
-    ozet = f"{len(kok_zip) + len(yukle)} zip denetlendi (kök {len(kok_zip)}, yukle-6c {len(yukle)}) · {len(sonuc)} hata · {sum(uygulanan.values())} yanlış alarm uygulandı"
+    klasorler = ", ".join(f"{k} {n}" for k, n in sorted(klasor.items()))
+    ozet = (f"{len(zipler)} zip denetlendi ({klasorler}) · {len(sonuc)} hata · {len(uyarilar)} CRLF uyarısı · "
+            f"{len(coklu)} ad birden çok klasörde · {sum(uygulanan.values())} yanlış alarm uygulandı")
     print(ozet)
     for k, v in Counter(k for _, k, _ in sonuc).items():
         print(f"  {k}: {v}")
     if a.rapor:
-        L = ["# KURULUM-6c skill zip denetimi", "", f"`python tools/skill_denetim.py {a.dist}` · _yerlesik hariç", "", ozet, ""]
+        L = ["# skill zip denetimi", "", f"`python tools/skill_denetim.py {a.dist}`", "", ozet, ""]
         if sonuc:
             L += ["## Hatalar", ""] + [f"- {z} · {k} · {d}" for z, k, d in sonuc] + [""]
+        L += ["## CRLF uyarıları (shebang'li, ./ ile çağrılmıyor)", ""] + [f"- {u}" for u in uyarilar] + [""]
+        L += ["## Birden çok klasördeki adlar (hata değil)", ""] + [f"- {c}" for c in coklu] + [""]
         L += ["## Uygulanan yanlış alarmlar", ""] + [f"- {zd} · {t} · {n} kez · {why}" for (zd, t, why), n in uygulanan.items()]
         Path(a.rapor).write_text("\n".join(L) + "\n", encoding="utf-8")
     sys.exit(1 if sonuc else 0)
