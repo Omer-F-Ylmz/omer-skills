@@ -19,7 +19,7 @@ Kaynak: docs/kurulum-6-envanter.md. Satırlar kurulum değil, öneridir; her kal
 
 ### supabase-community/supabase-plugin · SKILL+PLUGIN · lisans YOK
 - lisans yok → KURMA (lisans gelirse yeniden bakılır); satırlar yalnız kayıt için
-- marketplace.json yok (yalnız .claude-plugin/plugin.json) → /plugin ile eklenemez; yerel deneme: `claude --plugin-dir .tmp/supabase-community__supabase-plugin`
+- marketplace.json yok (yalnız .claude-plugin/plugin.json) → /plugin ile eklenemez; yerel deneme: `claude --plugin-dir C:/Projeler/.tmp-kurulum6/supabase-community__supabase-plugin`
 
 ### anthropics/skills · SKILL+PLUGIN · lisans YOK
 - lisans yok → KURMA (lisans gelirse yeniden bakılır); satırlar yalnız kayıt için
@@ -202,5 +202,5 @@ claude mcp add code-review -s user -e GITHUB_TOKEN=${GITHUB_TOKEN} -e GITLAB_TOK
 
 ## ÖRNEK
 
-- figma/code-connect (MIT): REF olarak açılır → .tmp/figma__code-connect
-- gist:e20ead11b3df4de46ab32b4a7269abe0 (YOK): REF olarak açılır → .tmp/gist__e20ead11b3df4de46ab32b4a7269abe0
+- figma/code-connect (MIT): REF olarak açılır → C:/Projeler/.tmp-kurulum6/figma__code-connect
+- gist:e20ead11b3df4de46ab32b4a7269abe0 (YOK): REF olarak açılır → C:/Projeler/.tmp-kurulum6/gist__e20ead11b3df4de46ab32b4a7269abe0
