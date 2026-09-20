@@ -37,3 +37,22 @@ Canlı Desktop config (MSIX): `%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\Loca
 - supabase (plugin) · `https://mcp.supabase.com/mcp` · OAuth: CC'de bağlı; claude.ai/Desktop'ta ayrıca OAuth gerekir
 - claude-mem mcp-search (plugin) · yerel claude-mem worker + plugin kökü (`CLAUDE_PLUGIN_ROOT`) gerekir; Desktop'ta taşınamaz
 - Obsidian gerektiren MCP: yok
+
+## Desktop bölümü · KURULUM-11 güncellemesi (20 Eyl 2026)
+
+Canlı config artık **16** stdio tanımı içeriyor (önce 10). Yedek: `claude_desktop_config.json.bak11`.
+
+Eklenen (K3 kuru testiyle kanıtlı): `brave-search` 8, `context7` 2, `stitch` 16,
+`omniroute` 110, `code-review` 12, `claude-mem` 15 araç.
+Düzeltilen: `headroom` → CC'deki kanıtlı tanıma hizalandı (`.local\bin\headroom.EXE mcp serve`).
+
+Anahtarlar config'e düz yazılmaz: `env` bloğu yok → süreç kullanıcı ortam değişkenlerini
+devralır; argüman gerekiyorsa `cmd /c ... %VAR%` ile cmd.exe genişletir. Kanıt ve tam
+tablo: `docs/desktop-eslesme.md`.
+
+Önceki "yapısal olarak taşınamaz" notu **claude-mem için geçersiz**: `CLAUDE_PLUGIN_ROOT`
+tanımsızken sarmalayıcı `~/.claude/plugins/cache/thedotmack/claude-mem` yoluna düşüyor ve
+sunucu 15 araçla açılıyor. Desktop config'ine doğrudan betik yoluyla girdi.
+
+Yerel MCP'ler yalnız **Chat** sekmesinde kullanılabilir; Cowork ve Code oturumları
+`status=unsupported` olan VM paketine bağlı (`logs/cowork_vm_node.log`).
