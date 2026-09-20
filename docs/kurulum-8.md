@@ -72,7 +72,7 @@ Yeni kapı **dist'in tamamında** (318 zip) koşturuldu: eski partilerde hata yo
 
 ## Skill tablosu
 
-`zaten claude.ai` = synced 164'ün içinde (asgari listeden: design-taste-frontend, test-driven-development/superpowers-tdd, imagegen-frontend-web, webapp-testing, playwright-cli, brand-systems, design-masters, design-movements, 21st-ui, ponytail ×6, taste-skill'in 11 kopyası…).
+`zaten claude.ai` = synced 164'ün içinde (asgari listeden: test-driven-development/superpowers-tdd, playwright-cli, brand-systems, design-masters, design-movements, 21st-ui, ponytail ×6, taste-skill'in 11 kopyası…). design-taste-frontend · imagegen-frontend-web · webapp-testing bu listeden çıktı: tabloda yukle-8'deler, claude.ai'de tek kopya.
 `CC-özel` = claude.ai'ye gitmez.
 
 | kaynak | skill | durum | claude.ai'de çalışır | parti |
@@ -299,4 +299,32 @@ Get-ChildItem @("C:\Projeler\omer-skills\dist\yukle-8", "C:\Projeler\omer-skills
   }
 }
 [IO.File]::WriteAllText($p, ($s | ConvertTo-Json -Depth 30), (New-Object Text.UTF8Encoding $false))
+```
+
+## 8c doğrulama
+
+Sync-off bloğu koşuldu: synced 149/149, `skillOverrides` off **73 → 221** (+148, hepsi `anthropic-skills:`; `.bak8s` farkıyla doğrulandı, kalkan override yok). Ölçüm: `claude -p /context` (2 çağrı) + dosya envanteri.
+
+- **a) Aktif kopyası sıfır kalan 17 ad**, üç nedenle — hiçbiri 7b tabanına göre gerileme değil, üçü de 8'den önce de listede değildi:
+  1. *Plugin kapalı* (`enabledPlugins:false`), synced kopya off → tek çare synced'i geri açmak (8 ad): `plugin-dev` → agent-development · command-development · hook-development · mcp-integration · plugin-settings · plugin-structure · skill-development; `claude-md-management` → memory-md-improver (kaynak adı claude-md-improver).
+  2. *Yerel kopya bare-ad override ile off* (3 ad): hetzner-deploy · roblox-game-development-lifecycle · wpf-rule-mvvm-constraints. Bunlarda `anthropic-skills:<ad>` kaldırmak yetmez — bare-ad override synced kopyayı da kapatıyor (kanıt: docx/pdf/pptx/xlsx/import-memory/morning yalnız bare override'la off ve `/context`'te yoklar). Kapalılık 8'den önce, kasıtlı (PERSONAL listesi) → bloğa alınmadı.
+  3. *Plugin kopyası CC'ye hiç kayıtlı değil* (6 ad): `user-invocable: false` → dotnet-test'in code-testing-extensions · filter-syntax · test-analysis-extensions; frontmatter'sız SKILL.md → everything-claude-code'un eval-harness · project-guidelines-example · verification-loop. Referans dosyalar; bloğa alınmadı.
+- **b) Aktif kopyası ≥2 olan 10 ad:** algorithmic-art · brand-guidelines · doc-coauthoring · internal-comms · slack-gif-creator · writing-plans (plugin + synced); frontend-design · skill-creator · test-driven-development · mem-search (iki plugin). Yalnız mem-search 148'in içinde.
+- **c) Aktif toplam 397** (`/context`, 35.5k token) = 351 disk kopyası + 36 plugin slash-komutu + 11 yerleşik. Dosya envanteri 363 ham kopya sayıyor; fark 12+1: 6 bare-ad override'ın synced kopyayı da kapatması, 6 kayıtsız plugin skill'i (yukarıda), 1 hookify ad farkı (`writing-rules` ↔ `Writing Hookify Rules`). Beklenen 396'ya göre **+1 = omer-kutuphaneler**; Ömer'in oturumundaki 401 bu ortamda üretilemedi, 4 fark doğrulanamadı.
+- **d) Aktif skill name+description = 112.435 karakter / SLASH_COMMAND_TOOL_CHAR_BUDGET 106.983 = %105,1.** Bütçe aşılmış görünüyor ama `/context` "excluded" uyarısı basmıyor — eşik bu değerle uygulanmıyor.
+
+### (a.1) için tek blok — PowerShell
+
+```powershell
+$p = "$env:USERPROFILE\.claude\settings.json"
+Copy-Item $p "$p.bak8c"
+$s = Get-Content $p -Raw | ConvertFrom-Json
+"Once off: " + ($s.skillOverrides.PSObject.Properties | Where-Object { $_.Value -eq 'off' }).Count
+@('agent-development','command-development','hook-development','mcp-integration',
+  'plugin-settings','plugin-structure','skill-development','memory-md-improver') | ForEach-Object {
+  $s.skillOverrides.PSObject.Properties.Remove("anthropic-skills:$_")
+}
+[IO.File]::WriteAllText($p, ($s | ConvertTo-Json -Depth 30), (New-Object Text.UTF8Encoding $false))
+$s2 = Get-Content $p -Raw | ConvertFrom-Json
+"Sonra off: " + ($s2.skillOverrides.PSObject.Properties | Where-Object { $_.Value -eq 'off' }).Count
 ```
