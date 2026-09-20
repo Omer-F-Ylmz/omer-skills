@@ -109,7 +109,7 @@ class Oturum:
         self.baglam = self.tarayici.new_context()
         self.sayfa = self.baglam.new_page()
         self.konsol = []
-        self.son_snapshot = None
+        self.son_snapshot = {}
         self._konsol_bagla()
 
     def _konsol_bagla(self):
@@ -125,10 +125,11 @@ class Oturum:
 
     def _snapshot(self, args):
         """Her cagri isaretler; -i listeyi daraltir, -D fark verir, -a PNG yazar."""
-        liste = self.sayfa.evaluate(SNAPSHOT_JS, {"yalniz": "-i" in args})
+        kapsam = "dar" if "-i" in args else "tam"   # ref numaralari kapsama gore kayar
+        liste = self.sayfa.evaluate(SNAPSHOT_JS, {"yalniz": kapsam == "dar"})
         cikti = liste
         if "-D" in args:
-            onceki = self.son_snapshot
+            onceki = self.son_snapshot.get(kapsam)
             if onceki is None:
                 cikti = "(onceki snapshot yok)\n" + liste
             elif onceki == liste:
@@ -136,7 +137,7 @@ class Oturum:
             else:
                 cikti = "\n".join(difflib.unified_diff(
                     onceki.split("\n"), liste.split("\n"), "onceki", "simdi", lineterm=""))
-        self.son_snapshot = liste
+        self.son_snapshot[kapsam] = liste
         if "-a" in args:
             yol = args[args.index("-o") + 1] if "-o" in args else "annotated.png"
             self.sayfa.evaluate(OVERLAY_JS)

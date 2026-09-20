@@ -93,7 +93,8 @@ arac takimini tasir.
   `snapshot [-i] [-a [-o <yol>]] [-D]`: her cagri ref'leri isaretler; `-i` listeyi
   etkilesimli elemanlara daraltir, `-a` ref kutularini cizip full_page PNG yazar
   (`-o` yoksa `annotated.png`), `-D` onceki snapshot ile farki verir. Bilinmeyen
-  bayrak exit 2. `viewport 375x812` ve `viewport 375 812` ayni kapiya cikar.
+  bayrak exit 2. `-D` ayni kapsamin (-i / tam) son snapshot'iyla karsilastirir.
+  `viewport 375x812` ve `viewport 375 812` ayni kapiya cikar.
 - `bin/gstack-env` - her bash blogunun ilk satirinda source edilir: salt okunur
   kaynagi `$HOME/.gstack/core` altina +x'li kopyalar (claude.ai dosyalari 644 yazar),
   sonra `GS`, `B`, `D` disari verir. Ikinci source kopyalamaz.

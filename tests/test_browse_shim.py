@@ -282,3 +282,40 @@ def test_viewport_gecersiz_girdi_tek_satir_hata(ev):
     assert r.returncode == 1
     assert "Traceback" not in r.stderr
     assert len([s for s in r.stderr.splitlines() if s.strip()]) == 1, r.stderr
+
+
+# --- KURULUM-9e: -D kapsam basina karsilastirir ---
+
+YENI_BUTON_JS = ("(() => { const b = document.createElement('button');"
+                 " b.id = 'yeni'; b.textContent = 'YENI_BUTON';"
+                 " document.body.appendChild(b); return 'ok'; })()")
+
+
+def test_D_dar_kayitla_tam_listeyi_karsilastirmaz(tek_ev):
+    """tam -> -i -> (DOM ayni) -D : sahte diff degil, fark yok."""
+    kos("goto", SAYFA, ortam=tek_ev)
+    kos("snapshot", ortam=tek_ev)
+    kos("snapshot", "-i", ortam=tek_ev)
+    r = kos("snapshot", "-D", ortam=tek_ev)
+    assert r.returncode == 0, r.stderr
+    assert "fark yok" in r.stdout, r.stdout
+
+
+def test_D_i_kapsaminda_yalniz_eklenen_butonu_gosterir(tek_ev):
+    kos("goto", SAYFA, ortam=tek_ev)
+    kos("snapshot", ortam=tek_ev)          # tam kayit; dar kapsami etkilememeli
+    kos("snapshot", "-i", ortam=tek_ev)
+    assert kos("js", YENI_BUTON_JS, ortam=tek_ev).returncode == 0
+    fark = kos("snapshot", "-i", "-D", ortam=tek_ev).stdout
+    arti = [s for s in fark.splitlines() if s.startswith("+") and not s.startswith("+++")]
+    eksi = [s for s in fark.splitlines() if s.startswith("-") and not s.startswith("---")]
+    assert len(arti) == 1 and "YENI_BUTON" in arti[0], fark
+    assert eksi == [], fark
+
+
+def test_D_kapsamda_kayit_yoksa_once_yok_der(tek_ev):
+    kos("goto", SAYFA, ortam=tek_ev)
+    kos("snapshot", ortam=tek_ev)          # yalniz tam kapsami doldurur
+    ilk_dar = kos("snapshot", "-i", "-D", ortam=tek_ev)
+    assert "onceki snapshot yok" in ilk_dar.stdout, ilk_dar.stdout
+    assert "Gonder" in ilk_dar.stdout
