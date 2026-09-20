@@ -33,6 +33,9 @@ YANLIS_ALARM = [
     ("skill-ui-cli.zip", "claude", r"--target ~/\.claude/skills", "CLI hedef dizini örneği"),
     # KURULUM-8 · "yol": düz metin örnek — bağlantı değil, anlatımdaki örnek yol
     ("plugin-dev-skill-development.zip", "yol", r".", "skill yazmayı anlatan öğretici; tüm yollar örnek"),
+    # KURULUM-10 . "yol": plugin-dev komut/agent metinlerinde anlatimdaki ornek dizin adlari
+    ("plugin-dev-create-plugin.zip", "yol", r"^(references/(examples)?|\.\./new-plugin-name)$", "plugin iskeletini anlatan ornek yollar"),
+    ("plugin-dev-skill-reviewer.zip", "yol", r"^(references|examples|scripts)/(references|\[filename)?$", "skill denetim listesindeki ornek dizin adlari"),
     ("agent-skills-git-workflow-and-versioning.zip", "yol", r"^\.\./project-feature-[ab]$", "worktree anlatımında örnek dizin"),
     ("dotnet-aspnetcore-minimal-api-file-upload.zip", "yol", r"etc/passwd", "path traversal saldırı örneği"),
     ("dotnet-msbuild-msbuild-antipatterns.zip", "yol", r"^\.\./\.\./build/common\.props$", "örnek proje düzeni"),
