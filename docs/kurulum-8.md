@@ -312,6 +312,15 @@ Sync-off bloğu koşuldu: synced 149/149, `skillOverrides` off **73 → 221** (+
 - **b) Aktif kopyası ≥2 olan 10 ad:** algorithmic-art · brand-guidelines · doc-coauthoring · internal-comms · slack-gif-creator · writing-plans (plugin + synced); frontend-design · skill-creator · test-driven-development · mem-search (iki plugin). Yalnız mem-search 148'in içinde.
 - **c) Aktif toplam 397** (`/context`, 35.5k token) = 351 disk kopyası + 36 plugin slash-komutu + 11 yerleşik. Dosya envanteri 363 ham kopya sayıyor; fark 12+1: 6 bare-ad override'ın synced kopyayı da kapatması, 6 kayıtsız plugin skill'i (yukarıda), 1 hookify ad farkı (`writing-rules` ↔ `Writing Hookify Rules`). Beklenen 396'ya göre **+1 = omer-kutuphaneler**; Ömer'in oturumundaki 401 bu ortamda üretilemedi, 4 fark doğrulanamadı.
 - **d) Aktif skill name+description = 112.435 karakter / SLASH_COMMAND_TOOL_CHAR_BUDGET 106.983 = %105,1.** Bütçe aşılmış görünüyor ama `/context` "excluded" uyarısı basmıyor — eşik bu değerle uygulanmıyor.
+- **e) `dist/yukle-8` silindi ve geri üretildi.** 8c'de `tools/yukle8.py` import edilince modül düzeyindeki `main()` koştu, `shutil.rmtree(OUT)` 141 zip'i sildi (3 kaldı); `main()` artık `if __name__ == "__main__"` altında, yeni `--synced-dahil` bayrağıyla 149 yeniden üretilip 8b'nin 8 adı silindi → **141 · 0 hata**, dist **318 · 0 hata**; zip içerikleri synced kopyayla **sha256 138/141 birebir**, kalan 3 fark düzeltilmedi: graphify (+`.graphify_version`) ve notebooklm (+`.gitignore`) claude.ai'nin attığı nokta dosyalar, omer-kutuphaneler yalnız satır sonu (zip CRLF / synced LF, LF'e normalize edilince eşit).
+- **f) Bütçe 106.983 → 130.000** (Ömer, settings.json): `/context` **406 skill · 42,7k token** (önce 401 · 35,5k). 406 = 401 + 14 − 6 − 3 — +14 synced açıldı, −6 çift synced off, −3 dotnet-test'in `user-invocable: false` synced kopyaları da listelenmiyor.
+
+Geri üretim komutu — `--synced-dahil` tek başına 196 aday veriyor (synced artık 313 = 8 öncesi 164 + yüklenen 149), bu yüzden 149'luk liste yukarıdaki tablodan `YUKLE_SADECE` ile veriliyor; kaynak adı 3'ünde farklı (`claude-api` · `claude-md-improver` · `claude-opus-4-5-migration`), `omer-kutuphaneler` yerelde kalmadığı için synced kopyadan geliyor:
+
+```bash
+YUKLE_SADECE="<tablodaki 149 kaynak adı, virgülle>" python tools/yukle8.py <tmp> --synced-dahil
+# sonra 8b'deki 8 zip adı dist/yukle-8'den silinir → 141
+```
 
 ### (a.1) için tek blok — PowerShell
 

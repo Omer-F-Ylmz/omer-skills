@@ -40,7 +40,7 @@ def skill_adi(d):
     return d.name
 
 
-def envanter():
+def envanter(synced_dahil=False):
     inst = json.loads((H / "plugins/installed_plugins.json").read_text(encoding="utf-8"))["plugins"]
     decl = {}
     for mk in (H / "plugins/marketplaces").iterdir():
@@ -71,8 +71,14 @@ def envanter():
             cand.setdefault(skill_adi(d), []).append((pname, d))
     loc = {skill_adi(d): ("", d) for d in (H / "skills").iterdir()
            if d.is_dir() and d.name != "synced" and (d / "SKILL.md").exists()}
-    syn = {skill_adi(d) for d in SYNC.iterdir() if d.is_dir()} | {d.name for d in SYNC.iterdir() if d.is_dir()}
+    syn = set() if synced_dahil else (
+        {skill_adi(d) for d in SYNC.iterdir() if d.is_dir()} | {d.name for d in SYNC.iterdir() if d.is_dir()})
     gstack = set(loc) - PERSONAL - {"gstack"}
+    if synced_dahil:
+        # --synced-dahil: synced dislamasi atlanir; yerelde kalmamis skill icin synced kopya son care kaynak
+        for d in SYNC.iterdir():
+            if d.is_dir() and (d / "SKILL.md").exists():
+                loc.setdefault(skill_adi(d), ("", d))
     cowork = {n for n, ps in cand.items() if {p for p, _ in ps} == {"claude-mem-cowork"}}
     secili = {}
     for ad, ps in cand.items():
@@ -238,9 +244,10 @@ def ref_skillmd(stage, ad, rapor):
             f.write_text(t2, encoding="utf-8")
 
 
-def main():
-    secili, ist = envanter()
-    tmp = Path(sys.argv[1] if len(sys.argv) > 1 else r"C:\Users\pc\AppData\Local\Temp\yukle8tmp")
+def main(argv):
+    secili, ist = envanter("--synced-dahil" in argv)
+    konum = [a for a in argv if not a.startswith("--")]
+    tmp = Path(konum[0] if konum else r"C:\Users\pc\AppData\Local\Temp\yukle8tmp")
     if tmp.exists():
         shutil.rmtree(tmp)
     if OUT.exists():
@@ -274,4 +281,5 @@ def main():
     print("rapor", len(rapor), "->", str(tmp / "_rapor.txt"))
 
 
-main()
+if __name__ == "__main__":
+    main(sys.argv[1:])
