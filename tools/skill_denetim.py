@@ -87,6 +87,10 @@ def denetle(z, dist, uygulanan, uyarilar, uyarilar_claude):
     ad = kok.pop()
     if f"{ad}/SKILL.md" not in ents:
         return ad, [("yapı", f"{ad}/SKILL.md yok")]
+    # claude.ai: "Zip must contain exactly one SKILL.md file"
+    skillmd = [e for e in ents if not e.endswith("/") and posixpath.basename(e).lower() == "skill.md"]
+    if len(skillmd) != 1:
+        hatalar.append(("SKILL.md sayısı", f"{len(skillmd)}: {', '.join(skillmd)}"))
     files = {e.rstrip("/") for e in ents}
     zf = zipfile.ZipFile(z)
     # claude.ai Add ekranı ret kuralları
@@ -124,6 +128,13 @@ def denetle(z, dist, uygulanan, uyarilar, uyarilar_claude):
         return ad, [("frontmatter", "YAML okunamadı")]
     if fm.get("name") != ad:
         hatalar.append(("name", f"name={fm.get('name')!r} ≠ klasör {ad!r}"))
+    # claude.ai: name'de ayrılmış sözcük yasak; name/description XML etiketi sayılan <> içeremez
+    for kelime in ("claude", "anthropic"):
+        if kelime in str(fm.get("name") or "").lower():
+            hatalar.append(("ayrılmış sözcük", f"name={fm.get('name')!r} · {kelime!r}"))
+    for anahtar in ("name", "description"):
+        if re.search(r"[<>]", str(fm.get(anahtar) or "")):
+            hatalar.append(("açılı parantez", f"{anahtar} < ya da > içeriyor"))
     dl = len(str(fm.get("description") or "").strip())
     if not 1 <= dl <= 200:
         hatalar.append(("description", f"{dl} karakter"))

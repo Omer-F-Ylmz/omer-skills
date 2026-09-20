@@ -37,11 +37,29 @@ Zip kuralı (7c/7f yöntemi): `<plugin>-<ad>.zip`, içi `<ad>/SKILL.md` · `desc
 
 Üretimde uygulanan düzeltmeler: **119 description kısaltması** · **24 referans** skill dışından `_ref/` altına kopyalandı (ör. `security-assessment/_ref/security-reviewer/checklists/*`) · **1 `name` düzeltmesi** · **3 frontmatter üretimi** (everything-claude-code'un eval-harness, project-guidelines-example, verification-loop dosyalarında hiç frontmatter yoktu — H1 + ilk paragraftan üretildi). `${CLAUDE_PLUGIN_ROOT}` → `$(ls -d /mnt/skills/*/<ad> | head -1)`.
 
+KURULUM-8b'de eklenen üç düzeltme (`tools/yukle8.py`):
+
+1. **Kök dışındaki her `SKILL.md` → `SKILL.ref.md`** (`ref_skillmd`). `referans_getir` başka bir skill'i `_ref/` altına kopyaladığında zip'te birden çok `SKILL.md` oluşuyordu; claude.ai tam olarak bir tane istiyor. Yeniden adlandırılan dosyaya **gerçekten çözülen** başvurular güncelleniyor (dosyaya göreli + kök göreli), çözülmeyene dokunulmuyor — 8b'de 5 başvuru güncellendi, 0 kırık.
+2. **Üç yeniden adlandırma** (`YENI_AD`): `claude-api` → `messages-api-sdk` · `claude-md-improver` → `memory-md-improver` · `claude-opus-4-5-migration` → `opus-4-5-migration`. Yalnız **zip içi `name` + klasör** değişir; `/mnt/skills/*/<ad>` yolları yeni adla üretilir, `description` aynen kalır. CC plugin adlarına ve kaynak skill'lere dokunulmadı (zip dosya adı `<plugin>-<yeni ad>.zip`).
+3. **`description`'da açılı parantez yok**: `<…>` içeriği parantezsiz yazılır (`<file>` → `file`), `->`/`<-` ok işaretine (`→`/`←`) çevrilir. Anlam korunur.
+
 ```
-python tools/skill_denetim.py dist/yukle-8
-149 zip (parti-1..7 ×20, parti-8 9) · 0 hata · 0 CRLF uyarısı · 53 ~/.claude uyarısı · 62 yanlış alarm
-python tools/skill_denetim.py dist        → 318 zip · 0 hata (gerileme yok)
+python tools/skill_denetim.py dist/yukle-8    → 141 zip · 0 hata · 53 ~/.claude uyarısı
+python tools/skill_denetim.py dist/yukle-8b   → 8 zip · 0 hata (yama partisi)
+python tools/skill_denetim.py dist            → 318 zip · 0 hata (gerileme yok)
 ```
+
+**claude.ai'de yüklü 141/149; yama 8 (`dist/yukle-8b`).** claude.ai Add ekranı bu 8'i üç gerekçeyle reddetti; kapıya üç kural, zip üretimine üç düzeltme eklendi (aşağıda). Eski 8 zip `dist/yukle-8`'den silindi, orada 141 kaldı.
+
+### tools/skill_denetim.py · KURULUM-8b kapısı (claude.ai ret kuralları)
+
+Üçü de claude.ai Add ekranının kendi hata metninden; kalibrasyon (eski 8 zip silinmeden): **8 zip'te beklenen hatalar, diğer 141'de 0**.
+
+1. **Zip'te tam olarak bir `SKILL.md`** (basename, büyük/küçük harf fark etmez) — *"Zip must contain exactly one SKILL.md file. Currently there are N"*.
+2. **`name`'de `claude`/`anthropic` yok** — *"Skill name in SKILL.md cannot contain the reserved word 'claude'"*.
+3. **`name` ve `description`'da `<` ya da `>` yok** — *"SKILL.md description cannot contain XML tags"*. (Kural claude.ai'den katı: `tm-security-review`'in `->` okları claude.ai'yi geçerdi ama kapı yakaladı, o da düzeltildi.)
+
+Yeni kapı **dist'in tamamında** (318 zip) koşturuldu: eski partilerde hata yok, düzeltme gerekmedi.
 
 ### tools/skill_denetim.py · KURULUM-8 incelmeleri
 
@@ -81,8 +99,8 @@ python tools/skill_denetim.py dist        → 318 zip · 0 hata (gerileme yok)
 | agent-skills | shipping-and-launch | yukle-8 | evet | 6 |
 | agent-skills | source-driven-development | yukle-8 | evet | 6 |
 | andrej-karpathy-skills | karpathy-guidelines | yukle-8 | evet | 4 |
-| claude-api | claude-api | yukle-8 | evet | 1 |
-| claude-md-management | claude-md-improver | yukle-8 | evet | 1 |
+| claude-api | messages-api-sdk | yukle-8b · ret: "reserved word 'claude'" → zip içi ad `messages-api-sdk` | evet | 1 |
+| claude-md-management | memory-md-improver | yukle-8b · ret: "reserved word 'claude'" → zip içi ad `memory-md-improver` | evet | 1 |
 | claude-mem | babysit | yukle-8 | hayır | 1 |
 | claude-mem | ccs-align | yukle-8 | hayır | 1 |
 | claude-mem | cloud-sync | yukle-8 | hayır | 2 |
@@ -102,8 +120,8 @@ python tools/skill_denetim.py dist        → 318 zip · 0 hata (gerileme yok)
 | claude-mem | version-bump | yukle-8 | evet | 7 |
 | claude-mem | weekly-digests | yukle-8 | hayır | 8 |
 | claude-mem | what-the | yukle-8 | evet | 8 |
-| claude-mem | wowerpoint | yukle-8 | evet | 8 |
-| claude-opus-4-5-migration | claude-opus-4-5-migration | yukle-8 | evet | 1 |
+| claude-mem | wowerpoint | yukle-8b · ret: "description cannot contain XML tags" → description'daki `<file>` açılı parantezsiz | evet | 1 |
+| claude-opus-4-5-migration | opus-4-5-migration | yukle-8b · ret: "reserved word 'claude'" → zip içi ad `opus-4-5-migration` | evet | 1 |
 | design-mastery | design-principles | yukle-8 | evet | 2 |
 | discernment-nudge | discernment-nudge | yukle-8 | evet | 3 |
 | dotnet-aspnetcore | configuring-opentelemetry-dotnet | yukle-8 | evet | 2 |
@@ -188,19 +206,19 @@ python tools/skill_denetim.py dist        → 318 zip · 0 hata (gerileme yok)
 | phoenix-readiness-reviews | production-readiness-review | yukle-8 | evet | 6 |
 | phoenix-sast-rules | opengrep-rule-generator | yukle-8 | evet | 5 |
 | phoenix-sast-rules | opengrep-rule-generator-research | yukle-8 | evet | 5 |
-| phoenix-security-review | 0day-scanner | yukle-8 | evet | 1 |
+| phoenix-security-review | 0day-scanner | yukle-8b · ret: "exactly one SKILL.md … there are 2" → `_ref/**/SKILL.md` → `SKILL.ref.md` | evet | 1 |
 | phoenix-security-review | security-assessment | yukle-8 | evet | 6 |
 | phoenix-security-review | security-reviewer | yukle-8 | evet | 6 |
 | phoenix-security-review | threat-modeling | yukle-8 | evet | 7 |
-| phoenix-security-review | tm-quick-security-assessment | yukle-8 | evet | 7 |
-| phoenix-security-review | tm-security-review | yukle-8 | evet | 7 |
+| phoenix-security-review | tm-quick-security-assessment | yukle-8b · ret: "… there are 3" → `_ref/**/SKILL.md` → `SKILL.ref.md` | evet | 1 |
+| phoenix-security-review | tm-security-review | yukle-8b · ret: "… there are 3" → `_ref/**/SKILL.md` → `SKILL.ref.md`; ayrıca description'daki `->` → `→` | evet | 1 |
 | plugin-dev | agent-development | yukle-8 | evet | 1 |
 | plugin-dev | command-development | yukle-8 | evet | 2 |
 | plugin-dev | hook-development | yukle-8 | evet | 4 |
 | plugin-dev | mcp-integration | yukle-8 | evet | 4 |
 | plugin-dev | plugin-settings | yukle-8 | evet | 5 |
 | plugin-dev | plugin-structure | yukle-8 | evet | 6 |
-| plugin-dev | skill-development | yukle-8 | evet | 6 |
+| plugin-dev | skill-development | yukle-8b · ret: "… there are 7" → `_ref/**/SKILL.md` → `SKILL.ref.md` | evet | 1 |
 | supabase | supabase | yukle-8 | evet | 7 |
 | supabase | supabase-postgres-best-practices | yukle-8 | evet | 7 |
 | superpowers | brainstorming | yukle-8 | evet | 1 |
@@ -266,13 +284,13 @@ python tools/skill_denetim.py dist        → 318 zip · 0 hata (gerileme yok)
 
 ## Sync sonrası tek blok — **ŞİMDİ KOŞMA**
 
-yukle-8 claude.ai'ye yüklenip CC'ye sync olduktan sonra, plugin kopyası açık olan 148 ad için synced kopyayı kapatır (`omer-kutuphaneler` hariç — onun plugin kopyası yok):
+yukle-8 **ve yukle-8b** claude.ai'ye yüklenip CC'ye sync olduktan sonra, plugin kopyası açık olan 148 ad için synced kopyayı kapatır (`omer-kutuphaneler` hariç — onun plugin kopyası yok):
 
 ```powershell
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $p = "$env:USERPROFILE\.claude\settings.json"
 $s = Get-Content $p -Raw | ConvertFrom-Json
-Get-ChildItem "C:\Projeler\omer-skills\dist\yukle-8" -Recurse -Filter *.zip | ForEach-Object {
+Get-ChildItem @("C:\Projeler\omer-skills\dist\yukle-8", "C:\Projeler\omer-skills\dist\yukle-8b") -Recurse -Filter *.zip | ForEach-Object {
   $z = [IO.Compression.ZipFile]::OpenRead($_.FullName)
   $ad = $z.Entries[0].FullName.Split('/')[0]
   $z.Dispose()
