@@ -15,6 +15,11 @@ theme-factory mcp-builder skill-creator docs import-memory morning docx pdf pptx
 frontend-design file-reading pdf-reading""".split())
 # (zip deseni, tür, öğe deseni, gerekçe) — tür "yol": SKILL.md'deki göreli yol; "claude": "dosya: satır" metni; "manifest": zip öğesi
 YANLIS_ALARM = [
+    # GSTACK-AI · "yol": SKILL.md gövdesindeki örnek/çıktı adları, pakete girmesi gereken dosya değil
+    ("gstack-document-release.zip", "yol", r"^reference/how-to/tutorial/explanation$", "Diátaxis doküman tipleri listesi, dosya yolu değil"),
+    ("gstack-landing-report.zip", "yol", r"^\.\./(melbourne|osaka|tokyo-v2)$", "örnek worktree adları; kullanıcının kendi deposunda oluşur"),
+    ("gstack-make-pdf.zip", "yol", r"^(arch|data|shot)\.png$", "markdown gömme örneği; kullanıcının kendi görselleri"),
+    ("gstack-ship.zip", "yol", r"^scripts/gen-agents-digest\.ts$", "kullanıcının kendi deposundaki isteğe bağlı script; yoksa adım atlanır"),
     ("one-skill-to-rule-them-all-task-observer.zip", "manifest", r"/\.tessl-plugin/plugin\.json$", "tessl manifest'i; claude.ai kurulum-7'de reddetmedi"),
     ("claude-design-skills-ux-research.zip", "claude", r"`~/\.claude/skills/` for local skills", "Obsidian/kişisel kurulum bölümü; repo dışı olarak belgelenmiş"),
     ("policy-monitor.zip", "claude", r"~/\.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE\.md", "isteğe bağlı profil; dosya yoksa profilsiz çalışır"),

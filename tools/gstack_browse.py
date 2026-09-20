@@ -1,0 +1,333 @@
+#!/usr/bin/env python3
+"""gstack $B (browse) yerine gecen claude.ai shim'i -- Python 3 + playwright.
+
+Ayni dosya hem istemci hem sunucu. Ilk cagri arka planda tek bir tarayici
+sunucusu baslatir; sayfa durumu cagrilar arasinda korunur, 15 dk boslukta kapanir.
+Kapsam disi komutlar "claude.ai'de desteklenmez" basip exit 2 doner.
+"""
+import json
+import os
+import socket
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+BOSTA_SN = 15 * 60
+KAPSAM = (
+    "goto snapshot click fill press text js eval console screenshot wait viewport "
+    "reload back url links html status closetab pdf responsive perf stop"
+).split()
+# Yol argumani alan komutlar: istemci tarafinda mutlaklastirilir (sunucunun cwd'si farkli).
+YOL_ALAN = {"screenshot", "pdf", "responsive"}
+
+SNAPSHOT_JS = r"""(isaretle) => {
+  const sec = 'a,button,input,select,textarea,[role=button],[role=link],[onclick],[contenteditable=true]';
+  document.querySelectorAll('[data-gsref]').forEach(e => e.removeAttribute('data-gsref'));
+  const cikti = []; let n = 0;
+  for (const el of document.querySelectorAll(sec)) {
+    const r = el.getBoundingClientRect();
+    if (!r.width && !r.height) continue;
+    n += 1;
+    const ref = 'e' + n;
+    if (isaretle) el.setAttribute('data-gsref', ref);
+    const ham = el.getAttribute('aria-label') || el.getAttribute('placeholder') ||
+                el.value || el.innerText || el.id || '';
+    const etiket = String(ham).replace(/\s+/g, ' ').trim().slice(0, 80);
+    cikti.push('@' + ref + ' ' + el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') +
+               ' "' + etiket + '"');
+  }
+  return cikti.join('\n');
+}"""
+
+PERF_JS = """() => {
+  const n = performance.getEntriesByType('navigation')[0];
+  return n ? {dom: Math.round(n.domContentLoadedEventEnd),
+              load: Math.round(n.loadEventEnd), tip: n.type} : {};
+}"""
+
+
+def ev_dizini():
+    d = Path(os.environ.get("GSTACK_BROWSE_HOME") or (Path.home() / ".gstack"))
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def unix_soket_var():
+    return hasattr(socket, "AF_UNIX") and os.name != "nt"
+
+
+# --------------------------------------------------------------------------- sunucu
+
+class Oturum:
+    """Tek tarayici + tek sayfa; komutlari calistirir."""
+
+    def __init__(self):
+        from playwright.sync_api import sync_playwright
+        self.pw = sync_playwright().start()
+        self.tarayici = self.pw.chromium.launch()
+        self.baglam = self.tarayici.new_context()
+        self.sayfa = self.baglam.new_page()
+        self.konsol = []
+        self._konsol_bagla()
+
+    def _konsol_bagla(self):
+        self.sayfa.on("console", lambda m: self.konsol.append(m.type + ": " + m.text))
+
+    def _hedef(self, secici):
+        if secici.startswith("@"):
+            return self.sayfa.locator('[data-gsref="' + secici[1:] + '"]')
+        return self.sayfa.locator(secici)
+
+    def calistir(self, komut, args):
+        s = self.sayfa
+        if komut == "goto":
+            self.konsol.clear()
+            s.goto(args[0], wait_until="load")
+            return s.url
+        if komut == "url":
+            return s.url
+        if komut == "text":
+            return s.inner_text("body")
+        if komut == "html":
+            return s.content()
+        if komut == "snapshot":
+            return s.evaluate(SNAPSHOT_JS, "-i" in args)
+        if komut == "click":
+            self._hedef(args[0]).click()
+            return "tiklandi: " + args[0]
+        if komut == "fill":
+            self._hedef(args[0]).fill(args[1] if len(args) > 1 else "")
+            return "dolduruldu: " + args[0]
+        if komut == "press":
+            if len(args) > 1:
+                self._hedef(args[0]).press(args[1])
+            else:
+                s.keyboard.press(args[0])
+            return "basildi: " + args[-1]
+        if komut in ("js", "eval"):
+            return json.dumps(s.evaluate(args[0]), ensure_ascii=False)
+        if komut == "console":
+            return "\n".join(self.konsol) or "(konsol bos)"
+        if komut == "screenshot":
+            hedef = args[0] if args else "screenshot.png"
+            s.screenshot(path=hedef, full_page=True)
+            return hedef
+        if komut == "pdf":
+            hedef = args[0] if args else "sayfa.pdf"
+            s.pdf(path=hedef)
+            return hedef
+        if komut == "wait":
+            if args and args[0].isdigit():
+                s.wait_for_timeout(int(args[0]))
+            elif args:
+                s.wait_for_selector(args[0])
+            else:
+                s.wait_for_load_state("networkidle")
+            return "beklendi"
+        if komut == "viewport":
+            s.set_viewport_size({"width": int(args[0]), "height": int(args[1])})
+            return "viewport: " + args[0] + "x" + args[1]
+        if komut == "reload":
+            s.reload(wait_until="load")
+            return s.url
+        if komut == "back":
+            s.go_back()
+            return s.url
+        if komut == "links":
+            baglar = s.eval_on_selector_all(
+                "a[href]", "es => es.map(e => e.href + ' :: ' + e.innerText.trim())")
+            return "\n".join(baglar) or "(bag yok)"
+        if komut == "responsive":
+            onek = args[0] if args else "responsive"
+            yollar = []
+            for g in (390, 768, 1440):
+                s.set_viewport_size({"width": g, "height": 900})
+                p = onek + "-" + str(g) + ".png"
+                s.screenshot(path=p, full_page=True)
+                yollar.append(p)
+            return "\n".join(yollar)
+        if komut == "perf":
+            return json.dumps(s.evaluate(PERF_JS), ensure_ascii=False)
+        if komut == "status":
+            return "url: %s\nkonsol: %d mesaj\ntarayici: chromium (headless)" % (
+                s.url, len(self.konsol))
+        if komut == "closetab":
+            self.sayfa.close()
+            self.sayfa = self.baglam.new_page()
+            self.konsol = []
+            self._konsol_bagla()
+            return "sekme kapatildi"
+        raise ValueError(komut)
+
+    def kapat(self):
+        for f in (self.baglam.close, self.tarayici.close, self.pw.stop):
+            try:
+                f()
+            except Exception:
+                pass
+
+
+def _satir_oku(baglanti):
+    ham = b""
+    while not ham.endswith(b"\n"):
+        parca = baglanti.recv(65536)
+        if not parca:
+            break
+        ham += parca
+    return ham
+
+
+def sunucu():
+    d = ev_dizini()
+    if unix_soket_var():
+        yol = d / "browse.sock"
+        if yol.exists():
+            yol.unlink()
+        srv = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        srv.bind(str(yol))
+    else:
+        srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        srv.bind(("127.0.0.1", 0))
+        gecici = d / "browse.port.tmp"
+        gecici.write_text(str(srv.getsockname()[1]), encoding="utf-8")
+        os.replace(str(gecici), str(d / "browse.port"))
+    srv.listen(8)
+    srv.settimeout(30)
+
+    oturum = Oturum()
+    son = time.time()
+    try:
+        while True:
+            try:
+                baglanti, _ = srv.accept()
+            except socket.timeout:
+                if time.time() - son > BOSTA_SN:
+                    return
+                continue
+            son = time.time()
+            with baglanti:
+                ham = _satir_oku(baglanti)
+                if not ham.strip():
+                    continue
+                istek = json.loads(ham.decode("utf-8"))
+                if istek["cmd"] == "stop":
+                    baglanti.sendall(json.dumps(
+                        {"code": 0, "out": "sunucu kapatildi", "err": ""}).encode("utf-8") + b"\n")
+                    return
+                try:
+                    yanit = {"code": 0, "out": str(oturum.calistir(istek["cmd"], istek["args"])),
+                             "err": ""}
+                except Exception as hata:
+                    yanit = {"code": 1, "out": "",
+                             "err": type(hata).__name__ + ": " + str(hata)}
+                baglanti.sendall(json.dumps(yanit, ensure_ascii=False).encode("utf-8") + b"\n")
+    finally:
+        oturum.kapat()
+        try:
+            (d / ("browse.sock" if unix_soket_var() else "browse.port")).unlink()
+        except OSError:
+            pass
+
+
+# --------------------------------------------------------------------------- istemci
+
+def baglan(d):
+    if unix_soket_var():
+        yol = d / "browse.sock"
+        if not yol.exists():
+            return None
+        s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        hedef = str(yol)
+    else:
+        p = d / "browse.port"
+        if not p.exists():
+            return None
+        try:
+            hedef = ("127.0.0.1", int(p.read_text(encoding="utf-8").strip()))
+        except (OSError, ValueError):
+            return None
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(300)
+    try:
+        s.connect(hedef)
+        return s
+    except OSError:
+        s.close()
+        return None
+
+
+def sunucu_baslat(d):
+    """Yarisi onlemek icin O_EXCL kilidi; bayat kilit 90 sn sonra devralinir."""
+    kilit = d / "browse.lock"
+    try:
+        os.close(os.open(str(kilit), os.O_CREAT | os.O_EXCL | os.O_WRONLY))
+    except FileExistsError:
+        if time.time() - kilit.stat().st_mtime < 90:
+            return
+        kilit.touch()
+    ek = {}
+    if os.name == "nt":
+        ek["creationflags"] = 0x00000008 | 0x00000200  # DETACHED_PROCESS | NEW_PROCESS_GROUP
+    else:
+        ek["start_new_session"] = True
+    subprocess.Popen(
+        [sys.executable, os.path.abspath(__file__), "--serve"],
+        stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        env=os.environ, **ek)
+
+
+def istemci(komut, args):
+    d = ev_dizini()
+    baglanti = baglan(d)
+    if baglanti is None:
+        if komut == "stop":
+            print("sunucu zaten kapali")
+            return 0
+        sunucu_baslat(d)
+        bitis = time.time() + 120
+        while baglanti is None and time.time() < bitis:
+            time.sleep(0.3)
+            baglanti = baglan(d)
+        try:
+            (d / "browse.lock").unlink()
+        except OSError:
+            pass
+        if baglanti is None:
+            sys.stderr.write("browse: tarayici sunucusu baslatilamadi\n")
+            return 1
+    with baglanti:
+        baglanti.sendall(json.dumps(
+            {"cmd": komut, "args": args}, ensure_ascii=False).encode("utf-8") + b"\n")
+        ham = _satir_oku(baglanti)
+    if not ham.strip():
+        sys.stderr.write("browse: sunucudan yanit gelmedi\n")
+        return 1
+    yanit = json.loads(ham.decode("utf-8"))
+    if yanit["out"]:
+        print(yanit["out"])
+    if yanit["err"]:
+        sys.stderr.write(yanit["err"] + "\n")
+    return yanit["code"]
+
+
+def main(argv):
+    if argv and argv[0] == "--serve":
+        sunucu()
+        return 0
+    if not argv:
+        sys.stderr.write("kullanim: browse <komut> [arg...]\nkapsam: " + " ".join(KAPSAM) + "\n")
+        return 2
+    komut, args = argv[0], list(argv[1:])
+    if komut not in KAPSAM:
+        sys.stderr.write(
+            "browse: '" + komut + "' claude.ai'de desteklenmez (kapsam disi).\n"
+            "Desteklenen komutlar: " + " ".join(KAPSAM) + "\n")
+        return 2
+    if komut in YOL_ALAN and args:
+        args[0] = os.path.abspath(args[0])
+    return istemci(komut, args)
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

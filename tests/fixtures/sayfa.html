@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>gstack shim test</title>
+<body>
+<h1>SAYFA_ISARETCISI</h1>
+<p id="durum">durum: baslangic</p>
+<button id="btn">Gonder</button>
+<input id="ad" type="text" value="">
+<a href="https://ornek.test/bir">Bir bag</a>
+<script>
+console.log("KONSOL_ISARETCISI");
+document.getElementById("btn").addEventListener("click", function () {
+  document.getElementById("durum").textContent = "durum: TIKLANDI";
+});
+</script>
+</body>
