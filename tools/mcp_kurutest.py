@@ -8,6 +8,7 @@ import json, os, subprocess, sys, threading, queue, time
 TIMEOUT = 90
 
 def dene(ad, komut, argv, env_ek, temizle=()):
+    t0 = time.time()
     env = os.environ.copy()
     for k in temizle:
         env.pop(k, None)
@@ -17,7 +18,7 @@ def dene(ad, komut, argv, env_ek, temizle=()):
                              stderr=subprocess.PIPE, env=env, text=True, encoding="utf-8",
                              errors="replace", bufsize=1)
     except Exception as e:
-        return {"ad": ad, "durum": "BASLAMADI", "hata": f"{type(e).__name__}: {e}", "arac": 0}
+        return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "BASLAMADI", "hata": f"{type(e).__name__}: {e}", "arac": 0}
 
     q = queue.Queue()
     threading.Thread(target=lambda: [q.put(l) for l in p.stdout], daemon=True).start()
@@ -55,34 +56,34 @@ def dene(ad, komut, argv, env_ek, temizle=()):
         ini = bekle(1, son)
         if ini is None:
             p.kill()
-            return {"ad": ad, "durum": "INIT-YOK", "arac": 0,
+            return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "INIT-YOK", "arac": 0,
                     "hata": ("".join(hata_bufer)[-400:] or "yanit yok / surec dustu").strip()}
         if "error" in ini:
             p.kill()
-            return {"ad": ad, "durum": "INIT-HATA", "arac": 0, "hata": json.dumps(ini["error"])[:400]}
+            return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "INIT-HATA", "arac": 0, "hata": json.dumps(ini["error"])[:400]}
 
         gonder({"jsonrpc": "2.0", "method": "notifications/initialized"})
         gonder({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         tl = bekle(2, son)
         p.kill()
         if tl is None:
-            return {"ad": ad, "durum": "TOOLS-YOK", "arac": 0,
+            return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "TOOLS-YOK", "arac": 0,
                     "hata": ("".join(hata_bufer)[-400:] or "tools/list yanitsiz").strip()}
         if "error" in tl:
-            return {"ad": ad, "durum": "TOOLS-HATA", "arac": 0, "hata": json.dumps(tl["error"])[:400]}
+            return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "TOOLS-HATA", "arac": 0, "hata": json.dumps(tl["error"])[:400]}
         araclar = tl.get("result", {}).get("tools", [])
         srv = ini.get("result", {}).get("serverInfo", {})
-        return {"ad": ad, "durum": "OK", "arac": len(araclar),
+        return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "OK", "arac": len(araclar),
                 "sunucu": f"{srv.get('name','?')} {srv.get('version','')}".strip(),
                 "ornek": [a.get("name") for a in araclar[:3]]}
     except Exception as e:
         try: p.kill()
         except Exception: pass
-        return {"ad": ad, "durum": "ISTISNA", "arac": 0, "hata": f"{type(e).__name__}: {e}"}
+        return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "ISTISNA", "arac": 0, "hata": f"{type(e).__name__}: {e}"}
 
 
 def yukle():
-    cfg = json.load(open(os.path.expanduser("~/.claude.json"), encoding="utf-8"))
+    cfg = json.load(open(os.path.expanduser(os.environ.get("K11_CFG", "~/.claude.json")), encoding="utf-8"))
     return cfg.get("mcpServers", {})
 
 
@@ -97,11 +98,11 @@ if __name__ == "__main__":
         argv = [os.path.expandvars(a) for a in tanim.get("args", [])]
         r = dene(ad, tanim["command"], argv, env_ek)
         sonuc.append(r)
-        print(f"{r['durum']:<11} {ad:<26} arac={r['arac']:<4} {r.get('sunucu','')}", flush=True)
+        print(f"{r['durum']:<11} {ad:<26} arac={r['arac']:<4} {r['sure']:>6}s {r.get('sunucu','')}", flush=True)
         if r.get("hata"):
             print(f"            > {r['hata'][:300]}", flush=True)
     print("\n=== OZET ===")
     for r in sonuc:
-        print(f"{r['ad']:<26} {r['durum']:<11} {r['arac']}")
+        print(f"{r['ad']:<26} {r['durum']:<11} arac={r['arac']:<4} {r['sure']:>6}s")
     json.dump(sonuc, open(os.environ.get("K11_OUT", "kurutest.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)

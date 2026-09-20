@@ -7,6 +7,8 @@ description: "Ömer'in onayladığı frontend kütüphaneleri ve referans projel
 
 Kaynak: KURULUM-6 envanteri (19 Eyl 2026). Sürümler 20 Eyl 2026'daki npm karşılıkları.
 
+**CDN kurali:** CC'de npm satiri, Desktop/claude.ai'de **CDN** satiri kullanilir (yalniz jsDelivr, surum sabit). Her CDN satiri 20 Eyl 2026'da HTTP 200 ile dogrulandi.
+
 **Kural:** bu raftan bir şey kullanılırsa `DESIGN.md` → *Hareket* bölümüne **ad + sürüm + gerekçe** yazılır.
 Lisansı olmayanlar yalnız REF'tir: kod kopyalanmaz, fikir/yapı için okunur.
 
@@ -14,15 +16,21 @@ Lisansı olmayanlar yalnız REF'tir: kod kopyalanmaz, fikir/yapı için okunur.
 
 | kütüphane | ne işe yarar | hangi proje tipinde | pinli kurulum | lisans | context7 |
 |---|---|---|---|---|---|
-| tempus | requestAnimationFrame döngüsü yöneticisi (öncelik, özel kare hızı) | scroll/animasyon ağırlıklı landing | `npm.cmd i tempus@1.0.0` | MIT | `/darkroomengineering/tempus` |
-| lenis | smooth-scroll; WebGL ile senkron | scroll ağırlıklı landing/portfolyo | `npm.cmd i lenis@1.3.26` | MIT | `/darkroomengineering/lenis` |
-| swup | çok sayfalı sitede AJAX sayfa geçiş animasyonu | klasik MPA vitrin siteleri | `npm.cmd i swup@4.10.0` | MIT | `/swup/swup` |
-| @react-three/a11y | R3F sahnelerine odak/klavye/ekran okuyucu katmanı | erişilebilir Three.js/R3F sahnesi | `npm.cmd i @react-three/a11y@3.0.0` | MIT | `/pmndrs/react-three-a11y` |
-| @14islands/r3f-scroll-rig | R3F WebGL'i smooth scroll'a ve DOM öğelerine bağlar | scroll ağırlıklı Three.js landing | `npm.cmd i @14islands/r3f-scroll-rig@8.15.0` | ISC | `/14islands/r3f-scroll-rig` |
-| size-limit | JS bundle boyut bütçesi, CI'da aşımda hata | frontend perf bütçesi (Next.js/Vite) | `npm.cmd i -D size-limit@14.0.0` | MIT | context7'de yok |
-| @capsizecss/core | font metriğiyle öngörülebilir satır yüksekliği/boşluk | tipografi hassas tasarım sistemleri | `npm.cmd i @capsizecss/core@4.1.3` | MIT | `/seek-oss/capsize` |
-| @builder.io/partytown | 3. parti scriptleri web worker'a taşır | analytics/reklam yükü olan perf kritik siteler | `npm.cmd i @builder.io/partytown@0.10.3` | MIT | `/qwikdev/partytown` |
-| @number-flow/react | animasyonlu sayı/sayaç bileşeni | istatistik/fiyat sayacı olan arayüzler | `npm.cmd i @number-flow/react@0.6.2` | MIT | `/barvian/number-flow` |
+| tempus | requestAnimationFrame döngüsü yöneticisi (öncelik, özel kare hızı) | scroll/animasyon ağırlıklı landing | CDN `https://cdn.jsdelivr.net/npm/tempus@1.0.0/dist/tempus.js`<br>npm `npm.cmd i tempus@1.0.0` | MIT | `/darkroomengineering/tempus` |
+| lenis | smooth-scroll; WebGL ile senkron | scroll ağırlıklı landing/portfolyo | CDN `https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js`<br>npm `npm.cmd i lenis@1.3.26` | MIT | `/darkroomengineering/lenis` |
+| swup | çok sayfalı sitede AJAX sayfa geçiş animasyonu | klasik MPA vitrin siteleri | CDN `https://cdn.jsdelivr.net/npm/swup@4.10.0/dist/Swup.umd.js`<br>npm `npm.cmd i swup@4.10.0` | MIT | `/swup/swup` |
+| @react-three/a11y | R3F sahnelerine odak/klavye/ekran okuyucu katmanı | erişilebilir Three.js/R3F sahnesi | CDN `https://cdn.jsdelivr.net/npm/@react-three/a11y@3.0.0/+esm`<br>npm `npm.cmd i @react-three/a11y@3.0.0` | MIT | `/pmndrs/react-three-a11y` |
+| @14islands/r3f-scroll-rig | R3F WebGL'i smooth scroll'a ve DOM öğelerine bağlar | scroll ağırlıklı Three.js landing | CDN `https://cdn.jsdelivr.net/npm/@14islands/r3f-scroll-rig@8.15.0/+esm`<br>npm `npm.cmd i @14islands/r3f-scroll-rig@8.15.0` | ISC | `/14islands/r3f-scroll-rig` |
+| size-limit | JS bundle boyut bütçesi, CI'da aşımda hata | frontend perf bütçesi (Next.js/Vite) | npm `npm.cmd i -D size-limit@14.0.0` (CDN yok, build araci) | MIT | context7'de yok |
+| @capsizecss/core | font metriğiyle öngörülebilir satır yüksekliği/boşluk | tipografi hassas tasarım sistemleri | CDN `https://cdn.jsdelivr.net/npm/@capsizecss/core@4.1.3/+esm`<br>npm `npm.cmd i @capsizecss/core@4.1.3` | MIT | `/seek-oss/capsize` |
+| @builder.io/partytown | 3. parti scriptleri web worker'a taşır | analytics/reklam yükü olan perf kritik siteler | CDN `https://cdn.jsdelivr.net/npm/@builder.io/partytown@0.10.3/lib/partytown.js`<br>npm `npm.cmd i @builder.io/partytown@0.10.3` | MIT | `/qwikdev/partytown` |
+| @number-flow/react | animasyonlu sayı/sayaç bileşeni | istatistik/fiyat sayacı olan arayüzler | CDN `https://cdn.jsdelivr.net/npm/@number-flow/react@0.6.2/dist/index.js`<br>npm `npm.cmd i @number-flow/react@0.6.2` | MIT | `/barvian/number-flow` |
+
+### Derleme gerekir (CDN'den calismaz)
+
+- **size-limit** — CI build araci, tarayicida calismaz.
+- **satus** — proje sablonu, paket degil.
+- **utopia-core-scss** — SCSS kaynagi, derlenmeden kullanilmaz.
 
 ### Paket olarak kurulmayanlar
 

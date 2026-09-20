@@ -1,6 +1,6 @@
 ---
 name: web-sahne-desenleri
-description: "Awwwards seviyesi site desenleri: WebGL reveal, scroll'a bağlı 3D ürün pozu, helezon galeri, editoryal tipografi ve sahne kalite kapısı. Premium landing, portfolyo ya da 3D hero işinde aç."
+description: "Premium landing, portfolyo ve 3D hero isinde ac: WebGL imlec reveal, scroll'a bagli 3D urun pozu, helezon galeri, editoryal tipografi ve sahne kalite kapisi. YildizDikme referanslarinin desen dokumu."
 ---
 
 # Web sahne desenleri

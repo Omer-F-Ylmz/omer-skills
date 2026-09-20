@@ -19,6 +19,8 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
   5. Hareket — süre + easing, en fazla 3 kural (tetikleyici + kütüphane/sürüm/gerekçe)
   6. YASAK LİSTESİ
 - Yasak liste özeti (varsayılan; projeninki DESIGN.md'de, seçilen stille çelişen madde çıkar): mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · birebir "h1+p+2 buton" hero · stok illüstrasyon/3D render hissi · özellik/fayda bölümünde eşit kart tekrarı (ürün ızgarası hariç) · her bölümde aynı boşluk · aşırı glow · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
+- Çıktı hedefi: claude.ai/Desktop'ta teslim **Design** artifact türünde, tasarım sistemi gerekiyorsa **Design System** türünde; CC'de mevcut akış değişmez.
+- Kütüphane seçimi `omer-kutuphaneler` rafından; CC'de npm, Desktop'ta pinli CDN; DESIGN.md Hareket'te ad+sürüm+gerekçe; gerekçesiz kütüphane yasak.
 - Tur raporu (her tur sonu; rapor yazılmadan iş kapanmaz): `Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/nötr/vurgu hangi elemanlarda · font çifti nerede · ölçek hangi bölümlerde | sonraki adım / KAPANIŞ / DUR`
 
 ## Adım 0 · Bağımlılık
