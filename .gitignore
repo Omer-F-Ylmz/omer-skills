@@ -6,3 +6,5 @@ dist/
 graphify-out/
 logs/
 __pycache__/
+.tmp-*
+kurutest.json
