@@ -24,6 +24,8 @@ YANLIS_ALARM = [
     ("everything-claude-code-continuous-learning.zip", "claude", r"learned_skills_path|evaluate-session\.sh", "CC settings.json hook örneği"),
     ("everything-claude-code-strategic-compact.zip", "claude", r"suggest-compact\.sh", "CC settings.json hook örneği"),
     ("phoenix-cti-search-cti-domain-research.zip", "claude", r"notebooklm-connector|cti-domains\.txt", "CC eklenti/komut dosyası kurulumu"),
+    # KURULUM-9a · "claude": CLI hedef dizini örneği; --target bayrağının değeri, kurulum adımı değil
+    ("skill-ui-cli.zip", "claude", r"--target ~/\.claude/skills", "CLI hedef dizini örneği"),
     # KURULUM-8 · "yol": düz metin örnek — bağlantı değil, anlatımdaki örnek yol
     ("plugin-dev-skill-development.zip", "yol", r".", "skill yazmayı anlatan öğretici; tüm yollar örnek"),
     ("agent-skills-git-workflow-and-versioning.zip", "yol", r"^\.\./project-feature-[ab]$", "worktree anlatımında örnek dizin"),
