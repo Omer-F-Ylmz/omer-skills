@@ -56,3 +56,24 @@ argümansız yol komutları istemci cwd'sine göre mutlak. **K5** skill-ui-cli L
 Çıktı: `dist/yukle-9b/replace` 55 zip (≤20'lik 3 parti, gstack-core başta) + `yeni/` 1 zip;
 `skill_denetim dist` 375 zip 0 hata. Eski üretim `dist/yukle-9/gstack/` →
 `C:\Projeler\.tmp-kurulum6\eski-9\gstack\` taşındı; `yukle-9/parti-1` yerinde.
+
+## 4. KURULUM-9 sync-off · 20 Eyl 2026
+
+claude.ai skill kontrolü KABUL (352/352) sonrası synced'e inen 57 ad kapatma kapsamına
+girdi: `dist/yukle-9b`'deki 56 zip'in frontmatter name'i (55 gstack + skill-ui-cli) +
+web-sahne-desenleri. 57/57'si synced'de bulundu (eksik 0).
+
+- **Off edilen 55** (`replace/`, gstack-core dahil): CC'de native gstack 1.87.4.0 geçerli;
+  paketin `python3 $B` shim'i ve `gstack-env` aynası yalnız claude.ai sandbox'ı için.
+  `skillOverrides` off **213 → 268**.
+- **Açık kalan 2:** skill-ui-cli ve web-sahne-desenleri — ne yerel (`~/.claude/skills`) ne de
+  plugin kopyaları var, synced tek aktif kopya (kural 2).
+- **Ad çakışması 2:** gstack-upgrade ve open-gstack-browser'ın yerel kopyası da var. Bare-ad
+  override native'i de kapattığı için kullanılmadı; 8s'teki synced'e özgü biçim
+  (`anthropic-skills:<ad>`) yazıldı → synced kapanır, yerel açık kalır. Çift aktif kopya kalmadı.
+  Üretilen anahtarların hepsi bu önekli (bare-ad 0); script bare-ad üretirse `throw` ediyor.
+- **Script:** `tools/sync-off-9.ps1` — 8s ile aynı JSON yöntemi (`ConvertFrom-Json` →
+  `Add-Member -Force` → `WriteAllText`). Varsayılan `-WhatIf` (sayım + anahtar listesi),
+  `-Apply` yazar, yedek `settings.json.bak9s`. Değişiklik yoksa dosyaya dokunmaz (idempotent);
+  `-Apply` sonrası JSON'u yeniden okuyup `skillOverrides` dışını `Compare-Object` ile doğrular.
+  CC settings.json'a yazmaz (self-modification bloğu) — `-Apply` Ömer'in PowerShell'inden koşar.
