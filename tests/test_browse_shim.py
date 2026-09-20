@@ -117,3 +117,85 @@ def test_durum_cagrilar_arasi_korunur(ev):
     kos("click", ref(snap, "Gonder"), ortam=ev)
     assert "TIKLANDI" in kos("text", ortam=ev).stdout
     assert "sayfa.html" in kos("url", ortam=ev).stdout
+
+
+# --- KURULUM-9c: stop/yeniden baglanma, bilinmeyen @ref, argumansiz yol ---
+
+import importlib.util
+import socket
+import threading
+import time
+
+_spec = importlib.util.spec_from_file_location("gstack_browse", SHIM)
+_sb = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_sb)
+
+
+def test_stop_sonrasi_komut_hemen_calisir(tmp_path_factory):
+    """stop -> hemen komut: 5 ardisik dongude 5/5 exit 0, traceback yok."""
+    d = tmp_path_factory.mktemp("browse-stop")
+    ortam = dict(os.environ, GSTACK_BROWSE_HOME=str(d))
+    try:
+        for tur in range(5):
+            assert kos("goto", SAYFA, ortam=ortam).returncode == 0, tur
+            assert kos("stop", ortam=ortam).returncode == 0, tur
+            r = kos("url", ortam=ortam)
+            assert r.returncode == 0, "tur %d: %s" % (tur, r.stderr)
+            assert "Traceback" not in r.stderr, r.stderr
+    finally:
+        kos("stop", ortam=ortam)
+
+
+def test_bilinmeyen_ref_beklemeden_hata(ev):
+    kos("goto", SAYFA, ortam=ev)
+    bas = time.time()
+    r = kos("click", "@e999", ortam=ev)
+    assert r.returncode == 1
+    assert time.time() - bas < 2.0
+    assert "@e999 yok" in (r.stdout + r.stderr)
+    assert "snapshot -i" in (r.stdout + r.stderr)
+
+
+def test_argumansiz_screenshot_istemci_cwdsine_yazar(ev, tmp_path):
+    kos("goto", SAYFA, ortam=ev)
+    r = subprocess.run([sys.executable, str(SHIM), "screenshot"], cwd=str(tmp_path),
+                       capture_output=True, text=True, timeout=180, env=ev)
+    assert r.returncode == 0, r.stderr
+    assert (tmp_path / "screenshot.png").exists()
+
+
+def test_yavas_yanitta_yeniden_baslatmaz(tmp_path_factory):
+    """socket.timeout yeniden baslatma tetiklemez: tek baglanti, komut bir kez islenir."""
+    d = tmp_path_factory.mktemp("browse-yavas")
+    if _sb.unix_soket_var():
+        srv = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        srv.bind(str(d / "browse.sock"))
+    else:
+        srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        srv.bind(("127.0.0.1", 0))
+        (d / "browse.port").write_text(str(srv.getsockname()[1]), encoding="utf-8")
+    srv.listen(4)
+    baglantilar = []
+
+    def dinle():
+        while True:
+            try:
+                c, _ = srv.accept()
+            except OSError:
+                return
+            baglantilar.append(1)
+            time.sleep(3)          # istemci zaman asimi 1 sn
+            try:
+                c.close()
+            except OSError:
+                pass
+
+    threading.Thread(target=dinle, daemon=True).start()
+    ortam = dict(os.environ, GSTACK_BROWSE_HOME=str(d), GSTACK_BROWSE_TIMEOUT="1")
+    try:
+        r = kos("url", ortam=ortam)
+    finally:
+        srv.close()
+    assert r.returncode == 1
+    assert "Traceback" not in r.stderr, r.stderr
+    assert baglantilar == [1], "yeniden baslatildi: %d baglanti" % len(baglantilar)

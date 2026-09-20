@@ -19,9 +19,13 @@ from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[1]
 KAYNAK = Path(os.environ.get("GSTACK_KAYNAK") or (Path.home() / ".claude" / "skills" / "gstack"))
-CIKTI = KOK / "dist" / "yukle-9" / "gstack"
+CIKTI = KOK / "dist" / "yukle-9b" / "replace"
 SAHNE = KOK / ".tmp" / "gstack-ai"
 SHIM = KOK / "tools" / "gstack_browse.py"
+ENV_KAYNAK = KOK / "tools" / "gstack_env.sh"
+# claude.ai kabuk durumunu cagrilar arasinda korumaz: GS/B/D her blogun ilk satirindan
+ENV_SATIR = ('. "${GSTACK_CORE_RO:-$(ls -d /mnt/skills/*/gstack-core '
+             '2>/dev/null | head -1)}/bin/gstack-env"')
 PARTI_BOY = 20
 
 # tools/gstack_browse.py KAPSAM listesiyle ayni tutulmali.
@@ -61,8 +65,13 @@ OZEL_ACIKLAMA = {
 UYARLAMA = """> **claude.ai uyarlamasi**
 > - Skill tool yok: `/x` gecen yerde `gstack-x` SKILL.md'sini oku ve uygula.
 > - AskUserQuestion yok: `ask_user_input_v0` kullan, o da yoksa duz soru sor.
-> - `$B` = `gstack-core/bin/browse` (Python+playwright shim); kapsam disi komut exit 2 doner.
+> - `$B` = gstack-env ayarlar (`python3 $GS/bin/browse`, Python+playwright shim); kapsam disi komut exit 2 doner.
 > - `$D` desteklenmez; gorsel uretim adimlarini atla.
+> - Kabuk durumu bash cagrilari arasinda korunmaz: GS/B/D her blogun ilk satirindaki
+>   gstack-env'den gelir; preamble'in diger degiskenlerini (SLUG, _BRANCH ...) gereken
+>   blokta yeniden hesapla.
+> - Pakette yok (bun/.ts): gstack-decision-search/-log, gstack-brain-cache,
+>   gstack-egress-lib ... - bos donerse atla.
 > - `~/.gstack` oturumluk: oturum bitince silinir, kalici sayma.
 > - Ag kapali: yalnizca sandbox icindeki dosyalar ve localhost sunuculari kullanilabilir.
 """
@@ -81,14 +90,18 @@ arac takimini tasir.
 - `bin/browse` - `$B` yerine gecen Python 3 + playwright shim. Arka planda tek bir
   tarayici sunucusu tutar, sayfa durumu cagrilar arasinda korunur, 15 dk boslukta kapanir.
   Kapsam: `{kapsam}`. Kapsam disi komut "desteklenmez" basip exit 2 doner.
+- `bin/gstack-env` - her bash blogunun ilk satirinda source edilir: salt okunur
+  kaynagi `$HOME/.gstack/core` altina +x'li kopyalar (claude.ai dosyalari 644 yazar),
+  sonra `GS`, `B`, `D` disari verir. Ikinci source kopyalamaz.
 - `bin/gstack-skill-start` - preamble shim'i; telemetri ve artifacts-sync kapali.
 - `bin/gstack-skill-end`, `bin/gstack-telemetry-log` - no-op.
 - `bin/gstack-*` - ust kaynaktan alinan saf bash yardimcilar (bun/.ts araclar disarida).
 
-Diger skill'ler bu dizini soyle bulur:
+Diger skill'ler her bash blogunun ilk satirinda soyle baglanir:
 
 ```bash
-GS="$(ls -d /mnt/skills/*/gstack-core 2>/dev/null | head -1)"
+. "${{GSTACK_CORE_RO:-$(ls -d /mnt/skills/*/gstack-core 2>/dev/null | head -1)}}/bin/gstack-env"
+$B goto file:///tmp/x.html
 ```
 
 Ust kaynak: gstack {surum}, MIT (Copyright (c) 2026 Garry Tan).
@@ -201,24 +214,6 @@ def skillmd_donustur(metin, ad, yeni_ad, sinif, gerekce):
     # Ust kaynagin bun ile yeniden uretim banner'i claude.ai paketinde anlamsiz
     govde = re.sub(r"^<!-- (?:AUTO-GENERATED|Regenerate:).*-->\n", "", govde, flags=re.M)
 
-    # Ilk ```bash cercevesi = preamble. Basina GS cozumu, sonuna B/D yeniden atamasi.
-    def preamble(m):
-        return (m.group(1)
-                + 'GS="$(ls -d /mnt/skills/*/gstack-core 2>/dev/null | head -1)"\n'
-                + '[ -n "$GS" ] || GS="$HOME/.claude/skills/gstack"   # Claude Code yedegi\n'
-                + m.group(2).rstrip("\n") + "\n"
-                + '[ -x "$GS/bin/browse" ] && B="$GS/bin/browse"\n'
-                + 'D=""   # claude.ai: $D desteklenmiyor\n'
-                + m.group(3))
-    govde, n = re.subn(r"(```bash\n)(.*?)(```)", preamble, govde, count=1, flags=re.S)
-    ek_preamble = "" if n else (
-        "## Preamble (run first)\n\n```bash\n"
-        'GS="$(ls -d /mnt/skills/*/gstack-core 2>/dev/null | head -1)"\n'
-        '[ -n "$GS" ] || GS="$HOME/.claude/skills/gstack"   # Claude Code yedegi\n'
-        '[ -x "$GS/bin/browse" ] && B="$GS/bin/browse"\n'
-        'D=""   # claude.ai: $D desteklenmiyor\n'
-        "```\n\n")
-
     # gstack kurulum yollari -> $GS
     govde = re.sub(r"(?:~|\$HOME|\$\{HOME\})/\.claude/skills/gstack", "$GS", govde)
     govde = re.sub(r"(?:~|\$HOME|\$\{HOME\})/\.claude(?=/|\b)", "$HOME/.claude", govde)
@@ -230,6 +225,9 @@ def skillmd_donustur(metin, ad, yeni_ad, sinif, gerekce):
             return satir
         if re.search(r"\.ts\b|(?<![\w-])bun\s", satir):
             return "# claude.ai'de yok (bun/.ts gerekiyor): " + satir.strip()
+        # $B/$D gstack-env'den gelir; ust kaynagin yol taramasi claude.ai'de ikisini de bosaltir
+        if re.match(r'(B|D)=("|\s*$)', s) or re.search(r'\]\s*&&\s*(B|D)="', s):
+            return "# claude.ai: $B/$D gstack-env'den gelir -- " + satir.strip()
         return satir
 
     parcalar = re.split(r"(```[a-z]*\n.*?```)", govde, flags=re.S)
@@ -238,10 +236,17 @@ def skillmd_donustur(metin, ad, yeni_ad, sinif, gerekce):
             parcalar[i] = "\n".join(ts_yorumla(s) for s in p.split("\n"))
     govde = "".join(parcalar)
 
+    # $GS/$B/$D gecen her blok kendi kabugunu kurar (durum cagrilar arasi korunmaz)
+    def env_ekle(m):
+        if not re.search(r"\$GS|\$B\b|\$D\b", m.group(2)):
+            return m.group(0)
+        return m.group(1) + ENV_SATIR + "\n" + m.group(2) + m.group(3)
+    govde = re.sub(r"(```bash\n)(.*?)(```)", env_ekle, govde, flags=re.S)
+
     bas = UYARLAMA
     if sinif == "hayir":
         bas += ">\n> **Bu skill claude.ai'de calismaz:** " + gerekce + "\n"
-    return "---\n" + fm + "\n---\n\n" + bas + "\n" + ek_preamble + govde.lstrip("\n")
+    return "---\n" + fm + "\n---\n\n" + bas + "\n" + govde.lstrip("\n")
 
 
 def siniflandir(ad, metin):
@@ -321,6 +326,7 @@ def uret():
     yaz_lf(cek / "bin" / "gstack-skill-end", NOOP, True)
     yaz_lf(cek / "bin" / "gstack-telemetry-log", NOOP, True)
     yaz_lf(cek / "bin" / "browse", SHIM.read_text(encoding="utf-8"), True)
+    yaz_lf(cek / "bin" / "gstack-env", ENV_KAYNAK.read_text(encoding="utf-8"), True)
 
     # zip'ler: gstack-core once, sonra alfabetik
     adlar = ["gstack-core"] + sorted(s["yeni"] for s in skiller)

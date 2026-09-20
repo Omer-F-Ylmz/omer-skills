@@ -19,7 +19,9 @@ KAPSAM = (
     "reload back url links html status closetab pdf responsive perf stop"
 ).split()
 # Yol argumani alan komutlar: istemci tarafinda mutlaklastirilir (sunucunun cwd'si farkli).
-YOL_ALAN = {"screenshot", "pdf", "responsive"}
+# Argumansiz cagride de mutlaklasir, yoksa dosya sunucunun cwd'sine duser.
+YOL_ALAN = {"screenshot": "screenshot.png", "pdf": "sayfa.pdf", "responsive": "responsive"}
+ZAMAN_ASIMI = float(os.environ.get("GSTACK_BROWSE_TIMEOUT") or 300)
 
 SNAPSHOT_JS = r"""(isaretle) => {
   const sec = 'a,button,input,select,textarea,[role=button],[role=link],[onclick],[contenteditable=true]';
@@ -76,7 +78,10 @@ class Oturum:
 
     def _hedef(self, secici):
         if secici.startswith("@"):
-            return self.sayfa.locator('[data-gsref="' + secici[1:] + '"]')
+            hedef = self.sayfa.locator('[data-gsref="' + secici[1:] + '"]')
+            if hedef.count() == 0:      # beklemeden bildir; 30 sn timeout yerine
+                raise ValueError(secici + " yok -- once snapshot -i")
+            return hedef
         return self.sayfa.locator(secici)
 
     def calistir(self, komut, args):
@@ -178,6 +183,13 @@ def _satir_oku(baglanti):
     return ham
 
 
+def _adres_sil(d):
+    try:
+        (d / ("browse.sock" if unix_soket_var() else "browse.port")).unlink()
+    except OSError:
+        pass
+
+
 def sunucu():
     d = ev_dizini()
     if unix_soket_var():
@@ -214,6 +226,9 @@ def sunucu():
                 if istek["cmd"] == "stop":
                     baglanti.sendall(json.dumps(
                         {"code": 0, "out": "sunucu kapatildi", "err": ""}).encode("utf-8") + b"\n")
+                    # once dinleyici + adres: hemen gelen komut bayat sokete baglanmasin
+                    srv.close()
+                    _adres_sil(d)
                     return
                 try:
                     yanit = {"code": 0, "out": str(oturum.calistir(istek["cmd"], istek["args"])),
@@ -223,11 +238,12 @@ def sunucu():
                              "err": type(hata).__name__ + ": " + str(hata)}
                 baglanti.sendall(json.dumps(yanit, ensure_ascii=False).encode("utf-8") + b"\n")
     finally:
-        oturum.kapat()
         try:
-            (d / ("browse.sock" if unix_soket_var() else "browse.port")).unlink()
+            srv.close()
         except OSError:
             pass
+        _adres_sil(d)
+        oturum.kapat()
 
 
 # --------------------------------------------------------------------------- istemci
@@ -248,7 +264,7 @@ def baglan(d):
         except (OSError, ValueError):
             return None
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimeout(300)
+    s.settimeout(ZAMAN_ASIMI)
     try:
         s.connect(hedef)
         return s
@@ -277,32 +293,56 @@ def sunucu_baslat(d):
         env=os.environ, **ek)
 
 
+def _sunucu_ac(d):
+    sunucu_baslat(d)
+    baglanti, bitis = None, time.time() + 120
+    while baglanti is None and time.time() < bitis:
+        time.sleep(0.3)
+        baglanti = baglan(d)
+    try:
+        (d / "browse.lock").unlink()
+    except OSError:
+        pass
+    return baglanti
+
+
+def _gonder(baglanti, komut, args):
+    """Yanit satirini dondurur; sunucu olmusse None (zaman asimi yukari cikar)."""
+    try:
+        with baglanti:
+            baglanti.sendall(json.dumps(
+                {"cmd": komut, "args": args}, ensure_ascii=False).encode("utf-8") + b"\n")
+            ham = _satir_oku(baglanti)
+    except (ConnectionResetError, ConnectionRefusedError, BrokenPipeError):
+        return None                      # kapanmakta olan sunucu; traceback basma
+    return ham if ham.strip() else None
+
+
 def istemci(komut, args):
     d = ev_dizini()
-    baglanti = baglan(d)
-    if baglanti is None:
-        if komut == "stop":
-            print("sunucu zaten kapali")
-            return 0
-        sunucu_baslat(d)
-        bitis = time.time() + 120
-        while baglanti is None and time.time() < bitis:
-            time.sleep(0.3)
-            baglanti = baglan(d)
-        try:
-            (d / "browse.lock").unlink()
-        except OSError:
-            pass
+    ham = None
+    for ikinci in (False, True):
+        baglanti = baglan(d)
         if baglanti is None:
-            sys.stderr.write("browse: tarayici sunucusu baslatilamadi\n")
+            if komut == "stop":
+                print("sunucu zaten kapali")
+                return 0
+            baglanti = _sunucu_ac(d)
+            if baglanti is None:
+                sys.stderr.write("browse: tarayici sunucusu baslatilamadi\n")
+                return 1
+        try:
+            ham = _gonder(baglanti, komut, args)
+        except socket.timeout:
+            # yavas komut: sunucu yasiyor, yeniden baslatmak komutu iki kez kosturur
+            sys.stderr.write("browse: sunucu %g sn icinde yanit vermedi\n" % ZAMAN_ASIMI)
             return 1
-    with baglanti:
-        baglanti.sendall(json.dumps(
-            {"cmd": komut, "args": args}, ensure_ascii=False).encode("utf-8") + b"\n")
-        ham = _satir_oku(baglanti)
-    if not ham.strip():
-        sys.stderr.write("browse: sunucudan yanit gelmedi\n")
-        return 1
+        if ham is not None:
+            break
+        if ikinci:
+            sys.stderr.write("browse: sunucudan yanit gelmedi\n")
+            return 1
+        _adres_sil(d)                    # bayat adres; sunucuyu bir kez yeniden baslat
     yanit = json.loads(ham.decode("utf-8"))
     if yanit["out"]:
         print(yanit["out"])
@@ -324,8 +364,8 @@ def main(argv):
             "browse: '" + komut + "' claude.ai'de desteklenmez (kapsam disi).\n"
             "Desteklenen komutlar: " + " ".join(KAPSAM) + "\n")
         return 2
-    if komut in YOL_ALAN and args:
-        args[0] = os.path.abspath(args[0])
+    if komut in YOL_ALAN:
+        args[0:1] = [os.path.abspath(args[0] if args else YOL_ALAN[komut])]
     return istemci(komut, args)
 
 

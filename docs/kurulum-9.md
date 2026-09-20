@@ -30,3 +30,29 @@
 **claude.ai Design/artifact linkini okuyan araç: yok.** Her araç `project_id` (UUID) ile çalışır, URL kabul eden giriş yok. İçe aktarma yolu `copy_files` → `files[].src_project_id` (kaynak projede görüntüleme yetkisi şart, sunucu tarafı, 256 KiB sınırı dışında). Okuma yolu `get_project` → `list_files` → `read_file(project_id, path)`. `claude.ai/artifact/...` bağlantıları bu sunucunun kapsamı dışında (Artifact aracına ait). URL'deki UUID elle `project_id` olarak verilebilir.
 
 Ölçüm sırasında yalnız `list_projects` çağrıldı (salt-okur, ücretsiz) → `[]`.
+
+## 3. KURULUM-9c · claude.ai gstack paketi 644 düzeltmesi · 20 Eyl 2026
+
+Bulgu (claude.ai sandbox'ında doğrulandı): **B1** kullanıcı skill dosyaları 644 yazılıyor →
+`[ -x "$GS/bin/browse" ]` hiç tutmuyor (`$B` boş → exit 127), `[ -x "$_SS" ]` tutmuyor (degraded),
+doğrudan `$GS/bin/…` çağrıları Permission denied; Git Bash'te `-x` shebang'e baktığı için yerel
+testler yakalamadı. **B2** env/cwd bash çağrıları arasında korunmuyor (54 skill, 528 blok).
+**B3** `stop` → hemen komut = ConnectionResetError traceback, ardından about:blank'te `@ref` yok →
+30 sn timeout. **B4** 53 skill'de işlevsiz `GS="$GS"`; argümansız screenshot/pdf/responsive
+sunucu cwd'sine yazıyor. **B5** skill-ui-cli claude.ai'de yok (351/352).
+
+Karar: **K1** `gstack-core/bin/gstack-env` (kaynak `tools/gstack_env.sh`) — source edilir,
+`$GSTACK_CORE_RO` ya da `/mnt/skills/*/gstack-core` → `$HOME/.gstack/core` aynası + `chmod +x`,
+`B="python3 $GS/bin/browse"`, `D=""`, export; ikinci source kopyalamaz. **K2** `$GS/$B/$D` geçen
+her ```bash bloğunun ilk satırı env satırı; üreteç preamble'ı (GS çözümleme, `GS="$GS"`,
+`[ -x … ] && B=`) kalktı, üst kaynağın `B=""`/`D=""` satırları yorumlanıyor, `$GS/bin/…`
+çağrıları değişmedi. **K3** uyarlama başlığına kabuk durumu + "pakette yok (bun/.ts)" satırları.
+**K4** shim: stop'ta önce dinleyici+adres, sonra tarayıcı; istemci yalnız reset/refused/boş
+yanıtta bir kez yeniden başlar (socket.timeout → exit 1); bilinmeyen `@eN` beklemeden exit 1;
+argümansız yol komutları istemci cwd'sine göre mutlak. **K5** skill-ui-cli LF'e çevrilip
+`dist/yukle-9b/yeni/`. **K6** `skill_denetim`: uyarlama başlıklı SKILL.md'de `[ -x "$GS`,
+`GS="$GS"` ve env satırsız `$GS` bloğu = hata.
+
+Çıktı: `dist/yukle-9b/replace` 55 zip (≤20'lik 3 parti, gstack-core başta) + `yeni/` 1 zip;
+`skill_denetim dist` 375 zip 0 hata. Eski üretim `dist/yukle-9/gstack/` →
+`C:\Projeler\.tmp-kurulum6\eski-9\gstack\` taşındı; `yukle-9/parti-1` yerinde.

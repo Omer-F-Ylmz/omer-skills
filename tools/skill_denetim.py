@@ -55,6 +55,10 @@ YASAK_KAR = re.compile(r'[\x00-\x1f\x7f\\:*?"<>|@]')
 SHEBANG_SH = re.compile(rb"^#![^\n]*\b(ba)?sh\b")
 # 8: ~/.claude-mem ayrı bir dizin, eşleşmemeli; yalnız CC ev dizini
 CLAUDE_EV = re.compile(r"~/\.claude(?:/|\b(?!-))")
+# 9c: claude.ai gstack paketi -- dosyalar 644, kabuk durumu cagrilar arasi korunmaz
+UYARLAMA_BASLIK = "> **claude.ai uyarlamasi**"
+GSTACK_ENV = ('. "${GSTACK_CORE_RO:-$(ls -d /mnt/skills/*/gstack-core '
+              '2>/dev/null | head -1)}/bin/gstack-env"')
 # 7b: md/txt sayılmaz; öteki shebang'li betik uyarı, SKILL.md onu ./ ile doğrudan çağırıyorsa hata
 CRLF_SAYILMAZ = {".md", ".txt"}
 TEXT_EXT = {".md", ".txt", ".py", ".js", ".mjs", ".ts", ".json", ".yaml", ".yml", ".sh", ".ps1", ".html", ".css", ".csv", ".toml"}
@@ -124,6 +128,15 @@ def denetle(z, dist, uygulanan, uyarilar, uyarilar_claude):
                 hatalar.append(("CRLF", f"{i.filename} (SKILL.md ./ ile çağırıyor)"))
             else:
                 uyarilar.append(f"{z.relative_to(dist).as_posix()} · {i.filename}")
+    if UYARLAMA_BASLIK in md:
+        for desen, neden in (('[ -x "$GS', "644 dosyada tutmaz"),
+                             ('GS="$GS"', "islevsiz atama")):
+            if desen in md:
+                hatalar.append(("gstack-env", f"{desen} -- {neden}"))
+        for b in re.findall(r"```bash\n(.*?)```", md, re.S):
+            ilk = b.split("\n", 1)[0].strip()
+            if re.search(r"\$GS|\$B\b|\$D\b", b) and ilk != GSTACK_ENV:
+                hatalar.append(("gstack-env", f"blok ilk satiri env degil: {ilk[:40]}"))
     acik = sum(i.file_size for i in zf.infolist())
     if acik > 30 * 10**6:
         hatalar.append(("açık boyut", f"{acik / 10**6:.1f} MB > 30 MB"))
