@@ -5,3 +5,4 @@ dist/
 .tmp/
 graphify-out/
 logs/
+__pycache__/

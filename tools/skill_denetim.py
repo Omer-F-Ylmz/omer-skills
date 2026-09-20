@@ -20,12 +20,34 @@ YANLIS_ALARM = [
     ("policy-monitor.zip", "claude", r"~/\.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE\.md", "isteğe bağlı profil; dosya yoksa profilsiz çalışır"),
     ("use-case-triage.zip", "claude", r"~/\.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE\.md", "isteğe bağlı profil; dosya yoksa profilsiz çalışır"),
     ("context7-context7-cli.zip", "claude", r"^[^:]+/references/setup\.md: .*# Claude Code \(~/\.claude/skills\)", "ctx7 kurulum hedefini anlatan yorum"),
+    # KURULUM-8 · "claude": CC kurulumunu anlatan kod bloğu; skill claude.ai'de bu adımsız çalışır (tabloda "claude.ai'de çalışmaz" işaretli)
+    ("everything-claude-code-continuous-learning.zip", "claude", r"learned_skills_path|evaluate-session\.sh", "CC settings.json hook örneği"),
+    ("everything-claude-code-strategic-compact.zip", "claude", r"suggest-compact\.sh", "CC settings.json hook örneği"),
+    ("phoenix-cti-search-cti-domain-research.zip", "claude", r"notebooklm-connector|cti-domains\.txt", "CC eklenti/komut dosyası kurulumu"),
+    # KURULUM-8 · "yol": düz metin örnek — bağlantı değil, anlatımdaki örnek yol
+    ("plugin-dev-skill-development.zip", "yol", r".", "skill yazmayı anlatan öğretici; tüm yollar örnek"),
+    ("agent-skills-git-workflow-and-versioning.zip", "yol", r"^\.\./project-feature-[ab]$", "worktree anlatımında örnek dizin"),
+    ("dotnet-aspnetcore-minimal-api-file-upload.zip", "yol", r"etc/passwd", "path traversal saldırı örneği"),
+    ("dotnet-msbuild-msbuild-antipatterns.zip", "yol", r"^\.\./\.\./build/common\.props$", "örnek proje düzeni"),
+    ("dotnet-test-platform-detection.zip", "yol", r"^scripts/CI$", "düz metin (CI betikleri) — bağlantı değil"),
+    ("dotnet-test-run-tests.zip", "yol", r"^scripts/CI$", "düz metin (CI betikleri) — bağlantı değil"),
+    ("nateherk-design-scroll-craft.zip", "yol", r"^assets/01", "şablon HTML'de örnek video adı"),
+    ("superpowers-writing-skills.zip", "yol", r"^\.\./some-skill$", "örnek skill adı"),
+    ("phoenix-security-review-0day-scanner.zip", "yol", r"languages/\{python", "glob ifadesi"),
+    # KURULUM-8 · "yol": kaynak pakette de yok — üst akış eksiği, zip kusuru değil
+    ("claude-mem-ccs-align.zip", "yol", r"^\.\./\.\./src/", "plugin paketinde src/ yok (üst akış)"),
+    ("claude-mem-mode-creator.zip", "yol", r"^scripts/worker-service\.cjs$", "plugin paketinde yok (üst akış)"),
+    ("claude-mem-version-bump.zip", "yol", r"^scripts/generate-changelog\.js$", "plugin paketinde yok (üst akış)"),
+    ("design-mastery-design-principles.zip", "yol", r"^references/", "plugin paketinde references/ yok (üst akış)"),
+    ("phoenix-security-review-threat-modeling.zip", "yol", r"^\.\./\.\./docs/", "repo docs/ plugin paketine girmemiş (üst akış)"),
 ]
 LINK = re.compile(r"\[[^\]]*\]\(\s*<?([^)\s>]+)>?(?:\s+\"[^\"]*\")?\s*\)")
 TOKEN = re.compile(r"(?<![\w./~-])((?:\.\./)*(?:references|reference|scripts|assets|templates|examples)/[^\s)`'\"\],;*<>|]+|(?:\.\./)+[\w.-][^\s)`'\"\],;*<>|]*)")
 # "@": gstack playwright-core@1.62.1.patch ile claude.ai "invalid characters" reddi (7f); kabul edilen 146 zip'te yok
 YASAK_KAR = re.compile(r'[\x00-\x1f\x7f\\:*?"<>|@]')
 SHEBANG_SH = re.compile(rb"^#![^\n]*\b(ba)?sh\b")
+# 8: ~/.claude-mem ayrı bir dizin, eşleşmemeli; yalnız CC ev dizini
+CLAUDE_EV = re.compile(r"~/\.claude(?:/|\b(?!-))")
 # 7b: md/txt sayılmaz; öteki shebang'li betik uyarı, SKILL.md onu ./ ile doğrudan çağırıyorsa hata
 CRLF_SAYILMAZ = {".md", ".txt"}
 TEXT_EXT = {".md", ".txt", ".py", ".js", ".mjs", ".ts", ".json", ".yaml", ".yml", ".sh", ".ps1", ".html", ".css", ".csv", ".toml"}
@@ -53,7 +75,7 @@ def yollar(md):
             yield t
 
 
-def denetle(z, dist, uygulanan, uyarilar):
+def denetle(z, dist, uygulanan, uyarilar, uyarilar_claude):
     hatalar, zname = [], z.name
     p = subprocess.run([BSDTAR, "-tf", str(z)], capture_output=True, text=True, encoding="utf-8", errors="replace")
     ents = [e for e in p.stdout.splitlines() if e.strip()]
@@ -111,12 +133,23 @@ def denetle(z, dist, uygulanan, uyarilar):
             continue
         if not alarm(zname, "yol", t, uygulanan):
             hatalar.append(("yol", f"{t} zip'te yok"))
+    # SKILL.md'nin ./ ile doğrudan çağırdığı betikler = skill akışının parçası
+    cagirilan = {e for e in ents if not e.endswith("/")
+                 and re.search(r"(?<![\w/.])\./" + re.escape(e.split("/", 1)[-1]) + r"\b", md)}
     for e in ents:
         if e.endswith("/") or Path(e).suffix.lower() not in TEXT_EXT:
             continue
+        fence = False
         for i, line in enumerate(zf.read(e).decode("utf-8", errors="replace").splitlines(), 1):
-            if "~/.claude" in line and not alarm(zname, "claude", f"{e}: {line.strip()}", uygulanan):
+            if line.lstrip().startswith("```"):
+                fence = not fence
+            if not CLAUDE_EV.search(line) or alarm(zname, "claude", f"{e}: {line.strip()}", uygulanan):
+                continue
+            # 8: akışın parçasıysa hata (SKILL.md kod bloğu ya da ./ ile çağrılan betik), yoksa uyarı
+            if (e == f"{ad}/SKILL.md" and fence) or e in cagirilan:
                 hatalar.append(("~/.claude", f"{e}:{i}"))
+            else:
+                uyarilar_claude.append(f"{z.relative_to(dist).as_posix()} · {e}:{i}")
     return ad, hatalar
 
 
@@ -128,9 +161,9 @@ def main():
     dist = Path(a.dist)
     zipler = sorted(dist.rglob("*.zip"))
     klasor = Counter(z.parent.relative_to(dist).as_posix() for z in zipler)
-    uygulanan, sonuc, adlar, uyarilar = Counter(), [], {}, []
+    uygulanan, sonuc, adlar, uyarilar, uyarilar_claude = Counter(), [], {}, [], []
     for z in zipler:
-        ad, h = denetle(z, dist, uygulanan, uyarilar)
+        ad, h = denetle(z, dist, uygulanan, uyarilar, uyarilar_claude)
         rel = z.relative_to(dist).as_posix()
         sonuc += [(rel, k, d) for k, d in h]
         if ad:
@@ -146,7 +179,8 @@ def main():
             sonuc += [(zs[0], "yerleşik ad", ad)]
     klasorler = ", ".join(f"{k} {n}" for k, n in sorted(klasor.items()))
     ozet = (f"{len(zipler)} zip denetlendi ({klasorler}) · {len(sonuc)} hata · {len(uyarilar)} CRLF uyarısı · "
-            f"{len(coklu)} ad birden çok klasörde · {sum(uygulanan.values())} yanlış alarm uygulandı")
+            f"{len(coklu)} ad birden çok klasörde · {len(uyarilar_claude)} ~/.claude uyarısı · "
+            f"{sum(uygulanan.values())} yanlış alarm uygulandı")
     print(ozet)
     for k, v in Counter(k for _, k, _ in sonuc).items():
         print(f"  {k}: {v}")
@@ -155,6 +189,7 @@ def main():
         if sonuc:
             L += ["## Hatalar", ""] + [f"- {z} · {k} · {d}" for z, k, d in sonuc] + [""]
         L += ["## CRLF uyarıları (shebang'li, ./ ile çağrılmıyor)", ""] + [f"- {u}" for u in uyarilar] + [""]
+        L += ["## ~/.claude uyarıları (düz metin/başvuru dosyası, akışta değil)", ""] + [f"- {u}" for u in uyarilar_claude] + [""]
         L += ["## Birden çok klasördeki adlar (hata değil)", ""] + [f"- {c}" for c in coklu] + [""]
         L += ["## Uygulanan yanlış alarmlar", ""] + [f"- {zd} · {t} · {n} kez · {why}" for (zd, t, why), n in uygulanan.items()]
         Path(a.rapor).write_text("\n".join(L) + "\n", encoding="utf-8")
