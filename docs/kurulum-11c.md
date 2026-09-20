@@ -101,3 +101,26 @@ uygulama açılışında donsaydı hâlâ görünürdü.
 
 **obsidian** — `~/.claude/ide/` boş, sabit port yazılamıyor → **YAPISAL**, kapandı.
 Tekrar denenmez; Obsidian açıkken lock oluşursa 11d'de bakılır.
+
+## K2 — 7 CLI için Desktop paketi
+
+Karar: **7/7 (b) yöntem skill'i**. Hiçbiri (a) olmadı; sessizce düşen kalem yok.
+
+| Araç | Karar | Kanıt |
+|---|---|---|
+| graphify | (b) | uv-tool venv 145 MB — 30 MB sınırını aşıyor |
+| agent-reach | (b) | çekirdek işlev (Jina/yt-dlp/gh) ağ isteyen fetch; sandbox ağsız |
+| skill-ui | (b) | repo 1.1 GB; `mirror`/`upload` GitHub ağına yazıyor |
+| playwright-cli | (b) | sarmalayıcı küçük ama tarayıcı ikilileri `playwright install` ile ayrıca iniyor |
+| rtk | (b) | `duman_claudeai.py` "tamam" döndü, ama ikili Windows PE32+ — gerçek sandbox Linux |
+| semgrep | (b) | uv-tool venv 333 MB — sınırı çok aşıyor |
+| gitleaks | (b) | boyutça (a) adayı (22.5 MB), kapı "tamam" (exit 0, 8.30.1) verdi; ikili PE32+ → sandbox Linux'ta koşmaz |
+
+**rtk ve gitleaks için önemli not:** ikisi de `tools/duman_claudeai.py` kapısından
+fiilen geçti, ama geçiş **Windows'ta koşmaktan** kaynaklanıyor. Scriptin kendi
+belgelediği hedef sandbox Linux (`/mnt/skills`); Windows PE32+ ikili orada
+çalıştırılamaz. Bu yüzden geçiş gerçek kanıt sayılmadı ve karar (b)'ye çevrildi.
+
+Paketler: `dist/yukle-11c/<araç>-desktop.zip` (7 adet, 665–881 B).
+`python tools/skill_denetim.py dist/yukle-11c` → **0 hata · 0 CRLF · 0 ad çakışması**, exit 0.
+Her SKILL.md başlığında "bu araç Claude Code'da koşar, Desktop'ta koşmaz" uyarısı var.
