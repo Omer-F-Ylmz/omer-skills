@@ -122,3 +122,31 @@ kuru test onu doğruladı (15 araç) — config'e girdi.
 
 Gerekçe: dalga tur bütçesi (35) K1–K3 kök neden araştırması ve K5 ile doldu.
 Sessizce düşen kalem yok; 7 paket **KURULUM-11b**'ye devreder (karar 3).
+
+---
+
+## §3 DÜZELTME · 21 Eyl 2026 (KURULUM-11c)
+
+Bu bölüm §3'ün eski içeriğini **geçersiz kılar**. Eski kök neden ("yerel MCP'ler yalnız
+Chat'te; Cowork/Code VM `status=unsupported`") **chat oturumundaki eksikliği açıklamıyor**:
+eksik sunucular zaten Chat sekmesinde aranıyordu.
+
+**11b'de elenen dört hipotez** (hiçbiri kök neden değil):
+
+| Hipotez | Test | Sonuç |
+|---|---|---|
+| npx yolu | `cmd /c npx --version` (gerçek Windows PATH) | 11.17.0 — elendi |
+| eşzamanlı oturum | iki puppeteer örneği aynı anda | ikisi de 8 araç — elendi |
+| Chromium indirme | `puppeteer_navigate https://example.com` | Status 200, isError:false — elendi |
+| cmd sarmalayıcı / tırnaklı PATH | PATH tırnaklı ve tırnaksız | ikisi de çalıştı — elendi |
+
+Ölçüm süreleri: kuru testler sunucu başına 0.3–3 sn arası tamamlandı; hiçbirinde
+zaman aşımı görülmedi — "açılış zaman aşımı" açıklaması da bu yüzden düşüyor.
+
+**11c'deki yeni kanıt (K1):** 20 Eyl'de Desktop **yeniden başlatılmadan** açılan yeni
+sohbette sayım 22 ve `omniroute` listede **yok**. omniroute 11b/K0'da config'ten
+silinmişti; liste uygulama açılışında donsaydı hâlâ görünecekti. Yani araç listesi
+config yazımından **sonra** tazeleniyor → "bayat liste" hipotezi de zayıf.
+
+**Durum:** `puppeteer` ve `brave-search` Desktop chat'e gerçekten gelmiyor; kök neden
+hâlâ bulunamadı. 11c'de yeni teşhis denemesi yapılmadı (tarif gereği). Sonraki adım 11d.

@@ -56,3 +56,24 @@ sunucu 15 araçla açılıyor. Desktop config'ine doğrudan betik yoluyla girdi.
 
 Yerel MCP'ler yalnız **Chat** sekmesinde kullanılabilir; Cowork ve Code oturumları
 `status=unsupported` olan VM paketine bağlı (`logs/cowork_vm_node.log`).
+
+## Desktop MCP tablosu · KURULUM-11c güncellemesi (21 Eyl 2026)
+
+Sayım **21**'e iner (uzak `context7-c1492263` kaldırılınca; tek UI adımı, bkz. K0).
+Ölçüm anındaki dağılım — **22 = 15 yerel stdio + 7 hesap tarafı bağlayıcı**:
+
+- **Yerel (stdio), canlı config'te 15 tanım:** `headroom` · `puppeteer` ·
+  `mcp-sequential-thinking` · `mcp-memory` · `mcp-filesystem` · `mcp-fetch` · `mcp-git` ·
+  `mcp-time` · `binlog` · `playwright` · `brave-search` · `context7` · `stitch` ·
+  `code-review` · `claude-mem`
+- **Uzak (hesap tarafı bağlayıcı):** `mslearn` · `github` · `21st` · `figma` ·
+  `context7-c1492263` (**yinelenen — kaldırılacak**) ve claude.ai Connectors'ta tanımlı diğerleri
+
+Notlar:
+
+- `omniroute` — **bırakıldı** (11b/K0'da config'ten silindi). Satır kayıt olarak durur, silinmez.
+- `claude-design` — CC'de aktif MCP; Desktop'ta karşılığı **Design / Design System artifact
+  türü**, ayrı sunucu değil → Desktop sayımında görünmez.
+- `context7` yerel tanımı kuru testten geçti: `initialize` + `tools/list` OK, 2 araç,
+  Context7 4.0.5, 0.3 sn. Yinelenen tanım yerel dosyalarda değil, hesap tarafında.
+- Yedek: `claude_desktop_config.json.bak11b` (11c'de config'e **dokunulmadı**, yeni yedek yok).
