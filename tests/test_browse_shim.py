@@ -199,3 +199,86 @@ def test_yavas_yanitta_yeniden_baslatmaz(tmp_path_factory):
     assert r.returncode == 1
     assert "Traceback" not in r.stderr, r.stderr
     assert baglantilar == [1], "yeniden baslatildi: %d baglanti" % len(baglantilar)
+
+
+# --- KURULUM-9d: snapshot bayraklari + viewport ---
+
+@pytest.fixture
+def tek_ev(tmp_path_factory):
+    """Tek teste ozel sunucu: -D'nin 'onceki snapshot yok' durumu paylasilmaz."""
+    d = tmp_path_factory.mktemp("browse-tek")
+    ortam = dict(os.environ, GSTACK_BROWSE_HOME=str(d))
+    yield ortam
+    kos("stop", ortam=ortam)
+
+
+def test_bayraksiz_snapshot_da_isaretler(ev):
+    kos("goto", SAYFA, ortam=ev)
+    snap = kos("snapshot", ortam=ev).stdout
+    r = kos("click", ref(snap, "Gonder"), ortam=ev)
+    assert r.returncode == 0, r.stderr
+    assert "TIKLANDI" in kos("text", ortam=ev).stdout
+
+
+def test_i_bayragi_listeyi_etkilesimliye_daraltir(ev):
+    kos("goto", SAYFA, ortam=ev)
+    genis = kos("snapshot", ortam=ev).stdout
+    dar = kos("snapshot", "-i", ortam=ev).stdout
+    assert "SAYFA_ISARETCISI" in genis
+    assert "SAYFA_ISARETCISI" not in dar
+    assert "Gonder" in genis and "Gonder" in dar
+
+
+def test_a_bayragi_png_yazar_ve_overlay_birakmaz(ev, tmp_path):
+    kos("goto", SAYFA, ortam=ev)
+    hedef = tmp_path / "isaretli.png"
+    r = kos("snapshot", "-i", "-a", "-o", str(hedef), ortam=ev)
+    assert r.returncode == 0, r.stderr
+    assert hedef.exists() and hedef.read_bytes()[1:4] == b"PNG"
+    assert "@e1" in r.stdout
+    assert r.stdout.strip().splitlines()[-1].endswith("isaretli.png")
+    kalan = kos("js", "document.querySelectorAll('[data-gsoverlay]').length", ortam=ev)
+    assert kalan.stdout.strip() == "0"
+
+
+def test_a_bayragi_o_suz_istemci_cwdsine_yazar(ev, tmp_path):
+    kos("goto", SAYFA, ortam=ev)
+    r = subprocess.run([sys.executable, str(SHIM), "snapshot", "-a"], cwd=str(tmp_path),
+                       capture_output=True, text=True, timeout=180, env=ev)
+    assert r.returncode == 0, r.stderr
+    assert (tmp_path / "annotated.png").exists()
+
+
+def test_D_bayragi_fark_dondurur(tek_ev):
+    kos("goto", SAYFA, ortam=tek_ev)
+    ilk = kos("snapshot", "-D", ortam=tek_ev)
+    assert ilk.returncode == 0, ilk.stderr
+    assert "onceki snapshot yok" in ilk.stdout
+    assert "Gonder" in ilk.stdout
+    assert "fark yok" in kos("snapshot", "-D", ortam=tek_ev).stdout
+    # araya baska bir snapshot girmez: saklanan metin karsilastirilan listeyle ayni kapsamda kalsin
+    kos("click", ref(ilk.stdout, "Gonder"), ortam=tek_ev)
+    fark = kos("snapshot", "-D", ortam=tek_ev).stdout
+    assert any(s.startswith("+") and "TIKLANDI" in s for s in fark.splitlines()), fark
+    assert any(s.startswith("-") and "baslangic" in s for s in fark.splitlines()), fark
+
+
+def test_bilinmeyen_snapshot_bayragi_exit_2(ev):
+    r = kos("snapshot", "-C", ortam=ev)
+    assert r.returncode == 2
+    assert "desteklenmez: -C" in (r.stdout + r.stderr)
+
+
+def test_viewport_iki_bicimi_de_kabul_eder(ev):
+    kos("goto", SAYFA, ortam=ev)
+    assert kos("viewport", "375x812", ortam=ev).returncode == 0
+    assert kos("js", "innerWidth", ortam=ev).stdout.strip() == "375"
+    assert kos("viewport", "800", "600", ortam=ev).returncode == 0
+    assert kos("js", "innerWidth", ortam=ev).stdout.strip() == "800"
+
+
+def test_viewport_gecersiz_girdi_tek_satir_hata(ev):
+    r = kos("viewport", "abc", ortam=ev)
+    assert r.returncode == 1
+    assert "Traceback" not in r.stderr
+    assert len([s for s in r.stderr.splitlines() if s.strip()]) == 1, r.stderr

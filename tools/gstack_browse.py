@@ -5,6 +5,7 @@ Ayni dosya hem istemci hem sunucu. Ilk cagri arka planda tek bir tarayici
 sunucusu baslatir; sayfa durumu cagrilar arasinda korunur, 15 dk boslukta kapanir.
 Kapsam disi komutlar "claude.ai'de desteklenmez" basip exit 2 doner.
 """
+import difflib
 import json
 import os
 import socket
@@ -21,10 +22,13 @@ KAPSAM = (
 # Yol argumani alan komutlar: istemci tarafinda mutlaklastirilir (sunucunun cwd'si farkli).
 # Argumansiz cagride de mutlaklasir, yoksa dosya sunucunun cwd'sine duser.
 YOL_ALAN = {"screenshot": "screenshot.png", "pdf": "sayfa.pdf", "responsive": "responsive"}
+# snapshot bayraklari: bilinmeyen bayrak sessizce yutulmaz, exit 2 doner
+SNAPSHOT_BAYRAK = {"-i", "-a", "-o", "-D"}
 ZAMAN_ASIMI = float(os.environ.get("GSTACK_BROWSE_TIMEOUT") or 300)
 
-SNAPSHOT_JS = r"""(isaretle) => {
-  const sec = 'a,button,input,select,textarea,[role=button],[role=link],[onclick],[contenteditable=true]';
+SNAPSHOT_JS = r"""(ayar) => {
+  const etk = 'a,button,input,select,textarea,[role=button],[role=link],[onclick],[contenteditable=true]';
+  const sec = ayar.yalniz ? etk : etk + ',h1,h2,h3,h4,h5,h6,p,li,img,label';
   document.querySelectorAll('[data-gsref]').forEach(e => e.removeAttribute('data-gsref'));
   const cikti = []; let n = 0;
   for (const el of document.querySelectorAll(sec)) {
@@ -32,7 +36,7 @@ SNAPSHOT_JS = r"""(isaretle) => {
     if (!r.width && !r.height) continue;
     n += 1;
     const ref = 'e' + n;
-    if (isaretle) el.setAttribute('data-gsref', ref);
+    el.setAttribute('data-gsref', ref);   // her snapshot isaretler: sonraki click calissin
     const ham = el.getAttribute('aria-label') || el.getAttribute('placeholder') ||
                 el.value || el.innerText || el.id || '';
     const etiket = String(ham).replace(/\s+/g, ' ').trim().slice(0, 80);
@@ -40,6 +44,30 @@ SNAPSHOT_JS = r"""(isaretle) => {
                ' "' + etiket + '"');
   }
   return cikti.join('\n');
+}"""
+
+OVERLAY_JS = r"""() => {
+  document.querySelectorAll('[data-gsoverlay]').forEach(e => e.remove());
+  for (const el of document.querySelectorAll('[data-gsref]')) {
+    const r = el.getBoundingClientRect();
+    const kutu = document.createElement('div');
+    kutu.setAttribute('data-gsoverlay', '1');
+    kutu.style.cssText = 'position:absolute;z-index:2147483647;pointer-events:none;' +
+      'border:2px solid #e11;left:' + (r.left + scrollX) + 'px;top:' + (r.top + scrollY) +
+      'px;width:' + r.width + 'px;height:' + r.height + 'px;';
+    const etiket = document.createElement('span');
+    etiket.textContent = '@' + el.getAttribute('data-gsref');
+    etiket.style.cssText = 'position:absolute;left:0;top:-13px;background:#e11;color:#fff;' +
+      'font:11px monospace;padding:0 3px;';
+    kutu.appendChild(etiket);
+    document.body.appendChild(kutu);
+  }
+  return document.querySelectorAll('[data-gsoverlay]').length;
+}"""
+
+OVERLAY_SIL_JS = r"""() => {
+  document.querySelectorAll('[data-gsoverlay]').forEach(e => e.remove());
+  return document.querySelectorAll('[data-gsoverlay]').length;
 }"""
 
 PERF_JS = """() => {
@@ -61,6 +89,16 @@ def unix_soket_var():
 
 # --------------------------------------------------------------------------- sunucu
 
+def _viewport_boyut(args):
+    """`375x812` ve `375 812` ayni kapiya cikar; gecersiz girdi tek satir hata."""
+    parca = args[0].lower().split("x") if len(args) == 1 else args[:2]
+    try:
+        genislik, yukseklik = (int(p) for p in parca)
+    except (TypeError, ValueError):
+        raise ValueError("viewport: `375x812` ya da `375 812` bekleniyor")
+    return genislik, yukseklik
+
+
 class Oturum:
     """Tek tarayici + tek sayfa; komutlari calistirir."""
 
@@ -71,6 +109,7 @@ class Oturum:
         self.baglam = self.tarayici.new_context()
         self.sayfa = self.baglam.new_page()
         self.konsol = []
+        self.son_snapshot = None
         self._konsol_bagla()
 
     def _konsol_bagla(self):
@@ -83,6 +122,30 @@ class Oturum:
                 raise ValueError(secici + " yok -- once snapshot -i")
             return hedef
         return self.sayfa.locator(secici)
+
+    def _snapshot(self, args):
+        """Her cagri isaretler; -i listeyi daraltir, -D fark verir, -a PNG yazar."""
+        liste = self.sayfa.evaluate(SNAPSHOT_JS, {"yalniz": "-i" in args})
+        cikti = liste
+        if "-D" in args:
+            onceki = self.son_snapshot
+            if onceki is None:
+                cikti = "(onceki snapshot yok)\n" + liste
+            elif onceki == liste:
+                cikti = "(fark yok)"
+            else:
+                cikti = "\n".join(difflib.unified_diff(
+                    onceki.split("\n"), liste.split("\n"), "onceki", "simdi", lineterm=""))
+        self.son_snapshot = liste
+        if "-a" in args:
+            yol = args[args.index("-o") + 1] if "-o" in args else "annotated.png"
+            self.sayfa.evaluate(OVERLAY_JS)
+            try:
+                self.sayfa.screenshot(path=yol, full_page=True)
+            finally:
+                self.sayfa.evaluate(OVERLAY_SIL_JS)
+            cikti = cikti + "\n" + yol
+        return cikti
 
     def calistir(self, komut, args):
         s = self.sayfa
@@ -97,7 +160,7 @@ class Oturum:
         if komut == "html":
             return s.content()
         if komut == "snapshot":
-            return s.evaluate(SNAPSHOT_JS, "-i" in args)
+            return self._snapshot(args)
         if komut == "click":
             self._hedef(args[0]).click()
             return "tiklandi: " + args[0]
@@ -131,8 +194,9 @@ class Oturum:
                 s.wait_for_load_state("networkidle")
             return "beklendi"
         if komut == "viewport":
-            s.set_viewport_size({"width": int(args[0]), "height": int(args[1])})
-            return "viewport: " + args[0] + "x" + args[1]
+            genislik, yukseklik = _viewport_boyut(args)
+            s.set_viewport_size({"width": genislik, "height": yukseklik})
+            return "viewport: %dx%d" % (genislik, yukseklik)
         if komut == "reload":
             s.reload(wait_until="load")
             return s.url
@@ -366,6 +430,22 @@ def main(argv):
         return 2
     if komut in YOL_ALAN:
         args[0:1] = [os.path.abspath(args[0] if args else YOL_ALAN[komut])]
+    if komut == "snapshot":
+        bilinmeyen = [a for a in args if a.startswith("-") and a not in SNAPSHOT_BAYRAK]
+        if bilinmeyen:
+            sys.stderr.write(
+                "browse: snapshot bayragi desteklenmez: " + bilinmeyen[0] + "\n"
+                "Desteklenen: -i (yalniz etkilesimli) -a (isaretli PNG) "
+                "-o <yol> -D (onceki snapshot ile fark)\n")
+            return 2
+        if "-o" in args:
+            i = args.index("-o") + 1
+            if i >= len(args) or "-a" not in args:
+                sys.stderr.write("browse: -o bir yol bekler ve yalniz -a ile kullanilir\n")
+                return 2
+            args[i] = os.path.abspath(args[i])
+        elif "-a" in args:
+            args += ["-o", os.path.abspath("annotated.png")]
     return istemci(komut, args)
 
 
