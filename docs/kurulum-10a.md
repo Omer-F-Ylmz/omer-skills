@@ -191,3 +191,126 @@ Start-Process "C:\Users\pc\Downloads\Headroom_0.9.16_x64-setup.exe"
 powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Projeler\omer-skills\tools\sync-off-10.ps1" -Dist "C:\Projeler\omer-skills\dist\yukle-10"
 powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Projeler\omer-skills\tools\sync-off-10.ps1" -Dist "C:\Projeler\omer-skills\dist\yukle-10" -Apply
 ```
+
+---
+
+# KURULUM-10a-FIX — claude.ai denetim bulgulari
+
+claude.ai sandbox'ta (Node 22.22.2, global playwright 1.56.0, `/mnt/skills` salt okunur,
+dosyalar 644, bash bloklari arasi kabuk durumu yok) uc paket dustu. Uc kok neden, uc
+duzeltme, bir de bundan sonraki her partide kosulacak duman testi araci.
+
+Yeni surumler `dist/yukle-10b/replace/`; dusen surumler `C:\Projeler\.tmp-kurulum6\eski-10a`.
+
+## F1 · pixeljury — uc ayri kusur
+
+| # | Belirti | Kok neden | Duzeltme |
+| --- | --- | --- | --- |
+| a | `bin/pixeljury.js:15` ENOENT | `yukle10.py` `p_pixeljury` yalniz `bin/` ve `src/` alt agaclarini geziyordu; kok dosyalar hic kopyalanmiyordu. `bin/pixeljury.js` surumu `../package.json`'dan okuyor, ayrica `"type": "module"` ESM cozumlemesi icin bu dosyada. | Kok `package.json` (ozgun, 0.1.5) zip'e eklendi. |
+| b | "Playwright is not installed" | `pixeljury-core/src/render.js:46` `await import("playwright")` — ESM `NODE_PATH`'i yok sayar, yalnizca dizin yurur. | SKILL.md blogu skill'i `/tmp/pixeljury-run`'a kopyalayip global playwright'i `node_modules/playwright` olarak bagliyor. |
+| c | rubric bulunamiyor | `src/rubric-loader.js` sirasi `$PIXELJURY_RUBRIC` -> `cwd/rubric.md` -> modul dizininden yukari; paket rubric'i `references/` altinda tuttugu icin ucunde de yok. | Blok `PIXELJURY_RUBRIC=/tmp/pixeljury-run/references/rubric.md` veriyor. |
+
+Calistirma artik **tek blok** (kabuk durumu korunmuyor) ve `URL`/`OUT` ile disaridan
+parametrelenebiliyor, bu sayede duman testi blogu birebir kosabiliyor.
+
+Duman sonucu: exit 0 . `score.json` `critique.md` `fix-prompt.md` `screenshot.png`
+`screenshot-390.png` . `examples/sloppy-saas` icin **3 hard fail**, skor 30/100.
+(Tarifin elle olcumu 49/100 idi; fark playwright surumunden — yerelde 1.63.0,
+sandbox'ta 1.56.0. Kabul olcutu exit 0 + cikti + hard-fail >= 1, ucu de saglandi.)
+
+## F2 · headroom-compress — JSON dizisinde %0
+
+**Kok neden ust akista, pakette degil.** `headroom/compression/universal.py`
+`_compress_with_mask` yalnizca **50 karakterden uzun** yapisal-olmayan parcalari
+sikistiriyor; `json_handler.py` anahtarlari, parantez/virgul/iki noktayi, bool ve null
+degerleri, kisa sayilari ve **20 karaktere kadar** metin degerlerini yapisal sayip
+koruyor. Alanlari kisa olan bir kayit dizisinde sikistirilabilir parca kalmiyor.
+
+Olculen (400 kayit x 3 order + meta, `random.seed(1)`):
+
+| girdi | boyut | oran | tasarruf |
+| --- | --- | --- | --- |
+| JSON dizisi, kisa alanlar, indent=2 | 252 KB | 1.000 | %0 |
+| JSON dizisi, kisa alanlar, kompakt | 140 KB | 1.000 | %0 |
+| ayni dizi, kayit basina 40 kr metin degeri | - | 1.000 | %0 |
+| ayni dizi, 50 kr | - | 0.763 | %23.7 |
+| ayni dizi, 80 kr | - | 0.646 | %35.4 |
+| ayni dizi, 200 kr | - | 0.472 | %52.8 |
+| 3000 satirlik uygulama logu (60 ERROR) | 260 KB | 0.703 | %29.7 |
+
+**Gomme denendi, olmuyor.** `compression/` disindaki tekrar tabanli sikistiricilar saf
+Python degil: `transforms/kompress_compressor.py` torch + transformers + onnxruntime +
+safetensors + huggingface_hub istiyor ve model indiriyor (olcumde 20 s zaman asimina
+girip kalani aynen birakti, %35.6); `transforms/smart_crusher.py` derlenmis
+`headroom._core` uzantisina bagli. Ikisi de 30 MB sinirini ve "ag yok" kisitini asiyor.
+Karar: **gomulmedi**, olculen sinir `SKILL.md` "Sinirlar" ve `references/ornek.md`
+"JSON siniri" bolumlerine yazildi; paketin description'i da "uzun metinli JSON" diyecek
+sekilde daraltildi.
+
+**ERROR satiri.** Olculen 3000 satirlik ornekte **60 -> 60**, kesilme olmadi. Ama
+mekanizma tarifin gordugu kesilmeyi aciklyor: sikistirma her parcanin **ortasini**
+atiyor (bas 2/3 + `...[compressed]...` + son 1/3) ve kesme noktasi karakter sayisina
+gore belirleniyor; LOG icin isleyici `noop`, log seviyesi ozel olarak korunmuyor.
+Seviye etiketinin kurtulmasi satir bicimine bagli — upstream davranisi, `SKILL.md`
+"Sinirlar"a ve `ornek.md` "Notlar"a birer satir eklendi.
+
+Ek olarak `scripts/compress.py` artik `sys.dont_write_bytecode = True` ile basliyor:
+duman testi salt okunur kopyaya `__pycache__` yazildigini yakaladi.
+
+## F3 · plugin-dev-agent-creator — Permission denied
+
+Kaynak metin `scripts/validate-agent.sh agents/[identifier].md` diye dogrudan cagiriyordu;
+644'te calismaz, ayrica cwd skill koku degil. `p_pdev`'e `degis` parametresi eklendi
+(desen kaynakta yoksa `SystemExit` — upstream metni degisirse sessizce gecmesin), cagri:
+
+```bash
+SKILL=$(ls -d /mnt/skills/*/plugin-dev-agent-creator | head -1)
+bash "$SKILL/scripts/validate-agent.sh" agents/[identifier].md
+```
+
+644 kopyada `bash "$SKILL/scripts/validate-agent.sh"` usage basiyor (exit 1, kullanim
+metni). Blok sablon oldugu icin duman testinde beklenen exit kodu 1
+(`--bekle plugin-dev-agent-creator=1`).
+
+## F4 · tools/duman_claudeai.py
+
+yukle-N zip'ini gecici dizine acar, dosyalari 644 / dizinleri salt okunur yapar,
+`SKILL.md`'deki her ```bash blogunu **ayri kabukta** kosar, sonra salt okunur kopyaya
+yazilip yazilmadigini karsilastirir. `/mnt/skills/*/` deseni acilan kopyaya cevrilir.
+
+Windows'un sandbox'tan ayrildigi yerler ve ne yapildigi:
+
+| fark | cozum |
+| --- | --- |
+| `chmod 644` exec bitini kaldirmiyor, Git Bash shebang'e bakip calistiriyor | dogrudan betik cagrilari ayrica **statik** denetleniyor (`statik_denetim`) |
+| dizin salt okunur zorlanmiyor | blok oncesi/sonrasi dosya listesi karsilastirmasi |
+| Git Bash `ln -s` dizin hedefini POSIX yola cevirip yaziyor, Node cozemiyor | PATH'e `ln` shim'i (Python `os.symlink`) |
+| yerelde playwright global kokte degil, `pixeljury/node_modules` altinda | PATH'e `npm` shim'i: `npm root -g` taklit global koku basiyor, oraya symlink kurulur |
+
+Kullanim:
+
+```bash
+python tools/duman_claudeai.py dist/yukle-10b/replace \
+  --bekle plugin-dev-agent-creator=1 \
+  --env "URL=file:///C:/Projeler/.tmp-kurulum6/pixeljury/examples/sloppy-saas/index.html" \
+  --env "OUT=/tmp/pj" --env "GIRDI=/tmp/buyuk.log"
+```
+
+Sonuc: `3 zip . 0 sorunlu`.
+
+## Sapmalar
+
+1. **644 exec biti yerelde dogrulanamadi.** Windows'ta `chmod 644` calistirma yetkisini
+   kaldirmiyor, bu yuzden F3'un asil belirtisi (Permission denied) yerelde uretilemez.
+   Dogrulanan: yeni cagri bicimi exec bitine ve cwd'ye bagli degil, `bash` ile usage
+   basiyor. Asil belirti sandbox'ta kapanmis sayilir.
+2. **JSON ureticisi birebir degil.** Tarif indent=2 icin 227 KB / kompakt 122 KB veriyor,
+   yeniden uretilen ayni yapidaki dosya 252 KB / 140 KB. Sonuc degismiyor: iki bicimde de
+   oran 1.000. Sinir sayilari yeniden uretilen dosyayla olculdu.
+3. **Log ornegi farkli.** Tarif %68.7 gormus, yeniden uretilen 3000 satirlik log %29.7.
+   Tasarruf satir uzunluguna ve tekrara bagli; ikisi de "%30 civari ve ustu" bandinda.
+   ERROR kesilmesi bu ornekte olusmadi (60 -> 60), mekanizma yine de belgelendi.
+4. **`headroom-compress` ve `pixeljury` SKILL.md bloklarina `${VAR:-varsayilan}`
+   parametreleri eklendi.** Gerekce: duman testinin blogu *birebir* kosabilmesi icin
+   girdi yolunun disaridan verilebilmesi gerekiyordu. Kullanici icin davranis degismiyor,
+   varsayilanlar sandbox yollari.

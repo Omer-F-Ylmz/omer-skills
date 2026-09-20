@@ -102,11 +102,17 @@ def p_cli_anything(stage, ad, rapor):
     yaz(stage / "LICENSE", (plug / "LICENSE").read_text(encoding="utf-8"))
 
 
-def p_pdev(altyol, ekler=()):
-    """ekler: (zip icindeki yol, plugin icindeki kaynak) — SKILL.md'nin cagirdigi betikler."""
+def p_pdev(altyol, ekler=(), degis=()):
+    """ekler: (zip icindeki yol, plugin icindeki kaynak) — SKILL.md'nin cagirdigi betikler.
+    degis: (eski, yeni) — kaynak metindeki sandbox'ta calismayan cagrilarin duzeltmesi."""
     def f(stage, ad, rapor):
         kok = kurulu("plugin-dev@claude-plugins-official")
-        md_skill(stage, ad, (kok / altyol).read_text(encoding="utf-8"), rapor)
+        md = (kok / altyol).read_text(encoding="utf-8")
+        for a, b in degis:
+            if a not in md:
+                raise SystemExit(ad + ": degis deseni kaynakta yok -> " + a)
+            md = md.replace(a, b)
+        md_skill(stage, ad, md, rapor)
         for hedef, kaynak in ekler:
             yaz(stage / hedef, (kok / kaynak).read_text(encoding="utf-8"))
         yaz(stage / "LICENSE", (kok / "LICENSE").read_text(encoding="utf-8"))
@@ -131,7 +137,10 @@ Cikti: `critique.md`, `fix-prompt.md`, `score.json`, ekran goruntuleri.
 
 ## Sinirlar (claude.ai sandbox)
 
-- Playwright bu pakette **yok**; sandbox'in global kurulumu (playwright 1.56.0) kullanilir.
+- Playwright bu pakette **yok**; sandbox'in global kurulumu kullanilir. ESM `import()`
+  `NODE_PATH`'i yok sayar, bu yuzden asagidaki blok global playwright'i calisma
+  kopyasinin `node_modules/` dizinine baglar.
+- `/mnt/skills` salt okunur; skill once `/tmp/pixeljury-run` altina kopyalanir.
 - Yalniz `--provider mock` calisir: ag erisimi ve API anahtari yok. `anthropic`, `openai`,
   `claude-code`, `codex` saglayicilari sandbox'ta denenmemeli.
 - Deterministik kontroller (kontrast, mobil tasma, dokunma hedefi, kucuk metin,
@@ -139,30 +148,31 @@ Cikti: `critique.md`, `fix-prompt.md`, `score.json`, ekran goruntuleri.
 
 ## Calistirma
 
+Bash bloklari arasinda kabuk durumu korunmaz: asagisi **tek blok** olarak calistirilir.
+
 ```bash
 SKILL=$(ls -d /mnt/skills/*/pixeljury | head -1)
-export NODE_PATH=$(npm root -g)
-node "$SKILL/bin/pixeljury.js" review "file:///mnt/user-data/uploads/index.html" \\
-  --provider mock --out /mnt/user-data/outputs/pixeljury
+URL=${URL:-file:///mnt/user-data/uploads/index.html}   # ya da http://localhost:3000
+OUT=${OUT:-/mnt/user-data/outputs/pixeljury}
+mkdir -p /tmp/pixeljury-run && cp -rf "$SKILL/." /tmp/pixeljury-run/
+ln -sfn "$(npm root -g)/playwright" /tmp/pixeljury-run/node_modules/playwright
+export PIXELJURY_RUBRIC=/tmp/pixeljury-run/references/rubric.md
+node /tmp/pixeljury-run/bin/pixeljury.js review "$URL" --provider mock --out "$OUT"
 ```
 
-Yerel bir sunucu varsa adres dogrudan verilir:
-
-```bash
-node "$SKILL/bin/pixeljury.js" review "http://localhost:3000" --provider mock --out ./pixeljury
-```
-
-`--out` verilmezse cikti calisma dizinindeki `pixeljury/` klasorune yazilir.
+Baska bir sayfa icin yalniz `URL` degisir: yerel dosya `file:///mnt/user-data/uploads/x.html`,
+calisan sunucu `http://localhost:3000`. `--out` dizini yoksa olusturulur.
 
 ## Puanlama olcutu
 
-Tam rubric: `references/rubric.md`. Sert hatalar (hard fail) puani tavanlar;
-problemler puan dusurur. Once `fix-prompt.md` uygulanir, sonra tekrar calistirilir.
+Tam rubric: `references/rubric.md` (blokta `PIXELJURY_RUBRIC` ile gosterilir; rubric-loader
+onu kendiliginden bulmaz). Sert hatalar (hard fail) puani tavanlar; problemler puan dusurur.
+Once `fix-prompt.md` uygulanir, sonra tekrar calistirilir.
 """
 
 HEADROOM_MD = """---
 name: headroom-compress
-description: Buyuk JSON, log ya da arac ciktisini yapiyi koruyarak sikistirir ve ozetini basar. Uzun bir dosyayi baglama sigdirmak, arac ciktisini kisaltmak ya da sikistirma oranini olcmek gerektiginde kullan.
+description: Buyuk log, arac ciktisi ya da uzun metinli JSON'u yapiyi koruyarak sikistirir ve ozetini basar. Uzun bir dosyayi baglama sigdirmak ya da sikistirma oranini olcmek gerektiginde kullan.
 ---
 
 # headroom-compress
@@ -172,9 +182,25 @@ Icerik turunu tespit eder, yapiyi (anahtarlar, imzalar, sablon) korur, geri kala
 
 ## Sinirlar (claude.ai sandbox)
 
+- **Kisa degerli JSON'da kazanc yok.** Sikistirma yalnizca **50 karakterden uzun**
+  yapisal-olmayan parcalara uygulanir; JSON isleyicisi anahtarlari, parantezleri,
+  bool/null degerleri, kisa sayilari ve 20 karaktere kadar metin degerlerini yapisal
+  sayip korur. Olculen (400 kayitlik dizi, alanlar id / e-posta / sehir / durum / tarih):
+  indent=2 252 KB -> **oran 1.000, %0**; kompakt 140 KB -> **%0**. Ayni dizide kayit
+  basina tek metin degeri uzatilinca: 40 kr %0 . 50 kr %23.7 . 80 kr %35.4 . 200 kr %52.8.
+  Yani **%30'u asmak icin metin degerlerinin ~80 karakterden uzun olmasi gerekir**;
+  kayit dizisi bicimindeki disa aktarimlar bu paketin isi degil.
+- **Seviye etiketi garanti degil.** Sikistirma her parcanin **ortasini** atar
+  (bas 2/3 + `...[compressed]...` + son 1/3) ve kesme noktasi karakter sayisina gore
+  belirlenir; log seviyesi ozel olarak korunmaz. Kesilen bolgeye denk gelen bir
+  `ERROR`/`WARN` etiketi kaybolur. Seviye saymak icin sikistirilmis cikti degil asil
+  dosya kullanilir. (Olculen 3000 satirlik log ornegi: %29.7 tasarruf, ERROR 60 -> 60.)
 - `magika` (ML tespit) ve `tree_sitter` **yok**; her ikisi de `ImportError` ile yedek yola
   duser (`FallbackDetector`, satir tabanli kod ozeti). Cikti biraz daha kaba olur,
   calisma bozulmaz.
+- Ust akisin guclu sikistiricilari (`transforms/kompress_compressor.py`,
+  `transforms/smart_crusher.py`) gomulemez: ilki torch + transformers + onnxruntime ve
+  model indirmesi ister, ikincisi derlenmis `headroom._core` uzantisina baglidir.
 - CCR deposu (`ccr_enabled`) kapali: sikistirilan metnin aslini saklamaz.
 - Saf Python; derlenmis uzanti, model dosyasi ya da ag cagrisi yok.
 
@@ -182,7 +208,8 @@ Icerik turunu tespit eder, yapiyi (anahtarlar, imzalar, sablon) korur, geri kala
 
 ```bash
 SKILL=$(ls -d /mnt/skills/*/headroom-compress | head -1)
-python3 "$SKILL/scripts/compress.py" buyuk.json --oran 0.3
+GIRDI=${GIRDI:-buyuk.log}
+python3 "$SKILL/scripts/compress.py" "$GIRDI" --oran 0.3
 ```
 
 `--cikti dosya.txt` verilirse sikistirilmis metin dosyaya yazilir; verilmezse stdout'a
@@ -192,10 +219,11 @@ Kutuphane olarak:
 
 ```bash
 SKILL=$(ls -d /mnt/skills/*/headroom-compress | head -1)
-PYTHONPATH="$SKILL" python3 -c "from headroom.compression import compress; print(compress(open('buyuk.json').read()).compressed[:500])"
+GIRDI=${GIRDI:-buyuk.log}
+PYTHONPATH="$SKILL" python3 -B -c "import sys; from headroom.compression import compress; print(compress(open(sys.argv[1], encoding='utf-8').read()).compressed[:500])" "$GIRDI"
 ```
 
-Ornek cikti ve tipik oranlar: `references/ornek.md`.
+Olculen ornekler ve tipik oranlar: `references/ornek.md`.
 """
 
 HEADROOM_CLI = '''#!/usr/bin/env python3
@@ -204,6 +232,8 @@ import argparse
 import pathlib
 import sys
 
+# /mnt/skills salt okunur: import sirasinda __pycache__ yazmaya calisilmasin
+sys.dont_write_bytecode = True
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from headroom.compression import UniversalCompressor, UniversalCompressorConfig
 
@@ -236,25 +266,55 @@ if __name__ == "__main__":
     sys.exit(main())
 '''
 
-HEADROOM_ORNEK = """# Ornek
+HEADROOM_ORNEK = """# Ornek ve olculen sinirlar
 
 `scripts/compress.py` bir dosyayi okur, icerik turunu tespit eder, yapiyi koruyarak
 sikistirir ve istatistigi stderr'e basar.
 
 ```bash
 SKILL=$(ls -d /mnt/skills/*/headroom-compress | head -1)
-python3 "$SKILL/scripts/compress.py" buyuk.json --cikti kisa.txt
+GIRDI=${GIRDI:-buyuk.log}
+python3 "$SKILL/scripts/compress.py" "$GIRDI" --cikti kisa.txt
 ```
 
 stderr ornegi:
 
 ```text
-girdi 1483210 kr . cikti 512044 kr . oran 0.345 . token 370802 -> 128011 (%65.5 tasarruf)
+girdi 266679 kr . cikti 187455 kr . oran 0.703 . token 66669 -> 46863 (%29.7 tasarruf)
 ```
 
-Notlar:
+## Olculen sonuclar
 
-- `--oran` hedeftir, garanti degil; cok tekrarli JSON'da asilir, yogun metinde tutmaz.
+| girdi | boyut | oran | tasarruf |
+| --- | --- | --- | --- |
+| 3000 satirlik uygulama logu (60 ERROR) | 260 KB | 0.703 | %29.7 |
+| 400 kayitlik JSON dizisi, kisa alanlar, indent=2 | 252 KB | 1.000 | **%0** |
+| 400 kayitlik JSON dizisi, kisa alanlar, kompakt | 140 KB | 1.000 | **%0** |
+| ayni dizi, kayit basina 50 karakterlik metin degeri | - | 0.763 | %23.7 |
+| ayni dizi, kayit basina 80 karakterlik metin degeri | - | 0.646 | %35.4 |
+| ayni dizi, kayit basina 200 karakterlik metin degeri | - | 0.472 | %52.8 |
+
+## JSON siniri
+
+Sikistirma yalnizca **50 karakterden uzun** yapisal-olmayan parcalara uygulanir.
+JSON isleyicisi anahtarlari, parantez/virgul/iki noktayi, bool ve null degerleri,
+kisa sayilari ve **20 karaktere kadar** metin degerlerini yapisal sayip korur.
+Bu yuzden alanlari kisa olan bir kayit dizisinde (id, e-posta, sehir, durum, tarih)
+sikistirilabilir parca kalmaz ve oran 1.000 cikar -- girdi ne kadar tekrarli olursa
+olsun. Tekrar tabanli kazanc ust akistaki `transforms/` sikistiricilarinda; onlar
+torch/transformers/onnxruntime ya da derlenmis `headroom._core` istedigi icin bu
+pakette yok.
+
+Pratik kural: **metin degerleri ~80 karakteri gectiginde %30 ve ustu tasarruf gelir.**
+
+## Notlar
+
+- `--oran` hedeftir, garanti degil.
+- Sikistirma her parcanin ortasini atar (bas 2/3 + `...[compressed]...` + son 1/3).
+  Kesme noktasi karakter sayisina gore belirlenir; log seviyesi (`ERROR`, `WARN`) ozel
+  olarak korunmaz, kesilen bolgeye denk gelen bir etiket kaybolur. Yukaridaki 3000
+  satirlik ornekte 60 ERROR satirinin 60'i korundu, ama bu bicime bagli bir sonuc:
+  seviye saymak icin asil dosya kullanilir.
 - magika yoksa tur tespiti `FallbackDetector`'a duser (uzanti + basit desen).
   JSON ve duz log icin sonuc pratikte ayni; kaynak kodda ozet biraz daha kaba olur.
 - Cok kucuk girdilerde (`min_content_length` 100 karakterin altinda) sikistirma yapilmaz,
@@ -264,6 +324,10 @@ Notlar:
 
 def p_pixeljury(stage, ad, rapor):
     src = Path(kabuk("npm", "root", "-g")) / "pixeljury"
+    # kok package.json: kopyala() yalniz alt agaclari geziyordu, kok dosyalar disarida
+    # kaliyordu -- bin/pixeljury.js "../package.json" okuyor (surum) ve "type": "module"
+    # ESM cozumlemesi icin gerekli. Ikisi de bu dosyada.
+    yaz(stage / "package.json", (src / "package.json").read_text(encoding="utf-8"))
     for alt in ("bin", "src"):
         kopyala(src / alt, stage / alt, ad, rapor)
     for m in ("pixeljury-core", "pixeljury-vision"):  # playwright/playwright-core HARIC
@@ -366,12 +430,26 @@ def p_zipten(zad):
     return f
 
 
+# claude.ai: dosyalar 644 -> betigi dogrudan cagirmak "Permission denied" verir;
+# ayrica cwd skill koku degil. Cagri bash ile ve mutlak yolla yapilir.
+AGENT_CREATOR_ESKI = (
+    "Validate with: `scripts/validate-agent.sh agents/[identifier].md`")
+AGENT_CREATOR_YENI = '''Dogrulama (betik pakette: `scripts/validate-agent.sh`;
+claude.ai'da dosyalar 644 oldugu icin dogrudan degil `bash` ile cagrilir):
+
+```bash
+SKILL=$(ls -d /mnt/skills/*/plugin-dev-agent-creator | head -1)
+bash "$SKILL/scripts/validate-agent.sh" agents/[identifier].md
+```'''
+
+
 PAKETLER = [
     ("cli-anything", "yeni", p_cli_anything),
     ("plugin-dev-create-plugin", "yeni", p_pdev("commands/create-plugin.md")),
     ("plugin-dev-agent-creator", "yeni", p_pdev(
         "agents/agent-creator.md",
-        [("scripts/validate-agent.sh", "skills/agent-development/scripts/validate-agent.sh")])),
+        [("scripts/validate-agent.sh", "skills/agent-development/scripts/validate-agent.sh")],
+        [(AGENT_CREATOR_ESKI, AGENT_CREATOR_YENI)])),
     ("plugin-dev-plugin-validator", "yeni", p_pdev("agents/plugin-validator.md")),
     ("plugin-dev-skill-reviewer", "yeni", p_pdev("agents/skill-reviewer.md")),
     ("memory-md-management-revise-memory-md", "yeni", p_memory_md),
@@ -435,9 +513,11 @@ def main(argv):
     if OUT.exists():
         shutil.rmtree(OUT)
     rapor, satir, hata = [], [], []
+    zorla = os.environ.get("YUKLE10_HEDEF")  # 10b: eski surumun yerine gecen parti
     for ad, hedef, kur in PAKETLER:
         if argv and ad not in argv:
             continue
+        hedef = zorla or hedef
         stage = TMP / ad / ad
         stage.mkdir(parents=True)
         kur(stage, ad, rapor)
