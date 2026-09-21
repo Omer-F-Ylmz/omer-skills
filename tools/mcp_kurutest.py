@@ -128,8 +128,27 @@ def ayikla(argv):
     return kalan, deger.get("cwd"), deger.get("spawner")
 
 
+
+def cwd_coz(deger):
+    """--cwd ciplak ad kabul eder: System32 -> %SystemRoot%\\System32 (Desktop'in cwd'si)."""
+    if not deger:
+        return None
+    if os.path.isabs(deger) or os.path.dirname(deger):
+        return deger
+    return os.path.join(os.environ["SystemRoot"], deger)
+
+
+def spawner_uygula(ad, komut, cagri, spawner):
+    """--spawner node: haritadaki sunucu node.exe ile, haritada olmayan config komutuyla kosar."""
+    if spawner != "node" or ad not in NODE_GIRIS:
+        return komut, cagri
+    cagri = [os.path.join(NPM_PREFIX, y) if y.startswith("node_modules") else y
+             for y in NODE_GIRIS[ad]]
+    return os.path.join(NPM_PREFIX, "node.exe"), cagri
+
 if __name__ == "__main__":
     argv, cwd, spawner = ayikla(sys.argv[1:])
+    cwd = cwd_coz(cwd)
     bayraklar = [a for a in argv if a.startswith("--")]
     hedef = [a for a in argv if not a.startswith("--")]
     desktop = "--desktop-env" in bayraklar
@@ -152,10 +171,7 @@ if __name__ == "__main__":
         gen = (lambda x: x) if desktop else os.path.expandvars
         env_ek = {k: gen(v) for k, v in (tanim.get("env") or {}).items()}
         komut, cagri = tanim["command"], [gen(a) for a in tanim.get("args", [])]
-        if spawner == "node":
-            komut = os.path.join(NPM_PREFIX, "node.exe")
-            cagri = [os.path.join(NPM_PREFIX, p) if p.startswith("node_modules") else p
-                     for p in NODE_GIRIS[ad]]
+        komut, cagri = spawner_uygula(ad, komut, cagri, spawner)
         buf = []
         r = dene(ad, komut, cagri, env_ek, taban=taban, hata_bufer=buf, cwd=cwd)
         if hata_dizin:
