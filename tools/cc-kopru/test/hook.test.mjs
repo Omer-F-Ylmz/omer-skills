@@ -124,3 +124,35 @@ test("normal ajan alanlari gecer", () => {
   assert.equal(ajanAlanDenetle("devam_id", "e03c93eb-1d0d-48a2-8df4-a2c4f1e37fb0"),
                "e03c93eb-1d0d-48a2-8df4-a2c4f1e37fb0");
 });
+
+// --- 11i-FIX-2: Desktop ortaminda bash (PATH'te Git yok) ---
+import fs from "node:fs";
+import path from "node:path";
+import { bashYolu } from "../hook.mjs";
+
+/** Desktop MCP surecinin PATH'i: Git\bin ve Git\usr\bin yok. */
+function gitsizPath() {
+  return process.env.PATH.split(";").filter((p) => !/\\Git\\(bin|usr\\bin)/i.test(p)).join(";");
+}
+
+test("bash yolu mutlaktir ve System32 WSL'i secmez", () => {
+  const y = bashYolu();
+  assert.ok(path.isAbsolute(y), "mutlak yol dondu: " + y);
+  assert.doesNotMatch(y, /System32/i, "WSL bash'i secilmez");
+  assert.ok(fs.existsSync(y), "yol var: " + y);
+});
+
+test("bash hook'u PATH'te Git yokken de kosar (spawn bash ENOENT yok)", async () => {
+  const t = hookTanimlari(kaynak("PreToolUse", "Bash",
+    { type: "command", command: "echo bash-kostu", shell: "bash" }), []);
+  const eski = process.env.PATH;
+  process.env.PATH = gitsizPath();
+  try {
+    const r = await hookKos(t, {
+      hook_event_name: "PreToolUse", tool_name: "Bash", tool_input: { command: "x" },
+    });
+    assert.equal(r.karar, "izin");
+    assert.doesNotMatch(r.ekBaglam, /ENOENT/, "bash bulunamadi hatasi yok");
+    assert.match(r.ekBaglam, /bash-kostu/);
+  } finally { process.env.PATH = eski; }
+});

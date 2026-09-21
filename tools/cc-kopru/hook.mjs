@@ -26,6 +26,17 @@ export function matcherEslesir(matcher, ad) {
   }
 }
 
+/**
+ * Git Bash'in mutlak yolu. PATH'e güvenilmez: Desktop'ın MCP sürecinde bash yok
+ * (11i-FIX-2 B2, 6 SessionStart hook'u "spawn bash ENOENT" verdi).
+ * System32\\bash.exe (WSL) hiçbir zaman seçilmez — CC hook'ları Git Bash bekliyor.
+ */
+export function bashYolu() {
+  const ozel = process.env.CLAUDE_CODE_GIT_BASH_PATH;
+  if (ozel && !/system32/i.test(ozel) && fs.existsSync(ozel)) return ozel;
+  return "C:\\Program Files\\Git\\bin\\bash.exe";
+}
+
 function jsonOku(p) {
   try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; }
 }
@@ -122,7 +133,7 @@ function tekHookKos(tanim, girdi, projeDir) {
     const posix = tanim.kabuk === "bash" || /\.sh\b/.test(tanim.komut) || /^\s*\[\s/.test(tanim.komut);
     const komut = coz(tanim.komut, posix);
     if (posix) {
-      exe = "bash";
+      exe = bashYolu();
       argv = ["-c", komut];
     } else {
       exe = process.env.ComSpec || "cmd.exe";
@@ -198,7 +209,11 @@ export async function hookKos(tanimlar, girdi, { projeDir } = {}) {
     if (hso?.updatedInput) toolInput = { ...toolInput, ...hso.updatedInput };
     if (hso?.additionalContext) baglam.push(String(hso.additionalContext));
     if (!j && r.out.trim()) baglam.push(r.out.trim());
-    if (r.err.trim()) baglam.push(`[${t.kaynak}] ${r.err.trim()}`);
+    // hook hatası bağlamda kalır: hook adı · exit · stderr ilk satırı
+    if (r.kod !== 0 || r.err.trim()) {
+      const ilk = r.err.trim().split(/\r?\n/)[0] || "";
+      baglam.push(`[hook] ${t.anahtar} · exit ${r.kod} · ${ilk}`);
+    }
   }
 
   return { karar: "izin", sebep: "", girdi: toolInput, ekBaglam: baglam.join("\n"), kosan };

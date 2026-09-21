@@ -13,7 +13,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { ajanAlanDenetle, ayarYukle, cwdCoz, komutDenetle, kirp, kos, redakte, yolBul } from "./kos.mjs";
+import { ajanAlanDenetle, ayarYukle, cwdCoz, gitleaksOzet, komutDenetle, komutSatiri, kirp, kos,
+         memGovde, redakte, yenidenYazimKabul, yolBul } from "./kos.mjs";
 import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi } from "./hook.mjs";
 
 const AYAR = ayarYukle();
@@ -39,10 +40,6 @@ const sirala = (is) => (kuyruk = kuyruk.then(is, is));
 
 const metin = (s) => ({ content: [{ type: "text", text: String(s) }] });
 const hata = (s) => ({ content: [{ type: "text", text: String(s) }], isError: true });
-
-/** argv'den hook'lara verilecek komut satırını kurar. */
-const komutSatiri = (arac, args) =>
-  [arac, ...args].map((a) => (/\s/.test(a) ? JSON.stringify(a) : a)).join(" ");
 
 function tanimlar(projeDir) {
   return hookTanimlari(hookKaynaklari(projeDir), AYAR.kapaliHooklar || []);
@@ -81,25 +78,23 @@ srv.registerTool("komut", {
   }, { projeDir: proje });
   if (on.karar === "red") return hata("HOOK REDDETTİ: " + redakte(on.sebep));
 
-  // updatedInput: yeniden yazılan komutun yürütücüsü de allowlist'ten geçmeli
-  let cArac = arac, cArgs = args, yazildi = "";
+  // updatedInput yalnız ["rtk", ...orijinal argv] biçiminde kabul edilir (11i-FIX-2 K3):
+  // satırı yeniden jetonlara bölmek argüman sınırını değiştirebiliyordu. Başkası yok sayılır.
+  let cArac = arac, cArgs = args, yazildi = "", sarmalandi = false;
   const yeni = on.girdi?.command;
   if (yeni && yeni !== komutSatiri(arac, args)) {
-    const parca = yeni.match(/"[^"]*"|\S+/g).map((s) => s.replace(/^"|"$/g, ""));
-    // Tarif istisnası: rtk hook'tan gelen sarmalamada denetlenen, SARILAN yürütücüdür.
-    // `rtk git status` -> `git status` allowlist'ten geçerse kabul.
-    const sarilan = parca[0] === "rtk" && AYAR.izinli[parca[1]] ? 1 : 0;
-    try {
-      komutDenetle(parca[sarilan], parca.slice(sarilan + 1), AYAR);
-    } catch (e) {
-      return hata("HOOK yeniden yazdı ama yeni yürütücü geçmedi: " + e.message);
+    const sarma = AYAR.izinli.rtk ? yenidenYazimKabul([arac, ...args], yeni) : null;
+    if (sarma) {
+      [cArac, ...cArgs] = sarma;
+      sarmalandi = true;
+      yazildi = `[hook yeniden yazdı] ${yeni}\n`;
+    } else {
+      yazildi = "[hook yeniden yazımı yok sayıldı]\n";
     }
-    [cArac, ...cArgs] = parca;
-    yazildi = `[hook yeniden yazdı] ${yeni}\n`;
   }
 
   const r = await kos({ arac: cArac, args: cArgs, cwd: proje, timeoutSn: timeout_sn,
-                        ayar: AYAR, denetimAtla: Boolean(yazildi) });
+                        ayar: AYAR, denetimAtla: sarmalandi });
 
   await hookKos(defs, {
     ...ortak(proje), hook_event_name: "PostToolUse", tool_name: "Bash",
@@ -230,15 +225,25 @@ srv.registerTool("kaydet", {
   const gecici = path.join(gDizin, "not.md");
   fs.writeFileSync(gecici, `# ${baslik}\n\n${govde}\n`, "utf8");
   try {
+    // --no-banner --no-color: ret çıktısında banner ve ANSI olmaz. Bulgular JSON rapora
+    // yazılır; çıktıya yalnız sayı ve kural adı geçer, değer asla.
     const t = await kos({
-      arac: "gitleaks", args: ["detect", "--no-git", "--redact", "--source", "."],
+      arac: "gitleaks",
+      args: ["detect", "--no-git", "--redact", "--no-banner", "--no-color",
+             "--report-format", "json", "--report-path", "bulgu.json", "--source", "."],
       cwd: gDizin, ayar: AYAR,
     });
-    if (t.kod !== 0) return hata("YAZILMADI — gitleaks bulgu verdi:\n" + t.cikti);
+    if (t.kod !== 0) {
+      let rapor = null;
+      try {
+        rapor = JSON.parse(fs.readFileSync(path.join(gDizin, "bulgu.json"), "utf8"));
+      } catch { /* rapor yazılamadıysa sayı bilinmez */ }
+      return hata(gitleaksOzet(rapor, t.kod));
+    }
 
     const y = await fetch("http://127.0.0.1:37777/api/memory/save", {
       method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify({ project: proje, title: baslik, text: govde, source: "desktop" }),
+      body: JSON.stringify(memGovde(proje, baslik, govde)),
     });
     const c = await y.text();
     return y.ok ? metin("kaydedildi: " + c) : hata(`worker ${y.status}: ${c}`);

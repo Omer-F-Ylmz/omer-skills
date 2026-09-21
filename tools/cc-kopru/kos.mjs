@@ -19,8 +19,9 @@ const YASAK_FIIL = new Set([
   "login", "logout", "auth", "publish", "recover",
 ]);
 
-/** Argümanda hiçbir koşulda kabul edilmeyen kabuk metakarakterleri. */
-const METAKARAKTER = /[&|<>^`]/;
+/** Argümanda hiçbir koşulda kabul edilmeyen kabuk metakarakterleri.
+ *  `;` ve satır sonu de komut ayırıcıdır: `log -1;whoami` tek argüman gibi görünür. */
+const METAKARAKTER = /[&|<>^`;\r\n]/;
 /** `cmd /c` yoluna düşüldüğünde ek olarak reddedilenler. */
 const CMD_EK = /[%"!]/;
 
@@ -220,4 +221,38 @@ export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla }) {
     p.on("error", (e) => { parcalar.push(Buffer.from(String(e))); bitir(-1); });
     p.on("close", (kod) => bitir(kod));
   });
+}
+
+/** argv'yi hook'lara verilecek tek komut satırına çevirir. */
+export function komutSatiri(arac, args) {
+  return [arac, ...args].map((a) => (/\s/.test(a) ? JSON.stringify(a) : a)).join(" ");
+}
+
+/**
+ * Hook yeniden yazımı: yalnız ["rtk", ...orijinal argv] biçimi kabul edilir.
+ * Satırı yeniden jetonlara bölmek argüman sınırlarını değiştirebiliyor
+ * (`-1;whoami` -> `-1;` + `whoami`), o yüzden karşılaştırma satır üstünde yapılır.
+ * @returns {string[]|null} kabul edilen argv ya da null (yazım yok sayılır)
+ */
+export function yenidenYazimKabul(orijinalArgv, yeniKomut) {
+  const [arac, ...args] = orijinalArgv;
+  const beklenen = komutSatiri("rtk", [arac, ...args]);
+  return String(yeniKomut).trim() === beklenen ? ["rtk", arac, ...args] : null;
+}
+
+/**
+ * claude-mem worker gövdesi. Şema strict: text/title/project/metadata dışı her anahtar
+ * 400 ValidationError. "desktop" etiketi metadata.platformSource alanına girer —
+ * worker bunu manual session'ın platformSource'u olarak okuyor.
+ */
+export function memGovde(proje, baslik, metin) {
+  return { project: proje, title: baslik, text: metin, metadata: { platformSource: "desktop" } };
+}
+
+/** gitleaks JSON raporundan ret mesajı: sayı + kural adı. Bulgu değeri asla basılmaz. */
+export function gitleaksOzet(rapor, kod) {
+  const b = Array.isArray(rapor) ? rapor : [];
+  if (!b.length) return `YAZILMADI — gitleaks: bulgu raporu okunamadı (exit ${kod})`;
+  const kurallar = [...new Set(b.map((x) => String(x.RuleID ?? "?")))];
+  return `YAZILMADI — gitleaks: ${b.length} bulgu (${kurallar.join(", ")})`;
 }

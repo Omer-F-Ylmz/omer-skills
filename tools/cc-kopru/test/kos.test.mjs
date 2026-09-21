@@ -138,3 +138,40 @@ test("ciplak bilgi bayragi tek basina gecer", () => {
 test("bilgi bayragi baska argumanla birlesemez", () => {
   assert.throws(() => komutDenetle("git", ["--version", "push"], AYAR), /alt komut|secenek/i);
 });
+
+// --- 11i-FIX-2: ham argv metakarakteri, hook yeniden yazimi, kaydet govdesi ---
+import { yenidenYazimKabul, memGovde, gitleaksOzet, komutSatiri } from "../kos.mjs";
+
+test("noktali virgul de metakarakter: hook'tan ONCE ham argv'de RED", () => {
+  assert.throws(() => komutDenetle("git", ["log", "-1;whoami"], AYAR), /metakarakter/i);
+  assert.throws(() => komutDenetle("git", ["log", "-1\nwhoami"], AYAR), /metakarakter/i);
+  // tek arguman korunur: bosluklu format degeri gecer
+  assert.equal(komutDenetle("git", ["log", "-1", "--format=%h %s"], AYAR).args.length, 3);
+});
+
+test("hook yeniden yazimi yalniz rtk sarmalamasi ise kabul edilir", () => {
+  assert.deepEqual(yenidenYazimKabul(["git", "status"], "rtk git status"),
+                   ["rtk", "git", "status"]);
+  assert.deepEqual(yenidenYazimKabul(["git", "log", "--format=%h %s"],
+                                     komutSatiri("rtk", ["git", "log", "--format=%h %s"])),
+                   ["rtk", "git", "log", "--format=%h %s"]);
+  // argv sinirini degistiren ya da baska bir sey ekleyen her yazim yok sayilir
+  assert.equal(yenidenYazimKabul(["git", "log", "-1"], "rtk git log -1; whoami"), null);
+  assert.equal(yenidenYazimKabul(["git", "status"], "whoami"), null);
+  assert.equal(yenidenYazimKabul(["git", "status"], "rtk git status --raw"), null);
+});
+
+test("kaydet govdesi worker semasina uyar: desktop etiketi metadata'da", () => {
+  const g = memGovde("omer-skills", "baslik", "govde");
+  assert.deepEqual(Object.keys(g).sort(), ["metadata", "project", "text", "title"]);
+  assert.equal(g.metadata.platformSource, "desktop");
+  assert.equal(g.source, undefined, "worker 'source' anahtarini reddediyor (strict sema)");
+});
+
+test("gitleaks ozeti: sayi + kural adi, bulgu degeri asla basilmaz", () => {
+  const sir = "gh" + "p_" + "A".repeat(36);
+  const s = gitleaksOzet([{ RuleID: "generic-api-key", Secret: sir, Match: sir }], 1);
+  assert.match(s, /YAZILMADI — gitleaks: 1 bulgu \(generic-api-key\)/);
+  assert.equal(s.includes(sir), false, "bulgu degeri cikti_ya girmez");
+  assert.match(gitleaksOzet(null, 2), /okunamadı \(exit 2\)/);
+});

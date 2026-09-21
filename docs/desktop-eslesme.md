@@ -606,3 +606,7 @@ bağlam ~3× küçülüyor, maliyet ~%60 düşüyor. `devam_id` ile sürdürmede
   süreçleri etkiler; Desktop'ın kendi istekleri headroom proxy'sine uğramaz.
 - Yerel MCP'ler Desktop'ta yalnız **Chat** sekmesinde; Cowork/Code oturumları için geçerli
   değil (§6'daki `status=unsupported` bulgusu).
+
+### 11i-FIX-2 · Desktop'tan köprü kontrolü (21 Eyl)
+
+- Gerçek Desktop çağrısı üç kırık gösterdi ve üçü de kapatıldı: `kaydet` worker'ın strict şemasına takılıyordu (`source` anahtarı yok; "desktop" etiketi artık `metadata.platformSource`), bash hook'ları PATH'inde Git olmayan MCP sürecinde "spawn bash ENOENT" veriyordu (artık mutlak Git Bash yolu, WSL `System32\bash.exe` asla), `;` argüman metakarakteri sayılmıyordu ve hook yeniden yazımı argüman sınırını bozabiliyordu (artık yalnız `["rtk", ...orijinal argv]` biçimi kabul, başkası yok sayılır); gitleaks reddi yalnız "N bulgu (kural adı)" basar, değer ve ANSI yok.
