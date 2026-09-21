@@ -107,3 +107,20 @@ test("gercek rtk hook'u git status'u yeniden yazar", async () => {
   assert.equal(r.karar, "izin");
   assert.match(r.girdi.command, /^rtk git status/);
 });
+
+// --- guvenlik: ajan argv kacakciligi (push denetimi bulgusu 2) ---
+import { ajanAlanDenetle } from "../kos.mjs";
+
+test("ajan alanlari izin atlama bayragi tasiyamaz", () => {
+  assert.throws(() => ajanAlanDenetle("ajan_adi", "--dangerously-skip-permissions"), /ajan_adi/);
+  assert.throws(() => ajanAlanDenetle("devam_id", "--permission-mode"), /devam_id/);
+  assert.throws(() => ajanAlanDenetle("model", "-p"), /model/);
+  assert.throws(() => ajanAlanDenetle("model", "sonnet bypassPermissions"), /model/);
+});
+
+test("normal ajan alanlari gecer", () => {
+  assert.equal(ajanAlanDenetle("model", "sonnet"), "sonnet");
+  assert.equal(ajanAlanDenetle("ajan_adi", "code-reviewer"), "code-reviewer");
+  assert.equal(ajanAlanDenetle("devam_id", "e03c93eb-1d0d-48a2-8df4-a2c4f1e37fb0"),
+               "e03c93eb-1d0d-48a2-8df4-a2c4f1e37fb0");
+});

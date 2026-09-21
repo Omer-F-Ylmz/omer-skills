@@ -13,7 +13,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { ayarYukle, cwdCoz, komutDenetle, kirp, kos, redakte } from "./kos.mjs";
+import { ajanAlanDenetle, ayarYukle, cwdCoz, komutDenetle, kirp, kos, redakte } from "./kos.mjs";
 import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi } from "./hook.mjs";
 
 const AYAR = ayarYukle();
@@ -120,15 +120,25 @@ srv.registerTool("ajan", {
   if (ajanSayaci >= (AYAR.ajanTavan ?? 10)) {
     return hata(`RED: oturum başına ajan çağrı tavanı (${AYAR.ajanTavan ?? 10}) doldu.`);
   }
-  let proje;
-  try { proje = cwdCoz(a.cwd, AYAR); } catch (e) { return hata("RED: " + e.message); }
+  let proje, model, ajanAdi, devamId;
+  try {
+    proje = cwdCoz(a.cwd, AYAR);
+    // argv'ye giden her alan dar bir karakter sınıfıyla denetlenir: bayrak kaçakçılığı yok
+    model = ajanAlanDenetle("model", a.model);
+    ajanAdi = a.ajan_adi ? ajanAlanDenetle("ajan_adi", a.ajan_adi) : null;
+    devamId = a.devam_id ? ajanAlanDenetle("devam_id", a.devam_id) : null;
+  } catch (e) { return hata("RED: " + e.message); }
   ajanSayaci += 1;
 
   // --max-turns bayrağı CC CLI'da yok (11i K0-b); bütçe göreve yazılır, dönüşte doğrulanır.
   const gorev = `${a.gorev}\n\n[bütçe] En fazla ${a.max_turns} tur kullan.`;
-  const argv = ["-p", gorev, "--output-format", "json", "--model", a.model];
-  if (a.ajan_adi) argv.push("--agent", a.ajan_adi);
-  if (a.devam_id) argv.push("--resume", a.devam_id);
+  const argv = ["-p", gorev, "--output-format", "json", "--model", model];
+  if (ajanAdi) argv.push("--agent", ajanAdi);
+  if (devamId) argv.push("--resume", devamId);
+  // kurulan argv son kez taranır (görev metni dışındaki her jeton)
+  if (argv.slice(2).some((x) => /dangerously-skip-permissions|bypassPermissions|^--permission-mode/i.test(x))) {
+    return hata("RED: argv izin atlama bayrağı taşıyor.");
+  }
 
   const cikti = await new Promise((coz) => {
     const p = spawn("claude", argv, { cwd: proje, shell: false, windowsHide: true });
@@ -146,7 +156,7 @@ srv.registerTool("ajan", {
   const okunan = u.cache_read_input_tokens || 0;
   const girdi = (u.input_tokens || 0) + okunan + (u.cache_creation_input_tokens || 0);
   const durum = [
-    `model ${Object.keys(j.modelUsage || {})[0] || a.model}`,
+    `model ${Object.keys(j.modelUsage || {})[0] || model}`,
     `girdi ${girdi}`, `çıktı ${u.output_tokens || 0}`,
     `cache okuma %${girdi ? Math.round((okunan / girdi) * 100) : 0}`,
     `$${(j.total_cost_usd || 0).toFixed(4)}`,

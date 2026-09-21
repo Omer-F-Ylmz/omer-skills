@@ -111,3 +111,30 @@ test("tam cikti log dosyasina yazilir", async () => {
   assert.ok(fs.existsSync(r.log), "log dosyasi var: " + r.log);
   assert.ok(r.log.startsWith(path.join(os.tmpdir(), "cc-kopru")));
 });
+
+// --- guvenlik: arguman kacakciligi (push denetimi bulgusu 1) ---
+
+test("git -c ile config kacakciligi reddedilir", () => {
+  assert.throws(() => komutDenetle("git", ["-c", "core.pager=calc.exe", "log"], AYAR),
+                /alt komut|secenek/i);
+});
+
+test("alt komut ILK jeton olmali, bayragin arkasina gizlenemez", () => {
+  assert.throws(() => komutDenetle("git", ["-C", "C:/Windows", "status"], AYAR),
+                /alt komut|secenek/i);
+});
+
+test("tehlikeli git secenekleri reddedilir", () => {
+  for (const a of ["--exec-path=C:/x", "--upload-pack=calc", "--git-dir=C:/x", "--config-env=x=y"]) {
+    assert.throws(() => komutDenetle("git", ["log", a], AYAR), /secenek/i, a);
+  }
+});
+
+test("ciplak bilgi bayragi tek basina gecer", () => {
+  assert.equal(komutDenetle("semgrep", ["--version"], AYAR).arac, "semgrep");
+  assert.equal(komutDenetle("git", ["--version"], AYAR).arac, "git");
+});
+
+test("bilgi bayragi baska argumanla birlesemez", () => {
+  assert.throws(() => komutDenetle("git", ["--version", "push"], AYAR), /alt komut|secenek/i);
+});

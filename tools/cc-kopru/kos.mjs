@@ -69,10 +69,15 @@ function shimCoz(cmdYolu) {
   return fs.existsSync(hedef) ? { komut: process.execPath, on: [hedef] } : null;
 }
 
-/** İlk bayrak olmayan argüman = alt komut. `x=y` bayrak değeridir (git -c x=y push). */
-function altKomut(args) {
-  return args.find((a) => !a.startsWith("-") && !a.includes("=")) || null;
-}
+/**
+ * Yürütücüye komut/dosya yolu enjekte eden seçenekler. `git -c core.pager=calc.exe log`
+ * allowlist'ten geçen bir alt komutun arkasına kod saklar — hepsi koşulsuz reddedilir.
+ */
+const TEHLIKELI_SECENEK =
+  /^--?(c|C|config|config-env|exec-path|git-dir|work-tree|namespace|upload-pack|receive-pack|ssh-command|pager|[\w-]*-command)(=|$)/i;
+
+/** Tek başına verilebilen zararsız bilgi bayrakları. */
+const BILGI_BAYRAGI = /^--?(version|help|v|h)$/i;
 
 export function komutDenetle(arac, args, ayar) {
   const kural = ayar.izinli[arac];
@@ -81,16 +86,18 @@ export function komutDenetle(arac, args, ayar) {
 
   for (const a of args) {
     if (METAKARAKTER.test(a)) throw new Error(`argümanda metakarakter: ${a}`);
+    if (TEHLIKELI_SECENEK.test(a)) throw new Error(`yürütücüye komut geçiren secenek: ${a}`);
   }
 
-  const alt = altKomut(args);
-  // alt komut yoksa (yalnız --version/--help gibi bayraklar) altIzin aranmaz
-  if (kural.altIzin && alt) {
-    if (!kural.altIzin.includes(alt)) {
-      throw new Error(`'${arac}' için izinli olmayan alt komut: ${alt}`);
+  const bilgi = args.length === 1 && BILGI_BAYRAGI.test(args[0]);
+  if (kural.altIzin) {
+    // Alt komut ILK jeton olmali; bayrak arkasina gizlenemez.
+    if (!bilgi && !kural.altIzin.includes(args[0])) {
+      throw new Error(`'${arac}' için izinli olmayan alt komut: ${args[0] ?? "(yok)"}`);
     }
-  } else if (!kural.altIzin && alt) {
-    if ((kural.altYasak || []).includes(alt) || YASAK_FIIL.has(alt)) {
+  } else if (!bilgi) {
+    const alt = args.find((a) => !a.startsWith("-") && !a.includes("="));
+    if (alt && ((kural.altYasak || []).includes(alt) || YASAK_FIIL.has(alt))) {
       throw new Error(`'${arac}' için yasak alt komut: ${alt}`);
     }
   }
@@ -111,6 +118,19 @@ function sirDegerleri() {
     }
   }
   return out.sort((a, b) => b.length - a.length);
+}
+
+/**
+ * `claude -p` argv'sine geçen alanlar: bayrağa dönüşemeyecek kadar dar bir sınıf.
+ * `--agent <deger>` bir değeri tüketse de, değeri bayrağa benzeyen girdi ayrıştırıcıya
+ * göre yeniden bayrak olarak okunabiliyor — kaynakta kesilir.
+ */
+export function ajanAlanDenetle(alan, deger) {
+  const s = String(deger ?? "");
+  if (!/^[A-Za-z0-9._-]+$/.test(s) || s.startsWith("-")) {
+    throw new Error(`${alan}: yalnız [A-Za-z0-9._-] kabul edilir, '-' ile başlayamaz`);
+  }
+  return s;
 }
 
 export function redakte(metin) {
@@ -165,10 +185,14 @@ export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla }) {
   fs.mkdirSync(LOG_DIZIN, { recursive: true });
   const log = path.join(LOG_DIZIN, `${Date.now()}-${arac}.log`);
 
+  // git'in sistem/global config'i uzerinden komut calistirmasi kapatilir
+  const gitOrtam = arac === "git"
+    ? { GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "NUL" } : {};
+
   return new Promise((cozumle) => {
     const p = spawn(komut, tamArgs, {
       cwd: calisma, shell: false, windowsHide: true,
-      env: { ...process.env, ...(env || {}) },
+      env: { ...process.env, ...gitOrtam, ...(env || {}) },
     });
     const parcalar = [];
     let sureDoldu = false;
