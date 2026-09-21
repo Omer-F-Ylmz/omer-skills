@@ -1,0 +1,30 @@
+{
+  "_not": "altIzin varsa YALNIZ o alt komutlar kosar. altIzin yoksa altYasak + YASAK_FIIL uygulanir. kos:false = hicbir zaman kosmaz. Alt komut listeleri araclarin kendi --help ciktisindan cikarildi (11i K1).",
+  "cwdKokleri": ["C:/Users/pc/Desktop", "C:/Projeler"],
+  "ajanTavan": 10,
+  "ciktiTavan": 30000,
+  "oturumTavan": 12000,
+  "izinli": {
+    "graphify": {
+      "altIzin": ["query", "path", "explain", "tree", "raw", "diagnose", "god-nodes", "affected", "cluster-only", "label", "update", "prs", "reflect", "column-level", "maps"]
+    },
+    "rtk": {
+      "_not": "rtk'nin yurutucu saran alt komutlari (git, npm, dotnet, proxy, run, pipe...) dogrudan cagrilmaz; yalniz hook yeniden yazimi yoluyla, sarilan yurutucu de allowlist'ten gecerek.",
+      "altIzin": ["ls", "tree", "read", "grep", "rg", "find", "diff", "log", "json", "summary", "wc", "deps", "err", "gain", "cc-economics", "recall", "hook"]
+    },
+    "semgrep": { "altYasak": ["install", "login", "logout", "publish", "ci"] },
+    "gitleaks": { "altIzin": ["detect", "protect", "version", "dir", "git"] },
+    "playwright-cli": { "altYasak": ["install", "install-deps", "uninstall"] },
+    "skill-ui": { "altIzin": ["list", "read", "validate", "doctor"] },
+    "agent-reach": { "altYasak": ["install", "update", "uninstall"] },
+    "headroom": {
+      "altIzin": ["savings", "memory", "inspect", "doctor", "loc", "sg", "diff", "audit-reads", "output-savings", "perf", "agent-savings", "learn", "rollout", "evals"]
+    },
+    "pixeljury": { "altYasak": ["install", "update", "uninstall"] },
+    "dotnet": { "altIzin": ["format", "build", "test"] },
+    "git": { "altIzin": ["status", "log", "diff", "show", "branch"] },
+    "strix": { "kos": false, "sebep": "Docker yok" }
+  },
+  "_kapaliHooklarNot": "CC ayarlarina dokunulmaz; uyumsuz hook burada 'kaynak|olay|matcher' anahtariyla kapatilir.",
+  "kapaliHooklar": []
+}

@@ -1,0 +1,14 @@
+{
+  "name": "cc-kopru",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Claude Code katmanini (CLI allowlist + hook runner + gercek CC oturumu + claude-mem) Desktop sohbetine acan yerel stdio MCP sunucusu.",
+  "main": "sunucu.mjs",
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.21.1"
+  }
+}
