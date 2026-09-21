@@ -47,6 +47,7 @@ Kuru test: Desktop kapalıyken, gerçek Windows PATH'i ile, CC tarafında bağı
 | omniroute | config (**eklendi**) | `cmd /c omniroute --mcp` | yok | — | 110 | Chat |
 | code-review | config (**eklendi**) | `cmd /c uvx code-review-mcp@2.0.0` | miras (GITHUB_TOKEN) | GITLAB_TOKEN tanımsız (CC'de de uyarı) | 12 | Chat |
 | claude-mem | config (**eklendi**) | `node ...\claude-mem\13.25.2\scripts\mcp-server.cjs` | yok | yerel claude-mem worker | 15 | Chat |
+| obsidian | config (**eklendi**, 11g) | `cmd /c tools\mcp-launch\obsidian.cmd` → `mcp-remote http://127.0.0.1:22360/sse --transport sse-only` | yok (eklentide kimlik doğrulama yok; §8 yaması) | **Obsidian açık olmalı**, Desktop'tan önce açılır | 7 | Chat |
 | mslearn | hesap bağlayıcısı | `https://learn.microsoft.com/api/mcp` | auth yok | — | — | Chat |
 | claude-design | hesap bağlayıcısı | `https://api.anthropic.com/v1/design/mcp` | OAuth | — | — | Chat |
 | 21st | hesap bağlayıcısı | `https://21st.dev/api/mcp` | header x-api-key | — | — | Chat |
@@ -111,6 +112,12 @@ Elenen hipotezler (her biri çalıştırılıp kanıtla elendi):
 Hata mesajı özellikle *Cowork ve Code* oturumlarını adlandırıyor ve bu iki oturum türü
 `cowork_vm_node.log`'da `status=unsupported` olan VM paketine bağlı. Yani yerel MCP'lerin
 hiçbiri Cowork/Code'da görünmez; Chat'te görünür. Düzeltme puppeteer tanımında değil.
+
+> **ÇÜRÜTÜLDÜ — 11f, §7.** Buradaki *nedensellik* iddiası yanlıştı. puppeteer
+> Chat sekmesinde de düşüyordu; kök neden Desktop'ın sunucuyu
+> `cwd=C:\Windows\System32` ile başlatması ve paketin oraya günlük yazamaması.
+> §1'deki VM paketi kanıtı (satır 22-26) doğru, ama **bağımsız** bir olgu: o
+> satırlar MCP tostu üretmez. Kanıt ve düzeltme §7'de.
 
 Not: `mcp.log` 0 bayt, `main.log`'da puppeteer geçmiyor → Desktop tarafında doğrudan
 hata kaydı yok. VM kaydının son satırı 20 Ağu; **güncel doğrulama için ekran kanıtı gerekir**.
@@ -375,3 +382,148 @@ MCP tostu üretmez. İki olgu birbirinden bağımsız; çelişki yok.
 wrapper'lardan çıkarıldı, ileride Desktop spawn davranışı yine ölçülmek gerekirse
 diye dosya `tools/` altında bırakıldı. Ortam değişkenlerinin yalnız **adlarını**
 kaydeder, değerlerini asla.
+
+## 8. KURULUM-11g · 21 Eyl 2026 — obsidian köprüsü + eklenti güvenlik yaması
+
+### Köprü
+
+Desktop `claude_desktop_config.json`'da yalnız **stdio** tanımı kabul eder; Obsidian
+`claude-code-mcp` eklentisi (v1.1.8) HTTP+SSE konuşur. Arada `mcp-remote@0.14.3`
+(global, npm prefix'i diğer wrapper'larla aynı) stdio↔SSE proxy'si duruyor.
+CC'nin `/ide` WebSocket bağlantısına dokunulmadı; o eklentinin ayrı kanalı.
+
+`tools/mcp-launch/obsidian.cmd` iki noktada 11e/11f kalıbına ekleme yapar:
+
+- **`http://127.0.0.1:22360/sse`, `localhost` değil.** Eklenti `server.listen(port,
+  "127.0.0.1")` ile yalnız IPv4 dinliyor; Node Windows'ta `localhost`'u önce `::1`'e
+  çözebilir ve bağlantı reddedilir.
+- **`--transport sse-only`.** Eklentide `/mcp` (Streamable HTTP) rotası yok, yalnız
+  `GET /sse` + `POST /messages?session_id=…` var. mcp-remote 0.14.x varsayılanı
+  `http-first`, yani her açılışta boşa giden bir yoklama demek.
+
+**Obsidian kapalıyken** köprü asılı kalmaz: `ECONNREFUSED 127.0.0.1:22360`,
+çıkış kodu 1, **5.6 s**. Desktop üstel geri çekilmeyle yeniden dener. Sıra bu yüzden
+önemli: **Obsidian, Desktop'tan önce açılır.**
+
+### Kalıp notu (her yeni wrapper için)
+
+Desktop yerel MCP sunucularını `cwd=C:\Windows\System32` ile başlatır (§7'de
+kanıtlandı). Oraya yazmaya çalışan her sunucu sessizce düşer. **Her yeni wrapper
+ilk komut olarak `cd /d "%TEMP%"` ile açılır.** `TEMP` 12 değişkenlik beyaz listede
+ve yazılabilir. Mevcut `brave-search.cmd` / `stitch.cmd` geriye dönük düzeltilmedi —
+cwd'ye yazmıyorlar.
+
+### Güvenlik bulgusu ve yama (K6)
+
+Eklentinin sunucusu hiçbir kimlik doğrulaması yapmıyordu:
+
+- `validateOrigin(req) { return true; }` — saplama, Origin hiç denetlenmiyordu
+- `Access-Control-Allow-Origin: "*"` iki yerde (ön ayarlar + SSE yanıtı)
+- WS sunucusu `new WebSocketServer({ port: 0 })` — **host yok**, yani `::` (tüm
+  arayüzler). Lock dosyasında `authToken` da yok.
+
+Sonuç: Obsidian açıkken ziyaret edilen herhangi bir web sayfası kasayı okuyup
+**yazabilirdi**; yazma yolu prompt injection kapısıdır. WS tarafı ayrıca tarayıcıya
+hiç gerek kalmadan LAN'dan erişilebilirdi.
+
+**Ölçüm önce:** mcp-remote `Origin` **göndermiyor** (UA `undici`; `sec-fetch-mode: cors`
+var ama Origin yok). Tarayıcı ise her cross-origin istekte ve her WS el sıkışmasında
+Origin gönderir. Bu yüzden bearer token'a gerek kalmadı.
+
+`tools/obsidian-yama.ps1` altı çapayı değiştirir:
+
+| # | Yer | Önce | Sonra |
+|---|---|---|---|
+| 1 | logger | — | `__k11gOriginLog` (Origin kaydı) |
+| 2 | `setCORSHeaders` | 4 CORS başlığı | boş — CORS başlığı **hiç** yazılmaz |
+| 3 | SSE `writeHead` | 2 CORS başlığı | kaldırıldı |
+| 4 | `validateOrigin` | `return true` | Origin varsa **403** |
+| 5 | WS sunucu | `{ port: 0 }` | `+ host: "127.0.0.1"` · `verifyClient` Origin varsa **401** |
+| 6 | WS port | `address().port` | `listening` beklenir (aşağıya bak) |
+
+**6. çapa neden gerekti:** `host` verilince `net.Server.listen` DNS yoluna girer ve
+senkron olmaktan çıkar. Eklentinin `this.port = this.wss.address().port;` satırı
+`null.port`'a düşer, hata `dual-server.ts`'in `try/catch`'inde yutulur ve
+`~/.claude/ide/<port>.lock` **yazılmaz** — yani CC `/ide` keşfi kırılır. Sunucu yine
+dinlemeye devam ettiği için belirti sessizdir. Ölçüm: yamasız `{port:0}` →
+`address()` anında `{"address":"::"}`; `{port:0,host}` → `address()` **null**.
+
+Betik idempotenttir ve hash'e bağlıdır: yamasız → uygular · yamalı → dokunmaz ·
+**bilinmeyen → DUR**. Yama öncesi `main.js.bak11g` alınır; yama sonrası hash
+tutmazsa yedek geri yüklenir.
+
+```
+yamasiz sha256 784b49d6f243053a2271d1e69c6d0716a3bde407a5dfeda8fbb894eaf87ec043
+yamali  sha256 4ee2c5d80b1baf9312d701708feb6adb0eee252ddd95f83d5737788998c0805c
+```
+
+> **Eklenti güncellenince yama SİLİNİR.** Güncellemeden sonra
+> `powershell -ExecutionPolicy Bypass -File tools\obsidian-yama.ps1` yeniden koşulur.
+> Yeni sürümde hash bilinmeyeceği için betik DUR verir; çapalar elle doğrulanıp
+> hash sabitleri güncellenmeden yama uygulanmaz.
+
+Origin kaydı: `C:/Projeler/.tmp-mcp-trace/obsidian-origin.jsonl` — yalnız başlık
+**adı + değeri**, gövde yok.
+
+### Desktop'ın "araçları say, kapat" deseni
+
+Bu dalgada 15 sunucunun hepsi `initialize` + `tools/list` tamamladı. Sonrasında
+çoğunda birkaç saniye içinde `Server transport closed` görülür: bu bir çökme değil,
+Desktop'ın araçları sayıp stdio taşımasını kapatması, çağrı gelince yeniden
+başlatmasıdır. **Gerileme değildir** — 11f'de kabul edilen 12:15 açılışında da aynı
+desen var, üstelik orada `closed unexpectedly` varken bu açılışta yok.
+"≥2 dk kapanma yok" ölçütü bu yüzden "tools/list'i tamamlamadan düşme yok ve
+sonrasında yeniden deneme döngüsü yok" diye okunmalıdır.
+
+### Köprünün kopma/toparlanma davranışı (K7, ölçüldü)
+
+Belirti: Desktop sohbetinde `obsidian get_workspace_files` iki kez 4'er dakika
+**hatasız** askıda kaldı. Beş ölçüm sorunu eklentide de köprüde de üretmedi:
+
+| Senaryo | `tools/call` |
+|---|---|
+| Eklenti, tek istemci (köprüsüz) | 0.02 s |
+| Eklenti, iki tüketici (B listele→kapan, sonra A çağır) | A yanıt aldı |
+| Köprü, normal ortam | 6.3 s |
+| Köprü + `--desktop-env` + `cwd=System32` | 0.42 s |
+| Aynı anda iki köprü örneği | ikisi de OK |
+
+Kök neden `mcp-server-obsidian.log`'da: **tek bir `tools/call` satırı yok** — çağrı
+sunucuya hiç ulaşmamış. Buna karşılık **448** üst düzey
+`SseError: … ECONNREFUSED 127.0.0.1:22360` var. Desktop açılışta **iki** mcp-remote
+örneği başlatır ve bunlar uzun ömürlüdür; Obsidian'ın sunucusu gidince ikisi de
+süresiz yeniden deneme döngüsüne girer. Desktop o sırada sunucuyu hazır saymaz,
+`tools/call`'ı göndermez ve **hata da üretmez** — çağrı askıda kalır.
+
+Ölçülen davranış:
+
+- **Obsidian kapalıyken:** çağrı hatasız askıda kalır (zaman aşımı yok, izin istemi
+  yok). Köprü ilk açılışta bağlanamazsa `ECONNREFUSED`, çıkış kodu 1, **5.6 s**;
+  ama bağlantı *kurulduktan sonra* koparsa süresiz yeniden dener.
+- **Obsidian açılınca:** köprü kendiliğinden toparlanır. Ölçüm — Obsidian süreci
+  14:34:57Z, köprüden ilk sunucu mesajı 14:35:01.6Z → **~4.6 s**. Obsidian
+  dinlemeye başladıktan sonra **0** `ECONNREFUSED`.
+- **Desktop yeniden başlatmak gerekmedi.** Çağrı, açılışta doğan aynı köprü
+  PID'leriyle yanıt verdi.
+
+Elenen iki hipotez: URL ve soket zaten `127.0.0.1` olduğu için `localhost`→`::1`
+sapması **mümkün değil**; yeniden deneme beklemesi de suçlu değil (4.6 s).
+
+**Kural:** Obsidian, Desktop'tan **önce** açılır. Obsidian kapanıp açılırsa Desktop'ı
+yeniden başlatmak gerekmez, ~5 s beklemek yeterlidir. Kesinti penceresinde yapılan
+çağrılar hata vermeden askıda kalır — bu Desktop'ın davranışıdır, köprününki değil.
+
+### Kasaya/projeye sızan `logs\` klasörleri
+
+`puppeteer-mcp-server` günlüğünü `<cwd>\logs\` altına açar (§7'deki mekanizmanın
+zararsız hali — cwd yazılabilir olduğu için sessizce başarılı olur). CC user-scope
+MCP'leri oturum cwd'sinde başlattığı için her CC oturumu proje köküne `logs\`
+yazıyordu. Bulunanlar: `C:\Projeler\omer-skills\logs\` (3 günlük + audit) ve
+`C:\Users\pc\Desktop\Obsidian\logs\` (20 Eyl, 3 koşu). **Hiçbiri repoya girmemiş** —
+bu repoda `.gitignore`'un `logs/` satırı kapsıyor, `git ls-files logs` boş.
+İkisi de `C:\Projeler\.tmp-mcp-trace\` altına taşındı.
+
+Düzeltme: `~/.claude.json` içindeki user-scope `puppeteer` tanımı
+`tools\mcp-launch\puppeteer.cmd`'ye yönlendirildi (wrapper zaten `cd /d "%TEMP%"`
+ile açılıyor). Yedek `~/.claude.json.bak11g`; diğer 16 sunucunun ve üst ağacın
+hash'i değişmedi. Etkisi yeni CC oturumlarında.
