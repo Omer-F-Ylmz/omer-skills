@@ -219,3 +219,82 @@ kurulum yok; MSIX olan **asıl ve tek** kurulumdur.
 `dist/yukle-11d/replace/gitleaks-desktop.zip` — gitleaks 8.30.1, statik ELF64 x86-64,
 sha256 release checksums ile eşleşti, açık 20.9 MB. **Yürütme kanıtı claude.ai'de
 bekliyor**; (a) kararı o kanıt gelene kadar kesin değildir.
+
+## 6. KURULUM-11e · 21 Eyl 2026 — sunucu komutu anahtarı kendisi okur
+
+### 11d'nin iki düzeltmesi canlıda etkisizdi (K0 kanıtı)
+
+| Kanıt | Saat |
+|---|---|
+| Canlı config yazıldı (`envHelper` + `startupTimeoutSec: 120` içinde) | **10:28:36Z** |
+| Desktop açılışı, 3 log'da `Initializing server` | **10:48:00Z / 10:48:04Z** |
+
+Config açılıştan **20 dakika önce** yazılmıştı; yani her iki alan da canlıydı. Sonuç:
+
+- `brave-search` → `A Brave API key is required … BRAVE_API_KEY` + `Invalid configuration`, 10:48:21Z'de düştü
+- `stitch` → `✖ Proxy server error: StitchProxy requires an API key (STITCH_API_KEY) …`, 10:48:20Z'de düştü
+- `puppeteer` → initialize 10:48:04.474Z → `transport closed` 10:48:28.326Z (**23.9 s**), stderr boş
+
+**Desktop `envHelper`, `envHelperTtlSec` ve `startupTimeoutSec` alanlarını okumuyor.**
+Bunlar belgesiz alanlardı; 11d'de config şemasında görünmeleri okunmalarına delil sayılmıştı.
+Kural: **belgesiz config alanına dayanılmaz.**
+
+### Yeni mekanizma
+
+`npx` açılıştan çıkarıldı, paketler pinli global kuruldu, araya `cmd` wrapper girdi:
+
+| Sunucu | Paket (pinli) | Wrapper |
+|---|---|---|
+| puppeteer | `puppeteer-mcp-server@0.7.2` (MIT) | `tools/mcp-launch/puppeteer.cmd` |
+| brave-search | `@brave/brave-search-mcp-server@2.1.4` (MIT) | `tools/mcp-launch/brave-search.cmd` |
+| stitch | `@_davideast/stitch-mcp@0.9.0` (Apache-2.0) | `tools/mcp-launch/stitch.cmd` |
+
+Config tarafı artık yalnız `{"command":"cmd","args":["/c","<mutlak wrapper>"]}`.
+Anahtarı **wrapper** `reg query HKCU\Environment` ile okur; değer `for /f`'e girer,
+ekrana/log'a hiç çıkmaz. Config'te düz anahtar yok.
+
+#### İki tuzak (ikisi de bu dalgada bulundu)
+
+1. **`npx` = puppeteer'ın 24 s'si.** Global kurulumdan sonra kuru testte açılış
+   **23.9 s → 0.6 s**. Zaman aşımı hastalık değil, semptomdu; `startupTimeoutSec`
+   okunsaydı bile yanlış tedavi olurdu.
+2. **Wrapper'da `setlocal` OLMAZ.** Son satır `call`'suz başka bir `.cmd`'ye geçer;
+   cmd.exe batch bağlamını değiştirirken **örtük `endlocal`** uygular. npm shim'inin
+   kendi `endLocal`'ı da bizim kapsamı açar ve anahtar node başlamadan silinir.
+   Kanıtlandı: `setlocal` ile `Invalid configuration`, `setlocal` olmadan 8 araç.
+
+### Sonuç — 2/3 çalışıyor, puppeteer DUR
+
+Kuru test (`mcp_kurutest.py --desktop-env`, canlı config):
+
+| Sunucu | Araç | Tek örnek | 2 eşzamanlı örnek |
+|---|---|---|---|
+| puppeteer | 8 | 0.4 s | 0.4 s / 0.4 s |
+| brave-search | 8 | 0.5 s | 0.5 s / 0.5 s |
+| stitch | 16 | 1.1 s | 1.4 s / 1.6 s |
+
+11d tabanı 2 eşzamanlı örnekte 26–28 s idi. `brave_web_search` ile **1 gerçek çağrı**
+yapıldı (tavan 1): 621 karakter sonuç → anahtar yalnız mevcut değil, geçerli.
+
+Canlı Desktop (11:44Z açılışı):
+
+- **brave-search — GEÇTİ.** `initialize` → sonuç → `tools/list` → sonuç. Anahtar hatası yok, kapanma yok.
+- **stitch — GEÇTİ.** `[stitch-proxy] Connected to Stitch, discovered 15 tools`. Anahtar hatası yok, kapanma yok.
+- **puppeteer — DUR.** 11:44:03.551Z `initialize` id=0 → **sunucu hiç yanıt vermedi** →
+  11:44:05.160Z shared-pool `Couldn't start for Cowork and Code sessions` →
+  11:44:06.946Z `transport closed` (**3.4 s**). **stderr tamamen boş.**
+
+**Puppeteer'ın kalan kök nedeni kanıtlanmamıştır.** Bilinen: `npx` gecikmesi gitti
+(23.9 s → 3.4 s) ama süreç yine de `initialize`'ı yanıtlamadan kendiliğinden çıkıyor.
+Aynı wrapper, aynı 12 değişkenlik ortamla kuru testte 0.4 s'de 8 araç döndürüyor.
+Yani **12 değişkenlik beyaz liste taklidi Desktop'ın gerçek spawn'ını tam modellemiyor**;
+fark (cwd, stdio tutamak tipi, ikinci eşzamanlı tüketici yarışı) henüz ölçülmedi.
+Sonraki dalga buradan başlamalı — ölçüm gerekiyor, tahmin değil.
+
+### Desktop güncellemesinde yeniden doğrula
+
+Wrapper'lar npm global prefix'ine mutlak yolla bağlı:
+`…\WinGet\Packages\OpenJS.NodeJS.LTS_…\node-v24.19.0-win-x64`. Node sürümü yükselirse
+bu yol değişir. Desktop veya Node güncellemesinden sonra K4 kuru testi tekrar çalıştırılmalı.
+
+`tools/mcp-launch/mcp-env.cmd` (11d envHelper betiği) bu dalgada **silindi** — referanssız kaldı.
