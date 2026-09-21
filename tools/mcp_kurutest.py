@@ -1,6 +1,7 @@
 r"""K3 kuru test: her stdio MCP tanimini bagimsiz calistir, initialize + tools/list al.
 
-Kullanim: python tools/mcp_kurutest.py [--desktop-env] [--cwd YOL] [--spawner node] [sunucu-adi ...]
+Kullanim: python tools/mcp_kurutest.py [--config desktop|YOL] [--desktop-env]
+          [--cwd YOL] [--spawner node] [sunucu-adi ...]
 Cikti: her sunucu icin ARAC SAYISI ya da gerekcelendirilmis hata.
 
 --cwd YOL: sureci o calisma dizininde baslatir. Desktop'in cwd'si kullanici
@@ -8,6 +9,8 @@ dizini degil; cwd'ye goreli yazan sunucular (puppeteer-mcp-server gunluk dosyasi
 <cwd>\logs altina acar) yalnizca bu bayrakla ayristirilabilir.
 --spawner node: cmd wrapper yerine node.exe'yi dogrudan calistirir (shell=False),
 boylece "suclu cwd mi, cmd katmani mi" sorusu ayrilir.
+--config desktop: sunucu tanimlarini CC'nin ~/.claude.json'u yerine Desktop'in
+MSIX altindaki claude_desktop_config.json'undan okur (Desktop'ta %APPDATA%\Claude yok).
 
 --desktop-env: sureci Claude Desktop gibi baslatir. Desktop yerel MCP sunucularini
 tam kullanici ortamiyla degil, MCP SDK'nin beyaz listesiyle baslatir; kanit
@@ -101,8 +104,21 @@ def dene(ad, komut, argv, env_ek, temizle=(), taban=None, hata_bufer=None, cwd=N
         return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "ISTISNA", "arac": 0, "hata": f"{type(e).__name__}: {e}"}
 
 
-def yukle():
-    cfg = json.load(open(os.path.expanduser(os.environ.get("K11_CFG", "~/.claude.json")), encoding="utf-8"))
+# Desktop MSIX kabuklu: %APPDATA%\Claude yok, canli config LocalCache altinda.
+DESKTOP_CFG = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Packages",
+                           "Claude_pzs8sxrjxfjjc", "LocalCache", "Roaming", "Claude",
+                           "claude_desktop_config.json")
+
+
+def cfg_coz(deger):
+    """--config desktop -> Desktop'in MSIX config'i; verilmezse K11_CFG ya da CC config'i."""
+    if not deger:
+        return os.environ.get("K11_CFG", "~/.claude.json")
+    return DESKTOP_CFG if deger == "desktop" else deger
+
+
+def yukle(yol):
+    cfg = json.load(open(os.path.expanduser(yol), encoding="utf-8"))
     return cfg.get("mcpServers", {})
 
 
@@ -113,6 +129,7 @@ NODE_GIRIS = {
     "puppeteer":    [r"node_modules\puppeteer-mcp-server\dist\index.js"],
     "brave-search": [r"node_modules\@brave\brave-search-mcp-server\dist\index.js"],
     "stitch":       [r"node_modules\@_davideast\stitch-mcp\bin\stitch-mcp.js", "proxy"],
+    "claude-design": [r"C:\Projeler\omer-skills\tools\cc-kopru\tasarim.mjs"],
 }
 
 
@@ -121,11 +138,11 @@ def ayikla(argv):
     kalan, deger = [], {}
     i = 0
     while i < len(argv):
-        if argv[i] in ("--cwd", "--spawner") and i + 1 < len(argv):
+        if argv[i] in ("--cwd", "--spawner", "--config") and i + 1 < len(argv):
             deger[argv[i][2:]] = argv[i+1]; i += 2
         else:
             kalan.append(argv[i]); i += 1
-    return kalan, deger.get("cwd"), deger.get("spawner")
+    return kalan, deger.get("cwd"), deger.get("spawner"), deger.get("config")
 
 
 
@@ -147,7 +164,8 @@ def spawner_uygula(ad, komut, cagri, spawner):
     return os.path.join(NPM_PREFIX, "node.exe"), cagri
 
 if __name__ == "__main__":
-    argv, cwd, spawner = ayikla(sys.argv[1:])
+    argv, cwd, spawner, config = ayikla(sys.argv[1:])
+    config = cfg_coz(config)
     cwd = cwd_coz(cwd)
     bayraklar = [a for a in argv if a.startswith("--")]
     hedef = [a for a in argv if not a.startswith("--")]
@@ -162,8 +180,9 @@ if __name__ == "__main__":
         print(f"[--cwd] {cwd}", flush=True)
     if spawner:
         print(f"[--spawner] {spawner}", flush=True)
+    print(f"[--config] {config}", flush=True)
     print(flush=True)
-    sunucular = yukle()
+    sunucular = yukle(config)
     secim = {k: v for k, v in sunucular.items()
              if v.get("type", "stdio") == "stdio" and (not hedef or k in hedef)}
     sonuc = []

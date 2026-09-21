@@ -138,3 +138,47 @@ test("acilista claude spawn edilmez, 23 arac dosyadan yayinlanir", async () => {
   assert.equal(fs.existsSync(isaret), false, "açılışta claude çağrılmış");
   fs.rmSync(kum, { recursive: true, force: true });
 });
+
+/** B2 kök neden pini: alt süreç ANTHROPIC_BASE_URL'i miras alırsa araç hiç çağrılmaz. */
+test("aktarici ANTHROPIC_BASE_URL'i alt surece gecirmez (vekil araclari gizliyor)", async () => {
+  const yardimci = path.join(BURASI, "yardim", "sahte-claude.mjs");
+
+  const metin = await new Promise((coz, ret) => {
+    const p = spawn(process.execPath, [TASARIM], {
+      cwd: "C:\\Windows\\System32",
+      shell: false,
+      env: {
+        ...process.env,
+        CC_KOPRU_SAHTE_AKTARICI: yardimci,
+        ANTHROPIC_BASE_URL: "http://127.0.0.1:1",
+      },
+    });
+    let tampon = "";
+    const gonder = (o) => p.stdin.write(JSON.stringify(o) + "\n");
+    const zam = setTimeout(() => { p.kill(); ret(new Error("sunucu yanıt vermedi")); }, 30000);
+    p.stdout.on("data", (b) => {
+      tampon += b.toString("utf8");
+      let i;
+      while ((i = tampon.indexOf("\n")) >= 0) {
+        const satir = tampon.slice(0, i).trim();
+        tampon = tampon.slice(i + 1);
+        if (!satir) continue;
+        let m;
+        try { m = JSON.parse(satir); } catch { continue; }
+        if (m.id === 1) {
+          gonder({ jsonrpc: "2.0", method: "notifications/initialized" });
+          gonder({ jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "list_projects", arguments: {} } });
+        } else if (m.id === 2) {
+          clearTimeout(zam); p.kill();
+          coz((m.result?.content || []).map((c) => c.text).join("\n"));
+        }
+      }
+    });
+    gonder({
+      jsonrpc: "2.0", id: 1, method: "initialize",
+      params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "t", version: "0" } },
+    });
+  });
+
+  assert.equal(metin, "SAHTE-SONUC", "vekil miras alındı: model aracı görmedi, tool_use gelmedi");
+});

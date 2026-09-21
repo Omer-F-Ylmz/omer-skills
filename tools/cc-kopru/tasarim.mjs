@@ -101,10 +101,19 @@ export function sonucCikar(satirlar, beklenenAd, beklenenGirdi, beklenenAdlar) {
 /** Ortak aktarıcı: ilk `tool_result` geldiği anda süreç kapatılır (--max-turns yok). */
 export function aktar(tamAd, girdi, { timeoutSn = 120 } = {}) {
   return new Promise((coz) => {
-    const claude = yolBul("claude");
+    // Test tohumu: Windows'ta sahte `claude.exe` üretilemediği için (node .cmd'yi
+    // kabuksuz spawn etmiyor, bilinmeyen bayrakta da düşüyor) aktarıcı yerine bir
+    // node betiği koşulur. Üretimde değişken yoktur.
+    const sahte = process.env.CC_KOPRU_SAHTE_AKTARICI;
+    const claude = sahte ? process.execPath : yolBul("claude");
     if (!claude) return coz({ hata: "claude PATH'te bulunamadı" });
 
-    const p = spawn(claude, aktariciArgv(tamAd), { shell: false, cwd: os.tmpdir() });
+    // ANTHROPIC_BASE_URL düşürülür: yerel headroom vekili tools dizisini tek arama
+    // aracına indiriyor, model list_projects'i hiç görmüyor → tool_use gelmiyor (B2).
+    const ortam = { ...process.env };
+    delete ortam.ANTHROPIC_BASE_URL;
+    const argv = sahte ? [sahte, ...aktariciArgv(tamAd)] : aktariciArgv(tamAd);
+    const p = spawn(claude, argv, { shell: false, cwd: os.tmpdir(), env: ortam });
     const parcalar = [];
     let bitti = false;
     const kapat = () => { if (!bitti) { bitti = true; agaciKapat(p.pid); p.kill(); } };
