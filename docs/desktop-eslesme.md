@@ -527,3 +527,82 @@ Düzeltme: `~/.claude.json` içindeki user-scope `puppeteer` tanımı
 `tools\mcp-launch\puppeteer.cmd`'ye yönlendirildi (wrapper zaten `cd /d "%TEMP%"`
 ile açılıyor). Yedek `~/.claude.json.bak11g`; diğer 16 sunucunun ve üst ağacın
 hash'i değişmedi. Etkisi yeni CC oturumlarında.
+
+## 9. KURULUM-11i · 21 Eyl 2026 — cc-kopru: CC katmanı Desktop sohbetinde
+
+Desktop sohbetine CC'nin CLI · hook · subagent · hafıza katmanını açan yerel stdio MCP:
+`tools/cc-kopru` (Node + `@modelcontextprotocol/sdk`). Başlatıcı
+`tools/mcp-launch/cc-kopru.cmd`. Desktop `mcpServers` **15 → 16**; yalnız `command` +
+`args` yazıldı, `env` bloğu yok. Yedek `claude_desktop_config.json.bak11i`.
+CC `~/.claude.json` `mcpServers` alt ağaç hash'i **değişmedi** (`a88f7f99ce829eec`).
+Desktop'ın kısıtlı ortam beyaz listesiyle (12 değişken) ve `cwd=System32` ile ayrıca
+doğrulandı: initialize + 4 araç + `gitleaks version` exit 0.
+
+### `claude mcp serve` neden kullanılmadı
+
+Ölçüldü (`tools/call`): serve 28 araç veriyor (`Task` yok, karşılığı `Agent`) ama
+**ne PreToolUse hook'unu ne `permissions.deny`'ı uyguluyor** — süreç-adla-öldürme komutu
+koştu (exit 128), `Read(./graphify-out/**)` deny'ına rağmen dosya okundu. Desktop'a açmak
+hook'suz/deny'siz `Bash`+`Edit`+`Write` vermek olurdu. Köprü kendi runner'ını koşuyor.
+
+### Araç tablosu
+
+| araç | ne yapar | kapı |
+| --- | --- | --- |
+| `komut` | allowlist'teki 12 CLI (graphify · rtk · semgrep · gitleaks · playwright-cli · skill-ui · agent-reach · headroom · pixeljury · dotnet · git · strix) | alt komut ilk jeton · yürütücüye komut geçiren seçenek red · `cwd` yalnız `C:\Projeler` / `Desktop` · `shell:false` |
+| `ajan` | gerçek CC oturumu (`claude -p --output-format json`) | istem **stdin**'den, argv'ye girmez · `model`/`ajan_adi`/`devam_id` `[A-Za-z0-9._-]` · izin atlama red · oturum başına 10 çağrı |
+| `oturum` | `SessionStart` hook'ları + `CLAUDE.md` + `dalga.md` | 12k kırpma |
+| `kaydet` | gitleaks → claude-mem worker `POST :37777/api/memory/save`, kaynak `desktop` | sızıntı varsa yazmaz |
+
+Ortak: tek kuyruk · timeout'ta süreç **ağacı PID ile** kapatılır · 30k üstü çıktı baş 5k
++ son 25k, tamamı `%TEMP%\cc-kopru\*.log` · adında `KEY|TOKEN|SECRET|PAT|PASSWORD`
+**segmenti** olan değişkenlerin değeri `***` (segment eşleşmesi; `PATH` bozulmaz).
+
+### Hook envanteri — çalışan / çalışmayan
+
+13 kaynaktan **53 tanım** okunuyor (`~/.claude/settings.json` + 12 açık eklentinin
+`hooks/hooks.json`'u + proje ayarı). `kopru.json > kapaliHooklar` **boş** — elle
+kapatılan hook yok; elenenler yapısal eleniyor:
+
+| durum | hangileri | sebep |
+| --- | --- | --- |
+| koşuyor (PreToolUse `Bash`) | block-destructive.ps1 · `rtk hook claude` · hookify · headroom | matcher `Bash`'i kapsıyor |
+| koşuyor (SessionStart) | user-settings headroom-guard · explanatory/learning-output-style · security-guidance · superpowers · everything-claude-code · headroom · claude-mem (×2) · claude-mem-cowork | ölçüldü; `oturum` çıktısında listeleniyor |
+| atlanıyor | everything-claude-code'un `tool=="Bash" && …` matcher'ları | CC'nin ifade matcher'ı; köprü regex matcher uyguluyor, ifade görürse atlıyor |
+| tetiklenmiyor | impeccable (POSIX başlatıcı, Windows'ta şüpheli) · claude-mem `PreToolUse:Read` · claude-mem-cowork `Task\|Agent` · dotnet-format (`Edit\|Write`) | matcher köprünün ürettiği olaylara uymuyor |
+| transcript'e bakanlar | claude-mem ailesi · ralph-wiggum `Stop` | her oturum `%TEMP%\cc-kopru\<id>.jsonl` asgari transcript yazıyor, boşa düşmüyorlar |
+
+Kanıt (gerçek `claude -p` içinden): süreç-adla-öldürme komutu denendi, dönen metin aynen
+`DUR: süreç adla öldürülmez; yalnız kendi başlattığın PID`.
+
+### `ajan` maliyeti — normal vs `hafif`
+
+`hafif: true` yalnız `claude --help`te doğrulanmış bayrakları ekler:
+`--disable-slash-commands` ("Disable all skills") · `--strict-mcp-config` +
+`--mcp-config {"mcpServers":{}}`. **Hook'lar ve CLAUDE.md açık kalır.** Bayraklar
+sürümde yoksa `hafif` reddedilir; uydurma bayrak yok.
+
+| # | iş | hafif | girdi token | tur | $ |
+| --- | --- | --- | --- | --- | --- |
+| 1 | dosya yaz / oku / sil (yazma izni kanıtı) | hayır | **167.802** | 2 | 0,3298 |
+| 2 | plugin komutu `/ponytail-help` | hayır | **85.084** | 1 | 0,3136 |
+| 3 | hook kanıtı (süreç-adla-öldürme) | evet | **58.702** | 2 | 0,1256 |
+| 4 | `devam_id` ile sürdürme | evet | **29.671** | 1 | 0,1331 |
+
+Kural: skill / slash komutu ya da MCP gerekiyorsa `hafif: false` (2. satır —
+`/ponytail-help` `hafif`te çalışmazdı). Dosya / komut / hook işi ise `hafif: true`;
+bağlam ~3× küçülüyor, maliyet ~%60 düşüyor. `devam_id` ile sürdürmede cache okuma
+%99'a çıkıyor, girdi 29.671'e iniyor.
+
+### Kalıcı sınırlar
+
+- **`UserPromptSubmit` ve `Stop` yok.** Köprü araç çağrısıyla uyanıyor; Desktop sohbetinin
+  istem gönderme ve durma anlarına bağlanamıyor. O olaylara bağlı hook'lar (hookify,
+  security-guidance, claude-mem summarize, ralph-wiggum) Desktop tarafında tetiklenmez.
+- **Sohbet bağlamı ölçülemez.** Köprü Desktop'ın token kullanımını, geçmişini ya da
+  compaction durumunu göremez; `ajan`ın bildirdiği rakamlar yalnız o `claude -p` alt
+  oturumuna aittir.
+- **Sohbet trafiği proxy'den geçmez.** `ANTHROPIC_BASE_URL` yalnız köprünün başlattığı
+  süreçleri etkiler; Desktop'ın kendi istekleri headroom proxy'sine uğramaz.
+- Yerel MCP'ler Desktop'ta yalnız **Chat** sekmesinde; Cowork/Code oturumları için geçerli
+  değil (§6'daki `status=unsupported` bulgusu).

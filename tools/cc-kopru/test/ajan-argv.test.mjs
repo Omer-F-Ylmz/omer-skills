@@ -86,3 +86,20 @@ test("argv yalnizca sabit bayraklardan olusur", async () => {
   assert.deepEqual(y.argv,
     ["-p", "--output-format", "json", "--model", "sonnet", "--agent", "Explore"]);
 });
+
+// --- hafif mod: skill/slash + MCP kapatilir, hook ve CLAUDE.md acik kalir ---
+
+test("hafif=true argv'si --help'te dogrulanan bayraklari tasir", async () => {
+  fs.rmSync(YAKALA, { force: true });
+  await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", hafif: true });
+  const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+  assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet",
+    "--disable-slash-commands", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}']);
+});
+
+test("hafif=false (varsayilan) hicbir kapatma bayragi eklemez", async () => {
+  fs.rmSync(YAKALA, { force: true });
+  await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet" });
+  const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+  assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet"]);
+});

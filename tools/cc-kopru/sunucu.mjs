@@ -4,7 +4,7 @@
  * KURULUM-11i. 4 araç: komut · ajan · oturum · kaydet.
  * stdout JSON-RPC kanalıdır; sunucu dışında tek bayt basılmaz (tanılama stderr'e).
  */
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
@@ -20,6 +20,14 @@ const AYAR = ayarYukle();
 const CLAUDE = AYAR.claudeYolu || yolBul("claude");
 // claude bir betik olarak kuruluysa (node <js>) yurutucuden once gelen argumanlar
 const CLAUDE_ON = AYAR.claudeOnArgs || [];
+/** hafif modun bayrakları gerçekten var mı — `claude --help` bir kez okunur. */
+const HAFIF_VAR = (() => {
+  if (AYAR.claudeOnArgs?.length) return true;   // test/sahte yürütücü
+  const r = spawnSync(CLAUDE, ["--help"], { encoding: "utf8", windowsHide: true });
+  const h = r.stdout || "";
+  return ["--disable-slash-commands", "--strict-mcp-config", "--mcp-config"]
+    .every((b) => h.includes(b));
+})();
 if (!CLAUDE) throw new Error("claude yurutucusu bulunamadi; kopru.json claudeYolu yazin");
 const OTURUM = crypto.randomUUID();
 const IZ = izDosyasi(OTURUM);
@@ -116,6 +124,9 @@ srv.registerTool("ajan", {
     max_turns: z.number().int().min(1).max(60).default(20),
     devam_id: z.string().optional().describe("Önceki session_id (--resume)"),
     timeout_sn: z.number().int().min(30).max(3600).default(900),
+    hafif: z.boolean().default(false).describe(
+      "Skill/slash komut yüklemesini ve MCP sunucularını kapatır; hook'lar ve CLAUDE.md "
+      + "açık kalır. Bağlam pahalı, iş basitse aç."),
   },
 }, (a) => sirala(async () => {
   // FIX-1: görev metni artık argv'ye girmediği için içeriğine göre elenmez — bayrak
@@ -140,6 +151,13 @@ srv.registerTool("ajan", {
   const argv = ["-p", "--output-format", "json", "--model", model];
   if (ajanAdi) argv.push("--agent", ajanAdi);
   if (devamId) argv.push("--resume", devamId);
+  // hafif: yalnız `claude --help`te doğrulanmış bayraklar (11i devam K1). Uydurma bayrak yok.
+  // --disable-slash-commands "Disable all skills" · --strict-mcp-config + boş --mcp-config
+  // = hiçbir MCP sunucusu. Hook'lar ve CLAUDE.md etkilenmez.
+  if (a.hafif) {
+    if (!HAFIF_VAR) return hata("RED: hafif mod bayrakları bu claude sürümünde yok.");
+    argv.push("--disable-slash-commands", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}');
+  }
   // kurulan argv son kez taranır: artık her jeton ya sabit bayrak ya denetlenmiş değer
   if (argv.some((x) => /dangerously-skip-permissions|bypassPermissions|^--permission-mode/i.test(x))) {
     return hata("RED: argv izin atlama bayrağı taşıyor.");
