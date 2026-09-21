@@ -4,9 +4,18 @@ import os from "node:os";
 import path from "node:path";
 import fs from "node:fs";
 
-import { ayarYukle, cwdCoz, komutDenetle, redakte, kirp, kos } from "../kos.mjs";
+import { ayarYukle, cwdCoz, komutDenetle, redakte, kirp, kos, yerelGun } from "../kos.mjs";
 
 const AYAR = ayarYukle();
+
+// 11l K5: `durum`un gunluk satiri UTC gununu veriyordu; Istanbul UTC+3 oldugu icin
+// yerel 00:00-03:00 arasindaki is bir onceki gune sayiliyordu.
+test("yerelGun UTC degil Europe/Istanbul gununu verir", () => {
+  assert.equal(yerelGun(new Date("2026-09-21T23:30:00Z")), "2026-09-22");  // yerel 02:30
+  assert.equal(yerelGun(new Date("2026-09-22T00:30:00Z")), "2026-09-22");  // yerel 03:30
+  assert.equal(yerelGun(new Date("2026-09-21T20:30:00Z")), "2026-09-21");  // yerel 23:30
+  assert.match(yerelGun(), /^\d{4}-\d{2}-\d{2}$/);
+});
 
 test("allowlist disindaki arac reddedilir", () => {
   assert.throws(() => komutDenetle("curl", ["https://x"], AYAR), /allowlist/i);

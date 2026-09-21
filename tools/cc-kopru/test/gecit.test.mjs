@@ -28,6 +28,42 @@ test("okumaDeny: Read kurallari yol uzerinde uygulanir", () => {
   assert.doesNotThrow(() => okumaDeny(`${PROJE}/rm`, ["Bash(rm:*)"], PROJE));
 });
 
+// 11l K4: `./bin/**` proje KOKUNDEN cozuldugu icin ic ice bin dizinleri disarida kaliyordu
+// — Corvano.Web/bin/Debug/net10.0/*.runtimeconfig.json gecitten OKUNDU (CC'de de ayni acik).
+// Cozum ic ice `bin/Debug` · `bin/Release` · `obj` kaliplari; `**/bin/**` DEGIL, cunku
+// gstack skill'inin kendi bin/ komut dizini (13 dizinde 138 dosya) okunamaz olurdu.
+const DENY_11L = ["Read(./bin/**)", "Read(./obj/**)", "Read(./graphify-out/**)",
+                  "Read(**/node_modules/**)", "Read(**/bin/Debug/**)",
+                  "Read(**/bin/Release/**)", "Read(**/obj/**)"];
+
+test("11l K4 · ACIGIN KENDISI: eski dort kural ic ice bin/Debug'i kacirir", () => {
+  const eski = ["Read(./bin/**)", "Read(./obj/**)", "Read(./graphify-out/**)",
+                "Read(**/node_modules/**)"];
+  const icIce = "C:/Projeler/Corvano/Corvano.Web/bin/Debug/net10.0/Corvano.Web.runtimeconfig.json";
+  assert.doesNotThrow(() => okumaDeny(icIce, eski, "C:/Projeler/Corvano"),
+                      "eski liste bu yolu zaten yakaliyorsa acik yok demektir");
+  assert.throws(() => okumaDeny(icIce, DENY_11L, "C:/Projeler/Corvano"), /permissions\.deny/);
+});
+
+test("11l K4 · ic ice bin/Debug · bin/Release · obj reddedilir", () => {
+  for (const p of [
+    "C:/Projeler/Corvano/Corvano.Web/bin/Debug/net10.0/Corvano.Web.runtimeconfig.json",
+    "C:/Projeler/Corvano/Corvano.Web/bin/Release/net10.0/Corvano.Web.dll",
+    "C:/Projeler/Corvano/Corvano.Web/obj/Debug/net10.0/proje.assets.json",
+    `${PROJE}/bin/gizli.txt`,
+    `${PROJE}/a/node_modules/b/i.js`,
+  ]) assert.throws(() => okumaDeny(p, DENY_11L, PROJE), /permissions\.deny/, p);
+});
+
+test("11l K4 · README ve gstack bin komutlari okunmaya devam eder", () => {
+  for (const p of [
+    `${PROJE}/README.md`,
+    `${PROJE}/src/bin.txt`,
+    "C:/Users/pc/.claude/skills/gstack/bin/dev-setup",
+    "C:/Users/pc/.claude/skills/gstack/browse/bin/gstack-browse",
+  ]) assert.doesNotThrow(() => okumaDeny(p, DENY_11L, PROJE), p);
+});
+
 // ---------------------------------------------------------------- eşleme
 test("ccArac: dosya ve git araclari CC matcher'larina eslenir", () => {
   assert.equal(ccArac("write_file", { path: "a.cs", content: "x" }).matcher, "Write");

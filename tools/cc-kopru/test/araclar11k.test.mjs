@@ -5,11 +5,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
+import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { gozlemGovde, statuslineGovde } from "../kos.mjs";
-import { eklentiKokleri, katalogTopla } from "../hook.mjs";
+import { aciklamaOku, eklentiKokleri, katalogTopla } from "../hook.mjs";
 
 const SUNUCU = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "sunucu.mjs");
 const PROJE = "C:/Projeler/omer-skills";
@@ -92,6 +94,32 @@ test("katalog skillOverrides'ta off olani elemez degil, eler", () => {
   assert.ok(hepsi.every((s) => s.ad && typeof s.aciklama === "string"));
 });
 
+// 11l K3: description bir YAML blok skaleri ise (plugin-dev 3 ajan `|`, ponytail 6 skill
+// `>`, dotnet-test 10 ajan) aciklama yerine gostergenin kendisi basiliyordu.
+const gecici = () => fs.mkdtempSync(path.join(os.tmpdir(), "cc-kopru-11l-"));
+
+test("aciklamaOku blok skaleri gostergesini degil ilk anlamli satiri alir", () => {
+  const d = gecici();
+  for (const g of ["|", ">", "|-", ">-", "|+", ">+"]) {
+    const p = path.join(d, `s${g.length}${g[0] === "|" ? "b" : "k"}.md`);
+    fs.writeFileSync(p, `---\nname: x\ndescription: ${g}\n  Uc ajan uretir.\n`
+      + `  Ikinci satir gorunmemeli.\n---\n# govde\n`, "utf8");
+    assert.equal(aciklamaOku(p), "Uc ajan uretir.", `gosterge ${g}`);
+  }
+});
+
+test("aciklamaOku tek satir bicimini bozmaz", () => {
+  const p = path.join(gecici(), "t.md");
+  fs.writeFileSync(p, `---\nname: x\ndescription: "Tek satir aciklama."\n---\n`, "utf8");
+  assert.equal(aciklamaOku(p), "Tek satir aciklama.");
+});
+
+test("katalogta artik ciplak blok skaleri gostergesi kalmadi", () => {
+  const hepsi = katalogTopla("hepsi", "");
+  const bozuk = hepsi.filter((x) => /^[|>][-+]?$/.test(x.aciklama));
+  assert.deepEqual(bozuk.map((x) => x.ad), [], "gosterge aciklama olarak basiliyor");
+});
+
 test("katalog araci komut · ajan · skill dondurur ve filtreler", async () => {
   const [a, b] = await cagir([
     { arac: "katalog", args: { tur: "ajan" } },
@@ -100,6 +128,15 @@ test("katalog araci komut · ajan · skill dondurur ve filtreler", async () => {
   assert.notEqual(a.isError, true, govde(a));
   assert.match(govde(a), /ajan/i);
   assert.match(govde(b), /ponytail/i);
+});
+
+test("katalog sayi=true yalniz tur basina sayi doner, liste basmaz", async () => {
+  const [r] = await cagir([{ arac: "katalog", args: { sayi: true } }]);
+  assert.notEqual(r.isError, true, govde(r));
+  for (const t of ["komut", "ajan", "skill"]) {
+    assert.match(govde(r), new RegExp(`${t}\\s+\\d+`), `${t} sayisi yok: ${govde(r)}`);
+  }
+  assert.doesNotMatch(govde(r), /^- \[/m, "sayi modunda liste basilmamali");
 });
 
 // ---------------------------------------------------------------- K4 durum

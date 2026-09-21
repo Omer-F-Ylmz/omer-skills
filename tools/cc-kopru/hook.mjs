@@ -104,14 +104,27 @@ export function eklentiKokleri() {
   return out;
 }
 
-/** SKILL.md / komut dosyasından tek satır açıklama. */
-function aciklamaOku(dosya) {
+/**
+ * SKILL.md / komut dosyasından tek satır açıklama.
+ * 11l K3: `description:` bir YAML blok skaleri olabilir (`|` · `>` · `|-` · `>-` · `|+`
+ * · `>+`); o zaman satırın kendisi göstergeden ibaret, metin izleyen girintili
+ * satırlardadır. Eskiden göstergenin kendisi açıklama sanılıp basılıyordu.
+ */
+export function aciklamaOku(dosya) {
   try {
     const bas = fs.readFileSync(dosya, "utf8").slice(0, 1500);
-    const d = /^description:\s*(.+)$/m.exec(bas);
-    const s = d ? d[1]
-      : (bas.split(/\r?\n/).find((x) => x.trim() && !/^(---|#|name:)/.test(x.trim())) || "");
-    return s.replace(/^["']|["']$/g, "").trim().slice(0, 160);
+    const satirlar = bas.split(/\r?\n/);
+    const n = satirlar.findIndex((x) => /^description:\s*/.test(x));
+    let s;
+    if (n >= 0) {
+      s = satirlar[n].replace(/^description:\s*/, "");
+      if (/^[|>][-+]?\d*$/.test(s.trim())) {
+        s = satirlar.slice(n + 1).find((x) => /^\s+\S/.test(x)) || "";
+      }
+    } else {
+      s = satirlar.find((x) => x.trim() && !/^(---|#|name:)/.test(x.trim())) || "";
+    }
+    return s.trim().replace(/^["']|["']$/g, "").trim().slice(0, 160);
   } catch { return ""; }
 }
 

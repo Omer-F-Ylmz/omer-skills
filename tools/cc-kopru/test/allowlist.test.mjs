@@ -76,6 +76,30 @@ test("npx yalniz --no ile kosar: --no'suz uzak paket indirilir", () => {
   gecer("npx", ["--no", "node-which"]);
 });
 
+// 11l K2: `npx --no pixeljury --version` npm'in KENDI surumunu (11.17.0) doner, paket
+// kosmaz; `npx --no -- pixeljury --version` 0.1.5 doner. Ayni sonuc rtk'siz dogrudan
+// cagrida da olustugu icin kok neden npm'in npx ayristirmasi, rtk degil: `--` olmadan
+// `--version` npx'in kendi bayragi sayiliyor. Kopru gerekli bayraktan sonra `--` ekler.
+const argsOf = (arac, args) => komutDenetle(arac, args, AYAR).args;
+
+test("npx/bunx: gerekli bayraktan sonra `--` eklenir", () => {
+  assert.deepEqual(argsOf("npx", ["--no", "pixeljury", "--version"]),
+                   ["--no", "--", "pixeljury", "--version"]);
+  assert.deepEqual(argsOf("bunx", ["--no-install", "cowsay"]),
+                   ["--no-install", "--", "cowsay"]);
+});
+
+test("npx: `--` zaten varsa ikinci kez eklenmez, --no'suz RED surer", () => {
+  assert.deepEqual(argsOf("npx", ["--no", "--", "pixeljury", "--version"]),
+                   ["--no", "--", "pixeljury", "--version"]);
+  red("npx", ["pixeljury", "--version"]);
+});
+
+test("`--` eklemesi npx disindaki araclara bulasmaz", () => {
+  assert.deepEqual(argsOf("gh", ["repo", "view"]), ["repo", "view"]);
+  assert.deepEqual(argsOf("uvx", ["--offline", "ruff"]), ["--offline", "ruff"]);
+});
+
 // ---------------------------------------------------------------- bun · bunx
 test("bun: yayin ve indirip-kosturma yollari reddedilir", () => {
   for (const args of [["publish"], ["x", "cowsay"], ["create", "vite"],
@@ -155,3 +179,15 @@ test("npx --no: kurulu paket kosar, eksik paket reify'den ONCE iptal edilir", as
   const b = await kos({ arac: "npx", args: ["--no", "kesinlikle-olmayan-paket-11k"], cwd, ayar: AYAR });
   assert.notEqual(b.kod, 0);
 });
+
+// 11l K2 ucu: birim testi yesilken gercek kosu hala bozuktu — npx bir .cmd shim'i oldugu
+// icin kos() shim dalinda denetimden CIKAN degil GIREN argv'yi kullaniyordu. Pin uctan uca.
+test("npx gercek kosu: `--`siz bicim de paketin surumunu doner (npm'inkini degil)", async () => {
+  const cwd = path.resolve(path.dirname(new URL(import.meta.url).pathname.slice(1)), "..");
+  for (const args of [["--no", "pixeljury", "--version"],
+                      ["--no", "--", "pixeljury", "--version"]]) {
+    const r = await kos({ arac: "npx", args, cwd, ayar: AYAR });
+    assert.equal(r.kod, 0, r.cikti);
+    assert.match(r.cikti, /^\s*0\.\d+\.\d+\s*$/m, `npm surumu dondu: ${r.cikti}`);
+  }
+}, { timeout: 180000 });

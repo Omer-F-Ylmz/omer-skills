@@ -232,9 +232,21 @@ export function komutDenetle(arac, args, ayar, cwd) {
     }
   }
 
+  // 11l K2: npm'in npx ayrıştırması `--` olmadan paketin bayrağını kendine mal ediyor —
+  // `npx --no pixeljury --version` npm'in kendi sürümünü (11.17.0) döndü, paket koşmadı;
+  // `npx --no -- pixeljury --version` 0.1.5 döndü. Aynı sonuç rtk'sız doğrudan çağrıda da
+  // çıktığı için kök neden npm, rtk değil. Gerekli bayraktan sonra ayırıcı eklenir.
+  // (uvx'in `--offline`ı aynı sorunu yaşamıyor; bu yüzden liste araca bağlı.)
+  let cikanArgs = args;
+  if ((arac === "npx" || arac === "bunx") && !args.includes("--")) {
+    const n = args.findIndex((a) => (kural.gerekliBayrak || [])
+      .some((b) => a === b || a.startsWith(b + "=")));
+    if (n >= 0) cikanArgs = [...args.slice(0, n + 1), "--", ...args.slice(n + 1)];
+  }
+
   const yol = yolBul(arac);
   if (!yol) throw new Error(`'${arac}' PATH'te bulunamadı`);
-  return { arac, args, yol };
+  return { arac, args: cikanArgs, yol };
 }
 
 /** Adı KEY/TOKEN/SECRET/PAT/PASSWORD segmenti içeren değişkenlerin DEĞERLERİ. */
@@ -268,6 +280,14 @@ export function redakte(metin) {
   for (const d of sirDegerleri()) s = s.split(d).join("***");
   return s;
 }
+
+/**
+ * Yerel (Europe/Istanbul) gün, `YYYY-MM-DD`. 11l K5: `toISOString()` UTC verir, Istanbul
+ * UTC+3 olduğu için yerel 00:00-03:00 arası bir önceki güne sayılıyordu.
+ * `sv-SE` yerel ayarı zaten ISO biçimi üretir — ayrı biçimlendirmeye gerek yok.
+ */
+export const yerelGun = (d = new Date()) =>
+  new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Istanbul" }).format(d);
 
 export function kirp(metin, tavan) {
   const s = String(metin ?? "");
@@ -343,8 +363,11 @@ export function agaciKapat(pid) {
 export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla }) {
   // denetimAtla: cagiran zaten komutDenetle'den gecirdi (hook yeniden yazimi sarmalamasi)
   const calisma = cwdCoz(cwd, ayar);
-  const yol = denetimAtla ? yolBul(arac) : komutDenetle(arac, args, ayar, calisma).yol;
+  // denetim `--` ayiricisini eklemis olabilir (11l K2); kosan argv denetimden cikandir.
+  const d = denetimAtla ? { yol: yolBul(arac), args } : komutDenetle(arac, args, ayar, calisma);
+  const yol = d.yol;
   if (!yol) throw new Error(`'${arac}' PATH'te bulunamadi`);
+  args = d.args;   // asagidaki her dal (shim · cmd /c · dogrudan) ayni argv'yi gormeli
   const sn = Math.min(Math.max(Number(timeoutSn) || 120, 1), 600);
 
   let komut = yol;

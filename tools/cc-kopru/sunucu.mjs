@@ -16,7 +16,7 @@ import { z } from "zod";
 import { MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, gozlemGovde, gozlemYaz,
          komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
-         yenidenYazimKabul, yolBul } from "./kos.mjs";
+         yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
 import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi, katalogTopla } from "./hook.mjs";
 import os from "node:os";
 
@@ -262,9 +262,17 @@ srv.registerTool("katalog", {
   inputSchema: {
     tur: z.enum(["hepsi", "komut", "ajan", "skill"]).default("hepsi"),
     ara: z.string().default("").describe("Ada göre süzgeç (alt dize)"),
+    sayi: z.boolean().default(false)
+      .describe("Yalnız tür başına sayı döner, liste basılmaz (11l K3)"),
   },
-}, ({ tur, ara }) => sirala(async () => {
+}, ({ tur, ara, sayi }) => sirala(async () => {
   const liste = katalogTopla(tur, ara);
+  if (sayi) {
+    const s = { komut: 0, ajan: 0, skill: 0 };
+    for (const x of liste) s[x.tur] += 1;
+    return metin(`komut ${s.komut} · ajan ${s.ajan} · skill ${s.skill}`
+      + ` · toplam ${liste.length}${ara ? ` (ara=${ara})` : ""}`);
+  }
   if (!liste.length) return metin("(eşleşme yok)");
   const satirlar = liste.map((x) => `- [${x.tur}] ${x.ad}${x.aciklama ? " — " + x.aciklama : ""}`);
   const bas = `${liste.length} kayıt (tür=${tur}${ara ? `, ara=${ara}` : ""})\n`;
@@ -277,14 +285,14 @@ srv.registerTool("katalog", {
  *  ponytail: dosyalar baştan sona okunur; günlük hacim büyürse mtime+offset takibi gerekir. */
 function gunlukCC() {
   const kok = path.join(os.homedir(), ".claude", "projects");
-  const bugun = new Date().toISOString().slice(0, 10);
+  const bugun = yerelGun();
   let girdi = 0, cikti = 0, dosya = 0;
   const yuru = (d) => {
     for (const f of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, f.name);
       if (f.isDirectory()) { yuru(p); continue; }
       if (!f.name.endsWith(".jsonl")) continue;
-      if (fs.statSync(p).mtime.toISOString().slice(0, 10) !== bugun) continue;
+      if (yerelGun(fs.statSync(p).mtime) !== bugun) continue;
       dosya += 1;
       for (const satir of fs.readFileSync(p, "utf8").split("\n")) {
         if (!satir.includes('"usage"')) continue;
@@ -348,7 +356,7 @@ srv.registerTool("durum", {
       + ` · kuyruk ${kuyruk.queueDepth ?? "?"} · park ${kuyruk.parkedSessions ?? "?"}`));
 
   const c = gunlukCC();
-  parcalar.push(`## günlük CC (${new Date().toISOString().slice(0, 10)})\n`
+  parcalar.push(`## günlük CC (${yerelGun()})\n`
     + `${c.dosya} transcript · girdi ${c.girdi} · çıktı ${c.cikti} token`);
 
   parcalar.push("## yapısal sınır\nDesktop sohbetinin kendi ctx %'si ölçülemiyor: "
