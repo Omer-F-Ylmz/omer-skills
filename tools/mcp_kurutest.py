@@ -1,15 +1,26 @@
 """K3 kuru test: her stdio MCP tanimini bagimsiz calistir, initialize + tools/list al.
 
-Kullanim: python tools/mcp_kurutest.py [sunucu-adi ...]
+Kullanim: python tools/mcp_kurutest.py [--desktop-env] [sunucu-adi ...]
 Cikti: her sunucu icin ARAC SAYISI ya da gerekcelendirilmis hata.
+
+--desktop-env: sureci Claude Desktop gibi baslatir. Desktop yerel MCP sunucularini
+tam kullanici ortamiyla degil, MCP SDK'nin beyaz listesiyle baslatir; kanit
+app.asar ofset 3899305 (DEFAULT_INHERITED_ENV_VARS, Claude 2.2553.1.0). Bu modda
+%VAR% genisletmesi de YAPILMAZ -- cmd.exe ayni kisitli ortamla basladigi icin
+genisletemez. K11_ERR=<dizin> verilirse her sunucunun stderr'i oraya yazilir.
 """
 import json, os, subprocess, sys, threading, queue, time
 
 TIMEOUT = 90
 
-def dene(ad, komut, argv, env_ek, temizle=()):
+# app.asar ofset 3899305 -- MCP SDK DEFAULT_INHERITED_ENV_VARS (win32)
+DESKTOP_ENV = ["APPDATA", "HOMEDRIVE", "HOMEPATH", "LOCALAPPDATA", "PATH",
+               "PROCESSOR_ARCHITECTURE", "SYSTEMDRIVE", "SYSTEMROOT", "TEMP",
+               "USERNAME", "USERPROFILE", "PROGRAMFILES"]
+
+def dene(ad, komut, argv, env_ek, temizle=(), taban=None, hata_bufer=None):
     t0 = time.time()
-    env = os.environ.copy()
+    env = dict(taban) if taban is not None else os.environ.copy()
     for k in temizle:
         env.pop(k, None)
     env.update(env_ek or {})
@@ -22,7 +33,7 @@ def dene(ad, komut, argv, env_ek, temizle=()):
 
     q = queue.Queue()
     threading.Thread(target=lambda: [q.put(l) for l in p.stdout], daemon=True).start()
-    hata_bufer = []
+    hata_bufer = [] if hata_bufer is None else hata_bufer
     threading.Thread(target=lambda: [hata_bufer.append(l) for l in p.stderr], daemon=True).start()
 
     def gonder(obj):
@@ -88,15 +99,30 @@ def yukle():
 
 
 if __name__ == "__main__":
-    hedef = sys.argv[1:]
+    bayraklar = [a for a in sys.argv[1:] if a.startswith("--")]
+    hedef = [a for a in sys.argv[1:] if not a.startswith("--")]
+    desktop = "--desktop-env" in bayraklar
+    taban = {k: os.environ[k] for k in DESKTOP_ENV if k in os.environ} if desktop else None
+    hata_dizin = os.environ.get("K11_ERR")
+    if hata_dizin:
+        os.makedirs(hata_dizin, exist_ok=True)
+    if desktop:
+        print(f"[--desktop-env] taban {len(taban)} degisken, %VAR% genisletmesi KAPALI", flush=True)
+        print(flush=True)
     sunucular = yukle()
     secim = {k: v for k, v in sunucular.items()
              if v.get("type", "stdio") == "stdio" and (not hedef or k in hedef)}
     sonuc = []
     for ad, tanim in sorted(secim.items()):
-        env_ek = {k: os.path.expandvars(v) for k, v in (tanim.get("env") or {}).items()}
-        argv = [os.path.expandvars(a) for a in tanim.get("args", [])]
-        r = dene(ad, tanim["command"], argv, env_ek)
+        gen = (lambda x: x) if desktop else os.path.expandvars
+        env_ek = {k: gen(v) for k, v in (tanim.get("env") or {}).items()}
+        argv = [gen(a) for a in tanim.get("args", [])]
+        buf = []
+        r = dene(ad, tanim["command"], argv, env_ek, taban=taban, hata_bufer=buf)
+        if hata_dizin:
+            with open(os.path.join(hata_dizin, ad + ".stderr.txt"), "w",
+                      encoding="utf-8", errors="replace") as fh:
+                fh.write("".join(buf))
         sonuc.append(r)
         print(f"{r['durum']:<11} {ad:<26} arac={r['arac']:<4} {r['sure']:>6}s {r.get('sunucu','')}", flush=True)
         if r.get("hata"):

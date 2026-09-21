@@ -32,7 +32,7 @@ Kuru test: Desktop kapalıyken, gerçek Windows PATH'i ile, CC tarafında bağı
 | Ad | Desktop'ta kaynak | Komut | Anahtar kaynağı | Önkoşul | Araç | Sekme |
 |---|---|---|---|---|---|---|
 | headroom | config (**düzeltildi**) | `.local\bin\headroom.EXE mcp serve` | yok (env: HEADROOM_PROXY_URL) | 127.0.0.1:6767 ayakta | 3 | Chat |
-| puppeteer | config (mevcut) | `cmd /c npx -y puppeteer-mcp-server@0.7.2` | yok | — | 8 | Chat |
+| puppeteer | config (mevcut) | `cmd /c npx -y puppeteer-mcp-server@0.7.2` | yok (`startupTimeoutSec: 120` eklendi) | — | 8 | Chat |
 | mcp-sequential-thinking | config (mevcut) | `cmd /c npx -y @modelcontextprotocol/server-sequential-thinking@0.6.2` | yok | — | 1 | Chat |
 | mcp-memory | config (mevcut) | `cmd /c npx -y @modelcontextprotocol/server-memory@2026.8.31` | yok | — | 9 | Chat |
 | mcp-filesystem | config (mevcut) | `cmd /c npx -y @modelcontextprotocol/server-filesystem@2026.8.31 C:/Users/pc/Desktop C:/Projeler` | yok | kökler CC ile aynı | 14 | Chat |
@@ -41,8 +41,8 @@ Kuru test: Desktop kapalıyken, gerçek Windows PATH'i ile, CC tarafında bağı
 | mcp-time | config (mevcut) | `uvx mcp-server-time@2026.8.18` | yok | — | 2 | Chat |
 | binlog | config (mevcut) | `dotnet dnx Microsoft.AITools.BinlogMcp --yes --prerelease` | yok | .NET SDK | 44 | Chat |
 | playwright | config (mevcut) | `cmd /c npx -y @playwright/mcp@latest` | yok | — | 25 | Chat |
-| brave-search | config (**eklendi**) | `cmd /c npx -y @brave/brave-search-mcp-server` | kullanıcı ortamı mirası (BRAVE_API_KEY) | — | 8 | Chat |
-| context7 | config (**eklendi**) | `cmd /c npx -y @upstash/context7-mcp --api-key %CONTEXT7_API_KEY%` | cmd.exe `%VAR%` genişletmesi | — | 2 | Chat |
+| brave-search | config (**eklendi**) | `cmd /c npx -y @brave/brave-search-mcp-server` | **envHelper** → `tools/mcp-launch/mcp-env.cmd` | — | 8 | Chat |
+| context7 | ~~config~~ → **hesap bağlayıcısı** | Desktop config'inden **kaldırıldı** (11d) | bağlayıcı `context7-c1492263` | — | 2 | Chat |
 | stitch | config (**eklendi**) | `cmd /c npx -y @_davideast/stitch-mcp@0.9.0 proxy` | miras (STITCH_API_KEY) | — | 16 | Chat |
 | omniroute | config (**eklendi**) | `cmd /c omniroute --mcp` | yok | — | 110 | Chat |
 | code-review | config (**eklendi**) | `cmd /c uvx code-review-mcp@2.0.0` | miras (GITHUB_TOKEN) | GITLAB_TOKEN tanımsız (CC'de de uyarı) | 12 | Chat |
@@ -60,15 +60,39 @@ Uzak sunucular config'e **ikinci kez yazılmadı**: Desktop'ta hesap bağlayıc�
 
 ### Anahtar politikası
 
-Desktop `${VAR}` genişletmez. İki mekanizma kanıtlandı:
+> **DÜZELTME · 21 Eyl 2026 (KURULUM-11d).** Aşağıdaki iki madde **yanlıştı** ve
+> kaldırıldı. İkisinin de "kanıt"ı Claude Code'da **tam ortamla** koşan kuru testti;
+> Desktop o programı çalıştırmıyor.
+>
+> - ~~**Miras** — süreç kullanıcı ortam değişkenlerini devralır.~~ Devralmıyor.
+> - ~~**`%VAR%` genişletmesi** — `cmd /c` sarmalayıcısı genişletmeyi yapar.~~ Yapmıyor;
+>   cmd de aynı kısıtlı ortamla başlar, değişken orada olmadığı için `%VAR%` literal kalır.
 
-1. **Miras** — `env` bloğu hiç yazılmaz, süreç kullanıcı ortam değişkenlerini devralır.
-   Kanıt: `brave-search` env bloğu olmadan 8 araç döndü; aynı komut `BRAVE_API_KEY` boşken
-   `Error: A Brave API key is required` verdi. Fark yalnız mirastan geliyor.
-2. **`%VAR%` genişletmesi** — argümanda anahtar gerekiyorsa `cmd /c` sarmalayıcısı kullanılır,
-   genişletmeyi cmd.exe yapar. Kanıt: `context7 --api-key %CONTEXT7_API_KEY%` → 2 araç.
+Desktop yerel MCP sunucularını **tam kullanıcı ortamıyla değil**, MCP TypeScript SDK'nın
+`DEFAULT_INHERITED_ENV_VARS` beyaz listesiyle başlatır. Kaynak: `app.asar` ofset **3899305**
+(Claude 2.2553.1.0). win32'de tam 12 değişken:
 
-Config'te düz anahtar yok (grep 0). Anahtarlar kullanıcı düzeyinde kalıcı env değişkenleridir.
+```
+APPDATA HOMEDRIVE HOMEPATH LOCALAPPDATA PATH PROCESSOR_ARCHITECTURE
+SYSTEMDRIVE SYSTEMROOT TEMP USERNAME USERPROFILE PROGRAMFILES
+```
+
+Özel anahtarlar bu listede olmadığı için sunucu sürecine **hiç ulaşmaz**.
+
+**Doğru mekanizma: `envHelper`** (belgesiz, `app.asar` ofset 3045914). Config'te sunucuya
+mutlak bir betik yolu yazılır; betik stdout'a tek JSON nesnesi basar, uygulama sunucuyu
+başlatmadan önce çalıştırıp `env` üzerine birleştirir. Helper **tam uygulama ortamıyla**
+koşar, beyaz liste ona uygulanmaz. `envHelperTtlSec` varsayılanı 300 s.
+Helper'a argüman ya da sunucu adı **geçilmez**.
+
+Bu repoda: `tools/mcp-launch/mcp-env.cmd` — `BRAVE_API_KEY` + `STITCH_API_KEY` adlarını
+HKCU'dan okur, değeri yalnız stdout'taki JSON'a koyar. Anahtar helper her çalıştığında
+okunduğu için **yenilenen anahtar bir sonraki Desktop açılışında kendiliğinden geçer**.
+
+Config'te düz anahtar yok (gitleaks 0 bulgu).
+
+⚠️ `envHelper` belgesiz bir alandır, app.asar'dan çıkarılmıştır. **Desktop güncellemesinde
+yeniden doğrula.**
 
 ## 3. puppeteer (K2) — kök neden
 
@@ -150,3 +174,48 @@ config yazımından **sonra** tazeleniyor → "bayat liste" hipotezi de zayıf.
 
 **Durum:** `puppeteer` ve `brave-search` Desktop chat'e gerçekten gelmiyor; kök neden
 hâlâ bulunamadı. 11c'de yeni teşhis denemesi yapılmadı (tarif gereği). Sonraki adım 11d.
+
+
+## 5. KURULUM-11d düzeltmeleri · 21 Eyl 2026
+
+### §3'ün sonucu yanlıştı — puppeteer'ın kök nedeni bulundu
+
+§3 "eşzamanlı oturum" hipotezini **araç sayısına bakarak** eledi (iki örnek de 8 araç
+döndürdü). Ölçülmeyen şey **süreydi**. 11d'de aynı test `--desktop-env` tabanıyla ve
+süre ölçülerek tekrarlandı:
+
+| Senaryo | `initialize` süresi | Sonuç |
+|---|---|---|
+| Tek örnek | **3.9 s** | OK, 8 araç, navigate Status 200 |
+| İki eşzamanlı örnek | **26–28 s** | ikisi de OK — ama Desktop çoktan öldürmüş olur |
+
+Desktop sunucuyu iki tüketici için başlatıyor (sohbet + "Cowork and Code sessions"
+shared-pool). `npx -y` paket çözümlemesi yarışınca açılış 24 s'lik zaman aşımını aşıyor;
+log'daki 09:06:46 (`initialize`) → 09:07:10 (süreç öldü) penceresi tam bu.
+
+§3'teki "kuru testler 0.3–3 sn sürdü, zaman aşımı açıklaması düşüyor" cümlesi de bu
+yüzden geçersiz: o süreler **tek örnek** süreleriydi.
+
+**Düzeltme:** `"startupTimeoutSec": 120`.
+
+### Yol düzeltmeleri
+
+Önceki dalgalarda `%APPDATA%\Claude` varsayılmıştı. Doğrusu:
+
+| Ne | Yol |
+|---|---|
+| Canlı config | `%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json` |
+| Canlı log | `%LOCALAPPDATA%\Claude\logs` |
+| Uygulama | `C:\Program Files\WindowsApps\Claude_2.2553.1.0_x64__pzs8sxrjxfjjcpp\Claude.exe` (MSIX) |
+
+`%APPDATA%\Claude` **yok**. `…\LocalCache\Roaming\Claude\logs` (mcp.log 0 B / 18 Ağu)
+kalıntı klasördür.
+
+**11e kalemi olarak yazılacak "ikinci (MSIX) kurulum izi" notu ters yöndeydi:** ikinci
+kurulum yok; MSIX olan **asıl ve tek** kurulumdur.
+
+### K2b paketi
+
+`dist/yukle-11d/replace/gitleaks-desktop.zip` — gitleaks 8.30.1, statik ELF64 x86-64,
+sha256 release checksums ile eşleşti, açık 20.9 MB. **Yürütme kanıtı claude.ai'de
+bekliyor**; (a) kararı o kanıt gelene kadar kesin değildir.
