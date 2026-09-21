@@ -610,3 +610,106 @@ bağlam ~3× küçülüyor, maliyet ~%60 düşüyor. `devam_id` ile sürdürmede
 ### 11i-FIX-2 · Desktop'tan köprü kontrolü (21 Eyl)
 
 - Gerçek Desktop çağrısı üç kırık gösterdi ve üçü de kapatıldı: `kaydet` worker'ın strict şemasına takılıyordu (`source` anahtarı yok; "desktop" etiketi artık `metadata.platformSource`), bash hook'ları PATH'inde Git olmayan MCP sürecinde "spawn bash ENOENT" veriyordu (artık mutlak Git Bash yolu, WSL `System32\bash.exe` asla), `;` argüman metakarakteri sayılmıyordu ve hook yeniden yazımı argüman sınırını bozabiliyordu (artık yalnız `["rtk", ...orijinal argv]` biçimi kabul, başkası yok sayılır); gitleaks reddi yalnız "N bulgu (kural adı)" basar, değer ve ANSI yok.
+
+---
+
+## §10 · KURULUM-11k — CC eşdeğerliği: katman katman (21 Eyl 2026)
+
+11k, cc-kopru'nun beş katmanını Claude Code'daki davranışa yaklaştırdı. Her satır
+ölçüme dayanır; ölçülemeyen parça "yapısal sınır" olarak yazıldı, tahmin yazılmadı.
+
+| katman | CC'de | Desktop'ta (11k sonrası) | yol | yapısal sınır |
+|---|---|---|---|---|
+| CLI yüzeyi | Bash + `permissions.allow/deny` | `komut` aracı · 21 araç allowlist'i | `kos.mjs` · `kopru.json` | inline kod (`-e/-c/-p`) ve indirip-çalıştırma kapalı; `npx` yalnız `--no` ile |
+| izin reddi | `permissions.deny` | `Bash(...)` komut yüzeyinde, `Read(...)` kanca geçidinde | `denyDenetle` · `okumaDeny` | — |
+| hook'lar | PreToolUse/PostToolUse | aynı tanımlar aynen koşar (kopyalanmaz) | `hook.mjs` | ifade matcher'ları (`tool == "Edit" && …`) atlanır |
+| MCP araçları | CC'nin kendi izin katmanı | `mcp-filesystem` + `mcp-git` geçit arkasında | `gecit.mjs` | salt okur git araçları eşlenmez (CC'de de Bash değiller) |
+| alt oturum | Task/agent | `ajan` (`claude -p`, gerçek CC oturumu) | `sunucu.mjs` | `--max-turns` CLI'da yok; bütçe göreve yazılıp dönüşte doğrulanır |
+| katalog | skill/komut/agent listesi | `katalog` aracı (dosya sistemi, API yok) | `hook.mjs:katalogTopla` | — |
+| statusline | her turda | `durum` aracı, son `ajan` kullanımıyla | `statuslineGovde` | **Desktop sohbetinin kendi ctx %'si ölçülemiyor** (§9) |
+| hafıza | PostToolUse → claude-mem | her `komut`/`ajan`/geçit çağrısı aynı uçtan | `gozlemYaz` | sağlayıcı kotası doluyken kuyrukta bekler |
+| oturum özeti | Stop hook | `oturum_ozeti` aracı | `/api/sessions/summarize` | asenkron LLM işi |
+| bağlam sıkıştırma | Headroom proxy (6767) | >8 KB çıktı `headroom mcp serve`'e | `ciktiHazirla` | **Desktop sohbet trafiği yerel proxy'ye yönlendirilemiyor** (aşağıda) |
+| tasarım MCP'si | `claude-design` (http, OAuth) | `mcp-remote` sarmalayıcısı | `tools/mcp-launch/claude-design.cmd` | ilk kullanımda tarayıcı onayı gerekir |
+
+### K1-ek · `npx` koşulsuz REDden `--no` zorunluluğuna
+
+Faz A'da `npx` tamamen kapatılmıştı (`--no-install` npm 11.17'nin `--help`inde yok).
+Kaynak okunduğunda gerçek bayrak bulundu:
+
+- `docs/content/commands/npm-exec.md:28` — istem `--yes` **ya da `--no`** ile bastırılır.
+- Aynı dosya `:29` — **stdin TTY değilse `--yes` VARSAYILIR.** Köprü sürecinde TTY yok:
+  bayraksız `npx` uzak paketi sessizce indirip koşardı.
+- `libnpmexec/lib/index.js:288-291` — `yes === false` ise `npxArb.reify()`'den **önce**
+  `npx canceled due to missing packages and no YES option` atılır. `:294-296` ise
+  TTY yokken "will be installed" deyip kurar.
+- `:298` — `--no-install` deprecated, `--no`ya çevriliyor; köprü kabul etmiyor.
+
+Sonuç: `npx` allowlist'te, `gerekliBayrak: ["--no"]`. Pin: `npx --no node-which node`
+gerçekten koşuyor (exit 0), `npx --no <olmayan-paket>` reify'den önce iptal ediliyor.
+
+### K5 · Kanca geçidi
+
+`gecit.mjs` satır tabanlı bir JSON-RPC proxy'dir: Desktop ↔ geçit ↔ gerçek sunucu.
+Yalnız `tools/call` yakalanır, kalan her mesaj **ham satır** olarak iletilir (yeniden
+serileştirme yok). Eşleme:
+
+- `read_file|read_text_file|read_multiple_files|read_media_file` → `Read`
+- `write_file|create_directory|move_file` → `Write`, `edit_file` → `Edit`
+- `git_commit|git_add|git_reset|git_checkout|git_create_branch|git_init` → `Bash`
+  (`tool_input.command` gerçek git satırına çevrilir, hook'lar onu görür)
+
+Desktop config'de **aynı adlar** sarmalayıcılara döner, sunucular silinmedi, yedek
+`claude_desktop_config.json.bak11k`. Kuru test (Desktop env'iyle, Desktop config'inden):
+`mcp-filesystem` 14 araç, `mcp-git` 12 araç — sarmalayıcısız sayılarla aynı.
+
+Üç pin yeşil: (1) `git_reset {mode:"hard"}` → `git reset --hard` → block-destructive
+exit 2 → istek sunucuya **iletilmiyor**; (2) `.cs` yazımından sonra
+`user-settings|PostToolUse|Edit|Write` (dotnet-format) koşuyor; (3) `bin/**` okuma
+`permissions.deny` gereği reddediliyor, `README.md` okuması geçiyor.
+
+**Ölçülü sınır:** geçitte okuma yanıtının gövdesi claude-mem'e yazılmaz — her okumada
+gitleaks koşmak geçidi kullanılamaz hale getirirdi, gitleaks'siz yazmak da sızıntı
+riskidir. Yazan araçların girdisi kapıdan geçer.
+
+### K6 · Headroom
+
+**(a) Proxy kanıtlandı.** `GET /stats` → `agent_usage.agents[].models["-p"]` sayacı bir
+`ajan` çağrısıyla +2 arttı → `claude -p` 6767'deki proxy'den geçiyor.
+
+**(b) Sıkıştırma ölçümü** (`headroom mcp serve` → `headroom_compress`; HTTP tarafında
+sıkıştırma rotası yok, `/compress` 404):
+
+| içerik | karakter | ham jeton | sıkışmış | kazanç | süre |
+|---|---|---|---|---|---|
+| `docs/desktop-eslesme.md` (karışık markdown) | 33 480 | 11 755 | 11 754 | **%0** | 12,5 sn |
+| tekrarlı worker log'u | 87 189 | 27 006 | 18 915 | **%30** | 4,5 sn |
+
+Headroom **fail-open** çalışıyor: router tek-önbellek-ıskası 20 sn'yi aşınca içeriği
+aynen geri veriyor (`ContentRouter single-cache-miss compression exceeded 20.0s;
+failing open via PASSTHROUGH`) ve JSON zarfı yüzünden çıktı **büyüyor**. Ayrıca
+`headroom mcp serve`in yapılandırılmış proxy'si `http://127.0.0.1:8787` — erişilemiyor
+(çalışan proxy 6767'de). Bu yüzden `ciktiHazirla` kazancı ölçüp kazanç yoksa ham metni
+kırpıyor; şişmiş zarf hiçbir zaman basılmıyor.
+
+**(c) Desktop sohbet trafiğini yerel proxy'ye yöneltmek — yapısal sınır.** Belgelenen
+`HTTPS_PROXY`/`HTTP_PROXY`/`NO_PROXY` desteği **Claude Code'a** aittir
+(<https://docs.anthropic.com/en/docs/claude-code/corporate-proxy>); Desktop bağlamında
+bile yalnız managed settings ve `~/.claude/settings.json`'dan okunur ve **Code
+oturumunu** yönlendirir. Desktop **sohbet** istemcisi için belgelenmiş bir proxy ayarı
+yok; Electron olarak işletim sistemi proxy'sini devralması tek yol olurdu ve bu
+sistem geneli MITM demektir — tarifte yasak. Dokunulmadı.
+
+### K7 · claude-design Desktop'ta
+
+`tools/mcp-launch/claude-design.cmd` = obsidian kalıbı + `mcp-remote --transport
+http-only`. `--transport` olmadan SSE'ye düşüp **405** alıyordu. Şimdi OAuth dinamik
+istemci kaydına kadar geliyor ve tarayıcı onayını bekliyor → kuru test `INIT-YOK`.
+**Adım Ömer'de:** Desktop yeniden başlatıldıktan sonra ilk `claude-design` çağrısında
+açılan tarayıcı sayfasında izin verilecek; jeton `~/.mcp-auth` altında kalır.
+
+### Yeniden başlatma
+
+`claude_desktop_config.json` değişti (3 giriş). Değişikliğin etkili olması için
+**Claude Desktop tamamen kapatılıp açılmalı** (tepsi simgesinden çıkış). Geri dönmek
+için: `claude_desktop_config.json.bak11k` dosyasını üzerine kopyalamak yeterli.

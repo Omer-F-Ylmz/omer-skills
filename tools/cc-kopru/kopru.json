@@ -154,8 +154,8 @@
       "yasakDizi": [["config", "get"]]
     },
     "npx": {
-      "kos": false,
-      "sebep": "--no-install bu npm surumunun --help'inde yok; kurulu-paket garantisi verilemiyor (11k K1). Kurulu araci `bunx --no-install` ya da dogrudan calistirin."
+      "_not": "npm 11.17 docs/commands/npm-exec.md:28-29 — kurulum istemi `--yes` ya da `--no` ile bastirilir; stdin TTY DEGILSE `--yes` varsayilir. Koprude TTY yok -> `--no` zorunlu (11k K1-ek). :298 `--no-install` deprecated, kabul edilmez.",
+      "gerekliBayrak": ["--no"]
     },
     "bun": {
       "altIzin": ["install", "add", "remove", "run", "test", "build", "pm", "outdated"],

@@ -13,8 +13,9 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { MEM_KOK, ajanAlanDenetle, ayarYukle, cwdCoz, gozlemGovde, gozlemYaz, komutDenetle,
-         komutSatiri, kirp, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
+import { MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, gozlemGovde, gozlemYaz,
+         komutDenetle,
+         komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yolBul } from "./kos.mjs";
 import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi, katalogTopla } from "./hook.mjs";
 import os from "node:os";
@@ -122,7 +123,8 @@ srv.registerTool("komut", {
 
   const bas = `${yazildi}${on.ekBaglam ? on.ekBaglam + "\n" : ""}${not ? not + "\n" : ""}`
     + `exit ${r.kod}${r.sureDoldu ? " (zaman aşımı)" : ""}\n`;
-  return r.kod === 0 ? metin(bas + r.cikti) : hata(bas + r.cikti);
+  const govde = bas + await ciktiHazirla(r.cikti, AYAR.ciktiTavan ?? 30000);
+  return r.kod === 0 ? metin(govde) : hata(govde);
 }));
 
 // ---------------------------------------------------------------- ajan
@@ -200,7 +202,7 @@ srv.registerTool("ajan", {
     `$${(j.total_cost_usd || 0).toFixed(4)}`,
     `${j.num_turns} tur${j.num_turns > a.max_turns ? " (bütçe aşıldı)" : ""}`,
   ].join(" · ");
-  const { metin: govde } = kirp(redakte(j.result || ""), AYAR.ciktiTavan ?? 30000);
+  const govde = await ciktiHazirla(redakte(j.result || ""), AYAR.ciktiTavan ?? 30000);
   sonAjan = { model: Object.keys(j.modelUsage || {})[0] || model, girdi, okunan };
   const not = await gozle("cc-kopru:ajan", { gorev: a.gorev, model, cwd: proje },
                           { result: govde, session_id: j.session_id }, proje);
@@ -228,7 +230,7 @@ srv.registerTool("oturum", {
     if (fs.existsSync(tam)) parcalar.push(`## ${ad}\n` + fs.readFileSync(tam, "utf8"));
   }
   parcalar.push(`## koşan hook'lar\n${r.kosan.join("\n") || "(yok)"}`);
-  const { metin: govde } = kirp(redakte(parcalar.join("\n\n")), AYAR.oturumTavan ?? 12000);
+  const govde = await ciktiHazirla(redakte(parcalar.join("\n\n")), AYAR.oturumTavan ?? 12000);
   return metin(govde);
 }));
 
@@ -266,7 +268,7 @@ srv.registerTool("katalog", {
   if (!liste.length) return metin("(eşleşme yok)");
   const satirlar = liste.map((x) => `- [${x.tur}] ${x.ad}${x.aciklama ? " — " + x.aciklama : ""}`);
   const bas = `${liste.length} kayıt (tür=${tur}${ara ? `, ara=${ara}` : ""})\n`;
-  const { metin: govde } = kirp(bas + satirlar.join("\n"), AYAR.ciktiTavan ?? 30000);
+  const govde = await ciktiHazirla(bas + satirlar.join("\n"), AYAR.ciktiTavan ?? 30000);
   return metin(govde);
 }));
 
@@ -353,7 +355,7 @@ srv.registerTool("durum", {
     + "statusline.ps1'in beklediği context_window.used_percentage'ı Desktop hiçbir "
     + "yerel kaynağa yazmıyor. Yukarıdaki yüzde son `ajan` alt oturumunundur.");
 
-  const { metin: govde } = kirp(parcalar.join("\n\n"), AYAR.ciktiTavan ?? 30000);
+  const govde = await ciktiHazirla(parcalar.join("\n\n"), AYAR.ciktiTavan ?? 30000);
   return metin(govde);
 }));
 
@@ -390,7 +392,7 @@ srv.registerTool("oturum_ozeti", {
     `## mevcut özetler (son 5)\n${secili.join("\n") || "(yok)"}`,
     "Not: özetleme asenkron bir LLM işi; sağlayıcı kotası doluyken kuyrukta bekler.",
   ].join("\n\n");
-  const { metin: kirpik } = kirp(redakte(govde), AYAR.oturumTavan ?? 12000);
+  const kirpik = await ciktiHazirla(redakte(govde), AYAR.oturumTavan ?? 12000);
   return metin(kirpik);
 }));
 

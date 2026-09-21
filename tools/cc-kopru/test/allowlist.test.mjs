@@ -9,7 +9,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { ayarYukle, denyDenetle, komutDenetle, yolBul } from "../kos.mjs";
+import { ayarYukle, denyDenetle, komutDenetle, kos, yolBul } from "../kos.mjs";
 
 const AYAR = ayarYukle();
 const red = (arac, args) => assert.throws(() => komutDenetle(arac, args, AYAR),
@@ -66,9 +66,14 @@ test("npm: yayin, kimlik ve jeton basan alt komutlar reddedilir", () => {
 
 test("npm izinli ornek", () => gecer("npm", ["--version"]));
 
-test("npx kosmaz: --no-install bu npm surumunde yok", () => {
+test("npx yalniz --no ile kosar: --no'suz uzak paket indirilir", () => {
+  // npm 11.17 docs/content/commands/npm-exec.md:28-29 — istem `--yes` ya da `--no` ile
+  // bastirilir, ve stdin TTY DEGILSE `--yes` VARSAYILIR. Koprude TTY yok: bayraksiz npx
+  // uzak paketi sessizce indirip kosar. `--no-install` ayni belgede (satir 298) deprecated.
   red("npx", ["cowsay"]);
+  red("npx", ["--yes", "cowsay"]);
   red("npx", ["--no-install", "cowsay"]);
+  gecer("npx", ["--no", "node-which"]);
 });
 
 // ---------------------------------------------------------------- bun · bunx
@@ -135,4 +140,18 @@ test("gercek settings.json deny listesi okunur ve komut yuzeyinde patlamaz", () 
   const j = JSON.parse(fs.readFileSync(p, "utf8"));
   assert.ok(Array.isArray(j.permissions?.deny), "permissions.deny dizi olmali");
   assert.doesNotThrow(() => denyDenetle("gh --version", j.permissions.deny));
+});
+
+// ---------------------------------------------------------------- npx gercek kosu (K1-ek)
+test("npx --no: kurulu paket kosar, eksik paket reify'den ONCE iptal edilir", async () => {
+  const cwd = path.resolve(path.dirname(new URL(import.meta.url).pathname.slice(1)), "..");
+  // kurulu: node_modules/.bin/node-which -> npx PATH'ine girer, indirme yok
+  const a = await kos({ arac: "npx", args: ["--no", "node-which", "node"], cwd, ayar: AYAR });
+  assert.equal(a.kod, 0, a.cikti);
+  assert.match(a.cikti, /node\.(exe|EXE)/);
+
+  // eksik: libnpmexec/lib/index.js:288-291 `yes === false` -> npxArb.reify()'den ONCE atar.
+  // TTY yokken bayraksiz yol ayni yerde (:294-296) "will be installed" deyip KURAR.
+  const b = await kos({ arac: "npx", args: ["--no", "kesinlikle-olmayan-paket-11k"], cwd, ayar: AYAR });
+  assert.notEqual(b.kod, 0);
 });

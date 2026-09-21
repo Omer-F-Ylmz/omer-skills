@@ -1,0 +1,104 @@
+/**
+ * KURULUM-11k K5: kanca geçidi. Desktop'ın mcp-filesystem/mcp-git çağrıları CC
+ * araçlarına eşlenip CC'nin kendi hook'larından ve permissions.deny'ından geçer.
+ * 3 pin: block-destructive reddi · .cs sonrası dotnet-format · bin/** okuma reddi.
+ */
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { spawn } from "node:child_process";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+import { okumaDeny } from "../kos.mjs";
+import { ccArac } from "../gecit.mjs";
+
+const BURASI = path.dirname(fileURLToPath(import.meta.url));
+const KOK = path.resolve(BURASI, "..");
+const PROJE = "C:/Projeler/omer-skills";
+
+// ---------------------------------------------------------------- permissions.deny · Read
+test("okumaDeny: Read kurallari yol uzerinde uygulanir", () => {
+  const deny = ["Read(./bin/**)", "Read(**/node_modules/**)", "Bash(rm:*)"];
+  assert.throws(() => okumaDeny(`${PROJE}/bin/Debug/x.dll`, deny, PROJE), /permissions\.deny/);
+  assert.throws(() => okumaDeny(`${PROJE}/a/node_modules/b/i.js`, deny, PROJE), /permissions\.deny/);
+  // ./bin yalniz proje kokunde; alt dizindeki bin/ CC'de de eslesmez
+  assert.doesNotThrow(() => okumaDeny(`${PROJE}/src/bin.txt`, deny, PROJE));
+  assert.doesNotThrow(() => okumaDeny(`${PROJE}/tools/cc-kopru/kos.mjs`, deny, PROJE));
+  // Bash kurali okuma yuzeyinde uygulanmaz
+  assert.doesNotThrow(() => okumaDeny(`${PROJE}/rm`, ["Bash(rm:*)"], PROJE));
+});
+
+// ---------------------------------------------------------------- eşleme
+test("ccArac: dosya ve git araclari CC matcher'larina eslenir", () => {
+  assert.equal(ccArac("write_file", { path: "a.cs", content: "x" }).matcher, "Write");
+  assert.equal(ccArac("edit_file", { path: "a.cs" }).matcher, "Edit");
+  assert.equal(ccArac("create_directory", { path: "a" }).matcher, "Write");
+  const r = ccArac("read_multiple_files", { paths: ["a.txt", "b.txt"] });
+  assert.equal(r.matcher, "Read");
+  assert.deepEqual(r.okunan, ["a.txt", "b.txt"]);
+  assert.equal(ccArac("git_reset", { repo_path: PROJE, mode: "hard" }).girdi.command,
+               "git reset --hard");
+  assert.equal(ccArac("git_commit", { repo_path: PROJE, message: "x" }).matcher, "Bash");
+  // salt okur git ve bilinmeyen arac eslenmez -> gecit dokunmadan iletir
+  assert.equal(ccArac("git_status", { repo_path: PROJE }), null);
+  assert.equal(ccArac("list_directory", { path: PROJE }), null);
+});
+
+// ---------------------------------------------------------------- uçtan uca geçit
+/** Geçidi sahte sunucuyla ayağa kaldırır, istekleri yazar, cevapları toplar. */
+function gecitKos(istekler, sn = 90) {
+  return new Promise((coz, red) => {
+    const p = spawn(process.execPath,
+      [path.join(KOK, "gecit.mjs"), "test", "--", process.execPath, path.join(BURASI, "yardim", "sahte-mcp.mjs")],
+      { cwd: KOK, shell: false, windowsHide: true });
+    const cevaplar = [];
+    let kalan = "", hata = "";
+    p.stdout.on("data", (b) => {
+      kalan += b.toString("utf8");
+      const satirlar = kalan.split("\n");
+      kalan = satirlar.pop();
+      for (const s of satirlar) if (s.trim()) cevaplar.push(JSON.parse(s));
+      if (cevaplar.length >= istekler.length) { p.kill(); coz({ cevaplar, hata }); }
+    });
+    p.stderr.on("data", (b) => { hata += b.toString("utf8"); });
+    p.on("error", red);
+    const zam = setTimeout(() => { p.kill(); red(new Error("gecit zaman asimi:\n" + hata)); }, sn * 1000);
+    p.on("close", () => { clearTimeout(zam); coz({ cevaplar, hata }); });
+    for (const i of istekler) p.stdin.write(JSON.stringify(i) + "\n");
+  });
+}
+
+const cagri = (id, name, args) => ({
+  jsonrpc: "2.0", id, method: "tools/call", params: { name, arguments: args },
+});
+
+test("PIN 1 · block-destructive'in engelledigi islem gecitten de reddedilir", async () => {
+  const { cevaplar } = await gecitKos([cagri(1, "git_reset", { repo_path: PROJE, mode: "hard" })]);
+  const c = cevaplar.find((x) => x.id === 1);
+  assert.ok(c, "cevap yok");
+  assert.equal(c.result.isError, true);
+  assert.match(c.result.content[0].text, /DUR: yıkıcı komut|HOOK REDDETTİ/);
+  assert.doesNotMatch(c.result.content[0].text, /SAHTE-TAMAM/, "istek sunucuya iletilmis");
+});
+
+test("PIN 2 · .cs yazimindan sonra dotnet-format PostToolUse'u kosar", async () => {
+  const { cevaplar, hata } = await gecitKos([
+    cagri(2, "write_file", { path: `${PROJE}/yok-11k.cs`, content: "class X {}" }),
+  ]);
+  const c = cevaplar.find((x) => x.id === 2);
+  assert.ok(c, "cevap yok");
+  assert.match(JSON.stringify(c.result), /SAHTE-TAMAM/, "izinli cagri iletilmeliydi");
+  assert.match(hata, /user-settings\|PostToolUse\|Edit\|Write/, "dotnet-format hook'u kosmadi:\n" + hata);
+});
+
+test("PIN 3 · Desktop'tan bin/** okuma permissions.deny geregi reddedilir", async () => {
+  const { cevaplar } = await gecitKos([
+    cagri(3, "read_text_file", { path: `${PROJE}/bin/gizli.txt` }),
+    cagri(4, "read_text_file", { path: `${PROJE}/README.md` }),
+  ]);
+  const red = cevaplar.find((x) => x.id === 3);
+  assert.equal(red.result.isError, true);
+  assert.match(red.result.content[0].text, /permissions\.deny/);
+  const izin = cevaplar.find((x) => x.id === 4);
+  assert.match(JSON.stringify(izin.result), /SAHTE-TAMAM/);
+});

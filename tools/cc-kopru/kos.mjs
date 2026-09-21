@@ -121,6 +121,38 @@ export function denyDenetle(satir, denyListesi = []) {
 
 const kacir = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+/**
+ * CC yol kalıbı → regex. `**` dizin sınırını aşar, `*` tek segmentte kalır.
+ * Karşılaştırma küçük harfte: Windows yolları büyük/küçük harf duyarsız.
+ */
+function yolRe(kalip) {
+  const govde = kalip.toLowerCase().split("**")
+    .map((par) => par.split("*").map(kacir).join("[^/]*")).join(".*");
+  return new RegExp("^" + govde + "$");
+}
+
+/**
+ * permissions.deny'ın `Read(...)` kuralları — asıl karşılığı K5 kanca geçidinde.
+ * `./x` proje köküne, çıplak ad her dizine (`**\/x`), `**` ile başlayan kalıp
+ * mutlak yola uygulanır.
+ */
+export function okumaDeny(dosyaYolu, denyListesi = [], projeDir = "") {
+  const yol = path.resolve(dosyaYolu).replace(/\\/g, "/").toLowerCase();
+  for (const kural of denyListesi) {
+    const m = /^Read(?:\((.*)\))?$/.exec(String(kural).trim());
+    if (!m) continue;
+    let kalip = m[1];
+    if (kalip === undefined || kalip === "*") throw new Error(`permissions.deny: ${kural}`);
+    kalip = kalip.replace(/\\/g, "/");
+    if (kalip.startsWith("./")) {
+      kalip = path.resolve(projeDir || ".", kalip.slice(2)).replace(/\\/g, "/");
+    } else if (!/^([a-z]:|\/|\*)/i.test(kalip)) {
+      kalip = "**/" + kalip;
+    }
+    if (yolRe(kalip).test(yol)) throw new Error(`permissions.deny: ${kural}`);
+  }
+}
+
 /** Kullanici ayarlarindaki deny listesi; okunamazsa bos. */
 export function denyListesi() {
   try {
@@ -246,6 +278,57 @@ export function kirp(metin, tavan) {
     metin: `${bas}\n\n… [${s.length - tavan} karakter kırpıldı; tamamı log dosyasında] …\n\n${son}`,
     kirpildi: true,
   };
+}
+
+export const SIKISTIR_ESIK = 8000;
+/** Headroom'un kendi router tavanı 20 sn; üstüne bağlantı payı. */
+export const SIKISTIR_ZAMAN_MS = 45000;
+
+/**
+ * >8 KB çıktı Headroom'a verilir. Tek yol `headroom mcp serve` stdio MCP'si:
+ * HTTP tarafında sıkıştırma rotası yok (`/compress` 404, 11k K6 ölçümü).
+ * Dönen zarf `{compressed, hash, original_tokens, compressed_tokens, ...}`; hash'i
+ * Desktop'ta zaten kayıtlı olan `headroom` MCP'sinin `headroom_retrieve`'i açar.
+ * @returns {Promise<object|null>} zarf, ya da null (eşik altı / başarısız)
+ */
+export async function sikistir(metin) {
+  const s = String(metin ?? "");
+  if (s.length <= SIKISTIR_ESIK) return null;
+  const yol = yolBul("headroom");
+  if (!yol) return null;
+  const { Client } = await import("@modelcontextprotocol/sdk/client/index.js");
+  const { StdioClientTransport } = await import("@modelcontextprotocol/sdk/client/stdio.js");
+  const c = new Client({ name: "cc-kopru", version: "0.1.0" });
+  const tasima = new StdioClientTransport({ command: yol, args: ["mcp", "serve"] });
+  try {
+    await c.connect(tasima);
+    const r = await c.callTool({ name: "headroom_compress", arguments: { content: s } },
+                               undefined, { timeout: SIKISTIR_ZAMAN_MS });
+    const t = (r?.content || []).map((x) => x.text || "").join("\n").trim();
+    return t ? JSON.parse(t) : null;
+  } catch { return null; } finally {
+    // `close()` tek başına yetmiyor: headroom.exe sürüyor ve düğüm olay döngüsünü
+    // açık tutuyor (11k K6b: `node --test` hiç bitmedi). Süreç ağacı da kapatılır.
+    const pid = tasima.pid;
+    try { await c.close(); } catch { /* kapandı */ }
+    if (pid) agaciKapat(pid);
+  }
+}
+
+/**
+ * Çıktı yolu: eşiğin üstü Headroom'a, altı `kirp`e.
+ * Headroom "fail-open" çalışıyor — router zaman aşımına düşerse içeriği AYNEN geri
+ * verir (11k K6b ölçümü: 33 480 → 33 499 karakter, tokens_saved 1). O yüzden sonuç
+ * gerçekten küçülmediyse ham metin kırpılarak döner; şişmiş zarf çıktıya basılmaz.
+ */
+export async function ciktiHazirla(metin, tavan) {
+  const z = await sikistir(metin);
+  const kazanc = z ? (z.original_tokens || 0) - (z.compressed_tokens || 0) : 0;
+  if (!z || kazanc <= 0 || String(z.compressed || "").length >= String(metin).length) {
+    return kirp(metin, tavan).metin;
+  }
+  return `${z.compressed}\n\n[headroom] ${z.original_tokens} → ${z.compressed_tokens} jeton `
+    + `(%${z.savings_percent}) · tamamı: headroom_retrieve hash=${z.hash}`;
 }
 
 export function agaciKapat(pid) {
