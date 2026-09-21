@@ -13,9 +13,11 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { ajanAlanDenetle, ayarYukle, cwdCoz, gitleaksOzet, komutDenetle, komutSatiri, kirp, kos,
-         memGovde, redakte, yenidenYazimKabul, yolBul } from "./kos.mjs";
-import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi } from "./hook.mjs";
+import { MEM_KOK, ajanAlanDenetle, ayarYukle, cwdCoz, gozlemGovde, gozlemYaz, komutDenetle,
+         komutSatiri, kirp, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
+         yenidenYazimKabul, yolBul } from "./kos.mjs";
+import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi, katalogTopla } from "./hook.mjs";
+import os from "node:os";
 
 const AYAR = ayarYukle();
 const CLAUDE = AYAR.claudeYolu || yolBul("claude");
@@ -33,6 +35,19 @@ if (!CLAUDE) throw new Error("claude yurutucusu bulunamadi; kopru.json claudeYol
 const OTURUM = crypto.randomUUID();
 const IZ = izDosyasi(OTURUM);
 let ajanSayaci = 0;
+/** Son `ajan` çağrısının kullanım sayıları — `durum` statusline'ı bununla besler. */
+let sonAjan = null;
+
+/**
+ * Köprünün her çağrısı CC'nin PostToolUse hook'uyla aynı uçtan claude-mem'e girer.
+ * gitleaks kapısından geçmeyen metin yazılmaz. Hata çağrıyı bozmaz, nota düşer.
+ */
+async function gozle(aracAdi, girdi, yanit, cwd) {
+  const metinGovde = JSON.stringify({ girdi, yanit }).slice(0, 20000);
+  const sizinti = await sizintiKapisi(`cc-kopru ${aracAdi}`, metinGovde, AYAR);
+  if (sizinti) return `[gözlem yazılmadı] ${sizinti}`;
+  return await gozlemYaz(gozlemGovde(OTURUM, aracAdi, girdi, yanit, cwd));
+}
 
 /** Aynı anda tek süreç: bütün koşular tek kuyruktan geçer. */
 let kuyruk = Promise.resolve();
@@ -102,7 +117,11 @@ srv.registerTool("komut", {
     tool_response: { stdout: r.cikti, exitCode: r.kod },
   }, { projeDir: proje });
 
-  const bas = `${yazildi}${on.ekBaglam ? on.ekBaglam + "\n" : ""}exit ${r.kod}${r.sureDoldu ? " (zaman aşımı)" : ""}\n`;
+  const not = await gozle("cc-kopru:komut", { command: komutSatiri(cArac, cArgs) },
+                          { stdout: r.cikti, exitCode: r.kod }, proje);
+
+  const bas = `${yazildi}${on.ekBaglam ? on.ekBaglam + "\n" : ""}${not ? not + "\n" : ""}`
+    + `exit ${r.kod}${r.sureDoldu ? " (zaman aşımı)" : ""}\n`;
   return r.kod === 0 ? metin(bas + r.cikti) : hata(bas + r.cikti);
 }));
 
@@ -182,7 +201,10 @@ srv.registerTool("ajan", {
     `${j.num_turns} tur${j.num_turns > a.max_turns ? " (bütçe aşıldı)" : ""}`,
   ].join(" · ");
   const { metin: govde } = kirp(redakte(j.result || ""), AYAR.ciktiTavan ?? 30000);
-  return metin(`${govde}\n\nsession_id: ${j.session_id}\n${durum}`);
+  sonAjan = { model: Object.keys(j.modelUsage || {})[0] || model, girdi, okunan };
+  const not = await gozle("cc-kopru:ajan", { gorev: a.gorev, model, cwd: proje },
+                          { result: govde, session_id: j.session_id }, proje);
+  return metin(`${govde}\n\nsession_id: ${j.session_id}\n${durum}${not ? "\n" + not : ""}`);
 }));
 
 // ---------------------------------------------------------------- oturum
@@ -219,37 +241,157 @@ srv.registerTool("kaydet", {
     proje: z.string(), baslik: z.string(), metin: z.string(),
   },
 }, ({ proje, baslik, metin: govde }) => sirala(async () => {
-  // gitleaks --source dizin ister ve cwd izinli kök altında olmalı → C:\Projeler altına yazılır
-  const gDizin = path.join("C:/Projeler/.tmp-cc-kopru", String(Date.now()));
-  fs.mkdirSync(gDizin, { recursive: true });
-  const gecici = path.join(gDizin, "not.md");
-  fs.writeFileSync(gecici, `# ${baslik}\n\n${govde}\n`, "utf8");
-  try {
-    // --no-banner --no-color: ret çıktısında banner ve ANSI olmaz. Bulgular JSON rapora
-    // yazılır; çıktıya yalnız sayı ve kural adı geçer, değer asla.
-    const t = await kos({
-      arac: "gitleaks",
-      args: ["detect", "--no-git", "--redact", "--no-banner", "--no-color",
-             "--report-format", "json", "--report-path", "bulgu.json", "--source", "."],
-      cwd: gDizin, ayar: AYAR,
-    });
-    if (t.kod !== 0) {
-      let rapor = null;
-      try {
-        rapor = JSON.parse(fs.readFileSync(path.join(gDizin, "bulgu.json"), "utf8"));
-      } catch { /* rapor yazılamadıysa sayı bilinmez */ }
-      return hata(gitleaksOzet(rapor, t.kod));
-    }
+  const sizinti = await sizintiKapisi(baslik, govde, AYAR);
+  if (sizinti) return hata(sizinti);
 
-    const y = await fetch("http://127.0.0.1:37777/api/memory/save", {
-      method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify(memGovde(proje, baslik, govde)),
+  const y = await fetch(`${MEM_KOK}/api/memory/save`, {
+    method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify(memGovde(proje, baslik, govde)),
+  });
+  const c = await y.text();
+  return y.ok ? metin("kaydedildi: " + c) : hata(`worker ${y.status}: ${c}`);
+}));
+
+// ---------------------------------------------------------------- katalog
+srv.registerTool("katalog", {
+  title: "CC komut · ajan · skill kataloğu",
+  description: "Claude Code'da açık plugin komutlarını, agent'ları ve skill adlarını "
+    + "listeler (ad + tek satır). skillOverrides'ta kapatılanlar elenir.",
+  inputSchema: {
+    tur: z.enum(["hepsi", "komut", "ajan", "skill"]).default("hepsi"),
+    ara: z.string().default("").describe("Ada göre süzgeç (alt dize)"),
+  },
+}, ({ tur, ara }) => sirala(async () => {
+  const liste = katalogTopla(tur, ara);
+  if (!liste.length) return metin("(eşleşme yok)");
+  const satirlar = liste.map((x) => `- [${x.tur}] ${x.ad}${x.aciklama ? " — " + x.aciklama : ""}`);
+  const bas = `${liste.length} kayıt (tür=${tur}${ara ? `, ara=${ara}` : ""})\n`;
+  const { metin: govde } = kirp(bas + satirlar.join("\n"), AYAR.ciktiTavan ?? 30000);
+  return metin(govde);
+}));
+
+// ---------------------------------------------------------------- durum
+/** Bugün değişmiş CC transcript'lerinden token toplamı.
+ *  ponytail: dosyalar baştan sona okunur; günlük hacim büyürse mtime+offset takibi gerekir. */
+function gunlukCC() {
+  const kok = path.join(os.homedir(), ".claude", "projects");
+  const bugun = new Date().toISOString().slice(0, 10);
+  let girdi = 0, cikti = 0, dosya = 0;
+  const yuru = (d) => {
+    for (const f of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, f.name);
+      if (f.isDirectory()) { yuru(p); continue; }
+      if (!f.name.endsWith(".jsonl")) continue;
+      if (fs.statSync(p).mtime.toISOString().slice(0, 10) !== bugun) continue;
+      dosya += 1;
+      for (const satir of fs.readFileSync(p, "utf8").split("\n")) {
+        if (!satir.includes('"usage"')) continue;
+        try {
+          const u = JSON.parse(satir).message?.usage;
+          if (!u) continue;
+          girdi += (u.input_tokens || 0) + (u.cache_read_input_tokens || 0)
+                 + (u.cache_creation_input_tokens || 0);
+          cikti += u.output_tokens || 0;
+        } catch { /* yarım satır */ }
+      }
+    }
+  };
+  try { yuru(kok); } catch { /* dizin yoksa 0 */ }
+  return { girdi, cikti, dosya };
+}
+
+async function jsonAl(url) {
+  try {
+    const y = await fetch(url, { signal: AbortSignal.timeout(6000) });
+    return y.ok ? await y.json() : { hata: `HTTP ${y.status}` };
+  } catch (e) { return { hata: String(e?.message || e) }; }
+}
+
+srv.registerTool("durum", {
+  title: "Köprü durum satırı",
+  description: "CC statusline'ını son ajan oturumunun kullanımıyla besler; Headroom, "
+    + "claude-mem worker/kota ve günlük CC token toplamını ekler.",
+  inputSchema: {},
+}, () => sirala(async () => {
+  const parcalar = [];
+
+  const g = statuslineGovde(sonAjan);
+  if (!g) {
+    parcalar.push("## statusline\n(bu oturumda ajan çağrısı yok — statusline'ı besleyecek "
+      + "kullanım verisi yok; uydurma yüzde basılmaz)");
+  } else {
+    const ps1 = path.join(os.homedir(), ".claude", "statusline.ps1");
+    const satir = await new Promise((coz) => {
+      const p = spawn("powershell", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", ps1],
+                      { shell: false, windowsHide: true });
+      const o = [];
+      p.stdout.on("data", (b) => o.push(b));
+      p.on("error", (e) => coz("(statusline koşmadı: " + e.message + ")"));
+      p.on("close", () => coz(Buffer.concat(o).toString("utf8").trim()));
+      p.stdin.end(JSON.stringify(g));
     });
-    const c = await y.text();
-    return y.ok ? metin("kaydedildi: " + c) : hata(`worker ${y.status}: ${c}`);
-  } finally {
-    fs.rmSync(gDizin, { recursive: true, force: true });
+    parcalar.push("## statusline\n" + satir);
   }
+
+  const hr = await jsonAl("http://127.0.0.1:6767/stats");
+  parcalar.push("## headroom\n" + (hr.hata ? "erişilemedi: " + hr.hata
+    : `istek ${hr.summary?.api_requests} · sıkıştırılan ${hr.summary?.compression?.requests_compressed}`
+      + ` · kazanç %${hr.summary?.cost?.savings_pct} ($${hr.summary?.cost?.total_saved_usd})`));
+
+  const [sag, kuyruk] = await Promise.all([
+    jsonAl(`${MEM_KOK}/api/health`), jsonAl(`${MEM_KOK}/api/processing-status`),
+  ]);
+  parcalar.push("## claude-mem\n" + (sag.hata ? "worker erişilemedi: " + sag.hata
+    : `worker ${sag.status} v${sag.version} · sağlayıcı ${sag.ai?.provider}`
+      + ` · kuyruk ${kuyruk.queueDepth ?? "?"} · park ${kuyruk.parkedSessions ?? "?"}`));
+
+  const c = gunlukCC();
+  parcalar.push(`## günlük CC (${new Date().toISOString().slice(0, 10)})\n`
+    + `${c.dosya} transcript · girdi ${c.girdi} · çıktı ${c.cikti} token`);
+
+  parcalar.push("## yapısal sınır\nDesktop sohbetinin kendi ctx %'si ölçülemiyor: "
+    + "statusline.ps1'in beklediği context_window.used_percentage'ı Desktop hiçbir "
+    + "yerel kaynağa yazmıyor. Yukarıdaki yüzde son `ajan` alt oturumunundur.");
+
+  const { metin: govde } = kirp(parcalar.join("\n\n"), AYAR.ciktiTavan ?? 30000);
+  return metin(govde);
+}));
+
+// ---------------------------------------------------------------- oturum_ozeti
+srv.registerTool("oturum_ozeti", {
+  title: "claude-mem oturum özeti",
+  description: "CC'nin Stop hook'uyla aynı uçtan (/api/sessions/summarize) özet "
+    + "kuyruklar ve projenin mevcut özetlerini döner.",
+  inputSchema: { proje: z.string() },
+}, ({ proje }) => sirala(async () => {
+  let kuyruklandi = "";
+  try {
+    const y = await fetch(`${MEM_KOK}/api/sessions/summarize`, {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ contentSessionId: OTURUM, platformSource: "claude-desktop" }),
+      signal: AbortSignal.timeout(8000),
+    });
+    kuyruklandi = `${y.status} ${(await y.text()).slice(0, 200)}`;
+  } catch (e) { kuyruklandi = "istek başarısız: " + String(e?.message || e); }
+
+  const kuyruk = await jsonAl(`${MEM_KOK}/api/processing-status`);
+  const ozetler = await jsonAl(`${MEM_KOK}/api/summaries`);
+  const liste = Array.isArray(ozetler) ? ozetler : (ozetler.summaries || []);
+  const secili = liste
+    .filter((s) => !proje || String(s.project || "").includes(path.basename(proje)))
+    .slice(-5)
+    .map((s) => `- ${s.created_at || s.createdAt || "?"} · ${String(s.text || s.summary || "")
+      .replace(/\s+/g, " ").slice(0, 300)}`);
+
+  const govde = [
+    `## özet isteği\n${kuyruklandi}`,
+    `## kuyruk\nderinlik ${kuyruk.queueDepth ?? "?"} · park ${kuyruk.parkedSessions ?? "?"}`
+      + ` · işliyor ${kuyruk.isProcessing ?? "?"}`,
+    `## mevcut özetler (son 5)\n${secili.join("\n") || "(yok)"}`,
+    "Not: özetleme asenkron bir LLM işi; sağlayıcı kotası doluyken kuyrukta bekler.",
+  ].join("\n\n");
+  const { metin: kirpik } = kirp(redakte(govde), AYAR.oturumTavan ?? 12000);
+  return metin(kirpik);
 }));
 
 await srv.connect(new StdioServerTransport());

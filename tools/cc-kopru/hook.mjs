@@ -78,6 +78,80 @@ export function hookKaynaklari(projeDir) {
   return out;
 }
 
+/**
+ * Açık plugin'lerin kökleri: {ad, kok}. hookKaynaklari ile aynı keşif, ama
+ * `hooks/hooks.json` şartı yok — katalog komut/agent/skill de sayar (11k K2b).
+ * hookKaynaklari bilerek kopyalanmadı: orada arama hooks.json'da DURUYOR.
+ */
+export function eklentiKokleri() {
+  const kullanici = jsonOku(path.join(EV, ".claude", "settings.json")) || {};
+  const acik = Object.entries(kullanici.enabledPlugins || {})
+    .filter(([, v]) => v === true).map(([k]) => k.split("@")[0]);
+  const out = [];
+  if (!fs.existsSync(EKLENTI_KOK)) return out;
+  for (const sahip of fs.readdirSync(EKLENTI_KOK)) {
+    const sd = path.join(EKLENTI_KOK, sahip);
+    if (!fs.statSync(sd).isDirectory()) continue;
+    for (const ad of fs.readdirSync(sd)) {
+      if (!acik.includes(ad)) continue;
+      const adaylar = [path.join(sd, ad), ...fs.readdirSync(path.join(sd, ad))
+        .map((s) => path.join(sd, ad, s))];
+      const kok = adaylar.find((k) => ["commands", "agents", "skills", "plugin.json"]
+        .some((x) => fs.existsSync(path.join(k, x))));
+      if (kok) out.push({ ad, kok });
+    }
+  }
+  return out;
+}
+
+/** SKILL.md / komut dosyasından tek satır açıklama. */
+function aciklamaOku(dosya) {
+  try {
+    const bas = fs.readFileSync(dosya, "utf8").slice(0, 1500);
+    const d = /^description:\s*(.+)$/m.exec(bas);
+    const s = d ? d[1]
+      : (bas.split(/\r?\n/).find((x) => x.trim() && !/^(---|#|name:)/.test(x.trim())) || "");
+    return s.replace(/^["']|["']$/g, "").trim().slice(0, 160);
+  } catch { return ""; }
+}
+
+/**
+ * CC'de açık plugin komutları · agent'lar · skill adları.
+ * skillOverrides'ta "off" olanlar elenir. API çağrısı yok, yalnız dosya sistemi.
+ */
+export function katalogTopla(tur = "hepsi", ara = "") {
+  const kullanici = jsonOku(path.join(EV, ".claude", "settings.json")) || {};
+  const kapali = new Set(Object.entries(kullanici.skillOverrides || {})
+    .filter(([, v]) => v === "off").map(([k]) => k));
+  const out = [];
+  const suzgec = String(ara || "").toLowerCase();
+  const ekle = (t, ad, dosya) => {
+    if (tur !== "hepsi" && tur !== t) return;
+    if (suzgec && !ad.toLowerCase().includes(suzgec)) return;
+    out.push({ tur: t, ad, aciklama: aciklamaOku(dosya) });
+  };
+
+  for (const { ad: pAd, kok } of [{ ad: "", kok: path.join(EV, ".claude") }, ...eklentiKokleri()]) {
+    const on = pAd ? pAd + ":" : "";
+    for (const [t, dizin] of [["komut", "commands"], ["ajan", "agents"]]) {
+      const d = path.join(kok, dizin);
+      if (!fs.existsSync(d)) continue;
+      for (const f of fs.readdirSync(d)) {
+        if (f.endsWith(".md")) ekle(t, on + f.replace(/\.md$/, ""), path.join(d, f));
+      }
+    }
+    const sd = path.join(kok, "skills");
+    if (!fs.existsSync(sd)) continue;
+    for (const s of fs.readdirSync(sd)) {
+      const sm = path.join(sd, s, "SKILL.md");
+      if (!fs.existsSync(sm)) continue;
+      if (kapali.has(`${pAd}:${s}`) || kapali.has(s)) continue;
+      ekle("skill", on + s, sm);
+    }
+  }
+  return out;
+}
+
 /** Kaynakları düz bir tanım listesine açar; kapatılanlar elenir. */
 export function hookTanimlari(kaynaklar, kapaliHooklar = []) {
   const kapali = new Set(kapaliHooklar);

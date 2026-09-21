@@ -54,9 +54,79 @@ export function yolBul(arac) {
   if (yolOnbellek.has(arac)) return yolOnbellek.get(arac);
   const r = spawnSync(process.platform === "win32" ? "where" : "which", [arac],
                       { encoding: "utf8" });
-  const ilk = (r.stdout || "").split(/\r?\n/).map((s) => s.trim()).filter(Boolean)[0] || null;
+  const satirlar = (r.stdout || "").split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+  // `where npm` ONCE uzantisiz POSIX shim'ini donduruyor; onu kabuksuz spawn etmek
+  // ENOENT veriyor (11k K1). Yurutulebilir uzantisi olan aday once gelir.
+  const ilk = satirlar.find((s) => /\.(exe|cmd|bat|com)$/i.test(s)) || satirlar[0] || null;
   yolOnbellek.set(arac, ilk);
   return ilk;
+}
+
+/**
+ * Konum argumanlari: bayraklar ve (tirnaksiz) bayrak degerleri atilir.
+ * `python -m pytest` -> [] (pytest, -m'in degeri), `gh repo delete` -> [repo, delete].
+ * altIzin denetimi bilerek args[0] uzerinde kalir: alt komut bayragin arkasina gizlenemez.
+ */
+export function konumlar(args) {
+  const out = [];
+  for (let i = 0; i < args.length; i += 1) {
+    const a = args[i];
+    if (a.startsWith("-")) {
+      if (!a.includes("=")) i += 1;   // bir sonraki jeton bu bayragin degeri sayilir
+      continue;
+    }
+    out.push(a);
+  }
+  return out;
+}
+
+/**
+ * Bayrak tek jetonda degeriyle kaynasmis da olabilir: `-c print(1)` ve `-cprint(1)`
+ * ikisi de python icin gecerli. Kisa bayrakta (tek tireli, tek harf) onek eslesmesi
+ * yapilir; uzun bayrakta `=` ya da bosluk aranir.
+ */
+const bayrakVar = (args, bayrak) => args.some((a) =>
+  a === bayrak || a.startsWith(bayrak + "=") || a.startsWith(bayrak + " ")
+  || (/^-[^-]$/.test(bayrak) && a.startsWith(bayrak)));
+
+/** `gh api` yalniz okuma: metot yok ya da GET, alan yazimi yok. */
+function ghApiDenetle(args) {
+  const i = args.findIndex((a) => a === "-X" || a === "--method" || a.startsWith("--method="));
+  if (i >= 0) {
+    const deger = args[i].includes("=") ? args[i].split("=")[1] : args[i + 1];
+    if (String(deger).toUpperCase() !== "GET") {
+      throw new Error(`gh api yalniz okuma: metot ${deger} reddedildi`);
+    }
+  }
+  for (const b of ["-f", "-F", "--field", "--raw-field"]) {
+    if (bayrakVar(args, b)) throw new Error(`gh api yalniz okuma: ${b} alan yazimi reddedildi`);
+  }
+}
+
+/**
+ * ~/.claude/settings.json permissions.deny kurallari koprude de uygulanir.
+ * Yalniz `Bash(...)` (ve ciplak `Bash`) girdileri komut yuzeyine bakar; `Read(...)`
+ * kurallarinin karsiligi K5 kanca gecidindedir.
+ */
+export function denyDenetle(satir, denyListesi = []) {
+  for (const kural of denyListesi) {
+    const m = /^Bash(?:\((.*)\))?$/.exec(String(kural).trim());
+    if (!m) continue;
+    const kalip = m[1];
+    if (kalip === undefined || kalip === "*") throw new Error(`permissions.deny: ${kural}`);
+    const re = new RegExp("^" + kalip.split("*").map(kacir).join(".*") + "$");
+    if (re.test(satir)) throw new Error(`permissions.deny: ${kural}`);
+  }
+}
+
+const kacir = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+/** Kullanici ayarlarindaki deny listesi; okunamazsa bos. */
+export function denyListesi() {
+  try {
+    const p = path.join(os.homedir(), ".claude", "settings.json");
+    return JSON.parse(fs.readFileSync(p, "utf8")).permissions?.deny || [];
+  } catch { return []; }
 }
 
 /** npm/winget .cmd shim'inden gerçek `node <js>` hedefini çıkarır. */
@@ -80,7 +150,7 @@ const TEHLIKELI_SECENEK =
 /** Tek başına verilebilen zararsız bilgi bayrakları. */
 const BILGI_BAYRAGI = /^--?(version|help|v|h)$/i;
 
-export function komutDenetle(arac, args, ayar) {
+export function komutDenetle(arac, args, ayar, cwd) {
   const kural = ayar.izinli[arac];
   if (!kural) throw new Error(`'${arac}' allowlist'te değil`);
   if (kural.kos === false) throw new Error(`'${arac}' koşmaz: ${kural.sebep}`);
@@ -90,7 +160,34 @@ export function komutDenetle(arac, args, ayar) {
     if (TEHLIKELI_SECENEK.test(a)) throw new Error(`yürütücüye komut geçiren secenek: ${a}`);
   }
 
+  denyDenetle(komutSatiri(arac, args), ayar.denyListesi || denyListesi());
+
   const bilgi = args.length === 1 && BILGI_BAYRAGI.test(args[0]);
+
+  for (const b of kural.yasakBayrak || []) {
+    if (bayrakVar(args, b)) throw new Error(`'${arac}' için yasak bayrak: ${b}`);
+  }
+  if (!bilgi) {
+    const konum = konumlar(args);
+    for (const dizi of kural.yasakDizi || []) {
+      if (dizi.every((jeton, n) => konum[n] === jeton)) {
+        throw new Error(`'${arac}' için yasak alt komut: ${dizi.join(" ")}`);
+      }
+    }
+    for (const b of kural.gerekliBayrak || []) {
+      if (!bayrakVar(args, b)) throw new Error(`'${arac}' yalnız ${b} ile koşar`);
+    }
+    if (kural.ghApiSaltOkur && konum[0] === "api") ghApiDenetle(args);
+    if (kural.dosyaGerek && konum.length) {
+      const dosya = path.resolve(cwd || process.cwd(), konum[0]);
+      if (!fs.existsSync(dosya) || !fs.statSync(dosya).isFile()) {
+        throw new Error(`'${arac}' için dosya yok: ${konum[0]}`);
+      }
+      if (!ayar.cwdKokleri.some((k) => altinda(dosya, k))) {
+        throw new Error(`'${arac}' dosyası izinli köklerin dışında: ${dosya}`);
+      }
+    }
+  }
   if (kural.altIzin) {
     // Alt komut ILK jeton olmali; bayrak arkasina gizlenemez.
     if (!bilgi && !kural.altIzin.includes(args[0])) {
@@ -162,9 +259,9 @@ export function agaciKapat(pid) {
  */
 export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla }) {
   // denetimAtla: cagiran zaten komutDenetle'den gecirdi (hook yeniden yazimi sarmalamasi)
-  const yol = denetimAtla ? yolBul(arac) : komutDenetle(arac, args, ayar).yol;
-  if (!yol) throw new Error(`'${arac}' PATH'te bulunamadi`);
   const calisma = cwdCoz(cwd, ayar);
+  const yol = denetimAtla ? yolBul(arac) : komutDenetle(arac, args, ayar, calisma).yol;
+  if (!yol) throw new Error(`'${arac}' PATH'te bulunamadi`);
   const sn = Math.min(Math.max(Number(timeoutSn) || 120, 1), 600);
 
   let komut = yol;
@@ -247,6 +344,80 @@ export function yenidenYazimKabul(orijinalArgv, yeniKomut) {
  */
 export function memGovde(proje, baslik, metin) {
   return { project: proje, title: baslik, text: metin, metadata: { platformSource: "desktop" } };
+}
+
+export const MEM_KOK = "http://127.0.0.1:37777";
+
+/**
+ * CC'nin kendi PostToolUse hook'uyla AYNI uç: POST /api/sessions/observations.
+ * Uç, claude-mem hooks.json → worker-service.cjs zincirinden okundu (11k K3b);
+ * uydurulmadı. Şema `.passthrough()`, zorunlu alanlar contentSessionId + tool_name.
+ */
+export function gozlemGovde(oturum, aracAdi, girdi, yanit, cwd) {
+  return {
+    contentSessionId: oturum,
+    tool_name: aracAdi,
+    tool_input: girdi,
+    tool_response: yanit,
+    cwd,
+    platformSource: "claude-desktop",
+  };
+}
+
+/** @returns {Promise<string>} boş = yazıldı, dolu = sebep (çağrıyı bozmaz). */
+export async function gozlemYaz(govde) {
+  try {
+    const y = await fetch(`${MEM_KOK}/api/sessions/observations`, {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify(govde),
+    });
+    return y.ok ? "" : `gözlem yazılamadı: worker ${y.status}`;
+  } catch (e) { return "gözlem yazılamadı: " + String(e?.message || e); }
+}
+
+/**
+ * statusline.ps1'in stdin'de okuduğu DÖRT alan — fazlası yazılmaz.
+ * Kaynak: son `ajan` çağrısının usage sayıları. Ajan hiç koşmadıysa null.
+ */
+export function statuslineGovde(son) {
+  if (!son) return null;
+  const girdi = son.girdi || 0;
+  const pencere = son.pencere || 200000;
+  return {
+    model: { display_name: son.model },
+    context_window: { used_percentage: Math.min(100, Math.round((girdi / pencere) * 1000) / 10) },
+    prompt_cache: { hit_ratio: girdi ? (son.okunan || 0) / girdi : 0 },
+  };
+}
+
+/**
+ * gitleaks kapısı: metin sızıntı taşıyorsa ret sebebi, temizse null.
+ * `kaydet` ve otomatik gözlem aynı kapıdan geçer.
+ */
+export async function sizintiKapisi(baslik, govde, ayar) {
+  // gitleaks --source dizin ister ve cwd izinli kök altında olmalı → C:\Projeler altına
+  const gDizin = path.join("C:/Projeler/.tmp-cc-kopru",
+                           `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`);
+  fs.mkdirSync(gDizin, { recursive: true });
+  fs.writeFileSync(path.join(gDizin, "not.md"), `# ${baslik}\n\n${govde}\n`, "utf8");
+  try {
+    // --no-banner --no-color: ret çıktısında banner ve ANSI olmaz. Bulgular JSON rapora
+    // yazılır; çıktıya yalnız sayı ve kural adı geçer, değer asla.
+    const t = await kos({
+      arac: "gitleaks",
+      args: ["detect", "--no-git", "--redact", "--no-banner", "--no-color",
+             "--report-format", "json", "--report-path", "bulgu.json", "--source", "."],
+      cwd: gDizin, ayar,
+    });
+    if (t.kod === 0) return null;
+    let rapor = null;
+    try {
+      rapor = JSON.parse(fs.readFileSync(path.join(gDizin, "bulgu.json"), "utf8"));
+    } catch { /* rapor yazılamadıysa sayı bilinmez */ }
+    return gitleaksOzet(rapor, t.kod);
+  } finally {
+    fs.rmSync(gDizin, { recursive: true, force: true });
+  }
 }
 
 /** gitleaks JSON raporundan ret mesajı: sayı + kural adı. Bulgu değeri asla basılmaz. */
