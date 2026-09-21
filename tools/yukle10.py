@@ -26,6 +26,10 @@ OUT = Path(os.environ.get("YUKLE10_OUT") or REPO / "dist/yukle-10")
 TMP = Path(os.environ.get("YUKLE10_TMP") or r"C:\Users\pc\AppData\Local\Temp\yukle10tmp")
 SYNC = H / "skills/synced/924f0f64-fcbf-4e91-8e2f-e62bad8245c0_5bf6859c-713e-459a-9126-5fb1dcc493b6"
 CLI_MK = H / "plugins/marketplaces/cli-anything"
+# 10c: CC marketplace klonu KitJacky fork'undan, upstream'den 716 commit geri.
+# Kaynak upstream klonu; yoksa p_cli_anything acikca durur.
+CLI_UP = Path(os.environ.get("CLI_ANYTHING_KLON") or r"C:\Projeler\.tmp-kurulum6\HKUDS__CLI-Anything")
+FC_SKILL = REPO / "plugins/frontend-craft/skills/frontend-craft"
 PJ_KLON = Path(r"C:\Projeler\.tmp-kurulum6\pixeljury")
 WIG_REPO = "vercel-labs/web-interface-guidelines"
 YASAK = re.compile(r'[\x00-\x1f\x7f\\:*?"<>|@]')
@@ -86,20 +90,203 @@ def md_skill(stage, ad, kaynak_md, rapor):
 
 
 # --------------------------------------------------------------- paketler
+# 10c: kaynak upstream (HKUDS). KitJacky fork'u 0 ileri / 716 geri -> icerik farki yok,
+# ama CC marketplace klonu o fork'tan geldigi icin HARNESS.md 503 satir eski.
+# Govde codex-skill kaliba dayanir; platform adi gecmez (claude.ai ile CC ortak metin).
+CLI_MD = '''---
+name: cli-anything
+description: "GUI uygulamasini ya da kaynak deposunu durum tutan, --json konusan bir komut satirina ceviren CLI-Anything harness yontemi: kurma, gelistirme, test, dogrulama."
+---
+
+# CLI-Anything
+
+Insan icin yazilmis bir yazilimi, ekransiz bir ajanin kullanabilecegi durum tutan bir
+CLI'a cevirme yontemi. Uretilen harness Python + Click'tir: `cli_anything.<yazilim>` ad
+alani paketi, alt komut yokken REPL, her komutta `--json`, destekleyen yazilimda
+undo/redo.
+
+## Nerede ne yapilir
+
+| Ortam | Yapilabilen | Yapilamayan |
+| --- | --- | --- |
+| claude.ai / Desktop | plan, mimari karari, `references/HARNESS.md` incelemesi, mevcut harness'in kod okumasi, bosluk analizi | hedef yazilim kurulu degil: kurma, kosma, test, render |
+| Claude Code | uretim ve kosu: `/cli-anything:cli-anything`, `/cli-anything:refine`, `/cli-anything:test`, `/cli-anything:validate`, `/cli-anything:list` | - |
+
+claude.ai/Desktop'ta bu skill **yalniz plan ve HARNESS incelemesi** icindir. "Harness kur"
+istegi geldiginde cikti bir plandir; uretim ve kosu CC'deki komutlara havale edilir.
+
+## Kaynak sirasi
+
+1. `references/HARNESS.md` - yontemin tam kaynagi, uygulamadan once okunur.
+2. `references/commands/` altindaki calisilan modun sartnamesi.
+3. `references/guides/` altindaki konu dosyasi - yalniz o konuya dokunuluyorsa.
+4. Hicbiri okunamiyorsa asagidaki ozet kurallar.
+
+## Yontem - 7 faz
+
+1. **Kod tabani analizi** - arka uc motoru bul (Shotcut icin MLT, GIMP icin ImageMagick),
+   GUI eylemlerini API cagrilarina esle, veri modelini ve proje dosya bicimini cikar,
+   yazilimin kendi CLI'larini (`melt`, `ffmpeg`, `convert`) envantere al, undo/redo
+   komut sistemini katalogla.
+2. **CLI mimarisi** - etkilesim modeli (durum tutan REPL + tek atislik alt komut, ikisi
+   birden), komut gruplari (proje, cekirdek islem, ice/disa aktarim, ayar, oturum),
+   durum modeli ve ciktinin insan/makine (`--json`) ikiligi.
+3. **Uygulama** - once veri katmani, sonra `info`/`list`/`status` gozlem komutlari, sonra
+   mutasyon komutlari, sonra `utils/<yazilim>_backend.py` ile gercek yazilim cagrisi,
+   sonra render/export, sonra kilitli oturum yazimi, en son REPL.
+4. **Test plani** - kod yazmadan once `TEST.md`: dosya basina planlanan test sayisi,
+   birim plani, E2E plani, gercekci is akisi senaryolari.
+5. **Test uygulamasi** - `test_core.py` birim, `test_full_e2e.py` gercek dosya + gercek
+   arka uc; kurulu `cli-anything-<yazilim>` komutu subprocess ile de kosulur.
+6. **Test dokumani** - `TEST.md`'nin ikinci yarisi: kapsam, senaryolar, gercek kosu
+   ciktisi. (6.5: pakete giren CLI'a ozel `SKILL.md` uretimi.)
+7. **Paketleme** - `find_namespace_packages(include=["cli_anything.*"])`, `cli_anything/`
+   altinda `__init__.py` yok, `console_scripts` ile `cli-anything-<yazilim>`.
+
+## HARNESS.md dersleri
+
+- **Gercek yazilimi cagir, yeniden yazma.** Pillow ile GIMP taklidi, Blender cagirmadan
+   bpy uretimi oyuncaktir. Dogru yol: `libreoffice --headless --convert-to`,
+   `blender --background --python`, `inkscape --actions`, `melt`, `sox`.
+- **Yazilim sert bagimliliktir.** Kurulu degilse CLI net hatayla durur; yedek kutuphaneye
+   sessizce dusmez.
+- **Render bosluguna dikkat.** Cogu GUI efekti render aninda motorda uygulanir; proje
+   dosyasini degistirmek yetmez, ciktinin kendisi programatik olarak dogrulanir.
+   "Hatasiz kostu" yeterli degildir.
+- **Yerel bicimi dogrudan isle** (MLT XML, ODF, SVG); ara dosyayi uret, render'i yazilima
+   birak.
+- **Yuksek sesle hata ver** - ajan kendini duzeltecekse mesaj belirsiz olamaz.
+- **Idempotent ol, gozlem komutu ver** (`info`, `list`, `status`); ajan degistirmeden once
+   bakar.
+- **Oturum dosyasini kilitle.** `open("w")` kilit alinmadan dosyayi kirpar; `"r+"` ile ac,
+   kilidi al, kirpmayi kilidin icinde yap.
+
+## Modlar
+
+- **Build** - yeni harness. `references/commands/cli-anything.md`.
+- **Refine** - mevcut harness; once komut/test envanteri, sonra hedef yazilima karsi
+  bosluk analizi. Kullanici acikca istemedikce komut silinmez.
+  `references/commands/refine.md`.
+- **Test** - testler once planlanir, sonra yazilir. `references/commands/test.md`.
+- **Validate** - ad alani duzeni, kurulabilir giris noktasi, `--json`, REPL varsayilani,
+  dokuman ve test. `references/commands/validate.md`.
+- **List** - kurulu/uretilmis harness kesfi. `references/commands/list.md`.
+
+## API setini tek CLI'da toplamak
+
+Yontem yalniz masaustu GUI'si icin degil; bir web servis ailesini tek harness altinda
+toplamak da ayni kaliptir. Servisin HTTP API'si "arka uc" yerine gecer:
+
+- Komut gruplari API kaynaklarina esler (proje/kaynak/is/cikti).
+- Kimlik tek yerde: ortam degiskeni (`ANYGEN_API_KEY`, `NOVITA_API_KEY`, `EXA_API_KEY`
+  gibi), CLI icine gomulmez.
+- Oturum dosyasi cagrilar arasi baglami tutar; boylece ajan her komutta butun girdiyi
+  yeniden gondermez.
+- Her komut `--json` doner; zincirleme `jq`/pipe ile yapilir.
+- Ag hatasi sessizce yutulmaz; hiz siniri ve yeniden deneme tek yerde toplanir.
+
+Tek CLI'da birden cok servis gerekiyorsa her servis ayri komut grubu olur; ad alani
+paketi sayesinde `cli-anything-<ad>` paketleri ayni ortamda yan yana kurulur.
+
+## Hazir CLI tetikleyicileri (CLI-Hub)
+
+Yeni harness kurmadan once hazir olani var mi diye bakilir:
+
+| Proje ihtiyaci | Hazir CLI |
+| --- | --- |
+| diyagram, akis semasi | `cli-anything-drawio` - `cli-anything-mermaid` |
+| belge, PDF, sunum, tablo | `cli-anything-libreoffice` |
+| SVG, vektor | `cli-anything-inkscape` |
+| gorsel duzenleme, raster | `cli-anything-gimp` |
+
+Kurulum kalibi (`<ad>` = drawio, mermaid, libreoffice, inkscape, gimp):
+
+```text
+pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=<ad>/agent-harness
+```
+
+`drawio`, `libreoffice`, `inkscape`, `gimp` hedef yazilimin kurulu olmasini ister;
+`mermaid` istemez (durum dosyasi + mermaid.ink render URL'si). Tam liste depodaki
+`registry.json`.
+
+## Windows (olculmus)
+
+Ortam: Windows 11, Git Bash, Python 3.12.10, pip 25.0.1. Asagidakiler kosulmus ve
+ciktilari alinmistir; claude.ai kum havuzunda kosturulacak adim degildir.
+
+Klon (CRLF bozmasin diye acikca kapatilir) ve tek harness kurulumu:
+
+```text
+git clone -c core.autocrlf=false https://github.com/HKUDS/CLI-Anything.git <klon>
+cd <klon>/mermaid/agent-harness && python -m pip install -e .
+  -> Successfully installed cli-anything-mermaid-1.0.0 click-8.5.0
+     prompt-toolkit-3.0.53 wcwidth-0.8.4
+```
+
+Giris noktasi PATH'e kendiliginden girer; Git Bash'te ayri bir sarmalayici gerekmez:
+
+```text
+$ command -v cli-anything-mermaid
+/c/Users/<kullanici>/AppData/Local/Programs/Python/Python312/Scripts/cli-anything-mermaid
+
+$ cli-anything-mermaid --help
+Usage: cli-anything-mermaid [OPTIONS] [COMMAND] [ARGS]...
+  CLI harness for Mermaid Live Editor state files and renderer URLs.
+Options:
+  --json          Emit machine-readable JSON
+  --project TEXT  Open a Mermaid project file
+  --dry-run       Run command without saving changes to disk
+Commands:
+  diagram  export  project  repl  session
+```
+
+Ag gerektirmeyen `--json` komutu (`export render` mermaid.ink'e cikar, bu cikmaz):
+
+```text
+$ cli-anything-mermaid --json project samples
+{"flowchart":"flowchart TD\\n  A[Start] --> B{Ready?}\\n ...",
+ "sequence":"sequenceDiagram\\n  participant U as User\\n ...",
+ "er":"erDiagram\\n  USER ||--o{ ORDER : places\\n ..."}
+```
+
+Yol donusumu: Git Bash argumandaki POSIX yolu MSYS katmaninda Windows yoluna cevirir,
+`--output /tmp/m.json` dosyayi `C:\\Users\\<kullanici>\\AppData\\Local\\Temp\\m.json`
+altina yazar - `cygpath -w` ile acikca cevirmek ayni sonucu verir. Betik Windows
+Python'u oldugu icin POSIX yolunu kendisi cozmez; donusumu yapan kabuktur.
+
+## Paket icerigi
+
+- `references/HARNESS.md` - yontemin tam kaynagi.
+- `references/commands/` - build, refine, test, validate, list sartnameleri.
+- `references/guides/` - oturum kilitleme, auto-save/dry-run, MCP arka uc, onizleme,
+  filtre cevirisi, zaman kodu, PyPI, SKILL.md uretimi.
+- `LICENSE` - Apache-2.0 (HKUDS/CLI-Anything).
+'''
+
+
 def p_cli_anything(stage, ad, rapor):
-    md = (CLI_MK / "openclaw-skill/SKILL.md").read_text(encoding="utf-8").replace(
-        "`../cli-anything-plugin/HARNESS.md`", "`references/HARNESS.md`")
-    md += ("\n## Paket icerigi\n\n"
-           "- `references/HARNESS.md` - CLI-Anything metodolojisinin tam kaynagi.\n"
-           "- `references/commands/` - plugin komutlarinin (cli-anything, list, refine,\n"
-           "  test, validate) metinleri.\n")
-    yaz(stage / "SKILL.md", md)
+    plug = CLI_UP / "cli-anything-plugin"
+    if not (plug / "HARNESS.md").is_file():
+        raise SystemExit("cli-anything: upstream klon yok -> " + str(CLI_UP)
+                         + "  (git clone -c core.autocrlf=false https://github.com/HKUDS/CLI-Anything.git)")
+    yaz(stage / "SKILL.md", CLI_MD)
     fm_lf(stage / "SKILL.md", ad, rapor)
-    plug = CLI_MK / "cli-anything-plugin"
     yaz(stage / "references/HARNESS.md", (plug / "HARNESS.md").read_text(encoding="utf-8"))
-    for c in sorted((plug / "commands").glob("*.md")):
-        yaz(stage / "references/commands" / c.name, c.read_text(encoding="utf-8"))
+    for alt, hedef in (("commands", "references/commands"), ("guides", "references/guides")):
+        for c in sorted((plug / alt).glob("*.md")):
+            yaz(stage / hedef / c.name, c.read_text(encoding="utf-8"))
     yaz(stage / "LICENSE", (plug / "LICENSE").read_text(encoding="utf-8"))
+    sha = kabuk("git", "-C", str(CLI_UP), "log", "-1", "--format=%h %cs")
+    rapor.append(ad + ": HKUDS/CLI-Anything " + sha)
+
+
+def p_frontend_craft(stage, ad, rapor):
+    """Repodaki skill dizini oldugu gibi paketlenir (node_modules/nokta dosyasi disarida)."""
+    kopyala(FC_SKILL, stage, ad, rapor)
+    fm_lf(stage / "SKILL.md", ad, rapor)
+    surum = json.loads((REPO / "plugins/frontend-craft/.claude-plugin/plugin.json")
+                       .read_text(encoding="utf-8"))["version"]
+    rapor.append(ad + ": surum " + surum)
 
 
 def p_pdev(altyol, ekler=(), degis=()):
@@ -444,7 +631,9 @@ bash "$SKILL/scripts/validate-agent.sh" agents/[identifier].md
 
 
 PAKETLER = [
-    ("cli-anything", "yeni", p_cli_anything),
+    # 10c: cli-anything synced'de var -> "replace"; frontend-craft claude.ai'de kurulu.
+    ("cli-anything", "replace", p_cli_anything),
+    ("frontend-craft", "replace", p_frontend_craft),
     ("plugin-dev-create-plugin", "yeni", p_pdev("commands/create-plugin.md")),
     ("plugin-dev-agent-creator", "yeni", p_pdev(
         "agents/agent-creator.md",

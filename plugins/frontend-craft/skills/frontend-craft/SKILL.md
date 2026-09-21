@@ -11,6 +11,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Sunucu şart, `file:///` yasak: static `node ${CLAUDE_SKILL_DIR}/scripts/serve.mjs` (:3000) · aspnet `dotnet run --project <web csproj>`.
 - Screenshot döngüsü: `node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs <url> [etiket]` → 390/768/1440 PNG, her biri Read ile açılır. Tur = screenshot → sapma tablosu → düzelt; min 2, max 4 tur; 4. tur sonunda sapma kalırsa DUR raporu.
 - Kabul: `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` PASS (FREE'de SLOP boş); ELLE BAKILACAK kalemleri raporda ayrıca yanıtlanır; a11y/perf/etkileşim Bölüm 4.
+- UI incelemesinde `references/vercel-web-interface.md` kontrol listesi.
 - DESIGN.md tam olarak 6 başlık, fazlası yok:
   1. Stil adı
   2. Token'lar — 3-6 adet `ad: değer`
@@ -124,7 +125,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 
 ## 10. Referans kaynakları
 - Yön ararken önce referans çıkar, sonra dili yaz: 21st.dev · awwwards.com · lapa.ninja · recent.design · dribbble.com · figma.com/community · designprompts.dev
-- 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz.
+- 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz. Adım-araç eşlemesi ve kota kapıları: `references/21st-akis.md`.
 - Referansı kopyalama — ritim, kontrast, boşluk mantığını çıkar, projeye uygula.
 - 3D/WebGL yönü aranırken Three.js resmi örnekleri (threejs.org/examples) referans alınır, kopyalanmaz.
 
@@ -142,4 +143,4 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
   - Ortam değişkenli komut `Bash(node *)` iznine takılabilir; Windows'ta PowerShell aracıyla çalıştır.
 - Kullanıcı birini seçer → DESIGN.md o yönden yazılır → seçilmeyen iki yönün HTML dosyaları silinir; üç PNG `.screens/yon/` altında kalır (hangi yönler arasından seçildiğinin kaydı).
 - Yönleri kendin değerlendirme, "bence bu daha iyi" yazma; seçim kullanıcınındır.
-- Referans: yön üretmeden önce Bölüm 10'daki kaynaklardan dil çıkarılır, kopyalanmaz.
+- Referans: yön üretmeden önce Bölüm 10'daki kaynaklardan dil çıkarılır, kopyalanmaz. 21st kuruluysa referans çıkarma ucu `references/21st-akis.md`'de.
