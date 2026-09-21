@@ -1,7 +1,13 @@
-"""K3 kuru test: her stdio MCP tanimini bagimsiz calistir, initialize + tools/list al.
+r"""K3 kuru test: her stdio MCP tanimini bagimsiz calistir, initialize + tools/list al.
 
-Kullanim: python tools/mcp_kurutest.py [--desktop-env] [sunucu-adi ...]
+Kullanim: python tools/mcp_kurutest.py [--desktop-env] [--cwd YOL] [--spawner node] [sunucu-adi ...]
 Cikti: her sunucu icin ARAC SAYISI ya da gerekcelendirilmis hata.
+
+--cwd YOL: sureci o calisma dizininde baslatir. Desktop'in cwd'si kullanici
+dizini degil; cwd'ye goreli yazan sunucular (puppeteer-mcp-server gunluk dosyasini
+<cwd>\logs altina acar) yalnizca bu bayrakla ayristirilabilir.
+--spawner node: cmd wrapper yerine node.exe'yi dogrudan calistirir (shell=False),
+boylece "suclu cwd mi, cmd katmani mi" sorusu ayrilir.
 
 --desktop-env: sureci Claude Desktop gibi baslatir. Desktop yerel MCP sunucularini
 tam kullanici ortamiyla degil, MCP SDK'nin beyaz listesiyle baslatir; kanit
@@ -18,7 +24,7 @@ DESKTOP_ENV = ["APPDATA", "HOMEDRIVE", "HOMEPATH", "LOCALAPPDATA", "PATH",
                "PROCESSOR_ARCHITECTURE", "SYSTEMDRIVE", "SYSTEMROOT", "TEMP",
                "USERNAME", "USERPROFILE", "PROGRAMFILES"]
 
-def dene(ad, komut, argv, env_ek, temizle=(), taban=None, hata_bufer=None):
+def dene(ad, komut, argv, env_ek, temizle=(), taban=None, hata_bufer=None, cwd=None):
     t0 = time.time()
     env = dict(taban) if taban is not None else os.environ.copy()
     for k in temizle:
@@ -27,7 +33,7 @@ def dene(ad, komut, argv, env_ek, temizle=(), taban=None, hata_bufer=None):
     try:
         p = subprocess.Popen([komut] + argv, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE, env=env, text=True, encoding="utf-8",
-                             errors="replace", bufsize=1)
+                             errors="replace", bufsize=1, cwd=cwd)
     except Exception as e:
         return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "BASLAMADI", "hata": f"{type(e).__name__}: {e}", "arac": 0}
 
@@ -66,9 +72,11 @@ def dene(ad, komut, argv, env_ek, temizle=(), taban=None, hata_bufer=None):
             "clientInfo": {"name": "k11-kurutest", "version": "1.0"}}})
         ini = bekle(1, son)
         if ini is None:
+            kod = p.poll()          # kendi mi cikti (kod var) yoksa asili mi kaldi (None)
             p.kill()
             return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "INIT-YOK", "arac": 0,
-                    "hata": ("".join(hata_bufer)[-400:] or "yanit yok / surec dustu").strip()}
+                    "cikis": kod,
+                    "hata": ("".join(hata_bufer)[-400:] or f"yanit yok / surec dustu (cikis={kod})").strip()}
         if "error" in ini:
             p.kill()
             return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "INIT-HATA", "arac": 0, "hata": json.dumps(ini["error"])[:400]}
@@ -98,9 +106,32 @@ def yukle():
     return cfg.get("mcpServers", {})
 
 
+# --spawner node icin: sunucu adi -> global paketin giris dosyasi
+NPM_PREFIX = (r"C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages"
+              r"\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64")
+NODE_GIRIS = {
+    "puppeteer":    [r"node_modules\puppeteer-mcp-server\dist\index.js"],
+    "brave-search": [r"node_modules\@brave\brave-search-mcp-server\dist\index.js"],
+    "stitch":       [r"node_modules\@_davideast\stitch-mcp\bin\stitch-mcp.js", "proxy"],
+}
+
+
+def ayikla(argv):
+    """--cwd YOL ve --spawner DEGER'i cikarir, kalan argumanlari dondurur."""
+    kalan, deger = [], {}
+    i = 0
+    while i < len(argv):
+        if argv[i] in ("--cwd", "--spawner") and i + 1 < len(argv):
+            deger[argv[i][2:]] = argv[i+1]; i += 2
+        else:
+            kalan.append(argv[i]); i += 1
+    return kalan, deger.get("cwd"), deger.get("spawner")
+
+
 if __name__ == "__main__":
-    bayraklar = [a for a in sys.argv[1:] if a.startswith("--")]
-    hedef = [a for a in sys.argv[1:] if not a.startswith("--")]
+    argv, cwd, spawner = ayikla(sys.argv[1:])
+    bayraklar = [a for a in argv if a.startswith("--")]
+    hedef = [a for a in argv if not a.startswith("--")]
     desktop = "--desktop-env" in bayraklar
     taban = {k: os.environ[k] for k in DESKTOP_ENV if k in os.environ} if desktop else None
     hata_dizin = os.environ.get("K11_ERR")
@@ -108,7 +139,11 @@ if __name__ == "__main__":
         os.makedirs(hata_dizin, exist_ok=True)
     if desktop:
         print(f"[--desktop-env] taban {len(taban)} degisken, %VAR% genisletmesi KAPALI", flush=True)
-        print(flush=True)
+    if cwd:
+        print(f"[--cwd] {cwd}", flush=True)
+    if spawner:
+        print(f"[--spawner] {spawner}", flush=True)
+    print(flush=True)
     sunucular = yukle()
     secim = {k: v for k, v in sunucular.items()
              if v.get("type", "stdio") == "stdio" and (not hedef or k in hedef)}
@@ -116,9 +151,13 @@ if __name__ == "__main__":
     for ad, tanim in sorted(secim.items()):
         gen = (lambda x: x) if desktop else os.path.expandvars
         env_ek = {k: gen(v) for k, v in (tanim.get("env") or {}).items()}
-        argv = [gen(a) for a in tanim.get("args", [])]
+        komut, cagri = tanim["command"], [gen(a) for a in tanim.get("args", [])]
+        if spawner == "node":
+            komut = os.path.join(NPM_PREFIX, "node.exe")
+            cagri = [os.path.join(NPM_PREFIX, p) if p.startswith("node_modules") else p
+                     for p in NODE_GIRIS[ad]]
         buf = []
-        r = dene(ad, tanim["command"], argv, env_ek, taban=taban, hata_bufer=buf)
+        r = dene(ad, komut, cagri, env_ek, taban=taban, hata_bufer=buf, cwd=cwd)
         if hata_dizin:
             with open(os.path.join(hata_dizin, ad + ".stderr.txt"), "w",
                       encoding="utf-8", errors="replace") as fh:

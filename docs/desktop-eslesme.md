@@ -298,3 +298,80 @@ Wrapper'lar npm global prefix'ine mutlak yolla bağlı:
 bu yol değişir. Desktop veya Node güncellemesinden sonra K4 kuru testi tekrar çalıştırılmalı.
 
 `tools/mcp-launch/mcp-env.cmd` (11d envHelper betiği) bu dalgada **silindi** — referanssız kaldı.
+
+## 7. KURULUM-11f · 21 Eyl 2026 — puppeteer kök nedeni kanıtlandı
+
+**Kök neden (tek cümle):** Claude Desktop yerel MCP sunucularını
+cwd = `C:\Windows\System32` ile başlatır; `puppeteer-mcp-server` günlük dosyasını
+`<cwd>\logs` altına açtığı ve orada yazma izni olmadığı için düşer, hatayı da yalnız
+açamadığı o dosyaya yazmaya çalıştığından stderr boş kalır ve süreç sessizce ölür.
+
+**Kanıt satırı** (`_trace.cjs`, 12:15Z açılışı, 6 sürecin altısında da aynı):
+
+```json
+{"olay":"acilis","cwd0":"C:\Windows\System32","cwd":"C:\Users\pc\AppData\Local\Temp"}
+```
+
+`cwd0` = wrapper düzeltmeden **önce** yakaladığı Desktop cwd'si. Kontrol kolu
+brave-search aynı `cwd0` ile başlıyor ama cwd'ye yazmadığı için zaten çalışıyordu —
+fark tek başına cwd'ye göreli yazma.
+
+### Paketin sessizliği nereden geliyor
+
+`puppeteer-mcp-server@0.7.2 · dist/src/config/logger.js`:
+
+```js
+const logsDir = path.join(process.cwd(), 'logs');            // cwd'ye GÖRELİ
+if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir, {recursive:true});
+// transports: SADECE DailyRotateFile -- "to avoid interfering with MCP protocol"
+process.on('uncaughtException', e => { logger.error(...); process.exit(1); });
+```
+
+Tüm hatalar stderr'e değil bu dosyaya gider. Dosya açılamazsa hata da kaybolur.
+
+### Ayrıştırıcılar (`mcp_kurutest.py --cwd` / `--spawner`)
+
+| Koşu | Sonuç |
+|---|---|
+| `--cwd C:\Windows\System32` | `INIT-YOK`, çıkış **1**, stderr **boş** — Desktop imzasının aynısı |
+| `--cwd <WindowsApps\Claude…>` | `INIT-YOK`, stderr'de `logger.js:8` + `errno -4048` (EPERM) |
+| `--spawner node`, cwd = repo | **OK, 8 araç** → suçlu spawner katmanı değil |
+| `--spawner node` + WindowsApps cwd | `INIT-YOK`, aynı `logger.js:8` → **suçlu cwd** |
+
+İlk iki satırın farkı imzayı da açıklıyor: `System32\logs` **var** olduğu için
+`mkdirSync` hiç denenmez, hata winston dosyayı açarken — yani `uncaughtException`
+dinleyicisi kaydolduktan **sonra** — oluşur ve yutulur. `WindowsApps\…\logs` ise
+yok, `mkdirSync` modül yüklenirken patlar, dinleyici henüz yok, stderr'e düşer.
+Desktop'ın gördüğü ilk durumdur.
+
+### Düzeltme
+
+`tools/mcp-launch/puppeteer.cmd` içinde tek satır, shim çağrısından önce:
+
+```cmd
+cd /d "%TEMP%"
+```
+
+`TEMP` 12 değişkenlik beyaz listede ve yazılabilir; günlük artık
+`%TEMP%\logs\mcp-puppeteer-*.log`. Config'e belgesiz alan **eklenmedi**; üç tanım da
+yalnız `command` + `args` içeriyor, diğer 11 tanım değişmedi.
+
+**Doğrulama** — canlı Desktop 12:15Z açılışı, `mcp-server-puppeteer.log`:
+`initialize` → sonuç → `tools/list` 8 araç → `resources/list` → sonuç; ardından
+iki `tools/call` (navigate + screenshot) sonuç döndürdü. Kapanma satırı yok.
+12:14Z'den sonra **mcp.log'da hiç `[error]` satırı yok** (14 sunucunun tamamı).
+
+### "Couldn't start for Cowork and Code sessions" tostu — VM ile ilgisi yoktu
+
+Bu satır bir VM teşhisi değildi: shared-pool MCP tüketicisinin ölmüş sunucuya
+bağlanamamasıydı. Sunucu ayakta kaldığı için 12:14Z'den sonra **0 tane** üretildi.
+Cowork VM'i ayrı bir katman ve hâlâ kurulu değil — `cowork_vm_node.log`
+`rootfs.vhdx missing` / `vmlinuz missing` / `initrd missing` diyor — ama bu satırlar
+MCP tostu üretmez. İki olgu birbirinden bağımsız; çelişki yok.
+
+### Kalıcı iz aracı
+
+`tools/mcp-launch/_trace.cjs` — `node --require` ile takılan geçici iz. Bu dalgada
+wrapper'lardan çıkarıldı, ileride Desktop spawn davranışı yine ölçülmek gerekirse
+diye dosya `tools/` altında bırakıldı. Ortam değişkenlerinin yalnız **adlarını**
+kaydeder, değerlerini asla.
