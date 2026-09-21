@@ -13,10 +13,14 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { ajanAlanDenetle, ayarYukle, cwdCoz, komutDenetle, kirp, kos, redakte } from "./kos.mjs";
+import { ajanAlanDenetle, ayarYukle, cwdCoz, komutDenetle, kirp, kos, redakte, yolBul } from "./kos.mjs";
 import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi } from "./hook.mjs";
 
 const AYAR = ayarYukle();
+const CLAUDE = AYAR.claudeYolu || yolBul("claude");
+// claude bir betik olarak kuruluysa (node <js>) yurutucuden once gelen argumanlar
+const CLAUDE_ON = AYAR.claudeOnArgs || [];
+if (!CLAUDE) throw new Error("claude yurutucusu bulunamadi; kopru.json claudeYolu yazin");
 const OTURUM = crypto.randomUUID();
 const IZ = izDosyasi(OTURUM);
 let ajanSayaci = 0;
@@ -114,9 +118,8 @@ srv.registerTool("ajan", {
     timeout_sn: z.number().int().min(30).max(3600).default(900),
   },
 }, (a) => sirala(async () => {
-  if (/dangerously-skip-permissions|bypassPermissions/i.test(a.gorev + (a.model || ""))) {
-    return hata("RED: izin atlama istenemez.");
-  }
+  // FIX-1: görev metni artık argv'ye girmediği için içeriğine göre elenmez — bayrak
+  // adı geçen bir istem yalnızca metindir. Bayrak kaçakçılığı argv tarafında kesilir.
   if (ajanSayaci >= (AYAR.ajanTavan ?? 10)) {
     return hata(`RED: oturum başına ajan çağrı tavanı (${AYAR.ajanTavan ?? 10}) doldu.`);
   }
@@ -132,16 +135,19 @@ srv.registerTool("ajan", {
 
   // --max-turns bayrağı CC CLI'da yok (11i K0-b); bütçe göreve yazılır, dönüşte doğrulanır.
   const gorev = `${a.gorev}\n\n[bütçe] En fazla ${a.max_turns} tur kullan.`;
-  const argv = ["-p", gorev, "--output-format", "json", "--model", model];
+  // FIX-1: görev metni argv'ye GİRMEZ — bayrağa benzeyen istem bayrak olarak okunabilir.
+  // `claude -p` istemi stdin'den alır (aşağıda p.stdin.end(gorev)).
+  const argv = ["-p", "--output-format", "json", "--model", model];
   if (ajanAdi) argv.push("--agent", ajanAdi);
   if (devamId) argv.push("--resume", devamId);
-  // kurulan argv son kez taranır (görev metni dışındaki her jeton)
-  if (argv.slice(2).some((x) => /dangerously-skip-permissions|bypassPermissions|^--permission-mode/i.test(x))) {
+  // kurulan argv son kez taranır: artık her jeton ya sabit bayrak ya denetlenmiş değer
+  if (argv.some((x) => /dangerously-skip-permissions|bypassPermissions|^--permission-mode/i.test(x))) {
     return hata("RED: argv izin atlama bayrağı taşıyor.");
   }
 
   const cikti = await new Promise((coz) => {
-    const p = spawn("claude", argv, { cwd: proje, shell: false, windowsHide: true });
+    const p = spawn(CLAUDE, [...CLAUDE_ON, ...argv], { cwd: proje, shell: false, windowsHide: true });
+    p.stdin.end(gorev);   // istem stdin'den
     const o = [];
     p.stdout.on("data", (b) => o.push(b));
     p.stderr.on("data", (b) => o.push(b));
