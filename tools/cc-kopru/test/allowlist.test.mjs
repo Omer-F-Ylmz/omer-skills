@@ -191,3 +191,50 @@ test("npx gercek kosu: `--`siz bicim de paketin surumunu doner (npm'inkini degil
     assert.match(r.cikti, /^\s*0\.\d+\.\d+\s*$/m, `npm surumu dondu: ${r.cikti}`);
   }
 }, { timeout: 180000 });
+
+// ---------------------------------------------------------------- git (11m-A K2)
+test("git salt-okur alt komutlar gecer", () => {
+  gecer("git", ["grep", "-n", "-e", "A", "-e", "B", "--", "docs/"]);
+  gecer("git", ["ls-files", "docs/"]);
+  gecer("git", ["show", "HEAD:README.md"]);
+  gecer("git", ["--version"]);
+});
+
+test("git yazan/kosturan alt komutlar reddedilir", () => {
+  // status · log · diff · show · branch 11i'den beri izinli; bu dalga grep + ls-files ekledi.
+  for (const alt of ["commit", "push", "reset", "clean", "checkout", "filter-branch", "rm"]) {
+    red("git", [alt]);
+  }
+});
+
+test("git: yurutucu cagiran secenekler reddedilir (TEHLIKELI_SECENEK)", () => {
+  red("git", ["-c", "core.pager=calc.exe", "grep", "x"]);
+  red("git", ["--config", "core.pager=calc.exe", "grep", "x"]);
+  red("git", ["--exec-path=C:/kotu", "grep", "x"]);
+  red("git", ["--config-env=x", "grep", "y"]);
+});
+
+test("git: pager/cikti/filtre bayraklari reddedilir", () => {
+  for (const b of [["-O"], ["--open-files-in-pager"], ["--output", "x"], ["--ext-diff"],
+                   ["--textconv"], ["-f", "kalip.txt"], ["--file", "kalip.txt"]]) {
+    red("git", ["grep", ...b, "x"]);
+  }
+  red("git", ["show", "--output", "x", "HEAD"]);
+});
+
+test("git: gitignore'u atlayan tarama bayraklari reddedilir (deny baypasi)", () => {
+  for (const b of ["--no-index", "--untracked", "--no-exclude-standard"]) red("git", ["grep", b, "x"]);
+});
+
+test("git: bitisik deger ve benzersiz onek kisaltmalari da reddedilir", () => {
+  for (const b of ["-Oless", "--open", "--out", "--out=x", "--ext", "--textc", "--no-ind",
+                   "--no-index=1"]) {
+    red("git", ["grep", b, "x"]);
+  }
+});
+
+test("git: mesru uzun bayraklar onek kapisina takilmaz", () => {
+  for (const b of ["--name-only", "--no-color", "--line-number", "--cached"]) {
+    gecer("git", ["grep", b, "x"]);
+  }
+});

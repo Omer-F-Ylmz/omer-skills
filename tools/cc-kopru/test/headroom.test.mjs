@@ -1,17 +1,41 @@
 /**
- * KURULUM-11k K6(b): >8 KB çıktı `headroom mcp serve` stdio MCP'sine gider.
- * Headroom fail-open çalışıyor (router zaman aşımında içeriği aynen döndürüyor),
- * o yüzden asıl pin: kazanç yoksa ham metin kırpılır, şişmiş zarf basılmaz.
+ * KURULUM-11k K6(b) + 11m-A K4 — çıktı katmanı.
+ * >8 KB log/JSON çıktısı `headroom mcp serve` stdio MCP'sine gider; markdown/kod
+ * gitmez. Headroom fail-open çalışıyor (router zaman aşımında içeriği aynen
+ * döndürüyor), o yüzden asıl pin: kazanç yoksa ham metin döner, şişmiş zarf basılmaz.
  */
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 const BR = String.fromCharCode(10);
 
-import { SIKISTIR_ESIK, TEKRAR_ESIK, ciktiHazirla, sikistir, tekrarOrani } from "../kos.mjs";
+import { LOG_DIZIN, LOG_TAVAN, SIKISTIR_ESIK, ciktiHazirla, ciktiSinifi, logBudama, logaYaz,
+         sikistir } from "../kos.mjs";
 
 const TEKRARLI = Array.from({ length: 900 }, (_, i) =>
   `2026-09-21T23:00:00Z INFO worker-service observation queued id=${i} project=omer-skills status=ok`)
   .join("\n");
+
+/** json sinifi: olcumde %21 kazanan tek sinif (11m-A K4). */
+const JSON_GOVDE = JSON.stringify(Array.from({ length: 700 }, (_, i) =>
+  ({ i, seviye: "INFO", kaynak: "worker-service", olay: "observation queued",
+     proje: "omer-skills", durum: "ok", sure_ms: (i * 7919) % 997 })));
+
+const KARISIK = Array.from({ length: 260 }, (_, i) =>
+  `## Bolum ${i}` + BR + BR + `| a${i} | b${i} | c${i} |` + BR + "|---|---|---|" + BR
+  + `Kanit ${i}: olcum ${(i * 7919) % 104729} - yol tools/cc-kopru/dosya${i}.mjs - sure ${i}ms.` + BR)
+  .join(BR);
+
+// ---------------------------------------------------------------- sınıf kapısı
+test("ciktiSinifi: log · json · markdown · kod ayrılır", () => {
+  assert.equal(ciktiSinifi(TEKRARLI), "log");
+  assert.equal(ciktiSinifi(KARISIK), "markdown");
+  assert.equal(ciktiSinifi(JSON.stringify({ a: [1, 2], b: "x" })), "json");
+  assert.equal(ciktiSinifi(["import fs from 'node:fs';", "export function a() {}",
+                            "const x = 1;", "let y = 2;"].join(BR)), "kod");
+  assert.equal(ciktiSinifi(""), "log");
+});
 
 test("esik altindaki cikti Headroom'a hic gitmez", async () => {
   const kisa = "x".repeat(SIKISTIR_ESIK - 1);
@@ -19,53 +43,71 @@ test("esik altindaki cikti Headroom'a hic gitmez", async () => {
   assert.equal(await ciktiHazirla(kisa, 30000), kisa);
 });
 
-test("tekrarli >8 KB cikti sikisir ve geri alma hash'i basilir", async () => {
-  const z = await sikistir(TEKRARLI);
+test("markdown >8 KB olsa da katmandan gecmez", async () => {
+  const c = await ciktiHazirla(KARISIK, 12000);
+  assert.ok(!c.includes("[headroom %"), "markdown sikistirilmis");
+  assert.ok(c.length <= 12000 + 300 && c.length < KARISIK.length);
+});
+
+test("log sinifi katmandan cikti (11m-A K4 olcumu): sikistirilmaz", async () => {
+  const c = await ciktiHazirla(TEKRARLI, 30000);
+  assert.ok(!c.includes("[headroom %"), "log sikistirilmis");
+});
+
+test("ham:true katmani atlar", async () => {
+  // ham yalnız KATMANI atlar; tavanda kırpma ayrı bir kapı, tavan bilerek yüksek.
+  const c = await ciktiHazirla(JSON_GOVDE, 10_000_000, { ham: true });
+  assert.ok(!c.includes("[headroom"), "ham cagrida headroom cagrilmis");
+  assert.equal(c, JSON_GOVDE);
+});
+
+// ---------------------------------------------------------------- tam çıktı yolu
+test("cagiranin log yolu varsa katman yeni dosya acmaz", async () => {
+  const uzun = TEKRARLI + BR + "x".repeat(40000);
+  const c = await ciktiHazirla(uzun, 12000, { log: "C:/sahte/yol.log" });
+  assert.match(c, /^\[(headroom %\d+|headroom yok|kırpıldı) · tam: C:\/sahte\/yol\.log\]/);
+}, { timeout: 120000 });
+
+test("kirpilan ciktinin tamami LOG_DIZIN'e yazilir", async () => {
+  const uzun = KARISIK + BR + "y".repeat(20000);
+  const c = await ciktiHazirla(uzun, 12000);
+  const yol = /· tam: (.+)\]/.exec(c)?.[1];
+  assert.ok(yol && fs.existsSync(yol), "log dosyasi yok: " + yol);
+  assert.equal(fs.readFileSync(yol, "utf8").length, uzun.length);
+  fs.rmSync(yol, { force: true });
+});
+
+test("logBudama LOG_DIZIN'de son LOG_TAVAN dosyayi birakir", () => {
+  fs.mkdirSync(LOG_DIZIN, { recursive: true });
+  for (let i = 0; i < 5; i += 1) logaYaz("x", "budama-testi");
+  assert.ok(fs.readdirSync(LOG_DIZIN).length >= 5, "log yazilmadi");
+  // logaYaz her yazimda LOG_TAVAN ile budar; dizin hicbir zaman tavani asmaz.
+  assert.ok(fs.readdirSync(LOG_DIZIN).length <= LOG_TAVAN, "LOG_TAVAN asildi");
+  logBudama(2);
+  assert.ok(fs.readdirSync(LOG_DIZIN).length <= 2, "budama calismadi");
+});
+
+// ---------------------------------------------------------------- canlı headroom
+test("json >8 KB sikisir ve ilk satir yuzde + tam yolu tasir", async () => {
+  const z = await sikistir(JSON_GOVDE);
   assert.ok(z, "headroom mcp serve cevap vermedi");
   assert.ok(z.original_tokens > z.compressed_tokens,
             `kazanc yok: ${z.original_tokens} -> ${z.compressed_tokens}`);
-  const c = await ciktiHazirla(TEKRARLI, 30000);
-  assert.match(c, /\[headroom\] \d+ → \d+ jeton/);
-  assert.match(c, /headroom_retrieve hash=[a-z0-9]+/i);
+  const c = await ciktiHazirla(JSON_GOVDE, 30000);
+  assert.match(c, /^\[headroom %[\d.]+ · tam: .+\]/);
+  const yol = /· tam: (.+)\]/.exec(c)[1];
+  assert.equal(fs.readFileSync(yol, "utf8"), JSON_GOVDE, "tam cikti log'da degil");
+  fs.rmSync(yol, { force: true });
 }, { timeout: 120000 });
-
-test("kazanc yoksa ham metin kirpilir (fail-open zarfi basilmaz)", async () => {
-  // karisik markdown'da router zaman asimina dusup PASSTHROUGH veriyor (11k K6b
-  // olcumu: 11755 -> 11754 jeton). Girdi testte uretilir: repo dosyasina bagimli degil.
-  const doc = Array.from({ length: 260 }, (_, i) =>
-    `## Bolum ${i}` + BR + BR + `| a${i} | b${i} | c${i} |` + BR + "|---|---|---|" + BR
-    + `Kanit ${i}: olcum ${(i * 7919) % 104729} - yol tools/cc-kopru/dosya${i}.mjs - sure ${i}ms.` + BR)
-    .join(BR);
-  const c = await ciktiHazirla(doc, 12000);
-  if (c.includes("[headroom]")) return;            // gercekten sikistiysa da dogru
-  assert.ok(c.length <= 12000 + 200, "kirpma tavani asildi: " + c.length);
-  assert.ok(c.length < doc.length, "cikti hamdan buyuk olmamali");
-}, { timeout: 120000 });
-
-/**
- * KURULUM-11l K7 — yönlendirme kapısı. Ölçüm (bu dalga, aynı gövdeler):
- * tekrarlı log 3-gram tekrar 0,624 · 6,3 sn · 27006→18915 jeton (%30 kazanç);
- * karışık markdown 0,047 · 4,1 sn · 13784→1834 ama KAYIPLI — `## Bolum` başlıkları ve
- * `Kanit …` ölçüm satırları çıktıda hiç yok, yalnız tablo satırları CSV'ye dönüyor.
- * Bu yüzden kapı "kazanç" değil "içerik kaybı" gerekçesiyle duruyor.
- */
-const KARISIK = Array.from({ length: 260 }, (_, i) =>
-  `## Bolum ${i}` + BR + BR + `| a${i} | b${i} | c${i} |` + BR + "|---|---|---|" + BR
-  + `Kanit ${i}: olcum ${(i * 7919) % 104729} - yol tools/cc-kopru/dosya${i}.mjs - sure ${i}ms.` + BR)
-  .join(BR);
-
-test("tekrar orani kalibrasyonu: tekrarli >= esik > karisik", () => {
-  assert.ok(tekrarOrani(TEKRARLI) >= TEKRAR_ESIK, "tekrarli: " + tekrarOrani(TEKRARLI));
-  assert.ok(tekrarOrani(KARISIK) < TEKRAR_ESIK, "karisik: " + tekrarOrani(KARISIK));
-});
-
-test("karisik markdown headroom'a hic gitmez, dogrudan kirpilir", async () => {
-  assert.equal(await sikistir(KARISIK), null);
-  const c = await ciktiHazirla(KARISIK, 12000);
-  assert.ok(!c.includes("[headroom]"), "headroom cagrilmis");
-  assert.ok(c.length <= 12000 + 200 && c.length < KARISIK.length);
-});
 
 test("router tavani asilirsa kirpmaya duser", async () => {
   assert.equal(await sikistir(TEKRARLI, 1), null);
 });
+
+test("sikistirma basarisizsa ham cikti + uyari satiri doner", async () => {
+  // sikistir zaman asiminda null doner; ciktiHazirla uydurma yuzde basmamali.
+  const uzun = JSON_GOVDE;
+  const c = await ciktiHazirla(uzun, 30000, { log: "C:/sahte/yol.log" });
+  assert.ok(c.startsWith("[headroom %") || c.startsWith("[headroom yok · tam: "), c.slice(0, 60));
+  assert.ok(!/%NaN|%undefined/.test(c));
+}, { timeout: 120000 });

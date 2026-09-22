@@ -89,6 +89,22 @@ const bayrakVar = (args, bayrak) => args.some((a) =>
   a === bayrak || a.startsWith(bayrak + "=") || a.startsWith(bayrak + " ")
   || (/^-[^-]$/.test(bayrak) && a.startsWith(bayrak)));
 
+/**
+ * 11m-A K2: git uzun secenekte benzersiz ONEK kisaltmasini kabul eder — `--out`
+ * `--output`tur, `--no-ind` `--no-index`tir. Tam ad esitligi (bayrakVar) bu yuzden
+ * yetmez; yasak liste onek eslemesiyle uygulanir. `=` ile birlesik deger ve kisa
+ * bayraga bitisik deger (`-Oless`) ayni kapidan gecer.
+ * Uzun bayrakta 5 karakter alt siniri var: daha kisa onekleri git'in kendisi de
+ * "ambiguous" diye reddediyor, `--name-only` gibi mesru bayraklar da elenmemeli.
+ */
+export function yasakOnekVar(args, bayrak) {
+  return args.some((a) => {
+    if (!bayrak.startsWith("--")) return a === bayrak || a.startsWith(bayrak);
+    const ad = a.split("=")[0];
+    return ad.length >= 5 && bayrak.startsWith(ad);
+  });
+}
+
 /** `gh api` yalniz okuma: metot yok ya da GET, alan yazimi yok. */
 function ghApiDenetle(args) {
   const i = args.findIndex((a) => a === "-X" || a === "--method" || a.startsWith("--method="));
@@ -199,6 +215,9 @@ export function komutDenetle(arac, args, ayar, cwd) {
   for (const b of kural.yasakBayrak || []) {
     if (bayrakVar(args, b)) throw new Error(`'${arac}' için yasak bayrak: ${b}`);
   }
+  for (const b of kural.yasakOnekBayrak || []) {
+    if (yasakOnekVar(args, b)) throw new Error(`'${arac}' için yasak bayrak: ${b}`);
+  }
   if (!bilgi) {
     const konum = konumlar(args);
     for (const dizi of kural.yasakDizi || []) {
@@ -307,22 +326,43 @@ export const SIKISTIR_ESIK = 8000;
  * aşılırsa `sikistir` null döner ve çıktı kırpmaya düşer (fail-open).
  */
 export const SIKISTIR_ZAMAN_MS = 10000;
-/** 3-gram tekrar oranı eşiği. Ölçüm: tekrarlı log 0,624 · karışık markdown 0,047. */
-export const TEKRAR_ESIK = 0.3;
 
-/** Kelime 3-gram'larının tekrar oranı: 1 - benzersiz/toplam. Boş metinde 0. */
-export function tekrarOrani(metin, n = 3) {
-  const k = String(metin ?? "").split(/\s+/).filter(Boolean);
-  const g = [];
-  for (let i = 0; i + n <= k.length; i++) g.push(k.slice(i, i + n).join(" "));
-  return g.length ? 1 - new Set(g).size / g.length : 0;
+/**
+ * Çıktı sınıfı. 11m-A K4: sıkıştırma kararı metnin TÜRÜNE bağlanır, 11l'in 3-gram
+ * tekrar oranına değil — tekrarsız ama sıkıştırılabilir log (farklı satırlar, aynı
+ * biçim) kapıya takılıyordu. Markdown ve kod sıkıştırılmaz: 11l K7 ölçümünde 31 KB'lık
+ * başlık + tablo gövdesi 13784→1834 jetona iniyor ama `## Bolum` başlıkları ve
+ * `Kanit …` satırları çıktıda hiç yok — kayıplı.
+ * @returns {"json"|"markdown"|"kod"|"log"}
+ */
+export function ciktiSinifi(metin) {
+  const s = String(metin ?? "").trim();
+  if (!s) return "log";
+  if ((s.startsWith("{") && s.endsWith("}")) || (s.startsWith("[") && s.endsWith("]"))) {
+    try { JSON.parse(s); return "json"; } catch { /* JSON değil, aşağıdaki kapılara düşer */ }
+  }
+  const satirlar = s.split("\n");
+  const kac = (re) => satirlar.filter((l) => re.test(l)).length;
+  if (kac(/^#{1,6}\s/) || kac(/^\s*```/) || kac(/^\s*\|.*\|\s*$/) >= 2) return "markdown";
+  if (kac(/^\s*(import|export|from|def|class|function|const|let|var|public|private|using|namespace)\s/)
+      >= Math.max(3, satirlar.length * 0.1)) return "kod";
+  if (kac(/^\s*[-*]\s/) >= satirlar.length * 0.5) return "markdown";
+  return "log";
 }
 
 /**
- * >8 KB **tekrarlı** çıktı Headroom'a verilir. Tekrar kapısı (11l K7): karışık
- * markdown'da sıkıştırma kayıplı — 31 KB'lık başlık + tablo + kanıt gövdesi 13784→1834
- * jetona iniyor ama `## Bolum` başlıkları ve `Kanit …` ölçüm satırları çıktıda hiç yok,
- * yalnız tablo satırları CSV'ye dönüyor. Tekrarlı log gövdesinde kayıp yok, kazanç %30.
+ * Katmandan geçen sınıflar — ölçümle belirlendi (11m-A K4, docs/kurulum-11m.md).
+ * `json` 20865→16424 karakter (%21) · `log` ise gerçek komut çıktısında hiç kazanmıyor:
+ * `git log -100 --stat` 92377→92463, yani Headroom içeriği aynen (biraz da şişirerek)
+ * geri veriyor. Yapay tekrarlı log gövdesinde %30 kazanıyor ama gerçek çıktıda değil,
+ * bu yüzden `log` tarifin %15 eşiğine takılıp katmandan ÇIKTI. Büyük log çıktısının
+ * kazancı sıkıştırmadan değil, tavanda kırpma + tam çıktının log dosyasında
+ * kalmasından geliyor (92377→30142 karakter).
+ */
+export const SIKISAN_SINIFLAR = new Set(["json"]);
+
+/**
+ * >8 KB çıktı Headroom'a verilir (sınıf kapısı çağıranda).
  * Tek yol `headroom mcp serve` stdio MCP'si:
  * HTTP tarafında sıkıştırma rotası yok (`/compress` 404, 11k K6 ölçümü).
  * Dönen zarf `{compressed, hash, original_tokens, compressed_tokens, ...}`; hash'i
@@ -332,7 +372,6 @@ export function tekrarOrani(metin, n = 3) {
 export async function sikistir(metin, zamanMs = SIKISTIR_ZAMAN_MS) {
   const s = String(metin ?? "");
   if (s.length <= SIKISTIR_ESIK) return null;
-  if (tekrarOrani(s) < TEKRAR_ESIK) return null;
   const yol = yolBul("headroom");
   if (!yol) return null;
   const { Client } = await import("@modelcontextprotocol/sdk/client/index.js");
@@ -354,20 +393,65 @@ export async function sikistir(metin, zamanMs = SIKISTIR_ZAMAN_MS) {
   }
 }
 
-/**
- * Çıktı yolu: eşiğin üstü Headroom'a, altı `kirp`e.
- * Headroom "fail-open" çalışıyor — router zaman aşımına düşerse içeriği AYNEN geri
- * verir (11k K6b ölçümü: 33 480 → 33 499 karakter, tokens_saved 1). O yüzden sonuç
- * gerçekten küçülmediyse ham metin kırpılarak döner; şişmiş zarf çıktıya basılmaz.
- */
-export async function ciktiHazirla(metin, tavan) {
-  const z = await sikistir(metin);
-  const kazanc = z ? (z.original_tokens || 0) - (z.compressed_tokens || 0) : 0;
-  if (!z || kazanc <= 0 || String(z.compressed || "").length >= String(metin).length) {
-    return kirp(metin, tavan).metin;
+/** LOG_DIZIN'de tutulan dosya sayısı; fazlası en eskiden silinir. */
+export const LOG_TAVAN = 200;
+
+export function logBudama(tavan = LOG_TAVAN) {
+  let adlar;
+  try { adlar = fs.readdirSync(LOG_DIZIN); } catch { return 0; }
+  if (adlar.length <= tavan) return 0;
+  const sirali = adlar
+    .map((ad) => {
+      try { return { ad, t: fs.statSync(path.join(LOG_DIZIN, ad)).mtimeMs }; } catch { return null; }
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.t - a.t);
+  let silinen = 0;
+  for (const { ad } of sirali.slice(tavan)) {
+    try { fs.rmSync(path.join(LOG_DIZIN, ad), { force: true }); silinen += 1; } catch { /* kilitli */ }
   }
-  return `${z.compressed}\n\n[headroom] ${z.original_tokens} → ${z.compressed_tokens} jeton `
-    + `(%${z.savings_percent}) · tamamı: headroom_retrieve hash=${z.hash}`;
+  return silinen;
+}
+
+/** Tam çıktı dosyası. Çağıran metni REDAKTE edilmiş verir; burada yeniden taranmaz. */
+export function logaYaz(metin, etiket = "cikti") {
+  fs.mkdirSync(LOG_DIZIN, { recursive: true });
+  const yol = path.join(LOG_DIZIN, `${Date.now()}-${etiket}.log`);
+  fs.writeFileSync(yol, String(metin ?? ""), "utf8");
+  logBudama();
+  return yol;
+}
+
+/**
+ * Çıktı katmanı (11m-A K4). Eşiğin üstündeki log/JSON çıktısı yerel Headroom ile
+ * sıkıştırılır, tam çıktı log dosyasında kalır, ilk satır `[headroom %X · tam: <yol>]`.
+ * Markdown/kod sıkıştırılmaz. `ham` katmanı tümüyle atlar. Ağ çağrısı yoktur.
+ *
+ * Headroom "fail-open" çalışıyor — router zaman aşımına düşerse içeriği AYNEN geri
+ * verir (11k K6b ölçümü: 33 480 → 33 499 karakter, tokens_saved 1). Sonuç gerçekten
+ * küçülmediyse ham metin döner; şişmiş zarf çıktıya basılmaz.
+ *
+ * @param {{ham?:boolean, log?:string}} secenek log: çağıranın zaten yazdığı tam çıktı yolu
+ */
+export async function ciktiHazirla(metin, tavan, { ham = false, log = "" } = {}) {
+  const s = String(metin ?? "");
+  const kirpik = () => {
+    const { metin: k, kirpildi } = kirp(s, tavan);
+    if (!kirpildi) return s;
+    const yol = log || logaYaz(s);
+    return `[kırpıldı · tam: ${yol}]\n${k}`;
+  };
+  if (ham || s.length <= SIKISTIR_ESIK || !SIKISAN_SINIFLAR.has(ciktiSinifi(s))) return kirpik();
+
+  const z = await sikistir(s);
+  const kazanc = z ? (z.original_tokens || 0) - (z.compressed_tokens || 0) : 0;
+  if (!z || kazanc <= 0 || String(z.compressed || "").length >= s.length) {
+    // Sıkıştırma hatası ya da kazançsız: ham çıktı + uyarı satırı, uydurma yüzde yok.
+    const yol = log || logaYaz(s);
+    return `[headroom yok · tam: ${yol}]\n${kirp(s, tavan).metin}`;
+  }
+  const yol = log || logaYaz(s);
+  return `[headroom %${z.savings_percent} · tam: ${yol}]\n${z.compressed}`;
 }
 
 export function agaciKapat(pid) {

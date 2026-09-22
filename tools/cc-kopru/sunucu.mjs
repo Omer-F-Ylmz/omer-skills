@@ -13,10 +13,11 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, gozlemGovde, gozlemYaz,
-         komutDenetle,
+import { MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde,
+         gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
+import { ARALIK_TAVAN, oku } from "./oku.mjs";
 import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi, katalogTopla } from "./hook.mjs";
 import os from "node:os";
 
@@ -77,8 +78,10 @@ srv.registerTool("komut", {
     args: z.array(z.string()).default([]).describe("Argümanlar; kabuk yok, metakarakter yasak"),
     cwd: z.string().describe("Çalışma dizini (yalnız izinli kökler altında)"),
     timeout_sn: z.number().int().min(1).max(600).optional().describe("Varsayılan 120, tavan 600"),
+    ham: z.boolean().default(false)
+      .describe("Headroom çıktı katmanını atlar; çıktı yalnız tavanda kırpılır (11m-A K4)"),
   },
-}, ({ arac, args, cwd, timeout_sn }) => sirala(async () => {
+}, ({ arac, args, cwd, timeout_sn, ham }) => sirala(async () => {
   let proje;
   try {
     proje = cwdCoz(cwd, AYAR);
@@ -126,7 +129,8 @@ srv.registerTool("komut", {
 
   const bas = `${yazildi}${on.ekBaglam ? on.ekBaglam + "\n" : ""}${not ? not + "\n" : ""}`
     + `exit ${r.kod}${r.sureDoldu ? " (zaman aşımı)" : ""}\n`;
-  const govde = bas + await ciktiHazirla(r.cikti, AYAR.ciktiTavan ?? 30000);
+  // tam çıktı zaten kos()'un yazdığı log dosyasında; katman yeni dosya açmaz.
+  const govde = bas + await ciktiHazirla(r.cikti, AYAR.ciktiTavan ?? 30000, { ham, log: r.log });
   return r.kod === 0 ? metin(govde) : hata(govde);
 }));
 
@@ -281,6 +285,29 @@ srv.registerTool("katalog", {
   const bas = `${liste.length} kayıt (tür=${tur}${ara ? `, ara=${ara}` : ""})\n`;
   const govde = await ciktiHazirla(bas + satirlar.join("\n"), AYAR.ciktiTavan ?? 30000);
   return metin(govde);
+}));
+
+// ---------------------------------------------------------------- oku
+srv.registerTool("oku", {
+  title: "Dosya iskeleti · sembol · satır aralığı",
+  description: "Kaynak dosyayı tam okumadan gösterir: iskelet = semboller + satırları, "
+    + "sembol = yalnız o sembolün gövdesi, aralik = satır aralığı (graf gerekmez). "
+    + "Kaynak projenin graphify-out/graph.json'u; Read deny kuralları önce uygulanır.",
+  inputSchema: {
+    proje_yolu: z.string().describe("Proje kökü (yalnız izinli kökler altında)"),
+    dosya: z.string().describe("Köke göreli dosya yolu"),
+    mod: z.enum(["iskelet", "sembol", "aralik"]).default("iskelet"),
+    ad: z.string().optional().describe("mod=sembol için sembol adı"),
+    bas: z.number().int().min(1).optional().describe("mod=aralik başlangıç satırı"),
+    bit: z.number().int().min(1).optional().describe(`mod=aralik bitiş satırı (tavan ${ARALIK_TAVAN} satır)`),
+  },
+}, ({ proje_yolu, dosya, mod, ad, bas, bit }) => sirala(async () => {
+  let kok;
+  try { kok = cwdCoz(proje_yolu, AYAR); } catch (e) { return hata("RED: " + e.message); }
+  try {
+    const govde = oku({ kok, mod, dosya, ad, bas, bit, deny: AYAR.denyListesi || denyListesi() });
+    return metin(await ciktiHazirla(govde, AYAR.ciktiTavan ?? 30000));
+  } catch (e) { return hata("RED: " + e.message); }
 }));
 
 // ---------------------------------------------------------------- durum

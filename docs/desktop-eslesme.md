@@ -47,7 +47,7 @@ Kuru test: Desktop kapalıyken, gerçek Windows PATH'i ile, CC tarafında bağı
 | omniroute | config (**eklendi**) | `cmd /c omniroute --mcp` | yok | — | 110 | Chat |
 | code-review | config (**eklendi**) | `cmd /c uvx code-review-mcp@2.0.0` | miras (GITHUB_TOKEN) | GITLAB_TOKEN tanımsız (CC'de de uyarı) | 12 | Chat |
 | claude-mem | config (**eklendi**) | `node ...\claude-mem\13.25.2\scripts\mcp-server.cjs` | yok | yerel claude-mem worker | 15 | Chat |
-| obsidian | config (**eklendi**, 11g) | `cmd /c tools\mcp-launch\obsidian.cmd` → `mcp-remote http://127.0.0.1:22360/sse --transport sse-only` | yok (eklentide kimlik doğrulama yok; §8 yaması) | **Obsidian açık olmalı**, Desktop'tan önce açılır | 7 | Chat |
+| obsidian | config (**eklendi**, 11g · 11m-A'da yeniden yazıldı) | `cmd /c tools\mcp-launch\obsidian.cmd` → `node tools/cc-kopru/obsidian.mjs` (SDK SSE istemcisi; mcp-remote katmanı düştü) | yok (eklentide kimlik doğrulama yok; §8 yaması) | Obsidian kapalıyken de açılır; araç çağrısı "Obsidian kapalı — aç ve tekrar dene" der, Obsidian açılınca Desktop yeniden başlatılmadan ilk çağrı bağlanır (11m-A K1) | 7 | Chat |
 | mslearn | hesap bağlayıcısı | `https://learn.microsoft.com/api/mcp` | auth yok | — | — | Chat |
 | claude-design | hesap bağlayıcısı | `https://api.anthropic.com/v1/design/mcp` | OAuth | — | — | Chat |
 | 21st | hesap bağlayıcısı | `https://21st.dev/api/mcp` | header x-api-key | — | — | Chat |
@@ -744,3 +744,16 @@ için: `claude_desktop_config.json.bak11k` dosyasını üzerine kopyalamak yeter
 Gerçek uçta `list_projects` kırmızıydı: akışta hiç `tool_use` yok, model "aracım yok" diyordu.
 Kök neden ortamda: **`ANTHROPIC_BASE_URL` Headroom'un yerel vekilini gösteriyor ve vekil isteğin `tools` dizisini tek bir arama aracına (`tool_search_tool_regex`) indiriyor** — model 23 claude-design aracını hiç görmüyor, dolayısıyla çağırmıyor.
 Düzeltme: aktarıcı alt sürecinde `ANTHROPIC_BASE_URL` **düşürülür** (`delete ortam.ANTHROPIC_BASE_URL`, `tasarim.mjs`); köprünün kendi süreci ve diğer araçlar etkilenmez. Pin: değişken miras alınırsa `tool_use` gelmez (`tasarim.test.mjs`).
+
+## 9. KURULUM-11m-A · 22 Eyl 2026 — Desktop token katmanı (köprü tarafı)
+
+Ayrıntı: `docs/kurulum-11m.md`. Özet:
+
+| kalem | değişiklik | token etkisi |
+|---|---|---|
+| K1 obsidian | başlatıcı `obsidian.mjs`'e döndü; açılışta bağlanmaz, şema önbelleğe yazılır | Obsidian kapalıyken 7 araç şeması yine yayınlanır; Desktop yeniden başlatma turu düşer |
+| K2 git | `izinli.git` = grep · ls-files · show, önek kısaltmalı yasak bayrak kapısı | `komut` ile git okuması artık köprüden geçiyor — `ajan` alt oturumu açmaya gerek yok |
+| K3 `oku` | claude-mem smart_* yerine `graphify-out/graph.json`; iskelet · sembol · aralik | dosyayı tam okumak yerine iskelet + tek sembol |
+| K4 çıktı | `ciktiHazirla` sınıf kapısı (log/JSON sıkışır, markdown/kod sıkışmaz), `ham`, tam çıktı log yolunda, LOG_DIZIN'de son 200 dosya | ölçüm tablosu `docs/kurulum-11m.md` K4 |
+
+`smart_*` CC'de de çalışmıyor; onarım = tree-sitter-cli + gramerler + C derleyici, ayrı karar.
