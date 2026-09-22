@@ -13,12 +13,24 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { denyListesi, okumaDeny } from "./kos.mjs";
+import { LOG_DIZIN, denyListesi, okumaDeny } from "./kos.mjs";
 
 /** `aralik` tek çağrıda en fazla bu kadar satır döner. */
 export const ARALIK_TAVAN = 400;
 
 export const grafYolu = (kok) => path.join(kok, "graphify-out", "graph.json");
+
+/**
+ * Köprünün kendi log dizini `oku` için SALT-OKUMA kök: `kos()` tam çıktıyı oraya
+ * yazıyor ama Temp izinli köklerin dışında, Desktop logu hiç açamıyordu (11m-A-FIX K3).
+ * Çağıran yalnız mod=aralik'e izin verir; Read deny kapısı yine dosyaAc'ta çalışır.
+ * @returns {string|null} LOG_DIZIN (yol onun altındaysa) ya da null
+ */
+export function logKoku(yol) {
+  const k = path.resolve(LOG_DIZIN);
+  const y = path.resolve(String(yol ?? ""));
+  return y === k || y.startsWith(k + path.sep) ? k : null;
+}
 
 /** @returns {{id:string,ad:string,satir:number}[]} dosyanın düğümleri, satıra göre sıralı */
 export function dosyaDugumleri(graf, gorelYol) {
@@ -86,8 +98,29 @@ export function sembol(kok, dosya, ad, deny) {
   }
   const bas = dugumler[i].satir;
   // Bitiş satırı grafta yok: bir sonraki kardeşin başlangıcı sınırdır, son sembolde EOF.
-  const bit = i + 1 < dugumler.length ? dugumler[i + 1].satir - 1 : d.satirlar.length;
+  const bit = i + 1 < dugumler.length
+    ? yorumsuzBitis(d.satirlar, bas, dugumler[i + 1].satir - 1)
+    : d.satirlar.length;
   return govde(d, bas, bit, `${d.gorel} · ${dugumler[i].ad}`);
+}
+
+/**
+ * Kardeşin doc-yorumu sembolün gövdesine sayılmasın (11m-A-FIX K4): bitişten geriye
+ * boş satır, `//` satırı ve `/* *` bloğu atılır. Son sembolde çağrılmaz, EOF aynı kalır.
+ */
+function yorumsuzBitis(satirlar, bas, bit) {
+  let b = bit;
+  while (b > bas) {
+    const s = String(satirlar[b - 1]).trim();
+    if (!s || s.startsWith("//")) { b -= 1; continue; }
+    if (s.endsWith("*/")) {
+      let a = b;
+      while (a > bas && !String(satirlar[a - 1]).trim().startsWith("/*")) a -= 1;
+      if (String(satirlar[a - 1]).trim().startsWith("/*")) { b = a - 1; continue; }
+    }
+    break;
+  }
+  return b;
 }
 
 /** Grafsız satır aralığı. Tavan ARALIK_TAVAN satır. */

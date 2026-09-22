@@ -17,7 +17,7 @@ import { MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi,
          gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
-import { ARALIK_TAVAN, oku } from "./oku.mjs";
+import { ARALIK_TAVAN, logKoku, oku } from "./oku.mjs";
 import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi, katalogTopla } from "./hook.mjs";
 import os from "node:os";
 
@@ -302,8 +302,12 @@ srv.registerTool("oku", {
     bit: z.number().int().min(1).optional().describe(`mod=aralik bitiş satırı (tavan ${ARALIK_TAVAN} satır)`),
   },
 }, ({ proje_yolu, dosya, mod, ad, bas, bit }) => sirala(async () => {
-  let kok;
-  try { kok = cwdCoz(proje_yolu, AYAR); } catch (e) { return hata("RED: " + e.message); }
+  // Köprünün kendi log dizini salt-okuma kök: graf yok, yalnız satır aralığı (K3).
+  let kok = logKoku(proje_yolu);
+  if (kok && mod !== "aralik") return hata("RED: log dizini yalnız mod=aralik ile okunur");
+  if (!kok) {
+    try { kok = cwdCoz(proje_yolu, AYAR); } catch (e) { return hata("RED: " + e.message); }
+  }
   try {
     const govde = oku({ kok, mod, dosya, ad, bas, bit, deny: AYAR.denyListesi || denyListesi() });
     return metin(await ciktiHazirla(govde, AYAR.ciktiTavan ?? 30000));

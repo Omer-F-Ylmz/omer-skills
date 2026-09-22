@@ -5,7 +5,8 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { ARALIK_TAVAN, aralik, iskelet, oku, sembol } from "../oku.mjs";
+import { LOG_DIZIN } from "../kos.mjs";
+import { ARALIK_TAVAN, aralik, iskelet, logKoku, oku, sembol } from "../oku.mjs";
 
 const KOK = path.resolve(path.dirname(new URL(import.meta.url).pathname.slice(1)), "..", "..", "..");
 
@@ -45,7 +46,7 @@ test("iskelet: semboller + satırlar, gövde yok", () => {
 test("sembol: bitiş satırı graftan gelmiyor, sonraki kardeşin başına kadar okunur", () => {
   const p = sahteProje();
   const c = sembol(p.kok, p.dosya, "bir", []);
-  assert.match(c, /L2-5/);
+  assert.match(c, /L2-4/);  // 11m-A-FIX K4: kardesten onceki bos satir bitise girmez
   assert.match(c, /return 1;/);
   assert.ok(!c.includes("return 2"), "sonraki sembolün gövdesi sızmaz");
 });
@@ -113,4 +114,44 @@ test("gerçek depo: omer-skills .mjs ve .py dosyasında iskelet yeşil", () => {
     }
     assert.match(iskelet(KOK, d, []), beklenen, d);
   }
+});
+
+// ------------------------------------------------- 11m-A-FIX K3/K4
+/** Kardeşin üstündeki yorumu taşıyan proje: satır yorumu ve blok yorumu, iki örnek. */
+function yorumluProje() {
+  const kok = fs.mkdtempSync(path.join(os.tmpdir(), "oku-y-"));
+  fs.mkdirSync(path.join(kok, "graphify-out"), { recursive: true });
+  fs.writeFileSync(path.join(kok, "a.mjs"),
+    ["export function bir() {", "  return 1;", "}", "",
+     "// iki'nin yorumu", "export function iki() {", "  return 2;", "}", "",
+     "/**", " * uc'un doc yorumu", " */", "export function uc() {", "  return 3;", "}", ""]
+      .join("\n"), "utf8");
+  fs.writeFileSync(path.join(kok, "graphify-out", "graph.json"), JSON.stringify({
+    nodes: [
+      { id: "bir", label: "bir()", source_file: "a.mjs", source_location: "L1" },
+      { id: "iki", label: "iki()", source_file: "a.mjs", source_location: "L6" },
+      { id: "uc", label: "uc()", source_file: "a.mjs", source_location: "L13" },
+    ],
+  }), "utf8");
+  return { kok, dosya: "a.mjs" };
+}
+
+test("K4: sonraki kardesin doc-yorumu sembolun bitisine sizmaz", () => {
+  const p = yorumluProje();
+  const bir = sembol(p.kok, p.dosya, "bir", []);
+  assert.match(bir, /L1-3/);
+  assert.ok(!bir.includes("iki'nin yorumu"), "// yorumu sizdi");
+  const iki = sembol(p.kok, p.dosya, "iki", []);
+  assert.match(iki, /L6-8/);
+  assert.ok(!iki.includes("doc yorumu"), "/** */ blogu sizdi");
+  // son sembolde EOF davranisi degismez
+  assert.match(sembol(p.kok, p.dosya, "uc", []), /L13-16/);
+});
+
+test("K3: LOG_DIZIN salt-okuma kok, disindaki Temp yolu degil", () => {
+  const k = path.resolve(LOG_DIZIN);
+  assert.equal(logKoku(LOG_DIZIN), k);
+  assert.equal(logKoku(path.join(LOG_DIZIN, "1758-cikti.log")), k);
+  assert.equal(logKoku(path.join(os.tmpdir(), "cc-kopru-baska")), null);
+  assert.equal(logKoku(KOK), null);
 });

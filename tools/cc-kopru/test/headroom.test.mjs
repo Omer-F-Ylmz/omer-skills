@@ -10,7 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 const BR = String.fromCharCode(10);
 
-import { LOG_DIZIN, LOG_TAVAN, SIKISTIR_ESIK, ciktiHazirla, ciktiSinifi, logBudama, logaYaz,
+import { LOG_DIZIN, LOG_TAVAN, SIKISTIR_ESIK, ciktiHazirla, ciktiSinifi, kirp, logBudama, logaYaz,
          sikistir } from "../kos.mjs";
 
 const TEKRARLI = Array.from({ length: 900 }, (_, i) =>
@@ -111,3 +111,45 @@ test("sikistirma basarisizsa ham cikti + uyari satiri doner", async () => {
   assert.ok(c.startsWith("[headroom %") || c.startsWith("[headroom yok · tam: "), c.slice(0, 60));
   assert.ok(!/%NaN|%undefined/.test(c));
 }, { timeout: 120000 });
+
+// ------------------------------------------------- 11m-A-FIX K1/K2: çift katman
+/**
+ * rtk yeniden yazımı JSON gövdesini kendi tam-satır başlık/altlığıyla sarar. Köprünün
+ * `[hook yeniden yazdı] …` satırı gövdeye girmiyor (sunucu onu `bas`'ta tutuyor);
+ * sınıflamayı bozan rtk'nin kendi satırları ve köprünün kırpma etiketi.
+ */
+const RTK_JSON = "[+1 hidden: rtk recall 6d55025d6531]" + BR + JSON_GOVDE + BR
+  + "[216 words compressed to 176 (from 28 source lines). Retrieve more: hash=e28eb3106]";
+
+test("K1: rtk baslik/altligi ve kopru etiketi sinifi bozmaz", () => {
+  assert.equal(ciktiSinifi(RTK_JSON), "json");
+  assert.equal(ciktiSinifi("[kırpıldı · tam: C:/x.log]" + BR + JSON_GOVDE), "json");
+  // ayiklama yalnizca tam-satir etiketlerini alir; govde sinifi degismez
+  assert.equal(ciktiSinifi(TEKRARLI), "log");
+  assert.equal(ciktiSinifi(KARISIK), "markdown");
+});
+
+test("K1: rtk footer'li 20K+ JSON katmandan gecer, yol cikti da tek kez", async () => {
+  assert.ok(RTK_JSON.length > 20000, "fixture 20K altinda");
+  const c = await ciktiHazirla(RTK_JSON, 30000, { log: "C:/sahte/yol.log" });
+  assert.match(c, /^\[headroom %[\d.]+ · tam: C:\/sahte\/yol\.log\]/);
+  assert.equal((c.match(/· tam: /g) || []).length, 1, "yol birden cok kez basildi");
+  assert.match(c, /Retrieve more: hash=e28eb3106\]$/, "rtk recall altligi dustu");
+}, { timeout: 120000 });
+
+test("K2: kirp ciktisi etiket dahil tavani asmaz", () => {
+  const uzun = "a".repeat(1000) + "b".repeat(60000) + "c".repeat(1000);
+  for (const tavan of [200, 2000, 10000, 30000]) {
+    const r = kirp(uzun, tavan);
+    assert.equal(r.kirpildi, true);
+    assert.ok(r.metin.length <= tavan, `tavan ${tavan} -> ${r.metin.length}`);
+  }
+});
+
+test("K2: ciktiHazirla'nin kirpilmis ciktisi etiket dahil tavani asmaz", async () => {
+  const uzun = TEKRARLI + BR + "x".repeat(40000);
+  for (const tavan of [10000, 12000]) {
+    const c = await ciktiHazirla(uzun, tavan, { log: "C:/sahte/yol.log" });
+    assert.ok(c.length <= tavan, `tavan ${tavan} -> ${c.length}`);
+  }
+});

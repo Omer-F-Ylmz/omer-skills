@@ -311,10 +311,14 @@ export const yerelGun = (d = new Date()) =>
 export function kirp(metin, tavan) {
   const s = String(metin ?? "");
   if (s.length <= tavan) return { metin: s, kirpildi: false };
-  const bas = s.slice(0, 5000);
-  const son = s.slice(-(tavan - 5000));
+  // Etiket tavanIN İÇİNDE kalır. 11m-A-FIX K2 öncesi çıktı tavan + etiket kadardı;
+  // ikinci katman (sunucu) da her çağrıda yalnız o ~130 karakteri kırpıyordu.
+  const etiket = (n) => `\n\n… [${n} karakter kırpıldı; tamamı log dosyasında] …\n\n`;
+  const pay = etiket(s.length).length;
+  const basN = Math.max(0, Math.min(5000, Math.floor((tavan - pay) / 2)));
+  const sonN = Math.max(0, tavan - pay - basN);
   return {
-    metin: `${bas}\n\n… [${s.length - tavan} karakter kırpıldı; tamamı log dosyasında] …\n\n${son}`,
+    metin: s.slice(0, basN) + etiket(s.length - basN - sonN) + (sonN ? s.slice(-sonN) : ""),
     kirpildi: true,
   };
 }
@@ -335,8 +339,25 @@ export const SIKISTIR_ZAMAN_MS = 10000;
  * `Kanit …` satırları çıktıda hiç yok — kayıplı.
  * @returns {"json"|"markdown"|"kod"|"log"}
  */
+const ETIKET_SATIRI = /^\[[^\]]*\]$/;
+
+/**
+ * Köprü ve rtk kendi tam-satır `[...]` etiketlerini gövdenin başına/sonuna ekliyor
+ * (`[hook yeniden yazdı] ...`, rtk'nin `[N words compressed ...]` altlığı). Sınıflama
+ * onların üstünde yapılınca JSON `}` ile bitmiyor ve `log` sayılıyordu (11m-A-FIX K1).
+ */
+export function govdeAyikla(metin) {
+  const l = String(metin ?? "").split("\n");
+  // Uzunluk kapisi sart: tek satirlik JSON dizisi de `[...]` bicimindedir ve
+  // etiket sanilip govdenin kendisi ayiklanirdi. Etiketler tek kisa satirdir.
+  const etiket = (x) => !x.trim() || (x.trim().length <= 200 && ETIKET_SATIRI.test(x.trim()));
+  while (l.length && etiket(l[0])) l.shift();
+  while (l.length && etiket(l[l.length - 1])) l.pop();
+  return l.join("\n");
+}
+
 export function ciktiSinifi(metin) {
-  const s = String(metin ?? "").trim();
+  const s = govdeAyikla(metin).trim();
   if (!s) return "log";
   if ((s.startsWith("{") && s.endsWith("}")) || (s.startsWith("[") && s.endsWith("]"))) {
     try { JSON.parse(s); return "json"; } catch { /* JSON değil, aşağıdaki kapılara düşer */ }
@@ -436,22 +457,31 @@ export function logaYaz(metin, etiket = "cikti") {
 export async function ciktiHazirla(metin, tavan, { ham = false, log = "" } = {}) {
   const s = String(metin ?? "");
   const kirpik = () => {
-    const { metin: k, kirpildi } = kirp(s, tavan);
-    if (!kirpildi) return s;
+    if (s.length <= tavan) return s;
     const yol = log || logaYaz(s);
-    return `[kırpıldı · tam: ${yol}]\n${k}`;
+    const on = `[kırpıldı · tam: ${yol}]\n`;
+    return on + kirp(s, tavan - on.length).metin;
   };
   if (ham || s.length <= SIKISTIR_ESIK || !SIKISAN_SINIFLAR.has(ciktiSinifi(s))) return kirpik();
 
-  const z = await sikistir(s);
+  // Headroom'un içerik algılaması rtk'nin başlık/altlık satırlarında bozuluyor: aynı
+  // gövde sarılı halde %0 kazanıyor (90 243 kr değişmeden geri), ayıklanmış halde %52,4.
+  // Sıkıştırma da ayıklanmış gövdede yapılır; rtk'nin altlığı (recall hash'i) geri eklenir.
+  const cekirdek = govdeAyikla(s);
+  const artik = s.slice(s.indexOf(cekirdek) + cekirdek.length).trim();
+  const z = await sikistir(cekirdek);
   const kazanc = z ? (z.original_tokens || 0) - (z.compressed_tokens || 0) : 0;
-  if (!z || kazanc <= 0 || String(z.compressed || "").length >= s.length) {
+  if (!z || kazanc <= 0 || String(z.compressed || "").length >= cekirdek.length) {
     // Sıkıştırma hatası ya da kazançsız: ham çıktı + uyarı satırı, uydurma yüzde yok.
     const yol = log || logaYaz(s);
-    return `[headroom yok · tam: ${yol}]\n${kirp(s, tavan).metin}`;
+    const on = `[headroom yok · tam: ${yol}]\n`;
+    return on + kirp(s, tavan - on.length).metin;
   }
   const yol = log || logaYaz(s);
-  return `[headroom %${z.savings_percent} · tam: ${yol}]\n${z.compressed}`;
+  // Sıkıştırılmış gövde de tavana tabi: `gh api` %48,1 kazançla bile 67 622 karakterle
+  // bağlama giriyordu (11m-A-FIX K2 canlı ölçümü). Tamamı yine log dosyasında.
+  const on = `[headroom %${z.savings_percent} · tam: ${yol}]\n`;
+  return on + kirp(z.compressed + (artik ? `\n${artik}` : ""), tavan - on.length).metin;
 }
 
 export function agaciKapat(pid) {
@@ -516,12 +546,10 @@ export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla }) {
       let tam = redakte(Buffer.concat(parcalar).toString("utf8"));
       if (sureDoldu) tam += `\n[cc-kopru] zaman aşımı: ${sn} sn doldu, süreç ağacı kapatıldı.`;
       fs.writeFileSync(log, tam, "utf8");
-      const { metin, kirpildi } = kirp(tam, ayar.ciktiTavan ?? 30000);
-      cozumle({
-        kod: kod ?? -1,
-        cikti: kirpildi ? `${metin}\n[tam çıktı] ${log}` : metin,
-        sureDoldu, log,
-      });
+      // Kırpma/sıkıştırma TEK katmanda: `ciktiHazirla`. Burada da kırpınca sınıf kapısı
+      // JSON'u göremiyor, tavan iki kez uygulanıyor (ikincisi yalnız ilk etiketi kesiyor)
+      // ve log yolu çıktıda iki kez geçiyordu (11m-A-FIX K1/K2). Tam çıktı `log` dosyasında.
+      cozumle({ kod: kod ?? -1, cikti: tam, sureDoldu, log });
     };
 
     p.on("error", (e) => { parcalar.push(Buffer.from(String(e))); bitir(-1); });
