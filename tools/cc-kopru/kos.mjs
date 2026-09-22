@@ -3,7 +3,7 @@
  * Allowlist · cwd denetimi · redaksiyon · timeout + süreç ağacı · çıktı tavanı.
  * shell:false; .cmd shim'inde gerçek hedef çözülür, çözülemezse denetimli `cmd /c`.
  */
-import { spawn, spawnSync } from "node:child_process";
+import { execFileSync, spawn, spawnSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
@@ -199,8 +199,11 @@ const TEHLIKELI_SECENEK =
 /** Tek başına verilebilen zararsız bilgi bayrakları. */
 const BILGI_BAYRAGI = /^--?(version|help|v|h)$/i;
 
+/** `_` önekli anahtarlar not; araç değil (13c K0: enum'a sızıyordu). */
+export const aracAdlari = (ayar) => Object.keys(ayar.izinli).filter((k) => !k.startsWith("_"));
+
 export function komutDenetle(arac, args, ayar, cwd) {
-  const kural = ayar.izinli[arac];
+  const kural = arac.startsWith("_") ? undefined : ayar.izinli[arac];
   if (!kural) throw new Error(`'${arac}' allowlist'te değil`);
   if (kural.kos === false) throw new Error(`'${arac}' koşmaz: ${kural.sebep}`);
 
@@ -269,9 +272,45 @@ export function komutDenetle(arac, args, ayar, cwd) {
   return { arac, args: cikanArgs, yol };
 }
 
+// 13c K0: çocuğa geçirilen envGecir değerleri; process.env'de olmayabilir, redaksiyona girer.
+const GECIRILEN = new Set();
+const KULLANICI_ENV = new Map();
+
+/** Windows kullanıcı kapsamı değişkeni (HKCU\Environment). Değer döner; hiçbir yere yazılmaz. */
+export function kullaniciEnv(ad) {
+  if (process.platform !== "win32") return undefined;
+  if (!KULLANICI_ENV.has(ad)) {
+    let d;
+    try {
+      const o = execFileSync("reg", ["query", "HKCU\\Environment", "/v", ad],
+        { encoding: "utf8", windowsHide: true, stdio: ["ignore", "pipe", "ignore"] });
+      d = new RegExp(`^\\s*${ad}\\s+REG_(?:EXPAND_)?SZ\\s+(.*)$`, "m").exec(o)?.[1].trim();
+    } catch { /* yok */ }
+    KULLANICI_ENV.set(ad, d);
+  }
+  return KULLANICI_ENV.get(ad);
+}
+
+/**
+ * 13c K0: Desktop MCP süreci kısıtlı env ile başlar (SDK varsayılan beyaz listesi).
+ * Tüm envGecir adları her çocuktan silinir; araç yalnız kendi envGecir adlarını alır
+ * (önce süreç env'i, yoksa kullanıcı kapsamı). Değerler redaksiyon kümesine girer.
+ */
+export function cocukOrtam(arac, ayar, taban = process.env, oku = kullaniciEnv) {
+  const env = { ...taban };
+  for (const k of Object.values(ayar.izinli || {})) for (const ad of k?.envGecir || []) delete env[ad];
+  for (const ad of ayar.izinli?.[arac]?.envGecir || []) {
+    const d = taban[ad] || oku(ad);
+    if (!d) continue;
+    env[ad] = d;
+    if (d.length >= 4) GECIRILEN.add(d);
+  }
+  return env;
+}
+
 /** Adı KEY/TOKEN/SECRET/PAT/PASSWORD segmenti içeren değişkenlerin DEĞERLERİ. */
 function sirDegerleri() {
-  const out = [];
+  const out = [...GECIRILEN];
   for (const [ad, deger] of Object.entries(process.env)) {
     if (!deger || deger.length < 4) continue;
     const segmentler = ad.toUpperCase().split(/[^A-Z0-9]+/);
@@ -543,7 +582,7 @@ export function agaciKapat(pid) {
 /**
  * @returns {Promise<{kod:number, cikti:string, sureDoldu:boolean, log:string}>}
  */
-export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla }) {
+export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla, kullaniciOku = kullaniciEnv }) {
   // denetimAtla: cagiran zaten komutDenetle'den gecirdi (hook yeniden yazimi sarmalamasi)
   const calisma = cwdCoz(cwd, ayar);
   // denetim `--` ayiricisini eklemis olabilir (11l K2); kosan argv denetimden cikandir.
@@ -579,7 +618,7 @@ export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla }) {
   return new Promise((cozumle) => {
     const p = spawn(komut, tamArgs, {
       cwd: calisma, shell: false, windowsHide: true,
-      env: { ...process.env, ...gitOrtam, ...(env || {}) },
+      env: { ...cocukOrtam(arac, ayar, process.env, kullaniciOku), ...gitOrtam, ...(env || {}) },
     });
     const parcalar = [];
     let sureDoldu = false;

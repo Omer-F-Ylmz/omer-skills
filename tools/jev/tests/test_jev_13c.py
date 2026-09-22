@@ -147,7 +147,8 @@ def test_hook_cli_exit0_cikti_yok(tmp_path, monkeypatch, capsys):
     import io
     monkeypatch.setattr(sys, "stdin", io.StringIO(json.dumps({"prompt": "x"})))
     monkeypatch.setattr(sk, "adaylar", lambda ev=None: ADAY)
-    kod = cli.main(["hook"], env={**HOOK_ENV, "HOME": str(tmp_path)}, gonder=Kayit(hata=RuntimeError("x")), uyu=lambda s: None)
+    monkeypatch.setattr(Path, "home", lambda: tmp_path)
+    kod = cli.main(["hook"], env=HOOK_ENV, gonder=Kayit(hata=RuntimeError("x")), uyu=lambda s: None)
     o = capsys.readouterr()
     assert kod == 0 and o.out == "" and o.err == ""
 

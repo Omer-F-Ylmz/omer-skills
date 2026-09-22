@@ -16,10 +16,11 @@ sealed class StubHandler(Func<int, HttpStatusCode> status, int delayMs = 0) : Ht
     {
         var n = Interlocked.Increment(ref _count);
         var now = Interlocked.Increment(ref _inFlight);
+        var body0 = await request.Content!.ReadAsStringAsync(ct);
         lock (Bodies)
         {
             MaxInFlight = Math.Max(MaxInFlight, now);
-            Bodies.Add(await request.Content!.ReadAsStringAsync(ct));
+            Bodies.Add(body0);
         }
         try
         {
@@ -91,7 +92,7 @@ public class JevClientTests
     [Fact]
     public async Task Chunks_of_200()
     {
-        var (c, h) = Make(_ => HttpStatusCode.OK, o => o.MaxBatches = 3);
+        var (c, h) = Make(_ => HttpStatusCode.OK, o => { o.MaxBatches = 3; o.MaxRequests = 1000; });
         var r = await c.BatchAsync(States(450), Q, TestContext.Current.CancellationToken);
         Assert.Equal(450, r.Count);
         Assert.Equal(3, c.Batches);

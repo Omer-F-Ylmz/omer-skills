@@ -1,0 +1,20 @@
+{"istem": "Divisima'da sepet sayfasının mobil görünümünü Razor view'larda baştan tasarla.", "altin": ["frontend-craft:frontend-craft", "impeccable:impeccable", "ui-ux-pro-max"]}
+{"istem": "Divisima denetim dalgasını protokole göre başlat, tarif başında ne yüklenmeli?", "altin": ["anthropic-skills:sdp", "anthropic-skills:surec"]}
+{"istem": "Corvano API'sine yeni bir sipariş endpoint'i ekle, OpenAPI dokümanı ve hata yönetimi de olsun.", "altin": ["dotnet-aspnetcore:dotnet-webapi"]}
+{"istem": "Corvano'da ürün listesini getiren EF Core sorgusu 4 saniye sürüyor, hızlandır.", "altin": ["dotnet-data:optimizing-ef-core-queries"]}
+{"istem": "Garajım'da müşteri telefonu ve plakayı yeni bir SMS sağlayıcısına göndereceğiz; KVKK açısından sorun var mı?", "altin": ["use-case-triage", "pia-generation"]}
+{"istem": "Garajım servis kayıtlarını yurt dışındaki buluta yedekleyeceğiz, VKED taslağını çıkar.", "altin": ["pia-generation", "use-case-triage"]}
+{"istem": "Bu branch'teki değişiklikleri merge öncesi güvenlik açığı için tara.", "altin": ["cso", "anthropic-skills:find-security-vulnerabilities-in-code", "review"]}
+{"istem": "Giriş akışını OWASP Top 10 kategorilerine göre sızma testinden geçir.", "altin": ["anthropic-skills:owasp-top-10-testing", "anthropic-skills:web-app-penetration-testing"]}
+{"istem": "Testler kırmızı ve neden patladığını bulamıyorum, kök sebebi araştır.", "altin": ["superpowers:systematic-debugging", "investigate"]}
+{"istem": "Yeni özelliği önce testini yazıp sonra kodlayarak geliştir.", "altin": ["superpowers:test-driven-development"]}
+{"istem": "Yeni tasarım projesi için marka kimliği, tipografi ve renk paleti öner.", "altin": ["design-consultation", "ui-ux-pro-max"]}
+{"istem": "Bu makinedeki skill'leri listele, göreve uygun olanları bul ve kur.", "altin": ["anthropic-skills:skill-ui-cli"]}
+{"istem": "Claude Code'a her dosya düzenlemesinden sonra formatlayıcı çalıştıran bir hook ekle.", "altin": ["plugin-dev:hook-development", "hookify:writing-rules"]}
+{"istem": "PR'ı birleştirmeden önce kodu gözden geçir.", "altin": ["review", "superpowers:requesting-code-review"]}
+{"istem": "Bu markdown raporunu yayın kalitesinde PDF'e çevir.", "altin": ["make-pdf"]}
+{"istem": "Kurulumdan sonra production'ı canary olarak izle, hata artarsa uyar.", "altin": ["canary", "land-and-deploy"]}
+{"istem": "Divisima checkout page'in Core Web Vitals'ı kötü, LCP 4s; performance audit yap.", "altin": ["agent-skills:performance-optimization", "benchmark"]}
+{"istem": "Corvano için önce write a spec, sonra implementation plan çıkar.", "altin": ["spec", "superpowers:writing-plans"]}
+{"istem": "Garajım dashboard'ında accessibility issues var; fix the ARIA labels ve focus management.", "altin": ["anthropic-skills:fixing-accessibility"]}
+{"istem": "Repo'da secret leak var mı, gitleaks ile check et.", "altin": ["anthropic-skills:gitleaks-desktop", "cso"]}

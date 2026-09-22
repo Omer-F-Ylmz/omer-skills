@@ -13,7 +13,7 @@
 {"mesaj": "Ürünü iade ettim, depoya ulaştı mı göremiyorum.", "niyet": "iade", "acil": false, "sinir": false}
 {"mesaj": "Kusurlu çıkan blenderı geri göndermek istiyorum, kutusunu attım sorun olur mu?", "niyet": "iade", "acil": false, "sinir": false}
 {"mesaj": "Hediye olarak aldım, beğenilmedi; iade ederken fatura gerekir mi?", "niyet": "iade", "acil": false, "sinir": false}
-{"mesaj": "İade ettim, paramı da hâlâ görmedim, kargo da iki kez para aldı, ne biçim iş bu?", "niyet": "iade", "acil": false, "sinir": true}
+{"mesaj": "İade ettim, paramı da hâlâ görmedim, kargo da iki kez para aldı, ne biçim iş bu?", "niyet": "ödeme", "acil": false, "sinir": true}
 {"mesaj": "Can I return this? Yanlış renk gönderilmiş.", "niyet": "iade", "acil": false, "sinir": true}
 {"mesaj": "Kartımdan aynı sipariş için iki kez çekim yapılmış, hemen düzeltin lütfen.", "niyet": "ödeme", "acil": true, "sinir": false}
 {"mesaj": "Taksit seçeneği ödeme ekranında görünmüyor.", "niyet": "ödeme", "acil": false, "sinir": false}

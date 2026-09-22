@@ -128,10 +128,10 @@ def tablo(basliklar, satirlar, ust=25):
     return "\n".join(["| " + " | ".join(basliklar) + " |", "|" + "---|" * len(basliklar)] + govde)
 
 
-def http_gonder(url, basliklar, govde):
+def http_gonder(url, basliklar, govde, timeout=60):
     istek = urllib.request.Request(url, data=govde, headers=basliklar, method="POST")
     try:
-        with urllib.request.urlopen(istek, timeout=60) as r:
+        with urllib.request.urlopen(istek, timeout=timeout) as r:
             return r.status, dict(r.headers), r.read()
     except urllib.error.HTTPError as e:
         return e.code, dict(e.headers or {}), e.read()
@@ -173,14 +173,14 @@ _YOK = object()
 
 
 class Tasiyici:
-    def __init__(self, env=None, en_fazla=5, model="jev-1.13", gonder=None, uyu=time.sleep, istek_tavan=250):
+    def __init__(self, env=None, en_fazla=5, model="jev-1.13", gonder=None, uyu=time.sleep, istek_tavan=250, tekrar=TEKRAR):
         if model not in MODELLER:
             raise JevHata(f"model yalnız {' | '.join(MODELLER)}")
         self.b = backend(os.environ if env is None else env)
         if self.b is None:
             raise AnahtarYok("anahtar yok; ortamda şunlardan biri gerekli: " + " / ".join(ANAHTAR_ADLARI))
         self.en_fazla, self.model, self.gonder, self.uyu, self.cagri = en_fazla, model, gonder or http_gonder, uyu, 0
-        self.istek_tavan, self.istek = istek_tavan, 0
+        self.istek_tavan, self.istek, self.tekrar, self.kullanim = istek_tavan, 0, tekrar, []
 
     def yargila(self, states, questions):
         """Tek boğaz noktası. İki tavan: batch (≤200 state) ve HTTP isteği (tekrarlar dahil); ikisi de ağa çıkmadan kontrol edilir."""
@@ -206,7 +206,7 @@ class Tasiyici:
 
     def _istek(self, govde, basliklar):
         veri = json.dumps(govde, ensure_ascii=False).encode()
-        for deneme in range(TEKRAR + 1):
+        for deneme in range(self.tekrar + 1):
             if self.istek >= self.istek_tavan:
                 raise TavanHata(f"istek tavanı: {self.istek_tavan} HTTP isteği doldu (tekrarlar dahil, --istek-tavan)")
             self.istek += 1
@@ -216,14 +216,16 @@ class Tasiyici:
                 raise JevHata(f"{self.b['ad']}: bağlanılamadı") from None
             if status < 400:
                 return _json(yanit)
-            if deneme < TEKRAR and (status in (408, 429) or status >= 500):
+            if deneme < self.tekrar and (status in (408, 429) or status >= 500):
                 self.uyu(_bekle(hdr, deneme))
                 continue
             raise JevHata(f"sağlayıcı {status} ({_tur(yanit)})")
 
     def _api(self, state, questions):
         basliklar = {"Authorization": f"Bearer {self.b['anahtar']}", "Content-Type": "application/json"}
-        return self._istek({"model": self.model, "state": state, "questions": questions}, basliklar)["answers"]
+        j = self._istek({"model": self.model, "state": state, "questions": questions}, basliklar)
+        self.kullanim.append(j.get("usage") or {})
+        return j["answers"]
 
     def _mcp(self, states, questions):
         basliklar = {"x-api-key": self.b["anahtar"], "Content-Type": "application/json", "Accept": "application/json, text/event-stream"}

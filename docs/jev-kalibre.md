@@ -18,3 +18,5 @@ Varsayılan bantlarla (0.85/0.60) bant başına isabet:
 **bantlar.json:** act 0.85 · flag 0.60 (taban). 0.60/0.49 önerisi kolay setin yan etkisi, n=40, taban korundu; varsayılan bantlar ölçümle doğrulandı (jev-1.13: Act 51 · 1.00 · Flag 22 · 0.86 · Escalate 7 · 0.43). Ölçüm 80 HTTP istek (2 batch); yeniden koşulmadı.
 
 Not: n=40. Eşikler kaba; güven aralığı geniş. Doygunluk yüksekse kesinlik ayırt edici değildir, bant yerine sınıf/p'ye bakılır.
+
+Etiket düzeltmesi sonrası (13c): #16 iade→ödeme (#23 zaten ödeme); kalibrasyon yeniden koşulmadı, yukarıdaki sayılar eski etiketlerle.

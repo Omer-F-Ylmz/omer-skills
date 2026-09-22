@@ -13,7 +13,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, ayarYukle, cacheMissSebebi, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
+import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, aracAdlari, ayarYukle, cacheMissSebebi, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
          gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
@@ -75,7 +75,7 @@ srv.registerTool("komut", {
   description: "Claude Code'un PATH araçlarından birini, CC'nin kendi PreToolUse/PostToolUse "
     + "hook'ları uygulanarak koşar. Allowlist dışı araç ve yasak alt komut reddedilir.",
   inputSchema: {
-    arac: z.enum(Object.keys(AYAR.izinli)).describe("Allowlist'teki araç adı"),
+    arac: z.enum(aracAdlari(AYAR)).describe("Allowlist'teki araç adı"),
     args: z.array(z.string()).default([]).describe("Argümanlar; kabuk yok, metakarakter yasak"),
     cwd: z.string().describe("Çalışma dizini (yalnız izinli kökler altında)"),
     timeout_sn: z.number().int().min(1).max(600).optional().describe("Varsayılan 120, tavan 600"),

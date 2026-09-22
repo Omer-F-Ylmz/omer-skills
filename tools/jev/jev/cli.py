@@ -11,6 +11,7 @@ from pathlib import Path
 
 from . import ayristir as a
 from . import cekirdek as c
+from . import skill as sk
 
 VERI = Path(__file__).resolve().parents[1] / "tests" / "veri" / "jev_kalibre.jsonl"
 KANIT_TOKEN = 28_000
@@ -220,7 +221,15 @@ def kalibre(ns, tas, b):
         [m, _p(olc[m]["isabet"]), f"{olc[m]['brier']:.3f}", _p(olc[m]["doygunluk"]), olc[m]["act"], olc[m]["flag"]] for m in c.MODELLER]
 
 
-KOMUT = {"log": log, "ilgili": ilgili, "kanit": kanit, "triage": triage, "tarama": tarama, "kalibre": kalibre}
+def skill(ns, tas, b):
+    t = tas()
+    t.tekrar = 0  # istem başına tam 2 HTTP isteği
+    _, sonuc = sk.yonlendir(ns.istem, t, b, sk.adaylar())
+    return ["skill", "p", "bant"], [[x["ad"], _p(x["p"]), x["bant"]] for x in sonuc]
+
+
+KOMUT = {"log": log, "ilgili": ilgili, "kanit": kanit, "triage": triage, "tarama": tarama, "kalibre": kalibre,
+         "skill": skill, "skill-olc": lambda ns, tas, b: sk.olc(ns, tas(), b)}
 
 
 def main(argv=None, env=None, gonder=None, uyu=time.sleep):
@@ -249,8 +258,19 @@ def main(argv=None, env=None, gonder=None, uyu=time.sleep):
     x.add_argument("--veri", default=str(VERI))
     x.add_argument("--cikti", default="docs/jev-kalibre.md")
     x.add_argument("--bant-yaz", action="store_true", help="öneriyi tabanla (max(öneri, 0.85/0.60)) bantlar.json'a yaz")
+    x = alt.add_parser("skill", parents=[ortak], help="isteme uygun aktif skill'ler: 2 aşama, istem başına 2 istek; ilk 5 · p · bant (ipucu)")
+    x.add_argument("istem")
+    x = alt.add_parser("skill-olc", parents=[ortak], help="skill_route.jsonl ile aşama-1 isabeti, hit@1/3, gecikme, maliyet (ücretli)")
+    x.add_argument("--veri", default=str(VERI.with_name("skill_route.jsonl")))
+    x.add_argument("--cikti", default="docs/jev-skill-route.md")
+    alt.add_parser("hook", help="UserPromptSubmit hook'u: stdin JSON; JEV_SKILL_HOOK=1 değilse ağa çıkmaz; her hatada sessiz exit 0")
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
+    if ns.komut == "hook":
+        cikti = sk.hook(sys.stdin.read(), env, gonder=gonder)
+        if cikti:
+            print(cikti)
+        return 0
     t = []  # komut başına tek taşıyıcı: sayaçlar çıktıya girer
 
     def tas():
