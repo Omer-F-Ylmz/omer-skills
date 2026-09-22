@@ -8,12 +8,13 @@
  * Belirti: ilk `komut` çağrısı "Tool execution failed", sonrasında her araç kopuk.
  */
 import assert from "node:assert/strict";
-import http from "node:http";
 import path from "node:path";
 import test from "node:test";
 
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+
+import { sahteWorker } from "../araclar/sahte-worker.mjs";
 
 const KOPRU = path.resolve(path.dirname(new URL(import.meta.url).pathname.slice(1)), "..");
 const PROJE = path.resolve(KOPRU, "..", "..");
@@ -28,6 +29,9 @@ async function desktopKopru(ekOrtam = {}) {
     args: [],
     env: {
       ...Object.fromEntries(DESKTOP_ENV.filter((k) => process.env[k]).map((k) => [k, process.env[k]])),
+      // suit koşucusunun sahte worker portu beyaz listede değil; elle taşınır (CLAUDE-MEM-1b)
+      ...(process.env.CLAUDE_MEM_WORKER_PORT
+        ? { CLAUDE_MEM_WORKER_PORT: process.env.CLAUDE_MEM_WORKER_PORT } : {}),
       ...ekOrtam,
     },
     cwd: path.join(process.env.SYSTEMROOT, "System32"),
@@ -63,21 +67,15 @@ test("Desktop ortamında gh api yanıt verir", async () => {
  * Sahte worker hem köprünün hem hook'un portudur (ikisi de CLAUDE_MEM_WORKER_PORT okur).
  */
 test("köprüden bir komut worker'a tek gözlem isteği yazar", async () => {
-  const istek = [];
-  const srv = http.createServer((q, y) => {
-    if (q.url.startsWith("/api/sessions/observations")) istek.push(q.url);
-    y.writeHead(200, { "content-type": "application/json" });
-    y.end(JSON.stringify({ status: "queued", healthy: true, ready: true }));
-  });
-  await new Promise((r) => srv.listen(0, "127.0.0.1", r));
-  const c = await desktopKopru({ CLAUDE_MEM_WORKER_PORT: String(srv.address().port) });
+  const w = await sahteWorker();
+  const c = await desktopKopru({ CLAUDE_MEM_WORKER_PORT: String(w.port) });
   try {
     const s = await c.cagir("komut", { arac: "git", args: ["log", "-3", "--oneline"], cwd: PROJE });
     assert.match(s, /exit 0/, s.slice(0, 200));
-    assert.equal(istek.length, 1, `gözlem isteği sayısı: ${istek.length}`);
+    assert.equal(w.istek.length, 1, `gözlem isteği sayısı: ${w.istek.length}`);
   } finally {
     await c.close();
-    await new Promise((r) => srv.close(r));
+    await w.kapat();
   }
 }, { timeout: 180000 });
 

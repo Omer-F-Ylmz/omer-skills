@@ -6,7 +6,7 @@
   "description": "Claude Code katmanini (CLI allowlist + hook runner + gercek CC oturumu + claude-mem) Desktop sohbetine acan yerel stdio MCP sunucusu.",
   "main": "sunucu.mjs",
   "scripts": {
-    "test": "node --test test/*.mjs"
+    "test": "node araclar/suit.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.21.1"

@@ -10,25 +10,10 @@
  * Girdi 64 KB boru tamponunu aşacak kadar doldurulur: aksi halde girdiyi okumadan
  * çıkan hook'un yazımı da "başarılı" görünür (11m-A-FIX-2 stdinYaz notu).
  */
-import http from "node:http";
-
 import { hookKaynaklari, hookTanimlari, matcherEslesir, tekHookKos } from "../hook.mjs";
-
-/**
- * Sahte claude-mem worker'ı. İki işi var: envanterin sahte payload'ı gerçek veritabanına
- * düşmez, ve "hook worker'a istek attı mı" kanıta bağlanır — hook 400'de bile exit 0 +
- * stdout "{}" ile sessiz olduğundan exit kodu tek başına bunu göstermiyor (11m-A-FIX-3).
- */
-async function sahteWorker() {
-  const istek = [];
-  const srv = http.createServer((q, y) => {
-    if (q.url.startsWith("/api/sessions/observations")) istek.push(q.url);
-    y.writeHead(200, { "content-type": "application/json" });
-    y.end(JSON.stringify({ status: "queued", healthy: true, ready: true }));
-  });
-  await new Promise((r) => srv.listen(0, "127.0.0.1", r));
-  return { port: srv.address().port, istek, kapat: () => new Promise((r) => srv.close(r)) };
-}
+// Envanterin sahte payload'ı gerçek veritabanına düşmesin; ayrıca "hook worker'a
+// istek attı mı" kanıta bağlanır — hook 400'de bile exit 0 + stdout "{}" ile sessiz.
+import { sahteWorker } from "./sahte-worker.mjs";
 
 /** Claude Desktop'ın alt sürece geçirdiği değişkenler (app.asar ofset 3899305). */
 const DESKTOP_ENV = ["APPDATA", "HOMEDRIVE", "HOMEPATH", "LOCALAPPDATA", "PATH",
