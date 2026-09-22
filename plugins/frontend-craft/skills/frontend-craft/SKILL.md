@@ -21,6 +21,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
   6. YASAK LİSTESİ
 - Yasak liste özeti (varsayılan; projeninki DESIGN.md'de, seçilen stille çelişen madde çıkar): mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · birebir "h1+p+2 buton" hero · stok illüstrasyon/3D render hissi · özellik/fayda bölümünde eşit kart tekrarı (ürün ızgarası hariç) · her bölümde aynı boşluk · aşırı glow · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
 - Çıktı hedefi: claude.ai/Desktop'ta teslim **Design** artifact türünde, tasarım sistemi gerekiyorsa **Design System** türünde; CC'de mevcut akış değişmez.
+- Design + 21st zinciri (Bölüm 10/12): referans `get_inspiration`, bileşen `get_component`, tema `get_theme`, logo `search_logo`; teslimden önce `design:design-critique` + `design:accessibility-review`.
 - Kütüphane seçimi `omer-kutuphaneler` rafından; CC'de npm, Desktop'ta pinli CDN; DESIGN.md Hareket'te ad+sürüm+gerekçe; gerekçesiz kütüphane yasak.
 - Tur raporu (her tur sonu; rapor yazılmadan iş kapanmaz): `Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/nötr/vurgu hangi elemanlarda · font çifti nerede · ölçek hangi bölümlerde | sonraki adım / KAPANIŞ / DUR`
 
@@ -126,6 +127,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 ## 10. Referans kaynakları
 - Yön ararken önce referans çıkar, sonra dili yaz: 21st.dev · awwwards.com · lapa.ninja · recent.design · dribbble.com · figma.com/community · designprompts.dev
 - 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz. Adım-araç eşlemesi ve kota kapıları: `references/21st-akis.md`.
+- Sabit adımlar (21st MCP kuruluysa, elle arama yok): yön/referans çıkarımı `get_inspiration` (+ kullanılan yön için `record_inspiration_feedback`) · bileşen `get_component` · tema `get_theme` · logo `search_logo`.
 - Referansı kopyalama — ritim, kontrast, boşluk mantığını çıkar, projeye uygula.
 - 3D/WebGL yönü aranırken Three.js resmi örnekleri (threejs.org/examples) referans alınır, kopyalanmaz.
 
@@ -144,3 +146,9 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 - Kullanıcı birini seçer → DESIGN.md o yönden yazılır → seçilmeyen iki yönün HTML dosyaları silinir; üç PNG `.screens/yon/` altında kalır (hangi yönler arasından seçildiğinin kaydı).
 - Yönleri kendin değerlendirme, "bence bu daha iyi" yazma; seçim kullanıcınındır.
 - Referans: yön üretmeden önce Bölüm 10'daki kaynaklardan dil çıkarılır, kopyalanmaz. 21st kuruluysa referans çıkarma ucu `references/21st-akis.md`'de.
+
+## 12. Teslim kapısı: Design incelemesi
+- Teslimden önce iki inceleme koşar, çıktıları tur raporuna girer: `design:design-critique` (hiyerarşi, tutarlılık, kullanılabilirlik) ve `design:accessibility-review` (WCAG 2.1 AA: kontrast, klavye, dokunma hedefi, ekran okuyucu).
+- Bu iki inceleme Bölüm 4 kabul kriterlerinin yerine geçmez, üstüne gelir; `audit.mjs` PASS olmadan teslim kapanmaz.
+- Design eklentisi kapalıysa kapı atlanır, tur raporuna "design incelemesi yok (eklenti kapalı)" yazılır — sessizce geçilmez.
+- Desktop'taki bir Design projesini okumak gerekirse cc-kopru'nun `claude-design` köprüsü kullanılır (`mcp__claude-design__list_projects` / `read_file`); proje dosyaları elle kopyalanmaz.

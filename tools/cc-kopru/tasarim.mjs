@@ -98,13 +98,25 @@ export function sonucCikar(satirlar, beklenenAd, beklenenGirdi, beklenenAdlar) {
   return { metin };
 }
 
+/**
+ * Test tohumu (11l K1c): yalnız `test/yardim/` altındaki var olan bir dosya kabul edilir.
+ * Başka yol ya da tanımsız değişken yok sayılır — aktarıcı gerçek `claude` ikilisini seçer,
+ * böylece dışarıdan verilen bir yol köprünün çağırdığı ikiliyi değiştiremez.
+ */
+export function sahteAktarici(deger = process.env.CC_KOPRU_SAHTE_AKTARICI) {
+  if (!deger) return null;
+  const yol = path.resolve(String(deger));
+  const kok = path.join(BURASI, "test", "yardim") + path.sep;
+  return yol.startsWith(kok) && fs.existsSync(yol) ? yol : null;
+}
+
 /** Ortak aktarıcı: ilk `tool_result` geldiği anda süreç kapatılır (--max-turns yok). */
 export function aktar(tamAd, girdi, { timeoutSn = 120 } = {}) {
   return new Promise((coz) => {
     // Test tohumu: Windows'ta sahte `claude.exe` üretilemediği için (node .cmd'yi
     // kabuksuz spawn etmiyor, bilinmeyen bayrakta da düşüyor) aktarıcı yerine bir
     // node betiği koşulur. Üretimde değişken yoktur.
-    const sahte = process.env.CC_KOPRU_SAHTE_AKTARICI;
+    const sahte = sahteAktarici();
     const claude = sahte ? process.execPath : yolBul("claude");
     if (!claude) return coz({ hata: "claude PATH'te bulunamadı" });
 

@@ -11,7 +11,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { aktariciArgv, kisaAd, semaYukle, sonucCikar } from "../tasarim.mjs";
+import { aktar, aktariciArgv, kisaAd, sahteAktarici, semaYukle, sonucCikar } from "../tasarim.mjs";
 
 const BURASI = path.dirname(fileURLToPath(import.meta.url));
 const TASARIM = path.join(BURASI, "..", "tasarim.mjs");
@@ -181,4 +181,36 @@ test("aktarici ANTHROPIC_BASE_URL'i alt surece gecirmez (vekil araclari gizliyor
   });
 
   assert.equal(metin, "SAHTE-SONUC", "vekil miras alındı: model aracı görmedi, tool_use gelmedi");
+});
+
+/**
+ * KURULUM-11l K1c — test tohumu yalnız `test/yardim/` altındaki bir dosyayı kabul eder.
+ * Dışarıdan verilen yol yok sayılır: aktarıcı gerçek `claude` ikilisini seçer.
+ */
+test("sahte aktarici yalnız test/yardim altini kabul eder", () => {
+  const icerideki = path.join(BURASI, "yardim", "sahte-claude.mjs");
+  assert.equal(sahteAktarici(icerideki), path.resolve(icerideki));
+  assert.equal(sahteAktarici(undefined), null, "tanımsız → yok");
+  assert.equal(sahteAktarici(""), null);
+  assert.equal(sahteAktarici(path.join(os.tmpdir(), "kotu.mjs")), null, "dışarıdaki yol");
+  assert.equal(sahteAktarici(path.join(BURASI, "yardim", "..", "..", "..", "kos.mjs")), null,
+               "`..` ile yardim dışına çıkılamaz");
+  assert.equal(sahteAktarici(path.join(BURASI, "yardim", "yok.mjs")), null, "olmayan dosya");
+});
+
+test("dışarıdan yol verilince gerçek aktarıcı seçilir (sahteye düşmez)", async () => {
+  const eskiYol = process.env.PATH;
+  const eskiSahte = process.env.CC_KOPRU_SAHTE_AKTARICI;
+  const bos = fs.mkdtempSync(path.join(os.tmpdir(), "bos-path-"));
+  process.env.PATH = bos;                                   // gerçek `claude` bulunamasın
+  process.env.CC_KOPRU_SAHTE_AKTARICI = path.join(os.tmpdir(), "kotu.mjs");
+  try {
+    const r = await aktar(ONEK + "list_projects", {});
+    assert.equal(r.hata, "claude PATH'te bulunamadı", "sahte aktarıcıya düştü");
+  } finally {
+    process.env.PATH = eskiYol;
+    if (eskiSahte === undefined) delete process.env.CC_KOPRU_SAHTE_AKTARICI;
+    else process.env.CC_KOPRU_SAHTE_AKTARICI = eskiSahte;
+    fs.rmSync(bos, { recursive: true, force: true });
+  }
 });

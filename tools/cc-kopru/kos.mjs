@@ -301,19 +301,38 @@ export function kirp(metin, tavan) {
 }
 
 export const SIKISTIR_ESIK = 8000;
-/** Headroom'un kendi router tavanı 20 sn; üstüne bağlantı payı. */
-export const SIKISTIR_ZAMAN_MS = 45000;
+/**
+ * 11l K7 ölçümü: başarılı sıkıştırma (tekrarlı 87 KB log) 6,3 sn sürüyor — tarifin
+ * 3 sn tavanı bütün sıkıştırmayı kapatırdı. Tavan ölçülen süreye pay eklenerek 10 sn;
+ * aşılırsa `sikistir` null döner ve çıktı kırpmaya düşer (fail-open).
+ */
+export const SIKISTIR_ZAMAN_MS = 10000;
+/** 3-gram tekrar oranı eşiği. Ölçüm: tekrarlı log 0,624 · karışık markdown 0,047. */
+export const TEKRAR_ESIK = 0.3;
+
+/** Kelime 3-gram'larının tekrar oranı: 1 - benzersiz/toplam. Boş metinde 0. */
+export function tekrarOrani(metin, n = 3) {
+  const k = String(metin ?? "").split(/\s+/).filter(Boolean);
+  const g = [];
+  for (let i = 0; i + n <= k.length; i++) g.push(k.slice(i, i + n).join(" "));
+  return g.length ? 1 - new Set(g).size / g.length : 0;
+}
 
 /**
- * >8 KB çıktı Headroom'a verilir. Tek yol `headroom mcp serve` stdio MCP'si:
+ * >8 KB **tekrarlı** çıktı Headroom'a verilir. Tekrar kapısı (11l K7): karışık
+ * markdown'da sıkıştırma kayıplı — 31 KB'lık başlık + tablo + kanıt gövdesi 13784→1834
+ * jetona iniyor ama `## Bolum` başlıkları ve `Kanit …` ölçüm satırları çıktıda hiç yok,
+ * yalnız tablo satırları CSV'ye dönüyor. Tekrarlı log gövdesinde kayıp yok, kazanç %30.
+ * Tek yol `headroom mcp serve` stdio MCP'si:
  * HTTP tarafında sıkıştırma rotası yok (`/compress` 404, 11k K6 ölçümü).
  * Dönen zarf `{compressed, hash, original_tokens, compressed_tokens, ...}`; hash'i
  * Desktop'ta zaten kayıtlı olan `headroom` MCP'sinin `headroom_retrieve`'i açar.
  * @returns {Promise<object|null>} zarf, ya da null (eşik altı / başarısız)
  */
-export async function sikistir(metin) {
+export async function sikistir(metin, zamanMs = SIKISTIR_ZAMAN_MS) {
   const s = String(metin ?? "");
   if (s.length <= SIKISTIR_ESIK) return null;
+  if (tekrarOrani(s) < TEKRAR_ESIK) return null;
   const yol = yolBul("headroom");
   if (!yol) return null;
   const { Client } = await import("@modelcontextprotocol/sdk/client/index.js");
@@ -323,7 +342,7 @@ export async function sikistir(metin) {
   try {
     await c.connect(tasima);
     const r = await c.callTool({ name: "headroom_compress", arguments: { content: s } },
-                               undefined, { timeout: SIKISTIR_ZAMAN_MS });
+                               undefined, { timeout: zamanMs });
     const t = (r?.content || []).map((x) => x.text || "").join("\n").trim();
     return t ? JSON.parse(t) : null;
   } catch { return null; } finally {

@@ -713,3 +713,34 @@ açılan tarayıcı sayfasında izin verilecek; jeton `~/.mcp-auth` altında kal
 `claude_desktop_config.json` değişti (3 giriş). Değişikliğin etkili olması için
 **Claude Desktop tamamen kapatılıp açılmalı** (tepsi simgesinden çıkış). Geri dönmek
 için: `claude_desktop_config.json.bak11k` dosyasını üzerine kopyalamak yeterli.
+
+## 11. KURULUM-11l · 22 Eyl 2026 — köprü kontrol 2 açıkları + claude-design köprüsü
+
+### Köprü kontrol 2 — dört açık ve kök nedenleri
+
+| açık | kök neden | düzeltme |
+|---|---|---|
+| `npx --no <paket>` paketi değil npx'in kendi bayrağını okuyor | npm'in npx argüman ayrıştırması (rtk'sız çağrıda da aynı: `11.17.0`) | `komutDenetle()` gerekli bayraktan sonra `--` ekler → `0.1.5` |
+| katalog YAML blok skalerini açıklama sanıp basıyor | `aciklamaOku()` regex'i göstergeyi metin sayıyor | gösterge görülürse izleyen girintili ilk anlamlı satır alınır |
+| `Read(./bin/**)` iç içe `bin/Debug`'ı kaçırıyor | `./` kalıbı proje kökünden çözülüyor | `tools/deny-11l.ps1`: `**/bin/Debug/**` · `**/bin/Release/**` · `**/obj/**` (`**/bin/**` EKLENMEZ — gstack altında 13 `bin` dizini okunamaz olurdu) |
+| `durum` günlük satırı UTC gününü veriyor | `toISOString()` | `yerelGun()` — `Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Istanbul" })` |
+
+### claude-design — yapısal sınır (iki yol da kapalı)
+
+- **mcp-remote:** `claude_desktop_config.json`'daki `claude-design` girişi `mcp-remote --transport http-only` ile uca geliyor ama OAuth **dinamik istemci kaydında (DCR) 405** alıyor; uç kayıt kabul etmiyor, tarayıcı onayı tamamlanamıyor.
+- **claude.ai özel bağlayıcı:** özel bağlayıcı (CIMD) uçları emekli; Desktop/claude.ai tarafından eklenebilecek bir adres kalmadı.
+- Sonuç: Desktop'ın claude-design'a kendi başına bağlanması **yapısal olarak kapalı**. Açık olan tek kapı CC'nin kendi yetkili oturumu.
+
+### K1 yolu — cc-kopru `tasarim.mjs`
+
+1. 23 JSONSchema gerçek bir `tools/list` yanıtından yakalanıp `tools/cc-kopru/tasarim-semalar.json`'a yazıldı; sunucu bunları **birebir** yayınlar (elle/modelle yazılmadı).
+2. Gövde tek ortak aktarıcıya gider: `claude -p --output-format stream-json --setting-sources "" --tools "" --system-prompt … --strict-mcp-config --allowedTools mcp__claude-design__<araç>`; CC'nin OAuth'lu bağlantısı yeniden kullanılır.
+3. Sonuç modelin cümlesinden değil stream-json'daki `tool_result` bloğundan alınır. `--max-turns` CC CLI'da yok → ilk `tool_result` görülür görülmez süreç ağacı kapatılır.
+4. Açılışta hiç süreç başlatılmaz (Desktop sunucuyu 4 süreçle açıyor); şema geçerliliği ilk çağrının zaten gelen `init` olayından denetlenir.
+5. Test tohumu `CC_KOPRU_SAHTE_AKTARICI` yalnız `tools/cc-kopru/test/yardim/` altındaki var olan bir dosyayı kabul eder; başka yol ya da tanımsız değişken yok sayılır ve gerçek aktarıcı koşar (11l K1c).
+
+### B2 kök nedeni — Headroom vekili aktarıcıyı kör ediyor
+
+Gerçek uçta `list_projects` kırmızıydı: akışta hiç `tool_use` yok, model "aracım yok" diyordu.
+Kök neden ortamda: **`ANTHROPIC_BASE_URL` Headroom'un yerel vekilini gösteriyor ve vekil isteğin `tools` dizisini tek bir arama aracına (`tool_search_tool_regex`) indiriyor** — model 23 claude-design aracını hiç görmüyor, dolayısıyla çağırmıyor.
+Düzeltme: aktarıcı alt sürecinde `ANTHROPIC_BASE_URL` **düşürülür** (`delete ortam.ANTHROPIC_BASE_URL`, `tasarim.mjs`); köprünün kendi süreci ve diğer araçlar etkilenmez. Pin: değişken miras alınırsa `tool_use` gelmez (`tasarim.test.mjs`).
