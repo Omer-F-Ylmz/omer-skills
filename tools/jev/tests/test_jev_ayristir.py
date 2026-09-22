@@ -97,8 +97,3 @@ def test_sarif_ve_axe():
     axe = {"url": "http://localhost/", "violations": [{"id": "color-contrast", "impact": "serious", "help": "Kontrast", "nodes": [{}, {}]}]}
     b = a.bulgular(axe)
     assert b[0]["kural"] == "color-contrast" and "serious" in b[0]["state"]
-
-
-def test_skillspector_bulgulari():
-    veri = {"findings": [{"rule_id": "SS-EXEC", "severity": "HIGH", "file": "SKILL.md", "line": 4, "message": "curl | sh"}]}
-    assert a.bulgular(veri)[0]["kural"] == "SS-EXEC"

@@ -88,7 +88,7 @@ def test_anahtar_hicbir_ciktida_yok(tmp_path, capsys):
     veri = tmp_path / "k.jsonl"
     veri.write_text("\n".join(json.dumps({"mesaj": f"m{i}", "niyet": "kargo", "acil": i % 2 == 0, "sinir": i == 0}, ensure_ascii=False) for i in range(4)), encoding="utf-8")
     md = tmp_path / "kalibre.md"
-    kod, out, err = calistir(["kalibre", "--veri", str(veri), "--cikti", str(md)], capsys)
+    kod, out, err = calistir(["kalibre", "--veri", str(veri), "--cikti", str(md), "--bant-yaz"], capsys)
     assert kod == 0
     kod2, out2, err2 = calistir(["log", str(F / "pytest.txt"), "--json"], capsys, gonder=lambda u, b, g: (401, {}, ANAHTAR.encode()))
     assert kod2 == 1
@@ -101,7 +101,7 @@ def test_kalibre_bantlari_yazar(tmp_path, capsys):
     veri.write_text("\n".join(json.dumps({"mesaj": f"m{i}", "niyet": "kargo", "acil": False, "sinir": False}) for i in range(4)))
     md = tmp_path / "kalibre.md"
     y = Yargic()
-    kod, _, _ = calistir(["kalibre", "--veri", str(veri), "--cikti", str(md)], capsys, gonder=y)
+    kod, _, _ = calistir(["kalibre", "--veri", str(veri), "--cikti", str(md), "--bant-yaz"], capsys, gonder=y)
     b = json.loads(c.BANT_YOLU.read_text())
     assert kod == 0 and {"act", "flag", "model"} <= b.keys()
     metin = md.read_text(encoding="utf-8")

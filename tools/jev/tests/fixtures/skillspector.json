@@ -1,0 +1,46 @@
+{
+ "skill": {
+  "name": "api-and-interface-design",
+  "source": "<redakte>",
+  "scanned_at": "2026-09-19T16:07:09.301874+00:00"
+ },
+ "risk_assessment": {
+  "score": 20,
+  "severity": "LOW",
+  "recommendation": "CAUTION",
+  "max_issue_severity": "HIGH"
+ },
+ "issues": [
+  {
+   "id": "TM1",
+   "finding_id": "finding-1009dbcfc9c54f24b74f9330f0d75b72",
+   "category": "Tool Misuse",
+   "pattern": "Tool Parameter Abuse",
+   "severity": "HIGH",
+   "confidence": 0.8,
+   "location": {
+    "file": "SKILL.md",
+    "start_line": 226,
+    "end_line": null
+   },
+   "finding": "<redakte: özgün eşleşme>",
+   "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+   "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+   "code_snippet": "<redakte: özgün kod parçası>",
+   "intent": null,
+   "tags": [
+    "Tool Misuse"
+   ],
+   "evidence": {},
+   "match_fingerprint": "deb5072ec943152bebc12f42ae82c6093c7ed6bfc230d17453fbf8f0c30b82e1",
+   "occurrences": [
+    {
+     "file": "SKILL.md",
+     "start_line": 226,
+     "end_line": null
+    }
+   ]
+  }
+ ],
+ "execution_successful": true
+}
