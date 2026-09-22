@@ -332,6 +332,15 @@ export const SIKISTIR_ESIK = 8000;
 export const SIKISTIR_ZAMAN_MS = 10000;
 
 /**
+ * Headroom vekilinin kökü. `headroom mcp serve` varsayılanı 8787 (mcp_server.py:90
+ * `HEADROOM_PROXY_URL`), ama buradaki vekil 6767'de dinliyor (`headroom doctor`:
+ * "routed to port 6767, but doctor probed port 8787"; 6767/livez 200). 11m-A-FIX-4
+ * kök nedeni bu uyumsuzluk: MCP vekile ulaşamayınca fail-open çalışıp içeriği AYNEN
+ * döndürüyordu (transforms ["router:noop"], savings_percent 0).
+ */
+export const HEADROOM_KOK = process.env.HEADROOM_PROXY_URL || "http://127.0.0.1:6767";
+
+/**
  * Çıktı sınıfı. 11m-A K4: sıkıştırma kararı metnin TÜRÜNE bağlanır, 11l'in 3-gram
  * tekrar oranına değil — tekrarsız ama sıkıştırılabilir log (farklı satırlar, aynı
  * biçim) kapıya takılıyordu. Markdown ve kod sıkıştırılmaz: 11l K7 ölçümünde 31 KB'lık
@@ -388,24 +397,32 @@ export const SIKISAN_SINIFLAR = new Set(["json"]);
  * HTTP tarafında sıkıştırma rotası yok (`/compress` 404, 11k K6 ölçümü).
  * Dönen zarf `{compressed, hash, original_tokens, compressed_tokens, ...}`; hash'i
  * Desktop'ta zaten kayıtlı olan `headroom` MCP'sinin `headroom_retrieve`'i açar.
- * @returns {Promise<object|null>} zarf, ya da null (eşik altı / başarısız)
+ * Vekil adresi çocuğa ELDEN geçirilir: MCP SDK ortamı beyaz listeye indiriyor,
+ * `HEADROOM_PROXY_URL` o listede yok (11m-A-FIX-4 K2).
+ * @returns {Promise<object|null>} zarf · {sebep} (başarısız) · null (eşik altı)
  */
 export async function sikistir(metin, zamanMs = SIKISTIR_ZAMAN_MS) {
   const s = String(metin ?? "");
   if (s.length <= SIKISTIR_ESIK) return null;
   const yol = yolBul("headroom");
-  if (!yol) return null;
+  if (!yol) return { sebep: "bağlantı" };
   const { Client } = await import("@modelcontextprotocol/sdk/client/index.js");
   const { StdioClientTransport } = await import("@modelcontextprotocol/sdk/client/stdio.js");
   const c = new Client({ name: "cc-kopru", version: "0.1.0" });
-  const tasima = new StdioClientTransport({ command: yol, args: ["mcp", "serve"] });
+  const tasima = new StdioClientTransport({
+    command: yol, args: ["mcp", "serve"],
+    env: { ...process.env, HEADROOM_PROXY_URL: HEADROOM_KOK },
+  });
   try {
     await c.connect(tasima);
     const r = await c.callTool({ name: "headroom_compress", arguments: { content: s } },
                                undefined, { timeout: zamanMs });
     const t = (r?.content || []).map((x) => x.text || "").join("\n").trim();
-    return t ? JSON.parse(t) : null;
-  } catch { return null; } finally {
+    if (!t) return { sebep: "bağlantı" };
+    try { return JSON.parse(t); } catch { return { sebep: "parse" }; }
+  } catch (e) {
+    return { sebep: /timed?\s*out|timeout/i.test(String(e?.message || e)) ? "zaman aşımı" : "bağlantı" };
+  } finally {
     // `close()` tek başına yetmiyor: headroom.exe sürüyor ve düğüm olay döngüsünü
     // açık tutuyor (11k K6b: `node --test` hiç bitmedi). Süreç ağacı da kapatılır.
     const pid = tasima.pid;
@@ -458,9 +475,11 @@ export function logaYaz(metin, etiket = "cikti") {
  * verir (11k K6b ölçümü: 33 480 → 33 499 karakter, tokens_saved 1). Sonuç gerçekten
  * küçülmediyse ham metin döner; şişmiş zarf çıktıya basılmaz.
  *
- * @param {{ham?:boolean, log?:string}} secenek log: çağıranın zaten yazdığı tam çıktı yolu
+ * @param {{ham?:boolean, log?:string, sikistirici?:Function}} secenek
+ *   log: çağıranın zaten yazdığı tam çıktı yolu · sikistirici: testte sahte sıkıştırıcı
  */
-export async function ciktiHazirla(metin, tavan, { ham = false, log = "" } = {}) {
+export async function ciktiHazirla(metin, tavan,
+                                   { ham = false, log = "", sikistirici = sikistir } = {}) {
   const s = String(metin ?? "");
   const kirpik = () => {
     if (s.length <= tavan) return s;
@@ -475,12 +494,17 @@ export async function ciktiHazirla(metin, tavan, { ham = false, log = "" } = {})
   // Sıkıştırma da ayıklanmış gövdede yapılır; rtk'nin altlığı (recall hash'i) geri eklenir.
   const cekirdek = govdeAyikla(s);
   const artik = s.slice(s.indexOf(cekirdek) + cekirdek.length).trim();
-  const z = await sikistir(cekirdek);
+  const y = await sikistirici(cekirdek);
+  const z = y?.sebep ? null : y;
   const kazanc = z ? (z.original_tokens || 0) - (z.compressed_tokens || 0) : 0;
   if (!z || kazanc <= 0 || String(z.compressed || "").length >= cekirdek.length) {
-    // Sıkıştırma hatası ya da kazançsız: ham çıktı + uyarı satırı, uydurma yüzde yok.
+    // Sıkıştırma hatası ya da kazançsız: ham çıktı + SEBEP, uydurma yüzde yok.
+    // Vekile ulaşılamadığında headroom fail-open dönüyor; sebebi zarftaki proxy
+    // durumu söylüyor, "kazançsız" diye yutulmaz (11m-A-FIX-4 K3).
+    const neden = y?.sebep
+      || (z?.proxy && z.proxy.status !== "ok" ? "bağlantı" : "kazançsız");
     const yol = log || logaYaz(s);
-    const on = `[headroom yok · tam: ${yol}]\n`;
+    const on = `[headroom yok: ${neden} · tam: ${yol}]\n`;
     return on + kirp(s, tavan - on.length).metin;
   }
   const yol = log || logaYaz(s);

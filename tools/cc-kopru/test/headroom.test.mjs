@@ -101,8 +101,29 @@ test("json >8 KB sikisir ve ilk satir yuzde + tam yolu tasir", async () => {
 }, { timeout: 120000 });
 
 test("router tavani asilirsa kirpmaya duser", async () => {
-  assert.equal(await sikistir(TEKRARLI, 1), null);
+  assert.deepEqual(await sikistir(TEKRARLI, 1), { sebep: "zaman aşımı" });
 });
+
+/**
+ * 11m-A-FIX-4 K3: sebep yutulmaz. Dördü de sahte sıkıştırıcıyla sınanır — gerçek
+ * headroom'a gidilmez. Kök neden vekil uyumsuzluğuydu (MCP 8787, vekil 6767):
+ * headroom fail-open dönüp içeriği aynen veriyordu, başlık "headroom yok" diyordu.
+ */
+for (const [sebep, sahte] of [
+  ["zaman aşımı", async () => ({ sebep: "zaman aşımı" })],
+  ["parse", async () => ({ sebep: "parse" })],
+  ["bağlantı", async () => ({ sebep: "bağlantı" })],
+  ["bağlantı", async (s) => ({ compressed: s, original_tokens: 10, compressed_tokens: 10,
+                               proxy: { status: "unreachable" } })],
+  ["kazançsız", async (s) => ({ compressed: s, original_tokens: 10, compressed_tokens: 10 })],
+]) {
+  test(`sebep basliga girer: ${sebep}`, async () => {
+    const c = await ciktiHazirla(JSON_GOVDE, 12000,
+                                 { log: "C:/sahte/yol.log", sikistirici: sahte });
+    assert.ok(c.startsWith(`[headroom yok: ${sebep} · tam: C:/sahte/yol.log]`), c.slice(0, 70));
+  });
+}
+
 
 test("sikistirma basarisizsa ham cikti + uyari satiri doner", async () => {
   // sikistir zaman asiminda null doner; ciktiHazirla uydurma yuzde basmamali.

@@ -13,7 +13,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { CIKTI_TAVAN, MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
+import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
          gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
@@ -380,7 +380,7 @@ srv.registerTool("durum", {
     parcalar.push("## statusline\n" + satir);
   }
 
-  const hr = await jsonAl("http://127.0.0.1:6767/stats");
+  const hr = await jsonAl(`${HEADROOM_KOK}/stats`);
   parcalar.push("## headroom\n" + (hr.hata ? "erişilemedi: " + hr.hata
     : `istek ${hr.summary?.api_requests} · sıkıştırılan ${hr.summary?.compression?.requests_compressed}`
       + ` · kazanç %${hr.summary?.cost?.savings_pct} ($${hr.summary?.cost?.total_saved_usd})`));
