@@ -98,6 +98,8 @@ function baslat() {
 
   const gunluk = (s) => process.stderr.write(`[gecit:${AD}] ${s}\n`);
   const yaz = (o) => process.stdout.write(JSON.stringify(o) + "\n");
+  // Alt sunucu kapanmışsa yazım EPIPE atar; geçit onunla birlikte düşmesin.
+  alt.stdin.on("error", () => { /* kapanış `close` dalında ele alınır */ });
   const ilet = (satir) => alt.stdin.write(satir + "\n");
   const redCevap = (id, sebep) =>
     yaz({ jsonrpc: "2.0", id, result: { content: [{ type: "text", text: sebep }], isError: true } });

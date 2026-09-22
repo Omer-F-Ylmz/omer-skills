@@ -9,7 +9,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import { agaciKapat } from "./kos.mjs";
+import { agaciKapat, stdinYaz } from "./kos.mjs";
 
 const EV = os.homedir();
 const EKLENTI_KOK = path.join(EV, ".claude", "plugins", "cache");
@@ -279,7 +279,7 @@ function tekHookKos(tanim, girdi, projeDir) {
         kod, out: Buffer.concat(o).toString("utf8"), err: Buffer.concat(h).toString("utf8"),
       });
     });
-    p.stdin.end(JSON.stringify(girdi));
+    stdinYaz(p, JSON.stringify(girdi));
   });
 }
 

@@ -13,7 +13,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { CIKTI_TAVAN, MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde,
+import { CIKTI_TAVAN, MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
          gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
@@ -188,7 +188,7 @@ srv.registerTool("ajan", {
 
   const cikti = await new Promise((coz) => {
     const p = spawn(CLAUDE, [...CLAUDE_ON, ...argv], { cwd: proje, shell: false, windowsHide: true });
-    p.stdin.end(gorev);   // istem stdin'den
+    stdinYaz(p, gorev);   // istem stdin'den
     const o = [];
     p.stdout.on("data", (b) => o.push(b));
     p.stderr.on("data", (b) => o.push(b));
@@ -372,7 +372,7 @@ srv.registerTool("durum", {
       p.stdout.on("data", (b) => o.push(b));
       p.on("error", (e) => coz("(statusline koşmadı: " + e.message + ")"));
       p.on("close", () => coz(Buffer.concat(o).toString("utf8").trim()));
-      p.stdin.end(JSON.stringify(g));
+      stdinYaz(p, JSON.stringify(g));
     });
     parcalar.push("## statusline\n" + satir);
   }

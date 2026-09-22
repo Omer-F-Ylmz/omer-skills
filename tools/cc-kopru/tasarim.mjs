@@ -131,6 +131,8 @@ export function aktar(tamAd, girdi, { timeoutSn = 120 } = {}) {
     const kapat = () => { if (!bitti) { bitti = true; agaciKapat(p.pid); p.kill(); } };
     const zam = setTimeout(kapat, timeoutSn * 1000);
 
+    // Çocuk istemi okumadan çıkarsa EPIPE sunucuyu düşürmesin (11m-A-FIX-2).
+    p.stdin.on("error", () => { /* istem yazılamadı; çıkış kodu değerlendirilir */ });
     p.stdin.end(`${kisaAd(tamAd)} aracını şu argümanlarla çağır: ${JSON.stringify(girdi || {})}`);
     p.stdout.on("data", (b) => {
       parcalar.push(b);

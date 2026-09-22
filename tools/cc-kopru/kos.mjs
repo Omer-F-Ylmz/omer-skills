@@ -490,6 +490,18 @@ export async function ciktiHazirla(metin, tavan, { ham = false, log = "" } = {})
   return on + kirp(z.compressed + (artik ? `\n${artik}` : ""), tavan - on.length).metin;
 }
 
+/**
+ * Çocuğa stdin verisi yazar. Kısıtlı Desktop ortamında hook süreçleri girdiyi
+ * OKUMADAN çıkıyor (PYTHONPATH'siz python vb.); 64 KB boru tamponunu aşan yazımda
+ * yarım kalan write EPIPE/EOF atıyor ve `stdin` üzerinde dinleyici olmadığı için
+ * Node "Unhandled 'error' event" ile BÜTÜN köprüyü düşürüyordu (11m-A-FIX-2).
+ * Yazılamayan hook girdisi hata değildir: süreç zaten kendi çıkış koduyla değerlendirilir.
+ */
+export function stdinYaz(p, veri) {
+  p.stdin.on("error", () => { /* çocuk girdiyi okumadan çıktı */ });
+  p.stdin.end(veri);
+}
+
 export function agaciKapat(pid) {
   try {
     spawnSync("taskkill", ["/T", "/F", "/PID", String(pid)], { stdio: "ignore" });
