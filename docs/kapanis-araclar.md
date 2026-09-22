@@ -6,15 +6,18 @@ Sürümler: semgrep 1.177.0 (uv tool) · gitleaks 8.30.1 (winget) · jq 1.8.2 (w
 - Kısıt: yalnız bulgu satırı (dosya:satır kural). Sayı: `| jq '.results | length'`.
 - `--config auto` metrics kapalıyken çalışmaz ("Cannot create auto config when metrics are off") → `p/default`.
 - Windows: `PYTHONUTF8=1` (PowerShell: `$env:PYTHONUTF8='1'`).
+- Bulgu çoksa: `... --json > s.json && jev triage s.json` → yalnız güvenlik/Escalate satırları açılır.
 ## 3 · Bağımlılık — dotnet + gitleaks
 - `rtk dotnet list package --vulnerable --include-transitive | grep -E '^\s+>'`
 - Kısıt: yalnız `>` paket satırları; boş çıktı = açık yok.
 - `gitleaks detect --no-git --redact --no-banner --source . --report-format json --report-path - | jq -r '.[] | "\(.File):\(.StartLine) \(.RuleID)"'`
 - Kısıt: yalnız dosya:satır kural, secret redakte. Exit 1 = sızıntı var → DUR.
+- `--report-path g.json` + `jev triage g.json`: Secret/Match/Line Jev'e gitmez; yanlış-alarm ayrılır.
 ## 6 · A11y — axe (puppeteer), 3 genişlik
 - `node tools/axe-scan.js <url>` (omer-skills) → 390/768/1440; frontend-craft'ın puppeteer Chromium'u, chromedriver yok.
 - Kısıt: yalnız `id · impact · node sayısı · ilk selector` satırları; exit 1 = ihlal var. Uzunsa `| sort | uniq -c`.
 - Ön koşul: frontend-craft Adım 0 (`npm ci --ignore-scripts` + browsers install chrome).
+- İhlal JSON'u için `jev triage a.json` (id · önem · bant).
 ## Duman testi (omer-skills, 17 Eyl)
 - gitleaks `--no-git --redact`: ~2.27 MB, "no leaks found", exit 0.
 - semgrep p/default: 84 dosya, 0 bulgu, 0 hata. jq komutları (semgrep · gitleaks) koşuldu, exit 0.

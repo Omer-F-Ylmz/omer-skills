@@ -26,12 +26,18 @@ Jev metin üretmez; `state` (yargılanan malzeme) + `questions` alır, her soruy
 - Sınır durumlar `criteria`'da: noul `{true, false}`; choice `{seçenek: açıklama|null}` (≤255); score seviye dizisi (2-10).
 - Bağımsız soruları tek istekte topla (paralel değerlendirilir).
 
-## Güven (choice/score `confidence`; noul'da olasılığın kendisi)
-Docs sayısal eşik vermez; varsayılan bantlarımız:
-- ≥0.85 → doğrudan uygula.
-- 0.60-0.85 → uygula ama işaretle / ikinci soruyla doğrula.
-- <0.60 → kullanıcıya sor ya da kendin gerekçeli karar ver.
-Yalnız en iyi seçenek lazımsa eşik koyma, `choice`'u al.
+## Güven (choice/score `confidence`; noul'da max(p, 1-p))
+Bantlar `jev kalibre` ölçümünden (docs/jev-kalibre.md, 2026-09-22, n=40 sentetik TR mesaj, jev-1.13): niyet isabeti 0.95, acil Brier 0.089, doygunluk (≥0.999) 0.29.
+- ≥0.60 → Act: bu eşiğin üstünde isabet ≥0.95 ölçüldü.
+- 0.49-0.60 → Flag: uygula ama işaretle / ikinci soruyla doğrula.
+- <0.49 → Escalate: kullanıcıya sor ya da kendin gerekçeli karar ver.
+n=40 kaba bir ölçüm. CLI bantları `~/.config/jev/bantlar.json`'dan okur. Yalnız en iyi seçenek lazımsa eşik koyma, `choice`'u al.
+
+## Ömer haritası
+- CC: `jev log <dosya> [--diff a,b]` (test/derleme hatası sınıfı) · `jev ilgili "<soru>" <yol...>` (graphify adaylarından ilk-k aralık) · `jev triage <json>` (semgrep/gitleaks/SARIF/SkillSpector/axe).
+- Desktop (cc-kopru `komut`): `jev kanit <rapor> <kanit...>` (iddia-kanıt denetimi) · `jev tarama <aday.json>` (çift/izin/bakım sıralaması) · tek seferlik soru için `jev_evaluate`.
+- Yalnız Escalate satırları ve ilk-k aralıklar açılır, gerisi context'e girmez.
+- Ne zaman değil: malzeme zaten context'teyse, kod doğruluğu sorusunda, final KABUL/DUR kararında. Jev işaretler, karar ajanda kalır.
 
 ## Türkçe
 Canlı ölçüm (2026-09-22, jev-1.13, 3 Türkçe müşteri mesajı, choice/3 seçenek): Türkçe soru+criteria 3/3 isabet, ort. güven 1.00; İngilizce soru+criteria 3/3, ort. güven 1.00.
@@ -40,4 +46,5 @@ Soru dili fark yaratmadı; Türkçe state güvenle yargılanıyor. Örnek küç�
 ## Referanslar
 - `references/api.md` — iki backend tel biçimi, sınırlar, hatalar.
 - `references/kaliplar.md` — fan-out · confidence routing · composite scoring · intent routing.
+- `references/cli.md` — `jev` alt komutları, birer örnek satır.
 - `references/dotnet.md` — .NET HttpClient örneği.

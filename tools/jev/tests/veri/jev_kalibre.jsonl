@@ -1,0 +1,40 @@
+{"mesaj": "Siparişim üç gündür kargoya verilmedi, ne zaman çıkacak?", "niyet": "kargo", "acil": false, "sinir": false}
+{"mesaj": "Kargo takip sayfası sürekli 'dağıtımda' diyor ama kurye gelmedi.", "niyet": "kargo", "acil": false, "sinir": false}
+{"mesaj": "Paketim yanlış adrese teslim edilmiş görünüyor, içinde ilacım var, bugün lazım!", "niyet": "kargo", "acil": true, "sinir": false}
+{"mesaj": "Teslimat adresimi değiştirebilir miyim? Kargo henüz yola çıkmadı sanırım.", "niyet": "kargo", "acil": false, "sinir": false}
+{"mesaj": "Kutu ezik geldi, kargocu kapıda bırakıp gitti.", "niyet": "kargo", "acil": false, "sinir": false}
+{"mesaj": "Yarın düğünüm var, elbise hâlâ transfer merkezinde bekliyor, acil yardım!", "niyet": "kargo", "acil": true, "sinir": false}
+{"mesaj": "Harika, kargo sadece iki hafta sürdü, bu hızla gelecek yıla ayakkabı giyerim.", "niyet": "kargo", "acil": false, "sinir": true}
+{"mesaj": "My package is stuck in customs, takip numarası da çalışmıyor.", "niyet": "kargo", "acil": false, "sinir": true}
+{"mesaj": "Kurye geldi ama paketi vermeden gitti, bir de ücret istedi.", "niyet": "kargo", "acil": false, "sinir": true}
+{"mesaj": "Aldığım montu iade etmek istiyorum, nasıl kargo kodu alırım?", "niyet": "iade", "acil": false, "sinir": false}
+{"mesaj": "Ayakkabı küçük geldi, bir numara büyüğüyle değiştirmek istiyorum.", "niyet": "iade", "acil": false, "sinir": false}
+{"mesaj": "İade süresi kaç gün? Etiketini çıkardım ama hiç giymedim.", "niyet": "iade", "acil": false, "sinir": false}
+{"mesaj": "Ürünü iade ettim, depoya ulaştı mı göremiyorum.", "niyet": "iade", "acil": false, "sinir": false}
+{"mesaj": "Kusurlu çıkan blenderı geri göndermek istiyorum, kutusunu attım sorun olur mu?", "niyet": "iade", "acil": false, "sinir": false}
+{"mesaj": "Hediye olarak aldım, beğenilmedi; iade ederken fatura gerekir mi?", "niyet": "iade", "acil": false, "sinir": false}
+{"mesaj": "İade ettim, paramı da hâlâ görmedim, kargo da iki kez para aldı, ne biçim iş bu?", "niyet": "iade", "acil": false, "sinir": true}
+{"mesaj": "Can I return this? Yanlış renk gönderilmiş.", "niyet": "iade", "acil": false, "sinir": true}
+{"mesaj": "Kartımdan aynı sipariş için iki kez çekim yapılmış, hemen düzeltin lütfen.", "niyet": "ödeme", "acil": true, "sinir": false}
+{"mesaj": "Taksit seçeneği ödeme ekranında görünmüyor.", "niyet": "ödeme", "acil": false, "sinir": false}
+{"mesaj": "Faturamı kurumsal olarak kesebilir misiniz?", "niyet": "ödeme", "acil": false, "sinir": false}
+{"mesaj": "Kapıda ödeme seçeneği neden kaldırıldı?", "niyet": "ödeme", "acil": false, "sinir": false}
+{"mesaj": "Hesabımdan izinsiz bir alışveriş yapılmış, kartımı bloke ettirmem gerekiyor mu?", "niyet": "ödeme", "acil": true, "sinir": false}
+{"mesaj": "İade onaylandı dediniz ama para iki haftadır hesabıma geçmedi.", "niyet": "ödeme", "acil": false, "sinir": true}
+{"mesaj": "Payment failed ama bankadan para çekilmiş görünüyor, sipariş de oluşmadı.", "niyet": "ödeme", "acil": true, "sinir": true}
+{"mesaj": "Ne güzel, indirim kodu sepette çalışıyor, ödemede çalışmıyor. Çok profesyonel.", "niyet": "ödeme", "acil": false, "sinir": true}
+{"mesaj": "Bu matkabın kutusunda şarj aleti var mı?", "niyet": "ürün", "acil": false, "sinir": false}
+{"mesaj": "Mavi rengin S bedeni ne zaman stoğa girer?", "niyet": "ürün", "acil": false, "sinir": false}
+{"mesaj": "Kettle'ın içi pas yaptı, iki haftalık ürün, kalitesi bu mu?", "niyet": "ürün", "acil": false, "sinir": false}
+{"mesaj": "Bu kremin içinde paraben var mı? Cildim hassas.", "niyet": "ürün", "acil": false, "sinir": false}
+{"mesaj": "Aldığım ısıtıcı kıvılcım çıkarıyor ve yanık kokuyor, kullanmaya devam edebilir miyim?", "niyet": "ürün", "acil": true, "sinir": false}
+{"mesaj": "Mama sandalyesinin kilidi kırıldı, bebek düşüyordu!", "niyet": "ürün", "acil": true, "sinir": false}
+{"mesaj": "Does this laptop support Türkçe Q klavye? Açıklamada yazmıyor.", "niyet": "ürün", "acil": false, "sinir": true}
+{"mesaj": "Ürün güzel ama kargo kutusu berbattı, yine de ürünün garantisi nasıl işliyor?", "niyet": "ürün", "acil": false, "sinir": true}
+{"mesaj": "Şifremi unuttum, hesabıma giremiyorum.", "niyet": "diğer", "acil": false, "sinir": false}
+{"mesaj": "Müşteri temsilciniz çok yardımcı oldu, teşekkür ederim.", "niyet": "diğer", "acil": false, "sinir": false}
+{"mesaj": "Uygulamada karanlık mod olsa çok iyi olur.", "niyet": "diğer", "acil": false, "sinir": false}
+{"mesaj": "Hesabımı ve tüm verilerimi silmenizi istiyorum.", "niyet": "diğer", "acil": false, "sinir": false}
+{"mesaj": "Hesabıma başkası girmiş, adresimi değiştirmiş, hemen kilitleyin!", "niyet": "diğer", "acil": true, "sinir": false}
+{"mesaj": "Merhaba, bir sorum olacaktı.", "niyet": "diğer", "acil": false, "sinir": true}
+{"mesaj": "Bu sefer de olmadı, artık sizden bir şey beklemiyorum.", "niyet": "diğer", "acil": false, "sinir": true}
