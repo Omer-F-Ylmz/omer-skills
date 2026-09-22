@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="1" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Results>
+    <UnitTestResult testName="App.Tests.SiparisTests.Toplam_dogru" outcome="Failed">
+      <Output><ErrorInfo><Message>Assert.Equal() Failure</Message><StackTrace>at SiparisTests.cs:line 20</StackTrace></ErrorInfo></Output>
+    </UnitTestResult>
+    <UnitTestResult testName="App.Tests.KargoTests.Ucret" outcome="Passed" />
+    <UnitTestResult testName="App.Tests.KargoTests.Zaman_asimi" outcome="Failed">
+      <Output><ErrorInfo><Message>System.TimeoutException</Message></ErrorInfo></Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,22 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+C:\src\App\Siparis.cs(42,17): error CS0103: The name 'toplam' does not exist in the current context [C:\src\App\App.csproj]
+C:\src\App\Kargo.cs(10,5): warning CS8618: Non-nullable property 'Adres' must contain a non-null value [C:\src\App\App.csproj]
+  Failed App.Tests.SiparisTests.Toplam_dogru [12 ms]
+  Error Message:
+   Assert.Equal() Failure
+   Expected: 10
+   Actual:   9
+  Stack Trace:
+     at App.Tests.SiparisTests.Toplam_dogru() in C:\src\App.Tests\SiparisTests.cs:line 20
+  Failed App.Tests.KargoTests.Zaman_asimi [5 s]
+  Error Message:
+   System.TimeoutException : The operation has timed out.
+  Passed App.Tests.KargoTests.Ucret [1 ms]
+  failed App.Tests.IadeTests.Iade_reddi (8ms)
+    Assert.True() Failure
+  failed: 1
+
+Build FAILED.
+C:\src\App\Siparis.cs(42,17): error CS0103: The name 'toplam' does not exist in the current context [C:\src\App\App.csproj]
+Failed!  - Failed:     2, Passed:    10, Skipped:     0, Total:    12, Duration: 6 s - App.Tests.dll (net10.0)

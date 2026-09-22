@@ -1,0 +1,17 @@
+============================= test session starts =============================
+collected 5 items
+
+tests/test_a.py .F.E                                                     [ 80%]
+tests/test_b.py F                                                        [100%]
+
+=================================== FAILURES ==================================
+___________________________________ test_x ____________________________________
+    def test_x():
+>       assert 1 == 2
+E       assert 1 == 2
+tests/test_a.py:5: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_a.py::test_x - assert 1 == 2
+FAILED tests/test_b.py::test_y - ModuleNotFoundError: No module named 'requests'
+ERROR tests/test_a.py::test_db - ConnectionRefusedError: [Errno 111] Connection refused
+==================== 2 failed, 2 passed, 1 error in 0.12s =====================
