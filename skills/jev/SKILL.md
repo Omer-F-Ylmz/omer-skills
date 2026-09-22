@@ -27,11 +27,10 @@ Jev metin üretmez; `state` (yargılanan malzeme) + `questions` alır, her soruy
 - Bağımsız soruları tek istekte topla (paralel değerlendirilir).
 
 ## Güven (choice/score `confidence`; noul'da max(p, 1-p))
-Bantlar `jev kalibre` ölçümünden (docs/jev-kalibre.md, 2026-09-22, n=40 sentetik TR mesaj, jev-1.13): niyet isabeti 0.95, acil Brier 0.089, doygunluk (≥0.999) 0.29.
-- ≥0.60 → Act: bu eşiğin üstünde isabet ≥0.95 ölçüldü.
-- 0.49-0.60 → Flag: uygula ama işaretle / ikinci soruyla doğrula.
-- <0.49 → Escalate: kullanıcıya sor ya da kendin gerekçeli karar ver.
-n=40 kaba bir ölçüm. CLI bantları `~/.config/jev/bantlar.json`'dan okur. Yalnız en iyi seçenek lazımsa eşik koyma, `choice`'u al.
+- ≥0.85 → Act: doğrudan uygula.
+- 0.60-0.85 → Flag: uygula ama işaretle / ikinci soruyla doğrula.
+- <0.60 → Escalate: kullanıcıya sor ya da kendin gerekçeli karar ver.
+Kanıt (`jev kalibre`, n=40 sentetik TR, jev-1.13): Act 51 yargı · isabet 1.00 · Flag 22 · 0.86 · Escalate 7 · 0.43; doygunluk (≥0.999) 0.29, sınır durumda 0.21. CLI bantları `~/.config/jev/bantlar.json`'dan okur. Yalnız en iyi seçenek lazımsa eşik koyma, `choice`'u al.
 
 ## Ömer haritası
 - CC: `jev log <dosya> [--diff a,b]` (test/derleme hatası sınıfı) · `jev ilgili "<soru>" <yol...>` (graphify adaylarından ilk-k aralık) · `jev triage <json>` (semgrep/gitleaks/SARIF/SkillSpector/axe).

@@ -13,6 +13,7 @@ from . import ayristir as a
 from . import cekirdek as c
 
 VERI = Path(__file__).resolve().parents[1] / "tests" / "veri" / "jev_kalibre.jsonl"
+KANIT_TOKEN = 28_000
 SINIF = {
     "regresyon": "Son kod değişikliği davranışı bozdu; test haklı.",
     "flaky": "Zamanlama, sıra, paralellik ya da ağ kaynaklı kararsızlık; tekrar koşunca geçebilir.",
@@ -72,16 +73,14 @@ def ilgili(ns, tas, b):
 
 def kanit(ns, tas, b):
     iddialar = a.iddialar(_oku(ns.rapor))
-    kanit_metni = "\n\n".join(f"### {y}\n{_oku(y)}" for y in ns.kanitlar)
-    if c.token(kanit_metni) > c.STATE_TOKEN - 4_000:
-        raise ValueError(f"kanıt ~{c.token(kanit_metni)} token; tek state sınırı aşılıyor, daha dar dosya ver")
+    parcalar = c.bol_state("\n\n".join(f"### {y}\n{_oku(y)}" for y in ns.kanitlar), ust=KANIT_TOKEN)
     t, satirlar = tas(), []
-    # Kanıt tek state; her iddia bir noul sorusu → grup başına tek istek.
+    # Her kanıt parçası bir state, her iddia bir noul sorusu; iddia başına p = parçalar arası max.
     for grup in c.parcala(iddialar, 20):
         q = {f"i{n}": {"type": "noul", "instructions": f"Bu iddia state'teki KANIT tarafından destekleniyor mu? İddia: {c.redakte(i)}"} for n, i in grup}
-        cv = t.yargila([kanit_metni], q)[0]
+        cevaplar = [cv for cv in t.yargila(parcalar, q) if cv]
         for n, i in grup:
-            y = cv[f"i{n}"] if cv else None
+            y = max((cv[f"i{n}"] for cv in cevaplar), key=lambda x: x["noul"], default=None)
             bt = c.bant(c.kesinlik(y), b) if y else "Escalate"
             if y is None or y["noul"] < 0.5 or bt == "Escalate":
                 satirlar.append([n, i[:60], _p(y["noul"]) if y else "-", bt])
@@ -192,14 +191,14 @@ def kalibre(ns, tas, b):
         t.model = m
         olc[m] = _olc(satirlar, t.yargila([s["mesaj"] for s in satirlar], q))
     oneri = max(c.MODELLER, key=lambda m: (olc[m]["isabet"], -olc[m]["brier"], m == "jev-1.13"))
-    o = olc[oneri]
-    act = o["act"] if o["act"] is not None else c.VARSAYILAN_BANT["act"]
-    flag = min(o["flag"] if o["flag"] is not None else c.VARSAYILAN_BANT["flag"], act)
+    o, taban = olc[oneri], c.VARSAYILAN_BANT
+    act = max(o["act"] or 0, taban["act"])  # taban: öneri 0.85/0.60'ın altına indiremez
+    flag = min(max(o["flag"] or 0, taban["flag"]), act)
     n, ns_ = len(satirlar), sum(s["sinir"] for s in satirlar)
     md = [f"# Jev kalibrasyonu — {date.today().isoformat()}", "",
           f"Veri: {Path(ns.veri).name} · n={n} sentetik Türkçe mesaj ({ns_} sınır durum) · model başına 1 batch. "
           f"Kesinlik: choice `confidence`, noul `max(p, 1-p)`; niyet + acil yargıları birlikte ({2 * n} yargı/model).", "",
-          "| model | niyet isabeti | acil Brier | doygunluk (≥0.999) | doygunluk sınır | Act eşiği (≥0.95) | Flag alt sınırı (≥0.80) | yanıtsız |",
+          "| model | niyet isabeti | acil Brier | doygunluk (≥0.999) | doygunluk sınır | Act önerisi (≥0.95) | Flag önerisi (≥0.80) | yanıtsız |",
           "|---|---|---|---|---|---|---|---|"]
     for m in c.MODELLER:
         x = olc[m]
@@ -208,12 +207,15 @@ def kalibre(ns, tas, b):
     for m in c.MODELLER:
         md.append(f"| {m} | " + " | ".join(f"{k} · {_p(v) if v is not None else '-'}" for k, v in olc[m]["bantlar"].values()) + " |")
     md += ["", f"**Önerilen model:** {oneri} (isabet, sonra Brier; eşitlikte pinli jev-1.13).",
-           f"**Yazılan bantlar:** act={act} · flag={flag} → `~/.config/jev/bantlar.json` (eşik ölçülemezse varsayılan kalır; en az 5 örnek desteği).",
+           (f"**Yazılan bantlar (--bant-yaz):** act={act} · flag={flag} → `~/.config/jev/bantlar.json` (yazılan = max(öneri, 0.85/0.60); en az 5 örnek desteği)."
+            if ns.bant_yaz else "**bantlar.json değişmedi:** öneri yalnız rapora girer; yazmak için `--bant-yaz` (yazılan = max(öneri, 0.85/0.60))."),
+           f"Çağrı: {t.cagri} batch · {t.istek} HTTP istek.",
            "", f"Not: n={n}. Eşikler kaba; güven aralığı geniş. Doygunluk yüksekse kesinlik ayırt edici değildir, bant yerine sınıf/p'ye bakılır."]
     Path(ns.cikti).parent.mkdir(parents=True, exist_ok=True)
     Path(ns.cikti).write_text("\n".join(md) + "\n", encoding="utf-8")
-    c.BANT_YOLU.parent.mkdir(parents=True, exist_ok=True)
-    c.BANT_YOLU.write_text(json.dumps({"act": act, "flag": flag, "model": oneri, "n": n, "tarih": date.today().isoformat(), "kaynak": "jev kalibre"}), encoding="utf-8")
+    if ns.bant_yaz:
+        c.BANT_YOLU.parent.mkdir(parents=True, exist_ok=True)
+        c.BANT_YOLU.write_text(json.dumps({"act": act, "flag": flag, "model": oneri, "n": n, "tarih": date.today().isoformat(), "kaynak": "jev kalibre"}), encoding="utf-8")
     return ["model", "isabet", "Brier", "doygunluk", "Act", "Flag"], [
         [m, _p(olc[m]["isabet"]), f"{olc[m]['brier']:.3f}", _p(olc[m]["doygunluk"]), olc[m]["act"], olc[m]["flag"]] for m in c.MODELLER]
 
@@ -226,6 +228,7 @@ def main(argv=None, env=None, gonder=None, uyu=time.sleep):
     ortak = argparse.ArgumentParser(add_help=False)
     ortak.add_argument("--model", default="jev-1.13", choices=c.MODELLER, help="varsayılan pinli jev-1.13")
     ortak.add_argument("--en-fazla", type=int, default=5, metavar="N", help="en fazla N batch çağrısı; N+1. ağa çıkmadan hata (varsayılan 5)")
+    ortak.add_argument("--istek-tavan", type=int, default=250, metavar="M", help="en fazla M HTTP isteği, tekrarlar dahil (varsayılan 250)")
     ortak.add_argument("--json", action="store_true", help="tablo yerine JSON")
     alt = p.add_subparsers(dest="komut", required=True)
     x = alt.add_parser("log", parents=[ortak], help="dotnet test (konsol/trx) · pytest çıktısındaki hataları sınıflar")
@@ -245,9 +248,16 @@ def main(argv=None, env=None, gonder=None, uyu=time.sleep):
     x = alt.add_parser("kalibre", parents=[ortak], help="40 sentetik mesajla 2 modeli ölçer, bantlar.json yazar (2 çağrı)")
     x.add_argument("--veri", default=str(VERI))
     x.add_argument("--cikti", default="docs/jev-kalibre.md")
+    x.add_argument("--bant-yaz", action="store_true", help="öneriyi tabanla (max(öneri, 0.85/0.60)) bantlar.json'a yaz")
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
-    tas = lambda: c.Tasiyici(env=env, en_fazla=ns.en_fazla, model=ns.model, gonder=gonder, uyu=uyu)
+    t = []  # komut başına tek taşıyıcı: sayaçlar çıktıya girer
+
+    def tas():
+        if not t:
+            t.append(c.Tasiyici(env=env, en_fazla=ns.en_fazla, istek_tavan=ns.istek_tavan, model=ns.model, gonder=gonder, uyu=uyu))
+        return t[0]
+
     try:
         b = None if ns.komut == "kalibre" else c.bantlar_oku()
         sonuc = KOMUT[ns.komut](ns, tas, b)
@@ -257,12 +267,13 @@ def main(argv=None, env=None, gonder=None, uyu=time.sleep):
     except (c.JevHata, OSError, ValueError, KeyError, TypeError) as e:
         print(f"jev: {type(e).__name__}: {e}", file=sys.stderr)
         return 1
-    if isinstance(sonuc, str):
-        print(sonuc)
-    elif ns.json:
-        print(json.dumps([dict(zip(sonuc[0], r)) for r in sonuc[1]], ensure_ascii=False))
+    cagri = {"batch": t[0].cagri, "istek": t[0].istek} if t else {"batch": 0, "istek": 0}
+    if ns.json:
+        j = {"mesaj": sonuc} if isinstance(sonuc, str) else {"satirlar": [dict(zip(sonuc[0], r)) for r in sonuc[1]]}
+        print(json.dumps({**j, "cagri": cagri}, ensure_ascii=False))
     else:
-        print(c.tablo(*sonuc))
+        print(sonuc if isinstance(sonuc, str) else c.tablo(*sonuc, ust=24))
+        print(f"çağrı: {cagri['batch']}/{ns.en_fazla} batch · {cagri['istek']}/{ns.istek_tavan} istek")
     return 0
 
 

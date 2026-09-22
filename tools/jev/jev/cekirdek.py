@@ -173,16 +173,17 @@ _YOK = object()
 
 
 class Tasiyici:
-    def __init__(self, env=None, en_fazla=5, model="jev-1.13", gonder=None, uyu=time.sleep):
+    def __init__(self, env=None, en_fazla=5, model="jev-1.13", gonder=None, uyu=time.sleep, istek_tavan=250):
         if model not in MODELLER:
             raise JevHata(f"model yalnız {' | '.join(MODELLER)}")
         self.b = backend(os.environ if env is None else env)
         if self.b is None:
             raise AnahtarYok("anahtar yok; ortamda şunlardan biri gerekli: " + " / ".join(ANAHTAR_ADLARI))
         self.en_fazla, self.model, self.gonder, self.uyu, self.cagri = en_fazla, model, gonder or http_gonder, uyu, 0
+        self.istek_tavan, self.istek = istek_tavan, 0
 
     def yargila(self, states, questions):
-        """Tek boğaz noktası. Çağrı birimi = ≤200 state'lik batch; tavan ağa çıkmadan kontrol edilir."""
+        """Tek boğaz noktası. İki tavan: batch (≤200 state) ve HTTP isteği (tekrarlar dahil); ikisi de ağa çıkmadan kontrol edilir."""
         duz, kaynak = [], []
         for i, s in enumerate(states):
             for p in bol_state(redakte(s)):
@@ -191,6 +192,9 @@ class Tasiyici:
         parcalar = parcala(duz)
         if self.cagri + len(parcalar) > self.en_fazla:
             raise TavanHata(f"tavan: {len(parcalar)} çağrı gerekiyor, kalan {self.en_fazla - self.cagri} (--en-fazla)")
+        gerekli = len(parcalar) if self.b["ad"] == "MCP" else len(duz)
+        if self.istek + gerekli > self.istek_tavan:
+            raise TavanHata(f"istek tavanı: en az {gerekli} HTTP isteği gerekiyor, kalan {self.istek_tavan - self.istek} (--istek-tavan)")
         cevaplar = []
         for p in parcalar:
             self.cagri += 1
@@ -203,6 +207,9 @@ class Tasiyici:
     def _istek(self, govde, basliklar):
         veri = json.dumps(govde, ensure_ascii=False).encode()
         for deneme in range(TEKRAR + 1):
+            if self.istek >= self.istek_tavan:
+                raise TavanHata(f"istek tavanı: {self.istek_tavan} HTTP isteği doldu (tekrarlar dahil, --istek-tavan)")
+            self.istek += 1
             try:
                 status, hdr, yanit = self.gonder(self.b["url"], basliklar, veri)
             except OSError:

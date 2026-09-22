@@ -144,8 +144,9 @@ def bulgular(veri):
     if "violations" in veri:  # axe
         return [_kayit(v["id"], veri.get("url", ""), None, etki=v.get("impact"), yardim=v.get("help"), dugum=len(v.get("nodes", [])))
                 for v in veri["violations"]]
-    if "findings" in veri:  # SkillSpector (şema varsayımı: rule_id/file/line/severity/message)
-        return [_kayit(f.get("rule_id") or f.get("rule") or f.get("id"), f.get("file") or f.get("path", ""), f.get("line"),
-                       seviye=f.get("severity"), mesaj=f.get("message") or f.get("description") or f.get("title"))
-                for f in veri["findings"]]
+    if "issues" in veri:  # SkillSpector (gerçek çıktıdan); finding/code_snippet eşleşen metni taşır, alınmaz
+        return [_kayit(i.get("id"), (i.get("location") or {}).get("file", ""), (i.get("location") or {}).get("start_line"),
+                       kategori=i.get("category"), desen=i.get("pattern"), seviye=i.get("severity"),
+                       guven=i.get("confidence"), aciklama=i.get("explanation"))
+                for i in veri["issues"]]
     raise ValueError("tanınmayan bulgu biçimi (semgrep · gitleaks · SARIF · SkillSpector · axe JSON)")
