@@ -82,7 +82,10 @@ srv.registerTool("komut", {
   let proje;
   try {
     proje = cwdCoz(cwd, AYAR);
-    komutDenetle(arac, args, AYAR);
+    // 11l-FIX K1: denetimden ÇIKAN argv kullanılır. Denetimin eklediği `--` ayırıcısı
+    // (11l K2) hook satırına girmezse, hook `rtk <ayırıcısız argv>` yazıyor ve sarmalama
+    // normalleşmeyi geri alıyordu (`npx --no pixeljury --version` -> npm'in sürümü).
+    args = komutDenetle(arac, args, AYAR).args;
   } catch (e) {
     return hata("RED: " + e.message);
   }

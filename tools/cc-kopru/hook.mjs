@@ -105,10 +105,28 @@ export function eklentiKokleri() {
 }
 
 /**
+ * 11l-FIX K2 ölçümü: hedef ajanların ilk cümleleri 45 · 63 · 298 karakter; eski
+ * 160'lık tavan üçünü de cümle ortasından kesiyordu. Tavan en uzun ilk cümleye pay.
+ */
+export const ACIKLAMA_TAVAN = 320;
+
+/** Tavanı aşan metni son cümle sınırından, cümle yoksa son kelimeden kırpar. */
+function cumleKirp(s, tavan = ACIKLAMA_TAVAN) {
+  if (s.length <= tavan) return s;
+  const bas = s.slice(0, tavan);
+  const son = [...bas.matchAll(/[.!?](?=\s|$)/g)].pop();
+  if (son) return bas.slice(0, son.index + 1);
+  const bosluk = bas.lastIndexOf(" ");
+  return (bosluk > 0 ? bas.slice(0, bosluk) : bas) + "…";
+}
+
+/**
  * SKILL.md / komut dosyasından tek satır açıklama.
  * 11l K3: `description:` bir YAML blok skaleri olabilir (`|` · `>` · `|-` · `>-` · `|+`
  * · `>+`); o zaman satırın kendisi göstergeden ibaret, metin izleyen girintili
  * satırlardadır. Eskiden göstergenin kendisi açıklama sanılıp basılıyordu.
+ * 11l-FIX K2: devam satırları da okunur. `|` satır sonlarını korur (ilk satır alınır),
+ * `>` ve göstergesiz çok satırlı plain scalar katlanır — cümle ortasından kesilmez.
  */
 export function aciklamaOku(dosya) {
   try {
@@ -118,13 +136,18 @@ export function aciklamaOku(dosya) {
     let s;
     if (n >= 0) {
       s = satirlar[n].replace(/^description:\s*/, "");
-      if (/^[|>][-+]?\d*$/.test(s.trim())) {
-        s = satirlar.slice(n + 1).find((x) => /^\s+\S/.test(x)) || "";
+      // devam satırları girintilidir; boş satır (paragraf) ya da yeni anahtar bitirir
+      const devam = [];
+      for (let i = n + 1; i < satirlar.length && /^\s+\S/.test(satirlar[i]); i++) {
+        devam.push(satirlar[i].trim());
       }
+      const gosterge = /^([|>])[-+]?\d*$/.exec(s.trim());
+      if (gosterge) s = gosterge[1] === "|" ? (devam[0] || "") : devam.join(" ");
+      else if (devam.length) s = [s.trim(), ...devam].join(" ");
     } else {
       s = satirlar.find((x) => x.trim() && !/^(---|#|name:)/.test(x.trim())) || "";
     }
-    return s.trim().replace(/^["']|["']$/g, "").trim().slice(0, 160);
+    return cumleKirp(s.trim().replace(/^["']|["']$/g, "").trim());
   } catch { return ""; }
 }
 

@@ -11,7 +11,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { gozlemGovde, statuslineGovde } from "../kos.mjs";
-import { aciklamaOku, eklentiKokleri, katalogTopla } from "../hook.mjs";
+import { ACIKLAMA_TAVAN, aciklamaOku, eklentiKokleri, katalogTopla } from "../hook.mjs";
 
 const SUNUCU = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "sunucu.mjs");
 const PROJE = "C:/Projeler/omer-skills";
@@ -98,13 +98,49 @@ test("katalog skillOverrides'ta off olani elemez degil, eler", () => {
 // `>`, dotnet-test 10 ajan) aciklama yerine gostergenin kendisi basiliyordu.
 const gecici = () => fs.mkdtempSync(path.join(os.tmpdir(), "cc-kopru-11l-"));
 
-test("aciklamaOku blok skaleri gostergesini degil ilk anlamli satiri alir", () => {
+test("aciklamaOku blok skaleri gostergesini degil metni alir", () => {
   const d = gecici();
-  for (const g of ["|", ">", "|-", ">-", "|+", ">+"]) {
+  const yaz = (g) => {
     const p = path.join(d, `s${g.length}${g[0] === "|" ? "b" : "k"}.md`);
     fs.writeFileSync(p, `---\nname: x\ndescription: ${g}\n  Uc ajan uretir.\n`
-      + `  Ikinci satir gorunmemeli.\n---\n# govde\n`, "utf8");
-    assert.equal(aciklamaOku(p), "Uc ajan uretir.", `gosterge ${g}`);
+      + `  Ikinci satir.\n---\n# govde\n`, "utf8");
+    return p;
+  };
+  // `|` satir sonlarini korur: tek satirlik katalog girdisine ilk satir girer.
+  for (const g of ["|", "|-", "|+"]) assert.equal(aciklamaOku(yaz(g)), "Uc ajan uretir.", g);
+  // 11l-FIX K2: `>` katlanan skalerdir, satirlar bosluklu birlesir (cumle bolunmez).
+  for (const g of [">", ">-", ">+"]) {
+    assert.equal(aciklamaOku(yaz(g)), "Uc ajan uretir. Ikinci satir.", g);
+  }
+});
+
+// 11l-FIX K2: katlanan `>-` aciklamalar ilk satirda kesiliyordu — dotnet-test'in
+// uc ajani cumle ortasinda ("... Orchestrates") basiliyordu.
+test("aciklamaOku cok satirli plain scalar'i tek satira birlestirir", () => {
+  const p = path.join(gecici(), "plain.md");
+  fs.writeFileSync(p, `---\nname: x\ndescription: Ilk parca\n  ikinci parca.\n---\n`, "utf8");
+  assert.equal(aciklamaOku(p), "Ilk parca ikinci parca.");
+});
+
+test("aciklamaOku tavani asan metni cumle sinirindan kirpar", () => {
+  const p = path.join(gecici(), "uzun.md");
+  const cumle = "A".repeat(100) + ". " + "B".repeat(100) + ". " + "C".repeat(200) + ".";
+  fs.writeFileSync(p, `---\nname: x\ndescription: >-\n  ${cumle}\n---\n`, "utf8");
+  const a = aciklamaOku(p);
+  assert.ok(a.length <= ACIKLAMA_TAVAN, `tavan asildi: ${a.length}`);
+  assert.match(a, /\.$/, "cumle sinirinda bitmeli");
+  assert.equal(a, "A".repeat(100) + ". " + "B".repeat(100) + ".");
+});
+
+test("katalog: dotnet-test ajan aciklamalari cumle ortasinda kesilmiyor", () => {
+  const hedef = ["dotnet-test:code-testing-generator.agent",
+                 "dotnet-test:code-testing-implementer.agent",
+                 "dotnet-test:testability-migration.agent"];
+  const liste = katalogTopla("ajan", "");
+  for (const ad of hedef) {
+    const x = liste.find((y) => y.ad === ad);
+    assert.ok(x, `${ad} katalogda yok`);
+    assert.match(x.aciklama, /[.!?]$/, `${ad}: ${x.aciklama}`);
   }
 });
 

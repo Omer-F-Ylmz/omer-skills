@@ -85,3 +85,17 @@ test("komut: normal yol calisir ve rtk hook'u devrede", async () => {
   assert.notEqual(r.isError, true, govde(r));
   assert.match(govde(r), /exit 0/);
 });
+
+/**
+ * 11l-FIX K1: denetimin eklediği `--` ayırıcısı hook yeniden yazımından sonra da
+ * argv'de kalmalı. Ayırıcısız `npx --no pixeljury --version` npm'in kendi sürümünü
+ * basıyor (11.17.0); ayırıcıyla paket koşuyor (0.1.5). rtk hook'u gerçek uçta koşar.
+ */
+test("komut: npx `--` ayiricisi hook yeniden yaziminda korunur", async () => {
+  const [r] = await cagir([
+    { arac: "komut", args: { arac: "npx", args: ["--no", "pixeljury", "--version"], cwd: PROJE } },
+  ]);
+  assert.match(govde(r), /rtk npx --no -- pixeljury --version/, govde(r));
+  assert.match(govde(r), /0\.1\.5/, govde(r));
+  assert.doesNotMatch(govde(r), /11\.17\.0/, govde(r));
+});
