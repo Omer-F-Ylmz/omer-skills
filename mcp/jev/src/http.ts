@@ -15,8 +15,10 @@ const bitir = (res: ServerResponse, kod: number) => {
 };
 
 export default async function handler(req: IncomingMessage & { body?: unknown }, res: ServerResponse) {
-  const baslik = req.headers["x-jev-token"];
-  if (!yetkili(typeof baslik === "string" ? baslik : undefined, process.env.JEV_MCP_TOKEN)) return bitir(res, 401);
+  // x-api-key: claude.ai connector'ı yalnız hazır listedeki başlık adlarını kabul ediyor. Gelen her başlık doğru olmalı.
+  const basliklar = [req.headers["x-jev-token"], req.headers["x-api-key"]].filter((b) => b !== undefined);
+  const dogru = (b: string | string[]) => yetkili(typeof b === "string" ? b : undefined, process.env.JEV_MCP_TOKEN);
+  if (!basliklar.length || !basliklar.every(dogru)) return bitir(res, 401);
   if (req.method !== "POST") return bitir(res, 405);
   const sunucu = sunucuYap();
   const tasima = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined, enableJsonResponse: true });
