@@ -612,12 +612,25 @@ export const MEM_KOK = `http://127.0.0.1:${process.env.CLAUDE_MEM_WORKER_PORT ||
  * Uç, claude-mem hooks.json → worker-service.cjs zincirinden okundu (11k K3b);
  * uydurulmadı. Şema `.passthrough()`, zorunlu alanlar contentSessionId + tool_name.
  */
+/**
+ * Gözlem alanı tavanı — gitleaks kapısının taradığı boyla aynı: taranan ne ise
+ * gönderilen o. CLAUDE-MEM-1: tavansız gövde worker'da sıkıştırmayı tetikliyor ve
+ * 30 sn sonra boş dönüyor ("compression unusable … originalChars=154410,
+ * returnedChars=0"), yani iki ajan yuvasından birini boşa yakıyordu.
+ */
+export const GOZLEM_TAVAN = 20000;
+
+const gozlemKirp = (v) => {
+  const s = JSON.stringify(v ?? null);
+  return s.length > GOZLEM_TAVAN ? { kirpildi: s.slice(0, GOZLEM_TAVAN) } : v;
+};
+
 export function gozlemGovde(oturum, aracAdi, girdi, yanit, cwd) {
   return {
     contentSessionId: oturum,
     tool_name: aracAdi,
-    tool_input: girdi,
-    tool_response: yanit,
+    tool_input: gozlemKirp(girdi),
+    tool_response: gozlemKirp(yanit),
     cwd,
     platformSource: "claude-desktop",
   };

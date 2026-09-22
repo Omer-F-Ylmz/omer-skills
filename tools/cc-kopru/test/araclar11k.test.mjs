@@ -10,7 +10,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { gozlemGovde, statuslineGovde } from "../kos.mjs";
+import { GOZLEM_TAVAN, gozlemGovde, statuslineGovde } from "../kos.mjs";
 import { ACIKLAMA_TAVAN, aciklamaOku, eklentiKokleri, katalogTopla } from "../hook.mjs";
 
 const SUNUCU = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "sunucu.mjs");
@@ -66,6 +66,19 @@ test("gozlem govdesi worker semasina uyar: kaynak claude-desktop", () => {
   assert.equal(g.cwd, PROJE);
   assert.deepEqual(Object.keys(g).sort(),
     ["contentSessionId", "cwd", "platformSource", "tool_input", "tool_name", "tool_response"]);
+});
+
+/**
+ * CLAUDE-MEM-1: tavansız gövde worker'da 30 sn'lik başarısız sıkıştırmaya yol açıyordu
+ * ("compression unusable … originalChars=154410, returnedChars=0"); her biri iki ajan
+ * yuvasından birini boşa yakıyor. Gözleme giden gövde gitleaks'in taradığı boyu aşmaz.
+ */
+test("gozlem govdesi tavani asan ciktiyi kirpar", () => {
+  const g = gozlemGovde("oturum-1", "cc-kopru:komut", { command: "gh api repos" },
+                        { stdout: "x".repeat(150000), exitCode: 0 }, PROJE);
+  assert.ok(JSON.stringify(g.tool_response).length <= GOZLEM_TAVAN + 200,
+            `gövde: ${JSON.stringify(g.tool_response).length}`);
+  assert.deepEqual(g.tool_input, { command: "gh api repos" });
 });
 
 // ---------------------------------------------------------------- K4 gövde
