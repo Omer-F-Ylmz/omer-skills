@@ -604,7 +604,8 @@ export function memGovde(proje, baslik, metin) {
   return { project: proje, title: baslik, text: metin, metadata: { platformSource: "desktop" } };
 }
 
-export const MEM_KOK = "http://127.0.0.1:37777";
+/** Port claude-mem'in kendi değişkeninden okunur (worker de onu okuyor); yoksa 37777. */
+export const MEM_KOK = `http://127.0.0.1:${process.env.CLAUDE_MEM_WORKER_PORT || 37777}`;
 
 /**
  * CC'nin kendi PostToolUse hook'uyla AYNI uç: POST /api/sessions/observations.
@@ -622,14 +623,21 @@ export function gozlemGovde(oturum, aracAdi, girdi, yanit, cwd) {
   };
 }
 
-/** @returns {Promise<string>} boş = yazıldı, dolu = sebep (çağrıyı bozmaz). */
+/**
+ * @returns {Promise<string>} boş = kuyruğa girdi, dolu = sebep (çağrıyı bozmaz).
+ * 11m-A-FIX-3 K3: worker sessiz reddi 200 ile bildiriyor ({status:"skipped",
+ * reason:"project_excluded"|"tool_excluded"|"private"}); eskiden bu "yazıldı" sayılıyordu.
+ */
 export async function gozlemYaz(govde) {
   try {
     const y = await fetch(`${MEM_KOK}/api/sessions/observations`, {
       method: "POST", headers: { "content-type": "application/json" },
       body: JSON.stringify(govde),
     });
-    return y.ok ? "" : `gözlem yazılamadı: worker ${y.status}`;
+    const j = await y.json().catch(() => null);
+    if (!y.ok) return `gözlem yazılamadı: worker ${y.status}${j?.reason ? " " + j.reason : ""}`;
+    if (j?.status && j.status !== "queued") return `gözlem yazılmadı: worker ${j.status} (${j.reason || "?"})`;
+    return "";
   } catch (e) { return "gözlem yazılamadı: " + String(e?.message || e); }
 }
 

@@ -16,7 +16,7 @@ import readline from "node:readline";
 
 import { ayarYukle, denyListesi, gozlemGovde, gozlemYaz, okumaDeny,
          sizintiKapisi } from "./kos.mjs";
-import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi } from "./hook.mjs";
+import { gozlemHooku, hookKaynaklari, hookKos, hookTanimlari, izDosyasi } from "./hook.mjs";
 
 const AYAR = ayarYukle();
 const OTURUM = crypto.randomUUID();
@@ -176,7 +176,7 @@ function baslat() {
     bekleyen.delete(m.id);
 
     const yanit = b.es.matcher === "Read" ? { ok: !m.error } : (m.result ?? m.error);
-    const son = await hookKos(b.defs, {
+    const son = await hookKos(b.defs.filter((t) => !gozlemHooku(t)), {
       ...ortak(b.proje), hook_event_name: "PostToolUse",
       tool_name: b.es.matcher, tool_input: b.es.girdi, tool_response: yanit,
     }, { projeDir: b.proje });

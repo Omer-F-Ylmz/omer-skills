@@ -10,7 +10,25 @@
  * Girdi 64 KB boru tamponunu aşacak kadar doldurulur: aksi halde girdiyi okumadan
  * çıkan hook'un yazımı da "başarılı" görünür (11m-A-FIX-2 stdinYaz notu).
  */
+import http from "node:http";
+
 import { hookKaynaklari, hookTanimlari, matcherEslesir, tekHookKos } from "../hook.mjs";
+
+/**
+ * Sahte claude-mem worker'ı. İki işi var: envanterin sahte payload'ı gerçek veritabanına
+ * düşmez, ve "hook worker'a istek attı mı" kanıta bağlanır — hook 400'de bile exit 0 +
+ * stdout "{}" ile sessiz olduğundan exit kodu tek başına bunu göstermiyor (11m-A-FIX-3).
+ */
+async function sahteWorker() {
+  const istek = [];
+  const srv = http.createServer((q, y) => {
+    if (q.url.startsWith("/api/sessions/observations")) istek.push(q.url);
+    y.writeHead(200, { "content-type": "application/json" });
+    y.end(JSON.stringify({ status: "queued", healthy: true, ready: true }));
+  });
+  await new Promise((r) => srv.listen(0, "127.0.0.1", r));
+  return { port: srv.address().port, istek, kapat: () => new Promise((r) => srv.close(r)) };
+}
 
 /** Claude Desktop'ın alt sürece geçirdiği değişkenler (app.asar ofset 3899305). */
 const DESKTOP_ENV = ["APPDATA", "HOMEDRIVE", "HOMEPATH", "LOCALAPPDATA", "PATH",
@@ -48,18 +66,31 @@ export async function envanter(projeDir, olaylar = ["PreToolUse", "PostToolUse"]
   const defs = hookTanimlari(hookKaynaklari(projeDir), []);
   const dolgu = "x".repeat(80 * 1024);
   const out = [];
-  for (const olay of olaylar) {
-    for (const t of defs.filter((x) => x.olay === olay)) {
-      if (!matcherEslesir(t.matcher, "Bash")) continue;
-      const girdi = {
-        session_id: "envanter", cwd: projeDir, hook_event_name: olay, tool_name: "Bash",
-        tool_input: { command: "git status", description: "hook-envanter" },
-        tool_response: { stdout: "", exitCode: 0 },
-        _dolgu: dolgu,
-      };
-      const r = await tekHookKos(t, girdi, projeDir);
-      out.push({ anahtar: t.anahtar, kod: r.kod, girdiYazildi: r.girdiYazildi, etki: etki(olay, r) });
+  const w = await sahteWorker();
+  const eskiPort = process.env.CLAUDE_MEM_WORKER_PORT;
+  process.env.CLAUDE_MEM_WORKER_PORT = String(w.port);
+  try {
+    for (const olay of olaylar) {
+      for (const t of defs.filter((x) => x.olay === olay)) {
+        if (!matcherEslesir(t.matcher, "Bash")) continue;
+        const girdi = {
+          session_id: "envanter", cwd: projeDir, hook_event_name: olay, tool_name: "Bash",
+          tool_input: { command: "git status", description: "hook-envanter" },
+          tool_response: { stdout: "", exitCode: 0 },
+          _dolgu: dolgu,
+        };
+        const once = w.istek.length;
+        const r = await tekHookKos(t, girdi, projeDir);
+        const istek = w.istek.length - once;
+        const e = etki(olay, r);
+        out.push({ anahtar: t.anahtar, kod: r.kod, girdiYazildi: r.girdiYazildi,
+                   etki: istek && e === "izin" ? "worker isteği" : e });
+      }
     }
+  } finally {
+    if (eskiPort === undefined) delete process.env.CLAUDE_MEM_WORKER_PORT;
+    else process.env.CLAUDE_MEM_WORKER_PORT = eskiPort;
+    await w.kapat();
   }
   return out;
 }

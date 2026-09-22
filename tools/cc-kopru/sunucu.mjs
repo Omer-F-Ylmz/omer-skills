@@ -18,7 +18,8 @@ import { CIKTI_TAVAN, MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
 import { ARALIK_TAVAN, logKoku, oku } from "./oku.mjs";
-import { hookKaynaklari, hookKos, hookTanimlari, izDosyasi, katalogTopla } from "./hook.mjs";
+import { gozlemHooku, hookKaynaklari, hookKos, hookTanimlari, izDosyasi,
+         katalogTopla } from "./hook.mjs";
 import os from "node:os";
 
 const AYAR = ayarYukle();
@@ -119,7 +120,7 @@ srv.registerTool("komut", {
                         ayar: AYAR, denetimAtla: sarmalandi });
 
   // PostToolUse sonucu atılmaz: hata koduyla çıkan hook başlıkta görünür (11m-A-FIX-2 EK K3)
-  const son = await hookKos(defs, {
+  const son = await hookKos(defs.filter((t) => !gozlemHooku(t)), {
     ...ortak(proje), hook_event_name: "PostToolUse", tool_name: "Bash",
     tool_input: { command: komutSatiri(cArac, cArgs) },
     tool_response: { stdout: r.cikti, exitCode: r.kod },

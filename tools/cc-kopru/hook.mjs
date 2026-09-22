@@ -236,6 +236,15 @@ export function hookTanimlari(kaynaklar, kapaliHooklar = []) {
   return out;
 }
 
+/**
+ * claude-mem'in PostToolUse hook'u: aynı komutu worker'a İKİNCİ kez yazıyor (11m-A-FIX-3
+ * K1 kanıtı: worker log session-406, tek `gh api` için 14:00:55 tool=Bash + 14:00:57
+ * tool=cc-kopru:komut). Köprü gözlemi kendi yazar — gitleaks kapılı, ret sebebi başlıkta
+ * görünür; hook 400'de ve "skipped" yanıtında bile exit 0 + stdout "{}" ile sessiz.
+ * Yalnız köprünün PostToolUse koşusunda elenir; envanter ve CC'nin kendi koşusu etkilenmez.
+ */
+export const gozlemHooku = (t) => t.olay === "PostToolUse" && /claude-mem/.test(t.kaynak);
+
 /** Her oturum için asgari transcript — transcript'e bakan hook'lar boşa düşmesin. */
 export function izDosyasi(oturumId) {
   fs.mkdirSync(IZ_DIZIN, { recursive: true });
