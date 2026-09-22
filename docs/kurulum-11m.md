@@ -133,3 +133,24 @@ log dosyasında kalmasından** geliyor: `git log -100 --stat` 92 377 → 30 142 
 - `graph eski` yanıtı alınırsa önce `graphify update .`, sonra yeniden `oku`.
 - Obsidian kapalıysa araç çağrısı `Obsidian kapalı — aç ve tekrar dene` döner;
   Obsidian'ı açmak yeter, Desktop yeniden başlatılmaz.
+
+## FIX-5 K1 — headroom "kazançsız" kararı nereden geliyor (ölçüm, 22 Eyl 2026)
+
+- `headroom_compress` vekili KULLANMIYOR: `ccr/mcp_server.py:404 _compress_content`
+  içeriği `{"role":"tool"}` mesajına sarıp `headroom.compress.compress()` çağırıyor;
+  vekil yalnız erişilebilirlik sondası ve `/v1/retrieve` için (FIX-4'teki 6767 düzeltmesi
+  "proxy unreachable" fail-open'ını kapattı, sıkıştırma kararını değiştirmedi).
+- Kararı veren kural: `transforms/content_router.py:5347` (`route_counts["ratio_too_high"]++`),
+  rapor satırı `:5637` → `unchanged (ratio>=1.00)`; `min_ratio` varsayılanı 1.0 =
+  "herhangi bir küçülmeyi kabul et" (`:1606-1615`). `role=="tool"` içerik ek olarak
+  geri döndürülebilirlik kapısından geçiyor (`:5339-5341`).
+- Ölçüm (yerel CPU, ücretli API yok):
+  - B `gh api …/commits` (132 072 kr): `router:noop`, %0, `route_counts={'ratio_too_high':1}`
+  - A `gh api …/commits?sha=b214237` (130 671 kr): `router:mixed:0.51`, **%48,7**
+  - B'nin eleman bazlı yarıları: ilk 15 commit %0 · son 15 commit **%25,7** (`router:mixed:0.78`)
+  - B'nin commit `message` alanları boşaltılmış hâli: **%9,6** (`router:smart_crusher:0.96`)
+  - B 32 KB'lık bayt parçalarına bölünüp denendi: **%0** (parçalar JSON yapısını bozuyor)
+- Sonuç: kök neden köprüde değil — headroom bu gövdeyi kayıpsız/geri döndürülebilir
+  biçimde küçültemiyor. Zorlanmadı; K2 etiketi kararı gösteriyor:
+  `[headroom yok: kazançsız (router:noop) · tam: <yol>]`. Eleman bazlı bölme en iyi
+  ihtimalle ~%12,3 veriyor (hedef %15'in altında), o yüzden katmana eklenmedi.

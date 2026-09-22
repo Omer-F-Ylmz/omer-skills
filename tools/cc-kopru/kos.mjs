@@ -4,6 +4,7 @@
  * shell:false; .cmd shim'inde gerçek hedef çözülür, çözülemezse denetimli `cmd /c`.
  */
 import { spawn, spawnSync } from "node:child_process";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -501,8 +502,12 @@ export async function ciktiHazirla(metin, tavan,
     // Sıkıştırma hatası ya da kazançsız: ham çıktı + SEBEP, uydurma yüzde yok.
     // Vekile ulaşılamadığında headroom fail-open dönüyor; sebebi zarftaki proxy
     // durumu söylüyor, "kazançsız" diye yutulmaz (11m-A-FIX-4 K3).
+    // K2: "kazançsız" tek başına yetmiyor — kararı headroom veriyor, zarftaki
+    // `transforms` söylüyor (ör. router:noop = content_router.py:5347 ratio_too_high).
+    const karar = (z?.transforms || []).join(",").slice(0, 40);
     const neden = y?.sebep
-      || (z?.proxy && z.proxy.status !== "ok" ? "bağlantı" : "kazançsız");
+      || (z?.proxy && z.proxy.status !== "ok" ? "bağlantı"
+        : karar ? `kazançsız (${karar})` : "kazançsız");
     const yol = log || logaYaz(s);
     const on = `[headroom yok: ${neden} · tam: ${yol}]\n`;
     return on + kirp(s, tavan - on.length).metin;
@@ -653,6 +658,10 @@ export function gozlemGovde(oturum, aracAdi, girdi, yanit, cwd) {
   return {
     contentSessionId: oturum,
     tool_name: aracAdi,
+    // tool_use_id olmadan worker `tool_uses` satırı yazmıyor (XR: `if(t.toolUseId)`),
+    // yani köprü çağrılarının ham girdi/çıktısı get_tool_uses ile geri alınamıyordu
+    // (11m-A-FIX-5 K5c). CC'nin `toolu_…` kimliğinin köprü karşılığı.
+    tool_use_id: `kopru_${crypto.randomUUID().replace(/-/g, "")}`,
     tool_input: gozlemKirp(girdi),
     tool_response: gozlemKirp(yanit),
     cwd,
@@ -676,6 +685,27 @@ export async function gozlemYaz(govde) {
     if (j?.status && j.status !== "queued") return `gözlem yazılmadı: worker ${j.status} (${j.reason || "?"})`;
     return "";
   } catch (e) { return "gözlem yazılamadı: " + String(e?.message || e); }
+}
+
+/**
+ * Son ajan çağrısında prompt cache neden ıskaladı — `durum` bunu basar, boş geçmez.
+ * Ölçüm (11m-A-FIX-5 K4): iki ÖZDEŞ hafif ajan çağrısında prefix'i kıran blok
+ * claude-mem'in SessionStart bağlam enjeksiyonu; başlığı canlı saat damgası taşıyor
+ * (worker-service.cjs:225 `Eoe()` → `# [proje] recent context, 4:11pm`), gövdesi de
+ * çağrıdan çağrıya değişiyor (14 678 → 9 523 kr). Köprü tarafında susturulamıyor:
+ * bağlamı worker render ediyor, çocuk sürecin ortam değişkeni etkisiz.
+ * @returns {string} boş = ıska yok
+ */
+export function cacheMissSebebi(son, esik = 0.85) {
+  if (!son || !son.girdi) return "";
+  const oran = (son.okunan || 0) / son.girdi;
+  if (oran >= esik) return "";
+  const yuzde = Math.round(oran * 100);
+  return oran === 0
+    ? "cache okuma %0 — prefix baştan değişti (ya da ilk çağrı)"
+      + ": claude-mem SessionStart bağlamı"
+    : `cache okuma %${yuzde} — prefix değişti: claude-mem SessionStart bağlamı`
+      + " (canlı saat damgası + değişken oturum özeti)";
 }
 
 /**

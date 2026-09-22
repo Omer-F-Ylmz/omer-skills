@@ -13,7 +13,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
+import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, ayarYukle, cacheMissSebebi, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
          gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
@@ -379,6 +379,10 @@ srv.registerTool("durum", {
     });
     parcalar.push("## statusline\n" + satir);
   }
+
+  // 11m-A-FIX-5 K4: ıska sebebi boş geçmez; bilinmiyorsa satır hiç basılmaz, uydurulmaz.
+  const miss = cacheMissSebebi(sonAjan);
+  if (miss) parcalar.push("## cache\n" + miss);
 
   const hr = await jsonAl(`${HEADROOM_KOK}/stats`);
   parcalar.push("## headroom\n" + (hr.hata ? "erişilemedi: " + hr.hata

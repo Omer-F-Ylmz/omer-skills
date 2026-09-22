@@ -124,6 +124,28 @@ for (const [sebep, sahte] of [
   });
 }
 
+/**
+ * 11m-A-FIX-5 K2: "kazançsız" tek başına yetmiyor — kararı headroom veriyor ve sebebi
+ * zarfta yazıyor. gh api gövdesinde ölçülen karar `router:noop` (ratio_too_high):
+ * content_router.py:5347 · rapor satırı 5637 `unchanged (ratio>=1.00)`.
+ */
+test("kazancsiz etiketi zarftaki karari kisa ek olarak tasir", async () => {
+  const sahte = async (s) => ({ compressed: s, original_tokens: 10, compressed_tokens: 10,
+                                transforms: ["router:noop"] });
+  const c = await ciktiHazirla(JSON_GOVDE, 12000, { log: "C:/sahte/yol.log", sikistirici: sahte });
+  assert.ok(c.startsWith("[headroom yok: kazançsız (router:noop) · tam: C:/sahte/yol.log]"),
+            c.slice(0, 80));
+});
+
+test("etiket eki tavani asmaz", async () => {
+  const sahte = async (s) => ({ compressed: s, original_tokens: 10, compressed_tokens: 10,
+                                transforms: ["router:" + "x".repeat(120)] });
+  const c = await ciktiHazirla(JSON_GOVDE, 12000, { log: "C:/sahte/yol.log", sikistirici: sahte });
+  assert.ok(c.length <= 12000, `gövde ${c.length}`);
+  assert.ok(/^\[headroom yok: kazançsız \(.{1,40}\) · tam: /.test(c), c.slice(0, 90));
+});
+
+
 
 test("sikistirma basarisizsa ham cikti + uyari satiri doner", async () => {
   // sikistir zaman asiminda null doner; ciktiHazirla uydurma yuzde basmamali.

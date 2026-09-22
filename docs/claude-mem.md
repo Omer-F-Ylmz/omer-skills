@@ -45,3 +45,28 @@ sabit maliyeti yüksek. Ayarı Ömer değiştirir.
 - `search(type="prompts")` / `search(type="sessions")` — kendi geçmiş promptlarını bulmak için.
 - `get_tool_uses` — geçmiş oturumdan ham komut/çıktı.
 - `smart_*` Desktop'ın **tek** kod keşif yolu (graphify CLI Desktop'ta koşmaz) — çift kopya değil.
+
+## Yetenek tablosu — KURULUM-11m-A-FIX-5 (22 Eyl 2026, ölçülerek)
+
+- **SessionStart enjeksiyonu**: çalışıyor (10 111 kr blok). İşe yaradı: oturum açılışında
+  son işler geliyor. Kusur: başlık canlı saat damgası taşıyor (worker-service.cjs:225
+  `Eoe()`), gövde uzunluğu her çağrıda değişiyor → `ajan` prompt cache'i kırılıyor
+  (14 678 → 9 523 kr, cache okuma %0 → %46). Köprü tarafında susturulamıyor: bağlamı
+  worker render ediyor, çocuk sürecin `CLAUDE_MEM_CONTEXT_*` değişkeni etkisiz (ölçüldü).
+- **mem-search (`search`)**: çalışıyor. İşe yaradı: #719 "Headroom compression is lossy",
+  #923 "Headroom proxy URL still unreachable" bu dalganın teşhisine girdi. Kusur yok.
+- **Korpus (`list_corpora`/`query_corpus`)**: çalışıyor ama korpus 20 Eyl'de donmuş
+  (335 gözlem, son kayıt 2026-09-20). İşe yaramadı — bu dalganın kayıtları içinde yok.
+  Kusur: rebuild gerekiyor; rebuild sağlayıcı çağrısı ürettiği için tarife göre
+  yapılmadı (ücretli çağrı tavanı) → Ömer'in kararına bırakıldı.
+- **`get_tool_uses`**: çalışıyor (id 2872 ham girdi/çıktısıyla döndü; yeniden koşmaya
+  gerek kalmadı). Kusur: köprü gözlemleri `tool_use_id` göndermediği için worker
+  `tool_uses` satırı yazmıyordu (`XR`: `if(t.toolUseId)`) → bu dalgada eklendi
+  (`kos.mjs gozlemGovde` → `kopru_<uuid>`).
+- **`smart_*` (`smart_search`)**: koşuyor ama boş dönüyor — `ciktiHazirla` için
+  `tools/cc-kopru` altında 27 dosya tarandı, 0 sembol. Kusur: .mjs export'larını
+  bulamıyor; keşifte graphify query kullanılıyor, bu yüzden dalgayı engellemedi.
+- **Köprü `kaydet` / `oturum_ozeti`**: `kaydet` gitleaks kapısından geçen metni
+  `/api/memory/save` ucuna yazıyor, `oturum_ozeti` `/api/sessions/summarize` +
+  `/api/processing-status` okuyor (sunucu.mjs). Kusur: özetleme asenkron ve ajan
+  yuvası 2 ile sınırlı; kuyruk doluyken sonuç gecikiyor (CLAUDE-MEM-1 ölçümü).

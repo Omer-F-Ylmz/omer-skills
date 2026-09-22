@@ -10,7 +10,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { GOZLEM_TAVAN, gozlemGovde, statuslineGovde } from "../kos.mjs";
+import { GOZLEM_TAVAN, cacheMissSebebi, gozlemGovde, statuslineGovde } from "../kos.mjs";
 import { ACIKLAMA_TAVAN, aciklamaOku, eklentiKokleri, katalogTopla } from "../hook.mjs";
 
 const SUNUCU = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "sunucu.mjs");
@@ -64,8 +64,10 @@ test("gozlem govdesi worker semasina uyar: kaynak claude-desktop", () => {
   assert.equal(g.tool_name, "cc-kopru:komut");
   assert.equal(g.platformSource, "claude-desktop");
   assert.equal(g.cwd, PROJE);
+  assert.match(g.tool_use_id, /^kopru_[0-9a-f]{32}$/);
   assert.deepEqual(Object.keys(g).sort(),
-    ["contentSessionId", "cwd", "platformSource", "tool_input", "tool_name", "tool_response"]);
+    ["contentSessionId", "cwd", "platformSource", "tool_input", "tool_name", "tool_response",
+     "tool_use_id"]);
 });
 
 /**
@@ -204,4 +206,15 @@ test("oturum_ozeti kuyruk durumunu ve mevcut ozetleri dondurur", async () => {
   const [r] = await cagir([{ arac: "oturum_ozeti", args: { proje: PROJE } }]);
   assert.notEqual(r.isError, true, govde(r));
   assert.match(govde(r), /kuyruk|queue/i);
+});
+
+/**
+ * 11m-A-FIX-5 K4: %54 cache okumada statusline "son miss sebebi" boş geliyordu.
+ * Sebep ölçüldü (claude-mem SessionStart bağlamı), `durum` artık boş geçmiyor.
+ */
+test("cache miss sebebi esik altinda dolu, ustunde bos", () => {
+  assert.equal(cacheMissSebebi({ girdi: 36481, okunan: 34000 }), "");
+  assert.match(cacheMissSebebi({ girdi: 37504, okunan: 0 }), /%0 .*claude-mem SessionStart/);
+  assert.match(cacheMissSebebi({ girdi: 36481, okunan: 16781 }), /%46 .*prefix değişti/);
+  assert.equal(cacheMissSebebi(null), "");
 });
