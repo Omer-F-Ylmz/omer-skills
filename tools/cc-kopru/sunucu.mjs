@@ -13,7 +13,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde,
+import { CIKTI_TAVAN, MEM_KOK, ajanAlanDenetle, ayarYukle, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde,
          gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
@@ -130,7 +130,7 @@ srv.registerTool("komut", {
   const bas = `${yazildi}${on.ekBaglam ? on.ekBaglam + "\n" : ""}${not ? not + "\n" : ""}`
     + `exit ${r.kod}${r.sureDoldu ? " (zaman aşımı)" : ""}\n`;
   // tam çıktı zaten kos()'un yazdığı log dosyasında; katman yeni dosya açmaz.
-  const govde = bas + await ciktiHazirla(r.cikti, AYAR.ciktiTavan ?? 30000, { ham, log: r.log });
+  const govde = bas + await ciktiHazirla(r.cikti, AYAR.ciktiTavan ?? CIKTI_TAVAN, { ham, log: r.log });
   return r.kod === 0 ? metin(govde) : hata(govde);
 }));
 
@@ -209,7 +209,7 @@ srv.registerTool("ajan", {
     `$${(j.total_cost_usd || 0).toFixed(4)}`,
     `${j.num_turns} tur${j.num_turns > a.max_turns ? " (bütçe aşıldı)" : ""}`,
   ].join(" · ");
-  const govde = await ciktiHazirla(redakte(j.result || ""), AYAR.ciktiTavan ?? 30000);
+  const govde = await ciktiHazirla(redakte(j.result || ""), AYAR.ciktiTavan ?? CIKTI_TAVAN);
   sonAjan = { model: Object.keys(j.modelUsage || {})[0] || model, girdi, okunan };
   const not = await gozle("cc-kopru:ajan", { gorev: a.gorev, model, cwd: proje },
                           { result: govde, session_id: j.session_id }, proje);
@@ -283,7 +283,7 @@ srv.registerTool("katalog", {
   if (!liste.length) return metin("(eşleşme yok)");
   const satirlar = liste.map((x) => `- [${x.tur}] ${x.ad}${x.aciklama ? " — " + x.aciklama : ""}`);
   const bas = `${liste.length} kayıt (tür=${tur}${ara ? `, ara=${ara}` : ""})\n`;
-  const govde = await ciktiHazirla(bas + satirlar.join("\n"), AYAR.ciktiTavan ?? 30000);
+  const govde = await ciktiHazirla(bas + satirlar.join("\n"), AYAR.ciktiTavan ?? CIKTI_TAVAN);
   return metin(govde);
 }));
 
@@ -310,7 +310,7 @@ srv.registerTool("oku", {
   }
   try {
     const govde = oku({ kok, mod, dosya, ad, bas, bit, deny: AYAR.denyListesi || denyListesi() });
-    return metin(await ciktiHazirla(govde, AYAR.ciktiTavan ?? 30000));
+    return metin(await ciktiHazirla(govde, AYAR.ciktiTavan ?? CIKTI_TAVAN));
   } catch (e) { return hata("RED: " + e.message); }
 }));
 
@@ -397,7 +397,7 @@ srv.registerTool("durum", {
     + "statusline.ps1'in beklediği context_window.used_percentage'ı Desktop hiçbir "
     + "yerel kaynağa yazmıyor. Yukarıdaki yüzde son `ajan` alt oturumunundur.");
 
-  const govde = await ciktiHazirla(parcalar.join("\n\n"), AYAR.ciktiTavan ?? 30000);
+  const govde = await ciktiHazirla(parcalar.join("\n\n"), AYAR.ciktiTavan ?? CIKTI_TAVAN);
   return metin(govde);
 }));
 

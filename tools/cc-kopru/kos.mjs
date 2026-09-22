@@ -414,6 +414,12 @@ export async function sikistir(metin, zamanMs = SIKISTIR_ZAMAN_MS) {
   }
 }
 
+/**
+ * Çıktı tavanı (karakter). `kopru.json` yoksa/anahtar eksikse geçerli değer budur;
+ * beş çağrı yerinde tekrarlanan `?? 30000` Desktop tavanının üç katıydı (11m-A-FIX K2).
+ */
+export const CIKTI_TAVAN = 10000;
+
 /** LOG_DIZIN'de tutulan dosya sayısı; fazlası en eskiden silinir. */
 export const LOG_TAVAN = 200;
 
