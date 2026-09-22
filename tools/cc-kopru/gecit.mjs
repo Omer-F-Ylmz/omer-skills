@@ -180,7 +180,9 @@ function baslat() {
       ...ortak(b.proje), hook_event_name: "PostToolUse",
       tool_name: b.es.matcher, tool_input: b.es.girdi, tool_response: yanit,
     }, { projeDir: b.proje });
-    gunluk(`${b.ad} · PostToolUse hooks: ${son.kosan.join(",")}`);
+    // geçit yanıtı aynen iletir; hook hatası en azından günlüğe düşer, yutulmaz
+    gunluk(`${b.ad} · PostToolUse hooks: ${son.kosan.join(",")}`
+      + (son.ekBaglam ? ` · ${son.ekBaglam.replace(/\r?\n/g, " | ")}` : ""));
     await gozle(`cc-kopru:gecit:${b.ad}`, b.args, yanit, b.proje);
     process.stdout.write(satir + "\n");
   });

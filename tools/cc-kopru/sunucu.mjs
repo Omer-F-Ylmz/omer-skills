@@ -118,7 +118,8 @@ srv.registerTool("komut", {
   const r = await kos({ arac: cArac, args: cArgs, cwd: proje, timeoutSn: timeout_sn,
                         ayar: AYAR, denetimAtla: sarmalandi });
 
-  await hookKos(defs, {
+  // PostToolUse sonucu atılmaz: hata koduyla çıkan hook başlıkta görünür (11m-A-FIX-2 EK K3)
+  const son = await hookKos(defs, {
     ...ortak(proje), hook_event_name: "PostToolUse", tool_name: "Bash",
     tool_input: { command: komutSatiri(cArac, cArgs) },
     tool_response: { stdout: r.cikti, exitCode: r.kod },
@@ -127,7 +128,8 @@ srv.registerTool("komut", {
   const not = await gozle("cc-kopru:komut", { command: komutSatiri(cArac, cArgs) },
                           { stdout: r.cikti, exitCode: r.kod }, proje);
 
-  const bas = `${yazildi}${on.ekBaglam ? on.ekBaglam + "\n" : ""}${not ? not + "\n" : ""}`
+  const bas = `${yazildi}${on.ekBaglam ? on.ekBaglam + "\n" : ""}`
+    + `${son.ekBaglam ? son.ekBaglam + "\n" : ""}${not ? not + "\n" : ""}`
     + `exit ${r.kod}${r.sureDoldu ? " (zaman aşımı)" : ""}\n`;
   // tam çıktı zaten kos()'un yazdığı log dosyasında; katman yeni dosya açmaz.
   const govde = bas + await ciktiHazirla(r.cikti, AYAR.ciktiTavan ?? CIKTI_TAVAN, { ham, log: r.log });

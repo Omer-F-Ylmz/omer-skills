@@ -41,6 +41,28 @@ function jsonOku(p) {
   try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; }
 }
 
+/**
+ * Windows'un her süreçte var saydığı, Desktop'ın MCP beyaz listesinde OLMAYAN
+ * değişkenler. PATHEXT'siz `where bun` uzantılı hedefi bulamıyor: claude-mem
+ * hook'u Desktop'ta "Bun not found" ile exit 1 veriyordu (11m-A-FIX-2 EK K2).
+ */
+const TABAN_ORTAM = { PATHEXT: ".COM;.EXE;.BAT;.CMD;.VBS;.JS;.WS;.MSC" };
+
+/**
+ * Hook süreçlerinin ortamı — CC ile aynı: taban + kendi ortamı + settings.json
+ * `env` bloğu (kullanıcı < proje < proje.local). Desktop bu bloğu köprü sürecine
+ * geçirmiyor; geçirmediği için hookify PYTHONPATH'siz kalıp import hatası veriyordu.
+ * Değerler yalnız çocuk sürece gider; loglanmaz, basılmaz.
+ */
+export function hookOrtami(projeDir) {
+  const ayarlar = [path.join(EV, ".claude", "settings.json"),
+    path.join(projeDir || ".", ".claude", "settings.json"),
+    path.join(projeDir || ".", ".claude", "settings.local.json")];
+  const out = { ...TABAN_ORTAM, ...process.env };
+  for (const p of ayarlar) Object.assign(out, jsonOku(p)?.env || {});
+  return out;
+}
+
 /** Okunabilen tüm hook kaynakları: {ad, json, kok}. `kok` = CLAUDE_PLUGIN_ROOT. */
 export function hookKaynaklari(projeDir) {
   const out = [];
@@ -227,7 +249,12 @@ export function izDosyasi(oturumId) {
   return p;
 }
 
-function tekHookKos(tanim, girdi, projeDir) {
+/**
+ * Tek hook'u koşar. `girdiYazildi`: girdi tamamı yazıldı mı (null = 50 ms içinde
+ * belli olmadı). 64 KB'ı aşan payload'da false demek: çocuk girdiyi okumadan çıktı.
+ * @returns {Promise<{kod:number, out:string, err:string, girdiYazildi:boolean|null}>}
+ */
+export function tekHookKos(tanim, girdi, projeDir) {
   const sn = Math.min(Number(tanim.timeout) || 60, 600);
   const coz = (s, ileriEgik) => String(s).replace(
     /\$\{CLAUDE_PLUGIN_ROOT\}|%CLAUDE_PLUGIN_ROOT%/g,
@@ -259,7 +286,7 @@ function tekHookKos(tanim, girdi, projeDir) {
         cwd: projeDir || girdi.cwd || process.cwd(), shell: false, windowsHide: true,
         windowsVerbatimArguments: verbatim,
         env: {
-          ...process.env,
+          ...hookOrtami(projeDir || girdi.cwd),
           CLAUDE_PROJECT_DIR: projeDir || girdi.cwd || process.cwd(),
           CLAUDE_PLUGIN_ROOT: tanim.kok,
         },
@@ -272,14 +299,17 @@ function tekHookKos(tanim, girdi, projeDir) {
     p.stderr.on("data", (b) => h.push(b));
     // cmd.exe'yi oldurmek yetmiyor: cocuk surec borulari acik tutuyor -> agac kapatilir
     const zam = setTimeout(() => agaciKapat(p.pid), sn * 1000);
+    const yazim = stdinYaz(p, JSON.stringify(girdi));
     p.on("error", (e) => { clearTimeout(zam); cozumle({ kod: -1, out: "", err: String(e) }); });
-    p.on("close", (kod) => {
+    p.on("close", async (kod) => {
       clearTimeout(zam);
+      // yazım close'dan sonra da bitebilir; beklemek asılı kalmasın diye 50 ms tavanlı
+      const yazildi = await Promise.race([yazim, new Promise((r) => setTimeout(r, 50, null))]);
       cozumle({
         kod, out: Buffer.concat(o).toString("utf8"), err: Buffer.concat(h).toString("utf8"),
+        girdiYazildi: yazildi,
       });
     });
-    stdinYaz(p, JSON.stringify(girdi));
   });
 }
 
@@ -319,10 +349,12 @@ export async function hookKos(tanimlar, girdi, { projeDir } = {}) {
     if (hso?.updatedInput) toolInput = { ...toolInput, ...hso.updatedInput };
     if (hso?.additionalContext) baglam.push(String(hso.additionalContext));
     if (!j && r.out.trim()) baglam.push(r.out.trim());
-    // hook hatası bağlamda kalır: hook adı · exit · stderr ilk satırı
+    // exit 0 ile bildirilen hook hatası (CC bunu kullanıcıya gösterir) yutulmaz
+    if (j?.systemMessage) baglam.push(`[hook uyarı: ${t.anahtar}] ${String(j.systemMessage).trim()}`);
+    // hook hatası çıktı başlığına girer: hook adı · exit · stderr ilk satırı
     if (r.kod !== 0 || r.err.trim()) {
       const ilk = r.err.trim().split(/\r?\n/)[0] || "";
-      baglam.push(`[hook] ${t.anahtar} · exit ${r.kod} · ${ilk}`);
+      baglam.push(`[hook hata: ${t.anahtar} exit ${r.kod}]${ilk ? " " + ilk : ""}`);
     }
   }
 

@@ -45,6 +45,8 @@ test("Desktop ortamında gh api yanıt verir", async () => {
     });
     assert.match(s, /exit 0/, s.slice(0, 200));
     assert.ok(s.includes('"sha"') || s.includes("headroom"), s.slice(0, 200));
+    // hook ortamı CC ile eşit: kısıtlı ortamda hiçbir hook hata koduyla çıkmaz (EK K2)
+    assert.doesNotMatch(s, /\[hook hata:/, s.slice(0, 400));
   } finally { await c.close(); }
 }, { timeout: 180000 });
 

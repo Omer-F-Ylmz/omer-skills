@@ -496,10 +496,13 @@ export async function ciktiHazirla(metin, tavan, { ham = false, log = "" } = {})
  * yarım kalan write EPIPE/EOF atıyor ve `stdin` üzerinde dinleyici olmadığı için
  * Node "Unhandled 'error' event" ile BÜTÜN köprüyü düşürüyordu (11m-A-FIX-2).
  * Yazılamayan hook girdisi hata değildir: süreç zaten kendi çıkış koduyla değerlendirilir.
+ * @returns {Promise<boolean>} girdi tamamı yazıldı mı (false = çocuk okumadan çıktı)
  */
 export function stdinYaz(p, veri) {
-  p.stdin.on("error", () => { /* çocuk girdiyi okumadan çıktı */ });
-  p.stdin.end(veri);
+  return new Promise((cozumle) => {
+    p.stdin.on("error", () => cozumle(false)); // çocuk girdiyi okumadan çıktı
+    p.stdin.end(veri, () => cozumle(true));
+  });
 }
 
 export function agaciKapat(pid) {
