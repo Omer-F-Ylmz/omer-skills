@@ -16,6 +16,7 @@ from jev import cekirdek as c
 from jev import skill as sk
 
 from . import metin as m
+from . import ogren as og
 from . import tarama as tr
 from . import uygula as uy
 
@@ -667,7 +668,13 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x = alt.add_parser("katman", help="aday.md → T0 kural · T1 yalnız-md skill · T2 onay · RED; uygular, docs/kurulumlar/kayit.jsonl")
     x.add_argument("adaylar", nargs="+")
     x.add_argument("--yeniden", action="store_true", help="kayıttaki adları da değerlendir")
+    x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev isteği (varsayılan 7·aday)")
+    x = alt.add_parser("bizde", help="aday.md → jev skill (2 istek/aday); p≥act skill'ler ## Bizde durum'a")
+    x.add_argument("adaylar", nargs="+")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev isteği (varsayılan 2·aday)")
+    alt.add_parser("durum", help="docs/durum.md: köprü katalogu · son kararlar · ölçüm bulguları · ELE (≤3k token, elle bölüm korunur)")
+    x = alt.add_parser("bilgi", help="bilgi/ kartları: guven · bayatlama · iddia")
+    x.add_argument("--bayat", action="store_true", help="yalnız bayatlamış (yeniden doğrula)")
     alt.add_parser("projeler", help="docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır özet (mtime'la yenilenir)")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
@@ -676,7 +683,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
-                "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler}[ns.komut](ns, ctx)
+                "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
+                "bizde": uy.bizde, "durum": og.durum, "bilgi": og.bilgi}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

@@ -46,7 +46,7 @@ test("komut enum'unda _ onekli not anahtari yok", () => {
 });
 
 test("video: altIzin'de whisper yok, envGecir jev ile ayni", () => {
-  assert.deepEqual(AYAR.izinli.video.altIzin, ["ozet", "suz", "sor", "kare", "temizle", "oku", "adlar", "rapor-denetle", "izle", "paket"]);  // 12b: kayit/toplu yalniz CC; 12c: izle, paket
+  assert.deepEqual(AYAR.izinli.video.altIzin, ["ozet", "suz", "sor", "kare", "temizle", "oku", "adlar", "rapor-denetle", "izle", "paket", "durum", "bilgi"]);  // 12b: kayit/toplu yalniz CC; 12c: izle, paket; 15: durum, bilgi
   assert.deepEqual(AYAR.izinli.video.envGecir, ADLAR);
   for (const a of [["whisper", "x"], ["--whisper", "x"]]) assert.throws(() => komutDenetle("video", a, AYAR));
   komutDenetle("video", ["suz", "yp7gg8cG5wc", "--istek-tavan", "30"], AYAR);

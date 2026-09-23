@@ -1,4 +1,5 @@
 # glaido
+karar: RED
 ad: glaido
 tur: uygulama
 video: 3XIGcM7VICc
@@ -34,3 +35,14 @@ yok — kurulacak yürütülebilir kod/CLI yok, köprüye bağlanacak salt-okur 
 
 ## Önerilen katman
 RED — lisans yok (kapalı kaynak, GitHub deposu yok), kurulum/kaldırma/izin bilgisi doğrulanamıyor; verilen link affiliate/referral bağlantısı, resmi kaynak değil.
+## Bizde durum
+- jev skill (Act): yok
+yok (eşdeğer araç kurulu değil).
+## Beklenen fayda
+belirsiz; Ömer'in projelerinde doğrudan kullanım yok.
+## Maliyet/risk
+lisans yok / kapalı kaynak SaaS; hesap ve izin gerektirir.
+## Karar
+RED — lisans uygunsuz/yok (14a araştırması).
+## Sonraki adım
+yok.

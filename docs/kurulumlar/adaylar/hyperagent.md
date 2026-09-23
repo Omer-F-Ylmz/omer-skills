@@ -1,4 +1,5 @@
 # hyperagent
+karar: RED
 ad: hyperagent
 tur: uygulama
 video: vcU85OrwuV0
@@ -33,3 +34,14 @@ yok — kurulacak yürütülebilir kod/CLI yok, köprüye bağlanacak salt-okur 
 
 ## Önerilen katman
 RED — repo yok, lisans yok (kapalı kaynak hosted SaaS), kurulum/izin/kaldırma bilgisi doğrulanamıyor; girdideki "tür: plugin" doğrulanmadı, gerçekte hesap gerektiren bir uygulama/platform.
+## Bizde durum
+- jev skill (Act): agent-skills:doubt-driven-development 0.87, agent-skills:idea-refine 0.85
+yok (eşdeğer araç kurulu değil).
+## Beklenen fayda
+belirsiz; Ömer'in projelerinde doğrudan kullanım yok.
+## Maliyet/risk
+lisans yok / kapalı kaynak SaaS; hesap ve izin gerektirir.
+## Karar
+RED — lisans uygunsuz/yok (14a araştırması).
+## Sonraki adım
+yok.

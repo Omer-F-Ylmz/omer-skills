@@ -8,6 +8,8 @@ description: "YouTube videosunu kademeli izler: altyazı özeti → Jev ile süz
 `video` CLI'si ham altyazıyı ve kareleri önbelleğe (`C:\Projeler\.video-cache\<id>\`, repo dışı) yazar;
 ajana yalnız kompakt çıktı döner. Her kademe bir öncekinin önbelleğini kullanır, önbellek varsa ağa çıkılmaz.
 
+- Tarif/keşif öncesi: `jev ilgili "<konu>" C:/Projeler/omer-skills/bilgi` → ilk 3 kart (bayatsa `video bilgi --bayat`, yeniden doğrula).
+
 ## Kademeler (sırayla, gerektiği kadar)
 
 ```text

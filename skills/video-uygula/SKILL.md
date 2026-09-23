@@ -12,14 +12,26 @@ Hiçbir plugin/MCP/CLI/hook kurulmaz; settings.json, kopru.json ve global CLAUDE
 ```text
 1. Tarama: /video-tarama akışı (skills/video-tarama/SKILL.md). --tarama-atla: bugünkü docs/video-tarama/<tarih>-toplu.md kullanılır, alt ajan taraması yok.
 2. video projeler                      # docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır (mtime'la yenilenir)
+   video durum                         # docs/durum.md (≤3k token): köprü katalogu · son kararlar · ölçüm bulguları · ELE; bütün envanter okunmaz
 3. Seçim (ana ajan): toplu tablodaki UYGULA + BEKLE adaylarından en fazla 5; ölçüt projeler.md + dört ölçüt
    (bakım · CC'de çift mi · izin kapsamı · context maliyeti). Aday başına 1 satır gerekçe. Dört ölçütte düşen: aday.md'ye `red: <gerekçe>`.
 4. Araştırma: araç adayı (skill/plugin/MCP/CLI/hook/uygulama) başına bir Agent (subagent_type: aday-arastirici — sonnet), ≤3 eşzamanlı.
    Prompt tek satır: `ad: <kebab> · tür: <tür> · video: <id> · ipucu: <tablodaki ne işe yarar / link>`. Çıktı docs/kurulumlar/adaylar/<ad>.md.
    İpucu/iş akışı adayında araştırılacak repo yok: aday.md'yi ana ajan yazar (alanlar: ad · tur · video · kural: <tek cümle kural>).
+4b. video bizde <aday.md>...          # jev skill (2 istek/aday): p≥act skill'ler ## Bizde durum'a; ana ajan durum.md araç + ölçüm satırlarını ekler
+4c. Değerlendirme (ana ajan): aday başına 6 bölüm Ne · Bizde durum (var/kısmen/yok + dosya/araç adı) · Beklenen fayda (ölçülebilir) · Maliyet/risk · Karar · Sonraki adım;
+   alan `karar: KUR|DENE|ÖĞREN|ZATEN VAR|ALTERNATİF|RED`. Teknik iddia: resmi doküman (context7/mslearn/WebFetch, video başına ≤3); bulunamazsa `dogrulama: doğrulanamadı`, guven ≤ orta.
 5. video katman docs/kurulumlar/adaylar/<ad>.md... [--yeniden] [--istek-tavan M]
 6. Sohbete katman çıktısı (≤20 satır) + seçim gerekçeleri.
 ```
+
+## Kararlar (15)
+
+- Tarif/keşif öncesi: `jev ilgili "<konu>" C:/Projeler/omer-skills/bilgi` → ilk 3 kart (bayatsa `video bilgi --bayat`, yeniden doğrula).
+- KUR → aşağıdaki katmanlar. DENE → docs/denemeler/<ad>.md (hipotez · metrik · bütçe · geri alma · başarı eşiği; 14b'de koşulur). ÖĞREN → bilgi/<slug>.md kartı. ZATEN VAR · ALTERNATİF · RED → yalnız kayıt.
+- İpucu/iş akışı KUR: önce Jev {davranış kuralı, olgu}; olgu kural dosyasına girmez → ÖĞREN. Çift kart → kaynak mevcut karta eklenir.
+- Yeni kural/olgu en yakın kural ya da kartla çelişirse ÇELİŞKİ: eklenmez, Ömer karar verir. Sponsor anındaki aday `sponsor` etiketli, seçimde sona.
+- Eski işaretler: ÇİFT/ÖNCEDEN-GÖRÜLDÜ → ZATEN VAR; UYGULA/BEKLE → değerlendirmeye girer. Tam rapor docs/kurulumlar/<tarih>-uygula.md; sohbete ≤25 satır.
 
 ## Katmanlar (`video katman`, deterministik)
 
@@ -37,4 +49,4 @@ Bölümler: Ne · Kanıt · Kurulum · İzinler · Duman testi · Geri alma · K
 
 ## Tavanlar
 
-Jev: tarama önbellekten 0; katman ipucu başına ≤2. Araştırıcı alt ajan ≤5. Çıktı: OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED · CLAUDE.md önerisi.
+Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED · CLAUDE.md önerisi.
