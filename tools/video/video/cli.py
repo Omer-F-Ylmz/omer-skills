@@ -495,7 +495,7 @@ def toplu(ns, ctx):
         gecici = ctx["kok"] / "tarama-adaylar.json"
         gecici.parent.mkdir(parents=True, exist_ok=True)
         gecici.write_text(json.dumps([{"ad": x["ad"], "aciklama": f"{x['tur']}: {x['ne']}"} for x in tek], ensure_ascii=False), encoding="utf-8")
-        t = c.Tasiyici(env=ctx["env"], en_fazla=2, gonder=ctx["gonder"], istek_tavan=2 * len(tek) + 2)  # jev tarama ≤2 batch
+        t = c.Tasiyici(env=ctx["env"], en_fazla=2, gonder=ctx["gonder"], istek_tavan=ns.istek_tavan or 2 * len(tek) + 2)  # jev tarama ≤2 batch
         _, sat = jc.tarama(SimpleNamespace(dosya=str(gecici)), lambda: t, None)
         jy = {r[0]: (float(r[1]) if r[1] != "-" else None, float(r[2]) if r[2] != "-" else None) for r in sat}
         istek = t.istek
@@ -616,6 +616,7 @@ def main(argv=None, env=None, kos=kos, gonder=None):
     x.add_argument("rapor")
     x = alt.add_parser("toplu", help="raporların adaylarını tekiller, sözlük + jev tarama (≤2 batch) ile işaretler; toplu rapor + kayıt")
     x.add_argument("raporlar", nargs="+")
+    x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev HTTP isteği (varsayılan 2·aday+2)")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
     ns = p.parse_args(argv)

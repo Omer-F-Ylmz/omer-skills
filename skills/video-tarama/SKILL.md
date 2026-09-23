@@ -17,7 +17,7 @@ claude.ai'de: bu belge okuma rehberidir (sandbox'ta `video` yok); tek video içi
 4. Her dalga için dalgadaki id başına bir Agent çağrısı, aynı mesajda (subagent_type: video-tarayici — sonnet, yalnız Bash/Read/Write).
    Prompt = aşağıdaki sabit metin AYNEN + en sonda tek satır: `id: <id> · paket: <yol> · kareler: <yollar> · rapor: docs/video-tarama/<tarih>-<id>.md`.
    Sabit kısım tüm alt ajanlarda bayt bayt aynı kalır (önbellek paylaşımı); videoya özgü olan yalnız son satır. Aynı anda en fazla 3 alt ajan.
-5. video toplu <rapor.md...>            # tekille · sözlük eşleşmesi · jev tarama (≤2 batch) · işaret · <tarih>-toplu.md · kayit.jsonl
+5. video toplu <rapor.md...> [--istek-tavan M]  # tekille · sözlük eşleşmesi · jev tarama (≤2 batch) · işaret · <tarih>-toplu.md · kayit.jsonl
 6. Sohbete: toplu'nun çıktısı (≤25 satır: video başına 1 satır + adaylar işaretiyle) + "atlandı: N" + tahmini maliyet.
 ```
 

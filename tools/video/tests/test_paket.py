@@ -133,3 +133,16 @@ def test_alt_ajan_yalniz_bash_read_write():
     alan = dict(x.split(":", 1) for x in on.strip().splitlines())
     assert {t.strip() for t in alan["tools"].split(",")} == {"Bash", "Read", "Write"}
     assert alan["model"].strip() == "sonnet"
+
+
+# --- toplu Jev tavanı (canlı ölçüm ≤40 istek) ---
+
+def test_toplu_istek_tavani(ortam, dizin):
+    from test_tarama import TaramaJev
+    r1, r2 = dizin / f"2026-09-23-{VID}.md", dizin / "2026-09-23-abcdefghijk.md"
+    r1.write_text(rapor(), encoding="utf-8")
+    r2.write_text(rapor().replace("| graphify | graphify 1.00", "| Meta Ads MCP | yok").replace(VID, "abcdefghijk"), encoding="utf-8")
+    ortam["VIDEO_EV"] = str(dizin / "ev")
+    jev = TaramaJev()
+    assert main(["toplu", str(r1), str(r2), "--istek-tavan", "1"], env=ortam, kos=Kos(), gonder=jev) == 1
+    assert len(jev.istek) <= 1
