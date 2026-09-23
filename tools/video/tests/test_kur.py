@@ -219,10 +219,10 @@ def test_dene_b_kolu_yalniz_append_farki_hook_kapali(ortam, kok):
     k, j = KKos(), SJev()
     assert main(["dene", "deneme"], env=ortam, kos=k, gonder=j) == 0
     c = k.claude()
-    assert len(c) == 9 and len(j.istek) <= 30  # görev başına A 2 tekrar + B 1
-    for a, a2, b in zip(c[::3], c[1::3], c[2::3]):
+    assert len(c) == 12 and len(j.istek) <= 30  # görev başına A1 B1 A2 B2 (20a: eşit sayı, karışık sıra)
+    for a, b, a2, b2 in zip(c[::4], c[1::4], c[2::4], c[3::4]):
         assert a[3:] == ["--model", "sonnet", "--output-format", "json"] and "def topla" in a[2] and a2 == a
-        assert b == a + ["--append-system-prompt", "KISA YAZ"]
+        assert b == b2 == a + ["--append-system-prompt", "KISA YAZ"]
     assert all(e and e["JEV_SKILL_HOOK"] == "0" for e in k.env)
     s = (kok / "docs" / "denemeler" / "deneme-sonuc.md").read_text(encoding="utf-8")
     assert "hook kapalı" in s and "RED(kalite)" in s  # SJev B 2.8 < A 3.0 − max(gürültü 0, 0.1)

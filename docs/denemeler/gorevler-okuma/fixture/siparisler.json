@@ -1,0 +1,7632 @@
+[
+ {
+  "id": "S-1000",
+  "musteri": {
+   "ad": "Musteri 1000",
+   "eposta": "musteri1000@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-370",
+    "adet": 4,
+    "fiyat": 423.86
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK449569084"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1001",
+  "musteri": {
+   "ad": "Musteri 1001",
+   "eposta": "musteri1001@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-339",
+    "adet": 5,
+    "fiyat": 864.57
+   },
+   {
+    "urun": "U-34",
+    "adet": 1,
+    "fiyat": 680.64
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK333960513"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1002",
+  "musteri": {
+   "ad": "Musteri 1002",
+   "eposta": "musteri1002@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-367",
+    "adet": 3,
+    "fiyat": 7.14
+   },
+   {
+    "urun": "U-263",
+    "adet": 4,
+    "fiyat": 41.64
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK812472686"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1003",
+  "musteri": {
+   "ad": "Musteri 1003",
+   "eposta": "musteri1003@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-38",
+    "adet": 2,
+    "fiyat": 352.27
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK689330411"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1004",
+  "musteri": {
+   "ad": "Musteri 1004",
+   "eposta": "musteri1004@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-132",
+    "adet": 5,
+    "fiyat": 879.43
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK333608465"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1005",
+  "musteri": {
+   "ad": "Musteri 1005",
+   "eposta": "musteri1005@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-25",
+    "adet": 3,
+    "fiyat": 860.09
+   },
+   {
+    "urun": "U-277",
+    "adet": 5,
+    "fiyat": 669.91
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK354363278"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1006",
+  "musteri": {
+   "ad": "Musteri 1006",
+   "eposta": "musteri1006@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-216",
+    "adet": 3,
+    "fiyat": 669.44
+   },
+   {
+    "urun": "U-42",
+    "adet": 1,
+    "fiyat": 562.96
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK292507400"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1007",
+  "musteri": {
+   "ad": "Musteri 1007",
+   "eposta": "musteri1007@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-39",
+    "adet": 2,
+    "fiyat": 44.78
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK343763397"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1008",
+  "musteri": {
+   "ad": "Musteri 1008",
+   "eposta": "musteri1008@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-13",
+    "adet": 2,
+    "fiyat": 86.33
+   },
+   {
+    "urun": "U-123",
+    "adet": 1,
+    "fiyat": 441.9
+   },
+   {
+    "urun": "U-71",
+    "adet": 4,
+    "fiyat": 102.74
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK964670396"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1009",
+  "musteri": {
+   "ad": "Musteri 1009",
+   "eposta": "musteri1009@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-164",
+    "adet": 4,
+    "fiyat": 68.29
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK557068389"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1010",
+  "musteri": {
+   "ad": "Musteri 1010",
+   "eposta": "musteri1010@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-64",
+    "adet": 2,
+    "fiyat": 512.94
+   },
+   {
+    "urun": "U-354",
+    "adet": 5,
+    "fiyat": 784.1
+   },
+   {
+    "urun": "U-362",
+    "adet": 2,
+    "fiyat": 285.92
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK123904452"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1011",
+  "musteri": {
+   "ad": "Musteri 1011",
+   "eposta": "musteri1011@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-258",
+    "adet": 1,
+    "fiyat": 307.0
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK943485004"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1012",
+  "musteri": {
+   "ad": "Musteri 1012",
+   "eposta": "musteri1012@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-26",
+    "adet": 2,
+    "fiyat": 140.85
+   },
+   {
+    "urun": "U-155",
+    "adet": 4,
+    "fiyat": 596.92
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK209868823"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1013",
+  "musteri": {
+   "ad": "Musteri 1013",
+   "eposta": "musteri1013@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-118",
+    "adet": 5,
+    "fiyat": 410.78
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK338236798"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1014",
+  "musteri": {
+   "ad": "Musteri 1014",
+   "eposta": "musteri1014@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-343",
+    "adet": 2,
+    "fiyat": 346.25
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK226558538"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1015",
+  "musteri": {
+   "ad": "Musteri 1015",
+   "eposta": "musteri1015@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-225",
+    "adet": 4,
+    "fiyat": 806.18
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK639206324"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1016",
+  "musteri": {
+   "ad": "Musteri 1016",
+   "eposta": "musteri1016@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-70",
+    "adet": 1,
+    "fiyat": 469.59
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK523466819"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1017",
+  "musteri": {
+   "ad": "Musteri 1017",
+   "eposta": "musteri1017@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-299",
+    "adet": 5,
+    "fiyat": 462.25
+   },
+   {
+    "urun": "U-367",
+    "adet": 5,
+    "fiyat": 56.69
+   },
+   {
+    "urun": "U-234",
+    "adet": 2,
+    "fiyat": 88.02
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK173778647"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1018",
+  "musteri": {
+   "ad": "Musteri 1018",
+   "eposta": "musteri1018@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-191",
+    "adet": 2,
+    "fiyat": 200.07
+   },
+   {
+    "urun": "U-21",
+    "adet": 2,
+    "fiyat": 122.06
+   },
+   {
+    "urun": "U-56",
+    "adet": 2,
+    "fiyat": 236.59
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK696937359"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1019",
+  "musteri": {
+   "ad": "Musteri 1019",
+   "eposta": "musteri1019@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-399",
+    "adet": 4,
+    "fiyat": 699.98
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK147798109"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1020",
+  "musteri": {
+   "ad": "Musteri 1020",
+   "eposta": "musteri1020@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-265",
+    "adet": 3,
+    "fiyat": 423.6
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK451428815"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1021",
+  "musteri": {
+   "ad": "Musteri 1021",
+   "eposta": "musteri1021@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-169",
+    "adet": 4,
+    "fiyat": 806.71
+   },
+   {
+    "urun": "U-10",
+    "adet": 4,
+    "fiyat": 858.55
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK782123690"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1022",
+  "musteri": {
+   "ad": "Musteri 1022",
+   "eposta": "musteri1022@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-65",
+    "adet": 2,
+    "fiyat": 288.82
+   },
+   {
+    "urun": "U-382",
+    "adet": 4,
+    "fiyat": 561.03
+   },
+   {
+    "urun": "U-383",
+    "adet": 2,
+    "fiyat": 319.12
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK702487420"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1023",
+  "musteri": {
+   "ad": "Musteri 1023",
+   "eposta": "musteri1023@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-155",
+    "adet": 3,
+    "fiyat": 895.64
+   },
+   {
+    "urun": "U-368",
+    "adet": 5,
+    "fiyat": 240.01
+   },
+   {
+    "urun": "U-35",
+    "adet": 5,
+    "fiyat": 220.7
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK156720525"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1024",
+  "musteri": {
+   "ad": "Musteri 1024",
+   "eposta": "musteri1024@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-339",
+    "adet": 4,
+    "fiyat": 538.69
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK679975352"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1025",
+  "musteri": {
+   "ad": "Musteri 1025",
+   "eposta": "musteri1025@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-344",
+    "adet": 2,
+    "fiyat": 356.83
+   },
+   {
+    "urun": "U-366",
+    "adet": 5,
+    "fiyat": 425.66
+   },
+   {
+    "urun": "U-292",
+    "adet": 2,
+    "fiyat": 608.05
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK571163292"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1026",
+  "musteri": {
+   "ad": "Musteri 1026",
+   "eposta": "musteri1026@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-46",
+    "adet": 5,
+    "fiyat": 625.81
+   },
+   {
+    "urun": "U-298",
+    "adet": 5,
+    "fiyat": 781.24
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK559264270"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1027",
+  "musteri": {
+   "ad": "Musteri 1027",
+   "eposta": "musteri1027@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-377",
+    "adet": 3,
+    "fiyat": 130.67
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK850934941"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1028",
+  "musteri": {
+   "ad": "Musteri 1028",
+   "eposta": "musteri1028@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-149",
+    "adet": 3,
+    "fiyat": 894.45
+   },
+   {
+    "urun": "U-329",
+    "adet": 2,
+    "fiyat": 391.53
+   },
+   {
+    "urun": "U-175",
+    "adet": 3,
+    "fiyat": 762.49
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK456912340"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1029",
+  "musteri": {
+   "ad": "Musteri 1029",
+   "eposta": "musteri1029@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-145",
+    "adet": 4,
+    "fiyat": 125.12
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK334614252"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1030",
+  "musteri": {
+   "ad": "Musteri 1030",
+   "eposta": "musteri1030@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-296",
+    "adet": 3,
+    "fiyat": 201.78
+   },
+   {
+    "urun": "U-172",
+    "adet": 3,
+    "fiyat": 821.33
+   },
+   {
+    "urun": "U-228",
+    "adet": 5,
+    "fiyat": 564.74
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK379556928"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1031",
+  "musteri": {
+   "ad": "Musteri 1031",
+   "eposta": "musteri1031@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-108",
+    "adet": 4,
+    "fiyat": 747.1
+   },
+   {
+    "urun": "U-353",
+    "adet": 3,
+    "fiyat": 436.72
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK190835288"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1032",
+  "musteri": {
+   "ad": "Musteri 1032",
+   "eposta": "musteri1032@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-319",
+    "adet": 3,
+    "fiyat": 250.49
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK655056828"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1033",
+  "musteri": {
+   "ad": "Musteri 1033",
+   "eposta": "musteri1033@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-324",
+    "adet": 1,
+    "fiyat": 570.45
+   },
+   {
+    "urun": "U-129",
+    "adet": 1,
+    "fiyat": 231.13
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK629795430"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1034",
+  "musteri": {
+   "ad": "Musteri 1034",
+   "eposta": "musteri1034@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-375",
+    "adet": 1,
+    "fiyat": 125.32
+   },
+   {
+    "urun": "U-20",
+    "adet": 5,
+    "fiyat": 865.23
+   },
+   {
+    "urun": "U-72",
+    "adet": 2,
+    "fiyat": 638.32
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK989492374"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1035",
+  "musteri": {
+   "ad": "Musteri 1035",
+   "eposta": "musteri1035@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-142",
+    "adet": 1,
+    "fiyat": 213.58
+   },
+   {
+    "urun": "U-87",
+    "adet": 1,
+    "fiyat": 95.85
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK406027896"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1036",
+  "musteri": {
+   "ad": "Musteri 1036",
+   "eposta": "musteri1036@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-61",
+    "adet": 3,
+    "fiyat": 537.03
+   },
+   {
+    "urun": "U-278",
+    "adet": 4,
+    "fiyat": 111.49
+   },
+   {
+    "urun": "U-53",
+    "adet": 1,
+    "fiyat": 146.55
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK137574150"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1037",
+  "musteri": {
+   "ad": "Musteri 1037",
+   "eposta": "musteri1037@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-358",
+    "adet": 4,
+    "fiyat": 29.59
+   },
+   {
+    "urun": "U-27",
+    "adet": 4,
+    "fiyat": 321.06
+   },
+   {
+    "urun": "U-378",
+    "adet": 2,
+    "fiyat": 533.27
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK133455936"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1038",
+  "musteri": {
+   "ad": "Musteri 1038",
+   "eposta": "musteri1038@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-4",
+    "adet": 3,
+    "fiyat": 440.02
+   },
+   {
+    "urun": "U-230",
+    "adet": 3,
+    "fiyat": 502.26
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK767933586"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1039",
+  "musteri": {
+   "ad": "Musteri 1039",
+   "eposta": "musteri1039@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-370",
+    "adet": 1,
+    "fiyat": 148.36
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK351340285"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1040",
+  "musteri": {
+   "ad": "Musteri 1040",
+   "eposta": "musteri1040@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-235",
+    "adet": 3,
+    "fiyat": 616.66
+   },
+   {
+    "urun": "U-125",
+    "adet": 1,
+    "fiyat": 249.57
+   },
+   {
+    "urun": "U-148",
+    "adet": 1,
+    "fiyat": 276.55
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK726728789"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1041",
+  "musteri": {
+   "ad": "Musteri 1041",
+   "eposta": "musteri1041@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-218",
+    "adet": 1,
+    "fiyat": 76.84
+   },
+   {
+    "urun": "U-338",
+    "adet": 3,
+    "fiyat": 706.26
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK179884007"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1042",
+  "musteri": {
+   "ad": "Musteri 1042",
+   "eposta": "musteri1042@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-345",
+    "adet": 3,
+    "fiyat": 322.17
+   },
+   {
+    "urun": "U-384",
+    "adet": 1,
+    "fiyat": 624.33
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK332582232"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1043",
+  "musteri": {
+   "ad": "Musteri 1043",
+   "eposta": "musteri1043@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-364",
+    "adet": 3,
+    "fiyat": 603.9
+   },
+   {
+    "urun": "U-193",
+    "adet": 1,
+    "fiyat": 325.66
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK271445889"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1044",
+  "musteri": {
+   "ad": "Musteri 1044",
+   "eposta": "musteri1044@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-13",
+    "adet": 4,
+    "fiyat": 402.56
+   },
+   {
+    "urun": "U-248",
+    "adet": 5,
+    "fiyat": 527.42
+   },
+   {
+    "urun": "U-227",
+    "adet": 4,
+    "fiyat": 450.92
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK905044746"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1045",
+  "musteri": {
+   "ad": "Musteri 1045",
+   "eposta": "musteri1045@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-31",
+    "adet": 1,
+    "fiyat": 726.63
+   },
+   {
+    "urun": "U-300",
+    "adet": 3,
+    "fiyat": 16.22
+   },
+   {
+    "urun": "U-245",
+    "adet": 5,
+    "fiyat": 569.06
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK476237230"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1046",
+  "musteri": {
+   "ad": "Musteri 1046",
+   "eposta": "musteri1046@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-227",
+    "adet": 2,
+    "fiyat": 131.81
+   },
+   {
+    "urun": "U-67",
+    "adet": 5,
+    "fiyat": 897.16
+   },
+   {
+    "urun": "U-12",
+    "adet": 4,
+    "fiyat": 569.62
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK372420570"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1047",
+  "musteri": {
+   "ad": "Musteri 1047",
+   "eposta": "musteri1047@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-69",
+    "adet": 2,
+    "fiyat": 547.09
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK804841810"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1048",
+  "musteri": {
+   "ad": "Musteri 1048",
+   "eposta": "musteri1048@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-331",
+    "adet": 5,
+    "fiyat": 146.85
+   },
+   {
+    "urun": "U-43",
+    "adet": 4,
+    "fiyat": 383.09
+   },
+   {
+    "urun": "U-345",
+    "adet": 2,
+    "fiyat": 388.98
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK856042155"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1049",
+  "musteri": {
+   "ad": "Musteri 1049",
+   "eposta": "musteri1049@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-193",
+    "adet": 5,
+    "fiyat": 654.98
+   },
+   {
+    "urun": "U-288",
+    "adet": 3,
+    "fiyat": 53.57
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK581346820"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1050",
+  "musteri": {
+   "ad": "Musteri 1050",
+   "eposta": "musteri1050@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-228",
+    "adet": 3,
+    "fiyat": 278.73
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK317262748"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1051",
+  "musteri": {
+   "ad": "Musteri 1051",
+   "eposta": "musteri1051@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-299",
+    "adet": 1,
+    "fiyat": 200.38
+   },
+   {
+    "urun": "U-374",
+    "adet": 3,
+    "fiyat": 88.02
+   },
+   {
+    "urun": "U-251",
+    "adet": 3,
+    "fiyat": 138.19
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK702690696"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1052",
+  "musteri": {
+   "ad": "Musteri 1052",
+   "eposta": "musteri1052@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-235",
+    "adet": 4,
+    "fiyat": 379.05
+   },
+   {
+    "urun": "U-43",
+    "adet": 3,
+    "fiyat": 416.62
+   },
+   {
+    "urun": "U-269",
+    "adet": 1,
+    "fiyat": 660.0
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK430569412"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1053",
+  "musteri": {
+   "ad": "Musteri 1053",
+   "eposta": "musteri1053@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-173",
+    "adet": 2,
+    "fiyat": 704.28
+   },
+   {
+    "urun": "U-234",
+    "adet": 1,
+    "fiyat": 278.32
+   },
+   {
+    "urun": "U-350",
+    "adet": 3,
+    "fiyat": 257.61
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK548216451"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1054",
+  "musteri": {
+   "ad": "Musteri 1054",
+   "eposta": "musteri1054@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-187",
+    "adet": 1,
+    "fiyat": 794.68
+   },
+   {
+    "urun": "U-171",
+    "adet": 1,
+    "fiyat": 82.44
+   },
+   {
+    "urun": "U-202",
+    "adet": 5,
+    "fiyat": 885.5
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK292846163"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1055",
+  "musteri": {
+   "ad": "Musteri 1055",
+   "eposta": "musteri1055@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-153",
+    "adet": 3,
+    "fiyat": 395.43
+   },
+   {
+    "urun": "U-238",
+    "adet": 4,
+    "fiyat": 555.74
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK133758640"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1056",
+  "musteri": {
+   "ad": "Musteri 1056",
+   "eposta": "musteri1056@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-297",
+    "adet": 3,
+    "fiyat": 473.87
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK929644966"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1057",
+  "musteri": {
+   "ad": "Musteri 1057",
+   "eposta": "musteri1057@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-57",
+    "adet": 5,
+    "fiyat": 753.15
+   },
+   {
+    "urun": "U-75",
+    "adet": 1,
+    "fiyat": 396.7
+   },
+   {
+    "urun": "U-16",
+    "adet": 2,
+    "fiyat": 315.69
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK269491643"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1058",
+  "musteri": {
+   "ad": "Musteri 1058",
+   "eposta": "musteri1058@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-268",
+    "adet": 3,
+    "fiyat": 835.04
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK806593832"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1059",
+  "musteri": {
+   "ad": "Musteri 1059",
+   "eposta": "musteri1059@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-56",
+    "adet": 4,
+    "fiyat": 466.2
+   },
+   {
+    "urun": "U-222",
+    "adet": 3,
+    "fiyat": 457.37
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK215417920"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1060",
+  "musteri": {
+   "ad": "Musteri 1060",
+   "eposta": "musteri1060@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-266",
+    "adet": 3,
+    "fiyat": 677.04
+   },
+   {
+    "urun": "U-239",
+    "adet": 5,
+    "fiyat": 892.9
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK996908064"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1061",
+  "musteri": {
+   "ad": "Musteri 1061",
+   "eposta": "musteri1061@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-256",
+    "adet": 4,
+    "fiyat": 866.79
+   },
+   {
+    "urun": "U-48",
+    "adet": 1,
+    "fiyat": 883.24
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK670495859"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1062",
+  "musteri": {
+   "ad": "Musteri 1062",
+   "eposta": "musteri1062@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-219",
+    "adet": 5,
+    "fiyat": 573.71
+   },
+   {
+    "urun": "U-28",
+    "adet": 1,
+    "fiyat": 192.36
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK938936551"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1063",
+  "musteri": {
+   "ad": "Musteri 1063",
+   "eposta": "musteri1063@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-217",
+    "adet": 1,
+    "fiyat": 235.95
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK385125976"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1064",
+  "musteri": {
+   "ad": "Musteri 1064",
+   "eposta": "musteri1064@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-350",
+    "adet": 2,
+    "fiyat": 592.51
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK754798764"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1065",
+  "musteri": {
+   "ad": "Musteri 1065",
+   "eposta": "musteri1065@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-322",
+    "adet": 2,
+    "fiyat": 465.41
+   },
+   {
+    "urun": "U-204",
+    "adet": 4,
+    "fiyat": 629.07
+   },
+   {
+    "urun": "U-264",
+    "adet": 4,
+    "fiyat": 753.28
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK155349859"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1066",
+  "musteri": {
+   "ad": "Musteri 1066",
+   "eposta": "musteri1066@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-62",
+    "adet": 1,
+    "fiyat": 770.3
+   },
+   {
+    "urun": "U-121",
+    "adet": 2,
+    "fiyat": 627.27
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK802032114"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1067",
+  "musteri": {
+   "ad": "Musteri 1067",
+   "eposta": "musteri1067@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-86",
+    "adet": 5,
+    "fiyat": 866.46
+   },
+   {
+    "urun": "U-345",
+    "adet": 5,
+    "fiyat": 145.48
+   },
+   {
+    "urun": "U-205",
+    "adet": 1,
+    "fiyat": 521.59
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK402904094"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1068",
+  "musteri": {
+   "ad": "Musteri 1068",
+   "eposta": "musteri1068@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-116",
+    "adet": 1,
+    "fiyat": 278.85
+   },
+   {
+    "urun": "U-256",
+    "adet": 2,
+    "fiyat": 308.62
+   },
+   {
+    "urun": "U-95",
+    "adet": 4,
+    "fiyat": 129.16
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK896192485"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1069",
+  "musteri": {
+   "ad": "Musteri 1069",
+   "eposta": "musteri1069@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-368",
+    "adet": 5,
+    "fiyat": 567.83
+   },
+   {
+    "urun": "U-186",
+    "adet": 2,
+    "fiyat": 438.6
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK556482569"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1070",
+  "musteri": {
+   "ad": "Musteri 1070",
+   "eposta": "musteri1070@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-60",
+    "adet": 5,
+    "fiyat": 64.7
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK764556193"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1071",
+  "musteri": {
+   "ad": "Musteri 1071",
+   "eposta": "musteri1071@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-97",
+    "adet": 2,
+    "fiyat": 265.13
+   },
+   {
+    "urun": "U-15",
+    "adet": 2,
+    "fiyat": 145.61
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK871834557"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1072",
+  "musteri": {
+   "ad": "Musteri 1072",
+   "eposta": "musteri1072@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-210",
+    "adet": 2,
+    "fiyat": 454.27
+   },
+   {
+    "urun": "U-169",
+    "adet": 4,
+    "fiyat": 850.29
+   },
+   {
+    "urun": "U-72",
+    "adet": 2,
+    "fiyat": 281.43
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK969591371"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1073",
+  "musteri": {
+   "ad": "Musteri 1073",
+   "eposta": "musteri1073@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-306",
+    "adet": 3,
+    "fiyat": 36.83
+   },
+   {
+    "urun": "U-48",
+    "adet": 1,
+    "fiyat": 343.82
+   },
+   {
+    "urun": "U-160",
+    "adet": 1,
+    "fiyat": 29.4
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK607963825"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1074",
+  "musteri": {
+   "ad": "Musteri 1074",
+   "eposta": "musteri1074@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-268",
+    "adet": 2,
+    "fiyat": 146.49
+   },
+   {
+    "urun": "U-87",
+    "adet": 2,
+    "fiyat": 718.41
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK337124125"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1075",
+  "musteri": {
+   "ad": "Musteri 1075",
+   "eposta": "musteri1075@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-345",
+    "adet": 3,
+    "fiyat": 671.22
+   },
+   {
+    "urun": "U-197",
+    "adet": 4,
+    "fiyat": 35.63
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK797986127"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1076",
+  "musteri": {
+   "ad": "Musteri 1076",
+   "eposta": "musteri1076@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-63",
+    "adet": 5,
+    "fiyat": 474.9
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK149032311"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1077",
+  "musteri": {
+   "ad": "Musteri 1077",
+   "eposta": "musteri1077@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-119",
+    "adet": 4,
+    "fiyat": 295.22
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK107336423"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1078",
+  "musteri": {
+   "ad": "Musteri 1078",
+   "eposta": "musteri1078@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-244",
+    "adet": 3,
+    "fiyat": 192.67
+   },
+   {
+    "urun": "U-156",
+    "adet": 1,
+    "fiyat": 314.93
+   },
+   {
+    "urun": "U-90",
+    "adet": 3,
+    "fiyat": 209.79
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK573116581"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1079",
+  "musteri": {
+   "ad": "Musteri 1079",
+   "eposta": "musteri1079@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-250",
+    "adet": 4,
+    "fiyat": 469.32
+   },
+   {
+    "urun": "U-183",
+    "adet": 2,
+    "fiyat": 805.21
+   },
+   {
+    "urun": "U-201",
+    "adet": 3,
+    "fiyat": 573.57
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK496985382"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1080",
+  "musteri": {
+   "ad": "Musteri 1080",
+   "eposta": "musteri1080@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-378",
+    "adet": 5,
+    "fiyat": 155.77
+   },
+   {
+    "urun": "U-138",
+    "adet": 2,
+    "fiyat": 384.59
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK685096491"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1081",
+  "musteri": {
+   "ad": "Musteri 1081",
+   "eposta": "musteri1081@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-393",
+    "adet": 2,
+    "fiyat": 506.74
+   },
+   {
+    "urun": "U-178",
+    "adet": 3,
+    "fiyat": 328.48
+   },
+   {
+    "urun": "U-310",
+    "adet": 5,
+    "fiyat": 631.16
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK523452487"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1082",
+  "musteri": {
+   "ad": "Musteri 1082",
+   "eposta": "musteri1082@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-70",
+    "adet": 1,
+    "fiyat": 515.24
+   },
+   {
+    "urun": "U-75",
+    "adet": 3,
+    "fiyat": 389.65
+   },
+   {
+    "urun": "U-375",
+    "adet": 5,
+    "fiyat": 358.55
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK658683057"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1083",
+  "musteri": {
+   "ad": "Musteri 1083",
+   "eposta": "musteri1083@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-54",
+    "adet": 5,
+    "fiyat": 845.2
+   },
+   {
+    "urun": "U-81",
+    "adet": 3,
+    "fiyat": 828.82
+   },
+   {
+    "urun": "U-315",
+    "adet": 3,
+    "fiyat": 208.03
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK551309767"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1084",
+  "musteri": {
+   "ad": "Musteri 1084",
+   "eposta": "musteri1084@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-282",
+    "adet": 2,
+    "fiyat": 275.18
+   },
+   {
+    "urun": "U-263",
+    "adet": 2,
+    "fiyat": 744.79
+   },
+   {
+    "urun": "U-51",
+    "adet": 1,
+    "fiyat": 43.83
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK816114378"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1085",
+  "musteri": {
+   "ad": "Musteri 1085",
+   "eposta": "musteri1085@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-66",
+    "adet": 3,
+    "fiyat": 388.62
+   },
+   {
+    "urun": "U-59",
+    "adet": 4,
+    "fiyat": 767.9
+   },
+   {
+    "urun": "U-373",
+    "adet": 2,
+    "fiyat": 893.57
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK911935634"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1086",
+  "musteri": {
+   "ad": "Musteri 1086",
+   "eposta": "musteri1086@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-134",
+    "adet": 1,
+    "fiyat": 237.99
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK789976413"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1087",
+  "musteri": {
+   "ad": "Musteri 1087",
+   "eposta": "musteri1087@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-236",
+    "adet": 1,
+    "fiyat": 775.42
+   },
+   {
+    "urun": "U-276",
+    "adet": 2,
+    "fiyat": 735.26
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK917300118"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1088",
+  "musteri": {
+   "ad": "Musteri 1088",
+   "eposta": "musteri1088@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-20",
+    "adet": 2,
+    "fiyat": 672.98
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK415121398"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1089",
+  "musteri": {
+   "ad": "Musteri 1089",
+   "eposta": "musteri1089@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-388",
+    "adet": 4,
+    "fiyat": 716.6
+   },
+   {
+    "urun": "U-131",
+    "adet": 2,
+    "fiyat": 616.56
+   },
+   {
+    "urun": "U-231",
+    "adet": 2,
+    "fiyat": 326.97
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK128011219"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1090",
+  "musteri": {
+   "ad": "Musteri 1090",
+   "eposta": "musteri1090@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-30",
+    "adet": 2,
+    "fiyat": 28.32
+   },
+   {
+    "urun": "U-18",
+    "adet": 3,
+    "fiyat": 104.42
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK927007379"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1091",
+  "musteri": {
+   "ad": "Musteri 1091",
+   "eposta": "musteri1091@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-260",
+    "adet": 2,
+    "fiyat": 488.56
+   },
+   {
+    "urun": "U-245",
+    "adet": 1,
+    "fiyat": 426.92
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK175968442"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1092",
+  "musteri": {
+   "ad": "Musteri 1092",
+   "eposta": "musteri1092@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-109",
+    "adet": 2,
+    "fiyat": 783.82
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK987712017"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1093",
+  "musteri": {
+   "ad": "Musteri 1093",
+   "eposta": "musteri1093@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-282",
+    "adet": 4,
+    "fiyat": 98.35
+   },
+   {
+    "urun": "U-134",
+    "adet": 5,
+    "fiyat": 176.27
+   },
+   {
+    "urun": "U-246",
+    "adet": 4,
+    "fiyat": 97.83
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK301303168"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1094",
+  "musteri": {
+   "ad": "Musteri 1094",
+   "eposta": "musteri1094@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-345",
+    "adet": 5,
+    "fiyat": 380.24
+   },
+   {
+    "urun": "U-164",
+    "adet": 3,
+    "fiyat": 838.05
+   },
+   {
+    "urun": "U-144",
+    "adet": 5,
+    "fiyat": 228.23
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK939287222"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1095",
+  "musteri": {
+   "ad": "Musteri 1095",
+   "eposta": "musteri1095@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-117",
+    "adet": 1,
+    "fiyat": 661.57
+   },
+   {
+    "urun": "U-314",
+    "adet": 5,
+    "fiyat": 318.49
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK441880901"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1096",
+  "musteri": {
+   "ad": "Musteri 1096",
+   "eposta": "musteri1096@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-370",
+    "adet": 5,
+    "fiyat": 25.49
+   },
+   {
+    "urun": "U-170",
+    "adet": 5,
+    "fiyat": 753.47
+   },
+   {
+    "urun": "U-311",
+    "adet": 4,
+    "fiyat": 23.1
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK439488611"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1097",
+  "musteri": {
+   "ad": "Musteri 1097",
+   "eposta": "musteri1097@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-235",
+    "adet": 3,
+    "fiyat": 516.29
+   },
+   {
+    "urun": "U-283",
+    "adet": 3,
+    "fiyat": 391.82
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK387678139"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1098",
+  "musteri": {
+   "ad": "Musteri 1098",
+   "eposta": "musteri1098@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-112",
+    "adet": 5,
+    "fiyat": 794.1
+   },
+   {
+    "urun": "U-146",
+    "adet": 1,
+    "fiyat": 108.32
+   },
+   {
+    "urun": "U-382",
+    "adet": 2,
+    "fiyat": 615.61
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK571570088"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1099",
+  "musteri": {
+   "ad": "Musteri 1099",
+   "eposta": "musteri1099@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-71",
+    "adet": 5,
+    "fiyat": 25.48
+   },
+   {
+    "urun": "U-164",
+    "adet": 1,
+    "fiyat": 582.68
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK171661818"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1100",
+  "musteri": {
+   "ad": "Musteri 1100",
+   "eposta": "musteri1100@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-216",
+    "adet": 3,
+    "fiyat": 280.49
+   },
+   {
+    "urun": "U-103",
+    "adet": 1,
+    "fiyat": 707.55
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK263820608"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1101",
+  "musteri": {
+   "ad": "Musteri 1101",
+   "eposta": "musteri1101@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-93",
+    "adet": 4,
+    "fiyat": 828.68
+   },
+   {
+    "urun": "U-212",
+    "adet": 3,
+    "fiyat": 74.21
+   },
+   {
+    "urun": "U-153",
+    "adet": 2,
+    "fiyat": 629.89
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK121499444"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1102",
+  "musteri": {
+   "ad": "Musteri 1102",
+   "eposta": "musteri1102@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-392",
+    "adet": 2,
+    "fiyat": 445.75
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK419434016"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1103",
+  "musteri": {
+   "ad": "Musteri 1103",
+   "eposta": "musteri1103@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-43",
+    "adet": 3,
+    "fiyat": 723.68
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK198296086"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1104",
+  "musteri": {
+   "ad": "Musteri 1104",
+   "eposta": "musteri1104@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-305",
+    "adet": 2,
+    "fiyat": 518.18
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK515195304"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1105",
+  "musteri": {
+   "ad": "Musteri 1105",
+   "eposta": "musteri1105@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-256",
+    "adet": 4,
+    "fiyat": 406.9
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK226788584"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1106",
+  "musteri": {
+   "ad": "Musteri 1106",
+   "eposta": "musteri1106@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-215",
+    "adet": 5,
+    "fiyat": 609.79
+   },
+   {
+    "urun": "U-240",
+    "adet": 5,
+    "fiyat": 439.29
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK771958621"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1107",
+  "musteri": {
+   "ad": "Musteri 1107",
+   "eposta": "musteri1107@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-74",
+    "adet": 4,
+    "fiyat": 193.16
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK573597972"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1108",
+  "musteri": {
+   "ad": "Musteri 1108",
+   "eposta": "musteri1108@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-253",
+    "adet": 2,
+    "fiyat": 208.1
+   },
+   {
+    "urun": "U-56",
+    "adet": 3,
+    "fiyat": 609.71
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK728477357"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1109",
+  "musteri": {
+   "ad": "Musteri 1109",
+   "eposta": "musteri1109@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-51",
+    "adet": 1,
+    "fiyat": 583.59
+   },
+   {
+    "urun": "U-65",
+    "adet": 1,
+    "fiyat": 394.97
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK986127750"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1110",
+  "musteri": {
+   "ad": "Musteri 1110",
+   "eposta": "musteri1110@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-160",
+    "adet": 1,
+    "fiyat": 20.36
+   },
+   {
+    "urun": "U-96",
+    "adet": 1,
+    "fiyat": 797.17
+   },
+   {
+    "urun": "U-78",
+    "adet": 3,
+    "fiyat": 19.97
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK823386440"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1111",
+  "musteri": {
+   "ad": "Musteri 1111",
+   "eposta": "musteri1111@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-397",
+    "adet": 2,
+    "fiyat": 152.95
+   },
+   {
+    "urun": "U-221",
+    "adet": 1,
+    "fiyat": 770.75
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK575836238"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1112",
+  "musteri": {
+   "ad": "Musteri 1112",
+   "eposta": "musteri1112@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-40",
+    "adet": 1,
+    "fiyat": 482.82
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK691795717"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1113",
+  "musteri": {
+   "ad": "Musteri 1113",
+   "eposta": "musteri1113@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-109",
+    "adet": 5,
+    "fiyat": 254.73
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK765219563"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1114",
+  "musteri": {
+   "ad": "Musteri 1114",
+   "eposta": "musteri1114@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-367",
+    "adet": 1,
+    "fiyat": 876.61
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK250395063"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1115",
+  "musteri": {
+   "ad": "Musteri 1115",
+   "eposta": "musteri1115@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-154",
+    "adet": 3,
+    "fiyat": 152.94
+   },
+   {
+    "urun": "U-329",
+    "adet": 2,
+    "fiyat": 193.5
+   },
+   {
+    "urun": "U-77",
+    "adet": 5,
+    "fiyat": 439.5
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK555226348"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1116",
+  "musteri": {
+   "ad": "Musteri 1116",
+   "eposta": "musteri1116@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-367",
+    "adet": 1,
+    "fiyat": 492.33
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK480944578"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1117",
+  "musteri": {
+   "ad": "Musteri 1117",
+   "eposta": "musteri1117@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-170",
+    "adet": 2,
+    "fiyat": 179.64
+   },
+   {
+    "urun": "U-258",
+    "adet": 1,
+    "fiyat": 129.77
+   },
+   {
+    "urun": "U-148",
+    "adet": 2,
+    "fiyat": 166.89
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK733274316"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1118",
+  "musteri": {
+   "ad": "Musteri 1118",
+   "eposta": "musteri1118@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-210",
+    "adet": 2,
+    "fiyat": 76.06
+   },
+   {
+    "urun": "U-203",
+    "adet": 1,
+    "fiyat": 623.73
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK254652385"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1119",
+  "musteri": {
+   "ad": "Musteri 1119",
+   "eposta": "musteri1119@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-335",
+    "adet": 2,
+    "fiyat": 892.22
+   },
+   {
+    "urun": "U-381",
+    "adet": 4,
+    "fiyat": 186.2
+   },
+   {
+    "urun": "U-54",
+    "adet": 1,
+    "fiyat": 380.15
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK574373292"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1120",
+  "musteri": {
+   "ad": "Musteri 1120",
+   "eposta": "musteri1120@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-361",
+    "adet": 4,
+    "fiyat": 186.72
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK451481899"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1121",
+  "musteri": {
+   "ad": "Musteri 1121",
+   "eposta": "musteri1121@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-215",
+    "adet": 1,
+    "fiyat": 181.56
+   },
+   {
+    "urun": "U-224",
+    "adet": 2,
+    "fiyat": 829.88
+   },
+   {
+    "urun": "U-204",
+    "adet": 5,
+    "fiyat": 549.91
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK526194531"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1122",
+  "musteri": {
+   "ad": "Musteri 1122",
+   "eposta": "musteri1122@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-136",
+    "adet": 1,
+    "fiyat": 324.55
+   },
+   {
+    "urun": "U-368",
+    "adet": 4,
+    "fiyat": 729.03
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK229816374"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1123",
+  "musteri": {
+   "ad": "Musteri 1123",
+   "eposta": "musteri1123@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-85",
+    "adet": 4,
+    "fiyat": 426.7
+   },
+   {
+    "urun": "U-89",
+    "adet": 4,
+    "fiyat": 439.49
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK179385411"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1124",
+  "musteri": {
+   "ad": "Musteri 1124",
+   "eposta": "musteri1124@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-282",
+    "adet": 4,
+    "fiyat": 88.45
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK917703333"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1125",
+  "musteri": {
+   "ad": "Musteri 1125",
+   "eposta": "musteri1125@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-199",
+    "adet": 1,
+    "fiyat": 772.0
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK757712967"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1126",
+  "musteri": {
+   "ad": "Musteri 1126",
+   "eposta": "musteri1126@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-220",
+    "adet": 4,
+    "fiyat": 244.49
+   },
+   {
+    "urun": "U-117",
+    "adet": 3,
+    "fiyat": 388.09
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK109654250"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1127",
+  "musteri": {
+   "ad": "Musteri 1127",
+   "eposta": "musteri1127@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-219",
+    "adet": 5,
+    "fiyat": 161.17
+   },
+   {
+    "urun": "U-317",
+    "adet": 4,
+    "fiyat": 860.37
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK946803888"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1128",
+  "musteri": {
+   "ad": "Musteri 1128",
+   "eposta": "musteri1128@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-123",
+    "adet": 1,
+    "fiyat": 300.62
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK427195260"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1129",
+  "musteri": {
+   "ad": "Musteri 1129",
+   "eposta": "musteri1129@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-42",
+    "adet": 5,
+    "fiyat": 462.29
+   },
+   {
+    "urun": "U-162",
+    "adet": 2,
+    "fiyat": 723.7
+   },
+   {
+    "urun": "U-287",
+    "adet": 1,
+    "fiyat": 178.11
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK848505582"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1130",
+  "musteri": {
+   "ad": "Musteri 1130",
+   "eposta": "musteri1130@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-2",
+    "adet": 4,
+    "fiyat": 656.54
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK966454838"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1131",
+  "musteri": {
+   "ad": "Musteri 1131",
+   "eposta": "musteri1131@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-76",
+    "adet": 3,
+    "fiyat": 685.25
+   },
+   {
+    "urun": "U-205",
+    "adet": 1,
+    "fiyat": 372.08
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK376226402"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1132",
+  "musteri": {
+   "ad": "Musteri 1132",
+   "eposta": "musteri1132@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-176",
+    "adet": 4,
+    "fiyat": 899.84
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK871644577"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1133",
+  "musteri": {
+   "ad": "Musteri 1133",
+   "eposta": "musteri1133@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-4",
+    "adet": 2,
+    "fiyat": 295.97
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK632644648"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1134",
+  "musteri": {
+   "ad": "Musteri 1134",
+   "eposta": "musteri1134@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-240",
+    "adet": 4,
+    "fiyat": 255.07
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK812843030"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1135",
+  "musteri": {
+   "ad": "Musteri 1135",
+   "eposta": "musteri1135@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-256",
+    "adet": 1,
+    "fiyat": 201.1
+   },
+   {
+    "urun": "U-369",
+    "adet": 1,
+    "fiyat": 797.07
+   },
+   {
+    "urun": "U-157",
+    "adet": 2,
+    "fiyat": 421.35
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK399121039"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1136",
+  "musteri": {
+   "ad": "Musteri 1136",
+   "eposta": "musteri1136@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-129",
+    "adet": 5,
+    "fiyat": 822.36
+   },
+   {
+    "urun": "U-2",
+    "adet": 4,
+    "fiyat": 176.93
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK218689009"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1137",
+  "musteri": {
+   "ad": "Musteri 1137",
+   "eposta": "musteri1137@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-29",
+    "adet": 3,
+    "fiyat": 145.78
+   },
+   {
+    "urun": "U-42",
+    "adet": 3,
+    "fiyat": 201.09
+   },
+   {
+    "urun": "U-350",
+    "adet": 2,
+    "fiyat": 45.47
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK149549868"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1138",
+  "musteri": {
+   "ad": "Musteri 1138",
+   "eposta": "musteri1138@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-28",
+    "adet": 3,
+    "fiyat": 229.83
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK991403646"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1139",
+  "musteri": {
+   "ad": "Musteri 1139",
+   "eposta": "musteri1139@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-363",
+    "adet": 1,
+    "fiyat": 452.52
+   },
+   {
+    "urun": "U-312",
+    "adet": 3,
+    "fiyat": 115.0
+   },
+   {
+    "urun": "U-224",
+    "adet": 2,
+    "fiyat": 393.2
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK771169943"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1140",
+  "musteri": {
+   "ad": "Musteri 1140",
+   "eposta": "musteri1140@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-311",
+    "adet": 4,
+    "fiyat": 760.58
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK725605087"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1141",
+  "musteri": {
+   "ad": "Musteri 1141",
+   "eposta": "musteri1141@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-147",
+    "adet": 1,
+    "fiyat": 285.3
+   },
+   {
+    "urun": "U-79",
+    "adet": 3,
+    "fiyat": 128.84
+   },
+   {
+    "urun": "U-112",
+    "adet": 1,
+    "fiyat": 322.23
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK886421392"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1142",
+  "musteri": {
+   "ad": "Musteri 1142",
+   "eposta": "musteri1142@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-211",
+    "adet": 3,
+    "fiyat": 471.24
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK820615417"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1143",
+  "musteri": {
+   "ad": "Musteri 1143",
+   "eposta": "musteri1143@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-297",
+    "adet": 1,
+    "fiyat": 743.06
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK348241653"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1144",
+  "musteri": {
+   "ad": "Musteri 1144",
+   "eposta": "musteri1144@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-10",
+    "adet": 3,
+    "fiyat": 710.77
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK860359953"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1145",
+  "musteri": {
+   "ad": "Musteri 1145",
+   "eposta": "musteri1145@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-138",
+    "adet": 2,
+    "fiyat": 818.07
+   },
+   {
+    "urun": "U-98",
+    "adet": 5,
+    "fiyat": 241.91
+   },
+   {
+    "urun": "U-37",
+    "adet": 5,
+    "fiyat": 839.75
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK988799715"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1146",
+  "musteri": {
+   "ad": "Musteri 1146",
+   "eposta": "musteri1146@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-331",
+    "adet": 3,
+    "fiyat": 314.87
+   },
+   {
+    "urun": "U-115",
+    "adet": 5,
+    "fiyat": 715.64
+   },
+   {
+    "urun": "U-225",
+    "adet": 3,
+    "fiyat": 276.01
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK107776079"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1147",
+  "musteri": {
+   "ad": "Musteri 1147",
+   "eposta": "musteri1147@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-20",
+    "adet": 3,
+    "fiyat": 281.7
+   },
+   {
+    "urun": "U-273",
+    "adet": 2,
+    "fiyat": 185.19
+   },
+   {
+    "urun": "U-57",
+    "adet": 4,
+    "fiyat": 220.16
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK331240360"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1148",
+  "musteri": {
+   "ad": "Musteri 1148",
+   "eposta": "musteri1148@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-61",
+    "adet": 2,
+    "fiyat": 690.59
+   },
+   {
+    "urun": "U-200",
+    "adet": 2,
+    "fiyat": 72.98
+   },
+   {
+    "urun": "U-151",
+    "adet": 4,
+    "fiyat": 181.06
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK998752963"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1149",
+  "musteri": {
+   "ad": "Musteri 1149",
+   "eposta": "musteri1149@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-237",
+    "adet": 3,
+    "fiyat": 251.03
+   },
+   {
+    "urun": "U-70",
+    "adet": 4,
+    "fiyat": 197.1
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK364962937"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1150",
+  "musteri": {
+   "ad": "Musteri 1150",
+   "eposta": "musteri1150@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-62",
+    "adet": 2,
+    "fiyat": 95.68
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK753251782"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1151",
+  "musteri": {
+   "ad": "Musteri 1151",
+   "eposta": "musteri1151@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-61",
+    "adet": 3,
+    "fiyat": 13.47
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK204968031"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1152",
+  "musteri": {
+   "ad": "Musteri 1152",
+   "eposta": "musteri1152@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-329",
+    "adet": 3,
+    "fiyat": 159.27
+   },
+   {
+    "urun": "U-55",
+    "adet": 1,
+    "fiyat": 568.99
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK757373847"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1153",
+  "musteri": {
+   "ad": "Musteri 1153",
+   "eposta": "musteri1153@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-52",
+    "adet": 2,
+    "fiyat": 492.82
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK742056622"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1154",
+  "musteri": {
+   "ad": "Musteri 1154",
+   "eposta": "musteri1154@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-281",
+    "adet": 4,
+    "fiyat": 529.9
+   },
+   {
+    "urun": "U-79",
+    "adet": 3,
+    "fiyat": 225.5
+   },
+   {
+    "urun": "U-361",
+    "adet": 5,
+    "fiyat": 365.0
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK588925418"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1155",
+  "musteri": {
+   "ad": "Musteri 1155",
+   "eposta": "musteri1155@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-242",
+    "adet": 3,
+    "fiyat": 773.86
+   },
+   {
+    "urun": "U-293",
+    "adet": 2,
+    "fiyat": 729.63
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK124139040"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1156",
+  "musteri": {
+   "ad": "Musteri 1156",
+   "eposta": "musteri1156@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-142",
+    "adet": 1,
+    "fiyat": 64.29
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK723027942"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1157",
+  "musteri": {
+   "ad": "Musteri 1157",
+   "eposta": "musteri1157@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-392",
+    "adet": 5,
+    "fiyat": 882.53
+   },
+   {
+    "urun": "U-240",
+    "adet": 3,
+    "fiyat": 543.22
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK277317649"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1158",
+  "musteri": {
+   "ad": "Musteri 1158",
+   "eposta": "musteri1158@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-214",
+    "adet": 5,
+    "fiyat": 659.4
+   },
+   {
+    "urun": "U-212",
+    "adet": 3,
+    "fiyat": 457.52
+   },
+   {
+    "urun": "U-133",
+    "adet": 4,
+    "fiyat": 576.14
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK428099946"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1159",
+  "musteri": {
+   "ad": "Musteri 1159",
+   "eposta": "musteri1159@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-228",
+    "adet": 1,
+    "fiyat": 124.59
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK504643532"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1160",
+  "musteri": {
+   "ad": "Musteri 1160",
+   "eposta": "musteri1160@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-319",
+    "adet": 3,
+    "fiyat": 800.71
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK222846053"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1161",
+  "musteri": {
+   "ad": "Musteri 1161",
+   "eposta": "musteri1161@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-32",
+    "adet": 1,
+    "fiyat": 578.3
+   },
+   {
+    "urun": "U-13",
+    "adet": 1,
+    "fiyat": 525.23
+   },
+   {
+    "urun": "U-94",
+    "adet": 5,
+    "fiyat": 521.43
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK658671841"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1162",
+  "musteri": {
+   "ad": "Musteri 1162",
+   "eposta": "musteri1162@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-172",
+    "adet": 3,
+    "fiyat": 160.88
+   },
+   {
+    "urun": "U-62",
+    "adet": 3,
+    "fiyat": 873.0
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK908472148"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1163",
+  "musteri": {
+   "ad": "Musteri 1163",
+   "eposta": "musteri1163@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-231",
+    "adet": 5,
+    "fiyat": 852.63
+   },
+   {
+    "urun": "U-3",
+    "adet": 2,
+    "fiyat": 119.77
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK591705697"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1164",
+  "musteri": {
+   "ad": "Musteri 1164",
+   "eposta": "musteri1164@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-100",
+    "adet": 2,
+    "fiyat": 50.37
+   },
+   {
+    "urun": "U-15",
+    "adet": 3,
+    "fiyat": 449.7
+   },
+   {
+    "urun": "U-34",
+    "adet": 4,
+    "fiyat": 591.48
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK138057491"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1165",
+  "musteri": {
+   "ad": "Musteri 1165",
+   "eposta": "musteri1165@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-143",
+    "adet": 1,
+    "fiyat": 466.11
+   },
+   {
+    "urun": "U-103",
+    "adet": 5,
+    "fiyat": 559.44
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK335516405"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1166",
+  "musteri": {
+   "ad": "Musteri 1166",
+   "eposta": "musteri1166@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-22",
+    "adet": 5,
+    "fiyat": 644.3
+   },
+   {
+    "urun": "U-85",
+    "adet": 5,
+    "fiyat": 342.21
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK927357455"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1167",
+  "musteri": {
+   "ad": "Musteri 1167",
+   "eposta": "musteri1167@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-276",
+    "adet": 5,
+    "fiyat": 787.17
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK738637754"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1168",
+  "musteri": {
+   "ad": "Musteri 1168",
+   "eposta": "musteri1168@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-371",
+    "adet": 1,
+    "fiyat": 178.07
+   },
+   {
+    "urun": "U-12",
+    "adet": 5,
+    "fiyat": 291.21
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK688451381"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1169",
+  "musteri": {
+   "ad": "Musteri 1169",
+   "eposta": "musteri1169@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-390",
+    "adet": 4,
+    "fiyat": 794.9
+   },
+   {
+    "urun": "U-219",
+    "adet": 2,
+    "fiyat": 839.13
+   },
+   {
+    "urun": "U-38",
+    "adet": 4,
+    "fiyat": 267.78
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK371027828"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1170",
+  "musteri": {
+   "ad": "Musteri 1170",
+   "eposta": "musteri1170@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-179",
+    "adet": 3,
+    "fiyat": 28.6
+   },
+   {
+    "urun": "U-4",
+    "adet": 2,
+    "fiyat": 5.34
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK894368531"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1171",
+  "musteri": {
+   "ad": "Musteri 1171",
+   "eposta": "musteri1171@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-171",
+    "adet": 1,
+    "fiyat": 844.27
+   },
+   {
+    "urun": "U-123",
+    "adet": 5,
+    "fiyat": 886.44
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK695765910"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1172",
+  "musteri": {
+   "ad": "Musteri 1172",
+   "eposta": "musteri1172@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-20",
+    "adet": 1,
+    "fiyat": 721.35
+   },
+   {
+    "urun": "U-168",
+    "adet": 1,
+    "fiyat": 733.75
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK613937729"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1173",
+  "musteri": {
+   "ad": "Musteri 1173",
+   "eposta": "musteri1173@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-65",
+    "adet": 4,
+    "fiyat": 782.3
+   },
+   {
+    "urun": "U-230",
+    "adet": 1,
+    "fiyat": 596.22
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK494979896"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1174",
+  "musteri": {
+   "ad": "Musteri 1174",
+   "eposta": "musteri1174@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-84",
+    "adet": 4,
+    "fiyat": 479.3
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK600095952"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1175",
+  "musteri": {
+   "ad": "Musteri 1175",
+   "eposta": "musteri1175@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-33",
+    "adet": 2,
+    "fiyat": 584.98
+   },
+   {
+    "urun": "U-296",
+    "adet": 2,
+    "fiyat": 685.47
+   },
+   {
+    "urun": "U-297",
+    "adet": 5,
+    "fiyat": 180.29
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK598799233"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1176",
+  "musteri": {
+   "ad": "Musteri 1176",
+   "eposta": "musteri1176@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-336",
+    "adet": 1,
+    "fiyat": 111.53
+   },
+   {
+    "urun": "U-9",
+    "adet": 3,
+    "fiyat": 251.81
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK718964598"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1177",
+  "musteri": {
+   "ad": "Musteri 1177",
+   "eposta": "musteri1177@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-282",
+    "adet": 3,
+    "fiyat": 266.68
+   },
+   {
+    "urun": "U-275",
+    "adet": 5,
+    "fiyat": 610.89
+   },
+   {
+    "urun": "U-371",
+    "adet": 2,
+    "fiyat": 490.69
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK286843877"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1178",
+  "musteri": {
+   "ad": "Musteri 1178",
+   "eposta": "musteri1178@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-13",
+    "adet": 2,
+    "fiyat": 122.76
+   },
+   {
+    "urun": "U-111",
+    "adet": 1,
+    "fiyat": 80.42
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK279812196"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1179",
+  "musteri": {
+   "ad": "Musteri 1179",
+   "eposta": "musteri1179@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-129",
+    "adet": 1,
+    "fiyat": 93.83
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK218531354"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1180",
+  "musteri": {
+   "ad": "Musteri 1180",
+   "eposta": "musteri1180@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-65",
+    "adet": 2,
+    "fiyat": 8.07
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK621005623"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1181",
+  "musteri": {
+   "ad": "Musteri 1181",
+   "eposta": "musteri1181@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-119",
+    "adet": 4,
+    "fiyat": 811.17
+   },
+   {
+    "urun": "U-137",
+    "adet": 1,
+    "fiyat": 244.37
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK258743030"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1182",
+  "musteri": {
+   "ad": "Musteri 1182",
+   "eposta": "musteri1182@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-135",
+    "adet": 1,
+    "fiyat": 804.9
+   },
+   {
+    "urun": "U-376",
+    "adet": 1,
+    "fiyat": 432.28
+   },
+   {
+    "urun": "U-323",
+    "adet": 2,
+    "fiyat": 297.65
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK147515679"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1183",
+  "musteri": {
+   "ad": "Musteri 1183",
+   "eposta": "musteri1183@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-338",
+    "adet": 4,
+    "fiyat": 341.97
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK754084860"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1184",
+  "musteri": {
+   "ad": "Musteri 1184",
+   "eposta": "musteri1184@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-32",
+    "adet": 3,
+    "fiyat": 181.96
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK625835942"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1185",
+  "musteri": {
+   "ad": "Musteri 1185",
+   "eposta": "musteri1185@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-171",
+    "adet": 4,
+    "fiyat": 673.91
+   },
+   {
+    "urun": "U-268",
+    "adet": 3,
+    "fiyat": 885.23
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK380167462"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1186",
+  "musteri": {
+   "ad": "Musteri 1186",
+   "eposta": "musteri1186@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-397",
+    "adet": 4,
+    "fiyat": 367.86
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK536984750"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1187",
+  "musteri": {
+   "ad": "Musteri 1187",
+   "eposta": "ayse.kaya@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-382",
+    "adet": 1,
+    "fiyat": 454.07
+   },
+   {
+    "urun": "U-246",
+    "adet": 4,
+    "fiyat": 555.83
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK771204993"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1188",
+  "musteri": {
+   "ad": "Musteri 1188",
+   "eposta": "musteri1188@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-259",
+    "adet": 3,
+    "fiyat": 113.47
+   },
+   {
+    "urun": "U-13",
+    "adet": 4,
+    "fiyat": 478.08
+   },
+   {
+    "urun": "U-367",
+    "adet": 4,
+    "fiyat": 523.12
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK568997852"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1189",
+  "musteri": {
+   "ad": "Musteri 1189",
+   "eposta": "musteri1189@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-76",
+    "adet": 3,
+    "fiyat": 660.66
+   },
+   {
+    "urun": "U-178",
+    "adet": 2,
+    "fiyat": 294.1
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK743797005"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1190",
+  "musteri": {
+   "ad": "Musteri 1190",
+   "eposta": "musteri1190@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-360",
+    "adet": 5,
+    "fiyat": 750.51
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK183631638"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1191",
+  "musteri": {
+   "ad": "Musteri 1191",
+   "eposta": "musteri1191@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-375",
+    "adet": 5,
+    "fiyat": 457.57
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK592095095"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1192",
+  "musteri": {
+   "ad": "Musteri 1192",
+   "eposta": "musteri1192@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-208",
+    "adet": 1,
+    "fiyat": 518.16
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK664497922"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1193",
+  "musteri": {
+   "ad": "Musteri 1193",
+   "eposta": "musteri1193@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-172",
+    "adet": 1,
+    "fiyat": 772.06
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK348077151"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1194",
+  "musteri": {
+   "ad": "Musteri 1194",
+   "eposta": "musteri1194@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-66",
+    "adet": 3,
+    "fiyat": 511.37
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK667815297"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1195",
+  "musteri": {
+   "ad": "Musteri 1195",
+   "eposta": "musteri1195@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-8",
+    "adet": 4,
+    "fiyat": 57.63
+   },
+   {
+    "urun": "U-263",
+    "adet": 1,
+    "fiyat": 661.4
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK734593813"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1196",
+  "musteri": {
+   "ad": "Musteri 1196",
+   "eposta": "musteri1196@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-69",
+    "adet": 5,
+    "fiyat": 652.71
+   },
+   {
+    "urun": "U-200",
+    "adet": 4,
+    "fiyat": 875.76
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK526972475"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1197",
+  "musteri": {
+   "ad": "Musteri 1197",
+   "eposta": "musteri1197@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-60",
+    "adet": 3,
+    "fiyat": 260.33
+   },
+   {
+    "urun": "U-264",
+    "adet": 4,
+    "fiyat": 560.68
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK257243798"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1198",
+  "musteri": {
+   "ad": "Musteri 1198",
+   "eposta": "musteri1198@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-103",
+    "adet": 3,
+    "fiyat": 203.63
+   },
+   {
+    "urun": "U-151",
+    "adet": 3,
+    "fiyat": 225.35
+   },
+   {
+    "urun": "U-11",
+    "adet": 4,
+    "fiyat": 835.95
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK728094413"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1199",
+  "musteri": {
+   "ad": "Musteri 1199",
+   "eposta": "musteri1199@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-119",
+    "adet": 3,
+    "fiyat": 608.48
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK441716874"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1200",
+  "musteri": {
+   "ad": "Musteri 1200",
+   "eposta": "musteri1200@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-268",
+    "adet": 5,
+    "fiyat": 221.99
+   },
+   {
+    "urun": "U-26",
+    "adet": 5,
+    "fiyat": 406.01
+   },
+   {
+    "urun": "U-355",
+    "adet": 3,
+    "fiyat": 395.75
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK897521261"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1201",
+  "musteri": {
+   "ad": "Musteri 1201",
+   "eposta": "musteri1201@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-312",
+    "adet": 1,
+    "fiyat": 195.75
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK159833680"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1202",
+  "musteri": {
+   "ad": "Musteri 1202",
+   "eposta": "musteri1202@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-74",
+    "adet": 4,
+    "fiyat": 690.18
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK947432007"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1203",
+  "musteri": {
+   "ad": "Musteri 1203",
+   "eposta": "musteri1203@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-319",
+    "adet": 1,
+    "fiyat": 807.26
+   },
+   {
+    "urun": "U-20",
+    "adet": 4,
+    "fiyat": 342.18
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK166996150"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1204",
+  "musteri": {
+   "ad": "Musteri 1204",
+   "eposta": "musteri1204@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-132",
+    "adet": 4,
+    "fiyat": 311.66
+   },
+   {
+    "urun": "U-10",
+    "adet": 1,
+    "fiyat": 45.68
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK196455486"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1205",
+  "musteri": {
+   "ad": "Musteri 1205",
+   "eposta": "musteri1205@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-290",
+    "adet": 4,
+    "fiyat": 625.77
+   },
+   {
+    "urun": "U-201",
+    "adet": 4,
+    "fiyat": 730.86
+   },
+   {
+    "urun": "U-142",
+    "adet": 4,
+    "fiyat": 573.96
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK586731204"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1206",
+  "musteri": {
+   "ad": "Musteri 1206",
+   "eposta": "musteri1206@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-24",
+    "adet": 1,
+    "fiyat": 555.12
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK503126620"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1207",
+  "musteri": {
+   "ad": "Musteri 1207",
+   "eposta": "musteri1207@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-151",
+    "adet": 2,
+    "fiyat": 844.24
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK279531035"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1208",
+  "musteri": {
+   "ad": "Musteri 1208",
+   "eposta": "musteri1208@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-53",
+    "adet": 1,
+    "fiyat": 762.77
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK775990605"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1209",
+  "musteri": {
+   "ad": "Musteri 1209",
+   "eposta": "musteri1209@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-338",
+    "adet": 1,
+    "fiyat": 842.32
+   },
+   {
+    "urun": "U-35",
+    "adet": 5,
+    "fiyat": 98.98
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK548002724"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1210",
+  "musteri": {
+   "ad": "Musteri 1210",
+   "eposta": "musteri1210@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-5",
+    "adet": 2,
+    "fiyat": 834.37
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK562250863"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1211",
+  "musteri": {
+   "ad": "Musteri 1211",
+   "eposta": "musteri1211@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-15",
+    "adet": 1,
+    "fiyat": 411.92
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK410856572"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1212",
+  "musteri": {
+   "ad": "Musteri 1212",
+   "eposta": "musteri1212@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-89",
+    "adet": 5,
+    "fiyat": 710.15
+   },
+   {
+    "urun": "U-26",
+    "adet": 4,
+    "fiyat": 649.3
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK436253969"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1213",
+  "musteri": {
+   "ad": "Musteri 1213",
+   "eposta": "musteri1213@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-85",
+    "adet": 4,
+    "fiyat": 499.49
+   },
+   {
+    "urun": "U-217",
+    "adet": 5,
+    "fiyat": 645.08
+   },
+   {
+    "urun": "U-4",
+    "adet": 2,
+    "fiyat": 435.68
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK906734975"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1214",
+  "musteri": {
+   "ad": "Musteri 1214",
+   "eposta": "musteri1214@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-289",
+    "adet": 2,
+    "fiyat": 773.8
+   },
+   {
+    "urun": "U-11",
+    "adet": 1,
+    "fiyat": 58.71
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK518375476"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1215",
+  "musteri": {
+   "ad": "Musteri 1215",
+   "eposta": "musteri1215@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-35",
+    "adet": 3,
+    "fiyat": 554.37
+   },
+   {
+    "urun": "U-34",
+    "adet": 5,
+    "fiyat": 399.41
+   },
+   {
+    "urun": "U-102",
+    "adet": 2,
+    "fiyat": 240.02
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK231523033"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1216",
+  "musteri": {
+   "ad": "Musteri 1216",
+   "eposta": "musteri1216@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-12",
+    "adet": 1,
+    "fiyat": 28.43
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK175985240"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1217",
+  "musteri": {
+   "ad": "Musteri 1217",
+   "eposta": "musteri1217@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-7",
+    "adet": 2,
+    "fiyat": 697.44
+   },
+   {
+    "urun": "U-290",
+    "adet": 1,
+    "fiyat": 238.49
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK647901746"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1218",
+  "musteri": {
+   "ad": "Musteri 1218",
+   "eposta": "musteri1218@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-7",
+    "adet": 1,
+    "fiyat": 284.91
+   },
+   {
+    "urun": "U-57",
+    "adet": 3,
+    "fiyat": 264.86
+   },
+   {
+    "urun": "U-110",
+    "adet": 3,
+    "fiyat": 627.68
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK169351573"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1219",
+  "musteri": {
+   "ad": "Musteri 1219",
+   "eposta": "musteri1219@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-395",
+    "adet": 3,
+    "fiyat": 238.52
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK507806533"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1220",
+  "musteri": {
+   "ad": "Musteri 1220",
+   "eposta": "musteri1220@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-265",
+    "adet": 4,
+    "fiyat": 352.44
+   },
+   {
+    "urun": "U-238",
+    "adet": 3,
+    "fiyat": 203.15
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK539058398"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1221",
+  "musteri": {
+   "ad": "Musteri 1221",
+   "eposta": "musteri1221@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-213",
+    "adet": 4,
+    "fiyat": 127.71
+   },
+   {
+    "urun": "U-54",
+    "adet": 4,
+    "fiyat": 466.9
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK233769154"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1222",
+  "musteri": {
+   "ad": "Musteri 1222",
+   "eposta": "musteri1222@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-35",
+    "adet": 5,
+    "fiyat": 366.19
+   },
+   {
+    "urun": "U-70",
+    "adet": 2,
+    "fiyat": 164.28
+   },
+   {
+    "urun": "U-104",
+    "adet": 3,
+    "fiyat": 296.05
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK501224046"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1223",
+  "musteri": {
+   "ad": "Musteri 1223",
+   "eposta": "musteri1223@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-97",
+    "adet": 5,
+    "fiyat": 623.73
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK408371391"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1224",
+  "musteri": {
+   "ad": "Musteri 1224",
+   "eposta": "musteri1224@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-10",
+    "adet": 3,
+    "fiyat": 219.27
+   },
+   {
+    "urun": "U-255",
+    "adet": 4,
+    "fiyat": 224.02
+   },
+   {
+    "urun": "U-18",
+    "adet": 1,
+    "fiyat": 39.41
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK466728570"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1225",
+  "musteri": {
+   "ad": "Musteri 1225",
+   "eposta": "musteri1225@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-368",
+    "adet": 3,
+    "fiyat": 606.96
+   },
+   {
+    "urun": "U-64",
+    "adet": 3,
+    "fiyat": 685.68
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK217324933"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1226",
+  "musteri": {
+   "ad": "Musteri 1226",
+   "eposta": "musteri1226@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-247",
+    "adet": 1,
+    "fiyat": 59.03
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK762767016"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1227",
+  "musteri": {
+   "ad": "Musteri 1227",
+   "eposta": "musteri1227@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-20",
+    "adet": 4,
+    "fiyat": 452.32
+   },
+   {
+    "urun": "U-38",
+    "adet": 2,
+    "fiyat": 564.6
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK588604041"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1228",
+  "musteri": {
+   "ad": "Musteri 1228",
+   "eposta": "musteri1228@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-236",
+    "adet": 2,
+    "fiyat": 773.0
+   },
+   {
+    "urun": "U-265",
+    "adet": 4,
+    "fiyat": 452.27
+   },
+   {
+    "urun": "U-371",
+    "adet": 2,
+    "fiyat": 140.85
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK404452400"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1229",
+  "musteri": {
+   "ad": "Musteri 1229",
+   "eposta": "musteri1229@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-359",
+    "adet": 2,
+    "fiyat": 646.61
+   },
+   {
+    "urun": "U-301",
+    "adet": 4,
+    "fiyat": 242.71
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK202301151"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1230",
+  "musteri": {
+   "ad": "Musteri 1230",
+   "eposta": "musteri1230@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-204",
+    "adet": 3,
+    "fiyat": 703.66
+   },
+   {
+    "urun": "U-179",
+    "adet": 3,
+    "fiyat": 728.86
+   },
+   {
+    "urun": "U-245",
+    "adet": 5,
+    "fiyat": 48.91
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK444185000"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1231",
+  "musteri": {
+   "ad": "Musteri 1231",
+   "eposta": "musteri1231@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-241",
+    "adet": 1,
+    "fiyat": 815.98
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK929197017"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1232",
+  "musteri": {
+   "ad": "Musteri 1232",
+   "eposta": "musteri1232@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-269",
+    "adet": 1,
+    "fiyat": 893.29
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK606044609"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1233",
+  "musteri": {
+   "ad": "Musteri 1233",
+   "eposta": "musteri1233@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-91",
+    "adet": 4,
+    "fiyat": 711.15
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK850764596"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1234",
+  "musteri": {
+   "ad": "Musteri 1234",
+   "eposta": "musteri1234@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-191",
+    "adet": 3,
+    "fiyat": 666.62
+   },
+   {
+    "urun": "U-293",
+    "adet": 4,
+    "fiyat": 480.06
+   },
+   {
+    "urun": "U-293",
+    "adet": 4,
+    "fiyat": 227.01
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK632726214"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1235",
+  "musteri": {
+   "ad": "Musteri 1235",
+   "eposta": "musteri1235@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-337",
+    "adet": 2,
+    "fiyat": 334.09
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK693227782"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1236",
+  "musteri": {
+   "ad": "Musteri 1236",
+   "eposta": "musteri1236@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-227",
+    "adet": 4,
+    "fiyat": 275.04
+   },
+   {
+    "urun": "U-158",
+    "adet": 4,
+    "fiyat": 867.98
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK402024285"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1237",
+  "musteri": {
+   "ad": "Musteri 1237",
+   "eposta": "musteri1237@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-341",
+    "adet": 1,
+    "fiyat": 235.06
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK644578111"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1238",
+  "musteri": {
+   "ad": "Musteri 1238",
+   "eposta": "musteri1238@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-318",
+    "adet": 3,
+    "fiyat": 224.79
+   },
+   {
+    "urun": "U-67",
+    "adet": 3,
+    "fiyat": 81.9
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK707526896"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1239",
+  "musteri": {
+   "ad": "Musteri 1239",
+   "eposta": "musteri1239@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-89",
+    "adet": 3,
+    "fiyat": 629.25
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK921962474"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1240",
+  "musteri": {
+   "ad": "Musteri 1240",
+   "eposta": "musteri1240@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-139",
+    "adet": 1,
+    "fiyat": 69.07
+   },
+   {
+    "urun": "U-365",
+    "adet": 3,
+    "fiyat": 662.69
+   },
+   {
+    "urun": "U-37",
+    "adet": 5,
+    "fiyat": 750.62
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK936007338"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1241",
+  "musteri": {
+   "ad": "Musteri 1241",
+   "eposta": "musteri1241@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-97",
+    "adet": 5,
+    "fiyat": 370.39
+   },
+   {
+    "urun": "U-32",
+    "adet": 3,
+    "fiyat": 823.8
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK837213769"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1242",
+  "musteri": {
+   "ad": "Musteri 1242",
+   "eposta": "musteri1242@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-165",
+    "adet": 4,
+    "fiyat": 306.95
+   },
+   {
+    "urun": "U-98",
+    "adet": 2,
+    "fiyat": 557.46
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK857473268"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1243",
+  "musteri": {
+   "ad": "Musteri 1243",
+   "eposta": "musteri1243@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-239",
+    "adet": 1,
+    "fiyat": 569.36
+   },
+   {
+    "urun": "U-45",
+    "adet": 2,
+    "fiyat": 702.64
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK878585321"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1244",
+  "musteri": {
+   "ad": "Musteri 1244",
+   "eposta": "musteri1244@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-218",
+    "adet": 3,
+    "fiyat": 857.24
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK179682018"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1245",
+  "musteri": {
+   "ad": "Musteri 1245",
+   "eposta": "musteri1245@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-154",
+    "adet": 5,
+    "fiyat": 769.25
+   },
+   {
+    "urun": "U-390",
+    "adet": 2,
+    "fiyat": 555.71
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK882494264"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1246",
+  "musteri": {
+   "ad": "Musteri 1246",
+   "eposta": "musteri1246@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-233",
+    "adet": 1,
+    "fiyat": 710.7
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK465116721"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1247",
+  "musteri": {
+   "ad": "Musteri 1247",
+   "eposta": "musteri1247@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-273",
+    "adet": 1,
+    "fiyat": 651.68
+   },
+   {
+    "urun": "U-109",
+    "adet": 1,
+    "fiyat": 72.65
+   },
+   {
+    "urun": "U-209",
+    "adet": 5,
+    "fiyat": 53.71
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK958059949"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1248",
+  "musteri": {
+   "ad": "Musteri 1248",
+   "eposta": "musteri1248@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-282",
+    "adet": 1,
+    "fiyat": 565.81
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK589298636"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1249",
+  "musteri": {
+   "ad": "Musteri 1249",
+   "eposta": "musteri1249@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-164",
+    "adet": 4,
+    "fiyat": 593.83
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK185533202"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1250",
+  "musteri": {
+   "ad": "Musteri 1250",
+   "eposta": "musteri1250@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-235",
+    "adet": 1,
+    "fiyat": 864.58
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK363405597"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1251",
+  "musteri": {
+   "ad": "Musteri 1251",
+   "eposta": "musteri1251@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-143",
+    "adet": 1,
+    "fiyat": 589.33
+   },
+   {
+    "urun": "U-21",
+    "adet": 5,
+    "fiyat": 532.68
+   },
+   {
+    "urun": "U-374",
+    "adet": 2,
+    "fiyat": 28.97
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK119226159"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1252",
+  "musteri": {
+   "ad": "Musteri 1252",
+   "eposta": "musteri1252@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-136",
+    "adet": 5,
+    "fiyat": 342.37
+   },
+   {
+    "urun": "U-391",
+    "adet": 5,
+    "fiyat": 328.09
+   },
+   {
+    "urun": "U-221",
+    "adet": 1,
+    "fiyat": 169.31
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK648429246"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1253",
+  "musteri": {
+   "ad": "Musteri 1253",
+   "eposta": "musteri1253@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-227",
+    "adet": 4,
+    "fiyat": 866.33
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK232152565"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1254",
+  "musteri": {
+   "ad": "Musteri 1254",
+   "eposta": "musteri1254@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-7",
+    "adet": 4,
+    "fiyat": 200.55
+   },
+   {
+    "urun": "U-377",
+    "adet": 4,
+    "fiyat": 102.06
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK709990318"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1255",
+  "musteri": {
+   "ad": "Musteri 1255",
+   "eposta": "musteri1255@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-184",
+    "adet": 5,
+    "fiyat": 806.48
+   },
+   {
+    "urun": "U-249",
+    "adet": 1,
+    "fiyat": 65.97
+   },
+   {
+    "urun": "U-315",
+    "adet": 3,
+    "fiyat": 196.23
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK416032533"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1256",
+  "musteri": {
+   "ad": "Musteri 1256",
+   "eposta": "musteri1256@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-123",
+    "adet": 2,
+    "fiyat": 806.54
+   },
+   {
+    "urun": "U-278",
+    "adet": 2,
+    "fiyat": 121.77
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK374775728"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1257",
+  "musteri": {
+   "ad": "Musteri 1257",
+   "eposta": "musteri1257@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-30",
+    "adet": 1,
+    "fiyat": 64.59
+   },
+   {
+    "urun": "U-188",
+    "adet": 2,
+    "fiyat": 541.09
+   },
+   {
+    "urun": "U-329",
+    "adet": 4,
+    "fiyat": 196.67
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK972466152"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1258",
+  "musteri": {
+   "ad": "Musteri 1258",
+   "eposta": "musteri1258@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-104",
+    "adet": 4,
+    "fiyat": 895.08
+   },
+   {
+    "urun": "U-231",
+    "adet": 5,
+    "fiyat": 358.28
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK330204308"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1259",
+  "musteri": {
+   "ad": "Musteri 1259",
+   "eposta": "musteri1259@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-328",
+    "adet": 2,
+    "fiyat": 780.36
+   },
+   {
+    "urun": "U-8",
+    "adet": 3,
+    "fiyat": 357.61
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK919740789"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1260",
+  "musteri": {
+   "ad": "Musteri 1260",
+   "eposta": "musteri1260@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-262",
+    "adet": 4,
+    "fiyat": 691.26
+   },
+   {
+    "urun": "U-97",
+    "adet": 5,
+    "fiyat": 166.28
+   },
+   {
+    "urun": "U-391",
+    "adet": 4,
+    "fiyat": 829.74
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK353281112"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1261",
+  "musteri": {
+   "ad": "Musteri 1261",
+   "eposta": "musteri1261@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-246",
+    "adet": 2,
+    "fiyat": 577.4
+   },
+   {
+    "urun": "U-334",
+    "adet": 3,
+    "fiyat": 89.31
+   },
+   {
+    "urun": "U-352",
+    "adet": 4,
+    "fiyat": 12.74
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK587918384"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1262",
+  "musteri": {
+   "ad": "Musteri 1262",
+   "eposta": "musteri1262@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-44",
+    "adet": 1,
+    "fiyat": 511.15
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK814301309"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1263",
+  "musteri": {
+   "ad": "Musteri 1263",
+   "eposta": "musteri1263@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-358",
+    "adet": 5,
+    "fiyat": 313.82
+   },
+   {
+    "urun": "U-172",
+    "adet": 1,
+    "fiyat": 422.11
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK400464227"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1264",
+  "musteri": {
+   "ad": "Musteri 1264",
+   "eposta": "musteri1264@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-254",
+    "adet": 1,
+    "fiyat": 8.67
+   },
+   {
+    "urun": "U-238",
+    "adet": 5,
+    "fiyat": 271.53
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK278274100"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1265",
+  "musteri": {
+   "ad": "Musteri 1265",
+   "eposta": "musteri1265@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-329",
+    "adet": 4,
+    "fiyat": 188.27
+   },
+   {
+    "urun": "U-21",
+    "adet": 4,
+    "fiyat": 370.24
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK274144572"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1266",
+  "musteri": {
+   "ad": "Musteri 1266",
+   "eposta": "musteri1266@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-351",
+    "adet": 3,
+    "fiyat": 626.21
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK703831886"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1267",
+  "musteri": {
+   "ad": "Musteri 1267",
+   "eposta": "musteri1267@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-165",
+    "adet": 1,
+    "fiyat": 365.41
+   },
+   {
+    "urun": "U-278",
+    "adet": 1,
+    "fiyat": 741.09
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK101759847"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1268",
+  "musteri": {
+   "ad": "Musteri 1268",
+   "eposta": "musteri1268@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-365",
+    "adet": 4,
+    "fiyat": 567.89
+   },
+   {
+    "urun": "U-130",
+    "adet": 4,
+    "fiyat": 330.78
+   },
+   {
+    "urun": "U-138",
+    "adet": 5,
+    "fiyat": 892.58
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK237513789"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1269",
+  "musteri": {
+   "ad": "Musteri 1269",
+   "eposta": "musteri1269@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-370",
+    "adet": 1,
+    "fiyat": 631.26
+   },
+   {
+    "urun": "U-126",
+    "adet": 2,
+    "fiyat": 422.78
+   },
+   {
+    "urun": "U-236",
+    "adet": 5,
+    "fiyat": 618.72
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK630247380"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1270",
+  "musteri": {
+   "ad": "Musteri 1270",
+   "eposta": "musteri1270@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-7",
+    "adet": 4,
+    "fiyat": 725.5
+   },
+   {
+    "urun": "U-348",
+    "adet": 3,
+    "fiyat": 675.68
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK911931526"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1271",
+  "musteri": {
+   "ad": "Musteri 1271",
+   "eposta": "musteri1271@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-321",
+    "adet": 5,
+    "fiyat": 439.19
+   },
+   {
+    "urun": "U-385",
+    "adet": 3,
+    "fiyat": 591.98
+   },
+   {
+    "urun": "U-84",
+    "adet": 2,
+    "fiyat": 397.46
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK743157945"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1272",
+  "musteri": {
+   "ad": "Musteri 1272",
+   "eposta": "musteri1272@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-92",
+    "adet": 5,
+    "fiyat": 481.22
+   },
+   {
+    "urun": "U-63",
+    "adet": 3,
+    "fiyat": 38.04
+   },
+   {
+    "urun": "U-252",
+    "adet": 1,
+    "fiyat": 620.65
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK179971268"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1273",
+  "musteri": {
+   "ad": "Musteri 1273",
+   "eposta": "musteri1273@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-31",
+    "adet": 5,
+    "fiyat": 82.17
+   },
+   {
+    "urun": "U-289",
+    "adet": 5,
+    "fiyat": 436.43
+   },
+   {
+    "urun": "U-142",
+    "adet": 3,
+    "fiyat": 511.2
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK165962130"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1274",
+  "musteri": {
+   "ad": "Musteri 1274",
+   "eposta": "musteri1274@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-275",
+    "adet": 1,
+    "fiyat": 29.65
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK664100952"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1275",
+  "musteri": {
+   "ad": "Musteri 1275",
+   "eposta": "musteri1275@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-251",
+    "adet": 4,
+    "fiyat": 211.79
+   },
+   {
+    "urun": "U-200",
+    "adet": 4,
+    "fiyat": 501.59
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK167947046"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1276",
+  "musteri": {
+   "ad": "Musteri 1276",
+   "eposta": "musteri1276@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-74",
+    "adet": 4,
+    "fiyat": 258.07
+   },
+   {
+    "urun": "U-330",
+    "adet": 4,
+    "fiyat": 19.0
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK347539069"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1277",
+  "musteri": {
+   "ad": "Musteri 1277",
+   "eposta": "musteri1277@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-362",
+    "adet": 5,
+    "fiyat": 65.82
+   },
+   {
+    "urun": "U-363",
+    "adet": 1,
+    "fiyat": 618.0
+   },
+   {
+    "urun": "U-62",
+    "adet": 1,
+    "fiyat": 661.94
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK292072128"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1278",
+  "musteri": {
+   "ad": "Musteri 1278",
+   "eposta": "musteri1278@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-26",
+    "adet": 4,
+    "fiyat": 486.44
+   },
+   {
+    "urun": "U-363",
+    "adet": 4,
+    "fiyat": 809.01
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK367497659"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1279",
+  "musteri": {
+   "ad": "Musteri 1279",
+   "eposta": "musteri1279@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-364",
+    "adet": 1,
+    "fiyat": 392.68
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK744192967"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1280",
+  "musteri": {
+   "ad": "Musteri 1280",
+   "eposta": "musteri1280@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-282",
+    "adet": 1,
+    "fiyat": 458.32
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK645972296"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1281",
+  "musteri": {
+   "ad": "Musteri 1281",
+   "eposta": "musteri1281@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-262",
+    "adet": 4,
+    "fiyat": 572.0
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK766435283"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1282",
+  "musteri": {
+   "ad": "Musteri 1282",
+   "eposta": "musteri1282@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-130",
+    "adet": 5,
+    "fiyat": 392.83
+   },
+   {
+    "urun": "U-251",
+    "adet": 5,
+    "fiyat": 194.5
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK694989778"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1283",
+  "musteri": {
+   "ad": "Musteri 1283",
+   "eposta": "musteri1283@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-82",
+    "adet": 2,
+    "fiyat": 825.25
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK783451893"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1284",
+  "musteri": {
+   "ad": "Musteri 1284",
+   "eposta": "musteri1284@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-186",
+    "adet": 5,
+    "fiyat": 453.81
+   },
+   {
+    "urun": "U-28",
+    "adet": 1,
+    "fiyat": 51.64
+   },
+   {
+    "urun": "U-71",
+    "adet": 2,
+    "fiyat": 342.41
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK863793013"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1285",
+  "musteri": {
+   "ad": "Musteri 1285",
+   "eposta": "musteri1285@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-186",
+    "adet": 3,
+    "fiyat": 483.23
+   },
+   {
+    "urun": "U-378",
+    "adet": 3,
+    "fiyat": 133.21
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK868803356"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1286",
+  "musteri": {
+   "ad": "Musteri 1286",
+   "eposta": "musteri1286@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-357",
+    "adet": 1,
+    "fiyat": 668.66
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK752050171"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1287",
+  "musteri": {
+   "ad": "Musteri 1287",
+   "eposta": "musteri1287@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-170",
+    "adet": 1,
+    "fiyat": 111.75
+   },
+   {
+    "urun": "U-160",
+    "adet": 1,
+    "fiyat": 892.42
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK270078972"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1288",
+  "musteri": {
+   "ad": "Musteri 1288",
+   "eposta": "musteri1288@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-251",
+    "adet": 5,
+    "fiyat": 182.42
+   },
+   {
+    "urun": "U-68",
+    "adet": 3,
+    "fiyat": 629.36
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK739778469"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1289",
+  "musteri": {
+   "ad": "Musteri 1289",
+   "eposta": "musteri1289@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-234",
+    "adet": 3,
+    "fiyat": 392.3
+   },
+   {
+    "urun": "U-211",
+    "adet": 5,
+    "fiyat": 159.73
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK408257858"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1290",
+  "musteri": {
+   "ad": "Musteri 1290",
+   "eposta": "musteri1290@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-203",
+    "adet": 5,
+    "fiyat": 425.8
+   },
+   {
+    "urun": "U-177",
+    "adet": 4,
+    "fiyat": 490.79
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK571088860"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1291",
+  "musteri": {
+   "ad": "Musteri 1291",
+   "eposta": "musteri1291@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-235",
+    "adet": 1,
+    "fiyat": 700.53
+   },
+   {
+    "urun": "U-55",
+    "adet": 4,
+    "fiyat": 147.97
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK901736678"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1292",
+  "musteri": {
+   "ad": "Musteri 1292",
+   "eposta": "musteri1292@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-45",
+    "adet": 2,
+    "fiyat": 857.71
+   },
+   {
+    "urun": "U-265",
+    "adet": 2,
+    "fiyat": 110.55
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK891082101"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1293",
+  "musteri": {
+   "ad": "Musteri 1293",
+   "eposta": "musteri1293@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-173",
+    "adet": 2,
+    "fiyat": 835.57
+   },
+   {
+    "urun": "U-38",
+    "adet": 3,
+    "fiyat": 650.8
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK555018497"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1294",
+  "musteri": {
+   "ad": "Musteri 1294",
+   "eposta": "musteri1294@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-177",
+    "adet": 5,
+    "fiyat": 174.19
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK908191689"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1295",
+  "musteri": {
+   "ad": "Musteri 1295",
+   "eposta": "musteri1295@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-302",
+    "adet": 2,
+    "fiyat": 597.88
+   },
+   {
+    "urun": "U-98",
+    "adet": 4,
+    "fiyat": 560.31
+   },
+   {
+    "urun": "U-71",
+    "adet": 3,
+    "fiyat": 366.84
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK887662873"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1296",
+  "musteri": {
+   "ad": "Musteri 1296",
+   "eposta": "musteri1296@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-302",
+    "adet": 4,
+    "fiyat": 856.82
+   },
+   {
+    "urun": "U-199",
+    "adet": 5,
+    "fiyat": 41.27
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK272996527"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1297",
+  "musteri": {
+   "ad": "Musteri 1297",
+   "eposta": "musteri1297@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-155",
+    "adet": 4,
+    "fiyat": 877.96
+   },
+   {
+    "urun": "U-142",
+    "adet": 4,
+    "fiyat": 123.18
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK680805844"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1298",
+  "musteri": {
+   "ad": "Musteri 1298",
+   "eposta": "musteri1298@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-367",
+    "adet": 4,
+    "fiyat": 23.49
+   },
+   {
+    "urun": "U-399",
+    "adet": 5,
+    "fiyat": 849.0
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK472536066"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1299",
+  "musteri": {
+   "ad": "Musteri 1299",
+   "eposta": "musteri1299@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-135",
+    "adet": 1,
+    "fiyat": 603.87
+   },
+   {
+    "urun": "U-167",
+    "adet": 3,
+    "fiyat": 235.47
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK875626749"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1300",
+  "musteri": {
+   "ad": "Musteri 1300",
+   "eposta": "musteri1300@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-102",
+    "adet": 1,
+    "fiyat": 208.28
+   },
+   {
+    "urun": "U-373",
+    "adet": 3,
+    "fiyat": 599.39
+   },
+   {
+    "urun": "U-133",
+    "adet": 2,
+    "fiyat": 659.82
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK754285462"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1301",
+  "musteri": {
+   "ad": "Musteri 1301",
+   "eposta": "musteri1301@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-142",
+    "adet": 4,
+    "fiyat": 196.34
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK755767358"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1302",
+  "musteri": {
+   "ad": "Musteri 1302",
+   "eposta": "musteri1302@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-317",
+    "adet": 5,
+    "fiyat": 320.31
+   },
+   {
+    "urun": "U-117",
+    "adet": 4,
+    "fiyat": 191.64
+   },
+   {
+    "urun": "U-363",
+    "adet": 2,
+    "fiyat": 618.46
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK362696067"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1303",
+  "musteri": {
+   "ad": "Musteri 1303",
+   "eposta": "musteri1303@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-3",
+    "adet": 5,
+    "fiyat": 656.29
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK545464085"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1304",
+  "musteri": {
+   "ad": "Musteri 1304",
+   "eposta": "musteri1304@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-217",
+    "adet": 4,
+    "fiyat": 188.42
+   },
+   {
+    "urun": "U-201",
+    "adet": 3,
+    "fiyat": 14.28
+   },
+   {
+    "urun": "U-389",
+    "adet": 1,
+    "fiyat": 19.25
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK541069066"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1305",
+  "musteri": {
+   "ad": "Musteri 1305",
+   "eposta": "musteri1305@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-258",
+    "adet": 3,
+    "fiyat": 433.73
+   },
+   {
+    "urun": "U-59",
+    "adet": 3,
+    "fiyat": 235.75
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK623870328"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1306",
+  "musteri": {
+   "ad": "Musteri 1306",
+   "eposta": "musteri1306@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-314",
+    "adet": 2,
+    "fiyat": 422.24
+   },
+   {
+    "urun": "U-393",
+    "adet": 4,
+    "fiyat": 233.37
+   },
+   {
+    "urun": "U-353",
+    "adet": 5,
+    "fiyat": 299.88
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK234138477"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1307",
+  "musteri": {
+   "ad": "Musteri 1307",
+   "eposta": "musteri1307@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-36",
+    "adet": 1,
+    "fiyat": 275.63
+   },
+   {
+    "urun": "U-65",
+    "adet": 4,
+    "fiyat": 863.56
+   },
+   {
+    "urun": "U-286",
+    "adet": 2,
+    "fiyat": 521.62
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK883609672"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1308",
+  "musteri": {
+   "ad": "Musteri 1308",
+   "eposta": "musteri1308@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-289",
+    "adet": 5,
+    "fiyat": 319.25
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK101640655"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1309",
+  "musteri": {
+   "ad": "Musteri 1309",
+   "eposta": "musteri1309@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-320",
+    "adet": 5,
+    "fiyat": 151.0
+   },
+   {
+    "urun": "U-165",
+    "adet": 1,
+    "fiyat": 894.63
+   },
+   {
+    "urun": "U-327",
+    "adet": 1,
+    "fiyat": 219.39
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK934308180"
+  },
+  "durum": "kargoda"
+ },
+ {
+  "id": "S-1310",
+  "musteri": {
+   "ad": "Musteri 1310",
+   "eposta": "musteri1310@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-293",
+    "adet": 1,
+    "fiyat": 178.24
+   },
+   {
+    "urun": "U-184",
+    "adet": 2,
+    "fiyat": 252.07
+   },
+   {
+    "urun": "U-238",
+    "adet": 5,
+    "fiyat": 626.33
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK713829008"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1311",
+  "musteri": {
+   "ad": "Musteri 1311",
+   "eposta": "musteri1311@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-5",
+    "adet": 5,
+    "fiyat": 662.13
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK231544739"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1312",
+  "musteri": {
+   "ad": "Musteri 1312",
+   "eposta": "musteri1312@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-351",
+    "adet": 5,
+    "fiyat": 371.21
+   },
+   {
+    "urun": "U-116",
+    "adet": 3,
+    "fiyat": 78.1
+   },
+   {
+    "urun": "U-51",
+    "adet": 3,
+    "fiyat": 152.15
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK440729942"
+  },
+  "durum": "teslim"
+ },
+ {
+  "id": "S-1313",
+  "musteri": {
+   "ad": "Musteri 1313",
+   "eposta": "musteri1313@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-309",
+    "adet": 2,
+    "fiyat": 601.16
+   },
+   {
+    "urun": "U-100",
+    "adet": 3,
+    "fiyat": 202.4
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK376881191"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1314",
+  "musteri": {
+   "ad": "Musteri 1314",
+   "eposta": "musteri1314@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-148",
+    "adet": 3,
+    "fiyat": 826.07
+   },
+   {
+    "urun": "U-306",
+    "adet": 1,
+    "fiyat": 226.64
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK125924053"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1315",
+  "musteri": {
+   "ad": "Musteri 1315",
+   "eposta": "musteri1315@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-350",
+    "adet": 2,
+    "fiyat": 832.15
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK202348515"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1316",
+  "musteri": {
+   "ad": "Musteri 1316",
+   "eposta": "musteri1316@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-230",
+    "adet": 2,
+    "fiyat": 804.27
+   },
+   {
+    "urun": "U-9",
+    "adet": 2,
+    "fiyat": 329.97
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK939060161"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1317",
+  "musteri": {
+   "ad": "Musteri 1317",
+   "eposta": "musteri1317@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-147",
+    "adet": 5,
+    "fiyat": 781.22
+   },
+   {
+    "urun": "U-138",
+    "adet": 2,
+    "fiyat": 227.87
+   }
+  ],
+  "kargo": {
+   "firma": "Hizli",
+   "takip": "TK708344272"
+  },
+  "durum": "hazirlaniyor"
+ },
+ {
+  "id": "S-1318",
+  "musteri": {
+   "ad": "Musteri 1318",
+   "eposta": "musteri1318@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-62",
+    "adet": 3,
+    "fiyat": 564.07
+   }
+  ],
+  "kargo": {
+   "firma": "Orta",
+   "takip": "TK970002163"
+  },
+  "durum": "iade"
+ },
+ {
+  "id": "S-1319",
+  "musteri": {
+   "ad": "Musteri 1319",
+   "eposta": "musteri1319@ornek.test"
+  },
+  "kalemler": [
+   {
+    "urun": "U-211",
+    "adet": 2,
+    "fiyat": 425.95
+   },
+   {
+    "urun": "U-4",
+    "adet": 1,
+    "fiyat": 871.0
+   }
+  ],
+  "kargo": {
+   "firma": "Yavas",
+   "takip": "TK584708674"
+  },
+  "durum": "hazirlaniyor"
+ }
+]
