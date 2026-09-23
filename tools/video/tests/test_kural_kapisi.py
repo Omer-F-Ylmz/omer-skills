@@ -37,6 +37,7 @@ def test_t0_bekleyen_dosyasi_yazar_kural_dosyasi_degismez(ortam, kok, capsys):
 
 
 def test_kural_onay_ekler_cifti_eklemez_lf_korunur(ortam, kok, capsys):
+    omer(ortam).write_bytes(omer(ortam).read_bytes().replace(b"\r\n", b"\n"))
     y = ipucu(kok, "neden-ver", kural="İsteğin nedenini de yaz")
     assert calis(ortam, [y], UKos(), OJev()) == 0
     assert main(["kural-onay", "neden-ver"], env=ortam) == 0

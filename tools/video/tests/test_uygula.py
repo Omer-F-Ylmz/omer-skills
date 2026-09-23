@@ -211,5 +211,7 @@ def test_ipucu_maddesi_satir_sonlarini_korur(ortam, kok):
         hedef.write_bytes(KURAL.replace("\n", nl).encode("utf-8"))
         once = hedef.read_bytes()
         assert calis(ortam, [y, "--yeniden"], UKos(), KuralJev()) == 0
+        assert hedef.read_bytes() == once  # 15b: T0 yazmaz, ekleme kural-onay ile
+        assert main(["kural-onay", "neden-ver"], env=ortam) == 0
         sonra = hedef.read_bytes()
-        assert sonra.startswith(once) and sonra[len(once):] == f"3. İsteğin nedenini de yaz (video {VID}, 14a){nl}".encode("utf-8")
+        assert sonra.startswith(once) and sonra[len(once):] == f"3. İsteğin nedenini de yaz (video {VID}, 15b){nl}".encode("utf-8")

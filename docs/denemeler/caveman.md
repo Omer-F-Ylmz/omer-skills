@@ -17,3 +17,6 @@ stil satırını/modu kaldır; ayar değişikliği yok.
 ## Başarı eşiği
 çıktı token −%30 ve toplam maliyet −%3 ya da daha iyi, kabul 3/3.
 
+
+## Bizde durum (15b doğrulandı)
+caveman: yok (katalog ve settings'te yok). omni-compression ve cli-compression: kurulu-kapalı (settings skillOverrides =off). Karar değişmez: DENE; ikisi de açık değil, deneme ayrı stil satırıyla koşulur.

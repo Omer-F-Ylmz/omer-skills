@@ -18,7 +18,7 @@ Hiçbir plugin/MCP/CLI/hook kurulmaz; settings.json, kopru.json ve global CLAUDE
 4. Araştırma: araç adayı (skill/plugin/MCP/CLI/hook/uygulama) başına bir Agent (subagent_type: aday-arastirici — sonnet), ≤3 eşzamanlı.
    Prompt tek satır: `ad: <kebab> · tür: <tür> · video: <id> · ipucu: <tablodaki ne işe yarar / link>`. Çıktı docs/kurulumlar/adaylar/<ad>.md.
    İpucu/iş akışı adayında araştırılacak repo yok: aday.md'yi ana ajan yazar (alanlar: ad · tur · video · kural: <tek cümle kural>).
-4b. video bizde <aday.md>...          # jev skill (2 istek/aday): p≥act skill'ler ## Bizde durum'a; ana ajan durum.md araç + ölçüm satırlarını ekler
+4b. video bizde <aday.md>...          # jev skill (2 istek/aday): p≥act skill'ler ## Bizde durum'a + `kurulum:` satırı (katalog → settings: kurulu-açık/kurulu-kapalı/yok; doğrulanmamış varsayım yazılmaz); ana ajan durum.md araç + ölçüm satırlarını ekler
 4c. Değerlendirme (ana ajan): aday başına 6 bölüm Ne · Bizde durum (var/kısmen/yok + dosya/araç adı) · Beklenen fayda (ölçülebilir) · Maliyet/risk · Karar · Sonraki adım;
    alan `karar: KUR|DENE|ÖĞREN|ZATEN VAR|ALTERNATİF|RED`. Teknik iddia: resmi doküman (context7/mslearn/WebFetch, video başına ≤3); bulunamazsa `dogrulama: doğrulanamadı`, guven ≤ orta.
 5. video katman docs/kurulumlar/adaylar/<ad>.md... [--yeniden] [--istek-tavan M]
@@ -29,14 +29,14 @@ Hiçbir plugin/MCP/CLI/hook kurulmaz; settings.json, kopru.json ve global CLAUDE
 
 - Tarif/keşif öncesi: `jev ilgili "<konu>" C:/Projeler/omer-skills/bilgi` → ilk 3 kart (bayatsa `video bilgi --bayat`, yeniden doğrula).
 - KUR → aşağıdaki katmanlar. DENE → docs/denemeler/<ad>.md (hipotez · metrik · bütçe · geri alma · başarı eşiği; 14b'de koşulur). ÖĞREN → bilgi/<slug>.md kartı. ZATEN VAR · ALTERNATİF · RED → yalnız kayıt.
-- İpucu/iş akışı KUR: önce Jev {davranış kuralı, olgu}; olgu kural dosyasına girmez → ÖĞREN. Çift kart → kaynak mevcut karta eklenir.
+- İpucu/iş akışı KUR: model/araç adı geçen (Fable, Opus, Sonnet, RTK, graphify…) kodla olgu; ad geçmiyorsa Jev {davranış kuralı, olgu}; olgu kural dosyasına girmez → ÖĞREN. Çift kart → kaynak mevcut karta eklenir.
 - Yeni kural/olgu en yakın kural ya da kartla çelişirse ÇELİŞKİ: eklenmez, Ömer karar verir. Sponsor anındaki aday `sponsor` etiketli, seçimde sona.
 - Eski işaretler: ÇİFT/ÖNCEDEN-GÖRÜLDÜ → ZATEN VAR; UYGULA/BEKLE → değerlendirmeye girer. Tam rapor docs/kurulumlar/<tarih>-uygula.md; sohbete ≤25 satır.
 
 ## Katmanlar (`video katman`, deterministik)
 
 - Kayıtta (docs/kurulumlar/kayit.jsonl) olan ad atlanır; `--yeniden` zorlar.
-- T0 ipucu/iş akışı: 12f kural karşılaştırması (≤2 Jev/aday); çiftse eklenmez, değilse C:\Projeler\omer-kurallar.md'ye `N. <kural> (video <id>, 14a)`. Global CLAUDE.md'ye yazılmaz, rapora öneri satırı düşer.
+- T0 ipucu/iş akışı: 12f kural karşılaştırması (≤2 Jev/aday); çiftse ZATEN VAR. Değilse kural dosyasına YAZILMAZ (15b): docs/kurulumlar/bekleyen/kural-<slug>.md (madde · gerekçe · çift/çelişki · kaynak) + raporda `ONAY kural <slug>`. Ömer onaylarsa CC'de `video kural-onay <slug>` C:\Projeler\omer-kurallar.md'ye `N. <kural> (video <id>, 15b)` ekler (çiftse eklemez). Köprüde yok; global CLAUDE.md'ye hiç yazılmaz.
 - RED: `red:` alanı · lisans MIT/Apache-2.0/BSD/0BSD/ISC/CC-BY-4.0 değil ya da yok · arşivli · son commit >12 ay · skill'de SkillSpector koşmadı ya da HIGH/CRITICAL >0.
 - T1 skill: kaynak klasörü gerçekten listelenir; yalnız .md (+LICENSE/NOTICE) → skills/<ad>/ + LICENSE + KAYNAK.md (repo@commit) + dist/yukle-14/yeni/<ad>.zip + skill_denetim; denetim hatası → geri alınır, T2.
 - T2 geri kalan her şey: docs/kurulumlar/bekleyen/<ad>.md (`# ONAY <ad>` + aday.md: kurulum · duman testi · geri alma · köprü izni). Komut koşulmaz; Ömer "ONAY <ad>" derse Kurulum bloğu elle koşulur.
@@ -49,4 +49,4 @@ Bölümler: Ne · Kanıt · Kurulum · İzinler · Duman testi · Geri alma · K
 
 ## Tavanlar
 
-Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED · CLAUDE.md önerisi.
+Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.

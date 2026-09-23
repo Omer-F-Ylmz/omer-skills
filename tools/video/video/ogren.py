@@ -32,6 +32,10 @@ KART_A2 = "Yeni olgu (state) şu kartla aynı iddia mı? Kart: {k}"
 CEL_A1 = "Yeni kural/olgu (state) aşağıdakilerden hangisine en yakın konuda? Hiçbiri ilgili değilse 'hiçbiri'."
 CEL_A2 = "Yeni kural/olgu (state) şu maddeyle çelişiyor mu (ikisi birlikte uygulanamaz mı)? Madde: {k}"
 SPONSOR_Q = "Bu video kesiti (state) bir sponsor/reklam tanıtımı mı?"
+# 15b K2: belirli model/araç adı geçen ipucu olgudur (Jev'e sorulmaz)
+# ponytail: sabit ad listesi; yeni model/araç çıktıkça eklenir, plugin adları gerekirse tr.sozluk_kur'dan beslenir
+ADLI = re.compile(r"\b(fable|opus|sonnet|haiku|gpt-?\d[\w.]*|gemini|codex|llama|mistral|deepseek|qwen|rtk|headroom|graphify|gitleaks|semgrep"
+                  r"|skillspector|yt-dlp|ffmpeg)\b", re.I)
 SPONSOR = re.compile(r"sponsor|brought to you|promo code|discount code|affiliate|indirim kodu|reklam", re.I)
 
 
@@ -134,6 +138,8 @@ def bilgi(ns, ctx):
 # --- K3 · K2 · K6 ---
 
 def olgu_mu(tk, ad, a):
+    if ADLI.search(f"{ad} {a.get('iddia') or ''} {a.get('kural') or ''}"):
+        return True
     q = {"tur": {"type": "choice", "instructions": TUR_SORU, "criteria": TUR_OLCUT}}
     p = (((tk.yargila([f"İPUCU: {ad}\nİddia: {a.get('iddia') or '-'}\nKural önerisi: {a.get('kural') or ad}"], q)[0] or {}).get("tur") or {}).get("probabilities") or {})
     return p.get("olgu", 0) > p.get("kural", 0)

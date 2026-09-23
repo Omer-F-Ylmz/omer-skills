@@ -94,22 +94,52 @@ def _kurallar(ctx):
     return yollar, tr.kurallar(yollar, ctx["kok"] / "kurallar.json")
 
 
-def t0(ctx, a, ad, tk, kok):
-    yollar, kl = _kurallar(ctx)
+def t0(ctx, a, ad, tk, kok, metin):
+    """15b K1: kural önerisi kural dosyasına yazılmaz → bekleyen/kural-<slug>.md + ONAY; ekleme yalnız `video kural-onay`."""
+    kl = _kurallar(ctx)[1]
     kural = a.get("kural") or ad
     if es := tr.kural_esle(tk, f"İPUCU: {ad}\n{kural}", kl):
         return f"eklenmez: ÇİFT (kural: {es})", "-"
-    if cel := og.celiski(tk, f"İPUCU: {ad}\n{kural}", kl, og.kartlar(kok)):  # 15 K5: çelişen kural eklenmez, Ömer karar verir
-        return f"eklenmedi: ÇELİŞKİ ({cel})", "-"
+    cel = og.celiski(tk, f"İPUCU: {ad}\n{kural}", kl, og.kartlar(kok))  # 15 K5: çelişki Ömer'e gider, otomatik çözülmez
+    slug = re.sub(r"\W+", "-", ad.casefold()).strip("-") or "kural"
+    b = kok / "docs" / "kurulumlar" / "bekleyen" / f"kural-{slug}.md"
+    b.parent.mkdir(parents=True, exist_ok=True)
+    b.write_text(f"# ONAY kural {slug}\nad: {ad}\nmadde: {kural}\nkaynak: video {a.get('video', '?')}, 15b\n"
+                 f"gerekce: {a.get('gerekce') or _ilk(metin, 'Beklenen fayda') or '-'}\nçift/çelişki: {f'ÇELİŞKİ ({cel})' if cel else 'yok'}\n\n"
+                 f"Onay: `video kural-onay {slug}` · ret: dosyayı sil.\n\n{metin}", encoding="utf-8")
+    return f"ONAY kural {slug}" + (f" · ÇELİŞKİ ({cel})" if cel else ""), f"rm {b.relative_to(kok).as_posix()}"
+
+
+def kural_ekle(yollar, madde, kaynak):
+    """omer-kurallar.md'ye yazan TEK fonksiyon: yalnız sona eklenir, satır sonu korunur, aynı madde varsa eklenmez."""
     hedef = next((y for y in yollar if y.stem == "omer-kurallar" and y.is_file()), None)  # global CLAUDE.md'ye yazılmaz
     if hedef is None:
         return "eklenmedi: omer-kurallar.md yok", "-"
-    ham = hedef.read_bytes()  # yalnız sona eklenir; dosyanın satır sonu korunur (write_text Windows'ta LF'yi CRLF yapıyordu)
+    ham = hedef.read_bytes()  # write_text Windows'ta LF'yi CRLF yapıyordu
     nl = b"\r\n" if b"\r\n" in ham else b"\n"
     satir = ham.decode("utf-8").splitlines()
+    if x := next((i for i, s in enumerate(satir, 1) if tr.normal(madde) in tr.normal(s)), None):
+        return f"eklenmez: ÇİFT (omer-kurallar:{x})", "-"
     n = max((int(x[1]) for s in satir if (x := MADDE_NO.match(s))), default=0) + 1
-    hedef.write_bytes(ham + (b"" if not ham or ham.endswith(b"\n") else nl) + f"{n}. {kural} (video {a.get('video', '?')}, 14a)".encode("utf-8") + nl)
-    return f"madde eklendi: {n}. {kural}", f"{hedef.name}:{len(satir) + 1} satırını sil"
+    hedef.write_bytes(ham + (b"" if not ham or ham.endswith(b"\n") else nl) + f"{n}. {madde} ({kaynak})".encode("utf-8") + nl)
+    return f"madde eklendi: {n}. {madde}", f"{hedef.name}:{len(satir) + 1} satırını sil"
+
+
+def kural_onay(ns, ctx):
+    env = ctx["env"]
+    kok = Path(env.get("VIDEO_UYGULA_KOK") or KOK)
+    b = kok / "docs" / "kurulumlar" / "bekleyen" / f"kural-{ns.slug}.md"
+    if not b.is_file():
+        print(f"bekleyen yok: {b}")
+        return 1
+    a = alanlar(b.read_text(encoding="utf-8"))
+    karar, geri = kural_ekle(tr.kural_kaynaklari(env, Path(env.get("VIDEO_EV") or Path.home())), a["madde"], a["kaynak"])
+    print(f"{karar} · geri alma: {geri}")
+    if karar.startswith("madde"):
+        b.unlink()
+        ky = kok / "docs" / "kurulumlar" / "kayit.jsonl"
+        tr.kayit_yaz(ky, [{**k, "karar": karar, "geri_alma": geri} if k["ad"] == a.get("ad") else k for k in tr.kayit_oku(ky)])
+    return 0
 
 
 def t1(ctx, kok, a, ad, kaynak):
@@ -155,7 +185,7 @@ def katman(ns, ctx):
     ky = kd / "kayit.jsonl"
     kayit, bugun, tk = tr.kayit_oku(ky), date.today(), None
     gorulen = {tr.normal(k["ad"]) for k in kayit}
-    oto, onay, zipler, red, atla, oneri, ogrenilen, celiski, dene, ozet, rapor, eksik = ([] for _ in range(12))
+    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik = ([] for _ in range(11))
     n = 7 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1)
 
     def jev():
@@ -180,14 +210,13 @@ def katman(ns, ctx):
             if og.olgu_mu(jev(), ad, a):  # 15 K3: olgu kural dosyasına girmez
                 yargi = "ÖĞREN"
             else:
-                kt, (karar, geri) = "T0", t0(ctx, a, ad, jev(), kok)
-                oto.append(f"{ad} (T0: {karar})")
-                if karar.startswith("madde"):
-                    oneri.append(a.get("kural") or ad)
-                elif "ÇİFT" in karar:
+                kt, (karar, geri) = "T0", t0(ctx, a, ad, jev(), kok, metin)
+                if "ÇİFT" in karar:
                     yargi = "ZATEN VAR"
-                elif "ÇELİŞKİ" in karar:
-                    celiski.append(f"{ad} ↔ {karar[20:-1]}: {a.get('kural') or ad}")
+                else:
+                    onay.append(karar.split(" · ")[0])
+                    if "ÇELİŞKİ" in karar:
+                        celiski.append(f"{ad} ↔ {karar.split('ÇELİŞKİ (', 1)[1][:-1]}: {a.get('kural') or ad}")
         if yargi == "ÖĞREN":
             karar, cel = og.ogren(jev(), kok, a, ad, bugun, _kurallar(ctx)[1])
             if cel:
@@ -248,35 +277,64 @@ def katman(ns, ctx):
             print(f"{baslik}: " + " · ".join(s[:100] for s in x[:4]))
     if eksik:
         print("eksik alan: " + " · ".join(eksik)[:200])
-    if oneri:
-        print("CLAUDE.md önerisi (elle, global dosyaya dokunulmadı): " + " · ".join(oneri)[:200])
     print((f"atlandı (kayıtta, --yeniden): {' '.join(atla)} · " if atla else "") + f"Jev istek {tk.istek if tk else 0} · kayıt: {ky}"
           + (f" · rapor: {tam}" if rapor else ""))
     return 0
 
 
+def kurulum(ad, cl, katalog):
+    """15b K3: ad düzeyinde doğrulanmış durum. Katalog (aktif skill) → açık; yoksa settings enabledPlugins/skillOverrides,
+    ama yalnız dosyası gerçekten kuruluysa (installed_plugins.json · SKILL.md) kurulu sayılır."""
+    n = tr.normal(ad)
+    if k := next((k for k, _ in katalog if tr.normal(k.split(":")[-1]) == n), None):
+        return f"kurulu-açık (katalog {k})"
+    ayar = _json(cl / "settings.json")
+    kurulu = _json(cl / "plugins" / "installed_plugins.json").get("plugins") or {}
+    for k, v in (ayar.get("enabledPlugins") or {}).items():
+        if tr.normal(k.partition("@")[0]) == n and k in kurulu:
+            return f"kurulu-{'açık' if v is True else 'kapalı'} (settings enabledPlugins {k}={json.dumps(v)})"
+    for k, v in (ayar.get("skillOverrides") or {}).items():
+        d = k.split(":")[-1]
+        if tr.normal(d) == n and v == "off" and any(g.parent.name == d for y in ("skills/*/SKILL.md", "skills/synced/*/*/SKILL.md",
+                                                                                   "plugins/cache/*/*/*/skills/*/SKILL.md") for g in cl.glob(y)):
+            return f"kurulu-kapalı (settings skillOverrides {k}=off)"
+    return "yok (katalog ve settings'te yok)"
+
+
+def _json(y):
+    try:
+        return json.loads(y.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def _bizde_satir(metin, satir, desen):
+    if re.search(desen, metin, re.M):
+        return re.sub(desen, lambda _: satir, metin, count=1, flags=re.M)
+    if re.search(r"^## Bizde durum", metin, re.M):
+        return re.sub(r"^## Bizde durum.*$", lambda x: x[0] + "\n" + satir, metin, count=1, flags=re.M)
+    return metin.rstrip("\n") + "\n## Bizde durum\n" + satir + "\n"
+
+
 def bizde(ns, ctx):
-    """K2 Bizde durum: adayın ne işe yaradığı → jev skill (2 istek); yalnız p≥act skill'ler aday.md'ye adıyla yazılır."""
+    """K2 Bizde durum: adayın ne işe yaradığı → jev skill (2 istek); yalnız p≥act skill'ler aday.md'ye adıyla yazılır.
+    15b K3: adayın kendi adı için kurulum satırı (katalog → settings)."""
     from jev import skill as sk
     env, n = ctx["env"], 2 * len(ns.adaylar)
     t = c.Tasiyici(env=env, en_fazla=n, gonder=ctx["gonder"], istek_tavan=ns.istek_tavan or n)
     t.tekrar = 0
-    b, liste = c.bantlar_oku(), sk.adaylar(Path(env.get("VIDEO_EV") or Path.home()))
+    ev = Path(env.get("VIDEO_EV") or Path.home())
+    b, liste = c.bantlar_oku(), sk.adaylar(ev)
     for yol in ns.adaylar:
         metin = Path(yol).read_text(encoding="utf-8")
         a = alanlar(metin)
         ne = a.get("ne") or _ilk(metin, "Ne") or a.get("ad") or Path(yol).stem
         _, sonuc = sk.yonlendir(ne, t, b, liste)
         satir = "- jev skill (Act): " + (", ".join(f"{x['ad']} {x['p']:.2f}" for x in sonuc) or "yok")
-        if re.search(r"^## Bizde durum", metin, re.M):
-            if re.search(r"^- jev skill \(Act\):.*$", metin, re.M):
-                metin = re.sub(r"^- jev skill \(Act\):.*$", lambda _: satir, metin, count=1, flags=re.M)
-            else:
-                metin = re.sub(r"^## Bizde durum.*$", lambda x: x[0] + "\n" + satir, metin, count=1, flags=re.M)
-        else:
-            metin = metin.rstrip("\n") + "\n## Bizde durum\n" + satir + "\n"
+        kur = f"- kurulum: {kurulum(a.get('ad') or Path(yol).stem, ev / '.claude', liste)}"
+        metin = _bizde_satir(_bizde_satir(metin, satir, r"^- jev skill \(Act\):.*$"), kur, r"^- kurulum:.*$")
         Path(yol).write_text(metin, encoding="utf-8")
-        print(f"{Path(yol).stem}: {satir[2:]}")
+        print(f"{Path(yol).stem}: {satir[2:]} · {kur[2:]}")
     print(f"Jev istek {t.istek}")
     return 0
 

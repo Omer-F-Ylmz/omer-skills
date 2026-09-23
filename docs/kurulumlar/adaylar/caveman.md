@@ -11,8 +11,9 @@ esik: çıktı token −%30 ve toplam maliyet −%3 ya da daha iyi, kabul 3/3.
 ## Ne
 Çıktı tokenını mağara adamı diliyle kısaltan prompt stili (caveman).
 ## Bizde durum
+- kurulum: yok (katalog ve settings'te yok; `video bizde` 15b)
 - jev skill (Act): yok
-kısmen: Concise çıktı stili (settings outputStyle) + ≤15 satır kapanış raporu kuralı (global CLAUDE.md, omer-kurallar:9); omni-compression (synced, OmniRoute Caveman modu; CC'de kapalı) ve cli-compression (Caveman kuralları); RTK çıktı sıkıştırma. CACHE-1 (docs/cache-notlari.md) ve ÇIKTI-1 (docs/cikti-notlari.md): maliyet ≈ girdi context × tur, çıktı payı %15.5.
+kısmen: Concise çıktı stili (settings outputStyle) + ≤15 satır kapanış raporu kuralı (global CLAUDE.md, omer-kurallar:9); omni-compression (synced, OmniRoute Caveman modu; kurulu-kapalı: settings skillOverrides anthropic-skills:omni-compression=off, 15b) ve cli-compression (Caveman kuralları; kurulu-kapalı: skillOverrides anthropic-skills:cli-compression=off, 15b); RTK çıktı sıkıştırma. CACHE-1 (docs/cache-notlari.md) ve ÇIKTI-1 (docs/cikti-notlari.md): maliyet ≈ girdi context × tur, çıktı payı %15.5.
 ## Beklenen fayda
 çıktı token/tur azalır; ama maliyetin %15.5'i çıktı (ÇIKTI-1), toplam etki küçük.
 ## Maliyet/risk
