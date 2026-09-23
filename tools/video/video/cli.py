@@ -23,6 +23,7 @@ TARAMA_DIZIN = Path(__file__).resolve().parents[3] / "docs" / "video-tarama"
 LISTE_TAVAN, ALTYAZI_ES, SUZ_ES = 8, 4, 8
 SOR_TOKEN, ADAY_KR = 2_500, 400
 GENISLIK = 768
+GERI_CEKIL, HIZ_DK = (20, 60), 15  # 429: iki tekrar, sonra kullanıcıya bekleme süresi
 SURE = {"meta": 120, "altyazi": 120, "kesit": 120, "ffmpeg": 60, "ses": 900}
 ARAC_Q = {"type": "noul", "instructions": "Bu video kesiti (state) bir araç, skill, MCP, CLI, teknik ya da iş akışı anlatıyor mu?",
           "criteria": {"true": "Somut bir araç/teknik/iş akışı anlatılıyor.", "false": "Sohbet, giriş, reklam, genel yorum; araç anlatımı yok."}}
@@ -46,6 +47,10 @@ class Hata(Exception):
     pass
 
 
+class HizHata(Hata):
+    pass
+
+
 def _kos(ctx, args, timeout):
     try:
         rc, out, err = ctx["kos"](args, timeout=timeout)
@@ -55,6 +60,21 @@ def _kos(ctx, args, timeout):
         son = (err or b"").decode("utf-8", "replace").strip().splitlines()[-1:] or ["?"]
         raise Hata(f"{args[0]} rc={rc}: {son[0][:200]}")
     return out
+
+
+def _yt(ctx, args, timeout, d):
+    """yt-dlp; 429'da 20/60 sn geri çekilip en fazla 2 tekrar, yine 429 → HizHata. Her hatada yarım altyazı dosyası silinir."""
+    for bekle in (*GERI_CEKIL, None):
+        try:
+            return _kos(ctx, args, timeout)
+        except Hata as e:
+            for yarim in d.glob("altyazi*"):
+                yarim.unlink()
+            if "HTTP Error 429" not in str(e):
+                raise
+            if bekle is None:
+                raise HizHata(f"{d.name}: YouTube hız sınırı: {HIZ_DK} dk sonra yeniden dene") from None
+            ctx["uyku"](bekle)
 
 
 def _dizin(ctx, v):
@@ -78,8 +98,8 @@ def _meta(ctx, d):
     yol = d / "meta.json"
     if yol.is_file():
         return json.loads(yol.read_text(encoding="utf-8"))
-    j = json.loads(_kos(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", d.name], SURE["meta"]))
-    alan = ("id", "title", "channel", "duration", "chapters", "description", "subtitles", "automatic_captions")
+    j = json.loads(_yt(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", d.name], SURE["meta"], d))
+    alan = ("id", "title", "language", "channel", "duration", "chapters", "description", "subtitles", "automatic_captions")
     meta = {k: j.get(k) for k in alan}
     for k in ("subtitles", "automatic_captions"):  # yalnız dil anahtarları; format URL'leri gereksiz
         meta[k] = {d_: [] for d_ in (meta[k] or {})}
@@ -106,10 +126,10 @@ def _ozet_bir(ctx, v, dil):
     if not secim:
         return 3, [f"{v} · {(meta.get('title') or '?')[:80]}", f"altyazı yok → `video --whisper {v}` (CPU, açık bayrakla)"]
     anahtar, tur = secim
-    for eski in d.glob("altyazi*.vtt"):
+    for eski in d.glob("altyazi*"):
         eski.unlink()
-    _kos(ctx, ["yt-dlp", "--skip-download", "--no-warnings", "--write-subs" if tur == "elle" else "--write-auto-subs",
-               "--sub-langs", anahtar, "--sub-format", "vtt", "-o", str(d / "altyazi.%(ext)s"), v], SURE["altyazi"])
+    _yt(ctx, ["yt-dlp", "--skip-download", "--no-warnings", "--write-subs" if tur == "elle" else "--write-auto-subs", "--sleep-subtitles", "2",
+              "--sub-langs", anahtar, "--sub-format", "vtt", "-o", str(d / "altyazi.%(ext)s"), v], SURE["altyazi"], d)
     vtt = next(d.glob("altyazi*.vtt"), None)
     if vtt is None:
         return 3, [f"{v}: altyazı indirilemedi → `video --whisper {v}`"]
@@ -139,6 +159,8 @@ def ozet(ns, ctx):
     def bir(x):
         try:
             return _ozet_bir(ctx, x, ns.dil)
+        except HizHata as e:
+            return 4, [str(e)]
         except Hata as e:
             return 1, [f"{x}: {e}"]
 
@@ -478,10 +500,12 @@ def toplu(ns, ctx):
     from jev import cli as jc
     d = _tarama_dizin(ctx)
     yol = d / "kayit.jsonl"
-    raporlar, adaylar = [], []
+    raporlar, adaylar, gecen = [], [], set()
     for r in ns.raporlar:
         v, _ = tr.rapor_id(r)
         metin = Path(r).read_text(encoding="utf-8")
+        if not tr.denetle(metin, _sure(ctx, r, metin)):  # kayda yalnız rapor-denetle'den geçen
+            gecen.add(v)
         baslik = next((s[2:].strip() for s in metin.splitlines() if s.startswith("# ")), "?")
         satir = tr.aday_satirlari(metin)
         raporlar.append((v, Path(r), baslik, list(dict.fromkeys(s[0] for s in satir))))
@@ -514,7 +538,8 @@ def toplu(ns, ctx):
                   f"{'-' if x['risk'] is None else x['risk']} | {x['tur']} | {', '.join(x['videolar'])} |")
     md += ["", "## Raporlar"] + [f"- {v} · {b} · {r.name}" for v, r, b, _ in raporlar]
     cikti.write_text("\n".join(md) + "\n", encoding="utf-8")
-    kayit = [k for k in kayit if k["id"] not in ids] + [{"id": v, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []} for v, r, _, a in raporlar]
+    kayit = [k for k in kayit if k["id"] not in gecen] + [{"id": v, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []}
+                                                          for v, r, _, a in raporlar if v in gecen]
     tr.kayit_yaz(yol, kayit)
     for v, _, b, a in raporlar[:20]:
         print(f"{v} · {b[:50]} · {len(a)} aday: " + ", ".join(f"{x} [{isr[tr.normal(x)]}]" for x in a)[:300])
@@ -522,7 +547,7 @@ def toplu(ns, ctx):
     for x in tek:
         say[x["isaret"]] = say.get(x["isaret"], 0) + 1
     print(f"{len(tek)} tekil aday · " + " · ".join(f"{k} {n}" for k, n in sorted(say.items())) + f" · Jev istek {istek}")
-    print(f"rapor: {cikti} · kayıt: {len(kayit)} video")
+    print(f"rapor: {cikti} · kayıt: {len(kayit)} video" + (f" · kayda yazılmadı (rapor-denetle): {' '.join(sorted(ids - gecen))}" if ids - gecen else ""))
     return 0
 
 
@@ -567,7 +592,7 @@ def temizle(ns, ctx):
     return 0
 
 
-def main(argv=None, env=None, kos=kos, gonder=None):
+def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv[:1] == ["--whisper"]:
         argv[0] = "whisper"
@@ -621,10 +646,13 @@ def main(argv=None, env=None, kos=kos, gonder=None):
     x.add_argument("--gun", type=int, default=14)
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
-    ctx = {"env": env, "kos": kos, "gonder": gonder, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
+    ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu}[ns.komut](ns, ctx)
+    except HizHata as e:
+        print(f"hata: {e}")
+        return 4
     except (Hata, c.JevHata) as e:
         print(f"hata: {e}")
         return 1

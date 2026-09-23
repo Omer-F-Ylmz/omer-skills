@@ -63,15 +63,17 @@ def segmentle(satirlar, chapters=None, sure=None, hedef=60):
 
 
 def dil_sec(meta, dil=None):
-    """Öncelik: elle dil → elle en → otomatik dil → otomatik en (dil varsayılan tr). Önce tam anahtar, sonra `dil-` öneki."""
-    diller = list(dict.fromkeys([dil or "tr", "en"]))
-    for tur, anahtar in (("elle", "subtitles"), ("oto", "automatic_captions")):
-        mevcut = list(meta.get(anahtar) or {})
-        for d in diller:
-            k = next((k for k in mevcut if k == d), None) or next((k for k in mevcut if k.startswith(d + "-") and k != d + "-orig"), None)
-            if k:
-                return k, tur
-    return None
+    """Öncelik: elle dil → elle en → otomatik orijinal dil (`<dil>-orig`; dil varsayılan tr). Önce tam anahtar, sonra `dil-` öneki.
+    Otomatik çeviri izleri (tlang) hiç seçilmez: yt-dlp'de 429'un en sık sebebi."""
+    elle = list(meta.get("subtitles") or {})
+    for d in dict.fromkeys([dil or "tr", "en"]):
+        k = next((k for k in elle if k == d), None) or next((k for k in elle if k.startswith(d + "-")), None)
+        if k:
+            return k, "elle"
+    orig = [k for k in meta.get("automatic_captions") or {} if k.endswith("-orig")]
+    kok = (meta.get("language") or "").split("-")[0]
+    k = next((k for k in orig if kok and k.split("-")[0] == kok), None) or (orig[0] if len(orig) == 1 else None)
+    return (k, "oto") if k else None
 
 
 def urller(aciklama):

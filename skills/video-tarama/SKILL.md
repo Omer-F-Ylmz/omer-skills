@@ -12,13 +12,13 @@ claude.ai'de: bu belge okuma rehberidir (sandbox'ta `video` yok); tek video içi
 
 ```text
 1. video kayit <url...> [--yeniden]     # kayit.jsonl'dekiler atlanır → "tara: …" · "atlandı: N" · "dalga i: ≤3 id"
-2. video ozet <id...>                   # ≤4 eşzamanlı; altyazı önbelleğe (C:\Projeler\.video-cache\<id>\)
+2. video ozet <id...>                   # ≤4 eşzamanlı; altyazı önbelleğe (C:\Projeler\.video-cache\<id>\) · exit 4 (YouTube hız sınırı) → o video "ertelendi", diğerleriyle devam
 3. video paket <id> [--kare 6]          # her id; tek satır: paket.md yolu · kare yolları · ~token · Jev istek (yalnız ekran sorusu, p önbellekte varsa 0)
 4. Her dalga için dalgadaki id başına bir Agent çağrısı, aynı mesajda (subagent_type: video-tarayici — sonnet, yalnız Bash/Read/Write).
    Prompt yalnız videoya özgü tek satır: `id: <id> · paket: <yol> · kareler: <yollar> · rapor: docs/video-tarama/<tarih>-<id>.md`.
    Sabit görev metni (adımlar · kurallar · rapor şablonu) alt ajan tanımında (.claude/agents/video-tarayici.md): sistem metninin parçası, paralel alt ajanlar önbelleği paylaşır. Aynı anda en fazla 3 alt ajan.
-5. video toplu <rapor.md...> [--istek-tavan M]  # tekille · sözlük eşleşmesi · jev tarama (≤2 batch) · işaret · <tarih>-toplu.md · kayit.jsonl
-6. Sohbete: toplu'nun çıktısı (≤25 satır: video başına 1 satır + adaylar işaretiyle) + "atlandı: N" + tahmini maliyet.
+5. video toplu <rapor.md...> [--istek-tavan M]  # tekille · sözlük eşleşmesi · jev tarama (≤2 batch) · işaret · <tarih>-toplu.md · kayit.jsonl (yalnız rapor-denetle'den geçen)
+6. Sohbete: toplu'nun çıktısı (≤25 satır: video başına 1 satır + adaylar işaretiyle) + "atlandı: N" + "ertelendi: id…" + tahmini maliyet.
 ```
 
 Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dönüşü dışında rapor gövdesi okumaz.
