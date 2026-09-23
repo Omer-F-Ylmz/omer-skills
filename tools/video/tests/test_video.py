@@ -108,9 +108,10 @@ class Jev:
         g = json.loads(veri)
         self.istek.append(g)
         s, q = g["state"], g["questions"]
-        if "arac" in q:
+        if "arac" in q or "ekran" in q:
             pa = 0.95 if "ARAC" in s else 0.02 if "BOS" in s else 0.3
-            return yanit({"arac": {"type": "noul", "noul": pa}, "ekran": {"type": "noul", "noul": 0.9 if "EKRAN" in s else 0.1}})
+            p = {"arac": pa, "ekran": 0.9 if "EKRAN" in s else 0.1}
+            return yanit({k: {"type": "noul", "noul": p[k]} for k in q})
         if "goruntu" in q:
             cv = {k: {"type": "choice", "choice": "s2", "probabilities": {"s2": 0.5, "s4": 0.3, "s1": 0.15, "hiçbiri": 0.05}}
                   for k in q if k != "goruntu"}
