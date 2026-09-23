@@ -1,9 +1,11 @@
 """14b onay · geri-al · dene: bekleyen/<ad>.md yapılandırılmış adımları (serbest kabuk yok) → kur · duman · geri alma;
 docs/denemeler/<ad>.md → tavanlı `claude -p` A/B + Jev kalite puanı."""
 import json
+import hashlib
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import zipfile
 from datetime import date
@@ -27,6 +29,10 @@ SALT_OKUR = {"--version", "-v", "version", "--help", "-h", "help", "list", "ls",
 KALITE_Q = {"type": "score", "instructions": "Yanıt (state) görevi eksiksiz ve anlaşılır karşılıyor mu?",
             "criteria": ["karşılamıyor", "kısmen", "büyük ölçüde", "eksiksiz ve anlaşılır"]}
 ALANLAR = ("cikti", "girdi", "sure", "maliyet", "kalite")
+KONTROL_SN, DESEN_SN = 10, 1  # yanıt kontrolü · desen ön-denetimi (ayrı süreç, zaman aşımı)
+REGEX = ("olgu", "yasak", "satir-desen")
+DUSMAN = ["a" * 50000, "a\n" * 25000, " " * 50000, "\n" * 50000, "x " * 25000, "- `git a` b\n" * 4200]  # 50 KB'lık düşmanca metinler
+_RE_KOD = "import json,re,sys\nd=json.loads(sys.stdin.buffer.read())\nprint(json.dumps([[bool(re.search(p,t)) for t in ts] for p,ts in d]))"
 
 
 def _satirlar(metin, b):
@@ -256,25 +262,55 @@ def _istem(g):
     return "\n".join(x for x in ss if not x.startswith("dosya:")).strip() + "".join(ek)
 
 
+def _re_ara(ciftler, sn):
+    """[(desen, [metin])] → [[bool]] ayrı süreçte; felaket geri izleme ana süreci kilitlemesin. Zaman aşımı/geçersiz desen → None."""
+    try:
+        r = subprocess.run([sys.executable, "-c", _RE_KOD], input=json.dumps(ciftler).encode(), capture_output=True, timeout=sn)
+        return json.loads(r.stdout) if not r.returncode else None
+    except (subprocess.TimeoutExpired, ValueError):
+        return None
+
+
+def desen_denetle(g):
+    """18: görev yüklenirken, koşudan önce — her regex 50 KB düşmanca metinde DESEN_SN içinde bitmeli. Hata metni ya da None."""
+    d = [x.partition(":")[2].strip() for x in _parca(g)[1] if x.partition(":")[0].strip() in REGEX]
+    if d and _re_ara([(x, DUSMAN) for x in d], DESEN_SN) is None:
+        return f"{g.name}: desen {DESEN_SN} sn'de bitmedi ya da geçersiz (felaket geri izleme?); satır sayısı için satir-en-fazla"
+    return None
+
+
 def basari(g, yanit, kos):
-    """18 K1 makine kontrolü: her `olgu:` deseni var · hiçbir `yasak:` deseni yok · `pytest:` yanıttaki son python bloğu görevin
-    `dosya:`ı yerine geçici dizine yazılır, test yanında koşar ve geçer. Beklenen yoksa başarı."""
+    """18 K1 makine kontrolü → (başarı, neden): her `olgu:` var · hiçbir `yasak:` yok · `satir-en-fazla/en-az: N` boş olmayan satır
+    (kodla sayılır) · `satir-desen:` her boş olmayan satır tam eşleşir · `pytest:` yanıttaki son python bloğu görevin `dosya:`ı yerine
+    geçici dizine yazılır, test yanında geçer. Regex'ler ayrı süreçte KONTROL_SN ile; aşılırsa başarısız. Beklenen yoksa başarı."""
     ss, bk = _parca(g)
-    for s in bk:
-        tur, _, d = (x.strip() for x in s.partition(":"))
-        if (tur == "olgu" and not re.search(d, yanit)) or (tur == "yasak" and re.search(d, yanit)):
-            return False
+    satir = [x.strip() for x in yanit.splitlines() if x.strip()]
+    bk = [tuple(x.strip() for x in s.partition(":")[::2]) for s in bk]
+    for tur, d in bk:
+        if (tur == "satir-en-fazla" and len(satir) > int(d)) or (tur == "satir-en-az" and len(satir) < int(d)):
+            return False, f"{tur} {d}: {len(satir)} satır"
+    rx = [(tur, d) for tur, d in bk if tur in REGEX]
+    if rx:
+        r = _re_ara([(fr"\A(?:{d})\Z", satir) if tur == "satir-desen" else (d, [yanit]) for tur, d in rx], KONTROL_SN)
+        if r is None:
+            return False, "kontrol zaman aşımı"
+        for (tur, d), v in zip(rx, r):
+            if (tur == "olgu" and not v[0]) or (tur == "yasak" and v[0]) or (tur == "satir-desen" and not all(v)):
+                return False, f"{tur}: {d}"
+    for tur, d in bk:
         if tur == "pytest":
             kod = re.findall(r"```(?:python|py)?[ \t]*\r?\n(.*?)```", yanit, re.S)
             dosya = next((x[6:].strip() for x in ss if x.startswith("dosya:")), None)
             if not kod or not dosya:
-                return False
+                return False, "pytest: python bloğu yok"
             with tempfile.TemporaryDirectory() as t:
                 (Path(t) / Path(dosya).name).write_text(kod[-1], encoding="utf-8")
                 shutil.copy2(g.parent / d, Path(t) / Path(d).name)
-                if kos(["uv", "run", "--no-project", "--with", "pytest", "python", "-m", "pytest", "-q", "-p", "no:cacheprovider", str(Path(t) / Path(d).name)], timeout=120)[0]:
-                    return False
-    return True
+                # pytest'li yalıtık ortam: alt süreçte "python" çağıranın pytest'siz yorumlayıcısına çözülebiliyor
+                if kos(["uv", "run", "--no-project", "--with", "pytest", "python", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+                        str(Path(t) / Path(d).name)], timeout=120)[0]:
+                    return False, "pytest başarısız"
+    return True, ""
 
 
 def govde(metin):
@@ -301,26 +337,49 @@ def dene(ns, ctx):
     if not ty or not (kok / ty).is_file() or not gorevler:
         print(f"deneme eksik: ## Talimat dosyası ({ty or 'yok'}) ya da docs/denemeler/gorevler/*.md yok")
         return 1
-    if 3 * len(gorevler) > ns.tavan:
-        print(f"tavan: {3 * len(gorevler)} claude -p gerekir (görev × A 2 + B 1), --tavan {ns.tavan}; koşulmadı")
+    if h := [x for g in gorevler if (x := desen_denetle(g))]:
+        print("görev reddedildi, koşulmadı: " + " · ".join(h), flush=True)
         return 1
     talimat, istemler = govde((kok / ty).read_text(encoding="utf-8")), [_istem(g) for g in gorevler]
-    alt_env, olcum = {**env, "JEV_SKILL_HOOK": "0"}, []  # hook iki kola farklı skill önerisi enjekte etmesin
+    on = d / ".kos" / ns.ad  # sürdürülebilir koşu: ücretli çağrı sonucu hash'iyle saklanır, aynısı yeniden çağrılmaz
+    plan = []
     for gi, (g, ist) in enumerate(zip(gorevler, istemler)):
         a = ["claude", "-p", ist, "--model", "sonnet", "--output-format", "json"]
-        for kol, args in (("A", a), ("A", a), ("B", a + ["--append-system-prompt", talimat])):  # A iki kez: gürültü
+        for kol, n, args in (("A", 1, a), ("A", 2, a), ("B", 1, a + ["--append-system-prompt", talimat])):  # A iki kez: gürültü
+            hs = hashlib.sha256(f"{ist}\0{talimat if kol == 'B' else ''}".encode()).hexdigest()[:16]
+            y = on / f"{g.stem}-{kol}-{n}.json"
+            try:
+                j = json.loads(y.read_text(encoding="utf-8"))
+                j = j["j"] if j.get("hash") == hs else None
+            except (OSError, ValueError, KeyError):
+                j = None
+            plan.append((gi, g, kol, n, args, hs, y, j))
+    if (gerek := sum(p[-1] is None for p in plan)) > ns.tavan:
+        print(f"tavan: {gerek} claude -p gerekir (görev × A 2 + B 1, önbellek hariç), --tavan {ns.tavan}; koşulmadı")
+        return 1
+    alt_env, olcum = {**env, "JEV_SKILL_HOOK": "0"}, []  # hook iki kola farklı skill önerisi enjekte etmesin
+    for i, (gi, g, kol, n, args, hs, y, j) in enumerate(plan, 1):
+        kaynak = "önbellek"
+        if j is None:
+            kaynak = "claude -p"
             rc, out, err = _kos(ctx, args, 600, env=alt_env)
             try:
                 j = json.loads(out)
             except ValueError:
                 j = {}
             if rc or j.get("is_error") or "result" not in j:
-                print(f"hata: claude -p {kol} rc {rc}: {(err or out).decode('utf-8', 'replace')[-200:]}")
+                print(f"hata: claude -p {kol} rc {rc}: {(err or out).decode('utf-8', 'replace')[-200:]}", flush=True)
                 return 1
-            u = j.get("usage") or {}
-            olcum.append({"kol": kol, "gorev": gi, "yanit": j["result"], "cikti": u.get("output_tokens", 0), "sure": (j.get("duration_ms") or 0) / 1000,
-                          "girdi": sum(u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")),
-                          "maliyet": j.get("total_cost_usd") or 0, "basari": basari(g, j["result"], lambda x, timeout: _kos(ctx, x, timeout))})
+            j = {k: j.get(k) for k in ("result", "usage", "duration_ms", "total_cost_usd")}
+            y.parent.mkdir(parents=True, exist_ok=True)
+            y.write_text(json.dumps({"hash": hs, "j": j}, ensure_ascii=False), encoding="utf-8")
+        u = j.get("usage") or {}
+        ok, neden = basari(g, j["result"], lambda x, timeout: _kos(ctx, x, timeout))
+        olcum.append({"kol": kol, "gorev": gi, "yanit": j["result"], "cikti": u.get("output_tokens", 0), "sure": (j.get("duration_ms") or 0) / 1000,
+                      "girdi": sum(u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")),
+                      "maliyet": j.get("total_cost_usd") or 0, "basari": ok, "yeni": kaynak != "önbellek"})
+        print(f"[{i}/{len(plan)}] {g.stem} {kol}{n} {kaynak}: çıktı {u.get('output_tokens', 0)} · ${j.get('total_cost_usd') or 0:.4f} · "
+              f"başarı {'evet' if ok else 'hayır (' + neden + ')'}", flush=True)
     t = c.Tasiyici(env=env, en_fazla=len(olcum), gonder=ctx["gonder"], istek_tavan=ns.istek_tavan)
     cv = t.yargila([f"GÖREV:\n{istemler[o['gorev']]}\n\nYANIT:\n{o['yanit']}" for o in olcum], {"kalite": KALITE_Q})
     for o, x in zip(olcum, cv):
@@ -334,7 +393,7 @@ def dene(ns, ctx):
     k = karar(ort["A"], ort["B"], esik(tr.bolum(metin, "Başarı eşiği")), gurultu, [((x[0]["basari"] + x[1]["basari"]) / 2, x[2]["basari"]) for x in gor])
     bugun = date.today().isoformat()
     satir = [f"# Deneme sonucu: {ns.ad}", "", f"{bugun} · sonnet · {len(istemler)} görev · claude -p {len(olcum)} (A 2 tekrar + B 1) · Jev istek {t.istek} · "
-             f"hook kapalı (JEV_SKILL_HOOK=0) · toplam maliyet ${sum(o['maliyet'] for o in olcum):.4f}",
+             f"hook kapalı (JEV_SKILL_HOOK=0) · toplam maliyet ${sum(o['maliyet'] for o in olcum):.4f} (bu koşuda yeni çağrı {sum(o['yeni'] for o in olcum)})",
              f"B kolu: A + --append-system-prompt ({ty}, frontmatter hariç) · gürültü (A1-A2 kalite farkı ort.) {gurultu:.2f}", "", "## Kol ortalamaları",
              "| kol | başarı | kalite 0-3 | çıktı | girdi | süre sn | maliyet $ |", "|---|---|---|---|---|---|---|"]
     satir += [f"| {kol} | {v['basari']:.2f} | {v['kalite']:.2f} | {v['cikti']:.0f} | {v['girdi']:.0f} | {v['sure']:.1f} | {v['maliyet']:.4f} |" for kol, v in ort.items()]

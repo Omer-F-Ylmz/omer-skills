@@ -1,0 +1,25 @@
+[1/18] 1-ozet A1 claude -p: çıktı 223 · $0.3725 · başarı evet
+[2/18] 1-ozet A2 claude -p: çıktı 242 · $0.3100 · başarı hayır (olgu: 38/40)
+[3/18] 1-ozet B1 claude -p: çıktı 303 · $0.3804 · başarı evet
+[4/18] 2-fonksiyon A1 claude -p: çıktı 1448 · $0.3259 · başarı evet
+[5/18] 2-fonksiyon A2 claude -p: çıktı 1687 · $0.3275 · başarı evet
+[6/18] 2-fonksiyon B1 claude -p: çıktı 2363 · $0.3351 · başarı hayır (olgu: 500)
+[7/18] 3-kapanis A1 claude -p: çıktı 183 · $0.3138 · başarı evet
+[8/18] 3-kapanis A2 claude -p: çıktı 209 · $0.0210 · başarı evet
+[9/18] 3-kapanis B1 claude -p: çıktı 183 · $0.3139 · başarı evet
+[10/18] 4-kod-duzeltme A1 claude -p: çıktı 462 · $0.3162 · başarı evet
+[11/18] 4-kod-duzeltme A2 claude -p: çıktı 486 · $0.0238 · başarı evet
+[12/18] 4-kod-duzeltme B1 claude -p: çıktı 573 · $0.3174 · başarı evet
+[13/18] 5-turkce-soru A1 claude -p: çıktı 301 · $0.3138 · başarı evet
+[14/18] 5-turkce-soru A2 claude -p: çıktı 417 · $0.0231 · başarı evet
+[15/18] 5-turkce-soru B1 claude -p: çıktı 342 · $0.3143 · başarı evet
+[16/18] 6-talimat-izleme A1 claude -p: çıktı 41 · $0.3115 · başarı evet
+[17/18] 6-talimat-izleme A2 claude -p: çıktı 76 · $0.0197 · başarı evet
+[18/18] 6-talimat-izleme B1 claude -p: çıktı 141 · $0.3092 · başarı evet
+2026-09-23 · sonnet · 6 görev · claude -p 18 (A 2 tekrar + B 1) · Jev istek 18 · hook kapalı (JEV_SKILL_HOOK=0) · toplam maliyet $4.6490 (bu koşuda yeni çağrı 18)
+B kolu: A + --append-system-prompt (docs/uyarlamalar/caveman-oz-talimat.md, frontmatter hariç) · gürültü (A1-A2 kalite farkı ort.) 0.03
+|---|---|---|---|---|---|---|
+| A | 0.92 | 2.92 | 481 | 94273 | 11.0 | 0.2232 |
+RED(token, kalite): çıktı −%-35.2 (eşik %20) · kalite 2.92→2.91 (bant 0.10) · başarısı düşen görev: 2 · maliyet −%-47.1 (eşik %0)
+sonuç: docs/denemeler/caveman-oz-sonuc.md · bilgi kartı: bilgi/caveman-oz.md
+rc=0
