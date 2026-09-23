@@ -1,27 +1,25 @@
 # Deneme: caveman-proxy
 
-video ? · 15 · 20a: düzenek hazır, koşulmaz (caveman kurulumu ONAY bekler: docs/kurulumlar/bekleyen/caveman.md)
+video ? · 15 · 20b-devam: caveman-mcp kolu (Max/OAuth: mcp + CAVEMAN_SUBSCRIPTION_COMPRESS olmadan sıkıştırma yapısal olarak kapalı)
 
 ## Hipotez
-caveman proxy girdi tokenını Headroom'dan belirgin fazla azaltır, doğruluk düşmez (yazar: −%33.2 18/18; Headroom −%6.7 15/18); README: Headroom caveman'ın önünde çalışabilir.
+caveman proxy (compress kipi, abonelik sıkıştırması açık) + o çağrıya özel caveman-mcp, okuma görevlerinde girdi tokenını bugünkü Headroom bağlanmasından belirgin azaltır, doğruluk düşmez.
 
 ## Metrik
-girdi token (provider-reported) · sıcak koşu $ (karar) · soğuk koşu $ (bilgi) · görev başarısı (beklenen) · Jev kalite; okuma görev seti (gorevler-okuma, 4 görev).
+girdi token (provider-reported) · sıcak koşu $ (karar) · soğuk $ (bilgi) · görev başarısı · Jev kalite · caveman-mcp araç çağrısı (transkript; 0 → karar yok).
 
 ## Bütçe
-`video dene caveman-proxy --gorevler okuma --tavan 32 --istek-tavan 40`: 4 görev × 4 kol × 2 koşu = 32 claude -p (tavan), Jev ≤40.
+`video dene caveman-proxy --gorevler okuma --tavan 16 --istek-tavan 20`: 4 görev × 2 kol × 2 koşu = 16 claude -p, Jev ≤20.
+
+## Proxy
+Deneme başında: `CAVEMAN_MODE=compress CAVEMAN_SUBSCRIPTION_COMPRESS=true CAVEMAN_LISTEN=127.0.0.1:8788 video koru -- caveman start` (arka planda; yalnız süreç env'i, caveman.yaml yazılmaz). Bitince süreç numarasıyla durdurulur, 8788 boş mu bakılır. Zincir yok: caveman kolu yukarı akışa doğrudan gider (Headroom'suz).
 
 ## Geri alma
-`caveman disable claude` + npm rm -g @caveman-ai/cli; Headroom ayarı değişmez.
+Proxy süreci durdurulur; global MCP/settings değişmez (mcp yalnız `--mcp-config docs/denemeler/caveman-mcp.json`).
 
 ## Başarı eşiği
 girdi token −%15 (Headroom'a göre) ve kalite kapısı (18).
 
 ## Kollar
-- dogrudan: env ANTHROPIC_BASE_URL=https://api.anthropic.com
 - headroom: temel · env ANTHROPIC_BASE_URL=http://127.0.0.1:6767
-- caveman: env ANTHROPIC_BASE_URL=https://api.anthropic.com · önek caveman claude --
-- headroom-caveman: env ANTHROPIC_BASE_URL=http://127.0.0.1:6767 · önek caveman claude --
-
-## Varsayım
-`caveman claude -- <claude argv>` sarmalayıcı sözdizimi aday notundan (docs/kurulumlar/adaylar/caveman.md); kurulumdan sonra `caveman --help` ile doğrulanır, farklıysa yalnız `önek` satırı değişir. Zincirde caveman'ın Headroom'a yönlenmesi ANTHROPIC_BASE_URL'yi okumasına bağlıdır; okumazsa headroom-caveman kolu doğrudan-caveman ile aynı girdi tokenını verir ve bu rapora yazılır.
+- caveman-mcp: env ANTHROPIC_BASE_URL=http://127.0.0.1:8788 · mcp docs/denemeler/caveman-mcp.json

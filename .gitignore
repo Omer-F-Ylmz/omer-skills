@@ -10,3 +10,4 @@ __pycache__/
 kurutest.json
 tools/*/uv.lock
 docs/denemeler/.kos/caveman/
+docs/denemeler/.kos/caveman-compress/

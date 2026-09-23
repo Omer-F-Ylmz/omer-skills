@@ -25,3 +25,6 @@
 {"ad": "girdi-duzenek", "karar": "RED(token, kalite): çıktı −%-2.5 (eşik %-) · kalite 2.73→2.50 (bant 0.21) · başarısı düşen görev: yok · girdi −%-29.0 (eşik %5)", "deneme": "docs/denemeler/girdi-duzenek-sonuc.md", "tarih": "2026-09-24"}
 {"ad": "headroom-ayar", "karar": "KUR önerisi → ONAY [headroom-mevcut]: çıktı −%38.5 (eşik %-) · kalite 2.50→2.62 (bant 0.34) · başarısı düşen görev: yok · girdi −%37.4 (eşik %5)", "deneme": "docs/denemeler/headroom-ayar-sonuc.md", "tarih": "2026-09-24"}
 {"ad": "caveman", "karar": "KUR", "tarih": "2026-09-24", "kurulum_tarihi": "2026-09-24", "geri_alma": ["npm: @caveman-ai/cli"], "kopru": null}
+{"ad": "caveman-proxy", "karar": "KARAR YOK: sıkıştırma devreye girmedi (mcp çağrısı 0)", "deneme": "docs/denemeler/caveman-proxy-sonuc.md", "tarih": "2026-09-24"}
+{"ad": "caveman-compress", "karar": "RED(token): −%0 (eşik %30) · korunmayan kural 0 · düz yazıda çıktı girdiyle aynı", "deneme": "docs/denemeler/caveman-compress-sonuc.md", "tarih": "2026-09-24"}
+{"ad": "caveman-learn", "karar": "RED(eşik): kapsanmayan kalem ~%2.1 (eşik %5) · UYARLA: skill-kullanim-sayaci, tekrar-baglam-tespiti", "deneme": "docs/denemeler/caveman-learn-sonuc.md", "tarih": "2026-09-24"}
