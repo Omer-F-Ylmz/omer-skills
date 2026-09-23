@@ -1,5 +1,6 @@
 """12b video-tarama: kayıt, eski rapor içe alma, ad sözlüğü, tekilleme, işaret, rapor denetimi."""
 import json
+import os
 import re
 from datetime import date
 from difflib import SequenceMatcher
@@ -195,3 +196,84 @@ def denetle(metin, sure=None):
             h.append(f"tür geçersiz: {s[0]} → {s[2]} ({', '.join(sorted(TUR))})")
     h += [f"alıntı {len(a.split())} kelime > {ALINTI_KELIME}: {a[:40]}…" for a in ALINTI.findall(metin) if len(a.split()) > ALINTI_KELIME]
     return h
+
+
+# --- 12f: ipucu/iş akışı adaylar kural kaynaklarıyla karşılaştırılır ---
+
+KURAL_TUR = {"ipucu", "iş akışı"}
+KURAL_ASAMA1 = "Videodaki ipucu (state) aşağıdaki çalışma kurallarından hangisinde zaten var? Hiçbirinde yoksa 'hiçbiri'."
+KURAL_ASAMA2 = "Videodaki ipucu (state) şu kuralda zaten var mı, aynı davranışı mı istiyor? Kural: {k}"
+KURAL_SATIR = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s+(.+)")
+
+
+def kural_kaynaklari(env, ev):
+    """VIDEO_KURALLAR (os.pathsep ayrımlı) ya da ~/.claude/CLAUDE.md + repo dışındaki omer-kurallar.md.
+    Not dokümanları ve bellek dosyaları kaynak değil: aşama 1'i gürültüyle dolduruyor, yanlış pozitif veriyor (12f canlı ölçüm)."""
+    if env.get("VIDEO_KURALLAR"):
+        return [Path(y) for y in env["VIDEO_KURALLAR"].split(os.pathsep) if y]
+    return [Path(ev) / ".claude" / "CLAUDE.md", Path(__file__).resolve().parents[4] / "omer-kurallar.md"]
+
+
+def kural_kisa(yol):
+    return Path(yol).stem
+
+
+def kural_parcala(yol):
+    """[[dosya:satır, metin]]: madde satırları ve ≥20 karakterlik düz satırlar; başlık, tablo, alıntı, kod bloğu atlanır."""
+    kisa, out, kod = kural_kisa(yol), [], False
+    satir = yol.read_text(encoding="utf-8").splitlines()
+    on = satir.index("---", 1) + 1 if satir[:1] == ["---"] and "---" in satir[1:] else 0  # frontmatter atlanır
+    for i, s in enumerate(satir[on:], on + 1):
+        if s.lstrip().startswith("```"):
+            kod = not kod
+            continue
+        if kod or not s.strip() or s.lstrip().startswith(("#", "|", ">", "---")):
+            continue
+        x = KURAL_SATIR.match(s)
+        metin = (x[1] if x else s).replace("**", "").strip()
+        if x or len(metin) >= 20:
+            out.append([f"{kisa}:{i}", metin[:300]])
+    return out
+
+
+def kurallar(yollar, onbellek):
+    """[(kısaltma, metin)]; dosyanın mtime'ı önbellektekiyle aynıysa yeniden okunmaz, olmayan dosya atlanır."""
+    try:
+        eski = json.loads(Path(onbellek).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        eski = {}
+    yeni, out = {}, []
+    for y in yollar:
+        try:
+            mt = y.stat().st_mtime_ns
+        except OSError:
+            continue
+        v = eski.get(str(y))
+        if not v or v["mtime"] != mt:
+            v = {"mtime": mt, "kurallar": kural_parcala(y)}
+        yeni[str(y)] = v
+        out += [tuple(k) for k in v["kurallar"]]
+    if yeni != eski:
+        Path(onbellek).parent.mkdir(parents=True, exist_ok=True)
+        Path(onbellek).write_text(json.dumps(yeni, ensure_ascii=False), encoding="utf-8")
+    return out
+
+
+def kural_esle(t, state, kurallar):
+    """Aşama 1: dilim başına choice + hiçbiri (tek istek) → birinci seçim; aşama 2: o kurala noul (tek istek).
+    p≥0.5 ise kuralın kısaltması, değilse ya da birinci seçim 'hiçbiri'yse None. Aday başına ≤2 istek.
+    Bant aranmaz: 12f tanısında doğru kural aşama 2'de Flag'de kalıyordu (.84/.78)."""
+    if not kurallar:
+        return None
+    s1 = {f"d{i}": {"type": "choice", "instructions": KURAL_ASAMA1,
+                    "criteria": {**dict(d), sk.HICBIRI: "Bu ipucu listedeki hiçbir kuralda yok."}}
+          for i, d in enumerate(sk.dilimle(kurallar))}
+    olas = {}
+    for y in (t.yargila([state], s1)[0] or {}).values():
+        for a, p in (y.get("probabilities") or {}).items():
+            olas[a] = max(p, olas.get(a, 0.0))
+    ilk = min(olas.items(), key=lambda x: (-x[1], x[0]), default=(sk.HICBIRI, 0))[0]
+    if ilk == sk.HICBIRI:
+        return None
+    y = (t.yargila([state], {"k": {"type": "noul", "instructions": KURAL_ASAMA2.format(k=dict(kurallar).get(ilk, ilk))}})[0] or {}).get("k")
+    return ilk if y and y["noul"] >= 0.5 else None

@@ -494,6 +494,16 @@ def rapor_denetle(ns, ctx):
     return 1 if h else 0
 
 
+def kurallar(ns, ctx):
+    yollar, on = tr.kural_kaynaklari(ctx["env"], _ev(ctx)), ctx["kok"] / "kurallar.json"
+    k = tr.kurallar(yollar, on)
+    for y in yollar:
+        kisa = tr.kural_kisa(y)
+        print(f"{kisa} · " + (f"{sum(a.startswith(kisa + ':') for a, _ in k)} kural" if y.is_file() else "yok") + f" · {y}")
+    print(f"{len(k)} kural · önbellek: {on}")
+    return 0
+
+
 def toplu(ns, ctx):
     from types import SimpleNamespace
 
@@ -514,27 +524,37 @@ def toplu(ns, ctx):
     kayit = tr.kayit_oku(yol)
     sozluk = tr.sozluk_kur(_ev(ctx), [k for k in kayit if k["id"] not in ids])
     tek = tr.tekille(adaylar)
+    ip = [x for x in tek if x["tur"] in tr.KURAL_TUR]
+    tavan = ns.istek_tavan or 2 * len(tek) + 2 + 2 * len(ip)
     jy, istek = {}, 0
-    if tek:
+    if ip:  # önce kural: kuralda olan ipucu ÇİFT, jev taramaya girmez
+        kl = tr.kurallar(tr.kural_kaynaklari(ctx["env"], _ev(ctx)), ctx["kok"] / "kurallar.json")
+        tk = c.Tasiyici(env=ctx["env"], en_fazla=2 * len(ip), gonder=ctx["gonder"], istek_tavan=min(tavan, 2 * len(ip)))
+        for x in ip:
+            x["kural"] = tr.kural_esle(tk, f"İPUCU: {x['ad']}\n{x['tur']}: {x['ne']}", kl)
+        istek = tk.istek
+    sor = [x for x in tek if not x.get("kural")]
+    if sor:
         gecici = ctx["kok"] / "tarama-adaylar.json"
         gecici.parent.mkdir(parents=True, exist_ok=True)
-        gecici.write_text(json.dumps([{"ad": x["ad"], "aciklama": f"{x['tur']}: {x['ne']}"} for x in tek], ensure_ascii=False), encoding="utf-8")
-        t = c.Tasiyici(env=ctx["env"], en_fazla=2, gonder=ctx["gonder"], istek_tavan=ns.istek_tavan or 2 * len(tek) + 2)  # jev tarama ≤2 batch
+        gecici.write_text(json.dumps([{"ad": x["ad"], "aciklama": f"{x['tur']}: {x['ne']}"} for x in sor], ensure_ascii=False), encoding="utf-8")
+        t = c.Tasiyici(env=ctx["env"], en_fazla=2, gonder=ctx["gonder"], istek_tavan=tavan - istek)  # jev tarama ≤2 batch
         _, sat = jc.tarama(SimpleNamespace(dosya=str(gecici)), lambda: t, None)
         jy = {r[0]: (float(r[1]) if r[1] != "-" else None, float(r[2]) if r[2] != "-" else None) for r in sat}
-        istek = t.istek
+        istek += t.istek
     bugun = time.strftime("%Y-%m-%d")
     for x in tek:
         x["es"] = tr.eslestir(x["ad"], sozluk)
         x["cift"], x["risk"] = jy.get(x["ad"], (None, None))
-        x["isaret"] = tr.isaret(x["es"], x["cift"], x["risk"])
-    isr = {tr.normal(x["ad"]): x["isaret"] for x in tek}
+        x["isaret"] = "ÇİFT" if x.get("kural") else tr.isaret(x["es"], x["cift"], x["risk"])
+        x["etiket"] = x["isaret"] + (f" (kural: {x['kural']})" if x.get("kural") else "")
+    isr = {tr.normal(x["ad"]): x["etiket"] for x in tek}
     cikti = d / f"{bugun}-toplu.md"
     md = [f"# Video tarama toplu — {bugun}", "", f"{len(raporlar)} video · {len(tek)} tekil aday · Jev tarama isteği {istek}", "",
           "| aday | işaret | sözlük eşleşmesi | çift p | izin riski (0-3) | tür | videolar |", "|---|---|---|---|---|---|---|"]
     for x in tek:
         es = f"{x['es'][0]} ({x['es'][1]}, {x['es'][2]:.2f})" if x["es"] else "yok"
-        md.append(f"| {x['ad']} | {x['isaret']} | {es} | {'-' if x['cift'] is None else x['cift']} | "
+        md.append(f"| {x['ad']} | {x['etiket']} | {es} | {'-' if x['cift'] is None else x['cift']} | "
                   f"{'-' if x['risk'] is None else x['risk']} | {x['tur']} | {', '.join(x['videolar'])} |")
     md += ["", "## Raporlar"] + [f"- {v} · {b} · {r.name}" for v, r, b, _ in raporlar]
     cikti.write_text("\n".join(md) + "\n", encoding="utf-8")
@@ -641,7 +661,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("rapor")
     x = alt.add_parser("toplu", help="raporların adaylarını tekiller, sözlük + jev tarama (≤2 batch) ile işaretler; toplu rapor + kayıt")
     x.add_argument("raporlar", nargs="+")
-    x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev HTTP isteği (varsayılan 2·aday+2)")
+    x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev HTTP isteği (varsayılan 2·aday+2+2·ipucu)")
+    alt.add_parser("kurallar", help="kural kaynakları (~/.claude/CLAUDE.md + repo süreç dokümanları ya da VIDEO_KURALLAR) → madde önbelleği (mtime)")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
     ns = p.parse_args(argv)
@@ -649,7 +670,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
-                "rapor-denetle": rapor_denetle, "toplu": toplu}[ns.komut](ns, ctx)
+                "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

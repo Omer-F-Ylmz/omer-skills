@@ -17,7 +17,7 @@ claude.ai'de: bu belge okuma rehberidir (sandbox'ta `video` yok); tek video içi
 4. Her dalga için dalgadaki id başına bir Agent çağrısı, aynı mesajda (subagent_type: video-tarayici — sonnet, yalnız Bash/Read/Write).
    Prompt yalnız videoya özgü tek satır: `id: <id> · paket: <yol> · kareler: <yollar> · rapor: docs/video-tarama/<tarih>-<id>.md`.
    Sabit görev metni (adımlar · kurallar · rapor şablonu) alt ajan tanımında (.claude/agents/video-tarayici.md): sistem metninin parçası, paralel alt ajanlar önbelleği paylaşır. Aynı anda en fazla 3 alt ajan.
-5. video toplu <rapor.md...> [--istek-tavan M]  # tekille · sözlük eşleşmesi · jev tarama (≤2 batch) · işaret · <tarih>-toplu.md · kayit.jsonl (yalnız rapor-denetle'den geçen)
+5. video toplu <rapor.md...> [--istek-tavan M]  # tekille · sözlük eşleşmesi · kural karşılaştırması (ipucu/iş akışı) · jev tarama (≤2 batch) · işaret · <tarih>-toplu.md · kayit.jsonl (yalnız rapor-denetle'den geçen)
 6. Sohbete: toplu'nun çıktısı (≤25 satır: video başına 1 satır + adaylar işaretiyle) + "atlandı: N" + "ertelendi: id…" + tahmini maliyet.
 ```
 
@@ -31,7 +31,8 @@ Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dö
 ## Denetim ve tavanlar
 
 - `video rapor-denetle`: zorunlu bölümler · zaman damgaları video süresi içinde · 7 aday alanı dolu, tür listeden (skill · plugin · MCP · CLI · teknik · iş akışı · ipucu) · tırnak içi alıntı ≤15 kelime.
-- Jev: video başına ≤ segment+10 istek (paket, yalnız ekran sorusu; önbellekte p varsa 0); `jev tarama` ≤2 batch (toplu içinde); kare ≤6/video. Tahmini toplam maliyeti rapora yaz.
+- Jev: video başına ≤ segment+10 istek (paket, yalnız ekran sorusu; önbellekte p varsa 0); `jev tarama` ≤2 batch (toplu içinde); kural karşılaştırması ipucu/iş akışı aday başına ≤2 istek (`--istek-tavan` varsayılanı 2·aday+2+2·ipucu); kare ≤6/video. Tahmini toplam maliyeti rapora yaz.
 - `rapor-denetle` sözlük hücresi `?` olan aday satırlarını ad sözlüğüyle (skill katalogu · plugin · MCP · kayıt) yerinde doldurur; eşleşme yoksa `yok`.
+- Kural karşılaştırması: tür ipucu/iş akışı aday `video kurallar` önbelleğine (global CLAUDE.md + C:\Projeler\omer-kurallar.md; madde düzeyi, mtime'la yenilenir) karşı sınanır: aşama 1'in birinci seçimi (hiçbiri değilse) ve aşama 2 p≥0.5 → ÇİFT; tabloda `ÇİFT (kural: omer-kurallar:N)` görünür (N dosya satırı). Araç türleri kurala girmez.
 - İşaret: sözlükte skill/plugin/MCP/yerleşik eşleşmesi ya da Jev çift p≥0.5 → ÇİFT · kayıt/ELE eşleşmesi → ÖNCEDEN-GÖRÜLDÜ · izin riski ≥2 ya da Jev yanıtı yok → BEKLE · kalan → UYGULA.
 - Eski raporlar bir kez `video kayit --ice-al` ile kayda alındı; aynı id yeniden taranmaz (`--yeniden` zorlar).

@@ -363,12 +363,11 @@ class SahteTas:
 
 
 KL = [("omer-kurallar:3", "Yeterli bilgi varsa harekete geç."), ("omer-kurallar:4", "Bitti yalnız kanıtla söylenir.")]
-BANT = {"act": 0.85, "flag": 0.60}
 
 
 def test_asama1_birinci_ve_p_055_cift():
     t = SahteTas({"omer-kurallar:3": 0.7, "omer-kurallar:4": 0.2, "hiçbiri": 0.1}, 0.55)
-    assert tr.kural_esle(t, BANT, "İPUCU: harekete geç", KL) == "omer-kurallar:3"
+    assert tr.kural_esle(t, "İPUCU: harekete geç", KL) == "omer-kurallar:3"
 
 
 def test_asama1_ikinci_p_09_cift_degil():
@@ -378,4 +377,4 @@ def test_asama1_ikinci_p_09_cift_degil():
                 return super().yargila(states, q)
             return [{k: {"type": "noul", "noul": 0.9 if i else 0.2} for i, k in enumerate(q)}]
     t = Ikinci({"omer-kurallar:3": 0.7, "omer-kurallar:4": 0.2, "hiçbiri": 0.1}, None)
-    assert tr.kural_esle(t, BANT, "İPUCU: kanıt", KL) is None
+    assert tr.kural_esle(t, "İPUCU: kanıt", KL) is None
