@@ -17,6 +17,7 @@ from jev import skill as sk
 
 from . import metin as m
 from . import tarama as tr
+from . import uygula as uy
 
 KOK = r"C:\Projeler\.video-cache"
 TARAMA_DIZIN = Path(__file__).resolve().parents[3] / "docs" / "video-tarama"
@@ -663,6 +664,11 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("raporlar", nargs="+")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev HTTP isteği (varsayılan 2·aday+2+2·ipucu)")
     alt.add_parser("kurallar", help="kural kaynakları (~/.claude/CLAUDE.md + repo süreç dokümanları ya da VIDEO_KURALLAR) → madde önbelleği (mtime)")
+    x = alt.add_parser("katman", help="aday.md → T0 kural · T1 yalnız-md skill · T2 onay · RED; uygular, docs/kurulumlar/kayit.jsonl")
+    x.add_argument("adaylar", nargs="+")
+    x.add_argument("--yeniden", action="store_true", help="kayıttaki adları da değerlendir")
+    x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev isteği (varsayılan 2·aday)")
+    alt.add_parser("projeler", help="docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır özet (mtime'la yenilenir)")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
     ns = p.parse_args(argv)
@@ -670,7 +676,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
-                "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar}[ns.komut](ns, ctx)
+                "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

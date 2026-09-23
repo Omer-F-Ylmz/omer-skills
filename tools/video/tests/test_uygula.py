@@ -14,7 +14,7 @@ from test_video import VID, ortam  # noqa: F401 (ortam fixture)
 
 SHA = "a1b2c3d4e5f60718293a4b5c6d7e8f9012345678"
 KURAL = "# Kurallar\n\n1. Yeterli bilgi varsa harekete geç, soru sorma.\n2. Commit mesajları Türkçe yazılır.\n"
-GLOBAL = "# Global\n\n- Env değerleri yazdırılmaz, yalnız varlık denetimi.\n"
+GLOBAL = "# Global\n\n\n- Env değerleri yazdırılmaz, yalnız varlık denetimi.\n"
 
 
 class UKos:
@@ -197,8 +197,22 @@ def test_projeler_ozet_uretir_mtime_ile_yeniler(ortam, kok, tmp_path, capsys):
     capsys.readouterr()
     assert main(["projeler"], env=ortam) == 0
     assert "güncel" in capsys.readouterr().out
+    hp = kok / "docs" / "projeler.md"
+    hp.write_text(hp.read_text(encoding="utf-8").replace("İki: Mobil garaj.", "İki: Elle yazılmış özet (elle)"), encoding="utf-8")
     (a / "CLAUDE.md").write_text("# P1\n\nYeni özet.\n", encoding="utf-8")
     ileri = (kok / "docs" / "projeler.md").stat().st_mtime + 10
     os.utime(a / "CLAUDE.md", (ileri, ileri))
     assert main(["projeler"], env=ortam) == 0
-    assert "Bir: Yeni özet." in (kok / "docs" / "projeler.md").read_text(encoding="utf-8")
+    md = hp.read_text(encoding="utf-8")
+    assert "Bir: Yeni özet." in md and "İki: Elle yazılmış özet (elle)" in md
+
+
+def test_ipucu_maddesi_satir_sonlarini_korur(ortam, kok):
+    hedef = Path(ortam["VIDEO_KURALLAR"].split(os.pathsep)[1])
+    y = aday(kok, "neden-ver", tur="ipucu", repo="yok", lisans="yok", son_commit="yok", kural="İsteğin nedenini de yaz")
+    for nl in ("\n", "\r\n"):
+        hedef.write_bytes(KURAL.replace("\n", nl).encode("utf-8"))
+        once = hedef.read_bytes()
+        assert calis(ortam, [y, "--yeniden"], UKos(), KuralJev()) == 0
+        sonra = hedef.read_bytes()
+        assert sonra.startswith(once) and sonra[len(once):] == f"3. İsteğin nedenini de yaz (video {VID}, 14a){nl}".encode("utf-8")

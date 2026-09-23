@@ -1,0 +1,5 @@
+{"ad": "muhakemeyi-aciklatmama", "katman": "T0", "karar": "eklenmez: ÇİFT (kural: omer-kurallar:4)", "tarih": "2026-09-23", "video": "vcU85OrwuV0", "kaynak_commit": null, "geri_alma": "-"}
+{"ad": "glaido", "katman": "RED", "karar": "lisans uygunsuz/yok: yok", "tarih": "2026-09-23", "video": "3XIGcM7VICc", "kaynak_commit": null, "geri_alma": "-"}
+{"ad": "hyperagent", "katman": "RED", "karar": "lisans uygunsuz/yok: yok", "tarih": "2026-09-23", "video": "vcU85OrwuV0", "kaynak_commit": null, "geri_alma": "-"}
+{"ad": "neden-ver", "katman": "T0", "karar": "madde eklendi: 20. İstekte amacı ve kime/ne için olduğunu (nedeni) da yaz; model bağlamı doğru bilgiye bağlasın.", "tarih": "2026-09-23", "video": "vcU85OrwuV0", "kaynak_commit": null, "geri_alma": "omer-kurallar.md:22 satırını sil"}
+{"ad": "efor-seviyeleri", "katman": "T0", "karar": "madde eklendi: 21. Efor seviyesini (low/medium/high/xhigh) işin zorluğuna göre seç; basit işte yüksek efor harcama.", "tarih": "2026-09-23", "video": "vcU85OrwuV0", "kaynak_commit": null, "geri_alma": "omer-kurallar.md:23 satırını sil"}
