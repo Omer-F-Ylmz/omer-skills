@@ -1,5 +1,6 @@
 """19 departmanlar: aktif araçlar (skill · plugin · MCP · köprü CLI) → Jev choice → docs/departmanlar/{envanter.json, <dep>.md}.
-elle.json her zaman kazanır; ad+açıklama hash'i değişmedikçe yeniden sorulmaz. Müdür skill'leri (skills/departman-<dep>) elle yazılır, burada denetlenir."""
+Sıra: elle.json > elle-desen.json (joker) > önbellek > Jev; ad+açıklama hash'i değişmedikçe yeniden sorulmaz. Müdür skill'leri (skills/departman-<dep>) elle yazılır, burada denetlenir."""
+import fnmatch
 import hashlib
 import json
 import re
@@ -18,7 +19,10 @@ DEPARTMANLAR = {
     "veri-db": "Veritabanı, SQL, Postgres/Supabase, EF Core sorguları, veri analitiği.",
     "verimlilik": "Token/context tasarrufu, çıktı sıkıştırma, oturum hafızası, maliyet düşürme, ajan verimliliği.",
     "arastirma-ogrenme": "Video izleme, web araştırması, kütüphane dokümantasyonu, kaynak tarama, öğrenme, bilgi grafiği.",
-    "surec": "Planlama, spec, kod review, git/commit/PR, CI, yayın/deploy, iş akışı ve skill/plugin yazımı.",
+    "surec-plan": "Niyet netleştirme, brainstorm, spec, PRD, plan yazımı ve planı yürütme.",
+    "surec-inceleme": "Kod review, sadeleştirme, doğrulama, kalite kapısı, PR yorumları.",
+    "surec-git-yayin": "Git, commit, branch/worktree, PR, CI, sürüm, ship/deploy, canary.",
+    "surec-ajan-arac": "Skill/plugin/MCP/hook/agent geliştirme, Claude Code ve ajan yardımcıları, genel CLI araçları.",
     "belge": "Belge üretimi: docx, pptx, pdf, xlsx, sunum, rapor, diyagram, yazı düzeltme.",
     "diger": "Yukarıdakilerin hiçbirine uymayan araçlar.",
 }
@@ -73,8 +77,13 @@ def _elle(elle, x):
     return elle.get(f"{x['tur']}:{x['ad']}") or elle.get(x["ad"])
 
 
-def siniflandir(araclar, eski, elle, yargila, yeniden=False):
-    """elle.json → önbellek (hash aynı) → Jev (kalanlar tek yargila çağrısı). katman girdileri aktif değilse korunur."""
+def _desen(desen, x):
+    """elle-desen.json: ilk eşleşen joker (ad ya da tur:ad) → departman."""
+    return next((d for k, d in desen.items() if fnmatch.fnmatchcase(x["ad"], k) or fnmatch.fnmatchcase(f"{x['tur']}:{x['ad']}", k)), None)
+
+
+def siniflandir(araclar, eski, elle, yargila, yeniden=False, desen=None):
+    """elle.json → elle-desen → önbellek (hash aynı, departman hâlâ var) → Jev (kalanlar tek yargila çağrısı). katman girdileri aktif değilse korunur."""
     onb = {(x["tur"], x["ad"]): x for x in eski}
     out, sor = [], []
     for a in araclar:
@@ -82,7 +91,9 @@ def siniflandir(araclar, eski, elle, yargila, yeniden=False):
         e = onb.get((a["tur"], a["ad"]))
         if d := _elle(elle, x):
             out.append({**x, "departman": d, "p": 1.0, "kaynak": "elle"})
-        elif e and e.get("hash") == x["hash"] and e.get("kaynak") != "elle" and not yeniden:
+        elif d := _desen(desen or {}, x):
+            out.append({**x, "departman": d, "p": 1.0, "kaynak": "desen"})
+        elif e and e.get("hash") == x["hash"] and e.get("kaynak") not in ("elle", "desen") and e.get("departman") in DEPARTMANLAR and not yeniden:
             out.append({**x, "departman": e["departman"], "p": e["p"], "kaynak": e["kaynak"]})
         else:
             sor.append(x)
@@ -161,7 +172,7 @@ def dosyala(kok, jev, ad, tur, aciklama):
     """katman: yeni aracı tek choice ile sınıflar (elle.json kazanır; Jev yoksa diger/0 → gözden geçir), envantere kaynak=katman."""
     d = Path(kok) / "docs" / "departmanlar"
     x = {"ad": ad, "tur": tur, "aciklama": aciklama}
-    if dep := _elle(_json(d / "elle.json") or {}, x):
+    if dep := _elle(_json(d / "elle.json") or {}, x) or _desen(_json(d / "elle-desen.json") or {}, x):
         p = 1.0
     else:
         try:
@@ -184,14 +195,14 @@ def departman(ns, ctx):
         tk.append(c.Tasiyici(env=env, en_fazla=len(c.parcala(states)), gonder=ctx["gonder"], istek_tavan=ns.istek_tavan))
         return tk[0].yargila(states, sorular)
 
-    e = siniflandir(araclar, _json(d / "envanter.json") or [], _json(d / "elle.json") or {}, yargila, ns.yeniden)
+    e = siniflandir(araclar, _json(d / "envanter.json") or [], _json(d / "elle.json") or {}, yargila, ns.yeniden, _json(d / "elle-desen.json") or {})
     if hata := denetle(araclar, e):
         print("hata: " + " · ".join(hata[:20]))
         return 1
     kaydet(kok, e)
     b = c.bantlar_oku()
     say = Counter(x["departman"] for x in e)
-    gg = sorted((x for x in e if x["kaynak"] != "elle" and x["p"] < b["act"]), key=lambda x: x["p"])
+    gg = sorted((x for x in e if x["kaynak"] not in ("elle", "desen") and x["p"] < b["act"]), key=lambda x: x["p"])
     gerek, var = mudurler(e), {y.parent.name.removeprefix("departman-"): y for y in kok.glob("skills/departman-*/SKILL.md")}
     mud = [f"departman-{m} " + ("eksik" if m not in var else "✓" if not (h := mudur_denetle(var[m])) else "; ".join(h))
            for m in sorted(gerek)] + [f"departman-{m} fazla ({say[m]} araç < {ESIK})" for m in sorted(set(var) - gerek)]

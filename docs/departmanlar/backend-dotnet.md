@@ -10,10 +10,12 @@ Müdür: `departman-backend-dotnet`
 | dotnet | cli | - | - | Tasarım |
 | csharp-lsp | plugin | - | - | - |
 | dotnet-aspnetcore | plugin | ASP.NET Core web development skills including middleware, endpoints, real-time communicat… | - | - |
+| dotnet-data | plugin | Skills for .NET data access and Entity Framework related tasks. | - | - |
 | dotnet-msbuild | plugin | Comprehensive MSBuild and .NET build skills: failure diagnosis, performance optimization,… | - | - |
 | dotnet-nuget | plugin | NuGet and .NET package management skills: dependency management and modernization. | - | - |
 | agent-skills:api-and-interface-design | skill | Guides stable API and interface design. | Use when designing APIs, module boundaries, or any public interface | Yapım |
 | agent-skills:observability-and-instrumentation | skill | Instruments code so production behavior is visible and diagnosable. | Use when adding logging, metrics, tracing, or alerting | - |
+| anthropic-skills:departman-backend-dotnet | skill | .NET/backend müdürü: ASP.NET Core API, EF, MSBuild, NuGet sırası. | - | - |
 | dotnet-aspnetcore:configuring-opentelemetry-dotnet | skill | Configure OpenTelemetry distributed tracing, metrics, and logging in ASP.NET Core using t… | Use when adding observability, setting up OTLP exporters, creating custom metrics/sp | Derleme |
 | dotnet-aspnetcore:convert-blazor-server-to-webapp | skill | Guides conversion of a pre-.NET 8 Blazor Server app into a .NET 8+ Blazor Web App. | USE FOR: migrating apps that use AddServerSideBlazor and MapBlazorHub to the AddRazorComp… | - |
 | dotnet-aspnetcore:dotnet-webapi | skill | Guides creation and modification of ASP.NET Core Web API endpoints with correct HTTP sema… | USE FOR: adding new API endpoints (controllers or minimal APIs), w | Yapım |
@@ -38,12 +40,6 @@ Müdür: `departman-backend-dotnet`
 | dotnet-msbuild:resolve-project-references | skill | Guide for interpreting ResolveProjectReferences time in MSBuild performance summaries. | Activate when ResolveProjectReferences appears as the most expensive target and developer… | - |
 | dotnet-msbuild:target-authoring | skill | Canonical patterns for writing custom MSBuild targets. | USE FOR: diagnosing and fixing custom target authoring anti-patterns; broken SDK target c… | - |
 | dotnet-nuget:convert-to-cpm | skill | Convert .NET projects and solutions (.sln, .slnx) to NuGet Central Package Management (CP… | USE FOR: converting to CPM, centralizing or aligning NuGet package versions | Test |
-| dotnet-test:crap-score | skill | Calculates CRAP (Change Risk Anti-Patterns) for a named .NET method, class, or file. | USE FOR: explicit CRAP calculation or coverage-and-complexity risk within that named targ… | - |
-| dotnet-test:detect-static-dependencies | skill | Scan C# source files for hard-to-test static dependencies — DateTime.Now/UtcNow, File.*, … | - | - |
-| dotnet-test:migrate-static-to-wrapper | skill | ALWAYS USE when asked to migrate, replace, or make testable existing C# static calls with… | USE when asked to migrate, replace, or make testable existing C# static calls with a name… | - |
-| dotnet-test:mtp-hot-reload | skill | Set up or recover MTP hot reload for a long-lived edit/re-run loop. | Use for "hot reload tests", "dotnet run or dotnet test for hot reload", a host that keeps… | - |
-| dotnet-test:platform-detection | skill | Identify a .NET project's test platform, framework, command mode, and SDK-style vs classi… | - | - |
-| dotnet-test:scaffold-dotnet-test-project | skill | MUST USE when an existing .NET test project was excluded from a .slnf/CI solution filter,… | USE when an existing | - |
 | everything-claude-code:backend-patterns | skill | Backend architecture patterns, API design, database optimization, and server-side best pr… | - | - |
 
 ## Elle

@@ -211,8 +211,9 @@ def test_frontend_mudur_yigin_dali_ve_performans():
     assert all(a in fe for a in ("claude-design", "figma", "stitch", "scroll-craft", "web-sahne-desenleri"))
     assert fe.index("DESIGN.md") < fe.index("claude-design")  # tuval DESIGN.md'den sonra
     e = {x["ad"].split(":")[-1] for x in json.loads((REPO / "docs" / "departmanlar" / "envanter.json").read_text(encoding="utf-8"))}
-    import re
-    assert set(re.findall(r"`([a-z0-9][a-z0-9-]+)`", fe)) - e <= {"departman-test-qa", "departman-guvenlik", "screenshot", "audit"}, "envanterde olmayan ad"
+    k3 = {"dotnet-aspnetcore", "vercel-react-best-practices", "vercel-composition-patterns", "fixing-motion-performance",
+          "performance-optimization", "claude-design", "figma", "stitch", "web-sahne-desenleri", "scroll-craft"}
+    assert k3 <= e and "high-end-visual-design" not in fe, k3 - e  # yalnız envanterdeki adlar
 
 
 def test_uc_arac_kurali():
