@@ -127,7 +127,8 @@ def test_isaret(es, cift, risk, beklenen):
 # --- K4 rapor-denetle ---
 
 def rapor(**deg):
-    b = {"kanit": "videoda kuruluşu adım adım gösteriyor", "zaman": "3:20", "tur": "CLI", "alinti": "“tek komutla kurulur”", "bolum": "## Belirsizlikler"}
+    b = {"kanit": "videoda kuruluşu adım adım gösteriyor", "zaman": "3:20", "tur": "CLI", "alinti": "“tek komutla kurulur”", "bolum": "## Belirsizlikler",
+         "iddialar": "## İddialar\n| iddia | zaman | tür |\n|---|---|---|\n| token %70 azalır | 1:40 | sayısal |"}
     b.update(deg)
     return f"""# Deneme
 ## Künye
@@ -141,6 +142,7 @@ Bir araç anlatılıyor. {b['alinti']}
 | ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |
 |---|---|---|---|---|---|---|
 | graphify | graphify 1.00 | {b['tur']} | https://github.com/x/graphify | kod grafiği | {b['zaman']} | {b['kanit']} |
+{b['iddialar']}
 ## Kareden okunanlar
 - 3:20 komut satırı
 {b['bolum']}
