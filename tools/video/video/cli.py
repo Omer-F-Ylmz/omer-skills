@@ -679,6 +679,10 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x = alt.add_parser("onay", help="bekleyen/<ad>.md yapılandırılmış adımlar → kur · duman · başarısızsa geri alma; yalnız CC, köprüde yok")
     x.add_argument("ad")
     x.add_argument("--kuru", action="store_true", help="hiçbir şey koşmaz, planı yazar")
+    x = alt.add_parser("koru", help="20b: ~/.claude parmak izi; --al önce, sonra `-- komut` koşup karşılaştırır; fark → geri yükle + rc 1 (DUR)")
+    x.add_argument("--al", action="store_true", help="parmak izi + yedek al (docs/denemeler/.kos/caveman/)")
+    x.add_argument("--agsiz", action="store_true", help="komutun env'inde API anahtarı yok, BASE_URL ölü port")
+    x.add_argument("arg", nargs=argparse.REMAINDER, metavar="-- komut")
     x = alt.add_parser("geri-al", help="kayıttaki geri_alma adımları + köprü girdisini çıkarır; yalnız CC")
     x.add_argument("ad")
     x = alt.add_parser("dene", help="docs/denemeler/<ad>.md → claude -p kollar (sonnet, kol başına 2 koşu, karışık sıra): görev başarısı + Jev kalite; karar sıcak maliyetle; yalnız CC")
@@ -707,7 +711,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
-                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman}[ns.komut](ns, ctx)
+                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

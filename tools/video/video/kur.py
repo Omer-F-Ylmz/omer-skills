@@ -140,8 +140,12 @@ def ps_blok(ayar):
 
 
 def _kos(ctx, args, timeout=600, **k):
+    args = [str(x) for x in args]
+    w = not Path(args[0]).suffix and shutil.which(args[0])
+    if w and w.lower().endswith((".cmd", ".bat")):  # npm kısayolu: çıplak adla CreateProcess bulamaz (OSError 2)
+        args[0] = w
     try:
-        return ctx["kos"]([str(x) for x in args], timeout=timeout, **k)
+        return ctx["kos"](args, timeout=timeout, **k)
     except (OSError, subprocess.TimeoutExpired) as e:
         return 1, b"", str(e).encode()
 
@@ -224,6 +228,99 @@ def geri_al(ns, ctx):
     _kayit(kok, ns.ad, {"karar": karar, "geri_alma_tarihi": date.today().isoformat()})
     print(f"{ns.ad}: {karar}" + (" · köprü girdisi çıkarıldı (Desktop yeniden başlatma gerekli)" if g.get("kopru") else ""))
     return 0 if not kalan else 1
+
+
+IZLI = ("mcpServers", "hooks")
+AGSIZ = ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN", "CLAUDE_CODE_OAUTH_TOKEN", "OPENAI_API_KEY")
+_sha = lambda b: hashlib.sha256(b).hexdigest()
+
+
+def _izli(j):
+    """~/.claude.json'un yalnız ayar anahtarları; CC geri kalanını (sayaç, proje istatistiği) her oturumda yazar."""
+    return {**{a: j[a] for a in IZLI if a in j},
+            **{f"projects/{p}/{a}": v[a] for p, v in (j.get("projects") or {}).items() for a in IZLI if a in v}}
+
+
+def parmak(ev):
+    """20b ad → sha: settings.json tam · ~/.claude.json izli anahtarlar · hooks/ her dosya · skills/ üst düzey ad + SKILL.md (1.4 GB tam taranmaz)."""
+    cl, p = ev / ".claude", {}
+    if (cl / "settings.json").is_file():
+        p["settings.json"] = _sha((cl / "settings.json").read_bytes())
+    if (ev / ".claude.json").is_file():
+        p |= {f".claude.json:{a}": _sha(json.dumps(v, sort_keys=True).encode())
+              for a, v in _izli(json.loads((ev / ".claude.json").read_text(encoding="utf-8"))).items()}
+    for f in sorted((cl / "hooks").rglob("*")):
+        if f.is_file() and "__pycache__" not in f.parts:
+            p[f.relative_to(cl).as_posix()] = _sha(f.read_bytes())
+    for s in sorted((cl / "skills").glob("*")):
+        p[f"skills/{s.name}"] = _sha((s / "SKILL.md").read_bytes()) if (s / "SKILL.md").is_file() else ""
+    return p
+
+
+def _yol(ev, ad):
+    """Parmak izi adının dosyası; yedek için ev yerine yedek dizini verilir."""
+    return ev / ".claude" / (f"{ad}/SKILL.md" if ad.startswith("skills/") else ad)
+
+
+def _geri_yukle(ev, d, fark, once):
+    """Önceki bayt/anahtar yedekten; öncede olmayan dosya/skill karantinaya taşınır (silinmez)."""
+    yedek = json.loads((d / "yedek" / "claude.json").read_text(encoding="utf-8"))
+    for ad in fark:
+        if ad.startswith(".claude.json:"):
+            j = json.loads((ev / ".claude.json").read_text(encoding="utf-8"))
+            a = ad.split(":", 1)[1]
+            *ust, son = a.split("/")
+            h = j
+            for x in ust:
+                h = h[x]
+            if a in yedek:
+                h[son] = yedek[a]
+            else:
+                h.pop(son, None)
+            (ev / ".claude.json").write_bytes(json.dumps(j, indent=2, ensure_ascii=False).encode("utf-8"))
+        elif ad in once:
+            _yol(ev, ad).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(_yol(d / "yedek", ad), _yol(ev, ad))
+        else:
+            k = d / "karantina" / Path(ad).name
+            k.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(ev / ".claude" / ad), str(k))
+
+
+def koru(ns, ctx):
+    """20b K0: --al parmak izi + yedek; sonra (varsa `-- komut` koşulur) karşılaştır: fark → geri yükle, yalnız ad, rc 1 = DUR."""
+    ev, d = Path(ctx["env"].get("VIDEO_EV") or Path.home()), _kok(ctx) / "docs" / "denemeler" / ".kos" / "caveman"
+    if ns.al:
+        p = parmak(ev)
+        shutil.rmtree(d / "yedek", ignore_errors=True)
+        (d / "yedek").mkdir(parents=True)
+        for ad in p:
+            if not ad.startswith(".claude.json:") and _yol(ev, ad).is_file():
+                _yol(d / "yedek", ad).parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(_yol(ev, ad), _yol(d / "yedek", ad))
+        j = ev / ".claude.json"
+        (d / "yedek" / "claude.json").write_bytes(json.dumps(_izli(json.loads(j.read_text(encoding="utf-8"))) if j.is_file() else {}).encode())
+        (d / "once.json").write_bytes(json.dumps(p, indent=1).encode())
+        print(f"parmak izi alındı: {len(p)} ad · {d / 'once.json'}")
+        return 0
+    if not (d / "once.json").is_file():
+        print("hata: önce `video koru --al`")
+        return 1
+    arg, rc = ns.arg[1:] if ns.arg[:1] == ["--"] else ns.arg, 0
+    if arg:
+        env = {k: v for k, v in ctx["env"].items() if not (ns.agsiz and k in AGSIZ)}
+        if ns.agsiz:
+            env["ANTHROPIC_BASE_URL"] = env["OPENAI_BASE_URL"] = "http://127.0.0.1:9"
+        rc, out, err = _kos(ctx, arg, 3600, env=env)
+        sys.stdout.write((out + err).decode("utf-8", "replace"))
+    once, simdi = json.loads((d / "once.json").read_text(encoding="utf-8")), parmak(ev)
+    fark = sorted(a for a in once.keys() | simdi.keys() if once.get(a) != simdi.get(a))
+    if not fark:
+        print(f"parmak izi eşit ({len(simdi)} ad)")
+        return rc
+    _geri_yukle(ev, d, fark, once)
+    print(f"DUR: onaysız ayar değişikliği, geri yüklendi: {', '.join(fark)}")
+    return 1
 
 
 def esik(s):

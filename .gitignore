@@ -9,3 +9,4 @@ __pycache__/
 .tmp-*
 kurutest.json
 tools/*/uv.lock
+docs/denemeler/.kos/caveman/
