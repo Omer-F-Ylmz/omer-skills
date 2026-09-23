@@ -1,12 +1,12 @@
 """18 kalite kapısı + skill fabrikası: görev başarısı (makine kontrolü) · gürültü bandı · uret (tavan · 8-gram · KAYNAK.md) · RED şablonu · caveman yeni özellikler."""
-import sys
+import time
 
 import pytest
 
-from video import kur, tarama as tr, uygula as uy
+from video import kur, uygula as uy
 from video.cli import kos as gercek_kos, main
 
-from test_kur import KKos, SJev
+from test_kur import KKos, SJev, deneme
 from test_uygula import UKos, calis, kok  # noqa: F401 (kok fixture)
 from test_video import ortam  # noqa: F401 (ortam fixture)
 
@@ -46,16 +46,16 @@ def gorev(tmp_path):
     (tmp_path / "fixture" / "fiyat.py").write_text(HATALI, encoding="utf-8")
     (tmp_path / "fixture" / "test_fiyat.py").write_text(TEST, encoding="utf-8")
     g = tmp_path / "4-kod.md"
-    g.write_text("Hatayı düzelt, tam dosyayı ver.\ndosya: fixture/fiyat.py\nbeklenen:\n- pytest: fixture/test_fiyat.py\n- olgu: (?i)kdv\n- yasak: (?i)sayın\n",
+    g.write_text("Hatayı düzelt, tam dosyayı ver.\ndosya: fixture/fiyat.py\nbeklenen:\n- pytest: fixture/test_fiyat.py\n- olgu: (?i)düzelt\n- yasak: (?i)sayın\n",
                  encoding="utf-8")
     return g
 
 
 def test_pytest_beklenen_dogru_yanlis(gorev):
-    assert kur.basari(gorev, f"Düzeltme kdv:\n```python\n{DOGRU}```", gercek_kos)
-    assert not kur.basari(gorev, f"Düzeltme kdv:\n```python\n{HATALI}```", gercek_kos)
-    assert not kur.basari(gorev, f"Sayın kullanıcı, kdv:\n```python\n{DOGRU}```", gercek_kos)  # yasak desen
-    assert not kur.basari(gorev, f"```python\n{DOGRU}```", gercek_kos)  # zorunlu olgu yok
+    assert kur.basari(gorev, f"Düzeltme kdv:\n```python\n{DOGRU}```", gercek_kos)[0]
+    assert not kur.basari(gorev, f"Düzeltme kdv:\n```python\n{HATALI}```", gercek_kos)[0]
+    assert not kur.basari(gorev, f"Sayın kullanıcı, kdv:\n```python\n{DOGRU}```", gercek_kos)[0]  # yasak desen
+    assert not kur.basari(gorev, f"```python\n{DOGRU}```", gercek_kos)[0]  # zorunlu olgu yok
 
 
 def test_beklenen_istemde_yok(gorev):
@@ -154,3 +154,51 @@ def test_kismen_dogru_parantezli_sonuc_gecerli():
     m = "## İddia sınama\n| iddia | kaynak | sonuç | not | kart |\n|---|---|---|---|---|\n| x | docs/cikti-notlari.md | kısmen doğru (çıktı içinde) | n | - |\n"
     s, h = uy.iddia_sinama(m)
     assert h == [] and s[0]["sonuc"] == "kısmen doğru (çıktı içinde)"
+
+
+# --- 18 düzeltme: felaket geri izleme · satır sayısı · kontrol zaman aşımı · önbellek ---
+
+FELAKET = r"(?:[^\n]*\S[^\n]*(?:\n+|$)){11}"
+
+
+def test_felaket_desenli_gorev_yuklenirken_reddedilir(ortam, kok, capsys):
+    deneme(kok)
+    (kok / "docs" / "denemeler" / "gorevler" / "4-f.md").write_text(f"Kısa yaz.\nbeklenen:\n- yasak: {FELAKET}\n", encoding="utf-8")
+    k, t = KKos(), time.monotonic()
+    assert main(["dene", "deneme"], env=ortam, kos=k, gonder=SJev()) == 1
+    assert time.monotonic() - t <= 2 and k.cagri == [] and "4-f.md" in capsys.readouterr().out
+
+
+def test_satir_en_fazla_bos_olmayan_satiri_sayar(tmp_path):
+    g = tmp_path / "g.md"
+    g.write_text("Yaz.\nbeklenen:\n- satir-en-fazla: 10\n", encoding="utf-8")
+    assert kur.basari(g, "\n\n".join(["x"] * 10) + "\n  \n", gercek_kos)[0]
+    assert not kur.basari(g, "\n".join(["x"] * 11), gercek_kos)[0]
+
+
+def test_satir_deseni_her_satiri_kodla_denetler(tmp_path):
+    g = tmp_path / "g.md"
+    g.write_text("Yaz.\nbeklenen:\n- satir-en-fazla: 2\n- satir-desen: - `git [^`]*`|BİTTİ\n", encoding="utf-8")
+    assert kur.basari(g, "- `git fetch`\nBİTTİ\n", gercek_kos)[0]
+    assert not kur.basari(g, "Tabii\nBİTTİ", gercek_kos)[0]
+
+
+def test_kontrol_zaman_asimi_basarisiz_doner(tmp_path, monkeypatch):
+    monkeypatch.setattr(kur, "KONTROL_SN", 1)
+    g = tmp_path / "g.md"
+    g.write_text(f"Yaz.\nbeklenen:\n- yasak: {FELAKET}\n", encoding="utf-8")
+    t = time.monotonic()
+    ok, neden = kur.basari(g, "a" * 50000, gercek_kos)
+    assert not ok and "zaman aşımı" in neden and time.monotonic() - t <= 5
+
+
+def test_onbellekteki_sonuc_yeniden_cagrilmaz(ortam, kok):
+    deneme(kok)
+    assert main(["dene", "deneme"], env=ortam, kos=KKos(), gonder=SJev()) == 0
+    assert (kok / "docs" / "denemeler" / ".kos" / "deneme" / "1-g-A-2.json").is_file()
+    k = KKos()
+    assert main(["dene", "deneme"], env=ortam, kos=k, gonder=SJev()) == 0 and k.claude() == []
+    (kok / "docs" / "denemeler" / "deneme-talimat.md").write_text("BAŞKA", encoding="utf-8")
+    k = KKos()
+    assert main(["dene", "deneme"], env=ortam, kos=k, gonder=SJev()) == 0
+    assert len(k.claude()) == 3 and all("--append-system-prompt" in c for c in k.claude())  # yalnız B: talimat hash'i değişti
