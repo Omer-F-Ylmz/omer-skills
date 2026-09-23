@@ -106,9 +106,9 @@ def test_script_iceren_skill_t2_onay_bekler(ortam, kok, tmp_path, capsys, dosya)
     assert calis(ortam, [y], UKos(repo)) == 0
     assert not (kok / "skills" / "scriptli").exists()
     assert not (kok / "dist" / "yukle-14" / "yeni" / "scriptli.zip").exists()
-    assert (kok / "docs" / "kurulumlar" / "bekleyen" / "scriptli.md").read_text(encoding="utf-8").startswith("# ONAY scriptli")
+    assert (kok / "docs" / "kurulumlar" / "bekleyen" / "scriptli.md").read_text(encoding="utf-8").startswith("BİÇİM EKSİK:")  # 14b: serbest Kurulum bloğu
     assert kayit(kok)[-1]["katman"] == "T2"
-    assert "ONAY scriptli" in capsys.readouterr().out
+    assert "elle düzelt scriptli" in capsys.readouterr().out
 
 
 def test_skillspector_high_1_red(ortam, kok, tmp_path):
