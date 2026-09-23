@@ -225,8 +225,8 @@ def test_dene_b_kolu_yalniz_append_farki_hook_kapali(ortam, kok):
         assert b == a + ["--append-system-prompt", "KISA YAZ"]
     assert all(e and e["JEV_SKILL_HOOK"] == "0" for e in k.env)
     s = (kok / "docs" / "denemeler" / "deneme-sonuc.md").read_text(encoding="utf-8")
-    assert "hook kapalı" in s and "KUR önerisi" in s
-    assert kayit(kok)[-1]["ad"] == "deneme" and kayit(kok)[-1]["karar"].startswith("KUR önerisi")
+    assert "hook kapalı" in s and "RED(kalite)" in s  # SJev B 2.8 < A 3.0 − max(gürültü 0, 0.1)
+    assert kayit(kok)[-1]["ad"] == "deneme" and kayit(kok)[-1]["karar"].startswith("RED(kalite)")
 
 
 def test_dene_tavan(ortam, kok):

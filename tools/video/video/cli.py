@@ -680,10 +680,14 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--kuru", action="store_true", help="hiçbir şey koşmaz, planı yazar")
     x = alt.add_parser("geri-al", help="kayıttaki geri_alma adımları + köprü girdisini çıkarır; yalnız CC")
     x.add_argument("ad")
-    x = alt.add_parser("dene", help="docs/denemeler/<ad>.md → claude -p A/B (sonnet) + Jev kalite; yalnız CC")
+    x = alt.add_parser("dene", help="docs/denemeler/<ad>.md → claude -p A/B (sonnet): görev başarısı + Jev kalite (gürültü bandı); yalnız CC")
     x.add_argument("ad")
-    x.add_argument("--tavan", type=int, default=6, help="en fazla N claude -p (görev×2)")
-    x.add_argument("--istek-tavan", type=int, default=12, metavar="M", help="en fazla M Jev isteği")
+    x.add_argument("--tavan", type=int, default=18, help="en fazla N claude -p (görev × A 2 + B 1)")
+    x.add_argument("--istek-tavan", type=int, default=30, metavar="M", help="en fazla M Jev isteği")
+    x = alt.add_parser("uret", help="docs/uyarlamalar/<ad>.md → taslak denetimi (tavan · tetik · 8-gram · KAYNAK.md) → dene → bekleyen/zip ya da bilgi kartı; yalnız CC")
+    x.add_argument("ad")
+    x.add_argument("--tavan", type=int, default=18, help="en fazla N claude -p (görev × A 2 + B 1)")
+    x.add_argument("--istek-tavan", type=int, default=30, metavar="M", help="en fazla M Jev isteği")
     alt.add_parser("durum", help="docs/durum.md: köprü katalogu · son kararlar · ölçüm bulguları · ELE (≤3k token, elle bölüm korunur)")
     x = alt.add_parser("bilgi", help="bilgi/ kartları: guven · bayatlama · iddia")
     x.add_argument("--bayat", action="store_true", help="yalnız bayatlamış (yeniden doğrula)")
@@ -698,7 +702,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
-                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief}[ns.komut](ns, ctx)
+                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

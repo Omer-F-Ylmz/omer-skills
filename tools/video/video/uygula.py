@@ -19,7 +19,7 @@ KOK = Path(__file__).resolve().parents[3]
 DENETIM = KOK / "tools" / "skill_denetim.py"
 LISANS = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "0BSD", "ISC", "CC-BY-4.0"}
 KAYNAK_ACIK = {"BSL-1.1", "BUSL-1.1", "FSL-1.1-MIT", "FSL-1.1-Apache-2.0", "Elastic-2.0"}  # kendi makinede kullanım serbest, repoya kopyalanmaz
-SONUC = ("doğru", "abartılı", "yanlış", "doğrulanamadı")
+SONUC = ("doğru", "kısmen doğru", "abartılı", "yanlış", "doğrulanamadı")  # parantezli nitelik serbest: "doğru (ikincil kaynak)"
 SERBEST = re.compile(r"^(LICEN[CS]E|NOTICE)(\.\w+)?$", re.I)  # lisans metni T1'e girebilir; kod değil
 ALAN = re.compile(r"^(\w+):\s*(.*?)\s*$")
 MADDE_NO = re.compile(r"^\s*(\d+)[.)]\s")
@@ -128,7 +128,7 @@ def iddia_sinama(metin):
     t, out, h = tr.tablolar(tr.bolum(metin, "İddia sınama")), [], []
     for s in t[0][1] if t else []:
         x = dict(zip(("iddia", "kaynak", "sonuc", "not", "kart"), (s + [""] * 5)[:5]))
-        if x["sonuc"] not in SONUC:
+        if x["sonuc"].split(" (")[0] not in SONUC:
             h.append(f"sonuç geçersiz: {x['iddia']} → {x['sonuc']} ({'/'.join(SONUC)})")
             x["sonuc"] = "doğrulanamadı"
         elif x["kaynak"] in ("", "-") and x["sonuc"] != "doğrulanamadı":
@@ -144,7 +144,7 @@ def sina(kok, ad, metin, sinama, eksik):
     eksik += [f"{ad}: {x}" for x in sh]
     for s in ss:
         sinama.append(s)
-        if s["sonuc"] in ("abartılı", "yanlış") and s["kart"] not in ("", "-") and (y := kok / "bilgi" / f"{s['kart']}.md").is_file():
+        if s["sonuc"].split(" (")[0] in ("abartılı", "yanlış") and s["kart"] not in ("", "-") and (y := kok / "bilgi" / f"{s['kart']}.md").is_file():
             y.write_text(y.read_text(encoding="utf-8").rstrip("\n") + f"\n- not: '{s['iddia']}' {s['sonuc']} ({s['kaynak']})\n", encoding="utf-8")
 
 
@@ -326,7 +326,7 @@ def katman(ns, ctx):
             kayit = [k for k in kayit if tr.normal(k.get("aday") or k["ad"]) != tr.normal(ad)] + yeni
             continue
         yargi = a.get("karar") if a.get("karar") in og.KARAR else "KUR"  # karar alanı yoksa 14a yolu
-        if a.get("karar") and (x := [b for b in ALTI if not tr.bolum(metin, b).strip()]):
+        if a.get("karar") and yargi != "RED" and (x := [b for b in ALTI if not tr.bolum(metin, b).strip()]):
             eksik.append(f"{ad}: {', '.join(x)}")
         commit, kt, karar, geri = None, "-", "", "-"
         if yargi == "KUR" and a.get("tur") in tr.KURAL_TUR and not a.get("red"):
@@ -383,7 +383,7 @@ def katman(ns, ctx):
                 red.append(f"{ad} — {karar}")
         ozet.append((sponsor, f"{ad} → {yargi}{' (sponsor)' if sponsor else ''} — {karar}"))
         rapor.append((sponsor, [f"## {ad} → {yargi}{' · sponsor' if sponsor else ''}", f"- Sonuç: {karar}"]
-                      + [f"- {b}: {' '.join(tr.bolum(metin, b).split())[:400] or '(eksik)'}" for b in ALTI] + [""]))
+                      + [f"- {b}: {' '.join(tr.bolum(metin, b).split())[:400] or ('-' if yargi == 'RED' else '(eksik)')}" for b in ALTI] + [""]))
         sina(kok, ad, metin, sinama, eksik)
         gorulen.add(tr.normal(ad))
         kayit = [k for k in kayit if tr.normal(k["ad"]) != tr.normal(ad)] + [

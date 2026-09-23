@@ -46,7 +46,8 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 - Bekleyen biçimi: `## Kurulum` / `## Geri alma` → `- <plugin|mcp|uv|npm|winget>: <argümanlar>`; `## Duman testi` → `- komut:` · `- cikis:` · `- desen:` (ops.); ops. `## Köprü izni` (`- arac:` · `- altIzin:` yalnız salt-okur) ve `## Ayar` (`- üst.alt: <JSON>`, env altında yalnız `${AD}`). Metakarakter (`; & | > < \` $(`), indirici/kabuk (curl, iwr, iex, sh, cmd, powershell…), uzak betik, düz anahtar değeri → red.
 - `video onay <ad> --kuru` → planı göster (argv, duman, geri alma, köprü, PowerShell bloğu); hiçbir şey koşmaz. Ömer "ONAY <ad>" derse `video onay <ad>`: adımlar sırayla → duman testi; adım ya da duman başarısızsa geri alma adımlarının hepsi koşar, kayıt `RED(adım|duman)`. Başarı: kayıt {karar KUR, kurulum_tarihi, geri_alma}; Köprü izni yeni araç girdisi olarak kopru.json'a (envGecir yok) → "Desktop yeniden başlatma gerekli". settings.json değişikliği KOŞULMAZ: PowerShell bloğu rapora, Ömer elle koşar.
 - `video geri-al <ad>` → kayıttaki geri_alma adımları + eklenen köprü girdisi çıkar → kayıt "geri alındı".
-- `video dene <ad> [--tavan 6] [--istek-tavan 12]` → docs/denemeler/<ad>.md (Hipotez · Metrik · Bütçe · Başarı eşiği · `## Talimat` yolu) + sabit görev seti docs/denemeler/gorevler/. A: `claude -p --model sonnet --output-format json`; B: aynı + `--append-system-prompt <talimat>`; alt süreçte JEV_SKILL_HOOK=0. Ölçüm: çıktı/girdi token · süre · maliyet · Jev kalite (0-3). Eşik dosyadan (yoksa çıktı ≥%25 düşüş VE kalite düşüşü ≤0.3) → `KUR önerisi → ONAY` ya da `RED(ölçüm)`; docs/denemeler/<ad>-sonuc.md + kayıt.
+- `video dene <ad> [--tavan 18] [--istek-tavan 30]` → docs/denemeler/<ad>.md (Hipotez · Metrik · Bütçe · Başarı eşiği · `## Talimat` yolu) + sabit 6 görev (docs/denemeler/gorevler/: özet · fonksiyon · kapanış · kod düzeltme · Türkçe soru · talimat izleme). A 2 tekrar (gürültü), B 1: `claude -p --model sonnet --output-format json`, B + `--append-system-prompt <talimat gövdesi>`; JEV_SKILL_HOOK=0; 3·görev > tavan → hiç koşmaz.
+- Kalite kapısı (18, düşüşe pay yok): görev dosyasının `beklenen:` bölümü makine kontrolüdür (`- olgu: <regex>` · `- yasak: <regex>` · `- pytest: fixture/test_x.py` — yanıttaki son python bloğu `dosya:` yerine konup test koşar); modele gitmez. KUR önerisi yalnız (1) token eşiği tutarsa VE (2) her görevde B başarı ≥ A başarı ortalaması VE (3) B kalite ≥ A − max(gürültü, 0.1) (gürültü = A1-A2 kalite farkı ortalaması). Yoksa `RED(token)` / `RED(kalite)` / ikisi. Sonuç: görev başına A/B başarı · kalite · çıktı token, toplam $.
 - Kayıt satırı: {ad, katman, karar, tarih, video, kaynak_commit, geri_alma}.
 
 ## Derin inceleme (17)
@@ -57,6 +58,16 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 - İddia sınama: aday.md `## İddia sınama` (iddia · kaynak · sonuç · not · kart); kaynaksız sonuç → doğrulanamadı; abartılı/yanlış + kart → bilgi/<kart>.md'ye not. Rapora İDDİA SINAMA tablosu + boş `## Desktop ikinci görüş`.
 - `video brief <rapor>` ≤60 satır (özellik kararları · iddialar · linkler); köprüde açık, Desktop ikinci görüşü buradan okur.
 
+## Skill fabrikası (18, yalnız CC; köprüde yok)
+- `video uret <ad>` girdisi docs/uyarlamalar/<ad>.md: `arac: talimat|skill` · `token_tavani` (yoksa 200) · `aday` · `ozellik` · `kaynak_metin` · `lisans`; bölümler Fikir · Kapsam · Alınmayacaklar · Başarı eşiği. Her yanıta etki eden davranış skill değil talimattır.
+- Taslak yoksa uret brief basar (rc 3). Taslağı oturum modeli yazar: superpowers:writing-skills + skill-creator yüklenir; frontmatter `name` + `description` (yalnız tetik, "Use when …"/"… kullan"), gövde biçim tarifi (yasak listesi değil), FİKİR alınır METİN kopyalanmaz. Yol: talimat → docs/uyarlamalar/<ad>-talimat.md, skill → skills/<ad>/SKILL.md; sonra `video uret <ad>` yeniden.
+- Denetim (hata → rc 2, dene koşmaz): gövde token ≤ tavan · description tetik · kaynak metinle 8-gram örtüşme ≤%10 · lisans MIT → KAYNAK.md atfı. Geçerse docs/denemeler/<ad>.md yazılır ve kalite kapısı (`dene`) otomatik koşar.
+- KUR önerisi → docs/kurulumlar/bekleyen/<ad>.md: skill → T1 + dist/yukle-18/yeni/<ad>.zip; talimat → araç önerisi (global CLAUDE.md'ye `@<ad>.md`) PowerShell bloğu, ONAY, koşulmaz. RED → sonuç + bilgi/<ad>.md kartı.
+
+## RED şablonu (18)
+- RED adayında altı alan zorunlu değil: tek gerekçe satırı (`gerekce:`), boş alanlar raporda `-` ("(eksik)" üretilmez, eksik alan uyarısı yok).
+- İddia sonucu: doğru · kısmen doğru · abartılı · yanlış · doğrulanamadı; parantezli nitelik serbest (`doğru (ikincil kaynak)`).
+
 ## Aday dosyası (≤40 satır)
 
 Başta alan satırları: `ad · tur · video · repo · lisans (SPDX|yok) · son_commit · arsiv · kaynak (yerel skill klasörü|yok) · kural (ipucu) · red (isteğe bağlı)`.
@@ -64,4 +75,4 @@ Bölümler: Ne · Kanıt · Kurulum · İzinler · Duman testi · Geri alma · K
 
 ## Tavanlar
 
-Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1); dene ≤12. claude -p: dene ≤6 (görev×2, tavan aşılırsa hiç koşmaz). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.
+Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1); dene/uret ≤30. claude -p: dene/uret ≤18 (görev × A 2 + B 1, tavan aşılırsa hiç koşmaz). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.

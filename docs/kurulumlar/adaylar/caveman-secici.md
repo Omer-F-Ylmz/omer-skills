@@ -30,5 +30,5 @@ caveman/proxy DENE (girdi tarafı) bu bulguyla tutarlı: kazanç varsa okuma tar
 | Caveman %65 token kesintisi (README) | docs/denemeler/caveman-sonuc.md | abartılı | bizde çıktı −%20.7, toplam maliyet +%7.7 | caveman-kural-maliyeti |
 | 69→19 token, %75 azalma | https://github.com/JuliusBrussee/caveman | abartılı | tek cümlelik izole örnek; oturumu temsil etmez | caveman-kural-maliyeti |
 | Caveman açık/kapalı oturum kullanımı aynı (+4 = +4 puan) | docs/denemeler/caveman-sonuc.md | doğru | bizde de toplam maliyet düşmedi (+%7.7) | |
-| Maliyetin çoğu iletişim değil thinking | - | doğrulanamadı | bizde girdi 94k ≫ çıktı 831; thinking payı ölçülmedi | |
+| Maliyetin çoğu iletişim değil thinking | docs/cikti-notlari.md | kısmen doğru (çıktı içinde; toplam maliyette girdi baskın) | thinking çıktının %41'i; bizde girdi 94k ≫ çıktı 831 | |
 | Caveman 40.000 yıldız | - | doğrulanamadı | gh api 2026-09-23: 107.495; video çekim anı bilinmiyor | |
