@@ -98,3 +98,13 @@ def test_once_yoksa_hata(ortam, kok, capsys):
     ev_kur(ortam)
     assert main(["koru"], env=ortam, kos=KKos()) == 1
     assert "--al" in capsys.readouterr().out
+
+
+def test_kos_cmd_kisayolunu_cozer(monkeypatch):
+    """npm global komutları .cmd kısayolu: çıplak adla CreateProcess OSError 2 verir (20b duman rc 1)."""
+    from video import kur
+    monkeypatch.setattr(kur.shutil, "which", lambda a: {"caveman": r"C:\n\caveman.CMD", "claude": r"C:\c\claude.exe"}.get(a))
+    k = KKos()
+    kur._kos({"kos": k}, ["caveman", "--version"])
+    kur._kos({"kos": k}, ["claude", "-p"])
+    assert k.cagri == [[r"C:\n\caveman.CMD", "--version"], ["claude", "-p"]]
