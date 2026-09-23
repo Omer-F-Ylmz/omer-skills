@@ -366,7 +366,7 @@ def _istem(g):
 
 
 def _kollar(metin, kok, env, hata):
-    """20a `## Kollar`: `- ad: temel · env K=V … · önek komut · sistem yol` (V düz adres ya da ${AD}; anahtar değeri reddedilir, mesaja yazılmaz).
+    """20a `## Kollar`: `- ad: temel · env K=V … · önek komut · sistem yol · mcp yol` (V düz adres ya da ${AD}; anahtar değeri reddedilir, mesaja yazılmaz).
     Bölüm yoksa 18 A/B: A düz, B `sistem <## Talimat>`. İlk `temel` (yoksa ilk kol) karşılaştırma tabanıdır."""
     ss = _satirlar(metin, "Kollar")
     if not ss:
@@ -394,9 +394,14 @@ def _kollar(metin, kok, env, hata):
                 k["onek"] = arg.split()
                 k["rapor"].append(f"önek {arg.strip()}")
             elif tur == "sistem" and (kok / arg.strip()).is_file():
-                k["ek"] = ["--append-system-prompt", govde((kok / arg.strip()).read_text(encoding="utf-8"))]
+                k["ek"] = ["--append-system-prompt", govde((kok / arg.strip()).read_text(encoding="utf-8")), *k["ek"]]
                 k["kimlik"] = k["ek"][1]  # 18 önbellek hash'i korunur
                 k["rapor"].append(f"sistem {arg.strip()}")
+            elif tur == "mcp" and (kok / arg.strip()).is_file():  # 20b-devam: o çağrıya özel MCP; global ayar değişmez
+                k["mcp"] = list(json.loads((kok / arg.strip()).read_text(encoding="utf-8"))["mcpServers"])
+                k["ek"] += ["--mcp-config", str(kok / arg.strip())]
+                k["kimlik"] += "\0mcp " + arg.strip()
+                k["rapor"].append(f"mcp {arg.strip()}")
             elif tur not in ("önek",):
                 hata.append(f"kol {k['ad']}: {tur} {arg.strip() if tur == 'sistem' else ''} geçersiz")
         if k["env"] or k["onek"]:
@@ -514,6 +519,20 @@ def ortusme(taslak, kaynak):
     return len(t & _ngram(kaynak)) / len(t) if t else 0.0
 
 
+def _mcp_say(env, sid, sunucular):
+    """20b-devam: oturum transkriptinde (~/.claude/projects/*/<sid>.jsonl) yalnız kolun MCP sunucularına giden araç çağrısı sayısı."""
+    t = next((Path(env.get("VIDEO_EV") or Path.home()) / ".claude" / "projects").glob(f"*/{sid}.jsonl"), None) if sid and sunucular else None
+    n = 0
+    for s in t.read_text(encoding="utf-8").splitlines() if t else []:
+        try:
+            ic = json.loads(s).get("message", {}).get("content")
+        except ValueError:
+            continue
+        n += sum(1 for x in ic if isinstance(x, dict) and x.get("type") == "tool_use"
+                 and str(x.get("name", "")).startswith(tuple(f"mcp__{a}__" for a in sunucular))) if isinstance(ic, list) else 0
+    return n
+
+
 def dene(ns, ctx):
     env, kok = ctx["env"], _kok(ctx)
     d = kok / "docs" / "denemeler"
@@ -539,7 +558,7 @@ def dene(ns, ctx):
         for n in (1, 2):  # 20a: her kol 2 koşu (soğuk · sıcak), görev içinde karışık sıra a1 b1 a2 b2 — önbellek kayması tek kolu kayırmasın
             for k in kollar:
                 args = [*k["onek"], "claude", "-p", ist, "--model", "sonnet", "--output-format", "json", *k["ek"]]
-                args += ["--allowedTools", araclar] if araclar else []
+                args += ["--allowedTools", araclar + "".join(f",mcp__{x}" for x in k.get("mcp", []))] if araclar else []
                 if duz := {x: v for x, v in k["env"].items() if not ENVREF.fullmatch(v)}:  # settings.json env'i süreç env'ini ezer; ${AD} argv'ye girmez
                     args += ["--settings", json.dumps({"env": duz})]
                 hs = hashlib.sha256(f"{ist}\0{k['kimlik']}".encode()).hexdigest()[:16]
@@ -568,14 +587,14 @@ def dene(ns, ctx):
             if rc or j.get("is_error") or "result" not in j:
                 print(f"hata: claude -p {kol} rc {rc}: {(err or out).decode('utf-8', 'replace')[-200:]}", flush=True)
                 return 1
-            j = {k: j.get(k) for k in ("result", "usage", "duration_ms", "total_cost_usd")}
+            j = {**{x: j.get(x) for x in ("result", "usage", "duration_ms", "total_cost_usd")}, "mcp": _mcp_say(env, j.get("session_id"), k.get("mcp", []))}
             y.parent.mkdir(parents=True, exist_ok=True)
             y.write_text(json.dumps({"hash": hs, "j": j}, ensure_ascii=False), encoding="utf-8")
         u = j.get("usage") or {}
         ok, neden = basari(g, j["result"], lambda x, timeout: _kos(ctx, x, timeout))
         olcum.append({"kol": kol, "n": n, "gorev": gi,"yanit": j["result"], "cikti": u.get("output_tokens", 0), "sure": (j.get("duration_ms") or 0) / 1000,
                       "girdi": sum(u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")),
-                      "maliyet": j.get("total_cost_usd") or 0, "basari": ok, "yeni": kaynak != "önbellek"})
+                      "maliyet": j.get("total_cost_usd") or 0, "basari": ok, "yeni": kaynak != "önbellek", "mcp": j.get("mcp") or 0})
         print(f"[{i}/{len(plan)}] {g.stem} {kol}{n} {kaynak}: çıktı {u.get('output_tokens', 0)} · ${j.get('total_cost_usd') or 0:.4f} · "
               f"başarı {'evet' if ok else 'hayır (' + neden + ')'}", flush=True)
     t = c.Tasiyici(env=env, en_fazla=len(olcum), gonder=ctx["gonder"], istek_tavan=ns.istek_tavan)
@@ -598,12 +617,15 @@ def dene(ns, ctx):
     e = esik(tr.bolum(metin, "Başarı eşiği"))
     kararlar = {k["ad"]: karar(ort[tk], ort[k["ad"]], e, gurultu, [tuple(sum(o["basari"] for o in ob(x, i)) / 2 for x in (tk, k["ad"])) for i in range(len(gorevler))])
                 for k in kollar if k["ad"] != tk}
+    mcp = {k["ad"]: sum(o["mcp"] for o in olcum if o["kol"] == k["ad"]) for k in kollar}
+    kararlar.update({k["ad"]: "KARAR YOK: sıkıştırma devreye girmedi (mcp çağrısı 0)" for k in kollar if k.get("mcp") and not mcp[k["ad"]] and k["ad"] != tk})
     kur_ = [f"{v.split(':')[0]} [{ad}]:{v.partition(':')[2]}" for ad, v in kararlar.items() if v.startswith("KUR")]
     k = kur_[0] if kur_ else next(iter(kararlar.values())) if len(kararlar) == 1 else "RED(tüm kollar): " + " · ".join(kararlar)
     bugun = date.today().isoformat()
     satir = [f"# Deneme sonucu: {ns.ad}", "", f"{bugun} · sonnet · {len(istemler)} görev ({gd.name}) · {len(kollar)} kol × 2 koşu, karışık sıra · claude -p {len(olcum)} · "
              f"Jev istek {t.istek} · hook kapalı (JEV_SKILL_HOOK=0) · toplam maliyet ${sum(o['maliyet'] for o in olcum):.4f} (bu koşuda yeni çağrı {sum(o['yeni'] for o in olcum)})",
              "Kollar: " + " ; ".join(f"{x['ad']}{' (temel)' if x['temel'] else ''}: {' · '.join(x['rapor']) or 'düz'}" for x in kollar) + f" · gürültü (temel 1-2 kalite farkı ort.) {gurultu:.2f}",
+             *(["mcp çağrı: " + " · ".join(f"{a} {n}" for a, n in mcp.items())] if any(k.get("mcp") for k in kollar) else []),
              "", "## Kol ortalamaları", "Karar sıcak (2. koşu) maliyetiyle; soğuk (1. koşu) bilgi.", "",
              "| kol | başarı | kalite 0-3 | çıktı | girdi | süre sn | soğuk $ | sıcak $ |", "|---|---|---|---|---|---|---|---|"]
     satir += [f"| {kol} | {v['basari']:.2f} | {v['kalite']:.2f} | {v['cikti']:.0f} | {v['girdi']:.0f} | {v['sure']:.1f} | {v['soguk']:.4f} | {v['sicak']:.4f} |" for kol, v in ort.items()]

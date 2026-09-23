@@ -223,9 +223,68 @@ def test_compress_komut_hedefe_dokunursa_red(ortam, kok, tmp_path):
 def test_caveman_onay_kuru_hicbir_sey_kosmaz(ortam, kok, capsys):
     b = kok / "docs" / "kurulumlar" / "bekleyen"
     b.mkdir(parents=True)
-    shutil.copy2(REPO / "docs" / "kurulumlar" / "bekleyen" / "caveman.md", b / "caveman.md")
+    shutil.copy2(Path(__file__).parent / "fixture" / "caveman-bekleyen.md", b / "caveman.md")  # 20b: gerçek bekleyen kurulumla tüketildi
     k = KKos()
     assert main(["onay", "caveman", "--kuru"], env=ortam, kos=k) == 0
     out = capsys.readouterr().out
     assert k.cagri == [] and (b / "caveman.md").is_file()
     assert "KURU caveman" in out and "npm.cmd i -g @caveman-ai/cli" in out and "caveman telemetry off" in out and "npm.cmd rm -g @caveman-ai/cli" in out
+
+
+class MKos(GKos):
+    """20b-devam: claude -p yanıtı session_id taşır; KOL b'nin transkriptine `cagri` kadar mcp__caveman__ araç çağrısı yazılır."""
+
+    def __init__(self, ev, cagri, **k):
+        super().__init__({"a": (0.3, 0.02), "b": (0.3, 0.02)}, **k)
+        self.ev, self.mcp, self.n = ev, cagri, 0
+
+    def __call__(self, args, timeout=None, env=None):
+        rc, out, err = super().__call__(args, timeout, env)
+        if out and "-p" in [str(a) for a in args]:
+            self.n += 1
+            j = {**json.loads(out), "session_id": f"s{self.n}"}
+            t = self.ev / ".claude" / "projects" / "C--p" / f"s{self.n}.jsonl"
+            t.parent.mkdir(parents=True, exist_ok=True)
+            adlar = ["Read"] + (["mcp__caveman__retrieve"] * self.mcp if env["KOL"] == "b" else []) + ["mcp__headroom__headroom_retrieve"]
+            t.write_text("\n".join(json.dumps({"type": "assistant", "message": {"content": [{"type": "tool_use", "name": a}]}}) for a in adlar) + "\n", encoding="utf-8")
+            out = json.dumps(j).encode()
+        return rc, out, err
+
+
+def _mcp_deneme(kok):
+    (kok / "cm.json").write_text(json.dumps({"mcpServers": {"caveman": {"command": "caveman-mcp"}}}), encoding="utf-8")
+    deneme(kok, ["a: temel · env KOL=a", "b: env KOL=b · mcp cm.json"], esik="girdi token −%20")
+
+
+def test_mcp_kolu_config_ve_arac_izni_yalniz_o_kolda(ortam, kok, tmp_path):
+    _mcp_deneme(kok)
+    k = MKos(tmp_path / "ev", 2)
+    assert main(["dene", "d"], env={**ortam, "VIDEO_EV": str(tmp_path / "ev")}, kos=k, gonder=SJev()) == 0
+    for a, e in k.claude():
+        if e["KOL"] == "b":
+            assert a[a.index("--mcp-config") + 1] == str(kok / "cm.json")
+            assert a[a.index("--allowedTools") + 1] == "Read,Grep,mcp__caveman"
+        else:
+            assert "--mcp-config" not in a and a[a.index("--allowedTools") + 1] == "Read,Grep"
+    s = (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
+    assert "mcp çağrı: a 0 · b 8" in s  # 2 görev × 2 koşu × 2 çağrı; başka sunucunun çağrısı sayılmaz
+    assert "devreye girmedi" not in s
+
+
+def test_mcp_cagrisi_0_ise_karar_yok(ortam, kok, tmp_path):
+    _mcp_deneme(kok)
+    k = MKos(tmp_path / "ev", 0)
+    assert main(["dene", "d"], env={**ortam, "VIDEO_EV": str(tmp_path / "ev")}, kos=k, gonder=SJev()) == 0
+    s = (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
+    assert "b: KARAR YOK: sıkıştırma devreye girmedi (mcp çağrısı 0)" in s
+    assert kayit(kok)[-1]["karar"].startswith("KARAR YOK")
+
+
+def test_mcp_cagri_sayisi_onbellekten_de_gelir(ortam, kok, tmp_path):
+    _mcp_deneme(kok)
+    env = {**ortam, "VIDEO_EV": str(tmp_path / "ev")}
+    assert main(["dene", "d"], env=env, kos=MKos(tmp_path / "ev", 1), gonder=SJev()) == 0
+    shutil.rmtree(tmp_path / "ev")
+    k = MKos(tmp_path / "ev2", 0)
+    assert main(["dene", "d"], env=env, kos=k, gonder=SJev()) == 0 and not k.claude()
+    assert "mcp çağrı: a 0 · b 4" in (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
