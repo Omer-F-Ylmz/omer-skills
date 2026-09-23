@@ -263,3 +263,89 @@ def test_toplu_denetimden_gecmeyen_rapor_kayda_yazilmaz(ortam, dizin, capsys):
     ids = [json.loads(x)["id"] for x in (dizin / "kayit.jsonl").read_text(encoding="utf-8").splitlines()]
     assert ids == [VID]
     assert "abcdefghijk" in capsys.readouterr().out
+
+
+# --- 12f: ipucu/iş akışı adaylar kural kaynaklarıyla karşılaştırılır ---
+
+KURAL_METNI = "# Kurallar\n\n- Yeterli bilgi varsa harekete geç, soru sorma.\n- Commit mesajları Türkçe yazılır.\n"
+
+
+class KuralJev(Jev):
+    """Aşama 1 (choice): state'te 'harekete' varsa kural satırı, yoksa hiçbiri · aşama 2 (noul): 0.99 · tarama: çift 0.1 risk 1."""
+    def __call__(self, url, basliklar, veri):
+        g = json.loads(veri)
+        self.istek.append(g)
+        q = g["questions"]
+        if "cift" in q:
+            cv = {"cift": {"type": "noul", "noul": 0.1}, "risk": {"type": "score", "score": 1}}
+        elif all(k.startswith("d") for k in q):
+            cv = {k: {"type": "choice", "choice": "?", "probabilities":
+                      ({a: 0.97 for a in v["criteria"] if a.endswith(":3")} if "harekete" in g["state"] else {"hiçbiri": 0.97})}
+                  for k, v in q.items()}
+        else:
+            cv = {k: {"type": "noul", "noul": 0.99} for k in q}
+        return 200, {}, json.dumps({"answers": cv}).encode()
+
+
+def kural_ortam(ortam, dizin, tmp_path):
+    k = tmp_path / "kurallar" / "kurallar.md"
+    k.parent.mkdir()
+    k.write_text(KURAL_METNI, encoding="utf-8")
+    ortam["VIDEO_KURALLAR"] = str(k)
+    ortam["VIDEO_EV"] = str(dizin / "ev")
+    return k
+
+
+def aday_raporu(dizin, vid, ad, tur):
+    y = dizin / f"2026-09-23-{vid}.md"
+    y.write_text(rapor(tur=tur).replace("| graphify | graphify 1.00", f"| {ad} | yok").replace(VID, vid), encoding="utf-8")
+    return y
+
+
+def kural_istekleri(jev):
+    return [g for g in jev.istek if "cift" not in g["questions"]]
+
+
+def test_kuralda_olan_ipucu_cift_ve_kural_kisaltmasi(ortam, dizin, tmp_path, capsys):
+    kural_ortam(ortam, dizin, tmp_path)
+    r = aday_raporu(dizin, VID, "Yeterli bilgide harekete geçirme", "ipucu")
+    jev = KuralJev()
+    assert main(["toplu", str(r)], env=ortam, kos=Kos(), gonder=jev) == 0
+    out = capsys.readouterr().out
+    assert "ÇİFT (kural: kurallar/kurallar.md:3)" in out
+    assert "ÇİFT (kural: kurallar/kurallar.md:3)" in next(dizin.glob("*-toplu.md")).read_text(encoding="utf-8")
+    assert len(kural_istekleri(jev)) <= 2
+
+
+def test_kuralda_olmayan_ipucu_onceki_isaret_korunur(ortam, dizin, tmp_path, capsys):
+    kural_ortam(ortam, dizin, tmp_path)
+    r = aday_raporu(dizin, VID, "Bağlamı (neden) verme", "iş akışı")
+    jev = KuralJev()
+    assert main(["toplu", str(r)], env=ortam, kos=Kos(), gonder=jev) == 0
+    out = capsys.readouterr().out
+    assert "[UYGULA]" in out and "kural:" not in out
+    assert 1 <= len(kural_istekleri(jev)) <= 2
+
+
+def test_arac_turu_kural_karsilastirmasina_girmez(ortam, dizin, tmp_path, capsys):
+    kural_ortam(ortam, dizin, tmp_path)
+    r = aday_raporu(dizin, VID, "harekete geç aracı", "CLI")
+    jev = KuralJev()
+    assert main(["toplu", str(r)], env=ortam, kos=Kos(), gonder=jev) == 0
+    assert kural_istekleri(jev) == [] and "kural:" not in capsys.readouterr().out
+
+
+def test_kural_onbellegi_mtime_ile_yenilenir(ortam, dizin, tmp_path, capsys):
+    import os
+    k = kural_ortam(ortam, dizin, tmp_path)
+    assert main(["kurallar"], env=ortam) == 0
+    assert "2 kural" in capsys.readouterr().out
+    mt = k.stat().st_mtime_ns
+    k.write_text(KURAL_METNI + "- Üçüncü kural burada.\n", encoding="utf-8")
+    os.utime(k, ns=(mt, mt))  # mtime aynı: önbellek kullanılır
+    assert main(["kurallar"], env=ortam) == 0
+    assert "2 kural" in capsys.readouterr().out
+    os.utime(k, ns=(mt + 10**9, mt + 10**9))
+    assert main(["kurallar"], env=ortam) == 0
+    out = capsys.readouterr().out
+    assert "3 kural" in out and "kurallar/kurallar.md" in out
