@@ -122,7 +122,7 @@ def test_uret_mit_kaynak_md_ve_dene(ortam, kok, capsys):
     k = KKos()
     assert main(["uret", "u"], env=ortam, kos=k, gonder=SJev()) == 0
     assert "MIT" in (kok / "skills" / "u" / "KAYNAK.md").read_text(encoding="utf-8")
-    assert len(k.claude()) == 6  # 2 görev × (A 2 + B 1)
+    assert len(k.claude()) == 8  # 2 görev × 2 kol × 2 koşu (20a)
     assert "## Talimat\nskills/u/SKILL.md" in (kok / "docs" / "denemeler" / "u.md").read_text(encoding="utf-8")
     b = [c for c in k.claude() if "--append-system-prompt" in c]
     assert b and all("name: u" not in c[-1] and "Hitap yok" in c[-1] for c in b)  # frontmatter B'ye gitmez
@@ -201,4 +201,4 @@ def test_onbellekteki_sonuc_yeniden_cagrilmaz(ortam, kok):
     (kok / "docs" / "denemeler" / "deneme-talimat.md").write_text("BAŞKA", encoding="utf-8")
     k = KKos()
     assert main(["dene", "deneme"], env=ortam, kos=k, gonder=SJev()) == 0
-    assert len(k.claude()) == 3 and all("--append-system-prompt" in c for c in k.claude())  # yalnız B: talimat hash'i değişti
+    assert len(k.claude()) == 6 and all("--append-system-prompt" in c for c in k.claude())  # yalnız B (3 görev × 2 koşu): talimat hash'i değişti
