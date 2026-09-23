@@ -15,6 +15,7 @@ from pathlib import Path
 from jev import cekirdek as c
 from jev import skill as sk
 
+from . import departman as dp
 from . import kur
 from . import metin as m
 from . import ogren as og
@@ -693,6 +694,9 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--bayat", action="store_true", help="yalnız bayatlamış (yeniden doğrula)")
     x = alt.add_parser("brief", help="uygula raporu → Desktop ikinci görüş girdisi ≤60 satır: özellik kararları · iddialar · linkler")
     x.add_argument("rapor")
+    x = alt.add_parser("departman", help="19: aktif skill/plugin/MCP/köprü CLI → Jev choice → docs/departmanlar/ (elle.json kazanır, hash önbellek)")
+    x.add_argument("--yeniden", action="store_true", help="önbelleği yok say (elle.json yine kazanır)")
+    x.add_argument("--istek-tavan", type=int, default=450, metavar="M", help="en fazla M Jev isteği")
     alt.add_parser("projeler", help="docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır özet (mtime'la yenilenir)")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
@@ -702,7 +706,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
-                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief}[ns.komut](ns, ctx)
+                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

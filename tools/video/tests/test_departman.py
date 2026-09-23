@@ -151,7 +151,7 @@ def test_repodaki_mudur_skilleri_sinirda():
     assert REPO / "skills" / "departman-frontend" / "SKILL.md" in yollar
     assert {y.parent.name for y in yollar} >= {"departman-frontend", "departman-test-qa", "departman-guvenlik"}
     assert all(dp.mudur_denetle(y) == [] for y in yollar), {y.parent.name: dp.mudur_denetle(y) for y in yollar}
-    fe = (REPO / "skills" / "departman-frontend" / "SKILL.md").read_text(encoding="utf-8")
+    fe = (REPO / "skills" / "departman-frontend" / "SKILL.md").read_text(encoding="utf-8").split("## Adımlar", 1)[1]
     assert fe.index("DESIGN.md") < fe.index("frontend-craft") < fe.index("axe")  # ana hat sırası
     assert "departman-test-qa" in fe and "departman-guvenlik" in fe
 

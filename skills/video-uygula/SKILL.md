@@ -56,7 +56,8 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 - Token etiketli özellik varsayılan DENE (deneme dosyasında token metriği zorunlu). RED yalnız kanıtla: `ölçüm:` var olan docs/denemeler/*-sonuc.md · `zaten var:` katalog/durum.md adı ya da var olan dosya · `güvenlik:`/`lisans:` aday dosyasındaki bulgu. Kanıt yoksa DENE + "K4: kanıt bulunamadı".
 - Lisans: izinli liste yalnız T1 (repoya kopyalama). T2'de kaynak-erişilebilir (BSL-1.1, FSL, Elastic-2.0) RED değil, lisans notu. `telemetri: açık` ise `## Telemetri kapatma` yoksa biçim hatası.
 - İddia sınama: aday.md `## İddia sınama` (iddia · kaynak · sonuç · not · kart); kaynaksız sonuç → doğrulanamadı; abartılı/yanlış + kart → bilgi/<kart>.md'ye not. Rapora İDDİA SINAMA tablosu + boş `## Desktop ikinci görüş`.
-- `video brief <rapor>` ≤60 satır (özellik kararları · iddialar · linkler); köprüde açık, Desktop ikinci görüşü buradan okur.
+- `video brief <rapor>` ≤60 satır (özellik kararları · departman · iddialar · linkler); köprüde açık, Desktop ikinci görüşü buradan okur.
+- Departman (19): KUR/UYARLA olan yeni araç tek Jev choice ile 10 departmandan birine → kayıt `departman:`, docs/departmanlar/envanter.json (`kaynak: katman`) + katalog, rapor DEPARTMAN bölümü; elle.json kazanır. Tüm envanter: `video departman [--yeniden] [--istek-tavan 450]`.
 
 ## Skill fabrikası (18, yalnız CC; köprüde yok)
 - `video uret <ad>` girdisi docs/uyarlamalar/<ad>.md: `arac: talimat|skill` · `token_tavani` (yoksa 200) · `aday` · `ozellik` · `kaynak_metin` · `lisans`; bölümler Fikir · Kapsam · Alınmayacaklar · Başarı eşiği. Her yanıta etki eden davranış skill değil talimattır.
@@ -75,4 +76,4 @@ Bölümler: Ne · Kanıt · Kurulum · İzinler · Duman testi · Geri alma · K
 
 ## Tavanlar
 
-Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1); dene/uret ≤30. claude -p: dene/uret ≤18 (görev × A 2 + B 1, tavan aşılırsa hiç koşmaz). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.
+Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1, +departman 1); departman ≤450 (hash önbellek); dene/uret ≤30. claude -p: dene/uret ≤18 (görev × A 2 + B 1, tavan aşılırsa hiç koşmaz). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.

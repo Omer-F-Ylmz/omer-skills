@@ -1,0 +1,3755 @@
+[
+ {
+  "ad": "graphify",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "f007d0d5da22f50d",
+  "departman": "arastirma-ogrenme",
+  "p": 0.74,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "video",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "152d7cac730e08f2",
+  "departman": "arastirma-ogrenme",
+  "p": 0.45,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "brave-search",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "0472fc6719710c79",
+  "departman": "arastirma-ogrenme",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "context7",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "5331876cb47b28a2",
+  "departman": "arastirma-ogrenme",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "mcp-fetch",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "c0e03584d989357c",
+  "departman": "arastirma-ogrenme",
+  "p": 0.77,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "mslearn",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "e969f3cdc6aa7526",
+  "departman": "arastirma-ogrenme",
+  "p": 0.44,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-reach",
+  "tur": "skill",
+  "aciklama": "Fetch internet content with local CLI tools - read any web page (Jina Reader), YouTube metadata/subtitles (yt-dlp), RSS/Atom feeds (feedparser), GitHub repos/code/issues (gh), and semantic web search ",
+  "hash": "478a6b6119499a9e",
+  "departman": "arastirma-ogrenme",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:source-driven-development",
+  "tur": "skill",
+  "aciklama": "Grounds every implementation decision in official documentation. Use when you want to verify an approach against the official docs before implementing it, or when you want authoritative, source-cited ",
+  "hash": "61de9dd401d47e07",
+  "departman": "arastirma-ogrenme",
+  "p": 0.71,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:academy-guide",
+  "tur": "skill",
+  "aciklama": "Stop and check this skill before finishing any reply to a question about how to use Claude or a Claude product — it recommends matching courses, tutorials, and use cases from Claude Academy…",
+  "hash": "4d90b7dc47f58173",
+  "departman": "arastirma-ogrenme",
+  "p": 0.72,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:context7-mcp",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks about libraries, frameworks, API references, or needs code examples.",
+  "hash": "f837d60731aaef70",
+  "departman": "arastirma-ogrenme",
+  "p": 0.78,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:find-docs",
+  "tur": "skill",
+  "aciklama": "Retrieves up-to-date documentation, API references, and code examples for any developer technology. Use this skill whenever the user asks about a specific library, framework, SDK, CLI tool, or cloud…",
+  "hash": "7c62ad639c22cde1",
+  "departman": "arastirma-ogrenme",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:ux-research",
+  "tur": "skill",
+  "aciklama": "UX Research strategist for evidence-based product decisions. Activates when planning research, preparing user interviews, synthesizing findings, or generating design specs from insights.",
+  "hash": "1d6ca6fd1cfdbfeb",
+  "departman": "arastirma-ogrenme",
+  "p": 0.5,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:video-izle",
+  "tur": "skill",
+  "aciklama": "YouTube videosunu kademeli izler: altyazı özeti → Jev ile süzme/soru → yalnız gereken anların karesi. CC'de PATH'te, Desktop'ta cc-kopru komut ile; claude.ai sandbox'ında koşmaz.",
+  "hash": "f1f35d2b4c04cd65",
+  "departman": "arastirma-ogrenme",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:video-tarama",
+  "tur": "skill",
+  "aciklama": "1-8 YouTube linkini toplu tarar: link başına alt ajan segmentleri okur, aday raporu yazar; adaylar tekillenip işaretlenir, eleme yok. /video-tarama url... Toplu tarama yalnız CC'de.",
+  "hash": "90078bf52103921e",
+  "departman": "arastirma-ogrenme",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:video-uygula",
+  "tur": "skill",
+  "aciklama": "Video linklerinden işe yarayanı risk katmanıyla uygular: kural ve yalnız-md skill otomatik, çalıştırılabilir her şey ONAY bekler. /video-uygula url... [--tarama-atla]. Yalnız CC'de.",
+  "hash": "db4ab3b3b328cd85",
+  "departman": "arastirma-ogrenme",
+  "p": 0.49,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:learn-codebase",
+  "tur": "skill",
+  "aciklama": "Prime a codebase by reading every source file in full. Use when starting work on a new or unfamiliar project, or when the user asks to \"learn the codebase\", \"read the codebase\", \"prime\", or \"get up to",
+  "hash": "ebe739bbaa0f1095",
+  "departman": "arastirma-ogrenme",
+  "p": 0.44,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "open-gstack-browser",
+  "tur": "skill",
+  "aciklama": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in.",
+  "hash": "7ca09e332561d3f0",
+  "departman": "arastirma-ogrenme",
+  "p": 0.6,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-docs-research:notebooklm",
+  "tur": "skill",
+  "aciklama": "Use this skill to query your Google NotebookLM notebooks directly from Claude Code for source-grounded, citation-backed answers from Gemini. Browser automation, library management, persistent auth. Dr",
+  "hash": "960e2bdab0a52ffc",
+  "departman": "arastirma-ogrenme",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-docs-research:phoenix-research-pipeline",
+  "tur": "skill",
+  "aciklama": "Automated research pipeline for Phoenix Security: searches YouTube (yt-dlp), web (Brave API + Scrapling fallback), and Reddit for trending content on any security topic, then pushes curated results in",
+  "hash": "db9bfb7e16ad8d04",
+  "departman": "arastirma-ogrenme",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "scrape",
+  "tur": "skill",
+  "aciklama": "Pull data from a web page through the Aside browser — your real, already signed-in sessions. (gstack)",
+  "hash": "319035a70ef37739",
+  "departman": "arastirma-ogrenme",
+  "p": 0.84,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "3831fff4af76125e",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "csharp-lsp",
+  "tur": "plugin",
+  "aciklama": "",
+  "hash": "b6399c7a6c44db12",
+  "departman": "backend-dotnet",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-aspnetcore",
+  "tur": "plugin",
+  "aciklama": "ASP.NET Core web development skills including middleware, endpoints, real-time communication, and API patterns.",
+  "hash": "957c73673f938ff0",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild",
+  "tur": "plugin",
+  "aciklama": "Comprehensive MSBuild and .NET build skills: failure diagnosis, performance optimization, code quality, and modernization.",
+  "hash": "7a8d1f6f04862596",
+  "departman": "backend-dotnet",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-nuget",
+  "tur": "plugin",
+  "aciklama": "NuGet and .NET package management skills: dependency management and modernization.",
+  "hash": "26e4109db14f631d",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:api-and-interface-design",
+  "tur": "skill",
+  "aciklama": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or es",
+  "hash": "4a42220b5376deb1",
+  "departman": "backend-dotnet",
+  "p": 0.8,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:observability-and-instrumentation",
+  "tur": "skill",
+  "aciklama": "Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production and you need evidence ",
+  "hash": "dd4ea46eaa104c81",
+  "departman": "backend-dotnet",
+  "p": 0.31,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-aspnetcore:configuring-opentelemetry-dotnet",
+  "tur": "skill",
+  "aciklama": "Configure OpenTelemetry distributed tracing, metrics, and logging in ASP.NET Core using the .NET OpenTelemetry SDK. Use when adding observability, setting up OTLP exporters, creating custom metrics/sp",
+  "hash": "c77f72f9d3abe61e",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-aspnetcore:convert-blazor-server-to-webapp",
+  "tur": "skill",
+  "aciklama": "Guides conversion of a pre-.NET 8 Blazor Server app into a .NET 8+ Blazor Web App. USE FOR: migrating apps that use AddServerSideBlazor and MapBlazorHub to the AddRazorComponents/MapRazorComponents mo",
+  "hash": "070ec594976cda5b",
+  "departman": "backend-dotnet",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-aspnetcore:dotnet-webapi",
+  "tur": "skill",
+  "aciklama": "Guides creation and modification of ASP.NET Core Web API endpoints with correct HTTP semantics, OpenAPI metadata, and error handling. USE FOR: adding new API endpoints (controllers or minimal APIs), w",
+  "hash": "5e1e2f96b0bffdb8",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-aspnetcore:minimal-api-file-upload",
+  "tur": "skill",
+  "aciklama": "File upload endpoints in ASP.NET minimal APIs (.NET 8+)",
+  "hash": "3a0962d54111ac57",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-data:create-datadriven-aspnetcore",
+  "tur": "skill",
+  "aciklama": "Generate or scaffold ASP.NET Core code — Razor Pages, Blazor components, MVC controllers, views, and Minimal API endpoints — without using ASP.NET Core CLI scaffolding/code-generation tools. Use when ",
+  "hash": "fb238bb5e6176908",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:binlog-failure-analysis",
+  "tur": "skill",
+  "aciklama": "Analyze MSBuild binary logs to diagnose build failures. USE FOR: build errors that are unclear from console output, diagnosing cascading failures across multi-project builds, tracing MSBuild target ex",
+  "hash": "b8e0302853229561",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:binlog-generation",
+  "tur": "skill",
+  "aciklama": "Generate MSBuild binary logs (binlogs) for build diagnostics and analysis. USE FOR: adding /bl:{} to any dotnet build, test, pack, publish, or restore command to capture a full build execution trace, ",
+  "hash": "4e34bcc90fbbe9ef",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:build-parallelism",
+  "tur": "skill",
+  "aciklama": "Diagnose and fix under-parallelized MSBuild builds. USE WHEN a multi-project solution build is slower than expected, doesn't speed up when you add cores, pegs a single core while others idle, or you w",
+  "hash": "6a20312b7f4a5d97",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:build-perf-baseline",
+  "tur": "skill",
+  "aciklama": "Establish build performance baselines and apply systematic optimization techniques. USE FOR: diagnosing slow builds, establishing before/after measurements (cold, warm, no-op scenarios), applying opti",
+  "hash": "11bdaec75dede0b4",
+  "departman": "backend-dotnet",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:build-perf-diagnostics",
+  "tur": "skill",
+  "aciklama": "Diagnose MSBuild build performance bottlenecks using binary log analysis. USE FOR: identifying why builds are slow by analyzing binlog performance summaries, detecting ResolveAssemblyReference (RAR) t",
+  "hash": "cfcb7dd215661944",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:check-bin-obj-clash",
+  "tur": "skill",
+  "aciklama": "Detects MSBuild projects with conflicting OutputPath or IntermediateOutputPath. USE FOR: builds failing with 'Cannot create a file when that file already exists', 'The process cannot access the file b",
+  "hash": "dcafd67f4b339f14",
+  "departman": "backend-dotnet",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:copy-to-output-directory",
+  "tur": "skill",
+  "aciklama": "Choosing an MSBuild CopyToOutputDirectory / CopyToPublishDirectory mode: Never, PreserveNewest, Always, and IfDifferent (MSBuild 17.13+), plus $(SkipUnchangedFilesOnCopyAlways). USE FOR: removing the ",
+  "hash": "9cd2c95702e84ee8",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:directory-build-organization",
+  "tur": "skill",
+  "aciklama": "Guide for organizing MSBuild infrastructure with Directory.Build.props, Directory.Build.targets, Directory.Packages.props, and Directory.Build.rsp. USE FOR: structuring multi-project repos, centralizi",
+  "hash": "9ab65396501fa069",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:eval-performance",
+  "tur": "skill",
+  "aciklama": "Guide for diagnosing and improving MSBuild project evaluation performance. USE FOR: builds slow before any compilation starts, high evaluation time in binlog analysis, expensive glob patterns walking ",
+  "hash": "b24afabff0396cf8",
+  "departman": "backend-dotnet",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:extension-points",
+  "tur": "skill",
+  "aciklama": "Guide for MSBuild extensibility: CustomBefore/CustomAfter hooks, wildcard imports with alphabetic ordering, import gating with control properties, NuGet package build extension layout (build/buildTran",
+  "hash": "f0eed7ba7b22de71",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:including-generated-files",
+  "tur": "skill",
+  "aciklama": "Fix MSBuild targets that generate files during the build but those files are missing from compilation or output. USE FOR: generated source files not compiling (CS0246 for a type that should exist), cu",
+  "hash": "3656f5d6120e45aa",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:incremental-build",
+  "tur": "skill",
+  "aciklama": "Guide for optimizing MSBuild incremental builds. USE FOR: builds slower than expected on subsequent runs, 'nothing changed but it rebuilds anyway', diagnosing why targets re-execute unnecessarily, fix",
+  "hash": "9a0f3c20e95b2916",
+  "departman": "backend-dotnet",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:item-management",
+  "tur": "skill",
+  "aciklama": "Patterns for managing MSBuild item groups: Include/Remove/Update semantics, item metadata, batching with %(Metadata), transforms, per-item filtering, and cross-product batching pitfalls. USE FOR: diag",
+  "hash": "a28e1968a00891d4",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:msbuild-antipatterns",
+  "tur": "skill",
+  "aciklama": "Detect and fix MSBuild anti-patterns in project and build files. USE WHEN asked to review, audit, lint, clean up, or code-review a .csproj/.vbproj/.fsproj/.props/.targets/.proj (or Directory.Build.pro",
+  "hash": "94658ebe0087ed20",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:msbuild-modernization",
+  "tur": "skill",
+  "aciklama": "Guide for modernizing and migrating MSBuild project files to SDK-style format. USE FOR: converting legacy .csproj/.vbproj with verbose XML to SDK-style, migrating packages.config to PackageReference, ",
+  "hash": "992f706dc3d38630",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:property-patterns",
+  "tur": "skill",
+  "aciklama": "MSBuild property definition patterns: conditional defaults, composition/concatenation, path normalization, trailing-slash handling, TFM detection helpers, and evaluation order. USE FOR: diagnosing and",
+  "hash": "0b1c46300a456170",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:resolve-project-references",
+  "tur": "skill",
+  "aciklama": "Guide for interpreting ResolveProjectReferences time in MSBuild performance summaries. Activate when ResolveProjectReferences appears as the most expensive target and developers are trying to optimize",
+  "hash": "e3fa310f6506545c",
+  "departman": "backend-dotnet",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-msbuild:target-authoring",
+  "tur": "skill",
+  "aciklama": "Canonical patterns for writing custom MSBuild targets. USE FOR: diagnosing and fixing custom target authoring anti-patterns; broken SDK target chains across files (e.g., Directory.Build.targets silent",
+  "hash": "50b7f092feec7f99",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-nuget:convert-to-cpm",
+  "tur": "skill",
+  "aciklama": "Convert .NET projects and solutions (.sln, .slnx) to NuGet Central Package Management (CPM) using Directory.Packages.props. USE FOR: converting to CPM, centralizing or aligning NuGet package versions ",
+  "hash": "76c5d877ef17884d",
+  "departman": "backend-dotnet",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:crap-score",
+  "tur": "skill",
+  "aciklama": "Calculates CRAP (Change Risk Anti-Patterns) for a named .NET method, class, or file. USE FOR: explicit CRAP calculation or coverage-and-complexity risk within that named target, including which tests ",
+  "hash": "5d0bbb560cc186cb",
+  "departman": "backend-dotnet",
+  "p": 0.55,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:detect-static-dependencies",
+  "tur": "skill",
+  "aciklama": "Scan C# source files for hard-to-test static dependencies — DateTime.Now/UtcNow, File.*, Directory.*, Environment.*, HttpClient, Console.*, Process.*, and other untestable statics. Produces a ranked r",
+  "hash": "d8993a95925cef8d",
+  "departman": "backend-dotnet",
+  "p": 0.52,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:migrate-static-to-wrapper",
+  "tur": "skill",
+  "aciklama": "ALWAYS USE when asked to migrate, replace, or make testable existing C# static calls with a named wrapper or built-in abstraction: DateTime.UtcNow/Now or DateTimeOffset.UtcNow to TimeProvider/IClock, ",
+  "hash": "00eefa6efbf4b3bd",
+  "departman": "backend-dotnet",
+  "p": 0.83,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:mtp-hot-reload",
+  "tur": "skill",
+  "aciklama": "Set up or recover MTP hot reload for a long-lived edit/re-run loop. Use for \"hot reload tests\", \"dotnet run or dotnet test for hot reload\", a host that keeps running, unsupported/rude edits, or a watc",
+  "hash": "ed69fcac81d48f1a",
+  "departman": "backend-dotnet",
+  "p": 0.78,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:platform-detection",
+  "tur": "skill",
+  "aciklama": "Identify a .NET project's test platform, framework, command mode, and SDK-style vs classic project system. Use only for \"which test platform/framework?\", \"VSTest or MTP?\", or \"what runner does this pr",
+  "hash": "d0985d4dd999f3db",
+  "departman": "backend-dotnet",
+  "p": 0.61,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:scaffold-dotnet-test-project",
+  "tur": "skill",
+  "aciklama": "MUST USE when an existing .NET test project was excluded from a .slnf/CI solution filter, disappeared from .sln/.slnx discovery, or lost its production ProjectReference; also for requests to set up, c",
+  "hash": "cf7bfaad429c713d",
+  "departman": "backend-dotnet",
+  "p": 0.69,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:backend-patterns",
+  "tur": "skill",
+  "aciklama": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
+  "hash": "56d93140f18ae538",
+  "departman": "backend-dotnet",
+  "p": 0.68,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "humanizer",
+  "tur": "plugin",
+  "aciklama": "Rewrite AI-sounding text so it reads naturally without changing what it says.",
+  "hash": "de80f8465aad54b7",
+  "departman": "belge",
+  "p": 0.86,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-docs-research",
+  "tur": "plugin",
+  "aciklama": "Documentation and research tooling. project-documenter generates and self-heals a full documentation pack across 6 modes. notebooklm queries Google NotebookLM for citation-backed, source-grounded answ",
+  "hash": "6b68d9dfcee4fb88",
+  "departman": "belge",
+  "p": 0.85,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:documentation-and-adrs",
+  "tur": "skill",
+  "aciklama": "Records decisions and documentation. Use when you need to document an architecture decision (ADR) or the reasoning behind a design choice, when changing public APIs, shipping features, or when you nee",
+  "hash": "46e8e7f311f474ad",
+  "departman": "belge",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:humanizer",
+  "tur": "skill",
+  "aciklama": "Rewrite AI-sounding text so it reads like the writer, without changing meaning. Use for prose with AI tells: forced contrasts, staged openers, stock words, bold labels, filler.",
+  "hash": "121a05ccc85ab515",
+  "departman": "belge",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:writing-guidelines",
+  "tur": "skill",
+  "aciklama": "Review docs or prose for Writing Guidelines compliance. Use when asked to review my docs, check writing style, audit prose, or check a page against the writing handbook.",
+  "hash": "75404fdf6983bfb1",
+  "departman": "belge",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:timeline-report",
+  "tur": "skill",
+  "aciklama": "Generate a \"Journey Into [Project]\" narrative report analyzing a project's entire development history from claude-mem's timeline. Use when asked for a timeline report, project history analysis, develo",
+  "hash": "bb2b8eb85653c9c7",
+  "departman": "belge",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:weekly-digests",
+  "tur": "skill",
+  "aciklama": "Generate a serial week-by-week narrative digest of a project's full claude-mem timeline. Splits the timeline into per-ISO-week files, then runs one consecutive subagent per week — each receiving the p",
+  "hash": "29a2fc7f0c815690",
+  "departman": "belge",
+  "p": 0.59,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:wowerpoint",
+  "tur": "skill",
+  "aciklama": "Turn one document into a kawaii NotebookLM slide-deck PDF. Use for \"wowerpoint this\", \"make a deck about <file>\", \"turn this report into slides\", or any request to render a single document as shareabl",
+  "hash": "e6a71ef370c645a3",
+  "departman": "belge",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "diagram",
+  "tur": "skill",
+  "aciklama": "Turn an English description (or mermaid source) into a diagram triplet: the source, an editable .excalidraw file you can open on excalidraw.com, and rendered SVG + PNG. (gstack)",
+  "hash": "8956e9b1f2bad2a0",
+  "departman": "belge",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "document-generate",
+  "tur": "skill",
+  "aciklama": "Generate missing documentation from scratch for a feature, module, or entire project. (gstack)",
+  "hash": "5ae874cf84900c89",
+  "departman": "belge",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "document-release",
+  "tur": "skill",
+  "aciklama": "Post-ship documentation update. (gstack)",
+  "hash": "90273639cbdc505c",
+  "departman": "belge",
+  "p": 0.85,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:doc-coauthoring",
+  "tur": "skill",
+  "aciklama": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This wor",
+  "hash": "2fa6d2d0325c4cc9",
+  "departman": "belge",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:internal-comms",
+  "tur": "skill",
+  "aciklama": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal com",
+  "hash": "37f0b3cd710bac5f",
+  "departman": "belge",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "make-pdf",
+  "tur": "skill",
+  "aciklama": "Turn any markdown file into a publication-quality PDF. (gstack)",
+  "hash": "cc4523aab56d3cd0",
+  "departman": "belge",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-docs-research:project-documenter",
+  "tur": "skill",
+  "aciklama": "Generate production-grade documentation for any software project. Supports five modes: (0) Express — full pack in one run for new projects; (1) General — README, API docs, modules, changelog; (2) AI/L",
+  "hash": "7f5655a13dea8648",
+  "departman": "belge",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ffmpeg",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "cfadbc1b87f5aa6d",
+  "departman": "diger",
+  "p": 0.73,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "jev",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "3919c65b08df31b4",
+  "departman": "diger",
+  "p": 0.74,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "npx",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "911039551d14079c",
+  "departman": "diger",
+  "p": 0.61,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "python",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "27ecf4a6835cb2fd",
+  "departman": "diger",
+  "p": 0.54,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "jev",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "3919c65b08df31b4",
+  "departman": "diger",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ios-clean",
+  "tur": "skill",
+  "aciklama": "Remove the DebugBridge SPM package and all #if DEBUG wiring from an iOS app. (gstack)",
+  "hash": "0837844614c6317a",
+  "departman": "diger",
+  "p": 0.41,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "typesafe:typesafe-ai",
+  "tur": "skill",
+  "aciklama": "Build AI-powered software with TypeSafe: small units of AI intelligence you can use like programming primitives. Its System One models, including Jev, turn natural language and application state into ",
+  "hash": "797cbb8120b9b1e3",
+  "departman": "diger",
+  "p": 0.47,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "skill-ui",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "5de091cd754cf5cf",
+  "departman": "frontend",
+  "p": 0.52,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "21st",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "40912fe90cf2f3d1",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "claude-design",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "6964ab759dc96d3f",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "figma",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "a99a06e487d37d63",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "stitch",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "2d39724c39d1a18e",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "21st",
+  "tur": "plugin",
+  "aciklama": "Find UI components and themes, retrieve their code, and use hosted 21st AI when enabled.",
+  "hash": "aadde61aa2d64680",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "design-mastery",
+  "tur": "plugin",
+  "aciklama": "",
+  "hash": "fb62a7f05a8c3915",
+  "departman": "frontend",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "frontend-craft",
+  "tur": "plugin",
+  "aciklama": "Web UI design and implementation discipline: brand-identity decision, reference matching, a screenshot loop at three widths, anti-generic guardrails, and a11y/performance acceptance criteria. Load it ",
+  "hash": "bf0e9314cb708a5d",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "frontend-design",
+  "tur": "plugin",
+  "aciklama": "Frontend design skill for UI/UX implementation",
+  "hash": "1510086df48fa7c3",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "impeccable",
+  "tur": "plugin",
+  "aciklama": "Design fluency for frontend development. 1 skill with 23 commands (/impeccable polish, /impeccable audit, /impeccable critique, etc.) and curated anti-pattern detection.",
+  "hash": "e1f08ef3891d38ff",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "nano-banana-2",
+  "tur": "plugin",
+  "aciklama": "Image generation with Google Gemini Nano Banana 2 via MCP",
+  "hash": "6887d3096fa86ede",
+  "departman": "frontend",
+  "p": 0.72,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "nateherk-design",
+  "tur": "plugin",
+  "aciklama": "Design and build skills from Nate Herk. Ships scroll-craft: premium scroll-driven interactive landing pages, built on a full design floor (typography, spacing, colour, depth, motion, accessibility) ra",
+  "hash": "79c4ffbe2b759cd9",
+  "departman": "frontend",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill",
+  "tur": "plugin",
+  "aciklama": "Frontend design taste skills including brutalist, minimalist, soft, redesign, stitch, and more",
+  "hash": "4cd1dbefc1c76df9",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "21st:21st-ui",
+  "tur": "skill",
+  "aciklama": "Find, install, and generate UI with 21st.dev. Use when the user asks for a UI component (pricing table, hero, navbar, dashboard, form, etc.), wants design inspiration, needs a brand logo as an SVG com",
+  "hash": "20b92d6c1a619d7b",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:frontend-ui-engineering",
+  "tur": "skill",
+  "aciklama": "Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG accessibility requiremen",
+  "hash": "1bbbe7859d94b1b1",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:apple-design",
+  "tur": "skill",
+  "aciklama": "Cross-platform UI/UX reviewer grounded in Apple HIG plus design-craft lens. Use to audit or review iOS/macOS/Flutter/React Native/Tauri/Electron app design, HIG compliance, or accessibility.",
+  "hash": "73e4fcd1ba926f46",
+  "departman": "frontend",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:baseline-ui",
+  "tur": "skill",
+  "aciklama": "Quickly deslop UI code by fixing spacing, hierarchy, typography, and small layout issues. Use when the interface needs a fast cleanup or polish pass.",
+  "hash": "dadc6eda8b8da11e",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:create-design-md",
+  "tur": "skill",
+  "aciklama": "Create or update a DESIGN.md from an existing product repository or public website. Use when asked to document an interface's design language, reconstruct its visual system, extract design tokens…",
+  "hash": "891496fc37666b76",
+  "departman": "frontend",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:creative-coding",
+  "tur": "skill",
+  "aciklama": "Motion design and creative coding for web: scroll animation, WebGL/canvas, GSAP, Three.js, shaders, particles, custom cursors. Use for animated heroes or immersive interactive graphics.",
+  "hash": "103444a659c11cf1",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:design-auditor",
+  "tur": "skill",
+  "aciklama": "Audit a project design system from its CSS, Tailwind config, and HTML templates. Generates DESIGN.md, a Tailwind v4 theme or migration, and an accessibility report.",
+  "hash": "2adc82a3952e062d",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:design-dna",
+  "tur": "skill",
+  "aciklama": "Extract design DNA (tokens, style, visual effects like WebGL/3D/particles) from images/screenshots/URLs into structured JSON, or generate a design from a Design DNA JSON.",
+  "hash": "83d298a1fe8add90",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:design-extractor",
+  "tur": "skill",
+  "aciklama": "Extract a visual design system from a website URL and generate DESIGN.md, a Tailwind v4 theme, and an accessibility report. Requires Firecrawl CLI.",
+  "hash": "88461355fbc9b974",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:design-system",
+  "tur": "skill",
+  "aciklama": "Design system infrastructure: create, maintain, audit, and document design systems with shadcn/ui + Tailwind CSS 4 + Next.js.",
+  "hash": "8c85051d9242a9c2",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:figma-craft",
+  "tur": "skill",
+  "aciklama": "Craft de layout ao DESENHAR no Figma via MCP (code-to-design). Ativa sempre que a tarefa for criar, montar, editar, corrigir ou reorganizar qualquer coisa dentro de um arquivo Figma -- tela, frame…",
+  "hash": "e9319ac6af7e8bbc",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:fixing-accessibility",
+  "tur": "skill",
+  "aciklama": "Audit and fix HTML accessibility issues including ARIA labels, keyboard navigation, focus management, color contrast, and form errors.",
+  "hash": "61679be7c3d079f8",
+  "departman": "frontend",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:fixing-metadata",
+  "tur": "skill",
+  "aciklama": "Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tags, Twitter cards, favicons, JSON-LD structured data, and robots directives.",
+  "hash": "1c1263e9ec99ec03",
+  "departman": "frontend",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:fixing-motion-performance",
+  "tur": "skill",
+  "aciklama": "Audit and fix animation performance issues including layout thrashing, compositor properties, scroll-linked motion, and blur effects.",
+  "hash": "0d738e24ce32258a",
+  "departman": "frontend",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:improve-ui",
+  "tur": "skill",
+  "aciklama": "Audit an existing product surface against its own design evidence, identify verified UI problems, and write self-contained implementation plans for another agent. Strictly read-only on product source.",
+  "hash": "e5e13da5dd9e8aee",
+  "departman": "frontend",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:omer-kutuphaneler",
+  "tur": "skill",
+  "aciklama": "Ömer'in onayladığı frontend kütüphaneleri ve referans projeleri: hangi proje tipinde ne kullanılır, pinli kurulum satırı, lisans ve context7 kimliği. Kütüphane seçerken veya kurarken aç.",
+  "hash": "bb9aeba71e890259",
+  "departman": "frontend",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:taste",
+  "tur": "skill",
+  "aciklama": "Reverse-engineer a site design from a URL via screenshot+DOM into tokens and taste DNA (why it works). Use to extract a site design system, port an aesthetic, or study a competitor.",
+  "hash": "66938d8df6687ea7",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:ui-designer",
+  "tur": "skill",
+  "aciklama": "Expert visual design craft, UI systems, and pixel-perfect implementation. Activates when building, styling, reviewing, or polishing any interface -- websites, apps, dashboards, component libraries…",
+  "hash": "bdb1a97bc5b3f1b4",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:ui-skills-root",
+  "tur": "skill",
+  "aciklama": "Use before UI-related work to select the smallest useful UI Skills context through the ui-skills CLI.",
+  "hash": "c75c5535a0f30527",
+  "departman": "frontend",
+  "p": 0.76,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:ux-designer",
+  "tur": "skill",
+  "aciklama": "UX design thinking, user psychology, flow strategy. Use for user flows, wireframes, IA, usability, onboarding, conversion, friction, error handling on any user-facing interface or app.",
+  "hash": "3c2c80851720b5a5",
+  "departman": "frontend",
+  "p": 0.95,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:vercel-composition-patterns",
+  "tur": "skill",
+  "aciklama": "React composition patterns that scale. Use when refactoring boolean prop proliferation, building flexible component libraries, or designing reusable APIs (compound components, render props, context).",
+  "hash": "da6ee2a9371eb765",
+  "departman": "frontend",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:vercel-react-best-practices",
+  "tur": "skill",
+  "aciklama": "React/Next.js performance optimization guidelines from Vercel Engineering. Use when writing, reviewing, or refactoring components, data fetching, bundle size, or performance.",
+  "hash": "97d324ea5e698210",
+  "departman": "frontend",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:vercel-react-native-skills",
+  "tur": "skill",
+  "aciklama": "React Native and Expo best practices for performant mobile apps. Use for RN components, list performance, animations, or native module work with Expo or native platform APIs.",
+  "hash": "b6f2ee07f99e2fd9",
+  "departman": "frontend",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:vercel-react-view-transitions",
+  "tur": "skill",
+  "aciklama": "Guide for React View Transition API (ViewTransition, addTransitionType). Use for page transitions, route/shared-element animation, list reorder, or directional nav animation in Next.js.",
+  "hash": "70ac559b524f4f9e",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:web-design-guidelines",
+  "tur": "skill",
+  "aciklama": "Web Interface Guidelines uyumu icin UI kodunu gozden gecirir. \"arayuzumu incele\", \"erisilebilirlik kontrolu\", \"tasarim denetimi\" ya da \"siteyi en iyi uygulamalara gore kontrol et\" istendiginde kullan.",
+  "hash": "e9e225de02dee283",
+  "departman": "frontend",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:web-sahne-desenleri",
+  "tur": "skill",
+  "aciklama": "Awwwards seviyesi site desenleri: WebGL reveal, scroll'a bağlı 3D ürün pozu, helezon galeri, editoryal tipografi ve sahne kalite kapısı. Premium landing, portfolyo ya da 3D hero işinde aç.",
+  "hash": "488ed53805faccd5",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:design-is",
+  "tur": "skill",
+  "aciklama": "Audit a design against Dieter Rams' ten \"Good design is...\" principles, then hand off a /make-plan prompt for one of three outcomes — new design, refine design, or redesign. Use when the user says \"au",
+  "hash": "9632db913e3deed4",
+  "departman": "frontend",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-consultation",
+  "tur": "skill",
+  "aciklama": "Design consultation: understands your product, researches the landscape, proposes a complete design system (aesthetic, typography, color, layout, spacing, motion), and generates font+color preview... ",
+  "hash": "59ba756570770439",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-html",
+  "tur": "skill",
+  "aciklama": "Design finalization: generates production-quality Pretext-native HTML/CSS. (gstack)",
+  "hash": "c332997248da3398",
+  "departman": "frontend",
+  "p": 0.87,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-mastery:brand-systems",
+  "tur": "skill",
+  "aciklama": "Building comprehensive brand identity systems from strategy to implementation. Covers logo design, color palettes, typography pairing, voice guidelines, and system documentation. Use when creating new",
+  "hash": "fd61f2471ac47cc8",
+  "departman": "frontend",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-mastery:design-masters",
+  "tur": "skill",
+  "aciklama": "Deep knowledge of legendary designers and their enduring contributions. Learn from Saul Bass, Massimo Vignelli, Dieter Rams, Paula Scher, and others whose work defines excellence. Use when seeking ins",
+  "hash": "7968f5827cf36ccb",
+  "departman": "frontend",
+  "p": 0.79,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-mastery:design-movements",
+  "tur": "skill",
+  "aciklama": "Historical design movements and their enduring influence. Understand Bauhaus, Swiss International Style, Art Deco, Memphis, and more. Use when choosing an aesthetic direction, understanding cultural c",
+  "hash": "56c1ddd6913f5473",
+  "departman": "frontend",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-mastery:design-principles",
+  "tur": "skill",
+  "aciklama": "Core visual design principles that underpin all great design. Master gestalt psychology, visual hierarchy, composition, color theory, and typography fundamentals. Use when making design decisions or e",
+  "hash": "4472eb8552f33765",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-review",
+  "tur": "skill",
+  "aciklama": "Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions — then fixes them. (gstack)",
+  "hash": "65475a8358ba43d4",
+  "departman": "frontend",
+  "p": 0.58,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "design-shotgun",
+  "tur": "skill",
+  "aciklama": "Design shotgun: generate multiple AI design variants, open a comparison board, collect structured feedback, and iterate. (gstack)",
+  "hash": "215b0381b6054cc9",
+  "departman": "frontend",
+  "p": 0.95,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:frontend-patterns",
+  "tur": "skill",
+  "aciklama": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.",
+  "hash": "54eef034c02790ed",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:algorithmic-art",
+  "tur": "skill",
+  "aciklama": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or",
+  "hash": "ab2a17257e01fed6",
+  "departman": "frontend",
+  "p": 0.86,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:brand-guidelines",
+  "tur": "skill",
+  "aciklama": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting",
+  "hash": "713169aa7636e63d",
+  "departman": "frontend",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:canvas-design",
+  "tur": "skill",
+  "aciklama": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create ori",
+  "hash": "265c1af655ee2050",
+  "departman": "frontend",
+  "p": 0.9,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:frontend-design",
+  "tur": "skill",
+  "aciklama": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defau",
+  "hash": "8d345eecab34dcc3",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:slack-gif-creator",
+  "tur": "skill",
+  "aciklama": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a G",
+  "hash": "22ceaca8510b0a06",
+  "departman": "frontend",
+  "p": 0.49,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:theme-factory",
+  "tur": "skill",
+  "aciklama": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact t",
+  "hash": "eee4edfd46389ce5",
+  "departman": "frontend",
+  "p": 0.86,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:web-artifacts-builder",
+  "tur": "skill",
+  "aciklama": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state manag",
+  "hash": "7ee4f7a7b0990354",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "frontend-craft:frontend-craft",
+  "tur": "skill",
+  "aciklama": "Web arayüzü (landing, vitrin, panel) tasarım-uygulama disiplini — marka kararı, referans eşleme, 3 genişlikte screenshot, yasak liste, a11y/perf kabulü. HTML/CSS/Tailwind/Razor işinde önce yükle.",
+  "hash": "a08b27ed5a43da8b",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "frontend-design:frontend-design",
+  "tur": "skill",
+  "aciklama": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defau",
+  "hash": "ba3c0056b6d5423c",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "impeccable:impeccable",
+  "tur": "skill",
+  "aciklama": "Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers we",
+  "hash": "63270d46eecb8b55",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "nano-banana-2:generate-image",
+  "tur": "skill",
+  "aciklama": "Generate images using nano-banana-2 MCP tools with best-practice prompting. Use this skill when the user asks to create, generate, or edit images.",
+  "hash": "469a792b4b95f4ab",
+  "departman": "frontend",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "nateherk-design:scroll-craft",
+  "tur": "skill",
+  "aciklama": "Build premium scroll-driven landing pages for service, product, food, and drink brands. Plan the visitor journey, page grammar, emotional peak, and bespoke signature move. Create dimensional heroes wi",
+  "hash": "f2727d817c8fc3ce",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:brandkit",
+  "tur": "skill",
+  "aciklama": "Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark",
+  "hash": "f4f46afb6724c167",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:brutalist-skill",
+  "tur": "skill",
+  "aciklama": "Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dash",
+  "hash": "f459f07810a8686c",
+  "departman": "frontend",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:gpt-tasteskill",
+  "tur": "skill",
+  "aciklama": "Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance, strict AIDA page structure, wide editorial typography (bans 6-line wraps), gapless bento gri",
+  "hash": "e0a501ebb843cb0a",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:image-to-code-skill",
+  "tur": "skill",
+  "aciklama": "Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as close",
+  "hash": "33598c659a7d82ac",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:imagegen-frontend-mobile",
+  "tur": "skill",
+  "aciklama": "Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed for iOS, Android, and cross-platform mobile products. Prioritizes clean hierarchy, comforta",
+  "hash": "a36775cefb93b67e",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:imagegen-frontend-web",
+  "tur": "skill",
+  "aciklama": "Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE — generate ONE separate horizontal image FOR EVERY section. A landing page",
+  "hash": "474c28f9aeb5315f",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:minimalist-skill",
+  "tur": "skill",
+  "aciklama": "Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.",
+  "hash": "834ae5929268e7ee",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:redesign-skill",
+  "tur": "skill",
+  "aciklama": "Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS ",
+  "hash": "6f0f800222b3a463",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:soft-skill",
+  "tur": "skill",
+  "aciklama": "Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make",
+  "hash": "a5652a3a819ae4a0",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:stitch-skill",
+  "tur": "skill",
+  "aciklama": "Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asymmetric layouts, perp",
+  "hash": "8473fe29419fc3a0",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:taste-skill",
+  "tur": "skill",
+  "aciklama": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design system",
+  "hash": "3dd29caa53acd952",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:taste-skill-v1",
+  "tur": "skill",
+  "aciklama": "The original v1 taste-skill, preserved for projects depending on its exact behavior. The current default is `design-taste-frontend` (v2 experimental), which is a substantial rewrite. Use this v1 insta",
+  "hash": "bd2fcece350f527e",
+  "departman": "frontend",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ui-ux-pro-max",
+  "tur": "skill",
+  "aciklama": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility,",
+  "hash": "e49d9a235cf4e85f",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "gitleaks",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "d39608ec036e8b44",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "semgrep",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "49a1b15ed2e791bb",
+  "departman": "guvenlik",
+  "p": 0.79,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "strix",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "d65490abd19a4012",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "phoenix-cti-search",
+  "tur": "plugin",
+  "aciklama": "Cyber threat intelligence search across 595 curated security domains in 4 authority tiers, for CVEs, threat actors, malware families, exploits and breach reports. Ships a skill that needs no API key, ",
+  "hash": "4e3527e978e673da",
+  "departman": "guvenlik",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline",
+  "tur": "plugin",
+  "aciklama": "Security-first specification pipeline. prd-generator writes a full PRD with a threat model from a plain-language feature description. The 12 phoenix-* roles run the same pipeline stage by stage: conte",
+  "hash": "21170afabd744b17",
+  "departman": "guvenlik",
+  "p": 0.72,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-sast-rules",
+  "tur": "plugin",
+  "aciklama": "Generate opengrep/semgrep SAST rules for 30+ languages, including pattern and taint-mode rules. The research variant first researches a CVE or CWE with web search, then writes targeted detection rules",
+  "hash": "c5b1065a84bc0709",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-security-review",
+  "tur": "plugin",
+  "aciklama": "AppSec review suite: multi-language security-reviewer (8-point check, 7 language packs, OWASP/ASVS + endpoint checklists), whole-repo security-assessment, diff-scoped 0day-scanner, STRIDE/DREAD threat",
+  "hash": "642eba22d8902fa1",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "security-guidance",
+  "tur": "plugin",
+  "aciklama": "Security review for Claude-generated code. Pattern-based warnings on edits, LLM-powered diff review on Stop, and an agentic commit reviewer that catches injection, XSS, SSRF, hardcoded secrets, and 25",
+  "hash": "3ec8ff51171f0426",
+  "departman": "guvenlik",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:security-and-hardening",
+  "tur": "skill",
+  "aciklama": "Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or when checking a login",
+  "hash": "917ebbe614574904",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:api-security-testing",
+  "tur": "skill",
+  "aciklama": "Security-test a REST, GraphQL, or gRPC API with Strix — autonomous agents that enumerate endpoints from an OpenAPI/GraphQL schema (or by crawling), then actually exploit the API-specific…",
+  "hash": "8a093aeb65d471a8",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:application-security-testing",
+  "tur": "skill",
+  "aciklama": "Application security testing (AppSec) across a whole product with Strix — decide which asset needs which test (source code, running web app, API, CI pipeline), run it, and turn the results into a…",
+  "hash": "262ef69b7e5379fa",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:ci-security-scanning-with-strix",
+  "tur": "skill",
+  "aciklama": "Add Strix AI pentest scanning to CI/CD (GitHub Actions, GitLab CI, or managed app.strix.ai) so PRs get diff-scoped security scans with PR comments and SARIF before merge.",
+  "hash": "8467e057830f94d4",
+  "departman": "guvenlik",
+  "p": 0.87,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:find-security-vulnerabilities-in-code",
+  "tur": "skill",
+  "aciklama": "Find security vulnerabilities in a codebase or repository with Strix — a white-box AI security review that reads your source, reasons about the actual data flow and authorization model, then…",
+  "hash": "30b886d6e1d68449",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:fix-security-vulnerabilities-with-strix",
+  "tur": "skill",
+  "aciklama": "Fix security vulnerabilities found by a Strix pentest (open-source CLI or app.strix.ai cloud) — triage by severity, patch the root cause rather than the symptom, and re-run Strix to prove each fix…",
+  "hash": "dbd63a6504efac3f",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:gitleaks-desktop",
+  "tur": "skill",
+  "aciklama": "gitleaks CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşmaz. Komut şablonu ve çıktı yorumu.",
+  "hash": "b2a876d765896df0",
+  "departman": "guvenlik",
+  "p": 0.92,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:managed-pentesting-with-strix",
+  "tur": "skill",
+  "aciklama": "Run a managed Strix pentest via app.strix.ai (strix cloud CLI/API): upload source, scan, triage vulnerabilities, export SARIF/compliance reports, set schedules or webhooks.",
+  "hash": "302300d7a01381cb",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:owasp-top-10-testing",
+  "tur": "skill",
+  "aciklama": "Test an application against the OWASP Top 10 with Strix — autonomous AI agents that attempt real exploits for each category of the current OWASP Top 10:2025 (broken access control including SSRF…",
+  "hash": "4520e88ec40d6c8e",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:penetration-testing-with-strix",
+  "tur": "skill",
+  "aciklama": "Pentest a web app, API, codebase, or URL with Strix: autonomous AI pentesting that exploits and proves OWASP Top 10+ vulnerabilities with validated proof-of-concept findings.",
+  "hash": "a125c4b05be8596d",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:web-app-penetration-testing",
+  "tur": "skill",
+  "aciklama": "Pentest a web app or website end to end — black-box testing of a live URL, staging environment, or local dev server that finds and exploits real vulnerabilities (auth bypass, broken access control…",
+  "hash": "bdb39cba0bba43d0",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "careful",
+  "tur": "skill",
+  "aciklama": "Safety guardrails for destructive commands. (gstack)",
+  "hash": "462edbe23cbe0fe8",
+  "departman": "guvenlik",
+  "p": 0.62,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "cso",
+  "tur": "skill",
+  "aciklama": "Security audit: supported static findings; qualified profiles add reproduction and repair candidates. (gstack)",
+  "hash": "268b07a7f8c66af4",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:security-review",
+  "tur": "skill",
+  "aciklama": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and ",
+  "hash": "3606a15d979f3beb",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "guard",
+  "tur": "skill",
+  "aciklama": "Full safety mode: destructive command warnings + directory-scoped edits. (gstack)",
+  "hash": "ce9bb405fe4330ab",
+  "departman": "guvenlik",
+  "p": 0.49,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-cti-search:cti-domain-research",
+  "tur": "skill",
+  "aciklama": "Search for threat intelligence, CVEs, malware analysis, breach reports, and security research across 300+ curated security domains (BleepingComputer, Hacker News, Krebs, Unit42, Talos, CISA, Mandiant,",
+  "hash": "75be3ac0062d1383",
+  "departman": "guvenlik",
+  "p": 0.92,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-ambiguity-hunter",
+  "tur": "skill",
+  "aciklama": "Role 05 of the Phoenix Security spec pipeline. Red-teams normative requirements for Phoenix-specific failure modes: multi-tenant isolation gaps, vague integration surface definitions, AI agent safety ",
+  "hash": "816ad4f8ccb30e6f",
+  "departman": "guvenlik",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-constraint-distiller",
+  "tur": "skill",
+  "aciklama": "Role 03 of the Phoenix Security spec pipeline. Distils SCOPE_DEFINITION into an ACTIVE_SET of 8–15 compact, testable constraints that govern all downstream requirements — drawing from Phoenix's 12 Sta",
+  "hash": "367a240245073e2a",
+  "departman": "guvenlik",
+  "p": 0.78,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-context-curator",
+  "tur": "skill",
+  "aciklama": "Role 01 of the Phoenix Security spec pipeline. Cleans raw input — notes, tickets, Slack threads, customer call transcripts — into a structured CLEAN_CONTEXT block of FACTS, DECISIONS, and OPEN_QUESTIO",
+  "hash": "5e2243b562d55758",
+  "departman": "guvenlik",
+  "p": 0.83,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-contract-architect",
+  "tur": "skill",
+  "aciklama": "Role 07 of the Phoenix Security spec pipeline. Turns Phoenix Security requirements into precise implementable contracts: REST API endpoints with Phoenix auth patterns, tenant isolation invariants, cur",
+  "hash": "66ce8b93496ade3b",
+  "departman": "guvenlik",
+  "p": 0.65,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-final-gate",
+  "tur": "skill",
+  "aciklama": "Role 10 of the Phoenix Security spec pipeline. Makes the final SHIP / NO_SHIP decision for a Phoenix Security feature spec by checking 8 hard blockers: critical ambiguities remaining, unverified MUSTs",
+  "hash": "e37af9286842ec81",
+  "departman": "guvenlik",
+  "p": 0.65,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-pipeline-navigator",
+  "tur": "skill",
+  "aciklama": "Interactive guide and launcher for the Phoenix Security spec pipeline. Asks where you are in the process, what you want to do next, and routes you to the right skill with the correct inputs. Use this ",
+  "hash": "8522bb642081bbee",
+  "departman": "guvenlik",
+  "p": 0.51,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-requirements-engineer",
+  "tur": "skill",
+  "aciklama": "Role 04 of the Phoenix Security spec pipeline. Converts Phoenix Security feature intent into testable RFC 2119 requirements with structured IDs (R-FUNC, R-SEC, R-REL, R-INT, R-PERF, R-UX, R-DX, R-COMP",
+  "hash": "e352b26cce869783",
+  "departman": "guvenlik",
+  "p": 0.55,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-scope-cutter",
+  "tur": "skill",
+  "aciklama": "Role 02 of the Phoenix Security spec pipeline. Converts CLEAN_CONTEXT into an explicit, minimal SCOPE_DEFINITION — goals, non-goals, in/out boundaries, assumptions, success metrics, and gating questio",
+  "hash": "c7cf7b8c119db74b",
+  "departman": "guvenlik",
+  "p": 0.7,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-security-engineer",
+  "tur": "skill",
+  "aciklama": "Role 06 of the Phoenix Security spec pipeline. Produces a threat model and security requirements grounded in Phoenix Security's actual architecture: 6 trust boundaries (tenant↔platform, platform↔integ",
+  "hash": "f1a2c67b269cc26b",
+  "departman": "guvenlik",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-verification-matrix",
+  "tur": "skill",
+  "aciklama": "Role 08 of the Phoenix Security spec pipeline. Maps every MUST/MUST NOT to a concrete proof method using Phoenix's proof type hierarchy: unit-test, integration-test, contract-test, static-analysis, in",
+  "hash": "b64a19ac6ae881fc",
+  "departman": "guvenlik",
+  "p": 0.67,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-sast-rules:opengrep-rule-generator",
+  "tur": "skill",
+  "aciklama": "Use when the user wants to create opengrep/semgrep SAST rules, detect vulnerabilities in code, generate security scanning rules from CVEs or vulnerability descriptions, or asks about writing pattern-m",
+  "hash": "1afd63c747cedfe0",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-sast-rules:opengrep-rule-generator-research",
+  "tur": "skill",
+  "aciklama": "Use when the user wants to research vulnerabilities and create opengrep/semgrep SAST rules, conduct security research on CVEs or CWEs with web search, generate detection rules from vulnerability analy",
+  "hash": "79c26d89beece6c3",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-security-review:0day-scanner",
+  "tur": "skill",
+  "aciklama": "LLM-powered zero-day vulnerability analysis of code changes — a commit, a pull request, a file or a branch — in light, standard or deep mode, with cost budgeting and knowledge-graph linking. Use whene",
+  "hash": "eebc7ffbb1b3a5f1",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-security-review:security-assessment",
+  "tur": "skill",
+  "aciklama": "Comprehensive OWASP Top 10 2025 and ASVS Level 1 security assessment across a whole codebase, with cost budgeting, knowledge-graph linking and automated test generation. Use whenever someone asks to r",
+  "hash": "b17a10bb0491dc65",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-security-review:security-reviewer",
+  "tur": "skill",
+  "aciklama": "Multi-language security review for web apps, APIs, and CLIs. Use whenever code is added or modified — new endpoints, auth/RBAC changes, template or DOM rendering, outbound HTTP, dependency updates, Ia",
+  "hash": "de21e5c03c335c9e",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-security-review:threat-modeling",
+  "tur": "skill",
+  "aciklama": "Automated STRIDE and DREAD threat modelling from code analysis. Extracts architecture, data flows, entry points and trust boundaries, then produces ranked threats, attack scenarios, mitigations and co",
+  "hash": "d359668d5a599f24",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-security-review:tm-quick-security-assessment",
+  "tur": "skill",
+  "aciklama": "The QUICK tier. Scope to a git worktree/branch and assess only what changed against a base — a fast, threat-model-aware pre-merge security pass (attack-surface delta + OWASP Top 10 on changed files) w",
+  "hash": "98c9cb96f2028d9f",
+  "departman": "guvenlik",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-security-review:tm-security-review",
+  "tur": "skill",
+  "aciklama": "The COMPREHENSIVE tier. Build (or ingest) a full STRIDE threat model as input, then run a sophisticated whole-repo adversarial zeroday exploit review (triple-pass HUNT -> JUDGE -> VERIFY) that validat",
+  "hash": "a1d99da2cffc6e2f",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "pia-generation",
+  "tur": "skill",
+  "aciklama": "Yeni veri işleme faaliyeti için Türk KVKK pratiğine uygun VKED/PIA taslağı üretir. Amaç, veri kategorisi, rol, hukuki sebep, aydınlatma, açık rıza, yurt dışı aktarım, tedarikçi, güvenlik, saklama-imha",
+  "hash": "076ab9799181aba5",
+  "departman": "guvenlik",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "policy-monitor",
+  "tur": "skill",
+  "aciklama": "Gizlilik politikası, aydınlatma metinleri, açık rıza metinleri, çerez/CMP, İYS/ticari ileti, VERBIS/envanter ve sektör bildirimlerinin fiili uygulamayla uyumunu izler. VKED, DPA review, use-case triag",
+  "hash": "5507de40f0b6af77",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "use-case-triage",
+  "tur": "skill",
+  "aciklama": "Yeni veri işleme faaliyeti, ürün özelliği, tedarikçi, AI/model eğitimi, çalışan izleme, pazarlama veya aktarım akışını KVKK açısından hızlıca sınıflandırır. PROCEED, VKED REQUIRED, LEGAL REVIEW, STOP ",
+  "hash": "c8294261d7004adb",
+  "departman": "guvenlik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-reach",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "aa8f9fbbfa74a2da",
+  "departman": "surec",
+  "p": 0.46,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "bun",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "ef85e4983d84a63a",
+  "departman": "surec",
+  "p": 0.46,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "bunx",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "b7efa02d055c1777",
+  "departman": "surec",
+  "p": 0.4,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "gh",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "b8ce6a0b31240fe7",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "git",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "d21cc3b88a7ca1bb",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "node",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "389b46f0445738f6",
+  "departman": "surec",
+  "p": 0.49,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "npm",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "c9afdb3307ed36f7",
+  "departman": "surec",
+  "p": 0.45,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "uv",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "2c38c529b6ea8ab8",
+  "departman": "surec",
+  "p": 0.53,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "uvx",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "8aabcb8c42ae2797",
+  "departman": "surec",
+  "p": 0.56,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "vercel",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "bcdd6c392e240d2f",
+  "departman": "surec",
+  "p": 0.92,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "code-review",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "a0dd5910a571d9fe",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "github",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "5ff0e7f10fb33c6b",
+  "departman": "surec",
+  "p": 0.85,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "mcp-filesystem",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "fb089f0c54261464",
+  "departman": "surec",
+  "p": 0.6,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "mcp-git",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "8c8776cd365a81f7",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "mcp-sequential-thinking",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "79086298e60875ec",
+  "departman": "surec",
+  "p": 0.75,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "mcp-time",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "099d9c6a14572998",
+  "departman": "surec",
+  "p": 0.39,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-sdk-dev",
+  "tur": "plugin",
+  "aciklama": "Claude Agent SDK Development Plugin",
+  "hash": "a92cf4e5e61ddc18",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills",
+  "tur": "plugin",
+  "aciklama": "Production-grade engineering skills for AI coding agents — covering the full software development lifecycle from spec to ship.",
+  "hash": "5858b29f4ff01007",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "andrej-karpathy-skills",
+  "tur": "plugin",
+  "aciklama": "Behavioral guidelines to reduce common LLM coding mistakes, derived from Andrej Karpathy's observations on LLM coding pitfalls",
+  "hash": "79e27280bd0f64f1",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-api",
+  "tur": "plugin",
+  "aciklama": "",
+  "hash": "56349a2ddbbf2be7",
+  "departman": "surec",
+  "p": 0.66,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-opus-4-5-migration",
+  "tur": "plugin",
+  "aciklama": "Migrate your code and prompts from Sonnet 4.x and Opus 4.1 to Opus 4.5.",
+  "hash": "ead7966b5c899442",
+  "departman": "surec",
+  "p": 0.91,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "cli-anything",
+  "tur": "plugin",
+  "aciklama": "Build powerful, stateful CLI interfaces for any GUI application using the cli-anything harness methodology.",
+  "hash": "d321d1a8a0bb907c",
+  "departman": "surec",
+  "p": 0.76,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "code-review",
+  "tur": "plugin",
+  "aciklama": "Automated code review for pull requests using multiple specialized agents with confidence-based scoring",
+  "hash": "277f381eb3bc010d",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "commit-commands",
+  "tur": "plugin",
+  "aciklama": "Streamline your git workflow with simple commands for committing, pushing, and creating pull requests",
+  "hash": "6fb114492e1d037c",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "discernment-nudge",
+  "tur": "plugin",
+  "aciklama": "",
+  "hash": "c4122982dbe8b04c",
+  "departman": "surec",
+  "p": 0.61,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code",
+  "tur": "plugin",
+  "aciklama": "Complete collection of battle-tested Claude Code configs from an Anthropic hackathon winner - agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
+  "hash": "92c6b0853e838494",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills",
+  "tur": "plugin",
+  "aciklama": "",
+  "hash": "7fa016db5c392033",
+  "departman": "surec",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "feature-dev",
+  "tur": "plugin",
+  "aciklama": "Comprehensive feature development workflow with specialized agents for codebase exploration, architecture design, and quality review",
+  "hash": "3598f66ec973ad0c",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "hookify",
+  "tur": "plugin",
+  "aciklama": "Easily create hooks to prevent unwanted behaviors by analyzing conversation patterns",
+  "hash": "6cef6a10860b4fef",
+  "departman": "surec",
+  "p": 0.8,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-readiness-reviews",
+  "tur": "plugin",
+  "aciklama": "Two adversarial review gates. plan-readiness-review asks whether a PRD, spec or RFC is implementable without inventing anything. production-readiness-review asks whether the code is actually built, wi",
+  "hash": "840f5f2431a6e7ce",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev",
+  "tur": "plugin",
+  "aciklama": "Plugin development toolkit with skills for creating agents, commands, hooks, MCP integrations, and comprehensive plugin structure guidance",
+  "hash": "0ff42bb6b0800bb9",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ponytail",
+  "tur": "plugin",
+  "aciklama": "Lazy senior dev mode. Forces the simplest, shortest solution that actually works: YAGNI, stdlib first, no unrequested abstractions.",
+  "hash": "20b14c15fd3b40ac",
+  "departman": "surec",
+  "p": 0.53,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "pr-review-toolkit",
+  "tur": "plugin",
+  "aciklama": "Comprehensive PR review agents specializing in comments, tests, error handling, type design, code quality, and code simplification",
+  "hash": "a8df7168a5f6cc21",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ralph-wiggum",
+  "tur": "plugin",
+  "aciklama": "Implementation of the Ralph Wiggum technique - continuous self-referential AI loops for interactive iterative development. Run Claude in a while-true loop with the same prompt until task completion.",
+  "hash": "fd6cadd61c6b0fa7",
+  "departman": "surec",
+  "p": 0.91,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "skill-creator",
+  "tur": "plugin",
+  "aciklama": "Create new skills, improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, or bench",
+  "hash": "2b3c3539ce2ba73f",
+  "departman": "surec",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers",
+  "tur": "plugin",
+  "aciklama": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
+  "hash": "d0a8568a6151d363",
+  "departman": "surec",
+  "p": 0.91,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "typesafe",
+  "tur": "plugin",
+  "aciklama": "Agent skills for building with the TypeSafe System One API.",
+  "hash": "e4c95f6c5a72dff4",
+  "departman": "surec",
+  "p": 0.59,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "_gstack-command",
+  "tur": "skill",
+  "aciklama": "Router for the gstack skill suite. (gstack)",
+  "hash": "2682a8a6c73c4d22",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:ci-cd-and-automation",
+  "tur": "skill",
+  "aciklama": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment stra",
+  "hash": "0bf2ae066c149807",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:code-review-and-quality",
+  "tur": "skill",
+  "aciklama": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensi",
+  "hash": "3cb01d809881ee80",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:code-simplification",
+  "tur": "skill",
+  "aciklama": "Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code ",
+  "hash": "66242a670644302e",
+  "departman": "surec",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:constraint-driven-development",
+  "tur": "skill",
+  "aciklama": "Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on which dimensions matter, supplies sane default thresholds when they have no numbe",
+  "hash": "17d9adad6b3408a1",
+  "departman": "surec",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:deprecation-and-migration",
+  "tur": "skill",
+  "aciklama": "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when migrating a database schema in production, su",
+  "hash": "5101d418aff0888b",
+  "departman": "surec",
+  "p": 0.66,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:doubt-driven-development",
+  "tur": "skill",
+  "aciklama": "Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when you want every assumption cross-examined before proceeding, when stress-testing a plan for hidden f",
+  "hash": "a9719a0a59b994da",
+  "departman": "surec",
+  "p": 0.71,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:git-workflow-and-versioning",
+  "tur": "skill",
+  "aciklama": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted work in a messy working tree into clean atomic commits, o",
+  "hash": "eef95163c1585a9b",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:idea-refine",
+  "tur": "skill",
+  "aciklama": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a",
+  "hash": "11db0feda1fac60c",
+  "departman": "surec",
+  "p": 0.72,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:incremental-implementation",
+  "tur": "skill",
+  "aciklama": "Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more than one file, or when picking up the next task from a plan. Use when rolling a",
+  "hash": "11e21579a654dfb6",
+  "departman": "surec",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:interview-me",
+  "tur": "skill",
+  "aciklama": "Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlying intent. Use when an",
+  "hash": "fc6bb96eef9c1838",
+  "departman": "surec",
+  "p": 0.65,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:planning-and-task-breakdown",
+  "tur": "skill",
+  "aciklama": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scop",
+  "hash": "26c2b71c68153e10",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:shipping-and-launch",
+  "tur": "skill",
+  "aciklama": "Prepares production launches. Use when preparing to deploy to production, or when asking what needs to be in place before shipping. Use when you need a pre-launch checklist, when setting up monitoring",
+  "hash": "38d0a2af1156278a",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:spec-driven-development",
+  "tur": "skill",
+  "aciklama": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when drafting a PRD or requirements document with objectives and scope",
+  "hash": "1d2a8b18d0559bab",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:using-agent-skills",
+  "tur": "skill",
+  "aciklama": "Discovers and invokes agent skills. Use when starting a session, or when you need to decide which skill or workflow applies to the piece of work at hand. This is the meta-skill that governs how all ot",
+  "hash": "75b921e50a1d0168",
+  "departman": "surec",
+  "p": 0.9,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "andrej-karpathy-skills:karpathy-guidelines",
+  "tur": "skill",
+  "aciklama": "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiabl",
+  "hash": "fec11c221499d9ad",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:agent-reach-desktop",
+  "tur": "skill",
+  "aciklama": "agent-reach CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşmaz. Komut şablonu ve çıktı yorumu.",
+  "hash": "5165a9743c6045fc",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:code-review-skill",
+  "tur": "skill",
+  "aciklama": "Code review guidance across React, Vue, Angular, Svelte, Rust, TypeScript, Java, PHP, Ruby, Python, Go, C#/.NET, Kotlin, Swift, Dart, C/C++. Covers architecture, security, performance, bugs.",
+  "hash": "8c626f867f3ea0c3",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:config-codex-cli",
+  "tur": "skill",
+  "aciklama": "Step-by-step agent workflow to configure the OpenAI Codex CLI on any machine (Linux, macOS, Windows) to use OmniRoute as an OpenAI-compatible backend.",
+  "hash": "7568b9d64ddaa9d3",
+  "departman": "surec",
+  "p": 0.9,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:context7-cli",
+  "tur": "skill",
+  "aciklama": "Use the ctx7 CLI to fetch library documentation, manage AI coding skills, and configure Context7 MCP.",
+  "hash": "297ab54989fe6d7f",
+  "departman": "surec",
+  "p": 0.48,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:deploy-to-vercel",
+  "tur": "skill",
+  "aciklama": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+  "hash": "d7eff671a629f826",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:graphify-desktop",
+  "tur": "skill",
+  "aciklama": "graphify CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşmaz. Komut şablonu ve çıktı yorumu.",
+  "hash": "99d609e11bc362c6",
+  "departman": "surec",
+  "p": 0.53,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:jev",
+  "tur": "skill",
+  "aciklama": "Jev (TypeSafe) tipli yargı: çok öğeli sınıflandırma/puanlama, kalibre olasılık, ikinci görüş. jev_* araçları, soru yazımı, güven bantları.",
+  "hash": "80d673d80aaa375b",
+  "departman": "surec",
+  "p": 0.53,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:rtk-desktop",
+  "tur": "skill",
+  "aciklama": "rtk CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşmaz. Komut şablonu ve çıktı yorumu.",
+  "hash": "9349968ac8143356",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:sdp",
+  "tur": "skill",
+  "aciklama": "Yalniz Divisima reposunda (C:\\\\Users\\\\pc\\\\Desktop\\\\smart\\\\Divisima.Solution) kullanilir; baska repoda tetiklenmez. Divisima Sahada Doğrulanmış Denetim Protokolü v1.5 — her dalga/denetim tarifi başında",
+  "hash": "4ce25deb07997434",
+  "departman": "surec",
+  "p": 0.52,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:semgrep-desktop",
+  "tur": "skill",
+  "aciklama": "semgrep CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşmaz. Komut şablonu ve çıktı yorumu.",
+  "hash": "78f11cfff55ae708",
+  "departman": "surec",
+  "p": 0.72,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:skill-ui-cli",
+  "tur": "skill",
+  "aciklama": "Use when an agent or desktop AI client needs to discover/list available skills, compare descriptions to the current task, install relevant skills, scaffold, validate, mirror, upload, or update...",
+  "hash": "712ba49e67e7058f",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:skill-ui-desktop",
+  "tur": "skill",
+  "aciklama": "skill-ui CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşmaz. Komut şablonu ve çıktı yorumu.",
+  "hash": "96e7e1ec7001d8c5",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:superpowers-executing-plans",
+  "tur": "skill",
+  "aciklama": "Use when executing an implementation plan in the current session as the implementer yourself — your human partner chose inline execution, or no subagent tool is available",
+  "hash": "9db0fbc7772652a5",
+  "departman": "surec",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:surec",
+  "tur": "skill",
+  "aciklama": "Yalniz Divisima reposunda (C:\\\\Users\\\\pc\\\\Desktop\\\\smart\\\\Divisima.Solution) kullanilir; baska repoda tetiklenmez. Divisima dalga sureci (degismez) — merkez koordinasyon, DUR, push/muhur usulu; her ta",
+  "hash": "99576e31867c3bb2",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:task-observer",
+  "tur": "skill",
+  "aciklama": "Monitors task execution for skill improvement opportunities during any multi-step or agentic work session. Invoke before the first tool call or plan to capture reusable methodology.",
+  "hash": "3dabc5d7afa834e3",
+  "departman": "surec",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:vercel-cli-with-tokens",
+  "tur": "skill",
+  "aciklama": "Deploy and manage Vercel projects with token-based auth instead of interactive login. Use for deploy to vercel, set up vercel, or add environment variables to vercel.",
+  "hash": "6833700460881924",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "autoplan",
+  "tur": "skill",
+  "aciklama": "Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. (gstack)",
+  "hash": "01a41c771b2dade6",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "canary",
+  "tur": "skill",
+  "aciklama": "Post-deploy canary monitoring. (gstack)",
+  "hash": "f1fb559418e08f8e",
+  "departman": "surec",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-md-management:claude-md-improver",
+  "tur": "skill",
+  "aciklama": "Audit and improve CLAUDE.md files in repositories. Use when user asks to check, audit, update, improve, or fix CLAUDE.md files. Scans for all CLAUDE.md files, evaluates quality against templates, outp",
+  "hash": "d7e0d2e47d434f4f",
+  "departman": "surec",
+  "p": 0.6,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:babysit",
+  "tur": "skill",
+  "aciklama": "Watch a pull request or review cycle until it is ready to merge. Use when asked to babysit, monitor, or keep checking PR comments, reviews, and CI until all actionable issues are resolved.",
+  "hash": "d929f213bd81d595",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:ccs-align",
+  "tur": "skill",
+  "aciklama": "Run the CCS Align seat's hourly breathing cycle — prove the local claude-mem worker is healthy, pull needle observations through search → timeline → get_observations, land them in a seat-owned middle ",
+  "hash": "4b1ee40dcd000372",
+  "departman": "surec",
+  "p": 0.62,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:do",
+  "tur": "skill",
+  "aciklama": "Execute a phased implementation plan using subagents. Use when asked to execute, run, or carry out a plan — especially one created by make-plan.",
+  "hash": "a13fd7ac29f47ab2",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:make-plan",
+  "tur": "skill",
+  "aciklama": "Create a detailed, phased implementation plan with documentation discovery. Use when asked to plan a feature, task, or multi-step implementation — especially before executing with do.",
+  "hash": "80277457630b94f7",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:mode-creator",
+  "tur": "skill",
+  "aciklama": "Interactively create, install, activate, and verify custom claude-mem modes, including domain-specific observation types, concept tags, optional Telegram alerts, bot setup, worker restart, and startup",
+  "hash": "317615fa03692a0b",
+  "departman": "surec",
+  "p": 0.79,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:oh-my-issues",
+  "tur": "skill",
+  "aciklama": "Cluster a GitHub issue backlog by root cause into a small set of plan-master issues, redirect children with a standardized comment, and bundle architectural-fix PRs that close clusters atomically. Use",
+  "hash": "0e1b99617bac8ac3",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:pathfinder",
+  "tur": "skill",
+  "aciklama": "Map a codebase into feature-grouped flowcharts, identify duplicated concerns across features, and propose a unified architecture. Use when asked to \"find the ideal path,\" unify duplicated systems, or ",
+  "hash": "d3e8a8c5a97e61b8",
+  "departman": "surec",
+  "p": 0.83,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:standup",
+  "tur": "skill",
+  "aciklama": "Facilitate a read-only standup across git worktrees, branches, or PRs to compare changes and produce one consolidation plan.",
+  "hash": "4a058ef21fd83800",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:version-bump",
+  "tur": "skill",
+  "aciklama": "Automated semantic versioning and release workflow for Claude Code plugins. Handles version increments across package.json, marketplace.json, plugin.json manifests, build verification, git tagging, Gi",
+  "hash": "f034a46b8258f8d7",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:what-the",
+  "tur": "skill",
+  "aciklama": "What the? Use when the user wants a plain-English breakdown of something technical — the who, what, where, why, and when.",
+  "hash": "8226a72b6c51494e",
+  "departman": "surec",
+  "p": 0.44,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-opus-4-5-migration:claude-opus-4-5-migration",
+  "tur": "skill",
+  "aciklama": "Migrate prompts and code from Claude Sonnet 4.0, Sonnet 4.5, or Opus 4.1 to Opus 4.5. Use when the user wants to update their codebase, prompts, or API calls to use Opus 4.5. Handles model string upda",
+  "hash": "65aeaf71309d8ea3",
+  "departman": "surec",
+  "p": 0.84,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "codex",
+  "tur": "skill",
+  "aciklama": "OpenAI Codex CLI wrapper — three modes. (gstack)",
+  "hash": "6935e9490296db32",
+  "departman": "surec",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "devex-review",
+  "tur": "skill",
+  "aciklama": "Live developer experience audit. (gstack)",
+  "hash": "5c759c6ccb5b9a4a",
+  "departman": "surec",
+  "p": 0.79,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "discernment-nudge:discernment-nudge",
+  "tur": "skill",
+  "aciklama": "After you give a substantive answer or draft that the user may act on — advice or recommendations, drafted artifacts such as goals, plans, pitches, proposals, or emails, estimates or projections, anal",
+  "hash": "50fa42d638bab04c",
+  "departman": "surec",
+  "p": 0.52,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:coding-standards",
+  "tur": "skill",
+  "aciklama": "Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development.",
+  "hash": "8bd8e912099e6ebe",
+  "departman": "surec",
+  "p": 0.62,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:continuous-learning",
+  "tur": "skill",
+  "aciklama": "Automatically extract reusable patterns from Claude Code sessions and save them as learned skills for future use.",
+  "hash": "538c1656bfff3e9e",
+  "departman": "surec",
+  "p": 0.73,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:project-guidelines-example",
+  "tur": "skill",
+  "aciklama": "This is an example of a project-specific skill. Use this as a template for your own projects.",
+  "hash": "98131dcdd7758852",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:mcp-builder",
+  "tur": "skill",
+  "aciklama": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate externa",
+  "hash": "7e06d37a810f20b7",
+  "departman": "surec",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:skill-creator",
+  "tur": "skill",
+  "aciklama": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill",
+  "hash": "fb556cccf6c5ec62",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "freeze",
+  "tur": "skill",
+  "aciklama": "Restrict file edits to a specific directory for the session. (gstack)",
+  "hash": "27507149403c6ff7",
+  "departman": "surec",
+  "p": 0.5,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "graphify",
+  "tur": "skill",
+  "aciklama": "Use for any question about a codebase, its architecture, file relationships, or project content — especially when graphify-out/ exists, where the question should be treated as a graphify query first. ",
+  "hash": "5ff838c3a20e2ecd",
+  "departman": "surec",
+  "p": 0.52,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "gstack",
+  "tur": "skill",
+  "aciklama": "Router for the gstack skill suite. (gstack)",
+  "hash": "10d7580002ad327d",
+  "departman": "surec",
+  "p": 0.89,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "gstack-upgrade",
+  "tur": "skill",
+  "aciklama": "Upgrade gstack to the latest version.",
+  "hash": "d4eb78129fc9f8e5",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "health",
+  "tur": "skill",
+  "aciklama": "Code quality dashboard. (gstack)",
+  "hash": "484c391c5bfa7c0c",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "hookify:writing-rules",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks to \"create a hookify rule\", \"write a hook rule\", \"configure hookify\", \"add a hookify rule\", or needs guidance on hookify rule syntax and patterns.",
+  "hash": "682bd18401f040bc",
+  "departman": "surec",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ios-sync",
+  "tur": "skill",
+  "aciklama": "Regenerate the iOS debug bridge against the latest upstream gstack templates. (gstack)",
+  "hash": "17d7e5e2f0c9051f",
+  "departman": "surec",
+  "p": 0.68,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "land-and-deploy",
+  "tur": "skill",
+  "aciklama": "Land and deploy workflow. (gstack)",
+  "hash": "7fa268bcb40a94ea",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "landing-report",
+  "tur": "skill",
+  "aciklama": "Read-only queue dashboard for workspace-aware ship. (gstack)",
+  "hash": "b29ced1e78e70ffd",
+  "departman": "surec",
+  "p": 0.88,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "learn",
+  "tur": "skill",
+  "aciklama": "Manage project learnings.",
+  "hash": "4f6bd52be9ecd9ee",
+  "departman": "surec",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "office-hours",
+  "tur": "skill",
+  "aciklama": "YC Office Hours — two modes. (gstack)",
+  "hash": "84deaa4b9ab0f5e0",
+  "departman": "surec",
+  "p": 0.62,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "pair-agent",
+  "tur": "skill",
+  "aciklama": "Pair a remote AI agent with your browser. (gstack)",
+  "hash": "716497296df16b04",
+  "departman": "surec",
+  "p": 0.37,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-batch-planner",
+  "tur": "skill",
+  "aciklama": "Role 09 of the Phoenix Security spec pipeline. Slices a Phoenix Security feature into safe, incremental batches sized for a 12-person team (1–3 engineer-days each), with P0 security requirements alway",
+  "hash": "105cad188731bee3",
+  "departman": "surec",
+  "p": 0.67,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:phoenix-orchestrator",
+  "tur": "skill",
+  "aciklama": "Run the full Phoenix Security spec pipeline (roles 01–10) from raw context to a ship-ready PRD — automatically chaining context curation, scope cutting, constraint distillation, requirements engineeri",
+  "hash": "3144c0ee4f4c1499",
+  "departman": "surec",
+  "p": 0.67,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-prd-pipeline:prd-generator",
+  "tur": "skill",
+  "aciklama": "Generate a full security-focused PRD (Product Requirements Document) from a plain-language feature description. Use this skill whenever someone wants to create a PRD, product spec, feature spec, requi",
+  "hash": "f77c5880b294e1f0",
+  "departman": "surec",
+  "p": 0.55,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-readiness-reviews:plan-readiness-review",
+  "tur": "skill",
+  "aciklama": "Adversarial senior/staff-engineer review of a PRD, plan, spec, RFC, design doc, or implementation plan to decide whether it is implementation-ready — detailed enough that a different senior engineer c",
+  "hash": "88614856c0cfacf8",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "phoenix-readiness-reviews:production-readiness-review",
+  "tur": "skill",
+  "aciklama": "Adversarial senior/staff-engineer review that verifies a real codebase against its PRD, plan, or implementation plan and decides whether it is genuinely complete and production ready — never trusting ",
+  "hash": "3586cee84816bd95",
+  "departman": "surec",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plan-ceo-review",
+  "tur": "skill",
+  "aciklama": "CEO/founder-mode plan review. (gstack)",
+  "hash": "c737e28b2abc14aa",
+  "departman": "surec",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plan-design-review",
+  "tur": "skill",
+  "aciklama": "Designer's eye plan review — interactive, like CEO and Eng review. (gstack)",
+  "hash": "2c5ed993228088a5",
+  "departman": "surec",
+  "p": 0.72,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plan-devex-review",
+  "tur": "skill",
+  "aciklama": "Interactive developer experience plan review. (gstack)",
+  "hash": "74b929306055488e",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plan-eng-review",
+  "tur": "skill",
+  "aciklama": "Eng manager-mode plan review. (gstack)",
+  "hash": "3f134fc68f766ddd",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plan-tune",
+  "tur": "skill",
+  "aciklama": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack)",
+  "hash": "3442025edea610c2",
+  "departman": "surec",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev:agent-development",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks to \"create an agent\", \"add an agent\", \"write a subagent\", \"agent frontmatter\", \"when to use description\", \"agent examples\", \"agent tools\", \"agent colors\", ",
+  "hash": "d4cb8f9a31c619e6",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev:command-development",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks to \"create a slash command\", \"add a command\", \"write a custom command\", \"define command arguments\", \"use command frontmatter\", \"organize commands\", \"create",
+  "hash": "a770a4cd5abeb7e7",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev:hook-development",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up eve",
+  "hash": "a37357bdb500a298",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev:mcp-integration",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks to \"add MCP server\", \"integrate MCP\", \"configure MCP in plugin\", \"use .mcp.json\", \"set up Model Context Protocol\", \"connect external service\", mentions \"${",
+  "hash": "12c6b3c58e501137",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev:plugin-settings",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-p",
+  "hash": "aa1f57ba63d9ebc5",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev:plugin-structure",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user asks to \"create a plugin\", \"scaffold a plugin\", \"understand plugin structure\", \"organize plugin components\", \"set up plugin.json\", \"use ${CLAUDE_PLUGIN_ROOT}\", ",
+  "hash": "36cafd1f083903c7",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "plugin-dev:skill-development",
+  "tur": "skill",
+  "aciklama": "This skill should be used when the user wants to \"create a skill\", \"add a skill to plugin\", \"write a new skill\", \"improve skill description\", \"organize skill content\", or needs guidance on skill struc",
+  "hash": "e9ef9e293492675a",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ponytail:ponytail",
+  "tur": "skill",
+  "aciklama": "Forces the laziest solution that actually works, simplest, shortest, most minimal. Channels a senior dev who has seen everything: question whether the task needs to exist at all (YAGNI), reach for the",
+  "hash": "f857c2b42a3bdee0",
+  "departman": "surec",
+  "p": 0.53,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ponytail:ponytail-audit",
+  "tur": "skill",
+  "aciklama": "Whole-repo audit for over-engineering. Like ponytail-review, but scans the entire codebase instead of a diff: a ranked list of what to delete, simplify, or replace with stdlib/native equivalents. Use ",
+  "hash": "0737fa29890f4c16",
+  "departman": "surec",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ponytail:ponytail-debt",
+  "tur": "skill",
+  "aciklama": "Harvest every `ponytail:` comment in the codebase into a debt ledger, so the deliberate shortcuts and deferrals ponytail leaves behind get tracked instead of rotting into \"later means never\". Use when",
+  "hash": "b10fe89b360b256d",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ponytail:ponytail-help",
+  "tur": "skill",
+  "aciklama": "Quick-reference card for all ponytail modes, skills, and commands. One-shot display, not a persistent mode. Trigger: /ponytail-help, \"ponytail help\", \"what ponytail commands\", \"how do I use ponytail\".",
+  "hash": "8038b4ce6a626066",
+  "departman": "surec",
+  "p": 0.37,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ponytail:ponytail-review",
+  "tur": "skill",
+  "aciklama": "Code review focused exclusively on over-engineering. Finds what to delete: reinvented standard library, unneeded dependencies, speculative abstractions, dead flexibility. One line per finding: locatio",
+  "hash": "0097c33b06d5decc",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "retro",
+  "tur": "skill",
+  "aciklama": "Weekly engineering retrospective. (gstack)",
+  "hash": "17b99e2a5e3d1a40",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "review",
+  "tur": "skill",
+  "aciklama": "Pre-landing PR review. (gstack)",
+  "hash": "c62df764a78f4085",
+  "departman": "surec",
+  "p": 0.98,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "setup-deploy",
+  "tur": "skill",
+  "aciklama": "Configure deployment settings for /land-and-deploy.",
+  "hash": "d82ccf39c4876a6c",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "setup-gbrain",
+  "tur": "skill",
+  "aciklama": "Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack)",
+  "hash": "5e1554a3774b8612",
+  "departman": "surec",
+  "p": 0.65,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ship",
+  "tur": "skill",
+  "aciklama": "Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION, update CHANGELOG, commit, push, create PR. (gstack)",
+  "hash": "c0b3d44ac6a7ff84",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "skill-creator:skill-creator",
+  "tur": "skill",
+  "aciklama": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill",
+  "hash": "20d3190fe36a0fa1",
+  "departman": "surec",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "skillify",
+  "tur": "skill",
+  "aciklama": "Codify the most recent successful /scrape flow into a permanent browser-skill on disk. (gstack)",
+  "hash": "8dca481d6ddf4a7e",
+  "departman": "surec",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "spec",
+  "tur": "skill",
+  "aciklama": "Turn vague intent into a precise, executable spec in five phases. (gstack)",
+  "hash": "478f4b1ce9c7243d",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:brainstorming",
+  "tur": "skill",
+  "aciklama": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+  "hash": "caaf65c15ce7477b",
+  "departman": "surec",
+  "p": 0.95,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:diagnosing-superpowers",
+  "tur": "skill",
+  "aciklama": "Use when a superpowers session went wrong and your human partner wants to know why — repeated work, ignored plans, stumbles, poor results, a skill that didn't fire, \"it took too long\", \"why is it so e",
+  "hash": "f2950744abbcde33",
+  "departman": "surec",
+  "p": 0.73,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:executing-plans",
+  "tur": "skill",
+  "aciklama": "Use when executing an implementation plan in the current session as the implementer yourself — your human partner chose inline execution, or no subagent tool is available",
+  "hash": "0657c1612d88a8e5",
+  "departman": "surec",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:finishing-a-development-branch",
+  "tur": "skill",
+  "aciklama": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
+  "hash": "c6b8c3e7afa09003",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:receiving-code-review",
+  "tur": "skill",
+  "aciklama": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative",
+  "hash": "9d35fd0836b5994a",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:requesting-code-review",
+  "tur": "skill",
+  "aciklama": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+  "hash": "c13e1cc5b6e02509",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:subagent-driven-development",
+  "tur": "skill",
+  "aciklama": "Use when executing implementation plans with independent tasks in the current session",
+  "hash": "642f158bc24140b0",
+  "departman": "surec",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:using-git-worktrees",
+  "tur": "skill",
+  "aciklama": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
+  "hash": "69151f09a3967c36",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:using-superpowers",
+  "tur": "skill",
+  "aciklama": "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions",
+  "hash": "68cd23f313d23c67",
+  "departman": "surec",
+  "p": 0.68,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:writing-plans",
+  "tur": "skill",
+  "aciklama": "Use when you have a spec or requirements for a multi-step task, before touching code",
+  "hash": "2d9ee2267137a96c",
+  "departman": "surec",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:writing-skills",
+  "tur": "skill",
+  "aciklama": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+  "hash": "5d095541fb8324c4",
+  "departman": "surec",
+  "p": 0.95,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "sync-gbrain",
+  "tur": "skill",
+  "aciklama": "Keep gbrain current with this repo's code and refresh agent search guidance in CLAUDE.md. (gstack)",
+  "hash": "8f512a93bbb998c4",
+  "departman": "surec",
+  "p": 0.91,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "taste-skill:output-skill",
+  "tur": "skill",
+  "aciklama": "Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged outp",
+  "hash": "9e9a69acb6b0f839",
+  "departman": "surec",
+  "p": 0.57,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "unfreeze",
+  "tur": "skill",
+  "aciklama": "Clear the freeze boundary set by /freeze, allowing edits to all directories again. (gstack)",
+  "hash": "60c5a39f55c50295",
+  "departman": "surec",
+  "p": 0.86,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "pixeljury",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "de7931389b98ae17",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "playwright-cli",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "c882459add3241e2",
+  "departman": "test-qa",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "puppeteer",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "6936c51f0191f266",
+  "departman": "test-qa",
+  "p": 0.92,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test",
+  "tur": "plugin",
+  "aciklama": "Skills for running, generating, analyzing, and improving .NET tests: test execution, filtering, platform detection, coverage, testability, and MSTest workflows.",
+  "hash": "bce9aaa7fbfca958",
+  "departman": "test-qa",
+  "p": 0.92,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "playwright",
+  "tur": "plugin",
+  "aciklama": "Browser automation and end-to-end testing MCP server by Microsoft. Enables Claude to interact with web pages, take screenshots, fill forms, click elements, and perform automated browser testing workfl",
+  "hash": "915bcaab4093d602",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:browser-testing-with-devtools",
+  "tur": "skill",
+  "aciklama": "Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, ",
+  "hash": "913c5c72c66f3cfc",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:debugging-and-error-recovery",
+  "tur": "skill",
+  "aciklama": "Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpected error. Use when y",
+  "hash": "e4f362de123735ba",
+  "departman": "test-qa",
+  "p": 0.86,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:performance-optimization",
+  "tur": "skill",
+  "aciklama": "Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load time",
+  "hash": "d5751d921181c934",
+  "departman": "test-qa",
+  "p": 0.56,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:test-driven-development",
+  "tur": "skill",
+  "aciklama": "Drives development with tests using the red-green-refactor loop. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug repor",
+  "hash": "5019be5de84429d7",
+  "departman": "test-qa",
+  "p": 0.95,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:playwright-cli",
+  "tur": "skill",
+  "aciklama": "Automate browser interactions, test web pages and work with Playwright tests.",
+  "hash": "ed39c536f8c88114",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:playwright-cli-desktop",
+  "tur": "skill",
+  "aciklama": "playwright-cli CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşmaz. Komut şablonu ve çıktı yorumu.",
+  "hash": "988613629fdc3008",
+  "departman": "test-qa",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "benchmark",
+  "tur": "skill",
+  "aciklama": "Performance regression detection. (gstack)",
+  "hash": "efcee770eb9ca84e",
+  "departman": "test-qa",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "benchmark-models",
+  "tur": "skill",
+  "aciklama": "Cross-model benchmark for gstack skills. (gstack)",
+  "hash": "d25cccb5d701c2a9",
+  "departman": "test-qa",
+  "p": 0.74,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "browse",
+  "tur": "skill",
+  "aciklama": "Drive a real browser through Aside: open a page, read it, click through a flow, take screenshots, check console errors. (gstack)",
+  "hash": "7ec9e2ca7df0e755",
+  "departman": "test-qa",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "connect-chrome",
+  "tur": "skill",
+  "aciklama": "Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in.",
+  "hash": "612352d7047c77e4",
+  "departman": "test-qa",
+  "p": 0.33,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:assertion-quality",
+  "tur": "skill",
+  "aciklama": "Analyze assertion quality, depth, variety, and false confidence in existing tests. ALWAYS USE when asked about weak, shallow, trivial, always-true, self-referential, assertion-free, presence/truthines",
+  "hash": "9cbe3c27b839fc80",
+  "departman": "test-qa",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:code-testing-agent",
+  "tur": "skill",
+  "aciklama": "ALWAYS USE whenever asked to write, add, or generate unit tests for existing code, including one helper, function, class, or missing regression case as well as project-wide suites. Also use for \"cover",
+  "hash": "ab95d752c722106e",
+  "departman": "test-qa",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:code-testing-extensions",
+  "tur": "skill",
+  "aciklama": "Provides file paths to language-specific extension files for the code-testing pipeline. Call this skill to discover available extension guidance files (e.g., dotnet.md for .NET, cpp.md for C++). Do no",
+  "hash": "066ae9fd8843a8e3",
+  "departman": "test-qa",
+  "p": 0.89,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:coverage-analysis",
+  "tur": "skill",
+  "aciklama": "Interprets .NET Cobertura line, branch, and condition evidence and, when explicitly requested, computes project-wide CRAP/refactoring-risk hotspots. MUST USE for \"why is branch coverage lower than lin",
+  "hash": "50f76cff502e9812",
+  "departman": "test-qa",
+  "p": 0.65,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:filter-syntax",
+  "tur": "skill",
+  "aciklama": "Reference-only filter syntax for VSTest and MTP with MSTest, NUnit, xUnit v3, and TUnit. Load only after the platform/framework is known and a consumer needs to create or translate a filter. Do not lo",
+  "hash": "7da508f770d72bc0",
+  "departman": "test-qa",
+  "p": 0.85,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:find-untested-sources",
+  "tur": "skill",
+  "aciklama": "MANDATORY for static source-to-test pairing: find or list source files/modules without corresponding tests, or suggest test locations from repository structure. Invoke even for a tiny package; do not ",
+  "hash": "ffa73efcee1e6cad",
+  "departman": "test-qa",
+  "p": 0.85,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:generate-testability-wrappers",
+  "tur": "skill",
+  "aciklama": "DO NOT USE when the target already consumes an injected interface or built-in abstraction such as IFileSystem or TimeProvider, even if the request says \"generate a wrapper\"; no new wrapper is needed. ",
+  "hash": "e1f44f4ec736c835",
+  "departman": "test-qa",
+  "p": 0.63,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:grade-tests",
+  "tur": "skill",
+  "aciklama": "Grade specified test methods individually and produce a concise PR-ready table with each fully qualified test name, an A-F grade, score band, and one-line note. USE FOR per-test feedback on a curated ",
+  "hash": "1d2e5310c6f728d6",
+  "departman": "test-qa",
+  "p": 0.86,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:run-tests",
+  "tur": "skill",
+  "aciklama": "ALWAYS USE before running .NET tests or answering with a test command or flags. Trigger on \"run the tests\", \"exact dotnet test command\", one test/class/category/trait/target framework, combined filter",
+  "hash": "6abf2bf91b9ad57d",
+  "departman": "test-qa",
+  "p": 0.63,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:test-analysis-extensions",
+  "tur": "skill",
+  "aciklama": "Provides file paths to language-specific reference files for the test ANALYSIS skills (assertion-quality, test-anti-patterns, test-gap-analysis, test-smell-detection, test-tagging). Call this skill to",
+  "hash": "50525de84da1f8c4",
+  "departman": "test-qa",
+  "p": 0.9,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:test-anti-patterns",
+  "tur": "skill",
+  "aciklama": "Audit a test file or suite; produce a severity-ranked diagnostic report. ALWAYS USE for tests that verify nothing, missing/tautological assertions, swallowed/broad exceptions, flaky/order-dependent te",
+  "hash": "ae4b10a4dcd366e0",
+  "departman": "test-qa",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:test-gap-analysis",
+  "tur": "skill",
+  "aciklama": "Pseudo-mutation analysis ONLY: answer whether tests would catch a bug if production code changed, which meaningful changes would still pass, or which caller-visible mutations existing assertions would",
+  "hash": "92a4e41f46c90e25",
+  "departman": "test-qa",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:test-smell-detection",
+  "tur": "skill",
+  "aciklama": "Audits existing tests in any language using formal, research-backed test smell names and the testsmells.org 19-smell academic taxonomy. Use when the caller asks for an academic or citable test-smell r",
+  "hash": "04a72ec8f92f8793",
+  "departman": "test-qa",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:test-tagging",
+  "tur": "skill",
+  "aciklama": "Classifies existing tests by standard traits and reports their distribution. MUST USE to tag all tests with category attributes, categorize/tag/label each test, compare happy vs error paths, audit the",
+  "hash": "19ab043627f460b7",
+  "departman": "test-qa",
+  "p": 0.9,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:testability-obstacle",
+  "tur": "skill",
+  "aciklama": "MUST USE for C#/.NET deterministic tests that require the smallest production seam for DateTime/Task.Delay/File/Environment/Guid/Random, static API preservation, nested/parallel overrides, or no real ",
+  "hash": "c671f9fd18550cd2",
+  "departman": "test-qa",
+  "p": 0.79,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-test:writing-mstest-tests",
+  "tur": "skill",
+  "aciklama": "ALWAYS USE when asked to fix, rewrite, update, improve, modernize, show corrected code for, or explain existing MSTest tests or MSTest-specific configuration. Use for \"review\" when corrected code or e",
+  "hash": "f4a0c9137472c26d",
+  "departman": "test-qa",
+  "p": 0.87,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:eval-harness",
+  "tur": "skill",
+  "aciklama": "A formal evaluation framework for Claude Code sessions, implementing eval-driven development (EDD) principles.",
+  "hash": "3ef641895c50b988",
+  "departman": "test-qa",
+  "p": 0.89,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:tdd-workflow",
+  "tur": "skill",
+  "aciklama": "Use this skill when writing new features, fixing bugs, or refactoring code. Enforces test-driven development with 80%+ coverage including unit, integration, and E2E tests.",
+  "hash": "56a2b04c5f8ce4f1",
+  "departman": "test-qa",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:verification-loop",
+  "tur": "skill",
+  "aciklama": "A comprehensive verification system for Claude Code sessions.",
+  "hash": "4925a601b402aab1",
+  "departman": "test-qa",
+  "p": 0.91,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "example-skills:webapp-testing",
+  "tur": "skill",
+  "aciklama": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser l",
+  "hash": "f0a6ee654f59410b",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "investigate",
+  "tur": "skill",
+  "aciklama": "Systematic debugging with root cause investigation. (gstack)",
+  "hash": "f467bbf5402ce04b",
+  "departman": "test-qa",
+  "p": 0.39,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ios-design-review",
+  "tur": "skill",
+  "aciklama": "Visual design audit for iOS apps on real hardware. (gstack)",
+  "hash": "80b332c86c6db82f",
+  "departman": "test-qa",
+  "p": 0.53,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ios-fix",
+  "tur": "skill",
+  "aciklama": "Autonomous iOS bug fixer. (gstack)",
+  "hash": "9839a35b36cf5d3f",
+  "departman": "test-qa",
+  "p": 0.75,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ios-qa",
+  "tur": "skill",
+  "aciklama": "Live-device iOS QA for SwiftUI apps. (gstack)",
+  "hash": "02eee39a736be7a9",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "qa",
+  "tur": "skill",
+  "aciklama": "Systematically QA test a web application and fix bugs found. (gstack)",
+  "hash": "27d8fce62d894cd1",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "qa-only",
+  "tur": "skill",
+  "aciklama": "Report-only QA testing. (gstack)",
+  "hash": "90af6379511348c1",
+  "departman": "test-qa",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "setup-browser-cookies",
+  "tur": "skill",
+  "aciklama": "Import cookies from your real Chromium browser into the headless browse session. (gstack)",
+  "hash": "c9cf083d64642f69",
+  "departman": "test-qa",
+  "p": 0.86,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:systematic-debugging",
+  "tur": "skill",
+  "aciklama": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+  "hash": "9925f03dd33f3bd4",
+  "departman": "test-qa",
+  "p": 0.9,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:test-driven-development",
+  "tur": "skill",
+  "aciklama": "Use when implementing any feature or bugfix, before writing implementation code",
+  "hash": "2c8b8d498c064048",
+  "departman": "test-qa",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:verification-before-completion",
+  "tur": "skill",
+  "aciklama": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence",
+  "hash": "c20890888ff5e35f",
+  "departman": "test-qa",
+  "p": 0.79,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-data",
+  "tur": "plugin",
+  "aciklama": "Skills for .NET data access and Entity Framework related tasks.",
+  "hash": "9b501ac85f135ea1",
+  "departman": "veri-db",
+  "p": 0.68,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "supabase",
+  "tur": "plugin",
+  "aciklama": "Official Supabase plugin for Claude Code with bundled Supabase skills and MCP access for project management, database work, auth, storage, and Postgres best practices.",
+  "hash": "fff243acce9a623c",
+  "departman": "veri-db",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "dotnet-data:optimizing-ef-core-queries",
+  "tur": "skill",
+  "aciklama": "Optimize and improve the performance of slow Entity Framework Core (EF Core) queries: make them generate less SQL, make fewer database round-trips, and return results faster. Use whenever an EF Core o",
+  "hash": "3dd241ecb8252bd8",
+  "departman": "veri-db",
+  "p": 0.84,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:clickhouse-io",
+  "tur": "skill",
+  "aciklama": "ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads.",
+  "hash": "0516544d04bdc9c9",
+  "departman": "veri-db",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "supabase:supabase",
+  "tur": "skill",
+  "aciklama": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, ",
+  "hash": "6e3a71fbe167d848",
+  "departman": "veri-db",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "supabase:supabase-postgres-best-practices",
+  "tur": "skill",
+  "aciklama": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and co",
+  "hash": "70bbf5c0917ae5e1",
+  "departman": "veri-db",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "headroom",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "4e69d5e3b6670406",
+  "departman": "verimlilik",
+  "p": 0.4,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "rtk",
+  "tur": "cli",
+  "aciklama": "",
+  "hash": "9804f062bef8c3b5",
+  "departman": "verimlilik",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "headroom",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "4e69d5e3b6670406",
+  "departman": "verimlilik",
+  "p": 0.68,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "mcp-memory",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "2fb1d9068655b169",
+  "departman": "verimlilik",
+  "p": 0.93,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-md-management",
+  "tur": "plugin",
+  "aciklama": "Tools to maintain and improve CLAUDE.md files - audit quality, capture session learnings, and keep project memory current.",
+  "hash": "683641857572d349",
+  "departman": "verimlilik",
+  "p": 0.66,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem",
+  "tur": "plugin",
+  "aciklama": "Memory compression system for Claude Code - persist context across sessions",
+  "hash": "2b323389df1d1e8d",
+  "departman": "verimlilik",
+  "p": 1.0,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "headroom",
+  "tur": "plugin",
+  "aciklama": "Headroom startup hooks for Claude Code and GitHub Copilot CLI.",
+  "hash": "a3d1953a125921ca",
+  "departman": "verimlilik",
+  "p": 0.51,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "agent-skills:context-engineering",
+  "tur": "skill",
+  "aciklama": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.",
+  "hash": "da3206200c3ae23d",
+  "departman": "verimlilik",
+  "p": 0.96,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "anthropic-skills:vercel-optimize",
+  "tur": "skill",
+  "aciklama": "Vercel cost and performance optimization for Next.js/SvelteKit/Nuxt/Astro: collect metrics/usage/config, investigate metric-backed issues, produce ranked, docs-grounded recommendations.",
+  "hash": "0d6296ce847be4b2",
+  "departman": "verimlilik",
+  "p": 0.43,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-api:claude-api",
+  "tur": "skill",
+  "aciklama": "Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration.",
+  "hash": "dc57d51cbe3b29be",
+  "departman": "verimlilik",
+  "p": 0.43,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:cloud-sync",
+  "tur": "skill",
+  "aciklama": "Set up or check claude-mem cloud sync with cmem.ai Pro. Use when the user says \"set up cloud sync\", \"sync my memories\", \"cmem pro\", \"cloud backup\", \"sync status\", or wants their memory database backed",
+  "hash": "86c03a3860d81fcc",
+  "departman": "verimlilik",
+  "p": 0.49,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:how-it-works",
+  "tur": "skill",
+  "aciklama": "Explain how claude-mem captures observations, when memory injection kicks in, and where data lives. Use when the user asks \"how does claude-mem work?\" or \"what is this thing doing?\".",
+  "hash": "12dbbf49a4f889b7",
+  "departman": "verimlilik",
+  "p": 0.81,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:knowledge-agent",
+  "tur": "skill",
+  "aciklama": "Build and query AI-powered knowledge bases from claude-mem observations. Use when users want to create focused \"brains\" from their observation history, ask questions about past work patterns, or compi",
+  "hash": "04c8a576339e7068",
+  "departman": "verimlilik",
+  "p": 0.53,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:mem-search",
+  "tur": "skill",
+  "aciklama": "Search claude-mem's persistent cross-session memory database. Use when user asks \"did we already solve this?\", \"how did we do X last time?\", or needs work from previous sessions.",
+  "hash": "b13b430c3bc7f188",
+  "departman": "verimlilik",
+  "p": 0.94,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "claude-mem:smart-explore",
+  "tur": "skill",
+  "aciklama": "Token-optimized structural code search using tree-sitter AST parsing. Use instead of reading full files when you need to understand code structure, find functions, or explore a codebase efficiently.",
+  "hash": "918bd5821c7ca890",
+  "departman": "verimlilik",
+  "p": 0.65,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "context-restore",
+  "tur": "skill",
+  "aciklama": "Restore working context saved earlier by /context-save. (gstack)",
+  "hash": "a9551b703b4aece6",
+  "departman": "verimlilik",
+  "p": 0.97,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "context-save",
+  "tur": "skill",
+  "aciklama": "Save working context. (gstack)",
+  "hash": "b7ead163f2275abd",
+  "departman": "verimlilik",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "everything-claude-code:strategic-compact",
+  "tur": "skill",
+  "aciklama": "Suggests manual context compaction at logical intervals to preserve context through task phases rather than arbitrary auto-compaction.",
+  "hash": "71482fe57c29db6a",
+  "departman": "verimlilik",
+  "p": 0.99,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "ponytail:ponytail-gain",
+  "tur": "skill",
+  "aciklama": "Show ponytail's measured impact as a compact scoreboard: less code, less cost, more speed, from the benchmark medians. One-shot display, not a persistent mode, and not a per-repo number. Trigger: /pon",
+  "hash": "52ff57dd04bc18c4",
+  "departman": "verimlilik",
+  "p": 0.59,
+  "kaynak": "jev"
+ },
+ {
+  "ad": "superpowers:dispatching-parallel-agents",
+  "tur": "skill",
+  "aciklama": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+  "hash": "ce826d1c092bf533",
+  "departman": "verimlilik",
+  "p": 0.58,
+  "kaynak": "jev"
+ }
+]

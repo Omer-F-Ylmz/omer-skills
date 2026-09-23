@@ -11,6 +11,7 @@ from pathlib import Path
 
 from jev import cekirdek as c
 
+from . import departman as dp
 from . import kur
 from . import ogren as og
 from . import tarama as tr
@@ -155,9 +156,18 @@ def brief(ns, ctx):
     idd = [f"- {s[0]} → {s[2]} ({s[1]})" for s in (t[0][1] if t else []) if len(s) >= 3]
     oz = [s for s in tr.bolum(metin, "ÖZELLİK KARARLARI").splitlines() if s.startswith("- ")]
     link = list(dict.fromkeys(re.findall(r"https?://[^\s|)]+", metin)))
-    print("\n".join([f"# brief: {Path(ns.rapor).name}", "## Özellik kararları", *oz[:25], "## İddialar", *idd[:20],
+    dep = [s for s in tr.bolum(metin, "DEPARTMAN").splitlines() if s.startswith("- ")]
+    print("\n".join([f"# brief: {Path(ns.rapor).name}", "## Özellik kararları", *oz[:25], "## Departman", *dep[:10],
+                     "## İddialar", *idd[:20],
                      "## Linkler", *[f"- {x}" for x in link[:9]]]))
     return 0
+
+
+def _departman(kok, jev, ad, a, metin, depl):
+    """19 K5: yeni araç → departman (envanter + katalog); rapor DEPARTMAN bölümü."""
+    dep, p = dp.dosyala(kok, jev, ad, a.get("tur") or "skill", " ".join(tr.bolum(metin, "Ne").split())[:dp.ACIKLAMA])
+    depl.append(f"{ad} → {dep} ({p:.2f})")
+    return dep
 
 
 def _kos(ctx, args, timeout=600):
@@ -277,8 +287,8 @@ def katman(ns, ctx):
     ky = kd / "kayit.jsonl"
     kayit, bugun, tk = tr.kayit_oku(ky), date.today(), None
     gorulen = {tr.normal(k.get("aday") or k["ad"]) for k in kayit}
-    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama = ([] for _ in range(13))
-    n = 7 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1)
+    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama, depl = ([] for _ in range(14))
+    n = 8 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1) + departman 1
 
     def jev():
         nonlocal tk
@@ -320,6 +330,9 @@ def katman(ns, ctx):
                 yeni.append({"ad": f"{ad}/{o['ozellik']}", "aday": ad, "ozellik": o["ozellik"], "yargi": yk, "karar": karar, "gerekce": g,
                              "tarih": bugun.isoformat(), "video": a.get("video"), "kanal": kanal, "sponsor": sponsor})
             sina(kok, ad, metin, sinama, eksik)  # özelliklerden sonra: aynı koşuda yazılan ÖĞREN kartı da not alabilsin
+            if any(k["yargi"] in ("KUR", "UYARLA") for k in yeni):
+                dep = _departman(kok, jev, ad, a, metin, depl)
+                yeni = [{**k, "departman": dep} if k["yargi"] in ("KUR", "UYARLA") else k for k in yeni]
             ozet.append((sponsor, f"{ad} → özellik düzeyi: " + " · ".join(f"{o['ozellik']} {k['yargi']}" for o, k in zip(oz, yeni))))
             rapor.append((sponsor, [f"## {ad} → özellik düzeyi{' · sponsor' if sponsor else ''}", *satir, ""]))
             gorulen.add(tr.normal(ad))
@@ -381,6 +394,7 @@ def katman(ns, ctx):
             elif kt == "RED":
                 yargi = "RED"
                 red.append(f"{ad} — {karar}")
+        dep = _departman(kok, jev, ad, a, metin, depl) if yargi in ("KUR", "UYARLA") and kt != "T0" else None
         ozet.append((sponsor, f"{ad} → {yargi}{' (sponsor)' if sponsor else ''} — {karar}"))
         rapor.append((sponsor, [f"## {ad} → {yargi}{' · sponsor' if sponsor else ''}", f"- Sonuç: {karar}"]
                       + [f"- {b}: {' '.join(tr.bolum(metin, b).split())[:400] or ('-' if yargi == 'RED' else '(eksik)')}" for b in ALTI] + [""]))
@@ -388,12 +402,12 @@ def katman(ns, ctx):
         gorulen.add(tr.normal(ad))
         kayit = [k for k in kayit if tr.normal(k["ad"]) != tr.normal(ad)] + [
             {"ad": ad, "katman": kt, "yargi": yargi, "karar": karar, "tarih": bugun.isoformat(), "video": a.get("video"), "kanal": kanal,
-             "sponsor": sponsor, "kaynak_commit": commit, "geri_alma": geri}]
+             "sponsor": sponsor, "kaynak_commit": commit, "geri_alma": geri, **({"departman": dep} if dep else {})}]
     ky.parent.mkdir(parents=True, exist_ok=True)
     tr.kayit_yaz(ky, kayit)
     bayat = [f"{s} ({fm.get('bayatlama')})" for s, fm, _ in og.kartlar(kok) if fm.get("bayatlama", "") < bugun.isoformat()]
     bolumler = (("ÖZELLİK KARARLARI", ozk), ("ÖĞRENİLENLER", ogrenilen), ("ÇELİŞKİLER (otomatik eklenmedi, Ömer karar verir)", celiski), ("DENENECEKLER", dene),
-                ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("YENİDEN DOĞRULA (bayat kart)", bayat))
+                ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("DEPARTMAN", depl), ("YENİDEN DOĞRULA (bayat kart)", bayat))
     tam = kd / f"{bugun.isoformat()}-uygula.md"
     if rapor:  # sponsor adayları düşük öncelik: sona
         tam.write_text("\n".join([f"# video-uygula — {bugun.isoformat()}", ""] + [s for _, r in sorted(rapor, key=lambda x: x[0]) for s in r]
