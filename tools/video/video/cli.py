@@ -15,6 +15,7 @@ from pathlib import Path
 from jev import cekirdek as c
 from jev import skill as sk
 
+from . import kur
 from . import metin as m
 from . import ogren as og
 from . import tarama as tr
@@ -40,8 +41,8 @@ ASAMA2 = "Kullanıcının sorusu (state) şu video kesitinde yanıtlanıyor mu? 
 WHISPER_KUR = "faster-whisper kurulu değil. Kur: uv tool install -e tools/video --with faster-whisper"
 
 
-def kos(args, timeout=120):
-    r = subprocess.run(args, capture_output=True, timeout=timeout)
+def kos(args, timeout=120, env=None):
+    r = subprocess.run(args, capture_output=True, timeout=timeout, env=env)
     return r.returncode, r.stdout, r.stderr
 
 
@@ -674,6 +675,15 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev isteği (varsayılan 2·aday)")
     x = alt.add_parser("kural-onay", help="bekleyen/kural-<slug>.md → omer-kurallar.md'ye madde (çiftse eklenmez); yalnız CC, köprüde yok")
     x.add_argument("slug")
+    x = alt.add_parser("onay", help="bekleyen/<ad>.md yapılandırılmış adımlar → kur · duman · başarısızsa geri alma; yalnız CC, köprüde yok")
+    x.add_argument("ad")
+    x.add_argument("--kuru", action="store_true", help="hiçbir şey koşmaz, planı yazar")
+    x = alt.add_parser("geri-al", help="kayıttaki geri_alma adımları + köprü girdisini çıkarır; yalnız CC")
+    x.add_argument("ad")
+    x = alt.add_parser("dene", help="docs/denemeler/<ad>.md → claude -p A/B (sonnet) + Jev kalite; yalnız CC")
+    x.add_argument("ad")
+    x.add_argument("--tavan", type=int, default=6, help="en fazla N claude -p (görev×2)")
+    x.add_argument("--istek-tavan", type=int, default=12, metavar="M", help="en fazla M Jev isteği")
     alt.add_parser("durum", help="docs/durum.md: köprü katalogu · son kararlar · ölçüm bulguları · ELE (≤3k token, elle bölüm korunur)")
     x = alt.add_parser("bilgi", help="bilgi/ kartları: guven · bayatlama · iddia")
     x.add_argument("--bayat", action="store_true", help="yalnız bayatlamış (yeniden doğrula)")
@@ -686,7 +696,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
-                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "durum": og.durum, "bilgi": og.bilgi}[ns.komut](ns, ctx)
+                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "durum": og.durum, "bilgi": og.bilgi}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

@@ -20,3 +20,6 @@ stil satırını/modu kaldır; ayar değişikliği yok.
 
 ## Bizde durum (15b doğrulandı)
 caveman: yok (katalog ve settings'te yok). omni-compression ve cli-compression: kurulu-kapalı (settings skillOverrides =off). Karar değişmez: DENE; ikisi de açık değil, deneme ayrı stil satırıyla koşulur.
+
+## Talimat
+docs/denemeler/caveman-talimat.md

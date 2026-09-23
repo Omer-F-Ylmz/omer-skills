@@ -5,7 +5,7 @@ description: "Video linklerinden işe yarayanı risk katmanıyla uygular: kural 
 
 # video-uygula — tarama → değerlendirme → katmanlı uygulama
 
-Hiçbir plugin/MCP/CLI/hook kurulmaz; settings.json, kopru.json ve global CLAUDE.md değişmez. claude.ai'de: okuma rehberi (sandbox'ta `video` yok).
+Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmış adım, serbest kabuk yok); settings.json ve global CLAUDE.md hiç değişmez. claude.ai'de: okuma rehberi (sandbox'ta `video` yok).
 
 ## Akış (ana ajan)
 
@@ -39,7 +39,14 @@ Hiçbir plugin/MCP/CLI/hook kurulmaz; settings.json, kopru.json ve global CLAUDE
 - T0 ipucu/iş akışı: 12f kural karşılaştırması (≤2 Jev/aday); çiftse ZATEN VAR. Değilse kural dosyasına YAZILMAZ (15b): docs/kurulumlar/bekleyen/kural-<slug>.md (madde · gerekçe · çift/çelişki · kaynak) + raporda `ONAY kural <slug>`. Ömer onaylarsa CC'de `video kural-onay <slug>` C:\Projeler\omer-kurallar.md'ye `N. <kural> (video <id>, 15b)` ekler (çiftse eklemez). Köprüde yok; global CLAUDE.md'ye hiç yazılmaz.
 - RED: `red:` alanı · lisans MIT/Apache-2.0/BSD/0BSD/ISC/CC-BY-4.0 değil ya da yok · arşivli · son commit >12 ay · skill'de SkillSpector koşmadı ya da HIGH/CRITICAL >0.
 - T1 skill: kaynak klasörü gerçekten listelenir; yalnız .md (+LICENSE/NOTICE) → skills/<ad>/ + LICENSE + KAYNAK.md (repo@commit) + dist/yukle-14/yeni/<ad>.zip + skill_denetim; denetim hatası → geri alınır, T2.
-- T2 geri kalan her şey: docs/kurulumlar/bekleyen/<ad>.md (`# ONAY <ad>` + aday.md: kurulum · duman testi · geri alma · köprü izni). Komut koşulmaz; Ömer "ONAY <ad>" derse Kurulum bloğu elle koşulur.
+- T2 geri kalan her şey: docs/kurulumlar/bekleyen/<ad>.md (`# ONAY <ad>` + aday.md). Biçim (aşağıda) geçmezse dosya başı `BİÇİM EKSİK: …` ve raporda `elle düzelt <ad>`; komut koşulmaz.
+
+## Onay · geri al · dene (14b, yalnız CC; köprüde yok)
+
+- Bekleyen biçimi: `## Kurulum` / `## Geri alma` → `- <plugin|mcp|uv|npm|winget>: <argümanlar>`; `## Duman testi` → `- komut:` · `- cikis:` · `- desen:` (ops.); ops. `## Köprü izni` (`- arac:` · `- altIzin:` yalnız salt-okur) ve `## Ayar` (`- üst.alt: <JSON>`, env altında yalnız `${AD}`). Metakarakter (`; & | > < \` $(`), indirici/kabuk (curl, iwr, iex, sh, cmd, powershell…), uzak betik, düz anahtar değeri → red.
+- `video onay <ad> --kuru` → planı göster (argv, duman, geri alma, köprü, PowerShell bloğu); hiçbir şey koşmaz. Ömer "ONAY <ad>" derse `video onay <ad>`: adımlar sırayla → duman testi; adım ya da duman başarısızsa geri alma adımlarının hepsi koşar, kayıt `RED(adım|duman)`. Başarı: kayıt {karar KUR, kurulum_tarihi, geri_alma}; Köprü izni yeni araç girdisi olarak kopru.json'a (envGecir yok) → "Desktop yeniden başlatma gerekli". settings.json değişikliği KOŞULMAZ: PowerShell bloğu rapora, Ömer elle koşar.
+- `video geri-al <ad>` → kayıttaki geri_alma adımları + eklenen köprü girdisi çıkar → kayıt "geri alındı".
+- `video dene <ad> [--tavan 6] [--istek-tavan 12]` → docs/denemeler/<ad>.md (Hipotez · Metrik · Bütçe · Başarı eşiği · `## Talimat` yolu) + sabit görev seti docs/denemeler/gorevler/. A: `claude -p --model sonnet --output-format json`; B: aynı + `--append-system-prompt <talimat>`; alt süreçte JEV_SKILL_HOOK=0. Ölçüm: çıktı/girdi token · süre · maliyet · Jev kalite (0-3). Eşik dosyadan (yoksa çıktı ≥%25 düşüş VE kalite düşüşü ≤0.3) → `KUR önerisi → ONAY` ya da `RED(ölçüm)`; docs/denemeler/<ad>-sonuc.md + kayıt.
 - Kayıt satırı: {ad, katman, karar, tarih, video, kaynak_commit, geri_alma}.
 
 ## Aday dosyası (≤40 satır)
@@ -49,4 +56,4 @@ Bölümler: Ne · Kanıt · Kurulum · İzinler · Duman testi · Geri alma · K
 
 ## Tavanlar
 
-Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.
+Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1); dene ≤12. claude -p: dene ≤6 (görev×2, tavan aşılırsa hiç koşmaz). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.

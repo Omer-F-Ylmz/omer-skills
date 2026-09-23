@@ -11,6 +11,7 @@ from pathlib import Path
 
 from jev import cekirdek as c
 
+from . import kur
 from . import ogren as og
 from . import tarama as tr
 
@@ -248,9 +249,11 @@ def katman(ns, ctx):
             if kt == "T2":
                 b = kd / "bekleyen" / f"{ad}.md"
                 b.parent.mkdir(parents=True, exist_ok=True)
-                b.write_text(f"# ONAY {ad}\n\nKatman T2 · {karar} · kurulmadı; onay gelirse Kurulum bloğu elle koşulur.\n\n{metin}", encoding="utf-8")
+                bh = kur.bicim(metin, kur.kopru_oku(kok))[1]  # 14b: yapılandırılmış biçim yoksa onay koşamaz
+                b.write_text((f"BİÇİM EKSİK: {' · '.join(bh)}\n\n" if bh else "")
+                             + f"# ONAY {ad}\n\nKatman T2 · {karar} · kurulmadı; `video onay {ad} [--kuru]`.\n\n{metin}", encoding="utf-8")
                 geri = (tr.bolum(metin, "Geri alma").strip().splitlines() or ["kurulmadı"])[0]
-                onay.append(f"ONAY {ad} ({karar})")
+                onay.append(f"elle düzelt {ad} ({karar}; biçim eksik)" if bh else f"ONAY {ad} ({karar})")
             elif kt == "RED":
                 yargi = "RED"
                 red.append(f"{ad} — {karar}")

@@ -1,0 +1,8 @@
+10:02 kırmızı test yazıldı: test_iptal_stok_geri_gelir (FAILED, beklenen)
+10:05 commit a41f9c2 "stok: iptal kırmızı test"
+10:31 stok düşümü onay sonrasına taşındı, iptal akışı stoku geri yazıyor
+10:33 pytest: 212 passed, 0 failed
+10:36 commit 7be20d1 "stok: onay sonrası düşüm + iptal geri yazım"
+10:40 push; CI (GitHub Actions) yeşil, 4 dk 12 sn
+10:41 sapma: sahte kargo API zaman aşımı testleri hâlâ kararsız, bu işte dokunulmadı
+10:42 sapma: eski kargo fonksiyonu silinmedi, iki çağıran var

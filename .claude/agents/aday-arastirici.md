@@ -26,12 +26,24 @@ kaynak: <yerel skill klasörü|yok>
 ## Kanıt
 yıldız · son commit · lisans · SkillSpector (skill ise)
 ## Kurulum
+- npm: <paket>@<sürüm>
 ## İzinler
 ## Duman testi
+- komut: <araç> --version
+- cikis: 0
+- desen: \d+\.\d+
 ## Geri alma
+- npm: <paket>
 ## Köprü izni
-yalnız salt-okur alt komutlar
+- arac: <araç>
+- altIzin: --version, list
 ## Önerilen katman
 T1 (yalnız .md skill) · T2 (çalıştırılabilir her şey) · RED (gerekçe)
 ```
+Kurulum / Duman testi / Geri alma / Köprü izni / Ayar (isteğe bağlı) yapılandırılmış `- ` satırlarıdır (`video onay` yalnız bunu koşar; geçmezse bekleyen "BİÇİM EKSİK" olur):
+- Kurulum ve Geri alma: `- <tür>: <argümanlar>`; tür yalnız plugin · mcp · uv · npm · winget (plugin `x@market`, mcp `<ad> [--env AD=${AD}] -- <komut>`, winget paket kimliği). Geri alma aynı türle, yalnız ad (mcp: `- mcp: <ad>`).
+- Yasak: `; & | > < \` $(`, curl/wget/iwr/irm/iex/sh/bash/cmd/powershell, uzak betik URL'si. Anahtar DEĞERİ asla; yalnız `${ENV_ADI}`.
+- Duman testi: `- komut:` tek komut, `- cikis:` beklenen kod, `- desen:` isteğe bağlı regex. Köprü izni altIzin yalnız salt-okur (--version, help, list, show, status, info, search, get, view, doctor, check).
+- Ayar (settings.json gerekiyorsa, koşulmaz; rapora PowerShell bloğu): `- <üst>.<alt>: <JSON değer>`; env altında yalnız `${AD}`.
+- Serbest kurulum komutu gerekirse (README'de betik): Kurulum boş kalır, gerekçe İzinler'e; katman RED ya da elle.
 Son: yalnız `aday: <yol> · <önerilen katman> · <1 satır>`. Lisans bilinmiyorsa `yok` yaz, tahmin etme.
