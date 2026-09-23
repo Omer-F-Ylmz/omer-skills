@@ -1,0 +1,27 @@
+{
+  "_not": "13d K1 ortak fixture: jev skill (tests/test_jev_13d.py) ve köprü katalog (cc-kopru/test/katalog13d.test.mjs) aynı ad kümesini vermeli. {EV} = geçici ev kökü (/ ile). skilller: her dizine SKILL.md yazılır.",
+  "dosyalar": {
+    ".claude/settings.json": "{\"enabledPlugins\":{\"pa@m\":true,\"pb@m\":false,\"pc@m\":true},\"skillOverrides\":{\"pa:s2\":\"off\",\"yerel2\":\"off\",\"anthropic-skills:sy2\":\"off\",\"sy4\":\"off\",\"s5\":\"off\"}}",
+    ".claude/plugins/installed_plugins.json": "{\"version\":2,\"plugins\":{\"pa@m\":[{\"scope\":\"user\",\"installPath\":\"{EV}/.claude/plugins/cache/m/pa/2.0\"}]}}",
+    ".claude/plugins/marketplaces/m/.claude-plugin/marketplace.json": "{\"plugins\":[{\"name\":\"pc\",\"skills\":[\"./skills/c1\"]}]}"
+  },
+  "skilller": [
+    ".claude/skills/yerel1",
+    ".claude/skills/yerel2",
+    ".claude/skills/synced/u1/sy1",
+    ".claude/skills/synced/u1/sy2",
+    ".claude/skills/synced/u1/sy3",
+    ".claude/skills/synced/u1/sy4",
+    ".claude/skills/synced/u1/s1",
+    ".claude/skills/synced/u1/yerel1",
+    ".claude/plugins/cache/m/pa/1.0/skills/eski",
+    ".claude/plugins/cache/m/pa/2.0/skills/s1",
+    ".claude/plugins/cache/m/pa/2.0/skills/s2",
+    ".claude/plugins/cache/m/pa/2.0/skills/s5",
+    ".claude/plugins/cache/m/pa/2.0/skills/s6",
+    ".claude/plugins/cache/m/pb/1.0/skills/b1",
+    ".claude/plugins/cache/m/pc/1.0/skills/c1",
+    ".claude/plugins/cache/m/pc/1.0/skills/c2"
+  ],
+  "beklenen": ["anthropic-skills:sy1", "anthropic-skills:sy3", "pa:s1", "pa:s5", "pa:s6", "pc:c1", "yerel1"]
+}

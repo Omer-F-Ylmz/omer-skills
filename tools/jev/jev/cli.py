@@ -9,7 +9,6 @@ import time
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from . import ayristir as a
 from . import cekirdek as c
 from . import skill as sk
 
@@ -40,6 +39,7 @@ def _p(x):
 
 
 def log(ns, tas, b):
+    from . import ayristir as a
     hatalar = a.log_hatalari(_oku(ns.dosya))
     if not hatalar:
         return "hata bulunmadı (Jev çağrılmadı)"
@@ -59,6 +59,7 @@ def log(ns, tas, b):
 
 
 def ilgili(ns, tas, b):
+    from . import ayristir as a
     parcalar = []
     for yol in ns.yollar:
         metin = _oku(yol)
@@ -73,6 +74,7 @@ def ilgili(ns, tas, b):
 
 
 def kanit(ns, tas, b):
+    from . import ayristir as a
     iddialar = a.iddialar(_oku(ns.rapor))
     parcalar = c.bol_state("\n\n".join(f"### {y}\n{_oku(y)}" for y in ns.kanitlar), ust=KANIT_TOKEN)
     t, satirlar = tas(), []
@@ -91,6 +93,7 @@ def kanit(ns, tas, b):
 
 
 def triage(ns, tas, b):
+    from . import ayristir as a
     bl = a.bulgular(json.loads(_oku(ns.dosya)))
     if not bl:
         return "bulgu yok (Jev çağrılmadı)"
@@ -224,15 +227,24 @@ def kalibre(ns, tas, b):
 def skill(ns, tas, b):
     t = tas()
     t.tekrar = 0  # istem başına tam 2 HTTP isteği
-    _, sonuc = sk.yonlendir(ns.istem, t, b, sk.adaylar())
+    ns.asama = {}
+    _, sonuc = sk.yonlendir(ns.istem, t, b, sk.adaylar(), ns.asama)
     return ["skill", "p", "bant"], [[x["ad"], _p(x["p"]), x["bant"]] for x in sonuc]
 
 
+def hook_durum(ns, tas, b):
+    yol = Path.home() / ".config" / "jev" / "hook.log"
+    d = sk.hook_durum(yol.read_text(encoding="utf-8").splitlines()[-ns.n:] if yol.exists() else [])
+    oran = d["sonuc"].get("zaman-aşımı", 0) / d["n"] if d["n"] else 0
+    return ["ölçü", "değer"], [["satır", d["n"]], ["p50 ms", d["p50"]], ["p95 ms", d["p95"]], ["zaman-aşımı oranı", f"{oran:.0%}"],
+                               *[[f"sonuç: {k}", v] for k, v in sorted(d["sonuc"].items())]]
+
+
 KOMUT = {"log": log, "ilgili": ilgili, "kanit": kanit, "triage": triage, "tarama": tarama, "kalibre": kalibre,
-         "skill": skill, "skill-olc": lambda ns, tas, b: sk.olc(ns, tas(), b)}
+         "skill": skill, "skill-olc": lambda ns, tas, b: sk.olc(ns, tas(), b), "hook-durum": hook_durum}
 
 
-def main(argv=None, env=None, gonder=None, uyu=time.sleep):
+def main(argv=None, env=None, gonder=None, uyu=time.sleep, t0=None):
     p = argparse.ArgumentParser(prog="jev", description=__doc__)
     ortak = argparse.ArgumentParser(add_help=False)
     ortak.add_argument("--model", default="jev-1.13", choices=c.MODELLER, help="varsayılan pinli jev-1.13")
@@ -263,11 +275,13 @@ def main(argv=None, env=None, gonder=None, uyu=time.sleep):
     x = alt.add_parser("skill-olc", parents=[ortak], help="skill_route.jsonl ile aşama-1 isabeti, hit@1/3, gecikme, maliyet (ücretli)")
     x.add_argument("--veri", default=str(VERI.with_name("skill_route.jsonl")))
     x.add_argument("--cikti", default="docs/jev-skill-route.md")
+    x = alt.add_parser("hook-durum", parents=[ortak], help="hook.log son N satırı: p50/p95 ms, sonuç dağılımı (ağ yok)")
+    x.add_argument("-n", type=int, default=100)
     alt.add_parser("hook", help="UserPromptSubmit hook'u: stdin JSON; JEV_SKILL_HOOK=1 değilse ağa çıkmaz; her hatada sessiz exit 0")
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
     if ns.komut == "hook":
-        cikti = sk.hook(sys.stdin.read(), env, gonder=gonder)
+        cikti = sk.hook(sys.stdin.read(), env, gonder=gonder, t0=t0)
         if cikti:
             print(cikti)
         return 0
@@ -288,16 +302,24 @@ def main(argv=None, env=None, gonder=None, uyu=time.sleep):
         print(f"jev: {type(e).__name__}: {e}", file=sys.stderr)
         return 1
     cagri = {"batch": t[0].cagri, "istek": t[0].istek} if t else {"batch": 0, "istek": 0}
+    asama = getattr(ns, "asama", None)
+    if asama is not None:
+        cagri["asama"] = {str(k): v for k, v in sorted(asama.items())}
     if ns.json:
         j = {"mesaj": sonuc} if isinstance(sonuc, str) else {"satirlar": [dict(zip(sonuc[0], r)) for r in sonuc[1]]}
         print(json.dumps({**j, "cagri": cagri}, ensure_ascii=False))
     else:
         print(sonuc if isinstance(sonuc, str) else c.tablo(*sonuc, ust=24))
-        print(f"çağrı: {cagri['batch']}/{ns.en_fazla} batch · {cagri['istek']}/{ns.istek_tavan} istek")
+        if asama is not None:
+            tavan = t[0].en_fazla if t else ns.en_fazla
+            print(" · ".join(f"aşama {k}: {v[0]} çağrı · {v[1]} istek" for k, v in sorted(asama.items()))
+                  + f" (tavan {tavan} çağrı · {ns.istek_tavan} istek)")
+        elif ns.komut != "hook-durum":
+            print(f"çağrı: {cagri['batch']}/{ns.en_fazla} batch · {cagri['istek']}/{ns.istek_tavan} istek")
     return 0
 
 
-def calistir():
+def calistir(t0=None):
     for akis in (sys.stdout, sys.stderr):
         akis.reconfigure(encoding="utf-8")
-    sys.exit(main())
+    sys.exit(main(t0=t0))

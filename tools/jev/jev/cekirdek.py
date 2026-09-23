@@ -8,8 +8,6 @@ import os
 import re
 import sys
 import time
-import urllib.error
-import urllib.request
 from pathlib import Path
 
 MODELLER = ("jev-1.13", "jev-latest")
@@ -129,6 +127,9 @@ def tablo(basliklar, satirlar, ust=25):
 
 
 def http_gonder(url, basliklar, govde, timeout=60):
+    import urllib.error  # tembel: hook açılışında ağ yığını (ssl, http.client) yüklenmez
+    import urllib.request
+
     istek = urllib.request.Request(url, data=govde, headers=basliklar, method="POST")
     try:
         with urllib.request.urlopen(istek, timeout=timeout) as r:

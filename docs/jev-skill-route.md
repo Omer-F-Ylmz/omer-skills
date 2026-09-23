@@ -18,3 +18,10 @@ Veri `skill_route.jsonl`: 20 sentetik istem, her birine 1-3 kabul edilebilir alt
 Karar kuralı: hit@3 ≥ 0.80 VE p95 ≤ 1.8 sn VE günlük üst sınır ≤ $0.50.
 
 **JEV_SKILL_HOOK=1 önerilir.**
+
+Kayıt (`~/.claude/settings.json` → `hooks.UserPromptSubmit`); CC hook komutları Windows'ta bash ile koşar, yolda / kullan:
+
+```json
+{"hooks": [{"type": "command", "timeout": 3,
+  "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/pc/.claude/hooks/jev-skill.ps1"}]}
+```

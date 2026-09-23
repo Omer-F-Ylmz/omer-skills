@@ -104,24 +104,34 @@ export function hookKaynaklari(projeDir) {
  * Açık plugin'lerin kökleri: {ad, kok}. hookKaynaklari ile aynı keşif, ama
  * `hooks/hooks.json` şartı yok — katalog komut/agent/skill de sayar (11k K2b).
  * hookKaynaklari bilerek kopyalanmadı: orada arama hooks.json'da DURUYOR.
+ * 13d K1: kök installed_plugins.json installPath'ten (CC'nin etkin sürümü); klasör taraması
+ * sıralı ilk sürümü seçip yeni skill'leri kaçırıyordu. `skills` = marketplace girdisinin
+ * `skills` listesi — varsa yalnız onlar (claude-api:* aynı repo skill'lerini çift listeliyordu).
+ * Port: tools/jev/jev/skill.py _eklentiler.
  */
-export function eklentiKokleri() {
-  const kullanici = jsonOku(path.join(EV, ".claude", "settings.json")) || {};
-  const acik = Object.entries(kullanici.enabledPlugins || {})
-    .filter(([, v]) => v === true).map(([k]) => k.split("@")[0]);
-  const out = [];
-  if (!fs.existsSync(EKLENTI_KOK)) return out;
-  for (const sahip of fs.readdirSync(EKLENTI_KOK)) {
-    const sd = path.join(EKLENTI_KOK, sahip);
-    if (!fs.statSync(sd).isDirectory()) continue;
-    for (const ad of fs.readdirSync(sd)) {
-      if (!acik.includes(ad)) continue;
-      const adaylar = [path.join(sd, ad), ...fs.readdirSync(path.join(sd, ad))
-        .map((s) => path.join(sd, ad, s))];
-      const kok = adaylar.find((k) => ["commands", "agents", "skills", "plugin.json"]
-        .some((x) => fs.existsSync(path.join(k, x))));
-      if (kok) out.push({ ad, kok });
+export function eklentiKokleri(ev = EV) {
+  const cl = path.join(ev, ".claude");
+  const kokDizin = path.join(cl, "plugins", "cache");
+  const kullanici = jsonOku(path.join(cl, "settings.json")) || {};
+  const kurulu = jsonOku(path.join(cl, "plugins", "installed_plugins.json"))?.plugins || {};
+  const eskiKok = (ad) => {
+    for (const sahip of fs.existsSync(kokDizin) ? fs.readdirSync(kokDizin).sort() : []) {
+      const p = path.join(kokDizin, sahip, ad);
+      if (!fs.existsSync(p) || !fs.statSync(p).isDirectory()) continue;
+      return [p, ...fs.readdirSync(p).sort().map((s) => path.join(p, s))]
+        .find((k) => ["commands", "agents", "skills", "plugin.json"].some((x) => fs.existsSync(path.join(k, x))));
     }
+  };
+  const out = [];
+  for (const [anahtar, v] of Object.entries(kullanici.enabledPlugins || {})) {
+    if (v !== true) continue;
+    const [ad, pazar = ""] = anahtar.split("@");
+    let kok = (kurulu[anahtar] || [])[0]?.installPath;
+    if (!kok || !fs.existsSync(kok)) kok = eskiKok(ad);
+    if (!kok) continue;
+    const girdi = (jsonOku(path.join(cl, "plugins", "marketplaces", pazar, ".claude-plugin", "marketplace.json"))
+      ?.plugins || []).find((x) => x.name === ad);
+    out.push({ ad, kok, skills: Array.isArray(girdi?.skills) ? girdi.skills : null });
   }
   return out;
 }
@@ -176,9 +186,12 @@ export function aciklamaOku(dosya) {
 /**
  * CC'de açık plugin komutları · agent'lar · skill adları.
  * skillOverrides'ta "off" olanlar elenir. API çağrısı yok, yalnız dosya sistemi.
+ * 13d K1: skill kısmı jev skill aday listesiyle aynı (yerel → plugin → synced; ortak fixture
+ * tools/jev/tests/veri/skill_agaci.json). Çıplak ad override'ı plugin skill'ini kapatmaz.
  */
-export function katalogTopla(tur = "hepsi", ara = "") {
-  const kullanici = jsonOku(path.join(EV, ".claude", "settings.json")) || {};
+export function katalogTopla(tur = "hepsi", ara = "", ev = EV) {
+  const cl = path.join(ev, ".claude");
+  const kullanici = jsonOku(path.join(cl, "settings.json")) || {};
   const kapali = new Set(Object.entries(kullanici.skillOverrides || {})
     .filter(([, v]) => v === "off").map(([k]) => k));
   const out = [];
@@ -189,7 +202,8 @@ export function katalogTopla(tur = "hepsi", ara = "") {
     out.push({ tur: t, ad, aciklama: aciklamaOku(dosya) });
   };
 
-  for (const { ad: pAd, kok } of [{ ad: "", kok: path.join(EV, ".claude") }, ...eklentiKokleri()]) {
+  const gorulen = new Set();
+  for (const { ad: pAd, kok, skills } of [{ ad: "", kok: cl, skills: null }, ...eklentiKokleri(ev)]) {
     const on = pAd ? pAd + ":" : "";
     for (const [t, dizin] of [["komut", "commands"], ["ajan", "agents"]]) {
       const d = path.join(kok, dizin);
@@ -199,12 +213,26 @@ export function katalogTopla(tur = "hepsi", ara = "") {
       }
     }
     const sd = path.join(kok, "skills");
-    if (!fs.existsSync(sd)) continue;
-    for (const s of fs.readdirSync(sd)) {
-      const sm = path.join(sd, s, "SKILL.md");
+    const dizinler = skills ? skills.map((s) => path.join(kok, s))
+      : fs.existsSync(sd) ? fs.readdirSync(sd).sort().map((s) => path.join(sd, s)) : [];
+    for (const d of dizinler) {
+      const s = path.basename(d);
+      const sm = path.join(d, "SKILL.md");
       if (!fs.existsSync(sm)) continue;
-      if (kapali.has(`${pAd}:${s}`) || kapali.has(s)) continue;
+      if (kapali.has(`${pAd}:${s}`) || (!pAd && kapali.has(s))) continue;
+      gorulen.add(s);
       ekle("skill", on + s, sm);
+    }
+  }
+  // claude.ai'dan senkron skill'ler; yerel/plugin'de aynı ad varsa mükerrer kopya sayılır
+  const sy = path.join(cl, "skills", "synced");
+  for (const u of fs.existsSync(sy) ? fs.readdirSync(sy).sort() : []) {
+    if (!fs.statSync(path.join(sy, u)).isDirectory()) continue;
+    for (const s of fs.readdirSync(path.join(sy, u)).sort()) {
+      const sm = path.join(sy, u, s, "SKILL.md");
+      if (!fs.existsSync(sm) || gorulen.has(s) || kapali.has(s) || kapali.has(`anthropic-skills:${s}`)) continue;
+      gorulen.add(s);
+      ekle("skill", `anthropic-skills:${s}`, sm);
     }
   }
   return out;

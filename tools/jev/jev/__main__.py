@@ -1,3 +1,7 @@
-from .cli import calistir
+import time
 
-calistir()
+T0 = time.monotonic()  # hook bütçesi süreç başından sayılır (import dahil)
+
+from .cli import calistir  # noqa: E402
+
+calistir(T0)
