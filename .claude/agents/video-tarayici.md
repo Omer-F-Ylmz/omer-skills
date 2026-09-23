@@ -1,8 +1,8 @@
 ---
 name: video-tarayici
-description: video-tarama skill'inin link başına alt ajanı. Tek video id'si için `video oku` (yalnız okunacak segmentler) + `video kare --suzgecten` ile rapor yazar, `video rapor-denetle` geçene kadar düzeltir; yalnız rapor yolu + ≤5 satır döner.
+description: video-tarama skill'inin link başına alt ajanı. Prompt'taki sabit görevle paket.md + kareleri okur, rapor yazar, `video rapor-denetle` ile denetler; yalnız rapor yolu + ≤5 satır döner.
 model: sonnet
-tools: Bash, Read, Write, Edit
+tools: Bash, Read, Write
 ---
 
-skills/video-tarama/SKILL.md'deki "Alt ajan görevi" ve "Rapor şablonu" bölümlerini aynen uygula. Altyazıyı ya da rapor gövdesini dönüşe koyma.
+Prompt'taki görevi aynen uygula (en fazla 4 tur). Yalnız prompt'ta adı geçen dosyaları oku; dönüş ≤5 satır.

@@ -11,6 +11,7 @@ ajana yalnız kompakt çıktı döner. Her kademe bir öncekinin önbelleğini k
 ## Kademeler (sırayla, gerektiği kadar)
 
 ```text
+video izle <url|id> "<soru>" [-k 3]      # tek çağrı: ozet (önbellekli) + sor + görüntü gerekirse tek kare yolu; Jev ≤2, suz yok
 video ozet <url|id|playlist>          # ≤6 satır: başlık, süre, segment, ~token; playlist tavanı 8
 video suz <id> [--istek-tavan N]      # segment başına 1 Jev isteği; kesin "araç yok" atlanır, belirsiz okunur
 video sor <id> "<soru>" [-k 5]        # tam 2 Jev isteği; ilgili k segment (≤2500 token) + görüntü gerekli mi
@@ -21,7 +22,8 @@ video temizle [--gun 14]              # eski önbellek klasörlerini siler
 
 Karar sırası:
 
-1. Her zaman `ozet` ile başla. Altyazı yoksa çıktı `video --whisper <id>` önerir (yalnız CC, CPU, dakika tavanlı).
+0. Tek bir soru varsa (özellikle Desktop'ta) `izle` yeter: ozet satırları, ilgili segmentler ve gerekiyorsa tek kare yolu tek çıktıda.
+1. Kademeli gidilecekse `ozet` ile başla. Altyazı yoksa çıktı `video --whisper <id>` önerir (yalnız CC, CPU, dakika tavanlı).
 2. Belirli bir soru varsa `sor`; genel tarama gerekiyorsa `suz`. İkisi de Jev ister (TYPESAFE_API_KEY).
 3. `sor` "görüntü gerekli" derse ya da `suz` ekran adayı listelerse, yalnız o zamanlar için `kare`.
 4. Kareleri `Read` ile aç (görsel başına ~442 token, 768 px genişlik tavanı).
@@ -37,11 +39,12 @@ Karar sırası:
 ## Desktop'ta cc-kopru koprusu ile
 
 ```text
+komut(arac="video", args=["izle", "<url|id>", "<soru>"], cwd="C:/Projeler/omer-skills")
 komut(arac="video", args=["ozet", "<id>"], cwd="C:/Projeler/omer-skills")
 komut(arac="video", args=["kare", "<id>", "--t", "05:00", "--pencere", "0"], cwd="C:/Projeler/omer-skills")
 ```
 
-- İzinli alt komutlar: `ozet`, `suz`, `sor`, `kare`, `temizle`. `whisper` köprüde kapalı (uzun CPU işi).
+- İzinli alt komutlar: `izle`, `ozet`, `suz`, `sor`, `kare`, `temizle`, `oku`, `paket`, `adlar`, `rapor-denetle`. `whisper` köprüde kapalı (uzun CPU işi).
 - Jev anahtarları yalnız `jev` ve `video`'ya geçer (envGecir); öteki araçlardan silinir.
 - Kare yolunu `oku` ya da dosya aracıyla aç; köprü yoksa kullanıcıdan CC'de koşturup çıktıyı yapıştırmasını iste.
 

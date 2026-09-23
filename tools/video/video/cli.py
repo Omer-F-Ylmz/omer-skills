@@ -31,6 +31,7 @@ EKRAN_Q = {"type": "noul", "instructions": "Kesitte anlatılan şey ekranda gös
                         "false": "Yalnız sözlü anlatım; ekrana bakmak gerekmiyor."}}
 GORUNTU_Q = {"type": "noul", "instructions": "Bu soruyu (state) yanıtlamak için videonun görüntüsüne (ekran, komut, arayüz) bakmak gerekir mi?",
              "criteria": {"true": "Yanıt ekranda görünen ayrıntıya bağlı.", "false": "Altyazı metni yeterli."}}
+SORULAR = {"arac": ARAC_Q, "ekran": EKRAN_Q}
 ASAMA1 = "Kullanıcının sorusu (state) videonun hangi kesitinde yanıtlanıyor? Hiçbiri değilse 'hiçbiri'."
 ASAMA2 = "Kullanıcının sorusu (state) şu video kesitinde yanıtlanıyor mu? Kesit metni criteria.true içinde."
 WHISPER_KUR = "faster-whisper kurulu değil. Kur: uv tool install -e tools/video --with faster-whisper"
@@ -164,21 +165,23 @@ def _gonder_tavanli(ctx, tavan):
     return gonder, sayac
 
 
-def suz(ns, ctx):
-    d = ctx["kok"] / ns.id
+def _suz(ctx, d, sorular, istek_tavan):
+    """Yalnız p'si eksik (segment, soru) çiftleri sorulur; önbellekte p varsa istek yok. → (seg, bantlar, istek, tavan)"""
+    if not sorular or set(sorular) - set(SORULAR):
+        raise Hata(f"--sorular: {','.join(SORULAR)} içinden")
     seg, b = _oku(d), c.bantlar_oku()
-    sor = [s for s in seg if "p_arac" not in s]
-    tavan = ns.istek_tavan if ns.istek_tavan is not None else len(seg) + 10
+    sor = [s for s in seg if any(f"p_{k}" not in s for k in sorular)]
+    tavan = istek_tavan if istek_tavan is not None else len(seg) + 10
     if len(sor) > tavan:
         raise Hata(f"istek tavanı: {len(sor)} segment sorulacak, tavan {tavan} (--istek-tavan)")
     gonder, sayac = _gonder_tavanli(ctx, tavan)
-    q = {"arac": ARAC_Q, "ekran": EKRAN_Q}
 
     def bir(s):
+        q = {k: SORULAR[k] for k in sorular if f"p_{k}" not in s}
         t = c.Tasiyici(env=ctx["env"], en_fazla=1, gonder=gonder, istek_tavan=tavan)
         cv = t.yargila([f"[{m.ss(s['bas'])}-{m.ss(s['son'])}] {s['metin']}"], q)[0]
-        if cv:
-            s["p_arac"], s["p_ekran"] = cv["arac"]["noul"], cv["ekran"]["noul"]
+        for k in q if cv else ():
+            s[f"p_{k}"] = cv[k]["noul"]
 
     try:
         with ThreadPoolExecutor(SUZ_ES) as ex:
@@ -188,22 +191,27 @@ def suz(ns, ctx):
             if "p_arac" in s:  # yalnız "hayır" yönünde kesin olan atlanır; belirsiz okunur
                 s["atla"] = s["p_arac"] < 0.5 and c.kesinlik({"type": "noul", "noul": s["p_arac"]}) >= b["act"]
         _yaz(d, seg)
+    return seg, b, sayac[0], tavan
+
+
+def suz(ns, ctx):
+    seg, b, istek, tavan = _suz(ctx, ctx["kok"] / ns.id, ns.sorular.split(","), ns.istek_tavan)
     oku = [s for s in seg if not s.get("atla")]
     ekran = sorted((s for s in oku if s.get("p_ekran", 0) >= b["flag"]), key=lambda s: -s["p_ekran"])[:8]
     print(f"okunacak {len(oku)} · atlanan {len(seg) - len(oku)} · ~{sum(c.token(s['metin']) for s in oku)} token")
     print("ekran adayı: " + (", ".join(f"{m.ss((s['bas'] + s['son']) / 2)} ({s['p_ekran']:.2f})" for s in ekran) or "yok"))
-    print(f"istek: {sayac[0]} (tavan {tavan})")
+    print(f"istek: {istek} (tavan {tavan})")
     return 0
 
 
-def sor(ns, ctx):
-    d = ctx["kok"] / ns.id
-    seg, b = _oku(d), c.bantlar_oku()
+def _sor(ctx, v, soru, kac):
+    """→ (satırlar [(y, bant, s, metin)], istek, görüntü p'si yalnız Act ise, yoksa None). Tam 2 Jev isteği."""
+    seg, b = _oku(ctx["kok"] / v), c.bantlar_oku()
     t = c.Tasiyici(env=ctx["env"], en_fazla=2, gonder=ctx["gonder"], istek_tavan=2)
     aday = [(f"s{s['i']}", f"[{m.ss(s['bas'])}] {s['metin'][:ADAY_KR]}") for s in seg if not s.get("atla")]
     q1 = {f"d{i}": {"type": "choice", "instructions": ASAMA1, "criteria": {**dict(dl), sk.HICBIRI: "Hiçbir kesit yanıtlamıyor."}}
           for i, dl in enumerate(sk.dilimle(aday))}
-    cv = t.yargila([ns.soru], {**q1, "goruntu": GORUNTU_Q})[0] or {}
+    cv = t.yargila([soru], {**q1, "goruntu": GORUNTU_Q})[0] or {}
     olas = {}
     for k, y in cv.items():
         for a, p in (y.get("probabilities") or {}).items() if k != "goruntu" else ():
@@ -216,22 +224,72 @@ def sor(ns, ctx):
     if ilk:
         q2 = {f"a{n}": {"type": "noul", "instructions": ASAMA2, "criteria": {"true": idx[a]["metin"][:6000], "false": "Bu kesit soruyu yanıtlamıyor."}}
               for n, a in enumerate(ilk)}
-        cv2 = t.yargila([ns.soru], q2)[0] or {}
-        sirali = sorted(((cv2[f"a{n}"], idx[a]) for n, a in enumerate(ilk) if f"a{n}" in cv2), key=lambda x: -x[0]["noul"])[:ns.k]
+        cv2 = t.yargila([soru], q2)[0] or {}
+        sirali = sorted(((cv2[f"a{n}"], idx[a]) for n, a in enumerate(ilk) if f"a{n}" in cv2), key=lambda x: -x[0]["noul"])[:kac]
         butce = SOR_TOKEN
         for y, s in sirali:
             pay = max(butce // max(len(sirali) - len(satirlar), 1), 0)
             metin = s["metin"].encode()[:pay * 4].decode(errors="ignore")
             butce -= c.token(metin)
-            satirlar.append(s)
-            print(f"[{m.ss(s['bas'])}-{m.ss(s['son'])}] p={y['noul']:.2f} {c.bant(c.kesinlik(y), b)} | {metin}")
+            satirlar.append((y, c.bant(c.kesinlik(y), b), s, metin))
+    g = cv.get("goruntu")
+    return satirlar, t.istek, g["noul"] if g and g["noul"] >= 0.5 and c.bant(c.kesinlik(g), b) == "Act" else None
+
+
+def _sor_yaz(satirlar, istek):
+    for y, bant, s, metin in satirlar:
+        print(f"[{m.ss(s['bas'])}-{m.ss(s['son'])}] p={y['noul']:.2f} {bant} | {metin}")
     if not satirlar:
         print("eşleşen kesit yok")
-    g = cv.get("goruntu")
-    print(f"istek: {t.istek}")
-    if g and g["noul"] >= 0.5 and c.bant(c.kesinlik(g), b) == "Act":
-        zaman = ",".join(m.ss((s["bas"] + s["son"]) / 2) for s in satirlar[:3]) or m.ss(0)
-        print(f"video kare {ns.id} --t {zaman}  (görüntü gerekli, p={g['noul']:.2f})")
+    print(f"istek: {istek}")
+
+
+def sor(ns, ctx):
+    satirlar, istek, g = _sor(ctx, ns.id, ns.soru, ns.k)
+    _sor_yaz(satirlar, istek)
+    if g is not None:
+        zaman = ",".join(m.ss((s["bas"] + s["son"]) / 2) for _, _, s, _ in satirlar[:3]) or m.ss(0)
+        print(f"video kare {ns.id} --t {zaman}  (görüntü gerekli, p={g:.2f})")
+    return 0
+
+
+def izle(ns, ctx):
+    """Desktop için tek çağrı: ozet (önbellekli) + sor + görüntü Act ise en iyi segmentin ortasından tek kare. suz yok → Jev ≤2."""
+    v = m.vid(ns.hedef)
+    if v is None:
+        raise Hata("izle: tek video URL'si ya da id gerekli")
+    rc, satir = _ozet_bir(ctx, v, None)
+    print("\n".join(satir))
+    if rc:
+        return rc
+    satirlar, istek, g = _sor(ctx, v, ns.soru, ns.k)
+    _sor_yaz(satirlar, istek)
+    if g is not None and satirlar:
+        t = (satirlar[0][2]["bas"] + satirlar[0][2]["son"]) / 2
+        for _, yol in _kareler(ctx, ctx["kok"] / v, [t], 0, GENISLIK, 1):
+            print(f"kare: {yol.as_posix()} · {m.ss(t)} · ~{_kare_tk(yol)[1]} token (görüntü gerekli, p={g:.2f})")
+    return 0
+
+
+def paket(ns, ctx):
+    """Alt ajan girdisi tek dosya <önbellek>/<id>/paket.md: künye · chapter · linkler · sadeleştirilmiş segmentler · kare yolları.
+    Kareler: yalnız ekran sorusu (p varsa istek yok) → ekran p'si en yüksek --kare zamanın tam-t karesi. Segment metni stdout'a yazılmaz."""
+    d = ctx["kok"] / ns.id
+    seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan)
+    meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
+    dil = m.dil_sec(meta)
+    zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
+    kareler = _kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []
+    md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · dil {dil[0] if dil else '?'}"
+          f" · https://youtu.be/{ns.id}",
+          "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
+          "## Linkler", *(m.urller(meta.get("description")) or ["yok"]),
+          "## Segmentler", *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
+          "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or ["yok"])]
+    yol = d / "paket.md"
+    yol.write_text("\n".join(md) + "\n", encoding="utf-8")
+    print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
+          f" + ~{sum(_kare_tk(y)[1] for _, y in kareler)} kare · istek {istek}")
     return 0
 
 
@@ -284,11 +342,27 @@ def kare(ns, ctx):
     else:
         raise Hata("--t 12:30,14:05 ya da --suzgecten gerekli")
     zamanlar = zamanlar[:ns.en_fazla]
-    g = min(ns.genislik, GENISLIK)
+    toplam = 0
+    tut = _kareler(ctx, d, zamanlar, ns.pencere, min(ns.genislik, GENISLIK), ns.en_fazla)
+    for t, yol in tut:
+        gy, tk = _kare_tk(yol)
+        toplam += tk
+        print(f"{yol} · {m.ss(t)} · {gy[0]}x{gy[1]} · ~{tk} token")
+    print(f"{len(tut)} kare · tahmini görsel ~{toplam} token · {len(zamanlar)} aralık akıştan okundu (video dosyası yazılmadı)")
+    return 0
+
+
+def _kare_tk(yol):
+    gy = m.jpeg_boyut(yol.read_bytes())
+    return gy, gy[0] * gy[1] // 750
+
+
+def _kareler(ctx, d, zamanlar, pencere, g, en_fazla):
+    """[(t, yol)] zamana göre: önce merkez kareler, kalan pay sahne karelerine; aHash ile tekrar ayıklanır."""
     url = _akis_url(ctx, d)
     merkezler, sahneler = [], []
     for t in zamanlar:
-        mk, sh = _kare_uret(ctx, d, url, t, ns.pencere, g)
+        mk, sh = _kare_uret(ctx, d, url, t, pencere, g)
         merkezler += [(t, x) for x in mk]
         sahneler += [(t, x) for x in sh]
     tut, hashler = [], []
@@ -296,19 +370,12 @@ def kare(ns, ctx):
         if not yol.is_file():
             continue
         h = m.ahash(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=8:8,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]))
-        if len(tut) >= ns.en_fazla or any(bin(h ^ x).count("1") <= 5 for x in hashler):
+        if len(tut) >= en_fazla or any(bin(h ^ x).count("1") <= 5 for x in hashler):
             yol.unlink()
             continue
         hashler.append(h)
         tut.append((t, yol))
-    toplam = 0
-    for t, yol in sorted(tut):
-        gy = m.jpeg_boyut(yol.read_bytes())
-        tk = gy[0] * gy[1] // 750
-        toplam += tk
-        print(f"{yol} · {m.ss(t)} · {gy[0]}x{gy[1]} · ~{tk} token")
-    print(f"{len(tut)} kare · tahmini görsel ~{toplam} token · {len(zamanlar)} aralık akıştan okundu (video dosyası yazılmadı)")
-    return 0
+    return sorted(tut)
 
 
 def oku(ns, ctx):
@@ -381,8 +448,22 @@ def _sure(ctx, yol, metin):
     return m.sn(k[1]) if k else None
 
 
+def _sozluk_doldur(ctx, yol, metin):
+    """Aday satırında sözlük hücresi `?` ise ad sözlüğüyle yerinde doldurulur (alt ajanın `adlar` turu yerine)."""
+    if not any(len(s) > 1 and s[1] == "?" for s in tr.aday_satirlari(metin)):
+        return metin
+    sozluk = tr.sozluk_kur(_ev(ctx), tr.kayit_oku(_tarama_dizin(ctx) / "kayit.jsonl"))
+
+    def yaz(x):
+        e = tr.eslestir(x[1], sozluk)
+        return f"| {x[1]} | " + (f"{e[0]} ({e[1]}, {e[2]:.2f})" if e else "yok") + " |"
+    metin = re.sub(r"^\|\s*([^|\n]+?)\s*\|\s*\?\s*\|", yaz, metin, flags=re.M)
+    Path(yol).write_text(metin, encoding="utf-8")
+    return metin
+
+
 def rapor_denetle(ns, ctx):
-    metin = Path(ns.rapor).read_text(encoding="utf-8")
+    metin = _sozluk_doldur(ctx, ns.rapor, Path(ns.rapor).read_text(encoding="utf-8"))
     sure = _sure(ctx, ns.rapor, metin)
     h = tr.denetle(metin, sure)
     for x in h:
@@ -498,6 +579,15 @@ def main(argv=None, env=None, kos=kos, gonder=None):
     x = alt.add_parser("suz", help="segment başına Jev: araç anlatımı mı · ekranda mı; kesin-hayır atlanır")
     x.add_argument("id")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M HTTP isteği (varsayılan segment+10)")
+    x.add_argument("--sorular", default="arac,ekran", help="arac,ekran ya da yalnız biri; p'si olan sorulmaz")
+    x = alt.add_parser("paket", help="alt ajan girdisi tek dosya: künye · chapter · linkler · sade segmentler · kareler (yalnız ekran sorusu)")
+    x.add_argument("id")
+    x.add_argument("--kare", type=int, default=6, help="en fazla N kare (ekran p'si en yüksek)")
+    x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M HTTP isteği (varsayılan segment+10)")
+    x = alt.add_parser("izle", help="Desktop tek çağrı: ozet + sor + görüntü gerekirse tek kare (Jev ≤2)")
+    x.add_argument("hedef")
+    x.add_argument("soru")
+    x.add_argument("-k", type=int, default=3)
     x = alt.add_parser("sor", help="soruya en ilgili k segment (2 Jev isteği)")
     x.add_argument("id")
     x.add_argument("soru")
@@ -532,7 +622,7 @@ def main(argv=None, env=None, kos=kos, gonder=None):
     env = os.environ if env is None else env
     ctx = {"env": env, "kos": kos, "gonder": gonder, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
-        return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku,
+        return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu}[ns.komut](ns, ctx)
     except (Hata, c.JevHata) as e:
         print(f"hata: {e}")

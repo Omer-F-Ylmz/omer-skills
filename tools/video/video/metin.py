@@ -102,3 +102,19 @@ def ahash(ham):
     """8×8 gri ham bayttan ortalama-hash (int)."""
     ort = sum(ham) / max(len(ham), 1)
     return sum(1 << n for n, b in enumerate(ham) if b > ort)
+
+
+DOLGU = re.compile(r"\[[^\]]*\]|(?<!\w)(?:u+h+|u+m+|uhm|e+rm|h+m+|ı{2,}|e{2,})(?!\w)[,.]?", re.I)
+
+
+def sadelestir(s):
+    """ASR gürültüsü: dolgu sözcükleri, [Music] gibi etiketler ve ardışık 1-4 sözcüklük tekrarlar atılır."""
+    out, nr = [], []
+    for x in DOLGU.sub(" ", s).split():
+        out.append(x)
+        nr.append(re.sub(r"\W+", "", x.casefold()))
+        for n in range(1, 5):
+            if len(nr) >= 2 * n and nr[-n:] == nr[-2 * n:-n]:
+                del out[-n:], nr[-n:]
+                break
+    return " ".join(out)
