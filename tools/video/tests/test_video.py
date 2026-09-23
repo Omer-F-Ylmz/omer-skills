@@ -260,12 +260,14 @@ def test_kare_akis_url_giris_atlamali_video_yazilmaz(ortam, capsys):
     yt = [a for a in kos.cagri if a[0] == "yt-dlp"]
     assert len(yt) == 1 and "-g" in yt[0] and yt[0][yt[0].index("-f") + 1] == "bv*[height<=720][vcodec!=none]/b"
     net = ag(kos)
-    assert len(net) == 2
+    assert len(net) == 4  # zaman başına: tam-t karesi + pencere sahne kareleri
     for a in net:
         assert a.index("-ss") < a.index("-i") and a.index("-rw_timeout") < a.index("-i")  # giriş-atlaması: yalnız pencere okunur
         vf = a[a.index("-vf") + 1]
-        assert "eq(n,0)" in vf and "gt(scene,0.3)" in vf and "min(768,iw)" in vf and "format=yuvj420p" in vf
-    assert [(a[a.index("-ss") + 1], a[a.index("-t") + 1]) for a in net] == [("52", "16"), ("112", "16")]
+        assert "min(768,iw)" in vf and "format=yuvj420p" in vf
+    pen = [a for a in net if "-t" in a]
+    assert all("gt(scene,0.3)" in a[a.index("-vf") + 1] for a in pen)
+    assert [(a[a.index("-ss") + 1], a[a.index("-t") + 1]) for a in pen] == [("52", "16"), ("112", "16")]
     assert {p.name for p in d.iterdir()} <= {"meta.json", "segmentler.jsonl", "kareler", "akis.url"}
     assert "tahmini" in capsys.readouterr().out
 
