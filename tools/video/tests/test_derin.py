@@ -143,3 +143,14 @@ def test_brief_60_satir(ortam, tmp_path, capsys):
     assert main(["brief", str(r)], env=ortam) == 0
     out = capsys.readouterr().out.splitlines()
     assert 0 < len(out) <= 60 and any("a/o0 → DENE" in s for s in out) and any("iddia 0" in s for s in out)
+
+
+def test_ozelliksiz_adayda_da_iddia_sinama(ortam, kok):
+    (kok / "bilgi").mkdir()
+    (kok / "bilgi" / "k1.md").write_text("---\niddia: x\n---\nx\n", encoding="utf-8")
+    y = kok / "docs" / "kurulumlar" / "adaylar" / "duz.md"
+    y.write_text(f"# duz\nad: duz\ntur: CLI\nvideo: {VID}\nkarar: ZATEN VAR\ngerekce: yerleşik\n"
+                 + "".join(f"## {b}\nx\n" for b in uy.ALTI) + SINAMA, encoding="utf-8")
+    calis(ortam, [y], UKos())
+    assert "## İDDİA SINAMA" in uygula_raporu(kok) and "girdi −%33" in uygula_raporu(kok)
+    assert "abartılı" in (kok / "bilgi" / "k1.md").read_text(encoding="utf-8")

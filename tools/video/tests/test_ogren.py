@@ -154,10 +154,37 @@ def test_bayat_kartlar_listelenir(ortam, kok, capsys):
 def test_celiski_actte_otomatik_eklenmez(ortam, kok, capsys):
     once = kurallar(ortam)
     y = ipucu(kok, "yavas-git", kural="Commit mesajlarını İngilizce yaz")
-    jev = OJev(secim=[("en yakın", "omer-kurallar:4")], noul=[("çelişiyor", 0.95)])
+    jev = OJev(secim=[("en yakın", "omer-kurallar:4"), ("ilişki", "çelişir")])
     assert calis(ortam, [y], UKos(), jev) == 0
     assert kurallar(ortam) == once
     assert "ÇELİŞKİ" in kayit(kok)[-1]["karar"] and "ÇELİŞKİLER" in capsys.readouterr().out
+
+
+def test_destekleyen_olgu_celiskiye_girmez_karta_kaynak(ortam, kok, capsys):
+    k = kart(kok, "cav", "Caveman tasarrufu abartılı", kaynak="eski 1:00")
+    y = ipucu(kok, "cav-secici", iddia="Caveman oturum kullanımını değiştirmez", zaman="3:35", **{"not": "iki koşuda da +4, fark yok"})
+    jev = OJev(tur="olgu", secim=[("en yakın", "bilgi:cav"), ("ilişki", "destekler")])
+    assert calis(ortam, [y], UKos(), jev) == 0
+    assert "ÇELİŞKİ" not in kayit(kok)[-1]["karar"] and "ÇELİŞKİLER" not in capsys.readouterr().out
+    m = k.read_text(encoding="utf-8")
+    assert f"{VID} 3:35" in m and "iki koşuda da +4, fark yok" in m and sorted(p.name for p in (kok / "bilgi").iterdir()) == ["cav.md"]
+
+
+def test_kuralda_olan_oneri_zaten_var_celiski_sorulmaz(ortam, kok):
+    y = ipucu(kok, "ucuz-model", kural="Basit alt ajana ucuz model ata")
+    jev = OJev(secim=[("zaten var", "omer-kurallar:4"), ("en yakın", "omer-kurallar:4"), ("ilişki", "çelişir")])
+    assert calis(ortam, [y], UKos(), jev) == 0
+    assert kayit(kok)[-1]["yargi"] == "ZATEN VAR"
+    assert not any("en yakın konuda" in q.get("instructions", "") for g in jev.istek for q in g["questions"].values())
+
+
+def test_destekleyen_kural_zaten_var_bekleyen_yazilmaz(ortam, kok, capsys):
+    y = ipucu(kok, "ucuz-model", kural="Basit alt ajana ucuz model ata")
+    jev = OJev(secim=[("zaten var", "omer-kurallar:4"), ("en yakın", "omer-kurallar:4"), ("ilişki", "destekler")],
+               noul=[("zaten var mı", 0.3)])
+    assert calis(ortam, [y], UKos(), jev) == 0
+    assert kayit(kok)[-1]["yargi"] == "ZATEN VAR" and "ÇELİŞKİ" not in capsys.readouterr().out
+    assert not (kok / "docs" / "kurulumlar" / "bekleyen" / "kural-ucuz-model.md").exists()
 
 
 # --- K6 sponsor ---

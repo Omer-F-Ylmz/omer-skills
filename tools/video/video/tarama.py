@@ -270,6 +270,14 @@ def kural_esle(t, state, kurallar, a1=KURAL_ASAMA1, a2=KURAL_ASAMA2):
     """Aşama 1: dilim başına choice + hiçbiri (tek istek) → birinci seçim; aşama 2: o kurala noul (tek istek).
     p≥0.5 ise kuralın kısaltması, değilse ya da birinci seçim 'hiçbiri'yse None. Aday başına ≤2 istek.
     Bant aranmaz: 12f tanısında doğru kural aşama 2'de Flag'de kalıyordu (.84/.78). 15: a1/a2 ile kart çifti ve çelişki de sorulur."""
+    if not (ilk := en_yakin(t, state, kurallar, a1)):
+        return None
+    y = (t.yargila([state], {"k": {"type": "noul", "instructions": a2.format(k=dict(kurallar).get(ilk, ilk))}})[0] or {}).get("k")
+    return ilk if y and y["noul"] >= 0.5 else None
+
+
+def en_yakin(t, state, kurallar, a1=KURAL_ASAMA1):
+    """Aşama 1: dilim başına choice + hiçbiri (tek istek) → birinci seçimin etiketi ya da None."""
     if not kurallar:
         return None
     s1 = {f"d{i}": {"type": "choice", "instructions": a1,
@@ -280,7 +288,4 @@ def kural_esle(t, state, kurallar, a1=KURAL_ASAMA1, a2=KURAL_ASAMA2):
         for a, p in (y.get("probabilities") or {}).items():
             olas[a] = max(p, olas.get(a, 0.0))
     ilk = min(olas.items(), key=lambda x: (-x[1], x[0]), default=(sk.HICBIRI, 0))[0]
-    if ilk == sk.HICBIRI:
-        return None
-    y = (t.yargila([state], {"k": {"type": "noul", "instructions": a2.format(k=dict(kurallar).get(ilk, ilk))}})[0] or {}).get("k")
-    return ilk if y and y["noul"] >= 0.5 else None
+    return None if ilk == sk.HICBIRI else ilk

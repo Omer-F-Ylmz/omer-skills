@@ -30,7 +30,10 @@ TUR_OLCUT = {"kural": "Ömer'in çalışma biçimine dair uygulanabilir davranı
 KART_A1 = "Yeni olgu (state) aşağıdaki bilgi kartlarından hangisiyle aynı iddiayı taşıyor? Hiçbiriyse 'hiçbiri'."
 KART_A2 = "Yeni olgu (state) şu kartla aynı iddia mı? Kart: {k}"
 CEL_A1 = "Yeni kural/olgu (state) aşağıdakilerden hangisine en yakın konuda? Hiçbiri ilgili değilse 'hiçbiri'."
-CEL_A2 = "Yeni kural/olgu (state) şu maddeyle çelişiyor mu (ikisi birlikte uygulanamaz mı)? Madde: {k}"
+CEL_A2 = "Yeni kural/olgu (state) şu maddeyle ilişkisi ne? Madde: {k}"
+CEL_OLCUT = {"destekler": "Aynı yönde: maddeyi doğrular, tekrarlar ya da ona kanıt ekler.",
+             "çelişir": "İkisi birlikte uygulanamaz ya da biri ötekini yanlışlar.",
+             "ilgisiz": "Aynı konuya değinse de ne destekler ne çelişir."}
 SPONSOR_Q = "Bu video kesiti (state) bir sponsor/reklam tanıtımı mı?"
 # 15b K2: belirli model/araç adı geçen ipucu olgudur (Jev'e sorulmaz)
 # ponytail: sabit ad listesi; yeni model/araç çıktıkça eklenir, plugin adları gerekirse tr.sozluk_kur'dan beslenir
@@ -97,8 +100,18 @@ def kartlar(kok):
 
 
 def celiski(tk, state, kl, ks):
-    """K5: en yakın kural/kart (aşama 1) → çelişiyor mu (aşama 2, p≥0.5). Etiket ya da None; eşleşen asla otomatik çözülmez."""
-    return tr.kural_esle(tk, state, list(kl) + [(f"bilgi:{s}", fm.get("iddia", "")) for s, fm, _ in ks], CEL_A1, CEL_A2)
+    """K5: en yakın kural/kart (aşama 1) → choice {destekler, çelişir, ilgisiz} (aşama 2). (etiket, ilişki) ya da None.
+    "çelişir" yalnız Act bandında döner (Ömer'e gider, otomatik çözülmez); "destekler" çağırana: kaynak eklenir / ZATEN VAR."""
+    liste = list(kl) + [(f"bilgi:{s}", fm.get("iddia", "")) for s, fm, _ in ks]
+    if not (ilk := tr.en_yakin(tk, state, liste, CEL_A1)):
+        return None
+    y = (tk.yargila([state], {"k": {"type": "choice", "instructions": CEL_A2.format(k=dict(liste).get(ilk, ilk)),
+                                     "criteria": CEL_OLCUT}})[0] or {}).get("k")
+    pr = (y or {}).get("probabilities") or {}
+    iliski = max(pr, key=pr.get) if pr else None
+    if iliski == "çelişir" and c.bant(c.kesinlik(y), c.bantlar_oku()) != "Act":
+        return None
+    return (ilk, iliski) if iliski in ("destekler", "çelişir") else None
 
 
 def ogren(tk, kok, a, ad, bugun, kl):
@@ -110,8 +123,14 @@ def ogren(tk, kok, a, ad, bugun, kl):
         y.write_text(re.sub(r"^kaynak: (.*)$", lambda x: x[0] if yeni in x[1] else f"kaynak: {x[1]}, {yeni}",
                             y.read_text(encoding="utf-8"), count=1, flags=re.M), encoding="utf-8")
         return f"kart birleşti: bilgi/{y.name} (+{yeni})", None
-    if cel := celiski(tk, state, kl, ks):
-        return f"eklenmedi: ÇELİŞKİ ({cel})", cel
+    if (r := celiski(tk, state, kl, ks)) and r[1] == "çelişir":
+        return f"eklenmedi: ÇELİŞKİ ({r[0]})", r[0]
+    if r and r[0].startswith("bilgi:"):  # destekler: yeni kart açılmaz, mevcut karta kaynak + not
+        y, yeni = d / f"{r[0].split(':', 1)[1]}.md", kaynak(a)
+        m = re.sub(r"^kaynak: (.*)$", lambda x: x[0] if yeni in x[1] else f"kaynak: {x[1]}, {yeni}",
+                   y.read_text(encoding="utf-8"), count=1, flags=re.M)
+        y.write_text(m.rstrip("\n") + f"\n- destek: {a.get('not') or a.get('iddia') or ad} ({yeni})\n", encoding="utf-8")
+        return f"kart destekledi: bilgi/{y.name} (+{yeni})", None
     d.mkdir(parents=True, exist_ok=True)
     slug = re.sub(r"\W+", "-", ad.casefold()).strip("-") or "kart"
     y = d / f"{slug}.md"

@@ -138,6 +138,16 @@ def iddia_sinama(metin):
     return out, h
 
 
+def sina(kok, ad, metin, sinama, eksik):
+    """K5 iddia sınaması her adayda: satırlar rapora, abartılı/yanlış + kart → karta not."""
+    ss, sh = iddia_sinama(metin)
+    eksik += [f"{ad}: {x}" for x in sh]
+    for s in ss:
+        sinama.append(s)
+        if s["sonuc"] in ("abartılı", "yanlış") and s["kart"] not in ("", "-") and (y := kok / "bilgi" / f"{s['kart']}.md").is_file():
+            y.write_text(y.read_text(encoding="utf-8").rstrip("\n") + f"\n- not: '{s['iddia']}' {s['sonuc']} ({s['kaynak']})\n", encoding="utf-8")
+
+
 def brief(ns, ctx):
     """17 K7: Desktop ikinci görüş girdisi, ≤60 satır: özellik kararları · iddialar · linkler."""
     metin = Path(ns.rapor).read_text(encoding="utf-8")
@@ -179,7 +189,10 @@ def t0(ctx, a, ad, tk, kok, metin):
     kural = a.get("kural") or ad
     if es := tr.kural_esle(tk, f"İPUCU: {ad}\n{kural}", kl):
         return f"eklenmez: ÇİFT (kural: {es})", "-"
-    cel = og.celiski(tk, f"İPUCU: {ad}\n{kural}", kl, og.kartlar(kok))  # 15 K5: çelişki Ömer'e gider, otomatik çözülmez
+    r = og.celiski(tk, f"İPUCU: {ad}\n{kural}", kl, og.kartlar(kok))  # 15 K5: çelişki Ömer'e gider, otomatik çözülmez
+    if r and r[1] == "destekler" and not r[0].startswith("bilgi:"):  # kuralı destekleyen öneri: zaten var
+        return f"eklenmez: ÇİFT (kural: {r[0]}, destekler)", "-"
+    cel = r[0] if r and r[1] == "çelişir" else None
     slug = re.sub(r"\W+", "-", ad.casefold()).strip("-") or "kural"
     b = kok / "docs" / "kurulumlar" / "bekleyen" / f"kural-{slug}.md"
     b.parent.mkdir(parents=True, exist_ok=True)
@@ -306,12 +319,7 @@ def katman(ns, ctx):
                 satir.append(f"- {o['ozellik']} → {yk}: {karar}")
                 yeni.append({"ad": f"{ad}/{o['ozellik']}", "aday": ad, "ozellik": o["ozellik"], "yargi": yk, "karar": karar, "gerekce": g,
                              "tarih": bugun.isoformat(), "video": a.get("video"), "kanal": kanal, "sponsor": sponsor})
-            ss, sh = iddia_sinama(metin)  # özelliklerden sonra: aynı koşuda yazılan ÖĞREN kartı da not alabilsin
-            eksik += [f"{ad}: {x}" for x in sh]
-            for s in ss:
-                sinama.append(s)
-                if s["sonuc"] in ("abartılı", "yanlış") and s["kart"] not in ("", "-") and (y := kok / "bilgi" / f"{s['kart']}.md").is_file():
-                    y.write_text(y.read_text(encoding="utf-8").rstrip("\n") + f"\n- not: '{s['iddia']}' {s['sonuc']} ({s['kaynak']})\n", encoding="utf-8")
+            sina(kok, ad, metin, sinama, eksik)  # özelliklerden sonra: aynı koşuda yazılan ÖĞREN kartı da not alabilsin
             ozet.append((sponsor, f"{ad} → özellik düzeyi: " + " · ".join(f"{o['ozellik']} {k['yargi']}" for o, k in zip(oz, yeni))))
             rapor.append((sponsor, [f"## {ad} → özellik düzeyi{' · sponsor' if sponsor else ''}", *satir, ""]))
             gorulen.add(tr.normal(ad))
@@ -376,6 +384,7 @@ def katman(ns, ctx):
         ozet.append((sponsor, f"{ad} → {yargi}{' (sponsor)' if sponsor else ''} — {karar}"))
         rapor.append((sponsor, [f"## {ad} → {yargi}{' · sponsor' if sponsor else ''}", f"- Sonuç: {karar}"]
                       + [f"- {b}: {' '.join(tr.bolum(metin, b).split())[:400] or '(eksik)'}" for b in ALTI] + [""]))
+        sina(kok, ad, metin, sinama, eksik)
         gorulen.add(tr.normal(ad))
         kayit = [k for k in kayit if tr.normal(k["ad"]) != tr.normal(ad)] + [
             {"ad": ad, "katman": kt, "yargi": yargi, "karar": karar, "tarih": bugun.isoformat(), "video": a.get("video"), "kanal": kanal,

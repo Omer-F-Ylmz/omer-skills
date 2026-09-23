@@ -12,14 +12,18 @@
 
 ## Son kararlar
 - efor-seviyeleri → KUR: birleşti → omer-kurallar:13 (Desktop)
+- muhakemeyi-aciklatmama → ÖĞREN: kart birleşti: bilgi/muhakemeyi-aciklatmama.md (+vcU85OrwuV0 7:42)
 - neden-ver → ZATEN VAR: eklenmez: ÇİFT (kural: omer-kurallar:22)
 - glaido → RED: RED — lisans uygunsuz/yok (14a araştırması).
 - hyperagent → RED: RED — lisans uygunsuz/yok (14a araştırması).
-- caveman → DENE: deneme: docs/denemeler/caveman.md
-- muhakemeyi-aciklatmama → ÖĞREN: kart yazıldı: bilgi/muhakemeyi-aciklatmama.md
+- caveman/skill → RED: ölçüm: docs/denemeler/caveman-sonuc.md — bizim A/B çıktı −%20.7 (< eşik %30), kalite 2.97→
+- caveman/proxy → DENE: deneme: docs/denemeler/caveman-proxy.md
+- caveman/learn → DENE: deneme: docs/denemeler/caveman-learn.md
+- caveman/compress → DENE: deneme: docs/denemeler/caveman-compress.md
+- caveman/kural-maliyeti → ÖĞREN: kart yazıldı: bilgi/caveman-kural-maliyeti.md
 
 ## Kanal güvenilirliği (aday · KUR/ÖĞREN oranı)
-- ?: 2 aday · 50%
+- ?: 6 aday · 33%
 - Nate Herk | AI Automation: 4 aday · 25%
 
 ## Son taramalar
