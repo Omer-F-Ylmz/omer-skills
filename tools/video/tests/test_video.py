@@ -157,7 +157,7 @@ def test_segmentler_chapter_hizali():
 
 def test_dil_oncelik_sirasi():
     assert m.dil_sec({"subtitles": {"en": [1]}, "automatic_captions": {"tr": [1], "en": [1]}}) == ("en", "elle")
-    assert m.dil_sec({"subtitles": {}, "automatic_captions": {"en-orig": [1], "tr": [1]}}) == ("tr", "oto")
+    assert m.dil_sec({"subtitles": {}, "automatic_captions": {"en-orig": [1], "tr": [1]}}) == ("en-orig", "oto")
     assert m.dil_sec({"subtitles": {"tr-TR": [1], "en": [1]}}) == ("tr-TR", "elle")
     assert m.dil_sec({"subtitles": {"en": [1]}, "automatic_captions": {"de": [1]}}, "de") == ("en", "elle")
     assert m.dil_sec({"subtitles": {"live_chat": [1]}, "automatic_captions": {}}) is None
@@ -362,3 +362,56 @@ def test_whisper_kurulu_degilse_exit_2(ortam, monkeypatch, capsys):
     monkeypatch.setitem(sys.modules, "faster_whisper", None)
     assert main(["--whisper", VID], env=ortam, kos=Kos()) == 2
     assert "faster-whisper" in capsys.readouterr().out
+
+
+# --- 12e: çeviri izi yok · 429 geri çekilme ---
+
+def test_oto_ceviri_izi_secilmez_orijinal_orig_secilir():
+    oto = {"tr": [1], "en": [1], "en-orig": [1], "bn-orig": [1]}
+    assert m.dil_sec({"language": "en", "subtitles": {}, "automatic_captions": oto}) == ("en-orig", "oto")
+    assert m.dil_sec({"subtitles": {}, "automatic_captions": {"tr": [1], "en": [1], "en-orig": [1]}}) == ("en-orig", "oto")
+    assert m.dil_sec({"subtitles": {}, "automatic_captions": {"tr": [1], "en": [1]}}) is None
+
+
+def test_elle_tr_varsa_secilir():
+    assert m.dil_sec({"language": "en", "subtitles": {"tr": [1], "en": [1]}, "automatic_captions": {"en-orig": [1]}}) == ("tr", "elle")
+
+
+class Kos429(Kos):
+    """Altyazı isteği `hiz` id'leri için 429 döner (önce yarım dosya bırakır)."""
+
+    def __init__(self, hiz, **k):
+        super().__init__(**k)
+        self.hiz = hiz
+
+    def __call__(self, args, timeout=None):
+        if args[0] == "yt-dlp" and "--sub-langs" in args and args[-1] in self.hiz:
+            self.cagri.append(list(args))
+            o = args[args.index("-o") + 1]
+            open(o.replace("%(ext)s", "en.vtt.part"), "w").write("yarım")
+            return 1, b"", b"ERROR: Unable to download video subtitles for 'en': HTTP Error 429: Too Many Requests"
+        return super().__call__(args, timeout)
+
+
+def test_altyazi_tek_istek_sleep_subtitles(ortam):
+    kos = Kos()
+    assert main(["ozet", VID], env=ortam, kos=kos) == 0
+    alt = [a for a in kos.cagri if "--sub-langs" in a]
+    assert len(alt) == 1 and alt[0][alt[0].index("--sub-langs") + 1] == "en"
+    assert alt[0][alt[0].index("--sleep-subtitles") + 1] == "2"
+
+
+def test_429_iki_tekrar_sonra_exit_4_yarim_dosya_yok(ortam, capsys):
+    uyku, kos = [], Kos429({VID})
+    assert main(["ozet", VID], env=ortam, kos=kos, uyku=uyku.append) == 4
+    assert sum("--sub-langs" in a for a in kos.cagri) == 3 and uyku == [20, 60]
+    assert "YouTube hız sınırı" in capsys.readouterr().out
+    d = Path(ortam["VIDEO_CACHE"]) / VID
+    assert not list(d.glob("altyazi*")) and not (d / "segmentler.jsonl").exists()
+
+
+def test_429_alan_video_digerini_durdurmaz(ortam, capsys):
+    kos = Kos429({VID})
+    assert main(["ozet", VID, "abcdefghijk"], env=ortam, kos=kos, uyku=lambda s: None) == 4
+    assert (Path(ortam["VIDEO_CACHE"]) / "abcdefghijk" / "segmentler.jsonl").is_file()
+    assert "YouTube hız sınırı" in capsys.readouterr().out

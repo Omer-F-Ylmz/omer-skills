@@ -249,3 +249,17 @@ def test_oku_varsayilan_tam_suzgecli_atlar(ortam, capsys):
     assert "ARAC bir" in out and "BOS iki" not in out and "Giriş" in out and "https://a.com/x" in out and "atlanan 1/3" in out
     assert main(["oku", VID], env=ortam) == 0
     assert "BOS iki" in capsys.readouterr().out
+
+
+# --- 12e K1: kayda yalnız denetimden geçen rapor ---
+
+def test_toplu_denetimden_gecmeyen_rapor_kayda_yazilmaz(ortam, dizin, capsys):
+    onbellek(ortam, ["a"])
+    iyi, kotu = dizin / f"2026-09-23-{VID}.md", dizin / "2026-09-23-abcdefghijk.md"
+    iyi.write_text(rapor(), encoding="utf-8")
+    kotu.write_text(rapor(tur="araç").replace(VID, "abcdefghijk"), encoding="utf-8")
+    ortam["VIDEO_EV"] = str(dizin / "ev")
+    assert main(["toplu", str(iyi), str(kotu)], env=ortam, kos=Kos(), gonder=TaramaJev()) == 0
+    ids = [json.loads(x)["id"] for x in (dizin / "kayit.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert ids == [VID]
+    assert "abcdefghijk" in capsys.readouterr().out
