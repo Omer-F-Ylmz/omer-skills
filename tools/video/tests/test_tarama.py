@@ -312,8 +312,8 @@ def test_kuralda_olan_ipucu_cift_ve_kural_kisaltmasi(ortam, dizin, tmp_path, cap
     jev = KuralJev()
     assert main(["toplu", str(r)], env=ortam, kos=Kos(), gonder=jev) == 0
     out = capsys.readouterr().out
-    assert "ÇİFT (kural: kurallar/kurallar.md:3)" in out
-    assert "ÇİFT (kural: kurallar/kurallar.md:3)" in next(dizin.glob("*-toplu.md")).read_text(encoding="utf-8")
+    assert "ÇİFT (kural: kurallar:3)" in out
+    assert "ÇİFT (kural: kurallar:3)" in next(dizin.glob("*-toplu.md")).read_text(encoding="utf-8")
     assert len(kural_istekleri(jev)) <= 2
 
 
@@ -348,4 +348,34 @@ def test_kural_onbellegi_mtime_ile_yenilenir(ortam, dizin, tmp_path, capsys):
     os.utime(k, ns=(mt + 10**9, mt + 10**9))
     assert main(["kurallar"], env=ortam) == 0
     out = capsys.readouterr().out
-    assert "3 kural" in out and "kurallar/kurallar.md" in out
+    assert "3 kural" in out and "kurallar ·" in out
+
+
+class SahteTas:
+    """Aşama 1: sabit olasılıklar · aşama 2: her soruya aynı noul p."""
+    def __init__(self, olas, p):
+        self.olas, self.p = olas, p
+
+    def yargila(self, states, q):
+        if all(k.startswith("d") for k in q):
+            return [{k: {"type": "choice", "probabilities": self.olas} for k in q}]
+        return [{k: {"type": "noul", "noul": self.p} for k in q}]
+
+
+KL = [("omer-kurallar:3", "Yeterli bilgi varsa harekete geç."), ("omer-kurallar:4", "Bitti yalnız kanıtla söylenir.")]
+BANT = {"act": 0.85, "flag": 0.60}
+
+
+def test_asama1_birinci_ve_p_055_cift():
+    t = SahteTas({"omer-kurallar:3": 0.7, "omer-kurallar:4": 0.2, "hiçbiri": 0.1}, 0.55)
+    assert tr.kural_esle(t, BANT, "İPUCU: harekete geç", KL) == "omer-kurallar:3"
+
+
+def test_asama1_ikinci_p_09_cift_degil():
+    class Ikinci(SahteTas):
+        def yargila(self, states, q):
+            if all(k.startswith("d") for k in q):
+                return super().yargila(states, q)
+            return [{k: {"type": "noul", "noul": 0.9 if i else 0.2} for i, k in enumerate(q)}]
+    t = Ikinci({"omer-kurallar:3": 0.7, "omer-kurallar:4": 0.2, "hiçbiri": 0.1}, None)
+    assert tr.kural_esle(t, BANT, "İPUCU: kanıt", KL) is None
