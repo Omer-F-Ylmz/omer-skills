@@ -161,17 +161,14 @@ def test_ipucu_cift_eklenmez(ortam, kok, capsys):
     assert len(jev.istek) <= 3  # 15 K3: tür (kural/olgu) 1 + çift 2
 
 
-def test_ipucu_yeni_omer_kurallara_madde_global_claude_md_degismez(ortam, kok, capsys):
+def test_ipucu_yeni_kural_dosyalarina_yazilmaz(ortam, kok, capsys):
     once = kurallar(ortam)
     y = aday(kok, "neden-ver", tur="ipucu", repo="yok", lisans="yok", son_commit="yok", kural="İsteğin nedenini de yaz")
     assert calis(ortam, [y], UKos(), KuralJev()) == 0
-    claude, omer = kurallar(ortam)
-    assert claude == once[0]
-    assert omer.splitlines()[-1] == f"3. İsteğin nedenini de yaz (video {VID}, 14a)"
+    assert kurallar(ortam) == once  # 15b K1: T0 yalnız bekleyen dosyası yazar, ekleme `kural-onay` ile
     k = kayit(kok)[-1]
-    assert k["katman"] == "T0" and "omer-kurallar.md:5" in k["geri_alma"]
-    out = capsys.readouterr().out
-    assert "OTOMATİK UYGULANDI" in out and "CLAUDE.md önerisi" in out
+    assert k["katman"] == "T0" and "kural-neden-ver.md" in k["geri_alma"]
+    assert "ONAY BEKLİYOR" in capsys.readouterr().out
 
 
 def test_kayittaki_ad_atlanir_yeniden_ile_islenir(ortam, kok, tmp_path, capsys):
