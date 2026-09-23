@@ -5,6 +5,7 @@ import sys
 import threading
 import time
 import types
+from pathlib import Path
 
 import pytest
 
@@ -35,6 +36,10 @@ this<00:00:02.500><c> is</c><00:00:03.000><c> fine</c>
 """
 
 
+def akis_url(expire=None):
+    return f"https://rr1.googlevideo.com/videoplayback?expire={expire or int(time.time()) + 6 * 3600}&sig=GIZLI123&itag=136"
+
+
 def jpeg(g=768, y=432):
     return b"\xff\xd8\xff\xe0\x00\x04ab" + b"\xff\xc0" + struct.pack(">HBHH", 11, 8, y, g) + b"\x03\x01\x22\x00" + b"\xff\xd9"
 
@@ -50,13 +55,16 @@ def meta(**k):
 class Kos:
     """Sahte yt-dlp/ffmpeg. Çağrıları kaydeder; istenen dosyaları yazar."""
 
-    def __init__(self, meta_=None, liste=0, ham=None, bekle=0.0):
+    def __init__(self, meta_=None, liste=0, ham=None, bekle=0.0, url=None, ag_hata=False):
         self.meta, self.liste, self.ham, self.bekle = meta_ or meta(), liste, ham or (lambda yol: bytes(range(64))), bekle
+        self.url, self.ag_hata = url or akis_url(), ag_hata
         self.cagri, self.anlik, self.tepe, self.kilit = [], 0, 0, threading.Lock()
 
     def __call__(self, args, timeout=None):
         self.cagri.append(list(args))
         if args[0] == "yt-dlp":
+            if "-g" in args:
+                return 0, (self.url + "\n").encode(), b""
             if "--flat-playlist" in args:
                 return 0, json.dumps({"entries": [{"id": f"v{i:010d}"} for i in range(self.liste)]}).encode(), b""
             if "-J" in args:
@@ -77,6 +85,8 @@ class Kos:
         if args[0] == "ffmpeg":
             if "rawvideo" in args:
                 return 0, self.ham(args[args.index("-i") + 1]), b""
+            if self.ag_hata and self.url in args:
+                return 1, b"", f"[https @ 0x1] {self.url}: Server returned 403 Forbidden".encode()
             cikti = args[-1]
             for yol in ([cikti % 1, cikti % 2] if "%d" in cikti else [cikti]):
                 open(yol, "wb").write(jpeg())
@@ -238,25 +248,73 @@ def ayri(yol):
     return bytes((hash(yol) >> i) & 0xFF for i in range(64))
 
 
-def test_kare_yalniz_istenen_araliklar_genislik_ve_video_silinir(ortam, capsys):
+def ag(kos):
+    """Akış URL'sini girdi alan ffmpeg çağrıları."""
+    return [a for a in kos.cagri if a[0] == "ffmpeg" and kos.url in a]
+
+
+def test_kare_akis_url_giris_atlamali_video_yazilmaz(ortam, capsys):
     d = kare_kur(ortam, [0.1] * 5)
     kos = Kos(ham=ayri)
     assert main(["kare", VID, "--t", "1:00,2:00", "--genislik", "1200"], env=ortam, kos=kos) == 0
     yt = [a for a in kos.cagri if a[0] == "yt-dlp"]
-    assert len(yt) == 2 and all("--download-sections" in a for a in yt)
-    assert [a[a.index("--download-sections") + 1] for a in yt] == ["*56-64", "*116-124"]
-    jpg = [a for a in kos.cagri if a[0] == "ffmpeg" and "rawvideo" not in a]
-    assert jpg and all("min(768,iw)" in a[a.index("-vf") + 1] for a in jpg)
-    assert not list(d.glob("kesit*"))
+    assert len(yt) == 1 and "-g" in yt[0] and yt[0][yt[0].index("-f") + 1] == "bv*[height<=720][vcodec!=none]/b"
+    net = ag(kos)
+    assert len(net) == 2
+    for a in net:
+        assert a.index("-ss") < a.index("-i") and a.index("-rw_timeout") < a.index("-i")  # giriş-atlaması: yalnız pencere okunur
+        vf = a[a.index("-vf") + 1]
+        assert "eq(n,0)" in vf and "gt(scene,0.3)" in vf and "min(768,iw)" in vf and "format=yuvj420p" in vf
+    assert [(a[a.index("-ss") + 1], a[a.index("-t") + 1]) for a in net] == [("52", "16"), ("112", "16")]
+    assert {p.name for p in d.iterdir()} <= {"meta.json", "segmentler.jsonl", "kareler", "akis.url"}
     assert "tahmini" in capsys.readouterr().out
+
+
+def test_kare_pencere_0_tek_kare(ortam):
+    kare_kur(ortam, [0.1] * 5)
+    kos = Kos(ham=ayri)
+    assert main(["kare", VID, "--t", "2:30", "--pencere", "0"], env=ortam, kos=kos) == 0
+    (a,) = ag(kos)
+    assert a.index("-ss") < a.index("-i") and a[a.index("-ss") + 1] == "150"
+    assert a[a.index("-frames:v") + 1] == "1" and "-t" not in a and "select" not in a[a.index("-vf") + 1]
+    assert "format=yuvj420p" in a[a.index("-vf") + 1]
+
+
+def test_kare_hicbir_ytdlp_cagrisi_video_indirmez(ortam):
+    kare_kur(ortam, [0.1, 0.9, 0.2, 0.8, 0.95])
+    kos = Kos(ham=ayri)
+    assert main(["kare", VID, "--suzgecten", "--t", "1:00", "--en-fazla", "3"], env=ortam, kos=kos) == 0
+    for a in (a for a in kos.cagri if a[0] == "yt-dlp"):
+        assert "-g" in a and not {"-o", "--download-sections", "--output", "-x"} & set(a)
+
+
+def test_kare_akis_url_onbellek_ve_sure(ortam):
+    kare_kur(ortam, [0.1] * 5)
+    gecerli = Kos(ham=ayri)
+    assert main(["kare", VID, "--t", "1:00"], env=ortam, kos=gecerli) == 0
+    ikinci = Kos(ham=ayri, url=gecerli.url)
+    assert main(["kare", VID, "--t", "2:00"], env=ortam, kos=ikinci) == 0
+    assert not [a for a in ikinci.cagri if a[0] == "yt-dlp"]  # geçerli URL önbellekten
+    eski = Kos(ham=ayri, url=akis_url(int(time.time()) - 60))
+    (Path(ortam["VIDEO_CACHE"]) / VID / "akis.url").write_text(eski.url, encoding="utf-8")
+    assert main(["kare", VID, "--t", "1:00"], env=ortam, kos=eski) == 0
+    assert len([a for a in eski.cagri if a[0] == "yt-dlp" and "-g" in a]) == 1  # süresi geçmiş → yeniden alınır
+
+
+def test_kare_url_ciktida_yok(ortam, capsys):
+    kare_kur(ortam, [0.1] * 5)
+    assert main(["kare", VID, "--t", "1:00"], env=ortam, kos=Kos(ham=ayri)) == 0
+    assert main(["kare", VID, "--t", "2:00"], env=ortam, kos=Kos(ham=ayri, ag_hata=True)) == 1
+    cikti = capsys.readouterr()
+    assert "403" in cikti.out
+    assert "GIZLI123" not in cikti.out + cikti.err and "googlevideo" not in cikti.out + cikti.err
 
 
 def test_kare_suzgecten_en_yuksek_ekran(ortam):
     kare_kur(ortam, [0.1, 0.9, 0.2, 0.8, 0.95])
     kos = Kos(ham=ayri)
     assert main(["kare", VID, "--suzgecten", "--en-fazla", "2"], env=ortam, kos=kos) == 0
-    yt = [a[a.index("--download-sections") + 1] for a in kos.cagri if a[0] == "yt-dlp"]
-    assert sorted(yt) == ["*266-274", "*86-94"]
+    assert sorted(float(a[a.index("-ss") + 1]) for a in ag(kos)) == [82, 262]
 
 
 def test_kare_en_fazla(ortam, capsys):
