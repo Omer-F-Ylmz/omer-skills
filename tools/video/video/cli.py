@@ -16,8 +16,10 @@ from jev import cekirdek as c
 from jev import skill as sk
 
 from . import metin as m
+from . import tarama as tr
 
 KOK = r"C:\Projeler\.video-cache"
+TARAMA_DIZIN = Path(__file__).resolve().parents[3] / "docs" / "video-tarama"
 LISTE_TAVAN, ALTYAZI_ES, SUZ_ES = 8, 4, 8
 SOR_TOKEN, ADAY_KR = 2_500, 400
 GENISLIK = 768
@@ -115,13 +117,23 @@ def _ozet_bir(ctx, v, dil):
     return 0, _ozet_satir(d, meta, seg, f"{anahtar} {tur}")
 
 
+def _idler(ctx, hedefler):
+    """URL/id/playlist'ler → (id'ler ≤LISTE_TAVAN, kalan, playlist var mı)."""
+    ids, liste = [], False
+    for h in hedefler:
+        v = m.vid(h)
+        if v is None:
+            liste = True
+            j = json.loads(_kos(ctx, ["yt-dlp", "--flat-playlist", "-J", "--no-warnings", h], SURE["meta"]))
+            ids += [e["id"] for e in j.get("entries") or [] if e.get("id")]
+        else:
+            ids.append(v)
+    ids = list(dict.fromkeys(ids))
+    return ids[:LISTE_TAVAN], max(len(ids) - LISTE_TAVAN, 0), liste
+
+
 def ozet(ns, ctx):
-    v = m.vid(ns.hedef)
-    ids, kalan = [v], 0
-    if v is None:
-        j = json.loads(_kos(ctx, ["yt-dlp", "--flat-playlist", "-J", "--no-warnings", ns.hedef], SURE["meta"]))
-        hepsi = [e["id"] for e in j.get("entries") or [] if e.get("id")]
-        ids, kalan = hepsi[:LISTE_TAVAN], max(len(hepsi) - LISTE_TAVAN, 0)
+    ids, kalan, liste = _idler(ctx, ns.hedef)
 
     def bir(x):
         try:
@@ -133,7 +145,7 @@ def ozet(ns, ctx):
         sonuc = list(ex.map(bir, ids))
     for _, satir in sonuc:
         print("\n".join(satir))
-    if v is None:
+    if liste or kalan:
         print(f"playlist: {len(ids)} işlendi, kalan {kalan} (tavan {LISTE_TAVAN})")
     return max(rc for rc, _ in sonuc) if sonuc else 1
 
@@ -238,7 +250,7 @@ def _akis_url(ctx, d):
 
 
 def _kare_uret(ctx, d, url, t, pencere, g):
-    """Tek zaman: ffmpeg girişte atlar (-ss -i'den önce), yalnız [t-p, t+p] okunur; ilk kare + sahne değişimleri. Video dosyası yok."""
+    """Tek zaman: ffmpeg girişte atlar (-ss -i'den önce). Önce tam t karesi; pencere>0 ise [t-p, t+p] sahne değişimleri ek. Video dosyası yok."""
     olcek = f"scale='min({g},iw)':-2,format=yuvj420p"  # mjpeg sınırlı-aralık YUV'u reddeder
     kd = d / "kareler"
     kd.mkdir(exist_ok=True)
@@ -246,13 +258,13 @@ def _kare_uret(ctx, d, url, t, pencere, g):
     for eski in kd.glob(f"{ad}_*.jpg"):
         eski.unlink()
     giris = ["ffmpeg", "-v", "error", "-y", "-rw_timeout", "15000000"]
+    cagri = [giris + ["-ss", f"{t:g}", "-i", url, "-vf", olcek, "-frames:v", "1", "-q:v", "4", str(kd / f"{ad}_0.jpg")]]  # tam t hep ilk
     if pencere > 0:
-        giris += ["-ss", f"{max(0.0, t - pencere):g}", "-t", f"{2 * pencere:g}", "-i", url,
-                  "-vf", f"select='eq(n,0)+gt(scene,0.3)',{olcek}", "-fps_mode", "vfr", "-frames:v", "3"]
-    else:
-        giris += ["-ss", f"{t:g}", "-i", url, "-vf", olcek, "-frames:v", "1"]
+        cagri.append(giris + ["-ss", f"{max(0.0, t - pencere):g}", "-t", f"{2 * pencere:g}", "-i", url, "-vf", f"select='gt(scene,0.3)',{olcek}",
+                              "-fps_mode", "vfr", "-frames:v", "2", "-q:v", "4", str(kd / f"{ad}_%d.jpg")])
     try:
-        _kos(ctx, giris + ["-q:v", "4", str(kd / f"{ad}_%d.jpg")], SURE["kesit"])
+        for a in cagri:
+            _kos(ctx, a, SURE["kesit"])
     except Hata as e:
         raise Hata(f"{m.ss(t)}: " + re.sub(r"https?://\S*", "<akış-url>", str(e))) from None  # _kos 200 krk'da keser: URL parçası da gider
     kareler = sorted(kd.glob(f"{ad}_*.jpg"))
@@ -296,6 +308,140 @@ def kare(ns, ctx):
         toplam += tk
         print(f"{yol} · {m.ss(t)} · {gy[0]}x{gy[1]} · ~{tk} token")
     print(f"{len(tut)} kare · tahmini görsel ~{toplam} token · {len(zamanlar)} aralık akıştan okundu (video dosyası yazılmadı)")
+    return 0
+
+
+def oku(ns, ctx):
+    """Alt ajan girdisi: künye · chapter · linkler · segmentler. Varsayılan tam: 12b'de süzgeçli geri çağırma %74 (<%90).
+    --suzgecli: yalnız suz'un okunacak dediği segmentler. Ana ajan context'ine girmez."""
+    d = ctx["kok"] / ns.id
+    seg, meta = _oku(d), json.loads((d / "meta.json").read_text(encoding="utf-8"))
+    linkler = json.loads((d / "linkler.json").read_text(encoding="utf-8")) if (d / "linkler.json").is_file() else []
+    oku_ = [s for s in seg if not s.get("atla")] if ns.suzgecli else seg
+    print(f"{ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · atlanan {len(seg) - len(oku_)}/{len(seg)}")
+    print("chapter: " + (" · ".join(f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []) or "yok"))
+    print("linkler: " + (" ".join(linkler) or "yok"))
+    for s in oku_:
+        print(f"[{m.ss(s['bas'])}-{m.ss(s['son'])}] {s['metin']}")
+    return 0
+
+
+def _tarama_dizin(ctx):
+    return Path(ctx["env"].get("VIDEO_TARAMA_DIZIN") or TARAMA_DIZIN)
+
+
+def _ev(ctx):
+    return Path(ctx["env"].get("VIDEO_EV") or Path.home())
+
+
+def kayit(ns, ctx):
+    d = _tarama_dizin(ctx)
+    yol = d / "kayit.jsonl"
+    eski = tr.kayit_oku(yol)
+    if ns.ice_al:
+        gorulen = {k["id"] for k in eski}
+        yeni = [g for g in tr.ice_al(d) if g["id"] not in gorulen]
+        tr.kayit_yaz(yol, eski + yeni)
+        print(f"içe alındı: {len(yeni)} video · adsız {sum(not g['adaylar'] for g in yeni)} · "
+              f"{sum(len(g['adaylar']) for g in yeni)} aday ({sum(len(g['ele']) for g in yeni)} ELE) · {yol}")
+        return 0
+    if not ns.hedef:
+        raise Hata("hedef ya da --ice-al gerekli")
+    ids, kalan, _ = _idler(ctx, ns.hedef)
+    tara, atla = tr.ayir(ids, eski, ns.yeniden)
+    print("tara: " + (" ".join(tara) or "-"))
+    print(f"atlandı: {len(atla)}" + (f" ({' '.join(atla)})" if atla else "") + (f" · liste kalanı {kalan}" if kalan else ""))
+    for i, dl in enumerate(tr.dalgalar(tara), 1):
+        print(f"dalga {i}: {' '.join(dl)}")
+    return 0
+
+
+def adlar(ns, ctx):
+    sozluk = tr.sozluk_kur(_ev(ctx), tr.kayit_oku(_tarama_dizin(ctx) / "kayit.jsonl"))
+    yol = ctx["kok"] / "adlar.json"
+    yol.parent.mkdir(parents=True, exist_ok=True)
+    yol.write_text(json.dumps(sozluk, ensure_ascii=False), encoding="utf-8")
+    say = {}
+    for _, k in sozluk:
+        say[k] = say.get(k, 0) + 1
+    print(f"{len(sozluk)} ad · " + " · ".join(f"{k} {n}" for k, n in sorted(say.items())) + f" · {yol}")
+    for a in ns.eslestir or []:
+        e = tr.eslestir(a, sozluk)
+        print(f"{a} → " + (f"{e[0]} ({e[1]}, {e[2]:.2f})" if e else "eşleşme yok"))
+    return 0
+
+
+def _sure(ctx, yol, metin):
+    """Önbellekteki meta.json süresi; yoksa künyedeki `süre: m:ss`."""
+    v, _ = tr.rapor_id(yol)
+    meta = ctx["kok"] / (v or "?") / "meta.json"
+    if v and meta.is_file():
+        return json.loads(meta.read_text(encoding="utf-8")).get("duration")
+    k = re.search(r"süre:?\s*((?:\d+:)?\d+:\d\d)", tr.bolum(metin, "Künye"))
+    return m.sn(k[1]) if k else None
+
+
+def rapor_denetle(ns, ctx):
+    metin = Path(ns.rapor).read_text(encoding="utf-8")
+    sure = _sure(ctx, ns.rapor, metin)
+    h = tr.denetle(metin, sure)
+    for x in h:
+        print(x)
+    print(f"rapor-denetle: {'GEÇTİ' if not h else f'{len(h)} hata'}" + ("" if sure else " (süre bilinmiyor: zaman denetimi atlandı)"))
+    return 1 if h else 0
+
+
+def toplu(ns, ctx):
+    from types import SimpleNamespace
+
+    from jev import cli as jc
+    d = _tarama_dizin(ctx)
+    yol = d / "kayit.jsonl"
+    raporlar, adaylar = [], []
+    for r in ns.raporlar:
+        v, _ = tr.rapor_id(r)
+        metin = Path(r).read_text(encoding="utf-8")
+        baslik = next((s[2:].strip() for s in metin.splitlines() if s.startswith("# ")), "?")
+        satir = tr.aday_satirlari(metin)
+        raporlar.append((v, Path(r), baslik, list(dict.fromkeys(s[0] for s in satir))))
+        adaylar += [{"ad": s[0], "video": v, "tur": s[2] if len(s) > 2 else "?", "ne": s[4] if len(s) > 4 else ""} for s in satir]
+    ids = {v for v, *_ in raporlar}
+    kayit = tr.kayit_oku(yol)
+    sozluk = tr.sozluk_kur(_ev(ctx), [k for k in kayit if k["id"] not in ids])
+    tek = tr.tekille(adaylar)
+    jy, istek = {}, 0
+    if tek:
+        gecici = ctx["kok"] / "tarama-adaylar.json"
+        gecici.parent.mkdir(parents=True, exist_ok=True)
+        gecici.write_text(json.dumps([{"ad": x["ad"], "aciklama": f"{x['tur']}: {x['ne']}"} for x in tek], ensure_ascii=False), encoding="utf-8")
+        t = c.Tasiyici(env=ctx["env"], en_fazla=2, gonder=ctx["gonder"], istek_tavan=2 * len(tek) + 2)  # jev tarama ≤2 batch
+        _, sat = jc.tarama(SimpleNamespace(dosya=str(gecici)), lambda: t, None)
+        jy = {r[0]: (float(r[1]) if r[1] != "-" else None, float(r[2]) if r[2] != "-" else None) for r in sat}
+        istek = t.istek
+    bugun = time.strftime("%Y-%m-%d")
+    for x in tek:
+        x["es"] = tr.eslestir(x["ad"], sozluk)
+        x["cift"], x["risk"] = jy.get(x["ad"], (None, None))
+        x["isaret"] = tr.isaret(x["es"], x["cift"], x["risk"])
+    isr = {tr.normal(x["ad"]): x["isaret"] for x in tek}
+    cikti = d / f"{bugun}-toplu.md"
+    md = [f"# Video tarama toplu — {bugun}", "", f"{len(raporlar)} video · {len(tek)} tekil aday · Jev tarama isteği {istek}", "",
+          "| aday | işaret | sözlük eşleşmesi | çift p | izin riski (0-3) | tür | videolar |", "|---|---|---|---|---|---|---|"]
+    for x in tek:
+        es = f"{x['es'][0]} ({x['es'][1]}, {x['es'][2]:.2f})" if x["es"] else "yok"
+        md.append(f"| {x['ad']} | {x['isaret']} | {es} | {'-' if x['cift'] is None else x['cift']} | "
+                  f"{'-' if x['risk'] is None else x['risk']} | {x['tur']} | {', '.join(x['videolar'])} |")
+    md += ["", "## Raporlar"] + [f"- {v} · {b} · {r.name}" for v, r, b, _ in raporlar]
+    cikti.write_text("\n".join(md) + "\n", encoding="utf-8")
+    kayit = [k for k in kayit if k["id"] not in ids] + [{"id": v, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []} for v, r, _, a in raporlar]
+    tr.kayit_yaz(yol, kayit)
+    for v, _, b, a in raporlar[:20]:
+        print(f"{v} · {b[:50]} · {len(a)} aday: " + ", ".join(f"{x} [{isr[tr.normal(x)]}]" for x in a)[:300])
+    say = {}
+    for x in tek:
+        say[x["isaret"]] = say.get(x["isaret"], 0) + 1
+    print(f"{len(tek)} tekil aday · " + " · ".join(f"{k} {n}" for k, n in sorted(say.items())) + f" · Jev istek {istek}")
+    print(f"rapor: {cikti} · kayıt: {len(kayit)} video")
     return 0
 
 
@@ -347,7 +493,7 @@ def main(argv=None, env=None, kos=kos, gonder=None):
     p = argparse.ArgumentParser(prog="video", description=__doc__)
     alt = p.add_subparsers(dest="komut", required=True)
     x = alt.add_parser("ozet", help="meta · chapter · linkler · altyazı → segmentler.jsonl; video başına ≤6 satır")
-    x.add_argument("hedef", help="URL, id ya da playlist")
+    x.add_argument("hedef", nargs="+", help="URL, id ya da playlist (çoklu, ≤4 eşzamanlı)")
     x.add_argument("--dil", help="altyazı dili (varsayılan tr, sonra en)")
     x = alt.add_parser("suz", help="segment başına Jev: araç anlatımı mı · ekranda mı; kesin-hayır atlanır")
     x.add_argument("id")
@@ -367,13 +513,27 @@ def main(argv=None, env=None, kos=kos, gonder=None):
     x.add_argument("id")
     x.add_argument("--model", default="small")
     x.add_argument("--en-fazla-dk", type=int, default=20)
+    x = alt.add_parser("oku", help="alt ajan girdisi: künye · chapter · linkler · segmentler (varsayılan tam)")
+    x.add_argument("id")
+    x.add_argument("--suzgecli", action="store_true", help="yalnız suz'un okunacak dediği segmentler (12b: geri çağırma %%74, varsayılan kapalı)")
+    x = alt.add_parser("kayit", help="kayit.jsonl'deki id'leri atlar; tara · atlandı · ≤3'lük alt ajan dalgaları")
+    x.add_argument("hedef", nargs="*")
+    x.add_argument("--yeniden", action="store_true", help="kayıttakileri de tara")
+    x.add_argument("--ice-al", action="store_true", help="docs/video-tarama/*.md eski raporlarından id + aday adları (bir kez)")
+    x = alt.add_parser("adlar", help="ad sözlüğü: skill katalogu · plugin · MCP · kayıt · ELE → önbellek; --eslestir bulanık eşleşme")
+    x.add_argument("--eslestir", nargs="+", metavar="AD")
+    x = alt.add_parser("rapor-denetle", help="bölümler · süre içi zaman · aday alanları · alıntı ≤15 kelime")
+    x.add_argument("rapor")
+    x = alt.add_parser("toplu", help="raporların adaylarını tekiller, sözlük + jev tarama (≤2 batch) ile işaretler; toplu rapor + kayıt")
+    x.add_argument("raporlar", nargs="+")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
     ctx = {"env": env, "kos": kos, "gonder": gonder, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
-        return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle}[ns.komut](ns, ctx)
+        return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku,
+                "rapor-denetle": rapor_denetle, "toplu": toplu}[ns.komut](ns, ctx)
     except (Hata, c.JevHata) as e:
         print(f"hata: {e}")
         return 1

@@ -316,7 +316,8 @@ def test_kare_suzgecten_en_yuksek_ekran(ortam):
     kare_kur(ortam, [0.1, 0.9, 0.2, 0.8, 0.95])
     kos = Kos(ham=ayri)
     assert main(["kare", VID, "--suzgecten", "--en-fazla", "2"], env=ortam, kos=kos) == 0
-    assert sorted(float(a[a.index("-ss") + 1]) for a in ag(kos)) == [82, 262]
+    assert sorted(float(a[a.index("-ss") + 1]) for a in ag(kos) if "-t" in a) == [82, 262]
+    assert sorted(float(a[a.index("-ss") + 1]) for a in ag(kos) if "-t" not in a) == [90, 270]  # K6: tam-t kareleri
 
 
 def test_kare_en_fazla(ortam, capsys):

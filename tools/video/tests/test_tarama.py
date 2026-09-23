@@ -229,3 +229,19 @@ def test_kare_pencere_ilk_kare_tam_t(ortam, capsys):
     assert "gt(scene,0.3)" in vf and "eq(n,0)" not in vf
     satir = capsys.readouterr().out.splitlines()
     assert "12:30" in satir[0] and "_0.jpg" in satir[0]
+
+
+# --- alt ajan girdisi: yalnız okunacak segmentler ---
+
+def test_oku_varsayilan_tam_suzgecli_atlar(ortam, capsys):
+    """12b ölçümü: süzgeçli geri çağırma %74 < %90 → varsayılan tam okuma, süzgeç --suzgecli ile."""
+    d = onbellek(ortam, ["ARAC bir", "BOS iki", "ARAC uc"])
+    seg = [json.loads(x) for x in (d / "segmentler.jsonl").read_text(encoding="utf-8").splitlines()]
+    seg[1]["atla"] = True
+    (d / "segmentler.jsonl").write_text("\n".join(json.dumps(s) for s in seg), encoding="utf-8")
+    (d / "linkler.json").write_text('["https://a.com/x"]', encoding="utf-8")
+    assert main(["oku", VID, "--suzgecli"], env=ortam) == 0
+    out = capsys.readouterr().out
+    assert "ARAC bir" in out and "BOS iki" not in out and "Giriş" in out and "https://a.com/x" in out and "atlanan 1/3" in out
+    assert main(["oku", VID], env=ortam) == 0
+    assert "BOS iki" in capsys.readouterr().out
