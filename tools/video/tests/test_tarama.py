@@ -162,6 +162,10 @@ def test_rapor_hatalari_ayri_ayri(deg, parca):
     assert len(h) == 1 and parca in h[0], h
 
 
+def test_ipucu_turu_gecer():
+    assert tr.denetle(rapor(tur="ipucu"), 300) == []
+
+
 def test_alinti_15_kelime_gecer():
     assert tr.denetle(rapor(alinti="“" + " ".join(["kelime"] * 15) + "”"), 300) == []
 

@@ -135,6 +135,22 @@ def test_alt_ajan_yalniz_bash_read_write():
     assert alan["model"].strip() == "sonnet"
 
 
+# --- 12d: sabit görev metni alt ajan tanımında (paralel ajanlar arası önbellek) ---
+
+def test_alt_ajan_govdesi_sabit_gorev_metnini_tasir():
+    govde = (KOK / ".claude" / "agents" / "video-tarayici.md").read_text(encoding="utf-8").split("---", 2)[2]
+    for parca in ("## Künye", "## Adaylar", "## Kareden okunanlar", "Tur 1:", "Tur 2:", "rapor: <yol> · aday: <n>", "ipucu"):
+        assert parca in govde, parca
+    assert "AYNI mesajda" in govde
+
+
+def test_skill_md_gorev_metnini_kopyalamaz():
+    s = (KOK / "skills" / "video-tarama" / "SKILL.md").read_text(encoding="utf-8")
+    for parca in ("## Künye", "Tur 1:", "Alt ajan görevi"):
+        assert parca not in s, parca
+    assert "alt ajan tanımında" in s
+
+
 # --- toplu Jev tavanı (canlı ölçüm ≤40 istek) ---
 
 def test_toplu_istek_tavani(ortam, dizin):
