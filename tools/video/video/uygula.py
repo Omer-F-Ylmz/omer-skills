@@ -18,6 +18,8 @@ from . import tarama as tr
 KOK = Path(__file__).resolve().parents[3]
 DENETIM = KOK / "tools" / "skill_denetim.py"
 LISANS = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "0BSD", "ISC", "CC-BY-4.0"}
+KAYNAK_ACIK = {"BSL-1.1", "BUSL-1.1", "FSL-1.1-MIT", "FSL-1.1-Apache-2.0", "Elastic-2.0"}  # kendi makinede kullanım serbest, repoya kopyalanmaz
+SONUC = ("doğru", "abartılı", "yanlış", "doğrulanamadı")
 SERBEST = re.compile(r"^(LICEN[CS]E|NOTICE)(\.\w+)?$", re.I)  # lisans metni T1'e girebilir; kod değil
 ALAN = re.compile(r"^(\w+):\s*(.*?)\s*$")
 MADDE_NO = re.compile(r"^\s*(\d+)[.)]\s")
@@ -37,8 +39,9 @@ def alanlar(metin):
     return out
 
 
-def bakim_red(a, bugun):
-    if a.get("lisans") not in LISANS:
+def bakim_red(a, bugun, t2=False):
+    """14a lisans listesi yalnız T1 (repoya kopyalama) içindir; 17 K6: T2'de kaynak-erişilebilir lisans RED değil, lisans notu."""
+    if a.get("lisans") not in LISANS and not (t2 and a.get("lisans") in KAYNAK_ACIK):
         return f"lisans uygunsuz/yok: {a.get('lisans') or 'yok'}"
     if a.get("arsiv") == "evet":
         return "arşivlenmiş"
@@ -59,10 +62,11 @@ def sinifla(a, bugun, dosyalar=None, high=None):
     """(katman, gerekçe). Skill'de dosyalar kaynak klasöründen gerçekten listelenir, high SkillSpector'dan (None: koşmadı)."""
     if a.get("red"):
         return "RED", a["red"]
-    if r := bakim_red(a, bugun):
+    if r := bakim_red(a, bugun, a.get("tur") != "skill"):
         return "RED", r
     if a.get("tur") != "skill":
-        return "T2", f"{a.get('tur') or '?'}: çalıştırılabilir, onay gerekir"
+        return "T2", f"{a.get('tur') or '?'}: çalıştırılabilir, onay gerekir" + (
+            f" · lisans notu: {a['lisans']} (kaynak-erişilebilir, kendi kullanım serbest)" if a.get("lisans") in KAYNAK_ACIK else "")
     if high is None:
         return "RED", "SkillSpector koşmadı (kaynak klonu yok ya da tarama başarısız)"
     if high:
@@ -70,6 +74,80 @@ def sinifla(a, bugun, dosyalar=None, high=None):
     if s := md_disi(dosyalar):
         return "T2", f"md dışı dosya: {', '.join(s[:3])}"
     return "T1", "yalnız md · lisans izinli · HIGH 0"
+
+
+def ozellikler(metin):
+    """17 K3: `## Özellikler` → [{ozellik, alan: değer…}]; her `### <slug>` bir özellik."""
+    out = []
+    for p in re.split(r"^### ", tr.bolum(metin, "Özellikler"), flags=re.M)[1:]:
+        s = p.splitlines()
+        out.append({"ozellik": s[0].strip(), **{x[1]: x[2] for y in s[1:] if (x := ALAN.match(y))}})
+    return out
+
+
+def kanit(o, a, metin, kok, env):
+    """17 K4: RED gerekçesi kanıta bağlı mı. ölçüm: var olan docs/denemeler/*-sonuc.md · zaten var: katalog/durum.md adı ya da
+    var olan dosya · lisans: aday lisansı izinli/kaynak-erişilebilir değil · güvenlik: aday dosyasında SkillSpector HIGH/CRITICAL."""
+    on, _, g = o.get("gerekce", "").partition(":")
+    on = on.strip().casefold()
+    if on == "ölçüm":
+        return any((kok / y).is_file() for y in re.findall(r"docs/denemeler/[\w.-]+-sonuc\.md", g))
+    if on == "zaten var":
+        adlar = {tr.normal(x) for x, _ in tr.sozluk_kur(Path(env.get("VIDEO_EV") or Path.home()), [])} | {tr.normal(x) for x, _ in og.ARACLAR}
+        if (d := kok / "docs" / "durum.md").is_file():
+            adlar |= {tr.normal(x) for x in re.findall(r"^- ([^\s:→]+)\s*(?:→|:)", d.read_text(encoding="utf-8"), re.M)}
+        return any(tr.normal(w) in adlar or (kok / w).is_file() for w in re.findall(r"[\w.@/-]+", g) if tr.normal(w))
+    if on == "lisans":
+        li = o.get("lisans") or a.get("lisans") or ""
+        return bool(li) and li in g and li not in LISANS | KAYNAK_ACIK
+    if on == "güvenlik":  # bulgu özellik satırında değil aday dosyasının kendisinde olmalı
+        return bool(re.search(r"SkillSpector[^\n]*(HIGH|CRITICAL)", metin.replace(tr.bolum(metin, "Özellikler"), "")))
+    return False
+
+
+def ozellik_karar(o, a, metin, kok, env):
+    """(karar, gerekçe). 17 K4: karar yoksa DENE; token etiketli özellikte kanıtsız RED → DENE."""
+    k, g = o.get("karar") if o.get("karar") in og.KARAR else "DENE", o.get("gerekce", "")
+    if k == "RED" and "token" in o.get("etiket", "").casefold() and not kanit(o, a, metin, kok, env):
+        return "DENE", f"K4: kanıt bulunamadı — RED({g or 'gerekçesiz'}) → DENE"
+    return k, g
+
+
+def uyarla_yaz(kok, o, ad):
+    """17 K3: fikir kendi araçlarımıza uygulanır; yalnız doküman, kod yazılmaz (Desktop tarif verir)."""
+    y = Path(kok) / "docs" / "uyarlamalar" / f"{ad}.md"
+    y.parent.mkdir(parents=True, exist_ok=True)
+    y.write_text(f"# Uyarlama: {ad}\n\n17 K3 · kod yazılmaz; Desktop tarif verir\n\n" + "".join(
+        f"## {b}\n{o.get(k) or '?'}\n\n" for b, k in (("Fikir", "fikir"), ("Hedef araç/dosya", "hedef"), ("Beklenen etki", "etki"), ("Kapsam", "kapsam"))),
+        encoding="utf-8")
+    return f"uyarlama: docs/uyarlamalar/{ad}.md"
+
+
+def iddia_sinama(metin):
+    """17 K5: `## İddia sınama` (iddia · kaynak · sonuç · not · kart) → (satırlar, hatalar); kaynaksız ya da geçersiz sonuç → doğrulanamadı."""
+    t, out, h = tr.tablolar(tr.bolum(metin, "İddia sınama")), [], []
+    for s in t[0][1] if t else []:
+        x = dict(zip(("iddia", "kaynak", "sonuc", "not", "kart"), (s + [""] * 5)[:5]))
+        if x["sonuc"] not in SONUC:
+            h.append(f"sonuç geçersiz: {x['iddia']} → {x['sonuc']} ({'/'.join(SONUC)})")
+            x["sonuc"] = "doğrulanamadı"
+        elif x["kaynak"] in ("", "-") and x["sonuc"] != "doğrulanamadı":
+            h.append(f"kaynaksız sonuç: {x['iddia']} → doğrulanamadı")
+            x["sonuc"] = "doğrulanamadı"
+        out.append(x)
+    return out, h
+
+
+def brief(ns, ctx):
+    """17 K7: Desktop ikinci görüş girdisi, ≤60 satır: özellik kararları · iddialar · linkler."""
+    metin = Path(ns.rapor).read_text(encoding="utf-8")
+    t = tr.tablolar(tr.bolum(metin, "İDDİA SINAMA"))
+    idd = [f"- {s[0]} → {s[2]} ({s[1]})" for s in (t[0][1] if t else []) if len(s) >= 3]
+    oz = [s for s in tr.bolum(metin, "ÖZELLİK KARARLARI").splitlines() if s.startswith("- ")]
+    link = list(dict.fromkeys(re.findall(r"https?://[^\s|)]+", metin)))
+    print("\n".join([f"# brief: {Path(ns.rapor).name}", "## Özellik kararları", *oz[:25], "## İddialar", *idd[:20],
+                     "## Linkler", *[f"- {x}" for x in link[:9]]]))
+    return 0
 
 
 def _kos(ctx, args, timeout=600):
@@ -185,8 +263,8 @@ def katman(ns, ctx):
     kd = kok / "docs" / "kurulumlar"
     ky = kd / "kayit.jsonl"
     kayit, bugun, tk = tr.kayit_oku(ky), date.today(), None
-    gorulen = {tr.normal(k["ad"]) for k in kayit}
-    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik = ([] for _ in range(11))
+    gorulen = {tr.normal(k.get("aday") or k["ad"]) for k in kayit}
+    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama = ([] for _ in range(13))
     n = 7 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1)
 
     def jev():
@@ -203,6 +281,42 @@ def katman(ns, ctx):
             continue
         me = og.meta(ctx, a.get("video"))
         kanal, sponsor = a.get("kanal") or me.get("channel"), og.sponsor_mu(ctx, me, a, jev)
+        if oz := ozellikler(metin):  # 17 K3: özellik düzeyi; aday bütün olarak tartılmaz
+            yeni, satir = [], []
+            for o in oz:
+                yk, g = ozellik_karar(o, a, metin, kok, env)
+                oa, o = f"{ad}-{o['ozellik']}", {**({"video": a["video"]} if a.get("video") else {}), **o}
+                if yk == "UYARLA":
+                    karar = uyarla_yaz(kok, o, oa)
+                elif yk == "DENE":
+                    if "token" in o.get("etiket", "").casefold() and "token" not in (o.get("metrik") or "").casefold():
+                        o["metrik"] = "girdi/çıktı token (K4 zorunlu) · " + (o.get("metrik") or "?")
+                    karar = og.deneme_yaz(kok, o, oa, "")
+                    dene.append(f"{ad}/{o['ozellik']}: {karar}")
+                elif yk == "ÖĞREN":
+                    karar, cel = og.ogren(jev(), kok, o, oa, bugun, _kurallar(ctx)[1])
+                    (celiski if cel else ogrenilen).append(f"{ad}/{o['ozellik']}: {karar}")
+                else:
+                    karar = g or yk
+                    if yk == "RED":
+                        red.append(f"{ad}/{o['ozellik']} — {karar}")
+                    elif yk == "KUR":
+                        onay.append(f"{ad}/{o['ozellik']} KUR: aday düzeyi bekleyen/<ad>.md ile `video onay`")
+                ozk.append(f"{ad}/{o['ozellik']} → {yk} — {g or karar}")
+                satir.append(f"- {o['ozellik']} → {yk}: {karar}")
+                yeni.append({"ad": f"{ad}/{o['ozellik']}", "aday": ad, "ozellik": o["ozellik"], "yargi": yk, "karar": karar, "gerekce": g,
+                             "tarih": bugun.isoformat(), "video": a.get("video"), "kanal": kanal, "sponsor": sponsor})
+            ss, sh = iddia_sinama(metin)  # özelliklerden sonra: aynı koşuda yazılan ÖĞREN kartı da not alabilsin
+            eksik += [f"{ad}: {x}" for x in sh]
+            for s in ss:
+                sinama.append(s)
+                if s["sonuc"] in ("abartılı", "yanlış") and s["kart"] not in ("", "-") and (y := kok / "bilgi" / f"{s['kart']}.md").is_file():
+                    y.write_text(y.read_text(encoding="utf-8").rstrip("\n") + f"\n- not: '{s['iddia']}' {s['sonuc']} ({s['kaynak']})\n", encoding="utf-8")
+            ozet.append((sponsor, f"{ad} → özellik düzeyi: " + " · ".join(f"{o['ozellik']} {k['yargi']}" for o, k in zip(oz, yeni))))
+            rapor.append((sponsor, [f"## {ad} → özellik düzeyi{' · sponsor' if sponsor else ''}", *satir, ""]))
+            gorulen.add(tr.normal(ad))
+            kayit = [k for k in kayit if tr.normal(k.get("aday") or k["ad"]) != tr.normal(ad)] + yeni
+            continue
         yargi = a.get("karar") if a.get("karar") in og.KARAR else "KUR"  # karar alanı yoksa 14a yolu
         if a.get("karar") and (x := [b for b in ALTI if not tr.bolum(metin, b).strip()]):
             eksik.append(f"{ad}: {', '.join(x)}")
@@ -227,6 +341,8 @@ def katman(ns, ctx):
         elif yargi == "DENE":
             karar = og.deneme_yaz(kok, a, ad, metin)
             dene.append(f"{ad}: {karar}")
+        elif yargi == "UYARLA":
+            karar = uyarla_yaz(kok, a, ad)
         elif yargi in ("ZATEN VAR", "ALTERNATİF", "RED") and kt == "-":
             karar = a.get("gerekce") or _ilk(metin, "Karar") or yargi
             if yargi == "RED":
@@ -267,12 +383,15 @@ def katman(ns, ctx):
     ky.parent.mkdir(parents=True, exist_ok=True)
     tr.kayit_yaz(ky, kayit)
     bayat = [f"{s} ({fm.get('bayatlama')})" for s, fm, _ in og.kartlar(kok) if fm.get("bayatlama", "") < bugun.isoformat()]
-    bolumler = (("ÖĞRENİLENLER", ogrenilen), ("ÇELİŞKİLER (otomatik eklenmedi, Ömer karar verir)", celiski), ("DENENECEKLER", dene),
+    bolumler = (("ÖZELLİK KARARLARI", ozk), ("ÖĞRENİLENLER", ogrenilen), ("ÇELİŞKİLER (otomatik eklenmedi, Ömer karar verir)", celiski), ("DENENECEKLER", dene),
                 ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("YENİDEN DOĞRULA (bayat kart)", bayat))
     tam = kd / f"{bugun.isoformat()}-uygula.md"
     if rapor:  # sponsor adayları düşük öncelik: sona
         tam.write_text("\n".join([f"# video-uygula — {bugun.isoformat()}", ""] + [s for _, r in sorted(rapor, key=lambda x: x[0]) for s in r]
-                                 + [s for b, x in bolumler if x for s in [f"## {b}"] + [f"- {y}" for y in x] + [""]]), encoding="utf-8")
+                                 + [s for b, x in bolumler if x for s in [f"## {b}"] + [f"- {y}" for y in x] + [""]]
+                     + (["## İDDİA SINAMA", "| iddia | kaynak | sonuç | not |", "|---|---|---|---|"]
+                        + [f"| {s['iddia']} | {s['kaynak']} | {s['sonuc']} | {s['not']} |" for s in sinama] + [""] if sinama else [])
+                     + ["## Desktop ikinci görüş", ""]), encoding="utf-8")
     for _, s in sorted(ozet, key=lambda x: x[0]):
         print(f"- {s[:150]}")
     for baslik, x in bolumler:

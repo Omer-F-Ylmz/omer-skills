@@ -30,7 +30,7 @@ Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dö
 
 ## Denetim ve tavanlar
 
-- `video rapor-denetle`: zorunlu bölümler · zaman damgaları video süresi içinde · 7 aday alanı dolu, tür listeden (skill · plugin · MCP · CLI · teknik · iş akışı · ipucu) · tırnak içi alıntı ≤15 kelime.
+- `video rapor-denetle`: zorunlu bölümler · zaman damgaları video süresi içinde · 7 aday alanı dolu, tür listeden (skill · plugin · MCP · CLI · teknik · iş akışı · ipucu) · `## İddialar` zorunlu (17: iddia · zaman · tür ∈ sayısal/özellik/karşılaştırma/öneri) · tırnak içi alıntı ≤15 kelime.
 - Jev: video başına ≤ segment+10 istek (paket, yalnız ekran sorusu; önbellekte p varsa 0); `jev tarama` ≤2 batch (toplu içinde); kural karşılaştırması ipucu/iş akışı aday başına ≤2 istek (`--istek-tavan` varsayılanı 2·aday+2+2·ipucu); kare ≤6/video. Tahmini toplam maliyeti rapora yaz.
 - `rapor-denetle` sözlük hücresi `?` olan aday satırlarını ad sözlüğüyle (skill katalogu · plugin · MCP · kayıt) yerinde doldurur; eşleşme yoksa `yok`.
 - Kural karşılaştırması: tür ipucu/iş akışı aday `video kurallar` önbelleğine (global CLAUDE.md + C:\Projeler\omer-kurallar.md; madde düzeyi, mtime'la yenilenir) karşı sınanır: aşama 1'in birinci seçimi (hiçbiri değilse) ve aşama 2 p≥0.5 → ÇİFT; tabloda `ÇİFT (kural: omer-kurallar:N)` görünür (N dosya satırı). Araç türleri kurala girmez.

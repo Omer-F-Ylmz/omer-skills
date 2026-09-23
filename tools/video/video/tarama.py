@@ -13,7 +13,8 @@ from . import metin as m
 ESIK = 0.8
 YERLESIK = ("Claude Code", "Claude Desktop", "claude.ai")
 DIS = {"skill", "plugin", "mcp", "yerlesik"}  # kurulu ya da platformda var → ÇİFT
-BOLUM = ("Künye", "Özet", "Bölümler", "Adaylar", "Kareden okunanlar", "Belirsizlikler", "Atlanan")
+BOLUM = ("Künye", "Özet", "Bölümler", "Adaylar", "İddialar", "Kareden okunanlar", "Belirsizlikler", "Atlanan")
+IDDIA_TUR = {"sayısal", "özellik", "karşılaştırma", "öneri"}
 TUR = {"skill", "plugin", "MCP", "CLI", "teknik", "iş akışı", "ipucu"}
 ALINTI_KELIME = 15
 DOSYA = re.compile(r"(?:(\d{4}-\d\d-\d\d)-)?([\w-]{11})")
@@ -194,6 +195,12 @@ def denetle(metin, sure=None):
             h.append(f"boş alan: aday satırı {s[0] or '?'} (7 alan dolu olmalı: ad·sözlük·tür·link·ne işe yarar·zaman·kanıt)")
         elif s[2] not in TUR:
             h.append(f"tür geçersiz: {s[0]} → {s[2]} ({', '.join(sorted(TUR))})")
+    t = tablolar(bolum(metin, "İddialar"))
+    for s in t[0][1] if t else []:  # 17 K1: videodaki her somut iddia ayrı satır
+        if len(s) != 3 or any(x in ("", "-") for x in s):
+            h.append(f"boş alan: iddia satırı {s[0] or '?'} (3 alan dolu olmalı: iddia·zaman·tür)")
+        elif s[2] not in IDDIA_TUR:
+            h.append(f"iddia türü geçersiz: {s[0]} → {s[2]} ({', '.join(sorted(IDDIA_TUR))})")
     h += [f"alıntı {len(a.split())} kelime > {ALINTI_KELIME}: {a[:40]}…" for a in ALINTI.findall(metin) if len(a.split()) > ALINTI_KELIME]
     return h
 

@@ -27,6 +27,10 @@ başlık · kanal · süre: m:ss · dil · url
 | ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |
 |---|---|---|---|---|---|---|
 | <ad> | ? | skill/plugin/MCP/CLI/teknik/iş akışı/ipucu | açıklamadan ya da kareden; yoksa "yok" | … | m:ss | kendi cümlenle; alıntı “…” ≤15 kelime |
+## İddialar
+| iddia | zaman | tür |
+|---|---|---|
+| videodaki her somut iddia ayrı satır (sayı · özellik · karşılaştırma) | m:ss | sayısal/özellik/karşılaştırma/öneri |
 ## Kareden okunanlar
 - m:ss ekranda okunan komut/ayar/ad
 ## Belirsizlikler

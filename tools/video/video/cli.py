@@ -687,6 +687,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     alt.add_parser("durum", help="docs/durum.md: köprü katalogu · son kararlar · ölçüm bulguları · ELE (≤3k token, elle bölüm korunur)")
     x = alt.add_parser("bilgi", help="bilgi/ kartları: guven · bayatlama · iddia")
     x.add_argument("--bayat", action="store_true", help="yalnız bayatlamış (yeniden doğrula)")
+    x = alt.add_parser("brief", help="uygula raporu → Desktop ikinci görüş girdisi ≤60 satır: özellik kararları · iddialar · linkler")
+    x.add_argument("rapor")
     alt.add_parser("projeler", help="docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır özet (mtime'la yenilenir)")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
@@ -696,7 +698,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
-                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "durum": og.durum, "bilgi": og.bilgi}[ns.komut](ns, ctx)
+                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "geri-al": kur.geri_al, "dene": kur.dene, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

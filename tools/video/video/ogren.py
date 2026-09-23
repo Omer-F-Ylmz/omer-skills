@@ -14,7 +14,7 @@ KOK = Path(__file__).resolve().parents[3]
 ELLE = "<!-- elle -->"
 ELLE_ISKELET = "\n## Öncelikler\n- \n\n## Açık sorunlar\n- \n"
 TAVAN = 3000
-KARAR = ("KUR", "DENE", "ÖĞREN", "ZATEN VAR", "ALTERNATİF", "RED")
+KARAR = ("KUR", "DENE", "ÖĞREN", "UYARLA", "ZATEN VAR", "ALTERNATİF", "RED")
 ARACLAR = (("RTK", "komut çıktısını hook ile sıkıştırır (git/npm/dotnet/pytest)"),
            ("headroom", "girdi context'ini sıkıştıran yerel vekil + MCP (compress/retrieve)"),
            ("graphify", "kod/doküman bilgi grafiği; query/path/explain ile dar bağlam"),

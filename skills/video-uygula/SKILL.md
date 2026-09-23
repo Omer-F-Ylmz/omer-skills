@@ -49,6 +49,14 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 - `video dene <ad> [--tavan 6] [--istek-tavan 12]` → docs/denemeler/<ad>.md (Hipotez · Metrik · Bütçe · Başarı eşiği · `## Talimat` yolu) + sabit görev seti docs/denemeler/gorevler/. A: `claude -p --model sonnet --output-format json`; B: aynı + `--append-system-prompt <talimat>`; alt süreçte JEV_SKILL_HOOK=0. Ölçüm: çıktı/girdi token · süre · maliyet · Jev kalite (0-3). Eşik dosyadan (yoksa çıktı ≥%25 düşüş VE kalite düşüşü ≤0.3) → `KUR önerisi → ONAY` ya da `RED(ölçüm)`; docs/denemeler/<ad>-sonuc.md + kayıt.
 - Kayıt satırı: {ad, katman, karar, tarih, video, kaynak_commit, geri_alma}.
 
+## Derin inceleme (17)
+- Birim araç değil özellik: aday.md `## Özellikler` (`### <slug>` + ne · kurulum · lisans · etiket · karar · gerekce) varsa `video katman` her özelliği ayrı karara bağlar; kayıt `{ad: aday/özellik, aday, ozellik, yargi, karar, gerekce}`.
+- UYARLA: aracı kurmadan fikri kendi aracımıza → docs/uyarlamalar/<aday>-<özellik>.md (fikir · hedef · beklenen etki · kapsam); kod yazılmaz, Desktop tarif verir.
+- Token etiketli özellik varsayılan DENE (deneme dosyasında token metriği zorunlu). RED yalnız kanıtla: `ölçüm:` var olan docs/denemeler/*-sonuc.md · `zaten var:` katalog/durum.md adı ya da var olan dosya · `güvenlik:`/`lisans:` aday dosyasındaki bulgu. Kanıt yoksa DENE + "K4: kanıt bulunamadı".
+- Lisans: izinli liste yalnız T1 (repoya kopyalama). T2'de kaynak-erişilebilir (BSL-1.1, FSL, Elastic-2.0) RED değil, lisans notu. `telemetri: açık` ise `## Telemetri kapatma` yoksa biçim hatası.
+- İddia sınama: aday.md `## İddia sınama` (iddia · kaynak · sonuç · not · kart); kaynaksız sonuç → doğrulanamadı; abartılı/yanlış + kart → bilgi/<kart>.md'ye not. Rapora İDDİA SINAMA tablosu + boş `## Desktop ikinci görüş`.
+- `video brief <rapor>` ≤60 satır (özellik kararları · iddialar · linkler); köprüde açık, Desktop ikinci görüşü buradan okur.
+
 ## Aday dosyası (≤40 satır)
 
 Başta alan satırları: `ad · tur · video · repo · lisans (SPDX|yok) · son_commit · arsiv · kaynak (yerel skill klasörü|yok) · kural (ipucu) · red (isteğe bağlı)`.

@@ -73,7 +73,12 @@ def _kopru_yaz(kok, k):
 
 def bicim(metin, kopru=None):
     """(plan, hatalar). Kurulum · Duman testi · Geri alma zorunlu; Köprü izni ve Ayar isteğe bağlı."""
-    hata, plan = [], {"duman": None, "kopru": None, "ayar": []}
+    hata, plan = [], {"duman": None, "kopru": None, "ayar": [], "telemetri": []}
+    if re.search(r"^telemetri:\s*(açık|acik|evet|on)\b", metin, re.M | re.I):  # 17 K6: varsayılan açık telemetri kapatılmadan plan yok
+        ts = _satirlar(metin, "Telemetri kapatma")
+        if not ts:
+            hata.append("Telemetri açık ama ## Telemetri kapatma bölümü yok ya da boş")
+        plan["telemetri"] = [s for s in ts if not _suz(s, hata, "Telemetri kapatma")]
     for b, i in (("Kurulum", 0), ("Geri alma", 1)):
         ss = _satirlar(metin, b)
         if not ss:
@@ -158,7 +163,7 @@ def onay(ns, ctx):
         return 2
     argv, cikis, desen = plan["duman"]
     satir = ([f"kur: {' '.join(a)}" for a in plan["kurulum"]] + [f"duman: {' '.join(argv)} → rc {cikis}" + (f" · /{desen.pattern}/" if desen else "")]
-             + [f"geri alma: {' '.join(a)}" for a in plan["geri"]])
+             + [f"geri alma: {' '.join(a)}" for a in plan["geri"]] + [f"telemetri kapat (elle, kurulumdan hemen sonra): {s}" for s in plan["telemetri"]])
     if plan["kopru"]:
         satir.append(f"köprü: izinli.{plan['kopru'][0]}.altIzin = {plan['kopru'][1]} (Desktop yeniden başlatma gerekli)")
     if plan["ayar"]:
