@@ -14,7 +14,7 @@ REPO = Path(__file__).resolve().parents[3]
 
 
 class DJev:
-    """choice: state'te FE → frontend 0.95 · GUV → guvenlik 0.92 · BELIRSIZ → surec 0.5 · diğer → diger 0.9."""
+    """choice: state'te FE → frontend 0.95 · GUV → guvenlik 0.92 · BELIRSIZ → surec-plan 0.5 · diğer → diger 0.9."""
 
     def __init__(self):
         self.istek = []
@@ -23,7 +23,7 @@ class DJev:
         g = json.loads(veri)
         self.istek.append(g)
         s = g["state"]
-        d, p = ("frontend", 0.95) if "FE" in s else ("guvenlik", 0.92) if "GUV" in s else ("surec", 0.5) if "BELIRSIZ" in s else ("diger", 0.9)
+        d, p = ("frontend", 0.95) if "FE" in s else ("guvenlik", 0.92) if "GUV" in s else ("surec-plan", 0.5) if "BELIRSIZ" in s else ("diger", 0.9)
         cv = {k: {"type": "choice", "choice": d, "probabilities": {d: p}, "confidence": p} for k in g["questions"]}
         return 200, {}, json.dumps({"answers": cv}).encode()
 
@@ -100,6 +100,41 @@ def test_elle_json_jevi_ezer(ortam, dkok):
     assert next(x for x in envanter(dkok) if x["ad"] == "fe-skill")["departman"] == "belge"
 
 
+def test_sira_elle_desen_onbellek_jev(ortam, dkok, capsys):
+    assert calistir(ortam, DJev()) == 0  # önbellek: guv-skill → guvenlik (jev)
+    d = dkok / "docs" / "departmanlar"
+    (d / "elle.json").write_text(json.dumps({"fe-skill": "belge"}), encoding="utf-8")
+    (d / "elle-desen.json").write_text(json.dumps({"fe-*": "veri-db", "guv-*": "veri-db", "mcp:fig*": "belge"}), encoding="utf-8")
+    jev = DJev()
+    assert calistir(ortam, jev) == 0
+    e = {x["ad"]: x for x in envanter(dkok)}
+    assert (e["fe-skill"]["departman"], e["fe-skill"]["kaynak"]) == ("belge", "elle")  # elle > desen
+    assert (e["guv-skill"]["departman"], e["guv-skill"]["kaynak"]) == ("veri-db", "desen")  # desen > önbellek
+    assert (e["figma"]["departman"], e["figma"]["kaynak"]) == ("belge", "desen")  # tur:ad joker
+    assert not any(a in i["state"] for i in jev.istek for a in ("fe-skill", "guv-skill", "figma"))  # desen > Jev
+    assert calistir(ortam, DJev(), "--yeniden") == 0 and next(x for x in envanter(dkok) if x["ad"] == "guv-skill")["kaynak"] == "desen"
+    assert "guv-skill" not in capsys.readouterr().out.split("gözden geçir:")[-1].splitlines()[0]  # desen gözden geçire düşmez
+
+
+def test_desen_joker_eslesmesi():
+    desen = {"design:*": "frontend", "*msbuild*": "backend-dotnet", "*security*": "guvenlik", "gstack-upgrade": "surec-ajan-arac"}
+    bul = lambda ad, tur="skill": dp._desen(desen, {"ad": ad, "tur": tur})  # noqa: E731
+    assert bul("design:ux-copy") == "frontend" and bul("dotnet-msbuild:eval-performance") == "backend-dotnet"
+    assert bul("phoenix-security-review:0day-scanner") == "guvenlik" and bul("gstack-upgrade") == "surec-ajan-arac"
+    assert bul("gstack") is None and bul("designer") is None
+
+
+def test_eski_surec_kaydi_tasinir(ortam, dkok):
+    d = dkok / "docs" / "departmanlar"
+    d.mkdir(parents=True)
+    eski = {"ad": "bel-skill", "tur": "skill", "aciklama": "BELIRSIZ bir şey", "departman": "surec", "p": 0.5, "kaynak": "jev"}
+    (d / "envanter.json").write_text(json.dumps([{**eski, "hash": dp._hash("bel-skill", "BELIRSIZ bir şey")}]), encoding="utf-8")
+    jev = DJev()
+    assert calistir(ortam, jev) == 0
+    assert any("bel-skill" in i["state"] for i in jev.istek)  # hash aynı ama departman artık yok → yeniden sorulur
+    assert next(x for x in envanter(dkok) if x["ad"] == "bel-skill")["departman"] == "surec-plan"
+
+
 def test_onbellek_hash_degismeden_yeniden_sormaz(ortam, dkok):
     assert calistir(ortam, DJev()) == 0
     jev = DJev()
@@ -154,6 +189,30 @@ def test_repodaki_mudur_skilleri_sinirda():
     fe = (REPO / "skills" / "departman-frontend" / "SKILL.md").read_text(encoding="utf-8").split("## Adımlar", 1)[1]
     assert fe.index("DESIGN.md") < fe.index("frontend-craft") < fe.index("axe")  # ana hat sırası
     assert "departman-test-qa" in fe and "departman-guvenlik" in fe
+
+
+def test_surec_alt_departmanlara_bolunur():
+    assert "surec" not in dp.DEPARTMANLAR
+    assert {"surec-plan", "surec-inceleme", "surec-git-yayin", "surec-ajan-arac"} <= set(dp.DEPARTMANLAR)
+    adlar = {y.parent.name for y in REPO.glob("skills/departman-*/SKILL.md")}
+    assert "departman-surec" not in adlar
+    e = json.loads((REPO / "docs" / "departmanlar" / "envanter.json").read_text(encoding="utf-8"))
+    assert not [x["ad"] for x in e if x["departman"] not in dp.DEPARTMANLAR]  # hiçbir araç "surec"te kalmaz
+    assert {f"departman-{m}" for m in dp.mudurler(e)} == adlar  # müdür yalnız ≥3 araçlı (alt) departmana
+
+
+def test_frontend_mudur_yigin_dali_ve_performans():
+    fe = (REPO / "skills" / "departman-frontend" / "SKILL.md").read_text(encoding="utf-8").split("## Adımlar", 1)[1]
+    yigin = fe.index("Razor")
+    assert "dotnet-aspnetcore" in fe[yigin:] and fe.index("vercel-composition-patterns") > yigin and "Astro" in fe
+    assert yigin < fe.index("21st-ui")  # yığın dalı referans/bileşen adımından önce
+    perf = fe.index("fixing-motion-performance")
+    assert fe.index("axe") < perf < fe.index("pixeljury") and "performance-optimization" in fe and "Lighthouse" in fe
+    assert all(a in fe for a in ("claude-design", "figma", "stitch", "scroll-craft", "web-sahne-desenleri"))
+    assert fe.index("DESIGN.md") < fe.index("claude-design")  # tuval DESIGN.md'den sonra
+    e = {x["ad"].split(":")[-1] for x in json.loads((REPO / "docs" / "departmanlar" / "envanter.json").read_text(encoding="utf-8"))}
+    import re
+    assert set(re.findall(r"`([a-z0-9][a-z0-9-]+)`", fe)) - e <= {"departman-test-qa", "departman-guvenlik", "screenshot", "audit"}, "envanterde olmayan ad"
 
 
 def test_uc_arac_kurali():
