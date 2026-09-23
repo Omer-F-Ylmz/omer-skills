@@ -86,6 +86,21 @@ def ozellikler(metin):
     return out
 
 
+
+def mekanizma_denetle(metin):
+    """20b-devam K6: token etiketli her özelliğin `## Mekanizma` altında `### <slug>`'ı ve nasıl · neden · koşul · bizde alanları dolu."""
+    mek = {p.splitlines()[0].strip(): p for p in re.split(r"^### ", tr.bolum(metin, "Mekanizma"), flags=re.M)[1:]}
+    h = []
+    for o in ozellikler(metin):
+        if "token" not in o.get("etiket", "").casefold():
+            continue
+        if o["ozellik"] not in mek:
+            h.append(f"{o['ozellik']}: ## Mekanizma yok")
+            continue
+        h += [f"{o['ozellik']}: Mekanizma {x} eksik" for x in ("nasıl", "neden", "koşul", "bizde")
+              if not re.search(rf"^{x}:\s*\S", mek[o["ozellik"]], re.M)]
+    return h
+
 def kanit(o, a, metin, kok, env):
     """17 K4: RED gerekçesi kanıta bağlı mı. ölçüm: var olan docs/denemeler/*-sonuc.md · zaten var: katalog/durum.md adı ya da
     var olan dosya · lisans: aday lisansı izinli/kaynak-erişilebilir değil · güvenlik: aday dosyasında SkillSpector HIGH/CRITICAL."""

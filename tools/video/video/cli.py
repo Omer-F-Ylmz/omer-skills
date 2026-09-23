@@ -489,6 +489,11 @@ def _sozluk_doldur(ctx, yol, metin):
 
 
 def rapor_denetle(ns, ctx):
+    if tr.bolum(ham := Path(ns.rapor).read_text(encoding="utf-8"), "Özellikler").strip():  # 20b-devam K6: aday raporu
+        for x in (h := uy.mekanizma_denetle(ham)):
+            print(x)
+        print(f"rapor-denetle (aday): {'GEÇTİ' if not h else f'{len(h)} hata'}")
+        return 1 if h else 0
     metin = _sozluk_doldur(ctx, ns.rapor, Path(ns.rapor).read_text(encoding="utf-8"))
     sure = _sure(ctx, ns.rapor, metin)
     h = tr.denetle(metin, sure)
