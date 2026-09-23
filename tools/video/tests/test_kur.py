@@ -175,7 +175,7 @@ def test_onay_basarili_kopru_ve_geri_al(ortam, kok, capsys):
 
 def test_yeni_komutlar_kopru_altizinde_yok():
     k = json.loads((uy.KOK / "tools" / "cc-kopru" / "kopru.json").read_text(encoding="utf-8"))
-    assert not {"onay", "geri-al", "dene"} & set(k["izinli"]["video"]["altIzin"])
+    assert not {"onay", "geri-al", "dene", "uret"} & set(k["izinli"]["video"]["altIzin"])
 
 
 # --- katman T2: biçim kapısı ---
@@ -219,9 +219,9 @@ def test_dene_b_kolu_yalniz_append_farki_hook_kapali(ortam, kok):
     k, j = KKos(), SJev()
     assert main(["dene", "deneme"], env=ortam, kos=k, gonder=j) == 0
     c = k.claude()
-    assert len(c) == 6 and len(j.istek) <= 12
-    for a, b in zip(c[::2], c[1::2]):
-        assert a[3:] == ["--model", "sonnet", "--output-format", "json"] and "def topla" in a[2]
+    assert len(c) == 9 and len(j.istek) <= 30  # görev başına A 2 tekrar + B 1
+    for a, a2, b in zip(c[::3], c[1::3], c[2::3]):
+        assert a[3:] == ["--model", "sonnet", "--output-format", "json"] and "def topla" in a[2] and a2 == a
         assert b == a + ["--append-system-prompt", "KISA YAZ"]
     assert all(e and e["JEV_SKILL_HOOK"] == "0" for e in k.env)
     s = (kok / "docs" / "denemeler" / "deneme-sonuc.md").read_text(encoding="utf-8")
@@ -236,11 +236,11 @@ def test_dene_tavan(ortam, kok):
     assert k.cagri == [] and j.istek == []
 
 
-@pytest.mark.parametrize("b,beklenen", [((75, 2.7), "KUR"), ((76, 2.7), "RED"), ((75, 2.69), "RED"), ((50, 3.0), "KUR")])
+@pytest.mark.parametrize("b,beklenen", [((75, 2.9), "KUR"), ((76, 2.9), "RED(token)"), ((75, 2.89), "RED(kalite)"), ((50, 3.0), "KUR")])
 def test_karar_esik_sinirlari(b, beklenen):
-    assert kur.karar({"cikti": 100, "kalite": 3.0}, {"cikti": b[0], "kalite": b[1]}, {"cikti": 25, "kalite": 0.3, "maliyet": None}).startswith(beklenen)
+    assert kur.karar({"cikti": 100, "kalite": 3.0}, {"cikti": b[0], "kalite": b[1]}, {"cikti": 25, "maliyet": None}, 0.0, [(1.0, 1)]).startswith(beklenen)
 
 
 def test_esik_ayristirma():
-    assert kur.esik("çıktı token −%30 ve toplam maliyet −%3 ya da daha iyi, kabul 3/3") == {"cikti": 30, "kalite": 0.3, "maliyet": 3}
-    assert kur.esik("") == {"cikti": 25, "kalite": 0.3, "maliyet": None}
+    assert kur.esik("çıktı token −%30 ve toplam maliyet −%3 ya da daha iyi, kabul 3/3") == {"cikti": 30, "maliyet": 3}
+    assert kur.esik("") == {"cikti": 25, "maliyet": None}
