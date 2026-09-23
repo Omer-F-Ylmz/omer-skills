@@ -23,3 +23,4 @@
 {"ad": "caveman/trial", "aday": "caveman", "ozellik": "trial", "yargi": "UYARLA", "karar": "uyarlama: docs/uyarlamalar/caveman-trial.md", "gerekce": "", "tarih": "2026-09-23", "video": null, "kanal": null, "sponsor": false}
 {"ad": "caveman-oz", "karar": "RED(token, kalite): çıktı −%-35.2 (eşik %20) · kalite 2.92→2.91 (bant 0.10) · başarısı düşen görev: 2 · maliyet −%-47.1 (eşik %0)", "deneme": "docs/denemeler/caveman-oz-sonuc.md", "tarih": "2026-09-23"}
 {"ad": "girdi-duzenek", "karar": "RED(token, kalite): çıktı −%-2.5 (eşik %-) · kalite 2.73→2.50 (bant 0.21) · başarısı düşen görev: yok · girdi −%-29.0 (eşik %5)", "deneme": "docs/denemeler/girdi-duzenek-sonuc.md", "tarih": "2026-09-24"}
+{"ad": "headroom-ayar", "karar": "KUR önerisi → ONAY [headroom-mevcut]: çıktı −%38.5 (eşik %-) · kalite 2.50→2.62 (bant 0.34) · başarısı düşen görev: yok · girdi −%37.4 (eşik %5)", "deneme": "docs/denemeler/headroom-ayar-sonuc.md", "tarih": "2026-09-24"}
