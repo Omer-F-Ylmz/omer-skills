@@ -16,6 +16,7 @@ from jev import cekirdek as c
 from jev import skill as sk
 
 from . import departman as dp
+from . import getir as gt
 from . import kur
 from . import metin as m
 from . import ogren as og
@@ -434,7 +435,7 @@ def kayit(ns, ctx):
     if ns.ice_al:
         gorulen = {k["id"] for k in eski}
         yeni = [g for g in tr.ice_al(d) if g["id"] not in gorulen]
-        tr.kayit_yaz(yol, eski + yeni)
+        tr.kayit_ekle(yol, yeni)
         print(f"içe alındı: {len(yeni)} video · adsız {sum(not g['adaylar'] for g in yeni)} · "
               f"{sum(len(g['adaylar']) for g in yeni)} aday ({sum(len(g['ele']) for g in yeni)} ELE) · {yol}")
         return 0
@@ -489,8 +490,8 @@ def _sozluk_doldur(ctx, yol, metin):
 
 
 def rapor_denetle(ns, ctx):
-    if tr.bolum(ham := Path(ns.rapor).read_text(encoding="utf-8"), "Özellikler").strip():  # 20b-devam K6: aday raporu
-        for x in (h := uy.mekanizma_denetle(ham)):
+    if tr.bolum(ham := Path(ns.rapor).read_text(encoding="utf-8"), "Özellikler").strip() or uy.prompt_mu(ham):  # 20b-devam K6 · 23c K7: aday raporu
+        for x in (h := uy.mekanizma_denetle(ham) + uy.anatomi_denetle(ham)):
             print(x)
         print(f"rapor-denetle (aday): {'GEÇTİ' if not h else f'{len(h)} hata'}")
         return 1 if h else 0
@@ -578,9 +579,8 @@ def toplu(ns, ctx):
                   f"{'-' if x['risk'] is None else x['risk']} | {x['tur']} | {', '.join(x['videolar'])} |")
     md += ["", "## Raporlar"] + [f"- {v} · {b} · {r.name}" for v, r, b, _ in raporlar]
     cikti.write_text("\n".join(md) + "\n", encoding="utf-8")
-    kayit = [k for k in kayit if k["id"] not in gecen] + [{"id": v, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []}
-                                                          for v, r, _, a in raporlar if v in gecen]
-    tr.kayit_yaz(yol, kayit)
+    tr.kayit_ekle(yol, [{"id": v, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []} for v, r, _, a in raporlar if v in gecen])  # 23c: yalnız ekler
+    kayit = tr.kayit_son(tr.kayit_oku(yol), "id")
     for v, _, b, a in raporlar[:20]:
         print(f"{v} · {b[:50]} · {len(a)} aday: " + ", ".join(f"{x} [{isr[tr.normal(x)]}]" for x in a)[:300])
     say = {}
@@ -588,6 +588,22 @@ def toplu(ns, ctx):
         say[x["isaret"]] = say.get(x["isaret"], 0) + 1
     print(f"{len(tek)} tekil aday · " + " · ".join(f"{k} {n}" for k, n in sorted(say.items())) + f" · Jev istek {istek}")
     print(f"rapor: {cikti} · kayıt: {len(kayit)} video" + (f" · kayda yazılmadı (rapor-denetle): {' '.join(sorted(ids - gecen))}" if ids - gecen else ""))
+    return 0
+
+
+def getir_(ns, ctx):
+    print(gt.getir(ns.url, ns.n, ctx["kok"] / "getir"), end="")
+    return 0
+
+
+def repo_(ns, ctx):
+    print(gt.repo(ns.ad, ns.dosya, ns.satir, ctx["kos"]), end="")
+    return 0
+
+
+def on_(ns, ctx):
+    y = gt.on(Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK), ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir")
+    print(f"on: {y} · ~{c.token(y.read_text(encoding='utf-8'))} token")
     return 0
 
 
@@ -692,6 +708,19 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev isteği (varsayılan 2·aday)")
     x = alt.add_parser("kural-onay", help="bekleyen/kural-<slug>.md → omer-kurallar.md'ye madde (çiftse eklenmez); yalnız CC, köprüde yok")
     x.add_argument("slug")
+    x.add_argument("--kapsam", required=True, help="23c: maddenin geçerli olduğu kapsam (ör. 'site/UI yapım promptlarında'); kapsamsız onay yok")
+    x = alt.add_parser("getir", help="23c K2: sayfa → ana metin (gezinme/altbilgi atılır) başlık + ilk N karakter + bağlantılar; önbellek getir/")
+    x.add_argument("url")
+    x.add_argument("--n", type=int, default=6000)
+    x = alt.add_parser("repo", help="23c K2: gh api → README ilk 120 satır · ağaç derinlik 2 · --dosya yalnız --satir a-b (≤200)")
+    x.add_argument("ad", help="sahip/ad")
+    x.add_argument("--dosya")
+    x.add_argument("--satir", metavar="a-b")
+    x = alt.add_parser("on", help="23c K4: aday ön getirme → <kök>/.kos/<video>/<aday>/on.md (repo özeti + site özeti)")
+    x.add_argument("video")
+    x.add_argument("aday")
+    x.add_argument("--repo")
+    x.add_argument("--url")
     x = alt.add_parser("onay", help="bekleyen/<ad>.md yapılandırılmış adımlar → kur · duman · başarısızsa geri alma; yalnız CC, köprüde yok")
     x.add_argument("ad")
     x.add_argument("--kuru", action="store_true", help="hiçbir şey koşmaz, planı yazar")
@@ -740,7 +769,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
-                "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik}[ns.komut](ns, ctx)
+                "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
+                "getir": getir_, "repo": repo_, "on": on_}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

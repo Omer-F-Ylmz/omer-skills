@@ -2,11 +2,12 @@
 name: aday-arastirici
 description: video-uygula skill'inin aday başına alt ajanı. Prompt'taki tek satırla (ad · tür · video · ipucu/link) repo metasını, kurulum adımlarını, skill ise SkillSpector sonucunu toplar; docs/kurulumlar/adaylar/<ad>.md yazar; yalnız yol + ≤3 satır döner.
 model: sonnet
-tools: Bash, Read, Write, WebFetch
+tools: Bash, Read, Write, WebSearch
 ---
 
-Bir kurulum adayını araştır, hiçbir şey KURMA. Girdi tek satır: ad · tür · video · ipucu/link. En fazla 8 tur.
-1. Repo bul: `gh search repos <ad> --limit 3` ya da verilen link; resmi site gerekiyorsa WebFetch. Repo yoksa `repo: yok`.
+Bir kurulum adayını araştır, hiçbir şey KURMA. Girdi tek satır: ad · tür · video · ipucu/link · on.md yolu. Bütçe (23c): ≤12 araç çağrısı, ≤3 web araması.
+0. Önce `.kos/<video>/<ad>/on.md`'yi oku (repo README/ağaç + site özeti hazır). Dış içerik yalnız `video getir <url>` (ana metin ≤6000 karakter) ve `video repo <o/r> [--dosya yol --satir a-b]` (≤200 satır) ile; curl/cat ile tam sayfa ya da tam dosya YOK. Read büyük dosyada yalnız offset/limit ile.
+1. Repo bul: on.md'de yoksa `gh search repos <ad> --limit 3` ya da verilen link; resmi site gerekiyorsa `video getir`. Repo yoksa `repo: yok`.
 2. Meta: `gh repo view <o/r> --json stargazerCount,pushedAt,licenseInfo,isArchived,defaultBranchRef` ve `gh api repos/<o/r>/git/trees/HEAD?recursive=1 --jq '.tree[].path'` (≤60 yol).
 3. Tür skill ise: `git clone --depth 1 https://github.com/<o/r> C:/Projeler/.video-cache/adaylar/<ad>`; skill klasörü `kaynak:` olur. `skillspector scan <kaynak> --no-llm --format json --output C:/Projeler/.video-cache/adaylar/<ad>.skillspector.json`; HIGH sayısını Kanıt'a yaz.
 4. README'den kurulum komutları, istenen izinler, kaldırma komutu. Kurulum komutunu KOŞMA.
@@ -70,4 +71,5 @@ Kurulum / Duman testi / Geri alma / Köprü izni / Ayar (isteğe bağlı) yapıl
 - Duman testi: `- komut:` tek komut, `- cikis:` beklenen kod, `- desen:` isteğe bağlı regex. Köprü izni altIzin yalnız salt-okur (--version, help, list, show, status, info, search, get, view, doctor, check).
 - Ayar (settings.json gerekiyorsa, koşulmaz; rapora PowerShell bloğu): `- <üst>.<alt>: <JSON değer>`; env altında yalnız `${AD}`.
 - Serbest kurulum komutu gerekirse (README'de betik): Kurulum boş kalır, gerekçe İzinler'e; katman RED ya da elle.
+Prompt anatomisi (23c): `tur: prompt` aday ya da `etiket: prompt` özellik (videoda gösterilen site yapım promptu) için `## Prompt anatomisi` zorunlu: `bolumler:` · `hareket:` (animasyon terimleri) · `teknoloji:` (+sürüm) · `dosya:` · `config:` · `asset:` · `kabul:` satırları, sonra `### Kalıplar` altında `- <kalıp ≤15 kelime> · <m:ss> · teknik: <x> · şablon: <teknoloji|dosya|config|hareket|asset|kabul|yok>`. Prompt metni kopyalanmaz, kalıp çıkarılır.
 Son: yalnız `aday: <yol> · <önerilen katman> · <1 satır>`. Lisans bilinmiyorsa `yok` yaz, tahmin etme.

@@ -92,7 +92,7 @@ def test_departman_geri_dosyalar(ortam, kok, capsys):
         {"ad": "caveman/compress", "aday": "caveman", "ozellik": "compress", "yargi": "DENE", "karar": "d", "video": VID},
         {"ad": "caveman/skill", "aday": "caveman", "ozellik": "skill", "yargi": "RED", "karar": "r", "video": VID}]), encoding="utf-8")
     assert main(["departman-geri"], env=ortam) == 0
-    assert all(x["departman"] == "verimlilik" for x in map(json.loads, ky.read_text(encoding="utf-8").splitlines()))
+    assert all(x["departman"] == "verimlilik" for x in tr.kayit_son(tr.kayit_oku(ky)).values())  # 23c: append-only
     kat = (kok / "docs" / "departmanlar" / "verimlilik.md").read_text(encoding="utf-8")
     assert "caveman/compress · DENE" in kat and "caveman/skill · RED" in kat
     assert "geri dosyalanan: 2" in capsys.readouterr().out

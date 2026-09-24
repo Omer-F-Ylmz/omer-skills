@@ -44,7 +44,7 @@ def test_getir_ana_metin_ust_sinir_kesildi(tmp_path):
     out = g.getir("https://s.test/p", al=lambda u: HTML, cache=tmp_path)
     assert out.startswith("# Başlık") and "https://s.test/x" in out
     assert not any(x in out for x in ("MENÜ", "ÜST", "ALTBİLGİ", "kod()"))
-    assert "…(kesildi: 3000 karakter)" in out and len(out) < 6400
+    assert "…(kesildi: 3002 karakter)" in out and len(out) < 6400
 
     def yok(u):
         raise OSError("ağ yok")

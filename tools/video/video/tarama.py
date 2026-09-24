@@ -101,8 +101,21 @@ def kayit_oku(yol):
     return [json.loads(x) for x in yol.read_text(encoding="utf-8").splitlines() if x.strip()] if yol.is_file() else []
 
 
-def kayit_yaz(yol, girdiler):
-    Path(yol).write_text("".join(json.dumps(g, ensure_ascii=False) + "\n" for g in girdiler), encoding="utf-8")
+def kayit_ekle(yol, girdiler):
+    """23c K5: append-only; eski satırın baytı değişmez (sonda satır sonu yoksa önce o eklenir)."""
+    yol = Path(yol)
+    yol.parent.mkdir(parents=True, exist_ok=True)
+    bas = "\n" if yol.is_file() and (b := yol.read_bytes()) and not b.endswith(b"\n") else ""
+    with yol.open("a", encoding="utf-8", newline="\n") as f:
+        f.write(bas + "".join(json.dumps(g, ensure_ascii=False) + "\n" for g in girdiler))
+
+
+def kayit_son(kayit, anahtar="ad"):
+    """Append-only okuma: anahtar başına satırlar sırayla birleşir (sonraki alan öncekini ezer)."""
+    son = {}
+    for k in kayit:
+        son[k[anahtar]] = {**son.get(k[anahtar], {}), **k}
+    return son
 
 
 def ayir(ids, kayit, yeniden=False):

@@ -155,12 +155,10 @@ def _kok(ctx):
 
 
 def _kayit(kok, ad, alan):
-    """Adın girdisi güncellenip sona taşınır; yoksa eklenir."""
+    """Adın son girdisi alanla birleşip sona eklenir (23c: append-only, eski satır değişmez)."""
     ky = kok / "docs" / "kurulumlar" / "kayit.jsonl"
-    ky.parent.mkdir(parents=True, exist_ok=True)
-    k = tr.kayit_oku(ky)
-    eski = next((x for x in reversed(k) if x["ad"] == ad), {"ad": ad})
-    tr.kayit_yaz(ky, [x for x in k if x is not eski] + [{**eski, **alan}])
+    eski = next((x for x in reversed(tr.kayit_oku(ky)) if x["ad"] == ad), {"ad": ad})
+    tr.kayit_ekle(ky, [{**eski, **alan}])
 
 
 def onay(ns, ctx):

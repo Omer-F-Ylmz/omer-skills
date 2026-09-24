@@ -40,14 +40,14 @@ def test_kural_onay_ekler_cifti_eklemez_lf_korunur(ortam, kok, capsys):
     omer(ortam).write_bytes(omer(ortam).read_bytes().replace(b"\r\n", b"\n"))
     y = ipucu(kok, "neden-ver", kural="İsteğin nedenini de yaz")
     assert calis(ortam, [y], UKos(), OJev()) == 0
-    assert main(["kural-onay", "neden-ver"], env=ortam) == 0
+    assert main(["kural-onay", "neden-ver", "--kapsam", "test kapsamında"], env=ortam) == 0
     ham = omer(ortam).read_bytes()
-    assert b"\r\n" not in ham and ham.decode("utf-8").splitlines()[-1] == f"3. İsteğin nedenini de yaz (video {VID}, 15b)"
+    assert b"\r\n" not in ham and ham.decode("utf-8").splitlines()[-1] == f"3. test kapsamında: İsteğin nedenini de yaz (video {VID}, 15b)"
     assert not (kok / "docs" / "kurulumlar" / "bekleyen" / "kural-neden-ver.md").exists()
     assert "madde eklendi" in kayit(kok)[-1]["karar"]
     assert calis(ortam, [y, "--yeniden"], UKos(), OJev()) == 0  # aynı öneri yeniden onaya gelirse çift
     once = hash_(omer(ortam))
-    assert main(["kural-onay", "neden-ver"], env=ortam) == 0
+    assert main(["kural-onay", "neden-ver", "--kapsam", "test kapsamında"], env=ortam) == 0
     assert hash_(omer(ortam)) == once and "ÇİFT" in capsys.readouterr().out
 
 

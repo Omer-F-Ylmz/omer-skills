@@ -226,7 +226,7 @@ def durum(ns, ctx):
         return 0
     elle = eski.split(ELLE, 1)[1] if ELLE in eski else ELLE_ISKELET
     say = Counter(k for _, k in tr.sozluk_kur(Path(env.get("VIDEO_EV") or Path.home()), []))
-    kay, tar = tr.kayit_oku(ku), tr.kayit_oku(vt)
+    kay, tar = list(tr.kayit_son(tr.kayit_oku(ku)).values()), list(tr.kayit_son(tr.kayit_oku(vt), "id").values())  # 23c: append-only → ad/id başına son hal
     kanal = {}
     for k in kay:
         x = kanal.setdefault(k.get("kanal") or "?", [0, 0])
