@@ -14,6 +14,10 @@ Koşu: bir site yapımı videosu, `/video-uygula <url>` uçtan uca. Her madde ka
 - [ ] Site/UI teknikleri: tarama raporunda bölüm dolu (teknik · kanıt m:ss · kütüphane ya da `tahmin:` · bizde); `video teknik <rapor>` → ÖĞREN kartı/UYARLA bekleyen; frontend.md `## Teknikler`.
 - [ ] İddia sınama: her adayda `## İddia sınama` tablosu, kaynaksız sonuç yok; abartılı/yanlış → karta not.
 - [ ] Kalite kapısı: DENE/UYARLA-talimat çıkarsa `video dene` (claude -p tavanı yazılı: en fazla N); çıkmazsa "gerekmedi".
+- [ ] ÜRETİLEBİLİR: UYARLA-skill/talimat varsa raporda `## ÜRETİLEBİLİR` dolu (ad · kaynak özellik · fayda · claude -p ve $); araç ayarı yok.
+- [ ] Deneme kararları takas tablosuyla (AL/SOR/RED) ve tutan kademeyle (`[kademe: …]`) yazılmış; SOR → bekleyen/sor-<ad>.md.
+- [ ] Token tasarrufu olan her özellikte docs/mekanizmalar/<ad>.md `## Tasarruf mekanizması` kaydı.
+- [ ] RED(kalite/takas)/SOR alan tasarruflu özellikte docs/uyarlamalar/<ad>-ayristir.md.
 - [ ] Desktop ikinci görüş: `video brief` → Desktop; cevap `## Desktop ikinci görüş` bölümüne olduğu gibi.
 - [ ] YÜKLENECEK ZIP: raporda liste; `skill_denetim.py` 0 hata.
 - [ ] Toplam maliyet: Jev istek (tavanla) · claude -p sayısı ve $ · alt ajan token toplamı.

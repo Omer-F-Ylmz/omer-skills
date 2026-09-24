@@ -42,3 +42,9 @@ Lisans (LICENSING.md): npm CLI, skills/ (cavecrew dahil), SDK'lar MIT. Sıkışt
 ## learn (ek)
 - Nasıl: yerel transkriptleri (`~/.claude`, `~/.codex`) tarar; sabit yük (config vergisi), kullanılmayan skill yükü, oturumlar arası tekrar kurulan bağlam blokları, alt ajan payı gibi "sink"leri tahmini token/gün ile sıralar. Salt-okur, ağsız.
 - Bizde: docs/uyarlamalar/skill-kullanim-sayaci.md · docs/uyarlamalar/tekrar-baglam-tespiti.md (docs/denemeler/caveman-learn-sonuc.md).
+
+## Tasarruf mekanizması (23b K10a)
+- ölçülen: çıktı −%20.7 · girdi −%-2.9 · sıcak $ −%-7.7
+- neyi kısaltıyor/atlıyor/önbellekliyor: Caveman stili ana oturum çıktı tokenını ≥%30 azaltır, kabul oranı düşmez.
+- kaliteyi etkileyen parça (düşen görevler): 1-ozet, 3-kapanis
+- ayrılabilir mi: evet-aday (kayıp görevlerin bir kısmında)

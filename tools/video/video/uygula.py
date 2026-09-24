@@ -291,6 +291,9 @@ def t1(ctx, kok, a, ad, kaynak):
 ALTI = ("Ne", "Bizde durum", "Beklenen fayda", "Maliyet/risk", "Karar", "Sonraki adım")
 
 
+CAGRI_USD = 0.30  # ponytail: sabit, geçmiş denemelerin sıcak koşu ortalaması (~$0.28-0.41); ölçüm biriktikçe güncelle
+
+
 def _ilk(metin, b):
     return next((s.strip() for s in tr.bolum(metin, b).splitlines() if s.strip()), "")
 
@@ -302,7 +305,7 @@ def katman(ns, ctx):
     ky = kd / "kayit.jsonl"
     kayit, bugun, tk = tr.kayit_oku(ky), date.today(), None
     gorulen = {tr.normal(k.get("aday") or k["ad"]) for k in kayit}
-    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama, depl = ([] for _ in range(14))
+    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama, depl, uret_ = ([] for _ in range(15))
     n = 8 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1) + departman 1
 
     def jev():
@@ -327,6 +330,9 @@ def katman(ns, ctx):
                 oa, o = f"{ad}-{o['ozellik']}", {**({"video": a["video"]} if a.get("video") else {}), **o}
                 if yk == "UYARLA":
                     karar = uyarla_yaz(kok, o, oa)
+                    h = o.get("hedef", "")
+                    if (o.get("hedef_tur") or ("skill" if re.search(r"(?i)skill", h) else "talimat" if re.search(r"(?i)talimat|CLAUDE\.md", h) else "")) in ("skill", "talimat"):
+                        uret_.append(f"{oa} · kaynak {ad}/{o['ozellik']} · fayda: {o.get('etki') or '?'} · maliyet: claude -p ≤24 · ≈${24 * CAGRI_USD:.2f} · `ÜRET {oa}`")
                 elif yk == "DENE":
                     if "token" in o.get("etiket", "").casefold() and "token" not in (o.get("metrik") or "").casefold():
                         o["metrik"] = "girdi/çıktı token (K4 zorunlu) · " + (o.get("metrik") or "?")
@@ -425,7 +431,7 @@ def katman(ns, ctx):
     dp.katalog_ekle(kok, videodan)
     bayat = [f"{s} ({fm.get('bayatlama')})" for s, fm, _ in og.kartlar(kok) if fm.get("bayatlama", "") < bugun.isoformat()]
     bolumler = (("ÖZELLİK KARARLARI", ozk), ("ÖĞRENİLENLER", ogrenilen), ("ÇELİŞKİLER (otomatik eklenmedi, Ömer karar verir)", celiski), ("DENENECEKLER", dene),
-                ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("DEPARTMAN", depl), ("YENİDEN DOĞRULA (bayat kart)", bayat))
+                ("ÜRETİLEBİLİR", uret_), ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("DEPARTMAN", depl), ("YENİDEN DOĞRULA (bayat kart)", bayat))
     tam = kd / f"{bugun.isoformat()}-uygula.md"
     if rapor:  # sponsor adayları düşük öncelik: sona
         tam.write_text("\n".join([f"# video-uygula — {bugun.isoformat()}", ""] + [s for _, r in sorted(rapor, key=lambda x: x[0]) for s in r]

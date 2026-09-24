@@ -54,6 +54,7 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 ## Derin inceleme (17)
 - Birim araç değil özellik: aday.md `## Özellikler` (`### <slug>` + ne · kurulum · lisans · etiket · karar · gerekce) varsa `video katman` her özelliği ayrı karara bağlar; kayıt `{ad: aday/özellik, aday, ozellik, yargi, karar, gerekce}`.
 - UYARLA: aracı kurmadan fikri kendi aracımıza → docs/uyarlamalar/<aday>-<özellik>.md (fikir · hedef · beklenen etki · kapsam); kod yazılmaz, Desktop tarif verir.
+- 23b: UYARLA özelliğine `hedef_tur: skill|talimat|arac-ayari` yazılır (yoksa hedef metninden: SKILL.md/skill → skill, talimat/CLAUDE.md → talimat). skill/talimat olanlar rapora `## ÜRETİLEBİLİR`: ad · kaynak özellik · beklenen fayda · tahmini maliyet (claude -p ≤24, $). Araç ayarı görünmez.
 - Token etiketli özellik varsayılan DENE (deneme dosyasında token metriği zorunlu). RED yalnız kanıtla: `ölçüm:` var olan docs/denemeler/*-sonuc.md · `zaten var:` katalog/durum.md adı ya da var olan dosya · `güvenlik:`/`lisans:` aday dosyasındaki bulgu. Kanıt yoksa DENE + "K4: kanıt bulunamadı".
 - Lisans: izinli liste yalnız T1 (repoya kopyalama). T2'de kaynak-erişilebilir (BSL-1.1, FSL, Elastic-2.0) RED değil, lisans notu. `telemetri: açık` ise `## Telemetri kapatma` yoksa biçim hatası.
 - İddia sınama: aday.md `## İddia sınama` (iddia · kaynak · sonuç · not · kart); kaynaksız sonuç → doğrulanamadı; abartılı/yanlış + kart → bilgi/<kart>.md'ye not. Rapora İDDİA SINAMA tablosu + boş `## Desktop ikinci görüş`.
@@ -65,6 +66,13 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 - Taslak yoksa uret brief basar (rc 3). Taslağı oturum modeli yazar: superpowers:writing-skills + skill-creator yüklenir; frontmatter `name` + `description` (yalnız tetik, "Use when …"/"… kullan"), gövde biçim tarifi (yasak listesi değil), FİKİR alınır METİN kopyalanmaz. Yol: talimat → docs/uyarlamalar/<ad>-talimat.md, skill → skills/<ad>/SKILL.md; sonra `video uret <ad>` yeniden.
 - Denetim (hata → rc 2, dene koşmaz): gövde token ≤ tavan · description tetik · kaynak metinle 8-gram örtüşme ≤%10 · lisans MIT → KAYNAK.md atfı. Geçerse docs/denemeler/<ad>.md yazılır ve kalite kapısı (`dene`) otomatik koşar.
 - KUR önerisi → docs/kurulumlar/bekleyen/<ad>.md: skill → T1 + dist/yukle-18/yeni/<ad>.zip; talimat → araç önerisi (global CLAUDE.md'ye `@<ad>.md`) PowerShell bloğu, ONAY, koşulmaz. RED → sonuç + bilgi/<ad>.md kartı.
+
+## ÜRET · takas · AYRIŞTIR (23b, yalnız CC; tetikler Ömer'in tek kelimesi)
+- `ÜRET <ad>`: docs/uyarlamalar/<ad>.md'den taslak (superpowers:writing-skills + skill-creator; fikir alınır, metin kopyalanmaz) → `video uret <ad>` → takas kapısı → AL: bekleyen + zip · SOR: bekleyen/sor-<ad>.md · RED: bilgi kartı + ayrıştırma adayı.
+- Takas (omer-kurallar:21): tasarruf = sıcak koşu $ göreli düşüşü (çıktı/girdi ayrıca rapora); düşüş = max(kalite puanı, görev başarısı göreli düşüşü), gürültü bandındaysa 0. Düşüş 0 → eşik aşıldıysa AL · ≤%10 & ≥%25 AL · ≤%15 & ≥%30 AL · %15–20: ≥%75 AL, %50–75 SOR, <%50 RED · >%20: ≥%50 SOR, <%50 RED · ara durum (tasarruf ≥%25) SOR · tasarruf <%25 ve düşüş >0 RED(takas). Karar satırı tutan kademeyi yazar.
+- SOR kendiliğinden AL/RED yapılmaz: Ömer `AL <ad>` / `RED <ad>` der → `video karar <ad> AL|RED` (dene yeniden koşmaz; sor dosyası silinir).
+- Tasarruf ayrıştırma (omer-kurallar:24): token tasarrufu olan her denemede docs/mekanizmalar/<ad>.md `## Tasarruf mekanizması`; RED(kalite/takas)/SOR + tasarruf → docs/uyarlamalar/<ad>-ayristir.md. `AYRIŞTIR <ad>`: taslak <ad>-oz → `video uret <ad>-oz --tur 0`, sonra en fazla 2 onarım turu `--tur 1|2` (her turda düşen görevlerin çıktısından kayıp sebebi çıkarılır, sürüm düzeltilir). Tur başına claude -p ≤12, toplam ≤24 (.kos/<ad>-oz/ayristir.json); 3. tur koşmaz. Rapor tur tur tasarruf ve düşüş.
+- Geriye dönük: `video takas-geri` (claude -p 0, Jev 0) → docs/denemeler/takas-geri.md (eski → yeni, değişen) + mekanizma/ayrıştırma dosyaları.
 
 ## RED şablonu (18)
 - RED adayında altı alan zorunlu değil: tek gerekçe satırı (`gerekce:`), boş alanlar raporda `-` ("(eksik)" üretilmez, eksik alan uyarısı yok).

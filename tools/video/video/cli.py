@@ -710,6 +710,11 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("ad")
     x.add_argument("--tavan", type=int, default=24, help="en fazla N claude -p (görev × kol × 2)")
     x.add_argument("--istek-tavan", type=int, default=30, metavar="M", help="en fazla M Jev isteği")
+    x.add_argument("--tur", type=int, metavar="N", help="23b AYRIŞTIR onarım turu (0 ilk ölçüm, en fazla 2); tur ≤12, toplam ≤24 claude -p")
+    x = alt.add_parser("karar", help="23b: SOR bekleyen → Ömer'in AL|RED kararı (dene yeniden koşmaz); yalnız CC")
+    x.add_argument("ad")
+    x.add_argument("secim", choices=["AL", "RED"])
+    alt.add_parser("takas-geri", help="23b K9/K11: deneme sonuçları takas tablosuyla yeniden + mekanizma kaydı + ayrıştırma adayı (claude -p 0, Jev 0)")
     alt.add_parser("durum", help="docs/durum.md: köprü katalogu · son kararlar · ölçüm bulguları · ELE (≤3k token, elle bölüm korunur)")
     x = alt.add_parser("bilgi", help="bilgi/ kartları: guven · bayatlama · iddia")
     x.add_argument("--bayat", action="store_true", help="yalnız bayatlamış (yeniden doğrula)")
@@ -734,7 +739,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
-                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
+                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")

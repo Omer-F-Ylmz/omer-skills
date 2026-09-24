@@ -88,14 +88,14 @@ def test_karar_sicak_ucuz_kol_kur(ortam, kok):
     deneme(kok, IKI, esik="çıktı token −%0, maliyet −%10")
     k = GKos({"a": (0.10, 0.05), "b": (0.30, 0.02)})
     assert main(["dene", "d"], env=ortam, kos=k, gonder=SJev()) == 0
-    assert "b: KUR" in (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
+    assert "b: AL" in (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
 
 
 def test_girdi_esigi_girdi_tokeniyla(ortam, kok):
     deneme(kok, IKI, esik="girdi token −%40")  # a 2010, b 1010 girdi: −%49.8
     k = GKos({"a": (0.1, 0.1), "b": (0.1, 0.1)})
     assert main(["dene", "d"], env=ortam, kos=k, gonder=SJev()) == 0
-    assert "b: KUR" in (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
+    assert "b: AL" in (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
     assert kur.esik("girdi token Headroom'a göre ≥%15 daha az") == {"cikti": None, "girdi": 15, "maliyet": None}
 
 

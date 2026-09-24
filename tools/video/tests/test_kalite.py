@@ -16,17 +16,18 @@ E = {"cikti": 25, "maliyet": None}
 
 # --- K1 karar ---
 
-def test_token_tutsa_da_bir_gorevde_basari_dusukse_red_kalite():
-    k = kur.karar(A, {"cikti": 50, "kalite": 3.0, "maliyet": 0.005}, E, 0.0, [(1.0, 1), (1.0, 0), (0.0, 0)])
-    assert k.startswith("RED(kalite)")
+def test_basari_dususu_takasa_girer():  # 23b: başarı −%50, tasarruf %50 → düşüş >%20 & tasarruf ≥%50 → SOR
+    k = kur.karar({**A, "basari": 1.0}, {"cikti": 50, "kalite": 3.0, "maliyet": 0.005, "basari": 0.5}, E, 0.0, [(1.0, 1), (1.0, 0), (0.0, 0)])
+    assert k.startswith("SOR") and "düşen görev: 2" in k
 
 
 def test_gurultu_icinde_kalite_gecer():
-    assert kur.karar(A, {"cikti": 50, "kalite": 2.95, "maliyet": 0.005}, E, 0.1, [(1.0, 1)]).startswith("KUR önerisi")
+    assert kur.karar(A, {"cikti": 50, "kalite": 2.95, "maliyet": 0.005}, E, 0.1, [(1.0, 1)]).startswith("AL")
 
 
-def test_gurultu_disinda_kalite_red():
-    assert kur.karar(A, {"cikti": 50, "kalite": 2.8, "maliyet": 0.005}, E, 0.05, [(1.0, 1)]).startswith("RED(kalite)")
+def test_gurultu_disinda_kalite_dususu_sayilir():  # 23b: −%6.7 düşüş, %50 tasarruf → AL (≤%10 & ≥%25)
+    k = kur.karar(A, {"cikti": 50, "kalite": 2.8, "maliyet": 0.005}, E, 0.05, [(1.0, 1)])
+    assert k.startswith("AL") and "düşüş %6.7" in k
 
 
 def test_token_tutmazsa_red_token():

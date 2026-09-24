@@ -333,22 +333,74 @@ def esik(s):
     return {"cikti": e["cikti"], "girdi": g, "maliyet": e["maliyet"]}
 
 
+def takas(s, d, esik_ok):
+    """23b K9 omer-kurallar:21 kalite takası, sınır dahil. s tasarruf %, d kalite düşüşü % (bant içi 0) → (karar, tutan kademe)."""
+    if d == 0:
+        return ("AL", "düşüş 0, eşik aşıldı") if esik_ok else ("RED(token)", "düşüş 0, eşik aşılmadı")
+    if d <= 10 and s >= 25:
+        return "AL", "düşüş ≤%10 & tasarruf ≥%25"
+    if d <= 15 and s >= 30:
+        return "AL", "düşüş ≤%15 & tasarruf ≥%30"
+    if 15 < d <= 20 and s >= 75:
+        return "AL", "düşüş %15–20 & tasarruf ≥%75"
+    if 15 < d <= 20:
+        return ("SOR", "düşüş %15–20 & tasarruf %50–75") if s >= 50 else ("RED(takas)", "düşüş %15–20 & tasarruf <%50")
+    if d > 20:
+        return ("SOR", "düşüş >%20 & tasarruf ≥%50") if s >= 50 else ("RED(takas)", "düşüş >%20 & tasarruf <%50")
+    return ("SOR", "ara durum, tasarruf ≥%25") if s >= 25 else ("RED(takas)", "tasarruf <%25, düşüş >0")
+
+
+def tasarruf(a, b):
+    """Göreli düşüş % (çıktı · girdi · sıcak maliyet); temel 0 ise 0."""
+    return {k: round((a[k] - b[k]) / a[k] * 100, 6) if a.get(k) else 0.0 for k in ("cikti", "girdi", "maliyet")}
+
+
 def karar(a, b, e, gurultu, basari):
-    """18 K1, sınır dahil: KUR yalnız (1) token hedefi (verilen her eşik: çıktı · girdi · sıcak koşu maliyeti, 20a) VE (2) her görevde B başarı ≥ A başarı
-    ortalaması VE (3) B kalite ≥ A − max(gürültü, 0.1). Kalite düşüşüne sabit pay yok; bant yalnız A'nın kendi tekrar gürültüsü."""
-    yuzde = lambda k: round((a[k] - b[k]) / a[k] * 100, 6) if a.get(k) else 0.0
-    dus, bant = yuzde("cikti"), max(gurultu, 0.1)
-    tok = all(e.get(x) is None or yuzde(x) >= e[x] for x in ("cikti", "girdi", "maliyet"))
+    """23b K9: tasarruf = sıcak koşu maliyetinin göreli düşüşü; düşüş = max(kalite puanı göreli düşüşü, ort. başarı göreli düşüşü),
+    kalite düşüşü A'nın tekrar gürültüsü bandında (max(gürültü, 0.1)) ise 0 → takas(). Eşik (## Başarı eşiği) yalnız düşüş 0'da."""
+    t, bant = tasarruf(a, b), max(gurultu, 0.1)
+    esik_ok = all(e.get(x) is None or t[x] >= e[x] for x in ("cikti", "girdi", "maliyet"))
+    kd = 0.0 if round(a["kalite"] - b["kalite"] - bant, 6) <= 0 else (a["kalite"] - b["kalite"]) / a["kalite"] * 100
+    bd = max(0.0, (a["basari"] - b["basari"]) / a["basari"] * 100) if a.get("basari") and "basari" in b else 0.0
+    d = round(max(kd, bd), 6)
+    k, kademe = takas(t["maliyet"], d, esik_ok)
     dusen = [i + 1 for i, (sa, sb) in enumerate(basari) if sb < sa]
-    kal = not dusen and round(b["kalite"] - a["kalite"] + bant, 6) >= 0
-    red = [x for x, ok in (("token", tok), ("kalite", kal)) if not ok]
-    ozet = (f"çıktı −%{dus:.1f} (eşik %{e['cikti'] if e['cikti'] is not None else '-'}) · kalite {a['kalite']:.2f}→{b['kalite']:.2f} (bant {bant:.2f}) · "
-            f"başarısı düşen görev: {', '.join(map(str, dusen)) or 'yok'}")
-    if e.get("maliyet") is not None:
-        ozet += f" · sıcak maliyet −%{yuzde('maliyet'):.1f} (eşik %{e['maliyet']:g})"
-    if e.get("girdi") is not None:
-        ozet += f" · girdi −%{yuzde('girdi'):.1f} (eşik %{e['girdi']:g})"
-    return ("KUR önerisi → ONAY" if not red else f"RED({', '.join(red)})") + f": {ozet}"
+    return (f"{k} [kademe: {kademe}]: tasarruf %{t['maliyet']:.1f} (sıcak $) · düşüş %{d:.1f} (kalite {a['kalite']:.2f}→{b['kalite']:.2f} bant {bant:.2f} · "
+            f"başarı {a.get('basari', 0):.2f}→{b.get('basari', 0):.2f}; düşen görev: {', '.join(map(str, dusen)) or 'yok'}) · "
+            f"çıktı −%{t['cikti']:.1f} · girdi −%{t['girdi']:.1f}")
+
+
+def mekanizma_kaydi(kok, ad, t, dusen, hipotez):
+    """23b K10(a): token tasarrufu (çıktı|girdi|maliyet >0) olan her özellik, kalite kararından bağımsız: docs/mekanizmalar/<ad>.md'ye bölüm (varsa dokunmaz)."""
+    if not any(v > 0 for v in t.values()):
+        return None
+    y = Path(kok) / "docs" / "mekanizmalar" / f"{ad}.md"
+    eski = y.read_text(encoding="utf-8") if y.is_file() else f"# Mekanizma: {ad}\n"
+    if "## Tasarruf mekanizması" in eski:
+        return y
+    y.parent.mkdir(parents=True, exist_ok=True)
+    y.write_text(eski.rstrip("\n") + "\n\n## Tasarruf mekanizması (23b K10a)\n"
+                 f"- ölçülen: çıktı −%{t['cikti']:.1f} · girdi −%{t['girdi']:.1f} · sıcak $ −%{t['maliyet']:.1f}\n"
+                 f"- neyi kısaltıyor/atlıyor/önbellekliyor: {hipotez or '? (deneme ## Hipotez boş)'}\n"
+                 f"- kaliteyi etkileyen parça (düşen görevler): {', '.join(dusen) or 'yok'}\n"
+                 f"- ayrılabilir mi: {'evet-aday (kayıp görevlerin bir kısmında)' if dusen else 'kalite kaybı yok, ayrıştırma gereksiz'}\n", encoding="utf-8")
+    return y
+
+
+def ayristir_aday(kok, ad, k, t, dusen):
+    """23b K10(b): yalnız RED(kalite|takas)/SOR ve token tasarrufu varsa docs/uyarlamalar/<ad>-ayristir.md."""
+    if not k.startswith(("SOR", "RED(kalite", "RED(takas")) or not any(v > 0 for v in t.values()):
+        return None
+    y = Path(kok) / "docs" / "uyarlamalar" / f"{ad}-ayristir.md"
+    y.parent.mkdir(parents=True, exist_ok=True)
+    parca = " · ".join(f"{n} −%{t[x]:.1f}" for x, n in (("cikti", "çıktı"), ("girdi", "girdi"), ("maliyet", "sıcak $")) if t[x] > 0)
+    y.write_text(f"# Ayrıştırma adayı: {ad}\n\n23b K10(b) · karar: {k[:160]} · `AYRIŞTIR {ad}` → `video uret {ad}-oz --tur 0..2`\n\n"
+                 f"## Alınacak tasarruf parçası\n{parca} (mekanizma: docs/mekanizmalar/{ad}.md)\n\n"
+                 f"## Ayıklanacak/onarılacak kalite parçası\nkalite/başarı düşen görevler: {', '.join(dusen) or '? (ölçümde görev ayrımı yok)'}\n\n"
+                 "## Onarım fikri\nteknik terimleri, kod bloklarını, hata/komut satırlarını ve sayıları aynen koru; yalnız dolgu metni "
+                 "(hitap, tekrar, geçiş cümlesi) kısalt. Her turda düşen görevlerin çıktısından kaybın sebebi çıkarılır, sürüm düzeltilir.\n\n"
+                 "## Başarı eşiği\nsıcak maliyet −%25\n", encoding="utf-8")
+    return y
 
 
 def _parca(g):
@@ -619,7 +671,8 @@ def dene(ns, ctx):
                 for k in kollar if k["ad"] != tk}
     mcp = {k["ad"]: sum(o["mcp"] for o in olcum if o["kol"] == k["ad"]) for k in kollar}
     kararlar.update({k["ad"]: "KARAR YOK: sıkıştırma devreye girmedi (mcp çağrısı 0)" for k in kollar if k.get("mcp") and not mcp[k["ad"]] and k["ad"] != tk})
-    kur_ = [f"{v.split(':')[0]} [{ad}]:{v.partition(':')[2]}" for ad, v in kararlar.items() if v.startswith("KUR")]
+    kur_ = [f"{v.split(':')[0]} [{ad}]:{v.partition(':')[2]}" for ad, v in kararlar.items() if v.startswith(("AL", "SOR"))]
+    kur_.sort(key=lambda x: not x.startswith("AL"))  # AL önce; SOR kendiliğinden AL/RED olmaz
     k = kur_[0] if kur_ else next(iter(kararlar.values())) if len(kararlar) == 1 else "RED(tüm kollar): " + " · ".join(kararlar)
     bugun = date.today().isoformat()
     satir = [f"# Deneme sonucu: {ns.ad}", "", f"{bugun} · sonnet · {len(istemler)} görev ({gd.name}) · {len(kollar)} kol × 2 koşu, karışık sıra · claude -p {len(olcum)} · "
@@ -635,6 +688,20 @@ def dene(ns, ctx):
     satir += ["", "## Karar", k, *[f"{ad}: {v}" for ad, v in kararlar.items()], ""]
     (d / f"{ns.ad}-sonuc.md").write_text("\n".join(satir), encoding="utf-8")
     _kayit(kok, ns.ad, {"karar": k, "deneme": f"docs/denemeler/{ns.ad}-sonuc.md", "tarih": bugun})
+    if kol := next((x["ad"] for x in kollar if x["ad"] != tk and (len(kollar) == 2 or f"[{x['ad']}]" in k)), None):  # 23b K10 + SOR
+        tas, bant = tasarruf(ort[tk], ort[kol]), max(gurultu, 0.1)
+        fark = {i: sum(o["kalite"] for o in ob(tk, i)) / 2 - sum(o["kalite"] for o in ob(kol, i)) / 2 for i in range(len(gorevler))}
+        dusen = [gorevler[i].stem for i in fark if fark[i] > bant or sum(o["basari"] for o in ob(kol, i)) < sum(o["basari"] for o in ob(tk, i))]
+        mekanizma_kaydi(kok, ns.ad, tas, dusen, " ".join(tr.bolum(metin, "Hipotez").split()))
+        ayristir_aday(kok, ns.ad, k, tas, dusen)
+        if k.startswith("SOR"):
+            orn = [f"### {gorevler[i].stem} (kalite {-fark[i]:+.2f})\n**{tk}:**\n```\n{ob(tk, i)[-1]['yanit'][:1500]}\n```\n**{kol}:**\n```\n{ob(kol, i)[-1]['yanit'][:1500]}\n```"
+                   for i in sorted(fark, key=fark.get, reverse=True)[:2]]
+            b = kok / "docs" / "kurulumlar" / "bekleyen" / f"sor-{ns.ad}.md"
+            b.parent.mkdir(parents=True, exist_ok=True)
+            b.write_text(f"# SOR {ns.ad}\n\n{k}\n\nÖmer karar verir: `AL {ns.ad}` ya da `RED {ns.ad}` → `video karar {ns.ad} AL|RED`. Kendiliğinden AL/RED yapılmaz.\n\n"
+                         f"## Tasarruf\nçıktı −%{tas['cikti']:.1f} · girdi −%{tas['girdi']:.1f} · sıcak $ −%{tas['maliyet']:.1f}\n\n## Örnek çıktı karşılaştırması\n" + "\n\n".join(orn) + "\n",
+                         encoding="utf-8")
     from . import ogren as og  # 21a K5: her deneme bir bilgi kartı bırakır
     (kok / "bilgi").mkdir(exist_ok=True)
     (kok / "bilgi" / f"{ns.ad}-deneme.md").write_text(og.kart_metni({"ad": ns.ad, "iddia": f"{ns.ad} denemesi: {k[:160]}",
@@ -650,6 +717,13 @@ def uret(ns, ctx):
     8-gram · KAYNAK.md; hata rc 2, dene koşmaz) → docs/denemeler/<ad>.md → dene (kalite kapısı) → bekleyen + zip ya da bilgi kartı."""
     from . import ogren as og, uygula as uy  # uygula kur'u içe aktarır: döngü yalnız çağrı anında
     kok = _kok(ctx)
+    led = kok / "docs" / "denemeler" / ".kos" / ns.ad / "ayristir.json"
+    har = json.loads(led.read_text(encoding="utf-8")).get("harcanan", 0) if led.is_file() else 0
+    if (tur := getattr(ns, "tur", None)) is not None:  # 23b K10(c) AYRIŞTIR: tur 0 ilk ölçüm, 1..2 onarım; tur ≤12, toplam ≤24 claude -p
+        if tur > 2 or har >= 24:
+            print(f"onarım tavanı: en fazla 2 onarım turu (tur 0..2) ve toplam claude -p ≤24 · tur {tur} · harcanan {har}; koşulmadı")
+            return 2
+        ns.tavan = min(ns.tavan, 12, 24 - har)
     u = kok / "docs" / "uyarlamalar" / f"{ns.ad}.md"
     if not u.is_file():
         print(f"uyarlama yok: {u}")
@@ -685,11 +759,21 @@ def uret(ns, ctx):
         f"# Deneme: {ns.ad}\n\n18 uret · {'talimat' if talimat else 'skill'} · gövde {n} token (tavan {tavan})\n\n## Hipotez\n{uy._ilk(um, 'Fikir') or '?'}\n\n"
         f"## Metrik\nçıktı token · toplam $ · görev başarısı (beklenen) · Jev kalite (gürültü bandı)\n\n## Bütçe\nclaude -p ≤{ns.tavan} · Jev ≤{ns.istek_tavan}\n\n"
         f"## Geri alma\n{rel} sil\n\n## Başarı eşiği\n{uy._ilk(um, 'Başarı eşiği') or 'çıktı token −%25'}\n\n## Talimat\n{rel}\n", encoding="utf-8")
-    if rc := dene(ns, ctx):
-        return rc
-    k = tr.bolum((d / f"{ns.ad}-sonuc.md").read_text(encoding="utf-8"), "Karar").strip()
+    if not getattr(ns, "karar", None):  # 23b: `video karar` Ömer'in kararıyla gelir, dene yeniden koşmaz
+        once = len(list(led.parent.glob("*.json")))
+        rc = dene(ns, ctx)
+        if getattr(ns, "tur", None) is not None:
+            led.parent.mkdir(parents=True, exist_ok=True)
+            led.write_text(json.dumps({"harcanan": har + len(list(led.parent.glob("*.json"))) - once}), encoding="utf-8")
+        if rc:
+            return rc
+    k = getattr(ns, "karar", None) or tr.bolum((d / f"{ns.ad}-sonuc.md").read_text(encoding="utf-8"), "Karar").strip()
     b = kok / "docs" / "kurulumlar" / "bekleyen" / f"{ns.ad}.md"
-    if not k.startswith("KUR"):
+    k = getattr(ns, "karar", None) or k
+    if k.startswith("SOR"):
+        print(f"SOR bekliyor: docs/kurulumlar/bekleyen/sor-{ns.ad}.md · Ömer `AL {ns.ad}` / `RED {ns.ad}` → video karar {ns.ad} AL|RED")
+        return 0
+    if not k.startswith("AL"):
         (kok / "bilgi").mkdir(exist_ok=True)
         (kok / "bilgi" / f"{ns.ad}.md").write_text(og.kart_metni({"ad": ns.ad, "iddia": f"{ns.ad} ({rel}) kalite kapısını geçmedi: {k[:160]}",
                                                                   "url": f"docs/denemeler/{ns.ad}-sonuc.md", "guven": "orta",
@@ -716,4 +800,76 @@ def uret(ns, ctx):
     b.write_text(f"# ONAY skill {ns.ad}\n\nT1 kendi skill'imiz · {k}\n\nzip: {z.relative_to(kok).as_posix()} (claude.ai yükle) · geri alma: rm -r skills/{ns.ad} {z.relative_to(kok).as_posix()}\n",
                  encoding="utf-8")
     print(f"ONAY bekliyor: {b.relative_to(kok).as_posix()} · zip: {z.relative_to(kok).as_posix()}")
+    return 0
+
+
+def karar_isle(ns, ctx):
+    """23b: Ömer `AL <ad>` / `RED <ad>` der → bekleyen/sor-<ad>.md işlenir (dene yeniden koşmaz): AL uret'in AL kuyruğu, RED bilgi kartı; sor silinir."""
+    kok = _kok(ctx)
+    b = kok / "docs" / "kurulumlar" / "bekleyen" / f"sor-{ns.ad}.md"
+    if not b.is_file():
+        print(f"SOR bekleyen yok: {b}")
+        return 1
+    ns.karar = f"{ns.secim} (Ömer) · " + b.read_text(encoding="utf-8").splitlines()[2]
+    ns.tavan = ns.istek_tavan = 0
+    rc = uret(ns, ctx) if (kok / "docs" / "uyarlamalar" / f"{ns.ad}.md").is_file() else print(f"{ns.karar[:120]} (uret dışı deneme: yalnız kayıt)") or 0
+    if rc == 0:
+        _kayit(kok, ns.ad, {"karar": ns.karar, "tarih": date.today().isoformat()})
+        b.unlink()
+    return rc
+
+
+def _geri_dusen(s, tk, x, bant):
+    """Görev başına bölümünden kalite/başarısı düşen görevler: `| görev | kol | başarı 1/2 | kalite 1/2 |` tablosu ya da `- g: A n · q → B n · q` (18 biçimi)."""
+    ort = lambda h: sum(map(float, h.split("/"))) / len(h.split("/"))  # noqa: E731
+    t, g = tr.tablolar(tr.bolum(s, "Görev başına")), {}
+    if t and "kol" in t[0][0]:
+        ix = {h: i for i, h in enumerate(t[0][0])}
+        for r in t[0][1]:
+            g.setdefault(r[0], {})[r[ix["kol"]]] = (ort(r[ix["kalite 1/2"]]), ort(r[ix["başarı 1/2"]]) if "başarı 1/2" in ix else 0)
+        return [a for a, v in g.items() if tk in v and x in v and (v[tk][0] - v[x][0] > bant or v[x][1] < v[tk][1])]
+    return [m[1] for m in re.finditer(r"^- ([\w-]+): \S+ \d+ · ([\d.]+) → \S+ \d+ · ([\d.]+)", tr.bolum(s, "Görev başına (çıktı · kalite)"), re.M)
+            if float(m[2]) - float(m[3]) > bant]
+
+
+def takas_geri(ns, ctx):
+    """23b K9 geriye dönük + K11: docs/denemeler/*-sonuc.md kol ortalamaları takas tablosuyla yeniden; tasarrufu olan → mekanizma kaydı,
+    RED(kalite/takas)/SOR → ayrıştırma adayı. claude -p 0 · Jev 0; rapor docs/denemeler/takas-geri.md."""
+    kok = _kok(ctx)
+    d = kok / "docs" / "denemeler"
+    satir, aday, degisen = [], [], 0
+    for y in sorted(d.glob("*-sonuc.md")):
+        ad, s = y.name[:-len("-sonuc.md")], y.read_text(encoding="utf-8")
+        t = tr.tablolar(tr.bolum(s, "Kol ortalamaları"))
+        if not t:
+            continue
+        ix = {h: i for i, h in enumerate(t[0][0])}
+        v = lambda r, *h: next((float(r[ix[x]]) for x in h if x in ix), None)  # noqa: E731
+        kol = {r[0]: {"cikti": v(r, "çıktı"), "girdi": v(r, "girdi"), "maliyet": v(r, "sıcak $", "maliyet $"), "kalite": v(r, "kalite 0-3"),
+                      **({"basari": v(r, "başarı")} if "başarı" in ix else {})} for r in t[0][1]}
+        tk = m[1] if (m := re.search(r"(\S+) \(temel\)", s)) and m[1] in kol else t[0][1][0][0]
+        gur = float(m[1]) if (m := re.search(r"gürültü \([^)]*\)\s*([\d.]+)", s)) else 0.0
+        dm = d / f"{ad}.md"
+        e = esik(tr.bolum(dm.read_text(encoding="utf-8"), "Başarı eşiği") if dm.is_file() else "")
+        kr = [x.strip() for x in tr.bolum(s, "Karar").splitlines() if x.strip()]
+        for x in [k for k in kol if k != tk]:
+            eski = next((z.partition(": ")[2] for z in kr if z.startswith(f"{x}: ")), kr[0] if kr else "?")
+            yeni = eski if eski.startswith("KARAR YOK") else karar(kol[tk], kol[x], e, gur, [])
+            sinif = lambda z: "AL" if z.startswith(("KUR", "AL")) else z.split("(")[0].split(" ")[0]  # noqa: E731
+            degisti = sinif(eski) != sinif(yeni)
+            degisen += degisti
+            oa = ad if len(kol) == 2 else f"{ad}-{x}"
+            satir.append(f"- {oa}: {eski[:70]} → {yeni[:110]}{' · DEĞİŞTİ' if degisti else ''}")
+            if yeni.startswith("KARAR YOK"):
+                continue
+            tas, dusen = tasarruf(kol[tk], kol[x]), _geri_dusen(s, tk, x, max(gur, 0.1))
+            hip = " ".join(tr.bolum(dm.read_text(encoding="utf-8"), "Hipotez").split()) if dm.is_file() else ""
+            mek = mekanizma_kaydi(kok, oa, tas, dusen, hip)
+            if ay := ayristir_aday(kok, oa, yeni, tas, dusen):
+                aday.append(f"- {oa} · tasarruf çıktı −%{tas['cikti']:.1f} / sıcak $ −%{tas['maliyet']:.1f} · {yeni.split(' · ')[1]} · "
+                            f"ayrılabilir: {'evet-aday' if dusen else 'belirsiz'} · {ay.relative_to(kok).as_posix()}" + (f" · {mek.relative_to(kok).as_posix()}" if mek else ""))
+    md = [f"# Takas geriye dönük — {date.today().isoformat()}", "", f"23b K9/K11 · claude -p 0 · Jev 0 · değişen karar {degisen}", "",
+          "## Kararlar (eski → yeni)", *satir, "", "## Ayrıştırma adayları (K11)", *(aday or ["- yok"]), ""]
+    (d / "takas-geri.md").write_text("\n".join(md), encoding="utf-8")
+    print("\n".join(md[2:]))
     return 0

@@ -36,3 +36,6 @@ Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dö
 - Kural karşılaştırması: tür ipucu/iş akışı aday `video kurallar` önbelleğine (global CLAUDE.md + C:\Projeler\omer-kurallar.md; madde düzeyi, mtime'la yenilenir) karşı sınanır: aşama 1'in birinci seçimi (hiçbiri değilse) ve aşama 2 p≥0.5 → ÇİFT; tabloda `ÇİFT (kural: omer-kurallar:N)` görünür (N dosya satırı). Araç türleri kurala girmez.
 - İşaret: sözlükte skill/plugin/MCP/yerleşik eşleşmesi ya da Jev çift p≥0.5 → ÇİFT · kayıt/ELE eşleşmesi → ÖNCEDEN-GÖRÜLDÜ · izin riski ≥2 ya da Jev yanıtı yok → BEKLE · kalan → UYGULA.
 - Eski raporlar bir kez `video kayit --ice-al` ile kayda alındı; aynı id yeniden taranmaz (`--yeniden` zorlar).
+
+## ÜRETİLEBİLİR ipucu (23b)
+- Aday tür/ne sütununda token tasarrufu vaat eden özellik varsa hedef türü (skill · talimat · araç ayarı) yazılır; video-uygula bunu `hedef_tur:` alanına taşır, skill/talimat olanlar `## ÜRETİLEBİLİR`'e düşer.

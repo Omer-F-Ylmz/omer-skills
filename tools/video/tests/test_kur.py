@@ -225,8 +225,8 @@ def test_dene_b_kolu_yalniz_append_farki_hook_kapali(ortam, kok):
         assert b == b2 == a + ["--append-system-prompt", "KISA YAZ"]
     assert all(e and e["JEV_SKILL_HOOK"] == "0" for e in k.env)
     s = (kok / "docs" / "denemeler" / "deneme-sonuc.md").read_text(encoding="utf-8")
-    assert "hook kapalı" in s and "RED(kalite)" in s  # SJev B 2.8 < A 3.0 − max(gürültü 0, 0.1)
-    assert kayit(kok)[-1]["ad"] == "deneme" and kayit(kok)[-1]["karar"].startswith("RED(kalite)")
+    assert "hook kapalı" in s and "RED(takas)" in s  # SJev B 2.8: düşüş %6.7, tasarruf %20 < %25 (23b takas)
+    assert kayit(kok)[-1]["ad"] == "deneme" and kayit(kok)[-1]["karar"].startswith("RED(takas)")
 
 
 def test_dene_bitince_bilgi_karti_olusur(ortam, kok):
@@ -234,7 +234,7 @@ def test_dene_bitince_bilgi_karti_olusur(ortam, kok):
     deneme(kok)
     assert main(["dene", "deneme"], env=ortam, kos=KKos(), gonder=SJev()) == 0
     kart = (kok / "bilgi" / "deneme-deneme.md").read_text(encoding="utf-8")
-    assert not og.kart_denetle(kart) and "docs/denemeler/deneme-sonuc.md" in kart and "RED(kalite)" in kart
+    assert not og.kart_denetle(kart) and "docs/denemeler/deneme-sonuc.md" in kart and "RED(takas)" in kart
 
 
 def test_dene_tavan(ortam, kok):
@@ -244,7 +244,7 @@ def test_dene_tavan(ortam, kok):
     assert k.cagri == [] and j.istek == []
 
 
-@pytest.mark.parametrize("b,beklenen", [((75, 2.9), "KUR"), ((76, 2.9), "RED(token)"), ((75, 2.89), "RED(kalite)"), ((50, 3.0), "KUR")])
+@pytest.mark.parametrize("b,beklenen", [((75, 2.9), "AL"), ((76, 2.9), "RED(token)"), ((75, 2.89), "RED(takas)"), ((50, 3.0), "AL")])
 def test_karar_esik_sinirlari(b, beklenen):
     assert kur.karar({"cikti": 100, "kalite": 3.0}, {"cikti": b[0], "kalite": b[1]}, {"cikti": 25, "maliyet": None}, 0.0, [(1.0, 1)]).startswith(beklenen)
 
