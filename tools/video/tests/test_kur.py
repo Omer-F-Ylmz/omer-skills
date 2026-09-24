@@ -229,6 +229,14 @@ def test_dene_b_kolu_yalniz_append_farki_hook_kapali(ortam, kok):
     assert kayit(kok)[-1]["ad"] == "deneme" and kayit(kok)[-1]["karar"].startswith("RED(kalite)")
 
 
+def test_dene_bitince_bilgi_karti_olusur(ortam, kok):
+    from video import ogren as og
+    deneme(kok)
+    assert main(["dene", "deneme"], env=ortam, kos=KKos(), gonder=SJev()) == 0
+    kart = (kok / "bilgi" / "deneme-deneme.md").read_text(encoding="utf-8")
+    assert not og.kart_denetle(kart) and "docs/denemeler/deneme-sonuc.md" in kart and "RED(kalite)" in kart
+
+
 def test_dene_tavan(ortam, kok):
     deneme(kok)
     k, j = KKos(), SJev()
