@@ -9,7 +9,7 @@ import { spawn } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { okumaDeny } from "../kos.mjs";
+import { agaciKapat, okumaDeny } from "../kos.mjs";
 import { ccArac } from "../gecit.mjs";
 
 const BURASI = path.dirname(fileURLToPath(import.meta.url));
@@ -82,10 +82,10 @@ test("ccArac: dosya ve git araclari CC matcher'larina eslenir", () => {
 
 // ---------------------------------------------------------------- uçtan uca geçit
 /** Geçidi sahte sunucuyla ayağa kaldırır, istekleri yazar, cevapları toplar. */
-function gecitKos(istekler, sn = 90) {
+function gecitKos(istekler, sn = 90, sunucu = "sahte-mcp.mjs") {
   return new Promise((coz, red) => {
     const p = spawn(process.execPath,
-      [path.join(KOK, "gecit.mjs"), "test", "--", process.execPath, path.join(BURASI, "yardim", "sahte-mcp.mjs")],
+      [path.join(KOK, "gecit.mjs"), "test", "--", process.execPath, path.join(BURASI, "yardim", sunucu)],
       { cwd: KOK, shell: false, windowsHide: true });
     const cevaplar = [];
     let kalan = "", hata = "";
@@ -106,6 +106,34 @@ function gecitKos(istekler, sn = 90) {
 
 const cagri = (id, name, args) => ({
   jsonrpc: "2.0", id, method: "tools/call", params: { name, arguments: args },
+});
+
+const yasiyor = (pid) => { try { process.kill(pid, 0); return true; } catch { return false; } };
+
+// FIX-6 K1: Desktop kapaninca stdin EOF gelir; gecit alt sunucunun stdin'ini acik
+// tuttugu icin ikisi de sonsuza dek yasiyordu (yetim mcp-filesystem/mcp-git agaclari).
+test("FIX-6 · stdin kapaninca gecit alt sunucusuyla birlikte kapanir", async () => {
+  const p = spawn(process.execPath,
+    [path.join(KOK, "gecit.mjs"), "test", "--", process.execPath, path.join(BURASI, "yardim", "sahte-mcp.mjs")],
+    { cwd: KOK, stdio: ["pipe", "ignore", "ignore"], windowsHide: true });
+  const kapandi = new Promise((coz) => p.on("close", () => coz(true)));
+  p.stdin.end();
+  const sonuc = await Promise.race([kapandi, new Promise((coz) => setTimeout(() => coz(false), 10000))]);
+  if (!sonuc) agaciKapat(p.pid);
+  assert.ok(sonuc, "stdin EOF sonrasi gecit acik kaldi");
+});
+
+test("FIX-6 · zaman asiminda gecit agaci teardown'da kapanir", async () => {
+  const hata = await gecitKos([cagri(9, "list_directory", { path: PROJE })], 3, "sahte-asili.mjs")
+    .then(() => "", (e) => e.message);
+  const pid = Number(/ASILI_PID=(\d+)/.exec(hata)?.[1]);
+  try {
+    assert.match(hata, /zaman asimi/);
+    assert.ok(pid, "alt sunucu pid'i yok:\n" + hata);
+    assert.equal(yasiyor(pid), false, "alt sunucu teardown sonrasi hala acik");
+  } finally {
+    if (pid && yasiyor(pid)) process.kill(pid);
+  }
 });
 
 test("PIN 1 · block-destructive'in engelledigi islem gecitten de reddedilir", async () => {
