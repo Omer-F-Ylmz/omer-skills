@@ -1,6 +1,7 @@
 """23c K2: araştırıcıya tam sayfa/tam dosya girmez. getir: sayfa → ana metin (gezinme/altbilgi atılır) + bağlantılar, üst sınırlı ve önbellekli.
 repo: gh api ile README ilk 120 satır · ağaç derinlik 2 · istenen dosyanın ≤200 satırı. on: ikisini .kos/<video>/<ad>/on.md'ye yazar."""
 import hashlib
+import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
@@ -47,6 +48,10 @@ def _al(url):
         return r.read().decode(r.headers.get_content_charset() or "utf-8", "replace")
 
 
+class GetirHata(Exception):
+    pass
+
+
 def kes(metin, n):
     return metin if len(metin) <= n else metin[:n] + f"\n…(kesildi: {len(metin) - n} karakter)"
 
@@ -60,7 +65,10 @@ def getir(url, n=6000, cache=None, al=_al):
     if y and y.is_file():
         return y.read_text(encoding="utf-8")
     p = _Ayikla(url)
-    p.feed(al(url))
+    try:
+        p.feed(al(url))
+    except urllib.error.URLError as e:  # HTTPError dahil: ham traceback yerine anlamlı hata
+        raise GetirHata(f"getir {url}: {getattr(e, 'code', '') or ''} {getattr(e, 'reason', e)}".replace("  ", " ")) from None
     metin = "\n".join(p.anametin or p.tum)
     out = "\n".join([f"# {' '.join(p.baslik.split()) or url}", f"kaynak: {url}", "", kes(metin, n), "", "## Bağlantılar",
                      *kes_satir([f"- {x}" for x in dict.fromkeys(p.linkler)], BAGLANTI)]) + "\n"

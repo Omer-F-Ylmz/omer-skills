@@ -76,6 +76,50 @@ def ayikla(metin):
     return list(dict.fromkeys(a for a in adaylar if a)), list(dict.fromkeys(ele))
 
 
+ICERIK = ("site/UI yapımı", "prompt/şablon paylaşımı", "token/verimlilik", "araç/skill tanıtımı", "iş akışı", "diğer")
+KANIT = re.compile(r"lisans|ücret|login|ölç|zaten", re.I)  # 17 K4: RED gerekçesi kanıta bağlı mı (not metninde)
+MADDE_ESKI = re.compile(r"^- (.+?) → (ZATEN VAR|[A-ZÇĞİÖŞÜ]{3,})\b\s*(.*)$")
+
+
+def eski_kalemler(metin):
+    """VİDEO-YENİDEN-1: eski rapor → [(ad, durum, etiket, not)]: `ad` başlıklı tablolar + `- ad → ETİKET (not)` maddeleri."""
+    out = []
+    for bas, satirlar in tablolar(metin):
+        if bas[0].casefold() == "ad":
+            out += [(h[0], (g := dict(zip(bas, h))).get("durum", ""), g.get("etiket", ""), g.get("not", "")) for h in satirlar if h[0]]
+    for s in metin.splitlines():
+        if x := MADDE_ESKI.match(s):
+            out.append((x[1].strip(), "", x[2], x[3].strip(" ()")))
+    return out
+
+
+def yeni_karar(x):
+    """Eski kalem → bugünkü karar (eleme yok). x: ad·durum·etiket·not·tur(araç|teknik|prompt|ipucu)·kural·es·ko·token·departman."""
+    if x.get("kural") or x.get("es"):
+        return "ZATEN VAR", f"eşleşme: {x.get('kural') or x['es'][0]}"
+    if x["tur"] == "araç":
+        if x["etiket"].upper().startswith("ELE"):
+            if x.get("token") and not KANIT.search(x.get("not", "")):
+                return "DENE", "K4: token etiketli, kanıtsız RED → DENE"
+            return "RED", f"eski: {x.get('not') or x['etiket']}"
+        return "DENE", f"eski {x['etiket'] or '?'}: araştırıcı gerekir"
+    if x.get("ko") == "kural":
+        return "KURAL", "davranış kuralı → bekleyen (ONAY)"
+    if x.get("departman") == "frontend":
+        return "UYARLA", "frontend teknik/prompt → web-sahne-desenleri / frontend-promptlar"
+    return "ÖĞREN", "olgu → bilgi kartı adayı"
+
+
+def celiski_mi(x):
+    """Eski rapor ZATEN VAR/ÇİFT dedi, bugün hiçbir kaynakta eşleşme yok."""
+    return x["durum"].startswith(("ZATEN VAR", "ÇİFT")) and not (x.get("kural") or x.get("es"))
+
+
+def puan(v):
+    """K3 yeniden izleme puanı: site/UI ×3 · prompt/şablon ×3 · DENE+UYARLA ×2 · token aday ×2 · kare zayıf ×1."""
+    return 3 * (v["tur"] in ICERIK[:2]) + 2 * sum(k in ("DENE", "UYARLA") for k in v["kararlar"]) + 2 * v["token"] + int(v["kare_zayif"])
+
+
 def rapor_id(yol):
     x = DOSYA.fullmatch(Path(yol).stem)
     # ponytail: "00-envanter" 11 krk'lık id biçiminde; iki rakam-tire-küçük harf kalıbı id sayılmaz

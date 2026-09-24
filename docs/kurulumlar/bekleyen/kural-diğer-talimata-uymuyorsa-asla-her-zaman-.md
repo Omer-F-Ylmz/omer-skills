@@ -1,0 +1,2 @@
+madde: diğer: talimata uymuyorsa "asla/her zaman" kesin ifadeleri + numaralı adımlar · skill klasörüne README koymama · dosya türüne göre dallanma ("bağlam farkındalığı") · Vercel · n8n · Instantly · Notion/Asana/Linear/Figma/Slack/Google MCP örnekleri · Nano Banana — kesin ifade kurulu skill-creator'ın "ağır MUST'lar yerine nedenini açıkla" önerisiyle çelişir · repo skill klasöründe README zaten yok · genel tavsiye · deploy/otomasyon/satış servisleri ve yalnız adı geçen örnekler, kapsam dışı
+kaynak: oGI1YmC2L00 (yeniden:2026-09-24)

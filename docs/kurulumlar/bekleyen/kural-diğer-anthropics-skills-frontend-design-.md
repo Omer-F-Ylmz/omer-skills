@@ -1,0 +1,2 @@
+madde: diğer: anthropics/skills (frontend-design), Awwwards ödüllü siteleri inceleme, referansı kopyalamadan analiz edip ilham alma, promptun başında skill'leri adıyla anma, responsive'i promptta isteme, hatayı ekran görüntüsüyle geri besleme — frontend-design@claude-plugins-official kurulu; Bölüm 10; CLAUDE.md /frontend-craft yükle + Bölüm 0; Bölüm 2 (390/768/1440); Bölüm 2/9 screenshot döngüsü
+kaynak: 39IlNR-P3-Q (yeniden:2026-09-24)

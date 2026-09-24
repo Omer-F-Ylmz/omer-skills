@@ -1,0 +1,2 @@
+madde: hazır tasarım promptunu mevcut siteye entegre etme kısıtları: dokunulmaz alanı adlandır (hero, mevcut animasyonlar), prompttan yalnız ilgili bölümü al, loading ekranını ve port satırını çıkar — kısıtsız ilk denemede bölüm yerine ikinci hero eklendi, scroll efekti iki kez; ikinci denemede bozulma yok (yeni sohbet+analiz+kısıt aynı anda değişti, tek demo)
+kaynak: QGyKyFcqyDE (yeniden:2026-09-24)
