@@ -53,12 +53,8 @@ ne: hazır prompt'u tek tıkla kopyalayıp doğrudan AI builder'a yapıştırma 
 kurulum: yok (web butonu); bizde eşdeğer yok.
 lisans: yok
 etiket: token
-karar: DENE
-hipotez: hazır kategori-filtreli prompt'la landing page istemek, sıfırdan yazılan aynı hedefli istemden daha az toplam girdi+çıktı token'ıyla kabul edilebilir kalitede sonuca ulaşır (daha az düzeltme turu).
-metrik: aynı hedef sayfa için iki kol (site prompt'u vs. kendi istemimiz) — toplam token ve düzeltme turu sayısı; kalite eşitse kazanan düşük token.
-butce: 3 sayfa türü (landing/SaaS/portfolio) × 2 kol ≤6 claude -p, ≤$2; ücretsiz erişimle sınırlıysa örnek küçültülür.
-geri_alma: yok — kurulum yok, yalnız kopyalanan metin kullanılır; hesap açıldıysa kapatılır.
-esik: token −%15 ve kalite mevcut yöntemle aynı bantta (düşmez).
+karar: ÖĞREN
+gerekce: prompt anatomisi → docs/kurulumlar/adaylar/motionsites-ai-kopyala-yapistir-prompt.md (23c-B: DENE ölçümü yerine kalıp çıkarımı; eski hipotez orada).
 
 ### mcp-entegrasyonu
 ne: nav çubuğunda "MCP" (etiketli "New") — açıklama sayfada yok, işlevi doğrulanamadı.
@@ -79,7 +75,7 @@ bizde: frontend-craft skill'inde karşılığı yok; fikir olarak "hazır UI-tek
 nasıl: kullanıcı filtrelenmiş karttan metni kopyalar, doğrudan AI builder'a yapıştırır; sıfırdan yazım/deneme-yanılma turu atlanır.
 neden: sıfırdan prompt genelde ilk taslak → eksik detay → yeniden isteme turlarını gerektirir; test edilmiş hazır prompt bunu tek isteğe indirir.
 koşul: prompt genel amaçlı tasarlandığından proje-özel gereksinim (mevcut bileşen kütüphanesi/marka/içerik) varsa yine uyarlama turu gerekir.
-bizde: karşılık yok; ölçüm yapılmadan (kapalı ürün, ücretsiz erişim sınırlı) tahmin edilemez — DENE ile sınanacak.
+bizde: departman-frontend `## Yapım promptu şablonu` + docs/departmanlar/frontend-promptlar.md; kalıplar oraya işlendi.
 
 ## Bağımsız kanıt
 - GitHub API (gh search/api, 2026-09-24) — "motionsites" adını taşıyan üçüncü taraf depoların çoğu Mayıs–Eylül 2026'da açılmış, yüksek yıldız/düşük yaş oranı ve en az bir depoda pushed_at < created_at (backdated commit) — sahte-yıldız/tık-tuzağı deseniyle uyumlu, ürünle resmi bağlantısı yok.

@@ -10,6 +10,7 @@ Koşu: bir site yapımı videosu, `/video-uygula <url>` uçtan uca. Her madde ka
 ## Kontrol
 - [ ] Araştırıcı modeli: her aday için `subagent_type: aday-arastirici`; subagents/*.meta.json `agentType: aday-arastirici`, assistant `model: claude-sonnet-5`; aday başına subagent_tokens ≤40k. Koşu öncesi `video ajan-denetle` GEÇTİ. general-purpose'a düşüş = DUR.
 - [ ] Mekanizma: token ya da teknik etiketli her özellikte `## Mekanizma` (nasıl · neden · koşul · bizde) dolu; en az bir dolu bölüm; `video rapor-denetle <aday.md>` GEÇTİ.
+- [ ] Prompt anatomisi: videoda gösterilen site yapım promptu `tur: prompt` aday; `## Prompt anatomisi` 7 alan + `### Kalıplar` (m:ss · şablon); `video rapor-denetle` GEÇTİ; kalıplar docs/departmanlar/frontend-promptlar.md'de (video + zaman), şablonda olmayan UYARLA docs/kurulumlar/bekleyen/prompt-*.md. Metin kopyalanmaz.
 - [ ] Departman: uygula raporunda `## DEPARTMAN` her aday için dolu; `video brief` çıktısında görünür; kayit.jsonl'de departmansız karar kaydı 0; katalogda `## Videodan gelen` satırları.
 - [ ] Site/UI teknikleri: tarama raporunda bölüm dolu (teknik · kanıt m:ss · kütüphane ya da `tahmin:` · bizde); `video teknik <rapor>` → ÖĞREN kartı/UYARLA bekleyen; frontend.md `## Teknikler`.
 - [ ] İddia sınama: her adayda `## İddia sınama` tablosu, kaynaksız sonuç yok; abartılı/yanlış → karta not.
@@ -40,3 +41,8 @@ Koşu: bir site yapımı videosu, `/video-uygula <url>` uçtan uca. Her madde ka
 - GEÇTİ · rapor-denetle: tarama raporu GEÇTİ (rc 0) · 2 araç adayı GEÇTİ.
 - GEÇTİ · Kayıt: docs/video-tarama/kayit.jsonl eski satır (2026-09-15) korundu + yeni satır `etiket: yeniden:sertifika`.
 - GEÇTİ · Kararlar: 5 aday / 7 özellik → RED 1 · DENE 1 · ÖĞREN 2 · ZATEN VAR 3 · UYARLA 1 · KUR(T0) 2; ÖĞREN kartları bilgi/prompt-turkce-cevirt.md, bilgi/motionsites-ai-mcp-entegrasyonu.md.
+
+## KURULUM-23c-B yeniden koşu — 2026-09-24 · JfmAm3sxCSc (iki madde)
+- GEÇTİ · Araştırıcı bütçesi: `video on` önce (on.md ~390/~350 token) → aday-arastirici ×2 (general-purpose 0, `video ajan-denetle` GEÇTİ, maxTurns 12). threejs-spiral-gallery 128.386/31 → 30.257 token/7 araç · motionsites-ai 94.146/33 → 29.841/7; ikisi ≤40k ve ≤12. Kararlar değişmedi (threejs RED lisanssız · ZATEN VAR 3 · UYARLA 1; motionsites RED · ÖĞREN). Not: ikisi de mevcut raporu meta ile doğrulayıp rapor-denetle GEÇTİ aldı, sıfırdan yazmadı.
+- GEÇTİ · Prompt anatomisi: docs/kurulumlar/adaylar/jfm-yapim-promptu.md (2:01–6:07, 7 kalıp) + motionsites-ai-kopyala-yapistir-prompt.md (DENE → ÖĞREN; eski deneme dosyası git mv ile buraya, kayit.jsonl +1 satır); ikisi `rapor-denetle` GEÇTİ. frontend-promptlar.md 9 kalıp (şablonda var 5 · UYARLA 4 → bekleyen/prompt-*.md).
+- Son durum (sertifika-1 + 23c-B): GEÇTİ 13 · KALDI 0 · uygulanamaz 5 (Araştırıcı KALDI → GEÇTİ; Prompt anatomisi yeni madde GEÇTİ; Kalite kapısı: DENE kalktı, ölçüm gereği kalmadı).

@@ -12,7 +12,7 @@ Tur 3: denetim geçmediyse bir kez Write + denetle, yine AYNI mesajda. Hâlâ ge
 Son: yalnız `rapor: <yol> · aday: <n> · <1 satır özet>` (≤5 satır). Segment ya da rapor gövdesi dönme.
 Kurallar: Adayları ELEME — videoda anılan her skill, plugin, MCP, CLI, teknik, iş akışı bir satır (yerleşik komut → CLI).
 Araç olmasa da izleyicinin uygulayabileceği her somut ipucu aday (ör. bir komut, ayar ya da kullanım alışkanlığı); tür: ipucu.
-Sözlük sütununa `?` yaz; rapor-denetle sözlükten doldurur. İçerik frontend/site ise (landing, animasyon, CSS, 3D…) `## Site/UI teknikleri` zorunlu: gösterilen her yapım tekniği bir satır; kütüphane ekranda/açıklamada yoksa `tahmin: <ad>`, kesin gibi yazma.
+Sözlük sütununa `?` yaz; rapor-denetle sözlükten doldurur. İçerik frontend/site ise (landing, animasyon, CSS, 3D…) `## Site/UI teknikleri` zorunlu: gösterilen her yapım tekniği bir satır; kütüphane ekranda/açıklamada yoksa `tahmin: <ad>`, kesin gibi yazma. Videoda site/UI yapım promptu gösterilir ya da paylaşılırsa (ekranda, anlatımda, açıklama linkinde) ayrı aday satırı, tür `prompt` (aday.md'de `tur: prompt`), zaman damgası m:ss; prompt metni kopyalanmaz.
 Kareden okunan repo/komut/ayar adlarını "Kareden okunanlar"a ve ilgili adayın linkine yaz.
 Yalnız satırda adı geçen dosyaları oku; başka komut koşma. Şablon:
 
@@ -27,7 +27,7 @@ başlık · kanal · süre: m:ss · dil · url
 ## Adaylar
 | ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |
 |---|---|---|---|---|---|---|
-| <ad> | ? | skill/plugin/MCP/CLI/teknik/iş akışı/ipucu | açıklamadan ya da kareden; yoksa "yok" | … | m:ss | kendi cümlenle; alıntı “…” ≤15 kelime |
+| <ad> | ? | skill/plugin/MCP/CLI/teknik/iş akışı/ipucu/prompt | açıklamadan ya da kareden; yoksa "yok" | … | m:ss | kendi cümlenle; alıntı “…” ≤15 kelime |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

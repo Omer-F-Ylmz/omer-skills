@@ -178,6 +178,13 @@ def test_tarayici_talimati_site_ui():
     assert "## Site/UI teknikleri" in t and "tahmin" in t
 
 
+def test_tarayici_talimati_prompt_aday():
+    t = (REPO / ".claude" / "agents" / "video-tarayici.md").read_text(encoding="utf-8")
+    assert "tur: prompt" in t
+    satir = "| p | ? | prompt | yok | site yapım promptu | 2:01 | ekranda prompt |"
+    assert not any("tür geçersiz" in x for x in tr.denetle(f"## Adaylar\n| ad | sözlük | tür | link | ne | zaman | kanıt |\n|---|---|---|---|---|---|---|\n{satir}\n"))
+
+
 # --- K4 Mekanizma ---
 
 def test_teknik_etiketli_ozellik_mekanizmasiz_hata():
