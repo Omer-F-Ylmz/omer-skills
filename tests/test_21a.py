@@ -32,7 +32,8 @@ def test_suite_kosucu_alti_sabit_komut_ve_kisa_donus():
 def test_suite_kosucu_kok_suite_ortam_pythonu_ile():
     # K3: uv --no-project --with pytest ortamında playwright yok → test_browse_shim test başına 120 sn bekler (28 dk)
     _, g = _ajan()
-    assert "--no-project" not in g and "--with pytest" not in g
+    kok_satir = next(s for s in g.splitlines() if "pytest -q -p no:cacheprovider tests" in s)
+    assert "uv run" not in kok_satir and "--no-project" not in g
 
 
 def test_tam_suit_suite_kosucuya_gider():

@@ -635,6 +635,12 @@ def dene(ns, ctx):
     satir += ["", "## Karar", k, *[f"{ad}: {v}" for ad, v in kararlar.items()], ""]
     (d / f"{ns.ad}-sonuc.md").write_text("\n".join(satir), encoding="utf-8")
     _kayit(kok, ns.ad, {"karar": k, "deneme": f"docs/denemeler/{ns.ad}-sonuc.md", "tarih": bugun})
+    from . import ogren as og  # 21a K5: her deneme bir bilgi kartı bırakır
+    (kok / "bilgi").mkdir(exist_ok=True)
+    (kok / "bilgi" / f"{ns.ad}-deneme.md").write_text(og.kart_metni({"ad": ns.ad, "iddia": f"{ns.ad} denemesi: {k[:160]}",
+                                                                     "url": f"docs/denemeler/{ns.ad}-sonuc.md", "guven": "orta",
+                                                                     "dogrulama": f"docs/denemeler/{ns.ad}-sonuc.md", "etiketler": "dene, olcum"},
+                                                                    date.today()), encoding="utf-8")
     print("\n".join(satir[2:4] + satir[8:10 + len(kollar)] + [k]))
     return 0
 

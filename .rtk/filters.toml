@@ -1,0 +1,17 @@
+# omer-skills proje filtreleri (21a K4). Güven kapılı: etkin olması için `rtk trust` (docs/kurulumlar/bekleyen/rtk-kural.md).
+# Kural: yalnız geçen test satırı (✔) süzülür; ✖, not ok, hata/Error/Traceback satırlarına dokunan desen yazılmaz (tests/test_21a.py).
+schema_version = 1
+
+[filters.cc-kopru-suit]
+description = "cc-kopru node:test suiti: geçen testleri süz, kırmızıları ve özeti koru"
+match_command = "(^|&&\\s*)(node\\s+araclar/suit\\.mjs|npm\\s+test)\\b"
+strip_ansi = true
+strip_lines_matching = [
+  "^\\s*✔ ",
+  "^\\s*$",
+]
+
+[[tests.cc-kopru-suit]]
+name = "geçen satır süzülür, kırmızı ve özet kalır"
+input = "✔ a (1ms)\n✖ b (2ms)\n  AssertionError: x\nℹ fail 1"
+expected = "✖ b (2ms)\n  AssertionError: x\nℹ fail 1"
