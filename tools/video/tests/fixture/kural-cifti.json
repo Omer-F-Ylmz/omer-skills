@@ -1,0 +1,14 @@
+{
+ "cift": [
+  {"ad": "subagent-ucuz-model", "state": "İPUCU: Subagent'lara ucuz model atama\nipucu: Alt ajanlara Sonnet/Haiku gibi ucuz model ata; pahalı model yalnız ana oturumda plan için", "beklenen": ["omer-kurallar:13", "CLAUDE:14"]},
+  {"ad": "Negatif prompt yazma", "state": "İPUCU: Negatif prompt yazma\nipucu: İstemde yapılmaması gerekenleri açıkça yaz", "beklenen": ["omer-kurallar:8"]},
+  {"ad": "Yeterli bilgide harekete geçirme", "state": "İPUCU: Yeterli bilgide harekete geçirme\nipucu: Model yeterli bilgiye sahipse soru sormadan harekete geçsin", "beklenen": ["omer-kurallar:3"]},
+  {"ad": "Kanıt isteme / doğrulama döngüsü", "state": "İPUCU: Kanıt isteme / doğrulama döngüsü\nipucu: İşin bittiğine dair kanıt iste, doğrulama döngüsü kur", "beklenen": ["omer-kurallar:4"]},
+  {"ad": "Kısa/sade sistem talimatı", "state": "İPUCU: Kısa/sade sistem talimatı\nipucu: Sistem talimatını kısa ve sade tut, tekrar yazma", "beklenen": ["omer-kurallar:10"]},
+  {"ad": "Kuralları CLAUDE.md/bellek/skill'e gömme", "state": "İPUCU: Kuralları CLAUDE.md/bellek/skill'e gömme\niş akışı: Her seferinde yazdığın kuralları CLAUDE.md, bellek ya da skill'e göm", "beklenen": ["omer-kurallar:9"]},
+  {"ad": "AI çıktısına gerekçeli düzeltme geri bildirimi verme", "state": "İPUCU: AI çıktısına gerekçeli düzeltme geri bildirimi verme\nipucu: AI çıktısını düzeltirken nedenini açıklayan geri bildirim ver", "beklenen": ["omer-kurallar:21"]}
+ ],
+ "degil": [
+  {"ad": "Bir ana AI aracında derinleşme (örn. Claude)", "state": "İPUCU: Bir ana AI aracında derinleşme (örn. Claude)\nipucu: Birçok araç yerine tek bir ana AI aracını (ör. Claude) derinlemesine öğren", "kural": ["divisima-seri-kesif-tercihi:17", "Ayrıca bu projede GitHub API kotası (anonim 60 istek/saat) bilinçli korunuyor ve genel çalışma disiplini \"gereksiz paralellik yok\" yönünde."]}
+ ]
+}
