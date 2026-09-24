@@ -145,12 +145,29 @@ def _hucre(s, n=90):
     return (s[:n - 1] + "…" if len(s) > n else s) or "-"
 
 
-def katalog_yaz(kok, envanter):
+KORUNAN = ("Videodan gelen", "Teknikler")  # 23: video hattının yazdığı bölümler, Elle gibi korunur
+
+
+def _korunan(eski, b):
+    x = re.search(rf"\n## {b}\n(.*?)(?=\n## |\Z)", eski, re.S)
+    return x[1] if x else ""
+
+
+def katalog_ekle(kok, ek):
+    """23: {(departman, bölüm): [satır]} → katalog korunan bölümlerine (aynı satır bir kez)."""
+    if any(ek.values()):
+        katalog_yaz(kok, _json(Path(kok) / "docs" / "departmanlar" / "envanter.json") or [], ek)
+
+
+def katalog_yaz(kok, envanter, ek=None):
     d = Path(kok) / "docs" / "departmanlar"
     for dep, aciklama in DEPARTMANLAR.items():
         y, md = d / f"{dep}.md", Path(kok) / "skills" / f"departman-{dep}" / "SKILL.md"
         eski = y.read_text(encoding="utf-8") if y.is_file() else ""
         elle = eski.split("\n## Elle\n", 1)[1] if "\n## Elle\n" in eski else ""
+        kor = {b: [s for s in _korunan(eski, b).splitlines() if s.strip()] for b in KORUNAN}
+        for (dd, b), ss in (ek or {}).items():
+            kor[b] += [s for s in ss if dd == dep and s not in kor[b]]
         mudur = md.read_text(encoding="utf-8") if md.is_file() else ""
         satir = [f"| {x['ad']} | {x['tur']} | {_hucre(re.split(r'(?<=[.!?])\s', x['aciklama'])[0])} | "
                  f"{_hucre((NE_ZAMAN.search(x['aciklama']) or [''])[0])} | {sonraki(mudur, x['ad'])} |"
@@ -159,7 +176,8 @@ def katalog_yaz(kok, envanter):
                            f"Müdür: `departman-{dep}`" if mudur else "Müdür: yok (<3 araç ya da henüz yazılmadı)",
                            "<!-- `video departman` üretir; yalnız '## Elle' altı korunur. Düzeltme: docs/departmanlar/elle.json -->", "",
                            "| araç | tür | ne işe yarar | ne zaman | sıradaki adım |", "|---|---|---|---|---|",
-                           *(satir or ["| (araç yok) | | | | |"]), "", "## Elle", ""]) + elle)
+                           *(satir or ["| (araç yok) | | | | |"]), "",
+                           *[s for b in KORUNAN if kor[b] for s in (f"## {b}", "", *kor[b], "")], "## Elle", ""]) + elle)
 
 
 def kaydet(kok, envanter):
@@ -168,17 +186,23 @@ def kaydet(kok, envanter):
     katalog_yaz(kok, envanter)
 
 
-def dosyala(kok, jev, ad, tur, aciklama):
-    """katman: yeni aracı tek choice ile sınıflar (elle.json kazanır; Jev yoksa diger/0 → gözden geçir), envantere kaynak=katman."""
+def sinifla(kok, jev, ad, tur, aciklama):
+    """elle.json → elle-desen → tek Jev choice (hata: diger/0 → gözden geçir). Envantere yazmaz."""
     d = Path(kok) / "docs" / "departmanlar"
     x = {"ad": ad, "tur": tur, "aciklama": aciklama}
     if dep := _elle(_json(d / "elle.json") or {}, x) or _desen(_json(d / "elle-desen.json") or {}, x):
-        p = 1.0
-    else:
-        try:
-            dep, p = sec(jev().yargila([durum(x)], soru())[0])
-        except c.JevHata:
-            dep, p = "diger", 0.0
+        return dep, 1.0
+    try:
+        return sec(jev().yargila([durum(x)], soru())[0])
+    except c.JevHata:
+        return "diger", 0.0
+
+
+def dosyala(kok, jev, ad, tur, aciklama):
+    """katman: KUR/UYARLA aracı sınıflar, envantere kaynak=katman."""
+    d = Path(kok) / "docs" / "departmanlar"
+    x = {"ad": ad, "tur": tur, "aciklama": aciklama}
+    dep, p = sinifla(kok, jev, ad, tur, aciklama)
     kaydet(kok, [e for e in _json(d / "envanter.json") or [] if (e["tur"], e["ad"]) != (tur, ad)]
            + [{**x, "hash": _hash(ad, aciklama), "departman": dep, "p": p, "kaynak": "katman"}])
     return dep, p

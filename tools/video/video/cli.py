@@ -503,6 +503,17 @@ def rapor_denetle(ns, ctx):
     return 1 if h else 0
 
 
+def kural_regresyon(ns, ctx):
+    fix = json.loads((Path(__file__).resolve().parents[1] / "tests" / "fixture" / "kural-cifti.json").read_text(encoding="utf-8"))
+    kl = tr.kurallar(tr.kural_kaynaklari(ctx["env"], _ev(ctx)), ctx["kok"] / "kurallar.json")
+    t = c.Tasiyici(env=ctx["env"], en_fazla=2 * (len(fix["cift"]) + len(fix["degil"])), gonder=ctx["gonder"], istek_tavan=ns.istek_tavan)
+    r = tr.kural_regresyon(t, fix, kl)
+    print(f"kural-regresyon: çift {len(r['bulunan'])}/{len(fix['cift'])} · yanlış pozitif {len(r['yp'])} · Jev istek {t.istek} (tavan {ns.istek_tavan})")
+    for x in r["kacan"] + r["yp"]:
+        print(f"- {x}")
+    return 1 if r["kacan"] or r["yp"] else 0
+
+
 def kurallar(ns, ctx):
     yollar, on = tr.kural_kaynaklari(ctx["env"], _ev(ctx)), ctx["kok"] / "kurallar.json"
     k = tr.kurallar(yollar, on)
@@ -708,6 +719,13 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--yeniden", action="store_true", help="önbelleği yok say (elle.json yine kazanır)")
     x.add_argument("--istek-tavan", type=int, default=450, metavar="M", help="en fazla M Jev isteği")
     alt.add_parser("projeler", help="docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır özet (mtime'la yenilenir)")
+    alt.add_parser("ajan-denetle", help="23 K1: SKILL.md/ajan tanımlarındaki her subagent_type → .claude/agents'ta var · model sonnet · tools dar")
+    x = alt.add_parser("kural-regresyon", help="23 K3: tests/fixture/kural-cifti.json → bilinen çiftler ÇİFT, yanlış pozitif değil (canlı Jev)")
+    x.add_argument("--istek-tavan", type=int, default=40, metavar="M", help="en fazla M Jev isteği")
+    x = alt.add_parser("departman-geri", help="23 K2: kayit.jsonl'de departmansız karar kayıtları → departman + katalog 'Videodan gelen'")
+    x.add_argument("--istek-tavan", type=int, default=30, metavar="M", help="en fazla M Jev isteği")
+    x = alt.add_parser("teknik", help="23 K5: rapor Site/UI teknikleri → ÖĞREN kartı (frontend) ya da UYARLA bekleyen; frontend katalog ## Teknikler")
+    x.add_argument("raporlar", nargs="+")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
     ns = p.parse_args(argv)
@@ -716,7 +734,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
-                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman}[ns.komut](ns, ctx)
+                "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
+                "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

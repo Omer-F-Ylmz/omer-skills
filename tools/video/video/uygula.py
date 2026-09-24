@@ -92,7 +92,7 @@ def mekanizma_denetle(metin):
     mek = {p.splitlines()[0].strip(): p for p in re.split(r"^### ", tr.bolum(metin, "Mekanizma"), flags=re.M)[1:]}
     h = []
     for o in ozellikler(metin):
-        if "token" not in o.get("etiket", "").casefold():
+        if not re.search("token|teknik", o.get("etiket", "").casefold()):
             continue
         if o["ozellik"] not in mek:
             h.append(f"{o['ozellik']}: ## Mekanizma yok")
@@ -178,9 +178,9 @@ def brief(ns, ctx):
     return 0
 
 
-def _departman(kok, jev, ad, a, metin, depl):
-    """19 K5: yeni araç → departman (envanter + katalog); rapor DEPARTMAN bölümü."""
-    dep, p = dp.dosyala(kok, jev, ad, a.get("tur") or "skill", " ".join(tr.bolum(metin, "Ne").split())[:dp.ACIKLAMA])
+def _departman(kok, jev, ad, a, metin, depl, envantere=True):
+    """19 K5: yeni araç → departman (KUR/UYARLA envanter + katalog); 23 K2: karar ne olursa olsun departman; rapor DEPARTMAN bölümü."""
+    dep, p = (dp.dosyala if envantere else dp.sinifla)(kok, jev, ad, a.get("tur") or "skill", " ".join(tr.bolum(metin, "Ne").split())[:dp.ACIKLAMA])
     depl.append(f"{ad} → {dep} ({p:.2f})")
     return dep
 
@@ -310,6 +310,7 @@ def katman(ns, ctx):
         if tk is None:
             tk = c.Tasiyici(env=env, en_fazla=n, gonder=ctx["gonder"], istek_tavan=ns.istek_tavan or n)
         return tk
+    videodan = {}
     for yol in ns.adaylar:
         metin = Path(yol).read_text(encoding="utf-8")
         a = alanlar(metin)
@@ -345,9 +346,9 @@ def katman(ns, ctx):
                 yeni.append({"ad": f"{ad}/{o['ozellik']}", "aday": ad, "ozellik": o["ozellik"], "yargi": yk, "karar": karar, "gerekce": g,
                              "tarih": bugun.isoformat(), "video": a.get("video"), "kanal": kanal, "sponsor": sponsor})
             sina(kok, ad, metin, sinama, eksik)  # özelliklerden sonra: aynı koşuda yazılan ÖĞREN kartı da not alabilsin
-            if any(k["yargi"] in ("KUR", "UYARLA") for k in yeni):
-                dep = _departman(kok, jev, ad, a, metin, depl)
-                yeni = [{**k, "departman": dep} if k["yargi"] in ("KUR", "UYARLA") else k for k in yeni]
+            dep = _departman(kok, jev, ad, a, metin, depl, any(k["yargi"] in ("KUR", "UYARLA") for k in yeni))
+            yeni = [{**k, "departman": dep} for k in yeni]
+            videodan.setdefault((dep, "Videodan gelen"), []).extend(f"- {k['ad']} · {k['yargi']} · video {k.get('video') or '?'}" for k in yeni)
             ozet.append((sponsor, f"{ad} → özellik düzeyi: " + " · ".join(f"{o['ozellik']} {k['yargi']}" for o, k in zip(oz, yeni))))
             rapor.append((sponsor, [f"## {ad} → özellik düzeyi{' · sponsor' if sponsor else ''}", *satir, ""]))
             gorulen.add(tr.normal(ad))
@@ -409,7 +410,8 @@ def katman(ns, ctx):
             elif kt == "RED":
                 yargi = "RED"
                 red.append(f"{ad} — {karar}")
-        dep = _departman(kok, jev, ad, a, metin, depl) if yargi in ("KUR", "UYARLA") and kt != "T0" else None
+        dep = _departman(kok, jev, ad, a, metin, depl, yargi in ("KUR", "UYARLA") and kt != "T0")
+        videodan.setdefault((dep, "Videodan gelen"), []).append(f"- {ad} · {yargi} · video {a.get('video') or '?'}")
         ozet.append((sponsor, f"{ad} → {yargi}{' (sponsor)' if sponsor else ''} — {karar}"))
         rapor.append((sponsor, [f"## {ad} → {yargi}{' · sponsor' if sponsor else ''}", f"- Sonuç: {karar}"]
                       + [f"- {b}: {' '.join(tr.bolum(metin, b).split())[:400] or ('-' if yargi == 'RED' else '(eksik)')}" for b in ALTI] + [""]))
@@ -420,6 +422,7 @@ def katman(ns, ctx):
              "sponsor": sponsor, "kaynak_commit": commit, "geri_alma": geri, **({"departman": dep} if dep else {})}]
     ky.parent.mkdir(parents=True, exist_ok=True)
     tr.kayit_yaz(ky, kayit)
+    dp.katalog_ekle(kok, videodan)
     bayat = [f"{s} ({fm.get('bayatlama')})" for s, fm, _ in og.kartlar(kok) if fm.get("bayatlama", "") < bugun.isoformat()]
     bolumler = (("ÖZELLİK KARARLARI", ozk), ("ÖĞRENİLENLER", ogrenilen), ("ÇELİŞKİLER (otomatik eklenmedi, Ömer karar verir)", celiski), ("DENENECEKLER", dene),
                 ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("DEPARTMAN", depl), ("YENİDEN DOĞRULA (bayat kart)", bayat))
@@ -521,4 +524,94 @@ def projeler(ns, ctx):
     hedef.write_text("# Ömer'in projeleri\n\nvideo-uygula K1 ölçütü; `video projeler` proje CLAUDE.md'lerinden üretir, mtime'la yenilenir.\n\n"
                      + "\n".join(satir) + "\n", encoding="utf-8")
     print("\n".join(satir) + f"\n{len(satir)} proje · {hedef}")
+    return 0
+
+
+# --- 23 video-mükemmel ---
+
+AJAN_TIP = re.compile(r"subagent_type:\s*`?([\w:-]+)")
+SLUG = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
+
+
+def ajan_denetle(ns, ctx):
+    """K1: video/departman SKILL.md'leri ve ajan tanımlarında geçen her subagent_type → .claude/agents/<ad>.md · model sonnet · tools dar (≤4, * yok)."""
+    kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or KOK)
+    ad, tipler = kok / ".claude" / "agents", {}
+    for y in [*kok.glob("skills/video-*/SKILL.md"), *kok.glob("skills/departman-*/SKILL.md"), *ad.glob("*.md")]:
+        for t in AJAN_TIP.findall(y.read_text(encoding="utf-8")):
+            tipler.setdefault(t, y.relative_to(kok).as_posix())
+    h = []
+    for t, kaynak in sorted(tipler.items()):
+        if not (y := ad / f"{t}.md").is_file():
+            h.append(f"{t}: tanım yok (.claude/agents/{t}.md · {kaynak}) — general-purpose'a düşülür")
+            continue
+        m = y.read_text(encoding="utf-8")
+        model, tools = (re.search(rf"^{k}:\s*(.*?)\s*$", m, re.M) for k in ("model", "tools"))
+        if not model or model[1] != "sonnet":
+            h.append(f"{t}: model {model[1] if model else 'yok'} (sonnet olmalı)")
+        ts = [x.strip() for x in (tools[1] if tools else "").split(",") if x.strip()]
+        if not ts or "*" in ts or len(ts) > 4:
+            h.append(f"{t}: tools {tools[1] if tools else 'yok'} (dar: ≤4, * yok)")
+    for x in h:
+        print(x)
+    print(f"ajan-denetle: {len(tipler)} tip ({', '.join(sorted(tipler))}) · {'GEÇTİ' if not h else f'{len(h)} hata'}")
+    return 1 if h else 0
+
+
+def departman_geri(ns, ctx):
+    """K2: kayit.jsonl'de departmanı olmayan karar kayıtları → aday başına bir sınıflama → kayıt + katalog 'Videodan gelen'."""
+    env = ctx["env"]
+    kok = Path(env.get("VIDEO_UYGULA_KOK") or KOK)
+    ky, tk, dep, ek, n = kok / "docs" / "kurulumlar" / "kayit.jsonl", [], {}, {}, 0
+
+    def jev():
+        if not tk:
+            tk.append(c.Tasiyici(env=env, en_fazla=ns.istek_tavan, gonder=ctx["gonder"], istek_tavan=ns.istek_tavan))
+        return tk[0]
+    kayit = tr.kayit_oku(ky)
+    for k in kayit:
+        if k.get("departman") or "yargi" not in k:
+            continue
+        if (a := k.get("aday") or k["ad"]) not in dep:
+            y = kok / "docs" / "kurulumlar" / "adaylar" / f"{a}.md"
+            metin = y.read_text(encoding="utf-8") if y.is_file() else ""
+            dep[a] = dp.sinifla(kok, jev, a, alanlar(metin).get("tur") or "skill", " ".join((tr.bolum(metin, "Ne") or a).split())[:dp.ACIKLAMA])[0]
+        k["departman"], n = dep[a], n + 1
+        ek.setdefault((dep[a], "Videodan gelen"), []).append(f"- {k['ad']} · {k['yargi']} · video {k.get('video') or '?'}")
+    tr.kayit_yaz(ky, kayit)
+    dp.katalog_ekle(kok, ek)
+    print(f"geri dosyalanan: {n} kayıt · {len(dep)} aday · " + " · ".join(f"{a} → {d}" for a, d in dep.items())[:300]
+          + f" · Jev istek {tk[0].istek if tk else 0} (tavan {ns.istek_tavan})")
+    return 0
+
+
+def teknik(ns, ctx):
+    """K5: rapor '## Site/UI teknikleri' → bizde karşılığı varsa ÖĞREN (bilgi kartı, etiket frontend), yoksa UYARLA
+    (bekleyen öneri: departman-frontend/omer-kutuphaneler, onaysız eklenmez); frontend kataloguna '## Teknikler'. Jev 0."""
+    kok, bugun, ek, say = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or KOK), date.today(), [], {"ÖĞREN": 0, "UYARLA": 0}
+    for yol in ns.raporlar:
+        metin = Path(yol).read_text(encoding="utf-8")
+        vid = (re.search(r"youtu(?:\.be/|be\.com/watch\?v=)([\w-]{11})", metin) or [None, "?"])[1]
+        t = tr.tablolar(tr.bolum(metin, tr.SITE_UI))
+        for s in (t[0][1] if t else []):
+            if len(s) != 4:
+                continue
+            tek, kanit, kut, bizde = s
+            slug = re.sub(r"[^a-z0-9]+", "-", tek.translate(SLUG).casefold()).strip("-")
+            if bizde.strip().casefold() not in ("", "-", "yok"):
+                karar, y = "ÖĞREN", kok / "bilgi" / f"{slug}.md"
+                if not y.is_file():
+                    y.parent.mkdir(parents=True, exist_ok=True)
+                    y.write_text(og.kart_metni({"ad": slug, "iddia": f"Site/UI tekniği: {tek}", "video": vid, "zaman": (tr.ZAMAN.search(kanit) or [""])[0],
+                                                "etiketler": "frontend", "govde": f"# {tek}\nkanıt: {kanit}\nkütüphane/araç: {kut}\nbizde: {bizde}"}, bugun), encoding="utf-8")
+            else:
+                karar, y = "UYARLA", kok / "docs" / "kurulumlar" / "bekleyen" / f"teknik-{slug}.md"
+                y.parent.mkdir(parents=True, exist_ok=True)
+                y.write_text(f"# UYARLA teknik: {tek}\nkaynak: video {vid} · {kanit}\nkütüphane/araç: {kut}\n"
+                             "hedef: departman-frontend müdür sırası ya da omer-kutuphaneler kaydı (öneri; onaysız eklenmez)\n\n"
+                             "Onay: Ömer · ret: dosyayı sil.\n", encoding="utf-8")
+            say[karar] += 1
+            ek.append(f"- {tek} · {karar} · video {vid} · {kanit}")
+    dp.katalog_ekle(kok, {("frontend", "Teknikler"): ek})
+    print(f"teknik: ÖĞREN {say['ÖĞREN']} · UYARLA {say['UYARLA']} · docs/departmanlar/frontend.md ## Teknikler")
     return 0

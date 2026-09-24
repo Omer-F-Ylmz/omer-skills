@@ -15,7 +15,7 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
    video durum                         # docs/durum.md (≤3k token): köprü katalogu · son kararlar · ölçüm bulguları · ELE; bütün envanter okunmaz
 3. Seçim (ana ajan): toplu tablodaki UYGULA + BEKLE adaylarından en fazla 5; ölçüt projeler.md + dört ölçüt
    (bakım · CC'de çift mi · izin kapsamı · context maliyeti). Aday başına 1 satır gerekçe. Dört ölçütte düşen: aday.md'ye `red: <gerekçe>`.
-4. Araştırma: araç adayı (skill/plugin/MCP/CLI/hook/uygulama) başına bir Agent (subagent_type: aday-arastirici — sonnet), ≤3 eşzamanlı.
+4. Araştırma: araç adayı (skill/plugin/MCP/CLI/hook/uygulama) başına bir Agent (subagent_type: aday-arastirici — sonnet), ≤3 eşzamanlı. Tanım yüklü değilse (oturum ortasında eklendiyse) general-purpose'a DÜŞME: DUR, yeni oturum; `video ajan-denetle` rc 0 olmalı.
    Prompt tek satır: `ad: <kebab> · tür: <tür> · video: <id> · ipucu: <tablodaki ne işe yarar / link>`. Çıktı docs/kurulumlar/adaylar/<ad>.md.
    İpucu/iş akışı adayında araştırılacak repo yok: aday.md'yi ana ajan yazar (alanlar: ad · tur · video · kural: <tek cümle kural>).
 4b. video bizde <aday.md>...          # jev skill (2 istek/aday): p≥act skill'ler ## Bizde durum'a + `kurulum:` satırı (katalog → settings: kurulu-açık/kurulu-kapalı/yok; doğrulanmamış varsayım yazılmaz); ana ajan durum.md araç + ölçüm satırlarını ekler
@@ -26,6 +26,7 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 ```
 
 ## Kararlar (15)
+- 23: her aday/özellik departmanlı (KUR/UYARLA envantere; diğerleri katalog `## Videodan gelen`); eski kayıtlar `video departman-geri`. Frontend raporunda `video teknik <rapor>`: bizde karşılığı var → ÖĞREN kartı (frontend), yok → UYARLA bekleyen/teknik-*.md; katalog `## Teknikler`. Sertifika: docs/video-ogrenme-kontrol.md.
 
 - Tarif/keşif öncesi: `jev ilgili "<konu>" C:/Projeler/omer-skills/bilgi` → ilk 3 kart (bayatsa `video bilgi --bayat`, yeniden doğrula).
 - KUR → aşağıdaki katmanlar. DENE → docs/denemeler/<ad>.md (hipotez · metrik · bütçe · geri alma · başarı eşiği; 14b'de koşulur). ÖĞREN → bilgi/<slug>.md kartı. ZATEN VAR · ALTERNATİF · RED → yalnız kayıt.

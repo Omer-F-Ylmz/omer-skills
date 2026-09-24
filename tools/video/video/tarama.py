@@ -21,6 +21,9 @@ DOSYA = re.compile(r"(?:(\d{4}-\d\d-\d\d)-)?([\w-]{11})")
 ZAMAN = re.compile(r"(?<![\d:.])(?:\d{1,2}:)?\d{1,2}:\d{2}(?![\d:])")
 ALINTI = re.compile(r"[“\"]([^”\"\n]*)[”\"]")
 MADDE = re.compile(r"^- (.+?) → (\S+)")
+SITE_UI = "Site/UI teknikleri"  # 23 K5: frontend/site içerikli videoda zorunlu
+FRONTEND = re.compile(r"\b(landing|web ?sitesi|website|frontend|css|tailwind|gsap|three\.?js|webgl|animasyon\w*|scroll\w*|kaydırma\w*|"
+                      r"tipografi\w*|arayüz\w*|ui|figma|framer|hero|react|next\.js|lenis|grid)\b", re.I)
 
 
 def normal(ad):
@@ -202,6 +205,29 @@ def denetle(metin, sure=None):
         elif s[2] not in IDDIA_TUR:
             h.append(f"iddia türü geçersiz: {s[0]} → {s[2]} ({', '.join(sorted(IDDIA_TUR))})")
     h += [f"alıntı {len(a.split())} kelime > {ALINTI_KELIME}: {a[:40]}…" for a in ALINTI.findall(metin) if len(a.split()) > ALINTI_KELIME]
+    return h + site_ui_denetle(metin)
+
+
+def frontend_mu(metin):
+    """Künye + Özet + Adaylar'da ≥2 farklı site/UI anahtar kelimesi."""
+    return len({x.casefold() for x in FRONTEND.findall(" ".join(bolum(metin, b) for b in ("Künye", "Özet", "Adaylar")))}) >= 2
+
+
+def site_ui_denetle(metin):
+    """23 K5: teknik · kanıt (m:ss) · kütüphane/araç (ekranda/kanıtta yoksa 'tahmin: …') · bizde."""
+    if not frontend_mu(metin):
+        return []
+    t = tablolar(bolum(metin, SITE_UI))
+    if not t or not t[0][1]:
+        return [f"bölüm eksik: ## {SITE_UI}"]
+    h, oku = [], bolum(metin, "Kareden okunanlar").casefold()
+    for s in t[0][1]:
+        if len(s) != 4 or any(x in ("", "-") for x in (s[0], s[1], s[3])):
+            h.append(f"boş alan: teknik satırı {s[0] or '?'} (teknik·kanıt·kütüphane/araç·bizde)")
+        elif not ZAMAN.search(s[1]):
+            h.append(f"kanıt zamansız: {s[0]} (m:ss + kare yolu ya da altyazı)")
+        elif s[2] not in ("", "-") and not s[2].casefold().startswith("tahmin") and s[2].casefold() not in oku + s[1].casefold():
+            h.append(f"kütüphane kanıtsız: {s[0]} → {s[2]} (ekranda/açıklamada yoksa 'tahmin: …')")
     return h
 
 
@@ -210,6 +236,10 @@ def denetle(metin, sure=None):
 KURAL_TUR = {"ipucu", "iş akışı"}
 KURAL_ASAMA1 = "Videodaki ipucu (state) aşağıdaki çalışma kurallarından hangisinde zaten var? Hiçbirinde yoksa 'hiçbiri'."
 KURAL_ASAMA2 = "Videodaki ipucu (state) şu kuralda zaten var mı, aynı davranışı mı istiyor? Kural: {k}"
+KAVRAM = {"model": ("sonnet", "haiku", "opus", "fable", "ucuz model", "model:"), "altajan": ("subagent", "sub-agent", "alt ajan", "alt-ajan"),
+          "kural-dosyasi": ("claude.md", "bellek", "memory", "skill"), "kanit": ("kanıt", "doğrula", "verify"), "baglam": ("context", "bağlam", "token"),
+          "soru": ("sormadan", "soru sor", "onay iste"), "kisa": ("kısa", "sade", "token-verimli"), "geri-bildirim": ("geri bildirim", "gerekçe", "feedback")}
+DESTEK_ESIK = 0.4  # 23 K3: aşama 1 seçimiyle ≥2 ortak kavram varsa aşama 2 eşiği
 KURAL_SATIR = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s+(.+)")
 
 
@@ -273,7 +303,26 @@ def kural_esle(t, state, kurallar, a1=KURAL_ASAMA1, a2=KURAL_ASAMA2):
     if not (ilk := en_yakin(t, state, kurallar, a1)):
         return None
     y = (t.yargila([state], {"k": {"type": "noul", "instructions": a2.format(k=dict(kurallar).get(ilk, ilk))}})[0] or {}).get("k")
-    return ilk if y and y["noul"] >= 0.5 else None
+    esik = DESTEK_ESIK if len(kavramlar(state) & kavramlar(dict(kurallar).get(ilk, ""))) >= 2 else 0.5
+    return ilk if y and y["noul"] >= esik else None
+
+
+def kavramlar(metin):
+    """Normalleştirilmiş kavram kümesi (ör. Sonnet/Haiku/ucuz model → model)."""
+    s = metin.casefold()
+    return {k for k, ws in KAVRAM.items() if any(w in s for w in ws)}
+
+
+def kural_regresyon(t, fix, kurallar):
+    """23 K3: bilinen çiftler ÇİFT, bilinen yanlış pozitifler (kendi kuralı eklenerek) ÇİFT değil. Aday başına ≤2 istek."""
+    r = {"bulunan": [], "kacan": [], "yp": []}
+    for x in fix["cift"]:
+        e = kural_esle(t, x["state"], kurallar)
+        r["bulunan" if e in x["beklenen"] else "kacan"].append(f"{x['ad']} → {e}")
+    for x in fix["degil"]:
+        if e := kural_esle(t, x["state"], kurallar + [tuple(x["kural"])]):
+            r["yp"].append(f"{x['ad']} → {e}")
+    return r
 
 
 def en_yakin(t, state, kurallar, a1=KURAL_ASAMA1):

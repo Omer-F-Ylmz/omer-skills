@@ -30,3 +30,4 @@ Katalog: `docs/departmanlar/frontend.md` · yaşam döngüsü: `docs/departmanla
 - İki skill aynı kararı veriyorsa üstteki kazanır (sıra yukarıda); DESIGN.md her skill'den önce gelir.
 - Referans skill'leri (21st, ui-ux-pro-max, design-dna, taste) öneri verir; kararı frontend-craft adımı yazar.
 - Aynı işi yapan ikinci aracı yükleme: bu listede adı geçmeyen tasarım skill'i ancak katalogdaki "ne zaman" eşleşirse.
+Videodan gelen teknikler: docs/departmanlar/frontend.md `## Teknikler` (`video teknik`); öneriler bekleyen/teknik-*.md, onaysız eklenmez.

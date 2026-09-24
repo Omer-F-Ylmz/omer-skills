@@ -87,4 +87,13 @@ Müdür: `departman-surec-ajan-arac`
 | typesafe:typesafe-ai | skill | Build AI-powered software with TypeSafe: small units of AI intelligence you can use like … | - | - |
 | unfreeze | skill | Clear the freeze boundary set by /freeze, allowing edits to all directories again. | - | - |
 
+## Videodan gelen
+
+- neden-ver · ZATEN VAR · video vcU85OrwuV0
+- hyperagent · RED · video vcU85OrwuV0
+- caveman-secici · ÖĞREN · video jf1sv2geEWo
+- ozel-skill-olusturma · ZATEN VAR · video jf1sv2geEWo
+- php-artisan-make-enum · RED · video jf1sv2geEWo
+- pint · RED · video jf1sv2geEWo
+
 ## Elle

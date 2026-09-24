@@ -23,7 +23,7 @@ def _ajan(kok, ad, model="sonnet", tools="Bash, Read"):
 
 
 def _skill(kok, metin):
-    y = kok / "skills" / "s" / "SKILL.md"
+    y = kok / "skills" / "video-s" / "SKILL.md"
     y.parent.mkdir(parents=True, exist_ok=True)
     y.write_text(metin, encoding="utf-8")
 
@@ -75,7 +75,8 @@ def test_her_ozellige_ve_adaya_departman(ortam, kok, capsys):
     assert "arac → verimlilik" in dep and "eski → frontend" in dep
     kat = (kok / "docs" / "departmanlar" / "verimlilik.md").read_text(encoding="utf-8")
     assert "## Videodan gelen" in kat and "arac/a · RED" in kat and VID in kat
-    envanter = json.loads((kok / "docs" / "departmanlar" / "envanter.json").read_text(encoding="utf-8") or "[]")
+    ej = kok / "docs" / "departmanlar" / "envanter.json"
+    envanter = json.loads(ej.read_text(encoding="utf-8")) if ej.is_file() else []
     assert not any(e["ad"] in ("arac", "eski") for e in envanter)  # KUR/UYARLA olmayan envantere girmez
     capsys.readouterr()
     r = next((kok / "docs" / "kurulumlar").glob("*-uygula.md"))
@@ -131,7 +132,7 @@ def test_kural_regresyon_sayar():
             if all(k.startswith("d") for k in q):
                 x = next((c["beklenen"][0] for c in FIX["cift"] if c["state"] == s), None) or next(d["kural"][0] for d in FIX["degil"] if d["state"] == s)
                 return [{k: {"type": "choice", "probabilities": {x: 0.9, "hiçbiri": 0.1}} for k in q}]
-            return [{k: {"type": "noul", "noul": 0.3 if "divisima" in json.dumps(q, ensure_ascii=False) else 0.6} for k in q}]
+            return [{k: {"type": "noul", "noul": 0.3 if "paralellik" in json.dumps(q, ensure_ascii=False) else 0.6} for k in q}]
     r = tr.kural_regresyon(Esle(), FIX, KL)
     assert (len(r["bulunan"]), r["kacan"], r["yp"]) == (7, [], [])
 

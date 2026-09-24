@@ -47,11 +47,11 @@ T1 (yalnız .md skill) · T2 (çalıştırılabilir her şey) · RED (gerekçe)
 ne: <ne yapar>
 kurulum: <nasıl kurulur/çalışır>
 lisans: <bu özelliğin SPDX'i; bölünmüş lisansta (MIT + BSL-1.1) özellik düzeyinde>
-etiket: <token|->
+etiket: <token|teknik|->
 karar: <KUR|DENE|ÖĞREN|UYARLA|ZATEN VAR|ALTERNATİF|RED>
 gerekce: <RED ise ölçüm: docs/denemeler/<x>-sonuc.md · zaten var: <katalogdaki ad|dosya> · güvenlik:/lisans: <aday dosyasındaki bulgu>>
 ## Mekanizma
-### <token etiketli özellik-slug>
+### <token/teknik etiketli özellik-slug>
 nasıl: <adımlar/algoritma: neyi sıkıştırır, neyi dokunulmaz bırakır, aslını nasıl geri çağrılabilir tutar>
 neden: <neden token kazandırır>
 koşul: <hangi koşulda kazandırmaz (ör. abonelik/OAuth, kısa oturum, önbellek)>
@@ -63,7 +63,7 @@ bizde: <araç/skill adı + beklenen etki>
 |---|---|---|---|---|
 | <videodaki iddia> | <link|docs yolu> | doğru/abartılı/yanlış/doğrulanamadı | <tek cümle> | <bilgi kartı slug|-> |
 ```
-Derin inceleme (17): README/docs'tan her özellik ayrı `### ` alt bölüm; reponun kendi sınırlama/benchmark dokümanı Kanıt'a. Bağımsız değerlendirme web araması ≤3/aday, kaynak + tek cümle. Token (girdi/çıktı/context) iddiası taşıyan özellik `etiket: token` ve varsayılan DENE (hipotez · metrik: token · butce · geri_alma · esik); RED yalnız kanıtlı gerekçeyle, yoksa `video katman` DENE'ye çevirir. Token etiketli her özellik için `## Mekanizma` altında aynı slug'la `### ` alt bölüm zorunlu (nasıl · neden · koşul · bizde; kod kopyalanmaz, fikir anlatılır); yazınca `video rapor-denetle <dosya>` koş, GEÇTİ değilse düzelt. UYARLA: aracı kurmadan fikri kendi aracımıza (fikir · hedef · etki · kapsam), kod yazılmaz. Lisans: 14a listesi yalnız T1 için; T2'de BSL gibi kaynak-erişilebilir lisans RED değil, lisans notu. Telemetri varsayılan açıksa `telemetri: açık` + Telemetri kapatma satırı zorunlu. İddia sınamada kaynaksız sonuç yazma (doğrulanamadı).
+Derin inceleme (17): README/docs'tan her özellik ayrı `### ` alt bölüm; reponun kendi sınırlama/benchmark dokümanı Kanıt'a. Bağımsız değerlendirme web araması ≤3/aday, kaynak + tek cümle. Token (girdi/çıktı/context) iddiası taşıyan özellik `etiket: token` ve varsayılan DENE (hipotez · metrik: token · butce · geri_alma · esik); RED yalnız kanıtlı gerekçeyle, yoksa `video katman` DENE'ye çevirir. Site/UI tekniği (kaydırma, animasyon, 3D sahne, yerleşim, tipografi, geçiş) taşıyan özellik `etiket: teknik`. Token ya da teknik etiketli her özellik için `## Mekanizma` altında aynı slug'la `### ` alt bölüm zorunlu (nasıl · neden · koşul · bizde; kod kopyalanmaz, fikir anlatılır). Yazınca `video rapor-denetle <dosya>` koş; GEÇTİ olmadan dönme (en fazla 2 düzeltme; hâlâ geçmiyorsa hatalarla dön). UYARLA: aracı kurmadan fikri kendi aracımıza (fikir · hedef · etki · kapsam), kod yazılmaz. Lisans: 14a listesi yalnız T1 için; T2'de BSL gibi kaynak-erişilebilir lisans RED değil, lisans notu. Telemetri varsayılan açıksa `telemetri: açık` + Telemetri kapatma satırı zorunlu. İddia sınamada kaynaksız sonuç yazma (doğrulanamadı).
 Kurulum / Duman testi / Geri alma / Köprü izni / Ayar (isteğe bağlı) yapılandırılmış `- ` satırlarıdır (`video onay` yalnız bunu koşar; geçmezse bekleyen "BİÇİM EKSİK" olur):
 - Kurulum ve Geri alma: `- <tür>: <argümanlar>`; tür yalnız plugin · mcp · uv · npm · winget (plugin `x@market`, mcp `<ad> [--env AD=${AD}] -- <komut>`, winget paket kimliği). Geri alma aynı türle, yalnız ad (mcp: `- mcp: <ad>`).
 - Yasak: `; & | > < \` $(`, curl/wget/iwr/irm/iex/sh/bash/cmd/powershell, uzak betik URL'si. Anahtar DEĞERİ asla; yalnız `${ENV_ADI}`.

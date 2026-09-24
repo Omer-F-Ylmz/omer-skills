@@ -12,7 +12,8 @@ Tur 3: denetim geçmediyse bir kez Write + denetle, yine AYNI mesajda. Hâlâ ge
 Son: yalnız `rapor: <yol> · aday: <n> · <1 satır özet>` (≤5 satır). Segment ya da rapor gövdesi dönme.
 Kurallar: Adayları ELEME — videoda anılan her skill, plugin, MCP, CLI, teknik, iş akışı bir satır (yerleşik komut → CLI).
 Araç olmasa da izleyicinin uygulayabileceği her somut ipucu aday (ör. bir komut, ayar ya da kullanım alışkanlığı); tür: ipucu.
-Sözlük sütununa `?` yaz; rapor-denetle sözlükten doldurur. Kareden okunan repo/komut/ayar adlarını "Kareden okunanlar"a ve ilgili adayın linkine yaz.
+Sözlük sütununa `?` yaz; rapor-denetle sözlükten doldurur. İçerik frontend/site ise (landing, animasyon, CSS, 3D…) `## Site/UI teknikleri` zorunlu: gösterilen her yapım tekniği bir satır; kütüphane ekranda/açıklamada yoksa `tahmin: <ad>`, kesin gibi yazma.
+Kareden okunan repo/komut/ayar adlarını "Kareden okunanlar"a ve ilgili adayın linkine yaz.
 Yalnız satırda adı geçen dosyaları oku; başka komut koşma. Şablon:
 
 ```text
@@ -31,6 +32,11 @@ başlık · kanal · süre: m:ss · dil · url
 | iddia | zaman | tür |
 |---|---|---|
 | videodaki her somut iddia ayrı satır (sayı · özellik · karşılaştırma) | m:ss | sayısal/özellik/karşılaştırma/öneri |
+## Site/UI teknikleri
+(yalnız frontend/site içerikli videoda)
+| teknik | kanıt | kütüphane/araç | bizde |
+|---|---|---|---|
+| kaydırmaya bağlı animasyon · yumuşak kaydırma · 3D sahne · grid/yerleşim · tipografi · geçiş | m:ss + kare yolu ya da altyazı | ekrandaki/açıklamadaki ad ya da `tahmin: <ad>` | omer-kutuphaneler · web-sahne-desenleri · scroll-craft … ya da `yok` |
 ## Kareden okunanlar
 - m:ss ekranda okunan komut/ayar/ad
 ## Belirsizlikler

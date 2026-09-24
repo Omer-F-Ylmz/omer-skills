@@ -27,4 +27,22 @@ Müdür: `departman-verimlilik`
 | everything-claude-code:strategic-compact | skill | Suggests manual context compaction at logical intervals to preserve context through task … | - | - |
 | superpowers:dispatching-parallel-agents | skill | Use when facing 2+ independent tasks that can be worked on without shared state or sequen… | Use when facing 2+ independent tasks that can be worked on without shared state or sequen… | - |
 
+## Videodan gelen
+
+- efor-seviyeleri · KUR · video vcU85OrwuV0
+- glaido · RED · video 3XIGcM7VICc
+- subagent-ucuz-model · ZATEN VAR · video jf1sv2geEWo
+- usage-komutu · ZATEN VAR · video jf1sv2geEWo
+- caveman/skill · RED · video ?
+- caveman/proxy · DENE · video ?
+- caveman/learn · DENE · video ?
+- caveman/compress · DENE · video ?
+- caveman/kural-maliyeti · ÖĞREN · video ?
+- caveman/convert · DENE · video ?
+- caveman/browse · DENE · video ?
+- caveman/shrink · DENE · video ?
+- caveman/cavecrew · UYARLA · video ?
+- caveman/calisma-kaliplari · ÖĞREN · video ?
+- caveman/trial · UYARLA · video ?
+
 ## Elle

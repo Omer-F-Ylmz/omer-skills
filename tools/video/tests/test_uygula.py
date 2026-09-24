@@ -158,7 +158,7 @@ def test_ipucu_cift_eklenmez(ortam, kok, capsys):
     assert kurallar(ortam) == once
     k = kayit(kok)[-1]
     assert k["katman"] == "T0" and "omer-kurallar:3" in k["karar"]
-    assert len(jev.istek) <= 3  # 15 K3: tür (kural/olgu) 1 + çift 2
+    assert len(jev.istek) <= 4  # 15 K3: tür (kural/olgu) 1 + çift 2 · 23 K2: departman 1
 
 
 def test_ipucu_yeni_kural_dosyalarina_yazilmaz(ortam, kok, capsys):

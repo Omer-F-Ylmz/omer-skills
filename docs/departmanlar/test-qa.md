@@ -58,4 +58,8 @@ Müdür: `departman-test-qa`
 | superpowers:systematic-debugging | skill | Use when encountering any bug, test failure, or unexpected behavior, before proposing fix… | Use when encountering any bug, test failure, or unexpected behavior, before proposing fix… | Test yazımı |
 | superpowers:test-driven-development | skill | Use when implementing any feature or bugfix, before writing implementation code | Use when implementing any feature or bugfix, before writing implementation code | Test yazımı |
 
+## Videodan gelen
+
+- pest · RED · video jf1sv2geEWo
+
 ## Elle
