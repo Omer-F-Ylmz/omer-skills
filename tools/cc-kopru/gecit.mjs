@@ -14,7 +14,7 @@ import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline";
 
-import { ayarYukle, denyListesi, gozlemGovde, gozlemYaz, okumaDeny,
+import { agaciKapat, ayarYukle, denyListesi, gozlemGovde, gozlemYaz, okumaDeny,
          sizintiKapisi } from "./kos.mjs";
 import { gozlemHooku, hookKaynaklari, hookKos, hookTanimlari, izDosyasi } from "./hook.mjs";
 
@@ -156,7 +156,15 @@ function baslat() {
     ilet(satir);
   }
 
-  readline.createInterface({ input: process.stdin }).on("line", (satir) => {
+  const giris = readline.createInterface({ input: process.stdin });
+  // İstemci (Desktop/test) gidince stdin EOF olur: alt sunucuya da EOF ilet ki kapansın,
+  // geçit de `close` dalından çıksın. Yoksa ikisi yetim kalıyordu (FIX-6 K1/K2).
+  // EOF'u dinlemeyen sunucu 5 sn sonra ağacıyla kapatılır.
+  giris.on("close", () => {
+    alt.stdin.end();
+    setTimeout(() => agaciKapat(alt.pid), 5000);
+  });
+  giris.on("line", (satir) => {
     if (!satir.trim()) return;
     let m;
     try { m = JSON.parse(satir); } catch { return ilet(satir); }

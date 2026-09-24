@@ -94,11 +94,11 @@ function gecitKos(istekler, sn = 90, sunucu = "sahte-mcp.mjs") {
       const satirlar = kalan.split("\n");
       kalan = satirlar.pop();
       for (const s of satirlar) if (s.trim()) cevaplar.push(JSON.parse(s));
-      if (cevaplar.length >= istekler.length) { p.kill(); coz({ cevaplar, hata }); }
+      if (cevaplar.length >= istekler.length) { agaciKapat(p.pid); coz({ cevaplar, hata }); }
     });
     p.stderr.on("data", (b) => { hata += b.toString("utf8"); });
     p.on("error", red);
-    const zam = setTimeout(() => { p.kill(); red(new Error("gecit zaman asimi:\n" + hata)); }, sn * 1000);
+    const zam = setTimeout(() => { agaciKapat(p.pid); red(new Error("gecit zaman asimi:\n" + hata)); }, sn * 1000);
     p.on("close", () => { clearTimeout(zam); coz({ cevaplar, hata }); });
     for (const i of istekler) p.stdin.write(JSON.stringify(i) + "\n");
   });
