@@ -44,7 +44,6 @@ p.on("close", async (kod) => {
     if (!canli.length) break;
   }
   console.log(`isaretli canli surec: ${canli.length}${canli.length ? " · pid " + canli.join(",") : ""}`);
-  if (canli.length) return process.exit(kod || 1);
   fs.rmSync(ISARET, { recursive: true, force: true });
-  process.exit(kod ?? 1);
+  process.exit(canli.length ? (kod || 1) : (kod ?? 1));
 });
