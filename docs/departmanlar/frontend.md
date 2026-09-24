@@ -81,5 +81,27 @@ Müdür: `departman-frontend`
 | taste-skill:taste-skill | skill | Anti-slop frontend skill for landing pages, portfolios, and redesigns. | - | Screenshot döngüsü |
 | taste-skill:taste-skill-v1 | skill | The original v1 taste-skill, preserved for projects depending on its exact behavior. | Use this v1 insta | - |
 | ui-ux-pro-max | skill | UI/UX design intelligence for web, mobile, and desktop. | - | Yapım (iki-pass) |
+| threejs-spiral-gallery | uygulama | Claude Code'a (Opus 4.7) tek promptla ürettirilen, Three.js+GLSL 3D sarmal (helezon) görs… | Trigger'lı vanilla JS stüdyo landing page demosu | - |
+
+## Videodan gelen
+
+- motionsites-ai/prompt-galerisi · RED · video JfmAm3sxCSc
+- motionsites-ai/kopyala-yapistir-prompt · DENE · video JfmAm3sxCSc
+- motionsites-ai/mcp-entegrasyonu · ÖĞREN · video JfmAm3sxCSc
+- threejs-spiral-gallery/helezon-galeri-3d · ZATEN VAR · video JfmAm3sxCSc
+- threejs-spiral-gallery/bento-galeri-hover · ZATEN VAR · video JfmAm3sxCSc
+- threejs-spiral-gallery/film-gren-overlay · ZATEN VAR · video JfmAm3sxCSc
+- threejs-spiral-gallery/gsap-scroll-reveal-hmr · UYARLA · video JfmAm3sxCSc
+- prompt-teknoloji-dosya · KUR · video JfmAm3sxCSc
+- merkezi-config · KUR · video JfmAm3sxCSc
+
+## Teknikler
+
+- Scroll'a bağlı kademeli metin belirme (reveal, fade+translateY) · ÖĞREN · video JfmAm3sxCSc · 6:37 k00397_0.jpg + "yazılar biraz daha yumuşak bir şekilde yükleniyor" (7:07)
+- Yumuşak (inertial) kaydırma · ÖĞREN · video JfmAm3sxCSc · 6:37 k00397_0.jpg "existing lenisRaf loop"
+- 3D sarmal görsel galeri sahnesi · ÖĞREN · video JfmAm3sxCSc · 6:37 k00397_0.jpg "Three.js section... createCurvedTileGeometry, buildSpiral"
+- Hover'da görsele parallax/geri kayma · UYARLA · video JfmAm3sxCSc · 8:09 sözlü anlatım (görsel kare yok)
+- Büyük serif italik başlık tipografisi + kontrast renk paneli · UYARLA · video JfmAm3sxCSc · 1:31 k00091_0.jpg, 5:36 k00336_0.jpg, 7:38 k00458_0.jpg
+- Kademeli (staggered) satır/blok belirmesi (scroll top 80% eşiği) · UYARLA · video JfmAm3sxCSc · 6:37 k00397_0.jpg "Practice rows revealed in staggered fashion as they each crossed top 80%"
 
 ## Elle

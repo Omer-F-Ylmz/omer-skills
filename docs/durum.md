@@ -3,7 +3,7 @@
 `video durum` üretir (mtime'la yenilenir); OTOMATİK bölüm her yenilemede yeniden yazılır, sondaki elle işaretinin altı korunur.
 
 ## Köprü katalogu
-- skill 327 · plugin 50 · MCP 18
+- skill 339 · plugin 50 · MCP 18
 - RTK: komut çıktısını hook ile sıkıştırır (git/npm/dotnet/pytest)
 - headroom: girdi context'ini sıkıştıran yerel vekil + MCP (compress/retrieve)
 - graphify: kod/doküman bilgi grafiği; query/path/explain ile dar bağlam
@@ -16,18 +16,40 @@
 - neden-ver → ZATEN VAR: eklenmez: ÇİFT (kural: omer-kurallar:22)
 - glaido → RED: RED — lisans uygunsuz/yok (14a araştırması).
 - hyperagent → RED: RED — lisans uygunsuz/yok (14a araştırması).
+- caveman-secici → ÖĞREN: kart destekledi: bilgi/caveman-kural-maliyeti.md (+jf1sv2geEWo 4:35)
+- subagent-ucuz-model → ZATEN VAR: omer-kurallar:11 · global CLAUDE.md:14 (Ömer kararı, canlı Jev ilişkiyi destekler bulmadı)
+- ozel-skill-olusturma → ZATEN VAR: eklenmez: ÇİFT (kural: omer-kurallar:9)
+- usage-komutu → ZATEN VAR: yerleşik CC komutu /usage; global CLAUDE.md ölçümü `claude -p` ile yapıyor
+- php-artisan-make-enum → RED: projeler.md'de PHP/Laravel projesi yok (hepsi .NET/Python); context maliyeti fayda getirme
+- pest → RED: projeler.md'de PHP/Laravel projesi yok (hepsi .NET/Python); context maliyeti fayda getirme
+- pint → RED: projeler.md'de PHP/Laravel projesi yok (hepsi .NET/Python); context maliyeti fayda getirme
 - caveman/skill → RED: ölçüm: docs/denemeler/caveman-sonuc.md — bizim A/B çıktı −%20.7 (< eşik %30), kalite 2.97→
 - caveman/proxy → DENE: deneme: docs/denemeler/caveman-proxy.md
 - caveman/learn → DENE: deneme: docs/denemeler/caveman-learn.md
 - caveman/compress → DENE: deneme: docs/denemeler/caveman-compress.md
-- caveman/kural-maliyeti → ÖĞREN: kart yazıldı: bilgi/caveman-kural-maliyeti.md
+- caveman/kural-maliyeti → ÖĞREN: kart birleşti: bilgi/caveman-kural-maliyeti.md (+https://github.com/JuliusBrussee/caveman)
+- caveman/convert → DENE: deneme: docs/denemeler/caveman-convert.md
+- caveman/browse → DENE: deneme: docs/denemeler/caveman-browse.md
+- caveman/shrink → DENE: deneme: docs/denemeler/caveman-shrink.md
+- caveman/cavecrew → UYARLA: uyarlama: docs/uyarlamalar/caveman-cavecrew.md
+- caveman/calisma-kaliplari → ÖĞREN: kart yazıldı: bilgi/caveman-calisma-kaliplari.md
+- caveman/trial → UYARLA: uyarlama: docs/uyarlamalar/caveman-trial.md
+- caveman-oz → ?: RED(token, kalite): çıktı −%-35.2 (eşik %20) · kalite 2.92→2.91 (bant 0.10) · başarısı düş
+- girdi-duzenek → ?: RED(token, kalite): çıktı −%-2.5 (eşik %-) · kalite 2.73→2.50 (bant 0.21) · başarısı düşen
+- headroom-ayar → ?: KUR önerisi → ONAY [headroom-mevcut]: çıktı −%38.5 (eşik %-) · kalite 2.50→2.62 (bant 0.34
+- caveman → ?: KUR
+- caveman-proxy → ?: KARAR YOK: sıkıştırma devreye girmedi (mcp çağrısı 0)
+- caveman-compress → ?: RED(token): −%0 (eşik %30) · korunmayan kural 0 · düz yazıda çıktı girdiyle aynı
+- caveman-learn → ?: RED(eşik): kapsanmayan kalem ~%2.1 (eşik %5) · UYARLA: skill-kullanim-sayaci, tekrar-bagla
+- headroom-okuma → ?: RED(token): çıktı −%-7.7 (eşik %-) · kalite 2.69→2.63 (bant 0.10) · başarısı düşen görev: 
+- headroom-hiz → ?: RED(token): çıktı −%-26.8 (eşik %-) · kalite 2.68→2.71 (bant 0.10) · başarısı düşen görev:
 
 ## Kanal güvenilirliği (aday · KUR/ÖĞREN oranı)
-- ?: 6 aday · 33%
+- ?: 21 aday · 14%
 - Nate Herk | AI Automation: 4 aday · 25%
+- AI Coding Daily: 7 aday · 14%
 
 ## Son taramalar
-- XemheY_aM1g 2026-09-15: 10 aday
 - ydO2_a97J6g 2026-09-15: 8 aday
 - yqyxAyKpH6c 2026-09-17: 2 aday
 - Yunu27g7sLw 2026-09-15: 9 aday
@@ -37,6 +59,7 @@
 - 1Jb517FRX7I 2026-09-23: 15 aday
 - vcU85OrwuV0 2026-09-23: 13 aday
 - 3XIGcM7VICc 2026-09-23: 14 aday
+- jf1sv2geEWo 2026-09-23: 10 aday
 
 ## Ölçüm bulguları
 - cache-notlari.md: Prompt cache notları · 2026-09-17

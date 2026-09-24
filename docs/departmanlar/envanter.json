@@ -1368,6 +1368,15 @@
   "kaynak": "jev"
  },
  {
+  "ad": "threejs-spiral-gallery",
+  "tur": "uygulama",
+  "aciklama": "Claude Code'a (Opus 4.7) tek promptla ürettirilen, Three.js+GLSL 3D sarmal (helezon) görsel galerili, Lenis+GSAP ScrollTrigger'lı vanilla JS stüdyo landing page demosu. Vite ile geliştirilir, Netlify'",
+  "hash": "d1494b6074f20251",
+  "departman": "frontend",
+  "p": 0.94,
+  "kaynak": "katman"
+ },
+ {
   "ad": "gitleaks",
   "tur": "cli",
   "aciklama": "",

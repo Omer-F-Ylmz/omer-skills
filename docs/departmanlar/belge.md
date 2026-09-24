@@ -22,4 +22,8 @@ Müdür: `departman-belge`
 | example-skills:internal-comms | skill | A set of resources to help me write all kinds of internal communications, using the forma… | use this skill whenever asked to write some sort of internal com | - |
 | make-pdf | skill | Turn any markdown file into a publication-quality PDF. | - | Dil |
 
+## Videodan gelen
+
+- prompt-turkce-cevirt · ÖĞREN · video JfmAm3sxCSc
+
 ## Elle
