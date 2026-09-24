@@ -4,7 +4,7 @@ schema_version = 1
 
 [filters.cc-kopru-suit]
 description = "cc-kopru node:test suiti: geçen testleri süz, kırmızıları ve özeti koru"
-match_command = "(^|&&\\s*)(node\\s+araclar/suit\\.mjs|npm\\s+test)\\b"
+match_command = "(^|&&\\s*)(node\\s+araclar/suit\\.mjs|npm\\s+test|node\\s+--test)\\b"
 strip_ansi = true
 strip_lines_matching = [
   "^\\s*✔ ",

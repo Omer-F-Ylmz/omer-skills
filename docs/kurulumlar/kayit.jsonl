@@ -28,3 +28,5 @@
 {"ad": "caveman-proxy", "karar": "KARAR YOK: sıkıştırma devreye girmedi (mcp çağrısı 0)", "deneme": "docs/denemeler/caveman-proxy-sonuc.md", "tarih": "2026-09-24"}
 {"ad": "caveman-compress", "karar": "RED(token): −%0 (eşik %30) · korunmayan kural 0 · düz yazıda çıktı girdiyle aynı", "deneme": "docs/denemeler/caveman-compress-sonuc.md", "tarih": "2026-09-24"}
 {"ad": "caveman-learn", "karar": "RED(eşik): kapsanmayan kalem ~%2.1 (eşik %5) · UYARLA: skill-kullanim-sayaci, tekrar-baglam-tespiti", "deneme": "docs/denemeler/caveman-learn-sonuc.md", "tarih": "2026-09-24"}
+{"ad": "headroom-okuma", "karar": "RED(token): çıktı −%-7.7 (eşik %-) · kalite 2.69→2.63 (bant 0.10) · başarısı düşen görev: yok · girdi −%-17.0 (eşik %10)", "deneme": "docs/denemeler/headroom-okuma-sonuc.md", "tarih": "2026-09-24"}
+{"ad": "headroom-hiz", "karar": "RED(token): çıktı −%-26.8 (eşik %-) · kalite 2.68→2.71 (bant 0.10) · başarısı düşen görev: yok · girdi −%-33.1 (eşik %0)", "deneme": "docs/denemeler/headroom-hiz-sonuc.md", "tarih": "2026-09-24"}
