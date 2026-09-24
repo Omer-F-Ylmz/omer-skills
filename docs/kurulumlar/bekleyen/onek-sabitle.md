@@ -1,5 +1,7 @@
 # ONAY onek-sabitle (21b) — KOŞULMAZ, Ömer onaylar
 
+> 21c: REDDEDİLDİ (omer-kurallar:22, kurulu araç kapatılmaz). Kök neden: istem bloğun önünde, bkz. docs/olcumler/onek-kaymasi.md "21c".
+
 Teşhis (docs/olcumler/onek-kaymasi.md, 21b): tools + system iki oturumda aynı; önbellek 17.565'te (system sonu) duruyor. Sonraki ~58.6k token (gitStatus + SessionStart çıktısı + skill/ajan/MCP listeleri) tek blok ve her oturumda değişiyor (gitStatus, claude-mem dakika damgası, MCP bağlanma yarışı). CC'de bunu sabitleyen bir ayar yok. Kaldıraç bloğu küçültmek.
 
 Öneri: bu repoda kullanılmayan 6 eklentiyi **yalnız bu projede** kapatmak (`.claude/settings.local.json` → `enabledPlugins: false`). Global `~/.claude/settings.json`'a dokunulmaz. Beklenen: oturum başına ~15k token daha az yeniden yazım, 78 oturum/gün ile ≈ 1.2M token/gün.

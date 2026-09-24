@@ -39,3 +39,39 @@ messages[1] bileşimi (≈3,53 kar/token): skill listesi ~36.5k (393 skill) · a
 
 ## Öneri ve beklenen kazanç
 Bu repoda kullanılmayan eklentiler proje düzeyinde kapatılır (dotnet-test, dotnet-msbuild, phoenix-prd-pipeline, phoenix-security-review, taste-skill, example-skills). Beklenen: skill listesinden ~13.9k, ajan tiplerinden ek birkaç k → oturum başına ~15k token daha az yeniden yazım. 78 oturum/gün × 15k ≈ **~1.2M token/gün** önbellek yazımı. Uygulama ve doğrulama: docs/kurulumlar/bekleyen/onek-sabitle.md (KOŞULMAZ, Ömer karar verir).
+
+## 21c kök neden: istem bloğun önünde
+Kaynak: 21b'nin 4 yakalaması + 21c'de 2 × `claude -p "ok de"` (8791, her `POST /v1/messages` 400, upstream'e hiç gitmedi, $0).
+
+Sıra haritası (21c yakalaması; ~token = kar/3,53):
+
+| Konum | Parça | ~token | Oturumdan oturuma |
+|---|---|---|---|
+| system[2] sonu | **kırılım 1** (17.565) | | aynı |
+| m0[0] | CLAUDE.md'ler + RTK + MEMORY.md | 1,9k | aynı |
+| m0[1] ofset 367 | gitStatus | 1,1k | her commit/dosya değişiminde |
+| m0[3] | **kullanıcı istemi** | değişken | etkileşimlide her oturum |
+| m1 ofset 88 / 5.302 | ponytail + superpowers hook | 2,5k | aynı |
+| m1 ofset 8.763 | claude-mem bağlamı (dakika damgası) | 1,3k | her dakika |
+| m1 ofset 15.267 | ertelenmiş araç + "still connecting" listesi | 3,7k | MCP yarışına bağlı |
+| m1 ofset ~28k | ajan tipleri | 8,3k | aynı |
+| m1 ofset ~57k | MCP talimatları | 2,7k | aynı |
+| m1 ofset 67.274 | skill listesi | 36,1k | aynı |
+| m1 sonu | tarih + **kırılım 2** | | günlük |
+
+- `cache_control` yalnız system[2]'de ve m1'in (tek blok, ~196k kar) sonunda. Arada kırılım yok; önbellek anahtarı kırılıma kadarki önekin tamamı.
+- Kullanıcı istemi (m0[3]) büyük bloğun önünde. İstem değişince m1'in tamamı yeniden yazılır. Etkileşimli oturumun ilk istemi her seferinde farklı olduğundan MCP yarışı, claude-mem damgası ve gitStatus sabitlense bile 58.6k blok oturumlar arasında okunamaz. Bu oturumun kendi bağlamında da sıra aynı: istem → SessionStart → listeler.
+- Tüm dinamik parçalar (gitStatus, istem, claude-mem, MCP listesi) skill listesinin önünde. Ancak tek kırılım olduğundan konumun etkisi yok; bloğun herhangi bir baytı değişirse blok yeniden yazılır.
+- Kazanç yalnız aynı istemle art arda koşan `claude -p` çağrılarında mümkün; onda da gitStatus ve claude-mem dakikası aynı kalmalı. Günlük kazanç ≈ 0.
+- Kök düzeltme CC tarafında: istemden önce bir kırılım ya da SessionStart/listeleri istemin önüne almak. Bizim config'imizle yapılamaz.
+
+MCP yarışı: 21b'de ilk istekte 6 ve 9 sunucu "still connecting" durumundaydı. 21c'de 0'dı (4 yakalama özdeş). Önbellekler ölçüm koşularından ısınmıştı; yarış disk/önbellek sıcaklığına bağlı.
+
+Soğuk başlama (initialize yanıtına ms, 3 deneme, seri → 13'ü birlikte → doğrudan yol):
+- npx (cmd /c npx -y): sequential-thinking 1272–1550 → birlikte 1963–2391 → node 44–48 · memory 1401–1458 → 2088–2581 → 149–172 · filesystem 1420–1613 → 2110–2618 → 163–209 · brave-search 1498–1564 → 2193–2696 → 286–323 (ilk 4446) · stitch 2084–2927 → 2943–3391 → 716–1361
+- uvx: code-review 686–838 → 1164–1235 → exe 612–631 · fetch 580–630 → 1016–1090 → 531–619 · git 572–602 → 1006–1073 → 525–552 · time 536–538 → 869–989 → 453–481
+- doğrudan: context7 (node) 283–323, jev (node) 153–180, puppeteer (cmd betik) 301–339, headroom (exe) 711–734
+- npx → node sunucu başına ~1,2–2 sn kazandırıyor. uvx → exe ~50 ms; değmez.
+
+claude-mem damgası: `context-generator.cjs` başlığı `new Date()` ile dakika çözünürlüğünde üretiyor. settings.json'da damga ya da konum ayarı yok (yalnız CLAUDE_MEM_CONTEXT_* sayı/alan anahtarları). Ayarlanamaz. Konum etkisi: istemden sonra geldiği için sabitlense de kazanç yok.
+gitStatus: m0[1]'de, skill listesinin önünde. Yeni kanıt yok; 21b'deki "kapatma ayarı yok" sonucu geçerli.
