@@ -16,7 +16,9 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 3. Seçim (ana ajan): toplu tablodaki UYGULA + BEKLE adaylarından en fazla 5; ölçüt projeler.md + dört ölçüt
    (bakım · CC'de çift mi · izin kapsamı · context maliyeti). Aday başına 1 satır gerekçe. Dört ölçütte düşen: aday.md'ye `red: <gerekçe>`.
 4. Araştırma: araç adayı (skill/plugin/MCP/CLI/hook/uygulama) başına bir Agent (subagent_type: aday-arastirici — sonnet), ≤3 eşzamanlı. Tanım yüklü değilse (oturum ortasında eklendiyse) general-purpose'a DÜŞME: DUR, yeni oturum; `video ajan-denetle` rc 0 olmalı.
-   Prompt tek satır: `ad: <kebab> · tür: <tür> · video: <id> · ipucu: <tablodaki ne işe yarar / link>`. Çıktı docs/kurulumlar/adaylar/<ad>.md.
+   Önce ana ajan: `video on <video> <ad> [--repo o/r] [--url u]` → .kos/<video>/<ad>/on.md (repo README/ağaç + site özeti); araştırıcı dış içeriği buradan okur.
+   Prompt tek satır: `ad: <kebab> · tür: <tür> · video: <id> · ipucu: <tablodaki ne işe yarar / link> · on: <on.md yolu>`. Çıktı docs/kurulumlar/adaylar/<ad>.md.
+   `tur: prompt` aday (videoda gösterilen site yapım promptu): aday.md `## Prompt anatomisi` taşır (rapor-denetle zorunlu); katman kalıpları docs/departmanlar/frontend-promptlar.md kütüphanesine (video + zaman zorunlu) yazar, şablonda olmayan bölüm UYARLA bekleyen/prompt-*.md.
    İpucu/iş akışı adayında araştırılacak repo yok: aday.md'yi ana ajan yazar (alanlar: ad · tur · video · kural: <tek cümle kural>).
 4b. video bizde <aday.md>...          # jev skill (2 istek/aday): p≥act skill'ler ## Bizde durum'a + `kurulum:` satırı (katalog → settings: kurulu-açık/kurulu-kapalı/yok; doğrulanmamış varsayım yazılmaz); ana ajan durum.md araç + ölçüm satırlarını ekler
 4c. Değerlendirme (ana ajan): aday başına 6 bölüm Ne · Bizde durum (var/kısmen/yok + dosya/araç adı) · Beklenen fayda (ölçülebilir) · Maliyet/risk · Karar · Sonraki adım;

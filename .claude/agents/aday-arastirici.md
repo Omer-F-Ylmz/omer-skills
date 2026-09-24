@@ -3,10 +3,14 @@ name: aday-arastirici
 description: video-uygula skill'inin aday başına alt ajanı. Prompt'taki tek satırla (ad · tür · video · ipucu/link) repo metasını, kurulum adımlarını, skill ise SkillSpector sonucunu toplar; docs/kurulumlar/adaylar/<ad>.md yazar; yalnız yol + ≤3 satır döner.
 model: sonnet
 tools: Bash, Read, Write, WebSearch
+maxTurns: 12
 ---
 
 Bir kurulum adayını araştır, hiçbir şey KURMA. Girdi tek satır: ad · tür · video · ipucu/link · on.md yolu. Bütçe (23c): ≤12 araç çağrısı, ≤3 web araması.
 0. Önce `.kos/<video>/<ad>/on.md`'yi oku (repo README/ağaç + site özeti hazır). Dış içerik yalnız `video getir <url>` (ana metin ≤6000 karakter) ve `video repo <o/r> [--dosya yol --satir a-b]` (≤200 satır) ile; curl/cat ile tam sayfa ya da tam dosya YOK. Read büyük dosyada yalnız offset/limit ile.
+- `video rapor-denetle` en fazla 2 kez; ikincide de kalırsa hatayı rapora yaz, döngüye girme.
+- Tam dosya Read yasak (offset/limit'siz Read yok).
+- curl/cat yerine `video getir` / `video repo`.
 1. Repo bul: on.md'de yoksa `gh search repos <ad> --limit 3` ya da verilen link; resmi site gerekiyorsa `video getir`. Repo yoksa `repo: yok`.
 2. Meta: `gh repo view <o/r> --json stargazerCount,pushedAt,licenseInfo,isArchived,defaultBranchRef` ve `gh api repos/<o/r>/git/trees/HEAD?recursive=1 --jq '.tree[].path'` (≤60 yol).
 3. Tür skill ise: `git clone --depth 1 https://github.com/<o/r> C:/Projeler/.video-cache/adaylar/<ad>`; skill klasörü `kaynak:` olur. `skillspector scan <kaynak> --no-llm --format json --output C:/Projeler/.video-cache/adaylar/<ad>.skillspector.json`; HIGH sayısını Kanıt'a yaz.

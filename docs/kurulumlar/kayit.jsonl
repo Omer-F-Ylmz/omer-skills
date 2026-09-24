@@ -40,3 +40,14 @@
 {"ad": "prompt-teknoloji-dosya", "katman": "T0", "yargi": "KUR", "karar": "ONAY kural prompt-teknoloji-dosya", "tarih": "2026-09-24", "video": "JfmAm3sxCSc", "kanal": "Yıldız Dikme", "sponsor": false, "kaynak_commit": null, "geri_alma": "rm docs/kurulumlar/bekleyen/kural-prompt-teknoloji-dosya.md", "departman": "frontend"}
 {"ad": "merkezi-config", "katman": "T0", "yargi": "KUR", "karar": "ONAY kural merkezi-config", "tarih": "2026-09-24", "video": "JfmAm3sxCSc", "kanal": "Yıldız Dikme", "sponsor": false, "kaynak_commit": null, "geri_alma": "rm docs/kurulumlar/bekleyen/kural-merkezi-config.md", "departman": "frontend"}
 {"ad": "prompt-turkce-cevirt", "katman": "-", "yargi": "ÖĞREN", "karar": "kart yazıldı: bilgi/prompt-turkce-cevirt.md", "tarih": "2026-09-24", "video": "JfmAm3sxCSc", "kanal": "Yıldız Dikme", "sponsor": false, "kaynak_commit": null, "geri_alma": "-", "departman": "belge"}
+{"ad": "caveman-oz", "departman": "verimlilik", "duzeltme": "departman", "satir": 24, "tarih": "2026-09-24"}
+{"ad": "girdi-duzenek", "departman": "uygulanamaz (işlem kaydı)", "duzeltme": "departman", "satir": 25, "tarih": "2026-09-24"}
+{"ad": "headroom-ayar", "departman": "uygulanamaz (işlem kaydı)", "duzeltme": "departman", "satir": 26, "tarih": "2026-09-24"}
+{"ad": "caveman", "departman": "verimlilik", "duzeltme": "departman", "satir": 27, "tarih": "2026-09-24"}
+{"ad": "caveman-proxy", "departman": "verimlilik", "duzeltme": "departman", "satir": 28, "tarih": "2026-09-24"}
+{"ad": "caveman-compress", "departman": "verimlilik", "duzeltme": "departman", "satir": 29, "tarih": "2026-09-24"}
+{"ad": "caveman-learn", "departman": "verimlilik", "duzeltme": "departman", "satir": 30, "tarih": "2026-09-24"}
+{"ad": "headroom-okuma", "departman": "uygulanamaz (işlem kaydı)", "duzeltme": "departman", "satir": 31, "tarih": "2026-09-24"}
+{"ad": "headroom-hiz", "departman": "uygulanamaz (işlem kaydı)", "duzeltme": "departman", "satir": 32, "tarih": "2026-09-24"}
+{"ad": "prompt-teknoloji-dosya", "katman": "T0", "yargi": "KUR", "karar": "madde eklendi: 25. site/UI yapım promptlarında: Site/arayüz yaptırırken prompt'ta kullanılacak kütüphaneleri ve dosya yapısını (hangi dosya neyi taşır) açıkça yaz.", "tarih": "2026-09-24", "video": "JfmAm3sxCSc", "kanal": "Yıldız Dikme", "sponsor": false, "kaynak_commit": null, "geri_alma": "omer-kurallar.md:27 satırını sil", "departman": "frontend", "kapsam": "site/UI yapım promptlarında"}
+{"ad": "merkezi-config", "katman": "T0", "yargi": "KUR", "karar": "madde eklendi: 26. 3D/animasyonlu sahnelerde: Ayarlanabilir sahne parametrelerini (görsel sayısı, hız, boşluk) tek bir CONFIG nesnesi/dosyasında topla; prompt'ta bunu iste.", "tarih": "2026-09-24", "video": "JfmAm3sxCSc", "kanal": "Yıldız Dikme", "sponsor": false, "kaynak_commit": null, "geri_alma": "omer-kurallar.md:28 satırını sil", "departman": "frontend", "kapsam": "3D/animasyonlu sahnelerde"}

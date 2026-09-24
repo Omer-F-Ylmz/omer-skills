@@ -21,6 +21,8 @@ claude.ai'de: bu belge okuma rehberidir (sandbox'ta `video` yok); tek video içi
 6. Sohbete: toplu'nun çıktısı (≤25 satır: video başına 1 satır + adaylar işaretiyle) + "atlandı: N" + "ertelendi: id…" + tahmini maliyet.
 ```
 
+Videoda site/UI yapım promptu görünürse (ekranda ya da anlatımda) alt ajan onu `tur: prompt` aday olarak yazar (m:ss ile); prompt metni kopyalanmaz, anatomisi video-uygula'da çıkarılır.
+
 Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dönüşü dışında rapor gövdesi okumaz.
 
 ## Süzgeç varsayılanı: kapalı (12b ölçümü)
