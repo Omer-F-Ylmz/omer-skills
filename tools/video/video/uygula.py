@@ -6,7 +6,7 @@ import shutil
 import subprocess
 import sys
 import zipfile
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 from jev import cekirdek as c
@@ -53,6 +53,15 @@ def bakim_red(a, bugun, t2=False):
     if (bugun - son).days > 365:
         return f"12 aydır commit yok ({son})"
     return None
+
+
+ARAC = {"skill", "plugin", "mcp", "cli", "hook", "uygulama"}
+
+
+def arac_mu(a, metin):
+    """24a K4: araç = kurulabilir paket/CLI/MCP/plugin/skill; repo ya da yapılandırılmış kurulum satırı yoksa teknik/kavram."""
+    return (a.get("tur") or "").casefold() in ARAC and (a.get("repo", "yok") not in ("", "yok")
+                                                        or bool(re.search(r"^- \w+:\s*\S", tr.bolum(metin, "Kurulum"), re.M)))
 
 
 def md_disi(dosyalar):
@@ -203,17 +212,34 @@ def kanit(o, a, metin, kok, env):
 def ozellik_karar(o, a, metin, kok, env):
     """(karar, gerekçe). 17 K4: karar yoksa DENE; token etiketli özellikte kanıtsız RED → DENE."""
     k, g = o.get("karar") if o.get("karar") in og.KARAR else "DENE", o.get("gerekce", "")
+    if k == "DENE" and "yarım" in a.get("arastirma", ""):  # 24a K1: yarım araştırmaya DENE verilmez
+        return "ÖĞREN", f"K1: araştırma yarım, DENE verilmez ({g or '-'})"
     if k == "RED" and "token" in o.get("etiket", "").casefold() and not kanit(o, a, metin, kok, env):
         return "DENE", f"K4: kanıt bulunamadı — RED({g or 'gerekçesiz'}) → DENE"
     return k, g
 
 
+def uyarla_alan(kok, o):
+    """24a K6: fikir · hedef · etki · kapsam alan satırından ya da `gerekce` içindeki `anahtar: değer` parçalarından; fikir yoksa `ne`,
+    hedef yoksa gerekçede anılan repo skill'i; eksik alan 'aday.md'de yok'. hedef_tur: alan > skill adı/`skill` > talimat."""
+    g = {x[1]: x[2] for p in o.get("gerekce", "").split(" · ") if (x := ALAN.match(p.strip()))}
+    al = {k: o.get(k) or g.get(k) for k in ("fikir", "hedef", "etki", "kapsam")}
+    al["fikir"] = al["fikir"] or o.get("ne")
+    sk_ = sorted((d.name for d in (Path(kok) / "skills").iterdir() if d.is_dir()), key=len, reverse=True) if (Path(kok) / "skills").is_dir() else []
+    s = next((x for x in sk_ if re.search(rf"(?<![\w-]){re.escape(x)}(?![\w-])", f"{al['hedef'] or ''} {o.get('gerekce', '')}")), None)
+    al["hedef"] = al["hedef"] or (f"skills/{s} (gerekçede anılan)" if s else None)
+    h = al["hedef"] or ""
+    tur = o.get("hedef_tur") or ("skill" if s or re.search(r"(?i)skill", h) else "talimat" if re.search(r"(?i)talimat|CLAUDE\.md", h) else "")
+    return {**{k: v or "aday.md'de yok" for k, v in al.items()}, "hedef_tur": tur}
+
+
 def uyarla_yaz(kok, o, ad):
     """17 K3: fikir kendi araçlarımıza uygulanır; yalnız doküman, kod yazılmaz (Desktop tarif verir)."""
+    al = uyarla_alan(kok, o)
     y = Path(kok) / "docs" / "uyarlamalar" / f"{ad}.md"
     y.parent.mkdir(parents=True, exist_ok=True)
     y.write_text(f"# Uyarlama: {ad}\n\n17 K3 · kod yazılmaz; Desktop tarif verir\n\n" + "".join(
-        f"## {b}\n{o.get(k) or '?'}\n\n" for b, k in (("Fikir", "fikir"), ("Hedef araç/dosya", "hedef"), ("Beklenen etki", "etki"), ("Kapsam", "kapsam"))),
+        f"## {b}\n{al[k]}\n\n" for b, k in (("Fikir", "fikir"), ("Hedef araç/dosya", "hedef"), ("Beklenen etki", "etki"), ("Kapsam", "kapsam"))),
         encoding="utf-8")
     return f"uyarlama: docs/uyarlamalar/{ad}.md"
 
@@ -244,22 +270,57 @@ def sina(kok, ad, metin, sinama, eksik):
 
 
 def brief(ns, ctx):
-    """17 K7: Desktop ikinci görüş girdisi, ≤60 satır: özellik kararları · iddialar · linkler."""
-    metin = Path(ns.rapor).read_text(encoding="utf-8")
-    t = tr.tablolar(tr.bolum(metin, "İDDİA SINAMA"))
-    idd = [f"- {s[0]} → {s[2]} ({s[1]})" for s in (t[0][1] if t else []) if len(s) >= 3]
-    oz = [s for s in tr.bolum(metin, "ÖZELLİK KARARLARI").splitlines() if s.startswith("- ")]
+    """17 K7: Desktop ikinci görüş girdisi, ≤60 satır. Uygula raporu: özellik kararları · departman · iddia sınama.
+    24a K7 tarama raporu (`## Adaylar`): aday tablosu · departman (kayit.jsonl, o video) · İddialar · Site/UI · prompt anatomisi (o videonun aday.md'leri).
+    Kaynağı boş bölüm '- yok (…)' yazar; başlık boş kalmaz."""
+    metin, kok = Path(ns.rapor).read_text(encoding="utf-8"), Path(ctx["env"].get("VIDEO_UYGULA_KOK") or KOK)
+    tablo = lambda b: (tr.tablolar(tr.bolum(metin, b)) or [([], [])])[0][1]  # noqa: E731
     link = list(dict.fromkeys(re.findall(r"https?://[^\s|)]+", metin)))
-    dep = [s for s in tr.bolum(metin, "DEPARTMAN").splitlines() if s.startswith("- ")]
-    print("\n".join([f"# brief: {Path(ns.rapor).name}", "## Özellik kararları", *oz[:25], "## Departman", *dep[:10],
-                     "## İddialar", *idd[:20],
-                     "## Linkler", *[f"- {x}" for x in link[:9]]]))
+    if tr.bolum(metin, "Adaylar").strip():
+        vid = (re.search(r"youtu(?:\.be/|be\.com/watch\?v=)([\w-]{11})", metin) or [None, ""])[1]
+        son = tr.kayit_son(tr.kayit_oku(kok / "docs" / "kurulumlar" / "kayit.jsonl"))
+        adaylar = [y.read_text(encoding="utf-8") for y in sorted((kok / "docs" / "kurulumlar" / "adaylar").glob("*.md"))]
+        b = [("Adaylar", [f"- {s[0]} · {s[2]} · {s[4]} ({s[5]})" for s in tablo("Adaylar") if len(s) >= 6][:15], "raporda aday yok"),
+             ("Departman", [f"- {k['ad']} → {k['departman']} · {k.get('yargi', '-')}" for k in son.values() if k.get("video") == vid and k.get("departman")][:8],
+              "kayit.jsonl'de bu videonun kararı yok"),
+             ("İddialar", [f"- {s[0]} ({s[1]} · {s[2]})" for s in tablo("İddialar") if len(s) >= 3][:10], "raporda iddia yok"),
+             ("Site/UI", [f"- {s[0]} · {s[2]} · bizde: {s[3]}" for s in tablo(tr.SITE_UI) if len(s) == 4][:6], "raporda site/UI tekniği yok"),
+             ("Prompt anatomisi", [f"- {x['kalip']} · {x['zaman']} · şablon: {x['sablon']}" for m in adaylar if alanlar(m).get("video") == vid
+                                   for x in kaliplar(m, vid)][:8], "bu videonun prompt adayı yok")]
+    else:
+        b = [("Özellik kararları", [s for s in tr.bolum(metin, "ÖZELLİK KARARLARI").splitlines() if s.startswith("- ")][:25], "raporda yok"),
+             ("Departman", [s for s in tr.bolum(metin, "DEPARTMAN").splitlines() if s.startswith("- ")][:10], "raporda yok"),
+             ("İddialar", [f"- {s[0]} → {s[2]} ({s[1]})" for s in tablo("İDDİA SINAMA") if len(s) >= 3][:20], "raporda yok")]
+    print("\n".join([f"# brief: {Path(ns.rapor).name}", *[s for ad, x, yok in b for s in [f"## {ad}", *(x or [f"- yok ({yok})"])]],
+                     "## Linkler", *([f"- {x}" for x in link[:6]] or ["- yok"])]))
     return 0
 
 
-def _departman(kok, jev, ad, a, metin, depl, envantere=True):
-    """19 K5: yeni araç → departman (KUR/UYARLA envanter + katalog); 23 K2: karar ne olursa olsun departman; rapor DEPARTMAN bölümü."""
-    dep, p = (dp.dosyala if envantere else dp.sinifla)(kok, jev, ad, a.get("tur") or "skill", " ".join(tr.bolum(metin, "Ne").split())[:dp.ACIKLAMA])
+ESDEGER_Q = "Videodan gelen bu adayın (state: ad: ne) ana işini yapan bir araç listede var mı? Varsa onu seç; hiçbiri yapmıyorsa yok."
+
+
+def esdeger(kok, jev, ad, ne, dep):
+    """24a K8: aynı departman kataloğundan Ne ile en çok kelime paylaşan 5 araç → tek Jev choice. (araç, p) ya da None (yok/katalog boş)."""
+    w = lambda s: set(re.findall(r"\w{3,}", s.casefold()))  # noqa: E731
+    liste = sorted((x for x in dp._json(Path(kok) / "docs" / "departmanlar" / "envanter.json") or []
+                    if x.get("departman") == dep and tr.normal(x["ad"].split(":")[-1]) != tr.normal(ad)),
+                   key=lambda x: -len(w(ne) & w(f"{x['ad']} {x.get('aciklama', '')}")))[:5]
+    if not liste:
+        return None
+    kr = {**{x["ad"]: (x.get("aciklama") or x["tur"])[:dp.ACIKLAMA] for x in liste}, "yok": "hiçbiri bu adayın ana işini yapmıyor"}
+    try:
+        y = jev().yargila([f"{ad}: {ne}"], {"es": {"type": "choice", "instructions": ESDEGER_Q, "criteria": kr}})[0] or {}
+    except c.JevHata:
+        return None
+    pr = {k: v for k, v in ((y.get("es") or {}).get("probabilities") or {}).items() if k != "yok"}
+    return max(pr.items(), key=lambda z: z[1]) if pr else None
+
+
+def _departman(kok, jev, ad, a, metin, depl, envantere=True, onceki=None):
+    """19 K5: yeni araç → departman (KUR/UYARLA envanter + katalog); 23 K2: karar ne olursa olsun departman; rapor DEPARTMAN bölümü.
+    24a K8: eşdeğer için önceden sınıflandıysa (onceki) ikinci Jev isteği yok."""
+    ne = " ".join(tr.bolum(metin, "Ne").split())[:dp.ACIKLAMA]
+    dep, p = dp.dosyala(kok, jev, ad, a.get("tur") or "skill", ne, onceki) if envantere else onceki or dp.sinifla(kok, jev, ad, a.get("tur") or "skill", ne)
     depl.append(f"{ad} → {dep} ({p:.2f})")
     return dep
 
@@ -387,7 +448,7 @@ def katman(ns, ctx):
     kayit, bugun, tk = tr.kayit_oku(ky), date.today(), None
     gorulen = {tr.normal(k.get("aday") or k["ad"]) for k in kayit}
     oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama, depl, uret_ = ([] for _ in range(15))
-    n = 8 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1) + departman 1
+    n = 9 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1) + departman 1 + eşdeğer 1
 
     def jev():
         nonlocal tk
@@ -407,16 +468,25 @@ def katman(ns, ctx):
         if prompt_mu(metin):  # 23c K7: prompt anatomisi → site prompt kütüphanesi (Jev 0)
             ps = prompt_isle(kok, ad, metin)
             ogrenilen.append(f"{ad}: prompt anatomisi → docs/departmanlar/frontend-promptlar.md · " + " · ".join(f"{k} {v}" for k, v in ps.items()))
-        if oz := ozellikler(metin):  # 17 K3: özellik düzeyi; aday bütün olarak tartılmaz
+        oz, on_dep, es = ozellikler(metin), None, None
+        if (any(o.get("karar") == "KUR" for o in oz) if oz else a.get("karar") in (None, "KUR")) and arac_mu(a, metin) and not a.get("red"):
+            ne = " ".join(tr.bolum(metin, "Ne").split())[:dp.ACIKLAMA]  # 24a K8: işlevsel eşdeğer, aday başına 1 istek
+            on_dep = dp.sinifla(kok, jev, ad, a.get("tur") or "skill", ne)
+            es = esdeger(kok, jev, ad, ne, on_dep[0])
+        isaret = f" · işaret: olası eşdeğer {es[0]} (p {es[1]:.2f})" if es and 0.4 <= es[1] < 0.6 else ""
+        if oz:  # 17 K3: özellik düzeyi; aday bütün olarak tartılmaz
             yeni, satir = [], []
             for o in oz:
                 yk, g = ozellik_karar(o, a, metin, kok, env)
+                if yk == "KUR" and es and es[1] >= 0.6:
+                    yk, g = "ZATEN VAR", f"K8 işlevsel eşdeğer: {es[0]} (p {es[1]:.2f}); kurulum yok"
+                elif yk == "KUR":
+                    g += isaret
                 oa, o = f"{ad}-{o['ozellik']}", {**({"video": a["video"]} if a.get("video") else {}), **o}
                 if yk == "UYARLA":
-                    karar = uyarla_yaz(kok, o, oa)
-                    h = o.get("hedef", "")
-                    if (o.get("hedef_tur") or ("skill" if re.search(r"(?i)skill", h) else "talimat" if re.search(r"(?i)talimat|CLAUDE\.md", h) else "")) in ("skill", "talimat"):
-                        uret_.append(f"{oa} · kaynak {ad}/{o['ozellik']} · fayda: {o.get('etki') or '?'} · maliyet: claude -p ≤24 · ≈${24 * CAGRI_USD:.2f} · `ÜRET {oa}`")
+                    karar, al = uyarla_yaz(kok, o, oa), uyarla_alan(kok, o)
+                    if al["hedef_tur"] in ("skill", "talimat"):  # 24a K6: hedef aday.md alanlarından
+                        uret_.append(f"{oa} · kaynak {ad}/{o['ozellik']} · hedef: {al['hedef']} · fayda: {al['etki']} · maliyet: claude -p ≤24 · ≈${24 * CAGRI_USD:.2f} · `ÜRET {oa}`")
                 elif yk == "DENE":
                     if "token" in o.get("etiket", "").casefold() and "token" not in (o.get("metrik") or "").casefold():
                         o["metrik"] = "girdi/çıktı token (K4 zorunlu) · " + (o.get("metrik") or "?")
@@ -436,7 +506,7 @@ def katman(ns, ctx):
                 yeni.append({"ad": f"{ad}/{o['ozellik']}", "aday": ad, "ozellik": o["ozellik"], "yargi": yk, "karar": karar, "gerekce": g,
                              "tarih": bugun.isoformat(), "video": a.get("video"), "kanal": kanal, "sponsor": sponsor})
             sina(kok, ad, metin, sinama, eksik)  # özelliklerden sonra: aynı koşuda yazılan ÖĞREN kartı da not alabilsin
-            dep = _departman(kok, jev, ad, a, metin, depl, any(k["yargi"] in ("KUR", "UYARLA") for k in yeni))
+            dep = _departman(kok, jev, ad, a, metin, depl, any(k["yargi"] in ("KUR", "UYARLA") for k in yeni), on_dep)
             yeni = [{**k, "departman": dep} for k in yeni]
             videodan.setdefault((dep, "Videodan gelen"), []).extend(f"- {k['ad']} · {k['yargi']} · video {k.get('video') or '?'}" for k in yeni)
             ozet.append((sponsor, f"{ad} → özellik düzeyi: " + " · ".join(f"{o['ozellik']} {k['yargi']}" for o, k in zip(oz, yeni))))
@@ -445,6 +515,8 @@ def katman(ns, ctx):
             eklenen += yeni  # 23c: append-only; okuma kayit_son ile
             continue
         yargi = a.get("karar") if a.get("karar") in og.KARAR else "KUR"  # karar alanı yoksa 14a yolu
+        if yargi == "DENE" and "yarım" in a.get("arastirma", ""):  # 24a K1
+            yargi = "ÖĞREN"
         if a.get("karar") and yargi != "RED" and (x := [b for b in ALTI if not tr.bolum(metin, b).strip()]):
             eksik.append(f"{ad}: {', '.join(x)}")
         commit, kt, karar, geri = None, "-", "", "-"
@@ -459,6 +531,10 @@ def katman(ns, ctx):
                     onay.append(karar.split(" · ")[0])
                     if "ÇELİŞKİ" in karar:
                         celiski.append(f"{ad} ↔ {karar.split('ÇELİŞKİ (', 1)[1][:-1]}: {a.get('kural') or ad}")
+        if yargi == "KUR" and kt == "-" and not arac_mu(a, metin):  # 24a K4: teknik/kavram lisans kapısına girmez
+            yargi = "ÖĞREN"
+        elif yargi == "KUR" and kt == "-" and es and es[1] >= 0.6:  # 24a K8
+            yargi, a = "ZATEN VAR", {**a, "gerekce": f"K8 işlevsel eşdeğer: {es[0]} (p {es[1]:.2f}); kurulum yok"}
         if yargi == "ÖĞREN":
             karar, cel = og.ogren(jev(), kok, a, ad, bugun, _kurallar(ctx)[1])
             if cel:
@@ -500,7 +576,9 @@ def katman(ns, ctx):
             elif kt == "RED":
                 yargi = "RED"
                 red.append(f"{ad} — {karar}")
-        dep = _departman(kok, jev, ad, a, metin, depl, yargi in ("KUR", "UYARLA") and kt != "T0")
+            if yargi == "KUR":
+                karar += isaret
+        dep = _departman(kok, jev, ad, a, metin, depl, yargi in ("KUR", "UYARLA") and kt != "T0", on_dep)
         videodan.setdefault((dep, "Videodan gelen"), []).append(f"- {ad} · {yargi} · video {a.get('video') or '?'}")
         ozet.append((sponsor, f"{ad} → {yargi}{' (sponsor)' if sponsor else ''} — {karar}"))
         rapor.append((sponsor, [f"## {ad} → {yargi}{' · sponsor' if sponsor else ''}", f"- Sonuç: {karar}"]
@@ -516,8 +594,10 @@ def katman(ns, ctx):
     bolumler = (("ÖZELLİK KARARLARI", ozk), ("ÖĞRENİLENLER", ogrenilen), ("ÇELİŞKİLER (otomatik eklenmedi, Ömer karar verir)", celiski), ("DENENECEKLER", dene),
                 ("ÜRETİLEBİLİR", uret_), ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("DEPARTMAN", depl), ("YENİDEN DOĞRULA (bayat kart)", bayat))
     tam = kd / f"{bugun.isoformat()}-uygula.md"
-    if rapor:  # sponsor adayları düşük öncelik: sona
-        tam.write_text("\n".join([f"# video-uygula — {bugun.isoformat()}", ""] + [s for _, r in sorted(rapor, key=lambda x: x[0]) for s in r]
+    if rapor:  # sponsor adayları düşük öncelik: sona; 24a K5: aynı gün ikinci koşu ezmez, `## Koşu N` olarak eklenir
+        eski = tam.read_text(encoding="utf-8").rstrip("\n") if tam.is_file() else ""
+        bas = [eski, "", f"## Koşu {eski.count(chr(10) + '## Koşu ') + 2} — {datetime.now():%H:%M}", ""] if eski else [f"# video-uygula — {bugun.isoformat()}", ""]
+        tam.write_text("\n".join(bas + [s for _, r in sorted(rapor, key=lambda x: x[0]) for s in r]
                                  + [s for b, x in bolumler if x for s in [f"## {b}"] + [f"- {y}" for y in x] + [""]]
                      + (["## İDDİA SINAMA", "| iddia | kaynak | sonuç | not |", "|---|---|---|---|"]
                         + [f"| {s['iddia']} | {s['kaynak']} | {s['sonuc']} | {s['not']} |" for s in sinama] + [""] if sinama else [])

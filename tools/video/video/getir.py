@@ -1,14 +1,18 @@
 """23c K2: araştırıcıya tam sayfa/tam dosya girmez. getir: sayfa → ana metin (gezinme/altbilgi atılır) + bağlantılar, üst sınırlı ve önbellekli.
 repo: gh api ile README ilk 120 satır · ağaç derinlik 2 · istenen dosyanın ≤200 satırı. on: ikisini .kos/<video>/<ad>/on.md'ye yazar."""
 import hashlib
+import json
 import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin
 
+from . import tarama as tr
+from .metin import sn
+
 ATLA = {"script", "style", "nav", "footer", "header", "aside", "noscript", "svg", "form"}
-README, AGAC, DOSYA, BAGLANTI = 120, 80, 200, 30
+README, AGAC, DOSYA, BAGLANTI, PROMPT = 120, 80, 200, 30, 4000
 
 
 class _Ayikla(HTMLParser):
@@ -97,8 +101,24 @@ def repo(ad, dosya=None, satir=None, kos=None):
     return "\n".join([f"# {ad}", "## README", *kes_satir(readme, README), "", "## Ağaç (derinlik 2)", *kes_satir(agac, AGAC)]) + "\n"
 
 
-def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al):
-    """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar."""
+def prompt_metni(rapor, seg):
+    """24a K2: tarama raporu Adaylar'ında tür=prompt satırı → zamanından sonraki ilk `## Bölümler` zamanına kadar paket altyazısı (≤4000, kesildi)."""
+    satir = [s for s in (tr.tablolar(tr.bolum(rapor, "Adaylar")) or [([], [])])[0][1] if len(s) >= 7 and s[2].casefold() == "prompt"]
+    if not satir:
+        return "## Prompt metni\nyok (raporda tür=prompt aday yok)\n"
+    bol = sorted(sn(z) for z in tr.ZAMAN.findall(tr.bolum(rapor, "Bölümler")))
+    segs = [json.loads(x) for x in Path(seg).read_text(encoding="utf-8").splitlines() if x.strip()] if seg and Path(seg).is_file() else []
+    out = ["## Prompt metni", "kaynak: tarama raporu tür=prompt satırı + paket altyazısı; araştırıcı prompt aramaz, buradan okur"]
+    for s in satir:
+        t = sn(s[5]) if tr.ZAMAN.fullmatch(s[5]) else 0.0
+        son = next((b for b in bol if b > t), float("inf"))
+        metin = " ".join(" ".join(x["metin"]) if isinstance(x["metin"], list) else x["metin"] for x in segs if t <= x["bas"] < son)
+        out += [f"### {s[0]} · {s[5]}", f"ekran: {s[6]}", kes(metin, PROMPT) if metin else "altyazı yok (paket segmentleri bulunamadı)", ""]
+    return "\n".join(out)
+
+
+def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None):
+    """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar. 24a K2: rapor → prompt metni."""
     y = Path(kok) / ".kos" / video / ad / "on.md"
     y.parent.mkdir(parents=True, exist_ok=True)
     parca = [f"# ön getirme: {ad} · video {video}"]
@@ -106,5 +126,7 @@ def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al):
         parca.append(repo(repo_ad, kos=kos))
     if url:
         parca.append(getir(url, cache=cache, al=al))
+    if rapor:
+        parca.append(prompt_metni(Path(rapor).read_text(encoding="utf-8"), seg))
     y.write_text("\n".join(parca), encoding="utf-8")
     return y

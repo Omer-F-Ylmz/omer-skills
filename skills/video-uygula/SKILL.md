@@ -16,7 +16,8 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 3. Seçim (ana ajan): toplu tablodaki UYGULA + BEKLE adaylarından en fazla 5; ölçüt projeler.md + dört ölçüt
    (bakım · CC'de çift mi · izin kapsamı · context maliyeti). Aday başına 1 satır gerekçe. Dört ölçütte düşen: aday.md'ye `red: <gerekçe>`.
 4. Araştırma: araç adayı (skill/plugin/MCP/CLI/hook/uygulama) başına bir Agent (subagent_type: aday-arastirici — sonnet), ≤3 eşzamanlı. Tanım yüklü değilse (oturum ortasında eklendiyse) general-purpose'a DÜŞME: DUR, yeni oturum; `video ajan-denetle` rc 0 olmalı.
-   Önce ana ajan: `video on <video> <ad> [--repo o/r] [--url u]` → .kos/<video>/<ad>/on.md (repo README/ağaç + site özeti); araştırıcı dış içeriği buradan okur.
+   Önce ana ajan: `video on <video> <ad> [--repo o/r] [--url u] [--rapor <tarama.md>]` → .kos/<video>/<ad>/on.md (repo README/ağaç + site özeti); araştırıcı dış içeriği buradan okur. `tur: prompt` adayda `--rapor` zorunlu: tür=prompt satırının zamanından paket altyazısıyla prompt metni (≤4000, kesildi) on.md'ye; araştırıcı prompt aramaz.
+   24a: araştırıcı 1. çağrıda iskelet, ≤9. çağrıda kapanış; tur tavanında `arastirma: yarım: …` işaretli döner, katman DENE vermez.
    Prompt tek satır: `ad: <kebab> · tür: <tür> · video: <id> · ipucu: <tablodaki ne işe yarar / link> · on: <on.md yolu>`. Çıktı docs/kurulumlar/adaylar/<ad>.md.
    `tur: prompt` aday (videoda gösterilen site yapım promptu): aday.md `## Prompt anatomisi` taşır (rapor-denetle zorunlu); katman kalıpları docs/departmanlar/frontend-promptlar.md kütüphanesine (video + zaman zorunlu) yazar, şablonda olmayan bölüm UYARLA bekleyen/prompt-*.md.
    İpucu/iş akışı adayında araştırılacak repo yok: aday.md'yi ana ajan yazar (alanlar: ad · tur · video · kural: <tek cümle kural>).
@@ -55,7 +56,9 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 
 ## Derin inceleme (17)
 - Birim araç değil özellik: aday.md `## Özellikler` (`### <slug>` + ne · kurulum · lisans · etiket · karar · gerekce) varsa `video katman` her özelliği ayrı karara bağlar; kayıt `{ad: aday/özellik, aday, ozellik, yargi, karar, gerekce}`.
-- UYARLA: aracı kurmadan fikri kendi aracımıza → docs/uyarlamalar/<aday>-<özellik>.md (fikir · hedef · beklenen etki · kapsam); kod yazılmaz, Desktop tarif verir.
+- UYARLA: aracı kurmadan fikri kendi aracımıza → docs/uyarlamalar/<aday>-<özellik>.md (fikir · hedef · beklenen etki · kapsam); kod yazılmaz, Desktop tarif verir. 24a: alanlar alan satırından ya da `gerekce` içindeki `anahtar: değer` parçalarından (fikir yoksa `ne`, hedef yoksa gerekçede anılan skill); eksik alan "aday.md'de yok".
+- 24a araç/teknik: araç = tür skill/plugin/MCP/CLI/hook/uygulama VE repo ya da `## Kurulum` satırı; değilse KUR yolu (lisans kapısı) yerine ÖĞREN. Araç adayının KUR'u için aynı departman envanterinden en yakın 5 araç → Jev choice (1 istek): p≥0.6 ZATEN VAR (eşdeğer adıyla, kurulum yok) · 0.4–0.6 KUR + "işaret: olası eşdeğer".
+- 24a rapor: aynı gün ikinci `video katman` koşusu raporu ezmez, `## Koşu N` olarak ekler. `video brief <tarama raporu>`: aday tablosu · departman (kayıt) · İddialar · Site/UI · prompt anatomisi; boş kaynak "- yok (…)".
 - 23b: UYARLA özelliğine `hedef_tur: skill|talimat|arac-ayari` yazılır (yoksa hedef metninden: SKILL.md/skill → skill, talimat/CLAUDE.md → talimat). skill/talimat olanlar rapora `## ÜRETİLEBİLİR`: ad · kaynak özellik · beklenen fayda · tahmini maliyet (claude -p ≤24, $). Araç ayarı görünmez.
 - Token etiketli özellik varsayılan DENE (deneme dosyasında token metriği zorunlu). RED yalnız kanıtla: `ölçüm:` var olan docs/denemeler/*-sonuc.md · `zaten var:` katalog/durum.md adı ya da var olan dosya · `güvenlik:`/`lisans:` aday dosyasındaki bulgu. Kanıt yoksa DENE + "K4: kanıt bulunamadı".
 - Lisans: izinli liste yalnız T1 (repoya kopyalama). T2'de kaynak-erişilebilir (BSL-1.1, FSL, Elastic-2.0) RED değil, lisans notu. `telemetri: açık` ise `## Telemetri kapatma` yoksa biçim hatası.

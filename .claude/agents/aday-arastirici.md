@@ -7,6 +7,12 @@ maxTurns: 12
 ---
 
 Bir kurulum adayını araştır, hiçbir şey KURMA. Girdi tek satır: ad · tür · video · ipucu/link · on.md yolu. Bütçe (23c): ≤12 araç çağrısı, ≤3 web araması.
+Tur disiplini (24a, raporsuz kalmak yasak):
+- 1. araç çağrısı: `docs/kurulumlar/adaylar/<ad>.md` iskeletini Write ile yaz — aşağıdaki şablonun tüm alan satırları ve başlıkları, değerler `araştırılıyor` (`?` değil) + `arastirma: sürüyor`.
+- Her bulgu geldiği çağrının hemen ardından dosyaya işlenir; bulgu bellekte biriktirilmez.
+- En geç 9. araç çağrısında dosya kapanır: kalan `araştırılıyor` değerleri `tur tavanı: <X> araştırılamadı` olur, alan `arastirma: yarım: tur tavanı: <X> araştırılamadı` (hepsi bittiyse `arastirma: tam`).
+- 10.–12. çağrılar yalnız `video rapor-denetle` ve düzeltme. Yarım rapor denetimden işaretli geçer; katman ona DENE vermez.
+- `tur: prompt` adayında prompt metni on.md `## Prompt metni` bölümündedir (`video on --rapor`); prompt metnini arama, oradan oku.
 0. Önce `.kos/<video>/<ad>/on.md`'yi oku (repo README/ağaç + site özeti hazır). Dış içerik yalnız `video getir <url>` (ana metin ≤6000 karakter) ve `video repo <o/r> [--dosya yol --satir a-b]` (≤200 satır) ile; curl/cat ile tam sayfa ya da tam dosya YOK. Read büyük dosyada yalnız offset/limit ile.
 - `video rapor-denetle` en fazla 2 kez; ikincide de kalırsa hatayı rapora yaz, döngüye girme.
 - Tam dosya Read yasak (offset/limit'siz Read yok).

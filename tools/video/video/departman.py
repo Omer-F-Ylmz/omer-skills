@@ -198,11 +198,11 @@ def sinifla(kok, jev, ad, tur, aciklama):
         return "diger", 0.0
 
 
-def dosyala(kok, jev, ad, tur, aciklama):
-    """katman: KUR/UYARLA aracı sınıflar, envantere kaynak=katman."""
+def dosyala(kok, jev, ad, tur, aciklama, onceki=None):
+    """katman: KUR/UYARLA aracı sınıflar, envantere kaynak=katman. onceki: aynı koşuda zaten sınıflandıysa (dep, p)."""
     d = Path(kok) / "docs" / "departmanlar"
     x = {"ad": ad, "tur": tur, "aciklama": aciklama}
-    dep, p = sinifla(kok, jev, ad, tur, aciklama)
+    dep, p = onceki or sinifla(kok, jev, ad, tur, aciklama)
     kaydet(kok, [e for e in _json(d / "envanter.json") or [] if (e["tur"], e["ad"]) != (tur, ad)]
            + [{**x, "hash": _hash(ad, aciklama), "departman": dep, "p": p, "kaynak": "katman"}])
     return dep, p

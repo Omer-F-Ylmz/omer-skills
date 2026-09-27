@@ -491,10 +491,11 @@ def _sozluk_doldur(ctx, yol, metin):
 
 def rapor_denetle(ns, ctx):
     if tr.bolum(ham := Path(ns.rapor).read_text(encoding="utf-8"), "Özellikler").strip() or uy.prompt_mu(ham):  # 20b-devam K6 · 23c K7: aday raporu
+        yarim = "yarım" in uy.alanlar(ham).get("arastirma", "")  # 24a K1: tur tavanı; geçerli ama işaretli, katman DENE vermez
         for x in (h := uy.mekanizma_denetle(ham) + uy.anatomi_denetle(ham)):
-            print(x)
-        print(f"rapor-denetle (aday): {'GEÇTİ' if not h else f'{len(h)} hata'}")
-        return 1 if h else 0
+            print(("yarım: " if yarim else "") + x)
+        print("rapor-denetle (aday): " + (f"GEÇTİ (araştırma yarım, işaretli; {len(h)} eksik)" if yarim else "GEÇTİ" if not h else f"{len(h)} hata"))
+        return 1 if h and not yarim else 0
     metin = _sozluk_doldur(ctx, ns.rapor, Path(ns.rapor).read_text(encoding="utf-8"))
     sure = _sure(ctx, ns.rapor, metin)
     h = tr.denetle(metin, sure)
@@ -605,6 +606,15 @@ def _top(y, k):
     return max(pr, key=pr.get) if pr else "?"
 
 
+def _kural_bekleyen(bk, x, etiket):
+    """24a K3: t0 biçimi (başlık + ad · madde · kaynak) — `alanlar()` başlık satırını atlar, `video kural-onay` madde/kaynak okur."""
+    bk.mkdir(parents=True, exist_ok=True)
+    y = bk / f"kural-{_slug(x['ad'])}.md"
+    y.write_text(f"# ONAY kural {_slug(x['ad'])}\nad: {x['ad']}\nmadde: {x['ad']}{' — ' + x['not'] if x['not'] else ''}\nkaynak: {x['video']} ({etiket})\n",
+                 encoding="utf-8")
+    return y
+
+
 def yeniden(ns, ctx):
     """VİDEO-YENİDEN-1: eski (≤--son, etiketsiz) raporların kalemleri bugünkü hattan; izleme · araştırıcı · claude -p yok.
     Jev: video içerik türü (1 batch) · kalem tür/kural-olgu/token/departman (batch) · araç olmayana kural_esle (≤2/kalem, tavanlı)."""
@@ -688,8 +698,7 @@ def yeniden(ns, ctx):
     bk = kok / "docs" / "kurulumlar" / "bekleyen"
     for x in kal:
         if x["karar"] == "KURAL":
-            bk.mkdir(parents=True, exist_ok=True)
-            (bk / f"kural-{_slug(x['ad'])}.md").write_text(f"madde: {x['ad']}{' — ' + x['not'] if x['not'] else ''}\nkaynak: {x['video']} (yeniden:{bugun})\n", encoding="utf-8")
+            _kural_bekleyen(bk, x, f"yeniden:{bugun}")
     tr.kayit_ekle(d / "kayit.jsonl", [{"id": v["id"], "tarih": bugun, "rapor": f"../kurulumlar/yeniden/{bugun}-toplu.md", "adaylar": [x["ad"] for x in v["kalem"]], "ele": [],
                                         "etiket": f"yeniden:{bugun}", "tur": v["tur"], "puan": v["puan"], "kararlar": {x["ad"]: x["karar"] for x in v["kalem"]}} for v in vids])
     print(f"{cikti} · {len(vids)} video · {len(kal)} kalem · Jev istek {t.istek}/{ns.istek_tavan}")
@@ -728,9 +737,8 @@ def _yeniden_duzelt(vids, kal, onceki, t, ns, d, kok, bugun):
         f.write("\n".join(L))
     bk = kok / "docs" / "kurulumlar" / "bekleyen"
     for x in kal:
-        if x["karar"] == "KURAL" and not (y := bk / f"kural-{_slug(x['ad'])}.md").exists():
-            bk.mkdir(parents=True, exist_ok=True)
-            y.write_text(f"madde: {x['ad']}{' — ' + x['not'] if x['not'] else ''}\nkaynak: {x['video']} (yeniden:{bugun}b)\n", encoding="utf-8")
+        if x["karar"] == "KURAL" and not (bk / f"kural-{_slug(x['ad'])}.md").exists():
+            _kural_bekleyen(bk, x, f"yeniden:{bugun}b")
     tr.kayit_ekle(d / "kayit.jsonl", satir)
     print(f"düzeltme: {len(kal)} kalem · sahte {len(sahte)} · {len(satir)} video · Jev istek {t.istek}/{ns.istek_tavan} · ilk 15 {'aynı' if eski15 == yeni15 else 'değişti'}")
     return 0
@@ -747,7 +755,8 @@ def repo_(ns, ctx):
 
 
 def on_(ns, ctx):
-    y = gt.on(Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK), ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir")
+    y = gt.on(Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK), ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir",
+              rapor=ns.rapor, seg=ctx["kok"] / ns.video / "segmentler.jsonl")
     print(f"on: {y} · ~{c.token(y.read_text(encoding='utf-8'))} token")
     return 0
 
@@ -870,6 +879,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("aday")
     x.add_argument("--repo")
     x.add_argument("--url")
+    x.add_argument("--rapor", help="24a K2: tarama raporu; tür=prompt satırının zamanından paket altyazısıyla prompt metni (≤4000) on.md'ye")
     x = alt.add_parser("onay", help="bekleyen/<ad>.md yapılandırılmış adımlar → kur · duman · başarısızsa geri alma; yalnız CC, köprüde yok")
     x.add_argument("ad")
     x.add_argument("--kuru", action="store_true", help="hiçbir şey koşmaz, planı yazar")
