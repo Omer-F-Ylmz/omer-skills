@@ -79,6 +79,8 @@ def ayikla(metin):
 ICERIK = ("site/UI yapımı", "prompt/şablon paylaşımı", "token/verimlilik", "araç/skill tanıtımı", "iş akışı", "diğer")
 KANIT = re.compile(r"lisans|ücret|login|ölç|zaten", re.I)  # 17 K4: RED gerekçesi kanıta bağlı mı (not metninde)
 MADDE_ESKI = re.compile(r"^- (.+?) → (ZATEN VAR|[A-ZÇĞİÖŞÜ]{3,})\b\s*(.*)$")
+# 1b: yalnız bilinen etiketler; `→ CLAUDE.md` / `→ DESIGN.md` / `→ API anahtarları` hedef dosya ya da adımdır, etiket değil
+ETIKET_ESKI = {"ZATEN VAR", "ELE", "ELENDİ", "ADAY", "BİLGİ", "INFO", "KUR", "TETİKLEYİCİ", "ÇİFT", "DENE", "RED", "ÖĞREN", "UYARLA", "KURAL"}
 
 
 def eski_kalemler(metin):
@@ -88,9 +90,30 @@ def eski_kalemler(metin):
         if bas[0].casefold() == "ad":
             out += [(h[0], (g := dict(zip(bas, h))).get("durum", ""), g.get("etiket", ""), g.get("not", "")) for h in satirlar if h[0]]
     for s in metin.splitlines():
-        if x := MADDE_ESKI.match(s):
+        if (x := MADDE_ESKI.match(s)) and x[2] in ETIKET_ESKI:
             out.append((x[1].strip(), "", x[2], x[3].strip(" ()")))
     return out
+
+
+def sahte_kalemler(metin):
+    """1b: VİDEO-YENİDEN-1'in aday sandığı maddeler (bilinmeyen büyük harf etiket); silinmez, `sahte` işaretlenir."""
+    return [x[1].strip() for s in metin.splitlines() if (x := MADDE_ESKI.match(s)) and x[2] not in ETIKET_ESKI]
+
+
+def envanter_sozluk(envanter):
+    """1b K1: departman envanteri (plugin · skill · MCP · CLI; `p:ad` önekli ve claude.ai senkron adlar dahil) → [(ad, "envanter:<tür>")]."""
+    return [(e["ad"], f"envanter:{e['tur']}") for e in envanter]
+
+
+def arac_esle(ad, envanter, sozluk):
+    """1b K1: önce tam envanter, yoksa sözlük (yalnız DIS kaynak). Ad ` / ` ve virgülle parçalanır: `impeccable / front end ...`.
+    Parça yalnız boşluksuz ad/takma addır (≥3 karakter); parantez içi açıklama (`Fable (Claude model…)`) eşleşmeye girmez."""
+    ic, dis = re.findall(r"\(([^()]*)\)", ad), re.sub(r"\([^()]*\)", " ", ad)
+    parca = [ad] + [p for p in (x.strip() for x in re.split(r"\s/\s|,", dis) + ic) if p and " " not in p and len(normal(p)) >= 3]
+    for s in (envanter, [x for x in sozluk if x[1] in DIS]):
+        if es := max((e for p in parca if (e := eslestir(p.strip(), s))), key=lambda e: e[2], default=None):
+            return es
+    return None
 
 
 def yeni_karar(x):

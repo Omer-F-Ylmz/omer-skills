@@ -76,6 +76,13 @@ def test_arac_esle_tam_envanter():
     assert tr.yeni_karar(_x(etiket="ADAY", es=None))[0] == "DENE"
 
 
+def test_arac_esle_parantez_aciklamasi_ad_sayilmaz():
+    s = tr.envanter_sozluk(ENV + [{"ad": "claude-mem", "tur": "plugin"}, {"ad": "mobai", "tur": "mcp"}])
+    assert tr.arac_esle("Fable (Claude model…)", s, []) is None                # açıklama metni eşleşmeye girmez
+    assert tr.arac_esle("mob.ai (MobAI-App/mobai-mcp)", s, [])                 # tek parça takma ad girer
+    assert tr.arac_esle("impeccable / front end design yeteneği", s, [])[0] == "impeccable"
+
+
 SAHTE = """## kalemler
 - Context7 → ZATEN VAR
 - mob.ai (MobAI-App/mobai-mcp) → TETİKLEYİCİ · koşul: iOS/Android mobil proje başlarsa
@@ -120,7 +127,7 @@ def test_yalniz_yalniz_verilen_kalemler(tmp_path, monkeypatch, capsys):
                  else {"type": "noul", "noul": 0.0} for k, v in q.items()} for _ in states]
     monkeypatch.setattr(c.Tasiyici, "yargila", yargila)
     env = {"VIDEO_TARAMA_DIZIN": str(d), "VIDEO_UYGULA_KOK": str(kok), "VIDEO_EV": str(tmp_path / "ev"),
-           "VIDEO_CACHE": str(tmp_path / "c"), "VIDEO_KURALLAR": str(tmp_path / "yok.md")}
+           "VIDEO_CACHE": str(tmp_path / "c"), "VIDEO_KURALLAR": str(tmp_path / "yok.md"), "TYPESAFE_API_KEY": "sahte-anahtar-000"}
     assert main(["yeniden", "--yalniz", str(tmp_path / "liste.txt"), "--istek-tavan", "20"], env=env) == 0
     assert not any("başka" in s for s in goren) and not any("kural metni" in s for s in goren) and len(goren) == 2
     b = (d / "kayit.jsonl").read_text(encoding="utf-8")

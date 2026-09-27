@@ -613,8 +613,11 @@ def yeniden(ns, ctx):
     kayit = tr.kayit_oku(d / "kayit.jsonl")
     env_ = {h[0]: h for _, rs in tr.tablolar((d / "00-envanter.md").read_text(encoding="utf-8")) for h in rs} if (d / "00-envanter.md").is_file() else {}
     vids, kal = [], []
+    # 1b: --yalniz <dosya> (satır: id<TAB>ad) → yalnız o kalemler; video türü ve kalan kararlar önceki yeniden satırından
+    yal = {tuple(s.split("\t", 1)) for s in Path(ns.yalniz).read_text(encoding="utf-8").splitlines() if "\t" in s} if ns.yalniz else None
+    onceki = tr.kayit_son([k for k in kayit if str(k.get("etiket", "")).startswith("yeniden:")], "id")
     for k in kayit:
-        if k["tarih"] > ns.son or k.get("etiket") or k["id"] == "JfmAm3sxCSc":
+        if k["tarih"] > ns.son or k.get("etiket") or k["id"] == "JfmAm3sxCSc" or (yal is not None and k["id"] not in {i for i, _ in yal}):
             continue
         m_ = (d / k["rapor"]).read_text(encoding="utf-8")
         e = env_.get(k["id"])
@@ -624,12 +627,17 @@ def yeniden(ns, ctx):
              "kare_zayif": "Kareden okunanlar" not in m_ or "yalnız ekranda" in m_,
              "ozet": next((s for s in m_.splitlines() if s.startswith("ana iddia:")), m_[:300])}
         v["kalem"] = [{"ad": a, "durum": du, "etiket": et, "not": no, "video": k["id"]} for a, du, et, no in tr.eski_kalemler(m_)]
+        if yal is not None:
+            v["kalem"] = [x for x in v["kalem"] if (k["id"], x["ad"]) in yal]
+            v["sahte"] = [{"ad": a, "durum": "", "etiket": "", "not": "", "video": k["id"], "karar": "SAHTE", "gerekce": "sahte aday: → hedef dosya/adım, etiket değil",
+                           "celiski": False, "token": False} for a in tr.sahte_kalemler(m_) if (k["id"], a) in yal]
+            v["tur"] = onceki[k["id"]]["tur"]
         vids.append(v)
         kal += v["kalem"]
     t = c.Tasiyici(env=ctx["env"], en_fazla=10 ** 5, gonder=ctx["gonder"], istek_tavan=ns.istek_tavan)
     soru = {"tur": {"type": "choice", "instructions": "Bu YouTube videosunun (state: başlık · özet · kalemler) ana içerik türü hangisi?",
                     "criteria": {x: x for x in tr.ICERIK}}}
-    for v, y in zip(vids, t.yargila([f"{v['baslik']}\n{v['ozet']}\nkalemler: {', '.join(x['ad'] for x in v['kalem'])}" for v in vids], soru)):
+    for v, y in zip(vids, t.yargila([f"{v['baslik']}\n{v['ozet']}\nkalemler: {', '.join(x['ad'] for x in v['kalem'])}" for v in vids], soru) if yal is None else []):
         v["tur"] = _top(y, "tur")
     sk_ = {"tur": {"type": "choice", "instructions": "Videodan çıkan bu kalem (state) ne?", "criteria": ARAC_TUR},
            "ko": {"type": "choice", "instructions": og.TUR_SORU, "criteria": og.TUR_OLCUT},
@@ -638,12 +646,11 @@ def yeniden(ns, ctx):
         x["tur"], x["ko"], x["departman"] = _top(y, "tur"), _top(y, "ko"), dp.sec(y or {})[0]
         x["token"] = ((y or {}).get("token") or {}).get("noul", 0) >= 0.5
     ev = _ev(ctx)
-    sozluk = tr.sozluk_kur(ev, [])
+    sozluk, envanter = tr.sozluk_kur(ev, []), tr.envanter_sozluk(tr._json(kok / "docs" / "departmanlar" / "envanter.json") or [])
     kl = tr.kurallar(tr.kural_kaynaklari(ctx["env"], ev) + [kok / "skills" / "web-sahne-desenleri" / "SKILL.md", kok / "docs" / "departmanlar" / "frontend-promptlar.md"],
                      ctx["kok"] / "kurallar-yeniden.json")
     for x in kal:
-        es = tr.eslestir(x["ad"], sozluk)
-        x["es"], x["kural"] = es if es and es[1] in tr.DIS else None, None
+        x["es"], x["kural"] = tr.arac_esle(x["ad"], envanter, sozluk), None
         if x["tur"] != "araç" and not x["es"]:
             if t.istek + 2 > ns.istek_tavan:
                 x["sorulmadi"] = True
@@ -651,6 +658,8 @@ def yeniden(ns, ctx):
                 x["kural"] = tr.kural_esle(t, f"İPUCU: {x['ad']}\n{x['tur']}: {x['not']}", kl)
         x["karar"], x["gerekce"] = ("SORULMADI", "istek tavanı") if x.get("sorulmadi") else tr.yeni_karar(x)
         x["celiski"] = not x.get("sorulmadi") and tr.celiski_mi(x)
+    if yal is not None:
+        return _yeniden_duzelt(vids, kal, onceki, t, ns, d, kok, bugun)
     for v in vids:
         v["puan"] = tr.puan({"tur": v["tur"], "kararlar": [x["karar"] for x in v["kalem"]], "token": sum(x["token"] for x in v["kalem"]), "kare_zayif": v["kare_zayif"]})
     # çıktı
@@ -685,6 +694,47 @@ def yeniden(ns, ctx):
                                         "etiket": f"yeniden:{bugun}", "tur": v["tur"], "puan": v["puan"], "kararlar": {x["ad"]: x["karar"] for x in v["kalem"]}} for v in vids])
     print(f"{cikti} · {len(vids)} video · {len(kal)} kalem · Jev istek {t.istek}/{ns.istek_tavan}")
     return 0
+
+def _yeniden_duzelt(vids, kal, onceki, t, ns, d, kok, bugun):
+    """1b: --yalniz sonucu → önceki yeniden raporuna '## Düzeltme (1b)' eki + kayıt satırı (etiket önceki+'b', append-only).
+    Puan Δ = 2·(DENE+UYARLA farkı); token sınıfı değişmedi varsayılır (aynı soru, aynı kalem)."""
+    from collections import Counter
+    DU, h = ("DENE", "UYARLA"), (lambda s: str(s).replace("|", "/"))
+    ch, satir, sahte = [], [], [x for v in vids for x in v["sahte"]]
+    for v in vids:
+        o, yeni = onceki[v["id"]], {x["ad"]: x for x in v["kalem"] + v["sahte"]}
+        ch += [(o["kararlar"].get(a, "?"), x["karar"], x) for a, x in yeni.items()]
+        satir.append({"id": v["id"], "tarih": bugun, "rapor": o["rapor"], "adaylar": o["adaylar"], "ele": [], "etiket": o["etiket"] + "b", "tur": v["tur"],
+                      "puan": o["puan"] + 2 * sum((x["karar"] in DU) - (o["kararlar"].get(a) in DU) for a, x in yeni.items()),
+                      "kararlar": {**o["kararlar"], **{a: x["karar"] for a, x in yeni.items()}}, "sahte": [x["ad"] for x in v["sahte"]]})
+    son = {**onceki, **{s["id"]: s for s in satir}}
+    sira = lambda z: [i for i, _ in sorted(((i, r) for i, r in z.items() if "puan" in r), key=lambda p: (-p[1]["puan"], p[0]))[:15]]  # noqa: E731
+    eski15, yeni15 = sira(onceki), sira(son)
+    dene = sum(k == "DENE" for i in yeni15 for k in son[i]["kararlar"].values())
+    L = ["", f"## Düzeltme (1b) — {bugun}", "",
+         f"`video yeniden --yalniz`: {len(kal)} kalem Jev'e soruldu + {len(sahte)} sahte işaretlendi · izleme 0 · araştırıcı 0 · claude -p 0 · "
+         f"Jev istek {t.istek} (tavan {ns.istek_tavan}) · etiket {satir[0]['etiket'] if satir else '-'} · araç eşleştirme: tam departman envanteri, yoksa sözlük", "",
+         "### Eski → yeni (yeniden koşulanlar)", *[f"- {a} → {b}: {n}" for (a, b), n in Counter((a, b) for a, b, _ in ch).most_common()], "",
+         "### Değişen kararlar", "| ad | video | eski | yeni | gerekçe |", "|---|---|---|---|---|",
+         *[f"| {h(x['ad'][:90])} | {x['video']} | {a} | {b} | {h(x['gerekce'])} |" for a, b, x in ch if a != b and b != "SAHTE"], "",
+         f"### Sahte aday: {len(sahte)} (işaretli `sahte`, silinmedi; `- madde → CLAUDE.md / DESIGN.md / API …` hedefi etiket sanılmıştı)",
+         *[f"- {x['video']}: {h(x['ad'][:90])} (eski {a})" for a, b, x in ch if b == "SAHTE"], "",
+         "### İlk 15 (1b puanı)", "| id | eski puan | yeni puan | durum |", "|---|---|---|---|",
+         *[f"| {i} | {onceki[i]['puan']} | {son[i]['puan']} | {'yeni giren' if i not in eski15 else ''} |" for i in yeni15],
+         *([f"- çıkan: {i} ({onceki[i]['puan']} → {son[i]['puan']})" for i in eski15 if i not in yeni15] or ["- liste değişmedi"]), "",
+         "### Maliyet (1b)", "- tarayıcı: 15 × ~75k = ~1.13M token (değişmedi)",
+         f"- araştırıcı: ilk 15'te DENE {dene} × ~30k = ~{dene * 0.03:.2f}M token (önceki varsayım 15 × 2 = 30 aday)", ""]
+    with (kok / "docs" / "kurulumlar" / "yeniden" / Path(satir[0]["rapor"] if satir else "yok.md").name).open("a", encoding="utf-8") as f:
+        f.write("\n".join(L))
+    bk = kok / "docs" / "kurulumlar" / "bekleyen"
+    for x in kal:
+        if x["karar"] == "KURAL" and not (y := bk / f"kural-{_slug(x['ad'])}.md").exists():
+            bk.mkdir(parents=True, exist_ok=True)
+            y.write_text(f"madde: {x['ad']}{' — ' + x['not'] if x['not'] else ''}\nkaynak: {x['video']} (yeniden:{bugun}b)\n", encoding="utf-8")
+    tr.kayit_ekle(d / "kayit.jsonl", satir)
+    print(f"düzeltme: {len(kal)} kalem · sahte {len(sahte)} · {len(satir)} video · Jev istek {t.istek}/{ns.istek_tavan} · ilk 15 {'aynı' if eski15 == yeni15 else 'değişti'}")
+    return 0
+
 
 def getir_(ns, ctx):
     print(gt.getir(ns.url, ns.n, ctx["kok"] / "getir"), end="")
@@ -807,6 +857,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x = alt.add_parser("yeniden", help="VİDEO-YENİDEN-1: eski raporların kalemleri bugünkü hattan (izleme/araştırıcı/claude -p yok) → docs/kurulumlar/yeniden/<tarih>-toplu.md")
     x.add_argument("--son", default="2026-09-18", help="bu tarihe kadarki etiketsiz kayıt satırları")
     x.add_argument("--istek-tavan", type=int, default=600)
+    x.add_argument("--yalniz", metavar="DOSYA", help="1b: yalnız bu kalemler (satır: id<TAB>ad); etiket önceki+'b', rapora '## Düzeltme (1b)' eki")
     x = alt.add_parser("getir", help="23c K2: sayfa → ana metin (gezinme/altbilgi atılır) başlık + ilk N karakter + bağlantılar; önbellek getir/")
     x.add_argument("url")
     x.add_argument("--n", type=int, default=6000)
