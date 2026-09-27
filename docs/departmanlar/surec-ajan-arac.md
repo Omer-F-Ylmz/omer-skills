@@ -95,5 +95,7 @@ Müdür: `departman-surec-ajan-arac`
 - ozel-skill-olusturma · ZATEN VAR · video jf1sv2geEWo
 - php-artisan-make-enum · RED · video jf1sv2geEWo
 - pint · RED · video jf1sv2geEWo
+- paralel-terminal-ile-çoklu-görev-takibi · KUR · video Gg35_iQWx7g
+- plugin-ile-model-listesine-model-ekleme · ÖĞREN · video Gg35_iQWx7g
 
 ## Elle

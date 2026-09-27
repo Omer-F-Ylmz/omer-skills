@@ -94,6 +94,11 @@ Müdür: `departman-frontend`
 - threejs-spiral-gallery/gsap-scroll-reveal-hmr · UYARLA · video JfmAm3sxCSc
 - prompt-teknoloji-dosya · KUR · video JfmAm3sxCSc
 - merkezi-config · KUR · video JfmAm3sxCSc
+- 3d-perspective-detayını-prompt-ta-açıkça · KUR · video NyNScAc2u_o
+- design-system-ui-kit-paneli · RED · video jGJ09wdTGDI
+- görselleri-public-klasörüne-koyup-ai-a-a · KUR · video NyNScAc2u_o
+- prompt-u-i-ngilizce-yazma · ÖĞREN · video jGJ09wdTGDI
+- renk-paleti-ve-font-ailesini-prompt-başı · KUR · video NyNScAc2u_o
 
 ## Teknikler
 
@@ -103,5 +108,20 @@ Müdür: `departman-frontend`
 - Hover'da görsele parallax/geri kayma · UYARLA · video JfmAm3sxCSc · 8:09 sözlü anlatım (görsel kare yok)
 - Büyük serif italik başlık tipografisi + kontrast renk paneli · UYARLA · video JfmAm3sxCSc · 1:31 k00091_0.jpg, 5:36 k00336_0.jpg, 7:38 k00458_0.jpg
 - Kademeli (staggered) satır/blok belirmesi (scroll top 80% eşiği) · UYARLA · video JfmAm3sxCSc · 6:37 k00397_0.jpg "Practice rows revealed in staggered fashion as they each crossed top 80%"
+- 3D dairesel (ring) galeri kart dizilimi, transform-style:preserve-3d · UYARLA · video NyNScAc2u_o · k00030_0.jpg 0:30; k00374_0.jpg 6:14 kod (CORE GEOMETRY, transform-origin orbit)
+- Scroll'a bağlı saat yönü/ters yönü dönüş · UYARLA · video NyNScAc2u_o · [3:37] "when I scroll, it will rotate clockwise and counterclockwise"; k00374 kod (rotationZ:angleOf(card))
+- Hover'da kart yumuşak kayma/uzaklaşma geçişi · UYARLA · video NyNScAc2u_o · [0:00] "when I hover over the cards there's a very smooth transition"; k00030/k00476
+- Mouse Y eksenine bağlı galeri parallax hareketi · UYARLA · video NyNScAc2u_o · [3:37] "when I move up and down with the mouse, the gallery will respond"; k00374 kod (PARALLAX 4 sabiti)
+- Dönerek açılan yükleme ekranı (loader→intro akışı) · UYARLA · video NyNScAc2u_o · [6:44] "there's a loading screen... bring in the 3D gallery by rotating"; k00434 kare metni "loader->intro flow"
+- Masaüstü/mobil için tek kod tabanında ayrı davranış (breakpoint) · UYARLA · video NyNScAc2u_o · [6:44] mobil/tablet/masaüstü ayrımı; k00374 kod (MOBILE breakpoint max-width:768px)
+- Merkezde sabit başlık, hover'da kart odaklı bilgi değişimi · UYARLA · video NyNScAc2u_o · [2:37] "the website's name will be in the center... when hover, cards will change"; k00030/k00476
+- Prompt'tan tam site (React component'ler) üretimi · UYARLA · video jGJ09wdTGDI · 4:18 · k00438_0.jpg dosya listesi
+- Component bazlı dosya mimarisi (Nav.jsx, ProductCard.jsx, Primitives.jsx...) · UYARLA · video jGJ09wdTGDI · 7:18 · k00438_0.jpg
+- Tasarım token sistemi (spacing, corner radii, elevation, renk paleti) · UYARLA · video jGJ09wdTGDI · 9:23 · k00563_0.jpg
+- İkonografi kütüphanesi · UYARLA · video jGJ09wdTGDI · 9:23 · k00563_0.jpg
+- Tipografi: display + UI + mono font üçlüsü (Cormorant Garamond + Inter + JetBrains Mono) · UYARLA · video jGJ09wdTGDI · 7:18 · k00438_0.jpg (colors_and_type.css)
+- Renk paleti tokenlaştırma (obsidian/emerald/champagne-gold) · UYARLA · video jGJ09wdTGDI · 7:18 · k00438_0.jpg
+- Responsive breakpoint testi (mobile/tablet/desktop) · UYARLA · video jGJ09wdTGDI · 11:24 · k00684_0.jpg
+- CSS Grid ile yerleşim · UYARLA · video jGJ09wdTGDI · 11:24 · k00684_0.jpg (grid-template-columns kodu)
 
 ## Elle

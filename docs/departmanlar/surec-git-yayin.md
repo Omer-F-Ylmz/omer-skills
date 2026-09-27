@@ -31,4 +31,8 @@ Müdür: `departman-surec-git-yayin`
 | superpowers:finishing-a-development-branch | skill | Use when implementation is complete, all tests pass, and you need to decide how to integr… | Use when implementation is complete, all tests pass, and you need to decide how to integr… | - |
 | superpowers:using-git-worktrees | skill | Use when starting feature work that needs isolation from current workspace or before exec… | Use when starting feature work that needs isolation from current workspace or before exec… | Commit |
 
+## Videodan gelen
+
+- projeyi-sürekli-github-a-yükleme · KUR · video Gg35_iQWx7g
+
 ## Elle

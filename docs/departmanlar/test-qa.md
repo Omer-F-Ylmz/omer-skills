@@ -61,5 +61,6 @@ Müdür: `departman-test-qa`
 ## Videodan gelen
 
 - pest · RED · video jf1sv2geEWo
+- chrome-devtools-cihaz-araç-çubuğu-ile-re · KUR · video jGJ09wdTGDI
 
 ## Elle

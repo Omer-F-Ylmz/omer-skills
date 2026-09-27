@@ -44,5 +44,8 @@ Müdür: `departman-verimlilik`
 - caveman/cavecrew · UYARLA · video ?
 - caveman/calisma-kaliplari · ÖĞREN · video ?
 - caveman/trial · UYARLA · video ?
+- 15-20-mesajda-yeni-sohbete-geç · KUR · video JNM_rxqtlvY
+- düzeltme-yerine-edit-regenerate · KUR · video JNM_rxqtlvY
+- soruları-tek-mesajda-topla · KUR · video JNM_rxqtlvY
 
 ## Elle
