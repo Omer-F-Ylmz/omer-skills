@@ -78,3 +78,12 @@ Yöntem: kalan 17 madde `kural_esle` ile global CLAUDE.md (21 dilim) + omer-kura
 - dosya: tek-buton-bileşeni · kaynak: EezLdmm8l1c
 - madde (kapsam: site/UI yapımında): Bütün butonlar tek bileşenden varyantla türetilir; hover/focus/active o bileşende.
 - öneri: ONAYLA — frontend-craft Bölüm 3 durumları ister, tek bileşen şartı yok.
+
+## Karar (24 Eyl)
+Ömer kararı, 2026-09-28'de uygulandı (VİDEO-PARTİ-A K0). RED dosyaları silinmedi (ONAYLA'larda `video kural-onay` kendi bekleyenini siler).
+- ONAYLA: K6 → omer-kurallar:27 (kapsam: canlı linki olan sitelerde) · K14 → omer-kurallar:28 (kapsam: birden çok alana dokunan işlerde).
+- ONAYLA, hedef frontend: K3 · K16 → skills/departman-frontend `## Yapım promptu şablonu` (dokunulmaz · bileşen satırları) + frontend-craft 1.5.7 Bölüm 4 kabul maddeleri (CHANGELOG.md).
+- BİRLEŞTİR: K15 → omer-kurallar:10 iterasyon cümlesi.
+- RED (Ömer, 24 Eyl): K1 K2 K4 K5 K7 K8 K9 K10 K11 K12 K13 — K5 gerekçesi: 17 Eyl ölçümü, ayrı denetçi ajan aşırı doğrulama üretiyor; canlı E2E K6'da.
+- Kayıt: docs/kurulumlar/kayit.jsonl +17 satır (ONAY 2 · frontend 2 · BİRLEŞTİR 1 · RED 12 dosya/11 küme).
+- Not: `video yeniden`in yazdığı bekleyen kural dosyalarında başlık satırı yok → `kural-onay` KeyError('madde'); K6/K14 dosyalarına `# ONAY kural <slug>` + `ad:` elle eklendi, yazıcı düzeltmesi sonraki dalgaya.

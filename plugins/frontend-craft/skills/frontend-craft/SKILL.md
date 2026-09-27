@@ -82,6 +82,8 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Etkileşim durum + cihaz başına tarif edilir (hover/focus/active × masaüstü/dokunmatik); hover ya da mouse'a bağlı efektin dokunmatikte karşılığı olur (dokunma durumu ya da kendiliğinden hareket).
 - Etkileşim kabulü davranış cümlesiyle yazılır ("menü butonuna tıklanınca panel açılır, Esc kapatır") ve gerçek tarayıcıda tıklanarak doğrulanır. Araç: claude-in-chrome varsa o, yoksa puppeteer; sıra: yükle → keşfet → selector → aksiyon → console kaydı.
 - Kırık link 0.
+- Butonlar (site/UI yapımında): bütün butonlar tek bileşenden varyantla türetilir; hover/focus/active o bileşende tanımlıdır, sayfada tek tek buton stili yok (video EezLdmm8l1c, Ömer onayı 24 Eyl).
+- Hazır tasarım promptu mevcut siteye uygulanırken: dokunulmaz alanlar (ör. hero, mevcut animasyonlar) adıyla listelenir; prompttan yalnız ilgili bölüm alınır, loading ekranı ve port satırı gibi alakasız kısımlar çıkarılır (video QGyKyFcqyDE, Ömer onayı 24 Eyl).
 - Dış tasarım aracı (Claude Design, 21st) çıktısı görsel optimizasyon + audit'ten geçmeden teslim edilmez.
 - Prod teslim (kullanıcı "prod"/"yayın" dediğinde): Tailwind CDN kaldırılır → `npx @tailwindcss/cli -i src/input.css -o wwwroot/css/site.css --minify`; `audit.mjs <url> prod` PASS.
 - Prod teslimde ayrıca: sayfa başına `title` + meta description · favicon · manifest · `robots.txt` · `sitemap.xml` · footer'da KVKK/gizlilik + çerez onayı · kullanıcı hesabı olan sitelerde footer'da "hesabımı sil" (KVKK). REF'te referansta yoksa eklenmez, eksik olarak raporlanır.

@@ -27,13 +27,15 @@ Katalog: `docs/departmanlar/frontend.md` · yaşam döngüsü: `docs/departmanla
 - Kütüphane yalnız omer-kutuphaneler rafından, gerekçesiz eklenmez.
 
 ## Yapım promptu şablonu
-Site/UI'ı başka bir ajana (ya da alt ajana) yaptırırken prompt bu altı satırı taşır. Kural kapsamları: omer-kurallar:25 "site/UI yapım promptlarında" (teknoloji + dosya) · omer-kurallar:26 "3D/animasyonlu sahnelerde" (config); küçük işte "en basit çözüm" önde. Videolardan çıkan kalıplar: `docs/departmanlar/frontend-promptlar.md`.
+Site/UI'ı başka bir ajana (ya da alt ajana) yaptırırken prompt bu satırları taşır. Kural kapsamları: omer-kurallar:25 "site/UI yapım promptlarında" (teknoloji + dosya) · omer-kurallar:26 "3D/animasyonlu sahnelerde" (config); küçük işte "en basit çözüm" önde. Videolardan çıkan kalıplar: `docs/departmanlar/frontend-promptlar.md`.
 - teknoloji: kütüphane + sürüm (ör. Three.js r160, GSAP 3.12, Lenis 1.1, Vite 5); yalnız omer-kutuphaneler rafından.
 - dosya: dosya başına tek sorumluluk (ör. main.js sahne · style.css tipografi · config.js parametreler).
 - config: ayarlanabilir sahne parametreleri (görsel sayısı, hız, boşluk) tek CONFIG nesnesi/dosyasında; yalnız 3D/animasyonlu sahnede.
 - hareket: animasyon terimleriyle tarif (scroll reveal, stagger, parallax, easing, süre); prefers-reduced-motion karşılığı.
 - asset: görsel/video/font listesi, oran ve ton (ör. 12 dikey fotoğraf, koyu arka plan); yoksa üretim yolu.
 - kabul: ölçülebilir kabul (ör. 60 fps, 390/768/1440 taşma yok, axe 0 hata, LCP sayısı).
+- dokunulmaz: hazır tasarım promptu mevcut siteye uygulanırken dokunulmaz alanlar adıyla (ör. hero, mevcut animasyonlar); prompttan yalnız ilgili bölüm alınır (K3, 24 Eyl).
+- bileşen: bütün butonlar tek bileşenden varyantla; hover/focus/active o bileşende (K16, 24 Eyl).
 
 ## Çakışma
 - İki skill aynı kararı veriyorsa üstteki kazanır (sıra yukarıda); DESIGN.md her skill'den önce gelir.
