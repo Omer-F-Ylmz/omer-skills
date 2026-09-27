@@ -7,6 +7,7 @@ Müdür: `departman-surec-ajan-arac`
 
 | araç | tür | ne işe yarar | ne zaman | sıradaki adım |
 |---|---|---|---|---|
+| skills-cli | CLI | GitHub/GitLab/Azure Repos repolarından tek komutla Agent Skill kurar, 79+ ajana (Claude C… | - | - |
 | bun | cli | - | - | - |
 | bunx | cli | - | - | - |
 | jev | cli | - | - | Doğrulama |
@@ -97,5 +98,7 @@ Müdür: `departman-surec-ajan-arac`
 - pint · RED · video jf1sv2geEWo
 - paralel-terminal-ile-çoklu-görev-takibi · KUR · video Gg35_iQWx7g
 - plugin-ile-model-listesine-model-ekleme · ÖĞREN · video Gg35_iQWx7g
+- skills-cli/skill-kurma · KUR · video Gg35_iQWx7g
+- skills-cli/gecici-kullan · KUR · video Gg35_iQWx7g
 
 ## Elle

@@ -7,6 +7,7 @@ Müdür: `departman-verimlilik`
 
 | araç | tür | ne işe yarar | ne zaman | sıradaki adım |
 |---|---|---|---|---|
+| claude-usage | CLI | `~/.claude/projects/**/*.jsonl` oturum loglarını yerelde okuyup sqlite'a (`~/.claude/usag… | - | - |
 | headroom | cli | - | - | Keşif |
 | rtk | cli | - | - | Büyük içerik |
 | headroom | mcp | - | - | Keşif |
@@ -47,5 +48,8 @@ Müdür: `departman-verimlilik`
 - 15-20-mesajda-yeni-sohbete-geç · KUR · video JNM_rxqtlvY
 - düzeltme-yerine-edit-regenerate · KUR · video JNM_rxqtlvY
 - soruları-tek-mesajda-topla · KUR · video JNM_rxqtlvY
+- claude-usage/terminal-ozet · KUR · video JNM_rxqtlvY
+- claude-usage/web-dashboard · DENE · video JNM_rxqtlvY
+- claude-usage/vscode-entegrasyonu · ZATEN VAR · video JNM_rxqtlvY
 
 ## Elle

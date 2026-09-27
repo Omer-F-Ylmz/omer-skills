@@ -810,6 +810,24 @@
   "kaynak": "jev"
  },
  {
+  "ad": "jgj0-claude-design-promptu",
+  "tur": "prompt",
+  "aciklama": "Claude Design'a (claude.ai/design, hosted SaaS) tek doğal-dil promptuyla komple bir e-ticaret sitesi (saat markası: video arkaplan + ürün görselleri + stil dosyaları + renk paleti + component ağacı) ü",
+  "hash": "badf275c133ed253",
+  "departman": "frontend",
+  "p": 0.99,
+  "kaynak": "katman"
+ },
+ {
+  "ad": "nyns-3d-galeri-promptu",
+  "tur": "prompt",
+  "aciklama": "Yıldız Dikme'nin CLOU (Unseen Studio, Awwwards SOTD 2022) mimarlık sitesinden ilham alıp Claude'a verdiği 3D dairesel (ring) görsel galeri site yapım promptu. Vanilla JS + GSAP, tasarımı değiştirmeme ",
+  "hash": "50a4db201f91c785",
+  "departman": "frontend",
+  "p": 0.98,
+  "kaynak": "katman"
+ },
+ {
   "ad": "21st:21st-ui",
   "tur": "skill",
   "aciklama": "Find, install, and generate UI with 21st.dev. Use when the user asks for a UI component (pricing table, hero, navbar, dashboard, form, etc.), wants design inspiration, needs a brand logo as an SVG com",
@@ -1708,6 +1726,15 @@
   "departman": "guvenlik",
   "p": 1.0,
   "kaynak": "jev"
+ },
+ {
+  "ad": "skills-cli",
+  "tur": "CLI",
+  "aciklama": "GitHub/GitLab/Azure Repos repolarından tek komutla Agent Skill kurar, 79+ ajana (Claude Code dahil) sembol bağlantı/kopya yazar; kurmadan önizleme (`skills use`) ve kaldırma (`skills remove`) destekle",
+  "hash": "523b6da97a9962d1",
+  "departman": "surec-ajan-arac",
+  "p": 1.0,
+  "kaynak": "katman"
  },
  {
   "ad": "bun",
@@ -3670,6 +3697,15 @@
   "departman": "veri-db",
   "p": 1.0,
   "kaynak": "jev"
+ },
+ {
+  "ad": "claude-usage",
+  "tur": "CLI",
+  "aciklama": "`~/.claude/projects/**/*.jsonl` oturum loglarını yerelde okuyup sqlite'a (`~/.claude/usage.db`) işleyen, terminalde özet ve tarayıcıda grafikli maliyet panosu üreten bağımsız Python aracı. Plan tipind",
+  "hash": "491d2756605d2b2b",
+  "departman": "verimlilik",
+  "p": 0.71,
+  "kaynak": "katman"
  },
  {
   "ad": "headroom",

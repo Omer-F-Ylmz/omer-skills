@@ -19,6 +19,8 @@ Müdür: `departman-frontend`
 | nano-banana-2 | plugin | Image generation with Google Gemini Nano Banana 2 via MCP | - | - |
 | nateherk-design | plugin | Design and build skills from Nate Herk. | - | - |
 | taste-skill | plugin | Frontend design taste skills including brutalist, minimalist, soft, redesign, stitch, and… | - | Screenshot döngüsü |
+| jgj0-claude-design-promptu | prompt | Claude Design'a (claude.ai/design, hosted SaaS) tek doğal-dil promptuyla komple bir e-tic… | - | - |
+| nyns-3d-galeri-promptu | prompt | Yıldız Dikme'nin CLOU (Unseen Studio, Awwwards SOTD 2022) mimarlık sitesinden ilham alıp … | - | - |
 | 21st:21st-ui | skill | Find, install, and generate UI with 21st.dev. | Use when the user asks for a UI component (pricing table, hero, navbar, dashboard, form, … | Yapım (iki-pass) |
 | agent-skills:frontend-ui-engineering | skill | Builds production-quality, accessible, responsive user-facing UIs. | Use when building or modifying interfaces and pages, creating components, implementing la… | - |
 | anthropic-skills:apple-design | skill | Cross-platform UI/UX reviewer grounded in Apple HIG plus design-craft lens. | - | - |
@@ -99,6 +101,11 @@ Müdür: `departman-frontend`
 - görselleri-public-klasörüne-koyup-ai-a-a · KUR · video NyNScAc2u_o
 - prompt-u-i-ngilizce-yazma · ÖĞREN · video jGJ09wdTGDI
 - renk-paleti-ve-font-ailesini-prompt-başı · KUR · video NyNScAc2u_o
+- nyns-3d-galeri-promptu/3d-dairesel-ring-galeri · ZATEN VAR · video NyNScAc2u_o
+- nyns-3d-galeri-promptu/scroll-mouse-parallax-rotasyon · UYARLA · video NyNScAc2u_o
+- jgj0-claude-design-promptu/tek-prompt-e-ticaret-sitesi · UYARLA · video jGJ09wdTGDI
+- jgj0-claude-design-promptu/dogal-dille-iteratif-revizyon · ZATEN VAR · video jGJ09wdTGDI
+- jgj0-claude-design-promptu/ciktiyi-claude-code-a-tasiyip-optimize-etme · DENE · video jGJ09wdTGDI
 
 ## Teknikler
 

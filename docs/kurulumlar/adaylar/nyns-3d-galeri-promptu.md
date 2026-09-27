@@ -3,6 +3,7 @@ ad: nyns-3d-galeri-promptu
 tur: prompt
 video: NyNScAc2u_o
 repo: yok
+arastirma: yarım: tur tavanı (12 tur · 67.9k token · araştırıcı rapor dönmedi; DENE verilmez, karar ÖĞREN/UYARLA sınırında)
 ## Ne
 Yıldız Dikme'nin CLOU (Unseen Studio, Awwwards SOTD 2022) mimarlık sitesinden ilham alıp Claude'a verdiği 3D dairesel (ring) görsel galeri site yapım promptu. Vanilla JS + GSAP, tasarımı değiştirmeme talimatı, sabit design-token/geometri/sabitler. Kaynak: paket.md + docs/video-tarama/2026-09-28-NyNScAc2u_o.md + kare k00374_0.jpg (prompt ekran görüntüsü, DESIGN TOKENS/CORE GEOMETRY/EXACT CONSTANTS bölümleri).
 ## Kanıt
