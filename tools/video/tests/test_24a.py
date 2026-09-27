@@ -156,6 +156,38 @@ def test_brief_tarama_raporu_bos_bolum_birakmaz(ortam, kok, capsys):
         assert x in t, x
 
 
+# 24a-kapanış: katman raporunda birden çok `## Koşu N` → brief kararları son koşudan okur
+IKI_KOSU = """# video-uygula — 2026-09-28
+
+## ÖZELLİK KARARLARI
+- eski/ozellik → KUR — ilk koşu
+
+## DEPARTMAN
+- eski → frontend (0.90)
+
+## Desktop ikinci görüş
+
+## Koşu 2 — 02:00
+
+## ÖZELLİK KARARLARI
+- yeni/ozellik → RED — son koşu
+
+## DEPARTMAN
+- yeni → verimlilik (0.80)
+
+## Desktop ikinci görüş
+"""
+
+
+def test_brief_son_kosunun_kararini_okur(ortam, kok, capsys):
+    r = kok / "u.md"
+    r.write_text(IKI_KOSU, encoding="utf-8")
+    assert main(["brief", str(r)], env=ortam) == 0
+    t = capsys.readouterr().out
+    assert "yeni/ozellik → RED" in t and "yeni → verimlilik" in t, t
+    assert "eski" not in t, t
+
+
 # K8 işlevsel eşdeğer ZATEN VAR
 ENV = [{"ad": "anthropic-skills:skill-ui-cli", "tur": "skill", "departman": "surec-ajan-arac", "aciklama": "discover list install skills from repos"},
        {"ad": "cli-skill-collector", "tur": "skill", "departman": "surec-ajan-arac", "aciklama": "collect and install agent skills"},

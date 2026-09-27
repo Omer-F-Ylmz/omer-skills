@@ -288,6 +288,7 @@ def brief(ns, ctx):
              ("Prompt anatomisi", [f"- {x['kalip']} · {x['zaman']} · şablon: {x['sablon']}" for m in adaylar if alanlar(m).get("video") == vid
                                    for x in kaliplar(m, vid)][:8], "bu videonun prompt adayı yok")]
     else:
+        metin = metin.rsplit("\n## Koşu ", 1)[-1]  # 24a-kapanış: birden çok koşuda kararlar son koşudan (tablo da bunu okur)
         b = [("Özellik kararları", [s for s in tr.bolum(metin, "ÖZELLİK KARARLARI").splitlines() if s.startswith("- ")][:25], "raporda yok"),
              ("Departman", [s for s in tr.bolum(metin, "DEPARTMAN").splitlines() if s.startswith("- ")][:10], "raporda yok"),
              ("İddialar", [f"- {s[0]} → {s[2]} ({s[1]})" for s in tablo("İDDİA SINAMA") if len(s) >= 3][:20], "raporda yok")]

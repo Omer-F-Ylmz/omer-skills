@@ -1,6 +1,6 @@
 # Parti A brief — 2026-09-28 (Desktop ikinci görüş girdisi)
 
-Kaynak: `video brief` × 4 tarama raporu + katman raporu (docs/kurulumlar/2026-09-28-uygula.md). 24a K7 ile yeniden üretildi.
+Kaynak: `video brief` × 4 tarama raporu + katman raporu (docs/kurulumlar/2026-09-28-uygula.md). 24a K7 ile yeniden üretildi; katman bölümü son koşudan (24a-kapanış).
 
 ## brief: 2026-09-28-NyNScAc2u_o.md
 ### Adaylar
@@ -192,29 +192,21 @@ Kaynak: `video brief` × 4 tarama raporu + katman raporu (docs/kurulumlar/2026-0
 - jgj0-claude-design-promptu/dogal-dille-iteratif-revizyon → ZATEN VAR — zaten var: commit 3321f38 (BIRLESTIR K15 -> omer-kurallar:10 iterasyon cümlesi) bu kalıbı zaten kataloglamış.
 - jgj0-claude-design-promptu/ciktiyi-claude-code-a-tasiyip-optimize-etme → DENE — hipotez: tasarım-öncelikli çıktının performans açığı Claude Code'a aktarılıp optimize edilince ölçülebilir kapanır · metrik: Lighthouse performans skoru · bütçe: 1 örnek site, ≤30 dk oturum · geri_alma: iyileşme yoksa bırak · eşik: ≥85 Lighthouse.
 ### Departman
-- 15-20-mesajda-yeni-sohbete-geç → verimlilik (0.93)
-- 3d-perspective-detayını-prompt-ta-açıkça → frontend (0.55)
-- chrome-devtools-cihaz-araç-çubuğu-ile-re → test-qa (0.59)
-- design-system-ui-kit-paneli → frontend (1.00)
-- düzeltme-yerine-edit-regenerate → verimlilik (0.59)
-- görselleri-public-klasörüne-koyup-ai-a-a → frontend (0.71)
-- paralel-terminal-ile-çoklu-görev-takibi → surec-ajan-arac (0.48)
-- plugin-ile-model-listesine-model-ekleme → surec-ajan-arac (1.00)
-- projeyi-sürekli-github-a-yükleme → surec-git-yayin (0.95)
-- prompt-u-i-ngilizce-yazma → frontend (0.63)
+- claude-usage → verimlilik (0.71)
+- skills-cli → surec-ajan-arac (1.00)
+- nyns-3d-galeri-promptu → frontend (0.98)
+- jgj0-claude-design-promptu → frontend (0.99)
 ### İddialar
-- Sohbet uzadıkça her mesaj geçmişi yeniden okuduğundan belirli aralıkla yeni sohbet açmak token'ı düşürür (2:52) → doğrulanamadı (-)
-- Kartların doğru açı/incelik ile sahneye yerleşmesini sağlayan kritik prompt detayı (5:44) → doğrulanamadı (-)
-- Farklı cihaz boyutlarında (iPad Mini, iPhone X) sitenin görünümünü kontrol etme (11:24) → doğrulanamadı (-)
-- Üretilen sitenin tasarım token'larını ve bileşen kütüphanesini inceleme (9:23) → doğrulanamadı (-)
-- Yanlış cevaba "onu kastetmedim" gibi düzeltme mesajı atmak yerine mesajı düzenleyip yeniden üretmek bağlamı şişirmez (2:08) → doğrulanamadı (-)
-- AI'ın görselleri doğrudan projeye dahil edip rastgele/dengeli dağıtmasını sağlıyor (4:42) → doğrulanamadı (-)
-- Aynı anda birden çok Claude Code terminali açıp email/reklam/topluluk verisi gibi farklı işleri paralel yürütme (0:00) → doğrulanamadı (-)
-- Plugin kurarak /model listesine ek modeller (ör. ChatGPT) ekleme (11:27) → doğrulanamadı (-)
-- Claude'un ilerlemeyi ve takıldığı yerleri daha iyi görmesi için projeyi sürekli GitHub'a push etme (12:21) → doğrulanamadı (-)
-- AI görsel/video üretiminde İngilizce promptun daha iyi sonuç verdiği gözlemi (1:39) → doğrulanamadı (-)
-- AI'ın rastgele font/renk seçmesini engelleyip marka kimliğine sadık kalmasını sağlıyor (5:44) → doğrulanamadı (-)
-- Ayrı ayrı sorular yerine tüm soruları tek mesajda sormak bağlam yüklemesini azaltır, cevabı netleştirir (3:26) → doğrulanamadı (-)
+- "logları okuyan bir dashboard/JSON API" → doğru (README (dashboard.py `/api/data`) + cli.py yorumları)
+- session.jsonl'den input_tokens/output_tokens/cache_read okunuyor → doğru (scanner.py alan adları (on.md envanteri))
+- araç veri göndermiyor / telemetri yok → doğru (ToolHunter incelemesi + pyproject.toml `dependencies = []`)
+- npx skills add ile anthropics/skills gibi repolardan tek komutla skill kurulur → doğru (README.md (vercel-labs/skills))
+- CLOU 2022'de Awwwards Site of the Day, puan 7,62/10 → doğru (awwwards.com/sites/clou)
+- Tam profesyonel site fiyatı 50.000-100.000 dolar → doğrulanamadı (yok)
+- Prompt hazırlığı ~2 gün sürüyor, 5-10 kez test ediliyor → doğrulanamadı (yok)
+- Tek promptla birkaç dakikada tüm stil/renk paleti/taslak çıkar (3:15-4:18) → doğru (Claude Design ürün sayfası (claude.com/product/design))
+- Performans zayıf, sadece optimizasyon eksik, tasarım güçlü (12:00) → doğru (agence-scroll.com 2026 Guide)
+- İngilizce prompt yazmak AI'dan daha iyi sonuç verir (1:39) → doğrulanamadı (-)
 ### Linkler
 - yok
 ## Desktop görüşü (28 Eyl)
