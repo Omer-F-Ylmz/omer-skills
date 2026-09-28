@@ -4,6 +4,7 @@ tur: ipucu
 video: v-vRYtvWDYs
 etiket: yeniden:parti-d
 kural: claude mcp list ile bağlı/bağlanmamış MCP sunucularını ve pluginleri kontrol et (yerleşik CLI, kurulum yok)
+karar: araca özel prosedür → adaylar/claude-mcp-list.md (kural değil)
 ## Ne
 claude mcp list ile bağlı/bağlanmamış MCP sunucularını ve pluginleri kontrol et (yerleşik CLI, kurulum yok)
 ## Kanıt

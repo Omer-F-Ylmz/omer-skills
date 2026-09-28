@@ -4,6 +4,7 @@ tur: teknik
 video: 39IlNR-P3-Q
 etiket: yeniden:parti-d
 kural: pear.no — Awwwards'tan ilham alınan scroll-hikaye akışlı referans site
+karar: kart destekledi: bilgi/awwwards.md (+39IlNR-P3-Q)
 ## Ne
 Awwwards'tan ilham alınan scroll-hikaye akışlı referans site
 ## Kanıt

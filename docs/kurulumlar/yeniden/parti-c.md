@@ -51,3 +51,8 @@ Hat: SERTİFİKA-1 (kayit --yeniden → ozet → paket → tarama → toplu → 
 
 ## YÜKLENECEK ZIP
 - yok (skills/ değişmedi)
+
+## Düzeltme (24e-1 K1)
+Dosya adları ASCII'ye taşındı (eski → yeni):
+- github-da-kod-paylaşımı → github-da-kod-paylasimi
+- yerelde-ayağa-kaldırma-isteği → yerelde-ayaga-kaldirma-istegi

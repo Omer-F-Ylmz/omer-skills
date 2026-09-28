@@ -4,6 +4,7 @@ tur: teknik
 video: b-LZ_Y9wor8
 etiket: yeniden:parti-c
 kural: Lenis — yumuşak (inertia'lı) sayfa kaydırma kütüphanesi
+karar: kart birleşti: bilgi/yumusak-inertial-kaydirma.md (+b-LZ_Y9wor8)
 ## Ne
 yumuşak (inertia'lı) sayfa kaydırma kütüphanesi
 ## Kanıt
@@ -12,3 +13,5 @@ b-LZ_Y9wor8 7:42 (docs/video-tarama/2026-09-28-b-LZ_Y9wor8.md): "I used versions
 | iddia | kaynak | sonuç | not | kart |
 |---|---|---|---|---|
 | yumuşak (inertia'lı) sayfa kaydırma kütüphanesi (7:42) | - | doğrulanamadı | yalnız video anlatımı; bağımsız kaynak/ölçüm yok | - |
+## Bizde durum
+- kurulum: yok (katalog ve settings'te yok)

@@ -4,6 +4,7 @@ tur: iş akışı
 video: b-LZ_Y9wor8
 etiket: yeniden:parti-c
 kural: Awwwards — ödüllü/aday siteleri tarayıp tasarım araştırması yapılan galeri sitesi
+karar: kart yazıldı: bilgi/awwwards.md
 ## Ne
 ödüllü/aday siteleri tarayıp tasarım araştırması yapılan galeri sitesi
 ## Kanıt
@@ -12,3 +13,5 @@ b-LZ_Y9wor8 1:22 (docs/video-tarama/2026-09-28-b-LZ_Y9wor8.md): k00082/k00377/k0
 | iddia | kaynak | sonuç | not | kart |
 |---|---|---|---|---|
 | ödüllü/aday siteleri tarayıp tasarım araştırması yapılan galeri sitesi (1:22) | - | doğrulanamadı | yalnız video anlatımı; bağımsız kaynak/ölçüm yok | - |
+## Bizde durum
+- kurulum: yok (katalog ve settings'te yok)

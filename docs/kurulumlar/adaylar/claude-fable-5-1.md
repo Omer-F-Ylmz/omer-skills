@@ -4,6 +4,7 @@ tur: teknik
 video: fCc97Rv-60w
 etiket: yeniden:parti-d
 kural: Claude Fable 5.1 — bitmemiş web projesini tek promptla ~40 dk'da Awwwards seviyesinde tamamlayan, kredi yoğun model
+karar: kart destekledi: bilgi/model-effort-claude-code.md (+fCc97Rv-60w)
 ## Ne
 bitmemiş web projesini tek promptla ~40 dk'da Awwwards seviyesinde tamamlayan, kredi yoğun model
 ## Kanıt

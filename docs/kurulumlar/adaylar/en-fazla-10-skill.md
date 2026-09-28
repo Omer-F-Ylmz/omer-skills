@@ -4,6 +4,7 @@ tur: ipucu
 video: 39IlNR-P3-Q
 etiket: yeniden:parti-d
 kural: Proje başına en fazla ~10 skill kullan; fazlası context'i doldurur
+karar: ONAY kural en-fazla-10-skill
 ## Ne
 Proje başına en fazla ~10 skill kullan; fazlası context'i doldurur
 ## Kanıt

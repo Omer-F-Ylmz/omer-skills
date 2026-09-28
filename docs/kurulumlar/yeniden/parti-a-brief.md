@@ -217,3 +217,15 @@ Kaynak: `video brief` × 4 tarama raporu + katman raporu (docs/kurulumlar/2026-0
 - jgj0/ciktiyi-claude-code-a-tasiyip-optimize-etme DENE: katılıyorum; site kalite ölçümü (KURULUM-24) gelince koşulur.
 - "İngilizce prompt daha iyi" → dış kaynak yok ama iç ölçümümüz var (İNGİLİZCE-AB, 17 Eyl; global CLAUDE.md bu yüzden İngilizce). Bilgi kartı olmadığı için hat bulamadı; kart açılmalı.
 - Araştırıcı: taze adayda gerçek maliyet 35–82k; asıl kayıp tur tavanında raporsuz kalmak (2/4). İlk turda iskelet, en geç 9. turda kapanış + prompt metni on.md'de olmalı.
+
+## Düzeltme (24e-1 K1)
+Dosya adları ASCII'ye taşındı (eski → yeni):
+- 15-20-mesajda-yeni-sohbete-geç → 15-20-mesajda-yeni-sohbete-gec
+- 3d-perspective-detayını-prompt-ta-açıkça → 3d-perspective-detayini-prompt-ta-acikca
+- chrome-devtools-cihaz-araç-çubuğu-ile-re → chrome-devtools-cihaz-arac-cubugu-ile-re
+- düzeltme-yerine-edit-regenerate → duzeltme-yerine-edit-regenerate
+- görselleri-public-klasörüne-koyup-ai-a-a → gorselleri-public-klasorune-koyup-ai-a-a
+- paralel-terminal-ile-çoklu-görev-takibi → paralel-terminal-ile-coklu-gorev-takibi
+- projeyi-sürekli-github-a-yükleme → projeyi-surekli-github-a-yukleme
+- renk-paleti-ve-font-ailesini-prompt-başı → renk-paleti-ve-font-ailesini-prompt-basi
+- soruları-tek-mesajda-topla → sorulari-tek-mesajda-topla

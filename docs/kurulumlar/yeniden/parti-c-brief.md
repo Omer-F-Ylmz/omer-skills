@@ -53,3 +53,9 @@
 - https://www.aipricing.guru/blog/minimax-m3-api-pricing-guide-2026/
 - https://www.kdnuggets.com/2026/08/abacus/honest-abacus-ai-review
 - https://developer.chrome.com/docs/css-ui/scroll-driven-animations
+
+## Düzeltme (24e-1 K1)
+Dosya adları ASCII'ye taşındı (eski → yeni):
+- opus-model-seçimi → opus-model-secimi
+- prompt-içinde-dosya-yapısı-belirtme → prompt-icinde-dosya-yapisi-belirtme
+- uzun-detaylı-prompt-yazma → uzun-detayli-prompt-yazma

@@ -4,6 +4,7 @@ tur: teknik
 video: fCc97Rv-60w
 etiket: yeniden:parti-d
 kural: Mercury — gerçek ölçekli fintech sitesinde kaydırmaya bağlı anlatımın referans örneği
+karar: kart birleşti: bilgi/scroll-a-bagli-kademeli-metin-belirme-reveal-fade-translatey.md (+fCc97Rv-60w)
 ## Ne
 gerçek ölçekli fintech sitesinde kaydırmaya bağlı anlatımın referans örneği
 ## Kanıt

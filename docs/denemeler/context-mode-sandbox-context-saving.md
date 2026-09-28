@@ -32,3 +32,8 @@ MCP-ağır görevde ≥%20 ek girdi token tasarrufu VE görev başarısı düşm
 - Zincir sırası: araç → [PreToolUse: RTK yeniden yazma ∥ context-mode yönlendirme] → çıktı → [PostToolUse: context-mode özet] → transkript → Headroom (istek anı). Yani RTK (kaynak) → context-mode (hook/sandbox) → Headroom (taşıma).
 - Riskler: iki PreToolUse Bash yeniden yazıcısının sırası tanımsız (RTK `rtk` önekiyle context-mode ctx_execute yönlendirmesi çakışabilir) · çift sıkıştırmada sinyal kaybı · iki ayrı geri getirme yolu (hash vs FTS5) · SessionStart'a yeni enjektör (claude-mem/ponytail/superpowers yanında; cowork aynı gerekçeyle kapatılmıştı).
 - Deneme koşulursa: B kolunda context-mode'un Bash hook'u kapalı başlatılır (yalnız MCP çıktısı), çakışma ayrı ölçülür.
+
+## Not (24e-1 K6)
+- kurulum ONAY ister: context-mode MCP + hook kurar; onaysız kurulum yok
+- deneme hook'u geçicidir: deneme bitince kaldırılır (geri_alma: mcp kaldır)
+- RTK sıra riski: RTK/headroom aynı çıktıyı sıkıştırır; hook sırası ölçümü bozabilir, önce sıra sabitlenir

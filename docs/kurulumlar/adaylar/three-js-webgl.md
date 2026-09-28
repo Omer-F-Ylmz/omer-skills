@@ -4,6 +4,7 @@ tur: teknik
 video: iYwCzKy6W40
 etiket: yeniden:parti-c
 kural: Three.js (WebGL) — Sitenin 3D render motoru; prompt'ta adının geçmesi modelin doğru anlaması için gerekli
+karar: kart yazıldı: bilgi/three-js-webgl.md
 ## Ne
 Sitenin 3D render motoru; prompt'ta adının geçmesi modelin doğru anlaması için gerekli
 ## Kanıt
@@ -12,3 +13,5 @@ iYwCzKy6W40 4:04 (docs/video-tarama/2026-09-28-iYwCzKy6W40.md): "3GS JavaScript.
 | iddia | kaynak | sonuç | not | kart |
 |---|---|---|---|---|
 | Sitenin 3D render motoru; prompt'ta adının geçmesi modelin doğru anlaması için gerekli (4:04) | - | doğrulanamadı | yalnız video anlatımı; bağımsız kaynak/ölçüm yok | - |
+## Bizde durum
+- kurulum: yok (katalog ve settings'te yok)

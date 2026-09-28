@@ -13,8 +13,4 @@ etiketler: -
 - destek: proje-büyüklüğüne-göre-claude-codex-kull (LbBC5Wew4qs)
 - destek: claude-fable-5-1 (fCc97Rv-60w)
 - destek: claude-fable-5 (fCc97Rv-60w)
-- destek: claude-fable-5-1 (fCc97Rv-60w)
-- destek: claude-fable-5 (fCc97Rv-60w)
-- destek: claude-fable-5-1 (fCc97Rv-60w)
-- destek: claude-fable-5 (fCc97Rv-60w)
 - destek: karmaşık-scroll-için-güçlü-model (39IlNR-P3-Q)

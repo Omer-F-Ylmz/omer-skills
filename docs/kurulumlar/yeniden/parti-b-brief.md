@@ -162,3 +162,15 @@ Kaynak: `video brief` × 3 tarama raporu + katman raporu (docs/kurulumlar/2026-0
 - https://www.aipricing.guru/blog/minimax-m3-api-pricing-guide-2026/
 - https://www.kdnuggets.com/2026/08/abacus/honest-abacus-ai-review
 - https://developer.chrome.com/docs/css-ui/scroll-driven-animations
+
+## Düzeltme (24e-1 K1)
+Dosya adları ASCII'ye taşındı (eski → yeni):
+- aynı-anda-iki-terminalde-iki-model-opus- → ayni-anda-iki-terminalde-iki-model-opus
+- ekran-görüntüsünden-şablon-e-posta-üretm → ekran-goruntusunden-sablon-e-posta-uretm
+- görselden-arayüz-kod-üretme-testi → gorselden-arayuz-kod-uretme-testi
+- hazır-proje-şablonları-galerisi → hazir-proje-sablonlari-galerisi
+- minimax-api-anahtarı-oluşturma-bakiye-yü → minimax-api-anahtari-olusturma-bakiye-yu
+- performans-seviyesi-seçimi-xhigh-high-au → performans-seviyesi-secimi-xhigh-high-au
+- token-kullanım-takibi-balance-api-usage- → token-kullanim-takibi-balance-api-usage
+- video-üretiminde-ilk-son-sahne-belirleme → video-uretiminde-ilk-son-sahne-belirleme
+- yüksek-context-limitli-model-seçme → yuksek-context-limitli-model-secme

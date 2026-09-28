@@ -50,3 +50,12 @@ Hat: SERTİFİKA-1 (paket → tarama → toplu → on → araştırıcı → biz
 - ONAY kural 4: bekleyen/kural-{max-thinking-tokens-ayarı, compact-clear-karar-kuralı, skill-hatırlatmasını-prompt-a-yazma, en-fazla-10-skill}.md → `video kural-onay <slug>`.
 - context-mode DENE: kurulum ONAY'ı + deneme koşusu (≤4 koşu).
 - OLASI TEKRAR 3: Desktop incelemesi.
+
+## Düzeltme (24e-1 K1)
+Dosya adları ASCII'ye taşındı (eski → yeni):
+- compact-clear-karar-kuralı → compact-clear-karar-kurali
+- ekran-görüntüsü-fix-this → ekran-goruntusu-fix-this
+- klasik-prompt-şablonu → klasik-prompt-sablonu
+- kritik-iş-için-pahalı-model → kritik-is-icin-pahali-model
+- max-thinking-tokens-ayarı → max-thinking-tokens-ayari
+- skill-hatırlatmasını-prompt-a-yazma → skill-hatirlatmasini-prompt-a-yazma

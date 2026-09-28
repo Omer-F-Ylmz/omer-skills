@@ -45,3 +45,8 @@ kaynak: `video brief docs/kurulumlar/2026-09-28-uygula.md` (Koşu 7: Özellik ka
 - klasik-prompt-şablonu: intro bölümünü bozma, sonrasını tamamla · kalıp:12: düzeltme promptunda mevcut olanı bozma kısıtını açıkça yaz (teknik: -) · p=0.50
 - scroll-site-promptu: tüm cihazlarda çalışsın · kalıp:27: Bu web siteyi responsive yap tek cümle (teknik: doğal dil revizyon) · p=0.57
 - karar Desktop'ta (0.4–0.6 bandı kendiliğinden karara bağlanmaz)
+
+## Düzeltme (24e-1 K1)
+Dosya adları ASCII'ye taşındı (eski → yeni):
+- klasik-prompt-şablonu → klasik-prompt-sablonu
+- scroll-a-bağlı-video-scrub → scroll-a-bagli-video-scrub

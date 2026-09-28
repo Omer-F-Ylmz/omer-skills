@@ -4,6 +4,7 @@ tur: ipucu
 video: 39IlNR-P3-Q
 etiket: yeniden:parti-d
 kural: Scroll-triggered site için referans videoyu Seedance 2.5 ile üret, siteyi o videodan kurdur
+karar: araca özel prosedür → adaylar/seedance-2-5-referans-video.md (kural değil)
 ## Ne
 Scroll-triggered site için referans videoyu Seedance 2.5 ile üret, siteyi o videodan kurdur
 ## Kanıt

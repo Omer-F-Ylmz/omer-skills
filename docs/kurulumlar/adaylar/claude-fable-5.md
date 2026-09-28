@@ -4,6 +4,7 @@ tur: teknik
 video: fCc97Rv-60w
 etiket: yeniden:parti-d
 kural: Claude Fable 5 — aynı işi Fable 5.1'e göre daha az kredi ve sürede, daha sade sonuçla bitiren önceki model
+karar: kart destekledi: bilgi/model-effort-claude-code.md (+fCc97Rv-60w)
 ## Ne
 aynı işi Fable 5.1'e göre daha az kredi ve sürede, daha sade sonuçla bitiren önceki model
 ## Kanıt
