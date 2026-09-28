@@ -2,6 +2,7 @@
 
 hedef: ~/.claude/CLAUDE.md (1.3k tavanı; yeni satır açılmaz, birleştirilir)
 karar: Ömer onayı bekler — KOŞULMAZ
+uygulandı: 2026-09-28 (Ömer onayı, VİDEO-PARTİ-D-DEVAM-3) — "Exploration" satırına eklendi; yedek CLAUDE.md.bak-okuma; ~971 → ~1005 token (karakter/3.53 tahmini, /context ölçülmedi: claude -p 0).
 
 ## Önerilen birleşme
 CONTEXT DISCIPLINE altındaki "Exploration: …" satırının sonuna eklenir:

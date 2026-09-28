@@ -28,3 +28,9 @@ alanlar: araç · önem · kural · dosya:satır · kısa açıklama · ilk değ
 - gerçek risk: yok kesinleşmedi; scroll-craft'ın ücretli kie.ai çağrısı maliyet riski (güvenlik değil).
 - olası yanlış alarm: taste-skill 4/4 · scroll-craft 14/14 (2 satır teyitle).
 - açık: design-dna AE1 ×2.
+
+## Desktop kararı (28 Eyl)
+- gerçek güvenlik riski yok; design-dna SKILL.md:55/:95 okundu, zararsız.
+- dikkat 1 · scroll-craft: görsel üretimi ücretli kie.ai çağrısı → yalnız Ömer onayı + çağrı tavanı.
+- dikkat 2 · design-dna: "varlığı kaynak URL'den al" referans sitelerde uygulanmaz; yalnız stil/teknik, görsel/font/3D model/video izinsiz kullanılmaz.
+- yer: skills/departman-frontend/SKILL.md `## Kurulu araç notları` (skill'lere dokunulmadı).
