@@ -91,4 +91,4 @@ def test_tara_openrouter_yalniz_paket_gider_anahtar_yol_yok(ortam, kok, tmp_path
 def test_tara_openrouter_kare_ust_siniri_6(ortam, kok, tmp_path):
     env, g = paket(ortam, kok, tmp_path, kare=8), ORSahte()
     assert main(["tara", "abc", "--kol", "openrouter:x/y", "--kare", "9"], env=env, gonder=g) == 0
-    assert g.cagri[0][2].decode().count('"image_url"') == 6
+    assert g.cagri[0][2].decode().count('"type": "image_url"') == 6

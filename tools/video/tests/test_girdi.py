@@ -95,7 +95,7 @@ def test_girdi_esigi_girdi_tokeniyla(ortam, kok):
     deneme(kok, IKI, esik="girdi token −%40")  # a 2010, b 1010 girdi: −%49.8
     k = GKos({"a": (0.1, 0.1), "b": (0.1, 0.1)})
     assert main(["dene", "d"], env=ortam, kos=k, gonder=SJev()) == 0
-    assert "b: AL" in (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
+    assert "b: RED(token)" in (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8") # TOKEN-DENEME-2a K0: eski girdi eşiği yok sayılır, karar takas (sıcak $ tasarrufu 0)
     assert kur.esik("girdi token Headroom'a göre ≥%15 daha az") == {"cikti": None, "girdi": 15, "maliyet": None}
 
 

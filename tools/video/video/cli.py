@@ -501,6 +501,57 @@ def _sozluk_doldur(ctx, yol, metin):
     return metin
 
 
+OR_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+
+def _temizle(metin, env):
+    """TOKEN-DENEME-2a: OpenRouter'a yalnız paket/altyazı gider — anahtar/token env değerleri ve mutlak yerel yollar çıkarılır."""
+    for ad, deger in env.items():
+        if re.search(r"KEY|TOKEN|SECRET|PASS", ad, re.I) and len(deger or "") >= 8:
+            metin = metin.replace(deger, "[gizli]")
+    return re.sub(r"(?:[A-Za-z]:[\\/]|(?<![\w.:/])/(?:[a-z]|home|Users|tmp)/|~[\\/])[^\s|)\]>\"'`]*", "[yol]", metin)
+
+
+def tara(ns, ctx):
+    """TOKEN-DENEME-2a K1: sonnet/haiku → Agent satırı (ana ajan çağırır); openrouter:<model> → aynı talimat + paket (vision ise ≤6 kare) OpenRouter'a, rapor + denetim."""
+    import base64
+    import time
+    from datetime import date
+    kol, pk = ns.kol, ctx["kok"] / ns.id / "paket.md"
+    if kol not in ("sonnet", "haiku") and not kol.startswith("openrouter:"):
+        print("kol: sonnet | haiku | openrouter:<model>")
+        return 2
+    if not pk.is_file():
+        print(f"paket yok: {pk.as_posix()} (önce: video paket <url>)")
+        return 1
+    paket_md = pk.read_text(encoding="utf-8")
+    kareler = list(dict.fromkeys(re.findall(r"\S+\.jpg", paket_md)))
+    ad = re.sub(r"[^a-z0-9]+", "-", kol.lower()).strip("-")
+    rapor = f"docs/video-tarama/{ns.tarih or date.today()}-{ns.id}.md" if kol == "sonnet" else f"docs/denemeler/ucuz-tarayici/{ad}/{ns.id}.md"
+    if not kol.startswith("openrouter:"):
+        print(f"ajan: video-tarayici{'-haiku' if kol == 'haiku' else ''} · id: {ns.id} · paket: {pk.as_posix()} · kareler: {' '.join(kareler) or '-'} · rapor: {rapor}")
+        return 0
+    if not (anahtar := ctx["env"].get("OPENROUTER_API_KEY")):
+        print("OPENROUTER_API_KEY yok")
+        return 1
+    talimat = (kur._kok(ctx) / ".claude" / "agents" / "video-tarayici.md").read_text(encoding="utf-8").split("---", 2)[-1]
+    sistem = talimat + "\nAraç yok: dosya okuyamaz/yazamaz, komut koşamazsın. Raporu yalnız markdown olarak döndür (rapor-denetle ana tarafta koşar)."
+    ekler = [{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(Path(k).read_bytes()).decode()}}
+             for k in kareler[:min(ns.kare, 6)] if Path(k).is_file()]  # base64 filtrelenmez: yalnız metin parçaları _temizle'den geçer
+    govde = {"model": kol.split(":", 1)[1], "usage": {"include": True},
+             "messages": [{"role": "system", "content": _temizle(sistem, ctx["env"])},
+                          {"role": "user", "content": [{"type": "text", "text": _temizle(paket_md, ctx["env"])}] + ekler}]}
+    t = c.Tasiyici(env=ctx["env"], gonder=ctx["gonder"], uyu=ctx["uyku"] or time.sleep, istek_tavan=2, tekrar=1)  # jev taşıyıcısı: tekrar + istek tavanı
+    t.b = {"ad": "OpenRouter", "url": OR_URL}
+    y = t._istek(govde, {"Authorization": f"Bearer {anahtar}", "Content-Type": "application/json"})
+    md, u = y["choices"][0]["message"]["content"] or "", y.get("usage") or {}
+    (r := kur._kok(ctx) / rapor).parent.mkdir(parents=True, exist_ok=True)
+    r.write_text(md.strip() + "\n", encoding="utf-8")
+    h = tr.denetle(md)
+    print(f"tara: {rapor} · kol: {kol} · token: {u.get('prompt_tokens', 0)}+{u.get('completion_tokens', 0)} · ${u.get('cost') or 0:.4f} · istek: {t.istek} · kare: {len(ekler)} · denetim: {'GEÇTİ' if not h else f'{len(h)} hata'}")
+    return 0
+
+
 def rapor_denetle(ns, ctx):
     if (ham := Path(ns.rapor).read_text(encoding="utf-8")).startswith("# Deneme:"):  # 24e-2 K5: deneme şeması (takas tablosu)
         for x in (h := og.deneme_denetle(ham)):
@@ -1025,12 +1076,17 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("raporlar", nargs="+")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
     x.add_argument("--gun", type=int, default=14)
+    x = alt.add_parser("tara", help="tarayıcı kolu: sonnet/haiku ajan satırı · openrouter:<model> rapor (TOKEN-DENEME-2a)")
+    x.add_argument("id")
+    x.add_argument("--kol", required=True, help="sonnet | haiku | openrouter:<model>")
+    x.add_argument("--kare", type=int, default=0, help="openrouter vision: gönderilecek kare (≤6; short ≤3)")
+    x.add_argument("--tarih")
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
-                "rapor-denetle": rapor_denetle, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
+                "rapor-denetle": rapor_denetle, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
                 "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden}[ns.komut](ns, ctx)

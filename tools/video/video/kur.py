@@ -331,6 +331,12 @@ def esik(s):
     return {"cikti": e["cikti"], "girdi": g, "maliyet": e["maliyet"]}
 
 
+def olcut(metin):
+    """TOKEN-DENEME-2a K0: karar yalnız takas tablosundan (## Karar ölçütü: takas tablosu); eski ## Başarı eşiği okunmaz, uyarı basılır."""
+    if tr.bolum(metin, "Başarı eşiği").strip():
+        print("uyarı: eski '## Başarı eşiği' yok sayıldı → karar takas tablosuyla (## Karar ölçütü)")
+
+
 def takas(s, d, esik_ok):
     """23b K9 omer-kurallar:21 kalite takası, sınır dahil. s tasarruf %, d kalite düşüşü % (bant içi 0) → (karar, tutan kademe)."""
     if d == 0:
@@ -357,7 +363,7 @@ def karar(a, b, e, gurultu, basari):
     """23b K9: tasarruf = sıcak koşu maliyetinin göreli düşüşü; düşüş = max(kalite puanı göreli düşüşü, ort. başarı göreli düşüşü),
     kalite düşüşü A'nın tekrar gürültüsü bandında (max(gürültü, 0.1)) ise 0 → takas(). Eşik (## Başarı eşiği) yalnız düşüş 0'da."""
     t, bant = tasarruf(a, b), max(gurultu, 0.1)
-    esik_ok = all(e.get(x) is None or t[x] >= e[x] for x in ("cikti", "girdi", "maliyet"))
+    esik_ok = t["maliyet"] >= 25 if e is None else all(e.get(x) is None or t[x] >= e[x] for x in ("cikti", "girdi", "maliyet"))  # e None: tablo satırı d≤10 & s≥25
     kd = 0.0 if round(a["kalite"] - b["kalite"] - bant, 6) <= 0 else (a["kalite"] - b["kalite"]) / a["kalite"] * 100
     bd = max(0.0, (a["basari"] - b["basari"]) / a["basari"] * 100) if a.get("basari") and "basari" in b else 0.0
     d = round(max(kd, bd), 6)
@@ -397,7 +403,7 @@ def ayristir_aday(kok, ad, k, t, dusen):
                  f"## Ayıklanacak/onarılacak kalite parçası\nkalite/başarı düşen görevler: {', '.join(dusen) or '? (ölçümde görev ayrımı yok)'}\n\n"
                  "## Onarım fikri\nteknik terimleri, kod bloklarını, hata/komut satırlarını ve sayıları aynen koru; yalnız dolgu metni "
                  "(hitap, tekrar, geçiş cümlesi) kısalt. Her turda düşen görevlerin çıktısından kaybın sebebi çıkarılır, sürüm düzeltilir.\n\n"
-                 "## Başarı eşiği\nsıcak maliyet −%25\n", encoding="utf-8")
+                 "## Karar ölçütü\ntakas tablosu\n", encoding="utf-8")
     return y
 
 
@@ -491,9 +497,10 @@ def _sikistir(ns, ctx, metin, d):
     cv = t.yargila([f"KURAL:\n{k}\n\nSIKIŞTIRILMIŞ METİN:\n{sonra}" for k in kurallar], {"korunum": KORUNUM_Q}) if kurallar else []
     kayip = [k for k, x in zip(kurallar, cv) if not x or x["korunum"]["score"] < 1.5]
     a, b = c.token(ilk), c.token(sonra)
-    dus, esik_t = round((a - b) / a * 100, 1) if a else 0.0, float((re.search(r"token[^%]*%\s*(\d+)", tr.bolum(metin, "Başarı eşiği")) or [0, 30])[1])
-    red = [x for x, ok in (("token", dus >= esik_t), ("kural", not kayip)) if not ok]
-    k = ("KUR önerisi → ONAY" if not red else f"RED({', '.join(red)})") + f": token {a} → {b} (−%{dus}, eşik %{esik_t:g}) · korunmayan kural {len(kayip)}/{len(kurallar)}"
+    olcut(metin)
+    dus = round((a - b) / a * 100, 1) if a else 0.0
+    k0, kademe = takas(dus, round(len(kayip) / len(kurallar) * 100, 1) if kurallar else 0.0, dus >= 25)  # kalite düşüşü = korunmayan kural oranı
+    k = ("KUR önerisi → ONAY" if k0 == "AL" else k0) + f": token {a} → {b} (−%{dus}) · korunmayan kural {len(kayip)}/{len(kurallar)} · takas: {kademe}"
     satir = [f"# Deneme sonucu: {ns.ad}", "", f"{date.today().isoformat()} · compress · claude -p 0 · Jev istek {t.istek} · kaynak dokunulmadı (bayt aynı): {kaynak.as_posix()}",
              f"kopya: {kopya.relative_to(d).as_posix()} · komut: {komut}", "", f"token {a} → {b} (−%{dus})", f"korunmayan kural {len(kayip)}/{len(kurallar)}",
              *[f"- {x}" for x in kayip], "", "## Karar", k, ""]
@@ -664,7 +671,7 @@ def dene(ns, ctx):
     tk = next(k["ad"] for k in kollar if k["temel"])
     ob = lambda kol, gi: sorted((o for o in olcum if o["kol"] == kol and o["gorev"] == gi), key=lambda o: o["n"])  # noqa: E731
     gurultu = sum(abs(ob(tk, i)[0]["kalite"] - ob(tk, i)[1]["kalite"]) for i in range(len(gorevler))) / len(gorevler)
-    e = esik(tr.bolum(metin, "Başarı eşiği"))
+    e = olcut(metin)
     kararlar = {k["ad"]: karar(ort[tk], ort[k["ad"]], e, gurultu, [tuple(sum(o["basari"] for o in ob(x, i)) / 2 for x in (tk, k["ad"])) for i in range(len(gorevler))])
                 for k in kollar if k["ad"] != tk}
     mcp = {k["ad"]: sum(o["mcp"] for o in olcum if o["kol"] == k["ad"]) for k in kollar}
@@ -756,7 +763,7 @@ def uret(ns, ctx):
     (d / f"{ns.ad}.md").write_text(
         f"# Deneme: {ns.ad}\n\n18 uret · {'talimat' if talimat else 'skill'} · gövde {n} token (tavan {tavan})\n\n## Hipotez\n{uy._ilk(um, 'Fikir') or '?'}\n\n"
         f"## Metrik\nçıktı token · toplam $ · görev başarısı (beklenen) · Jev kalite (gürültü bandı)\n\n## Bütçe\nclaude -p ≤{ns.tavan} · Jev ≤{ns.istek_tavan}\n\n"
-        f"## Geri alma\n{rel} sil\n\n## Başarı eşiği\n{uy._ilk(um, 'Başarı eşiği') or 'çıktı token −%25'}\n\n## Talimat\n{rel}\n", encoding="utf-8")
+        f"## Geri alma\n{rel} sil\n\n## Karar ölçütü\ntakas tablosu\n\n## Talimat\n{rel}\n", encoding="utf-8")
     if not getattr(ns, "karar", None):  # 23b: `video karar` Ömer'in kararıyla gelir, dene yeniden koşmaz
         once = len(list(led.parent.glob("*.json")))
         rc = dene(ns, ctx)
@@ -848,7 +855,7 @@ def takas_geri(ns, ctx):
         tk = m[1] if (m := re.search(r"(\S+) \(temel\)", s)) and m[1] in kol else t[0][1][0][0]
         gur = float(m[1]) if (m := re.search(r"gürültü \([^)]*\)\s*([\d.]+)", s)) else 0.0
         dm = d / f"{ad}.md"
-        e = esik(tr.bolum(dm.read_text(encoding="utf-8"), "Başarı eşiği") if dm.is_file() else "")
+        e = olcut(dm.read_text(encoding="utf-8") if dm.is_file() else "")
         kr = [x.strip() for x in tr.bolum(s, "Karar").splitlines() if x.strip()]
         for x in [k for k in kol if k != tk]:
             eski = next((z.partition(": ")[2] for z in kr if z.startswith(f"{x}: ")), kr[0] if kr else "?")
