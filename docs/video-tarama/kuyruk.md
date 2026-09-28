@@ -13,16 +13,16 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 ### Sıra 1 — token tasarrufu
 | id | süre | başlık (kısa) | Desktop notu: özellikle bakılacaklar | durum |
 |---|---|---|---|---|
-| L9c49WVG_ho | 0.6 | Ücretsiz API anahtarı (Esad Kılıç) | ÖMER SORUSU: basit işleri ücretsiz modellere devredip Claude token'ı azaltmak. Aday: tarayıcı alt ajanının çıkarım kısmını OpenRouter ücretsiz/ucuz modele devretmek (Jev altyapısı gibi), Claude yalnız yargıda; takas tablosuyla DENE | bekliyor |
+| L9c49WVG_ho | 0.6 | Ücretsiz API anahtarı (Esad Kılıç) | ÖMER SORUSU: basit işleri ücretsiz modellere devredip Claude token'ı azaltmak. Aday: tarayıcı alt ajanının çıkarım kısmını OpenRouter ücretsiz/ucuz modele devretmek (Jev altyapısı gibi), Claude yalnız yargıda; takas tablosuyla DENE | işlendi: aaa5dd0 |
 | kHtOSJRUkLs | 19.8 | Never run out of tokens (Sharbel) | yapıştırılan talimat/konfigürasyon: tasarruf mekanizması, bizde CLAUDE.md/Headroom/RTK karşılığı | bekliyor |
 | 6cEQEba0i2A | 10.7 | Save millions of Claude tokens (Nate Herk) | açıklamada 9 link; her teknik ayrı özellik, tasarruf ayrıştırma | bekliyor |
 | g89FJiNAlEs | 15.1 | 4 free repos cut token usage | 4 GitHub repo; her biri araç adayı + mekanizma; Headroom/RTK/context-mode ile çakışma | bekliyor |
 | V0XbuApxlhg | 19.0 | Paying Anthropic 20x more (Chase AI) | model/plan/effort seçimi iddiaları → iddia sınama (bizim ölçümlerimiz: effort A/B, Opus/Sonnet) | bekliyor |
-| oHKt0FUbR58 | 0.8 | Free repo fixes token limits | repo adı ekranda/açıklamada; araç adayı | bekliyor |
-| bS6IlkUozAI | 1.7 | Web browsing tokens −90% | tarayıcı/web getirme sıkıştırma aracı; bizde video getir + Headroom karşılaştırması | bekliyor |
-| NogIRR1B6gY | 0.7 | PDF'ler token tüketmesin | PDF okuma stratejisi; pdf-reading skill ile karşılaştır | bekliyor |
-| klDiYMzW0o0 | 0.7 | Token harcamanı yarıya indiren 4 araç | 4 araç; kurulu olanlar ZATEN VAR, yeniler DENE | bekliyor |
-| lipJRiztOgM | 0.7 | 5 skills save 10x sessions | skill adları; kurulu/eşdeğer kontrolü | bekliyor |
+| oHKt0FUbR58 | 0.8 | Free repo fixes token limits | repo adı ekranda/açıklamada; araç adayı | işlendi: aaa5dd0 |
+| bS6IlkUozAI | 1.7 | Web browsing tokens −90% | tarayıcı/web getirme sıkıştırma aracı; bizde video getir + Headroom karşılaştırması | işlendi: aaa5dd0 |
+| NogIRR1B6gY | 0.7 | PDF'ler token tüketmesin | PDF okuma stratejisi; pdf-reading skill ile karşılaştır | işlendi: aaa5dd0 |
+| klDiYMzW0o0 | 0.7 | Token harcamanı yarıya indiren 4 araç | 4 araç; kurulu olanlar ZATEN VAR, yeniler DENE | işlendi: aaa5dd0 |
+| lipJRiztOgM | 0.7 | 5 skills save 10x sessions | skill adları; kurulu/eşdeğer kontrolü | işlendi: aaa5dd0 |
 
 ### Sıra 1 — site yapımı / tasarım / prompt
 | id | süre | başlık (kısa) | Desktop notu | durum |
@@ -79,7 +79,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | DuDrHzaBQ3k | 0.9 | 60 AI agents inside CC | -qosBoq8V6A ile aynı konu | bekliyor |
 | -qosBoq8V6A | 0.7 | Claude'da 60 ajanı aynı anda | DuDrHzaBQ3k; RAM kuralımızla çakışma notu | bekliyor |
 | k0gwr-vC2Z4 | 0.8 | 6 plugins nobody uses | liste | bekliyor |
-| enFgYQvI1dM | 1.3 | Most powerful free coding agent | ücretsiz ajan → L9c49WVG_ho ile birlikte değerlendir | bekliyor |
+| enFgYQvI1dM | 1.3 | Most powerful free coding agent | ücretsiz ajan → L9c49WVG_ho ile birlikte değerlendir | işlendi: aaa5dd0 |
 | AWBsGEuVhuE | 0.8 | 4 CC GitHub repos | 4 repo | bekliyor |
 | pR2nuRcLqbI | 0.9 | CC into a dev team in 5 min | 2K1Ps-l4yxk ile aynı konu | bekliyor |
 | 2K1Ps-l4yxk | 0.9 | CC'yi yazılım ekibi gibi çalıştır | pR2nuRcLqbI | bekliyor |
