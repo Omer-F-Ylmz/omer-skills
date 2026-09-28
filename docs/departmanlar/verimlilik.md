@@ -51,5 +51,9 @@ Müdür: `departman-verimlilik`
 - claude-usage/terminal-ozet · KUR · video JNM_rxqtlvY
 - claude-usage/web-dashboard · DENE · video JNM_rxqtlvY
 - claude-usage/vscode-entegrasyonu · ZATEN VAR · video JNM_rxqtlvY
+- sub-agent-ile-token-tasarrufu · ÖĞREN · video 2n84xa99FRY
+- token-kullanım-takibi-balance-api-usage- · KUR · video XemheY_aM1g
+- yüksek-context-limitli-model-seçme · KUR · video XemheY_aM1g
+- kredi-token-ayrımını-takip-etme · KUR · video 4cE9t4rE0-0
 
 ## Elle

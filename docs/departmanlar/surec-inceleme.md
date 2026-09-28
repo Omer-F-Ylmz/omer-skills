@@ -38,4 +38,8 @@ Müdür: `departman-surec-inceleme`
 | superpowers:requesting-code-review | skill | Use when completing tasks, implementing major features, or before merging to verify work … | Use when completing tasks, implementing major features, or before merging to verify work … | Yorum |
 | superpowers:verification-before-completion | skill | Use when about to claim work is complete, fixed, or passing, before committing or creatin… | Use when about to claim work is complete, fixed, or passing, before committing or creatin… | Devir |
 
+## Videodan gelen
+
+- god-file-eşiği-aşmadan-refactor-uyarısı · KUR · video 2n84xa99FRY
+
 ## Elle

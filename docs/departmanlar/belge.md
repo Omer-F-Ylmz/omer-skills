@@ -25,5 +25,6 @@ Müdür: `departman-belge`
 ## Videodan gelen
 
 - prompt-turkce-cevirt · ÖĞREN · video JfmAm3sxCSc
+- ekran-görüntüsünden-şablon-e-posta-üretm · ÖĞREN · video XemheY_aM1g
 
 ## Elle

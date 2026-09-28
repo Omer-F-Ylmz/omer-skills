@@ -19,6 +19,7 @@ Müdür: `departman-frontend`
 | nano-banana-2 | plugin | Image generation with Google Gemini Nano Banana 2 via MCP | - | - |
 | nateherk-design | plugin | Design and build skills from Nate Herk. | - | - |
 | taste-skill | plugin | Frontend design taste skills including brutalist, minimalist, soft, redesign, stitch, and… | - | Screenshot döngüsü |
+| 4ce9-yat-sitesi-promptu | prompt | Kurulabilir bir araç değil: Abacus.AI ChatLLM Teams agent'ına verilen bir "site build pro… | - | - |
 | jgj0-claude-design-promptu | prompt | Claude Design'a (claude.ai/design, hosted SaaS) tek doğal-dil promptuyla komple bir e-tic… | - | - |
 | nyns-3d-galeri-promptu | prompt | Yıldız Dikme'nin CLOU (Unseen Studio, Awwwards SOTD 2022) mimarlık sitesinden ilham alıp … | - | - |
 | 21st:21st-ui | skill | Find, install, and generate UI with 21st.dev. | Use when the user asks for a UI component (pricing table, hero, navbar, dashboard, form, … | Yapım (iki-pass) |
@@ -106,6 +107,9 @@ Müdür: `departman-frontend`
 - jgj0-claude-design-promptu/tek-prompt-e-ticaret-sitesi · UYARLA · video jGJ09wdTGDI
 - jgj0-claude-design-promptu/dogal-dille-iteratif-revizyon · ZATEN VAR · video jGJ09wdTGDI
 - jgj0-claude-design-promptu/ciktiyi-claude-code-a-tasiyip-optimize-etme · DENE · video jGJ09wdTGDI
+- görselden-arayüz-kod-üretme-testi · KUR · video XemheY_aM1g
+- scroll-a-bağlı-video-scrub · ÖĞREN · video 4cE9t4rE0-0
+- 4ce9-yat-sitesi-promptu/scroll-scrub-hero-video · UYARLA · video 4cE9t4rE0-0
 
 ## Teknikler
 
@@ -130,5 +134,10 @@ Müdür: `departman-frontend`
 - Renk paleti tokenlaştırma (obsidian/emerald/champagne-gold) · UYARLA · video jGJ09wdTGDI · 7:18 · k00438_0.jpg
 - Responsive breakpoint testi (mobile/tablet/desktop) · UYARLA · video jGJ09wdTGDI · 11:24 · k00684_0.jpg
 - CSS Grid ile yerleşim · UYARLA · video jGJ09wdTGDI · 11:24 · k00684_0.jpg (grid-template-columns kodu)
+- Scroll'a bağlı video scrub animasyonu · UYARLA · video 4cE9t4rE0-0 · 7:22 kod (ScrollTrigger, gsap.ticker) + 11:38 kare "GSAP scroll reveals"
+- Yumuşak/anchor kaydırma ile navbar geçişi · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni "smooth anchor scrolling"
+- Renk/tipografi sistemi (deep navy/ivory, Cormorant Garamond + Inter) · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
+- Sabit navbar renk geçişi (transparent → ivory) · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
+- Minimal footer + geniş whitespace grid · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
 
 ## Elle

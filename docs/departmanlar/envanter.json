@@ -810,6 +810,15 @@
   "kaynak": "jev"
  },
  {
+  "ad": "4ce9-yat-sitesi-promptu",
+  "tur": "prompt",
+  "aciklama": "Kurulabilir bir araç değil: Abacus.AI ChatLLM Teams agent'ına verilen bir \"site build prompt\" tekniği. Kling AI v3 ile üretilen bir yat tanıtım videosu agent bağlamına (\"agent section\") bırakılıyor, a",
+  "hash": "49a4f8eb190fb5d5",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "katman"
+ },
+ {
   "ad": "jgj0-claude-design-promptu",
   "tur": "prompt",
   "aciklama": "Claude Design'a (claude.ai/design, hosted SaaS) tek doğal-dil promptuyla komple bir e-ticaret sitesi (saat markası: video arkaplan + ürün görselleri + stil dosyaları + renk paleti + component ağacı) ü",

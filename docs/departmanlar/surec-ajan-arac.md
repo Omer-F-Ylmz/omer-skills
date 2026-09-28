@@ -100,5 +100,29 @@ Müdür: `departman-surec-ajan-arac`
 - plugin-ile-model-listesine-model-ekleme · ÖĞREN · video Gg35_iQWx7g
 - skills-cli/skill-kurma · KUR · video Gg35_iQWx7g
 - skills-cli/gecici-kullan · KUR · video Gg35_iQWx7g
+- codex-skill/codex-exec-genel · ÖĞREN · video 2n84xa99FRY
+- codex-skill/imagegen · RED · video 2n84xa99FRY
+- codex-skill/fleet-parallel · ZATEN VAR · video 2n84xa99FRY
+- codex-skill/multi-image-referans-zinciri · ÖĞREN · video 2n84xa99FRY
+- claude-mm/minimax-m3-backend-degisimi · DENE · video XemheY_aM1g
+- 4ce9-yat-sitesi-promptu/scroll-scrub-hero-video · UYARLA · video 4cE9t4rE0-0
+- serai-hub · ÖĞREN · video 2n84xa99FRY
+- caffeinate · ÖĞREN · video 2n84xa99FRY
+- gemini-multimodal-embedding · ÖĞREN · video 2n84xa99FRY
+- model-effort-claude-code · ÖĞREN · video 2n84xa99FRY
+- webfetch-ile-skill-entegrasyonu · KUR · video 2n84xa99FRY
+- curl-ile-herkese-açık-skill-dosyası-serv · ÖĞREN · video 2n84xa99FRY
+- dürüstlük-mühendisliği-drift-not-impleme · ÖĞREN · video 2n84xa99FRY
+- aynı-anda-iki-terminalde-iki-model-opus- · ÖĞREN · video XemheY_aM1g
+- goat-oto-mod-görev-listesiyle-ajan-çalış · KUR · video XemheY_aM1g
+- chatllm-abacus-ai · ÖĞREN · video 4cE9t4rE0-0
+- agent-modu · ÖĞREN · video 4cE9t4rE0-0
+- performans-seviyesi-seçimi-xhigh-high-au · ÖĞREN · video 4cE9t4rE0-0
+- agent-swarms · ÖĞREN · video 4cE9t4rE0-0
+- capability-eklentileri-excel-figma-mocku · ÖĞREN · video 4cE9t4rE0-0
+- hazır-proje-şablonları-galerisi · ÖĞREN · video 4cE9t4rE0-0
+- kling-ai-v3 · ÖĞREN · video 4cE9t4rE0-0
+- mcp-server-configuration · ÖĞREN · video 4cE9t4rE0-0
+- claude-mm/minimax-m3-backend-degisimi · RED · video XemheY_aM1g
 
 ## Elle
