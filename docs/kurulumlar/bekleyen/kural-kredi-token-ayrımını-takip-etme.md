@@ -1,4 +1,5 @@
 # ONAY kural kredi-token-ayrımını-takip-etme
+karar: RED (28 Eyl) — araca özel prosedür, kural değil
 ad: kredi-token-ayrımını-takip-etme
 madde: Kredi/token ayrımını takip etme — "Credits are NOT TOKENS" uyarısını bilip tüketimi profil sayfasından izlemek
 kaynak: video 4cE9t4rE0-0, 15b

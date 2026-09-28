@@ -1,4 +1,5 @@
 # ONAY kural yüksek-context-limitli-model-seçme
+karar: RED (28 Eyl) — zaten var: model seçimi
 ad: yüksek-context-limitli-model-seçme
 madde: Yüksek context limitli model seçme — Büyük kod tabanı/veri okutulacaksa yüksek context'li model tercih edilmeli, düşük context'te eksik analiz riski var
 kaynak: video XemheY_aM1g, 15b

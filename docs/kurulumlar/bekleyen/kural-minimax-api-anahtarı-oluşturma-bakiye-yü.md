@@ -1,4 +1,5 @@
 # ONAY kural minimax-api-anahtarı-oluşturma-bakiye-yü
+karar: RED (28 Eyl) — araca özel prosedür, kural değil
 ad: minimax-api-anahtarı-oluşturma-bakiye-yü
 madde: MiniMax API anahtarı oluşturma + bakiye yükleme — Console > Access'ten anahtar üretme, kullanmadan önce bakiyeye ödeme koyma
 kaynak: video XemheY_aM1g, 15b

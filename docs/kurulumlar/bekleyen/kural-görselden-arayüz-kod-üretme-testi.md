@@ -1,4 +1,5 @@
 # ONAY kural görselden-arayüz-kod-üretme-testi
+karar: RED (28 Eyl) — araca özel prosedür, kural değil
 ad: görselden-arayüz-kod-üretme-testi
 madde: Görselden arayüz/kod üretme testi — Bir UI görseli verilip benzer arayüz + backend + test kodu üretimi istenir
 kaynak: video XemheY_aM1g, 15b

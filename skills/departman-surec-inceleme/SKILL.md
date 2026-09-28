@@ -17,6 +17,7 @@ Katalog: `docs/departmanlar/surec-inceleme.md` · yaşam döngüsü `docs/depart
 ## Kapılar
 - Kanıtsız "bitti" yok; test çıktısı raporda.
 - Üç başarısız denemeden sonra DUR raporu.
+- Kod projelerinde büyüyen tek dosya (god-file) fark edilince parçalama önerilir; uygulama ayrı karar (24b, video 2n84xa99FRY).
 
 ## Çakışma
 - Review: `code-review` > `review` (gstack) > `pr-review-toolkit`.

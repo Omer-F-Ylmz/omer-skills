@@ -1,4 +1,5 @@
 # ONAY kural goat-oto-mod-görev-listesiyle-ajan-çalış
+karar: RED (28 Eyl) — araca özel prosedür, kural değil
 ad: goat-oto-mod-görev-listesiyle-ajan-çalış
 madde: GOAT oto-mod görev listesiyle ajan çalıştırma — Otomatik modda sırayla görev (sosyal medya stratejisi, carousel, müşteri bul, outreach) çalıştıran ajan yapısı
 kaynak: video XemheY_aM1g, 15b

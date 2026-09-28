@@ -1,4 +1,5 @@
 # ONAY kural god-file-eşiği-aşmadan-refactor-uyarısı
+karar: ONAYLA (28 Eyl) — skills/departman-surec-inceleme Kapılar (omer-kurallar'a değil): büyüyen tek dosyada parçalama önerisi, uygulama ayrı karar
 ad: god-file-eşiği-aşmadan-refactor-uyarısı
 madde: God-file eşiği aşmadan refactor uyarısı — Büyüyen tek dosyaları (god-file) fark edilince erken parçalara ayırma; ihmal edilirse ileride değişiklik yapmak zorlaşır
 kaynak: video 2n84xa99FRY, 15b

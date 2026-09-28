@@ -1,4 +1,5 @@
 # ONAY kural görselleri-public-klasörüne-koyup-ai-a-a
+karar: UYARLA (28 Eyl) — uygulandı: departman-frontend `## Yapım promptu şablonu` + docs/departmanlar/frontend-promptlar.md
 ad: görselleri-public-klasörüne-koyup-ai-a-a
 madde: Görselleri public/ klasörüne koyup AI'a aldırma — AI'ın görselleri doğrudan projeye dahil edip rastgele/dengeli dağıtmasını sağlıyor
 kaynak: video NyNScAc2u_o, 15b

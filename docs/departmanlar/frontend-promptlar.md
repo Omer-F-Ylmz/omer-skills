@@ -27,3 +27,6 @@ Videodan çıkan yapım promptu kalıpları; metin kopyalanmaz, kalıp yazılır
 | Bu web siteyi responsive yap tek cümle | jGJ09wdTGDI | 5:36 | doğal dil revizyon | şablon: kabul | jgj0-claude-design-promptu |
 | AI üretimi kısa videoyu hero'ya scroll-scrub olarak yerleştir | 4cE9t4rE0-0 | 7:22 | scroll-timeline/GSAP ScrollTrigger | şablon: hareket | 4ce9-yat-sitesi-promptu |
 | Aynı prompt akışını ürün türü değiştirerek tekrar kullan (yat/kahve/uçak) | 4cE9t4rE0-0 | 7:22 | parametrik prompt şablonu | yok → bekleyen | 4ce9-yat-sitesi-promptu |
+| 3D perspektif ve eğimi promptta sayıyla açıkça yaz | NyNScAc2u_o | ? | 3D kart sahnesi | şablon: perspektif | kural-3d-perspective |
+| görselleri public/ klasörüne koy, ajana klasörden aldır | NyNScAc2u_o | ? | - | şablon: klasör | kural-görselleri-public |
+| video promptunu sahne sahne kamera, ışık ve atmosferle tarif et | 4cE9t4rE0-0 | ? | video üretimi | şablon: sahne | kural-detaylı-video-prompt |

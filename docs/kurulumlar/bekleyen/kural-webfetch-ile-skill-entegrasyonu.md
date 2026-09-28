@@ -1,4 +1,5 @@
 # ONAY kural webfetch-ile-skill-entegrasyonu
+karar: RED (28 Eyl) — risk: onaysız kurulum; video-uygula hattı bunun kontrollü sürümü
 ad: webfetch-ile-skill-entegrasyonu
 madde: WebFetch ile skill entegrasyonu — İzleyicinin kendi agent'ına "şu URL'yi aç, skili oku, kendi sistemine entegre et" dedirterek kurulum yaptırması
 kaynak: video 2n84xa99FRY, 15b

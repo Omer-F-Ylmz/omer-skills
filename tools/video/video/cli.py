@@ -571,7 +571,7 @@ def toplu(ns, ctx):
         x["isaret"] = "ÇİFT" if x.get("kural") else tr.isaret(x["es"], x["cift"], x["risk"])
         x["etiket"] = x["isaret"] + (f" (kural: {x['kural']})" if x.get("kural") else "")
     isr = {tr.normal(x["ad"]): x["etiket"] for x in tek}
-    cikti = d / f"{bugun}-toplu.md"
+    cikti = tr.bos_yol(d / f"{bugun}-toplu.md")  # 24b K3: aynı gün ikinci koşu ezmez
     md = [f"# Video tarama toplu — {bugun}", "", f"{len(raporlar)} video · {len(tek)} tekil aday · Jev tarama isteği {istek}", "",
           "| aday | işaret | sözlük eşleşmesi | çift p | izin riski (0-3) | tür | videolar |", "|---|---|---|---|---|---|---|"]
     for x in tek:
@@ -692,14 +692,14 @@ def yeniden(ns, ctx):
           *[f"| {v['id']} | {h(v['baslik'])} | {v['puan']} | {v['tur']} · DENE+UYARLA {sum(x['karar'] in ('DENE', 'UYARLA') for x in v['kalem'])} · token {sum(x['token'] for x in v['kalem'])} · kare zayıf {int(v['kare_zayif'])} |" for v in ilk], "",
           "parti 1 (8): `/video-uygula " + " ".join(f"https://youtu.be/{v['id']}" for v in ilk[:8]) + "` (video kayit --yeniden; etiket yeniden:tam; eski satır ezilmez)",
           "parti 2 (7): `/video-uygula " + " ".join(f"https://youtu.be/{v['id']}" for v in ilk[8:]) + "` (aynı)", ""]
-    cikti = kok / "docs" / "kurulumlar" / "yeniden" / f"{bugun}-toplu.md"
+    cikti = tr.bos_yol(kok / "docs" / "kurulumlar" / "yeniden" / f"{bugun}-toplu.md")  # 24b K3
     cikti.parent.mkdir(parents=True, exist_ok=True)
     cikti.write_text("\n".join(L), encoding="utf-8")
     bk = kok / "docs" / "kurulumlar" / "bekleyen"
     for x in kal:
         if x["karar"] == "KURAL":
             _kural_bekleyen(bk, x, f"yeniden:{bugun}")
-    tr.kayit_ekle(d / "kayit.jsonl", [{"id": v["id"], "tarih": bugun, "rapor": f"../kurulumlar/yeniden/{bugun}-toplu.md", "adaylar": [x["ad"] for x in v["kalem"]], "ele": [],
+    tr.kayit_ekle(d / "kayit.jsonl", [{"id": v["id"], "tarih": bugun, "rapor": f"../kurulumlar/yeniden/{cikti.name}", "adaylar": [x["ad"] for x in v["kalem"]], "ele": [],
                                         "etiket": f"yeniden:{bugun}", "tur": v["tur"], "puan": v["puan"], "kararlar": {x["ad"]: x["karar"] for x in v["kalem"]}} for v in vids])
     print(f"{cikti} · {len(vids)} video · {len(kal)} kalem · Jev istek {t.istek}/{ns.istek_tavan}")
     return 0
@@ -756,7 +756,7 @@ def repo_(ns, ctx):
 
 def on_(ns, ctx):
     y = gt.on(Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK), ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir",
-              rapor=ns.rapor, seg=ctx["kok"] / ns.video / "segmentler.jsonl")
+              rapor=ns.rapor, seg=ctx["kok"] / ns.video / "segmentler.jsonl", guvenlik=uy.on_tarama(ctx, ns.repo) if ns.repo else None)
     print(f"on: {y} · ~{c.token(y.read_text(encoding='utf-8'))} token")
     return 0
 
@@ -874,7 +874,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("ad", help="sahip/ad")
     x.add_argument("--dosya")
     x.add_argument("--satir", metavar="a-b")
-    x = alt.add_parser("on", help="23c K4: aday ön getirme → <kök>/.kos/<video>/<aday>/on.md (repo özeti + site özeti)")
+    x = alt.add_parser("on", help="23c K4: aday ön getirme → <kök>/.kos/<video>/<aday>/on.md (repo özeti + site özeti); 24b K1: --repo → sığ klon + SkillSpector ön taraması")
     x.add_argument("video")
     x.add_argument("aday")
     x.add_argument("--repo")

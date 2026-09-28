@@ -18,6 +18,7 @@ claude.ai'de: bu belge okuma rehberidir (sandbox'ta `video` yok); tek video içi
    Prompt yalnız videoya özgü tek satır: `id: <id> · paket: <yol> · kareler: <yollar> · rapor: docs/video-tarama/<tarih>-<id>.md`.
    Sabit görev metni (adımlar · kurallar · rapor şablonu) alt ajan tanımında (.claude/agents/video-tarayici.md): sistem metninin parçası, paralel alt ajanlar önbelleği paylaşır. Aynı anda en fazla 3 alt ajan.
 5. video toplu <rapor.md...> [--istek-tavan M]  # tekille · sözlük eşleşmesi · kural karşılaştırması (ipucu/iş akışı) · jev tarama (≤2 batch) · işaret · <tarih>-toplu.md · kayit.jsonl (yalnız rapor-denetle'den geçen)
+   24b: aynı gün ikinci koşu önceki dosyayı ezmez → `<tarih>-toplu-2.md`, `-3` … (yeniden çıktısı da aynı).
 6. Sohbete: toplu'nun çıktısı (≤25 satır: video başına 1 satır + adaylar işaretiyle) + "atlandı: N" + "ertelendi: id…" + tahmini maliyet.
 ```
 

@@ -1,4 +1,5 @@
 # ONAY kural 3d-perspective-detayını-prompt-ta-açıkça
+karar: UYARLA (28 Eyl) — uygulandı: departman-frontend `## Yapım promptu şablonu` + docs/departmanlar/frontend-promptlar.md
 ad: 3d-perspective-detayını-prompt-ta-açıkça
 madde: 3D perspective detayını prompt'ta açıkça belirtme — Kartların doğru açı/incelik ile sahneye yerleşmesini sağlayan kritik prompt detayı
 kaynak: video NyNScAc2u_o, 15b

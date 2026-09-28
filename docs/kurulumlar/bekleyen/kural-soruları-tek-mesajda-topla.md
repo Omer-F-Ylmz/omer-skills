@@ -1,4 +1,5 @@
 # ONAY kural soruları-tek-mesajda-topla
+karar: RED (28 Eyl) — zaten var: soruları tek mesajda toplama kuralı
 ad: soruları-tek-mesajda-topla
 madde: Soruları tek mesajda topla — Ayrı ayrı sorular yerine tüm soruları tek mesajda sormak bağlam yüklemesini azaltır, cevabı netleştirir
 kaynak: video JNM_rxqtlvY, 15b

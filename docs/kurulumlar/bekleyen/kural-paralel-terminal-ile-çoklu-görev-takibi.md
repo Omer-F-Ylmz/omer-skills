@@ -1,4 +1,5 @@
 # ONAY kural paralel-terminal-ile-çoklu-görev-takibi
+karar: RED (28 Eyl) — çelişiyor: RAM sınırı, ağır işler sırayla
 ad: paralel-terminal-ile-çoklu-görev-takibi
 madde: Paralel terminal ile çoklu görev takibi — Aynı anda birden çok Claude Code terminali açıp email/reklam/topluluk verisi gibi farklı işleri paralel yürütme
 kaynak: video Gg35_iQWx7g, 15b

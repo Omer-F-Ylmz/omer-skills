@@ -1,4 +1,5 @@
 # ONAY kural projeyi-sürekli-github-a-yükleme
+karar: RED (28 Eyl) — zaten var: commit/push akışı
 ad: projeyi-sürekli-github-a-yükleme
 madde: Projeyi sürekli GitHub'a yükleme — Claude'un ilerlemeyi ve takıldığı yerleri daha iyi görmesi için projeyi sürekli GitHub'a push etme
 kaynak: video Gg35_iQWx7g, 15b

@@ -36,6 +36,9 @@ Site/UI'ı başka bir ajana (ya da alt ajana) yaptırırken prompt bu satırlar�
 - kabul: ölçülebilir kabul (ör. 60 fps, 390/768/1440 taşma yok, axe 0 hata, LCP sayısı).
 - dokunulmaz: hazır tasarım promptu mevcut siteye uygulanırken dokunulmaz alanlar adıyla (ör. hero, mevcut animasyonlar); prompttan yalnız ilgili bölüm alınır (K3, 24 Eyl).
 - bileşen: bütün butonlar tek bileşenden varyantla; hover/focus/active o bileşende (K16, 24 Eyl).
+- perspektif: 3D/derinlik sahnesinde kamera açısı, perspektif ve eğim sayıyla yazılır (ör. perspective 1200px, rotateX 12°); yazılmazsa kartlar düz ya da yanlış açıda çıkar.
+- klasör: görseller önce `public/` altına konur; promptta klasör adı ve dağıtım kuralı (rastgele/dengeli) verilir, ajan dosyaları kendisi yerleştirir.
+- sahne: video üretim promptunda sahne sahne kamera hareketi, ışık ve atmosfer ayrı cümlelerle tarif edilir.
 
 ## Çakışma
 - İki skill aynı kararı veriyorsa üstteki kazanır (sıra yukarıda); DESIGN.md her skill'den önce gelir.

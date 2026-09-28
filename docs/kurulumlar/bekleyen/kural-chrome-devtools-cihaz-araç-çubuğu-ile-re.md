@@ -1,4 +1,5 @@
 # ONAY kural chrome-devtools-cihaz-araç-çubuğu-ile-re
+karar: RED (28 Eyl) — zaten var: 390/768/1440 ekran döngüsü (frontend-craft)
 ad: chrome-devtools-cihaz-araç-çubuğu-ile-re
 madde: Chrome DevTools cihaz araç çubuğu ile responsive test — Farklı cihaz boyutlarında (iPad Mini, iPhone X) sitenin görünümünü kontrol etme
 kaynak: video jGJ09wdTGDI, 15b

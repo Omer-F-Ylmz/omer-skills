@@ -72,7 +72,7 @@ def test_toplu_ikinci_kosu_ezmez(ortam, tmp_path):
     ilk[0].write_text("ELLE NOT\n", encoding="utf-8")
     assert main(["toplu", str(r)], env=env) == 0
     assert ilk[0].read_text(encoding="utf-8") == "ELLE NOT\n"
-    assert [y.name for y in sorted(t.glob("*-toplu*.md"))] == [ilk[0].name, ilk[0].name.replace("-toplu.md", "-toplu-2.md")]
+    assert {y.name for y in t.glob("*-toplu*.md")} == {ilk[0].name, ilk[0].name.replace("-toplu.md", "-toplu-2.md")}
 
 
 def test_bos_yol(tmp_path):

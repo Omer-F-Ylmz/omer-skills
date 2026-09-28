@@ -1,4 +1,5 @@
 # ONAY kural düzeltme-yerine-edit-regenerate
+karar: ÖĞREN (28 Eyl) — bilgi/kullanim-duzenle-yeniden-uret.md (etiket kullanım)
 ad: düzeltme-yerine-edit-regenerate
 madde: Düzeltme yerine Edit/Regenerate — Yanlış cevaba "onu kastetmedim" gibi düzeltme mesajı atmak yerine mesajı düzenleyip yeniden üretmek bağlamı şişirmez
 kaynak: video JNM_rxqtlvY, 15b

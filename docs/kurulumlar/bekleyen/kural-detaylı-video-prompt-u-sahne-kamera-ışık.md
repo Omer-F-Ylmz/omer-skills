@@ -1,4 +1,5 @@
 # ONAY kural detaylı-video-prompt-u-sahne-kamera-ışık
+karar: UYARLA (28 Eyl) — uygulandı: departman-frontend `## Yapım promptu şablonu` + docs/departmanlar/frontend-promptlar.md
 ad: detaylı-video-prompt-u-sahne-kamera-ışık
 madde: Detaylı video prompt'u (sahne/kamera/ışık tarifi) — Sahneler arası hareketi, ışığı ve atmosferi cümle cümle tarif etmek video kalitesini artırıyor
 kaynak: video 4cE9t4rE0-0, 15b

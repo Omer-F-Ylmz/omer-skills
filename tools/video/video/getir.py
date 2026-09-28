@@ -117,13 +117,16 @@ def prompt_metni(rapor, seg):
     return "\n".join(out)
 
 
-def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None):
-    """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar. 24a K2: rapor → prompt metni."""
+def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None):
+    """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar. 24a K2: rapor → prompt metni.
+    24b K1: guvenlik → `## Güvenlik ön taraması` bölümü (araştırıcı klonlamaz, taramaz; buradan okur)."""
     y = Path(kok) / ".kos" / video / ad / "on.md"
     y.parent.mkdir(parents=True, exist_ok=True)
     parca = [f"# ön getirme: {ad} · video {video}"]
     if repo_ad:
         parca.append(repo(repo_ad, kos=kos))
+    if guvenlik:
+        parca.append(guvenlik)
     if url:
         parca.append(getir(url, cache=cache, al=al))
     if rapor:

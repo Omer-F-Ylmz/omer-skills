@@ -177,6 +177,15 @@ def kayit_ekle(yol, girdiler):
         f.write(bas + "".join(json.dumps(g, ensure_ascii=False) + "\n" for g in girdiler))
 
 
+def bos_yol(y):
+    """24b K3: günlük çıktı ezilmez — y varsa y-2, y-3 … ilk boş ad."""
+    y, n = Path(y), 2
+    x = y
+    while x.exists():
+        x, n = y.with_name(f"{y.stem}-{n}{y.suffix}"), n + 1
+    return x
+
+
 def kayit_son(kayit, anahtar="ad"):
     """Append-only okuma: anahtar başına satırlar sırayla birleşir (sonraki alan öncekini ezer)."""
     son = {}

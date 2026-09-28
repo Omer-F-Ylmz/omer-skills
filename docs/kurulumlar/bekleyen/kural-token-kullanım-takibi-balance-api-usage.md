@@ -1,4 +1,5 @@
 # ONAY kural token-kullanım-takibi-balance-api-usage
+karar: RED (28 Eyl) — zaten var: token/usage takibi
 ad: token-kullanım-takibi-balance-api-usage-
 madde: Token/kullanım takibi (Balance/API Usage paneli) — Harcanan token ve maliyeti panelden izleyip modelin fiilen çalıştığını doğrulama
 kaynak: video XemheY_aM1g, 15b

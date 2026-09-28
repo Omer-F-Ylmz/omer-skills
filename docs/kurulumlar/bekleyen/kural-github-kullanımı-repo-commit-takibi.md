@@ -1,4 +1,5 @@
 # ONAY kural github-kullanımı-repo-commit-takibi
+karar: RED (28 Eyl) — zaten var: commit/push akışı
 ad: github-kullanımı-repo-commit-takibi
 madde: GitHub kullanımı (repo/commit takibi) — Agent'ların 400bin+ satırlık codebase'i baştan okumak yerine son commit'lerden değişikliği takip edebilmesi için repo şart; private tutulabilir
 kaynak: video 2n84xa99FRY, 15b

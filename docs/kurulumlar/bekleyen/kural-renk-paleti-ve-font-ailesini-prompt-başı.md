@@ -1,4 +1,5 @@
 # ONAY kural renk-paleti-ve-font-ailesini-prompt-başı
+karar: RED (28 Eyl) — zaten var: DESIGN.md
 ad: renk-paleti-ve-font-ailesini-prompt-başı
 madde: Renk paleti ve font ailesini prompt başında sabitleme — AI'ın rastgele font/renk seçmesini engelleyip marka kimliğine sadık kalmasını sağlıyor
 kaynak: video NyNScAc2u_o, 15b

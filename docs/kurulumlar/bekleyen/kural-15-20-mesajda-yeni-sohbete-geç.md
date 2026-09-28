@@ -1,4 +1,5 @@
 # ONAY kural 15-20-mesajda-yeni-sohbete-geç
+karar: RED (28 Eyl) — zaten var: bağlama göre /clear
 ad: 15-20-mesajda-yeni-sohbete-geç
 madde: 15-20 mesajda yeni sohbete geç — Sohbet uzadıkça her mesaj geçmişi yeniden okuduğundan belirli aralıkla yeni sohbet açmak token'ı düşürür
 kaynak: video JNM_rxqtlvY, 15b

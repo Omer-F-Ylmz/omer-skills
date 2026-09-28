@@ -19,7 +19,7 @@ Tur disiplini (24a, raporsuz kalmak yasak):
 - curl/cat yerine `video getir` / `video repo`.
 1. Repo bul: on.md'de yoksa `gh search repos <ad> --limit 3` ya da verilen link; resmi site gerekiyorsa `video getir`. Repo yoksa `repo: yok`.
 2. Meta: `gh repo view <o/r> --json stargazerCount,pushedAt,licenseInfo,isArchived,defaultBranchRef` ve `gh api repos/<o/r>/git/trees/HEAD?recursive=1 --jq '.tree[].path'` (≤60 yol).
-3. Tür skill ise: `git clone --depth 1 https://github.com/<o/r> C:/Projeler/.video-cache/adaylar/<ad>`; skill klasörü `kaynak:` olur. `skillspector scan <kaynak> --no-llm --format json --output C:/Projeler/.video-cache/adaylar/<ad>.skillspector.json`; HIGH sayısını Kanıt'a yaz.
+3. Tür skill ise: klon ve SkillSpector araştırmadan ÖNCE `video on --repo` ile koşulmuştur (24b K1). on.md `## Güvenlik ön taraması`ndaki `kaynak:` klonun içinde skill klasörünü bulmak için kullanılır (`kaynak:` alanı), HIGH/CRITICAL sayısı Kanıt'a yazılır. Kendin klonlama ya da tarama YAPMA; bölüm yoksa ya da `koşmadı` ise `SkillSpector: koşmadı (on.md)` yaz.
 4. README'den kurulum komutları, istenen izinler, kaldırma komutu. Kurulum komutunu KOŞMA.
 Çıktı `docs/kurulumlar/adaylar/<ad>.md` (≤40 satır), başta alan satırları, sonra bölümler:
 

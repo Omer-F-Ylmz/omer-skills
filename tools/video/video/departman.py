@@ -28,6 +28,7 @@ DEPARTMANLAR = {
 }
 SORU = "Bu Claude Code aracı (state: ad · tür · açıklama) hangi departmanın işine yarar? En yakın tek departmanı seç."
 SATIR, ACIKLAMA, TOKEN, ESIK = 60, 200, 600, 3
+ESIK_P = 0.6  # 24b K4: bunun altındaki Jev departmanı sessizce atanmaz
 NE_ZAMAN = re.compile(r"(?:Use (?:when|for|this|before|after)|USE (?:FOR|WHEN)|Trigger|TRIGGER|Activates? when|[^.]*\b(?:kullan|yükle|aç)\b)[^.]*", re.I)
 
 
@@ -186,26 +187,32 @@ def kaydet(kok, envanter):
     katalog_yaz(kok, envanter)
 
 
-def sinifla(kok, jev, ad, tur, aciklama):
-    """elle.json → elle-desen → tek Jev choice (hata: diger/0 → gözden geçir). Envantere yazmaz."""
+def sinifla(kok, jev, ad, tur, aciklama, site=False):
+    """elle.json → elle-desen → tek Jev choice (hata: diger/0 → gözden geçir). Envantere yazmaz. → (departman, p, not).
+    24b K4: Jev p < ESIK_P → site/UI içerikli videoda frontend, değilse en olası + `departman: belirsiz (p=…)` notu."""
     d = Path(kok) / "docs" / "departmanlar"
     x = {"ad": ad, "tur": tur, "aciklama": aciklama}
     if dep := _elle(_json(d / "elle.json") or {}, x) or _desen(_json(d / "elle-desen.json") or {}, x):
-        return dep, 1.0
+        return dep, 1.0, ""
     try:
-        return sec(jev().yargila([durum(x)], soru())[0])
+        dep, p = sec(jev().yargila([durum(x)], soru())[0])
     except c.JevHata:
-        return "diger", 0.0
+        dep, p = "diger", 0.0
+    if p >= ESIK_P:
+        return dep, p, ""
+    if site:
+        return "frontend", p, f"içerik türü site/UI (Jev {dep} {p:.2f})"
+    return dep, p, f"departman: belirsiz (p={p:.2f})"
 
 
-def dosyala(kok, jev, ad, tur, aciklama, onceki=None):
-    """katman: KUR/UYARLA aracı sınıflar, envantere kaynak=katman. onceki: aynı koşuda zaten sınıflandıysa (dep, p)."""
+def dosyala(kok, jev, ad, tur, aciklama, onceki=None, site=False):
+    """katman: KUR/UYARLA aracı sınıflar, envantere kaynak=katman. onceki: aynı koşuda zaten sınıflandıysa (dep, p, not)."""
     d = Path(kok) / "docs" / "departmanlar"
     x = {"ad": ad, "tur": tur, "aciklama": aciklama}
-    dep, p = onceki or sinifla(kok, jev, ad, tur, aciklama)
+    dep, p, nt = onceki or sinifla(kok, jev, ad, tur, aciklama, site)
     kaydet(kok, [e for e in _json(d / "envanter.json") or [] if (e["tur"], e["ad"]) != (tur, ad)]
            + [{**x, "hash": _hash(ad, aciklama), "departman": dep, "p": p, "kaynak": "katman"}])
-    return dep, p
+    return dep, p, nt
 
 
 def departman(ns, ctx):
