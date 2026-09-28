@@ -241,6 +241,24 @@ def ozellik_karar(o, a, metin, kok, env):
     return k, g
 
 
+YAPIM_TUR = ("plugin", "MCP", "CLI", "hook")  # 24e-2 K4: kod ürünü → yapım tarifi; skill/talimat mevcut `video uret`
+
+
+def yapim_yaz(kok, o, oa, al, kaynak, lisans):
+    """24e-2 K4: docs/uyarlamalar/<ad>-yapim.md — amaç · mekanizma+kaynak · arayüz · test planı · güvenlik/izin · maliyet · lisans; kod kopyalanmaz.
+    Var olan dosya ezilmez (Desktop düzeltmiş olabilir). Ömer `ÜRET <ad>` derse Desktop yapım dalgası yazar."""
+    y = Path(kok) / "docs" / "uyarlamalar" / f"{oa}-yapim.md"
+    if not y.is_file():
+        y.parent.mkdir(parents=True, exist_ok=True)
+        b = (("Amaç", al["fikir"]), ("Alınan mekanizma + kaynağı", f"{o.get('mekanizma') or o.get('ne') or '?'} · kaynak {kaynak}"),
+             ("Arayüz", o.get("arayuz") or "? (komut/araç adları yapım dalgasında)"), ("Test planı", o.get("test") or "? (kırmızı-önce, yapım dalgasında)"),
+             ("Güvenlik/izin kapsamı", al["kapsam"]), ("Maliyet", f"yapım dalgası (CC) · etki: {al['etki']}"),
+             ("Lisans notu", f"{lisans or '?'} · kaynak kodu kopyalanmaz, mekanizma yeniden yazılır"))
+        y.write_text(f"# Yapım tarifi: {oa}\n\nhedef_tur: {al['hedef_tur']}\nvideo: {o.get('video', '?')}\n\n" + "".join(f"## {k}\n{v}\n\n" for k, v in b),
+                     encoding="utf-8")
+    return f"{oa} · {al['hedef_tur']} · docs/uyarlamalar/{y.name} · `ÜRET {oa}` → Desktop yapım dalgası"
+
+
 def uyarla_alan(kok, o):
     """24a K6: fikir · hedef · etki · kapsam alan satırından ya da `gerekce` içindeki `anahtar: değer` parçalarından; fikir yoksa `ne`,
     hedef yoksa gerekçede anılan repo skill'i; eksik alan 'aday.md'de yok'. hedef_tur: alan > skill adı/`skill` > talimat."""
@@ -251,7 +269,7 @@ def uyarla_alan(kok, o):
     s = next((x for x in sk_ if re.search(rf"(?<![\w-]){re.escape(x)}(?![\w-])", f"{al['hedef'] or ''} {o.get('gerekce', '')}")), None)
     al["hedef"] = al["hedef"] or (f"skills/{s} (gerekçede anılan)" if s else None)
     h = al["hedef"] or ""
-    tur = o.get("hedef_tur") or ("skill" if s or re.search(r"(?i)skill", h) else "talimat" if re.search(r"(?i)talimat|CLAUDE\.md", h) else "")
+    tur = o.get("hedef_tur") or ("skill" if s or re.search(r"(?i)skill", h) else "talimat" if re.search(r"(?i)talimat|CLAUDE\.md", h) else next((t for t in YAPIM_TUR if re.search(rf"(?i)(?<![\w-]){t}(?![\w-])", h)), ""))
     return {**{k: v or "aday.md'de yok" for k, v in al.items()}, "hedef_tur": tur}
 
 
@@ -329,6 +347,7 @@ def brief(ns, ctx):
         b = [("Özellik kararları", [s for s in tr.bolum(metin, "ÖZELLİK KARARLARI").splitlines() if s.startswith("- ")][:25], "raporda yok"),
              ("Departman", [s for s in tr.bolum(metin, "DEPARTMAN").splitlines() if s.startswith("- ")][:10], "raporda yok"),
              ("İddialar", [f"- {s[0]} → {s[2]} ({s[1]})" for s in tablo("İDDİA SINAMA") if len(s) >= 3][:16], "raporda yok"),  # 24c K3: ≤60 satır
+             *([("Yapım tarifleri", yt, "")] if (yt := [s for s in tr.bolum(metin, "YAPIM TARİFLERİ").splitlines() if s.startswith("- ")][:8]) else []),  # 24e-2 K4: boşsa bölüm yok (≤60 satır)
              *brief_frontend(kok, metin)]
     print("\n".join([f"# brief: {Path(ns.rapor).name}", *[s for ad, x, yok in b for s in [f"## {ad}", *(x or [f"- yok ({yok})"])]],
                      "## Linkler", *([f"- {x}" for x in link[:6]] or ["- yok"])]))
@@ -654,7 +673,7 @@ def katman(ns, ctx):
     ky = kd / "kayit.jsonl"
     kayit, bugun, tk = tr.kayit_oku(ky), date.today(), None
     gorulen = {tr.normal(k.get("aday") or k["ad"]) for k in kayit if not k.get("karar", "").startswith("SORULMADI")}  # 24e-1 K4: sorulmayan tekrar koşulur
-    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama, depl, uret_ = ([] for _ in range(15))
+    oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama, depl, uret_, yapim = ([] for _ in range(16))
     n = 9 * len(ns.adaylar) + 2 * sum(len(kaliplar(Path(y).read_text(encoding="utf-8"), None)) for y in ns.adaylar)  # 24c K4: kalıp başına 2 +  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1) + departman 1 + eşdeğer 1
 
     def jev():
@@ -699,6 +718,8 @@ def katman(ns, ctx):
                         karar, al = uyarla_yaz(kok, o, oa), uyarla_alan(kok, o)
                         if al["hedef_tur"] in ("skill", "talimat"):  # 24a K6: hedef aday.md alanlarından
                             uret_.append(f"{oa} · kaynak {ad}/{o['ozellik']} · hedef: {al['hedef']} · fayda: {al['etki']} · maliyet: claude -p ≤24 · ≈${24 * CAGRI_USD:.2f} · `ÜRET {oa}`")
+                        elif al["hedef_tur"].casefold() in {t.casefold() for t in YAPIM_TUR}:  # 24e-2 K4
+                            yapim.append(yapim_yaz(kok, o, oa, al, f"{ad}/{o['ozellik']}", a.get("lisans")))
                     elif yk == "DENE":
                         if "token" in o.get("etiket", "").casefold() and "token" not in (o.get("metrik") or "").casefold():
                             o["metrik"] = "girdi/çıktı token (K4 zorunlu) · " + (o.get("metrik") or "?")
@@ -845,7 +866,7 @@ def katman(ns, ctx):
     dp.katalog_ekle(kok, videodan)
     bayat = [f"{s} ({fm.get('bayatlama')})" for s, fm, _ in og.kartlar(kok) if fm.get("bayatlama", "") < bugun.isoformat()]
     bolumler = (("ÖZELLİK KARARLARI", ozk), ("ÖĞRENİLENLER", ogrenilen), ("ÇELİŞKİLER (otomatik eklenmedi, Ömer karar verir)", celiski), ("DENENECEKLER", dene),
-                ("ÜRETİLEBİLİR", uret_), ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("DEPARTMAN", depl), ("YENİDEN DOĞRULA (bayat kart)", bayat))
+                ("ÜRETİLEBİLİR", uret_), ("YAPIM TARİFLERİ", yapim), ("OTOMATİK UYGULANDI", oto), ("ONAY BEKLİYOR", onay), ("YÜKLENECEK ZIP", zipler), ("RED", red), ("DEPARTMAN", depl), ("YENİDEN DOĞRULA (bayat kart)", bayat))
     tam = kd / f"{bugun.isoformat()}-uygula.md"
     if rapor:  # sponsor adayları düşük öncelik: sona; 24a K5: aynı gün ikinci koşu ezmez, `## Koşu N` olarak eklenir
         eski = tam.read_text(encoding="utf-8").rstrip("\n") if tam.is_file() else ""

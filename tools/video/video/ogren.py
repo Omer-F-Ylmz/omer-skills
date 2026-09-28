@@ -171,11 +171,25 @@ def olgu_mu(tk, ad, a):
 def deneme_yaz(kok, a, ad, metin):
     y = Path(kok) / "docs" / "denemeler" / f"{ad}.md"
     y.parent.mkdir(parents=True, exist_ok=True)
-    alan = (("Hipotez", "hipotez"), ("Metrik", "metrik"), ("Bütçe", "butce"), ("Geri alma", "geri_alma"), ("Başarı eşiği", "esik"))
+    alan = (("Hipotez", "hipotez"), ("Metrik", "metrik"), ("Kollar", "kollar"), ("Görevler", "gorevler"), ("Tavan", "butce"), ("Geri alma", "geri_alma"),
+            ("Beklenen etki", "esik"))  # 24e-2 K5: tek eşik yok; karar ölçütü takas tablosu
     ilk = lambda b: next((s.strip() for s in tr.bolum(metin, b).splitlines() if s.strip()), "")
     y.write_text(f"# Deneme: {ad}\n\nvideo {a.get('video', '?')} · 15 · bu dalgada koşulmaz (14b)\n\n"
-                 + "".join(f"## {b}\n{a.get(k) or ilk(b) or '?'}\n\n" for b, k in alan), encoding="utf-8")
+                 + "".join(f"## {b}\n{a.get(k) or ilk(b) or '?'}\n\n" for b, k in alan) + f"## Karar ölçütü\n{TAKAS}\n", encoding="utf-8")
     return f"deneme: docs/denemeler/{ad}.md"
+
+
+TAKAS = "takas tablosu (omer-kurallar 21): kol başına tasarruf ve kalite kapısı yan yana; tek eşik yok, karar tablodan"
+DENEME_BOLUM = ("Kollar", "Görevler", "Tavan", "Karar ölçütü")
+
+
+def deneme_denetle(metin):
+    """24e-2 K5: docs/denemeler/*.md şeması — kollar · görevler · tavan · karar ölçütü; karar takas tablosu, tek eşik (%N) yok."""
+    h = [f"eksik bölüm: ## {b}" for b in DENEME_BOLUM if not tr.bolum(metin, b).strip()]
+    k = tr.bolum(metin, "Karar ölçütü") + tr.bolum(metin, "Başarı eşiği")
+    if "takas tablosu" not in k or re.search(r"%\s*\d|\d\s*%", k):
+        h.append("karar ölçütü: takas tablosu olmalı, tek eşik yasak (omer-kurallar 21)")
+    return h
 
 
 def meta(ctx, v):

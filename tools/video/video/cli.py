@@ -298,6 +298,13 @@ def izle(ns, ctx):
     return 0
 
 
+SHORT_SN, SHORT_KARE = 120, 3  # 24e-2 K3: kuyruk.md short (<2 dk) → kare ≤3
+
+
+def kare_tavan(sure, n):
+    return min(n, SHORT_KARE) if 0 < sure < SHORT_SN else n
+
+
 def paket(ns, ctx):
     """Alt ajan girdisi tek dosya <önbellek>/<id>/paket.md: künye · chapter · linkler · sadeleştirilmiş segmentler · kare yolları.
     Kareler: yalnız ekran sorusu (p varsa istek yok) → ekran p'si en yüksek --kare zamanın tam-t karesi. Segment metni stdout'a yazılmaz."""
@@ -305,12 +312,17 @@ def paket(ns, ctx):
     seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan)
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
     dil = m.dil_sec(meta)
+    ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare)
+    km = next((j[ns.id] for f in sorted(ctx["kok"].glob("kuyruk-meta-*.json"), reverse=True)
+               if ns.id in (j := json.loads(f.read_text(encoding="utf-8")))), {})  # 24e-2 K1: Desktop kuyruk-meta önce
+    lk = km.get("linkler") or m.urller(km.get("aciklama") or meta.get("description"))
+    lk = m.urller(lk) if isinstance(lk, str) else lk
     zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
     kareler = _kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
-          "## Linkler", *(m.urller(meta.get("description")) or ["yok"]),
+          "## Açıklama bağlantıları", *(lk or ["yok"]),
           "## Segmentler", *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or ["yok"])]
     yol = d / "paket.md"
@@ -490,6 +502,11 @@ def _sozluk_doldur(ctx, yol, metin):
 
 
 def rapor_denetle(ns, ctx):
+    if (ham := Path(ns.rapor).read_text(encoding="utf-8")).startswith("# Deneme:"):  # 24e-2 K5: deneme şeması (takas tablosu)
+        for x in (h := og.deneme_denetle(ham)):
+            print(x)
+        print("rapor-denetle (deneme): " + ("GEÇTİ" if not h else f"{len(h)} hata"))
+        return 1 if h else 0
     if tr.bolum(ham := Path(ns.rapor).read_text(encoding="utf-8"), "Özellikler").strip() or uy.prompt_mu(ham) or "arastirma" in uy.alanlar(ham):  # 24c K1  # 20b-devam K6 · 23c K7: aday raporu
         yarim = "yarım" in uy.alanlar(ham).get("arastirma", "")  # 24a K1: tur tavanı; geçerli ama işaretli, katman DENE vermez
         for x in (h := uy.mekanizma_denetle(ham) + uy.anatomi_denetle(ham)):
@@ -557,7 +574,7 @@ def toplu(ns, ctx):
     from jev import cli as jc
     d = _tarama_dizin(ctx)
     yol = d / "kayit.jsonl"
-    raporlar, adaylar, gecen = [], [], set()
+    raporlar, adaylar, gecen, refs, ek = [], [], set(), [], {}
     for r in ns.raporlar:
         v, _ = tr.rapor_id(r)
         metin = Path(r).read_text(encoding="utf-8")
@@ -565,6 +582,10 @@ def toplu(ns, ctx):
             gecen.add(v)
         baslik = next((s[2:].strip() for s in metin.splitlines() if s.startswith("# ")), "?")
         satir = tr.aday_satirlari(metin)
+        ac, ref = tr.aciklama_adaylari(metin, v)  # 24e-2 K1: kurulu kontrolü aşağıdaki sözlük eşleşmesinde
+        adaylar += ac
+        refs += [(v, u) for u in ref]
+        ek[v] = tr.rapor_videolari(metin, v)  # 24e-2 K3
         raporlar.append((v, Path(r), baslik, list(dict.fromkeys(s[0] for s in satir))))
         adaylar += [{"ad": s[0], "video": v, "tur": s[2] if len(s) > 2 else "?", "ne": s[4] if len(s) > 4 else ""} for s in satir]
     ids = {v for v, *_ in raporlar}
@@ -603,9 +624,10 @@ def toplu(ns, ctx):
         es = f"{x['es'][0]} ({x['es'][1]}, {x['es'][2]:.2f})" if x["es"] else "yok"
         md.append(f"| {x['ad']} | {x['etiket']} | {es} | {'-' if x['cift'] is None else x['cift']} | "
                   f"{'-' if x['risk'] is None else x['risk']} | {x['tur']} | {', '.join(x['videolar'])} |")
+    md += ["", "## Açıklama bağlantıları"] + [f"- aday {x['ad']} · repo {x['repo']} · {x['video']}" for x in adaylar if x.get("repo")] + [f"- referans (Site/UI) {u} · {v}" for v, u in refs] if refs or any(x.get("repo") for x in adaylar) else []
     md += ["", "## Raporlar"] + [f"- {v} · {b} · {r.name}" for v, r, b, _ in raporlar]
     cikti.write_text("\n".join(md) + "\n", encoding="utf-8")
-    tr.kayit_ekle(yol, [{"id": v, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []} for v, r, _, a in raporlar if v in gecen])  # 23c: yalnız ekler
+    tr.kayit_ekle(yol, [{"id": x, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []} for v, r, _, a in raporlar if v in gecen for x in ek[v]])  # 23c: yalnız ekler
     kayit = tr.kayit_son(tr.kayit_oku(yol), "id")
     for v, _, b, a in raporlar[:20]:
         print(f"{v} · {b[:50]} · {len(a)} aday: " + ", ".join(f"{x} [{isr[tr.normal(x)]}]" for x in a)[:300])
@@ -779,6 +801,45 @@ def repo_(ns, ctx):
     return 0
 
 
+def kaynak(ns, ctx):
+    """24e-2 K2: videosuz kaynak (GitHub repo/alt klasör ya da web sayfası) → kayıt (id kaynak-<slug>, yalnız ekler) → kurulu kontrolü +
+    ön getirme (`on_`: iskelet + güvenlik ön taraması) → docs/kurulumlar/kaynak-<slug>.md. Araştırıcı ve katman ana ajanda."""
+    import time
+    from types import SimpleNamespace
+    kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
+    k, ky = tr.kaynak_ayristir(ns.url), _tarama_dizin(ctx) / "kayit.jsonl"
+    if k["id"] not in {x.get("id") for x in tr.kayit_oku(ky)}:
+        tr.kayit_ekle(ky, [{"id": k["id"], "tarih": time.strftime("%Y-%m-%d"), "rapor": f"kaynak-{k['ad']}.md", "adaylar": [k["ad"]], "ele": [], "url": ns.url}])
+    rc = on_(SimpleNamespace(video=k["id"], aday=k["ad"], repo=k["repo"], tur=ns.tur, url=None if k["repo"] else ns.url, rapor=None), ctx)
+    r = kok / "docs" / "kurulumlar" / f"kaynak-{k['ad']}.md"
+    r.parent.mkdir(parents=True, exist_ok=True)
+    r.write_text(f"# {k['id']}\n\nurl: {ns.url}\nrepo: {k['repo'] or 'yok'}\nalt_yol: {k['alt'] or 'yok'}\ntur: {ns.tur}\n\n## Sonraki\n"
+                 f"- aday-arastirici: docs/kurulumlar/adaylar/{k['ad']}.md (alt yol {k['alt'] or 'kök'}) → `video katman docs/kurulumlar/adaylar/{k['ad']}.md`\n",
+                 encoding="utf-8")
+    print(f"kaynak: {k['id']} · repo {k['repo'] or 'yok'} · alt {k['alt'] or 'yok'} · on rc {rc} · {r.as_posix()}")
+    return rc
+
+
+def kuyruk(ns, ctx):
+    """24e-2 K6: kuyruk.md → sıradaki parti önerisi; --isle id,… --commit sha → yalnız o satırların durum sütunu (CRLF korunur)."""
+    y = Path(ns.dosya) if ns.dosya else Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK) / "docs" / "video-tarama" / "kuyruk.md"
+    metin = y.read_bytes().decode("utf-8")
+    if ns.isle:
+        if not ns.commit:
+            print("kuyruk: --isle için --commit gerekli")
+            return 2
+        y.write_bytes(tr.kuyruk_isle(metin, set(ns.isle.split(",")), ns.commit).encode("utf-8"))
+        print(f"kuyruk: işlendi: {ns.commit} · {ns.isle}")
+        return 0
+    tur, parti = tr.kuyruk_parti(metin)
+    print(f"kuyruk: sıradaki parti ({tur or 'yok'}, {len(parti)}/{8 if tur == 'short' else 3})")
+    for h in parti:
+        print(f"- {h[0]} · {h[1]} dk · {h[2]} · https://youtu.be/{h[0]} · not: {h[3]}")
+    if parti:
+        print(f"işlenince: video kuyruk --isle {','.join(h[0] for h in parti)} --commit <sha>")
+    return 0
+
+
 def on_(ns, ctx):
     kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
     if ns.tur in tr.KURAL_TUR | {"teknik"}:  # parti-d: ipucu/teknik iskelete girmez, T0 (katman) yolundan geçer
@@ -908,6 +969,13 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("ad", help="sahip/ad")
     x.add_argument("--dosya")
     x.add_argument("--satir", metavar="a-b")
+    x = alt.add_parser("kaynak", help="24e-2 K2: videosuz kaynak (GitHub repo/alt klasör · web sayfası) → kayıt + kurulu kontrolü + on; rapor docs/kurulumlar/kaynak-<slug>.md")
+    x.add_argument("url")
+    x.add_argument("--tur", default="araç")
+    x = alt.add_parser("kuyruk", help="24e-2 K6: kuyruk.md sıradaki parti önerisi; --isle id,… --commit sha yalnız durum sütununu yazar")
+    x.add_argument("--dosya")
+    x.add_argument("--isle")
+    x.add_argument("--commit")
     x = alt.add_parser("on", help="23c K4: aday ön getirme → <kök>/.kos/<video>/<aday>/on.md (repo özeti + site özeti); 24b K1: --repo → sığ klon + SkillSpector ön taraması")
     x.add_argument("video")
     x.add_argument("aday")
@@ -962,7 +1030,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
-                "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
+                "rapor-denetle": rapor_denetle, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
                 "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden}[ns.komut](ns, ctx)

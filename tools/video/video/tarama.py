@@ -158,6 +158,83 @@ def rapor_id(yol):
     return x[2], x[1]
 
 
+GH = re.compile(r"https?://(?:www\.)?github\.com/([\w.-]+)/([\w.-]+?)(?:\.git)?(?:/(?:tree|blob)/[^/\s]+/([^\s?#]*?))?/?(?:[?#]\S*)?$")
+PAKET = re.compile(r"https?://(?:www\.)?(?:npmjs\.com/package|pypi\.org/project)/([@\w.-]+(?:/[\w.-]+)?)/?$")
+SOSYAL = ("youtube.com", "youtu.be", "twitter.com", "x.com", "instagram.com", "linkedin.com", "discord.gg", "discord.com", "tiktok.com",
+          "facebook.com", "patreon.com")
+
+
+def kaynak_ayristir(url):
+    """24e-2 K2: videosuz kaynak → {repo, alt, ad, id}; GitHub `tree|blob/<dal>/<alt yol>` alt klasörü korunur, web sayfası repo'suz."""
+    from urllib.parse import urlparse
+    g = GH.match(url.strip())
+    if g:
+        alt = (g[3] or "").strip("/")
+        ad = slug((alt or g[2]).split("/")[-1])
+        return {"repo": f"{g[1]}/{g[2]}", "alt": alt, "ad": ad, "id": f"kaynak-{ad}"}
+    p = urlparse(url.strip())
+    ad = slug(p.path.strip("/").split("/")[-1] or p.netloc)
+    return {"repo": None, "alt": "", "ad": ad, "id": f"kaynak-{ad}"}
+
+
+def aciklama_adaylari(metin, v):
+    """24e-2 K1: `## Açıklama bağlantıları` → GitHub/paket bağlantısı aday (tür araç, repo dolu; kurulu kontrolü toplu sözlük eşleşmesinde),
+    diğer site bağlantısı Site/UI referansı; sosyal ağ ve GitHub sponsors atlanır."""
+    from urllib.parse import urlparse
+    ad, ref = [], []
+    for u in dict.fromkeys(re.findall(r"https?://[^\s|)>\]]+", bolum(metin, "Açıklama bağlantıları"))):
+        g, p, h = GH.match(u), PAKET.match(u), urlparse(u).netloc.casefold().removeprefix("www.")
+        if g and g[1] not in ("sponsors", "orgs"):
+            ad.append({"ad": g[2], "video": v, "tur": "araç", "ne": u, "repo": f"{g[1]}/{g[2]}"})
+        elif p:
+            ad.append({"ad": p[1].split("/")[-1], "video": v, "tur": "araç", "ne": u, "repo": u})
+        elif not g and not any(h == s or h.endswith("." + s) for s in SOSYAL):
+            ref.append(u)
+    return ad, ref
+
+
+def rapor_videolari(metin, v):
+    """24e-2 K3: karşılaştırmalı short raporu `videolar: a, b` → her id ayrı kayıt satırı."""
+    x = re.search(r"(?m)^videolar:\s*(.+)$", metin)
+    return list(dict.fromkeys([v, *re.findall(r"(?<![\w-])[A-Za-z0-9_-]{11}(?![\w-])", x[1] if x else "")]))
+
+
+def _hucre(s):
+    return [x.strip() for x in s.strip().strip("|").split("|")]
+
+
+def kuyruk_parti(metin):
+    """24e-2 K6: bekleyen video satırları sıra 1'den; ilk satırın türü partiyi belirler (short <2 dk ≤8 · uzun ≤3),
+    notunda anılan ya da onu anan aynı türden bekleyen önce gelir. → (tür, [hücreler])"""
+    sira, bek = 9, []
+    for s in metin.splitlines():
+        if x := re.match(r"###\s+Sıra\s+(\d+)", s):
+            sira = int(x[1])
+        h = _hucre(s)
+        if s.lstrip().startswith("|") and len(h) == 5 and h[4] == "bekliyor" and re.fullmatch(r"\d+(?:\.\d+)?", h[1]):
+            bek.append((sira, len(bek), h))
+    bek = [h for *_, h in sorted(bek)]
+    if not bek:
+        return None, []
+    kisa = float(bek[0][1]) < 2
+    ayni = [h for h in bek if (float(h[1]) < 2) == kisa]
+    bag = [h for h in ayni[1:] if h[0] in ayni[0][3] or ayni[0][0] in h[3]]
+    parti = list({h[0]: h for h in [ayni[0], *bag, *ayni]}.values())
+    return ("short", parti[:8]) if kisa else ("uzun", parti[:3])
+
+
+def kuyruk_isle(metin, ids, sha):
+    """24e-2 K6: id'si `ids`'te olan tablo satırının yalnız son (durum) hücresi `işlendi: <sha>` olur; satır sonu ve diğer baytlar aynı."""
+    out = []
+    for s in metin.splitlines(keepends=True):
+        g = s.rstrip("\r\n")
+        if g.lstrip().startswith("|") and _hucre(g)[0] in ids:
+            i = g.rstrip().rstrip("|").rfind("|")
+            s = f"{g[:i + 1]} işlendi: {sha} |{s[len(g):]}"
+        out.append(s)
+    return "".join(out)
+
+
 def ice_al(dizin):
     out = []
     for f in sorted(Path(dizin).glob("*.md")):

@@ -6,6 +6,7 @@ tools: Bash, Read, Write
 ---
 
 Bir YouTube videosu için tarama raporu yaz. Girdi prompt'taki tek satır: id · paket · kareler · rapor yolu. En fazla 4 tur; tavan 6.
+24e-2: short (<2 dk) → kare ≤3 (paket keser; `video kare` ile ek kare yok), rapor kısa; aynı konu short'lar tek raporda `videolar: id1, id2` satırıyla. paket.md'deki `## Açıklama bağlantıları` bölümü rapora aynen kopyalanır.
 Tur 1: TEK mesajda paralel Read — paket.md ve satırdaki her kare yolu.
 Tur 2: rapor Write'ı ve Bash `video rapor-denetle <rapor>` AYNI mesajda (iki araç çağrısı, tek mesaj).
 Tur 3: denetim geçmediyse bir kez Write + denetle, yine AYNI mesajda. Hâlâ geçmiyorsa hataları dönüşe yaz.
