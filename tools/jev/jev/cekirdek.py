@@ -214,6 +214,9 @@ class Tasiyici:
             try:
                 status, hdr, yanit = self.gonder(self.b["url"], basliklar, veri)
             except OSError:
+                if deneme < self.tekrar:  # 24e-1 K4: kopan bağlantı da tekrar denenir
+                    self.uyu(_bekle({}, deneme))
+                    continue
                 raise JevHata(f"{self.b['ad']}: bağlanılamadı") from None
             if status < 400:
                 return _json(yanit)

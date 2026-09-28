@@ -496,6 +496,11 @@ def rapor_denetle(ns, ctx):
             print(("yarım: " if yarim else "") + x)
         print("rapor-denetle (aday): " + (f"GEÇTİ (araştırma yarım, işaretli; {len(h)} eksik)" if yarim else "GEÇTİ" if not h else f"{len(h)} hata"))
         return 1 if h and not yarim else 0
+    if {"ad", "tur"} <= uy.alanlar(ham).keys():  # 24e-1 K5: T0 aday dosyası video raporu değil
+        for x in (h := uy.t0_denetle(ham)):
+            print(x)
+        print("rapor-denetle (T0): " + ("GEÇTİ" if not h else f"{len(h)} hata"))
+        return 1 if h else 0
     metin = _sozluk_doldur(ctx, ns.rapor, Path(ns.rapor).read_text(encoding="utf-8"))
     sure = _sure(ctx, ns.rapor, metin)
     h = tr.denetle(metin, sure)
@@ -618,7 +623,7 @@ ARAC_TUR = {"araç": "kurulabilir skill, plugin, MCP, CLI, uygulama, kütüphane
 
 
 def _slug(ad):
-    return re.sub(r"[^\w]+", "-", ad.casefold()).strip("-")[:40]
+    return tr.slug(ad)[:40]
 
 
 def _top(y, k):
@@ -832,7 +837,7 @@ def temizle(ns, ctx):
 
 
 def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
-    argv = list(sys.argv[1:] if argv is None else argv)
+    argv = [a.rstrip("\r") for a in (sys.argv[1:] if argv is None else argv)]  # 24e-1 K2: CRLF listeden gelen yol
     if argv[:1] == ["--whisper"]:
         argv[0] = "whisper"
     p = argparse.ArgumentParser(prog="video", description=__doc__)

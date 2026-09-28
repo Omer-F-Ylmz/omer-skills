@@ -50,6 +50,13 @@ def tablolar(metin):
     return out
 
 
+TR_ASCII = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
+
+
+def slug(ad):  # 24e-1 K1: dosya adı ASCII; Türkçe harf kabukta bozulmaz
+    return re.sub(r"\W+", "-", ad.translate(TR_ASCII).casefold()).strip("-")
+
+
 def bolum(metin, ad):
     """`## ad…` başlığından bir sonraki `## `'e kadar."""
     b = re.search(rf"^## {re.escape(ad)}.*?$(.*?)(?=^## |\Z)", metin, re.M | re.S | re.I)

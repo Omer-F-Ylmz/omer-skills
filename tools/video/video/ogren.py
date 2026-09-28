@@ -114,6 +114,10 @@ def celiski(tk, state, kl, ks):
     return (ilk, iliski) if iliski in ("destekler", "çelişir") else None
 
 
+def destek(metin, satir):  # 24e-1 K3: aynı destek satırı ikinci kez eklenmez
+    return metin if satir in metin.splitlines() else metin.rstrip("\n") + f"\n{satir}\n"
+
+
 def ogren(tk, kok, a, ad, bugun, kl):
     """(karar, çelişki etiketi|None). Çift kart → yeni kaynak mevcut karta eklenir; çelişkide kart yazılmaz."""
     ks, d = kartlar(kok), Path(kok) / "bilgi"
@@ -129,10 +133,10 @@ def ogren(tk, kok, a, ad, bugun, kl):
         y, yeni = d / f"{r[0].split(':', 1)[1]}.md", kaynak(a)
         m = re.sub(r"^kaynak: (.*)$", lambda x: x[0] if yeni in x[1] else f"kaynak: {x[1]}, {yeni}",
                    y.read_text(encoding="utf-8"), count=1, flags=re.M)
-        y.write_text(m.rstrip("\n") + f"\n- destek: {a.get('not') or a.get('iddia') or ad} ({yeni})\n", encoding="utf-8")
+        y.write_text(destek(m, f"- destek: {a.get('not') or a.get('iddia') or ad} ({yeni})"), encoding="utf-8")
         return f"kart destekledi: bilgi/{y.name} (+{yeni})", None
     d.mkdir(parents=True, exist_ok=True)
-    slug = re.sub(r"\W+", "-", ad.casefold()).strip("-") or "kart"
+    slug = tr.slug(ad) or "kart"
     y = d / f"{slug}.md"
     i = 2
     while y.exists():
