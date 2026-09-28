@@ -1,6 +1,6 @@
 ---
 iddia: Site/UI tekniği: 3D sarmal görsel galeri sahnesi
-kaynak: JfmAm3sxCSc 6:37
+kaynak: JfmAm3sxCSc 6:37, b-LZ_Y9wor8
 guven: orta
 dogrulama: doğrulanamadı
 tarih: 2026-09-24
@@ -11,3 +11,4 @@ etiketler: frontend
 kanıt: 6:37 k00397_0.jpg "Three.js section... createCurvedTileGeometry, buildSpiral"
 kütüphane/araç: Three.js
 bizde: omer-kutuphaneler/web-sahne-desenleri kontrol edilmedi
+- destek: webgl (b-LZ_Y9wor8)

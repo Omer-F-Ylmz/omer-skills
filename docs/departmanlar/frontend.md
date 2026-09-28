@@ -110,6 +110,27 @@ Müdür: `departman-frontend`
 - görselden-arayüz-kod-üretme-testi · KUR · video XemheY_aM1g
 - scroll-a-bağlı-video-scrub · ÖĞREN · video 4cE9t4rE0-0
 - 4ce9-yat-sitesi-promptu/scroll-scrub-hero-video · UYARLA · video 4cE9t4rE0-0
+- blz-sinematik-portfoy-promptu/uzun-detayli-prompt-ile-dosya-yapisini-dikte-etme · ZATEN VAR · video b-LZ_Y9wor8
+- blz-sinematik-portfoy-promptu/pencereden-iceri-giren-sinematik-scroll-girisi · ZATEN VAR · video b-LZ_Y9wor8
+- lumen-sitesi-promptu · ÖĞREN · video iYwCzKy6W40
+- gsap · ÖĞREN · video b-LZ_Y9wor8
+- webgl · ÖĞREN · video b-LZ_Y9wor8
+- lenis · ÖĞREN · video b-LZ_Y9wor8
+- next-js · ÖĞREN · video b-LZ_Y9wor8
+- uzun-detaylı-prompt-yazma · UYARLA · video b-LZ_Y9wor8
+- her-şey-hazır-olana-kadar-loading-screen · UYARLA · video b-LZ_Y9wor8
+- ödüllü-siteyi-analiz-edip-ilham-alma · ZATEN VAR · video b-LZ_Y9wor8
+- kaydırmaya-bağlı-sallanan-slider-kağıt-f · ÖĞREN · video b-LZ_Y9wor8
+- globe-dünya-haritası-footer · UYARLA · video b-LZ_Y9wor8
+- aşırı-sade-tasarımla-akılda-kalıcılık · KUR · video b-LZ_Y9wor8
+- glb-dosya-boyutu-seçimi-2mb-vs-6mb · KUR · video iYwCzKy6W40
+- three-js-webgl · ÖĞREN · video iYwCzKy6W40
+- react-three-fiber-r3f · ÖĞREN · video iYwCzKy6W40
+- teknik-prompt-yazımı-teknoloji-stil-beli · UYARLA · video iYwCzKy6W40
+- ayrı-mobil-masaüstü-performans-optimizas · KUR · video iYwCzKy6W40
+- ekran-görüntüsü-diğer-kısımlara-dokunma- · ZATEN VAR · video iYwCzKy6W40
+- vercel-referans-site · ÖĞREN · video iYwCzKy6W40
+- hostinger-sponsor · ÖĞREN · video iYwCzKy6W40
 
 ## Teknikler
 
@@ -139,5 +160,17 @@ Müdür: `departman-frontend`
 - Renk/tipografi sistemi (deep navy/ivory, Cormorant Garamond + Inter) · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
 - Sabit navbar renk geçişi (transparent → ivory) · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
 - Minimal footer + geniş whitespace grid · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
+- kaydırmaya bağlı sahne geçişi (pencereden içeri girme, plan/metin belirme) · UYARLA · video b-LZ_Y9wor8 · 0:51 anlatım + k00196/k00578 kareleri
+- yumuşak (inertia) kaydırma · UYARLA · video b-LZ_Y9wor8 · 7:42 "GSAP, Lenis"
+- 3D obje (jet modeli, blueprint girişli) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım
+- sürüklenince fizik tepkili slider (kağıt sallanması) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım
+- tipografi ile odak (iki kelimenin sırayla belirmesi) · UYARLA · video b-LZ_Y9wor8 · 4:49 anlatım
+- noktalı 3D dünya küresi (footer) · UYARLA · video b-LZ_Y9wor8 · 5:54 anlatım + k00377 karesi
+- varlıklar hazır olana kadar loading screen · UYARLA · video b-LZ_Y9wor8 · 9:08 anlatım
+- Kaydırmaya bağlı 3D kamera animasyonu (scroll-tied camera pose) · ÖĞREN · video iYwCzKy6W40 · 0:00 anlatım + 10:10 Three.js dokümantasyonu referansı
+- Yükleme ekranında kameranın yavaşça açılışı (giriş animasyonu) · ÖĞREN · video iYwCzKy6W40 · 0:00 "loading ekranını kameranın bu şekilde yavaşça..."
+- 3D ürün modeli entegrasyonu (Sketchfab GLB indirme) · ÖĞREN · video iYwCzKy6W40 · 2:33 kare: Sketchfab "Canon EOS 5D Mark IV", GLB seçenekleri
+- Responsive/mobil sahne testi · ÖĞREN · video iYwCzKy6W40 · 12:14 kare: iPhone 14 Pro Max cihaz emülasyonu
+- Performans denetimi (Lighthouse) · UYARLA · video iYwCzKy6W40 · 12:45 kare: Performance 92, Accessibility 96, Best Practices 100, SEO 100
 
 ## Elle

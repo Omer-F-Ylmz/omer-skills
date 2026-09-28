@@ -41,5 +41,8 @@ Müdür: `departman-surec-inceleme`
 ## Videodan gelen
 
 - god-file-eşiği-aşmadan-refactor-uyarısı · KUR · video 2n84xa99FRY
+- codex-plugin-cc/codex-review · ZATEN VAR · video LbBC5Wew4qs
+- codex-plugin-cc/codex-adversarial-review · ZATEN VAR · video LbBC5Wew4qs
+- codex-plugin-cc/codex-rescue-transfer · RED · video LbBC5Wew4qs
 
 ## Elle

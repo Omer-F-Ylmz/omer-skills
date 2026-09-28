@@ -124,5 +124,8 @@ Müdür: `departman-surec-ajan-arac`
 - kling-ai-v3 · ÖĞREN · video 4cE9t4rE0-0
 - mcp-server-configuration · ÖĞREN · video 4cE9t4rE0-0
 - claude-mm/minimax-m3-backend-degisimi · RED · video XemheY_aM1g
+- opus-model-seçimi · ÖĞREN · video b-LZ_Y9wor8
+- prompt-içinde-dosya-yapısı-belirtme · ZATEN VAR · video b-LZ_Y9wor8
+- asla-sözümden-çıkma-kesin-talimat · KUR · video iYwCzKy6W40
 
 ## Elle

@@ -40,5 +40,7 @@ Müdür: `departman-arastirma-ogrenme`
 
 - muhakemeyi-aciklatmama · ÖĞREN · video vcU85OrwuV0
 - video-üretiminde-ilk-son-sahne-belirleme · ÖĞREN · video 4cE9t4rE0-0
+- sketchfab · ÖĞREN · video b-LZ_Y9wor8, iYwCzKy6W40
+- awwwards · ÖĞREN · video b-LZ_Y9wor8
 
 ## Elle

@@ -30,3 +30,17 @@ Videodan çıkan yapım promptu kalıpları; metin kopyalanmaz, kalıp yazılır
 | 3D perspektif ve eğimi promptta sayıyla açıkça yaz | NyNScAc2u_o | ? | 3D kart sahnesi | şablon: perspektif | kural-3d-perspective |
 | görselleri public/ klasörüne koy, ajana klasörden aldır | NyNScAc2u_o | ? | - | şablon: klasör | kural-görselleri-public |
 | video promptunu sahne sahne kamera, ışık ve atmosferle tarif et | 4cE9t4rE0-0 | ? | video üretimi | şablon: sahne | kural-detaylı-video-prompt |
+| Ödüllü siteyi bölüm bölüm inceleyip ilham alma | b-LZ_Y9wor8 | 0:51 | tasarım analizi iş akışı | yok → bekleyen | blz-sinematik-portfoy-promptu |
+| Dosya yapısını promptta zorunlu kılma (modele bırakmama) | b-LZ_Y9wor8 | 7:42 | redundant talimat | şablon: dosya | blz-sinematik-portfoy-promptu |
+| Uzun/detaylı prompt ile %90-100 birebir sonuç hedefleme | b-LZ_Y9wor8 | 6:41 | ayrıntı seviyesi arttırma | şablon: kabul | blz-sinematik-portfoy-promptu |
+| Her şey hazır olana kadar loading screen ekletme | b-LZ_Y9wor8 | 9:08 | yükleme durumu koruması | şablon: hareket | blz-sinematik-portfoy-promptu |
+| Kaydırmaya bağlı kağıt fiziği slider tarifi | b-LZ_Y9wor8 | 3:47 | drag+inertia fizik | şablon: hareket | blz-sinematik-portfoy-promptu |
+| 3D modeli stack adıyla ver: model + R3F/Three.js birlikte | iYwCzKy6W40 | 5:04 | React Three Fiber | şablon: teknoloji | lumen-sitesi-promptu |
+| Dosya yapısını bileşen bileşen yaz, projeler arası aynı kalsın | iYwCzKy6W40 | 5:04 | bileşen ayrımı | şablon: dosya | lumen-sitesi-promptu |
+| Elle ayarlanmış pozisyonları "atlama, değiştirme" diye kilitle | iYwCzKy6W40 | 5:04 | kritik blok | yok → bekleyen | lumen-sitesi-promptu |
+| 3D'de sahne, ışık ve kamera ayarını ayrı ayrı iste | iYwCzKy6W40 | 5:04 | Three.js scene/light/camera | şablon: config | lumen-sitesi-promptu |
+| Font stilini ve piksel boyutlarını prompt'ta belirt | iYwCzKy6W40 | 5:04 | tipografi tokenları | yok → bekleyen | lumen-sitesi-promptu |
+| Uzun/detaylı prompt yazma — tasarım kararlarını adım adım anlatan uzun prompt yazarak %90-100 birebir sonuç almak | b-LZ_Y9wor8 | ? | - | yok → bekleyen | uzun-detaylı-prompt-yazma |
+| Her şey hazır olana kadar loading screen — görsel/3D obje yüklenirken sitenin bozuk görünmesini önlemek için yükleme ekranı eklemek | b-LZ_Y9wor8 | ? | - | yok → bekleyen | her-şey-hazır-olana-kadar-loading-screen |
+| Globe/dünya haritası footer — "global" marka mesajı vermek için footer'a noktalı dünya küresi koymak | b-LZ_Y9wor8 | ? | - | yok → bekleyen | globe-dünya-haritası-footer |
+| Teknik prompt yazımı (teknoloji + stil belirtme) — Genel "site yap" yerine teknoloji/stil/kamera davranışını açıkça yazarak sıradanlıktan kaçınma | iYwCzKy6W40 | ? | - | yok → bekleyen | teknik-prompt-yazımı-teknoloji-stil-beli |

@@ -55,5 +55,7 @@ Müdür: `departman-verimlilik`
 - token-kullanım-takibi-balance-api-usage- · KUR · video XemheY_aM1g
 - yüksek-context-limitli-model-seçme · KUR · video XemheY_aM1g
 - kredi-token-ayrımını-takip-etme · KUR · video 4cE9t4rE0-0
+- log-dosyası-üzerinden-hata-çözme-iş-akış · ÖĞREN · video LbBC5Wew4qs
+- proje-büyüklüğüne-göre-claude-codex-kull · ÖĞREN · video LbBC5Wew4qs
 
 ## Elle

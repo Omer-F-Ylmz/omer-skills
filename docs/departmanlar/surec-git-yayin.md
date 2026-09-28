@@ -37,5 +37,7 @@ Müdür: `departman-surec-git-yayin`
 - github-kullanımı-repo-commit-takibi · KUR · video 2n84xa99FRY
 - skor-iskelet-tabanlı-ilerleme-ölçümü-sca · ÖĞREN · video 2n84xa99FRY
 - domain-bağlama-abacus-subdomain-ile-yayı · ÖĞREN · video 4cE9t4rE0-0
+- netlify · ÖĞREN · video iYwCzKy6W40
+- github-da-kod-paylaşımı · KUR · video iYwCzKy6W40
 
 ## Elle

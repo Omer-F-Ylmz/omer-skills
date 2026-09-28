@@ -62,5 +62,8 @@ Müdür: `departman-test-qa`
 
 - pest · RED · video jf1sv2geEWo
 - chrome-devtools-cihaz-araç-çubuğu-ile-re · KUR · video jGJ09wdTGDI
+- yerelde-ayağa-kaldırma-isteği · KUR · video iYwCzKy6W40
+- lighthouse-chrome-devtools · ÖĞREN · video iYwCzKy6W40
+- devtools-cihaz-emülasyonu-ile-mobil-test · ÖĞREN · video iYwCzKy6W40
 
 ## Elle

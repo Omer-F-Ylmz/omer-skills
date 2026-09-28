@@ -38,4 +38,8 @@ Müdür: `departman-surec-plan`
 | superpowers:executing-plans | skill | Use when executing an implementation plan in the current session as the implementer yours… | Use when executing an implementation plan in the current session as the implementer yours… | - |
 | superpowers:writing-plans | skill | Use when you have a spec or requirements for a multi-step task, before touching code | Use when you have a spec or requirements for a multi-step task, before touching code | Plan incelemesi |
 
+## Videodan gelen
+
+- mimaride-claude-detayda-codex-iş-akışı · ÖĞREN · video LbBC5Wew4qs
+
 ## Elle
