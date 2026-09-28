@@ -406,11 +406,21 @@ ISKELET_ALAN = ("lisans", "son_commit", "arsiv", "kaynak", "telemetri")
 ISKELET_BOLUM = ("Kurulum", "İzinler", "Duman testi", "Geri alma", "Köprü izni", "Önerilen katman")
 
 
-def iskelet(kok, video, ad, tur, repo_ad, on_yol, guvenlik=None):
+def iskelet(kok, video, ad, tur, repo_ad, on_yol, guvenlik=None, kurulu=None):
     """24c K1: araştırıcıdan ÖNCE hat aday.md iskeletini on.md'den yazar (başlıklar + bilinen alanlar, kalan "araştırılıyor",
     `arastirma: yarım`). Araştırıcı yalnız Edit ile günceller; tur biterse dosya yine geçerli. Var olan dosya ezilmez."""
-    y = kok / "docs" / "kurulumlar" / "adaylar" / f"{ad}.md"
+    from video.cli import _slug  # cli bu modülü içe aktarır; döngü yalnız çağrıda çözülür
+    y = kok / "docs" / "kurulumlar" / "adaylar" / f"{_slug(ad)}.md"
     if y.exists():
+        return y
+    if kurulu:  # parti-d: kurulu araç → on/araştırıcı yok; videodaki yeni kullanım ana ajan eliyle `### <x>` + `karar: ÖĞREN`
+        g = f"kurulu: {kurulu}"
+        s = [f"# {ad}", f"ad: {ad}", f"tur: {tur or 'araç'}", f"video: {video}", f"repo: {repo_ad or 'yok'}", "karar: ZATEN VAR", f"gerekce: {g}",
+             "arastirma: tam: kurulu, araştırıcı yok", "## Ne", f"kurulu araç ({g})", "## Bizde durum", g, "## Beklenen fayda",
+             "kurulu; videodaki yeni kullanım özellik düzeyinde ÖĞREN", "## Maliyet/risk", "yok: kurulum yapılmaz", "## Karar", "ZATEN VAR (kurulu)",
+             "## Sonraki adım", "yeni kullanım varsa `## Özellikler` altına `### <x>` + `karar: ÖĞREN`", "## Özellikler", "### kurulu", "karar: ZATEN VAR", f"gerekce: {g}"]
+        y.parent.mkdir(parents=True, exist_ok=True)
+        y.write_text("\n".join(s) + "\n", encoding="utf-8")
         return y
     s = [f"# {ad}", f"ad: {ad}", f"tur: {tur or 'araştırılıyor'}", f"video: {video}", f"repo: {repo_ad or 'yok'}",
          *(f"{k}: araştırılıyor" for k in ISKELET_ALAN), "arastirma: yarım: hat iskeleti (araştırıcı Edit ile doldurur, bitince `arastirma: tam`)",

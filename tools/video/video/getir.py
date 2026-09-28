@@ -120,7 +120,8 @@ def prompt_metni(rapor, seg):
 def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None):
     """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar. 24a K2: rapor → prompt metni.
     24b K1: guvenlik → `## Güvenlik ön taraması` bölümü (araştırıcı klonlamaz, taramaz; buradan okur)."""
-    y = Path(kok) / ".kos" / video / ad / "on.md"
+    from video.cli import _slug  # cli bu modülü içe aktarır; döngü yalnız çağrıda çözülür
+    y = Path(kok) / ".kos" / video / _slug(ad) / "on.md"
     y.parent.mkdir(parents=True, exist_ok=True)
     parca = [f"# ön getirme: {ad} · video {video}"]
     if repo_ad:

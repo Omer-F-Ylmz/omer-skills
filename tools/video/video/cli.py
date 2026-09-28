@@ -776,6 +776,12 @@ def repo_(ns, ctx):
 
 def on_(ns, ctx):
     kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
+    if ns.tur in tr.KURAL_TUR | {"teknik"}:  # parti-d: ipucu/teknik iskelete girmez, T0 (katman) yolundan geçer
+        print(f"on: {ns.aday} · tür {ns.tur} → iskelet yok, T0'dan geçer")
+        return 2
+    if es := tr.arac_esle(ns.aday, tr.envanter_sozluk(tr._json(kok / "docs" / "departmanlar" / "envanter.json") or []), []):  # parti-d: kurulu → on/klon yok
+        print(f"on: kurulu ({es[0]}) → ZATEN VAR, araştırıcı yok · aday: {uy.iskelet(kok, ns.video, ns.aday, ns.tur, ns.repo, None, kurulu=es[0])}")
+        return 0
     g = uy.on_tarama(ctx, ns.repo) if ns.repo else None
     y = gt.on(kok, ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir", rapor=ns.rapor, seg=ctx["kok"] / ns.video / "segmentler.jsonl", guvenlik=g)
     a = uy.iskelet(kok, ns.video, ns.aday, ns.tur, ns.repo, y, g)  # 24c K1: araştırıcıdan önce, var olanı ezmez
