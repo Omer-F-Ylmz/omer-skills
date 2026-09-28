@@ -518,8 +518,9 @@ def t0_regresyon(ns, ctx):
     tz = c.Tasiyici(env=ctx["env"], en_fazla=3 * len(fix["zaten"]), gonder=ctx["gonder"], istek_tavan=3 * len(fix["zaten"]))
     for x in fix["zaten"]:
         e = uy.prompt_zaten(tz, f"{x['ad']}: {x['kalip']}", uy.zaten_liste(kok, ctx["env"], x.get("haric")))  # kalıbın kendi adayı hariç (katmandaki gibi)
-        z += bool(e and x["kaynak"] in e[0])
-        print(f"{'+' if e and x['kaynak'] in e[0] else '-'} zaten {x['ad']}: {e}")
+        ok = bool(e and x["kaynak"] in e[0] and e[1] >= uy.ZATEN_ESIK)  # 24d: 0.4–0.6 olası tekrar, ZATEN VAR sayılmaz
+        z += ok
+        print(f"{'+' if ok else '-'} zaten {x['ad']}: {e}")
     print(f"t0-regresyon: T0 {d}/{len(fix['t0'])} (Jev {t.istek}) · zaten {z}/{len(fix['zaten'])} (Jev {tz.istek})")
     return 0 if d >= len(fix["t0"]) - 1 and z == len(fix["zaten"]) else 1
 

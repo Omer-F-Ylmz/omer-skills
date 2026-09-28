@@ -186,12 +186,15 @@ def prompt_isle(kok, ad, metin, tk=None, liste=()):
     for x in kaliplar(metin, alanlar(metin).get("video")):
         if x["sablon"].casefold() in bolum:
             karar, x["karsilik"] = "ZATEN VAR", f"şablon: {x['sablon']}"
-        elif tk and (z := prompt_zaten(tk, f"{ad}: {x['kalip']}", liste)):  # 24c K4
+        elif tk and (z := prompt_zaten(tk, f"{ad}: {x['kalip']}", liste)) and z[1] >= ZATEN_ESIK:  # 24c K4
             karar, x["karsilik"] = "ZATEN VAR", f"K4: {z[0]} (p {z[1]:.2f})"
+        elif tk and z:  # 24d: olası tekrar → Desktop incelemesi
+            b = olasi_yaz(kok, f"{ad}: {x['kalip']}", z, liste, x["video"])
+            karar, x["karsilik"] = "OLASI TEKRAR", f"OLASI TEKRAR ({z[0]} p={z[1]:.2f}) · bekleyen/{b.name}"
         else:
             karar, x["karsilik"] = "UYARLA", "yok → bekleyen"
             prompt_bekleyen(kok, x, ad)
-        say[karar] += 1
+        say[karar] = say.get(karar, 0) + 1
         satir.append({**x, "aday": ad})
     kutuphane_ekle(kok, satir)
     return say
@@ -296,7 +299,11 @@ def brief_frontend(kok, metin):
     tek = [s for s in tr.bolum(fe.read_text(encoding="utf-8"), "Teknikler").splitlines() if s.startswith("- ") and any(f"video {v}" in s for v in vid)] if fe.is_file() else []
     kal = [f"- {x['kalip']} · {x['video']} {x['zaman']} · şablon: {x['sablon']}" for y in sorted((kok / "docs" / "kurulumlar" / "adaylar").glob("*.md"))
            for m in [y.read_text(encoding="utf-8")] if alanlar(m).get("video") in vid for x in kaliplar(m, alanlar(m).get("video"))]
-    return [("Site/UI teknikleri", tek[:6], "bu koşunun videolarında teknik yok"), ("Prompt anatomisi", kal[:6], "bu koşunun prompt adayı yok")]
+    ot = [f"- {m.get('öneri')} · {m.get('kaynak')}: {(m.get('kaynak satırı') or '')[:80]} · p={m.get('p')}"
+          for y in sorted((kok / "docs" / "kurulumlar" / "bekleyen").glob("olasi-*.md"))
+          for m in [dict(re.findall(r"^([^:\n]+): (.*)$", y.read_text(encoding="utf-8"), re.M))] if m.get("video") in vid]  # 24d
+    return [("Site/UI teknikleri", tek[:6], "bu koşunun videolarında teknik yok"), ("Prompt anatomisi", kal[:6], "bu koşunun prompt adayı yok"),
+            ("Olası tekrarlar", ot[:8], "bu koşuda 0.4–0.6 bandında öneri yok")]
 
 
 def brief(ns, ctx):
@@ -464,6 +471,7 @@ ZATEN_SORU = ("Bu prompt/kural önerisini listedeki mevcut şablon satırı, pro
 ZATEN_NOUL = "Mevcut satır bu öneriyi zaten karşılıyor mu (aynı şeyi ister ya da kapsar)? Satır: {k}"
 ZATEN_KURAL = ("25", "26")  # omer-kurallar: site/UI yapım promptu + 3D CONFIG (24c K4, Ömer)
 ZATEN_ESIK = 0.6
+OLASI_ESIK = 0.4  # 24d (Ömer 28 Eyl (a)): 0.4 ≤ p < 0.6 → OLASI TEKRAR, Desktop incelemesi
 
 
 def zaten_liste(kok, env, haric=None):
@@ -490,11 +498,23 @@ def zaten_liste(kok, env, haric=None):
 
 
 def prompt_zaten(tk, oneri, liste):
-    """24c K4: öneriyi mevcut satır karşılıyor mu — en yakın (1 istek) + noul (1 istek); p ≥0.6 → (id, p), değilse None."""
+    """24c K4: öneriyi mevcut satır karşılıyor mu — en yakın (1 istek) + noul (1 istek); p ≥0.4 → (id, p), değilse None.
+    Bant çağıranda: p ≥ZATEN_ESIK ZATEN VAR · altı OLASI TEKRAR (24d)."""
     if not liste or not (ilk := tr.en_yakin(tk, f"ÖNERİ: {oneri}", liste, ZATEN_SORU)):
         return None
     y = (tk.yargila([f"ÖNERİ: {oneri}"], {"k": {"type": "noul", "instructions": ZATEN_NOUL.format(k=dict(liste).get(ilk, ilk))}})[0] or {}).get("k")
-    return (ilk, y["noul"]) if y and y["noul"] >= ZATEN_ESIK else None
+    return (ilk, y["noul"]) if y and y["noul"] >= OLASI_ESIK else None
+
+
+def olasi_yaz(kok, oneri, z, liste, video):
+    """24d K4 bandı: 0.4 ≤ p < 0.6 → bekleyen/olasi-<slug>.md (karar: Desktop incelemesi); kendiliğinden UYARLA/ZATEN VAR olmaz, var olanı ezmez."""
+    slug = re.sub(r"[^a-z0-9]+", "-", oneri.translate(SLUG).casefold()).strip("-")[:60].strip("-")
+    b = kok / "docs" / "kurulumlar" / "bekleyen" / f"olasi-{slug}.md"
+    b.parent.mkdir(parents=True, exist_ok=True)
+    if not b.exists():
+        b.write_text(f"# OLASI TEKRAR: {oneri}\nöneri: {oneri}\nkaynak: {z[0]}\nkaynak satırı: {' '.join(str(dict(liste).get(z[0], z[0])).split())}\n"
+                     f"p: {z[1]:.2f}\nvideo: {video}\nkarar: Desktop incelemesi\n\nOnay: Ömer · aynıysa dosyayı sil (ZATEN VAR) · değilse UYARLA önerisi.\n", encoding="utf-8")
+    return b
 
 
 def toplu_isaret(env, video, ad):
@@ -701,8 +721,12 @@ def katman(ns, ctx):
             elif t0t == "prompt":  # prompt kalıbı → kütüphane; yeni kalıp şablona UYARLA önerisi
                 x = {"kalip": a.get("kural") or ad, "video": a.get("video") or "?", "zaman": a.get("zaman") or "?", "teknik": a.get("teknik") or "-",
                      "aday": ad, "karsilik": "yok → bekleyen"}
-                if z := prompt_zaten(jev(), f"{ad}: {x['kalip']}", zaten_liste(kok, env, ad)):  # 24c K4: şablon/kütüphane/kural/DESIGN.md
+                zl = zaten_liste(kok, env, ad)
+                if (z := prompt_zaten(jev(), f"{ad}: {x['kalip']}", zl)) and z[1] >= ZATEN_ESIK:  # 24c K4: şablon/kütüphane/kural/DESIGN.md
                     kt, yargi, karar = "T0", "ZATEN VAR", f"K4 zaten var: {z[0]} (p {z[1]:.2f})"
+                elif z:  # 24d: p 0.4–0.6 → OLASI TEKRAR (UYARLA/ÖĞREN değil), Desktop incelemesi
+                    b = olasi_yaz(kok, f"{ad}: {x['kalip']}", z, zl, x["video"])
+                    kt, yargi, karar = "T0", "OLASI TEKRAR", f"OLASI TEKRAR ({z[0]} p={z[1]:.2f}) · bekleyen/{b.name}"
                 elif not tr.ZAMAN.search(x["zaman"]) or x["teknik"] == "-":  # 24c K4 (h): kaynaksız öneri UYARLA olamaz
                     kt, yargi, ek = "T0", "ÖĞREN", " · eksik kaynak (zaman/teknik yok)"
                 elif kutuphane_ekle(kok, [x]):
