@@ -1,0 +1,17 @@
+{
+  "_not": "24c K2: Parti A-C'de canlı T0'da yanlış sınıflanan 8 öneri (doğru türüyle) + K4 prompt/kural ZATEN VAR örnekleri. `video t0-regresyon` canlı koşar (T0 Jev ≤16, K4 Jev ≤6).",
+  "t0": [
+    {"ad": "GLB dosya boyutu seçimi (2MB vs 6MB)", "kural": "Detay/performans dengesi için düşük boyutlu 3D modeli tercih et", "tur": "prompt"},
+    {"ad": "Yerelde ayağa kaldırma isteği", "kural": "Üretilen projeyi anında lokal sunucuda gösterterek doğrula", "tur": "ipucu"},
+    {"ad": "GitHub'da kod paylaşımı", "kural": "Üretilen projeyi repo olarak izleyiciyle paylaş", "tur": "ipucu"},
+    {"ad": "Aşırı sade tasarımla akılda kalıcılık", "kural": "Mesajı iki kelimeye sadeleştirerek ziyaretçide güçlü iz bırak", "tur": "prompt"},
+    {"ad": "Asla sözümden çıkma kesin talimat", "kural": "Modelin verilen teknik/stil detaylarından sapmaması için kesin talimat yaz", "tur": "prompt"},
+    {"ad": "Ayrı mobil/masaüstü performans optimizasyonu isteği", "kural": "Mobil ve masaüstü için performans optimizasyonunu ayrı ayrı iste", "tur": "prompt"},
+    {"ad": "Düzeltme yerine mesajı Edit/Regenerate", "kural": "Düzeltme yazmak yerine önceki mesajı düzenleyip yeniden üret", "tur": "ipucu"},
+    {"ad": "MiniMax API anahtarı oluşturma + bakiye yükleme", "kural": "MiniMax platformunda API anahtarı oluştur ve bakiye yükle", "tur": "araca-özel"}
+  ],
+  "zaten": [
+    {"ad": "font-stili-ve-piksel-boyutlari", "kalip": "Font stilini ve piksel boyutlarını prompt'ta belirt", "kaynak": "DESIGN.md"},
+    {"ad": "teknik-prompt-yazimi", "kalip": "Teknik prompt yazımı: kullanılacak teknolojiyi ve stili prompt'ta adıyla belirt", "kaynak": "omer-kurallar"}
+  ]
+}

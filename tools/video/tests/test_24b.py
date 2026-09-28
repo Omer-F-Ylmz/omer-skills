@@ -115,7 +115,7 @@ def test_t0_dort_tur(ortam, kok):
     bk = kok / "docs" / "kurulumlar" / "bekleyen"
     k = _t0(ortam, kok, "god-file-esigi", "kural", kural="Büyüyen tek dosyada parçalama önerilir")
     assert k["katman"] == "T0" and (bk / "kural-god-file-esigi.md").is_file()
-    k = _t0(ortam, kok, "3d-perspektif", "prompt", kural="3D perspektif detayını promptta açıkça yaz", zaman="4:10")
+    k = _t0(ortam, kok, "3d-perspektif", "prompt", kural="3D perspektif detayını promptta açıkça yaz", zaman="4:10", teknik="CSS perspective")
     assert k["yargi"] == "UYARLA" and not (bk / "kural-3d-perspektif.md").exists()
     assert "3D perspektif detayını promptta açıkça yaz" in (kok / "docs" / "departmanlar" / "frontend-promptlar.md").read_text(encoding="utf-8")
     k = _t0(ortam, kok, "edit-regenerate", "ipucu", kural="Düzeltme yazmak yerine mesajı düzenleyip yeniden üret")
