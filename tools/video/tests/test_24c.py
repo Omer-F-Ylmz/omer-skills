@@ -3,6 +3,7 @@ büyük repo · CRLF yol + toplu ÇİFT. Ağsız; Jev sahte `gonder`, komutlar s
 import json
 from pathlib import Path
 
+import pytest
 from jev import cekirdek as c
 from video import uygula as uy
 from video.cli import main
@@ -131,3 +132,23 @@ def test_k6_crlf_yol_ve_toplu_cift(ortam, kok, tmp_path):
     assert calis(ortam, [f"{y}\r"], UKos(), OJev(secim=[("dört tür", "ipucu")])) == 0
     k = kayit(kok)[-1]
     assert k["yargi"] == "ZATEN VAR" and "CLAUDE:15" in k["karar"]
+
+
+# 24d K4 bandı: p ≥0.6 ZATEN VAR · 0.4–0.6 OLASI TEKRAR (bekleyen olasi-*.md, karar Desktop incelemesi) · <0.4 mevcut akış
+@pytest.mark.parametrize("p,yargi", [(0.48, "OLASI TEKRAR"), (0.65, "ZATEN VAR"), (0.3, "UYARLA")])
+def test_24d_k4_olasi_tekrar_bandi(ortam, kok, tmp_path, capsys, p, yargi):
+    _zaten_kok(kok, tmp_path)
+    did = next(i for i, _ in uy.zaten_liste(kok, ortam) if i.startswith("DESIGN.md"))
+    y = aday(kok, "font-stili", tur="ipucu", repo="yok", lisans="yok", son_commit="yok", kural=FIX["zaten"][0]["kalip"], zaman="5:04", teknik="tipografi")
+    assert calis(ortam, [y], UKos(), OJev(secim=[("dört tür", "prompt"), (uy.ZATEN_SORU[:30], did)], noul=[(uy.ZATEN_NOUL[:30], p)])) == 0
+    k, b = kayit(kok)[-1], kok / "docs" / "kurulumlar" / "bekleyen"
+    assert k["yargi"] == yargi and bool(list(b.glob("olasi-*.md"))) == (yargi == "OLASI TEKRAR")
+    if yargi == "OLASI TEKRAR":
+        assert f"{did} p=0.48" in k["karar"] and not list(b.glob("prompt-*.md"))
+        assert "karar: Desktop incelemesi" in next(b.glob("olasi-*.md")).read_text(encoding="utf-8")
+        r = kok / "r.md"
+        r.write_text("# rapor\n## Koşu 1 — 10:00\n## ÖZELLİK KARARLARI\n- font-stili → OLASI TEKRAR\n", encoding="utf-8")
+        capsys.readouterr()
+        assert main(["brief", str(r)], env=ortam) == 0
+        ot = capsys.readouterr().out.split("## Olası tekrarlar", 1)[1].split("\n## ", 1)[0]
+        assert "font-stili" in ot and did in ot and "p=0.48" in ot
