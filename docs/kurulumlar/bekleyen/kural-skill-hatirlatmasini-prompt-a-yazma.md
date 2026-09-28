@@ -3,6 +3,7 @@ ad: skill-hatırlatmasını-prompt-a-yazma
 madde: Skill kurulu olsa da promptta kullanılacak skill'leri adıyla an; model hatırlatılmış olur
 kaynak: video 39IlNR-P3-Q, 15b
 gerekce: -
+karar: RED (Ömer 28 Eyl): zaten var — tarifler skill'i adımıyla yazar
 çift/çelişki: yok
 
 Onay: `video kural-onay skill-hatırlatmasını-prompt-a-yazma` · ret: dosyayı sil.

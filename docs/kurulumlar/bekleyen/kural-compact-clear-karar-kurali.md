@@ -3,6 +3,7 @@ ad: compact-clear-karar-kuralı
 madde: Devam eden alakalı işte /compact, sıfırdan yeni işte /clear ya da yeni terminal
 kaynak: video v-vRYtvWDYs, 15b
 gerekce: -
+karar: RED (Ömer 28 Eyl): zaten var — dalga başı /clear, bağlam şişince /rewind
 çift/çelişki: yok
 
 Onay: `video kural-onay compact-clear-karar-kuralı` · ret: dosyayı sil.

@@ -3,6 +3,7 @@ ad: en-fazla-10-skill
 madde: Proje başına en fazla ~10 skill kullan; fazlası context'i doldurur
 kaynak: video 39IlNR-P3-Q, 15b
 gerekce: -
+karar: RED (Ömer 28 Eyl): çelişki — omer-kurallar 22, skill budama yok
 çift/çelişki: yok
 
 Onay: `video kural-onay en-fazla-10-skill` · ret: dosyayı sil.

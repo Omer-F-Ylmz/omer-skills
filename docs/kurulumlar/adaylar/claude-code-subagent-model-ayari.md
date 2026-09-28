@@ -5,6 +5,7 @@ video: v-vRYtvWDYs
 etiket: yeniden:parti-d
 kural: CLAUDE_CODE_SUBAGENT_MODEL ile alt ajanların varsayılan modelini Haiku'ya sabitle (dosya arama/düz iş)
 karar: eklenmedi: ÇELİŞKİ (CLAUDE:14)
+karar: DENE (Ömer 28 Eyl; token) → docs/denemeler/subagent-haiku.md (koşulmaz); CLAUDE:14 'alt ajan sonnet' ölçümle yeniden değerlendirilir, çelişki RED sebebi değil (omer-kurallar 21)
 ## Ne
 CLAUDE_CODE_SUBAGENT_MODEL ile alt ajanların varsayılan modelini Haiku'ya sabitle (dosya arama/düz iş)
 ## Kanıt

@@ -3,6 +3,7 @@ ad: max-thinking-tokens-ayarı
 madde: MAX_THINKING_TOKENS'ı 10000'e düşürerek düşünme bütçesini ve limit tüketimini azalt
 kaynak: video v-vRYtvWDYs, 15b
 gerekce: -
+karar: DENE (Ömer 28 Eyl; token, kural değil ayar) → docs/denemeler/max-thinking-tokens.md (koşulmaz; TOKEN-DENEME-2'de ölçülecek)
 çift/çelişki: yok
 
 Onay: `video kural-onay max-thinking-tokens-ayarı` · ret: dosyayı sil.
