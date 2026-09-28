@@ -820,7 +820,12 @@ def karar_isle(ns, ctx):
     rc = uret(ns, ctx) if (kok / "docs" / "uyarlamalar" / f"{ns.ad}.md").is_file() else print(f"{ns.karar[:120]} (uret dışı deneme: yalnız kayıt)") or 0
     if rc == 0:
         _kayit(kok, ns.ad, {"karar": ns.karar, "tarih": date.today().isoformat()})
-        b.unlink()
+        import subprocess  # M2a K6: bekleyen silinmez → arsiv/ (git mv; git dışı kökte taşıma) + karar satırı
+        (a := b.parent / "arsiv").mkdir(exist_ok=True)
+        with b.open("a", encoding="utf-8", newline="\n") as f:
+            f.write(f"\nKarar: {ns.karar} · {date.today().isoformat()}\n")
+        if subprocess.run(["git", "mv", b.name, f"arsiv/{b.name}"], cwd=b.parent, capture_output=True).returncode:
+            b.replace(a / b.name)
     return rc
 
 

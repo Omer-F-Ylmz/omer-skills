@@ -20,6 +20,7 @@ from . import getir as gt
 from . import kur
 from . import metin as m
 from . import ogren as og
+from . import parti as pt
 from . import tarama as tr
 from . import uygula as uy
 
@@ -309,7 +310,7 @@ def paket(ns, ctx):
     """Alt ajan girdisi tek dosya <önbellek>/<id>/paket.md: künye · chapter · linkler · sadeleştirilmiş segmentler · kare yolları.
     Kareler: yalnız ekran sorusu (p varsa istek yok) → ekran p'si en yüksek --kare zamanın tam-t karesi. Segment metni stdout'a yazılmaz."""
     d = ctx["kok"] / ns.id
-    seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan)
+    seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan) if ns.istek_tavan != 0 else (_oku(d), None, 0, None)  # M2a: tavan 0 → Jev yok, kareler segment sırasıyla
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
     dil = m.dil_sec(meta)
     ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare)
@@ -319,7 +320,7 @@ def paket(ns, ctx):
     lk = m.urller(lk) if isinstance(lk, str) else lk
     zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
     kareler = _kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []
-    md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · dil {dil[0] if dil else '?'}"
+    md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else 0 < (meta.get('duration') or 0) <= 60).lower()} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
@@ -1081,6 +1082,18 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--kol", required=True, help="sonnet | haiku | openrouter:<model>")
     x.add_argument("--kare", type=int, default=0, help="openrouter vision: gönderilecek kare (≤6; short ≤3)")
     x.add_argument("--tarih")
+    x = alt.add_parser("parti", help="MOTOR-M2a: kuyruk → paket → hafif claude -p tarayıcı formu → rapor + kayıt; .kos/<parti-id>/durum.json + defter.jsonl")
+    x.add_argument("eylem", choices=["baslat", "devam", "durum"])
+    x.add_argument("hedef", help="baslat: kuyruk.md · devam/durum: parti-id")
+    x.add_argument("--en-fazla", type=int, default=8, metavar="N")
+    g = x.add_mutually_exclusive_group()
+    g.add_argument("--short", action="store_true")
+    g.add_argument("--uzun", action="store_true")
+    x.add_argument("--model", default=pt.hafif.MODEL)
+    x.add_argument("--cagri-tavan", type=int, default=12, help="parti başında sabit model çağrısı tavanı")
+    x.add_argument("--usd-tavan", type=float, default=1.0, help="parti başında sabit $ tavanı (CLI total_cost_usd)")
+    x.add_argument("--butce", type=float, default=0.5, help="çağrı başı --max-budget-usd")
+    x.add_argument("--tarih")
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
@@ -1089,7 +1102,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
                 "rapor-denetle": rapor_denetle, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
-                "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden}[ns.komut](ns, ctx)
+                "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4
