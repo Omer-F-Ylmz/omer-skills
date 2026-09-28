@@ -490,7 +490,7 @@ def _sozluk_doldur(ctx, yol, metin):
 
 
 def rapor_denetle(ns, ctx):
-    if tr.bolum(ham := Path(ns.rapor).read_text(encoding="utf-8"), "Özellikler").strip() or uy.prompt_mu(ham):  # 20b-devam K6 · 23c K7: aday raporu
+    if tr.bolum(ham := Path(ns.rapor).read_text(encoding="utf-8"), "Özellikler").strip() or uy.prompt_mu(ham) or "arastirma" in uy.alanlar(ham):  # 24c K1  # 20b-devam K6 · 23c K7: aday raporu
         yarim = "yarım" in uy.alanlar(ham).get("arastirma", "")  # 24a K1: tur tavanı; geçerli ama işaretli, katman DENE vermez
         for x in (h := uy.mekanizma_denetle(ham) + uy.anatomi_denetle(ham)):
             print(("yarım: " if yarim else "") + x)
@@ -503,6 +503,25 @@ def rapor_denetle(ns, ctx):
         print(x)
     print(f"rapor-denetle: {'GEÇTİ' if not h else f'{len(h)} hata'}" + ("" if sure else " (süre bilinmiyor: zaman denetimi atlandı)"))
     return 1 if h else 0
+
+
+def t0_regresyon(ns, ctx):
+    """24c K2/K4: tests/fixture/t0-tur.json → T0 türü (≥ n-1 doğru) + prompt/kural ZATEN VAR (hepsi). Canlı Jev: T0 ≤2·n, zaten ≤3·m."""
+    fix = json.loads((Path(__file__).resolve().parents[1] / "tests" / "fixture" / "t0-tur.json").read_text(encoding="utf-8"))
+    t = c.Tasiyici(env=ctx["env"], en_fazla=2 * len(fix["t0"]), gonder=ctx["gonder"], istek_tavan=2 * len(fix["t0"]))
+    d = 0
+    for x in fix["t0"]:
+        g = uy.t0_tur(t, x["ad"], {"kural": x["kural"]})
+        d += g == x["tur"]
+        print(f"{'+' if g == x['tur'] else '-'} {x['ad']}: {g} (beklenen {x['tur']})")
+    kok, z = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK), 0
+    tz = c.Tasiyici(env=ctx["env"], en_fazla=3 * len(fix["zaten"]), gonder=ctx["gonder"], istek_tavan=3 * len(fix["zaten"]))
+    for x in fix["zaten"]:
+        e = uy.prompt_zaten(tz, f"{x['ad']}: {x['kalip']}", uy.zaten_liste(kok, ctx["env"], x.get("haric")))  # kalıbın kendi adayı hariç (katmandaki gibi)
+        z += bool(e and x["kaynak"] in e[0])
+        print(f"{'+' if e and x['kaynak'] in e[0] else '-'} zaten {x['ad']}: {e}")
+    print(f"t0-regresyon: T0 {d}/{len(fix['t0'])} (Jev {t.istek}) · zaten {z}/{len(fix['zaten'])} (Jev {tz.istek})")
+    return 0 if d >= len(fix["t0"]) - 1 and z == len(fix["zaten"]) else 1
 
 
 def kural_regresyon(ns, ctx):
@@ -755,9 +774,11 @@ def repo_(ns, ctx):
 
 
 def on_(ns, ctx):
-    y = gt.on(Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK), ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir",
-              rapor=ns.rapor, seg=ctx["kok"] / ns.video / "segmentler.jsonl", guvenlik=uy.on_tarama(ctx, ns.repo) if ns.repo else None)
-    print(f"on: {y} · ~{c.token(y.read_text(encoding='utf-8'))} token")
+    kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
+    g = uy.on_tarama(ctx, ns.repo) if ns.repo else None
+    y = gt.on(kok, ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir", rapor=ns.rapor, seg=ctx["kok"] / ns.video / "segmentler.jsonl", guvenlik=g)
+    a = uy.iskelet(kok, ns.video, ns.aday, ns.tur, ns.repo, y, g)  # 24c K1: araştırıcıdan önce, var olanı ezmez
+    print(f"on: {y} · ~{c.token(y.read_text(encoding='utf-8'))} token · aday: {a}")
     return 0
 
 
@@ -854,11 +875,11 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev HTTP isteği (varsayılan 2·aday+2+2·ipucu)")
     alt.add_parser("kurallar", help="kural kaynakları (~/.claude/CLAUDE.md + repo süreç dokümanları ya da VIDEO_KURALLAR) → madde önbelleği (mtime)")
     x = alt.add_parser("katman", help="aday.md → T0 kural · T1 yalnız-md skill · T2 onay · RED; uygular, docs/kurulumlar/kayit.jsonl")
-    x.add_argument("adaylar", nargs="+")
+    x.add_argument("adaylar", nargs="+", type=str.strip)
     x.add_argument("--yeniden", action="store_true", help="kayıttaki adları da değerlendir")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev isteği (varsayılan 7·aday)")
     x = alt.add_parser("bizde", help="aday.md → jev skill (2 istek/aday); p≥act skill'ler ## Bizde durum'a")
-    x.add_argument("adaylar", nargs="+")
+    x.add_argument("adaylar", nargs="+", type=str.strip)
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M Jev isteği (varsayılan 2·aday)")
     x = alt.add_parser("kural-onay", help="bekleyen/kural-<slug>.md → omer-kurallar.md'ye madde (çiftse eklenmez); yalnız CC, köprüde yok")
     x.add_argument("slug")
@@ -878,6 +899,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("video")
     x.add_argument("aday")
     x.add_argument("--repo")
+    x.add_argument("--tur", help="24c K1: hat iskeletinin tür alanı (skill · plugin · MCP · CLI · prompt …)")
     x.add_argument("--url")
     x.add_argument("--rapor", help="24a K2: tarama raporu; tür=prompt satırının zamanından paket altyazısıyla prompt metni (≤4000) on.md'ye")
     x = alt.add_parser("onay", help="bekleyen/<ad>.md yapılandırılmış adımlar → kur · duman · başarısızsa geri alma; yalnız CC, köprüde yok")
@@ -913,6 +935,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--istek-tavan", type=int, default=450, metavar="M", help="en fazla M Jev isteği")
     alt.add_parser("projeler", help="docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır özet (mtime'la yenilenir)")
     alt.add_parser("ajan-denetle", help="23 K1: SKILL.md/ajan tanımlarındaki her subagent_type → .claude/agents'ta var · model sonnet · tools dar")
+    alt.add_parser("t0-regresyon", help="24c K2/K4: tests/fixture/t0-tur.json → T0 türü ≥7/8 + prompt/kural ZATEN VAR 2/2 (canlı Jev ≤16 + ≤6)")
     x = alt.add_parser("kural-regresyon", help="23 K3: tests/fixture/kural-cifti.json → bilinen çiftler ÇİFT, yanlış pozitif değil (canlı Jev)")
     x.add_argument("--istek-tavan", type=int, default=40, metavar="M", help="en fazla M Jev isteği")
     x = alt.add_parser("departman-geri", help="23 K2: kayit.jsonl'de departmansız karar kayıtları → departman + katalog 'Videodan gelen'")
@@ -928,7 +951,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "toplu": toplu, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
-                "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
+                "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
                 "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")

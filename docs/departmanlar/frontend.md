@@ -160,13 +160,13 @@ Müdür: `departman-frontend`
 - Renk/tipografi sistemi (deep navy/ivory, Cormorant Garamond + Inter) · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
 - Sabit navbar renk geçişi (transparent → ivory) · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
 - Minimal footer + geniş whitespace grid · UYARLA · video 4cE9t4rE0-0 · 11:38 kare metni
-- kaydırmaya bağlı sahne geçişi (pencereden içeri girme, plan/metin belirme) · UYARLA · video b-LZ_Y9wor8 · 0:51 anlatım + k00196/k00578 kareleri
-- yumuşak (inertia) kaydırma · UYARLA · video b-LZ_Y9wor8 · 7:42 "GSAP, Lenis"
-- 3D obje (jet modeli, blueprint girişli) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım
-- sürüklenince fizik tepkili slider (kağıt sallanması) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım
-- tipografi ile odak (iki kelimenin sırayla belirmesi) · UYARLA · video b-LZ_Y9wor8 · 4:49 anlatım
-- noktalı 3D dünya küresi (footer) · UYARLA · video b-LZ_Y9wor8 · 5:54 anlatım + k00377 karesi
-- varlıklar hazır olana kadar loading screen · UYARLA · video b-LZ_Y9wor8 · 9:08 anlatım
+- kaydırmaya bağlı sahne geçişi (pencereden içeri girme, plan/metin belirme) · UYARLA · video b-LZ_Y9wor8 · 0:51 anlatım + k00196/k00578 kareleri · KABUL (Ömer 28 Eyl, 24c K7)
+- yumuşak (inertia) kaydırma · UYARLA · video b-LZ_Y9wor8 · 7:42 "GSAP, Lenis" · KABUL (Ömer 28 Eyl, 24c K7)
+- 3D obje (jet modeli, blueprint girişli) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım · KABUL (Ömer 28 Eyl, 24c K7)
+- sürüklenince fizik tepkili slider (kağıt sallanması) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım · KABUL (Ömer 28 Eyl, 24c K7)
+- tipografi ile odak (iki kelimenin sırayla belirmesi) · UYARLA · video b-LZ_Y9wor8 · 4:49 anlatım · KABUL (Ömer 28 Eyl, 24c K7)
+- noktalı 3D dünya küresi (footer) · UYARLA · video b-LZ_Y9wor8 · 5:54 anlatım + k00377 karesi · KABUL (Ömer 28 Eyl, 24c K7)
+- varlıklar hazır olana kadar loading screen · UYARLA · video b-LZ_Y9wor8 · 9:08 anlatım · KABUL (Ömer 28 Eyl, 24c K7)
 - Kaydırmaya bağlı 3D kamera animasyonu (scroll-tied camera pose) · ÖĞREN · video iYwCzKy6W40 · 0:00 anlatım + 10:10 Three.js dokümantasyonu referansı
 - Yükleme ekranında kameranın yavaşça açılışı (giriş animasyonu) · ÖĞREN · video iYwCzKy6W40 · 0:00 "loading ekranını kameranın bu şekilde yavaşça..."
 - 3D ürün modeli entegrasyonu (Sketchfab GLB indirme) · ÖĞREN · video iYwCzKy6W40 · 2:33 kare: Sketchfab "Canon EOS 5D Mark IV", GLB seçenekleri

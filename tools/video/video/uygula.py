@@ -177,7 +177,7 @@ def prompt_bekleyen(kok, x, ad):
     return b
 
 
-def prompt_isle(kok, ad, metin):
+def prompt_isle(kok, ad, metin, tk=None, liste=()):
     """23c K7: kalıbın şablon bölümü departman-frontend `## Yapım promptu şablonu` `- <bölüm>:` satırlarında varsa ZATEN VAR,
     yoksa UYARLA bekleyen/prompt-<slug>.md (şablona ekleme önerisi, onaysız eklenmez). Jev 0."""
     s = kok / "skills" / "departman-frontend" / "SKILL.md"
@@ -186,6 +186,8 @@ def prompt_isle(kok, ad, metin):
     for x in kaliplar(metin, alanlar(metin).get("video")):
         if x["sablon"].casefold() in bolum:
             karar, x["karsilik"] = "ZATEN VAR", f"şablon: {x['sablon']}"
+        elif tk and (z := prompt_zaten(tk, f"{ad}: {x['kalip']}", liste)):  # 24c K4
+            karar, x["karsilik"] = "ZATEN VAR", f"K4: {z[0]} (p {z[1]:.2f})"
         else:
             karar, x["karsilik"] = "UYARLA", "yok → bekleyen"
             prompt_bekleyen(kok, x, ad)
@@ -286,6 +288,17 @@ def sina(kok, ad, metin, sinama, eksik):
             y.write_text(y.read_text(encoding="utf-8").rstrip("\n") + f"\n- not: '{s['iddia']}' {s['sonuc']} ({s['kaynak']})\n", encoding="utf-8")
 
 
+def brief_frontend(kok, metin):
+    """24c K3: uygula raporunun son koşusundaki adayların videoları → frontend.md `## Teknikler` satırları + o videoların prompt kalıpları."""
+    son = tr.kayit_son(tr.kayit_oku(kok / "docs" / "kurulumlar" / "kayit.jsonl"))
+    vid = {v for k in son.values() if k["ad"] in metin or (k.get("aday") or "\0") in metin for v in re.split(r",\s*", k.get("video") or "") if v}
+    fe = kok / "docs" / "departmanlar" / "frontend.md"
+    tek = [s for s in tr.bolum(fe.read_text(encoding="utf-8"), "Teknikler").splitlines() if s.startswith("- ") and any(f"video {v}" in s for v in vid)] if fe.is_file() else []
+    kal = [f"- {x['kalip']} · {x['video']} {x['zaman']} · şablon: {x['sablon']}" for y in sorted((kok / "docs" / "kurulumlar" / "adaylar").glob("*.md"))
+           for m in [y.read_text(encoding="utf-8")] if alanlar(m).get("video") in vid for x in kaliplar(m, alanlar(m).get("video"))]
+    return [("Site/UI teknikleri", tek[:6], "bu koşunun videolarında teknik yok"), ("Prompt anatomisi", kal[:6], "bu koşunun prompt adayı yok")]
+
+
 def brief(ns, ctx):
     """17 K7: Desktop ikinci görüş girdisi, ≤60 satır. Uygula raporu: özellik kararları · departman · iddia sınama.
     24a K7 tarama raporu (`## Adaylar`): aday tablosu · departman (kayit.jsonl, o video) · İddialar · Site/UI · prompt anatomisi (o videonun aday.md'leri).
@@ -301,14 +314,15 @@ def brief(ns, ctx):
              ("Departman", [f"- {k['ad']} → {k['departman']} · {k.get('yargi', '-')}" for k in son.values() if k.get("video") == vid and k.get("departman")][:8],
               "kayit.jsonl'de bu videonun kararı yok"),
              ("İddialar", [f"- {s[0]} ({s[1]} · {s[2]})" for s in tablo("İddialar") if len(s) >= 3][:10], "raporda iddia yok"),
-             ("Site/UI", [f"- {s[0]} · {s[2]} · bizde: {s[3]}" for s in tablo(tr.SITE_UI) if len(s) == 4][:6], "raporda site/UI tekniği yok"),
+             ("Site/UI teknikleri", [f"- {s[0]} · {s[2]} · bizde: {s[3]}" for s in tablo(tr.SITE_UI) if len(s) == 4][:6], "raporda site/UI tekniği yok"),
              ("Prompt anatomisi", [f"- {x['kalip']} · {x['zaman']} · şablon: {x['sablon']}" for m in adaylar if alanlar(m).get("video") == vid
                                    for x in kaliplar(m, vid)][:8], "bu videonun prompt adayı yok")]
     else:
         metin = metin.rsplit("\n## Koşu ", 1)[-1]  # 24a-kapanış: birden çok koşuda kararlar son koşudan (tablo da bunu okur)
         b = [("Özellik kararları", [s for s in tr.bolum(metin, "ÖZELLİK KARARLARI").splitlines() if s.startswith("- ")][:25], "raporda yok"),
              ("Departman", [s for s in tr.bolum(metin, "DEPARTMAN").splitlines() if s.startswith("- ")][:10], "raporda yok"),
-             ("İddialar", [f"- {s[0]} → {s[2]} ({s[1]})" for s in tablo("İDDİA SINAMA") if len(s) >= 3][:20], "raporda yok")]
+             ("İddialar", [f"- {s[0]} → {s[2]} ({s[1]})" for s in tablo("İDDİA SINAMA") if len(s) >= 3][:16], "raporda yok"),  # 24c K3: ≤60 satır
+             *brief_frontend(kok, metin)]
     print("\n".join([f"# brief: {Path(ns.rapor).name}", *[s for ad, x, yok in b for s in [f"## {ad}", *(x or [f"- yok ({yok})"])]],
                      "## Linkler", *([f"- {x}" for x in link[:6]] or ["- yok"])]))
     return 0
@@ -343,7 +357,7 @@ def _departman(kok, jev, ad, a, metin, depl, envantere=True, onceki=None, site=F
     return dep
 
 
-def _kos(ctx, args, timeout=600):
+def _kos(ctx, args, timeout=300):  # 24c K5: 600 → 300
     try:
         return ctx["kos"]([str(x) for x in args], timeout=timeout)
     except (OSError, subprocess.TimeoutExpired) as e:
@@ -361,17 +375,45 @@ def spector(ctx, ad, kaynak):
         return None
 
 
+BUYUK_REPO_KB = 100 * 1024  # 24c K5: gh api .size KB; üstü klonlanmaz
+
+
 def on_tarama(ctx, repo_ad):
     """24b K1: araştırmadan ÖNCE sığ klon (önbellek <kök>/repo/<o__r>, 120 sn) + SkillSpector --no-llm → on.md `## Güvenlik ön taraması`."""
     ad = repo_ad.replace("/", "__")
     hedef = ctx["kok"] / "repo" / ad
     if not hedef.is_dir():
+        rc, out, _ = _kos(ctx, ["gh", "api", f"repos/{repo_ad}", "--jq", ".size"], timeout=30)  # 24c K5
+        kb = int(s) if not rc and (s := (out or b"").decode("utf-8", "replace").strip()).isdigit() else 0
+        if kb > BUYUK_REPO_KB:
+            return f"## Güvenlik ön taraması\natlandı (repo {kb // 1024} MB)\n"
         rc, _, err = _kos(ctx, ["git", "clone", "--depth", "1", f"https://github.com/{repo_ad}", hedef], timeout=120)
         if rc or not hedef.is_dir():
             return f"## Güvenlik ön taraması\nkoşmadı: klon başarısız ({(err or b'').decode('utf-8', 'replace').strip()[:120]})\n"
     high = spector(ctx, ad, hedef)
     return ("## Güvenlik ön taraması\n" + ("koşmadı: SkillSpector raporu yok" if high is None else f"SkillSpector --no-llm HIGH/CRITICAL {high}")
             + f"\nkaynak: {hedef.as_posix()}\n")
+
+
+ISKELET_ALAN = ("lisans", "son_commit", "arsiv", "kaynak", "telemetri")
+ISKELET_BOLUM = ("Kurulum", "İzinler", "Duman testi", "Geri alma", "Köprü izni", "Önerilen katman")
+
+
+def iskelet(kok, video, ad, tur, repo_ad, on_yol, guvenlik=None):
+    """24c K1: araştırıcıdan ÖNCE hat aday.md iskeletini on.md'den yazar (başlıklar + bilinen alanlar, kalan "araştırılıyor",
+    `arastirma: yarım`). Araştırıcı yalnız Edit ile günceller; tur biterse dosya yine geçerli. Var olan dosya ezilmez."""
+    y = kok / "docs" / "kurulumlar" / "adaylar" / f"{ad}.md"
+    if y.exists():
+        return y
+    s = [f"# {ad}", f"ad: {ad}", f"tur: {tur or 'araştırılıyor'}", f"video: {video}", f"repo: {repo_ad or 'yok'}",
+         *(f"{k}: araştırılıyor" for k in ISKELET_ALAN), "arastirma: yarım: hat iskeleti (araştırıcı Edit ile doldurur, bitince `arastirma: tam`)",
+         "## Ne", "araştırılıyor", "## Kanıt", f"- ön getirme: {Path(on_yol).as_posix()}",
+         *(f"- güvenlik ön taraması: {x}" for x in (guvenlik or "").splitlines()[1:2]), *(x for b in ISKELET_BOLUM for x in (f"## {b}", "araştırılıyor"))]
+    if tur == "prompt":
+        s += ["## Prompt anatomisi", *(f"{k}: araştırılıyor" for k in ANATOMI), "### Kalıplar"]
+    y.parent.mkdir(parents=True, exist_ok=True)
+    y.write_text("\n".join(s) + "\n", encoding="utf-8")
+    return y
 
 
 def site_mi(env, video):
@@ -385,25 +427,86 @@ def site_mi(env, video):
     return bool(r and r.is_file() and tr.frontend_mu(r.read_text(encoding="utf-8")))
 
 
-T0_SORU = "Videodan çıkan bu öneri (state) dört türden hangisi? Yalnız Claude'un genel çalışma biçimine dair ilke kuraldır."
-T0_OLCUT = {"kural": "Claude'un her projede geçerli çalışma biçimine dair genel ilke (ne yapılır, ne yapılmaz).",
-            "prompt": "Site/UI/görsel/video üretirken prompta yazılacak kalıp (ne ve nasıl tarif edilir).",
-            "ipucu": "Ömer'in bir aracı kullanma alışkanlığı (arayüzde hangi düğme/akış); Claude'un çalışma ilkesi değil.",
-            "araca-özel": "Belirli bir aracın/hizmetin kurulum, hesap, anahtar, bakiye ya da mod prosedürü."}
+T0_ORNEK = (("GLB dosya boyutu seçimi (2MB vs 6MB)", "prompt"), ("Yerelde ayağa kaldırma isteği", "ipucu"), ("GitHub'da kod paylaşımı", "ipucu"),
+            ("Aşırı sade tasarımla akılda kalıcılık", "prompt"), ("Asla sözümden çıkma kesin talimat", "prompt"),
+            ("Ayrı mobil/masaüstü performans optimizasyonu isteği", "prompt"), ("Düzeltme yerine mesajı Edit/Regenerate", "ipucu"),
+            ("MiniMax API anahtarı oluşturma + bakiye yükleme", "araca-özel"), ("Büyüyen tek dosyada parçalama öner (god-file eşiği)", "kural"))
+T0_SORU = ("Videodan çıkan bu öneri (state) dört türden hangisi? Sırayla sına: 1) öznesi Ömer'in eylemi (paylaş, çalıştır, yükle, düzenle, kopyala) → ipucu; "
+           "2) site/tasarım/görsel içeriği ya da prompta yazılacak şey → prompt; 3) belirli bir araç/servis adı ve onun prosedürü → araca-özel; "
+           "4) yalnız Claude/Claude Code'un her projede çalışma biçimini yöneten genel ilke → kural. Örnekler (öneri → doğru tür): "
+           + " · ".join(f"{a} → {t}" for a, t in T0_ORNEK))
+T0_OLCUT = {"kural": "Yalnız Claude/Claude Code'un her projede geçerli çalışma biçimini yöneten genel ilke; Ömer'in eylemi, site içeriği ya da araç prosedürü değil.",
+            "prompt": "Site/UI/tasarım/görsel/video üretirken prompta yazılacak içerik ya da kalıp (ne ve nasıl tarif edilir; tasarım ilkesi dahil).",
+            "ipucu": "Öznesi Ömer'in eylemi: bir aracı ya da çıktıyı kullanma alışkanlığı (paylaş, çalıştır, yükle, düzenle); Claude'un çalışma ilkesi değil.",
+            "araca-özel": "Belirli bir aracın/hizmetin (adıyla) kurulum, hesap, anahtar, bakiye ya da mod prosedürü."}
+
+MODEL_ADI = re.compile(r"\b(fable|opus|sonnet|haiku|gpt-?\d[\w.]*|gemini|llama|mistral|deepseek|qwen)\b", re.I)  # 15 K3: model olgusu
 
 
 def t0_tur(tk, ad, a):
-    """24b K5: olgu | kural | prompt | ipucu | araca-özel — 15 K3 olgu sorusuyla aynı istekte (ek Jev yok); tür yanıtsız → kural (eski davranış)."""
-    if og.ADLI.search(f"{ad} {a.get('iddia') or ''} {a.get('kural') or ''}"):
+    """24b K5 + 24c K2: olgu | kural | prompt | ipucu | araca-özel — 15 K3 olgu sorusuyla aynı istekte. Soru örnekli (T0_ORNEK);
+    model adı (15 K3) Jev'e sorulmadan olgu; araç/servis adı (MiniMax, codex…) sorulur: Jev ipucu/prompt/araca-özel derse o,
+    kural derse ad geçiyorsa ya da olgu ağır basarsa olgu."""
+    if MODEL_ADI.search(f"{ad} {a.get('iddia') or ''} {a.get('kural') or ''}"):
         return "olgu"
     q = {"tur": {"type": "choice", "instructions": og.TUR_SORU, "criteria": og.TUR_OLCUT},
          "t0": {"type": "choice", "instructions": T0_SORU, "criteria": T0_OLCUT}}
     y = tk.yargila([f"İPUCU: {ad}\nİddia: {a.get('iddia') or '-'}\nKural önerisi: {a.get('kural') or ad}"], q)[0] or {}
-    p = (y.get("tur") or {}).get("probabilities") or {}
-    if p.get("olgu", 0) > p.get("kural", 0):
-        return "olgu"
     t = {k: v for k, v in ((y.get("t0") or {}).get("probabilities") or {}).items() if k in T0_OLCUT}
-    return max(t, key=t.get) if t else "kural"
+    if (tt := max(t, key=t.get) if t else "kural") != "kural":
+        return tt
+    p = (y.get("tur") or {}).get("probabilities") or {}
+    return "olgu" if og.ADLI.search(f"{ad} {a.get('iddia') or ''} {a.get('kural') or ''}") or p.get("olgu", 0) > p.get("kural", 0) else "kural"
+
+
+ZATEN_SORU = ("Bu prompt/kural önerisini listedeki mevcut şablon satırı, prompt kalıbı, kural ya da DESIGN.md kuralı zaten karşılıyor mu? "
+              "Karşılayanı seç; hiçbiri karşılamıyorsa hiçbiri.")
+ZATEN_NOUL = "Mevcut satır bu öneriyi zaten karşılıyor mu (aynı şeyi ister ya da kapsar)? Satır: {k}"
+ZATEN_KURAL = ("25", "26")  # omer-kurallar: site/UI yapım promptu + 3D CONFIG (24c K4, Ömer)
+ZATEN_ESIK = 0.6
+
+
+def zaten_liste(kok, env, haric=None):
+    """24c K4: [(id, metin)] — departman-frontend şablon satırları · frontend-promptlar.md kalıpları (haric aday hariç) ·
+    omer-kurallar 25-26 · DESIGN.md kuralları (frontend-craft + departman-frontend)."""
+    oku = lambda y: Path(y).read_text(encoding="utf-8") if Path(y).is_file() else ""  # noqa: E731
+    out = [(f"şablon:{x[1]}", x[0][2:]) for x in re.finditer(r"^- (\w+):.*$", tr.bolum(oku(kok / "skills" / "departman-frontend" / "SKILL.md"), SABLON), re.M)]
+    for i, s in enumerate(oku(kok / "docs" / "departmanlar" / "frontend-promptlar.md").splitlines()):
+        h = [x.strip() for x in s.strip().strip("|").split("|")]
+        if s.startswith("| ") and s != KUTUPHANE and len(h) >= 6 and not set(h[0]) <= set("-") and h[5] != haric:
+            out.append((f"kalıp:{i + 1}", f"{h[0]} (teknik: {h[3]})"))
+    for y in tr.kural_kaynaklari(env, Path(env.get("VIDEO_EV") or Path.home())):
+        if "omer-kurallar" in Path(y).name:
+            out += [(f"omer-kurallar:{x[1]}", x[2]) for x in re.finditer(r"^(\d+)\.\s+(.+)$", oku(y), re.M) if x[1] in ZATEN_KURAL]
+    for ad, y in (("frontend-craft", kok / "plugins" / "frontend-craft" / "skills" / "frontend-craft" / "SKILL.md"),
+                  ("departman-frontend", kok / "skills" / "departman-frontend" / "SKILL.md")):
+        sat = oku(y).splitlines()
+        for i, s in enumerate(sat):
+            if "DESIGN.md" in s:  # `:` ile biten satırın girintili listesi de (ör. 6 başlık: … Tipografi …)
+                alt = [x.strip() for x in sat[i + 1:i + 9] if s.rstrip().endswith(":")] if s.rstrip().endswith(":") else []
+                alt = alt[:next((j for j, x in enumerate(sat[i + 1:i + 9]) if not x.startswith(" ")), len(alt))]
+                out.append((f"DESIGN.md ({ad}:{i + 1})", " · ".join([s.strip().lstrip("-* ").strip(), *alt])))
+    return [(i, x[:300]) for i, x in out]
+
+
+def prompt_zaten(tk, oneri, liste):
+    """24c K4: öneriyi mevcut satır karşılıyor mu — en yakın (1 istek) + noul (1 istek); p ≥0.6 → (id, p), değilse None."""
+    if not liste or not (ilk := tr.en_yakin(tk, f"ÖNERİ: {oneri}", liste, ZATEN_SORU)):
+        return None
+    y = (tk.yargila([f"ÖNERİ: {oneri}"], {"k": {"type": "noul", "instructions": ZATEN_NOUL.format(k=dict(liste).get(ilk, ilk))}})[0] or {}).get("k")
+    return (ilk, y["noul"]) if y and y["noul"] >= ZATEN_ESIK else None
+
+
+def toplu_isaret(env, video, ad):
+    """24c K6: en yeni toplu tablosunda bu videonun bu adayının işareti (ör. `ÇİFT (kural: CLAUDE:15)`); yoksa ''."""
+    from video.cli import TARAMA_DIZIN, _slug  # cli bu modülü içe aktarır; döngü yalnız çağrıda çözülür
+    d = Path(env.get("VIDEO_TARAMA_DIZIN") or TARAMA_DIZIN)
+    for y in sorted(d.glob("*-toplu*.md"), key=lambda p: p.stat().st_mtime, reverse=True) if video and d.is_dir() else []:
+        for s in y.read_text(encoding="utf-8").splitlines():
+            h = [x.strip() for x in s.strip().strip("|").split("|")]
+            if s.startswith("| ") and len(h) >= 7 and video in h[6] and ad in (_slug(h[0]), h[0]):
+                return h[1]
+    return ""
 
 
 def _kurallar(ctx):
@@ -511,7 +614,7 @@ def katman(ns, ctx):
     kayit, bugun, tk = tr.kayit_oku(ky), date.today(), None
     gorulen = {tr.normal(k.get("aday") or k["ad"]) for k in kayit}
     oto, onay, zipler, red, atla, ogrenilen, celiski, dene, ozet, rapor, eksik, ozk, sinama, depl, uret_ = ([] for _ in range(15))
-    n = 9 * len(ns.adaylar)  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1) + departman 1 + eşdeğer 1
+    n = 9 * len(ns.adaylar) + 2 * sum(len(kaliplar(Path(y).read_text(encoding="utf-8"), None)) for y in ns.adaylar)  # 24c K4: kalıp başına 2 +  # aday başına tür 1 + çift 2 + çelişki 2 (+ sponsor 1) + departman 1 + eşdeğer 1
 
     def jev():
         nonlocal tk
@@ -530,7 +633,7 @@ def katman(ns, ctx):
         kanal, sponsor = a.get("kanal") or me.get("channel"), og.sponsor_mu(ctx, me, a, jev)
         site = site_mi(env, a.get("video"))  # 24b K4
         if prompt_mu(metin):  # 23c K7: prompt anatomisi → site prompt kütüphanesi (Jev 0)
-            ps = prompt_isle(kok, ad, metin)
+            ps = prompt_isle(kok, ad, metin, jev(), zaten_liste(kok, env, ad))
             ogrenilen.append(f"{ad}: prompt anatomisi → docs/departmanlar/frontend-promptlar.md · " + " · ".join(f"{k} {v}" for k, v in ps.items()))
         oz, on_dep, es = ozellikler(metin), None, None
         if (any(o.get("karar") == "KUR" for o in oz) if oz else a.get("karar") in (None, "KUR")) and arac_mu(a, metin) and not a.get("red"):
@@ -581,16 +684,28 @@ def katman(ns, ctx):
         yargi = a.get("karar") if a.get("karar") in og.KARAR else "KUR"  # karar alanı yoksa 14a yolu
         if yargi == "DENE" and "yarım" in a.get("arastirma", ""):  # 24a K1
             yargi = "ÖĞREN"
+        if "yarım" in a.get("arastirma", "") and not a.get("karar"):  # 24c K1: hat iskeletinde kalan aday lisans kapısına düşmez
+            yargi = "ÖĞREN"
         if a.get("karar") and yargi != "RED" and (x := [b for b in ALTI if not tr.bolum(metin, b).strip()]):
             eksik.append(f"{ad}: {', '.join(x)}")
-        commit, kt, karar, geri = None, "-", "", "-"
-        if yargi == "KUR" and a.get("tur") in tr.KURAL_TUR and not a.get("red"):
+        commit, kt, karar, geri, ek = None, "-", "", "-", ""
+        ti = toplu_isaret(env, a.get("video"), ad) if a.get("tur") in tr.KURAL_TUR else ""  # 24c K6: toplu kural çifti devralınır
+        if ti.startswith("ÇİFT") and yargi not in ("KUR", "ZATEN VAR"):
+            celiski.append(f"{ad} ↔ toplu {ti}: aday.md karar {yargi}")
+        if yargi == "KUR" and ti.startswith("ÇİFT") and not a.get("red"):
+            kt, yargi, karar = "T0", "ZATEN VAR", f"eklenmez: toplu {ti}"
+        elif yargi == "KUR" and a.get("tur") in tr.KURAL_TUR and not a.get("red"):
             t0t = t0_tur(jev(), ad, a)  # 24b K5: yalnız "kural" bekleyen/kural-*.md üretir
             if t0t in ("olgu", "ipucu"):  # 15 K3: olgu kural dosyasına girmez · kullanım ipucu → bilgi kartı (etiket kullanım)
                 yargi, a = "ÖĞREN", ({**a, "etiketler": "kullanım"} if t0t == "ipucu" else a)
             elif t0t == "prompt":  # prompt kalıbı → kütüphane; yeni kalıp şablona UYARLA önerisi
-                x = {"kalip": a.get("kural") or ad, "video": a.get("video") or "?", "zaman": a.get("zaman") or "?", "aday": ad, "karsilik": "yok → bekleyen"}
-                if kutuphane_ekle(kok, [x]):
+                x = {"kalip": a.get("kural") or ad, "video": a.get("video") or "?", "zaman": a.get("zaman") or "?", "teknik": a.get("teknik") or "-",
+                     "aday": ad, "karsilik": "yok → bekleyen"}
+                if z := prompt_zaten(jev(), f"{ad}: {x['kalip']}", zaten_liste(kok, env, ad)):  # 24c K4: şablon/kütüphane/kural/DESIGN.md
+                    kt, yargi, karar = "T0", "ZATEN VAR", f"K4 zaten var: {z[0]} (p {z[1]:.2f})"
+                elif not tr.ZAMAN.search(x["zaman"]) or x["teknik"] == "-":  # 24c K4 (h): kaynaksız öneri UYARLA olamaz
+                    kt, yargi, ek = "T0", "ÖĞREN", " · eksik kaynak (zaman/teknik yok)"
+                elif kutuphane_ekle(kok, [x]):
                     kt, yargi, b = "T0", "UYARLA", prompt_bekleyen(kok, x, ad)
                     karar, geri = f"prompt kalıbı → frontend-promptlar.md · bekleyen/{b.name}", f"rm {b.relative_to(kok).as_posix()}"
                     onay.append(f"UYARLA {b.stem}")
@@ -618,6 +733,7 @@ def katman(ns, ctx):
             yargi, a = "ZATEN VAR", {**a, "gerekce": f"K8 işlevsel eşdeğer: {es[0]} (p {es[1]:.2f}); kurulum yok"}
         if yargi == "ÖĞREN":
             karar, cel = og.ogren(jev(), kok, a, ad, bugun, _kurallar(ctx)[1])
+            karar += ek
             if cel:
                 celiski.append(f"{ad} ↔ {cel}: {a.get('iddia') or a.get('kural') or ad}")
             else:

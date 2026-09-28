@@ -33,10 +33,20 @@
 - görsel/3D obje yüklenirken sitenin bozuk görünmesini önlemek için yükleme ekranı eklemek (9:08) → doğrulanamadı (-)
 - Awwwards kazanan bir siteyi bölüm bölüm inceleyip kendi tasarımına uyarlama süreci (0:51) → doğrulanamadı (-)
 - proje slider'ının hızlı çevrildiğinde kağıt gibi sallanmasını sağlayan drag+physics efekti (3:47) → doğrulanamadı (-)
-- "global" marka mesajı vermek için footer'a noktalı dünya küresi koymak (5:54) → doğrulanamadı (-)
-- mesajı (ör. iki kelime) sadeleştirerek ziyaretçide daha güçlü iz bırakma prensibi (4:49) → doğrulanamadı (-)
-- 3D jet modelinin kaynağı olabilecek 3D model paylaşım platformu (kareden görülen tarayıcı sekmesi) (4:18) → doğrulanamadı (-)
-- ödüllü/aday siteleri tarayıp tasarım araştırması yapılan galeri sitesi (1:22) → doğrulanamadı (-)
+## Site/UI teknikleri
+- kaydırmaya bağlı sahne geçişi (pencereden içeri girme, plan/metin belirme) · UYARLA · video b-LZ_Y9wor8 · 0:51 anlatım + k00196/k00578 kareleri · KABUL (Ömer 28 Eyl, 24c K7)
+- yumuşak (inertia) kaydırma · UYARLA · video b-LZ_Y9wor8 · 7:42 "GSAP, Lenis" · KABUL (Ömer 28 Eyl, 24c K7)
+- 3D obje (jet modeli, blueprint girişli) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım · KABUL (Ömer 28 Eyl, 24c K7)
+- sürüklenince fizik tepkili slider (kağıt sallanması) · UYARLA · video b-LZ_Y9wor8 · 3:47 anlatım · KABUL (Ömer 28 Eyl, 24c K7)
+- tipografi ile odak (iki kelimenin sırayla belirmesi) · UYARLA · video b-LZ_Y9wor8 · 4:49 anlatım · KABUL (Ömer 28 Eyl, 24c K7)
+- noktalı 3D dünya küresi (footer) · UYARLA · video b-LZ_Y9wor8 · 5:54 anlatım + k00377 karesi · KABUL (Ömer 28 Eyl, 24c K7)
+## Prompt anatomisi
+- Ödüllü siteyi bölüm bölüm inceleyip ilham alma · b-LZ_Y9wor8 0:51 · şablon: yok
+- Dosya yapısını promptta zorunlu kılma (modele bırakmama) · b-LZ_Y9wor8 7:42 · şablon: dosya
+- Uzun/detaylı prompt ile %90-100 birebir sonuç hedefleme · b-LZ_Y9wor8 6:41 · şablon: kabul
+- Her şey hazır olana kadar loading screen ekletme · b-LZ_Y9wor8 9:08 · şablon: hareket
+- Kaydırmaya bağlı kağıt fiziği slider tarifi · b-LZ_Y9wor8 3:47 · şablon: hareket
+- 3D modeli stack adıyla ver: model + R3F/Three.js birlikte · iYwCzKy6W40 5:04 · şablon: teknoloji
 ## Linkler
 - https://avenox.lol/codex.md`
 - https://avenox.lol/codex.md,

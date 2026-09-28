@@ -32,9 +32,9 @@ Site/UI'ı başka bir ajana (ya da alt ajana) yaptırırken prompt bu satırlar�
 - dosya: dosya başına tek sorumluluk (ör. main.js sahne · style.css tipografi · config.js parametreler).
 - config: ayarlanabilir sahne parametreleri (görsel sayısı, hız, boşluk) tek CONFIG nesnesi/dosyasında; yalnız 3D/animasyonlu sahnede.
 - hareket: animasyon terimleriyle tarif (scroll reveal, stagger, parallax, easing, süre); prefers-reduced-motion karşılığı.
-- asset: görsel/video/font listesi, oran ve ton (ör. 12 dikey fotoğraf, koyu arka plan); yoksa üretim yolu.
+- asset: görsel/video/font listesi, oran ve ton (ör. 12 dikey fotoğraf, koyu arka plan); yoksa üretim yolu. 3D model: ~2 MB tercih (sıkıştırılmış GLB), 6 MB detay yalnız gerekçeyle (24c K7).
 - kabul: ölçülebilir kabul (ör. 60 fps, 390/768/1440 taşma yok, axe 0 hata, LCP sayısı).
-- dokunulmaz: hazır tasarım promptu mevcut siteye uygulanırken dokunulmaz alanlar adıyla (ör. hero, mevcut animasyonlar); prompttan yalnız ilgili bölüm alınır (K3, 24 Eyl).
+- dokunulmaz: hazır tasarım promptu mevcut siteye uygulanırken dokunulmaz alanlar adıyla (ör. hero, mevcut animasyonlar); prompttan yalnız ilgili bölüm alınır (K3, 24 Eyl). Elle ayarlanmış 3D pozisyon/kamera/ışık değerleri de dokunulmaz alandır (24c K7).
 - bileşen: bütün butonlar tek bileşenden varyantla; hover/focus/active o bileşende (K16, 24 Eyl).
 - perspektif: 3D/derinlik sahnesinde kamera açısı, perspektif ve eğim sayıyla yazılır (ör. perspective 1200px, rotateX 12°); yazılmazsa kartlar düz ya da yanlış açıda çıkar.
 - klasör: görseller önce `public/` altına konur; promptta klasör adı ve dağıtım kuralı (rastgele/dengeli) verilir, ajan dosyaları kendisi yerleştirir.
