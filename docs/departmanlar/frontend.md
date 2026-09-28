@@ -131,6 +131,21 @@ Müdür: `departman-frontend`
 - ekran-görüntüsü-diğer-kısımlara-dokunma- · ZATEN VAR · video iYwCzKy6W40
 - vercel-referans-site · ÖĞREN · video iYwCzKy6W40
 - hostinger-sponsor · ÖĞREN · video iYwCzKy6W40
+- claude-fable-5-1 · ÖĞREN · video fCc97Rv-60w
+- awwwards-seviyesi-tasarım-kuralları-isteme · ÖĞREN · video fCc97Rv-60w
+- sektöre-göre-scroll-tasarımı · ÖĞREN · video fCc97Rv-60w
+- mercury-referans-site · ÖĞREN · video fCc97Rv-60w
+- seedance-2-5-referans-video · ARACA ÖZEL · video 39IlNR-P3-Q
+- karmaşık-scroll-için-güçlü-model · ÖĞREN · video 39IlNR-P3-Q
+- ekran-görüntüsü-fix-this · ZATEN VAR · video 39IlNR-P3-Q
+- responsive-i-prompt-ta-açıkça-isteme · ZATEN VAR · video 39IlNR-P3-Q
+- pear-no-referans-site · ÖĞREN · video 39IlNR-P3-Q
+- klasik-prompt-şablonu · ÖĞREN · video fCc97Rv-60w
+- scroll-site-promptu · ÖĞREN · video 39IlNR-P3-Q
+- frontend-design/kurulu · ZATEN VAR · video 39IlNR-P3-Q
+- frontend-design/dörtlü-skill-yığını · ÖĞREN · video 39IlNR-P3-Q
+- design-dna/kurulu · ZATEN VAR · video 39IlNR-P3-Q
+- design-dna/referans-video-analizi · ÖĞREN · video 39IlNR-P3-Q
 
 ## Teknikler
 
@@ -172,5 +187,18 @@ Müdür: `departman-frontend`
 - 3D ürün modeli entegrasyonu (Sketchfab GLB indirme) · ÖĞREN · video iYwCzKy6W40 · 2:33 kare: Sketchfab "Canon EOS 5D Mark IV", GLB seçenekleri
 - Responsive/mobil sahne testi · ÖĞREN · video iYwCzKy6W40 · 12:14 kare: iPhone 14 Pro Max cihaz emülasyonu
 - Performans denetimi (Lighthouse) · UYARLA · video iYwCzKy6W40 · 12:45 kare: Performance 92, Accessibility 96, Best Practices 100, SEO 100
+- Kaydırınca eski haline dönen portal/kapı geçişi (glow çerçeveli telefon siluetinde manzara) · UYARLA · video fCc97Rv-60w · 0:30, 7:10 kareleri + anlatım "when I scroll back up it returns to its original state"
+- Kaydırmaya bağlı 3D kredi kartı (yansıma, çip, eğim) · UYARLA · video fCc97Rv-60w · 4:29 kare + anlatım "it made the card three-dimensional... there's a reflection on it"
+- Kaydırmaya bağlı para birimi kaydırıcısı (slider kaydırınca hareket ediyor) · UYARLA · video fCc97Rv-60w · 5:00 anlatım "it turned the currencies into a slider, and it moves as I scroll"
+- Kaydırmaya bağlı ülke/isim listesi değişimi · UYARLA · video fCc97Rv-60w · 5:00 anlatım "the countries change as I scroll"
+- Bölüm bazlı snap kaydırma (Fable 5 versiyonu) · UYARLA · video fCc97Rv-60w · 6:40 anlatım "these parts snap into place"
+- Çapraz (diagonal) tipografi, görsel yerine yazıyla anlatım · UYARLA · video fCc97Rv-60w · 7:41 anlatım "writing it diagonally and not using a visual is more aesthetic"
+- Sürekli görünen ince kenar çizgisi (border) tüm bölümler boyunca devam eden görsel motif · UYARLA · video fCc97Rv-60w · 3:59-5:00 kareler + anlatım "the line behind is still there"
+- kaydırmaya bağlı video scrub + sahne geçişi · ÖĞREN · video 39IlNR-P3-Q · 2:57, k00890 karesinde `data-scrub`, `sc-css-has-scrub`, `video.film.sc-act` sınıfları
+- kaydırmaya bağlı kademeli metin belirme/kaybolma · ÖĞREN · video 39IlNR-P3-Q · 13:01 anlatım ("text appears... disappears")
+- sayfa içi konum göstergesi (scroll navigasyonu) · ÖĞREN · video 39IlNR-P3-Q · 2:57 "there's navigation shows where you on page"
+- tutarlı tema/yoğunluk kararı (klasik vs. animasyonlu) · UYARLA · video 39IlNR-P3-Q · 5:14 anlatım
+- footer'da mouse hover ışık efekti · UYARLA · video 39IlNR-P3-Q · 3:27 (k00207 anlatımı, "when I move mouse over it, light appears")
+- mobil görünüm devtools ile responsive test · ÖĞREN · video 39IlNR-P3-Q · 14:11, k00851 karesi (iPhone 14 Pro Max devtools)
 
 ## Elle

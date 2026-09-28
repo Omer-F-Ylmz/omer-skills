@@ -44,3 +44,6 @@ nasıl: Araç çıktısı alt süreçte (sandbox) tutulur, context'e yalnız ist
 neden: Bağlam penceresine giren token miktarı ham veri boyutundan bağımsızlaşır, tekrar okuma tam metin değil BM25 sorgusuna döner
 koşul: Tek seferlik küçük çıktılarda (zaten <1 KB) kazanç yok; sandbox/IPC kurulum maliyeti küçük görevde net kaybettirebilir
 bizde: RTK proxy + headroom zaten aynı sıkıştırma katmanını yapıyor; context-mode eklemek olası ikinci/çakışan katman
+## Bizde durum
+- kurulum: yok (katalog ve settings'te yok)
+- jev skill (Act): yok

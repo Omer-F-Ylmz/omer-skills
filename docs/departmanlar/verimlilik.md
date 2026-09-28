@@ -57,5 +57,13 @@ Müdür: `departman-verimlilik`
 - kredi-token-ayrımını-takip-etme · KUR · video 4cE9t4rE0-0
 - log-dosyası-üzerinden-hata-çözme-iş-akış · ÖĞREN · video LbBC5Wew4qs
 - proje-büyüklüğüne-göre-claude-codex-kull · ÖĞREN · video LbBC5Wew4qs
+- claude-fable-5 · ÖĞREN · video fCc97Rv-60w
+- kritik-iş-için-pahalı-model · ZATEN VAR · video fCc97Rv-60w
+- max-thinking-tokens-ayarı · KUR · video v-vRYtvWDYs
+- claude-autocompact-pct-override-ayarı · ÖĞREN · video v-vRYtvWDYs
+- kullanılmayan-mcp-leri-kapatma · ZATEN VAR · video v-vRYtvWDYs
+- compact-clear-karar-kuralı · KUR · video v-vRYtvWDYs
+- context-rot-kavramı · ÖĞREN · video v-vRYtvWDYs
+- en-fazla-10-skill · KUR · video 39IlNR-P3-Q
 
 ## Elle

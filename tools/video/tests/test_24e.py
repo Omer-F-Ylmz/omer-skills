@@ -47,3 +47,12 @@ def test_ipucu_teknik_iskelete_girmez(ortam, kok):
     for tur in ("ipucu", "teknik", "iş akışı"):
         assert main(["on", VID, "context rot", "--tur", tur], env=ortam, kos=_kos()) == 2
     assert not _adaylar(kok).exists() or not any(_adaylar(kok).iterdir())
+
+
+# DEVAM-4: --rapor çıplak ad (cwd'de yok) → docs/video-tarama/ altında aranır, FileNotFoundError yok
+def test_on_rapor_cipla_ad_tarama_dizininden(ortam, kok):
+    d = kok / "docs" / "video-tarama"
+    d.mkdir(parents=True)
+    (d / f"2026-09-28-{VID}.md").write_text("# r\n## Adaylar\n", encoding="utf-8")
+    assert main(["on", VID, "pp", "--tur", "prompt", "--rapor", f"2026-09-28-{VID}.md"], env=ortam, kos=_kos()) == 0
+    assert "## Prompt metni" in (kok / ".kos" / VID / "pp" / "on.md").read_text(encoding="utf-8")

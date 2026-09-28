@@ -44,3 +44,10 @@ Videodan çıkan yapım promptu kalıpları; metin kopyalanmaz, kalıp yazılır
 | Her şey hazır olana kadar loading screen — görsel/3D obje yüklenirken sitenin bozuk görünmesini önlemek için yükleme ekranı eklemek | b-LZ_Y9wor8 | ? | - | yok → bekleyen | her-şey-hazır-olana-kadar-loading-screen |
 | Globe/dünya haritası footer — "global" marka mesajı vermek için footer'a noktalı dünya küresi koymak | b-LZ_Y9wor8 | ? | - | yok → bekleyen | globe-dünya-haritası-footer |
 | Teknik prompt yazımı (teknoloji + stil belirtme) — Genel "site yap" yerine teknoloji/stil/kamera davranışını açıkça yazarak sıradanlıktan kaçınma | iYwCzKy6W40 | ? | - | yok → bekleyen | teknik-prompt-yazımı-teknoloji-stil-beli |
+| fontlara, görsellere, boşluklara çok dikkat et | fCc97Rv-60w | 2:01 | tipografi/boşluk kalite çıtası | OLASI TEKRAR (DESIGN.md (frontend-craft:15) p=0.45) · bekleyen/olasi-klasik-prompt-sablonu-fontlara-gorsellere-bosluklara-cok-dik.md | klasik-prompt-şablonu |
+| intro bölümünü bozma, sonrasını tamamla | fCc97Rv-60w | 2:01 | korunan bölüm + kapsam sınırı | OLASI TEKRAR (kalıp:12 p=0.50) · bekleyen/olasi-klasik-prompt-sablonu-intro-bolumunu-bozma-sonrasini-tamamla.md | klasik-prompt-şablonu |
+| Awwwards seviyesinde yap, oradaki tasarım kurallarını uygula | fCc97Rv-60w | 2:01 | dış kalite referansı | yok → bekleyen | klasik-prompt-şablonu |
+| önceki 4 skill'i kullan | fCc97Rv-60w | 3:03 | skill yığını | yok → bekleyen | klasik-prompt-şablonu |
+| bu 4 skill'i kullan | 39IlNR-P3-Q | 8:47 | skill hatırlatması | K4: kalıp:50 (p 0.78) | scroll-site-promptu |
+| bu videoyu referans al, kopyalama, ilham al | 39IlNR-P3-Q | 8:47 | referans video → tasarım | K4: kalıp:7 (p 0.70) | scroll-site-promptu |
+| tüm cihazlarda çalışsın | 39IlNR-P3-Q | 10:56 | responsive kabul | OLASI TEKRAR (kalıp:27 p=0.57) · bekleyen/olasi-scroll-site-promptu-tum-cihazlarda-calissin.md | scroll-site-promptu |

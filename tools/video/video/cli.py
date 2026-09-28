@@ -783,7 +783,8 @@ def on_(ns, ctx):
         print(f"on: kurulu ({es[0]}) → ZATEN VAR, araştırıcı yok · aday: {uy.iskelet(kok, ns.video, ns.aday, ns.tur, ns.repo, None, kurulu=es[0])}")
         return 0
     g = uy.on_tarama(ctx, ns.repo) if ns.repo else None
-    y = gt.on(kok, ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir", rapor=ns.rapor, seg=ctx["kok"] / ns.video / "segmentler.jsonl", guvenlik=g)
+    r = ns.rapor if not ns.rapor or Path(ns.rapor).is_file() else kok / "docs" / "video-tarama" / ns.rapor  # DEVAM-4: çıplak ad → tarama dizini
+    y = gt.on(kok, ns.video, ns.aday, ns.repo, ns.url, ctx["kos"], ctx["kok"] / "getir", rapor=r, seg=ctx["kok"] / ns.video / "segmentler.jsonl", guvenlik=g)
     a = uy.iskelet(kok, ns.video, ns.aday, ns.tur, ns.repo, y, g)  # 24c K1: araştırıcıdan önce, var olanı ezmez
     print(f"on: {y} · ~{c.token(y.read_text(encoding='utf-8'))} token · aday: {a}")
     return 0

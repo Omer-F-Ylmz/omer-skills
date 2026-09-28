@@ -1,6 +1,6 @@
 ---
 iddia: kural dosyası her çağrıda girdiye biner; kısa görevlerde çıktı tasarrufunu aşabilir.
-kaynak: https://github.com/JuliusBrussee/caveman, jf1sv2geEWo 4:35
+kaynak: https://github.com/JuliusBrussee/caveman, jf1sv2geEWo 4:35, v-vRYtvWDYs
 guven: yüksek
 dogrulama: https://github.com/JuliusBrussee/caveman (README: skill kural dosyası ~1k girdi token) + docs/denemeler/caveman-sonuc.md (14b: çıktı −%20.7, maliyet +%7.7)
 tarih: 2026-09-23
@@ -13,3 +13,4 @@ kural dosyası her çağrıda girdiye biner; kısa görevlerde çıktı tasarruf
 - not: 'Caveman %65 token kesintisi (README)' abartılı (docs/denemeler/caveman-sonuc.md)
 - not: '69→19 token, %75 azalma' abartılı (https://github.com/JuliusBrussee/caveman)
 - not: 'caveman tarzı maliyeti 1.4–2.4× düşürür (Adobe)' abartılı (ajan düzeni için) (docs/denemeler/caveman-sonuc.md)
+- destek: context-rot-kavramı (v-vRYtvWDYs)

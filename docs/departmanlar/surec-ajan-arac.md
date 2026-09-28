@@ -127,5 +127,15 @@ Müdür: `departman-surec-ajan-arac`
 - opus-model-seçimi · ÖĞREN · video b-LZ_Y9wor8
 - prompt-içinde-dosya-yapısı-belirtme · ZATEN VAR · video b-LZ_Y9wor8
 - asla-sözümden-çıkma-kesin-talimat · KUR · video iYwCzKy6W40
+- claude-code-subagent-model-ayarı · ÖĞREN · video v-vRYtvWDYs
+- iş-türüne-göre-model-seçimi · ZATEN VAR · video v-vRYtvWDYs
+- claude-mcp-list · ARACA ÖZEL · video v-vRYtvWDYs
+- skill-hatırlatmasını-prompt-a-yazma · KUR · video 39IlNR-P3-Q
+- taste-skill/kurulu · ZATEN VAR · video 39IlNR-P3-Q
+- taste-skill/animasyon-düzeyi-kararı · ÖĞREN · video 39IlNR-P3-Q
+- scroll-craft/kurulu · ZATEN VAR · video 39IlNR-P3-Q
+- scroll-craft/referans-videodan-scroll-geçişleri · ÖĞREN · video 39IlNR-P3-Q
+- everything-claude-code/kurulu · ZATEN VAR · video v-vRYtvWDYs
+- context-mode/sandbox-context-saving · DENE · video v-vRYtvWDYs
 
 ## Elle
