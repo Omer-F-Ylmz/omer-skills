@@ -209,7 +209,7 @@ def test_dene_deneme_dosyasi_yazilir(ortam, kok):
     y = aday(kok, "caveman", tur="teknik", karar="DENE", hipotez="çıktı tokenı %30 azalır", metrik="çıktı token/tur")
     assert calis(ortam, [y], UKos(), OJev()) == 0
     d = (kok / "docs" / "denemeler" / "caveman.md").read_text(encoding="utf-8")
-    assert all(b in d for b in ("Hipotez", "Metrik", "Bütçe", "Geri alma", "Başarı eşiği")) and "%30" in d
+    assert all(b in d for b in ("Hipotez", "Metrik", "Kollar", "Görevler", "Tavan", "Geri alma", "Karar ölçütü")) and "%30" in d
     assert kayit(kok)[-1]["yargi"] == "DENE" and not (kok / "docs" / "kurulumlar" / "bekleyen" / "caveman.md").exists()
 
 
