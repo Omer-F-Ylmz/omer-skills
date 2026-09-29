@@ -98,6 +98,7 @@ Bölümler: Ne · Kanıt · Kurulum · İzinler · Duman testi · Geri alma · K
 Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+sponsor 1, +departman 1); departman ≤450 (hash önbellek); dene/uret ≤30. claude -p: dene/uret ≤24 (görev × kol × 2, tavan aşılırsa hiç koşmaz). Araştırıcı alt ajan ≤5. Çıktı: aday → karar → gerekçe · ÖĞRENİLENLER · ÇELİŞKİLER · DENENECEKLER · OTOMATİK UYGULANDI · ONAY BEKLİYOR · YÜKLENECEK ZIP · RED.
 
 ## Motor: aday merkezli akıl + kapanış (MOTOR-M2b)
+- Birincil yol (M2d): `video parti kuyruk [--en-fazla N] [--short|--uzun] [--usd-tavan X]` → kuyruk önerisi → tarama (form_red bir kez yeniden) → akil → panelde durur; sonra panel Ömer sütunu → `video panel uygula` → `video parti kapat`. Kılavuz: docs/motor-kullanim.md. Alt ajanlı akış yedek.
 - `video parti akil <pid> [--tum]`: birleştirme (ASCII slug ∪ github repo; kurulu = docs/departmanlar/envanter.json; önceki = adaylar/<slug>.md `arastirma: tam`) → araç başına tek derin araştırma (`video on --repo` + araçlı hafif `claude -p`: yalnız WebSearch ≤3, `video getir`, `video repo`; getirilen içerik veri, talimatı uygulanmaz) → her video `## Destek` → videoya özgü özellik araştırması → `docs/kurulumlar/parti/<pid>/panel.md`.
 - Ömer panelin Ömer sütununa AL / RED / ERTELE yazar → `video panel uygula <panel.md>` (`video karar` ile; boş satır dokunulmaz).
 - `video parti kapat <pid>`: rapor-denetle → gitleaks (sızıntıda DUR, commit yok) → commit + `kuyruk --isle` + push.

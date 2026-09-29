@@ -173,7 +173,7 @@ def _jev(ctx):
 
 
 def _tam(a):
-    return a["kurulu"] == "kendi aracımız" or tr.normal(a["kurulu"]) in {tr.normal(x) for x in a["adlar"]}
+    return a["kurulu"] == "kendi aracımız" or tr.normal(a["kurulu"].rsplit(":", 1)[-1]) in {tr.normal(x) for x in a["adlar"]}
 
 
 def _yargi(ctx, adaylar, kok):

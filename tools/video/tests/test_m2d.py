@@ -45,9 +45,9 @@ def test_onek_soyma_tam_eslesme(tmp_path):
     ad = {"task-observer": _aday("task-observer", "anthropic-skills:task-observer"),
           "task-watcher": _aday("task-watcher", "anthropic-skills:task-observer")}
     assert akil._tam(ad["task-observer"]) and not akil._tam(ad["task-watcher"])
-    jev = _jev()
-    akil._yargi({"yargila": jev}, ad, tmp_path)
-    assert jev.n == 1 and "esdeger_p" in ad["task-watcher"] and "esdeger_p" not in ad["task-observer"]
+    j, sorulan = _jev(), []
+    akil._yargi({"yargila": lambda s, q: sorulan.append(s) or j(s, q)}, ad, tmp_path)
+    assert len(sorulan) == 1 and len(sorulan[0]) == 1 and "esdeger_p" in ad["task-watcher"] and "esdeger_p" not in ad["task-observer"]
 
 
 # K4 tek komut: kuyruk → baslat → tarama → akil → panel yolu + defter özeti, panelde durur

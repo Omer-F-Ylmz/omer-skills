@@ -510,7 +510,7 @@ def _temizle(metin, env):
     for ad, deger in env.items():
         if re.search(r"KEY|TOKEN|SECRET|PASS", ad, re.I) and len(deger or "") >= 8:
             metin = metin.replace(deger, "[gizli]")
-    return re.sub(r"(?:[A-Za-z]:[\\/]|(?<![\w.:/])/(?:[a-z]|home|Users|tmp)/|~[\\/])[^\s|)\]>\"'`]*", "[yol]", metin)
+    return re.sub(r"(?:(?<![A-Za-z])[A-Za-z]:[\\/]|(?<![\w.:/])/(?:[a-z]|home|Users|tmp)/|~[\\/])[^\s|)\]>\"'`]*", "[yol]", metin)
 
 
 def tara(ns, ctx):
@@ -1083,8 +1083,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--kare", type=int, default=0, help="openrouter vision: gönderilecek kare (≤6; short ≤3)")
     x.add_argument("--tarih")
     x = alt.add_parser("parti", help="MOTOR-M2a: kuyruk → paket → hafif claude -p tarayıcı formu → rapor + kayıt; .kos/<parti-id>/durum.json + defter.jsonl")
-    x.add_argument("eylem", choices=["baslat", "devam", "durum", "akil", "kapat"])
-    x.add_argument("hedef", help="baslat: kuyruk.md · devam/durum: parti-id")
+    x.add_argument("eylem", choices=["baslat", "kuyruk", "devam", "durum", "akil", "kapat"])
+    x.add_argument("hedef", nargs="?", help="baslat/kuyruk: kuyruk.md (kuyruk varsayılanı docs/video-tarama/kuyruk.md) · devam/durum: parti-id")
     x.add_argument("--en-fazla", type=int, default=8, metavar="N")
     g = x.add_mutually_exclusive_group()
     g.add_argument("--short", action="store_true")
@@ -1096,6 +1096,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--tarih")
     x.add_argument("--tum", action="store_true", help="akil: tüm kayıt genelinde birleştir")
     x.add_argument("--form-red-yeniden", action="store_true", help="devam: form_red videolara yeniden deneme hakkı")
+    x.add_argument("--yeniden-tara", action="store_true", help="devam: M2d — tamam/form_red/tavan videoları düzeltilmiş girdiyle yeniden tara")
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")
     x = alt.add_parser("panel", help="MOTOR-M2b: panel.md Ömer sütunu (AL/RED/ERTELE) → video karar; boş satır dokunulmaz")

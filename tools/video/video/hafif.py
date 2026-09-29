@@ -1,6 +1,7 @@
 """MOTOR-M2a K1: hafif `claude -p` taşıyıcısı (a1 bayrakları, docs/tasarim/parti-motoru.md) → form + usage + total_cost_usd.
 Kimlik/anahtar değeri ne loglanır ne döner; ANTHROPIC_BASE_URL alt süreçte kaldırılır (headroom vekili araçları gizliyor)."""
 import base64
+import mimetypes
 import re
 import json
 import os
@@ -22,7 +23,7 @@ def _kos(args, girdi, env, timeout):
 def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, araclar):
     """→ {form, usage, usd, sure, hata}; hata varsa form None."""
     env = {k: v for k, v in (os.environ if env is None else env).items() if k != "ANTHROPIC_BASE_URL"}
-    icerik = [{"type": "text", "text": metin}] + [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
+    icerik = [{"type": "text", "text": metin}] + [{"type": "image", "source": {"type": "base64", "media_type": mimetypes.guess_type(k)[0] or "image/jpeg",
                                                                                 "data": base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
     girdi = json.dumps({"type": "user", "message": {"role": "user", "content": icerik}}, ensure_ascii=False) + "\n"
     args = [shutil.which("claude") or "claude", "-p", "--model", model, "--system-prompt", sistem,

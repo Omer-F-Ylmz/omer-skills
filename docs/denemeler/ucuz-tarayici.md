@@ -43,3 +43,6 @@ takas tablosu (omer-kurallar 21, kur.takas): kalite düşüşü = max(1 − reca
 | **openrouter:qwen/qwen3.8-27b:free** | toplam | | | başarısız 1.00 | 0.38 | | | | **SOR** — tasarruf 100.0 · düşüş 100.0 · düşüş >%20 & tasarruf ≥%50 |
 
 Varsayılan tarayıcı DEĞİŞMEDİ (sonnet).
+
+## Not (MOTOR-M2d, 2026-09-29): girdi hatası
+OpenRouter kolları `cli._temizle` URL hatasıyla ölçüldü: sürücü harfi deseni `https://` içindeki `s:/`'yi yol sayıp açıklama bağlantılarını `http[yol]` yapıyordu (docs/olcumler/url-hatasi-etki.md). Bu kolların RED kararı M3 onarım turunda (düzeltilmiş girdi + form) yeniden ölçülecek.

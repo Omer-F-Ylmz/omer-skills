@@ -46,6 +46,7 @@ Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dö
 - Aday tür/ne sütununda token tasarrufu vaat eden özellik varsa hedef türü (skill · talimat · araç ayarı) yazılır; video-uygula bunu `hedef_tur:` alanına taşır, skill/talimat olanlar `## ÜRETİLEBİLİR`'e düşer.
 
 ## Motor (Opus'suz parti · MOTOR-M2a/M2b)
+- Birincil yol (M2d): `video parti kuyruk [--en-fazla N] [--short|--uzun] [--usd-tavan X]` → kuyruk önerisi → tarama (form_red bir kez yeniden) → akil → panelde durur; sonra panel Ömer sütunu → `video panel uygula` → `video parti kapat`. Kılavuz: docs/motor-kullanim.md. Alt ajanlı akış yedek.
 - `video parti baslat <kuyruk.md> [--short|--uzun] [--cagri-tavan N --usd-tavan X]` → paket + hafif `claude -p` tarayıcı formu + rapor + kayıt; `video parti devam <pid> [--form-red-yeniden] [--cagri-ek N --usd-ek X]` kesintiden sürer (tamamlanan çağrı tekrarlanmaz); `video parti durum <pid>`.
 - Short tek tanım: süre <120 sn (kuyruk.md ile aynı); short'lar kuyruk sırasından bağımsız ≤8 / ≤40k jeton gruplanır. Kare gönderildiyse Site/UI ve kare kaynaklı her bulguda `karede_gorulen` zorunlu, boşsa form reddi.
 - Tarama bitince aday işi: `video parti akil <pid>` (video-uygula § Motor).

@@ -1,37 +1,35 @@
-# most powerful free coding agent on market. And nobody's talking about it.
+# The most powerful free coding agent on the market. And nobody's talking about it.
 ## Künye
-most powerful free coding agent on market. And nobody's talking about it. · InsiderForce · süre: 1:19 · en · https://youtu.be/enFgYQvI1dM
+The most powerful free coding agent on the market. And nobody's talking about it. · InsiderForce · süre: 1:19 · en-orig · https://youtu.be/enFgYQvI1dM
+motor: parti 2026-09-29-short · claude-sonnet-5-5 · hafif claude -p
+kareler: görsel girdi (2)
 ## Özet
-Short video, JCode adlı ücretsiz ve açık kaynak kodlama ajanını tanıtıyor. Harness (istemleri, araçları, hafızayı ve oturumları yöneten ara katman) Rust ile sıfırdan yazılmış. İddiaya göre Claude Code'dan 20 kat daha az bellek kullanıyor ve Codex'ten 63 kat hızlı. Otomatik hafıza, çoklu paralel oturum ve yardımcı ajan çağırma özellikleri sayılıyor. Son kısım, "insansı yazı" e-kitabı için yorum-yap reklamı; kodlama içeriği değil. Repo/kurulum bilgisi verilmiyor, açıklamada bağlantı yok.
+JCode adlı ücretsiz, açık kaynaklı kodlama ajanı tanıtılıyor. Harness katmanı Rust ile sıfırdan yazılmış. Bellek verimliliği ve hız iddiaları var. Otomatik hafıza, paralel oturumlar ve alt ajanlar öne çıkıyor. Sonda e-kitap için yorum yaptırma çağrısı var.
 ## Bölümler
-- 0:00 Fiyat karşılaştırması ve harness kavramı — JCode tanıtımı, Rust yeniden yazımı
-- 0:30 Performans ve özellikler — bellek, hız, otomatik hafıza, çoklu oturum, alt ajanlar
-- 1:00 Reklam — AI metnini insansı yapma e-kitabı
+- 0:00 Ücretli ajanlar ve JCode girişi
+- 0:30 Harness katmanı ve Rust yeniden yazımı
+- 1:00 E-kitap çağrısı
 ## Adaylar
 | ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |
 |---|---|---|---|---|---|---|
-| JCode | codex (skill, 0.80) | CLI | yok | Rust ile yazılmış ücretsiz açık kaynak kodlama ajanı harness'ı | 0:00 | Kareden: “JCode rebuilt it from scratch in rust”; adı ASR'de "J code" |
-| otomatik hafıza | yok | teknik | yok | Kurulum yapmadan bilgiyi öğrenir, gerektiğinde ilgili bilgiyi getirir | 0:30 | Anlatıcı kurulum/yapılandırma gerektirmeden hafızanın kendiliğinden çalıştığını söylüyor |
-| çoklu paralel oturum | yok | iş akışı | yok | Yavaşlama olmadan birden çok oturumu aynı anda çalıştırma | 0:40 | Anlatıcı yavaşlamadan çoklu oturum iddia ediyor |
-| ajan-yardımcı ajan orkestrasyonu | yok | iş akışı | yok | Bir ajan yönetir, diğerleri aynı kod tabanında çakışmadan çalışır | 0:45 | Ana ajanın yardımcı ajanları getirmesi anlatılıyor |
-| harness kavramı | yok | teknik | yok | Kullanıcı ile model arasındaki katman: istem, araç, hafıza, oturum | 0:10 | Her kodlama ajanının bu ara katmana sahip olduğu anlatılıyor |
+| JCode | yok | CLI | yok | Rust ile sıfırdan yazılmış ücretsiz, açık kaynaklı kodlama ajanı harness'ı; otomatik hafıza, paralel oturum ve alt ajan desteği iddia ediliyor. | 0:30 | Karede JCode'un Rust ile sıfırdan yeniden yazıldığı yazıyor; altyazı da aynı şeyi söylüyor. (karede: Bulanık açık gri arka plan, ortada 'JCode rebuilt it from scratch in rust' yazısı, altta insiderforce.io) |
+| Harness katmanı (ajan ara katmanı) | yok | teknik | yok | Kullanıcı ile yapay zeka arasında prompt, araç, hafıza ve oturumları yöneten katman. | 0:00 | Altyazıda bu katmana 'harness' deniyor ve JCode'un onu yeniden yazdığı söyleniyor. |
+## Açıklama bağlantıları
+- yok
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|
-| JCode ücretsiz ve açık kaynak | 0:00 | özellik |
-| Harness Rust ile sıfırdan yeniden yazıldı | 0:20 | özellik |
-| Claude Code'dan 20 kat daha bellek verimli | 0:25 | sayısal |
-| Codex'ten 63 kat daha hızlı | 0:25 | sayısal |
-| Hafızayı kurulum olmadan otomatik öğrenir | 0:35 | özellik |
-| Çoklu oturum yavaşlamadan çalışır | 0:42 | özellik |
-| Ajanlar kendi yardımcılarını getirir, aynı kod tabanında çakışmaz | 0:48 | özellik |
-| Cursor, Codex ve Claude Code ücretli; JCode hepsini geçer | 0:00 | karşılaştırma |
+| JCode, Claude Code'dan 20 kat daha bellek verimli. | 0:00 | sayısal |
+| JCode, Codex'ten 63 kat daha hızlı. | 0:00 | sayısal |
+| JCode kurulum veya yapılandırma olmadan otomatik hafıza tutuyor. | 0:00 | özellik |
+| Ajanlar kendi yardımcı ajanlarını getirip aynı kod tabanında çakışmadan çalışabiliyor. | 0:00 | özellik |
 ## Kareden okunanlar
-- 0:30 "JCode rebuilt it from scratch in rust" · insiderforce.io
-- 1:09 e-kitap kapağı "Chapter 1: Why AI sounds like AI" (reklam)
+- 0:30: JCode rebuilt it from scratch in rust; insiderforce.io
+- 1:09: E-kitap sayfası: 'Chapter 1 – Why AI sounds like AI', 'A Simple', insiderforce.io
 ## Belirsizlikler
-- "J code" ASR yazımı; kareden JCode. Repo/lisans doğrulanmadı.
-- Bellek ve hız iddiaları kaynaksız, ölçüt belirtilmiyor.
-- Video ağırlıkla e-kitap lead-magnet reklamı.
+- Ad altyazıda 'J code' geçiyor, karede 'JCode'; yazım JCode varsayıldı.
+- Repo bağlantısı yok; verilmedi.
+- 20x ve 63x iddialarının kaynağı veya ölçüm yöntemi gösterilmiyor.
+- 1:09 karesi ajanla değil, tanıtılan e-kitapla ilgili.
 ## Atlanan segment oranı
-0/2 (paket tam okuma)
+0/2 (paket tam okuma, motor)

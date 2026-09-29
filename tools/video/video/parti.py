@@ -274,7 +274,9 @@ def parti(ns, ctx):
     tdir = ctx.get("tarama_dizin") or cli._tarama_dizin(ctx)
     alt = ctx.get("alt") or (lambda a: cli.main(a, env=ctx["env"], kos=ctx["kos"], gonder=ctx["gonder"], uyku=ctx["uyku"]))
     temizle = ctx.get("temizle") or (lambda s: cli._temizle(s, ctx["env"]))
-    if ns.eylem == "baslat":
+    if ns.eylem == "kuyruk" and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk
+        ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
+    if ns.eylem in ("baslat", "kuyruk"):
         tur, satirlar = tr.kuyruk_parti(Path(ns.hedef).read_bytes().decode("utf-8"))
         if not satirlar:
             print("parti: kuyrukta bekleyen video yok")
@@ -309,12 +311,26 @@ def parti(ns, ctx):
         if ns.eylem in ("akil", "kapat"):
             from . import akil
             return akil.akil(pdir, d, kok, Path(tdir), ctx, getattr(ns, "tum", False)) if ns.eylem == "akil" else akil.kapat(pdir, d, kok, ctx)
+        if getattr(ns, "yeniden_tara", False):  # M2d: _temizle URL hatası sonrası — bitmiş videolar düzeltilmiş girdiyle yeniden taranır
+            for s in d["videolar"].values():
+                if s["tarama"]["durum"] in ("tamam", "form_red", "tavan"):
+                    s["tarama"].update(durum="bekliyor", deneme=0, hata=None)
         if getattr(ns, "form_red_yeniden", False):  # M2b K6: form_red → yeniden dene hakkı
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] == "form_red":
                     s["tarama"].update(durum="bekliyor", deneme=min(s["tarama"]["deneme"], 2))
         d["durum"] = "calisiyor"
-    rc = _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"])
+    kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"])
+    rc = kos()
+    if ns.eylem == "kuyruk" and rc == 0:  # M2d K4: form_red bir kez yeniden → akil → panelde dur
+        red = [s for s in d["videolar"].values() if s["tarama"]["durum"] == "form_red"]
+        for s in red:
+            s["tarama"].update(durum="bekliyor", deneme=min(s["tarama"]["deneme"], 2))
+        rc = kos() if red else rc
+        from . import akil
+        rc = rc or akil.akil(pdir, d, kok, Path(tdir), ctx)
+        n, usd, _ = _defter(pdir)
+        print(f"panel: docs/kurulumlar/parti/{d['parti']}/panel.md · defter {n} çağrı ${usd:.4f} · sonra: panel Ömer sütunu → video panel uygula → video parti kapat {d['parti']}")
     _ozet(pdir, d)
     return rc
 
