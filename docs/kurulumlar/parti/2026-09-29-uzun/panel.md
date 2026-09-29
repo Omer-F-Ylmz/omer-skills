@@ -4,28 +4,28 @@
 
 | aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |
 |---|---|---|---|---|---|---|---|
-| token-kullanim-denetim-promptu | prompt | 1 | — | koşmadı: repo yok | ÖĞREN | prompt: kurulabilir araç değil || ÖĞREN |
-| clear | ipucu | 1 | — | koşmadı: kurulu | SOR | eşdeğer doğrulanmadı: learn || ZATEN VAR |
-| model-effort-u-oturum-basinda-sabitle | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) || ZATEN VAR |
-| cikti-filtreleme-hook-dosyasi | teknik | 1 | — | koşmadı: repo yok | ÖĞREN | teknik: kurulabilir araç değil || ÖĞREN |
-| mcp-sunucu-listesi-ile-kullanilmayanlari | MCP | 1 | yok | koşmadı: repo yok | SOR | eksik: son_commit || RED |
-| subagent-i-haiku-ya-ayarlama | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) || DENE |
-| rewind | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) || ZATEN VAR |
-| context-usage-cost-ve-yanma-hizi-gosterg | CLI | 1 | — | koşmadı: kurulu | SOR | servis: koşullar · ücretsiz katman · gizlilik · eksik: kullanim_kosullari, ucretsiz_katman, veri_gizliligi || ERTELE |
-| claude-code-yapilandirmasini-token-tuket | prompt | 1 | — | koşmadı: servis | ÖĞREN | prompt: kurulabilir araç değil || ÖĞREN |
-| arac-ciktisini-ajan-gormeden-once-filtre | prompt | 1 | — | koşmadı: repo yok | ÖĞREN | prompt: kurulabilir araç değil || ÖĞREN |
-| token-dashboard | teknik | 1 | — | koşmadı: repo yok | ÖĞREN | teknik: kurulabilir araç değil || ÖĞREN |
-| session-handoff-skill | skill | 1 | bilinmiyor | koşmadı: repo yok | SOR | eksik: lisans, son_commit || UYARLA |
-| clear-ve-compact-ile-temiz-baslangic | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) || ZATEN VAR |
-| claude-projelerine-belge-koymak | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) || ÖĞREN |
-| oturum-ortasinda-claude-md-duzenleme | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) || ÖĞREN |
-| github-reposundaki-token-dashboard-u-cla | prompt | 1 | — | koşmadı: repo yok | ÖĞREN | prompt: kurulabilir araç değil || ÖĞREN |
-| rtk | CLI | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız || ZATEN VAR |
-| headroom | CLI | 1 | Apache-2.0 | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız || ZATEN VAR |
-| ponytail | skill | 1 | MIT | koşmadı: kurulu | ZATEN VAR | kurulu: ponytail || ZATEN VAR |
-| graphify | skill | 1 | Apache-2.0 (README rozeti; depoda ayrıca LICENSE-MIT dosyası var, bir web sonucu MIT diyor. Çift lisans olabilir, doğrulanmadı) | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız || ZATEN VAR |
-| rtk-etkinken-claude-code-a-commit-ve-pus | prompt | 1 | — | koşmadı: servis | ÖĞREN | prompt: kurulabilir araç değil || ÖĞREN |
-| headroom-sarmali-oturumda-simplify-skill | prompt | 1 | — | koşmadı: ürün | ÖĞREN | prompt: kurulabilir araç değil || ÖĞREN |
+| token-kullanim-denetim-promptu | prompt | 1 | — | koşmadı: repo yok | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
+| clear | ipucu | 1 | — | koşmadı: kurulu | SOR | eşdeğer doğrulanmadı: learn | ZATEN VAR |
+| model-effort-u-oturum-basinda-sabitle | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ZATEN VAR |
+| cikti-filtreleme-hook-dosyasi | teknik | 1 | — | koşmadı: repo yok | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
+| mcp-sunucu-listesi-ile-kullanilmayanlari | MCP | 1 | yok | koşmadı: repo yok | SOR | eksik: son_commit | RED |
+| subagent-i-haiku-ya-ayarlama | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | DENE |
+| rewind | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ZATEN VAR |
+| context-usage-cost-ve-yanma-hizi-gosterg | CLI | 1 | — | koşmadı: kurulu | SOR | servis: koşullar · ücretsiz katman · gizlilik · eksik: kullanim_kosullari, ucretsiz_katman, veri_gizliligi | ERTELE |
+| claude-code-yapilandirmasini-token-tuket | prompt | 1 | — | koşmadı: servis | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
+| arac-ciktisini-ajan-gormeden-once-filtre | prompt | 1 | — | koşmadı: repo yok | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
+| token-dashboard | teknik | 1 | — | koşmadı: repo yok | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
+| session-handoff-skill | skill | 1 | bilinmiyor | koşmadı: repo yok | SOR | eksik: lisans, son_commit | UYARLA |
+| clear-ve-compact-ile-temiz-baslangic | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ZATEN VAR |
+| claude-projelerine-belge-koymak | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ÖĞREN |
+| oturum-ortasinda-claude-md-duzenleme | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ÖĞREN |
+| github-reposundaki-token-dashboard-u-cla | prompt | 1 | — | koşmadı: repo yok | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
+| rtk | CLI | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| headroom | CLI | 1 | Apache-2.0 | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| ponytail | skill | 1 | MIT | koşmadı: kurulu | ZATEN VAR | kurulu: ponytail | ZATEN VAR |
+| graphify | skill | 1 | Apache-2.0 (README rozeti; depoda ayrıca LICENSE-MIT dosyası var, bir web sonucu MIT diyor. Çift lisans olabilir, doğrulanmadı) | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| rtk-etkinken-claude-code-a-commit-ve-pus | prompt | 1 | — | koşmadı: servis | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
+| headroom-sarmali-oturumda-simplify-skill | prompt | 1 | — | koşmadı: ürün | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
 
 ## form_red
 - yok
