@@ -238,3 +238,12 @@ test("git: mesru uzun bayraklar onek kapisina takilmaz", () => {
     gecer("git", ["grep", b, "x"]);
   }
 });
+
+// ---------------------------------------------------------------- MOTOR-M2e K5
+test("M2e K5: video parti durum ve kuyruk (oneri) izinli; yazan alt komutlar izinsiz", () => {
+  gecer("video", ["parti", "durum", "2026-09-29-short"]);
+  gecer("video", ["kuyruk"]);
+  for (const e of ["baslat", "kuyruk", "devam", "akil", "kapat"]) red("video", ["parti", e, "x"]);
+  red("video", ["kuyruk", "--isle", "a", "--commit", "b"]);
+  red("video", ["panel", "uygula", "p.md"]);
+});
