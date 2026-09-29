@@ -16,12 +16,19 @@ from . import tarama as tr
 YENIDEN = {"bekliyor", "hata", "tavan"}
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 KARE_TK = 1_600  # ponytail: kare başına sabit jeton tahmini; gruplar sınırda kalırsa gerçek boyut (cli._kare_tk)
+DILIM_TK, DILIM_SN = 15_000, 1_500  # M4 K2/K4: altyazı ≤15k jeton ve ≤25 dk → tam altyazı tek çağrı; aşımda 2–3 zaman dilimi
 SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıklama bağlantıları, altyazı segmentleri, kare listesi. "
           "Her video için formu Türkçe ve eksiksiz doldur; zorunlu alanlar boş olamaz. Zamanlar m:ss ve video süresi içinde "
           "(yalnız açıklamada geçiyorsa 'açıklama'). Açıklama bağlantılarının HER biri için karar ver (aday_mi + neden); erişilemeyende (ücretli topluluk, giriş gerekli) "
           "aday_mi false + erisilemez: <sebep>. "
           "Alıntı en fazla 15 kelime. Kareden okunan bilgide kaynak 'kare' (ekli görseller, sırası bloklardaki kare listesiyle aynı). "
-          "Anahtar, şifre, token değeri yazma. Site/landing/frontend içerikli videoda site_ui doldur. Emin olmadığını belirsizliklere yaz.")
+          "Anahtar, şifre, token değeri yazma. Site/landing/frontend içerikli videoda site_ui doldur. Emin olmadığını belirsizliklere yaz. "
+          "Gösterilen ya da söylenen her kurulum/terminal komutunu kurulum_komutlar'a yaz (komut · ne yapar · zaman · kaynak). "
+          "Gönderilen HER kare için kareden_okunanlar'a bir kayıt: kare = kare listesindeki zamanı (m:ss), okunan = karedeki somut bilgi "
+          "(komut, ayar, kod/fonksiyon adı, değer, URL) ya da 'somut bilgi yok'; kare atlanamaz. "
+          "site_ui'de her teknik için ne + nasil (mekanizma) + kutuphane (yoksa 'yok') zorunlu. "
+          "Formu bitirmeden oz_denetim'e her kategori (adaylar, kurulum_komutlar, site_ui, promptlar, iddialar, kareden_okunanlar) için "
+          "altyazıda/karede eklenmemiş başka kalem var mı kısaca yaz; varsa önce ilgili listeye ekle.")
 
 
 OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik"}  # M2c: opsiyonel alanlar
@@ -42,15 +49,19 @@ ZMN = {"type": "string", "minLength": 1, "description": "m:ss, video süresi iç
 KG = {"karede_gorulen": {"type": ["string", "null"], "description": "kare gönderildiyse zorunlu: karede tam olarak ne görülüyor"}}
 
 
-def sema(ids):
-    """Tarayıcı formu (motor-sema.md §1); tür listeleri rapor-denetle'ninkiyle aynı."""
+def sema(ids, m4=True):
+    """Tarayıcı formu (motor-sema.md §1); tür listeleri rapor-denetle'ninkiyle aynı.
+    M4: kurulum_komutlar · oz_denetim · site_ui ne+nasil+kutuphane zorunlu (m4=False: M4 öncesi paketin formu)."""
+    ek = dict(nasil=S, kutuphane=S) if m4 else {}
     video = _o(id={"type": "string", "enum": list(ids)}, ozet=S, bolumler=_d(_o(zaman=ZMN, baslik=S)),
                adaylar=_d(_o(ad=S, tur={"type": "string", "enum": sorted(tr.TUR)}, ne=S, kanit_zamani=ZMN, kaynak=KAYNAK, kanit=S, repo_url=N, **KG)),
                aciklama_baglantilari=_d(_o(url=S, ne=S, aday_mi={"type": "boolean"}, neden=S, aday_adi=N, erisilemez=N)),
-               site_ui=_d(_o(teknik=S, ne=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
+               site_ui=_d(_o(teknik=S, ne=S, **ek, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
                promptlar=_d(_o(metin=S, amac=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
                iddialar=_d(_o(iddia=S, kanit_zamani=ZMN, kaynak=KAYNAK, tur={"type": "string", "enum": sorted(tr.IDDIA_TUR)}, aday_adi=N, **KG)),
-               kareden_okunanlar=_d(_o(kare=S, okunan=S)), belirsizlikler=_d(S))
+               kareden_okunanlar=_d(_o(kare=S, okunan=S)), belirsizlikler=_d(S),
+               **(dict(kurulum_komutlar=_d(_o(komut=S, ne_yapar=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
+                       oz_denetim=_d(_o(kategori=S, baska_kalem=S))) if m4 else {}))
     return _o(videolar={"type": "array", "minItems": len(ids), "items": video})
 
 
@@ -76,24 +87,32 @@ def _denet(x, s, yol):
 
 def dogrula(form, paketler, ids):
     """→ {id: [hata]}; boş = hepsi geçti. Şema + her açıklama bağlantısına karar + üretilecek raporun rapor-denetle'si."""
-    s = sema(ids)["properties"]["videolar"]["items"]
     gelen = {f.get("id"): f for f in (form or {}).get("videolar") or [] if isinstance(f, dict)}
     out = {}
     for v in ids:
         if (f := gelen.get(v)) is None:
             out[v] = [f"videolar: {v} formu yok"]
             continue
-        h = _denet(f, s, v)
+        h = _denet(f, sema(ids, paketler[v].get("m4", False))["properties"]["videolar"]["items"], v)
         if not h:
             kararli = {b["url"] for b in f["aciklama_baglantilari"]}
             h = [f"{v}.aciklama_baglantilari: karar yok: {u}" for u in paketler[v]["linkler"] if u not in kararli]
             if paketler[v]["kareler"] and hafif.GORSEL:  # M2c K5: kare gönderildiyse yalnız kare kaynaklı bulguda karede görülen zorunlu
                 h += [f"{v}.{b}[{i}].karede_gorulen: kare gönderildi, karede görülen boş olamaz" for b in ("adaylar", "site_ui", "promptlar", "iddialar")
                       for i, x in enumerate(f[b]) if x.get("kaynak") == "kare" and not (x.get("karede_gorulen") or "").strip()]
+            if paketler[v].get("m4") and hafif.GORSEL:  # M4 K3: gönderilen her kareye kayıt; boş okunan şemada red
+                kayit = [_ks(x["kare"]) for x in f["kareden_okunanlar"]]
+                h += [f"{v}.kareden_okunanlar: kare kaydı yok: {m.ss(t)}" for t in paketler[v]["kare_zaman"]
+                      if t is not None and not any(k is not None and abs(k - t) <= 2 for k in kayit)]
             h += [f"{v} rapor: {x}" for x in tr.denetle(rapor_md(f, paketler[v], []), paketler[v]["sure"])]
         if h:
             out[v] = h
     return out
+
+
+def _ks(x):
+    z = re.search(r"(\d+):(\d{2})", str(x))
+    return int(z[1]) * 60 + int(z[2]) if z else None
 
 
 def paket_oku(yol):
@@ -104,7 +123,9 @@ def paket_oku(yol):
     satir = lambda b: [s.strip() for s in tr.bolum(metin, b).splitlines() if s.strip() and s.strip() != "yok"]
     return {"id": bas[0], "baslik": bas[1], "kanal": bas[2], "sure": sure, "dil": dil[1] if dil else "?", "metin": metin,
             "short": x[1] == "true" if (x := re.search(r"· short: (true|false)", metin)) else tr.short_mu(sure),
-            "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")]}
+            "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")],
+            "kare_zaman": [_ks(s.split(" · ")[1]) if " · " in s else None for s in satir("Kareler")],  # M4
+            "kare_tk": sum(int(x) for x in re.findall(r"\d+", (re.search(r"· kare_tk ([\d+]+)", metin) or [""])[0])), "m4": "· paket: m4" in metin.splitlines()[0]}
 
 
 def _h(x):
@@ -113,6 +134,10 @@ def _h(x):
 
 def _kg(x):
     return f" (karede: {_h(x['karede_gorulen'])})" if x.get("karede_gorulen") else ""
+
+
+def _nk(s):
+    return f" — nasıl: {_h(s['nasil'])} · kütüphane: {_h(s['kutuphane'])}" if s.get("nasil") else ""
 
 
 def rapor_md(f, pk, notlar):
@@ -127,12 +152,16 @@ def rapor_md(f, pk, notlar):
             for b in f["aciklama_baglantilari"]] or ["- yok"])]
     if f["site_ui"]:
         L += [f"## {tr.SITE_UI}", "| teknik | ne işe yarar | zaman | kaynak |", "|---|---|---|---|",
-              *[f"| {_h(s['teknik'])} | {_h(s['ne'])}{_kg(s)} | {_h(s['kanit_zamani'])} | {s['kaynak']} |" for s in f["site_ui"]]]
+              *[f"| {_h(s['teknik'])} | {_h(s['ne'])}{_nk(s)}{_kg(s)} | {_h(s['kanit_zamani'])} | {s['kaynak']} |" for s in f["site_ui"]]]
     elif any(tr.SITE_UI in str(b) for b in f["belirsizlikler"]):  # M2f K1: tamam_eksik raporunda zorunlu bölüm EKSİK başlığıyla yazılır
         L += [f"## {tr.SITE_UI}", "- EKSİK: formda site/UI tekniği yok (kısmi kabul)"]
+    if f.get("kurulum_komutlar"):  # M4 K1: altın setteki Kurulum/komutlar kategorisi
+        L += ["## Kurulum/komutlar", "| komut | ne yapar | zaman | kaynak |", "|---|---|---|---|",
+              *[f"| {_h(k['komut'])} | {_h(k['ne_yapar'])}{_kg(k)} | {_h(k['kanit_zamani'])} | {k['kaynak']} |" for k in f["kurulum_komutlar"]]]
     seg = sum(s.startswith("[") for s in tr.bolum(pk["metin"], "Segmentler").splitlines())
     L += ["## İddialar", "| iddia | zaman | tür |", "|---|---|---|", *[f"| {_h(i['iddia'])} | {_h(i['kanit_zamani'])} | {i['tur']} |" for i in f["iddialar"]],
-          "## Kareden okunanlar", *([f"- {_h(k['kare'])}: {_h(k['okunan'])}" for k in f["kareden_okunanlar"]] or ["- yok"]),
+          "## Kareden okunanlar", *([f"- {_h(k['kare'])}: {_h(k['okunan'])}" for k in f["kareden_okunanlar"]
+                                         if not _h(k['okunan']).casefold().startswith("somut bilgi yok")] or ["- yok"]),
           "## Belirsizlikler", *([f"- {_h(b)}" for b in f["belirsizlikler"]] or ["- yok"]),
           "## Atlanan segment oranı", f"0/{seg} (paket tam okuma, motor)"]
     return "\n".join(L) + "\n"
@@ -169,14 +198,89 @@ def kare_sigdir(pk):
     """M2e K2: uzun videonun çağrı girdisi ≤40k jeton; aşarsa kare düşürülür, rapora not."""
     for p in pk.values():
         tk = c.token(p["metin"])
-        if not p["short"] and tk + KARE_TK * len(p["kareler"]) > GIRDI_TAVAN:
+        if not p["short"] and tk + KARE_TK * len(p["kareler"]) > GIRDI_TAVAN:  # ponytail: M4 dilimli videoda da tüm metne göre (≥35k jeton altyazıda erken kırpar)
             n = max(0, (GIRDI_TAVAN - tk) // KARE_TK)
             p["kare_not"] = f"kareler: girdi ≤{GIRDI_TAVAN} jeton için {len(p['kareler'])}→{n}"
             p["kareler"] = p["kareler"][:n]
 
 
-LISTE = ("bolumler", "adaylar", "aciklama_baglantilari", "site_ui", "promptlar", "iddialar", "kareden_okunanlar", "belirsizlikler")
-AD = ("ad", "teknik", "amac", "iddia", "url", "kare", "baslik")
+LISTE = ("bolumler", "adaylar", "aciklama_baglantilari", "site_ui", "promptlar", "iddialar", "kareden_okunanlar", "belirsizlikler",
+         "kurulum_komutlar", "oz_denetim")
+AD = ("ad", "teknik", "amac", "iddia", "url", "kare", "baslik", "komut", "kategori")
+ANAH = ("ad", "url", "komut", "teknik", "iddia", "metin", "kare", "baslik", "kategori")
+
+
+def dilimler(p):
+    """M4 K2/K4: altyazı ≤DILIM_TK jeton ve süre ≤DILIM_SN → [(0, süre)] tam altyazı; aşımda 2 (gerekirse 3) eşit zaman dilimi."""
+    sure, tk = p["sure"] or 0, c.token(tr.bolum(p["metin"], "Segmentler") or p["metin"])
+    if tk <= DILIM_TK and sure <= DILIM_SN:
+        return [(0, sure)]
+    n = min(3, max(2, -(-tk // DILIM_TK), -(-int(sure) // DILIM_SN)))
+    return [(round(sure * i / n), round(sure * (i + 1) / n)) for i in range(n)]
+
+
+def dilim_paketi(p, bas, son, i, n):
+    """M4 K4: dilimin segmentleri ve kareleri (zaman [bas, son); son dilim sonu açık); künye/linkler aynen, başa dilim notu."""
+    icinde = lambda t: t is None or bas <= t < son or (i == n - 1 and t >= son)
+    L, b = [], None
+    for s in p["metin"].splitlines():
+        if s.startswith("## "):
+            b = s[3:].strip()
+        t = _ks(s.split("]")[0]) if b == "Segmentler" and s.startswith("[") else _ks(s.split(" · ")[1]) if b == "Kareler" and " · " in s else None
+        if icinde(t):
+            L.append(s)
+    L.insert(1, f"DİLİM {i + 1}/{n}: {m.ss(bas)}–{m.ss(son)} (yalnız bu aralığın segmentleri ve kareleri; formu bu dilim için doldur)")
+    kz = [(k, t) for k, t in zip(p["kareler"], p.get("kare_zaman") or [None] * len(p["kareler"])) if icinde(t)]
+    return {**p, "metin": "\n".join(L) + "\n", "kareler": [k for k, _ in kz], "kare_zaman": [t for _, t in kz]}
+
+
+def _anah(y):
+    return tr.normal(str(next((y[a] for a in ANAH if y.get(a)), y) if isinstance(y, dict) else y))
+
+
+def form_birlestir(formlar):
+    """M4 K4: dilim formları tek forma; liste alanlarında aynı kalem (ilk tanıtıcı alan, tr.normal) tekilleşir, özetler birleşir."""
+    out = {"id": formlar[0].get("id"), "ozet": " ".join(str(f.get("ozet") or "") for f in formlar).strip()}
+    for f in formlar:
+        for b, x in f.items():
+            if isinstance(x, list):
+                hedef = out.setdefault(b, [])
+                gor = {_anah(y) for y in hedef}
+                for y in x:
+                    if (a := _anah(y)) not in gor:
+                        hedef.append(y)
+                        gor.add(a)
+    return out
+
+
+def _dilim_say(kalan, pk):
+    return len(dilimler(pk[kalan[0]])) if len(kalan) == 1 and not pk[kalan[0]].get("short") else 1
+
+
+def _cagir_grup(pdir, d, kalan, pk, hatalar, temizle, cagir, env):
+    """M4 K4: grup çağrısı; tek uzun video dilimliyse dilim başına ayrı çağrı (kendi kareleriyle), formlar birleşir → y (+kare, dilim).
+    ponytail: form reddinde yeniden istek tüm dilimleri yeniden çağırır; dilim bazlı yeniden istek gerekirse hatayı dilime eşle."""
+    n, ys = _dilim_say(kalan, pk), []
+    for i, dm in enumerate(dilimler(pk[kalan[0]]) if n > 1 else [None]):
+        p = {**pk, kalan[0]: dilim_paketi(pk[kalan[0]], *dm, i, n)} if dm else pk
+        kareler = [k for v in kalan for k in p[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+        try:
+            y = cagir(SISTEM, _istem(kalan, p, hatalar, temizle), sema(kalan, all(p[v].get("m4", False) for v in kalan)), kareler=kareler,
+                      model=d["model"], butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0.0 for x in ys)), env=env)
+        except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
+            y = {"hata": f"taşıyıcı: {e}"[:200]}
+        ys.append({**y, "kare": len(kareler)})
+        if y.get("hata"):
+            break
+    u = {}
+    for x in ys:
+        for k, s in (x.get("usage") or {}).items():
+            if isinstance(s, (int, float)):
+                u[k] = u.get(k, 0) + s
+    fs = [f for x in ys for f in ((x.get("form") or {}).get("videolar") or []) if isinstance(f, dict)]
+    return {"form": ys[0].get("form") if len(ys) == 1 else {"videolar": [form_birlestir(fs)]} if fs else None, "usage": u,
+            "usd": sum(x.get("usd") or 0.0 for x in ys), "sure": sum(x.get("sure") or 0 for x in ys),
+            "hata": next((x["hata"] for x in ys if x.get("hata")), None), "kare": sum(x["kare"] for x in ys), "dilim": len(ys)}
 
 
 def kismi(f, hatalar, v):
@@ -236,12 +340,12 @@ def _yaz(yol, d):
 
 def _defter(pdir):
     s = tr.kayit_oku(pdir / "defter.jsonl")
-    return len(s), sum(x["usd"] for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
+    return sum(x.get("dilim", 1) for x in s), sum(x["usd"] for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
 
 
-def _tavan(pdir, d):
+def _tavan(pdir, d, ek=1):
     n, usd, _ = _defter(pdir)
-    return n >= d["tavan"]["cagri"] or usd >= d["tavan"]["usd"]
+    return n + ek > d["tavan"]["cagri"] or usd >= d["tavan"]["usd"]  # M4 K4: ek = bu grubun dilim çağrısı
 
 
 def _istem(ids, pk, hatalar, temizle):
@@ -257,7 +361,8 @@ def _notlar(d, pk):
     k = len(pk["kareler"])
     return [f"motor: parti {d['parti']} · {d['model']} · hafif claude -p",
             "kareler: yok" if not k else f"kareler: görsel girdi ({k})" if hafif.GORSEL else f"kareler: metin açıklamasıyla ({k} kare görülmedi; açık kalem)",
-            *([pk["kare_not"]] if pk.get("kare_not") else [])]
+            *([pk["kare_not"]] if pk.get("kare_not") else []),
+            *([f"kare jetonu: ~{pk['kare_tk']} (kare başına paket.md künyesinde kare_tk; yoğun kare ≤1568 px)"] if pk.get("kare_tk") else [])]
 
 
 def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
@@ -290,7 +395,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
         _yaz(yol, d)
         kalan, hatalar = list(g), {}
         for _ in range(3):  # ilk istek + en fazla 2 yeniden istek
-            if _tavan(pdir, d):
+            if _tavan(pdir, d, _dilim_say(kalan, pk)):
                 for v in bek:
                     if d["videolar"][v]["tarama"]["durum"] in YENIDEN and v in kalan and v in hatalar:  # M2e: formu geçmemiş video tavanda da form_red (sonra --kismi-kabul)
                         d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
@@ -300,12 +405,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
                 _yaz(yol, d)
                 print(f"parti: tavan aşıldı ({d['tavan']['cagri']} çağrı / ${d['tavan']['usd']}), motor durdu")
                 return 3
-            kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
-            try:
-                y = cagir(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan), kareler=kareler, model=d["model"],
-                          butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1]), env=env)
-            except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
-                y = {"hata": f"taşıyıcı: {e}"[:200]}
+            y = _cagir_grup(pdir, d, kalan, pk, hatalar, temizle, cagir, env)
             hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, kalan)
             for f in (y.get("form") or {}).get("videolar") or []:  # M2e K1: son form diskte (kısmi kabul çağrısız)
                 if isinstance(f, dict) and f.get("id") in kalan:
@@ -315,7 +415,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
             tr.kayit_ekle(pdir / "defter.jsonl", [{
                 "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": d["model"],
                 "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
-                "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), "usd": y.get("usd") or 0.0, "kare": len(kareler),
+                "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), "usd": y.get("usd") or 0.0, "kare": y["kare"], "dilim": y["dilim"],
                 "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])
             if y.get("hata"):
                 for v in kalan:

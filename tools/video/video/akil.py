@@ -63,6 +63,8 @@ def birlestir(raporlar, kok):
     for v, md in raporlar:
         idd = tr.tablolar(tr.bolum(md, "İddialar"))
         idd = idd[0][1] if idd else []
+        kom = tr.tablolar(tr.bolum(md, "Kurulum/komutlar"))
+        kom = kom[0][1] if kom else []  # M4 K1
         for r in tr.aday_satirlari(md):
             if not (s := tr.slug(r[0])[:40]):
                 continue
@@ -72,16 +74,17 @@ def birlestir(raporlar, kok):
                     kume[kok_(s)] = kok_(sahip[repo])
                 else:
                     sahip[repo] = s
-            satir.append((s, repo, v, r, idd))
+            satir.append((s, repo, v, r, idd, kom))
     out = {}
-    for s, repo, v, r, idd in satir:
+    for s, repo, v, r, idd, kom in satir:
         a = out.setdefault(kok_(s), {"ad": r[0], "tur": r[2] if len(r) > 2 else "?", "repo": None, "adlar": [], "videolar": {}})
         a["repo"] = a["repo"] or repo
         if r[0] not in a["adlar"]:
             a["adlar"].append(r[0])
         n = tr.normal(r[0])
         a["videolar"].setdefault(v, {"zaman": r[5] if len(r) > 5 else "?", "ne": r[4] if len(r) > 4 else "", "kanit": r[6] if len(r) > 6 else "",
-                                     "iddialar": [i[0] for i in idd if len(i) > 2 and i[2] == "özellik" and n and n in tr.normal(i[0])]})
+                                     "iddialar": [i[0] for i in idd if len(i) > 2 and i[2] == "özellik" and n and n in tr.normal(i[0])],
+                                     "komutlar": [k[0] for k in kom if k and n and n in tr.normal(k[0])]})
     ev = Path(kok) / "docs" / "departmanlar" / "envanter.json"
     env = tr.envanter_sozluk((tr._json(ev) or []) if ev.is_file() else [])
     for k, a in out.items():
