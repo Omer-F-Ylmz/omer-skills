@@ -116,7 +116,9 @@ def _karsilastir(a):
 
 
 EYLEM = ["yapılandırma", "kullanım biçimi", "eksik özellik", "ölçüm", "kurulum"]
-GELISTIRME["properties"]["satirlar"]["items"]["properties"]["eylem"] = {"type": "string", "enum": EYLEM}  # M2g K1: yapısal eylem (eski formlar alansız geçer)
+GELISTIRME["properties"]["satirlar"]["items"]["properties"]["eylem"] = {"type": "string", "enum": EYLEM}
+GELISTIRME_ESKI = json.loads(json.dumps(GELISTIRME))  # M3a K0c: kayıtlı eski form (eylemsiz) okunurken/yeniden oynatılırken geçer
+GELISTIRME["properties"]["satirlar"]["items"]["required"].append("eylem")  # M3a K0c: yeni çağrının şemasında zorunlu  # M2g K1: yapısal eylem (eski formlar alansız geçer)
 
 
 def _bizde(kok, ad):
@@ -150,7 +152,7 @@ def gelistir(pdir, d, kok, ctx):
         f"{v} {x['zaman']} {x['ne']} · kanıt: {x['kanit']}" + (f" · iddia: {'; '.join(x['iddialar'])}" if x.get("iddialar") else "")
         for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{bz[k]}\n</veri>" for k, a in z.items())
     durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_GEL, metin, GELISTIRME, "gelistirme", "parti", ctx["env"], (),
-                        _kurulum_red)  # ilke 29: araçsız, yalnız rapor + bizde
+                        _kurulum_red, GELISTIRME_ESKI)  # ilke 29: araçsız, yalnız rapor + bizde
     if durum != "tamam":
         print(f"geliştirme: {durum} {str(f)[:120]}")
         return []
@@ -288,7 +290,7 @@ def teknik_duzenle(kok):
     return gozlem, len(anah), birles, sayi["bizde:"], sayi["bizde yok"]
 
 
-def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIRMA_ARAC, denet=None):
+def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIRMA_ARAC, denet=None, oku=None):
     """Araçlı hafif çağrı + şema doğrulama (+ M2g denet: ek doğrulama; red → en fazla 2 yeniden istek); her çağrı defterde ayrı satır. → (durum, form | hata)."""
     hatalar = []
     for _ in range(3):
@@ -299,7 +301,7 @@ def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIR
                       butce=min(d["butce"], d["tavan"]["usd"] - pt._defter(pdir)[1]), env=env, araclar=araclar)
         except Exception as e:
             y = {"hata": f"taşıyıcı: {e}"[:200]}
-        hatalar = [] if y.get("hata") else (pt._denet(y.get("form"), sema, ad) or (denet(y["form"]) if denet else []))
+        hatalar = [] if y.get("hata") else (pt._denet(y.get("form"), oku or sema, ad) or (denet(y["form"]) if denet else []))
         u = y.get("usage") or {}
         tr.kayit_ekle(pdir / "defter.jsonl", [{
             "zaman": datetime.now().isoformat(timespec="seconds"), "adim": adim, "aday": ad, "videolar": [], "model": d["model"],
@@ -586,6 +588,9 @@ def panel_uygula(ns, ctx):
     return rc
 
 
+MOTOR_DOCS = ("docs/video-tarama", "docs/kurulumlar", "docs/denemeler", "docs/departmanlar", "docs/olcumler")
+
+
 def kapat(pdir, d, kok, ctx):
     """rapor-denetle (tüm parti) → gitleaks (değişen dosyalar, staged) → temizse commit + kuyruk --isle + push; sızıntıda commit yok (DUR)."""
     kos = lambda a, t=300: uy._kos(ctx, a, t)  # noqa: E731
@@ -597,6 +602,12 @@ def kapat(pdir, d, kok, ctx):
         return 1
     out = kos([*git, "status", "--porcelain", "--", "docs/video-tarama", "docs/kurulumlar"])[1].decode("utf-8", "replace")
     dosya = [s[3:].strip().strip('"') for s in out.splitlines() if s.strip()]
+    # M3a K0a: motorun yazdığı docs klasörlerindeki izlenmeyen dosyalar da değişen sayılır; commit'ten önce listelenir
+    izl = [s[3:].strip().strip('"') for s in kos([*git, "status", "--porcelain", "--untracked-files=all", "--", *MOTOR_DOCS])[1]
+           .decode("utf-8", "replace").splitlines() if s.startswith("?? ")]
+    if izl:
+        print("kapat: eklenecek izlenmeyen: " + " · ".join(izl))
+    dosya += [x for x in izl if x not in dosya]
     if not dosya:
         print("kapat: değişen dosya yok")
         return 0
@@ -616,8 +627,8 @@ def kapat(pdir, d, kok, ctx):
         print("kapat: commit başarısız")
         return 1
     sha = kos([*git, "rev-parse", "--short", "HEAD"])[1].decode("utf-8", "replace").strip()
-    ky = Path(d["kuyruk"])
-    if ky.is_file() and islenen:
+    ky = Path(d["kuyruk"]) if d.get("kuyruk") else None  # M3a K0a: yapay (geliştirme) partide kuyruk yok → adım atlanır
+    if ky and ky.is_file() and islenen:
         ky.write_bytes(tr.kuyruk_isle(ky.read_bytes().decode("utf-8"), set(islenen), sha).encode("utf-8"))
         kos([*git, "add", "--", ky.as_posix()])
         kos([*git, "commit", "-q", "-m", f"parti {d['parti']} kuyruk: {len(islenen)} işlendi ({sha})"])
