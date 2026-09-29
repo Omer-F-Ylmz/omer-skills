@@ -18,13 +18,17 @@ SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağr
 KARE_TK = 1_600  # ponytail: kare başına sabit jeton tahmini; gruplar sınırda kalırsa gerçek boyut (cli._kare_tk)
 SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıklama bağlantıları, altyazı segmentleri, kare listesi. "
           "Her video için formu Türkçe ve eksiksiz doldur; zorunlu alanlar boş olamaz. Zamanlar m:ss ve video süresi içinde "
-          "(yalnız açıklamada geçiyorsa 'açıklama'). Açıklama bağlantılarının HER biri için karar ver (aday_mi + neden). "
+          "(yalnız açıklamada geçiyorsa 'açıklama'). Açıklama bağlantılarının HER biri için karar ver (aday_mi + neden); erişilemeyende (ücretli topluluk, giriş gerekli) "
+          "aday_mi false + erisilemez: <sebep>. "
           "Alıntı en fazla 15 kelime. Kareden okunan bilgide kaynak 'kare' (ekli görseller, sırası bloklardaki kare listesiyle aynı). "
           "Anahtar, şifre, token değeri yazma. Site/landing/frontend içerikli videoda site_ui doldur. Emin olmadığını belirsizliklere yaz.")
 
 
+OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik"}  # M2c: opsiyonel alanlar
+
+
 def _o(**alan):
-    return {"type": "object", "required": [k for k in alan if k != "karede_gorulen"], "additionalProperties": False, "properties": alan}
+    return {"type": "object", "required": [k for k in alan if k not in OPS], "additionalProperties": False, "properties": alan}
 
 
 def _d(x):
@@ -42,7 +46,7 @@ def sema(ids):
     """Tarayıcı formu (motor-sema.md §1); tür listeleri rapor-denetle'ninkiyle aynı."""
     video = _o(id={"type": "string", "enum": list(ids)}, ozet=S, bolumler=_d(_o(zaman=ZMN, baslik=S)),
                adaylar=_d(_o(ad=S, tur={"type": "string", "enum": sorted(tr.TUR)}, ne=S, kanit_zamani=ZMN, kaynak=KAYNAK, kanit=S, repo_url=N, **KG)),
-               aciklama_baglantilari=_d(_o(url=S, ne=S, aday_mi={"type": "boolean"}, neden=S, aday_adi=N)),
+               aciklama_baglantilari=_d(_o(url=S, ne=S, aday_mi={"type": "boolean"}, neden=S, aday_adi=N, erisilemez=N)),
                site_ui=_d(_o(teknik=S, ne=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
                promptlar=_d(_o(metin=S, amac=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
                iddialar=_d(_o(iddia=S, kanit_zamani=ZMN, kaynak=KAYNAK, tur={"type": "string", "enum": sorted(tr.IDDIA_TUR)}, aday_adi=N, **KG)),
@@ -83,9 +87,9 @@ def dogrula(form, paketler, ids):
         if not h:
             kararli = {b["url"] for b in f["aciklama_baglantilari"]}
             h = [f"{v}.aciklama_baglantilari: karar yok: {u}" for u in paketler[v]["linkler"] if u not in kararli]
-            if paketler[v]["kareler"] and hafif.GORSEL:  # M2b K0: kare gönderildiyse Site/UI ve kare kaynaklı bulguda karede görülen zorunlu
+            if paketler[v]["kareler"] and hafif.GORSEL:  # M2c K5: kare gönderildiyse yalnız kare kaynaklı bulguda karede görülen zorunlu
                 h += [f"{v}.{b}[{i}].karede_gorulen: kare gönderildi, karede görülen boş olamaz" for b in ("adaylar", "site_ui", "promptlar", "iddialar")
-                      for i, x in enumerate(f[b]) if (b == "site_ui" or x.get("kaynak") == "kare") and not (x.get("karede_gorulen") or "").strip()]
+                      for i, x in enumerate(f[b]) if x.get("kaynak") == "kare" and not (x.get("karede_gorulen") or "").strip()]
             h += [f"{v} rapor: {x}" for x in tr.denetle(rapor_md(f, paketler[v], []), paketler[v]["sure"])]
         if h:
             out[v] = h
@@ -119,7 +123,7 @@ def rapor_md(f, pk, notlar):
          *[f"| {_h(a['ad'])} | yok | {a['tur']} | {_h(a['repo_url'] or 'yok')} | {_h(a['ne'])} | {_h(a['kanit_zamani'])} | {_h(a['kanit'])}{_kg(a)} |" for a in f["adaylar"]],
          *[f"| {_h(p['amac'])} | yok | prompt | yok | {_h(p['metin'])} | {_h(p['kanit_zamani'])} | kaynak: {p['kaynak']} |" for p in f["promptlar"]],
          "## Açıklama bağlantıları",
-         *([f"- {b['url']} — {_h(b['ne'])} · aday: {'evet (' + _h(b['aday_adi'] or '?') + ')' if b['aday_mi'] else 'hayır'} · {_h(b['neden'])}"
+         *([f"- {b['url']} — {_h(b['ne'])} · aday: {'evet (' + _h(b['aday_adi'] or '?') + ')' if b['aday_mi'] else 'hayır'} · {_h(b['neden'])}" + (f" · erişilemez: {_h(b['erisilemez'])}" if b.get('erisilemez') else "")
             for b in f["aciklama_baglantilari"]] or ["- yok"])]
     if f["site_ui"]:
         L += [f"## {tr.SITE_UI}", "| teknik | ne işe yarar | zaman | kaynak |", "|---|---|---|---|",

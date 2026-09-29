@@ -45,7 +45,7 @@ def _ctx(kok, ar, jev=None, on=None):
 # K1 kendi aracımız ZATEN VAR (araştırma yok); servise OSS lisans kapısı yok
 def test_k1_alt_tur(tmp_path):
     p = _parti(tmp_path, PID, {V[0]: _rapor(V[0], [("claude-code", "CLI", None), ("groq", "CLI", None)])})
-    ar = Ar({"groq": {"lisans": "yok", "son_commit": None, "alt_tur": "servis", "ucretsiz_katman": "var"}})
+    ar = Ar({"groq": {"lisans": "yok", "son_commit": "2026-09-01", "alt_tur": "servis", "ucretsiz_katman": "var"}})
     pt.parti(_ns("akil", p.name), _ctx(tmp_path, ar))
     r, _ = _panel(tmp_path)
     assert ar.adlar == ["groq"]
@@ -113,11 +113,11 @@ def test_k5_erisilemez_ve_karede(monkeypatch):
     f["aciklama_baglantilari"] = [{"url": "https://www.skool.com/x", "ne": "topluluk", "aday_mi": False, "neden": "ücretli topluluk",
                                    "aday_adi": None, "erisilemez": "ücretli topluluk, giriş gerekli"}]
     f["site_ui"] = [{"teknik": "grid", "ne": "düzen", "kanit_zamani": "0:05", "kaynak": "altyazı"}]
-    h = [e for e in pt.dogrula(f, {V[0]: pk}, [V[0]]).get(V[0], []) if "karede" in e or "aciklama" in e]
+    h = [e for e in pt.dogrula({"videolar": [f]}, {V[0]: pk}, [V[0]]).get(V[0], []) if "karede" in e or "aciklama" in e]
     assert h == []
     assert "erişilemez: ücretli topluluk" in pt.rapor_md(f, pk, [])
     f["site_ui"][0]["kaynak"] = "kare"
-    assert any("site_ui[0].karede_gorulen" in e for e in pt.dogrula(f, {V[0]: pk}, [V[0]]).get(V[0], []))
+    assert any("site_ui[0].karede_gorulen" in e for e in pt.dogrula({"videolar": [f]}, {V[0]: pk}, [V[0]]).get(V[0], []))
 
 
 # K6 panel uygula ogren.KARAR değerlerini de işler; boş satır dokunulmaz
