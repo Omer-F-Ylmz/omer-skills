@@ -1,12 +1,14 @@
 """MOTOR-M2b: aday merkezli akıl — aşama 5 birleştirme · 6 araç başına tek derin araştırma (araçlı hafif claude -p) · 7 destek ·
 8 videoya özgü özellik araştırması · 9 karar paneli; `video panel uygula` ve `video parti kapat` (rapor-denetle → gitleaks → commit/push → kuyruk --isle)."""
 import difflib
+import json
 import re
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 from types import SimpleNamespace
 
+from . import departman as dp
 from . import parti as pt
 from . import tarama as tr
 from . import uygula as uy
@@ -90,6 +92,85 @@ def birlestir(raporlar, kok):
     belirsiz = [(x, y) for i, x in enumerate(ks) for y in ks[i + 1:] if out[x]["repo"] and out[y]["repo"]
                 and out[x]["repo"] != out[y]["repo"] and difflib.SequenceMatcher(None, x, y).ratio() >= 0.8]
     return out, belirsiz
+
+
+GELISTIRME = _o(satirlar=_d(_o(aday=S, videodaki_kullanim=S, bizdeki_durum=S, fark=S, gelistirme_onerisi=S,
+                               oneri={"type": "string", "enum": ["UYARLA", "ÖĞREN", "yok"]}, kanit={"type": "string"})))
+SISTEM_GEL = ("Geliştirme karşılaştırıcısısın (Ömer ilkesi 29: 'zaten var' son değildir). Her ADAY için videodaki kullanımı <veri kaynak=\"bizde\"> "
+              "özetiyle karşılaştır; bizde olmayan daha iyi yan varsa UYARLA (bizdekini değiştir) ya da ÖĞREN (not al), yoksa 'yok'. "
+              "kanit: videodaki zaman + iddia ya da bizdeki kayıttan somut dayanak; dayanak yoksa oneri 'yok'. " + KURAL)
+ANATOMI_SEMA = _o(**{x: S for x in uy.ANATOMI})
+SISTEM_AN = ("Prompt anatomisi çıkarıcısısın (23c). Videodaki site yapım promptlarının anatomisini alanlara ayır; metni kopyalama, yapıyı anlat. "
+             "Birebir klon ya da izinsiz varlık önerme. " + KURAL)
+
+
+def _zaten(a):
+    """M2f K3: panelin ZATEN VAR koşulu (kurulu · kendi aracımız · Jev eşdeğer ≥0.75 araç)."""
+    return a["tur"] not in ARAC_DISI and bool(a["kurulu"]) and (
+        _tam(a) or (a.get("esdeger_p") is not None and a["esdeger_p"] >= ESDEGER and a.get("alt_tur") == "araç"))
+
+
+def _bizde(kok, ad):
+    """M2f K3: envanter kaydı + bilgi kartı, ≤3000 karakter (~1k jeton)."""
+    y = Path(kok) / "docs" / "departmanlar" / "envanter.json"
+    env = json.loads(y.read_text(encoding="utf-8")) if y.is_file() else []
+    e = next((x for x in env if isinstance(x, dict) and str(x.get("ad", "")).casefold() == str(ad).casefold()), None)
+    b = Path(kok) / "bilgi" / f"{ad}.md"
+    return ((json.dumps(e, ensure_ascii=False) if e else "") + "\n" + (b.read_text(encoding="utf-8") if b.is_file() else "")).strip()[:3000] or "kayıt yok"
+
+
+def gelistir(pdir, d, kok, ctx):
+    """M2f K3: ZATEN VAR adayları → parti başına tek toplu hafif çağrı; kanıtsız öneri yazılmaz; sonuç durum.json'da (yeniden çağrılmaz)."""
+    z = {k: a for k, a in d.get("adaylar", {}).items() if _zaten(a)}
+    if not z or "gelistirme" in d:
+        return d.get("gelistirme", [])
+    metin = "\n\n".join(f"ADAY: {k} · bizde: {a['kurulu']}\nVİDEO: " + "; ".join(
+        f"{v} {x['zaman']} {x['ne']} · kanıt: {x['kanit']}" + (f" · iddia: {'; '.join(x['iddialar'])}" if x.get("iddialar") else "")
+        for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{_bizde(kok, a['kurulu'])}\n</veri>" for k, a in z.items())
+    durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_GEL, metin, GELISTIRME, "gelistirme", "parti", ctx["env"])
+    if durum != "tamam":
+        print(f"geliştirme: {durum} {str(f)[:120]}")
+        return []
+    d["gelistirme"] = [x for x in f["satirlar"] if x["aday"] in z and (
+        x["oneri"] not in ("UYARLA", "ÖĞREN") or str(x.get("kanit", "")).strip() not in ("", "-", "yok"))]
+    return d["gelistirme"]
+
+
+def _anatomi(m):
+    """M2f K2: raporda 23c anatomi alanları doluysa {alan: değer}, değilse None."""
+    b = tr.bolum(m, "Prompt anatomisi")
+    al = {x: (re.search(rf"^{re.escape(x)}:\s*(\S.*)$", b, re.M) or [None, None])[1] for x in uy.ANATOMI}
+    return al if all(al.values()) else None
+
+
+def site_ogren(kok, raporlar, pdir=None, d=None, ctx=None):
+    """M2f K2 (Ömer ilkesi 30): Site/UI tablosu + (site raporunda) Kareden okunanlar → frontend ## Teknikler (video + zaman/kare);
+    prompt satırları → frontend-promptlar.md 23c anatomisiyle: raporda alanlar varsa çağrısız, yoksa site videosu başına ≤1 hafif çağrı
+    (taşıyıcı yoksa ya da tavan dolduysa 'anatomi bekliyor'). → (teknikler, eklenen prompt, bekleyen videolar)"""
+    tek, pr, bekliyor = [], [], []
+    for v, m in raporlar:
+        site = tr.frontend_mu(m)
+        t = tr.tablolar(tr.bolum(m, tr.SITE_UI))
+        tek += [(s[0], v, s[2], s[3]) for s in (t[0][1] if t else []) if len(s) == 4 and s[0] and not s[0].startswith("EKSİK")]
+        tek += [(o.strip(), v, k.strip(), "kare") for k, o in re.findall(r"^- (.+?): (.+)$", tr.bolum(m, "Kareden okunanlar"), re.M)
+                if site and not o.startswith("EKSİK")]
+        ps = [s for s in tr.aday_satirlari(m) if len(s) == 7 and s[2] == "prompt" and tr.ZAMAN.search(s[5])]
+        if not ps or not site:
+            continue
+        an = _anatomi(m) or (d or {}).get("anatomi", {}).get(v)
+        if an is None and pdir is not None:
+            durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_AN, f"VİDEO {v} PROMPTLAR:\n" + "\n".join(
+                f"- {s[0]}: {s[4]} ({s[5]})" for s in ps) + f"\n<veri kaynak=\"rapor\">\n{m[:4000]}\n</veri>", ANATOMI_SEMA, "anatomi", v, ctx["env"])
+            if durum == "tamam":
+                an = d.setdefault("anatomi", {})[v] = f
+        if an is None:
+            bekliyor.append(v)
+            continue
+        pr += [{"kalip": " ".join(s[4].split()[:15]), "video": v, "zaman": tr.ZAMAN.search(s[5])[0],
+                "teknik": pt._h(" · ".join(f"{x}: {an[x]}" for x in uy.ANATOMI)), "aday": s[0]} for s in ps]
+    if tek:
+        dp.katalog_ekle(kok, {("frontend", "Teknikler"): [f"- {pt._h(a)} · video {v} · {pt._h(z)} · kaynak: {pt._h(k)}" for a, v, z, k in tek]})
+    return tek, uy.kutuphane_ekle(Path(kok), pr) if pr else 0, bekliyor
 
 
 def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env):
@@ -261,6 +342,11 @@ def panel(pdir, d, kok):
             er = ea.get("repo") if ea.get("repo") not in (None, "", "yok") else None
             if ea.get("tur", a["tur"]).lower() == a["tur"].lower() and not (er and a["repo"] and er != a["repo"]):
                 olasi.append(f"- {k} ≈ {e} (adaylar/{e}.md)")
+    for x in d.get("gelistirme", []):  # M2f K3: öneri ayrı satır, Ömer kararına açık
+        if x["oneri"] in ("UYARLA", "ÖĞREN"):
+            a, g = d["adaylar"].get(x["aday"], {}), f"{x['aday']}-gelistirme"
+            L.append(f"| {g} | {a.get('tur', '-')} | {len(a.get('videolar', {}))} | — | — | {x['oneri']} | {pt._h(x['gelistirme_onerisi'])} (kanıt: {pt._h(x['kanit'])}) | {eski.get(g, '')} |"
+                     .replace("|  |", "| |"))
     n, usd, tk = pt._defter(pdir)
     L += ["", "## form_red", *([f"- {v}: {pt._h(s['tarama'].get('hata'))[:200]}" for v, s in d["videolar"].items()
                                  if s["tarama"]["durum"] == "form_red"] or ["- yok"]),
@@ -269,6 +355,10 @@ def panel(pdir, d, kok):
           "## Belirsiz birleşmeler (ad benzer, repo farklı)", *([f"- {x} ↔ {z}" for x, z in d.get("belirsiz", [])] or ["- yok"]),
           "## ÜRETİLEBİLİR / yapım tarifleri", *(uret or ["- yok"]), "## Kural önerileri (T0)", *(kural or ["- yok"]),
           "## OLASI EŞDEĞER (Jev p 0.5–0.75)", *(olasi_es or ["- yok"]), "## OLASI TEKRAR", *(olasi or ["- yok"]), "## Araştırılmadı", *(kalan or ["- yok"]),
+          f"## {tr.SITE_UI}", *([f"- {pt._h(a)} · {v} · {pt._h(z)} ({pt._h(k)}) → docs/departmanlar/frontend.md" for a, v, z, k in d.get("site_ui", [])] or ["- yok"]),
+          "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
+          "## Geliştirme önerileri", *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
+                                        f"{x['oneri']}: {pt._h(x['gelistirme_onerisi'])} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
           "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
     _yaz(y, L)
     return y
@@ -336,6 +426,8 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                     _bolume_ekle(y, "Özellikler", [f"### {pt._h(f['ozellik'])}", f"video: {v} · iddia: {pt._h(idd)}", f"sonuc: {f['sonuc']}",
                                                    f"arastirma: {pt._h(f['arastirma'])}", f"kaynak: {f['kaynak_url']}"])
                     ozellik += 1
+    d["site_ui"], _, d["anatomi_bekliyor"] = site_ogren(kok, raporlar, pdir, d, ctx)  # M2f K2
+    gelistir(pdir, d, kok, ctx)  # M2f K3
     p = panel(pdir, d, kok)  # aşama 9
     pt._yaz(yol, d)
     n, usd, tk = pt._defter(pdir)
@@ -357,12 +449,17 @@ def panel_uygula(ns, ctx):
             print(f"panel satır {i}: sütun sayısı uyuşmuyor (başlık 8 sütun)")
         print("panel uygula: hiçbir karar işlenmedi")
         return 2
-    n = bos = hatali = 0
+    n = bos = hatali = zaten = 0
+    pid = Path(ns.panel).parent.name
+    kayit = tr.kayit_oku(kur._kok(ctx) / "docs" / "kurulumlar" / "kayit.jsonl")  # M2f K5: (parti, aday, karar) kayıtta varsa yazılmaz
     for _, h in satirlar:
         if h[0] in ("aday", "---"):
             continue
         if not h[7]:
             bos += 1
+        elif h[7].upper() in ("AL", "ERTELE", *og.KARAR) and any(
+                x.get("ad") == h[0] and x.get("parti", pid) == pid and str(x.get("karar", "")).startswith(f"{h[7].upper()} (Ömer, panel") for x in kayit):
+            zaten += 1
         elif h[7].upper() in ("AL", "ERTELE", *og.KARAR):
             r = karar(SimpleNamespace(ad=h[0], secim=h[7].upper(), panel=ns.panel), ctx) or 0
             rc |= r
@@ -370,7 +467,7 @@ def panel_uygula(ns, ctx):
         else:
             print(f"panel: {h[0]} → '{h[7]}' tanınmıyor")
             hatali, rc = hatali + 1, rc | 1
-    print(f"panel uygula: işlenen {n} · boş {bos} · hatalı {hatali}")
+    print(f"panel uygula: işlenen {n} · zaten kayıtlı {zaten} · boş {bos} · hatalı {hatali}")
     return rc
 
 

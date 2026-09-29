@@ -574,6 +574,8 @@ def rapor_denetle(ns, ctx):
     sure = _sure(ctx, ns.rapor, metin)
     eksik = sum("EKSİK:" in s for s in metin.splitlines())  # M2e K1: kısmi kabul işareti geçerli ama uyarılı
     h = tr.denetle("\n".join(s for s in metin.splitlines() if "EKSİK:" not in s), sure)
+    for x in tr.uyarilar(metin):  # M2f K1: uyarı sayılmaz
+        print(x)
     if eksik:
         print(f"uyarı: {eksik} EKSİK alan (kısmi kabul, işaretli)")
     for x in h:

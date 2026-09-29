@@ -229,6 +229,9 @@ export function komutDenetle(arac, args, ayar, cwd) {
         throw new Error(`'${arac}' için yasak alt komut: ${dizi.join(" ")}`);
       }
     }
+    for (const [alt, izin] of Object.entries(kural.izinDizi || {})) {  // M2f K6: yazan alt komut yasak listesiyle değil izin listesiyle
+      if (konum[0] === alt && !izin.includes(konum[1])) throw new Error(`'${arac}' için izinsiz alt komut: ${alt} ${konum[1] ?? ""}`);
+    }
     for (const b of kural.gerekliBayrak || []) {
       if (!bayrakVar(args, b)) throw new Error(`'${arac}' yalnız ${b} ile koşar`);
     }

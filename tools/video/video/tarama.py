@@ -386,13 +386,20 @@ def frontend_mu(metin):
     return len({x.casefold() for x in FRONTEND.findall(" ".join(bolum(metin, b) for b in ("Künye", "Özet", "Adaylar")))}) >= 2
 
 
+def uyarilar(metin):
+    """M2f K1: başlığı olan ama EKSİK/boş Site/UI bölümü hata değil uyarı (tamam_eksik raporu)."""
+    var = any(s[3:].strip().casefold().startswith(SITE_UI.casefold()) for s in metin.splitlines() if s.startswith("## "))
+    t = tablolar(bolum(metin, SITE_UI)) if var else []
+    return [f"uyarı: ## {SITE_UI} EKSİK ({(bolum(metin, SITE_UI).strip() or 'boş')[:120]})"] if var and not (t and t[0][1]) else []
+
+
 def site_ui_denetle(metin):
     """23 K5: teknik · kanıt (m:ss) · kütüphane/araç (ekranda/kanıtta yoksa 'tahmin: …') · bizde."""
     if not frontend_mu(metin):
         return []
     t = tablolar(bolum(metin, SITE_UI))
     if not t or not t[0][1]:
-        return [f"bölüm eksik: ## {SITE_UI}"]
+        return [] if uyarilar(metin) else [f"bölüm eksik: ## {SITE_UI}"]
     h, oku = [], bolum(metin, "Kareden okunanlar").casefold()
     for s in t[0][1]:
         if len(s) != 4 or any(x in ("", "-") for x in (s[0], s[1], s[3])):

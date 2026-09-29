@@ -128,6 +128,8 @@ def rapor_md(f, pk, notlar):
     if f["site_ui"]:
         L += [f"## {tr.SITE_UI}", "| teknik | ne işe yarar | zaman | kaynak |", "|---|---|---|---|",
               *[f"| {_h(s['teknik'])} | {_h(s['ne'])}{_kg(s)} | {_h(s['kanit_zamani'])} | {s['kaynak']} |" for s in f["site_ui"]]]
+    elif any(tr.SITE_UI in str(b) for b in f["belirsizlikler"]):  # M2f K1: tamam_eksik raporunda zorunlu bölüm EKSİK başlığıyla yazılır
+        L += [f"## {tr.SITE_UI}", "- EKSİK: formda site/UI tekniği yok (kısmi kabul)"]
     seg = sum(s.startswith("[") for s in tr.bolum(pk["metin"], "Segmentler").splitlines())
     L += ["## İddialar", "| iddia | zaman | tür |", "|---|---|---|", *[f"| {_h(i['iddia'])} | {_h(i['kanit_zamani'])} | {i['tur']} |" for i in f["iddialar"]],
           "## Kareden okunanlar", *([f"- {_h(k['kare'])}: {_h(k['okunan'])}" for k in f["kareden_okunanlar"]] or ["- yok"]),

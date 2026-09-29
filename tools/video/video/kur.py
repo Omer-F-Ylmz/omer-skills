@@ -813,7 +813,8 @@ def karar_isle(ns, ctx):
     kok = _kok(ctx)
     b = kok / "docs" / "kurulumlar" / "bekleyen" / f"sor-{ns.ad}.md"
     if ns.secim == "ERTELE" or (not b.is_file() and getattr(ns, "panel", None)):  # M2b K4: ertele ya da panel kararı → yalnız kayıt satırı
-        _kayit(kok, ns.ad, {"karar": f"{ns.secim} (Ömer{', panel' if getattr(ns, 'panel', None) else ''})", "tarih": date.today().isoformat()})
+        _kayit(kok, ns.ad, {"karar": f"{ns.secim} (Ömer{', panel' if getattr(ns, 'panel', None) else ''})", "tarih": date.today().isoformat(),
+                               **({"parti": Path(ns.panel).parent.name} if getattr(ns, "panel", None) else {})})  # M2f K5
         print(f"karar: {ns.ad} {ns.secim} → kayıt satırı eklendi")
         return 0
     if not b.is_file():
