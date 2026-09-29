@@ -1,5 +1,7 @@
 # Altın set — g89FJiNAlEs (uzun token, 15:07) · "4 Free Repos That Cut Claude Code Token Usage" · Eric Tech
 
+Özet (kalem): Araç/servis/ürün 4 · Açıklama bağlantıları 4 · Kurulum/komutlar 7 · Teknikler 6 · Kural/ipucu/iş akışı 2 · Promptlar 0 · Kareden bilgi 5 · Emin olunmayanlar 4 = 32
+
 ## Kaynaklar
 - .kos/altin/g89FJiNAlEs/kaynak.txt (yt-dlp -J açıklama + 5 bağlantı + 6 bölüm; altyazı en-orig oto, 30 satır/30 sn; `tools/video/altin_mozaik.py`, seçim motorun `dil_sec`i)
 - .kos/altin/g89FJiNAlEs/mozaik-01..04.png (30 kare, 30 sn aralık, 3×3)
@@ -8,13 +10,13 @@
 
 Kanıt biçimi: zaman · kaynak (altyazı|kare|açıklama) · "alıntı ≤15 kelime" · önem.
 
-## Araç/servis/ürün adayları (4)
+## Araç/servis/ürün (4)
 1. RTK (rtk-ai/rtk) · CLI proxy + hook · bash çıktısını kırpar (girdi jetonu) · açıklama "RTK proxies your bash commands and trims 60-90% off CLI output" · yüksek
 2. Headroom (headroomlabs-ai/headroom) · istek proxy'si · konuşma geçmişini sıkıştırır (girdi jetonu) · açıklama "Headroom compresses conversation history without /compact losing context" · yüksek
 3. Ponytail (DietrichGebert/ponytail) · Claude Code plugin/skill · daha az kod yazdırır (çıktı jetonu) · açıklama "Ponytail makes agents write less code for the same result" · yüksek
 4. Graphify (Graphify-Labs/graphify) · bilgi grafiği · kod tabanı haritası, grep turlarını keser · açıklama "Graphify maps your codebase so agents stop grepping back and forth" · yüksek
 
-## Bağlantılar (açıklamadan, 4 ilgili)
+## Açıklama bağlantıları (4)
 1. https://github.com/rtk-ai/rtk · açıklama "Repos:" listesi · 00:30 kare "CLI proxy that reduces LLM token consumption by 60-90%" · yüksek
 2. https://github.com/headroomlabs-ai/headroom · açıklama "Repos:" listesi · 05:03 kare "Compress tool outputs, logs, files, and RAG chunks" · yüksek
 3. https://github.com/DietrichGebert/ponytail · açıklama "Repos:" listesi · 10:37 kare "MIT license" · yüksek
@@ -38,11 +40,14 @@ Kanıt biçimi: zaman · kaynak (altyazı|kare|açıklama) · "alıntı ≤15 ke
 5. Kod tabanını bir kez haritala, ajan grep yerine haritayı okusun · 12:30 altyazı "map your entire codebase once into a file or like a JSON file" · yüksek
 6. Girdi (rtk+headroom) ve çıktı (ponytail) katmanlarını birlikte kullan · 13:39 kare "RTK (hook) → Bash Run → Compression → LLM API" · orta
 
-## Kurallar (2)
+## Kural/ipucu/iş akışı (2)
 1. rtk anonim kullanım metriği topluyor; istemeyen reddeder · 02:00 altyazı "RTK collects anomous usage for the metrics once a day" · orta
 2. ponytail plugin kapsamı: kullanıcı ya da proje; videoda proje kapsamı seçildi · 10:30 altyazı "I personally just going to choose the option two" · düşük
 
-## Kare bulguları / ölçümler (5)
+## Promptlar (0)
+- yok
+
+## Kareden bilgi (5)
 1. rtk gain ilk ölçüm: 6 komut, 100 jeton (17.9%) tasarruf · 03:02 kare "Tokens saved: 100 (17.9%)" · orta
 2. rtk gain ikinci ölçüm: 15 komut, 212 jeton (27.0%) · 03:32 kare "Tokens saved: 212 (27.0%)" · orta
 3. headroom panel: 3.8M → 3.7M, 39.8k kaydedildi (%1.1) · 08:05 kare "SAVINGS 1.1%" · orta

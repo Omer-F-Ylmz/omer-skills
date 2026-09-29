@@ -1,42 +1,48 @@
-GEÇERSİZ: altyazısız üretildi, M3a-3'te yeniden yazılacak
-
 # Altın set — L9c49WVG_ho (short, 0:35) · "Yapay zeka modellerine para ödemeden ücretsiz API anahtarı almanın en kolay yolu!" · Esad Kılıç
 
-## Kaynaklar
-- .kos/altin/L9c49WVG_ho/kaynak.txt (açıklama BOŞ, bağlantı 0, altyazı YOK: en.*/tr.* bulunamadı)
-- .kos/altin/L9c49WVG_ho/mozaik-01.png (7 kare, 5 sn aralık, 3×3; `tools/video/altin_mozaik.py`)
-- Tekil tam çözünürlük kare: okunmadı (dalga çağrı tavanı). Metinler mozaikten ve videoya gömülü altyazıdan okundu.
-- Motor raporu/paneli/adayları, docs/video-tarama ve frontend kütüphanesi AÇILMADI.
+Özet (kalem): Araç/servis/ürün 6 · Açıklama bağlantıları 0 · Kurulum/komutlar 1 · Teknikler 1 · Kural/ipucu/iş akışı 0 · Promptlar 0 · Kareden bilgi 5 · Emin olunmayanlar 5 = 18
 
-## Araç/servis/ürün adayları (6)
-1. OpenRouter · model yönlendirici / API · birçok modele tek anahtarla erişim · 00:11 kare "openrouter" · yüksek
-2. Claude (Anthropic API) · LLM API · anahtar kartı · 00:00 kare "API KEYS … Claude sk-ant-" · orta
-3. Gemini · LLM API · anahtar kartı · 00:00 kare "Gemini" · orta
-4. Cursor · IDE · anahtarın kullanıldığı istemci · 00:17 kare "CURSOR" + altyazı "direkt claude" · orta
-5. Claude Code · ajan CLI · anahtarın kullanıldığı ajan · 00:22 kare "Claude Code" terminali + altyazı "ajanın için" · orta
-6. "Free Providers" listesi · ücretsiz LLM sağlayıcı dizini · 00:06 kare "Free Providers" · yüksek
+## Kaynaklar
+- .kos/altin/L9c49WVG_ho/kaynak.txt (açıklama BOŞ, bağlantı 0, bölüm yok; altyazı tr-orig oto, 2 satır/30 sn; `tools/video/altin_mozaik.py`, seçim motorun `dil_sec`i)
+- .kos/altin/L9c49WVG_ho/mozaik-01.png (7 kare, ~5,5 sn aralık, 3×3)
+- Tekil tam çözünürlük kare (1): kare-002 (00:06 liste uyarısı). Bu kareden okunan kalem `[tekil]` işaretli.
+- Motor raporu/paneli/adayları, paket.md, docs/video-tarama ve frontend kütüphanesi AÇILMADI.
+
+Kanıt biçimi: zaman · kaynak (altyazı|kare|açıklama) · "alıntı ≤15 kelime" · önem.
+
+## Araç/servis/ürün (6)
+1. Ücretsiz API listesi GitHub reposu (adı videoda söylenmiyor) · 00:00 altyazı "bu kitap reposunda tamamen ücretsiz şekilde kullanabileceğin yüzlerce farklı API var" · yüksek
+2. OpenRouter · sağlayıcı · 00:11 altyazı "Open router, Grock veya Nvidia Nim gibi bir sağlayıcı seçiyorsun" + kare logosu · yüksek
+3. Groq (altyazıda "Grock") · sağlayıcı · 00:11 altyazı "Open router, Grock veya Nvidia Nim gibi" · orta
+4. NVIDIA NIM · sağlayıcı · 00:11 altyazı "Nvidia Nim gibi bir sağlayıcı seçiyorsun" · orta
+5. Kimi / DeepSeek / Gemini modelleri ücretsiz katmanda · 00:06 altyazı "Kimi, Deeps Jemina gibi modellere bile ücretsim veriyor" · orta
+6. Claude Code ve Cursor (anahtarın verildiği istemci) · 00:17 altyazı "direkt cloud koduna veya curserına veriyorsun" + kare Cursor logosu · orta
 
 ## Açıklama bağlantıları (0)
-- Açıklama boş. Bağlantı yorum kapılı: 00:06 kare "Yorumlara 'kurulum' yaz tüm detaylara ulaş" · karar: liste kimliği bilinmeden karar verilemez
+- yok (açıklama boş)
+
+## Kurulum/komutlar (1)
+1. Sağlayıcı seç → API anahtarı üret → Claude Code/Cursor'a ver · 00:11–00:17 altyazı "oradan bir AP anahtarı üretiyorsun. Sonra da onu direkt cloud koduna" · yüksek
 
 ## Teknikler (1)
-1. Ücretsiz katmanlı sağlayıcı anahtarını ajana/IDE'ye bağlama · 00:17–00:22 kare/altyazı "direkt claude" · "ajanın için" · orta
+1. Hibrit model: ajan ücretli modelde kalır, uygulamanın basit işlemleri ücretsiz modele · 00:22–00:28 altyazı "uygulamadaki basit işlemleri ücretsiz bir modelle de halledebileceksin" · yüksek
 
-## Kural/ipucu/iş akışı (1)
-1. Listede meşru olmayan servisler dışlanır · 00:06 kare "explicitly excludes any services that are not legitimate" · orta
+## Kural/ipucu/iş akışı (0)
+- yok
 
-## Promptlar — anatomi (0)
-- Video prompt içermiyor.
+## Promptlar (0)
+- yok
 
-## Kareden okunan somut bilgiler (3)
-1. Sayfa uyarısı: 00:06 kare "eg reverse engineers an existing chatbot" (dışlama ölçütü örneği) · orta
-2. Gömülü altyazı sözcükleri: "geliştirirken · yüzlerce · openrouter · direkt claude · ajanın için · uygulamadaki · tüm detayları" · düşük
-3. Anahtar örneği Claude biçiminde (sk-ant- ön eki; sahte/demonstrasyon) · 00:17 kare · düşük
+## Kareden bilgi (5)
+1. Liste yalnız meşru servisleri içerir · 00:06 kare [tekil] "This list explicitly excludes any services that are not legitimate" · orta
+2. Listede "Free Providers" bölümü var · 00:06 kare [tekil] "Free Providers" · düşük
+3. Açılış ekranı "API KEYS": Claude ve Gemini anahtar kartları · 00:00 kare "API KEYS" · düşük
+4. Anahtar bir API KEY alanına yapıştırılıp doğrulanıyor (yeşil onay) · 00:17 kare "API KEY" · düşük
+5. Kurulum ayrıntısı yorumlara bırakılmış · 00:06 kare "Yorumlara "kurulum" yaz tüm detaylara ulaş" · düşük
 
-## Emin olunmayanlar (4)
-1. Altyazı ve açıklama yok. Sesli anlatımdaki servis adları kaçmış olabilir; "çok servis adı" beklentisine karşın karelerde 6 ad görüldü.
-2. "Free Providers" sayfasının kimliği (hangi GitHub listesi) karede okunamadı.
-3. 00:00 karedeki üçüncü kart ("Grok"?) okunamadı.
-4. 5 sn aralık: ara anlarda gösterilen logolar (sağlayıcı adları) kaçmış olabilir.
-
-Kalem sayısı: araç 6 · bağlantı 0 · teknik 1 · kural 1 · prompt 0 · kare bilgisi 3 = 11 · emin olunmayan 4
+## Emin olunmayanlar (5)
+1. Repo adı videoda geçmiyor; ekrandaki uyarı metninden hangi repo olduğu doğrulanmadı.
+2. "Grock" Groq mu Grok (xAI) mı: altyazı oto; ücretsiz sağlayıcı bağlamında Groq olası, doğrulanmadı.
+3. "Deeps Jemina" okuması DeepSeek + Gemini tahmini (oto altyazı bozulması).
+4. Kurulum adımları videoda gösterilmiyor (yorumlara yönlendiriyor); ücretsiz katman sınırları söylenmiyor.
+5. Üçüncü taraf anahtarın Claude Code'a "direkt" verilmesinin nasıl yapıldığı (ara katman gerekip gerekmediği) anlatılmıyor.
