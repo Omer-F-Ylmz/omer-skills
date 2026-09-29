@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-JNM_rxqtlvY.md
 # Claude Limitine Bir Daha Asla Takılmayacaksın
 kanal: İsa Nurdoğdu · süre: 10 dk · altyazı: otomatik tr
 ana iddia: Claude Code limiti mesaj sayısına değil token'a bağlı; tek mesajda 232.000 token'ın %98,5'i çöpe gidebiliyor (iddia); 11 kural (edit yerine regenerate, 15-20 mesajda yeni sohbet, soruları tek mesajda toplama, kullanım dashboard'u, dosya yükleme, hafıza ayarı, özellik kapatma, Haiku'ya geçiş, işi gün içine yayma, yoğun olmayan saatlerde çalışma, overage açma) token/limit tasarrufu sağlıyor.

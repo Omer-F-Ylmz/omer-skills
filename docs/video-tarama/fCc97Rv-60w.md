@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-fCc97Rv-60w.md
 # Claude Fable 5.1 İnanılmaz Web Siteleri Tasarlıyor… Ama Bedeli Var
 kanal: Yıldız Dikme · süre: 13 dk · altyazı: otomatik tr
 ana iddia: Aynı yarım proje, aynı prompt ve aynı dört tasarım skill'iyle Fable 5.1, Fable 5'ten daha bütünlüklü ve scroll boyunca süren bir site kurguluyor ama çok daha fazla kredi ve süre yiyor, bu yüzden yalnız kritik işlere değer (kredi/süre sözlü yaklaşık değer, kıyas yalnız görsel).

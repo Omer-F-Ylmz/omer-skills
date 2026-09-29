@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-LbBC5Wew4qs.md
 # Claude Code + OpenAI Codex İki Dev Yapay Zekayı Aynı Anda Kullan
 kanal: Burhan KOCABIYIK · süre: 14 dk · altyazı: tr manuel
 ana iddia: Codex plugin'i Claude Code içine kurulup mimari ve ilk kod Opus'a, inceleme ve hata tespiti daha az token harcayan Codex'e (GPT-5.4) yaptırılırsa token azalır, hata payı düşer (ölçüm gösterilmedi).

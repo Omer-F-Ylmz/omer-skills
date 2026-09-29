@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-29-_X_Seo1u9LM.md
 # Claude’a Ödüllü Sitelerden İlham Alarak Site Yaptırdım | Yazılımcı Gözüyle
 kanal: Yıldız Dikme · süre: 14 dk · altyazı: otomatik tr
 ana iddia: Detaylı teknik bir prompt'la Claude, ödüllü bir siteden ilham alan sıvı (fluid) efektli premium portfolyo sitesini üretir; aynı prompt'la sonuç %90 benzer çıkar (iddia, ölçüm gösterilmiyor).

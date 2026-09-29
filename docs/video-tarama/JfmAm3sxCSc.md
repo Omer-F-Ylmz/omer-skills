@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-24-JfmAm3sxCSc.md
 # Claude’a Ödüllü Siteler Gibi 3D Website Yaptırdım | Yazılımcı Gözüyle
 kanal: Yıldız Dikme · süre: 11 dk · altyazı: otomatik tr
 ana iddia: Ödüllü bir sitenin atmosferini kopyalamadan; teknolojileri, dosyaları ve config parametrelerini (görsel sayısı, hız, boşluk) veren detaylı İngilizce prompt'la Claude (Opus 4.7) ~5 dakikada sıfırdan 3D Three.js spiral galerili site üretir, "diğerlerini bozma" kısıtlı ikinci prompt ince ayarı yapar (aynı prompt farklı sonuç verdi; ölçüm yok).

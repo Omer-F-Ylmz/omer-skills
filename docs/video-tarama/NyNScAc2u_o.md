@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-NyNScAc2u_o.md
 # Claude’a Awwwards Ödüllü Bir Website Yaptırdım | Yazılımcı Gözüyle
 kanal: Yıldız Dikme · süre: 12 dk · altyazı: otomatik tr
 ana iddia: Ödüllü bir sitenin premium hissini (3D galeri, perspektif, hover, loading, ayrı mobil kurgu) parça parça çözüp keskin ve sınırlayıcı tek bir prompt'a çevirince Claude benzerini sıfırdan tek gönderimde üretir (prompt önceden 5-10 kez denenmiş; "50-100 bin dolarlık site" iddiası kanıtsız).

@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-Gg35_iQWx7g.md
 # Yapay Zekayı Verimli Kullanmak: Skills, MCP, Ajanlar ve Token Tasarrufu
 kanal: Burhan KOCABIYIK · süre: 14 dk · altyazı: otomatik tr
 ana iddia: Claude Code terminalde bir ekosistem olarak kurulup skill, iş türüne göre ucuz model, otonom ajan, MCP bağlantıları, "beyin" (veri tabanı) ve on slash komutla kullanılınca işler vakit almadan otomatikleşir (sözlü, ölçüm yok).

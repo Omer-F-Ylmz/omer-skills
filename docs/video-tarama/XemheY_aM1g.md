@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-XemheY_aM1g.md
 # MiniMax'i Claude Code'a Bağlayıp Token Masrafını 5x Düşürün
 kanal: Burhan KOCABIYIK · süre: 12 dk · altyazı: otomatik tr
 ana iddia: Tekrarlı ve token yoğun işlerde MiniMax'i ayrı bir komutla (claude-mm) Claude Code'a bağlamak, Opus'a yakın sonuçla maliyeti 5-6 kat düşürür (iddia).

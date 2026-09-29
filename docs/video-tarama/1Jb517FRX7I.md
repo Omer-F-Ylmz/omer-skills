@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-23-1Jb517FRX7I.md
 # Claude Code Token Hackleri: 23 Dakikada 18 İpucu
 kanal: Burhan KOCABIYIK · süre: 23 dk · altyazı: otomatik tr
 ana iddia: 18 kullanım alışkanlığıyla (clear, gereksiz MCP kapatma, önce planlama, compact, Opus+Sonnet hibrit model) Claude Code token kullanımı %80-90 azaltılabilir.

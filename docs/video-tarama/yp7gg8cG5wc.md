@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-23-yp7gg8cG5wc.md
 # GitHub'da Claude'u Güçlendiren 15 Skill ve Yaratıcı Web Projeleri Buldum!
 kanal: Yıldız Dikme · süre: 24 dk · altyazı: otomatik tr
 ana iddia: Teable'da kriter tabanlı (yıldız sayısına değil) GPT-5.6 Sol destekli araştırma ile GitHub'dan 15 gizli kalmış Claude skill'i ve Awwwards seviyesinde kreatif web reposu bulunup tablo/kanban/otomasyonla video üretim pipeline'ına bağlanıyor.

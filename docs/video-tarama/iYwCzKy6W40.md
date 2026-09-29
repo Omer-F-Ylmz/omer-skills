@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-iYwCzKy6W40.md
 # Claude’a Premium 3D Web Sitesi Yaptırdım | Yazılımcı Gözüyle
 kanal: Yıldız Dikme · süre: 14 dk · altyazı: otomatik tr
 ana iddia: Teknolojiyi (WebGL/Three.js/React Three Fiber) adlandıran, pozisyon ve font değerlerini kesin veren teknik bir prompt ve doğru 3D modelle Claude sıradan olmayan, scroll animasyonlu premium bir 3D site üretir.

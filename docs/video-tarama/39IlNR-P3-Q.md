@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-39IlNR-P3-Q.md
 # Prompt Değil, Skill! Claude ile Ödüllü Web Sitesini Böyle Yaptım | Yazılımcı Gözüyle
 kanal: Yıldız Dikme · süre: 17 dk · altyazı: otomatik tr
 ana iddia: Uzun teknik prompt yerine dört Claude skill'i (Design DNA, Frontend Design, Taste Skill, Scrollcraft) ve AI ile üretilmiş bir kaynak video verilince pear.no'dan ilham alan, scroll ile ilerleyen ödül kalitesinde site çıkar; "en fazla 10 skill yeter" (yalnız ekran gösterimi, ölçüm yok).

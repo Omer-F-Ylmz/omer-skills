@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-2n84xa99FRY.md
 # Yapay Zekayı Böyle Çalıştırıyorum. Kullandığım Skill'i Paylaşıyorum.
 kanal: Avenox · süre: 56 dk · altyazı: tr manuel
 ana iddia: En zeki/pahalı modeli (Fable) yalnız mimar olarak kullanıp araştırma ve kodu ucuz alt-ajanlara (Codex/Opus) dağıtmak, git takibi ve ölçüm kapılı "iskelet" sistemiyle birleşince vibe coding yerine denetimli ajan mühendisliği sağlar.

@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-b-LZ_Y9wor8.md
 # Claude'a Awwwards Ödüllü Siteden 3D Sinematik Web Site Yaptırdım
 kanal: Yıldız Dikme · süre: 13 dk · altyazı: otomatik tr
 ana iddia: Tasarımı anlatan ve stack/sürüm/dosya yapısı/kod düzeyine inen uzun bir promptla Claude Opus 5, Awwwards ödüllü Jesko Jets'ten uyarlanan 3D sinematik scroll portfolyosunu doğru kurar; promptu alanın "%90, %100'e yakın" benzerini çıkaracağı iddiası ölçümsüz.

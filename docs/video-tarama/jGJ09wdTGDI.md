@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-jGJ09wdTGDI.md
 # Claude Design ile Web Sitesi Yapmak Bu Kadar Kolay mı? | Yazılımcı Gözüyle Test
 kanal: Yıldız Dikme · süre: 15 dk · altyazı: otomatik tr
 ana iddia: Claude Design yalnız promptla premium görünen bir site tasarımı çıkarıyor ama performansı zayıf (iddia: perf %71, araç adı geçmiyor), bu yüzden tasarım orada yapılıp proje indirilerek Claude'da optimize edilmeli.

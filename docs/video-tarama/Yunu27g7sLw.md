@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-29-Yunu27g7sLw.md
 # Fable 5 vs Opus 4.8: Web Sitesi Testi! Devrim mi, Pazarlama mı?
 kanal: Yıldız Dikme · süre: 12 dk · altyazı: otomatik tr
 ana iddia: Aynı kısa prompt ve aynı 3 screenshot'la Fable 5, animasyonlu parçacık referansını (imleç dairesi, bulutsu yapı) Opus 4.8'den iyi okudu; yazara göre "4-5 adım ileride" (ASR "45") ama devrim değil, abartı pazarlama (tek deneme gösterildi, ölçüm yok; "her denediğimde" iddiası kanıtsız).

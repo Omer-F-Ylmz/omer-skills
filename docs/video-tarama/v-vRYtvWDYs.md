@@ -1,3 +1,4 @@
+yerine: docs/video-tarama/2026-09-28-v-vRYtvWDYs.md
 # Claude Code Token İsrafına Son Verdim
 kanal: Muzaffer Kadir (mkdir dev) · süre: 7 dk · altyazı: otomatik tr
 ana iddia: settings.json'a 3 satır eklemek (thinking token tavanı), doğru model seçmek ve context-mode MCP/plugin kurmak Claude Code maliyetini "dramatik" düşürür; kanalın kendi ölçümünde token kullanımı ~%88 azalmış (iddia, tek kullanıcı anekdotu).
