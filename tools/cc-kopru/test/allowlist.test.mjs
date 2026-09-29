@@ -247,3 +247,9 @@ test("M2e K5: video parti durum ve kuyruk (oneri) izinli; yazan alt komutlar izi
   red("video", ["kuyruk", "--isle", "a", "--commit", "b"]);
   red("video", ["panel", "uygula", "p.md"]);
 });
+
+test("M2f K6: video parti izin listesi yalniz durum", () => {
+  gecer("video", ["parti", "durum", "x"]);
+  red("video", ["parti", "kapat", "x"]);
+  red("video", ["parti", "yeni-bir-komut", "x"]);
+});
