@@ -14,6 +14,7 @@ from . import uygula as uy
 ARASTIRMA_ARAC = ("WebSearch", "Bash(video getir:*)", "Bash(video repo:*)")
 WEB_TAVAN = 3
 CEKIRDEK = {"claude-code", "headroom", "rtk", "graphify", "jev", "openrouter"}  # M2c K1: kendi aracımız (envantere ek)
+ARAC_DISI = {"ipucu", "kural", "teknik", "prompt", "iş akışı"}  # M2e K4: araç eşdeğer/kurulu eşleşmesine girmez
 ESDEGER, OLASI = 0.75, 0.5  # M2c K3: Jev eşdeğer p eşikleri (ZATEN VAR · OLASI EŞDEĞER)
 JEV_TAVAN = 30
 ALT_TUR = {"araç": "kurulabilir açık kaynak araç: repo ya da paket", "servis": "API ya da SaaS hizmeti (hesap/anahtar ile kullanılır)",
@@ -84,7 +85,7 @@ def birlestir(raporlar, kok):
     for k, a in out.items():
         es = next((e for x in a["adlar"] if (e := tr.arac_esle(x, env, []))), None)
         kendi = k in CEKIRDEK or any(tr.slug(x) in CEKIRDEK for x in a["adlar"])
-        a.update(kurulu="kendi aracımız" if kendi else es[0] if es else None, onceki=_onceki(kok, k), arac=a["tur"].lower() in uy.ARAC)
+        a.update(kurulu=None if a["tur"] in ARAC_DISI else "kendi aracımız" if kendi else es[0] if es else None, onceki=_onceki(kok, k), arac=a["tur"].lower() in uy.ARAC)
     ks = list(out)
     belirsiz = [(x, y) for i, x in enumerate(ks) for y in ks[i + 1:] if out[x]["repo"] and out[y]["repo"]
                 and out[x]["repo"] != out[y]["repo"] and difflib.SequenceMatcher(None, x, y).ratio() >= 0.8]
@@ -216,14 +217,16 @@ def panel(pdir, d, kok):
         m = _aday_yol(kok, k).read_text(encoding="utf-8") if _aday_yol(kok, k).is_file() else ""
         al = uy.alanlar(m) if m else {}
         alt, es = a.get("alt_tur") or al.get("alt_tur"), a.get("esdeger_p")
-        sebep = "kurulu" if a["kurulu"] else alt if alt in ("servis", "ürün") else "repo yok" if not a["repo"] else a.get("durum")
+        ku = None if a["tur"] in ARAC_DISI else a["kurulu"]  # M2e K4
+        cakisma = bool(ku) and alt in ("servis", "ürün")  # alt tür tek değer: kurulu > kendi aracımız > araç > servis > ürün
+        sebep = "kurulu" if ku else alt if alt in ("servis", "ürün") else "repo yok" if not a["repo"] else a.get("durum")
         gv = a.get("guvenlik") or (s if (s := al.get("skillspector")) and not s.startswith("koşmadı") else None) or f"koşmadı: {sebep}"
         high = int(x[1]) if (x := re.search(r"HIGH/CRITICAL (\d+)", gv)) else None
-        if a["kurulu"] and _tam(a):
+        if ku and _tam(a):
             o, g = "ZATEN VAR", f"kurulu: {a['kurulu']}"
-        elif a["kurulu"] and es is not None and es >= ESDEGER and alt == "araç":  # M2c K3: ad benzerliği değil Jev eşdeğeri
+        elif ku and es is not None and es >= ESDEGER and alt == "araç":  # M2c K3: ad benzerliği değil Jev eşdeğeri
             o, g = "ZATEN VAR", f"eşdeğer: {a['kurulu']} p {es}"
-        elif a["kurulu"] and (es is None or es >= OLASI):
+        elif ku and (es is None or es >= OLASI):
             o, g = "SOR", f"olası eşdeğer: {a['kurulu']} p {es}" if es is not None else f"eşdeğer doğrulanmadı: {a['kurulu']}"
             olasi_es += [f"- {k} ≈ {a['kurulu']} p {es}"] if es is not None else []
         elif a["tur"] in tr.KURAL_TUR:
@@ -231,7 +234,7 @@ def panel(pdir, d, kok):
             kural.append(f"- {k}: {pt._h(next(iter(a['videolar'].values()))['ne'])}")
         elif not a["arac"]:
             o, g = "ÖĞREN", f"{a['tur']}: kurulabilir araç değil"
-        elif alt in ("servis", "ürün"):  # M2c K1: lisans kapısı yalnız araç
+        elif alt in ("servis", "ürün") and not ku:  # M2c K1: lisans kapısı yalnız araç
             alan = ("kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi") if alt == "servis" else ("bizde_karsilik",)
             eksik = [x for x in alan if not al.get(x)]
             o, g = "SOR", ("servis: koşullar · ücretsiz katman · gizlilik" if alt == "servis" else "ürün: kurulum gereği · bizde karşılığı") + (
@@ -248,6 +251,7 @@ def panel(pdir, d, kok):
         else:
             o, g = "SOR", f"araştırılmadı ({a.get('durum')})"
             kalan.append(f"- {k}: {a.get('durum')} {pt._h(a.get('hata') or '')}"[:200])
+        g += f" · alt tür çakışması (kurulu > {alt})" if cakisma else ""
         L.append(f"| {k} | {a['tur']} | {len(a['videolar'])} | {pt._h(al.get('lisans', '—'))} | {pt._h(gv)} | {o} | {pt._h(g)} | {eski.get(k, '')} |"
                  .replace("|  |", "| |"))
         if m and (u := tr.bolum(m, "Üretilebilir").strip()) and "hedef_tur: yok" not in u:
@@ -260,6 +264,8 @@ def panel(pdir, d, kok):
     n, usd, tk = pt._defter(pdir)
     L += ["", "## form_red", *([f"- {v}: {pt._h(s['tarama'].get('hata'))[:200]}" for v, s in d["videolar"].items()
                                  if s["tarama"]["durum"] == "form_red"] or ["- yok"]),
+          "## Eksik alanlar", *([f"- {v} · {pt._h(x[0])} · {x[1]} ({pt._h(x[2])})" for v, s in d["videolar"].items()  # M2e K1
+                                 for x in s["tarama"].get("eksik") or []] or ["- yok"]),
           "## Belirsiz birleşmeler (ad benzer, repo farklı)", *([f"- {x} ↔ {z}" for x, z in d.get("belirsiz", [])] or ["- yok"]),
           "## ÜRETİLEBİLİR / yapım tarifleri", *(uret or ["- yok"]), "## Kural önerileri (T0)", *(kural or ["- yok"]),
           "## OLASI EŞDEĞER (Jev p 0.5–0.75)", *(olasi_es or ["- yok"]), "## OLASI TEKRAR", *(olasi or ["- yok"]), "## Araştırılmadı", *(kalan or ["- yok"]),
@@ -275,7 +281,7 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
         raporlar = [(k["id"], y.read_text(encoding="utf-8")) for k in tr.kayit_oku(tdir / "kayit.jsonl") if (y := tdir / str(k.get("rapor"))).is_file()]
     else:
         raporlar = [(v, Path(t["cikti"]).read_text(encoding="utf-8")) for v, s in d["videolar"].items()
-                    if (t := s["tarama"])["durum"] == "tamam" and t.get("cikti") and Path(t["cikti"]).is_file()]
+                    if (t := s["tarama"])["durum"] in ("tamam", "tamam_eksik") and t.get("cikti") and Path(t["cikti"]).is_file()]
     adaylar, belirsiz = birlestir(raporlar, kok)  # aşama 5
     eski = d.get("adaylar", {})
     for k, a in adaylar.items():
@@ -344,10 +350,27 @@ def panel_uygula(ns, ctx):
     from . import kur
     from . import ogren as og
     karar, rc = ctx.get("karar") or kur.karar_isle, 0
-    for s in Path(ns.panel).read_text(encoding="utf-8").splitlines():
-        h = [x.strip() for x in s.strip().strip("|").split("|")]
-        if len(h) == 8 and h[0] not in ("aday", "---") and h[7].upper() in ("AL", "ERTELE", *og.KARAR):
-            rc |= karar(SimpleNamespace(ad=h[0], secim=h[7].upper(), panel=ns.panel), ctx) or 0
+    satirlar = [(i, [x.strip() for x in s.strip().strip("|").split("|")])
+                for i, s in enumerate(Path(ns.panel).read_text(encoding="utf-8").splitlines(), 1) if s.strip().startswith("|")]
+    if bozuk := [i for i, h in satirlar if len(h) != 8]:  # M2e K3: sessiz atlama yok; bozuk satır varsa hiçbir karar işlenmez
+        for i in bozuk:
+            print(f"panel satır {i}: sütun sayısı uyuşmuyor (başlık 8 sütun)")
+        print("panel uygula: hiçbir karar işlenmedi")
+        return 2
+    n = bos = hatali = 0
+    for _, h in satirlar:
+        if h[0] in ("aday", "---"):
+            continue
+        if not h[7]:
+            bos += 1
+        elif h[7].upper() in ("AL", "ERTELE", *og.KARAR):
+            r = karar(SimpleNamespace(ad=h[0], secim=h[7].upper(), panel=ns.panel), ctx) or 0
+            rc |= r
+            n, hatali = n + (not r), hatali + bool(r)
+        else:
+            print(f"panel: {h[0]} → '{h[7]}' tanınmıyor")
+            hatali, rc = hatali + 1, rc | 1
+    print(f"panel uygula: işlenen {n} · boş {bos} · hatalı {hatali}")
     return rc
 
 
@@ -355,7 +378,7 @@ def kapat(pdir, d, kok, ctx):
     """rapor-denetle (tüm parti) → gitleaks (değişen dosyalar, staged) → temizse commit + kuyruk --isle + push; sızıntıda commit yok (DUR)."""
     kos = lambda a, t=300: uy._kos(ctx, a, t)  # noqa: E731
     git = ["git", "-C", Path(kok).as_posix()]
-    kotu = {Path(t["cikti"]).name: h for s in d["videolar"].values() if (t := s["tarama"])["durum"] == "tamam" and t.get("cikti")
+    kotu = {Path(t["cikti"]).name: h for s in d["videolar"].values() if (t := s["tarama"])["durum"] in ("tamam", "tamam_eksik") and t.get("cikti")
             if (h := tr.denetle(Path(t["cikti"]).read_text(encoding="utf-8")))}
     if kotu:
         print(f"kapat: rapor-denetle KALDI → DUR: {kotu}")
@@ -373,7 +396,7 @@ def kapat(pdir, d, kok, ctx):
         return 1
     n, usd, tk = pt._defter(pdir)
     ad = d.get("adaylar", {})
-    islenen = [v for v, s in d["videolar"].items() if s["tarama"]["durum"] == "tamam"]
+    islenen = [v for v, s in d["videolar"].items() if s["tarama"]["durum"] in ("tamam", "tamam_eksik")]
     say = Counter(a["durum"] for a in ad.values())
     if kos([*git, "commit", "-q", "-m", f"parti {d['parti']}: {len(islenen)}/{len(d['videolar'])} video · {len(ad)} aday (kurulu {say['kurulu']} · "
             f"araştırılan {say['tamam']} · önceden {say['onceki']}) · panel docs/kurulumlar/parti/{d['parti']}/panel.md · defter {n} çağrı "

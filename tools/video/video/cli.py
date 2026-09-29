@@ -572,7 +572,10 @@ def rapor_denetle(ns, ctx):
         return 1 if h else 0
     metin = _sozluk_doldur(ctx, ns.rapor, Path(ns.rapor).read_text(encoding="utf-8"))
     sure = _sure(ctx, ns.rapor, metin)
-    h = tr.denetle(metin, sure)
+    eksik = sum("EKSİK:" in s for s in metin.splitlines())  # M2e K1: kısmi kabul işareti geçerli ama uyarılı
+    h = tr.denetle("\n".join(s for s in metin.splitlines() if "EKSİK:" not in s), sure)
+    if eksik:
+        print(f"uyarı: {eksik} EKSİK alan (kısmi kabul, işaretli)")
     for x in h:
         print(x)
     print(f"rapor-denetle: {'GEÇTİ' if not h else f'{len(h)} hata'}" + ("" if sure else " (süre bilinmiyor: zaman denetimi atlandı)"))
@@ -1096,6 +1099,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--tarih")
     x.add_argument("--tum", action="store_true", help="akil: tüm kayıt genelinde birleştir")
     x.add_argument("--form-red-yeniden", action="store_true", help="devam: form_red videolara yeniden deneme hakkı")
+    x.add_argument("--kismi-kabul", action="store_true", help="devam: M2e — form_red videoları diskteki son formdan tamam_eksik (çağrısız)")
     x.add_argument("--yeniden-tara", action="store_true", help="devam: M2d — tamam/form_red/tavan videoları düzeltilmiş girdiyle yeniden tara")
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")

@@ -127,8 +127,8 @@ def test_form_red_iki_yeniden_istek_sonra_form_red(tmp_path):
     s = Sahte(bozuk=lambda v, n: True)
     pt.parti(_ns("baslat", kok / "kuyruk.md"), _ctx(kok, s))
     assert len(s.cagrilar) == 3 and "ozet" in s.cagrilar[1][1]  # yeniden istek hata mesajıyla
-    assert _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "form_red"
-    assert not (kok / "docs" / "video-tarama" / f"2026-09-29-{V[0]}.md").exists()
+    assert _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "tamam_eksik"  # M2e K1: iki yeniden istekten sonra kısmi kabul
+    assert (kok / "docs" / "video-tarama" / f"2026-09-29-{V[0]}.md").exists()  # M2e K1: kısmi rapor yazılır
 
 
 def test_form_red_sonra_duzelen_form_kabul(tmp_path):
@@ -142,7 +142,7 @@ def test_aciklama_baglantisi_karari_zorunlu(tmp_path):
     kok = _kurulum(tmp_path, V[:1], sure=300, link=["https://github.com/a/b"])
     s = Sahte()  # form bağlantı kararı içermiyor
     pt.parti(_ns("baslat", kok / "kuyruk.md"), _ctx(kok, s))
-    assert len(s.cagrilar) == 3 and _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "form_red"
+    assert len(s.cagrilar) == 3 and _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "tamam_eksik"  # M2e K1: iki yeniden istekten sonra kısmi kabul
     assert "https://github.com/a/b" in s.cagrilar[1][1]
 
 

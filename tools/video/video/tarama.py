@@ -397,6 +397,9 @@ def site_ui_denetle(metin):
     for s in t[0][1]:
         if len(s) != 4 or any(x in ("", "-") for x in (s[0], s[1], s[3])):
             h.append(f"boş alan: teknik satırı {s[0] or '?'} (teknik·kanıt·kütüphane/araç·bizde)")
+        elif s[3] in ("altyazı", "kare", "açıklama"):  # M2e K1: motor biçimi (teknik·ne·zaman·kaynak); açıklama kaynaklı kalemde zaman beklenmez
+            if s[3] != "açıklama" and not ZAMAN.search(s[2]):
+                h.append(f"kanıt zamansız: {s[0]} (m:ss + kare yolu ya da altyazı)")
         elif not ZAMAN.search(s[1]):
             h.append(f"kanıt zamansız: {s[0]} (m:ss + kare yolu ya da altyazı)")
         elif s[2] not in ("", "-") and not s[2].casefold().startswith("tahmin") and s[2].casefold() not in oku + s[1].casefold():

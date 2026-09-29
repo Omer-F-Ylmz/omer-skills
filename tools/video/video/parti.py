@@ -149,6 +149,82 @@ def gruplar(pk):
     return [g[1] for g in out]
 
 
+def site_mu(metin):
+    """M2e K2: kuyruk notu ya da başlıkta site/UI · landing · prompt anatomisi → kare tavanı 12."""
+    return bool(re.search(r"site|\bUI\b|landing|prompt anatomisi", metin or "", re.I))
+
+
+def kare_sayisi(sure, site):
+    """M2e K2: short ≤3 · uzun süre/2.5 dk (en az 4, en fazla 8) · site/UI en fazla 12 → (n, neden)."""
+    if not sure:
+        return 3, "süre bilinmiyor"
+    if sure < tr.SHORT_SN:
+        return 3, "short ≤3"
+    return max(4, min(12 if site else 8, round(sure / 150))), f"{m.ss(sure)} / 2.5 dk · " + ("site/UI ≤12" if site else "4–8")
+
+
+def kare_sigdir(pk):
+    """M2e K2: uzun videonun çağrı girdisi ≤40k jeton; aşarsa kare düşürülür, rapora not."""
+    for p in pk.values():
+        tk = c.token(p["metin"])
+        if not p["short"] and tk + KARE_TK * len(p["kareler"]) > GIRDI_TAVAN:
+            n = max(0, (GIRDI_TAVAN - tk) // KARE_TK)
+            p["kare_not"] = f"kareler: girdi ≤{GIRDI_TAVAN} jeton için {len(p['kareler'])}→{n}"
+            p["kareler"] = p["kareler"][:n]
+
+
+LISTE = ("bolumler", "adaylar", "aciklama_baglantilari", "site_ui", "promptlar", "iddialar", "kareden_okunanlar", "belirsizlikler")
+AD = ("ad", "teknik", "amac", "iddia", "url", "kare", "baslik")
+
+
+def kismi(f, hatalar, v):
+    """M2e K1: geçmeyen alan 'EKSİK: <alan> (<sebep>)'; alan dışı hata Belirsizlikler'e. → (form, [[aday, alan, sebep]])
+    ponytail: rapor düzeyi hata (süre dışı zaman vb.) satırda işaretlenmez, yalnız Belirsizlikler'de; rapor-denetle onu yine sayar."""
+    f = json.loads(json.dumps(f))
+    f.setdefault("ozet", "")
+    for b in LISTE:
+        f[b] = f.get(b) if isinstance(f.get(b), list) else []
+    eksik, notlar = [], []
+    for h in hatalar:
+        x = re.match(rf"{re.escape(v)}\.(\w+)(?:\[(\d+)\])?(?:\.(\w+))?: (.+)", h)
+        b, i, alan, sebep = x.groups() if x else (None, None, None, h.split(": ", 1)[-1])
+        if b and i is None and alan is None and not isinstance(f.get(b), list):
+            f[b] = f"EKSİK: {b} ({sebep})"
+            eksik.append(["-", b, sebep])
+        elif b and i is not None and alan and int(i) < len(f[b]) and isinstance(k := f[b][int(i)], dict):
+            k[alan] = f"EKSİK: {alan} ({sebep})"
+            eksik.append([next((str(k[a]) for a in AD if k.get(a) and not str(k[a]).startswith("EKSİK")), b), alan, sebep])
+        else:
+            notlar.append(f"EKSİK: {b or 'rapor'} ({sebep})")
+            eksik.append(["-", b or "rapor", sebep])
+    f["belirsizlikler"] += notlar
+    return f, eksik
+
+
+def _rapor_yaz(d, v, f, p, tdir, **ek):
+    r = tdir / f"{d['tarih']}-{v}.md"
+    r.parent.mkdir(parents=True, exist_ok=True)
+    md = rapor_md(f, p, _notlar(d, p))
+    r.write_bytes(md.encode("utf-8"))
+    adaylar, ele = tr.ayikla(md)
+    tr.kayit_ekle(tdir / "kayit.jsonl", [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"]}])
+    d["videolar"][v]["tarama"].update(cikti=r.as_posix(), **ek)
+
+
+def _kismi_kabul(pdir, d, v, p, tdir):
+    """M2e K1: diskteki son form yeniden denetlenir, geçerli kısmıyla rapor → tamam_eksik; form yoksa False (form_red kalır)."""
+    y = pdir / "form" / f"{v}.json"
+    if not y.is_file():
+        return False
+    f, eksik = kismi(json.loads(y.read_text(encoding="utf-8")), dogrula({"videolar": [json.loads(y.read_text(encoding="utf-8"))]}, {v: p}, [v]).get(v, []), v)
+    try:
+        _rapor_yaz(d, v, f, p, tdir, durum="tamam_eksik" if eksik else "tamam", eksik=eksik, hata=None)
+    except (KeyError, TypeError, AttributeError) as e:  # biçimi bozuk form rapora dökülemez: form_red kalır
+        print(f"kısmi kabul: {v} rapor yazılamadı: {e}"[:200])
+        return False
+    return True
+
+
 def _yaz(yol, d):
     d["guncelleme"] = datetime.now().isoformat(timespec="seconds")
     tmp = yol.with_suffix(".tmp")
@@ -178,7 +254,8 @@ def _istem(ids, pk, hatalar, temizle):
 def _notlar(d, pk):
     k = len(pk["kareler"])
     return [f"motor: parti {d['parti']} · {d['model']} · hafif claude -p",
-            "kareler: yok" if not k else f"kareler: görsel girdi ({k})" if hafif.GORSEL else f"kareler: metin açıklamasıyla ({k} kare görülmedi; açık kalem)"]
+            "kareler: yok" if not k else f"kareler: görsel girdi ({k})" if hafif.GORSEL else f"kareler: metin açıklamasıyla ({k} kare görülmedi; açık kalem)",
+            *([pk["kare_not"]] if pk.get("kare_not") else [])]
 
 
 def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
@@ -193,7 +270,10 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
                 alt(["ozet", v])
                 if not (onb / v / "segmentler.jsonl").is_file():
                     alt(["whisper", v])
-                alt(["paket", v, "--kare", "3", "--istek-tavan", "0"])
+                mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
+                n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"))  # M2e K2
+                print(f"paket {v}: kare {n} ({neden})")
+                alt(["paket", v, "--kare", str(n), "--istek-tavan", "0"])
             a.update(durum="tamam" if (onb / v / "paket.md").is_file() else "hata", cikti=(onb / v / "paket.md").as_posix())
         except Exception as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
             a.update(durum="hata", hata=str(e)[:200])
@@ -201,6 +281,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
     bek = [v for v, s in d["videolar"].items()
            if s["paket"]["durum"] == "tamam" and s["tarama"]["durum"] in YENIDEN and s["tarama"]["deneme"] < 3]
     pk = {v: paket_oku(onb / v / "paket.md") for v in bek}
+    kare_sigdir(pk)
     for g in gruplar(pk):  # aşama 3-4
         for v in g:
             d["videolar"][v]["tarama"]["deneme"] += 1
@@ -209,7 +290,9 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
         for _ in range(3):  # ilk istek + en fazla 2 yeniden istek
             if _tavan(pdir, d):
                 for v in bek:
-                    if d["videolar"][v]["tarama"]["durum"] in YENIDEN:
+                    if d["videolar"][v]["tarama"]["durum"] in YENIDEN and v in kalan and v in hatalar:  # M2e: formu geçmemiş video tavanda da form_red (sonra --kismi-kabul)
+                        d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
+                    elif d["videolar"][v]["tarama"]["durum"] in YENIDEN:
                         d["videolar"][v]["tarama"]["durum"] = "tavan"
                 d["durum"] = "tavan"
                 _yaz(yol, d)
@@ -222,6 +305,10 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
             except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
             hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, kalan)
+            for f in (y.get("form") or {}).get("videolar") or []:  # M2e K1: son form diskte (kısmi kabul çağrısız)
+                if isinstance(f, dict) and f.get("id") in kalan:
+                    (pdir / "form").mkdir(exist_ok=True)
+                    (pdir / "form" / f"{f['id']}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
             u = y.get("usage") or {}
             tr.kayit_ekle(pdir / "defter.jsonl", [{
                 "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": d["model"],
@@ -235,21 +322,16 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
                 break
             for v in kalan:
                 if v not in hatalar:
-                    r = tdir / f"{d['tarih']}-{v}.md"
-                    r.parent.mkdir(parents=True, exist_ok=True)
-                    md = rapor_md(next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], _notlar(d, pk[v]))
-                    r.write_bytes(md.encode("utf-8"))
-                    adaylar, ele = tr.ayikla(md)
-                    tr.kayit_ekle(tdir / "kayit.jsonl", [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"]}])
-                    d["videolar"][v]["tarama"].update(durum="tamam", cikti=r.as_posix(), usage=u, grup=len(kalan))
+                    _rapor_yaz(d, v, next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], tdir, durum="tamam", usage=u, grup=len(kalan))
             kalan = [v for v in kalan if v in hatalar]
             _yaz(yol, d)
             if not kalan:
                 break
-        for v in kalan:
-            d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
+        for v in kalan:  # M2e K1: 2 yeniden istekten sonra kısmi kabul; son form yoksa form_red
+            if not _kismi_kabul(pdir, d, v, pk[v], tdir):
+                d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
         _yaz(yol, d)
-    d["durum"] = "tamam" if all(s["tarama"]["durum"] in ("tamam", "form_red") for s in d["videolar"].values()) else "yarim"
+    d["durum"] = "tamam" if all(s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red") for s in d["videolar"].values()) else "yarim"
     _yaz(yol, d)
     return 0
 
@@ -295,7 +377,7 @@ def parti(ns, ctx):
         for h in satirlar[:ns.en_fazla]:
             eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
             adim = {"durum": "tamam", "deneme": 0, "cikti": eski[-1].as_posix(), "ice_alindi": True} if eski else {"durum": "bekliyor", "deneme": 0}
-            d["videolar"][h[0]] = {"paket": dict(adim), "tarama": dict(adim)}
+            d["videolar"][h[0]] = {"paket": dict(adim), "tarama": dict(adim), "not": " ".join(h[2:4])}  # M2e K2: site/UI kare tavanı
         _yaz(pdir / "durum.json", d)
         print(f"parti: {pid} · {tur} · {len(d['videolar'])} video · tavan {ns.cagri_tavan} çağrı / ${ns.usd_tavan}")
     else:
@@ -313,12 +395,18 @@ def parti(ns, ctx):
             return akil.akil(pdir, d, kok, Path(tdir), ctx, getattr(ns, "tum", False)) if ns.eylem == "akil" else akil.kapat(pdir, d, kok, ctx)
         if getattr(ns, "yeniden_tara", False):  # M2d: _temizle URL hatası sonrası — bitmiş videolar düzeltilmiş girdiyle yeniden taranır
             for s in d["videolar"].values():
-                if s["tarama"]["durum"] in ("tamam", "form_red", "tavan"):
+                if s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red", "tavan"):
                     s["tarama"].update(durum="bekliyor", deneme=0, hata=None)
         if getattr(ns, "form_red_yeniden", False):  # M2b K6: form_red → yeniden dene hakkı
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] == "form_red":
                     s["tarama"].update(durum="bekliyor", deneme=min(s["tarama"]["deneme"], 2))
+        if getattr(ns, "kismi_kabul", False):  # M2e K1: form_red → diskteki son formdan tamam_eksik, çağrısız
+            for v, s in d["videolar"].items():
+                if s["tarama"]["durum"] == "form_red" and not _kismi_kabul(pdir, d, v, paket_oku(Path(ctx["kok"]) / v / "paket.md"), Path(tdir)):
+                    print(f"kısmi kabul: {v} son form yok (M2e öncesi) — form_red kalır")
+            _yaz(pdir / "durum.json", d)
+            return _ozet(pdir, d)
         d["durum"] = "calisiyor"
     kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"])
     rc = kos()
