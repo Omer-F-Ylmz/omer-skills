@@ -1103,6 +1103,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--form-red-yeniden", action="store_true", help="devam: form_red videolara yeniden deneme hakkı")
     x.add_argument("--kismi-kabul", action="store_true", help="devam: M2e — form_red videoları diskteki son formdan tamam_eksik (çağrısız)")
     x.add_argument("--yeniden-tara", action="store_true", help="devam: M2d — tamam/form_red/tavan videoları düzeltilmiş girdiyle yeniden tara")
+    x.add_argument("--yeniden", action="store_true", help="akil: M2g K1 — geliştirme karşılaştırması yeniden (yalnız gelistir + panel)")
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")
     x = alt.add_parser("panel", help="MOTOR-M2b: panel.md Ömer sütunu (AL/RED/ERTELE) → video karar; boş satır dokunulmaz")

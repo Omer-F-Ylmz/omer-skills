@@ -115,24 +115,42 @@ def _karsilastir(a):
         _tam(a) or (a.get("esdeger_p") is not None and a["esdeger_p"] >= ESDEGER and a.get("alt_tur") == "araç"))
 
 
+EYLEM = ["yapılandırma", "kullanım biçimi", "eksik özellik", "ölçüm", "kurulum"]
+GELISTIRME["properties"]["satirlar"]["items"]["properties"]["eylem"] = {"type": "string", "enum": EYLEM}  # M2g K1: yapısal eylem (eski formlar alansız geçer)
+
+
 def _bizde(kok, ad):
-    """M2f K3: envanter kaydı + bilgi kartı, ≤3000 karakter (~1k jeton)."""
+    """M2f K3 + M2g K1: envanter kayıtları + bilgi kartları (<ad>.md, <ad>-*.md) + çekirdek liste, ≤3000 karakter; bilgi yoksa ''."""
     y = Path(kok) / "docs" / "departmanlar" / "envanter.json"
     env = json.loads(y.read_text(encoding="utf-8")) if y.is_file() else []
-    e = next((x for x in env if isinstance(x, dict) and str(x.get("ad", "")).casefold() == str(ad).casefold()), None)
-    b = Path(kok) / "bilgi" / f"{ad}.md"
-    return ((json.dumps(e, ensure_ascii=False) if e else "") + "\n" + (b.read_text(encoding="utf-8") if b.is_file() else "")).strip()[:3000] or "kayıt yok"
+    e = [json.dumps(x, ensure_ascii=False) for x in env if isinstance(x, dict) and str(x.get("ad", "")).casefold() == str(ad).casefold()]
+    b = [f.read_text(encoding="utf-8") for f in [*sorted((Path(kok) / "bilgi").glob(f"{ad}.md")), *sorted((Path(kok) / "bilgi").glob(f"{ad}-*.md"))]]
+    return "\n".join(e + [f"çekirdek liste: {ad} kendi aracımız"] * (str(ad).casefold() in CEKIRDEK) + b).strip()[:3000]
+
+
+def _kurulum_red(form):
+    """M2g K1: karşılaştırmaya giren aday bizde kurulu → öneri bizdekinin geliştirilmesi olmalı; eylem=kurulum red."""
+    return [f"{x.get('aday')}: bizde kurulu, eylem 'kurulum' olamaz (yapılandırma/kullanım biçimi/eksik özellik/ölçüm)"
+            for x in form.get("satirlar", []) if x.get("eylem") == "kurulum"]
 
 
 def gelistir(pdir, d, kok, ctx):
-    """M2f K3: ZATEN VAR adayları → parti başına tek toplu hafif çağrı; kanıtsız öneri yazılmaz; sonuç durum.json'da (yeniden çağrılmaz)."""
+    """M2f K3 + M2g K1: ZATEN VAR adayları → bizde bilgisi dolu olanlar parti başına tek toplu hafif çağrı (boşlar d['bizde_yok'], panelde görünür);
+    kurulu adaya eylem=kurulum form_red; kanıtsız öneri yazılmaz; sonuç durum.json'da (yeniden: `video parti akil <id> --yeniden`)."""
     z = {k: a for k, a in d.get("adaylar", {}).items() if _karsilastir(a)}
     if not z or "gelistirme" in d:
         return d.get("gelistirme", [])
-    metin = "\n\n".join(f"ADAY: {k} · bizde: {a['kurulu']}\nVİDEO: " + "; ".join(
+    bz = {k: _bizde(kok, k if a["kurulu"] == "kendi aracımız" else a["kurulu"]) for k, a in z.items()}
+    d["bizde_yok"] = [k for k in z if not bz[k]]
+    z = {k: a for k, a in z.items() if bz[k]}
+    if not z:
+        return []
+    metin = "Her satırda eylem ver (yapılandırma · kullanım biçimi · eksik özellik · ölçüm); adaylar bizde KURULU, kurulum önerme.\n\n" + "\n\n".join(
+        f"ADAY: {k} · bizde: {a['kurulu']}\nVİDEO: " + "; ".join(
         f"{v} {x['zaman']} {x['ne']} · kanıt: {x['kanit']}" + (f" · iddia: {'; '.join(x['iddialar'])}" if x.get("iddialar") else "")
-        for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{_bizde(kok, k if a['kurulu'] == 'kendi aracımız' else a['kurulu'])}\n</veri>" for k, a in z.items())
-    durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_GEL, metin, GELISTIRME, "gelistirme", "parti", ctx["env"], ())  # ilke 29: araçsız, yalnız rapor + bizde
+        for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{bz[k]}\n</veri>" for k, a in z.items())
+    durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_GEL, metin, GELISTIRME, "gelistirme", "parti", ctx["env"], (),
+                        _kurulum_red)  # ilke 29: araçsız, yalnız rapor + bizde
     if durum != "tamam":
         print(f"geliştirme: {durum} {str(f)[:120]}")
         return []
@@ -173,13 +191,105 @@ def site_ogren(kok, raporlar, pdir=None, d=None, ctx=None):
             continue
         pr += [{"kalip": " ".join(s[4].split()[:15]), "video": v, "zaman": tr.ZAMAN.search(s[5])[0],
                 "teknik": pt._h(" · ".join(f"{x}: {an[x]}" for x in uy.ANATOMI)), "aday": s[0]} for s in ps]
+    tek = [x for x in tek if not (x[3] == "kare" and _gozlem_mu(f"{x[0]} {x[2]}"))]  # M2g K2: ham kare gözlemi kütüphaneye girmez
     if tek:
         dp.katalog_ekle(kok, {("frontend", "Teknikler"): [f"- {pt._h(a)} · video {v} · {pt._h(z)} · kaynak: {pt._h(k)}" for a, v, z, k in tek]})
+        teknik_duzenle(kok)
     return tek, uy.kutuphane_ekle(Path(kok), pr) if pr else 0, bekliyor
 
 
-def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIRMA_ARAC):
-    """Araçlı hafif çağrı + şema doğrulama (red → en fazla 2 yeniden istek); her çağrı defterde ayrı satır. → (durum, form | hata)."""
+ETIKET = re.compile(r"model etiketi|\b(?:opus|sonnet|haiku|gpt-?\d|gemini)\b|awwwards|site of the day|\bpuan|\d+(?:[.,]\d+)?\s*/\s*10\b|sayfa başlığı"
+                    r"|sekme başlığı|localhost|https?://|\bwww\.|\b\d{1,3}(?:\.\d{1,3}){3}\b|dosya (?:listesi|sekmesi|ağacı)", re.I)
+MEKANIZMA = re.compile(r"\bile\b|kullan|\bvia\b|\busing\b|clamp\(|scrolltrigger|\bgsap\b|three\.?js|webgl|shader|\blenis\b|keyframe|transition|transform"
+                       r"|animasyon|parallax|\bpin", re.I)
+SAHNE_SKILL = ("web-sahne-desenleri", "scroll-craft", "creative-coding")
+
+
+def _gozlem_mu(s):
+    """M2g K2: ham kare okuması (model/araç etiketi, sayfa başlığı/puanı, adres, dosya listesi) ve mekanizma yok → gözlem; belirsizde teknik."""
+    return bool(ETIKET.search(s)) and not MEKANIZMA.search(s)
+
+
+def _kutuphaneler(kok):
+    """M2g K3: omer-kutuphaneler tablosu {ad: pin} + kurulu sahne skill'lerinin metni {skill: metin}."""
+    sk, ev = Path(kok) / "skills", Path.home() / ".claude"
+    y, kut, met = sk / "omer-kutuphaneler" / "SKILL.md", {}, {}
+    for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else []):
+        h = [x.strip(" `") for x in s.strip().strip("|").split("|")]
+        if s.startswith("|") and h[0] and h[0] != "kütüphane" and not set(h[0]) <= set("-: "):
+            kut[h[0]] = (re.search(rf"{re.escape(h[0])}@([\w.\-]+)", s) or [None, None])[1]
+    for n in SAHNE_SKILL:
+        f = next((p for p in [sk / n / "SKILL.md", ev / "skills" / n / "SKILL.md", *(ev / "plugins").glob(f"**/skills/{n}/SKILL.md")] if p.is_file()), None)
+        if f:
+            met[n] = f.read_text(encoding="utf-8")
+    return kut, met
+
+
+def _kutuphane_kontrol(metin, kut, met, zorunlu=False):
+    """M2g K3: satırdaki kütüphane adı → 'bizde: <pin/skill>' | 'bizde yok' (ad yoksa ve zorunlu değilse '')."""
+    def ara(a, t):
+        return re.search(rf"(?<![\w-]){re.escape(a)}(?![\w-])", t, re.I)
+    adlar = [x.strip() for x in re.findall(r"tahmin:\s*([^·;,()]+)", metin) if x.strip()]
+    bul = [f"omer-kutuphaneler/{a}" + (f"@{p}" if p else "") for a, p in kut.items() if ara(a, metin)]
+    bul += [n for n, t in met.items() if any(ara(a, t) for a in adlar)]
+    return f"bizde: {', '.join(dict.fromkeys(bul))}" if bul else "bizde yok" if adlar or zorunlu else ""
+
+
+def teknik_duzenle(kok):
+    """M2g K2-K4: frontend.md ## Teknikler yeniden yazılır — kare gözlemi çıkar; 'kontrol edilmedi' yerine bizde/bizde yok;
+    aynı teknik (tr.normal ad) tek satır + tüm video kaynakları. → (çıkan gözlem, kalan teknik, birleşen, bizde, bizde yok)"""
+    y = Path(kok) / "docs" / "departmanlar" / "frontend.md"
+    t = y.read_bytes().decode("utf-8") if y.is_file() else ""
+    nl = "\r\n" if "\r\n" in t else "\n"
+    L = t.split(nl)
+    if "## Teknikler" not in L:
+        return 0, 0, 0, 0, 0
+    i = L.index("## Teknikler") + 1
+    j = next((n for n in range(i, len(L)) if L[n].startswith("## ")), len(L))
+    kut, met = _kutuphaneler(kok)
+    out, anah, gozlem, birles = [], {}, 0, 0
+    for s in L[i:j]:
+        p = s[2:].split(" · ") if s.startswith("- ") else []
+        v = next((n for n, x in enumerate(p) if x.startswith("video ")), None)
+        if v is None:
+            out.append(s)
+            continue
+        ad, kay, ek = " · ".join(p[:v]), [], []
+        for x in p[v:]:
+            if x.startswith("video "):
+                kay.append(x)
+            elif x.startswith(("kaynak: ", "bizde")) or ek:
+                ek.append(x)
+            else:
+                kay[-1] += " · " + x
+        if "kaynak: kare" in ek and _gozlem_mu(f"{ad} {' '.join(kay)}"):
+            gozlem += 1
+            continue
+        zor = any("kontrol edilmedi" in x or x.startswith("bizde") for x in ek)  # önceki kontrol sonucu da zorunlu kılar (idempotent)
+        ek = [x for x in (re.sub(r"\(?[^()·:]*kontrol edilmedi\)?", "", x).strip() for x in ek if not x.startswith("bizde")) if x not in ("", "kaynak:")]
+        k = tr.normal(ad) or ad
+        if k in anah:
+            o, birles = anah[k], birles + 1
+            o["kay"] += [x for x in kay if x not in o["kay"]]
+            o["ek"] += [x for x in ek if x not in o["ek"]]
+            o["zor"] = o["zor"] or zor
+        else:
+            anah[k] = {"ad": ad, "kay": kay, "ek": ek, "zor": zor}
+            out.append(anah[k])
+    yeni, sayi = [], {"bizde:": 0, "bizde yok": 0}
+    for o in out:
+        if isinstance(o, str):
+            yeni.append(o)
+            continue
+        b = _kutuphane_kontrol(" · ".join([o["ad"], *o["kay"], *o["ek"]]), kut, met, o["zor"])
+        sayi[b[:9] if b.startswith("bizde yok") else b[:6]] = sayi.get(b[:9] if b.startswith("bizde yok") else b[:6], 0) + bool(b)
+        yeni.append("- " + " · ".join([o["ad"], *o["kay"], *o["ek"], *([b] if b else [])]))
+    y.write_bytes(nl.join(L[:i] + yeni + L[j:]).encode("utf-8"))
+    return gozlem, len(anah), birles, sayi["bizde:"], sayi["bizde yok"]
+
+
+def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIRMA_ARAC, denet=None):
+    """Araçlı hafif çağrı + şema doğrulama (+ M2g denet: ek doğrulama; red → en fazla 2 yeniden istek); her çağrı defterde ayrı satır. → (durum, form | hata)."""
     hatalar = []
     for _ in range(3):
         if pt._tavan(pdir, d):
@@ -189,7 +299,7 @@ def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIR
                       butce=min(d["butce"], d["tavan"]["usd"] - pt._defter(pdir)[1]), env=env, araclar=araclar)
         except Exception as e:
             y = {"hata": f"taşıyıcı: {e}"[:200]}
-        hatalar = [] if y.get("hata") else pt._denet(y.get("form"), sema, ad)
+        hatalar = [] if y.get("hata") else (pt._denet(y.get("form"), sema, ad) or (denet(y["form"]) if denet else []))
         u = y.get("usage") or {}
         tr.kayit_ekle(pdir / "defter.jsonl", [{
             "zaman": datetime.now().isoformat(timespec="seconds"), "adim": adim, "aday": ad, "videolar": [], "model": d["model"],
@@ -362,7 +472,7 @@ def panel(pdir, d, kok):
           "## OLASI EŞDEĞER (Jev p 0.5–0.75)", *(olasi_es or ["- yok"]), "## OLASI TEKRAR", *(olasi or ["- yok"]), "## Araştırılmadı", *(kalan or ["- yok"]),
           f"## {tr.SITE_UI}", *([f"- {pt._h(a)} · {v} · {pt._h(z)} ({pt._h(k)}) → docs/departmanlar/frontend.md" for a, v, z, k in d.get("site_ui", [])] or ["- yok"]),
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
-          "## Geliştirme önerileri", *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
+          "## Geliştirme önerileri", *[f"- bizde bilgi yok: {pt._h(x)}" for x in d.get("bizde_yok", [])], *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
                                         f"{x['oneri']}: {pt._h(x['gelistirme_onerisi'])} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
           "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
     _yaz(y, L)
