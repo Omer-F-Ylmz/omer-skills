@@ -53,3 +53,4 @@ kaynak: https://github.com/anthropics/claude-code
 kaynak: https://github.com/anthropics/claude-code/tree/main/examples
 ## Destek
 - L9c49WVG_ho · 0:17 · Ücretsiz anahtarın verildiği kodlama ajanı · kanıt: Karede Claude simgesi görünüyor. · iddia: Anahtar Claude Code veya Cursor'a verilince ajan tamamen ücretsiz çalışıyor
+- M9qgd_KJkWc · 0:00 · Terminale komut kopyalanarak kurulan, web sitesi üretiminde kullanılan kodlama aracı. · kanıt: First, install Cloud Code from the provided URL and copy the command into your terminal.
