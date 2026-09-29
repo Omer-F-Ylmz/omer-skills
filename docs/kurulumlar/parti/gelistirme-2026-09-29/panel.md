@@ -4,18 +4,18 @@
 
 | aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |
 |---|---|---|---|---|---|---|---|
-| jcode | CLI | 1 | MIT | koşmadı: kurulu | ZATEN VAR | eşdeğer: codex p 0.75 | |
-| graphify | CLI | 2 | Apache-2.0 (README rozeti; depoda ayrıca LICENSE-MIT dosyası var, bir web sonucu MIT diyor. Çift lisans olabilir, doğrulanmadı) | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | |
-| headroom | CLI | 1 | Apache-2.0 | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | |
-| ponytail | CLI | 1 | MIT | koşmadı: kurulu | ZATEN VAR | kurulu: ponytail | |
-| superpowers | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: superpowers · alt tür çakışması (kurulu > ürün) | |
-| claude-mem | plugin | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: claude-mem | |
-| impeccable | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: impeccable · alt tür çakışması (kurulu > ürün) | |
-| task-observer | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: anthropic-skills:task-observer · alt tür çakışması (kurulu > servis) | |
-| claude-code | CLI | 1 | bilinmiyor | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | |
-| rtk | CLI | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | |
-| graphify-gelistirme | CLI | 2 | — | — | UYARLA | graphify query çıktısı için .rtk/filters.toml'da filtre yazıp `rtk trust` ver. Önce çıktı boyutunu ölç. (kanıt: Bizdeki kayıt (rtk-kapsami): 'Süzülmeyen büyük komutlar: rtk proxy (bilerek), graphify query (öneri)'; .rtk/filters.toml rtk trust verilene kadar etkin değil.) | |
-| rtk-gelistirme | CLI | 1 | — | — | UYARLA | `rtk trust` ile .rtk/filters.toml'u etkinleştir. Kapsam oranını yeniden ölç. (kanıt: Bizdeki kayıt: '.rtk/filters.toml rtk trust verilene kadar etkin değil'; 'Son 3 günde Bash komutlarının %29.7'si RTK'dan geçti' (docs/olcumler/rtk-kapsami.md).) | |
+| jcode | CLI | 1 | MIT | koşmadı: kurulu | ZATEN VAR | eşdeğer: codex p 0.75 | UYARLA |
+| graphify | CLI | 2 | Apache-2.0 (README rozeti; depoda ayrıca LICENSE-MIT dosyası var, bir web sonucu MIT diyor. Çift lisans olabilir, doğrulanmadı) | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| headroom | CLI | 1 | Apache-2.0 | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| ponytail | CLI | 1 | MIT | koşmadı: kurulu | ZATEN VAR | kurulu: ponytail | ZATEN VAR |
+| superpowers | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: superpowers · alt tür çakışması (kurulu > ürün) | ZATEN VAR |
+| claude-mem | plugin | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: claude-mem | ZATEN VAR |
+| impeccable | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: impeccable · alt tür çakışması (kurulu > ürün) | ZATEN VAR |
+| task-observer | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: anthropic-skills:task-observer · alt tür çakışması (kurulu > servis) | ZATEN VAR |
+| claude-code | CLI | 1 | bilinmiyor | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| rtk | CLI | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| graphify-gelistirme | CLI | 2 | — | — | UYARLA | graphify query çıktısı için .rtk/filters.toml'da filtre yazıp `rtk trust` ver. Önce çıktı boyutunu ölç. (kanıt: Bizdeki kayıt (rtk-kapsami): 'Süzülmeyen büyük komutlar: rtk proxy (bilerek), graphify query (öneri)'; .rtk/filters.toml rtk trust verilene kadar etkin değil.) | UYARLA |
+| rtk-gelistirme | CLI | 1 | — | — | UYARLA | `rtk trust` ile .rtk/filters.toml'u etkinleştir. Kapsam oranını yeniden ölç. (kanıt: Bizdeki kayıt: '.rtk/filters.toml rtk trust verilene kadar etkin değil'; 'Son 3 günde Bash komutlarının %29.7'si RTK'dan geçti' (docs/olcumler/rtk-kapsami.md).) | UYARLA |
 
 ## form_red
 - yok
