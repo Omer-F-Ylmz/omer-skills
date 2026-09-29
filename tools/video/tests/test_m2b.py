@@ -135,7 +135,7 @@ def test_birlestirme_ayni_repo_tek_aday_kurulu_arastirilmaz(tmp_path):
     a = Arastirici()
     pt.parti(_ns("akil", p.name), _actx(kok, a))
     d = json.loads((p / "durum.json").read_text(encoding="utf-8"))
-    assert d["adaylar"]["graphify"]["kurulu"] and a.cagrilar == []
+    assert d["adaylar"]["graphify"]["kurulu"] and "deneme" not in d["adaylar"]["graphify"]  # ilke 29: araştırma 0, karşılaştırma serbest
 
 
 # K2 araştırma çağrısı yalnız izinli araçlarla

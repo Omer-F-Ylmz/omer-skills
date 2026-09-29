@@ -20,11 +20,12 @@ def _panel(kok, pid=PID):
 class Ar:
     """Ada göre form döndüren sahte araştırıcı; çağrılan adlar kaydedilir."""
     def __init__(self, formlar):
-        self.formlar, self.adlar = formlar, []
+        self.formlar, self.adlar, self.cagrilar = formlar, [], []
 
     def __call__(self, sistem, metin, sema, **k):
         ad = metin.split("ADAY: ", 1)[1].split(" (", 1)[0].split(" ·", 1)[0]
         self.adlar.append(ad)
+        self.cagrilar.append(("karşılaştırma" if sistem == akil.SISTEM_GEL else "araştırma", ad, tuple(k.get("araclar") or ())))
         return {"form": {**_arastirma(ad), **self.formlar.get(ad, {})}, "usage": {}, "usd": 0.01, "sure": 0.1, "hata": None}
 
 
@@ -48,7 +49,8 @@ def test_k1_alt_tur(tmp_path):
     ar = Ar({"groq": {"lisans": "yok", "son_commit": "2026-09-01", "alt_tur": "servis", "ucretsiz_katman": "var"}})
     pt.parti(_ns("akil", p.name), _ctx(tmp_path, ar))
     r, _ = _panel(tmp_path)
-    assert ar.adlar == ["groq"]
+    assert [a for t, a, _ in ar.cagrilar if t == "araştırma"] == ["groq"]  # ilke 29: araştırma yalnız groq
+    assert {(t, x) for t, a, x in ar.cagrilar if a == "claude-code"} == {("karşılaştırma", ())}  # yalnız araçsız karşılaştırma
     assert r["claude-code"][5] == "ZATEN VAR"
     assert r["groq"][5] != "RED" and "servis" in r["groq"][6]
 

@@ -104,9 +104,14 @@ SISTEM_AN = ("Prompt anatomisi çıkarıcısısın (23c). Videodaki site yapım 
              "Birebir klon ya da izinsiz varlık önerme. " + KURAL)
 
 
-def _zaten(a):
-    """M2f K3: geliştirme karşılaştırmasına giren ZATEN VAR (kurulu · Jev eşdeğer ≥0.75 araç); kendi aracımız çağrısız kalır (M2c K1)."""
-    return a["tur"] not in ARAC_DISI and a["kurulu"] not in (None, "", "kendi aracımız") and (
+def _arastirma_disi(a):
+    """İlke 29 (i): araştırmaya gitmez — kendi aracımız + kurulu (80e0ab3)."""
+    return bool(a["kurulu"])
+
+
+def _karsilastir(a):
+    """İlke 29 (ii): geliştirme karşılaştırmasına giren ZATEN VAR, kendi aracımız DAHİL (kurulu · Jev eşdeğer ≥0.75 araç)."""
+    return a["tur"] not in ARAC_DISI and a["kurulu"] not in (None, "") and (
         _tam(a) or (a.get("esdeger_p") is not None and a["esdeger_p"] >= ESDEGER and a.get("alt_tur") == "araç"))
 
 
@@ -121,13 +126,13 @@ def _bizde(kok, ad):
 
 def gelistir(pdir, d, kok, ctx):
     """M2f K3: ZATEN VAR adayları → parti başına tek toplu hafif çağrı; kanıtsız öneri yazılmaz; sonuç durum.json'da (yeniden çağrılmaz)."""
-    z = {k: a for k, a in d.get("adaylar", {}).items() if _zaten(a)}
+    z = {k: a for k, a in d.get("adaylar", {}).items() if _karsilastir(a)}
     if not z or "gelistirme" in d:
         return d.get("gelistirme", [])
     metin = "\n\n".join(f"ADAY: {k} · bizde: {a['kurulu']}\nVİDEO: " + "; ".join(
         f"{v} {x['zaman']} {x['ne']} · kanıt: {x['kanit']}" + (f" · iddia: {'; '.join(x['iddialar'])}" if x.get("iddialar") else "")
-        for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{_bizde(kok, a['kurulu'])}\n</veri>" for k, a in z.items())
-    durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_GEL, metin, GELISTIRME, "gelistirme", "parti", ctx["env"])
+        for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{_bizde(kok, k if a['kurulu'] == 'kendi aracımız' else a['kurulu'])}\n</veri>" for k, a in z.items())
+    durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_GEL, metin, GELISTIRME, "gelistirme", "parti", ctx["env"], ())  # ilke 29: araçsız, yalnız rapor + bizde
     if durum != "tamam":
         print(f"geliştirme: {durum} {str(f)[:120]}")
         return []
@@ -173,7 +178,7 @@ def site_ogren(kok, raporlar, pdir=None, d=None, ctx=None):
     return tek, uy.kutuphane_ekle(Path(kok), pr) if pr else 0, bekliyor
 
 
-def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env):
+def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIRMA_ARAC):
     """Araçlı hafif çağrı + şema doğrulama (red → en fazla 2 yeniden istek); her çağrı defterde ayrı satır. → (durum, form | hata)."""
     hatalar = []
     for _ in range(3):
@@ -181,7 +186,7 @@ def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env):
             return "tavan", "parti tavanı"
         try:
             y = cagir(sistem, metin + ("\n\nÖNCEKİ FORM REDDEDİLDİ:\n" + "\n".join(hatalar[:10]) if hatalar else ""), sema, model=d["model"],
-                      butce=min(d["butce"], d["tavan"]["usd"] - pt._defter(pdir)[1]), env=env, araclar=ARASTIRMA_ARAC)
+                      butce=min(d["butce"], d["tavan"]["usd"] - pt._defter(pdir)[1]), env=env, araclar=araclar)
         except Exception as e:
             y = {"hata": f"taşıyıcı: {e}"[:200]}
         hatalar = [] if y.get("hata") else pt._denet(y.get("form"), sema, ad)
@@ -375,9 +380,9 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     adaylar, belirsiz = birlestir(raporlar, kok)  # aşama 5
     eski = d.get("adaylar", {})
     for k, a in adaylar.items():
-        a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not a["kurulu"]})  # kurulu her zaman kazanır
+        a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p") if x in eski.get(k, {})})
-        a.setdefault("durum", "kurulu" if a["kurulu"] else "onceki" if a["onceki"] else "bekliyor" if a["arac"] else "arac_degil")
+        a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] else "arac_degil")
     d.update(adaylar=adaylar, belirsiz=belirsiz)
     pt._yaz(yol, d)
     for k, a in adaylar.items():  # aşama 6: araç başına tek derin araştırma
