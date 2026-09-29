@@ -2,6 +2,7 @@
 docs/denemeler/<ad>.md → tavanlı `claude -p` A/B + Jev kalite puanı."""
 import json
 import hashlib
+import os
 import re
 import shutil
 import subprocess
@@ -151,7 +152,7 @@ def _kos(ctx, args, timeout=600, **k):
 
 
 def _kok(ctx):
-    return Path(ctx["env"].get("VIDEO_UYGULA_KOK") or KOK)
+    return Path(ctx.get("env", os.environ).get("VIDEO_UYGULA_KOK") or KOK)
 
 
 def _kayit(kok, ad, alan):

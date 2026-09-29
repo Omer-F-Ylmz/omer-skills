@@ -105,8 +105,8 @@ SISTEM_AN = ("Prompt anatomisi çıkarıcısısın (23c). Videodaki site yapım 
 
 
 def _zaten(a):
-    """M2f K3: panelin ZATEN VAR koşulu (kurulu · kendi aracımız · Jev eşdeğer ≥0.75 araç)."""
-    return a["tur"] not in ARAC_DISI and bool(a["kurulu"]) and (
+    """M2f K3: geliştirme karşılaştırmasına giren ZATEN VAR (kurulu · Jev eşdeğer ≥0.75 araç); kendi aracımız çağrısız kalır (M2c K1)."""
+    return a["tur"] not in ARAC_DISI and a["kurulu"] not in (None, "", "kendi aracımız") and (
         _tam(a) or (a.get("esdeger_p") is not None and a["esdeger_p"] >= ESDEGER and a.get("alt_tur") == "araç"))
 
 
@@ -458,7 +458,7 @@ def panel_uygula(ns, ctx):
         if not h[7]:
             bos += 1
         elif h[7].upper() in ("AL", "ERTELE", *og.KARAR) and any(
-                x.get("ad") == h[0] and x.get("parti", pid) == pid and str(x.get("karar", "")).startswith(f"{h[7].upper()} (Ömer, panel") for x in kayit):
+                x.get("ad") == h[0] and x.get("parti") == pid and str(x.get("karar", "")).startswith(f"{h[7].upper()} (Ömer, panel") for x in kayit):
             zaten += 1
         elif h[7].upper() in ("AL", "ERTELE", *og.KARAR):
             r = karar(SimpleNamespace(ad=h[0], secim=h[7].upper(), panel=ns.panel), ctx) or 0
@@ -467,7 +467,7 @@ def panel_uygula(ns, ctx):
         else:
             print(f"panel: {h[0]} → '{h[7]}' tanınmıyor")
             hatali, rc = hatali + 1, rc | 1
-    print(f"panel uygula: işlenen {n} · zaten kayıtlı {zaten} · boş {bos} · hatalı {hatali}")
+    print(f"panel uygula: işlenen {n}{f' · zaten kayıtlı {zaten}' if zaten else ''} · boş {bos} · hatalı {hatali}")  # M2e özet biçimi korunur
     return rc
 
 
