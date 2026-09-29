@@ -85,7 +85,8 @@ def _parti(kok, pid, raporlar):
     (p / "durum.json").write_text(json.dumps({"parti": pid, "tur": "short", "tarih": "2026-09-29", "model": hafif.MODEL, "butce": 0.5,
                                               "kuyruk": (kok / "kuyruk.md").as_posix(), "tavan": {"cagri": 12, "usd": 1.0},
                                               "durum": "tamam", "videolar": vid}), encoding="utf-8")
-    (kok / "envanter.json").write_text(json.dumps([{"ad": "graphify", "tur": "skill"}]), encoding="utf-8")
+    (e := kok / "docs" / "departmanlar" / "envanter.json").parent.mkdir(parents=True, exist_ok=True)
+    e.write_text(json.dumps([{"ad": "graphify", "tur": "skill"}]), encoding="utf-8")
     return p
 
 

@@ -812,6 +812,10 @@ def karar_isle(ns, ctx):
     """23b: Ömer `AL <ad>` / `RED <ad>` der → bekleyen/sor-<ad>.md işlenir (dene yeniden koşmaz): AL uret'in AL kuyruğu, RED bilgi kartı; sor silinir."""
     kok = _kok(ctx)
     b = kok / "docs" / "kurulumlar" / "bekleyen" / f"sor-{ns.ad}.md"
+    if ns.secim == "ERTELE" or (not b.is_file() and getattr(ns, "panel", None)):  # M2b K4: ertele ya da panel kararı → yalnız kayıt satırı
+        _kayit(kok, ns.ad, {"karar": f"{ns.secim} (Ömer{', panel' if getattr(ns, 'panel', None) else ''})", "tarih": date.today().isoformat()})
+        print(f"karar: {ns.ad} {ns.secim} → kayıt satırı eklendi")
+        return 0
     if not b.is_file():
         print(f"SOR bekleyen yok: {b}")
         return 1

@@ -511,3 +511,10 @@ def en_yakin(t, state, kurallar, a1=KURAL_ASAMA1):
             olas[a] = max(p, olas.get(a, 0.0))
     ilk = min(olas.items(), key=lambda x: (-x[1], x[0]), default=(sk.HICBIRI, 0))[0]
     return None if ilk == sk.HICBIRI else ilk
+
+
+SHORT_SN = 120  # M2b K0: short tek tanım — kuyruk.md (<2 dk) · paket künyesi · parti gruplama
+
+
+def short_mu(sn):
+    return 0 < (sn or 0) < SHORT_SN

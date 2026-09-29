@@ -320,7 +320,7 @@ def paket(ns, ctx):
     lk = m.urller(lk) if isinstance(lk, str) else lk
     zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
     kareler = _kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []
-    md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else 0 < (meta.get('duration') or 0) <= 60).lower()} · dil {dil[0] if dil else '?'}"
+    md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
@@ -1056,7 +1056,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--tur", type=int, metavar="N", help="23b AYRIŞTIR onarım turu (0 ilk ölçüm, en fazla 2); tur ≤12, toplam ≤24 claude -p")
     x = alt.add_parser("karar", help="23b: SOR bekleyen → Ömer'in AL|RED kararı (dene yeniden koşmaz); yalnız CC")
     x.add_argument("ad")
-    x.add_argument("secim", choices=["AL", "RED"])
+    x.add_argument("secim", choices=["AL", "RED", "ERTELE"])
     alt.add_parser("takas-geri", help="23b K9/K11: deneme sonuçları takas tablosuyla yeniden + mekanizma kaydı + ayrıştırma adayı (claude -p 0, Jev 0)")
     alt.add_parser("durum", help="docs/durum.md: köprü katalogu · son kararlar · ölçüm bulguları · ELE (≤3k token, elle bölüm korunur)")
     x = alt.add_parser("bilgi", help="bilgi/ kartları: guven · bayatlama · iddia")
@@ -1083,7 +1083,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--kare", type=int, default=0, help="openrouter vision: gönderilecek kare (≤6; short ≤3)")
     x.add_argument("--tarih")
     x = alt.add_parser("parti", help="MOTOR-M2a: kuyruk → paket → hafif claude -p tarayıcı formu → rapor + kayıt; .kos/<parti-id>/durum.json + defter.jsonl")
-    x.add_argument("eylem", choices=["baslat", "devam", "durum"])
+    x.add_argument("eylem", choices=["baslat", "devam", "durum", "akil", "kapat"])
     x.add_argument("hedef", help="baslat: kuyruk.md · devam/durum: parti-id")
     x.add_argument("--en-fazla", type=int, default=8, metavar="N")
     g = x.add_mutually_exclusive_group()
@@ -1094,6 +1094,13 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--usd-tavan", type=float, default=1.0, help="parti başında sabit $ tavanı (CLI total_cost_usd)")
     x.add_argument("--butce", type=float, default=0.5, help="çağrı başı --max-budget-usd")
     x.add_argument("--tarih")
+    x.add_argument("--tum", action="store_true", help="akil: tüm kayıt genelinde birleştir")
+    x.add_argument("--form-red-yeniden", action="store_true", help="devam: form_red videolara yeniden deneme hakkı")
+    x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
+    x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")
+    x = alt.add_parser("panel", help="MOTOR-M2b: panel.md Ömer sütunu (AL/RED/ERTELE) → video karar; boş satır dokunulmaz")
+    x.add_argument("eylem", choices=["uygula"])
+    x.add_argument("panel")
     ns = p.parse_args(argv)
     env = os.environ if env is None else env
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
@@ -1102,7 +1109,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
                 "rapor-denetle": rapor_denetle, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
-                "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti}[ns.komut](ns, ctx)
+                "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti, "panel": pt.panel}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4
