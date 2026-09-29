@@ -1,0 +1,9 @@
+Graph: graphify-out/graph.json (6183 nodes) | Traversal: BFS depth=2 | Start: ['kapat()']
+
+NODE kapat() [src=tools/video/video/akil.py loc=L592 community=akil.py]
+NODE teknik_duzenle() [src=tools/video/video/akil.py loc=L241 community=akil.py]
+EDGE kapat() -> _defter() [calls]
+
+[!] TRUNCATED: showing 2 of 254 nodes (~2000-token budget). The answer may be among the omitted nodes.
+Error: graph.json stale, run graphify update .
+warning: 3 nodes without source location
