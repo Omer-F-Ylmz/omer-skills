@@ -1,34 +1,34 @@
 # Karar paneli — 2026-09-29-short
 
-Ömer sütununa AL / RED / ERTELE yaz; boş satır dokunulmaz → `video panel uygula <bu dosya>`.
+Ömer sütununa AL / RED / ERTELE ya da karar (DENE · ÖĞREN · UYARLA · ZATEN VAR) yaz; boş satır dokunulmaz → `video panel uygula <bu dosya>`.
 
 | aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |
 |---|---|---|---|---|---|---|---|
-| ucretsiz-llm-api-listesi-reposu | teknik | 1 | — | — | ÖĞREN | teknik: kurulabilir araç değil | |
-| openrouter | CLI | 1 | yok | koşmadı | RED | lisans uygunsuz/yok: yok | |
-| groq | CLI | 1 | yok | koşmadı | RED | lisans uygunsuz/yok: yok | |
-| nvidia-nim | CLI | 1 | bilinmiyor | koşmadı | RED | lisans uygunsuz/yok: bilinmiyor | |
-| kimi-deepseek-gemini-ucretsiz-erisim | teknik | 1 | — | — | ÖĞREN | teknik: kurulabilir araç değil | |
-| saglayici-api-anahtarini-claude-code-cur | iş akışı | 1 | — | — | T0 | kural önerisi (omer-kurallar) | |
-| claude-code | CLI | 1 | bilinmiyor | koşmadı | RED | lisans uygunsuz/yok: bilinmiyor | |
-| cursor | CLI | 1 | yok | koşmadı | RED | lisans uygunsuz/yok: yok | |
-| basit-uygulama-islerini-ucretsiz-modele- | ipucu | 1 | — | — | T0 | kural önerisi (omer-kurallar) | |
-| jcode | CLI | 1 | MIT | koşmadı | ZATEN VAR | kurulu: codex | |
-| otomatik-hafiza | teknik | 1 | — | — | ÖĞREN | teknik: kurulabilir araç değil | |
-| coklu-paralel-oturum | iş akışı | 1 | — | — | T0 | kural önerisi (omer-kurallar) | |
-| ajan-yardimci-ajan-orkestrasyonu | iş akışı | 1 | — | — | T0 | kural önerisi (omer-kurallar) | |
-| harness-kavrami | teknik | 1 | — | — | ÖĞREN | teknik: kurulabilir araç değil | |
-| graphify | CLI | 2 | Apache-2.0 (README rozeti; depoda ayrıca LICENSE-MIT dosyası var, bir web sonucu MIT diyor. Çift lisans olabilir, doğrulanmadı) | koşmadı | ZATEN VAR | kurulu: graphify | |
-| webcmd | skill | 1 | Apache-2.0 | koşmadı | RED | son commit bilinmiyor | |
-| markitdown-microsoft | CLI | 1 | MIT | koşmadı | RED | son commit bilinmiyor | |
-| headroom | CLI | 1 | Apache-2.0 | koşmadı | ZATEN VAR | kurulu: headroom | |
-| codeburn | CLI | 1 | bilinmiyor (repoda LICENSE dosyası var, içeriği okunamadı) | koşmadı | RED | lisans uygunsuz/yok: bilinmiyor (repoda LICENSE dosyası var, içeriği okunamadı) | |
-| ponytail | CLI | 1 | MIT | koşmadı | ZATEN VAR | kurulu: ponytail | |
-| find-skills | skill | 1 | — | — | SOR | araştırılmadı (tavan) | |
-| superpowers | skill | 1 | — | — | ZATEN VAR | kurulu: superpowers | |
-| claude-mem | plugin | 1 | — | — | ZATEN VAR | kurulu: claude-mem | |
-| impeccable | skill | 1 | — | — | ZATEN VAR | kurulu: impeccable | |
-| task-observer | skill | 1 | — | — | ZATEN VAR | kurulu: anthropic-skills:task-observer | |
+| ucretsiz-llm-api-listesi-reposu | teknik | 1 | — | koşmadı: repo yok | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
+| openrouter | CLI | 1 | yok | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| groq | CLI | 1 | yok | koşmadı: servis | SOR | servis: koşullar · ücretsiz katman · gizlilik · eksik: kullanim_kosullari, ucretsiz_katman, veri_gizliligi | DENE |
+| nvidia-nim | CLI | 1 | bilinmiyor | koşmadı: servis | SOR | servis: koşullar · ücretsiz katman · gizlilik · eksik: kullanim_kosullari, ucretsiz_katman, veri_gizliligi | DENE |
+| kimi-deepseek-gemini-ucretsiz-erisim | teknik | 1 | — | koşmadı: servis | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
+| saglayici-api-anahtarini-claude-code-cur | iş akışı | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | RED |
+| claude-code | CLI | 1 | bilinmiyor | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| cursor | CLI | 1 | yok | koşmadı: servis | SOR | servis: koşullar · ücretsiz katman · gizlilik · eksik: kullanim_kosullari, ucretsiz_katman, veri_gizliligi | ÖĞREN |
+| basit-uygulama-islerini-ucretsiz-modele- | ipucu | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ZATEN VAR |
+| jcode | CLI | 1 | MIT | koşmadı: kurulu | ZATEN VAR | eşdeğer: codex p 0.75 | UYARLA |
+| otomatik-hafiza | teknik | 1 | — | koşmadı: ürün | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
+| coklu-paralel-oturum | iş akışı | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | RED |
+| ajan-yardimci-ajan-orkestrasyonu | iş akışı | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ZATEN VAR |
+| harness-kavrami | teknik | 1 | — | koşmadı: servis | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
+| graphify | CLI | 2 | Apache-2.0 (README rozeti; depoda ayrıca LICENSE-MIT dosyası var, bir web sonucu MIT diyor. Çift lisans olabilir, doğrulanmadı) | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| webcmd | skill | 1 | Apache-2.0 | koşmadı: SkillSpector raporu yok | SOR | eksik: son_commit | UYARLA |
+| markitdown-microsoft | CLI | 1 | MIT | koşmadı: SkillSpector raporu yok | SOR | eksik: son_commit | DENE |
+| headroom | CLI | 1 | Apache-2.0 | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
+| codeburn | CLI | 1 | bilinmiyor (repoda LICENSE dosyası var, içeriği okunamadı) | koşmadı: servis | SOR | servis: koşullar · ücretsiz katman · gizlilik · eksik: kullanim_kosullari, ucretsiz_katman, veri_gizliligi | ERTELE |
+| ponytail | CLI | 1 | MIT | koşmadı: kurulu | ZATEN VAR | kurulu: ponytail | ZATEN VAR |
+| find-skills | skill | 1 | — | koşmadı: repo yok | SOR | araştırılmadı (tavan) | |
+| superpowers | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: superpowers | ZATEN VAR |
+| claude-mem | plugin | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: claude-mem | ZATEN VAR |
+| impeccable | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: impeccable | ZATEN VAR |
+| task-observer | skill | 1 | — | koşmadı: kurulu | SOR | olası eşdeğer: anthropic-skills:task-observer p 0.73 | |
 
 ## form_red
 - M9qgd_KJkWc: ['M9qgd_KJkWc.aciklama_baglantilari: karar yok: https://www.skool.com/buildroom/', 'M9qgd_KJkWc.iddialar[2].karede_gorulen: kare gönderildi, karede görülen boş olamaz', 'M9qgd_KJkWc rapor: kanıt zaman
@@ -49,8 +49,10 @@
 - basit-uygulama-islerini-ucretsiz-modele-: Ajan Claude'da kalırken uygulamadaki basit işlemler ücretsiz modelle yapılır
 - coklu-paralel-oturum: Yavaşlama olmadan birden çok oturumu aynı anda çalıştırma
 - ajan-yardimci-ajan-orkestrasyonu: Bir ajan yönetir, diğerleri aynı kod tabanında çakışmadan çalışır
+## OLASI EŞDEĞER (Jev p 0.5–0.75)
+- task-observer ≈ anthropic-skills:task-observer p 0.73
 ## OLASI TEKRAR
-- claude-mem ≈ claude-mm (adaylar/claude-mm.md)
+- yok
 ## Araştırılmadı
 - find-skills: tavan parti tavanı
 ## Defter

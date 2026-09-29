@@ -57,3 +57,8 @@ kaynak: https://github.com/1jehuang/jcode
 kaynak: https://jcode.sh/
 ## Destek
 - enFgYQvI1dM · 0:00 · Rust ile yazılmış ücretsiz açık kaynak kodlama ajanı harness'ı · kanıt: Kareden: “JCode rebuilt it from scratch in rust”; adı ASR'de "J code" · iddia: JCode ücretsiz ve açık kaynak
+## Yapım tarifi (Ömer UYARLA, 2026-09-29)
+- hedef: PostToolUse hook — aynı oturumda aynı Read (yol + aralık) ya da aynı Grep (desen + yol) tekrarlanırsa çıktı "daha önce görüldü (<çağrı no>)" diye kısaltılır
+- anahtar: araç + yol + aralık/desen hash'i; oturum başına geçici dosya; dosya değiştiyse (mtime) kısaltma yok
+- Headroom çakışma notu: headroom da çıktıyı sıkıştırır; kısaltma satırı ilk görülen çağrının headroom hash'ini taşımalı, yoksa retrieve yolu kopar
+- token: ölçüt tekrar eden Read/Grep oranı; koşulmaz

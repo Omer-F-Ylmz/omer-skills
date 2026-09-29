@@ -279,3 +279,26 @@
 {"ad": "max-thinking-tokens-ayarı", "katman": "T0", "yargi": "KUR", "karar": "DENE (Ömer 28 Eyl; token, kural değil ayar) → docs/denemeler/max-thinking-tokens.md (koşulmaz; TOKEN-DENEME-2'de ölçülecek)", "tarih": "2026-09-28", "video": "v-vRYtvWDYs", "kanal": "Muzaffer Kadir | mkdir dev", "sponsor": false, "kaynak_commit": null, "geri_alma": "rm docs/denemeler/max-thinking-tokens.md", "departman": "verimlilik", "duzeltme": "24e-1-KAPANIŞ K6: Ömer kararı (28 Eyl)"}
 {"ad": "claude-code-subagent-model-ayarı", "katman": "-", "yargi": "ÖĞREN", "karar": "DENE (Ömer 28 Eyl; token) → docs/denemeler/subagent-haiku.md (koşulmaz); CLAUDE:14 'alt ajan sonnet' ölçümle yeniden değerlendirilir, çelişki RED sebebi değil (omer-kurallar 21)", "tarih": "2026-09-28", "video": "v-vRYtvWDYs", "kanal": "Muzaffer Kadir | mkdir dev", "sponsor": false, "kaynak_commit": null, "geri_alma": "rm docs/denemeler/subagent-haiku.md", "departman": "surec-ajan-arac", "duzeltme": "24e-1-KAPANIŞ K6: Ömer kararı (28 Eyl)"}
 {"ad": "ucuz-tarayici", "karar": "RED (Ömer) · TOKEN-DENEME-2a takas tablosu SOR: openrouter:openai/gpt-6-luna-pro (tasarruf 91.1 · düşüş 50.0 · düşüş >%20 & tasarruf ≥%50); openrouter:qwen/qwen3.8-27b:free (tasarruf 100.0 · düşüş 100.0 · düşüş >%20 & tasarruf ≥%50). Karar Ömer'in: kalite düşüşü (denetim hatası/recall) tasarrufa değer mi? Ayrıntı docs/denemeler/ucuz-tarayici.md. Varsayılan sonnet kalır.", "tarih": "2026-09-29"}
+{"ad": "ucretsiz-llm-api-listesi-reposu", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "openrouter", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "groq", "karar": "DENE (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "nvidia-nim", "karar": "DENE (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "kimi-deepseek-gemini-ucretsiz-erisim", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "saglayici-api-anahtarini-claude-code-cur", "karar": "RED (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "claude-code", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "cursor", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "basit-uygulama-islerini-ucretsiz-modele-", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "jcode", "karar": "UYARLA (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "otomatik-hafiza", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "coklu-paralel-oturum", "karar": "RED (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "ajan-yardimci-ajan-orkestrasyonu", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "harness-kavrami", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "graphify", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "webcmd", "karar": "UYARLA (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "markitdown-microsoft", "karar": "DENE (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "headroom", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "codeburn", "karar": "ERTELE (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "ponytail", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "superpowers", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "claude-mem", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}
+{"ad": "impeccable", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-29"}

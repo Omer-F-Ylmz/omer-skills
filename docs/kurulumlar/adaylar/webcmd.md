@@ -55,3 +55,7 @@ kaynak: https://github.com/agentrhq/webcmd
 kaynak: https://github.com/agentrhq/webcmd
 ## Destek
 - bS6IlkUozAI · 0:12 · Mevcut masaüstü tarayıcıyı AI ajanları için siteleri alan adı bazında hatırlayan, stealth sürücülü, öğrenen bir tarayıcıya dönüştüren açık kaynaklı araç/skill. · kanıt: The tool is called WebCMD. It transforms the desktop browser you already use · iddia: Ajanlar her web erişiminde sıfırdan başlayıp binlerce token harcıyor; WebCMD bunu bellekle önlüyor.; Site değişince WebCMD değişikliği doğrular, eski bilgiyi günceller, sonraki çalıştırma düzeltilmiş bilgiyi kullanır.
+## Yapım tarifi (Ömer UYARLA, 2026-09-29)
+- hedef: site-hafızası skill (yalnız md) — ziyaret edilen sitenin yapısı/komutları docs/site-hafizasi/<alan>.md'de tutulur
+- akış: siteye gitmeden önce hafıza okunur; yeni öğrenilen gezinme adımı hafızaya eklenir; 30 günden eski kayıt tazelenir
+- koşulmaz; yapım ayrı dalga
