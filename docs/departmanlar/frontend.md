@@ -200,5 +200,122 @@ Müdür: `departman-frontend`
 - tutarlı tema/yoğunluk kararı (klasik vs. animasyonlu) · UYARLA · video 39IlNR-P3-Q · 5:14 anlatım
 - footer'da mouse hover ışık efekti · UYARLA · video 39IlNR-P3-Q · 3:27 (k00207 anlatımı, "when I move mouse over it, light appears")
 - mobil görünüm devtools ile responsive test · ÖĞREN · video 39IlNR-P3-Q · 14:11, k00851 karesi (iPhone 14 Pro Max devtools)
+- npm sayfası: 'npm i framer-motion' seçili; github.com/motiondivision/motion; 7648 Dependents, 1,381 Versions; 41,411,060 haftalık indirme; sürüm 12.38.0; MIT. · video M9qgd_KJkWc · 0:21 · kaynak: kare
+- Landing page (marka renkleri, animasyon) · video 86HM0RUWhCk · 7:13 · kaynak: kare
+- Referans site klonu ve markaya uyarlama · video 86HM0RUWhCk · 13:46 · kaynak: altyazı
+- Hero animasyonlu arka plan (21st.dev) · video 86HM0RUWhCk · 19:17 · kaynak: altyazı
+- Parlayan CTA butonu · video 86HM0RUWhCk · 25:18 · kaynak: altyazı
+- VS Code Welcome ekranı; son projeler arasında 'Website Building YT'; 'Get started with Claude Code' kartı. · video 86HM0RUWhCk · 0:30 · kaynak: kare
+- Uzantılar panelinde 'Claude Code for VS Code' (Anthropic) kurulu; sağda Claude Code paneli, 'Bypass permissions' yazıyor. · video 86HM0RUWhCk · 1:27 · kaynak: kare
+- Diyagram: CLAUDE.md (Project Instructions) sistem istemi olarak enjekte edilir; 'CLAUDE.md loads before EVERY message'. · video 86HM0RUWhCk · 2:25 · kaynak: kare
+- CLAUDE.md: 'Always Do First – Invoke the frontend-design skill'; Reference Images, Local Server (node serve.mjs, localhost:3000). · video 86HM0RUWhCk · 3:17 · kaynak: kare
+- Skills diyagramı: Claude bir skill'in yardım edip edemeyeceğini kontrol eder; Yol A uzman skill, Yol B genel bilgi. · video 86HM0RUWhCk · 4:10 · kaynak: kare
+- Claude Code girişinde landing page istemi; brand_assets içinde 'AIS Brand Guidelines-1.png' ve 'AIS PNG.png'. · video 86HM0RUWhCk · 6:12 · kaynak: kare
+- Üretilen AIS landing page: 'Build the Future with AI Automation', JOIN NOW butonu, 5,000+ Members. · video 86HM0RUWhCk · 7:13 · kaynak: kare
+- Beş adımlı şema: 0 CLAUDE.md, 1 Frontend Design Skill, 2 Screenshot Loop, 3 ve 4 henüz boş. · video 86HM0RUWhCk · 8:31 · kaynak: kare
+- CLAUDE.md ile projede brand_assets, node_modules, temporary screenshots, index.html, package.json, screenshot.mjs, serve.mjs. · video 86HM0RUWhCk · 9:23 · kaynak: kare
+- Düşük / Orta / Yüksek (seçili) / Çok yüksek; model: "GPT 5.6 Sol" · video yp7gg8cG5wc · 3:35 Zeka seviyesi dropdown · kaynak: kare
+- "1. zanwei/design-dna" (Stars: 1,604, Maintained: Yes), "2. ibelick/ui-skills" (Stars: 7,826), "3. 14islands/r3f-scroll-rig" · video yp7gg8cG5wc · 6:41 Repo listesi · kaynak: kare
+- "ibelick/ui-skills", Production Status: "Research", Priority: "Medium" · video yp7gg8cG5wc · 19:10 Content Pipeline tablosu satırı · kaynak: kare
+- "ai/size-limit", Category: "Frontend performance workflow", Video Potential: "Medium" · video yp7gg8cG5wc · 21:14 Repo inceleme kartı · kaynak: kare
+- "barvin/number-flow", Review Status dropdown: New / Review / Test / Video Candidate / Rejected, Video Potential: "High" · video yp7gg8cG5wc · 22:15 Repo inceleme kartı · kaynak: kare
+- Scroll'a bağlı kademeli metin belirme (reveal, fade+translateY) · video JfmAm3sxCSc · GSAP · kaynak: omer-kutuphaneler/web-sahne-desenleri kontrol edilmedi
+- Yumuşak (inertial) kaydırma · video JfmAm3sxCSc · tahmin: Lenis · kaynak: omer-kutuphaneler/scroll-craft kontrol edilmedi
+- 3D sarmal görsel galeri sahnesi · video JfmAm3sxCSc · Three.js · kaynak: omer-kutuphaneler/web-sahne-desenleri kontrol edilmedi
+- Hover'da görsele parallax/geri kayma · video JfmAm3sxCSc · tahmin: CSS/JS transform + mousemove veya GSAP · kaynak: yok
+- Büyük serif italik başlık tipografisi + kontrast renk paneli · video JfmAm3sxCSc · tahmin: özel/serif display font (ad ekranda görünmüyor) · kaynak: yok
+- Kademeli (staggered) satır/blok belirmesi (scroll top 80% eşiği) · video JfmAm3sxCSc · tahmin: GSAP ScrollTrigger · kaynak: yok
+- "new-video / Create premium studio landing page with spiral gallery" · video JfmAm3sxCSc · 6:37 Dosya sekmesi · kaynak: kare
+- CONFIG, scene/camera/renderer setup, createCurvedTileGeometry, buildSpiral · video JfmAm3sxCSc · 6:37 script.js · kaynak: kare
+- spinVelocity callback, "existing lenisRaf loop" · video JfmAm3sxCSc · 6:37 shaders.js · kaynak: kare
+- Hero title 138.24px (was 187.2px); 23 .reveal-text elements; mid-scroll opacity 0.07 / translateY(44.66px); canvas 1440x900, is-ready; "No console errors"; "Dev server still running on http://localhost:5174/" · video JfmAm3sxCSc · 6:37 Doğrulama metrikleri · kaynak: kare
+- "Opus 4.7 1M Extra high" · video JfmAm3sxCSc · 6:37 Sağ altta model etiketi · kaynak: kare
+- "Unlock your AI design superpowers", "copy prompt" özelliği, "Powered by DESIGN ROCKET" · video JfmAm3sxCSc · 9:42 motionsites.ai anasayfası · kaynak: kare
+- 3D dairesel (ring) galeri kart dizilimi, transform-style:preserve-3d · video NyNScAc2u_o · tahmin: vanilla CSS 3D transform + GSAP · kaynak: yok
+- Scroll'a bağlı saat yönü/ters yönü dönüş · video NyNScAc2u_o · tahmin: GSAP · kaynak: yok
+- Hover'da kart yumuşak kayma/uzaklaşma geçişi · video NyNScAc2u_o · tahmin: GSAP · kaynak: yok
+- Mouse Y eksenine bağlı galeri parallax hareketi · video NyNScAc2u_o · tahmin: GSAP + JS mousemove · kaynak: yok
+- Dönerek açılan yükleme ekranı (loader→intro akışı) · video NyNScAc2u_o · tahmin: GSAP timeline · kaynak: yok
+- Masaüstü/mobil için tek kod tabanında ayrı davranış (breakpoint) · video NyNScAc2u_o · tahmin: CSS media query / JS breakpoint · kaynak: yok
+- Merkezde sabit başlık, hover'da kart odaklı bilgi değişimi · video NyNScAc2u_o · tahmin: vanilla JS DOM güncelleme · kaynak: yok
+- merkez başlık "We are STUDIO.", adres localhost:5179 · video NyNScAc2u_o · 0:30 STUDIO galeri ekranı · kaynak: kare
+- CLOU, Site of the Day - Jun 21 2022, puan 7.62/10, Unseen Studio · video NyNScAc2u_o · 1:34 Awwwards sayfası · kaynak: kare
+- DESIGN TOKENS (font Helvetica Neue/apple-system), CORE GEOMETRY (.gallery position:fixed, transform-origin orbit), EXACT CONSTANTS: PERSPECTIVE 1600, ITEM_COUNT 136, TURNS 1, ROT_Y 86, RING_SCALE 0.88, PARALLAX 4, MOBILE breakpoint max-width:768px · video NyNScAc2u_o · 6:14 Prompt/design-spec dosyası · kaynak: kare
+- proje "Interactive circular project gallery", working directory /Users/yildizdilske/Desktop/clou-deneme, model "Opus 4.8", durum "Needs input" · video NyNScAc2u_o · 7:14 Claude arayüzü · kaynak: kare
+- localhost:5179, "We are STUDIO." · video NyNScAc2u_o · 7:56 STUDIO galeri ekranı tekrar · kaynak: kare
+- Estetik yön seçimi (brütalist/maksimalist/retro-fütüristik/lüks/organik) sonra uygulama · video Gg35_iQWx7g · tahmin: frontend-design skill (anthropics/skills), kütüphane belirtilmemiş · kaynak: yok
+- Tipografi, renk (CSS variables), motion tasarımı, mekansal kompozisyon temel tasarım sütunları olarak vurgulanıyor · video Gg35_iQWx7g · tahmin: frontend-design skill, HTML/CSS/JS/React/Vue çıktısı (ekranda yazılı) · kaynak: yok
+- "npx skills add https://github.com/anthropics/skills --skill frontend-design"; INSTALLS 721.0K; GITHUB STARS 165.1K; REPOSITORY anthropics/skills; FIRST SEEN Jan 19 2026 · video Gg35_iQWx7g · 2:54 skills.sh/anthropics/skills/frontend-design · kaynak: kare
+- Hy3 (tencent), Step 3.7 Flash (stepfun), DeepSeek V4 Pro, MiniMax M3, Nemotron 3 Ultra (nvidia), GLM 5.2 (z-ai), Nemotron 3 Super (nvidia), Claude Sonnet 5 (anthropic, 559B tokens), Kimi K3 (moonshotai), Claude Opus 4.8 (anthropic, 391B tokens), MiMo-V2.5-Pro / MiMo-V2.5 (xiaomi) · video Gg35_iQWx7g · 9:08 openrouter.ai/apps/hermes-agent model/token sıralaması · kaynak: kare
+- Prompt'tan tam site (React component'ler) üretimi · video jGJ09wdTGDI · tahmin: Claude Design · kaynak: yok
+- Component bazlı dosya mimarisi (Nav.jsx, ProductCard.jsx, Primitives.jsx...) · video jGJ09wdTGDI · tahmin: React · kaynak: yok
+- Tasarım token sistemi (spacing, corner radii, elevation, renk paleti) · video jGJ09wdTGDI · tahmin: design tokens deseni · kaynak: yok
+- İkonografi kütüphanesi · video jGJ09wdTGDI · Lucide 1.25 · kaynak: yok
+- Tipografi: display + UI + mono font üçlüsü (Cormorant Garamond + Inter + JetBrains Mono) · video jGJ09wdTGDI · tahmin: web font servisi · kaynak: yok
+- Renk paleti tokenlaştırma (obsidian/emerald/champagne-gold) · video jGJ09wdTGDI · tahmin: Claude Design (colors_and_type.css) · kaynak: yok
+- Responsive breakpoint testi (mobile/tablet/desktop) · video jGJ09wdTGDI · tahmin: Chrome DevTools cihaz araç çubuğu · kaynak: yok
+- CSS Grid ile yerleşim · video jGJ09wdTGDI · tahmin: CSS Grid · kaynak: yok
+- "Limited 40/yr", "Boutique only" · video jGJ09wdTGDI · 4:48 CLAUDE marka etiketleri · kaynak: kare
+- HomeHero.jsx, HomeApp.jsx, BrandStory.jsx, FeaturedSection.jsx, NewsletterFooter.jsx, CartDrawer.jsx, Nav.jsx, ProductCard.jsx, Primitives.jsx, PressBar.jsx; sohbette "colors_and_type.css" ve token açıklaması (obsidian arka plan, emerald, champagne-gold, Cormorant Garamond + Inter + JetBrains Mono) · video jGJ09wdTGDI · 7:18 Design Files paneli · kaynak: kare
+- Spacing, Corner radii, Elevation system, Spacing scale, Badges & tags, Buttons, Form inputs, Iconography - Lucide 1.25, Product card; sohbette "chat upstream error ... invalid_request_error ... 0 tokens" hata mesajı (görsel düzenleme isteğinde) · video jGJ09wdTGDI · 9:23 Design System paneli · kaynak: kare
+- "iPad Mini 768x1024" cihaz simülasyonu, CSS grid-template-columns kodu · video jGJ09wdTGDI · 11:24 DevTools · kaynak: kare
+- sohbet + görev paneli iki sütun yerleşimi (GOAT arayüzü, sol chat/sağ gelen kutusu-görevler) · video XemheY_aM1g · tahmin: özel React uygulaması (GOAT), ekranda ad görünmüyor · kaynak: yok
+- liste + detay iki panelli grid (MiniMax'ten üretilen örnek arayüz önizlemesi) · video XemheY_aM1g · tahmin: MiniMax'in ürettiği HTML/CSS, araç adı ekranda/açıklamada geçmiyor · kaynak: yok
+- tek CTA'lı kısa e-posta şablon düzeni (komut satırı ≤7 kelime, gövde 3-7 cümle) · video XemheY_aM1g · tahmin: düz markdown şablon, framework yok · kaynak: yok
+- APP ACCELERATOR, BUSINESS, GOATSTARTER klasörleri · video XemheY_aM1g · 3:42 VS Code karşılama ekranı, Recent · kaynak: kare
+- "Sosyal medya stratejisi / Carousel tasarla / Müşteri (lead) bul / Outreach kampanyası" görev listesi, Plan: Paid · video XemheY_aM1g · 6:43 GOAT paneli · kaynak: kare
+- kategori listesi (Demo&Trial, Onboarding&Welcome, Satış&Closing, Partnership, İçerik&Newsletter, Event&Webinar, Feedback&Survey, İş Operasyon, Yatırımcı/PR, GOAT Tarzında), Toplam 100 şablon · video XemheY_aM1g · 8:37 terminal çıktısı · kaynak: kare
+- Scroll'a bağlı video scrub animasyonu · video 4cE9t4rE0-0 · tahmin: GSAP (ScrollTrigger) · kaynak: yok
+- Yumuşak/anchor kaydırma ile navbar geçişi · video 4cE9t4rE0-0 · tahmin: GSAP ScrollToPlugin · kaynak: yok
+- Renk/tipografi sistemi (deep navy/ivory, Cormorant Garamond + Inter) · video 4cE9t4rE0-0 · tahmin: Google Fonts (Cormorant Garamond, Inter) · kaynak: yok
+- Sabit navbar renk geçişi (transparent → ivory) · video 4cE9t4rE0-0 · GSAP · kaynak: yok
+- Minimal footer + geniş whitespace grid · video 4cE9t4rE0-0 · tahmin: CSS (grid/flex) · kaynak: yok
+- "Stripe Integrated Website", "LinkedIn Outreach Agent", "Multi-Agent Code Review", "Build a Mobile App" · video 4cE9t4rE0-0 · 2:46 şablon kartları · kaynak: kare
+- "Luxury Yacht Cinematic Shot", "Luxury Yacht Scroll Hero", "Premium Perfume Landing..." · video 4cE9t4rE0-0 · 4:35 sohbet listesi · kaynak: kare
+- "ONE ScrollTrigger... targetProgress = self.progress... gsap.ticker does the scrub" · video 4cE9t4rE0-0 · 7:22 kod · kaynak: kare
+- 2,089" · video 4cE9t4rE0-0 · 9:41 "Generated with Kling AI v3 (auto-routed for medium quality)"; "Credits Used · kaynak: kare
+- 2,836" · video 4cE9t4rE0-0 · 11:38 deployed url "yacth-demo-website.abacusai.app" (ekranda böyle yazıyor); "Cormorant Garamond + Inter fonts, GSAP scroll reveals"; "Credits Used · kaynak: kare
+- e-posta contact.yildzdikme@gmail.com, Team "YildzDikme", Credits Total 20,000(20K), Used 7,201(7.2K), Remaining 12,897(12.9K); sol menüde "MCP Server Configuration" · video 4cE9t4rE0-0 · 12:53 profil · kaynak: kare
+- kaydırmaya bağlı sahne geçişi (pencereden içeri girme, plan/metin belirme) · video b-LZ_Y9wor8 · tahmin: GSAP ScrollTrigger · kaynak: yok
+- yumuşak (inertia) kaydırma · video b-LZ_Y9wor8 · Lenis · kaynak: yok
+- 3D obje (jet modeli, blueprint girişli) · video b-LZ_Y9wor8 · tahmin: WebGL/Three.js · kaynak: yok
+- sürüklenince fizik tepkili slider (kağıt sallanması) · video b-LZ_Y9wor8 · tahmin: GSAP Draggable/Inertia · kaynak: yok
+- tipografi ile odak (iki kelimenin sırayla belirmesi) · video b-LZ_Y9wor8 · tahmin: GSAP timeline · kaynak: yok
+- noktalı 3D dünya küresi (footer) · video b-LZ_Y9wor8 · tahmin: cobe/globe.gl (ekranda/açıklamada ad geçmiyor) · kaynak: yok
+- varlıklar hazır olana kadar loading screen · video b-LZ_Y9wor8 · tahmin: özel React loading state · kaynak: yok
+- "Yıldız Dikme — Creative Dev", "Jesko Jets", "Awwwards Nominees"; jeskojets.com'da "Gulfstream 650ER" uçak sayfası · video b-LZ_Y9wor8 · 1:22 tarayıcı sekmeleri · kaynak: kare
+- Kaydırmaya bağlı 3D kamera animasyonu (scroll-tied camera pose) · video iYwCzKy6W40 · tahmin: GSAP ScrollTrigger + R3F · kaynak: web-sahne-desenleri
+- Yükleme ekranında kameranın yavaşça açılışı (giriş animasyonu) · video iYwCzKy6W40 · tahmin: React Three Fiber + GSAP timeline · kaynak: web-sahne-desenleri
+- 3D ürün modeli entegrasyonu (Sketchfab GLB indirme) · video iYwCzKy6W40 · tahmin: three.js GLTFLoader · kaynak: web-sahne-desenleri (GLB derleme notları)
+- Responsive/mobil sahne testi · video iYwCzKy6W40 · tahmin: R3F responsive canvas + DevTools cihaz modu · kaynak: omer-kutuphaneler
+- Performans denetimi (Lighthouse) · video iYwCzKy6W40 · Chrome DevTools Lighthouse · kaynak: yok
+- WEBGI Camera Landing Page, Canon EOS 5D Mark IV, Three.js — JavaScript 3D Library, LUMEN Pro — Interactive 3D · video iYwCzKy6W40 · 0:30 LUMEN sitesi, "Always shoot like a Pro" başlığı, URL 3d-camera-landing-page.netlify.app; sekmeler · kaynak: kare
+- "Canon EOS 5D Mark IV", Download 3D Model butonu, 25.3k triangles / 14.7k vertices · video iYwCzKy6W40 · 2:33 Sketchfab model sayfası · kaynak: kare
+- WEBGI Camera Landing Page) · video iYwCzKy6W40 · 10:41 camera-webgi.vercel.app (ilham alınan referans site; sekme adı · kaynak: kare
+- Performance 92, Accessibility 96, Best Practices 100, SEO 100; Dimensions: iPhone 14 Pro Max, DPR: No throttling · video iYwCzKy6W40 · 12:45 Chrome DevTools Lighthouse sonucu · kaynak: kare
+- Kaydırınca eski haline dönen portal/kapı geçişi (glow çerçeveli telefon siluetinde manzara) · video fCc97Rv-60w · tahmin: GSAP ScrollTrigger · kaynak: yok
+- Kaydırmaya bağlı 3D kredi kartı (yansıma, çip, eğim) · video fCc97Rv-60w · tahmin: CSS 3D transform / Three.js · kaynak: yok
+- Kaydırmaya bağlı para birimi kaydırıcısı (slider kaydırınca hareket ediyor) · video fCc97Rv-60w · tahmin: GSAP ScrollTrigger · kaynak: yok
+- Kaydırmaya bağlı ülke/isim listesi değişimi · video fCc97Rv-60w · tahmin: GSAP ScrollTrigger · kaynak: yok
+- Bölüm bazlı snap kaydırma (Fable 5 versiyonu) · video fCc97Rv-60w · tahmin: CSS scroll-snap · kaynak: yok
+- Çapraz (diagonal) tipografi, görsel yerine yazıyla anlatım · video fCc97Rv-60w · tahmin: CSS transform rotate · kaynak: yok
+- Sürekli görünen ince kenar çizgisi (border) tüm bölümler boyunca devam eden görsel motif · video fCc97Rv-60w · tahmin: yok (belirtilmedi) · kaynak: yok
+- kaydırmaya bağlı video scrub + sahne geçişi · video 39IlNR-P3-Q · tahmin: scroll-craft (ekranda "scrollcraft.css" adı geçiyor, k00686) · kaynak: bilgi/scroll-a-bağlı-video-scrub.md
+- kaydırmaya bağlı kademeli metin belirme/kaybolma · video 39IlNR-P3-Q · tahmin: scroll-craft · kaynak: bilgi/scroll-a-bagli-kademeli-metin-belirme-reveal-fade-translatey.md
+- sayfa içi konum göstergesi (scroll navigasyonu) · video 39IlNR-P3-Q · tahmin: scroll-craft/custom · kaynak: web-sahne-desenleri
+- tutarlı tema/yoğunluk kararı (klasik vs. animasyonlu) · video 39IlNR-P3-Q · taste-skill · kaynak: yok
+- footer'da mouse hover ışık efekti · video 39IlNR-P3-Q · tahmin: custom CSS/JS · kaynak: yok
+- mobil görünüm devtools ile responsive test · video 39IlNR-P3-Q · tahmin: Chrome DevTools · kaynak: bilgi/responsive-mobil-sahne-testi.md
+- Claude merkezde, dört skill — "Design DNA / Visual Analysis", "Frontend Design / Art Direction", "Taste / Design Character", "Scrollcraft / Scroll Experience" · video 39IlNR-P3-Q · 0:26 (k00026) Skill diyagramı · kaynak: kare
+- zanwei/design-dna, nateherkai/scroll-craft, Leonxlnx/taste-skill, anthropics/skills — dört repo linki teyit · video 39IlNR-P3-Q · 3:27 (k00207) Tarayıcı sekmeleri · kaynak: kare
+- "Ran page script", "Edited index.html +9", "Edited styles.css +20", "Edited site.js +29", "read sheet.png"; model seçici "Fable 5 · High" · video 39IlNR-P3-Q · 11:26 (k00686) Claude Code ajan günlüğü · kaynak: kare
+- "Aurea, a journal of myth"; localhost:4500 üzerinde çalışıyor · video 39IlNR-P3-Q · 12:29 (k00749) Site adı · kaynak: kare
+- iPhone 14 Pro Max, 430x932, HTML'de `sc-css`, `sc-scrub`, `data-scrub`, `sc-act--pinned` sınıfları — scroll-craft'ın CSS/attribute konvansiyonu · video 39IlNR-P3-Q · 14:11 (k00851) Chrome DevTools · kaynak: kare
+- Koyu hero kartı, yeşil parlama çerçeve, düğüm-ağ (graph) görseli · video oHKt0FUbR58 · 0:24 · kaynak: kare
+- Premium tasarım referanslarıyla ön yüz üretimi (impeccable skill) · video lipJRiztOgM · 0:30 · kaynak: altyazı
+- Koyu tema dashboard, kart ızgarası, çubuk grafikler · video 6cEQEba0i2A · 0:16 · kaynak: kare
+- Koyu tema infografik sayfası, üç istatistik kartı ve alıntı bloğu · video 6cEQEba0i2A · 0:53 · kaynak: kare
+- İki sütunlu karşılaştırma kartları (yeşil/kırmızı vurgu) · video 6cEQEba0i2A · 1:44 · kaynak: kare
+- Referans inceleme (Ömer ilkesi 30): başka sitelerin kodu, yapısı ve promptları DevTools vb. ile incelenip teknik çıkarılır; birebir klon ve izinsiz varlık kullanımı yok.
 
 ## Elle
