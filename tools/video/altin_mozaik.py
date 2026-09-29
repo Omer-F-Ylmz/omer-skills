@@ -10,7 +10,10 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from video.metin import dil_sec
+
 KOK = Path(__file__).resolve().parents[2] / ".kos" / "altin"
+ONBELLEK = Path(r"C:\Projeler\.video-cache")
 SET = {"L9c49WVG_ho": "short", "g89FJiNAlEs": "uzun", "kHtOSJRUkLs": "uzun", "86HM0RUWhCk": "site", "JfmAm3sxCSc": "site"}
 EN_FAZLA = 45
 
@@ -51,9 +54,16 @@ def video(vid, tur):
     d.mkdir(parents=True, exist_ok=True)
     url = f"https://www.youtube.com/watch?v={vid}"
     meta = json.loads(_kos(["yt-dlp", "-J", "--skip-download", url]).stdout)
-    _kos(["yt-dlp", "--skip-download", "--write-subs", "--write-auto-subs", "--sub-langs", "en.*,tr.*", "--sleep-subtitles", "3", "--sub-format", "vtt",
-          "-o", str(d / "altyazi.%(ext)s"), url])
-    vtt = sorted(d.glob("altyazi*.vtt"))
+    # motorun seçimi (video/metin.py dil_sec); tr video → tr öncelikli, değilse en; indirme olmazsa motorun ham .vtt önbelleği
+    secim = dil_sec(meta, "tr" if (meta.get("language") or "").startswith("tr") else "en")
+    vtt = []
+    if secim:
+        _kos(["yt-dlp", "--skip-download", "--write-subs" if secim[1] == "elle" else "--write-auto-subs", "--sub-langs", secim[0],
+              "--sleep-subtitles", "3", "--sub-format", "vtt", "-o", str(d / "altyazi.%(ext)s"), url])
+        vtt = [d / f"altyazi.{secim[0]}.vtt"] if (d / f"altyazi.{secim[0]}.vtt").is_file() else []
+    vtt = vtt or sorted((ONBELLEK / vid).glob("altyazi.*.vtt"))
+    yok = (f"altyazı yok: seçim {secim or 'yok'}; elle {sorted(meta.get('subtitles') or {})}; "
+           f"oto -orig {sorted(k for k in meta.get('automatic_captions') or {} if k.endswith('-orig'))}; önbellek {ONBELLEK / vid}")
     sure = meta["duration"]
     tz = zamanlar(sure, tur)
     aki = _kos(["yt-dlp", "-g", "-f", "bv*[height<=1080]/b", url]).stdout.split()[0]
@@ -76,13 +86,15 @@ def video(vid, tur):
         _kos(["ffmpeg", "-y", "-loglevel", "error", "-start_number", str(s + 1), "-i", "kare-%03d.png", "-vf",
               f"scale={en}:-2,tile={g}x{g}:nb_frames={len(grup)}", "-frames:v", "1", f"mozaik-{mz:02d}.png"], cwd=d)
     linkler = sorted(set(re.findall(r"https?://[^\s)>\]]+", meta.get("description") or "")))
+    metin = altyazi(vtt[0].read_text(encoding="utf-8")) if vtt else ""
     bolum = "\n".join(f"- {_hms(c['start_time'])} {c['title']}" for c in meta.get("chapters") or [])
     (d / "kaynak.txt").write_bytes("\n".join([
         f"# {vid} · {tur} · {meta.get('title')} · {meta.get('channel')} · süre {_hms(sure)}",
         f"kare zamanları ({len(tz)}, {g}×{g} mozaik, mozaik-NN = kare {g * g} adet sırayla): " + " ".join(_hms(t) for t in tz),
         "## Açıklama", meta.get("description") or "", "## Bağlantılar", *linkler, "## Bölümler", bolum or "(yok)",
-        f"## Altyazı ({vtt[0].name if vtt else 'YOK'})", altyazi(vtt[0].read_text(encoding="utf-8")) if vtt else ""]).encode("utf-8"))
-    return f"{vid} {tur} süre {_hms(sure)} kare {sum(ok)}/{len(tz)} mozaik {mz} altyazı {vtt[0].name if vtt else 'YOK'} bağlantı {len(linkler)}"
+        f"## Altyazı ({vtt[0] if vtt else 'YOK'})", metin or yok]).encode("utf-8"))
+    return (f"{vid} {tur} süre {_hms(sure)} kare {sum(ok)}/{len(tz)} mozaik {mz} altyazı {vtt[0] if vtt else yok} "
+            f"satır {len(metin.splitlines())} bağlantı {len(linkler)}")
 
 
 if __name__ == "__main__":

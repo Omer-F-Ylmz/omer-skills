@@ -1,3 +1,5 @@
+GEÇERSİZ: altyazısız üretildi, M3a-3'te yeniden yazılacak
+
 # Altın set — JfmAm3sxCSc (site 3D, 10:52) · "Claude'a Ödüllü Siteler Gibi 3D Website Yaptırdım" · Yıldız Dikme
 
 ## Kaynaklar

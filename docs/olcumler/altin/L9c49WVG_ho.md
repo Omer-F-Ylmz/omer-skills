@@ -1,3 +1,5 @@
+GEÇERSİZ: altyazısız üretildi, M3a-3'te yeniden yazılacak
+
 # Altın set — L9c49WVG_ho (short, 0:35) · "Yapay zeka modellerine para ödemeden ücretsiz API anahtarı almanın en kolay yolu!" · Esad Kılıç
 
 ## Kaynaklar
