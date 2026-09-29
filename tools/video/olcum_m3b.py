@@ -20,6 +20,7 @@ from video import tarama as tr
 
 REPO = Path(__file__).resolve().parents[2]
 KOS = REPO / ".kos" / "m3b"
+AD = "m3b"  # parti adı öneki (olcum_m4 "m4")
 CACHE = Path(os.environ.get("VIDEO_CACHE") or cli.KOK)
 ONEM = ("yüksek", "orta", "düşük")
 ATLA_ALTIN = {"Kaynaklar", "Emin olunmayanlar"}
@@ -218,7 +219,7 @@ def tara():
             once, asil = set((REPO / ".kos").iterdir()), hafif.cagir
             hafif.cagir = or_cagir(model, env) if model else asil
             try:
-                rc = cli.main(["parti", "baslat", str(q), "--tarih", f"m3b-{kol}", "--cagri-tavan", str(n), "--usd-tavan", str(usd)], env=env)
+                rc = cli.main(["parti", "baslat", str(q), "--tarih", f"{AD}-{kol}", "--cagri-tavan", str(n), "--usd-tavan", str(usd)], env=env)
                 pdir = next(iter(set((REPO / ".kos").iterdir()) - once))
                 if any(s["tarama"]["durum"] == "bekliyor" for s in json.loads((pdir / "durum.json").read_text(encoding="utf-8"))["videolar"].values()):
                     rc = cli.main(["parti", "devam", pdir.name], env=env)
