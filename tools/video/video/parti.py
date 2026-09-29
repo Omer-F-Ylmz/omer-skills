@@ -322,7 +322,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
                 break
             for v in kalan:
                 if v not in hatalar:
-                    _rapor_yaz(d, v, next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], tdir, durum="tamam", usage=u, grup=len(kalan))
+                    _rapor_yaz(d, v, next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], tdir, durum="tamam", usage=u, grup=len(kalan), hata=None)
             kalan = [v for v in kalan if v in hatalar]
             _yaz(yol, d)
             if not kalan:
