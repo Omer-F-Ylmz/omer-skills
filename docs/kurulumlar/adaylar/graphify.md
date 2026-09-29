@@ -53,6 +53,12 @@ kaynak: https://github.com/Graphify-Labs/graphify
 kaynak: https://www.mindstudio.ai/blog/graphify-claude-code-knowledge-graph-large-codebase-70x
 ### Doküman, PDF, görsel, video/audio aynı grafa girer
 kaynak: https://github.com/Graphify-Labs/graphify
+### Kod haritasıyla (graph.json) grep gidiş-gelişlerini azaltıp token ve zaman tasarrufu
+video: g89FJiNAlEs · iddia: Graphify kod haritasıyla grep gidiş-gelişlerini azaltıp token ve zaman tasarrufu sağlıyor.
+sonuc: sınanamadı
+arastirma: Mekanizma README'de doğrulandı: /graphify projeyi (kod, doküman, PDF, görsel, video) graph.json, graph.html ve GRAPH_REPORT.md dosyalarına çevirir. README'nin ilk cümlesi bunu "dosyaları grep'lemek yerine sorgulayabileceğin bilgi grafiği" diye anlatır. Kod tree-sitter AST ile yerelde ayrıştırılır (LLM yok, deterministik, ~40 dil). calls/imports/inherits bağları dosyalar arası çözülür. Sorgulama graph.json üzerinden `graphify query "<soru>"` (kapsamlı alt graf), `graphify path A B` (en kısa yol) ve `graphify explain X` (bağlantılar) ile yapılır. README'deki FastAPI örneği: `path FastAPI ModelField` 3 sıçramada sonuç veriyor. Her kenar EXTRACTED ya da INFERRED etiketi taşır. Vektör deposu ve embedding yoktur. Grafik bir kez üretilir, sonra dosyalar yeniden okunmadan sorgulanır. Bu yüzden grep/oku döngüsü azalır. Bu, iddianın mekanizma kısmını destekler. Sayısal token ve zaman tasarrufu doğrulanmadı. README'nin gösterdiği bölümde ölçüm yok. Depoda BENCHMARKS.md ve graphify/benchmark.py var ama içeriklerini incelemedim. "70 kata kadar" rakamı yalnızca üçüncü taraf MindStudio blogunda geçiyor. Videodaki iddia da anlatıcının beyanı, ölçüm yok. Zaman tasarrufu için kanıt bulamadım, bilinmiyor.
+kaynak: https://github.com/Graphify-Labs/graphify
 ## Destek
 - oHKt0FUbR58 · 0:00 · Kod tabanını bir kez okuyup bilgi grafiği çıkaran ücretsiz araç. Claude oturumlarda dosyaları yeniden okumak yerine grafikte gezinir. · kanıt: So, this tool called Graphify just fixes it. You run it once
 - klDiYMzW0o0 · 0:13 · Kod tabanını bilgi grafiğine dönüştürür; Claude her oturumda her şeyi baştan okumaz. · kanıt: Kod tabanını bir bilgi grafiğine dönüştürüyor.
+- g89FJiNAlEs · 11:50 · Kod tabanını ve dokümanları sorgulanabilir bilgi grafiğine/haritaya çevirir. Ajan grep ile gidip gelmek yerine haritadan bulur. · kanıt: Anlatıcı Graphify'ı ikinci beyin olarak sorgulanabilir bilgi grafiği yapan araç diye anlatıyor. · iddia: Graphify kod haritasıyla grep gidiş-gelişlerini azaltıp token ve zaman tasarrufu sağlıyor.

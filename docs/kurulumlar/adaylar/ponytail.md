@@ -50,5 +50,11 @@ kaynak: https://github.com/DietrichGebert/ponytail
 kaynak: https://github.com/DietrichGebert/ponytail
 ### Güvenlik korumaları (doğrulama, hata yönetimi, erişilebilirlik) korunur
 kaynak: https://github.com/DietrichGebert/ponytail
+### Ponytail daha az kod satırı üretip çıktı tokenı, maliyet ve inceleme süresini azaltıyor (video g89FJiNAlEs, 8:16)
+video: g89FJiNAlEs · iddia: Ponytail daha az kod satırı üretip çıktı tokenı, maliyet ve inceleme süresini azaltıyor.
+sonuc: doğrulandı
+arastirma: README'ye göre Ponytail bir CLI değil, ajana verilen skill/kural seti (.claude-plugin, .cursor/rules, .clinerules, AGENTS.md vb.). Ajan kod yazmadan önce 7 basamaklı merdiveni uygular: gerekli mi (YAGNI), kod tabanında var mı, stdlib, yerel platform özelliği, kurulu bağımlılık, tek satır, en son minimum çalışan kod. Önce ilgili kodu okur. Doğrulama, hata yönetimi, güvenlik ve erişilebilirlik kesilmez. Yazarın ölçümü, gerçek Claude Code oturumları ve FastAPI+React deposu üzerinde, 12 görev, n=4, Haiku 4.5, kod yokken baz alınarak: kod satırı -%54 (en fazla %94, tarih seçici gibi aşırı-inşa görevlerinde), token -%22, maliyet -%20, süre -%27, güvenlik %100. Süre, yani iş bitirme hızı da düştü. README'deki tek yeni belge "inceleme süresi" değil, süre (-%27) ve diff küçülmesidir. Diff küçüldüğü için incelemenin kolaylaşması makul bir çıkarımdır ama README bunu doğrudan ölçmüyor. Eski tek atışlık %80-94 rakamı yazar tarafından düzeltildi. Sınırlar: ölçümler yazarın kendisine ait ve bağımsız doğrulanmadı. Akıl yürütme ağırlıklı modellerde (GPT-5.5) tersine çalışabildiği belirtiliyor. Videoyu ve transkripti görmedim, aracın videodaki araçla aynı olduğu başlık ve konu uyumuna dayanıyor. Aynı adlı başka bir repo da var.
+kaynak: https://github.com/DietrichGebert/ponytail
 ## Destek
 - klDiYMzW0o0 · 0:30 · Dördüncü araç; işlevi videoda açıklanmıyor. · kanıt: Sonuncusu Ponytail.
+- g89FJiNAlEs · 8:16 · Ajanı 'en tembel kıdemli mühendis' gibi düşündüren skill/plugin. Aynı uygulamayı daha az satır ve dosyayla üretir, çıktı tokenı ve inceleme süresi azalır. · kanıt: Anlatıcı çıktı tokenlarını azaltmak için ilk araç olarak Ponytail'i tanıtıyor; marketplace'e ekleyip kuruyor. · iddia: Ponytail daha az kod satırı üretip çıktı tokenı, maliyet ve inceleme süresini azaltıyor.

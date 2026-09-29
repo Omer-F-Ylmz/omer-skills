@@ -57,3 +57,4 @@ kaynak: https://github.com/headroomlabs-ai/headroom
 kaynak: https://github.com/headroomlabs-ai/headroom
 ## Destek
 - klDiYMzW0o0 · 0:06 · Kullanıcı ile model arasında durup gereksiz içeriği Claude'a ulaşmadan sıkıştırır. · kanıt: Seninle yapay zeka modeli arasına giriyor ve gereksiz içeriği sıkıştırıyor.
+- g89FJiNAlEs · 5:47 · İstekler ile model arasına giren proxy. Konuşma geçmişindeki tekrarları sıkıştırır. /compact gibi özetlemez, tekrarlı bilgiyi çıkarır. 'headroom wrap claude' ile ajan sarılır, 'headroom dashboard' ile tasarruf izlenir. · kanıt: Anlatıcı wrap ile Claude oturumunu sarıyor ve dashboard'da önce/sonra token kullanımını gösteriyor.
