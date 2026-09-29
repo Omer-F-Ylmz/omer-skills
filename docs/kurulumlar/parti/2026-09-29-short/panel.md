@@ -4,9 +4,9 @@
 
 | aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |
 |---|---|---|---|---|---|---|---|
-| ucretsiz-llm-api-deposu-adi-belirtilmemi | iş akışı | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | |
+| ucretsiz-llm-api-deposu-adi-belirtilmemi | iş akışı | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | RED |
 | jcode | CLI | 1 | MIT | koşmadı: kurulu | ZATEN VAR | eşdeğer: codex p 0.75 | UYARLA |
-| harness-katmani-ajan-ara-katmani | teknik | 1 | — | koşmadı: servis | ÖĞREN | teknik: kurulabilir araç değil | |
+| harness-katmani-ajan-ara-katmani | teknik | 1 | — | koşmadı: servis | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
 | graphify | CLI | 2 | Apache-2.0 (README rozeti; depoda ayrıca LICENSE-MIT dosyası var, bir web sonucu MIT diyor. Çift lisans olabilir, doğrulanmadı) | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
 | webcmd | CLI | 1 | Apache-2.0 | koşmadı: SkillSpector raporu yok | SOR | eksik: son_commit | UYARLA |
 | headroom | CLI | 1 | Apache-2.0 | koşmadı: kurulu | ZATEN VAR | kurulu: kendi aracımız | ZATEN VAR |
@@ -16,7 +16,7 @@
 | superpowers | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: superpowers | ZATEN VAR |
 | claude-mem | plugin | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: claude-mem | ZATEN VAR |
 | impeccable | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: impeccable | ZATEN VAR |
-| task-observer | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: anthropic-skills:task-observer | |
+| task-observer | skill | 1 | — | koşmadı: kurulu | ZATEN VAR | kurulu: anthropic-skills:task-observer | ZATEN VAR |
 
 ## form_red
 - NogIRR1B6gY: ['NogIRR1B6gY.adaylar[0].karede_gorulen: kare gönderildi, karede görülen boş olamaz']
