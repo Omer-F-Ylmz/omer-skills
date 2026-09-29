@@ -15,3 +15,20 @@ strip_lines_matching = [
 name = "geçen satır süzülür, kırmızı ve özet kalır"
 input = "✔ a (1ms)\n✖ b (2ms)\n  AssertionError: x\nℹ fail 1"
 expected = "✖ b (2ms)\n  AssertionError: x\nℹ fail 1"
+
+# M3a K0d: graphify query/path/explain — yalnız community= meta alanı ve boş satır süzülür; NODE/EDGE adları, src ve loc korunur.
+[filters.graphify-sorgu]
+description = "graphify sorgu çıktısı: community meta alanını ve boş satırları süz, düğüm/kenar adlarını koru"
+match_command = "^graphify\\s+(query|path|explain)\\b"
+strip_ansi = true
+replace = [
+  { pattern = " community=[^\\]]*", replacement = "" },
+]
+strip_lines_matching = [
+  "^\\s*$",
+]
+
+[[tests.graphify-sorgu]]
+name = "community alanı düşer, düğüm adı ve src/loc kalır"
+input = "NODE kapat() [src=tools/video/video/akil.py loc=L592 community=akil.py]\n\nNODE a [src=b loc=L1 community=a]"
+expected = "NODE kapat() [src=tools/video/video/akil.py loc=L592]\nNODE a [src=b loc=L1]"
