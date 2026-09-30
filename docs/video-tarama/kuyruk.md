@@ -17,7 +17,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | kHtOSJRUkLs | 19.8 | Never run out of tokens (Sharbel) | yapıştırılan talimat/konfigürasyon: tasarruf mekanizması, bizde CLAUDE.md/Headroom/RTK karşılığı | işlendi: b4af98c |
 | 6cEQEba0i2A | 10.7 | Save millions of Claude tokens (Nate Herk) | açıklamada 9 link; her teknik ayrı özellik, tasarruf ayrıştırma | işlendi: b4af98c |
 | g89FJiNAlEs | 15.1 | 4 free repos cut token usage | 4 GitHub repo; her biri araç adayı + mekanizma; Headroom/RTK/context-mode ile çakışma | işlendi: b4af98c |
-| V0XbuApxlhg | 19.0 | Paying Anthropic 20x more (Chase AI) | model/plan/effort seçimi iddiaları → iddia sınama (bizim ölçümlerimiz: effort A/B, Opus/Sonnet) | bekliyor |
+| V0XbuApxlhg | 19.0 | Paying Anthropic 20x more (Chase AI) | model/plan/effort seçimi iddiaları → iddia sınama (bizim ölçümlerimiz: effort A/B, Opus/Sonnet) | işlendi: b608040 |
 | oHKt0FUbR58 | 0.8 | Free repo fixes token limits | repo adı ekranda/açıklamada; araç adayı | işlendi: aaa5dd0 |
 | bS6IlkUozAI | 1.7 | Web browsing tokens −90% | tarayıcı/web getirme sıkıştırma aracı; bizde video getir + Headroom karşılaştırması | işlendi: aaa5dd0 |
 | NogIRR1B6gY | 0.7 | PDF'ler token tüketmesin | PDF okuma stratejisi; pdf-reading skill ile karşılaştır | işlendi: aaa5dd0 |
@@ -27,9 +27,9 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 ### Sıra 1 — site yapımı / tasarım / prompt
 | id | süre | başlık (kısa) | Desktop notu | durum |
 |---|---|---|---|---|
-| ptGXxk1-Uj4 | 15.2 | Opus 5.5 ile ödüllü 3D site (Yıldız Dikme) | Site/UI teknikleri + prompt anatomisi zorunlu; web-sahne-desenleri ile karşılaştır (aynı kanal önceki videoları) | bekliyor |
+| ptGXxk1-Uj4 | 15.2 | Opus 5.5 ile ödüllü 3D site (Yıldız Dikme) | Site/UI teknikleri + prompt anatomisi zorunlu; web-sahne-desenleri ile karşılaştır (aynı kanal önceki videoları) | işlendi: b608040 |
 | 86HM0RUWhCk | 27.9 | Beautiful websites with CC (Nate Herk) | uçtan uca iş akışı + prompt anatomisi; açıklama 9 link | işlendi: 3e42f9f |
-| Ysr7oNDajJI | 12.9 | Claude Design skills for beautiful sites | 7 GitHub repo; her biri araç adayı; frontend departmanı | bekliyor |
+| Ysr7oNDajJI | 12.9 | Claude Design skills for beautiful sites | 7 GitHub repo; her biri araç adayı; frontend departmanı | işlendi: b608040 |
 | Q9ty3eopOPs | 20.1 | Top 10 frontend design skills/plugins/CLIs | 7 repo; kurulu olanlar (impeccable, frontend-design vb.) ZATEN VAR + yeni kullanım ÖĞREN | bekliyor |
 | n5eIrepe-Fg | 10.9 | AI slop olmayan web sitesi (GPT-6 ASTRA) | model bağımsız teknikleri ayır; anti-slop kuralları design-stack ile karşılaştır | bekliyor |
 | Pj2FnVE-W3c | 18.3 | Kaliteli site 5 aşama (Esad Kılıç) | aşamalar → frontend-craft akışıyla eşleştir; eksik aşama UYARLA | bekliyor |
