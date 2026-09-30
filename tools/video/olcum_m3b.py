@@ -45,16 +45,7 @@ def sn(metin):
     return a * 3600 + b * 60 + int(c_) if c_ else a * 60 + b
 
 
-def url_norm(u):
-    u = re.sub(r"^https?://", "", u.strip().lower().rstrip(".,;"))
-    return re.split(r"[?#]", re.sub(r"^www\.", "", u))[0].rstrip("/")
-
-
-def anahtarlar(metin, ad):
-    k = {n} if len(n := tr.normal(re.sub(r"\(.*?\)", "", ad))) >= 3 else set()
-    k |= {url_norm(u) for u in re.findall(r"https?://[^\s|)`\"'<>]+", metin)}
-    k |= {f"github.com/{r.lower()}" for r in re.findall(r"\(([\w.-]+/[\w.-]+)\)", metin)}
-    return k | {n for x in re.findall(r"`([^`]+)`", metin) if len(n := tr.normal(x)) >= 3}
+from video.ikinci_goz import anahtarlar, url_norm  # noqa: E402 — M5: motora taşındı
 
 
 def altin_oku(md):
@@ -156,42 +147,7 @@ def secim(v):
     return str(max(x, key=x.get) if isinstance(x, dict) else x)
 
 
-def _post(url, govde, bas):
-    r = urllib.request.Request(url, json.dumps(govde).encode(), bas)
-    try:
-        with urllib.request.urlopen(r, timeout=600) as y:
-            return y.status, json.loads(y.read())
-    except urllib.error.HTTPError as e:
-        return e.code, {}
-
-
-def or_cagir(model, env, gonder=_post, uyku=time.sleep):
-    """hafif.cagir imzasında OpenRouter adaptörü → {form, usage, usd, sure, hata}; 429'da ≤2 tekrar, sonra ölçülemedi."""
-    def cagir(sistem, metin, sema, kareler=(), model_=None, butce=0.5, timeout=600, env_=None, **_):
-        t0 = time.monotonic()
-        ekler = [{"type": "image_url", "image_url": {"url": f"data:image/{'png' if str(k).endswith('.png') else 'jpeg'};base64,"
-                  + base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
-        govde = {"model": model, "usage": {"include": True},
-                 "response_format": {"type": "json_schema", "json_schema": {"name": "form", "strict": False, "schema": sema}},
-                 "messages": [{"role": "system", "content": sistem},
-                              {"role": "user", "content": [{"type": "text", "text": cli._temizle(metin, env)}, *ekler]}]}
-        bas = {"Authorization": f"Bearer {env.get('OPENROUTER_API_KEY', '')}", "Content-Type": "application/json"}
-        for i in range(3):
-            durum, y = gonder(OR_URL, govde, bas)
-            if durum != 429 or i == 2:
-                break
-            uyku(20 * (i + 1))
-        sure = round(time.monotonic() - t0, 1)
-        if durum != 200:
-            return {"form": None, "usage": {}, "usd": 0.0, "sure": sure, "hata": f"ölçülemedi: HTTP {durum}"}
-        u, ic = y.get("usage") or {}, (y.get("choices") or [{}])[0].get("message", {}).get("content") or ""
-        try:
-            form = json.loads(ic[ic.find("{"): ic.rfind("}") + 1])
-        except ValueError:
-            form = None
-        return {"form": form, "usage": {"input_tokens": u.get("prompt_tokens", 0), "output_tokens": u.get("completion_tokens", 0)},
-                "usd": u.get("cost") or 0.0, "sure": sure, "hata": None if form is not None else "form JSON değil"}
-    return cagir
+from video.ikinci_goz import _post, or_cagir  # noqa: E402 — M5: motora taşındı
 
 
 # ---------------------------------------------------------------- canlı adımlar

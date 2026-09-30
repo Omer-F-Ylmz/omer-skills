@@ -11,8 +11,10 @@ from jev import cekirdek as c
 
 from . import hafif
 from . import metin as m
+from . import ikinci_goz as ig
 from . import tarama as tr
 
+IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci göz tavanları (OpenRouter $ · Jev durum · yargıç çağrı)
 YENIDEN = {"bekliyor", "hata", "tavan"}
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 KARE_TK = 1_600  # ponytail: kare başına sabit jeton tahmini; gruplar sınırda kalırsa gerçek boyut (cli._kare_tk)
@@ -218,10 +220,10 @@ def kismi(f, hatalar, v):
     return f, eksik
 
 
-def _rapor_yaz(d, v, f, p, tdir, **ek):
+def _rapor_yaz(d, v, f, p, tdir, ikinci=None, **ek):
     r = tdir / f"{d['tarih']}-{v}.md"
     r.parent.mkdir(parents=True, exist_ok=True)
-    md = rapor_md(f, p, _notlar(d, p))
+    md = rapor_md(f, p, _notlar(d, p)) + (ig.ek_md(ikinci) if ikinci else "")
     r.write_bytes(md.encode("utf-8"))
     adaylar, ele = tr.ayikla(md)
     tr.kayit_ekle(tdir / "kayit.jsonl", [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"]}])
@@ -250,13 +252,41 @@ def _yaz(yol, d):
 
 
 def _defter(pdir):
-    s = tr.kayit_oku(pdir / "defter.jsonl")
+    s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith("ikinci_goz")]  # M5: ikinci göz ayrı tavanda
     return len(s), sum(x["usd"] for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
 
 
 def _tavan(pdir, d):
     n, usd, _ = _defter(pdir)
     return n >= d["tavan"]["cagri"] or usd >= d["tavan"]["usd"]
+
+
+def _ig_defter(pdir):
+    s = tr.kayit_oku(pdir / "defter.jsonl")
+    a = lambda k: [x for x in s if x.get("adim") == f"ikinci_goz_{k}"]
+    return {"luna": len(a("luna")), "or_usd": sum(x["usd"] for x in a("luna")), "jev": sum(x.get("durum", 0) for x in a("jev")),
+            "yargic": len(a("yargic")), "yargic_usd": sum(x["usd"] for x in a("yargic"))}
+
+
+def _jev(env):
+    def yargila(durumlar, q):
+        return c.Tasiyici(env=env, en_fazla=len(c.parcala(durumlar)) + 1, istek_tavan=len(durumlar) + 10).yargila(durumlar, q)
+    return yargila
+
+
+def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
+    """M5: Sonnet formu geçtikten sonra ikinci göz; her hata notla biter, video düşmez."""
+    if not ikinci or ikinci.get("kapali"):
+        return f, ({"not": [f"ikinci göz KAPALI: {ikinci['kapali']}"]} if ikinci else None)
+    g = _ig_defter(pdir)
+    kalan = {k: IG_TAVAN[k] - g[k] for k in IG_TAVAN}
+    kareler = [k for k in p["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+    luna = lambda butce: ikinci["luna"](SISTEM, _istem([v], {v: p}, {}, temizle), sema([v]), kareler=kareler, model=ig.LUNA, butce=butce, env=env)
+    try:
+        return ig.uygula(v, f, p, luna, ikinci["jev"], ikinci["yargic"], env, kalan, lambda x: dogrula({"videolar": [x]}, {v: p}, [v]).get(v),
+                         lambda s: tr.kayit_ekle(pdir / "defter.jsonl", [s]))
+    except Exception as e:  # beklenmeyen hata: Sonnet sonucu aynen
+        return f, {"not": [f"ikinci göz: hata ({e})"[:200] + " — Sonnet sonucu"]}
 
 
 def _istem(ids, pk, hatalar, temizle):
@@ -275,7 +305,7 @@ def _notlar(d, pk):
             *([pk["kare_not"]] if pk.get("kare_not") else [])]
 
 
-def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
+def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
     yol = pdir / "durum.json"
     for v, s in d["videolar"].items():  # aşama 2: mevcut ozet/whisper/paket komutları (Jev 0: --istek-tavan 0)
         a = s["paket"]
@@ -339,7 +369,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env):
                 break
             for v in kalan:
                 if v not in hatalar:
-                    _rapor_yaz(d, v, next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], tdir, durum="tamam", usage=u, grup=len(kalan), hata=None)
+                    f, e = _ikinci(pdir, d, v, next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], temizle, env, ikinci)
+                    _rapor_yaz(d, v, f, pk[v], tdir, ikinci=e, durum="tamam", usage=u, grup=len(kalan), hata=None, **({"ikinci_goz": ig.ozet(e)} if e else {}))
             kalan = [v for v in kalan if v in hatalar]
             _yaz(yol, d)
             if not kalan:
@@ -360,6 +391,14 @@ def _ozet(pdir, d):
     print(f"parti {d['parti']} · durum {d['durum']} · paket: {say('paket')} · tarama: {say('tarama')}")
     print(f"defter: {n} çağrı / tavan {d['tavan']['cagri']} · ${usd:.4f} / ${d['tavan']['usd']} · {tk} jeton"
           + (f" · taranan video başına {tk // taranan} jeton" if taranan else ""))
+    g = _ig_defter(pdir)
+    if d.get("ikinci_goz_kapali"):
+        print(f"ikinci göz KAPALI: {d['ikinci_goz_kapali']}")
+    elif g["luna"] or g["jev"] or g["yargic"]:
+        s = [x["tarama"].get("ikinci_goz") or {} for x in d["videolar"].values()]
+        print(f"ikinci göz: eklenen {sum(x.get('eklenen', 0) for x in s)} · doğrulanamadı {sum(x.get('dogrulanamadi', 0) for x in s)} · "
+              f"OpenRouter ${g['or_usd']:.4f} / ${IG_TAVAN['or_usd']} ({g['luna']} çağrı) · Jev {g['jev']} / {IG_TAVAN['jev']} durum · "
+              f"yargıç {g['yargic']} / {IG_TAVAN['yargic']} çağrı ${g['yargic_usd']:.4f}")
     for v, s in d["videolar"].items():
         t = s["tarama"]
         print(f"- {v} · paket {s['paket']['durum']} · tarama {t['durum']}" + (" (içe alındı)" if t.get("ice_alindi") else "")
@@ -432,7 +471,11 @@ def parti(ns, ctx):
             _yaz(pdir / "durum.json", d)
             return _ozet(pdir, d)
         d["durum"] = "calisiyor"
-    kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"])
+    d["ikinci_goz"] = getattr(ns, "ikinci_goz", None) or d.get("ikinci_goz") or "luna"  # M5
+    luna = ctx.get("luna") or (ig.or_cagir(ig.LUNA, ctx["env"]) if ctx["env"].get("OPENROUTER_API_KEY") else None)
+    d["ikinci_goz_kapali"] = "--ikinci-goz yok" if d["ikinci_goz"] == "yok" else None if luna else "OPENROUTER_API_KEY yok"
+    ikinci = {"kapali": d["ikinci_goz_kapali"], "luna": luna, "jev": ctx.get("jev") or _jev(ctx["env"]), "yargic": ctx.get("cagir") or hafif.cagir}
+    kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"], ikinci)
     rc = kos()
     if ns.eylem == "kuyruk" and rc == 0:  # M2d K4: form_red bir kez yeniden → akil → panelde dur
         red = [s for s in d["videolar"].values() if s["tarama"]["durum"] == "form_red"]
