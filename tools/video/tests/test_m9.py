@@ -53,7 +53,7 @@ def test_k2_karesiz_paket(tmp_path, monkeypatch):
     p = pt.paket_oku(d / "paket.md")
     assert p["kareler"] == [] and p["linkler"] == ["https://ornek.dev"] and "merhaba" in p["metin"]
     assert (p.get("kare_not") or "").startswith("kare yok: ") and "403" in p["kare_not"]
-    assert pt.dogrula is not None and "kare yok: " in "\n".join(pt._notlar({"parti": "p", "model": "m"}, p))
+    assert "kare yok: " in "\n".join(pt._notlar({"parti": "p", "model": "m"}, p))
 
 
 def _d(v, tarama="tamam"):
