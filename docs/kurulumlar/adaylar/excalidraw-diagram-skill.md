@@ -55,3 +55,4 @@ kaynak: https://github.com/coleam00/excalidraw-diagram-skill
 kaynak: https://github.com/coleam00/excalidraw-diagram-skill
 ## Destek
 - zKBPwDpBfhs · 6:35 · Düzenlenebilir Excalidraw diyagramı (native JSON) üretir; kelimeler hep doğru çıkar. · kanıt: SKILL.md: name excalidraw-diagram, Workflow, Step 1 Understand the concept. (karede: SKILL.md front matter'ında name: excalidraw-diagram ve description; altında '## Workflow' ve '### Step 1: Understand the concept'.)
+- OFyECKgWXo8 · 15:35 · Claude Code ile doğal dilden Excalidraw diyagramları üretir. Yaratıcısı Cole Medin. · kanıt: Repo klonlanıp proje skill dizinine kopyalanarak kurulur.

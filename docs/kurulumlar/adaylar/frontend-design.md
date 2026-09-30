@@ -29,3 +29,5 @@ ne: scroll-triggered sitede taste-skill + scroll-craft + design-dna ile yığın
 etiket: kullanım
 karar: ÖĞREN
 gerekce: kurulu; yeni olan kullanım biçimi, kurulum yok
+## Destek
+- uuUo7gWuH9w · 8:37 · Tasarım sistemi, palet ve tipografi ile daha iyi web arayüzleri ürettiren Anthropic plugini. · kanıt: Web arayüzleri için tasarım sistemi ve skill'ler ekliyor; müzik uygulaması demosu.

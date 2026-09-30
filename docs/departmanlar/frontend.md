@@ -306,5 +306,8 @@ Müdür: `departman-frontend`
 - Landing page, koyu buton + açık arka plan, yüzen mockup kartları · video V2RIVnGCy74 · 1:07 · kaynak: kare
 - Canlı düzenleme modu (Pick aracı, varyant üretimi) · video V2RIVnGCy74 · 3:09 · kaynak: kare
 - Tasarım sistemi önizleme sayfası (fiyat kartları, form elemanları) · video V2RIVnGCy74 · 4:09 · kaynak: kare
+- Koyu tema hero bölümü: büyük sans-serif başlık, gri alt metin, iki CTA (dolu beyaz ve çerçeveli koyu), altta renkli çizgi ızgarası gradyanı ve üçgen logo. · video OFyECKgWXo8 · 0:27 · kaynak: kare
+- HTML + CSS ile tek prompttan landing page; frontend-design skill'i ile renk paleti, tipografi ve tasarım sistemi · video uuUo7gWuH9w · 9:37 · kaynak: altyazı
+- Figma tasarımından HTML/CSS üretimi · video uuUo7gWuH9w · 20:59 · kaynak: altyazı
 
 ## Elle

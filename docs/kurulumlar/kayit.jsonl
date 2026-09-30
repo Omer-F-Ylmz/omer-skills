@@ -566,3 +566,48 @@
 {"ad": "taste-skill-gelistirme", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-5"}
 {"ad": "ponytail-gelistirme", "karar": "DENE (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-5"}
 {"ad": "skill-creator-gelistirme", "karar": "DENE (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-5"}
+{"ad": "supabase-mcp", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "supabase-cli", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "supabase-claude-code-plugin-skill", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "skill-creator", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "gsd-get-shit-done", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "notebooklm-py-cli-skill", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "obsidian", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "vercel-cli", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "playwright-cli", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "github-cli", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "firecrawl-cli-ve-skill", "karar": "ERTELE (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "excalidraw-diagram-skill", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "claude-code-a-supabase-cli-yi-kurdurmak", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "claude-code-un-markdown-dosyalarini-obsi", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "vercel-cli-kurulumunu-claude-code-a-yapt", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "pyright-lsp", "karar": "DENE (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "github-mcp-server", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "frontend-design", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "tiger-data-mcp", "karar": "RED (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "context7", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "composio-mcp", "karar": "RED (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "figma-plugin", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "plugin-marketplace-yonetimi", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "pyright-lsp-ile-kod-dogrulama-demosu", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "frontend-design-demosu", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "e-ticaret-veritabani-olusturma", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "fork-uzerinde-hypertable-optimizasyonu", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "context7-demosu", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "composio-uzerinden-gmail-okuma", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "gstack", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "hostinger-mcp-agent-skills", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "firecrawl", "karar": "ERTELE (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "humanizer", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "composio", "karar": "RED (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "vibesec", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "claude-code-auto-mode", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "gstack-office-hours-komutunu-denemek-ici", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "hostinger-api-sayfasindaki-mcp-config-in", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "hostinger-mcp-ile-site-olusturup-yayinla", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "firecrawl-ile-olcekli-crawl-demosu-firec", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "composio-cli-ile-gmail-aracini-test-etme", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "supabase-mcp-gelistirme", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "skill-creator-gelistirme", "karar": "DENE (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "vercel-cli-gelistirme", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
+{"ad": "playwright-cli-gelistirme", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-09-30", "parti": "2026-09-30-uzun-6"}
