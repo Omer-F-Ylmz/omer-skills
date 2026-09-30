@@ -200,17 +200,11 @@ Müdür: `departman-frontend`
 - tutarlı tema/yoğunluk kararı (klasik vs. animasyonlu) · UYARLA · video 39IlNR-P3-Q · 5:14 anlatım
 - footer'da mouse hover ışık efekti · UYARLA · video 39IlNR-P3-Q · 3:27 (k00207 anlatımı, "when I move mouse over it, light appears")
 - mobil görünüm devtools ile responsive test · ÖĞREN · video 39IlNR-P3-Q · 14:11, k00851 karesi (iPhone 14 Pro Max devtools)
-- npm sayfası: 'npm i framer-motion' seçili; github.com/motiondivision/motion; 7648 Dependents, 1,381 Versions; 41,411,060 haftalık indirme; sürüm 12.38.0; MIT. · video M9qgd_KJkWc · 0:21 · kaynak: kare
 - Landing page (marka renkleri, animasyon) · video 86HM0RUWhCk · 7:13 · kaynak: kare
 - Referans site klonu ve markaya uyarlama · video 86HM0RUWhCk · 13:46 · kaynak: altyazı
 - Hero animasyonlu arka plan (21st.dev) · video 86HM0RUWhCk · 19:17 · kaynak: altyazı
 - Parlayan CTA butonu · video 86HM0RUWhCk · 25:18 · kaynak: altyazı
-- VS Code Welcome ekranı; son projeler arasında 'Website Building YT'; 'Get started with Claude Code' kartı. · video 86HM0RUWhCk · 0:30 · kaynak: kare
-- Uzantılar panelinde 'Claude Code for VS Code' (Anthropic) kurulu; sağda Claude Code paneli, 'Bypass permissions' yazıyor. · video 86HM0RUWhCk · 1:27 · kaynak: kare
-- Diyagram: CLAUDE.md (Project Instructions) sistem istemi olarak enjekte edilir; 'CLAUDE.md loads before EVERY message'. · video 86HM0RUWhCk · 2:25 · kaynak: kare
 - Skills diyagramı: Claude bir skill'in yardım edip edemeyeceğini kontrol eder; Yol A uzman skill, Yol B genel bilgi. · video 86HM0RUWhCk · 4:10 · kaynak: kare
-- Claude Code girişinde landing page istemi; brand_assets içinde 'AIS Brand Guidelines-1.png' ve 'AIS PNG.png'. · video 86HM0RUWhCk · 6:12 · kaynak: kare
-- Üretilen AIS landing page: 'Build the Future with AI Automation', JOIN NOW butonu, 5,000+ Members. · video 86HM0RUWhCk · 7:13 · kaynak: kare
 - Beş adımlı şema: 0 CLAUDE.md, 1 Frontend Design Skill, 2 Screenshot Loop, 3 ve 4 henüz boş. · video 86HM0RUWhCk · 8:31 · kaynak: kare
 - CLAUDE.md ile projede brand_assets, node_modules, temporary screenshots, index.html, package.json, screenshot.mjs, serve.mjs. · video 86HM0RUWhCk · 9:23 · kaynak: kare
 - Düşük / Orta / Yüksek (seçili) / Çok yüksek; model: "GPT 5.6 Sol" · video yp7gg8cG5wc · 3:35 Zeka seviyesi dropdown · kaynak: kare
@@ -305,5 +299,16 @@ Müdür: `departman-frontend`
 - Koyu tema infografik sayfası, üç istatistik kartı ve alıntı bloğu · video 6cEQEba0i2A · 0:53 · kaynak: kare
 - İki sütunlu karşılaştırma kartları (yeşil/kırmızı vurgu) · video 6cEQEba0i2A · 1:44 · kaynak: kare
 - Referans inceleme (Ömer ilkesi 30): başka sitelerin kodu, yapısı ve promptları DevTools vb. ile incelenip teknik çıkarılır; birebir klon ve izinsiz varlık kullanımı yok.
+- 3D karusel / vitrin · video ptGXxk1-Uj4 · 5:46 · kaynak: kare
+- Arka planda alev/gürültü efekti + renk değişimi · video ptGXxk1-Uj4 · 0:30 · kaynak: kare
+- Referans site (Ciao Energy) vitrin düzeni · video ptGXxk1-Uj4 · 4:44 · kaynak: kare
+- Özellik seçimi ve modelin döndürülmesiyle senkron içerik · video ptGXxk1-Uj4 · 11:26 · kaynak: altyazı
+- Yükleme animasyonu ve rüzgarda eğilen modeller · video ptGXxk1-Uj4 · 10:24 · kaynak: altyazı
+- Mobil düzen · video ptGXxk1-Uj4 · 12:57 · kaynak: altyazı
+- Landing page için tek eyleme odaklı görsel sistem (renk, tipografi, boşluk) · video Ysr7oNDajJI · 5:24 · kaynak: altyazı
+- Scroll tabanlı hikaye anlatımı ve ince animasyonlu arka plan · video Ysr7oNDajJI · 8:27 · kaynak: altyazı
+- Koyu yeşil hero, serif başlık, yuvarlak CTA butonları, dekoratif çatal-bıçak illüstrasyonları · video Ysr7oNDajJI · 3:30 · kaynak: kare
+- Küçük etkileşim animasyonları (form gönderimi, hover'da grafikler) · video Ysr7oNDajJI · 3:12 · kaynak: altyazı
+- Ortada açık renkli bir landing page kartı, altta soluk dört benzer kart; şablon/kalıp vurgusu. · video Ysr7oNDajJI · 0:30 · kaynak: kare
 
 ## Elle
