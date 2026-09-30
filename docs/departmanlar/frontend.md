@@ -290,5 +290,12 @@ Müdür: `departman-frontend`
 - Scroll ile senkronize kare animasyonu (video kareleri) · video BdLrWHzdYt4 · 2:03 · kaynak: altyazı
 - Frame klasörü (webp kareler) · video BdLrWHzdYt4 · 2:34 · kaynak: kare
 - Özellik kartları, koyu kart çerçeve, sayaç animasyonu, hero ve CTA · video BdLrWHzdYt4 · 9:10 · kaynak: altyazı
+- Tipografi, boşluk ve yerleşim düzenlemesi (Impeccable) · video BK9P0rYIQY8 · 0:25 · kaynak: kare
+- Hareket ve easing animasyonları (Emil Kowalski skill) · video 0JZtdAtJiyk · 0:30 · kaynak: kare
+- Boşluk (spacing) düzenlemesi, Impeccable ile · video bAhPV1Sl-rg · 0:22 · kaynak: kare
+- Şablon galerisi kart ızgarası · video O1zei0WXHvY · 0:30 · kaynak: kare
+- Google Stitch ile ekran üretimi · video V-CIbnAAhc4 · 0:17 · kaynak: kare
+- Maske ile gizlenen başlık sayıları · video Vngbdm2IEXM · 0:11 · kaynak: kare
+- Figma hero bölümü düzeni · video q1QQN08ZK6I · 0:05 · kaynak: altyazı
 
 ## Elle
