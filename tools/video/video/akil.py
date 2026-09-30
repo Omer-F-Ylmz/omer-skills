@@ -418,7 +418,7 @@ def panel(pdir, d, kok):
           if len(h := [x.strip() for x in s.strip().strip("|").split("|")]) == 8 and h[0] not in ("aday", "---")]
     eski, eski_s = {h[0]: h[7] for h, _ in hs}, {h[0]: s for h, s in hs}
     ky = Path(kok) / "docs" / "kurulumlar" / "kayit.jsonl"  # M11 K1a: aynı adın en son Ömer kararı; RED ön-doldurulmaz
-    onceki = {tr.normal(x["ad"]): m[1] for x in (tr.kayit_oku(ky) if ky.is_file() else [])
+    onceki = {_tekil(tr.normal(x["ad"])): m[1] for x in (tr.kayit_oku(ky) if ky.is_file() else [])
               if x.get("ad") and (m := re.match(r"(AL|ERTELE|DENE|ÖĞREN|UYARLA|ZATEN VAR) \(Ömer", str(x.get("karar", ""))))}
     on, bekleyen = [], 0
     mevcut = [p.stem for p in (Path(kok) / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
@@ -478,7 +478,7 @@ def panel(pdir, d, kok):
                 olasi.append(f"- {k} ≈ {e} (adaylar/{e}.md)")
         om = eski.get(k, "")
         if not om and o != "RED" and not any(s.startswith(f"- {k} ≈") for s in olasi + olasi_es):  # M11 K1/K3: dolu hücre ezilmez
-            kr = ("a", onceki[tr.normal(k)]) if tr.normal(k) in onceki else ("b", "ZATEN VAR") if o == "ZATEN VAR" else (
+            kr = ("a", onceki[_tekil(tr.normal(k))]) if _tekil(tr.normal(k)) in onceki else ("b", "ZATEN VAR") if o == "ZATEN VAR" else (
                 ("c", "ÖĞREN") if a["tur"] in ("prompt", "teknik") else ("d", "ÖĞREN") if o == "T0" else None)
             if kr:
                 om = kr[1]
@@ -662,12 +662,21 @@ def _islenmemis(kok, pid):
             and not any(k.get("ad") == x[0] and k.get("parti") == pid and str(k.get("karar", "")).startswith(f"{x[7].upper()} (Ömer, panel") for k in kayit)]
 
 
+def _tekil(n):
+    """M12 K4: kural (a) ad eşleşmesi — sondaki çoğul -s farkı tolere edilir (obsidian-skill ↔ obsidian-skills)."""
+    return n[:-1] if n.endswith("s") else n
+
+
 def kapat(pdir, d, kok, ctx):
     """rapor-denetle (tüm parti) → gitleaks (değişen dosyalar, staged) → temizse commit + kuyruk --isle + push; sızıntıda commit yok (DUR)."""
     kos = lambda a, t=300: uy._kos(ctx, a, t)  # noqa: E731
     git = ["git", "-C", Path(kok).as_posix()]
-    kotu = {Path(t["cikti"]).name: h for s in d["videolar"].values() if (t := s["tarama"])["durum"] in ("tamam", "tamam_eksik") and t.get("cikti")
+    kotu = {Path(t["cikti"]).name: (h, t.get("ice_alindi")) for s in d["videolar"].values() if (t := s["tarama"])["durum"] in ("tamam", "tamam_eksik") and t.get("cikti")
             if (h := tr.denetle(Path(t["cikti"]).read_text(encoding="utf-8")))}
+    uyari = {k: h for k, (h, ice) in kotu.items() if ice}  # M12 K1: içe alınan (bu partide yazılmamış) eski rapor UYARI; kendi raporu sıkı
+    kotu = {k: h for k, (h, ice) in kotu.items() if not ice}
+    if uyari:
+        print(f"kapat: UYARI içe alınan eski rapor (kapanış sürer): {uyari}")
     if kotu:
         print(f"kapat: rapor-denetle KALDI → DUR: {kotu}")
         return 1
@@ -708,6 +717,8 @@ def kapat(pdir, d, kok, ctx):
         ky.write_bytes(tr.kuyruk_isle(ky.read_bytes().decode("utf-8"), set(islenen), sha).encode("utf-8"))
         kos([*git, "add", "--", ky.as_posix()])
         kos([*git, "commit", "-q", "-m", f"parti {d['parti']} kuyruk: {len(islenen)} işlendi ({sha})"])
+    d["durum"] = "kapandi"  # M12 K2: açık parti koruması kapanmış partiyi yok sayar
+    pt._yaz(pdir / "durum.json", d)
     rc = kos([*git, "push", "-q"], 120)[0]
-    print(f"kapat: commit {sha} · kuyruk {len(islenen)} işlendi · push {'tamam' if not rc else 'BAŞARISIZ'}")
+    print(f"kapat: commit {sha} · kuyruk {len(islenen)} işlendi · push {'tamam' if not rc else 'BAŞARISIZ'}" + (f" · UYARI eski rapor: {' · '.join(uyari)}" if uyari else ""))
     return rc

@@ -449,6 +449,16 @@ def _ozet_govde(pdir, d):
     return 0
 
 
+def _acik(kok):
+    """M12 K2: kapanmamış (kapandi/iptal değil) partilerdeki video → parti."""
+    acik = {}
+    for j in sorted((Path(kok) / ".kos").glob("*/durum.json")):
+        d = json.loads(j.read_text(encoding="utf-8"))
+        if "parti" in d and d.get("durum") not in ("kapandi", "iptal"):
+            acik.update({v: d["parti"] for v in d.get("videolar", {})})
+    return acik
+
+
 def parti(ns, ctx):
     from . import cli, uygula as uy  # döngüsel içe aktarma yok: yalnız varsayılanlar için
     kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
@@ -465,6 +475,12 @@ def parti(ns, ctx):
         if (ns.short and tur != "short") or (ns.uzun and tur != "uzun"):
             print(f"parti: kuyruğun sıradaki partisi {tur}")
             return 2
+        acik = _acik(kok)  # M12 K2: kapanmamış partideki video ikinci partiye alınmaz
+        secilen = [h for h in satirlar if h[0] not in acik][:ns.en_fazla]
+        if atla := sorted({acik[h[0]] for h in satirlar if h[0] in acik}):
+            print(f"açık parti: {' · '.join(atla)} — önce: video parti kapat {atla[0]}" + (" (videoları atlandı)" if secilen else ""))
+        if not secilen:
+            return 3
         tarih = ns.tarih or date.today().isoformat()
         pid, i = f"{tarih}-{tur}", 1
         while (kok / ".kos" / pid).exists():
@@ -473,7 +489,7 @@ def parti(ns, ctx):
         (pdir := kok / ".kos" / pid).mkdir(parents=True)
         d = {"parti": pid, "tur": tur, "tarih": tarih, "model": ns.model, "butce": ns.butce, "kuyruk": Path(ns.hedef).as_posix(),
              "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {}}
-        for h in satirlar[:ns.en_fazla]:
+        for h in secilen:
             eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
             adim = {"durum": "tamam", "deneme": 0, "cikti": eski[-1].as_posix(), "ice_alindi": True} if eski else {"durum": "bekliyor", "deneme": 0}
             d["videolar"][h[0]] = {"paket": dict(adim), "tarama": dict(adim), "not": " ".join(h[2:4])}  # M2e K2: site/UI kare tavanı
@@ -485,6 +501,17 @@ def parti(ns, ctx):
             print(f"parti yok: {pdir.as_posix()}")
             return 1
         d = json.loads((pdir / "durum.json").read_text(encoding="utf-8"))
+        if ns.eylem == "iptal":  # M12 K3: durum + neden; dosya silinmez, panel uygulanmaz
+            if not getattr(ns, "neden", None):
+                print("parti iptal: --neden zorunlu")
+                return 2
+            d.update(durum="iptal", neden=ns.neden)
+            _yaz(pdir / "durum.json", d)
+            print(f"parti {d['parti']}: iptal · neden: {ns.neden} · dosyalar yerinde")
+            return 0
+        if d.get("durum") == "iptal" and ns.eylem != "durum":
+            print(f"parti {d['parti']} iptal ({d.get('neden')}) — işlem yok")
+            return 1
         if ns.eylem == "durum":
             return _ozet(pdir, d)
         if getattr(ns, "cagri_ek", 0) or getattr(ns, "usd_ek", 0):  # M2b: tavan yalnız açıkça yükseltilir
@@ -502,7 +529,7 @@ def parti(ns, ctx):
         if getattr(ns, "yeniden_tara", False):  # M2d: _temizle URL hatası sonrası — bitmiş videolar düzeltilmiş girdiyle yeniden taranır
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red", "tavan"):
-                    s["tarama"].update(durum="bekliyor", deneme=0, hata=None)
+                    s["tarama"].update(durum="bekliyor", deneme=0, hata=None, ice_alindi=None)
         if getattr(ns, "form_red_yeniden", False):  # M2b K6: form_red → yeniden dene hakkı
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] == "form_red":
