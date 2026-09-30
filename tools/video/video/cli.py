@@ -310,21 +310,25 @@ def paket(ns, ctx):
     """Alt ajan girdisi tek dosya <önbellek>/<id>/paket.md: künye · chapter · linkler · sadeleştirilmiş segmentler · kare yolları.
     Kareler: yalnız ekran sorusu (p varsa istek yok) → ekran p'si en yüksek --kare zamanın tam-t karesi. Segment metni stdout'a yazılmaz."""
     d = ctx["kok"] / ns.id
-    seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan) if ns.istek_tavan != 0 else (_oku(d), None, 0, None)  # M2a: tavan 0 → Jev yok, kareler segment sırasıyla
+    seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan) if ns.istek_tavan != 0 else (_oku(d) if (d / "segmentler.jsonl").is_file() else [], None, 0, None)  # M2a: tavan 0 → Jev yok, kareler segment sırasıyla
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
     dil = m.dil_sec(meta)
     ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare)
+    yalniz = ns.kare_yalniz or not seg  # M8 K2 (ii): altyazı yok ya da whisper çıktısı anlamsız → kare-yalnız paket
+    seg = [] if yalniz else seg
     km = next((j[ns.id] for f in sorted(ctx["kok"].glob("kuyruk-meta-*.json"), reverse=True)
                if ns.id in (j := json.loads(f.read_text(encoding="utf-8")))), {})  # 24e-2 K1: Desktop kuyruk-meta önce
     lk = km.get("linkler") or m.urller(km.get("aciklama") or meta.get("description"))
     lk = m.urller(lk) if isinstance(lk, str) else lk
     zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
+    if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
+        zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
     kareler = _kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
-          "## Segmentler", *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
+          "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or ["yok"])]
     yol = d / "paket.md"
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
@@ -958,6 +962,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     argv = [a.rstrip("\r") for a in (sys.argv[1:] if argv is None else argv)]  # 24e-1 K2: CRLF listeden gelen yol
     if argv[:1] == ["--whisper"]:
         argv[0] = "whisper"
+    argv = ["\0" + a if re.fullmatch(r"-\w[\w-]{9}", a, re.A) else a for a in argv]  # M8 K1: tireli kimlik (-_S3KD0ZIfI) argparse'ta seçenek sanılmasın
     p = argparse.ArgumentParser(prog="video", description=__doc__)
     alt = p.add_subparsers(dest="komut", required=True)
     x = alt.add_parser("ozet", help="meta · chapter · linkler · altyazı → segmentler.jsonl; video başına ≤6 satır")
@@ -970,6 +975,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x = alt.add_parser("paket", help="alt ajan girdisi tek dosya: künye · chapter · linkler · sade segmentler · kareler (yalnız ekran sorusu)")
     x.add_argument("id")
     x.add_argument("--kare", type=int, default=6, help="en fazla N kare (ekran p'si en yüksek)")
+    x.add_argument("--kare-yalniz", action="store_true", help="M8 K2: segmentleri yok say (whisper çıktısı anlamsız) → kare-yalnız paket")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M HTTP isteği (varsayılan segment+10)")
     x = alt.add_parser("izle", help="Desktop tek çağrı: ozet + sor + görüntü gerekirse tek kare (Jev ≤2)")
     x.add_argument("hedef")
@@ -1113,6 +1119,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("eylem", choices=["uygula"])
     x.add_argument("panel")
     ns = p.parse_args(argv)
+    geri = lambda x: x[1:] if isinstance(x, str) and x[:1] == "\0" else x  # noqa: E731
+    vars(ns).update({k: [geri(y) for y in x] if isinstance(x, list) else geri(x) for k, x in vars(ns).items()})
     env = os.environ if env is None else env
     ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
     try:

@@ -3,6 +3,7 @@ Durum .kos/<parti-id>/durum.json (her adımda atomik), defter .kos/<parti-id>/de
 import json
 import os
 import re
+from importlib.util import find_spec
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
@@ -106,6 +107,14 @@ def _ks(x):
     return int(z[1]) * 60 + int(z[2]) if z else None
 
 
+def _anlamli(yol):
+    """M8 K2: köşeli etiket ([Music]) ve ♪ dışında ≥3 kelime → anlamlı. ponytail: kelime sayısı sezgisi; konu yargısı gerekirse Jev."""
+    if not yol.is_file():
+        return False
+    metin = " ".join(json.loads(s).get("metin", "") for s in yol.read_text(encoding="utf-8").splitlines() if s.strip())
+    return len(re.findall(r"\w{2,}", re.sub(r"\[[^\]]*\]|♪", " ", metin))) >= 3
+
+
 def paket_oku(yol):
     metin = Path(yol).read_text(encoding="utf-8")
     bas = metin.splitlines()[0][2:].split(" · ")
@@ -114,7 +123,7 @@ def paket_oku(yol):
     satir = lambda b: [s.strip() for s in tr.bolum(metin, b).splitlines() if s.strip() and s.strip() != "yok"]
     return {"id": bas[0], "baslik": bas[1], "kanal": bas[2], "sure": sure, "dil": dil[1] if dil else "?", "metin": metin,
             "short": x[1] == "true" if (x := re.search(r"· short: (true|false)", metin)) else tr.short_mu(sure),
-            "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")],
+            "kare_yalniz": "altyazı yok: kare-yalnız" in metin, "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")],
             "kare_zaman": [_ks(s.split(" · ")[1]) if " · " in s else None for s in satir("Kareler")]}  # ölçüm betikleri (olcum_m4/m4b)
 
 
@@ -303,7 +312,7 @@ def _notlar(d, pk):
     k = len(pk["kareler"])
     return [f"motor: parti {d['parti']} · {d['model']} · hafif claude -p",
             "kareler: yok" if not k else f"kareler: görsel girdi ({k})" if hafif.GORSEL else f"kareler: metin açıklamasıyla ({k} kare görülmedi; açık kalem)",
-            *([pk["kare_not"]] if pk.get("kare_not") else [])]
+            *([pk["kare_not"]] if pk.get("kare_not") else []), *(["altyazı yok: kare-yalnız"] if pk.get("kare_yalniz") else [])]
 
 
 def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
@@ -315,16 +324,17 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
         a["deneme"] += 1
         try:
             if not (onb / v / "paket.md").is_file():
-                alt(["ozet", v])
-                if not (onb / v / "segmentler.jsonl").is_file():
-                    alt(["whisper", v])
+                alt(["ozet", "--", v])
                 mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
+                if not (onb / v / "segmentler.jsonl").is_file() and find_spec("faster_whisper") and 0 < (mt.get("duration") or 0) <= 300:  # M8 K2 (i): ≤5 dk otomatik whisper
+                    alt(["whisper", "--", v])
+                yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"))  # M2e K2
                 print(f"paket {v}: kare {n} ({neden})")
-                alt(["paket", v, "--kare", str(n), "--istek-tavan", "0"])
+                alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), "--", v])
             a.update(durum="tamam" if (onb / v / "paket.md").is_file() else "hata", cikti=(onb / v / "paket.md").as_posix())
-        except Exception as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
-            a.update(durum="hata", hata=str(e)[:200])
+        except (Exception, SystemExit) as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
+            a.update(durum="hata", hata=(f"çıkış {e.code}" if isinstance(e, SystemExit) else str(e))[:200])
         _yaz(yol, d)
     bek = [v for v, s in d["videolar"].items()
            if s["paket"]["durum"] == "tamam" and s["tarama"]["durum"] in YENIDEN and s["tarama"]["deneme"] < 3]
@@ -393,6 +403,14 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
 
 
 def _ozet(pdir, d):
+    rc = _ozet_govde(pdir, d)
+    h = [f"{v} ({a}: {s[a].get('hata') or '?'})" for v, s in d["videolar"].items() for a in ("paket", "tarama") if s[a]["durum"] == "hata"]
+    if h:  # M8 K3: hatalı videolar özetin sonunda
+        print("hatalı videolar: " + " · ".join(h))
+    return rc
+
+
+def _ozet_govde(pdir, d):
     n, usd, tk = _defter(pdir)
     say = lambda a: " · ".join(f"{k} {x}" for k, x in sorted(Counter(s[a]["durum"] for s in d["videolar"].values()).items()))
     taranan = sum(s["tarama"]["durum"] == "tamam" and not s["tarama"].get("ice_alindi") for s in d["videolar"].values())
