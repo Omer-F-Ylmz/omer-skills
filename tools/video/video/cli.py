@@ -1097,6 +1097,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--model", default=pt.hafif.MODEL)
     x.add_argument("--cagri-tavan", type=int, default=12, help="parti başında sabit model çağrısı tavanı")
     x.add_argument("--usd-tavan", type=float, default=1.0, help="parti başında sabit $ tavanı (CLI total_cost_usd)")
+    x.add_argument("--cagri-tavan-max", type=int, default=30, help="M6 K3: dinamik tavan genişlemesinin parti başı çağrı üst sınırı")
+    x.add_argument("--usd-tavan-max", type=float, default=2.0, help="M6 K3: dinamik tavan genişlemesinin parti başı $ üst sınırı")
     x.add_argument("--butce", type=float, default=0.5, help="çağrı başı --max-budget-usd")
     x.add_argument("--tarih")
     x.add_argument("--tum", action="store_true", help="akil: tüm kayıt genelinde birleştir")

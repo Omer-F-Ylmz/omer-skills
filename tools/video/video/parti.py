@@ -253,7 +253,7 @@ def _yaz(yol, d):
 
 
 def _defter(pdir):
-    s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith("ikinci_goz")]  # M5: ikinci göz ayrı tavanda
+    s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith(("ikinci_goz", "tavan"))]  # M5: ikinci göz ayrı tavanda · M6 K3: tavan satırı çağrı değil
     return len(s), sum(x["usd"] for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
 
 
@@ -437,7 +437,7 @@ def parti(ns, ctx):
             pid = f"{tarih}-{tur}-{i}"
         (pdir := kok / ".kos" / pid).mkdir(parents=True)
         d = {"parti": pid, "tur": tur, "tarih": tarih, "model": ns.model, "butce": ns.butce, "kuyruk": Path(ns.hedef).as_posix(),
-             "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan}, "durum": "calisiyor", "videolar": {}}
+             "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {}}
         for h in satirlar[:ns.en_fazla]:
             eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
             adim = {"durum": "tamam", "deneme": 0, "cikti": eski[-1].as_posix(), "ice_alindi": True} if eski else {"durum": "bekliyor", "deneme": 0}

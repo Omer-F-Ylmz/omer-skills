@@ -87,10 +87,13 @@ def birlestir(raporlar, kok):
                                      "komutlar": [k[0] for k in kom if k and n and n in tr.normal(k[0])]})
     ev = Path(kok) / "docs" / "departmanlar" / "envanter.json"
     env = tr.envanter_sozluk((tr._json(ev) or []) if ev.is_file() else [])
+    ky = Path(kok) / "docs" / "kurulumlar" / "kayit.jsonl"  # M6 K2: envanter dışı kurulum (npm CLI vb.) kayıttaki KUR kararından
+    kur = {tr.normal(x["ad"]): x["ad"] for x in (tr.kayit_oku(ky) if ky.is_file() else []) if re.match(r"KUR\b", str(x.get("karar", "")))}
     for k, a in out.items():
         es = next((e for x in a["adlar"] if (e := tr.arac_esle(x, env, []))), None)
         kendi = k in CEKIRDEK or any(tr.slug(x) in CEKIRDEK for x in a["adlar"])
-        a.update(kurulu=None if a["tur"] in ARAC_DISI else "kendi aracımız" if kendi else es[0] if es else None, onceki=_onceki(kok, k), arac=a["tur"].lower() in uy.ARAC)
+        a.update(kurulu=None if a["tur"] in ARAC_DISI else "kendi aracımız" if kendi else es[0] if es else next(
+            (kur[n] for x in [k, *a["adlar"]] if (n := tr.normal(x.split("/")[-1])) in kur), None), onceki=_onceki(kok, k), arac=a["tur"].lower() in uy.ARAC)
     ks = list(out)
     belirsiz = [(x, y) for i, x in enumerate(ks) for y in ks[i + 1:] if out[x]["repo"] and out[y]["repo"]
                 and out[x]["repo"] != out[y]["repo"] and difflib.SequenceMatcher(None, x, y).ratio() >= 0.8]
@@ -196,7 +199,7 @@ def site_ogren(kok, raporlar, pdir=None, d=None, ctx=None):
             continue
         pr += [{"kalip": " ".join(s[4].split()[:15]), "video": v, "zaman": tr.ZAMAN.search(s[5])[0],
                 "teknik": pt._h(" · ".join(f"{x}: {an[x]}" for x in uy.ANATOMI)), "aday": s[0]} for s in ps]
-    tek = [x for x in tek if not (x[3] == "kare" and _gozlem_mu(f"{x[0]} {x[2]}"))]  # M2g K2: ham kare gözlemi kütüphaneye girmez
+    tek = [x for x in tek if not _gozlem_mu(f"{x[0]} {x[2]}")]  # M2g K2 + M6 K1: gözlem (kare ya da tablo) kütüphaneye ve panele girmez
     if tek:
         dp.katalog_ekle(kok, {("frontend", "Teknikler"): [f"- {pt._h(a)} · video {v} · {pt._h(z)} · kaynak: {pt._h(k)}" for a, v, z, k in tek]})
         teknik_duzenle(kok)
@@ -207,12 +210,15 @@ ETIKET = re.compile(r"model etiketi|\b(?:opus|sonnet|haiku|gpt-?\d|gemini)\b|aww
                     r"|sekme başlığı|localhost|https?://|\bwww\.|\b\d{1,3}(?:\.\d{1,3}){3}\b|dosya (?:listesi|sekmesi|ağacı)", re.I)
 MEKANIZMA = re.compile(r"\bile\b|kullan|\bvia\b|\busing\b|clamp\(|scrolltrigger|\bgsap\b|three\.?js|webgl|shader|\blenis\b|keyframe|transition|transform"
                        r"|animasyon|parallax|\bpin", re.I)
+EKRAN = re.compile(r"(?<!\w)'[^']+'(?!\w)|etiketli|\b(?:sağ|sol) üstte\b|\bsolda\b.*\bsağda\b", re.I)  # M6 K1: ekran tarifi işareti (tek başına karar değil)
+YAPI = re.compile(r"\w\(|\b(?:position|backdrop-filter|filter|blur|opacity|z-index|sticky|fixed|grid|flex|ease(?:-in-out|-in|-out)?|cubic-bezier"
+                  r"|mix-blend-mode|aspect-ratio|overflow|css|svg|canvas|api)\b", re.I)  # M6 K1: API/CSS özelliği → teknik yapı
 SAHNE_SKILL = ("web-sahne-desenleri", "scroll-craft", "creative-coding")
 
 
 def _gozlem_mu(s):
     """M2g K2: ham kare okuması (model/araç etiketi, sayfa başlığı/puanı, adres, dosya listesi) ve mekanizma yok → gözlem; belirsizde teknik."""
-    return bool(ETIKET.search(s)) and not MEKANIZMA.search(s)
+    return bool(ETIKET.search(s) or EKRAN.search(s) and not YAPI.search(s)) and not MEKANIZMA.search(s)  # M6 K1: ekran tarifi + teknik yapı yok → gözlem
 
 
 def _kutuphaneler(kok):
@@ -267,7 +273,7 @@ def teknik_duzenle(kok):
                 ek.append(x)
             else:
                 kay[-1] += " · " + x
-        if "kaynak: kare" in ek and _gozlem_mu(f"{ad} {' '.join(kay)}"):
+        if _gozlem_mu(f"{ad} {' '.join(kay)}" if "kaynak: kare" in ek else ad):  # M6 K1: her kaynakta süzgeç; tablo satırında kanıt metni karar vermez
             gozlem += 1
             continue
         zor = any("kontrol edilmedi" in x or x.startswith("bizde") for x in ek)  # önceki kontrol sonucu da zorunlu kılar (idempotent)
@@ -484,6 +490,24 @@ def panel(pdir, d, kok):
     return y
 
 
+def _tavan_genislet(pdir, d, n, k):
+    """M6 K3: araştırılacak n aday + k karşılaştırma bilinince tavan kendiliğinden genişler; parti başına bir kez, üst sınırla."""
+    from datetime import datetime
+    t = d.get("tavan")
+    if not t or t.get("genis") or not n + k:
+        return
+    c, u, _ = pt._defter(pdir)
+    birim = u / c if c else d.get("butce", 0.5)
+    cm, um = t.get("cagri_max", 30), t.get("usd_max", 2.0)
+    yc, yu = min(t["cagri"] + n + k, cm), round(min(t["usd"] + (n + k) * birim, um), 4)
+    ust = yc < t["cagri"] + n + k or yu < round(t["usd"] + (n + k) * birim, 4)
+    t.update(cagri=max(t["cagri"], yc), usd=max(t["usd"], yu))
+    t["genis"] = f"tavan genişletildi: +{n} araştırma +{k} karşılaştırma → {t['cagri']} çağrı / ${t['usd']}" + (" (üst sınır)" if ust else "")
+    tr.kayit_ekle(pdir / "defter.jsonl", [{"zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tavan", "not": t["genis"],
+                                           "usd": 0, "girdi": 0, "onb_okuma": 0, "onb_yazma": 0, "cikti": 0}])
+    print(f"parti: {t['genis']}")
+
+
 def akil(pdir, d, kok, tdir, ctx, tum=False):
     """Aşama 5-9. Aday durumu durum.json'da korunur: tamamlanan araştırma devamda yeniden çağrılmaz."""
     yol, cagir, env = pdir / "durum.json", ctx.get("cagir") or pt.hafif.cagir, ctx["env"]
@@ -499,6 +523,8 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p") if x in eski.get(k, {})})
         a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] else "arac_degil")
     d.update(adaylar=adaylar, belirsiz=belirsiz)
+    _tavan_genislet(pdir, d, sum(a["durum"] in pt.YENIDEN and a.get("deneme", 0) < 3 for a in adaylar.values()),
+                    int(any(a["kurulu"] and a["tur"] not in ARAC_DISI for a in adaylar.values())))
     pt._yaz(yol, d)
     for k, a in adaylar.items():  # aşama 6: araç başına tek derin araştırma
         if a["durum"] not in pt.YENIDEN or a.get("deneme", 0) >= 3:
@@ -562,15 +588,21 @@ def panel_uygula(ns, ctx):
     from . import kur
     from . import ogren as og
     karar, rc = ctx.get("karar") or kur.karar_isle, 0
+    yol = Path(ns.panel)
+    if not yol.is_file():  # M6 K4: cwd'de yoksa repo köküne göre
+        yol = kur._kok(ctx) / ns.panel
+    if not yol.is_file():
+        print(f"panel uygula: dosya yok: {ns.panel} (cwd ve repo kökü {Path(kur._kok(ctx)).as_posix()})")
+        return 2
     satirlar = [(i, [x.strip() for x in s.strip().strip("|").split("|")])
-                for i, s in enumerate(Path(ns.panel).read_text(encoding="utf-8").splitlines(), 1) if s.strip().startswith("|")]
+                for i, s in enumerate(yol.read_text(encoding="utf-8").splitlines(), 1) if s.strip().startswith("|")]
     if bozuk := [i for i, h in satirlar if len(h) != 8]:  # M2e K3: sessiz atlama yok; bozuk satır varsa hiçbir karar işlenmez
         for i in bozuk:
             print(f"panel satır {i}: sütun sayısı uyuşmuyor (başlık 8 sütun)")
         print("panel uygula: hiçbir karar işlenmedi")
         return 2
     n = bos = hatali = zaten = 0
-    pid = Path(ns.panel).parent.name
+    pid = yol.parent.name
     kayit = tr.kayit_oku(kur._kok(ctx) / "docs" / "kurulumlar" / "kayit.jsonl")  # M2f K5: (parti, aday, karar) kayıtta varsa yazılmaz
     for _, h in satirlar:
         if h[0] in ("aday", "---"):
@@ -594,6 +626,18 @@ def panel_uygula(ns, ctx):
 MOTOR_DOCS = ("docs/video-tarama", "docs/kurulumlar", "docs/denemeler", "docs/departmanlar", "docs/olcumler")
 
 
+def _islenmemis(kok, pid):
+    """M6 K5: panelde Ömer sütunu dolu, kayıtta (parti, aday, karar) karşılığı olmayan satırlar (panel_uygula ile aynı eşleşme)."""
+    p = kok / "docs" / "kurulumlar" / "parti" / pid / "panel.md"
+    if not p.is_file():
+        return []
+    ky = kok / "docs" / "kurulumlar" / "kayit.jsonl"
+    kayit = tr.kayit_oku(ky) if ky.is_file() else []
+    h = [[x.strip() for x in s.strip().strip("|").split("|")] for s in p.read_text(encoding="utf-8").splitlines() if s.strip().startswith("|")]
+    return [f"{x[0]}={x[7]}" for x in h if len(x) == 8 and x[7] and x[0] != "aday" and not set(x[0]) <= set("-: ")
+            and not any(k.get("ad") == x[0] and k.get("parti") == pid and str(k.get("karar", "")).startswith(f"{x[7].upper()} (Ömer, panel") for k in kayit)]
+
+
 def kapat(pdir, d, kok, ctx):
     """rapor-denetle (tüm parti) → gitleaks (değişen dosyalar, staged) → temizse commit + kuyruk --isle + push; sızıntıda commit yok (DUR)."""
     kos = lambda a, t=300: uy._kos(ctx, a, t)  # noqa: E731
@@ -603,8 +647,13 @@ def kapat(pdir, d, kok, ctx):
     if kotu:
         print(f"kapat: rapor-denetle KALDI → DUR: {kotu}")
         return 1
-    out = kos([*git, "status", "--porcelain", "--", "docs/video-tarama", "docs/kurulumlar"])[1].decode("utf-8", "replace")
-    dosya = [s[3:].strip().strip('"') for s in out.splitlines() if s.strip()]
+    if eks := _islenmemis(Path(kok), d["parti"]):
+        print(f"kapat: kayda işlenmemiş karar: {' · '.join(eks)} → DUR, önce: video panel uygula docs/kurulumlar/parti/{d['parti']}/panel.md")
+        return 1
+    out = kos([*git, "status", "--porcelain", "--", *MOTOR_DOCS])[1].decode("utf-8", "replace")  # M6 K6: izli değişiklik de tüm motor klasörlerinden
+    dosya = [s[3:].strip().strip('"') for s in out.splitlines() if s.strip() and not s.startswith("?? ")]
+    if dosya:
+        print("kapat: eklenecek izli: " + " · ".join(dosya))
     # M3a K0a: motorun yazdığı docs klasörlerindeki izlenmeyen dosyalar da değişen sayılır; commit'ten önce listelenir
     izl = [s[3:].strip().strip('"') for s in kos([*git, "status", "--porcelain", "--untracked-files=all", "--", *MOTOR_DOCS])[1]
            .decode("utf-8", "replace").splitlines() if s.startswith("?? ")]

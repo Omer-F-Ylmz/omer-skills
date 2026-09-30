@@ -36,10 +36,12 @@ def test_k1_gozlem_panel_ve_frontend_ayni_suzgec(tmp_path):
 def test_k1_teknik_duzenle_geriye_donuk_idempotent(tmp_path):
     y = tmp_path / "docs" / "departmanlar" / "frontend.md"
     y.parent.mkdir(parents=True)
-    y.write_bytes(("# Frontend\n\n## Teknikler\n\n" + "".join(f"- {s} · video {V[0]} · 1:00 · kaynak: altyazı\n" for s in GOZLEM + TEKNIK)).encode("utf-8"))
+    y.write_bytes(("# Frontend\n\n## Teknikler\n\n" + "".join(f"- {s} · video {V[0]} · 1:00 · kaynak: altyazı\n" for s in GOZLEM + TEKNIK)
+                   + f"- Prompt'tan tam site üretimi · video {V[0]} · 4:18 · k00438_0.jpg dosya listesi · kaynak: altyazı\n").encode("utf-8"))
     akil.teknik_duzenle(tmp_path)
     fe = _fe(tmp_path)
     assert all(s not in fe for s in GOZLEM) and "position: fixed" in fe and "alev/gürültü" in fe
+    assert "Prompt'tan tam site üretimi" in fe  # tablo satırında kanıt metni ('dosya listesi') gözlem kararı vermez
     bir = y.read_bytes()
     akil.teknik_duzenle(tmp_path)
     assert y.read_bytes() == bir
