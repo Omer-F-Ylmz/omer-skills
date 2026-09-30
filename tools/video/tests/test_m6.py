@@ -80,3 +80,22 @@ def test_k3_ust_sinir(tmp_path, capsys):
     assert d["tavan"]["cagri"] == 30 and d["tavan"]["usd"] == 2.0 and "üst sınır" in capsys.readouterr().out
 
 
+# --- K4 panel uygula: göreli yol cwd'de yoksa repo köküne göre; ikisinde de yoksa açık hata (traceback yok)
+def _panel(kok, omer=""):
+    p = kok / "docs" / "kurulumlar" / "parti" / "p1" / "panel.md"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_bytes(("| aday | a | b | c | d | e | f | Ömer |\n|---|---|---|---|---|---|---|---|\n"
+                   f"| caveman | 1 | 2 | 3 | 4 | 5 | 6 | {omer} |\n").encode("utf-8"))
+    return p
+
+
+def test_k4_panel_yolu_repo_kokune_gore(tmp_path, monkeypatch, capsys):
+    kok = tmp_path / "r"
+    _panel(kok)
+    (tmp_path / "baska").mkdir()
+    monkeypatch.chdir(tmp_path / "baska")
+    ctx = {"env": {"VIDEO_UYGULA_KOK": str(kok)}, "karar": lambda ns, c: 0}
+    assert akil.panel_uygula(SimpleNamespace(panel="docs/kurulumlar/parti/p1/panel.md"), ctx) == 0 and "boş 1" in capsys.readouterr().out
+    assert akil.panel_uygula(SimpleNamespace(panel="docs/yok/panel.md"), ctx) == 2 and "dosya yok" in capsys.readouterr().out
+
+
