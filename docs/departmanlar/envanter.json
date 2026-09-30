@@ -3886,5 +3886,14 @@
   "departman": "verimlilik",
   "p": 0.58,
   "kaynak": "jev"
+ },
+ {
+  "ad": "blender",
+  "tur": "mcp",
+  "aciklama": "Resmi Blender Lab MCP (stdio, uv): Blender 5.1+ içinde model Python'u çalıştırır; varlık, ışık, render işleri",
+  "hash": "e2d56115cb51f2df",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
  }
 ]
