@@ -58,7 +58,8 @@ def test_k2_gozlem_kutuphaneye_girmez(tmp_path):
             {"kare": "6:37 terminal", "okunan": "Dev server http://localhost:5174/"},
             {"kare": "2:00 Dosya sekmesi", "okunan": "dosya listesi index.html, script.js"},
             {"kare": "3:10 kod", "okunan": "başlık ölçeği clamp(48px, 8vw, 138px) ile akışkan"}]
-    tek, _, _ = akil.site_ogren(tmp_path, [(V[0], _md(kare=kare))])
+    site = [{"teknik": k["okunan"], "ne": "ekran", "nasil": "-", "kutuphane": "-", "kanit_zamani": k["kare"], "kaynak": "kare"} for k in kare]
+    tek, _, _ = akil.site_ogren(tmp_path, [(V[0], _md(site_ui=site))])  # M7: süzgeç teknik tablosu yolunda (kare okuması kütüphaneye girmez)
     fe = _fe(tmp_path)
     assert [x[0] for x in tek] == ["başlık ölçeği clamp(48px, 8vw, 138px) ile akışkan"] and "clamp(48px, 8vw, 138px)" in fe
     for s in ("Opus 4.7", "Site of the Day", "localhost", "index.html"):

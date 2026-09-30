@@ -25,12 +25,14 @@ TEKNIK = ["Scroll tabanlı hikaye anlatımı ve ince animasyonlu arka plan",
 
 
 def test_k1_gozlem_panel_ve_frontend_ayni_suzgec(tmp_path):
-    kare = [{"kare": f"{i}:00", "okunan": s} for i, s in enumerate(GOZLEM + TEKNIK)]
+    kare = [{"kare": "8:00", "okunan": "Menüde mix-blend-mode: difference ile ters renk"}]  # M7: Kareden okunanlar hiçbir yere aktarılmaz
     site = [{"teknik": s, "ne": "ekran", "nasil": "-", "kutuphane": "-", "kanit_zamani": "9:00", "kaynak": "altyazı"} for s in GOZLEM]
+    site += [{"teknik": s, "ne": "ekran", "nasil": "-", "kutuphane": "-", "kanit_zamani": f"{i}:00", "kaynak": "kare"} for i, s in enumerate(GOZLEM + TEKNIK)]
     tek, _, _ = akil.site_ogren(tmp_path, [(V[0], _md(site_ui=site, kare=kare))])
     assert {x[0] for x in tek} == set(TEKNIK)  # panelin Site/UI bölümü bu listeden kurulur
     fe = _fe(tmp_path)
     assert "backdrop-filter blur" in fe and "BLAZING MANGO" not in fe and "Twelve seats" not in fe and "Animate" not in fe
+    assert "mix-blend-mode" not in fe  # Kareden okunanlar ne tek'te ne frontend.md'de ne panelde (panel = tek)
 
 
 def test_k1_teknik_duzenle_geriye_donuk_idempotent(tmp_path):
