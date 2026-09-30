@@ -111,3 +111,15 @@ def test_k5_kayda_islenmemis_kararla_kapat_durur(tmp_path, capsys):
     assert akil.kapat(tmp_path, d, kok, _ctx()) == 0 and _git(kok, "log", "--oneline").count("\n") == 2
 
 
+# --- K6 kapat izli departman değişikliğini commit'ten önce listeler ve commit'e alır
+def test_k6_departman_degisikligi_kapatta(tmp_path, capsys):
+    kok = _repo(tmp_path)
+    y = kok / "docs" / "departmanlar" / "frontend.md"
+    y.parent.mkdir(parents=True)
+    y.write_bytes(b"a\n")
+    _git(kok, "add", "-A")
+    _git(kok, "commit", "-q", "-m", "fe")
+    y.write_bytes(b"a\nb\n")
+    assert akil.kapat(tmp_path, {"parti": "p1", "videolar": {}, "adaylar": {}}, kok, _ctx()) == 0
+    assert "kapat: eklenecek izli: docs/departmanlar/frontend.md" in capsys.readouterr().out
+    assert "docs/departmanlar/frontend.md" in _git(kok, "show", "--name-only", "HEAD")
