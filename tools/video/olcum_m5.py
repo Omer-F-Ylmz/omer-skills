@@ -24,7 +24,7 @@ B = REPO / ".kos" / "m5"
 KOSULAR = ("r1", "r2")
 SONNET = [(3, .18), (4, .55), (3, .30)]  # Σ 10 / $1,03
 IG_PARTI = {"or_usd": .033, "jev": 50, "yargic": 3}  # 3 parti → luna ≤$0,1 · Jev ≤150 · motor yargıcı ≤5 (video başına ≤1)
-JEV, YARGIC = 150, 8
+JEV, YARGIC = 300, 8  # ölçüm tavanları (koşu başına), motorunkilerden ayrı
 M3B1 = {"yuksek": .90, "genel": .81, "day": .04, "usd": .8596, "cagri": 8}
 M4C3 = {"yuksek": .92, "genel": .82, "day": .03, "usd": .932}
 GURULTU = {"yuksek": 1.3, "genel": 5.0, "day": 1.5}
@@ -77,12 +77,43 @@ def tara():
         print(f"tara {r}: sonnet {s[0]} çağrı ${s[1]:.3f} · ikinci göz {g} · {({v: t['durum'] for v, t in vid.items()})}", flush=True)
 
 
+def onar():
+    """Devam K3: yalnız 86HM0RUWhCk, iki koşuda da. K1 kök neden Sonnet taramasında (r1: parti içi onarım çağrısı
+    parti.py:351'de kalan parti $'ına kırpıldı → error_max_budget_usd → hata; r2: iki deneme form_red), ikinci gözde değil;
+    bu yüzden motora dokunulmaz, ölçümün onarımı `hata`yı da kapsar. Video başına tavan: sonnet ≤3 çağrı / $0,35,
+    luna ≤$0,02, motor yargıcı ≤1. Eski esle/gorsel `-eski` adıyla saklanır (yeniden ölçülecek)."""
+    V = "86HM0RUWhCk"
+    for r in KOSULAR:
+        _kur(r)
+        d = o3._oku("tara")
+        for anah, x in d.items():
+            dur = x["videolar"].get(V)
+            if dur not in ("hata", "form_red"):
+                continue
+            pdir = REPO / ".kos" / x["pid"]
+            durum = _j(pdir / "durum.json")
+            c, u, _ = pt._defter(pdir)
+            g = pt._ig_defter(pdir)
+            pt.IG_TAVAN = {"or_usd": g["or_usd"] + .02, "jev": IG_PARTI["jev"], "yargic": g["yargic"] + 1}
+            env = {**os.environ, "VIDEO_TARAMA_DIZIN": str(o3.KOS / "sonnet" / "rapor"), "PYTHONIOENCODING": "utf-8"}
+            print(f"onar {r} {anah} {V}: {dur} · harcanan {c} çağrı ${u:.3f} · ig {g} · tavan +3 / +$0,35", flush=True)
+            cli.main(["parti", "devam", x["pid"], *(["--form-red-yeniden"] if dur == "form_red" else []),
+                      f"--cagri-ek={c + 3 - durum['tavan']['cagri']}", f"--usd-ek={u + .35 - durum['tavan']['usd']:.4f}"], env=env)
+            x["cagri"], x["usd"], x["jeton"] = pt._defter(pdir)
+            x["videolar"] = {v: s["tarama"]["durum"] for v, s in _j(pdir / "durum.json")["videolar"].items()}
+            o3._yaz("tara", d)
+            print(f"onar {r}: {V} → {x['videolar'][V]} · parti {x['cagri']} çağrı ${x['usd']:.3f} · ig {pt._ig_defter(pdir)}", flush=True)
+        for ad in ("esle", "gorsel"):
+            if (p := B / r / f"{ad}.json").is_file():
+                p.replace(B / r / f"{ad}-eski.json")
+
+
 def esle():
     for r in KOSULAR:
         _kur(r)
         if (B / r / "esle.json").is_file():
             continue
-        o3.JEV_TAVAN = max(0, JEV - _motor(r)[1]["jev"])
+        o3.JEV_TAVAN = JEV  # devam: ölçümün Jev tavanı motorunkinden ayrı (M3b ölçümüyle aynı)
         print(f"esle {r}: Jev tavanı {o3.JEV_TAVAN}", flush=True)
         o3.esle()
 
@@ -91,7 +122,7 @@ def gorsel():
     for r in KOSULAR:
         _kur(r)
         g = _j(B / r / "gorsel.json", {"g": {}, "cagri": 0, "usd": 0.0})
-        tavan = YARGIC - _motor(r)[1]["yargic"]
+        tavan = YARGIC
         for vid, v in _j(B / r / "esle.json")["veri"].items():
             if vid in g["g"]:
                 continue
@@ -128,7 +159,9 @@ def rapor():
         ek = [t.get("ikinci_goz") or {} for t in vid.values()]
         oz[r] = {"o": o, "y": o3.oran(o["m"]["yuksek"]), "ge": o3.oran(o["m"]["genel"]), "d": o3.oran(o["day"]), "s": s, "ig": ig_, "g": g,
                  "ekl": sum(x.get("eklenen", 0) for x in ek), "dog": sum(x.get("dogrulanamadi", 0) for x in ek),
-                 "dur": {v: t["durum"] for v, t in vid.items()}}
+                 "dur": {v: t["durum"] for v, t in vid.items()},
+                 # devam: ölçülemeyen = görsel yargıç tavanı dışı + Jev tavanı dışı (K3'e hiç girmeyen) motor kalemi
+                 "ol": o["say"]["ölçülemedi"] + _j(B / r / "esle.json")["jev"]["k3_dusen"]["sonnet"]}
     a, b = oz["r1"], oz["r2"]
     ort = {k: ((a[k] + b[k]) / 2, abs(a[k] - b[k]) / 2) for k in ("y", "ge", "d")}
     gec = {"y": ort["y"][0] >= .9, "ge": ort["ge"][0] >= .75, "d": ort["d"][0] <= .05}
@@ -138,6 +171,8 @@ def rapor():
     if not all(gec.values()):
         k = max((k for k in gec if not gec[k]), key=lambda k: fark[k])
         sonuc = f"DEĞİL — en yakın kalan ölçüt {ad[k]}: ortalama {_p(ort[k][0])} (fark {100 * fark[k]:+.1f} puan)"
+    if any(z["ol"] > .05 * z["o"]["n"] for z in oz.values()):
+        sonuc = "GEÇERSİZ — ölçülemeyen kalem >%5 (dayanmayan gerçek ölçülmedi)"
     usd = lambda z: z["s"][1] + z["ig"]["or_usd"] + z["ig"]["yargic_usd"]
     mx = lambda z: z["s"][0] + z["ig"]["yargic"]
     L = ["# M5 — son ölçüm (ikinci göz açık, iki taze koşu)", "",
@@ -150,6 +185,10 @@ def rapor():
         L.append(f"| {r} | {_p(z['y'])} ({z['o']['m']['yuksek'][0]}/{z['o']['m']['yuksek'][1]}) | {_p(z['ge'])} ({z['o']['m']['genel'][0]}/{z['o']['m']['genel'][1]}) | "
                  f"{_p(z['d'])} ({z['o']['day'][0]}/{z['o']['day'][1]}) | {z['s'][0]} | {z['s'][1]:.3f} | {z['ig']['or_usd']:.4f} ({z['ig']['luna']}) | {z['ig']['jev']} | "
                  f"{z['ig']['yargic']}/{z['g']['cagri']} | {z['ekl']} / {z['dog']} | {' · '.join(f'{v[:4]} {d}' for v, d in z['dur'].items())} |")
+    L += ["", "Ölçülemeyen motor kalemi (Jev/görsel yargıç tavanı dışı): " + " · ".join(f"{r} {z['ol']}/{z['o']['n']} ({_p(o3.oran((z['ol'], z['o']['n'])))})" for r, z in oz.items()),
+          "Devam (K1): 86HM0RUWhCk ilk ölçümde r1 `hata` (Sonnet parti içi onarım çağrısı kalan parti $'ına kırpıldı, parti.py:351 → error_max_budget_usd) · "
+          "r2 iki deneme form_red; ikinci gözden değil. `onar` yalnız bu video için hata/form_red'i yeniden taradı (≤3 çağrı / $0,35). "
+          f"Ölçüm tavanları motordan ayrı: Jev {JEV} durum · görsel yargıç {YARGIC}/koşu."]
     L += ["", "## Ortalama ± yarı fark (ölçütlere karşı)", "| ölçüt | ortalama | ± | M4b gürültüsü (puan) | sonuç |", "|---|---|---|---|---|"]
     L += [f"| {ad[k]} | {_p(ort[k][0])} | {100 * ort[k][1]:.1f} | {GURULTU[{'y': 'yuksek', 'ge': 'genel', 'd': 'day'}[k]]} | {'GEÇTİ' if gec[k] else 'KALDI'} |" for k in ad]
     L += ["", "## Yan yana", "| | yüksek | genel | dayanmayan | $ (koşu) |", "|---|---|---|---|---|",
@@ -180,4 +219,4 @@ def rapor():
 if __name__ == "__main__":
     sys.stdout.reconfigure(line_buffering=True)
     for a in sys.argv[1:]:
-        {"tara": tara, "esle": esle, "gorsel": gorsel, "rapor": rapor}[a]()
+        {"tara": tara, "onar": onar, "esle": esle, "gorsel": gorsel, "rapor": rapor}[a]()
