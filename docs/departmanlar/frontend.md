@@ -310,5 +310,24 @@ Müdür: `departman-frontend`
 - Koyu yeşil hero, serif başlık, yuvarlak CTA butonları, dekoratif çatal-bıçak illüstrasyonları · video Ysr7oNDajJI · 3:30 · kaynak: kare
 - Küçük etkileşim animasyonları (form gönderimi, hover'da grafikler) · video Ysr7oNDajJI · 3:12 · kaynak: altyazı
 - Ortada açık renkli bir landing page kartı, altta soluk dört benzer kart; şablon/kalıp vurgusu. · video Ysr7oNDajJI · 0:30 · kaynak: kare
+- SkillUI ile tek istemde üretilmiş Stripe tarzı sayfa: gradyan vurgulu başlık, kart ızgarası, logo şeridi · video Q9ty3eopOPs · 4:37 · kaynak: kare
+- 21st.dev Spline hero: fareyi izleyen 3D robot; ışıklı butonlar, fare izleyen aydınlatmalı kartlar · video Q9ty3eopOPs · 13:28 · kaynak: altyazı
+- github.com/pbakaus/impeccable SKILL.md: lisans Apache 2.0, Anthropic frontend-design skill'ine dayalı; /arrange → /layout, /normalize → /polish; cleanup-deprecated.mjs komutu. · video Q9ty3eopOPs · 3 (1:58) · kaynak: kare
+- github.com/amaancoderx/npxskillui README: 'One-shotted Notion's landing page in minutes with a single line prompt'; katılımcı amaancoderx Amaan Khan; TypeScript 100%. · video Q9ty3eopOPs · 5 (3:35) · kaynak: kare
+- Scroll scrubbing hero videosu · video n5eIrepe-Fg · 0:00 · kaynak: altyazı
+- Sağ alt sabit sayaç · video n5eIrepe-Fg · 1:01 · kaynak: kare
+- Film şeridi gibi akan galeri · video n5eIrepe-Fg · 10:08 · kaynak: altyazı
+- Makine camından açılan tadım bölümü · video n5eIrepe-Fg · 3:33 · kaynak: kare
+- 'Aynı çekirdek, üç demleme.' başlığı, 'Aynı kahveyi V60, French press ve espresso ile demleyip yan yana tadıyoruz.', 'Masada en fazla 8 kişi var. Acele etmiyoruz.', 'Randevu talep et', sağ altta 'PARTİ N° 041 HAZIR'. · video n5eIrepe-Fg · 3:33 (2. görsel, tadım bölümü) · kaynak: kare
+- Proje 'Kur sinematik KAVRUN landing page', model 'GPT-6 Astra Orta', sağda 127.0.0.1:4173/#galeri önizleme, 'Codex ve Çalışma kullanım hakkınız tükendi' uyarısı, 'Çiğden köze.' başlığı. · video n5eIrepe-Fg · 3:33 (3. görsel, Codex arayüzü) · kaynak: kare
+- Scroll reveal animasyonları · video Pj2FnVE-W3c · 8:05 · kaynak: altyazı
+- Sayaç (counter) animasyonları · video Pj2FnVE-W3c · 8:05 · kaynak: altyazı
+- Logo renklerinden türetilmiş renk paleti · video Pj2FnVE-W3c · 9:07 · kaynak: altyazı
+- Shader arka plan animasyonu · video Pj2FnVE-W3c · 14:20 · kaynak: altyazı
+- Stil dönüştürme (renk, arka plan, animasyon) · video Pj2FnVE-W3c · 13:13 · kaynak: altyazı
+- Claude Code for VS Code eklenti sayfası, Anthropic, sağda Claude Code paneli. · video Pj2FnVE-W3c · 2 (1:30) · kaynak: kare
+- Aşamalar: 0 Claude.md → 1 Tasarım için eklenti → 2 ? → 3 ?. · video Pj2FnVE-W3c · 4 (3:31) · kaynak: kare
+- Skills Library şeması: n8n workflows, Frontend design, Python code, Keybindings; Yol A/B. · video Pj2FnVE-W3c · 5 (4:32) · kaynak: kare
+- CLAUDE_SITE klasörü, topluluk_docs içinde DOA logosu png ve DOA_overview_feb_2026.md; sohbette plugin komutları. · video Pj2FnVE-W3c · 7 (6:33) · kaynak: kare
 
 ## Elle
