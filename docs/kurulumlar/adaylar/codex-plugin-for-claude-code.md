@@ -55,3 +55,4 @@ kaynak: https://github.com/openai/codex-plugin-cc
 kaynak: https://github.com/openai/codex-plugin-cc
 ## Destek
 - V0XbuApxlhg · 13:51 · Claude Code arayüzünden Codex/GPT modellerine görev devretmeyi kolaylaştırır. · kanıt: There is a Codex plugin for Claude code.
+- V2RIVnGCy74 · 8:03 · OpenAI'nin resmi eklentisi; Codex/GPT'yi Claude Code'a bağlar, kod incelemesi, adversarial review ve Codex rescue ile iş devri sağlar. · kanıt: Resmî OpenAI eklentisi; Codex ve GPT modellerini Claude Code'a bağlıyor. (karede: İlgili kare yok; altyazıdan.)

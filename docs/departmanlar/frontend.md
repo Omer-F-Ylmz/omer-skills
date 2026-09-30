@@ -302,5 +302,9 @@ Müdür: `departman-frontend`
 - Figma çerçeve + Blender node materyalleri · video 9opJeH9j9qs · 0:47 · kaynak: kare
 - 3D model, fare hareketine duyarlılık ve kaydırma animasyonları · video -_S3KD0ZIfI · 0:30 · kaynak: altyazı
 - Kurs satış sayfası (landing): koyu tema, sol başlık/alt başlık, sağda fiyat kartı, CTA butonu ve geri sayım · video EJyuu6zlQCg · 1:09 · kaynak: kare
+- Koyu tema karşılaştırma kartları · video 4XqVR6xI6Kw · 4:48 · kaynak: kare
+- Landing page, koyu buton + açık arka plan, yüzen mockup kartları · video V2RIVnGCy74 · 1:07 · kaynak: kare
+- Canlı düzenleme modu (Pick aracı, varyant üretimi) · video V2RIVnGCy74 · 3:09 · kaynak: kare
+- Tasarım sistemi önizleme sayfası (fiyat kartları, form elemanları) · video V2RIVnGCy74 · 4:09 · kaynak: kare
 
 ## Elle
