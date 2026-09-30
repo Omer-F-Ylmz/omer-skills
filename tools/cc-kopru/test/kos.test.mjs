@@ -106,12 +106,14 @@ test("timeout surec agacini kapatir", async () => {
   // graphify yerine uzun suren ama izinli bir sey yok; dogrudan icsel kosucu ile olculur
   const t0 = Date.now();
   const r = await kos({
-    arac: "git", args: ["log", "--all", "-p"], cwd: "C:/Projeler/omer-skills",
+    // --stdin: kapanmayan stdin'i bekler, repo boyutu/makine hizindan bagimsiz her kosuda zaman asimina duser
+    arac: "git", args: ["log", "--stdin"], cwd: "C:/Projeler/omer-skills",
     timeoutSn: 1, ayar: AYAR,
   });
   const gecen = (Date.now() - t0) / 1000;
   assert.ok(gecen < 20, "timeout 1 sn verildi, " + gecen + " sn surdu");
-  if (r.sureDoldu) assert.match(r.cikti, /zaman asimi/i);
+  assert.ok(r.sureDoldu, "zaman asimi dali tetiklenmedi");
+  assert.match(r.cikti, /zaman a[sş][iı]m[iı]/i);
 });
 
 test("tam cikti log dosyasina yazilir", async () => {
