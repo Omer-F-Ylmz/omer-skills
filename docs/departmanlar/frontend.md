@@ -309,5 +309,7 @@ Müdür: `departman-frontend`
 - Koyu tema hero bölümü: büyük sans-serif başlık, gri alt metin, iki CTA (dolu beyaz ve çerçeveli koyu), altta renkli çizgi ızgarası gradyanı ve üçgen logo. · video OFyECKgWXo8 · 0:27 · kaynak: kare
 - HTML + CSS ile tek prompttan landing page; frontend-design skill'i ile renk paleti, tipografi ve tasarım sistemi · video uuUo7gWuH9w · 9:37 · kaynak: altyazı
 - Figma tasarımından HTML/CSS üretimi · video uuUo7gWuH9w · 20:59 · kaynak: altyazı
+- Koyu tema sunum sayfası (localhost:8765/presentation.html), büyük numaralı bölüm başlığı, vurgu rengi kırmızı, gradyan arka plan, animasyonlu dairesel diyagram · video L2JKgj7WzU4 · 1:03 · kaynak: kare
+- Koyu gradyan intro animasyonu, mor vurgulu başlık · video L2JKgj7WzU4 · 0:16 · kaynak: kare
 
 ## Elle
