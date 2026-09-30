@@ -1,9 +1,10 @@
-"""MOTOR-M4 tarama kalitesi: K1 kurulum/komutlar · K2 tam altyazı + kare seçimi · K3 kare başına kayıt · K4 dilim + birleştirme · K5b görsel yargıç."""
+"""MOTOR-M4 tarama kalitesi: K1 kurulum/komutlar · K5b görsel yargıç · M4c: K2/K3/K4 geri alındı (86HM testi)."""
 from pathlib import Path
 
 import olcum_m4 as o4
-from video import akil, cli
+from video import akil, hafif
 from video import parti as pt
+from test_m2a import _ctx, _durum, _ns
 
 REPO = Path(__file__).resolve().parents[3]
 PAKET = """# vid · Başlık · Kanal · süre 30:00 · sure_sn 1800 · short: false · dil tr · https://youtu.be/vid · paket: m4
@@ -46,57 +47,30 @@ def test_k1_kurulum_komutlar_rapor_ve_panel(tmp_path):
     assert a["videolar"]["vid"]["komutlar"] == ["npm i foo"]
 
 
-def test_k2_tam_altyazi_esigi():
-    p = {"sure": 1200, "metin": "## Segmentler\n" + "x" * (14_000 * 4)}
-    assert pt.dilimler(p) == [(0, 1200)]
-    assert len(pt.dilimler({**p, "metin": "x" * (16_000 * 4)})) == 2
-    assert len(pt.dilimler({"sure": 1800, "metin": "kısa"})) == 2  # >25 dk
-    assert len(pt.dilimler({"sure": 600, "metin": "x" * (40_000 * 4)})) == 3
-
-
-def test_k2_kare_sahne_arti_esit_aralik_ve_yogunluk():
-    assert cli.kare_zamanlari(600, 4, [(100, .9), (105, .8), (400, .5)]) == [100, 225, 400, 525]
-    assert cli.kare_zamanlari(600, 3, []) == [100, 300, 500]
-    duz, cizgili = bytes([128] * 160 * 90), bytes(([0, 255] * 80) * 90)
-    assert not cli.yogun_mu(duz, 160) and cli.yogun_mu(cizgili, 160)
-    assert cli.YUKSEK == 1568
-
-
-def test_k3_kare_basina_zorunlu_kayit(tmp_path, monkeypatch):
-    monkeypatch.setattr(pt.hafif, "GORSEL", True)
-    p = _paket(tmp_path)
-    assert p["m4"] and p["kare_zaman"] == [100, 1300]
-    tam = pt.dogrula({"videolar": [_f()]}, {"vid": p}, ["vid"]).get("vid", [])
-    assert not any("kare kaydı" in h for h in tam)
-    eksik = pt.dogrula({"videolar": [_f(kareden_okunanlar=[{"kare": "1:40", "okunan": "npm i foo"}])]}, {"vid": p}, ["vid"])["vid"]
-    assert any("kare kaydı yok: 21:40" in h for h in eksik)
-    bos = pt.dogrula({"videolar": [_f(kareden_okunanlar=[{"kare": "1:40", "okunan": " "}, {"kare": "21:40", "okunan": "x"}])]}, {"vid": p}, ["vid"])["vid"]
-    assert any("okunan: boş olamaz" in h for h in bos)
-    s = pt.sema(["vid"])["properties"]["videolar"]["items"]
-    assert {"nasil", "kutuphane", "ne"} <= set(s["properties"]["site_ui"]["items"]["required"])
-    assert {"oz_denetim", "kurulum_komutlar"} <= set(s["required"])
-
-
-def test_k4_dilim_cagri_ve_birlestirme(tmp_path, monkeypatch):
-    monkeypatch.setattr(pt.hafif, "GORSEL", True)
-    p, cagrilar = _paket(tmp_path), []
-
-    def sahte(sistem, metin, sema, kareler=(), **k):
-        cagrilar.append((metin, list(kareler)))
-        return {"form": {"videolar": [_f(kareden_okunanlar=[{"kare": f"k{len(cagrilar)}", "okunan": "x"}])]},
-                "usage": {"input_tokens": 10, "output_tokens": 5}, "usd": .01, "sure": 1.0}
-    d = {"model": "m", "butce": .5, "tavan": {"usd": 1.0, "cagri": 10}}
-    y = pt._cagir_grup(pdir=tmp_path, d=d, kalan=["vid"], pk={"vid": p}, hatalar={}, temizle=str, cagir=sahte, env={})
-    assert len(cagrilar) == 2 and y["dilim"] == 2 and y["usd"] == .02
-    assert "[0:00]" in cagrilar[0][0] and "[20:00]" not in cagrilar[0][0] and "[20:00]" in cagrilar[1][0]
-    assert [len(k) for _, k in cagrilar] == [1, 1]
-    f = y["form"]["videolar"][0]
-    assert len(f["adaylar"]) == 1 and len(f["kurulum_komutlar"]) == 1 and len(f["kareden_okunanlar"]) == 2
-
-
 def test_k5b_gorsel_yargic_siniflama():
     def sahte(sistem, metin, sema, kareler=(), **k):
         assert "1. a" in metin and len(kareler) == 1
         return {"form": {"kararlar": [{"no": 1, "karar": "evet"}, {"no": 2, "karar": "hayır"}, {"no": 3, "karar": "okunamıyor"}]}, "usd": .01}
     k, usd = o4.gorsel_yargi(["a", "b", "c", "d"], ["k.jpg"], sahte)
     assert k == ["dayanıyor", "dayanmıyor", "okunamıyor", "ölçülemedi"] and usd == .01
+
+def test_86hm_kare_kaydi_yoklugu_form_red_yapmaz(tmp_path, monkeypatch):
+    """M4c geri alma (M4b ölçümü, db8de15): 86HM0RUWhCk M3b'deki gibi işlenir — kareli pakette kareden_okunanlar boş form kabul."""
+    monkeypatch.setattr(hafif, "GORSEL", True)
+    v, cagrilar = "86HM0RUWhCk", []
+    (d := tmp_path / "c" / v).mkdir(parents=True)
+    k1, k2 = d / "k00100_0.jpg", d / "k01300_0.jpg"
+    for k in (k1, k2):
+        k.write_bytes(b"\xff\xd8")
+    (d / "paket.md").write_text(PAKET.replace("vid", v).format(k1=k1.as_posix(), k2=k2.as_posix()), encoding="utf-8")
+    (tmp_path / "kuyruk.md").write_text("### Sıra 1\n| id | dk | başlık | not | durum |\n|---|---|---|---|---|\n"
+                                        f"| {v} | 30.0 | t | - | bekliyor |\n", encoding="utf-8")
+
+    def sahte(sistem, metin, sema, **k):
+        cagrilar.append(k.get("kareler"))
+        return {"form": {"videolar": [{**{a: b for a, b in _f().items() if a != "oz_denetim"}, "id": v}]}, "usd": 0.01, "sure": 0.1, "hata": None,
+                "usage": {"input_tokens": 10, "cache_read_input_tokens": 0, "cache_creation_input_tokens": 100, "output_tokens": 50}}
+
+    pt.parti(_ns("baslat", tmp_path / "kuyruk.md"), _ctx(tmp_path, sahte))
+    assert _durum(tmp_path)["videolar"][v]["tarama"]["durum"] not in ("form_red", "tamam_eksik")
+    assert len(cagrilar) == 1 and cagrilar[0]  # tek çağrı (dilim yok), kareler gönderildi

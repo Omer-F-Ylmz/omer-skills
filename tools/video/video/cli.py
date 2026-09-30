@@ -29,7 +29,6 @@ TARAMA_DIZIN = Path(__file__).resolve().parents[3] / "docs" / "video-tarama"
 LISTE_TAVAN, ALTYAZI_ES, SUZ_ES = 8, 4, 8
 SOR_TOKEN, ADAY_KR = 2_500, 400
 GENISLIK = 768
-YUKSEK, YOGUN_ES = 1568, 0.08  # M4 K2: yoğun metin/kod karesi uzun kenar ≤1568; YOGUN_ES ayar düğmesi (160×90 gri, komşu farkı >40 oranı)
 GERI_CEKIL, HIZ_DK = (20, 60), 15  # 429: iki tekrar, sonra kullanıcıya bekleme süresi
 SURE = {"meta": 120, "altyazi": 120, "kesit": 120, "ffmpeg": 60, "ses": 900}
 ARAC_Q = {"type": "noul", "instructions": "Bu video kesiti (state) bir araç, skill, MCP, CLI, teknik ya da iş akışı anlatıyor mu?",
@@ -319,14 +318,10 @@ def paket(ns, ctx):
                if ns.id in (j := json.loads(f.read_text(encoding="utf-8")))), {})  # 24e-2 K1: Desktop kuyruk-meta önce
     lk = km.get("linkler") or m.urller(km.get("aciklama") or meta.get("description"))
     lk = m.urller(lk) if isinstance(lk, str) else lk
-    if ns.istek_tavan == 0 and meta.get("duration") and seg:  # M4 K2: sahne değişimi + kalan bütçe eşit aralık (ilk n segment değil)
-        zamanlar = kare_zamanlari(meta["duration"], ns.kare, _sahneler(ctx, d))
-    else:
-        zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
+    zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
     kareler = _kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []
-    yogun = {yol for t, yol in kareler if _yogun(ctx, yol) and _kare_uret(ctx, d, _akis_url(ctx, d), t, 0, YUKSEK)}
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
-          f" · https://youtu.be/{ns.id} · paket: m4 · kare_tk {'+'.join(str(_kare_tk(y)[1]) for _, y in kareler) or 0} · yoğun {len(yogun)}",
+          f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           "## Segmentler", *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
@@ -336,51 +331,6 @@ def paket(ns, ctx):
     print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
           f" + ~{sum(_kare_tk(y)[1] for _, y in kareler)} kare · istek {istek}")
     return 0
-
-
-def kare_zamanlari(sure, n, sahneler):
-    """M4 K2: önce skoru en yüksek sahne değişimleri (aralarında ≥ süre/2n), kalan bütçe eşit aralık → sıralı en fazla n zaman."""
-    ara, sec = sure / (2 * n), []
-    for t, _ in sorted(sahneler, key=lambda x: -x[1]):
-        if len(sec) < n and 0 < t < sure and all(abs(t - x) >= ara for x in sec):
-            sec.append(t)
-    esit = [round(sure * (i + .5) / n) for i in range(n)]
-    for t in esit:
-        if len(sec) < n and all(abs(t - x) >= ara for x in sec):
-            sec.append(t)
-    for t in esit:  # aralık kuralı yer bırakmadıysa kalan eşit noktalar
-        if len(sec) < n and t not in sec:
-            sec.append(t)
-    return sorted(sec)
-
-
-def yogun_mu(gri, w):
-    """M4 K2: basit metin yoğunluğu — yatay komşu piksel farkı >40 olanların oranı ≥ YOGUN_ES (metin/kod karesi)."""
-    fark = sum(abs(gri[i] - gri[i + 1]) > 40 for i in range(len(gri) - 1) if (i + 1) % w)
-    return fark / max(1, len(gri)) >= YOGUN_ES
-
-
-def _yogun(ctx, yol):
-    try:
-        return yogun_mu(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=160:90,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]), 160)
-    except Exception:  # ölçülemeyen kare normal çözünürlükte kalır
-        return False
-
-
-def _sahneler(ctx, d):
-    """M4 K2: akış boyunca anahtar karelerde sahne skoru (ffmpeg scene >0.3) → [(t, skor)]; sahne.json önbellek, hata → [] (eşit aralık).
-    ponytail: yalnız anahtar kareler (-skip_frame nokey) ve akış baştan sona okunur; uzun videoda yavaşsa pencereli örnekleme."""
-    y = d / "sahne.json"
-    if y.is_file():
-        return [tuple(x) for x in json.loads(y.read_text(encoding="utf-8"))]
-    try:
-        out = _kos(ctx, ["ffmpeg", "-v", "error", "-rw_timeout", "15000000", "-skip_frame", "nokey", "-i", _akis_url(ctx, d), "-an", "-vf",
-                         "scale=320:-2,select='gt(scene,0.3)',metadata=print:file=-", "-f", "null", "-"], SURE["ses"]).decode("utf-8", "replace")
-    except Exception:
-        return []
-    s = [(round(float(t)), float(k)) for t, k in re.findall(r"pts_time:([\d.]+)\s+lavfi\.scene_score=([\d.]+)", out)]
-    y.write_text(json.dumps(s), encoding="utf-8")
-    return s
 
 
 def _akis_url(ctx, d):
