@@ -29,6 +29,12 @@ video parti devam <pid> --cagri-ek 2 --usd-ek 0.3
 ```
 Çağrı ve $ tavanı parti başında sabitlenir (`--cagri-tavan`, `--usd-tavan`). Tavan aşılırsa motor durur (çıkış 3, durum `tavan`). Tavanı yalnız `--cagri-ek`/`--usd-ek` açıkça yükseltir. Ek, mevcut tavana eklenir; harcanan tutara değil.
 
+## İkinci göz (M5)
+Sonnet formu geçen her video aynı paketle luna'ya (OpenRouter, `openai/gpt-6-luna-pro`) da taratılır. Luna'nın yalnız kendisinde olan kalemi (anahtar kesişimi yok) doğrulanırsa rapora ` (ikinci göz)` etiketiyle eklenir: metin kalemi URL'si paket.md'de ya da Jev "kaynak destekliyor" (segmentler ±60 sn + açıklamanın tamamı); kare kalemi görsel yargıç (hafif Sonnet, en yakın ≤8 kare, video başına tek çağrı). Doğrulanamayan kalem raporun `## Doğrulanamadı (ikinci göz)` ekinde görünür, panele girmez.
+- Bayrak: `--ikinci-goz luna|yok` (varsayılan luna). `OPENROUTER_API_KEY` yoksa ya da `yok` seçildiyse rapor ve `parti durum` "ikinci göz KAPALI: <sebep>" yazar.
+- Tavan (parti başına, Sonnet tavanından ayrı): OpenRouter $0,10 · Jev 150 durum · yargıç 8 çağrı; video başına luna ≤2, yargıç ≤1. Defterde `ikinci_goz_luna/_jev/_yargic` satırları; `parti durum` ikinci göz satırı (eklenen · doğrulanamadı · $ · Jev · yargıç).
+- Luna hatası/429/geçersiz JSON: video Sonnet sonucuyla `tamam` kalır, rapora not düşülür.
+
 ## Hata durumları
 - **hata**: taşıyıcı ya da çağrı kesildi. `devam` yalnız o grubu yeniden çağırır.
 - **form_red**: form şemayı ya da kuralları geçmedi (eksik alan, açıklama bağlantısına karar yok, kare kaynaklı iddiada `karede_gorulen` boş, zamansız kanıt). Hata listesi `durum`'da görünür. `--form-red-yeniden` ile tekrar denenir.
