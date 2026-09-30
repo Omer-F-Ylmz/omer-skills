@@ -54,9 +54,9 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | Nn0OyCWer1k | 1.9 | "I built Claude Code. Use Subagents." | alt ajan kullanım ipuçları; suite-kosucu/araştırıcı düzenimizle karşılaştır | işlendi: 4d1c6d8 |
 | ZAaxx3qyT8g | 7.6 | CC agent dashboard | -INveHwbRz4 ile aynı özellik (agent view); sürüm/özellik | işlendi: 83e8d83 |
 | -INveHwbRz4 | 0.7 | Introducing agent view (Claude resmi) | resmi özellik duyurusu | işlendi: 4d1c6d8 |
-| j7Fyi5gQ85k | 44.5 | Sıfırdan Jev Masterclass (Burhan) | JEV TAM KULLANIM: bizim jev CLI/hook/kalibre ile karşılaştır; bilmediğimiz özellik → ÖĞREN/UYARLA | işlendi: c38adff |
-| Wz4qYO-91zg | 11.0 | Jev: 75 kat hızlı karar | Jev iddiaları → iddia sınama (13b kalibrasyonumuz) | işlendi: c38adff |
-| EJyuu6zlQCg | 16.7 | 5 skills I use daily (Matt Pocock) | kaynak mattpocock/skills ile birlikte | işlendi: c38adff |
+| j7Fyi5gQ85k | 44.5 | Sıfırdan Jev Masterclass (Burhan) | JEV TAM KULLANIM: bizim jev CLI/hook/kalibre ile karşılaştır; bilmediğimiz özellik → ÖĞREN/UYARLA | işlendi: 090d56a |
+| Wz4qYO-91zg | 11.0 | Jev: 75 kat hızlı karar | Jev iddiaları → iddia sınama (13b kalibrasyonumuz) | işlendi: 090d56a |
+| EJyuu6zlQCg | 16.7 | 5 skills I use daily (Matt Pocock) | kaynak mattpocock/skills ile birlikte | işlendi: 090d56a |
 | zKBPwDpBfhs | 27.3 | Master 95% of CC skills (Nate Herk) | skill yazım/kullanım mekanizmaları; writing-skills ile karşılaştır | bekliyor |
 | 4XqVR6xI6Kw | 15.2 | One plugin 10x'd CC | 1 repo; araç adayı | bekliyor |
 | V2RIVnGCy74 | 17.5 | 17 Claude plugins (Chase AI) | 12 repo — en geniş; kurulu/eşdeğer kontrolü önce | bekliyor |
