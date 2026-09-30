@@ -149,3 +149,5 @@ kapsam: fikir dokümanı; kod bu dalgada yazılmaz.
 - kurulum: yok (katalog ve settings'te yok; `video bizde` 15b)
 - jev skill (Act): yok
 kısmen: Concise çıktı stili + ≤15 satır kapanış raporu; omni-compression ve cli-compression kurulu-kapalı (skillOverrides off, 15b); RTK çıktı sıkıştırma; headroom girdi vekili. CACHE-1/ÇIKTI-1: maliyet ≈ girdi context × tur, çıktı payı %15.5.
+## Destek
+- V0XbuApxlhg · 17:33 · Output token'larını %65 azalttığı iddia edilen skill. · kanıt: Claiming it reduces your output tokens by 65%.

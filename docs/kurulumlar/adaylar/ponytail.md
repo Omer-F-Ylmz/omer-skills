@@ -58,3 +58,4 @@ kaynak: https://github.com/DietrichGebert/ponytail
 ## Destek
 - klDiYMzW0o0 · 0:30 · Dördüncü araç; işlevi videoda açıklanmıyor. · kanıt: Sonuncusu Ponytail.
 - g89FJiNAlEs · 8:16 · Ajanı 'en tembel kıdemli mühendis' gibi düşündüren skill/plugin. Aynı uygulamayı daha az satır ve dosyayla üretir, çıktı tokenı ve inceleme süresi azalır. · kanıt: Anlatıcı çıktı tokenlarını azaltmak için ilk araç olarak Ponytail'i tanıtıyor; marketplace'e ekleyip kuruyor. · iddia: Ponytail daha az kod satırı üretip çıktı tokenı, maliyet ve inceleme süresini azaltıyor.
+- V0XbuApxlhg · 17:33 · Claude'un yazdığı kod miktarını azaltıp maliyeti düşüren popüler skill; Fable ile benchmark sayıları tuttu. · kanıt: It reduces the amount of code Claude writes while maintaining its effectiveness.
