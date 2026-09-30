@@ -16,6 +16,7 @@ from . import tarama as tr
 
 IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci göz tavanları (OpenRouter $ · Jev durum · yargıç çağrı)
 YENIDEN = {"bekliyor", "hata", "tavan"}
+BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 KARE_TK = 1_600  # ponytail: kare başına sabit jeton tahmini; gruplar sınırda kalırsa gerçek boyut (cli._kare_tk)
 SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıklama bağlantıları, altyazı segmentleri, kare listesi. "
@@ -333,7 +334,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
         for v in g:
             d["videolar"][v]["tarama"]["deneme"] += 1
         _yaz(yol, d)
-        kalan, hatalar = list(g), {}
+        kalan, hatalar, onceki = list(g), {}, 0.0
         for _ in range(3):  # ilk istek + en fazla 2 yeniden istek
             if _tavan(pdir, d):
                 for v in bek:
@@ -345,6 +346,11 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 _yaz(yol, d)
                 print(f"parti: tavan aşıldı ({d['tavan']['cagri']} çağrı / ${d['tavan']['usd']}), motor durdu")
                 return 3
+            if hatalar and d["tavan"]["usd"] - _defter(pdir)[1] < onceki:  # M5b K2: kalan $ son istekten (tahmin) az → yeniden istek yok, form_red
+                for v in kalan:
+                    d["videolar"][v]["tarama"].update(durum="form_red", hata=[BUTCE_YOK, *hatalar[v][:4]])
+                kalan = []
+                break
             kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
             try:
                 y = cagir(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan), kareler=kareler, model=d["model"],
@@ -362,9 +368,11 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
                 "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), "usd": y.get("usd") or 0.0, "kare": len(kareler),
                 "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])
+            onceki = y.get("usd") or 0.0
             if y.get("hata"):
-                for v in kalan:
-                    d["videolar"][v]["tarama"].update(durum="hata", hata=y["hata"][:200])
+                for v in kalan:  # M5b K2: bütçe hatası "hata" değil form_red (yeniden başlatılabilir)
+                    d["videolar"][v]["tarama"].update(**({"durum": "form_red", "hata": [BUTCE_YOK, y["hata"][:200]]} if "max_budget" in y["hata"]
+                                                         else {"durum": "hata", "hata": y["hata"][:200]}))
                 kalan = []
                 break
             for v in kalan:
