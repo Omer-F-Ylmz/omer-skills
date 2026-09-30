@@ -118,7 +118,8 @@ def _arastirma_disi(a):
 def _karsilastir(a):
     """İlke 29 (ii): geliştirme karşılaştırmasına giren ZATEN VAR, kendi aracımız DAHİL (kurulu · Jev eşdeğer ≥0.75 araç)."""
     return a["tur"] not in ARAC_DISI and a["kurulu"] not in (None, "") and (
-        _tam(a) or (a.get("esdeger_p") is not None and a["esdeger_p"] >= ESDEGER and a.get("alt_tur") == "araç"))
+        _tam(a) or a.get("alt_tur") in ("servis", "ürün")  # M9 K4: kurulu > alt tür çakışması da ZATEN VAR
+        or (a.get("esdeger_p") is not None and a["esdeger_p"] >= ESDEGER and a.get("alt_tur") == "araç"))
 
 
 EYLEM = ["yapılandırma", "kullanım biçimi", "eksik özellik", "ölçüm", "kurulum"]
@@ -432,6 +433,8 @@ def panel(pdir, d, kok):
             o, g = "ZATEN VAR", f"kurulu: {a['kurulu']}"
         elif ku and es is not None and es >= ESDEGER and alt == "araç":  # M2c K3: ad benzerliği değil Jev eşdeğeri
             o, g = "ZATEN VAR", f"eşdeğer: {a['kurulu']} p {es}"
+        elif cakisma:  # M9 K4: kurulu > servis/ürün → kurulu kazanır (çakışma notu aşağıda)
+            o, g = "ZATEN VAR", f"kurulu: {a['kurulu']}"
         elif ku and (es is None or es >= OLASI):
             o, g = "SOR", f"olası eşdeğer: {a['kurulu']} p {es}" if es is not None else f"eşdeğer doğrulanmadı: {a['kurulu']}"
             olasi_es += [f"- {k} ≈ {a['kurulu']} p {es}"] if es is not None else []
