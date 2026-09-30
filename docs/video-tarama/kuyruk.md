@@ -63,9 +63,9 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | OFyECKgWXo8 | 17.8 | 10 CC plugins (Chase AI) | V2RIVnGCy74 ile örtüşme | işlendi: 1e2fb05 |
 | uuUo7gWuH9w | 21.9 | Only CC plugins you need (Tech With Tim) | 3 repo | işlendi: 1e2fb05 |
 | ZSvcxjNZdxk | 19.3 | 100+ skills, best 6 (Tech With Tim) | 4 repo | işlendi: 1e2fb05 |
-| L2JKgj7WzU4 | 21.3 | 6 CC GitHub repos | 6 repo | bekliyor |
-| jqoFP9QapXI | 16.2 | 32 tricks (Nate Herk) | her hile ayrı ipucu/kural adayı (T0) | bekliyor |
-| cAeQjck1jHs | 16.2 | 9 skills daily (Zinho) | skill adları | bekliyor |
+| L2JKgj7WzU4 | 21.3 | 6 CC GitHub repos | 6 repo | işlendi: 77c718f |
+| jqoFP9QapXI | 16.2 | 32 tricks (Nate Herk) | her hile ayrı ipucu/kural adayı (T0) | işlendi: 77c718f |
+| cAeQjck1jHs | 16.2 | 9 skills daily (Zinho) | skill adları | işlendi: 77c718f |
 | kMk4pvFJ13s | 17.3 | 5 skills worth $500K | skill adları | bekliyor |
 | 3XIGcM7VICc | 20.2 | 6 AI skills (Nate Herk) | GÖRÜLDÜ (eski akış) → yeni hatla yeniden | bekliyor |
 | 40KWXNxzgPA | 0.7 | Strix: uygulamana saldır | GÖRÜLDÜ; strix kurulu → ZATEN VAR + yeni kullanım | işlendi: 4d1c6d8 |
