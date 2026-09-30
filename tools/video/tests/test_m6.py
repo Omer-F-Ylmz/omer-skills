@@ -57,3 +57,26 @@ def test_k2_kayitta_kur_kurulu_karsilastirmada(tmp_path):
     assert akil._karsilastir(a)
 
 
+# --- K3 tavan araştırılacak N + 1 karşılaştırma kadar kendiliğinden genişler; üst sınırlı, defterde satır, çağrı sayılmaz
+def _dt(**t):
+    return {"parti": "p1", "butce": 0.1, "tavan": {"cagri": 12, "usd": 1.0, "cagri_max": 30, "usd_max": 2.0, **t}}
+
+
+def test_k3_tavan_genisler_defterde_satir(tmp_path, capsys):
+    d = _dt()
+    akil._tavan_genislet(tmp_path, d, 6, 1)
+    out = capsys.readouterr().out
+    assert d["tavan"]["cagri"] == 19 and d["tavan"]["usd"] == 1.7
+    assert "tavan genişletildi: +6 araştırma +1 karşılaştırma" in out and "üst sınır" not in out
+    satir = (tmp_path / "defter.jsonl").read_text(encoding="utf-8").splitlines()
+    assert len(satir) == 1 and "tavan genişletildi" in satir[0] and pt._defter(tmp_path)[0] == 0
+    akil._tavan_genislet(tmp_path, d, 6, 1)  # parti başına bir kez
+    assert d["tavan"]["cagri"] == 19
+
+
+def test_k3_ust_sinir(tmp_path, capsys):
+    d = _dt(usd=1.5)
+    akil._tavan_genislet(tmp_path, d, 40, 1)
+    assert d["tavan"]["cagri"] == 30 and d["tavan"]["usd"] == 2.0 and "üst sınır" in capsys.readouterr().out
+
+
