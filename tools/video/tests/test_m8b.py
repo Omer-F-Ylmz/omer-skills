@@ -19,3 +19,9 @@ def test_ytdlp_ciplak_kimlik_almaz_url_alir(ortam, vid):
     for a in yt:
         assert vid not in a
         assert f"https://www.youtube.com/watch?v={vid}" in a
+
+
+def test_yt_url_idempotent():
+    from video.cli import yt_url
+    u = "https://www.youtube.com/watch?v=-_S3KD0ZIfI"
+    assert yt_url(u) == u and yt_url("http://youtu.be/x") == "http://youtu.be/x"

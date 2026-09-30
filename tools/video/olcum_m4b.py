@@ -5,6 +5,7 @@ m3b2 kendini 7a550e3 worktree'sinin koduyla (M4B_KOD, VIDEO_CACHE=.kos/m4b/cache
 Koşu-2 tavanı = koşu-1'in gerçek (çağrı, $) toplamı ×1,2, gruplara koşu-1 oranıyla bölünür; tavanlar .kos/m4b/tavan.json'da.
 """
 import json
+from video.cli import yt_url
 import math
 import os
 import re
@@ -184,7 +185,7 @@ def m3b2():
 
 
 def _kare_cek(vid, zs, d):
-    url = subprocess.run(["yt-dlp", "-g", "--no-warnings", "-f", "bv*[height<=720][vcodec!=none]/b", vid],
+    url = subprocess.run(["yt-dlp", "-g", "--no-warnings", "-f", "bv*[height<=720][vcodec!=none]/b", yt_url(vid)],
                          capture_output=True, text=True, timeout=180).stdout.split()[0]
 
     def bir(t):

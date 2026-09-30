@@ -57,6 +57,11 @@ class HizHata(Hata):
     pass
 
 
+def yt_url(vid):
+    """yt-dlp'ye kimlik hiç çıplak verilmez: tireli kimlik (-_S3KD0ZIfI) seçenek sanılır."""
+    return vid if vid.startswith(("http://", "https://")) else f"https://www.youtube.com/watch?v={vid}"
+
+
 def _kos(ctx, args, timeout):
     try:
         rc, out, err = ctx["kos"](args, timeout=timeout)
@@ -104,7 +109,7 @@ def _meta(ctx, d):
     yol = d / "meta.json"
     if yol.is_file():
         return json.loads(yol.read_text(encoding="utf-8"))
-    j = json.loads(_yt(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", d.name], SURE["meta"], d))
+    j = json.loads(_yt(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", yt_url(d.name)], SURE["meta"], d))
     alan = ("id", "title", "language", "channel", "duration", "chapters", "description", "subtitles", "automatic_captions")
     meta = {k: j.get(k) for k in alan}
     for k in ("subtitles", "automatic_captions"):  # yalnız dil anahtarları; format URL'leri gereksiz
@@ -135,7 +140,7 @@ def _ozet_bir(ctx, v, dil):
     for eski in d.glob("altyazi*"):
         eski.unlink()
     _yt(ctx, ["yt-dlp", "--skip-download", "--no-warnings", "--write-subs" if tur == "elle" else "--write-auto-subs", "--sleep-subtitles", "2",
-              "--sub-langs", anahtar, "--sub-format", "vtt", "-o", str(d / "altyazi.%(ext)s"), v], SURE["altyazi"], d)
+              "--sub-langs", anahtar, "--sub-format", "vtt", "-o", str(d / "altyazi.%(ext)s"), yt_url(v)], SURE["altyazi"], d)
     vtt = next(d.glob("altyazi*.vtt"), None)
     if vtt is None:
         return 3, [f"{v}: altyazı indirilemedi → `video --whisper {v}`"]
@@ -345,7 +350,7 @@ def _akis_url(ctx, d):
         e = re.search(r"[?&/]expire[=/](\d+)", url)
         if e and int(e.group(1)) - 300 > time.time():
             return url
-    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", "bv*[height<=720][vcodec!=none]/b", d.name], SURE["meta"])
+    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", "bv*[height<=720][vcodec!=none]/b", yt_url(d.name)], SURE["meta"])
     url = out.decode("utf-8", "replace").strip().splitlines()[0]
     yol.write_text(url, encoding="utf-8")
     return url
@@ -933,7 +938,7 @@ def whisper(ns, ctx):
     if not sure or sure > tavan:
         args += ["--download-sections", f"*0-{tavan}"]
     try:
-        _kos(ctx, args + [ns.id], SURE["ses"])
+        _kos(ctx, args + [yt_url(ns.id)], SURE["ses"])
         ses = next(d.glob("ses.*"), None)
         if ses is None:
             raise Hata("ses inmedi")

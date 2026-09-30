@@ -385,7 +385,7 @@ class Kos429(Kos):
         self.hiz = hiz
 
     def __call__(self, args, timeout=None):
-        if args[0] == "yt-dlp" and "--sub-langs" in args and args[-1] in self.hiz:
+        if args[0] == "yt-dlp" and "--sub-langs" in args and args[-1].rsplit("v=", 1)[-1] in self.hiz:
             self.cagri.append(list(args))
             o = args[args.index("-o") + 1]
             open(o.replace("%(ext)s", "en.vtt.part"), "w").write("yarım")
