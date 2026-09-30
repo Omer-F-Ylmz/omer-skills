@@ -175,7 +175,7 @@ def _anatomi(m):
 
 
 def site_ogren(kok, raporlar, pdir=None, d=None, ctx=None):
-    """M2f K2 (Ömer ilkesi 30): Site/UI tablosu + (site raporunda) Kareden okunanlar → frontend ## Teknikler (video + zaman/kare);
+    """M2f K2 (Ömer ilkesi 30): Site/UI tablosu (M7: Kareden okunanlar değil) → frontend ## Teknikler (video + zaman/kare);
     prompt satırları → frontend-promptlar.md 23c anatomisiyle: raporda alanlar varsa çağrısız, yoksa site videosu başına ≤1 hafif çağrı
     (taşıyıcı yoksa ya da tavan dolduysa 'anatomi bekliyor'). → (teknikler, eklenen prompt, bekleyen videolar)"""
     tek, pr, bekliyor = [], [], []
@@ -183,8 +183,7 @@ def site_ogren(kok, raporlar, pdir=None, d=None, ctx=None):
         site = tr.frontend_mu(m)
         t = tr.tablolar(tr.bolum(m, tr.SITE_UI))
         tek += [(s[0], v, s[2], s[3]) for s in (t[0][1] if t else []) if len(s) == 4 and s[0] and not s[0].startswith("EKSİK")]
-        tek += [(o.strip(), v, k.strip(), "kare") for k, o in re.findall(r"^- (.+?): (.+)$", tr.bolum(m, "Kareden okunanlar"), re.M)
-                if site and not o.startswith("EKSİK")]
+        # M7: Kareden okunanlar raporda kalır; kütüphaneye ve panele yalnız teknik tablosu (site_ui) girer
         ps = [s for s in tr.aday_satirlari(m) if len(s) == 7 and s[2] == "prompt" and tr.ZAMAN.search(s[5])]
         if not ps or not site:
             continue

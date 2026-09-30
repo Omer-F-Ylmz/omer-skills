@@ -1042,6 +1042,7 @@ def departman_geri(ns, ctx):
 def teknik(ns, ctx):
     """K5: rapor '## Site/UI teknikleri' → bizde karşılığı varsa ÖĞREN (bilgi kartı, etiket frontend), yoksa UYARLA
     (bekleyen öneri: departman-frontend/omer-kutuphaneler, onaysız eklenmez); frontend kataloguna '## Teknikler'. Jev 0."""
+    from . import akil  # akil uygula'yı içe aktarır; döngüsel içe aktarmayı önler
     kok, bugun, ek, say = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or KOK), date.today(), [], {"ÖĞREN": 0, "UYARLA": 0}
     for yol in ns.raporlar:
         metin = Path(yol).read_text(encoding="utf-8")
@@ -1051,6 +1052,8 @@ def teknik(ns, ctx):
             if len(s) != 4:
                 continue
             tek, kanit, kut, bizde = s
+            if akil._gozlem_mu(f"{tek} {kanit}"):  # M7 K3: site_ogren ile aynı gözlem süzgeci
+                continue
             slug = re.sub(r"[^a-z0-9]+", "-", tek.translate(SLUG).casefold()).strip("-")
             if bizde.strip().casefold() not in ("", "-", "yok"):
                 karar, y = "ÖĞREN", kok / "bilgi" / f"{slug}.md"
