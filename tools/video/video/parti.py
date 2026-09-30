@@ -1,7 +1,9 @@
 """MOTOR-M2a: parti motoru çekirdeği — aşama 1 kuyruk · 2 paket · 3-4 hafif tarayıcı formu + doğrulama + rapor · 10 defter.
 Durum .kos/<parti-id>/durum.json (her adımda atomik), defter .kos/<parti-id>/defter.jsonl (model çağrısı başına satır)."""
+import io
 import json
 import os
+from contextlib import redirect_stdout
 import re
 from importlib.util import find_spec
 from collections import Counter
@@ -120,8 +122,8 @@ def paket_oku(yol):
     bas = metin.splitlines()[0][2:].split(" · ")
     sure = int(x[1]) if (x := re.search(r"· sure_sn (\d+)", metin)) else m.sn(re.search(r"· süre (\S+)", metin)[1])
     dil = re.search(r"· dil (\S+)", metin)
-    satir = lambda b: [s.strip() for s in tr.bolum(metin, b).splitlines() if s.strip() and s.strip() != "yok"]
-    return {"id": bas[0], "baslik": bas[1], "kanal": bas[2], "sure": sure, "dil": dil[1] if dil else "?", "metin": metin,
+    satir = lambda b: [s.strip() for s in tr.bolum(metin, b).splitlines() if s.strip() and s.strip() != "yok" and not s.startswith("kare yok: ")]
+    return {"kare_not": next((s for s in metin.splitlines() if s.startswith("kare yok: ")), None), "id": bas[0], "baslik": bas[1], "kanal": bas[2], "sure": sure, "dil": dil[1] if dil else "?", "metin": metin,
             "short": x[1] == "true" if (x := re.search(r"· short: (true|false)", metin)) else tr.short_mu(sure),
             "kare_yalniz": "altyazı yok: kare-yalnız" in metin, "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")],
             "kare_zaman": [_ks(s.split(" · ")[1]) if " · " in s else None for s in satir("Kareler")]}  # ölçüm betikleri (olcum_m4/m4b)
@@ -327,14 +329,22 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 alt(["ozet", "--", v])
                 mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
                 if not (onb / v / "segmentler.jsonl").is_file() and find_spec("faster_whisper") and 0 < (mt.get("duration") or 0) <= 300:  # M8 K2 (i): ≤5 dk otomatik whisper
-                    alt(["whisper", "--", v])
+                    try:
+                        alt(["whisper", "--", v])
+                    except (Exception, SystemExit) as e:  # M9 K6: whisper istisnası → kare-yalnız yol, hata değil
+                        print(f"paket {v}: whisper istisnası ({type(e).__name__}: {e}) → kare-yalnız")
                 yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"))  # M2e K2
                 print(f"paket {v}: kare {n} ({neden})")
-                alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), "--", v])
-            a.update(durum="tamam" if (onb / v / "paket.md").is_file() else "hata", cikti=(onb / v / "paket.md").as_posix())
+                with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
+                    rc = alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), "--", v])
+                print(b.getvalue(), end="")
+                if not (onb / v / "paket.md").is_file():
+                    from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
+                    raise Hata(next((s[6:] for s in reversed(b.getvalue().splitlines()) if s.startswith("hata: ")), f"paket çıkış {rc}, paket.md yok"))
+            a.update(durum="tamam", cikti=(onb / v / "paket.md").as_posix())
         except (Exception, SystemExit) as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
-            a.update(durum="hata", hata=(f"çıkış {e.code}" if isinstance(e, SystemExit) else str(e))[:200])
+            a.update(durum="hata", hata=f"{type(e).__name__}: {f'çıkış {e.code}' if isinstance(e, SystemExit) else e}"[:200])
         _yaz(yol, d)
     bek = [v for v, s in d["videolar"].items()
            if s["paket"]["durum"] == "tamam" and s["tarama"]["durum"] in YENIDEN and s["tarama"]["deneme"] < 3]
@@ -413,7 +423,7 @@ def _ozet(pdir, d):
 def _ozet_govde(pdir, d):
     n, usd, tk = _defter(pdir)
     say = lambda a: " · ".join(f"{k} {x}" for k, x in sorted(Counter(s[a]["durum"] for s in d["videolar"].values()).items()))
-    taranan = sum(s["tarama"]["durum"] == "tamam" and not s["tarama"].get("ice_alindi") for s in d["videolar"].values())
+    taranan = sum(s["tarama"]["durum"] in ("tamam", "tamam_eksik") and not s["tarama"].get("ice_alindi") for s in d["videolar"].values())
     print(f"parti {d['parti']} · durum {d['durum']} · paket: {say('paket')} · tarama: {say('tarama')}")
     print(f"defter: {n} çağrı / tavan {d['tavan']['cagri']} · ${usd:.4f} / ${d['tavan']['usd']} · {tk} jeton"
           + (f" · taranan video başına {tk // taranan} jeton" if taranan else ""))

@@ -328,13 +328,16 @@ def paket(ns, ctx):
     zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
     if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
         zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
-    kareler = _kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []
+    try:
+        kareler, kare_yok = (_kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []), None
+    except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
+        kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
-          "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or ["yok"])]
+          "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
     print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
@@ -408,12 +411,14 @@ def _kare_tk(yol):
 
 def _kareler(ctx, d, zamanlar, pencere, g, en_fazla):
     """[(t, yol)] zamana göre: önce merkez kareler, kalan pay sahne karelerine; aHash ile tekrar ayıklanır."""
-    url = _akis_url(ctx, d)
-    merkezler, sahneler = [], []
-    for t in zamanlar:
-        mk, sh = _kare_uret(ctx, d, url, t, pencere, g)
-        merkezler += [(t, x) for x in mk]
-        sahneler += [(t, x) for x in sh]
+    try:
+        uretilen = [(t, _kare_uret(ctx, d, _akis_url(ctx, d), t, pencere, g)) for t in zamanlar]
+    except Hata:  # M9 K1: 403 / akış URL hatası → önbellek silinir, taze -g ile bir kez yeniden
+        (d / "akis.url").unlink(missing_ok=True)
+        url = _akis_url(ctx, d)
+        uretilen = [(t, _kare_uret(ctx, d, url, t, pencere, g)) for t in zamanlar]
+    merkezler = [(t, x) for t, (mk, _) in uretilen for x in mk]
+    sahneler = [(t, x) for t, (_, sh) in uretilen for x in sh]
     tut, hashler = [], []
     for t, yol in merkezler + sahneler:  # önce merkez kareler, kalan pay sahne karelerine
         if not yol.is_file():
