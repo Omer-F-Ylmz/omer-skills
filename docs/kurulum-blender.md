@@ -7,7 +7,7 @@ Sunucu: `C:\blender_mcp` (projects.blender.org/lab/blender_mcp, dbbf836, GPL-3.0
 1. Blender → Düzen › Tercihler › Sistem › **Allow Online Access** açık.
 2. `https://projects.blender.org/lab/blender_mcp/releases/download/v1.0.3/mcp-1.0.3.zip` Blender'a bir kez sürükle-bırak → "Diskten Yükle" penceresi (User Default + Enable Add-on) → TAMAM; ikinci bırakma gerekmez.
 3. Eklenti Auto Start AÇIK ve Host `localhost` ile gelir, kurulur kurulmaz sunucuyu başlatır → Düzen › Tercihler › Eklentiler › MCP: **Stop MCP Server**, Host = `127.0.0.1` (Port 9876), Auto Start kapat.
-4. Oturum alışkanlığı: .blend aç → **Start MCP Server** → iş → **Stop MCP Server**.
+4. Oturumu CC yönetir: blender-oturum skill'i (`python C:\Projeler\omer-skills\tools\blender_oturum.py ac|kapat|durum`); Ömer yalnız iş talimatı verir.
 
 ## Güvenlik
 - Sunucu modelin ürettiği Python'u Blender'da korumasız çalıştırır (belge: "without any guards"); kullanıcı yetkisiyle dosya/ağ erişimi var.
