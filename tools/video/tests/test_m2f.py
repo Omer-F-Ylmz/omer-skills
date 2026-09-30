@@ -47,8 +47,9 @@ def test_k1_eksik_bolum_uyari():
 
 
 def _site_md(anatomi=False):
-    md = pt.rapor_md(_f(site_ui=[{"teknik": "scroll ile pinlenen hero", "ne": "GSAP ScrollTrigger pin", "kanit_zamani": "1:05", "kaynak": "kare"}],
-                        kareden_okunanlar=[{"kare": "kare 2 (2:10)", "okunan": "bento grid 12 kolon"}],
+    md = pt.rapor_md(_f(site_ui=[{"teknik": "scroll ile pinlenen hero", "ne": "GSAP ScrollTrigger pin", "kanit_zamani": "1:05", "kaynak": "kare"},
+                                 {"teknik": "bento grid 12 kolon", "ne": "ekran", "kanit_zamani": "kare 2 (2:10)", "kaynak": "kare"}],  # M7: teknik tablosu yolu
+                        kareden_okunanlar=[{"kare": "kare 3 (2:40)", "okunan": "mix-blend-mode ters renk menü"}],
                         promptlar=[{"amac": "hero üret", "metin": "Build a dark landing hero with gradient mesh and a big serif headline for a studio",
                                     "kanit_zamani": "3:00", "kaynak": "kare"}]), _pk(), [])
     return md + ("## Prompt anatomisi\n" + "".join(f"{x}: değer {x}\n" for x in uy.ANATOMI) if anatomi else "")
@@ -62,6 +63,7 @@ def test_k2_site_ogren_anatomili_cagrisiz(tmp_path):
     d = _d()
     tek, n, bek = akil.site_ogren(tmp_path, [(V[0], _site_md(anatomi=True))], pdir, d, {"env": {}, "cagir": t})
     assert [x[0] for x in tek] == ["scroll ile pinlenen hero", "bento grid 12 kolon"] and n == 1 and bek == [] and t.cagrilar == []
+    assert "mix-blend-mode" not in str(tek) + (tmp_path / "docs/departmanlar/frontend.md").read_text(encoding="utf-8")  # M7: Kareden okunanlar yok
     fe = (tmp_path / "docs" / "departmanlar" / "frontend.md").read_text(encoding="utf-8")
     assert "scroll ile pinlenen hero" in fe and V[0] in fe
     fp = (tmp_path / "docs" / "departmanlar" / "frontend-promptlar.md").read_text(encoding="utf-8")
