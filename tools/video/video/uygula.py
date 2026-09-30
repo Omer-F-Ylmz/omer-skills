@@ -40,6 +40,9 @@ def alanlar(metin):
     return out
 
 
+BILINMIYOR = "son commit bilinmiyor"
+
+
 def bakim_red(a, bugun, t2=False):
     """14a lisans listesi yalnız T1 (repoya kopyalama) içindir; 17 K6: T2'de kaynak-erişilebilir lisans RED değil, lisans notu."""
     if a.get("lisans") not in LISANS and not (t2 and a.get("lisans") in KAYNAK_ACIK):
@@ -48,8 +51,8 @@ def bakim_red(a, bugun, t2=False):
         return "arşivlenmiş"
     try:
         son = date.fromisoformat(a.get("son_commit", ""))
-    except ValueError:
-        return "son commit bilinmiyor"
+    except (ValueError, TypeError):
+        return BILINMIYOR
     if (bugun - son).days > 365:
         return f"12 aydır commit yok ({son})"
     return None
@@ -73,7 +76,7 @@ def sinifla(a, bugun, dosyalar=None, high=None):
     if a.get("red"):
         return "RED", a["red"]
     if r := bakim_red(a, bugun, a.get("tur") != "skill"):
-        return "RED", r
+        return ("SOR", "eksik: son_commit") if r == BILINMIYOR else ("RED", r)  # M10 K2: bilinmeyen RED değil (M2c K2)
     if a.get("tur") != "skill":
         return "T2", f"{a.get('tur') or '?'}: çalıştırılabilir, onay gerekir" + (
             f" · lisans notu: {a['lisans']} (kaynak-erişilebilir, kendi kullanım serbest)" if a.get("lisans") in KAYNAK_ACIK else "")

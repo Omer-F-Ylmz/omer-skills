@@ -119,7 +119,7 @@ def _karsilastir(a):
     """İlke 29 (ii): geliştirme karşılaştırmasına giren ZATEN VAR, kendi aracımız DAHİL (kurulu · Jev eşdeğer ≥0.75 araç)."""
     return a["tur"] not in ARAC_DISI and a["kurulu"] not in (None, "") and (
         _tam(a) or a.get("alt_tur") in ("servis", "ürün")  # M9 K4: kurulu > alt tür çakışması da ZATEN VAR
-        or (a.get("esdeger_p") is not None and a["esdeger_p"] >= ESDEGER and a.get("alt_tur") == "araç"))
+        or not (a.get("esdeger_p") is not None and OLASI <= a["esdeger_p"] < ESDEGER))  # M10 K3: kurulu her yolda; yalnız Jev olası bandı dışarıda
 
 
 EYLEM = ["yapılandırma", "kullanım biçimi", "eksik özellik", "ölçüm", "kurulum"]
@@ -435,9 +435,12 @@ def panel(pdir, d, kok):
             o, g = "ZATEN VAR", f"eşdeğer: {a['kurulu']} p {es}"
         elif cakisma:  # M9 K4: kurulu > servis/ürün → kurulu kazanır (çakışma notu aşağıda)
             o, g = "ZATEN VAR", f"kurulu: {a['kurulu']}"
-        elif ku and (es is None or es >= OLASI):
-            o, g = "SOR", f"olası eşdeğer: {a['kurulu']} p {es}" if es is not None else f"eşdeğer doğrulanmadı: {a['kurulu']}"
-            olasi_es += [f"- {k} ≈ {a['kurulu']} p {es}"] if es is not None else []
+        elif ku and es is not None and OLASI <= es < ESDEGER:  # M2c K3: Jev olası eşdeğer bandı SOR kalır
+            o, g = "SOR", f"olası eşdeğer: {a['kurulu']} p {es}"
+            olasi_es += [f"- {k} ≈ {a['kurulu']} p {es}"]
+        elif ku:  # M10 K3: kurulu (envanter/kayıt KUR/çekirdek) her yolda ZATEN VAR; alt tür/p yalnız gerekçe
+            o, g = "ZATEN VAR", f"kurulu: {a['kurulu']}" + (f" · eşdeğer p {es}" if es is not None else "") + (
+                f" · araştırılmadı ({a['durum']})" if a.get("durum") == "kurulu" else "")
         elif a["tur"] in tr.KURAL_TUR:
             o, g = "T0", "kural önerisi (omer-kurallar)"
             kural.append(f"- {k}: {pt._h(next(iter(a['videolar'].values()))['ne'])}")
@@ -465,10 +468,10 @@ def panel(pdir, d, kok):
                  .replace("|  |", "| |"))
         if m and (u := tr.bolum(m, "Üretilebilir").strip()) and "hedef_tur: yok" not in u:
             uret.append(f"- {k}: {pt._h(u)}")
-        for e in (e for e in mevcut if e != k and difflib.SequenceMatcher(None, k, e).ratio() >= 0.8):  # M2c K3: ad + aynı tür + repo çelişmez
+        for e in (e for e in mevcut if e != k and difflib.SequenceMatcher(None, k, e).ratio() >= 0.8):  # M10 K4: ad ön süzgeç; tekrar için aynı repo
             ea = uy.alanlar(_aday_yol(kok, e).read_text(encoding="utf-8"))
             er = ea.get("repo") if ea.get("repo") not in (None, "", "yok") else None
-            if ea.get("tur", a["tur"]).lower() == a["tur"].lower() and not (er and a["repo"] and er != a["repo"]):
+            if er and a["repo"] and er.casefold() == a["repo"].casefold():  # ad benzerliği tek başına tekrar değil
                 olasi.append(f"- {k} ≈ {e} (adaylar/{e}.md)")
     for x in d.get("gelistirme", []):  # M2f K3: öneri ayrı satır, Ömer kararına açık
         if x["oneri"] in ("UYARLA", "ÖĞREN"):

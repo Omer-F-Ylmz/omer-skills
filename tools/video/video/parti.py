@@ -5,6 +5,7 @@ import json
 import os
 from contextlib import redirect_stdout
 import re
+import time
 from importlib.util import find_spec
 from collections import Counter
 from datetime import date, datetime
@@ -260,7 +261,13 @@ def _yaz(yol, d):
     d["guncelleme"] = datetime.now().isoformat(timespec="seconds")
     tmp = yol.with_suffix(".tmp")
     tmp.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
-    os.replace(tmp, yol)
+    for i in range(5):  # M10 K1: antivirüs/dizinleyici geçici kilidi (WinError 5) → 50…800 ms bekleyip yeniden dene
+        try:
+            return os.replace(tmp, yol)
+        except PermissionError:
+            if i == 4:
+                raise SystemExit(f"durum yazılamadı (dosya kilitli): {yol} — eski durum sağlam, kilit kalkınca `devam` ile sürdür")
+            time.sleep(0.05 * 2 ** i)
 
 
 def _defter(pdir):
