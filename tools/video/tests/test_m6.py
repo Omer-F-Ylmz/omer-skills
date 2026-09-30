@@ -45,3 +45,15 @@ def test_k1_teknik_duzenle_geriye_donuk_idempotent(tmp_path):
     assert y.read_bytes() == bir
 
 
+# --- K2 kayıtta KUR olan (envanter dışı, ör. npm CLI) aday kurulu sayılır ve karşılaştırma kümesine girer
+def test_k2_kayitta_kur_kurulu_karsilastirmada(tmp_path):
+    ky = tmp_path / "docs" / "kurulumlar" / "kayit.jsonl"
+    ky.parent.mkdir(parents=True)
+    ky.write_bytes((json.dumps({"ad": "caveman", "karar": "KUR", "tarih": "2026-09-24"}) + "\n").encode("utf-8"))
+    ad, _ = akil.birlestir([(V[0], _rapor(V[0], [("caveman", "CLI", "https://github.com/JuliusBrussee/caveman")]))], tmp_path)
+    a = next(iter(ad.values()))
+    assert a["kurulu"] == "caveman" and akil._arastirma_disi(a)
+    a.update(alt_tur="araç", esdeger_p=1.0)
+    assert akil._karsilastir(a)
+
+
