@@ -301,5 +301,6 @@ Müdür: `departman-frontend`
 - Blender 3B metin (extrude), eğri + Array + Simple Deform, ışık/kamera/render · video eKnpRVgqXR8 · 1:02 · kaynak: kare
 - Figma çerçeve + Blender node materyalleri · video 9opJeH9j9qs · 0:47 · kaynak: kare
 - 3D model, fare hareketine duyarlılık ve kaydırma animasyonları · video -_S3KD0ZIfI · 0:30 · kaynak: altyazı
+- Kurs satış sayfası (landing): koyu tema, sol başlık/alt başlık, sağda fiyat kartı, CTA butonu ve geri sayım · video EJyuu6zlQCg · 1:09 · kaynak: kare
 
 ## Elle
