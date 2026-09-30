@@ -3895,5 +3895,14 @@
   "departman": "frontend",
   "p": 1.0,
   "kaynak": "elle"
+ },
+ {
+  "ad": "threejs-awesome-graphics",
+  "tur": "skill",
+  "aciklama": "Three.js render tekniği paketi (24 skill): atmosfer, bulut, okyanus, SSAO, bloom, gölge, prosedürel malzeme/geometri/VFX, görsel doğrulama; skill-router girişi",
+  "hash": "4db7a3ea37e447cb",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
  }
 ]
