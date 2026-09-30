@@ -4,7 +4,7 @@
 
 | aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |
 |---|---|---|---|---|---|---|---|
-| jev-typesafe-ai | CLI | 2 | — | koşmadı: kurulu | SOR | araştırılmadı (kurulu) · alt tür çakışması (kurulu > servis) | ZATEN VAR |
+| jev-typesafe-ai | CLI | 2 | — | koşmadı: kurulu | ZATEN VAR | kurulu: jev · alt tür çakışması (kurulu > servis) | ZATEN VAR |
 | typesafe-agent-prompt-kurulumu | iş akışı | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ZATEN VAR |
 | claude-code-terminalde-vs-code-icinde | CLI | 1 | yok (kapalı kaynak; Anthropic ticari şartları geçerli, SPDX kimliği yok) | koşmadı: ürün | SOR | ürün: kurulum gereği · bizde karşılığı | RED |
 | browser-use-jev | teknik | 1 | — | koşmadı: servis | ÖĞREN | teknik: kurulabilir araç değil | ÖĞREN |
@@ -21,6 +21,7 @@
 | ralph-loop | iş akışı | 1 | — | koşmadı: repo yok | T0 | kural önerisi (omer-kurallar) | ÖĞREN |
 | arastirma-dosyasiyla-grill-me-skill-ini- | prompt | 1 | — | koşmadı: repo yok | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
 | grill-oturumundan-sonra-prd-yazma-skill- | prompt | 1 | — | koşmadı: ürün | ÖĞREN | prompt: kurulabilir araç değil | ÖĞREN |
+| jev-typesafe-ai-gelistirme | CLI | 2 | — | — | ÖĞREN | Önce jev kaydına açıklama ekle: bu, TypeSafe Jev mi yoksa kendi aracımız mı. Aynıysa, sınıflandırma/seçim/skor gibi adımlarda (ör. kod inceleme ön eleme, test seçimi) Jev'i deneyip mevcut model çağrısıyla gecikme ve maliyeti karşılaştır. Kazanç ölçülürse o adımları Jev'e taşı. Ölçülmeden değiştirme. (kanıt: j7Fyi5gQ85k 3:16: 'Jev başka bir platformda kullanmayın, sadece TypeSafe'ten kullanmanız lazım.' Wz4qYO-91zg 4:04: '20 kat, 50 kat hatta bazen 200 kat daha hızlı olması'. Bizdeki kayıt: jev açıklaması boş.) | DENE |
 
 ## form_red
 - yok
@@ -44,12 +45,12 @@
 ## OLASI TEKRAR
 - yok
 ## Araştırılmadı
-- jev-typesafe-ai: kurulu 
+- yok
 ## Site/UI teknikleri
 - Kurs satış sayfası (landing): koyu tema, sol başlık/alt başlık, sağda fiyat kartı, CTA butonu ve geri sayım · EJyuu6zlQCg · 1:09 (kare) → docs/departmanlar/frontend.md
 ## Anatomi bekliyor
 - yok
 ## Geliştirme önerileri
-- yok
+- jev-typesafe-ai · video: Sohbet etmeyen, seçim/skor/olasılık döndüren çok hızlı ve ucuz bir karar modeli. API anahtarıyla, yalnızca TypeSafe üzerinden kullanılıyor (3:16). Uygulama içinde anlık kullanım için gösteriliyor: reklam analizi, kod inceleme, test ve sesle kontrol örnekleri (4:04). Hız iddiası Claude Code gibi modellere göre 20, 50, bazen 200 kat. · bizde: jev, cli ve mcp olarak kayıtlı. Departman surec-ajan-arac, kaynak 'desen', açıklama boş. Not: 'jev kendi aracımız'. Bizdeki jev ile videodaki TypeSafe Jev'in aynı ürün olup olmadığı bilinmiyor. · fark: Bizdeki kayıtta açıklama yok. Jev'in hangi işte kullanıldığı, gecikmesi ve maliyeti de kayıtlı değil. Videodaki asıl fikir, karar/seçim/skor işlerini sohbet modeli yerine hızlı bir karar modeline vermek. Bizde bu ayrımın uygulandığına dair kayıt yok. Hız iddiası videoda ölçümsüz ve yalnızca sunucunun sözü. · ÖĞREN: Önce jev kaydına açıklama ekle: bu, TypeSafe Jev mi yoksa kendi aracımız mı. Aynıysa, sınıflandırma/seçim/skor gibi adımlarda (ör. kod inceleme ön eleme, test seçimi) Jev'i deneyip mevcut model çağrısıyla gecikme ve maliyeti karşılaştır. Kazanç ölçülürse o adımları Jev'e taşı. Ölçülmeden değiştirme. · kanıt: j7Fyi5gQ85k 3:16: 'Jev başka bir platformda kullanmayın, sadece TypeSafe'ten kullanmanız lazım.' Wz4qYO-91zg 4:04: '20 kat, 50 kat hatta bazen 200 kat daha hızlı olması'. Bizdeki kayıt: jev açıklaması boş.
 ## Defter
-14 çağrı · $1.1476 · 333964 jeton
+15 çağrı · $1.1686 · 337299 jeton
