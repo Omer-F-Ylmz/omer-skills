@@ -49,3 +49,7 @@ Sonnet formu geçen her video aynı paketle luna'ya (OpenRouter, `openai/gpt-6-l
 - **panel uygula:** sütun sayısı başlıkla (8) uyuşmayan satır varsa satır numarasıyla uyarır, hiçbir karar işlenmez (rc 2). Sonda `işlenen N · boş M · hatalı K`; tanınmayan Ömer değeri hatalı sayılır (rc≠0).
 - **Sınıflandırma:** ipucu/kural/teknik/prompt/iş akışı adayları kurulu/eşdeğer eşleşmesine girmez (yalnız T0 ve prompt yolları). Alt tür tek değer: kurulu > kendi aracımız > araç > servis > ürün; çelişkide gerekçede "alt tür çakışması".
 - **Köprü:** Desktop'ta `video parti durum <parti>` ve `video kuyruk` (öneri) izinli; yazan alt komutlar (`parti baslat/kuyruk/devam/akil/kapat`, `kuyruk --isle`, `panel uygula`) izinsiz. İzin değişikliğinden sonra Desktop yeniden başlatılır.
+
+- Panel ön-doldurma (M11): Ömer sütunu yalnız deterministik kurallarla önerilir — (a) kayıtta aynı adın en son Ömer kararı (RED hariç) · (b) ZATEN VAR · (c) tür prompt/teknik → ÖĞREN · (d) T0 → ÖĞREN; araştırılmış araç, SOR/RED, -gelistirme ve OLASI satırları boş kalır.
+- Ön-doldurulan hücre yalnız öneridir: Ömer değiştirebilir, `panel uygula` Ömer sütununda ne yazıyorsa onu işler; dolu hücre (akil --yeniden dahil) asla ezilmez.
+- Panelde `## Ön-doldurulan` bölümü (aday · karar · kural a/b/c/d) ve üstte "karar bekleyen N · ön-doldurulan M" özeti; aynı özet `video parti akil` çıktısında.

@@ -200,12 +200,13 @@ def test_panel_ve_uygula(tmp_path):
     for b in ("form_red", "Belirsiz birleşmeler", "ÜRETİLEBİLİR", "Kural önerileri", "OLASI TEKRAR"):
         assert any(s.startswith("## ") and b in s for s in L), b
     satir = [s for s in L if s.startswith(("| hizli-arac |", "| graphify |"))]
-    assert len(satir) == 2 and all(s.endswith("| |") for s in satir)
+    assert len(satir) == 2 and satir[0 if satir[0].startswith("| hizli-arac |") else 1].endswith("| |")
+    assert next(s for s in satir if s.startswith("| graphify |")).endswith("| ZATEN VAR |")  # M11 kural b ön-doldurma
     assert "ZATEN VAR" in next(s for s in satir if s.startswith("| graphify |"))
     y.write_text("\n".join(s[:-3] + "| AL |" if s.startswith("| hizli-arac |") else s for s in L) + "\n", encoding="utf-8")
     yak = []
     rc = akil.panel_uygula(SimpleNamespace(panel=str(y)), {**_actx(kok, None), "karar": lambda ns, ctx: yak.append((ns.ad, ns.secim)) or 0})
-    assert rc == 0 and yak == [("hizli-arac", "AL")]
+    assert rc == 0 and yak == [("hizli-arac", "AL"), ("graphify", "ZATEN VAR")]  # M11 kural b ön-doldurma
 
 
 def _kos_sahte(sizinti):

@@ -414,8 +414,13 @@ def _yargi(ctx, adaylar, kok):
 def panel(pdir, d, kok):
     """Aşama 9: docs/kurulumlar/parti/<pid>/panel.md koddan; mevcut Ömer sütunu korunur."""
     y = Path(kok) / "docs" / "kurulumlar" / "parti" / d["parti"] / "panel.md"
-    eski = {h[0]: h[7] for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else [])
-            if len(h := [x.strip() for x in s.strip().strip("|").split("|")]) == 8}
+    hs = [(h, s.strip()) for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else [])
+          if len(h := [x.strip() for x in s.strip().strip("|").split("|")]) == 8 and h[0] not in ("aday", "---")]
+    eski, eski_s = {h[0]: h[7] for h, _ in hs}, {h[0]: s for h, s in hs}
+    ky = Path(kok) / "docs" / "kurulumlar" / "kayit.jsonl"  # M11 K1a: aynı adın en son Ömer kararı; RED ön-doldurulmaz
+    onceki = {tr.normal(x["ad"]): m[1] for x in (tr.kayit_oku(ky) if ky.is_file() else [])
+              if x.get("ad") and (m := re.match(r"(AL|ERTELE|DENE|ÖĞREN|UYARLA|ZATEN VAR) \(Ömer", str(x.get("karar", ""))))}
+    on, bekleyen = [], 0
     mevcut = [p.stem for p in (Path(kok) / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
     L = [f"# Karar paneli — {d['parti']}", "", "Ömer sütununa AL / RED / ERTELE ya da karar (DENE · ÖĞREN · UYARLA · ZATEN VAR) yaz; boş satır dokunulmaz → `video panel uygula <bu dosya>`.", "",
          "| aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |", "|---|---|---|---|---|---|---|---|"]
@@ -464,8 +469,6 @@ def panel(pdir, d, kok):
             o, g = "SOR", f"araştırılmadı ({a.get('durum')})"
             kalan.append(f"- {k}: {a.get('durum')} {pt._h(a.get('hata') or '')}"[:200])
         g += f" · alt tür çakışması (kurulu > {alt})" if cakisma else ""
-        L.append(f"| {k} | {a['tur']} | {len(a['videolar'])} | {pt._h(al.get('lisans', '—'))} | {pt._h(gv)} | {o} | {pt._h(g)} | {eski.get(k, '')} |"
-                 .replace("|  |", "| |"))
         if m and (u := tr.bolum(m, "Üretilebilir").strip()) and "hedef_tur: yok" not in u:
             uret.append(f"- {k}: {pt._h(u)}")
         for e in (e for e in mevcut if e != k and difflib.SequenceMatcher(None, k, e).ratio() >= 0.8):  # M10 K4: ad ön süzgeç; tekrar için aynı repo
@@ -473,13 +476,29 @@ def panel(pdir, d, kok):
             er = ea.get("repo") if ea.get("repo") not in (None, "", "yok") else None
             if er and a["repo"] and er.casefold() == a["repo"].casefold():  # ad benzerliği tek başına tekrar değil
                 olasi.append(f"- {k} ≈ {e} (adaylar/{e}.md)")
+        om = eski.get(k, "")
+        if not om and o != "RED" and not any(s.startswith(f"- {k} ≈") for s in olasi + olasi_es):  # M11 K1/K3: dolu hücre ezilmez
+            kr = ("a", onceki[tr.normal(k)]) if tr.normal(k) in onceki else ("b", "ZATEN VAR") if o == "ZATEN VAR" else (
+                ("c", "ÖĞREN") if a["tur"] in ("prompt", "teknik") else ("d", "ÖĞREN") if o == "T0" else None)
+            if kr:
+                om = kr[1]
+                on.append(f"- {k} · {om} · kural {kr[0]}")
+        bekleyen += not om
+        L.append(f"| {k} | {a['tur']} | {len(a['videolar'])} | {pt._h(al.get('lisans', '—'))} | {pt._h(gv)} | {o} | {pt._h(g)} | {om} |"
+                 .replace("|  |", "| |"))
     for x in d.get("gelistirme", []):  # M2f K3: öneri ayrı satır, Ömer kararına açık
         if x["oneri"] in ("UYARLA", "ÖĞREN"):
             a, g = d["adaylar"].get(x["aday"], {}), f"{x['aday']}-gelistirme"
+            bekleyen += not eski.get(g)
             L.append(f"| {g} | {a.get('tur', '-')} | {len(a.get('videolar', {}))} | — | — | {x['oneri']} | {pt._h(x['gelistirme_onerisi'])} (kanıt: {pt._h(x['kanit'])}) | {eski.get(g, '')} |"
                      .replace("|  |", "| |"))
+    yazilan = {s.split("|")[1].strip() for s in L if s.startswith("| ")}
+    L += [s for k, s in eski_s.items() if eski[k] and k not in yazilan]  # M11 K3: yeniden üretimde satırı kalkan dolu Ömer kararı korunur
+    ozet = f"karar bekleyen {bekleyen} · ön-doldurulan {len(on)}"
+    L[3:3] = ["", f"{ozet} (ön-doldurma yalnız öneri; Ömer değiştirebilir)"]
+    print(ozet)
     n, usd, tk = pt._defter(pdir)
-    L += ["", "## form_red", *([f"- {v}: {pt._h(s['tarama'].get('hata'))[:200]}" for v, s in d["videolar"].items()
+    L += ["", "## Ön-doldurulan", *(on or ["- yok"]), "## form_red", *([f"- {v}: {pt._h(s['tarama'].get('hata'))[:200]}" for v, s in d["videolar"].items()
                                  if s["tarama"]["durum"] == "form_red"] or ["- yok"]),
           "## Eksik alanlar", *([f"- {v} · {pt._h(x[0])} · {x[1]} ({pt._h(x[2])})" for v, s in d["videolar"].items()  # M2e K1
                                  for x in s["tarama"].get("eksik") or []] or ["- yok"]),
