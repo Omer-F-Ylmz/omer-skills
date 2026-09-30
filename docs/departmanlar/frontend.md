@@ -287,5 +287,8 @@ Müdür: `departman-frontend`
 - Logo renklerinden türetilmiş renk paleti · video Pj2FnVE-W3c · 9:07 · kaynak: altyazı
 - Shader arka plan animasyonu · video Pj2FnVE-W3c · 14:20 · kaynak: altyazı
 - Stil dönüştürme (renk, arka plan, animasyon) · video Pj2FnVE-W3c · 13:13 · kaynak: altyazı
+- Scroll ile senkronize kare animasyonu (video kareleri) · video BdLrWHzdYt4 · 2:03 · kaynak: altyazı
+- Frame klasörü (webp kareler) · video BdLrWHzdYt4 · 2:34 · kaynak: kare
+- Özellik kartları, koyu kart çerçeve, sayaç animasyonu, hero ve CTA · video BdLrWHzdYt4 · 9:10 · kaynak: altyazı
 
 ## Elle
