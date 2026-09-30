@@ -34,14 +34,14 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | n5eIrepe-Fg | 10.9 | AI slop olmayan web sitesi (GPT-6 ASTRA) | model bağımsız teknikleri ayır; anti-slop kuralları design-stack ile karşılaştır | işlendi: e71132a |
 | Pj2FnVE-W3c | 18.3 | Kaliteli site 5 aşama (Esad Kılıç) | aşamalar → frontend-craft akışıyla eşleştir; eksik aşama UYARLA | işlendi: e71132a |
 | BdLrWHzdYt4 | 14.9 | CC + Nano Banana Pro + Kling ile 3D site | görsel/video üretim hattı; asset bütçesi (GLB/video), ücretli servis tavanı | işlendi: 83e8d83 |
-| M9qgd_KJkWc | 0.7 | CC killed $10k websites | kanıt iddiası → iddia sınama; teknik varsa Site/UI | bekliyor |
-| BK9P0rYIQY8 | 0.8 | AI websites look fake — 3 skills | 3 skill; kurulu kontrolü | bekliyor |
-| 0JZtdAtJiyk | 1.0 | Top 3 skills for non-designers | bAhPV1Sl-rg ile aynı başlık; karşılaştır | bekliyor |
-| bAhPV1Sl-rg | 0.8 | Top 3 skills for non-designers (Yury AI) | 0JZtdAtJiyk ile aynı konu | bekliyor |
-| O1zei0WXHvY | 1.2 | Open-source Claude Design (ücretsiz) | repo adı; claude-design MCP'mizle karşılaştır | bekliyor |
-| V-CIbnAAhc4 | 0.6 | CC + Google Stitch entegrasyonu | Stitch MCP kurulu → ZATEN VAR; akış ÖĞREN | bekliyor |
-| Vngbdm2IEXM | 1.1 | UI concept: Figma + AE + Blender | tasarım tekniği (Site/UI); 3D + hareket | bekliyor |
-| q1QQN08ZK6I | 1.0 | Living hero section (UI × 3D × motion) | hero tekniği; web-sahne-desenleri | bekliyor |
+| M9qgd_KJkWc | 0.7 | CC killed $10k websites | kanıt iddiası → iddia sınama; teknik varsa Site/UI | işlendi: 7bc7142 |
+| BK9P0rYIQY8 | 0.8 | AI websites look fake — 3 skills | 3 skill; kurulu kontrolü | işlendi: 7bc7142 |
+| 0JZtdAtJiyk | 1.0 | Top 3 skills for non-designers | bAhPV1Sl-rg ile aynı başlık; karşılaştır | işlendi: 7bc7142 |
+| bAhPV1Sl-rg | 0.8 | Top 3 skills for non-designers (Yury AI) | 0JZtdAtJiyk ile aynı konu | işlendi: 7bc7142 |
+| O1zei0WXHvY | 1.2 | Open-source Claude Design (ücretsiz) | repo adı; claude-design MCP'mizle karşılaştır | işlendi: 7bc7142 |
+| V-CIbnAAhc4 | 0.6 | CC + Google Stitch entegrasyonu | Stitch MCP kurulu → ZATEN VAR; akış ÖĞREN | işlendi: 7bc7142 |
+| Vngbdm2IEXM | 1.1 | UI concept: Figma + AE + Blender | tasarım tekniği (Site/UI); 3D + hareket | işlendi: 7bc7142 |
+| q1QQN08ZK6I | 1.0 | Living hero section (UI × 3D × motion) | hero tekniği; web-sahne-desenleri | işlendi: 7bc7142 |
 | eKnpRVgqXR8 | 1.1 | UI tutorial Figma + Blender | tasarım tekniği | bekliyor |
 | 9opJeH9j9qs | 0.9 | UX/UI concept Figma + AE + Blender | tasarım tekniği | bekliyor |
 | -_S3KD0ZIfI | 0.9 | GPT 6 Astra → Blender | 3D varlık üretimi (Blender otomasyonu) | bekliyor |
