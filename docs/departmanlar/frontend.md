@@ -297,5 +297,9 @@ Müdür: `departman-frontend`
 - Google Stitch ile ekran üretimi · video V-CIbnAAhc4 · 0:17 · kaynak: kare
 - Maske ile gizlenen başlık sayıları · video Vngbdm2IEXM · 0:11 · kaynak: kare
 - Figma hero bölümü düzeni · video q1QQN08ZK6I · 0:05 · kaynak: altyazı
+- Figma çerçeve/panel düzeni · video eKnpRVgqXR8 · 0:00 · kaynak: altyazı
+- Blender 3B metin (extrude), eğri + Array + Simple Deform, ışık/kamera/render · video eKnpRVgqXR8 · 1:02 · kaynak: kare
+- Figma çerçeve + Blender node materyalleri · video 9opJeH9j9qs · 0:47 · kaynak: kare
+- 3D model, fare hareketine duyarlılık ve kaydırma animasyonları · video -_S3KD0ZIfI · 0:30 · kaynak: altyazı
 
 ## Elle
