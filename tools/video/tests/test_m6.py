@@ -99,3 +99,15 @@ def test_k4_panel_yolu_repo_kokune_gore(tmp_path, monkeypatch, capsys):
     assert akil.panel_uygula(SimpleNamespace(panel="docs/yok/panel.md"), ctx) == 2 and "dosya yok" in capsys.readouterr().out
 
 
+# --- K5 panelde Ömer kararı kayda işlenmemişse kapat durur (rc≠0, commit yok)
+def test_k5_kayda_islenmemis_kararla_kapat_durur(tmp_path, capsys):
+    kok = _repo(tmp_path)
+    _panel(kok, "ZATEN VAR")
+    d = {"parti": "p1", "videolar": {}, "adaylar": {}}
+    assert akil.kapat(tmp_path, d, kok, _ctx()) != 0
+    assert "önce: video panel uygula" in capsys.readouterr().out and _git(kok, "log", "--oneline").count("\n") == 1
+    (kok / "docs" / "kurulumlar" / "kayit.jsonl").write_bytes(
+        (json.dumps({"ad": "caveman", "parti": "p1", "karar": "ZATEN VAR (Ömer, panel)"}, ensure_ascii=False) + "\n").encode("utf-8"))
+    assert akil.kapat(tmp_path, d, kok, _ctx()) == 0 and _git(kok, "log", "--oneline").count("\n") == 2
+
+
