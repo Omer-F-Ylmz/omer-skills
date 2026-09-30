@@ -311,5 +311,6 @@ Müdür: `departman-frontend`
 - Figma tasarımından HTML/CSS üretimi · video uuUo7gWuH9w · 20:59 · kaynak: altyazı
 - Koyu tema sunum sayfası (localhost:8765/presentation.html), büyük numaralı bölüm başlığı, vurgu rengi kırmızı, gradyan arka plan, animasyonlu dairesel diyagram · video L2JKgj7WzU4 · 1:03 · kaynak: kare
 - Koyu gradyan intro animasyonu, mor vurgulu başlık · video L2JKgj7WzU4 · 0:16 · kaynak: kare
+- Başlık metni + sağda kayan sohbet balonları (animasyonlu açıklama grafiği) · video kMk4pvFJ13s · 0:16 · kaynak: kare
 
 ## Elle
