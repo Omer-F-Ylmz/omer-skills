@@ -56,6 +56,13 @@ def test_kilit_olu_pid_duser(kilit):
 VERI = b"#?RADIANCE sahte hdr " * 500
 
 
+def test_varlik_doku_orijinal_bicim(ph):  # gerçek API'de dokuda da "gltf" anahtarı var: model sanılmamalı
+    hedef = ph / "Kum" / "varlik"
+    assert vi.main(["indir", "polyhaven", "doku_x", "--hedef", str(hedef)]) == 0
+    k = json.loads((hedef / "doku_x" / "doku_x.json").read_text(encoding="utf-8"))
+    assert [d["yol"] for d in k["dosyalar"]] == ["doku_x_Diffuse_1k.jpg", "doku_x_nor_gl_1k.png", "doku_x_Rough_1k.jpg"]
+
+
 class PH(BaseHTTPRequestHandler):
     istekler = []
 
@@ -63,7 +70,12 @@ class PH(BaseHTTPRequestHandler):
         PH.istekler.append((self.path, self.headers.get("User-Agent", "")))
         taban = f"http://127.0.0.1:{self.server.server_port}"
         dogru = hashlib.md5(VERI).hexdigest()
-        yanit = {"/info/studio_x": {"authors": {"Greg Zaal": "All"}},
+        harita = {h: {"1k": {u: {"url": f"{taban}/dl/doku_x_{h}_1k.{u}", "size": len(VERI), "md5": dogru}}}
+                  for h, u in (("Diffuse", "jpg"), ("nor_gl", "png"), ("Rough", "jpg"))}
+        yanit = {"/info/doku_x": {"authors": {"Rob": "All"}, "type": 1},
+                 "/files/doku_x": {"gltf": {"1k": {"gltf": {"url": f"{taban}/dl/x.gltf", "size": 1, "md5": "0" * 32}}},
+                                   **harita},
+                 "/info/studio_x": {"authors": {"Greg Zaal": "All"}},
                  "/info/bozuk": {"authors": {"Biri": "All"}},
                  "/files/studio_x": {"hdri": {"1k": {"hdr": {"url": f"{taban}/dl/studio_x_1k.hdr", "size": len(VERI),
                                                              "md5": dogru}}}},

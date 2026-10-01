@@ -47,12 +47,12 @@ def _indir(url, yol):
     return s.hexdigest(), m.hexdigest(), n
 
 
-def _ph_dosyalar(id_, cz):
+def _ph_dosyalar(id_, cz, tur):
     """[(göreli yol, {url, size, md5})]; doku haritasında API'de jpg varsa o, yoksa png (dönüştürülmez)."""
     f = _al(f"{PH_API}/files/{id_}")
     if "hdri" in f:
         return [(Path(f["hdri"][cz]["hdr"]["url"]).name, f["hdri"][cz]["hdr"])]
-    if "gltf" in f:
+    if tur == 2:  # /info type: 0 hdri · 1 doku · 2 model (dokularda da "gltf" anahtarı var)
         g = f["gltf"][cz]["gltf"]
         return [(Path(g["url"]).name, g)] + list(g.get("include", {}).items())
     return [(Path(d["url"]).name, d) for d in (f[h][cz].get("jpg") or f[h][cz]["png"] for h in PH_HARITA)]
@@ -75,8 +75,9 @@ def indir(a):
         print(f"yol kuralı: indirme yalnız Desktop\\<Proje>\\ altına: {hedef}", file=sys.stderr)
         return 2
     if a.kaynak == "polyhaven":
-        yazar = ", ".join(_al(f"{PH_API}/info/{a.id}").get("authors", {}))
-        liste = _ph_dosyalar(a.id, a.cozunurluk)
+        bilgi = _al(f"{PH_API}/info/{a.id}")
+        yazar = ", ".join(bilgi.get("authors", {}))
+        liste = _ph_dosyalar(a.id, a.cozunurluk, bilgi.get("type"))
         sayfa, dogrulama = f"https://polyhaven.com/a/{a.id}", "md5 + boyut (API)"
     else:
         v = _al(f"{ACG_API}?{urllib.parse.urlencode({'id': a.id, 'include': 'downloadData'})}")["foundAssets"][0]
