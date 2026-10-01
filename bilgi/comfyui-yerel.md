@@ -12,7 +12,7 @@
 ## Güvenlik
 - Dinleme yalnız 127.0.0.1:8188; başka adres → exit 1 + PID ile kapatma. Kapatma yalnız durum dosyasındaki PID ile (`taskkill /PID /T`), ad ile öldürme yok.
 - Yalnız .safetensors (ComfyUI .pth'yi zaten `weights_only=True` ile yükler; kullanılmadı). sha256 HF LFS değeriyle doğrulandı.
-- ComfyUI-Manager, topluluk node'u, GGUF yok; 12 GB'ye sığdırma çekirdek `UNETLoader weight_dtype=fp8_e4m3fn` + çekirdek RAM offload'u.
+- ComfyUI-Manager, topluluk node'u, GGUF yok. 12 GB'ye sığdırma: Z-Image diskte fp8'e çevrilmiş dosya (`tools/gorsel/fp8_cevir.py`; `weight_dtype` default) · iki modelde `qwen_3_4b_fp8_mixed` kodlayıcı · RAM bekçisi (`ram_gb` = ölçülen tepe + 2: zimage 4.4 · klein 4.5 · buyut 3.5) · acil fren (iş sırasında boş RAM < 2 GB → ComfyUI PID ile kapatılır) · model değişiminde `/free`.
 - Uzak API çağrısı yok; ağ yalnız kurulumdaki HF indirmesi.
 - Blender (9876) açıkken ac/uret/buyut exit 2: GPU ortak.
 
