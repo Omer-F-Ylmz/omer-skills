@@ -29,7 +29,9 @@ ACILIS_SN, BEKLE_SN = 180, 600
 ALTYAPI = {"node.exe", "bun.exe", "claude.exe", "uv.exe", "uvx.exe", "dotnet.exe", "python.exe", "pythonw.exe",
            "msmpeng.exe", "csrss.exe", "winlogon.exe", "dwm.exe", "explorer.exe", "system", "memory compression"}
 FREN_GB = 2
+
 VARSAYILAN_RAM_GB = 16  # MODELLER[m]["ram_gb"] yoksa; K6 tepe RAM + 2 GB ile değişir
+BUYUT_RAM_GB = 3.5  # K6 buyut tepe 1.5 GB + 2
 
 MODELLER = {
     "zimage": {"ram_gb": 4.4, "akis": "zimage.json", "lisans": "Apache-2.0 (Tongyi-MAI/Z-Image-Turbo · Comfy-Org/z_image_turbo)",
@@ -190,8 +192,7 @@ def kuyruk(akis):
         if en_az < FREN_GB:  # acil fren: sistem donmadan ComfyUI ağacı PID ile kapatılır
             oldur(json.loads(DURUM.read_text(encoding="utf-8"))["pid"])
             DURUM.unlink()
-            # ponytail: tepe = kuyruk başından beri boş RAM düşüşü (araçta psutil yok); süreç ağacı tepesi K6 betiğinde
-            raise RuntimeError(f"RAM {FREN_GB} GB altına indi, ComfyUI kapatıldı · o ana kadarki tepe: {ilk - en_az:.1f} GB")
+            raise RuntimeError(f"RAM {FREN_GB} GB altına indi, ComfyUI kapatıldı · iş başında boş {ilk} GB → şimdi {en_az} GB")
         with urllib.request.urlopen(f"{SUNUCU}/history/{pid}") as r:
             gecmis = json.load(r)
         if pid in gecmis:
@@ -294,7 +295,7 @@ def buyut(png, kat):
     if not (COMFY / "models" / BUYUTUCU[0]).is_file() or not oturum_pid():
         print("DUR: büyütücü kurulu değil ya da ComfyUI kapalı")
         return 2
-    if not ram_yeter(VARSAYILAN_RAM_GB):
+    if not ram_yeter(BUYUT_RAM_GB):
         return 2
     akis = doldur(json.loads((AKISLAR / "buyut.json").read_text(encoding="utf-8")),
                   {"GIRDI": girdiye_kopyala(png), "OLCEK": kat / 4})

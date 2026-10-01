@@ -3904,5 +3904,23 @@
   "departman": "frontend",
   "p": 1.0,
   "kaynak": "elle"
+ },
+ {
+  "ad": "gorsel-uret",
+  "tur": "skill",
+  "aciklama": "Yerel ComfyUI ile ücretsiz görsel üretimi: Z-Image fp8 · FLUX.2 klein · Real-ESRGAN · rembg; oturumu CC yönetir, RAM bekçisi + acil fren",
+  "hash": "5b0c750b0b728596",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
+ },
+ {
+  "ad": "comfyui",
+  "tur": "cli",
+  "aciklama": "ComfyUI v0.38 (GPL-3.0, yerel, 127.0.0.1:8188): gorsel-uret skill'inin çalıştırdığı görsel üretim sunucusu",
+  "hash": "20ccf5eb2b0733c9",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
  }
 ]

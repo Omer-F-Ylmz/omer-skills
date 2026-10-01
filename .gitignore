@@ -12,3 +12,4 @@ tools/*/uv.lock
 docs/denemeler/.kos/caveman/
 docs/denemeler/.kos/caveman-compress/
 /.kos/
+mcp/jev/.vitest/

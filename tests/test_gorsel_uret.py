@@ -266,7 +266,7 @@ def test_acil_fren_ram_2_gb_alti(ortam, monkeypatch, capsys):
     monkeypatch.setattr(gu, "oldur", olen.append)
     assert uret(ortam, "--model", "zimage") == 1
     assert olen == [PID] and not gu.DURUM.exists() and not list((ortam / "cikti").glob("*.png"))
-    assert "RAM 2 GB altına indi, ComfyUI kapatıldı · o ana kadarki tepe: 7.5 GB" in capsys.readouterr().out
+    assert "RAM 2 GB altına indi, ComfyUI kapatıldı · iş başında boş 9 GB → şimdi 1.5 GB" in capsys.readouterr().out
 
 
 def test_acil_fren_normal_akista_yok(ortam, monkeypatch):
