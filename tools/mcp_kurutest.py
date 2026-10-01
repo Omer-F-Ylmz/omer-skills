@@ -97,7 +97,8 @@ def dene(ad, komut, argv, env_ek, temizle=(), taban=None, hata_bufer=None, cwd=N
         srv = ini.get("result", {}).get("serverInfo", {})
         return {"sure": round(time.time()-t0,1), "ad": ad, "durum": "OK", "arac": len(araclar),
                 "sunucu": f"{srv.get('name','?')} {srv.get('version','')}".strip(),
-                "ornek": [a.get("name") for a in araclar[:3]]}
+                "ornek": [a.get("name") for a in araclar[:3]],
+                        "araclar": [a.get("name") for a in araclar]}
     except Exception as e:
         try: p.kill()
         except Exception: pass

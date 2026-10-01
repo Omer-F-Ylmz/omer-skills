@@ -1,0 +1,503 @@
+{
+ "cc:blender": {
+  "arac_sayisi": 26,
+  "araclar": [
+   "execute_blender_code",
+   "execute_blender_code_for_cli",
+   "get_blendfile_summary_datablocks",
+   "get_blendfile_summary_datablocks_for_cli",
+   "get_blendfile_summary_missing_files",
+   "get_blendfile_summary_missing_files_for_cli",
+   "get_blendfile_summary_of_linked_libraries",
+   "get_blendfile_summary_of_linked_libraries_for_cli",
+   "get_blendfile_summary_path_info",
+   "get_blendfile_summary_path_info_for_cli",
+   "get_blendfile_summary_usage_guess",
+   "get_blendfile_summary_usage_guess_for_cli",
+   "get_object_detail_summary",
+   "get_objects_summary",
+   "get_python_api_docs",
+   "get_screenshot_of_area_as_image",
+   "get_screenshot_of_window_as_image",
+   "get_screenshot_of_window_as_json",
+   "jump_to_tab_by_name",
+   "jump_to_tab_by_space_type",
+   "jump_to_view3d_object_by_name",
+   "jump_to_view3d_object_data_by_name",
+   "render_thumbnail_to_path",
+   "render_viewport_to_path",
+   "search_api_docs",
+   "search_manual_docs"
+  ]
+ },
+ "cc:brave-search": {
+  "env": {
+   "BRAVE_API_KEY": true
+  },
+  "arac_sayisi": 8,
+  "araclar": [
+   "brave_image_search",
+   "brave_llm_context",
+   "brave_local_search",
+   "brave_news_search",
+   "brave_place_search",
+   "brave_summarizer",
+   "brave_video_search",
+   "brave_web_search"
+  ]
+ },
+ "cc:code-review": {
+  "env": {
+   "GITHUB_TOKEN": true,
+   "GITLAB_TOKEN": false
+  },
+  "arac_sayisi": 12,
+  "araclar": [
+   "add_inline_comment",
+   "add_pr_comment",
+   "batch_add_comments",
+   "extract_related_prs",
+   "get_file_content",
+   "get_pr_changes",
+   "get_pr_commits",
+   "get_pr_info",
+   "get_review_rules",
+   "list_pr_comments",
+   "resolve_discussion",
+   "submit_review"
+  ]
+ },
+ "cc:context7": {
+  "arac_sayisi": 2,
+  "araclar": [
+   "query-docs",
+   "resolve-library-id"
+  ]
+ },
+ "cc:headroom": {
+  "env": {
+   "HEADROOM_PROXY_URL": true
+  },
+  "arac_sayisi": 3,
+  "araclar": [
+   "headroom_compress",
+   "headroom_retrieve",
+   "headroom_stats"
+  ]
+ },
+ "cc:jev": {
+  "env": {
+   "OPENROUTER_API_KEY": true
+  },
+  "arac_sayisi": 3,
+  "araclar": [
+   "jev_batch",
+   "jev_evaluate",
+   "jev_models"
+  ]
+ },
+ "cc:mcp-fetch": {
+  "arac_sayisi": 1,
+  "araclar": [
+   "fetch"
+  ]
+ },
+ "cc:mcp-filesystem": {
+  "arac_sayisi": 14,
+  "araclar": [
+   "create_directory",
+   "directory_tree",
+   "edit_file",
+   "get_file_info",
+   "list_allowed_directories",
+   "list_directory",
+   "list_directory_with_sizes",
+   "move_file",
+   "read_file",
+   "read_media_file",
+   "read_multiple_files",
+   "read_text_file",
+   "search_files",
+   "write_file"
+  ]
+ },
+ "cc:mcp-git": {
+  "arac_sayisi": 12,
+  "araclar": [
+   "git_add",
+   "git_branch",
+   "git_checkout",
+   "git_commit",
+   "git_create_branch",
+   "git_diff",
+   "git_diff_staged",
+   "git_diff_unstaged",
+   "git_log",
+   "git_reset",
+   "git_show",
+   "git_status"
+  ]
+ },
+ "cc:mcp-memory": {
+  "arac_sayisi": 9,
+  "araclar": [
+   "add_observations",
+   "create_entities",
+   "create_relations",
+   "delete_entities",
+   "delete_observations",
+   "delete_relations",
+   "open_nodes",
+   "read_graph",
+   "search_nodes"
+  ]
+ },
+ "cc:mcp-sequential-thinking": {
+  "arac_sayisi": 1,
+  "araclar": [
+   "sequentialthinking"
+  ]
+ },
+ "cc:mcp-time": {
+  "arac_sayisi": 2,
+  "araclar": [
+   "convert_time",
+   "get_current_time"
+  ]
+ },
+ "cc:puppeteer": {
+  "arac_sayisi": 8,
+  "araclar": [
+   "puppeteer_click",
+   "puppeteer_connect_active_tab",
+   "puppeteer_evaluate",
+   "puppeteer_fill",
+   "puppeteer_hover",
+   "puppeteer_navigate",
+   "puppeteer_screenshot",
+   "puppeteer_select"
+  ]
+ },
+ "cc:stitch": {
+  "env": {
+   "STITCH_API_KEY": true
+  },
+  "arac_sayisi": 16,
+  "araclar": [
+   "apply_design_system",
+   "create_design_system",
+   "create_design_system_from_design_md",
+   "create_project",
+   "delete_project",
+   "download_assets",
+   "edit_screens",
+   "generate_screen_from_text",
+   "generate_variants",
+   "get_project",
+   "get_screen",
+   "list_design_systems",
+   "list_projects",
+   "list_screens",
+   "update_design_system",
+   "upload_design_md"
+  ]
+ },
+ "desktop:binlog": {
+  "arac_sayisi": 46,
+  "araclar": [
+   "binlog_analyzer_summary",
+   "binlog_assembly_conflicts",
+   "binlog_assets",
+   "binlog_build_graph",
+   "binlog_capabilities",
+   "binlog_compare",
+   "binlog_compare_property",
+   "binlog_compiler",
+   "binlog_diagnose",
+   "binlog_double_writes",
+   "binlog_errors",
+   "binlog_evaluation_global_properties",
+   "binlog_evaluation_properties",
+   "binlog_evaluations",
+   "binlog_expensive_analyzers",
+   "binlog_expensive_projects",
+   "binlog_expensive_targets",
+   "binlog_expensive_tasks",
+   "binlog_explain_property",
+   "binlog_explore_node",
+   "binlog_extract",
+   "binlog_extract_preview",
+   "binlog_files",
+   "binlog_imports",
+   "binlog_incremental_analysis",
+   "binlog_items",
+   "binlog_nuget",
+   "binlog_overview",
+   "binlog_path_activity",
+   "binlog_preprocess",
+   "binlog_project_target_times",
+   "binlog_project_targets",
+   "binlog_projects",
+   "binlog_properties",
+   "binlog_reference_provenance",
+   "binlog_search",
+   "binlog_search_files",
+   "binlog_search_targets",
+   "binlog_target_graph",
+   "binlog_target_reasons",
+   "binlog_task_details",
+   "binlog_tasks_in_target",
+   "binlog_warnings",
+   "list_mcp_instances",
+   "stop",
+   "stop_instance"
+  ]
+ },
+ "desktop:brave-search": {
+  "arac_sayisi": 8,
+  "araclar": [
+   "brave_image_search",
+   "brave_llm_context",
+   "brave_local_search",
+   "brave_news_search",
+   "brave_place_search",
+   "brave_summarizer",
+   "brave_video_search",
+   "brave_web_search"
+  ]
+ },
+ "desktop:cc-kopru": {
+  "arac_sayisi": 8,
+  "araclar": [
+   "ajan",
+   "durum",
+   "katalog",
+   "kaydet",
+   "komut",
+   "oku",
+   "oturum",
+   "oturum_ozeti"
+  ]
+ },
+ "desktop:claude-design": {
+  "arac_sayisi": 23,
+  "araclar": [
+   "ack_comments",
+   "add_member",
+   "copy_files",
+   "create_project",
+   "create_support_js",
+   "delete_files",
+   "finalize_plan",
+   "get_claude_design_prompt",
+   "get_conversation",
+   "get_project",
+   "list_comments",
+   "list_design_systems",
+   "list_files",
+   "list_members",
+   "list_projects",
+   "put_conversation",
+   "read_design_skill",
+   "read_file",
+   "remove_member",
+   "render_preview",
+   "update_member_role",
+   "update_sharing",
+   "write_files"
+  ]
+ },
+ "desktop:claude-mem": {
+  "arac_sayisi": 15,
+  "araclar": [
+   "build_corpus",
+   "get_observations",
+   "get_tool_uses",
+   "important_workflow",
+   "list_corpora",
+   "prime_corpus",
+   "query_corpus",
+   "rebuild_corpus",
+   "reprime_corpus",
+   "search",
+   "session_start_context",
+   "smart_outline",
+   "smart_search",
+   "smart_unfold",
+   "timeline"
+  ]
+ },
+ "desktop:code-review": {
+  "arac_sayisi": 12,
+  "araclar": [
+   "add_inline_comment",
+   "add_pr_comment",
+   "batch_add_comments",
+   "extract_related_prs",
+   "get_file_content",
+   "get_pr_changes",
+   "get_pr_commits",
+   "get_pr_info",
+   "get_review_rules",
+   "list_pr_comments",
+   "resolve_discussion",
+   "submit_review"
+  ]
+ },
+ "desktop:headroom": {
+  "env": {
+   "HEADROOM_PROXY_URL": true
+  },
+  "arac_sayisi": 3,
+  "araclar": [
+   "headroom_compress",
+   "headroom_retrieve",
+   "headroom_stats"
+  ]
+ },
+ "desktop:mcp-fetch": {
+  "arac_sayisi": 1,
+  "araclar": [
+   "fetch"
+  ]
+ },
+ "desktop:mcp-filesystem": {
+  "arac_sayisi": 14,
+  "araclar": [
+   "create_directory",
+   "directory_tree",
+   "edit_file",
+   "get_file_info",
+   "list_allowed_directories",
+   "list_directory",
+   "list_directory_with_sizes",
+   "move_file",
+   "read_file",
+   "read_media_file",
+   "read_multiple_files",
+   "read_text_file",
+   "search_files",
+   "write_file"
+  ]
+ },
+ "desktop:mcp-git": {
+  "arac_sayisi": 12,
+  "araclar": [
+   "git_add",
+   "git_branch",
+   "git_checkout",
+   "git_commit",
+   "git_create_branch",
+   "git_diff",
+   "git_diff_staged",
+   "git_diff_unstaged",
+   "git_log",
+   "git_reset",
+   "git_show",
+   "git_status"
+  ]
+ },
+ "desktop:mcp-memory": {
+  "arac_sayisi": 9,
+  "araclar": [
+   "add_observations",
+   "create_entities",
+   "create_relations",
+   "delete_entities",
+   "delete_observations",
+   "delete_relations",
+   "open_nodes",
+   "read_graph",
+   "search_nodes"
+  ]
+ },
+ "desktop:mcp-sequential-thinking": {
+  "arac_sayisi": 1,
+  "araclar": [
+   "sequentialthinking"
+  ]
+ },
+ "desktop:mcp-time": {
+  "arac_sayisi": 2,
+  "araclar": [
+   "convert_time",
+   "get_current_time"
+  ]
+ },
+ "desktop:obsidian": {
+  "arac_sayisi": 7,
+  "araclar": [
+   "create",
+   "get_current_file",
+   "get_workspace_files",
+   "insert",
+   "obsidian_api",
+   "str_replace",
+   "view"
+  ]
+ },
+ "desktop:playwright": {
+  "arac_sayisi": 25,
+  "araclar": [
+   "browser_click",
+   "browser_close",
+   "browser_console_messages",
+   "browser_drag",
+   "browser_drop",
+   "browser_emulate_media",
+   "browser_evaluate",
+   "browser_file_upload",
+   "browser_fill_form",
+   "browser_find",
+   "browser_handle_dialog",
+   "browser_hover",
+   "browser_navigate",
+   "browser_navigate_back",
+   "browser_network_request",
+   "browser_network_requests",
+   "browser_press_key",
+   "browser_resize",
+   "browser_run_code_unsafe",
+   "browser_select_option",
+   "browser_snapshot",
+   "browser_tabs",
+   "browser_take_screenshot",
+   "browser_type",
+   "browser_wait_for"
+  ]
+ },
+ "desktop:puppeteer": {
+  "arac_sayisi": 8,
+  "araclar": [
+   "puppeteer_click",
+   "puppeteer_connect_active_tab",
+   "puppeteer_evaluate",
+   "puppeteer_fill",
+   "puppeteer_hover",
+   "puppeteer_navigate",
+   "puppeteer_screenshot",
+   "puppeteer_select"
+  ]
+ },
+ "desktop:stitch": {
+  "arac_sayisi": 16,
+  "araclar": [
+   "apply_design_system",
+   "create_design_system",
+   "create_design_system_from_design_md",
+   "create_project",
+   "delete_project",
+   "download_assets",
+   "edit_screens",
+   "generate_screen_from_text",
+   "generate_variants",
+   "get_project",
+   "get_screen",
+   "list_design_systems",
+   "list_projects",
+   "list_screens",
+   "update_design_system",
+   "upload_design_md"
+  ]
+ }
+}
