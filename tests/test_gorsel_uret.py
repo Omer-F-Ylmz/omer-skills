@@ -18,6 +18,18 @@ def dinleme(adres, pid=PID):
     return f"  TCP    {adres}         0.0.0.0:0              LISTENING       {pid}\n"
 
 
+SURECLER = "\n".join(f'"{ad}","{pid}","{oturum}","{no}","{kb} K"' for ad, pid, oturum, no, kb in [
+    ("node.exe", 11, "Console", 1, "9.000.000"), ("claude.exe", 12, "Console", 1, "8.000.000"),
+    ("python.exe", 13, "Console", 1, "7.000.000"), ("headroom.exe", 14, "Console", 1, "6.500.000"),
+    ("uv.exe", 15, "Console", 1, "6.400.000"), ("bun.exe", 16, "Console", 1, "6.300.000"),
+    ("dotnet.exe", 17, "Console", 1, "6.200.000"), ("uvx.exe", 18, "Console", 1, "6.100.000"),
+    ("MsMpEng.exe", 19, "Services", 0, "6.000.000"), ("svchost.exe", 20, "Services", 0, "5.900.000"),
+    ("dwm.exe", 21, "Console", 1, "5.800.000"), ("comfy.exe", PID, "Console", 1, "5.700.000"),
+    ("opera.exe", 31, "Console", 1, "3.000.000"), ("opera.exe", 32, "Console", 1, "2.000.000"),
+    ("Discord.exe", 33, "Console", 1, "1.200.000"), ("steamwebhelper.exe", 34, "Console", 1, "900.000"),
+    ("notepad.exe", 35, "Console", 1, "10.000")])
+
+
 class Sahte:
     """netstat/tasklist/taskkill ve ComfyUI Popen taklidi."""
 
@@ -33,6 +45,8 @@ class Sahte:
         cikti = ""
         if ad == "netstat":
             cikti = self.netstat
+        elif ad == "tasklist" and "csv" in cmd:
+            cikti = SURECLER
         elif ad == "tasklist" and self.canli:
             cikti = f"python.exe                   {PID} Console    1    900.000 K\n"
         elif ad.startswith("rembg"):
@@ -61,7 +75,11 @@ class Comfy(BaseHTTPRequestHandler):
         self.wfile.write(govde)
 
     def do_POST(self):
-        Comfy.istekler.append(json.loads(self.rfile.read(int(self.headers["Content-Length"]))))
+        govde = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+        if self.path == "/free":
+            Comfy.serbest.append(govde)
+            return self._yanit(b"")
+        Comfy.istekler.append(govde)
         self._yanit(json.dumps({"prompt_id": f"p{len(Comfy.istekler)}"}).encode())
 
     def do_GET(self):
@@ -94,7 +112,8 @@ def ortam(tmp_path, monkeypatch):
     sunucu = ThreadingHTTPServer(("127.0.0.1", 0), Comfy)
     threading.Thread(target=sunucu.serve_forever, daemon=True).start()
     monkeypatch.setattr(gu, "SUNUCU", f"http://127.0.0.1:{sunucu.server_address[1]}")
-    Comfy.istekler = []
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: 64, raising=False)
+    Comfy.istekler, Comfy.serbest = [], []
     yield proje
     sunucu.shutdown()
 
@@ -166,6 +185,24 @@ def test_ac_basarili_durum_dosyasi(ortam, monkeypatch):
     assert json.loads(gu.DURUM.read_text(encoding="utf-8"))["pid"] == PID
 
 
+def test_kapat_port_bosalana_dek_bekler(ortam, monkeypatch):
+    class Gec(Sahte):  # taskkill sonrası port 2 netstat sorgusu daha dolu kalır
+        kalan = None
+
+        def run(self, cmd, **k):
+            ad = Path(cmd[0]).name.lower()
+            if ad == "taskkill":
+                self.kalan = 2
+            elif ad == "netstat" and self.kalan is not None:
+                self.netstat = "" if self.kalan <= 0 else self.netstat
+                self.kalan -= 1
+            return super().run(cmd, **k)
+    acik(kur(monkeypatch, Gec(netstat=dinleme(f"127.0.0.1:{gu.PORT}"))))
+    monkeypatch.setattr(gu.time, "sleep", lambda _: None)
+    assert gu.main(["kapat"]) == 0
+    assert not gu.dinleyenler(gu.PORT)
+
+
 def test_kapatma_yalniz_durum_pid(ortam, monkeypatch):
     s = kur(monkeypatch, Sahte(netstat=dinleme(f"127.0.0.1:{gu.PORT}", 999)))
     assert gu.main(["kapat"]) == 0  # durum dosyası yok: yabancı 8188 dinleyicisine dokunulmaz
@@ -195,6 +232,73 @@ def test_is_model_yonlendirmesi(ortam, monkeypatch, is_):
     beklenen = gu.MODELLER[gu.YONLENDIRME[is_]]["dosyalar"][0].split("/")[1]
     unet = [n for n in Comfy.istekler[0]["prompt"].values() if n["class_type"] == "UNETLoader"]
     assert unet[0]["inputs"]["unet_name"] == beklenen
+
+
+def test_ram_yetersiz_2(ortam, monkeypatch, capsys):
+    sahte = acik(kur(monkeypatch, Sahte()))
+    for m in gu.MODELLER.values():
+        monkeypatch.setitem(m, "ram_gb", 14)
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: 5.2)
+    assert uret(ortam, "--model", "zimage") == 2
+    assert "14 GB lazım, 5.2 GB boş" in capsys.readouterr().out and Comfy.istekler == []
+    assert gu.main(["buyut", str(ortam / "a.png"), "--kat", "2"]) == 2
+    gu.DURUM.unlink()
+    sahte.netstat = ""
+    assert gu.ac() == 2 and sahte.popen == []
+
+
+def test_ram_mesaji_altyapiyi_onermez(ortam, monkeypatch, capsys):
+    acik(kur(monkeypatch, Sahte()))
+    monkeypatch.setitem(gu.MODELLER["klein"], "ram_gb", 16)
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: 5.2)
+    assert uret(ortam, "--model", "klein") == 2
+    satir = capsys.readouterr().out
+    assert "opera.exe 4.8 GB, Discord.exe 1.1 GB, steamwebhelper.exe 0.9 GB" in satir
+    for ad in ("node", "claude", "python", "headroom", "uv", "bun", "dotnet", "MsMpEng", "svchost", "dwm", "comfy"):
+        assert f"{ad}." not in satir
+
+
+def test_acil_fren_ram_2_gb_alti(ortam, monkeypatch, capsys):
+    acik(kur(monkeypatch, Sahte()))
+    ram = iter([64, 9, 1.5])  # bekçi · kuyruk başı · ilk sorgu
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: next(ram))
+    olen = []
+    monkeypatch.setattr(gu, "oldur", olen.append)
+    assert uret(ortam, "--model", "zimage") == 1
+    assert olen == [PID] and not gu.DURUM.exists() and not list((ortam / "cikti").glob("*.png"))
+    assert "RAM 2 GB altına indi, ComfyUI kapatıldı · o ana kadarki tepe: 7.5 GB" in capsys.readouterr().out
+
+
+def test_acil_fren_normal_akista_yok(ortam, monkeypatch):
+    acik(kur(monkeypatch, Sahte()))
+    olen = []
+    monkeypatch.setattr(gu, "oldur", olen.append)
+    assert uret(ortam, "--model", "zimage") == 0 and olen == []
+
+
+def test_ram_yeterli_devam(ortam, monkeypatch):
+    acik(kur(monkeypatch, Sahte()))
+    monkeypatch.setitem(gu.MODELLER["zimage"], "ram_gb", 14)
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: 15)
+    assert uret(ortam, "--model", "zimage") == 0
+
+
+def test_ram_gb_tanimsiz_varsayilan_16(ortam, monkeypatch):
+    acik(kur(monkeypatch, Sahte()))
+    monkeypatch.delitem(gu.MODELLER["klein"], "ram_gb", raising=False)
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: 15)
+    assert uret(ortam, "--model", "klein") == 2
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: 17)
+    assert uret(ortam, "--model", "klein") == 0
+
+
+def test_model_degisince_bellek_bosaltilir(ortam, monkeypatch):
+    acik(kur(monkeypatch, Sahte()))
+    assert uret(ortam, "--model", "zimage") == 0 and uret(ortam, "--model", "zimage") == 0
+    assert Comfy.serbest == []
+    assert uret(ortam, "--model", "klein") == 0
+    assert Comfy.serbest == [{"unload_models": True, "free_memory": True}]
+    assert json.loads(gu.DURUM.read_text(encoding="utf-8"))["model"] == "klein"
 
 
 def test_duzenle_klein_ve_referans(ortam, monkeypatch):

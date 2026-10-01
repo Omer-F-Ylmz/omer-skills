@@ -5,6 +5,8 @@ Kurallar: çıktı yalnız <Masaüstü>\\<Proje>\\ altında; ComfyUI yalnız 127
 uzak API yok (HF indirmesi yalnız kurulumda). Her PNG'nin yanına aynı adlı .json (model · lisans · prompt · tohum · boyut · süre).
 """
 import argparse
+import csv
+import ctypes
 import json
 import random
 import shutil
@@ -24,13 +26,17 @@ AKISLAR = Path(__file__).resolve().parent / "gorsel" / "akislar"
 HOST, PORT, BLENDER_PORT = "127.0.0.1", 8188, 9876
 SUNUCU = f"http://{HOST}:{PORT}"
 ACILIS_SN, BEKLE_SN = 180, 600
+ALTYAPI = {"node.exe", "bun.exe", "claude.exe", "uv.exe", "uvx.exe", "dotnet.exe", "python.exe", "pythonw.exe",
+           "msmpeng.exe", "csrss.exe", "winlogon.exe", "dwm.exe", "explorer.exe", "system", "memory compression"}
+FREN_GB = 2
+VARSAYILAN_RAM_GB = 16  # MODELLER[m]["ram_gb"] yoksa; K6 tepe RAM + 2 GB ile değişir
 
 MODELLER = {
-    "zimage": {"akis": "zimage.json", "lisans": "Apache-2.0 (Tongyi-MAI/Z-Image-Turbo · Comfy-Org/z_image_turbo)",
-               "dosyalar": ["diffusion_models/z_image_turbo_bf16.safetensors", "text_encoders/qwen_3_4b.safetensors",
+    "zimage": {"ram_gb": 4.4, "akis": "zimage.json", "lisans": "Apache-2.0 (Tongyi-MAI/Z-Image-Turbo · Comfy-Org/z_image_turbo)",
+               "dosyalar": ["diffusion_models/z_image_turbo_fp8_e4m3fn.safetensors", "text_encoders/qwen_3_4b_fp8_mixed.safetensors",
                             "vae/ae.safetensors"]},
-    "klein": {"akis": "klein.json", "lisans": "Apache-2.0 (black-forest-labs/FLUX.2-klein-4B · Comfy-Org/flux2-klein-4B)",
-              "dosyalar": ["diffusion_models/flux-2-klein-4b.safetensors", "text_encoders/qwen_3_4b.safetensors",
+    "klein": {"ram_gb": 4.5, "akis": "klein.json", "lisans": "Apache-2.0 (black-forest-labs/FLUX.2-klein-4B · Comfy-Org/flux2-klein-4B)",
+              "dosyalar": ["diffusion_models/flux-2-klein-4b.safetensors", "text_encoders/qwen_3_4b_fp8_mixed.safetensors",
                            "vae/flux2-vae.safetensors"]},
     # K2b: RAM 31.7 GB < 32 GB → kurulmadı; yönlendirilirse exit 2.
     "qwen-image": {"akis": None, "lisans": "Apache-2.0 (Qwen/Qwen-Image)",
@@ -78,8 +84,34 @@ def blender_acik():
     return False
 
 
+def bos_ram_gb():
+    class Durum(ctypes.Structure):
+        _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong)] + \
+                   [(ad, ctypes.c_ulonglong) for ad in ("toplam", "bos", "tsd", "bsd", "tsan", "bsan", "bgen")]
+    d = Durum(dwLength=ctypes.sizeof(Durum))
+    ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(d))
+    return round(d.bos / 2**30, 1)
+
+
+def ram_yeter(gerekli):
+    bos = bos_ram_gb()
+    if bos >= gerekli:
+        return True
+    toplam, comfy = {}, str(oturum_pid())
+    for satir in csv.reader(subprocess.run(["tasklist", "/fo", "csv", "/nh"], capture_output=True, text=True).stdout.splitlines()):
+        # Altyapı (MCP sunucuları, korunan araçlar, ComfyUI, oturum 0 servisleri) asla kapatma önerisi olmaz.
+        # tasklist yol göstermez → python.exe tümden hariç.
+        if len(satir) >= 5 and satir[0].lower() not in ALTYAPI and "headroom" not in satir[0].lower() \
+                and satir[1] != comfy and satir[3] != "0":
+            toplam[satir[0]] = toplam.get(satir[0], 0) + int("0" + "".join(c for c in satir[4] if c.isdigit()))
+    ilk3 = sorted(toplam.items(), key=lambda x: -x[1])[:3]
+    print(f"{gerekli} GB lazım, {bos} GB boş; en çok bellek tutan 3 süreç: "
+          + ", ".join(f"{ad} {kb / 2**20:.1f} GB" for ad, kb in ilk3))
+    return False
+
+
 def ac():
-    if blender_acik():
+    if blender_acik() or not ram_yeter(min(m.get("ram_gb", VARSAYILAN_RAM_GB) for m in MODELLER.values())):
         return 2
     if dinleyenler(PORT):
         if oturum_pid():
@@ -88,7 +120,7 @@ def ac():
         print(f"DUR: {PORT} başka bir süreçte; bu araç başlatmadı, dokunulmaz")
         return 2
     komut = [str(COMFY / ".venv" / "Scripts" / "python.exe"), "main.py", "--listen", HOST, "--port", str(PORT),
-             "--disable-auto-launch"]
+             "--disable-auto-launch", "--cache-ram"]
     with open(DURUM.with_suffix(".log"), "w", encoding="utf-8") as log:
         pid = subprocess.Popen(komut, cwd=COMFY, stdout=log, stderr=subprocess.STDOUT,
                                creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP).pid
@@ -114,6 +146,10 @@ def kapat():
         return 0
     pid = json.loads(DURUM.read_text(encoding="utf-8")).get("pid")
     oldur(pid)
+    for _ in range(15):  # port bırakılmadan dönülürse hemen ardından gelen ac 8188'i yabancı sanır
+        if not dinleyenler(PORT):
+            break
+        time.sleep(1)
     DURUM.unlink()
     print(f"kapatıldı: PID {pid}")
     return 0
@@ -148,7 +184,14 @@ def kuyruk(akis):
                                    headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(istek) as r:
         pid = json.load(r)["prompt_id"]
+    ilk = en_az = bos_ram_gb()
     for _ in range(BEKLE_SN):
+        en_az = min(en_az, bos_ram_gb())
+        if en_az < FREN_GB:  # acil fren: sistem donmadan ComfyUI ağacı PID ile kapatılır
+            oldur(json.loads(DURUM.read_text(encoding="utf-8"))["pid"])
+            DURUM.unlink()
+            # ponytail: tepe = kuyruk başından beri boş RAM düşüşü (araçta psutil yok); süreç ağacı tepesi K6 betiğinde
+            raise RuntimeError(f"RAM {FREN_GB} GB altına indi, ComfyUI kapatıldı · o ana kadarki tepe: {ilk - en_az:.1f} GB")
         with urllib.request.urlopen(f"{SUNUCU}/history/{pid}") as r:
             gecmis = json.load(r)
         if pid in gecmis:
@@ -210,8 +253,16 @@ def uret(a):
     if not oturum_pid():
         print("DUR: ComfyUI kapalı; önce `gorsel_uret.py ac`")
         return 2
+    if not ram_yeter(MODELLER[model].get("ram_gb", VARSAYILAN_RAM_GB)):
+        return 2
+    oturum = json.loads(DURUM.read_text(encoding="utf-8"))
+    if oturum.get("model", model) != model:
+        istek = urllib.request.Request(f"{SUNUCU}/free", data=json.dumps({"unload_models": True, "free_memory": True}).encode(),
+                                       headers={"Content-Type": "application/json"})
+        urllib.request.urlopen(istek).close()
+    DURUM.write_text(json.dumps({**oturum, "model": model}), encoding="utf-8")
     cikti.mkdir(parents=True, exist_ok=True)
-    tohum = random.randrange(2**31) if a.tohum is None else a.tohum
+    tohum =random.randrange(2**31) if a.tohum is None else a.tohum
     adlar = [girdiye_kopyala(r) for r in refler]
     sablon = json.loads((AKISLAR / ("klein_duzenle.json" if refler else MODELLER[model]["akis"])).read_text(encoding="utf-8"))
     for t in range(tohum, tohum + a.adet):
@@ -242,6 +293,8 @@ def buyut(png, kat):
         return 2
     if not (COMFY / "models" / BUYUTUCU[0]).is_file() or not oturum_pid():
         print("DUR: büyütücü kurulu değil ya da ComfyUI kapalı")
+        return 2
+    if not ram_yeter(VARSAYILAN_RAM_GB):
         return 2
     akis = doldur(json.loads((AKISLAR / "buyut.json").read_text(encoding="utf-8")),
                   {"GIRDI": girdiye_kopyala(png), "OLCEK": kat / 4})

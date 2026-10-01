@@ -1,6 +1,6 @@
 {
  "1": {"class_type": "UNETLoader", "inputs": {"unet_name": "flux-2-klein-4b.safetensors", "weight_dtype": "default"}},
- "2": {"class_type": "CLIPLoader", "inputs": {"clip_name": "qwen_3_4b.safetensors", "type": "flux2", "device": "default"}},
+ "2": {"class_type": "CLIPLoader", "inputs": {"clip_name": "qwen_3_4b_fp8_mixed.safetensors", "type": "flux2", "device": "default"}},
  "3": {"class_type": "VAELoader", "inputs": {"vae_name": "flux2-vae.safetensors"}},
  "4": {"class_type": "CLIPTextEncode", "inputs": {"text": "$PROMPT", "clip": ["2", 0]}},
  "5": {"class_type": "ConditioningZeroOut", "inputs": {"conditioning": ["4", 0]}},
