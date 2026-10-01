@@ -150,6 +150,7 @@ def durum():
 def main(argv=None):
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(prog="blender_oturum")
     alt = ap.add_subparsers(dest="komut", required=True)
     a = alt.add_parser("ac")

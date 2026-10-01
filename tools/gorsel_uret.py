@@ -328,6 +328,9 @@ def arkaplan(png):
 
 
 def main(argv=None):
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(prog="gorsel_uret")
     alt = ap.add_subparsers(dest="komut", required=True)
     alt.add_parser("ac")

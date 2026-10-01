@@ -21,6 +21,7 @@ Araç: `python C:\Projeler\omer-skills\tools\gorsel_uret.py <komut>` (mutlak yol
 | urun · foto · doku | zimage (Z-Image Turbo fp8) | fotogerçekçilik |
 | metinli · duzenle | klein (FLUX.2 klein 4B) | metin doğru ("TELVE"), referansla düzenleme |
 `--model` ile elle seçilebilir; `--referans` yalnız `duzenle` işinde.
+Prompt her zaman İngilizce yazılır (Türkçe prompt Z-Image'da konudan sapar: "beyaz fonda seramik fincan" → ahşap masada kavanoz); görselin İÇİNE yazılacak metin (ör. "Türk Kahvesi") tırnak içinde aynen kalır.
 
 ## Bellek
 - Model değişiminde bellek araçla boşaltılır (`/free`); elle müdahale gerekmez.
