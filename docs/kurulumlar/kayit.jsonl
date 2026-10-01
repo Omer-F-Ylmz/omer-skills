@@ -719,3 +719,8 @@
 {"ad": "fake-bpy-module-5.2", "karar": "KURULDU 20260730 uv ayrı ortam (MIT) — bpy_kontrol", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-1"}
 {"ad": "pyright", "karar": "KURULDU 1.1.414 uv ayrı ortam (MIT); pyright-lsp eklentisi kurulmadı", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-1"}
 {"ad": "blender-bekci-hook", "karar": "KURULDU global PreToolUse (mcp__blender__execute_blender_code[_for_cli])", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-1"}
+{"ad": "node_to_python", "karar": "KURULDU 4.2.0 extensions.blender.org (GPL-3.0-or-later; tarifler repo'ya girmez) — blender --command extension install", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}
+{"ad": "opencv-python-headless", "karar": "KURULDU uv betik ortamı (Apache-2.0) — kontur_profil", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}
+{"ad": "polyhaven-api", "karar": "KULLANILDI CC0 (Powered by Poly Haven; md5 doğrulama) — varlik_indir", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}
+{"ad": "ambientcg-api-v2", "karar": "KULLANILDI CC0 (API özet vermiyor → boyut doğrulama) — varlik_indir", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}
+{"ad": "desktop-blender-mcp", "karar": "KURULDU Desktop config (CC ile aynı exe; eşzamanlılık geçti; yedek .bak-blender-arac-2)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}

@@ -22,6 +22,11 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 - GLB: `tools/glb_hat.py <x.glb>` (meshopt + webp, validate hatası exit 1).
 - Bekçi: execute_blender_code proje dışı yazma/silme/süreç/ağ içerirse hook reddeder; sebep → düzeltme satırına göre kodu düzelt.
 - bpy kontrol: uzun betiği göndermeden `tools/bpy_kontrol.py <betik.py>` (yanlış operatör/modül adı; struct öznitelikleri kapsam dışı).
+- GPU kilidi: `tools/gpu_kilit.py durum|al|birak`; gorsel_uret ac/uret ve blender_pisir alır, dolu → exit 2 "GPU şu işte: <is> (PID)".
+- İndir (yalnız CC0): `tools/varlik_indir.py ara|indir polyhaven|ambientcg <id> --hedef Desktop\<Proje>\varlik [--cozunurluk 1k|2k|4k]` → `<id>.json` (kaynak · lisans · sha256).
+- Pişir: `tools/blender_pisir.py <blend> --mod isik|ao [--nesneler a,b] [--boyut 1024|2048] [--hdr]` → `-pismis.blend` + görüntü + lightMapIntensity; yansıma pişmez, dönen ürün yalnız ao.
+- Profil: `uv run tools/kontur_profil.py <siluet.png> --yukseklik-mm N [--kulp sag|sol|yok] [--ic-profil] [--blend x.blend]` → Screw modeli, IoU ≥0.95 değilse exit 1.
+- NodeToPython: canlı oturumda `scene.ntp_material_slots` + `bpy.ops.ntp.export()` (SCRIPT → clipboard; headless boş) → tarifi `blender_cli` ile boş sahnede koştur. Deneme alanı: Desktop\blender-kum.
 
 ## Kurallar
 - Blender'ı aynı anda tek oturum sürer; `ac` 9876 doluysa reddeder, başka oturumun Blender'ına dokunma.

@@ -3931,5 +3931,14 @@
   "departman": "frontend",
   "p": 1.0,
   "kaynak": "elle"
- }
+ },
+  {
+    "ad": "blender-uretim",
+    "tur": "cli",
+    "aciklama": "Blender üretim araçları: gpu_kilit (GPU tek iş) · varlik_indir (Poly Haven + ambientCG CC0, özet doğrulamalı) · blender_pisir (UV2 LightMap + Cycles ışık/AO bake + denoise) · kontur_profil (silüet → Screw modeli + IoU) · NodeToPython tarif",
+    "hash": "1aa545957b9d1d20",
+    "departman": "frontend",
+    "p": 1.0,
+    "kaynak": "elle"
+  }
 ]
