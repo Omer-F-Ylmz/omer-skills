@@ -25,7 +25,9 @@ claude-design (cwd). Bu .cmd'lerin iç satırı da artık npx/uvx/global shim ye
 Plugin'lerin kendi .mcp.json'ları (nano-banana, playwright, dotnet binlog) değiştirilmedi.
 
 **Kalan, config'le kalkmayan:** her stdio sunucusuna ayrı conhost (CC başlatma biçimi) · uv tool exe'sinde trampolin +
-venv python · node.exe yolu WinGet Node sürümüne bağlı (`node-v24.19.0`); Node yükselince config + .cmd yolları güncellenir.
+venv python · node.exe yolu WinGet Node sürümüne bağlı (`node-v24.19.0`); Node yükselince
+`python tools/mcp_guncelle.py node-yolu` (WinGet Links'te node.exe yok; en yeni `node-v*` klasörünü bulur, CC + Desktop +
+.cmd yollarını çevirir, envanteri karşılaştırır).
 
 **Güncelleme:** `python tools/mcp_guncelle.py <ad> <sürüm>` — sabit sürüm ister (latest/^/~ red, exit 2), kurar, kurulu
 sürümü doğrular, araç setini önce/sonra karşılaştırır (fark → exit 1). Config yolu sürümden bağımsız, değişmez.

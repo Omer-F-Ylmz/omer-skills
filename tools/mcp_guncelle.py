@@ -8,6 +8,7 @@ Kurulum yerleri: npm -> C:\AI\mcp\<ad>\ (package-lock'lu, --ignore-scripts), uv 
 (~/.local/bin/<exe>), dotnet -> `dotnet tool --tool-path C:\AI\mcp\<ad>`. Config'deki yol surumden
 bagimsiz; guncellemede config degismez.
 """
+import glob
 import json
 import os
 import re
@@ -123,11 +124,65 @@ def guncelle(ad, surum):
     return 1 if fark else 0
 
 
+NODE_RE = re.compile(r'[A-Za-z]:\\[^"\s]*?\\node-v\d+\.\d+\.\d+-win-x64\\node\.exe', re.I)
+
+
+def node_degistir(s, yeni):
+    return NODE_RE.sub(lambda _: yeni, s)
+
+
+def node_tanim(tanim, yeni):
+    """Yalniz surum klasorlu node.exe yolu degisir; diger arguman ve env'e dokunulmaz."""
+    t = dict(tanim)
+    if "command" in t:
+        t["command"] = node_degistir(t["command"], yeni)
+    if "args" in t:
+        t["args"] = [node_degistir(x, yeni) for x in t["args"]]
+    return t
+
+
+def guncel_node():
+    """WinGet Links'te node.exe yok (portable paket PATH'e surum klasoruyle girer): en yeni surum klasoru."""
+    adaylar = glob.glob(os.path.join(os.environ["LOCALAPPDATA"], "Microsoft", "WinGet", "Packages",
+                                     "OpenJS.NodeJS*", "node-v*-win-x64", "node.exe"))
+    if not adaylar:
+        raise SystemExit("WinGet Packages altinda node.exe bulunamadi")
+    return max(adaylar, key=lambda p: tuple(map(int, re.search(r"node-v(\d+)\.(\d+)\.(\d+)", p).groups())))
+
+
+def node_yolu():
+    """Node yukselince: CC + Desktop config + tools/mcp-launch/*.cmd node.exe yolu guncele cevrilir."""
+    yeni = guncel_node()
+    once = envanter.al()
+    n = 0
+    for ad, tanim in json.load(open(envanter.CC_CFG, encoding="utf-8"))["mcpServers"].items():
+        if node_tanim(tanim, yeni) != tanim:
+            cc_yaz(ad, node_tanim(tanim, yeni))
+            n += 1
+    d = json.load(open(DESKTOP_CFG, encoding="utf-8"))
+    yeni_d = dict(d, mcpServers={ad: node_tanim(t, yeni) for ad, t in d["mcpServers"].items()})
+    if yeni_d != d:
+        with open(DESKTOP_CFG, "w", encoding="utf-8") as f:
+            json.dump(yeni_d, f, indent=2, ensure_ascii=False)
+        n += 1
+    for cmd in glob.glob(os.path.join(LAUNCH, "*.cmd")):
+        metin = open(cmd, encoding="utf-8", newline="").read()
+        if node_degistir(metin, yeni) != metin:
+            with open(cmd, "w", encoding="utf-8", newline="") as f:
+                f.write(node_degistir(metin, yeni))
+            n += 1
+    fark = envanter.karsilastir(once, envanter.al())
+    print("\n".join(fark) or f"node {yeni}: {n} config degisti; arac seti birebir ayni")
+    return 1 if fark else 0
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a == ["geri-al"]:
         geri_al()
         sys.exit(0)
+    if a == ["node-yolu"]:
+        sys.exit(node_yolu())
     if len(a) != 2 or a[0] not in KURULUM:
         print(__doc__)
         sys.exit(2)
