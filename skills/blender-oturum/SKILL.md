@@ -17,6 +17,12 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 
 İş yarıda kalsa ya da hata olsa da 3 → 4 → 5 çalıştırılır; sunucu açık bırakılmaz.
 
+- Kapı (görüntüden önce): `tools/blender_dogrula.py <blend> [--beklenen ad=GxDxY] [--glb x.glb] [--serbest a,b]` → exit 0 değilse görünüme geçme.
+- Görünüm: `tools/blender_gorunum.py <blend> [--referans on.png]` → `blender\kanit\<ad>-<zaman>\sayfa.png` (4 Workbench + Eevee) tek Read.
+- GLB: `tools/glb_hat.py <x.glb>` (meshopt + webp, validate hatası exit 1).
+- Bekçi: execute_blender_code proje dışı yazma/silme/süreç/ağ içerirse hook reddeder; sebep → düzeltme satırına göre kodu düzelt.
+- bpy kontrol: uzun betiği göndermeden `tools/bpy_kontrol.py <betik.py>` (yanlış operatör/modül adı; struct öznitelikleri kapsam dışı).
+
 ## Kurallar
 - Blender'ı aynı anda tek oturum sürer; `ac` 9876 doluysa reddeder, başka oturumun Blender'ına dokunma.
 - .blend yalnız `<Masaüstü>\<Proje>\blender\` altında (büyük/küçük harf duyarsız).

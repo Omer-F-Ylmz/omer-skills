@@ -3922,5 +3922,14 @@
   "departman": "frontend",
   "p": 1.0,
   "kaynak": "elle"
+ },
+ {
+  "ad": "blender-dogrulama",
+  "tur": "cli",
+  "aciklama": "Blender doğrulama katmanı: blender_cli sözleşmesi · sayısal kapı (dogrula) · Workbench/Eevee görünüm + IoU · GLB hattı (gltf-transform) · Lab MCP kod bekçisi (PreToolUse) · bpy statik kontrol",
+  "hash": "28c77f3ece9a6f98",
+  "departman": "frontend",
+  "p": 1.0,
+  "kaynak": "elle"
  }
 ]

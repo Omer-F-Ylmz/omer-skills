@@ -88,6 +88,11 @@ def _blender_ana():
     except TypeError:
         sc.render.engine = "BLENDER_EEVEE_NEXT"
     sc.eevee.taa_render_samples = 16
+    if not sc.world:  # world yoksa cam/metal siyah görünür; nötr gri
+        w = sc.world = bpy.data.worlds.new("dogrula_world")
+        w.color = (0.5, 0.5, 0.5)
+        if w.node_tree and "Background" in w.node_tree.nodes:
+            w.node_tree.nodes["Background"].inputs[0].default_value = (0.5, 0.5, 0.5, 1)
     if not any(o.type == "LIGHT" for o in sc.objects):
         gunes = bpy.data.objects.new("dogrula_gunes", bpy.data.lights.new("dogrula_gunes", "SUN"))
         gunes.data.energy, gunes.rotation_euler = 3.0, (0.8, 0.2, 0.6)

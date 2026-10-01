@@ -714,3 +714,8 @@
 {"ad":"builderio-webgl-scroll-animation","karar":"ZATEN VAR F3 (KAYNAK-TARAMA-BLENDER)","tarih":"2026-10-01","parti":"2026-10-01-kaynak-tarama-blender"}
 {"ad":"nodetopython","karar":"UYARLA F1 (KAYNAK-TARAMA-BLENDER)","tarih":"2026-10-01","parti":"2026-10-01-kaynak-tarama-blender"}
 {"ad":"cgwire-blender-scripting-gn","karar":"RED (KAYNAK-TARAMA-BLENDER)","tarih":"2026-10-01","parti":"2026-10-01-kaynak-tarama-blender"}
+
+{"ad": "@gltf-transform/cli", "karar": "KURULDU 4.5.1 npm -g (MIT) — glb_hat", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-1"}
+{"ad": "fake-bpy-module-5.2", "karar": "KURULDU 20260730 uv ayrı ortam (MIT) — bpy_kontrol", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-1"}
+{"ad": "pyright", "karar": "KURULDU 1.1.414 uv ayrı ortam (MIT); pyright-lsp eklentisi kurulmadı", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-1"}
+{"ad": "blender-bekci-hook", "karar": "KURULDU global PreToolUse (mcp__blender__execute_blender_code[_for_cli])", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-1"}
