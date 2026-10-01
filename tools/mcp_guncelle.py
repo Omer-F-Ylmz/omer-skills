@@ -3,6 +3,7 @@ r"""RAM-1 bakim: dogrudan baslatilan MCP sunucusunun sabit surumunu degistirir.
   python tools/mcp_guncelle.py <ad> <surum>   surumu dogrula -> once-envanter -> kur -> kurulu surum = hedef mi
                                               -> sonra-envanter -> karsilastir (fark ya da surum uyusmazligi: exit 1)
   python tools/mcp_guncelle.py geri-al        RAM-1 oncesine don (.bak-ram1 yedekleri)
+  python tools/mcp_guncelle.py node-yolu      Node yukselince node.exe yolunu (CC + Desktop + .cmd) en yeni node-v* klasorune cevir
 
 Kurulum yerleri: npm -> C:\AI\mcp\<ad>\ (package-lock'lu, --ignore-scripts), uv -> `uv tool install`
 (~/.local/bin/<exe>), dotnet -> `dotnet tool --tool-path C:\AI\mcp\<ad>`. Config'deki yol surumden
