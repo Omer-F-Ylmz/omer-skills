@@ -84,6 +84,7 @@ def ortam(tmp_path, monkeypatch):
     for ad in ("zimage", "klein"):
         for d in gu.MODELLER[ad]["dosyalar"]:
             (comfy / "models" / d).write_bytes(b"x")
+    (comfy / "models" / "upscale_models").mkdir(exist_ok=True)
     (comfy / "models" / "upscale_models" / "RealESRGAN_x4plus.safetensors").write_bytes(b"x")
     (comfy / "input").mkdir()
     monkeypatch.setattr(gu, "MASAUSTU", masa)
