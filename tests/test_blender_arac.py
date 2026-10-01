@@ -119,10 +119,11 @@ def test_glb_hat_once_sonra_ve_bozuk(masaustu, capsys, tmp_path):
 # --- K6 bpy_kontrol
 def test_bpy_kontrol(tmp_path, capsys):
     yanlis = tmp_path / "yanlis.py"
-    yanlis.write_text("import bpy\nbpy.ops.mesh.primitive_cube_addd()\nbpy.context.scene.frame_strat = 1\n")
+    # Sınır: bpy_struct örnek öznitelikleri (bpy.context.scene.x) fake-bpy'de dinamik, yakalanmaz.
+    yanlis.write_text("import bpy\nbpy.ops.mesh.primitive_cube_addd()\nk = bpy.types.Objekt\n")
     kod, r = calis(capsys, bk.main, [yanlis])
     metin = json.dumps(r)
-    assert kod == 1 and "primitive_cube_addd" in metin and "frame_strat" in metin
+    assert kod == 1 and "primitive_cube_addd" in metin and "Objekt" in metin
     dogru = tmp_path / "dogru.py"
-    dogru.write_text("import bpy\nbpy.ops.mesh.primitive_cube_add(size=2)\nbpy.context.scene.frame_start = 1\n")
+    dogru.write_text("import bpy\nbpy.ops.mesh.primitive_cube_add(size=2)\nk = bpy.types.Object\n")
     assert calis(capsys, bk.main, [dogru]) == (0, {"bulgular": []})

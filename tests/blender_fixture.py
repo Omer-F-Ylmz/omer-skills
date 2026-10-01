@@ -40,6 +40,7 @@ else:
     o = kup("Acik", (8, 0, 1), m=beyaz)
     bm = bmesh.new()
     bm.from_mesh(o.data)
+    bm.faces.ensure_lookup_table()
     bmesh.ops.delete(bm, geom=[bm.faces[0]], context="FACES_ONLY")
     bm.to_mesh(o.data)
     bm.free()
