@@ -1,6 +1,6 @@
 """BLENDER-ARAC-2 K3: headless ışık/AO pişirme (UV2 lightmap + Cycles bake + denoise).
 
-    python tools/blender_pisir.py <dosya.blend> --mod isik|ao [--nesneler a,b] [--boyut 1024|2048] [--hdr]
+    python tools/blender_pisir.py <dosya.blend> --mod isik|ao [--nesneler a,b] [--boyut 1024|2048] [--hdr|--png16]
 
 Kaynak .blend'e dokunmaz: <ad>-pismis.blend + <ad>-<mod>.png|exr aynı klasöre. Sıra: Apply Scale → UV2 "LightMap"
 (smart unwrap, tek atlas, 8 px ada payı + 4 px bake taşması; UV1 render kanalı korunur) → Cycles bake (isik: diffuse
@@ -47,7 +47,7 @@ def _gpu(sc):
     return "CPU"
 
 
-def _denoise(img, cikti, hdr, boyut):
+def _denoise(img, cikti, hdr, boyut, png16=False):
     """Geçici sahnede yalnız compositor (Image → Denoise → çıkış); render katmanı yok, kamera gerekmez."""
     gs = bpy.data.scenes.new("pisir_denoise")
     ag = bpy.data.node_groups.new("pisir_denoise", "CompositorNodeTree")
@@ -64,6 +64,8 @@ def _denoise(img, cikti, hdr, boyut):
         gs.render.filepath = cikti
         gs.render.image_settings.file_format = "OPEN_EXR" if hdr else "PNG"
         gs.render.image_settings.color_mode = "RGB"
+        if png16:
+            gs.render.image_settings.color_depth = "16"
         bpy.ops.render.render(write_still=True, scene=gs.name)
         return True
     except Exception as e:  # ponytail: denoise düşerse ham bake yazılır, JSON'da denoise=hata
@@ -123,14 +125,17 @@ def _blender_ana():
         olcek = max(1.0, float(np.percentile(px.reshape(-1, 4)[:, :3].max(1), 99.9)) / 0.9)
         px.reshape(-1, 4)[:, :3] /= olcek
         img.pixels.foreach_set(px)
-    denoise = _denoise(img, a["cikti"], a["hdr"], boyut)
+    denoise = _denoise(img, a["cikti"], a["hdr"], boyut, a["png16"])
     img.filepath_raw, img.source = a["cikti"], "FILE"
     bpy.ops.wm.save_as_mainfile(filepath=a["pismis"], relative_remap=False)
-    print("SONUC:" + json.dumps({
+    sonuc = {
         "gecti": True, "mod": a["mod"], "nesneler": [o.name for o in obs], "uv_kanal": "LightMap",
         "uv_indeks": {o.name: o.data.uv_layers.find("LightMap") for o in obs}, "lightMapIntensity": round(olcek, 3),
         "goruntuler": [a["cikti"]], "pismis": a["pismis"], "sure_sn": round(time.time() - t0, 1), "cihaz": cihaz,
-        "denoise": denoise}))
+        "denoise": denoise}
+    if not (a["hdr"] or a["png16"]) and olcek > 2:  # 8 bit PNG'de yoğunluk > 2 bantlanır (Q3, #17)
+        sonuc["uyari"] = f"lightMapIntensity {olcek:.2f} > 2: 8 bit PNG bantlanır; --hdr ya da --png16 kullan"
+    print("SONUC:" + json.dumps(sonuc))
 
 
 def main(argv=None):
@@ -140,6 +145,7 @@ def main(argv=None):
     ap.add_argument("--nesneler", help="virgüllü nesne adları; yoksa tüm mesh")
     ap.add_argument("--boyut", type=int, choices=[1024, 2048], default=1024)
     ap.add_argument("--hdr", action="store_true", help="EXR (yoğunluk ölçeklenmez)")
+    ap.add_argument("--png16", action="store_true", help="16 bit PNG (yoğunluk > 2 bantlanmasın)")
     ap.add_argument("--zaman-asimi", type=int, default=900)
     a = ap.parse_args(argv)
     blend = Path(a.blend)
@@ -150,7 +156,7 @@ def main(argv=None):
         print(f"DUR: {m}")
         return 2
     try:
-        args = {"mod": a.mod, "nesneler": a.nesneler and a.nesneler.split(","), "boyut": a.boyut, "hdr": a.hdr,
+        args = {"mod": a.mod, "nesneler": a.nesneler and a.nesneler.split(","), "boyut": a.boyut, "hdr": a.hdr, "png16": a.png16,
                 "ad": blend.stem, "pismis": str(blend.with_name(f"{blend.stem}-pismis.blend")),
                 "cikti": str(blend.with_name(f"{blend.stem}-{a.mod}.{'exr' if a.hdr else 'png'}"))}
         kod, sonuc, _ = bc.calistir(Path(__file__), args, blend=blend, zaman_asimi=a.zaman_asimi)

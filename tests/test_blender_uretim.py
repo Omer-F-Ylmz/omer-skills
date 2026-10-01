@@ -172,6 +172,27 @@ def test_pisir_ao_tek_nesne(masaustu, capsys):
 
 
 @blender
+def test_pisir_yuksek_yogunluk_uyari(masaustu, capsys):  # BLENDER-SKILL K5: 8 bit PNG'de >2 bantlanır
+    kod, s = calis(capsys, bp.main, [str(masaustu), "--mod", "isik"])
+    assert kod == 0 and s["lightMapIntensity"] > 2, s
+    assert "--hdr" in s["uyari"] and "--png16" in s["uyari"]
+
+
+@blender
+def test_pisir_ao_uyari_yok(masaustu, capsys):
+    kod, s = calis(capsys, bp.main, [str(masaustu), "--mod", "ao"])
+    assert kod == 0 and s["lightMapIntensity"] <= 2 and "uyari" not in s, s
+
+
+@blender
+def test_pisir_png16(masaustu, capsys):
+    kod, s = calis(capsys, bp.main, [str(masaustu), "--mod", "isik", "--png16"])
+    assert kod == 0 and "uyari" not in s, s
+    with open(s["goruntuler"][0], "rb") as f:
+        assert f.read(25)[24] == 16  # PNG IHDR bit derinliği
+
+
+@blender
 def test_pisir_kilit_dolu_2(masaustu, capsys):
     assert gk.al("gorsel_uret", os.getpid()) is None
     assert bp.main([str(masaustu), "--mod", "ao"]) == 2

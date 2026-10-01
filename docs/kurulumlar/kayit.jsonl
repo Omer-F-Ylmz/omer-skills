@@ -724,3 +724,6 @@
 {"ad": "polyhaven-api", "karar": "KULLANILDI CC0 (Powered by Poly Haven; md5 doğrulama) — varlik_indir", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}
 {"ad": "ambientcg-api-v2", "karar": "KULLANILDI CC0 (API özet vermiyor → boyut doğrulama) — varlik_indir", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}
 {"ad": "desktop-blender-mcp", "karar": "KURULDU Desktop config (CC ile aynı exe; eşzamanlılık geçti; yedek .bak-blender-arac-2)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-arac-2"}
+{"ad": "blender-uretim", "karar": "KURULDU (skill; dist/blender-skill, claude.ai yüklemesi Ömer'de)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-skill"}
+{"ad": "ra100/blender-claude-plugin", "karar": "TARANDI (MIT; SkillSpector --no-llm 0 bulgu, 13 statik analizör degraded; kurulum Ömer'de)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-skill"}
+{"ad": "emalorenzo/three-agent-skills", "karar": "ATLANDI (LICENSE dosyası yok; K6'ya girmedi)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-skill"}

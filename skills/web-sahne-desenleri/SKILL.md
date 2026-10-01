@@ -104,6 +104,12 @@ function frame(t) {
 requestAnimationFrame(frame);
 ```
 
+Blender'dan gelen 3D ürün (ayrıntı: blender-uretim `references/web-aktarim.md`):
+- Pişir/ortam kuralı: görüşten bağımsız olan (diffuse, AO) UV2 lightMap/aoMap'e pişer; yansıma ve parlaklık PMREM'li HDRI'de kalır. Scroll'da dönen ürün yalnız AO + HDRI (ışık nesneyle döner).
+- Lightmap 8 bit PNG'de yoğunluk < 1; lightMapIntensity > 2 ise EXR ya da 16 bit PNG (bantlanma). Dokuda `flipY = false`.
+- AgX eşleme: Blender AgX · Look None · Exposure 0 · Gamma 1 → three.js'te postprocessing varsa NoToneMapping + HalfFloat + ToneMappingEffect(AGX) zincir sonunda, yoksa AgXToneMapping → gri kart + krom küreyle toneMappingExposure taraması → eşleşene dek LUT yok.
+- Başlangıç sayıları (builder.io): scroll p 0..1 → `rotation.y = π/2·p`, lerp `min(dt·6, 1)`; kamera z 3.2, fov 35; ambient 0.4 + Environment "city".
+
 ## 4. Hangi işte hangisi
 
 | iş | sahne | raftan |
