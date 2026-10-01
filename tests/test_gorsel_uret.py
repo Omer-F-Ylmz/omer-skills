@@ -1,5 +1,6 @@
 """KURULUM-GÖRSEL K5: tools/gorsel_uret.py — netstat/tasklist/Popen taklitli, ComfyUI yerine sahte HTTP sunucu."""
 import json
+import os
 import sys
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -9,9 +10,22 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import gorsel_uret as gu  # noqa: E402
+import gpu_kilit as gk  # noqa: E402
 
 PID = 5151
 PNG = b"\x89PNG\r\n\x1a\nsahte"
+
+
+@pytest.fixture(autouse=True)
+def _gpu_kilit(tmp_path, monkeypatch):  # gerçek %TEMP%\gpu-kilit.json'a dokunulmaz
+    monkeypatch.setattr(gk, "YOL", tmp_path / "gpu-kilit.json")
+
+
+def test_gpu_kilitliyken_2(monkeypatch, capsys):  # BLENDER-ARAC-2 K1
+    s = kur(monkeypatch, Sahte())
+    gk.YOL.write_text(json.dumps({"pid": os.getpid(), "is": "blender_pisir", "baslangic": 0}), encoding="utf-8")
+    assert gu.main(["ac"]) == 2
+    assert s.popen == [] and "GPU şu işte: blender_pisir" in capsys.readouterr().out
 
 
 def dinleme(adres, pid=PID):
