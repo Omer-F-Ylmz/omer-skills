@@ -1,8 +1,7 @@
-"""BLENDER-ARAC-2 test yardımcısı (Blender içinde koşar): pisir sahnesi · oku (ölçek/UV/görüntü) · ntp (NodeToPython)."""
+"""BLENDER-ARAC-2 test yardımcısı (Blender içinde koşar): pisir sahnesi · oku (ölçek/UV/görüntü)."""
 import hashlib
 import json
 import sys
-from pathlib import Path
 
 import bpy
 import numpy as np
@@ -46,35 +45,4 @@ elif a["tur"] == "oku":
         lum = px.reshape(-1, 4)[:, :3].mean(1)
         dolu = lum[lum > 0.002]
         r["goruntu"] = {"maks": float(lum.max()), "ort": float(dolu.mean()) if dolu.size else 0.0}
-elif a["tur"] == "ntp":  # Principled ağacı → ntp.export (SCRIPT) → boş sahnede çalıştır → sayılar
-    bpy.ops.wm.read_factory_settings(use_empty=True)
-    for mod in ("bl_ext.blender_org.node_to_python", "bl_ext.user_default.node_to_python"):
-        try:
-            bpy.ops.preferences.addon_enable(module=mod)
-            break
-        except Exception:
-            continue
-    m = malzeme("Kanit")
-    nt = m.node_tree
-    p = nt.nodes["Principled BSDF"]
-    p.inputs["Base Color"].default_value = (0.8, 0.3, 0.1, 1)
-    gurultu, rampa = nt.nodes.new("ShaderNodeTexNoise"), nt.nodes.new("ShaderNodeValToRGB")
-    nt.links.new(gurultu.outputs["Fac"], rampa.inputs["Fac"])
-    nt.links.new(rampa.outputs["Color"], p.inputs["Roughness"])
-    once = {"dugum": len(nt.nodes), "baglanti": len(nt.links)}
-    sc = bpy.context.scene
-    sc.ntp_material_slots.add().material = m
-    sc.ntp_options.mode = "SCRIPT"
-    bpy.ops.ntp.export()
-    kod = bpy.context.window_manager.clipboard
-    r.update(once=once, kod_satir=len(kod.splitlines()))
-    if not kod.strip():
-        r.update(gecti=False, hata="clipboard boş (background)")
-    else:
-        Path(a["cikti"]).write_text(kod, encoding="utf-8")
-        bpy.ops.wm.read_factory_settings(use_empty=True)
-        exec(compile(kod, a["cikti"], "exec"), {"__name__": "__main__"})
-        ms = [x for x in bpy.data.materials if x.node_tree]
-        sonra = {"dugum": len(ms[0].node_tree.nodes), "baglanti": len(ms[0].node_tree.links)} if ms else None
-        r.update(sonra=sonra, gecti=sonra == once)
 print("SONUC:" + json.dumps(r))

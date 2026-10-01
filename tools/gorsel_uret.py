@@ -8,6 +8,7 @@ import argparse
 import csv
 import ctypes
 import json
+import os
 import random
 import shutil
 import subprocess
@@ -17,6 +18,8 @@ import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
+
+import gpu_kilit as gk  # tools/ betik klasörü; BLENDER-ARAC-2 K1 GPU kilidi
 
 MASAUSTU = Path.home() / "Desktop"
 DURUM = Path(tempfile.gettempdir()) / "gorsel-oturum.json"
@@ -121,16 +124,21 @@ def ac():
             return 0
         print(f"DUR: {PORT} başka bir süreçte; bu araç başlatmadı, dokunulmaz")
         return 2
+    if (m := gk.al("gorsel_uret", os.getpid())):
+        print(f"DUR: {m}")
+        return 2
     komut = [str(COMFY / ".venv" / "Scripts" / "python.exe"), "main.py", "--listen", HOST, "--port", str(PORT),
              "--disable-auto-launch", "--cache-ram"]
     with open(DURUM.with_suffix(".log"), "w", encoding="utf-8") as log:
         pid = subprocess.Popen(komut, cwd=COMFY, stdout=log, stderr=subprocess.STDOUT,
                                creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP).pid
+    gk.al("gorsel_uret", pid)  # kilit ComfyUI süreciyle yaşar; süreç ölürse kendiliğinden düşer
     for _ in range(ACILIS_SN):
         time.sleep(1)
         d = dinleyenler(PORT)
         if any(adres.rsplit(":", 1)[0] != HOST for adres, _ in d):
             oldur(pid)
+            gk.birak("gorsel_uret")
             print(f"DUR: {HOST} dışı dinleme {d}; süreç PID {pid} kapatıldı")
             return 1
         if d:
@@ -138,6 +146,7 @@ def ac():
             print(f"açık: {SUNUCU} · PID {pid}")
             return 0
     oldur(pid)
+    gk.birak("gorsel_uret")
     print(f"DUR: {ACILIS_SN} sn içinde {PORT} dinlenmedi; PID {pid} kapatıldı · log {DURUM.with_suffix('.log')}")
     return 1
 
@@ -153,6 +162,7 @@ def kapat():
             break
         time.sleep(1)
     DURUM.unlink()
+    gk.birak("gorsel_uret")
     print(f"kapatıldı: PID {pid}")
     return 0
 
@@ -253,6 +263,9 @@ def uret(a):
         return 2
     if not oturum_pid():
         print("DUR: ComfyUI kapalı; önce `gorsel_uret.py ac`")
+        return 2
+    if (m := gk.al("gorsel_uret", oturum_pid())):
+        print(f"DUR: {m}")
         return 2
     if not ram_yeter(MODELLER[model].get("ram_gb", VARSAYILAN_RAM_GB)):
         return 2
