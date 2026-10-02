@@ -23,6 +23,7 @@ ALANLAR = ("istek", *AGIRLIK, "agirlikli", "usd")
 FIYAT = {"opus-5-5": (4, 0.20, 5, 8, 20), "opus-5": (5, 0.50, 6.25, 10, 25), "sonnet-5-5": (2, 0.20, 2.50, 4, 10),
          "sonnet-5": (2, 0.20, 2.50, 4, 10), "haiku-4-5": (1, 0.10, 1.25, 2, 5)}
 OBSERVER = "claude-mem-observer"
+SIKISTIR = "Condense the tool payload"  # TOKEN-2: claude-mem tek atımlık compress isteği (tools/cmem_yama.py)
 PNG = b"\x89PNG\r\n\x1a\n"
 
 
@@ -100,6 +101,7 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
     arac = defaultdict(lambda: {"adet": 0, "token": 0})
     ekler = defaultdict(lambda: {"adet": 0, "karakter": 0})
     sonuclar, oturumlar, gorulen = [], [], set()
+    son_sik = (0, 0)
     for yol in sorted(kok.rglob("*.jsonl")) if kok.is_dir() else []:
         if yol.stat().st_mtime < sinir:
             continue
@@ -107,7 +109,7 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
         ad = str(yol.relative_to(kok))
         ot = {"oturum": ad, "proje": None, "kaynak": None, "ajan": None, "model": None, "taban": None,
               "tur": 0, "son_ctx": 0, "agirlikli": 0, "usd": 0, "gorsel": 0, "gorsel_token": 0}
-        adlar = {}
+        adlar, sik = {}, False
         with yol.open(encoding="utf-8", errors="replace") as f:
             for s in f:
                 try:
@@ -138,6 +140,8 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
                     if u.get("cache_creation_input_tokens") and not u.get("cache_creation"):
                         r["kirilimsiz_cache"] += 1
                     p = parcala(u)
+                    if sik and ts is not None and ts >= son_sik[0]:
+                        son_sik = (ts, p["cache_1h"])
                     k = (o.get("cwd") or "?", kaynak(o, yol), ajan_turu(o, yol), m.get("model") or "?")
                     a, d = _ekle(r, grup[k], u, k[3])
                     if ts is not None:
@@ -150,6 +154,9 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
                     ot["agirlikli"] += a
                     ot["usd"] += d
                 elif tur == "user":
+                    c = m.get("content")
+                    ilk = c if isinstance(c, str) else (icerik[0].get("text") or "") if icerik and isinstance(icerik[0], dict) else ""
+                    sik = sik or ilk.startswith(SIKISTIR)
                     for b in icerik:
                         if not isinstance(b, dict):
                             continue
@@ -195,6 +202,7 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
                             for k, v in grup.items()), key=lambda x: -x["agirlikli"])
     r["toplam"] = {k: sum(x[k] for x in r["satirlar"]) for k in ALANLAR}
     r["gunluk"] = {g: dict(v) for g, v in sorted(gunluk.items())}
+    r["compress_son_1h"] = son_sik[1]
     r["oturumlar"] = sorted(oturumlar, key=lambda x: -x["agirlikli"])
     r["en_buyuk_arac"] = [{"arac": i, "token": n, "oturum": o} for n, i, o in heapq.nlargest(en_buyuk, sonuclar)]
     r["araclar"] = dict(sorted(arac.items(), key=lambda kv: -kv[1]["token"]))
@@ -229,6 +237,8 @@ def tablo(r):
     s += [f"{i} | {v['adet']} | {v['token']}" for i, v in list(r["araclar"].items())[:10]]
     s += ["", "ek türü (ilk 10) | adet | karakter"]
     s += [f"{i} | {v['adet']} | {v['karakter']}" for i, v in list(r["ekler"].items())[:10]]
+    if r.get("compress_son_1h"):
+        s.insert(0, "UYARI: cmem yaması yok → python tools/cmem_yama.py (son compress isteğinde 1h yazma)")
     return "\n".join(s)
 
 
