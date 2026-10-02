@@ -1,6 +1,6 @@
 # Blender üretim skill'i (BLENDER-SKILL · 1 Eki 2026)
 
-KARAR: skills/blender-uretim orkestra (akış, sıra, kalite kapısı); blender-oturum oturum ve araç skill'i; çift yönlü atıf, içerik tekrarı yok. Tablolarda kaynak sütunu (#no · video id · öneri).
+KARAR: skills/blender-uretim rehber (ölçü · ad · teslim tanımı · referanslar; zorunlu akış BLENDER-REHBER'de kalktı); blender-oturum oturum ve araç skill'i; çift yönlü atıf, içerik tekrarı yok. Tablolarda kaynak sütunu (#no · video id · öneri).
 
 ## Dört ölçüt
 - **blender-uretim** bakım: repo içi, testli (tests/test_blender_uretim_skill.py: bpy_kontrol + gerçek Blender 5.2.1 boş sahne) · çift: hayır (oturum/araç blender-oturum'da) · izin: md + iki bpy betiği (dosya/ağ/süreç yok) · context: description 171 karakter; SKILL kısa, references yalnız gerekince.

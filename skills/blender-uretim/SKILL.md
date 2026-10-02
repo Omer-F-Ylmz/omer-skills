@@ -3,63 +3,45 @@ name: blender-uretim
 description: "Blender'da 3D ürün üretimi: fincan/cezve modelle, ışıkla, malzeme kur, render al, GLB'yi web'e hazırla; blender-oturum ile yükle. 3DMigoto, three.js kodu, 2D görsel değil."
 ---
 
-# blender-uretim — Blender'da güzel ve kanıtlı üretim
+# blender-uretim — Blender'da ürün üretimi rehberi
 
-Orkestra: akışı, sırayı ve kalite kapısını bu skill yönetir. Oturum (aç · kaydet · kapat) ve araç komutları
-**blender-oturum**'dadır; önce onu yükle, oradaki kurallar burada tekrarlanmaz.
+Rehber: zorunlu akış yok; ölçü, ad, teslim tanımı ve referanslar yeter. Oturum (aç · kaydet · kapat) ve araç
+komutları **blender-oturum**'dadır; önce onu yükle, oradaki kurallar burada tekrarlanmaz.
 
-Referanslar (gerektiğinde oku): `C:\Projeler\omer-skills\skills\blender-uretim\references\`
+Referanslar — gerektiğinde oku: `C:\Projeler\omer-skills\skills\blender-uretim\references\`
 - `olculer.md` — kahve nesneleri gerçek boyut tablosu (mm)
-- `isik-profilleri.md` + `isik_kur.py` — ışık profilleri ve kurulum fonksiyonları
-- `malzemeler.md` + `malzemeler.py` — malzeme tarifleri
+- `isik-profilleri.md` + `isik_kur.py` — ışık profilleri; `isik_kur.kur(profil, boyut_m)`
+- `malzemeler.md` + `malzemeler.py` — malzeme tarifleri; `malzemeler.kur(ad)`
 - `donel-model.md` — silüetten Screw, kulp/ağız/sap
 - `web-aktarim.md` — export, pişirme kararı, AgX eşleme, three.js tarafı
 
-Tablolarda **kaynak** sütunu: `#no` = docs/kaynak-tarama/7-blender.md kaynağı · video id = docs/video-tarama/2026-10-01-toplu.md · `öneri` = kaynaksız, bizim varsayılanımız. İkisi karıştırılmaz; öneriyi kaynak gibi sunma.
+`#no` = docs/kaynak-tarama/7-blender.md kaynağı · `öneri` = kaynaksız varsayılanımız; öneriyi kaynak gibi sunma.
 
-## Akış (sıra değişmez)
+## Ölçü ve ad
 
-1. **Brief** — nesne, kullanım (render · web · ikisi), referans görsel, malzeme, ışık profili, teslim biçimi. Eksik madde varsa sor; varsayma.
-2. **Ölçü** — gerçek boyutu `references/olculer.md`'den al. Tablo dışı nesnede ölçüyü brief'ten ya da bulunan kaynaktan al, **uydurma**; kaynak yoksa sor. Birim metre (Blender), tabloda mm.
-3. **Adlandırma** — her veri bloğu öneki taşır:
+- Gerçek boyut `references/olculer.md`'den. Tablo dışı nesnede ölçüyü brief'ten ya da bulunan kaynaktan al, **uydurma**; kaynak yoksa sor. Birim metre (Blender), tabloda mm.
+- Veri bloğu öneki (öneri): GEO- mesh · MAT- malzeme · LGT- ışık/ışıyan düzlem · CAM- kamera · TEX- görüntü/doku · WLD- world · SCN- sahne/compositing.
 
-| önek | ne | kaynak |
-|---|---|---|
-| GEO- | mesh nesne/veri | öneri |
-| MAT- | malzeme | öneri |
-| LGT- | ışık ve ışıyan düzlem | öneri |
-| CAM- | kamera | öneri |
-| TEX- | görüntü/doku | öneri |
-| WLD- | world | öneri |
-| SCN- | sahne, compositing grubu | öneri |
+## Sahne = kod
 
-4. **Sahne = kod** — sahne betiği `C:\Users\pc\Desktop\<Proje>\blender\sahneler\<ad>.py`'ye yazılır, göndermeden önce `tools/bpy_kontrol.py <betik.py>` temiz geçer.
-   - Canlı oturum: betiğin **içeriği** `execute_blender_code`'a doğrudan gönderilir. exec/eval/importlib ile dosya çalıştırma yok — bekçi reddeder.
-   - Headless: `tools/blender_cli.py` ile koşturulur (SONUC JSON sözleşmesi).
-   - Tur içinde betik **düzenlenir**, sıfırdan yazılmaz (#12).
-5. **Aşamalar** — her aşama sonunda `tools/blender_dogrula.py <blend>` exit 0; değilse sonraki aşamaya geçme.
+- Betik `C:\Users\pc\Desktop\<Proje>\blender\sahneler\<ad>.py`; göndermeden önce `tools/bpy_kontrol.py <betik.py>` temiz geçer. Turda düzenlenir, sıfırdan yazılmaz (#12).
+- Canlı oturum: betiğin **içeriği** `execute_blender_code`'a; exec/eval/importlib ile dosya çalıştırma yok (bekçi reddeder). Headless: `tools/blender_cli.py` (SONUC JSON).
+- Diskte kopya yalnız `bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)`. `bpy.data.libraries.write` ile Scene yazma: Blender 5.2.1'de çöküyor, bekçi reddeder.
 
-| # | aşama | ne yapılır | referans | kaynak |
-|---|---|---|---|---|
-| 1 | blokaj | gerçek ölçülü kaba hacimler, pivot tabanda, ölçek uygulanmış | olculer.md | #8 #11 |
-| 2 | kamera | CAM-Ana; ön/3-4 kadraj, kamera uzaklığı bbox'tan | — | #12 |
-| 3 | ışık | profil seç → `isik_kur.kur(profil, boyut_m)` | isik-profilleri.md | #1 |
-| 4 | form | dönel gövde Screw, kulp/sap/ağız ayrı | donel-model.md | Q4 |
-| 5 | malzeme | `malzemeler.kur(ad)`; dış malzeme NodeToPython ile okunur | malzemeler.md | #19 |
-| 6 | detay | bevel (modifier + shader), DOF, ölçülü compositing | isik-profilleri.md | ZYk3OOf-gBk, 4Uy2SzB-Kuk, wySOWP-MevI |
-| 7 | render | turlarda Workbench; son tur Eevee kahraman; teslim Cycles + denoise | — | #10 #1 · 4Uy2SzB-Kuk |
-| 8 | dışa aktarım | transform_apply → glTF +Y → `--glb` geri okuma → glb_hat | web-aktarim.md | #4 #8 |
+## Teslim
 
-   **Önce teslim:** tur bütçesinin ilk yarısında v1 teslim — kahraman render (brief çözünürlüğü) + GLB (`--glb` geri okuma) + `blender_dogrula` çıktısı. Sıra: ilk kahraman render → hemen GLB dışa aktarımı → `blender_dogrula --glb`; üçü bitmeden ikinci render yok. Aşama başına en fazla 2 düzeltme (render ve `--glb` denemesi dahil); kalan bulgu v1'in açık maddesi olur, GLB yine teslim edilir, cila eleştiri turlarına kalır.
-   Diskte kopya gerektiğinde (blender_cli / dogrula / gorunum) yalnız `bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)`; `bpy.data.libraries.write` ile Scene yazma (Blender 5.2.1'de çöküyor).
+Teslim = kahraman render (brief çözünürlüğü, Cycles + denoise) + GLB + `tools/blender_dogrula.py <blend> --glb <glb>` exit 0.
+- Sıra: render → GLB dışa aktarımı (transform_apply → glTF +Y) → `blender_dogrula --glb`. İlk teslim bu üçü olmadan bitmez; üçü bitmeden ikinci render yok.
+- Kapı geçmezse en fazla 2 düzeltme; sonra DUR raporu (ne denendi · çıktı · açık madde).
+- Teslimde bir kez: `tools/blender_gorunum.py <blend> [--referans on.png]` görünüm sayfası, tek Read.
+- **Durma kuralı:** v1 teslim + kapı geçtiyse en fazla 1 iyileştirme turu (teslimi yeniden üretir), sonra dur ve raporla: teslim yolları · dogrula çıktısı · açık maddeler.
+- Eleştiri turları (≤3; madde listesi + evet/hayır teyidi; referansta silüet IoU ≥ 0.90 öneri) yalnız kullanıcı isterse.
 
-6. **Eleştiri döngüsü** (yalnız v1 teslimden sonra ve açık madde varsa; biçim → görünüş; sayısal kapı her turun önünde)
-   - Her tur teslimi günceller (render + GLB + `blender_dogrula` yeniden); bütçe biterse son geçerli teslim kalır.
-   - Biçim turları: `tools/blender_gorunum.py <blend> [--referans on.png]` → 4 Workbench görünüm sayfası tek Read (#10 #11). Son tur: Eevee kahraman görünüm.
-   - Her tur: eleştiri **madde listesi** yaz (1 madde = 1 somut kusur + düzeltme). Düzeltmeden sonra her madde için tek tek `evet/hayır uygulandı` teyidi (#12). Teyitsiz madde açık sayılır.
-   - Referans varsa silüet IoU (araç çıktısı); öneri eşik ≥ 0.90 + bbox oranı ±%3 (#1 eşik vermiyor → öneri).
-   - **En fazla 3 tur.** İki tur üst üste IoU artışı < 0.02 ya da açık madde sayısı azalmıyorsa dur → DUR raporu (ne denendi · ölçümler · açık maddeler) (#12 tavan vermiyor → öneri).
-7. **Kanıt paketi olmadan bitti yok** — `blender_dogrula` exit 0 çıktısı · görünüm sayfası (son tur) · kahraman render · eleştiri listesi evet/hayır tablosu · web işinde `--glb` geri okuma + glb_hat çıktısı. Biri eksikse "bitti" deme.
+## Görüntü disiplini
+
+- Kendi kontrol render'ın ≤512 px (Workbench/Eevee); kontrol görüntülerine en fazla 3 Read.
+- Tam çözünürlük yalnız teslim render'ında.
+- Workbench görüntüsü ölçeği/pivotu/topolojiyi kanıtlamaz; önce sayısal kapı (#8).
 
 ## API disiplini
 
@@ -74,4 +56,3 @@ Tablolarda **kaynak** sütunu: `#no` = docs/kaynak-tarama/7-blender.md kaynağı
 - GPU'yu kullanan iki iş aynı anda koşmaz (gpu_kilit; blender_pisir ve gorsel_uret alır).
 - Işık profili belirsizse `urun` + HDRI dolgu 0.3 (#1).
 - Yansıma pişmez, HDRI'de kalır; dönen üründe yalnız AO pişer (web-aktarim.md).
-- Workbench görüntüsü ölçeği/pivotu/topolojiyi kanıtlamaz; önce sayısal kapı (#8).

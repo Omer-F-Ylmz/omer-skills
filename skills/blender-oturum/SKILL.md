@@ -7,7 +7,7 @@ description: "Blender, 3D model/varlık/sahne işinde önce yükle: Blender otur
 
 Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her proje klasöründen mutlak yolla).
 
-Üretim akışı (brief → ölçü → ışık → malzeme → eleştiri turları → web teslimi): **blender-uretim** skill'i. Bu skill oturum ve araç kurallarını tutar.
+Üretim rehberi (ölçü · ad · teslim: render → GLB → `blender_dogrula --glb` · ışık/malzeme/web referansları): **blender-uretim** skill'i. Bu skill oturum ve araç kurallarını tutar.
 
 ## Akış (her Blender işinde, sıra değişmez)
 1. `ac C:\Users\pc\Desktop\<Proje>\blender\<ad>.blend` — var olan dosya. Yeni dosya: `ac <yol> --yeni` (dosya varsa reddeder, boş sahneyle oluşturur).
