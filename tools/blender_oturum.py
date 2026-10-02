@@ -89,7 +89,7 @@ def ac(yol, yeni):
         yol.parent.mkdir(parents=True, exist_ok=True)
     komut = [BLENDER] + ([] if yeni else [str(yol)]) + ["--python", str(BETIK), "--", str(SONUC), str(yol) if yeni else ""]
     baslangic = time.time()
-    pid = subprocess.Popen(komut, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    pid = subprocess.Popen(komut, cwd=yol.parent, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                            creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP).pid
     for _ in range(ACILIS_SN):
         time.sleep(1)

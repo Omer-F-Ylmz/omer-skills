@@ -22,8 +22,8 @@ DUZELT = {
     "modul": "bpy.data / bpy.ops ile yap; dış süreç ya da ağ işini CC tarafında ayrı araçla yap",
     "silme": "dosya silme/taşımayı CC'de elle yap; sahne verisi için bpy.data.<koleksiyon>.remove kullan",
     "dinamik": "kodu doğrudan yaz; exec/eval/compile/__import__/getattr ile gizleme yok",
-    "yol": "sabit string olarak mutlak yol ya da // göreli yaz (Desktop\\<Proje>\\ altında)",
-    "render": "önce scene.render.filepath'i bu kodda sabit string ya da // göreli yol olarak ata",
+    "yol": f"mutlak yol yaz: {os.path.expanduser('~')}\\Desktop\\<Proje>\\… (// ve göreli yol red)",
+    "render": "önce scene.render.filepath'i bu kodda sabit mutlak yol olarak ata (Desktop\\<Proje>\\ altında)",
     "kopya": "diskte kopya için yalnız bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)",
 }
 YOL_DISI = "yol Desktop\\<Proje>\\ dışında ya da çözülemedi"
@@ -44,13 +44,11 @@ def _ad(d):
 
 
 def _yol_tamam(d):
-    """Sabit string (// göreli ya da Desktop\\<Proje>\\ altı mutlak) ya da bpy.path.abspath("//...")."""
-    if isinstance(d, ast.Call) and _ad(d.func) == "bpy.path.abspath" and d.args:
-        d = d.args[0]
+    """Yalnız sabit string mutlak yol (Desktop\\<Proje>\\ altı); // ve diğer göreli yollar red (Blender 5.2 save_as_mainfile // genişletmez)."""
     if not (isinstance(d, ast.Constant) and isinstance(d.value, str)):
         return False
     s = d.value
-    return s.startswith("//") or (os.path.isabs(s) and bc.proje_ici(s))
+    return not s.startswith("//") and os.path.isabs(s) and bc.proje_ici(s)
 
 
 def _kw(d, ad):

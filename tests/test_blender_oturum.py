@@ -34,7 +34,8 @@ class Sahte:
             cikti = f"blender.exe                  {PID} Console    1    700.000 K\n"
         return type("R", (), {"stdout": cikti, "returncode": 0})()
 
-    def Popen(self, cmd, **_):
+    def Popen(self, cmd, cwd=None, **_):
+        assert cwd == Path(cmd[-1] or cmd[1]).parent  # Blender cwd = .blend klasörü; kaçan göreli yazma proje içinde kalır
         self.popen.append(cmd)
         self.netstat = self.sonra_netstat
         if self.sonuc is not None:

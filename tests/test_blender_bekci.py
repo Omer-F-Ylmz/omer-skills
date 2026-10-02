@@ -13,7 +13,7 @@ import blender_bekci as bk  # noqa: E402
 
 DIS = "C:/Windows/Temp"
 ICI = (Path.home() / "Desktop" / "Proje" / "render.png").as_posix()
-DUZELT = "mutlak yol ya da // göreli yaz"
+DUZELT = "mutlak yol yaz: " + str(Path.home() / "Desktop")
 
 YASAK = {
     "silme": ["import os\nos.remove('a.txt')", "import os as o\no.unlink('a')", "from os import rmdir",
@@ -35,7 +35,6 @@ IZINLI = [
     "bpy.data.objects.remove(bpy.data.objects['Kup'])",
     "bpy.context.scene.collection.objects.unlink(o)",
     f"bpy.context.scene.render.filepath = '{ICI}'\nbpy.ops.render.render(write_still=True)",
-    "bpy.context.scene.render.filepath = '//kanit/on.png'",
     f"open('{ICI}', 'w').write('x')",
     "open('C:/Windows/win.ini').read()",
     "bpy.ops.wm.save_mainfile()",
@@ -64,17 +63,20 @@ def test_libraries_write_red_ve_duzeltme_yolu():
     # Blender 5.2.1: Scene içeren libraries.write → bpy_lib_write/scene_copy_data çökmesi (B-fincan-v3.crash.txt)
     sebep = bk.denetle("bpy.data.libraries.write('//kopya.blend', {bpy.context.scene})")
     assert sebep and "libraries.write" in sebep and "save_as_mainfile" in sebep and "copy=True" in sebep
-    assert bk.denetle("bpy.ops.wm.save_as_mainfile(filepath='//kopya.blend', copy=True)") is None
+    assert bk.denetle(f"bpy.ops.wm.save_as_mainfile(filepath='{ICI}', copy=True)") is None
 
 
-def test_goreli_yol_red_mutlak_ve_cift_egik_izin(monkeypatch):
+def test_cift_egik_ve_goreli_yol_red_mutlak_izin(monkeypatch):
     kayit = "bpy.ops.wm.save_as_mainfile(filepath='{}', copy=True)"
-    assert bk.denetle(kayit.format("//x.blend")) is None
     assert bk.denetle(kayit.format((Path.home() / "Desktop" / "Proje" / "x.blend").as_posix())) is None
     # hook cwd'si Desktop\<Proje> altında olsa da göreli yolu Blender kendi cwd'sine yazar
     monkeypatch.setattr(bk.bc, "proje_ici", lambda y: True)
     sebep = bk.denetle(kayit.format("x.blend"))
     assert sebep and DUZELT in sebep
+    # Blender 5.2 save_as_mainfile // genişletmez, dosyayı kendi cwd'sine yazar: proje_ici geçse de red
+    monkeypatch.setattr(bk.bc, "proje_ici", lambda _: True)
+    assert DUZELT in bk.denetle(kayit.format("//x.blend"))
+    assert DUZELT in bk.denetle("bpy.context.scene.render.filepath = '//r.png'")
 
 
 def test_hook_stdin_red_izin_ve_hiz():
