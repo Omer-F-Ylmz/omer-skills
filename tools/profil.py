@@ -26,13 +26,6 @@ def _json(p):
     return json.loads(Path(p).read_bytes().decode("utf-8-sig"))
 
 
-def _desc(md):
-    m = re.match(r"---\s*\n(.*?)\n---", md.read_bytes().decode("utf-8", "replace"), re.S)
-    d = re.search(r"^description:\s*(.+)$", m.group(1), re.M) if m else None
-    t = d.group(1).strip().strip("\"'") if d else ""
-    return (t.split(". ")[0].rstrip(".") or "—")[:110]
-
-
 def envanter(home):
     c = Path(home) / ".claude"
     plugins = {}
@@ -139,17 +132,22 @@ def router_bloklari(veri, env):
                 kapali[ad] = {f"{ad}:{s}": m for s, m in p["skills"].items()}
     satirlar = {}
     for aile in sorted(kapali):
-        for s, m in sorted(kapali[aile].items()):
-            satirlar.setdefault(veri["router"][aile], []).append(f"- `{s}` · {_desc(m)} · `{m.as_posix()}`")
+        kokler = {}
+        for m in kapali[aile].values():
+            kokler.setdefault(m.parent.parent.as_posix(), []).append(m.parent.name)
+        for kok, adlar in sorted(kokler.items()):
+            satirlar.setdefault(veri["router"][aile], []).append(
+                f"- {aile} ({len(adlar)}): {', '.join(sorted(adlar))} · `{kok}/<ad>/SKILL.md`")
     return {dep: "\n".join([BLOK_BAS, "## Profil dışı üyeler (yalnız CC)",
-                            "Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; "
+                            "Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; "
                             "references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. "
                             "claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.", *sat, BLOK_SON])
             for dep, sat in satirlar.items()}
 
 
 def blok_yollari(metin):
-    return re.findall(r"`([^`]+/SKILL\.md)`", metin)
+    return [f"{kok}/{ad}/SKILL.md" for adlar, kok in re.findall(r"^- \S+ \(\d+\): ([^`]+?) · `([^`]+)/<ad>/SKILL\.md`\r?$", metin, re.M)
+            for ad in adlar.split(", ")]
 
 
 def router_yaz(f, blok):

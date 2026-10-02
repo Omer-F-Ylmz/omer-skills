@@ -20,6 +20,6 @@ Katalog: `docs/departmanlar/surec-git-yayin.md` · yaşam döngüsü `docs/depar
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
-Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
-- `hetzner-deploy` · This skill should be used when user asks to "deploy to Hetzner", "create Hetzner server", "manage Hetzner Clou · `C:/Users/pc/.claude/skills/hetzner-deploy/SKILL.md`
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- hetzner-deploy (1): hetzner-deploy · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->

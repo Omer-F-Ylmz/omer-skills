@@ -110,3 +110,44 @@ def test_kos_komutu_cwd_ve_bayraklar(tmp_path):
     assert "stream-json" in a and gorulen["cwd"] == str(tmp_path)
     assert "ANTHROPIC_BASE_URL" not in gorulen["env"] and gorulen["env"]["A"] == "1"
     assert k["skill_araci"] is True and ham.read_text(encoding="utf-8").count("\n") == 2
+
+
+def _sunucu():
+    import socket
+    s = socket.socket()
+    s.bind(("127.0.0.1", 0))
+    s.listen(1)
+    return s
+
+
+def test_headroom_kayit_tanimli_ve_acik(monkeypatch):
+    s = _sunucu()
+    monkeypatch.setenv("ANTHROPIC_BASE_URL", "http://x")
+    monkeypatch.setattr(t, "HEADROOM", s.getsockname())
+    try:
+        assert t.headroom_kayit() == "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık"
+    finally:
+        s.close()
+
+
+def test_headroom_kayit_yok_ve_kapali(monkeypatch):
+    s = _sunucu()
+    adres = s.getsockname()
+    s.close()
+    monkeypatch.delenv("ANTHROPIC_BASE_URL", raising=False)
+    monkeypatch.setattr(t, "HEADROOM", adres)
+    assert t.headroom_kayit() == "headroom: ANTHROPIC_BASE_URL=yok · 127.0.0.1:6767=kapalı"
+
+
+def test_headroom_kayit_degeri_yazmaz(monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_BASE_URL", "http://GIZLI-DEGER-123")
+    assert "GIZLI" not in t.headroom_kayit()
+
+
+def test_main_cikti_basinda_headroom_satiri(monkeypatch, tmp_path, capsys):
+    (tmp_path / "set.json").write_text('{"istemler": []}', encoding="utf-8")
+    monkeypatch.setattr(t, "headroom_kayit", lambda: "headroom: SENTINEL")
+    monkeypatch.setattr(sys, "argv", ["tetik_olc", str(tmp_path / "set.json"), str(tmp_path / "o.json"),
+                                      "--ham", str(tmp_path / "ham")])
+    t.main()
+    assert capsys.readouterr().out.splitlines()[0] == "headroom: SENTINEL"

@@ -52,23 +52,8 @@ Videodan gelen teknikler: docs/departmanlar/frontend.md `## Teknikler` (`video t
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
-Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
-- `design-mastery:brand-systems` · Building comprehensive brand identity systems from strategy to implementation · `C:/Users/pc/.claude/plugins/cache/design-mastery/design-mastery/1.0.0/skills/brand-systems/SKILL.md`
-- `design-mastery:design-masters` · Deep knowledge of legendary designers and their enduring contributions · `C:/Users/pc/.claude/plugins/cache/design-mastery/design-mastery/1.0.0/skills/design-masters/SKILL.md`
-- `design-mastery:design-movements` · Historical design movements and their enduring influence · `C:/Users/pc/.claude/plugins/cache/design-mastery/design-mastery/1.0.0/skills/design-movements/SKILL.md`
-- `design-mastery:design-principles` · Core visual design principles that underpin all great design · `C:/Users/pc/.claude/plugins/cache/design-mastery/design-mastery/1.0.0/skills/design-principles/SKILL.md`
-- `taste-skill:brandkit` · Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/brandkit/SKILL.md`
-- `taste-skill:brutalist-skill` · Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/brutalist-skill/SKILL.md`
-- `taste-skill:gpt-tasteskill` · Elite UX/UI & Advanced GSAP Motion Engineer · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/gpt-tasteskill/SKILL.md`
-- `taste-skill:image-to-code-skill` · Elite website image-to-code skill for Codex · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/image-to-code-skill/SKILL.md`
-- `taste-skill:imagegen-frontend-mobile` · Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/imagegen-frontend-mobile/SKILL.md`
-- `taste-skill:imagegen-frontend-web` · Elite frontend image-direction skill for generating premium, conversion-aware website design references · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/imagegen-frontend-web/SKILL.md`
-- `taste-skill:minimalist-skill` · Clean editorial-style interfaces · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/minimalist-skill/SKILL.md`
-- `taste-skill:output-skill` · Overrides default LLM truncation behavior · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/output-skill/SKILL.md`
-- `taste-skill:redesign-skill` · Upgrades existing websites and apps to premium quality · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/redesign-skill/SKILL.md`
-- `taste-skill:soft-skill` · Teaches the AI to design like a high-end agency · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/soft-skill/SKILL.md`
-- `taste-skill:stitch-skill` · Semantic Design System Skill for Google Stitch · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/stitch-skill/SKILL.md`
-- `taste-skill:taste-skill` · Anti-slop frontend skill for landing pages, portfolios, and redesigns · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/taste-skill/SKILL.md`
-- `taste-skill:taste-skill-v1` · The original v1 taste-skill, preserved for projects depending on its exact behavior · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/taste-skill-v1/SKILL.md`
-- `ui-ux-pro-max` · UI/UX design intelligence for web, mobile, and desktop · `C:/Users/pc/.claude/skills/ui-ux-pro-max/SKILL.md`
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- design-mastery (4): brand-systems, design-masters, design-movements, design-principles · `C:/Users/pc/.claude/plugins/cache/design-mastery/design-mastery/1.0.0/skills/<ad>/SKILL.md`
+- taste-skill (13): brandkit, brutalist-skill, gpt-tasteskill, image-to-code-skill, imagegen-frontend-mobile, imagegen-frontend-web, minimalist-skill, output-skill, redesign-skill, soft-skill, stitch-skill, taste-skill, taste-skill-v1 · `C:/Users/pc/.claude/plugins/cache/taste-skill/taste-skill/1.0.0/skills/<ad>/SKILL.md`
+- ui-ux-pro-max (1): ui-ux-pro-max · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->

@@ -24,11 +24,8 @@ Katalog: `docs/departmanlar/backend-dotnet.md`.
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
-Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
-- `dotnet-aspnetcore:configuring-opentelemetry-dotnet` · Configure OpenTelemetry distributed tracing, metrics, and logging in ASP.NET Core using the .NET OpenTelemetry · `C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-aspnetcore/0.1.1/skills/configuring-opentelemetry-dotnet/SKILL.md`
-- `dotnet-aspnetcore:convert-blazor-server-to-webapp` · > · `C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-aspnetcore/0.1.1/skills/convert-blazor-server-to-webapp/SKILL.md`
-- `dotnet-aspnetcore:dotnet-webapi` · > · `C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-aspnetcore/0.1.1/skills/dotnet-webapi/SKILL.md`
-- `dotnet-aspnetcore:minimal-api-file-upload` · File upload endpoints in ASP.NET minimal APIs (.NET 8+) · `C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-aspnetcore/0.1.1/skills/minimal-api-file-upload/SKILL.md`
-- `dotnet-nuget:convert-to-cpm` · > · `C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-nuget/0.1.1/skills/convert-to-cpm/SKILL.md`
-- `wpf-rule-mvvm-constraints` · WPF MVVM layer-separation rules: no System.Windows in ViewModels, BCL-only types, CommunityToolkit.Mvvm base c · `C:/Users/pc/.claude/skills/wpf-rule-mvvm-constraints/SKILL.md`
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- dotnet-aspnetcore (4): configuring-opentelemetry-dotnet, convert-blazor-server-to-webapp, dotnet-webapi, minimal-api-file-upload · `C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-aspnetcore/0.1.1/skills/<ad>/SKILL.md`
+- dotnet-nuget (1): convert-to-cpm · `C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-nuget/0.1.1/skills/<ad>/SKILL.md`
+- wpf-rule-mvvm-constraints (1): wpf-rule-mvvm-constraints · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->

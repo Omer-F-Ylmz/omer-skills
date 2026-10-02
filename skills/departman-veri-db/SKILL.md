@@ -20,7 +20,6 @@ Katalog: `docs/departmanlar/veri-db.md`.
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
-Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
-- `supabase:supabase` · Use when doing ANY task involving Supabase · `C:/Users/pc/.claude/plugins/cache/yerel-kurulum7/supabase/0.1.15/skills/supabase/SKILL.md`
-- `supabase:supabase-postgres-best-practices` · Postgres best practices maintained by Supabase, for Postgres running anywhere · `C:/Users/pc/.claude/plugins/cache/yerel-kurulum7/supabase/0.1.15/skills/supabase-postgres-best-practices/SKILL.md`
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- supabase (2): supabase, supabase-postgres-best-practices · `C:/Users/pc/.claude/plugins/cache/yerel-kurulum7/supabase/0.1.15/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->

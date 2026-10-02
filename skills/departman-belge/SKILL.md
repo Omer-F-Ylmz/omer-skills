@@ -18,8 +18,6 @@ Katalog: `docs/departmanlar/belge.md`.
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
-Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
-- `phoenix-docs-research:notebooklm` · Use this skill to query your Google NotebookLM notebooks directly from Claude Code for source-grounded, citati · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-docs-research/1.0.0/skills/notebooklm/SKILL.md`
-- `phoenix-docs-research:phoenix-research-pipeline` · > · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-docs-research/1.0.0/skills/phoenix-research-pipeline/SKILL.md`
-- `phoenix-docs-research:project-documenter` · > · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-docs-research/1.0.0/skills/project-documenter/SKILL.md`
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- phoenix-docs-research (3): notebooklm, phoenix-research-pipeline, project-documenter · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-docs-research/1.0.0/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->

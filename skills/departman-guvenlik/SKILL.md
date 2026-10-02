@@ -26,16 +26,10 @@ Katalog: `docs/departmanlar/guvenlik.md`. Frontend işinde `departman-frontend` 
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
-Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
-- `phoenix-cti-search:cti-domain-research` · > · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-cti-search/1.0.0/skills/cti-domain-research/SKILL.md`
-- `phoenix-sast-rules:opengrep-rule-generator` · Use when the user wants to create opengrep/semgrep SAST rules, detect vulnerabilities in code, generate securi · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-sast-rules/1.0.0/skills/opengrep-rule-generator/SKILL.md`
-- `phoenix-sast-rules:opengrep-rule-generator-research` · Use when the user wants to research vulnerabilities and create opengrep/semgrep SAST rules, conduct security r · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-sast-rules/1.0.0/skills/opengrep-rule-generator-research/SKILL.md`
-- `phoenix-security-review:0day-scanner` · > · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/skills/0day-scanner/SKILL.md`
-- `phoenix-security-review:security-assessment` · > · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/skills/security-assessment/SKILL.md`
-- `phoenix-security-review:security-reviewer` · Multi-language security review for web apps, APIs, and CLIs · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/skills/security-reviewer/SKILL.md`
-- `phoenix-security-review:threat-modeling` · > · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/skills/threat-modeling/SKILL.md`
-- `phoenix-security-review:tm-quick-security-assessment` · The QUICK tier · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/skills/tm-quick-security-assessment/SKILL.md`
-- `phoenix-security-review:tm-security-review` · The COMPREHENSIVE tier · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/skills/tm-security-review/SKILL.md`
-- `pia-generation` · > · `C:/Users/pc/.claude/skills/pia-generation/SKILL.md`
-- `policy-monitor` · > · `C:/Users/pc/.claude/skills/policy-monitor/SKILL.md`
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- phoenix-cti-search (1): cti-domain-research · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-cti-search/1.0.0/skills/<ad>/SKILL.md`
+- phoenix-sast-rules (2): opengrep-rule-generator, opengrep-rule-generator-research · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-sast-rules/1.0.0/skills/<ad>/SKILL.md`
+- phoenix-security-review (6): 0day-scanner, security-assessment, security-reviewer, threat-modeling, tm-quick-security-assessment, tm-security-review · `C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/skills/<ad>/SKILL.md`
+- pia-generation (1): pia-generation · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
+- policy-monitor (1): policy-monitor · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->

@@ -180,3 +180,11 @@ def test_kontrol_sapmayi_ve_ezilmeyi_yakalar(ev, tmp_path):
     skill(kok / "departman-guvenlik", "departman-guvenlik")  # senkron ezdi
     u = profil.kontrol(ev["veri"], ev["env"], [kok])
     assert any("graphify" in x for x in u) and any("ROUTER" in x and "guvenlik" in x for x in u)
+
+
+def test_profil_disi_blogu_plugin_basina_tek_satir(ev):
+    kok = ev["env"]["plugins"]["phoenix-x"]["skills"]["px"].parent.parent
+    skill(kok / "py", "py")
+    blok = profil.router_bloklari(ev["veri"], profil.envanter(ev["home"]))["guvenlik"]
+    assert [s for s in blok.splitlines() if s.startswith("- ")] == [f"- phoenix-x (2): px, py · `{kok.as_posix()}/<ad>/SKILL.md`"]
+    assert profil.blok_yollari(blok) == [f"{kok.as_posix()}/{a}/SKILL.md" for a in ("px", "py")]

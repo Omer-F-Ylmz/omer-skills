@@ -6,10 +6,25 @@ kendi klasöründe sırayla koşar; Skill çağrısını ve SKILL.md Read'ini ya
 import argparse
 import json
 import os
+import socket
 import subprocess
 import sys
 from collections import Counter
 from pathlib import Path, PurePosixPath
+
+
+HEADROOM = ("127.0.0.1", 6767)
+
+
+def headroom_kayit():
+    """Tek satır yönlendirme kaydı; ANTHROPIC_BASE_URL'in yalnız varlığı yazılır, değeri asla."""
+    try:
+        socket.create_connection(HEADROOM, timeout=0.5).close()
+        acik = "açık"
+    except OSError:
+        acik = "kapalı"
+    return (f"headroom: ANTHROPIC_BASE_URL={'tanımlı' if os.environ.get('ANTHROPIC_BASE_URL') else 'yok'}"
+            f" · 127.0.0.1:6767={acik}")
 
 
 def ad(s):
@@ -104,6 +119,7 @@ def main():
     sys.path.insert(0, str(Path(__file__).parent))
     from gorsel_uret import bos_ram_gb
 
+    print(headroom_kayit(), flush=True)
     istemler = json.loads(Path(a.set).read_text(encoding="utf-8"))["istemler"]
     cikti = Path(a.cikti)
     kayit = json.loads(cikti.read_text(encoding="utf-8")) if cikti.exists() else {"sonuclar": []}

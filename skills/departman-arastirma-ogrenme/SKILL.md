@@ -20,6 +20,6 @@ Katalog: `docs/departmanlar/arastirma-ogrenme.md`.
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
-Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
-- `graphify` · Use for any question about a codebase, its architecture, file relationships, or project content — especially w · `C:/Users/pc/.claude/skills/graphify/SKILL.md`
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- graphify (1): graphify · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->
