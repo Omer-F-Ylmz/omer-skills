@@ -15,6 +15,7 @@ from pathlib import Path
 from jev import cekirdek as c
 
 from . import tarama as tr
+from .hafif import cc_profil  # TOKEN-1: tools/cc_profil.py (hafif sys.path'i kurar)
 
 KOK = Path(__file__).resolve().parents[3]
 FIIL = {"plugin": (["claude", "plugin", "install"], ["claude", "plugin", "uninstall"]),
@@ -138,6 +139,12 @@ def ps_blok(ayar):
         s += [f"if (-not $s.'{ust}') {{ $s | Add-Member -NotePropertyName '{ust}' -NotePropertyValue ([pscustomobject]@{{}}) }}",
               f"$s.'{ust}' | Add-Member -Force -NotePropertyName '{alt}' -NotePropertyValue {v}"]
     return s + ["[IO.File]::WriteAllText($y, ($s | ConvertTo-Json -Depth 100))"]
+
+
+def _ayar_args(kol_env, env):
+    """TOKEN-1: kolun düz env'i + ttl profili tek --settings'te (settings.json env'i süreç env'ini ezer; ${AD} argv'ye girmez)."""
+    duz = {x: v for x, v in kol_env.items() if not ENVREF.fullmatch(v)}
+    return cc_profil.kur("ttl", env=env, ek_ayar={"env": duz} if duz else None)[0]
 
 
 def _kos(ctx, args, timeout=600, **k):
@@ -617,8 +624,7 @@ def dene(ns, ctx):
             for k in kollar:
                 args = [*k["onek"], "claude", "-p", ist, "--model", "sonnet", "--output-format", "json", *k["ek"]]
                 args += ["--allowedTools", araclar + "".join(f",mcp__{x}" for x in k.get("mcp", []))] if araclar else []
-                if duz := {x: v for x, v in k["env"].items() if not ENVREF.fullmatch(v)}:  # settings.json env'i süreç env'ini ezer; ${AD} argv'ye girmez
-                    args += ["--settings", json.dumps({"env": duz})]
+                args += _ayar_args(k["env"], env)
                 hs = hashlib.sha256(f"{ist}\0{k['kimlik']}".encode()).hexdigest()[:16]
                 y = on / f"{g.stem}-{k['ad']}-{n}.json"
                 try:

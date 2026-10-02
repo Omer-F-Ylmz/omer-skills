@@ -7,17 +7,42 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import time
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+import cc_profil  # noqa: E402 — tools/cc_profil.py (TOKEN-1)
 
 MODEL = "claude-sonnet-5-5"
 GORSEL = True  # kareler stream-json image bloğuyla gider; False → rapora "metin açıklamasıyla" açık kalemi
 A1 = ["--tools", "", "--setting-sources", "", "--strict-mcp-config", "--safe-mode", "--disable-slash-commands", "--no-session-persistence",
       "--input-format", "stream-json", "--output-format", "stream-json", "--verbose"]
+USAGE_YOL = Path(__file__).resolve().parents[3] / "olcum" / "motor-usage.jsonl"  # TOKEN-1: --no-session-persistence → jsonl'de yok
+
+
+def _usage_yaz(args, stdout):
+    """result usage'ı yalnız sayı olarak eklenir; istem/çıktı metni yazılmaz."""
+    for s in (stdout or "").splitlines():
+        try:
+            x = json.loads(s)
+        except ValueError:
+            continue
+        if isinstance(x, dict) and x.get("type") == "result":
+            u = x.get("usage") or {}
+            say = {k: v for k, v in u.items() if isinstance(v, int)}
+            if isinstance(u.get("cache_creation"), dict):
+                say["cache_creation"] = {k: v for k, v in u["cache_creation"].items() if isinstance(v, int)}
+            USAGE_YOL.parent.mkdir(parents=True, exist_ok=True)
+            with USAGE_YOL.open("a", encoding="utf-8") as f:
+                f.write(json.dumps({"ts": time.time(), "model": args[args.index("--model") + 1] if "--model" in args else None,
+                                    "usage": say, "usd": x.get("total_cost_usd") or 0.0}) + "\n")
 
 
 def _kos(args, girdi, env, timeout):
-    return subprocess.run(args, input=girdi, capture_output=True, encoding="utf-8", errors="replace", env=env, timeout=timeout)
+    r = subprocess.run(args, input=girdi, capture_output=True, encoding="utf-8", errors="replace", env=env, timeout=timeout)
+    _usage_yaz(args, r.stdout)
+    return r
 
 
 def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, araclar):
@@ -27,7 +52,7 @@ def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, aracla
                                                                                 "data": base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
     girdi = json.dumps({"type": "user", "message": {"role": "user", "content": icerik}}, ensure_ascii=False) + "\n"
     args = [shutil.which("claude") or "claude", "-p", "--model", model, "--system-prompt", sistem,
-            "--json-schema", json.dumps(sema, ensure_ascii=False), "--max-budget-usd", f"{butce:.2f}", *A1]
+            "--json-schema", json.dumps(sema, ensure_ascii=False), "--max-budget-usd", f"{butce:.2f}", *A1, *cc_profil.kur("ttl", env=env)[0]]
     if araclar:  # M2b K2: araçlı mod — yalnız izinli liste; --allowedTools dışı araç -p'de reddedilir
         args[args.index("--tools") + 1] = ",".join(dict.fromkeys(a.split("(")[0] for a in araclar))
         args += ["--max-turns", "8", "--allowedTools", *araclar]
