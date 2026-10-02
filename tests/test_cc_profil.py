@@ -132,7 +132,7 @@ def test_gercek_profiller_gecerli(tmp_path):
 
 def _jev(env_ek):
     env = {k: v for k, v in os.environ.items() if k != "CC_PROFIL"} | env_ek
-    return subprocess.run(["powershell.exe", "-NoProfile", "-File", str(JEV)], input='{"prompt":"blender fincan"}',
+    return subprocess.run(["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(JEV)], input='{"prompt":"blender fincan"}',
                           capture_output=True, text=True, env=env, timeout=30)
 
 

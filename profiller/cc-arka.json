@@ -1,0 +1,23 @@
+{
+ "tam": {},
+ "ttl": {
+  "ttl": "5m"
+ },
+ "blender": {
+  "mcp": [
+   "blender",
+   "headroom"
+  ],
+  "skills": [
+   "skills/blender-oturum/SKILL.md",
+   "skills/blender-uretim/SKILL.md"
+  ],
+  "pluginKapat": [
+   "claude-mem@thedotmack",
+   "superpowers@claude-plugins-official",
+   "ponytail@ponytail",
+   "everything-claude-code@everything-claude-code"
+  ],
+  "ttl": "5m"
+ }
+}
