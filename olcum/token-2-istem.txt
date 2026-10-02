@@ -1,0 +1,11 @@
+Salt-okuma ölçüm görevi. Aşağıdaki 10 dosyanın her birini sırayla Read aracıyla bir kez, ek parametre vermeden oku. Başka araç kullanma, dosyaları yorumlama; sonunda yalnız 'bitti' yaz.
+tools/gstack_ai.py
+tools/gstack_browse.py
+tools/jev/jev/cli.py
+tools/video/olcum_m3b.py
+tools/video/olcum_m4b.py
+tools/video/video/akil.py
+tools/video/video/cli.py
+tools/video/video/kur.py
+tools/video/video/parti.py
+tools/video/video/tarama.py

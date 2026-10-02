@@ -1,0 +1,1 @@
+# Kör çiftler

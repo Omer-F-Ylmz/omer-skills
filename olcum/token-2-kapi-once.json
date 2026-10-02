@@ -1,0 +1,16 @@
+{
+ "etiket": "once",
+ "t0": "2026-10-02T16:28:32.481475+00:00",
+ "t1": "2026-10-02T16:28:54.265066+00:00",
+ "session_id": "a7003d34-8b22-46c2-b19d-883e6033b283",
+ "cost": 0.7342346,
+ "num_turns": 11,
+ "sonuc": "bitti",
+ "t2": "2026-10-02T16:34:55.807452+00:00",
+ "bekleme_sn": 362,
+ "son_durum": {
+  "isProcessing": false,
+  "queueDepth": 0,
+  "parkedSessions": 0
+ }
+}

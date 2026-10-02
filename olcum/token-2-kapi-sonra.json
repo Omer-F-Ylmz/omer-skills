@@ -1,0 +1,16 @@
+{
+ "etiket": "sonra",
+ "t0": "2026-10-02T16:37:25.992062+00:00",
+ "t1": "2026-10-02T16:37:48.619942+00:00",
+ "session_id": "13a46db7-f544-4fa2-9f4c-4b51d419a7fb",
+ "cost": 0.6718742,
+ "num_turns": 11,
+ "sonuc": "bitti",
+ "t2": "2026-10-02T16:42:43.022855+00:00",
+ "bekleme_sn": 294,
+ "son_durum": {
+  "isProcessing": false,
+  "queueDepth": 0,
+  "parkedSessions": 0
+ }
+}
