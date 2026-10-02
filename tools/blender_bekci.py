@@ -24,6 +24,7 @@ DUZELT = {
     "dinamik": "kodu doğrudan yaz; exec/eval/compile/__import__/getattr ile gizleme yok",
     "yol": "sabit string ya da // göreli yol yaz (Desktop\\<Proje>\\ altında)",
     "render": "önce scene.render.filepath'i bu kodda sabit string ya da // göreli yol olarak ata",
+    "kopya": "diskte kopya için yalnız bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)",
 }
 YOL_DISI = "yol Desktop\\<Proje>\\ dışında ya da çözülemedi"
 
@@ -70,6 +71,8 @@ def _cagri(d, takma):
         n = d.args[1]
         if not (isinstance(n, ast.Constant) and isinstance(n.value, str)) or n.value in GIZLI or n.value.startswith("__"):
             return _red("getattr ile gizli ad", "dinamik")
+    if ad.endswith("libraries.write"):
+        return _red("'bpy.data.libraries.write' Scene yazarken Blender 5.2.1'i çökertiyor", "kopya")
     kok = ad.split(".")[0]
     if kok in takma and "." in ad and son in YASAK_UYE[takma[kok]]:
         return _red(f"yasak çağrı '{takma[kok]}.{son}'", "modul" if son in SUREC else "silme")

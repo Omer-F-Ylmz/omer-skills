@@ -60,6 +60,13 @@ def test_proje_disi_yol_duzeltme_yolu():
     assert "Desktop" in sebep and DUZELT in sebep
 
 
+def test_libraries_write_red_ve_duzeltme_yolu():
+    # Blender 5.2.1: Scene içeren libraries.write → bpy_lib_write/scene_copy_data çökmesi (B-fincan-v3.crash.txt)
+    sebep = bk.denetle("bpy.data.libraries.write('//kopya.blend', {bpy.context.scene})")
+    assert sebep and "libraries.write" in sebep and "save_as_mainfile" in sebep and "copy=True" in sebep
+    assert bk.denetle("bpy.ops.wm.save_as_mainfile(filepath='//kopya.blend', copy=True)") is None
+
+
 def test_hook_stdin_red_izin_ve_hiz():
     bekci = [sys.executable, "-S", str(ARAC / "blender_bekci.py")]
     girdi = {"tool_name": "mcp__blender__execute_blender_code", "tool_input": {"code": f"open('{DIS}/x.txt', 'w')"}}

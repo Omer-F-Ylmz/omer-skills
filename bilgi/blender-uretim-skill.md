@@ -16,5 +16,8 @@ blender_pisir: `--png16` (16 bit PNG) + 8 bit PNG'de lightMapIntensity > 2 → S
 - skill-creator run_eval Windows'ta çalışmıyor (select() pipe, WinError 10038) → tek seferlik betik.
 - Ölçüm uzun description ile yapıldı; skill_denetim 200 karakter sınırı için kısaltıldı, çağrı tavanı yüzünden yeniden ölçülmedi.
 
+## Ölçüm (BLENDER-OLCUM · 2 Eki 2026)
+A/B fincan (skill kapalı/açık): B tekrar teslim + kapı geçti ama kör puan 3.4 = A (ölçüt ≥ 3.9) ve $12.26 = 2.5 × A (ölçüt ≤ $6); maliyetin %60'ı teslimden sonraki render/sahne turlarında → "kısa rehber" moduna geçiş (ayrı dalga). Ayrıntı: docs/denemeler/blender-uretim-olcum.md.
+
 ## 5.2 API notları (canlı sorgu)
 Doku çıkışı ve ColorRamp girişi `Factor` (eski `Fac`) · compositor'da Mix = ShaderNodeMix (A/B/Result) · `scene.compositing_node_group` · ışık `use_temperature` · `visible_camera` · light linking `receiver_collection`.

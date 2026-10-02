@@ -50,7 +50,11 @@ Tablolarda **kaynak** sütunu: `#no` = docs/kaynak-tarama/7-blender.md kaynağı
 | 7 | render | turlarda Workbench; son tur Eevee kahraman; teslim Cycles + denoise | — | #10 #1 · 4Uy2SzB-Kuk |
 | 8 | dışa aktarım | transform_apply → glTF +Y → `--glb` geri okuma → glb_hat | web-aktarim.md | #4 #8 |
 
-6. **Eleştiri döngüsü** (biçim → görünüş; sayısal kapı her turun önünde)
+   **Önce teslim:** tur bütçesinin ilk yarısında v1 teslim — kahraman render (brief çözünürlüğü) + GLB (`--glb` geri okuma) + `blender_dogrula` çıktısı. Sıra: ilk kahraman render → hemen GLB dışa aktarımı → `blender_dogrula --glb`; üçü bitmeden ikinci render yok. Aşama başına en fazla 2 düzeltme (render ve `--glb` denemesi dahil); kalan bulgu v1'in açık maddesi olur, GLB yine teslim edilir, cila eleştiri turlarına kalır.
+   Diskte kopya gerektiğinde (blender_cli / dogrula / gorunum) yalnız `bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)`; `bpy.data.libraries.write` ile Scene yazma (Blender 5.2.1'de çöküyor).
+
+6. **Eleştiri döngüsü** (yalnız v1 teslimden sonra ve açık madde varsa; biçim → görünüş; sayısal kapı her turun önünde)
+   - Her tur teslimi günceller (render + GLB + `blender_dogrula` yeniden); bütçe biterse son geçerli teslim kalır.
    - Biçim turları: `tools/blender_gorunum.py <blend> [--referans on.png]` → 4 Workbench görünüm sayfası tek Read (#10 #11). Son tur: Eevee kahraman görünüm.
    - Her tur: eleştiri **madde listesi** yaz (1 madde = 1 somut kusur + düzeltme). Düzeltmeden sonra her madde için tek tek `evet/hayır uygulandı` teyidi (#12). Teyitsiz madde açık sayılır.
    - Referans varsa silüet IoU (araç çıktısı); öneri eşik ≥ 0.90 + bbox oranı ±%3 (#1 eşik vermiyor → öneri).

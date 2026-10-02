@@ -23,6 +23,7 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 - Görünüm: `tools/blender_gorunum.py <blend> [--referans on.png]` → `blender\kanit\<ad>-<zaman>\sayfa.png` (4 Workbench + Eevee) tek Read.
 - GLB: `tools/glb_hat.py <x.glb>` (meshopt + webp, validate hatası exit 1).
 - Bekçi: execute_blender_code proje dışı yazma/silme/süreç/ağ içerirse hook reddeder; sebep → düzeltme satırına göre kodu düzelt.
+- Diskte kopya gerektiğinde (blender_cli / dogrula / gorunum) yalnız `bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)`; `bpy.data.libraries.write` ile Scene yazma (Blender 5.2.1'de çöküyor).
 - bpy kontrol: uzun betiği göndermeden `tools/bpy_kontrol.py <betik.py>` (yanlış operatör/modül adı; struct öznitelikleri kapsam dışı).
 - GPU kilidi: `tools/gpu_kilit.py durum|al|birak`; gorsel_uret ac/uret ve blender_pisir alır, dolu → exit 2 "GPU şu işte: <is> (PID)".
 - İndir (yalnız CC0): `tools/varlik_indir.py ara|indir polyhaven|ambientcg <id> --hedef Desktop\<Proje>\varlik [--cozunurluk 1k|2k|4k]` → `<id>.json` (kaynak · lisans · sha256).
