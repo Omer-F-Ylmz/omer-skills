@@ -8,7 +8,7 @@ description: "Blender'da 3D ürün üretimi: fincan/cezve modelle, ışıkla, ma
 Rehber: zorunlu akış yok; ölçü, ad, teslim tanımı ve referanslar yeter. Oturum (aç · kaydet · kapat) ve araç
 komutları **blender-oturum**'dadır; önce onu yükle, oradaki kurallar burada tekrarlanmaz.
 
-Referanslar — gerektiğinde oku: `C:\Projeler\omer-skills\skills\blender-uretim\references\`
+Referanslar — v1 tesliminden önce yalnız `olculer.md` okunur; ışık `isik_kur.kur("urun")`, malzeme `malzemeler.kur(ad)` ile kurulur (md okunmaz). Teslimden sonra gerektiğinde: `C:\Projeler\omer-skills\skills\blender-uretim\references\`
 - `olculer.md` — kahve nesneleri gerçek boyut tablosu (mm)
 - `isik-profilleri.md` + `isik_kur.py` — ışık profilleri; `isik_kur.kur(profil, boyut_m)`
 - `malzemeler.md` + `malzemeler.py` — malzeme tarifleri; `malzemeler.kur(ad)`
@@ -52,6 +52,8 @@ Teslim = kahraman render (brief çözünürlüğü, Cycles + denoise) + GLB + `t
 
 ## Kurallar
 
+- `get_objects_summary` yalnız ≤10 nesneli sahnede; üstünde hedefli bpy sorgusu (ad · boyut · malzeme).
+- Araç argümanı için kod aranmaz; blender-oturum'daki komut kartına bakılır.
 - Varlık yalnız CC0 ve kaynak kaydıyla: `tools/varlik_indir.py` (Poly Haven / ambientCG) (#6).
 - GPU'yu kullanan iki iş aynı anda koşmaz (gpu_kilit; blender_pisir ve gorsel_uret alır).
 - Işık profili belirsizse `urun` + HDRI dolgu 0.3 (#1).

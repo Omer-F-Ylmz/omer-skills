@@ -13,7 +13,7 @@ import blender_bekci as bk  # noqa: E402
 
 DIS = "C:/Windows/Temp"
 ICI = (Path.home() / "Desktop" / "Proje" / "render.png").as_posix()
-DUZELT = "sabit string ya da // göreli yol yaz"
+DUZELT = "mutlak yol ya da // göreli yaz"
 
 YASAK = {
     "silme": ["import os\nos.remove('a.txt')", "import os as o\no.unlink('a')", "from os import rmdir",
@@ -65,6 +65,16 @@ def test_libraries_write_red_ve_duzeltme_yolu():
     sebep = bk.denetle("bpy.data.libraries.write('//kopya.blend', {bpy.context.scene})")
     assert sebep and "libraries.write" in sebep and "save_as_mainfile" in sebep and "copy=True" in sebep
     assert bk.denetle("bpy.ops.wm.save_as_mainfile(filepath='//kopya.blend', copy=True)") is None
+
+
+def test_goreli_yol_red_mutlak_ve_cift_egik_izin(monkeypatch):
+    kayit = "bpy.ops.wm.save_as_mainfile(filepath='{}', copy=True)"
+    assert bk.denetle(kayit.format("//x.blend")) is None
+    assert bk.denetle(kayit.format((Path.home() / "Desktop" / "Proje" / "x.blend").as_posix())) is None
+    # hook cwd'si Desktop\<Proje> altında olsa da göreli yolu Blender kendi cwd'sine yazar
+    monkeypatch.setattr(bk.bc, "proje_ici", lambda y: True)
+    sebep = bk.denetle(kayit.format("x.blend"))
+    assert sebep and DUZELT in sebep
 
 
 def test_hook_stdin_red_izin_ve_hiz():

@@ -729,3 +729,5 @@
 {"ad": "emalorenzo/three-agent-skills", "karar": "ATLANDI (LICENSE dosyası yok; K6'ya girmedi)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-skill"}
 {"ad": "blender-uretim (ölçüm)", "karar": "KISA REHBER (ayrı dalga): B tekrar teslim+kapı geçti, puan 3.4=A (<3.9), $12.26 (>$6); docs/denemeler/blender-uretim-olcum.md", "tarih": "2026-10-02", "parti": "2026-10-02-blender-olcum"}
 {"ad": "blender-uretim (rehber ölçümü)", "karar": "DUR: rehber B teslim+kapı geçti, puan 3.6=A, uygunluk 3>2, $9.60 (>$6.5); docs/denemeler/blender-uretim-olcum.md", "tarih": "2026-10-02", "parti": "2026-10-02-blender-rehber"}
+
+{"ad": "blender-uretim + blender-oturum (rehber-fix)", "karar": "KALIR: bekçi göreli yol reddi + test · uretim maliyet kuralları · oturum komut kartı · ölçüm B-v3 kapı + karar; zip dist/rehber-fix (uretim d9473b903f6a47af, oturum 9dda44e15c3361c8)", "tarih": "2026-10-02", "parti": "2026-10-02-rehber-fix"}

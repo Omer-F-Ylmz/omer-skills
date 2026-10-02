@@ -7,7 +7,7 @@ Düzenek: `claude -p` varsayılan model (opus-5-5), aynı brief (Türk kahvesi f
 |---|---|---|---|---|---|---|---|
 | A-fincan-v3 | evet (17) | 60 | 22.5 dk | $4.98 | geçti, 0 bulgu | 105 KB | 3.4 (ilk puanlama 3.6) |
 | B-fincan-v3 ilk | yok (GLB msj 84, `--glb` döngüsü) | 101 (sınır) | 55.9 dk | $9.74 | geçti, 0 bulgu | — | 0 (kural: teslim yok) |
-| B-fincan-v3 tekrar | evet (38) | 101 (sınır) | 33.6 dk | $12.26 | geçti, 0 bulgu | 131 KB | 3.4 |
+| B-fincan-v3 tekrar | evet (38) | 101 (sınır) | 33.6 dk | $12.26 | geçmedi, 1 GLB bulgusu (tablo.json) | 131 KB | 3.4 |
 
 B tekrar öncesi düzeltmeler: "önce teslim" sırası (ilk render → hemen GLB → `dogrula --glb`) + bekçi `bpy.data.libraries.write` reddi (B ilk koşunun çökme izi).
 
@@ -50,6 +50,6 @@ En pahalı 5 adım: #32 get_objects_summary (tek çağrı) %7.4 · #14 Grep (ble
 
 Gözlem: durma kuralı tuttu (bitiş success; B tekrar max_turns'te bitmişti), maliyet B tekrara göre −%22. v1 teslimi geç kaldı (msg 46 / 83; A'da 17). Pahalı tekil adımlar teslim öncesi keşif: sahne özeti dökümü, araç argümanı Grep, headroom retrieve.
 
-Çelişki: ilk bölüm B tekrar için "kapı geçti" diyor, tablo.json (kor.py) aynı koşu için kapi=False + 1 glb bulgusu veriyor; bu dalgada çözülmedi.
+Çelişki: ilk bölüm B tekrar için "kapı geçti" diyor, tablo.json (kor.py) aynı koşu için kapi=False + 1 glb bulgusu veriyor; REHBER-FIX'te ilk bölüm tablo.json'a göre düzeltildi.
 
-Karar: DUR. Rehber hâli repoda ve claude.ai'de duruyor (geri alınmadı); KABUL maliyet koşulunda tutmadı. Ek koşu yok.
+Karar: skill rehber olarak KALIR — brief uygunluğu A'dan yüksek, puan eşit; maliyet 1.9×, ilk 3 kalem düzeltildi; maliyet gerçek işte izlenir (TELVE ilk Blender adımı: teslim mesajı + $).

@@ -22,7 +22,7 @@ DUZELT = {
     "modul": "bpy.data / bpy.ops ile yap; dış süreç ya da ağ işini CC tarafında ayrı araçla yap",
     "silme": "dosya silme/taşımayı CC'de elle yap; sahne verisi için bpy.data.<koleksiyon>.remove kullan",
     "dinamik": "kodu doğrudan yaz; exec/eval/compile/__import__/getattr ile gizleme yok",
-    "yol": "sabit string ya da // göreli yol yaz (Desktop\\<Proje>\\ altında)",
+    "yol": "sabit string olarak mutlak yol ya da // göreli yaz (Desktop\\<Proje>\\ altında)",
     "render": "önce scene.render.filepath'i bu kodda sabit string ya da // göreli yol olarak ata",
     "kopya": "diskte kopya için yalnız bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)",
 }

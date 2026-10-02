@@ -11,7 +11,7 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 
 ## Akış (her Blender işinde, sıra değişmez)
 1. `ac C:\Users\pc\Desktop\<Proje>\blender\<ad>.blend` — var olan dosya. Yeni dosya: `ac <yol> --yeni` (dosya varsa reddeder, boş sahneyle oluşturur).
-2. İş: blender MCP araçları (önce `get_objects_summary` ile sahneyi incele; varsayma).
+2. İş: blender MCP araçları (önce sahneyi incele: ≤10 nesnede `get_objects_summary`, üstünde hedefli bpy sorgusu; varsayma).
 3. Kaydet: MCP ile `bpy.ops.wm.save_mainfile()` → `bpy.data.is_dirty == False` doğrula. Kirliyse bir kez daha kaydet; ikinci denemede de kirliyse quit GÖNDERME, DUR ve Ömer'e bildir.
 4. Kapat isteği (MCP, çağrı dönsün diye gecikmeli):
    `bpy.app.timers.register(lambda: bpy.ops.wm.quit_blender(), first_interval=1)`
@@ -30,6 +30,20 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 - Pişir: `tools/blender_pisir.py <blend> --mod isik|ao [--nesneler a,b] [--boyut 1024|2048] [--hdr]` → `-pismis.blend` + görüntü + lightMapIntensity; yansıma pişmez, dönen ürün yalnız ao.
 - Profil: `uv run tools/kontur_profil.py <siluet.png> --yukseklik-mm N [--kulp sag|sol|yok] [--ic-profil] [--blend x.blend]` → Screw modeli, IoU ≥0.95 değilse exit 1.
 - NodeToPython: canlı oturumda `scene.ntp_material_slots` + `bpy.ops.ntp.export()` (SCRIPT → clipboard; headless boş) → tarifi `blender_cli` ile boş sahnede koştur. Deneme alanı: Desktop\blender-kum.
+
+## Komut kartı (argparse imzaları; `python C:/Projeler/omer-skills/tools/<araç>` · [ ] isteğe bağlı, yazılı değer varsayılan)
+```
+blender_oturum.py ac <yol> [--yeni] | kapat | durum
+blender_cli.py <betik> [json='{}'] [--blend B] [--zaman-asimi 300]
+blender_dogrula.py <blend> [--beklenen ad=GxDxY]... [--butce-ucgen 500000] [--glb G] [--serbest ad1,ad2] [--zaman-asimi 300]
+blender_gorunum.py <blend> [--referans R] [--iou-esik 0.90] [--bbox-esik 0.03] [--zaman-asimi 600]
+blender_pisir.py <blend> --mod isik|ao [--nesneler a,b] [--boyut 1024|2048] [--hdr] [--png16] [--zaman-asimi 900]
+kontur_profil.py <siluet> --yukseklik-mm MM [--kulp sag|sol|yok] [--ic-profil] [--blend B]
+varlik_indir.py ara polyhaven|ambientcg hdri|doku|model [--kategori K] [--q Q] [--adet 10] | indir polyhaven|ambientcg <id> --hedef H [--cozunurluk 1k|2k|4k]
+glb_hat.py <girdi> [--cikti C] [--doku 2048]
+bpy_kontrol.py <betik>
+gpu_kilit.py durum | al <is> --pid PID | birak <is>
+```
 
 ## Kurallar
 - Blender'ı aynı anda tek oturum sürer; `ac` 9876 doluysa reddeder, başka oturumun Blender'ına dokunma.
