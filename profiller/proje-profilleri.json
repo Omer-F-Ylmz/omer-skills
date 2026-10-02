@@ -1,0 +1,129 @@
+{
+ "aciklama": "TOKEN-3b proje profilleri. Kaynak: docs/token-3a.md §4 + dalga KARAR (name-only: 14 günde ≥1 çağrı; off+router / enabledPlugins:false: 0 çağrı). Plugin skill anahtarı skillOverrides'ta etkisiz (K1) → plugin'ler yalnız enabledPlugins ile; koruma: hook G/H, 14 günde kullanılmış MCP ya da çağrılmış ajan.",
+ "tarih": "2026-10-02 (14 gün: 2026-09-18 → )",
+ "projeler": {
+  "C:/Projeler/omer-skills": "skill-arac",
+  "C:/Users/pc/Desktop/Kendi oyun modlarim": "mod-blender",
+  "C:/Users/pc/Desktop/blender-kum": "mod-blender"
+ },
+ "her_zaman": [
+  "anthropic-skills",
+  "superpowers",
+  "ponytail",
+  "frontend-craft",
+  "skill-creator",
+  "hookify",
+  "commit-commands"
+ ],
+ "kucuk_500kr": [
+  "21st",
+  "agent-sdk-dev",
+  "andrej-karpathy-skills",
+  "claude-md-management",
+  "claude-opus-4-5-migration",
+  "cli-anything",
+  "code-review",
+  "commit-commands",
+  "csharp-lsp",
+  "explanatory-output-style",
+  "feature-dev",
+  "frontend-craft",
+  "frontend-design",
+  "headroom",
+  "humanizer",
+  "learning-output-style",
+  "nano-banana-2",
+  "playwright",
+  "pr-review-toolkit",
+  "ralph-wiggum",
+  "security-guidance",
+  "skill-creator"
+ ],
+ "profiller": {
+  "skill-arac": {
+   "acik": [
+    "plugin-dev",
+    "example-skills",
+    "claude-api",
+    "claude-mem",
+    "agent-skills",
+    "everything-claude-code",
+    "typesafe"
+   ],
+   "name_only": [
+    "gstack",
+    "threejs"
+   ]
+  },
+  "mod-blender": {
+   "acik": [],
+   "name_only": [
+    "threejs"
+   ]
+  }
+ },
+ "cagri14": {
+  "agent-reach": 1,
+  "anthropic-skills": 102,
+  "dotnet-data": 1,
+  "dotnet-msbuild": 1,
+  "example-skills": 1,
+  "frontend-craft": 16,
+  "frontend-design": 1,
+  "gstack": 4,
+  "impeccable": 4,
+  "nateherk-design": 1,
+  "ponytail": 2,
+  "superpowers": 6,
+  "threejs": 2,
+  "use-case-triage": 1
+ },
+ "mcp14": {
+  "claude-mem": 38,
+  "21st": 4,
+  "nano-banana-2": 1
+ },
+ "ajan14": {
+  "feature-dev": 1
+ },
+ "hook_sinif": {
+  "claude-mem": "H",
+  "claude-mem-cowork": "H",
+  "everything-claude-code": "G",
+  "headroom": "G",
+  "hookify": "G",
+  "security-guidance": "G",
+  "superpowers": "E",
+  "ponytail": "E",
+  "explanatory-output-style": "E",
+  "learning-output-style": "E",
+  "impeccable": "D",
+  "ralph-wiggum": "D"
+ },
+ "router": {
+  "phoenix-security-review": "guvenlik",
+  "phoenix-sast-rules": "guvenlik",
+  "phoenix-cti-search": "guvenlik",
+  "pia-generation": "guvenlik",
+  "policy-monitor": "guvenlik",
+  "phoenix-prd-pipeline": "surec-plan",
+  "phoenix-readiness-reviews": "surec-plan",
+  "roblox-game-development-lifecycle": "surec-plan",
+  "phoenix-docs-research": "belge",
+  "taste-skill": "frontend",
+  "design-mastery": "frontend",
+  "ui-ux-pro-max": "frontend",
+  "dotnet-test": "test-qa",
+  "dotnet-aspnetcore": "backend-dotnet",
+  "dotnet-nuget": "backend-dotnet",
+  "wpf-rule-mvvm-constraints": "backend-dotnet",
+  "supabase": "veri-db",
+  "discernment-nudge": "surec-inceleme",
+  "agent-skills": "surec-inceleme",
+  "plugin-dev": "surec-ajan-arac",
+  "claude-api": "surec-ajan-arac",
+  "typesafe": "surec-ajan-arac",
+  "graphify": "arastirma-ogrenme",
+  "hetzner-deploy": "surec-git-yayin"
+ }
+}

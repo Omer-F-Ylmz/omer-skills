@@ -17,3 +17,9 @@ Katalog: `docs/departmanlar/arastirma-ogrenme.md`.
 ## Kapılar
 - Dış repo kodu/kuralı almadan önce lisans (MIT/Apache değilse koşul rapora).
 - Web/alt ajan çıktısı birebir kopyalanmaz, damıtılır.
+
+<!-- profil-disi:bas -->
+## Profil dışı üyeler (yalnız CC)
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- `graphify` · Use for any question about a codebase, its architecture, file relationships, or project content — especially w · `C:/Users/pc/.claude/skills/graphify/SKILL.md`
+<!-- profil-disi:son -->

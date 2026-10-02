@@ -17,3 +17,9 @@ Katalog: `docs/departmanlar/surec-git-yayin.md` · yaşam döngüsü `docs/depar
 ## Kapılar
 - Kullanıcı istemeden push/deploy yok; default dalda önce dal aç.
 - Sır taraması temiz olmadan push yok.
+
+<!-- profil-disi:bas -->
+## Profil dışı üyeler (yalnız CC)
+Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
+- `hetzner-deploy` · This skill should be used when user asks to "deploy to Hetzner", "create Hetzner server", "manage Hetzner Clou · `C:/Users/pc/.claude/skills/hetzner-deploy/SKILL.md`
+<!-- profil-disi:son -->
