@@ -145,3 +145,54 @@ def test_ciktida_icerik_metni_yok(tmp_path):
         "role": "user", "content": [{"type": "tool_result", "tool_use_id": "t", "content": GIZLI}]}}])
     r = tara(tmp_path)
     assert GIZLI not in json.dumps(r, ensure_ascii=False) and GIZLI not in t.tablo(r)
+
+
+# --- TOKEN-1b K5: gerçek $ sütunu + motor-usage ayrı kaynak ---
+# Beklenen fiyatlar ($/MTok: girdi · okuma · yazma5m · yazma1h · çıktı) platform.claude.com/docs/en/about-claude/pricing
+# "Model pricing" tablosundan (2 Eki 2026) bağımsız yazıldı; tek fiyat değişirse burada en az bir test kırmızı olur.
+RESMI = {"claude-opus-5-5": (4, 0.20, 5, 8, 20), "claude-opus-5": (5, 0.50, 6.25, 10, 25),
+         "claude-sonnet-5-5": (2, 0.20, 2.50, 4, 10), "claude-sonnet-5": (2, 0.20, 2.50, 4, 10),
+         "claude-haiku-4-5-20251001": (1, 0.10, 1.25, 2, 5)}
+
+
+def test_usd_her_model_her_kalem_resmi_fiyat():
+    for model, f in RESMI.items():
+        for i, alan in enumerate(("girdi", "okuma", "m5", "h1", "cikti")):
+            u = usage(**{"girdi": {"girdi": 1_000_000}, "okuma": {"okuma": 1_000_000}, "m5": {"m5": 1_000_000, "yazma": 1_000_000},
+                         "h1": {"h1": 1_000_000, "yazma": 1_000_000}, "cikti": {"cikti": 1_000_000}}[alan])
+            assert abs(t.usd(u, model) - f[i]) < 1e-9, (model, alan)
+
+
+def test_usd_en_uzun_onek_ve_bilinmeyen_model():
+    u = usage(girdi=1_000_000)
+    assert t.usd(u, "claude-opus-5-5") == 4 and t.usd(u, "claude-opus-5") == 5  # opus-5-5 opus-5'e düşmez
+    assert t.usd(u, "<synthetic>") is None and t.usd(u, None) is None
+
+
+def test_tara_satir_toplam_oturum_usd_ve_fiyatsiz_sayaci(tmp_path):
+    yaz(tmp_path / "p" / "s.jsonl", [asistan("m1", usage(girdi=1_000_000, cikti=100_000)),
+                                      asistan("m2", usage(okuma=1_000_000, m5=1_000_000, yazma=1_000_000), model="claude-sonnet-5"),
+                                      asistan("m3", usage(girdi=5), model="<synthetic>")])
+    r = tara(tmp_path)
+    assert abs(r["toplam"]["usd"] - (4 + 2 + 0.20 + 2.50)) < 1e-9 and r["fiyatsiz_istek"] == 1
+    assert abs(r["oturumlar"][0]["usd"] - 8.70) < 1e-9
+    assert "$" in t.tablo(r) and "8.70" in t.tablo(r)
+
+
+def test_motor_usage_ayri_kaynak_satiri(tmp_path):
+    m = tmp_path / "motor-usage.jsonl"
+    m.write_text("\n".join([json.dumps({"ts": SIMDI - 60, "model": "claude-sonnet-5-5", "usage": {
+                     "input_tokens": 1_000_000, "cache_creation": {"ephemeral_5m_input_tokens": 1_000_000, "ephemeral_1h_input_tokens": 0}},
+                     "usd": 9.99}),
+                 json.dumps({"ts": SIMDI - 30 * 86400, "model": "claude-sonnet-5-5", "usage": {"input_tokens": 7}, "usd": 1}),
+                 "bozuk"]), encoding="utf-8")
+    r = t.tara(tmp_path / "yok", gun=14, simdi=SIMDI, motor=m)
+    s = [x for x in r["satirlar"] if x["kaynak"] == "motor"]
+    assert len(s) == 1 and s[0]["istek"] == 1 and s[0]["cache_5m"] == 1_000_000
+    assert abs(s[0]["usd"] - (2 + 2.50)) < 1e-9 and s[0]["agirlikli"] == 1_000_000 + 1_250_000  # fiyat tablodan, kayıttaki usd değil
+    assert "motor" in t.tablo(r)
+
+
+def test_motor_usage_yoksa_satir_yok(tmp_path):
+    r = t.tara(tmp_path, gun=14, simdi=SIMDI, motor=tmp_path / "yok.jsonl")
+    assert r["satirlar"] == [] and r["toplam"]["usd"] == 0
