@@ -184,6 +184,8 @@ srv.registerTool("ajan", {
     if (!HAFIF_VAR) return hata("RED: hafif mod bayrakları bu claude sürümünde yok.");
     argv.push("--disable-slash-commands", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}');
   }
+  // TOKEN-1 ttl profili (profiller/cc-arka.json; test eşitliği korur): tur medyanı 1 → 5m cache yazma. CC_PROFIL_ZORLA=tam geri alır.
+  if (process.env.CC_PROFIL_ZORLA !== "tam") argv.push("--settings", JSON.stringify({ promptCacheTtl: "5m" }));
   // kurulan argv son kez taranır: artık her jeton ya sabit bayrak ya denetlenmiş değer
   if (argv.some((x) => /dangerously-skip-permissions|bypassPermissions|^--permission-mode/i.test(x))) {
     return hata("RED: argv izin atlama bayrağı taşıyor.");
