@@ -1,4 +1,4 @@
-# TOKEN-1 — arka plan profili (L1 + L10) · 2 Eki 2026 · DURUM: TOKEN-1b kısmi — K3 prob + K4 kapı bekliyor (tur tavanı)
+# TOKEN-1 — arka plan profili (L1 + L10) · 2 Eki 2026 · DURUM: kapandı (TOKEN-1c) — prob ✓ · kapı SOR → blender "tam"da
 
 ## 1. Envanter — `claude -p` çağrı yerleri (14 gün, 244 sdk-cli oturumu, observer hariç, message.id tekil)
 oturum · MCP · skill · tur medyanı · 1h/5m cache yazma · ağırlıklı
@@ -43,3 +43,21 @@ Bütün gruplarda 5m yazma ≈ 0: kısa çağrılar 1h TTL ödüyor (L10).
 - Mühür (TOKEN-1 başı muhur-once.json ile): settings · mcpServers · skill/plugin/MCP sayıları eşit; hooks yalnız jev-skill.ps1 farklı. `git diff --diff-filter=D 095b201..HEAD` boş. gitleaks: TOKEN-1 commit'leri temiz.
 - Açık (DUR): K3 4 prob yazıldı ama koşulmadı. İlk denemede boş RAM 0.7 GB'tı (oyun açıktı), RAM boşaldığında tur tavanı aşılmıştı. K4 B-fincan kapısı koşulmadı → blender çağrı yeri "tam"da. Ölçülen tasarruf yok; beklenen: L10 1.0 M ağırlıklı (token-0 kaldıraç tablosu).
 - Sonraki: `python <scratchpad>/prob_t1.py` (4 prob, ≤$1/prob) → `python kos.py fincan B rehber-T1 --profil blender` → kor.py → karar (omer-kurallar "kalite takası") → arşiv.
+
+## TOKEN-1c (2 Eki 18:35–19:25) — prob · kapı · kapanış
+- Prob (scratchpad/prob_t1.py → olcum/token-1-prob.json, 4 çağrı sırayla, toplam $0.66, her biri öncesi boş RAM ≥4 GB):
+  - ttl · kur.py deney: sonnet-5-5 · ilk ctx 96.7k · 1h 0 · 5m 96.7k · $0.24
+  - ttl · hafif.py motor: sonnet-5-5 · ilk ctx 0.95k · 1h 0 · 5m 949 · MCP 0 · skill 0 · plugin 3 · $0.004
+  - blender (echo ok): opus-5-5[1m] · ilk ctx 40.2k (≤50k ✓) · 1h 0 · 5m 40.3k · MCP yalnız blender + headroom · skill/slash 0 · PreToolUse:Bash hook_started/hook_response akışta · $0.21
+  - cc-kopru ajan ttl: sonnet-5-5 · ilk ctx 98.0k · 1h 0 · 5m 81.6k · $0.21
+  - claude-mem-cowork: 4 probun hiçbirinin init plugin listesinde yok. Açık görünmesinin nedeni kurulu olması (plugins/cache/thedotmack/claude-mem-cowork/0.1.3); settings.json:497'de false → yüklenmiyor. Kurulu ≠ etkin. Blender init'inde claude-mem/superpowers/ponytail/everything-claude-code da yok; tam/ttl'de claude-mem var.
+- Kapı: `kos.py fincan B rehber-T1 --profil blender` (n=1, boş RAM 10.5 GB) · taban B-fincan-rehber (tam, aynı gün) · kör puan kor.py ile ikisi birlikte:
+  - kör puan ort 4.0 → 2.8 (−%30) · teslim ✓/✓ · bitis success/success · ölçü sapması 0/0 · bulgu 0/0 · hook_red 0
+  - tur 115 → 55 · asistan 46 → 30 · ilk ctx 83.5k → 40.2k · 1h yazma 442.9k → 0 · 5m yazma 0 → 253.2k · süre 28.0 → 19.6 dk
+  - ağırlıklı 3.168 M → 1.357 M (−%57.2) · $ 9.60 → 4.90 (−%48.9, total_cost_usd)
+  - kör not (T1): aşırı parlak, kenar ayrımı zayıf, kulp neredeyse kayıp, fon açık gri değil → kayıp ışık/malzeme/uygunlukta.
+  - `gecerli False`: kos.py'de B ölçütü `tetik` (Skill aracıyla blender-uretim çağrısı). Profil skill'i --append-system-prompt-file ile verir ve --disable-slash-commands koyar; bu yüzden tetik yapısal olarak False. Ölçüt bu profil için anlamsız, karar kör puan + teslimden.
+- Karar (omer-kurallar 21 · kalite takası): düşüş %30 > %20, tasarruf ağırlıklı %57 ≥ %50 → SOR ($ ile %49 → RED). Blender çağrı yeri varsayılan "tam"da kalır (kod değişmedi), bağlamak Ömer kararı. n=1, gürültü bandı ölçülmedi. Kural 24: tasarruf mekanizması (5m TTL + MCP/skill/plugin kırpma, ilk ctx −%52) kayıtlı; kalite kaybı (skill gövdesinin sistem promptuna gömülmesi ya da kırpılan plugin'ler) ayıklanıp yeniden ölçülmeli.
+- Ölçülen tasarruf: ttl (bağlı) çağrı başına 1h→5m yazma, ağırlık 2→1.25 · kur.py 96.7k yazma → 72.5k ağırlıklı / $0.145 · cc-kopru 81.6k → 61.2k / $0.122 · hafif 949 → 0.7k / ~$0.001. Blender (SOR, alınmadı): koşu başına 1.81 M ağırlıklı (−%57) / $4.70 (−%49).
+- gitleaks çalışma ağacı (20, değer yazılmadı, üçü de git dışı): generic-api-key ×18 graphify-out/cache/stat-index.json → yanlış alarm (dosya yolu → stat önbelleği) · curl-auth-header ×1 .kos/V2RIVnGCy74/firecrawl-cli/on.md:119 → yanlış alarm (üçüncü taraf CLI belgesindeki curl örneği, satırda sabit fc- anahtarı yok) · aws-access-token ×1 tools/jev/.pytest_cache/v/cache/nodeids:105 → yanlış alarm (pytest node-id önbelleği, test adı). Gerçek: 0.
+- Mühür: FARK: hooks_sha · `git diff --diff-filter=D 095b201..HEAD` boş · suite koşulmadı (yalnız doküman/sonuç değişti).

@@ -1,0 +1,520 @@
+{
+ "ttl-kur": {
+  "hook": [
+   "SessionStart:SessionStart:startup:hook_progress",
+   "SessionStart:SessionStart:startup:hook_response",
+   "SessionStart:SessionStart:startup:hook_started"
+  ],
+  "init": {
+   "model": "claude-sonnet-5-5",
+   "mcp": [
+    [
+     "plugin:claude-mem:mcp-search",
+     "connected"
+    ],
+    [
+     "plugin:dotnet-msbuild:binlog",
+     "connected"
+    ],
+    [
+     "plugin:nano-banana-2:nano-banana-2",
+     "pending"
+    ],
+    [
+     "plugin:playwright:playwright",
+     "pending"
+    ],
+    [
+     "plugin:supabase:supabase",
+     "connected"
+    ],
+    [
+     "plugin:design:slack",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:linear",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:atlassian",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:notion",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:intercom",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:google calendar",
+     "failed"
+    ],
+    [
+     "plugin:design:gmail",
+     "failed"
+    ],
+    [
+     "mslearn",
+     "connected"
+    ],
+    [
+     "claude-design",
+     "connected"
+    ],
+    [
+     "21st",
+     "connected"
+    ],
+    [
+     "context7",
+     "pending"
+    ],
+    [
+     "puppeteer",
+     "pending"
+    ],
+    [
+     "github",
+     "connected"
+    ],
+    [
+     "figma",
+     "connected"
+    ],
+    [
+     "headroom",
+     "pending"
+    ],
+    [
+     "jev",
+     "pending"
+    ],
+    [
+     "mcp-sequential-thinking",
+     "pending"
+    ],
+    [
+     "code-review",
+     "pending"
+    ],
+    [
+     "mcp-fetch",
+     "pending"
+    ],
+    [
+     "mcp-git",
+     "pending"
+    ],
+    [
+     "mcp-time",
+     "pending"
+    ],
+    [
+     "mcp-memory",
+     "pending"
+    ],
+    [
+     "mcp-filesystem",
+     "pending"
+    ],
+    [
+     "stitch",
+     "pending"
+    ],
+    [
+     "brave-search",
+     "pending"
+    ],
+    [
+     "blender",
+     "pending"
+    ]
+   ],
+   "skills": 393,
+   "slash": 489,
+   "araç": 266,
+   "plugin": [
+    "21st",
+    "agent-sdk-dev",
+    "agent-skills",
+    "andrej-karpathy-skills",
+    "cc-plugin-agents-md",
+    "cc-plugin-plugin-authoring",
+    "cc-plugin-telemetry",
+    "claude-api",
+    "claude-md-management",
+    "claude-mem",
+    "claude-opus-4-5-migration",
+    "cli-anything",
+    "code-review",
+    "commit-commands",
+    "csharp-lsp",
+    "design",
+    "design-mastery",
+    "discernment-nudge",
+    "dotnet-aspnetcore",
+    "dotnet-data",
+    "dotnet-msbuild",
+    "dotnet-nuget",
+    "dotnet-test",
+    "everything-claude-code",
+    "example-skills",
+    "feature-dev",
+    "frontend-craft",
+    "frontend-design",
+    "headroom",
+    "hookify",
+    "humanizer",
+    "impeccable",
+    "nano-banana-2",
+    "nateherk-design",
+    "phoenix-cti-search",
+    "phoenix-docs-research",
+    "phoenix-prd-pipeline",
+    "phoenix-readiness-reviews",
+    "phoenix-sast-rules",
+    "phoenix-security-review",
+    "playwright",
+    "plugin-dev",
+    "ponytail",
+    "pr-review-toolkit",
+    "ralph-wiggum",
+    "security-guidance",
+    "skill-creator",
+    "supabase",
+    "superpowers",
+    "taste-skill",
+    "typesafe"
+   ]
+  },
+  "ilk_ctx": 96733,
+  "sonuc": {
+   "tur": 1,
+   "usd": 0.2418715,
+   "hata": false,
+   "1h": 0,
+   "5m": 96731,
+   "okuma": 0
+  }
+ },
+ "ttl-hafif": {
+  "hook": [],
+  "init": {
+   "model": "claude-sonnet-5-5",
+   "mcp": [],
+   "skills": 0,
+   "slash": 0,
+   "araç": 1,
+   "plugin": [
+    "cc-plugin-agents-md",
+    "cc-plugin-plugin-authoring",
+    "cc-plugin-telemetry"
+   ]
+  },
+  "ilk_ctx": 951,
+  "sonuc": {
+   "tur": 2,
+   "usd": 0.0035065,
+   "hata": false,
+   "1h": 0,
+   "5m": 949,
+   "okuma": 0
+  },
+  "hafif_hata": null
+ },
+ "blender": {
+  "hook": [
+   "PostToolUse:PostToolUse:Bash:hook_response",
+   "PostToolUse:PostToolUse:Bash:hook_started",
+   "PreToolUse:PreToolUse:Bash:hook_response",
+   "PreToolUse:PreToolUse:Bash:hook_started",
+   "SessionStart:SessionStart:startup:hook_response",
+   "SessionStart:SessionStart:startup:hook_started",
+   "Stop:Stop:hook_response",
+   "Stop:Stop:hook_started",
+   "UserPromptSubmit:UserPromptSubmit:hook_response",
+   "UserPromptSubmit:UserPromptSubmit:hook_started"
+  ],
+  "init": {
+   "model": "claude-opus-5-5[1m]",
+   "mcp": [
+    [
+     "blender",
+     "connected"
+    ],
+    [
+     "headroom",
+     "connected"
+    ]
+   ],
+   "skills": 0,
+   "slash": 0,
+   "araç": 60,
+   "plugin": [
+    "21st",
+    "agent-sdk-dev",
+    "agent-skills",
+    "andrej-karpathy-skills",
+    "cc-plugin-agents-md",
+    "cc-plugin-plugin-authoring",
+    "cc-plugin-telemetry",
+    "claude-api",
+    "claude-md-management",
+    "claude-opus-4-5-migration",
+    "cli-anything",
+    "code-review",
+    "commit-commands",
+    "csharp-lsp",
+    "design",
+    "design-mastery",
+    "discernment-nudge",
+    "dotnet-aspnetcore",
+    "dotnet-data",
+    "dotnet-msbuild",
+    "dotnet-nuget",
+    "dotnet-test",
+    "example-skills",
+    "feature-dev",
+    "frontend-craft",
+    "frontend-design",
+    "headroom",
+    "hookify",
+    "humanizer",
+    "impeccable",
+    "nano-banana-2",
+    "nateherk-design",
+    "phoenix-cti-search",
+    "phoenix-docs-research",
+    "phoenix-prd-pipeline",
+    "phoenix-readiness-reviews",
+    "phoenix-sast-rules",
+    "phoenix-security-review",
+    "playwright",
+    "plugin-dev",
+    "pr-review-toolkit",
+    "ralph-wiggum",
+    "security-guidance",
+    "skill-creator",
+    "supabase",
+    "taste-skill",
+    "typesafe"
+   ]
+  },
+  "ilk_ctx": 40153,
+  "sonuc": {
+   "tur": 2,
+   "usd": 0.2111012,
+   "hata": false,
+   "1h": 0,
+   "5m": 40299,
+   "okuma": 40151
+  },
+  "cc_profil_env": [
+   "CC_PROFIL"
+  ]
+ },
+ "kopru-ajan": {
+  "hook": [
+   "SessionStart:SessionStart:startup:hook_progress",
+   "SessionStart:SessionStart:startup:hook_response",
+   "SessionStart:SessionStart:startup:hook_started"
+  ],
+  "init": {
+   "model": "claude-sonnet-5-5",
+   "mcp": [
+    [
+     "plugin:claude-mem:mcp-search",
+     "connected"
+    ],
+    [
+     "plugin:dotnet-msbuild:binlog",
+     "connected"
+    ],
+    [
+     "plugin:nano-banana-2:nano-banana-2",
+     "connected"
+    ],
+    [
+     "plugin:playwright:playwright",
+     "connected"
+    ],
+    [
+     "plugin:supabase:supabase",
+     "connected"
+    ],
+    [
+     "plugin:design:slack",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:linear",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:atlassian",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:notion",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:intercom",
+     "needs-auth"
+    ],
+    [
+     "plugin:design:google calendar",
+     "failed"
+    ],
+    [
+     "plugin:design:gmail",
+     "failed"
+    ],
+    [
+     "mslearn",
+     "connected"
+    ],
+    [
+     "claude-design",
+     "connected"
+    ],
+    [
+     "21st",
+     "connected"
+    ],
+    [
+     "context7",
+     "connected"
+    ],
+    [
+     "puppeteer",
+     "connected"
+    ],
+    [
+     "github",
+     "connected"
+    ],
+    [
+     "figma",
+     "connected"
+    ],
+    [
+     "headroom",
+     "connected"
+    ],
+    [
+     "jev",
+     "connected"
+    ],
+    [
+     "mcp-sequential-thinking",
+     "connected"
+    ],
+    [
+     "code-review",
+     "connected"
+    ],
+    [
+     "mcp-fetch",
+     "connected"
+    ],
+    [
+     "mcp-git",
+     "connected"
+    ],
+    [
+     "mcp-time",
+     "connected"
+    ],
+    [
+     "mcp-memory",
+     "pending"
+    ],
+    [
+     "mcp-filesystem",
+     "pending"
+    ],
+    [
+     "stitch",
+     "pending"
+    ],
+    [
+     "brave-search",
+     "pending"
+    ],
+    [
+     "blender",
+     "pending"
+    ]
+   ],
+   "skills": 393,
+   "slash": 489,
+   "araç": 340,
+   "plugin": [
+    "21st",
+    "agent-sdk-dev",
+    "agent-skills",
+    "andrej-karpathy-skills",
+    "cc-plugin-agents-md",
+    "cc-plugin-plugin-authoring",
+    "cc-plugin-telemetry",
+    "claude-api",
+    "claude-md-management",
+    "claude-mem",
+    "claude-opus-4-5-migration",
+    "cli-anything",
+    "code-review",
+    "commit-commands",
+    "csharp-lsp",
+    "design",
+    "design-mastery",
+    "discernment-nudge",
+    "dotnet-aspnetcore",
+    "dotnet-data",
+    "dotnet-msbuild",
+    "dotnet-nuget",
+    "dotnet-test",
+    "everything-claude-code",
+    "example-skills",
+    "feature-dev",
+    "frontend-craft",
+    "frontend-design",
+    "headroom",
+    "hookify",
+    "humanizer",
+    "impeccable",
+    "nano-banana-2",
+    "nateherk-design",
+    "phoenix-cti-search",
+    "phoenix-docs-research",
+    "phoenix-prd-pipeline",
+    "phoenix-readiness-reviews",
+    "phoenix-sast-rules",
+    "phoenix-security-review",
+    "playwright",
+    "plugin-dev",
+    "ponytail",
+    "pr-review-toolkit",
+    "ralph-wiggum",
+    "security-guidance",
+    "skill-creator",
+    "supabase",
+    "superpowers",
+    "taste-skill",
+    "typesafe"
+   ]
+  },
+  "ilk_ctx": 97960,
+  "sonuc": {
+   "tur": 1,
+   "usd": 0.20740080000000002,
+   "hata": false,
+   "1h": 0,
+   "5m": 81624,
+   "okuma": 16334
+  }
+ }
+}
