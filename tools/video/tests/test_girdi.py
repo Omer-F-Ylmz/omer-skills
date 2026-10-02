@@ -63,7 +63,7 @@ def test_kollar_esit_sayida_ve_karisik_sirayla(ortam, kok):
     assert a[a.index("--allowedTools") + 1] == "Read,Grep"
     assert str(kok / "docs" / "denemeler" / "gorevler" / "fixture" / "x.txt") in a[a.index("-p") + 1] and "veri" not in a[a.index("-p") + 1]
     s = json.loads(a[a.index("--settings") + 1])
-    assert s == {"env": {"KOL": "a", "ANTHROPIC_BASE_URL": "http://127.0.0.1:6767"}}
+    assert s == {"env": {"KOL": "a", "ANTHROPIC_BASE_URL": "http://127.0.0.1:6767"}, "promptCacheTtl": "5m"}
 
 
 def test_tavan_gorev_x_kol_x_2(ortam, kok):

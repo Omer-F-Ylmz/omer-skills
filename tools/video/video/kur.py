@@ -622,9 +622,8 @@ def dene(ns, ctx):
         araclar = next((x[8:].strip() for x in _parca(g)[0] if x.startswith("araclar:")), None)
         for n in (1, 2):  # 20a: her kol 2 koşu (soğuk · sıcak), görev içinde karışık sıra a1 b1 a2 b2 — önbellek kayması tek kolu kayırmasın
             for k in kollar:
-                args = [*k["onek"], "claude", "-p", ist, "--model", "sonnet", "--output-format", "json", *k["ek"]]
+                args = [*k["onek"], "claude", "-p", ist, "--model", "sonnet", "--output-format", "json", *_ayar_args(k["env"], env), *k["ek"]]
                 args += ["--allowedTools", araclar + "".join(f",mcp__{x}" for x in k.get("mcp", []))] if araclar else []
-                args += _ayar_args(k["env"], env)
                 hs = hashlib.sha256(f"{ist}\0{k['kimlik']}".encode()).hexdigest()[:16]
                 y = on / f"{g.stem}-{k['ad']}-{n}.json"
                 try:

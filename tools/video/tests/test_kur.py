@@ -221,7 +221,7 @@ def test_dene_b_kolu_yalniz_append_farki_hook_kapali(ortam, kok):
     c = k.claude()
     assert len(c) == 12 and len(j.istek) <= 30  # görev başına A1 B1 A2 B2 (20a: eşit sayı, karışık sıra)
     for a, b, a2, b2 in zip(c[::4], c[1::4], c[2::4], c[3::4]):
-        assert a[3:] == ["--model", "sonnet", "--output-format", "json"] and "def topla" in a[2] and a2 == a
+        assert a[3:] == ["--model", "sonnet", "--output-format", "json", "--settings", '{"promptCacheTtl": "5m"}'] and "def topla" in a[2] and a2 == a
         assert b == b2 == a + ["--append-system-prompt", "KISA YAZ"]
     assert all(e and e["JEV_SKILL_HOOK"] == "0" for e in k.env)
     s = (kok / "docs" / "denemeler" / "deneme-sonuc.md").read_text(encoding="utf-8")
