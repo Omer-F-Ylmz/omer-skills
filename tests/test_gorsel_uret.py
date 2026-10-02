@@ -23,6 +23,7 @@ def _gpu_kilit(tmp_path, monkeypatch):  # gerçek %TEMP%\gpu-kilit.json'a dokunu
 
 def test_gpu_kilitliyken_2(monkeypatch, capsys):  # BLENDER-ARAC-2 K1
     s = kur(monkeypatch, Sahte())
+    monkeypatch.setattr(gu, "bos_ram_gb", lambda: 64)  # gerçek boş RAM'e bağlı kalmasın (TOKEN-3b: 4.3 GB'de kırmızıydı)
     gk.YOL.write_text(json.dumps({"pid": os.getpid(), "is": "blender_pisir", "baslangic": 0}), encoding="utf-8")
     assert gu.main(["ac"]) == 2
     assert s.popen == [] and "GPU şu işte: blender_pisir" in capsys.readouterr().out
