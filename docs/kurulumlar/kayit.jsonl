@@ -728,5 +728,4 @@
 {"ad": "ra100/blender-claude-plugin", "karar": "TARANDI (MIT; SkillSpector --no-llm 0 bulgu, 13 statik analizör degraded; kurulum Ömer'de)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-skill"}
 {"ad": "emalorenzo/three-agent-skills", "karar": "ATLANDI (LICENSE dosyası yok; K6'ya girmedi)", "tarih": "2026-10-01", "parti": "2026-10-01-blender-skill"}
 {"ad": "blender-uretim (ölçüm)", "karar": "KISA REHBER (ayrı dalga): B tekrar teslim+kapı geçti, puan 3.4=A (<3.9), $12.26 (>$6); docs/denemeler/blender-uretim-olcum.md", "tarih": "2026-10-02", "parti": "2026-10-02-blender-olcum"}
-
 {"ad": "blender-uretim (rehber ölçümü)", "karar": "DUR: rehber B teslim+kapı geçti, puan 3.6=A, uygunluk 3>2, $9.60 (>$6.5); docs/denemeler/blender-uretim-olcum.md", "tarih": "2026-10-02", "parti": "2026-10-02-blender-rehber"}
