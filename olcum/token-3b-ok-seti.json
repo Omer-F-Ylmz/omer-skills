@@ -1,0 +1,26 @@
+{
+ "aciklama": "TOKEN-3b ok tabanı",
+ "istemler": [
+  {
+   "id": "ok-arac",
+   "tur": "ok",
+   "cwd": "C:/Projeler/omer-skills",
+   "istem": "ok",
+   "kabul": []
+  },
+  {
+   "id": "ok-mod",
+   "tur": "ok",
+   "cwd": "C:/Users/pc/Desktop/Kendi oyun modlarim",
+   "istem": "ok",
+   "kabul": []
+  },
+  {
+   "id": "ok-kum",
+   "tur": "ok",
+   "cwd": "C:/Users/pc/Desktop/blender-kum",
+   "istem": "ok",
+   "kabul": []
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "proje": {
+  "C:/Projeler/omer-skills": "9e1ab83190bccc9e",
+  "C:/Users/pc/Desktop/Kendi oyun modlarim": "19e02755e25de291",
+  "C:/Users/pc/Desktop/blender-kum": null
+ },
+ "router_cc": {
+  "departman-arastirma-ogrenme": "7e6d1265566128ba",
+  "departman-backend-dotnet": "585712396b21783e",
+  "departman-belge": "11355b02e0747c8d",
+  "departman-frontend": "0dee241be892269e",
+  "departman-guvenlik": "a399aa12bd466885",
+  "departman-surec-ajan-arac": "121c8094538b3be1",
+  "departman-surec-git-yayin": "0ec8b233e21f0f57",
+  "departman-surec-inceleme": "ce068587f3e0c7fa",
+  "departman-surec-plan": "7983a9ec428749f6",
+  "departman-test-qa": "653e2779ad2c6691",
+  "departman-veri-db": "3dc11106343ea1e4",
+  "departman-verimlilik": "b2b96deb0661f2a4"
+ },
+ "router_repo": {
+  "departman-arastirma-ogrenme": "7e6d1265566128ba",
+  "departman-backend-dotnet": "585712396b21783e",
+  "departman-belge": "11355b02e0747c8d",
+  "departman-frontend": "0dee241be892269e",
+  "departman-guvenlik": "a399aa12bd466885",
+  "departman-surec-ajan-arac": "121c8094538b3be1",
+  "departman-surec-git-yayin": "0ec8b233e21f0f57",
+  "departman-surec-inceleme": "ce068587f3e0c7fa",
+  "departman-surec-plan": "7983a9ec428749f6",
+  "departman-test-qa": "653e2779ad2c6691",
+  "departman-veri-db": "3dc11106343ea1e4",
+  "departman-verimlilik": "b2b96deb0661f2a4"
+ },
+ "sayi": {
+  "skills_dir": 92,
+  "synced": 406,
+  "plugins": 50,
+  "mcp_user": 19
+ },
+ "korunan": "2fd4d8d5c724f1a5"
+}

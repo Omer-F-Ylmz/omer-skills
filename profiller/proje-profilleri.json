@@ -2,9 +2,7 @@
  "aciklama": "TOKEN-3b proje profilleri. Kaynak: docs/token-3a.md §4 + dalga KARAR (name-only: 14 günde ≥1 çağrı; off+router / enabledPlugins:false: 0 çağrı). Plugin skill anahtarı skillOverrides'ta etkisiz (K1) → plugin'ler yalnız enabledPlugins ile; koruma: hook G/H, 14 günde kullanılmış MCP ya da çağrılmış ajan.",
  "tarih": "2026-10-02 (14 gün: 2026-09-18 → )",
  "projeler": {
-  "C:/Projeler/omer-skills": "skill-arac",
-  "C:/Users/pc/Desktop/Kendi oyun modlarim": "mod-blender",
-  "C:/Users/pc/Desktop/blender-kum": "mod-blender"
+  "C:/Projeler/omer-skills": "skill-arac"
  },
  "her_zaman": [
   "anthropic-skills",

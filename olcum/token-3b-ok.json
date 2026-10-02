@@ -1,0 +1,56 @@
+{
+ "sonuclar": [
+  {
+   "id": "ok-arac",
+   "isabet": null,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 73538,
+   "usd": 0.5146418,
+   "son": "error_max_turns",
+   "tur": "ok",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ok-mod",
+   "isabet": null,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 65202,
+   "usd": 0.4487494,
+   "son": "error_max_turns",
+   "tur": "ok",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ok-kum",
+   "isabet": null,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 61720,
+   "usd": 0.3781998,
+   "son": "success",
+   "tur": "ok",
+   "gercek_ortam": true
+  }
+ ],
+ "ozet": {
+  "n": 3,
+  "recall": null,
+  "precision": null,
+  "negatif_temiz": "3/3",
+  "yanlis_skill": {},
+  "eksik": [],
+  "ilk_ctx_ort": 66820,
+  "usd_top": 1.34
+ }
+}
