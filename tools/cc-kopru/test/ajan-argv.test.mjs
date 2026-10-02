@@ -79,12 +79,15 @@ for (const kotu of ["--dangerously-skip-permissions", "--permission-mode bypassP
   });
 }
 
+// TOKEN-1: ajan ttl profiline bagli (14 gun tur medyani 1); deger profiller/cc-arka.json ile esit kalir
+const TTL = ["--settings", JSON.stringify({ promptCacheTtl: JSON.parse(fs.readFileSync(new URL("../../../profiller/cc-arka.json", import.meta.url), "utf8")).ttl.ttl })];
+
 test("argv yalnizca sabit bayraklardan olusur", async () => {
   fs.rmSync(YAKALA, { force: true });
   await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", ajan_adi: "Explore" });
   const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
   assert.deepEqual(y.argv,
-    ["-p", "--output-format", "json", "--model", "sonnet", "--agent", "Explore"]);
+    ["-p", "--output-format", "json", "--model", "sonnet", "--agent", "Explore", ...TTL]);
 });
 
 // --- hafif mod: skill/slash + MCP kapatilir, hook ve CLAUDE.md acik kalir ---
@@ -94,12 +97,30 @@ test("hafif=true argv'si --help'te dogrulanan bayraklari tasir", async () => {
   await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", hafif: true });
   const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
   assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet",
-    "--disable-slash-commands", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}']);
+    "--disable-slash-commands", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', ...TTL]);
 });
 
 test("hafif=false (varsayilan) hicbir kapatma bayragi eklemez", async () => {
   fs.rmSync(YAKALA, { force: true });
   await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet" });
   const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
-  assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet"]);
+  assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet", ...TTL]);
+});
+
+test("ajan argv'si tek --settings ile ttl profilini sonda tasir", async () => {
+  fs.rmSync(YAKALA, { force: true });
+  await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", hafif: true });
+  const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+  assert.deepEqual(y.argv.slice(-2), TTL);
+  assert.equal(y.argv.filter((a) => a === "--settings").length, 1);
+});
+
+test("CC_PROFIL_ZORLA=tam ajan argv'sinden ttl'yi kaldirir", async () => {
+  process.env.CC_PROFIL_ZORLA = "tam";
+  try {
+    fs.rmSync(YAKALA, { force: true });
+    await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet" });
+    const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+    assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet"]);
+  } finally { delete process.env.CC_PROFIL_ZORLA; }
 });
