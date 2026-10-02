@@ -1,0 +1,540 @@
+{
+ "sonuclar": [
+  {
+   "id": "bl1",
+   "isabet": true,
+   "dogru": [
+    "blender-oturum",
+    "blender-uretim"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:blender-oturum",
+    "anthropic-skills:blender-uretim"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 99124,
+   "usd": 0.8947884,
+   "son": "error_max_turns",
+   "tur": "blender",
+   "gercek_ortam": true
+  },
+  {
+   "id": "bl2",
+   "isabet": true,
+   "dogru": [
+    "blender-oturum",
+    "blender-uretim"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:blender-oturum",
+    "anthropic-skills:blender-uretim"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 99734,
+   "usd": 0.802401,
+   "son": "error_max_turns",
+   "tur": "blender",
+   "gercek_ortam": true
+  },
+  {
+   "id": "bl3",
+   "isabet": true,
+   "dogru": [
+    "blender-oturum",
+    "blender-uretim"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:blender-oturum",
+    "anthropic-skills:blender-uretim"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 94589,
+   "usd": 0.7379114,
+   "son": "error_max_turns",
+   "tur": "blender",
+   "gercek_ortam": true
+  },
+  {
+   "id": "md1",
+   "isabet": true,
+   "dogru": [
+    "mod-atolyesi"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "mod-atolyesi"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 99188,
+   "usd": 0.7578271999999999,
+   "son": "error_max_turns",
+   "tur": "mod",
+   "gercek_ortam": true
+  },
+  {
+   "id": "md2",
+   "isabet": true,
+   "dogru": [
+    "mod-atolyesi"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "mod-atolyesi"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 99125,
+   "usd": 0.744766,
+   "son": "error_max_turns",
+   "tur": "mod",
+   "gercek_ortam": true
+  },
+  {
+   "id": "vd1",
+   "isabet": true,
+   "dogru": [
+    "video-tarama"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:video-tarama"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 99392,
+   "usd": 0.7690366,
+   "son": "error_max_turns",
+   "tur": "video",
+   "gercek_ortam": true
+  },
+  {
+   "id": "vd2",
+   "isabet": true,
+   "dogru": [
+    "video-uygula"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:video-uygula"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100877,
+   "usd": 0.8223896,
+   "son": "error_max_turns",
+   "tur": "video",
+   "gercek_ortam": true
+  },
+  {
+   "id": "fe1",
+   "isabet": true,
+   "dogru": [
+    "frontend-craft"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "frontend-craft:frontend-craft"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 97814,
+   "usd": 0.8185844,
+   "son": "error_max_turns",
+   "tur": "frontend",
+   "gercek_ortam": true
+  },
+  {
+   "id": "fe2",
+   "isabet": false,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 97808,
+   "usd": 0.7172328000000001,
+   "son": "error_max_turns",
+   "tur": "frontend",
+   "gercek_ortam": true
+  },
+  {
+   "id": "fe3",
+   "isabet": true,
+   "dogru": [
+    "frontend-craft"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "frontend-craft:frontend-craft"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100076,
+   "usd": 0.8211653999999999,
+   "son": "error_max_turns",
+   "tur": "frontend",
+   "gercek_ortam": true
+  },
+  {
+   "id": "dn1",
+   "isabet": false,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 101750,
+   "usd": 0.7653475999999999,
+   "son": "error_max_turns",
+   "tur": "dotnet-api",
+   "gercek_ortam": true
+  },
+  {
+   "id": "dn2",
+   "isabet": true,
+   "dogru": [
+    "surec"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "surec"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 112151,
+   "usd": 0.9260478000000001,
+   "son": "error_max_turns",
+   "tur": "dotnet-api",
+   "gercek_ortam": true
+  },
+  {
+   "id": "db1",
+   "isabet": true,
+   "dogru": [
+    "optimizing-ef-core-queries"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "dotnet-data:optimizing-ef-core-queries"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 111542,
+   "usd": 0.8883890000000001,
+   "son": "error_max_turns",
+   "tur": "veri-db",
+   "gercek_ortam": true
+  },
+  {
+   "id": "db2",
+   "isabet": true,
+   "dogru": [
+    "departman-veri-db"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:departman-veri-db"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 102077,
+   "usd": 3.2204784,
+   "son": "error_max_turns",
+   "tur": "veri-db",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ts1",
+   "isabet": false,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 101902,
+   "usd": 0.7478606,
+   "son": "error_max_turns",
+   "tur": "test",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ts2",
+   "isabet": false,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100200,
+   "usd": 0.7370302,
+   "son": "error_max_turns",
+   "tur": "test",
+   "gercek_ortam": true
+  },
+  {
+   "id": "gv1",
+   "isabet": true,
+   "dogru": [
+    "use-case-triage"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "use-case-triage"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 96082,
+   "usd": 0.7172035999999999,
+   "son": "error_max_turns",
+   "tur": "guvenlik-kvkk",
+   "gercek_ortam": true
+  },
+  {
+   "id": "gv2",
+   "isabet": true,
+   "dogru": [
+    "sdp",
+    "surec"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "sdp",
+    "surec"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 110687,
+   "usd": 1.030398,
+   "son": "error_max_turns",
+   "tur": "guvenlik-kvkk",
+   "gercek_ortam": true
+  },
+  {
+   "id": "dp1",
+   "isabet": true,
+   "dogru": [
+    "deploy-to-vercel"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:deploy-to-vercel"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 97841,
+   "usd": 0.7462673999999999,
+   "son": "error_max_turns",
+   "tur": "deploy",
+   "gercek_ortam": true
+  },
+  {
+   "id": "dp2",
+   "isabet": true,
+   "dogru": [
+    "departman-surec-git-yayin"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:departman-surec-git-yayin"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 102207,
+   "usd": 0.7734776,
+   "son": "error_max_turns",
+   "tur": "deploy",
+   "gercek_ortam": true
+  },
+  {
+   "id": "bg1",
+   "isabet": true,
+   "dogru": [
+    "departman-belge",
+    "make-pdf"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:departman-belge",
+    "make-pdf"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 101143,
+   "usd": 0.7465147999999999,
+   "son": "error_max_turns",
+   "tur": "belge",
+   "gercek_ortam": true
+  },
+  {
+   "id": "bg2",
+   "isabet": false,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 102113,
+   "usd": 0.7542028000000001,
+   "son": "error_max_turns",
+   "tur": "belge",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ar1",
+   "isabet": true,
+   "dogru": [
+    "departman-arastirma-ogrenme"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "anthropic-skills:departman-arastirma-ogrenme"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100889,
+   "usd": 1.6475763,
+   "son": "error_max_turns",
+   "tur": "arastirma",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ar2",
+   "isabet": false,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100878,
+   "usd": 1.4175121,
+   "son": "error_max_turns",
+   "tur": "arastirma",
+   "gercek_ortam": true
+  },
+  {
+   "id": "sk1",
+   "isabet": true,
+   "dogru": [
+    "departman-surec-ajan-arac"
+   ],
+   "yanlis": [
+    "departman-guvenlik",
+    "jev"
+   ],
+   "skiller": [
+    "anthropic-skills:departman-surec-ajan-arac"
+   ],
+   "okuma": [
+    "C:\\Projeler\\omer-skills\\skills\\jev\\SKILL.md",
+    "C:\\Projeler\\omer-skills\\skills\\departman-guvenlik\\SKILL.md"
+   ],
+   "skill_araci": true,
+   "ilk_ctx": 99358,
+   "usd": 3.3202509999999994,
+   "son": "error_max_turns",
+   "tur": "skill-plugin",
+   "gercek_ortam": true
+  },
+  {
+   "id": "sk2",
+   "isabet": true,
+   "dogru": [
+    "update-config"
+   ],
+   "yanlis": [],
+   "skiller": [
+    "update-config"
+   ],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100649,
+   "usd": 1.44802,
+   "son": "error_max_turns",
+   "tur": "skill-plugin",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ng1",
+   "isabet": null,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100657,
+   "usd": 0.6823226,
+   "son": "success",
+   "tur": "negatif",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ng2",
+   "isabet": null,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 100660,
+   "usd": 0.7332862,
+   "son": "success",
+   "tur": "negatif",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ng3",
+   "isabet": null,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 97180,
+   "usd": 0.7007272,
+   "son": "success",
+   "tur": "negatif",
+   "gercek_ortam": true
+  },
+  {
+   "id": "ng4",
+   "isabet": null,
+   "dogru": [],
+   "yanlis": [],
+   "skiller": [],
+   "okuma": [],
+   "skill_araci": true,
+   "ilk_ctx": 101391,
+   "usd": 0.6908966,
+   "son": "success",
+   "tur": "negatif",
+   "gercek_ortam": true
+  }
+ ],
+ "ozet": {
+  "n": 30,
+  "recall": 0.769,
+  "precision": 0.926,
+  "negatif_temiz": "4/4",
+  "yanlis_skill": {
+   "departman-guvenlik": 1,
+   "jev": 1
+  },
+  "eksik": [
+   "fe2",
+   "dn1",
+   "ts1",
+   "ts2",
+   "bg2",
+   "ar2"
+  ],
+  "ilk_ctx_ort": 100969,
+  "usd_top": 30.58
+ }
+}
