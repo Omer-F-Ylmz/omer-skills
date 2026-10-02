@@ -16,7 +16,8 @@
    "claude-mem@thedotmack",
    "superpowers@claude-plugins-official",
    "ponytail@ponytail",
-   "everything-claude-code@everything-claude-code"
+   "everything-claude-code@everything-claude-code",
+   "claude-mem-cowork@thedotmack"
   ],
   "ttl": "5m"
  }
