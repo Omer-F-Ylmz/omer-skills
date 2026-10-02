@@ -1,9 +1,10 @@
 """TOKEN-0 K1: Claude Code oturum jsonl'lerinden ağırlıklı token ölçümü.
 
 Birim: girdi×1 + cache okuma×0.1 + cache yazma (5m×1.25, 1h×2) + çıktı×5.
+TOKEN-1b: gerçek $ sütunu (FIYAT) · olcum/motor-usage.jsonl ayrı "motor" kaynak satırı.
 Çıktıda yalnız sayı ve ad bulunur; içerik metni asla yazılmaz.
 
-Kullanım: python tools/token_olc.py olc [--gun 14] [--kok <projects>] [--cikti olcum/token-0.json]
+Kullanım: python tools/token_olc.py olc [--gun 14] [--kok <projects>] [--motor olcum/motor-usage.jsonl] [--cikti olcum/token-0.json]
 """
 import base64
 import heapq
@@ -16,7 +17,11 @@ from datetime import datetime
 from pathlib import Path
 
 AGIRLIK = {"girdi": 1, "cache_okuma": 0.1, "cache_5m": 1.25, "cache_1h": 2, "cikti": 5}
-ALANLAR = ("istek", *AGIRLIK, "agirlikli")
+ALANLAR = ("istek", *AGIRLIK, "agirlikli", "usd")
+# $/MTok: girdi · cache okuma · yazma 5m · yazma 1h · çıktı. Kaynak: platform.claude.com/docs/en/about-claude/pricing
+# "Model pricing" (2 Eki 2026). Opus 5.5 okuma 0.05× (dipnot 2); Sonnet 5 $2/$10 artık standart (dipnot 3).
+FIYAT = {"opus-5-5": (4, 0.20, 5, 8, 20), "opus-5": (5, 0.50, 6.25, 10, 25), "sonnet-5-5": (2, 0.20, 2.50, 4, 10),
+         "sonnet-5": (2, 0.20, 2.50, 4, 10), "haiku-4-5": (1, 0.10, 1.25, 2, 5)}
 OBSERVER = "claude-mem-observer"
 PNG = b"\x89PNG\r\n\x1a\n"
 
@@ -33,6 +38,24 @@ def parcala(u):
 
 def agirlikli(u):
     return sum(AGIRLIK[k] * v for k, v in parcala(u).items())
+
+
+def usd(u, model):
+    """Gerçek $ (FIYAT, en uzun model öneki); fiyatı bilinmeyen model (<synthetic> vb.) → None."""
+    m = (model or "").removeprefix("claude-")
+    k = max((x for x in FIYAT if m == x or m.startswith(x + "-")), key=len, default=None)
+    return None if k is None else sum(f * v for f, v in zip(FIYAT[k], parcala(u).values())) / 1e6
+
+
+def _ekle(r, g, u, model):
+    a, d = agirlikli(u), usd(u, model)
+    r["fiyatsiz_istek"] += d is None
+    g["istek"] += 1
+    g["agirlikli"] += a
+    g["usd"] += d or 0
+    for alan, v in parcala(u).items():
+        g[alan] += v
+    return a, d or 0
 
 
 def ajan_turu(satir, yol):
@@ -67,11 +90,11 @@ def zaman(ts):
         return None
 
 
-def tara(kok, gun=14, simdi=None, en_buyuk=20):
+def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
     sinir = (simdi or time.time()) - gun * 86400
     kok = Path(kok)
     r = {"pencere_gun": gun, "dosya": 0, "bozuk_satir": 0, "usage_eksik": 0, "kirilimsiz_cache": 0,
-         "gorsel": 0, "gorsel_token": 0}
+         "gorsel": 0, "gorsel_token": 0, "fiyatsiz_istek": 0}
     grup = defaultdict(lambda: dict.fromkeys(ALANLAR, 0))
     gunluk = defaultdict(lambda: defaultdict(float))
     arac = defaultdict(lambda: {"adet": 0, "token": 0})
@@ -83,7 +106,7 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20):
         r["dosya"] += 1
         ad = str(yol.relative_to(kok))
         ot = {"oturum": ad, "proje": None, "kaynak": None, "ajan": None, "model": None, "taban": None,
-              "tur": 0, "son_ctx": 0, "agirlikli": 0, "gorsel": 0, "gorsel_token": 0}
+              "tur": 0, "son_ctx": 0, "agirlikli": 0, "usd": 0, "gorsel": 0, "gorsel_token": 0}
         adlar = {}
         with yol.open(encoding="utf-8", errors="replace") as f:
             for s in f:
@@ -114,13 +137,9 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20):
                     gorulen.add(m.get("id"))
                     if u.get("cache_creation_input_tokens") and not u.get("cache_creation"):
                         r["kirilimsiz_cache"] += 1
-                    p, a = parcala(u), agirlikli(u)
+                    p = parcala(u)
                     k = (o.get("cwd") or "?", kaynak(o, yol), ajan_turu(o, yol), m.get("model") or "?")
-                    g = grup[k]
-                    g["istek"] += 1
-                    g["agirlikli"] += a
-                    for alan, v in p.items():
-                        g[alan] += v
+                    a, d = _ekle(r, grup[k], u, k[3])
                     if ts is not None:
                         gunluk[time.strftime("%Y-%m-%d", time.gmtime(ts))][k[1]] += a
                     ctx = p["girdi"] + p["cache_okuma"] + p["cache_5m"] + p["cache_1h"]
@@ -129,6 +148,7 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20):
                     ot["tur"] += 1
                     ot["son_ctx"] = ctx
                     ot["agirlikli"] += a
+                    ot["usd"] += d
                 elif tur == "user":
                     for b in icerik:
                         if not isinstance(b, dict):
@@ -157,6 +177,20 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20):
         r["gorsel_token"] += ot["gorsel_token"]
         if ot["tur"]:
             oturumlar.append(ot)
+    # hafif.py motoru --no-session-persistence ile koşar → jsonl yok; usage sayıları ayrı dosyada
+    for s in Path(motor).read_text(encoding="utf-8", errors="replace").splitlines() if motor and Path(motor).is_file() else []:
+        try:
+            o = json.loads(s)
+        except ValueError:
+            o = None
+        if not isinstance(o, dict) or not isinstance(o.get("usage"), dict):
+            r["bozuk_satir"] += 1
+            continue
+        if (o.get("ts") or 0) < sinir:
+            continue
+        k = ("motor", "motor", "ana", o.get("model") or "?")
+        a, _ = _ekle(r, grup[k], o["usage"], k[3])
+        gunluk[time.strftime("%Y-%m-%d", time.gmtime(o["ts"]))]["motor"] += a
     r["satirlar"] = sorted(({"proje": k[0], "kaynak": k[1], "ajan": k[2], "model": k[3], **v}
                             for k, v in grup.items()), key=lambda x: -x["agirlikli"])
     r["toplam"] = {k: sum(x[k] for x in r["satirlar"]) for k in ALANLAR}
@@ -180,14 +214,15 @@ def tablo(r):
     top = t["agirlikli"] or 1
     s = [f"{r['pencere_gun']} gün · {r['dosya']} dosya · {t['istek']} istek · ağırlıklı {t['agirlikli'] / 1e6:.2f} M"
          f" · bozuk {r['bozuk_satir']} · usage yok {r['usage_eksik']} · kırılımsız {r['kirilimsiz_cache']}"
-         f" · görsel {r['gorsel']} ({r['gorsel_token']} tok)",
-         "", "kaynak · ajan | ağırlıklı M | pay | girdi · okuma · yazma5m · yazma1h · çıktı (ağırlıklı pay)"]
+         f" · görsel {r['gorsel']} ({r['gorsel_token']} tok) · $ {t['usd']:.2f} (fiyatsız istek {r['fiyatsiz_istek']})",
+         "", "kaynak · ajan | ağırlıklı M | pay | $ | girdi · okuma · yazma5m · yazma1h · çıktı (ağırlıklı pay)"]
     for (k, a), v in _topla(r, lambda x: (x["kaynak"], x["ajan"])):
         sat = [x for x in r["satirlar"] if (x["kaynak"], x["ajan"]) == (k, a)]
         kat = " · ".join(f"%{100 * AGIRLIK[c] * sum(x[c] for x in sat) / (v or 1):.0f}" for c in AGIRLIK)
-        s.append(f"{k} · {a} | {v / 1e6:.2f} | %{100 * v / top:.1f} | {kat}")
-    s += ["", "model | ağırlıklı M | pay"]
-    s += [f"{m} | {v / 1e6:.2f} | %{100 * v / top:.1f}" for m, v in _topla(r, lambda x: x["model"])]
+        s.append(f"{k} · {a} | {v / 1e6:.2f} | %{100 * v / top:.1f} | {sum(x['usd'] for x in sat):.2f} | {kat}")
+    s += ["", "model | ağırlıklı M | pay | $"]
+    s += [f"{m} | {v / 1e6:.2f} | %{100 * v / top:.1f} | {sum(x['usd'] for x in r['satirlar'] if x['model'] == m):.2f}"
+          for m, v in _topla(r, lambda x: x["model"])]
     s += ["", "proje (ilk 10) | ağırlıklı M | pay"]
     s += [f"{p} | {v / 1e6:.2f} | %{100 * v / top:.1f}" for p, v in _topla(r, lambda x: x["proje"])[:10]]
     s += ["", "araç (toplam sonuç token, ilk 10) | adet | token"]
@@ -205,7 +240,8 @@ def main(a):
     def deger(ad, vars):
         return a[a.index(ad) + 1] if ad in a else vars
 
-    r = tara(deger("--kok", Path.home() / ".claude" / "projects"), int(deger("--gun", 14)))
+    r = tara(deger("--kok", Path.home() / ".claude" / "projects"), int(deger("--gun", 14)),
+             motor=deger("--motor", Path(__file__).resolve().parents[1] / "olcum" / "motor-usage.jsonl"))
     cikti = deger("--cikti", None)
     if cikti:
         Path(cikti).parent.mkdir(parents=True, exist_ok=True)
