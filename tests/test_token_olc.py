@@ -196,3 +196,22 @@ def test_motor_usage_ayri_kaynak_satiri(tmp_path):
 def test_motor_usage_yoksa_satir_yok(tmp_path):
     r = t.tara(tmp_path, gun=14, simdi=SIMDI, motor=tmp_path / "yok.jsonl")
     assert r["satirlar"] == [] and r["toplam"]["usd"] == 0
+
+
+TS2 = time.strftime("%Y-%m-%dT%H:%M:%S.000Z", time.gmtime(SIMDI - 7200))
+SIK = "Condense the tool payload below to under 12800 characters.\n\n"
+
+
+def kul(metin, ts=TS):
+    return {"type": "user", "timestamp": ts, "message": {"role": "user", "content": [{"type": "text", "text": metin}]}}
+
+
+def test_compress_1h_yazma_uyarisi(tmp_path):
+    """TOKEN-2: cmem yaması claude-mem güncellemesinde sessizce silinir → son compress isteğinde 1h yazma UYARI verir."""
+    obs = tmp_path / "C--Users-pc--claude-mem-observer-sessions"
+    yaz(obs / "eski.jsonl", [kul(SIK, TS2), asistan("m1", usage(girdi=1, yazma=500, h1=500), ts=TS2)])
+    yaz(obs / "yeni.jsonl", [{**kul(""), "message": {"role": "user", "content": SIK}}, asistan("m2", usage(girdi=500))])
+    yaz(obs / "bilgi.jsonl", [kul("You are a knowledge agent"), asistan("m3", usage(yazma=900, h1=900))])
+    assert "UYARI" not in t.tablo(tara(tmp_path))
+    yaz(obs / "yeni.jsonl", [kul(SIK), asistan("m2", usage(girdi=1, yazma=500, h1=500))])
+    assert "UYARI: cmem yaması yok → python tools/cmem_yama.py" in t.tablo(tara(tmp_path))
