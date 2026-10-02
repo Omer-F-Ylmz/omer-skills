@@ -1,0 +1,292 @@
+{
+ "istem": "ok",
+ "bayrak": "--output-format stream-json --verbose",
+ "not": "usage result satiri birikimli; taban = ilk istegin girdi+yazma+okuma",
+ "varyantlar": [
+  {
+   "varyant": "a",
+   "ram_gb": 8.0,
+   "exit": 0,
+   "hook_olay": {
+    "hook_started": 9,
+    "hook_response": 9,
+    "hook_progress": 2,
+    "commands_changed": 1,
+    "thinking_tokens": 10
+   },
+   "init": {
+    "tools": 371,
+    "mcp_servers": 31,
+    "model": "claude-opus-5-5[1m]",
+    "slash_commands": 489,
+    "agents": 58,
+    "skills": 393,
+    "plugins": 51
+   },
+   "mcp_bagli": 22,
+   "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 101383,
+    "cache_read_input_tokens": 197492,
+    "output_tokens": 1702
+   },
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 101383,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "maliyet": 0.8846263999999999,
+   "tur": 4,
+   "ilk_istek": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 97032,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 4
+   },
+   "ilk_ctx": 97034,
+   "istek": 3
+  },
+  {
+   "varyant": "b",
+   "ram_gb": 6.7,
+   "exit": 0,
+   "hook_olay": {
+    "hook_started": 9,
+    "hook_response": 9,
+    "hook_progress": 3,
+    "thinking_tokens": 11
+   },
+   "init": {
+    "tools": 29,
+    "mcp_servers": 0,
+    "model": "claude-opus-5-5[1m]",
+    "slash_commands": 483,
+    "agents": 58,
+    "skills": 393,
+    "plugins": 51
+   },
+   "mcp_bagli": 0,
+   "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 73585,
+    "cache_read_input_tokens": 281717,
+    "output_tokens": 1446
+   },
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 73585,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "maliyet": 0.6739754000000001,
+   "tur": 4,
+   "ilk_istek": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 71766,
+    "cache_read_input_tokens": 16093,
+    "output_tokens": 4
+   },
+   "ilk_ctx": 87861,
+   "istek": 4
+  },
+  {
+   "varyant": "c",
+   "ram_gb": 6.8,
+   "exit": 0,
+   "hook_olay": {
+    "hook_started": 9,
+    "hook_response": 9,
+    "hook_progress": 2,
+    "thinking_tokens": 3
+   },
+   "init": {
+    "tools": 414,
+    "mcp_servers": 31,
+    "model": "claude-opus-5-5[1m]",
+    "slash_commands": 7,
+    "agents": 58,
+    "skills": 0,
+    "plugins": 51
+   },
+   "mcp_bagli": 24,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 50877,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 348
+   },
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 50877,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "maliyet": 0.41398399999999996,
+   "tur": 1,
+   "ilk_istek": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 50877,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 8
+   },
+   "ilk_ctx": 50879,
+   "istek": 1
+  },
+  {
+   "varyant": "d",
+   "ram_gb": 6.8,
+   "exit": 0,
+   "hook_olay": {
+    "commands_changed": 1,
+    "thinking_tokens": 17
+   },
+   "init": {
+    "tools": 310,
+    "mcp_servers": 31,
+    "model": "claude-opus-5-5[1m]",
+    "slash_commands": 489,
+    "agents": 58,
+    "skills": 393,
+    "plugins": 51
+   },
+   "mcp_bagli": 14,
+   "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 82925,
+    "cache_read_input_tokens": 398693,
+    "output_tokens": 2507
+   },
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 82925,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "maliyet": 0.7933186,
+   "tur": 5,
+   "ilk_istek": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 76030,
+    "cache_read_input_tokens": 16093,
+    "output_tokens": 8
+   },
+   "ilk_ctx": 92125,
+   "istek": 5
+  },
+  {
+   "varyant": "e",
+   "ram_gb": 7.1,
+   "exit": 0,
+   "hook_olay": {
+    "hook_started": 9,
+    "hook_response": 9,
+    "hook_progress": 2
+   },
+   "init": {
+    "tools": 371,
+    "mcp_servers": 31,
+    "model": "claude-sonnet-5-5",
+    "slash_commands": 490,
+    "agents": 58,
+    "skills": 393,
+    "plugins": 51
+   },
+   "mcp_bagli": 22,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 97090,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 77
+   },
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 97090,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "maliyet": 0.389134,
+   "tur": 1,
+   "ilk_istek": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 97090,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 4
+   },
+   "ilk_ctx": 97092,
+   "istek": 1
+  },
+  {
+   "varyant": "f",
+   "ram_gb": 7.0,
+   "exit": 0,
+   "hook_olay": {
+    "hook_started": 9,
+    "hook_response": 9,
+    "hook_progress": 1,
+    "commands_changed": 1,
+    "thinking_tokens": 8
+   },
+   "init": {
+    "tools": 371,
+    "mcp_servers": 31,
+    "model": "claude-opus-5-5[1m]",
+    "slash_commands": 489,
+    "agents": 54,
+    "skills": 393,
+    "plugins": 51
+   },
+   "mcp_bagli": 22,
+   "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 84538,
+    "cache_read_input_tokens": 109616,
+    "output_tokens": 998
+   },
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 84538,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "maliyet": 0.7182032,
+   "tur": 2,
+   "ilk_istek": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 81396,
+    "cache_read_input_tokens": 14110,
+    "output_tokens": 8
+   },
+   "ilk_ctx": 95508,
+   "istek": 2
+  },
+  {
+   "varyant": "g",
+   "ram_gb": 6.8,
+   "exit": 0,
+   "hook_olay": {
+    "thinking_tokens": 12,
+    "task_started": 1,
+    "task_notification": 1
+   },
+   "init": {
+    "tools": 28,
+    "mcp_servers": 0,
+    "model": "claude-opus-5-5[1m]",
+    "slash_commands": 0,
+    "agents": 58,
+    "skills": 0,
+    "plugins": 51
+   },
+   "mcp_bagli": 0,
+   "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 18858,
+    "cache_read_input_tokens": 214959,
+    "output_tokens": 1774
+   },
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 18858,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "maliyet": 0.2293838,
+   "tur": 6,
+   "ilk_istek": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 16334,
+    "cache_read_input_tokens": 21290,
+    "output_tokens": 8
+   },
+   "ilk_ctx": 37626,
+   "istek": 6
+  }
+ ]
+}
