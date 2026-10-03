@@ -91,3 +91,11 @@ Toplam "diğer": 22.17 M / 14 gün ≈ 1.58 M/gün baştan yazma.
 Notlar: settings'teki opus-5-5 xhigh kalıntısını Ömer düzeltir (xhigh.json kullanımı) · 6767 doğru port (Desktop ön kapısı, ANTHROPIC_BASE_URL hedefi; 6768 iç proxy), statusline doğru, değişiklik yok.
 
 Haftalık plan: (b) denemesinden 7 gün sonra `token_olc --karsilastir`; hedef "diğer" baştan yazma ≥%30 düşer (1.58 → ≤1.11 M/gün). Düşmezse (a) upstream + (c).
+
+### Kapanış ek (TOKEN-6d K0) — eksik mühür karşılaştırması
+
+muhur-6c (16:26) ↔ TOKEN-6d başı: 16 alan, 1 fark — `settings` (02372fb94f3e5e29 → 56176c72a641a211). `~/.claude/settings.json.bakT6c` (13:56) hash'i muhur-6c ile aynı (02372fb94f3e5e29); ondan düz anahtar farkı yalnız iki satır:
+- `awaySummaryEnabled`: yok → false — beklenen fark (Ömer'in komutu; §K4 (b) denemesi).
+- `modelSettings.claude-opus-5-5.effortLevel`: xhigh → high — beklenen fark (Ömer'in komutu; §K4 notu, xhigh kalıntısı).
+
+Diğer 15 alan (hooks · mcp · mcpServers · plugin · skill · hook dosyaları) eşit.
