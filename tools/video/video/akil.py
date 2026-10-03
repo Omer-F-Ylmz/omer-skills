@@ -110,6 +110,17 @@ SISTEM_AN = ("Prompt anatomisi çıkarıcısısın (23c). Videodaki site yapım 
              "Birebir klon ya da izinsiz varlık önerme. " + KURAL)
 
 
+def _paket_ici(k, env):
+    """DERİNLİK-1 R2: '<parça>-<paket>-icinde' → kurulu paketteki karşılığın yolu (~/.claude/plugins yalnız okunur; paket adı ya da baş harfleri)."""
+    if not (m := re.match(r"(.+)-([a-z0-9]+)-icinde$", k)):
+        return None
+    kok = Path(env.get("CLAUDE_EVI") or Path.home() / ".claude") / "plugins"
+    for y in sorted(kok.rglob(m[1])) if kok.is_dir() else []:
+        if any(m[2] in (s, "".join(w[:1] for w in s.split("-"))) for s in y.relative_to(kok).parts):
+            return y.as_posix()
+    return f"karşılık bulunamadı ({m[2]} paketinde {m[1]})"
+
+
 def _arastirma_disi(a):
     """İlke 29 (i): araştırmaya gitmez — kendi aracımız + kurulu (80e0ab3)."""
     return bool(a["kurulu"])
@@ -469,6 +480,7 @@ def panel(pdir, d, kok):
             o, g = "SOR", f"araştırılmadı ({a.get('durum')})"
             kalan.append(f"- {k}: {a.get('durum')} {pt._h(a.get('hata') or '')}"[:200])
         g += f" · alt tür çakışması (kurulu > {alt})" if cakisma else ""
+        g += f" · paket içi: {a['paket_yol']}" if a.get("paket_yol") else ""
         if m and (u := tr.bolum(m, "Üretilebilir").strip()) and "hedef_tur: yok" not in u:
             uret.append(f"- {k}: {pt._h(u)}")
         for e in (e for e in mevcut if e != k and difflib.SequenceMatcher(None, k, e).ratio() >= 0.8):  # M10 K4: ad ön süzgeç; tekrar için aynı repo
@@ -545,7 +557,9 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     for k, a in adaylar.items():
         a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p") if x in eski.get(k, {})})
-        a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] else "arac_degil")
+        a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
+        if pk := _paket_ici(k, env):
+            a["paket_yol"] = pk
     d.update(adaylar=adaylar, belirsiz=belirsiz)
     _tavan_genislet(pdir, d, sum(a["durum"] in pt.YENIDEN and a.get("deneme", 0) < 3 for a in adaylar.values()),
                     int(any(a["kurulu"] and a["tur"] not in ARAC_DISI for a in adaylar.values())))
@@ -570,7 +584,7 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     _yargi(ctx, adaylar, kok)
     for k, a in adaylar.items():  # M2c K4: araştırma repo bulduysa güvenlik ön taraması sonradan
         al = uy.alanlar(_aday_yol(kok, k).read_text(encoding="utf-8")) if _aday_yol(kok, k).is_file() else {}
-        if a.get("alt_tur") == "araç" and not a.get("guvenlik") and not a["kurulu"] and (
+        if not a.get("guvenlik") and not a["kurulu"] and (  # DERİNLİK-1 R2: alt tür ne olursa olsun repo bulunduysa
                 r := a["repo"] or (al.get("repo") if al.get("repo") not in (None, "", "yok") else None)):
             a["repo"] = r
             a["guvenlik"] = _on(ctx, next(iter(a["videolar"])), k, a)[1]
