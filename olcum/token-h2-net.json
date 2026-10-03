@@ -1,0 +1,435 @@
+{
+ "sinif": {
+  "headroom": {
+   "adet": 15,
+   "cc": 2097523,
+   "agirlikli": 3985295,
+   "usd": 16.3607
+  },
+  "kanitsiz": {
+   "adet": 27,
+   "cc": 3111169,
+   "agirlikli": 5911221,
+   "usd": 26.7619
+  },
+  "diger": {
+   "adet": 3,
+   "cc": 279101,
+   "agirlikli": 530291,
+   "usd": 2.177
+  }
+ },
+ "ham_toplam": {
+  "adet": 45,
+  "cc": 5487793,
+  "agirlikli": 10426807,
+  "usd": 45.3
+ },
+ "fark_19_14": [
+  {
+   "ln": 131,
+   "neden": "önceki istek PERF'e bağlanamadı"
+  },
+  {
+   "ln": 230,
+   "neden": "önceki istek PERF'e bağlanamadı"
+  },
+  {
+   "ln": 80,
+   "neden": "önceki istek PERF'e bağlanamadı"
+  },
+  {
+   "ln": 99,
+   "neden": "önceki istek PERF'e bağlanamadı"
+  }
+ ],
+ "net_headroom": {
+  "headroom_n": 15,
+  "maliyet_w": 3985295,
+  "kazanc_w": 198955,
+  "maliyet_usd": 16.36,
+  "kazanc_usd": 0.6,
+  "kazanan": 0
+ },
+ "varsayim": "kazanç = Δtok_saved (kırık − önceki istek) × [1h yazma ağırlığı + okuma ağırlığı × sonraki kırılmaya dek istek]; $ aynı, model fiyatıyla",
+ "kirilmalar": [
+  {
+   "ln": 275,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": true,
+   "tsd": [
+    "14",
+    "15"
+   ],
+   "tok_saved_once": 5458,
+   "tok_saved_kirik": 6394,
+   "delta": 936,
+   "sonraki_istek": 10,
+   "maliyet_w": 295078,
+   "kazanc_w": 2808,
+   "maliyet_usd": 1.2114,
+   "kazanc_usd": 0.0094,
+   "net_w": -292270,
+   "net_usd": -1.202
+  },
+  {
+   "ln": 447,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": true,
+   "tsd": [
+    "13",
+    "15"
+   ],
+   "tok_saved_once": 4091,
+   "tok_saved_kirik": 5364,
+   "delta": 1273,
+   "sonraki_istek": 18,
+   "maliyet_w": 357500,
+   "kazanc_w": 4837,
+   "maliyet_usd": 1.4676,
+   "kazanc_usd": 0.0148,
+   "net_w": -352663,
+   "net_usd": -1.4528
+  },
+  {
+   "ln": 252,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": false,
+   "kmp": true,
+   "tsd": [
+    "11",
+    "12"
+   ],
+   "tok_saved_once": 1484,
+   "tok_saved_kirik": 6373,
+   "delta": 4889,
+   "sonraki_istek": 3,
+   "maliyet_w": 200724,
+   "kazanc_w": 11245,
+   "maliyet_usd": 0.824,
+   "kazanc_usd": 0.042,
+   "net_w": -189479,
+   "net_usd": -0.782
+  },
+  {
+   "ln": 131,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": false,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": null,
+   "tok_saved_kirik": 2645,
+   "delta": 2645,
+   "sonraki_istek": 34,
+   "maliyet_w": 187589,
+   "kazanc_w": 14283,
+   "maliyet_usd": 0.7701,
+   "kazanc_usd": 0.0391,
+   "net_w": -173306,
+   "net_usd": -0.731
+  },
+  {
+   "ln": 62,
+   "rid": "req_011Cfe6BoT8LhqPsJGBrgjBU",
+   "sinif": "diger",
+   "mat": false,
+   "kmp": false,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": 736,
+   "tok_saved_kirik": 964,
+   "delta": 228,
+   "sonraki_istek": 20,
+   "maliyet_w": 187163,
+   "kazanc_w": 912,
+   "maliyet_usd": 0.7684,
+   "kazanc_usd": 0.0027,
+   "net_w": -186251,
+   "net_usd": -0.7657
+  },
+  {
+   "ln": 371,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": false,
+   "kmp": true,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": 1090,
+   "tok_saved_kirik": 2036,
+   "delta": 946,
+   "sonraki_istek": 22,
+   "maliyet_w": 243523,
+   "kazanc_w": 3973,
+   "maliyet_usd": 0.9997,
+   "kazanc_usd": 0.0117,
+   "net_w": -239550,
+   "net_usd": -0.988
+  },
+  {
+   "ln": 562,
+   "rid": "req_011CfdeNFX2gyLCfj8yot9ju",
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": true,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": 2036,
+   "tok_saved_kirik": 3417,
+   "delta": 1381,
+   "sonraki_istek": 13,
+   "maliyet_w": 310705,
+   "kazanc_w": 4557,
+   "maliyet_usd": 1.2755,
+   "kazanc_usd": 0.0146,
+   "net_w": -306148,
+   "net_usd": -1.2609
+  },
+  {
+   "ln": 230,
+   "rid": "req_011CfeMb2LQZCr4MUgFsfnEt",
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": false,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": null,
+   "tok_saved_kirik": 10140,
+   "delta": 10140,
+   "sonraki_istek": 7,
+   "maliyet_w": 228255,
+   "kazanc_w": 27378,
+   "maliyet_usd": 0.937,
+   "kazanc_usd": 0.0953,
+   "net_w": -200877,
+   "net_usd": -0.8417
+  },
+  {
+   "ln": 138,
+   "rid": "req_011CfeA7Hg5qAzGKVi3oar3A",
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": false,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": 779,
+   "tok_saved_kirik": 1606,
+   "delta": 827,
+   "sonraki_istek": 8,
+   "maliyet_w": 191110,
+   "kazanc_w": 2316,
+   "maliyet_usd": 0.7846,
+   "kazanc_usd": 0.0079,
+   "net_w": -188794,
+   "net_usd": -0.7767
+  },
+  {
+   "ln": 80,
+   "rid": "req_011CffGGVQyRWM6VmTnUWiXX",
+   "sinif": "diger",
+   "mat": false,
+   "kmp": false,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": null,
+   "tok_saved_kirik": 889,
+   "delta": 889,
+   "sonraki_istek": 0,
+   "maliyet_w": 141966,
+   "kazanc_w": 1778,
+   "maliyet_usd": 0.5828,
+   "kazanc_usd": 0.0071,
+   "net_w": -140188,
+   "net_usd": -0.5757
+  },
+  {
+   "ln": 99,
+   "rid": null,
+   "sinif": "diger",
+   "mat": false,
+   "kmp": false,
+   "tsd": [
+    null,
+    null
+   ],
+   "tok_saved_once": null,
+   "tok_saved_kirik": 887,
+   "delta": 887,
+   "sonraki_istek": 18,
+   "maliyet_w": 201162,
+   "kazanc_w": 3371,
+   "maliyet_usd": 0.8258,
+   "kazanc_usd": 0.0103,
+   "net_w": -197791,
+   "net_usd": -0.8155
+  },
+  {
+   "ln": 788,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": false,
+   "tsd": [
+    "16",
+    "16"
+   ],
+   "tok_saved_once": 14587,
+   "tok_saved_kirik": 15562,
+   "delta": 975,
+   "sonraki_istek": 4,
+   "maliyet_w": 543624,
+   "kazanc_w": 2340,
+   "maliyet_usd": 2.2317,
+   "kazanc_usd": 0.0086,
+   "net_w": -541284,
+   "net_usd": -2.2231
+  },
+  {
+   "ln": 302,
+   "rid": "req_011CfdDQ5iK3MMyhtqw3tZVH",
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": true,
+   "tsd": [
+    "11",
+    "12"
+   ],
+   "tok_saved_once": 4852,
+   "tok_saved_kirik": 6223,
+   "delta": 1371,
+   "sonraki_istek": 8,
+   "maliyet_w": 249878,
+   "kazanc_w": 3839,
+   "maliyet_usd": 1.0258,
+   "kazanc_usd": 0.0132,
+   "net_w": -246039,
+   "net_usd": -1.0126
+  },
+  {
+   "ln": 651,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": false,
+   "kmp": true,
+   "tsd": [
+    "14",
+    "15"
+   ],
+   "tok_saved_once": 9240,
+   "tok_saved_kirik": 19986,
+   "delta": 10746,
+   "sonraki_istek": 25,
+   "maliyet_w": 328527,
+   "kazanc_w": 48357,
+   "maliyet_usd": 1.3487,
+   "kazanc_usd": 0.1397,
+   "net_w": -280170,
+   "net_usd": -1.209
+  },
+  {
+   "ln": 258,
+   "rid": "req_011CfcTwByqkpevzYm9Tnizv",
+   "sinif": "headroom",
+   "mat": false,
+   "kmp": true,
+   "tsd": [
+    "14",
+    "15"
+   ],
+   "tok_saved_once": 4181,
+   "tok_saved_kirik": 4423,
+   "delta": 242,
+   "sonraki_istek": 1,
+   "maliyet_w": 8282,
+   "kazanc_w": 508,
+   "maliyet_usd": 0.034,
+   "kazanc_usd": 0.002,
+   "net_w": -7774,
+   "net_usd": -0.032
+  },
+  {
+   "ln": 277,
+   "rid": "req_011CfcU3qAttgrvB3zZoUTqu",
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": false,
+   "tsd": [
+    "15",
+    "15"
+   ],
+   "tok_saved_once": 6096,
+   "tok_saved_kirik": 8888,
+   "delta": 2792,
+   "sonraki_istek": 65,
+   "maliyet_w": 208550,
+   "kazanc_w": 23732,
+   "maliyet_usd": 0.8562,
+   "kazanc_usd": 0.0586,
+   "net_w": -184818,
+   "net_usd": -0.7976
+  },
+  {
+   "ln": 1048,
+   "rid": null,
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": true,
+   "tsd": [
+    "15",
+    "16"
+   ],
+   "tok_saved_once": 14012,
+   "tok_saved_kirik": 22466,
+   "delta": 8454,
+   "sonraki_istek": 18,
+   "maliyet_w": 435676,
+   "kazanc_w": 32125,
+   "maliyet_usd": 1.7886,
+   "kazanc_usd": 0.0981,
+   "net_w": -403551,
+   "net_usd": -1.6905
+  },
+  {
+   "ln": 198,
+   "rid": "req_011CfbpyAakkEpzyoEvhfAr8",
+   "sinif": "headroom",
+   "mat": true,
+   "kmp": false,
+   "tsd": [
+    "17",
+    "17"
+   ],
+   "tok_saved_once": 2677,
+   "tok_saved_kirik": 4660,
+   "delta": 1983,
+   "sonraki_istek": 64,
+   "maliyet_w": 196274,
+   "kazanc_w": 16657,
+   "maliyet_usd": 0.8058,
+   "kazanc_usd": 0.0412,
+   "net_w": -179617,
+   "net_usd": -0.7646
+  }
+ ]
+}
