@@ -652,6 +652,10 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
             a["guncellik"] = _guncellik(ctx, a)  # DERİNLİK-1 R1
             if _fark(a) and not a["onceki"]:
                 a.setdefault("durum", "bekliyor")
+            if _fark(a) and (y := _aday_yol(kok, k)).is_file() and (b := f"## Güncellik ({pt.date.today().isoformat()})") not in y.read_text(encoding="utf-8"):
+                ku, _, yeni = a["guncellik"][6:].partition(" · yeni: ")  # DERİNLİK-1 R1b: araştırılmış aday.md sonuna ek; mevcut içerik değişmez
+                with y.open("a", encoding="utf-8", newline="") as f:
+                    f.write(f"\n{b}\n- {ku}\n- yeni skill/komut/ajan: {yeni or 'yok'}\n")
         a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
         if pk := _paket_ici(k, env):
             a["paket_yol"] = pk
