@@ -1,0 +1,161 @@
+{
+ "gruplar": {
+  "etk·ana omer-skills": {
+   "bas": 1790980904.0,
+   "istek": 74,
+   "yetersiz": false,
+   "pay": 0.5175462582332936,
+   "birincil": {
+    "taban": 34012.11958293049,
+    "simdi": 86439.5891891892
+   },
+   "birincil_usd": {
+    "taban": 0.13215086472862864,
+    "simdi": 0.3226942054054054
+   },
+   "agirlikli_istek": {
+    "taban": 34012.11958293049,
+    "simdi": 86439.5891891892
+   },
+   "usd_istek": {
+    "taban": 0.13215086472862864,
+    "simdi": 0.3226942054054054
+   },
+   "cikti_istek": {
+    "taban": 1153.5832067394006,
+    "simdi": 5224.0675675675675
+   },
+   "ilk_istem": {
+    "taban": 89073.11801242236,
+    "simdi": 100654.0
+   }
+  },
+  "etk·ana diğer": {
+   "bas": 1790985229.0,
+   "istek": 0,
+   "yetersiz": true,
+   "pay": 0.14543920825370207,
+   "birincil": {
+    "taban": 52154.72388847023,
+    "simdi": 0
+   },
+   "birincil_usd": {
+    "taban": 0.167631889374529,
+    "simdi": 0
+   },
+   "agirlikli_istek": {
+    "taban": 52154.72388847023,
+    "simdi": 0
+   },
+   "usd_istek": {
+    "taban": 0.167631889374529,
+    "simdi": 0
+   },
+   "cikti_istek": {
+    "taban": 1966.1424265259984,
+    "simdi": 0
+   },
+   "ilk_istem": {
+    "taban": 86956.66666666667,
+    "simdi": 0
+   }
+  },
+  "etk·subagent": {
+   "bas": 1790953214.0,
+   "istek": 439,
+   "yetersiz": false,
+   "pay": 0.12900977899816554,
+   "birincil": {
+    "taban": 18756.841032691726,
+    "simdi": 19212.300911161725
+   },
+   "birincil_usd": {
+    "taban": 0.03751368206538344,
+    "simdi": 0.038424601822323476
+   },
+   "agirlikli_istek": {
+    "taban": 18756.841032691726,
+    "simdi": 19212.300911161725
+   },
+   "usd_istek": {
+    "taban": 0.03751368206538344,
+    "simdi": 0.038424601822323476
+   },
+   "cikti_istek": {
+    "taban": 426.9795294836541,
+    "simdi": 743.7744874715262
+   },
+   "ilk_istem": {
+    "taban": 0,
+    "simdi": 0
+   }
+  },
+  "claude-p": {
+   "bas": 1790954407.0,
+   "istek": 316,
+   "yetersiz": false,
+   "pay": 0.11088513758185632,
+   "birincil": {
+    "taban": 225496.88867521365,
+    "simdi": 315570.2088235294
+   },
+   "birincil_usd": {
+    "taban": 0.613324416666667,
+    "simdi": 1.094175937254902
+   },
+   "agirlikli_istek": {
+    "taban": 53678.81174974567,
+    "simdi": 50930.63496835443
+   },
+   "usd_istek": {
+    "taban": 0.14599991200406925,
+    "simdi": 0.17659168607594936
+   },
+   "cikti_istek": {
+    "taban": 938.4628687690742,
+    "simdi": 1353.882911392405
+   },
+   "ilk_istem": {
+    "taban": 79660.44017094017,
+    "simdi": 85423.74509803922
+   }
+  },
+  "observer": {
+   "bas": 1790958964.0,
+   "istek": 32,
+   "yetersiz": false,
+   "pay": 0.09711961693298242,
+   "birincil": {
+    "taban": 3301125.207142857,
+    "simdi": 1497824.7175154889
+   },
+   "birincil_usd": {
+    "taban": 3.301125207142857,
+    "simdi": 1.4978247175154886
+   },
+   "agirlikli_istek": {
+    "taban": 68671.25245170876,
+    "simdi": 39051.779687500006
+   },
+   "usd_istek": {
+    "taban": 0.06867125245170877,
+    "simdi": 0.039051779687499996
+   },
+   "cikti_istek": {
+    "taban": 1620.0267459138188,
+    "simdi": 2303.875
+   },
+   "ilk_istem": {
+    "taban": 34136.50446428572,
+    "simdi": 25063.9375
+   }
+  }
+ },
+ "olcum": {
+  "oturum": 22,
+  "istek": 99,
+  "agirlikli": 4152859.85
+ },
+ "tasarruf": -0.7921355385670431,
+ "tasarruf_usd": -0.9853277507499631
+}

@@ -613,7 +613,7 @@ def tablo_dokum(d):
     return "\n".join(s)
 
 
-OLCUM = re.compile(r"(?i)^\s*ok\s*$")  # TOKEN-6b K1: ölçüm koşusu ilk istemi (docs/token-6b.md §K1)
+OLCUM = re.compile(r"(?i)^\s*(ok\s*$|yalnız ok yaz|salt-okuma ölçüm görevi|(bu bir )?mekanizma probu|bash aracıyla .echo ok)")  # TOKEN-6b K1: ölçüm koşusu ilk istemi (docs/token-6b.md §K1)
 GRUPLAR = ("etk·ana omer-skills", "etk·ana diğer", "etk·subagent", "claude-p", "observer")
 
 
