@@ -1,0 +1,77 @@
+{
+ "prob": "K1 treatment (holdout=0), istem öneki [6d-K1-T], opus, plan modu, 1 tur",
+ "kontrol_kanit": "kod: output_savings_policy.py:164-172 assign_arm holdout>=1 → control; handlers/anthropic.py shape_request yalnız `if _arm == \"treatment\"`; ampirik kontrol K2 C koşularının log penceresinde",
+ "ad": "k1-T",
+ "kol": "T",
+ "cp_no": 1,
+ "bos_ram_gb": 12.6,
+ "sure_sn": 17,
+ "subtype": "success",
+ "is_error": false,
+ "num_turns": 1,
+ "usd": 0.58448,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 72174,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 354,
+  "output_tokens_details": {
+   "thinking_tokens": 157
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 72174,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "not_available",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 354,
+    "cache_read_input_tokens": 0,
+    "cache_creation_input_tokens": 72174,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 72174
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-opus-5-5": {
+   "inputTokens": 2,
+   "outputTokens": 354,
+   "cacheReadInputTokens": 0,
+   "cacheCreationInputTokens": 72174,
+   "webSearchRequests": 0,
+   "costUSD": 0.58448,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 157,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "sonuc_metni": "Önbellek, sık ya da yakın zamanda kullanılan verinin pahalı kaynaktan (disk, ağ, veritabanı, model hesabı) her seferinde yeniden üretilmemesi için daha hızlı erişilen bir katmanda geçici olarak tutulmasıdır. İstek önce bu katmana bakar; veri oradaysa (isabet) hızlı ve ucuz döner, yoksa (ıska) asıl kaynaktan alınıp çoğunlukla belli bir süre (TTL) için önbelleğe yazılır.",
+ "log": {
+  "istek": {
+   "hr_1791039453_000010": {
+    "model": "claude-opus-5-5",
+    "tok_out": 354,
+    "shaper": "L2/env",
+    "etiket": "['output_shaper:verbosity:L2']"
+   }
+  },
+  "model_shaper_sayim": {
+   "claude-opus-5-5|shaper": 1
+  }
+ }
+}
