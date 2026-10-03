@@ -45,3 +45,25 @@ away metninin kendisi bozmuyor; iki biçimde de bozan, ondan önceki yan istek.
 **Günlük sayımı** (proxy-6768.log*, 10-02 16:23 → 10-03 19:49). frozen=0 + kompress_background/read_maturation + cache_read ≈ yalnız system olan kırılma 29. Dağılım: 600 sn üstü boşluk 7 (4'ünde away var) · yan istek çatalı 9 (3'ünde away var) · diğer 13. "Diğer" grubu sınıflanamadı, çünkü Headroom tam mesaj kaydı tutmuyor.
 
 **Sonuç.** Kök neden Headroom'da: lineage çatal toleransı yok ve tracker TTL'i 600 sn'ye sabit. CC tarafında önceki tur değişmiyor, dolayısıyla DUR koşulu oluşmadı.
+
+## K4 Yama
+
+`tools/headroom_yama.py` kök nedeni düzeltiyor; yedek korumaya (sıcakken ertele) gerek kalmadı.
+- `prefix_tracker.resolve_tracker`: EXACT/APPEND/REWRITE eşleşmesi yoksa ve gelen geçmiş, aynı affinity'deki **tek** bir zincirin son mesajı hariç tamamını aynen içeriyorsa, aynı tracker'a dönülür. `_fork_clamp` frozen'ı çatal noktasına kısar ve `update_from_response`'ta sıfırlanır.
+- `is_expired`: `max(session_ttl_seconds, _cache_ttl_hint)`. `anthropic.py`'de `_cc_ttl`'in hemen ardından `prefix_tracker._cache_ttl_hint = _cc_ttl or 0` damgalanıyor. 5 dk istemcide davranış eskisi gibi 600 sn.
+- Soğuk önek eskisi gibi: TTL üstü boşlukta tracker silinir; önek değişmişse çatal sayılmaz ve taze lineage açılır. İkisinde de frozen 0, kompress_background ve read_maturation tetiklenir.
+- Betik: 0.39.0 dist-info ve iki dosyanın sha16'sı kilitli; farklı sürüm ya da bilinmeyen sha görürse hiçbir dosyaya dokunmadan DUR. Idempotent; `.token6f-yedek` alır; `--durum` ve `--geri-al` var. Yamadan sonra derleme denetimi yapar, kırıksa geri alıp DUR. `cold_prefix.py`'ye dokunulmadı.
+- Kuruluma uygulandı: iki dosya yamalı, runtime venv import ok. Test 20/20: kurulu + yamalı kopyada sıcak 4 + soğuk 3, betik testleri 6.
+- Bilinen tavan: aynı öneki paylaşan paralel kardeş çağrılar ilk ayrışmada bir tracker'ı paylaşır, ikinci turda ayrılır. Bu durum yamasızdan daha fazla kırılma üretmez; ilk ayrışmadaki kırılma ortadan kalkar.
+
+## K5 Kazanç
+
+Sentetik oturumda gerçek `ReadMaturationManager` koşturuldu ve held Read kırılma noktası modellendi. Eski = `.token6f-yedek`, yeni = yamalı. Ayrıntı `olcum/token-6f.json`'da.
+
+| kompress oranı R | dönüşüm kazancı eski → yeni | ağırlıklı girdi eski → yeni |
+|---|---|---|
+| 0.02 | 867 190 → 941 194 (+%8.5) | 1 000 167 → 821 624 (−%17.9) |
+| 0.05 | 896 565 → 961 091 (+%7.2) | 1 000 167 → 821 624 (−%17.9) |
+| 0.10 | 945 518 → 994 238 (+%5.2) | 1 000 167 → 821 624 (−%17.9) |
+
+Kazanç düşmüyor, artıyor. Taze tracker eski kolda ReadMaturationManager durumunu da sıfırlıyordu; yamalı kolda tutulan Read'ler olgunlaşmaya devam ediyor. Düşüş olmadığı için madde 21 tablosu gerekmedi. Kalite etkisi yok: yama içerik dönüşümünü değiştirmiyor, yalnız hangi mesajların donduğunu değiştiriyor.

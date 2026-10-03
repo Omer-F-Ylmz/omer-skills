@@ -1,0 +1,69 @@
+{
+ "yontem": "sentetik oturum 40 ana tur (9 dosya dönüşümlü Read, 9000 krk tool_result), 15. turda recap yan isteği, 28. turda 900 sn boşluk; eski = prefix_tracker.py.token6f-yedek, yeni = yamalı; her turda gerçek ReadMaturationManager.apply(frozen) + held Read kırılma noktası; kompress_background frozen==0 sıcak turda öneki R oranında yeniden yazar (üst sınır modeli); ağırlık okuma 0.1 · 1 sa yazma 2 · girdi 1; token≈krk/4; API 0",
+ "kosular": [
+  {
+   "R": 0.02,
+   "eski": {
+    "kazanc": 867190,
+    "okuma": 566588,
+    "yazma": 177363,
+    "girdi": 588782,
+    "frozen0_sicak": 10,
+    "agirlikli": 1000167
+   },
+   "yeni": {
+    "kazanc": 941194,
+    "okuma": 640973,
+    "yazma": 147555,
+    "girdi": 462417,
+    "frozen0_sicak": 7,
+    "agirlikli": 821624
+   },
+   "kazanc_degisim_%": 8.53,
+   "agirlikli_degisim_%": -17.85
+  },
+  {
+   "R": 0.05,
+   "eski": {
+    "kazanc": 896565,
+    "okuma": 566588,
+    "yazma": 177363,
+    "girdi": 588782,
+    "frozen0_sicak": 10,
+    "agirlikli": 1000167
+   },
+   "yeni": {
+    "kazanc": 961091,
+    "okuma": 640973,
+    "yazma": 147555,
+    "girdi": 462417,
+    "frozen0_sicak": 7,
+    "agirlikli": 821624
+   },
+   "kazanc_degisim_%": 7.2,
+   "agirlikli_degisim_%": -17.85
+  },
+  {
+   "R": 0.1,
+   "eski": {
+    "kazanc": 945518,
+    "okuma": 566588,
+    "yazma": 177363,
+    "girdi": 588782,
+    "frozen0_sicak": 10,
+    "agirlikli": 1000167
+   },
+   "yeni": {
+    "kazanc": 994238,
+    "okuma": 640973,
+    "yazma": 147555,
+    "girdi": 462417,
+    "frozen0_sicak": 7,
+    "agirlikli": 821624
+   },
+   "kazanc_degisim_%": 5.15,
+   "agirlikli_degisim_%": -17.85
+  }
+ ],
+ "not": "frozen0_sicak'ın 7'si iki kolda ortak model artefaktı (ilk 16000 krk mesaj tracker tahminine sığmıyor); fark yalnız recap çatalı (msgs 33/35) + 900 sn boşluk (msgs 59) = eski 3, yeni 0"
+}
