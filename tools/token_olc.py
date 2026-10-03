@@ -4,11 +4,16 @@ Birim: girdi×1 + cache okuma×0.1 + cache yazma (5m×1.25, 1h×2) + çıktı×5
 TOKEN-1b: gerçek $ sütunu (FIYAT) · olcum/motor-usage.jsonl ayrı "motor" kaynak satırı.
 Çıktıda yalnız sayı ve ad bulunur; içerik metni asla yazılmaz.
 
+TOKEN-4a: --arac-dokum araç sonucu dökümü (Read/Bash/headroom_retrieve/tur/arşiv/L14; Headroom katsayısıyla düzeltilmiş katkı).
+
 Kullanım: python tools/token_olc.py olc [--gun 14] [--kok <projects>] [--motor olcum/motor-usage.jsonl] [--cikti olcum/token-0.json]
+          python tools/token_olc.py olc --arac-dokum [--gun 14] [--kok <projects>] [--arsiv .claude/dalga-arsiv] [--cikti olcum/token-4a.json]
 """
 import base64
 import heapq
 import json
+import re
+import statistics
 import struct
 import sys
 import time
@@ -242,6 +247,350 @@ def tablo(r):
     return "\n".join(s)
 
 
+REHBER = re.compile(r"(^|/)(skills|references)/")  # SINIR (Blender dersi): rehber okuması kısıtlanmaz, ayrı sayılır
+ALT_KOMUT = {"git", "gh", "npm", "npx", "uv", "uvx", "dotnet", "graphify", "jev", "docker", "claude", "pip",
+             "gitleaks", "cargo", "video", "winget"}
+DEGISTIREN = {"Edit", "Write", "MultiEdit", "NotebookEdit"}
+KUCUK = 2000  # "küçük" tek Read (token)
+# ponytail: dalga = istemin ilk 300 karakterindeki kimlik (TOKEN-4a, KALAN-7); kimliksiz dalga sınırı görülmez
+DALGA = re.compile(r"\b(?!UTF-|SHA-|ISO-)[A-Z][A-Z0-9]{2,}-\d+[a-z]?(?:-\d+)?\b")
+TUR_KALIP = (re.compile(r"(?i)tur\s*(\d+)\s*/\s*(\d+)"), re.compile(r"(?i)tur tavan\w*\s*\(~?(\d+)\s*>\s*(\d+)\)"))
+SATIR_ARALIK = ((0, 100), (100, 300), (300, 500), (500, 1000), (1000, 2000), (2000, None))
+ESIKLER = (300, 500, 1000, 2000)
+
+
+def aile(komut):
+    """Bash komut ailesi: cd/set/export, VAR= ve rtk önekleri atlanır; ilk kelime + (python -m modül · betik · alt komut)."""
+    for parca in re.split(r"&&|\|\||;|\n", komut or ""):
+        w = parca.split()
+        while w and ("=" in w[0] or w[0] == "rtk"):
+            w.pop(0)
+        if not w or w[0] in ("cd", "set", "export"):
+            continue
+        ilk = Path(w[0].strip("\"'")).name.lower().removesuffix(".exe")
+        if len(w) > 2 and w[1] == "-m":
+            return f"{ilk} -m {w[2]}"
+        if len(w) > 1 and re.search(r"\.(py|ps1|js|sh)$", w[1]):
+            return f"{ilk} {Path(w[1].strip(chr(34) + chr(39))).name}"
+        if len(w) > 1 and ilk in ALT_KOMUT and re.fullmatch(r"[a-z][\w-]*", w[1]):
+            return f"{ilk} {w[1]}"
+        return ilk
+    return "?"
+
+
+def _satir(sonuc, yol):
+    f = sonuc.get("file") if isinstance(sonuc, dict) else None
+    if isinstance(f, dict) and isinstance(f.get("totalLines"), int):
+        return f["totalLines"]
+    try:
+        with open(yol, "rb") as g:
+            return sum(1 for _ in g)
+    except (OSError, ValueError):
+        return None
+
+
+def _sayac():
+    return {"adet": 0, "token": 0, "katki": 0.0, "katki_duz": 0.0}
+
+
+def _say(d, n, kt, kd):
+    d["adet"] += 1
+    d["token"] += n
+    d["katki"] += kt
+    d["katki_duz"] += kd
+
+
+def _liste(d, anahtar):
+    return sorted(({anahtar: a, **v} for a, v in d.items()), key=lambda x: -x["katki_duz"])
+
+
+def dokum(kok, gun=14, simdi=None, arsiv=None):
+    """TOKEN-4a K1 (--arac-dokum): araç sonucu dökümü. Çıktıda yalnız sayı, dosya yolu ve komut ailesi bulunur.
+
+    katkı = n·(w + 0.1·(R−1)) — n sonuç token'ı (karakter/4), R sonucu taşıyan istek sayısı (compact sınırına dek),
+    w yazma katsayısı (oturumda 1h baskınsa 2, değilse 1.25). Düzeltilmiş = katkı·k, k = Σ(ctx − taban) / Σ transcript
+    büyümesi (oturum başına): transcript Headroom öncesi boyutu, usage sonrasını tutar.
+    """
+    sinir = (simdi or time.time()) - gun * 86400
+    kok = Path(kok)
+    toplam, gorulen, dosya, katsayilar = 0.0, set(), 0, []
+    oku = {**_sayac(), "aralikli": 0, "rehber": 0}
+    uzanti, rv_oku = defaultdict(_sayac), defaultdict(_sayac)
+    limitsiz, aralik_n = [], []  # limitsiz: (yol, satır, n, katkı, düz) — rehber dışı, aralıksız Read
+    tekrar = defaultdict(lambda: {**_sayac(), "degismeden": 0, "degismeden_katki": 0.0, "degismeden_duz": 0.0})
+    bash = defaultdict(lambda: {**_sayac(), "n": [], "rtk": 0, "rtksiz": 0.0, "rtksiz_duz": 0.0, "pipe": 0, "tail": 0})
+    rv = {"adet": 0, "onceki": defaultdict(int), "sn": [], "tur": []}
+    tur = {"istek": 0, "aracli": 0, "paralel": 0, "arac_sayisi": defaultdict(int)}
+    dizi_t = {"dizi": 0, "istek": 0, "kazanc": 0, "kazanc_agirlikli": 0.0}
+    uzun = {"oturum": 0, "tek_dalga": 0, "cok_dalga": 0, "bolme_tasarruf": 0.0}
+    for yol in sorted(kok.rglob("*.jsonl")) if kok.is_dir() else []:
+        if yol.stat().st_mtime < sinir:
+            continue
+        dosya += 1
+        istek, mid_idx, araclar, sonuc, rtkler, dalgalar = [], {}, [], {}, set(), []
+        buyume, sg, dalga, m5, h1 = 0.0, 0, None, 0, 0
+        with yol.open(encoding="utf-8", errors="replace") as f:
+            for s in f:
+                try:
+                    o = json.loads(s)
+                except ValueError:
+                    continue
+                if not isinstance(o, dict):
+                    continue
+                ts = zaman(o.get("timestamp"))
+                if ts is not None and ts < sinir:
+                    continue
+                m = o.get("message") if isinstance(o.get("message"), dict) else {}
+                icerik = [b for b in m["content"] if isinstance(b, dict)] if isinstance(m.get("content"), list) else []
+                tip = o.get("type")
+                if tip == "assistant":
+                    mid = m.get("id")
+                    if mid not in mid_idx:
+                        u = m.get("usage") if isinstance(m.get("usage"), dict) else {}
+                        p, a = parcala(u), agirlikli(u)
+                        m5, h1 = m5 + p["cache_5m"], h1 + p["cache_1h"]
+                        if mid not in gorulen:
+                            gorulen.add(mid)
+                            toplam += a
+                        mid_idx[mid] = len(istek)
+                        istek.append({"ctx": p["girdi"] + p["cache_okuma"] + p["cache_5m"] + p["cache_1h"], "ts": ts,
+                                      "sg": sg, "tahmin": buyume, "a": a, "arac": []})
+                    i = mid_idx[mid]
+                    for b in icerik:
+                        if b.get("type") == "tool_use":
+                            g = b.get("input") if isinstance(b.get("input"), dict) else {}
+                            istek[i]["arac"].append(b.get("id"))
+                            araclar.append((b.get("id"), b.get("name") or "?", g, i))
+                            buyume += len(json.dumps(g, ensure_ascii=False)) / 4
+                        elif b.get("type") == "text":
+                            buyume += len(b.get("text") or "") / 4
+                elif tip == "user":
+                    c = m.get("content")
+                    metin = c if isinstance(c, str) else "".join(b.get("text") or "" for b in icerik if b.get("type") == "text")
+                    buyume += len(metin) / 4
+                    sonuclar = [b for b in icerik if b.get("type") == "tool_result"]
+                    if metin and not sonuclar and not o.get("isMeta"):
+                        mm = DALGA.search(metin[:300])
+                        if mm and mm.group() != dalga:
+                            dalga = mm.group()
+                            dalgalar.append(len(istek))
+                    for b in sonuclar:
+                        c = b.get("content")
+                        parcalar = c if isinstance(c, list) else [{"type": "text", "text": c or ""}]
+                        n = round(sum(len(x.get("text") or "") for x in parcalar
+                                      if isinstance(x, dict) and x.get("type") == "text") / 4)
+                        buyume += n
+                        sonuc[b.get("tool_use_id")] = (n, len(istek), sg,
+                                                       o.get("toolUseResult") if len(sonuclar) == 1 else None)
+                elif tip == "attachment":
+                    ek = o.get("attachment") if isinstance(o.get("attachment"), dict) else {}
+                    if ek.get("hookEvent") == "PreToolUse" and "Bash" in str(ek.get("hookName")):
+                        try:
+                            komut = json.loads(ek.get("stdout") or "{}")["hookSpecificOutput"]["updatedInput"]["command"]
+                        except (ValueError, KeyError, TypeError):
+                            komut = ""
+                        if "rtk " in str(komut):
+                            rtkler.add(ek.get("toolUseID"))
+                elif tip == "system" and o.get("subtype") == "compact_boundary":
+                    sg, buyume = sg + 1, 0.0
+        if not istek:
+            continue
+        w = AGIRLIK["cache_1h"] if h1 > m5 else AGIRLIK["cache_5m"]
+        taban, son_idx, pay, payda = {}, {}, 0.0, 0.0
+        for i, q in enumerate(istek):
+            tb = taban.setdefault(q["sg"], (q["ctx"], q["tahmin"]))
+            son_idx[q["sg"]] = i
+            if q["tahmin"] > tb[1]:
+                pay += max(0, q["ctx"] - tb[0])
+                payda += q["tahmin"] - tb[1]
+        # ponytail: ek (attachment) ve thinking büyümeye girmez → k yukarı yanlı (Headroom kesintisi eksik görünür)
+        k = pay / payda if payda else 1.0
+        katsayilar.append((k, pay, payda))
+
+        def katki(n, i, sg):
+            r_ = son_idx.get(sg, -1) - i + 1
+            return n * (w + AGIRLIK["cache_okuma"] * (r_ - 1)) if r_ > 0 else 0.0
+
+        okunan, degisen, onceki, tetik = {}, set(), None, set()
+        for tid, ad, g, i in araclar:
+            n, si, ssg, tsonuc = sonuc.get(tid, (0, None, 0, None))
+            kt = katki(n, si, ssg) if si is not None else 0.0
+            kd = kt * k
+            if ad == "Read":
+                ham = str(g.get("file_path") or "")
+                anah = ham.replace("\\", "/")
+                aralik = any(x in g for x in ("offset", "limit", "pages"))
+                rehber = bool(REHBER.search(anah.lower()))
+                _say(oku, n, kt, kd)
+                oku["aralikli"] += aralik
+                oku["rehber"] += rehber
+                _say(uzanti[Path(anah).suffix.lower() or "-"], n, kt, kd)
+                if not rehber:
+                    if aralik:
+                        aralik_n.append(n)
+                    else:
+                        limitsiz.append((anah, _satir(tsonuc, ham), n, kt, kd))
+                ar = (g.get("offset"), g.get("limit"), g.get("pages"))
+                if anah in okunan:
+                    x = tekrar[anah]
+                    _say(x, n, kt, kd)
+                    if okunan[anah] == ar and anah not in degisen:
+                        x["degismeden"] += 1
+                        x["degismeden_katki"] += kt
+                        x["degismeden_duz"] += kd
+                okunan[anah] = ar
+                degisen.discard(anah)
+            elif ad == "Bash":
+                kom = str(g.get("command") or "")
+                x = bash[aile(kom)]
+                _say(x, n, kt, kd)
+                x["n"].append(n)
+                rt = tid in rtkler or kom.lstrip().startswith("rtk ")
+                x["rtk"] += rt
+                if not rt:
+                    x["rtksiz"] += kt
+                    x["rtksiz_duz"] += kd
+                x["pipe"] += bool(re.search(r"(?<!\|)\|(?!\|)", kom))
+                x["tail"] += bool(re.search(r"\|\s*(tail|head)\b", kom))
+            elif ad in DEGISTIREN:
+                degisen.add(str(g.get("file_path") or g.get("notebook_path") or "").replace("\\", "/"))
+            if ad.endswith("headroom_retrieve"):
+                rv["adet"] += 1
+                if onceki:
+                    o_ad, o_i, o_tid, o_kayit = onceki
+                    rv["onceki"][o_ad] += 1
+                    rv["tur"].append(i - o_i)
+                    if None not in (istek[i]["ts"], istek[o_i]["ts"]):
+                        rv["sn"].append(istek[i]["ts"] - istek[o_i]["ts"])
+                    if o_kayit and o_tid not in tetik:
+                        tetik.add(o_tid)
+                        _say(rv_oku[o_kayit[0]], *o_kayit[1:])
+            else:
+                onceki = (ad, i, tid, (anah, n, kt, kd) if ad == "Read" else None)
+        adlar = {x[0]: x[1] for x in araclar}
+        dizi = 0
+        for j, q in enumerate(istek + [None]):
+            if q is not None:
+                tur["istek"] += 1
+                tur["aracli"] += bool(q["arac"])
+                tur["paralel"] += len(q["arac"]) > 1
+                tur["arac_sayisi"][str(len(q["arac"]))] += 1
+                if (len(q["arac"]) == 1 and adlar.get(q["arac"][0]) == "Read"
+                        and sonuc.get(q["arac"][0], (KUCUK,))[0] < KUCUK):
+                    dizi += 1
+                    continue
+            if dizi >= 2:
+                dizi_t["dizi"] += 1
+                dizi_t["istek"] += dizi
+                dizi_t["kazanc"] += dizi - 1
+                dizi_t["kazanc_agirlikli"] += sum(x["a"] for x in istek[j - dizi + 1:j])
+            dizi = 0
+        if "subagents" not in yol.parts and max(q["ctx"] for q in istek) > 200_000:
+            uzun["oturum"] += 1
+            uzun["tek_dalga" if len(dalgalar) <= 1 else "cok_dalga"] += 1
+            for j, bas in enumerate(dalgalar[1:], 1):
+                bit = dalgalar[j + 1] if j + 1 < len(dalgalar) else len(istek)
+                if bas < len(istek):
+                    uzun["bolme_tasarruf"] += (AGIRLIK["cache_okuma"] * max(0, istek[bas]["ctx"] - istek[0]["ctx"])
+                                               * (bit - bas))
+    ars = []
+    for f in sorted(Path(arsiv).glob("*.md")) if arsiv and Path(arsiv).is_dir() else []:
+        metin = f.read_bytes().decode("utf-8", "replace")
+        for kalip in TUR_KALIP:
+            ars += [{"dosya": f.name, "gercek": int(a), "tavan": int(b), "oran": round(int(a) / int(b), 2) if int(b) else None}
+                    for a, b in kalip.findall(metin)]
+    lb = defaultdict(lambda: {**_sayac(), "satir": 0})
+    for anah, satir, n, kt, kd in limitsiz:
+        if satir and satir > 300:
+            _say(lb[anah], n, kt, kd)
+            lb[anah]["satir"] = satir
+    dag = {}
+    for alt, ust in SATIR_ARALIK:
+        sec = [x for x in limitsiz if x[1] is not None and x[1] > alt and (ust is None or x[1] <= ust)]
+        dag[f">{alt}" if ust is None else f"{alt + 1}-{ust}"] = {
+            "adet": len(sec), "katki": sum(x[3] for x in sec), "katki_duz": sum(x[4] for x in sec)}
+    m_ar = statistics.median(aralik_n) if aralik_n else 0
+    esik = []
+    for e in ESIKLER:
+        sec = [x for x in limitsiz if x[1] is not None and x[1] > e]
+        kes = [max(0.0, 1 - m_ar / x[2]) if x[2] else 0.0 for x in sec]  # ret → aralıklı medyan boyunda yeniden okuma
+        esik.append({"esik": e, "adet": len(sec), "katki": sum(x[3] for x in sec), "katki_duz": sum(x[4] for x in sec),
+                     "tasarruf": sum(x[3] * c for x, c in zip(sec, kes)),
+                     "tasarruf_duz": sum(x[4] * c for x, c in zip(sec, kes))})
+    bl = sorted(({"aile": a, **{c: v[c] for c in v if c != "n"}, "medyan": statistics.median(v["n"])}
+                 for a, v in bash.items()), key=lambda x: -x["token"])
+    tekrar_l, lb_l, rv_l = _liste(tekrar, "dosya"), _liste(lb, "dosya"), _liste(rv_oku, "dosya")
+
+    def oz(kat, x, ad):
+        return {"kategori": kat, "anahtar": x[ad], **{c: x[c] for c in ("adet", "token", "katki", "katki_duz")}}
+    kaynaklar = sorted([oz("limitsiz>300", x, "dosya") for x in lb_l] + [oz("bash", x, "aile") for x in bl]
+                       + [oz("tekrar", x, "dosya") for x in tekrar_l] + [oz("retrieve-read", x, "dosya") for x in rv_l],
+                       key=lambda x: -x["katki_duz"])[:10]
+    for x in kaynaklar:
+        x["pay"] = 100 * x["katki_duz"] / (toplam or 1)
+    ks = [x[0] for x in katsayilar]
+    py, pd = sum(x[1] for x in katsayilar), sum(x[2] for x in katsayilar)
+    b5 = bl[:5]
+    return {
+        "pencere_gun": gun, "dosya": dosya, "toplam_agirlikli": toplam,
+        "katsayi": {"oturum": len(ks), "medyan": statistics.median(ks) if ks else 1.0, "genel": py / pd if pd else 1.0},
+        "read": {**oku, "uzanti": dict(uzanti), "aralikli_medyan_token": m_ar, "satir_dagilim": dag, "esik": esik},
+        "limitsiz_buyuk": lb_l, "tekrar": tekrar_l, "bash": bl,
+        "retrieve": {"adet": rv["adet"], "onceki": dict(rv["onceki"]),
+                     "sn_medyan": statistics.median(rv["sn"]) if rv["sn"] else None,
+                     "tur_medyan": statistics.median(rv["tur"]) if rv["tur"] else None, "read_dosyalar": rv_l},
+        "tur": {**tur, "arac_sayisi": dict(tur["arac_sayisi"]), "kucuk_read_dizisi": dizi_t},
+        "arsiv": ars, "uzun": uzun, "kaynaklar": kaynaklar,
+        "kaldirac_gunluk": {
+            "L8a": [{"esik": e["esik"], "ham": e["tasarruf"] / gun, "duz": e["tasarruf_duz"] / gun} for e in esik],
+            "L8b_ust": {"ham": sum(x["rtksiz"] for x in b5) / gun, "duz": sum(x["rtksiz_duz"] for x in b5) / gun},
+            "L8c": {"ham": sum(x["degismeden_katki"] for x in tekrar_l) / gun,
+                    "duz": sum(x["degismeden_duz"] for x in tekrar_l) / gun},
+            "L7": {"istek": dizi_t["kazanc"] / gun, "agirlikli": dizi_t["kazanc_agirlikli"] / gun},
+            "L14": {"agirlikli": uzun["bolme_tasarruf"] / gun}}}
+
+
+def tablo_dokum(d):
+    def mb(x):
+        return f"{x / 1e6:.3f}"
+    k, r, u, rv, z, kal = d["katsayi"], d["read"], d["tur"], d["retrieve"], d["uzun"], d["kaldirac_gunluk"]
+    kd = u["kucuk_read_dizisi"]
+    s = [f"{d['pencere_gun']} gün · {d['dosya']} dosya · toplam ağırlıklı {mb(d['toplam_agirlikli'])} M · Headroom k"
+         f" medyan {k['medyan']:.2f} · genel {k['genel']:.2f} ({k['oturum']} oturum) · katkı ham → düz (×k)",
+         "", "en büyük 10 kaynak | kategori | adet | token | ham M | düz M | pay %"]
+    s += [f"{x['anahtar']} | {x['kategori']} | {x['adet']} | {x['token']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
+          f" | {x['pay']:.2f}" for x in d["kaynaklar"]]
+    s += ["", f"Read {r['adet']} · aralıklı {r['aralikli']} · rehber {r['rehber']} · {r['token']} tok · ham {mb(r['katki'])}"
+              f" → düz {mb(r['katki_duz'])} M · aralıklı medyan {r['aralikli_medyan_token']} tok",
+          "limitsiz satır dağılımı (rehber dışı) | adet | ham M | düz M"]
+    s += [f"{a} | {v['adet']} | {mb(v['katki'])} | {mb(v['katki_duz'])}" for a, v in r["satir_dagilim"].items()]
+    s += ["", "limitsiz >300 satır (ilk 10) | adet | satır | ham M | düz M"]
+    s += [f"{x['dosya']} | {x['adet']} | {x['satir']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
+          for x in d["limitsiz_buyuk"][:10]]
+    s += ["", "Bash ailesi (ilk 5, çıktı) | adet | token | medyan | rtk | pipe | tail | ham M | düz M"]
+    s += [f"{x['aile']} | {x['adet']} | {x['token']} | {x['medyan']:.0f} | {x['rtk']} | {x['pipe']} | {x['tail']}"
+          f" | {mb(x['katki'])} | {mb(x['katki_duz'])}" for x in d["bash"][:5]]
+    s += ["", "tekrar okuma (ilk 10) | tekrar | değişmeden | ham M | düz M"]
+    s += [f"{x['dosya']} | {x['adet']} | {x['degismeden']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
+          for x in d["tekrar"][:10]]
+    s += ["", f"headroom_retrieve {rv['adet']} · önceki araç {rv['onceki']} · sn medyan {rv['sn_medyan']} · tur medyan"
+              f" {rv['tur_medyan']}", "tetikleyen Read (ilk 10) | adet | token | ham M | düz M"]
+    s += [f"{x['dosya']} | {x['adet']} | {x['token']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
+          for x in rv["read_dosyalar"][:10]]
+    s += ["", f"tur: {u['istek']} istek · araçlı {u['aracli']} · paralel {u['paralel']}"
+              f" (%{100 * u['paralel'] / (u['aracli'] or 1):.1f}) · araç sayısı {u['arac_sayisi']} · küçük Read dizisi"
+              f" {kd['dizi']} ({kd['istek']} istek, kazanç {kd['kazanc']} istek = {mb(kd['kazanc_agirlikli'])} M)",
+          "arşiv | gerçek/tavan | oran"]
+    s += [f"{x['dosya']} | {x['gercek']}/{x['tavan']} | {x['oran']}" for x in d["arsiv"]]
+    s += ["", f">200k oturum {z['oturum']} · tek dalga {z['tek_dalga']} · çok dalga {z['cok_dalga']} · dalga bölme"
+              f" tasarrufu {mb(z['bolme_tasarruf'])} M", "", "kaldıraç günlük | ham M | düz M | Headroom örtüşmesi M"]
+    s += [f"L8a eşik >{e['esik']} satır | {mb(e['ham'])} | {mb(e['duz'])} | {mb(e['ham'] - e['duz'])}" for e in kal["L8a"]]
+    s += [f"{a} | {mb(kal[a]['ham'])} | {mb(kal[a]['duz'])} | {mb(kal[a]['ham'] - kal[a]['duz'])}" for a in ("L8b_ust", "L8c")]
+    s += [f"L7 küçük Read birleştirme | usage {mb(kal['L7']['agirlikli'])} | {kal['L7']['istek']:.1f} istek/gün",
+          f"L14 dalga bölme | usage {mb(kal['L14']['agirlikli'])}"]
+    return "\n".join(s)
+
+
 def main(a):
     if not a or a[0] != "olc":
         print(__doc__)
@@ -250,14 +599,17 @@ def main(a):
     def deger(ad, vars):
         return a[a.index(ad) + 1] if ad in a else vars
 
-    r = tara(deger("--kok", Path.home() / ".claude" / "projects"), int(deger("--gun", 14)),
-             motor=deger("--motor", Path(__file__).resolve().parents[1] / "olcum" / "motor-usage.jsonl"))
+    kok, gun, repo = deger("--kok", Path.home() / ".claude" / "projects"), int(deger("--gun", 14)), Path(__file__).resolve().parents[1]
+    if "--arac-dokum" in a:
+        r, yazi = dokum(kok, gun, arsiv=deger("--arsiv", repo / ".claude" / "dalga-arsiv")), tablo_dokum
+    else:
+        r, yazi = tara(kok, gun, motor=deger("--motor", repo / "olcum" / "motor-usage.jsonl")), tablo
     cikti = deger("--cikti", None)
     if cikti:
         Path(cikti).parent.mkdir(parents=True, exist_ok=True)
         Path(cikti).write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
     sys.stdout.reconfigure(encoding="utf-8")
-    print(tablo(r))
+    print(yazi(r))
     return 0
 
 
