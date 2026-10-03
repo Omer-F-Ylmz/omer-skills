@@ -19,6 +19,44 @@ def test_r2_servis_repolu_arastirilir(tmp_path):
     assert json.loads((p / "durum.json").read_text(encoding="utf-8"))["adaylar"]["harness-audit"]["durum"] == "tamam"
 
 
+def _gh(bulunan=None):
+    def gh(args):
+        q = next(x[2:] for x in args if x.startswith("q="))
+        gh.sorgular.append(q)
+        return {"items": [{"name": "ajan-x", "full_name": "Ornek/Ajan-X"}] if q == bulunan else [{"name": "baska", "full_name": "z/baska"}]}
+    gh.sorgular = []
+    return gh
+
+
+def _uyku():
+    def u(s):
+        u.n.append(s)
+    u.n = []
+    return u
+
+
+# R3 repo yok → GitHub araması (en fazla 3 sorgu, aralarında ≥2 sn); bulunursa repo araştırmaya girer
+def test_r3_repo_bulunur(tmp_path):
+    p = _parti(tmp_path, PID, {V[0]: _rapor(V[0], [("ajan-x", "servis", None)])})
+    ar, gh, u = Ar({}), _gh("ajan-x claude"), _uyku()
+    pt.parti(_ns("akil", p.name), {**_ctx(tmp_path, ar), "gh": gh, "uyku": u})
+    a = json.loads((p / "durum.json").read_text(encoding="utf-8"))["adaylar"]["ajan-x"]
+    assert (a["repo"], a["repo_arama"]) == ("ornek/ajan-x", "bulundu: ornek/ajan-x")
+    assert gh.sorgular == ["ajan-x", "ajan-x claude"] and u.n == [2] and "ajan-x" in ar.adlar
+
+
+def test_r3_bulunamadi_ve_gh_yok(tmp_path):
+    p = _parti(tmp_path, PID, {V[0]: _rapor(V[0], [("ajan-x", "servis", None)])})
+    gh, u = _gh(), _uyku()
+    pt.parti(_ns("akil", p.name), {**_ctx(tmp_path, Ar({})), "gh": gh, "uyku": u})
+    _, t = _panel(tmp_path, PID)
+    assert len(gh.sorgular) == 3 and u.n == [2, 2]
+    assert "## Repo araması" in t and f"- ajan-x: arandı, bulunamadı ({'; '.join(gh.sorgular)})" in t
+    p2 = _parti(tmp_path / "b", PID, {V[0]: _rapor(V[0], [("ajan-y", "servis", None)])})
+    pt.parti(_ns("akil", p2.name), _ctx(tmp_path / "b", Ar({})))
+    assert "- ajan-y: arama koşmadı (gh bağlamı yok)" in _panel(tmp_path / "b", PID)[1]
+
+
 # R2 paket içi parça kurulu paketteki karşılığıyla eşleşir; dosya yolu panelde
 def test_r2_paket_ici_eslesir(tmp_path):
     evi = tmp_path / "evi"
