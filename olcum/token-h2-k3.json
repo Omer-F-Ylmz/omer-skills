@@ -1,0 +1,590 @@
+{
+ "saat_dilimi": {
+  "n": 7248,
+  "yerel_minus_hr_epoch_minus_total_ms_p50_sn": 0.57,
+  "yorum": "≈0 → log yerel saat damgası time.mktime ile epoch'a doğru çevrildi (makine +03)",
+  "log_kapsam": [
+   "2026-10-01 04:03:23",
+   "2026-10-03 18:58:05"
+  ]
+ },
+ "tolerans_sn": 2,
+ "eslesen": 19,
+ "log_penceresinde": 19,
+ "transforms_kirik": {
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tests\\test_blender_uretim.py": 1,
+  "router:protected:system_message*13": 2,
+  "router:tool_result:mixed": 2,
+  "router:tool_result:text*5": 1,
+  "router:bash:lossless_search": 2,
+  "router:excluded:ccr_retrieve*4": 2,
+  "router:protected:error_output*2": 4,
+  "deferred:kompress_background": 9,
+  "read_maturation:1": 10,
+  "anthropic:tool_schema_compaction": 19,
+  "router:tool_search_deferral:15tools:19849tok": 1,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\gorsel_uret.py": 1,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tests\\test_gorsel_uret.py": 1,
+  "router:protected:system_message*24": 1,
+  "router:protected:user_message*2": 1,
+  "router:tool_result:text": 9,
+  "router:tool_result:tabular": 4,
+  "router:tool_result:lossless_log": 2,
+  "router:tool_result:lossless_search": 2,
+  "router:tool_search_deferral:15tools:18313tok": 1,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\.claude\\dalga.md": 1,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\gorsel_uret.py*3": 1,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tests\\test_gorsel_uret.py*2": 1,
+  "router:protected:system_message*19": 1,
+  "router:tool_search_deferral:12tools:18600tok": 1,
+  "router:tool_result:text*2": 4,
+  "router:protected:system_message*6": 1,
+  "router:protected:system_message": 3,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\video\\tests\\test_girdi.py": 2,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\video\\tests\\test_kur.py": 2,
+  "router:protected:system_message*29": 1,
+  "router:tool_result:lossless_search*2": 2,
+  "router:protected:error_output*3": 1,
+  "router:excluded:tool*5": 2,
+  "router:protected:system_message*52": 1,
+  "router:protected:error_output*4": 1,
+  "router:noop": 1,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\token_olc.py*2": 1,
+  "router:protected:system_message*7": 1,
+  "router:protected:user_message": 1,
+  "router:excluded:tool*6": 1,
+  "router:protected:error_output": 5,
+  "read_lifecycle:stale:C:\\Projeler\\omer-skills\\profiller\\proje-profilleri.json": 1,
+  "router:protected:system_message*5": 1,
+  "router:excluded:tool*2": 1,
+  "router:tool_result:search": 1,
+  "read_lifecycle:stale:C:\\Users\\pc\\Desktop\\Kendi": 5,
+  "oyun": 5,
+  "modlarim\\scripts\\vucut2_yap.py*2": 2,
+  "router:protected:system_message*58": 1,
+  "router:tool_result:text*3": 1,
+  "router:excluded:ccr_retrieve*7": 1,
+  "router:tool_search_deferral:16tools:18716tok": 1,
+  "router:protected:system_message*21": 2,
+  "router:tool_search_deferral:12tools:16850tok": 1,
+  "modlarim\\.claude\\dalga.md*4": 1,
+  "modlarim\\scripts\\vucut2_yap.py*13": 1,
+  "router:protected:system_message*50": 1,
+  "router:tool_search_deferral:15tools:20114tok": 1,
+  "router:protected:system_message*22": 1,
+  "router:excluded:ccr_retrieve*6": 2,
+  "router:tool_search_deferral:15tools:18359tok": 2,
+  "read_maturation:2": 1,
+  "modlarim\\.claude\\dalga.md": 1,
+  "router:protected:system_message*90": 1,
+  "router:excluded:ccr_retrieve*10": 1,
+  "router:cross_turn_dedup:1": 1,
+  "router:tool_search_deferral:16tools:20234tok": 1,
+  "router:excluded:ccr_retrieve": 1,
+  "router:tool_search_deferral:17tools:18921tok": 1
+ },
+ "transforms_taban": {
+  "anthropic:tool_schema_compaction": 4381,
+  "router:noop": 3293,
+  "router:protected:error_output": 1015,
+  "router:tool_result:text": 815,
+  "router:tool_result:mixed": 589,
+  "router:cross_turn_dedup:1": 494,
+  "router:protected:user_message": 393,
+  "router:protected:system_message": 385,
+  "router:protected:system_message*2": 375,
+  "router:excluded:tool": 371,
+  "read_lifecycle:stale:C:\\Users\\pc\\Desktop\\Kendi": 354,
+  "oyun": 354,
+  "deferred:kompress_background": 348,
+  "router:tool_result:tabular": 336,
+  "router:tool_result:text*2": 327
+ },
+ "inflated": {
+  "kirik": 0,
+  "taban": 46,
+  "taban_n": 7248
+ },
+ "kirilmalar": [
+  {
+   "ln": 275,
+   "rid": null,
+   "ts_utc": "2026-10-01T17:59:59Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -8.19,
+   "perf": {
+    "msgs": "41",
+    "tok_before": "143067",
+    "tok_after": "136673",
+    "tok_saved": "6394",
+    "tok_inflated": "0",
+    "cache_read": "7537",
+    "cache_write": "161422",
+    "cache_hit_pct": "4",
+    "transforms": "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tests\\test_blender_uretim.py router:protected:system_message*13 router:tool_result:mixed router:tool_result:text*5 router:bash:lossless_search router:excluded:ccr_retrieve*4 router:protected:error_output*2 deferred:kompress_background read_maturation:1 anthropic:tool_schema_compaction router:tool_search_deferral:15tools:19849tok"
+   }
+  },
+  {
+   "ln": 447,
+   "rid": null,
+   "ts_utc": "2026-10-01T17:08:25Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -27.65,
+   "perf": {
+    "msgs": "76",
+    "tok_before": "182079",
+    "tok_after": "176715",
+    "tok_saved": "5364",
+    "tok_inflated": "0",
+    "cache_read": "7537",
+    "cache_write": "188158",
+    "cache_hit_pct": "4",
+    "transforms": "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\gorsel_uret.py read_lifecycle:stale:C:\\Projeler\\omer-skills\\tests\\test_gorsel_uret.py router:protected:system_message*24 router:tool_result:mixed router:protected:user_message*2 router:tool_result:text router:tool_result:tabular router:tool_result:lossless_log router:tool_result:lossless_search router:protected:error_output*2 deferred:kompress_background read_maturation:1 anthropic:tool_schema_compaction router:tool_search_deferral:15tools:18313tok"
+   }
+  },
+  {
+   "ln": 252,
+   "rid": null,
+   "ts_utc": "2026-10-01T10:42:46Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -16.76,
+   "perf": {
+    "msgs": "59",
+    "tok_before": "96481",
+    "tok_after": "90108",
+    "tok_saved": "6373",
+    "tok_inflated": "0",
+    "cache_read": "7537",
+    "cache_write": "105644",
+    "cache_hit_pct": "7",
+    "transforms": "read_lifecycle:stale:C:\\Projeler\\omer-skills\\.claude\\dalga.md read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\gorsel_uret.py*3 read_lifecycle:stale:C:\\Projeler\\omer-skills\\tests\\test_gorsel_uret.py*2 router:protected:system_message*19 router:tool_result:lossless_search router:protected:error_output*2 router:tool_result:text router:tool_result:tabular deferred:kompress_background anthropic:tool_schema_compaction router:tool_search_deferral:12tools:18600tok"
+   }
+  },
+  {
+   "ln": 131,
+   "rid": null,
+   "ts_utc": "2026-10-02T14:51:36Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -6.96,
+   "perf": {
+    "msgs": "23",
+    "tok_before": "97714",
+    "tok_after": "95069",
+    "tok_saved": "2645",
+    "tok_inflated": "0",
+    "cache_read": "30926",
+    "cache_write": "116820",
+    "cache_hit_pct": "21",
+    "transforms": "router:tool_result:text*2 router:protected:system_message*6 router:bash:lossless_search read_maturation:1 anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 62,
+   "rid": "req_011Cfe6BoT8LhqPsJGBrgjBU",
+   "ts_utc": "2026-10-02T21:05:27Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -4.29,
+   "perf": {
+    "msgs": "8",
+    "tok_before": "64000",
+    "tok_after": "63036",
+    "tok_saved": "964",
+    "tok_inflated": "0",
+    "cache_read": "0",
+    "cache_write": "100022",
+    "cache_hit_pct": "0",
+    "transforms": "router:protected:system_message router:tool_result:text anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 371,
+   "rid": null,
+   "ts_utc": "2026-10-02T15:22:19Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -8.19,
+   "perf": {
+    "msgs": "89",
+    "tok_before": "117408",
+    "tok_after": "115372",
+    "tok_saved": "2036",
+    "tok_inflated": "0",
+    "cache_read": "30926",
+    "cache_write": "128170",
+    "cache_hit_pct": "19",
+    "transforms": "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\video\\tests\\test_girdi.py read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\video\\tests\\test_kur.py router:protected:system_message*29 router:tool_result:text*2 router:tool_result:lossless_search*2 router:protected:error_output*3 router:excluded:tool*5 deferred:kompress_background anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 562,
+   "rid": "req_011CfdeNFX2gyLCfj8yot9ju",
+   "ts_utc": "2026-10-02T15:26:52Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.01,
+   "dt_sn_istek_basi": -4.35,
+   "perf": {
+    "msgs": "158",
+    "tok_before": "149459",
+    "tok_after": "146042",
+    "tok_saved": "3417",
+    "tok_inflated": "0",
+    "cache_read": "30926",
+    "cache_write": "165564",
+    "cache_hit_pct": "16",
+    "transforms": "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\video\\tests\\test_girdi.py read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\video\\tests\\test_kur.py router:protected:system_message*52 router:tool_result:text*2 router:tool_result:lossless_search*2 router:protected:error_output*4 router:excluded:tool*5 deferred:kompress_background read_maturation:1 anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 214,
+   "rid": "req_011Cfdy7VN1uyZkudk6TSkbP",
+   "ts_utc": "2026-10-02T19:32:49Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": 2.01,
+   "dt_sn_istek_basi": -12.62,
+   "perf": {
+    "msgs": "56",
+    "tok_before": "72903",
+    "tok_after": "72076",
+    "tok_saved": "827",
+    "tok_inflated": "0",
+    "cache_read": "30754",
+    "cache_write": "79407",
+    "cache_hit_pct": "28",
+    "transforms": "router:noop anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 230,
+   "rid": "req_011CfeMb2LQZCr4MUgFsfnEt",
+   "ts_utc": "2026-10-03T00:27:23Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.01,
+   "dt_sn_istek_basi": -3.34,
+   "perf": {
+    "msgs": "28",
+    "tok_before": "155327",
+    "tok_after": "145187",
+    "tok_saved": "10140",
+    "tok_inflated": "0",
+    "cache_read": "0",
+    "cache_write": "120134",
+    "cache_hit_pct": "0",
+    "transforms": "read_lifecycle:stale:C:\\Projeler\\omer-skills\\tools\\token_olc.py*2 router:protected:system_message*7 router:protected:user_message router:excluded:tool*6 router:protected:error_output router:tool_result:lossless_log read_maturation:1 anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 138,
+   "rid": "req_011CfeA7Hg5qAzGKVi3oar3A",
+   "ts_utc": "2026-10-02T21:56:54Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.01,
+   "dt_sn_istek_basi": -5.51,
+   "perf": {
+    "msgs": "29",
+    "tok_before": "69441",
+    "tok_after": "67835",
+    "tok_saved": "1606",
+    "tok_inflated": "0",
+    "cache_read": "0",
+    "cache_write": "104522",
+    "cache_hit_pct": "0",
+    "transforms": "read_lifecycle:stale:C:\\Projeler\\omer-skills\\profiller\\proje-profilleri.json router:protected:system_message*5 router:protected:error_output router:excluded:tool*2 read_maturation:1 anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 80,
+   "rid": "req_011CffGGVQyRWM6VmTnUWiXX",
+   "ts_utc": "2026-10-03T11:58:15Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.01,
+   "dt_sn_istek_basi": -5.38,
+   "perf": {
+    "msgs": "8",
+    "tok_before": "74760",
+    "tok_after": "73871",
+    "tok_saved": "889",
+    "tok_inflated": "0",
+    "cache_read": "30884",
+    "cache_write": "74719",
+    "cache_hit_pct": "29",
+    "transforms": "router:tool_result:search router:protected:error_output router:protected:system_message router:tool_result:text anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 99,
+   "rid": null,
+   "ts_utc": "2026-10-03T11:00:34Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -69.42,
+   "perf": {
+    "msgs": "8",
+    "tok_before": "77613",
+    "tok_after": "76726",
+    "tok_saved": "887",
+    "tok_inflated": "0",
+    "cache_read": "0",
+    "cache_write": "105875",
+    "cache_hit_pct": "0",
+    "transforms": "router:protected:system_message router:tool_result:text anthropic:tool_schema_compaction"
+   }
+  },
+  {
+   "ln": 788,
+   "rid": null,
+   "ts_utc": "2026-10-01T23:27:02Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -52.29,
+   "perf": {
+    "msgs": "182",
+    "tok_before": "266767",
+    "tok_after": "251205",
+    "tok_saved": "15562",
+    "tok_inflated": "0",
+    "cache_read": "7551",
+    "cache_write": "318932",
+    "cache_hit_pct": "2",
+    "transforms": "read_lifecycle:stale:C:\\Users\\pc\\Desktop\\Kendi oyun modlarim\\scripts\\vucut2_yap.py*2 router:protected:system_message*58 router:tool_result:text*3 router:excluded:ccr_retrieve*7 router:protected:error_output*2 router:tool_result:tabular read_maturation:1 anthropic:tool_schema_compaction router:tool_search_deferral:16tools:18716tok"
+   }
+  },
+  {
+   "ln": 302,
+   "rid": "req_011CfdDQ5iK3MMyhtqw3tZVH",
+   "ts_utc": "2026-10-02T09:59:23Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -4.32,
+   "perf": {
+    "msgs": "65",
+    "tok_before": "111369",
+    "tok_after": "105146",
+    "tok_saved": "6223",
+    "tok_inflated": "0",
+    "cache_read": "7551",
+    "cache_write": "131515",
+    "cache_hit_pct": "5",
+    "transforms": "router:protected:system_message*21 router:tool_result:text*2 deferred:kompress_background read_maturation:1 anthropic:tool_schema_compaction router:tool_search_deferral:12tools:16850tok"
+   }
+  },
+  {
+   "ln": 651,
+   "rid": null,
+   "ts_utc": "2026-10-02T10:14:29Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.01,
+   "dt_sn_istek_basi": -6.09,
+   "perf": {
+    "msgs": "152",
+    "tok_before": "190500",
+    "tok_after": "170514",
+    "tok_saved": "19986",
+    "tok_inflated": "0",
+    "cache_read": "7551",
+    "cache_write": "172909",
+    "cache_hit_pct": "4",
+    "transforms": "read_lifecycle:stale:C:\\Users\\pc\\Desktop\\Kendi oyun modlarim\\.claude\\dalga.md*4 read_lifecycle:stale:C:\\Users\\pc\\Desktop\\Kendi oyun modlarim\\scripts\\vucut2_yap.py*13 router:protected:system_message*50 router:excluded:ccr_retrieve*4 router:tool_result:text deferred:kompress_background anthropic:tool_schema_compaction router:tool_search_deferral:15tools:20114tok"
+   }
+  },
+  {
+   "ln": 258,
+   "rid": "req_011CfcTwByqkpevzYm9Tnizv",
+   "ts_utc": "2026-10-02T00:29:26Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -4.69,
+   "perf": {
+    "msgs": "68",
+    "tok_before": "115381",
+    "tok_after": "110958",
+    "tok_saved": "4423",
+    "tok_inflated": "0",
+    "cache_read": "112955",
+    "cache_write": "4359",
+    "cache_hit_pct": "96",
+    "transforms": "router:protected:system_message*22 router:tool_result:text router:excluded:ccr_retrieve*6 deferred:kompress_background anthropic:tool_schema_compaction router:tool_search_deferral:15tools:18359tok"
+   }
+  },
+  {
+   "ln": 277,
+   "rid": "req_011CfcU3qAttgrvB3zZoUTqu",
+   "ts_utc": "2026-10-02T00:30:56Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -5.73,
+   "perf": {
+    "msgs": "74",
+    "tok_before": "119834",
+    "tok_after": "110946",
+    "tok_saved": "8888",
+    "tok_inflated": "0",
+    "cache_read": "7551",
+    "cache_write": "138899",
+    "cache_hit_pct": "5",
+    "transforms": "router:protected:system_message*21 router:excluded:ccr_retrieve*6 read_maturation:2 anthropic:tool_schema_compaction router:tool_search_deferral:15tools:18359tok"
+   }
+  },
+  {
+   "ln": 1048,
+   "rid": null,
+   "ts_utc": "2026-10-02T01:12:53Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -7.81,
+   "perf": {
+    "msgs": "272",
+    "tok_before": "253136",
+    "tok_after": "230670",
+    "tok_saved": "22466",
+    "tok_inflated": "0",
+    "cache_read": "7551",
+    "cache_write": "229303",
+    "cache_hit_pct": "3",
+    "transforms": "read_lifecycle:stale:C:\\Users\\pc\\Desktop\\Kendi oyun modlarim\\.claude\\dalga.md read_lifecycle:stale:C:\\Users\\pc\\Desktop\\Kendi oyun modlarim\\scripts\\vucut2_yap.py*2 router:protected:system_message*90 router:excluded:ccr_retrieve*10 router:protected:error_output router:tool_result:text router:cross_turn_dedup:1 deferred:kompress_background read_maturation:1 anthropic:tool_schema_compaction router:tool_search_deferral:16tools:20234tok"
+   }
+  },
+  {
+   "ln": 198,
+   "rid": "req_011CfbpyAakkEpzyoEvhfAr8",
+   "ts_utc": "2026-10-01T16:24:41Z",
+   "eslesme": true,
+   "aday_sayisi": 1,
+   "dt_sn_yanit_sonu": -0.0,
+   "dt_sn_istek_basi": -5.23,
+   "perf": {
+    "msgs": "47",
+    "tok_before": "99118",
+    "tok_after": "94458",
+    "tok_saved": "4660",
+    "tok_inflated": "0",
+    "cache_read": "7551",
+    "cache_write": "116412",
+    "cache_hit_pct": "6",
+    "transforms": "router:protected:system_message*13 router:protected:error_output router:tool_result:tabular router:excluded:ccr_retrieve router:tool_result:text read_maturation:1 anthropic:tool_schema_compaction router:tool_search_deferral:17tools:18921tok"
+   }
+  }
+ ],
+ "kosullu_ara60": {
+  "istek": 1936,
+  "bagli": 1821,
+  "cift": 1353,
+  "kosullu": {
+   "tsd_degisti": {
+    "var": [
+     7,
+     36
+    ],
+    "yok": [
+     7,
+     1317
+    ]
+   },
+   "tsd_var": {
+    "var": [
+     10,
+     1043
+    ],
+    "yok": [
+     4,
+     310
+    ]
+   },
+   "stale": {
+    "var": [
+     9,
+     348
+    ],
+    "yok": [
+     5,
+     1005
+    ]
+   },
+   "mat": {
+    "var": [
+     9,
+     26
+    ],
+    "yok": [
+     5,
+     1327
+    ]
+   },
+   "kmp": {
+    "var": [
+     9,
+     39
+    ],
+    "yok": [
+     5,
+     1314
+    ]
+   },
+   "dedup": {
+    "var": [
+     1,
+     196
+    ],
+    "yok": [
+     13,
+     1157
+    ]
+   },
+   "msgs_azaldi": {
+    "var": [
+     0,
+     0
+    ],
+    "yok": [
+     14,
+     1353
+    ]
+   }
+  },
+  "birlesik": {
+   "mat|kmp": {
+    "var": [
+     13,
+     58
+    ],
+    "yok": [
+     1,
+     1295
+    ]
+   },
+   "mat&kmp": {
+    "var": [
+     5,
+     7
+    ],
+    "yok": [
+     9,
+     1346
+    ]
+   }
+  }
+ },
+ "not": "PERF eşleşmesi cache_read+cache_write birebir, |dt|<=2 sn; 19/19 tekil (bir satır dt 2.01). Log kapsamı 2026-10-01 04:03 → 10-03 18:58 yerel (+03); 45 kırılmanın 26sı log öncesi."
+}
