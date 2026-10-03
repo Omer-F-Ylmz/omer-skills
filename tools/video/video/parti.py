@@ -516,13 +516,11 @@ def parti(ns, ctx):
             return _ozet(pdir, d)
         if getattr(ns, "cagri_ek", 0) or getattr(ns, "usd_ek", 0):  # M2b: tavan yalnız açıkça yükseltilir
             d["tavan"] = {"cagri": d["tavan"]["cagri"] + ns.cagri_ek, "usd": round(d["tavan"]["usd"] + ns.usd_ek, 4)}
-        if ns.eylem == "akil" and getattr(ns, "yeniden", False):  # M2g K1: yalnız geliştirme karşılaştırması yeniden (kayıt satırlarına dokunmaz)
-            from . import akil
+        if ns.eylem == "akil" and getattr(ns, "yeniden", False):  # DERİNLİK-1 R6: araştırma dahil yeniden (R1–R5); kurulu envanterden, Ömer hücreleri panelde korunur
+            for a in d.get("adaylar", {}).values():
+                for x in ("durum", "deneme", "hata", "repo_arama", "guncellik"):
+                    a.pop(x, None)
             d.pop("gelistirme", None)
-            akil.gelistir(pdir, d, kok, ctx)
-            _yaz(pdir / "durum.json", d)
-            print(f"panel: {akil.panel(pdir, d, kok).as_posix()} · geliştirme {len(d.get('gelistirme', []))} satır · bizde bilgi yok {len(d.get('bizde_yok', []))}")
-            return 0
         if ns.eylem in ("akil", "kapat"):
             from . import akil
             return akil.akil(pdir, d, kok, Path(tdir), ctx, getattr(ns, "tum", False)) if ns.eylem == "akil" else akil.kapat(pdir, d, kok, ctx)

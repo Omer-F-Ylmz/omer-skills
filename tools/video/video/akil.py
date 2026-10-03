@@ -406,12 +406,13 @@ def _aday_md(kok, k, a, f, d):
         "## Özellikler", *(x for o in f["ozellikler"] for x in (f"### {pt._h(o['ozellik'])}", f"kaynak: {o['kaynak_url']}")), "## Destek"])
 
 
-def _on(ctx, v, k, a):
-    """Deterministik ön adım: `video on --repo` (sığ klon + güvenlik ön taraması + on.md). → (on.md metni, güvenlik satırı)."""
+def _on(ctx, v, k, a, kos=True):
+    """Deterministik ön adım: `video on --repo` (sığ klon + güvenlik ön taraması + on.md). → (on.md metni, güvenlik satırı). kos=False: yalnız diskteki on.md."""
     from . import cli
     kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
     try:
-        (ctx.get("on") or cli.on_)(SimpleNamespace(video=v, aday=k, repo=a["repo"], tur=a["tur"], url=None, rapor=None), ctx)
+        if kos:
+            (ctx.get("on") or cli.on_)(SimpleNamespace(video=v, aday=k, repo=a["repo"], tur=a["tur"], url=None, rapor=None), ctx)
     except Exception as e:  # ön getirme hatası araştırmayı durdurmaz; panelde görünür
         return "", f"koşmadı: {str(e)[:120]}"
     y = next((p for p in (kok / ".kos" / v).glob("*/on.md") if p.parent.name.startswith(k[:20])), None)
@@ -602,6 +603,8 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
         if not a["repo"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı")):
             a["repo_arama"] = _repo_ara(ctx, a)[1]
         a["repo"] = a["repo"] or (a["repo_arama"][9:] if str(a.get("repo_arama", "")).startswith("bulundu: ") else None)
+        if a["repo"] != eski.get(k, {}).get("repo"):  # DERİNLİK-1 R6: repo değiştiyse güvenlik ön taraması yeniden
+            a.pop("guvenlik", None)
         a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
         if pk := _paket_ici(k, env):
             a["paket_yol"] = pk
@@ -614,7 +617,9 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
             continue
         a["deneme"] = a.get("deneme", 0) + 1
         v0 = next(iter(a["videolar"]))
-        on, a["guvenlik"] = _on(ctx, v0, k, a) if a["repo"] else ("", None)
+        ayni = bool(a.get("guvenlik")) and not str(a["guvenlik"]).startswith("koşmadı")  # DERİNLİK-1 R6: repo aynıysa ön tarama yeniden koşmaz
+        on, gv = _on(ctx, v0, k, a, kos=not ayni) if a["repo"] else ("", None)
+        a["guvenlik"] = a["guvenlik"] if ayni else gv
         bulgu = "\n".join(f"- {v} · {x['zaman']} · {x['ne']} · kanıt: {x['kanit']}" for v, x in a["videolar"].items())
         durum, f = _form_al(pdir, d, cagir, SISTEM, f"ADAY: {a['ad']} (adlar: {', '.join(a['adlar'])}) · tür {a['tur']} · repo {a['repo'] or 'yok'}\n"
                             f"VİDEO BULGULARI:\n{bulgu}\n<veri kaynak=\"on.md\">\n{on[:12000] or 'ön getirme yok'}\n</veri>", ARASTIRMA, "arastirma", k, env)
