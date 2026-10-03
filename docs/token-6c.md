@@ -64,3 +64,16 @@ Kapalı opt-in kapılar (User/Machine env yok): HEADROOM_COLD_RECOMPACT · HEADR
 İnce bantlar (aynı 148 kırılma): 0–1 dk %1 · 1–4 %2 · **4–5 %12** · 5–6 %15 · 6–8 %16 · 8–10 %14 · **10–12 %54** · 12–15 %45 · 15–30 %62 · 30–60 %80. İki basamak var:
 - 600 sn'de (%14 → %54): izleyici süresiyle birebir. >10 dk kırılmaları 64 adet / 10.29 M (kaybın %46'sı). H3b'nin izi.
 - ~4 dk'da (%2 → %12): away_summary orada başlıyor (4–10 dk kırılmalarının 19/25'inde var, ≤1 dk'da 0/45). H1'in izi; mekanizması (özet sona eklenir, baş neden kırılır) hâlâ kanıtsız.
+
+## K3 Aralıksız kontrol · boşta kalma deneyi
+
+Aralıksız kontrol (olcum/token-6c-k3.json): açık/kapalı birer koşu, 9'ar istek, ara yok → kırılma 0/0 ($0.84 / $0.63). Kalan 2 koşu (RAM kapısında durmuştu) yapılmadı, yerine K3b.
+
+K3b (olcum/token-6c-k3b.json): kol başı 1. istek (README Read, sonnet, plan modu) → 2100 sn bekleme → aynı oturum `--resume` ile 2. istek. Bekleme 35 dk: kodla eşik TTL+60 = 3660 sn, +2 dk = 63 dk 1h TTL'i aşar ve iki kolu da kırardı (ayırt etmezdi). 35 dk, izleyici süresini (600 sn) 3.5 kat aşar. Her çağrı öncesi boş RAM ≥4.3 GB.
+
+| kol | 1. istek sonu önek | 2. istek cache_read | 2. istek cache_creation | kırık |
+|---|---|---|---|---|
+| Headroom açık | 73193 | 73193 | 0 | yok |
+| Headroom kapalı | 77802 | 77802 | 3874 | yok |
+
+Açık kolun öneki 4609 token küçük: Headroom 1. istekte sıkıştırdı, 35 dk sonra (izleyici süresi dolmuşken) aynı baytları yeniden üretti (helpers.py:1436-1441 byte-identical swap, 3900 sn önbellek). İki kolda da kırılma yok → boşta kalma ve izleyici süresinin dolması tek başına kırmıyor; H3b zayıfladı. Kırılma etkileşimli oturuma özgü: claude -p'de away_summary üretilmez (H1), oturum başı enjeksiyonu farklı (H2). Sınır: tek araç sonucu, 2 istek; uzun geçmişte çoklu sıkıştırma sınanmadı. claude -p: 7/7.

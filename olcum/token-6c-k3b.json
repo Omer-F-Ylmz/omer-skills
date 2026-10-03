@@ -1,0 +1,99 @@
+{
+ "bekleme_hedef_sn": 2100,
+ "kollar": [
+  {
+   "kol": "acik",
+   "bekleme_sn": 2100,
+   "onek_1": 73193,
+   "cr_2": 73193,
+   "cw_2": 0,
+   "kirik": false,
+   "ist1": {
+    "kol": "acik",
+    "istek_no": 1,
+    "sid": "d89b038d-7fce-486e-bbc8-09793c25c367",
+    "bos_ram_gb": 4.7,
+    "bas": 1791035198,
+    "bit": 1791035215,
+    "istek": [
+     {
+      "cr": 16216,
+      "cw": 56911,
+      "in": 2
+     },
+     {
+      "cr": 73127,
+      "cw": 66,
+      "in": 5360
+     }
+    ],
+    "usd": 0.2586106,
+    "is_error": false
+   },
+   "ist2": {
+    "kol": "acik",
+    "istek_no": 2,
+    "sid": "d89b038d-7fce-486e-bbc8-09793c25c367",
+    "bos_ram_gb": 10.6,
+    "bas": 1791037315,
+    "bit": 1791037327,
+    "istek": [
+     {
+      "cr": 73193,
+      "cw": 0,
+      "in": 9265
+     }
+    ],
+    "usd": 0.2919492,
+    "is_error": false
+   }
+  },
+  {
+   "kol": "kapali",
+   "bekleme_sn": 2100,
+   "onek_1": 77802,
+   "cr_2": 77802,
+   "cw_2": 3874,
+   "kirik": false,
+   "ist1": {
+    "kol": "kapali",
+    "istek_no": 1,
+    "sid": "9c3717f2-702b-44cc-9217-ee0328db7883",
+    "bos_ram_gb": 4.3,
+    "bas": 1791035215,
+    "bit": 1791035230,
+    "istek": [
+     {
+      "cr": 17317,
+      "cw": 57118,
+      "in": 2
+     },
+     {
+      "cr": 74435,
+      "cw": 3367,
+      "in": 2
+     }
+    ],
+    "usd": 0.2628184,
+    "is_error": false
+   },
+   "ist2": {
+    "kol": "kapali",
+    "istek_no": 2,
+    "sid": "9c3717f2-702b-44cc-9217-ee0328db7883",
+    "bos_ram_gb": 10.4,
+    "bas": 1791037330,
+    "bit": 1791037342,
+    "istek": [
+     {
+      "cr": 77802,
+      "cw": 3874,
+      "in": 2
+     }
+    ],
+    "usd": 0.2940488,
+    "is_error": false
+   }
+  }
+ ]
+}
