@@ -1,0 +1,78 @@
+{
+ "pencere": [
+  "2026-09-19T14:00:00+03:00",
+  "2026-10-03T14:19+03:00"
+ ],
+ "savings_ilk": "2026-09-20T17:43:07.249421+03:00",
+ "proxy_log_ilk": "2026-10-01T04:01:43+03:00",
+ "giris": {
+  "cli": {
+   "istek": 6444,
+   "headroom_oncesi": 1236,
+   "sonra": 5208,
+   "kapali_300sn": 0,
+   "kapali_600sn": 0,
+   "proxy_donemi": 1078,
+   "proxy_oturum_eslesen": 1078
+  },
+  "sdk-cli": {
+   "istek": 897,
+   "headroom_oncesi": 3,
+   "sonra": 894,
+   "kapali_300sn": 1,
+   "kapali_600sn": 0,
+   "proxy_donemi": 607,
+   "proxy_oturum_eslesen": 607
+  },
+  "sdk-py": {
+   "istek": 1,
+   "headroom_oncesi": 0,
+   "sonra": 1,
+   "kapali_300sn": 0,
+   "kapali_600sn": 0,
+   "proxy_donemi": 0,
+   "proxy_oturum_eslesen": 0
+  },
+  "sdk-ts": {
+   "istek": 707,
+   "headroom_oncesi": 5,
+   "sonra": 702,
+   "kapali_300sn": 5,
+   "kapali_600sn": 2,
+   "proxy_donemi": 285,
+   "proxy_oturum_eslesen": 0
+  }
+ },
+ "oturum_gun": {
+  "cli": 14.0,
+  "sdk-cli": 21.1,
+  "sdk-py": 0.1,
+  "sdk-ts": 50.4
+ },
+ "desktop_olay": [
+  [
+   "2026-10-02 16:22:02",
+   "pre-update snapshot"
+  ],
+  [
+   "2026-10-02 16:22:02",
+   "not up yet at launch"
+  ],
+  [
+   "2026-10-02 22:23:50",
+   "clear_client_setups"
+  ],
+  [
+   "2026-10-02 22:25:30",
+   "not up yet at launch"
+  ],
+  [
+   "2026-10-03 04:22:01",
+   "clear_client_setups"
+  ],
+  [
+   "2026-10-03 13:49:18",
+   "not up yet at launch"
+  ]
+ ]
+}
