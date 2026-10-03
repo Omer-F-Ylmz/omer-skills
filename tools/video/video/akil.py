@@ -140,6 +140,23 @@ def _repo_ara(ctx, a):
     return None, f"arandı, bulunamadı ({'; '.join(sorgular)})"
 
 
+def _kapsam(k, a, al, m, gv, d):
+    """DERİNLİK-1 R5: araştırma kapsamı → (panel satırı, eksik alanlar); yapılan ✓, yapılmayan sebebiyle; '—' kapsam dışı."""
+    tam, dis = bool(m) and "arastirma: tam" in m, f"— (tür {a['tur']})" if a["tur"] in ARAC_DISI else None
+    repo = a["repo"] or (al.get("repo") if al.get("repo") not in (None, "", "yok") else None)
+    bil = lambda x: "✓" if tam and al.get(x) not in (None, "", "bilinmiyor") else "bilinmiyor" if tam else f"araştırılmadı ({a.get('durum')})"
+    pm = tr.bolum(m, "Prompt metni").strip() if m else ""
+    alan = {"repo": dis or ("✓" if repo else a.get("repo_arama") or "repo yok"),
+            "README": dis or ("✓" if tam and repo else "repo yok" if tam else f"araştırılmadı ({a.get('durum')})"),
+            "lisans": dis or bil("lisans"), "commit": dis or bil("son_commit"),
+            "güvenlik": dis or ("✓" if not gv.startswith("koşmadı") else gv),
+            "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
+            "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
+            "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı"}
+    eksik = [x for x in list(alan)[:6] if alan[x] != "✓" and not alan[x].startswith("—")]
+    return f"- {k} · " + " · ".join(f"{x} {pt._h(v)}" for x, v in alan.items()), eksik
+
+
 def _arastirma_disi(a):
     """İlke 29 (i): araştırmaya gitmez — kendi aracımız + kurulu (80e0ab3)."""
     return bool(a["kurulu"])
@@ -454,7 +471,7 @@ def panel(pdir, d, kok):
     mevcut = [p.stem for p in (Path(kok) / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
     L = [f"# Karar paneli — {d['parti']}", "", "Ömer sütununa AL / RED / ERTELE ya da karar (DENE · ÖĞREN · UYARLA · ZATEN VAR) yaz; boş satır dokunulmaz → `video panel uygula <bu dosya>`.", "",
          "| aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |", "|---|---|---|---|---|---|---|---|"]
-    uret, kural, olasi, kalan, olasi_es = [], [], [], [], []
+    uret, kural, olasi, kalan, olasi_es, kapsam = [], [], [], [], [], []
     for k, a in d.get("adaylar", {}).items():
         m = _aday_yol(kok, k).read_text(encoding="utf-8") if _aday_yol(kok, k).is_file() else ""
         al = uy.alanlar(m) if m else {}
@@ -500,6 +517,10 @@ def panel(pdir, d, kok):
             kalan.append(f"- {k}: {a.get('durum')} {pt._h(a.get('hata') or '')}"[:200])
         g += f" · alt tür çakışması (kurulu > {alt})" if cakisma else ""
         g += f" · paket içi: {a['paket_yol']}" if a.get("paket_yol") else ""
+        ks, eksik = _kapsam(k, a, al, m, gv, d)
+        kapsam.append(ks)
+        if eksik and not any(x.startswith(f"- {k}:") for x in kalan):  # DERİNLİK-1 R5
+            kalan.append(f"- {k}: kapsam eksik ({', '.join(eksik)})")
         if m and (u := tr.bolum(m, "Üretilebilir").strip()) and "hedef_tur: yok" not in u:
             uret.append(f"- {k}: {pt._h(u)}")
         for e in (e for e in mevcut if e != k and difflib.SequenceMatcher(None, k, e).ratio() >= 0.8):  # M10 K4: ad ön süzgeç; tekrar için aynı repo
@@ -537,6 +558,7 @@ def panel(pdir, d, kok):
           "## ÜRETİLEBİLİR / yapım tarifleri", *(uret or ["- yok"]), "## Kural önerileri (T0)", *(kural or ["- yok"]),
           "## OLASI EŞDEĞER (Jev p 0.5–0.75)", *(olasi_es or ["- yok"]), "## OLASI TEKRAR", *(olasi or ["- yok"]), "## Araştırılmadı", *(kalan or ["- yok"]),
           "## Repo araması", *([f"- {k}: {a['repo_arama']}" for k, a in d.get("adaylar", {}).items() if a.get("repo_arama")] or ["- yok"]),
+          "## Kapsam", "repo · README · lisans · commit · güvenlik · prompt metni · güncellik · yorum (✓ yapıldı; değilse sebep)", *(kapsam or ["- yok"]),
           f"## {tr.SITE_UI}", *([f"- {pt._h(a)} · {v} · {pt._h(z)} ({pt._h(k)}) → docs/departmanlar/frontend.md" for a, v, z, k in d.get("site_ui", [])] or ["- yok"]),
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
           "## Geliştirme önerileri", *[f"- bizde bilgi yok: {pt._h(x)}" for x in d.get("bizde_yok", [])], *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
