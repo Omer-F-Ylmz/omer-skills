@@ -17,6 +17,7 @@ from jev import skill as sk
 
 from . import departman as dp
 from . import getir as gt
+from . import kanal as kn
 from . import kur
 from . import metin as m
 from . import ogren as og
@@ -110,7 +111,7 @@ def _meta(ctx, d):
     if yol.is_file():
         return json.loads(yol.read_text(encoding="utf-8"))
     j = json.loads(_yt(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", yt_url(d.name)], SURE["meta"], d))
-    alan = ("id", "title", "language", "channel", "duration", "chapters", "description", "subtitles", "automatic_captions")
+    alan = ("id", "title", "language", "channel", "channel_id", "channel_url", "duration", "chapters", "description", "subtitles", "automatic_captions")
     meta = {k: j.get(k) for k in alan}
     for k in ("subtitles", "automatic_captions"):  # yalnız dil anahtarları; format URL'leri gereksiz
         meta[k] = {d_: [] for d_ in (meta[k] or {})}
@@ -1126,6 +1127,10 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--yeniden", action="store_true", help="akil: M2g K1 — geliştirme karşılaştırması yeniden (yalnız gelistir + panel)")
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")
+    x = alt.add_parser("kanal", help="KANAL-1: liste → docs/video-tarama/kanallar.md · onay <md> → kanallar.json · envanter (onaylı, flat, indirme yok) · etiket → docs/olcumler/kanal-etiket.json")
+    x.add_argument("eylem", choices=["liste", "onay", "envanter", "etiket"])
+    x.add_argument("dosya", nargs="?")
+    x.add_argument("--kanal", help="envanter: yalnız bu channel_id")
     x = alt.add_parser("panel", help="MOTOR-M2b: panel.md Ömer sütunu (AL/RED/ERTELE) → video karar; boş satır dokunulmaz")
     x.add_argument("eylem", choices=["uygula"])
     x.add_argument("panel")
@@ -1139,11 +1144,11 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
                 "rapor-denetle": rapor_denetle, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
-                "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti, "panel": pt.panel}[ns.komut](ns, ctx)
+                "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti, "panel": pt.panel, "kanal": kn.kanal}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4
-    except (Hata, c.JevHata, gt.GetirHata) as e:
+    except (Hata, c.JevHata, gt.GetirHata, kn.Hata) as e:
         print(f"hata: {e}")
         return 1
 
