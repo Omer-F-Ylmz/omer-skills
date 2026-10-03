@@ -1,0 +1,23 @@
+{
+ "settings": "35103997ec54b711",
+ "mcpServers": "23452893b846a828",
+ "hooks": "a0801fdfd21676e2",
+ "hooks_dosya": {
+  "block-destructive.ps1": "f5856170759818e2",
+  "block-destructive.ps1.bak11h": "6ab769d842cf07e5",
+  "dalga-durum.ps1": "08a713ca1891f653",
+  "dotnet-format.ps1": "8f2da1f34502ea18",
+  "dotnet-test-filter.ps1": "a9e9817e7096fdf9",
+  "headroom-claude-guard.py": "917fcb1554199889",
+  "headroom-claude-guard.py.bakHD2": "6192551e6c9b2406",
+  "headroom-claude-guard.py.headroom-backup-20261002132203": "6192551e6c9b2406",
+  "headroom-statusline.sh": "bd329f2378424874",
+  "jev-skill.ps1": "b834395fcf290da5"
+ },
+ "plugin": [
+  47,
+  53
+ ],
+ "mcp": 19,
+ "skill": 1054
+}
