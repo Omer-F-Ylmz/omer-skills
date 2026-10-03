@@ -67,3 +67,14 @@ Sentetik oturumda gerçek `ReadMaturationManager` koşturuldu ve held Read kır�
 | 0.10 | 945 518 → 994 238 (+%5.2) | 1 000 167 → 821 624 (−%17.9) |
 
 Kazanç düşmüyor, artıyor. Taze tracker eski kolda ReadMaturationManager durumunu da sıfırlıyordu; yamalı kolda tutulan Read'ler olgunlaşmaya devam ediyor. Düşüş olmadığı için madde 21 tablosu gerekmedi. Kalite etkisi yok: yama içerik dönüşümünü değiştirmiyor, yalnız hangi mesajların donduğunu değiştiriyor.
+
+## K6 Kapanış
+
+- Mühür son ↔ baş: settings · hooks · mcpServers · mcp 19 · plugin 47/53 · skill 2068 · env anahtarları · Headroom sürümü · proxy (pid 39584, knob sha8) **EŞİT**. Yalnız yamalı dosyaların sha'sı farklı: anthropic.py a01ca804 → 873a3e40 · prefix_tracker.py 6ffca9b3 → 910e9d53. cold_prefix.py eşit. Ayar ve hook'a dokunulmadı; claude -p 0; API 0.
+- diff-filter=D boş · gitleaks: sızıntı yok · tam suit yeşil: video 500 · jev 81 · tests 310 · cc-kopru 178 · mcp-jev 40 · jev-dotnet 22.
+
+**Ömer'e kalan adımlar** (yama diskte; çalışan proxy eski kodla devam ediyor):
+1. Headroom Desktop'u tepsiden Quit edip yeniden başlat. Doğrulama: `python tools/headroom_yama.py --durum` iki satırda da "yamalı" göstermeli. /health `config.pid` 39584'ten farklı olmalı. Günlükte `Headroom Proxy started (version 0.39.0)` ve `Mode: token` görünmeli.
+2. Recap'i aç: `~/.claude/settings.json` içinde `"awaySummaryEnabled": false` → `true` (ya da `/config`). Ardından yeni CC oturumu aç.
+3. Sahada izleme (TOKEN-6c-R yöntemi): 4–60 dk bandında away_summary var/yok kırılma oranı. Beklenen: Headroom kaynaklı kırılma, away var grubunda %76.7'den yok grubundaki düzeye (%12.3 ve altı) inmeli.
+4. Geri alma: `python tools/headroom_yama.py --geri-al`, ardından Desktop'u yeniden başlat. Headroom güncellenince betik yeni sürümü reddeder (sürüm kilidi); yeni sürüm için çapalar yeniden doğrulanmalı.
