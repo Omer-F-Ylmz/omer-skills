@@ -77,3 +77,17 @@ K3b (olcum/token-6c-k3b.json): kol başı 1. istek (README Read, sonnet, plan mo
 | Headroom kapalı | 77802 | 77802 | 3874 | yok |
 
 Açık kolun öneki 4609 token küçük: Headroom 1. istekte sıkıştırdı, 35 dk sonra (izleyici süresi dolmuşken) aynı baytları yeniden üretti (helpers.py:1436-1441 byte-identical swap, 3900 sn önbellek). İki kolda da kırılma yok → boşta kalma ve izleyici süresinin dolması tek başına kırmıyor; H3b zayıfladı. Kırılma etkileşimli oturuma özgü: claude -p'de away_summary üretilmez (H1), oturum başı enjeksiyonu farklı (H2). Sınır: tek araç sonucu, 2 istek; uzun geçmişte çoklu sıkıştırma sınanmadı. claude -p: 7/7.
+
+## K4 Kök neden · seçenekler
+
+Kök neden: kanıtlanmadı. Elenenler: TTL aşımı (tüm kırılmalar ≤3600 sn, önceki yazma 1h) · compact/clear/effort/model (0) · Headroom soğuk-önek (opt-in kapalı, log 0) · Headroom izleyici süresi tek başına (K3b). Kalan: etkileşimli oturuma özgü olay. En güçlü aday H1 away_summary (kaldıraç 128× · 4 dk basamağı · >4 dk kırılmaların 59/89'unda). Açıklanamayan: 600 sn basamağı (%14→%54) ve ≤1 dk'daki 45 kırılma.
+
+Toplam "diğer": 22.17 M / 14 gün ≈ 1.58 M/gün baştan yazma.
+
+- (a) Headroom oturum süresini ≥3600'e hizalamak. COMPRESSION_CACHE_TTL zaten 3900 (env HEADROOM_COMPRESSION_CACHE_TTL_SECONDS). prefix_freeze_session_ttl için user env de Desktop argümanı da yok; yalnız kurulu pakette kod yaması (proxy/models.py:342), Desktop güncellemesi siler. Tasarruf: >10 dk kırılmalar 10.29 M ≈ ≤0.73 M/gün; %14 taban düşülünce ≈0.56 M/gün; K3b negatif, gerçek pay muhtemelen daha az. Risk: paket yaması kalıcı değil, izleyici belleği 6× uzun tutulur. Kapı: bir normal iş günü sonra `token_olc --ttl-sim` 10–60 dk kırılma oranı düşer ve Headroom sıkıştırma oranı düşmez. Öneri: şimdi değil; (b)'den sonra 600 sn basamağı sürerse upstream issue.
+- (b) awaySummary kapatma. H1 kanıtlı değil → kalıcı çözüm değil, bir günlük tanı deneyi: settings.json `"awaySummaryEnabled": false` (ya da /config "recaps"). CC kanıtı: claude.exe `qKe()` → env CLAUDE_CODE_ENABLE_AWAY_SUMMARY önce, sonra `awaySummaryEnabled===!1` → kapalı. Tasarruf: away_summary'li kırılmalar 61/148 kırılma, 10.79 M ≈ 0.77 M/gün (üst sınır). Kaybedilen özellik: oturuma dönünce "sen yokken" özeti (recap). Risk düşük, geri alma tek satır. Kapı: bir iş günü sonra `--ttl-sim` 4–60 dk kırılma oranı düşer; düşmezse geri aç, H1 elenir.
+- (c) H2: ≤1 dk'daki 45 kırılma (5.49 M ≈ 0.39 M/gün) ayrı teşhis adayı: kırılan istekle öncekinin ilk mesaj bloklarının bayt farkı (örnek f3511826:708). Ayrı dalga.
+
+Notlar: settings'teki opus-5-5 xhigh kalıntısını Ömer düzeltir (xhigh.json kullanımı) · 6767 doğru port (Desktop ön kapısı, ANTHROPIC_BASE_URL hedefi; 6768 iç proxy), statusline doğru, değişiklik yok.
+
+Haftalık plan: (b) denemesinden 7 gün sonra `token_olc --karsilastir`; hedef "diğer" baştan yazma ≥%30 düşer (1.58 → ≤1.11 M/gün). Düşmezse (a) upstream + (c).
