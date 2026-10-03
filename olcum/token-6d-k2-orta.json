@@ -1,0 +1,81 @@
+{
+ "dalga": "TOKEN-6d-2 K2 orta",
+ "gorev": "olcum/token-6d-gorev-orta.md (kur.py takas/esik/tasarruf) · kabul olcum/token6d/test_orta.py (8 test, ana suite dışı)",
+ "kurulum": "opus · --max-turns 40 · acceptEdits + Read/Edit/Write/Glob/Grep/Bash(uv|cd|python) · omer-skills HEAD (33b2bd5) worktree'si · kol HEADROOM_OUTPUT_HOLDOUT 0=T / 1=C · testler koşu sonrası temiz kabul kopyasıyla",
+ "kosular": {
+  "orta-T1": {
+   "kol": "T",
+   "kabul_rc": 0,
+   "kabul": "8 passed in 0.03s",
+   "suite_rc": 0,
+   "suite": "500 passed in 152.59s (0:02:32)",
+   "basarili": true,
+   "degisen": [
+    " M tools/video/video/kur.py"
+   ],
+   "subtype": "success",
+   "tur": 8,
+   "tavana_takildi": false,
+   "cikti_token": 3824,
+   "thinking_token": 1393,
+   "agirlikli": 194860.6,
+   "usd": 0.7143,
+   "sure_sn": 232,
+   "log_kol_kaniti": {
+    "pencere_istek": 9,
+    "shaper_etiketli": 8,
+    "etiket": [
+     "['output_shaper:verbosity:L2']"
+    ],
+    "model_shaper_sayim": {
+     "claude-sonnet-5|yok": 1,
+     "claude-opus-5-5|shaper": 6,
+     "claude-opus-4-7|shaper": 2
+    }
+   }
+  },
+  "orta-C1": {
+   "kol": "C",
+   "kabul_rc": 0,
+   "kabul": "8 passed in 0.04s",
+   "suite_rc": 0,
+   "suite": "500 passed in 147.57s (0:02:27)",
+   "basarili": true,
+   "degisen": [
+    " M tools/video/video/kur.py"
+   ],
+   "subtype": "success",
+   "tur": 8,
+   "tavana_takildi": false,
+   "cikti_token": 3916,
+   "thinking_token": 1561,
+   "agirlikli": 198573.9,
+   "usd": 0.7299,
+   "sure_sn": 219,
+   "log_kol_kaniti": {
+    "pencere_istek": 6,
+    "shaper_etiketli": 0,
+    "etiket": [],
+    "model_shaper_sayim": {
+     "claude-opus-5-5|yok": 5,
+     "claude-opus-4-7|yok": 1
+    }
+   }
+  }
+ },
+ "T_vs_C_degisim_yuzde": {
+  "cikti_token": 2.3,
+  "agirlikli": 1.9,
+  "usd": 2.1,
+  "tur": 0.0
+ },
+ "basari": {
+  "T": 1,
+  "C": 1
+ },
+ "claude_p_toplam": 7,
+ "not": [
+  "Tek T + tek C: kol başına tekrar yok; gürültü bandı rtk-ab aynı-kol çiftlerinden (olcum/token-6d-k2-kisa.json).",
+  "T_vs_C_degisim_yuzde = (C−T)/C·100 (pozitif = T tasarrufu)."
+ ]
+}
