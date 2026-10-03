@@ -12,6 +12,7 @@ Kullanım: python tools/token_olc.py olc [--gun 14] [--kok <projects>] [--motor 
 import base64
 import heapq
 import json
+import math
 import re
 import statistics
 import struct
@@ -612,6 +613,98 @@ def tablo_dokum(d):
     return "\n".join(s)
 
 
+SEBEPLER = ("compact", "ara>ttl", "model/effort", "arac_listesi", "diger")
+
+
+def _yuzdelik(x, q):
+    return x[min(len(x) - 1, math.ceil(round(q * len(x), 9)) - 1)] if x else None
+
+
+def ttl_sim(kok, gun=14, simdi=None):
+    """TOKEN-6b K2: etk·ana önbellek yazması a (yeni içerik) / b (kırılma sonrası baştan) ve TTL kolları.
+    1h = gerçek · 5m = 1h yazma 5m'ye, ara > 300 sn ise okuma 5m yazmaya döner · hibrit = oturum başına ucuz kol (kehanet üst sınırı).
+    Ara = istekten önceki son user satırları arası (gönderim anı); TTL okumayla tazelenir."""
+    sinir, kok, aralar = (simdi or time.time()) - gun * 86400, Path(kok), []
+    r = {"pencere_gun": gun, "oturum": 0, "istek": 0, "yazma": {"a": 0, "b": 0},
+         "sebep": {s: {"adet": 0, "token": 0} for s in SEBEPLER},
+         "kollar": {k: {"agirlikli": 0, "usd": 0} for k in ("1h", "5m", "hibrit")}}
+    for yol in sorted(kok.rglob("*.jsonl")) if kok.is_dir() else []:
+        if yol.stat().st_mtime < sinir:
+            continue
+        kol = {k: {"agirlikli": 0, "usd": 0} for k in ("1h", "5m")}
+        onceki, gonder, olay, gorulen = None, None, set(), set()
+        with yol.open(encoding="utf-8", errors="replace") as f:
+            for s in f:
+                try:
+                    o = json.loads(s)
+                except ValueError:
+                    continue
+                if not isinstance(o, dict):
+                    continue
+                ts, tur, ek = zaman(o.get("timestamp")), o.get("type"), o.get("attachment")
+                if ts is not None and ts < sinir:
+                    continue
+                if tur == "user" and ts is not None:
+                    gonder = ts
+                elif tur == "system" and o.get("subtype") == "compact_boundary":
+                    olay.add("compact")
+                elif tur == "attachment" and isinstance(ek, dict) and ek.get("type") == "deferred_tools_delta":
+                    olay.add("arac_listesi")
+                m = o.get("message") if isinstance(o.get("message"), dict) else {}
+                u = m.get("usage") if tur == "assistant" else None
+                if not isinstance(u, dict) or m.get("id") in gorulen:
+                    continue
+                if kaynak(o, yol) != "etkilesimli" or ajan_turu(o, yol) != "ana":
+                    break
+                gorulen.add(m.get("id"))
+                p = parcala(u)
+                yazma, an, me = p["cache_5m"] + p["cache_1h"], gonder if gonder is not None else ts, (m.get("model"), o.get("effort"))
+                ara = an - onceki["an"] if onceki and an is not None and onceki["an"] is not None else None
+                b = min(yazma, max(0, onceki["onbellek"] - p["cache_okuma"])) if onceki else 0
+                if b:
+                    sebep = ("compact" if "compact" in olay else "ara>ttl" if ara is not None and ara > onceki["ttl"]
+                             else "model/effort" if me != onceki["me"] else "arac_listesi" if "arac_listesi" in olay else "diger")
+                    r["sebep"][sebep]["adet"] += 1
+                    r["sebep"][sebep]["token"] += b
+                if ara is not None:
+                    aralar.append(ara)
+                r["yazma"]["a"] += yazma - b
+                r["yazma"]["b"] += b
+                kayip = p["cache_okuma"] if ara is not None and ara > 300 else 0
+                u5 = {"input_tokens": p["girdi"], "cache_read_input_tokens": p["cache_okuma"] - kayip, "output_tokens": p["cikti"],
+                      "cache_creation": {"ephemeral_5m_input_tokens": yazma + kayip, "ephemeral_1h_input_tokens": 0}}
+                for k, uu in (("1h", u), ("5m", u5)):
+                    kol[k]["agirlikli"] += agirlikli(uu)
+                    kol[k]["usd"] += usd(uu, m.get("model")) or 0
+                ttl = 3600 if p["cache_1h"] else 300 if p["cache_5m"] else onceki["ttl"] if onceki else 3600
+                onceki, olay = {"an": an, "onbellek": p["cache_okuma"] + yazma, "ttl": ttl, "me": me}, set()
+                r["istek"] += 1
+        if onceki:
+            r["oturum"] += 1
+            ucuz = min(kol.values(), key=lambda x: x["agirlikli"])
+            for alan in ("agirlikli", "usd"):
+                r["kollar"]["hibrit"][alan] += ucuz[alan]
+                for k in kol:
+                    r["kollar"][k][alan] += kol[k][alan]
+    aralar.sort()
+    r["ara"] = {"n": len(aralar), **{f"p{q}": _yuzdelik(aralar, q / 100) for q in (50, 90, 99)},
+                "5dk_ustu_pay": sum(x > 300 for x in aralar) / len(aralar) if aralar else 0}
+    return r
+
+
+def tablo_ttl(r):
+    y, k1, a = r["yazma"], r["kollar"]["1h"], r["ara"]
+    top = (y["a"] + y["b"]) or 1
+    s = [f"{r['pencere_gun']} gün · etk·ana {r['oturum']} oturum · {r['istek']} istek · yazma {top / 1e6:.2f} M:"
+         f" yeni %{100 * y['a'] / top:.1f} · baştan %{100 * y['b'] / top:.1f}", "", "sebep | adet | token M | baştan payı"]
+    s += [f"{k} | {v['adet']} | {v['token'] / 1e6:.2f} | %{100 * v['token'] / (y['b'] or 1):.1f}" for k, v in r["sebep"].items()]
+    s += ["", "kol | ağırlıklı M | $ | 1h'e göre"]
+    s += [f"{k} | {v['agirlikli'] / 1e6:.2f} | {v['usd']:.2f} | %{100 * (v['agirlikli'] / (k1['agirlikli'] or 1) - 1):+.1f}"
+          for k, v in r["kollar"].items()]
+    s += ["", f"istek arası (sn): n {a['n']} · p50 {a['p50']} · p90 {a['p90']} · p99 {a['p99']} · >5 dk %{100 * a['5dk_ustu_pay']:.1f}"]
+    return "\n".join(s)
+
+
 def main(a):
     if not a or a[0] != "olc":
         print(__doc__)
@@ -623,6 +716,8 @@ def main(a):
     kok, gun, repo = deger("--kok", Path.home() / ".claude" / "projects"), int(deger("--gun", 14)), Path(__file__).resolve().parents[1]
     if "--arac-dokum" in a:
         r, yazi = dokum(kok, gun, arsiv=deger("--arsiv", repo / ".claude" / "dalga-arsiv")), tablo_dokum
+    elif "--ttl-sim" in a:
+        r, yazi = ttl_sim(kok, gun), tablo_ttl
     else:
         r, yazi = tara(kok, gun, motor=deger("--motor", repo / "olcum" / "motor-usage.jsonl")), tablo
     cikti = deger("--cikti", None)
