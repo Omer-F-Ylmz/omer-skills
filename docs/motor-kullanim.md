@@ -53,3 +53,10 @@ Sonnet formu geçen her video aynı paketle luna'ya (OpenRouter, `openai/gpt-6-l
 - Panel ön-doldurma (M11): Ömer sütunu yalnız deterministik kurallarla önerilir — (a) kayıtta aynı adın en son Ömer kararı (RED hariç) · (b) ZATEN VAR · (c) tür prompt/teknik → ÖĞREN · (d) T0 → ÖĞREN; araştırılmış araç, SOR/RED, -gelistirme ve OLASI satırları boş kalır.
 - Ön-doldurulan hücre yalnız öneridir: Ömer değiştirebilir, `panel uygula` Ömer sütununda ne yazıyorsa onu işler; dolu hücre (akil --yeniden dahil) asla ezilmez.
 - Panelde `## Ön-doldurulan` bölümü (aday · karar · kural a/b/c/d) ve üstte "karar bekleyen N · ön-doldurulan M" özeti; aynı özet `video parti akil` çıktısında.
+
+## Kanal keşfi (KANAL-1)
+1. `video kanal liste` → `docs/video-tarama/kanallar.md`: kanal · işlenen (n) · değerli · son tarih · öneri (takip: değerli ≥2 ve oran ≥0.5 · atla: değerli 0 ve n ≥3 · bir-kez: diğer).
+2. Ömer sütununa takip / bir-kez / atla yaz; `video kanal onay docs/video-tarama/kanallar.md` → `kanallar.json` (boş satır işlenmez).
+3. `video kanal envanter [--kanal <channel_id>]`: yalnız onaylı kanallar, yt-dlp flat (videos + shorts, indirme yok), istekler arası 2 sn, 429/403'te 2 yeniden deneme → yarım; önbellek `.kos/kanal/<id>.json`. Kimliksiz kanal "kimlik yok" atlanır.
+4. `video kanal etiket` → `docs/olcumler/kanal-etiket.json` (değerli = ≥1 AL/UYARLA/DENE; iptal parti hariç).
+KANAL-2: kimlik çözme · Jev ön eleme → luna altyazı okuma → Sonnet tam tarama kademeleri bu etiketlerle ayarlanır.
