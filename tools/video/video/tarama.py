@@ -235,6 +235,26 @@ def kuyruk_isle(metin, ids, sha):
     return "".join(out)
 
 
+def kuyruk_ekle(metin, satirlar, raporlu, muaf, baslik):
+    """KANAL-2b C4: (id, süre, başlık, not) satırları `baslik` altında `bekliyor` eklenir; kuyrukta bekleyen ya da
+    tarihli raporu olan id atlanır, `muaf` yalnız rapor atlamasından kurtulur. Satır sonu dosyanınki. → (metin, {id: sebep})"""
+    nl = "\r\n" if "\r\n" in metin else "\n"
+    bek = {_hucre(s)[0] for s in metin.splitlines() if s.lstrip().startswith("|") and _hucre(s)[-1] == "bekliyor"}
+    atla, out = {}, []
+    for v, sure, bas, n in satirlar:
+        if v in bek:
+            atla[v] = "kuyrukta bekliyor"
+        elif v in raporlu and v not in muaf:
+            atla[v] = "tarihli rapor"
+        else:
+            bek.add(v)
+            out.append(f"| {v} | {sure} | {bas} | {n} | bekliyor |")
+    if not out:
+        return metin, atla
+    bas = [baslik, "", "| id | süre | başlık (kısa) | not | durum |", "|---|---|---|---|---|"]
+    return metin + ("" if metin.endswith(nl) else nl) + nl + nl.join(bas + out) + nl, atla
+
+
 def ice_al(dizin):
     out = []
     for f in sorted(Path(dizin).glob("*.md")):
