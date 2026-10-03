@@ -10,3 +10,38 @@
 - OUTPUT_HOLDOUT: User/Machine/Process ortamında tanımsız. /health'te değeri var (f875a380), yani bellek içi runtime-env override'ı (`proxy/runtime_env.py:83` `_overrides`, `:108` `set_overrides`, `POST /admin/runtime-env`); dosyası yok. Kaynak koddaki varsayılan `"0"`: `proxy/handlers/anthropic.py:3371`.
 - VERBOSITY_LEVEL: HOLDOUT ile aynı durumda, runtime-env override'ı (cc11310c). Varsayılan `DEFAULT_VERBOSITY_LEVEL = 2`: `proxy/output_shaper.py:92`, okunduğu yer `:126`.
 - Headroom kendi testlerini paketle dağıtmıyor: site-packages altında `tests`/`test*` dizini 0.
+
+## K2 Teşhis (salt okuma + çevrimdışı)
+
+Satır numaraları runtime venv 0.39.0'a ait.
+
+**Mod düzeltmesi.** Proxy'yi `headroom-desktop.exe` başlatıyor ve gömülü ortamında `HEADROOM_MODE=token` var. `HEADROOM_DEDUPE`, `HEADROOM_COLD_RECOMPACT`, `HEADROOM_CACHE_TTL_LEARN` ve `HEADROOM_BACKGROUND_COMPRESSION` de orada. Günlükte de `Mode: token` yazıyor (`~/.headroom/logs/proxy-6768.log:28224`). K1'deki "cache" tespiti yalnız CLI varsayılanıydı. Token modunda `_strict_previous_turn_frozen_count` (anthropic.py:1592) çalışmaz; 6c-R'deki zincirin bu halkası yanlıştı.
+
+**frozen_message_count nasıl hesaplanıyor.**
+1. `anthropic.py:1567` `resolve_tracker` çağrılıyor. Bu, konuşma lineage'ına göre tracker seçiyor (`prefix_tracker.py:1421-1490`). Gelen geçmiş, bir lineage'ın son isteğinin EXACT/MESSAGE_APPEND/BLOCK_APPEND devamıysa ya da tek bir BLOCK_REWRITE_TAIL adayı varsa o tracker seçiliyor. Yoksa yeni lineage açılıyor: `:1488`, taze tracker.
+2. `anthropic.py:1579` `get_frozen_message_count()`. Taze tracker'da `_turn_number == 0` olduğundan **0** dönüyor (`prefix_tracker.py:926`).
+3. `anthropic.py:1827-1831` `prepare_turn` → `min(tracker_frozen, cache_count)` (`session_engine.py:134`).
+4. frozen == 0 ise `anthropic.py:1835-1840` kompress_background kuyruğuna alınıyor; tüm geçmiş arka planda sıkıştırılıp sonraki turda devreye giriyor. Ayrıca `read_maturation` (`:2345`) bütün geçmişe uygulanıyor. Önek baytları değişiyor ve sıcak önbellek kırılıyor.
+
+**Neden sıcak önbellekte 0'a düşüyor: iki mekanizma.**
+- **(i) Yan istek çatalı (recap/away_summary).** CC away_summary'yi ayrı bir API isteğiyle üretiyor. Bu istek aynı model ve aynı system ile gidiyor, dolayısıyla aynı session_id'ye düşüyor: `292f6584d88847f5`. Kanıt `proxy-6768.log.2:26467` `hr_1790960151_000850`: msgs=27 (ana tur 25+2), tok_out=86, cache_read=146847 (%100), bitiş 19:55:53.812. Transcript'teki away_summary kaydı 16:55:53.850Z, yani 38 ms sonra. Bu istek ana geçmişin MESSAGE_APPEND devamı olduğu için ana tracker'ı alıyor ve lineage zincirini `H + recap_user` ile eziyor. Sonraki gerçek tur `H + user` ise zincirin devamı sayılmıyor; `:1488`'de yeni lineage açılıyor ve frozen 0 oluyor. Önek H bayt bayt aynı ve önbellekte. Bozan CC değil, Headroom'un tek zincirli lineage eşleştirmesi.
+- **(iii) Tracker TTL'i önbellek TTL'inden kısa.** `prefix_freeze_session_ttl = 600` (`proxy/models.py:342`) → `server.py:1092-1096` → `is_expired` (`prefix_tracker.py:1160-1162`) → `_maybe_cleanup` (`:1549-1565`) 10 dk boşta kalan tracker'ı siliyor. CC'nin önbelleği ise 1 saat; 6c-R 4–60 dk bandında Headroom dışı kırılma 0/67. Silinen tracker'ın yerine yenisi geliyor ve frozen 0 oluyor.
+- **(ii) runtime-env yeniden yüklemesi: reddedildi.** `POST /admin/runtime-env` (`server.py:4014`) yalnız `runtime_env._overrides` sözlüğünü yazıyor (`runtime_env.py:108`). Tracker deposu tek kez kuruluyor (`server.py:1092`) ve hiçbir yerde temizlenmiyor.
+
+**Yeniden üretim** (`scratchpad/yeniden_uret.py`). Headroom'un kendi `SessionTrackerStore`'u kullanıldı, API çağrısı yok. Sentetik dizi gerçek away_summary yapısından üretildi: içerik maskeli, 203 karakter.
+
+| senaryo | önceki frozen | sonraki frozen | aynı tracker |
+|---|---|---|---|
+| kontrol: yan istek yok | 26 | 28 | evet |
+| recap yan istek → user | 26 | **0** | hayır |
+| (a) recap → away ayrı mesaj + user | 26 | **0** | hayır |
+| (b) recap → away son user'a ekli | 26 | **0** | hayır |
+| (a') away ayrı mesaj, yan istek yok | 26 | 28 | evet |
+| (iii) 700 sn boşluk | 26 | **0** | hayır |
+| (iii) 300 sn boşluk | 26 | 28 | evet |
+
+away metninin kendisi bozmuyor; iki biçimde de bozan, ondan önceki yan istek.
+
+**Günlük sayımı** (proxy-6768.log*, 10-02 16:23 → 10-03 19:49). frozen=0 + kompress_background/read_maturation + cache_read ≈ yalnız system olan kırılma 29. Dağılım: 600 sn üstü boşluk 7 (4'ünde away var) · yan istek çatalı 9 (3'ünde away var) · diğer 13. "Diğer" grubu sınıflanamadı, çünkü Headroom tam mesaj kaydı tutmuyor.
+
+**Sonuç.** Kök neden Headroom'da: lineage çatal toleransı yok ve tracker TTL'i 600 sn'ye sabit. CC tarafında önceki tur değişmiyor, dolayısıyla DUR koşulu oluşmadı.
