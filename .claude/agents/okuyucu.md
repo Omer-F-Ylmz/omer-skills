@@ -9,6 +9,8 @@ Salt-okumasın: dosya yazma, düzenleme, silme, commit, kurulum, ayar değişikl
 
 Ortam değişkeni değeri yazılmaz: hiçbir komut env değeri basmaz (env, set, printenv, Get-ChildItem Env:, reg query yasak); varlık denetimi yalnız evet/hayır.
 
+Registry, Get-ChildItem Env:, env/printenv ve ortam değişkeni değeri ya da uzunluğu veren her sorgu yasak; varlık yalnız [bool]$env:AD.
+
 Büyük dosyayı (jsonl, log) bütün basma: python ile süz, say, yalnız kanıt satırlarını (yol:satır + kısa alıntı) getir. Read dar aralıkla.
 
 Dönüş: istenen başlıklar altında kısa bulgular; her iddia için kaynak (dosya:satır ya da URL + alıntı). Tahmini "kanıtsız" diye işaretle.
