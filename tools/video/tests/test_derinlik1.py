@@ -90,6 +90,48 @@ def test_r6_yeniden_arastirir(tmp_path):
     assert d["eski-servis"]["guvenlik"] == "HIGH/CRITICAL 0 (eski)"  # repo aynı → ön tarama yeniden koşmaz
 
 
+def _kurulu_ortam(tmp_path):
+    evi, ip = tmp_path / "evi", tmp_path / "evi" / "plugins" / "cache" / "hizli-paket"
+    (ip / "skills" / "eski-skill").mkdir(parents=True)
+    (evi / "plugins" / "installed_plugins.json").write_text(json.dumps(
+        {"version": 2, "plugins": {"hizli-paket@m": [{"installPath": str(ip), "version": "aaaaaaa1111"}]}}), encoding="utf-8")
+    ky = tmp_path / "docs" / "kurulumlar" / "kayit.jsonl"
+    ky.parent.mkdir(parents=True, exist_ok=True)
+    ky.write_text(json.dumps({"ad": "hizli-paket", "karar": "KUR (test)"}, ensure_ascii=False) + "\n", encoding="utf-8")
+    return _parti(tmp_path, PID, {V[0]: _rapor(V[0], [("hizli-paket", "plugin", "https://github.com/ornek/hizli-paket")])}), evi
+
+
+def _gh_ust(args):
+    yol = args[1]
+    if yol.endswith("commits?per_page=1"):
+        return [{"sha": "bbbbbbb2222"}]
+    if yol.endswith("contents/skills"):
+        return [{"name": "eski-skill", "type": "dir"}, {"name": "yeni-skill", "type": "dir"}]
+    raise RuntimeError("HTTP 404")
+
+
+# R1 kurulu araçta güncellik (çağrısız): fark → UYARLA/güncelle + araştırma; gh yoksa sebep Kapsam'da
+def test_r1_guncellik_fark(tmp_path):
+    p, evi = _kurulu_ortam(tmp_path)
+    ar = Ar({})
+    c = {**_ctx(tmp_path, ar), "gh": _gh_ust, "uyku": _uyku()}
+    c["env"]["CLAUDE_EVI"] = str(evi)
+    pt.parti(_ns("akil", p.name), c)
+    a = json.loads((p / "durum.json").read_text(encoding="utf-8"))["adaylar"]["hizli-paket"]
+    assert a["guncellik"] == "fark: kurulu aaaaaaa ↔ upstream bbbbbbb · yeni: skills/yeni-skill"
+    r, t = _panel(tmp_path, PID)
+    assert r["hizli-paket"][5] == "UYARLA" and "güncelle: fark" in r["hizli-paket"][6] and "hizli-paket" in ar.adlar
+
+
+def test_r1_gh_yok_sebep_kapsamda(tmp_path):
+    p, evi = _kurulu_ortam(tmp_path)
+    c = _ctx(tmp_path, Ar({}))
+    c["env"]["CLAUDE_EVI"] = str(evi)
+    pt.parti(_ns("akil", p.name), c)
+    r, t = _panel(tmp_path, PID)
+    assert r["hizli-paket"][5] == "ZATEN VAR" and "güncellik güncellik bakılamadı (gh bağlamı yok)" in t
+
+
 # R2 paket içi parça kurulu paketteki karşılığıyla eşleşir; dosya yolu panelde
 def test_r2_paket_ici_eslesir(tmp_path):
     evi = tmp_path / "evi"
