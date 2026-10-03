@@ -15,4 +15,4 @@ def test_devam_paket_yeniden(tmp_path):
     assert alt == ["paket"] and len(s.cagrilar) == 2
     v = _durum(kok)["videolar"][V[0]]
     assert v["paket"]["durum"] == "tamam" and "yeniden" not in v["paket"] and v["tarama"]["durum"] == "tamam"
-    assert cli._parser().parse_args(["parti", "devam", "x", "--yeniden-tara", "--paket-yeniden"]).paket_yeniden
+    assert cli.main(["parti", "devam", "yok", "--yeniden-tara", "--paket-yeniden"], env={"VIDEO_UYGULA_KOK": str(kok)}) == 1  # bayrak tanınır: argparse çıkışı yok, "parti yok"
