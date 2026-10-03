@@ -1141,7 +1141,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     geri = lambda x: x[1:] if isinstance(x, str) and x[:1] == "\0" else x  # noqa: E731
     vars(ns).update({k: [geri(y) for y in x] if isinstance(x, list) else geri(x) for k, x in vars(ns).items()})
     env = os.environ if env is None else env
-    ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK)}
+    ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK),
+           "gh": lambda a: json.loads(subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", check=True).stdout)}  # DERİNLİK-1 R3
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
                 "rapor-denetle": rapor_denetle, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,

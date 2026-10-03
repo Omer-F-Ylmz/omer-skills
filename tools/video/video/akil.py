@@ -121,6 +121,25 @@ def _paket_ici(k, env):
     return f"karşılık bulunamadı ({m[2]} paketinde {m[1]})"
 
 
+def _repo_ara(ctx, a):
+    """DERİNLİK-1 R3: repo yok → ad + video ipucu GitHub'da (en fazla 3 sorgu, aralarında ≥2 sn). → (repo | None, sonuç satırı)."""
+    if not (gh := ctx.get("gh")):
+        return None, "arama koşmadı (gh bağlamı yok)"
+    ad = re.sub(r"\(.*?\)", "", a["ad"]).strip()
+    ipucu = " ".join(next(iter(a["videolar"].values()))["ne"].split()[:3])
+    sorgular = list(dict.fromkeys([ad, f"{ad} claude", f"{ad} {ipucu}".strip()]))[:3]
+    for i, q in enumerate(sorgular):
+        if i:
+            (ctx.get("uyku") or pt.time.sleep)(2)
+        try:
+            js = gh(["api", "-X", "GET", "search/repositories", "-f", f"q={q}", "-f", "per_page=5"])
+        except Exception as e:  # gh hatası araştırmayı durdurmaz; panelde görünür
+            return None, f"arama başarısız ({str(e)[:80]})"
+        if it := next((x for x in (js or {}).get("items", []) if tr.slug(x["name"]) == tr.slug(ad)), None):
+            return it["full_name"].lower(), f"bulundu: {it['full_name'].lower()}"
+    return None, f"arandı, bulunamadı ({'; '.join(sorgular)})"
+
+
 def _arastirma_disi(a):
     """İlke 29 (i): araştırmaya gitmez — kendi aracımız + kurulu (80e0ab3)."""
     return bool(a["kurulu"])
@@ -517,6 +536,7 @@ def panel(pdir, d, kok):
           "## Belirsiz birleşmeler (ad benzer, repo farklı)", *([f"- {x} ↔ {z}" for x, z in d.get("belirsiz", [])] or ["- yok"]),
           "## ÜRETİLEBİLİR / yapım tarifleri", *(uret or ["- yok"]), "## Kural önerileri (T0)", *(kural or ["- yok"]),
           "## OLASI EŞDEĞER (Jev p 0.5–0.75)", *(olasi_es or ["- yok"]), "## OLASI TEKRAR", *(olasi or ["- yok"]), "## Araştırılmadı", *(kalan or ["- yok"]),
+          "## Repo araması", *([f"- {k}: {a['repo_arama']}" for k, a in d.get("adaylar", {}).items() if a.get("repo_arama")] or ["- yok"]),
           f"## {tr.SITE_UI}", *([f"- {pt._h(a)} · {v} · {pt._h(z)} ({pt._h(k)}) → docs/departmanlar/frontend.md" for a, v, z, k in d.get("site_ui", [])] or ["- yok"]),
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
           "## Geliştirme önerileri", *[f"- bizde bilgi yok: {pt._h(x)}" for x in d.get("bizde_yok", [])], *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
@@ -556,7 +576,10 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     eski = d.get("adaylar", {})
     for k, a in adaylar.items():
         a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
-        a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p") if x in eski.get(k, {})})
+        a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama") if x in eski.get(k, {})})
+        if not a["repo"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı")):
+            a["repo_arama"] = _repo_ara(ctx, a)[1]
+        a["repo"] = a["repo"] or (a["repo_arama"][9:] if str(a.get("repo_arama", "")).startswith("bulundu: ") else None)
         a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
         if pk := _paket_ici(k, env):
             a["paket_yol"] = pk
