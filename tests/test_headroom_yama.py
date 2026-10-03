@@ -4,13 +4,18 @@ K2 kökü: (i) recap/away_summary yan isteği ana lineage zincirini ezer → son
 frozen == 0 → kompress_background kuyruğa (anthropic.py:1835-1837) + read_maturation tüm geçmişe (:2366) → önek kırılır.
 Sentetik diziler gerçek away_summary yapısından (system/away_summary, isMeta, 203 krk; içerik maskeli)."""
 import importlib.util
+import shutil
 import sys
 from pathlib import Path
 
 import pytest
 
-SP = Path.home() / "AppData/Local/Headroom/headroom/runtime/venv/Lib/site-packages"
-PT = SP / "headroom/cache/prefix_tracker.py"
+KOK = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(KOK / "tools"))
+import headroom_yama as y  # noqa: E402
+
+SP = y.KOK
+PT = SP / y.PT
 AWAY = 203
 
 pytestmark = pytest.mark.skipif(not PT.is_file(), reason="Headroom runtime kurulu değil")
@@ -25,8 +30,25 @@ def yukle(yol):
 
 
 @pytest.fixture
-def pt():
-    return yukle(PT)
+def kopya(tmp_path):
+    """Kurulu 0.39.0'ın yamasız asıllarıyla geçici site-packages."""
+    for rel in y.DUZEN:
+        d = y.durum(SP, rel)
+        if d not in ("yamasız", "yamalı"):
+            pytest.skip(f"kurulu {rel}: {d}")
+        (tmp_path / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(y._yedek(SP / rel) if d == "yamalı" else SP / rel, tmp_path / rel)
+    (tmp_path / f"headroom_ai-{y.SURUM}.dist-info").mkdir()
+    return tmp_path
+
+
+@pytest.fixture(params=["kurulu", "yamali_kopya"])
+def pt(request):
+    if request.param == "kurulu":
+        return yukle(PT)
+    k = request.getfixturevalue("kopya")
+    y.uygula(k)
+    return yukle(k / y.PT)
 
 
 def u(n, tag="u"):
@@ -114,3 +136,55 @@ def test_soguk_onek_kompress_ve_maturation_tetiklenir(pt, durum):
         sonraki = M[:2] + [eski] + M[3:] + [asis(), u(500)]  # erken tool_result değişti
     _, f2 = tur(store, sonraki, 30000)
     assert f2 == 0
+
+
+# --- tools/headroom_yama.py ---
+
+def test_uygula_idempotent_geri_al_bayt_esit(kopya):
+    orj = {rel: (kopya / rel).read_bytes() for rel in y.DUZEN}
+    assert set(y.uygula(kopya).values()) == {"uygulandı"}
+    yamali = {rel: (kopya / rel).read_bytes() for rel in y.DUZEN}
+    assert all(y.durum(kopya, rel) == "yamalı" for rel in y.DUZEN)
+    assert set(y.uygula(kopya).values()) == {"yamalı: dokunulmadı"}
+    assert {rel: (kopya / rel).read_bytes() for rel in y.DUZEN} == yamali
+    assert all(y._yedek(kopya / rel).read_bytes() == orj[rel] for rel in y.DUZEN)
+    assert set(y.geri(kopya).values()) == {"geri alındı"}
+    assert {rel: (kopya / rel).read_bytes() for rel in y.DUZEN} == orj
+    assert set(y.geri(kopya).values()) == {"zaten yamasız: dokunulmadı"}
+
+
+def test_handler_ttl_damgasi_cc_ttl_ardinda(kopya):
+    y.uygula(kopya)
+    s = (kopya / y.AN).read_bytes().decode("utf-8")
+    assert ("_cc_ttl = anthropic_cache_ttl_seconds(model, original_client_messages, system_prompt)\n"
+            "            prefix_tracker._cache_ttl_hint = _cc_ttl or 0") in s
+
+
+def test_farkli_surum_DUR(kopya):
+    (kopya / f"headroom_ai-{y.SURUM}.dist-info").rename(kopya / "headroom_ai-0.40.0.dist-info")
+    orj = {rel: (kopya / rel).read_bytes() for rel in y.DUZEN}
+    with pytest.raises(SystemExit, match="DUR"):
+        y.uygula(kopya)
+    assert {rel: (kopya / rel).read_bytes() for rel in y.DUZEN} == orj
+
+
+def test_bilinmeyen_sha_DUR_hicbirine_dokunmaz(kopya):
+    (kopya / y.AN).write_bytes((kopya / y.AN).read_bytes() + b"# yerel\n")
+    orj = (kopya / y.PT).read_bytes()
+    with pytest.raises(SystemExit, match="DUR"):
+        y.uygula(kopya)
+    assert (kopya / y.PT).read_bytes() == orj and not y._yedek(kopya / y.PT).exists()
+
+
+def test_derleme_kirik_geri_alinir_DUR(kopya, monkeypatch):
+    orj = {rel: (kopya / rel).read_bytes() for rel in y.DUZEN}
+    monkeypatch.setattr(y, "_denetle", lambda k: [y.AN])
+    with pytest.raises(SystemExit, match="DUR"):
+        y.uygula(kopya)
+    assert {rel: (kopya / rel).read_bytes() for rel in y.DUZEN} == orj
+
+
+def test_main_durum(kopya, capsys):
+    assert y.main(["--kok", str(kopya), "--durum"]) == 0
+    assert capsys.readouterr().out.count("yamasız") == 2
+    assert y.main(["--kok", str(kopya)]) == 0 and y.main(["--kok", str(kopya), "--geri-al"]) == 0
