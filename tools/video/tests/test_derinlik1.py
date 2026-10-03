@@ -72,6 +72,24 @@ def test_r5_kapsam_bolumu(tmp_path):
     assert "- ajan-y: kapsam eksik (repo, README, lisans, commit, güvenlik)" in ar_ and "- hizli: kapsam eksik (güvenlik)" in ar_
 
 
+# R6 --yeniden durum + repo_arama sıfırlanır, araştırma yeniden koşar; güvenlik yalnız repo değiştiyse yeniden
+def test_r6_yeniden_arastirir(tmp_path):
+    p = _parti(tmp_path, PID, {V[0]: _rapor(V[0], [("eski-servis", "servis", "https://github.com/ornek/eski-servis"), ("ajan-x", "servis", None)])})
+    pt.parti(_ns("akil", p.name), _ctx(tmp_path, Ar({})))
+    y = p / "durum.json"
+    d = json.loads(y.read_text(encoding="utf-8"))
+    d["adaylar"]["eski-servis"].update(durum="arac_degil", guvenlik="HIGH/CRITICAL 0 (eski)")  # DERİNLİK-1 öncesi durum: repolu servis atlanmış
+    y.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    m = tmp_path / "docs" / "kurulumlar" / "adaylar" / "eski-servis.md"
+    m.write_text(m.read_text(encoding="utf-8").replace("arastirma: tam", "arastirma: yarım"), encoding="utf-8")
+    ar, ns = Ar({}), _ns("akil", p.name)
+    ns.yeniden = True
+    pt.parti(ns, {**_ctx(tmp_path, ar), "gh": _gh("ajan-x"), "uyku": _uyku()})
+    d = json.loads(y.read_text(encoding="utf-8"))["adaylar"]
+    assert set(ar.adlar) >= {"eski-servis", "ajan-x"} and d["ajan-x"]["repo"] == "ornek/ajan-x"
+    assert d["eski-servis"]["guvenlik"] == "HIGH/CRITICAL 0 (eski)"  # repo aynı → ön tarama yeniden koşmaz
+
+
 # R2 paket içi parça kurulu paketteki karşılığıyla eşleşir; dosya yolu panelde
 def test_r2_paket_ici_eslesir(tmp_path):
     evi = tmp_path / "evi"
