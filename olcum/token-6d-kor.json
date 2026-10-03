@@ -1,0 +1,99 @@
+{
+ "dalga": "TOKEN-6d-2 kör puan + karar",
+ "yontem": "okuyucu (sonnet) kol adları gizli 6 kopya (rtk L M N P · orta R S, karışık sıra, kol izleri silindi), 0–3 × (doğruluk · eksiksizlik · kalite) = 0–9; eşleme ayrı dosyada, puanlama bittikten sonra açıldı.",
+ "ham_puan": {
+  "L": {
+   "dogruluk": 3,
+   "eksiksizlik": 3,
+   "kalite": 2,
+   "gerekce": "4 test geçti; Add/Subtract/Multiply + InvalidOperationException. Şablon adları kaldı, yanıtta belirtilmiş.",
+   "kopya": "rtk-C1"
+  },
+  "M": {
+   "dogruluk": 3,
+   "eksiksizlik": 3,
+   "kalite": 3,
+   "gerekce": "4 test geçti. Şablon silinmiş, Money.cs ve MoneyTests.cs yeni. Yanıt diff ile tutarlı.",
+   "kopya": "rtk-C2"
+  },
+  "N": {
+   "dogruluk": 3,
+   "eksiksizlik": 2,
+   "kalite": 2,
+   "gerekce": "5 test koşuyor, görev 4 istiyor; şablon Test1 silinmedi. Yanıt sapmayı söylüyor.",
+   "kopya": "rtk-T2"
+  },
+  "P": {
+   "dogruluk": 3,
+   "eksiksizlik": 3,
+   "kalite": 2,
+   "gerekce": "4 test geçti, readonly record struct. Şablon adları kaldı. Yanıt dil bakımından bozuk.",
+   "kopya": "rtk-T1"
+  },
+  "R": {
+   "dogruluk": 3,
+   "eksiksizlik": 3,
+   "kalite": 3,
+   "gerekce": "8 kabul + 500 suite geçti; takas d<=0 tek dal, esik iki yön, tasarruf None korumalı.",
+   "kopya": "orta-T1"
+  },
+  "S": {
+   "dogruluk": 3,
+   "eksiksizlik": 3,
+   "kalite": 2,
+   "gerekce": "8 + 500 geçti; takas'ta ayrı d<0 dalı d==0 satırını tekrarlıyor.",
+   "kopya": "orta-C1"
+  }
+ },
+ "toplam_9": {
+  "rtk-C1": 8,
+  "rtk-C2": 9,
+  "rtk-T2": 7,
+  "rtk-T1": 8,
+  "orta-T1": 9,
+  "orta-C1": 8
+ },
+ "gurultu_bandi_yuzde": {
+  "kor_puan": 13.3,
+  "cikti_token": 31.8,
+  "usd": 64.2,
+  "kaynak": "rtk-ab aynı kol çiftleri (T1↔T2, C1↔C2) büyüğü"
+ },
+ "gorevler": {
+  "rtk": {
+   "kor_puan_9": {
+    "T": 7.5,
+    "C": 8.5
+   },
+   "kalite_dususu_yuzde": 11.8,
+   "basari_dususu_yuzde": 0.0,
+   "dusus_etkin": 0,
+   "tasarruf_yuzde": {
+    "cikti": -2.4,
+    "usd": -13.4,
+    "agirlikli": -13.9
+   },
+   "gurultu_icinde": true,
+   "karar": "RED(token)",
+   "kademe": "düşüş 0, eşik aşılmadı"
+  },
+  "orta": {
+   "kor_puan_9": {
+    "T": 9,
+    "C": 8
+   },
+   "kalite_dususu_yuzde": -12.5,
+   "basari_dususu_yuzde": 0.0,
+   "dusus_etkin": 0,
+   "tasarruf_yuzde": {
+    "cikti": 2.3,
+    "usd": 2.1,
+    "agirlikli": 1.9
+   },
+   "gurultu_icinde": true,
+   "karar": "RED(token)",
+   "kademe": "düşüş 0, eşik aşılmadı"
+  }
+ },
+ "karar": "ölçülebilir tasarruf yok → kalıcı açma yok, çıktı kısaltma kapalı kalır"
+}
