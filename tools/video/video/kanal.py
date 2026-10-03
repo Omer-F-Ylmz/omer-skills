@@ -106,6 +106,9 @@ def videolar(ctx, kok):
             vs.setdefault(m[2], {"tarih": m[1] or ""})
             eski += "## İddialar" not in f.read_text(encoding="utf-8", errors="replace")
     for r in _jsonl(rd / "kayit.jsonl"):
+        m = RAPOR.match(r.get("rapor") or f"{r['id']}.md")
+        if not m or m[2] != r["id"]:  # kaynak-*/kurulum-* satırları video değil
+            continue
         t = vs.setdefault(r["id"], {"tarih": ""})
         t["tarih"] = max(t["tarih"], r.get("tarih") or "")
     kanal_ad = {r["video"]: r["kanal"] for r in _jsonl(kok / "docs/kurulumlar/kayit.jsonl") if r.get("video") and r.get("kanal")}
