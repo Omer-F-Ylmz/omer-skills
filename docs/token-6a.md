@@ -41,3 +41,25 @@ Settings yedekleri aynı anları doğrular: `settings.json.headroom-backup-20261
 3. Headroom ayarı: çıkış/pause'ta temizleme tasarım gereği (proxy yokken istemciyi kırmamak). Değiştirmek önerilmez.
 
 Öneri: 1. Pay ≈%0 olduğu için sorun maliyet değil görünürlük.
+
+## K3 Çıktı kısaltma (L12) ayrıştırma tasarımı
+
+**Mekanizma** (uv kurulumu headroom-ai 0.37.0, `~/AppData/Roaming/uv/tools/headroom-ai/Lib/site-packages/headroom/proxy/handlers/anthropic.py:3116-3175`; Desktop venv 0.39.0'da aynı blok `:3338`; 6767/6768'i hangisinin sunduğu kanıtsız):
+- Treatment kolundaki her isteğe sistem isteminin sonuna `<headroom_output_shaping>` bloğu eklenir (`anthropic.py:3169-3171`, `output_steering.py:16`). Metin seviyeye göre (`output_verbosity_policy.py:13-36`); seviye 2 (okuma sıkışık geldi, alıntı yaklaşık): "Skip preamble and postamble; start with substance. Never restate code, file contents, diffs, or tool output already in this conversation — reference path and line instead. After tool call succeeds, continue without narrating result."
+- Tur türü talimatı değiştirmez. `classify_turn` (`output_turn_policy.py:9-15`) yalnız effort yönlendirmesini etkiler: `MECHANICAL_CONTINUATION` turunda `output_config.effort` → `HEADROOM_MECHANICAL_EFFORT` (varsayılan `low`) (`output_shaper.py:204-239`). TOKEN-0 L12 satırındaki "tur türüne göre" bu yüzden kaba.
+- Koşul: bypass değil (`anthropic.py:3121`) · shaper açık (`HEADROOM_OUTPUT_SHAPER` truthy ya da rollout `proxy_output_shaper` BETA; `output_shaper.py:116`, `rollout.py:105`) · kol treatment. Seviye sırası `HEADROOM_VERBOSITY_LEVEL` → autotune → `~/.headroom/verbosity.json` → 2 (`output_shaper.py:142-189`).
+- Holdout istek ya da oturum başına değil: konuşma anahtarı `sha256(model + ilk user metni[:512])` (`output_savings_policy.py:108-130`), `sha256("arm:"+anahtar)[:8]/0xFFFFFFFF < oran` ise control (`:157-165`). Aynı ilk mesajla başlayan konuşmalar hep aynı kola düşer. Etiket `transforms_applied`'a (`anthropic.py:3167`), defter `~/.headroom/output_savings.json`'a (`output_savings.py:479`; şu an yalnız baseline 8 stratum, treatment/control boş).
+- Bugün shaper kapalı: 8 proxy günlüğünde OutputShaper/stratum/holdout satırı 0; `HEADROOM_OUTPUT_HOLDOUT` tanımlı değil.
+
+**Önceki ölçüm** (`docs/denemeler/headroom-ayar-sonuc.md:3-32`): 2026-09-24, sonnet, 4 okuma görevi, 3 kol (doğrudan · headroom-mevcut · headroom-wrap) × 2 koşu = 24 `claude -p`, $8.79, kalite 0-3 (gürültü bandı 0.34). Çıktı 582→358 (−%38.5), kalite 2.50→2.62, girdi −%37.4. Kollar yalnız proxy↔doğrudan farkını ölçer; shaper'ın o sırada açık olup olmadığı ayrılmadı. −%38.5 = sıkıştırma + (varsa) shaper + gürültü. Görev başına n=2; en büyük düşüş tek görevde (`2-json-alan`, `:21-22`).
+
+**20 Eylül.** `~/.headroom/verbosity.json`: `learned_at 2026-09-20T14:37:39Z`, seviye 2, kaynak heuristic. `headroom learn --verbosity --apply` çalışan proxy'ye `POST /admin/runtime-env {"HEADROOM_OUTPUT_SHAPER":"1"}` gönderip shaper'ı açar (`cli/learn.py:404-425`, çağrı `:577`); yani learn shaper'ı açabiliyor. Kapatma gerekçesi repoda ve hafızada yok (kanıt yok); bugün kapalı olduğu günlükten kesin.
+
+**HEADROOM_OUTPUT_HOLDOUT A/B tasarımı** (bu dalgada koşulmadı):
+- Kollar: T = shaper açık + `HEADROOM_OUTPUT_HOLDOUT=0` (hepsi treatment) · C = shaper açık + `HEADROOM_OUTPUT_HOLDOUT=1` (hepsi control). Aynı proxy, aynı sıkıştırma; fark yalnız shaper talimatı. Oranlı holdout kullanılmaz: anahtar ilk mesaja bağlı, küçük n'de kol dengesi tutmaz.
+- Geçiş: bayraklar proxy sürecinin env'i; Desktop'un proxy'sine koşu başına `POST /admin/runtime-env` (learn'ün yolu), bitince eski değer. Bu bir Headroom ayarı değişikliği → TOKEN-6b'de onayla.
+- Geçerlilik: her koşuda proxy günlüğünde kol/stratum etiketi görülür; görülmezse koşu geçersiz.
+- Görevler: rtk-ab kısa görev (`C:\Users\pc\Desktop\rtk-ab`, `docs/token-4a.md:94-98` tabanı) + orta görev (tools/video/video modülünde değişiklik + testi, ayrı worktree).
+- Koşu: en fazla 6 — kısa 2T + 2C, orta 1T + 1C; T/C dönüşümlü; Opus 5.5.
+- Metrik: görev başarısı (test/kabul) · kör puan (okuyucu, kol gizli, 0-3) · çıktı token · toplam ağırlıklı · $.
+- Karar, madde 21 (`C:\Projeler\omer-kurallar.md:23`): kalite düşüşü = kalite puanı ve görev başarısındaki göreli düşüşlerin büyüğü. Gürültü bandındaysa her tasarruf AL · düşüş ≤%10 ve çıktı tasarrufu ≥%25 → AL · ≤%15 ve ≥%30 → AL · %15–20: ≥%75 AL, %50–75 SOR, <%50 RED · >%20: ≥%50 SOR, <%50 RED. Görev başarısı düşerse RED. n=6 küçük: AL çıkarsa varsayılan açılır ve `output_savings.json` defteriyle sahada izlenir.
