@@ -683,6 +683,9 @@ def kapat(pdir, d, kok, ctx):
     if eks := _islenmemis(Path(kok), d["parti"]):
         print(f"kapat: kayda işlenmemiş karar: {' · '.join(eks)} → DUR, önce: video panel uygula docs/kurulumlar/parti/{d['parti']}/panel.md")
         return 1
+    from .kanal import takip_ekle  # KANAL-2a A3: Ömer kuralı — yeni kanal takibe (kanallar.json bu commit'e girer)
+    takip_ekle(Path(kok), [v for v, s in d["videolar"].items() if s["tarama"]["durum"] in ("tamam", "tamam_eksik")], ctx,
+               Path(d["kuyruk"]).read_text(encoding="utf-8") if d.get("kuyruk") and Path(d["kuyruk"]).is_file() else "")
     out = kos([*git, "status", "--porcelain", "--", *MOTOR_DOCS])[1].decode("utf-8", "replace")  # M6 K6: izli değişiklik de tüm motor klasörlerinden
     dosya = [s[3:].strip().strip('"') for s in out.splitlines() if s.strip() and not s.startswith("?? ")]
     if dosya:

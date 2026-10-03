@@ -72,8 +72,9 @@ def _bagla(kok, r, idx):
     return ("video-dışı" if p and not (kok / ".kos" / str(p) / "durum.json").is_file() else "çözülemedi"), [], ""
 
 
-def degerli(kok):
-    """{video: [kaynak]}, {B2 sınıfı: [ad]} iki kayıttan; video alanı yoksa parti durum.json aday→video (-gelistirme eki atılır), o da yoksa _bagla."""
+def degerli(kok, sayac=None):
+    """{video: [kaynak]}, {B2 sınıfı: [ad]} iki kayıttan; video alanı yoksa parti durum.json aday→video (-gelistirme eki atılır), o da yoksa _bagla.
+    sayac verilirse B2 sınıfı başına karar kaydı sayılır (aynı adın tekrar kayıtları dahil; liste tekil ad)."""
     out, durum, b2, idx = {}, {}, {}, None
     for r in _jsonl(kok / "docs/video-tarama/kayit.jsonl") + _jsonl(kok / "docs/kurulumlar/kayit.jsonl"):
         k, p, ad = _karar(r), r.get("parti"), str(r.get("ad") or "")
@@ -89,6 +90,8 @@ def degerli(kok):
             if not vids:
                 idx = _aday_bolum(kok) if idx is None else idx
                 sinif, vids, not_ = _bagla(kok, r, idx)
+                if sayac is not None:
+                    sayac[sinif] = sayac.get(sinif, 0) + 1
                 if ad + not_ not in (kume := b2.setdefault(sinif, [])):
                     kume.append(ad + not_)
         for v in vids:
@@ -96,6 +99,15 @@ def degerli(kok):
             if kaynak not in out.setdefault(v, []):
                 out[v].append(kaynak)
     return out, b2
+
+
+def _eski_hat(kok):
+    """A1: yalnız tarihsiz (23 Eyl öncesi biçim) raporu olan videolar."""
+    rd, t = kok / "docs/video-tarama", {}
+    for f in rd.glob("*.md") if rd.is_dir() else []:
+        if (m := RAPOR.match(f.name)) and not f.name.startswith("00-"):
+            t[m[2]] = t.get(m[2], False) or bool(m[1])
+    return {v for v, tarihli in t.items() if not tarihli}
 
 
 def videolar(ctx, kok):
@@ -146,10 +158,11 @@ def _tablo(yol):
 def liste(ctx):
     vs, eski = videolar(ctx, KOK)
     deg, _ = degerli(KOK)
+    eh = _eski_hat(KOK)
     k = {}
     for v, t in vs.items():
-        a = k.setdefault(t["channel_id"] or t["kanal"], {"kanal": t["kanal"], "channel_id": t["channel_id"], "url": t["url"], "n": 0, "d": 0, "son": ""})
-        a["n"], a["d"], a["son"] = a["n"] + 1, a["d"] + (v in deg), max(a["son"], t["tarih"])
+        a = k.setdefault(t["channel_id"] or t["kanal"], {"kanal": t["kanal"], "channel_id": t["channel_id"], "url": t["url"], "n": 0, "d": 0, "e": 0, "son": ""})
+        a["n"], a["d"], a["e"], a["son"] = a["n"] + 1, a["d"] + (v in deg), a["e"] + (v in eh and v not in deg), max(a["son"], t["tarih"])
     yol = KOK / "docs/video-tarama/kanallar.md"
     eski_omer = {}  # ad ve kimlikle: coz sonrası anahtar ad → channel_id değişse de Ömer sütunu korunur
     for r in _tablo(yol) if yol.is_file() else []:
@@ -163,7 +176,8 @@ def liste(ctx):
     for anahtar, a in sorted(k.items(), key=lambda x: (-x[1]["d"], -x[1]["n"], x[1]["kanal"])):
         o = oneri(a["n"], a["d"])
         sayac[o] = sayac.get(o, 0) + 1
-        md.append("| " + " | ".join(_hucre(x) for x in (a["kanal"], a["channel_id"], a["url"], a["n"], a["d"], a["son"], o, eski_omer.get(anahtar) or eski_omer.get(a["kanal"], ""))) + " |")
+        n = f"{a['n']} (eski {a['e']})" if a["e"] else a["n"]  # A1: eski k = etiketsiz (eski hat) video
+        md.append("| " + " | ".join(_hucre(x) for x in (a["kanal"], a["channel_id"], a["url"], n, a["d"], a["son"], o, eski_omer.get(anahtar) or eski_omer.get(a["kanal"], ""))) + " |")
     yol.parent.mkdir(parents=True, exist_ok=True)
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
     kimliksiz = sum(not a["channel_id"] for a in k.values())
@@ -190,6 +204,35 @@ def onay(dosya):
     return 0
 
 
+def takip_ekle(kok, vids, ctx, kuyruk=""):
+    """A3 Ömer kuralı (3 Eki): işlenen videonun kanalı kanallar.json'da yoksa 'takip' eklenir, varsa değişmez.
+    channel_id: meta.json → .kos/kanal/video-kanal.json → yoksa uyarı (ağ isteği yok). Kuyruk notunda `kaynak: kanal:<id>` → envanterden gelen, eklemez."""
+    envanterden = {tr._hucre(s)[0] for s in kuyruk.splitlines() if s.lstrip().startswith("|") and "kaynak: kanal:" in s}
+    yol, vky = kok / "docs/video-tarama/kanallar.json", kok / ".kos/kanal/video-kanal.json"
+    j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
+    vk = json.loads(vky.read_text(encoding="utf-8")) if vky.is_file() else {}
+    eklenen = []
+    for v in vids:
+        if v in envanterden:
+            continue
+        y = Path(ctx["kok"]) / v / "meta.json" if ctx.get("kok") else None
+        m = json.loads(y.read_text(encoding="utf-8")) if y and y.is_file() else {}
+        if not m.get("channel_id"):
+            m = vk.get(v, {})
+        if not (cid := m.get("channel_id")):
+            print(f"uyarı: takip: {v} channel_id yok (meta · video-kanal.json) — eklenmedi")
+            continue
+        if cid in j or any(a.get("channel_id") == cid for a in j.values()):
+            continue
+        j[cid] = {"kanal": m.get("channel") or "?", "channel_id": cid, "url": m.get("channel_url") or "", "karar": "takip", "kaynak": "otomatik · Ömer kuralı 3 Eki"}
+        eklenen.append(cid)
+    if eklenen:
+        yol.parent.mkdir(parents=True, exist_ok=True)
+        yol.write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"takip: {len(eklenen)} yeni kanal → kanallar.json ({' · '.join(eklenen)})")
+    return eklenen
+
+
 def _tarih(e):
     # ponytail: --extractor-args approximate_date flat modda yaklaşık upload_date verir; yoksa timestamp; yoksa "tarih yok"
     if u := e.get("upload_date"):
@@ -198,8 +241,9 @@ def _tarih(e):
     return datetime.fromtimestamp(t, timezone.utc).date().isoformat() if t else "tarih yok"
 
 
-def _istek(ctx, args, sayac):
-    """Tek yt-dlp -J isteği: önceki istekten ≥BEKLE sn sonra; 429/403'te GERI kadar bekleyip en fazla 2 yeniden deneme. → json ya da None."""
+def _istek(ctx, args, sayac, yok=None):
+    """Tek yt-dlp -J isteği: önceki istekten ≥BEKLE sn sonra; 429/403'te GERI kadar bekleyip en fazla 2 yeniden deneme. → json ya da None.
+    Hata metni `yok` desenine uyarsa (sekme yok) {} döner, hata sayılmaz."""
     geri = False
     for bekle in (*GERI, None):
         if sayac[0] and not geri:  # geri çekilme beklemesi istekler arası beklemeyi zaten karşılar
@@ -208,7 +252,10 @@ def _istek(ctx, args, sayac):
         rc, out, err = ctx["kos"](args, timeout=180)
         if not rc:
             return json.loads(out)
-        if bekle is None or not re.search(r"HTTP Error (429|403)", (err or b"").decode("utf-8", "replace")):
+        e = (err or b"").decode("utf-8", "replace")
+        if yok and re.search(yok, e):
+            return {}
+        if bekle is None or not re.search(r"HTTP Error (429|403)", e):
             return None
         ctx["uyku"](bekle)
         geri = True
@@ -231,7 +278,8 @@ def envanter(ctx, secili=None):
         once, yarim, sayac = len(onb["videolar"]), False, [0]
         for sekme in ("videos", "shorts"):
             j = _istek(ctx, ["yt-dlp", "--flat-playlist", "--skip-download", "-J", "--no-warnings",
-                             "--extractor-args", "youtubetab:approximate_date", f"https://www.youtube.com/channel/{cid}/{sekme}"], sayac)
+                             "--extractor-args", "youtubetab:approximate_date", f"https://www.youtube.com/channel/{cid}/{sekme}"], sayac,
+                       r"does not have a shorts tab" if sekme == "shorts" else None)  # A4: shorts sekmesi yok → 0 short
             if j is None:
                 yarim = True
                 break
@@ -287,16 +335,22 @@ def coz(ctx, tavan=100):
 
 def etiket(ctx):
     vs, _ = videolar(ctx, KOK)
-    deg, b2 = degerli(KOK)
-    et = [{"id": v, "kanal": t["kanal"], "channel_id": t["channel_id"], "degerli": v in deg, "kaynak": deg.get(v, []),
+    b2k = {}
+    deg, b2 = degerli(KOK, b2k)
+    eh = _eski_hat(KOK)
+    et = [{"id": v, "kanal": t["kanal"], "channel_id": t["channel_id"], "degerli": v in deg,
+           "sinif": "değerli" if v in deg else "etiketsiz (eski hat)" if v in eh else "değersiz", "kaynak": deg.get(v, []),
            "altyazi": any((ctx["kok"] / v).glob("altyazi*")) or (ctx["kok"] / v / "segmentler.jsonl").is_file()} for v, t in sorted(vs.items())]
-    d, a = sum(x["degerli"] for x in et), sum(x["altyazi"] for x in et)
-    ozet = {"toplam": len(et), "degerli": d, "degersiz": len(et) - d, "altyazi_onbellekte": a, "b2": {k: len(x) for k, x in b2.items()}, "b2_cozulemedi": b2.get("çözülemedi", []),
-            "kural": "≥1 AL/UYARLA/DENE/KUR (karar ya da yargı); docs/video-tarama + docs/kurulumlar kayit.jsonl; iptal parti " + ",".join(sorted(IPTAL)) + " hariç"}
+    d, e, a = sum(x["degerli"] for x in et), sum(x["sinif"] == "etiketsiz (eski hat)" for x in et), sum(x["altyazi"] for x in et)
+    ozet = {"toplam": len(et), "degerli": d, "degersiz": len(et) - d - e, "etiketsiz": e, "altyazi_onbellekte": a,
+            "b2": {k: len(x) for k, x in b2.items()}, "b2_karar": b2k, "b2_cozulemedi": b2.get("çözülemedi", []),
+            "kural": "≥1 AL/UYARLA/DENE/KUR (karar ya da yargı); docs/video-tarama + docs/kurulumlar kayit.jsonl; iptal parti " + ",".join(sorted(IPTAL))
+            + " hariç · etiketsiz (eski hat): yalnız tarihsiz rapor ve karar yok"}
     yol = KOK / "docs/olcumler/kanal-etiket.json"
     yol.parent.mkdir(parents=True, exist_ok=True)
     yol.write_text(json.dumps({"ozet": ozet, "videolar": et}, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"etiket: {len(et)} video · değerli {d} · değersiz {len(et) - d} · altyazı önbellekte {a} · B2 " + " · ".join(f"{k} {len(x)}" for k, x in b2.items()))
+    print(f"etiket: {len(et)} video · değerli {d} · değersiz {len(et) - d - e} · etiketsiz (eski hat) {e} · altyazı önbellekte {a} · B2 "
+          + " · ".join(f"{k} {len(x)} ad/{b2k.get(k, 0)} karar" for k, x in b2.items()))
     return 0
 
 

@@ -700,6 +700,8 @@ def toplu(ns, ctx):
     md += ["", "## Raporlar"] + [f"- {v} · {b} · {r.name}" for v, r, b, _ in raporlar]
     cikti.write_text("\n".join(md) + "\n", encoding="utf-8")
     tr.kayit_ekle(yol, [{"id": x, "tarih": bugun, "rapor": r.name, "adaylar": a, "ele": []} for v, r, _, a in raporlar if v in gecen for x in ek[v]])  # 23c: yalnız ekler
+    from .kanal import takip_ekle  # KANAL-2a A3: parti dışı yol (video-tarama → toplu) da Ömer kuralına bağlı
+    takip_ekle(yol.parents[2], [x for v, *_ in raporlar if v in gecen for x in ek[v]], ctx)
     kayit = tr.kayit_son(tr.kayit_oku(yol), "id")
     for v, _, b, a in raporlar[:20]:
         print(f"{v} · {b[:50]} · {len(a)} aday: " + ", ".join(f"{x} [{isr[tr.normal(x)]}]" for x in a)[:300])
