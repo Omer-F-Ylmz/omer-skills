@@ -263,8 +263,10 @@ def aile(komut):
     """Bash komut ailesi: cd/set/export, VAR= ve rtk önekleri atlanır; ilk kelime + (python -m modül · betik · alt komut)."""
     for parca in re.split(r"&&|\|\||;|\n", komut or ""):
         w = parca.split()
-        while w and ("=" in w[0] or w[0] == "rtk"):
+        while w and "=" in w[0]:
             w.pop(0)
+        if w[:1] == ["rtk"]:
+            w = w[2:] if w[1:2] == ["proxy"] else w[1:]
         if not w or w[0] in ("cd", "set", "export"):
             continue
         ilk = Path(w[0].strip("\"'")).name.lower().removesuffix(".exe")
@@ -278,10 +280,9 @@ def aile(komut):
     return "?"
 
 
-def _satir(sonuc, yol):
-    f = sonuc.get("file") if isinstance(sonuc, dict) else None
-    if isinstance(f, dict) and isinstance(f.get("totalLines"), int):
-        return f["totalLines"]
+def _satir(toplam, yol):
+    if isinstance(toplam, int):
+        return toplam
     try:
         with open(yol, "rb") as g:
             return sum(1 for _ in g)
@@ -308,17 +309,20 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
     """TOKEN-4a K1 (--arac-dokum): araç sonucu dökümü. Çıktıda yalnız sayı, dosya yolu ve komut ailesi bulunur.
 
     katkı = n·(w + 0.1·(R−1)) — n sonuç token'ı (karakter/4), R sonucu taşıyan istek sayısı (compact sınırına dek),
-    w yazma katsayısı (oturumda 1h baskınsa 2, değilse 1.25). Düzeltilmiş = katkı·k, k = Σ(ctx − taban) / Σ transcript
-    büyümesi (oturum başına): transcript Headroom öncesi boyutu, usage sonrasını tutar.
+    w yazma katsayısı (oturumda 1h baskınsa 2, değilse 1.25). Düzeltilmiş = katkı·k; k (oturum başına) = Σ(Δctx − çıktı)
+    / Σ sonuç token'ı, yalnız arasına yalnız tool_result giren ardışık isteklerde ("temiz adım"): transcript Headroom
+    öncesi boyutu, usage sonrasını tutar. Temiz adımı olmayan oturum genel k'yı (Σ/Σ) alır.
     """
     sinir = (simdi or time.time()) - gun * 86400
     kok = Path(kok)
-    toplam, gorulen, dosya, katsayilar = 0.0, set(), 0, []
+    toplam, gorulen, dosya, kayit = 0.0, set(), 0, []
     oku = {**_sayac(), "aralikli": 0, "rehber": 0}
     uzanti, rv_oku = defaultdict(_sayac), defaultdict(_sayac)
     limitsiz, aralik_n = [], []  # limitsiz: (yol, satır, n, katkı, düz) — rehber dışı, aralıksız Read
-    tekrar = defaultdict(lambda: {**_sayac(), "degismeden": 0, "degismeden_katki": 0.0, "degismeden_duz": 0.0})
-    bash = defaultdict(lambda: {**_sayac(), "n": [], "rtk": 0, "rtksiz": 0.0, "rtksiz_duz": 0.0, "pipe": 0, "tail": 0})
+    tekrar = defaultdict(lambda: {**_sayac(), "degismeden": 0, "degismeden_katki": 0.0, "degismeden_duz": 0.0,
+                                  "ayni_aralik": 0, "ayni_katki": 0.0, "ayni_duz": 0.0})
+    bash = defaultdict(lambda: {**_sayac(), "n": [], "nr": [], "ns": [], "rtk": 0, "rtksiz": 0.0, "rtksiz_duz": 0.0,
+                                "pipe": 0, "tail": 0})
     rv = {"adet": 0, "onceki": defaultdict(int), "sn": [], "tur": []}
     tur = {"istek": 0, "aracli": 0, "paralel": 0, "arac_sayisi": defaultdict(int)}
     dizi_t = {"dizi": 0, "istek": 0, "kazanc": 0, "kazanc_agirlikli": 0.0}
@@ -327,8 +331,8 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
         if yol.stat().st_mtime < sinir:
             continue
         dosya += 1
-        istek, mid_idx, araclar, sonuc, rtkler, dalgalar = [], {}, [], {}, set(), []
-        buyume, sg, dalga, m5, h1 = 0.0, 0, None, 0, 0
+        istek, mid_idx, araclar, sonuc, rtkler, dalgalar, adim = [], {}, [], {}, set(), [], []
+        sg, dalga, m5, h1, gap_n, kirli = 0, None, 0, 0, 0, False
         with yol.open(encoding="utf-8", errors="replace") as f:
             for s in f:
                 try:
@@ -352,23 +356,23 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
                         if mid not in gorulen:
                             gorulen.add(mid)
                             toplam += a
+                        ctx = p["girdi"] + p["cache_okuma"] + p["cache_5m"] + p["cache_1h"]
+                        if istek and istek[-1]["sg"] == sg and gap_n and not kirli:
+                            adim.append((ctx - istek[-1]["ctx"] - istek[-1]["cikti"], gap_n))
+                        gap_n, kirli = 0, False
                         mid_idx[mid] = len(istek)
-                        istek.append({"ctx": p["girdi"] + p["cache_okuma"] + p["cache_5m"] + p["cache_1h"], "ts": ts,
-                                      "sg": sg, "tahmin": buyume, "a": a, "arac": []})
+                        istek.append({"ctx": ctx, "cikti": p["cikti"], "ts": ts, "sg": sg, "a": a, "arac": []})
                     i = mid_idx[mid]
                     for b in icerik:
                         if b.get("type") == "tool_use":
                             g = b.get("input") if isinstance(b.get("input"), dict) else {}
                             istek[i]["arac"].append(b.get("id"))
                             araclar.append((b.get("id"), b.get("name") or "?", g, i))
-                            buyume += len(json.dumps(g, ensure_ascii=False)) / 4
-                        elif b.get("type") == "text":
-                            buyume += len(b.get("text") or "") / 4
                 elif tip == "user":
                     c = m.get("content")
                     metin = c if isinstance(c, str) else "".join(b.get("text") or "" for b in icerik if b.get("type") == "text")
-                    buyume += len(metin) / 4
                     sonuclar = [b for b in icerik if b.get("type") == "tool_result"]
+                    kirli = kirli or bool(metin) or any(b.get("type") == "image" for b in icerik)
                     if metin and not sonuclar and not o.get("isMeta"):
                         mm = DALGA.search(metin[:300])
                         if mm and mm.group() != dalga:
@@ -379,11 +383,14 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
                         parcalar = c if isinstance(c, list) else [{"type": "text", "text": c or ""}]
                         n = round(sum(len(x.get("text") or "") for x in parcalar
                                       if isinstance(x, dict) and x.get("type") == "text") / 4)
-                        buyume += n
-                        sonuc[b.get("tool_use_id")] = (n, len(istek), sg,
-                                                       o.get("toolUseResult") if len(sonuclar) == 1 else None)
+                        gap_n += n
+                        kirli = kirli or any(isinstance(x, dict) and x.get("type") == "image" for x in parcalar)
+                        tr = o.get("toolUseResult") if len(sonuclar) == 1 else None
+                        fl = tr.get("file") if isinstance(tr, dict) else None
+                        sonuc[b.get("tool_use_id")] = (n, len(istek), sg, fl.get("totalLines") if isinstance(fl, dict) else None)
                 elif tip == "attachment":
                     ek = o.get("attachment") if isinstance(o.get("attachment"), dict) else {}
+                    kirli = kirli or ek.get("type") != "hook_success"  # hook_success stdout bağlama girmez
                     if ek.get("hookEvent") == "PreToolUse" and "Bash" in str(ek.get("hookName")):
                         try:
                             komut = json.loads(ek.get("stdout") or "{}")["hookSpecificOutput"]["updatedInput"]["command"]
@@ -392,20 +399,17 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
                         if "rtk " in str(komut):
                             rtkler.add(ek.get("toolUseID"))
                 elif tip == "system" and o.get("subtype") == "compact_boundary":
-                    sg, buyume = sg + 1, 0.0
-        if not istek:
-            continue
-        w = AGIRLIK["cache_1h"] if h1 > m5 else AGIRLIK["cache_5m"]
-        taban, son_idx, pay, payda = {}, {}, 0.0, 0.0
-        for i, q in enumerate(istek):
-            tb = taban.setdefault(q["sg"], (q["ctx"], q["tahmin"]))
-            son_idx[q["sg"]] = i
-            if q["tahmin"] > tb[1]:
-                pay += max(0, q["ctx"] - tb[0])
-                payda += q["tahmin"] - tb[1]
-        # ponytail: ek (attachment) ve thinking büyümeye girmez → k yukarı yanlı (Headroom kesintisi eksik görünür)
-        k = pay / payda if payda else 1.0
-        katsayilar.append((k, pay, payda))
+                    sg += 1
+        if istek:
+            kayit.append((yol, istek, araclar, sonuc, rtkler, dalgalar,
+                          AGIRLIK["cache_1h"] if h1 > m5 else AGIRLIK["cache_5m"],
+                          sum(x[0] for x in adim), sum(x[1] for x in adim), len(adim)))
+    py, pd = sum(x[7] for x in kayit), sum(x[8] for x in kayit)
+    genel = max(0.0, py / pd) if pd else 1.0
+    ks = [max(0.0, x[7] / x[8]) for x in kayit if x[8]]
+    for yol, istek, araclar, sonuc, rtkler, dalgalar, w, opay, opayda, _ in kayit:
+        k = max(0.0, opay / opayda) if opayda else genel
+        son_idx = {q["sg"]: i for i, q in enumerate(istek)}
 
         def katki(n, i, sg):
             r_ = son_idx.get(sg, -1) - i + 1
@@ -434,10 +438,14 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
                 if anah in okunan:
                     x = tekrar[anah]
                     _say(x, n, kt, kd)
-                    if okunan[anah] == ar and anah not in degisen:
+                    if anah not in degisen:
                         x["degismeden"] += 1
                         x["degismeden_katki"] += kt
                         x["degismeden_duz"] += kd
+                        if okunan[anah] == ar:
+                            x["ayni_aralik"] += 1
+                            x["ayni_katki"] += kt
+                            x["ayni_duz"] += kd
                 okunan[anah] = ar
                 degisen.discard(anah)
             elif ad == "Bash":
@@ -447,6 +455,7 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
                 x["n"].append(n)
                 rt = tid in rtkler or kom.lstrip().startswith("rtk ")
                 x["rtk"] += rt
+                x["nr" if rt else "ns"].append(n)
                 if not rt:
                     x["rtksiz"] += kt
                     x["rtksiz_duz"] += kd
@@ -517,23 +526,31 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
         esik.append({"esik": e, "adet": len(sec), "katki": sum(x[3] for x in sec), "katki_duz": sum(x[4] for x in sec),
                      "tasarruf": sum(x[3] * c for x, c in zip(sec, kes)),
                      "tasarruf_duz": sum(x[4] * c for x, c in zip(sec, kes))})
-    bl = sorted(({"aile": a, **{c: v[c] for c in v if c != "n"}, "medyan": statistics.median(v["n"])}
-                 for a, v in bash.items()), key=lambda x: -x["token"])
+    def med(xs):
+        return statistics.median(xs) if xs else None
+    bl = []
+    for a, v in sorted(bash.items(), key=lambda kv: -kv[1]["token"]):
+        mr, ms = med(v["nr"]), med(v["ns"])
+        # ponytail: rtk oranı rtk'lı/rtk'sız medyan çıktıdan; komut biçimi farkı karışır, A/B koşusu TOKEN-4b'de
+        bl.append({"aile": a, **{c: v[c] for c in v if c not in ("n", "nr", "ns")}, "medyan": med(v["n"]),
+                   "medyan_rtk": mr, "medyan_rtksiz": ms,
+                   "rtk_oran": min(1.0, max(0.0, 1 - mr / ms)) if mr is not None and ms else 0.0})
     tekrar_l, lb_l, rv_l = _liste(tekrar, "dosya"), _liste(lb, "dosya"), _liste(rv_oku, "dosya")
 
-    def oz(kat, x, ad):
-        return {"kategori": kat, "anahtar": x[ad], **{c: x[c] for c in ("adet", "token", "katki", "katki_duz")}}
-    kaynaklar = sorted([oz("limitsiz>300", x, "dosya") for x in lb_l] + [oz("bash", x, "aile") for x in bl]
-                       + [oz("tekrar", x, "dosya") for x in tekrar_l] + [oz("retrieve-read", x, "dosya") for x in rv_l],
-                       key=lambda x: -x["katki_duz"])[:10]
+    def oz(kat, ad, xs):
+        return {"kategori": kat, "anahtar": ad, **{c: sum(x[c] for x in xs) for c in ("adet", "token", "katki", "katki_duz")}}
+    kaynaklar = ([oz("limitsiz>300", "Read >300 satır, aralıksız (rehber dışı)", lb_l),
+                  oz("tekrar", "aynı dosyanın tekrar okunması", tekrar_l),
+                  oz("retrieve-read", "headroom_retrieve'i tetikleyen Read", rv_l)]
+                 + [oz("bash", x["aile"], [x]) for x in bl])
+    kaynaklar = sorted((x for x in kaynaklar if x["katki"]), key=lambda x: -x["katki_duz"])[:10]
     for x in kaynaklar:
         x["pay"] = 100 * x["katki_duz"] / (toplam or 1)
-    ks = [x[0] for x in katsayilar]
-    py, pd = sum(x[1] for x in katsayilar), sum(x[2] for x in katsayilar)
     b5 = bl[:5]
     return {
         "pencere_gun": gun, "dosya": dosya, "toplam_agirlikli": toplam,
-        "katsayi": {"oturum": len(ks), "medyan": statistics.median(ks) if ks else 1.0, "genel": py / pd if pd else 1.0},
+        "katsayi": {"oturum": len(ks), "medyan": statistics.median(ks) if ks else genel, "genel": genel,
+                    "adim": sum(x[9] for x in kayit)},
         "read": {**oku, "uzanti": dict(uzanti), "aralikli_medyan_token": m_ar, "satir_dagilim": dag, "esik": esik},
         "limitsiz_buyuk": lb_l, "tekrar": tekrar_l, "bash": bl,
         "retrieve": {"adet": rv["adet"], "onceki": dict(rv["onceki"]),
@@ -543,9 +560,12 @@ def dokum(kok, gun=14, simdi=None, arsiv=None):
         "arsiv": ars, "uzun": uzun, "kaynaklar": kaynaklar,
         "kaldirac_gunluk": {
             "L8a": [{"esik": e["esik"], "ham": e["tasarruf"] / gun, "duz": e["tasarruf_duz"] / gun} for e in esik],
+            "L8b": {"ham": sum(x["rtksiz"] * x["rtk_oran"] for x in b5) / gun,
+                    "duz": sum(x["rtksiz_duz"] * x["rtk_oran"] for x in b5) / gun},
             "L8b_ust": {"ham": sum(x["rtksiz"] for x in b5) / gun, "duz": sum(x["rtksiz_duz"] for x in b5) / gun},
-            "L8c": {"ham": sum(x["degismeden_katki"] for x in tekrar_l) / gun,
-                    "duz": sum(x["degismeden_duz"] for x in tekrar_l) / gun},
+            "L8c": {"ham": sum(x["ayni_katki"] for x in tekrar_l) / gun, "duz": sum(x["ayni_duz"] for x in tekrar_l) / gun},
+            "L8c_ust": {"ham": sum(x["degismeden_katki"] for x in tekrar_l) / gun,
+                        "duz": sum(x["degismeden_duz"] for x in tekrar_l) / gun},
             "L7": {"istek": dizi_t["kazanc"] / gun, "agirlikli": dizi_t["kazanc_agirlikli"] / gun},
             "L14": {"agirlikli": uzun["bolme_tasarruf"] / gun}}}
 
@@ -556,7 +576,8 @@ def tablo_dokum(d):
     k, r, u, rv, z, kal = d["katsayi"], d["read"], d["tur"], d["retrieve"], d["uzun"], d["kaldirac_gunluk"]
     kd = u["kucuk_read_dizisi"]
     s = [f"{d['pencere_gun']} gün · {d['dosya']} dosya · toplam ağırlıklı {mb(d['toplam_agirlikli'])} M · Headroom k"
-         f" medyan {k['medyan']:.2f} · genel {k['genel']:.2f} ({k['oturum']} oturum) · katkı ham → düz (×k)",
+         f" medyan {k['medyan']:.2f} · genel {k['genel']:.2f} ({k['oturum']} oturum, {k['adim']} temiz adım)"
+         " · katkı ham → düz (×k)",
          "", "en büyük 10 kaynak | kategori | adet | token | ham M | düz M | pay %"]
     s += [f"{x['anahtar']} | {x['kategori']} | {x['adet']} | {x['token']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
           f" | {x['pay']:.2f}" for x in d["kaynaklar"]]
@@ -567,13 +588,13 @@ def tablo_dokum(d):
     s += ["", "limitsiz >300 satır (ilk 10) | adet | satır | ham M | düz M"]
     s += [f"{x['dosya']} | {x['adet']} | {x['satir']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
           for x in d["limitsiz_buyuk"][:10]]
-    s += ["", "Bash ailesi (ilk 5, çıktı) | adet | token | medyan | rtk | pipe | tail | ham M | düz M"]
-    s += [f"{x['aile']} | {x['adet']} | {x['token']} | {x['medyan']:.0f} | {x['rtk']} | {x['pipe']} | {x['tail']}"
-          f" | {mb(x['katki'])} | {mb(x['katki_duz'])}" for x in d["bash"][:5]]
-    s += ["", "tekrar okuma (ilk 10) | tekrar | değişmeden | ham M | düz M"]
-    s += [f"{x['dosya']} | {x['adet']} | {x['degismeden']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
+    s += ["", "Bash ailesi (ilk 5, çıktı) | adet | token | medyan (rtk/rtksız) | rtk | pipe | tail/head | ham M | düz M"]
+    s += [f"{x['aile']} | {x['adet']} | {x['token']} | {x['medyan']:.0f} ({x['medyan_rtk']}/{x['medyan_rtksiz']})"
+          f" | {x['rtk']} | {x['pipe']} | {x['tail']} | {mb(x['katki'])} | {mb(x['katki_duz'])}" for x in d["bash"][:5]]
+    s += ["", "tekrar okuma (ilk 10) | tekrar | değişmeden | aynı aralık | ham M | düz M"]
+    s += [f"{x['dosya']} | {x['adet']} | {x['degismeden']} | {x['ayni_aralik']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
           for x in d["tekrar"][:10]]
-    s += ["", f"headroom_retrieve {rv['adet']} · önceki araç {rv['onceki']} · sn medyan {rv['sn_medyan']} · tur medyan"
+    s += ["", f"headroom_retrieve {rv['adet']} · önceki araç {rv['onceki']} · sn medyan {rv['sn_medyan'] or 0:.1f} · tur medyan"
               f" {rv['tur_medyan']}", "tetikleyen Read (ilk 10) | adet | token | ham M | düz M"]
     s += [f"{x['dosya']} | {x['adet']} | {x['token']} | {mb(x['katki'])} | {mb(x['katki_duz'])}"
           for x in rv["read_dosyalar"][:10]]
@@ -585,7 +606,7 @@ def tablo_dokum(d):
     s += ["", f">200k oturum {z['oturum']} · tek dalga {z['tek_dalga']} · çok dalga {z['cok_dalga']} · dalga bölme"
               f" tasarrufu {mb(z['bolme_tasarruf'])} M", "", "kaldıraç günlük | ham M | düz M | Headroom örtüşmesi M"]
     s += [f"L8a eşik >{e['esik']} satır | {mb(e['ham'])} | {mb(e['duz'])} | {mb(e['ham'] - e['duz'])}" for e in kal["L8a"]]
-    s += [f"{a} | {mb(kal[a]['ham'])} | {mb(kal[a]['duz'])} | {mb(kal[a]['ham'] - kal[a]['duz'])}" for a in ("L8b_ust", "L8c")]
+    s += [f"{a} | {mb(kal[a]['ham'])} | {mb(kal[a]['duz'])} | {mb(kal[a]['ham'] - kal[a]['duz'])}" for a in ("L8b", "L8b_ust", "L8c", "L8c_ust")]
     s += [f"L7 küçük Read birleştirme | usage {mb(kal['L7']['agirlikli'])} | {kal['L7']['istek']:.1f} istek/gün",
           f"L14 dalga bölme | usage {mb(kal['L14']['agirlikli'])}"]
     return "\n".join(s)

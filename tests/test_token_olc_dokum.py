@@ -11,12 +11,12 @@ def zs(sn):
     return time.strftime("%Y-%m-%dT%H:%M:%S.000Z", time.gmtime(SIMDI - 3600 + sn))
 
 
-def ist(mid, ctx=1000, araclar=(), sn=0):
+def ist(mid, ctx=1000, araclar=(), sn=0, cikti=0):
     """Asistan isteği: ctx = gerçek bağlam (cache okuma); araclar = [(id, ad, input)]."""
     icerik = [{"type": "tool_use", "id": i, "name": a, "input": g} for i, a, g in araclar]
     return {"type": "assistant", "timestamp": zs(sn), "cwd": "C:\\p", "sessionId": "s1", "isSidechain": False,
             "message": {"id": mid, "model": "claude-opus-5-5", "role": "assistant",
-                        "content": icerik or [{"type": "text", "text": GIZLI}], "usage": usage(okuma=ctx)}}
+                        "content": icerik or [{"type": "text", "text": GIZLI}], "usage": usage(okuma=ctx, cikti=cikti)}}
 
 
 def son(tid, metin, sn=0, sonuc=None):
@@ -81,20 +81,27 @@ def test_tekrar_okuma_ve_degismeden(tmp_path):
         ist("m2", araclar=[("r2", "Read", a)]), son("r2", "a" * 80, sonuc=okuma(10)),
         ist("m3", araclar=[("e1", "Edit", {"file_path": "C:\\p\\a.py", "old_string": GIZLI, "new_string": GIZLI})]),
         son("e1", "ok"),
-        ist("m4", araclar=[("r3", "Read", a)]), son("r3", "a" * 80, sonuc=okuma(10)), ist("m5")])
-    assert [(x["dosya"], x["adet"], x["degismeden"], x["token"]) for x in d["tekrar"]] == [("C:/p/a.py", 2, 1, 40)]
+        ist("m4", araclar=[("r3", "Read", a)]), son("r3", "a" * 80, sonuc=okuma(10)),
+        ist("m5", araclar=[("r4", "Read", {**a, "offset": 5, "limit": 3})]), son("r4", "a" * 80, sonuc=okuma(10)),
+        ist("m6")])
+    assert [(x["dosya"], x["adet"], x["degismeden"], x["ayni_aralik"], x["token"]) for x in d["tekrar"]] == [
+        ("C:/p/a.py", 3, 2, 1, 60)]
 
 
 def test_bash_aile_medyan_rtk_pipe_tail(tmp_path):
     d = dok(tmp_path, [
         ist("m1", araclar=[("b1", "Bash", {"command": "git status"}), ("b2", "Bash", {"command": "git status --short"}),
                            ("b3", "Bash", {"command": "cd /c/x && PYTHONIOENCODING=utf-8 python -m pytest -q | tail -5"}),
-                           ("b4", "Bash", {"command": "rtk git status"})]),
+                           ("b4", "Bash", {"command": "rtk git status"}),
+                           ("b5", "Bash", {"command": "rtk proxy cat C:/p/a.txt"})]),
         rtk_ek("b1", "rtk git status"),
-        son("b1", "s" * 40), son("b2", "s" * 80), son("b3", "s" * 400), son("b4", "s" * 4), ist("m2")])
+        son("b1", "s" * 40), son("b2", "s" * 80), son("b3", "s" * 400), son("b4", "s" * 4), son("b5", "s" * 8),
+        ist("m2")])
     b = {x["aile"]: x for x in d["bash"]}
     g = b["git status"]
     assert (g["adet"], g["token"], g["medyan"], g["rtk"]) == (3, 31, 10, 2)
+    assert (g["medyan_rtk"], g["medyan_rtksiz"]) == (5.5, 20)
+    assert b["cat"]["adet"] == 1 and "proxy" not in b
     p = b["python -m pytest"]
     assert (p["adet"], p["pipe"], p["tail"], p["rtk"]) == (1, 1, 1, 0)
     assert d["bash"][0]["aile"] == "python -m pytest"
@@ -146,6 +153,18 @@ def test_headroom_katsayisi_ve_duzeltilmis_katki(tmp_path):
     assert d["read"]["katki_duz"] == pytest.approx(d["read"]["katki"] * k)
 
 
+def test_headroom_katsayisi_cikti_duser_kirli_adim_dislanir(tmp_path):
+    # adım 1: (Δctx 7000 − çıktı 2000) / 10000 sonuç token = 0.5; adım 2'de bağlama giren ek var → dışlanır
+    d = dok(tmp_path, [
+        ist("m1", ctx=1000, cikti=2000, araclar=[("r1", "Read", {"file_path": "C:/p/a.py", "limit": 9})]),
+        son("r1", "x" * 40000),
+        ist("m2", ctx=8000, araclar=[("r2", "Read", {"file_path": "C:/p/b.py", "limit": 9})]),
+        son("r2", "x" * 16000),
+        {"type": "attachment", "timestamp": TS, "attachment": {"type": "hook_additional_context", "content": [GIZLI]}},
+        ist("m3", ctx=18000)])
+    assert d["katsayi"]["medyan"] == pytest.approx(0.5) and d["katsayi"]["adim"] == 1
+
+
 def test_uzun_oturum_dalga_bolme(tmp_path):
     d = dok(tmp_path, [
         istem("TOKEN-9a — ilk " + GIZLI), ist("m1", ctx=20_000), ist("m2", ctx=150_000),
@@ -165,11 +184,13 @@ def test_dokum_ciktida_icerik_metni_yok(tmp_path):
 
 
 def test_cli_arac_dokum_json_ve_tablo(tmp_path, capsys):
-    yaz(tmp_path / "p" / "s.jsonl", [ist("m1", araclar=[("r1", "Read", {"file_path": "C:/p/a.py"})]),
-                                     son("r1", "x" * 40, sonuc=okuma(400)), ist("m2")])
+    yaz(tmp_path / "p" / "s.jsonl", [ist("m1", araclar=[("r1", "Read", {"file_path": "C:/p/a.py"}),
+                                                       ("r2", "Read", {"file_path": "C:/p/b.py"})]),
+                                     son("r1", "x" * 40, sonuc=okuma(400)), son("r2", "x" * 40, sonuc=okuma(600)),
+                                     ist("m2")])
     out = tmp_path / "o.json"
     assert t.main(["olc", "--arac-dokum", "--kok", str(tmp_path / "p"), "--gun", "100000", "--cikti", str(out),
                    "--arsiv", str(tmp_path / "yok")]) == 0
     d = json.loads(out.read_text(encoding="utf-8"))
-    assert d["kaynaklar"][0]["kategori"] == "limitsiz>300"
+    assert [(x["kategori"], x["adet"]) for x in d["kaynaklar"]] == [("limitsiz>300", 2)]
     assert "kaynak" in capsys.readouterr().out
