@@ -551,6 +551,7 @@ def en_yakin(t, state, kurallar, a1=KURAL_ASAMA1):
 
 
 SHORT_SN = 120  # M2b K0: short tek tanım — kuyruk.md (<2 dk) · paket künyesi · parti gruplama
+IPUCU = re.compile(r"github|\brepo|https?://|\blink|\bprompt", re.I)  # DERİNLİK-1 R4: short altyazısında geçerse kare tavanı 8
 
 
 def short_mu(sn):

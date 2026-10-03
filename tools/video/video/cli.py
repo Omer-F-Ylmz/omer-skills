@@ -305,11 +305,27 @@ def izle(ns, ctx):
     return 0
 
 
-SHORT_SN, SHORT_KARE = 120, 3  # 24e-2 K3: kuyruk.md short (<2 dk) → kare ≤3
+SHORT_SN, SHORT_KARE, IPUCU_KARE = 120, 3, 8  # 24e-2 K3: kuyruk.md short (<2 dk) → kare ≤3 · DERİNLİK-1 R4: altyazıda repo/link/prompt → ≤8
 
 
-def kare_tavan(sure, n):
-    return min(n, SHORT_KARE) if 0 < sure < SHORT_SN else n
+def kare_tavan(sure, n, metin=""):
+    return min(n, IPUCU_KARE if tr.IPUCU.search(metin) else SHORT_KARE) if 0 < sure < SHORT_SN else n
+
+
+def _yorumlar(ctx, d):
+    """DERİNLİK-1 R4: sabitlenmiş/yazar yorumlarındaki bağlantılar (en fazla 20 yorum, indirme yok; yorumlar.json). → (bağlantılar, kapsam durumu)"""
+    yol = d / "yorumlar.json"
+    j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
+    if j.get("durum") != "✓":
+        ctx["uyku"](2)  # meta isteğinin ardından beklemesiz istek yok
+        try:  # _yt değil: hata yolunda altyazı dosyası silinmesin
+            js = json.loads(_kos(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", "--write-comments", "--extractor-args",
+                                       "youtube:max_comments=20,20,0,0;comment_sort=top", yt_url(d.name)], SURE["meta"]))
+            j = {"durum": "✓", "yorumlar": [x.get("text") or "" for x in js.get("comments") or [] if x.get("is_pinned") or x.get("author_is_uploader")]}
+        except Exception as e:  # sessiz dönüş yok: sebep Kapsam'da
+            j = {"durum": f"yorum alınamadı ({' '.join(str(e).split())[:80]})", "yorumlar": []}
+        yol.write_text(json.dumps(j, ensure_ascii=False), encoding="utf-8")
+    return list(dict.fromkeys(u for t in j["yorumlar"] for u in m.urller(t))), j["durum"]
 
 
 def paket(ns, ctx):
@@ -319,13 +335,14 @@ def paket(ns, ctx):
     seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan) if ns.istek_tavan != 0 else (_oku(d) if (d / "segmentler.jsonl").is_file() else [], None, 0, None)  # M2a: tavan 0 → Jev yok, kareler segment sırasıyla
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
     dil = m.dil_sec(meta)
-    ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare)
+    ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare, " ".join(str(s.get("metin")) for s in seg))
     yalniz = ns.kare_yalniz or not seg  # M8 K2 (ii): altyazı yok ya da whisper çıktısı anlamsız → kare-yalnız paket
     seg = [] if yalniz else seg
     km = next((j[ns.id] for f in sorted(ctx["kok"].glob("kuyruk-meta-*.json"), reverse=True)
                if ns.id in (j := json.loads(f.read_text(encoding="utf-8")))), {})  # 24e-2 K1: Desktop kuyruk-meta önce
     lk = km.get("linkler") or m.urller(km.get("aciklama") or meta.get("description"))
     lk = m.urller(lk) if isinstance(lk, str) else lk
+    lk = list(dict.fromkeys([*(lk or []), *_yorumlar(ctx, d)[0]]))  # DERİNLİK-1 R4: yorum bağlantıları kaynağa; durum yorumlar.json → parti Kapsam
     zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
     if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
         zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]

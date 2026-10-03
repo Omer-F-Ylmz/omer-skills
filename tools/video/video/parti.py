@@ -186,12 +186,12 @@ def site_mu(metin):
     return bool(re.search(r"site|\bUI\b|landing|prompt anatomisi", metin or "", re.I))
 
 
-def kare_sayisi(sure, site):
+def kare_sayisi(sure, site, ipucu=False):
     """M2e K2: short ≤3 · uzun süre/2.5 dk (en az 4, en fazla 8) · site/UI en fazla 12 → (n, neden)."""
     if not sure:
         return 3, "süre bilinmiyor"
     if sure < tr.SHORT_SN:
-        return 3, "short ≤3"
+        return (8, "short ipucu ≤8") if ipucu else (3, "short ≤3")  # DERİNLİK-1 R4
     return max(4, min(12 if site else 8, round(sure / 150))), f"{m.ss(sure)} / 2.5 dk · " + ("site/UI ≤12" if site else "4–8")
 
 
@@ -341,7 +341,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                     except (Exception, SystemExit) as e:  # M9 K6: whisper istisnası → kare-yalnız yol, hata değil
                         print(f"paket {v}: whisper istisnası ({type(e).__name__}: {e}) → kare-yalnız")
                 yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
-                n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"))  # M2e K2
+                n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"),
+                                       (sg := onb / v / "segmentler.jsonl").is_file() and bool(tr.IPUCU.search(sg.read_text(encoding="utf-8"))))  # M2e K2 · DERİNLİK-1 R4
                 print(f"paket {v}: kare {n} ({neden})")
                 with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
                     rc = alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), "--", v])
@@ -350,6 +351,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                     from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
                     raise Hata(next((s[6:] for s in reversed(b.getvalue().splitlines()) if s.startswith("hata: ")), f"paket çıkış {rc}, paket.md yok"))
             a.update(durum="tamam", cikti=(onb / v / "paket.md").as_posix())
+            if (yj := onb / v / "yorumlar.json").is_file():  # DERİNLİK-1 R4: Kapsam yorum alanı
+                s["yorum"] = json.loads(yj.read_text(encoding="utf-8"))["durum"]
         except (Exception, SystemExit) as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
             a.update(durum="hata", hata=f"{type(e).__name__}: {f'çıkış {e.code}' if isinstance(e, SystemExit) else e}"[:200])
         _yaz(yol, d)
