@@ -51,3 +51,16 @@ Hipotezler:
 - H3b Headroom oturum durumu TTL'i (yeni aday): proxy/server.py:1095 `session_ttl_seconds=config.prefix_freeze_session_ttl` (CACHE modunda donuk önek takibi) ve :1680-1715 `COMPRESSION_CACHE_TTL_SECONDS` tembel süpürmesi (boşta kalan oturumun sıkıştırma önbelleği düşer). Durum düşerse sonraki istek baştan sıkıştırılır → system sonrası bayt farkı → cr ≈ system. 5 dk sınırındaki sıçrama (%2.8 → %34) buna uyuyor. Değerler henüz okunmadı; K3b doğrudan sınar.
 
 En güçlü: boşta kalma kırılmalarında (5–60 dk: 80 kırılma, 12.98 M, kaybın %59'u) H3b; ≤1 dk'dakilerde H2. H1 zamanlamayla birlikte gidiyor ama mekanizması kanıtsız.
+
+### K2 ek — Headroom'un iki süresi (kodla)
+
+| süre | varsayılan | kanıt | nereden ayarlanır | bizde |
+|---|---|---|---|---|
+| prefix_freeze_session_ttl (önek izleyici temizleme) | 600 sn | proxy/models.py:342 `prefix_freeze_session_ttl: int = 600`; cache/prefix_tracker.py:1160-1162 `is_expired: idle > session_ttl_seconds`; :1321 süresi dolan izleyici yenisiyle değişir | env/CLI bağı yok: tek okuyucu proxy/server.py:1095; Desktop proxy'yi `proxy --port 6768 --no-http2 --no-rate-limit --log-messages` ile başlatıyor | 600 (değiştirilemez, yalnız kod yaması) |
+| COMPRESSION_CACHE_TTL_SECONDS (oturum sıkıştırma önbelleği süpürmesi) | 3900 sn (1h + 5 dk) | proxy/helpers.py:1449-1454 `max(600, env)`; server.py:1680-1715 tembel süpürme | env `HEADROOM_COMPRESSION_CACHE_TTL_SECONDS` | ayarlı değil → 3900, 1h TTL ile zaten hizalı |
+
+Kapalı opt-in kapılar (User/Machine env yok): HEADROOM_COLD_RECOMPACT · HEADROOM_NET_COST_POLICY (300 sn P_alive bozunumu, content_router.py:1244-1272).
+
+İnce bantlar (aynı 148 kırılma): 0–1 dk %1 · 1–4 %2 · **4–5 %12** · 5–6 %15 · 6–8 %16 · 8–10 %14 · **10–12 %54** · 12–15 %45 · 15–30 %62 · 30–60 %80. İki basamak var:
+- 600 sn'de (%14 → %54): izleyici süresiyle birebir. >10 dk kırılmaları 64 adet / 10.29 M (kaybın %46'sı). H3b'nin izi.
+- ~4 dk'da (%2 → %12): away_summary orada başlıyor (4–10 dk kırılmalarının 19/25'inde var, ≤1 dk'da 0/45). H1'in izi; mekanizması (özet sona eklenir, baş neden kırılır) hâlâ kanıtsız.
