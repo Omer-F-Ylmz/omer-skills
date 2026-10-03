@@ -206,8 +206,9 @@ def onay(dosya):
 
 def takip_ekle(kok, vids, ctx, kuyruk=""):
     """A3 Ömer kuralı (3 Eki): işlenen videonun kanalı kanallar.json'da yoksa 'takip' eklenir, varsa değişmez.
-    channel_id: meta.json → .kos/kanal/video-kanal.json → yoksa uyarı (ağ isteği yok). Kuyruk notunda `kaynak: kanal:<id>` → envanterden gelen, eklemez."""
-    envanterden = {tr._hucre(s)[0] for s in kuyruk.splitlines() if s.lstrip().startswith("|") and "kaynak: kanal:" in s}
+    channel_id: meta.json → .kos/kanal/video-kanal.json → yoksa uyarı (ağ isteği yok). Kuyruk notunda `kaynak: kanal:<id>` → envanterden gelen, eklemez.
+    KANAL-2b C1: notunda `takip: hayır` olan satır da eklemez."""
+    envanterden = {tr._hucre(s)[0] for s in kuyruk.splitlines() if s.lstrip().startswith("|") and ("kaynak: kanal:" in s or "takip: hayır" in s)}
     yol, vky = kok / "docs/video-tarama/kanallar.json", kok / ".kos/kanal/video-kanal.json"
     j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
     vk = json.loads(vky.read_text(encoding="utf-8")) if vky.is_file() else {}
@@ -279,7 +280,7 @@ def envanter(ctx, secili=None):
         for sekme in ("videos", "shorts"):
             j = _istek(ctx, ["yt-dlp", "--flat-playlist", "--skip-download", "-J", "--no-warnings",
                              "--extractor-args", "youtubetab:approximate_date", f"https://www.youtube.com/channel/{cid}/{sekme}"], sayac,
-                       r"does not have a shorts tab" if sekme == "shorts" else None)  # A4: shorts sekmesi yok → 0 short
+                       rf"does not have a {sekme} tab")  # A4: shorts sekmesi yok → 0 short · C3: videos sekmesi yok (yalnız short kanal) → 0 uzun
             if j is None:
                 yarim = True
                 break
@@ -292,6 +293,27 @@ def envanter(ctx, secili=None):
         oy.write_text(json.dumps(onb, ensure_ascii=False, indent=1), encoding="utf-8")
         print(f"{a['kanal']}: {len(onb['videolar'])} video · yeni {len(onb['videolar']) - once}" + (" · yarım (hata/hız sınırı)" if yarim else ""))
     return 0
+
+
+def ekle(ctx, url):
+    """KANAL-2b C2: kanal linki → channel_id (flat, tek öğe, indirme yok) → kanallar.json 'takip' (varsa değer korunur) → o kanalın envanteri."""
+    if not url:
+        raise Hata("ekle: kanal linki gerekli")
+    j = _istek(ctx, ["yt-dlp", "--flat-playlist", "--skip-download", "-J", "--no-warnings", "-I", "1", url], [0])
+    if not j or not (cid := j.get("channel_id")):
+        raise Hata(f"ekle: channel_id çözülemedi: {url}")
+    yol = KOK / "docs/video-tarama/kanallar.json"
+    k = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
+    if var := next((a for kk, a in k.items() if cid in (kk, a.get("channel_id"))), None):
+        print(f"ekle: {var['kanal']} zaten listede ({var.get('karar')}) — değer korundu")
+    else:
+        k[cid] = {"kanal": j.get("channel") or "?", "channel_id": cid, "url": j.get("channel_url") or f"https://www.youtube.com/channel/{cid}",
+                  "karar": "takip", "kaynak": "Ömer · kanal linki"}
+        yol.parent.mkdir(parents=True, exist_ok=True)
+        yol.write_text(json.dumps(k, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"ekle: {k[cid]['kanal']} ({cid}) → takip")
+    ctx["uyku"](BEKLE)  # çözme isteği ile envanter isteği arası
+    return envanter(ctx, cid)
 
 
 def coz(ctx, tavan=100):
@@ -357,4 +379,4 @@ def etiket(ctx):
 def kanal(ns, ctx):
     if ns.eylem == "onay" and not ns.dosya:
         raise Hata("onay: dosya gerekli (docs/video-tarama/kanallar.md)")
-    return {"liste": lambda: liste(ctx), "onay": lambda: onay(ns.dosya), "envanter": lambda: envanter(ctx, ns.kanal), "coz": lambda: coz(ctx, ns.tavan), "etiket": lambda: etiket(ctx)}[ns.eylem]()
+    return {"liste": lambda: liste(ctx), "onay": lambda: onay(ns.dosya), "envanter": lambda: envanter(ctx, ns.kanal), "coz": lambda: coz(ctx, ns.tavan), "ekle": lambda: ekle(ctx, ns.dosya), "etiket": lambda: etiket(ctx)}[ns.eylem]()

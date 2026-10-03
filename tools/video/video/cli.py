@@ -1130,7 +1130,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")
     x = alt.add_parser("kanal", help="KANAL-1: liste → docs/video-tarama/kanallar.md · onay <md> → kanallar.json · envanter (onaylı, flat, indirme yok) · etiket → docs/olcumler/kanal-etiket.json")
-    x.add_argument("eylem", choices=["liste", "onay", "envanter", "etiket", "coz"])
+    x.add_argument("eylem", choices=["liste", "onay", "envanter", "etiket", "coz", "ekle"])
     x.add_argument("--tavan", type=int, default=100, help="coz: en fazla yt-dlp isteği")
     x.add_argument("dosya", nargs="?")
     x.add_argument("--kanal", help="envanter: yalnız bu channel_id")
