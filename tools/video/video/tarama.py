@@ -235,19 +235,26 @@ def kuyruk_isle(metin, ids, sha):
     return "".join(out)
 
 
-def kuyruk_ekle(metin, satirlar, raporlu, muaf, baslik):
+def kuyruk_ekle(metin, satirlar, raporlu, muaf, baslik, gunluk=None):
     """KANAL-2b C4: (id, süre, başlık, not) satırları `baslik` altında `bekliyor` eklenir; kuyrukta bekleyen ya da
-    tarihli raporu olan id atlanır, `muaf` yalnız rapor atlamasından kurtulur. Satır sonu dosyanınki. → (metin, {id: sebep})"""
+    tarihli raporu olan id atlanır, `muaf` yalnız rapor atlamasından kurtulur. Satır sonu dosyanınki. → (metin, {id: sebep})
+    E1: 5. öğe metadata hata metniyse nota `meta hatası: …` eklenir ve `gunluk`a `id<TAB>hata` satırı yazılır."""
     nl = "\r\n" if "\r\n" in metin else "\n"
     bek = {_hucre(s)[0] for s in metin.splitlines() if s.lstrip().startswith("|") and _hucre(s)[-1] == "bekliyor"}
     atla, out = {}, []
-    for v, sure, bas, n in satirlar:
+    for v, sure, bas, n, *h in satirlar:
         if v in bek:
             atla[v] = "kuyrukta bekliyor"
         elif v in raporlu and v not in muaf:
             atla[v] = "tarihli rapor"
         else:
             bek.add(v)
+            if h and h[0]:
+                n = f"{n} · meta hatası: {h[0].replace('|', '/')}"
+                if gunluk:
+                    Path(gunluk).parent.mkdir(parents=True, exist_ok=True)
+                    with open(gunluk, "a", encoding="utf-8") as f:
+                        f.write(f"{v}\t{h[0]}\n")
             out.append(f"| {v} | {sure} | {bas} | {n} | bekliyor |")
     if not out:
         return metin, atla
