@@ -42,3 +42,19 @@ def test_r4_yorum_alinamadi_sebep(tmp_path, monkeypatch):
     lk, durum = cli._yorumlar({"uyku": lambda s: None}, tmp_path)
     assert lk == [] and durum.startswith("yorum alınamadı (") and "403" in durum
 
+
+# --- R1b fark bulunan, önceden araştırılmış aday: aday.md sonuna Güncellik bölümü; mevcut içerik değişmez
+def test_r1b_guncellik_bolumu_eklenir(tmp_path):
+    p, evi = _kurulu_ortam(tmp_path)
+    y = tmp_path / "docs" / "kurulumlar" / "adaylar" / "hizli-paket.md"
+    y.parent.mkdir(parents=True, exist_ok=True)
+    y.write_bytes("# hizli-paket\neski içerik\n".encode("utf-8"))
+    c = {**_ctx(tmp_path, Ar({})), "gh": _gh_ust, "uyku": _uyku()}
+    c["env"]["CLAUDE_EVI"] = str(evi)
+    pt.parti(_ns("akil", p.name), c)
+    t = y.read_bytes().decode("utf-8")
+    assert t.startswith("# hizli-paket\neski içerik\n")
+    g = t.split("## Güncellik (", 1)[1]
+    assert "kurulu aaaaaaa ↔ upstream bbbbbbb" in g and "skills/yeni-skill" in g
+    pt.parti(_ns("akil", p.name, yeniden=True), c)
+    assert y.read_bytes().decode("utf-8").count("## Güncellik (") == 1
