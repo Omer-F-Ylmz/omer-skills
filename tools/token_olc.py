@@ -114,7 +114,7 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
         r["dosya"] += 1
         ad = str(yol.relative_to(kok))
         ot = {"oturum": ad, "proje": None, "kaynak": None, "ajan": None, "model": None, "taban": None,
-              "tur": 0, "son_ctx": 0, "agirlikli": 0, "usd": 0, "gorsel": 0, "gorsel_token": 0}
+              "tur": 0, "son_ctx": 0, "agirlikli": 0, "usd": 0, "gorsel": 0, "gorsel_token": 0, "cikti": 0}
         adlar, sik = {}, False
         with yol.open(encoding="utf-8", errors="replace") as f:
             for s in f:
@@ -158,7 +158,7 @@ def tara(kok, gun=14, simdi=None, en_buyuk=20, motor=None):
                     ot["tur"] += 1
                     ot["son_ctx"] = ctx
                     ot["agirlikli"] += a
-                    ot["usd"] += d
+                    ot["usd"], ot["cikti"] = ot["usd"] + d, ot["cikti"] + parcala(u)["cikti"]
                 elif tur == "user":
                     c = m.get("content")
                     ilk = c if isinstance(c, str) else (icerik[0].get("text") or "") if icerik and isinstance(icerik[0], dict) else ""
@@ -613,6 +613,104 @@ def tablo_dokum(d):
     return "\n".join(s)
 
 
+OLCUM = re.compile(r"(?i)^\s*ok\s*$")  # TOKEN-6b K1: ölçüm koşusu ilk istemi (docs/token-6b.md §K1)
+GRUPLAR = ("etk·ana omer-skills", "etk·ana diğer", "etk·subagent", "claude-p", "observer")
+
+
+def grup(x):
+    k = x["kaynak"]
+    if k in ("observer", "claude-p"):
+        return k
+    if k == "etkilesimli":
+        return "etk·subagent" if x["ajan"] == "subagent" else "etk·ana omer-skills" if "omer-skills" in (x["proje"] or "") else "etk·ana diğer"
+    return None
+
+
+def _ilk_istem(yol):
+    with Path(yol).open(encoding="utf-8", errors="replace") as f:
+        for s in f:
+            try:
+                o = json.loads(s)
+            except ValueError:
+                continue
+            if isinstance(o, dict) and o.get("type") == "user" and not o.get("isMeta") and isinstance(o.get("message"), dict):
+                c = o["message"].get("content")
+                if isinstance(c, list):
+                    c = next((b.get("text") or "" for b in c if isinstance(b, dict) and b.get("type") == "text"), "")
+                return c if isinstance(c, str) else ""
+    return ""
+
+
+def karsilastir(taban, kok, baslar, simdi=None, az=30):
+    """TOKEN-6b K1: taban (olcum/token-0.json) → grup başına dönem başından bugüne normalize metrikler ve Σ pay × düşüş.
+    Birincil: observer ağ./gün · claude-p ağ./çağrı · etk ağ./istek. Ölçüm koşuları (OLCUM ilk istemi, alt ajanı üst
+    oturumuyla) ayrı sayılır ve karşılaştırmaya girmez; istek < az grup "yetersiz örnek", toplamda 0 sayılır."""
+    simdi, bol = simdi or time.time(), (lambda x, y: x / y if y else 0)
+    bos = lambda: {"istek": 0, "agirlikli": 0, "usd": 0, "cikti": 0, "taban": [], "cagri": 0}  # noqa: E731
+    tb, sayildi = {g: bos() for g in GRUPLAR}, set()
+    for x in taban["satirlar"]:
+        if grup(x):
+            u = {"input_tokens": x["girdi"], "cache_read_input_tokens": x["cache_okuma"], "output_tokens": x["cikti"],
+                 "cache_creation": {"ephemeral_5m_input_tokens": x["cache_5m"], "ephemeral_1h_input_tokens": x["cache_1h"]}}
+            for alan, v in (("istek", x["istek"]), ("agirlikli", x["agirlikli"]), ("usd", usd(u, x["model"]) or 0), ("cikti", x["cikti"])):
+                tb[grup(x)][alan] += v
+    for o in taban["oturumlar"]:
+        if grup(o) and o["ajan"] == "ana":
+            tb[grup(o)]["taban"].append(o["taban"])
+            tb[grup(o)]["cagri"] += 1
+    top = {k: sum(v[k] for v in tb.values()) or 1 for k in ("agirlikli", "usd")}
+    r = {"gruplar": {}, "olcum": {"oturum": 0, "istek": 0, "agirlikli": 0}, "tasarruf": 0, "tasarruf_usd": 0}
+    for g in GRUPLAR:
+        bas = baslar.get(g, baslar["varsayilan"])
+        gun, n = (simdi - bas) / 86400, bos()
+        ss = tara(kok, gun, simdi)["oturumlar"]
+        olc = {Path(o["oturum"]).stem for o in ss if o["ajan"] == "ana" and OLCUM.search(_ilk_istem(Path(kok) / o["oturum"]))}
+        for o in (o for o in ss if grup(o) == g):
+            p = Path(o["oturum"])
+            if p.stem in olc or (p.parent.name == "subagents" and p.parent.parent.name in olc):
+                if o["oturum"] not in sayildi:
+                    sayildi.add(o["oturum"])
+                    for alan, v in (("oturum", 1), ("istek", o["tur"]), ("agirlikli", o["agirlikli"])):
+                        r["olcum"][alan] += v
+                continue
+            for alan, v in (("istek", o["tur"]), ("agirlikli", o["agirlikli"]), ("usd", o["usd"]), ("cikti", o["cikti"])):
+                n[alan] += v
+            if o["ajan"] == "ana":
+                n["taban"].append(o["taban"])
+                n["cagri"] += 1
+        bolen = {"observer": lambda v, d: d, "claude-p": lambda v, d: v["cagri"]}.get(g, lambda v, d: v["istek"])
+        ikili = lambda f: {"taban": f(tb[g], taban["pencere_gun"]), "simdi": f(n, gun)}  # noqa: E731
+        s = {"bas": bas, "istek": n["istek"], "yetersiz": n["istek"] < az, "pay": tb[g]["agirlikli"] / top["agirlikli"],
+             "birincil": ikili(lambda v, d: bol(v["agirlikli"], bolen(v, d))),
+             "birincil_usd": ikili(lambda v, d: bol(v["usd"], bolen(v, d))),
+             "agirlikli_istek": ikili(lambda v, d: bol(v["agirlikli"], v["istek"])),
+             "usd_istek": ikili(lambda v, d: bol(v["usd"], v["istek"])),
+             "cikti_istek": ikili(lambda v, d: bol(v["cikti"], v["istek"])),
+             "ilk_istem": ikili(lambda v, d: bol(sum(v["taban"]), len(v["taban"])))}
+        for k, alan, kay in (("tasarruf", "birincil", "agirlikli"), ("tasarruf_usd", "birincil_usd", "usd")):
+            b, pay = s[alan], tb[g][kay] / top[kay]
+            if b["taban"] and not s["yetersiz"]:
+                r[k] += pay * (1 - b["simdi"] / b["taban"])
+        r["gruplar"][g] = s
+    return r
+
+
+def tablo_karsilastir(r):
+    yz = lambda d: f"{d['taban']:.0f} → {d['simdi']:.0f} ({100 * (d['simdi'] / d['taban'] - 1):+.0f}%)" if d["taban"] else "-"  # noqa: E731
+    s = ["grup | dönem başı UTC | istek | pay | birincil ağ. taban → şimdi | birincil $ taban → şimdi | ağ./istek | çıktı/istek | ilk istem"]
+    for g, v in r["gruplar"].items():
+        u = v["birincil_usd"]
+        s.append(f"{g}{' (yetersiz örnek)' if v['yetersiz'] else ''} | {time.strftime('%m-%d %H:%M', time.gmtime(v['bas']))} | {v['istek']}"
+                 f" | %{100 * v['pay']:.1f} | {yz(v['birincil'])} | {u['taban']:.4f} → {u['simdi']:.4f} | {yz(v['agirlikli_istek'])}"
+                 f" | {yz(v['cikti_istek'])} | {yz(v['ilk_istem'])}")
+    o = r["olcum"]
+    s += ["", f"ölçüm koşuları (hariç): {o['oturum']} oturum · {o['istek']} istek · ağırlıklı {o['agirlikli'] / 1e6:.2f} M",
+          f"toplam tahmini tasarruf = Σ pay × normalize düşüş: ağırlıklı %{100 * r['tasarruf']:.1f} · $ %{100 * r['tasarruf_usd']:.1f}"
+          " (yetersiz örnek grupları 0 sayılır)",
+          "Çekince: dönem kısa ve çoğu TOKEN dalgalarının kendi oturumları; iş karışımı tabandan farklı."]
+    return "\n".join(s)
+
+
 SEBEPLER = ("compact", "ara>ttl", "model/effort", "arac_listesi", "diger")
 
 
@@ -716,6 +814,10 @@ def main(a):
     kok, gun, repo = deger("--kok", Path.home() / ".claude" / "projects"), int(deger("--gun", 14)), Path(__file__).resolve().parents[1]
     if "--arac-dokum" in a:
         r, yazi = dokum(kok, gun, arsiv=deger("--arsiv", repo / ".claude" / "dalga-arsiv")), tablo_dokum
+    elif "--karsilastir" in a:
+        baslar = {k: zaman(v) for k, v in (x.split("=", 1) for i, x in enumerate(a) if i and a[i - 1] == "--bas")}
+        r = karsilastir(json.loads(Path(deger("--karsilastir", None)).read_text(encoding="utf-8")), kok, baslar)
+        yazi = tablo_karsilastir
     elif "--ttl-sim" in a:
         r, yazi = ttl_sim(kok, gun), tablo_ttl
     else:
