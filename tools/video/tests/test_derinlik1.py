@@ -57,6 +57,21 @@ def test_r3_bulunamadi_ve_gh_yok(tmp_path):
     assert "- ajan-y: arama koşmadı (gh bağlamı yok)" in _panel(tmp_path / "b", PID)[1]
 
 
+# R5 panelde ayrı "## Kapsam" bölümü; kapsamı eksik aday "Araştırılmadı"ya da düşer; 8 sütunlu tablo değişmez
+def test_r5_kapsam_bolumu(tmp_path):
+    p = _parti(tmp_path, PID, {V[0]: _rapor(V[0], [("hizli", "CLI", "https://github.com/ornek/hizli"), ("ajan-y", "servis", None)])})
+    pt.parti(_ns("akil", p.name), _ctx(tmp_path, Ar({"hizli": {"alt_tur": "araç"}})))
+    r, t = _panel(tmp_path, PID)
+    assert set(r) >= {"hizli", "ajan-y"}
+    ks = t.split("## Kapsam", 1)[1].split("\n## ", 1)[0]
+    h = next(s for s in ks.splitlines() if s.startswith("- hizli ·"))
+    assert all(x in h for x in ("repo ✓", "README ✓", "lisans ✓", "commit ✓", "prompt metni —", "güncellik — (kurulu değil)", "yorum "))
+    y = next(s for s in ks.splitlines() if s.startswith("- ajan-y ·"))
+    assert "repo arama koşmadı (gh bağlamı yok)" in y and "README " in y and "README ✓" not in y
+    ar_ = t.split("## Araştırılmadı", 1)[1].split("\n## ", 1)[0]
+    assert "- ajan-y: kapsam eksik (repo, README, lisans, commit, güvenlik)" in ar_ and "- hizli: kapsam eksik (güvenlik)" in ar_
+
+
 # R2 paket içi parça kurulu paketteki karşılığıyla eşleşir; dosya yolu panelde
 def test_r2_paket_ici_eslesir(tmp_path):
     evi = tmp_path / "evi"
