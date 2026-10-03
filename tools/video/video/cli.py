@@ -1143,6 +1143,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--kismi-kabul", action="store_true", help="devam: M2e — form_red videoları diskteki son formdan tamam_eksik (çağrısız)")
     x.add_argument("--ikinci-goz", choices=("luna", "yok"), default="yok", help="M5: Sonnet sonrası luna ikinci göz (M5b: varsayılan yok — kaliteyi düşürdü)")
     x.add_argument("--yeniden-tara", action="store_true", help="devam: M2d — tamam/form_red/tavan videoları düzeltilmiş girdiyle yeniden tara")
+    x.add_argument("--paket-yeniden", action="store_true", help="devam --yeniden-tara ile: DERİNLİK-1 R4b — paket R4 ile yeniden kurulur (yorum + kare; ozet yok)")
     x.add_argument("--yeniden", action="store_true", help="akil: M2g K1 — geliştirme karşılaştırması yeniden (yalnız gelistir + panel)")
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")

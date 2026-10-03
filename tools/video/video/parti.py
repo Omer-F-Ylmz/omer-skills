@@ -332,8 +332,10 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
             continue
         a["deneme"] += 1
         try:
-            if not (onb / v / "paket.md").is_file():
-                alt(["ozet", "--", v])
+            yeniden = a.pop("yeniden", False)  # DERİNLİK-1 R4b: --paket-yeniden → ozet atlanır, paket R4 ile yeniden kurulur
+            if yeniden or not (onb / v / "paket.md").is_file():
+                if not yeniden:
+                    alt(["ozet", "--", v])
                 mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
                 if not (onb / v / "segmentler.jsonl").is_file() and find_spec("faster_whisper") and 0 < (mt.get("duration") or 0) <= 300:  # M8 K2 (i): ≤5 dk otomatik whisper
                     try:
@@ -531,6 +533,8 @@ def parti(ns, ctx):
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red", "tavan"):
                     s["tarama"].update(durum="bekliyor", deneme=0, hata=None, ice_alindi=None)
+                    if getattr(ns, "paket_yeniden", False):  # DERİNLİK-1 R4b: bayraksız eski davranış
+                        s["paket"].update(durum="bekliyor", deneme=0, hata=None, yeniden=True)
         if getattr(ns, "form_red_yeniden", False):  # M2b K6: form_red → yeniden dene hakkı
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] == "form_red":
