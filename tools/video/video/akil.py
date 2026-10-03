@@ -157,9 +157,49 @@ def _kapsam(k, a, al, m, gv, d):
     return f"- {k} · " + " · ".join(f"{x} {pt._h(v)}" for x, v in alan.items()), eksik
 
 
+def _guncellik(ctx, a):
+    """DERİNLİK-1 R1: kurulu araç ↔ upstream, model çağrısız (~/.claude yalnız okunur; gh istekleri arası ≥2 sn). → kapsam satırı ('fark: …' ise araştırmaya girer)."""
+    if a["kurulu"] == "kendi aracımız":
+        return "— (kendi aracımız)"
+    if not a["repo"]:
+        return "güncellik bakılamadı (repo bilinmiyor)"
+    if not (gh := ctx.get("gh")):
+        return "güncellik bakılamadı (gh bağlamı yok)"
+    uyku, adlar = ctx.get("uyku") or pt.time.sleep, {tr.normal(x) for x in (a["repo"].split("/")[-1], str(a["kurulu"]).rsplit(":", 1)[-1], *a["adlar"])}
+    try:
+        kayit = json.loads((Path(ctx["env"].get("CLAUDE_EVI") or Path.home() / ".claude") / "plugins" / "installed_plugins.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        return f"güncellik bakılamadı (kurulu kayıt okunamadı: {str(e)[:60]})"
+    if not (ku := next((v[0] for p, v in kayit.get("plugins", {}).items() if v and tr.normal(p.split("@")[0]) in adlar), None)):
+        return "güncellik bakılamadı (kurulu sürüm bulunamadı)"
+    sur = str(ku.get("gitCommitSha") or ku.get("version") or "")
+    try:
+        if sha := re.fullmatch(r"[0-9a-f]{7,40}", sur):
+            ust = gh(["api", f"repos/{a['repo']}/commits?per_page=1"])[0]["sha"]
+        else:
+            ust = gh(["api", f"repos/{a['repo']}/releases/latest"])["tag_name"].lstrip("v")
+    except Exception as e:  # sessiz dönüş yok: sebep Kapsam'da
+        return f"güncellik bakılamadı (gh: {str(e)[:60]})"
+    yeni = []
+    for dz in ("skills", "commands", "agents"):  # yeni skill/komut/ajan listesi farkı; dizini olmayan repo atlanır
+        uyku(2)
+        try:
+            ust_ad = {Path(x["name"]).stem for x in gh(["api", f"repos/{a['repo']}/contents/{dz}"])}
+        except Exception:
+            continue
+        yeni += [f"{dz}/{x}" for x in sorted(ust_ad - {p.stem for p in (Path(ku.get("installPath", "")) / dz).glob("*")})]
+    if (ust.startswith(sur[:7]) if sha else ust == sur) and not yeni:
+        return f"güncel ({sur[:7] if sha else sur})"
+    return f"fark: kurulu {sur[:7] if sha else sur} ↔ upstream {ust[:7] if sha else ust}" + (f" · yeni: {', '.join(yeni[:10])}" if yeni else "")
+
+
+def _fark(a):
+    return str(a.get("guncellik", "")).startswith("fark:")
+
+
 def _arastirma_disi(a):
-    """İlke 29 (i): araştırmaya gitmez — kendi aracımız + kurulu (80e0ab3)."""
-    return bool(a["kurulu"])
+    """İlke 29 (i): araştırmaya gitmez — kendi aracımız + kurulu (80e0ab3); DERİNLİK-1 R1: güncellik farkı olan kurulu araştırmaya girer."""
+    return bool(a["kurulu"]) and not _fark(a)
 
 
 def _karsilastir(a):
@@ -482,7 +522,9 @@ def panel(pdir, d, kok):
         sebep = "kurulu" if ku else alt if alt in ("servis", "ürün") else "repo yok" if not a["repo"] else a.get("durum")
         gv = a.get("guvenlik") or (s if (s := al.get("skillspector")) and not s.startswith("koşmadı") else None) or f"koşmadı: {sebep}"
         high = int(x[1]) if (x := re.search(r"HIGH/CRITICAL (\d+)", gv)) else None
-        if ku and _tam(a):
+        if ku and _fark(a):  # DERİNLİK-1 R1
+            o, g = "UYARLA", f"güncelle: {a['guncellik']}"
+        elif ku and _tam(a):
             o, g = "ZATEN VAR", f"kurulu: {a['kurulu']}"
         elif ku and es is not None and es >= ESDEGER and alt == "araç":  # M2c K3: ad benzerliği değil Jev eşdeğeri
             o, g = "ZATEN VAR", f"eşdeğer: {a['kurulu']} p {es}"
@@ -598,6 +640,7 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     adaylar, belirsiz = birlestir(raporlar, kok)  # aşama 5
     eski = d.get("adaylar", {})
     for k, a in adaylar.items():
+        a.update({x: eski[k][x] for x in ("guncellik",) if x in eski.get(k, {})})  # R1: fark kararı durum geri yüklemesinden önce
         a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama") if x in eski.get(k, {})})
         if not a["repo"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı")):
@@ -605,6 +648,10 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
         a["repo"] = a["repo"] or (a["repo_arama"][9:] if str(a.get("repo_arama", "")).startswith("bulundu: ") else None)
         if a["repo"] != eski.get(k, {}).get("repo"):  # DERİNLİK-1 R6: repo değiştiyse güvenlik ön taraması yeniden
             a.pop("guvenlik", None)
+        if a["kurulu"] and a["tur"] not in ARAC_DISI and "guncellik" not in a:
+            a["guncellik"] = _guncellik(ctx, a)  # DERİNLİK-1 R1
+            if _fark(a) and not a["onceki"]:
+                a.setdefault("durum", "bekliyor")
         a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
         if pk := _paket_ici(k, env):
             a["paket_yol"] = pk
