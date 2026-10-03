@@ -1,0 +1,8858 @@
+[
+ {
+  "plugins": [
+   "21st",
+   "agent-sdk-dev",
+   "agent-skills",
+   "andrej-karpathy-skills",
+   "cc-plugin-agents-md",
+   "cc-plugin-plugin-authoring",
+   "cc-plugin-telemetry",
+   "claude-api",
+   "claude-md-management",
+   "claude-mem",
+   "claude-opus-4-5-migration",
+   "cli-anything",
+   "code-review",
+   "commit-commands",
+   "csharp-lsp",
+   "design",
+   "dotnet-data",
+   "dotnet-msbuild",
+   "everything-claude-code",
+   "example-skills",
+   "feature-dev",
+   "frontend-craft",
+   "frontend-design",
+   "headroom",
+   "hookify",
+   "humanizer",
+   "impeccable",
+   "nano-banana-2",
+   "nateherk-design",
+   "playwright",
+   "plugin-dev",
+   "ponytail",
+   "pr-review-toolkit",
+   "ralph-wiggum",
+   "security-guidance",
+   "skill-creator",
+   "superpowers",
+   "typesafe"
+  ],
+  "hook": [
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 11038,
+    "cikti": 10458
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 7846,
+    "cikti": 7208
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 756,
+    "cikti": 215
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 1432,
+    "cikti": 517
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 564,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 478,
+    "cikti": 114
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 23406,
+    "cikti": 22376
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 602,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 358,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 354,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 205,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "commands_changed",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 132341,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 957,
+    "cikti": 576
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Write",
+    "hook_event": "PreToolUse",
+    "uzunluk": 259,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Write",
+    "hook_event": "PreToolUse",
+    "uzunluk": 259,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Write",
+    "hook_event": "PreToolUse",
+    "uzunluk": 352,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Write",
+    "hook_event": "PreToolUse",
+    "uzunluk": 340,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 261,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 261,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 261,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 261,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 261,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 354,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 342,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 342,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 342,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 312,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 334,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 2894,
+    "cikti": 2408
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 1054,
+    "cikti": 660
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Write",
+    "hook_event": "PostToolUse",
+    "uzunluk": 350,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 330,
+    "cikti": 6
+   }
+  ],
+  "istek": 8,
+  "arac": [
+   "Glob",
+   "Read",
+   "Grep",
+   "Grep",
+   "Glob",
+   "Read",
+   "Read",
+   "Bash",
+   "Write"
+  ],
+  "ilk_ctx": 71941,
+  "agirlikli": 220792.8,
+  "usd_hesap": 0.7749535999999999,
+  "model": "claude-opus-5-5[1m]",
+  "arac_sayisi": 241,
+  "son": "success",
+  "tur": 10,
+  "usd_cc": 0.8359536000000001,
+  "kol": "a",
+  "kapali": [],
+  "ram_gb": 10.0,
+  "headroom": "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık",
+  "sure_sn": 63
+ },
+ {
+  "plugins": [
+   "21st",
+   "agent-sdk-dev",
+   "agent-skills",
+   "andrej-karpathy-skills",
+   "cc-plugin-agents-md",
+   "cc-plugin-plugin-authoring",
+   "cc-plugin-telemetry",
+   "claude-api",
+   "claude-md-management",
+   "claude-mem",
+   "claude-opus-4-5-migration",
+   "cli-anything",
+   "code-review",
+   "commit-commands",
+   "csharp-lsp",
+   "design",
+   "dotnet-data",
+   "dotnet-msbuild",
+   "everything-claude-code",
+   "example-skills",
+   "feature-dev",
+   "frontend-craft",
+   "frontend-design",
+   "headroom",
+   "hookify",
+   "humanizer",
+   "impeccable",
+   "nano-banana-2",
+   "nateherk-design",
+   "playwright",
+   "plugin-dev",
+   "ponytail",
+   "pr-review-toolkit",
+   "ralph-wiggum",
+   "security-guidance",
+   "skill-creator",
+   "typesafe"
+  ],
+  "hook": [
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 11038,
+    "cikti": 10458
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 1432,
+    "cikti": 517
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 564,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 478,
+    "cikti": 114
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 23406,
+    "cikti": 22376
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 602,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 358,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 354,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1115,
+    "cikti": 716
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 357,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 359,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 317,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 355,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 357,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "task_started",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 335,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_notification",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 325,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 359,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 317,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 357,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 359,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 355,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 317,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 357,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 359,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 355,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 317,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 355,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 207,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 207,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 207,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 334,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 3232,
+    "cikti": 2752
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 716,
+    "cikti": 354
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 324,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   }
+  ],
+  "istek": 10,
+  "arac": [
+   "Glob",
+   "Read",
+   "Grep",
+   "PowerShell",
+   "Grep",
+   "Grep",
+   "Read",
+   "Read",
+   "Grep",
+   "PowerShell",
+   "PowerShell",
+   "PowerShell",
+   "Read"
+  ],
+  "ilk_ctx": 71284,
+  "agirlikli": 217398.19999999995,
+  "usd_hesap": 0.7287364,
+  "model": "claude-opus-5-5[1m]",
+  "arac_sayisi": 386,
+  "son": "success",
+  "tur": 14,
+  "usd_cc": 0.8249964,
+  "kol": "b",
+  "kapali": [
+   "superpowers@claude-plugins-official"
+  ],
+  "ram_gb": 9.6,
+  "headroom": "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık",
+  "sure_sn": 108
+ },
+ {
+  "plugins": [
+   "21st",
+   "agent-sdk-dev",
+   "agent-skills",
+   "andrej-karpathy-skills",
+   "cc-plugin-agents-md",
+   "cc-plugin-plugin-authoring",
+   "cc-plugin-telemetry",
+   "claude-api",
+   "claude-md-management",
+   "claude-mem",
+   "claude-opus-4-5-migration",
+   "cli-anything",
+   "code-review",
+   "commit-commands",
+   "csharp-lsp",
+   "design",
+   "dotnet-data",
+   "dotnet-msbuild",
+   "everything-claude-code",
+   "example-skills",
+   "feature-dev",
+   "frontend-craft",
+   "frontend-design",
+   "headroom",
+   "hookify",
+   "humanizer",
+   "impeccable",
+   "nano-banana-2",
+   "nateherk-design",
+   "playwright",
+   "plugin-dev",
+   "pr-review-toolkit",
+   "ralph-wiggum",
+   "security-guidance",
+   "skill-creator",
+   "superpowers",
+   "typesafe"
+  ],
+  "hook": [
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 7846,
+    "cikti": 7208
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 756,
+    "cikti": 215
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 1432,
+    "cikti": 517
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 564,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 478,
+    "cikti": 114
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 23556,
+    "cikti": 22486
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 602,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 358,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 354,
+    "cikti": 6
+   },
+   {
+    "subtype": "commands_changed",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 128999,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1019,
+    "cikti": 638
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1061,
+    "cikti": 680
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_started",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 343,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_notification",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 333,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_started",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 344,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_notification",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 334,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 343,
+    "cikti": 0
+   }
+  ],
+  "istek": 10,
+  "arac": [
+   "Glob",
+   "Read",
+   "Grep",
+   "Bash",
+   "Grep",
+   "Glob",
+   "Grep",
+   "Grep",
+   "Grep",
+   "Read",
+   "Read",
+   "Bash",
+   "Bash"
+  ],
+  "ilk_ctx": 70448,
+  "agirlikli": 205519.5,
+  "usd_hesap": 0.6813329999999999,
+  "model": "claude-opus-5-5[1m]",
+  "arac_sayisi": 344,
+  "son": "error_max_turns",
+  "tur": 11,
+  "usd_cc": 0.723453,
+  "kol": "c",
+  "kapali": [
+   "ponytail@ponytail"
+  ],
+  "ram_gb": 7.9,
+  "headroom": "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık",
+  "sure_sn": 92
+ },
+ {
+  "plugins": [
+   "21st",
+   "agent-sdk-dev",
+   "agent-skills",
+   "andrej-karpathy-skills",
+   "cc-plugin-agents-md",
+   "cc-plugin-plugin-authoring",
+   "cc-plugin-telemetry",
+   "claude-api",
+   "claude-md-management",
+   "claude-mem",
+   "claude-opus-4-5-migration",
+   "cli-anything",
+   "code-review",
+   "commit-commands",
+   "csharp-lsp",
+   "design",
+   "dotnet-data",
+   "dotnet-msbuild",
+   "example-skills",
+   "feature-dev",
+   "frontend-craft",
+   "frontend-design",
+   "headroom",
+   "hookify",
+   "humanizer",
+   "impeccable",
+   "nano-banana-2",
+   "nateherk-design",
+   "playwright",
+   "plugin-dev",
+   "ponytail",
+   "pr-review-toolkit",
+   "ralph-wiggum",
+   "security-guidance",
+   "skill-creator",
+   "superpowers",
+   "typesafe"
+  ],
+  "hook": [
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 11038,
+    "cikti": 10458
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 7846,
+    "cikti": 7208
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 564,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 478,
+    "cikti": 114
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 37036,
+    "cikti": 35830
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 602,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 358,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 354,
+    "cikti": 6
+   },
+   {
+    "subtype": "commands_changed",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 127300,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 883,
+    "cikti": 502
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1015,
+    "cikti": 626
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1349,
+    "cikti": 920
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_started",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 334,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_notification",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 324,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_started",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_notification",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 335,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 341,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 341,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 264,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 357,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:PowerShell",
+    "hook_event": "PreToolUse",
+    "uzunluk": 345,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 266,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 359,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 317,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 334,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 772,
+    "cikti": 406
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 324,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:PowerShell",
+    "hook_event": "PostToolUse",
+    "uzunluk": 355,
+    "cikti": 6
+   }
+  ],
+  "istek": 8,
+  "arac": [
+   "Glob",
+   "Bash",
+   "Read",
+   "Bash",
+   "Glob",
+   "Bash",
+   "Bash",
+   "PowerShell"
+  ],
+  "ilk_ctx": 72696,
+  "agirlikli": 184451.00000000003,
+  "usd_hesap": 0.6266579999999999,
+  "model": "claude-opus-5-5[1m]",
+  "arac_sayisi": 336,
+  "son": "success",
+  "tur": 9,
+  "usd_cc": 0.6889380000000002,
+  "kol": "d",
+  "kapali": [
+   "everything-claude-code@everything-claude-code"
+  ],
+  "ram_gb": 5.4,
+  "headroom": "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık",
+  "sure_sn": 88
+ },
+ {
+  "plugins": [
+   "21st",
+   "agent-sdk-dev",
+   "agent-skills",
+   "andrej-karpathy-skills",
+   "cc-plugin-agents-md",
+   "cc-plugin-plugin-authoring",
+   "cc-plugin-telemetry",
+   "claude-api",
+   "claude-md-management",
+   "claude-opus-4-5-migration",
+   "cli-anything",
+   "code-review",
+   "commit-commands",
+   "csharp-lsp",
+   "design",
+   "dotnet-data",
+   "dotnet-msbuild",
+   "everything-claude-code",
+   "example-skills",
+   "feature-dev",
+   "frontend-craft",
+   "frontend-design",
+   "headroom",
+   "hookify",
+   "humanizer",
+   "impeccable",
+   "nano-banana-2",
+   "nateherk-design",
+   "playwright",
+   "plugin-dev",
+   "ponytail",
+   "pr-review-toolkit",
+   "ralph-wiggum",
+   "security-guidance",
+   "skill-creator",
+   "superpowers",
+   "typesafe"
+  ],
+  "hook": [
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 11038,
+    "cikti": 10458
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 7846,
+    "cikti": 7208
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 756,
+    "cikti": 215
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 1432,
+    "cikti": 517
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 564,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 602,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 358,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "commands_changed",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 124541,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 883,
+    "cikti": 502
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Agent",
+    "hook_event": "PreToolUse",
+    "uzunluk": 259,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Agent",
+    "hook_event": "PreToolUse",
+    "uzunluk": 259,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Agent",
+    "hook_event": "PreToolUse",
+    "uzunluk": 340,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Agent",
+    "hook_event": "PreToolUse",
+    "uzunluk": 352,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_started",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 1602,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SubagentStart:Explore",
+    "hook_event": "SubagentStart",
+    "uzunluk": 267,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SubagentStart:Explore",
+    "hook_event": "SubagentStart",
+    "uzunluk": 11488,
+    "cikti": 10850
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 395,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 432,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 341,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 341,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 396,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 433,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 433,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 433,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 433,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 433,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 433,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 423,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 435,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1083,
+    "cikti": 694
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 435,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 435,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_progress",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 435,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "task_updated",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 240,
+    "cikti": 0
+   },
+   {
+    "subtype": "task_notification",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 5624,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Agent",
+    "hook_event": "PostToolUse",
+    "uzunluk": 261,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Agent",
+    "hook_event": "PostToolUse",
+    "uzunluk": 354,
+    "cikti": 8
+   }
+  ],
+  "istek": 23,
+  "arac": [
+   "Glob",
+   "Read",
+   "Bash",
+   "Grep",
+   "Grep",
+   "Grep",
+   "Glob",
+   "Grep",
+   "Grep",
+   "Read",
+   "Read",
+   "Glob",
+   "Grep",
+   "Grep",
+   "Agent",
+   "Grep",
+   "Bash",
+   "Grep",
+   "Bash",
+   "Bash",
+   "Bash",
+   "Bash",
+   "Bash",
+   "Bash",
+   "headroom_retrieve",
+   "Bash",
+   "Bash",
+   "Bash",
+   "Bash"
+  ],
+  "ilk_ctx": 68908,
+  "agirlikli": 601970.2,
+  "usd_hesap": 1.7974244000000001,
+  "model": "claude-opus-5-5[1m]",
+  "arac_sayisi": 309,
+  "son": "error_max_turns",
+  "tur": 11,
+  "usd_cc": 1.8622787000000003,
+  "kol": "e",
+  "kapali": [
+   "claude-mem@thedotmack"
+  ],
+  "ram_gb": 5.4,
+  "headroom": "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık",
+  "sure_sn": 317
+ },
+ {
+  "plugins": [
+   "21st",
+   "agent-sdk-dev",
+   "agent-skills",
+   "andrej-karpathy-skills",
+   "cc-plugin-agents-md",
+   "cc-plugin-plugin-authoring",
+   "cc-plugin-telemetry",
+   "claude-api",
+   "claude-md-management",
+   "claude-opus-4-5-migration",
+   "cli-anything",
+   "code-review",
+   "commit-commands",
+   "csharp-lsp",
+   "design",
+   "dotnet-data",
+   "dotnet-msbuild",
+   "example-skills",
+   "feature-dev",
+   "frontend-craft",
+   "frontend-design",
+   "headroom",
+   "hookify",
+   "humanizer",
+   "impeccable",
+   "nano-banana-2",
+   "nateherk-design",
+   "playwright",
+   "plugin-dev",
+   "pr-review-toolkit",
+   "ralph-wiggum",
+   "security-guidance",
+   "skill-creator",
+   "typesafe"
+  ],
+  "hook": [
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 564,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 602,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 358,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "commands_changed",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 111823,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 205,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 241,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 334,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 322,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "Stop",
+    "hook_event": "Stop",
+    "uzunluk": 772,
+    "cikti": 406
+   }
+  ],
+  "istek": 5,
+  "arac": [
+   "Glob",
+   "Read",
+   "Grep",
+   "Grep"
+  ],
+  "ilk_ctx": 62180,
+  "agirlikli": 129403.6,
+  "usd_hesap": 0.46219119999999997,
+  "model": "claude-opus-5-5[1m]",
+  "arac_sayisi": 307,
+  "son": "success",
+  "tur": 5,
+  "usd_cc": 0.5038712000000001,
+  "kol": "f",
+  "kapali": [
+   "superpowers@claude-plugins-official",
+   "ponytail@ponytail",
+   "everything-claude-code@everything-claude-code",
+   "claude-mem@thedotmack"
+  ],
+  "ram_gb": 6.1,
+  "headroom": "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık",
+  "sure_sn": 41
+ },
+ {
+  "plugins": [
+   "21st",
+   "agent-sdk-dev",
+   "agent-skills",
+   "andrej-karpathy-skills",
+   "cc-plugin-agents-md",
+   "cc-plugin-plugin-authoring",
+   "cc-plugin-telemetry",
+   "claude-api",
+   "claude-md-management",
+   "claude-mem",
+   "claude-opus-4-5-migration",
+   "cli-anything",
+   "code-review",
+   "commit-commands",
+   "csharp-lsp",
+   "design",
+   "dotnet-data",
+   "dotnet-msbuild",
+   "everything-claude-code",
+   "example-skills",
+   "feature-dev",
+   "frontend-craft",
+   "frontend-design",
+   "headroom",
+   "hookify",
+   "humanizer",
+   "impeccable",
+   "nano-banana-2",
+   "nateherk-design",
+   "playwright",
+   "plugin-dev",
+   "ponytail",
+   "pr-review-toolkit",
+   "ralph-wiggum",
+   "security-guidance",
+   "skill-creator",
+   "superpowers",
+   "typesafe"
+  ],
+  "hook": [
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 11038,
+    "cikti": 10458
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 7846,
+    "cikti": 7208
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 756,
+    "cikti": 215
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 564,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 1432,
+    "cikti": 517
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 478,
+    "cikti": 114
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 22666,
+    "cikti": 21590
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "SessionStart:startup",
+    "hook_event": "SessionStart",
+    "uzunluk": 602,
+    "cikti": 224
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 265,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 358,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 346,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "UserPromptSubmit",
+    "hook_event": "UserPromptSubmit",
+    "uzunluk": 354,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1023,
+    "cikti": 642
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Glob",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 1039,
+    "cikti": 658
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Bash",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Glob",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Bash",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 309,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 204,
+    "cikti": 0
+   },
+   {
+    "subtype": "thinking_tokens",
+    "hook_name": null,
+    "hook_event": null,
+    "uzunluk": 206,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Grep",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 347,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_progress",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 311,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Grep",
+    "hook_event": "PostToolUse",
+    "uzunluk": 349,
+    "cikti": 6
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 258,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 339,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 351,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_started",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 260,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 353,
+    "cikti": 8
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PreToolUse:Read",
+    "hook_event": "PreToolUse",
+    "uzunluk": 341,
+    "cikti": 0
+   },
+   {
+    "subtype": "hook_response",
+    "hook_name": "PostToolUse:Read",
+    "hook_event": "PostToolUse",
+    "uzunluk": 343,
+    "cikti": 0
+   }
+  ],
+  "istek": 10,
+  "arac": [
+   "Glob",
+   "Read",
+   "Grep",
+   "Bash",
+   "Grep",
+   "Glob",
+   "Bash",
+   "Read",
+   "Grep",
+   "headroom_retrieve",
+   "Read"
+  ],
+  "ilk_ctx": 73416,
+  "agirlikli": 209827.30000000005,
+  "usd_hesap": 0.6929586,
+  "model": "claude-opus-5-5[1m]",
+  "arac_sayisi": 386,
+  "son": "error_max_turns",
+  "tur": 11,
+  "usd_cc": 0.7320986,
+  "kol": "g",
+  "kapali": [],
+  "ram_gb": 6.0,
+  "headroom": "headroom: ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık",
+  "sure_sn": 58
+ }
+]

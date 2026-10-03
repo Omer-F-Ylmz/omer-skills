@@ -70,3 +70,41 @@ Settings yedekleri aynı anları doğrular: `settings.json.headroom-backup-20261
 
 **b) Önbellek kapalıyken 54.6k okuma** (`docs/token-2.md:33`). 54,556 = claude-mem observer transcript'lerinde 4 haiku çağrısının `cache_read` toplamı (9051 + 7470 + 17972 + 20063; `~/.claude/projects/C--Users-pc--claude-mem-observer-sessions/{7568789f,1761eb07,cfd3d83c,527a6c5a}*.jsonl`); her birinde `cache_creation` 0, `input_tokens` 10. En güçlü açıklama (kanıtsız): aynı 4 yük worker yamasından önce (16:28-16:32Z) önbellekli gönderilmiş (transcript'lerde usage'sız kopyaları var: `725a98ee`, `1d8cc09c`, `4a71fa94`, `ac354ab9`), yama (`worker-service.cjs` mtime 16:36:04Z) sonrası yeniden gönderimde o 1h girdi okunmuş. Açık kalan: `DISABLE_PROMPT_CACHING` altında istemci `cache_control` göndermez. Proxy kaynaklı işaret hipotezi zayıf: K1'e göre observer (sdk-ts) istekleri Headroom'dan geçmiyor ve `proxy-6768.log.1`'de 16:28-16:42 arası haiku satırı yok. Ayırt edici tek kanıt, ilk gönderimlerin API tarafındaki `cache_creation` kaydı. Etki küçük (54.6k × 0.1 ≈ 5.5k ağırlıklı); izlenmesi gerekmez.
 
+
+## K2 Enjeksiyonların tur etkisi
+
+Düzenek: `claude -p "ok" --output-format stream-json --verbose --include-hook-events --permission-mode plan --max-turns 10`, cwd omer-skills, sırayla 7 koşu (tavan 7). Her koşu öncesi boş RAM ≥4 GB (10.0 GB) ve `headroom_kayit`; yedisinde de `ANTHROPIC_BASE_URL=tanımlı · 127.0.0.1:6767=açık`. b–f `--settings <dosya>` ile `enabledPlugins:{<id>:false}`; geçerlilik init olayının plugin listesinden (a/g 38, b–e 37, f 34). e: claude-mem bağlamı worker HTTP'den gelir, `-p` env'i worker'a ulaşmaz; `--settings` yolu init listesi (37) ve SessionStart çıktısının düşmesiyle doğrulandı. İstek = benzersiz `message.id`; ağırlıklı `tools/token_olc.agirlikli`; $ CC'nin `total_cost_usd`'u. Özet `olcum/token-6a-k2.json`.
+
+| kol | kapalı | plugin | istek | tur | araç çağrısı | ilk ctx | Δctx | ağırlıklı | Δağırlıklı | $ | Δ$ | son |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| a | — | 38 | 8 | 10 | 9: Glob 2, Read 3, Grep 2, Bash 1, Write 1 | 71,941 | -738 | 220,793 | +5,483 | 0.836 | +0.052 | success |
+| b | superpowers | 37 | 10 | 14 | 13: Glob 1, Read 4, Grep 4, PowerShell 4 | 71,284 | -1,394 | 217,398 | +2,088 | 0.825 | +0.041 | success |
+| c | ponytail | 37 | 10 | 11 | 13: Glob 2, Read 3, Grep 5, Bash 3 | 70,448 | -2,230 | 205,520 | -9,791 | 0.723 | -0.061 | error_max_turns |
+| d | everything-claude-code | 37 | 8 | 9 | 8: Glob 2, Bash 4, Read 1, PowerShell 1 | 72,696 | +18 | 184,451 | -30,859 | 0.689 | -0.095 | success |
+| e | claude-mem | 37 | 23 | 11 | 29: Glob 3, Read 3, Bash 12, Grep 9, Agent 1, headroom_retrieve 1 | 68,908 | -3,770 | 601,970 | +386,660 | 1.862 | +1.078 | error_max_turns |
+| f | superpowers+ponytail+everything-claude-code+claude-mem | 34 | 5 | 5 | 4: Glob 1, Read 1, Grep 2 | 62,180 | -10,498 | 129,404 | -85,906 | 0.504 | -0.280 | success |
+| g | — | 38 | 10 | 11 | 11: Glob 2, Read 3, Grep 3, Bash 2, headroom_retrieve 1 | 73,416 | +738 | 209,827 | -5,483 | 0.732 | -0.052 | error_max_turns |
+
+Taban = a ile g ortalaması: ilk ctx 72,678 · ağırlıklı 215,310 · $0.784; gürültü |a−g| ağırlıklı 10,965.
+
+**SessionStart çıktısı** (hook olayı output+stdout karakteri; yalnız oran kullanıldı): kol farklarından claude-mem ≈%55, ponytail ≈%25, superpowers ≈%18, everything-claude-code ≈0. b, c ve e farklarının toplamı a'nın SessionStart çıktısının %98'i; f'de 224 karakter kaldı. claude-mem bağlamı koşudan koşuya değişir (d 53.8k, g 40.1k karakter), oranlar yaklaşık.
+
+**Okuma.**
+- Gürültü: aynı ayarla a ve g arasında ağırlıklı fark %5.1, araç çağrısı 9↔11. Tek koşuluk kol farkı bu bandın içindeyse sonuç yok sayılır.
+- b (superpowers) ve c (ponytail): ilk ctx −1.4k / −2.2k, ağırlıklı fark bant içinde. Hiçbir kolda Skill çağrısı yok; superpowers'ın "önce skill çağır" talimatı bu istemde araç tetiklemedi.
+- d (everything-claude-code): ilk ctx değişmedi (+17). Ağırlıklı −%14 yalnız istek sayısının 8'e düşmesinden; enjeksiyon kaynaklı değil, davranış gürültüsü. ECC'nin oturum başı maliyeti ≈0 (SessionStart çıktısı yok, ilk ctx aynı).
+- e (claude-mem): ilk ctx'te en pahalı tek enjeksiyon (−3.8k, SessionStart çıktısının yarısından fazlası). Kapalıyken model "ok" istemine Explore alt ajanıyla yanıt verdi: 23 istek, ağırlıklı +387k (+%180), $1.86. Bağlam yokken model ne yapacağını keşfederek arıyor. n=1, ama yön tasarruf değil maliyet.
+- f (dördü kapalı): ilk ctx −10.5k, 5 istek / 4 araç, ağırlıklı −85.9k (−%40), −$0.28. Tek tek ctx farklarının toplamından (−7.4k) büyük: enjeksiyonlar birlikte keşif davranışını büyütüyor.
+- Araç-enjeksiyon ilişkisi: claude-mem açık kollarda (a–d, g) model plan modunun keşif talimatıyla 8–13 Glob/Read/Grep/kabuk çağrısı yaptı; yalnız claude-mem kapalıyken (e) Explore ajanı; hepsi kapalıyken (f) 4 çağrı. g'deki tek `headroom_retrieve` Headroom sıkıştırmasından (K4). c ve g `--max-turns 10` tavanına dayandı (`error_max_turns`), maliyetleri tavanla kesik.
+
+**Günlük tahmin** (karar: kol başına ilk istemin toplam ağırlıklı maliyeti farkı × oturum/gün; Δilk_ctx tek başına kullanılmadı). Etkileşimli oturum 14.0/gün (K1, `cli` girişi, alt ajanlar hariç); `sdk-cli` dahil üst sınır 35.1/gün. Gürültü bandı 0.15 M/gün (14) · 0.38 M/gün (35.1).
+
+| kol | Δağırlıklı/oturum | M/gün (14) | M/gün (35.1) | $/gün (14) |
+|---|---|---|---|---|
+| b superpowers | +2,088 | +0.03 | +0.07 | +0.57 |
+| c ponytail | −9,790 | −0.14 | −0.34 | −0.85 |
+| d everything-claude-code | −30,859 | −0.43 | −1.08 | −1.33 |
+| e claude-mem | +386,660 | +5.41 | +13.57 | +15.09 |
+| f dördü | −85,906 | −1.20 | −3.02 | −3.92 |
+
+Çekince: tüm kollar plan modunda ve "ok" isteminde koştu. Kollar arası kıyas geçerli; gerçek oturumda ilk istem gerçek bir iş olduğundan mutlak etki (özellikle e'deki keşif ve f'deki tasarruf) aktarılamaz. n=1/kol; b, c bant içinde, d davranış gürültüsü. Tahminler yön gösterir, TOKEN-6b kapısında gerçek görevle doğrulanır. TOKEN-0 L2 tahmini 0.5 M/gün idi; birleşik kaldırma (f) bunun üstünde, tek tek kaldırmada anlamlı kazanç yok, claude-mem'i kaldırmak maliyeti artırabilir.
