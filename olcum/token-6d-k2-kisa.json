@@ -1,0 +1,167 @@
+{
+ "dalga": "TOKEN-6d-2 K2 kısa",
+ "gorev": "rtk-ab tag base task.txt (Money value object + 4 xUnit test)",
+ "kurulum": "opus · --max-turns 30 · acceptEdits + Read/Edit/Write/Glob/Grep/Bash(dotnet|rtk) · koşu başına kendi worktree'si · kol = POST /admin/runtime-env HEADROOM_OUTPUT_HOLDOUT 0=T / 1=C (finally'de başlangıç değeri)",
+ "kosular": {
+  "rtk-T1": {
+   "kol": "T",
+   "test_rc": 0,
+   "test": "4 tests passed, 0 warnings in 1 projects (609 ms)",
+   "degisen": [
+    " M Money.Tests/UnitTest1.cs",
+    " M Money/Class1.cs"
+   ],
+   "subtype": "success",
+   "tur": 15,
+   "tavana_takildi": false,
+   "cikti_token": 4099,
+   "thinking_token": 1228,
+   "agirlikli": 525162.0,
+   "usd": 1.9227,
+   "sure_sn": 90,
+   "log_kol_kaniti": {
+    "pencere_istek": 16,
+    "shaper_etiketli": 16,
+    "etiket": [
+     "['output_shaper:verbosity:L2']"
+    ],
+    "model_shaper_sayim": {
+     "claude-sonnet-5|shaper": 2,
+     "claude-opus-5-5|shaper": 13,
+     "claude-opus-4-7|shaper": 1
+    },
+    "pencere_opus55_tok_out": 7503
+   }
+  },
+  "rtk-C1": {
+   "kol": "C",
+   "test_rc": 0,
+   "test": "4 tests passed, 0 warnings in 1 projects (427 ms)",
+   "degisen": [
+    " M Money.Tests/UnitTest1.cs",
+    " M Money/Class1.cs"
+   ],
+   "subtype": "success",
+   "tur": 17,
+   "tavana_takildi": false,
+   "cikti_token": 4838,
+   "thinking_token": 1438,
+   "agirlikli": 453749.2,
+   "usd": 1.6494,
+   "sure_sn": 108,
+   "log_kol_kaniti": {
+    "pencere_istek": 11,
+    "shaper_etiketli": 0,
+    "etiket": [],
+    "model_shaper_sayim": {
+     "claude-opus-5-5|yok": 10,
+     "claude-opus-4-7|yok": 1
+    },
+    "pencere_opus55_tok_out": 4838
+   }
+  },
+  "rtk-T2": {
+   "kol": "T",
+   "test_rc": 0,
+   "test": "5 tests passed, 0 warnings in 1 projects (520 ms)",
+   "degisen": [
+    "?? Money.Tests/MoneyTests.cs",
+    "?? Money/Money.cs"
+   ],
+   "subtype": "success",
+   "tur": 12,
+   "tavana_takildi": false,
+   "cikti_token": 4455,
+   "thinking_token": 1731,
+   "agirlikli": 292547.7,
+   "usd": 0.9878,
+   "sure_sn": 84,
+   "log_kol_kaniti": {
+    "pencere_istek": 11,
+    "shaper_etiketli": 11,
+    "etiket": [
+     "['output_shaper:verbosity:L2']"
+    ],
+    "model_shaper_sayim": {
+     "claude-opus-5-5|shaper": 10,
+     "claude-opus-4-7|shaper": 1
+    },
+    "pencere_opus55_tok_out": 4455
+   }
+  },
+  "rtk-C2": {
+   "kol": "C",
+   "test_rc": 0,
+   "test": "4 tests passed, 0 warnings in 1 projects (484 ms)",
+   "degisen": [
+    " D Money.Tests/UnitTest1.cs",
+    " D Money/Class1.cs",
+    "?? Money.Tests/MoneyTests.cs",
+    "?? Money/Money.cs"
+   ],
+   "subtype": "success",
+   "tur": 14,
+   "tavana_takildi": false,
+   "cikti_token": 3512,
+   "thinking_token": 531,
+   "agirlikli": 264360.1,
+   "usd": 0.9168,
+   "sure_sn": 77,
+   "log_kol_kaniti": {
+    "pencere_istek": 9,
+    "shaper_etiketli": 0,
+    "etiket": [],
+    "model_shaper_sayim": {
+     "claude-opus-5-5|yok": 8,
+     "claude-opus-4-7|yok": 1
+    },
+    "pencere_opus55_tok_out": 3512
+   }
+  }
+ },
+ "ortalama": {
+  "T": {
+   "cikti_token": 4277.0,
+   "agirlikli": 408854.85,
+   "usd": 1.4552,
+   "tur": 13.5
+  },
+  "C": {
+   "cikti_token": 4175.0,
+   "agirlikli": 359054.65,
+   "usd": 1.2831,
+   "tur": 15.5
+  }
+ },
+ "T_vs_C_degisim_yuzde": {
+  "cikti_token": -2.4,
+  "agirlikli": -13.9,
+  "usd": -13.4,
+  "tur": 12.9
+ },
+ "gurultu_bandi_yuzde": {
+  "T1↔T2": {
+   "cikti_token": 8.3,
+   "agirlikli": 56.9,
+   "usd": 64.2,
+   "tur": 22.2
+  },
+  "C1↔C2": {
+   "cikti_token": 31.8,
+   "agirlikli": 52.7,
+   "usd": 57.1,
+   "tur": 19.4
+  }
+ },
+ "basari": {
+  "T": 1.0,
+  "C": 1.0
+ },
+ "not": [
+  "Ağırlık tools/token_olc.py AGIRLIK; token/$ claude -p result usage'dan (yalnız claude-opus-5-5).",
+  "T_vs_C_degisim_yuzde = (C−T)/C·100 (pozitif = T tasarrufu).",
+  "Kol kanıtı: T pencerelerinde her istek OutputShaper(L2/env) etiketli, C pencerelerinde hiçbiri değil (kontrol kolunun ampirik kanıtı).",
+  "Log penceresi eşzamanlı ana oturum isteklerini de içerir (holdout global → aynı kol); T1 penceresinde 2 claude-sonnet-5 isteği okuyucu ajanındı ve pencere opus tok_out koşu usage'ını aşar. Token için usage esas.",
+  "rtk-T2: 5 test (şablon Test1 kaldı, git rm onay bekledi); T1/C1 şablon dosya adlarında kaldı (git mv onay bekledi)."
+ ]
+}
