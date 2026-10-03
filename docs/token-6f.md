@@ -78,3 +78,13 @@ Kazanç düşmüyor, artıyor. Taze tracker eski kolda ReadMaturationManager dur
 2. Recap'i aç: `~/.claude/settings.json` içinde `"awaySummaryEnabled": false` → `true` (ya da `/config`). Ardından yeni CC oturumu aç.
 3. Sahada izleme (TOKEN-6c-R yöntemi): 4–60 dk bandında away_summary var/yok kırılma oranı. Beklenen: Headroom kaynaklı kırılma, away var grubunda %76.7'den yok grubundaki düzeye (%12.3 ve altı) inmeli.
 4. Geri alma: `python tools/headroom_yama.py --geri-al`, ardından Desktop'u yeniden başlat. Headroom güncellenince betik yeni sürümü reddeder (sürüm kilidi); yeni sürüm için çapalar yeniden doğrulanmalı.
+
+## H2a — mesaj kaydı (H2 veri hazırlığı)
+
+- Yerleşik durum: proxy `--log-messages` ile çalışıyor (`cli/proxy.py:601`). Bu bayrak son 100 isteğin ham ve sıkıştırılmış mesajlarını yalnız bellekte tutuyor (`request_logger.py:150-154`). Diske yazan tek yol `--log-file`/`HEADROOM_LOG_FILE` (`cli/proxy.py:590`). Bu yol tam gövdeyi yazıyor (~160 KB/istek, ~1–2 GB/gün) ve restart istiyor. `log_full_messages` RUNTIME_ENV_KNOBS'ta yok (`runtime_env.py:60-76`). Mesaj başına sha yazan yerleşik bir yol yok; tek hash `turn_id` (`helpers.py:3191`).
+- Bayt etkisi yok: kayıt yanıttan sonra yapılıyor ve gövdeyi yalnız okuyor (`anthropic.py:4773-4778`).
+- Seçim: `tools/h2a_kayit.py`, restart'sız. 60 sn'de bir `GET /transformations/feed?limit=10` çekiyor (loopback, `server.py:5018`). `request_id` ile tekilleştiriyor; örtüşme yoksa limit=100 ile yeniden çekiyor, yine yoksa `{"bosluk": ts}` yazıyor. Satır alanları: ts · model · turn_id · token/dönüşüm/cache alanları · `request_messages`/`compressed_messages` için [rol, sha8] dizisi. Çıktı `~/.headroom/h2a_kayit.jsonl`, ~1.9 KB/istek (≈5–10 MB/gün).
+- Feed'de system ve tools yok (`server.py:5047-5069`), bu yüzden sha8'leri yazılmıyor. Önek kırılmasının system/tools kaynaklı olup olmadığı bu kayıttan ayrılamaz.
+- Yan etki: her yoklama feed'i event loop'ta serileştiriyor (limit=10 ≈ 1.6 MB, `request_logger.py:197`). Canlı isteklere ek gecikme ölçülmedi.
+- Doğrulama: çevrimdışı test 4/4 (`tests/test_h2a_kayit.py`: tekilleştirme · 100 ile kapanma · boşluk · ilk yoklama). Canlı iki yoklama: 10 satır, ikinci yoklamada 0 yeni (tekil). /health pid + runtime_env ve `--durum` önce/sonra eşit.
+- İşletim: betik pid 2716 (20:22:19). PC yeniden başlayınca durur; yeniden başlatma `Start-Process python -ArgumentList 'tools/h2a_kayit.py' -WindowStyle Hidden`. Geri alma: süreci `Stop-Process -Id <pid>` ile durdur, istenirse jsonl dosyasını sil.
