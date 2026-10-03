@@ -1,17 +1,24 @@
 {
  "ozet": {
-  "toplam": 126,
-  "degerli": 28,
-  "degersiz": 98,
+  "toplam": 123,
+  "degerli": 42,
+  "degersiz": 81,
   "altyazi_onbellekte": 73,
-  "eslenmeyen_karar": 30,
-  "kural": "≥1 AL/UYARLA/DENE (karar ya da yargı); docs/video-tarama + docs/kurulumlar kayit.jsonl; iptal parti 2026-10-01-uzun hariç"
+  "b2": {
+   "video": 19,
+   "çözülemedi": 1,
+   "video-dışı": 7
+  },
+  "b2_cozulemedi": [
+   "headroom-ayar"
+  ],
+  "kural": "≥1 AL/UYARLA/DENE/KUR (karar ya da yargı); docs/video-tarama + docs/kurulumlar kayit.jsonl; iptal parti 2026-10-01-uzun hariç"
  },
  "videolar": [
   {
    "id": "-INveHwbRz4",
    "kanal": "Claude",
-   "channel_id": "",
+   "channel_id": "UCV03SRZXJEz-hchIAogeJOg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -19,7 +26,7 @@
   {
    "id": "-_S3KD0ZIfI",
    "kanal": "Chase AI",
-   "channel_id": "",
+   "channel_id": "UCoy6cTJ7Tg0dqS-DI-_REsA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -27,7 +34,7 @@
   {
    "id": "0JZtdAtJiyk",
    "kanal": "InsiderForce",
-   "channel_id": "",
+   "channel_id": "UC8L6EV01fAJ2A0sDpsQ-T5g",
    "degerli": true,
    "kaynak": [
     "UYARLA:emil-kowalski-motion-skill@2026-09-30-short"
@@ -36,16 +43,16 @@
   },
   {
    "id": "0ewGD79TMkM",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "İsa Nurdoğdu",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "166KYdgWQto",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -53,23 +60,23 @@
   {
    "id": "1Jb517FRX7I",
    "kanal": "Burhan KOCABIYIK",
-   "channel_id": "",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "1TI4Fd89fuw",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Yıldız Dikme",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "2WIUAp4Z8EA",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "İsa Nurdoğdu",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -77,23 +84,31 @@
   {
    "id": "2n84xa99FRY",
    "kanal": "Avenox",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UCHnYG8F-N7mhzFrJ22iEdJg",
+   "degerli": true,
+   "kaynak": [
+    "KUR:kural-iş-takibi-alan-bazlı-commit-gerekçe-notu",
+    "KUR:github-kullanımı-repo-commit-takibi",
+    "KUR:webfetch-ile-skill-entegrasyonu",
+    "KUR:god-file-eşiği-aşmadan-refactor-uyarısı"
+   ],
    "altyazi": true
   },
   {
    "id": "39IlNR-P3-Q",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
+   "degerli": true,
+   "kaynak": [
+    "KUR:skill-hatırlatmasını-prompt-a-yazma",
+    "KUR:en-fazla-10-skill"
+   ],
    "altyazi": true
   },
   {
    "id": "3XIGcM7VICc",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -101,7 +116,7 @@
   {
    "id": "40KWXNxzgPA",
    "kanal": "İsa Nurdoğdu",
-   "channel_id": "",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -109,7 +124,7 @@
   {
    "id": "4Uy2SzB-Kuk",
    "kanal": "blenderisms",
-   "channel_id": "",
+   "channel_id": "UC3WdNJk6Tdi7caY6-CisJFg",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -117,7 +132,7 @@
   {
    "id": "4XqVR6xI6Kw",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -125,17 +140,20 @@
   {
    "id": "4cE9t4rE0-0",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": true,
    "kaynak": [
-    "UYARLA:4ce9-yat-sitesi-promptu/scroll-scrub-hero-video"
+    "UYARLA:4ce9-yat-sitesi-promptu/scroll-scrub-hero-video",
+    "KUR:detaylı-video-prompt-u-sahne-kamera-ışık",
+    "KUR:kredi-token-ayrımını-takip-etme",
+    "UYARLA:detaylı-video-prompt-u-sahne-kamera-ışık"
    ],
    "altyazi": true
   },
   {
    "id": "4z3zqABuLxY",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -143,23 +161,25 @@
   {
    "id": "6cEQEba0i2A",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
+   "degerli": true,
+   "kaynak": [
+    "UYARLA:session-handoff-skill"
+   ],
    "altyazi": true
   },
   {
    "id": "7XhX8P0ebEU",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "818VZH9hi9A",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Poyraz Avsever",
+   "channel_id": "UCDQ4eMLvQRJWclFHhkmgsrg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -167,23 +187,23 @@
   {
    "id": "86HM0RUWhCk",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "96LqaW9-7GY",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "9WBlXS3pMw4",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -191,25 +211,25 @@
   {
    "id": "9opJeH9j9qs",
    "kanal": "Andrii Bachinskyi",
-   "channel_id": "",
+   "channel_id": "UC_I0xuv4dgLNLXB4Z0fqlZA",
    "degerli": true,
    "kaynak": [
-    "AL:blender@2026-09-30-short-2"
+    "AL:blender@2026-09-30-short-2 ortak"
    ],
    "altyazi": false
   },
   {
    "id": "AAtagrbBOto",
    "kanal": "InsiderForce",
-   "channel_id": "",
+   "channel_id": "UC8L6EV01fAJ2A0sDpsQ-T5g",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "B9OjYbJO3uE",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -217,17 +237,17 @@
   {
    "id": "BK9P0rYIQY8",
    "kanal": "Duncan Rogoff | Learn Claude Code",
-   "channel_id": "",
+   "channel_id": "UC37JpWP5PxLSma2lh79HU9A",
    "degerli": true,
    "kaynak": [
-    "UYARLA:emil-kowalski-skill@2026-09-30-short"
+    "UYARLA:emil-kowalski-skill@2026-09-30-short ortak"
    ],
    "altyazi": true
   },
   {
    "id": "BdLrWHzdYt4",
    "kanal": "AI Temple",
-   "channel_id": "",
+   "channel_id": "UCGiieJyYwbuaR2Suuu4aB6Q",
    "degerli": true,
    "kaynak": [
     "UYARLA:video-to-website-skill@2026-09-30-uzun-3"
@@ -236,8 +256,8 @@
   },
   {
    "id": "E4iGag0H9i4",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -245,31 +265,33 @@
   {
    "id": "EJyuu6zlQCg",
    "kanal": "Matt Pocock",
-   "channel_id": "",
+   "channel_id": "UCswG6FSbgZjbWtdf_hMLaow",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "EezLdmm8l1c",
-   "kanal": "?",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "kanal": "Poyraz Avsever",
+   "channel_id": "UCDQ4eMLvQRJWclFHhkmgsrg",
+   "degerli": true,
+   "kaynak": [
+    "KUR:kural-tek-buton-bileşeni"
+   ],
    "altyazi": false
   },
   {
    "id": "FAN5w6y-rgk",
    "kanal": "Ömer Göçmen | Yapay Zeka & Otomasyon",
-   "channel_id": "",
+   "channel_id": "UCaRvIDBtMJ687xSLPxLOS2Q",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "FSWFFhul8Gw",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -277,23 +299,30 @@
   {
    "id": "Gg35_iQWx7g",
    "kanal": "Burhan KOCABIYIK",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
+   "degerli": true,
+   "kaynak": [
+    "KUR:paralel-terminal-ile-çoklu-görev-takibi",
+    "KUR:projeyi-sürekli-github-a-yükleme",
+    "KUR:skills-cli/skill-kurma",
+    "KUR:skills-cli/gecici-kullan"
+   ],
    "altyazi": true
   },
   {
    "id": "HOHPUFauSWY",
-   "kanal": "?",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
+   "degerli": true,
+   "kaynak": [
+    "KUR:kural-loop-anatomisi-plan-md-hafıza-açık-stop-"
+   ],
    "altyazi": false
   },
   {
    "id": "Hja-69jy2_I",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -301,9 +330,22 @@
   {
    "id": "JNM_rxqtlvY",
    "kanal": "İsa Nurdoğdu",
-   "channel_id": "",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": true,
    "kaynak": [
+    "DENE:caveman/proxy ortak",
+    "DENE:caveman/learn ortak",
+    "DENE:caveman/compress ortak",
+    "DENE:caveman/convert ortak",
+    "DENE:caveman/browse ortak",
+    "DENE:caveman/shrink ortak",
+    "UYARLA:caveman/cavecrew ortak",
+    "UYARLA:caveman/trial ortak",
+    "KUR:caveman ortak",
+    "KUR:15-20-mesajda-yeni-sohbete-geç",
+    "KUR:düzeltme-yerine-edit-regenerate",
+    "KUR:soruları-tek-mesajda-topla",
+    "KUR:claude-usage/terminal-ozet",
     "DENE:claude-usage/web-dashboard"
    ],
    "altyazi": true
@@ -311,18 +353,20 @@
   {
    "id": "JfmAm3sxCSc",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": true,
    "kaynak": [
     "DENE:motionsites-ai/kopyala-yapistir-prompt",
-    "UYARLA:threejs-spiral-gallery/gsap-scroll-reveal-hmr"
+    "UYARLA:threejs-spiral-gallery/gsap-scroll-reveal-hmr",
+    "KUR:prompt-teknoloji-dosya",
+    "KUR:merkezi-config"
    ],
    "altyazi": true
   },
   {
    "id": "KmpABRJye6g",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -330,7 +374,7 @@
   {
    "id": "L2JKgj7WzU4",
    "kanal": "Nuno Tavares | Automated Marketer",
-   "channel_id": "",
+   "channel_id": "UC58LYmAXBma-jx3hhs0lo5w",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -338,31 +382,34 @@
   {
    "id": "L9c49WVG_ho",
    "kanal": "Esad Kılıç",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UCxMqPdLkDoM_pMxfyPYg6xg",
+   "degerli": true,
+   "kaynak": [
+    "DENE:groq",
+    "DENE:nvidia-nim"
+   ],
    "altyazi": true
   },
   {
    "id": "LbBC5Wew4qs",
    "kanal": "Burhan KOCABIYIK",
-   "channel_id": "",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "LlFp1p2guuo",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "LtXr2WFhfXc",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -370,15 +417,15 @@
   {
    "id": "M9qgd_KJkWc",
    "kanal": "Duncan Rogoff | Learn Claude Code",
-   "channel_id": "",
+   "channel_id": "UC37JpWP5PxLSma2lh79HU9A",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "MbEDNiKe4bo",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -386,15 +433,15 @@
   {
    "id": "Nn0OyCWer1k",
    "kanal": "Charlie Automates",
-   "channel_id": "",
+   "channel_id": "UCoqNpR_9YQc72dh2u5HGcDg",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "NnhAofuHPHA",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -402,23 +449,25 @@
   {
    "id": "NogIRR1B6gY",
    "kanal": "İsa Nurdoğdu",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
+   "degerli": true,
+   "kaynak": [
+    "DENE:markitdown-microsoft"
+   ],
    "altyazi": true
   },
   {
    "id": "NpzqWvKR_iw",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Avenox",
+   "channel_id": "UCHnYG8F-N7mhzFrJ22iEdJg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "NruhNt5cxqg",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "İsa Nurdoğdu",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -426,17 +475,22 @@
   {
    "id": "NyNScAc2u_o",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": true,
    "kaynak": [
-    "UYARLA:nyns-3d-galeri-promptu/scroll-mouse-parallax-rotasyon"
+    "KUR:3d-perspective-detayını-prompt-ta-açıkça",
+    "KUR:görselleri-public-klasörüne-koyup-ai-a-a",
+    "KUR:renk-paleti-ve-font-ailesini-prompt-başı",
+    "UYARLA:nyns-3d-galeri-promptu/scroll-mouse-parallax-rotasyon",
+    "UYARLA:3d-perspective-detayını-prompt-ta-açıkça",
+    "UYARLA:görselleri-public-klasörüne-koyup-ai-a-a"
    ],
    "altyazi": true
   },
   {
    "id": "O1zei0WXHvY",
    "kanal": "InsiderForce",
-   "channel_id": "",
+   "channel_id": "UC8L6EV01fAJ2A0sDpsQ-T5g",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -444,7 +498,7 @@
   {
    "id": "OFyECKgWXo8",
    "kanal": "Chase AI",
-   "channel_id": "",
+   "channel_id": "UCoy6cTJ7Tg0dqS-DI-_REsA",
    "degerli": true,
    "kaynak": [
     "DENE:skill-creator-gelistirme@2026-09-30-uzun-6"
@@ -454,15 +508,15 @@
   {
    "id": "PWRWO749oro",
    "kanal": "InsiderForce",
-   "channel_id": "",
+   "channel_id": "UC8L6EV01fAJ2A0sDpsQ-T5g",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "PcoZp3Hzx58",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Ali Rıza Yüksektepe",
+   "channel_id": "UCzlKaHFCHo2kR9paRuo-Veg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -470,7 +524,7 @@
   {
    "id": "Pj2FnVE-W3c",
    "kanal": "Esad Kılıç",
-   "channel_id": "",
+   "channel_id": "UCxMqPdLkDoM_pMxfyPYg6xg",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -478,7 +532,7 @@
   {
    "id": "Q9ty3eopOPs",
    "kanal": "Chase AI",
-   "channel_id": "",
+   "channel_id": "UCoy6cTJ7Tg0dqS-DI-_REsA",
    "degerli": true,
    "kaynak": [
     "UYARLA:webgpu-claude-skill@2026-09-30-uzun-2",
@@ -490,40 +544,42 @@
   },
   {
    "id": "QGyKyFcqyDE",
-   "kanal": "?",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "kanal": "Yıldız Dikme",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
+   "degerli": true,
+   "kaynak": [
+    "KUR:kural-hazır-tasarım-promptunu-mevcut-siteye-en"
+   ],
    "altyazi": false
   },
   {
    "id": "R6kSRi77G4I",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Poyraz Avsever",
+   "channel_id": "UCDQ4eMLvQRJWclFHhkmgsrg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "SIVjOWOeAAY",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Mert Durmazer | Digital Academy",
+   "channel_id": "UCCtwhjWO0NGOAhWOgv3DKFA",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "TyG4ylryRfU",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Avenox",
+   "channel_id": "UCHnYG8F-N7mhzFrJ22iEdJg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "UpaanW5ph2Q",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "İsa Nurdoğdu",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -531,7 +587,7 @@
   {
    "id": "V-CIbnAAhc4",
    "kanal": "Esad Kılıç",
-   "channel_id": "",
+   "channel_id": "UCxMqPdLkDoM_pMxfyPYg6xg",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -539,9 +595,18 @@
   {
    "id": "V0XbuApxlhg",
    "kanal": "Chase AI",
-   "channel_id": "",
+   "channel_id": "UCoy6cTJ7Tg0dqS-DI-_REsA",
    "degerli": true,
    "kaynak": [
+    "DENE:caveman/proxy ortak",
+    "DENE:caveman/learn ortak",
+    "DENE:caveman/compress ortak",
+    "DENE:caveman/convert ortak",
+    "DENE:caveman/browse ortak",
+    "DENE:caveman/shrink ortak",
+    "UYARLA:caveman/cavecrew ortak",
+    "UYARLA:caveman/trial ortak",
+    "KUR:caveman ortak",
     "UYARLA:handoff-skill@2026-09-30-uzun",
     "DENE:ponytail-gelistirme@2026-09-30-uzun"
    ],
@@ -550,7 +615,7 @@
   {
    "id": "V2RIVnGCy74",
    "kanal": "Chase AI",
-   "channel_id": "",
+   "channel_id": "UCoy6cTJ7Tg0dqS-DI-_REsA",
    "degerli": true,
    "kaynak": [
     "DENE:ponytail-gelistirme@2026-09-30-uzun-5",
@@ -561,7 +626,7 @@
   {
    "id": "Vngbdm2IEXM",
    "kanal": "Andrii Bachinskyi",
-   "channel_id": "",
+   "channel_id": "UC_I0xuv4dgLNLXB4Z0fqlZA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -569,27 +634,32 @@
   {
    "id": "Wz4qYO-91zg",
    "kanal": "Burhan KOCABIYIK",
-   "channel_id": "",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": true,
    "kaynak": [
-    "DENE:jev-typesafe-ai-gelistirme@2026-09-30-uzun-4"
+    "DENE:jev-typesafe-ai-gelistirme@2026-09-30-uzun-4 ortak"
    ],
    "altyazi": true
   },
   {
    "id": "XemheY_aM1g",
    "kanal": "Burhan KOCABIYIK",
-   "channel_id": "",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": true,
    "kaynak": [
-    "DENE:claude-mm/minimax-m3-backend-degisimi"
+    "DENE:claude-mm/minimax-m3-backend-degisimi",
+    "KUR:minimax-api-anahtarı-oluşturma-bakiye-yü",
+    "KUR:görselden-arayüz-kod-üretme-testi",
+    "KUR:token-kullanım-takibi-balance-api-usage-",
+    "KUR:yüksek-context-limitli-model-seçme",
+    "KUR:goat-oto-mod-görev-listesiyle-ajan-çalış"
    ],
    "altyazi": true
   },
   {
    "id": "Ysr7oNDajJI",
    "kanal": "AI LABS",
-   "channel_id": "",
+   "channel_id": "UCelfWQr9sXVMTvBzviPGlFw",
    "degerli": true,
    "kaynak": [
     "UYARLA:emil-kowalski-skills@2026-09-30-uzun",
@@ -603,7 +673,7 @@
   {
    "id": "Yunu27g7sLw",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -611,15 +681,15 @@
   {
    "id": "ZAaxx3qyT8g",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "ZQgwjrM1wsc",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -627,7 +697,7 @@
   {
    "id": "ZSvcxjNZdxk",
    "kanal": "Tech With Tim",
-   "channel_id": "",
+   "channel_id": "UC4JX40jDee_tINbkjycV4Sg",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -635,7 +705,7 @@
   {
    "id": "ZYk3OOf-gBk",
    "kanal": "Digitalist",
-   "channel_id": "",
+   "channel_id": "UCNgDdit4SL71T3ZxThn2jyw",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -643,23 +713,23 @@
   {
    "id": "_X_Seo1u9LM",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "aa84rWKk8kw",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Yıldız Dikme",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "as1W0ijkCqA",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Yıldız Dikme",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -667,12 +737,13 @@
   {
    "id": "b-LZ_Y9wor8",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": true,
    "kaynak": [
     "UYARLA:uzun-detaylı-prompt-yazma",
     "UYARLA:her-şey-hazır-olana-kadar-loading-screen",
     "UYARLA:globe-dünya-haritası-footer",
+    "KUR:aşırı-sade-tasarımla-akılda-kalıcılık",
     "UYARLA:teknik-kaydirmaya-bagli-sahne-gecisi",
     "UYARLA:teknik-yumusak-inertia-kaydirma",
     "UYARLA:teknik-3d-obje-jet-modeli-blueprint-girisli",
@@ -686,41 +757,43 @@
   {
    "id": "bAhPV1Sl-rg",
    "kanal": "Yury AI",
-   "channel_id": "",
+   "channel_id": "UCA3jxglvqFf1BSuwSFKLOMw",
    "degerli": true,
    "kaynak": [
-    "UYARLA:emil-kowalski-skill@2026-09-30-short"
+    "UYARLA:emil-kowalski-skill@2026-09-30-short ortak"
    ],
    "altyazi": true
   },
   {
    "id": "bS6IlkUozAI",
    "kanal": "InsiderForce",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UC8L6EV01fAJ2A0sDpsQ-T5g",
+   "degerli": true,
+   "kaynak": [
+    "UYARLA:webcmd ortak"
+   ],
    "altyazi": true
   },
   {
    "id": "cAeQjck1jHs",
    "kanal": "Zinho Automates",
-   "channel_id": "",
+   "channel_id": "UC3i3qKQ5aR_guegQj5bhOMw",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "cxnGxqeGy9M",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "HQ NET",
+   "channel_id": "UCbXTlaQByPlMBcRmpDdEAMg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "dIvWIm2Aiyc",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "İsa Nurdoğdu",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -728,27 +801,30 @@
   {
    "id": "eKnpRVgqXR8",
    "kanal": "Andrii Bachinskyi",
-   "channel_id": "",
+   "channel_id": "UC_I0xuv4dgLNLXB4Z0fqlZA",
    "degerli": true,
    "kaynak": [
-    "AL:blender@2026-09-30-short-2"
+    "AL:blender@2026-09-30-short-2 ortak"
    ],
    "altyazi": true
   },
   {
    "id": "eck2ihs56Xs",
-   "kanal": "?",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
+   "degerli": true,
+   "kaynak": [
+    "KUR:kural-güncelleme-sonrası-ve-gün-sonu-canlı-lin"
+   ],
    "altyazi": false
   },
   {
    "id": "enFgYQvI1dM",
    "kanal": "InsiderForce",
-   "channel_id": "",
+   "channel_id": "UC8L6EV01fAJ2A0sDpsQ-T5g",
    "degerli": true,
    "kaynak": [
+    "UYARLA:jcode",
     "UYARLA:jcode@gelistirme-2026-09-29"
    ],
    "altyazi": true
@@ -756,7 +832,7 @@
   {
    "id": "fCc97Rv-60w",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -764,7 +840,7 @@
   {
    "id": "g89FJiNAlEs",
    "kanal": "Eric Tech",
-   "channel_id": "",
+   "channel_id": "UCOXRjenlq9PmlTqd_JhAbMQ",
    "degerli": true,
    "kaynak": [
     "UYARLA:rtk-gelistirme@gelistirme-2026-09-29"
@@ -774,15 +850,15 @@
   {
    "id": "gv0WHhKelSE",
    "kanal": "Anthropic",
-   "channel_id": "",
+   "channel_id": "UCrDwWp7EBBv4NwvScIpBDOA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "hAYPvExWmCw",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -790,10 +866,15 @@
   {
    "id": "iYwCzKy6W40",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": true,
    "kaynak": [
+    "KUR:glb-dosya-boyutu-seçimi-2mb-vs-6mb",
     "UYARLA:teknik-prompt-yazımı-teknoloji-stil-beli",
+    "KUR:asla-sözümden-çıkma-kesin-talimat",
+    "KUR:yerelde-ayağa-kaldırma-isteği",
+    "KUR:ayrı-mobil-masaüstü-performans-optimizas",
+    "KUR:github-da-kod-paylaşımı",
     "UYARLA:glb-dosya-boyutu-seçimi-2mb-vs-6mb",
     "UYARLA:elle-ayarlanmis-pozisyonlari-kilitle"
    ],
@@ -802,19 +883,20 @@
   {
    "id": "j7Fyi5gQ85k",
    "kanal": "Burhan KOCABIYIK",
-   "channel_id": "",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": true,
    "kaynak": [
-    "DENE:jev-typesafe-ai-gelistirme@2026-09-30-uzun-4"
+    "DENE:jev-typesafe-ai-gelistirme@2026-09-30-uzun-4 ortak"
    ],
    "altyazi": true
   },
   {
    "id": "jGJ09wdTGDI",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": true,
    "kaynak": [
+    "KUR:chrome-devtools-cihaz-araç-çubuğu-ile-re",
     "UYARLA:jgj0-claude-design-promptu/tek-prompt-e-ticaret-sitesi",
     "DENE:jgj0-claude-design-promptu/ciktiyi-claude-code-a-tasiyip-optimize-etme"
    ],
@@ -823,15 +905,25 @@
   {
    "id": "jf1sv2geEWo",
    "kanal": "AI Coding Daily",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UCIuDdCJXnKZb4CUzhVO-DcQ",
+   "degerli": true,
+   "kaynak": [
+    "DENE:caveman/proxy ortak",
+    "DENE:caveman/learn ortak",
+    "DENE:caveman/compress ortak",
+    "DENE:caveman/convert ortak",
+    "DENE:caveman/browse ortak",
+    "DENE:caveman/shrink ortak",
+    "UYARLA:caveman/cavecrew ortak",
+    "UYARLA:caveman/trial ortak",
+    "KUR:caveman ortak"
+   ],
    "altyazi": true
   },
   {
    "id": "jqoFP9QapXI",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
    "degerli": true,
    "kaynak": [
     "DENE:alt-ajanlarda-haiku@2026-09-30-uzun-7",
@@ -843,57 +935,35 @@
   {
    "id": "kHtOSJRUkLs",
    "kanal": "Sharbel A.",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UCxLzvFAUbpdNUIh0hGsEH0w",
+   "degerli": true,
+   "kaynak": [
+    "DENE:subagent-i-haiku-ya-ayarlama"
+   ],
    "altyazi": true
   },
   {
    "id": "kMk4pvFJ13s",
    "kanal": "Mikey Vibe Coding",
-   "channel_id": "",
+   "channel_id": "UCa6jen0g1qJH8MHY8NOTElA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
-  },
-  {
-   "id": "kaynak-claude-code-setup",
-   "kanal": "?",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
-   "altyazi": false
   },
   {
    "id": "klDiYMzW0o0",
    "kanal": "İsa Nurdoğdu",
-   "channel_id": "",
+   "channel_id": "UCm-y1LbSTb46c22u1fdpKSQ",
    "degerli": true,
    "kaynak": [
-    "UYARLA:graphify-gelistirme@gelistirme-2026-09-29"
+    "UYARLA:graphify-gelistirme@gelistirme-2026-09-29 ortak"
    ],
    "altyazi": true
   },
   {
-   "id": "kurulum-3d",
-   "kanal": "?",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
-   "altyazi": false
-  },
-  {
-   "id": "kurulum-3db",
-   "kanal": "?",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
-   "altyazi": false
-  },
-  {
    "id": "lipJRiztOgM",
    "kanal": "Nick Automates",
-   "channel_id": "",
+   "channel_id": "UCUX5AP1M0mBbgUi_WklPbOQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -901,31 +971,31 @@
   {
    "id": "n5eIrepe-Fg",
    "kanal": "AI Mevzuları | Yapay Zeka",
-   "channel_id": "",
+   "channel_id": "UC8vEEYy0jbIB_A1UlTZLVZQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "nXvWTR88sfU",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "nmRZFEGoa68",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "oGI1YmC2L00",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -933,25 +1003,25 @@
   {
    "id": "oHKt0FUbR58",
    "kanal": "Duncan Rogoff | Learn Claude Code",
-   "channel_id": "",
+   "channel_id": "UC37JpWP5PxLSma2lh79HU9A",
    "degerli": true,
    "kaynak": [
-    "UYARLA:graphify-gelistirme@gelistirme-2026-09-29"
+    "UYARLA:graphify-gelistirme@gelistirme-2026-09-29 ortak"
    ],
    "altyazi": true
   },
   {
    "id": "oPIhoyYzDFE",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Poyraz Avsever",
+   "channel_id": "UCDQ4eMLvQRJWclFHhkmgsrg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "p9pPveeSOCQ",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Yıldız Dikme",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -959,7 +1029,7 @@
   {
    "id": "ptGXxk1-Uj4",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
@@ -967,15 +1037,15 @@
   {
    "id": "q1QQN08ZK6I",
    "kanal": "Andrii Bachinskyi",
-   "channel_id": "",
+   "channel_id": "UC_I0xuv4dgLNLXB4Z0fqlZA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "qqlej7e8JBE",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -983,23 +1053,23 @@
   {
    "id": "rbIbvw6c53k",
    "kanal": "Codegrid",
-   "channel_id": "",
+   "channel_id": "UC7pVho4O31FyfQsZdXWejEw",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "u_cw1mIzvpY",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan Kocabiyik",
+   "channel_id": "UCIlPIENOSzhUzEsk2wjbCxQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
   },
   {
    "id": "uf1BzqEVOHw",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -1007,7 +1077,7 @@
   {
    "id": "uuUo7gWuH9w",
    "kanal": "Tech With Tim",
-   "channel_id": "",
+   "channel_id": "UC4JX40jDee_tINbkjycV4Sg",
    "degerli": true,
    "kaynak": [
     "DENE:pyright-lsp@2026-09-30-uzun-6"
@@ -1017,9 +1087,11 @@
   {
    "id": "v-vRYtvWDYs",
    "kanal": "Muzaffer Kadir | mkdir dev",
-   "channel_id": "",
+   "channel_id": "UC9nq9PP1Q3qaJj6DGhe1jCw",
    "degerli": true,
    "kaynak": [
+    "KUR:max-thinking-tokens-ayarı",
+    "KUR:compact-clear-karar-kuralı",
     "DENE:context-mode/sandbox-context-saving",
     "DENE:max-thinking-tokens-ayarı",
     "DENE:claude-code-subagent-model-ayarı"
@@ -1028,8 +1100,8 @@
   },
   {
    "id": "v5bu6hEYgSc",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -1037,15 +1109,17 @@
   {
    "id": "vcU85OrwuV0",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
-   "degerli": false,
-   "kaynak": [],
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
+   "degerli": true,
+   "kaynak": [
+    "KUR:efor-seviyeleri"
+   ],
    "altyazi": true
   },
   {
    "id": "wnkbxFJjiUk",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -1053,15 +1127,15 @@
   {
    "id": "wySOWP-MevI",
    "kanal": "Nicholas Ashcroft",
-   "channel_id": "",
+   "channel_id": "UCRBPlB1yHas4fFa7YbhdSew",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "ydO2_a97J6g",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Burhan KOCABIYIK",
+   "channel_id": "UC-lC0JVjzwjE-br2uBjn10w",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -1069,15 +1143,15 @@
   {
    "id": "yp7gg8cG5wc",
    "kanal": "Yıldız Dikme",
-   "channel_id": "",
+   "channel_id": "UCjMMpIfNMakJk4JKqyM5NQQ",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "yqyxAyKpH6c",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "Selma Kocabıyık",
+   "channel_id": "UCrOcLRN9UBF5PZQIITV3Deg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
@@ -1085,15 +1159,15 @@
   {
    "id": "zKBPwDpBfhs",
    "kanal": "Nate Herk | AI Automation",
-   "channel_id": "",
+   "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
    "degerli": false,
    "kaynak": [],
    "altyazi": true
   },
   {
    "id": "zpFBYpHm1JM",
-   "kanal": "?",
-   "channel_id": "",
+   "kanal": "HQ NET",
+   "channel_id": "UCbXTlaQByPlMBcRmpDdEAMg",
    "degerli": false,
    "kaynak": [],
    "altyazi": false
