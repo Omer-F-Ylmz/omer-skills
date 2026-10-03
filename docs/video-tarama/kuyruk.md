@@ -117,3 +117,145 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | github.com/worldflowai/everything-claude-code | g3Mh8Hws-jo, rABIViSQmsc | kurulu olabilir (everything-claude-code envanterde) → ZATEN VAR + bizde olmayan bileşenler | bekliyor |
 | github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup | — | RESMİ plugin; kurulum ve öneri mekanizması | bekliyor |
 | github.com/calesthio/OpenMontage | CzGKgU26dP8, zm6qZXGbFvU | video kurgu otomasyonu; lisans + güvenlik ön taraması | bekliyor |
+
+## Eklenen: 2026-10-03 (kaynak: Ömer · KANAL-2b C4)
+
+| id | süre | başlık (kısa) | not | durum |
+|---|---|---|---|---|
+| jDtLcMOLjIQ | 1.0 | 8 Claude Skills that actually matter | kaynak: Ömer | bekliyor |
+| VRtD88WgaBk | ? | Top 10 NEW Github Repos Every Claude User Must Try | kaynak: Ömer | bekliyor |
+| b2QkhmQ0sT0 | 20.5 | How I Review AI Code - (Meta Senior Staff Engineer) | kaynak: Ömer | bekliyor |
+| VRqW0d8-dIU | ? | Someone just gave Claude Code permanent memory and It's Free | kaynak: Ömer | bekliyor |
+| OLsE1GReCBs | ? | Use these 4 AI Plugins to stop your AI from creating generic | kaynak: Ömer | bekliyor |
+| bVXiNb9RyyI | 1.8 | How an Anthropic designer uses Claude Slides | kaynak: Ömer | bekliyor |
+| yZdxHcgCsmI | ? | Open Montage is a Free Agentic Video Production Agent for cr | kaynak: Ömer | bekliyor |
+| fZIBK_4fKq8 | ? | Use Claude Code for free with unlimited usage using Omnirout | kaynak: Ömer | bekliyor |
+| RshyfhbaNHA | 0.4 | I Built a $10,000 3D Website with FREE AI Tools in 5 Minutes | kaynak: Ömer | bekliyor |
+| eWdvFbDxkJE | ? | Top 5 Claude Code Plugins (2026) | kaynak: Ömer | bekliyor |
+| zaBDyEfhrnk | 0.4 | Turn ideas into fully animated 3D sites in seconds #webdesig | kaynak: Ömer | bekliyor |
+| 9hetShMMp2s | 11.3 | Claude Code Mods Are Game Changers. Set Up These 5 NOW. | kaynak: Ömer | bekliyor |
+| Rn4nmFRPe0s | 9.2 | Claude Mods Is The Biggest Claude Code Upgrade Since Skills | kaynak: Ömer | bekliyor |
+| VVDV2m78qa4 | ? | An AI model 100 times faster and cheaper than Claude: JEV | kaynak: Ömer | bekliyor |
+| d_UE-wHLoZY | ? | My New UI design Tutorial: Figma → AI → Blender | kaynak: Ömer | bekliyor |
+| UcWTeZepXJc | 0.5 | This AI Builds 3D Websites From One Prompt | kaynak: Ömer | bekliyor |
+| Ig3k61xIEvc | 10.2 | NEW Claude Code Mod Update! | kaynak: Ömer | bekliyor |
+| EIoPt1ry6ng | 113.2 | Claude Code'u nasıl kullanıyorum? Sıfırdan AI destekli uygul | kaynak: Ömer | bekliyor |
+| rMw6YJz0Ows | ? | Google just dropped over 100 AI skills that make your Claude | kaynak: Ömer | bekliyor |
+| 08lDzkR6UrA | ? | You don't need a subscription to use the top AI video models | kaynak: Ömer | bekliyor |
+| 7eVylM1pTrA | ? | 3 Free AI PLugins to Turn Claude Code Into an SEO Expert | kaynak: Ömer | bekliyor |
+| gKRrT6biuag | 32.8 | Claude Sonnet 5.5 vs Opus 5.5: Aynı PRD ile 3D Oyun Yaptırdı | kaynak: Ömer | bekliyor |
+| XjCOxsRU3N8 | ? | Anthropic Releases 13 Free Certificate Courses for Claude an | kaynak: Ömer | bekliyor |
+| NOnIrDx2b_4 | ? | Top 4 Claude Code Plugins to use while Vibe Coding | kaynak: Ömer | bekliyor |
+| cCfOfjRaEGc | 0.3 | free-claude-code: Run Claude Code Without Paying Anthropic | kaynak: Ömer | bekliyor |
+| FIiV06klo4E | 9.6 | 0928 opus55 final2 | kaynak: Ömer | bekliyor |
+| BJhyAatSo1A | 1.4 | This New Skill Let You Vibe Code Apple Level Websites | kaynak: Ömer | bekliyor |
+| jH1IjqI3Pi4 | 20.0 | THE FEATURE THAT BOOSTS PRODUCTIVITY / CLAUDE MODS | kaynak: Ömer | bekliyor |
+| 6ZSfOO-ZvOs | ? | DeepSeek's New AI Coding Tool is a Game Changer! What is Dee | kaynak: Ömer | bekliyor |
+| x3SZvxoOmi0 | 21.7 | How to Create UI Designs for After Effects (Viral Apple Styl | kaynak: Ömer | bekliyor |
+| 9C4TRbucmhQ | 15.7 | This 1 Claude Skill fully replaces your Higgsfield Subscript | kaynak: Ömer | bekliyor |
+| QIevCKcRbUs | ? | Run Claude Code FREE W/ Unlimited Usage | kaynak: Ömer | bekliyor |
+| 1YAss6m8QDo | 0.6 | Mimic tool converts apps into Python code for easy access | kaynak: Ömer | bekliyor |
+| Uc18mso08Ro | 1.0 | I Accidentally Turned Claude Into a Hacker... | kaynak: Ömer | bekliyor |
+| OXBdKEpHEOI | 8.8 | Claude Opus 5.5 + Fable 5.1 for FREE? (It Actually Works!) | kaynak: Ömer | bekliyor |
+| w3Lb7N3MxIg | 11.2 | How to use Claude Code For Free in 2026 | kaynak: Ömer | bekliyor |
+| cf6zi39Aaq0 | 8.1 | Yapay Zeka Uygulamalarında Pazar Henüz Boş | kaynak: Ömer | bekliyor |
+| 185XGEMefgc | 12.4 | MCP vs API: Why traditional APIs are failing AI agents | kaynak: Ömer | bekliyor |
+| _5S2LyYQ_Ys | 20.0 | CLAUDE BUNU DA YAPTI (Bu Kadar İyi Olmamalıydı..) | kaynak: Ömer | bekliyor |
+| Zs3faMCDYNs | 14.9 | Turn Claude Code Into Your AI Operating System (4 Layers) | kaynak: Ömer | bekliyor |
+| z8UPAVTh2aE | 8.2 | How To Make Your GitHub Stand Out (Gets You Hired!) | kaynak: Ömer | bekliyor |
+| 83YfBtINu74 | ? | Get Paid While Claude Code Thinks: Introducing Kickbacks.ai! | kaynak: Ömer | bekliyor |
+| BwSMNbleLAE | 0.6 | How To Build Fully Interactive 3D Websites using Claude Code | kaynak: Ömer | bekliyor |
+| doR2RhsneRA | 20.6 | This Is What $2,175 of Opus 5.5 Tokens Can Do... | kaynak: Ömer | bekliyor |
+| t7uIIuYX2lw | ? | Graph Engineering Nedir? | kaynak: Ömer | bekliyor |
+| AlqUtIHHuvI | 24.8 | 7 Free GitHub Repos That Make Claude So Good It Feels Illega | kaynak: Ömer | bekliyor |
+| 747ZnEtsRbg | 20.3 | How to Make Insane Motion Graphics With Opus 5.5 | kaynak: Ömer | bekliyor |
+| rgSR8ggOwV4 | ? | This Claude MCP Tool Replaces Your Entire Marketing Stack in | kaynak: Ömer | bekliyor |
+| C1yAkQ9Y2BI | 8.9 | Claude Code ile Tasarım Harikası Web Siteleri Yap! (Artık Ço | kaynak: Ömer | bekliyor |
+| ew2ev-VsknQ | 15.6 | I Solved Claude Code's Biggest Problem: It Doesn't Forget An | kaynak: Ömer | bekliyor |
+| 0i65C2vzjpw | 8.8 | How to Get Claude Opus 5 & Kimi K3 for FREE (No Credit Card) | kaynak: Ömer | bekliyor |
+| 1M-z8O29ML8 | 18.7 | You're Using Jev + Claude Wrong | kaynak: Ömer | bekliyor |
+| GPpYwjMoLio | 10.3 | I Built $10000 Website With Free Al Tools In 10 Minutes / Fr | kaynak: Ömer | bekliyor |
+| 6CaQ9ZFuuKI | 21.1 | Claude Code: The Complete AI-Native SDLC Guide | kaynak: Ömer | bekliyor |
+| aZe5ZTYcF1M | 9.9 | Sonnet 5.5 Better? I Built an Award-Winning 3D Website with  | kaynak: Ömer | bekliyor |
+| 3AzJh3YXfh8 | ? | Cut Claude Code’s Output in Half | kaynak: Ömer | bekliyor |
+| iD_L-NacyB0 | 0.6 | 5 Claude Plugins That Make AI Websites Look Premium | kaynak: Ömer | bekliyor |
+| 9ywqgu3R_mw | 1.7 | This $40M Startup Was Replaced After Just 3 Days! | kaynak: Ömer | bekliyor |
+| y6Jo7lq3i8s | ? | How to Run Claude Code Completely Free forever (2026) | kaynak: Ömer | bekliyor |
+| ccBDUlcLx9I | 4.8 | Opus 5.5 Neden Favorim Oldu? | kaynak: Ömer | bekliyor |
+| w86c1q59QKU | 2.0 | This Open Source Tool Removes AI's Safety Filters | kaynak: Ömer | bekliyor |
+| RYSSqlhuOkU | 0.2 | Build crazy 3D website with Claude | kaynak: Ömer | bekliyor |
+| JjrbjHcS2PM | ? | Claude Opus 5.5 Is Taking Over YouTube... | kaynak: Ömer | bekliyor |
+| IimeDwWBtWE | ? | The Official Package That Gives Claude 11 New Professions | kaynak: Ömer | bekliyor |
+| SwXcetzsSeI | ? | Claude, Gemini, ChatGPT, and Grok Combined Into One Tool - C | kaynak: Ömer | bekliyor |
+| _SVU3oC4JX8 | 13.5 | 25 Tricks to Level Up Claude Design in 13 Mins | kaynak: Ömer | bekliyor |
+| QrCqBSBHCIo | 0.7 | OmniRoute: The Only AI Endpoint You Need in 2026 | kaynak: Ömer | bekliyor |
+| ZKOwrG8lnmE | ? | Claude’a Ödüllü Site Yaptırdım | kaynak: Ömer | bekliyor |
+| 0CtisONmL4E | ? | You're Paying 20x More For Your Claude Tokens Than You Need  | kaynak: Ömer | bekliyor |
+| X0BKFLeoepQ | ? | Analyze Content by Having Claude Watch Dozens of Videos | kaynak: Ömer | bekliyor |
+| YrOczcifYbQ | ? | How to Make Animated YouTube Videos with Claude Code | kaynak: Ömer | bekliyor |
+| e3vex7__Pqc | ? | 9 Hottest GitHub Repos For Claude Code (Oct. 2026) | kaynak: Ömer | bekliyor |
+| ofqHdK9_Tmg | ? | CLI Anything lets you connect Claude Code to any App you use | kaynak: Ömer | bekliyor |
+| o0VU6aQg7IM | 0.4 | Stop Paying for AI APIs! Get Free Access to 100,000+ Models  | kaynak: Ömer | bekliyor |
+| tTe7GOJuc0E | 2.6 | Claude Code just got a massive update #claude #tech | kaynak: Ömer | bekliyor |
+| EOdXR6lU5ZA | 22.3 | This NEW Jev + Claude OS Just Changed Every AI Workflow | kaynak: Ömer | bekliyor |
+| eJnk0dTaDPA | ? | 5 Plugins to Make Claude Code Autonomous | kaynak: Ömer | bekliyor |
+| 6mG6tS6WG00 | 18.8 | How To Use Claude Code Sub-Agents Better Than 99% of People | kaynak: Ömer | bekliyor |
+| z1CcbB4Yj3U | 13.3 | Claude Design ile Web Sitemi Yaptım, Yayınladım (Tek Satır K | kaynak: Ömer | bekliyor |
+| rqb994ZQ1fA | ? | AI Just Replaced Expensive Website Agencies (6-Step Workflow | kaynak: Ömer | bekliyor |
+| koLhN1PpZYU | 0.5 | Claude AI X Shopify for custom theme sections | kaynak: Ömer | bekliyor |
+| IlGilsEsLqo | 10.2 | Claude Code ile Ücretsiz Profesyonel Video Oluştur | kaynak: Ömer | bekliyor |
+| 0f4TJMg7jLA | 15.9 | Why Is This New AI So Different? / JEA | kaynak: Ömer | bekliyor |
+| iTIfy4Kmeo0 | 8.6 | AWWWARDS-LEVEL CINEMATIC WEBSITE WITH GPT-6 ASTRA | kaynak: Ömer | bekliyor |
+| uu-qQVfncko | 17.2 | Claude Limitlerine artık asla takılma | kaynak: Ömer | bekliyor |
+| Xu2SIKz8B58 | 186.4 | CLAUDE CODE FULL KURS 3+ SAAT: Kur ve Sat (2026) | kaynak: Ömer | bekliyor |
+| uWMt6KppPrM | 42.1 | Tüm Oyun Yapımı Araçları Bir Platformda - Vibe Code'lu Asset | kaynak: Ömer · takip: hayır | bekliyor |
+| rcrUN04qQmc | 13.2 | AN AI THAT MAKES MONEY? And It's FREE! / MoneyPrinter | kaynak: Ömer | bekliyor |
+| YDAK1lvVXho | 15.3 | I Built an Award-Worthy Website with GPT Astra! Better Than  | kaynak: Ömer | bekliyor |
+| EsW_sKnkI2g | 11.8 | ChatGPT Astra 6 + Fable 5.1’e Blender Kullandırdım — Sonuca  | kaynak: Ömer | bekliyor |
+| -CS8r-P3NBI | 19.9 | DeepSeek Harness: Qwen 3.8 + Ollama - Ücretsiz Claude Code | kaynak: Ömer · takip: hayır | bekliyor |
+| PUtaB4uYvvA | 13.8 | How I Use GPT Astra: Create Your Own Skill | kaynak: Ömer | bekliyor |
+| m-f56P_L660 | 15.3 | Claude Fable 5 Built a $10K Website in Minutes | kaynak: Ömer | bekliyor |
+| tUq5cfOtfR8 | 23.6 | I Built a One-Person Design Team with Claude Design | kaynak: Ömer | bekliyor |
+| 3fdb_giOrLo | 16.3 | 9 Free AI Agent Skills You NEED to Install Now | kaynak: Ömer | bekliyor |
+| PJ4JAim5-jQ | 10.2 | WEB DESIGN IS HISTORY! (Claude Code + Stitch) | kaynak: Ömer | bekliyor |
+| 6_rCyryA6hg | 9.9 | Claude Code Can Now Automate Your Videos (Remotion + Opus 5. | kaynak: Ömer | bekliyor |
+| ljJuOxTsrtY | 17.2 | Design with Claude Code: A Crash Course | kaynak: Ömer | bekliyor |
+| _gZx1IxrOrk | 5.1 | Websites Can’t Have Aura? Watch This | kaynak: Ömer | bekliyor |
+| bxSr8QAQt7c | 21.9 | How To Use Claude Code In Visual Studio Code - Step by Step | kaynak: Ömer | bekliyor |
+| 79hKdSVr5oE | 16.7 | USE CLAUDE COWORK FOR FREE / CLAUDE DESKTOP FREE ACCESS TRIC | kaynak: Ömer | bekliyor |
+| uaVYHiF8f7k | 15.8 | Turn Claude Into a Video Editing GENIUS (in 3 simple steps) | kaynak: Ömer | bekliyor |
+| QUI6Ug4cHnE | 16.7 | I Built The Ultimate Claude Website Design Skill (steal this | kaynak: Ömer | bekliyor |
+| SjboYsIV67A | ? | Supabase Nedir? Backend Yazmadan Proje Geliştir! #backend #c | kaynak: Ömer | bekliyor |
+| e7TY56-yIvM | 12.8 | Everything You Know About Skills IS OUTDATED | kaynak: Ömer | bekliyor |
+| misjUj4Q_ho | 23.0 | Building a Real App with Claude Code (Start to Finish) | kaynak: Ömer | bekliyor |
+| vsGwx28z4jk | 7.0 | Anthropic Just Revealed 12 New Rules for Prompting Opus 5.5 | kaynak: Ömer | bekliyor |
+| 5eBlDBD0nho | 34.9 | AI agenti od nuly: Tohle potřebujete vědět | kaynak: Ömer | bekliyor |
+| qLfSDQ5NGh0 | 12.8 | He Finally 10x Claude Code With This Method | kaynak: Ömer | bekliyor |
+| n1je-98lvsQ | 16.0 | Claude Managed Agents is AMAZING. Here's How to Build Any Ag | kaynak: Ömer | bekliyor |
+| bhaEhOPDkXU | 17.7 | Build $30,000 Websites Using Claude Opus 5 (Higgsfield) | kaynak: Ömer | bekliyor |
+| h2MjhbwVKLk | 15.4 | Build a $10K Website With GPT Astra (No Code, Full Tutorial) | kaynak: Ömer | bekliyor |
+| AWzzmrCPe-A | 27.2 | Top 10 Repos explained: Archify, Omarchi, OpenMAIC, and more | kaynak: Ömer | bekliyor |
+| 9afZFAUuQnc | 14.2 | Claude Opus 5.5 Is Actually INSANE for Web Design | kaynak: Ömer | bekliyor |
+| eIB1pFMlpbQ | 23.9 | OpenAI Yapay Zeka Ajanları Huggingface'i Nasıl Hackledi? Adı | kaynak: Ömer | bekliyor |
+| DTCyvo6cC54 | 31.0 | Every Level of a Claude Second Brain Explained | kaynak: Ömer | bekliyor |
+| Zu-hJAHKJug | 13.2 | Opus 5.5 Made Claude Code Unstoppable / 7 Levels in 13 Minut | kaynak: Ömer | bekliyor |
+| Da7ZuhyWACg | 9.0 | Claude Opus 5.5 Might Be The Best!!! (3D, Web Design, Animat | kaynak: Ömer | bekliyor |
+| 9_SZFIW7tus | 24.7 | 5 GitHub Repos: Kill AI Slop, Go Viral, Make Money | kaynak: Ömer | bekliyor |
+| 6U3k4H346Es | 20.4 | GPT-6 Astra Built a $10K Website in Minutes | kaynak: Ömer | bekliyor |
+| FaChtkkG9X4 | 9.2 | New Claude Opus 5.5 ! End of Figma Web Design? | kaynak: Ömer | bekliyor |
+| wVVt2eOb0L8 | 22.8 | Así Edito todos mis Vídeos con Claude Opus 5.5 en minutos y  | kaynak: Ömer | bekliyor |
+| xno-O4vAx7Q | 18.4 | I Had Claude Opus 5.5 Build a Mobile App, Website and Motion | kaynak: Ömer | bekliyor |
+| HRe7LxuyHy4 | 15.3 | Stop Wasting AI Credits! Higgsfield Blender Plugin Workflow  | kaynak: Ömer | bekliyor |
+| L-BLg_qDrx0 | 23.8 | How to Make a 3D Scroll Animation Website in Minutes (AI + N | kaynak: Ömer | bekliyor |
+| -QFHIoCo-Ko | 96.5 | Full Walkthrough: Workflow for AI Coding — Matt Pocock | kaynak: Ömer | bekliyor |
+| Ua0APTMVcb8 | 12.7 | Insane GitHub Repos That 10x Your Codex And Claude Code Setu | kaynak: Ömer | bekliyor |
+| OIAWkkSO4WY | 11.8 | Claude Opus 5.5 Is INSANE at Motion Graphics | kaynak: Ömer | bekliyor |
+| ryX4RSMJf9Q | 21.9 | Claude ile Sıfırdan Oyun Yapıyorum (kod yok) / Bölüm 2: İlk  | kaynak: Ömer | bekliyor |
+| p9pPveeSOCQ | 10.9 | The Secret to Building Premium Websites with Claude / Claude | kaynak: Ömer · yeniden: eski hat | bekliyor |
+| hAYPvExWmCw | 51.6 | Hafızayı Sıfırdan Anlattım - Claude Code, Obsidian, Notebook | kaynak: Ömer · yeniden: eski hat | bekliyor |
+| 818VZH9hi9A | 26.6 | Kendi "Vibe Coding" Sistemimi Kurdum (Adım Adım Rehber) | kaynak: Ömer · yeniden: eski hat | bekliyor |
+| oPIhoyYzDFE | 24.8 | Yapay Zekayla Kod Yazdık, Peki Güvenli Mi? | kaynak: Ömer · yeniden: eski hat | bekliyor |
+| HOHPUFauSWY | 10.8 | Claude Code'da Loop ile Kendini Test Eden Otomasyon Kurmak | kaynak: Ömer · yeniden: eski hat | bekliyor |
+| oGI1YmC2L00 | 21.7 | Claude Code Skills Guide: Build Your Own AI Capabilities fro | kaynak: Ömer · yeniden: eski hat | bekliyor |
+| 2WIUAp4Z8EA | 9.5 | Claude Is Lying: Test Your App With This Agent | kaynak: Ömer · yeniden: eski hat | bekliyor |
+| QGyKyFcqyDE | 20.9 | Prompts Aren’t Enough! The Secret to Getting Better Results  | kaynak: Ömer · yeniden: eski hat | bekliyor |
