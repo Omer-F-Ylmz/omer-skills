@@ -270,13 +270,19 @@ def incelenmedi_isaretle(d, onb):
             s["tarama"].update(durum="bekliyor", deneme=0, hata=None, ice_alindi=None, gecis=2)
 
 
-def kare_sigdir(pk):
-    """M2e K2: uzun videonun çağrı girdisi ≤40k jeton; aşarsa kare düşürülür, rapora not."""
-    for p in pk.values():
+def kare_sigdir(pk, onb=None):
+    """M2e K2: uzun videonun çağrı girdisi ≤40k jeton; aşarsa kare düşürülür, rapora not. C4 (O10): onb verilirse düşen anlar
+    kapsam.json incelenmedi'ye "girdi tavanı" ile (ikinci geçiş görür), izleme sayısı güncellenir."""
+    for v, p in pk.items():
         tk = c.token(p["metin"])
         if not p["short"] and tk + KARE_TK * len(p["kareler"]) > GIRDI_TAVAN:
             n = max(0, (GIRDI_TAVAN - tk) // KARE_TK)
             p["kare_not"] = f"kareler: girdi ≤{GIRDI_TAVAN} jeton için {len(p['kareler'])}→{n}"
+            if onb and (kj := Path(onb) / v / "kapsam.json").is_file():
+                k = json.loads(kj.read_text(encoding="utf-8"))
+                k["incelenmedi"] = sorted([*k["incelenmedi"], *(x for t in p["kare_zaman"][n:] if (x := [t, "girdi tavanı"]) not in k["incelenmedi"])])
+                k["izleme"] = re.sub(r"model \d+ · incelenmedi \d+", f"model {n} · incelenmedi {len(k['incelenmedi'])}", k["izleme"])
+                kj.write_text(json.dumps(k, ensure_ascii=False), encoding="utf-8")
             p["kareler"] = p["kareler"][:n]
 
 
@@ -437,7 +443,10 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
     bek = [v for v, s in d["videolar"].items()
            if s["paket"]["durum"] == "tamam" and s["tarama"]["durum"] in YENIDEN and s["tarama"]["deneme"] < 3]
     pk = {v: paket_oku(onb / v / "paket.md") for v in bek}
-    kare_sigdir(pk)
+    kare_sigdir(pk, onb)
+    for v in pk:  # C4 (O10): girdi tavanı izleme'yi değiştirmiş olabilir
+        if (kj := onb / v / "kapsam.json").is_file():
+            d["videolar"][v]["izleme"] = json.loads(kj.read_text(encoding="utf-8"))["izleme"]
     for g in gruplar(pk):  # aşama 3-4
         for v in g:
             d["videolar"][v]["tarama"]["deneme"] += 1
