@@ -162,4 +162,4 @@ A1 test_takas.py:48 çelişkisi · C2 Pillow yoksa · C3 Windows.Media.Ocr eriş
 · suite-kosucu ajanı yoksa.
 
 ## İlerleme
-O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). Sonraki: A2.
+O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). Sonraki: A4.

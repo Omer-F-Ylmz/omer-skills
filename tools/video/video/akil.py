@@ -258,7 +258,8 @@ def _kapsam(k, a, al, m, gv, d):
             "güvenlik": dis or ("✓" if not gv.startswith(("koşmadı", "atlandı")) else gv),  # DERİNLİK-2 S5
             "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
             "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
-            "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı"}
+            "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı",
+            **({"kaynak": a["kaynak"].removeprefix("kaynak ")} if a.get("kaynak") else {})}  # A3: "kaynak farklı: …"
     eksik = [x for x in list(alan)[:6] if not alan[x].startswith(("✓", "—"))]
     return f"- {k} · " + " · ".join(f"{x} {pt._h(v)}" for x, v in alan.items()), eksik
 
@@ -300,6 +301,24 @@ def _guncellik(ctx, a):
     if (ust.startswith(sur[:7]) if sha else ust == sur) and not yeni:
         return f"güncel ({sur[:7] if sha else sur})" + son
     return f"fark: kurulu {sur[:7] if sha else sur} ↔ upstream {ust[:7] if sha else ust}" + (f" · yeni: {', '.join(yeni[:10])}" if yeni else "") + son
+
+
+def _kaynak(ctx, a):
+    """DERİNLİK-MASTER A3 (=Y7): kurulu marketplace reposu fork ise source/parent; değilse videodaki sahip farklıysa o repo → kaynak farkı satırı ya da ''."""
+    if not (ctx.get("gh") and (kr := _kayit_repo(ctx["env"], a))):
+        return ""
+    kur, yol = kr
+    (ctx.get("uyku") or pt.time.sleep)(2)
+    try:
+        r = ctx["gh"](["api", f"repos/{kur}"]) or {}
+    except Exception:
+        r = {}
+    asil = ((r.get("source") or r.get("parent") or {}).get("full_name") or "").lower() if r.get("fork") else ""
+    if not asil and a["repo"] and a["repo"].split("/")[0] != kur.split("/")[0]:
+        asil = a["repo"]
+    if not asil:
+        return ""
+    return f"kaynak farklı: kurulu {kur} (son commit {_son_commit(ctx, kur, yol) or '?'}) ↔ asıl {asil} (son commit {_son_commit(ctx, asil) or '?'})"
 
 
 def _fark(a):
@@ -636,6 +655,8 @@ def panel(pdir, d, kok):
         high = int(x[1]) if (x := re.search(r"HIGH/CRITICAL (\d+)", gv)) else None
         if ku and _fark(a):  # DERİNLİK-1 R1
             o, g = "UYARLA", f"güncelle: {a['guncellik']}"
+        elif ku and a.get("kaynak"):  # DERİNLİK-MASTER A3
+            o, g = "UYARLA", f"kaynağa geç: {a['kaynak']}"
         elif ku and _tam(a):
             o, g = "ZATEN VAR", f"kurulu: {a['kurulu']}"
         elif ku and es is not None and es >= ESDEGER and alt == "araç":  # M2c K3: ad benzerliği değil Jev eşdeğeri
@@ -755,7 +776,7 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     adaylar, belirsiz = birlestir(raporlar, kok)  # aşama 5
     eski = d.get("adaylar", {})
     for k, a in adaylar.items():
-        a.update({x: eski[k][x] for x in ("guncellik",) if x in eski.get(k, {})})  # R1: fark kararı durum geri yüklemesinden önce
+        a.update({x: eski[k][x] for x in ("guncellik", "kaynak") if x in eski.get(k, {})})  # R1: fark kararı durum geri yüklemesinden önce
         a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama") if x in eski.get(k, {})})
         if not a["repo"] and a["kurulu"] and a["tur"] not in ARAC_DISI and (kr := _kayit_repo(ctx["env"], a)):
@@ -767,6 +788,7 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
             a.pop("guvenlik", None)
         if a["kurulu"] and a["tur"] not in ARAC_DISI and "guncellik" not in a:
             a["guncellik"] = _guncellik(ctx, a)  # DERİNLİK-1 R1
+            a["kaynak"] = _kaynak(ctx, a)
             if _fark(a) and not a["onceki"]:
                 a.setdefault("durum", "bekliyor")
             if _fark(a) and (y := _aday_yol(kok, k)).is_file() and (b := f"## Güncellik ({pt.date.today().isoformat()})") not in y.read_text(encoding="utf-8"):
