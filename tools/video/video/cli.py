@@ -440,6 +440,8 @@ def paket(ns, ctx):
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
+    if ocr.get("gurultu_satir"):  # O11 (4): atılan gürültü satırları denetim için
+        (d / "ocr-gurultu.txt").write_text("".join(f"{m.ss(t)} · {x}\n" for t, x in sorted(ocr["gurultu_satir"], key=lambda g: g[0])), encoding="utf-8")
     sj = json.loads((d / "sahne.json").read_text(encoding="utf-8")) if (d / "sahne.json").is_file() else {"durum": "sahne ?"}
     inc = sorted(ocr.get("incelenmedi", []))
     ky.write_text(json.dumps({"izleme": f"{'kare-yalnız' if yalniz else f'segment {len(seg)}'} · "  # C4 Kapsam satırı → parti durum.json → panel
@@ -550,7 +552,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
     aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
     aday = [a for a in aday if a[3].is_file()]
     o, metin = ({} if ocr is None else ocr), {}
-    o.update(metin=[], incelenmedi=[], secilen=0, gurultu=0)
+    o.update(metin=[], incelenmedi=[], secilen=0, gurultu=0, gurultu_satir=[])
     if ocr is not None and aday:
         try:
             metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
@@ -561,6 +563,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
         s = metin.get(a[3].name) or []
         temiz[a[3].name] = [x for x in s if not _ocr_gurultu(x)]
         o["gurultu"] += len(s) - len(temiz[a[3].name])
+        o["gurultu_satir"] += [(a[2], x) for x in s if x not in temiz[a[3].name]]  # O11 (4): paket ocr-gurultu.txt
     for a in sorted(aday, key=lambda a: -len(_kat("\n".join(temiz[a[3].name])))):  # O11 (3a): metni uzun olan kalır
         if not (k := _kat("\n".join(temiz[a[3].name]))):
             continue
