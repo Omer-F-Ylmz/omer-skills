@@ -24,7 +24,7 @@ YENIDEN = {"bekliyor", "hata", "tavan"}
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
-KARE_UST = 20  # ayar · C4: süreyle büyüyen (süre_dk / 3) model kare tavanının üst sınırı
+KARE_UST = 20  # ayar · C4: uzun videoda modele giden kare tavanı (asıl sınır cli.PAKET_BUTCE; süre_dk / 3 yalnız taban)
 WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
 AGIR = re.compile(r"^(?:blender|genshinimpact|yuanshen|zenlesszonezero|starrail|client-win64-shipping|testhost)\.exe\b|pytest|dotnet\S* test",
                   re.I | re.M)  # ayar · C1 ağır süreç: Blender · oyun (tam süreç adı; blender-mcp sayılmaz) · tam suit (komut satırı)
@@ -257,8 +257,9 @@ def kare_sayisi(sure, site, ipucu=False):
 
 
 def model_kare(n, sure):
-    """C4: modele giden kare tavanı süreyle büyür → max(n, ceil(süre_dk / 3)); büyüme KARE_UST'te durur, açık büyük n korunur."""
-    return max(n, min(KARE_UST, int(-(-sure // 180))))
+    """C4 (Ömer onayı O10: tavan → bütçe): uzun videoda modele giden kare tavanı KARE_UST sabit, asıl sınır cli.PAKET_BUTCE. süre_dk/3
+    yalnız taban; ≤ KARE_UST olduğundan tavan onu hep karşılar (ayrı kod yok). Short/süresiz değişmez, açık büyük n korunur."""
+    return n if sure < tr.SHORT_SN else max(n, KARE_UST)
 
 
 def incelenmedi_isaretle(d, onb):
@@ -417,7 +418,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"),
                                        (sg := onb / v / "segmentler.jsonl").is_file() and bool(tr.IPUCU.search(sg.read_text(encoding="utf-8"))))  # M2e K2 · DERİNLİK-1 R4
                 if (mk := model_kare(n, mt.get("duration") or 0)) > n:  # C4
-                    n, neden = mk, f"süre/3 dk ≤{KARE_UST}"
+                    n, neden = mk, f"tavan {KARE_UST}, sınır jeton bütçesi"
                 print(f"paket {v}: kare {n} ({neden})")
                 with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
                     rc = alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []), "--", v])
