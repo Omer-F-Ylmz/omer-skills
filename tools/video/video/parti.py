@@ -470,7 +470,7 @@ def parti(ns, ctx):
     tdir = ctx.get("tarama_dizin") or cli._tarama_dizin(ctx)
     alt = ctx.get("alt") or (lambda a: cli.main(a, env=ctx["env"], kos=ctx["kos"], gonder=ctx["gonder"], uyku=ctx["uyku"]))
     temizle = ctx.get("temizle") or (lambda s: cli._temizle(s, ctx["env"]))
-    if ns.eylem == "kuyruk" and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk
+    if ns.eylem in ("baslat", "kuyruk") and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk · KÜÇÜK-1 K3: baslat da
         ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
     if ns.eylem in ("baslat", "kuyruk"):
         tur, satirlar = tr.kuyruk_parti(Path(ns.hedef).read_bytes().decode("utf-8"))

@@ -1126,7 +1126,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x = alt.add_parser("parti", help="MOTOR-M2a: kuyruk → paket → hafif claude -p tarayıcı formu → rapor + kayıt; .kos/<parti-id>/durum.json + defter.jsonl")
     x.add_argument("eylem", choices=["baslat", "kuyruk", "devam", "durum", "akil", "kapat", "iptal"])
     x.add_argument("--neden", help="iptal: M12 K3 — iptal nedeni (zorunlu)")
-    x.add_argument("hedef", nargs="?", help="baslat/kuyruk: kuyruk.md (kuyruk varsayılanı docs/video-tarama/kuyruk.md) · devam/durum: parti-id")
+    x.add_argument("hedef", nargs="?", help="baslat/kuyruk: kuyruk.md (varsayılan docs/video-tarama/kuyruk.md) · devam/durum: parti-id")
     x.add_argument("--en-fazla", type=int, default=8, metavar="N")
     g = x.add_mutually_exclusive_group()
     g.add_argument("--short", action="store_true")
