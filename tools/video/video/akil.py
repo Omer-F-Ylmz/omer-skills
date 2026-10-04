@@ -196,7 +196,7 @@ def _kapsam(k, a, al, m, gv, d):
     alan = {"repo": dis or (f"✓ {repo}" if repo else a.get("repo_arama") or "repo yok"),
             "README": dis or ("✓" if tam and repo else "repo yok" if tam else f"araştırılmadı ({a.get('durum')})"),
             "lisans": dis or bil("lisans"), "commit": dis or bil("son_commit"),
-            "güvenlik": dis or ("✓" if not gv.startswith("koşmadı") else gv),
+            "güvenlik": dis or ("✓" if not gv.startswith(("koşmadı", "atlandı")) else gv),  # DERİNLİK-2 S5
             "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
             "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
             "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı"}

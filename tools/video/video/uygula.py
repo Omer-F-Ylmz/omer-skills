@@ -404,24 +404,35 @@ def spector(ctx, ad, kaynak):
         return None
 
 
-BUYUK_REPO_KB = 100 * 1024  # 24c K5: gh api .size KB; üstü klonlanmaz
+BUYUK_REPO_KB = 100 * 1024  # 24c K5: gh api .size KB; üstü tam klonlanmaz (DERİNLİK-2 S5: seyrek)
+SEYREK_MB = 20  # S5: seyrek içerik bundan büyükse tarama atlanır
+SEYREK_DESEN = ("SKILL.md", "hooks/", "commands/", "agents/")
 
 
 def on_tarama(ctx, repo_ad):
     """24b K1: araştırmadan ÖNCE sığ klon (önbellek <kök>/repo/<o__r>, 120 sn) + SkillSpector --no-llm → on.md `## Güvenlik ön taraması`."""
     ad = repo_ad.replace("/", "__")
     hedef = ctx["kok"] / "repo" / ad
+    seyrek = ""
     if not hedef.is_dir():
         rc, out, _ = _kos(ctx, ["gh", "api", f"repos/{repo_ad}", "--jq", ".size"], timeout=30)  # 24c K5
         kb = int(s) if not rc and (s := (out or b"").decode("utf-8", "replace").strip()).isdigit() else 0
-        if kb > BUYUK_REPO_KB:
-            return f"## Güvenlik ön taraması\natlandı (repo {kb // 1024} MB)\n"
-        rc, _, err = _kos(ctx, ["git", "clone", "--depth", "1", f"https://github.com/{repo_ad}", hedef], timeout=120)
+        buyuk = kb > BUYUK_REPO_KB
+        rc, _, err = _kos(ctx, ["git", "clone", "--depth", "1", *(["--filter=blob:none", "--sparse"] if buyuk else []),
+                                f"https://github.com/{repo_ad}", hedef], timeout=120)
+        if buyuk and not rc:
+            rc, _, err = _kos(ctx, ["git", "-C", hedef, "sparse-checkout", "set", "--no-cone", *SEYREK_DESEN], timeout=120)
         if rc or not hedef.is_dir():
             return f"## Güvenlik ön taraması\nkoşmadı: klon başarısız ({(err or b'').decode('utf-8', 'replace').strip()[:120]})\n"
+        if buyuk:
+            mb = sum(f.stat().st_size for f in hedef.rglob("*") if f.is_file() and ".git" not in f.relative_to(hedef).parts) // (1024 * 1024)
+            if mb > SEYREK_MB:
+                shutil.rmtree(hedef, ignore_errors=True)  # önbellekte kalırsa sonraki koşu atlanan içeriği tarar
+                return f"## Güvenlik ön taraması\natlandı (seyrek içerik {mb} MB)\n"
+            seyrek = f" · seyrek tarama (repo {kb // 1024} MB)"
     high = spector(ctx, ad, hedef)
     return ("## Güvenlik ön taraması\n" + ("koşmadı: SkillSpector raporu yok" if high is None else f"SkillSpector --no-llm HIGH/CRITICAL {high}")
-            + f"\nkaynak: {hedef.as_posix()}\n")
+            + seyrek + f"\nkaynak: {hedef.as_posix()}\n")
 
 
 ISKELET_ALAN = ("lisans", "son_commit", "arsiv", "kaynak", "telemetri")
