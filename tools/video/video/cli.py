@@ -542,7 +542,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
     kareler pt.girdi_tk ile PAKET_BUTCE'yi aşarsa kare "incelenmedi"."""
     zamanlar, kesilen = list({int(t): t for t in zamanlar}.values()), []  # aynı saniye bir kez: _kare_uret aynı adlı kareyi siler
     if sahne:  # O11 (5): her sahne aday; ADAY_UST'u aşan sahneler (skor sırasıyla sondakiler) "aday tavanı"
-        sh = [t for t in _sahneler(ctx, d, None) if int(t) not in {int(x) for x in zamanlar}]
+        sh = list({int(t): t for t in _sahneler(ctx, d, None) if int(t) not in {int(x) for x in zamanlar}}.values())  # aynı saniyede iki sahne → bir kez
         zamanlar, kesilen = [*zamanlar, *sh[:max(0, ADAY_UST - len(zamanlar))]], sh[max(0, ADAY_UST - len(zamanlar)):]
     try:
         uretilen = [(t, _kare_uret(ctx, d, _akis_url(ctx, d), t, pencere, g)) for t in zamanlar]
@@ -552,7 +552,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
         uretilen = [(t, _kare_uret(ctx, d, url, t, pencere, g)) for t in zamanlar]
     on = {int(t) for t in oncelik}
     aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
-    aday = [a for a in aday if a[3].is_file()]
+    aday = list({a[3]: a for a in aday if a[3].is_file()}.values())  # aynı yol bir kez (canlı hata: çift aday → ikinci unlink çöktü)
     o, metin = ({} if ocr is None else ocr), {}
     o.update(metin=[], incelenmedi=[(t, "aday tavanı") for t in kesilen], secilen=0, gurultu=0, gurultu_satir=[])
     if ocr is not None and aday:
@@ -572,7 +572,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
         if any((sm := difflib.SequenceMatcher(None, k, x, autojunk=False)).real_quick_ratio() >= OCR_BENZER and sm.quick_ratio() >= OCR_BENZER
                and sm.ratio() >= OCR_BENZER for x in katlar):
             tekrar.add(a[3].name)
-            a[3].unlink()
+            a[3].unlink(missing_ok=True)
         else:
             katlar.append(k)
     sj = json.loads((d / "sahne.json").read_text(encoding="utf-8")) if (d / "sahne.json").is_file() else {}
@@ -585,24 +585,24 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
         h = m.dhash(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=9:8,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]))
         if any(not (s and sx) and ((f := bin(h ^ x).count("1")) <= 5 or f <= DHASH_SAHNE and kesim is not None
                                    and not any(min(t, tx) < k <= max(t, tx) for k in kesim)) for x, tx, sx in hashler):  # ikisi metinli → metin karar verdi
-            yol.unlink()
+            yol.unlink(missing_ok=True)
             continue
         hashler.append((h, t, s))
         o["secilen"] += 1
         if s:
             o["metin"].append((t, s))
         if yol.name in metin and not _ocr_model(s):  # OCR anlamlandırdı: metin pakette, kare modele gitmez
-            yol.unlink()
+            yol.unlink(missing_ok=True)
         else:
             model.append((t, yol))
     tut, yazi = [], "\n".join([taban or "", *(x for _, s in o["metin"] for x in s)])  # O11: bütçe OCR dahil tam metinle (pt.girdi_tk)
     for t, yol in model:
         if len(tut) >= en_fazla:
             o["incelenmedi"].append((t, f"kare tavanı {en_fazla}"))
-            yol.unlink()
+            yol.unlink(missing_ok=True)
         elif taban is not None and pt.girdi_tk(yazi, [*(y for _, y in tut), yol]) > PAKET_BUTCE:
             o["incelenmedi"].append((t, "jeton bütçesi"))
-            yol.unlink()
+            yol.unlink(missing_ok=True)
         else:
             tut.append((t, yol))
     return sorted(tut)
