@@ -153,6 +153,9 @@ adları, aday adları, kısa adlar dahil) İz'de yoksa "KAÇAN?". Kanıt: canlı
 da sebep yaz). "Aday değil" oranı %5'i aşarsa uyarı. Test.
 Ek (Ömer, 4 Eki O7): koruma whisper'ı durdurduğu ve altyazı da olmadığı videoda kapsam "konuşma alınamadı (sebep)" olur; bu durum KAÇAN?
 gibi `video parti kapat`ı durdurur — giderilmesi: koşullar uygunken `--paket-yeniden` ile whisper. Test.
+D3 eki (Ömer kararı, 5 Eki): eski formlar şema 1 olarak geçerli kalır; ama D1 sonrası açılan bir partide İz'siz (şema 1) rapor üreten
+video (ör. kısmi kabul, diskteki eski form) panel Denetim'inde "İz yok" olarak sayılır ve KAÇAN? gibi `video parti kapat`ı durdurur —
+giderilmesi: `devam --yeniden-tara` ile o video yeniden taranır. Test.
 
 ## B — İNTERNETİ TARAMA (yalnız GitHub değil)
 **B1 Link toplama:** açıklama + yorum + OCR + altyazıda geçen URL/alan adları + linkli sayfalardaki ilgili linkler (1 derinlik). Sınıf:
