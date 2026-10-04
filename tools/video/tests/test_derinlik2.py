@@ -192,3 +192,39 @@ def test_s10_kapatma_onerisi_isaretlenir(tmp_path):
     assert "S10 ihlali" in sx and "S10" not in sy
     assert "S10 ihlali" in t.split("## Geliştirme önerileri", 1)[1]
     assert "TOKEN-3" in ak.SISTEM_GEL and "kapatma/kaldırma" in ak.SISTEM_GEL
+
+
+def _gh_commit(sha, tarih):
+    def gh(args):
+        gh.cagrilar.append(args[1])
+        if "search/repositories" in args:
+            return {"items": []}
+        if "/commits?" in args[1]:
+            return [{"sha": sha, "commit": {"committer": {"date": tarih + "T10:00:00Z"}}}]
+        raise RuntimeError("HTTP 404")
+    gh.cagrilar = []
+    return gh
+
+
+# S2+S3 marketplace alt yolundaki kurulu plugin: güncellik ve son commit o alt yol için gh api'den; tarih güncellik (Kapsam) satırında
+def test_s2_s3_alt_yol_guncellik_ve_tarih(tmp_path):
+    _kurulu_kayit(tmp_path)
+    ip = tmp_path / "evi" / "plugins" / "installed_plugins.json"
+    k = json.loads(ip.read_text(encoding="utf-8"))
+    k["plugins"]["alt-arac@pazar"][0]["gitCommitSha"] = "abc1234"
+    ip.write_text(json.dumps(k), encoding="utf-8")
+    gh = _gh_commit("abc1234def", "2026-09-30")
+    d, _ = _kos(tmp_path, [("alt-arac", "plugin", None)], gh)
+    assert "repos/ust/depo/commits?per_page=1&path=plugins/alt-arac" in gh.cagrilar
+    assert any(x.startswith("repos/ust/depo/contents/plugins/alt-arac/") for x in gh.cagrilar)
+    g = d["alt-arac"]["guncellik"]
+    assert g.startswith("güncel (abc1234)") and "son commit 2026-09-30" in g
+
+
+# S3 araştırılan araçta son commit tarihi gh api'den (araştırıcının yazdığı ezilir); Kapsam'da "commit ✓ <tarih>"
+def test_s3_son_commit_gh_apiden(tmp_path):
+    from test_m2c import _panel
+    ar = Ar({"ajan-c": {"repo_url": "https://github.com/o/ajan-c", "son_commit": "2025-01-01"}})
+    _kos(tmp_path, [("ajan-c", "plugin", None)], _gh_commit("f00", "2026-08-15"), ar)
+    ks = next(s for s in _panel(tmp_path, PID)[1].split("## Kapsam", 1)[1].splitlines() if s.startswith("- ajan-c ·"))
+    assert "commit ✓ 2026-08-15" in ks
