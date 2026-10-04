@@ -228,3 +228,16 @@ def test_s3_son_commit_gh_apiden(tmp_path):
     _kos(tmp_path, [("ajan-c", "plugin", None)], _gh_commit("f00", "2026-08-15"), ar)
     ks = next(s for s in _panel(tmp_path, PID)[1].split("## Kapsam", 1)[1].splitlines() if s.startswith("- ajan-c ·"))
     assert "commit ✓ 2026-08-15" in ks
+
+
+# S7 aynı videoda ad benzerliği ≥0.8 (parantez içi ad dahil) → tek aday (ruflo ×3, ECC ×3 tek satır); farklı videoda birleşmez
+def test_s7_ayni_videoda_benzer_adlar_tek_aday(tmp_path):
+    md0 = _rapor(V[0], [("ruflo", "plugin", None), ("Ruflo (videoda 'Rufflow')", "plugin", "https://github.com/ruvnet/ruflo"),
+                        ("Everything Claude Code (ECC)", "plugin", None), ("everything-claude-code", "plugin", None)])
+    md1 = _rapor(V[1], [("ruflo", "plugin", None), ("Rooflow (karede Ruflo)", "iş akışı", None), ("ajan-xy", "plugin", None)])
+    md2 = _rapor(V[2], [("ajan-x", "plugin", None)])
+    out, _ = ak.birlestir([(V[0], md0), (V[1], md1), (V[2], md2)], tmp_path)
+    assert len(out) == 4 and {"ajan-x", "ajan-xy"} <= set(out)
+    ruf = next(a for a in out.values() if "ruflo" in a["adlar"])
+    assert len(ruf["adlar"]) == 3 and ruf["repo"] == "ruvnet/ruflo" and set(ruf["videolar"]) == {V[0], V[1]}
+
