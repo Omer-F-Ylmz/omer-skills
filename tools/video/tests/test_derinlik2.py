@@ -6,7 +6,9 @@ from test_m2a import V, _ns
 from test_m2b import _parti, _rapor
 from test_m2c import Ar, _ctx
 
-from video import parti as pt
+from pathlib import Path
+
+from video import akil as ak, parti as pt, uygula as uy
 
 PID = "2026-10-03-short"
 
@@ -102,3 +104,44 @@ def test_s4_arastirici_reposu_geri_yazilir(tmp_path):
     t = _panel(tmp_path, PID)[1]
     assert "- ajan-z: araştırıcı buldu: bulan/ajan-z" in t
     assert next(s for s in t.split("## Kapsam", 1)[1].splitlines() if s.startswith("- ajan-z ·")).startswith("- ajan-z · repo ✓ bulan/ajan-z ·")
+
+
+def _skos(icerik_mb):
+    """Sahte kos: repo 195 MB; seyrek klon SKILL.md'yi icerik_mb boyutunda bırakır."""
+    def kos(args, timeout=None):
+        kos.cagri.append(args)
+        if args[:2] == ["gh", "api"]:
+            return 0, b"200000", b""
+        if args[:2] == ["git", "clone"]:
+            Path(args[-1]).mkdir(parents=True)
+        if "sparse-checkout" in args:
+            with open(Path(args[2]) / "SKILL.md", "wb") as f:
+                f.truncate(icerik_mb * 1024 * 1024)
+        return 0, b"", b""
+    kos.cagri = []
+    return kos
+
+
+# S5 büyük repo (>100 MB): tam klon yok; seyrek klon (SKILL.md/hooks/commands/agents) + SkillSpector
+def test_s5_buyuk_repo_seyrek_taranir(tmp_path):
+    kos = _skos(1)
+    on = uy.on_tarama({"kok": tmp_path, "kos": kos}, "o/lh")
+    klon = next(a for a in kos.cagri if a[:2] == ["git", "clone"])
+    assert "--sparse" in klon and "--filter=blob:none" in klon
+    ss = next(a for a in kos.cagri if "sparse-checkout" in a)
+    assert all(x in ss for x in ("SKILL.md", "hooks/", "commands/", "agents/"))
+    assert any(a[0] == "skillspector" for a in kos.cagri) and "seyrek tarama (repo 195 MB)" in on
+
+
+# S5 seyrek içerik >20 MB → "atlandı (sebep)", SkillSpector koşmaz
+def test_s5_seyrek_icerik_20mb_ustu_atlanir(tmp_path):
+    kos = _skos(21)
+    on = uy.on_tarama({"kok": tmp_path, "kos": kos}, "o/lh")
+    assert "atlandı (seyrek içerik 21 MB)" in on and not any(a[0] == "skillspector" for a in kos.cagri)
+
+
+# S5 atlanan güvenlik taraması Kapsam'da ✓ sayılmaz
+def test_s5_atlanan_tarama_kapsamda_tik_degil():
+    a = {"tur": "plugin", "repo": "o/lh", "kurulu": None, "durum": "araştırıldı", "videolar": {V[0]: {}}}
+    satir, eksik = ak._kapsam("lh", a, {}, "", "atlandı (seyrek içerik 21 MB)", {})
+    assert "güvenlik atlandı (seyrek içerik 21 MB)" in satir and "güvenlik" in eksik
