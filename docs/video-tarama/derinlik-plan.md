@@ -100,6 +100,9 @@ sonuçlar birleştirilir: URL/komut/kod için en, Türkçe arayüz metni için t
 metin yoğunluğu ölçüsü (JPEG bayt/piksel) OCR karakter sayısıyla değiştirilir.
 **C4 Kapsam satırı (video başına):** sahne N · seçilen kare M · OCR'lanan K · modele giden J · altyazı kaynağı · incelenmeyen anlar.
 Ölçüm planı: aynı uzun videoda eski ↔ yeni paket jetonu ve bulunan bahis sayısı (Ömer'in canlı koşusu için komut raporda). Test.
+C4 eki (Ömer, 4 Eki O9): modele giden kare tavanı süreyle büyür — max(--kare, ceil(süre_dk / 3)); üst sınır ve video başına paket jeton
+bütçesi ayarda. Tavan ya da bütçe yüzünden "incelenmedi" kalan anlar Kapsam satırında sayıyla görünür ve E1 denetim.md'ye girer.
+`video paket <id> --incelenmedi` (partide `devam --incelenmedi`) yalnız bu anları ikinci geçişte işler. Test.
 
 ## D — İZ TABLOSU (hiçbir şey kaçmasın)
 **D1** Her video raporunda "## İz": her bahis bir satır — kaynak (konuşma mm:ss · kare mm:ss · açıklama · yorum · linkli sayfa) · ne ·
@@ -133,7 +136,7 @@ doldurulur, "kod yok" yazılır. Test.
 ## E — DESKTOP İKİNCİ BAKIŞ (hedefli, uyarlamalı)
 **E1 Çağrısız risk puanı** (bahis/aday başına): KUR önerisi · güvenlik bulgusu · fork/kaynak farkı · kapsam eksikleri · "çözülmedi" kötü
 yan · "aday değil" · KAÇAN? · yeni link sınıfı. `docs/kurulumlar/parti/<id>/denetim.md` (≤150 satır): KAÇAN?'ların hepsi · "aday
-değil"lerin hepsi · "ONARIM BEKLİYOR"ların hepsi · risk puanı en yüksek 5 · tohumlu rastgele 3. Her satırda Desktop'un açacağı TAM URL'ler
+değil"lerin hepsi · "ONARIM BEKLİYOR"ların hepsi · C4 incelenmedi anı kalan videolar (durum.json izleme) · risk puanı en yüksek 5 · tohumlu rastgele 3. Her satırda Desktop'un açacağı TAM URL'ler
 (videonun mm:ss linki, repo, ilgili dosya, issue, doküman) — Desktop yalnız sohbette görünen adresleri açabilir. Test.
 **E2 Geri dönüş:** denetim.md sonunda "## Desktop" şablonu; Ömer Desktop'un verdiği satırları buraya yapıştırır; `video parti
 denetim-isle <id>` bunları `docs/kurulumlar/desktop-denetim.jsonl`'a ve ilgili aday dosyasına işler. Test.
