@@ -2,6 +2,7 @@
 repo: gh api ile README ilk 120 satır · ağaç derinlik 2 · istenen dosyanın ≤200 satırı. on: ikisini .kos/<video>/<ad>/on.md'ye yazar."""
 import hashlib
 import json
+import time
 import urllib.error
 import urllib.request
 from html.parser import HTMLParser
@@ -46,7 +47,13 @@ class _Ayikla(HTMLParser):
             (self.anametin if self.ana else self.tum).append(" ".join(data.split()))
 
 
+_son = [0.0]
+ACMA, ILGILI = ("github", "video", "sosyal"), ("github", "gist", "doküman", "ürün/marketplace")  # github B3'te gh ile okunur
+
+
 def _al(url):
+    time.sleep(max(0.0, _son[0] + 2 - time.monotonic()))  # plan: web istekleri arası ≥2 sn
+    _son[0] = time.monotonic()
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 video-getir"})
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode(r.headers.get_content_charset() or "utf-8", "replace")
@@ -80,6 +87,23 @@ def getir(url, n=6000, cache=None, al=_al):
         y.parent.mkdir(parents=True, exist_ok=True)
         y.write_text(out, encoding="utf-8")
     return out
+
+
+def derinlik1(linkler, kok, al=_al):
+    """B1: linkli sayfalardaki ilgili linkler (1 derinlik); sayfa <kok>/sayfa önbelleğinde → aynı URL bütün partilerde bir kez okunur."""
+    gor, yeni = {x["url"] for x in linkler}, []
+    for x in linkler:
+        if x["sinif"] in ACMA:
+            continue
+        try:
+            s = getir(x["url"], cache=Path(kok) / "sayfa", al=al)
+        except GetirHata:
+            continue  # ponytail: "erişilemedi (sebep)" B2'de yazılır
+        for b in tr.link_topla({f"sayfa {x['url']}": tr.bolum(s, "Bağlantılar")}):
+            if b["sinif"] in ILGILI and b["url"] not in gor:
+                gor.add(b["url"])
+                yeni.append(b)
+    return yeni
 
 
 def _gh(kos, *args):

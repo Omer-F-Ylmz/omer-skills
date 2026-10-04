@@ -410,7 +410,8 @@ def paket(ns, ctx):
                if ns.id in (j := json.loads(f.read_text(encoding="utf-8")))), {})  # 24e-2 K1: Desktop kuyruk-meta önce
     lk = km.get("linkler") or m.urller(km.get("aciklama") or meta.get("description"))
     lk = m.urller(lk) if isinstance(lk, str) else lk
-    lk = list(dict.fromkeys([*(lk or []), *_yorumlar(ctx, d)[0]]))  # DERİNLİK-1 R4: yorum bağlantıları kaynağa; durum yorumlar.json → parti Kapsam
+    ak = lk or []
+    lk = list(dict.fromkeys([*ak, *(yk := _yorumlar(ctx, d)[0])]))  # DERİNLİK-1 R4: yorum bağlantıları kaynağa; durum yorumlar.json → parti Kapsam
     ky = d / "kapsam.json"
     if ns.incelenmedi:  # C4 ikinci geçiş: yalnız tavan/bütçe yüzünden incelenmeyen anlar; ilk paket paket-1.md'de kalır
         zamanlar, isaret = [t for t, _ in (json.loads(ky.read_text(encoding="utf-8"))["incelenmedi"] if ky.is_file() else [])], []
@@ -431,6 +432,9 @@ def paket(ns, ctx):
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
+    (d / "baglantilar.json").write_text(json.dumps(tr.link_topla({  # B1: dört kaynak, sınıflı; 1 derinlik B2'de (getir.derinlik1)
+        "açıklama": "\n".join(ak), "yorum": "\n".join(yk), "ocr": "\n".join(x for _, s in ocr.get("metin", []) for x in s),
+        "altyazı": "\n".join(str(s.get("metin")) for s in seg)}), ensure_ascii=False, indent=1), encoding="utf-8")
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),

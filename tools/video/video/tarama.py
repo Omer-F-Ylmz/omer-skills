@@ -162,6 +162,42 @@ GH = re.compile(r"https?://(?:www\.)?github\.com/([\w.-]+)/([\w.-]+?)(?:\.git)?(
 PAKET = re.compile(r"https?://(?:www\.)?(?:npmjs\.com/package|pypi\.org/project)/([@\w.-]+(?:/[\w.-]+)?)/?$")
 SOSYAL = ("youtube.com", "youtu.be", "twitter.com", "x.com", "instagram.com", "linkedin.com", "discord.gg", "discord.com", "tiktok.com",
           "facebook.com", "patreon.com")
+# B1: tam URL ya da çıplak alan adı; ponytail: TLD listesi dar (sh/so/md/py/js dosya adıyla çakışır), kaçan TLD eklenir
+LINK = re.compile(r"(https?://[^\s|)>\]\"'<]+)|(?<![\w@./-])((?:[a-z0-9-]+\.)+(?:com|dev|io|ai|app|org|net|gg|xyz|tools|cloud|tech)"
+                  r"(?:/[^\s|)>\]\"'<]*)?)(?![\w@-])", re.I)
+BLOG = ("medium.com", "dev.to", "substack.com", "hashnode.dev", "hashnode.com")
+PAZAR = ("npmjs.com", "pypi.org", "marketplace.visualstudio.com", "open-vsx.org", "chromewebstore.google.com", "smithery.ai", "producthunt.com")
+VIDEO = ("youtube.com", "youtu.be", "vimeo.com", "loom.com", "twitch.tv")
+
+
+def link_sinif(u):
+    """B1: github · gist · doküman · blog · ürün/marketplace · video · sosyal · diğer (alan adı + ilk yol parçası; kök sayfa ürün)."""
+    from urllib.parse import urlparse
+    p = urlparse(u)
+    h, ilk = p.netloc.casefold().removeprefix("www."), p.path.strip("/").casefold().split("/")[0]
+    ev = lambda alan: any(h == s or h.endswith("." + s) for s in alan)  # noqa: E731
+    if h in ("github.com", "gist.github.com"):
+        return "gist" if h.startswith("gist.") else "github"
+    if ev(VIDEO):
+        return "video"
+    if h.startswith("docs.") or h.endswith((".readthedocs.io", ".gitbook.io")) or ilk in ("docs", "doc", "documentation"):
+        return "doküman"
+    if ev(BLOG) or h.startswith("blog.") or ilk in ("blog", "posts"):
+        return "blog"
+    if ev(KACAN_SOSYAL):
+        return "sosyal"
+    return "ürün/marketplace" if ev(PAZAR) or not ilk else "diğer"
+
+
+def link_topla(kaynaklar):
+    """B1: {kaynak adı: metin} → metin sırasıyla tekil [{url, sinif, kaynak: [...]}]; çıplak alan adı https:// ile tamamlanır."""
+    b = {}
+    for k, metin in kaynaklar.items():
+        for tam, ciplak in LINK.findall(metin or ""):
+            u = (tam or "https://" + ciplak).rstrip(".,;:!?").rstrip("/")
+            x = b.setdefault(u, {"url": u, "sinif": link_sinif(u), "kaynak": []})
+            x["kaynak"] += [k] if k not in x["kaynak"] else []
+    return list(b.values())
 
 
 def kaynak_ayristir(url):
