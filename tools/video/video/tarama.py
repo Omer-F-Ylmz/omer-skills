@@ -405,6 +405,8 @@ def denetle(metin, sure=None):
         elif s[2] not in IDDIA_TUR:
             h.append(f"iddia türü geçersiz: {s[0]} → {s[2]} ({', '.join(sorted(IDDIA_TUR))})")
     t = tablolar(bolum(metin, "İz"))
+    if (sm := re.search(r"şema (\d+)", bolum(metin, "Künye"))) and int(sm[1]) >= 2 and not (t and t[0][1]):  # D1 (a): eski şema serbest
+        h.append(f"bölüm eksik: ## İz (şema {sm[1]}: her bahis bir satır)")
     for s in t[0][1] if t else []:  # D1: her bahis bir satır; "zaten kurulu" sebep değil (29 Eyl: kurulu araç da aday)
         if len(s) != 4 or any(x in ("", "-") for x in s[:3]):
             h.append(f"İz boş alan: {s[1] if len(s) > 1 else '?'} (4 alan: kaynak·ne·bağlandığı·kanıt)")

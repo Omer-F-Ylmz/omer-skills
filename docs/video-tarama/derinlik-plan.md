@@ -135,6 +135,8 @@ Test: 51 sahneli 20 dk video → aday ~51 + işaret + 8, 180 değil; doğrudan `
 bağlandığı aday ya da "aday değil: <sebep>" · kanıt. Sabit sebep listesi: genel kavram · başka adayın parçası (hangisi) · sponsor/reklam ·
 konu dışı. "Zaten kurulu" aday değil sebebi DEĞİLDİR: kurulu araç da aday olarak karşılaştırılır (29 Eyl ilkesi). Test (rapor-denetle
 sabit liste dışı sebebi ve "zaten kurulu"yu reddeder).
+D1 (a) (Ömer kararı, 4 Eki O14): "## İz" yalnız yeni şemada zorunlu — rapor künyesine şema sürümü eklenir ("şema 2"); rapor-denetle İz'i
+şema ≥2 raporlarda zorunlu tutar (satırsız tablo da eksik); şemasız eski raporlar ve eski fikstürler geçerli kalır (eski test değişmez).
 **D2 Çağrısız kaçak denetimi:** altyazı + OCR + linklerden çıkarılan aday benzeri her şey (sözlük = kurulu araçlar + tüm aday dosyaları;
 desenler: URL, owner/repo, kurulum komutları, büyük harfli ürün adları) İz'de yoksa "KAÇAN?" işaretlenir. Test.
 **D3** Panelde "## Denetim": bahis · bağlanan · aday değil (oran) · KAÇAN? sayıları. KAÇAN? > 0 iken `video parti kapat` durur (bağla ya
