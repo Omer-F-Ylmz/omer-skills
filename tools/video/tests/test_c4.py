@@ -53,7 +53,7 @@ def test_parti_kare_sureyle_buyur_izleme_ikinci_gecis(tmp_path, monkeypatch):
     d = _d("e1")
     pt._kos(pd, d, onb, tmp_path / "t", alt, str, None, {})
     a = next(a for a in cagri if a[0] == "paket")
-    assert a[a.index("--kare") + 1] == "60" and "--incelenmedi" not in a  # Ömer onayı (O11): KARE_UST 60 > kare_sayisi 8
+    assert a[a.index("--kare") + 1] == "8" and a[a.index("--model-tavan") + 1] == "60" and "--incelenmedi" not in a  # Ömer onayı (O11 (5)): --kare aday tabanı kare_sayisi, model tavanı KARE_UST
     assert d["videolar"]["e1"]["izleme"] == "sahne 3 · model 2 · incelenmedi 1"
     pt.incelenmedi_isaretle(d, onb)
     s = d["videolar"]["e1"]
