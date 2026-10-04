@@ -104,5 +104,43 @@
     "phoenix-cti-search@phoenix-security": false,
     "phoenix-prd-pipeline@phoenix-security": false,
     "phoenix-docs-research@phoenix-security": false
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -S \"C:\\Projeler\\omer-skills\\tools\\cagri_sayac.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -S \"C:\\Projeler\\omer-skills\\tools\\cagri_sayac.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -S \"C:\\Projeler\\omer-skills\\tools\\cagri_sayac.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
   }
 }

@@ -13,6 +13,7 @@ ekranda görünen, açıklamada/yorumda/linkli sayfalarda geçen hiçbir şey ka
   sayılır); 45'te commit + push, DUR, KALAN güncel.
 - ÇAĞRI SAYACI (Ömer, 4 Eki; O10 ~65, O12 ~56 tavanı aştı): her 10 araç çağrısında dalga.md'nin ilk satırına "çağrı N/45" yazılır;
   40'ta yeni madde başlatılmaz; 45'te commit + push ve DUR.
+- Sayaç hook'la tutulur (KÜÇÜK-2); elle satır yazılmaz.
 - ONAY KURALI (Ömer, 4 Eki): "Ömer onayı" etiketi yalnız Ömer'in o değişikliği açıkça onayladığı commit'e yazılır; eski testi
   değiştirmek gerekirse önce DUR, sor. (O12'deki KOD2 değişikliği — test_c3/test_c4, aynı OCR metni tek kare — sonradan onaylandı.)
 - Dalga içinde model çağrısı YOK (claude -p 0); canlı koşuları (parti, video indirme, model çağrısı) Ömer yapar; testler sahte veriyle.

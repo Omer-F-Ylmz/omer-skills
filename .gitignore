@@ -1,6 +1,7 @@
 node_modules/
 docs/video-tarama/raw/
 .claude/dalga.md
+.claude/cagri-sayac.txt
 dist/
 .tmp/
 graphify-out/
