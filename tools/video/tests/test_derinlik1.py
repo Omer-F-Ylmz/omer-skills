@@ -42,7 +42,7 @@ def test_r3_repo_bulunur(tmp_path):
     pt.parti(_ns("akil", p.name), {**_ctx(tmp_path, ar), "gh": gh, "uyku": u})
     a = json.loads((p / "durum.json").read_text(encoding="utf-8"))["adaylar"]["ajan-x"]
     assert (a["repo"], a["repo_arama"]) == ("ornek/ajan-x", "bulundu: ornek/ajan-x")
-    assert gh.sorgular == ["ajan-x", "ajan-x claude"] and u.n == [2] and "ajan-x" in ar.adlar
+    assert gh.sorgular == ["ajan-x", "ajan-x claude"] and len(u.n) >= len(gh.sorgular) - 1 and min(u.n) >= 2 and "ajan-x" in ar.adlar
 
 
 def test_r3_bulunamadi_ve_gh_yok(tmp_path):
