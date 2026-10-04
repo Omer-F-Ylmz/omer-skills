@@ -24,7 +24,7 @@ YENIDEN = {"bekliyor", "hata", "tavan"}
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
-KARE_UST = 20  # ayar · C4: uzun videoda modele giden kare tavanı (asıl sınır cli.PAKET_BUTCE; süre_dk / 3 yalnız taban)
+KARE_UST = 60  # ayar · C4 (O11): uzun videoda modele giden kare güvenlik üst sınırı; asıl sınır cli.PAKET_BUTCE (Ömer onayı: tavan 20 → bütçe)
 WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
 AGIR = re.compile(r"^(?:blender|genshinimpact|yuanshen|zenlesszonezero|starrail|client-win64-shipping|testhost)\.exe\b|pytest|dotnet\S* test",
                   re.I | re.M)  # ayar · C1 ağır süreç: Blender · oyun (tam süreç adı; blender-mcp sayılmaz) · tam suit (komut satırı)
@@ -257,8 +257,8 @@ def kare_sayisi(sure, site, ipucu=False):
 
 
 def model_kare(n, sure):
-    """C4 (Ömer onayı O10: tavan → bütçe): uzun videoda modele giden kare tavanı KARE_UST sabit, asıl sınır cli.PAKET_BUTCE. süre_dk/3
-    yalnız taban; ≤ KARE_UST olduğundan tavan onu hep karşılar (ayrı kod yok). Short/süresiz değişmez, açık büyük n korunur."""
+    """C4 (Ömer onayı O10/O11: tavan → bütçe): uzun videoda modele giden kare KARE_UST (60) güvenlik üst sınırı, asıl sınır cli.PAKET_BUTCE.
+    Short/süresiz değişmez, açık büyük n korunur."""
     return n if sure < tr.SHORT_SN else max(n, KARE_UST)
 
 
