@@ -1,5 +1,6 @@
 """MOTOR-M2b: aday merkezli akıl — aşama 5 birleştirme · 6 araç başına tek derin araştırma (araçlı hafif claude -p) · 7 destek ·
 8 videoya özgü özellik araştırması · 9 karar paneli; `video panel uygula` ve `video parti kapat` (rapor-denetle → gitleaks → commit/push → kuyruk --isle)."""
+import base64
 import difflib
 import json
 import re
@@ -121,13 +122,55 @@ def _paket_ici(k, env):
     return f"karşılık bulunamadı ({m[2]} paketinde {m[1]})"
 
 
+def _kayit_repo(env, a):
+    """DERİNLİK-2 S1/S2: kurulu plugin → (repo, alt yol) kurulum kaydından (installed_plugins + known_marketplaces + marketplace.json); ~/.claude yalnız okunur."""
+    pl, adlar = Path(env.get("CLAUDE_EVI") or Path.home() / ".claude") / "plugins", {tr.normal(x) for x in (str(a["kurulu"]).rsplit(":", 1)[-1], *a["adlar"])}
+    try:
+        kayit, pz = (json.loads((pl / x).read_text(encoding="utf-8")) for x in ("installed_plugins.json", "known_marketplaces.json"))
+    except (OSError, ValueError):
+        return None
+    if not (p := next((p for p in kayit.get("plugins", {}) if tr.normal(p.split("@")[0]) in adlar), None)):
+        return None
+    ad, _, m = p.partition("@")
+    mk = pz.get(m) or {}
+    try:
+        src = next((x.get("source") for x in json.loads((Path(mk.get("installLocation", "")) / ".claude-plugin" / "marketplace.json")
+                                                        .read_text(encoding="utf-8"))["plugins"] if x.get("name") == ad), None)
+    except (OSError, ValueError, KeyError):
+        src = None
+    if isinstance(src, dict):  # git-subdir / github kaynaklı plugin: kendi reposu
+        r = src.get("repo") or _repo(src.get("url"))
+        return (r.lower(), str(src.get("path") or "").strip("/")) if r else None
+    r = (s := mk.get("source") or {}).get("repo") or _repo(s.get("url"))
+    return (r.lower(), str(src or "").removeprefix("./").strip("/")) if r else None
+
+
+KELIME = re.compile(r"claude|skill|agent|mcp|plugin", re.I)
+
+
+def _dogrula(ctx, it):
+    """DERİNLİK-2 S1: açıklama/topics'te anahtar kelime; açıklama boşsa README'nin ilk 30 satırı (istekten önce ≥2 sn)."""
+    if KELIME.search(f"{it.get('description') or ''} {' '.join(it.get('topics') or [])}"):
+        return True
+    if it.get("description"):
+        return False
+    (ctx.get("uyku") or pt.time.sleep)(2)
+    try:
+        r = ctx["gh"](["api", f"repos/{it['full_name']}/readme"])
+        return bool(KELIME.search("\n".join(base64.b64decode(r["content"]).decode("utf-8", "replace").splitlines()[:30])))
+    except Exception:  # README okunamadı → doğrulanmadı
+        return False
+
+
 def _repo_ara(ctx, a):
-    """DERİNLİK-1 R3: repo yok → ad + video ipucu GitHub'da (en fazla 3 sorgu, aralarında ≥2 sn). → (repo | None, sonuç satırı)."""
+    """DERİNLİK-1 R3: repo yok → ad + video ipucu GitHub'da (en fazla 3 sorgu, aralarında ≥2 sn). → (repo | None, sonuç satırı).
+    DERİNLİK-2 S1: ad eşleşmesi yetmez — anahtar kelime şart; videoda sahip adı geçiyorsa sahip eşleşmeli; değilse 'olası … (doğrulanmadı)'."""
     if not (gh := ctx.get("gh")):
         return None, "arama koşmadı (gh bağlamı yok)"
     ad = re.sub(r"\(.*?\)", "", a["ad"]).strip()
     ipucu = " ".join(next(iter(a["videolar"].values()))["ne"].split()[:3])
     sorgular = list(dict.fromkeys([ad, f"{ad} claude", f"{ad} {ipucu}".strip()]))[:3]
+    metin, olasi = " ".join([*a["adlar"], *(f"{x['ne']} {x['kanit']}" for x in a["videolar"].values())]).lower(), None
     for i, q in enumerate(sorgular):
         if i:
             (ctx.get("uyku") or pt.time.sleep)(2)
@@ -135,9 +178,13 @@ def _repo_ara(ctx, a):
             js = gh(["api", "-X", "GET", "search/repositories", "-f", f"q={q}", "-f", "per_page=5"])
         except Exception as e:  # gh hatası araştırmayı durdurmaz; panelde görünür
             return None, f"arama başarısız ({str(e)[:80]})"
-        if it := next((x for x in (js or {}).get("items", []) if tr.slug(x["name"]) == tr.slug(ad)), None):
-            return it["full_name"].lower(), f"bulundu: {it['full_name'].lower()}"
-    return None, f"arandı, bulunamadı ({'; '.join(sorgular)})"
+        es = [x for x in (js or {}).get("items", []) if tr.slug(x["name"]) == tr.slug(ad)]
+        sahipli = [x for x in es if re.search(rf"(?<![\w-]){re.escape(x['full_name'].split('/')[0].lower())}(?![\w-])", metin)]
+        for it in sahipli or es:
+            if _dogrula(ctx, it):
+                return it["full_name"].lower(), f"bulundu: {it['full_name'].lower()}"
+            olasi = olasi or it["full_name"].lower()
+    return None, f"olası: {olasi} (doğrulanmadı)" if olasi else f"arandı, bulunamadı ({'; '.join(sorgular)})"
 
 
 def _kapsam(k, a, al, m, gv, d):
@@ -643,7 +690,9 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
         a.update({x: eski[k][x] for x in ("guncellik",) if x in eski.get(k, {})})  # R1: fark kararı durum geri yüklemesinden önce
         a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama") if x in eski.get(k, {})})
-        if not a["repo"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı")):
+        if not a["repo"] and a["kurulu"] and a["tur"] not in ARAC_DISI and (kr := _kayit_repo(ctx["env"], a)):
+            a["repo"], a["repo_yol"] = kr  # DERİNLİK-2 S1: kurulu araçta arama yok, kurulum kaydı
+        elif not a["repo"] and not a["kurulu"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı", "olası")):
             a["repo_arama"] = _repo_ara(ctx, a)[1]
         a["repo"] = a["repo"] or (a["repo_arama"][9:] if str(a.get("repo_arama", "")).startswith("bulundu: ") else None)
         if a["repo"] != eski.get(k, {}).get("repo"):  # DERİNLİK-1 R6: repo değiştiyse güvenlik ön taraması yeniden
@@ -656,7 +705,8 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                 ku, _, yeni = a["guncellik"][6:].partition(" · yeni: ")  # DERİNLİK-1 R1b: araştırılmış aday.md sonuna ek; mevcut içerik değişmez
                 with y.open("a", encoding="utf-8", newline="") as f:
                     f.write(f"\n{b}\n- {ku}\n- yeni skill/komut/ajan: {yeni or 'yok'}\n")
-        a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
+        a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else
+                     "dogrulanmadi" if str(a.get("repo_arama", "")).startswith("olası") and not a["repo"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
         if pk := _paket_ici(k, env):
             a["paket_yol"] = pk
     d.update(adaylar=adaylar, belirsiz=belirsiz)
