@@ -23,7 +23,7 @@ def _gh(bulunan=None):
     def gh(args):
         q = next(x[2:] for x in args if x.startswith("q="))
         gh.sorgular.append(q)
-        return {"items": [{"name": "ajan-x", "full_name": "Ornek/Ajan-X"}] if q == bulunan else [{"name": "baska", "full_name": "z/baska"}]}
+        return {"items": [{"name": "ajan-x", "full_name": "Ornek/Ajan-X", "description": "Claude Code skill"}] if q == bulunan else [{"name": "baska", "full_name": "z/baska"}]}
     gh.sorgular = []
     return gh
 
