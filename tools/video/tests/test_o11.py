@@ -55,3 +55,41 @@ def kod(i):
     a = random.Random(f"kod{i}").sample(KELIME, 6)
     return {"tr": [[s, *KUTU(j * 30)] for j, s in enumerate([f"def {a[0]}_{a[1]}(ns, ctx):", f"    return {a[2]}(ns) == {a[3]}",
                                                                f"import {a[4]}; {a[5]} = {{}}"])], "en": []}
+
+
+def ham(bitler):
+    """dHash'i bitler olan 9×8 gri ham: satır başına 9 piksel, bit=1 → sonraki piksel küçük."""
+    out = []
+    for r in range(8):
+        p = [128]
+        for b in bitler[r * 8:r * 8 + 8]:
+            p.append(p[-1] - 1 if b else p[-1] + 1)
+        out += p
+    return bytes(out)
+
+
+def cevir(bitler, n):
+    return [1 - b if i < n else b for i, b in enumerate(bitler)]
+
+
+def test_tekrar_ayiklama_metin_benzerligi_ve_ayni_sahne_dhash(ortam):
+    """(3) 66/67/70/75 aynı sahne, dHash 3/7/9 → tek kare; 728/730 OCR metni ≥0.9 benzer → tek, uzun olan (730) kalır; 300/302 dHash 8 ama
+    arada sahne kesimi (301.5) → ikisi kalır; kod 500/505 dHash 3 ama farklı OCR metni → ikisi kalır (metinliler hash ile birleşmez)."""
+    T = [66, 67, 70, 75, 300, 302, 500, 505, 728, 730]
+    d = onbellek(ortam, [], duration=1200)
+    (d / "segmentler.jsonl").write_text("\n".join(json.dumps({"i": i, "bas": t, "son": t, "metin": "a"}) for i, t in enumerate(T)), encoding="utf-8")
+    b = {k: [r.randint(0, 1) for _ in range(64)] for k in ("A", "B", "C", "D", "E") if (r := random.Random(k))}
+    bit = {66: b["A"], 67: cevir(b["A"], 3), 70: cevir(b["A"], 7), 75: cevir(b["A"], 9), 300: b["B"], 302: cevir(b["B"], 8), 301: b["C"],
+           500: b["D"], 505: cevir(b["D"], 3), 728: b["E"], 730: [1 - x for x in b["E"]]}
+    uzun = okunur(728)
+    uzun["tr"][2][0] += " proje"
+    kos = OcrKos({"k00728": okunur(728), "k00730": uzun, "k00500": kod(500), "k00505": kod(505)}, sahne_rc=0,
+                 sahne=b"frame:0    pts:301500  pts_time:301.5\nlavfi.scene_score=0.500000\n")
+    kos.ham = lambda yol: ham(bit[int(Path(yol).name[1:6])])
+    assert main(["paket", VID, "--kare", "10", "--istek-tavan", "0"], env=ortam, kos=kos, uyku=lambda s: None) == 0
+    kj = json.loads((d / "kapsam.json").read_text(encoding="utf-8"))
+    assert "seçilen 7 · OCR 3 · model 6 · incelenmedi 0" in kj["izleme"], kj["izleme"]
+    md = (d / "paket.md").read_text(encoding="utf-8")
+    assert uzun["tr"][2][0] in md and "[12:10]" in md and "[12:08]" not in md
+    model = {int(Path(y).name[1:6]) for y in (x.split(" · ")[0] for x in md.split("## Kareler\n")[1].splitlines())}
+    assert len(model & {66, 67, 70, 75}) == 1 and {300, 301, 302, 500, 505} <= model
