@@ -9,4 +9,6 @@ def test_baslat_hedefsiz_varsayilan_kuyruk(tmp_path):
     varsayilan = kok / "docs" / "video-tarama" / "kuyruk.md"
     varsayilan.parent.mkdir(parents=True, exist_ok=True)
     (kok / "kuyruk.md").replace(varsayilan)
-    assert pt.parti(_ns("baslat", None), _ctx(kok, Sahte())) == 0
+    ns = _ns("baslat", None)
+    ns.hedef = None  # _ns hedefi str()'liyor ("None"); argparse hedefsizde None verir
+    assert pt.parti(ns, _ctx(kok, Sahte())) == 0
