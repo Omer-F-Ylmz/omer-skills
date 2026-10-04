@@ -94,3 +94,12 @@ def test_tekrar_ayiklama_metin_benzerligi_ve_ayni_sahne_dhash(ortam):
     assert uzun["tr"][2][0] in ocr and "[12:10]" in ocr and "[12:08]" not in ocr
     model = {int(Path(y).name[1:6]) for y in (x.split(" · ")[0] for x in md.split("## Kareler\n")[1].splitlines())}
     assert len(model & {66, 67, 70, 75}) == 1 and {300, 301, 302, 500, 505} <= model
+
+
+def test_atilan_ocr_gurultu_satirlari_ocr_gurultu_txt(ortam):
+    """(4) gürültü satırları pakete yazılmaz; <id>/ocr-gurultu.txt'ye "mm:ss · satır"."""
+    from test_c3 import GURULTU, paket
+    kos = OcrKos({"k00150": {"tr": [*okunur(150)["tr"], [GURULTU[0], *KUTU(200)], [GURULTU[1], *KUTU(240)]], "en": []}})
+    d, md = paket(ortam, kos)
+    assert GURULTU[0] not in md
+    assert (d / "ocr-gurultu.txt").read_text(encoding="utf-8").splitlines() == [f"2:30 · {GURULTU[0]}", f"2:30 · {GURULTU[1]}"]
