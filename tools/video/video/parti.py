@@ -28,7 +28,7 @@ KARE_UST = 20  # ayar · C4: uzun videoda modele giden kare tavanı (asıl sın�
 WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
 AGIR = re.compile(r"^(?:blender|genshinimpact|yuanshen|zenlesszonezero|starrail|client-win64-shipping|testhost)\.exe\b|pytest|dotnet\S* test",
                   re.I | re.M)  # ayar · C1 ağır süreç: Blender · oyun (tam süreç adı; blender-mcp sayılmaz) · tam suit (komut satırı)
-KARE_TK = 1_600  # ponytail: kare başına sabit jeton tahmini; gruplar sınırda kalırsa gerçek boyut (cli._kare_tk)
+KARE_TK = 1_600  # O11: yalnız dosyası okunamayan kare için; asıl hesap girdi_tk (gerçek boyut, cli._kare_tk)
 SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıklama bağlantıları, altyazı segmentleri, kare listesi. "
           "Her video için formu Türkçe ve eksiksiz doldur; zorunlu alanlar boş olamaz. Zamanlar m:ss ve video süresi içinde "
           "(yalnız açıklamada geçiyorsa 'açıklama'). Açıklama bağlantılarının HER biri için karar ver (aday_mi + neden); erişilemeyende (ücretli topluluk, giriş gerekli) "
@@ -233,7 +233,7 @@ def gruplar(pk):
     """short'lar ≤8 ve ≤40k jetonluk gruplar; uzun video tek başına."""
     out = []
     for v, p in sorted(pk.items(), key=lambda x: not x[1]["short"]):  # M2b K0: short'lar kuyruk sırasından bağımsız
-        tk = c.token(p["metin"]) + KARE_TK * len(p["kareler"])
+        tk = girdi_tk(p["metin"], p["kareler"])
         if p["short"] and out and out[-1][0] and len(out[-1][1]) < SHORT_GRUP and out[-1][2] + tk <= GIRDI_TAVAN:
             out[-1][1].append(v)
             out[-1][2] += tk
@@ -270,13 +270,21 @@ def incelenmedi_isaretle(d, onb):
             s["tarama"].update(durum="bekliyor", deneme=0, hata=None, ice_alindi=None, gecis=2)
 
 
+def girdi_tk(metin, kareler):
+    """C4 (O11): paket bütçesi (cli.PAKET_BUTCE) ve kare_sigdir (GIRDI_TAVAN) aynı hesap — tam metin + gerçek kare jetonu (cli._kare_tk);
+    dosyası olmayan kare KARE_TK sayılır."""
+    from .cli import _kare_tk  # cli parti'yi içe alır: döngüsel, yerel
+    return c.token(metin) + sum(_kare_tk(Path(k))[1] if Path(k).is_file() else KARE_TK for k in kareler)
+
+
 def kare_sigdir(pk, onb=None):
     """M2e K2: uzun videonun çağrı girdisi ≤40k jeton; aşarsa kare düşürülür, rapora not. C4 (O10): onb verilirse düşen anlar
     kapsam.json incelenmedi'ye "girdi tavanı" ile (ikinci geçiş görür), izleme sayısı güncellenir."""
     for v, p in pk.items():
-        tk = c.token(p["metin"])
-        if not p["short"] and tk + KARE_TK * len(p["kareler"]) > GIRDI_TAVAN:
-            n = max(0, (GIRDI_TAVAN - tk) // KARE_TK)
+        if not p["short"] and girdi_tk(p["metin"], p["kareler"]) > GIRDI_TAVAN:
+            n = len(p["kareler"])
+            while n and girdi_tk(p["metin"], p["kareler"][:n]) > GIRDI_TAVAN:
+                n -= 1
             p["kare_not"] = f"kareler: girdi ≤{GIRDI_TAVAN} jeton için {len(p['kareler'])}→{n}"
             if onb and (kj := Path(onb) / v / "kapsam.json").is_file():
                 k = json.loads(kj.read_text(encoding="utf-8"))

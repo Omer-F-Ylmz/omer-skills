@@ -421,9 +421,9 @@ def paket(ns, ctx):
             zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
         isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
     ocr, gor = {}, set()
-    butce = PAKET_BUTCE - c.token("\n".join(str(s.get("metin")) for s in seg))  # ponytail: OCR metni bütçeye girmez; taşarsa parti kare_sigdir yine keser
+    taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     try:
-        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, butce)
+        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
@@ -528,11 +528,12 @@ def _sahneler(ctx, d, n):
     return [t for t, _ in sorted(j["sahneler"], key=lambda x: -x[1])[:n]]
 
 
-def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), sure=0, ocr=None, butce=float("inf")):
+def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), sure=0, ocr=None, taban=None):
     """[(t, yol)] zamana göre. sahne: tüm videonun sahne değişimleri de aday (C2, paket). Sıra: oncelik (altyazı işaret anı) → merkez
     kareler → pencere sahne kareleri; grup içinde OCR karakter sayısı. dHash ile aynı ekran bir kez.
     ocr (dict, C3 paket): adaylar OCR'lanır → ocr {durum, metin [(t, satırlar)], incelenmedi [(t, sebep)]}; OCR'ın anlamlandırdığı kare
-    modele gitmez (silinir), en_fazla yalnız modele giden kareleri sayar. butce (C4): modele giden karelerin jeton toplamı; aşan "incelenmedi"."""
+    modele gitmez (silinir), en_fazla yalnız modele giden kareleri sayar. taban (C4, O11): paket metni; taban + OCR metni + modele giden
+    kareler pt.girdi_tk ile PAKET_BUTCE'yi aşarsa kare "incelenmedi"."""
     if sahne:
         zamanlar = [*zamanlar, *_sahneler(ctx, d, max(2 * en_fazla, int(sure) // OCR_ADAY_SN))]
     zamanlar = list({int(t): t for t in zamanlar}.values())  # aynı saniye bir kez: _kare_uret aynı adlı kareyi siler
@@ -552,7 +553,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
             metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
         except (Hata, ValueError) as e:  # OCR yok → kareler eskisi gibi hepsi modele (sebep pakette)
             o["durum"] = f"OCR yok ({' '.join(str(e).split())[:80]})"
-    tut, hashler = [], []
+    model, hashler = [], []
     for *_, t, yol in sorted(aday, key=lambda a: (a[0], a[1], -len(re.sub(r"\s", "", "".join(metin.get(a[3].name, [])))))):
         h = m.dhash(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=9:8,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]))
         if any(bin(h ^ x).count("1") <= 5 for x in hashler):
@@ -569,14 +570,17 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
             o["metin"].append((t, s))
         if yol.name in metin and not _ocr_model(s):  # OCR anlamlandırdı: metin pakette, kare modele gitmez
             yol.unlink()
-        elif len(tut) >= en_fazla:
+        else:
+            model.append((t, yol))
+    tut, yazi = [], "\n".join([taban or "", *(x for _, s in o["metin"] for x in s)])  # O11: bütçe OCR dahil tam metinle (pt.girdi_tk)
+    for t, yol in model:
+        if len(tut) >= en_fazla:
             o["incelenmedi"].append((t, f"kare tavanı {en_fazla}"))
             yol.unlink()
-        elif (tk := _kare_tk(yol)[1]) > butce:
+        elif taban is not None and pt.girdi_tk(yazi, [*(y for _, y in tut), yol]) > PAKET_BUTCE:
             o["incelenmedi"].append((t, "jeton bütçesi"))
             yol.unlink()
         else:
-            butce -= tk
             tut.append((t, yol))
     return sorted(tut)
 
