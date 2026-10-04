@@ -35,10 +35,11 @@ p.on("close", async (kod) => {
   console.log(`sahte worker gözlem isteği: ${w.istek.length}`);
   await w.kapat();
   // İlk bekleme: son saniyede başlayan torun işaretini henüz yazmamış olabilir.
-  // Sonrası: taskkill yeni döndüyse süreç birkaç yüz ms daha görünebilir, 2.5 sn'ye kadar.
+  // Sonrası: p.kill() ile kapatılan sunucunun job dışı torunu stdin kapanınca birkaç sn içinde
+  // kendiliğinden çıkar (KÜÇÜK-1 K1); sızıntı sayılmadan önce 10 sn'ye kadar beklenir.
   // ponytail: pid yeniden kullanımı yanlış pozitif verebilir; olursa oluşturma zamanı da karşılaştırılır
   let canli = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 20; i++) {
     await new Promise((r) => setTimeout(r, 500));
     canli = fs.readdirSync(ISARET).map(Number).filter(yasiyor);
     if (!canli.length) break;
