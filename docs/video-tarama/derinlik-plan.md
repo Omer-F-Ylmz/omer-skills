@@ -26,7 +26,7 @@ ekranda görünen, açıklamada/yorumda/linkli sayfalarda geçen hiçbir şey ka
 - Üçüncü taraf sağlayıcıya yalnız kamuya açık video/repo/sayfa içeriği gider; anahtar ve kişisel veri gitmez.
 
 ## SIRA
-A1 → A2 → A3 → A4 → A5 → A4b → C1 → C2 → C3 → C4 → D1 → D2 → D3 → B1 → B2 → B3 → B4 → B5 → E1 → E2 → E3 → F1 → F2 → F3 → A6 → A7 → A8
+A1 → A2 → A3 → A4 → A5 → A4b → C1 → C2 → C3 → C4 → D1 → C5 → D2 → D3 → B1 → B2 → B3 → B4 → B5 → E1 → E2 → E3 → F1 → F2 → F3 → A6 → A7 → A8
 
 Önerilen oturum bölümü (50 çağrı tavanına göre; sığmayan bir sonrakine kayar):
 O2 A1–A4 · O3 A5, C1 · O4 C2–C4 · O5 D1–D3 · O6 B1–B3 · O7 B4–B5 · O8 E1–E3 · O9 F1–F3 · O10 A6–A8 + tam suit + arşiv + Ömer komutları.
@@ -129,6 +129,10 @@ kümesi: sahne.json'daki HER sahneden bir kare (en yüksek skor değil, hepsi) +
 tekrarlar (3) ile ayıklanır; aday üst sınırı ADAY_UST (ayarda, ör. 150; aşan sahneler skor sırasıyla kesilir, "incelenmedi (aday tavanı)").
 Test: 51 sahneli 20 dk video → aday ~51 + işaret + 8, 180 değil; doğrudan `paket --kare 20` eski davranış; `paket --kare 8 --model-tavan 60`
 → bütçe sınırlı model karesi.
+**C5 Hızlı kurgu** (Ömer, 5 Eki O15; kanıt: 3. canlı ölçüm b2QkhmQ0sT0 --kare 8 --model-tavan 60 → seçilen 42 · OCR 26 · model 30 ·
+incelenmedi 0 · OCR gürültü 62 · ~7k metin + ~13.3k kare; 1:06–1:09 montajında 66/67/68/69/70 sn beşi de modele, ~2k jeton): 5 sn içinde
+≥3 sahne kesimi olan küme montaj sayılır; kümeden modele en çok OCR metni (eşitse en yüksek sahne skoru) taşıyan en fazla 2 kare gider,
+diğerleri "tekrar (montaj)" sayılır. Test.
 
 ## D — İZ TABLOSU (hiçbir şey kaçmasın)
 **D1** Her video raporunda "## İz": her bahis bir satır — kaynak (konuşma mm:ss · kare mm:ss · açıklama · yorum · linkli sayfa) · ne ·
@@ -137,8 +141,14 @@ konu dışı. "Zaten kurulu" aday değil sebebi DEĞİLDİR: kurulu araç da ada
 sabit liste dışı sebebi ve "zaten kurulu"yu reddeder).
 D1 (a) (Ömer kararı, 4 Eki O14): "## İz" yalnız yeni şemada zorunlu — rapor künyesine şema sürümü eklenir ("şema 2"); rapor-denetle İz'i
 şema ≥2 raporlarda zorunlu tutar (satırsız tablo da eksik); şemasız eski raporlar ve eski fikstürler geçerli kalır (eski test değişmez).
+D1 (b) motor kısmı (Ömer, 5 Eki O15; D1'in parçası, ertelenmez): parti raporu motor formundan üretir → İz motorda da: parti SISTEM metni +
+form şeması "iz" alanı (kaynak · ne · bağlandığı · kanıt; aday değil sebebi sabit listeden) + form doğrulama (eksik/boş İz form_red) +
+rapor_md "## İz" bölümünü ve künyeye "şema 2"yi yazar + motor-sema.md güncellenir. Eski formlar geçerli (iz alanı yoksa şema 1 yazılır).
+video-tarayici-haiku.md'ye aynı şema satırı. Kırmızı test → kod → commit.
 **D2 Çağrısız kaçak denetimi:** altyazı + OCR + linklerden çıkarılan aday benzeri her şey (sözlük = kurulu araçlar + tüm aday dosyaları;
 desenler: URL, owner/repo, kurulum komutları, büyük harfli ürün adları) İz'de yoksa "KAÇAN?" işaretlenir. Test.
+D2 eki (Ömer, 5 Eki O15): kaçak denetimi <id>/ocr-gurultu.txt'yi de tarar — gürültü satırındaki sözlük/desen eşleşmeleri (kurulu araç
+adları, aday adları, kısa adlar dahil) İz'de yoksa "KAÇAN?". Kanıt: canlı gürültü satırlarında "OpenA1", "Open A I", "Meta Stan", "John Kim".
 **D3** Panelde "## Denetim": bahis · bağlanan · aday değil (oran) · KAÇAN? sayıları. KAÇAN? > 0 iken `video parti kapat` durur (bağla ya
 da sebep yaz). "Aday değil" oranı %5'i aşarsa uyarı. Test.
 Ek (Ömer, 4 Eki O7): koruma whisper'ı durdurduğu ve altyazı da olmadığı videoda kapsam "konuşma alınamadı (sebep)" olur; bu durum KAÇAN?
