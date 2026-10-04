@@ -100,10 +100,10 @@ def jpeg_boyut(veri):
     return 0, 0
 
 
-def ahash(ham):
-    """8×8 gri ham bayttan ortalama-hash (int)."""
-    ort = sum(ham) / max(len(ham), 1)
-    return sum(1 << n for n, b in enumerate(ham) if b > ort)
+def dhash(ham):
+    """9×8 gri ham bayttan fark-hash (int): satırda her piksel sağ komşusundan parlak mı (C2)."""
+    bitler = [ham[i] > ham[i + 1] for i in range(len(ham) - 1) if i % 9 != 8]
+    return sum(1 << n for n, b in enumerate(bitler) if b)
 
 
 DOLGU = re.compile(r"\[[^\]]*\]|(?<!\w)(?:u+h+|u+m+|uhm|e+rm|h+m+|ı{2,}|e{2,})(?!\w)[,.]?", re.I)

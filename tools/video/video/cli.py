@@ -31,7 +31,7 @@ LISTE_TAVAN, ALTYAZI_ES, SUZ_ES = 8, 4, 8
 SOR_TOKEN, ADAY_KR = 2_500, 400
 GENISLIK = 768
 GERI_CEKIL, HIZ_DK = (20, 60), 15  # 429: iki tekrar, sonra kullanıcıya bekleme süresi
-SURE = {"meta": 120, "altyazi": 120, "kesit": 120, "ffmpeg": 60, "ses": 900}
+SURE = {"meta": 120, "altyazi": 120, "kesit": 120, "ffmpeg": 60, "ses": 900, "sahne": 1800}
 ARAC_Q = {"type": "noul", "instructions": "Bu video kesiti (state) bir araç, skill, MCP, CLI, teknik ya da iş akışı anlatıyor mu?",
           "criteria": {"true": "Somut bir araç/teknik/iş akışı anlatılıyor.", "false": "Sohbet, giriş, reklam, genel yorum; araç anlatımı yok."}}
 EKRAN_Q = {"type": "noul", "instructions": "Kesitte anlatılan şey ekranda gösteriliyor mu (komut, ayar, arayüz)?",
@@ -313,6 +313,10 @@ def kare_tavan(sure, n, metin=""):
     return min(n, IPUCU_KARE if tr.IPUCU.search(metin) else SHORT_KARE) if 0 < sure < SHORT_SN else n
 
 
+ISARET = re.compile(r"\b(?:ekran|screen|repo|github|link|url|https?://|komut|command|terminal|prompt|ayar|setting|config)", re.I)  # C2: altyazıda ekrana/repoya/linke/komuta/prompta/ayara işaret
+SAHNE_ESIK = 0.3
+
+
 def _yorumlar(ctx, d):
     """DERİNLİK-1 R4: sabitlenmiş/yazar yorumlarındaki bağlantılar (en fazla 20 yorum, indirme yok; yorumlar.json). → (bağlantılar, kapsam durumu)"""
     yol = d / "yorumlar.json"
@@ -347,8 +351,9 @@ def paket(ns, ctx):
     zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
     if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
         zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
+    isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
     try:
-        kareler, kare_yok = (_kareler(ctx, d, zamanlar, 0, GENISLIK, len(zamanlar)) if zamanlar else []), None
+        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, True, isaret) if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
@@ -428,21 +433,45 @@ def _kare_tk(yol):
     return gy, gy[0] * gy[1] // 750
 
 
-def _kareler(ctx, d, zamanlar, pencere, g, en_fazla):
-    """[(t, yol)] zamana göre: önce merkez kareler, kalan pay sahne karelerine; aHash ile tekrar ayıklanır."""
+def _yogunluk(yol):
+    """Metin yoğunluğu vekili: JPEG bayt/piksel (yazı/kod keskin kenar → büyük dosya)."""
+    g, y = m.jpeg_boyut(yol.read_bytes())
+    return yol.stat().st_size / max(1, g * y)  # ponytail: kaba vekil; C3 OCR karakter sayısı gelince onunla değiştir
+
+
+def _sahneler(ctx, d, n):
+    """C2: tüm videoda sahne değişimleri (yalnız anahtar kareler, 160 px; video yazılmaz) → skoru en yüksek n zaman.
+    sahne.json önbellek; hata durumu kayıtlı (sessiz dönüş yok) ve sonraki koşuda yeniden denenir."""
+    yol = d / "sahne.json"
+    j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
+    if j.get("durum") != "✓":
+        try:  # ponytail: tüm akış okunur (uzun videoda bant genişliği); ağır gelirse düşük çözünürlüklü -f ile ayrı -g
+            out = _kos(ctx, ["ffmpeg", "-v", "error", "-rw_timeout", "15000000", "-skip_frame", "nokey", "-i", _akis_url(ctx, d), "-an", "-vf",
+                             f"scale=160:-2,select='gt(scene,{SAHNE_ESIK})',metadata=print:file=-", "-fps_mode", "vfr", "-f", "null", os.devnull], SURE["sahne"])
+            j = {"durum": "✓", "sahneler": [[float(t), float(s)] for t, s in re.findall(rb"pts_time:([\d.]+)\s+lavfi\.scene_score=([\d.]+)", out)]}
+        except Hata as e:
+            j = {"durum": f"sahne alınamadı ({re.sub(r'https?://\S*', '<akış-url>', ' '.join(str(e).split()))[:80]})", "sahneler": []}
+        yol.write_text(json.dumps(j, ensure_ascii=False), encoding="utf-8")
+    return [t for t, _ in sorted(j["sahneler"], key=lambda x: -x[1])[:n]]
+
+
+def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=()):
+    """[(t, yol)] zamana göre. sahne: tüm videonun sahne değişimleri de aday (C2, paket). Sıra: oncelik (altyazı işaret anı) → merkez
+    kareler → pencere sahne kareleri; grup içinde metin yoğunluğu. dHash ile aynı ekran bir kez."""
+    if sahne:
+        zamanlar = [*zamanlar, *_sahneler(ctx, d, 2 * en_fazla)]
+    zamanlar = list({int(t): t for t in zamanlar}.values())  # aynı saniye bir kez: _kare_uret aynı adlı kareyi siler
     try:
         uretilen = [(t, _kare_uret(ctx, d, _akis_url(ctx, d), t, pencere, g)) for t in zamanlar]
     except Hata:  # M9 K1: 403 / akış URL hatası → önbellek silinir, taze -g ile bir kez yeniden
         (d / "akis.url").unlink(missing_ok=True)
         url = _akis_url(ctx, d)
         uretilen = [(t, _kare_uret(ctx, d, url, t, pencere, g)) for t in zamanlar]
-    merkezler = [(t, x) for t, (mk, _) in uretilen for x in mk]
-    sahneler = [(t, x) for t, (_, sh) in uretilen for x in sh]
+    on = {int(t) for t in oncelik}
+    aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
     tut, hashler = [], []
-    for t, yol in merkezler + sahneler:  # önce merkez kareler, kalan pay sahne karelerine
-        if not yol.is_file():
-            continue
-        h = m.ahash(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=8:8,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]))
+    for *_, t, yol in sorted((a for a in aday if a[3].is_file()), key=lambda a: (a[0], a[1], -_yogunluk(a[3]))):
+        h = m.dhash(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=9:8,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]))
         if len(tut) >= en_fazla or any(bin(h ^ x).count("1") <= 5 for x in hashler):
             yol.unlink()
             continue
