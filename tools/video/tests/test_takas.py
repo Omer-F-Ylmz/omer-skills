@@ -106,3 +106,20 @@ def test_toplam_tavan_24_asilmaz(ortam, kok):
 @pytest.mark.parametrize("s,d,k", [(4.8, 0, "AL"), (5, -3, "AL"), (0, 0, "RED(token)"), (-2, -1, "RED(token)")])
 def test_a1_gurultude_her_tasarruf_al(s, d, k):
     assert kur.takas(s, d, False)[0] == k
+
+
+# --- DERİNLİK-MASTER A1 (Ömer 4 Eki): tablonun RED(takas)/SOR çıktısı → ONARIM BEKLİYOR (madde 24 döngüsü); RED(token) aynen ---
+
+@pytest.mark.parametrize("s,d", [(40, 25), (60, 25), (60, 18), (10, 5), (28, 12)])
+def test_a1_takas_red_sor_onarim_bekliyor(s, d):
+    k = kur.kararla(s, d, False)[0]
+    assert k == f"ONARIM BEKLİYOR (takas: düşüş %{d:.1f}, tasarruf %{s:.1f})"
+
+
+def test_a1_kararla_al_ve_red_token_aynen():
+    assert kur.kararla(4.8, 0, False)[0] == "AL" and kur.kararla(0, 0, False)[0] == "RED(token)"
+
+
+def test_a1_onarim_bekliyor_ayristirilir(tmp_path):
+    kur.ayristir_aday(tmp_path, "x", "ONARIM BEKLİYOR (takas: düşüş %25.0, tasarruf %40.0) [x]: x", {"cikti": 20.7, "girdi": 0.0, "maliyet": -7.7}, ["1-ozet"])
+    assert (tmp_path / "docs" / "uyarlamalar" / "x-ayristir.md").is_file()

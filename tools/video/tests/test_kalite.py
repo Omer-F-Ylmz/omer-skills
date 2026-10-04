@@ -18,7 +18,7 @@ E = {"cikti": 25, "maliyet": None}
 
 def test_basari_dususu_takasa_girer():  # 23b: başarı −%50, tasarruf %50 → düşüş >%20 & tasarruf ≥%50 → SOR
     k = kur.karar({**A, "basari": 1.0}, {"cikti": 50, "kalite": 3.0, "maliyet": 0.005, "basari": 0.5}, E, 0.0, [(1.0, 1), (1.0, 0), (0.0, 0)])
-    assert k.startswith("SOR") and "düşen görev: 2" in k
+    assert k.startswith("ONARIM BEKLİYOR (takas") and "düşen görev: 2" in k
 
 
 def test_gurultu_icinde_kalite_gecer():
