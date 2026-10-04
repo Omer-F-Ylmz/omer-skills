@@ -76,11 +76,15 @@ def test_sinifla(tmp_path):
         kayit += [hp(t, "ab"), h2a(f"c{t}", t, int(t), 7, ist_m, sik_m, tr)]
         istek.append(r(t, 60, aw=aw))
     istek += [r(T0 + 40, 4000), r(T0 + 50, 60), r(T0 + 60, 60, b=0), r(T0 + 70, 60, olay=True)]  # d · eşleşmedi · kırılmasız · eylem
+    # CC öneki sonda değişir (cache_control kayması), Headroom daha önce (1) → b · mesaj kaydı boş → e
+    kayit += [h2a("p80", T0 + 79, int(T0 + 80) - 1, 7, "abcd", "abcd"), h2a("c80", T0 + 80, int(T0 + 80), 7, "abce", "aycd"),
+              h2a("p90", T0 + 89, int(T0 + 90) - 1, 7, "", ""), h2a("c90", T0 + 90, int(T0 + 90), 7, "", "")]
+    istek += [r(T0 + 80, 60), r(T0 + 90, 60)]
     istek.append(r(T0 + 500, 60))
     s = H.sinifla(istek, kayit, [], kayit_yok=[(T0 + 400, T0 + 600)], bas=T0 - 1, bit=T0 + 1000)
     adet = {k: v["adet"] for k, v in s["sinif"].items()}
-    assert adet == {"a": 1, "b": 1, "c": 1, "d": 1, "e": 3, "kayit_yok": 1, "bosluk": 0}
-    assert s["e_sebep"] == {"cc_onek": 1, "eslesmedi": 1, "oturum_eylemi": 1}
+    assert adet == {"a": 1, "b": 2, "c": 1, "d": 1, "e": 4, "kayit_yok": 1, "bosluk": 0}
+    assert s["e_sebep"] == {"cc_onek": 1, "eslesmedi": 1, "oturum_eylemi": 1, "mesaj_yok": 1}
     assert s["sicak_headroom_etiketli"] == 1
     assert s["sinif"]["a"]["token"] == 500
 
