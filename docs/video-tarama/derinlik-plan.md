@@ -110,6 +110,15 @@ süre_dk/3 yalnız taban; doğrudan `paket --kare N` aynen. C4 testleri buna gö
 harf yok sayılır) tr = en ise en; tr yalnız Türkçe ipucu (ve, bir, için, ile, bu, da, de, olarak, gibi…; ayarda) varsa. Gürültü satırı
 (anlamlı kelime yok ya da anlamsız oranı yüksek) pakete yazılmaz; sayısı izleme'de "OCR gürültü N". Test (gerçek örnekler). (3) kare_sigdir
 (40k girdi tavanı) düşürdüğü anlar kapsam.json incelenmedi'ye "girdi tavanı" sebebiyle; izleme sayısı güncellenir. Test.
+C4/C3 ikinci düzeltme (Ömer, 4 Eki O11; kanıt: canlı b2QkhmQ0sT0 --kare 20 → seçilen 44 · OCR 25 · model 20 · incelenmedi 8 "kare
+tavanı 20" · OCR gürültü 43 · ~7k metin + ~8.8k kare ≈ 15.9k / 40k; 66–90 sn'de 5 kare, 728/730 neredeyse aynı ekran): (1) tek girdi
+hesabı: PAKET_BUTCE ve kare_sigdir (GIRDI_TAVAN) aynı fonksiyon — gerçek kare jetonu (_kare_tk) + OCR dahil tam paket metni; KARE_TK
+1600 varsayımı kalkar. Test: ~440 jetonluk 28 kare + ~7k metin → kare düşmez. (2) model kare sınırı yalnız bütçe: KARE_UST güvenlik üst
+sınırı 60 (ayarda); C4/O10 testleri buna göre (ayrı commit, "Ömer onayı: tavan 20 → bütçe"). Test: 44 seçilen, 28'i model gerektiren 20
+dk → model 28, incelenmedi 0. (3) tekrar ayıklama: (a) katlanmış OCR metni benzerliği ≥0.9 (ayarda) iki kare tekrar, metni uzun olan
+kalır; (b) OCR'sız/model karelerinde aynı sahne içinde ve dHash Hamming ≤10 (ayarda) tek sayılır, sahne değişimi varsa ayrı. Test:
+66/67/70/75 tek kare, 728/730 tek kare, farklı OCR metinli iki kare kalır. (4) atılan OCR gürültü satırları <id>/ocr-gurultu.txt'ye
+(zaman · satır). Test.
 
 ## D — İZ TABLOSU (hiçbir şey kaçmasın)
 **D1** Her video raporunda "## İz": her bahis bir satır — kaynak (konuşma mm:ss · kare mm:ss · açıklama · yorum · linkli sayfa) · ne ·
