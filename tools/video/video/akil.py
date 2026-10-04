@@ -218,6 +218,34 @@ def _lisans(ctx, repo, f):
     return "bilinmiyor" if lk == "hatırlanan bilgi" else li if lk in ("LICENSE", "README") or li == "bilinmiyor" else f"{li} (doğrulanmadı)"
 
 
+def _son_commit(ctx, rp, ay=None):
+    """DERİNLİK-2 S3: son commit tarihi gh api'den (alt yol S2; istekten önce ≥2 sn); okunamazsa None."""
+    if not (rp and ctx.get("gh")):
+        return None
+    (ctx.get("uyku") or pt.time.sleep)(2)
+    try:
+        return ctx["gh"](["api", f"repos/{rp}/commits?per_page=1" + (f"&path={ay}" if ay else "")])[0]["commit"]["committer"]["date"][:10]
+    except Exception:
+        return None
+
+
+def _eksik_tamamla(ctx, kok, k, a):
+    """DERİNLİK-MASTER A2 (=Y2): önceki/tamam aday yeniden araştırılmaz; aday.md'de bilinmeyen lisans ve son commit çağrısız (gh api) doldurulur."""
+    y = _aday_yol(kok, k)
+    if not y.is_file():
+        return
+    m = y.read_text(encoding="utf-8")
+    al = uy.alanlar(m)
+    if not (rp := a["repo"] or (al.get("repo") if al.get("repo") not in (None, "", "yok") else None)):
+        return
+    yeni = {"lisans": _lisans(ctx, rp, {"lisans": "bilinmiyor"}) if al.get("lisans", "bilinmiyor") in ("", "bilinmiyor") else None,
+            "son_commit": _son_commit(ctx, rp, a.get("repo_yol")) if al.get("son_commit", "bilinmiyor") in ("", "bilinmiyor") else None}
+    for x, v in yeni.items():  # ponytail: alan satırı yoksa (çok eski form) eklenmez
+        if v and v != "bilinmiyor":
+            m = re.sub(rf"^{x}: .*$", f"{x}: {v}", m, count=1, flags=re.M)
+    y.write_text(m, encoding="utf-8", newline="")
+
+
 def _kapsam(k, a, al, m, gv, d):
     """DERİNLİK-1 R5: araştırma kapsamı → (panel satırı, eksik alanlar); yapılan ✓, yapılmayan sebebiyle; '—' kapsam dışı."""
     tam, dis = bool(m) and "arastirma: tam" in m, f"— (tür {a['tur']})" if a["tur"] in ARAC_DISI else None
@@ -753,6 +781,9 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     _tavan_genislet(pdir, d, sum(a["durum"] in pt.YENIDEN and a.get("deneme", 0) < 3 for a in adaylar.values()),
                     int(any(a["kurulu"] and a["tur"] not in ARAC_DISI for a in adaylar.values())))
     pt._yaz(yol, d)
+    for k, a in adaylar.items():  # DERİNLİK-MASTER A2: araştırma öncesi önceki/tamam adayın çağrısız eksikleri (aynı koşuda araştırılan tekrar sorulmaz)
+        if a["durum"] in ("onceki", "tamam"):
+            _eksik_tamamla(ctx, kok, k, a)
     for k, a in adaylar.items():  # aşama 6: araç başına tek derin araştırma
         if a["durum"] not in pt.YENIDEN or a.get("deneme", 0) >= 3:
             continue
@@ -767,13 +798,8 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
         if durum == "tamam":
             rp = a["repo"] or _repo(f.get("repo_url"))  # DERİNLİK-2 S6b: servis/ürün de lisans API'sine gider
             f["lisans"] = _lisans(ctx, rp, f)
-            if rp and ctx.get("gh"):  # DERİNLİK-2 S3: son commit tarihi gh api'den (alt yol S2); okunamazsa araştırıcının değeri
-                (ctx.get("uyku") or pt.time.sleep)(2)
-                try:
-                    ay = a.get("repo_yol")
-                    f["son_commit"] = ctx["gh"](["api", f"repos/{rp}/commits?per_page=1" + (f"&path={ay}" if ay else "")])[0]["commit"]["committer"]["date"][:10]
-                except Exception:
-                    pass
+            if sc := _son_commit(ctx, rp, a.get("repo_yol")):  # okunamazsa araştırıcının değeri
+                f["son_commit"] = sc
             _aday_md(kok, k, a, f, d)
             a.pop("hata", None)
             a["alt_tur"] = f.get("alt_tur") or a.get("alt_tur")
