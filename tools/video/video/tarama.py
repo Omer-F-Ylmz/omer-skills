@@ -428,28 +428,58 @@ def _kat_ad(s):
     return re.sub(r"[\W_]", "", s.casefold().translate(str.maketrans("10", "io")))
 
 
-def kacan(rapor, kaynaklar, sozluk, desen=KACAN_DESEN):
+ARAC_ISARET = {"skill", "skills", "plugin", "mcp", "cli", "extension", "agent", "server"}
+
+
+def _ayirt(ad):
+    """D2 (i): tire/rakam/nokta/iç büyük harf ya da ≥5 harf ve YAYGIN değil."""
+    return bool(re.search(r"[-.\d]|[a-z][A-Z]", ad)) or (len(re.sub(r"[\W\d_]", "", ad)) >= 5 and ad.casefold() not in YAYGIN)
+
+
+def _baglam(satir, s, e, once, sonra):
+    """D2 (ii): komşu sözcük araç işareti · "/ad" ya da "ad/" (owner/repo) · kurulum komutu içinde."""
+    return ((once or "").casefold() in ARAC_ISARET or (sonra or "").casefold() in ARAC_ISARET or "/" in satir[s - 1:s] + satir[e:e + 1]
+            or any(m.start() <= s < m.end() for m in KACAN_DESEN[1].finditer(satir)))
+
+
+def kacan(rapor, kaynaklar, sozluk, desen=KACAN_DESEN, zayif=None):
     """D2 çağrısız kaçak denetimi: [(kaynak, metin)] içindeki URL · owner/repo · kurulum komutu · büyük harfli ürün adı ve sözlük adları
-    (1–3 ardışık sözcük katlanmış eşit; kısa adlar dahil) ## İz'de geçmiyorsa → [(kaynak, terim)] "KAÇAN?"."""
-    iz, sozluk, gorulen, k = _kat_ad(bolum(rapor, "İz")), {_kat_ad(x): x for x in sozluk}, set(), []
+    (1–3 ardışık sözcük katlanmış eşit; kısa adlar dahil) ## İz'de geçmiyorsa → [(kaynak, terim)] "KAÇAN?".
+    zayif listesi verilirse ayırt edici olmayan ve araç bağlamı olmayan sözlük eşleşmeleri oraya (düşük güven) gider."""
+    iz, sozluk, gorulen, k, zt_hepsi = _kat_ad(bolum(rapor, "İz")), {_kat_ad(x): x for x in sozluk}, set(), [], []
     for kaynak, metin in kaynaklar:
-        terim = KACAN_URL.findall(metin)
+        terim, zt = KACAN_URL.findall(metin), []
         duz = KACAN_URL.sub(" ", metin)
         for satir in duz.splitlines():
-            w = re.findall(r"[\w.-]+", satir)
-            terim += [sozluk[j] for n in (1, 2, 3) for i in range(len(w) - n + 1) if (j := _kat_ad("".join(w[i:i + n]))) in sozluk]
+            m = list(re.finditer(r"[\w.-]+", satir))
+            w = [x.group() for x in m]
+            for n in (1, 2, 3):
+                for i in range(len(w) - n + 1):
+                    if (j := _kat_ad("".join(w[i:i + n]))) in sozluk:
+                        ad = sozluk[j]
+                        guclu = zayif is None or _ayirt(ad) or _baglam(satir, m[i].start(), m[i + n - 1].end(),
+                                                                       w[i - 1] if i else None, w[i + n] if i + n < len(w) else None)
+                        (terim if guclu else zt).append(ad)
+            if zayif is not None:  # "ad-skill" / "ad-mcp" tireli biçim
+                terim += [sozluk[j] for x in w if "-" in x and x.rsplit("-", 1)[1].casefold() in ARAC_ISARET
+                          and (j := _kat_ad(x.rsplit("-", 1)[0])) in sozluk]
         terim += [x for d in desen for x in d.findall(duz)]
         for t in terim:
             if (j := _kat_ad(t)) and j not in gorulen and j not in iz:
                 gorulen.add(j)
                 k.append((kaynak, t))
+        zt_hepsi += [(kaynak, t) for t in zt]
+    for q, t in zt_hepsi:  # engelleyen olan ya da İz'deki ad düşük güvende tekrar sayılmaz
+        if (j := _kat_ad(t)) not in gorulen and j not in iz:
+            gorulen.add(j)
+            zayif.append((q, t))
     return k
 
 
 # ayar · D2 (b): düşük güven adayı sayılmayan yaygın büyük harfli kelimeler (casefold)
 YAYGIN = set("i a an the this that these those it its we you he she they my our your and or but so if then now here there what why how "
              "when where who okay ok yes no hello hi hey thanks today also just bir bu şu o ve ama için ile çok daha şimdi evet hayır "
-             "tamam merhaba yani peki sonra burada".split())
+             "tamam merhaba yani peki sonra burada design data docs do review taste standup debug video careful confidence".split())
 BILINEN = Path("docs") / "video-tarama" / "bilinen-araclar.txt"
 
 
@@ -483,7 +513,9 @@ def kacan_dusuk(rapor, kaynaklar, sozluk):
                     w = b.group()
                     say[w] = say.get(w, 0) + 1
                     ilk.setdefault(w, kaynak)
-    return [(ilk[w], w) for w, n in say.items() if n >= 2 and w.casefold() not in YAYGIN and (j := _kat_ad(w)) not in soz and j not in iz]
+    # iç büyük harfli tek kelime (LangGraph, ChatGPT) tek geçişte de; ≥2 şartı yalnız düz Büyük-harfli kelimeye
+    return [(ilk[w], w) for w, n in say.items() if (n >= 2 or re.search(r"[a-z][A-Z]", w)) and w.casefold() not in YAYGIN
+            and (j := _kat_ad(w)) not in soz and j not in iz]
 
 
 def kacan_video(rapor, paket, sozluk):
@@ -494,7 +526,9 @@ def kacan_video(rapor, paket, sozluk):
     g = p.parent / "ocr-gurultu.txt"
     k = [("paket", "\n".join(bolum(md, b) for b in ("Açıklama bağlantıları", "Segmentler", "Ekran metni")))]
     k += [("gürültü", g.read_text(encoding="utf-8"))] if g.is_file() else []
-    return kacan(rapor, k, sozluk, KACAN_DESEN[:2]), kacan_dusuk(rapor, k, sozluk)
+    zayif = []
+    eng = kacan(rapor, k, sozluk, KACAN_DESEN[:2], zayif)
+    return eng, kacan_dusuk(rapor, k, sozluk) + zayif
 
 
 def frontend_mu(metin):
