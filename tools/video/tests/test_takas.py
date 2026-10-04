@@ -58,7 +58,7 @@ def test_basari_dususu_puan_dususunu_ezer():
     a = {"cikti": 100, "girdi": 100, "kalite": 3.0, "maliyet": 1.0, "basari": 1.0}
     b = {"cikti": 60, "girdi": 60, "kalite": 2.85, "maliyet": 0.6, "basari": 0.8}  # kalite −%5 · başarı −%20 · tasarruf %40
     k = kur.karar(a, b, E, 0.0, [(1.0, 0.8)])
-    assert k.startswith("RED") and "düşüş %20.0" in k
+    assert k.startswith("ONARIM BEKLİYOR (takas") and "düşüş %20.0" in k
 
 
 # --- K10 ayrıştırma adayı yalnız RED(kalite/takas)/SOR ---
