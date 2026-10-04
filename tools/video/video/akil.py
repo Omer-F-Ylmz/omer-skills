@@ -193,14 +193,14 @@ def _kapsam(k, a, al, m, gv, d):
     repo = a["repo"] or (al.get("repo") if al.get("repo") not in (None, "", "yok") else None)
     bil = lambda x: "✓" if tam and al.get(x) not in (None, "", "bilinmiyor") else "bilinmiyor" if tam else f"araştırılmadı ({a.get('durum')})"
     pm = tr.bolum(m, "Prompt metni").strip() if m else ""
-    alan = {"repo": dis or ("✓" if repo else a.get("repo_arama") or "repo yok"),
+    alan = {"repo": dis or (f"✓ {repo}" if repo else a.get("repo_arama") or "repo yok"),
             "README": dis or ("✓" if tam and repo else "repo yok" if tam else f"araştırılmadı ({a.get('durum')})"),
             "lisans": dis or bil("lisans"), "commit": dis or bil("son_commit"),
             "güvenlik": dis or ("✓" if not gv.startswith("koşmadı") else gv),
             "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
             "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
             "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı"}
-    eksik = [x for x in list(alan)[:6] if alan[x] != "✓" and not alan[x].startswith("—")]
+    eksik = [x for x in list(alan)[:6] if not alan[x].startswith(("✓", "—"))]
     return f"- {k} · " + " · ".join(f"{x} {pt._h(v)}" for x, v in alan.items()), eksik
 
 
@@ -692,9 +692,9 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama") if x in eski.get(k, {})})
         if not a["repo"] and a["kurulu"] and a["tur"] not in ARAC_DISI and (kr := _kayit_repo(ctx["env"], a)):
             a["repo"], a["repo_yol"] = kr  # DERİNLİK-2 S1: kurulu araçta arama yok, kurulum kaydı
-        elif not a["repo"] and not a["kurulu"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı", "olası")):
+        elif not a["repo"] and not a["kurulu"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı", "olası", "araştırıcı")):
             a["repo_arama"] = _repo_ara(ctx, a)[1]
-        a["repo"] = a["repo"] or (a["repo_arama"][9:] if str(a.get("repo_arama", "")).startswith("bulundu: ") else None)
+        a["repo"] = a["repo"] or (a["repo_arama"].split(": ", 1)[1] if str(a.get("repo_arama", "")).startswith(("bulundu: ", "araştırıcı buldu: ")) else None)
         if a["repo"] != eski.get(k, {}).get("repo"):  # DERİNLİK-1 R6: repo değiştiyse güvenlik ön taraması yeniden
             a.pop("guvenlik", None)
         if a["kurulu"] and a["tur"] not in ARAC_DISI and "guncellik" not in a:
@@ -728,6 +728,8 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
             _aday_md(kok, k, a, f, d)
             a.pop("hata", None)
             a["alt_tur"] = f.get("alt_tur") or a.get("alt_tur")
+            if not a["repo"] and (r := _repo(f.get("repo_url"))):  # DERİNLİK-2 S4: araştırıcının bulduğu repo geri yazılır
+                a["repo"], a["repo_arama"] = r, f"araştırıcı buldu: {r}"
         else:
             a["hata"] = f
         a["durum"] = durum
