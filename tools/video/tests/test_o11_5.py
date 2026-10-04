@@ -34,6 +34,20 @@ def test_aday_ust_asilinca_sahneler_skor_sirasiyla_kesilir(ortam, monkeypatch):
     assert sorted(t for t, s in kj["incelenmedi"] if s == "aday tavanı") == [t for t, _ in SAHNE[22:]]
 
 
+def test_ayni_saniyede_iki_sahne_paket_cokmez_kare_bir_kez(ortam, monkeypatch):
+    """Canlı hata (b2QkhmQ0sT0, Ömer 3. ölçüm): 10.2 ve 10.7 aynı ad k00010_* → aynı yol adayda iki kez; ikisi de tekrar → ikinci unlink
+    FileNotFoundError. k00033 aynı metinle önce gelir (skor yüksek), k00010'un iki kopyası da tekrar olur."""
+    onbellek(ortam, [], duration=1200)
+    d = Path(ortam["VIDEO_CACHE"]) / VID
+    (d / "sahne.json").write_text(json.dumps({"durum": "✓", "sahneler": [[33.0, 0.9], [10.2, 0.8], [10.7, 0.7]]}), encoding="utf-8")
+    zam, asil = [], cli._kare_uret
+    monkeypatch.setattr(cli, "_kare_uret", lambda *a: (zam.append(a[3]), asil(*a))[1])
+    t = {"tr": ["npx skills add vercel-labs/agent-skills kurulum komutu"], "en": []}
+    assert main(["paket", VID, "--kare", "8", "--istek-tavan", "0", "--kare-yalniz", "--model-tavan", "60"], env=ortam,
+                kos=OcrKos({"k00033": t, "k00010": t}), uyku=lambda s: None) == 0
+    assert [int(x) for x in zam].count(10) == 1
+
+
 def test_model_tavan_ayri_butce_sinirli_varsayilan_eski_davranis(ortam, monkeypatch):
     _, kj = kos(ortam, monkeypatch, "--model-tavan", "60")
     assert int(re.search(r"model (\d+)", kj["izleme"])[1]) > 8
