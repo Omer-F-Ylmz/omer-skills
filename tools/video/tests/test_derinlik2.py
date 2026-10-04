@@ -92,3 +92,13 @@ def test_s1_kurulu_repo_kayittan(tmp_path):
     d, _ = _kos(tmp_path, [("yerel-arac", "plugin", None), ("alt-arac", "plugin", None)], gh)
     assert d["yerel-arac"]["repo"] == "sahip/pazar" and d["alt-arac"]["repo"] == "ust/depo"
     assert not any("search/repositories" in x for x in gh.cagrilar)
+
+
+# S4 araştırıcının bulduğu repo durum.json'a geri yazılır; Kapsam "repo ✓ owner/ad"; Repo araması çelişmez
+def test_s4_arastirici_reposu_geri_yazilir(tmp_path):
+    from test_m2c import _panel
+    d, _ = _kos(tmp_path, [("ajan-z", "plugin", None)], None, Ar({"ajan-z": {"repo_url": "https://github.com/Bulan/Ajan-Z"}}))
+    assert (d["ajan-z"]["repo"], d["ajan-z"]["repo_arama"]) == ("bulan/ajan-z", "araştırıcı buldu: bulan/ajan-z")
+    t = _panel(tmp_path, PID)[1]
+    assert "- ajan-z: araştırıcı buldu: bulan/ajan-z" in t
+    assert next(s for s in t.split("## Kapsam", 1)[1].splitlines() if s.startswith("- ajan-z ·")).startswith("- ajan-z · repo ✓ bulan/ajan-z ·")
