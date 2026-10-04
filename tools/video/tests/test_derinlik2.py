@@ -145,3 +145,35 @@ def test_s5_atlanan_tarama_kapsamda_tik_degil():
     a = {"tur": "plugin", "repo": "o/lh", "kurulu": None, "durum": "araştırıldı", "videolar": {V[0]: {}}}
     satir, eksik = ak._kapsam("lh", a, {}, "", "atlandı (seyrek içerik 21 MB)", {})
     assert "güvenlik atlandı (seyrek içerik 21 MB)" in satir and "güvenlik" in eksik
+
+
+def _gh_lisans(spdx):
+    def gh(args):
+        gh.cagrilar.append(args)
+        if "search/repositories" in args:
+            return {"items": []}
+        if args[1].endswith("/license") and spdx:
+            return {"license": {"spdx_id": spdx}}
+        raise RuntimeError("HTTP 404")
+    gh.cagrilar = []
+    return gh
+
+
+def _lisans_satiri(tmp_path, ad):
+    from test_m2c import _panel
+    return next(s for s in _panel(tmp_path, PID)[1].splitlines() if s.startswith(f"| {ad} |"))
+
+
+# S6 lisans gh api repos/<r>/license'tan; araştırıcının yazdığı lisans ezilir
+def test_s6_lisans_gh_apiden(tmp_path):
+    gh = _gh_lisans("Apache-2.0")
+    _kos(tmp_path, [("ajan-l", "plugin", None)], gh, Ar({"ajan-l": {"repo_url": "https://github.com/o/ajan-l", "lisans": "MIT"}}))
+    assert ["api", "repos/o/ajan-l/license"] in gh.cagrilar
+    assert "| Apache-2.0 |" in _lisans_satiri(tmp_path, "ajan-l")
+
+
+# S6 API okunamaz + lisans "hatırlanan bilgi" → reddedilir, "bilinmiyor"
+def test_s6_hatirlanan_lisans_reddedilir(tmp_path):
+    ar = Ar({"ajan-h": {"repo_url": "https://github.com/o/ajan-h", "lisans": "MIT", "lisans_kaynak": "hatırlanan bilgi"}})
+    _kos(tmp_path, [("ajan-h", "plugin", None)], _gh_lisans(None), ar)
+    assert "| bilinmiyor |" in _lisans_satiri(tmp_path, "ajan-h")
