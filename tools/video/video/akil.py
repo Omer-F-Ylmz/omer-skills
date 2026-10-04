@@ -214,7 +214,7 @@ def _kapsam(k, a, al, m, gv, d):
     pm = tr.bolum(m, "Prompt metni").strip() if m else ""
     alan = {"repo": dis or (f"✓ {repo}" if repo else a.get("repo_arama") or "repo yok"),
             "README": dis or ("✓" if tam and repo else "repo yok" if tam else f"araştırılmadı ({a.get('durum')})"),
-            "lisans": dis or bil("lisans"), "commit": dis or bil("son_commit"),
+            "lisans": dis or bil("lisans"), "commit": dis or (f"✓ {al['son_commit']}" if bil("son_commit") == "✓" else bil("son_commit")),  # S3: tarih
             "güvenlik": dis or ("✓" if not gv.startswith(("koşmadı", "atlandı")) else gv),  # DERİNLİK-2 S5
             "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
             "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
@@ -239,9 +239,11 @@ def _guncellik(ctx, a):
     if not (ku := next((v[0] for p, v in kayit.get("plugins", {}).items() if v and tr.normal(p.split("@")[0]) in adlar), None)):
         return "güncellik bakılamadı (kurulu sürüm bulunamadı)"
     sur = str(ku.get("gitCommitSha") or ku.get("version") or "")
+    yol, tarih = a.get("repo_yol"), ""  # DERİNLİK-2 S2: marketplace alt yolu varsa güncellik o yol için
     try:
         if sha := re.fullmatch(r"[0-9a-f]{7,40}", sur):
-            ust = gh(["api", f"repos/{a['repo']}/commits?per_page=1"])[0]["sha"]
+            c = gh(["api", f"repos/{a['repo']}/commits?per_page=1" + (f"&path={yol}" if yol else "")])[0]
+            ust, tarih = c["sha"], ((c.get("commit") or {}).get("committer") or {}).get("date", "")[:10]  # S3
         else:
             ust = gh(["api", f"repos/{a['repo']}/releases/latest"])["tag_name"].lstrip("v")
     except Exception as e:  # sessiz dönüş yok: sebep Kapsam'da
@@ -250,13 +252,14 @@ def _guncellik(ctx, a):
     for dz in ("skills", "commands", "agents"):  # yeni skill/komut/ajan listesi farkı; dizini olmayan repo atlanır
         uyku(2)
         try:
-            ust_ad = {Path(x["name"]).stem for x in gh(["api", f"repos/{a['repo']}/contents/{dz}"])}
+            ust_ad = {Path(x["name"]).stem for x in gh(["api", f"repos/{a['repo']}/contents/{yol + '/' if yol else ''}{dz}"])}
         except Exception:
             continue
         yeni += [f"{dz}/{x}" for x in sorted(ust_ad - {p.stem for p in (Path(ku.get("installPath", "")) / dz).glob("*")})]
+    son = f" · son commit {tarih}" if tarih else ""
     if (ust.startswith(sur[:7]) if sha else ust == sur) and not yeni:
-        return f"güncel ({sur[:7] if sha else sur})"
-    return f"fark: kurulu {sur[:7] if sha else sur} ↔ upstream {ust[:7] if sha else ust}" + (f" · yeni: {', '.join(yeni[:10])}" if yeni else "")
+        return f"güncel ({sur[:7] if sha else sur})" + son
+    return f"fark: kurulu {sur[:7] if sha else sur} ↔ upstream {ust[:7] if sha else ust}" + (f" · yeni: {', '.join(yeni[:10])}" if yeni else "") + son
 
 
 def _fark(a):
@@ -745,7 +748,15 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                             f"VİDEO BULGULARI:\n{bulgu}\n<veri kaynak=\"on.md\">\n{on[:12000] or 'ön getirme yok'}\n</veri>", ARASTIRMA, "arastirma", k, env)
         if durum == "tamam":
             hizmet = {a["tur"], f.get("alt_tur")} & {"servis", "ürün"}  # M2c K1: lisans kapısı yalnız araç; hizmette API'ye gidilmez
-            f["lisans"] = _lisans(ctx, None if hizmet else a["repo"] or _repo(f.get("repo_url")), f)
+            rp = None if hizmet else a["repo"] or _repo(f.get("repo_url"))
+            f["lisans"] = _lisans(ctx, rp, f)
+            if rp and ctx.get("gh"):  # DERİNLİK-2 S3: son commit tarihi gh api'den (alt yol S2); okunamazsa araştırıcının değeri
+                (ctx.get("uyku") or pt.time.sleep)(2)
+                try:
+                    ay = a.get("repo_yol")
+                    f["son_commit"] = ctx["gh"](["api", f"repos/{rp}/commits?per_page=1" + (f"&path={ay}" if ay else "")])[0]["commit"]["committer"]["date"][:10]
+                except Exception:
+                    pass
             _aday_md(kok, k, a, f, d)
             a.pop("hata", None)
             a["alt_tur"] = f.get("alt_tur") or a.get("alt_tur")
