@@ -177,3 +177,18 @@ def test_s6_hatirlanan_lisans_reddedilir(tmp_path):
     ar = Ar({"ajan-h": {"repo_url": "https://github.com/o/ajan-h", "lisans": "MIT", "lisans_kaynak": "hatırlanan bilgi"}})
     _kos(tmp_path, [("ajan-h", "plugin", None)], _gh_lisans(None), ar)
     assert "| bilinmiyor |" in _lisans_satiri(tmp_path, "ajan-h")
+
+
+# S10 kurulu araç kapatma/kaldırma önerisi panelde işaretlenir; kurala uyan öneri işaretlenmez; kural akıl isteminde
+def test_s10_kapatma_onerisi_isaretlenir(tmp_path):
+    from test_m11 import _kur
+    from test_m2c import _aday, _panel
+    pdir, d = _kur(tmp_path, (), {"x": _aday("x", kurulu="x"), "y": _aday("y")}, ["x", "y"])
+    d["gelistirme"][0]["gelistirme_onerisi"] = "x eklentisini kapat, token yiyor"
+    ak.panel(pdir, d, tmp_path)
+    t = _panel(tmp_path)[1]
+    sx = next(s for s in t.splitlines() if s.startswith("| x-gelistirme |"))
+    sy = next(s for s in t.splitlines() if s.startswith("| y-gelistirme |"))
+    assert "S10 ihlali" in sx and "S10" not in sy
+    assert "S10 ihlali" in t.split("## Geliştirme önerileri", 1)[1]
+    assert "TOKEN-3" in ak.SISTEM_GEL and "kapatma/kaldırma" in ak.SISTEM_GEL
