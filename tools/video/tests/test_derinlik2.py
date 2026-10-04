@@ -241,3 +241,19 @@ def test_s7_ayni_videoda_benzer_adlar_tek_aday(tmp_path):
     ruf = next(a for a in out.values() if "ruflo" in a["adlar"])
     assert len(ruf["adlar"]) == 3 and ruf["repo"] == "ruvnet/ruflo" and set(ruf["videolar"]) == {V[0], V[1]}
 
+
+# S6b servis/ürün sınıfı da lisans API'sine gider
+def test_s6b_servis_lisans_apiden(tmp_path):
+    gh = _gh_lisans("Apache-2.0")
+    _kos(tmp_path, [("ajan-s", "servis", "https://github.com/o/ajan-s")], gh, Ar({"ajan-s": {"alt_tur": "servis", "lisans": "MIT"}}))
+    assert ["api", "repos/o/ajan-s/license"] in gh.cagrilar and "| Apache-2.0 |" in _lisans_satiri(tmp_path, "ajan-s")
+
+
+# S6b API okunamaz: lisans_kaynak okunan dosya (LICENSE/README) ise düz; değilse ya da alan yoksa "(doğrulanmadı)"
+def test_s6b_dogrulanmayan_lisans_isaretlenir(tmp_path):
+    ar = Ar({"ajan-a": {"repo_url": "https://github.com/o/ajan-a", "lisans": "MIT", "lisans_kaynak": "README"},
+             "ajan-b": {"repo_url": "https://github.com/o/ajan-b", "lisans": "MIT", "lisans_kaynak": "gh api"},
+             "ajan-c": {"repo_url": "https://github.com/o/ajan-c", "lisans": "MIT"}})
+    _kos(tmp_path, [("ajan-a", "plugin", None), ("ajan-b", "plugin", None), ("ajan-c", "plugin", None)], _gh_lisans(None), ar)
+    assert "| MIT |" in _lisans_satiri(tmp_path, "ajan-a")
+    assert all("| MIT (doğrulanmadı) |" in _lisans_satiri(tmp_path, k) for k in ("ajan-b", "ajan-c"))
