@@ -19,6 +19,7 @@ WEB_TAVAN = 3
 CEKIRDEK = {"claude-code", "headroom", "rtk", "graphify", "jev", "openrouter"}  # M2c K1: kendi aracımız (envantere ek)
 ARAC_DISI = {"ipucu", "kural", "teknik", "prompt", "iş akışı"}  # M2e K4: araç eşdeğer/kurulu eşleşmesine girmez
 ESDEGER, OLASI = 0.75, 0.5  # M2c K3: Jev eşdeğer p eşikleri (ZATEN VAR · OLASI EŞDEĞER)
+BELIRSIZ = 0.03  # A4b: "bizde benzer" 1. − 3. Jaccard farkı bunun altındaysa Jev seçer
 JEV_TAVAN = 30
 ALT_TUR = {"araç": "kurulabilir açık kaynak araç: repo ya da paket", "servis": "API ya da SaaS hizmeti (hesap/anahtar ile kullanılır)",
            "ürün": "kapalı kaynak uygulama ya da editör"}
@@ -161,12 +162,50 @@ def _sozcuk(t):
     return set(re.findall(r"\w{3,}", t.lower()))
 
 
-def _benzer(a, envanter, n=3):
-    """DERİNLİK-MASTER A4 (=Y5): aday işlevi kurulu skill/plugin açıklamalarında aranır (ad şart değil) → en yakın n kurulu karşılık, çağrısız."""
-    # ponytail: sözcük örtüşmesi (Jaccard); TR video notu ↔ EN açıklamada zayıf → gerekirse Jev/gömme
-    w = _sozcuk(" ".join([a["ad"], *(x.get("ne", "") for x in a["videolar"].values())]))
+def _benzer(a, envanter, n=3, sec=None):
+    """DERİNLİK-MASTER A4 (=Y5): aday işlevi kurulu skill/plugin açıklamalarında aranır (ad şart değil) → en yakın n kurulu karşılık, çağrısız.
+    A4b: aday tarafı İngilizce kaynak (kaynak_en), TR video notu yalnız yedek; ilk 3 belirsizse (1. − 3. < BELIRSIZ) sec(ad, ilk5, metin)
+    bir kez sorulur, sonuç a['benzer_jev'] (seçilen öne)."""
+    # ponytail: sözcük örtüşmesi (Jaccard); belirsiz ilk 3'te Jev seçer, gömme gerekirse sonra
+    m = a.get("kaynak_en") or " ".join(x.get("ne", "") for x in a["videolar"].values())
+    w = _sozcuk(f"{a['ad']} {m}")
     p = sorted(((len(w & (x := _sozcuk(f"{e['ad']} {e.get('aciklama', '')}"))) / (len(w | x) or 1), e["ad"]) for e in envanter), reverse=True)
-    return [ad for s, ad in p[:n] if s > 0]
+    ilk = [ad for s, ad in p[:5] if s > 0]
+    if sec and len(ilk) >= 3 and p[0][0] - p[2][0] < BELIRSIZ and "benzer_jev" not in a:
+        a["benzer_jev"] = sec(a["ad"], ilk, m)
+    s = a.get("benzer_jev")
+    return ([s] if s in ilk else []) + [x for x in ilk if x != s][:n - (s in ilk)]
+
+
+def _kaynak_en(ctx, a):
+    """A4b: adayın İngilizce kaynağı — repo açıklaması + README'nin ilk 30 satırı (gh, istekten önce ≥2 sn); okunamayan parça atlanır."""
+    if not (a.get("repo") and (gh := ctx.get("gh"))):
+        return ""
+    uyku, par = ctx.get("uyku") or pt.time.sleep, []
+    for y in (f"repos/{a['repo']}", f"repos/{a['repo']}/readme"):
+        uyku(2)
+        try:
+            r = gh(["api", y])
+        except Exception:  # 404/ağ → o parça yok, TR not yedeği kalır
+            continue
+        par.append("\n".join(base64.b64decode(r["content"]).decode("utf-8", "replace").splitlines()[:30]) if "content" in r else r.get("description") or "")
+    return "\n".join(par).strip()
+
+
+def _benzer_sec(ctx, pdir, envanter):
+    """A4b: belirsiz ilk 3 → mevcut Jev eşdeğer yolu (uy.ESDEGER_Q choice: en yakın 5 + 'yok'); çağrı defter.jsonl'da sayılır."""
+    def sec(ad, ilk, metin):
+        kr = {**{e["ad"]: (e.get("aciklama") or e["tur"])[:dp.ACIKLAMA] for e in envanter if e["ad"] in ilk}, "yok": "hiçbiri bu adayın ana işini yapmıyor"}
+        tr.kayit_ekle(pdir / "defter.jsonl", [{"zaman": datetime.now().isoformat(timespec="seconds"), "adim": "benzer_jev", "not": ad,
+                                               "usd": 0, "girdi": 0, "onb_okuma": 0, "onb_yazma": 0, "cikti": 0}])
+        try:
+            y = (ctx.get("yargila") or _jev(ctx))([f"{ad}: {' '.join(metin.split())[:400]}"], {"es": {"type": "choice", "instructions": uy.ESDEGER_Q, "criteria": kr}})[0] or {}
+        except Exception as e:  # Jev yoksa sıra sözcük örtüşmesinde kalır; çağrı sayıldı, tekrar sorulmaz
+            print(f"jev: {str(e)[:120]}")
+            return None
+        pr = (y.get("es") or {}).get("probabilities") or {}
+        return max(pr, key=pr.get) if pr else None
+    return sec
 
 
 def _kayit_repo(env, a):
@@ -818,15 +857,17 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
     ev = Path(kok) / "docs" / "departmanlar" / "envanter.json"
     envanter = (tr._json(ev) or []) if ev.is_file() else []
     for k, a in adaylar.items():
-        a["benzer"] = _benzer(a, envanter)  # A4
         a.update({x: eski[k][x] for x in ("guncellik", "kaynak") if x in eski.get(k, {})})  # R1: fark kararı durum geri yüklemesinden önce
         a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
-        a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama") if x in eski.get(k, {})})
+        a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama", "kaynak_en", "benzer_jev") if x in eski.get(k, {})})
         if not a["repo"] and a["kurulu"] and a["tur"] not in ARAC_DISI and (kr := _kayit_repo(ctx["env"], a)):
             a["repo"], a["repo_yol"] = kr  # DERİNLİK-2 S1: kurulu araçta arama yok, kurulum kaydı
         elif not a["repo"] and not a["kurulu"] and a["tur"] not in ARAC_DISI and not str(a.get("repo_arama", "")).startswith(("bulundu", "arandı", "olası", "araştırıcı")):
             a["repo_arama"] = _repo_ara(ctx, a)[1]
         a["repo"] = a["repo"] or (a["repo_arama"].split(": ", 1)[1] if str(a.get("repo_arama", "")).startswith(("bulundu: ", "araştırıcı buldu: ")) else None)
+        if envanter and a["repo"] and "kaynak_en" not in a:
+            a["kaynak_en"] = _kaynak_en(ctx, a)  # A4b: İngilizce kaynak, durum.json'da (tekrar istenmez)
+        a["benzer"] = _benzer(a, envanter, sec=_benzer_sec(ctx, pdir, envanter))  # A4 · A4b
         if a["repo"] != eski.get(k, {}).get("repo"):  # DERİNLİK-1 R6: repo değiştiyse güvenlik ön taraması yeniden
             a.pop("guvenlik", None)
         if a["kurulu"] and a["tur"] not in ARAC_DISI and "guncellik" not in a:

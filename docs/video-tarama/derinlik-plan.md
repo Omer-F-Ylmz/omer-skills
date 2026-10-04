@@ -22,7 +22,7 @@ ekranda görünen, açıklamada/yorumda/linkli sayfalarda geçen hiçbir şey ka
 - Üçüncü taraf sağlayıcıya yalnız kamuya açık video/repo/sayfa içeriği gider; anahtar ve kişisel veri gitmez.
 
 ## SIRA
-A1 → A2 → A3 → A4 → A5 → C1 → C2 → C3 → C4 → D1 → D2 → D3 → B1 → B2 → B3 → B4 → B5 → E1 → E2 → E3 → F1 → F2 → F3 → A6 → A7 → A8
+A1 → A2 → A3 → A4 → A5 → A4b → C1 → C2 → C3 → C4 → D1 → D2 → D3 → B1 → B2 → B3 → B4 → B5 → E1 → E2 → E3 → F1 → F2 → F3 → A6 → A7 → A8
 
 Önerilen oturum bölümü (50 çağrı tavanına göre; sığmayan bir sonrakine kayar):
 O2 A1–A4 · O3 A5, C1 · O4 C2–C4 · O5 D1–D3 · O6 B1–B3 · O7 B4–B5 · O8 E1–E3 · O9 F1–F3 · O10 A6–A8 + tam suit + arşiv + Ömer komutları.
@@ -171,4 +171,4 @@ A1 test_takas.py:48 çelişkisi · C2 Pillow yoksa · C3 Windows.Media.Ocr eriş
 · suite-kosucu ajanı yoksa.
 
 ## İlerleme
-O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). Sonraki: C1.
+O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). Sonraki: C1 (tasarım .claude/dalga.md'de).
