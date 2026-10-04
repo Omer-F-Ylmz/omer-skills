@@ -66,6 +66,13 @@ Kanıt: ~/.claude known_marketplaces.json 146-151 (ECC → worldflowai).
 en yakın 3 kurulu karşılık panelde "bizde benzer". CSV stil/palet+arama betiği → ui-ux-pro-max; depo geneli güvenlik taraması →
 security-assessment / Strix / gstack-cso. Kaynaklar: installed_plugins + ~/.claude/skills + plugin skill dizinleri (yalnız OKUNUR). Test:
 nextlevelbuilder/ui-ux-pro-max-skill → kurulu ui-ux-pro-max (ZATEN VAR + güncellik); gstack → garrytan/gstack; paket içi security-review → ECC reposu.
+**A4b "bizde benzer" İngilizce kaynakla (Ömer, 4 Eki):** aday tarafı adayın İngilizce kaynağıdır — repo açıklaması + README'nin ilk ~30
+satırı (`gh api repos/<repo>` + `/readme`, istekler arası ≥2 sn; sonuç durum.json'da `kaynak_en`, tekrar istenmez); kurulu araç
+açıklamalarıyla aynı sözcük örtüşmesi (A4 puanı değişmez). Türkçe video notu yalnız yedek (repo yok / gh yok / okunamadı). İlk 3 içinde
+skor farkı küçük (1. − 3. < eşik) belirsiz durumda mevcut Jev eşdeğer yolu (uygula.esdeger deseni: en yakın 5 + "yok" choice) seçer;
+aday başına en fazla 1 çağrı, sonuç `benzer_jev` (tekrar sorulmaz), defterde (defter.jsonl `benzer_jev`) sayılır. Test (gerçek envanter):
+Türkçe notlu + İngilizce README'li tasarım adayı → ui-ux-pro-max ilk 3'te; depo geneli güvenlik tarama adayı → security-assessment / Strix /
+gstack-cso ilk 3'te; belirsizde tek Jev çağrısı + defter satırı, açıkta çağrı yok. Prototip ölçümü: Türkçe notla ikisi de ilk 5 dışında.
 **A5 KUR + ONARIM + GÜÇLENDİRME:** araştırıcı istemine (aday-arastirici) ve panele "## Kötü yan + onarım + güçlendirme" bölümü. Varsayılan
 öneri KUR/UYARLA. Kötü yan sınıfları: token (oturum başı enjeksiyon + skill listesi payı; ölçülen/tahmin) · performans (RAM, süre, arka
 plan süreci) · kalite (kurulu araçla çakışma, yanlış tetikleme) · güvenlik (SkillSpector, izinler). Her birinin onarımı (B5'in bulduğu

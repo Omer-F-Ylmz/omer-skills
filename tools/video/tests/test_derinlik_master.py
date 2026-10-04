@@ -178,3 +178,88 @@ def test_a5_istem_ve_arastirici_tanimi():
     assert all(x in ak.SISTEM for x in ("kotu_yanlar", "TOKEN-3 profili", "tembel yükleme", "sarmalayıcı", "güçlendirme", "kapatan"))
     t = (Path(__file__).resolve().parents[3] / ".claude" / "agents" / "aday-arastirici.md").read_text(encoding="utf-8")
     assert "## Kötü yan + onarım + güçlendirme" in t
+
+
+# --- A4b "bizde benzer" İngilizce kaynakla (gerçek envanter) ---
+UI_EN = ("UI UX Pro Max - An AI skill that provides design intelligence for building professional UI/UX across multiple platforms.\n"
+         "67 UI styles, 96 color palettes, 57 font pairings, 25 chart types and 99 UX guidelines. Searchable database with a CSV search script.\n"
+         "Works with Claude Code, Cursor, Windsurf. Generate a design system for landing pages, dashboards, mobile apps.")
+SEC_EN = ("RepoGuard - scan your whole repository for security vulnerabilities.\n"
+          "Static analysis of every file, secret detection, vulnerable dependency audit and a findings report ranked by severity.\n"
+          "Run it in CI or locally before you ship.")
+GUVENLIK = {"security-assessment", "cso", "gstack-cso"}
+
+
+def _env_gercek():
+    from pathlib import Path
+    return json.loads((Path(__file__).resolve().parents[3] / "docs" / "departmanlar" / "envanter.json").read_text(encoding="utf-8"))
+
+
+def _aday_en(ad, repo, ne):
+    return {"ad": ad, "repo": repo, "videolar": {"v": {"ne": ne}}}
+
+
+def _gh_en(aciklama, readme):
+    import base64
+
+    def gh(args):
+        gh.cagrilar.append(args[1])
+        if args[1].endswith("/readme"):
+            return {"content": base64.b64encode(readme.encode()).decode(), "encoding": "base64"}
+        return {"description": aciklama}
+    gh.cagrilar = []
+    return gh
+
+
+def _strix_cso(b):
+    return [x for x in b if x in GUVENLIK or "strix" in x]
+
+
+def test_a4b_turkce_notlu_ingilizce_readmeli_tasarim_adayi():
+    from video import akil as ak
+    env, a = _env_gercek(), _aday_en("tasarim-zekasi", "nextlevelbuilder/ui-ux-pro-max-skill", "tasarım skill'i: stil, palet, font önerisi; CSV arama betiği")
+    assert "ui-ux-pro-max" not in ak._benzer(a, env)  # Türkçe not tek başına kaçırır
+    gh, u = _gh_en("Design intelligence skill for UI/UX", UI_EN + "\n" + "x\n" * 40), _uyku()
+    a["kaynak_en"] = ak._kaynak_en({"gh": gh, "uyku": u}, a)
+    assert gh.cagrilar == ["repos/nextlevelbuilder/ui-ux-pro-max-skill", "repos/nextlevelbuilder/ui-ux-pro-max-skill/readme"] and u.n == [2, 2]
+    assert a["kaynak_en"].startswith("Design intelligence") and a["kaynak_en"].count("\nx") < 30  # README ilk 30 satır
+    sorulan = []
+    assert "ui-ux-pro-max" in ak._benzer(a, env, sec=lambda *x: sorulan.append(x)) and sorulan == []  # açık fark: Jev yok
+
+
+def test_a4b_depo_geneli_guvenlik_belirsizde_tek_jev():
+    from video import akil as ak
+    env, a = _env_gercek(), _aday_en("repoguard", "o/repoguard", "depo geneli güvenlik taraması, bulgu raporu")
+    assert not _strix_cso(ak._benzer(a, env))  # Türkçe not tek başına kaçırır
+    a["kaynak_en"] = SEC_EN
+    assert _strix_cso(ak._benzer(a, env))
+    sorulan = []
+
+    def sec(ad, ilk, metin):
+        sorulan.append((ad, ilk, metin))
+        return next(x for x in ilk if "strix" in x)
+    b = ak._benzer(a, env, sec=sec)
+    assert len(sorulan) == 1 and len(sorulan[0][1]) == 5 and sorulan[0][2] == SEC_EN and "strix" in b[0] and len(b) == 3
+    assert ak._benzer(a, env, sec=sec) == b and len(sorulan) == 1  # sonuç a["benzer_jev"]; tekrar sorulmaz
+
+
+def test_a4b_jev_secimi_mevcut_esdeger_yolu_defterde(tmp_path):
+    ev = tmp_path / "docs" / "departmanlar" / "envanter.json"
+    ev.parent.mkdir(parents=True, exist_ok=True)
+    ev.write_text(json.dumps([{"ad": x, "tur": "skill", "aciklama": "security scan of the repository"} for x in ("cso", "tarayici-b", "tarayici-c")]
+                             + [{"ad": "ui-ux-pro-max", "tur": "skill", "aciklama": "design system palettes"}]), encoding="utf-8")
+    gh = _gh_en("repo security scan", SEC_EN)
+    jev = []
+
+    def yargila(states, q):
+        jev.append((states, q))
+        return [{"es": {"probabilities": {"cso": 0.8, "tarayici-b": 0.1, "yok": 0.1}}}]
+    from video import akil as ak
+    ctx = {"yargila": yargila}
+    a = _aday_en("repoguard", "o/repoguard", "depo geneli güvenlik taraması")
+    a["kaynak_en"] = ak._kaynak_en({"gh": gh, "uyku": _uyku()}, a)
+    pdir = tmp_path / "p"
+    pdir.mkdir()
+    b = ak._benzer(a, json.loads(ev.read_text(encoding="utf-8")), sec=ak._benzer_sec(ctx, pdir, json.loads(ev.read_text(encoding="utf-8"))))
+    assert b[0] == "cso" and a["benzer_jev"] == "cso" and len(jev) == 1 and "yok" in jev[0][1]["es"]["criteria"]
+    assert [x["adim"] for x in pt.tr.kayit_oku(pdir / "defter.jsonl")] == ["benzer_jev"]
