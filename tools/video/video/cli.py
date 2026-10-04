@@ -31,7 +31,7 @@ LISTE_TAVAN, ALTYAZI_ES, SUZ_ES = 8, 4, 8
 SOR_TOKEN, ADAY_KR = 2_500, 400
 GENISLIK = 768
 GERI_CEKIL, HIZ_DK = (20, 60), 15  # 429: iki tekrar, sonra kullanıcıya bekleme süresi
-SURE = {"meta": 120, "altyazi": 120, "kesit": 120, "ffmpeg": 60, "ses": 900, "sahne": 1800}
+SURE = {"meta": 120, "altyazi": 120, "kesit": 120, "ffmpeg": 60, "ses": 900, "sahne": 1800, "ocr": 600}
 ARAC_Q = {"type": "noul", "instructions": "Bu video kesiti (state) bir araç, skill, MCP, CLI, teknik ya da iş akışı anlatıyor mu?",
           "criteria": {"true": "Somut bir araç/teknik/iş akışı anlatılıyor.", "false": "Sohbet, giriş, reklam, genel yorum; araç anlatımı yok."}}
 EKRAN_Q = {"type": "noul", "instructions": "Kesitte anlatılan şey ekranda gösteriliyor mu (komut, ayar, arayüz)?",
@@ -315,6 +315,44 @@ def kare_tavan(sure, n, metin=""):
 
 ISARET = re.compile(r"\b(?:ekran|screen|repo|github|link|url|https?://|komut|command|terminal|prompt|ayar|setting|config)", re.I)  # C2: altyazıda ekrana/repoya/linke/komuta/prompta/ayara işaret
 SAHNE_ESIK = 0.3
+OCR_PS = Path(__file__).with_name("ocr.ps1")
+OCR_AZ, OCR_KISA, OCR_KOD, OCR_GUVEN, OCR_ADAY_SN = 40, 12, 0.3, 0.7, 60  # C3: <40 krk şema/görsel · satır ort. <12 krk arayüz · kod satırı
+# ≥%30 · anlamlı oran <0.7 → kare modele · uzun videoda her 60 sn'ye bir sahne adayı (en az 2×kare)
+TEKNIK = re.compile(r"https?://|www\.|\b[\w.-]+/[\w.-]+|\b(?:npx|npm|pip|uvx?|claude|git|gh|curl|winget|brew)\b|^\s*/\w|--\w", re.I)
+KOD = re.compile(r"[{};]|=>|==|\w\(|^\s*(?:def|function|import|from|const|let|var|class|return)\b")
+TR_HARF = re.compile(r"[çğışöüÇĞİŞÖÜ]")
+
+
+def _ocr_birlestir(tr_, en):
+    """C3: tr ve en satırları ([metin, x0, y0, x1, y1]) kutu örtüşmesiyle eşlenir. URL/komut/kod → en, Türkçe harf → tr, değilse anlamlı
+    oranı yüksek olan (Windows OCR güven puanı vermez: vekil m.anlamsiz_oran; eşitte en). Eşsiz satır olduğu gibi; sıra yukarıdan aşağı."""
+    ortus = lambda a, b: a[1] < b[3] and b[1] < a[3] and a[2] < b[4] and b[2] < a[4]  # noqa: E731
+    kalan, cikti = list(en), []
+    for a in tr_:
+        b = next((b for b in kalan if ortus(a, b)), None)
+        if b is None:
+            cikti.append((a[2], a[0]))
+            continue
+        kalan.remove(b)
+        x, y = a[0], b[0]
+        s = y if TEKNIK.search(x) or TEKNIK.search(y) else x if TR_HARF.search(x) else x if m.anlamsiz_oran(x) < m.anlamsiz_oran(y) else y
+        cikti.append((a[2], s))
+    cikti += [(b[2], b[0]) for b in kalan]
+    return [re.sub(r" [—–] ", " -- ", s) if TEKNIK.search(s) else s for _, s in sorted(cikti, key=lambda c: c[0])]  # OCR "--"yu "—" okur
+
+
+def _ocr_model(satirlar):
+    """C3: OCR anlamlandıramadı mı → kare modele gider: az metin (şema/görsel) · kısa satırlar (arayüz) · kod · anlamsız."""
+    metin = " ".join(satirlar)
+    n = len(re.sub(r"\s", "", metin))
+    return (n < OCR_AZ or n / len(satirlar) < OCR_KISA or sum(bool(KOD.search(s)) for s in satirlar) >= OCR_KOD * len(satirlar)
+            or m.anlamsiz_oran(metin) > 1 - OCR_GUVEN)
+
+
+def _ocr(ctx, yollar):
+    """C3: tüm kareler tek PowerShell çağrısında (ocr.ps1, Windows.Media.Ocr tr + en) → {dosya adı: birleşik satırlar}."""
+    out = _kos(ctx, ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(OCR_PS), *map(str, yollar)], SURE["ocr"])
+    return {ad: _ocr_birlestir(k.get("tr") or [], k.get("en") or []) for ad, k in json.loads(out.decode("utf-8") or "{}").items()}
 
 
 def _yorumlar(ctx, d):
@@ -352,8 +390,10 @@ def paket(ns, ctx):
     if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
         zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
     isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
+    ocr, gor = {}, set()
     try:
-        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, True, isaret) if zamanlar else []), None
+        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, True, isaret, meta.get("duration") or 0, ocr)
+                             if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
@@ -361,6 +401,9 @@ def paket(ns, ctx):
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
+          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, s in sorted(ocr.get("metin", [])) for x in s if not (x in gor or gor.add(x))]
+                                                or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # aynı satır bir kez; boşsa bölüm yok
+          *(["## İncelenmedi", *i] if (i := [f"[{m.ss(t)}] {sebep}" for t, sebep in sorted(ocr.get("incelenmedi", []))]) else []),
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
@@ -433,12 +476,6 @@ def _kare_tk(yol):
     return gy, gy[0] * gy[1] // 750
 
 
-def _yogunluk(yol):
-    """Metin yoğunluğu vekili: JPEG bayt/piksel (yazı/kod keskin kenar → büyük dosya)."""
-    g, y = m.jpeg_boyut(yol.read_bytes())
-    return yol.stat().st_size / max(1, g * y)  # ponytail: kaba vekil; C3 OCR karakter sayısı gelince onunla değiştir
-
-
 def _sahneler(ctx, d, n):
     """C2: tüm videoda sahne değişimleri (yalnız anahtar kareler, 160 px; video yazılmaz) → skoru en yüksek n zaman.
     sahne.json önbellek; hata durumu kayıtlı (sessiz dönüş yok) ve sonraki koşuda yeniden denenir."""
@@ -455,11 +492,13 @@ def _sahneler(ctx, d, n):
     return [t for t, _ in sorted(j["sahneler"], key=lambda x: -x[1])[:n]]
 
 
-def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=()):
+def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), sure=0, ocr=None):
     """[(t, yol)] zamana göre. sahne: tüm videonun sahne değişimleri de aday (C2, paket). Sıra: oncelik (altyazı işaret anı) → merkez
-    kareler → pencere sahne kareleri; grup içinde metin yoğunluğu. dHash ile aynı ekran bir kez."""
+    kareler → pencere sahne kareleri; grup içinde OCR karakter sayısı. dHash ile aynı ekran bir kez.
+    ocr (dict, C3 paket): adaylar OCR'lanır → ocr {durum, metin [(t, satırlar)], incelenmedi [(t, sebep)]}; OCR'ın anlamlandırdığı kare
+    modele gitmez (silinir), en_fazla yalnız modele giden kareleri sayar."""
     if sahne:
-        zamanlar = [*zamanlar, *_sahneler(ctx, d, 2 * en_fazla)]
+        zamanlar = [*zamanlar, *_sahneler(ctx, d, max(2 * en_fazla, int(sure) // OCR_ADAY_SN))]
     zamanlar = list({int(t): t for t in zamanlar}.values())  # aynı saniye bir kez: _kare_uret aynı adlı kareyi siler
     try:
         uretilen = [(t, _kare_uret(ctx, d, _akis_url(ctx, d), t, pencere, g)) for t in zamanlar]
@@ -469,14 +508,30 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=()):
         uretilen = [(t, _kare_uret(ctx, d, url, t, pencere, g)) for t in zamanlar]
     on = {int(t) for t in oncelik}
     aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
+    aday = [a for a in aday if a[3].is_file()]
+    o, metin = ({} if ocr is None else ocr), {}
+    o.update(metin=[], incelenmedi=[])
+    if ocr is not None and aday:
+        try:
+            metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
+        except (Hata, ValueError) as e:  # OCR yok → kareler eskisi gibi hepsi modele (sebep pakette)
+            o["durum"] = f"OCR yok ({' '.join(str(e).split())[:80]})"
     tut, hashler = [], []
-    for *_, t, yol in sorted((a for a in aday if a[3].is_file()), key=lambda a: (a[0], a[1], -_yogunluk(a[3]))):
+    for *_, t, yol in sorted(aday, key=lambda a: (a[0], a[1], -len(re.sub(r"\s", "", "".join(metin.get(a[3].name, [])))))):
         h = m.dhash(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=9:8,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]))
-        if len(tut) >= en_fazla or any(bin(h ^ x).count("1") <= 5 for x in hashler):
+        if any(bin(h ^ x).count("1") <= 5 for x in hashler):
             yol.unlink()
             continue
         hashler.append(h)
-        tut.append((t, yol))
+        if s := metin.get(yol.name):
+            o["metin"].append((t, s))
+        if yol.name in metin and not _ocr_model(s):  # OCR anlamlandırdı: metin pakette, kare modele gitmez
+            yol.unlink()
+        elif len(tut) >= en_fazla:
+            o["incelenmedi"].append((t, f"kare tavanı {en_fazla}"))
+            yol.unlink()
+        else:
+            tut.append((t, yol))
     return sorted(tut)
 
 

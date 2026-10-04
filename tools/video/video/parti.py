@@ -124,13 +124,8 @@ def _anlamli(yol):
 
 
 def _bozuk_oran(yol):
-    """C1: anlamsız kelime oranı ([Music]/♪ atılır). Anlamsız: ≥4 harf sesli harfsiz, aynı harf 3+ tekrar, harf+rakam karışık ya da
-    art arda aynı kelime. Kelime yoksa 1.0. ponytail: sözlük yok; teknik kısaltmalar (html, gpt4) eşiğin altında kalır."""
-    metin = " ".join(json.loads(s).get("metin", "") for s in yol.read_text(encoding="utf-8").splitlines() if s.strip())
-    k = re.findall(r"\w+", re.sub(r"\[[^\]]*\]|♪", " ", metin).lower())
-    kotu = sum(bool((len(w) >= 4 and not re.search(r"[aeıioöuüyâî]", w)) or re.search(r"(.)\1\1", w)
-                    or (re.search(r"\d", w) and re.search(r"[^\W\d]", w)) or (i and w == k[i - 1])) for i, w in enumerate(k))
-    return kotu / len(k) if k else 1.0
+    """C1: segmentlerin anlamsız kelime oranı (m.anlamsiz_oran)."""
+    return m.anlamsiz_oran(" ".join(json.loads(s).get("metin", "") for s in yol.read_text(encoding="utf-8").splitlines() if s.strip()))
 
 
 def _bos_ram_gb():

@@ -91,8 +91,8 @@ class Kos:
             for yol in ([cikti % 1, cikti % 2] if "%d" in cikti else [cikti]):
                 open(yol, "wb").write(jpeg())
             return 0, b"", b""
-        if args[0] == "powershell":  # C3 OCR: sahte ortamda tanıyıcı yok → kareler OCR'sız (eski davranış)
-            return 2, b"", b"OCR yok (sahte)"
+        if args[0] == "powershell":  # C3 OCR: sahte ortamda metin bulunmaz → kareler hepsi modele (eski davranış)
+            return 0, b"{}", b""
         raise AssertionError(args)
 
 
