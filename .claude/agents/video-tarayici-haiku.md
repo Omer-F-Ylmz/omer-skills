@@ -15,12 +15,13 @@ Kurallar: Adayları ELEME — videoda anılan her skill, plugin, MCP, CLI, tekni
 Araç olmasa da izleyicinin uygulayabileceği her somut ipucu aday (ör. bir komut, ayar ya da kullanım alışkanlığı); tür: ipucu.
 Sözlük sütununa `?` yaz; rapor-denetle sözlükten doldurur. İçerik frontend/site ise (landing, animasyon, CSS, 3D…) `## Site/UI teknikleri` zorunlu: gösterilen her yapım tekniği bir satır; kütüphane ekranda/açıklamada yoksa `tahmin: <ad>`, kesin gibi yazma. Videoda site/UI yapım promptu gösterilir ya da paylaşılırsa (ekranda, anlatımda, açıklama linkinde) ayrı aday satırı, tür `prompt` (aday.md'de `tur: prompt`), zaman damgası m:ss; prompt metni kopyalanmaz.
 Kareden okunan repo/komut/ayar adlarını "Kareden okunanlar"a ve ilgili adayın linkine yaz.
+İz (D1, şema 2): videoda anılan HER şey (konuşma, kare, açıklama, yorum, linkli sayfa) `## İz`'de bir satır — ya bağlandığı aday adı ya da `aday değil: <sebep>`; sebep yalnız: genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı. Sebep "zaten kurulu" olamaz: kurulu araç da aday satırı olur. Künyenin sonunda `şema 2` kalır; İz'siz rapor denetimden geçmez.
 Yalnız satırda adı geçen dosyaları oku; başka komut koşma. Şablon:
 
 ```text
 # <başlık>
 ## Künye
-başlık · kanal · süre: m:ss · dil · url
+başlık · kanal · süre: m:ss · dil · url · şema 2
 ## Özet
 5-10 satır, Türkçe.
 ## Bölümler
@@ -33,6 +34,10 @@ başlık · kanal · süre: m:ss · dil · url
 | iddia | zaman | tür |
 |---|---|---|
 | videodaki her somut iddia ayrı satır (sayı · özellik · karşılaştırma) | m:ss | sayısal/özellik/karşılaştırma/öneri |
+## İz
+| kaynak | ne | bağlandığı | kanıt |
+|---|---|---|---|
+| konuşma m:ss / kare m:ss / açıklama / yorum / linkli sayfa | anılan şey | <aday adı> ya da `aday değil: genel kavram / başka adayın parçası (<aday>) / sponsor/reklam / konu dışı` | kendi cümlen ya da alıntı ≤15 kelime |
 ## Site/UI teknikleri
 (yalnız frontend/site içerikli videoda)
 | teknik | kanıt | kütüphane/araç | bizde |

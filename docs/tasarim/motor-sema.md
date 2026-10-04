@@ -20,6 +20,7 @@ promptlar:    [{metin!, amac!, kanit_zamani!, kaynak!}]
 iddialar:     [{iddia!, kanit_zamani!, kaynak!, aday_adi|null}]
 kareden_okunanlar: [{kare!, okunan!}]
 belirsizlikler: [str]
+iz:           [{kaynak!, ne!, baglandigi!, kanit!}]   # D1 (b): her bahis bir satır; baglandigi = aday adı ya da "aday değil: <sabit sebep>"; yoksa rapor şema 1
 ```
 `!` = zorunlu ve boş olamaz. `atlanan_segment_orani` modelden istenmez; kod paketteki segment sayısından hesaplar. Kod ayrıca `aciklama_baglantilari` sayısının paketteki bağlantı sayısına eşit olduğunu denetler (eksikse red).
 

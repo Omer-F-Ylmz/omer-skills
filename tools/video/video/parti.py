@@ -35,10 +35,12 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "aday_mi false + erisilemez: <sebep>. "
           "Alıntı en fazla 15 kelime. Kareden okunan bilgide kaynak 'kare' (ekli görseller, sırası bloklardaki kare listesiyle aynı). "
           "Anahtar, şifre, token değeri yazma. Site/landing/frontend içerikli videoda site_ui doldur. Emin olmadığını belirsizliklere yaz. "
-          "Gösterilen ya da söylenen her kurulum/terminal komutunu kurulum_komutlar'a yaz (komut · ne yapar · zaman · kaynak).")
+          "Gösterilen ya da söylenen her kurulum/terminal komutunu kurulum_komutlar'a yaz (komut · ne yapar · zaman · kaynak). "
+          "iz (D1, şema 2): videoda anılan HER şey (konuşma m:ss · kare m:ss · açıklama · yorum · linkli sayfa) bir satır — baglandigi: aday adı ya da "
+          "'aday değil: <sebep>'; sebep yalnız genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı. 'zaten kurulu' sebep değil: kurulu araç da aday.")
 
 
-OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar", "lisans_kaynak", "kotu_yanlar", "guclendirme"}  # M2c: opsiyonel alanlar
+OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar", "lisans_kaynak", "kotu_yanlar", "guclendirme", "iz"}  # M2c: opsiyonel alanlar · D1 (b): iz yoksa eski form (şema 1)
 
 
 def _o(**alan):
@@ -56,8 +58,8 @@ ZMN = {"type": "string", "minLength": 1, "description": "m:ss, video süresi iç
 KG = {"karede_gorulen": {"type": ["string", "null"], "description": "kare gönderildiyse zorunlu: karede tam olarak ne görülüyor"}}
 
 
-def sema(ids):
-    """Tarayıcı formu (motor-sema.md §1); tür listeleri rapor-denetle'ninkiyle aynı."""
+def sema(ids, iz=False):
+    """Tarayıcı formu (motor-sema.md §1); tür listeleri rapor-denetle'ninkiyle aynı. iz=True: modele giden şemada İz zorunlu (D1 b)."""
     video = _o(id={"type": "string", "enum": list(ids)}, ozet=S, bolumler=_d(_o(zaman=ZMN, baslik=S)),
                adaylar=_d(_o(ad=S, tur={"type": "string", "enum": sorted(tr.TUR)}, ne=S, kanit_zamani=ZMN, kaynak=KAYNAK, kanit=S, repo_url=N, **KG)),
                aciklama_baglantilari=_d(_o(url=S, ne=S, aday_mi={"type": "boolean"}, neden=S, aday_adi=N, erisilemez=N)),
@@ -65,7 +67,10 @@ def sema(ids):
                promptlar=_d(_o(metin=S, amac=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
                iddialar=_d(_o(iddia=S, kanit_zamani=ZMN, kaynak=KAYNAK, tur={"type": "string", "enum": sorted(tr.IDDIA_TUR)}, aday_adi=N, **KG)),
                kareden_okunanlar=_d(_o(kare=S, okunan=S)), belirsizlikler=_d(S),
-                kurulum_komutlar=_d(_o(komut=S, ne_yapar=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)))
+                kurulum_komutlar=_d(_o(komut=S, ne_yapar=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
+               iz=_d(_o(kaynak=S, ne=S, baglandigi=S, kanit=S)))
+    if iz:
+        video["required"].append("iz")
     return _o(videolar={"type": "array", "minItems": len(ids), "items": video})
 
 
@@ -205,7 +210,7 @@ def _nk(s):  # M4c: yalnız gösterim (test_m4 K1 testi); şema nasil/kutuphane 
 
 def rapor_md(f, pk, notlar):
     """Mevcut rapor biçimi (docs/video-tarama/*.md) koddan; prompt'lar Adaylar'a `prompt` satırı olarak girer."""
-    L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · https://youtu.be/{pk['id']}",
+    L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · https://youtu.be/{pk['id']}" + (" · şema 2" if f.get("iz") is not None else ""),
          *notlar, "## Özet", _h(f["ozet"]), "## Bölümler", *([f"- {_h(b['zaman'])} {_h(b['baslik'])}" for b in f["bolumler"]] or ["- yok"]),
          "## Adaylar", "| ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |", "|---|---|---|---|---|---|---|",
          *[f"| {_h(a['ad'])} | yok | {a['tur']} | {_h(a['repo_url'] or 'yok')} | {_h(a['ne'])} | {_h(a['kanit_zamani'])} | {_h(a['kanit'])}{_kg(a)} |" for a in f["adaylar"]],
@@ -223,6 +228,8 @@ def rapor_md(f, pk, notlar):
               *[f"| {_h(k['komut'])} | {_h(k['ne_yapar'])}{_kg(k)} | {_h(k['kanit_zamani'])} | {k['kaynak']} |" for k in f["kurulum_komutlar"]]]
     seg = sum(s.startswith("[") for s in tr.bolum(pk["metin"], "Segmentler").splitlines())
     L += ["## İddialar", "| iddia | zaman | tür |", "|---|---|---|", *[f"| {_h(i['iddia'])} | {_h(i['kanit_zamani'])} | {i['tur']} |" for i in f["iddialar"]],
+          *(["## İz", "| kaynak | ne | bağlandığı | kanıt |", "|---|---|---|---|",
+             *[f"| {_h(z['kaynak'])} | {_h(z['ne'])} | {_h(z['baglandigi'])} | {_h(z['kanit'])} |" for z in f["iz"]]] if f.get("iz") is not None else []),
           "## Kareden okunanlar", *([f"- {_h(k['kare'])}: {_h(k['okunan'])}" for k in f["kareden_okunanlar"]] or ["- yok"]),
           "## Belirsizlikler", *([f"- {_h(b)}" for b in f["belirsizlikler"]] or ["- yok"]),
           "## Atlanan segment oranı", f"0/{seg} (paket tam okuma, motor)"]
@@ -389,7 +396,7 @@ def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
     g = _ig_defter(pdir)
     kalan = {k: IG_TAVAN[k] - g[k] for k in IG_TAVAN}
     kareler = [k for k in p["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
-    luna = lambda butce: ikinci["luna"](SISTEM, _istem([v], {v: p}, {}, temizle), sema([v]), kareler=kareler, model=ig.LUNA, butce=butce, env=env)
+    luna = lambda butce: ikinci["luna"](SISTEM, _istem([v], {v: p}, {}, temizle), sema([v], iz=True), kareler=kareler, model=ig.LUNA, butce=butce, env=env)
     try:
         return ig.uygula(v, f, p, luna, ikinci["jev"], ikinci["yargic"], env, kalan, lambda x: dogrula({"videolar": [x]}, {v: p}, [v]).get(v),
                          lambda s: tr.kayit_ekle(pdir / "defter.jsonl", [s]))
@@ -477,7 +484,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 break
             kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
             try:
-                y = cagir(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan), kareler=kareler, model=d["model"],
+                y = cagir(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=d["model"],
                           butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1]), env=env)
             except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
                 y = {"hata": f"taşıyıcı: {e}"[:200]}

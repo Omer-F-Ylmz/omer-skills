@@ -72,4 +72,4 @@ def test_motor_form_iz_sema2(tmp_path):
     assert "iz" in pt.SISTEM and "zaten kurulu" in pt.SISTEM
     kok = Path(__file__).resolve().parents[3]
     assert "## İz" in (kok / ".claude" / "agents" / "video-tarayici-haiku.md").read_text(encoding="utf-8")
-    assert "iz: [" in (kok / "docs" / "tasarim" / "motor-sema.md").read_text(encoding="utf-8").split("## 1.")[1].split("## 2.")[0]
+    assert "\niz:" in (kok / "docs" / "tasarim" / "motor-sema.md").read_text(encoding="utf-8").split("## 1.")[1].split("## 2.")[0]
