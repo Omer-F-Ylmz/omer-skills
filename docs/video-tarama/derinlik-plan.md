@@ -135,7 +135,9 @@ Yalnız AL çıkan adım yönlendirilir. Test.
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
 ruvnet/ruflo); sürüm numarasıyla kurulu plugin'de tag → commit → tarih (derinlik-3.md S3: bugün yalnız sha ile kurulu plugin'de `commits`
-çağrısı var). Test.
+çağrısı var). Ömer notu (4 Eki): eski aday dosyasında `lisans:`/`son_commit:` satırı yoksa eklenir, mevcut içerik değişmez
+(A2'nin `_eksik_tamamla` ponytail notu kapanır). Konum: alan bloğunun sonu (ilk `#`/`##` satırından önce) — uy.alanlar() yalnız o bloğu
+okur; dosya sonuna eklenen satır panelde görünmez. Test.
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).

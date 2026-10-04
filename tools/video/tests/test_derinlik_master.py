@@ -92,3 +92,53 @@ def test_a3_fork_degil_sahip_ayni_kaynak_yok(tmp_path):
     _kurulu_kayit(tmp_path)
     d, _ = _kos(tmp_path, [("alt-arac", "plugin", None)], _gh_fork(False))
     assert not d["alt-arac"].get("kaynak")
+
+
+# --- A4 (=Y5) kurulu kaynakların tamamı + açıklamadan "bizde benzer" ---
+ENV_A4 = [{"ad": "ui-ux-pro-max", "tur": "skill", "aciklama": "Design intelligence: styles, palettes, fonts, CSV search script"},
+          {"ad": "security-assessment", "tur": "skill", "aciklama": "Repository wide security scan and findings report"},
+          {"ad": "gstack", "tur": "skill", "aciklama": "Ship, review, QA workflow"},
+          {"ad": "jev", "tur": "plugin", "aciklama": "typed judgments"}]
+
+
+def _envanter(tmp_path):
+    y = tmp_path / "docs" / "departmanlar" / "envanter.json"
+    y.parent.mkdir(parents=True, exist_ok=True)
+    y.write_text(json.dumps(ENV_A4), encoding="utf-8")
+
+
+def test_a4_repo_adindan_kurulu_eslesir(tmp_path):
+    from test_derinlik2 import _rapor
+    from test_m2a import V
+    from video import akil as ak
+    _envanter(tmp_path)
+    out, _ = ak.birlestir([(V[0], _rapor(V[0], [("tasarim-skill-i", "skill", "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill")]))], tmp_path)
+    assert out["tasarim-skill-i"]["kurulu"] == "ui-ux-pro-max"
+
+
+def test_a4_paket_ici_skill_paket_reposuna_baglanir(tmp_path):
+    from test_derinlik2 import _kurulu_kayit
+    from video import akil as ak
+    _kurulu_kayit(tmp_path)
+    env = {"CLAUDE_EVI": str(tmp_path / "evi")}
+    assert ak._kayit_repo(env, {"kurulu": "alt-arac:security-review", "adlar": ["security-review"]}) == ("ust/depo", "plugins/alt-arac")
+
+
+def test_a4_kurulu_skill_git_uzak_adresinden_repo(tmp_path):
+    from video import akil as ak
+    g = tmp_path / "evi" / "skills" / "gstack" / ".git"
+    g.mkdir(parents=True)
+    (g / "config").write_text('[core]\n\tbare = false\n[remote "origin"]\n\turl = https://github.com/garrytan/gstack.git\n', encoding="utf-8")
+    env = {"CLAUDE_EVI": str(tmp_path / "evi")}
+    assert ak._kayit_repo(env, {"kurulu": "gstack", "adlar": ["stack-garry-tan"]}) == ("garrytan/gstack", "")
+
+
+def test_a4_aciklamadan_en_yakin_3_benzer_kapsamda(tmp_path):
+    from test_m2a import V
+    from video import akil as ak
+    a = {"ad": "renk-araci", "tur": "skill", "repo": None, "kurulu": None, "durum": "tamam", "adlar": ["renk-araci"],
+         "videolar": {V[0]: {"ne": "CSV palettes and styles search script"}}}
+    b = ak._benzer(a, ENV_A4)
+    assert b[0] == "ui-ux-pro-max" and len(b) <= 3 and "jev" not in b
+    a["benzer"] = b
+    assert "bizde benzer ui-ux-pro-max" in ak._kapsam("renk-araci", a, {}, "", "koşmadı: x", {})[0]
