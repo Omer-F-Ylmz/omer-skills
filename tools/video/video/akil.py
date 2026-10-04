@@ -328,7 +328,8 @@ def _kapsam(k, a, al, m, gv, d):
             "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
             "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
             "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı",
-            **({"bizde benzer": ", ".join(a["benzer"]) or "yok"} if "benzer" in a else {}),  # A4
+            **({"konuşma": kv} if (kv := d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("konusma")) else {}),  # C1
+            **({"bizde benzer":", ".join(a["benzer"]) or "yok"} if "benzer" in a else {}),  # A4
             **({"kaynak": a["kaynak"].removeprefix("kaynak ")} if a.get("kaynak") else {})}  # A3: "kaynak farklı: …"
     eksik = [x for x in list(alan)[:6] if not alan[x].startswith(("✓", "—"))]
     return f"- {k} · " + " · ".join(f"{x} {pt._h(v)}" for x, v in alan.items()), eksik

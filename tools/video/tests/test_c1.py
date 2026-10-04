@@ -78,11 +78,11 @@ def test_c1_kurulu_degil_ve_koruma(tmp_path, monkeypatch):
     monkeypatch.setattr(pt, "_surecler", lambda: "")
     assert pt._konusma(tmp_path / "v", {"duration": 60}, _alt(cagri)) == "altyazı yok; whisper atlandı (boş RAM 3.2 GB < 6)"
     monkeypatch.setattr(pt, "_bos_ram_gb", lambda: 16.0)
-    for sur, ad in (("blender.exe blender.exe --background", "blender"), ("python.exe python -m pytest tests", "pytest"),
-                    ("GenshinImpact.exe", "genshin")):
+    for sur, ad in (("code.exe\nblender.exe blender.exe --background", "blender.exe"), ("python.exe python -m pytest tests", "pytest"),
+                    ("GenshinImpact.exe", "genshinimpact.exe")):
         monkeypatch.setattr(pt, "_surecler", lambda: sur)
         assert pt._whisper_engel().lower() == f"ağır süreç: {ad}"
-    monkeypatch.setattr(pt, "_surecler", lambda: "explorer.exe\ncode.exe")
+    monkeypatch.setattr(pt, "_surecler", lambda: "explorer.exe\nblender-mcp.exe C:\\blender_mcp\\mcp\\.venv\\Scripts\\blender-mcp.exe")  # MCP sunucusu Blender değil
     assert pt._whisper_engel() is None and cagri == []
 
 
@@ -98,7 +98,7 @@ def test_c1_kapsamda_konusma(tmp_path):
 def test_c1_whisper_parcali_suresiz_surdurulur(ortam, monkeypatch):
     d = Path(ortam["VIDEO_CACHE"]) / VID
     d.mkdir(parents=True)
-    (d / "meta.json").write_text(json.dumps(meta(duration=3000, subtitles={})), encoding="utf-8")
+    (d / "meta.json").write_text(json.dumps(meta(duration=3000, subtitles={}, chapters=None)), encoding="utf-8")
     klip, patla = [], [True]
 
     class Model:
@@ -107,7 +107,7 @@ def test_c1_whisper_parcali_suresiz_surdurulur(ortam, monkeypatch):
 
         def transcribe(self, yol, clip_timestamps=None, **k):
             klip.append(clip_timestamps)
-            if clip_timestamps[0] == 1200 and patla.pop():
+            if clip_timestamps[0] == 1200 and patla and patla.pop():
                 raise RuntimeError("kesildi")
             return iter([types.SimpleNamespace(start=clip_timestamps[0] + 1.0, end=clip_timestamps[0] + 5.0, text=f" parça {clip_timestamps[0]}")]), None
 

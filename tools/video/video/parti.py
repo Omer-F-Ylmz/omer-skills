@@ -5,6 +5,7 @@ import json
 import os
 from contextlib import redirect_stdout
 import re
+import subprocess
 import time
 from importlib.util import find_spec
 from collections import Counter
@@ -22,6 +23,10 @@ IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci
 YENIDEN = {"bekliyor", "hata", "tavan"}
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
+BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
+WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
+AGIR = re.compile(r"^(?:blender|genshinimpact|yuanshen|zenlesszonezero|starrail|client-win64-shipping|testhost)\.exe\b|pytest|dotnet\S* test",
+                  re.I | re.M)  # ayar · C1 ağır süreç: Blender · oyun (tam süreç adı; blender-mcp sayılmaz) · tam suit (komut satırı)
 KARE_TK = 1_600  # ponytail: kare başına sabit jeton tahmini; gruplar sınırda kalırsa gerçek boyut (cli._kare_tk)
 SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıklama bağlantıları, altyazı segmentleri, kare listesi. "
           "Her video için formu Türkçe ve eksiksiz doldur; zorunlu alanlar boş olamaz. Zamanlar m:ss ve video süresi içinde "
@@ -116,6 +121,66 @@ def _anlamli(yol):
         return False
     metin = " ".join(json.loads(s).get("metin", "") for s in yol.read_text(encoding="utf-8").splitlines() if s.strip())
     return len(re.findall(r"\w{2,}", re.sub(r"\[[^\]]*\]|♪", " ", metin))) >= 3
+
+
+def _bozuk_oran(yol):
+    """C1: anlamsız kelime oranı ([Music]/♪ atılır). Anlamsız: ≥4 harf sesli harfsiz, aynı harf 3+ tekrar, harf+rakam karışık ya da
+    art arda aynı kelime. Kelime yoksa 1.0. ponytail: sözlük yok; teknik kısaltmalar (html, gpt4) eşiğin altında kalır."""
+    metin = " ".join(json.loads(s).get("metin", "") for s in yol.read_text(encoding="utf-8").splitlines() if s.strip())
+    k = re.findall(r"\w+", re.sub(r"\[[^\]]*\]|♪", " ", metin).lower())
+    kotu = sum(bool((len(w) >= 4 and not re.search(r"[aeıioöuüyâî]", w)) or re.search(r"(.)\1\1", w)
+                    or (re.search(r"\d", w) and re.search(r"[^\W\d]", w)) or (i and w == k[i - 1])) for i, w in enumerate(k))
+    return kotu / len(k) if k else 1.0
+
+
+def _bos_ram_gb():
+    import ctypes
+
+    class Bellek(ctypes.Structure):
+        _fields_ = [("boy", ctypes.c_ulong), ("yuk", ctypes.c_ulong), *((x, ctypes.c_ulonglong) for x in ("top", "bos", "a", "b", "c", "d", "e"))]
+    b = Bellek(boy=ctypes.sizeof(Bellek))
+    ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(b))
+    return b.bos / 2 ** 30
+
+
+def _surecler():
+    """Süreç adı + komut satırı (tam suit pytest'i ancak komut satırından görünür)."""
+    return subprocess.run(["powershell", "-NoProfile", "-Command", "Get-CimInstance Win32_Process | % { $_.Name + ' ' + $_.CommandLine }"],
+                          capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=60).stdout
+
+
+def _whisper_engel():
+    """C1 koruma: boş RAM < WHISPER_RAM_GB ya da ağır süreç (AGIR) → sebep; yoksa None."""
+    if (gb := _bos_ram_gb()) < WHISPER_RAM_GB:
+        return f"boş RAM {gb:.1f} GB < {WHISPER_RAM_GB}"
+    return f"ağır süreç: {a.group(0)}" if (a := AGIR.search(_surecler())) else None
+
+
+def _sure(sn):
+    return f"{round(sn / 60)} dk" if sn >= 60 else f"{round(sn)} sn"
+
+
+def _konusma(d, mt, alt):
+    """C1: konuşma kaynağı → kapsam etiketi. Temiz altyazıya dokunulmaz; yoksa ya da bozuksa (> BOZUK_ESIK) whisper, süre sınırsız,
+    korumalı (_whisper_engel). Bozuk altyazı segmentler.altyazi.jsonl'e alınır; whisper segment üretmezse geri konur."""
+    sg = d / "segmentler.jsonl"
+    if sg.is_file() and (o := _bozuk_oran(sg)) <= BOZUK_ESIK:
+        return "altyazı"
+    neden = f"altyazı bozuk %{round(o * 100)}" if sg.is_file() else "altyazı yok"
+    if not find_spec("faster_whisper"):
+        return f"{neden}; whisper kurulu değil"
+    if engel := _whisper_engel():
+        return f"{neden}; whisper atlandı ({engel})"
+    yedek = sg.replace(d / "segmentler.altyazi.jsonl") if sg.is_file() else None
+    t0, hata = time.monotonic(), ""
+    try:
+        alt(["whisper", "--en-fazla-dk", "0", "--", d.name])
+    except (Exception, SystemExit) as e:  # M9 K6: whisper istisnası → kare-yalnız yol, hata değil; yarım parçalar whisper.json'da
+        hata = f" · yarıda ({type(e).__name__}: {e})"[:120]
+        print(f"paket {d.name}: whisper istisnası ({type(e).__name__}: {e}) → {'altyazı' if yedek else 'kare-yalnız'}")
+    if yedek and not sg.is_file():
+        yedek.replace(sg)
+    return f"whisper ({neden}) · tahmini {_sure((mt.get('duration') or 0) * WHISPER_HIZ)} · gerçek {_sure(time.monotonic() - t0)}{hata}"
 
 
 def paket_oku(yol):
@@ -337,11 +402,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 if not yeniden:
                     alt(["ozet", "--", v])
                 mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
-                if not (onb / v / "segmentler.jsonl").is_file() and find_spec("faster_whisper") and 0 < (mt.get("duration") or 0) <= 300:  # M8 K2 (i): ≤5 dk otomatik whisper
-                    try:
-                        alt(["whisper", "--", v])
-                    except (Exception, SystemExit) as e:  # M9 K6: whisper istisnası → kare-yalnız yol, hata değil
-                        print(f"paket {v}: whisper istisnası ({type(e).__name__}: {e}) → kare-yalnız")
+                s["konusma"] = _konusma(onb / v, mt, alt)  # C1 (M8 K2 (i) ≤5 dk sınırı kalktı)
                 yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"),
                                        (sg := onb / v / "segmentler.jsonl").is_file() and bool(tr.IPUCU.search(sg.read_text(encoding="utf-8"))))  # M2e K2 · DERİNLİK-1 R4

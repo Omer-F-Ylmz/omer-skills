@@ -43,6 +43,7 @@ SORULAR = {"arac": ARAC_Q, "ekran": EKRAN_Q}
 ASAMA1 = "Kullanıcının sorusu (state) videonun hangi kesitinde yanıtlanıyor? Hiçbiri değilse 'hiçbiri'."
 ASAMA2 = "Kullanıcının sorusu (state) şu video kesitinde yanıtlanıyor mu? Kesit metni criteria.true içinde."
 WHISPER_KUR = "faster-whisper kurulu değil. Kur: uv tool install -e tools/video --with faster-whisper"
+WHISPER_PARCA = 1200  # ayar · C1: whisper parça boyu (sn); yarıda kalırsa kaldığı parçadan sürer
 
 
 def kos(args, timeout=120, env=None):
@@ -958,23 +959,27 @@ def whisper(ns, ctx):
         print(WHISPER_KUR)
         return 2
     meta = _meta(ctx, d)
-    sure, tavan = meta.get("duration") or 0, ns.en_fazla_dk * 60
-    args = ["yt-dlp", "--no-warnings", "-f", "ba/b", "-o", str(d / "ses.%(ext)s")]
-    if not sure or sure > tavan:
-        args += ["--download-sections", f"*0-{tavan}"]
-    try:
-        _kos(ctx, args + [yt_url(ns.id)], SURE["ses"])
-        ses = next(d.glob("ses.*"), None)
-        if ses is None:
+    sure, tavan = meta.get("duration") or 0, ns.en_fazla_dk * 60 or None  # C1: --en-fazla-dk 0 → süre sınırı yok
+    kes = tavan and (not sure or sure > tavan)
+    boy, yarim = (min(sure, tavan) if tavan else sure) if sure else 0, d / "whisper.json"
+    parca = json.loads(yarim.read_text(encoding="utf-8"))["parca"] if yarim.is_file() else []  # C1: yarıda kalan → kaldığı parçadan
+    ses = next(d.glob("ses.*"), None) if parca else None
+    if ses is None:
+        parca = []
+        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "ba/b", "-o", str(d / "ses.%(ext)s"), *(["--download-sections", f"*0-{tavan}"] if kes else []),
+                   yt_url(ns.id)], SURE["ses"])
+        if (ses := next(d.glob("ses.*"), None)) is None:
             raise Hata("ses inmedi")
-        parcalar, _ = WhisperModel(ns.model, device="cpu", compute_type="int8").transcribe(str(ses))
-        satirlar = [(round(p.start, 3), p.text.strip()) for p in parcalar if p.text.strip()]
-    finally:
-        for s in d.glob("ses.*"):
-            s.unlink()
-    seg = m.segmentle(satirlar, meta.get("chapters"), min(sure, tavan) if sure else None)
+    model = WhisperModel(ns.model, device="cpu", compute_type="int8")
+    for bas in range(len(parca) * WHISPER_PARCA, boy or 1, WHISPER_PARCA):  # süre bilinmiyorsa tek parça
+        k = {"clip_timestamps": [bas, min(bas + WHISPER_PARCA, boy)]} if boy else {}
+        parca.append([(round(p.start, 3), p.text.strip()) for p in model.transcribe(str(ses), **k)[0] if p.text.strip()])
+        yarim.write_text(json.dumps({"parca": parca}, ensure_ascii=False), encoding="utf-8")
+    for s in [*d.glob("ses.*"), yarim]:  # ponytail: yarıda kalan ses diskte kalır; bitince silinir
+        s.unlink()
+    seg = m.segmentle([tuple(x) for p in parca for x in p], meta.get("chapters"), boy or None)
     _yaz(d, seg)
-    print("\n".join(_ozet_satir(d, meta, seg, f"whisper {ns.model}" + (f", ilk {ns.en_fazla_dk} dk" if not sure or sure > tavan else ""))))
+    print("\n".join(_ozet_satir(d, meta, seg, f"whisper {ns.model}" + (f", ilk {ns.en_fazla_dk} dk" if kes else ""))))
     return 0
 
 
