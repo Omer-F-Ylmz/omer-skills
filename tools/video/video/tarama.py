@@ -445,10 +445,18 @@ def _baglam(satir, s, e, once, sonra):
 def kacan(rapor, kaynaklar, sozluk, desen=KACAN_DESEN, zayif=None):
     """D2 çağrısız kaçak denetimi: [(kaynak, metin)] içindeki URL · owner/repo · kurulum komutu · büyük harfli ürün adı ve sözlük adları
     (1–3 ardışık sözcük katlanmış eşit; kısa adlar dahil) ## İz'de geçmiyorsa → [(kaynak, terim)] "KAÇAN?".
-    zayif listesi verilirse ayırt edici olmayan ve araç bağlamı olmayan sözlük eşleşmeleri oraya (düşük güven) gider."""
+    zayif listesi verilirse ayırt edici olmayan ve araç bağlamı olmayan sözlük eşleşmeleri oraya (düşük güven) gider.
+    Sıkılaştırma: raporun herhangi bir bölümündeki URL kaçak değil; DESEN_YASAK owner/repo hiç; zayif varsa SOSYAL URL, gürültü ya da
+    şekilsiz (taraf <2 karakter ya da harfsiz) owner/repo düşük güven."""
+    from urllib.parse import urlparse
     iz, sozluk, gorulen, k, zt_hepsi = _kat_ad(bolum(rapor, "İz")), {_kat_ad(x): x for x in sozluk}, set(), [], []
+    rk = _kat_ad(rapor)
     for kaynak, metin in kaynaklar:
-        terim, zt = KACAN_URL.findall(metin), []
+        terim, zt = [], []
+        for u in KACAN_URL.findall(metin):
+            if _kat_ad(u) not in rk:
+                h = urlparse(u).netloc.casefold().removeprefix("www.")
+                (zt if zayif is not None and any(h == s or h.endswith("." + s) for s in KACAN_SOSYAL) else terim).append(u)
         duz = KACAN_URL.sub(" ", metin)
         for satir in duz.splitlines():
             m = list(re.finditer(r"[\w.-]+", satir))
@@ -463,7 +471,12 @@ def kacan(rapor, kaynaklar, sozluk, desen=KACAN_DESEN, zayif=None):
             if zayif is not None:  # "ad-skill" / "ad-mcp" tireli biçim
                 terim += [sozluk[j] for x in w if "-" in x and x.rsplit("-", 1)[1].casefold() in ARAC_ISARET
                           and (j := _kat_ad(x.rsplit("-", 1)[0])) in sozluk]
-        terim += [x for d in desen for x in d.findall(duz)]
+        for d in desen:
+            for x in d.findall(duz):
+                if d is KACAN_DESEN[0] and x.casefold() in DESEN_YASAK:
+                    continue
+                sekilsiz = not all(len(p) >= 2 and re.search(r"[^\W\d_]", p) for p in x.split("/", 1))
+                (zt if d is KACAN_DESEN[0] and zayif is not None and (kaynak == "gürültü" or sekilsiz) else terim).append(x)
         for t in terim:
             if (j := _kat_ad(t)) and j not in gorulen and j not in iz:
                 gorulen.add(j)
@@ -479,7 +492,10 @@ def kacan(rapor, kaynaklar, sozluk, desen=KACAN_DESEN, zayif=None):
 # ayar · D2 (b): düşük güven adayı sayılmayan yaygın büyük harfli kelimeler (casefold)
 YAYGIN = set("i a an the this that these those it its we you he she they my our your and or but so if then now here there what why how "
              "when where who okay ok yes no hello hi hey thanks today also just bir bu şu o ve ama için ile çok daha şimdi evet hayır "
-             "tamam merhaba yani peki sonra burada design data docs do review taste standup debug video careful confidence".split())
+             "tamam merhaba yani peki sonra burada design data docs do review taste standup debug video careful confidence me al".split())
+# ayar · D2 sıkılaştırma: owner/repo sayılmayan kalıplar (casefold) · düşük güvene giden sosyal alan adları
+DESEN_YASAK = set("a/b i/o and/or tcp/ip ui/ux input/output w/o 24/7 n/a y/n on/off yes/no he/she his/her s/he km/h".split())
+KACAN_SOSYAL = SOSYAL + ("threads.com", "bsky.app", "substack.com")
 BILINEN = Path("docs") / "video-tarama" / "bilinen-araclar.txt"
 
 
