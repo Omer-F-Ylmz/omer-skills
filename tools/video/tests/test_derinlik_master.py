@@ -142,3 +142,39 @@ def test_a4_aciklamadan_en_yakin_3_benzer_kapsamda(tmp_path):
     assert b[0] == "ui-ux-pro-max" and len(b) <= 3 and "jev" not in b
     a["benzer"] = b
     assert "bizde benzer ui-ux-pro-max" in ak._kapsam("renk-araci", a, {}, "", "koşmadı: x", {})[0]
+
+
+# --- A5 KUR + ONARIM + GÜÇLENDİRME: çözülmemiş kötü yan → ONARIM BEKLİYOR (kurulmaz, elenmez); kapatma onarım sayılmaz ---
+def _a5(tmp_path, onarim):
+    ky = [{"sinif": "token", "ne": "oturum başı 4k enjeksiyon", "neden": "hooks/session.js:12", "olcum": "tahmin", "onarim": "TOKEN-3 profili", "kaynak": "README"},
+          {"sinif": "kalite", "ne": "kurulu araçla çakışma", "neden": "aynı tetik", "olcum": "tahmin", "onarim": onarim, "kaynak": "issue #3"}]
+    ar = Ar({"ajan-a5": {"repo_url": "https://github.com/o/ajan-a5", "lisans": "MIT", "lisans_kaynak": "LICENSE", "son_commit": "2026-09-20",
+                         "kotu_yanlar": ky, "guclendirme": "graphify ile bağlam daraltma"}})
+    _kos(tmp_path, [("ajan-a5", "plugin", None)], None, ar)
+    return _panel(tmp_path, PID)[1]
+
+
+def test_a5_cozulmemis_kotu_yan_onarim_bekliyor(tmp_path):
+    t = _a5(tmp_path, "")
+    assert "| ONARIM BEKLİYOR |" in _satir(tmp_path, "ajan-a5")
+    b = t.split("## Kötü yan + onarım + güçlendirme", 1)[1].split("\n## ", 1)[0]
+    assert "ajan-a5 · kalite · kurulu araçla çakışma" in b and "onarım: çözülmedi" in b and "onarım: TOKEN-3 profili" in b
+    assert "güçlendirme: graphify ile bağlam daraltma" in b
+
+
+def test_a5_kapatma_onarim_sayilmaz(tmp_path):
+    _a5(tmp_path, "kurulu impeccable'ı kapat")
+    assert "| ONARIM BEKLİYOR |" in _satir(tmp_path, "ajan-a5")
+
+
+def test_a5_hepsi_onarilmis_kur_yolunda(tmp_path):
+    _a5(tmp_path, "Skill aracıyla tembel yükleme")
+    assert "ONARIM BEKLİYOR" not in _satir(tmp_path, "ajan-a5")
+
+
+def test_a5_istem_ve_arastirici_tanimi():
+    from pathlib import Path
+    from video import akil as ak
+    assert all(x in ak.SISTEM for x in ("kotu_yanlar", "TOKEN-3 profili", "tembel yükleme", "sarmalayıcı", "güçlendirme", "kapatan"))
+    t = (Path(__file__).resolve().parents[3] / ".claude" / "agents" / "aday-arastirici.md").read_text(encoding="utf-8")
+    assert "## Kötü yan + onarım + güçlendirme" in t
