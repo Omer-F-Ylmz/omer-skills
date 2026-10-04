@@ -21,7 +21,27 @@ def test_birlesim_teknik_en_turkce_tr_cakismada_anlamli_olan():
     assert cli._ocr_birlestir([["sadece tr", *KUTU(0)]], []) == ["sadece tr"]
 
 
-def test_model_karari_sema_arayuz_kod_bozuk():
+CIFT = [("Inspect What the üşer Will see", "Inspect What the user Will see"), ("HOW to teşt", "HOW to test"),  # canlı b2QkhmQ0sT0 (O10)
+        ("Duplicate voteş could İnflate", "Duplicate votes could Inflate"), ("Valİdatİon Proof", "Validation Proof"),
+        ("Review leşs code", "Review less code"), ("Failing cı", "Failing CI")]
+GURULTU = ["Z/57 _", "19 •", "kith add", "GPI.6", "ton* •"]
+
+
+def test_birlesim_aksan_katlaninca_ayni_ise_en_ipucu_varsa_tr():
+    tr_ = [[x, *KUTU(i * 40)] for i, (x, _) in enumerate([*CIFT, ("Bu ayar için şöyle", "")])]
+    en = [[y, *KUTU(i * 40)] for i, (_, y) in enumerate([*CIFT, ("", "Bu ayar icin soyle")])]
+    assert cli._ocr_birlestir(tr_, en) == [y for _, y in CIFT] + ["Bu ayar için şöyle"]
+
+
+def test_gurultu_satiri_pakete_yazilmaz_sayisi_izlemede(ortam):
+    assert all(cli._ocr_gurultu(s) for s in GURULTU)
+    assert not any(cli._ocr_gurultu(s) for s in [*(y for _, y in CIFT), "def kur(ns, ctx):", "gh pr list", "Ayarlar ekranında şöyle",
+                                                 "npx skills add owner/repo", "https://github.com/obra/superpowers"])
+    ekran = {"tr": [*OKUNUR["tr"], *[[s, *KUTU(80 + i * 40)] for i, s in enumerate(GURULTU)]], "en": OKUNUR["en"]}
+    d, md = paket(ortam, OcrKos({"k00150": ekran}))
+    assert bolum(md, "Ekran metni (OCR)") == ["[2:30] Bu skill kurulumu için şu komutu çalıştırın", "[2:30] npx skills add owner/repo"]
+    assert json.loads((d / "kapsam.json").read_text(encoding="utf-8"))["izleme"].endswith(" · OCR gürültü 5")
+
     okunur = ["Bu skill kurulumu için şu komutu çalıştırın", "npx skills add vercel-labs/agent-skills", "https://github.com/obra/superpowers"]
     assert not cli._ocr_model(okunur)
     assert cli._ocr_model([]) and cli._ocr_model(["Başlat", "Bitir"])  # az metin: şema/görsel
