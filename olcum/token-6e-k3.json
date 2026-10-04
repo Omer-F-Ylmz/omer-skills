@@ -1,0 +1,1097 @@
+{
+ "yontem": "k6e.py k3 taban pt: kol pt = --settings env PONYTAIL_DEFAULT_MODE=off; rtk-ab base d0af0b5 (max-turns 30) + orta 33b2bd5 (max-turns 40), iç içe n=3, opus",
+ "ozet": {
+  "rtk/taban": {
+   "usd": [
+    1.1008858,
+    0.9477228000000001,
+    0.9196499999999999
+   ],
+   "agirlikli": [
+    319426,
+    277019,
+    264956
+   ],
+   "cikti": [
+    4039,
+    3888,
+    3597
+   ],
+   "arac": [
+    16,
+    13,
+    13
+   ],
+   "ajan": [
+    0,
+    0,
+    0
+   ],
+   "ilk": [
+    93205,
+    93205,
+    93048
+   ],
+   "tur": [
+    17,
+    14,
+    14
+   ],
+   "basari": 3
+  },
+  "rtk/pt": {
+   "usd": [
+    0.9162680000000001,
+    0.9103498000000001,
+    0.91357
+   ],
+   "agirlikli": [
+    268247,
+    261957,
+    267474
+   ],
+   "cikti": [
+    4275,
+    4448,
+    3845
+   ],
+   "arac": [
+    13,
+    11,
+    15
+   ],
+   "ajan": [
+    0,
+    0,
+    0
+   ],
+   "ilk": [
+    91214,
+    91612,
+    91612
+   ],
+   "tur": [
+    14,
+    12,
+    16
+   ],
+   "basari": 3
+  },
+  "orta/taban": {
+   "usd": [
+    0.7391938000000001,
+    0.7720538,
+    0.7898406
+   ],
+   "agirlikli": [
+    200595,
+    217154,
+    225835
+   ],
+   "cikti": [
+    4020,
+    4427,
+    4435
+   ],
+   "arac": [
+    7,
+    9,
+    10
+   ],
+   "ajan": [
+    0,
+    0,
+    0
+   ],
+   "ilk": [
+    72806,
+    72713,
+    72793
+   ],
+   "tur": [
+    8,
+    10,
+    11
+   ],
+   "basari": 3
+  },
+  "orta/pt": {
+   "usd": [
+    0.7637086,
+    0.7242994,
+    0.7873514
+   ],
+   "agirlikli": [
+    210613,
+    204948,
+    225136
+   ],
+   "cikti": [
+    4882,
+    4047,
+    5769
+   ],
+   "arac": [
+    8,
+    9,
+    12
+   ],
+   "ajan": [
+    0,
+    0,
+    0
+   ],
+   "ilk": [
+    70944,
+    70957,
+    70957
+   ],
+   "tur": [
+    9,
+    10,
+    13
+   ],
+   "basari": 3
+  }
+ },
+ "kollar": [
+  {
+   "ad": "rtk-taban-1",
+   "kol": "taban",
+   "cp_no": 6,
+   "bos_ram_gb": 6.5,
+   "sure_sn": 80,
+   "subtype": "success",
+   "num_turns": 17,
+   "usd": 1.1008858,
+   "usage": {
+    "input_tokens": 20,
+    "cache_creation_input_tokens": 105401,
+    "cache_read_input_tokens": 884089,
+    "output_tokens": 4039,
+    "output_tokens_details": {
+     "thinking_tokens": 710
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 105401,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 528,
+      "cache_read_input_tokens": 104338,
+      "cache_creation_input_tokens": 1063,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1063
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 20,
+     "outputTokens": 4039,
+     "cacheReadInputTokens": 884089,
+     "cacheCreationInputTokens": 105401,
+     "webSearchRequests": 0,
+     "costUSD": 1.1008858,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 710,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 93205,
+   "arac": 16,
+   "ajan": 0,
+   "plugin_sayisi": 51,
+   "isaret": {
+    "ponytail": 2,
+    "superpowers": 2,
+    "cmem": 0,
+    "security": 3
+   }
+  },
+  {
+   "ad": "rtk-pt-1",
+   "kol": "pt",
+   "cp_no": 7,
+   "bos_ram_gb": 7.2,
+   "sure_sn": 87,
+   "subtype": "success",
+   "num_turns": 14,
+   "usd": 0.9162680000000001,
+   "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 84247,
+    "cache_read_input_tokens": 783600,
+    "output_tokens": 4275,
+    "output_tokens_details": {
+     "thinking_tokens": 1217
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 84247,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 547,
+      "cache_read_input_tokens": 98884,
+      "cache_creation_input_tokens": 1586,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1586
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 18,
+     "outputTokens": 4275,
+     "cacheReadInputTokens": 783600,
+     "cacheCreationInputTokens": 84247,
+     "webSearchRequests": 0,
+     "costUSD": 0.9162680000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 1217,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 91214,
+   "arac": 13,
+   "ajan": 0,
+   "plugin_sayisi": 51,
+   "isaret": {
+    "ponytail": 0,
+    "superpowers": 2,
+    "cmem": 0,
+    "security": 3
+   }
+  },
+  {
+   "ad": "orta-taban-1",
+   "kol": "taban",
+   "cp_no": 8,
+   "bos_ram_gb": 7.1,
+   "sure_sn": 226,
+   "subtype": "success",
+   "num_turns": 8,
+   "usd": 0.7391938000000001,
+   "usage": {
+    "input_tokens": 10872,
+    "cache_creation_input_tokens": 69015,
+    "cache_read_input_tokens": 315929,
+    "output_tokens": 4020,
+    "output_tokens_details": {
+     "thinking_tokens": 1531
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 69015,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 498,
+      "cache_read_input_tokens": 82716,
+      "cache_creation_input_tokens": 532,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 532
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 10872,
+     "outputTokens": 4020,
+     "cacheReadInputTokens": 315929,
+     "cacheCreationInputTokens": 69015,
+     "webSearchRequests": 0,
+     "costUSD": 0.7391938000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 1531,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 72806,
+   "arac": 7,
+   "ajan": 0,
+   "plugin_sayisi": 38,
+   "isaret": {
+    "ponytail": 2,
+    "superpowers": 2,
+    "cmem": 4,
+    "security": 3
+   }
+  },
+  {
+   "ad": "orta-pt-1",
+   "kol": "pt",
+   "cp_no": 9,
+   "bos_ram_gb": 6.5,
+   "sure_sn": 208,
+   "subtype": "success",
+   "num_turns": 9,
+   "usd": 0.7637086,
+   "usage": {
+    "input_tokens": 12837,
+    "cache_creation_input_tokens": 66997,
+    "cache_read_input_tokens": 393723,
+    "output_tokens": 4882,
+    "output_tokens_details": {
+     "thinking_tokens": 2211
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 66997,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 456,
+      "cache_read_input_tokens": 82902,
+      "cache_creation_input_tokens": 311,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 311
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 12837,
+     "outputTokens": 4882,
+     "cacheReadInputTokens": 393723,
+     "cacheCreationInputTokens": 66997,
+     "webSearchRequests": 0,
+     "costUSD": 0.7637086,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 2211,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 70944,
+   "arac": 8,
+   "ajan": 0,
+   "plugin_sayisi": 38,
+   "isaret": {
+    "ponytail": 0,
+    "superpowers": 2,
+    "cmem": 4,
+    "security": 3
+   }
+  },
+  {
+   "ad": "rtk-taban-2",
+   "kol": "taban",
+   "cp_no": 10,
+   "bos_ram_gb": 10.4,
+   "sure_sn": 70,
+   "subtype": "success",
+   "num_turns": 14,
+   "usd": 0.9477228000000001,
+   "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 88692,
+    "cache_read_input_tokens": 801774,
+    "output_tokens": 3888,
+    "output_tokens_details": {
+     "thinking_tokens": 725
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 88692,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 544,
+      "cache_read_input_tokens": 103775,
+      "cache_creation_input_tokens": 1140,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1140
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 18,
+     "outputTokens": 3888,
+     "cacheReadInputTokens": 801774,
+     "cacheCreationInputTokens": 88692,
+     "webSearchRequests": 0,
+     "costUSD": 0.9477228000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 725,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 93205,
+   "arac": 13,
+   "ajan": 0,
+   "plugin_sayisi": 51,
+   "isaret": {
+    "ponytail": 2,
+    "superpowers": 2,
+    "cmem": 0,
+    "security": 3
+   }
+  },
+  {
+   "ad": "rtk-pt-2",
+   "kol": "pt",
+   "cp_no": 11,
+   "bos_ram_gb": 9.1,
+   "sure_sn": 99,
+   "subtype": "success",
+   "num_turns": 12,
+   "usd": 0.9103498000000001,
+   "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 85481,
+    "cache_read_input_tokens": 687389,
+    "output_tokens": 4448,
+    "output_tokens_details": {
+     "thinking_tokens": 820
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 85481,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 573,
+      "cache_read_input_tokens": 100383,
+      "cache_creation_input_tokens": 1321,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1321
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 16,
+     "outputTokens": 4448,
+     "cacheReadInputTokens": 687389,
+     "cacheCreationInputTokens": 85481,
+     "webSearchRequests": 0,
+     "costUSD": 0.9103498000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 820,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 91612,
+   "arac": 11,
+   "ajan": 0,
+   "plugin_sayisi": 51,
+   "isaret": {
+    "ponytail": 0,
+    "superpowers": 2,
+    "cmem": 0,
+    "security": 3
+   }
+  },
+  {
+   "ad": "orta-taban-2",
+   "kol": "taban",
+   "cp_no": 12,
+   "bos_ram_gb": 9.7,
+   "sure_sn": 186,
+   "subtype": "success",
+   "num_turns": 10,
+   "usd": 0.7720538,
+   "usage": {
+    "input_tokens": 10756,
+    "cache_creation_input_tokens": 67991,
+    "cache_read_input_tokens": 482809,
+    "output_tokens": 4427,
+    "output_tokens_details": {
+     "thinking_tokens": 1951
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 67991,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 421,
+      "cache_read_input_tokens": 83935,
+      "cache_creation_input_tokens": 272,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 272
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 10756,
+     "outputTokens": 4427,
+     "cacheReadInputTokens": 482809,
+     "cacheCreationInputTokens": 67991,
+     "webSearchRequests": 0,
+     "costUSD": 0.7720538,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 1951,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 72713,
+   "arac": 9,
+   "ajan": 0,
+   "plugin_sayisi": 38,
+   "isaret": {
+    "ponytail": 2,
+    "superpowers": 2,
+    "cmem": 4,
+    "security": 3
+   }
+  },
+  {
+   "ad": "orta-pt-2",
+   "kol": "pt",
+   "cp_no": 13,
+   "bos_ram_gb": 10.0,
+   "sure_sn": 192,
+   "subtype": "success",
+   "num_turns": 10,
+   "usd": 0.7242994,
+   "usage": {
+    "input_tokens": 6171,
+    "cache_creation_input_tokens": 65398,
+    "cache_read_input_tokens": 477457,
+    "output_tokens": 4047,
+    "output_tokens_details": {
+     "thinking_tokens": 1322
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 65398,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 485,
+      "cache_read_input_tokens": 81460,
+      "cache_creation_input_tokens": 154,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 154
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 6171,
+     "outputTokens": 4047,
+     "cacheReadInputTokens": 477457,
+     "cacheCreationInputTokens": 65398,
+     "webSearchRequests": 0,
+     "costUSD": 0.7242994,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 1322,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 70957,
+   "arac": 9,
+   "ajan": 0,
+   "plugin_sayisi": 38,
+   "isaret": {
+    "ponytail": 0,
+    "superpowers": 2,
+    "cmem": 4,
+    "security": 3
+   }
+  },
+  {
+   "ad": "rtk-taban-3",
+   "kol": "taban",
+   "cp_no": 14,
+   "bos_ram_gb": 10.0,
+   "sure_sn": 74,
+   "subtype": "success",
+   "num_turns": 14,
+   "usd": 0.9196499999999999,
+   "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 88434,
+    "cache_read_input_tokens": 700870,
+    "output_tokens": 3597,
+    "output_tokens_details": {
+     "thinking_tokens": 723
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 88434,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 504,
+      "cache_read_input_tokens": 103607,
+      "cache_creation_input_tokens": 1050,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1050
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 16,
+     "outputTokens": 3597,
+     "cacheReadInputTokens": 700870,
+     "cacheCreationInputTokens": 88434,
+     "webSearchRequests": 0,
+     "costUSD": 0.9196499999999999,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 723,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 93048,
+   "arac": 13,
+   "ajan": 0,
+   "plugin_sayisi": 51,
+   "isaret": {
+    "ponytail": 2,
+    "superpowers": 2,
+    "cmem": 0,
+    "security": 3
+   }
+  },
+  {
+   "ad": "rtk-pt-3",
+   "kol": "pt",
+   "cp_no": 15,
+   "bos_ram_gb": 10.0,
+   "sure_sn": 70,
+   "subtype": "success",
+   "num_turns": 16,
+   "usd": 0.91357,
+   "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 85034,
+    "cache_read_input_tokens": 781630,
+    "output_tokens": 3845,
+    "output_tokens_details": {
+     "thinking_tokens": 601
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 85034,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 472,
+      "cache_read_input_tokens": 100039,
+      "cache_creation_input_tokens": 1218,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1218
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 18,
+     "outputTokens": 3845,
+     "cacheReadInputTokens": 781630,
+     "cacheCreationInputTokens": 85034,
+     "webSearchRequests": 0,
+     "costUSD": 0.91357,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 601,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 91612,
+   "arac": 15,
+   "ajan": 0,
+   "plugin_sayisi": 51,
+   "isaret": {
+    "ponytail": 0,
+    "superpowers": 2,
+    "cmem": 0,
+    "security": 3
+   }
+  },
+  {
+   "ad": "orta-taban-3",
+   "kol": "taban",
+   "cp_no": 16,
+   "bos_ram_gb": 8.9,
+   "sure_sn": 190,
+   "subtype": "success",
+   "num_turns": 11,
+   "usd": 0.7898406,
+   "usage": {
+    "input_tokens": 11226,
+    "cache_creation_input_tokens": 67842,
+    "cache_read_input_tokens": 567503,
+    "output_tokens": 4435,
+    "output_tokens_details": {
+     "thinking_tokens": 1594
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 67842,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 510,
+      "cache_read_input_tokens": 83926,
+      "cache_creation_input_tokens": 132,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 132
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 11226,
+     "outputTokens": 4435,
+     "cacheReadInputTokens": 567503,
+     "cacheCreationInputTokens": 67842,
+     "webSearchRequests": 0,
+     "costUSD": 0.7898406,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 1594,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 72793,
+   "arac": 10,
+   "ajan": 0,
+   "plugin_sayisi": 38,
+   "isaret": {
+    "ponytail": 2,
+    "superpowers": 2,
+    "cmem": 4,
+    "security": 3
+   }
+  },
+  {
+   "ad": "orta-pt-3",
+   "kol": "pt",
+   "cp_no": 17,
+   "bos_ram_gb": 10.0,
+   "sure_sn": 202,
+   "subtype": "success",
+   "num_turns": 13,
+   "usd": 0.7873514,
+   "usage": {
+    "input_tokens": 3381,
+    "cache_creation_input_tokens": 68157,
+    "cache_read_input_tokens": 565957,
+    "output_tokens": 5769,
+    "output_tokens_details": {
+     "thinking_tokens": 2220
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 68157,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 406,
+      "cache_read_input_tokens": 83581,
+      "cache_creation_input_tokens": 792,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 792
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "claude-opus-5-5": {
+     "inputTokens": 3381,
+     "outputTokens": 5769,
+     "cacheReadInputTokens": 565957,
+     "cacheCreationInputTokens": 68157,
+     "webSearchRequests": 0,
+     "costUSD": 0.7873514,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 2220,
+     "canonicalModel": "claude-opus-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "ilk_ctx": 70957,
+   "arac": 12,
+   "ajan": 0,
+   "plugin_sayisi": 38,
+   "isaret": {
+    "ponytail": 0,
+    "superpowers": 2,
+    "cmem": 4,
+    "security": 3
+   }
+  }
+ ],
+ "test": [
+  {
+   "ad": "rtk-taban-1",
+   "test_rc": 0,
+   "son": "ok dotnet test: 4 tests passed, 0 warnings in 1 projects (528 ms)\n"
+  },
+  {
+   "ad": "rtk-pt-1",
+   "test_rc": 0,
+   "son": "ok dotnet test: 4 tests passed, 0 warnings in 1 projects (456 ms)\n"
+  },
+  {
+   "ad": "orta-taban-1",
+   "kabul": {
+    "rc": 0,
+    "son": "........                                                                 [100%]\n8 passed in 0.03s\n"
+   },
+   "suite": {
+    "rc": 0,
+    "son": "........................................ [ 43%]\n........................................................................ [ 57%]\n........................................................................ [ 72%]\n........................................................................ [ 86%]\n....................................................................     [100%]\n500 passed in 151.36s (0:02:31)\n"
+   }
+  },
+  {
+   "ad": "orta-pt-1",
+   "kabul": {
+    "rc": 0,
+    "son": "........                                                                 [100%]\n8 passed in 0.03s\n"
+   },
+   "suite": {
+    "rc": 0,
+    "son": "........................................ [ 43%]\n........................................................................ [ 57%]\n........................................................................ [ 72%]\n........................................................................ [ 86%]\n....................................................................     [100%]\n500 passed in 116.56s (0:01:56)\n"
+   }
+  },
+  {
+   "ad": "rtk-taban-2",
+   "test_rc": 0,
+   "son": "ok dotnet test: 4 tests passed, 0 warnings in 1 projects (521 ms)\n"
+  },
+  {
+   "ad": "rtk-pt-2",
+   "test_rc": 0,
+   "son": "ok dotnet test: 4 tests passed, 0 warnings in 1 projects (404 ms)\n"
+  },
+  {
+   "ad": "orta-taban-2",
+   "kabul": {
+    "rc": 0,
+    "son": "........                                                                 [100%]\n8 passed in 0.03s\n"
+   },
+   "suite": {
+    "rc": 0,
+    "son": "........................................ [ 43%]\n........................................................................ [ 57%]\n........................................................................ [ 72%]\n........................................................................ [ 86%]\n....................................................................     [100%]\n500 passed in 118.10s (0:01:58)\n"
+   }
+  },
+  {
+   "ad": "orta-pt-2",
+   "kabul": {
+    "rc": 0,
+    "son": "........                                                                 [100%]\n8 passed in 0.04s\n"
+   },
+   "suite": {
+    "rc": 0,
+    "son": "........................................ [ 43%]\n........................................................................ [ 57%]\n........................................................................ [ 72%]\n........................................................................ [ 86%]\n....................................................................     [100%]\n500 passed in 117.74s (0:01:57)\n"
+   }
+  },
+  {
+   "ad": "rtk-taban-3",
+   "test_rc": 0,
+   "son": "ok dotnet test: 4 tests passed, 0 warnings in 1 projects (409 ms)\n"
+  },
+  {
+   "ad": "rtk-pt-3",
+   "test_rc": 0,
+   "son": "ok dotnet test: 4 tests passed, 0 warnings in 1 projects (431 ms)\n"
+  },
+  {
+   "ad": "orta-taban-3",
+   "kabul": {
+    "rc": 0,
+    "son": "........                                                                 [100%]\n8 passed in 0.04s\n"
+   },
+   "suite": {
+    "rc": 0,
+    "son": "........................................ [ 43%]\n........................................................................ [ 57%]\n........................................................................ [ 72%]\n........................................................................ [ 86%]\n....................................................................     [100%]\n500 passed in 119.88s (0:01:59)\n"
+   }
+  },
+  {
+   "ad": "orta-pt-3",
+   "kabul": {
+    "rc": 0,
+    "son": "........                                                                 [100%]\n8 passed in 0.03s\n"
+   },
+   "suite": {
+    "rc": 0,
+    "son": "........................................ [ 43%]\n........................................................................ [ 57%]\n........................................................................ [ 72%]\n........................................................................ [ 86%]\n....................................................................     [100%]\n500 passed in 121.05s (0:02:01)\n"
+   }
+  }
+ ]
+}
