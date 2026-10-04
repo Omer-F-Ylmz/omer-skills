@@ -1,0 +1,163 @@
+{
+ "yontem": "okuyucu (sonnet) kör, kor/ rtk-A..F + orta-A..F diff, 0-3 x doğruluk·eksiksizlik·kalite, başarı 1/0; eşleme puanlamadan sonra açıldı",
+ "puan": {
+  "rtk-A": {
+   "kol": "rtk-taban-2",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "rtk-B": {
+   "kol": "rtk-pt-3",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "rtk-C": {
+   "kol": "rtk-taban-3",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "rtk-D": {
+   "kol": "rtk-pt-1",
+   "d": 3,
+   "e": 3,
+   "k": 2,
+   "toplam": 8,
+   "basari": 1
+  },
+  "rtk-E": {
+   "kol": "rtk-pt-2",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "rtk-F": {
+   "kol": "rtk-taban-1",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "orta-A": {
+   "kol": "orta-taban-2",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "orta-B": {
+   "kol": "orta-pt-1",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "orta-C": {
+   "kol": "orta-pt-2",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  },
+  "orta-D": {
+   "kol": "orta-taban-1",
+   "d": 3,
+   "e": 3,
+   "k": 2,
+   "toplam": 8,
+   "basari": 1
+  },
+  "orta-E": {
+   "kol": "orta-taban-3",
+   "d": 3,
+   "e": 3,
+   "k": 2,
+   "toplam": 8,
+   "basari": 1
+  },
+  "orta-F": {
+   "kol": "orta-pt-3",
+   "d": 3,
+   "e": 3,
+   "k": 3,
+   "toplam": 9,
+   "basari": 1
+  }
+ },
+ "kol": {
+  "rtk/taban": {
+   "toplamlar": [
+    9,
+    9,
+    9
+   ],
+   "ort": 9.0,
+   "basari": "3/3"
+  },
+  "toplam/taban": {
+   "toplamlar": [
+    9,
+    9,
+    9,
+    9,
+    8,
+    8
+   ],
+   "ort": 8.67,
+   "basari": "6/6"
+  },
+  "rtk/pt": {
+   "toplamlar": [
+    9,
+    8,
+    9
+   ],
+   "ort": 8.67,
+   "basari": "3/3"
+  },
+  "toplam/pt": {
+   "toplamlar": [
+    9,
+    8,
+    9,
+    9,
+    9,
+    9
+   ],
+   "ort": 8.83,
+   "basari": "6/6"
+  },
+  "orta/taban": {
+   "toplamlar": [
+    9,
+    8,
+    8
+   ],
+   "ort": 8.33,
+   "basari": "3/3"
+  },
+  "orta/pt": {
+   "toplamlar": [
+    9,
+    9,
+    9
+   ],
+   "ort": 9.0,
+   "basari": "3/3"
+  }
+ }
+}
