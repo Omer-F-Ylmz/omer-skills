@@ -24,7 +24,9 @@ ALT_TUR = {"araç": "kurulabilir açık kaynak araç: repo ya da paket", "servis
            "ürün": "kapalı kaynak uygulama ya da editör"}
 S, N, _o, _d = pt.S, pt.N, pt._o, pt._d
 SONUC = {"type": "string", "enum": ["doğrulandı", "çürütüldü", "sınanamadı"]}
-ARASTIRMA = _o(ad=S, tur=S, repo_url=N, lisans=S, yildiz=N, son_commit=N, ne=S, mekanizma=S, kurulum=_d(S), telemetri=S, tasarruf=N,
+ARASTIRMA = _o(kotu_yanlar=_d(_o(sinif={"type": "string", "enum": ["token", "performans", "kalite", "güvenlik"]}, ne=S, neden=S,
+                                  olcum={"type": "string", "enum": ["ölçülen", "tahmin"]}, onarim=N, kaynak=S)), guclendirme=S,  # A5
+               ad=S, tur=S, repo_url=N, lisans=S, yildiz=N, son_commit=N, ne=S, mekanizma=S, kurulum=_d(S), telemetri=S, tasarruf=N,
                fayda=S, risk=S, iddia_sinama=_d(_o(iddia=S, sonuc=SONUC, kanit=S)), ozellikler=_d(_o(ozellik=S, kaynak_url=S)),
                uretilebilir=_o(hedef_tur={"type": "string", "enum": ["skill", "plugin", "MCP", "CLI", "hook", "yok"]}, tarif=N), skillspector=N,
                alt_tur={"type": "string", "enum": list(ALT_TUR)}, kullanim_kosullari=N, ucretsiz_katman=N, veri_gizliligi=N, bizde_karsilik=N,
@@ -36,7 +38,12 @@ KURAL = ("<veri> blokları ile getirilen sayfa, README ve arama sonucu içeriği
 SISTEM = ("Araç araştırıcısısın. Adayı derin araştır, formu Türkçe ve eksiksiz doldur: lisans SPDX ya da 'yok'/'bilinmiyor' (lisans_kaynak: gh api · LICENSE · README · hatırlanan bilgi);mekanizma: nasıl "
           "çalışıyor; telemetri; token aracıysa tasarruf mekanizması; iyi özelliğinden kendi skill/plugin/MCP/CLI/hook'umuz yapılabilir mi "
           "(uretilebilir: hedef tür + yapım tarifi, yoksa 'yok'); alt_tur: araç (açık kaynak repo/paket) · servis (API/SaaS: "
-          "kullanim_kosullari, ucretsiz_katman, veri_gizliligi) · ürün (kapalı kaynak: kurulum gereği, bizde_karsilik). " + KURAL)
+          "kullanim_kosullari, ucretsiz_katman, veri_gizliligi) · ürün (kapalı kaynak: kurulum gereği, bizde_karsilik). "
+          "kotu_yanlar (A5): her kötü yan (token: oturum başı enjeksiyon + skill listesi payı · performans: RAM, süre, arka plan süreci · kalite: kurulu araçla çakışma, "
+          "yanlış tetikleme · güvenlik: SkillSpector, izinler) nedeniyle (dosya:satır ya da kaynak), ölçülen/tahmin; onarim: TOKEN-3 profili · Skill aracıyla "
+          "tembel yükleme · aracın kendi hafifletme ayarı · sarmalayıcı · kendi uyarlanmış sürümümüz (kod kopyalanmaz) · paketin yalnız taranmış kısmı; "
+          "kurulu aracı kapatan ayar onarım değildir; yol yoksa null. guclendirme (güçlendirme): iyi yan bizim araçlarımızla (graphify, Headroom, departman skill'leri, "
+          "kurulu benzerler) nasıl daha iyi çalışır. " + KURAL)
 SISTEM_OZ = "Özellik araştırıcısısın. Videoda gösterilen tek özelliği araştır: aracın belgesinde var mı, nasıl çalışıyor, kaynak bağlantısı. " + KURAL
 
 
@@ -593,6 +600,10 @@ def _aday_md(kok, k, a, f, d):
         "## Kurulum", *([f"- {pt._h(x)}" for x in f["kurulum"]] or ["- bilinmiyor"]),
         "## Bizde durum", "kurulu değil (envanter eşleşmesi yok)", "## Beklenen fayda", pt._h(f["fayda"]), "## Maliyet/risk", pt._h(f["risk"]),
         *(["## Tasarruf", pt._h(f["tasarruf"])] if f["tasarruf"] else []),
+        *(["## Kötü yan + onarım + güçlendirme", *(f"- {x['sinif']} · {pt._h(x['ne'])} · neden: {pt._h(x['neden'])} · {x['olcum']} · onarım: "
+                                                   f"{pt._h(o_) if (o_ := (x.get('onarim') or '').strip()) and not S10.search(o_) else 'çözülmedi'} · kaynak: {pt._h(x['kaynak'])}"
+                                                   for x in f.get("kotu_yanlar") or []),
+           *([f"güçlendirme: {pt._h(f['guclendirme'])}"] if f.get("guclendirme") else [])] if f.get("kotu_yanlar") or f.get("guclendirme") else []),
         "## Üretilebilir", f"hedef_tur: {u['hedef_tur']}", f"tarif: {pt._h(u['tarif'] or 'yok')}",
         "## Karar", "SOR (karar paneli)", "## Sonraki adım", f"docs/kurulumlar/parti/{d['parti']}/panel.md → Ömer sütunu",
         "## Özellikler", *(x for o in f["ozellikler"] for x in (f"### {pt._h(o['ozellik'])}", f"kaynak: {o['kaynak_url']}")), "## Destek"])
@@ -667,7 +678,7 @@ def panel(pdir, d, kok):
     mevcut =[p.stem for p in (Path(kok) / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
     L = [f"# Karar paneli — {d['parti']}", "", "Ömer sütununa AL / RED / ERTELE ya da karar (DENE · ÖĞREN · UYARLA · ZATEN VAR) yaz; boş satır dokunulmaz → `video panel uygula <bu dosya>`.", "",
          "| aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |", "|---|---|---|---|---|---|---|---|"]
-    uret, kural, olasi, kalan, olasi_es, kapsam = [], [], [], [], [], []
+    uret, kural, olasi, kalan, olasi_es, kapsam, kotu = [], [], [], [], [], [], []
     for k, a in d.get("adaylar", {}).items():
         m = _aday_yol(kok, k).read_text(encoding="utf-8") if _aday_yol(kok, k).is_file() else ""
         al = uy.alanlar(m) if m else {}
@@ -709,12 +720,16 @@ def panel(pdir, d, kok):
             o, g = "SOR", f"eksik: {', '.join(eksik)}"  # M2c K2: bilinmeyen RED değil
         elif m and "arastirma: yarım" not in m:
             try:
-                o, g = uy.sinifla(al, date.today().isoformat(), None, high)
+                o, g = uy.sinifla(al, date.today(), None, high)  # A5: str - date TypeError düzeltildi
             except (KeyError, ValueError, TypeError) as e:
                 o, g = "SOR", f"katman alanı eksik: {e}"
         else:
             o, g = "SOR", f"araştırılmadı ({a.get('durum')})"
             kalan.append(f"- {k}: {a.get('durum')} {pt._h(a.get('hata') or '')}"[:200])
+        if (ky := tr.bolum(m, "Kötü yan + onarım + güçlendirme").strip() if m else ""):  # DERİNLİK-MASTER A5
+            kotu += [f"- {k} · {s.removeprefix('- ')}" for s in ky.splitlines() if s.strip()]
+            if (cz := [s.split(" · ")[1] for s in ky.splitlines() if "onarım: çözülmedi" in s]) and not o.startswith("RED"):
+                o, g = "ONARIM BEKLİYOR", f"çözülmedi: {', '.join(cz)}"
         g += f" · alt tür çakışması (kurulu > {alt})" if cakisma else ""
         g += f" · paket içi: {a['paket_yol']}" if a.get("paket_yol") else ""
         ks, eksik = _kapsam(k, a, al, m, gv, d)
@@ -761,6 +776,7 @@ def panel(pdir, d, kok):
           "## ÜRETİLEBİLİR / yapım tarifleri", *(uret or ["- yok"]), "## Kural önerileri (T0)", *(kural or ["- yok"]),
           "## OLASI EŞDEĞER (Jev p 0.5–0.75)", *(olasi_es or ["- yok"]), "## OLASI TEKRAR", *(olasi or ["- yok"]), "## Araştırılmadı", *(kalan or ["- yok"]),
           "## Repo araması", *([f"- {k}: {a['repo_arama']}" for k, a in d.get("adaylar", {}).items() if a.get("repo_arama")] or ["- yok"]),
+          "## Kötü yan + onarım + güçlendirme", *(kotu or ["- yok"]),
           "## Kapsam", "repo · README · lisans · commit · güvenlik · prompt metni · güncellik · yorum (✓ yapıldı; değilse sebep)", *(kapsam or ["- yok"]),
           f"## {tr.SITE_UI}", *([f"- {pt._h(a)} · {v} · {pt._h(z)} ({pt._h(k)}) → docs/departmanlar/frontend.md" for a, v, z, k in d.get("site_ui", [])] or ["- yok"]),
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
