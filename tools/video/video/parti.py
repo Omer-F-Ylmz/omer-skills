@@ -32,7 +32,7 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "Gösterilen ya da söylenen her kurulum/terminal komutunu kurulum_komutlar'a yaz (komut · ne yapar · zaman · kaynak).")
 
 
-OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar"}  # M2c: opsiyonel alanlar
+OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar", "lisans_kaynak"}  # M2c: opsiyonel alanlar
 
 
 def _o(**alan):
