@@ -149,6 +149,14 @@ video-tarayici-haiku.md'ye aynı şema satırı. Kırmızı test → kod → com
 desenler: URL, owner/repo, kurulum komutları, büyük harfli ürün adları) İz'de yoksa "KAÇAN?" işaretlenir. Test.
 D2 eki (Ömer, 5 Eki O15): kaçak denetimi <id>/ocr-gurultu.txt'yi de tarar — gürültü satırındaki sözlük/desen eşleşmeleri (kurulu araç
 adları, aday adları, kısa adlar dahil) İz'de yoksa "KAÇAN?". Kanıt: canlı gürültü satırlarında "OpenA1", "Open A I", "Meta Stan", "John Kim".
+D2 iki ek (Ömer kararı, 5 Eki; D2 kancalamada uygulanır): (a) Sözlük = kurulu araçlar + tüm aday adları +
+docs/video-tarama/bilinen-araclar.txt (yeni, kalıcı; ilk içerik: bugüne kadarki bütün aday adları + bilinen marketplace plugin adları;
+her parti kapanışında yeni aday adları kendiliğinden eklenir, tekrar eklenmez). (b) İki kademe: engelleyen KAÇAN? = URL · owner/repo ·
+kurulum komutu · sözlük eşleşmesi (D3'te parti kapat'ı durdurur). "KAÇAN? (düşük güven)" = cümle başında olmayan, yaygın İngilizce/Türkçe
+kelime listesinde (ayarda) olmayan ve kaynaklarda ≥2 kez geçen büyük harfli tek kelime (ör. Cursor, Windsurf) — parti kapat'ı DURDURMAZ,
+panel Denetim'de ayrı sayılır ve E1 denetim.md'ye girer. Test: "Cursor" iki kez geçen altyazı → düşük güven; cümle başı "The"/"This" →
+hiç; sözlükteki "supabase" → engelleyen. Kanıt (4. canlı ölçüm, C5 sonrası): b2QkhmQ0sT0 --kare 8 --model-tavan 60 → seçilen 42 · OCR 26 ·
+model 27 · incelenmedi 0 · OCR gürültü 62 · tekrar (montaj) 3 · ~7k metin + ~11.9k kare.
 **D3** Panelde "## Denetim": bahis · bağlanan · aday değil (oran) · KAÇAN? sayıları. KAÇAN? > 0 iken `video parti kapat` durur (bağla ya
 da sebep yaz). "Aday değil" oranı %5'i aşarsa uyarı. Test.
 Ek (Ömer, 4 Eki O7): koruma whisper'ı durdurduğu ve altyazı da olmadığı videoda kapsam "konuşma alınamadı (sebep)" olur; bu durum KAÇAN?
