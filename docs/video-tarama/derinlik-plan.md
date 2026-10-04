@@ -85,6 +85,10 @@ Eski formlar geçerli (yeni alanlar isteğe bağlı). Test: çözülmedi kötü 
 ## C — İZLEME KAPSAMI + TOKEN (uzun videolar dahil)
 **C1 Konuşma kaynağı:** altyazı yoksa ya da otomatik altyazı bozuksa (sözlük dışı/anlamsız kelime oranı eşiği ayarda) `video whisper`.
 Kullanılan kaynak kapsamda yazılır. Test (sahte altyazı: temiz → altyazı; bozuk oran > eşik → whisper yolu; yok → whisper).
+Koruma (Ömer, 4 Eki O6): whisper süre sınırı kalkar ama yalnız altyazı yoksa ya da bozuksa çalışır; başlamadan boş RAM ≥6 GB ve ağır
+süreç yok (oyun, Blender, tam suit; ad listesi ayarda) — değilse "whisper atlandı (sebep)", video kare-yalnız sürer (`--paket-yeniden` ile
+tekrar). Uzun ses parçalara bölünür (whisper.json'da parça parça); yarıda kalırsa ses silinmez, kaldığı parçadan sürer. Tahmini ve gerçek
+süre kapsamın "konuşma" alanına yazılır. Test (sahte whisper).
 **C2 Kare seçimi sabit aralık değil:** sahne değişimi (ffmpeg scene) + metin yoğunluğu + altyazıda ekrana/repoya/linke/komuta/prompta/
 ayara işaret eden anlar. Algısal hash (Pillow, dHash) ile aynı ekran tekrar seçilmez. Test. (Pillow kurulu değilse DUR, sor.)
 **C3 Yerel OCR:** Windows yerleşik Windows.Media.Ocr (kullanılamazsa DUR, sor); seçilen tüm karelerden metin çağrısız çıkarılır; URL,
