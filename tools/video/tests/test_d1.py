@@ -1,6 +1,17 @@
 """DERİNLİK-MASTER D1: rapor "## İz" — her bahis bir satır; "aday değil" sebebi sabit listeden, "zaten kurulu" sebep değil (29 Eyl ilkesi)."""
 
+from pathlib import Path
+
 from video import tarama as tr
+
+
+def test_tarayici_talimati_iz_sema2():
+    """D1 (b): alt ajan şablonu künyede "şema 2" ve ## İz tablosu üretir; skill gövdesi İz denetimini anar."""
+    kok = Path(__file__).resolve().parents[3]
+    t = (kok / ".claude" / "agents" / "video-tarayici.md").read_text(encoding="utf-8")
+    assert "url · şema 2" in t and "## İz\n| kaynak | ne | bağlandığı | kanıt |" in t and "zaten kurulu" in t
+    s = (kok / "skills" / "video-tarama" / "SKILL.md").read_text(encoding="utf-8")
+    assert "## İz" in s and "şema 2" in s
 
 IZ = """## İz
 | kaynak | ne | bağlandığı | kanıt |
