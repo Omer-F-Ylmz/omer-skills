@@ -107,6 +107,8 @@ sabit liste dışı sebebi ve "zaten kurulu"yu reddeder).
 desenler: URL, owner/repo, kurulum komutları, büyük harfli ürün adları) İz'de yoksa "KAÇAN?" işaretlenir. Test.
 **D3** Panelde "## Denetim": bahis · bağlanan · aday değil (oran) · KAÇAN? sayıları. KAÇAN? > 0 iken `video parti kapat` durur (bağla ya
 da sebep yaz). "Aday değil" oranı %5'i aşarsa uyarı. Test.
+Ek (Ömer, 4 Eki O7): koruma whisper'ı durdurduğu ve altyazı da olmadığı videoda kapsam "konuşma alınamadı (sebep)" olur; bu durum KAÇAN?
+gibi `video parti kapat`ı durdurur — giderilmesi: koşullar uygunken `--paket-yeniden` ile whisper. Test.
 
 ## B — İNTERNETİ TARAMA (yalnız GitHub değil)
 **B1 Link toplama:** açıklama + yorum + OCR + altyazıda geçen URL/alan adları + linkli sayfalardaki ilgili linkler (1 derinlik). Sınıf:
@@ -157,6 +159,8 @@ Bağlam: 2026-10-03-short partisinin durum.json'u `.kos/2026-10-03-short/` altı
 ## KABUL (her oturum)
 - Her madde kırmızı-önce ayrı commit · eski test değişmez (çelişirse DUR, sor) · oturum sonunda ilgili suite (tools/video).
 - SON oturumda tam suit (suite-kosucu; koşarken yazma/commit yok; boş RAM ≥6 GB ve ağır süreç yok — oyun dahil).
+- Suit (tam ya da video) koşarken hiçbir dosyaya yazma yok (salt okuma serbest); kod suit sırasında değişmek zorunda kalırsa sonuç geçersiz,
+  suit yeniden koşulur (Ömer, 4 Eki O7: O6'da suit sırasında kod/plan değişmişti).
 - gitleaks (değişenler) · commit'te yalnız bu işin dosyaları (`git add <dosya>`; docs/kurulumlar/parti/, docs/kurulumlar/adaylar/,
   docs/video-tarama/ raporları ve .kos/ hariç).
 - Son oturumda dalga.md → `.claude/dalga-arsiv/DERİNLİK-MASTER.md` (doğrulanır) · son commit + push · `graphify update .` ÖN PLANDA.
