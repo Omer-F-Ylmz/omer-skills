@@ -417,6 +417,33 @@ def denetle(metin, sure=None):
 
 
 IZ_SEBEP = re.compile(r"genel kavram|başka adayın parçası \(\S[^)]*\)|sponsor/reklam|konu dışı", re.I)
+KACAN_URL = re.compile(r"https?://[^\s|)>\]]+")
+KACAN_DESEN = [re.compile(r"(?<![\w./:-])[A-Za-z0-9][\w.-]*/[\w.-]*\w(?![\w/])"),  # owner/repo
+               re.compile(r"\b(?:npx|uvx|pipx? install|npm i(?:nstall)?(?: -g)?|claude mcp add|/plugin install)\s+(?:-\S+\s+)*([\w@./-]+)"),
+               re.compile(r"\b[A-Z][a-z]+[A-Z][A-Za-z]*\b")]  # büyük harfli ürün adı (OpenAI, ChatGPT)
+
+
+def _kat_ad(s):
+    """D2: OCR karışıklığı katlanır (1→i, 0→o), harf/rakam dışı atılır: OpenA1 · Open A I · openai aynı."""
+    return re.sub(r"[\W_]", "", s.casefold().translate(str.maketrans("10", "io")))
+
+
+def kacan(rapor, kaynaklar, sozluk):
+    """D2 çağrısız kaçak denetimi: [(kaynak, metin)] içindeki URL · owner/repo · kurulum komutu · büyük harfli ürün adı ve sözlük adları
+    (1–3 ardışık sözcük katlanmış eşit; kısa adlar dahil) ## İz'de geçmiyorsa → [(kaynak, terim)] "KAÇAN?"."""
+    iz, sozluk, gorulen, k = _kat_ad(bolum(rapor, "İz")), {_kat_ad(x): x for x in sozluk}, set(), []
+    for kaynak, metin in kaynaklar:
+        terim = KACAN_URL.findall(metin)
+        duz = KACAN_URL.sub(" ", metin)
+        for satir in duz.splitlines():
+            w = re.findall(r"[\w.-]+", satir)
+            terim += [sozluk[j] for n in (1, 2, 3) for i in range(len(w) - n + 1) if (j := _kat_ad("".join(w[i:i + n]))) in sozluk]
+        terim += [x for d in KACAN_DESEN for x in d.findall(duz)]
+        for t in terim:
+            if (j := _kat_ad(t)) and j not in gorulen and j not in iz:
+                gorulen.add(j)
+                k.append((kaynak, t))
+    return k
 
 
 def frontend_mu(metin):
