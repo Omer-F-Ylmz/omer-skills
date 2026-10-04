@@ -71,6 +71,24 @@ def test_tavan_20_sinir_butce_24_secilen_15_model(ortam):
     assert "seçilen 24 · OCR 17 · model 15 · incelenmedi 0" in kj["izleme"] and kj["incelenmedi"] == []
 
 
+def test_girdi_tavani_dusen_kareler_kapsamda_incelenmedi(tmp_path):
+    """O10: kare_sigdir (40k girdi) düşürdüğü anlar kapsam.json incelenmedi'ye "girdi tavanı" ile; izleme sayısı güncel; tekrar eklenmez."""
+    (tmp_path / "e1").mkdir()
+    kj = tmp_path / "e1" / "kapsam.json"
+    kj.write_text(json.dumps({"izleme": "seçilen 9 · OCR 0 · model 8 · incelenmedi 1 · OCR gürültü 0", "incelenmedi": [[5, "jeton bütçesi"]]}),
+                  encoding="utf-8")
+    metin = ""
+    while pt.c.token(metin) < pt.GIRDI_TAVAN - 3 * pt.KARE_TK:
+        metin += "kelime " * 500
+    for _ in range(2):
+        pk = {"e1": {"short": False, "metin": metin, "kareler": [f"k{i}.jpg" for i in range(8)], "kare_zaman": [10 * i for i in range(8)]}}
+        pt.kare_sigdir(pk, tmp_path)
+    n = len(pk["e1"]["kareler"])
+    k = json.loads(kj.read_text(encoding="utf-8"))
+    assert 0 < n < 8 and k["incelenmedi"] == [[5, "jeton bütçesi"], *[[10 * i, "girdi tavanı"] for i in range(n, 8)]]
+    assert f"model {n} · incelenmedi {9 - n} · OCR gürültü 0" in k["izleme"]
+
+
 def test_panel_kapsam_izleme_alani():
     a = {"tur": "skill", "repo": None, "durum": "x", "kurulu": False, "videolar": {"e1": 1}}
     s, eksik = akil._kapsam("ajan", a, {}, "", "koşmadı", {"videolar": {"e1": {"izleme": "sahne 3 · model 2 · incelenmedi 1"}}})
