@@ -24,6 +24,11 @@ class SahneKos(Kos):
         if args[0] == "ffmpeg" and "metadata=print" in args[args.index("-vf") + 1]:
             self.cagri.append(list(args))
             return self.rc, self.sahne if self.rc == 0 else b"", f"[https @ 0x1] {self.url}: 403 Forbidden".encode()
+        if args[0] == "powershell":  # C3: yoğunluk artık OCR karakter sayısı; kod satırı → kare modele gider (sıra testi değişmez)
+            self.cagri.append(list(args))
+            n = lambda a: DOLGU.get(int(Path(a).name[1:6]), 0)  # noqa: E731
+            return 0, json.dumps({Path(a).name: {"tr": [["x=1;" * (n(a) // 4), 0, 0, 9, 9]] if n(a) else [], "en": []}
+                                  for a in args[args.index("-File") + 2:]}).encode(), b""
         r = super().__call__(args, timeout)
         if args[0] == "ffmpeg" and str(args[-1]).endswith(".jpg"):
             yol = Path(args[-1])

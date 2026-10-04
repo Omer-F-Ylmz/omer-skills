@@ -95,6 +95,9 @@ ayara işaret eden anlar. Algısal hash (Pillow, dHash) ile aynı ekran tekrar s
 owner/repo, kurulum komutu (npx, pip, uv, claude mcp add, /plugin install …), prompt ve ayar parçaları pakete metin olarak girer. Modele kare
 yalnız OCR'ın anlamlandıramadığı (kod, şema, arayüz) anlarda gider. Video süresine göre kare tavanı ayarda; tavanı aşan anlar
 "incelenmedi (sebep)". Test (OCR sahte).
+C3 notu (Ömer, 4 Eki O8): İngilizce tanıyıcı kuruldu (Language.OCR en-US; tr-TR de kurulu). Her kare iki tanıyıcıyla (tr + en) okunur,
+sonuçlar birleştirilir: URL/komut/kod için en, Türkçe arayüz metni için tr; çakışmada güven puanı yüksek olan. C3 bitince C2'deki geçici
+metin yoğunluğu ölçüsü (JPEG bayt/piksel) OCR karakter sayısıyla değiştirilir.
 **C4 Kapsam satırı (video başına):** sahne N · seçilen kare M · OCR'lanan K · modele giden J · altyazı kaynağı · incelenmeyen anlar.
 Ölçüm planı: aynı uzun videoda eski ↔ yeni paket jetonu ve bulunan bahis sayısı (Ömer'in canlı koşusu için komut raporda). Test.
 
