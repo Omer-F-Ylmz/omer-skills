@@ -6,7 +6,7 @@ from pathlib import Path
 from video import akil, cli
 from video import parti as pt
 from video.cli import main
-from test_c3 import KOD, OKUNUR, OcrKos, bolum, paket
+from test_c3 import KOD, KOD2, OKUNUR, OcrKos, bolum, paket
 from test_o11 import kod, okunur
 from test_m9 import _alt, _d
 from test_video import VID, ortam  # noqa: F401 (ortam fixture)
@@ -20,7 +20,7 @@ def test_butceyi_asan_kare_incelenmedi(ortam, monkeypatch):
 
 
 def test_kapsam_json_izleme_ve_ikinci_gecis(ortam, capsys):
-    kos = OcrKos({"k00300": KOD, "k00100": KOD}, sahne_rc=0)
+    kos = OcrKos({"k00300": KOD, "k00100": KOD2}, sahne_rc=0)  # Ömer onayı (O11 (3)): aynı OCR metni tek kare
     d, _ = paket(ortam, kos, kare=1)  # 5:00 modele, 1:40 kare tavanı 1
     kj = json.loads((d / "kapsam.json").read_text(encoding="utf-8"))
     assert kj["incelenmedi"] == [[100, "kare tavanı 1"]]

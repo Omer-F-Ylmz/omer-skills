@@ -70,6 +70,7 @@ class OcrKos(SahneKos):
 OKUNUR = {"tr": [["Bu skill kurulumu için şu komutu çalıştırın", *KUTU(0)], ["npx skilis add owner/repo", *KUTU(40)]],
           "en": [["Bu skill kurulumu icin su komutu calistirin", *KUTU(0)], ["npx skills add owner/repo", *KUTU(40)]]}
 KOD = {"tr": [[s, *KUTU(i * 30)] for i, s in enumerate(["def kur(ns, ctx):", "    return calistir(ns) == 0", "import json; x = {}"])], "en": []}
+KOD2 = {"tr": [[s, *KUTU(i * 30)] for i, s in enumerate(["def yaz(ns, ctx):", "    return gonder(ns) == 1", "import os; y = []"])], "en": []}  # Ömer onayı (O11 (3)): aynı OCR metni tek kare
 
 
 def paket(ortam, kos, kare=2):
@@ -97,7 +98,7 @@ def test_ocr_metni_pakete_girer_okunan_kare_modele_gitmez(ortam):
 
 
 def test_tavani_asan_model_ani_incelenmedi(ortam):
-    _, md = paket(ortam, OcrKos({"k00300": KOD, "k00100": KOD}, sahne_rc=0), kare=1)  # aday 5:00 (eşit aralık) + 1:40 (sahne)
+    _, md = paket(ortam, OcrKos({"k00300": KOD, "k00100": KOD2}, sahne_rc=0), kare=1)  # aday 5:00 (eşit aralık) + 1:40 (sahne)
     assert [s.split(" · ")[1] for s in bolum(md, "Kareler")] == ["5:00"]
     assert bolum(md, "İncelenmedi") == ["[1:40] kare tavanı 1"]
 
