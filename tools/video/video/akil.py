@@ -106,7 +106,13 @@ GELISTIRME = _o(satirlar=_d(_o(aday=S, videodaki_kullanim=S, bizdeki_durum=S, fa
                                oneri={"type": "string", "enum": ["UYARLA", "ÖĞREN", "yok"]}, kanit={"type": "string"})))
 SISTEM_GEL = ("Geliştirme karşılaştırıcısısın (Ömer ilkesi 29: 'zaten var' son değildir). Her ADAY için videodaki kullanımı <veri kaynak=\"bizde\"> "
               "özetiyle karşılaştır; bizde olmayan daha iyi yan varsa UYARLA (bizdekini değiştir) ya da ÖĞREN (not al), yoksa 'yok'. "
-              "kanit: videodaki zaman + iddia ya da bizdeki kayıttan somut dayanak; dayanak yoksa oneri 'yok'. " + KURAL)
+              "kanit: videodaki zaman + iddia ya da bizdeki kayıttan somut dayanak; dayanak yoksa oneri 'yok'. "
+              "Kurulu araç kapatma/kaldırma önerme; yükleme yönetimi TOKEN-3 profilleriyle yapılır. " + KURAL)
+S10 = re.compile(r"kapat|kaldır|devre dışı|disable|uninstall", re.I)  # DERİNLİK-2 S10: ihlal eden öneri panelde işaretlenir
+
+
+def _s10(metin):
+    return f"⚠ S10 ihlali (kapatma/kaldırma önerilmez; TOKEN-3 profilleri) · {metin}" if S10.search(metin) else metin
 ANATOMI_SEMA = _o(**{x: S for x in uy.ANATOMI})
 SISTEM_AN = ("Prompt anatomisi çıkarıcısısın (23c). Videodaki site yapım promptlarının anatomisini alanlara ayır; metni kopyalama, yapıyı anlat. "
              "Birebir klon ya da izinsiz varlık önerme. " + KURAL)
@@ -645,7 +651,7 @@ def panel(pdir, d, kok):
         if x["oneri"] in ("UYARLA", "ÖĞREN"):
             a, g = d["adaylar"].get(x["aday"], {}), f"{x['aday']}-gelistirme"
             bekleyen += not eski.get(g)
-            L.append(f"| {g} | {a.get('tur', '-')} | {len(a.get('videolar', {}))} | — | — | {x['oneri']} | {pt._h(x['gelistirme_onerisi'])} (kanıt: {pt._h(x['kanit'])}) | {eski.get(g, '')} |"
+            L.append(f"| {g} | {a.get('tur', '-')} | {len(a.get('videolar', {}))} | — | — | {x['oneri']} | {pt._h(_s10(x['gelistirme_onerisi']))} (kanıt: {pt._h(x['kanit'])}) | {eski.get(g, '')} |"
                      .replace("|  |", "| |"))
     yazilan = {s.split("|")[1].strip() for s in L if s.startswith("| ")}
     L += [s for k, s in eski_s.items() if eski[k] and k not in yazilan]  # M11 K3: yeniden üretimde satırı kalkan dolu Ömer kararı korunur
@@ -665,7 +671,7 @@ def panel(pdir, d, kok):
           f"## {tr.SITE_UI}", *([f"- {pt._h(a)} · {v} · {pt._h(z)} ({pt._h(k)}) → docs/departmanlar/frontend.md" for a, v, z, k in d.get("site_ui", [])] or ["- yok"]),
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
           "## Geliştirme önerileri", *[f"- bizde bilgi yok: {pt._h(x)}" for x in d.get("bizde_yok", [])], *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
-                                        f"{x['oneri']}: {pt._h(x['gelistirme_onerisi'])} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
+                                        f"{x['oneri']}: {pt._h(_s10(x['gelistirme_onerisi']))} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
           "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
     _yaz(y, L)
     return y
