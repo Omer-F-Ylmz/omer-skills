@@ -50,3 +50,26 @@ def test_sema2_kunyede_iz_zorunlu_eski_sema_serbest():
 def test_baska_adayin_parcasi_hangisi_zorunlu_bos_alan_reddedilir():
     h = iz_hata("| konuşma 04:00 | alt komut | aday değil: başka adayın parçası | - |\n| konuşma 06:00 |  | superpowers | k |")
     assert len(h) == 2 and "alt komut" in h[0]
+
+
+def test_motor_form_iz_sema2(tmp_path):
+    """D1 (b) motor: form "iz" → rapor künyede şema 2 + ## İz; iz yoksa şema 1 (eski form geçerli); boş/eksik/geçersiz İz form_red;
+    model şemasında iz zorunlu; SISTEM, motor-sema.md ve haiku ajanı İz'i anar."""
+    from test_m2a import V, _form
+    from test_m2b import _pk
+    from video import parti as pt
+    pk, eski = _pk(tmp_path), _form(V[0])
+    dg = lambda f: pt.dogrula({"videolar": [f]}, {V[0]: pk}, [V[0]]).get(V[0])
+    assert dg(eski) is None and "şema" not in pt.rapor_md(eski, pk, [])
+    iz = {"kaynak": "konuşma 0:05", "ne": "Hızlı Araç", "baglandigi": "Hızlı Araç", "kanit": "araç işi hızlandırıyor"}
+    md = pt.rapor_md({**eski, "iz": [iz]}, pk, [])
+    assert "· şema 2" in md and "## İz\n| kaynak | ne | bağlandığı | kanıt |\n|---|---|---|---|\n| konuşma 0:05 | Hızlı Araç | Hızlı Araç |" in md
+    assert dg({**eski, "iz": [iz]}) is None
+    assert dg({**eski, "iz": []}) and dg({**eski, "iz": [{**iz, "kanit": " "}]}) and dg({**eski, "iz": [{"kaynak": "yorum", "ne": "X"}]})
+    assert dg({**eski, "iz": [{**iz, "baglandigi": "aday değil: zaten kurulu"}]})
+    v = lambda s: s["properties"]["videolar"]["items"]["required"]
+    assert "iz" in v(pt.sema([V[0]], iz=True)) and "iz" not in v(pt.sema([V[0]]))
+    assert "iz" in pt.SISTEM and "zaten kurulu" in pt.SISTEM
+    kok = Path(__file__).resolve().parents[3]
+    assert "## İz" in (kok / ".claude" / "agents" / "video-tarayici-haiku.md").read_text(encoding="utf-8")
+    assert "iz: [" in (kok / "docs" / "tasarim" / "motor-sema.md").read_text(encoding="utf-8").split("## 1.")[1].split("## 2.")[0]
