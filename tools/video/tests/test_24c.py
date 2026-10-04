@@ -111,12 +111,12 @@ def test_k4_kural_zaten_var_ve_eksik_kaynak(ortam, kok, tmp_path):
     assert not list((kok / "docs" / "kurulumlar" / "bekleyen").glob("prompt-*.md"))
 
 
-# K5 büyük repo: gh api boyutu >100 MB → klon/tarama yok; zaman aşımı 300
+# K5 büyük repo: gh api boyutu >100 MB → tam klon yok (DERİNLİK-2 S5: seyrek tarama); zaman aşımı 300
 def test_k5_buyuk_repo_klonlanmaz(ortam, kok):
     kos = _kos(kb=200000)
     assert main(["on", VID, "lh", "--repo", "o/lh"], env=ortam, kos=kos) == 0
     m = (kok / ".kos" / VID / "lh" / "on.md").read_text(encoding="utf-8")
-    assert "atlandı (repo 195 MB)" in m and not any(a[:2] == ["git", "clone"] or a[0] == "skillspector" for a in kos.cagri)
+    assert "seyrek tarama (repo 195 MB)" in m and not any(a[:2] == ["git", "clone"] and "--sparse" not in a for a in kos.cagri)
     assert uy._kos.__defaults__ == (300,)
 
 
