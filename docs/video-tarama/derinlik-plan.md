@@ -176,6 +176,8 @@ hiç; raporda olmayan instagram profili → düşük; raporda olmayan github.com
 da sebep yaz). "Aday değil" oranı %5'i aşarsa uyarı. Test.
 Ek (Ömer, 4 Eki O7): koruma whisper'ı durdurduğu ve altyazı da olmadığı videoda kapsam "konuşma alınamadı (sebep)" olur; bu durum KAÇAN?
 gibi `video parti kapat`ı durdurur — giderilmesi: koşullar uygunken `--paket-yeniden` ile whisper. Test.
+O19 sapması (Ömer kararı, 5 Eki): kapsam etiketi "altyazı yok; whisper atlandı (…)" olarak kalır; Denetim "konuşma alınamadı"yı ondan
+türetir; test_c1.py:79 değişmez.
 D3 eki (Ömer kararı, 5 Eki): eski formlar şema 1 olarak geçerli kalır; ama D1 sonrası açılan bir partide İz'siz (şema 1) rapor üreten
 video (ör. kısmi kabul, diskteki eski form) panel Denetim'inde "İz yok" olarak sayılır ve KAÇAN? gibi `video parti kapat`ı durdurur —
 giderilmesi: `devam --yeniden-tara` ile o video yeniden taranır. Test.
