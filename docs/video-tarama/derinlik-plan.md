@@ -164,6 +164,13 @@ içinde. İkisi de yoksa → düşük güven (kaybolmaz, denetim.md'ye girer). Y
 debug gibi; ayarda). İç büyük harfli tek kelime (LangGraph, ChatGPT) tek geçişte de düşük güven (≥2 şartı yalnız düz Büyük-harfli kelimeye).
 Test: sözlük taste/design/superpowers — "taste skill kurdum" → engelleyen; "good taste" → düşük; "/design" → engelleyen; "design is hard"
 → düşük; "superpowers" yalın → engelleyen; "LangGraph" bir kez → düşük. Kuru koşu önce/sonra: docs/olcumler/d2-kuru.md.
+D2 sıkılaştırma (Ömer kararı, 5 Eki): (a) owner/repo ENGELLEYEN yalnız iki taraf ≥2 karakter, ikisinde de harf var ve kalıp DESEN_YASAK'ta
+değilse (ayarda: a/b, i/o, and/or, tcp/ip, ui/ux, input/output, w/o, 24/7 …; yasak → hiç); gürültü kaynağından gelen owner/repo her
+durumda düşük güven. Test: "A/B" → hiç; "Z/57" (gürültü) → düşük; "affaan-m/everything-claude-code" → engelleyen. (b) URL raporun herhangi
+bir bölümünde (Açıklama bağlantıları, Adaylar link sütunu, İz dahil) geçiyorsa kaçak değil; SOSYAL alan adları (ayarda: instagram, tiktok,
+x, twitter, threads, bsky.app, linkedin, facebook, youtube, youtu.be, substack, patreon, discord.gg) → düşük güven. Test: raporda geçen URL →
+hiç; raporda olmayan instagram profili → düşük; raporda olmayan github.com/x/y → engelleyen. (c) YAYGIN'a "me", "al". Kuru koşu "sonra-2"
+(İz'i boş rapor + gerçek Açıklama bağlantıları bölümü olan rapor) d2-kuru.md'ye.
 **D3** Panelde "## Denetim": bahis · bağlanan · aday değil (oran) · KAÇAN? sayıları. KAÇAN? > 0 iken `video parti kapat` durur (bağla ya
 da sebep yaz). "Aday değil" oranı %5'i aşarsa uyarı. Test.
 Ek (Ömer, 4 Eki O7): koruma whisper'ı durdurduğu ve altyazı da olmadığı videoda kapsam "konuşma alınamadı (sebep)" olur; bu durum KAÇAN?
