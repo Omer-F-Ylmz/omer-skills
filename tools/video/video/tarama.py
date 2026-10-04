@@ -404,8 +404,17 @@ def denetle(metin, sure=None):
             h.append(f"boş alan: iddia satırı {s[0] or '?'} (3 alan dolu olmalı: iddia·zaman·tür)")
         elif s[2] not in IDDIA_TUR:
             h.append(f"iddia türü geçersiz: {s[0]} → {s[2]} ({', '.join(sorted(IDDIA_TUR))})")
+    t = tablolar(bolum(metin, "İz"))
+    for s in t[0][1] if t else []:  # D1: her bahis bir satır; "zaten kurulu" sebep değil (29 Eyl: kurulu araç da aday)
+        if len(s) != 4 or any(x in ("", "-") for x in s[:3]):
+            h.append(f"İz boş alan: {s[1] if len(s) > 1 else '?'} (4 alan: kaynak·ne·bağlandığı·kanıt)")
+        elif s[2].casefold().startswith("aday değil") and not IZ_SEBEP.fullmatch(s[2].split(":", 1)[-1].strip()):
+            h.append(f"İz sebebi geçersiz: {s[1]} → {s[2]} (genel kavram · başka adayın parçası (hangisi) · sponsor/reklam · konu dışı)")
     h += [f"alıntı {len(a.split())} kelime > {ALINTI_KELIME}: {a[:40]}…" for a in ALINTI.findall(metin) if len(a.split()) > ALINTI_KELIME]
     return h + site_ui_denetle(metin)
+
+
+IZ_SEBEP = re.compile(r"genel kavram|başka adayın parçası \(\S[^)]*\)|sponsor/reklam|konu dışı", re.I)
 
 
 def frontend_mu(metin):
