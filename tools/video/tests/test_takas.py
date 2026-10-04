@@ -45,7 +45,7 @@ def test_takas_kademeleri(s, d, k):
 
 def test_dusus_sifirsa_esige_bakilir():
     assert kur.takas(5, 0, True)[0] == "AL"
-    assert kur.takas(5, 0, False)[0] == "RED(token)"
+    assert kur.takas(5, 0, False)[0] == "AL"  # A1 Ömer onayı: gürültüde her tasarruf AL
 
 
 def test_karar_kademeyi_yazar_ve_gurultu_bandi_sifir():
@@ -99,3 +99,10 @@ def test_toplam_tavan_24_asilmaz(ortam, kok):
     k = KKos()
     assert main(["uret", "u-oz", "--tur", "2"], env=ortam, kos=k, gonder=SJev()) != 0
     assert not k.claude()
+
+
+# --- DERİNLİK-MASTER A1: düşüş ≤0 (gürültü içi / kalite arttı) → her tasarruf AL; tasarruf yoksa RED(token) ---
+
+@pytest.mark.parametrize("s,d,k", [(4.8, 0, "AL"), (5, -3, "AL"), (0, 0, "RED(token)"), (-2, -1, "RED(token)")])
+def test_a1_gurultude_her_tasarruf_al(s, d, k):
+    assert kur.takas(s, d, False)[0] == k

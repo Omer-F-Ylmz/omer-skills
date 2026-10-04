@@ -21,7 +21,7 @@ def test_k0_eski_esik_uyarir_karar_takas_tablosundan(ortam, kok, capsys):
     deneme(kok, IKI, "girdi −%0 · maliyet −%5")  # eski tek eşik: sıcak −%10 bunu geçerdi → AL
     assert main(["dene", "d"], env=ortam, kos=GKos({"a": (0.3, 0.02), "b": (0.3, 0.018)}), gonder=SJev()) == 0
     assert "uyarı: eski '## Başarı eşiği'" in capsys.readouterr().out
-    assert "b: RED(token)" in sonuc(kok)  # takas: düşüş 0, tasarruf %10 < %25
+    assert "b: AL" in sonuc(kok)  # A1 Ömer onayı: düşüş 0 (gürültüde), tasarruf %10 > 0 → AL
 
 
 def test_k0_karar_olcutu_takas_tablosu_uyarisiz(ortam, kok, capsys):
