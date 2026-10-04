@@ -54,6 +54,12 @@ def _onceki(kok, k):
     return y.is_file() and "arastirma: yarım" not in y.read_text(encoding="utf-8")
 
 
+def _cesit(ad):
+    """DERİNLİK-2 S7: ana ad + parantez içi ad ("Rooflow (karede Ruflo)" → rooflow, ruflo)."""
+    b, _, p = ad.partition("(")
+    return {x for x in (tr.slug(b), tr.slug(re.sub(r"^\s*(videoda|karede)\b", "", p, flags=re.I))) if x}
+
+
 def birlestir(raporlar, kok):
     """[(video, rapor md)] → ({slug: aday}, belirsiz). Anahtar ASCII slug ∪ github owner/repo (union-find); kurulu = envanter eşleşmesi."""
     kume, sahip, satir = {}, {}, []
@@ -77,6 +83,11 @@ def birlestir(raporlar, kok):
                 else:
                     sahip[repo] = s
             satir.append((s, repo, v, r, idd, kom))
+    for i, (s, repo, v, r, *_) in enumerate(satir):  # DERİNLİK-2 S7: aynı videoda ad benzerliği ≥0.8 → tek aday; yalnız biri parantezli
+        for s2, repo2, v2, r2, *_ in satir[:i]:  # takma ad taşıyorsa (videoda/karede/ECC) — ajan-r/ajan-s gibi ayrı adlar birleşmez
+            if v == v2 and "(" in r[0] + r2[0] and kok_(s) != kok_(s2) and not (repo and repo2 and repo != repo2) and any(
+                    difflib.SequenceMatcher(None, x, y).ratio() >= 0.8 for x in _cesit(r[0]) for y in _cesit(r2[0])):
+                kume[kok_(s)] = kok_(s2)
     out = {}
     for s, repo, v, r, idd, kom in satir:
         a = out.setdefault(kok_(s), {"ad": r[0], "tur": r[2] if len(r) > 2 else "?", "repo": None, "adlar": [], "videolar": {}})
