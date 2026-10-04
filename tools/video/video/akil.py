@@ -103,7 +103,8 @@ def birlestir(raporlar, kok):
     ky = Path(kok) / "docs" / "kurulumlar" / "kayit.jsonl"  # M6 K2: envanter dışı kurulum (npm CLI vb.) kayıttaki KUR kararından
     kur = {tr.normal(x["ad"]): x["ad"] for x in (tr.kayit_oku(ky) if ky.is_file() else []) if re.match(r"KUR\b", str(x.get("karar", "")))}
     for k, a in out.items():
-        es = next((e for x in a["adlar"] if (e := tr.arac_esle(x, env, []))), None)
+        rad = [re.sub(r"[-_](skills?|plugin|mcp)$", "", a["repo"].split("/")[-1])] if a["repo"] else []  # DERİNLİK-MASTER A4: repo adı da (ui-ux-pro-max-skill)
+        es = next((e for x in [*a["adlar"], *rad] if (e := tr.arac_esle(x, env, []))), None)
         kendi = k in CEKIRDEK or any(tr.slug(x) in CEKIRDEK for x in a["adlar"])
         a.update(kurulu=None if a["tur"] in ARAC_DISI else "kendi aracımız" if kendi else es[0] if es else next(
             (kur[n] for x in [k, *a["adlar"]] if (n := tr.normal(x.split("/")[-1])) in kur), None), onceki=_onceki(kok, k), arac=a["tur"].lower() in uy.ARAC)
@@ -140,15 +141,37 @@ def _paket_ici(k, env):
     return f"karşılık bulunamadı ({m[2]} paketinde {m[1]})"
 
 
+def _skill_git(evi, ad):
+    """DERİNLİK-MASTER A4: plugin kaydı olmayan kurulu skill → ~/.claude/skills/<ad>/.git/config uzak adresi (yalnız okunur)."""
+    try:
+        m = re.search(r"url\s*=\s*(\S+)", (evi / "skills" / ad / ".git" / "config").read_text(encoding="utf-8"))
+    except OSError:
+        return None
+    return (r, "") if m and (r := _repo(m[1])) else None
+
+
+def _sozcuk(t):
+    return set(re.findall(r"\w{3,}", t.lower()))
+
+
+def _benzer(a, envanter, n=3):
+    """DERİNLİK-MASTER A4 (=Y5): aday işlevi kurulu skill/plugin açıklamalarında aranır (ad şart değil) → en yakın n kurulu karşılık, çağrısız."""
+    # ponytail: sözcük örtüşmesi (Jaccard); TR video notu ↔ EN açıklamada zayıf → gerekirse Jev/gömme
+    w = _sozcuk(" ".join([a["ad"], *(x.get("ne", "") for x in a["videolar"].values())]))
+    p = sorted(((len(w & (x := _sozcuk(f"{e['ad']} {e.get('aciklama', '')}"))) / (len(w | x) or 1), e["ad"]) for e in envanter), reverse=True)
+    return [ad for s, ad in p[:n] if s > 0]
+
+
 def _kayit_repo(env, a):
     """DERİNLİK-2 S1/S2: kurulu plugin → (repo, alt yol) kurulum kaydından (installed_plugins + known_marketplaces + marketplace.json); ~/.claude yalnız okunur."""
-    pl, adlar = Path(env.get("CLAUDE_EVI") or Path.home() / ".claude") / "plugins", {tr.normal(x) for x in (str(a["kurulu"]).rsplit(":", 1)[-1], *a["adlar"])}
+    ku = str(a["kurulu"])  # A4: "paket:skill" → paket adı da aranır (security-review → ECC)
+    pl, adlar = Path(env.get("CLAUDE_EVI") or Path.home() / ".claude") / "plugins", {tr.normal(x) for x in (ku.rsplit(":", 1)[-1], ku.split(":")[0], *a["adlar"])}
     try:
         kayit, pz = (json.loads((pl / x).read_text(encoding="utf-8")) for x in ("installed_plugins.json", "known_marketplaces.json"))
     except (OSError, ValueError):
-        return None
+        kayit = {}
     if not (p := next((p for p in kayit.get("plugins", {}) if tr.normal(p.split("@")[0]) in adlar), None)):
-        return None
+        return _skill_git(pl.parent, ku.rsplit(":", 1)[-1])
     ad, _, m = p.partition("@")
     mk = pz.get(m) or {}
     try:
@@ -259,6 +282,7 @@ def _kapsam(k, a, al, m, gv, d):
             "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
             "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
             "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı",
+            **({"bizde benzer": ", ".join(a["benzer"]) or "yok"} if "benzer" in a else {}),  # A4
             **({"kaynak": a["kaynak"].removeprefix("kaynak ")} if a.get("kaynak") else {})}  # A3: "kaynak farklı: …"
     eksik = [x for x in list(alan)[:6] if not alan[x].startswith(("✓", "—"))]
     return f"- {k} · " + " · ".join(f"{x} {pt._h(v)}" for x, v in alan.items()), eksik
@@ -775,7 +799,10 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                     if (t := s["tarama"])["durum"] in ("tamam", "tamam_eksik") and t.get("cikti") and Path(t["cikti"]).is_file()]
     adaylar, belirsiz = birlestir(raporlar, kok)  # aşama 5
     eski = d.get("adaylar", {})
+    ev = Path(kok) / "docs" / "departmanlar" / "envanter.json"
+    envanter = (tr._json(ev) or []) if ev.is_file() else []
     for k, a in adaylar.items():
+        a["benzer"] = _benzer(a, envanter)  # A4
         a.update({x: eski[k][x] for x in ("guncellik", "kaynak") if x in eski.get(k, {})})  # R1: fark kararı durum geri yüklemesinden önce
         a.update({x: eski[k][x] for x in ("durum", "deneme", "hata", "guvenlik") if x in eski.get(k, {}) and not _arastirma_disi(a)})  # kurulu her zaman kazanır
         a.update({x: eski[k][x] for x in ("alt_tur", "esdeger_p", "repo_arama") if x in eski.get(k, {})})
