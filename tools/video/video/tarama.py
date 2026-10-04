@@ -495,10 +495,13 @@ def bilinen_ekle(kok, adlar):
     """D2 (a): parti kapanışında yeni aday adları bilinen-araclar.txt'ye eklenir; büyük/küçük harf farkı tekrar sayılır."""
     b = Path(kok) / BILINEN
     L = [x.strip() for x in b.read_text(encoding="utf-8").splitlines() if x.strip()] if b.is_file() else []
+    n = len(L)
     for a in adlar:
         if a.casefold() not in {x.casefold() for x in L}:
             L.append(a)
-    b.write_text("".join(f"{x}\n" for x in L), encoding="utf-8")
+    if len(L) > n:  # yeni ad yoksa dosyaya dokunulmaz
+        b.parent.mkdir(parents=True, exist_ok=True)
+        b.write_text("".join(f"{x}\n" for x in L), encoding="utf-8")
 
 
 def kacan_dusuk(rapor, kaynaklar, sozluk):

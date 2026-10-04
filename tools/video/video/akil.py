@@ -703,7 +703,7 @@ def _yargi(ctx, adaylar, kok):
             a["esdeger_p"] = round(float((((y or {}).get("esdeger") or {}).get("probabilities") or {}).get("aynı", 0.0)), 3)
 
 
-def panel(pdir, d, kok):
+def panel(pdir, d, kok, onb=None):
     """Aşama 9: docs/kurulumlar/parti/<pid>/panel.md koddan; mevcut Ömer sütunu korunur."""
     y = Path(kok) / "docs" / "kurulumlar" / "parti" / d["parti"] / "panel.md"
     hs = [(h, s.strip()) for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else [])
@@ -823,7 +823,7 @@ def panel(pdir, d, kok):
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
           "## Geliştirme önerileri", *[f"- bizde bilgi yok: {pt._h(x)}" for x in d.get("bizde_yok", [])], *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
                                         f"{x['oneri']}: {pt._h(_s10(x['gelistirme_onerisi']))} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
-          "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
+          "## Denetim", *_denetim_satir(denetim(d, kok, onb)), "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
     _yaz(y, L)
     return y
 
@@ -948,7 +948,7 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                     ozellik += 1
     d["site_ui"], _, d["anatomi_bekliyor"] = site_ogren(kok, raporlar, pdir, d, ctx)  # M2f K2
     gelistir(pdir, d, kok, ctx)  # M2f K3
-    p = panel(pdir, d, kok)  # aşama 9
+    p = panel(pdir, d, kok, ctx.get("kok"))  # aşama 9
     pt._yaz(yol, d)
     n, usd, tk = pt._defter(pdir)
     print(f"akıl: {len(adaylar)} aday · {dict(Counter(a['durum'] for a in adaylar.values()))} · destek +{destek} · özellik +{ozellik} "
@@ -1017,6 +1017,36 @@ def _tekil(n):
     return n[:-1] if n.endswith("s") else n
 
 
+IZ_TARIH = "2026-10-05"  # ayar · D3 eki: bu tarihte/sonra açılan partide İz'siz rapor "İz yok" (D1 şema 2 yürürlüğü)
+
+
+def denetim(d, kok, onb=None):
+    """D3: tamamlanan raporların ## İz'inden bahis · bağlanan · aday değil; D2 kacan_video → KAÇAN? (engelleyen) · düşük güven; İz yok."""
+    z, soz = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "iz_yok": []}, tr.kacan_sozluk(kok)
+    for v, s in d.get("videolar", {}).items():
+        if (t := s["tarama"])["durum"] not in ("tamam", "tamam_eksik") or not t.get("cikti") or not Path(t["cikti"]).is_file():
+            continue
+        r = Path(t["cikti"]).read_text(encoding="utf-8")
+        iz = (tr.tablolar(tr.bolum(r, "İz")) or [[None, []]])[0][1]
+        degil = sum(1 for x in iz if len(x) > 2 and x[2].casefold().startswith("aday değil"))
+        z["bahis"], z["baglanan"], z["aday_degil"] = z["bahis"] + len(iz), z["baglanan"] + len(iz) - degil, z["aday_degil"] + degil
+        if not iz and d.get("tarih", "") >= IZ_TARIH:
+            z["iz_yok"].append(v)
+        e, u = tr.kacan_video(r, Path(onb) / v / "paket.md" if onb else Path(""), soz)
+        z["kacan"] += [(v, k, x) for k, x in e]
+        z["dusuk"] += [(v, k, x) for k, x in u]
+    return z
+
+
+def _denetim_satir(z):
+    oran = round(100 * z["aday_degil"] / z["bahis"]) if z["bahis"] else 0
+    return ([f"bahis {z['bahis']} · bağlanan {z['baglanan']} · aday değil {z['aday_degil']} (%{oran}) · KAÇAN? {len(z['kacan'])} · "
+             f"düşük güven {len(z['dusuk'])} · İz yok {len(z['iz_yok'])}"] + (["UYARI: aday değil oranı %5'i aşıyor"] if oran > 5 else [])
+            + [f"- KAÇAN? {v} · {k} · {pt._h(x)}" for v, k, x in z["kacan"]]
+            + [f"- KAÇAN? (düşük güven) {v} · {k} · {pt._h(x)}" for v, k, x in z["dusuk"]]
+            + [f"- İz yok: {v} → devam --yeniden-tara" for v in z["iz_yok"]])
+
+
 def kapat(pdir, d, kok, ctx):
     """rapor-denetle (tüm parti) → gitleaks (değişen dosyalar, staged) → temizse commit + kuyruk --isle + push; sızıntıda commit yok (DUR)."""
     kos = lambda a, t=300: uy._kos(ctx, a, t)  # noqa: E731
@@ -1029,6 +1059,11 @@ def kapat(pdir, d, kok, ctx):
         print(f"kapat: UYARI içe alınan eski rapor (kapanış sürer): {uyari}")
     if kotu:
         print(f"kapat: rapor-denetle KALDI → DUR: {kotu}")
+        return 1
+    z = denetim(d, kok, ctx.get("kok"))
+    tr.bilinen_ekle(kok, list(d.get("adaylar", {})))  # D2 (a): yeni aday adları kalıcı sözlüğe
+    if z["kacan"] or z["iz_yok"]:
+        print("kapat: Denetim → DUR (KAÇAN?: bağla ya da sebep yaz · İz yok: devam --yeniden-tara)\n" + "\n".join(_denetim_satir(z)))
         return 1
     if eks := _islenmemis(Path(kok), d["parti"]):
         print(f"kapat: kayda işlenmemiş karar: {' · '.join(eks)} → DUR, önce: video panel uygula docs/kurulumlar/parti/{d['parti']}/panel.md")
