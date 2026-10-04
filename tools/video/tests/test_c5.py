@@ -22,7 +22,7 @@ def kos(ortam, sahneler, metin):
 
 def test_montajdan_en_fazla_iki_kare_ocr_metni_sonra_skor(ortam):
     sahne = [[66.0, 0.5], [67.0, 0.6], [68.0, 0.9], [69.0, 0.4], [70.0, 0.3], [300.0, 0.8], [600.0, 0.7]]
-    kare, izleme = kos(ortam, sahne, {"k00070": {"tr": ["abc"], "en": []}})
+    kare, izleme = kos(ortam, sahne, {"k00070": {"tr": [["Settings", 0, 0, 9, 9]], "en": []}})
     assert {66, 67, 68, 69, 70} & kare == {68, 70}  # 70 en çok OCR metni, 68 en yüksek skor
     assert {300, 600} <= kare and re.search(r"tekrar \(montaj\) 3", izleme)
 

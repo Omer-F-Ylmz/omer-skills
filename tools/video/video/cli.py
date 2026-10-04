@@ -317,6 +317,7 @@ def kare_tavan(sure, n, metin=""):
 ISARET = re.compile(r"\b(?:ekran|screen|repo|github|link|url|https?://|komut|command|terminal|prompt|ayar|setting|config)", re.I)  # C2: altyazıda ekrana/repoya/linke/komuta/prompta/ayara işaret
 SAHNE_ESIK = 0.3
 OCR_PS = Path(__file__).with_name("ocr.ps1")
+MONTAJ_SN = 5  # ayar · C5: bu pencerede ≥3 sahne kesimi → hızlı kurgu (montaj)
 OCR_BENZER, DHASH_SAHNE = 0.9, 10  # ayar · O11 (3): katlanmış OCR metni benzerliği ≥ → tekrar · aynı sahnede dHash Hamming ≤ → tekrar
 ADAY_UST = 150  # ayar · O11 (5): paket aday kare üst sınırı (merkez + işaret + tüm sahneler); aşan sahneler skor sırasıyla "aday tavanı"
 OCR_AZ, OCR_KISA, OCR_KOD, OCR_GUVEN = 40, 12, 0.3, 0.7  # C3: <40 krk şema/görsel · satır ort. <12 krk arayüz · kod satırı
@@ -447,7 +448,7 @@ def paket(ns, ctx):
     inc = sorted(ocr.get("incelenmedi", []))
     ky.write_text(json.dumps({"izleme": f"{'kare-yalnız' if yalniz else f'segment {len(seg)}'} · "  # C4 Kapsam satırı → parti durum.json → panel
                                         f"{f'sahne {len(sj['sahneler'])}' if sj.get('durum') == '✓' else sj.get('durum')} · seçilen {ocr.get('secilen', 0)} · "
-                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)} · OCR gürültü {ocr.get('gurultu', 0)}", "incelenmedi": inc}, ensure_ascii=False), encoding="utf-8")
+                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)} · OCR gürültü {ocr.get('gurultu', 0)}{f" · tekrar (montaj) {n}" if (n := ocr.get('montaj')) else ''}", "incelenmedi": inc}, ensure_ascii=False), encoding="utf-8")
     print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
           f" + ~{sum(_kare_tk(y)[1] for _, y in kareler)} kare · istek {istek}")
     return 0
@@ -554,7 +555,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
     aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
     aday = list({a[3]: a for a in aday if a[3].is_file()}.values())  # aynı yol bir kez (canlı hata: çift aday → ikinci unlink çöktü)
     o, metin = ({} if ocr is None else ocr), {}
-    o.update(metin=[], incelenmedi=[(t, "aday tavanı") for t in kesilen], secilen=0, gurultu=0, gurultu_satir=[])
+    o.update(metin=[], incelenmedi=[(t, "aday tavanı") for t in kesilen], secilen=0, gurultu=0, gurultu_satir=[], montaj=0)
     if ocr is not None and aday:
         try:
             metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
@@ -595,6 +596,18 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
             yol.unlink(missing_ok=True)
         else:
             model.append((t, yol))
+    if kesim:  # C5: 5 sn içinde ≥3 kesim → montaj; kümeden modele en çok OCR metni (eşitse sahne skoru) taşıyan ≤2 kare
+        skor, bas = {int(x): s for x, s in sj["sahneler"]}, []
+        for k in sorted(kesim):
+            if (not bas or k >= bas[-1] + MONTAJ_SN) and sum(k <= x < k + MONTAJ_SN for x in kesim) >= 3:
+                bas.append(k)
+        for b in bas:
+            kume = sorted((f for f in model if b <= f[0] < b + MONTAJ_SN),
+                          key=lambda f: (-len(re.sub(r"\s", "", "".join(temiz[f[1].name]))), -skor.get(int(f[0]), 0)))
+            for f in kume[2:]:
+                model.remove(f)
+                f[1].unlink(missing_ok=True)
+                o["montaj"] += 1
     tut, yazi = [], "\n".join([taban or "", *(x for _, s in o["metin"] for x in s)])  # O11: bütçe OCR dahil tam metinle (pt.girdi_tk)
     for t, yol in model:
         if len(tut) >= en_fazla:
