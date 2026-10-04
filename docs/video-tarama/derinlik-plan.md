@@ -32,9 +32,30 @@ O2 A1–A4 · O3 A5, C1 · O4 C2–C4 · O5 D1–D3 · O6 B1–B3 · O7 B4–B5 
 (çağıran tarafta d=0'a indirilir, kur.py:372) her tasarruf AL sayılır (omer-kurallar 21; 24 Eyl tablosu). Bugün d==0'da esik_ok yanlışsa
 "RED(token)" dönüyor (TOKEN-6e K4 ponytail %4.8 → RED(token) bu daldan). Test: düşüş gürültüde + tasarruf %4.8 → AL; düşüş >%20 +
 tasarruf <%50 → RED. Çağıranlar: kur.py:378, kur.py:510, olcum_m4.py:179, olcum_m3b.py:374.
-  ⚠ AÇIK SORU (A1 başlamadan): `tools/video/tests/test_takas.py:48` `takas(5, 0, False) == "RED(token)"` bu kuralla doğrudan çelişir →
-  kural gereği DUR, sor. Seçenekler: (a) Ömer eski testin değişmesine izin verir; (b) d==0 dalı yalnız yeni bir çağrı yolunda AL olur.
-  Ayrıca omer-kurallar dosyası repo'da ve ~/.claude'da bulunamadı; madde 21 metni Ömer'den teyit.
+  Ömer kararı (4 Eki, seçenek a): test_takas.py:48 güncellenir (ayrı commit, mesajda "Ömer onayı: A1, omer-kurallar 21");
+  takas(5, 0, False) → AL. Düşüş 0 ya da negatif (kalite arttı) her zaman "gürültü içinde" sayılır.
+  ⚠ AÇIK SORU 2: test_24e2a.py:24 (düşüş 0, tasarruf %10 → "RED(token)") de yeni kuralla çelişir; onay yalnız test_takas.py:48 için.
+  Yorum: "her tasarruf" = s > 0; s ≤ 0 (maliyet aynı/arttı) RED(token) kalır, d ≤ 0 & esik_ok AL kalır → test_girdi.py:84/98,
+  test_kalite.py:34, test_kur.py:247 çelişmez.
+  Kural metni (kaynak C:\Projeler\omer-kurallar.md madde 21–24, repo dışında; aynen):
+  "Kaliteden taviz yok" = kalite takası. Düşüş = kalite puanı ve görev başarısındaki göreli düşüşün büyüğü.
+  · düşüş gürültü içindeyse → her tasarruf AL
+  · düşüş ≤%10 ve tasarruf ≥%25 → AL
+  · düşüş ≤%15 ve tasarruf ≥%30 → AL
+  · düşüş %15–20: tasarruf ≥%75 AL · %50–75 SOR (Ömer karar verir) · <%50 RED
+  · düşüş >%20: tasarruf ≥%50 SOR · <%50 RED
+  · tabloya uymayan ara durum → SOR
+  Madde 24 (tasarruf ayrıştırma): RED/SOR çıkan alanda yalnız tasarruf mekanizması kendi sürümümüze alınır, kaliteyi bozan kısım
+  ayıklanır/onarılır, yeniden ölçülür.
+  Not: tablo yalnız tasarruf değişikliklerine uygulanır; kurulu aracı kapatan bir değişiklik tablo AL dese bile uygulanmaz (A5).
+  Ömer kararı 2 (4 Eki, A1'e eklendi): kalite düşüşü kabul edilmez ama aday da elenmez. Tablonun RED(takas) ve SOR çıktıları
+  "ONARIM BEKLİYOR (takas: düşüş X, tasarruf Y)" olur — madde 24 döngüsü: tasarruf mekanizması ayrıştırılır, kaliteyi düşüren kısım
+  onarılır, yeniden ölçülür; uygulama yalnız sonuç AL'e düşünce. SOR (Ömer kararı) ancak onarım yolları denenip tükendiğinde, denenenler
+  listelenerek. Ara durum (düşüş %0–10, tasarruf <%25) dahil. RED(token) aynen kalır. A5 bağı: takas onarımı A5'teki KALİTE kötü yanının
+  onarımıdır (aynı "ONARIM BEKLİYOR" durumu, aynı onarım yolları listesi).
+  Uygulama: kur.py `takas()` saf tablo olarak kalır (test_takas kademeleri değişmedi); karar katmanı `kararla()` eşler (karar() ve
+  compress denemesi kullanır); ayristir_aday "ONARIM BEKLİYOR"u da ayrıştırır. olcum_m3b/m4 tarihsel ölçüm betikleri tabloyu ham basar.
+  ✓ A1 bitti (O2): güncellenen eski testler test_takas:48, test_24e2a:24 · test_kur 228/229/237/247, test_kalite:21, test_takas:61.
 **A2 (=Y2) --yeniden eksik kapsamı tamamlar:** "onceki"/"tamam" adaylarda model araştırması yok, ama Kapsam'da eksik olan çağrısız işler
 koşulur: güvenlik taraması (S5 seyrek klon dahil; ruflo 591 MB → seyrek), lisans API'si, son commit tarihi. Test.
 **A3 (=Y7) Kurulu fork:** kurulu marketplace reposu için `gh api repos/<repo>`; fork ise source/parent son commit'i. Fork bayrağı yoksa
@@ -141,4 +162,4 @@ A1 test_takas.py:48 çelişkisi · C2 Pillow yoksa · C3 Windows.Media.Ocr eriş
 · suite-kosucu ajanı yoksa.
 
 ## İlerleme
-O1 (4 Eki): plan yazıldı. Sonraki: A1 (açık soru yanıtıyla).
+O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). Sonraki: A2.

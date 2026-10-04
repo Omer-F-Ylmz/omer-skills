@@ -347,8 +347,10 @@ def olcut(metin):
 
 def takas(s, d, esik_ok):
     """23b K9 omer-kurallar:21 kalite takası, sınır dahil. s tasarruf %, d kalite düşüşü % (bant içi 0) → (karar, tutan kademe)."""
-    if d == 0:
-        return ("AL", "düşüş 0, eşik aşıldı") if esik_ok else ("RED(token)", "düşüş 0, eşik aşılmadı")
+    if d <= 0:  # DERİNLİK-MASTER A1: gürültü içi ya da kalite arttı → her tasarruf (s > 0) AL
+        if esik_ok or s > 0:
+            return "AL", "düşüş 0, eşik aşıldı" if esik_ok else "düşüş gürültüde, tasarruf >0"
+        return "RED(token)", "düşüş 0, tasarruf yok"
     if d <= 10 and s >= 25:
         return "AL", "düşüş ≤%10 & tasarruf ≥%25"
     if d <= 15 and s >= 30:
@@ -360,6 +362,13 @@ def takas(s, d, esik_ok):
     if d > 20:
         return ("SOR", "düşüş >%20 & tasarruf ≥%50") if s >= 50 else ("RED(takas)", "düşüş >%20 & tasarruf <%50")
     return ("SOR", "ara durum, tasarruf ≥%25") if s >= 25 else ("RED(takas)", "tasarruf <%25, düşüş >0")
+
+
+def kararla(s, d, esik_ok):
+    """DERİNLİK-MASTER A1 (Ömer 4 Eki): tablonun RED(takas)/SOR çıktısı ONARIM BEKLİYOR — madde 24 döngüsü (ayrıştır, kaliteyi düşüreni
+    onar, yeniden ölç; uygulama yalnız AL'de). SOR yalnız onarım yolları tükenince Ömer'den. RED(token) aynen."""
+    k, kademe = takas(s, d, esik_ok)
+    return (f"ONARIM BEKLİYOR (takas: düşüş %{d:.1f}, tasarruf %{s:.1f})", kademe) if k in ("SOR", "RED(takas)") else (k, kademe)
 
 
 def tasarruf(a, b):
@@ -375,7 +384,7 @@ def karar(a, b, e, gurultu, basari):
     kd = 0.0 if round(a["kalite"] - b["kalite"] - bant, 6) <= 0 else (a["kalite"] - b["kalite"]) / a["kalite"] * 100
     bd = max(0.0, (a["basari"] - b["basari"]) / a["basari"] * 100) if a.get("basari") and "basari" in b else 0.0
     d = round(max(kd, bd), 6)
-    k, kademe = takas(t["maliyet"], d, esik_ok)
+    k, kademe = kararla(t["maliyet"], d, esik_ok)
     dusen = [i + 1 for i, (sa, sb) in enumerate(basari) if sb < sa]
     return (f"{k} [kademe: {kademe}]: tasarruf %{t['maliyet']:.1f} (sıcak $) · düşüş %{d:.1f} (kalite {a['kalite']:.2f}→{b['kalite']:.2f} bant {bant:.2f} · "
             f"başarı {a.get('basari', 0):.2f}→{b.get('basari', 0):.2f}; düşen görev: {', '.join(map(str, dusen)) or 'yok'}) · "
@@ -401,7 +410,7 @@ def mekanizma_kaydi(kok, ad, t, dusen, hipotez):
 
 def ayristir_aday(kok, ad, k, t, dusen):
     """23b K10(b): yalnız RED(kalite|takas)/SOR ve token tasarrufu varsa docs/uyarlamalar/<ad>-ayristir.md."""
-    if not k.startswith(("SOR", "RED(kalite", "RED(takas")) or not any(v > 0 for v in t.values()):
+    if not k.startswith(("SOR", "RED(kalite", "RED(takas", "ONARIM BEKLİYOR")) or not any(v > 0 for v in t.values()):
         return None
     y = Path(kok) / "docs" / "uyarlamalar" / f"{ad}-ayristir.md"
     y.parent.mkdir(parents=True, exist_ok=True)
@@ -507,7 +516,7 @@ def _sikistir(ns, ctx, metin, d):
     a, b = c.token(ilk), c.token(sonra)
     olcut(metin)
     dus = round((a - b) / a * 100, 1) if a else 0.0
-    k0, kademe = takas(dus, round(len(kayip) / len(kurallar) * 100, 1) if kurallar else 0.0, dus >= 25)  # kalite düşüşü = korunmayan kural oranı
+    k0, kademe = kararla(dus, round(len(kayip) / len(kurallar) * 100, 1) if kurallar else 0.0, dus >= 25)  # kalite düşüşü = korunmayan kural oranı
     k = ("KUR önerisi → ONAY" if k0 == "AL" else k0) + f": token {a} → {b} (−%{dus}) · korunmayan kural {len(kayip)}/{len(kurallar)} · takas: {kademe}"
     satir = [f"# Deneme sonucu: {ns.ad}", "", f"{date.today().isoformat()} · compress · claude -p 0 · Jev istek {t.istek} · kaynak dokunulmadı (bayt aynı): {kaynak.as_posix()}",
              f"kopya: {kopya.relative_to(d).as_posix()} · komut: {komut}", "", f"token {a} → {b} (−%{dus})", f"korunmayan kural {len(kayip)}/{len(kurallar)}",
