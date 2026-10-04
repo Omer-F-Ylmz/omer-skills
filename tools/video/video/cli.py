@@ -318,6 +318,7 @@ SAHNE_ESIK = 0.3
 OCR_PS = Path(__file__).with_name("ocr.ps1")
 OCR_AZ, OCR_KISA, OCR_KOD, OCR_GUVEN, OCR_ADAY_SN = 40, 12, 0.3, 0.7, 60  # C3: <40 krk şema/görsel · satır ort. <12 krk arayüz · kod satırı
 # ≥%30 · anlamlı oran <0.7 → kare modele · uzun videoda her 60 sn'ye bir sahne adayı (en az 2×kare)
+PAKET_BUTCE = 40_000  # ayar · C4: video başına paket jetonu (segment metni + modele giden kareler; parti GIRDI_TAVAN ile aynı); aşan kare "incelenmedi"
 TEKNIK = re.compile(r"https?://|www\.|\b[\w.-]+/[\w.-]+|\b(?:npx|npm|pip|uvx?|claude|git|gh|curl|winget|brew)\b|^\s*/\w|--\w", re.I)
 KOD = re.compile(r"[{};]|=>|==|\w\(|^\s*(?:def|function|import|from|const|let|var|class|return)\b")
 TR_HARF = re.compile(r"[çğışöüÇĞİŞÖÜ]")
@@ -386,13 +387,23 @@ def paket(ns, ctx):
     lk = km.get("linkler") or m.urller(km.get("aciklama") or meta.get("description"))
     lk = m.urller(lk) if isinstance(lk, str) else lk
     lk = list(dict.fromkeys([*(lk or []), *_yorumlar(ctx, d)[0]]))  # DERİNLİK-1 R4: yorum bağlantıları kaynağa; durum yorumlar.json → parti Kapsam
-    zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
-    if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
-        zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
-    isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
+    ky = d / "kapsam.json"
+    if ns.incelenmedi:  # C4 ikinci geçiş: yalnız tavan/bütçe yüzünden incelenmeyen anlar; ilk paket paket-1.md'de kalır
+        zamanlar, isaret = [t for t, _ in (json.loads(ky.read_text(encoding="utf-8"))["incelenmedi"] if ky.is_file() else [])], []
+        if not zamanlar:
+            print(f"paket: {ns.id} incelenmedi an yok")
+            return 0
+        if not (d / "paket-1.md").is_file():
+            (d / "paket.md").replace(d / "paket-1.md")
+    else:
+        zamanlar = sorted((s["bas"] + s["son"]) / 2 for s in sorted(seg, key=lambda s: -s.get("p_ekran", 0))[:ns.kare])
+        if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
+            zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
+        isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
     ocr, gor = {}, set()
+    butce = PAKET_BUTCE - c.token("\n".join(str(s.get("metin")) for s in seg))  # ponytail: OCR metni bütçeye girmez; taşarsa parti kare_sigdir yine keser
     try:
-        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, True, isaret, meta.get("duration") or 0, ocr)
+        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, butce)
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
@@ -407,6 +418,11 @@ def paket(ns, ctx):
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
+    sj = json.loads((d / "sahne.json").read_text(encoding="utf-8")) if (d / "sahne.json").is_file() else {"durum": "sahne ?"}
+    inc = sorted(ocr.get("incelenmedi", []))
+    ky.write_text(json.dumps({"izleme": f"{'kare-yalnız' if yalniz else f'segment {len(seg)}'} · "  # C4 Kapsam satırı → parti durum.json → panel
+                                        f"{f'sahne {len(sj['sahneler'])}' if sj.get('durum') == '✓' else sj.get('durum')} · seçilen {ocr.get('secilen', 0)} · "
+                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)}", "incelenmedi": inc}, ensure_ascii=False), encoding="utf-8")
     print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
           f" + ~{sum(_kare_tk(y)[1] for _, y in kareler)} kare · istek {istek}")
     return 0
@@ -492,11 +508,11 @@ def _sahneler(ctx, d, n):
     return [t for t, _ in sorted(j["sahneler"], key=lambda x: -x[1])[:n]]
 
 
-def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), sure=0, ocr=None):
+def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), sure=0, ocr=None, butce=float("inf")):
     """[(t, yol)] zamana göre. sahne: tüm videonun sahne değişimleri de aday (C2, paket). Sıra: oncelik (altyazı işaret anı) → merkez
     kareler → pencere sahne kareleri; grup içinde OCR karakter sayısı. dHash ile aynı ekran bir kez.
     ocr (dict, C3 paket): adaylar OCR'lanır → ocr {durum, metin [(t, satırlar)], incelenmedi [(t, sebep)]}; OCR'ın anlamlandırdığı kare
-    modele gitmez (silinir), en_fazla yalnız modele giden kareleri sayar."""
+    modele gitmez (silinir), en_fazla yalnız modele giden kareleri sayar. butce (C4): modele giden karelerin jeton toplamı; aşan "incelenmedi"."""
     if sahne:
         zamanlar = [*zamanlar, *_sahneler(ctx, d, max(2 * en_fazla, int(sure) // OCR_ADAY_SN))]
     zamanlar = list({int(t): t for t in zamanlar}.values())  # aynı saniye bir kez: _kare_uret aynı adlı kareyi siler
@@ -510,7 +526,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
     aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
     aday = [a for a in aday if a[3].is_file()]
     o, metin = ({} if ocr is None else ocr), {}
-    o.update(metin=[], incelenmedi=[])
+    o.update(metin=[], incelenmedi=[], secilen=0)
     if ocr is not None and aday:
         try:
             metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
@@ -523,6 +539,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
             yol.unlink()
             continue
         hashler.append(h)
+        o["secilen"] += 1
         if s := metin.get(yol.name):
             o["metin"].append((t, s))
         if yol.name in metin and not _ocr_model(s):  # OCR anlamlandırdı: metin pakette, kare modele gitmez
@@ -530,7 +547,11 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
         elif len(tut) >= en_fazla:
             o["incelenmedi"].append((t, f"kare tavanı {en_fazla}"))
             yol.unlink()
+        elif (tk := _kare_tk(yol)[1]) > butce:
+            o["incelenmedi"].append((t, "jeton bütçesi"))
+            yol.unlink()
         else:
+            butce -= tk
             tut.append((t, yol))
     return sorted(tut)
 
@@ -1095,6 +1116,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("id")
     x.add_argument("--kare", type=int, default=6, help="en fazla N kare (ekran p'si en yüksek)")
     x.add_argument("--kare-yalniz", action="store_true", help="M8 K2: segmentleri yok say (whisper çıktısı anlamsız) → kare-yalnız paket")
+    x.add_argument("--incelenmedi", action="store_true", help="C4 ikinci geçiş: yalnız kapsam.json'daki incelenmedi anlar (ilk paket → paket-1.md)")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M HTTP isteği (varsayılan segment+10)")
     x = alt.add_parser("izle", help="Desktop tek çağrı: ozet + sor + görüntü gerekirse tek kare (Jev ≤2)")
     x.add_argument("hedef")
@@ -1233,6 +1255,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--ikinci-goz", choices=("luna", "yok"), default="yok", help="M5: Sonnet sonrası luna ikinci göz (M5b: varsayılan yok — kaliteyi düşürdü)")
     x.add_argument("--yeniden-tara", action="store_true", help="devam: M2d — tamam/form_red/tavan videoları düzeltilmiş girdiyle yeniden tara")
     x.add_argument("--paket-yeniden", action="store_true", help="devam --yeniden-tara ile: DERİNLİK-1 R4b — paket R4 ile yeniden kurulur (yorum + kare; ozet yok)")
+    x.add_argument("--incelenmedi", action="store_true", help="devam: C4 — incelenmedi anı kalan videolar ikinci geçişte (paket --incelenmedi + yeniden tarama)")
     x.add_argument("--yeniden", action="store_true", help="akil: M2g K1 — geliştirme karşılaştırması yeniden (yalnız gelistir + panel)")
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")

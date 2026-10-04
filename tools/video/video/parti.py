@@ -24,6 +24,7 @@ YENIDEN = {"bekliyor", "hata", "tavan"}
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
+KARE_UST = 20  # ayar · C4: süreyle büyüyen (süre_dk / 3) model kare tavanının üst sınırı
 WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
 AGIR = re.compile(r"^(?:blender|genshinimpact|yuanshen|zenlesszonezero|starrail|client-win64-shipping|testhost)\.exe\b|pytest|dotnet\S* test",
                   re.I | re.M)  # ayar · C1 ağır süreç: Blender · oyun (tam süreç adı; blender-mcp sayılmaz) · tam suit (komut satırı)
@@ -255,6 +256,19 @@ def kare_sayisi(sure, site, ipucu=False):
     return max(4, min(12 if site else 8, round(sure / 150))), f"{m.ss(sure)} / 2.5 dk · " + ("site/UI ≤12" if site else "4–8")
 
 
+def model_kare(n, sure):
+    """C4: modele giden kare tavanı süreyle büyür → max(n, ceil(süre_dk / 3)); büyüme KARE_UST'te durur, açık büyük n korunur."""
+    return max(n, min(KARE_UST, int(-(-sure // 180))))
+
+
+def incelenmedi_isaretle(d, onb):
+    """C4 devam --incelenmedi: kapsam.json'da incelenmedi anı kalan video → paket ikinci geçiş (ozet yok) + yeniden tarama (rapor -incelenmedi)."""
+    for v, s in d["videolar"].items():
+        if (kj := Path(onb) / v / "kapsam.json").is_file() and json.loads(kj.read_text(encoding="utf-8"))["incelenmedi"]:
+            s["paket"].update(durum="bekliyor", deneme=0, hata=None, yeniden=True, incelenmedi=True)
+            s["tarama"].update(durum="bekliyor", deneme=0, hata=None, ice_alindi=None, gecis=2)
+
+
 def kare_sigdir(pk):
     """M2e K2: uzun videonun çağrı girdisi ≤40k jeton; aşarsa kare düşürülür, rapora not."""
     for p in pk.values():
@@ -294,7 +308,7 @@ def kismi(f, hatalar, v):
 
 
 def _rapor_yaz(d, v, f, p, tdir, ikinci=None, **ek):
-    r = tdir / f"{d['tarih']}-{v}.md"
+    r = tdir / f"{d['tarih']}-{v}{'-incelenmedi' if d['videolar'][v]['tarama'].get('gecis') == 2 else ''}.md"  # C4: ilk rapor ezilmez
     r.parent.mkdir(parents=True, exist_ok=True)
     md = rapor_md(f, p, _notlar(d, p)) + (ig.ek_md(ikinci) if ikinci else "")
     r.write_bytes(md.encode("utf-8"))
@@ -393,6 +407,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
         a["deneme"] += 1
         try:
             yeniden = a.pop("yeniden", False)  # DERİNLİK-1 R4b: --paket-yeniden → ozet atlanır, paket R4 ile yeniden kurulur
+            ince = a.pop("incelenmedi", False)  # C4 ikinci geçiş
             if yeniden or not (onb / v / "paket.md").is_file():
                 if not yeniden:
                     alt(["ozet", "--", v])
@@ -401,9 +416,11 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"),
                                        (sg := onb / v / "segmentler.jsonl").is_file() and bool(tr.IPUCU.search(sg.read_text(encoding="utf-8"))))  # M2e K2 · DERİNLİK-1 R4
+                if (mk := model_kare(n, mt.get("duration") or 0)) > n:  # C4
+                    n, neden = mk, f"süre/3 dk ≤{KARE_UST}"
                 print(f"paket {v}: kare {n} ({neden})")
                 with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
-                    rc = alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), "--", v])
+                    rc = alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []), "--", v])
                 print(b.getvalue(), end="")
                 if not (onb / v / "paket.md").is_file():
                     from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
@@ -411,6 +428,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
             a.update(durum="tamam", cikti=(onb / v / "paket.md").as_posix())
             if (yj := onb / v / "yorumlar.json").is_file():  # DERİNLİK-1 R4: Kapsam yorum alanı
                 s["yorum"] = json.loads(yj.read_text(encoding="utf-8"))["durum"]
+            if (kj := onb / v / "kapsam.json").is_file():  # C4: Kapsam izleme alanı
+                s["izleme"] = json.loads(kj.read_text(encoding="utf-8"))["izleme"]
         except (Exception, SystemExit) as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
             a.update(durum="hata", hata=f"{type(e).__name__}: {f'çıkış {e.code}' if isinstance(e, SystemExit) else e}"[:200])
         _yaz(yol, d)
@@ -591,6 +610,9 @@ def parti(ns, ctx):
                     s["tarama"].update(durum="bekliyor", deneme=0, hata=None, ice_alindi=None)
                     if getattr(ns, "paket_yeniden", False):  # DERİNLİK-1 R4b: bayraksız eski davranış
                         s["paket"].update(durum="bekliyor", deneme=0, hata=None, yeniden=True)
+                        s["tarama"].pop("gecis", None)  # C4: tam paket → asıl rapor adı
+        if getattr(ns, "incelenmedi", False):  # C4
+            incelenmedi_isaretle(d, ctx["kok"])
         if getattr(ns, "form_red_yeniden", False):  # M2b K6: form_red → yeniden dene hakkı
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] == "form_red":

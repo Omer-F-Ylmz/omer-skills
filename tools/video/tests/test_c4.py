@@ -56,6 +56,7 @@ def test_parti_kare_sureyle_buyur_izleme_ikinci_gecis(tmp_path, monkeypatch):
     s = d["videolar"]["e1"]
     assert s["paket"]["durum"] == "bekliyor" and s["paket"]["incelenmedi"] and s["tarama"]["durum"] == "bekliyor" and s["tarama"]["gecis"] == 2
     cagri.clear()
+    s["tarama"]["durum"] = "tamam"  # yalnız paket aşaması sınanır (sahte paket.md taranamaz)
     pt._kos(pd, d, onb, tmp_path / "t", alt, str, None, {})
     assert "--incelenmedi" in next(a for a in cagri if a[0] == "paket") and not any(a[0] == "ozet" for a in cagri)
 
