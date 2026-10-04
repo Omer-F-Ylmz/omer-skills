@@ -85,8 +85,8 @@ def birlestir(raporlar, kok):
             satir.append((s, repo, v, r, idd, kom))
     for i, (s, repo, v, r, *_) in enumerate(satir):  # DERİNLİK-2 S7: aynı videoda ad benzerliği ≥0.8 → tek aday; yalnız biri parantezli
         for s2, repo2, v2, r2, *_ in satir[:i]:  # takma ad taşıyorsa (videoda/karede/ECC) — ajan-r/ajan-s gibi ayrı adlar birleşmez
-            if v == v2 and "(" in r[0] + r2[0] and kok_(s) != kok_(s2) and not (repo and repo2 and repo != repo2) and any(
-                    difflib.SequenceMatcher(None, x, y).ratio() >= 0.8 for x in _cesit(r[0]) for y in _cesit(r2[0])):
+            if "(" in r[0] + r2[0] and kok_(s) != kok_(s2) and not (repo and repo2 and repo != repo2) and (_cesit(r[0]) & _cesit(r2[0]) or v == v2 and any(
+                    difflib.SequenceMatcher(None, x, y).ratio() >= 0.8 for x in _cesit(r[0]) for y in _cesit(r2[0]))):  # DERİNLİK-3 Y3: birebir ad videolar arası
                 kume[kok_(s)] = kok_(s2)
     out = {}
     for s, repo, v, r, idd, kom in satir:
@@ -586,11 +586,14 @@ def panel(pdir, d, kok):
     hs = [(h, s.strip()) for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else [])
           if len(h := [x.strip() for x in s.strip().strip("|").split("|")]) == 8 and h[0] not in ("aday", "---")]
     eski, eski_s = {h[0]: h[7] for h, _ in hs}, {h[0]: s for h, s in hs}
+    ond = d.get("on_doldurma")  # DERİNLİK-3 Y1: saklanan ön-doldurmayla aynı hücre Ömer kararı değil, yeniden hesaplanır
+    ond = dict(eski) if ond is None else ond  # ponytail: kaydı olmayan eski durumda tüm hücreler ön-doldurma sayılır (Ömer, 2026-10-03-short)
+    eski = {k: o for k, o in eski.items() if o and o != ond.get(k)}
     ky = Path(kok) / "docs" / "kurulumlar" / "kayit.jsonl"  # M11 K1a: aynı adın en son Ömer kararı; RED ön-doldurulmaz
     onceki = {_tekil(tr.normal(x["ad"])): m[1] for x in (tr.kayit_oku(ky) if ky.is_file() else [])
               if x.get("ad") and (m := re.match(r"(AL|ERTELE|DENE|ÖĞREN|UYARLA|ZATEN VAR) \(Ömer", str(x.get("karar", ""))))}
-    on, bekleyen = [], 0
-    mevcut = [p.stem for p in (Path(kok) / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
+    on, bekleyen, yeni_on, takma = [], 0, {}, set()
+    mevcut =[p.stem for p in (Path(kok) / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
     L = [f"# Karar paneli — {d['parti']}", "", "Ömer sütununa AL / RED / ERTELE ya da karar (DENE · ÖĞREN · UYARLA · ZATEN VAR) yaz; boş satır dokunulmaz → `video panel uygula <bu dosya>`.", "",
          "| aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |", "|---|---|---|---|---|---|---|---|"]
     uret, kural, olasi, kalan, olasi_es, kapsam = [], [], [], [], [], []
@@ -652,12 +655,14 @@ def panel(pdir, d, kok):
             er = ea.get("repo") if ea.get("repo") not in (None, "", "yok") else None
             if er and a["repo"] and er.casefold() == a["repo"].casefold():  # ad benzerliği tek başına tekrar değil
                 olasi.append(f"- {k} ≈ {e} (adaylar/{e}.md)")
-        om = eski.get(k, "")
+        es = {x for n in a["adlar"] for x in _cesit(n)} - {k}  # DERİNLİK-3 Y3: eski satır slug'la (parantez kaybı) birleşik adaya iner
+        takma |= es
+        om = eski.get(k) or next((eski[x] for x in sorted(es) if eski.get(x)), "")
         if not om and o != "RED" and not any(s.startswith(f"- {k} ≈") for s in olasi + olasi_es):  # M11 K1/K3: dolu hücre ezilmez
             kr = ("a", onceki[_tekil(tr.normal(k))]) if _tekil(tr.normal(k)) in onceki else ("b", "ZATEN VAR") if o == "ZATEN VAR" else (
                 ("c", "ÖĞREN") if a["tur"] in ("prompt", "teknik") else ("d", "ÖĞREN") if o == "T0" else None)
             if kr:
-                om = kr[1]
+                om = yeni_on[k] = kr[1]
                 on.append(f"- {k} · {om} · kural {kr[0]}")
         bekleyen += not om
         L.append(f"| {k} | {a['tur']} | {len(a['videolar'])} | {pt._h(al.get('lisans', '—'))} | {pt._h(gv)} | {o} | {pt._h(g)} | {om} |"
@@ -669,7 +674,8 @@ def panel(pdir, d, kok):
             L.append(f"| {g} | {a.get('tur', '-')} | {len(a.get('videolar', {}))} | — | — | {x['oneri']} | {pt._h(_s10(x['gelistirme_onerisi']))} (kanıt: {pt._h(x['kanit'])}) | {eski.get(g, '')} |"
                      .replace("|  |", "| |"))
     yazilan = {s.split("|")[1].strip() for s in L if s.startswith("| ")}
-    L += [s for k, s in eski_s.items() if eski[k] and k not in yazilan]  # M11 K3: yeniden üretimde satırı kalkan dolu Ömer kararı korunur
+    L += [s for k, s in eski_s.items() if eski.get(k) and k not in yazilan | takma]  # M11 K3: yeniden üretimde satırı kalkan dolu Ömer kararı korunur
+    d["on_doldurma"] = yeni_on
     ozet = f"karar bekleyen {bekleyen} · ön-doldurulan {len(on)}"
     L[3:3] = ["", f"{ozet} (ön-doldurma yalnız öneri; Ömer değiştirebilir)"]
     print(ozet)
