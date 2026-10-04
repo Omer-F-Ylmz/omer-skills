@@ -103,6 +103,13 @@ metin yoğunluğu ölçüsü (JPEG bayt/piksel) OCR karakter sayısıyla değiş
 C4 eki (Ömer, 4 Eki O9): modele giden kare tavanı süreyle büyür — max(--kare, ceil(süre_dk / 3)); üst sınır ve video başına paket jeton
 bütçesi ayarda. Tavan ya da bütçe yüzünden "incelenmedi" kalan anlar Kapsam satırında sayıyla görünür ve E1 denetim.md'ye girer.
 `video paket <id> --incelenmedi` (partide `devam --incelenmedi`) yalnız bu anları ikinci geçişte işler. Test.
+C4/C3 düzeltmesi (Ömer, 4 Eki O10; kanıt: canlı b2QkhmQ0sT0 20:31 → sahne 51 · seçilen 24 · OCR 17 · model 7 · incelenmedi 8, hepsi
+"kare tavanı 7"; paket ~9.5k / 40k): (1) parti yolunda modele giden karelerde asıl sınır PAKET_BUTCE; kare tavanı KARE_UST (20) sabit,
+süre_dk/3 yalnız taban; doğrudan `paket --kare N` aynen. C4 testleri buna göre (ayrı commit, "Ömer onayı: C4 tavan → bütçe"). Test: 20 dk,
+24 seçilen, 17 OCR → 15 model karesi, incelenmedi 0. (2) OCR birleştirme: aksan katlanınca (ş→s ı→i İ→I ü→u ö→o ç→c ğ→g, büyük-küçük
+harf yok sayılır) tr = en ise en; tr yalnız Türkçe ipucu (ve, bir, için, ile, bu, da, de, olarak, gibi…; ayarda) varsa. Gürültü satırı
+(anlamlı kelime yok ya da anlamsız oranı yüksek) pakete yazılmaz; sayısı izleme'de "OCR gürültü N". Test (gerçek örnekler). (3) kare_sigdir
+(40k girdi tavanı) düşürdüğü anlar kapsam.json incelenmedi'ye "girdi tavanı" sebebiyle; izleme sayısı güncellenir. Test.
 
 ## D — İZ TABLOSU (hiçbir şey kaçmasın)
 **D1** Her video raporunda "## İz": her bahis bir satır — kaynak (konuşma mm:ss · kare mm:ss · açıklama · yorum · linkli sayfa) · ne ·

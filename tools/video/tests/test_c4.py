@@ -6,7 +6,7 @@ from pathlib import Path
 from video import akil, cli
 from video import parti as pt
 from video.cli import main
-from test_c3 import KOD, OcrKos, bolum, paket
+from test_c3 import KOD, OKUNUR, OcrKos, bolum, paket
 from test_m9 import _alt, _d
 from test_video import VID, ortam  # noqa: F401 (ortam fixture)
 
@@ -35,8 +35,9 @@ def test_kapsam_json_izleme_ve_ikinci_gecis(ortam, capsys):
 
 
 def test_parti_kare_sureyle_buyur_izleme_ikinci_gecis(tmp_path, monkeypatch):
-    assert pt.model_kare(8, 45 * 60) == 15 and pt.model_kare(8, 10 * 3600) == pt.KARE_UST
-    assert pt.model_kare(3, 60) == 3 and pt.model_kare(30, 600) == 30  # short değişmez · açık büyük değer korunur
+    # Ömer onayı (O10): tavan KARE_UST sabit, asıl sınır PAKET_BUTCE; süre/3 yalnız taban (canlı b2QkhmQ0sT0: 20 dk → "kare tavanı 7" ×8)
+    assert pt.model_kare(8, 45 * 60) == pt.model_kare(8, 20 * 60) == pt.model_kare(12, 10 * 60) == pt.KARE_UST == 20
+    assert pt.model_kare(3, 30) == 3 and pt.model_kare(3, 0) == 3 and pt.model_kare(30, 600) == 30  # short/süresiz değişmez · açık büyük değer korunur
     monkeypatch.setattr(pt, "find_spec", lambda n: True)
     pd, onb = tmp_path / "pd", tmp_path / "onb"
     pd.mkdir()
@@ -59,6 +60,15 @@ def test_parti_kare_sureyle_buyur_izleme_ikinci_gecis(tmp_path, monkeypatch):
     s["tarama"]["durum"] = "tamam"  # yalnız paket aşaması sınanır (sahte paket.md taranamaz)
     pt._kos(pd, d, onb, tmp_path / "t", alt, str, None, {})
     assert "--incelenmedi" in next(a for a in cagri if a[0] == "paket") and not any(a[0] == "ozet" for a in cagri)
+
+
+def test_tavan_20_sinir_butce_24_secilen_15_model(ortam):
+    """O10: 24 seçilen · 17 OCR (9 okunur + 8 kod) · 7 metinsiz → 15 kare modele, incelenmedi 0 (eskiden süre/3 tavanı 8'i keserdi)."""
+    sahne = b"".join(f"frame:{i} pts:{t}000 pts_time:{t}\nlavfi.scene_score=0.9\n".encode() for i, t in enumerate((100, 200, 400, 500)))
+    t = [f"k{15 + 30 * i:05d}" for i in range(20)]
+    d, _ = paket(ortam, OcrKos({**{k: OKUNUR for k in t[:9]}, **{k: KOD for k in t[9:17]}}, sahne_rc=0, sahne=sahne), kare=pt.KARE_UST)
+    kj = json.loads((d / "kapsam.json").read_text(encoding="utf-8"))
+    assert "seçilen 24 · OCR 17 · model 15 · incelenmedi 0" in kj["izleme"] and kj["incelenmedi"] == []
 
 
 def test_panel_kapsam_izleme_alani():
