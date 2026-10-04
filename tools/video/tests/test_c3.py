@@ -115,4 +115,4 @@ def test_jpeg_vekili_kalkti_aday_sahne_sureye_gore(ortam, monkeypatch):
     monkeypatch.setattr(cli, "_sahneler", lambda ctx, d, n: istek.append(n) or [])
     onbellek(ortam, [], duration=3600)
     assert main(["paket", VID, "--kare", "2", "--istek-tavan", "0", "--kare-yalniz"], env=ortam, kos=OcrKos({}), uyku=lambda s: None) == 0
-    assert istek == [3600 // cli.OCR_ADAY_SN]  # uzun video: dakikada bir sahne adayı (en az 2×kare)
+    assert istek == [None]  # Ömer onayı (O11 (5)): tüm sahneler aday, sınır cli.ADAY_UST
