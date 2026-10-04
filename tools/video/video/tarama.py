@@ -428,7 +428,7 @@ def _kat_ad(s):
     return re.sub(r"[\W_]", "", s.casefold().translate(str.maketrans("10", "io")))
 
 
-def kacan(rapor, kaynaklar, sozluk):
+def kacan(rapor, kaynaklar, sozluk, desen=KACAN_DESEN):
     """D2 çağrısız kaçak denetimi: [(kaynak, metin)] içindeki URL · owner/repo · kurulum komutu · büyük harfli ürün adı ve sözlük adları
     (1–3 ardışık sözcük katlanmış eşit; kısa adlar dahil) ## İz'de geçmiyorsa → [(kaynak, terim)] "KAÇAN?"."""
     iz, sozluk, gorulen, k = _kat_ad(bolum(rapor, "İz")), {_kat_ad(x): x for x in sozluk}, set(), []
@@ -438,12 +438,63 @@ def kacan(rapor, kaynaklar, sozluk):
         for satir in duz.splitlines():
             w = re.findall(r"[\w.-]+", satir)
             terim += [sozluk[j] for n in (1, 2, 3) for i in range(len(w) - n + 1) if (j := _kat_ad("".join(w[i:i + n]))) in sozluk]
-        terim += [x for d in KACAN_DESEN for x in d.findall(duz)]
+        terim += [x for d in desen for x in d.findall(duz)]
         for t in terim:
             if (j := _kat_ad(t)) and j not in gorulen and j not in iz:
                 gorulen.add(j)
                 k.append((kaynak, t))
     return k
+
+
+# ayar · D2 (b): düşük güven adayı sayılmayan yaygın büyük harfli kelimeler (casefold)
+YAYGIN = set("i a an the this that these those it its we you he she they my our your and or but so if then now here there what why how "
+             "when where who okay ok yes no hello hi hey thanks today also just bir bu şu o ve ama için ile çok daha şimdi evet hayır "
+             "tamam merhaba yani peki sonra burada".split())
+BILINEN = Path("docs") / "video-tarama" / "bilinen-araclar.txt"
+
+
+def kacan_sozluk(kok):
+    """D2 (a): kurulu araçlar (envanter.json) + aday dosya adları + docs/video-tarama/bilinen-araclar.txt."""
+    kok, ev = Path(kok), Path(kok) / "docs" / "departmanlar" / "envanter.json"
+    b = kok / BILINEN
+    return ([e["ad"] for e in ((_json(ev) or []) if ev.is_file() else [])] + [p.stem for p in (kok / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
+            + ([x.strip() for x in b.read_text(encoding="utf-8").splitlines() if x.strip()] if b.is_file() else []))
+
+
+def bilinen_ekle(kok, adlar):
+    """D2 (a): parti kapanışında yeni aday adları bilinen-araclar.txt'ye eklenir; büyük/küçük harf farkı tekrar sayılır."""
+    b = Path(kok) / BILINEN
+    L = [x.strip() for x in b.read_text(encoding="utf-8").splitlines() if x.strip()] if b.is_file() else []
+    for a in adlar:
+        if a.casefold() not in {x.casefold() for x in L}:
+            L.append(a)
+    b.write_text("".join(f"{x}\n" for x in L), encoding="utf-8")
+
+
+def kacan_dusuk(rapor, kaynaklar, sozluk):
+    """D2 (b) "KAÇAN? (düşük güven)": cümle başında olmayan, YAYGIN'da ve sözlükte olmayan, kaynaklarda ≥2 kez geçen büyük harfli
+    tek kelime İz'de yoksa → [(ilk kaynak, kelime)]. Parti kapat'ı durdurmaz."""
+    iz, soz, say, ilk = _kat_ad(bolum(rapor, "İz")), {_kat_ad(x) for x in sozluk}, {}, {}
+    for kaynak, metin in kaynaklar:
+        for satir in KACAN_URL.sub(" ", metin).splitlines():
+            satir = re.sub(r"^\s*\[?\d+:\d+(?::\d+)?\]?\s*·?\s*", "", satir)  # [mm:ss] / mm:ss · öneki cümle başıdır
+            for b in re.finditer(r"(?<![\w-])[A-ZÇĞİÖŞÜ][\w-]+", satir):
+                if not re.search(r"(^|[.!?:]\s*)$", satir[:b.start()]):
+                    w = b.group()
+                    say[w] = say.get(w, 0) + 1
+                    ilk.setdefault(w, kaynak)
+    return [(ilk[w], w) for w, n in say.items() if n >= 2 and w.casefold() not in YAYGIN and (j := _kat_ad(w)) not in soz and j not in iz]
+
+
+def kacan_video(rapor, paket, sozluk):
+    """D2 kancalama: paket.md (Açıklama bağlantıları · Segmentler · Ekran metni) + yanındaki ocr-gurultu.txt → (engelleyen, düşük güven).
+    Engelleyen = URL · owner/repo · kurulum komutu · sözlük; büyük harfli ürün adı yalnız düşük güvende."""
+    p = Path(paket)
+    md = p.read_text(encoding="utf-8") if p.is_file() else ""
+    g = p.parent / "ocr-gurultu.txt"
+    k = [("paket", "\n".join(bolum(md, b) for b in ("Açıklama bağlantıları", "Segmentler", "Ekran metni")))]
+    k += [("gürültü", g.read_text(encoding="utf-8"))] if g.is_file() else []
+    return kacan(rapor, k, sozluk, KACAN_DESEN[:2]), kacan_dusuk(rapor, k, sozluk)
 
 
 def frontend_mu(metin):
