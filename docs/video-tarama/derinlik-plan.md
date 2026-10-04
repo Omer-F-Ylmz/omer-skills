@@ -157,6 +157,13 @@ kelime listesinde (ayarda) olmayan ve kaynaklarda ≥2 kez geçen büyük harfli
 panel Denetim'de ayrı sayılır ve E1 denetim.md'ye girer. Test: "Cursor" iki kez geçen altyazı → düşük güven; cümle başı "The"/"This" →
 hiç; sözlükteki "supabase" → engelleyen. Kanıt (4. canlı ölçüm, C5 sonrası): b2QkhmQ0sT0 --kare 8 --model-tavan 60 → seçilen 42 · OCR 26 ·
 model 27 · incelenmedi 0 · OCR gürültü 62 · tekrar (montaj) 3 · ~7k metin + ~11.9k kare.
+D2 ayırt edicilik + bağlam kuralı (Ömer kararı, 5 Eki): sözlük eşleşmesi ENGELLEYEN olur eğer (i) ad ayırt ediciyse — tire/rakam/nokta/iç
+büyük harf içerir ya da ≥5 harf ve YAYGIN'da değil — YA DA (ii) aynı satırda araç işaretiyle geçiyorsa: önünde/arkasında skill · skills ·
+plugin · MCP · CLI · extension · agent · server, "/ad" slash biçimi, "ad-skill"/"ad-mcp" tireli biçim, kurulum komutu ya da owner/repo/URL
+içinde. İkisi de yoksa → düşük güven (kaybolmaz, denetim.md'ye girer). YAYGIN genişletilir (design, data, docs, do, review, taste, standup,
+debug gibi; ayarda). İç büyük harfli tek kelime (LangGraph, ChatGPT) tek geçişte de düşük güven (≥2 şartı yalnız düz Büyük-harfli kelimeye).
+Test: sözlük taste/design/superpowers — "taste skill kurdum" → engelleyen; "good taste" → düşük; "/design" → engelleyen; "design is hard"
+→ düşük; "superpowers" yalın → engelleyen; "LangGraph" bir kez → düşük. Kuru koşu önce/sonra: docs/olcumler/d2-kuru.md.
 **D3** Panelde "## Denetim": bahis · bağlanan · aday değil (oran) · KAÇAN? sayıları. KAÇAN? > 0 iken `video parti kapat` durur (bağla ya
 da sebep yaz). "Aday değil" oranı %5'i aşarsa uyarı. Test.
 Ek (Ömer, 4 Eki O7): koruma whisper'ı durdurduğu ve altyazı da olmadığı videoda kapsam "konuşma alınamadı (sebep)" olur; bu durum KAÇAN?
