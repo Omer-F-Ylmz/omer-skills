@@ -318,7 +318,8 @@ ISARET = re.compile(r"\b(?:ekran|screen|repo|github|link|url|https?://|komut|com
 SAHNE_ESIK = 0.3
 OCR_PS = Path(__file__).with_name("ocr.ps1")
 OCR_BENZER, DHASH_SAHNE = 0.9, 10  # ayar · O11 (3): katlanmış OCR metni benzerliği ≥ → tekrar · aynı sahnede dHash Hamming ≤ → tekrar
-OCR_AZ, OCR_KISA, OCR_KOD, OCR_GUVEN, OCR_ADAY_SN = 40, 12, 0.3, 0.7, 60  # C3: <40 krk şema/görsel · satır ort. <12 krk arayüz · kod satırı
+ADAY_UST = 150  # ayar · O11 (5): paket aday kare üst sınırı (merkez + işaret + tüm sahneler); aşan sahneler skor sırasıyla "aday tavanı"
+OCR_AZ, OCR_KISA, OCR_KOD, OCR_GUVEN = 40, 12, 0.3, 0.7  # C3: <40 krk şema/görsel · satır ort. <12 krk arayüz · kod satırı
 # ≥%30 · anlamlı oran <0.7 → kare modele · uzun videoda her 60 sn'ye bir sahne adayı (en az 2×kare)
 PAKET_BUTCE = 40_000  # ayar · C4: video başına paket jetonu (segment metni + modele giden kareler; parti GIRDI_TAVAN ile aynı); aşan kare "incelenmedi"
 KOMUT = re.compile(r"https?://|www\.|\b(?:npx|npm|pip|uvx?|claude|git|gh|curl|winget|brew)\b|--\w", re.I)
@@ -425,7 +426,7 @@ def paket(ns, ctx):
     ocr, gor = {}, set()
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     try:
-        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
+        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.model_tavan or ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
@@ -539,9 +540,10 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
     ocr (dict, C3 paket): adaylar OCR'lanır → ocr {durum, metin [(t, satırlar)], incelenmedi [(t, sebep)]}; OCR'ın anlamlandırdığı kare
     modele gitmez (silinir), en_fazla yalnız modele giden kareleri sayar. taban (C4, O11): paket metni; taban + OCR metni + modele giden
     kareler pt.girdi_tk ile PAKET_BUTCE'yi aşarsa kare "incelenmedi"."""
-    if sahne:
-        zamanlar = [*zamanlar, *_sahneler(ctx, d, max(2 * en_fazla, int(sure) // OCR_ADAY_SN))]
-    zamanlar = list({int(t): t for t in zamanlar}.values())  # aynı saniye bir kez: _kare_uret aynı adlı kareyi siler
+    zamanlar, kesilen = list({int(t): t for t in zamanlar}.values()), []  # aynı saniye bir kez: _kare_uret aynı adlı kareyi siler
+    if sahne:  # O11 (5): her sahne aday; ADAY_UST'u aşan sahneler (skor sırasıyla sondakiler) "aday tavanı"
+        sh = [t for t in _sahneler(ctx, d, None) if int(t) not in {int(x) for x in zamanlar}]
+        zamanlar, kesilen = [*zamanlar, *sh[:max(0, ADAY_UST - len(zamanlar))]], sh[max(0, ADAY_UST - len(zamanlar)):]
     try:
         uretilen = [(t, _kare_uret(ctx, d, _akis_url(ctx, d), t, pencere, g)) for t in zamanlar]
     except Hata:  # M9 K1: 403 / akış URL hatası → önbellek silinir, taze -g ile bir kez yeniden
@@ -552,7 +554,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
     aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
     aday = [a for a in aday if a[3].is_file()]
     o, metin = ({} if ocr is None else ocr), {}
-    o.update(metin=[], incelenmedi=[], secilen=0, gurultu=0, gurultu_satir=[])
+    o.update(metin=[], incelenmedi=[(t, "aday tavanı") for t in kesilen], secilen=0, gurultu=0, gurultu_satir=[])
     if ocr is not None and aday:
         try:
             metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
@@ -1165,6 +1167,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x = alt.add_parser("paket", help="alt ajan girdisi tek dosya: künye · chapter · linkler · sade segmentler · kareler (yalnız ekran sorusu)")
     x.add_argument("id")
     x.add_argument("--kare", type=int, default=6, help="en fazla N kare (ekran p'si en yüksek)")
+    x.add_argument("--model-tavan", type=int, help="O11 (5): modele giden en fazla M kare (varsayılan --kare); --kare aday tabanı kalır")
     x.add_argument("--kare-yalniz", action="store_true", help="M8 K2: segmentleri yok say (whisper çıktısı anlamsız) → kare-yalnız paket")
     x.add_argument("--incelenmedi", action="store_true", help="C4 ikinci geçiş: yalnız kapsam.json'daki incelenmedi anlar (ilk paket → paket-1.md)")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M HTTP isteği (varsayılan segment+10)")

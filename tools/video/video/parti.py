@@ -431,11 +431,10 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"),
                                        (sg := onb / v / "segmentler.jsonl").is_file() and bool(tr.IPUCU.search(sg.read_text(encoding="utf-8"))))  # M2e K2 · DERİNLİK-1 R4
-                if (mk := model_kare(n, mt.get("duration") or 0)) > n:  # C4
-                    n, neden = mk, f"tavan {KARE_UST}, sınır jeton bütçesi"
-                print(f"paket {v}: kare {n} ({neden})")
+                mk = model_kare(n, mt.get("duration") or 0)  # C4 · O11 (5): n aday tabanı, mk model tavanı
+                print(f"paket {v}: kare {n} ({neden})" + (f" · model tavanı {mk}, sınır jeton bütçesi" if mk > n else ""))
                 with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
-                    rc = alt(["paket", "--kare", str(n), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []), "--", v])
+                    rc = alt(["paket", "--kare", str(n), "--model-tavan", str(mk), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []), "--", v])
                 print(b.getvalue(), end="")
                 if not (onb / v / "paket.md").is_file():
                     from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
