@@ -119,6 +119,12 @@ dk → model 28, incelenmedi 0. (3) tekrar ayıklama: (a) katlanmış OCR metni 
 kalır; (b) OCR'sız/model karelerinde aynı sahne içinde ve dHash Hamming ≤10 (ayarda) tek sayılır, sahne değişimi varsa ayrı. Test:
 66/67/70/75 tek kare, 728/730 tek kare, farklı OCR metinli iki kare kalır. (4) atılan OCR gürültü satırları <id>/ocr-gurultu.txt'ye
 (zaman · satır). Test.
+O11 (5) aday sayısı ile model tavanı ayrılır (Ömer kararı, 4 Eki): parti yolunda --kare model tavanını değil aday tabanını taşır (kare_sayisi,
+eskisi gibi); model tavanı ayrı bayrak `paket --model-tavan M` (varsayılan = --kare, eski davranış korunur), parti M = KARE_UST (60). Aday
+kümesi: sahne.json'daki HER sahneden bir kare (en yüksek skor değil, hepsi) + altyazı işaret anları + kare_sayisi kadar segment merkezi;
+tekrarlar (3) ile ayıklanır; aday üst sınırı ADAY_UST (ayarda, ör. 150; aşan sahneler skor sırasıyla kesilir, "incelenmedi (aday tavanı)").
+Test: 51 sahneli 20 dk video → aday ~51 + işaret + 8, 180 değil; doğrudan `paket --kare 20` eski davranış; `paket --kare 8 --model-tavan 60`
+→ bütçe sınırlı model karesi.
 
 ## D — İZ TABLOSU (hiçbir şey kaçmasın)
 **D1** Her video raporunda "## İz": her bahis bir satır — kaynak (konuşma mm:ss · kare mm:ss · açıklama · yorum · linkli sayfa) · ne ·
@@ -201,4 +207,4 @@ A1 test_takas.py:48 çelişkisi · C2 Pillow yoksa · C3 Windows.Media.Ocr eriş
 · suite-kosucu ajanı yoksa.
 
 ## İlerleme
-O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). O6 (4 Eki): C1 ✓ + koruma (video 591). O7 (4 Eki): C2 ✓ (video 597). O8 (4 Eki): C3 ✓ (video 603). O9 (4 Eki): C4 ✓ + ek (video 607). O10 (4 Eki): C4/C3 düzeltmesi 3 madde ✓ (video 611). Sonraki: D1. O11 (4 Eki): O11 madde 1–2 ✓ (video 613), sonraki O11 (3) tekrar ayıklama, (4) ocr-gurultu.txt, sonra D1.
+O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). O6 (4 Eki): C1 ✓ + koruma (video 591). O7 (4 Eki): C2 ✓ (video 597). O8 (4 Eki): C3 ✓ (video 603). O9 (4 Eki): C4 ✓ + ek (video 607). O10 (4 Eki): C4/C3 düzeltmesi 3 madde ✓ (video 611). Sonraki: D1. O11 (4 Eki): O11 madde 1–2 ✓ (video 613), sonraki O11 (3) tekrar ayıklama, (4) ocr-gurultu.txt, sonra D1. O12 (4 Eki): O11 (3) ✓ · (4) ✓ (video 615), sonraki O11 (5), sonra D1.
