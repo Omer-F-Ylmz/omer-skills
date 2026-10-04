@@ -319,13 +319,32 @@ OCR_PS = Path(__file__).with_name("ocr.ps1")
 OCR_AZ, OCR_KISA, OCR_KOD, OCR_GUVEN, OCR_ADAY_SN = 40, 12, 0.3, 0.7, 60  # C3: <40 krk şema/görsel · satır ort. <12 krk arayüz · kod satırı
 # ≥%30 · anlamlı oran <0.7 → kare modele · uzun videoda her 60 sn'ye bir sahne adayı (en az 2×kare)
 PAKET_BUTCE = 40_000  # ayar · C4: video başına paket jetonu (segment metni + modele giden kareler; parti GIRDI_TAVAN ile aynı); aşan kare "incelenmedi"
-TEKNIK = re.compile(r"https?://|www\.|\b[\w.-]+/[\w.-]+|\b(?:npx|npm|pip|uvx?|claude|git|gh|curl|winget|brew)\b|^\s*/\w|--\w", re.I)
+KOMUT = re.compile(r"https?://|www\.|\b(?:npx|npm|pip|uvx?|claude|git|gh|curl|winget|brew)\b|--\w", re.I)
+TEKNIK = re.compile(KOMUT.pattern + r"|\b[\w.-]+/[\w.-]+|^\s*/\w", re.I)
 KOD = re.compile(r"[{};]|=>|==|\w\(|^\s*(?:def|function|import|from|const|let|var|class|return)\b")
 TR_HARF = re.compile(r"[çğışöüÇĞİŞÖÜ]")
+KATLA = str.maketrans("şıİüöçğŞÜÖÇĞ", "siIuocgSUOCG")
+OCR_TR_IPUCU = {"ve", "bir", "icin", "ile", "bu", "da", "de", "olarak", "gibi", "ama", "veya", "cok", "daha", "su", "ne"}  # ayar · katlanmış
+OCR_YAYGIN = OCR_TR_IPUCU | {"the", "to", "how", "what", "and", "for", "with", "you", "your", "this", "that", "will", "can", "not", "see", "use",
+                             "run", "new"}  # ayar · gürültü: ≥5 harfli kelime yoksa satır bunlardan birini taşımalı
+
+
+def _kat(s):
+    """C3 düzeltme: aksan katlanır (ş→s ı→i İ→I ü→u ö→o ç→c ğ→g), harf büyüklüğü yok sayılır."""
+    return s.translate(KATLA).lower()
+
+
+def _ocr_gurultu(s):
+    """C3 düzeltme: anlamlı kelime yok (≥5 harf ya da OCR_YAYGIN) ya da anlamsız oranı > 1 - OCR_GUVEN → pakete yazılmaz; komut/URL ve kod
+    satırı korunur. ponytail: sözlük yok; kısa gerçek satır ("Save", "kith add") ayırt edilemez, yaygın listesi ayarda."""
+    if KOMUT.search(s) or KOD.search(s):
+        return False
+    return not any(len(w) >= 5 or _kat(w) in OCR_YAYGIN for w in re.findall(r"[^\W\d_]+", s)) or m.anlamsiz_oran(s) > 1 - OCR_GUVEN
 
 
 def _ocr_birlestir(tr_, en):
-    """C3: tr ve en satırları ([metin, x0, y0, x1, y1]) kutu örtüşmesiyle eşlenir. URL/komut/kod → en, Türkçe harf → tr, değilse anlamlı
+    """C3: tr ve en satırları ([metin, x0, y0, x1, y1]) kutu örtüşmesiyle eşlenir. URL/komut/kod → en, Türkçe ipucu kelimesi → tr, aksan
+    katlanınca aynı → en (O10: "üşer" → user), Türkçe harf → tr, değilse anlamlı
     oranı yüksek olan (Windows OCR güven puanı vermez: vekil m.anlamsiz_oran; eşitte en). Eşsiz satır olduğu gibi; sıra yukarıdan aşağı."""
     ortus = lambda a, b: a[1] < b[3] and b[1] < a[3] and a[2] < b[4] and b[2] < a[4]  # noqa: E731
     kalan, cikti = list(en), []
@@ -336,7 +355,8 @@ def _ocr_birlestir(tr_, en):
             continue
         kalan.remove(b)
         x, y = a[0], b[0]
-        s = y if TEKNIK.search(x) or TEKNIK.search(y) else x if TR_HARF.search(x) else x if m.anlamsiz_oran(x) < m.anlamsiz_oran(y) else y
+        s = (y if TEKNIK.search(x) or TEKNIK.search(y) else x if OCR_TR_IPUCU & set(re.findall(r"\w+", _kat(x)))
+             else y if _kat(x) == _kat(y) else x if TR_HARF.search(x) else x if m.anlamsiz_oran(x) < m.anlamsiz_oran(y) else y)
         cikti.append((a[2], s))
     cikti += [(b[2], b[0]) for b in kalan]
     return [re.sub(r" [—–] ", " -- ", s) if TEKNIK.search(s) else s for _, s in sorted(cikti, key=lambda c: c[0])]  # OCR "--"yu "—" okur
@@ -422,7 +442,7 @@ def paket(ns, ctx):
     inc = sorted(ocr.get("incelenmedi", []))
     ky.write_text(json.dumps({"izleme": f"{'kare-yalnız' if yalniz else f'segment {len(seg)}'} · "  # C4 Kapsam satırı → parti durum.json → panel
                                         f"{f'sahne {len(sj['sahneler'])}' if sj.get('durum') == '✓' else sj.get('durum')} · seçilen {ocr.get('secilen', 0)} · "
-                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)}", "incelenmedi": inc}, ensure_ascii=False), encoding="utf-8")
+                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)} · OCR gürültü {ocr.get('gurultu', 0)}", "incelenmedi": inc}, ensure_ascii=False), encoding="utf-8")
     print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
           f" + ~{sum(_kare_tk(y)[1] for _, y in kareler)} kare · istek {istek}")
     return 0
@@ -526,7 +546,7 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
     aday = [(int(t) not in on, 0, t, x) for t, (mk, _) in uretilen for x in mk] + [(True, 1, t, x) for t, (_, sh) in uretilen for x in sh]
     aday = [a for a in aday if a[3].is_file()]
     o, metin = ({} if ocr is None else ocr), {}
-    o.update(metin=[], incelenmedi=[], secilen=0)
+    o.update(metin=[], incelenmedi=[], secilen=0, gurultu=0)
     if ocr is not None and aday:
         try:
             metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
@@ -540,7 +560,12 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
             continue
         hashler.append(h)
         o["secilen"] += 1
-        if s := metin.get(yol.name):
+        s = metin.get(yol.name)
+        if s:  # C3 düzeltme: gürültü satırı pakete yazılmaz, model kararına da girmez
+            temiz = [x for x in s if not _ocr_gurultu(x)]
+            o["gurultu"] += len(s) - len(temiz)
+            s = temiz
+        if s:
             o["metin"].append((t, s))
         if yol.name in metin and not _ocr_model(s):  # OCR anlamlandırdı: metin pakette, kare modele gitmez
             yol.unlink()
