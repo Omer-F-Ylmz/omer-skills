@@ -28,7 +28,9 @@ def main(argv=None):
     try:
         veri = json.loads(r.stdout[r.stdout.find("{"):])
     except ValueError:
-        print(f"pyright çıktısı çözülemedi:\n{(r.stderr or r.stdout)[-1500:]}", file=sys.stderr)
+        ilk = lambda s: "\n".join((s or "").splitlines()[:15]) or "(boş)"  # noqa: E731  KÜÇÜK-1 K4
+        print(f"pyright çıktısı çözülemedi (çıkış {r.returncode}):\n--- stderr ilk satırlar ---\n{ilk(r.stderr)}"
+              f"\n--- ham çıktı ilk satırlar ---\n{ilk(r.stdout)}", file=sys.stderr)
         return 2
     bulgular = [{"satir": d["range"]["start"]["line"] + 1, "mesaj": d["message"]}
                 for d in veri.get("generalDiagnostics", []) if d.get("rule") == "reportAttributeAccessIssue"]
