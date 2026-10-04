@@ -90,6 +90,7 @@ def test_tekrar_ayiklama_metin_benzerligi_ve_ayni_sahne_dhash(ortam):
     kj = json.loads((d / "kapsam.json").read_text(encoding="utf-8"))
     assert "seçilen 7 · OCR 3 · model 6 · incelenmedi 0" in kj["izleme"], kj["izleme"]
     md = (d / "paket.md").read_text(encoding="utf-8")
-    assert uzun["tr"][2][0] in md and "[12:10]" in md and "[12:08]" not in md
+    ocr = md.split("## Ekran metni (OCR)\n")[1].split("\n## ")[0]
+    assert uzun["tr"][2][0] in ocr and "[12:10]" in ocr and "[12:08]" not in ocr
     model = {int(Path(y).name[1:6]) for y in (x.split(" · ")[0] for x in md.split("## Kareler\n")[1].splitlines())}
     assert len(model & {66, 67, 70, 75}) == 1 and {300, 301, 302, 500, 505} <= model

@@ -1,6 +1,7 @@
 """video — kademeli izleme: ozet → sor/suz → kare → whisper. Ham altyazı ve kareler önbellekte (repo dışı), ajana kompakt çıktı.
 Jev isteği yalnız suz/sor'da ve tavanlı; önbellek varsa ağa çıkılmaz."""
 import argparse
+import difflib
 import json
 import os
 import re
@@ -316,6 +317,7 @@ def kare_tavan(sure, n, metin=""):
 ISARET = re.compile(r"\b(?:ekran|screen|repo|github|link|url|https?://|komut|command|terminal|prompt|ayar|setting|config)", re.I)  # C2: altyazıda ekrana/repoya/linke/komuta/prompta/ayara işaret
 SAHNE_ESIK = 0.3
 OCR_PS = Path(__file__).with_name("ocr.ps1")
+OCR_BENZER, DHASH_SAHNE = 0.9, 10  # ayar · O11 (3): katlanmış OCR metni benzerliği ≥ → tekrar · aynı sahnede dHash Hamming ≤ → tekrar
 OCR_AZ, OCR_KISA, OCR_KOD, OCR_GUVEN, OCR_ADAY_SN = 40, 12, 0.3, 0.7, 60  # C3: <40 krk şema/görsel · satır ort. <12 krk arayüz · kod satırı
 # ≥%30 · anlamlı oran <0.7 → kare modele · uzun videoda her 60 sn'ye bir sahne adayı (en az 2×kare)
 PAKET_BUTCE = 40_000  # ayar · C4: video başına paket jetonu (segment metni + modele giden kareler; parti GIRDI_TAVAN ile aynı); aşan kare "incelenmedi"
@@ -530,7 +532,8 @@ def _sahneler(ctx, d, n):
 
 def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), sure=0, ocr=None, taban=None):
     """[(t, yol)] zamana göre. sahne: tüm videonun sahne değişimleri de aday (C2, paket). Sıra: oncelik (altyazı işaret anı) → merkez
-    kareler → pencere sahne kareleri; grup içinde OCR karakter sayısı. dHash ile aynı ekran bir kez.
+    kareler → pencere sahne kareleri; grup içinde OCR karakter sayısı. Tekrar (O11): katlanmış OCR metni ≥ OCR_BENZER benzer → uzun olan
+    kalır; dHash ≤5 ya da aynı sahnede ≤ DHASH_SAHNE → bir kez (ikisi de metinliyse hash bakılmaz).
     ocr (dict, C3 paket): adaylar OCR'lanır → ocr {durum, metin [(t, satırlar)], incelenmedi [(t, sebep)]}; OCR'ın anlamlandırdığı kare
     modele gitmez (silinir), en_fazla yalnız modele giden kareleri sayar. taban (C4, O11): paket metni; taban + OCR metni + modele giden
     kareler pt.girdi_tk ile PAKET_BUTCE'yi aşarsa kare "incelenmedi"."""
@@ -553,19 +556,34 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
             metin, o["durum"] = _ocr(ctx, [a[3] for a in aday]), "✓"
         except (Hata, ValueError) as e:  # OCR yok → kareler eskisi gibi hepsi modele (sebep pakette)
             o["durum"] = f"OCR yok ({' '.join(str(e).split())[:80]})"
+    temiz, katlar, tekrar = {}, [], set()
+    for a in aday:  # C3 düzeltme: gürültü satırı pakete yazılmaz, model kararına da girmez (O11: tekrar ayıklamadan önce, tüm adaylar)
+        s = metin.get(a[3].name) or []
+        temiz[a[3].name] = [x for x in s if not _ocr_gurultu(x)]
+        o["gurultu"] += len(s) - len(temiz[a[3].name])
+    for a in sorted(aday, key=lambda a: -len(_kat("\n".join(temiz[a[3].name])))):  # O11 (3a): metni uzun olan kalır
+        if not (k := _kat("\n".join(temiz[a[3].name]))):
+            continue
+        if any((sm := difflib.SequenceMatcher(None, k, x, autojunk=False)).real_quick_ratio() >= OCR_BENZER and sm.quick_ratio() >= OCR_BENZER
+               and sm.ratio() >= OCR_BENZER for x in katlar):
+            tekrar.add(a[3].name)
+            a[3].unlink()
+        else:
+            katlar.append(k)
+    sj = json.loads((d / "sahne.json").read_text(encoding="utf-8")) if (d / "sahne.json").is_file() else {}
+    kesim = [x for x, _ in sj["sahneler"]] if sj.get("durum") == "✓" else None  # O11 (3b): sahne ✓ değilse aynı sahne bilinmez → yalnız ≤5
     model, hashler = [], []
-    for *_, t, yol in sorted(aday, key=lambda a: (a[0], a[1], -len(re.sub(r"\s", "", "".join(metin.get(a[3].name, [])))))):
+    for *_, t, yol in sorted(aday, key=lambda a: (a[0], a[1], -len(re.sub(r"\s", "", "".join(temiz[a[3].name]))))):
+        if yol.name in tekrar:
+            continue
+        s = temiz[yol.name]
         h = m.dhash(_kos(ctx, ["ffmpeg", "-v", "error", "-i", str(yol), "-vf", "scale=9:8,format=gray", "-f", "rawvideo", "-"], SURE["ffmpeg"]))
-        if any(bin(h ^ x).count("1") <= 5 for x in hashler):
+        if any(not (s and sx) and ((f := bin(h ^ x).count("1")) <= 5 or f <= DHASH_SAHNE and kesim is not None
+                                   and not any(min(t, tx) < k <= max(t, tx) for k in kesim)) for x, tx, sx in hashler):  # ikisi metinli → metin karar verdi
             yol.unlink()
             continue
-        hashler.append(h)
+        hashler.append((h, t, s))
         o["secilen"] += 1
-        s = metin.get(yol.name)
-        if s:  # C3 düzeltme: gürültü satırı pakete yazılmaz, model kararına da girmez
-            temiz = [x for x in s if not _ocr_gurultu(x)]
-            o["gurultu"] += len(s) - len(temiz)
-            s = temiz
         if s:
             o["metin"].append((t, s))
         if yol.name in metin and not _ocr_model(s):  # OCR anlamlandırdı: metin pakette, kare modele gitmez
