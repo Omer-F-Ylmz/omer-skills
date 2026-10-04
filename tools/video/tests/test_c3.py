@@ -42,6 +42,8 @@ def test_gurultu_satiri_pakete_yazilmaz_sayisi_izlemede(ortam):
     assert bolum(md, "Ekran metni (OCR)") == ["[2:30] Bu skill kurulumu için şu komutu çalıştırın", "[2:30] npx skills add owner/repo"]
     assert json.loads((d / "kapsam.json").read_text(encoding="utf-8"))["izleme"].endswith(" · OCR gürültü 5")
 
+
+def test_model_karari_sema_arayuz_kod_bozuk():
     okunur = ["Bu skill kurulumu için şu komutu çalıştırın", "npx skills add vercel-labs/agent-skills", "https://github.com/obra/superpowers"]
     assert not cli._ocr_model(okunur)
     assert cli._ocr_model([]) and cli._ocr_model(["Başlat", "Bitir"])  # az metin: şema/görsel
