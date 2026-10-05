@@ -466,6 +466,13 @@ Adaylar sütunlarını başlık adına göre okur (ad · tür · zaman · kanıt
 tüm raporlar tek şema (ad|sözlük|tür|link|ne işe yarar|zaman|kanıt); "yeni şema" = ayrı kaynak sütunlu düzen. Kırmızı 9a7b41f (3 failed) ·
 yeşil (779). Canlı (ağsız, model 0, yazmaz; denendi): `cd C:\Projeler\omer-skills\tools\video; uv run python C:\Projeler\omer-skills\docs\video-tarama\a7-canli.py`
 → "### Claude içinde … · 0:50" / "kanıt: kaynak: altyazı" / "kaynak: —".
+O48 A8: kırmızı 345ba19 (5 failed) · yeşil (784). kanal._istek(hata=[]) None'da son hata satırını ("ERROR: " öneksiz) listeye ekler, varsayılan
+aynı. cli.kuyruk `yenile` eylemi: 5 hücreli, id 11 karakter, dk ya da başlık "?" satıra istek; başarı → dk/başlık; başarısız → "?" kalır,
+nota "meta hatası: <≤80>" (aynısı varsa eklenmez); yalnız değişen satır yeniden yazılır, satır sonu korunur. Gerçek kuyruk.md'de "?" satır 0.
+Canlı (PowerShell 5.1, geçici dizin): (1) ağsız, denendi → "kuyruk: yenilendi 0/0 satır (0 istek)":
+`$u = Join-Path $env:TEMP 'a8-bos.md'; Set-Content $u '| AAAAAAAAAAA | 3.0 | x | | bekliyor |' -Encoding ascii; video kuyruk yenile --dosya $u`
+(2) ağlı, 1 istek, ücretsiz, denenmedi → 1/1 ve dk/başlık dolu (ya da notta "meta hatası: …"):
+`$u = Join-Path $env:TEMP 'a8-canli.md'; Set-Content $u '| vfLtsYbtJf0 | ? | ? | | bekliyor |' -Encoding ascii; video kuyruk yenile --dosya $u; Get-Content $u`
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).

@@ -242,9 +242,9 @@ def _tarih(e):
     return datetime.fromtimestamp(t, timezone.utc).date().isoformat() if t else "tarih yok"
 
 
-def _istek(ctx, args, sayac, yok=None):
+def _istek(ctx, args, sayac, yok=None, hata=None):
     """Tek yt-dlp -J isteği: önceki istekten ≥BEKLE sn sonra; 429/403'te GERI kadar bekleyip en fazla 2 yeniden deneme. → json ya da None.
-    Hata metni `yok` desenine uyarsa (sekme yok) {} döner, hata sayılmaz."""
+    Hata metni `yok` desenine uyarsa (sekme yok) {} döner, hata sayılmaz. A8: `hata` listesi verilirse None'da son hata satırı eklenir."""
     geri = False
     for bekle in (*GERI, None):
         if sayac[0] and not geri:  # geri çekilme beklemesi istekler arası beklemeyi zaten karşılar
@@ -257,6 +257,8 @@ def _istek(ctx, args, sayac, yok=None):
         if yok and re.search(yok, e):
             return {}
         if bekle is None or not re.search(r"HTTP Error (429|403)", e):
+            if hata is not None:
+                hata.append(([s for s in e.splitlines() if s.strip()] or [f"rc {rc}"])[-1].strip().removeprefix("ERROR: "))
             return None
         ctx["uyku"](bekle)
         geri = True

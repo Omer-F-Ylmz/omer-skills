@@ -1110,6 +1110,25 @@ def kuyruk(ns, ctx):
     """24e-2 K6: kuyruk.md → sıradaki parti önerisi; --isle id,… --commit sha → yalnız o satırların durum sütunu (CRLF korunur)."""
     y = Path(ns.dosya) if ns.dosya else Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK) / "docs" / "video-tarama" / "kuyruk.md"
     metin = y.read_bytes().decode("utf-8")
+    if ns.eylem == "yenile":  # A8: dk/başlığı "?" satırlar yt-dlp -J ile; başarısızsa "?" kalır, nota "meta hatası: <sebep>" (bir kez)
+        out, sayac, n, t = [], [0], 0, 0
+        for s in metin.splitlines(keepends=True):
+            g = s.rstrip("\r\n")
+            h = tr._hucre(g)
+            if g.lstrip().startswith("|") and len(h) == 5 and "?" in h[1:3] and re.fullmatch(r"[\w-]{11}", h[0]):
+                hata, t = [], t + 1
+                j = kn._istek(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", f"https://youtu.be/{h[0]}"], sayac, hata=hata)
+                if j:
+                    h[1] = str(round(j["duration"] / 60, 1)) if j.get("duration") else h[1]
+                    h[2] = str(j.get("title") or h[2])[:40].replace("|", "/")
+                    n += 1
+                elif (nt := f"meta hatası: {(hata or ['?'])[0][:80].replace('|', '/')}") not in h[3]:
+                    h[3] = f"{h[3]} · {nt}" if h[3] else nt
+                s = f"| {' | '.join(h)} |{s[len(g):]}"
+            out.append(s)
+        y.write_bytes("".join(out).encode("utf-8"))
+        print(f"kuyruk: yenilendi {n}/{t} satır ({sayac[0]} istek)")
+        return 0
     if ns.isle:
         if not ns.commit:
             print("kuyruk: --isle için --commit gerekli")
@@ -1271,6 +1290,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
     x.add_argument("url")
     x.add_argument("--tur", default="araç")
     x = alt.add_parser("kuyruk", help="24e-2 K6: kuyruk.md sıradaki parti önerisi; --isle id,… --commit sha yalnız durum sütununu yazar")
+    x.add_argument("eylem", nargs="?", choices=["yenile"], help="A8: dk/başlığı '?' satırları metadata ile yeniden doldur")
     x.add_argument("--dosya")
     x.add_argument("--isle")
     x.add_argument("--commit")
