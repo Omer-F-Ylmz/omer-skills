@@ -311,9 +311,19 @@ def _eksik_tamamla(ctx, kok, k, a):
         return
     yeni = {"lisans": _lisans(ctx, rp, {"lisans": "bilinmiyor"}) if al.get("lisans", "bilinmiyor") in ("", "bilinmiyor") else None,
             "son_commit": _son_commit(ctx, rp, a.get("repo_yol")) if al.get("son_commit", "bilinmiyor") in ("", "bilinmiyor") else None}
-    for x, v in yeni.items():  # ponytail: alan satırı yoksa (çok eski form) eklenmez
+    for x, v in yeni.items():
         if v and v != "bilinmiyor":
-            m = re.sub(rf"^{x}: .*$", f"{x}: {v}", m, count=1, flags=re.M)
+            if x in al:
+                m = re.sub(rf"^{x}: .*$", f"{x}: {v}", m, count=1, flags=re.M)
+                continue
+            s = m.splitlines(keepends=True)  # A6(a): satır yoksa alan bloğunun sonuna (uy.alanlar yalnız ilk '#' satırına kadar okur)
+            i = next((j for j in range(1, len(s)) if s[j].startswith("#")), len(s))
+            while i > 1 and not s[i - 1].strip():
+                i -= 1
+            if i == len(s) and not s[-1].endswith("\n"):  # son satır satır sonusuz olabilir
+                s[-1] += "\n"
+            s.insert(i, f"{x}: {v}\n")
+            m = "".join(s)
     y.write_text(m, encoding="utf-8", newline="")
 
 
