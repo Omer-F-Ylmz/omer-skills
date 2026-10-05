@@ -297,6 +297,9 @@ sınırı aynı. Semgrep yoksa/hata → grep yolu + bölüme "semgrep yok: <sebe
 O30 varsayımı: semgrep'te dize yalnız tam değer olarak eşleşir (desen "SessionStart" bir yardım cümlesinin içindeki kelimeyi bulmaz) →
 belge/yardım dizeleri düşer. O31 kabul (yapıldı): tools/jev 13 satır / 0 yanlış (%0; sınırda 2 yanlış sayılsa %15,4), 5,4 sn → KABUL.
 Ölçümde hata bulundu ve düzeltildi: Windows'ta semgrep yml'i cp1252 okur → message bozulur → kategori artık kural kimliğinden (check_id).
+B5 sertleştirme (Ömer kararı 5 Eki; ilke "sessiz düşme yasak" — O31'de 14 sonucun 8'i bu yolla kayboldu): semgrep sonucunun kural
+kimliği SEMGREP_ID'de yoksa sonuç atılmaz → bölüme "### tanınmayan kural" altında "- <dosya>:<satır> · <check_id>" (yalnız varsa).
+Test: bilinmeyen check_id → tanınmayan kural satırı; bilinen → kendi kategorisi.
 Canlı doğrulama (O31, ağsız, ücretsiz; PowerShell 5.1; beklenen: "uç noktalar" altında cekirdek.py:19/37/39/41, "ağ" altında 133/135):
 `$env:PYTHONIOENCODING = 'utf-8'; $py = "$(uv tool dir)\video-cli\Scripts\python.exe"; & $py -c 'import subprocess as s, tempfile, pathlib as P; from video import uygula as u; k = lambda a, timeout=300: (lambda p: (p.returncode, p.stdout, p.stderr))(s.run(a, capture_output=True)); print(u.mekanizma({''kos'': k, ''kok'': P.Path(tempfile.mkdtemp())}, P.Path(''C:/Projeler/omer-skills/tools/jev''), ''o/jev''))'`
 

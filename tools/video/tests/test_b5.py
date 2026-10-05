@@ -208,6 +208,16 @@ def test_semgrep_kategori_kural_kimliginden(tmp_path):  # O31 canlı: Windows'ta
     assert "a.py:2" in kisim(b, "uç noktalar") and "a.py:3" in kisim(b, "ağ")
 
 
+def test_semgrep_taninmayan_kural_sessiz_dusmez(tmp_path):  # O31: tanınmayan kimlik → sonuç kayboluyordu
+    r = sg_repo(tmp_path)
+    js = {"results": [{"check_id": "tools.video.semgrep.yeni-kural", "path": "a.py", "start": {"line": 1}, "extra": {"message": "yeni"}},
+                      {"check_id": "tools.video.semgrep.ayar-okuma-py", "path": "a.py", "start": {"line": 3}, "extra": {"message": "x"}}],
+          "errors": []}
+    b = uy.mekanizma({"kok": tmp_path, "kos": sg_kos((0, json.dumps(js).encode(), b""))}, r, "o/r")
+    assert "- a.py:1 · tools.video.semgrep.yeni-kural" in kisim(b, "tanınmayan kural")
+    assert "a.py:3" in kisim(b, "ayar okuma") and "a.py:1" not in kisim(b, "ayar okuma")
+
+
 @pytest.mark.parametrize("cevap, sebep", [(OSError("bulunamadı"), "bulunamadı"), ((2, b"", b"kural hatasi"), "kural hatasi"),
                                           ((0, b"<html>", b""), "JSON değil")])
 def test_semgrep_yoksa_grep_yolu(tmp_path, cevap, sebep):
