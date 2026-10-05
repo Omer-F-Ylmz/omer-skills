@@ -199,6 +199,15 @@ def test_semgrep_kod_taramasi(tmp_path):
     assert all(f"--exclude={d}" in a for d in uy.KOD_DISLA + uy.TEST_DISLA) and "semgrep yok" not in b
 
 
+def test_semgrep_kategori_kural_kimliginden(tmp_path):  # O31 canlı: Windows'ta semgrep yml'i cp1252 okur → message bozuk ("aÄŸ")
+    r = sg_repo(tmp_path)
+    js = {"results": [{"check_id": "C.Projeler.tools.video.semgrep.uc-noktalar", "path": "a.py", "start": {"line": 2},
+                       "extra": {"message": "uÃ§ noktalar"}},
+                      {"check_id": "tools.video.semgrep.ag-py", "path": "a.py", "start": {"line": 3}, "extra": {"message": "aÄŸ"}}], "errors": []}
+    b = uy.mekanizma({"kok": tmp_path, "kos": sg_kos((0, json.dumps(js).encode(), b""))}, r, "o/r")
+    assert "a.py:2" in kisim(b, "uç noktalar") and "a.py:3" in kisim(b, "ağ")
+
+
 @pytest.mark.parametrize("cevap, sebep", [(OSError("bulunamadı"), "bulunamadı"), ((2, b"", b"kural hatasi"), "kural hatasi"),
                                           ((0, b"<html>", b""), "JSON değil")])
 def test_semgrep_yoksa_grep_yolu(tmp_path, cevap, sebep):
