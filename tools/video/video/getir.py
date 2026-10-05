@@ -2,6 +2,7 @@
 repo: gh api ile README ilk 120 satır · ağaç derinlik 2 · istenen dosyanın ≤200 satırı. on: ikisini .kos/<video>/<ad>/on.md'ye yazar."""
 import hashlib
 import json
+import re
 import time
 import urllib.error
 import urllib.request
@@ -129,6 +130,28 @@ def repo(ad, dosya=None, satir=None, kos=None):
 
 
 YAPIMCI = {"surum": 3, "issue": 5, "discussion": 5}  # ayar · B3: en fazla N (sürüm notu · açık ve kapalı issue ayrı ayrı · discussion)
+ARAMA = {"aralik": 2.1, "bekle_ust": 60}  # ayar · B3 eki: gh arama uçları dakikada 30 istek; oran sınırında tek bekleme (≤60 sn)
+uyku, saat = time.sleep, time.monotonic  # testte sahte
+_son_ara = [float("-inf")]
+
+
+def _gh_ara(kos, *args):
+    """B3 eki: arama çağrıları arası ≥ARAMA["aralik"] sn; oran sınırında Retry-After / X-RateLimit-Reset kadar (başlık yoksa
+    üst sınır) BİR kez bekler, BİR kez yeniden dener; yine olmazsa _gh gibi RuntimeError (→ erisilemedi)."""
+    for deneme in (0, 1):
+        uyku(max(0.0, _son_ara[0] + ARAMA["aralik"] - saat()))
+        rc, out, err = kos(["gh", "api", "-i", *args])
+        _son_ara[0] = saat()
+        t = out.decode("utf-8", "replace").replace("\r\n", "\n")
+        bas, govde = t.partition("\n\n")[::2] if t.startswith("HTTP/") else ("", t)
+        if not rc:
+            return govde.splitlines()
+        sebep = (err or b"").decode("utf-8", "replace").strip()
+        if deneme or not re.search(r"rate limit|HTTP 429", bas + sebep, re.I):
+            raise RuntimeError(f"gh api {args[0]}: {sebep[:200]}")
+        ra, rs = (re.search(rf"^{h}:\s*(\d+)", bas, re.I | re.M) for h in ("retry-after", "x-ratelimit-reset"))
+        bekle = int(ra[1]) if ra else (int(rs[1]) - time.time() if rs else ARAMA["bekle_ust"])
+        uyku(min(ARAMA["bekle_ust"], max(0.0, bekle)))
 
 
 def yapimci(ad, kos, hata):
@@ -146,7 +169,7 @@ def yapimci(ad, kos, hata):
                                                 for x in j["data"]["search"]["nodes"] if x])]
     for args, bic in istek:
         try:
-            out += bic(json.loads("\n".join(_gh(kos, *args))))
+            out += bic(json.loads("\n".join((_gh_ara if args[0] in ("search/issues", "graphql") else _gh)(kos, *args))))
         except Exception as e:  # kota/oran sınırı, 404, bozuk JSON → aday düşmez, sebep görünür
             lab = "gh api " + next((a[2:] for a in args if a.startswith("q=")), args[0])
             hata.append((lab, str(e)[:200]))

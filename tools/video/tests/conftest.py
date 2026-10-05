@@ -21,3 +21,4 @@ def agsiz(monkeypatch):
     def sayfa_yok(u):  # B2: sahte okuyucu verilmeyen paket derinliği ağa çıkmaz
         raise urllib.error.URLError("test: ağ yok")
     monkeypatch.setattr(gt, "_al", sayfa_yok)
+    monkeypatch.setattr(gt, "uyku", lambda s: None)  # B3 eki: gh arama aralığı/oran sınırı beklemesi testte gerçek uyumaz
