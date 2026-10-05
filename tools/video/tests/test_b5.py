@@ -46,11 +46,11 @@ def test_konumlandirma_dosya_satir_ve_kb_tavani(tmp_path):
     b = uy.mekanizma({"kok": tmp_path, "kos": kos_yap()}, tmp_path / "r", "o/r")
     assert b.startswith("## Mekanizma incelemesi") and "@ abc1234" in b
     for kat, yer in (("oturum başı enjeksiyon", "hooks/hooks.json:1"), ("süreç", "a.js:2"), ("ağ", "a.js:3"),
-                     ("izin kapsamı", ".claude/settings.json:1"), ("ayar okuma", "b.py:2"), ("ağır döngü", "b.py:3")):
+                     ("izin kapsamı", "SKILL.md:2"), ("izin kapsamı", ".claude/settings.json:1"), ("ayar okuma", "b.py:2"),
+                     ("ağır döngü", "b.py:3")):  # SKILL.md:2 geri geldi (Ömer onayı 5 Eki: .md frontmatter taranır)
         assert yer in kisim(b, kat), kat
     ilgili = kisim(b, "ilgili dosyalar")
     assert "a.js" in ilgili and "b.py" in ilgili and "buyuk.py" not in ilgili and "notlar.txt" not in ilgili  # ≤ MEKANIZMA kb
-    assert "SKILL.md" not in b  # 5 Eki: belge dosyası taranmaz
     assert "dosya:satır" in b and "ayar · sarmalayıcı · kendi sürüm" in b and "iyi yan" in b  # A5'e doldurulacak alanlar
 
 
