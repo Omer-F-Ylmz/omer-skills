@@ -387,6 +387,11 @@ test_f1.py:47 usd 0.0 → None — Ömer onayı (sonradan, 5 Eki; F1 eki kararı
 F1 adaptörüyle tek gerçek çağrı (tavan: en fazla 1 istek, en ucuz model) → sonuç plana.
 **F2 Adım bazlı A/B düzeneği:** aynı girdi, iki model; kalite (kör puan + görev başarısı) + $; karar A1'le düzeltilmiş 24 Eyl tablosuyla.
 Yalnız AL çıkan adım yönlendirilir. Test.
+F2 yeşil (O38): yon.ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan) — A = sec(d, adim), B = kol_b;
+puanla kör ("GÖREV: … YANIT: <form json>", model adı yok); başarı = hata yok + şema required anahtarları (ponytail: tam JSON Schema değil);
+gürültü = A tekrar puan farkı (max); karar kur.karar(A, B, None, gürültü, görev başarı çiftleri); usd None kol → "SOR (maliyet bilinmiyor:
+<model>)"; 2×tekrar×girdi > tavan → "TAVAN n > tavan", çağrı yok; yonlendirme {adim: kol_b} yalnız AL'de (durum.json'a yazmaz; elle).
+O38: kırmızı 955e336 · yeşil (758 passed; mutasyon: usd None kapısı ve AL kapısı kaldırılınca 2 kırmızı).
 **F3** Ömer'in koşacağı canlı A/B komutu + tavan (en fazla N çağrı) raporda.
 
 ## A (devam)

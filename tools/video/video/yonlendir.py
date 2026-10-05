@@ -66,3 +66,40 @@ def sec(d, adim, cagir, env):
     """→ (taşıyıcı, model): adım ayarda yoksa verilen taşıyıcı ve d["model"] (bugünkü davranış birebir)."""
     s = (d.get("yonlendirme") or {}).get(adim)
     return (SAGLAYICI[s["saglayici"]](s["model"], env), s["model"]) if s else (cagir, d["model"])
+
+
+def _sema_gecer(form, sema):
+    # ponytail: yalnız dict + required anahtarları; tam JSON Schema doğrulaması gerekirse jsonschema
+    return isinstance(form, dict) and all(k in form for k in sema.get("required", ()))
+
+
+def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan):
+    """F2: aynı girdiler (sistem, metin, şema) iki kolda — A = sec(d, adim) bugünkü, B = kol_b; puanla(metinler) kör (GÖREV+YANIT,
+    model adı yok); başarı = hata yok + şema geçer; gürültü = A tekrar farkı; karar kur.karar (A1 tablosu). usd None kol → SOR;
+    tavan < 2×tekrar×girdi → TAVAN, çağrı yok. yonlendirme yalnız AL'de {adim: kol_b}."""
+    n = 2 * tekrar * len(girdiler)
+    if n > tavan:
+        return {"karar": f"TAVAN {n} > {tavan}", "yonlendirme": None}
+    basari = basari or (lambda y, sema: float(not y.get("hata") and _sema_gecer(y.get("form"), sema)))
+    kollar = {"a": sec(d, adim, cagir, env), "b": sec({**d, "yonlendirme": {adim: kol_b}}, adim, cagir, env)}
+    s, bilinmeyen = {}, []
+    for ad, (tas, model) in kollar.items():
+        ys = [[tas(si, m, sema, model=model) for _ in range(tekrar)] for si, m, sema in girdiler]
+        puan = puanla([f"GÖREV: {m}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
+                       for (_, m, _), yg in zip(girdiler, ys) for y in yg])
+        puan = [puan[i * tekrar:(i + 1) * tekrar] for i in range(len(girdiler))]
+        hepsi = [y for yg in ys for y in yg]
+        if any(y.get("usd") is None for y in hepsi):
+            bilinmeyen.append(model)
+        s[ad] = {"model": model, "kalite": sum(map(sum, puan)) / len(hepsi),
+                 "gorev": [sum(basari(y, g[2]) for y in yg) / tekrar for g, yg in zip(girdiler, ys)],
+                 "girdi": sum((y.get("usage") or {}).get("input_tokens", 0) for y in hepsi),
+                 "cikti": sum((y.get("usage") or {}).get("output_tokens", 0) for y in hepsi),
+                 "maliyet": sum(y.get("usd") or 0 for y in hepsi), "puan": puan}
+        s[ad]["basari"] = sum(s[ad]["gorev"]) / len(girdiler)
+    if bilinmeyen:
+        return {**s, "karar": f"SOR (maliyet bilinmiyor: {', '.join(bilinmeyen)})", "yonlendirme": None}
+    from . import kur
+    gurultu = max(max(p) - min(p) for p in s["a"]["puan"])
+    k = kur.karar(s["a"], s["b"], None, gurultu, list(zip(s["a"]["gorev"], s["b"]["gorev"])))
+    return {**s, "karar": k, "yonlendirme": {adim: kol_b} if k.startswith("AL") else None}
