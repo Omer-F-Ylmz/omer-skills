@@ -243,6 +243,16 @@ ağsız kısım O26'da denendi): `$py = "$(uv tool dir)\video-cli\Scripts\python
 `& $py -c 'import json; from video import getir as g, cli; print(list(json.loads(chr(10).join(g._gh_ara(cli.kos, ''search/issues'', ''-X'', ''GET'', ''-f'', ''q=repo:anthropics/claude-code is:issue'', ''-f'', ''per_page=1'')))))'`
 (CRLF kanıtı: gövde anahtarları) · `& $py -c 'from video import getir as g; g.WEB[''sorgu'']=1; h=[]; print(g.web_ara(''graphify'', lambda a: (1, b'''', b''exa atlandi''), h, repo=''safishamsi/graphify'')); print(h)'`
 (exa sahte hata → en fazla 1 Brave isteği; beklenen "- safishamsi/graphify review · brave · …" + "  > " satırı, h boş).
+Ömer canlı B4 eki doğrulaması (5 Eki): gh -i → gövde JSON ayrıldı (total_count, incomplete_results, items, search_type) · exa sahte hata →
+brave 3 sonuç + "  >" özetleri, hata listesi boş. Bulgu: "safishamsi/graphify review" Brave'de 2 sonuçta repo/sürüm sayfası, 1'de SourceForge
+aynası getirdi (inceleme 0); exa'da "graphify review" gerçek incelemeler getirmişti.
+B4 düzeltmesi-2 (Ömer kararı, 5 Eki; B4 düzeltmeleri (b) kuralı değişir): sorgu konusu her zaman "{ad} {tür}" (tür yoksa yalnız ad); repo
+sorguya GİRMEZ, yalnız süzgeç: sonuçlardan repo'nun kendi GitHub sayfaları (github.com/<owner>/<repo> ve alt yolları) ile ayna siteler
+(ayar `AYNA`: sourceforge.net/projects/*.mirror, gitee/gitcode aynaları) atılır, yerine sıradaki sonuç alınır (sağlayıcıdan
+`WEB["sonuc"]` + `WEB["fazla"]`=3 istenir). test_b4 sorgu/numResults/count beklentileri buna göre (Ömer onayı, 5 Eki; ayrı commit).
+Brave aralığı testi (O26 sapması kapandı): `_brave` doğrudan iki kez sahte saatle; ikinci istek ≥`WEB["brave_aralik"]` sonra (aralık kodu
+geçici kapatılarak kırmızı görüldü). Canlı doğrulama (ücretsiz, tek Brave isteği; GitHub/ayna satırı beklenmez, h boş):
+`& $py -c 'from video import getir as g; g.WEB[''sorgu'']=1; h=[]; print(g.web_ara(''graphify'', lambda a: (1, b'''', b''exa atlandi''), h, repo=''safishamsi/graphify'', tur=''skill'')); print(h)'`
 **B5 Mekanizma incelemesi** — "aday değil" dışındaki HER aday (kurulu olanlar dahil; kuruluysa bizdeki kopya): repo seyrek klonlanır (S5
 sınırları); graphify --code-only ve grep ile çağrısız konumlandırma: oturum başı enjeksiyon, hook'lar, başlatılan süreçler, ağ çağrıları,
 izin kapsamı, ayar okuma noktaları, ağır döngüler. Modele yalnız bulunan ilgili dosyalar gider (aday başına en fazla N KB, ayarda). Aynı

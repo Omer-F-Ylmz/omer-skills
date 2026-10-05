@@ -95,11 +95,11 @@ def test_highlights_ozet_tarih_600(tmp_path, saat):
 
 
 @pytest.mark.parametrize("ad, repo, tur, q", [("taste", None, "skill", "taste skill review"),
-                                               ("ecc", "affaan-m/everything-claude-code", "plugin", "affaan-m/everything-claude-code review")])
+                                               ("everything-claude-code", "affaan-m/everything-claude-code", "plugin", "everything-claude-code plugin review")])
 def test_sorgu_repo_ya_da_ad_tur(tmp_path, saat, ad, repo, tur, q):
     kos = kos_yap(saat)
     gt.on(tmp_path, "VID", ad, repo, kos=kos, web=True, tur=tur)
-    assert f"mcporter call exa.web_search_exa query={q} numResults={gt.WEB['sonuc']}" in [a for a, _ in kos.cagri]
+    assert f"mcporter call exa.web_search_exa query={q} numResults={gt.WEB['sonuc'] + gt.WEB['fazla']}" in [a for a, _ in kos.cagri]
 
 
 def test_gh_ara_crlf_govde_ve_oran_basligi(monkeypatch):
@@ -180,7 +180,7 @@ def test_exa_hata_brave_yedek(tmp_path, brave):
     assert e == [] and len(brave.istek) == gt.WEB["sorgu"]
     u, anahtar, _ = brave.istek[0]
     assert u.startswith("https://api.search.brave.com/res/v1/web/search?") and "q=arac+review" in u and anahtar == "test-anahtar"
-    assert f"count={gt.WEB['sonuc']}" in u and "extra_snippets=true" in u and "text_decorations=false" in u
+    assert f"count={gt.WEB['sonuc'] + gt.WEB['fazla']}" in u and "extra_snippets=true" in u and "text_decorations=false" in u
     z = [t for *_, t in brave.istek]
     assert gt.WEB["brave_aralik"] >= 1 and all(y - x >= gt.WEB["brave_aralik"] for x, y in zip(z, z[1:]))
 
