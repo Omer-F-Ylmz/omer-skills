@@ -387,6 +387,15 @@ O37: kırmızı b06c38b · yeşil (mutasyon: başlık >0→>=0 ve None→0.0 kı
 test_f1.py:47 usd 0.0 → None — Ömer onayı (sonradan, 5 Eki; F1 eki kararının doğrudan sonucu).
 **F1-KURULUM (ayrı kurulum maddesi; iş oturumuna karışmaz):** OmniRoute sunucusunu kur + başlat, kimliği ekle (değer basılmaz); sonra
 F1 adaptörüyle tek gerçek çağrı (tavan: en fazla 1 istek, en ucuz model) → sonuç plana.
+F1-KURULUM yarım (5 Eki; sayaç 40/45'te durdu, gerçek çağrı 0, $0): OmniRoute 3.8.50 (npm-global) · `omniroute serve --daemon` 20128 ·
+~/.omniroute/.env'e OMNIROUTE_SERVER_HOST=127.0.0.1 (ilk açılış 0.0.0.0 + anahtarsız uyarısı verdi) + REQUIRE_API_KEY=true · OpenRouter
+sağlayıcısı `providers add openrouter --credential-env OPENROUTER_API_KEY` (bağlantı f7b8f5c3…) · yerel anahtar POST /api/keys (CLI token
+başlığı; CLI'da "keys create" yok) id c9b6c9a1… → HKCU OMNIROUTE_KEY (stdin, değer basılmadı; var=True); OMNIROUTE_URL varsayılan, yazılmadı ·
+bütçe: 3.8.50'de global bütçe YOK (`usage budget set --scope global` → 400 apiKeyId zorunlu; setBudgetSchema anahtar başı) → bu anahtara
+aylık $5 (POST /api/usage/budget monthlyLimitUsd 5); REQUIRE_API_KEY ile anahtarsız /v1 isteği 401, fiilen tek kapı · otomatik başlatma
+`omniroute autostart enable` → true (vbs-startup) · ücretsiz GET /api/v1/models: anahtarla 200 (1723 model), anahtarsız 401 → liste yolu
+/api/v1/… kesin. KALAN (F1-KURULUM-2, yeni oturum): sohbet yolu tek gerçek çağrıyla · FIYAT (≤5 model, OpenRouter /api/v1/models fiyatı) ·
+X-OmniRoute-Response-Cost · ikinci göz durum kontrolü · gitleaks/suite.
 **F2 Adım bazlı A/B düzeneği:** aynı girdi, iki model; kalite (kör puan + görev başarısı) + $; karar A1'le düzeltilmiş 24 Eyl tablosuyla.
 Yalnız AL çıkan adım yönlendirilir. Test.
 F2 yeşil (O38): yon.ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan) — A = sec(d, adim), B = kol_b;
