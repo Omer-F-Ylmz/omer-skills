@@ -115,18 +115,19 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
     from . import parti as pt  # parti yonlendir'i içe aktarır; döngü yok
     basari = basari or (lambda y, sema: float(not y.get("hata") and not pt._denet(y.get("form"), sema, "form")))
     kollar = {"a": sec(d, adim, cagir, env), "b": sec({**d, "yonlendirme": {adim: kol_b}}, adim, cagir, env)}
-    s, bilinmeyen, yanit = {}, [], {}
+    s, bilinmeyen, yanit = {ad: {"model": m, "ilk_hata": None} for ad, (_, m) in kollar.items()}, [], {}
     gizli = [v for v in (env.get("OMNIROUTE_KEY"), env.get("OPENROUTER_API_KEY")) if v]
-    for ad, (tas, model) in kollar.items():  # önce çağrılar: bütün çağrıları hatalı kolda takas da puanla da yok
+    for ad in ("b", "a"):  # önce çağrılar, B önce (nex ~182 s/çağrı): bütün çağrıları hatalı kolda takas da puanla da yok, A çağrılmaz
+        tas, model = kollar[ad]
         yanit[ad] = [[tas(*g[:3], **({"kareler": g[3]} if len(g) > 3 else {}), model=model) for _ in range(tekrar)]
                      for g in girdiler]
         ilk = next((y["hata"] for yg in yanit[ad] for y in yg if y.get("hata")), None)
         for v in gizli:
             ilk = ilk and ilk.replace(v, "***")
-        s[ad] = {"model": model, "ilk_hata": ilk}
+        s[ad]["ilk_hata"] = ilk
         if all(y.get("hata") for yg in yanit[ad] for y in yg):
             return {**s, "karar": f"DUR (kol yanıt vermedi: {ad} — {ilk[:120]})", "yonlendirme": None}
-    for ad, ys in yanit.items():
+    for ad, ys in sorted(yanit.items()):  # puanlama sırası a, b (bugünkü gibi)
         model = s[ad]["model"]
         puan = puanla([f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
                        for g, yg in zip(girdiler, ys) for y in yg])
