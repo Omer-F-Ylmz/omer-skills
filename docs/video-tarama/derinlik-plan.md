@@ -426,6 +426,8 @@ A6(c) açık (sayaç 40'ta başlatılmadı): kurulu adayda parti akışında mek
 Canlı doğrulama (ücretsiz, model yok; PowerShell 5.1):
 1) `$py = "$(uv tool dir)\video-cli\Scripts\python.exe"; & $py -c 'from video import akil; print(akil.__file__)'` → repo akil.py (ağsız, denendi).
 2) `$r = 'anthropics/claude-code'; $t = gh api "repos/$r/releases/latest" --jq '.tag_name'; gh api "repos/$r/commits/$t" --jq '.commit.committer.date'` → tarih (A6(b) zinciri, 2 REST).
+O42 A6(c) keşfi (sayaç 40, kod yok): kurulu aday akil.py:910 durum "kurulu" → :921 araştırma döngüsü atlar. Yol: cli.on_ :1135-1139
+bizdeki-kopya yazımı tek fonksiyona; akil'de durum=="kurulu" (kendi aracımız hariç) için çağrılır, mekanizma.md varsa dokunmaz; model 0.
 Canlı A6(b) kanıtı (Ömer, 5 Eki): anthropics/claude-code releases/latest etiketi → commits/<etiket> → 2026-10-03T23:06:56Z (zincir canlıda çalışıyor).
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
