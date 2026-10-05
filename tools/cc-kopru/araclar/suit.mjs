@@ -4,7 +4,7 @@
  * okuyor, böylece testlerin hiçbir isteği gerçek worker'a düşmez.
  * Kullanım: node araclar/suit.mjs [ek node --test argümanları]
  */
-import { spawn } from "node:child_process";
+import { execFileSync, spawn } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -29,7 +29,10 @@ const p = spawn(process.execPath, ["--test", ...(ek.length ? ek : hepsi)], {
          NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ""} ${onyukle}`.trim() },
 });
 
-const yasiyor = (pid) => { try { process.kill(pid, 0); return true; } catch { return false; } };
+// Windows ölen işaretli node'un pid'ini başka sürece (ör. opera.exe) verebilir: yalnız node.exe sayılır
+const node = (pid) => process.platform !== "win32" || execFileSync("tasklist", ["/FI", `PID eq ${pid}`, "/FO", "CSV", "/NH"],
+  { encoding: "utf8" }).toLowerCase().startsWith('"node.exe"');
+const yasiyor = (pid) => { try { process.kill(pid, 0); return node(pid); } catch { return false; } };
 
 p.on("close", async (kod) => {
   console.log(`sahte worker gözlem isteği: ${w.istek.length}`);
@@ -37,7 +40,7 @@ p.on("close", async (kod) => {
   // İlk bekleme: son saniyede başlayan torun işaretini henüz yazmamış olabilir.
   // Sonrası: p.kill() ile kapatılan sunucunun job dışı torunu stdin kapanınca birkaç sn içinde
   // kendiliğinden çıkar (KÜÇÜK-1 K1); sızıntı sayılmadan önce 10 sn'ye kadar beklenir.
-  // ponytail: pid yeniden kullanımı yanlış pozitif verebilir; olursa oluşturma zamanı da karşılaştırılır
+  // ponytail: node→node pid yeniden kullanımı hâlâ yanlış pozitif verebilir; olursa oluşturma zamanı karşılaştırılır
   let canli = [];
   for (let i = 0; i < 20; i++) {
     await new Promise((r) => setTimeout(r, 500));
