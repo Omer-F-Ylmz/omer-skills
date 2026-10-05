@@ -474,6 +474,15 @@ structured_outputs var; gemma-3-4b-it ctx 131072, max_completion 16384, text/ima
 Sonuç: kök Adım 1'de görünmüyor (sınır aşımı yok, parametre destekleniyor). Adım 2 (≤2 canlı B: aynı metin+şema 1 kare → 400 ise şemasız)
 ve Adım 3 (ab "DUR (kol yanıt vermedi …)" + kol başı ilk hata) açılmadı: sayaç yeni dalgada 30'dan devraldı, 40'ta DUR.
 Paket: C:\Projeler\.video-cache\b2QkhmQ0sT0\paket.md (cli.KOK; dosya varlığı doğrulanmadı).
+O53 (F3-TEŞHİS-2; sayaç 0'dan elle — hook /clear'da sıfırlamıyor, düzeltmesi ayrı KURULUM kalemi): Vision Bridge nedeni — ling için
+getResolvedModelCapabilities().supportsVision true değil (visionBridge.ts:227) → describe yolu; 11.–27. kare: visionBridgeHelpers.ts:479
+`if (descriptionIndex < descriptions.length)` else yok (klon .tmp-kurulum6; O52'deki :940 başka derleme). Çıkarma: (a) istek başı başlık
+x-omniroute-disabled-guardrails: vision-bridge (registry.ts:72 → chat.ts:464 → visionBridge.ts:188) → omni_cagir. Çağrı 1 (OpenRouter
+doğrudan, omni_cagir gövdesi, 27 kare, 1.01 MB): HTTP 400 "Provider returned error", metadata.provider_name DeepInfra, raw "Too many
+images in request: 27 > 4", usage null ($0). Kök sağlayıcı sınırı → Çağrı 2 yok, kare kısma yasak → DUR, model kararı Ömer'in
+(aday: FIYAT'ta görselli + structured output: openrouter/google/gemma-3-4b-it; görsel sınırı canlı doğrulanmadı). Kod: ab bütün çağrıları
+hatalı kol → "DUR (kol yanıt vermedi: <kol> — <ilk hata ≤120>)", takas/puanla yok; kol başı ilk_hata (anahtarsız); ab-canli kol satırı
+ilk_hata. Kırmızı ab5e81d · yeşil 4c24676.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
