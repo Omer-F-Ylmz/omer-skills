@@ -91,3 +91,17 @@ def test_erisilemeyen_iki_sayfa_paket_md_yok_kapsam_denetim(ortam, tmp_path, mon
     assert "Denetim → DUR" not in out and "kayda işlenmemiş" in out  # erişilemedi kapat'ı durdurmaz
     sat = ak._denetim_satir(ak.denetim(pd, tmp_path, onb))
     assert "erişilemedi 2" in sat[0] and "- erişilemedi: v1 · https://c.com/p (" in "\n".join(sat)
+
+
+def test_parti_paket_cagrisi_kuyruk_verir(tmp_path):
+    """B ek kablolaması: parti → paket `--kuyruk <kok>/docs/video-tarama/kuyruk.md`; kimlik argv sonunda kalır."""
+    from test_m2a import V, Sahte, _ctx, _kurulum, _ns, _pid
+    from video import parti as pt
+    kok = _kurulum(tmp_path, [V[0]])
+    s = Sahte()
+    pt.parti(_ns("baslat", kok / "kuyruk.md"), _ctx(kok, s))
+    ctx, alt = _ctx(kok, s), []
+    ctx["alt"] = lambda argv: alt.append(argv) or 0
+    assert pt.parti(_ns("devam", _pid(kok), yeniden_tara=True, paket_yeniden=True), ctx) == 0
+    a = next(a for a in alt if a[0] == "paket")
+    assert a[a.index("--kuyruk") + 1] == (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix() and a[-2:] == ["--", V[0]]
