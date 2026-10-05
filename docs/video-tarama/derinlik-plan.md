@@ -461,6 +461,11 @@ A8 için `_istek`'e hata metnini dışarı veren isteğe bağlı parametre (vars
 (dk = round(duration/60,1), başlık [:40] '|'→'/'). Komut: cli.kuyruk :1109 (parser :1273) → `video kuyruk yenile` (isteğe bağlı konumsal
 eylem). Satır yazımı CRLF korunur (kuyruk_isle gibi bytes). Kırmızı: sahte kos (rc 0 json → dk/başlık dolar · 429 ×3 → nota "meta hatası: …",
 satır "?" kalır · "?" olmayan satıra istek yok).
+O47 A7 eki-2 (Ömer, 5 Eki; O46 canlı: "ekran:" alanına "kaynak: altyazı" düştü — konumla okunan s[6] aslında kanıt sütunu): prompt_metni
+Adaylar sütunlarını başlık adına göre okur (ad · tür · zaman · kanıt · kaynak; başlıkta yoksa "—"); "ekran:" → "kanıt:" + "kaynak:". Repodaki
+tüm raporlar tek şema (ad|sözlük|tür|link|ne işe yarar|zaman|kanıt); "yeni şema" = ayrı kaynak sütunlu düzen. Kırmızı 9a7b41f (3 failed) ·
+yeşil (779). Canlı (ağsız, model 0, yazmaz; denendi): `cd C:\Projeler\omer-skills\tools\video; uv run python C:\Projeler\omer-skills\docs\video-tarama\a7-canli.py`
+→ "### Claude içinde … · 0:50" / "kanıt: kaynak: altyazı" / "kaynak: —".
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).

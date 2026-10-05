@@ -279,17 +279,21 @@ def web_ara(ad, kos, hata, repo=None, tur=None):
 
 def prompt_metni(rapor, seg):
     """24a K2: tarama raporu Adaylar'ında tür=prompt satırı → zamanından sonraki ilk `## Bölümler` zamanına kadar paket altyazısı (≤4000, kesildi)."""
-    satir = [s for s in (tr.tablolar(tr.bolum(rapor, "Adaylar")) or [([], [])])[0][1] if len(s) >= 7 and s[2].casefold() == "prompt"]
+    bas, sat = (tr.tablolar(tr.bolum(rapor, "Adaylar")) or [([], [])])[0]
+    bas = [b.casefold() for b in bas]
+    al = lambda s, ad: s[bas.index(ad)] if ad in bas and bas.index(ad) < len(s) else "—"  # A7 eki-2: başlık adına göre, yoksa "—"
+    satir = [{k: al(s, k) for k in ("ad", "tür", "zaman", "kanıt", "kaynak")} for s in sat]
+    satir = [s for s in satir if s["tür"].casefold() == "prompt"]
     if not satir:
         return "## Prompt metni\nyok (raporda tür=prompt aday yok)\n"
     bol = sorted(sn(z) for z in tr.ZAMAN.findall(tr.bolum(rapor, "Bölümler")))
     segs = [json.loads(x) for x in Path(seg).read_text(encoding="utf-8").splitlines() if x.strip()] if seg and Path(seg).is_file() else []
     out = ["## Prompt metni", "kaynak: tarama raporu tür=prompt satırı + paket altyazısı; araştırıcı prompt aramaz, buradan okur"]
     for s in satir:
-        t = sn(s[5]) if tr.ZAMAN.fullmatch(s[5]) else 0.0
+        t = sn(s["zaman"]) if tr.ZAMAN.fullmatch(s["zaman"]) else 0.0
         son = next((b for b in bol if b > t), float("inf"))
         metin = " ".join(" ".join(x["metin"]) if isinstance(x["metin"], list) else x["metin"] for x in segs if x["bas"] < son and x.get("son", x["bas"]) >= t)  # A7 eki: t'yi kapsayan segment de
-        out += [f"### {s[0]} · {s[5]}", f"ekran: {s[6]}", kes(metin, PROMPT) if metin else "altyazı yok (paket segmentleri bulunamadı)", ""]
+        out += [f"### {s['ad']} · {s['zaman']}", f"kanıt: {s['kanıt']}", f"kaynak: {s['kaynak']}", kes(metin, PROMPT) if metin else "altyazı yok (paket segmentleri bulunamadı)", ""]
     return "\n".join(out)
 
 
