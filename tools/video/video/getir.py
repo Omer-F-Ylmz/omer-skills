@@ -8,7 +8,7 @@ import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 from . import tarama as tr
 from .metin import sn
@@ -177,6 +177,50 @@ def yapimci(ad, kos, hata):
     return "\n".join(out) + "\n"
 
 
+WEB = {"sorgu": 5, "sonuc": 3}  # ayar · B4: aday başına en fazla N sorgu · sorgu başına sonuç
+SORGU = ("{ad} review", "{ad} vs alternatives comparison", "{ad} known issues problems", "{ad} alternative",
+         "{ad} announcement blog post")  # inceleme · karşılaştırma · bilinen sorun · alternatif · yazarın duyuru/blog yazısı (B3'ten)
+DUSUK = tr.KACAN_SOSYAL + ("reddit.com", "news.ycombinator.com", "stackoverflow.com", "stackexchange.com", "lobste.rs")  # forum/sosyal
+
+
+def _sonuclar(t):
+    """mcporter exa çıktısı: JSON (results/content) ya da 'Title: … / URL: …' metni → [(başlık, url)]."""
+    try:
+        j = json.loads(t)
+    except ValueError:
+        out, b = [], ""
+        for s in t.splitlines():
+            if s.startswith("Title:"):
+                b = s[6:].strip()
+            elif s.startswith("URL:"):
+                out.append((b, s[4:].strip()))
+        return out
+    if isinstance(j, dict) and "content" in j:
+        return _sonuclar("\n".join(c.get("text", "") for c in j["content"]))
+    return [(x.get("title") or "", x["url"]) for x in (j.get("results", []) if isinstance(j, dict) else j) if x.get("url")]
+
+
+def web_ara(ad, kos, hata):
+    """B4: genel web araması (Agent Reach yolu: mcporter exa.web_search_exa), web istekleri arası ≥2 sn. Forum/sosyal 'düşük güven';
+    aynı URL bir kez; sorgu hatası adayı düşürmez → `hata`ya (istek, sebep)."""
+    out, gor = ["## Web araması", "inceleme · karşılaştırma · alternatif · bilinen sorun · yazarın duyuru/blog yazısı; forum/sosyal → düşük güven"], set()
+    for q in (s.format(ad=ad) for s in SORGU[:WEB["sorgu"]]):
+        uyku(max(0.0, _son[0] + 2 - saat()))  # plan: web istekleri arası ≥2 sn
+        rc, o, err = kos(["mcporter", "call", "exa.web_search_exa", f"query={q}", f"numResults={WEB['sonuc']}"])
+        _son[0] = saat()
+        if rc:
+            hata.append((f"web: {q}", (e := (err or b"").decode("utf-8", "replace").strip()[:200])))
+            out.append(f"- erişilemedi: web: {q} ({e})")
+            continue
+        for b, u in _sonuclar(o.decode("utf-8", "replace"))[:WEB["sonuc"]]:
+            if u not in gor:
+                gor.add(u)
+                h = urlparse(u).netloc.lower()
+                dusuk = "forum" in h or any(h == s or h.endswith("." + s) for s in DUSUK)
+                out.append(f"- {q} · {b} · {u}" + (" · düşük güven" if dusuk else ""))
+    return "\n".join(out) + "\n"
+
+
 def prompt_metni(rapor, seg):
     """24a K2: tarama raporu Adaylar'ında tür=prompt satırı → zamanından sonraki ilk `## Bölümler` zamanına kadar paket altyazısı (≤4000, kesildi)."""
     satir = [s for s in (tr.tablolar(tr.bolum(rapor, "Adaylar")) or [([], [])])[0][1] if len(s) >= 7 and s[2].casefold() == "prompt"]
@@ -193,21 +237,23 @@ def prompt_metni(rapor, seg):
     return "\n".join(out)
 
 
-def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None, kapsam=None):
+def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None, kapsam=None, web=False):
     """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar. 24a K2: rapor → prompt metni.
     24b K1: guvenlik → `## Güvenlik ön taraması` bölümü (araştırıcı klonlamaz, taramaz; buradan okur).
     B3: repo varsa `## Yapımcı nasıl yaptı`; gh hataları kapsam.json "erisilemedi"ye (B2 gibi, aynısı tekrar yazılmaz)."""
     from video.cli import _slug  # cli bu modülü içe aktarır; döngü yalnız çağrıda çözülür
     y = Path(kok) / ".kos" / video / _slug(ad) / "on.md"
     y.parent.mkdir(parents=True, exist_ok=True)
-    parca = [f"# ön getirme: {ad} · video {video}"]
+    parca, hata = [f"# ön getirme: {ad} · video {video}"], []
     if repo_ad:
         parca.append(repo(repo_ad, kos=kos))
-        parca.append(yapimci(repo_ad, kos, hata := []))
-        if hata and kapsam and Path(kapsam).is_file():  # ponytail: kapsam.json yoksa (paketsiz video) hata yalnız on.md'de
-            k = json.loads(Path(kapsam).read_text(encoding="utf-8"))
-            k["erisilemedi"] = [*(e := k.get("erisilemedi", [])), *[list(h) for h in hata if list(h) not in e]]
-            Path(kapsam).write_text(json.dumps(k, ensure_ascii=False), encoding="utf-8")
+        parca.append(yapimci(repo_ad, kos, hata))
+    if web:
+        parca.append(web_ara(ad, kos, hata))
+    if hata and kapsam and Path(kapsam).is_file():  # ponytail: kapsam.json yoksa (paketsiz video) hata yalnız on.md'de
+        k = json.loads(Path(kapsam).read_text(encoding="utf-8"))
+        k["erisilemedi"] = [*(e := k.get("erisilemedi", [])), *[list(h) for h in hata if list(h) not in e]]
+        Path(kapsam).write_text(json.dumps(k, ensure_ascii=False), encoding="utf-8")
     if guvenlik:
         parca.append(guvenlik)
     if url:

@@ -211,6 +211,14 @@ sahte (conftest no-op uyku). Test (test_b3_oran): 1. çağrı sınır → beklem
 ardışık 3 arama arası ≥2.1 · releases beklemez.
 **B4 Genel web araması** (aday başına en fazla N sorgu, ayarda; mevcut arama yolu = Agent Reach): inceleme, karşılaştırma, alternatif,
 bilinen sorun. Forum/sosyal kaynaklar "düşük güven" etiketli. Test.
+Uygulama (O24): `getir.web_ara` → on.md "## Web araması"; `mcporter call exa.web_search_exa` (Agent Reach yolu, anahtarsız), sorgular
+`getir.SORGU` (inceleme · karşılaştırma · bilinen sorun · alternatif · yazarın duyuru/blog — B3'ten kalan), en fazla `WEB["sorgu"]`=5 ·
+`WEB["sonuc"]`=3; web istekleri arası ≥2 sn; aynı URL bir kez; forum/sosyal (`DUSUK` = KACAN_SOSYAL + reddit/HN/SO/SE/lobsters, "forum"
+alan adı) "düşük güven"; sorgu hatası → kapsam.json erisilemedi ["web: <sorgu>", sebep]. Yalnız `video on` (cli `web=True`) arar.
+Çıktı biçimi (JSON results/content ya da "Title:/URL:" metni) canlıda doğrulanacak. Canlı doğrulama (ücretsiz, PowerShell 5.1, en fazla 3):
+`mcporter call exa.web_search_exa query="graphify review" numResults=3` (biçim) ·
+`gh api -i -X GET search/issues -f "q=repo:anthropics/claude-code is:issue is:open" -f sort=reactions -f per_page=1` (ilk satır HTTP/…, X-Ratelimit-Limit: 30) ·
+`gh api -i graphql -f 'query=query{search(query:\"repo:vercel/next.js sort:reactions\",type:DISCUSSION,first:1){nodes{... on Discussion{title}}}}'` (başlık + boş satır + JSON).
 **B5 Mekanizma incelemesi** — "aday değil" dışındaki HER aday (kurulu olanlar dahil; kuruluysa bizdeki kopya): repo seyrek klonlanır (S5
 sınırları); graphify --code-only ve grep ile çağrısız konumlandırma: oturum başı enjeksiyon, hook'lar, başlatılan süreçler, ağ çağrıları,
 izin kapsamı, ayar okuma noktaları, ağır döngüler. Modele yalnız bulunan ilgili dosyalar gider (aday başına en fazla N KB, ayarda). Aynı
