@@ -444,6 +444,13 @@ Kanıt: 2026-10-03-short, vfLtsYbtJf0 rapor satır 18 (0:50, kaynak: altyazı) m
 Öneri: akil döngüsünde (:912 yanı) tur=="prompt" için :879-881 raporlar listesinden o videonun metni + ctx["kok"]/<v>/segmentler.jsonl ile
 gt.prompt_metni (model 0) → _kapsam'ın okuduğu yere; "metin alınamadı" ise sebep Kapsam'da kalır. Kırmızı kalıbı: test_m2b _parti/_actx/_rapor
 (tür prompt satırı) + segmentler.jsonl → panel Kapsam "prompt metni ✓"; segment yoksa sebep satırı.
+O45: A7 kırmızı 0f30072 · yeşil (773, pushlı): akil döngüsü tür=prompt + arac_degil → gt.prompt_metni (model 0) aday.md "## Prompt metni"
+(yoksa yazılır, bir kez) · _kapsam "altyazı yok" → "alınamadı: altyazı yok (paket segmentleri bulunamadı)". Canlı (vfLtsYbtJf0, panel.md
+değişmeden, yalnız prompt_metni): segment dosyası VAR ama metin boş. Kök neden kanıtlı: short'ta 2 segment (0–61.28, 61.28–…); prompt 0:50,
+getir.py:291 `t <= x["bas"] < son` yalnız t'den sonra BAŞLAYANI alır → kapsayan segment düşer. A7 eki (sayaç 40, açılmadı): seçim
+örtüşmeye çevrilir (`x["bas"] < son and x.get("son", x["bas"]) > t`; cli.on_ de aynı fonksiyonu kullanır). Kırmızı: bas 0 · son 61.3 ·
+prompt 0:05 → metin alınır (taslak test_a7'den geri alındı, bir sonraki oturum).
+Canlı doğrulama (ağsız, model 0, denendi 2 passed): `cd C:\Projeler\omer-skills\tools\video; uv run pytest tests/test_a7.py -q`
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).
