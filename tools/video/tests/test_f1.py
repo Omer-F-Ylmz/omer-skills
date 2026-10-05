@@ -44,7 +44,7 @@ def test_omni_istek_openai_bicimi_yanit_cozulur():
     assert govde["model"] == "gpt-4o-mini" and [m["role"] for m in govde["messages"]] == ["system", "user"]
     assert govde["messages"][0]["content"] == "SİS" and "METİN" in json.dumps(govde["messages"][1], ensure_ascii=False)
     assert bas["Authorization"] == f"Bearer {ANAHTAR}"
-    assert y["form"] == FORM and y["hata"] is None and y["usd"] == 0.0
+    assert y["form"] == FORM and y["hata"] is None and y["usd"] is None  # F1 eki (Ömer, 5 Eki): fiyatsız model 0 değil
     assert y["usage"] == {"input_tokens": 11, "output_tokens": 7}
 
 
@@ -121,3 +121,49 @@ def test_parti_tarama_adimi_yonlenir(tmp_path, monkeypatch):
     with pytest.raises(KeyboardInterrupt):
         pt.parti(_ns("devam", _pid(kok)), _ctx(kok, s))
     assert s.cagrilar == [] and o.cagrilar[0][1]["model"] == "gpt-4o-mini"
+
+
+# F1 eki — maliyet (Ömer, 5 Eki): FIYAT ayarı boş başlar; yanıt başlığı X-OmniRoute-Response-Cost (openapi.yaml:1173) önceliklidir;
+# fiyatı bilinmeyen model → usd None (0 değil), defterde "maliyet bilinmiyor", panel Denetim'de satır.
+class OmniBaslik(Omni):
+    def __init__(self, basliklar, **k):
+        super().__init__(**k)
+        self.basliklar = basliklar
+
+    def __call__(self, url, govde, bas):
+        return (*super().__call__(url, govde, bas), self.basliklar)
+
+
+def test_maliyet_fiyat_tablosundan(monkeypatch):
+    monkeypatch.setitem(yon.FIYAT, "gpt-4o-mini", {"girdi": 2.0, "cikti": 10.0, "kaynak": "test"})
+    y = yon.omni_cagir("gpt-4o-mini", ENV, gonder=Omni())("s", "m", SEMA)
+    assert y["usd"] == pytest.approx((11 * 2.0 + 7 * 10.0) / 1e6)
+
+
+def test_maliyet_bilinmeyen_model_none_defter_panel(tmp_path, monkeypatch):
+    assert yon.FIYAT == {}  # değerler tahmin edilmez; F1-KURULUM'da sağlayıcı sayfasından
+    assert yon.omni_cagir("gpt-4o-mini", ENV, gonder=Omni())("s", "m", SEMA)["usd"] is None
+    from test_m11 import _kur
+    pdir, d = _kur(tmp_path)
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: yon.omni_cagir(m, env, gonder=Omni()))
+    akil._form_al(pdir, {**d, **_d()}, None, "s", "m", SEMA, "arastirma", "aday", ENV)
+    satir = tr.kayit_oku(pdir / "defter.jsonl")[-1]
+    assert satir["usd"] is None and satir["maliyet"] == "bilinmiyor"
+    p = akil.panel(pdir, d, tmp_path).read_text(encoding="utf-8")
+    assert "- maliyet bilinmiyor: arastirma · gpt-4o-mini" in tr.bolum(p, "Denetim")
+
+
+@pytest.mark.parametrize("bas, usd", [({"x-omniroute-response-cost": "0.0001234500"}, 0.00012345),
+                                      ({"X-OmniRoute-Response-Cost": "0.0000000000"}, (11 * 2.0 + 7 * 10.0) / 1e6)])
+def test_maliyet_yanit_basligi_oncelikli(monkeypatch, bas, usd):
+    monkeypatch.setitem(yon.FIYAT, "gpt-4o-mini", {"girdi": 2.0, "cikti": 10.0, "kaynak": "test"})
+    assert yon.omni_cagir("gpt-4o-mini", ENV, gonder=OmniBaslik(bas))("s", "m", SEMA)["usd"] == pytest.approx(usd)
+
+
+def test_post_basliklari_doner(monkeypatch):
+    class Y(io.BytesIO):
+        status, headers = 200, {"X-OmniRoute-Response-Cost": "0.5"}
+        def __enter__(self): return self
+        def __exit__(self, *a): pass
+    monkeypatch.setattr(urllib.request, "urlopen", lambda r, timeout=None: Y(b"{}"))
+    assert ig._post("http://x", {}, {}) == (200, {}) and ig._post("http://x", {}, {}, basliklar=True)[2]["X-OmniRoute-Response-Cost"] == "0.5"
