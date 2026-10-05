@@ -18,6 +18,8 @@ ekranda görünen, açıklamada/yorumda/linkli sayfalarda geçen hiçbir şey ka
   değiştirmek gerekirse önce DUR, sor. (O12'deki KOD2 değişikliği — test_c3/test_c4, aynı OCR metni tek kare — sonradan onaylandı.)
 - Dalga içinde model çağrısı YOK (claude -p 0); canlı koşuları (parti, video indirme, model çağrısı) Ömer yapar; testler sahte veriyle.
 - Okuma: dosya içeriği yalnız Read ile dar aralık (~20 satır); konum için Grep -n. PYTHONIOENCODING=utf-8. Yazma Write/Edit.
+- Ters eğik çizgi içeren metin (Windows yolu, regex, kaçış) Bash heredoc/sed ile yazılmaz; Edit/Write aracı kullanılır
+  (Ömer kararı 5 Eki; tuzak en az 3 kez yaşandı).
 - Agent aracı ertelenmiş: ToolSearch ile yükle; suite-kosucu yoksa DUR. Pytest borulanırsa `set -o pipefail`; kırmızılık commit'ten ÖNCE görülür.
 - Eski test çelişirse DUR, sor; kuralı kendi başına daraltma. Yeni bağımlılık/kurulum/API anahtarı gerekirse DUR, sor.
 - Önce mevcut araçlar: Agent Reach (Jina Reader ile sayfa okuma, arama), gh, yt-dlp, ffmpeg, `video whisper`, graphify.
@@ -422,8 +424,9 @@ O41: A6(a) kırmızı b9ec6d2 · yeşil 35e2474 (_eksik_tamamla satır yoksa ala
 yeşil e725acb (_guncellik etiket → repos/{r}/commits/{etiket} → tarih; kırılırsa ' · etiket X tarihi alınamadı (gh: …)'; 767). Canlı çağrı 0.
 A6(c) açık (sayaç 40'ta başlatılmadı): kurulu adayda parti akışında mekanizma.md (cli.py:1138 üretici · akil._on :674 kurulu adayda koşmuyor).
 Canlı doğrulama (ücretsiz, model yok; PowerShell 5.1):
-1) `$py = "$(uv tool dir)ideo-cli\Scripts\python.exe"; & $py -c 'from video import akil; print(akil.__file__)'` → repo akil.py (ağsız, denendi).
+1) `$py = "$(uv tool dir)\video-cli\Scripts\python.exe"; & $py -c 'from video import akil; print(akil.__file__)'` → repo akil.py (ağsız, denendi).
 2) `$r = 'anthropics/claude-code'; $t = gh api "repos/$r/releases/latest" --jq '.tag_name'; gh api "repos/$r/commits/$t" --jq '.commit.committer.date'` → tarih (A6(b) zinciri, 2 REST).
+Canlı A6(b) kanıtı (Ömer, 5 Eki): anthropics/claude-code releases/latest etiketi → commits/<etiket> → 2026-10-03T23:06:56Z (zincir canlıda çalışıyor).
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).
