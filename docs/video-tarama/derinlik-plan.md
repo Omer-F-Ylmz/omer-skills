@@ -431,6 +431,26 @@ GET /api/v1/models (openapi.yaml:1681, BearerAuth; data[].id, Model şeması :90
 A tarafı dahil model çağrısı 0. ig._post govde=None → GET. Testler test_f3.py (4, sahte). O40: kırmızı eecd36e · yeşil (765 passed;
 mutasyon 401 dalı → 1 kırmızı). Ağsız deneme: OMNIROUTE_URL=http://127.0.0.1:9 → "hata: OmniRoute yok: URLError … 10061" exit 1.
 Not: sohbet yolu OMNI_YOL /v1/… (skill), liste yolu /api/v1/… (openapi) — F1-KURULUM ikisini birlikte kesinleştirir.
+F3-HAZIRLIK (O49, 5 Eki; model çağrısı 0, kod/test yok — keşif sayaç 40'ta bitti, madde 1 DUR):
+- test_f1.py:144 değişikliği — Ömer onayı (sonradan, 5 Eki; "FIYAT boş" geçici bir değişmezdi).
+- Madde 1 (araç kapısı) DUR — eski test çakışması: test_f1.py:95 (2 param) ve :143 "arastirma" (araçlı) adımını _form_al ile OmniRoute'a
+  yönlendiriyor; kural ikisini kırar. Öneri: bu iki teste araclar=() (araçsız çağrı; yönlendirme mekanizması sınanmaya devam eder).
+  Tasarım: yon.red(d, adim, araclar) → metin|None; sec(..., araclar=()) reddedilirse (cagir, d["model"]); ab(..., araclar=()) → "RED (araç
+  kullanıyor)", çağrı 0 (kwarg: test_f2 "arastirma"yı araçsız kullanıyor, bozulmaz); _form_al defter satırı form "yönlendirme reddedildi:
+  <adım> araç kullanıyor" + panel Denetim. Araçlı adımlar (varsayılan ARASTIRMA_ARAC): arastirma akil.py:944 · ozellik :983 · anatomi :504;
+  araçsız: gelistirme :471 · tarama parti.py:494.
+- Madde 2 (OpenRouter /api/v1/models, anahtarsız, 5 Eki, 464 model): :free/0 fiyat + image + structured_outputs + bağlam ≥64k → yalnız 2:
+  dots-studio/dots-3-note-preview:free (512k) · openrouter/free (200k; rastgele ücretsiz modele yönlendirici → A/B'de kol sabit değil).
+  Ücretli uygun 253; fiyat sırası ilk 3 ($/1M girdi/çıktı): inclusionai/ling-3.0-flash-vl 262k 0.021/0.0616 · nex-agi/nex-n2.5-mini 262k
+  0.025/0.1 · google/gemma-3-4b-it 131k 0.05/0.1 (ilk ikisi FIYAT'ta var → eklenecek yalnız gemma-3-4b-it). Mevcut mistral-nemo,
+  l3-lunaris-8b, gpt-oss-20b görsel yok → tarama için uygun değil. Yorum (Ömer onaylasın): "ücretsiz liste" = anahtarsız liste; ücretsiz
+  modellerde fiyat sırası anlamsız.
+- Madde 3 keşfi: yon.ab kollara kareler GEÇİRMİYOR (tas(si, m, sema, model=)); gerçek tarama parti.py:493 hafif.GORSEL iken paket karelerini
+  gönderir → A/B gerçek adımı ölçmüyor (A da B de karesiz). Düzeltme: girdi 4. öğe kareler (isteğe bağlı) iki kola aynı; ab-canli.ps1
+  kareler = pt.paket_oku(p)["kareler"] (is_file, GORSEL ise). Görsel ön kontrol: OmniRoute GET /api/v1/models (1726 model) kaydında
+  capabilities.vision (ling-3.0-flash-vl True, mistral-nemo yok; input_modalities alanı da var) → omni_yokla(..., gorsel=False) kwarg (test_f3
+  1. test görsel alansız modelle None bekliyor), betik gorsel=True → "hata: model görsel girdi desteklemiyor: <m>", çağrı 0.
+- AB_MODEL önerisi openrouter/inclusionai/ling-3.0-flash-vl (OmniRoute'ta var, vision True); madde 3 yeşilinden önce koşulmaz.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
