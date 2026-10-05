@@ -450,7 +450,8 @@ KONUM = (("oturum başı enjeksiyon", r"SessionStart|UserPromptSubmit|additional
          ("ayar okuma", r"os\.environ|process\.env|getenv|settings(\.local)?\.json"),
          ("ağır döngü", r"while\s*\(?\s*(True|true|1)\b|setInterval|for\s*\(\s*;\s*;"),
          ("uç noktalar", r"[\"']https?://[^\s\"'<>]+[\"']"))  # grep yolu (semgrep yoksa ve semgrep dili olmayan dosyalar)
-SEMGREP_KURAL = Path(__file__).resolve().parent.parent / "semgrep"  # B5: KONUM'un semgrep kuralları (message = kategori)
+SEMGREP_KURAL = Path(__file__).resolve().parent.parent / "semgrep"  # B5: KONUM'un semgrep kuralları (id = kategorinin ASCII hâli)
+SEMGREP_ID = {k.translate(str.maketrans("çğışüö ", "cgisuo-")): k for k, _ in KONUM}  # kural id → kategori (message Windows'ta cp1252 bozulur)
 SEMGREP_UZANTI = (".py", ".js", ".mjs", ".cjs", ".ts", ".tsx")  # semgrep kurallarının dilleri; geri kalan grep yolunda
 KOD_UZANTI = (".js", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".sh", ".ps1", ".cmd", ".bat")  # ayar · 5 Eki: belge (.md .txt .rst) taranmaz
 KOD_AD = ("hooks.json", "settings*.json", "plugin.json", ".mcp.json")
@@ -489,7 +490,8 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
     for x in sorted(sg or [], key=lambda x: (x["path"], x["start"]["line"])):
         f, n = yol / x["path"], x["start"]["line"]  # mutlak yol / ile aynen kalır
         s = (b := f.read_bytes()).decode("utf-8", "replace").splitlines()
-        ekle(f.relative_to(yol).as_posix(), n, s[n - 1] if n <= len(s) else "", x["extra"]["message"], len(b))
+        k = SEMGREP_ID.get(re.sub(r"-(py|js)$", "", x["check_id"].rsplit(".", 1)[-1]), x["extra"]["message"])
+        ekle(f.relative_to(yol).as_posix(), n, s[n - 1] if n <= len(s) else "", k, len(b))
     for f in sorted(p for p in yol.rglob("*") if p.is_file() and not set(p.relative_to(yol).parts[:-1]) & set(KOD_DISLA)
                     and not any(fnmatch.fnmatch(x, d) for x in p.relative_to(yol).parts for d in TEST_DISLA)
                     and (p.suffix.lower() in KOD_UZANTI + (".md",) or any(fnmatch.fnmatch(p.name, d) for d in KOD_AD))):

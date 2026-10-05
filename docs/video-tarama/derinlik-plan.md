@@ -294,6 +294,9 @@ süzgeç eski adla. Semgrep geçişi (Ömer kararı 5 Eki, O29 karar kuralı): K
 .md frontmatter Python yolunda kalır. Yeni kategori "uç noktalar": kodda tanımlı http(s) adres sabitleri (yorum/belge dizesi değil), satır
 sınırı aynı. Semgrep yoksa/hata → grep yolu + bölüme "semgrep yok: <sebep> · grep yolu". Testler sahte semgrep JSON'u (kos); kabul: tools/jev
 üzerinde yerel semgrep → b5-grep.md "semgrep" sütunu (satır · yanlış · süre), yanlış < %20; tutmazsa DUR.
+O30 varsayımı: semgrep'te dize yalnız tam değer olarak eşleşir (desen "SessionStart" bir yardım cümlesinin içindeki kelimeyi bulmaz) →
+belge/yardım dizeleri düşer. O31 kabul (yapıldı): tools/jev 13 satır / 0 yanlış (%0; sınırda 2 yanlış sayılsa %15,4), 5,4 sn → KABUL.
+Ölçümde hata bulundu ve düzeltildi: Windows'ta semgrep yml'i cp1252 okur → message bozulur → kategori artık kural kimliğinden (check_id).
 
 ## E — DESKTOP İKİNCİ BAKIŞ (hedefli, uyarlamalı)
 **E1 Çağrısız risk puanı** (bahis/aday başına): KUR önerisi · güvenlik bulgusu · fork/kaynak farkı · kapsam eksikleri · "çözülmedi" kötü
