@@ -450,6 +450,7 @@ KONUM = (("oturum başı enjeksiyon", r"SessionStart|UserPromptSubmit|additional
          ("ağır döngü", r"while\s*\(?\s*(True|true|1)\b|setInterval|for\s*\(\s*;\s*;"))  # grep yolu; semgrep adayı planda
 KOD_UZANTI = (".js", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".sh", ".ps1", ".cmd", ".bat")  # ayar · 5 Eki: belge (.md .txt .rst) taranmaz
 KOD_AD = ("hooks.json", "settings*.json", "plugin.json", ".mcp.json")
+FM_KONUM = (("izin kapsamı", r"^(allowed-tools|tools|permissionMode|disallowedTools)\s*:"), ("hook", r"^hooks\s*:"))  # .md: yalnız baştaki frontmatter
 
 
 def mekanizma(ctx, yol, ad, kaynak="klon"):
@@ -466,12 +467,16 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
         return on.read_text(encoding="utf-8")
     bul, boy, sayi = {k: [] for k, _ in KONUM}, {}, {}
     for f in sorted(p for p in yol.rglob("*") if p.is_file() and ".git" not in p.relative_to(yol).parts
-                    and (p.suffix.lower() in KOD_UZANTI or any(fnmatch.fnmatch(p.name, d) for d in KOD_AD))):
+                    and (p.suffix.lower() in KOD_UZANTI + (".md",) or any(fnmatch.fnmatch(p.name, d) for d in KOD_AD))):
         if f.stat().st_size > 1 << 20 or b"\0" in (b := f.read_bytes())[:1024]:  # ponytail: 1 MB üstü/ikili atlanır
             continue
         r = f.relative_to(yol).as_posix()
-        for n, s in enumerate(b.decode("utf-8", "replace").splitlines(), 1):
-            for k, d in KONUM:
+        satirlar, desen = list(enumerate(b.decode("utf-8", "replace").splitlines(), 1)), KONUM
+        if f.suffix.lower() == ".md":
+            son = next((n for n, s in satirlar[1:] if s.strip() == "---"), 0) if satirlar and satirlar[0][1].strip() == "---" else 0
+            satirlar, desen = (satirlar[1:son - 1] if son else []), FM_KONUM
+        for n, s in satirlar:
+            for k, d in desen:
                 if re.search(d, s):
                     sayi[r], boy[r] = sayi.get(r, 0) + 1, len(b)
                     if len(bul[k]) < MEKANIZMA["satir"]:
