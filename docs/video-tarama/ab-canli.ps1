@@ -28,5 +28,7 @@ s = yon.ab({'model': hafif.MODEL}, 'tarama', girdi, {'saglayici': 'omniroute', '
 print(json.dumps({k: s.get(k) for k in ('karar', 'yonlendirme')}, ensure_ascii=True))
 for k in ('a', 'b'):
     if k in s:
-        print(k, s[k]['model'], 'kalite', round(s[k]['kalite'], 3), 'basari', s[k]['basari'], 'usd', round(s[k]['maliyet'], 4))
+        x = s[k]
+        print(k, x['model'], *(['kalite', round(x['kalite'], 3), 'basari', x['basari'], 'usd', round(x['maliyet'], 4)] if 'kalite' in x else []),
+              *(['ilk_hata', x['ilk_hata']] if x.get('ilk_hata') else []))
 '@ | & $py -

@@ -50,7 +50,8 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
         govde = {"model": model, "response_format": {"type": "json_schema", "json_schema": {"name": "form", "strict": False, "schema": sema}},
                  "messages": [{"role": "system", "content": sistem},
                               {"role": "user", "content": [{"type": "text", "text": cli._temizle(metin, env)}, *ekler]}]}
-        bas = {"Content-Type": "application/json", **({"Authorization": f"Bearer {anahtar}"} if anahtar else {})}
+        # Vision Bridge (visionBridge.ts:188) yalnız bizim isteğimizde kapalı: ling'i görselsiz sayıp kareleri 10'a kırpıyordu
+        bas = {"Content-Type": "application/json", "x-omniroute-disabled-guardrails": "vision-bridge", **({"Authorization": f"Bearer {anahtar}"} if anahtar else {})}
         try:
             durum, y, *ek = gonder(env.get("OMNIROUTE_URL", OMNI_URL).rstrip("/") + OMNI_YOL, govde, bas)
         except OSError as e:  # sunucu yok / zaman aşımı → adım düşmez, sebep hata alanında
@@ -112,16 +113,26 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
     from . import parti as pt  # parti yonlendir'i içe aktarır; döngü yok
     basari = basari or (lambda y, sema: float(not y.get("hata") and not pt._denet(y.get("form"), sema, "form")))
     kollar = {"a": sec(d, adim, cagir, env), "b": sec({**d, "yonlendirme": {adim: kol_b}}, adim, cagir, env)}
-    s, bilinmeyen = {}, []
-    for ad, (tas, model) in kollar.items():
-        ys = [[tas(*g[:3], **({"kareler": g[3]} if len(g) > 3 else {}), model=model) for _ in range(tekrar)] for g in girdiler]
+    s, bilinmeyen, yanit = {}, [], {}
+    gizli = [v for v in (env.get("OMNIROUTE_KEY"), env.get("OPENROUTER_API_KEY")) if v]
+    for ad, (tas, model) in kollar.items():  # önce çağrılar: bütün çağrıları hatalı kolda takas da puanla da yok
+        yanit[ad] = [[tas(*g[:3], **({"kareler": g[3]} if len(g) > 3 else {}), model=model) for _ in range(tekrar)]
+                     for g in girdiler]
+        ilk = next((y["hata"] for yg in yanit[ad] for y in yg if y.get("hata")), None)
+        for v in gizli:
+            ilk = ilk and ilk.replace(v, "***")
+        s[ad] = {"model": model, "ilk_hata": ilk}
+        if all(y.get("hata") for yg in yanit[ad] for y in yg):
+            return {**s, "karar": f"DUR (kol yanıt vermedi: {ad} — {ilk[:120]})", "yonlendirme": None}
+    for ad, ys in yanit.items():
+        model = s[ad]["model"]
         puan = puanla([f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
                        for g, yg in zip(girdiler, ys) for y in yg])
         puan = [puan[i * tekrar:(i + 1) * tekrar] for i in range(len(girdiler))]
         hepsi = [y for yg in ys for y in yg]
         if any(y.get("usd") is None for y in hepsi):
             bilinmeyen.append(model)
-        s[ad] = {"model": model, "kalite": sum(map(sum, puan)) / len(hepsi),
+        s[ad] |= {"kalite": sum(map(sum, puan)) / len(hepsi),
                  "gorev": [sum(basari(y, g[2]) for y in yg) / tekrar for g, yg in zip(girdiler, ys)],
                  "girdi": sum((y.get("usage") or {}).get("input_tokens", 0) for y in hepsi),
                  "cikti": sum((y.get("usage") or {}).get("output_tokens", 0) for y in hepsi),
