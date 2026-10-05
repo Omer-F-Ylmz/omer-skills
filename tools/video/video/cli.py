@@ -408,7 +408,7 @@ def _bagli_video(ctx, v, bl, ky):
         sat.append((i, round((j.get("duration") or 0) / 60, 1), str(j.get("title") or "?")[:40].replace("|", "/"), f"bağlantılı video ({v})",
                     "" if j else "yt-dlp -J başarısız"))
     if sat:
-        ky.write_bytes(tr.kuyruk_ekle(metin, sat, set(), set(), f"## Bağlantılı videolar ({v})")[0].encode("utf-8"))
+        ky.write_bytes(tr.kuyruk_ekle(metin, sat, set(), set(), "## Bağlantılı videolar")[0].encode("utf-8"))
 
 
 def paket(ns, ctx):

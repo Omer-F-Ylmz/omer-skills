@@ -294,6 +294,11 @@ def kuyruk_ekle(metin, satirlar, raporlu, muaf, baslik, gunluk=None):
             out.append(f"| {v} | {sure} | {bas} | {n} | bekliyor |")
     if not out:
         return metin, atla
+    if baslik in (s := metin.split(nl)):  # B ek düzeltmesi: aynı başlık varsa satırlar o bölümün sonuna, yeni bölüm yok
+        j = next((k for k in range(s.index(baslik) + 1, len(s)) if s[k].startswith("#")), len(s))
+        while not s[j - 1].strip():
+            j -= 1
+        return nl.join(s[:j] + out + s[j:]), atla
     bas = [baslik, "", "| id | süre | başlık (kısa) | not | durum |", "|---|---|---|---|---|"]
     return metin + ("" if metin.endswith(nl) else nl) + nl + nl.join(bas + out) + nl, atla
 

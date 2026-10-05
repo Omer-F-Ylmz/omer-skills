@@ -194,6 +194,10 @@ tek video -J ile süre/başlık); paket'e --kuyruk verilmezse kuyruğa dokunulma
 B2 erişilemedi (Ömer kararı, 5 Eki O21 — test_paket.py:54 değişmez): "## Bağlantılı sayfalar" paket.md'de yalnız derinlik-1'de yeni bağlantı
 varsa yazılır; erişilemeyen sayfa paket.md'ye YAZILMAZ — baglantilar.json'da kalır, kapsam.json'a "erisilemedi": [[url, sebep]] (izleme
 satırı değişmez). Panel ## Denetim: "erişilemedi N" + "- erişilemedi: <video> · <url> (sebep)"; parti kapat'ı DURDURMAZ. Test.
+B ek düzeltmesi (Ömer kararı, 5 Eki): kaynak video başına bölüm AÇILMAZ — kuyrukta tek "## Bağlantılı videolar", kaynak not sütununda
+(`tr.kuyruk_ekle`: aynı başlık varsa satırlar o bölümün sonuna); eski "## Bağlantılı videolar (b2QkhmQ0sT0)" bu başlığa taşındı.
+`parti baslat` (kuyruk_parti) bu bölümün bekliyor satırlarını seçer (test_b2). Canlı B2 kanıtı (Ömer, 5 Eki): b2QkhmQ0sT0 → erisilemedi []
+· substack sayfasından ilgili link 0 · kuyruğa 2 bağlantılı video (nQFtsehu7h0, mZzhfPle9QU).
 **B3 Yapımcı nasıl yaptı (aday başına):** README + docs + CHANGELOG/sürüm notları + en çok tepki alan açık ve kapalı issue/discussion
 başlıkları (gh api, en fazla N, ayarda) + yazarın duyuru/blog yazısı. Bilinen hata, sınırlama, şikâyet → A5 kötü yanı; yazarın önerdiği
 ayar/çözüm → A5 onarımı (kaynak linkiyle). Test (sahte gh).
@@ -258,4 +262,4 @@ A1 test_takas.py:48 çelişkisi · C2 Pillow yoksa · C3 Windows.Media.Ocr eriş
 · suite-kosucu ajanı yoksa.
 
 ## İlerleme
-O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). O6 (4 Eki): C1 ✓ + koruma (video 591). O7 (4 Eki): C2 ✓ (video 597). O8 (4 Eki): C3 ✓ (video 603). O9 (4 Eki): C4 ✓ + ek (video 607). O10 (4 Eki): C4/C3 düzeltmesi 3 madde ✓ (video 611). Sonraki: D1. O11 (4 Eki): O11 madde 1–2 ✓ (video 613), sonraki O11 (3) tekrar ayıklama, (4) ocr-gurultu.txt, sonra D1. O12 (4 Eki): O11 (3) ✓ · (4) ✓ (video 615), sonraki O11 (5), sonra D1. O21–O22 (5 Eki): B2 ✓ (erişilemedi → kapsam.json + Denetim, Ömer kararı) · B ek kablolama ✓ (video 662); sonraki B3.
+O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). O6 (4 Eki): C1 ✓ + koruma (video 591). O7 (4 Eki): C2 ✓ (video 597). O8 (4 Eki): C3 ✓ (video 603). O9 (4 Eki): C4 ✓ + ek (video 607). O10 (4 Eki): C4/C3 düzeltmesi 3 madde ✓ (video 611). Sonraki: D1. O11 (4 Eki): O11 madde 1–2 ✓ (video 613), sonraki O11 (3) tekrar ayıklama, (4) ocr-gurultu.txt, sonra D1. O12 (4 Eki): O11 (3) ✓ · (4) ✓ (video 615), sonraki O11 (5), sonra D1. O21–O22 (5 Eki): B2 ✓ (erişilemedi → kapsam.json + Denetim, Ömer kararı) · B ek kablolama ✓ (video 662); sonraki B3. O23 (5 Eki): B ek düzeltmesi ✓ (tek bölüm, video 663).
