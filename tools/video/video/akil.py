@@ -10,6 +10,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from . import departman as dp
+from . import getir as gt
 from . import metin as mt
 from . import parti as pt
 from . import tarama as tr
@@ -337,7 +338,8 @@ def _kapsam(k, a, al, m, gv, d):
             "README": dis or ("✓" if tam and repo else "repo yok" if tam else f"araştırılmadı ({a.get('durum')})"),
             "lisans": dis or bil("lisans"), "commit": dis or (f"✓ {al['son_commit']}" if bil("son_commit") == "✓" else bil("son_commit")),  # S3: tarih
             "güvenlik": dis or ("✓" if not gv.startswith(("koşmadı", "atlandı")) else gv),  # DERİNLİK-2 S5
-            "prompt metni": ("✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
+            "prompt metni": ("alınamadı: altyazı yok (paket segmentleri bulunamadı)" if "altyazı yok" in pm else  # A7
+                             "✓" if pm and pm != "metin alınamadı" else pm or "alınmadı") if a["tur"] == "prompt" else "—",
             "güncellik": a.get("guncellik") or ("— (kurulu değil)" if not a["kurulu"] else "bakılmadı"),
             "yorum": d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("yorum") or "bakılmadı",
             **({"konuşma": kv} if (kv := d.get("videolar", {}).get(next(iter(a["videolar"])), {}).get("konusma")) else {}),  # C1
@@ -911,6 +913,12 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                      "dogrulanmadi" if str(a.get("repo_arama", "")).startswith("olası") and not a["repo"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
         if a["durum"] == "kurulu" and a["kurulu"] != "kendi aracımız":  # A6(c): araştırmaya girmeyen kurulu aday da bizdeki kopyanın mekanizmasını alır (model 0)
             uy.bizdeki_mekanizma(ctx, kok, next(iter(a["videolar"])), k, a["kurulu"])
+        if a["tur"] == "prompt" and a["durum"] == "arac_degil" and (v := next(iter(a["videolar"]))) in (rd := dict(raporlar)):  # A7: araştırılmayan prompt adayı metnini paket altyazısından alır (model 0)
+            y = _aday_yol(kok, k)
+            m = y.read_text(encoding="utf-8") if y.is_file() else f"# {k}\n"
+            if "## Prompt metni" not in m:  # ponytail: bir kez yazılır; sonradan gelen altyazı için bölüm elle silinir
+                y.parent.mkdir(parents=True, exist_ok=True)
+                y.write_text(m.rstrip("\n") + "\n\n" + gt.prompt_metni(rd[v], ctx["kok"] / v / "segmentler.jsonl"), encoding="utf-8", newline="")
         if pk := _paket_ici(k, env):
             a["paket_yol"] = pk
     d.update(adaylar=adaylar, belirsiz=belirsiz)
