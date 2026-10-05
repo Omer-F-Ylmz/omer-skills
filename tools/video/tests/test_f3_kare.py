@@ -88,12 +88,22 @@ def test_fiyat_gemma_kaynakli():
     assert yon.FIYAT[M] == {"girdi": 0.021, "cikti": 0.0616, "kaynak": OR}  # aynı listeden doğrulandı, değişmedi
 
 
-def test_fiyat_deepseek_flash_usage_cost_ile_uyumlu():
-    # F3-MODEL canlı yoklama (5 Eki, Together): 27 kare, şema geçti; usage 15187/17607 token → usage.cost 0.0256845
-    m = "openrouter/~deepseek/deepseek-flash-latest"
-    assert "gorsel" not in yon.FIYAT[m]  # pricing.image null
-    usd = yon._usd(m, {"prompt_tokens": 15187, "completion_tokens": 17607}, {})
-    assert abs(usd - 0.0256845) <= 0.0256845 * 0.10
+def test_fiyat_nex_usage_cost_ile_uyumlu():
+    # F3-MODEL-2 canlı yoklama (5 Eki, Nex AGI): b2QkhmQ0sT0 27 kare, şema geçti; usage 11440/40169 token → usage.cost 0.0043029
+    m = "openrouter/nex-agi/nex-n2.5-mini"
+    assert "Nex AGI" in yon.FIYAT[m]["kaynak"]
+    usd = yon._usd(m, {"prompt_tokens": 11440, "completion_tokens": 40169}, {})
+    assert abs(usd - 0.0043029) <= 0.0043029 * 0.10
+
+
+def test_fiyat_takma_ad_yok():
+    assert not [m for m in yon.FIYAT if "/~" in m or ":free" in m or "openrouter/free" in m]
+
+
+@pytest.mark.parametrize("m", ["openrouter/~deepseek/deepseek-flash-latest", "~deepseek/deepseek-flash-latest",
+                               "openrouter/google/gemma-3-4b-it:free", "openrouter/openrouter/free"])
+def test_betik_kol_sabit_degil_cagri_yok(monkeypatch, tmp_path, m):
+    assert _betik(monkeypatch, tmp_path, m, [], False) == ("hata: kol sabit değil: " + m, [])
 
 
 def _betik(monkeypatch, tmp_path, model, kareler, gorsel):
