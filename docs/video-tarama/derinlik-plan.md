@@ -397,6 +397,14 @@ F2 düzeltmesi O39: kırmızı f1b72a0 · yeşil (761 passed; mutasyon: başarı
 iterdi):** görev başarısı = hata yok + hattın kendi form doğrulaması parti._denet (akil.py:604'ün reddettiğini reddeden aynı fonksiyon;
 yeni bağımlılık yok); _sema_gecer kalkar. Testler: required tamam ama tip yanlış → 0 · enum dışı → 0 · geçerli form → 1.
 **F3** Ömer'in koşacağı canlı A/B komutu + tavan (en fazla N çağrı) raporda.
+F3 (O39): komut docs/video-tarama/ab-canli.ps1 (PowerShell 5.1; Python here-string → `& $py -`, yalnız ASCII) — adım "tarama", A = hafif
+(claude -p, hafif.MODEL), B = omniroute AB_MODEL; girdi = 1 paket.md (AB_VIDEO + AB_PAKET), tekrar 2; puan Jev KALITE_Q (kör).
+**YALNIZ F1-KURULUM'DAN SONRA koşulur** (sunucu + kimlik + FIYAT/maliyet başlığı; FIYAT boşken B usd None → karar "SOR", AL çıkmaz).
+Tavan: en fazla 4 model çağrısı (AB_TAVAN=4: 2 claude -p, hafif butce $0.50/çağrı → ≤ $1.00; 2 OmniRoute, $ FIYAT'tan) + Jev en fazla
+4 HTTP isteği (istek_tavan=4). Kalan risk: OmniRoute düşükse A'nın 2 çağrısı harcanır, B başarı 0 → AL değil (≤ $1.00 boşa).
+Ağsız deneme (O39): ayar yok → "hata: eksik ayar: AB_VIDEO, AB_PAKET, AB_MODEL" exit 1 · paket yok → "hata: paket yok: …" exit 1 ·
+AB_TAVAN=3 → {"karar":"TAVAN 4 > 3"}, çağrı 0. Canlı komut: $env:AB_VIDEO='<id>'; $env:AB_PAKET='<paket.md>'; $env:AB_MODEL='<model>';
+& 'C:\Projeler\omer-skills\docs\video-tarama\ab-canli.ps1'
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
