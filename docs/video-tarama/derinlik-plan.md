@@ -271,6 +271,21 @@ sınırını doldurup koddaki ağ çağrılarını gizliyordu). Yan etki: SKILL.
 yalnız settings/plugin json). Test: README 30 URL + a.js 1 fetch → ağda yalnız a.js satırı.
 B5 canlı doğrulama (ücretsiz, ağsız; zaten klonlu repo, ilk 20 satır):
 `& $py -c 'import tempfile; from pathlib import Path; from video import uygula as uy, cli; print(chr(10).join(uy.mekanizma({''kok'': Path(tempfile.gettempdir()), ''kos'': cli.kos}, Path(''C:/Projeler/omer-skills/tools/jev''), ''omer/jev'').splitlines()[:20]))'`
+B5 frontmatter düzeltmesi (Ömer kararı 5 Eki; O28 sapma 1 kabul edilmedi): .md dosyalarında YALNIZ baştaki YAML frontmatter (ilk satır
+"---" → kapanan "---") taranır, gövde taranmaz; frontmatter'da allowed-tools · tools · permissionMode · disallowedTools → "izin kapsamı",
+hooks → "hook" (ayar `FM_KONUM`); satır no dosyadaki gerçek satır. test_b5 "izin kapsamı" beklentisi geri: SKILL.md:2 + .claude/settings.json:1
+(Ömer onayı, ayrı commit). Test: agents/x.md "tools: Bash" → izin kapsamı · README gövdesi 30 URL + "allowed-tools" → yok · frontmatter'sız .md taranmaz.
+B5 canlı bulgu düzeltmeleri (Ömer canlı ölçümü 5 Eki, tools/jev: "ağ"daki 5 satırın 5'i .venv/_virtualenv.py yorum URL'si; "oturum başı
+enjeksiyon"da test satırları): (a) ayar `KOD_DISLA` (.venv venv env node_modules site-packages dist build __pycache__ .tox vendor .git)
+klasörlerinin altı taranmaz · (b) "ağ"dan çıplak URL çıkar; yalnız çağrı kalıpları (fetch( · requests. · urllib.request · httpx · aiohttp ·
+axios · http(s).get/request · WebSocket · curl/wget komutu) · (c) yorum satırı taranmaz (satır başı # // /* * --); Python docstring: satır
+başı """/''' ile başlayan blok atlanır (satır başındaki dize her zaman ifade-dizesi, çalışan kod olamaz → kod gizlemez; x = """ ortası
+taranır = fazla rapor, eksik değil) · (d) ayar `TEST_DISLA` (tests/ test/ __tests__/ test_*.py *_test.py *.test.* *.spec.*) taranmaz.
+Ölçüm (önce/sonra, gözle yanlış eşleşme): docs/olcumler/b5-grep.md. Karar kuralı: düzeltme sonrası yanlış eşleşme toplamın %20'sini
+aşıyorsa sıradaki madde semgrep geçişi (çevrimdışı: --metrics=off --disable-version-check).
+B4 bulgusu (Ömer canlı ölçümü 5 Eki): repo taşınmış (safishamsi/graphify → Graphify-Labs/graphify, GitHub yönlendirmesi) → AYNA süzgeci
+github.com/Graphify-Labs/graphify'ı kaçırdı. Çözüm: GitHub kanonik adı (gh api repos/{repo} → full_name) da süzgece eklenir; B3'te bu
+yanıt alınmıyorsa tek REST çağrısı (arama değil). Test: repo=safishamsi/graphify, kanonik Graphify-Labs/graphify → github.com/Graphify-Labs/graphify atılır.
 
 ## E — DESKTOP İKİNCİ BAKIŞ (hedefli, uyarlamalı)
 **E1 Çağrısız risk puanı** (bahis/aday başına): KUR önerisi · güvenlik bulgusu · fork/kaynak farkı · kapsam eksikleri · "çözülmedi" kötü

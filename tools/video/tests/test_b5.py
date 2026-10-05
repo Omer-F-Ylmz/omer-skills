@@ -92,6 +92,24 @@ def test_belge_dosyasi_taranmaz(tmp_path):  # 5 Eki: README linkleri ağ kategor
     assert kisim(uy.mekanizma({"kok": tmp_path, "kos": kos_yap()}, tmp_path / "r", "o/r"), "ağ").strip() == "- a.js:1 `fetch('/y');`"
 
 
+def test_frontmatter_izin_ve_hook(tmp_path):  # 5 Eki: .md'de yalnız baştaki YAML frontmatter; satır no dosyadaki gerçek satır
+    (tmp_path / "r" / "agents").mkdir(parents=True)
+    (tmp_path / "r" / "agents" / "x.md").write_text("---\nname: x\ntools: Bash\nhooks: ./h.json\n---\ndisallowedTools: gövde\n",
+                                                   encoding="utf-8")
+    b = uy.mekanizma({"kok": tmp_path, "kos": kos_yap()}, tmp_path / "r", "o/r")
+    assert kisim(b, "izin kapsamı").strip() == "- agents/x.md:3 `tools: Bash`"
+    assert kisim(b, "hook").strip() == "- agents/x.md:4 `hooks: ./h.json`"
+
+
+def test_md_govdesi_ve_frontmattersiz_md_taranmaz(tmp_path):  # README gövdesi: 30 URL + "allowed-tools" → hiçbir kategoride yok
+    (tmp_path / "r").mkdir()
+    (tmp_path / "r" / "README.md").write_text("---\ntitle: r\n---\n" + "".join(f"- https://x.io/{i}\n" for i in range(30))
+                                              + "allowed-tools: Bash\nfetch('/y');\n", encoding="utf-8")
+    (tmp_path / "r" / "NOT.md").write_text("allowed-tools: Bash\n---\ntools: Bash\n---\n", encoding="utf-8")  # ilk satır --- değil
+    b = uy.mekanizma({"kok": tmp_path, "kos": kos_yap()}, tmp_path / "r", "o/r")
+    assert "README.md" not in b and "NOT.md" not in b
+
+
 def test_gelistir_mekanizma_okur(tmp_path):  # tüketici: ZATEN VAR karşılaştırması bizdeki kopyanın mekanizma.md'sini görür
     from test_m2f import Tasiyici, _a, _d
     from test_m2a import V
