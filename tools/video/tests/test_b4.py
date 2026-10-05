@@ -189,3 +189,26 @@ def test_brave_hata_erisilemedi(tmp_path, brave):
     brave.hata = True
     _, e = web(tmp_path, tek((0, LIMIT.encode(), b"")))
     assert e[0] == [f"web: {gt.SORGU[0].format(ad='arac')}", f"{LIMIT} · brave: HTTP Error 429: Too Many Requests"]
+
+
+# B4 düzeltmesi-2 (Ömer kararı, 5 Eki): sorgu her zaman "ad tür"; repo yalnız süzgeç (kendi GitHub sayfaları + AYNA atılır, yerine sıradaki)
+def test_repo_suzgec_github_ve_ayna_atilir(saat):
+    r = ["https://github.com/safishamsi/graphify", "https://github.com/safishamsi/graphify/releases/tag/v1",
+         "https://sourceforge.net/projects/graphify.mirror/", "https://gitee.com/kopya/graphify", "https://a.x/1",
+         "https://github.com/safishamsi/graphify-plus", "https://b.x/2", "https://c.x/3"]
+    b = gt.web_ara("graphify", tek((0, json.dumps({"results": [{"title": "t", "url": u} for u in r]}).encode(), b"")),
+                   [], "safishamsi/graphify", "skill")
+    u = [x.split(" · ")[-1] for x in b.splitlines() if x.startswith("- graphify skill review · ")]
+    assert u == ["https://a.x/1", "https://github.com/safishamsi/graphify-plus", "https://b.x/2"] and len(u) == gt.WEB["sonuc"]
+
+
+def test_tur_yoksa_yalniz_ad(saat):
+    cagri = []
+    gt.web_ara("graphify", lambda a: cagri.append(" ".join(a)) or (0, b"[]", b""), [], "safishamsi/graphify")
+    assert cagri[0] == f"mcporter call exa.web_search_exa query=graphify review numResults={gt.WEB['sonuc'] + gt.WEB['fazla']}"
+
+
+def test_brave_aralik_dogrudan(brave):  # O26 sapması: aralık web_ara'nın 2 sn'sine yaslanmadan
+    gt._brave("a")
+    gt._brave("b")
+    assert brave.istek[1][2] - brave.istek[0][2] >= gt.WEB["brave_aralik"]
