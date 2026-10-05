@@ -500,6 +500,12 @@ Adım 2 (1 doğrudan OpenRouter çağrısı): nex HTTP 200 · Nex AGI · model n
 (reasoning 34426) · usage.cost $0.0043029 = FIYAT (fark 0) · 182 s. qwen/gemma çağrılmadı. omni_yokla(gorsel=True) canlı None.
 Kod: ab-canli kol sabit değil kapısı (~ · :free · openrouter/free → exit 1, çağrı 0) · FIYAT alias kaydı + testi kaldırıldı (Ömer onaylı),
 nex kaynağı uç fiyatına. Kırmızı 67e21ee · yeşil ff339c5. Not: çıktı tahmini 4k, ölçülen 40k (reasoning) — A/B maliyeti buna göre.
+O56 (F3-HAZIR; sayaç 0'dan elle, canlı 0): zaman aşımı zinciri — bizde omni_cagir → ig._post urlopen(timeout=600) (ikinci_goz.py:47);
+OmniRoute chat upstream getExecutorTimeoutMs (chatCore/upstreamTimeouts.ts:95) → executor config.timeoutMs yoksa FETCH_TIMEOUT_MS
+(base.ts:296) = env FETCH_TIMEOUT_MS / REQUEST_TIMEOUT_MS, varsayılan 600000 (runtimeTimeouts.ts:9, :94-97). İkisi de ≥300 s → kod yok,
+DUR yok. Akış (stream:true) olsaydı STREAM_READINESS_TIMEOUT_MS 80 s ayrıca geçerdi; omni_cagir akışsız. ab: B kolu önce çağrılır,
+B'nin bütün çağrıları hatalıysa DUR döner ve A çağrılmaz; s ön-dolu (kol sırası a, b), puanlama sırası a, b — karar/biçim aynı.
+Kırmızı c287797 · yeşil 78c16b5. dalga.md'de O54'e ait eski KALAN satırı yoktu (tek KALAN zaten nex).
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
