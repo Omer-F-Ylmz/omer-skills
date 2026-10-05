@@ -219,6 +219,17 @@ alan adı) "düşük güven"; sorgu hatası → kapsam.json erisilemedi ["web: <
 `mcporter call exa.web_search_exa query="graphify review" numResults=3` (biçim) ·
 `gh api -i -X GET search/issues -f "q=repo:anthropics/claude-code is:issue is:open" -f sort=reactions -f per_page=1` (ilk satır HTTP/…, X-Ratelimit-Limit: 30) ·
 `gh api -i graphql -f 'query=query{search(query:\"repo:vercel/next.js sort:reactions\",type:DISCUSSION,first:1){nodes{... on Discussion{title}}}}'` (başlık + boş satır + JSON).
+Canlı B4 kanıtı (Ömer, 5 Eki): `mcporter.cmd call exa.web_search_exa` → metin biçimi "Title: / URL: / Published: / Author: / Highlights:"
+(sonuçlar "---" ile ayrık) · search/issues -i → "HTTP/2.0 200 OK", X-Ratelimit-Limit 30, Resource search · graphql -i → X-Ratelimit-Limit
+5000, Resource graphql (arama 30/dk sınırında değil; 2.1 sn aralık zararsız, kalır). PowerShell'de mcporter.ps1 kısıtlı politikada
+çalışmaz → canlı komutlarda `mcporter.cmd`.
+B4 düzeltmeleri (Ömer kararı, 5 Eki): (a) Highlights korunur: satır = sorgu · başlık · tarih (Published, yalnız gün) · url (+ düşük güven),
+altında "  > " ile Highlights'tan ilk `WEB["ozet"]`=600 karakter (boşluklar sadeleşir, "..." ayraçları tek boşluk). (b) Sorgu belirsizliği:
+repo biliniyorsa "{owner}/{repo} …", bilinmiyorsa "{ad} {tür} …" (tür = `video on --tur`, aday dosyasının tur alanı). (c) gh -i başlık/gövde
+ayrımı CRLF'e dayanıklı (oran sınırı başlıkları dahil) — mevcut kod zaten dayanıklıydı (CRLF→LF), test kilit olarak eklendi (kırmızı görülmedi).
+(d) `video on` → web=True ile web_ara (tür geçer). Test (test_b4). Canlı doğrulama (ücretsiz, PowerShell 5.1, en fazla 3):
+`cd tools/video; python -c "from video import getir as g, cli; import json; print(list(json.loads(chr(10).join(g._gh_ara(cli.kos, 'search/issues', '-X', 'GET', '-f', 'q=repo:anthropics/claude-code is:issue', '-f', 'per_page=1')))))"`
+(CRLF kanıtı: gövde JSON okunur → anahtarlar) · `mcporter.cmd call exa.web_search_exa query="safishamsi/graphify review" numResults=2` (Published/Highlights).
 **B5 Mekanizma incelemesi** — "aday değil" dışındaki HER aday (kurulu olanlar dahil; kuruluysa bizdeki kopya): repo seyrek klonlanır (S5
 sınırları); graphify --code-only ve grep ile çağrısız konumlandırma: oturum başı enjeksiyon, hook'lar, başlatılan süreçler, ağ çağrıları,
 izin kapsamı, ayar okuma noktaları, ağır döngüler. Modele yalnız bulunan ilgili dosyalar gider (aday başına en fazla N KB, ayarda). Aynı
