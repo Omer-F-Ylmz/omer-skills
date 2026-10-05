@@ -909,6 +909,8 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                     f.write(f"\n{b}\n- {ku}\n- yeni skill/komut/ajan: {yeni or 'yok'}\n")
         a.setdefault("durum", "kurulu" if _arastirma_disi(a) else "onceki" if a["onceki"] else
                      "dogrulanmadi" if str(a.get("repo_arama", "")).startswith("olası") and not a["repo"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
+        if a["durum"] == "kurulu" and a["kurulu"] != "kendi aracımız":  # A6(c): araştırmaya girmeyen kurulu aday da bizdeki kopyanın mekanizmasını alır (model 0)
+            uy.bizdeki_mekanizma(ctx, kok, next(iter(a["videolar"])), k, a["kurulu"])
         if pk := _paket_ici(k, env):
             a["paket_yol"] = pk
     d.update(adaylar=adaylar, belirsiz=belirsiz)

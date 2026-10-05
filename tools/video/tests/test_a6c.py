@@ -2,6 +2,7 @@
 dosya varsa dokunulmaz (cli.on_ ile aynı fonksiyon)."""
 import json
 
+from test_b5 import kos_yap
 from test_m2a import V, _ns
 from test_m2b import Arastirici, _actx, _parti, _rapor
 
@@ -21,7 +22,7 @@ def _kos(tmp_path, ad, tur="skill"):
 def _calis(tmp_path, kok, p):
     a = Arastirici()
     ctx = _actx(kok, a)
-    ctx["env"]["VIDEO_EV"] = str(tmp_path / "ev")
+    ctx["env"]["VIDEO_EV"], ctx["kos"] = str(tmp_path / "ev"), kos_yap()  # gerçek ctx'te kos var (cli.py:1368)
     pt.parti(_ns("akil", p.name), ctx)
     return a
 

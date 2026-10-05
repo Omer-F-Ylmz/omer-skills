@@ -429,6 +429,11 @@ Canlı doğrulama (ücretsiz, model yok; PowerShell 5.1):
 O42 A6(c) keşfi (sayaç 40, kod yok): kurulu aday akil.py:910 durum "kurulu" → :921 araştırma döngüsü atlar. Yol: cli.on_ :1135-1139
 bizdeki-kopya yazımı tek fonksiyona; akil'de durum=="kurulu" (kendi aracımız hariç) için çağrılır, mekanizma.md varsa dokunmaz; model 0.
 Canlı A6(b) kanıtı (Ömer, 5 Eki): anthropics/claude-code releases/latest etiketi → commits/<etiket> → 2026-10-03T23:06:56Z (zincir canlıda çalışıyor).
+O43 A6(c) yeşil (770): uy.bizdeki_mekanizma (cli.on_ + akil parti akışı aynı fonksiyon; durum "kurulu", kendi aracımız hariç; dosya varsa dokunulmaz; model 0).
+Canlı doğrulama (ücretsiz, ağsız, model yok; PowerShell 5.1; geçici kök, repo değişmez):
+1) `$k = Join-Path $env:TEMP ('a6c-' + [guid]::NewGuid().ToString('N').Substring(0,8)); New-Item -ItemType Directory -Force (Join-Path $k 'docs\departmanlar') | Out-Null; Copy-Item 'C:\Projeler\omer-skills\docs\departmanlar\envanter.json' (Join-Path $k 'docs\departmanlar'); $env:VIDEO_UYGULA_KOK = $k; video on canli graphify --tur skill; Get-Content (Join-Path $k '.kos\canli\graphify\mekanizma.md') -Encoding UTF8 -TotalCount 2`
+   → "ZATEN VAR, araştırıcı yok" + "kaynak: bizdeki kopya · …/skills/graphify" (denendi).
+2) Aynı oturumda: `$m = Join-Path $k '.kos\canli\graphify\mekanizma.md'; $t = (Get-Item $m).LastWriteTime; video on canli graphify --tur skill | Out-Null; (Get-Item $m).LastWriteTime -eq $t` → True (dokunulmadı; denendi).
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).

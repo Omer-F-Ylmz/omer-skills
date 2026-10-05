@@ -1132,11 +1132,7 @@ def on_(ns, ctx):
         print(f"on: {ns.aday} · tür {ns.tur} → iskelet yok, T0'dan geçer")
         return 2
     if es := tr.arac_esle(ns.aday, tr.envanter_sozluk(tr._json(kok / "docs" / "departmanlar" / "envanter.json") or []), []):  # parti-d: kurulu → on/klon yok
-        ev = Path(ctx["env"].get("VIDEO_EV") or Path.home()) / ".claude"  # B5: bizdeki kopya; ponytail: plugin sürümü ad sırasıyla son
-        yol = next((p for d in ("skills/{a}", "skills/synced/*/{a}", "plugins/cache/*/{a}/*") for p in sorted(ev.glob(d.format(a=es[0])), reverse=True)
-                    if p.is_dir()), None)
-        (m := kok / ".kos" / ns.video / _slug(ns.aday) / "mekanizma.md").parent.mkdir(parents=True, exist_ok=True)  # 5 Eki (b): on.md değil
-        m.write_text(uy.mekanizma(ctx, yol, es[0], "bizdeki kopya"), encoding="utf-8")
+        uy.bizdeki_mekanizma(ctx, kok, ns.video, ns.aday, es[0])  # B5: bizdeki kopya
         print(f"on: kurulu ({es[0]}) → ZATEN VAR, araştırıcı yok · aday: {uy.iskelet(kok, ns.video, ns.aday, ns.tur, ns.repo, None, kurulu=es[0])}")
         return 0
     g = uy.on_tarama(ctx, ns.repo) if ns.repo else None
