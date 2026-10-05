@@ -345,6 +345,14 @@ o partinin denetim.md "Rastgele" bölümündeki adaya yazılmış ve türü köt
 kaydına "bolum" alanı (adayın denetim.md'de ilk göründüğü "## " başlığı); alanı olmayan eski kayıt bulgu sayılmaz. Boy (akil.orneklem):
 geçmiş = jsonl'deki diğer partiler, dosya sırasıyla; son 3 partide bulgu 0 → 1 (3 parti şart; 1-2 bulgusuz parti → 3); aksi halde
 min(6, 3 + 3 × son partideki bulgu); geçmiş yok → 3. Hiç Desktop satırı yazılmamış parti jsonl'de görünmez, geçmişe girmez.
+Canlı doğrulama (O35, ağsız, model 0; E1 ile denetim.md yeniden üretilir, Rastgele'deki ilk adaya kotu-yan yazılır; denetim.md + jsonl bayt
+yedeği geri yazılır; beklenen "1 işlendi · 0 okunamadı" · "boy 6" · jsonl'de "bolum":"Rastgele 3 (tohum 2026-10-03-short)"): `$py = "$(uv tool dir)\video-cli\Scripts\python.exe";
+$m = 'docs\kurulumlar\parti\2026-10-03-short\denetim.md'; $j = 'docs\kurulumlar\desktop-denetim.jsonl'; $y = [IO.File]::ReadAllBytes((Resolve-Path $m)); $jy = $null;
+if (Test-Path $j) { $jy = [IO.File]::ReadAllBytes((Resolve-Path $j)) }; & $py -c '<E1 komutundaki python>'; $r = (Select-String -Path $m -Pattern
+'^## Rastgele' -Context 0,1).Context.PostContext[0].Split(' ')[1]; Add-Content -Encoding utf8 $m ('- ' + $r + ' · kotu-yan · https://github.com · E3 deneme');
+& $py -c 'import sys; from video import cli; sys.exit(cli.main([''parti'', ''denetim-isle'', ''2026-10-03-short'']))'; & $py -c 'from video import akil
+as a, uygula as u; print(''boy'', a.orneklem(u.KOK, ''yeni''))'; Get-Content -Encoding utf8 $j; [IO.File]::WriteAllBytes((Resolve-Path $m), $y); if ($jy)
+{ [IO.File]::WriteAllBytes((Resolve-Path $j), $jy) } else { Remove-Item $j }` (tek satır, repo kökünde).
 
 ## F — UCUZ ÇALIŞTIRMA (yalnız hattın arka plan model çağrıları; CC etkileşimli yönlendirme TOKEN-5'te)
 **F1 Model yönlendirme adaptörü:** hattın model çağıran her adımı (tarama, araştırma, mekanizma, karşılaştırma, özet) için ayarda
