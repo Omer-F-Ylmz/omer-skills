@@ -42,9 +42,29 @@ def test_kendi_aracimiz_uretilmez(tmp_path):
     assert not list(kok.rglob("mekanizma.md"))
 
 
-def test_mekanizma_varsa_dokunulmaz(tmp_path):
-    kok, p = _kos(tmp_path, "stop-slop")
+def _eski(kok, yol):
     (m := kok / ".kos" / V[0] / "stop-slop" / "mekanizma.md").parent.mkdir(parents=True)
-    m.write_text("eski", encoding="utf-8")
+    m.write_text(f"eski\nkaynak: bizdeki kopya · {yol.as_posix()} @ commit yok\n", encoding="utf-8")
+    return m
+
+
+def test_mekanizma_varsa_dokunulmaz(tmp_path):  # A6(c) eki (5 Eki): aynı kurulu yol → dokunulmaz
+    kok, p = _kos(tmp_path, "stop-slop")
+    m = _eski(kok, tmp_path / "ev" / ".claude" / "skills" / "stop-slop")
+    eski = m.read_text(encoding="utf-8")
     _calis(tmp_path, kok, p)
-    assert m.read_text(encoding="utf-8") == "eski" and len(list((kok / ".kos" / V[0]).glob("*/mekanizma.md"))) == 1
+    assert m.read_text(encoding="utf-8") == eski and len(list((kok / ".kos" / V[0]).glob("*/mekanizma.md"))) == 1
+
+
+def test_plugin_surumu_degisti_yeniden_yazilir(tmp_path):  # A6(c) eki: sürüm klasörü değişti → yeni yolla yeniden üretilir
+    kok, p = _kos(tmp_path, "stop-slop")
+    c = tmp_path / "ev" / ".claude" / "plugins" / "cache" / "m" / "stop-slop"
+    (c / "1.1.0").mkdir(parents=True)
+    (c / "1.1.0" / "a.js").write_text("fetch('https://ornek.com/api');\n", encoding="utf-8")
+    for f in (s := tmp_path / "ev" / ".claude" / "skills" / "stop-slop").iterdir():
+        f.unlink()
+    s.rmdir()
+    m = _eski(kok, c / "1.0.0")
+    _calis(tmp_path, kok, p)
+    t = m.read_text(encoding="utf-8")
+    assert not t.startswith("eski") and f"{(c / '1.1.0').as_posix()} @" in t
