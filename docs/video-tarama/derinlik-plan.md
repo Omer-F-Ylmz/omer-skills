@@ -201,6 +201,14 @@ B ek düzeltmesi (Ömer kararı, 5 Eki): kaynak video başına bölüm AÇILMAZ 
 **B3 Yapımcı nasıl yaptı (aday başına):** README + docs + CHANGELOG/sürüm notları + en çok tepki alan açık ve kapalı issue/discussion
 başlıkları (gh api, en fazla N, ayarda) + yazarın duyuru/blog yazısı. Bilinen hata, sınırlama, şikâyet → A5 kötü yanı; yazarın önerdiği
 ayar/çözüm → A5 onarımı (kaynak linkiyle). Test (sahte gh). Uygulama (O23): `getir.yapimci` on.md'ye "## Yapımcı nasıl yaptı" (sürüm notu · tepkiye göre açık/kapalı issue · discussion; en fazla N `getir.YAPIMCI`) — README/ağaç zaten `getir.repo`da; gh hatası (kota dahil) adayı düşürmez → kapsam.json erisilemedi (tekrar yok). Sapma: yazarın blog/duyurusu B4 web aramasına kaldı; discussion sıralaması canlıda doğrulanacak. Canlı doğrulama (ücretsiz, en fazla 3): `gh api "repos/anthropics/claude-code/releases?per_page=3" --jq ".[].tag_name"` · `gh api -X GET search/issues -f "q=repo:anthropics/claude-code is:issue is:open" -f sort=reactions -f per_page=5 --jq ".items[].title"` · `gh api graphql -f 'query=query{search(query:"repo:anthropics/claude-code sort:reactions",type:DISCUSSION,first:5){nodes{... on Discussion{title url}}}}'`.
+Canlı B3 kanıtı (Ömer, 5 Eki): releases → v2.1.289/288/287 · search/issues sort=reactions → 2097, 1035, 1028, 893, 822 (azalan) · graphql
+DISCUSSION "sort:reactions" (vercel/next.js) → 1304, 998, 954, 899, 840 (azalan; kodda ek sıralama gerekmez).
+B3 eki (Ömer kararı, 5 Eki): gh arama uçları (search/issues, graphql search) dakikada 30 istekle sınırlı; çok adaylı partide aşılır.
+Arama çağrıları arası ≥2.1 sn (`getir.ARAMA["aralik"]`); oran sınırı yanıtında (403/429 · secondary rate limit) Retry-After /
+X-RateLimit-Reset kadar BİR kez bekle (üst sınır `ARAMA["bekle_ust"]` ≤60 sn; başlık yoksa üst sınır) ve BİR kez yeniden dene; yine
+olmazsa erisilemedi (mevcut davranış). Başlıklar için arama çağrısı `gh api -i`. Uyku/saat enjekte (`getir.uyku`/`getir.saat`), testte
+sahte (conftest no-op uyku). Test (test_b3_oran): 1. çağrı sınır → bekleme + ikinci deneme başarılı · iki kez sınır → erisilemedi ·
+ardışık 3 arama arası ≥2.1 · releases beklemez.
 **B4 Genel web araması** (aday başına en fazla N sorgu, ayarda; mevcut arama yolu = Agent Reach): inceleme, karşılaştırma, alternatif,
 bilinen sorun. Forum/sosyal kaynaklar "düşük güven" etiketli. Test.
 **B5 Mekanizma incelemesi** — "aday değil" dışındaki HER aday (kurulu olanlar dahil; kuruluysa bizdeki kopya): repo seyrek klonlanır (S5
