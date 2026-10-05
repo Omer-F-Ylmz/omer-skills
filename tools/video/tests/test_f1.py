@@ -141,7 +141,7 @@ def test_maliyet_fiyat_tablosundan(monkeypatch):
 
 
 def test_maliyet_bilinmeyen_model_none_defter_panel(tmp_path, monkeypatch):
-    assert yon.FIYAT == {}  # değerler tahmin edilmez; F1-KURULUM'da sağlayıcı sayfasından
+    assert "gpt-4o-mini" not in yon.FIYAT and all(f["kaynak"] for f in yon.FIYAT.values())  # değerler tahmin edilmez; kaynaklı (F1-KURULUM-2)
     assert yon.omni_cagir("gpt-4o-mini", ENV, gonder=Omni())("s", "m", SEMA)["usd"] is None
     from test_m11 import _kur
     pdir, d = _kur(tmp_path)

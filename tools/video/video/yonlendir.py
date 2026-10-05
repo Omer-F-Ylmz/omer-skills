@@ -8,9 +8,16 @@ from pathlib import Path
 from . import ikinci_goz as ig
 
 OMNI_URL = "http://localhost:20128"  # omni-auth SKILL.md:54-58 (OMNIROUTE_URL varsayılanı)
-OMNI_YOL = "/v1/chat/completions"  # omni-inference SKILL.md:283; openapi.yaml:1156 /api/v1/… adayı — F1-KURULUM canlı çağrısı kesinleştirir
+OMNI_YOL = "/v1/chat/completions"  # omni-inference SKILL.md:283; F1-KURULUM-2 canlı çağrı 200 (5 Eki) — kesin
 # F1 eki (Ömer, 5 Eki): model → {"girdi": $/1M, "cikti": $/1M, "kaynak": "<url · tarih>"}; boş başlar, değer tahmin edilmez (F1-KURULUM'da sağlayıcı sayfasından)
-FIYAT = {}
+_OR = "https://openrouter.ai/api/v1/models · 2026-10-05"  # F1-KURULUM-2: json_schema destekli en ucuz 5 ücretli model; anahtar = OmniRoute model id
+FIYAT = {
+    "openrouter/mistralai/mistral-nemo": {"girdi": 0.019, "cikti": 0.03, "kaynak": _OR},
+    "openrouter/inclusionai/ling-3.0-flash-vl": {"girdi": 0.021, "cikti": 0.0616, "kaynak": _OR},
+    "openrouter/sao10k/l3-lunaris-8b": {"girdi": 0.04, "cikti": 0.05, "kaynak": _OR},
+    "openrouter/openai/gpt-oss-20b": {"girdi": 0.018, "cikti": 0.09, "kaynak": _OR},
+    "openrouter/nex-agi/nex-n2.5-mini": {"girdi": 0.025, "cikti": 0.1, "kaynak": _OR},
+}
 MALIYET_BASLIK = "x-omniroute-response-cost"  # openapi.yaml:1173-1176 (USD, 10 ondalık; "0.0000000000" = ücretsiz ya da fiyatsız)
 
 

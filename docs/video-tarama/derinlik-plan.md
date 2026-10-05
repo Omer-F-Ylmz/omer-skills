@@ -396,6 +396,15 @@ aylık $5 (POST /api/usage/budget monthlyLimitUsd 5); REQUIRE_API_KEY ile anahta
 `omniroute autostart enable` → true (vbs-startup) · ücretsiz GET /api/v1/models: anahtarla 200 (1723 model), anahtarsız 401 → liste yolu
 /api/v1/… kesin. KALAN (F1-KURULUM-2, yeni oturum): sohbet yolu tek gerçek çağrıyla · FIYAT (≤5 model, OpenRouter /api/v1/models fiyatı) ·
 X-OmniRoute-Response-Cost · ikinci göz durum kontrolü · gitleaks/suite.
+F1-KURULUM ✓ (F1-KURULUM-2, 5 Eki; gerçek çağrı 1, ≈$0.0000008): sohbet yolu OMNI_YOL /v1/chat/completions → 200 (404 yok, /api/v1/…
+denenmedi; OMNI_YOL değişmedi) · model id OmniRoute'ta önekli: "openrouter/mistralai/mistral-nemo" · FIYAT = OpenRouter
+https://openrouter.ai/api/v1/models (anahtarsız, 5 Eki) json_schema (structured_outputs) destekli en ucuz 5 ücretli model, $/1M girdi/çıktı:
+mistral-nemo 0.019/0.03 · ling-3.0-flash-vl 0.021/0.0616 · l3-lunaris-8b 0.04/0.05 · gpt-oss-20b 0.018/0.09 · nex-n2.5-mini 0.025/0.1
+(varsayım: :free/0 fiyatlı modeller dışarıda — maliyet yolu sınanacağı için) · çağrı: form {"renk": "mavi"} · usage 27/9 token ·
+X-OmniRoute-Response-Cost GELDİ ama "0.0000000000" (fiyatsız) → usd FIYAT'tan 7.83e-7 · OmniRoute günlüğü (`omniroute usage logs`;
+GET /api/usage/call-logs API anahtarıyla 403): openrouter · mistralai/mistral-nemo · 200 · Tokens 0 · Cost boş → OmniRoute bu modeli
+fiyatlamıyor; maliyetin tek kaynağı FIYAT (F1 eki kararı doğrulandı) · ikinci göz: OPENROUTER_API_KEY süreçte var → ikinci_goz_kapali None
+(KAPALI kalkar; çağrısız doğrulandı) · gitleaks temiz.
 **F2 Adım bazlı A/B düzeneği:** aynı girdi, iki model; kalite (kör puan + görev başarısı) + $; karar A1'le düzeltilmiş 24 Eyl tablosuyla.
 Yalnız AL çıkan adım yönlendirilir. Test.
 F2 yeşil (O38): yon.ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan) — A = sec(d, adim), B = kol_b;
