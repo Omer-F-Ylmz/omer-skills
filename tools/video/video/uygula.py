@@ -473,7 +473,7 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
     on = ctx["kok"] / "getir" / "mekanizma" / f"{ad.replace('/', '__')}@{sha}.md"
     if sha and on.is_file():
         return on.read_text(encoding="utf-8")
-    bul, boy, sayi, gor = {k: [] for k, _ in KONUM}, {}, {}, set()
+    bul, boy, sayi, gor, tan = {k: [] for k, _ in KONUM}, {}, {}, set(), []
 
     def ekle(r, n, s, k, b):
         if k in bul and (r, n, k) not in gor:
@@ -490,7 +490,10 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
     for x in sorted(sg or [], key=lambda x: (x["path"], x["start"]["line"])):
         f, n = yol / x["path"], x["start"]["line"]  # mutlak yol / ile aynen kalır
         s = (b := f.read_bytes()).decode("utf-8", "replace").splitlines()
-        k = SEMGREP_ID.get(re.sub(r"-(py|js)$", "", x["check_id"].rsplit(".", 1)[-1]), x["extra"]["message"])
+        k = SEMGREP_ID.get(re.sub(r"-(py|js)$", "", x["check_id"].rsplit(".", 1)[-1]))
+        if k is None:  # sessiz düşme yasak (O31: 14 sonucun 8'i kayboldu)
+            tan.append(f"- {f.relative_to(yol).as_posix()}:{n} · {x['check_id']}")
+            continue
         ekle(f.relative_to(yol).as_posix(), n, s[n - 1] if n <= len(s) else "", k, len(b))
     for f in sorted(p for p in yol.rglob("*") if p.is_file() and not set(p.relative_to(yol).parts[:-1]) & set(KOD_DISLA)
                     and not any(fnmatch.fnmatch(x, d) for x in p.relative_to(yol).parts for d in TEST_DISLA)
@@ -523,6 +526,7 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
             top += boy[r]
     t = (bas + f"kaynak: {kaynak} · {yol.as_posix()} @ {sha or 'commit yok'}\n" + (f"semgrep yok: {neden} · grep yolu\n" if sg is None else "")
          + "".join(f"### {k}\n" + ("\n".join(v) or "- yok") + "\n" for k, v in bul.items())
+         + ("### tanınmayan kural\n" + "\n".join(tan) + "\n" if tan else "")
          + f"### ilgili dosyalar (modele gider, ≤ {MEKANIZMA['kb']} KB)\n" + ("\n".join(ilgili) or "- yok") + "\n"
          + "### A5'e\n- kötü yan: neden (dosya:satır) → onarım yeri (ayar · sarmalayıcı · kendi sürüm)\n- iyi yan: nasıl güçlenir\n")
     if sha:
