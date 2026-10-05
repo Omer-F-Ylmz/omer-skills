@@ -80,3 +80,4 @@ Eşleştirme: transcript isteği ile h2a satırı, cache_read ve cache_write bir
 - **Öneri: TOKEN-6e'ye geç.** (c) 0, dolayısıyla system/tools sabitlemesi öne alınmaz.
 - Açık iş: sıcak (b) kırılmaları kalıyor (3 adet, 236 k token). Kaynak `kompress_background` / `read_lifecycle:stale` yeniden yazması; 6e'de ya da 6f devamında ele alınmalı.
 - away var n=7 < 10: aynı ölçüm birkaç gün sonra `h2_sinif.py` ile yeniden koşulup kapı doğrulanmalı.
+- NOT 2026-10-05 03:38 (ARAÇ-KURALI-1): global CLAUDE.md'ye departman kuralı eklendi (~1.1k → ~1.2k token, system prompt değişti); bu saatten önceki/sonraki h2a satırları ayrı dönem sayılır.
