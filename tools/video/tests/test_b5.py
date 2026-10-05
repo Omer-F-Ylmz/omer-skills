@@ -110,6 +110,45 @@ def test_md_govdesi_ve_frontmattersiz_md_taranmaz(tmp_path):  # README gövdesi:
     assert "README.md" not in b and "NOT.md" not in b
 
 
+def mek(tmp_path, dosyalar):
+    for y, m in dosyalar.items():
+        (tmp_path / "r" / y).parent.mkdir(parents=True, exist_ok=True)
+        (tmp_path / "r" / y).write_text(m, encoding="utf-8")
+    return uy.mekanizma({"kok": tmp_path, "kos": kos_yap()}, tmp_path / "r", "o/r")
+
+
+def test_disla_klasorleri_taranmaz(tmp_path):  # canlı bulgu (a): tools/jev "ağ" 5/5 .venv/_virtualenv.py idi
+    b = mek(tmp_path, {**{f"{k}/x/m.py": "subprocess\n" for k in (".venv", "venv", "env", "node_modules", "site-packages", "dist",
+                                                                     "build", "__pycache__", ".tox", "vendor", ".git")},
+                       "src/a.py": "subprocess\n"})
+    assert kisim(b, "süreç").strip() == "- src/a.py:1 `subprocess`"
+
+
+def test_ag_yalniz_cagri_kalibi(tmp_path):  # canlı bulgu (b): çıplak URL ağ çağrısı değil
+    b = mek(tmp_path, {"a.py": 'U = "https://x.io/api"\nimport httpx\nr = urllib.request.urlopen(U)\nws = WebSocket(U)\n'
+                               'os.system("curl -s " + U)\n',
+                       "a.js": "const u = 'http://localhost/';\naxios.get(u);\nhttps.request(o);\n"})
+    ag = kisim(b, "ağ")
+    assert "a.py:1" not in ag and "a.js:1" not in ag
+    assert all(y in ag for y in ("a.py:2", "a.py:3", "a.py:4", "a.py:5", "a.js:2", "a.js:3"))
+
+
+def test_yorum_ve_docstring_taranmaz(tmp_path):  # canlı bulgu (c)
+    b = mek(tmp_path, {"c.py": '"""Modül: subprocess ile.\nos.environ okur\n"""\n# subprocess yorum\nimport subprocess\n'
+                               'def f():\n    """tek satır: fetch(x)"""\n    return os.environ\n',
+                       "c.js": "// fetch('/y')\n/* spawn(x)\n * process.env\n */\nfetch('/z');\n",
+                       "c.sh": "-- curl x\n"})
+    assert kisim(b, "süreç").strip() == "- c.py:5 `import subprocess`"
+    assert kisim(b, "ayar okuma").strip() == "- c.py:8 `return os.environ`"
+    assert kisim(b, "ağ").strip() == "- c.js:5 `fetch('/z');`"
+
+
+def test_test_dosyalari_taranmaz(tmp_path):  # canlı bulgu (d): oturum başı enjeksiyonda test satırları vardı
+    b = mek(tmp_path, {**{y: "subprocess\n" for y in ("tests/a.py", "test/a.py", "src/__tests__/a.js", "test_x.py", "x_test.py",
+                                                       "a.test.ts", "a.spec.js")}, "src/a.py": "subprocess\n"})
+    assert kisim(b, "süreç").strip() == "- src/a.py:1 `subprocess`"
+
+
 def test_gelistir_mekanizma_okur(tmp_path):  # tüketici: ZATEN VAR karşılaştırması bizdeki kopyanın mekanizma.md'sini görür
     from test_m2f import Tasiyici, _a, _d
     from test_m2a import V
