@@ -611,7 +611,7 @@ def teknik_duzenle(kok):
 
 def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIRMA_ARAC, denet=None, oku=None):
     """Araçlı hafif çağrı + şema doğrulama (+ M2g denet: ek doğrulama; red → en fazla 2 yeniden istek); her çağrı defterde ayrı satır. → (durum, form | hata)."""
-    hatalar, (cagir, model) = [], yon.sec(d, adim, cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü
+    hatalar, (cagir, model) = [], yon.sec(d, adim, cagir, env, araclar)  # F1: adım başı yönlendirme; tanımsızsa bugünkü
     for _ in range(3):
         if pt._tavan(pdir, d):
             return "tavan", "parti tavanı"

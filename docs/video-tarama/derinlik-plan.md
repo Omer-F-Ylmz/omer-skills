@@ -458,6 +458,11 @@ O50 durum: madde 3 ✓ (ab girdi 4. öğe kareler iki kola aynı; omni_cagir zat
 omni_yokla gorsel=; ab-canli.ps1 kareler parti.py:493 kuralıyla, gorsel=True). Canlı: mistral-nemo → "görsel girdi desteklemiyor" exit 1,
 ling-3.0-flash-vl → None (çağrı 0). Madde 2 ve 1 açılmadı (sayaç 40). Madde 2 notu: gemma-3-4b-it fiyatı bu oturumda kaynaktan okunmadı —
 açılışta OpenRouter /api/v1/models'tan (ücretsiz) okunup yazılır, tahmin girilmez.
+O51 (F3-HAZIRLIK-2 devam; 1 anahtarsız GET, model çağrısı 0): madde 2 kırmızı 873eb60 · yeşil 6a4052c — FIYAT gemma-3-4b-it 0.05/0.1 $/1M
+(token başı × 1e6; ling 0.021/0.0616 aynı listede, değişmedi); görselsiz 3 kayda not; listede pricing.image ≠ 0 görsel model 30 (ör. gemini-3.x-flash),
+şema değişmedi; ab-canli.ps1 fiyat yok / kare yok → exit 1 çağrı 0, omni_yokla kareler sonrası gorsel=bool(kareler). Madde 1 kırmızı d3934ea ·
+yeşil (795): sec(..., araclar) araçlıysa yönlendirmez (_form_al geçirir) · ab(..., araclar) → "DUR (araç kullanıyor: <adım>)", çağrı 0 ·
+test_f1 :95/:143 testlerinin _form_al çağrısına (:98/:149) araclar=(). Tarama araçsız (parti.py:496) → A/B koşulabilir.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,

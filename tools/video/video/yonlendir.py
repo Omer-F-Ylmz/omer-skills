@@ -94,16 +94,18 @@ def omni_yokla(model, env, getir=ig._post, gorsel=False):
     return None
 
 
-def sec(d, adim, cagir, env):
-    """→ (taşıyıcı, model): adım ayarda yoksa verilen taşıyıcı ve d["model"] (bugünkü davranış birebir)."""
-    s = (d.get("yonlendirme") or {}).get(adim)
+def sec(d, adim, cagir, env, araclar=()):
+    """→ (taşıyıcı, model): adım ayarda yoksa ya da araç kullanıyorsa (OmniRoute'a gitmez) verilen taşıyıcı ve d["model"] (bugünkü davranış birebir)."""
+    s = None if araclar else (d.get("yonlendirme") or {}).get(adim)
     return (SAGLAYICI[s["saglayici"]](s["model"], env), s["model"]) if s else (cagir, d["model"])
 
 
-def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan):
+def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan, araclar=()):
     """F2: aynı girdiler (sistem, metin, şema[, kareler]) iki kolda — A = sec(d, adim) bugünkü, B = kol_b; puanla(metinler) kör (GÖREV+YANIT,
     model adı yok); başarı = hata yok + hattın form doğrulaması (parti._denet); gürültü = A tekrar farkı; karar kur.karar (A1 tablosu). usd None kol → SOR;
     tavan < 2×tekrar×girdi → TAVAN, çağrı yok. yonlendirme yalnız AL'de {adim: kol_b}."""
+    if araclar:  # araçlı adım OmniRoute'a gitmez (sec) → B kolu kurulamaz; A-A karşılaştırması yapılmaz, çağrı 0
+        return {"karar": f"DUR (araç kullanıyor: {adim})", "yonlendirme": None}
     n = 2 * tekrar * len(girdiler)
     if n > tavan:
         return {"karar": f"TAVAN {n} > {tavan}", "yonlendirme": None}
