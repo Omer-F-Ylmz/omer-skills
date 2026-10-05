@@ -60,6 +60,24 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
 
 
 SAGLAYICI = {"omniroute": omni_cagir}
+OMNI_MODELLER = "/api/v1/models"  # openapi.yaml:1681 (GET, BearerAuth; data[].id — Model şeması :9091), ücretsiz
+
+
+def omni_yokla(model, env, getir=ig._post):
+    """F3 ön kontrol (model çağrısından önce): None = sunucu var, kimlik geçer, model listede; değilse hata metni (anahtar yazılmaz)."""
+    anahtar = env.get("OMNIROUTE_KEY") or ""
+    bas = {"Authorization": f"Bearer {anahtar}"} if anahtar else {}
+    try:
+        durum, y = getir(env.get("OMNIROUTE_URL", OMNI_URL).rstrip("/") + OMNI_MODELLER, None, bas)[:2]
+    except OSError as e:
+        neden = f"OmniRoute yok: {type(e).__name__}: {e}"
+        return neden.replace(anahtar, "***") if anahtar else neden
+    if durum == 401:
+        return "OmniRoute 401: kimlik reddedildi (OMNIROUTE_KEY eksik ya da geçersiz)"
+    if durum != 200:
+        return f"OmniRoute HTTP {durum}"
+    ids = [m.get("id") for m in y.get("data") or []]
+    return None if model in ids else f"model yok: {model} (listede {len(ids)} model)"
 
 
 def sec(d, adim, cagir, env):

@@ -11,6 +11,9 @@ v, p, tavan = os.environ['AB_VIDEO'], Path(os.environ['AB_PAKET']), int(os.envir
 if not p.is_file():
     sys.exit('hata: paket yok: ' + str(p))
 env = dict(os.environ)
+h = yon.omni_yokla(os.environ['AB_MODEL'], env)
+if h:
+    sys.exit('hata: ' + h)
 t = c.Tasiyici(env=env, en_fazla=2, istek_tavan=4)
 puanla = lambda ms: [x['kalite']['score'] for x in t.yargila(ms, {'kalite': kur.KALITE_Q})]
 girdi = [(pt.SISTEM, '=== VIDEO ' + v + ' ===\n' + p.read_text(encoding='utf-8'), pt.sema([v], iz=True))]

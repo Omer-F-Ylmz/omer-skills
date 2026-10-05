@@ -405,6 +405,12 @@ Tavan: en fazla 4 model çağrısı (AB_TAVAN=4: 2 claude -p, hafif butce $0.50/
 Ağsız deneme (O39): ayar yok → "hata: eksik ayar: AB_VIDEO, AB_PAKET, AB_MODEL" exit 1 · paket yok → "hata: paket yok: …" exit 1 ·
 AB_TAVAN=3 → {"karar":"TAVAN 4 > 3"}, çağrı 0. Canlı komut: $env:AB_VIDEO='<id>'; $env:AB_PAKET='<paket.md>'; $env:AB_MODEL='<model>';
 & 'C:\Projeler\omer-skills\docs\video-tarama\ab-canli.ps1'
+F3 ön kontrol (Ömer kararı 5 Eki; O39 "kalan risk" kapanır): betik model çağrısından ÖNCE yon.omni_yokla(AB_MODEL, env) — ücretsiz
+GET /api/v1/models (openapi.yaml:1681, BearerAuth; data[].id, Model şeması :9091); sunucu yok → "hata: OmniRoute yok: …" · 401 →
+"hata: OmniRoute 401: kimlik reddedildi (OMNIROUTE_KEY …)" · model listede yok → "hata: model yok: <m> (listede N model)"; exit 1,
+A tarafı dahil model çağrısı 0. ig._post govde=None → GET. Testler test_f3.py (4, sahte). O40: kırmızı eecd36e · yeşil (765 passed;
+mutasyon 401 dalı → 1 kırmızı). Ağsız deneme: OMNIROUTE_URL=http://127.0.0.1:9 → "hata: OmniRoute yok: URLError … 10061" exit 1.
+Not: sohbet yolu OMNI_YOL /v1/… (skill), liste yolu /api/v1/… (openapi) — F1-KURULUM ikisini birlikte kesinleştirir.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
