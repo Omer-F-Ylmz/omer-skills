@@ -276,3 +276,29 @@ def test_a6a_eksik_satir_alan_blogu_sonuna_eklenir(tmp_path):
     m = y.read_text(encoding="utf-8")
     assert m == "# stop-slop\nrepo: o/stop-slop\ntur: skill\nlisans: Apache-2.0\nson_commit: 2026-09-30\n\n## Ne yapar\nmetin\n"
     assert ak.uy.alanlar(m)["son_commit"] == "2026-09-30"  # panelin okuduğu blokta
+
+
+def _gh_etiket(kirik):
+    def gh(args):
+        gh.cagrilar.append(args[1])
+        if args[1].endswith("releases/latest"):
+            return {"tag_name": "v1.3.0"}
+        if args[1].endswith("commits/v1.3.0") and not kirik:
+            return {"sha": "c0ffee1", "commit": {"committer": {"date": "2026-09-01T10:00:00Z"}}}
+        raise RuntimeError("HTTP 404")
+    gh.cagrilar = []
+    return gh
+
+
+# A6(b) (=Y4, derinlik-3 S3): sürümle (etiket) kurulu plugin'de etiket → commit → tarih (REST, arama değil); zincir kırılırsa aday düşmez, sebep satırda
+def test_a6b_etiketli_kurulu_tarih_zinciri(tmp_path):
+    from video import akil as ak
+    (evi := tmp_path / "evi" / "plugins").mkdir(parents=True)
+    (evi / "installed_plugins.json").write_text(json.dumps(
+        {"plugins": {"hizli-paket@m": [{"installPath": str(tmp_path / "yok"), "version": "1.2.0"}]}}), encoding="utf-8")
+    a = {"kurulu": "m:hizli-paket", "repo": "ornek/hizli-paket", "adlar": ["hizli-paket"]}
+    for kirik, son in ((False, " · etiket v1.3.0 commit 2026-09-01"), (True, " · etiket v1.3.0 tarihi alınamadı (gh: HTTP 404)")):
+        gh = _gh_etiket(kirik)
+        g = ak._guncellik({"gh": gh, "uyku": _uyku(), "env": {"CLAUDE_EVI": str(tmp_path / "evi")}}, a)
+        assert g == "fark: kurulu 1.2.0 ↔ upstream 1.3.0" + son
+        assert "repos/ornek/hizli-paket/commits/v1.3.0" in gh.cagrilar and not any("search/" in x for x in gh.cagrilar)
