@@ -370,9 +370,17 @@ def _guncellik(ctx, a):
             c = gh(["api", f"repos/{a['repo']}/commits?per_page=1" + (f"&path={yol}" if yol else "")])[0]
             ust, tarih = c["sha"], ((c.get("commit") or {}).get("committer") or {}).get("date", "")[:10]  # S3
         else:
-            ust = gh(["api", f"repos/{a['repo']}/releases/latest"])["tag_name"].lstrip("v")
+            ust = (etiket := gh(["api", f"repos/{a['repo']}/releases/latest"])["tag_name"]).lstrip("v")
     except Exception as e:  # sessiz dönüş yok: sebep Kapsam'da
         return f"güncellik bakılamadı (gh: {str(e)[:60]})"
+    son = f" · son commit {tarih}" if tarih else ""
+    if not sha:  # A6(b): etiket → commit → tarih (REST); zincir kırılırsa aday düşmez, sebep satırda
+        uyku(2)
+        try:
+            c = gh(["api", f"repos/{a['repo']}/commits/{etiket}"])
+            son = f" · etiket {etiket} commit {c['commit']['committer']['date'][:10]}"
+        except Exception as e:
+            son = f" · etiket {etiket} tarihi alınamadı (gh: {str(e)[:60]})"
     yeni = []
     for dz in ("skills", "commands", "agents"):  # yeni skill/komut/ajan listesi farkı; dizini olmayan repo atlanır
         uyku(2)
@@ -381,7 +389,6 @@ def _guncellik(ctx, a):
         except Exception:
             continue
         yeni += [f"{dz}/{x}" for x in sorted(ust_ad - {p.stem for p in (Path(ku.get("installPath", "")) / dz).glob("*")})]
-    son = f" · son commit {tarih}" if tarih else ""
     if (ust.startswith(sur[:7]) if sha else ust == sur) and not yeni:
         return f"güncel ({sur[:7] if sha else sur})" + son
     return f"fark: kurulu {sur[:7] if sha else sur} ↔ upstream {ust[:7] if sha else ust}" + (f" · yeni: {', '.join(yeni[:10])}" if yeni else "") + son
