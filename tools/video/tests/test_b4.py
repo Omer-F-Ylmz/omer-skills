@@ -202,6 +202,38 @@ def test_repo_suzgec_github_ve_ayna_atilir(saat):
     assert u == ["https://a.x/1", "https://github.com/safishamsi/graphify-plus", "https://b.x/2"] and len(u) == gt.WEB["sonuc"]
 
 
+# B4 kanonik ad (Ömer canlı ölçümü 5 Eki): taşınmış repo → gh api repos/{repo} --jq .full_name da süzgece; hata/biçimsiz → eski davranış
+KANONIK = ["https://github.com/Graphify-Labs/graphify", "https://github.com/graphify-labs/graphify/issues/3", "https://a.x/1",
+           "https://b.x/2", "https://c.x/3"]
+
+
+def kanonik_kos(gh):
+    def kos(a):
+        if a[0] == "gh":
+            kos.gh.append(a)
+            return gh
+        return 0, json.dumps({"results": [{"title": "t", "url": u} for u in KANONIK]}).encode(), b""
+    kos.gh = []
+    return kos
+
+
+def kanonik_url(gh):
+    k = kanonik_kos(gh)
+    b = gt.web_ara("graphify", k, [], "safishamsi/graphify", "skill")
+    return [x.split(" · ")[-1] for x in b.splitlines() if x.startswith("- graphify skill review · ")], k.gh
+
+
+def test_kanonik_ad_suzgece_eklenir(saat):
+    u, gh = kanonik_url((0, b"Graphify-Labs/graphify\n", b""))
+    assert u == ["https://a.x/1", "https://b.x/2", "https://c.x/3"]
+    assert gh == [["gh", "api", "repos/safishamsi/graphify", "--jq", ".full_name"]]  # tek REST çağrısı, arama değil, sorgu başına değil
+
+
+@pytest.mark.parametrize("gh", [(1, b"", b"HTTP 404"), (0, b"[]", b""), (0, b"# R", b"")])
+def test_kanonik_ad_hata_eski_davranis(saat, gh):
+    assert kanonik_url(gh)[0] == KANONIK[:3]
+
+
 def test_tur_yoksa_yalniz_ad(saat):
     cagri = []
     gt.web_ara("graphify", lambda a: cagri.append(" ".join(a)) or (0, b"[]", b""), [], "safishamsi/graphify")
