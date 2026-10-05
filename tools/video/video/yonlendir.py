@@ -12,11 +12,12 @@ OMNI_YOL = "/v1/chat/completions"  # omni-inference SKILL.md:283; F1-KURULUM-2 c
 # F1 eki (Ömer, 5 Eki): model → {"girdi": $/1M, "cikti": $/1M, "kaynak": "<url · tarih>"}; boş başlar, değer tahmin edilmez (F1-KURULUM'da sağlayıcı sayfasından)
 _OR = "https://openrouter.ai/api/v1/models · 2026-10-05"  # F1-KURULUM-2: json_schema destekli en ucuz 5 ücretli model; anahtar = OmniRoute model id
 FIYAT = {
-    "openrouter/mistralai/mistral-nemo": {"girdi": 0.019, "cikti": 0.03, "kaynak": _OR},
+    "openrouter/mistralai/mistral-nemo": {"girdi": 0.019, "cikti": 0.03, "kaynak": _OR},  # görselsiz (input_modalities: text) → tarama A/B'ye uygun değil
     "openrouter/inclusionai/ling-3.0-flash-vl": {"girdi": 0.021, "cikti": 0.0616, "kaynak": _OR},
-    "openrouter/sao10k/l3-lunaris-8b": {"girdi": 0.04, "cikti": 0.05, "kaynak": _OR},
-    "openrouter/openai/gpt-oss-20b": {"girdi": 0.018, "cikti": 0.09, "kaynak": _OR},
+    "openrouter/sao10k/l3-lunaris-8b": {"girdi": 0.04, "cikti": 0.05, "kaynak": _OR},  # görselsiz (input_modalities: text) → tarama A/B'ye uygun değil
+    "openrouter/openai/gpt-oss-20b": {"girdi": 0.018, "cikti": 0.09, "kaynak": _OR},  # görselsiz (input_modalities: text) → tarama A/B'ye uygun değil
     "openrouter/nex-agi/nex-n2.5-mini": {"girdi": 0.025, "cikti": 0.1, "kaynak": _OR},
+    "openrouter/google/gemma-3-4b-it": {"girdi": 0.05, "cikti": 0.1, "kaynak": _OR},  # F3-HAZIRLIK-2: pricing.prompt/completion token başı × 1e6
 }
 MALIYET_BASLIK = "x-omniroute-response-cost"  # openapi.yaml:1173-1176 (USD, 10 ondalık; "0.0000000000" = ücretsiz ya da fiyatsız)
 
