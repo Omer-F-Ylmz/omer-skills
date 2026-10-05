@@ -16,10 +16,10 @@ FIYAT = {
     "openrouter/inclusionai/ling-3.0-flash-vl": {"girdi": 0.021, "cikti": 0.0616, "kaynak": _OR},
     "openrouter/sao10k/l3-lunaris-8b": {"girdi": 0.04, "cikti": 0.05, "kaynak": _OR},  # görselsiz (input_modalities: text) → tarama A/B'ye uygun değil
     "openrouter/openai/gpt-oss-20b": {"girdi": 0.018, "cikti": 0.09, "kaynak": _OR},  # görselsiz (input_modalities: text) → tarama A/B'ye uygun değil
-    "openrouter/nex-agi/nex-n2.5-mini": {"girdi": 0.025, "cikti": 0.1, "kaynak": _OR},
+    # F3-MODEL-2: tek uç Nex AGI (bf16) 0.025/0.1 — canlı usage.cost 0.0043029 = (11440×0.025 + 40169×0.1)/1e6
+    "openrouter/nex-agi/nex-n2.5-mini": {"girdi": 0.025, "cikti": 0.1,
+                                         "kaynak": "https://openrouter.ai/api/v1/models/nex-agi/nex-n2.5-mini/endpoints + usage.cost (Nex AGI) · 2026-10-05"},
     "openrouter/google/gemma-3-4b-it": {"girdi": 0.05, "cikti": 0.1, "kaynak": _OR},  # F3-HAZIRLIK-2: pricing.prompt/completion token başı × 1e6
-    # F3-MODEL: liste fiyatı (0.003/2.4) usage.cost'tan %65 sapıyor; Together uç fiyatı usage.cost'a tam oturuyor (15187×0.3 + 17607×1.2)/1e6
-    "openrouter/~deepseek/deepseek-flash-latest": {"girdi": 0.3, "cikti": 1.2, "kaynak": "OpenRouter usage.cost (Together) · 2026-10-05"},
 }
 MALIYET_BASLIK = "x-omniroute-response-cost"  # openapi.yaml:1173-1176 (USD, 10 ondalık; "0.0000000000" = ücretsiz ya da fiyatsız)
 

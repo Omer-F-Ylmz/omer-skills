@@ -7,6 +7,9 @@ from video import hafif, kur, parti as pt, yonlendir as yon
 eksik = [k for k in ('AB_VIDEO', 'AB_PAKET', 'AB_MODEL') if not os.environ.get(k)]
 if eksik:
     sys.exit('hata: eksik ayar: ' + ', '.join(eksik))
+m = os.environ['AB_MODEL']
+if m.startswith('~') or '/~' in m or ':free' in m or 'openrouter/free' in m:  # O50: takma ad / ücretsiz kol sabit değil → A/B'ye girmez
+    sys.exit('hata: kol sabit değil: ' + m)
 v, p, tavan = os.environ['AB_VIDEO'], Path(os.environ['AB_PAKET']), int(os.environ.get('AB_TAVAN', '4'))
 if not p.is_file():
     sys.exit('hata: paket yok: ' + str(p))
