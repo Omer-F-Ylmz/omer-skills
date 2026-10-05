@@ -392,6 +392,9 @@ puanla kör ("GÖREV: … YANIT: <form json>", model adı yok); başarı = hata 
 gürültü = A tekrar puan farkı (max); karar kur.karar(A, B, None, gürültü, görev başarı çiftleri); usd None kol → "SOR (maliyet bilinmiyor:
 <model>)"; 2×tekrar×girdi > tavan → "TAVAN n > tavan", çağrı yok; yonlendirme {adim: kol_b} yalnız AL'de (durum.json'a yazmaz; elle).
 O38: kırmızı 955e336 · yeşil (758 passed; mutasyon: usd None kapısı ve AL kapısı kaldırılınca 2 kırmızı).
+**F2 düzeltmesi (Ömer, 5 Eki; O38 "yalnız required" sapması kabul edilmedi — tip/enum hatalı yanıt başarılı sayılıp A/B'yi haksız AL'e
+iterdi):** görev başarısı = hata yok + hattın kendi form doğrulaması parti._denet (akil.py:604'ün reddettiğini reddeden aynı fonksiyon;
+yeni bağımlılık yok); _sema_gecer kalkar. Testler: required tamam ama tip yanlış → 0 · enum dışı → 0 · geçerli form → 1.
 **F3** Ömer'in koşacağı canlı A/B komutu + tavan (en fazla N çağrı) raporda.
 
 ## A (devam)

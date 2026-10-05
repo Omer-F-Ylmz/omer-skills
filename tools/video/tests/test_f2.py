@@ -59,3 +59,19 @@ def test_tavan_asilirsa_cagri_yok(monkeypatch):
     cb, ca = _kur(monkeypatch, 0.001), []
     s = yon.ab(D, "arastirma", GIRDI, KOL_B, _tas(0.01, cagri=ca), {}, _puan(lambda m: 0.8)[0], tavan=11)
     assert s["karar"].startswith("TAVAN") and "12 > 11" in s["karar"] and ca == cb == [] and s["yonlendirme"] is None
+
+
+SEMA_T = {"type": "object", "required": ["a", "t"],
+          "properties": {"a": {"type": "string"}, "t": {"type": "string", "enum": ["x", "y"]}}}
+
+
+@pytest.mark.parametrize("form_b, beklenen", [
+    ({"a": 5, "t": "x"}, 0),      # required tamam, tip yanlış
+    ({"a": "m", "t": "z"}, 0),    # enum dışı
+    ({"a": "m", "t": "x"}, 1),    # geçerli form
+])
+def test_gorev_basarisi_hattin_form_dogrulamasi(monkeypatch, form_b, beklenen):
+    _kur(monkeypatch, 0.001, form_b=form_b)
+    s = yon.ab(D, "arastirma", [("SİS", "METİN", SEMA_T)], KOL_B, _tas(0.01, form={"a": "m", "t": "x"}), {},
+               _puan(lambda m: 0.8)[0], tavan=4)
+    assert s["b"]["basari"] == beklenen and s["a"]["basari"] == 1
