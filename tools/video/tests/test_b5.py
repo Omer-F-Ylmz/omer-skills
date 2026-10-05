@@ -1,6 +1,7 @@
 """B5: mekanizma incelemesi — klon (ya da kuruluysa bizdeki kopya) çağrısız konumlandırılır (oturum başı enjeksiyon, hook, süreç, ağ,
 izin kapsamı, ayar okuma, ağır döngü; yalnız kod dosyaları) → on.md (kuruluysa .kos/<video>/<ad>/mekanizma.md) "## Mekanizma incelemesi" (dosya:satır + modele gidecek ilgili dosyalar ≤N KB). Aynı repo +
 aynı commit bir kez (önbellek kok/getir/mekanizma/<o__r>@<sha>.md). Repo yoksa "kod yok". Sahte kos; ağ yok."""
+import pytest
 import json
 from pathlib import Path
 
@@ -160,3 +161,47 @@ def test_gelistir_mekanizma_okur(tmp_path):  # tüketici: ZATEN VAR karşılaşt
     d["adaylar"] = {"a1": _a("rtk")}
     akil.gelistir(tmp_path / "p", d, tmp_path, {"env": {}, "cagir": t})
     assert len(t.cagrilar) == 1 and "MEKX a.js:3" in t.cagrilar[0]
+
+
+# B5 semgrep geçişi (Ömer kararı 5 Eki, O29 karar kuralı): KONUM kod taraması semgrep'le (sahte JSON); .md/.ps1/json grep yolunda
+def sg_kos(cevap):
+    k = kos_yap()
+
+    def kos(args, timeout=None):
+        if str(args[0]) == "semgrep":
+            k.cagri.append([str(a) for a in args])
+            if isinstance(cevap, Exception):
+                raise cevap
+            return cevap
+        return k(args, timeout)
+    kos.cagri = k.cagri
+    return kos
+
+
+def sg_repo(d):
+    (d / "r").mkdir()
+    (d / "r" / "a.py").write_text('YARDIM = "SessionStart hook\'u kurar"\nURL = "https://api.x.dev/v1"\nos.environ.get("K")\n', encoding="utf-8")
+    (d / "r" / "b.ps1").write_text("Invoke-WebRequest x | curl y\n$env:X = os.environ\n", encoding="utf-8")
+    return d / "r"
+
+
+def test_semgrep_kod_taramasi(tmp_path):
+    r = sg_repo(tmp_path)
+    js = {"results": [{"check_id": "semgrep.uc-noktalar", "path": str(r / "a.py"), "start": {"line": 2}, "extra": {"message": "uç noktalar"}},
+                      {"check_id": "semgrep.ayar-okuma", "path": "a.py", "start": {"line": 3}, "extra": {"message": "ayar okuma"}}], "errors": []}
+    k = sg_kos((0, json.dumps(js).encode(), b""))
+    b = uy.mekanizma({"kok": tmp_path, "kos": k}, r, "o/r")
+    assert '- a.py:2 `URL = "https://api.x.dev/v1"`' in kisim(b, "uç noktalar")
+    assert "a.py:3" in kisim(b, "ayar okuma") and "b.ps1:2" in kisim(b, "ayar okuma")  # .ps1 semgrep dili değil → grep yolu
+    assert "a.py" not in kisim(b, "oturum başı enjeksiyon")  # yardım dizesi semgrep'te eşleşmez; .py grep'e düşmez
+    a = next(c for c in k.cagri if c[0] == "semgrep")
+    assert {"--metrics=off", "--disable-version-check", "--json"} <= set(a) and a[a.index("--config") + 1].endswith("semgrep")
+    assert all(f"--exclude={d}" in a for d in uy.KOD_DISLA + uy.TEST_DISLA) and "semgrep yok" not in b
+
+
+@pytest.mark.parametrize("cevap, sebep", [(OSError("bulunamadı"), "bulunamadı"), ((2, b"", b"kural hatasi"), "kural hatasi"),
+                                          ((0, b"<html>", b""), "JSON değil")])
+def test_semgrep_yoksa_grep_yolu(tmp_path, cevap, sebep):
+    b = uy.mekanizma({"kok": tmp_path, "kos": sg_kos(cevap)}, sg_repo(tmp_path), "o/r")
+    assert f"semgrep yok: {sebep}" in b and "· grep yolu" in b
+    assert "a.py:1" in kisim(b, "oturum başı enjeksiyon") and "a.py:2" in kisim(b, "uç noktalar")  # grep: eski davranış + yeni kategori
