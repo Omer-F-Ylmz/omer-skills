@@ -382,6 +382,7 @@ usage × FIYAT; model FIYAT'ta yoksa usd None (0 değil). Defter satırı usd nu
 parti tarama); _defter toplamı None'u $ tavanına katmaz → o adım yalnız çağrı tavanıyla sınırlanır; panel Denetim: "- maliyet bilinmiyor:
 <adım> · <model>" (tekil). ig._post(basliklar=True) yanıt başlıklarını döner (or_cagir değişmez). test_f1:47 usd 0.0 → None (Ömer kararı).
 O37: kırmızı b06c38b · yeşil (mutasyon: başlık >0→>=0 ve None→0.0 kırmızı).
+test_f1.py:47 usd 0.0 → None — Ömer onayı (sonradan, 5 Eki; F1 eki kararının doğrudan sonucu).
 **F1-KURULUM (ayrı kurulum maddesi; iş oturumuna karışmaz):** OmniRoute sunucusunu kur + başlat, kimliği ekle (değer basılmaz); sonra
 F1 adaptörüyle tek gerçek çağrı (tavan: en fazla 1 istek, en ucuz model) → sonuç plana.
 **F2 Adım bazlı A/B düzeneği:** aynı girdi, iki model; kalite (kör puan + görev başarısı) + $; karar A1'le düzeltilmiş 24 Eyl tablosuyla.
