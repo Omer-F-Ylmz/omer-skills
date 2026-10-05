@@ -451,6 +451,9 @@ getir.py:291 `t <= x["bas"] < son` yalnız t'den sonra BAŞLAYANI alır → kaps
 örtüşmeye çevrilir (`x["bas"] < son and x.get("son", x["bas"]) > t`; cli.on_ de aynı fonksiyonu kullanır). Kırmızı: bas 0 · son 61.3 ·
 prompt 0:05 → metin alınır (taslak test_a7'den geri alındı, bir sonraki oturum).
 Canlı doğrulama (ağsız, model 0, denendi 2 passed): `cd C:\Projeler\omer-skills\tools\video; uv run pytest tests/test_a7.py -q`
+O46 A7 eki (Ömer, 5 Eki): (a) getir.py:291 seçim örtüşme (`bas < son and son_seg >= t`; son'suz segment eski davranış; cli.on_ aynı
+fonksiyon). (b) "## Prompt metni" boş / "altyazı yok" / "alınamadı" ise yeniden yazılır, dolu bölüme dokunulmaz. Kırmızıda bulunan ikinci kök
+neden: yazılmış aday.md → _onceki True → durum "onceki" → A7 dalı bir daha koşmazdı; dal artık arac_degil + onceki. Kırmızı (2 failed) → yeşil 776.
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).

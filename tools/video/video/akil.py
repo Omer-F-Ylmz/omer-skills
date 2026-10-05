@@ -913,10 +913,13 @@ def akil(pdir, d, kok, tdir, ctx, tum=False):
                      "dogrulanmadi" if str(a.get("repo_arama", "")).startswith("olası") and not a["repo"] else "bekliyor" if a["arac"] or a["repo"] else "arac_degil")  # DERİNLİK-1 R2: repolu her sınıf
         if a["durum"] == "kurulu" and a["kurulu"] != "kendi aracımız":  # A6(c): araştırmaya girmeyen kurulu aday da bizdeki kopyanın mekanizmasını alır (model 0)
             uy.bizdeki_mekanizma(ctx, kok, next(iter(a["videolar"])), k, a["kurulu"])
-        if a["tur"] == "prompt" and a["durum"] == "arac_degil" and (v := next(iter(a["videolar"]))) in (rd := dict(raporlar)):  # A7: araştırılmayan prompt adayı metnini paket altyazısından alır (model 0)
+        if a["tur"] == "prompt" and a["durum"] in ("arac_degil", "onceki") and (v := next(iter(a["videolar"]))) in (rd := dict(raporlar)):  # A7: araştırılmayan prompt adayı metnini paket altyazısından alır (model 0); eki: yazılmış aday dosyası onceki olur
             y = _aday_yol(kok, k)
             m = y.read_text(encoding="utf-8") if y.is_file() else f"# {k}\n"
-            if "## Prompt metni" not in m:  # ponytail: bir kez yazılır; sonradan gelen altyazı için bölüm elle silinir
+            pm = tr.bolum(m, "Prompt metni").strip()
+            if "## Prompt metni" not in m or not pm or "altyazı yok" in pm or "alınamadı" in pm:  # A7 eki: boş/alınamadı bölüm yeniden yazılır, dolu bölüme dokunulmaz
+                if "## Prompt metni" in m:
+                    m = m.replace(tr.bolum(m, "Prompt metni"), "").replace("## Prompt metni", "")
                 y.parent.mkdir(parents=True, exist_ok=True)
                 y.write_text(m.rstrip("\n") + "\n\n" + gt.prompt_metni(rd[v], ctx["kok"] / v / "segmentler.jsonl"), encoding="utf-8", newline="")
         if pk := _paket_ici(k, env):

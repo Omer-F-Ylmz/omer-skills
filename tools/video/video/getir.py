@@ -288,7 +288,7 @@ def prompt_metni(rapor, seg):
     for s in satir:
         t = sn(s[5]) if tr.ZAMAN.fullmatch(s[5]) else 0.0
         son = next((b for b in bol if b > t), float("inf"))
-        metin = " ".join(" ".join(x["metin"]) if isinstance(x["metin"], list) else x["metin"] for x in segs if t <= x["bas"] < son)
+        metin = " ".join(" ".join(x["metin"]) if isinstance(x["metin"], list) else x["metin"] for x in segs if x["bas"] < son and x.get("son", x["bas"]) >= t)  # A7 eki: t'yi kapsayan segment de
         out += [f"### {s[0]} · {s[5]}", f"ekran: {s[6]}", kes(metin, PROMPT) if metin else "altyazı yok (paket segmentleri bulunamadı)", ""]
     return "\n".join(out)
 
