@@ -463,6 +463,17 @@ O51 (F3-HAZIRLIK-2 devam; 1 anahtarsız GET, model çağrısı 0): madde 2 kırm
 şema değişmedi; ab-canli.ps1 fiyat yok / kare yok → exit 1 çağrı 0, omni_yokla kareler sonrası gorsel=bool(kareler). Madde 1 kırmızı d3934ea ·
 yeşil (795): sec(..., araclar) araçlıysa yönlendirmez (_form_al geçirir) · ab(..., araclar) → "DUR (araç kullanıyor: <adım>)", çağrı 0 ·
 test_f1 :95/:143 testlerinin _form_al çağrısına (:98/:149) araclar=(). Tarama araçsız (parti.py:496) → A/B koşulabilir.
+O52 (F3-TEŞHİS; Ömer A/B: b ling kalite 0.455 basari 0 usd 0, "ONARIM BEKLİYOR"; canlı model çağrısı 0, 1 anahtarsız GET): Adım 1 —
+~/.omniroute/call_logs/2026-10-05 (19:32:05 · 19:32:26) iki B isteği HTTP 400, error "[400]: Provider returned error", responseBody null,
+tokens 0; storage.sqlite usage_history error_code upstream_400 — sağlayıcının ham hata metni OmniRoute'ta saklanmıyor. Ek bulgu: OmniRoute
+Vision Bridge (varsayılan enabled, maxImagesPerRequest 10, src/shared/constants/visionBridgeDefaults.ts) ling'i işledi: 10 describe → 401
+AUTH_002 (app.log 19:32:02) → null → orijinal kare korunur; 11.–27. kare replaceImageParts'ta düşer (visionBridgeHelpers.ts:940, else yok).
+Sağlayıcıya giden gövde (kayıt): 414752 B · system 1088 kr · user text 26564 kr · image_url 10 (jpeg 768×432, 2.7–49 KB) · response_format
+json_schema strict:false · max_tokens yok. OpenRouter: ling ctx 262144, max_completion 32768, girdi text/image/video, response_format +
+structured_outputs var; gemma-3-4b-it ctx 131072, max_completion 16384, text/image, response_format + structured_outputs var.
+Sonuç: kök Adım 1'de görünmüyor (sınır aşımı yok, parametre destekleniyor). Adım 2 (≤2 canlı B: aynı metin+şema 1 kare → 400 ise şemasız)
+ve Adım 3 (ab "DUR (kol yanıt vermedi …)" + kol başı ilk hata) açılmadı: sayaç yeni dalgada 30'dan devraldı, 40'ta DUR.
+Paket: C:\Projeler\.video-cache\b2QkhmQ0sT0\paket.md (cli.KOK; dosya varlığı doğrulanmadı).
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
