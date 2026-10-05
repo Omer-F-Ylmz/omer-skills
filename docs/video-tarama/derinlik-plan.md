@@ -259,6 +259,8 @@ izin kapsamı, ayar okuma noktaları, ağır döngüler. Modele yalnız bulunan 
 repo + aynı commit bütün partilerde bir kez incelenir (önbellek). Çıktı: her kötü yanın nedeni (dosya:satır) + onarımın nereden yapılacağı
 (ayar · sarmalayıcı · kendi sürüm) + iyi yanın nasıl güçleneceği → A5'e. Repo yoksa (servis/ürün) B2–B4 kaynaklarıyla aynı alanlar
 doldurulur, "kod yok" yazılır. Test.
+B5 aday notu (5 Eki): semgrep (çevrimdışı: --metrics=off --disable-version-check) — ilk canlı partide grep yanlış eşleşmesi yüksekse
+geçilir; ölçüm: aday başına yanlış eşleşme sayısı.
 
 ## E — DESKTOP İKİNCİ BAKIŞ (hedefli, uyarlamalı)
 **E1 Çağrısız risk puanı** (bahis/aday başına): KUR önerisi · güvenlik bulgusu · fork/kaynak farkı · kapsam eksikleri · "çözülmedi" kötü
