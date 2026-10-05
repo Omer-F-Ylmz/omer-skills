@@ -20,8 +20,8 @@ from pathlib import Path
 KOK = Path.home() / ".claude" / "plugins" / "cache" / "thedotmack" / "claude-mem"
 EK = 'DISABLE_PROMPT_CACHING:"1"'
 # ...vg({source:"Observer",…,env:i,…}),maxTurns:1} — minified adlar sürümle değişir, yapı aynı kalır
-CAPA = re.compile(r'(\.\.\.\w+\(\{source:"Observer",[^{}]*?env:)(\w+)(,[^{}]*\}\),maxTurns:1\})')
-YAMALI = re.compile(r'\.\.\.\w+\(\{source:"Observer",[^{}]*?env:\{\.\.\.\w+,' + re.escape(EK) + r'\},[^{}]*\}\),maxTurns:1\}')
+CAPA = re.compile(r'(\.\.\.[\w$]+\(\{source:"Observer",[^{}]*?env:)([\w$]+)(,[^{}]*\}\),maxTurns:1\})')
+YAMALI = re.compile(r'\.\.\.[\w$]+\(\{source:"Observer",[^{}]*?env:\{\.\.\.[\w$]+,' + re.escape(EK) + r'\},[^{}]*\}\),maxTurns:1\}')
 
 
 def bul(kok=KOK):

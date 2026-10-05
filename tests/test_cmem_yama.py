@@ -37,6 +37,14 @@ def test_yalniz_tek_atimlik_cagriya_disable_eklenir(tmp_path):
     assert yol.read_bytes() == ORNEK.replace(TEK, YAMALI_TEK).encode("utf-8")
 
 
+def test_dolar_isaretli_minified_ad(tmp_path):
+    # 13.31.0: vg → $g; JS tanımlayıcısında $ geçerli
+    metin = ORNEK.replace("...vg(", "...$g(").replace("env:i,", "env:$i,")
+    yol = kur(tmp_path, metin)
+    assert y.uygula(yol, denetle=ok) == "uygulandı"
+    assert y.uygula(yol, denetle=ok) == "yamalı: dokunulmadı"
+
+
 def test_idempotent(tmp_path):
     yol = kur(tmp_path)
     y.uygula(yol, denetle=ok)
