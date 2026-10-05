@@ -187,6 +187,27 @@ def test_ab_kismi_hata_bugunku_karar_ilk_hata_var(monkeypatch):
     assert not s["karar"].startswith("DUR") and s["b"]["ilk_hata"] == "zaman aşımı" and s["a"]["ilk_hata"] is None
 
 
+# F3-HAZIR: B kolu önce (nex ~182 s/çağrı); B'nin bütün çağrıları hatalıysa A hiç çağrılmaz; çıktı biçimi (kol sırası a, b) aynı.
+def _sirali(sira, ad, tas):
+    return lambda *x, **k: sira.append(ad) or tas(*x, **k)
+
+
+def test_ab_b_hep_hatali_a_cagrilmaz(monkeypatch):
+    sira, b = [], _hatali([HATA, HATA])
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: _sirali(sira, "b", b))
+    s = yon.ab({"model": hafif.MODEL}, "tarama", [("S", "M", SEMA)], KOL_B, _sirali(sira, "a", _tas([])), ENV,
+               lambda ms: [0.8] * len(ms), tavan=8)
+    assert sira == ["b", "b"] and s["karar"].startswith("DUR (kol yanıt vermedi: b — ") and list(s)[:2] == ["a", "b"]
+
+
+def test_ab_b_once_cagrilir_bicim_ayni(monkeypatch):
+    sira = []
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: _sirali(sira, "b", _tas([])))
+    s = yon.ab({"model": hafif.MODEL}, "tarama", [("S", "M", SEMA)], KOL_B, _sirali(sira, "a", _tas([])), ENV,
+               lambda ms: [0.8] * len(ms), tavan=8)
+    assert sira == ["b", "b", "a", "a"] and list(s)[:2] == ["a", "b"] and not s["karar"].startswith("DUR")
+
+
 def test_omni_cagir_vision_bridge_kapali_basligi():
     bas = []
     yon.omni_cagir("m", ENV, lambda u, g, b: bas.append(b) or (200, {"choices": [{"message": {"content": "{}"}}]}, {}))("S", "m", SEMA)
