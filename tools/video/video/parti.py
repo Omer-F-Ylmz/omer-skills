@@ -420,7 +420,7 @@ def _notlar(d, pk):
             *([pk["kare_not"]] if pk.get("kare_not") else []), *(["altyazı yok: kare-yalnız"] if pk.get("kare_yalniz") else [])]
 
 
-def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
+def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None):
     yol = pdir / "durum.json"
     for v, s in d["videolar"].items():  # aşama 2: mevcut ozet/whisper/paket komutları (Jev 0: --istek-tavan 0)
         a = s["paket"]
@@ -441,7 +441,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None):
                 mk = model_kare(n, mt.get("duration") or 0)  # C4 · O11 (5): n aday tabanı, mk model tavanı
                 print(f"paket {v}: kare {n} ({neden})" + (f" · model tavanı {mk}, sınır jeton bütçesi" if mk > n else ""))
                 with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
-                    rc = alt(["paket", "--kare", str(n), "--model-tavan", str(mk), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []), "--", v])
+                    rc = alt(["paket", "--kare", str(n), "--model-tavan", str(mk), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []),
+                              *(["--kuyruk", kuyruk] if kuyruk else []), "--", v])  # B ek: bağlantılı video kuyruğa
                 print(b.getvalue(), end="")
                 if not (onb / v / "paket.md").is_file():
                     from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
@@ -652,7 +653,8 @@ def parti(ns, ctx):
     luna = ctx.get("luna") or (ig.or_cagir(ig.LUNA, ctx["env"]) if ctx["env"].get("OPENROUTER_API_KEY") else None)
     d["ikinci_goz_kapali"] = "--ikinci-goz yok" if d["ikinci_goz"] == "yok" else None if luna else "OPENROUTER_API_KEY yok"
     ikinci = {"kapali": d["ikinci_goz_kapali"], "luna": luna, "jev": ctx.get("jev") or _jev(ctx["env"]), "yargic": ctx.get("cagir") or hafif.cagir}
-    kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"], ikinci)
+    kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"], ikinci,
+                       (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix())
     rc = kos()
     if ns.eylem == "kuyruk" and rc == 0:  # M2d K4: form_red bir kez yeniden → akil → panelde dur
         red = [s for s in d["videolar"].values() if s["tarama"]["durum"] == "form_red"]
