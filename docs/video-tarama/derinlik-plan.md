@@ -375,6 +375,13 @@ parti "tarama" + akil._form_al adim adları; ikinci göz yargıcı yönlendirilm
 ig._post HTTPError gövdesini korur (400 invalid_model sebebi). Canlı doğrulama (ağsız, ücretsiz; PowerShell 5.1):
   `$py = "$(uv tool dir)\video-cli\Scripts\python.exe"; & $py -c 'from video import yonlendir as y; print(y.sec({''model'': ''claude-sonnet-5-5''}, ''tarama'', ''hafif.cagir'', {}))'` → ('hafif.cagir', 'claude-sonnet-5-5')
   `& $py -c 'from video import yonlendir as y; print(y.OMNI_YOL, y.omni_cagir(''gpt-4o-mini'', {''OMNIROUTE_URL'': ''http://127.0.0.1:9''})(''s'', ''m'', {})[''hata''])'` → /v1/chat/completions ölçülemedi: URLError … 10061
+**F1 eki — maliyet (Ömer, 5 Eki; O36 "usd 0" sapması F2'yi geçersiz kılardı):** yonlendir.FIYAT = {model: {"girdi": $/1M, "cikti": $/1M,
+"kaynak": "<url · tarih>"}} boş başlar, değer tahmin edilmez (F1-KURULUM'da sağlayıcı sayfasından). Öncelik: yanıt başlığı
+X-OmniRoute-Response-Cost (openapi.yaml:1173-1176, USD 10 ondalık) > 0 ise o; "0.0000000000" belgede "free/unpriced" (ayırt edilemez) →
+usage × FIYAT; model FIYAT'ta yoksa usd None (0 değil). Defter satırı usd null + "maliyet": "bilinmiyor" (parti._maliyet; akil._form_al +
+parti tarama); _defter toplamı None'u $ tavanına katmaz → o adım yalnız çağrı tavanıyla sınırlanır; panel Denetim: "- maliyet bilinmiyor:
+<adım> · <model>" (tekil). ig._post(basliklar=True) yanıt başlıklarını döner (or_cagir değişmez). test_f1:47 usd 0.0 → None (Ömer kararı).
+O37: kırmızı b06c38b · yeşil (mutasyon: başlık >0→>=0 ve None→0.0 kırmızı).
 **F1-KURULUM (ayrı kurulum maddesi; iş oturumuna karışmaz):** OmniRoute sunucusunu kur + başlat, kimliği ekle (değer basılmaz); sonra
 F1 adaptörüyle tek gerçek çağrı (tavan: en fazla 1 istek, en ucuz model) → sonuç plana.
 **F2 Adım bazlı A/B düzeneği:** aynı girdi, iki model; kalite (kör puan + görev başarısı) + $; karar A1'le düzeltilmiş 24 Eyl tablosuyla.

@@ -41,11 +41,11 @@ def anahtarlar(metin, ad):
     return k | {n for x in re.findall(r"`([^`]+)`", metin) if len(n := tr.normal(x)) >= 3}
 
 
-def _post(url, govde, bas):
+def _post(url, govde, bas, basliklar=False):
     r = urllib.request.Request(url, json.dumps(govde).encode(), bas)
     try:
         with urllib.request.urlopen(r, timeout=600) as y:
-            return y.status, json.loads(y.read())
+            return (y.status, json.loads(y.read())) + ((dict(y.headers.items()),) if basliklar else ())  # F1 eki: OmniRoute maliyet başlığı
     except urllib.error.HTTPError as e:
         try:  # F1: hata gövdesi (ör. 400 invalid_model) sebep olarak korunur
             return e.code, json.loads(e.read())

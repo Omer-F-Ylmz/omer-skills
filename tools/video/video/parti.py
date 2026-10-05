@@ -367,9 +367,15 @@ def _yaz(yol, d):
             time.sleep(0.05 * 2 ** i)
 
 
+def _maliyet(y):
+    """F1 eki: defter usd alanı — taşıyıcı usd None dönerse (fiyat bilinmiyor) 0 yazılmaz."""
+    return {"usd": None, "maliyet": "bilinmiyor"} if "usd" in y and y["usd"] is None else {"usd": y.get("usd") or 0.0}
+
+
 def _defter(pdir):
     s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith(("ikinci_goz", "tavan"))]  # M5: ikinci göz ayrı tavanda · M6 K3: tavan satırı çağrı değil
-    return len(s), sum(x["usd"] for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
+    # F1 eki: usd None (maliyet bilinmiyor) $ tavanına girmez; çağrı tavanı sınırlar
+    return len(s), sum(x["usd"] or 0 for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
 
 
 def _tavan(pdir, d):
@@ -500,7 +506,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
             tr.kayit_ekle(pdir / "defter.jsonl", [{
                 "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": model,
                 "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
-                "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), "usd": y.get("usd") or 0.0, "kare": len(kareler),
+                "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), **_maliyet(y), "kare": len(kareler),
                 "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])
             onceki = y.get("usd") or 0.0
             if y.get("hata"):

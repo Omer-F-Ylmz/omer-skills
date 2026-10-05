@@ -606,7 +606,7 @@ def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIR
         tr.kayit_ekle(pdir / "defter.jsonl", [{
             "zaman": datetime.now().isoformat(timespec="seconds"), "adim": adim, "aday": ad, "videolar": [], "model": model,
             "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
-            "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), "usd": y.get("usd") or 0.0, "kare": 0, "web": y.get("web", 0),
+            "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), **pt._maliyet(y), "kare": 0, "web": y.get("web", 0),
             "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}" if hatalar else "gecti"}])
         if y.get("hata"):
             return "hata", y["hata"]
@@ -828,7 +828,9 @@ def panel(pdir, d, kok, onb=None):
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
           "## Geliştirme önerileri", *[f"- bizde bilgi yok: {pt._h(x)}" for x in d.get("bizde_yok", [])], *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
                                         f"{x['oneri']}: {pt._h(_s10(x['gelistirme_onerisi']))} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
-          "## Denetim", *_denetim_satir(z := denetim(d, kok, onb)), "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
+          "## Denetim", *_denetim_satir(z := denetim(d, kok, onb)),
+          *[f"- maliyet bilinmiyor: {a} · {m}" for a, m in dict.fromkeys((x["adim"], x["model"]) for x in tr.kayit_oku(pdir / "defter.jsonl")
+                                                                              if x.get("maliyet") == "bilinmiyor")], "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
     _yaz(y, L)
     dm = y.parent / "denetim.md"
     _yaz(dm, denetim_md(d, z, karar, onb, dm.is_file() and dm.read_text(encoding="utf-8"), orneklem(kok, d.get("parti", ""))).splitlines())
