@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from video import hafif
+from video import akil, hafif
 from video import parti as pt
 from video import yonlendir as yon
 
@@ -117,3 +117,27 @@ def test_betik_yokla_gorsel_kareye_gore(monkeypatch, tmp_path):
     k.write_bytes(b"x")
     assert _betik(monkeypatch, tmp_path, M, [str(k)], False) == ("hata: dur", [False])
     assert _betik(monkeypatch, tmp_path, M, [str(k)], True) == ("hata: dur", [True])
+
+
+# Madde 1: araç kapısı — araç kullanan adım OmniRoute'a gitmez (sec); ab araçlı adımda B kolu kurmaz, çağrı 0, karar DUR (A-A yok).
+ARAC = ("WebSearch",)
+ROTA = {"arastirma": KOL_B}
+
+
+def test_sec_aracli_adim_yonlenmez(tmp_path, monkeypatch):
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: pytest.fail("araçlı adım OmniRoute'a gitmemeli"))
+    c = object()
+    assert yon.sec({"model": hafif.MODEL, "yonlendirme": ROTA}, "arastirma", c, ENV, araclar=ARAC) == (c, hafif.MODEL)
+    s = []  # _form_al varsayılan araclar=ARASTIRMA_ARAC → bugünkü taşıyıcı
+    akil._form_al(tmp_path, {"model": hafif.MODEL, "butce": 0.5, "tavan": {"usd": 1.0, "cagri": 5}, "yonlendirme": ROTA},
+                  lambda *a, **k: s.append(k["model"]) or {"form": {"a": "b"}, "usage": {}, "usd": 0.0, "sure": 0, "hata": None},
+                  "s", "m", SEMA, "arastirma", "aday", ENV)
+    assert s == [hafif.MODEL]
+
+
+def test_ab_aracli_adim_dur_cagri_yok(monkeypatch):
+    cagri = []
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: cagri.append(m) or _tas(cagri))
+    s = yon.ab({"model": hafif.MODEL}, "arastirma", [("S", "M", SEMA)], KOL_B, _tas(cagri), ENV,
+               lambda ms: cagri.append(ms) or [0.8] * len(ms), tavan=8, araclar=ARAC)
+    assert s == {"karar": "DUR (araç kullanıyor: arastirma)", "yonlendirme": None} and cagri == []

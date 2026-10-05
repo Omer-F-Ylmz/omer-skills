@@ -95,7 +95,7 @@ def _d(**k):
 def test_form_al_adim_ayardan_yonlenir(tmp_path, monkeypatch, o, durum):
     monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: yon.omni_cagir(m, env, gonder=o))
     varsayilan = lambda *a, **k: pytest.fail("yönlendirilen adımda varsayılan taşıyıcı çağrılmamalı")  # noqa: E731
-    sonuc = akil._form_al(tmp_path, _d(), varsayilan, "s", "m", SEMA, "arastirma", "aday", ENV)
+    sonuc = akil._form_al(tmp_path, _d(), varsayilan, "s", "m", SEMA, "arastirma", "aday", ENV, araclar=())
     satir = tr.kayit_oku(tmp_path / "defter.jsonl")
     assert sonuc[0] == durum and len(o.cagrilar) == 1 and satir[0]["model"] == "gpt-4o-mini"
     assert sonuc[1] == FORM if durum == "tamam" else ("HTTP 401" in sonuc[1] and ANAHTAR not in json.dumps(satir))
@@ -146,7 +146,7 @@ def test_maliyet_bilinmeyen_model_none_defter_panel(tmp_path, monkeypatch):
     from test_m11 import _kur
     pdir, d = _kur(tmp_path)
     monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: yon.omni_cagir(m, env, gonder=Omni()))
-    akil._form_al(pdir, {**d, **_d()}, None, "s", "m", SEMA, "arastirma", "aday", ENV)
+    akil._form_al(pdir, {**d, **_d()}, None, "s", "m", SEMA, "arastirma", "aday", ENV, araclar=())
     satir = tr.kayit_oku(pdir / "defter.jsonl")[-1]
     assert satir["usd"] is None and satir["maliyet"] == "bilinmiyor"
     p = akil.panel(pdir, d, tmp_path).read_text(encoding="utf-8")
