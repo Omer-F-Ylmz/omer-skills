@@ -1,5 +1,6 @@
 """F3-HAZIRLIK-2 madde 3: A/B aynı girdi şartı — girdi 4. öğe kareler iki kola birebir aynı gider; omni_cagir her kareyi image_url
 (data:<mime>;base64) parçası yapar; omni_yokla(gorsel=True) görselsiz modelde hata döner (model çağrısı yok). Testler sahte, canlı çağrı 0."""
+import json
 import re
 import sys
 import types
@@ -141,3 +142,49 @@ def test_ab_aracli_adim_dur_cagri_yok(monkeypatch):
     s = yon.ab({"model": hafif.MODEL}, "arastirma", [("S", "M", SEMA)], KOL_B, _tas(cagri), ENV,
                lambda ms: cagri.append(ms) or [0.8] * len(ms), tavan=8, araclar=ARAC)
     assert s == {"karar": "DUR (araç kullanıyor: arastirma)", "yonlendirme": None} and cagri == []
+
+
+# F3-TEŞHİS-2: kolun bütün çağrıları hatalıysa takas yok, puanla yok → DUR (kol yanıt vermedi); kısmi hata bugünkü gibi; kol başı ilk hata.
+HATA = 'HTTP 400: {"message": "Provider returned error gizli-anahtar", "metadata": {"raw": "' + "x" * 200 + '"}}'
+
+
+def _hatali(hatalar):
+    it = iter(hatalar)
+    return lambda *a, **k: {"form": None if (h := next(it)) else {"a": "x"}, "usage": {}, "usd": 0.0, "sure": 0, "hata": h}
+
+
+def test_ab_kol_hep_hatali_dur_puanla_yok(monkeypatch):
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: _hatali([HATA, HATA]))
+    puan = []
+    s = yon.ab({"model": hafif.MODEL}, "tarama", [("S", "M", SEMA)], KOL_B, _tas([]), ENV,
+               lambda ms: puan.append(ms) or [0.8] * len(ms), tavan=8)
+    ilk = HATA.replace("gizli-anahtar", "***")
+    assert s["karar"] == f"DUR (kol yanıt vermedi: b — {ilk[:120]})" and s["yonlendirme"] is None and puan == []
+    assert s["b"]["ilk_hata"] == ilk and s["a"]["ilk_hata"] is None and "gizli-anahtar" not in json.dumps(s)
+
+
+def test_ab_kismi_hata_bugunku_karar_ilk_hata_var(monkeypatch):
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: _hatali([None, "zaman aşımı"]))
+    s = yon.ab({"model": hafif.MODEL}, "tarama", [("S", "M", SEMA)], KOL_B, _tas([]), ENV, lambda ms: [0.8] * len(ms), tavan=8)
+    assert not s["karar"].startswith("DUR") and s["b"]["ilk_hata"] == "zaman aşımı" and s["a"]["ilk_hata"] is None
+
+
+def test_omni_cagir_vision_bridge_kapali_basligi():
+    bas = []
+    yon.omni_cagir("m", ENV, lambda u, g, b: bas.append(b) or (200, {"choices": [{"message": {"content": "{}"}}]}, {}))("S", "m", SEMA)
+    assert bas[0]["x-omniroute-disabled-guardrails"] == "vision-bridge"
+
+
+def test_betik_kol_satiri_ilk_hata(monkeypatch, tmp_path, capsys):
+    paket = tmp_path / "paket.md"
+    paket.write_text("p", encoding="utf-8")
+    for k, v in {"AB_VIDEO": "v1", "AB_PAKET": str(paket), "AB_MODEL": M}.items():
+        monkeypatch.setenv(k, v)
+    monkeypatch.setattr(yon, "omni_yokla", lambda m, env, gorsel=False: None)
+    monkeypatch.setattr(hafif, "GORSEL", False)
+    monkeypatch.setattr(yon, "ab", lambda *a, **k: {"karar": "DUR (kol yanıt vermedi: b — HTTP 400)", "yonlendirme": None,
+                                                    "a": {"model": "A", "ilk_hata": None}, "b": {"model": M, "ilk_hata": "HTTP 400"}})
+    monkeypatch.setitem(sys.modules, "jev", types.SimpleNamespace(cekirdek=types.SimpleNamespace(Tasiyici=lambda **k: None)))
+    exec(re.search(r"@'\r?\n(.*?)\r?\n'@", BETIK.read_text(encoding="utf-8"), re.S)[1], {"__name__": "__main__"})
+    satir = [l for l in capsys.readouterr().out.splitlines() if l.startswith("b ")]
+    assert satir == [f"b {M} ilk_hata HTTP 400"]
