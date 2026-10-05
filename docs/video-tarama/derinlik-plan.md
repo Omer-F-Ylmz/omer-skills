@@ -490,6 +490,16 @@ Adım 2 — 1 doğrudan OpenRouter çağrısı (omni_cagir gövdesi + usage.incl
 döngüyle 27): HTTP 200, sağlayıcı Together, _denet temiz, usage 15187/17607 token, usage.cost $0.0256845; liste fiyatıyla hesap
 $0.0423 (+%64.7) → FIYAT Together uç fiyatı 0.3/1.2 (usage.cost'a tam eşit). ling/nex çağrılmadı. omni_yokla(gorsel=True) canlı None.
 Kırmızı 7f4bb9d · yeşil 28d4e4e. Not: ~ takma ad başka modele/sağlayıcıya dönerse fiyat değişir; A/B ilk_hata/usd bunu gösterir.
+O55 (F3-MODEL-2; sayaç 0'dan elle): O54 seçimi GEÇERSİZ — takma ad (kol sabit değil, O50 ilkesi) + yanlış paket (86HM0RUWhCk 9 kare
+döngüyle 27; gerçek paket .video-cache\b2QkhmQ0sT0, 27 kare diskte) + girdi-fiyatı sıralaması (çıktı ağırlığı yok sayılmış).
+Adım 1 (4 anahtarsız GET, model 0): ~deepseek/deepseek-flash-latest O54 yanıt "model" alanı kayıtlı değil → listeden: Flash ailesinin
+en yenisi görselli deepseek/deepseek-v4.1-flash (0.3/1.2 = O54 Together usage.cost) → süzgeçten geçer, tahmini $0.00936 (sıra dışı).
+Sıralama girdi×15.2k + çıktı×4k (liste): nex-n2.5-mini $0.00078 (tek uç Nex AGI 0.025/0.1) · qwen3.7-flash $0.00098 (Alibaba 0.03/0.13)
+· gemma-3-4b-it $0.00116 (DeepInfra 0.05/0.1 — O53 4-kare sınırı riski). :batch varyantları senkron kol değil sayılıp dışarıda.
+Adım 2 (1 doğrudan OpenRouter çağrısı): nex HTTP 200 · Nex AGI · model nex-agi/nex-n2.5-mini · _denet 0 · 11440/40169 token
+(reasoning 34426) · usage.cost $0.0043029 = FIYAT (fark 0) · 182 s. qwen/gemma çağrılmadı. omni_yokla(gorsel=True) canlı None.
+Kod: ab-canli kol sabit değil kapısı (~ · :free · openrouter/free → exit 1, çağrı 0) · FIYAT alias kaydı + testi kaldırıldı (Ömer onaylı),
+nex kaynağı uç fiyatına. Kırmızı 67e21ee · yeşil ff339c5. Not: çıktı tahmini 4k, ölçülen 40k (reasoning) — A/B maliyeti buna göre.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
