@@ -10,6 +10,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from . import departman as dp
+from . import metin as mt
 from . import parti as pt
 from . import tarama as tr
 from . import uygula as uy
@@ -717,7 +718,7 @@ def panel(pdir, d, kok, onb=None):
     ky = Path(kok) / "docs" / "kurulumlar" / "kayit.jsonl"  # M11 K1a: aynı adın en son Ömer kararı; RED ön-doldurulmaz
     onceki = {_tekil(tr.normal(x["ad"])): m[1] for x in (tr.kayit_oku(ky) if ky.is_file() else [])
               if x.get("ad") and (m := re.match(r"(AL|ERTELE|DENE|ÖĞREN|UYARLA|ZATEN VAR) \(Ömer", str(x.get("karar", ""))))}
-    on, bekleyen, yeni_on, takma = [], 0, {}, set()
+    on, bekleyen, yeni_on, takma, karar = [], 0, {}, set(), {}
     mevcut =[p.stem for p in (Path(kok) / "docs" / "kurulumlar" / "adaylar").glob("*.md")]
     L = [f"# Karar paneli — {d['parti']}", "", "Ömer sütununa AL / RED / ERTELE ya da karar (DENE · ÖĞREN · UYARLA · ZATEN VAR) yaz; boş satır dokunulmaz → `video panel uygula <bu dosya>`.", "",
          "| aday | tür | video | lisans | güvenlik | önerilen | gerekçe | Ömer |", "|---|---|---|---|---|---|---|---|"]
@@ -776,6 +777,7 @@ def panel(pdir, d, kok, onb=None):
         g += f" · alt tür çakışması (kurulu > {alt})" if cakisma else ""
         g += f" · paket içi: {a['paket_yol']}" if a.get("paket_yol") else ""
         ks, eksik = _kapsam(k, a, al, m, gv, d)
+        karar[k] = (o, g, eksik)  # E1 denetim.md
         kapsam.append(ks)
         if eksik and not any(x.startswith(f"- {k}:") for x in kalan):  # DERİNLİK-1 R5
             kalan.append(f"- {k}: kapsam eksik ({', '.join(eksik)})")
@@ -825,8 +827,9 @@ def panel(pdir, d, kok, onb=None):
           "## Anatomi bekliyor", *([f"- {v}" for v in d.get("anatomi_bekliyor", [])] or ["- yok"]),
           "## Geliştirme önerileri", *[f"- bizde bilgi yok: {pt._h(x)}" for x in d.get("bizde_yok", [])], *([f"- {pt._h(x['aday'])} · video: {pt._h(x['videodaki_kullanim'])} · bizde: {pt._h(x['bizdeki_durum'])} · fark: {pt._h(x['fark'])} · "
                                         f"{x['oneri']}: {pt._h(_s10(x['gelistirme_onerisi']))} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
-          "## Denetim", *_denetim_satir(denetim(d, kok, onb)), "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
+          "## Denetim", *_denetim_satir(z := denetim(d, kok, onb)), "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
     _yaz(y, L)
+    _yaz(y.parent / "denetim.md", denetim_md(d, z, karar, onb).splitlines())
     return y
 
 
@@ -1024,7 +1027,7 @@ IZ_TARIH = "2026-10-05"  # ayar · D3 eki: bu tarihte/sonra açılan partide İz
 
 def denetim(d, kok, onb=None):
     """D3: tamamlanan raporların ## İz'inden bahis · bağlanan · aday değil; D2 kacan_video → KAÇAN? (engelleyen) · düşük güven; İz yok."""
-    z, soz = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "iz_yok": [], "konusma_yok": [], "erisilemedi": []}, tr.kacan_sozluk(kok)
+    z, soz = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "degil": [], "iz_yok": [], "konusma_yok": [], "erisilemedi": []}, tr.kacan_sozluk(kok)
     for v, s in d.get("videolar", {}).items():
         if onb and (kj := Path(onb) / v / "kapsam.json").is_file():  # B2 (Ömer, O21): bilgi; kapat'ı durdurmaz
             z["erisilemedi"] += [(v, u, x) for u, x in json.loads(kj.read_text(encoding="utf-8")).get("erisilemedi", [])]
@@ -1034,6 +1037,7 @@ def denetim(d, kok, onb=None):
             continue
         r = Path(t["cikti"]).read_text(encoding="utf-8")
         iz = (tr.tablolar(tr.bolum(r, "İz")) or [[None, []]])[0][1]
+        z["degil"] += [(v, *x[:3]) for x in iz if len(x) > 2 and x[2].casefold().startswith("aday değil")]
         degil = sum(1 for x in iz if len(x) > 2 and x[2].casefold().startswith("aday değil"))
         z["bahis"], z["baglanan"], z["aday_degil"] = z["bahis"] + len(iz), z["baglanan"] + len(iz) - degil, z["aday_degil"] + degil
         if not iz and d.get("tarih", "") >= IZ_TARIH:
@@ -1042,6 +1046,52 @@ def denetim(d, kok, onb=None):
         z["kacan"] += [(v, k, x) for k, x in e]
         z["dusuk"] += [(v, k, x) for k, x in u]
     return z
+
+
+YT = "https://www.youtube.com/watch?v="
+DENETIM_SATIR = 150  # ayar · E1 denetim.md tavanı
+
+
+def _yt(v, z=None):
+    return YT + v + (f"&t={int(mt.sn(z))}s" if z else "")
+
+
+def denetim_md(d, z, karar, onb=None):
+    """E1: Desktop ikinci bakışı için çağrısız liste (tam URL'li). karar: panel {aday: (önerilen, gerekçe, kapsam eksiği)}.
+    Risk puanı = sinyal sayısı; rastgele 3 parti id tohumlu (ilk 5 ve ONARIM dışı)."""
+    import random
+    ad = d.get("adaylar", {})
+
+    def url(k):
+        a = ad.get(k, {})
+        r = a.get("repo") or ""
+        return " · ".join(([f"https://github.com/{r}"] if re.fullmatch(r"[\w.-]+/[\w.-]+", r) else [])
+                          + [_yt(v, x.get("zaman")) for v, x in (a.get("videolar") or {}).items()])
+
+    def sinyal(k):
+        o, _, eksik = karar[k]
+        a = ad.get(k, {})
+        return [n for n, var in (("KUR önerisi", o in ("T1", "T2", "UYARLA")), ("güvenlik", re.search(r"(HIGH|CRITICAL)\D*[1-9]", str(a.get("guvenlik") or ""))),
+                                 ("kaynak farkı", a.get("kaynak")), ("kapsam eksiği", eksik), ("çözülmedi", o == "ONARIM BEKLİYOR")) if var]
+    onarim = [k for k in karar if karar[k][0] == "ONARIM BEKLİYOR"]
+    risk = sorted(karar, key=lambda k: (-len(sinyal(k)), k))[:5]
+    kalan = sorted(set(karar) - set(risk) - set(onarim))
+    inc = []
+    for v in d.get("videolar", {}):
+        if onb and (kj := Path(onb) / v / "kapsam.json").is_file() and (i := json.loads(kj.read_text(encoding="utf-8")).get("incelenmedi")):
+            inc.append(f"- {v} · {len(i)} an · {_yt(v, str(int(min(t for t, _ in i))))}")
+    b = lambda ad_, s: [f"## {ad_}", *(s or ["- yok"])]  # noqa: E731
+    L = [f"# Denetim — {d.get('parti', '')}", "Desktop: her satırdaki adresleri aç; bulguyu sondaki ## Desktop'a yaz.",
+         *b("KAÇAN?", [f"- {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["kacan"]]
+              + [f"- (düşük güven) {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["dusuk"]]),
+         *b("aday değil", [f"- {v} · {pt._h(n)} · {pt._h(s)} · {_yt(v, (m := tr.ZAMAN.search(q)) and m.group())}" for v, q, n, s in z.get("degil", [])]),
+         *b("ONARIM BEKLİYOR", [f"- {k} · {pt._h(karar[k][1])} · {url(k)}" for k in onarim]),
+         *b("İncelenmedi (C4)", inc),
+         *b("Risk puanı en yüksek 5", [f"- {k} · puan {len(s := sinyal(k))} ({', '.join(s) or '-'}) · {url(k)}" for k in risk]),
+         *b(f"Rastgele 3 (tohum {d.get('parti', '')})", [f"- {k} · {url(k)}" for k in random.Random(d.get("parti", "")).sample(kalan, min(3, len(kalan)))])]
+    if len(L) > DENETIM_SATIR:
+        L = L[:DENETIM_SATIR - 1] + [f"… {len(L) - DENETIM_SATIR + 1} satır kesildi (tavan {DENETIM_SATIR})"]
+    return "\n".join(L) + "\n"
 
 
 def _denetim_satir(z):
