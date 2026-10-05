@@ -322,6 +322,13 @@ from video import akil as a, cli, uygula as u; p=P(''.kos/2026-10-03-short''); d
 m=P(u.KOK)/''docs/kurulumlar/parti''/d[''parti'']/''panel.md''; y=m.read_bytes(); a.panel(p,d,u.KOK,cli.KOK); m.write_bytes(y)'` (tek satır, repo kökünde).
 **E2 Geri dönüş:** denetim.md sonunda "## Desktop" şablonu; Ömer Desktop'un verdiği satırları buraya yapıştırır; `video parti
 denetim-isle <id>` bunları `docs/kurulumlar/desktop-denetim.jsonl`'a ve ilgili aday dosyasına işler. Test.
+E2 satır biçimi (Ömer kararı 5 Eki): şablon satırı örnekle gösterir — tek satır, " · " ayraçlı: `- <aday ya da video id> · <tür> · <kanıt
+URL> · <açıklama>`; tür sabit listeden (ayar akil.DESKTOP_TUR): KAÇAN-doğru · KAÇAN-yanlış · aday-değil-itiraz · kötü-yan · onarım ·
+güçlendirme · not. Okuyucu hoşgörülü: baş/son boşluk, baştaki "- " isteğe bağlı, büyük/küçük harf, tür adında Türkçe/ASCII farkı
+(kotu-yan = kötü-yan). jsonl kaydı: tarih · parti · aday · tur · url · aciklama · satir; aday dosyasında "## Desktop denetimi" altına
+"- <tarih> · <parti> · <tür> · <url> · <açıklama>" (video id ise yalnız jsonl). Sessiz düşme yasak: okunamayan satır (ayraçsız/eksik alan ·
+bilinmeyen tür · parti'de olmayan aday/video) → çıktıda ve jsonl'de "okunamadı: <satır> (<sebep>)", çıkış kodu 1; aynı (parti, satır) jsonl'de
+varsa ikinci kez işlenmez. Şablon satırları (sabit) atlanır; panel denetim.md'yi yeniden yazarken ## Desktop altındaki satırlar korunur.
 **E3 Uyarlamalı örneklem:** son 3 partide Desktop bulgusu 0 ise rastgele 3 → 1; her bulgu +3 (en fazla 6). KAÇAN?, "aday değil", "ONARIM
 BEKLİYOR" ve risk puanı en yüksek 5 her zaman kalır. Test.
 
