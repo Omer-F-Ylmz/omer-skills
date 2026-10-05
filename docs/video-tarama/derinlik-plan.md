@@ -261,6 +261,16 @@ repo + aynı commit bütün partilerde bir kez incelenir (önbellek). Çıktı: 
 doldurulur, "kod yok" yazılır. Test.
 B5 aday notu (5 Eki): semgrep (çevrimdışı: --metrics=off --disable-version-check) — ilk canlı partide grep yanlış eşleşmesi yüksekse
 geçilir; ölçüm: aday başına yanlış eşleşme sayısı.
+B5 Ömer kararı (5 Eki, test_24e.py:37): seçenek (b) — test_24e değişmez; kurulu araçta B5 çıktısı on.md'ye değil
+.kos/<video>/<ad>/mekanizma.md'ye yazılır ("ZATEN VAR, araştırıcı yok" akışı aynen, model çağrısı yok). Tüketici: akil.gelistir
+(ZATEN VAR karşılaştırması) bu dosyayı <veri kaynak="bizde"> bloğuna ekler (test_gelistir_mekanizma_okur). A6–A8 notu: parti akışında
+kurulu aday için `video on` koşmuyor (akil._on yalnız araştırılan + repo'lu adayda) → mekanizma.md parti içinde üretilmez; üretici bağlantısı A6'da.
+B5 düzeltmesi (Ömer kararı 5 Eki): KONUM taraması yalnız kod dosyalarında — ayar KOD_UZANTI (.js .mjs .cjs .ts .tsx .py .sh .ps1 .cmd
+.bat) + KOD_AD (hooks.json · settings*.json · plugin.json · .mcp.json); .md .txt .rst vb. belge taranmaz (README linkleri "ağ"ın satır
+sınırını doldurup koddaki ağ çağrılarını gizliyordu). Yan etki: SKILL.md frontmatter allowed-tools artık konumlanmaz (izin kapsamı
+yalnız settings/plugin json). Test: README 30 URL + a.js 1 fetch → ağda yalnız a.js satırı.
+B5 canlı doğrulama (ücretsiz, ağsız; zaten klonlu repo, ilk 20 satır):
+`& $py -c 'import tempfile; from pathlib import Path; from video import uygula as uy, cli; print(chr(10).join(uy.mekanizma({''kok'': Path(tempfile.gettempdir()), ''kos'': cli.kos}, Path(''C:/Projeler/omer-skills/tools/jev''), ''omer/jev'').splitlines()[:20]))'`
 
 ## E — DESKTOP İKİNCİ BAKIŞ (hedefli, uyarlamalı)
 **E1 Çağrısız risk puanı** (bahis/aday başına): KUR önerisi · güvenlik bulgusu · fork/kaynak farkı · kapsam eksikleri · "çözülmedi" kötü
