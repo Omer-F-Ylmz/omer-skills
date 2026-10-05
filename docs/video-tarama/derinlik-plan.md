@@ -451,6 +451,9 @@ F3-HAZIRLIK (O49, 5 Eki; model çağrısı 0, kod/test yok — keşif sayaç 40'
   capabilities.vision (ling-3.0-flash-vl True, mistral-nemo yok; input_modalities alanı da var) → omni_yokla(..., gorsel=False) kwarg (test_f3
   1. test görsel alansız modelle None bekliyor), betik gorsel=True → "hata: model görsel girdi desteklemiyor: <m>", çağrı 0.
 - AB_MODEL önerisi openrouter/inclusionai/ling-3.0-flash-vl (OmniRoute'ta var, vision True); madde 3 yeşilinden önce koşulmaz.
+Ömer kararları (5 Eki): madde 1 test değişimi onaylı (test_f1.py:95 ve :143'e araclar=()) · madde 2 yorumu doğru (ücretsiz = anahtarsız
+liste); openrouter/free ve :free önizleme modelleri A/B'de kullanılmaz (kol sabit değil) · AB_MODEL = openrouter/inclusionai/ling-3.0-flash-vl.
+F3-HAZIRLIK-2 sırası: 3 (aynı kareler + görsel ön kontrol) → 2 (FIYAT gemma-3-4b-it + görselsiz yorum) → 1 (araç kapısı).
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
