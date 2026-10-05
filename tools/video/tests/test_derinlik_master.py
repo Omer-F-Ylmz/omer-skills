@@ -263,3 +263,16 @@ def test_a4b_jev_secimi_mevcut_esdeger_yolu_defterde(tmp_path):
     b = ak._benzer(a, json.loads(ev.read_text(encoding="utf-8")), sec=ak._benzer_sec(ctx, pdir, json.loads(ev.read_text(encoding="utf-8"))))
     assert b[0] == "cso" and a["benzer_jev"] == "cso" and len(jev) == 1 and "yok" in jev[0][1]["es"]["criteria"]
     assert [x["adim"] for x in pt.tr.kayit_oku(pdir / "defter.jsonl")] == ["benzer_jev"]
+
+
+# A6(a) (=Y4): eski aday.md'de lisans:/son_commit: satırı yoksa alan bloğunun sonuna (ilk '#' satırından önce) eklenir; mevcut içerik değişmez
+def test_a6a_eksik_satir_alan_blogu_sonuna_eklenir(tmp_path):
+    from video import akil as ak
+    y = ak._aday_yol(tmp_path, "stop-slop")
+    y.parent.mkdir(parents=True)
+    eski = "# stop-slop\nrepo: o/stop-slop\ntur: skill\n\n## Ne yapar\nmetin\n"
+    y.write_text(eski, encoding="utf-8", newline="")
+    ak._eksik_tamamla({"gh": _gh_a2(), "uyku": _uyku()}, tmp_path, "stop-slop", {"repo": "o/stop-slop"})
+    m = y.read_text(encoding="utf-8")
+    assert m == "# stop-slop\nrepo: o/stop-slop\ntur: skill\nlisans: Apache-2.0\nson_commit: 2026-09-30\n\n## Ne yapar\nmetin\n"
+    assert ak.uy.alanlar(m)["son_commit"] == "2026-09-30"  # panelin okuduğu blokta
