@@ -418,6 +418,12 @@ ruvnet/ruflo); sürüm numarasıyla kurulu plugin'de tag → commit → tarih (d
 çağrısı var). Ömer notu (4 Eki): eski aday dosyasında `lisans:`/`son_commit:` satırı yoksa eklenir, mevcut içerik değişmez
 (A2'nin `_eksik_tamamla` ponytail notu kapanır). Konum: alan bloğunun sonu (ilk `#`/`##` satırından önce) — uy.alanlar() yalnız o bloğu
 okur; dosya sonuna eklenen satır panelde görünmez. Test.
+O41: A6(a) kırmızı b9ec6d2 · yeşil 35e2474 (_eksik_tamamla satır yoksa alan bloğu sonuna, boş satırların üstüne; 766) · A6(b) kırmızı fe1d730 ·
+yeşil e725acb (_guncellik etiket → repos/{r}/commits/{etiket} → tarih; kırılırsa ' · etiket X tarihi alınamadı (gh: …)'; 767). Canlı çağrı 0.
+A6(c) açık (sayaç 40'ta başlatılmadı): kurulu adayda parti akışında mekanizma.md (cli.py:1138 üretici · akil._on :674 kurulu adayda koşmuyor).
+Canlı doğrulama (ücretsiz, model yok; PowerShell 5.1):
+1) `$py = "$(uv tool dir)ideo-cli\Scripts\python.exe"; & $py -c 'from video import akil; print(akil.__file__)'` → repo akil.py (ağsız, denendi).
+2) `$r = 'anthropics/claude-code'; $t = gh api "repos/$r/releases/latest" --jq '.tag_name'; gh api "repos/$r/commits/$t" --jq '.commit.committer.date'` → tarih (A6(b) zinciri, 2 REST).
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).
