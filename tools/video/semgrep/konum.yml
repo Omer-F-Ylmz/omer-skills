@@ -1,0 +1,98 @@
+# B5 KONUM (semgrep yolu): message = kategori adı (uygula.KONUM ile aynı). Dize yalnız tam değer olarak eşleşir → belge/yardım
+# dizesi ve yorum eşleşmez. Diller: python, javascript, typescript; geri kalan dosyalar grep yolunda.
+rules:
+  - id: oturum-basi-enjeksiyon
+    message: oturum başı enjeksiyon
+    severity: INFO
+    languages: [python, javascript, typescript]
+    pattern: '"=~/^(SessionStart|UserPromptSubmit|additionalContext)$/"'
+  - id: hook
+    message: hook
+    severity: INFO
+    languages: [python, javascript, typescript]
+    pattern: '"=~/^(PreToolUse|PostToolUse|SubagentStop|hooks)$/"'
+  - id: surec-py
+    message: süreç
+    severity: INFO
+    languages: [python]
+    pattern-either:
+      - pattern: subprocess.$F(...)
+      - pattern: os.system(...)
+      - pattern: os.popen(...)
+      - pattern: Popen(...)
+  - id: surec-js
+    message: süreç
+    severity: INFO
+    languages: [javascript, typescript]
+    pattern-either:
+      - pattern: '"=~/^(node:)?child_process$/"'
+      - pattern: spawn(...)
+      - pattern: execSync(...)
+      - pattern: $CP.spawn(...)
+      - pattern: $CP.execSync(...)
+  - id: ag-py
+    message: ağ
+    severity: INFO
+    languages: [python]
+    pattern-either:
+      - pattern: requests.$F(...)
+      - pattern: urllib.request.$F(...)
+      - pattern: httpx.$F(...)
+      - pattern: aiohttp.$F(...)
+  - id: ag-js
+    message: ağ
+    severity: INFO
+    languages: [javascript, typescript]
+    pattern-either:
+      - pattern: fetch(...)
+      - pattern: axios(...)
+      - pattern: axios.$F(...)
+      - pattern: http.get(...)
+      - pattern: http.request(...)
+      - pattern: https.get(...)
+      - pattern: https.request(...)
+      - pattern: new WebSocket(...)
+  - id: izin-kapsami
+    message: izin kapsamı
+    severity: INFO
+    languages: [python, javascript, typescript]
+    pattern: '"=~/^(--?dangerously[\w-]*|allowed-tools|allowedTools|permissions|permissionMode|bypassPermissions)$/"'
+  - id: ayar-okuma-py
+    message: ayar okuma
+    severity: INFO
+    languages: [python]
+    pattern-either:
+      - pattern: os.environ
+      - pattern: os.getenv(...)
+      - pattern: '"=~/^\S*settings(\.local)?\.json$/"'
+  - id: ayar-okuma-js
+    message: ayar okuma
+    severity: INFO
+    languages: [javascript, typescript]
+    pattern-either:
+      - pattern: process.env
+      - pattern: '"=~/^\S*settings(\.local)?\.json$/"'
+  - id: agir-dongu-py
+    message: ağır döngü
+    severity: INFO
+    languages: [python]
+    pattern-either:
+      - pattern: |
+          while True:
+              ...
+      - pattern: |
+          while 1:
+              ...
+  - id: agir-dongu-js
+    message: ağır döngü
+    severity: INFO
+    languages: [javascript, typescript]
+    pattern-either:
+      - pattern: while (true) { ... }
+      - pattern: for (;;) { ... }
+      - pattern: setInterval(...)
+  - id: uc-noktalar
+    message: uç noktalar
+    severity: INFO
+    languages: [python, javascript, typescript]
+    pattern: '"=~/^https?:\/\/\S+$/"'

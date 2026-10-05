@@ -448,7 +448,10 @@ KONUM = (("oturum başı enjeksiyon", r"SessionStart|UserPromptSubmit|additional
                 r"|\b(curl|wget)\s"),  # 5 Eki: yalnız çağrı kalıbı, çıplak URL değil
          ("izin kapsamı", r"allowed-tools|allowedTools|permissions|dangerously|bypassPermissions"),
          ("ayar okuma", r"os\.environ|process\.env|getenv|settings(\.local)?\.json"),
-         ("ağır döngü", r"while\s*\(?\s*(True|true|1)\b|setInterval|for\s*\(\s*;\s*;"))  # grep yolu; semgrep adayı planda
+         ("ağır döngü", r"while\s*\(?\s*(True|true|1)\b|setInterval|for\s*\(\s*;\s*;"),
+         ("uç noktalar", r"[\"']https?://[^\s\"'<>]+[\"']"))  # grep yolu (semgrep yoksa ve semgrep dili olmayan dosyalar)
+SEMGREP_KURAL = Path(__file__).resolve().parent.parent / "semgrep"  # B5: KONUM'un semgrep kuralları (message = kategori)
+SEMGREP_UZANTI = (".py", ".js", ".mjs", ".cjs", ".ts", ".tsx")  # semgrep kurallarının dilleri; geri kalan grep yolunda
 KOD_UZANTI = (".js", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".sh", ".ps1", ".cmd", ".bat")  # ayar · 5 Eki: belge (.md .txt .rst) taranmaz
 KOD_AD = ("hooks.json", "settings*.json", "plugin.json", ".mcp.json")
 KOD_DISLA = (".venv", "venv", "env", "node_modules", "site-packages", "dist", "build", "__pycache__", ".tox", "vendor", ".git")  # ayar
@@ -469,11 +472,28 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
     on = ctx["kok"] / "getir" / "mekanizma" / f"{ad.replace('/', '__')}@{sha}.md"
     if sha and on.is_file():
         return on.read_text(encoding="utf-8")
-    bul, boy, sayi = {k: [] for k, _ in KONUM}, {}, {}
+    bul, boy, sayi, gor = {k: [] for k, _ in KONUM}, {}, {}, set()
+
+    def ekle(r, n, s, k, b):
+        if k in bul and (r, n, k) not in gor:
+            gor.add((r, n, k))
+            sayi[r], boy[r] = sayi.get(r, 0) + 1, b
+            if len(bul[k]) < MEKANIZMA["satir"]:
+                bul[k].append(f"- {r}:{n} `{s.strip()[:120]}`")
+    rc, out, err = _kos(ctx, ["semgrep", "scan", "--config", SEMGREP_KURAL, "--json", "--metrics=off", "--disable-version-check", "--quiet",
+                              *(f"--exclude={d}" for d in KOD_DISLA + TEST_DISLA), yol])  # çevrimdışı; dize/yorum eşleşmez
+    try:
+        sg, neden = (None, (err or b"").decode("utf-8", "replace").strip()[:200]) if rc else (json.loads(out)["results"], "")
+    except (ValueError, KeyError, TypeError):
+        sg, neden = None, "JSON değil"
+    for x in sorted(sg or [], key=lambda x: (x["path"], x["start"]["line"])):
+        f, n = yol / x["path"], x["start"]["line"]  # mutlak yol / ile aynen kalır
+        s = (b := f.read_bytes()).decode("utf-8", "replace").splitlines()
+        ekle(f.relative_to(yol).as_posix(), n, s[n - 1] if n <= len(s) else "", x["extra"]["message"], len(b))
     for f in sorted(p for p in yol.rglob("*") if p.is_file() and not set(p.relative_to(yol).parts[:-1]) & set(KOD_DISLA)
                     and not any(fnmatch.fnmatch(x, d) for x in p.relative_to(yol).parts for d in TEST_DISLA)
                     and (p.suffix.lower() in KOD_UZANTI + (".md",) or any(fnmatch.fnmatch(p.name, d) for d in KOD_AD))):
-        if f.stat().st_size > 1 << 20 or b"\0" in (b := f.read_bytes())[:1024]:  # ponytail: 1 MB üstü/ikili atlanır
+        if sg is not None and f.suffix.lower() in SEMGREP_UZANTI or f.stat().st_size > 1 << 20 or b"\0" in (b := f.read_bytes())[:1024]:  # ponytail: 1 MB üstü/ikili atlanır
             continue
         r = f.relative_to(yol).as_posix()
         satirlar, desen = list(enumerate(b.decode("utf-8", "replace").splitlines(), 1)), KONUM
@@ -493,15 +513,13 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
                 continue
             for k, d in desen:
                 if re.search(d, s):
-                    sayi[r], boy[r] = sayi.get(r, 0) + 1, len(b)
-                    if len(bul[k]) < MEKANIZMA["satir"]:
-                        bul[k].append(f"- {r}:{n} `{s.strip()[:120]}`")
+                    ekle(r, n, s, k, len(b))
     ilgili, top = [], 0
     for r in sorted(boy, key=lambda r: (-sayi[r], boy[r])):
         if top + boy[r] <= MEKANIZMA["kb"] * 1024:
             ilgili.append(f"- {r} ({boy[r]} B)")
             top += boy[r]
-    t = (bas + f"kaynak: {kaynak} · {yol.as_posix()} @ {sha or 'commit yok'}\n"
+    t = (bas + f"kaynak: {kaynak} · {yol.as_posix()} @ {sha or 'commit yok'}\n" + (f"semgrep yok: {neden} · grep yolu\n" if sg is None else "")
          + "".join(f"### {k}\n" + ("\n".join(v) or "- yok") + "\n" for k, v in bul.items())
          + f"### ilgili dosyalar (modele gider, ≤ {MEKANIZMA['kb']} KB)\n" + ("\n".join(ilgili) or "- yok") + "\n"
          + "### A5'e\n- kötü yan: neden (dosya:satır) → onarım yeri (ayar · sarmalayıcı · kendi sürüm)\n- iyi yan: nasıl güçlenir\n")
