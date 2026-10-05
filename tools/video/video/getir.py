@@ -3,6 +3,7 @@ repo: gh api ile README ilk 120 satır · ağaç derinlik 2 · istenen dosyanın
 import hashlib
 import html
 import json
+from fnmatch import fnmatchcase
 import os
 import re
 import time
@@ -179,7 +180,8 @@ def yapimci(ad, kos, hata):
     return "\n".join(out) + "\n"
 
 
-WEB = {"sorgu": 5, "sonuc": 3, "ozet": 600, "brave_aralik": 1}  # ayar · B4: aday başına en fazla N sorgu · sorgu başına sonuç · Highlights özeti (karakter) · B4 eki: brave istekleri arası sn
+WEB = {"sorgu": 5, "sonuc": 3, "ozet": 600, "brave_aralik": 1, "fazla": 3}  # ayar · B4: aday başına en fazla N sorgu · sorgu başına sonuç · Highlights özeti (karakter) · B4 eki: brave istekleri arası sn · düzeltme-2: süzgeç payı (fazla istenen)
+AYNA = ("github.com/{repo}", "sourceforge.net/projects/*.mirror", "gitee.com/*/{ad}", "gitcode.com/*/{ad}", "gitcode.net/*/{ad}")  # düzeltme-2: repo'nun kendi sayfası + aynalar (alt yollar dahil) atılır
 BRAVE = "https://api.search.brave.com/res/v1/web/search"  # resmi belge: api-dashboard.search.brave.com (GET, X-Subscription-Token)
 _bson = [float("-inf")]
 SORGU = ("{ad} review", "{ad} vs alternatives comparison", "{ad} known issues problems", "{ad} alternative",
@@ -222,7 +224,7 @@ def _brave(q):
         return [], "BRAVE_API_KEY yok"
     uyku(max(0.0, _bson[0] + WEB["brave_aralik"] - saat()))
     _bson[0] = saat()
-    p = urlencode({"q": q, "count": WEB["sonuc"], "extra_snippets": "true", "text_decorations": "false"})
+    p = urlencode({"q": q, "count": WEB["sonuc"] + WEB["fazla"], "extra_snippets": "true", "text_decorations": "false"})
     try:
         with urllib.request.urlopen(urllib.request.Request(f"{BRAVE}?{p}", headers={"Accept": "application/json", "X-Subscription-Token": k}),
                                     timeout=30) as r:
@@ -237,11 +239,12 @@ def _brave(q):
 
 def web_ara(ad, kos, hata, repo=None, tur=None):
     """B4: genel web araması (Agent Reach yolu: mcporter exa.web_search_exa), web istekleri arası ≥2 sn. Forum/sosyal 'düşük güven';
-    aynı URL bir kez; sorgu hatası adayı düşürmez → `hata`ya (istek, sebep). Sorgu konusu: repo ('owner/repo') ya da 'ad tür' (belirsizlik)."""
+    aynı URL bir kez; sorgu hatası adayı düşürmez → `hata`ya (istek, sebep). Sorgu konusu 'ad tür'; repo yalnız süzgeç (AYNA)."""
     out, gor = ["## Web araması", "inceleme · karşılaştırma · alternatif · bilinen sorun · yazarın duyuru/blog yazısı; forum/sosyal → düşük güven"], set()
-    for q in (s.format(ad=repo or " ".join(filter(None, (ad, tur)))) for s in SORGU[:WEB["sorgu"]]):
+    at = [p.format(repo=repo.lower(), ad=repo.lower().rpartition("/")[2]) for p in AYNA] if repo else []
+    for q in (s.format(ad=" ".join(filter(None, (ad, tur)))) for s in SORGU[:WEB["sorgu"]]):
         uyku(max(0.0, _son[0] + 2 - saat()))  # plan: web istekleri arası ≥2 sn
-        rc, o, err = kos(["mcporter", "call", "exa.web_search_exa", f"query={q}", f"numResults={WEB['sonuc']}"])
+        rc, o, err = kos(["mcporter", "call", "exa.web_search_exa", f"query={q}", f"numResults={WEB['sonuc'] + WEB['fazla']}"])
         _son[0] = saat()
         t, kaynak = o.decode("utf-8", "replace"), "exa"
         s = [] if rc else _sonuclar(t)
@@ -252,6 +255,8 @@ def web_ara(ad, kos, hata, repo=None, tur=None):
                 out.append(f"- erişilemedi: web: {q} ({e})")
                 continue
             kaynak = "brave"
+        yol = lambda u: (urlparse(u).netloc.lower().removeprefix("www.") + urlparse(u).path.lower()).rstrip("/")
+        s = [x for x in s if not any(fnmatchcase(yol(x[1]), p) or fnmatchcase(yol(x[1]), p + "/*") for p in at)]
         for b, u, gun, hl in s[:WEB["sonuc"]]:
             if u not in gor:
                 gor.add(u)
