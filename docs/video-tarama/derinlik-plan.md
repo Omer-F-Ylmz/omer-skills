@@ -187,6 +187,10 @@ giderilmesi: `devam --yeniden-tara` ile o video yeniden taranır. Test.
 github · gist · doküman · blog · ürün/marketplace · video · sosyal · diğer. Aynı URL bütün partilerde bir kez okunur (önbellek). Test.
 **B2** Her link açılır (Agent Reach / Jina Reader), gövde temizlenir; araştırıcıya yalnız aday adlarının ve kurulum/ayar/sınırlama
 kelimelerinin geçtiği pencereler gider. Erişilemeyen "erişilemedi (sebep)". Sayfadan yeni araç çıkarsa yeni aday + İz satırı. Test (sahte okuyucu).
+B ek (Ömer kararı, 5 Eki): baglantilar.json'daki "video" sınıfı linkler (açıklama/yorum/sayfa) kuyrukta yoksa kuyruğa "bağlantılı video
+(<kaynak video id>)" notuyla eklenir; kanalı otomatik takibe ALINMAZ (A3 yalnız Ömer'in gönderdiği videolar için); kuyrukta (her durumda)
+varsa tekrar eklenmez. Kanıt: canlı B1 (b2QkhmQ0sT0) açıklamasında 2 youtu.be linki açılmıyor. Uygulama: `paket --kuyruk <md>` (parti verir;
+tek video -J ile süre/başlık); paket'e --kuyruk verilmezse kuyruğa dokunulmaz. Test.
 **B3 Yapımcı nasıl yaptı (aday başına):** README + docs + CHANGELOG/sürüm notları + en çok tepki alan açık ve kapalı issue/discussion
 başlıkları (gh api, en fazla N, ayarda) + yazarın duyuru/blog yazısı. Bilinen hata, sınırlama, şikâyet → A5 kötü yanı; yazarın önerdiği
 ayar/çözüm → A5 onarımı (kaynak linkiyle). Test (sahte gh).
