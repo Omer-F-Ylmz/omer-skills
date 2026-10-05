@@ -68,19 +68,15 @@ def sec(d, adim, cagir, env):
     return (SAGLAYICI[s["saglayici"]](s["model"], env), s["model"]) if s else (cagir, d["model"])
 
 
-def _sema_gecer(form, sema):
-    # ponytail: yalnız dict + required anahtarları; tam JSON Schema doğrulaması gerekirse jsonschema
-    return isinstance(form, dict) and all(k in form for k in sema.get("required", ()))
-
-
 def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan):
     """F2: aynı girdiler (sistem, metin, şema) iki kolda — A = sec(d, adim) bugünkü, B = kol_b; puanla(metinler) kör (GÖREV+YANIT,
-    model adı yok); başarı = hata yok + şema geçer; gürültü = A tekrar farkı; karar kur.karar (A1 tablosu). usd None kol → SOR;
+    model adı yok); başarı = hata yok + hattın form doğrulaması (parti._denet); gürültü = A tekrar farkı; karar kur.karar (A1 tablosu). usd None kol → SOR;
     tavan < 2×tekrar×girdi → TAVAN, çağrı yok. yonlendirme yalnız AL'de {adim: kol_b}."""
     n = 2 * tekrar * len(girdiler)
     if n > tavan:
         return {"karar": f"TAVAN {n} > {tavan}", "yonlendirme": None}
-    basari = basari or (lambda y, sema: float(not y.get("hata") and _sema_gecer(y.get("form"), sema)))
+    from . import parti as pt  # parti yonlendir'i içe aktarır; döngü yok
+    basari = basari or (lambda y, sema: float(not y.get("hata") and not pt._denet(y.get("form"), sema, "form")))
     kollar = {"a": sec(d, adim, cagir, env), "b": sec({**d, "yonlendirme": {adim: kol_b}}, adim, cagir, env)}
     s, bilinmeyen = {}, []
     for ad, (tas, model) in kollar.items():
