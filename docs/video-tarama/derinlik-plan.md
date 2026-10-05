@@ -483,6 +483,13 @@ images in request: 27 > 4", usage null ($0). Kök sağlayıcı sınırı → Ça
 (aday: FIYAT'ta görselli + structured output: openrouter/google/gemma-3-4b-it; görsel sınırı canlı doğrulanmadı). Kod: ab bütün çağrıları
 hatalı kol → "DUR (kol yanıt vermedi: <kol> — <ilk hata ≤120>)", takas/puanla yok; kol başı ilk_hata (anahtarsız); ab-canli kol satırı
 ilk_hata. Kırmızı ab5e81d · yeşil 4c24676.
+O54 (F3-MODEL; sayaç 0'dan elle): Adım 1 — 2 anahtarsız GET: /models süzgeci (image · response_format|structured_outputs · ctx ≥ 64k ·
+ücretli) girdi fiyatına göre: ~deepseek/deepseek-flash-latest 0.003/2.4 · ling-3.0-flash-vl 0.021/0.0616 · nex-n2.5-mini 0.025/0.1
+(gemma-3-4b-it 9. sıra); pricing.image üçünde null; /endpoints (~deepseek takma adı) boş liste — ling/nex için GET sınırı (2) yetmedi.
+Adım 2 — 1 doğrudan OpenRouter çağrısı (omni_cagir gövdesi + usage.include; diskte 27 kareli paket yok → 86HM0RUWhCk'nin 9 karesi
+döngüyle 27): HTTP 200, sağlayıcı Together, _denet temiz, usage 15187/17607 token, usage.cost $0.0256845; liste fiyatıyla hesap
+$0.0423 (+%64.7) → FIYAT Together uç fiyatı 0.3/1.2 (usage.cost'a tam eşit). ling/nex çağrılmadı. omni_yokla(gorsel=True) canlı None.
+Kırmızı 7f4bb9d · yeşil 28d4e4e. Not: ~ takma ad başka modele/sağlayıcıya dönerse fiyat değişir; A/B ilk_hata/usd bunu gösterir.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
