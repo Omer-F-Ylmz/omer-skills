@@ -454,6 +454,10 @@ F3-HAZIRLIK (O49, 5 Eki; model çağrısı 0, kod/test yok — keşif sayaç 40'
 Ömer kararları (5 Eki): madde 1 test değişimi onaylı (test_f1.py:95 ve :143'e araclar=()) · madde 2 yorumu doğru (ücretsiz = anahtarsız
 liste); openrouter/free ve :free önizleme modelleri A/B'de kullanılmaz (kol sabit değil) · AB_MODEL = openrouter/inclusionai/ling-3.0-flash-vl.
 F3-HAZIRLIK-2 sırası: 3 (aynı kareler + görsel ön kontrol) → 2 (FIYAT gemma-3-4b-it + görselsiz yorum) → 1 (araç kapısı).
+O50 durum: madde 3 ✓ (ab girdi 4. öğe kareler iki kola aynı; omni_cagir zaten kare başı image_url — karakterizasyon testi;
+omni_yokla gorsel=; ab-canli.ps1 kareler parti.py:493 kuralıyla, gorsel=True). Canlı: mistral-nemo → "görsel girdi desteklemiyor" exit 1,
+ling-3.0-flash-vl → None (çağrı 0). Madde 2 ve 1 açılmadı (sayaç 40). Madde 2 notu: gemma-3-4b-it fiyatı bu oturumda kaynaktan okunmadı —
+açılışta OpenRouter /api/v1/models'tan (ücretsiz) okunup yazılır, tahmin girilmez.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,

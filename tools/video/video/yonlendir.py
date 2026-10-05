@@ -70,8 +70,9 @@ SAGLAYICI = {"omniroute": omni_cagir}
 OMNI_MODELLER = "/api/v1/models"  # openapi.yaml:1681 (GET, BearerAuth; data[].id — Model şeması :9091), ücretsiz
 
 
-def omni_yokla(model, env, getir=ig._post):
-    """F3 ön kontrol (model çağrısından önce): None = sunucu var, kimlik geçer, model listede; değilse hata metni (anahtar yazılmaz)."""
+def omni_yokla(model, env, getir=ig._post, gorsel=False):
+    """F3 ön kontrol (model çağrısından önce): None = sunucu var, kimlik geçer, model listede (gorsel=True: kayıtta capabilities.vision
+    ya da input_modalities'te image); değilse hata metni (anahtar yazılmaz)."""
     anahtar = env.get("OMNIROUTE_KEY") or ""
     bas = {"Authorization": f"Bearer {anahtar}"} if anahtar else {}
     try:
@@ -83,8 +84,13 @@ def omni_yokla(model, env, getir=ig._post):
         return "OmniRoute 401: kimlik reddedildi (OMNIROUTE_KEY eksik ya da geçersiz)"
     if durum != 200:
         return f"OmniRoute HTTP {durum}"
-    ids = [m.get("id") for m in y.get("data") or []]
-    return None if model in ids else f"model yok: {model} (listede {len(ids)} model)"
+    kayit = {m.get("id"): m for m in y.get("data") or []}
+    if model not in kayit:
+        return f"model yok: {model} (listede {len(kayit)} model)"
+    k = kayit[model]
+    if gorsel and not ((k.get("capabilities") or {}).get("vision") is True or "image" in (k.get("input_modalities") or [])):
+        return f"model görsel girdi desteklemiyor: {model}"
+    return None
 
 
 def sec(d, adim, cagir, env):
@@ -94,7 +100,7 @@ def sec(d, adim, cagir, env):
 
 
 def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan):
-    """F2: aynı girdiler (sistem, metin, şema) iki kolda — A = sec(d, adim) bugünkü, B = kol_b; puanla(metinler) kör (GÖREV+YANIT,
+    """F2: aynı girdiler (sistem, metin, şema[, kareler]) iki kolda — A = sec(d, adim) bugünkü, B = kol_b; puanla(metinler) kör (GÖREV+YANIT,
     model adı yok); başarı = hata yok + hattın form doğrulaması (parti._denet); gürültü = A tekrar farkı; karar kur.karar (A1 tablosu). usd None kol → SOR;
     tavan < 2×tekrar×girdi → TAVAN, çağrı yok. yonlendirme yalnız AL'de {adim: kol_b}."""
     n = 2 * tekrar * len(girdiler)
@@ -105,9 +111,9 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
     kollar = {"a": sec(d, adim, cagir, env), "b": sec({**d, "yonlendirme": {adim: kol_b}}, adim, cagir, env)}
     s, bilinmeyen = {}, []
     for ad, (tas, model) in kollar.items():
-        ys = [[tas(si, m, sema, model=model) for _ in range(tekrar)] for si, m, sema in girdiler]
-        puan = puanla([f"GÖREV: {m}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
-                       for (_, m, _), yg in zip(girdiler, ys) for y in yg])
+        ys = [[tas(*g[:3], **({"kareler": g[3]} if len(g) > 3 else {}), model=model) for _ in range(tekrar)] for g in girdiler]
+        puan = puanla([f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
+                       for g, yg in zip(girdiler, ys) for y in yg])
         puan = [puan[i * tekrar:(i + 1) * tekrar] for i in range(len(girdiler))]
         hepsi = [y for yg in ys for y in yg]
         if any(y.get("usd") is None for y in hepsi):
