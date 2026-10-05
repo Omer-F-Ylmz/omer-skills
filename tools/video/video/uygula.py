@@ -444,13 +444,17 @@ MEKANIZMA = {"kb": 40, "satir": 20}  # ayar · B5: modele gidecek ilgili dosyala
 KONUM = (("oturum başı enjeksiyon", r"SessionStart|UserPromptSubmit|additionalContext"),
          ("hook", r"PreToolUse|PostToolUse|SubagentStop|\"hooks\""),
          ("süreç", r"child_process|subprocess|\bspawn\(|\bexecSync\(|Popen|os\.system"),
-         ("ağ", r"\bfetch\(|requests\.|urllib|axios|https?://|\bhttp\.(get|request)"),
+         ("ağ", r"\bfetch\(|\brequests\.|urllib\.request|\bhttpx\b|\baiohttp\b|\baxios\b|\bhttps?\.(get|request)\b|\bWebSocket\b"
+                r"|\b(curl|wget)\s"),  # 5 Eki: yalnız çağrı kalıbı, çıplak URL değil
          ("izin kapsamı", r"allowed-tools|allowedTools|permissions|dangerously|bypassPermissions"),
          ("ayar okuma", r"os\.environ|process\.env|getenv|settings(\.local)?\.json"),
          ("ağır döngü", r"while\s*\(?\s*(True|true|1)\b|setInterval|for\s*\(\s*;\s*;"))  # grep yolu; semgrep adayı planda
 KOD_UZANTI = (".js", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".sh", ".ps1", ".cmd", ".bat")  # ayar · 5 Eki: belge (.md .txt .rst) taranmaz
 KOD_AD = ("hooks.json", "settings*.json", "plugin.json", ".mcp.json")
-FM_KONUM = (("izin kapsamı", r"^(allowed-tools|tools|permissionMode|disallowedTools)\s*:"), ("hook", r"^hooks\s*:"))  # .md: yalnız baştaki frontmatter
+KOD_DISLA = (".venv", "venv", "env", "node_modules", "site-packages", "dist", "build", "__pycache__", ".tox", "vendor", ".git")  # ayar
+TEST_DISLA = ("tests", "test", "__tests__", "test_*.py", "*_test.py", "*.test.*", "*.spec.*")  # ayar · klasör ya da dosya adı
+YORUM = ("#", "//", "/*", "*", "--")  # satır başı yorum taranmaz
+FM_KONUM =(("izin kapsamı", r"^(allowed-tools|tools|permissionMode|disallowedTools)\s*:"), ("hook", r"^hooks\s*:"))  # .md: yalnız baştaki frontmatter
 
 
 def mekanizma(ctx, yol, ad, kaynak="klon"):
@@ -466,7 +470,8 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
     if sha and on.is_file():
         return on.read_text(encoding="utf-8")
     bul, boy, sayi = {k: [] for k, _ in KONUM}, {}, {}
-    for f in sorted(p for p in yol.rglob("*") if p.is_file() and ".git" not in p.relative_to(yol).parts
+    for f in sorted(p for p in yol.rglob("*") if p.is_file() and not set(p.relative_to(yol).parts[:-1]) & set(KOD_DISLA)
+                    and not any(fnmatch.fnmatch(x, d) for x in p.relative_to(yol).parts for d in TEST_DISLA)
                     and (p.suffix.lower() in KOD_UZANTI + (".md",) or any(fnmatch.fnmatch(p.name, d) for d in KOD_AD))):
         if f.stat().st_size > 1 << 20 or b"\0" in (b := f.read_bytes())[:1024]:  # ponytail: 1 MB üstü/ikili atlanır
             continue
@@ -475,7 +480,17 @@ def mekanizma(ctx, yol, ad, kaynak="klon"):
         if f.suffix.lower() == ".md":
             son = next((n for n, s in satirlar[1:] if s.strip() == "---"), 0) if satirlar and satirlar[0][1].strip() == "---" else 0
             satirlar, desen = (satirlar[1:son - 1] if son else []), FM_KONUM
+        dize = ""  # Python docstring: satır başı """/''' bloğu (ifade-dizesi, çalışan kod olamaz) atlanır
         for n, s in satirlar:
+            t = s.strip()
+            if dize:
+                dize = "" if dize in t else dize
+                continue
+            if f.suffix.lower() == ".py" and t[:3] in ('"""', "'''"):
+                dize = "" if t.count(t[:3]) > 1 else t[:3]
+                continue
+            if t.startswith(YORUM):
+                continue
             for k, d in desen:
                 if re.search(d, s):
                     sayi[r], boy[r] = sayi.get(r, 0) + 1, len(b)

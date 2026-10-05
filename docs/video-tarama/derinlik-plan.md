@@ -283,6 +283,8 @@ başı """/''' ile başlayan blok atlanır (satır başındaki dize her zaman if
 taranır = fazla rapor, eksik değil) · (d) ayar `TEST_DISLA` (tests/ test/ __tests__/ test_*.py *_test.py *.test.* *.spec.*) taranmaz.
 Ölçüm (önce/sonra, gözle yanlış eşleşme): docs/olcumler/b5-grep.md. Karar kuralı: düzeltme sonrası yanlış eşleşme toplamın %20'sini
 aşıyorsa sıradaki madde semgrep geçişi (çevrimdışı: --metrics=off --disable-version-check).
+Ölçüm sonucu (O29): önce 36 satır / 23 yanlış (%64) → sonra 14 / 4 (%28,6; hepsi kod içi belge/yardım dizesi) → kural tetiklendi:
+semgrep geçişi B4 kanonik ad maddesinden sonra, E1'den önce.
 B4 bulgusu (Ömer canlı ölçümü 5 Eki): repo taşınmış (safishamsi/graphify → Graphify-Labs/graphify, GitHub yönlendirmesi) → AYNA süzgeci
 github.com/Graphify-Labs/graphify'ı kaçırdı. Çözüm: GitHub kanonik adı (gh api repos/{repo} → full_name) da süzgece eklenir; B3'te bu
 yanıt alınmıyorsa tek REST çağrısı (arama değil). Test: repo=safishamsi/graphify, kanonik Graphify-Labs/graphify → github.com/Graphify-Labs/graphify atılır.
