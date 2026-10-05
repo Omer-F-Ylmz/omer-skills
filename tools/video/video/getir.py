@@ -1,14 +1,16 @@
 """23c K2: araştırıcıya tam sayfa/tam dosya girmez. getir: sayfa → ana metin (gezinme/altbilgi atılır) + bağlantılar, üst sınırlı ve önbellekli.
 repo: gh api ile README ilk 120 satır · ağaç derinlik 2 · istenen dosyanın ≤200 satırı. on: ikisini .kos/<video>/<ad>/on.md'ye yazar."""
 import hashlib
+import html
 import json
+import os
 import re
 import time
 import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urlencode, urljoin, urlparse
 
 from . import tarama as tr
 from .metin import sn
@@ -177,7 +179,9 @@ def yapimci(ad, kos, hata):
     return "\n".join(out) + "\n"
 
 
-WEB = {"sorgu": 5, "sonuc": 3, "ozet": 600}  # ayar · B4: aday başına en fazla N sorgu · sorgu başına sonuç · Highlights özeti (karakter)
+WEB = {"sorgu": 5, "sonuc": 3, "ozet": 600, "brave_aralik": 1}  # ayar · B4: aday başına en fazla N sorgu · sorgu başına sonuç · Highlights özeti (karakter) · B4 eki: brave istekleri arası sn
+BRAVE = "https://api.search.brave.com/res/v1/web/search"  # resmi belge: api-dashboard.search.brave.com (GET, X-Subscription-Token)
+_bson = [float("-inf")]
 SORGU = ("{ad} review", "{ad} vs alternatives comparison", "{ad} known issues problems", "{ad} alternative",
          "{ad} announcement blog post")  # inceleme · karşılaştırma · bilinen sorun · alternatif · yazarın duyuru/blog yazısı (B3'ten)
 DUSUK = tr.KACAN_SOSYAL + ("reddit.com", "news.ycombinator.com", "stackoverflow.com", "stackexchange.com", "lobste.rs")  # forum/sosyal
@@ -202,6 +206,35 @@ def _sonuclar(t):
             for x in (j.get("results", []) if isinstance(j, dict) else j) if x.get("url")]
 
 
+def _duz(t):
+    """B4 eki: exa çıktısının düz metni (JSON results biçiminde ''); sonuç yokken boş değilse oran sınırı/hata mesajıdır."""
+    try:
+        j = json.loads(t)
+    except ValueError:
+        return t
+    return "\n".join(c.get("text", "") for c in j["content"]) if isinstance(j, dict) and "content" in j else ""
+
+
+def _brave(q):
+    """B4 eki: exa olmazsa Brave Search REST (web.results[] title/url/description/extra_snippets/page_age), istekler arası
+    ≥WEB['brave_aralik'] sn → (sonuçlar, sebep). Anahtar ortamda yoksa atlanır; anahtar hiçbir çıktıya yazılmaz."""
+    if not (k := os.environ.get("BRAVE_API_KEY")):
+        return [], "BRAVE_API_KEY yok"
+    uyku(max(0.0, _bson[0] + WEB["brave_aralik"] - saat()))
+    _bson[0] = saat()
+    p = urlencode({"q": q, "count": WEB["sonuc"], "extra_snippets": "true", "text_decorations": "false"})
+    try:
+        with urllib.request.urlopen(urllib.request.Request(f"{BRAVE}?{p}", headers={"Accept": "application/json", "X-Subscription-Token": k}),
+                                    timeout=30) as r:
+            j = json.loads(r.read().decode("utf-8", "replace"))
+    except (OSError, ValueError) as e:  # URLError/HTTPError OSError'dır
+        return [], str(e)[:200]
+    temiz = lambda s: html.unescape(re.sub(r"<[^>]+>", "", s or ""))
+    gun = lambda d: d[:10] if re.match(r"\d{4}-\d{2}-\d{2}", d or "") else ""
+    return [(temiz(x.get("title")), x["url"], gun(x.get("page_age")), " ".join(temiz(s) for s in [x.get("description"), *(x.get("extra_snippets") or [])]))
+            for x in ((j.get("web") or {}).get("results") or []) if x.get("url")], ""
+
+
 def web_ara(ad, kos, hata, repo=None, tur=None):
     """B4: genel web araması (Agent Reach yolu: mcporter exa.web_search_exa), web istekleri arası ≥2 sn. Forum/sosyal 'düşük güven';
     aynı URL bir kez; sorgu hatası adayı düşürmez → `hata`ya (istek, sebep). Sorgu konusu: repo ('owner/repo') ya da 'ad tür' (belirsizlik)."""
@@ -210,16 +243,21 @@ def web_ara(ad, kos, hata, repo=None, tur=None):
         uyku(max(0.0, _son[0] + 2 - saat()))  # plan: web istekleri arası ≥2 sn
         rc, o, err = kos(["mcporter", "call", "exa.web_search_exa", f"query={q}", f"numResults={WEB['sonuc']}"])
         _son[0] = saat()
-        if rc:
-            hata.append((f"web: {q}", (e := (err or b"").decode("utf-8", "replace").strip()[:200])))
-            out.append(f"- erişilemedi: web: {q} ({e})")
-            continue
-        for b, u, gun, hl in _sonuclar(o.decode("utf-8", "replace"))[:WEB["sonuc"]]:
+        t, kaynak = o.decode("utf-8", "replace"), "exa"
+        s = [] if rc else _sonuclar(t)
+        if e := (err or b"").decode("utf-8", "replace").strip()[:200] if rc else (" ".join(_duz(t).split())[:200] if not s else ""):
+            s, be = _brave(q)  # B4 eki: sessiz boş yasak → zincir exa → brave → erisilemedi
+            if be:
+                hata.append((f"web: {q}", e := f"{e} · brave: {be}"))
+                out.append(f"- erişilemedi: web: {q} ({e})")
+                continue
+            kaynak = "brave"
+        for b, u, gun, hl in s[:WEB["sonuc"]]:
             if u not in gor:
                 gor.add(u)
                 h = urlparse(u).netloc.lower()
                 dusuk = "forum" in h or any(h == s or h.endswith("." + s) for s in DUSUK)
-                out.append(f"- {q} · {b} · " + (f"{gun} · " if gun else "") + u + (" · düşük güven" if dusuk else ""))
+                out.append(f"- {q} · {kaynak} · {b} · " + (f"{gun} · " if gun else "") + u + (" · düşük güven" if dusuk else ""))
                 if oz := " ".join(hl.replace("...", " ").split())[:WEB["ozet"]]:
                     out.append(f"  > {oz}")
     return "\n".join(out) + "\n"

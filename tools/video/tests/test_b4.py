@@ -187,5 +187,5 @@ def test_exa_hata_brave_yedek(tmp_path, brave):
 
 def test_brave_hata_erisilemedi(tmp_path, brave):
     brave.hata = True
-    b, e = web(tmp_path, tek((0, LIMIT.encode(), b"")))
+    _, e = web(tmp_path, tek((0, LIMIT.encode(), b"")))
     assert e[0] == [f"web: {gt.SORGU[0].format(ad='arac')}", f"{LIMIT} · brave: HTTP Error 429: Too Many Requests"]
