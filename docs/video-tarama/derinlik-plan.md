@@ -288,6 +288,12 @@ semgrep geçişi B4 kanonik ad maddesinden sonra, E1'den önce.
 B4 bulgusu (Ömer canlı ölçümü 5 Eki): repo taşınmış (safishamsi/graphify → Graphify-Labs/graphify, GitHub yönlendirmesi) → AYNA süzgeci
 github.com/Graphify-Labs/graphify'ı kaçırdı. Çözüm: GitHub kanonik adı (gh api repos/{repo} → full_name) da süzgece eklenir; B3'te bu
 yanıt alınmıyorsa tek REST çağrısı (arama değil). Test: repo=safishamsi/graphify, kanonik Graphify-Labs/graphify → github.com/Graphify-Labs/graphify atılır.
+O30 (yapıldı): gh api repos/{repo} --jq .full_name yalnız ilk sonuç geldiğinde, aday başına bir kez; gh hata ya da owner/repo dışı değer →
+süzgeç eski adla. Semgrep geçişi (Ömer kararı 5 Eki, O29 karar kuralı): KONUM kod taraması semgrep'e geçer — kurallar tools/video/semgrep/*.yml,
+çevrimdışı (--metrics=off --disable-version-check --json), aynı kategoriler; dize ve yorum eşleşmez. KOD_DISLA/TEST_DISLA → --exclude.
+.md frontmatter Python yolunda kalır. Yeni kategori "uç noktalar": kodda tanımlı http(s) adres sabitleri (yorum/belge dizesi değil), satır
+sınırı aynı. Semgrep yoksa/hata → grep yolu + bölüme "semgrep yok: <sebep> · grep yolu". Testler sahte semgrep JSON'u (kos); kabul: tools/jev
+üzerinde yerel semgrep → b5-grep.md "semgrep" sütunu (satır · yanlış · süre), yanlış < %20; tutmazsa DUR.
 
 ## E — DESKTOP İKİNCİ BAKIŞ (hedefli, uyarlamalı)
 **E1 Çağrısız risk puanı** (bahis/aday başına): KUR önerisi · güvenlik bulgusu · fork/kaynak farkı · kapsam eksikleri · "çözülmedi" kötü

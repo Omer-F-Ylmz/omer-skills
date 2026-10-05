@@ -242,6 +242,7 @@ def web_ara(ad, kos, hata, repo=None, tur=None):
     aynı URL bir kez; sorgu hatası adayı düşürmez → `hata`ya (istek, sebep). Sorgu konusu 'ad tür'; repo yalnız süzgeç (AYNA)."""
     out, gor = ["## Web araması", "inceleme · karşılaştırma · alternatif · bilinen sorun · yazarın duyuru/blog yazısı; forum/sosyal → düşük güven"], set()
     at = [p.format(repo=repo.lower(), ad=repo.lower().rpartition("/")[2]) for p in AYNA] if repo else []
+    sorulmadi = bool(repo)
     for q in (s.format(ad=" ".join(filter(None, (ad, tur)))) for s in SORGU[:WEB["sorgu"]]):
         uyku(max(0.0, _son[0] + 2 - saat()))  # plan: web istekleri arası ≥2 sn
         rc, o, err = kos(["mcporter", "call", "exa.web_search_exa", f"query={q}", f"numResults={WEB['sonuc'] + WEB['fazla']}"])
@@ -255,6 +256,14 @@ def web_ara(ad, kos, hata, repo=None, tur=None):
                 out.append(f"- erişilemedi: web: {q} ({e})")
                 continue
             kaynak = "brave"
+        if s and sorulmadi:  # B4 kanonik ad: taşınmış repo → GitHub full_name da süzgece; sonuç varken bir kez, tek REST; hata/biçimsiz → eski ad
+            sorulmadi = False
+            try:
+                k = "".join(_gh(kos, f"repos/{repo}", "--jq", ".full_name")).strip().lower()
+            except RuntimeError:
+                k = ""
+            if re.fullmatch(r"[\w.-]+/[\w.-]+", k) and k != repo.lower():
+                at += [p.format(repo=k, ad=k.rpartition("/")[2]) for p in AYNA]
         yol = lambda u: (urlparse(u).netloc.lower().removeprefix("www.") + urlparse(u).path.lower()).rstrip("/")
         s = [x for x in s if not any(fnmatchcase(yol(x[1]), p) or fnmatchcase(yol(x[1]), p + "/*") for p in at)]
         for b, u, gun, hl in s[:WEB["sonuc"]]:
