@@ -238,6 +238,11 @@ yanıt web.results[] title/url/description/extra_snippets; page_age biçimi belg
 istekler arası ≥`WEB["brave_aralik"]`=1 sn. Satırda sağlayıcı sorgudan sonra ("- sorgu · exa · …" / "· brave · …"); brave'de Highlights
 yerine açıklama + ek parçacıklar aynı 600 kuralıyla (HTML etiketi ayıklanır). Anahtar yoksa brave atlanır, sebep erisilemedi'de birleşik:
 "<exa sebebi> · brave: <sebep>" (test_b4:61 beklentisi buna göre — Ömer onayı, 5 Eki). Testler sahte urllib + kos.
+Canlı doğrulama (PowerShell 5.1; python = video aracının uv ortamı; PS 5.1 iç çift tırnağı sildiği için kod yalnız tek tırnak, '' kaçışlı;
+ağsız kısım O26'da denendi): `$py = "$(uv tool dir)\video-cli\Scripts\python.exe"` ·
+`& $py -c 'import json; from video import getir as g, cli; print(list(json.loads(chr(10).join(g._gh_ara(cli.kos, ''search/issues'', ''-X'', ''GET'', ''-f'', ''q=repo:anthropics/claude-code is:issue'', ''-f'', ''per_page=1'')))))'`
+(CRLF kanıtı: gövde anahtarları) · `& $py -c 'from video import getir as g; g.WEB[''sorgu'']=1; h=[]; print(g.web_ara(''graphify'', lambda a: (1, b'''', b''exa atlandi''), h, repo=''safishamsi/graphify'')); print(h)'`
+(exa sahte hata → en fazla 1 Brave isteği; beklenen "- safishamsi/graphify review · brave · …" + "  > " satırı, h boş).
 **B5 Mekanizma incelemesi** — "aday değil" dışındaki HER aday (kurulu olanlar dahil; kuruluysa bizdeki kopya): repo seyrek klonlanır (S5
 sınırları); graphify --code-only ve grep ile çağrısız konumlandırma: oturum başı enjeksiyon, hook'lar, başlatılan süreçler, ağ çağrıları,
 izin kapsamı, ayar okuma noktaları, ağır döngüler. Modele yalnız bulunan ilgili dosyalar gider (aday başına en fazla N KB, ayarda). Aynı
