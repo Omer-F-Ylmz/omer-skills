@@ -329,6 +329,14 @@ güçlendirme · not. Okuyucu hoşgörülü: baş/son boşluk, baştaki "- " ist
 "- <tarih> · <parti> · <tür> · <url> · <açıklama>" (video id ise yalnız jsonl). Sessiz düşme yasak: okunamayan satır (ayraçsız/eksik alan ·
 bilinmeyen tür · parti'de olmayan aday/video) → çıktıda ve jsonl'de "okunamadı: <satır> (<sebep>)", çıkış kodu 1; aynı (parti, satır) jsonl'de
 varsa ikinci kez işlenmez. Şablon satırları (sabit) atlanır; panel denetim.md'yi yeniden yazarken ## Desktop altındaki satırlar korunur.
+Tavan: üretilen kısım şablonla birlikte ≤150 (kesildi notu en son satır, okuyucu atlar); Ömer'in Desktop satırları kesilmez.
+Canlı doğrulama (O34, ağsız, model 0; önce E1 komutuyla denetim.md'yi yeniden üret; denetim.md + jsonl bayt yedeği geri yazılır; beklenen
+"1 işlendi · 1 okunamadı", rc=1): `$py = "$(uv tool dir)\video-cli\Scripts\python.exe"; $m = 'docs\kurulumlar\parti\2026-10-03-short\denetim.md';
+$j = 'docs\kurulumlar\desktop-denetim.jsonl'; $y = [IO.File]::ReadAllBytes((Resolve-Path $m)); $jy = $null; if (Test-Path $j) { $jy =
+[IO.File]::ReadAllBytes((Resolve-Path $j)) }; Add-Content -Encoding utf8 $m '- rABIViSQmsc · not · https://www.youtube.com/watch?v=rABIViSQmsc
+· E2 deneme'; Add-Content -Encoding utf8 $m 'rABIViSQmsc ayraçsız satır'; & $py -c 'import sys; from video import cli;
+sys.exit(cli.main([''parti'', ''denetim-isle'', ''2026-10-03-short'']))'; Write-Output ('rc=' + $LASTEXITCODE); Get-Content -Encoding utf8 $j;
+[IO.File]::WriteAllBytes((Resolve-Path $m), $y); if ($jy) { [IO.File]::WriteAllBytes((Resolve-Path $j), $jy) } else { Remove-Item $j }` (tek satır).
 **E3 Uyarlamalı örneklem:** son 3 partide Desktop bulgusu 0 ise rastgele 3 → 1; her bulgu +3 (en fazla 6). KAÇAN?, "aday değil", "ONARIM
 BEKLİYOR" ve risk puanı en yüksek 5 her zaman kalır. Test.
 

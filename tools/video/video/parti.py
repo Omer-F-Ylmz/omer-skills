@@ -619,6 +619,9 @@ def parti(ns, ctx):
             return 1
         if ns.eylem == "durum":
             return _ozet(pdir, d)
+        if ns.eylem == "denetim-isle":  # E2
+            from . import akil
+            return akil.denetim_isle(d, kok)
         if getattr(ns, "cagri_ek", 0) or getattr(ns, "usd_ek", 0):  # M2b: tavan yalnız açıkça yükseltilir
             d["tavan"] = {"cagri": d["tavan"]["cagri"] + ns.cagri_ek, "usd": round(d["tavan"]["usd"] + ns.usd_ek, 4)}
         if ns.eylem == "akil" and getattr(ns, "yeniden", False):  # DERİNLİK-1 R6: araştırma dahil yeniden (R1–R5); kurulu envanterden, Ömer hücreleri panelde korunur

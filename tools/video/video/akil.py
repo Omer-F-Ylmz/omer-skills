@@ -829,7 +829,8 @@ def panel(pdir, d, kok, onb=None):
                                         f"{x['oneri']}: {pt._h(_s10(x['gelistirme_onerisi']))} · kanıt: {pt._h(x['kanit'])}" for x in d.get("gelistirme", [])] or ["- yok"]),
           "## Denetim", *_denetim_satir(z := denetim(d, kok, onb)), "## Defter", f"{n} çağrı · ${usd:.4f} · {tk} jeton"]
     _yaz(y, L)
-    _yaz(y.parent / "denetim.md", denetim_md(d, z, karar, onb).splitlines())
+    dm = y.parent / "denetim.md"
+    _yaz(dm, denetim_md(d, z, karar, onb, dm.is_file() and dm.read_text(encoding="utf-8")).splitlines())
     return y
 
 
@@ -1059,7 +1060,7 @@ def _yt(v, z=None):
     return YT + v + (f"&t={int(mt.sn(z))}s" if z else "")
 
 
-def denetim_md(d, z, karar, onb=None):
+def denetim_md(d, z, karar, onb=None, eski=None):
     """E1: Desktop ikinci bakışı için çağrısız liste (tam URL'li). karar: panel {aday: (önerilen, gerekçe, kapsam eksiği)}.
     Risk puanı = sinyal sayısı; rastgele 3 parti id tohumlu (ilk 5 ve ONARIM dışı)."""
     import random
@@ -1093,9 +1094,62 @@ def denetim_md(d, z, karar, onb=None):
          *b("İncelenmedi (C4)", inc),
          *b("Risk puanı en yüksek 5", [f"- {k} · puan {len(s := sinyal(k))} ({', '.join(s) or '-'}) · {url(k)}" for k in risk]),
          *b(f"Rastgele 3 (tohum {d.get('parti', '')})", [f"- {k} · {url(k)}" for k in random.Random(d.get("parti", "")).sample(kalan, min(3, len(kalan)))])]
-    if len(L) > DENETIM_SATIR:
-        L = L[:DENETIM_SATIR - 1] + [f"… {len(L) - DENETIM_SATIR + 1} satır kesildi (tavan {DENETIM_SATIR})"]
+    S, n = DESKTOP_SABLON + _desktop(eski), DENETIM_SATIR - len(DESKTOP_SABLON) - 1  # E2: Ömer'in Desktop satırları kesilmez
+    L = L + S if len(L) <= n + 1 else L[:n] + S + [f"… {len(L) - n} satır kesildi (tavan {DENETIM_SATIR})"]
     return "\n".join(L) + "\n"
+
+
+DESKTOP_TUR = ("KAÇAN-doğru", "KAÇAN-yanlış", "aday-değil-itiraz", "kötü-yan", "onarım", "güçlendirme", "not")  # ayar · E2
+DESKTOP_SABLON = ["## Desktop", "Biçim (tek satır, \" · \" ayraçlı): `- <aday ya da video id> · <tür> · <kanıt URL> · <açıklama>`",
+                  "Tür: " + " · ".join(DESKTOP_TUR), "Örnek: `- a1 · kötü-yan · https://github.com/o/a1 · lisans dosyası yok`"]
+DESKTOP_JSONL = "docs/kurulumlar/desktop-denetim.jsonl"
+_KESILDI = re.compile(r"… \d+ satır kesildi")
+
+
+def _desktop(metin):
+    """E2: ## Desktop altındaki Ömer satırları (şablon · kesildi notu · boş satır hariç)."""
+    return [s for s in tr.bolum(metin or "", "Desktop").splitlines() if s.strip() and s.strip() not in DESKTOP_SABLON and not _KESILDI.match(s)]
+
+
+def _ascii(s):
+    return s.replace("İ", "i").casefold().translate(str.maketrans("çğıöşü", "cgiosu"))
+
+
+def denetim_isle(d, kok):
+    """E2: denetim.md ## Desktop satırları → desktop-denetim.jsonl + aday dosyası '## Desktop denetimi'. Sessiz düşme yok: okunamayan
+    satır çıktıya ve jsonl'e (rc 1); aynı (parti, satır) ikinci kez işlenmez."""
+    import datetime
+    kok, pid = Path(kok), d["parti"]
+    m = kok / "docs" / "kurulumlar" / "parti" / pid / "denetim.md"
+    if not m.is_file():
+        print(f"denetim.md yok: {m.as_posix()}")
+        return 1
+    j = kok / DESKTOP_JSONL
+    gor = {(x.get("parti"), x.get("satir")) for x in map(json.loads, j.read_text(encoding="utf-8").splitlines())} if j.is_file() else set()
+    tur, tarih, yeni, rc = {_ascii(t): t for t in DESKTOP_TUR}, datetime.date.today().isoformat(), [], 0
+    for s in map(str.strip, _desktop(m.read_text(encoding="utf-8"))):
+        if (pid, s) in gor:
+            continue
+        gor.add((pid, s))
+        p = [x.strip() for x in s.removeprefix("- ").split("·", 3)]
+        sebep = ("4 alan yok (ayraç ' · ')" if len(p) < 4 or not all(p) else f"bilinmeyen tür: {p[1]}" if _ascii(p[1]) not in tur
+                 else f"aday/video yok: {p[0]}" if p[0] not in d.get("adaylar", {}) and p[0] not in d.get("videolar", {}) else None)
+        if sebep:
+            print(f"okunamadı: {s} ({sebep})")
+            yeni.append({"tarih": tarih, "parti": pid, "satir": s, "okunamadi": s, "sebep": sebep})
+            rc = 1
+            continue
+        g = {"tarih": tarih, "parti": pid, "aday": p[0], "tur": tur[_ascii(p[1])], "url": p[2], "aciklama": p[3], "satir": s}
+        yeni.append(g)
+        if p[0] in d.get("adaylar", {}):
+            if (y := _aday_yol(kok, p[0])).is_file():
+                _bolume_ekle(y, "Desktop denetimi", [f"- {tarih} · {pid} · {g['tur']} · {g['url']} · {g['aciklama']}"])
+            else:
+                print(f"aday dosyası yok: {y.as_posix()} (yalnız jsonl)")
+    if yeni:
+        tr.kayit_ekle(j, yeni)
+    print(f"denetim-isle {pid}: {sum('aday' in g for g in yeni)} işlendi · {sum('okunamadi' in g for g in yeni)} okunamadı")
+    return rc
 
 
 def _denetim_satir(z):
