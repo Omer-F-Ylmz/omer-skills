@@ -128,6 +128,32 @@ def repo(ad, dosya=None, satir=None, kos=None):
     return "\n".join([f"# {ad}", "## README", *kes_satir(readme, README), "", "## Ağaç (derinlik 2)", *kes_satir(agac, AGAC)]) + "\n"
 
 
+YAPIMCI = {"surum": 3, "issue": 5, "discussion": 5}  # ayar · B3: en fazla N (sürüm notu · açık ve kapalı issue ayrı ayrı · discussion)
+
+
+def yapimci(ad, kos, hata):
+    """B3: sürüm notları + en çok tepki alan açık/kapalı issue + discussion başlıkları (gh api). gh hatası (kota/oran sınırı dahil)
+    adayı düşürmez: `hata`ya (istek, sebep) eklenir, bölümde 'erişilemedi' satırı olur."""
+    n, out = YAPIMCI, ["## Yapımcı nasıl yaptı", "bilinen hata/sınırlama/şikâyet → kötü yan · yazarın önerdiği ayar/çözüm → onarım (kaynak linkiyle)"]
+    gq = (f'query=query{{search(query:"repo:{ad} sort:reactions",type:DISCUSSION,first:{n["discussion"]})'
+          '{nodes{... on Discussion{title url reactions{totalCount}}}}}')
+    istek = [([f"repos/{ad}/releases?per_page={n['surum']}"],
+              lambda j: [f"- {r['tag_name']} · {r['html_url']} · {' '.join((r.get('body') or '').split())[:300]}" for r in j]),
+             *[(["search/issues", "-X", "GET", "-f", f"q=repo:{ad} is:issue is:{d}", "-f", "sort=reactions", "-f", f"per_page={n['issue']}"],
+                lambda j, t=t: [f"- {t} · {i['title']} · tepki {i['reactions']['total_count']} · {i['html_url']}" for i in j["items"]])
+               for d, t in (("open", "açık"), ("closed", "kapalı"))],
+             (["graphql", "-f", gq], lambda j: [f"- discussion · {x['title']} · tepki {x['reactions']['totalCount']} · {x['url']}"
+                                                for x in j["data"]["search"]["nodes"] if x])]
+    for args, bic in istek:
+        try:
+            out += bic(json.loads("\n".join(_gh(kos, *args))))
+        except Exception as e:  # kota/oran sınırı, 404, bozuk JSON → aday düşmez, sebep görünür
+            lab = "gh api " + next((a[2:] for a in args if a.startswith("q=")), args[0])
+            hata.append((lab, str(e)[:200]))
+            out.append(f"- erişilemedi: {lab} ({str(e)[:200]})")
+    return "\n".join(out) + "\n"
+
+
 def prompt_metni(rapor, seg):
     """24a K2: tarama raporu Adaylar'ında tür=prompt satırı → zamanından sonraki ilk `## Bölümler` zamanına kadar paket altyazısı (≤4000, kesildi)."""
     satir = [s for s in (tr.tablolar(tr.bolum(rapor, "Adaylar")) or [([], [])])[0][1] if len(s) >= 7 and s[2].casefold() == "prompt"]
@@ -144,15 +170,21 @@ def prompt_metni(rapor, seg):
     return "\n".join(out)
 
 
-def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None):
+def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None, kapsam=None):
     """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar. 24a K2: rapor → prompt metni.
-    24b K1: guvenlik → `## Güvenlik ön taraması` bölümü (araştırıcı klonlamaz, taramaz; buradan okur)."""
+    24b K1: guvenlik → `## Güvenlik ön taraması` bölümü (araştırıcı klonlamaz, taramaz; buradan okur).
+    B3: repo varsa `## Yapımcı nasıl yaptı`; gh hataları kapsam.json "erisilemedi"ye (B2 gibi, aynısı tekrar yazılmaz)."""
     from video.cli import _slug  # cli bu modülü içe aktarır; döngü yalnız çağrıda çözülür
     y = Path(kok) / ".kos" / video / _slug(ad) / "on.md"
     y.parent.mkdir(parents=True, exist_ok=True)
     parca = [f"# ön getirme: {ad} · video {video}"]
     if repo_ad:
         parca.append(repo(repo_ad, kos=kos))
+        parca.append(yapimci(repo_ad, kos, hata := []))
+        if hata and kapsam and Path(kapsam).is_file():  # ponytail: kapsam.json yoksa (paketsiz video) hata yalnız on.md'de
+            k = json.loads(Path(kapsam).read_text(encoding="utf-8"))
+            k["erisilemedi"] = [*(e := k.get("erisilemedi", [])), *[list(h) for h in hata if list(h) not in e]]
+            Path(kapsam).write_text(json.dumps(k, ensure_ascii=False), encoding="utf-8")
     if guvenlik:
         parca.append(guvenlik)
     if url:
