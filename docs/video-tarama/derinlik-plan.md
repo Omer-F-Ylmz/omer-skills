@@ -314,6 +314,12 @@ Risk puanı = sinyal sayısı: KUR önerisi (T1/T2/UYARLA) · güvenlik (HIGH/CR
 sınıfı" sinyali B1 sınıfı aday kaydında yok → şimdilik yok. Rastgele 3: random.Random(parti id), ilk 5 ve ONARIM dışındaki adaylardan.
 URL: https://www.youtube.com/watch?v=<id>&t=<sn>s (İz kaynak hücresindeki mm:ss · aday videolar.zaman · kapsam.json incelenmedi ilk an)
 + https://github.com/<repo>. kur.py:368 ONARIM BEKLİYOR parti dışı (token takas tablosu) → denetim.md'ye girmez. >150 satır → kesilir + sayı.
+E1 eki (Ömer, O33; D1 (a) ile tutarlı): akil.denetim KAÇAN?/düşük güven denetimini yalnız künyesinde şema ≥2 olan raporda yapar; eski
+şemada denetim.md KAÇAN? altına "eski şema: <v> · İz yok, KAÇAN? denetimi yapılmadı" (kapat'ı durdurmaz; İz yok kuralı IZ_TARIH ile aynen).
+Canlı kanıt (2026-10-03-short): önce her link/araç adı KAÇAN? (kapat kilitli) → sonra 8 "eski şema" satırı, KAÇAN? 0. Doğrulama (ağsız, model 0;
+panel.md bayt yedeği geri yazılır): `$py = "$(uv tool dir)\video-cli\Scripts\python.exe"; & $py -c 'import json; from pathlib import Path as P;
+from video import akil as a, cli, uygula as u; p=P(''.kos/2026-10-03-short''); d=json.loads((p/''durum.json'').read_text(encoding=''utf-8''));
+m=P(u.KOK)/''docs/kurulumlar/parti''/d[''parti'']/''panel.md''; y=m.read_bytes(); a.panel(p,d,u.KOK,cli.KOK); m.write_bytes(y)'` (tek satır, repo kökünde).
 **E2 Geri dönüş:** denetim.md sonunda "## Desktop" şablonu; Ömer Desktop'un verdiği satırları buraya yapıştırır; `video parti
 denetim-isle <id>` bunları `docs/kurulumlar/desktop-denetim.jsonl`'a ve ilgili aday dosyasına işler. Test.
 **E3 Uyarlamalı örneklem:** son 3 partide Desktop bulgusu 0 ise rastgele 3 → 1; her bulgu +3 (en fazla 6). KAÇAN?, "aday değil", "ONARIM

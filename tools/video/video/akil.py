@@ -1027,7 +1027,7 @@ IZ_TARIH = "2026-10-05"  # ayar · D3 eki: bu tarihte/sonra açılan partide İz
 
 def denetim(d, kok, onb=None):
     """D3: tamamlanan raporların ## İz'inden bahis · bağlanan · aday değil; D2 kacan_video → KAÇAN? (engelleyen) · düşük güven; İz yok."""
-    z, soz = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "degil": [], "iz_yok": [], "konusma_yok": [], "erisilemedi": []}, tr.kacan_sozluk(kok)
+    z, soz = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "degil": [], "iz_yok": [], "konusma_yok": [], "erisilemedi": [], "eski_sema": []}, tr.kacan_sozluk(kok)
     for v, s in d.get("videolar", {}).items():
         if onb and (kj := Path(onb) / v / "kapsam.json").is_file():  # B2 (Ömer, O21): bilgi; kapat'ı durdurmaz
             z["erisilemedi"] += [(v, u, x) for u, x in json.loads(kj.read_text(encoding="utf-8")).get("erisilemedi", [])]
@@ -1042,6 +1042,9 @@ def denetim(d, kok, onb=None):
         z["bahis"], z["baglanan"], z["aday_degil"] = z["bahis"] + len(iz), z["baglanan"] + len(iz) - degil, z["aday_degil"] + degil
         if not iz and d.get("tarih", "") >= IZ_TARIH:
             z["iz_yok"].append(v)
+        if not ((sm := re.search(r"şema (\d+)", tr.bolum(r, "Künye"))) and int(sm[1]) >= 2):  # E1 eki (Ömer, O33): D1 (a) gibi eski şemada KAÇAN? yok
+            z["eski_sema"].append(v)
+            continue
         e, u = tr.kacan_video(r, Path(onb) / v / "paket.md" if onb else Path(""), soz)
         z["kacan"] += [(v, k, x) for k, x in e]
         z["dusuk"] += [(v, k, x) for k, x in u]
@@ -1083,7 +1086,8 @@ def denetim_md(d, z, karar, onb=None):
     b = lambda ad_, s: [f"## {ad_}", *(s or ["- yok"])]  # noqa: E731
     L = [f"# Denetim — {d.get('parti', '')}", "Desktop: her satırdaki adresleri aç; bulguyu sondaki ## Desktop'a yaz.",
          *b("KAÇAN?", [f"- {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["kacan"]]
-              + [f"- (düşük güven) {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["dusuk"]]),
+              + [f"- (düşük güven) {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["dusuk"]]
+              + [f"- eski şema: {v} · İz yok, KAÇAN? denetimi yapılmadı · {_yt(v)}" for v in z.get("eski_sema", [])]),
          *b("aday değil", [f"- {v} · {pt._h(n)} · {pt._h(s)} · {_yt(v, (m := tr.ZAMAN.search(q)) and m.group())}" for v, q, n, s in z.get("degil", [])]),
          *b("ONARIM BEKLİYOR", [f"- {k} · {pt._h(karar[k][1])} · {url(k)}" for k in onarim]),
          *b("İncelenmedi (C4)", inc),
