@@ -47,7 +47,10 @@ def _post(url, govde, bas):
         with urllib.request.urlopen(r, timeout=600) as y:
             return y.status, json.loads(y.read())
     except urllib.error.HTTPError as e:
-        return e.code, {}
+        try:  # F1: hata gövdesi (ör. 400 invalid_model) sebep olarak korunur
+            return e.code, json.loads(e.read())
+        except ValueError:
+            return e.code, {}
 
 
 def or_cagir(model, env, gonder=_post, uyku=time.sleep):

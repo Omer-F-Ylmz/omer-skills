@@ -18,6 +18,7 @@ from . import hafif
 from . import metin as m
 from . import ikinci_goz as ig
 from . import tarama as tr
+from . import yonlendir as yon
 
 IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci göz tavanları (OpenRouter $ · Jev durum · yargıç çağrı)
 YENIDEN = {"bekliyor", "hata", "tavan"}
@@ -484,8 +485,9 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
                 kalan = []
                 break
             kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+            c, model = yon.sec(d, "tarama", cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü
             try:
-                y = cagir(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=d["model"],
+                y = c(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=model,
                           butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1]), env=env)
             except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
@@ -496,7 +498,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
                     (pdir / "form" / f"{f['id']}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
             u = y.get("usage") or {}
             tr.kayit_ekle(pdir / "defter.jsonl", [{
-                "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": d["model"],
+                "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": model,
                 "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
                 "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), "usd": y.get("usd") or 0.0, "kare": len(kareler),
                 "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])

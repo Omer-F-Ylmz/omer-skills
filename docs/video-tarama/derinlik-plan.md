@@ -369,6 +369,12 @@ usage.prompt_tokens/completion_tokens/total_tokens; :22 server localhost:20128; 
 ÇELİŞKİ → adaptör yolu ayar sabiti, F1-KURULUM'da canlı çağrıyla hangisi doğru belirlenir). Tasarım: OpenAI biçimi (yanıt şeması
 belgeli olan); hafif.cagir imzalı adaptör, ikinci_goz.or_cagir kalıbı (gonder= enjekte, aynı dict: form/usage/usd/sure/hata); seçim
 durum.json d["model"] yanında adım başı alan, varsayılan bugünkü (hafif.MODEL, claude -p). Sahte: test_24e1.py:55 __call__(url, basliklar, govde).
+F1 yeşil (O36): video/yonlendir.py — omni_cagir (OMNI_URL ← env OMNIROUTE_URL, OMNI_YOL sabiti; /api/v1/chat/completions adayı F1-KURULUM'da) ·
+sec(d, adim, …): durum.json "yonlendirme": {"<adim>": {"saglayici": "omniroute", "model": "…"}} (elle yazılır; CLI bayrağı yok); bağlı adımlar
+parti "tarama" + akil._form_al adim adları; ikinci göz yargıcı yönlendirilmez. usd 0 (yanıtta maliyet yok → tavan yalnız çağrı sayısıyla).
+ig._post HTTPError gövdesini korur (400 invalid_model sebebi). Canlı doğrulama (ağsız, ücretsiz; PowerShell 5.1):
+  `$py = "$(uv tool dir)\video-cli\Scripts\python.exe"; & $py -c 'from video import yonlendir as y; print(y.sec({''model'': ''claude-sonnet-5-5''}, ''tarama'', ''hafif.cagir'', {}))'` → ('hafif.cagir', 'claude-sonnet-5-5')
+  `& $py -c 'from video import yonlendir as y; print(y.OMNI_YOL, y.omni_cagir(''gpt-4o-mini'', {''OMNIROUTE_URL'': ''http://127.0.0.1:9''})(''s'', ''m'', {})[''hata''])'` → /v1/chat/completions ölçülemedi: URLError … 10061
 **F1-KURULUM (ayrı kurulum maddesi; iş oturumuna karışmaz):** OmniRoute sunucusunu kur + başlat, kimliği ekle (değer basılmaz); sonra
 F1 adaptörüyle tek gerçek çağrı (tavan: en fazla 1 istek, en ucuz model) → sonuç plana.
 **F2 Adım bazlı A/B düzeneği:** aynı girdi, iki model; kalite (kör puan + görev başarısı) + $; karar A1'le düzeltilmiş 24 Eyl tablosuyla.
@@ -409,4 +415,4 @@ A1 test_takas.py:48 çelişkisi · C2 Pillow yoksa · C3 Windows.Media.Ocr eriş
 · suite-kosucu ajanı yoksa.
 
 ## İlerleme
-O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). O6 (4 Eki): C1 ✓ + koruma (video 591). O7 (4 Eki): C2 ✓ (video 597). O8 (4 Eki): C3 ✓ (video 603). O9 (4 Eki): C4 ✓ + ek (video 607). O10 (4 Eki): C4/C3 düzeltmesi 3 madde ✓ (video 611). Sonraki: D1. O11 (4 Eki): O11 madde 1–2 ✓ (video 613), sonraki O11 (3) tekrar ayıklama, (4) ocr-gurultu.txt, sonra D1. O12 (4 Eki): O11 (3) ✓ · (4) ✓ (video 615), sonraki O11 (5), sonra D1. O21–O22 (5 Eki): B2 ✓ (erişilemedi → kapsam.json + Denetim, Ömer kararı) · B ek kablolama ✓ (video 662); sonraki B3. O23 (5 Eki): B ek düzeltmesi ✓ (tek bölüm, video 663). B3 ✓ (video 664); sonraki B4.
+O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). O6 (4 Eki): C1 ✓ + koruma (video 591). O7 (4 Eki): C2 ✓ (video 597). O8 (4 Eki): C3 ✓ (video 603). O9 (4 Eki): C4 ✓ + ek (video 607). O10 (4 Eki): C4/C3 düzeltmesi 3 madde ✓ (video 611). Sonraki: D1. O11 (4 Eki): O11 madde 1–2 ✓ (video 613), sonraki O11 (3) tekrar ayıklama, (4) ocr-gurultu.txt, sonra D1. O12 (4 Eki): O11 (3) ✓ · (4) ✓ (video 615), sonraki O11 (5), sonra D1. O21–O22 (5 Eki): B2 ✓ (erişilemedi → kapsam.json + Denetim, Ömer kararı) · B ek kablolama ✓ (video 662); sonraki B3. O23 (5 Eki): B ek düzeltmesi ✓ (tek bölüm, video 663). B3 ✓ (video 664); sonraki B4. · F1 ✓ (O36)

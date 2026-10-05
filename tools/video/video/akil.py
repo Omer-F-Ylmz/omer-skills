@@ -14,6 +14,7 @@ from . import metin as mt
 from . import parti as pt
 from . import tarama as tr
 from . import uygula as uy
+from . import yonlendir as yon
 
 ARASTIRMA_ARAC = ("WebSearch", "Bash(video getir:*)", "Bash(video repo:*)")
 WEB_TAVAN = 3
@@ -591,19 +592,19 @@ def teknik_duzenle(kok):
 
 def _form_al(pdir, d, cagir, sistem, metin, sema, adim, ad, env, araclar=ARASTIRMA_ARAC, denet=None, oku=None):
     """Araçlı hafif çağrı + şema doğrulama (+ M2g denet: ek doğrulama; red → en fazla 2 yeniden istek); her çağrı defterde ayrı satır. → (durum, form | hata)."""
-    hatalar = []
+    hatalar, (cagir, model) = [], yon.sec(d, adim, cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü
     for _ in range(3):
         if pt._tavan(pdir, d):
             return "tavan", "parti tavanı"
         try:
-            y = cagir(sistem, metin + ("\n\nÖNCEKİ FORM REDDEDİLDİ:\n" + "\n".join(hatalar[:10]) if hatalar else ""), sema, model=d["model"],
+            y = cagir(sistem, metin + ("\n\nÖNCEKİ FORM REDDEDİLDİ:\n" + "\n".join(hatalar[:10]) if hatalar else ""), sema, model=model,
                       butce=min(d["butce"], d["tavan"]["usd"] - pt._defter(pdir)[1]), env=env, araclar=araclar)
         except Exception as e:
             y = {"hata": f"taşıyıcı: {e}"[:200]}
         hatalar = [] if y.get("hata") else (pt._denet(y.get("form"), oku or sema, ad) or (denet(y["form"]) if denet else []))
         u = y.get("usage") or {}
         tr.kayit_ekle(pdir / "defter.jsonl", [{
-            "zaman": datetime.now().isoformat(timespec="seconds"), "adim": adim, "aday": ad, "videolar": [], "model": d["model"],
+            "zaman": datetime.now().isoformat(timespec="seconds"), "adim": adim, "aday": ad, "videolar": [], "model": model,
             "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
             "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), "usd": y.get("usd") or 0.0, "kare": 0, "web": y.get("web", 0),
             "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}" if hatalar else "gecti"}])
