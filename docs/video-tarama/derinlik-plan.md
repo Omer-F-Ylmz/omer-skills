@@ -308,6 +308,12 @@ Canlı doğrulama (O31, ağsız, ücretsiz; PowerShell 5.1; beklenen: "uç nokta
 yan · "aday değil" · KAÇAN? · yeni link sınıfı. `docs/kurulumlar/parti/<id>/denetim.md` (≤150 satır): KAÇAN?'ların hepsi · "aday
 değil"lerin hepsi · "ONARIM BEKLİYOR"ların hepsi · C4 incelenmedi anı kalan videolar (durum.json izleme) · risk puanı en yüksek 5 · tohumlu rastgele 3. Her satırda Desktop'un açacağı TAM URL'ler
 (videonun mm:ss linki, repo, ilgili dosya, issue, doküman) — Desktop yalnız sohbette görünen adresleri açabilir. Test.
+E1 uygulama (O32): `panel` panel.md'nin yanına denetim.md yazar (akil.denetim_md; tek kaynak akil.denetim + panel kararları).
+Risk puanı = sinyal sayısı: KUR önerisi (T1/T2/UYARLA) · güvenlik (HIGH/CRITICAL) · kaynak farkı (a.kaynak) · kapsam eksiği · çözülmedi
+(ONARIM BEKLİYOR); eşitlikte ad sırası. "aday değil"/KAÇAN? video düzeyinde (aday puanına girmez, zaten hepsi listelenir); "yeni link
+sınıfı" sinyali B1 sınıfı aday kaydında yok → şimdilik yok. Rastgele 3: random.Random(parti id), ilk 5 ve ONARIM dışındaki adaylardan.
+URL: https://www.youtube.com/watch?v=<id>&t=<sn>s (İz kaynak hücresindeki mm:ss · aday videolar.zaman · kapsam.json incelenmedi ilk an)
++ https://github.com/<repo>. kur.py:368 ONARIM BEKLİYOR parti dışı (token takas tablosu) → denetim.md'ye girmez. >150 satır → kesilir + sayı.
 **E2 Geri dönüş:** denetim.md sonunda "## Desktop" şablonu; Ömer Desktop'un verdiği satırları buraya yapıştırır; `video parti
 denetim-isle <id>` bunları `docs/kurulumlar/desktop-denetim.jsonl`'a ve ilgili aday dosyasına işler. Test.
 **E3 Uyarlamalı örneklem:** son 3 partide Desktop bulgusu 0 ise rastgele 3 → 1; her bulgu +3 (en fazla 6). KAÇAN?, "aday değil", "ONARIM
