@@ -1,6 +1,14 @@
 """F3-HAZIRLIK-2 madde 3: A/B aynı girdi şartı — girdi 4. öğe kareler iki kola birebir aynı gider; omni_cagir her kareyi image_url
 (data:<mime>;base64) parçası yapar; omni_yokla(gorsel=True) görselsiz modelde hata döner (model çağrısı yok). Testler sahte, canlı çağrı 0."""
+import re
+import sys
+import types
+from pathlib import Path
+
+import pytest
+
 from video import hafif
+from video import parti as pt
 from video import yonlendir as yon
 
 SEMA = {"type": "object", "required": ["a"], "properties": {"a": {"type": "string"}}}
@@ -66,3 +74,46 @@ def test_gorselsiz_model_hata_cagri_yok():
 def test_gorselli_model_gecer():
     assert yon.omni_yokla("b/m2", ENV, _getir({"capabilities": {"vision": True}})[0], gorsel=True) is None
     assert yon.omni_yokla("b/m2", ENV, _getir({"input_modalities": ["text", "image"]})[0], gorsel=True) is None
+
+
+# Madde 2: FIYAT gemma-3-4b-it (OpenRouter /api/v1/models, 5 Eki; token başı USD × 1e6) + ab-canli.ps1 ön kontrolleri (çağrı 0).
+OR = "https://openrouter.ai/api/v1/models · 2026-10-05"
+M = "openrouter/inclusionai/ling-3.0-flash-vl"
+BETIK = Path(__file__).resolve().parents[3] / "docs" / "video-tarama" / "ab-canli.ps1"
+
+
+def test_fiyat_gemma_kaynakli():
+    assert yon.FIYAT["openrouter/google/gemma-3-4b-it"] == {"girdi": 0.05, "cikti": 0.1, "kaynak": OR}
+    assert yon.FIYAT[M] == {"girdi": 0.021, "cikti": 0.0616, "kaynak": OR}  # aynı listeden doğrulandı, değişmedi
+
+
+def _betik(monkeypatch, tmp_path, model, kareler, gorsel):
+    """ab-canli.ps1'in Python gövdesi sahte modüllerle; omni_yokla 'dur' döner (ab'ye inilmez) → (çıkış metni, omni_yokla gorsel değerleri)."""
+    paket = tmp_path / "paket.md"
+    paket.write_text("p", encoding="utf-8")
+    for k, v in {"AB_VIDEO": "v1", "AB_PAKET": str(paket), "AB_MODEL": model}.items():
+        monkeypatch.setenv(k, v)
+    yokla = []
+    monkeypatch.setattr(yon, "omni_yokla", lambda m, env, gorsel=False: yokla.append(gorsel) or "dur")
+    monkeypatch.setattr(pt, "paket_oku", lambda p: {"kareler": kareler})
+    monkeypatch.setattr(hafif, "GORSEL", gorsel)
+    monkeypatch.setitem(sys.modules, "jev", types.SimpleNamespace(cekirdek=None))
+    kod = re.search(r"@'\r?\n(.*?)\r?\n'@", BETIK.read_text(encoding="utf-8"), re.S)[1]
+    with pytest.raises(SystemExit) as e:
+        exec(kod, {"__name__": "__main__"})
+    return e.value.code, yokla
+
+
+def test_betik_fiyat_yok_cagri_yok(monkeypatch, tmp_path):
+    assert _betik(monkeypatch, tmp_path, "openrouter/yok/x", [], False) == ("hata: fiyat yok: openrouter/yok/x", [])
+
+
+def test_betik_gorsel_acik_kare_yok_cagri_yok(monkeypatch, tmp_path):
+    assert _betik(monkeypatch, tmp_path, M, [str(tmp_path / "yok.png")], True) == ("hata: kare yok", [])
+
+
+def test_betik_yokla_gorsel_kareye_gore(monkeypatch, tmp_path):
+    k = tmp_path / "1.png"
+    k.write_bytes(b"x")
+    assert _betik(monkeypatch, tmp_path, M, [str(k)], False) == ("hata: dur", [False])
+    assert _betik(monkeypatch, tmp_path, M, [str(k)], True) == ("hata: dur", [True])
