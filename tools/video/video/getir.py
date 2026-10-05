@@ -177,34 +177,36 @@ def yapimci(ad, kos, hata):
     return "\n".join(out) + "\n"
 
 
-WEB = {"sorgu": 5, "sonuc": 3}  # ayar · B4: aday başına en fazla N sorgu · sorgu başına sonuç
+WEB = {"sorgu": 5, "sonuc": 3, "ozet": 600}  # ayar · B4: aday başına en fazla N sorgu · sorgu başına sonuç · Highlights özeti (karakter)
 SORGU = ("{ad} review", "{ad} vs alternatives comparison", "{ad} known issues problems", "{ad} alternative",
          "{ad} announcement blog post")  # inceleme · karşılaştırma · bilinen sorun · alternatif · yazarın duyuru/blog yazısı (B3'ten)
 DUSUK = tr.KACAN_SOSYAL + ("reddit.com", "news.ycombinator.com", "stackoverflow.com", "stackexchange.com", "lobste.rs")  # forum/sosyal
 
 
 def _sonuclar(t):
-    """mcporter exa çıktısı: JSON (results/content) ya da 'Title: … / URL: …' metni → [(başlık, url)]."""
+    """mcporter exa çıktısı: JSON (results/content) ya da 'Title: / URL: / Published: / Highlights:' metni ('---' ayrık; canlı biçim)
+    → [(başlık, url, gün, highlights)]."""
     try:
         j = json.loads(t)
     except ValueError:
-        out, b = [], ""
-        for s in t.splitlines():
-            if s.startswith("Title:"):
-                b = s[6:].strip()
-            elif s.startswith("URL:"):
-                out.append((b, s[4:].strip()))
+        out = []
+        for blok in re.split(r"^(?=Title:)", t, flags=re.M):
+            a = dict(re.findall(r"^(Title|URL|Published):[ \t]*(.*)$", blok, re.M))
+            if a.get("URL"):
+                out.append((a.get("Title", "").strip(), a["URL"].strip(), a.get("Published", "")[:10],
+                            blok.partition("\nHighlights:")[2].split("\n---")[0]))
         return out
     if isinstance(j, dict) and "content" in j:
         return _sonuclar("\n".join(c.get("text", "") for c in j["content"]))
-    return [(x.get("title") or "", x["url"]) for x in (j.get("results", []) if isinstance(j, dict) else j) if x.get("url")]
+    return [(x.get("title") or "", x["url"], (x.get("publishedDate") or "")[:10], " ".join(x.get("highlights") or []))
+            for x in (j.get("results", []) if isinstance(j, dict) else j) if x.get("url")]
 
 
-def web_ara(ad, kos, hata):
+def web_ara(ad, kos, hata, repo=None, tur=None):
     """B4: genel web araması (Agent Reach yolu: mcporter exa.web_search_exa), web istekleri arası ≥2 sn. Forum/sosyal 'düşük güven';
-    aynı URL bir kez; sorgu hatası adayı düşürmez → `hata`ya (istek, sebep)."""
+    aynı URL bir kez; sorgu hatası adayı düşürmez → `hata`ya (istek, sebep). Sorgu konusu: repo ('owner/repo') ya da 'ad tür' (belirsizlik)."""
     out, gor = ["## Web araması", "inceleme · karşılaştırma · alternatif · bilinen sorun · yazarın duyuru/blog yazısı; forum/sosyal → düşük güven"], set()
-    for q in (s.format(ad=ad) for s in SORGU[:WEB["sorgu"]]):
+    for q in (s.format(ad=repo or " ".join(filter(None, (ad, tur)))) for s in SORGU[:WEB["sorgu"]]):
         uyku(max(0.0, _son[0] + 2 - saat()))  # plan: web istekleri arası ≥2 sn
         rc, o, err = kos(["mcporter", "call", "exa.web_search_exa", f"query={q}", f"numResults={WEB['sonuc']}"])
         _son[0] = saat()
@@ -212,12 +214,14 @@ def web_ara(ad, kos, hata):
             hata.append((f"web: {q}", (e := (err or b"").decode("utf-8", "replace").strip()[:200])))
             out.append(f"- erişilemedi: web: {q} ({e})")
             continue
-        for b, u in _sonuclar(o.decode("utf-8", "replace"))[:WEB["sonuc"]]:
+        for b, u, gun, hl in _sonuclar(o.decode("utf-8", "replace"))[:WEB["sonuc"]]:
             if u not in gor:
                 gor.add(u)
                 h = urlparse(u).netloc.lower()
                 dusuk = "forum" in h or any(h == s or h.endswith("." + s) for s in DUSUK)
-                out.append(f"- {q} · {b} · {u}" + (" · düşük güven" if dusuk else ""))
+                out.append(f"- {q} · {b} · " + (f"{gun} · " if gun else "") + u + (" · düşük güven" if dusuk else ""))
+                if oz := " ".join(hl.replace("...", " ").split())[:WEB["ozet"]]:
+                    out.append(f"  > {oz}")
     return "\n".join(out) + "\n"
 
 
@@ -237,7 +241,7 @@ def prompt_metni(rapor, seg):
     return "\n".join(out)
 
 
-def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None, kapsam=None, web=False):
+def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rapor=None, seg=None, guvenlik=None, kapsam=None, web=False, tur=None):
     """K4: araştırıcı bu dosyayla başlar; eksik kalırsa `video getir`/`video repo` ile tamamlar. 24a K2: rapor → prompt metni.
     24b K1: guvenlik → `## Güvenlik ön taraması` bölümü (araştırıcı klonlamaz, taramaz; buradan okur).
     B3: repo varsa `## Yapımcı nasıl yaptı`; gh hataları kapsam.json "erisilemedi"ye (B2 gibi, aynısı tekrar yazılmaz)."""
@@ -249,7 +253,7 @@ def on(kok, video, ad, repo_ad=None, url=None, kos=None, cache=None, al=_al, rap
         parca.append(repo(repo_ad, kos=kos))
         parca.append(yapimci(repo_ad, kos, hata))
     if web:
-        parca.append(web_ara(ad, kos, hata))
+        parca.append(web_ara(ad, kos, hata, repo_ad, tur))
     if hata and kapsam and Path(kapsam).is_file():  # ponytail: kapsam.json yoksa (paketsiz video) hata yalnız on.md'de
         k = json.loads(Path(kapsam).read_text(encoding="utf-8"))
         k["erisilemedi"] = [*(e := k.get("erisilemedi", [])), *[list(h) for h in hata if list(h) not in e]]
