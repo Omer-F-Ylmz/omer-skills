@@ -191,6 +191,9 @@ B ek (Ömer kararı, 5 Eki): baglantilar.json'daki "video" sınıfı linkler (a�
 (<kaynak video id>)" notuyla eklenir; kanalı otomatik takibe ALINMAZ (A3 yalnız Ömer'in gönderdiği videolar için); kuyrukta (her durumda)
 varsa tekrar eklenmez. Kanıt: canlı B1 (b2QkhmQ0sT0) açıklamasında 2 youtu.be linki açılmıyor. Uygulama: `paket --kuyruk <md>` (parti verir;
 tek video -J ile süre/başlık); paket'e --kuyruk verilmezse kuyruğa dokunulmaz. Test.
+B2 erişilemedi (Ömer kararı, 5 Eki O21 — test_paket.py:54 değişmez): "## Bağlantılı sayfalar" paket.md'de yalnız derinlik-1'de yeni bağlantı
+varsa yazılır; erişilemeyen sayfa paket.md'ye YAZILMAZ — baglantilar.json'da kalır, kapsam.json'a "erisilemedi": [[url, sebep]] (izleme
+satırı değişmez). Panel ## Denetim: "erişilemedi N" + "- erişilemedi: <video> · <url> (sebep)"; parti kapat'ı DURDURMAZ. Test.
 **B3 Yapımcı nasıl yaptı (aday başına):** README + docs + CHANGELOG/sürüm notları + en çok tepki alan açık ve kapalı issue/discussion
 başlıkları (gh api, en fazla N, ayarda) + yazarın duyuru/blog yazısı. Bilinen hata, sınırlama, şikâyet → A5 kötü yanı; yazarın önerdiği
 ayar/çözüm → A5 onarımı (kaynak linkiyle). Test (sahte gh).

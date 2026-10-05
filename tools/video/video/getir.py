@@ -48,7 +48,7 @@ class _Ayikla(HTMLParser):
 
 
 _son = [0.0]
-ACMA, ILGILI = ("github", "video", "sosyal"), ("github", "gist", "doküman", "ürün/marketplace")  # github B3'te gh ile okunur
+ACMA, ILGILI = ("github", "video", "sosyal"), ("github", "gist", "doküman", "ürün/marketplace", "video")  # github B3'te gh ile okunur · video → B ek kuyruk
 
 
 def _al(url):
@@ -89,16 +89,19 @@ def getir(url, n=6000, cache=None, al=_al):
     return out
 
 
-def derinlik1(linkler, kok, al=_al):
-    """B1: linkli sayfalardaki ilgili linkler (1 derinlik); sayfa <kok>/sayfa önbelleğinde → aynı URL bütün partilerde bir kez okunur."""
+def derinlik1(linkler, kok, al=_al, hata=None):
+    """B1: linkli sayfalardaki ilgili linkler (1 derinlik); sayfa <kok>/sayfa önbelleğinde → aynı URL bütün partilerde bir kez okunur.
+    B2: açılamayan sayfa `hata`ya (url, sebep) olarak eklenir; paket düşmez."""
     gor, yeni = {x["url"] for x in linkler}, []
     for x in linkler:
         if x["sinif"] in ACMA:
             continue
         try:
             s = getir(x["url"], cache=Path(kok) / "sayfa", al=al)
-        except GetirHata:
-            continue  # ponytail: "erişilemedi (sebep)" B2'de yazılır
+        except (GetirHata, OSError, ValueError) as e:  # zaman aşımı / bozuk adres de erişilemedi
+            if hata is not None:
+                hata.append((x["url"], str(e).removeprefix(f"getir {x['url']}: ")))
+            continue
         for b in tr.link_topla({f"sayfa {x['url']}": tr.bolum(s, "Bağlantılar")}):
             if b["sinif"] in ILGILI and b["url"] not in gor:
                 gor.add(b["url"])

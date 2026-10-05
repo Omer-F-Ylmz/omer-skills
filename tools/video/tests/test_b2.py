@@ -26,7 +26,7 @@ class Kos(OcrKos):
         self.yt = []
 
     def __call__(self, args, timeout=None):
-        if args[0] == "yt-dlp":
+        if args[0] == "yt-dlp" and str(args[-1]).startswith("https://youtu.be/"):  # yalnız B ek meta isteği; paketin kendi -J'si OcrKos'ta
             self.yt.append(args[-1])
             return 0, json.dumps({"duration": 300, "title": "Bağlı | T"}).encode(), b""
         return super().__call__(args, timeout)
@@ -42,8 +42,10 @@ def test_derinlik_paket_bolumu_erisilemedi_ve_kacan(ortam):
     md = (d / "paket.md").read_text(encoding="utf-8")
     bb = tr.bolum(md, "Bağlantılı sayfalar")
     assert "https://github.com/yeni/arac (sayfa https://a.com/x)" in bb
-    assert "https://b.io/y: erişilemedi (403" in bb
-    b = {x["url"]: x["kaynak"] for x in json.loads((d / "baglantilar.json").read_text(encoding="utf-8"))}
+    assert "erişilemedi" not in md and "b.io" not in bb  # Ömer kararı (O21 seçenek 2): erişilemeyen paket.md'ye yazılmaz
+    ek = json.loads((d / "kapsam.json").read_text(encoding="utf-8"))["erisilemedi"]
+    assert [u for u, _ in ek] == ["https://b.io/y"] and "403" in ek[0][1]
+    b ={x["url"]: x["kaynak"] for x in json.loads((d / "baglantilar.json").read_text(encoding="utf-8"))}
     assert b["https://github.com/yeni/arac"] == ["sayfa https://a.com/x"] and b["https://youtu.be/BBBBBBBBBBB"] == ["sayfa https://a.com/x"]
     eng, _ = tr.kacan_video("# r\n## İz\nyok\n", d / "paket.md", [])
     assert any("yeni/arac" in str(x) for x in eng)  # İz'de olmayan derinlik aracı KAÇAN?
@@ -68,3 +70,24 @@ def test_paket_kuyruksuz_kuyruga_dokunmaz(ortam):
     onbellek(ortam, ["x"], duration=600, description="https://youtu.be/CCCCCCCCCCC")
     kos = Kos({"k00030": {"tr": [], "en": []}})
     assert _paket(ortam, kos) == 0 and kos.yt == []
+
+
+def test_erisilemeyen_iki_sayfa_paket_md_yok_kapsam_denetim(ortam, tmp_path, monkeypatch, capsys):
+    """Ömer kararı (O21 seçenek 2): erişilemeyen → paket.md'de bölüm yok · kapsam.json erisilemedi · Denetim satırı · kapat durmaz."""
+    d = onbellek(ortam, ["x"], duration=600, description="https://c.com/p https://d.io/q")
+    assert _paket(ortam, Kos({"k00030": {"tr": [], "en": []}})) == 0
+    assert "Bağlantılı sayfalar" not in (d / "paket.md").read_text(encoding="utf-8")
+    k = json.loads((d / "kapsam.json").read_text(encoding="utf-8"))
+    assert sorted(u for u, _ in k["erisilemedi"]) == ["https://c.com/p", "https://d.io/q"] and "erişilemedi" not in k["izleme"]
+    from video import akil as ak
+    from test_d3_konusma import _d
+    onb = tmp_path / "onb"
+    pd = _d(tmp_path, "altyazı")
+    (onb / "v1" / "kapsam.json").write_text(json.dumps({"izleme": "x", "erisilemedi": k["erisilemedi"]}), encoding="utf-8")
+    monkeypatch.setattr(tr, "denetle", lambda m: [])
+    monkeypatch.setattr(ak, "_islenmemis", lambda kok, p: ["sonraki kapı"])
+    assert ak.kapat(tmp_path / "pd", pd, tmp_path, {"kok": onb}) == 1
+    out = capsys.readouterr().out
+    assert "Denetim → DUR" not in out and "kayda işlenmemiş" in out  # erişilemedi kapat'ı durdurmaz
+    sat = ak._denetim_satir(ak.denetim(pd, tmp_path, onb))
+    assert "erişilemedi 2" in sat[0] and "- erişilemedi: v1 · https://c.com/p (" in "\n".join(sat)

@@ -1022,8 +1022,10 @@ IZ_TARIH = "2026-10-05"  # ayar · D3 eki: bu tarihte/sonra açılan partide İz
 
 def denetim(d, kok, onb=None):
     """D3: tamamlanan raporların ## İz'inden bahis · bağlanan · aday değil; D2 kacan_video → KAÇAN? (engelleyen) · düşük güven; İz yok."""
-    z, soz = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "iz_yok": [], "konusma_yok": []}, tr.kacan_sozluk(kok)
+    z, soz = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "iz_yok": [], "konusma_yok": [], "erisilemedi": []}, tr.kacan_sozluk(kok)
     for v, s in d.get("videolar", {}).items():
+        if onb and (kj := Path(onb) / v / "kapsam.json").is_file():  # B2 (Ömer, O21): bilgi; kapat'ı durdurmaz
+            z["erisilemedi"] += [(v, u, x) for u, x in json.loads(kj.read_text(encoding="utf-8")).get("erisilemedi", [])]
         if (k := s.get("konusma") or "").startswith("altyazı yok; whisper atlandı"):  # O7 eki: koruma + altyazı yok → konuşma alınamadı
             z["konusma_yok"].append((v, k))
         if (t := s["tarama"])["durum"] not in ("tamam", "tamam_eksik") or not t.get("cikti") or not Path(t["cikti"]).is_file():
@@ -1043,12 +1045,13 @@ def denetim(d, kok, onb=None):
 def _denetim_satir(z):
     oran = round(100 * z["aday_degil"] / z["bahis"]) if z["bahis"] else 0
     return ([f"bahis {z['bahis']} · bağlanan {z['baglanan']} · aday değil {z['aday_degil']} (%{oran}) · KAÇAN? {len(z['kacan'])} · "
-             f"düşük güven {len(z['dusuk'])} · İz yok {len(z['iz_yok'])} · konuşma alınamadı {len(z['konusma_yok'])}"]
+             f"düşük güven {len(z['dusuk'])} · İz yok {len(z['iz_yok'])} · konuşma alınamadı {len(z['konusma_yok'])} · erişilemedi {len(z['erisilemedi'])}"]
             + (["UYARI: aday değil oranı %5'i aşıyor"] if oran > 5 else [])
             + [f"- KAÇAN? {v} · {k} · {pt._h(x)}" for v, k, x in z["kacan"]]
             + [f"- KAÇAN? (düşük güven) {v} · {k} · {pt._h(x)}" for v, k, x in z["dusuk"]]
             + [f"- İz yok: {v} → devam --yeniden-tara" for v in z["iz_yok"]]
-            + [f"- konuşma alınamadı: {v} ({k}) → --paket-yeniden ile whisper" for v, k in z["konusma_yok"]])
+            + [f"- konuşma alınamadı: {v} ({k}) → --paket-yeniden ile whisper" for v, k in z["konusma_yok"]]
+            + [f"- erişilemedi: {v} · {u} ({x})" for v, u, x in z["erisilemedi"]])
 
 
 def kapat(pdir, d, kok, ctx):

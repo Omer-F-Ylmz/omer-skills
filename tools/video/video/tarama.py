@@ -579,7 +579,7 @@ def kacan_video(rapor, paket, sozluk):
     p = Path(paket)
     md = p.read_text(encoding="utf-8") if p.is_file() else ""
     g = p.parent / "ocr-gurultu.txt"
-    k = [("paket", "\n".join(bolum(md, b) for b in ("Açıklama bağlantıları", "Segmentler", "Ekran metni")))]
+    k = [("paket", "\n".join(bolum(md, b) for b in ("Açıklama bağlantıları", "Bağlantılı sayfalar", "Segmentler", "Ekran metni")))]
     k += [("gürültü", g.read_text(encoding="utf-8"))] if g.is_file() else []
     zayif = []
     eng = kacan(rapor, k, sozluk, KACAN_DESEN[:2], zayif)

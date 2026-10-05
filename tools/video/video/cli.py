@@ -396,6 +396,21 @@ def _yorumlar(ctx, d):
     return list(dict.fromkeys(u for t in j["yorumlar"] for u in m.urller(t))), j["durum"]
 
 
+def _bagli_video(ctx, v, bl, ky):
+    """B ek: açıklama/yorum/sayfa'daki video linki kuyrukta (her durumda) yoksa 'bağlantılı video (<v>)' notuyla eklenir; kanal takibi yok."""
+    metin = ky.read_bytes().decode("utf-8")
+    var = {tr._hucre(s)[0] for s in metin.splitlines() if s.lstrip().startswith("|")}
+    ids = [g[1] for x in bl if x["sinif"] == "video" and any(k.split()[0] in ("açıklama", "yorum", "sayfa") for k in x["kaynak"])
+           and (g := m.ID.search(x["url"])) and g[1] and g[1] not in var and g[1] != v]
+    sat, sayac = [], [0]
+    for i in dict.fromkeys(ids):
+        j = kn._istek(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", f"https://youtu.be/{i}"], sayac) or {}
+        sat.append((i, round((j.get("duration") or 0) / 60, 1), str(j.get("title") or "?")[:40].replace("|", "/"), f"bağlantılı video ({v})",
+                    "" if j else "yt-dlp -J başarısız"))
+    if sat:
+        ky.write_bytes(tr.kuyruk_ekle(metin, sat, set(), set(), f"## Bağlantılı videolar ({v})")[0].encode("utf-8"))
+
+
 def paket(ns, ctx):
     """Alt ajan girdisi tek dosya <önbellek>/<id>/paket.md: künye · chapter · linkler · sadeleştirilmiş segmentler · kare yolları.
     Kareler: yalnız ekran sorusu (p varsa istek yok) → ekran p'si en yüksek --kare zamanın tam-t karesi. Segment metni stdout'a yazılmaz."""
@@ -432,13 +447,18 @@ def paket(ns, ctx):
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
-    (d / "baglantilar.json").write_text(json.dumps(tr.link_topla({  # B1: dört kaynak, sınıflı; 1 derinlik B2'de (getir.derinlik1)
+    bl, hata = tr.link_topla({  # B1: dört kaynak, sınıflı
         "açıklama": "\n".join(ak), "yorum": "\n".join(yk), "ocr": "\n".join(x for _, s in ocr.get("metin", []) for x in s),
-        "altyazı": "\n".join(str(s.get("metin")) for s in seg)}), ensure_ascii=False, indent=1), encoding="utf-8")
+        "altyazı": "\n".join(str(s.get("metin")) for s in seg)}), []
+    yeni = gt.derinlik1(bl, ctx["kok"], al=ctx["al"], hata=hata)  # B2: 1 derinlik; okuyucu ctx'ten (testte sahte)
+    (d / "baglantilar.json").write_text(json.dumps(bl + yeni, ensure_ascii=False, indent=1), encoding="utf-8")
+    if ns.kuyruk and Path(ns.kuyruk).is_file():
+        _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
+          *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
           *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, s in sorted(ocr.get("metin", [])) for x in s if not (x in gor or gor.add(x))]
                                                 or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # aynı satır bir kez; boşsa bölüm yok
@@ -452,7 +472,7 @@ def paket(ns, ctx):
     inc = sorted(ocr.get("incelenmedi", []))
     ky.write_text(json.dumps({"izleme": f"{'kare-yalnız' if yalniz else f'segment {len(seg)}'} · "  # C4 Kapsam satırı → parti durum.json → panel
                                         f"{f'sahne {len(sj['sahneler'])}' if sj.get('durum') == '✓' else sj.get('durum')} · seçilen {ocr.get('secilen', 0)} · "
-                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)} · OCR gürültü {ocr.get('gurultu', 0)}{f" · tekrar (montaj) {n}" if (n := ocr.get('montaj')) else ''}", "incelenmedi": inc}, ensure_ascii=False), encoding="utf-8")
+                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)} · OCR gürültü {ocr.get('gurultu', 0)}{f" · tekrar (montaj) {n}" if (n := ocr.get('montaj')) else ''}", "incelenmedi": inc, "erisilemedi": hata}, ensure_ascii=False), encoding="utf-8")
     print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
           f" + ~{sum(_kare_tk(y)[1] for _, y in kareler)} kare · istek {istek}")
     return 0
@@ -1167,7 +1187,7 @@ def temizle(ns, ctx):
     return 0
 
 
-def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
+def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
     argv = [a.rstrip("\r") for a in (sys.argv[1:] if argv is None else argv)]  # 24e-1 K2: CRLF listeden gelen yol
     if argv[:1] == ["--whisper"]:
         argv[0] = "whisper"
@@ -1187,6 +1207,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     x.add_argument("--model-tavan", type=int, help="O11 (5): modele giden en fazla M kare (varsayılan --kare); --kare aday tabanı kalır")
     x.add_argument("--kare-yalniz", action="store_true", help="M8 K2: segmentleri yok say (whisper çıktısı anlamsız) → kare-yalnız paket")
     x.add_argument("--incelenmedi", action="store_true", help="C4 ikinci geçiş: yalnız kapsam.json'daki incelenmedi anlar (ilk paket → paket-1.md)")
+    x.add_argument("--kuyruk", metavar="MD", help="B ek: açıklama/yorum/sayfa video linkleri bu kuyruğa (yoksa); verilmezse kuyruğa dokunulmaz")
     x.add_argument("--istek-tavan", type=int, metavar="M", help="en fazla M HTTP isteği (varsayılan segment+10)")
     x = alt.add_parser("izle", help="Desktop tek çağrı: ozet + sor + görüntü gerekirse tek kare (Jev ≤2)")
     x.add_argument("hedef")
@@ -1341,7 +1362,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep):
     geri = lambda x: x[1:] if isinstance(x, str) and x[:1] == "\0" else x  # noqa: E731
     vars(ns).update({k: [geri(y) for y in x] if isinstance(x, list) else geri(x) for k, x in vars(ns).items()})
     env = os.environ if env is None else env
-    ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK),
+    ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK), "al": al or gt._al,  # B2: sayfa okuyucu
            "gh": lambda a: json.loads(subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", check=True).stdout)}  # DERİNLİK-1 R3
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
