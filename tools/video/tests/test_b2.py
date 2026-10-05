@@ -66,6 +66,22 @@ def test_bagli_video_kuyruga_tekrar_yok(ortam, tmp_path):
     assert all("--flat-playlist" not in a for a in kos.cagri)  # kanal çözümü/takibi yok (yalnız tek video -J)
 
 
+def test_bagli_video_tek_bolum_ve_parti_secer(ortam, tmp_path):
+    """B ek düzeltmesi (Ömer kararı, 5 Eki): kaynak başına bölüm yok — tek '## Bağlantılı videolar', kaynak not sütununda."""
+    onbellek(ortam, ["x"], duration=600, description="https://youtu.be/DDDDDDDDDDD https://youtu.be/CCCCCCCCCCC")
+    ky = tmp_path / "kuyruk.md"
+    ky.write_text("# kuyruk\n\n## Bağlantılı videolar\n\n| id | süre | başlık (kısa) | not | durum |\n|---|---|---|---|---|\n"
+                  "| DDDDDDDDDDD | 5.0 | d | bağlantılı video (ZZZZZZZZZZZ) | bekliyor |\n\n## Sonra\n\nmetin\n", encoding="utf-8")
+    kos = Kos({"k00030": {"tr": [], "en": []}})
+    assert _paket(ortam, kos, "--kuyruk", str(ky)) == 0
+    k = ky.read_text(encoding="utf-8")
+    assert k.count("## Bağlantılı videolar") == 1 and k.count("DDDDDDDDDDD") == 1  # ikinci kaynaktan gelen tekrar eklenmez
+    bol = tr.bolum(k, "Bağlantılı videolar")
+    assert "| DDDDDDDDDDD | 5.0 | d | bağlantılı video (ZZZZZZZZZZZ) | bekliyor |" in bol
+    assert f"| CCCCCCCCCCC | 5.0 | Bağlı / T | bağlantılı video ({VID}) | bekliyor |" in bol and k.endswith("## Sonra\n\nmetin\n")
+    assert [h[0] for h in tr.kuyruk_parti(k)[1]] == ["DDDDDDDDDDD", "CCCCCCCCCCC"]  # parti baslat seçer
+
+
 def test_paket_kuyruksuz_kuyruga_dokunmaz(ortam):
     onbellek(ortam, ["x"], duration=600, description="https://youtu.be/CCCCCCCCCCC")
     kos = Kos({"k00030": {"tr": [], "en": []}})
