@@ -1,5 +1,6 @@
 """14a video-uygula: aday.md → katman (T0 kural · T1 yalnız-md skill · T2 onay · RED), uygulama, kayıt; projeler özeti.
 15: K1 karar kümesi (KUR · DENE · ÖĞREN · ZATEN VAR · ALTERNATİF · RED), kural/olgu, kart, çelişki, sponsor, bizde durum."""
+import fnmatch
 import json
 import re
 import shutil
@@ -437,6 +438,57 @@ def on_tarama(ctx, repo_ad):
 
 ISKELET_ALAN = ("lisans", "son_commit", "arsiv", "kaynak", "telemetri")
 ISKELET_BOLUM = ("Kurulum", "İzinler", "Duman testi", "Geri alma", "Köprü izni", "Önerilen katman")
+
+
+MEKANIZMA = {"kb": 40, "satir": 20}  # ayar · B5: modele gidecek ilgili dosyalar toplamı (KB) · kategori başına en fazla satır
+KONUM = (("oturum başı enjeksiyon", r"SessionStart|UserPromptSubmit|additionalContext"),
+         ("hook", r"PreToolUse|PostToolUse|SubagentStop|\"hooks\""),
+         ("süreç", r"child_process|subprocess|\bspawn\(|\bexecSync\(|Popen|os\.system"),
+         ("ağ", r"\bfetch\(|requests\.|urllib|axios|https?://|\bhttp\.(get|request)"),
+         ("izin kapsamı", r"allowed-tools|allowedTools|permissions|dangerously|bypassPermissions"),
+         ("ayar okuma", r"os\.environ|process\.env|getenv|settings(\.local)?\.json"),
+         ("ağır döngü", r"while\s*\(?\s*(True|true|1)\b|setInterval|for\s*\(\s*;\s*;"))  # grep yolu; semgrep adayı planda
+KOD_UZANTI = (".js", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".sh", ".ps1", ".cmd", ".bat")  # ayar · 5 Eki: belge (.md .txt .rst) taranmaz
+KOD_AD = ("hooks.json", "settings*.json", "plugin.json", ".mcp.json")
+
+
+def mekanizma(ctx, yol, ad, kaynak="klon"):
+    """B5: klon ya da bizdeki kopya çağrısız konumlandırılır (KONUM → dosya:satır); ilgili dosyalar isabet sırasıyla toplam
+    ≤MEKANIZMA['kb'] KB. Aynı ad + commit bir kez (ctx kok/getir/mekanizma/<o__r>@<sha>.md; commit yoksa önbellek yok)."""
+    bas = "## Mekanizma incelemesi\n"
+    if not yol or not Path(yol).is_dir():
+        return bas + f"kod yok ({kaynak}): alanlar B2–B4 kaynaklarıyla doldurulur (yapımcı · web araması)\n"
+    yol = Path(yol)
+    rc, out, _ = _kos(ctx, ["git", "-C", yol, "rev-parse", "HEAD"], timeout=30)
+    sha = "" if rc else out.decode("utf-8", "replace").strip()[:12]
+    on = ctx["kok"] / "getir" / "mekanizma" / f"{ad.replace('/', '__')}@{sha}.md"
+    if sha and on.is_file():
+        return on.read_text(encoding="utf-8")
+    bul, boy, sayi = {k: [] for k, _ in KONUM}, {}, {}
+    for f in sorted(p for p in yol.rglob("*") if p.is_file() and ".git" not in p.relative_to(yol).parts
+                    and (p.suffix.lower() in KOD_UZANTI or any(fnmatch.fnmatch(p.name, d) for d in KOD_AD))):
+        if f.stat().st_size > 1 << 20 or b"\0" in (b := f.read_bytes())[:1024]:  # ponytail: 1 MB üstü/ikili atlanır
+            continue
+        r = f.relative_to(yol).as_posix()
+        for n, s in enumerate(b.decode("utf-8", "replace").splitlines(), 1):
+            for k, d in KONUM:
+                if re.search(d, s):
+                    sayi[r], boy[r] = sayi.get(r, 0) + 1, len(b)
+                    if len(bul[k]) < MEKANIZMA["satir"]:
+                        bul[k].append(f"- {r}:{n} `{s.strip()[:120]}`")
+    ilgili, top = [], 0
+    for r in sorted(boy, key=lambda r: (-sayi[r], boy[r])):
+        if top + boy[r] <= MEKANIZMA["kb"] * 1024:
+            ilgili.append(f"- {r} ({boy[r]} B)")
+            top += boy[r]
+    t = (bas + f"kaynak: {kaynak} · {yol.as_posix()} @ {sha or 'commit yok'}\n"
+         + "".join(f"### {k}\n" + ("\n".join(v) or "- yok") + "\n" for k, v in bul.items())
+         + f"### ilgili dosyalar (modele gider, ≤ {MEKANIZMA['kb']} KB)\n" + ("\n".join(ilgili) or "- yok") + "\n"
+         + "### A5'e\n- kötü yan: neden (dosya:satır) → onarım yeri (ayar · sarmalayıcı · kendi sürüm)\n- iyi yan: nasıl güçlenir\n")
+    if sha:
+        on.parent.mkdir(parents=True, exist_ok=True)
+        on.write_text(t, encoding="utf-8")
+    return t
 
 
 def iskelet(kok, video, ad, tur, repo_ad, on_yol, guvenlik=None, kurulu=None):

@@ -444,7 +444,9 @@ def gelistir(pdir, d, kok, ctx):
     metin = "Her satırda eylem ver (yapılandırma · kullanım biçimi · eksik özellik · ölçüm); adaylar bizde KURULU, kurulum önerme.\n\n" + "\n\n".join(
         f"ADAY: {k} · bizde: {a['kurulu']}\nVİDEO: " + "; ".join(
         f"{v} {x['zaman']} {x['ne']} · kanıt: {x['kanit']}" + (f" · iddia: {'; '.join(x['iddialar'])}" if x.get("iddialar") else "")
-        for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{bz[k]}\n</veri>" for k, a in z.items())
+        for v, x in a["videolar"].items())[:1500] + f"\n<veri kaynak=\"bizde\">\n{bz[k]}\n" + next(  # B5: bizdeki kopyanın mekanizma.md'si
+        (p.read_text(encoding="utf-8")[:3000] for v in a["videolar"] for p in (kok / ".kos" / v).glob("*/mekanizma.md")
+         if p.parent.name.startswith(k[:20])), "") + "</veri>" for k, a in z.items())
     durum, f = _form_al(pdir, d, ctx.get("cagir") or pt.hafif.cagir, SISTEM_GEL, metin, GELISTIRME, "gelistirme", "parti", ctx["env"], (),
                         _kurulum_red, GELISTIRME_ESKI)  # ilke 29: araçsız, yalnız rapor + bizde
     if durum != "tamam":
