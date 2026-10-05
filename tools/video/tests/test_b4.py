@@ -1,7 +1,9 @@
 """B4: genel web araması (aday başına en fazla N sorgu, ayarda; Agent Reach yolu = mcporter exa.web_search_exa): inceleme, karşılaştırma,
 alternatif, bilinen sorun + yazarın duyuru/blog yazısı (B3'ten). Forum/sosyal "düşük güven". Sorgu hatası adayı düşürmez → erisilemedi.
 Sahte kos + sahte saat; ağ yok."""
+import io
 import json
+import urllib.error
 
 import pytest
 
@@ -58,7 +60,7 @@ def test_sorgu_hatasi_erisilemedi_aday_dusmez(tmp_path, saat):
     b = tr.bolum(gt.on(tmp_path, "VID", "arac", kos=kos, kapsam=kj, web=True).read_text(encoding="utf-8"), "Web araması")
     q2 = gt.SORGU[2].format(ad="arac")
     assert f"- erişilemedi: web: {q2} (" in b and "timeout" in b and "https://blog.x/r" in b
-    assert json.loads(kj.read_text(encoding="utf-8"))["erisilemedi"] == [[f"web: {q2}", "mcporter: timeout"]]
+    assert json.loads(kj.read_text(encoding="utf-8"))["erisilemedi"] == [[f"web: {q2}", "mcporter: timeout · brave: BRAVE_API_KEY yok"]]
 
 
 def test_web_istekleri_arasi_en_az_iki_sn(tmp_path, saat):
@@ -114,3 +116,76 @@ def test_video_on_web_ara(monkeypatch, ortam, kok):  # noqa: F811
     monkeypatch.setattr(gt, "web_ara", lambda ad, kos, hata, repo=None, tur=None: cagri.append((ad, repo, tur)) or "## Web araması\n")
     assert main(["on", VID, "cm", "--tur", "skill"], env=ortam, kos=lambda a, timeout=None: (0, b"", b"")) == 0
     assert cagri == [("cm", None, "skill")]
+
+
+# B4 eki (Ömer kararı, 5 Eki): exa'da sessiz boş YASAK + sağlayıcı zinciri exa → brave (BRAVE_API_KEY) → erisilemedi
+LIMIT = "You've hit Exa's free MCP rate limit. Please try again later or add your own API key."
+BRAVE = {"web": {"results": [{"title": "<strong>Brave</strong> &amp; inceleme", "url": "https://b.x/1", "page_age": "2026-08-01T00:00:00",
+                              "description": "Kısa <strong>açıklama</strong>", "extra_snippets": ["ek bir", "y" * 700]}]}}
+
+
+def tek(cevap):  # her mcporter sorgusu aynı yanıtı alır
+    def kos(args):
+        return cevap if args[0] == "mcporter" else (0, b"[]", b"")
+    return kos
+
+
+@pytest.fixture
+def brave(monkeypatch, saat):
+    monkeypatch.setenv("BRAVE_API_KEY", "test-anahtar")
+    monkeypatch.setattr(gt, "_bson", [float("-inf")])
+
+    def ac(req, timeout=None):
+        ac.istek.append((req.full_url, req.get_header("X-subscription-token"), saat[0]))
+        if ac.hata:
+            raise urllib.error.HTTPError(req.full_url, 429, "Too Many Requests", {}, None)
+        return io.BytesIO(json.dumps(BRAVE).encode())
+    ac.istek, ac.hata = [], False
+    monkeypatch.setattr(gt.urllib.request, "urlopen", ac)
+    return ac
+
+
+def web(tmp_path, kos):
+    kj = tmp_path / "kapsam.json"
+    kj.write_text(json.dumps({"izleme": "tam", "incelenmedi": []}), encoding="utf-8")
+    b = tr.bolum(gt.on(tmp_path, "VID", "arac", kos=kos, kapsam=kj, web=True).read_text(encoding="utf-8"), "Web araması")
+    return b, json.loads(kj.read_text(encoding="utf-8")).get("erisilemedi", [])
+
+
+@pytest.mark.parametrize("o", [LIMIT, json.dumps({"content": [{"type": "text", "text": LIMIT}]})])
+def test_exa_sessiz_bos_yasak_metin_hata(tmp_path, saat, o):
+    b, e = web(tmp_path, tek((0, o.encode(), b"")))
+    q = gt.SORGU[0].format(ad="arac")
+    assert e[0] == [f"web: {q}", f"{LIMIT} · brave: BRAVE_API_KEY yok"] and len(e) == gt.WEB["sorgu"]
+    assert f"- erişilemedi: web: {q} ({LIMIT} · brave: BRAVE_API_KEY yok)" in b
+
+
+@pytest.mark.parametrize("o", [b"", b"[]", b'{"results": []}', b'{"content": []}'])
+def test_exa_gercekten_bos_hata_degil(tmp_path, brave, o):
+    b, e = web(tmp_path, tek((0, o, b"")))
+    assert e == [] and "erişilemedi" not in b and brave.istek == []  # boş sonuç hata değil, brave'e gidilmez
+
+
+def test_exa_satiri_saglayici(tmp_path, saat):
+    b, _ = web(tmp_path, kos_yap(saat))
+    assert "- arac review · exa · İnceleme · https://blog.x/r" in b
+
+
+def test_exa_hata_brave_yedek(tmp_path, brave):
+    b, e = web(tmp_path, tek((1, b"", b"mcporter: timeout")))
+    s = b.splitlines()
+    i = next(n for n, x in enumerate(s) if "https://b.x/1" in x)
+    assert s[i] == "- arac review · brave · Brave & inceleme · 2026-08-01 · https://b.x/1" and b.count("https://b.x/1") == 1
+    assert s[i + 1] == "  > " + ("Kısa açıklama ek bir " + "y" * 700)[:gt.WEB["ozet"]]  # açıklama + ek parçacıklar, 600 kuralı
+    assert e == [] and len(brave.istek) == gt.WEB["sorgu"]
+    u, anahtar, _ = brave.istek[0]
+    assert u.startswith("https://api.search.brave.com/res/v1/web/search?") and "q=arac+review" in u and anahtar == "test-anahtar"
+    assert f"count={gt.WEB['sonuc']}" in u and "extra_snippets=true" in u and "text_decorations=false" in u
+    z = [t for *_, t in brave.istek]
+    assert gt.WEB["brave_aralik"] >= 1 and all(y - x >= gt.WEB["brave_aralik"] for x, y in zip(z, z[1:]))
+
+
+def test_brave_hata_erisilemedi(tmp_path, brave):
+    brave.hata = True
+    b, e = web(tmp_path, tek((0, LIMIT.encode(), b"")))
+    assert e[0] == [f"web: {gt.SORGU[0].format(ad='arac')}", f"{LIMIT} · brave: HTTP Error 429: Too Many Requests"]

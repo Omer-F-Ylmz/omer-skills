@@ -230,6 +230,14 @@ ayrımı CRLF'e dayanıklı (oran sınırı başlıkları dahil) — mevcut kod 
 (d) `video on` → web=True ile web_ara (tür geçer). Test (test_b4). Canlı doğrulama (ücretsiz, PowerShell 5.1, en fazla 3):
 `cd tools/video; python -c "from video import getir as g, cli; import json; print(list(json.loads(chr(10).join(g._gh_ara(cli.kos, 'search/issues', '-X', 'GET', '-f', 'q=repo:anthropics/claude-code is:issue', '-f', 'per_page=1')))))"`
 (CRLF kanıtı: gövde JSON okunur → anahtarlar) · `mcporter.cmd call exa.web_search_exa query="safishamsi/graphify review" numResults=2` (Published/Highlights).
+B4 eki (Ömer kararı, 5 Eki; kanıt: canlı exa → "You've hit Exa's free MCP rate limit…" düz metni, Title/URL yok): (a) sessiz boş YASAK —
+exa çıktısında sonuç yok ve düz metin boş değilse (oran sınırı/hata/anahtar mesajı) hata sayılır; JSON boş sonuç ("[]", results/content
+boş, boş çıktı) hata değildir. (b) sağlayıcı zinciri exa → Brave Search REST → erisilemedi. Brave (resmi belge, api-dashboard.search.brave.com:
+GET api.search.brave.com/res/v1/web/search, başlık X-Subscription-Token, q · count ≤20 · extra_snippets=true · text_decorations=false;
+yanıt web.results[] title/url/description/extra_snippets; page_age biçimi belgede yok → yalnız YYYY-MM-DD ise gün) BRAVE_API_KEY ortamdaysa,
+istekler arası ≥`WEB["brave_aralik"]`=1 sn. Satırda sağlayıcı sorgudan sonra ("- sorgu · exa · …" / "· brave · …"); brave'de Highlights
+yerine açıklama + ek parçacıklar aynı 600 kuralıyla (HTML etiketi ayıklanır). Anahtar yoksa brave atlanır, sebep erisilemedi'de birleşik:
+"<exa sebebi> · brave: <sebep>" (test_b4:61 beklentisi buna göre — Ömer onayı, 5 Eki). Testler sahte urllib + kos.
 **B5 Mekanizma incelemesi** — "aday değil" dışındaki HER aday (kurulu olanlar dahil; kuruluysa bizdeki kopya): repo seyrek klonlanır (S5
 sınırları); graphify --code-only ve grep ile çağrısız konumlandırma: oturum başı enjeksiyon, hook'lar, başlatılan süreçler, ağ çağrıları,
 izin kapsamı, ayar okuma noktaları, ağır döngüler. Modele yalnız bulunan ilgili dosyalar gider (aday başına en fazla N KB, ayarda). Aynı
