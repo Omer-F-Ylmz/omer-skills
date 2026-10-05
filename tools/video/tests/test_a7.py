@@ -55,3 +55,33 @@ def test_dolu_bolume_dokunulmaz(tmp_path):
     _kos(tmp_path, seg=True)
     m = tr.bolum(_aday_md(tmp_path, "sihirli-prompt"), "Prompt metni")
     assert "elle yazılmış prompt" in m and "her adımı test et" not in m
+
+
+# A7 eki-2 (O46 canlı: "ekran:" alanına "kaynak: altyazı" düştü): Adaylar sütunları başlık adına göre okunur; olmayan "—"
+def _tablo(bas, satir):
+    seg = json.dumps({"bas": 0.0, "son": 61.3, "metin": "doğru zaman metni"})
+    return f"# v\n## Adaylar\n| {' | '.join(bas)} |\n|{'---|' * len(bas)}\n| {' | '.join(satir)} |\n", seg
+
+
+def _pm(tmp_path, bas, satir):
+    r, seg = _tablo(bas, satir)
+    (s := tmp_path / "segmentler.jsonl").write_text(seg + "\n", encoding="utf-8")
+    return gt.prompt_metni(r, s)
+
+
+def test_eski_sema_alanlari_dogru(tmp_path):
+    m = _pm(tmp_path, ["ad", "sözlük", "tür", "link", "ne işe yarar", "zaman", "kanıt"],
+            ["Sihirli", "yok", "prompt", "yok", "Is there a skill?", "0:50", "kaynak: altyazı"])
+    assert "### Sihirli · 0:50" in m and "kanıt: kaynak: altyazı" in m and "\nkaynak: —" in m
+    assert "ekran:" not in m and "doğru zaman metni" in m
+
+
+def test_yeni_sema_kaynak_sutunu(tmp_path):
+    m = _pm(tmp_path, ["ad", "sözlük", "tür", "link", "ne işe yarar", "zaman", "kanıt", "kaynak"],
+            ["Sihirli", "yok", "prompt", "yok", "x", "0:50", "kare: DESIGN TOKENS", "altyazı"])
+    assert "### Sihirli · 0:50" in m and "kanıt: kare: DESIGN TOKENS" in m and "\nkaynak: altyazı" in m
+
+
+def test_bilinmeyen_sutun_sirasi(tmp_path):
+    m = _pm(tmp_path, ["kaynak", "zaman", "fazla", "tür", "ad"], ["altyazı", "0:50", "?", "prompt", "Sihirli"])
+    assert "### Sihirli · 0:50" in m and "kanıt: —" in m and "\nkaynak: altyazı" in m and "doğru zaman metni" in m
