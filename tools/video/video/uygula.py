@@ -462,12 +462,14 @@ FM_KONUM =(("izin kapsamı", r"^(allowed-tools|tools|permissionMode|disallowedTo
 
 
 def bizdeki_mekanizma(ctx, kok, video, aday, kurulu):
-    """B5/A6(c): kurulu aracın bizdeki kopyası → .kos/<video>/<aday>/mekanizma.md (cli.on_ ve akil parti akışı); dosya varsa dokunulmaz."""
-    if (m := kok / ".kos" / video / tr.slug(aday)[:40] / "mekanizma.md").is_file():  # 5 Eki (b): on.md değil
-        return m
+    """B5/A6(c): kurulu aracın bizdeki kopyası → .kos/<video>/<aday>/mekanizma.md (cli.on_ ve akil parti akışı); dosya aynı kurulu yoldansa
+    dokunulmaz, yol değiştiyse (plugin sürüm klasörü) ya da okunamıyorsa yeniden üretilir (A6(c) eki, 5 Eki)."""
+    m = kok / ".kos" / video / tr.slug(aday)[:40] / "mekanizma.md"  # 5 Eki (b): on.md değil
     ev = Path(ctx["env"].get("VIDEO_EV") or Path.home()) / ".claude"  # ponytail: plugin sürümü ad sırasıyla son
     yol = next((p for d in ("skills/{a}", "skills/synced/*/{a}", "plugins/cache/*/{a}/*") for p in sorted(ev.glob(d.format(a=kurulu)), reverse=True)
                 if p.is_dir()), None)
+    if m.is_file() and yol and (y := re.search(r"kaynak: bizdeki kopya · (.+?) @ ", m.read_text(encoding="utf-8"))) and y[1] == yol.as_posix():
+        return m
     m.parent.mkdir(parents=True, exist_ok=True)
     m.write_text(mekanizma(ctx, yol, kurulu, "bizdeki kopya"), encoding="utf-8")
     return m

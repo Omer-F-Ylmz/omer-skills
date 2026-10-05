@@ -434,6 +434,9 @@ Canlı doğrulama (ücretsiz, ağsız, model yok; PowerShell 5.1; geçici kök, 
 1) `$k = Join-Path $env:TEMP ('a6c-' + [guid]::NewGuid().ToString('N').Substring(0,8)); New-Item -ItemType Directory -Force (Join-Path $k 'docs\departmanlar') | Out-Null; Copy-Item 'C:\Projeler\omer-skills\docs\departmanlar\envanter.json' (Join-Path $k 'docs\departmanlar'); $env:VIDEO_UYGULA_KOK = $k; video on canli graphify --tur skill; Get-Content (Join-Path $k '.kos\canli\graphify\mekanizma.md') -Encoding UTF8 -TotalCount 2`
    → "ZATEN VAR, araştırıcı yok" + "kaynak: bizdeki kopya · …/skills/graphify" (denendi).
 2) Aynı oturumda: `$m = Join-Path $k '.kos\canli\graphify\mekanizma.md'; $t = (Get-Item $m).LastWriteTime; video on canli graphify --tur skill | Out-Null; (Get-Item $m).LastWriteTime -eq $t` → True (dokunulmadı; denendi).
+A6(c) eki (Ömer kararı 5 Eki; O43 sapma 1 yan etkisi — plugin güncellenince eski inceleme kalırdı): bizdeki_mekanizma dosya varsa
+"kaynak: bizdeki kopya · <yol>" yolunu şimdiki kurulu yolla karşılaştırır; aynıysa dokunmaz, farklıysa (sürüm klasörü) ya da yol yoksa yeniden
+üretir. O44: kırmızı 1aa3f8a (eski "varsa dokunulmaz" fixture'ı aynı-yol satırı aldı) · yeşil (771). Sıra (Ömer, 5 Eki): A7 → A8 → F1-KURULUM.
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).
