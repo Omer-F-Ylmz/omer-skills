@@ -358,6 +358,19 @@ as a, uygula as u; print(''boy'', a.orneklem(u.KOK, ''yeni''))'; Get-Content -En
 **F1 Model yönlendirme adaptörü:** hattın model çağıran her adımı (tarama, araştırma, mekanizma, karşılaştırma, özet) için ayarda
 sağlayıcı/model seçimi; varsayılan bugünkü gibi, DEĞİŞMEZ. Hedef OmniRoute (kurulu omni-* skill'leri; sunucu çalışıyor mu, kimlik bilgisi
 var mı salt okunur kontrol — değer basılmaz, boolean; yoksa DUR, sor) ve videolarda geçen benzeri yönlendiriciler. Test (sahte sağlayıcı).
+F1 kararı (Ömer, O35; ön kontrol: omniroute komutu var · 20128 dinlemiyor · kimlik env yok): adaptör sahte sağlayıcıyla yazılır; uç nokta,
+istek/yanıt biçimi ve kimlik başlığı tahmin edilmez, kurulu omni-inference ve omni-auth skill belgelerinden doğrulanır (dosya:satır plana);
+testteki sahte sağlayıcı o biçimi taklit eder. Gerçek bağlantı doğrulaması F1-KURULUM'dan sonra.
+F1 biçim kanıtı (O35, okundu, kod yok; skill'ler MIT): omni-auth SKILL.md:54-58 OMNIROUTE_URL (varsayılan http://localhost:20128) +
+OMNIROUTE_KEY, "Authorization: Bearer"; omni-inference SKILL.md:283-285 POST /v1/chat/completions (OpenAI) · /v1/messages (Anthropic);
+istek :298-305 {"model","messages":[{"role","content"}]}; model adı önekli değil (:302), geçersiz → 400 invalid_model (:337). Sohbet YANITI
+skill'lerde yok → yerel paket npm-global omniroute/dist/docs/openapi.yaml:9031 ChatCompletionResponse: choices[].message.content ·
+usage.prompt_tokens/completion_tokens/total_tokens; :22 server localhost:20128; :1156 yol /api/v1/chat/completions (skill'deki /v1/… ile
+ÇELİŞKİ → adaptör yolu ayar sabiti, F1-KURULUM'da canlı çağrıyla hangisi doğru belirlenir). Tasarım: OpenAI biçimi (yanıt şeması
+belgeli olan); hafif.cagir imzalı adaptör, ikinci_goz.or_cagir kalıbı (gonder= enjekte, aynı dict: form/usage/usd/sure/hata); seçim
+durum.json d["model"] yanında adım başı alan, varsayılan bugünkü (hafif.MODEL, claude -p). Sahte: test_24e1.py:55 __call__(url, basliklar, govde).
+**F1-KURULUM (ayrı kurulum maddesi; iş oturumuna karışmaz):** OmniRoute sunucusunu kur + başlat, kimliği ekle (değer basılmaz); sonra
+F1 adaptörüyle tek gerçek çağrı (tavan: en fazla 1 istek, en ucuz model) → sonuç plana.
 **F2 Adım bazlı A/B düzeneği:** aynı girdi, iki model; kalite (kör puan + görev başarısı) + $; karar A1'le düzeltilmiş 24 Eyl tablosuyla.
 Yalnız AL çıkan adım yönlendirilir. Test.
 **F3** Ömer'in koşacağı canlı A/B komutu + tavan (en fazla N çağrı) raporda.
