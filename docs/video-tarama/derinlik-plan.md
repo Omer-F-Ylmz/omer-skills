@@ -436,7 +436,14 @@ Canlı doğrulama (ücretsiz, ağsız, model yok; PowerShell 5.1; geçici kök, 
 2) Aynı oturumda: `$m = Join-Path $k '.kos\canli\graphify\mekanizma.md'; $t = (Get-Item $m).LastWriteTime; video on canli graphify --tur skill | Out-Null; (Get-Item $m).LastWriteTime -eq $t` → True (dokunulmadı; denendi).
 A6(c) eki (Ömer kararı 5 Eki; O43 sapma 1 yan etkisi — plugin güncellenince eski inceleme kalırdı): bizdeki_mekanizma dosya varsa
 "kaynak: bizdeki kopya · <yol>" yolunu şimdiki kurulu yolla karşılaştırır; aynıysa dokunmaz, farklıysa (sürüm klasörü) ya da yol yoksa yeniden
-üretir. O44: kırmızı 1aa3f8a (eski "varsa dokunulmaz" fixture'ı aynı-yol satırı aldı) · yeşil (771). Sıra (Ömer, 5 Eki): A7 → A8 → F1-KURULUM.
+üretir. O44: kırmızı 1aa3f8a (eski "varsa dokunulmaz" fixture'ı aynı-yol satırı aldı) · yeşil a2efe90 (771). Sıra (Ömer, 5 Eki): A7 → A8 → F1-KURULUM.
+O44 A7 keşfi (sayaç 40, kod/test yok): sebep altyazı da kare de değil — kablolama. Prompt adayı akil.py:911 durum "arac_degil" → _on
+(:675-683, zaten rapor=None) ve araştırma koşmaz; getir.prompt_metni (getir.py:280; rapor tür=prompt satırının zamanı + paket segmentler.jsonl)
+yalnız cli.on_ --rapor yolunda (cli.py:1139-1141). Panel _kapsam (akil.py:335/340) aday.md "## Prompt metni" bölümünü arar → yok → "alınmadı".
+Kanıt: 2026-10-03-short, vfLtsYbtJf0 rapor satır 18 (0:50, kaynak: altyazı) mevcut; durum.json adayı arac_degil, deneme yok.
+Öneri: akil döngüsünde (:912 yanı) tur=="prompt" için :879-881 raporlar listesinden o videonun metni + ctx["kok"]/<v>/segmentler.jsonl ile
+gt.prompt_metni (model 0) → _kapsam'ın okuduğu yere; "metin alınamadı" ise sebep Kapsam'da kalır. Kırmızı kalıbı: test_m2b _parti/_actx/_rapor
+(tür prompt satırı) + segmentler.jsonl → panel Kapsam "prompt metni ✓"; segment yoksa sebep satırı.
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).
@@ -466,3 +473,4 @@ A1 test_takas.py:48 çelişkisi · C2 Pillow yoksa · C3 Windows.Media.Ocr eriş
 
 ## İlerleme
 O1 (4 Eki): plan yazıldı. O2 (4 Eki): A1 ✓ (video 569 yeşil). O3 (4 Eki): A2 ✓ · A3 ✓ (video 573). O4 (4 Eki): A4 ✓ · A5 ✓ (video 581). O5 (4 Eki): A4b ✓ (video 584). O6 (4 Eki): C1 ✓ + koruma (video 591). O7 (4 Eki): C2 ✓ (video 597). O8 (4 Eki): C3 ✓ (video 603). O9 (4 Eki): C4 ✓ + ek (video 607). O10 (4 Eki): C4/C3 düzeltmesi 3 madde ✓ (video 611). Sonraki: D1. O11 (4 Eki): O11 madde 1–2 ✓ (video 613), sonraki O11 (3) tekrar ayıklama, (4) ocr-gurultu.txt, sonra D1. O12 (4 Eki): O11 (3) ✓ · (4) ✓ (video 615), sonraki O11 (5), sonra D1. O21–O22 (5 Eki): B2 ✓ (erişilemedi → kapsam.json + Denetim, Ömer kararı) · B ek kablolama ✓ (video 662); sonraki B3. O23 (5 Eki): B ek düzeltmesi ✓ (tek bölüm, video 663). B3 ✓ (video 664); sonraki B4. · F1 ✓ (O36)
+A6(c) eki canlı (ağsız, model yok; denendi, O44): O43 komut 1 kalıbı + mekanizma.md'deki yol 'C:/eski/1.0.0' yapılıp `video on canli graphify --tur skill` tekrar → satır gerçek yolla yeniden yazıldı. Not: `$py -m video` çalışmaz (video.__main__ yok); PATH'teki `video` kullanılır.
