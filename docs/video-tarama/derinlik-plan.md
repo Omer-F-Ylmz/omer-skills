@@ -453,7 +453,14 @@ prompt 0:05 → metin alınır (taslak test_a7'den geri alındı, bir sonraki ot
 Canlı doğrulama (ağsız, model 0, denendi 2 passed): `cd C:\Projeler\omer-skills\tools\video; uv run pytest tests/test_a7.py -q`
 O46 A7 eki (Ömer, 5 Eki): (a) getir.py:291 seçim örtüşme (`bas < son and son_seg >= t`; son'suz segment eski davranış; cli.on_ aynı
 fonksiyon). (b) "## Prompt metni" boş / "altyazı yok" / "alınamadı" ise yeniden yazılır, dolu bölüme dokunulmaz. Kırmızıda bulunan ikinci kök
-neden: yazılmış aday.md → _onceki True → durum "onceki" → A7 dalı bir daha koşmazdı; dal artık arac_degil + onceki. Kırmızı (2 failed) → yeşil 776.
+neden: yazılmış aday.md → _onceki True → durum "onceki" → A7 dalı bir daha koşmazdı; dal artık arac_degil + onceki. Kırmızı f56b201 · yeşil
+e315d6a (776, pushlı). Canlı (ağsız, model 0, yalnız prompt_metni): vfLtsYbtJf0 metin DOLU ("Stop installing Claude skills manually. …").
+O46 A8 keşfi (kod/test yok; sayaç ~36, bitmez): kuyruk satırı `| id | dk | başlık | not | durum |` (tarama.py:250, 5 hücre). Hazır parça:
+kanal._istek (kanal.py:245; ≥BEKLE sn arası, 429/403'te GERI ile ≤2 tekrar) — ama başarısızlıkta None döner, hata metnini kaybeder →
+A8 için `_istek`'e hata metnini dışarı veren isteğe bağlı parametre (varsayılan davranış aynı). Örnek kullanım cli._bagli_video :399-411
+(dk = round(duration/60,1), başlık [:40] '|'→'/'). Komut: cli.kuyruk :1109 (parser :1273) → `video kuyruk yenile` (isteğe bağlı konumsal
+eylem). Satır yazımı CRLF korunur (kuyruk_isle gibi bytes). Kırmızı: sahte kos (rc 0 json → dk/başlık dolar · 429 ×3 → nota "meta hatası: …",
+satır "?" kalır · "?" olmayan satıra istek yok).
 **A7 (=Y6)** Prompt adayında metin neden alınmadı teşhis edilir (altyazı mı, kare mi); düzeltilir; yine alınamazsa sebep Kapsam'da. Test.
 **A8 (=K2)** `video kuyruk yenile`: kuyruk.md'de süresi/başlığı "?" olan satırları metadata ile yeniden doldurur (≥2 sn, 429/403 kuralı
 mevcut gibi; yine başarısızsa hata metni satır notuna). Test (sahte yt-dlp).
