@@ -339,6 +339,12 @@ sys.exit(cli.main([''parti'', ''denetim-isle'', ''2026-10-03-short'']))'; Write-
 [IO.File]::WriteAllBytes((Resolve-Path $m), $y); if ($jy) { [IO.File]::WriteAllBytes((Resolve-Path $j), $jy) } else { Remove-Item $j }` (tek satır).
 **E3 Uyarlamalı örneklem:** son 3 partide Desktop bulgusu 0 ise rastgele 3 → 1; her bulgu +3 (en fazla 6). KAÇAN?, "aday değil", "ONARIM
 BEKLİYOR" ve risk puanı en yüksek 5 her zaman kalır. Test.
+E3 bulgu tanımı (Ömer kararı 5 Eki; örneklemin amacı uyarı taşımayan adaylardaki gizli sorunu ölçmek): bulgu = desktop-denetim.jsonl'de,
+o partinin denetim.md "Rastgele" bölümündeki adaya yazılmış ve türü kötü-yan · onarım · güçlendirme · aday-değil-itiraz olan satır ("not",
+"KAÇAN-yanlış", "KAÇAN-doğru" ve okunamadı kayıtları sayılmaz; KAÇAN/risk/ONARIM bölümlerindeki adaylara yazılanlar sayılmaz). denetim-isle
+kaydına "bolum" alanı (adayın denetim.md'de ilk göründüğü "## " başlığı); alanı olmayan eski kayıt bulgu sayılmaz. Boy (akil.orneklem):
+geçmiş = jsonl'deki diğer partiler, dosya sırasıyla; son 3 partide bulgu 0 → 1 (3 parti şart; 1-2 bulgusuz parti → 3); aksi halde
+min(6, 3 + 3 × son partideki bulgu); geçmiş yok → 3. Hiç Desktop satırı yazılmamış parti jsonl'de görünmez, geçmişe girmez.
 
 ## F — UCUZ ÇALIŞTIRMA (yalnız hattın arka plan model çağrıları; CC etkileşimli yönlendirme TOKEN-5'te)
 **F1 Model yönlendirme adaptörü:** hattın model çağıran her adımı (tarama, araştırma, mekanizma, karşılaştırma, özet) için ayarda
