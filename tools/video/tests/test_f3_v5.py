@@ -363,3 +363,88 @@ def test_v6_bos_parca_satirda_k(tmp_path):
     c = []
     s = _e6(tmp_path, [f"{E1}@V63"], c, paket=P3)
     assert len([x for x in c if x["i"] != "son"]) == 4 and " · k 3→2" in s["satirlar"][0]
+
+
+# F3-V7a: önbellek-duyarlı maliyet · cümle dayanağı kalibrasyonu (DAYANAK_ESIK)
+import pytest  # noqa: E402
+
+
+def test_v7a_usd_onbellek_indirimli():
+    m = "openrouter/google/gemini-3.5-flash-lite"
+    assert yon.FIYAT[m]["onbellek"] == 0.03 and yon.FIYAT["openrouter/google/gemini-3.8-flash"]["onbellek"] == 0.075
+    u = {"prompt_tokens": 1000, "completion_tokens": 100, "prompt_tokens_details": {"cached_tokens": 600}}
+    assert yon._usd(m, u, {}) == pytest.approx((400 * 0.3 + 600 * 0.03 + 100 * 2.5) / 1e6)
+    assert yon._usd(m, {"prompt_tokens": 1000, "completion_tokens": 100}, {}) == pytest.approx((1000 * 0.3 + 100 * 2.5) / 1e6)
+
+
+def test_v7a_omni_usage_cached_tasinir():
+    r, _ = _omni([(200, {**OK[1], "usage": {"prompt_tokens": 10, "completion_tokens": 5, "prompt_tokens_details": {"cached_tokens": 4}}}, {})])
+    assert r["usage"]["cached"] == 4
+    assert "cached" not in _omni([OK])[0]["usage"]  # sağlayıcı bildirmediyse bilinmiyor, 0 yazılmaz
+
+
+def test_v7a_onbellek_orani_satirda(tmp_path):
+    c, r = [], {"form": None, "usage": {"input_tokens": 1000, "output_tokens": 10, "cached": 250}, "usd": 0.001, "sure": 1.0, "hata": None}
+    s = _e5(tmp_path, [f"{E1}@V21"], c, b_kur=_b(c, {0: r, 1: r}))
+    assert any(" · önbellek %25" in x for x in s["satirlar"])
+
+
+# Elle etiketli: Türkçe iddia ↔ İngilizce konuşma penceresi (b2QkhmQ0sT0); ilk ikisi O68 "dayanaksız" sayılan doğru iddialar
+_IDDIA = ["İnceleme derinliği değişikliğin blast radius'una göre ayarlanmalı.",
+          "Leaf kodlar izole olduğu ve feature gate ile korunduğu için daha hafif incelenebilir.",
+          "Kodu yazan ajan kendi bağlamıyla 'hile yapar'; inceleme için bağlamsız ayrı ajan kullanılmalı.",
+          "Codex incelemesi iki hata buldu: yinelenen oylar skoru şişirebilir, iptal edilmeyen zamanlayıcı sonraki kartı yeniden yükleyebilir.",
+          "Son %20'lik kısım ilk %80 kadar sürer ama en önemlisidir.",
+          "Stil nit'leri artık kod incelemesinin konusu olmamalı.",
+          "Merge'e hazır olmak yayına hazır olmak anlamına gelmez.",
+          "PR üzerindeki kanıtlar okunması gereken kod miktarını azaltır.",
+          "Tek bir mühendisin ürettiği kodun hepsini incelemesi neredeyse imkansız hale geldi.",
+          "Codex'in inceleme için özel eğitilmiş ayrı bir modeli olduğu düşünülüyor."]
+_PENCERE = ["3:47 Codebase trees and blast radius. If you change infrastructure that touches all the different image renderings, and there's a "
+            "lot of downstream dependencies, then I would spend a lot of time reading that piece of code.",
+            "And then for any like one off leaf node code, you could probably just have agents do simple validations like component testing or "
+            "snapshot testing. You wanna feature gate and run experiments on your code.",
+            "You know, all the context that you gave it, will cheat. And they will really try to anchor on like a lot of the previous "
+            "conversation. So you really want a fresh agent to review it.",
+            "It found two issues I missed. Duplicate votes could inflate the score. An uncancelled timer could reload the next card.",
+            "And then I'm really like detailing the animations or anything like that. And so this last 20% actually takes as long as the "
+            "first 80%, but it's actually the most important part.",
+            "I think the old days of like having your nits, oh, the code should look this way, are over. I think these kinds of nits don't "
+            "really belong in the conversation of code reviews anymore.",
+            "Review loop. Merge-ready does not mean launch-ready.",
+            "So having proof lets you move faster because you don't have to manually check these proofs. If you have a lot of these proofs "
+            "upfront on the PR, then you don't have to read as much code.",
+            "They're just doing a lot more because one person can split up multiple agents and generate a ton of code. And to be honest, "
+            "it's almost impossible to review all of it.",
+            "And essentially it's this chat to be the Codex connector. And I think there's a separate model slightly that is custom trained "
+            "just for like reviewing code."]
+_ILGISIZ = [(0, 3), (1, 4), (2, 6), (3, 5), (4, 9), (5, 8), (6, 2), (7, 3), (8, 6), (9, 4)]
+
+
+@pytest.fixture
+def anlam7(monkeypatch):
+    monkeypatch.setattr(yon, "ANLAMSAL", True)
+    assert yon._acik(), "anlamsal: kapalı (embedding yüklenemedi)"
+
+
+def test_v7a_dayanak_esik_sabit():
+    assert yon.DAYANAK_ESIK == 0.37 and yon.ANLAM_ESIK == 0.6 and yon.DAYANAK_LISTE == ("iddialar", "site_ui", "promptlar")
+
+
+@pytest.mark.parametrize("i", range(10))
+def test_v7a_kalibrasyon_ayni(anlam7, i):
+    assert yon._benzerlik(_IDDIA[i], _PENCERE[i]) >= yon.DAYANAK_ESIK
+    assert yon.dayanak("iddialar", {"iddia": _IDDIA[i], "kaynak": "altyazı"}, _PENCERE[i]) == "dayanaklı"
+
+
+@pytest.mark.parametrize("i,j", _ILGISIZ)
+def test_v7a_kalibrasyon_farkli(anlam7, i, j):
+    assert yon._benzerlik(_IDDIA[i], _PENCERE[j]) < yon.DAYANAK_ESIK
+    assert yon.dayanak("iddialar", {"iddia": _IDDIA[i], "kaynak": "altyazı"}, _PENCERE[j]) == "dayanaksız"
+
+
+def test_v7a_kisa_ad_anlam_esikte(anlam7, monkeypatch):
+    monkeypatch.setattr(yon, "DAYANAK_ESIK", -1.0)  # cümle eşiği ne olursa olsun kısa ad ANLAM_ESIK'te kalır
+    m = "Today we deploy with Docker Compose."
+    assert yon.dayanak("adaylar", {"ad": "Stripe ödeme"}, m) == "dayanaksız"
+    assert yon.dayanak("iddialar", {"iddia": "Stripe ödeme", "kaynak": "altyazı"}, m) == "dayanaklı"
