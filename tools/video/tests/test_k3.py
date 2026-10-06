@@ -87,6 +87,17 @@ def test_k3_paydalari_doner():
     assert r["n"] == {"geri": 3, "dogruluk": 3, "kareden_okunanlar": 0}
 
 
+def test_ocr_aktar_suzer_ve_kareden_okunanlara_ekler():
+    """MÜKEMMEL-4 Mekanizma A: ≥3 harf · tekrarsız (farklı karede aynı metin tek) · video başı ≤ tavan · kaynak "ocr"."""
+    p = ("=== VIDEO v ===\n## Segmentler\n[0:01] merhaba\n## Ekran metni (OCR)\n[0:02] Claude Code\n[0:03] 12 ab\n"
+         "[0:05] claude code\n[0:06] Ruflo Swarm\n[0:07] Mevcut\n[0:08] Fazla Satır\n## Kareler\n")
+    f = {"videolar": [{"id": "v", "kareden_okunanlar": [{"kare": "0:07", "okunan": "Mevcut"}]}]}
+    yon.ocr_aktar(f, p, tavan=2)
+    assert f["videolar"][0]["kareden_okunanlar"] == [{"kare": "0:07", "okunan": "Mevcut"},
+                                                     {"kare": "0:02", "okunan": "Claude Code", "kaynak": "ocr"},
+                                                     {"kare": "0:06", "okunan": "Ruflo Swarm", "kaynak": "ocr"}]
+
+
 @pytest.mark.parametrize("n, h", [({"geri": 3, "dogruluk": 11, "kareden_okunanlar": 3}, "geçti"),
                                   ({"geri": 40, "dogruluk": 40, "kareden_okunanlar": 40}, "kaldı: geri, doğruluk, kareden_okunanlar")])
 def test_hukum_bant_max_005_1_bolu_n(n, h):
