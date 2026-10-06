@@ -43,6 +43,15 @@ def test_kare_ogesi_daginik_eslesme_dogrulanamadi(x, o):
     assert yon.kanit(x, o, M) == "doğrulanamadı"
 
 
+def test_betimleme_kare_olcusu_disinda_ayri_satirda():
+    """MÜKEMMEL-4b dal b: şemaya göre betimleme (konuşmacı/sahne) kareden_okunanlar öğesi K3 ölçüsüne girmez, ayrı sayılır."""
+    k = yon.OLCUM["kareden_okunanlar"][0]
+    f = {"videolar": [{"id": "v", "kareden_okunanlar": [{k: "Qwxz Panosu"}, {k: "mikrofon başında adam"}]}]}
+    r0, r = yon.k3([f], [_f()], M), yon.k3([f], [_f()], M, betim={("kareden_okunanlar", "mikrofon başında adam")})
+    assert (r0["u"]["kareden_okunanlar"], r["u"]["kareden_okunanlar"]) == (2, 1)
+    assert r["betim"] == {"A": 1, "B": 0} and r0["betim"] == {"A": 0, "B": 0}
+
+
 def test_eslesen_oge_tek_sayilir():
     r = yon.k3([_f("Ruflo")], [_f("Ruflo")], M)
     assert r["u"]["adaylar"] == 1
