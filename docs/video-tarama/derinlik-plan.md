@@ -506,6 +506,14 @@ OmniRoute chat upstream getExecutorTimeoutMs (chatCore/upstreamTimeouts.ts:95) �
 DUR yok. Akış (stream:true) olsaydı STREAM_READINESS_TIMEOUT_MS 80 s ayrıca geçerdi; omni_cagir akışsız. ab: B kolu önce çağrılır,
 B'nin bütün çağrıları hatalıysa DUR döner ve A çağrılmaz; s ön-dolu (kol sırası a, b), puanlama sırası a, b — karar/biçim aynı.
 Kırmızı c287797 · yeşil 78c16b5. dalga.md'de O54'e ait eski KALAN satırı yoktu (tek KALAN zaten nex).
+O57 (F3-SÜRE; sayaç 0'dan elle, canlı 0): Ömer A/B koşusu B 2× TimeoutError. OmniRoute usage_history id 4: 601 s, girdi 11440 ·
+çıktı 131072 · reasoning 29086, app.log:302 "599956ms disconnect: request_signal_aborted" (istemci 600 s'de kesti); id 5: 591 s,
+girdi 22832 · çıktı 131072 · reasoning 90821. Retry/fallback/combo yok (tek ROUTING satırı). İkisinde çıktı = 131072 tavanı: govde'de
+max_tokens yok, model kaçak üretimle tavana kadar gitti (O55 doğrudan: 182 s, reasoning 34k). TimeoutError katmanı urllib soketi,
+değer 600 (SAGLAYICI['omniroute'] → ig._post sahte urlopen testiyle kanıtlı) → sınıf (ii), kod yok, DUR. Faturalama: OmniRoute
+maliyet yazmıyor; FIYAT 0.025/0.1 ile tahmin ≈ $0.013 + $0.014 = $0.027. Adım 3: zaman aşımında usd None (diğer OSError 0.0) —
+kırmızı 3b1535b · yeşil 9979dbc. Seçenekler (karar Ömer): (a) zaman aşımı yükselt — tavana koşan çıktı yine kesik/JSON değil, önerilmez;
+(b) B'ye max_tokens (+ reasoning sınırı; nex supported_parameters yoklanmadı, canlı 0 kuralı) — yeni B varyantı; (c) qwen3.7-flash.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
