@@ -13,9 +13,48 @@ def test_omni_yok_dur_cagri_0(tmp_path, monkeypatch, capsys):
     kok = _hazir(tmp_path, rota=ROTA10)
     monkeypatch.setattr(pt, "YOKLA", lambda *a, **k: "OmniRoute yok: ConnectionRefusedError", raising=False)
     monkeypatch.setattr(yon, "tara_v10", lambda *a, **k: pytest.fail("DUR'da tara_v10 çağrılmaz"))
+    baslat, bekle = [], []
+    monkeypatch.setattr(pt, "BASLAT", lambda: baslat.append(1), raising=False)
+    monkeypatch.setattr(pt, "BEKLE", bekle.append, raising=False)
     s = Sahte()
-    assert pt.parti(_ns("devam", _pid(kok)), _ctx(kok, s)) == 4
+    ctx = _ctx(kok, s)
+    ctx["env"]["OMNIROUTE_KEY"] = "k"
+    assert pt.parti(_ns("devam", _pid(kok)), ctx) == 4
     assert s.cagrilar == [] and "DUR: OmniRoute/anahtar yok (OmniRoute yok: ConnectionRefusedError)" in capsys.readouterr().out
+    assert baslat == [1] and sum(bekle) <= 90  # MÜKEMMEL-2c: bir kez başlat, ≤ 90 s yokla, kalkmazsa DUR
+
+
+# MÜKEMMEL-2c: anahtar yoksa başlatma denenmez, doğrudan DUR
+def test_omni_yok_anahtar_yok_baslatma_yok(tmp_path, monkeypatch, capsys):
+    kok = _hazir(tmp_path, rota=ROTA10)
+    monkeypatch.setattr(pt, "YOKLA", lambda *a, **k: "OmniRoute yok: ConnectionRefusedError", raising=False)
+    monkeypatch.setattr(pt, "BASLAT", lambda: pytest.fail("anahtarsız başlatma yok"), raising=False)
+    ctx = _ctx(kok, Sahte())
+    ctx["env"].pop("OMNIROUTE_KEY", None)
+    assert pt.parti(_ns("devam", _pid(kok)), ctx) == 4
+    assert "DUR: OmniRoute/anahtar yok" in capsys.readouterr().out
+
+
+# MÜKEMMEL-2c: kendiliğinden başlatma kalkarsa koşu sürer ve satır yazılır
+def test_omni_kendiliginden_baslatildi(tmp_path, monkeypatch, capsys):
+    kok = _hazir(tmp_path, rota=ROTA10)
+    yanit = iter(["OmniRoute yok: ConnectionRefusedError", "OmniRoute yok: ConnectionRefusedError", None])
+    monkeypatch.setattr(pt, "YOKLA", lambda *a, **k: next(yanit), raising=False)
+    baslat = []
+    monkeypatch.setattr(pt, "BASLAT", lambda: baslat.append(1), raising=False)
+    monkeypatch.setattr(pt, "BEKLE", lambda s: None, raising=False)
+
+    def v10(*a, **k):
+        raise KeyboardInterrupt
+    monkeypatch.setattr(yon, "tara_v10", v10)
+    ctx = _ctx(kok, Sahte(kes=1))
+    ctx["env"]["OMNIROUTE_KEY"] = "k"
+    try:
+        pt.parti(_ns("devam", _pid(kok)), ctx)
+    except KeyboardInterrupt:
+        pass
+    out = capsys.readouterr().out
+    assert baslat == [1] and "OmniRoute kendiliğinden başlatıldı (" in out and "DUR" not in out
 
 
 # 2: A taşıyıcısı yalnız --a-yolu ile (yoklama ve V10 yok)
