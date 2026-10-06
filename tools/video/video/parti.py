@@ -23,6 +23,7 @@ from . import yonlendir as yon
 IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci göz tavanları (OpenRouter $ · Jev durum · yargıç çağrı)
 YENIDEN = {"bekliyor", "hata", "tavan"}
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
+YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1: yeni parti (env OMNIROUTE_KEY varsa) tarama V10 hattında · geri alma: bu satır {} ya da durum.json'dan "yonlendirme" silinir
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
 KARE_UST = 60  # ayar · C4 (O11): uzun videoda modele giden kare güvenlik üst sınırı; asıl sınır cli.PAKET_BUTCE (Ömer onayı: tavan 20 → bütçe)
@@ -375,7 +376,7 @@ def _maliyet(y):
 def _defter(pdir):
     s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith(("ikinci_goz", "tavan"))]  # M5: ikinci göz ayrı tavanda · M6 K3: tavan satırı çağrı değil
     # F1 eki: usd None (maliyet bilinmiyor) $ tavanına girmez; çağrı tavanı sınırlar
-    return len(s), sum(x["usd"] or 0 for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
+    return sum(x.get("cagri", 1) for x in s), sum(x["usd"] or 0 for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
 
 
 def _tavan(pdir, d):
@@ -409,6 +410,30 @@ def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
                          lambda s: tr.kayit_ekle(pdir / "defter.jsonl", [s]))
     except Exception as e:  # beklenmeyen hata: Sonnet sonucu aynen
         return f, {"not": [f"ikinci göz: hata ({e})"[:200] + " — Sonnet sonucu"]}
+
+
+def _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model):
+    """DERİNLİK-KAPANIŞ-1: yonlendirme tarama "yontem": "V10" → video başı yon.tara_v10 (örnek tdir/ornek-v10.json). tara_v10 hatası ya da ön tahmin
+    (_tahmin × (k + 1)) kalan $'ı aşarsa video aynı adımda A taşıyıcısıyla (cagir, d["model"]) taranır → geri_donus; usd ve cagri toplam, video düşmez."""
+    ys, fs, notlar = [], [], []
+    for v in kalan:
+        kr = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+        g = (SISTEM, _istem([v], pk, hatalar, temizle), sema([v], iz=True), kr)
+        kalan_usd = d["tavan"]["usd"] - _defter(pdir)[1] - sum(y.get("usd") or 0 for y in ys)
+        t = yon._tahmin(model, len(kr)) * (yon.parca_k(g[1])[0] + 1) if model in yon.FIYAT else 0.0
+        y = {"form": None, "usd": 0.0, "cagri": 0, "hata": f"ön tahmin ${t:.4f} > kalan ${kalan_usd:.4f}"} if t > kalan_usd \
+            else yon.tara_v10(g, env, model, ornek=Path(tdir) / "ornek-v10.json")
+        ys.append(y)
+        if y.get("hata"):
+            notlar.append(f"{v}: {y['hata']}")
+            y = cagir(*g[:3], kareler=kr, model=d["model"], butce=min(d["butce"], kalan_usd - (y.get("usd") or 0)), env=env)
+            ys.append(y)
+        fs += [f for f in (y.get("form") or {}).get("videolar") or [] if isinstance(f, dict)]
+    us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
+    return {"form": {"videolar": fs} if fs else None, "usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
+            "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": sum(y.get("cagri", 1) for y in ys),
+            "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"),
+            "model": d["model"] if notlar else model, **({"geri_donus": " · ".join(notlar)[:120]} if notlar else {})}
 
 
 def _istem(ids, pk, hatalar, temizle):
@@ -492,8 +517,9 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
                 break
             kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
             c, model = yon.sec(d, "tarama", cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü
+            v10 = ((d.get("yonlendirme") or {}).get("tarama") or {}).get("yontem") == "V10"  # DERİNLİK-KAPANIŞ-1
             try:
-                y = c(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=model,
+                y = _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model) if v10 else c(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=model,
                           butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1]), env=env)
             except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
@@ -504,9 +530,9 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
                     (pdir / "form" / f"{f['id']}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
             u = y.get("usage") or {}
             tr.kayit_ekle(pdir / "defter.jsonl", [{
-                "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": model,
+                "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": y.get("model") or model,
                 "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
-                "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), **_maliyet(y), "kare": len(kareler),
+                "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), **_maliyet(y), "kare": len(kareler), **{x: y[x] for x in ("cagri", "geri_donus") if y.get(x) is not None},
                 "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])
             onceki = y.get("usd") or 0.0
             if y.get("hata"):
@@ -601,7 +627,8 @@ def parti(ns, ctx):
             pid = f"{tarih}-{tur}-{i}"
         (pdir := kok / ".kos" / pid).mkdir(parents=True)
         d = {"parti": pid, "tur": tur, "tarih": tarih, "model": ns.model, "butce": ns.butce, "kuyruk": Path(ns.hedef).as_posix(),
-             "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {}}
+             "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {},
+             **({"yonlendirme": YONLENDIRME} if YONLENDIRME and (ctx.get("env") or {}).get("OMNIROUTE_KEY") else {})}
         for h in secilen:
             eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
             adim = {"durum": "tamam", "deneme": 0, "cikti": eski[-1].as_posix(), "ice_alindi": True} if eski else {"durum": "bekliyor", "deneme": 0}

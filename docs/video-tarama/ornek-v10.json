@@ -1,0 +1,315 @@
+{
+ "id": "Pj2FnVE-W3c",
+ "ozet": "Esad Kılıç, Claude Code'u VS Code içinde kullanarak kaliteli web siteleri yapmayı 5 aşamada anlatıyor: (0) Claude.md dosyası, (1) frontend-design eklentisi/plugin, (2) ekran görüntüsü geri bildirim döngüsü, (3) Dribbble/kendi sitesinden ilham ekran görüntüsü ve stil kopyalama, (4) 21st.dev benzeri bileşen/animasyon ekleme. Sonunda proje GitHub'a push edilip Vercel ile canlıya alınıyor. Örnek olarak DOA topluluğu için landing page yapılıyor.",
+ "bolumler": [
+  {
+   "zaman": "0:00",
+   "baslik": "Giriş ve VS Code kurulumu"
+  },
+  {
+   "zaman": "0:50",
+   "baslik": "Claude Code eklentisi kurulumu ve plan bilgisi"
+  },
+  {
+   "zaman": "1:55",
+   "baslik": "Aşama 0: Claude.md dosyası"
+  },
+  {
+   "zaman": "3:00",
+   "baslik": "Aşama 1: Frontend design yetkinliği (skills nedir)"
+  },
+  {
+   "zaman": "5:00",
+   "baslik": "Plugin/marketplace ile yükleme ve topluluk dosyaları"
+  },
+  {
+   "zaman": "6:30",
+   "baslik": "Basit promptla topluluk sitesi üretimi"
+  },
+  {
+   "zaman": "9:07",
+   "baslik": "Aşama 2: Ekran görüntüsü döngüsü"
+  },
+  {
+   "zaman": "10:40",
+   "baslik": "Aşama 3: İlham için siteler (Dribbble, tam sayfa ekran görüntüsü)"
+  },
+  {
+   "zaman": "13:00",
+   "baslik": "Aşama 4: Bileşenler (animasyon ekleme)"
+  },
+  {
+   "zaman": "14:20",
+   "baslik": "Canlıya alma: GitHub ve Vercel"
+  },
+  {
+   "zaman": "16:50",
+   "baslik": "Özet ve topluluk tanıtımı"
+  }
+ ],
+ "adaylar": [
+  {
+   "ad": "Claude Code for VS Code",
+   "tur": "plugin",
+   "ne": "Anthropic'in VS Code eklentisi; VS Code içinde sağ panelde Claude Code'u açar.",
+   "kanit_zamani": "0:30",
+   "kaynak": "kare",
+   "kanit": "Eklenti sayfası: Claude Code for VS Code, Anthropic.",
+   "karede_gorulen": "VS Code Extensions Marketplace'te 'Claude Code for VS Code' eklenti sayfası (Anthropic), sağda Claude Code paneli açık.",
+   "repo_url": null
+  },
+  {
+   "ad": "Claude.md",
+   "tur": "ipucu",
+   "ne": "Genel talimat dosyası; sistem prompt gibi her girdiden önce yüklenir, tutarlılık ve kaldığı yerden devam sağlar.",
+   "kanit_zamani": "2:01",
+   "kaynak": "altyazı",
+   "kanit": "Kullanıcı girdi verdiğimde her zaman önce bu MD dosyasını yüklüyor.",
+   "repo_url": null
+  },
+  {
+   "ad": "frontend-design (claude-code-plugins)",
+   "tur": "plugin",
+   "ne": "Tasarım kalitesini artıran yetkinlik; 'vibe code' görünümlü siteler yerine kaliteli siteler üretir.",
+   "kanit_zamani": "5:33",
+   "kaynak": "kare",
+   "kanit": "Marketplace ekleme penceresi ve plugin install frontend-design komutu.",
+   "karede_gorulen": "Manage Plugins penceresi Marketplaces sekmesinde 'anthropics/claude-code' yazılı, claude-plugins-official listeleniyor; sohbette '/plugin install frontend-design@claude-code-plugins' metni görünüyor.",
+   "repo_url": null
+  },
+  {
+   "ad": "Skills kavramı",
+   "tur": "teknik",
+   "ne": "Claude'un uzman yetenekleri yüklemesi; uygun skill varsa kullanır, yoksa genel cevap verir.",
+   "kanit_zamani": "4:32",
+   "kaynak": "kare",
+   "kanit": "Şemada Skills Library ve Evet/Hayır yolları.",
+   "karede_gorulen": "Şema: Adım 2 Claude kontrol eder; YOL A Skills Library (n8n workflows, Frontend design, Python code, Keybindings) → geliştirilmiş cevap; YOL B genel bilgi → standart cevap.",
+   "repo_url": null
+  },
+  {
+   "ad": "Ekran görüntüsü geri bildirim döngüsü",
+   "tur": "iş akışı",
+   "ne": "Claude siteden ekran görüntüleri alıp kendini inceleyerek düzeltir (hero boşluğu, kaybolan ikonlar).",
+   "kanit_zamani": "10:10",
+   "kaynak": "altyazı",
+   "kanit": "Kendisine geri bildirim veriyor ve ona göre değişiklikler ekliyor.",
+   "repo_url": null
+  },
+  {
+   "ad": "İlham sitesinden stil kopyalama",
+   "tur": "iş akışı",
+   "ne": "Dribbble veya başka site ekran görüntüsü + inspect'ten stil bilgisi verilip mevcut siteye uygulanır.",
+   "kanit_zamani": "12:12",
+   "kaynak": "altyazı",
+   "kanit": "Şu anki siteyi yeni ekran resminin stiline benzer hali çevir. İçerik değişmesin.",
+   "repo_url": null
+  },
+  {
+   "ad": "Tam sayfa ekran görüntüsü (DevTools)",
+   "tur": "teknik",
+   "ne": "Inspect > konsol > Command+Shift+P > 'Capture full size screenshot' ile sayfa görüntüsü alma.",
+   "kanit_zamani": "11:11",
+   "kaynak": "altyazı",
+   "kanit": "Command shift P yapıyorum ve screenshot diyorum. Full size screenshot diyorum.",
+   "repo_url": null
+  },
+  {
+   "ad": "21st.dev bileşen kütüphanesi",
+   "tur": "iş akışı",
+   "ne": "Animasyon, font, grid bileşenlerinin hazır promptu kopyalanıp Claude Code'a verilir (shader arka plan örneği). Adı altyazıda 'Turn first Dev' olarak geçiyor.",
+   "kanit_zamani": "13:13",
+   "kaynak": "altyazı",
+   "kanit": "Turn first Dev. Yani linki koyuyorum zaten aşağıya.",
+   "repo_url": null
+  },
+  {
+   "ad": "GitHub + Vercel dağıtımı",
+   "tur": "iş akışı",
+   "ne": "Claude Code'dan GitHub'a push, GitHub'dan Vercel'e otomatik deploy ile canlı site.",
+   "kanit_zamani": "15:15",
+   "kaynak": "altyazı",
+   "kanit": "Cloud Cod'dan gitaba puslıyoruz. Gitup'tan Versel'e. Versel'de canlı sitemiz.",
+   "repo_url": null
+  }
+ ],
+ "aciklama_baglantilari": [
+  {
+   "url": "https://esadcom.gumroad.com/l/site",
+   "ne": "Gumroad ürün sayfası ('site'); muhtemelen videoda bahsedilen Claude.md dosyası ve kaynaklar.",
+   "aday_mi": false,
+   "neden": "Gumroad ürün sayfası, içeriği doğrulanamıyor; büyük olasılıkla ücretli/indirilebilir kaynak.",
+   "aday_adi": null,
+   "erisilemez": "Gumroad ürün sayfası, içerik doğrulanamadı (muhtemelen ücretli/giriş gerektiren)"
+  },
+  {
+   "url": "https://www.skool.com/doa/",
+   "ne": "DOA Skool topluluğu.",
+   "aday_mi": false,
+   "neden": "Topluluk tanıtımı, araç değil.",
+   "aday_adi": null,
+   "erisilemez": "Skool topluluğu, üyelik/giriş gerekli"
+  }
+ ],
+ "site_ui": [
+  {
+   "teknik": "Scroll reveal animasyonları",
+   "ne": "Kaydırınca beliren bölümler.",
+   "kanit_zamani": "8:05",
+   "kaynak": "altyazı"
+  },
+  {
+   "teknik": "Sayaç (counter) animasyonları",
+   "ne": "Üye, webinar gibi sayıların kaydırınca artarak gelmesi.",
+   "kanit_zamani": "8:05",
+   "kaynak": "altyazı"
+  },
+  {
+   "teknik": "Logo renklerinden türetilmiş renk paleti",
+   "ne": "DOA logosunun renklerine göre tasarım; bölümler: başlık, istatistik, kurucular, hızlandırma programı, fiyatlar, katıl linki.",
+   "kanit_zamani": "9:07",
+   "kaynak": "altyazı"
+  },
+  {
+   "teknik": "Shader arka plan animasyonu",
+   "ne": "Hero arka planına 21st.dev benzeri bileşenden shader animasyonu eklendi.",
+   "kanit_zamani": "14:20",
+   "kaynak": "altyazı"
+  },
+  {
+   "teknik": "Stil dönüştürme (renk, arka plan, animasyon)",
+   "ne": "Referans sitenin renk, arka plan ve animasyonlarına göre yeniden stillendirme.",
+   "kanit_zamani": "13:13",
+   "kaynak": "altyazı"
+  }
+ ],
+ "promptlar": [
+  {
+   "metin": "Bana doğa isimli otomasyon topluluğu için bir internet sitesi yap. (logo ve bilgi md dosyası eklenmiş)",
+   "amac": "Basit promptla frontend-design ile topluluk sitesi üretmek.",
+   "kanit_zamani": "7:04",
+   "kaynak": "altyazı"
+  },
+  {
+   "metin": "Ekran resimleri alarak onları dosyaya kaydet ve onları inceleyerek kendini geliştir.",
+   "amac": "Ekran görüntüsü geri bildirim döngüsünü başlatmak.",
+   "kanit_zamani": "10:10",
+   "kaynak": "altyazı"
+  },
+  {
+   "metin": "Şu anki siteyi yeni ekran resminin stiline benzer hale çevir. İçerik değişmesin.",
+   "amac": "Referans ekran görüntüsünün stilini uygulamak.",
+   "kanit_zamani": "12:12",
+   "kaynak": "altyazı"
+  },
+  {
+   "metin": "Sitemin arka planından bunu eklemeni istiyorum. (bileşen promptu yapıştırılır)",
+   "amac": "Hazır animasyon bileşenini siteye eklemek.",
+   "kanit_zamani": "14:12",
+   "kaynak": "altyazı"
+  },
+  {
+   "metin": "Projemi GitHub'a gönder.",
+   "amac": "Projeyi repoya push ettirmek.",
+   "kanit_zamani": "16:15",
+   "kaynak": "altyazı"
+  }
+ ],
+ "iddialar": [
+  {
+   "iddia": "Ücretsiz planda Claude Code kullanılamıyor; başlangıç için aylık 18, yıllık 15 (EUR) plan yeterli.",
+   "kanit_zamani": "1:00",
+   "kaynak": "altyazı",
+   "tur": "sayısal",
+   "aday_adi": "Claude Code for VS Code"
+  },
+  {
+   "iddia": "Normal 'site yap' isteği ~%10 güzellikte, ekran görüntüsü döngüsü kaliteyi %100'e yaklaştırır (benzetme).",
+   "kanit_zamani": "9:07",
+   "kaynak": "altyazı",
+   "tur": "karşılaştırma",
+   "aday_adi": "Ekran görüntüsü geri bildirim döngüsü"
+  },
+  {
+   "iddia": "Eklenti olmadan Claude yine 'vibe code' görünümlü siteler yapar.",
+   "kanit_zamani": "3:01",
+   "kaynak": "altyazı",
+   "tur": "karşılaştırma",
+   "aday_adi": "frontend-design (claude-code-plugins)"
+  },
+  {
+   "iddia": "Bolt, V0 gibi platformlara gerek kalmaz; hepsi Claude Code ile yerelde yapılır.",
+   "kanit_zamani": "17:17",
+   "kaynak": "altyazı",
+   "tur": "öneri",
+   "aday_adi": null
+  },
+  {
+   "iddia": "Vercel sunucusuz dağıtım platformu; alternatif sağlayıcılar da kullanılabilir.",
+   "kanit_zamani": "15:15",
+   "kaynak": "altyazı",
+   "tur": "özellik",
+   "aday_adi": "GitHub + Vercel dağıtımı"
+  }
+ ],
+ "kurulum_komutlar": [
+  {
+   "komut": "/plugin marketplace add anthropics/claude-code",
+   "ne_yapar": "Plugin marketplace'i Claude Code'a ekler.",
+   "kanit_zamani": "6:03",
+   "kaynak": "kare",
+   "karede_gorulen": "Sohbette 'To get started add our marketplace in Claude Code: /plugin marketplace add anthropics/claude-code' metni görünüyor."
+  },
+  {
+   "komut": "/plugin install frontend-design@claude-code-plugins",
+   "ne_yapar": "frontend-design eklentisini kurar.",
+   "kanit_zamani": "6:33",
+   "kaynak": "kare",
+   "karede_gorulen": "Sohbette 'and then install the plugin: /plugin install frontend-design@claude-code-plugins' metni görünüyor."
+  },
+  {
+   "komut": "Command+Shift+P → Capture full size screenshot",
+   "ne_yapar": "DevTools'ta sayfanın tam ekran görüntüsünü indirir.",
+   "kanit_zamani": "11:11",
+   "kaynak": "altyazı"
+  }
+ ],
+ "kareden_okunanlar": [
+  {
+   "kare": "1 (0:30)",
+   "okunan": "VS Code sitesi: 'The open source AI code editor', 'Download for macOS'."
+  },
+  {
+   "kare": "2 (1:30)",
+   "okunan": "Claude Code for VS Code eklenti sayfası, Anthropic, sağda Claude Code paneli."
+  },
+  {
+   "kare": "3 (2:31)",
+   "okunan": "Diyagram: Claude.md (Talimatlar) → Sistem Prompt → Claude Code; 'Önce claude.md yüklenir'."
+  },
+  {
+   "kare": "4 (3:31)",
+   "okunan": "Aşamalar: 0 Claude.md → 1 Tasarım için eklenti → 2 ? → 3 ?."
+  },
+  {
+   "kare": "5 (4:32)",
+   "okunan": "Skills Library şeması: n8n workflows, Frontend design, Python code, Keybindings; Yol A/B."
+  },
+  {
+   "kare": "6 (5:33)",
+   "okunan": "Manage Plugins > Marketplaces, 'anthropics/claude-code' yazılıyor, claude-plugins-official görünüyor."
+  },
+  {
+   "kare": "7 (6:33)",
+   "okunan": "CLAUDE_SITE klasörü, topluluk_docs içinde DOA logosu png ve DOA_overview_feb_2026.md; sohbette plugin komutları."
+  }
+ ],
+ "belirsizlikler": [
+  "Gumroad bağlantısının tam içeriği (Claude.md dosyası olduğu) doğrulanamadı.",
+  "'Turn first Dev' muhtemelen 21st.dev; altyazı hatalı transkripsiyon olabilir.",
+  "Plan fiyatları: '15 eur' ve '18' para birimi/plan adı net değil.",
+  "Videoda ilk denemede plugin bulunamadı, marketplace ile ikinci yol gösterildi; kare 7'de komutların 'gerçek paket değil' yanıtı görünüyor, sonucun kesin doğruluğu belirsiz.",
+  "Kare 4'te 2 ve 3 aşamaları boş '?' kutuları; içerik altyazıdan çıkarıldı.",
+  "Bazı kanıt zamanları (ör. 14:12, 6:33) yaklaşık."
+ ]
+}

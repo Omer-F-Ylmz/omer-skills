@@ -770,13 +770,23 @@ def son_gecis(tas, g, form, m, v10=False):
     return r, None
 
 
-def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False, v11=False):
+def _bozuk(y, sema):
+    """DERİNLİK-KAPANIŞ-1: parça yanıtı yeniden denenir mi → neden | None (yalnız JSON ya da şema hatası; HTTP/zaman aşımı değil)."""
+    from . import parti as pt
+    if y.get("hata"):
+        return y["hata"] if y["hata"] == "form JSON değil" else None
+    d = pt._denet(y.get("form"), sema, "form")
+    return ("şema: " + "; ".join(map(str, d)))[:200] if d else None
+
+
+def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False, v11=False, yeniden=False):
     """F3-V5: bolumle(g[1], k) parçaları paralel (≤ PARALEL_TAVAN, fazlası kuyrukta) → birlestir. usd/usage/yeniden toplam, sure duvar saati; parça hatasında birleşim yok.
     F3-V6 (v6): yük dengeli bolumle · parçaya özel talimat + DEĞERLENDİR listesi kullanıcı mesajının başında · bolumler paketten · son_gecis.
     F3-V8 (alan): parça mesajı ALAN_KURALI + PARCA_OZET ile başlar. Son geçiş şema/JSON hatasında bir kez yeniden (F3-V9).
     F3-V9 (jpeg): kareler JPEG 75 · tüm parça gövdeleri BUYUK_GOVDE altındaysa paralel (≤ k), değilse PARALEL_TAVAN.
     F3-V10 (v10): son geçiş SON_SISTEM10 + bölümsüz pakette bolumler.
-    F3-V11 (v11): ALAN_KURALI11; parçanın OCR satırları DEĞERLENDİR listesinden sonra EKRAN_OCR bloğunda (k 1'de de)."""
+    F3-V11 (v11): ALAN_KURALI11; parçanın OCR satırları DEĞERLENDİR listesinden sonra EKRAN_OCR bloğunda (k 1'de de).
+    DERİNLİK-KAPANIŞ-1 (yeniden): parça yanıtı JSON/şema hatasında aynı gövdeyle bir kez yeniden (usd/usage toplanır, parca_yeniden); ikinci hatada hata."""
     from concurrent.futures import ThreadPoolExecutor
     parca = bolumle(g[1], k, yuk=v6)
     ocr = lambda p: f"{EKRAN_OCR}\n" + "\n".join(o) + "\n\n" if v11 and (o := _ocr(p)) else ""
@@ -790,8 +800,17 @@ def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False,
         gb = max(govde_bayt(sis(p), msg(i, p), g[2], kar(p).get("kareler", ())) for i, p in enumerate(parca))
         es, pn = (len(parca), f"paralel {len(parca)}") if gb < BUYUK_GOVDE else (PARALEL_TAVAN, f"sıralı (gövde {gb // 1024} KB > {BUYUK_GOVDE // 1024} KB)")
     t0 = time.monotonic()
+    def bir(ip):
+        y = tas(sis(ip[1]), msg(*ip), g[2], **kar(ip[1]), model=m)
+        if not yeniden or not _bozuk(y, g[2]):
+            return y
+        y2 = tas(sis(ip[1]), msg(*ip), g[2], **kar(ip[1]), model=m)
+        us, ks = [y.get("usd"), y2.get("usd")], dict.fromkeys(a for x in (y, y2) for a in (x.get("usage") or {}))
+        return {**y2, "usage": {a: sum((x.get("usage") or {}).get(a, 0) for x in (y, y2)) for a in ks}, "usd": None if None in us else sum(us),
+                "parca_yeniden": 1, "hata": y2.get("hata") or _bozuk(y2, g[2])}
     with ThreadPoolExecutor(min(len(parca), es)) as h:
-        ys = list(h.map(lambda ip: tas(sis(ip[1]), msg(*ip), g[2], **kar(ip[1]), model=m), enumerate(parca)))
+        ys = list(h.map(bir, enumerate(parca)))
+    pyn = sum(y.get("parca_yeniden", 0) for y in ys)
     hata = next((f"parça {i}: {y['hata']}" for i, y in enumerate(ys, 1) if y.get("hata")), None)
     form, son = None if hata else birlestir([y.get("form") or {} for y in ys], _bolumler(g[1]) if v6 else None), None
     yn = 0
@@ -806,7 +825,24 @@ def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False,
     y = {"usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
          "usd": None if None in us else sum(us), "sure": round(time.monotonic() - t0, 1),
          "yeniden": sum(y.get("yeniden", 0) for y in ys)}
-    return {"form": form, **y, "hata": hata, **({"k_not": f"k {k}→{len(parca)}"} if len(parca) != k else {}), **({"son_hata": son} if son else {}), **({"son_yeniden": 1} if yn else {}), **({"p_not": pn} if pn else {})}
+    return {"form": form, **y, "hata": hata, "cagri": len(ys) + pyn, **({"parca_yeniden": pyn} if pyn else {}), **({"k_not": f"k {k}→{len(parca)}"} if len(parca) != k else {}), **({"son_hata": son} if son else {}), **({"son_yeniden": 1} if yn else {}), **({"p_not": pn} if pn else {})}
+
+
+ORNEK_V10 = Path(__file__).resolve().parents[3] / "docs" / "video-tarama" / "ornek-v10.json"  # DERİNLİK-KAPANIŞ-1: Pj2FnVE-W3c formunun birebir kopyası
+
+
+def tara_v10(g, env, model, *, tas=None, ornek=ORNEK_V10, ek=None, zaman=600, b_kur=omni_cagir):
+    """DERİNLİK-KAPANIŞ-1 (O73 durma kuralı → hat sürümü V10): eleme@V10 yolu tek fonksiyonda — parca_k · yük dengeli bolumle · sabit önek
+    SISTEM + EKSIKSIZLIK10 + örnek · parça mesajı (ALAN KURALI, tek cümle özet, bölüm/link, DEĞERLENDİR) · temperature 0.2 + seed 7 · son geçiş
+    (SON_SISTEM10, bölümsüz pakette bolumler, bir kez yeniden). Parça JSON/şema hatasında bir kez yeniden. Örnek yoksa çağrı 0.
+    → {form, usage, usd, sure, hata, k, son_hata?, parca_yeniden, cagri}."""
+    if not Path(ornek).is_file():
+        return {"form": None, "usage": {}, "usd": 0.0, "sure": 0.0, "hata": "örnek yok", "k": None, "parca_yeniden": 0, "cagri": 0}
+    k = parca_k(g[1])[0]
+    s = g[0] + "\n\n" + EKSIKSIZLIK10 + ORNEK_BASLIK + Path(ornek).read_text(encoding="utf-8")
+    tas = tas or b_kur(model, env, timeout=zaman, govde_ek={"temperature": 0.2, "seed": 7})
+    ek = ({"kareler": g[3]} if len(g) > 3 else {}) if ek is None else ek
+    return {"parca_yeniden": 0, **_parcali(tas, lambda t: s, g, k, ek, model, v6=True, alan=True, v10=True, yeniden=True), "k": k}
 
 
 def _yaz(y, d):
@@ -891,10 +927,10 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             if cagri + nc > tavan_cagri or b_usd + tahmin > tavan_usd:
                 x["tavan"] = True
                 break
-            y = _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v in ("V8", "V9", "V10", "V11"), jpeg=v == "V9", v10=v in ("V10", "V11"), v11=v == "V11") if n > 1 or v in ("V10", "V11") else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
+            y = tara_v10(g, env, m, tas=tas, ornek=ornek6, ek=ek_v) if v == "V10" else _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v in ("V8", "V9", "V10", "V11"), jpeg=v == "V9", v10=v in ("V10", "V11"), v11=v == "V11") if n > 1 or v in ("V10", "V11") else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
             if yk is not None:  # F3-V10: satırda k x (yük y)
                 y["k_not"] = f"k {n} (yük {yk})" + (f" · {y['k_not']}" if y.get("k_not") else "")
-            cagri, b_usd = cagri + nc + bool(y.get("son_yeniden")), b_usd + (tahmin if y.get("usd") is None else y["usd"])
+            cagri, b_usd = cagri + nc + bool(y.get("son_yeniden")) + y.get("parca_yeniden", 0), b_usd + (tahmin if y.get("usd") is None else y["usd"])
             x["y"].append(y)
             if kayit:  # puanlamadan önce diske (koşu 2: Jev hatasında 6 yanıt kayboldu)
                 _yaz(Path(kayit) / dosya(ad) / f"{len(x['y']) - 1}.json", {"yanit": y, "puan": None})
