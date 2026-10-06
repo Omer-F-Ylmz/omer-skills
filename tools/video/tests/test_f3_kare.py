@@ -680,7 +680,7 @@ def test_olcum_bos_d_agirligi_oranla_dagilir():
     m = "foo ve p1 p2 p3"
     d = yon.referans([_f(adaylar=[_ad("foo")], promptlar=[{"metin": "p1 p2 p3"}])], [], m)
     r = yon.olc_v2(_f(adaylar=[_ad("foo")]), d, m)
-    assert r["kapsam"] == pytest.approx(0.5 / 0.7) and r["f1"] == pytest.approx(0.5 / 0.7) and r["dogruluk"] == 1.0
+    assert r["kapsam"] == pytest.approx(0.4 / 0.55) and r["f1"] == pytest.approx(0.4 / 0.55) and r["dogruluk"] == 1.0
     assert yon.olc_v2({}, {x: [] for x in yon.OLCUM}, m)["f1"] == 1.0  # D hiç yok → şema başarısı aynen
 
 
@@ -838,3 +838,86 @@ def test_ornek_sec_hepsi_dolu_en_kisa_haric(tmp_path):
 def test_eleme_ps1_ornek21():
     s = BETIK.with_name("eleme.ps1").read_text(encoding="utf-8")
     assert "ELEME_ORNEK21" in s and "ornek21=" in s
+
+
+# F3-ÖLÇÜM-4 (plan O65): anlamsal eşleşme + anlamsal dayanak (yerel embedding) · site_ui/iddialar ölçüme
+_AYNI = [("Lansman öncesi ajan denetimi (audit)", "Çok ajanlı denetim (launch öncesi)"),
+         ("Feature gating (özellik kapısı)", "feature flags ile özellik kapısı"), ("kod incelemesi", "code review"),
+         ("Yapay zeka ajanları için bellek", "memory for AI agents"), ("Karanlık mod desteği", "dark mode support"),
+         ("Sunucu tarafı oluşturma (SSR)", "server-side rendering (SSR)"), ("Claude Code ile paralel ajanlar", "parallel agents in Claude Code"),
+         ("Figma tasarımını koda çevirme", "Figma design to code"), ("Hata ayıklama (debugging) ajanı", "debugging agent"),
+         ("Bileşen kütüphanesi (component library)", "UI component library")]
+_FARKLI = [("react query", "react router"), ("LaunchDarkly", "Linear"), ("Stripe ödeme entegrasyonu", "Supabase veritabanı"),
+           ("dark mode support", "database migration"), ("code review", "component library"), ("Tailwind CSS", "Docker Compose"),
+           ("Kimlik doğrulama akışı", "Karanlık mod desteği"), ("Vercel deploy", "Figma tasarım"),
+           ("unit test yazımı", "landing page hero"), ("GitHub Actions CI", "Notion veritabanı")]
+
+
+@pytest.fixture(autouse=True)
+def _anlam_kapali(monkeypatch):
+    monkeypatch.setattr(yon, "ANLAMSAL", False, raising=False)  # eski ölçüm testleri bugünkü kuralla birebir
+
+
+@pytest.fixture
+def anlam(monkeypatch):
+    monkeypatch.setattr(yon, "ANLAMSAL", True)
+    assert yon._acik(), "anlamsal: kapalı (embedding yüklenemedi)"
+
+
+def test_olcum4_esik_sabit():
+    assert yon.ANLAM_ESIK == 0.6
+
+
+@pytest.mark.parametrize("a,b", _AYNI)
+def test_olcum4_kalibrasyon_ayni(anlam, a, b):
+    assert yon._benzerlik(a, b) >= yon.ANLAM_ESIK and yon.eslesir("adaylar", a, b)
+
+
+@pytest.mark.parametrize("a,b", _FARKLI)
+def test_olcum4_kalibrasyon_farkli(anlam, a, b):
+    assert yon._benzerlik(a, b) < yon.ANLAM_ESIK and not yon.eslesir("adaylar", a, b)
+
+
+def test_olcum4_kapali_bugunku_kural(monkeypatch):
+    a, b = _AYNI[0]
+    assert not yon.eslesir("adaylar", a, b)  # ANLAMSAL kapalı: bugünkü kural
+    monkeypatch.setattr(yon, "ANLAMSAL", True)
+    monkeypatch.setattr(yon, "_model", lambda: None)  # yüklenemedi → bugünkü kural + satır
+    assert not yon.eslesir("adaylar", a, b) and not yon._acik()
+    assert "anlamsal: kapalı" in yon.olcum_satirlari([], [], {x: [] for x in yon.OLCUM}, "")
+
+
+def test_olcum4_paraphrase_a1_a2_tek_d_ogesi(anlam):
+    a, b = _AYNI[0]
+    d = yon.referans([_f(adaylar=[_ad(a)]), _f(adaylar=[_ad(b)])], [], "x")
+    assert [x["ad"] for x in d["adaylar"]] == [a]
+
+
+def test_olcum4_tr_iddia_en_konusma_dayanakli(anlam, monkeypatch):
+    m = "Today we look at the new release. Claude Code can now run several agents in parallel. That is huge for big refactors."
+    o = {"iddia": "Claude Code ajanları paralel çalıştırabiliyor", "kaynak": "altyazı"}
+    assert yon.dayanak("iddialar", o, m) == "dayanaklı"
+    assert yon.dayanak("iddialar", {"iddia": "Stripe ile ödeme alınıyor", "kaynak": "altyazı"}, m) == "dayanaksız"
+    monkeypatch.setattr(yon, "ANLAMSAL", False)
+    assert yon.dayanak("iddialar", o, m) == "dayanaksız"  # kelime kuralı tek başına bulamaz
+
+
+def test_olcum4_yeni_listeler_agirliklar():
+    assert {x: a for x, (_, a) in yon.OLCUM.items()} == {"adaylar": 0.40, "site_ui": 0.15, "promptlar": 0.15, "iddialar": 0.10,
+                                                          "kurulum_komutlar": 0.10, "kareden_okunanlar": 0.10}
+    m = "foo ve parallax hero kaydırma ile, ajan denetimi şart"
+    s = {"teknik": "kaydırma", "ne": "parallax hero", "kanit_zamani": "0:01", "kaynak": "altyazı"}
+    i = {"iddia": "ajan denetimi şart", "kanit_zamani": "0:02", "kaynak": "altyazı", "tur": "x", "aday_adi": None}
+    d = yon.referans([_f(adaylar=[_ad("foo")], site_ui=[s], iddialar=[i])], [], m)
+    assert [len(d[x]) for x in ("site_ui", "iddialar")] == [1, 1]
+    r = yon.olc_v2(_f(adaylar=[_ad("foo")], site_ui=[{**s, "ne": "parallax hero bölümü"}]), d, m)
+    assert r["liste"]["site_ui"]["bulunan"] == [0] and r["kapsam"] == pytest.approx(0.55 / 0.65)
+
+
+def test_olcum4_rapor_b_fazlasi_a1_a2_kapsam():
+    m = "foo ve bar anlatılıyor"
+    a1, a2, b = _f(adaylar=[_ad("foo"), _ad("bar")]), _f(adaylar=[_ad("foo")]), _f(adaylar=[_ad("foo"), _ad("baz")])
+    d = yon.referans([a1, a2], [b], m)
+    s = yon.olcum_satirlari([yon.olc_v2(f, d, m) for f in (a1, a2)], [yon.olc_v2(b, d, m)], d, m)
+    assert "A1↔A2 kapsam: %50" in s and "B fazlası: baz (dayanaksız)" in s and "anlamsal: kapalı" in s
+    assert s[-1] == "kaçırılan: bar (konuşmada var)"

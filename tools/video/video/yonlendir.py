@@ -237,7 +237,7 @@ def ornek_sec(yollar, haric=("b2QkhmQ0sT0",)):
     uy = []
     for y in map(Path, yollar):
         t = y.read_text(encoding="utf-8")
-        if y.stem not in haric and all(json.loads(t).get(x) for x in OLCUM):
+        if y.stem not in haric and all(json.loads(t).get(x) for x in ("adaylar", "promptlar", "kurulum_komutlar", "kareden_okunanlar")):  # F3-ÖLÇÜM-4: örnek değişmez
             uy.append((len(t), str(y), y))
     return min(uy)[2] if uy else None
 
@@ -294,7 +294,8 @@ def alan_farki(a_formlar, b_formlar, sema):
             "satirlar": [f"| {y} | {a.get(y, 0):.1f} | {b.get(y, 0):.1f} | {f * 100:.0f} |" for f, _, y in sira]}
 
 
-OLCUM = {"adaylar": ("ad", 0.5), "promptlar": ("metin", 0.2), "kurulum_komutlar": ("komut", 0.15), "kareden_okunanlar": ("okunan", 0.15)}
+OLCUM = {"adaylar": ("ad", 0.40), "site_ui": ("ne teknik", 0.15), "promptlar": ("metin", 0.15), "iddialar": ("iddia", 0.10),
+         "kurulum_komutlar": ("komut", 0.10), "kareden_okunanlar": ("okunan", 0.10)}  # F3-ÖLÇÜM-4: site_ui anahtarı ne + teknik
 DAYANAK = {"dayanaklı": "konuşmada var", "doğrulanamadı": "yalnız kare", "dayanaksız": "dayanaksız"}
 
 
@@ -307,10 +308,68 @@ def _kelime(s):
     return {w for w in map(_n, (s or "").split()) if w}
 
 
+def _k(o, k):
+    """F3-ÖLÇÜM-4: öğe anahtarı — boşlukla ayrılmış alanlar birleşir (site_ui: ne + teknik)."""
+    return " ".join(str(o.get(p) or "") for p in k.split()).strip()
+
+
+ANLAM_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"  # F3-ÖLÇÜM-4: fastembed ONNX-Q, Apache-2.0, ~225 MB
+ANLAM_ESIK = 0.6  # kalibrasyon: test_f3_kare _AYNI ≥ eşik · _FARKLI < eşik
+ANLAMSAL = True
+ANLAM_LISTE = ("adaylar", "iddialar", "site_ui", "promptlar", "kareden_okunanlar")
+_VEK = {}
+
+
+@functools.cache
+def _model():
+    """F3-ÖLÇÜM-4: yerel çok dilli embedding (ilk kullanımda indirilir, .video-cache/emb); yüklenemezse None → bugünkü kurallar."""
+    try:
+        from fastembed import TextEmbedding
+        from .cli import KOK
+    except Exception:
+        return None
+    for yerel in (True, False):  # önce önbellek (ağsız), yoksa tek indirme
+        try:
+            return TextEmbedding(ANLAM_MODEL, cache_dir=str(Path(KOK) / "emb"), local_files_only=yerel)
+        except Exception:
+            pass
+    return None
+
+
+def _acik():
+    return ANLAMSAL and _model() is not None
+
+
+def _vek(ms):
+    import numpy as np
+    yeni = [m for m in dict.fromkeys(ms) if m not in _VEK]
+    for m, v in zip(yeni, _model().embed(yeni) if yeni else ()):
+        _VEK[m] = v / (np.linalg.norm(v) or 1)
+    return np.array([_VEK[m] for m in ms])
+
+
+def _benzerlik(a, b):
+    """F3-ÖLÇÜM-4: kosinüs benzerliği (anlamsal kapalıysa 0)."""
+    if not (_acik() and a and b):
+        return 0.0
+    x = _vek([a, b])
+    return float(x[0] @ x[1])
+
+
+@functools.lru_cache(maxsize=4)
+def _pencereler(metin):
+    """F3-ÖLÇÜM-4: paket metni (konuşma + OCR) ~3 cümlelik örtüşmeli pencereler (adım 2) → vektör matrisi."""
+    c = [s for s in re.split(r"(?<=[.!?])\s+|\n+", metin) if s.strip()]
+    return _vek([" ".join(c[i:i + 3]) for i in range(0, max(len(c) - 2, 1), 2)]) if c else None
+
+
 def eslesir(liste, a, b):
     """F3-ÖLÇÜM v2 (plan O61): iki anahtar aynı öğe mi — adaylar tr.normal karşılıklı içerme ya da kelime Jaccard ≥ 0.6 ·
     kurulum_komutlar boşluk normalize içerme · aciklama_baglantilari birebir · promptlar/kareden_okunanlar kelime örtüşmesi
-    (ortak / kısa olanın kelimesi) ≥ 0.5. Eleme'den bağımsız (B hattı süzgeci)."""
+    (ortak / kısa olanın kelimesi) ≥ 0.5. Eleme'den bağımsız (B hattı süzgeci). F3-ÖLÇÜM-4: ANLAM_LISTE'de ya da anlamsal
+    benzerlik ≥ ANLAM_ESIK."""
+    if liste in ANLAM_LISTE and _benzerlik(a, b) >= ANLAM_ESIK:
+        return True
     if liste == "adaylar":
         na, nb, ka, kb = _n(a), _n(b), _kelime(a), _kelime(b)
         return bool(na and nb and (na in nb or nb in na)) or bool(ka | kb) and len(ka & kb) / len(ka | kb) >= 0.6
@@ -335,7 +394,7 @@ def dayanak(liste, oge, metin):
     """F3-ÖLÇÜM v2: anahtar paket metninde (konuşma + açıklama + bölümler + kare OCR) → dayanaklı (adaylar tr.normal içerme ·
     komut boşluk normalize içerme · metin/okunan kelimelerinin ≥ yarısı); değil ama kaynak kare / karede_gorulen dolu /
     kareden_okunanlar → doğrulanamadı (cezasız); ikisi de değil → dayanaksız."""
-    k = oge.get(OLCUM[liste][0]) or ""
+    k = _k(oge, OLCUM[liste][0])
     if liste == "adaylar":
         w, m = _ayirt(k), {x[:5] for x in re.findall(r"\w+", metin.casefold())}  # F3-V2: ya da kelimelerin ≥ yarısı 5 harf önekle
         var = bool(_n(k)) and _n(k) in _n(metin) or bool(w) and 2 * sum(x[:5] in m for x in w) >= len(w)
@@ -344,6 +403,8 @@ def dayanak(liste, oge, metin):
     else:
         w = _kelime(k)
         var = bool(w) and len(w & _kelime(metin)) / len(w) >= 0.5
+    if not var and liste in ANLAM_LISTE and k and _acik() and (p := _pencereler(metin)) is not None:
+        var = float((p @ _vek([k])[0]).max()) >= ANLAM_ESIK  # F3-ÖLÇÜM-4: anlamsal dayanak (en yakın pencere)
     return ("dayanaklı" if var else "doğrulanamadı" if liste == "kareden_okunanlar" or oge.get("kaynak") == "kare"
             or (oge.get("karede_gorulen") or "").strip() else "dayanaksız")
 
@@ -365,11 +426,13 @@ def referans(a_formlar, formlar, metin):
     """F3-ÖLÇÜM v2: D = A formlarının tüm öğeleri ∪ formlar'ın dayanaklı öğeleri (liste başı, aynı video içinde eslesir ile tekil;
     B > A mümkün)."""
     d = {x: [] for x in OLCUM}
+    if _acik():  # F3-ÖLÇÜM-4: tüm anahtarlar tek toplu embedding
+        _vek([_k(o, k) for f in (*a_formlar, *formlar) for x, (k, _) in OLCUM.items() for o in _ogeler(f, x) if _k(o, k)])
     for f, a_mi in [(f, True) for f in a_formlar] + [(f, False) for f in formlar]:
         for x, (k, _) in OLCUM.items():
             for o in _ogeler(f, x):
-                if o.get(k) and (a_mi or dayanak(x, o, metin) == "dayanaklı") and \
-                        not any(r["_v"] == o["_v"] and eslesir(x, o[k], r[k]) for r in d[x]):
+                if _k(o, k) and (a_mi or dayanak(x, o, metin) == "dayanaklı") and \
+                        not any(r["_v"] == o["_v"] and eslesir(x, _k(o, k), _k(r, k)) for r in d[x]):
                     d[x].append(o)
     return d
 
@@ -381,13 +444,15 @@ def olc_v2(form, d, metin):
     r, top = {"liste": {}, "url": len(_ogeler(form, "aciklama_baglantilari"))}, {"kapsam": 0.0, "dogruluk": 0.0, "f1": 0.0}
     wt = sum(a for x, (_, a) in OLCUM.items() if d[x])
     for x, (k, a) in OLCUM.items():
-        os_ = [o for o in _ogeler(form, x) if o.get(k)]
+        os_ = [o for o in _ogeler(form, x) if _k(o, k)]
         ds = [dayanak(x, o, metin) for o in os_]
         iyi, kotu = ds.count("dayanaklı"), ds.count("dayanaksız")
-        bul = [i for i, y in enumerate(d[x]) if any(y["_v"] == o["_v"] and eslesir(x, y[k], o[k]) for o in os_)]
+        bul = [i for i, y in enumerate(d[x]) if any(y["_v"] == o["_v"] and eslesir(x, _k(y, k), _k(o, k)) for o in os_)]
         kp, dg = len(bul) / len(d[x]) if d[x] else None, iyi / (iyi + kotu) if iyi + kotu else 1.0
         r["liste"][x] = {"n": len(os_), "kapsam": kp, "dogruluk": dg, "dogrulanamadi": ds.count("doğrulanamadı"), "bulunan": bul,
-                        "dayanaksiz": [o[k] for o, z in zip(os_, ds) if z == "dayanaksız"]}
+                        "dayanaksiz": [_k(o, k) for o, z in zip(os_, ds) if z == "dayanaksız"],
+                        "fazla": [(_k(o, k), z) for o, z in zip(os_, ds)  # F3-ÖLÇÜM-4: D'de karşılığı yok
+                                  if not any(y["_v"] == o["_v"] and eslesir(x, _k(y, k), _k(o, k)) for y in d[x])]}
         if d[x]:
             for t, v in (("kapsam", kp), ("dogruluk", dg), ("f1", 2 * kp * dg / (kp + dg) if kp + dg else 0.0)):
                 top[t] += a / wt * v
@@ -410,10 +475,15 @@ def olcum_satirlari(a, b, d, metin):
     s += [f"{x}: A {o(a, x, 'n'):.1f} · B {o(b, x, 'n'):.1f} · kapsam " + (f"%{o(b, x, 'kapsam') * 100:.0f}" if d[x] else "—")
           + f" · doğruluk %{o(b, x, 'dogruluk') * 100:.0f} · doğrulanamadı {o(b, x, 'dogrulanamadi'):.1f}" for x in OLCUM]
     s.append(f"aciklama_baglantilari (skora girmez): A {_ort(a, 'url'):.1f} · B {_ort(b, 'url'):.1f}")
+    s.append(f"anlamsal: açık (eşik {ANLAM_ESIK})" if _acik() else "anlamsal: kapalı")  # F3-ÖLÇÜM-4
+    ab = [{(x, i) for x in OLCUM for i in r["liste"][x]["bulunan"]} for r in a[:2]]
+    s.append("A1↔A2 kapsam: " + (f"%{len(ab[0] & ab[1]) / len(ab[0] | ab[1]) * 100:.0f}" if len(ab) == 2 and ab[0] | ab[1] else "—"))
     kac = [(x, y) for x in OLCUM for i, y in enumerate(d[x]) if not any(i in r["liste"][x]["bulunan"] for r in b)]
     z = list(dict.fromkeys(y for r in a for x in OLCUM for y in r["liste"][x]["dayanaksiz"]))  # F3-V2: kalibrasyon görünsün
+    fz = list(dict.fromkeys((y, e) for r in b for x in OLCUM for y, e in r["liste"][x]["fazla"]))
+    s.append("B fazlası: " + (", ".join(f"{y[:80]} ({DAYANAK[e]})" for y, e in fz[:5]) or "yok"))
     s.append("A dayanaksız: " + (", ".join(y[:80] for y in z[:5]) or "yok"))
-    s.append("kaçırılan: " + (", ".join(f"{y[OLCUM[x][0]][:80]} ({DAYANAK[dayanak(x, y, metin)]})" for x, y in kac[:5]) or "yok"))
+    s.append("kaçırılan: " + (", ".join(f"{_k(y, OLCUM[x][0])[:80]} ({DAYANAK[dayanak(x, y, metin)]})" for x, y in kac[:5]) or "yok"))
     return s
 
 
