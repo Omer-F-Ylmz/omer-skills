@@ -578,8 +578,11 @@ def dayanak(liste, oge, metin):
         var = bool(w) and len(w & _kelime(metin)) / len(w) >= 0.5
     if not var and liste in ANLAM_LISTE and k and _acik() and (p := _pencereler(metin)) is not None:
         var = float((p @ _vek([k])[0]).max()) >= (DAYANAK_ESIK if liste in DAYANAK_LISTE else ANLAM_ESIK)  # F3-ÖLÇÜM-4: anlamsal dayanak (en yakın pencere)
-    return ("dayanaklı" if var else "doğrulanamadı" if liste == "kareden_okunanlar" or oge.get("kaynak") == "kare"
-            or (oge.get("karede_gorulen") or "").strip() else "dayanaksız")
+    return "dayanaklı" if var else "doğrulanamadı" if _kare(liste, oge) else "dayanaksız"
+
+
+def _kare(liste, oge):
+    return liste == "kareden_okunanlar" or oge.get("kaynak") == "kare" or bool((oge.get("karede_gorulen") or "").strip())
 
 
 def _ogeler(form, x):
@@ -676,8 +679,7 @@ def kanit(x, o, metin, kn=None, gorsel=None):
     """MÜKEMMEL-3a: öğenin kanıt kaynağı (konuşma → kare → açıklama ilk dayanaklı); MÜKEMMEL-3a2: doğrulanamadı ayrı sınıf; yoksa None.
     MÜKEMMEL-3b kare-görsel: gorsel[(alan, anahtar)] görüldü → kare · görülmedi → None · belirsiz/yok → doğrulanamadı kalır."""
     kn = kn or _kaynaklar(metin)
-    s = next((s for s in kn if dayanak(x, o, kn[s]) == "dayanaklı"), None) or \
-        ("doğrulanamadı" if dayanak(x, o, metin) == "doğrulanamadı" else None)
+    s = next((s for s in kn if dayanak(x, o, kn[s]) == "dayanaklı"), None) or ("doğrulanamadı" if _kare(x, o) else None)  # 4b: dağınık eşleşme de
     g = (gorsel or {}).get((x, _k(o, OLCUM[x][0]))) if s == "doğrulanamadı" else None
     return {"görüldü": "kare", "görülmedi": None}.get(g, s)
 
