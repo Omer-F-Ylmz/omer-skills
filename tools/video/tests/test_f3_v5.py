@@ -542,8 +542,8 @@ def test_v8_dolu_alan_satir_rapor(tmp_path):
 
 def test_v8_bilinmeyen_varyant_cagri_0(tmp_path):
     c = []
-    s = _e8(tmp_path, [f"{E1}@V8", f"{E1}@V9"], c)
-    assert s["satirlar"][1] == f"{E1}@V9 · hata: bilinmeyen varyant: V9 · çağrı 0"
+    s = _e8(tmp_path, [f"{E1}@V8", f"{E1}@V10"], c)
+    assert s["satirlar"][1] == f"{E1}@V10 · hata: bilinmeyen varyant: V10 · çağrı 0"
     assert yon.PARCA["V8"] == 4 and "V8" in yon.SON and "V8" in yon.VARYANT and c
 
 
@@ -582,3 +582,127 @@ def test_boyut_kayittan_yalniz_eksikler(tmp_path):
     assert k["boyut"]["kanit"] == 0.5 and json.loads((tmp_path / "k" / "A" / "1.json").read_text(encoding="utf-8"))["boyut"]["kanit"] == 0.9
     s = _e8(tmp_path, [f"{E1}@V8"], c, puanla=pl, boyut=_by(bc), yeniden=tmp_path / "k")
     assert bc == [4] and kp == [] and s["jev_istek"] == 0 and len(c) == n
+
+
+# F3-V9: zengin örnek · son geçiş yeniden deneme · JPEG + koşullu paralellik · V9
+def _form9(tmp_path, ad, deger, bos=0, dolu=tuple(yon.OLCUM), pad=0):
+    s = SV["properties"]["videolar"]["items"]["properties"]
+    ks = lambda x: list(((s.get(x) or {}).get("items") or {}).get("properties") or ()) or ["v"]  # noqa: E731
+    f = {x: ([{k: ("" if i < bos else deger) for i, k in enumerate(ks(x))}] if x in dolu else []) for x in yon.OLCUM}
+    (tmp_path / f"{ad}.json").write_text(json.dumps({**f, "pad": "p" * pad}), encoding="utf-8")
+    return tmp_path / f"{ad}.json"
+
+
+def test_v9_ornek_sec9_zengin_ve_haric(tmp_path):
+    h = list(yon.OLCUM)
+    ys = [_form9(tmp_path, "a", "xx"), _form9(tmp_path, "b", "xxxxx"), _form9(tmp_path, "c", "y" * 50, bos=1),
+          _form9(tmp_path, "d", "z" * 9, pad=13000), _form9(tmp_path, "b2QkhmQ0sT0", "w" * 9),
+          _form9(tmp_path, "f", "u" * 9, dolu=h[:5]), _form9(tmp_path, "HARIC1", "q" * 8)]
+    assert yon.ornek_sec9(ys, SV, haric=("b2QkhmQ0sT0", "HARIC1")) == ys[1]  # oran eşit → uzun alan; az dolu, > 12 KB, eksik liste elenir
+    assert yon.ornek_sec9(ys[4:5], SV) is None and yon.ornek_sec9(ys[6:], SV) == ys[6]
+    assert yon.ornek_olc(json.loads(ys[1].read_text(encoding="utf-8")), SV) == (1.0, 5.0)
+
+
+J = {"form": None, "usage": {}, "usd": 0.001, "sure": 1.0, "hata": None}
+
+
+def _b9(c, sonlar):
+    ic = _b6(c)
+
+    def kur_(m, env, timeout=600, govde_ek=None):
+        t = ic(m, env)
+
+        def tas(sistem, metin, sema, kareler=(), model=None, **_):
+            r = t(sistem, metin, sema, kareler, model=model)
+            return sonlar.pop(0) if sistem == yon.SON_SISTEM and sonlar else r
+        return tas
+    return kur_
+
+
+def test_v9_son_gecis_json_yeniden_basari(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c, b_kur=_b9(c, [dict(J)]))
+    y = _kayit(tmp_path, f"{E1}@V63")
+    assert y["form"]["videolar"][0]["ozet"] == "bütün özet" and "son_hata" not in y and y["son_yeniden"] == 1
+    assert y["usd"] == pytest.approx(0.005) and len([x for x in c if x["i"] == "son"]) == 3 and "son geçiş" not in s["satirlar"][0]
+
+
+def test_v9_son_gecis_ikinci_hata_mekanik(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c, b_kur=_b9(c, [dict(J), {**J, "form": {"ozet": 5}}]))
+    y = _kayit(tmp_path, f"{E1}@V63")
+    assert y["form"]["videolar"][0]["ozet"] == "o0 o1 o2" and y["son_hata"].startswith("şema") and len(y["son_hata"]) <= 200
+    assert y["usd"] == pytest.approx(0.005) and " · son geçiş: hata (şema" in s["satirlar"][0]
+
+
+def test_v9_son_gecis_json_ikinci_hata_neden(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c, b_kur=_b9(c, [dict(J), dict(J)]))
+    assert _kayit(tmp_path, f"{E1}@V63")["son_hata"] == "JSON" and " · son geçiş: hata (JSON)" in s["satirlar"][0]
+
+
+def test_v9_son_gecis_http_hata_yeniden_yok(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c, b_kur=_b9(c, [{**J, "hata": "ölçülemedi: HTTP 500"}] * 2))
+    y = _kayit(tmp_path, f"{E1}@V63")
+    assert y["son_hata"] == "ölçülemedi: HTTP 500" and y["usd"] == pytest.approx(0.004) and "son_yeniden" not in y
+    assert " · son geçiş: hata (ölçülemedi: HTTP 500)" in s["satirlar"][0]
+
+
+def test_v9_son_yeniden_tavana_sayilir(tmp_path):
+    c = []
+    _e6(tmp_path, [f"{E1}@V63"], c, b_kur=_b9(c, [dict(J)]), tavan_cagri=8)  # (3 + 1 + 1) + 4 > 8 → ikinci yanıt yok
+    assert len([x for x in c if x["i"] != "son"]) == 3
+
+
+def test_v9_jpeg_boyut_ayni_bayt_azalir(tmp_path):
+    import random
+    from PIL import Image
+    random.seed(1)
+    k = tmp_path / "kare_01.png"
+    Image.frombytes("RGB", (160, 90), bytes(random.randrange(256) for _ in range(160 * 90 * 3))).save(k)
+    once = k.read_bytes()
+    (j,) = yon._jpeg([k], tmp_path / "j")
+    with Image.open(j) as i:
+        assert i.format == "JPEG" and i.size == (160, 90)
+    assert j.suffix == ".jpg" and j.stat().st_size < len(once) and k.read_bytes() == once
+    assert yon.govde_bayt("s", "m", {}, [j]) < yon.govde_bayt("s", "m", {}, [k]) and yon.govde_bayt("s", "m", {}, [k]) > 4 * len(once) // 3
+
+
+def _e9(tmp_path, adaylar, c, ge=None, **k):
+    tmp_path.mkdir(parents=True, exist_ok=True)
+    o = tmp_path / "ORN9.json"
+    o.write_text('{"id": "ORN9"}', encoding="utf-8")
+    return _e8(tmp_path, adaylar, c, ge, ornek9=o, **k)
+
+
+def test_v9_tanim_ornek_jpeg_govde(tmp_path, monkeypatch):
+    jc, ge, c = [], [], []
+    monkeypatch.setattr(yon, "_jpeg", lambda ks, d: jc.append(list(ks)) or list(ks))
+    s = _e9(tmp_path / "9", [f"{E1}@V9"], c, ge, destek={E1: ["seed"]})
+    assert yon.PARCA["V9"] == 4 and "V9" in yon.SON and "V9" in yon.VARYANT and ge == [{"temperature": 0.2, "seed": 7}]
+    p = [x for x in c if x["i"] != "son"]
+    assert p and all(x["sistem"].endswith('{"id": "ORN9"}') and yon.ALAN_KURALI in x["metin"] for x in p) and jc
+    assert " · hata" not in s["satirlar"][0]
+    jc.clear()
+    _e9(tmp_path / "8", [f"{E1}@V8"], [])
+    assert jc == []  # V8 kareleri değişmez
+    s = _e8(tmp_path / "y", [f"{E1}@V9"], [])
+    assert s["satirlar"][0] == f"{E1}@V9 · hata: V9 örneği yok · çağrı 0"
+
+
+def test_v9_paralel_ya_da_sirali(tmp_path, monkeypatch):
+    import concurrent.futures as cf
+    en, gercek = [], cf.ThreadPoolExecutor
+    monkeypatch.setattr(cf, "ThreadPoolExecutor", lambda n: en.append(n) or gercek(n))
+    monkeypatch.setattr(yon, "_jpeg", lambda ks, d: list(ks))
+    assert yon.BUYUK_GOVDE == 262144  # OmniRoute OMNIROUTE_CHAT_LARGE_BODY_BYTES varsayılanı
+    s = _e9(tmp_path / "a", [f"{E1}@V9"], [])
+    assert en[0] > 1 and f" · paralel {en[0]}" in s["satirlar"][0]
+    en.clear()
+    monkeypatch.setattr(yon, "BUYUK_GOVDE", 100)
+    s = _e9(tmp_path / "b", [f"{E1}@V9"], [])
+    assert set(en) == {1} and " · sıralı (gövde " in s["satirlar"][0] and " KB > 0 KB)" in s["satirlar"][0]
+    en.clear()
+    s = _e9(tmp_path / "c", [f"{E1}@V8"], [])
+    assert set(en) == {1} and "paralel" not in s["satirlar"][0] and "sıralı" not in s["satirlar"][0]
