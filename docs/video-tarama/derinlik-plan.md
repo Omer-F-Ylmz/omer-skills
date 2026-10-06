@@ -896,3 +896,13 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
   - WK--kz63hlQ (short): 44/89 · 100/100 · .58→.97 · 100/67 · 0/1/0 · 0 · 0/0 · kaldı: kareden_okunanlar
 - Genel K3: kaldı (3/6). Short kare okuma 3 short'un 2'sinde (rABI, WK--) kayıp; ptGX doğruluk düşüşü kayıtla tek tek karşılaştırılmadı.
 - Harcanan: model 23 (eleme 18 + görsel 5) · Jev ≤24 (kesin sayı yazılmadı) · ≈$0.25. Rapor: .video-cache/eleme/rapor/k3-20261006.md.
+
+## O89 — MÜKEMMEL-4: K3 bant inceltme + konuşmalı short kare okuma (iki mekanizma)
+- KARAR: eşitlik bandı = max(0.05, 1/n), n ölçünün paydası (k3 "n": geri |U| · doğruluk B form başı öğe ort. · kare |U_kare|); k3_hukum bütün videolara aynı kural. Mekanizma A = yon.ocr_aktar (paket OCR → kareden_okunanlar, kaynak ocr, ≥3 harf, tekrarsız, ≤12).
+- Bant sonrası K3 (geri A/B · doğ A/B · kare A/B): b2Q 64/73·94/95·56/63 geçti · rABI 60/53·94/100·75/8 kaldı: kare · ptGX 75/91·100/91·100/100 kaldı: doğruluk · Ov 75/100·100/100·100/100 geçti · WdDX 90/100·90/100·100/100 geçti · WK-- 44/89·100/100·100/67 geçti (kare n=3, bant 0.33).
+- ptGX dayanaksız öğe: kareden_okunanlar "CIAO ENERGY LAUNCH WEB, Skaald, Site of the Day - Jul 30, 2026." (3:41) — uydurma değil (k00221_0.jpg'de görünür); kanit() eşleştirme boşluğu: kelimeler tüm metinde dağınık → None, doğrulanamadı'ya düşmüyor, görsele gitmiyor.
+- Mek A (kayıttan, canlı 0): satır b2Q 12 · rABI 0 (OCR boş) · ptGX 0 · Ov 11 · WdDX 12 · WK-- 12. K3 değişmedi (rABI/ptGX kaldı). Jev ort. −0.056 (WdDX −0.12).
+- Mek B (odaklı kare çağrısı, gemini-3.5-flash-lite, 4 çağrı, $0.0167): K3 = A ile aynı; Jev ort. +0.01. A+B: K3 aynı, Jev ort. −0.045.
+- Seçim: hiçbiri (DUR). rABI kare açığı A'nın betimleme türü kare öğeleri + boş OCR; ptGX doğruluk açığı kanit() boşluğu. V10 hattına adım eklenmedi.
+- Harcanan: model 4 · Jev 22 · $0.0167. Rapor: .video-cache/eleme/rapor/k3-20261006.md (## MÜKEMMEL-4); odak-20261006.json · jev-m4-20261006.json.
+- Sapma: Jev puanı eleme.ps1 puanla yolu (form kendi başına, A'ya karşı değil); Jev gürültüsü ±0.05 tolerans.
