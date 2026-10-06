@@ -52,6 +52,22 @@ def test_betimleme_kare_olcusu_disinda_ayri_satirda():
     assert r["betim"] == {"A": 1, "B": 0} and r0["betim"] == {"A": 0, "B": 0}
 
 
+def test_betim_seti_dosyadan(tmp_path):
+    """MÜKEMMEL-4c: betim sınıflama dosyası (video · alan · öğe · sınıf) → k3(betim=...) için yalnız betimleme (alan, öğe) seti."""
+    p = tmp_path / "betim.json"
+    p.write_text('[{"video": "v", "alan": "kareden_okunanlar", "oge": "mikrofon başında adam", "sinif": "betimleme"},'
+                 ' {"video": "v", "alan": "kareden_okunanlar", "oge": "Qwxz Panosu", "sinif": "ekran metni"}]', encoding="utf-8")
+    assert yon.betim_oku(p) == frozenset({("kareden_okunanlar", "mikrofon başında adam")})
+
+
+def test_alan_bagimsiz_kare_eslesmesi_kayma():
+    """MÜKEMMEL-4c: U kare öğesi sistemin başka alanında (adaylar.kanit vb.) aynı metinle geçiyorsa bulundu; kayma sistem başı ayrı."""
+    a = {"videolar": [{"id": "v", "kareden_okunanlar": [{yon.OLCUM["kareden_okunanlar"][0]: "Qwxz Panosu"}]}]}
+    b = {"videolar": [{"id": "v", "adaylar": [{"ad": "Zzqx", "kanit": "ekranda Qwxz Panosu yazıyor"}]}]}
+    r = yon.k3([a], [b], M)
+    assert r["B"]["kareden_okunanlar"]["geri"] == 1.0 and r["kayma"] == {"A": 0, "B": 1}
+
+
 def test_eslesen_oge_tek_sayilir():
     r = yon.k3([_f("Ruflo")], [_f("Ruflo")], M)
     assert r["u"]["adaylar"] == 1
