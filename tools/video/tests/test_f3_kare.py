@@ -463,10 +463,10 @@ def _v(tmp_path, adaylar, c, kareler=(), **k):
 
 def test_eleme_varyant_ayristirma_bilinmeyen_cagri_0(tmp_path):
     c = []
-    s = _v(tmp_path, [E1, f"{E1}@V0", f"{E1}@V9"], c)
+    s = _v(tmp_path, [E1, f"{E1}@V0", f"{E1}@V10"], c)
     assert [x["m"] for x in c] == [E1] * 4
     assert s["satirlar"][0].startswith(f"{E1} · geçti") and s["satirlar"][1].startswith(f"{E1}@V0 · geçti")
-    assert s["satirlar"][2] == f"{E1}@V9 · hata: bilinmeyen varyant: V9 · çağrı 0"
+    assert s["satirlar"][2] == f"{E1}@V10 · hata: bilinmeyen varyant: V10 · çağrı 0"
 
 
 def test_eleme_v1_ornek_govdede_test_videosu_disindan(tmp_path):

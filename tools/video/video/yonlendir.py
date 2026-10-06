@@ -215,9 +215,10 @@ VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka
            "V54": "V5, k=4",
            "V6": "V54 + ELEME_ORNEK6 (6 liste dolu) · sabit sistem öneki · yük dengeli bolumle · bolumler paketten · son geçiş (özet + eksik)",
            "V63": "V6, k=3",
-           "V8": "V6 + temperature 0.2 (+ seed 7 destekse) + parçalarda ALAN KURALI ve tek cümle özet"}
-PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3, "V8": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
-SON = ("V6", "V63", "V8")  # F3-V6: parça + son geçiş (çağrı k + 1)
+           "V8": "V6 + temperature 0.2 (+ seed 7 destekse) + parçalarda ALAN KURALI ve tek cümle özet",
+           "V9": "V8 + ELEME_ORNEK9 (zengin örnek) · son geçiş şema/JSON hatasında bir kez yeniden · kareler JPEG 75 · gövdeler eşik altıysa paralel"}
+PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3, "V8": 4, "V9": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
+SON = ("V6", "V63", "V8", "V9")  # F3-V6: parça + son geçiş (çağrı k + 1)
 DEGERLENDIR = "DEĞERLENDİR LİSTESİ (paket metninden mekanik çıkarım):\n"
 PARCA_BOLUM = "bolumler: boş bırak ([]); bölümler paketten doldurulur."
 PARCA_LINK = "aciklama_baglantilari: boş bırak ([]); bağlantılar yalnız 1. parçada istenir."
@@ -230,6 +231,7 @@ SON_SISTEM = ("Bir videonun paket metni (konuşma + ekran metni) ve parça parç
               "kapsayan tek bütünlüklü özet. ek_* listelerine yalnız anahtar satırlarda OLMAYAN öğeleri yaz (öğe biçimi ana formdakiyle aynı); "
               "emin değilsen belirsizlikler'e yaz.")
 PARALEL_TAVAN = 1  # F3-V5b: OmniRoute OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT varsayılanı (büyük gövde > 256 KiB); fazlası 503 chat_admission_busy
+BUYUK_GOVDE = 256 * 1024  # F3-V9: OmniRoute OMNIROUTE_CHAT_LARGE_BODY_BYTES varsayılanı (chatBodyAdmission.ts:34; ≥ eşik ağır)
 ORNEK_BASLIK = "\n\nÖRNEK ÇIKTI (başka bir videonun onaylı formu; yalnız biçim ve ayrıntı düzeyi için, içeriğini kopyalama):\n"
 
 
@@ -290,6 +292,27 @@ def ornek_sec6(yollar, haric=("b2QkhmQ0sT0",)):
     return min(uy)[3:] if uy else (None, [])
 
 
+def ornek_olc(f, sema):
+    """F3-V9: Claude formu → (dolu alan oranı, alan başı ortalama uzunluk); alanlar dolu_alan ile aynı (OLCUM listeleri × şema)."""
+    s = ((sema.get("properties") or {}).get("videolar") or {}).get("items", {}).get("properties") or {}
+    a = [o.get(k) for x in OLCUM for o in f.get(x) or [] if isinstance(o, dict) for k in ((s.get(x) or {}).get("items") or {}).get("properties") or ()]
+    d, _, n = dolu_alan([{"videolar": [f]}], sema)
+    return d / max(n, 1), sum(len(str(v)) for v in a if v not in (None, "", [], {})) / max(n, 1)
+
+
+def ornek_sec9(yollar, sema, haric=("b2QkhmQ0sT0",), tavan=12 * 1024):
+    """F3-V9 örneği: OLCUM'un 6 listesi dolu, ≤ tavan bayt Claude formları içinde dolu alan oranı en yüksek; eşitlikte alan başı
+    ortalama uzunluğu en büyük (ornek_olc). → yol ya da None."""
+    uy = []
+    for y in map(Path, yollar):
+        if y.stem in haric or y.stat().st_size > tavan:
+            continue
+        f = json.loads(y.read_text(encoding="utf-8"))
+        if all(f.get(x) for x in OLCUM):
+            uy.append((*ornek_olc(f, sema), str(y), y))
+    return max(uy)[3] if uy else None
+
+
 def _girdi(u):
     """A (Claude) girdisinin çoğu önbellekte → input + cache_read + cache_creation (OpenAI biçiminde yalnız input_tokens var)."""
     return sum(u.get(k, 0) for k in ("input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens"))
@@ -303,6 +326,22 @@ def _kucult(kareler, dizin):
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(k), "-vf",
                         "scale='min(512,iw)':'min(512,ih)':force_original_aspect_ratio=decrease", str(y)], check=True, timeout=60)
     return cik
+
+
+def _jpeg(kareler, dizin):
+    """F3-V9: kareler istek gövdesi için JPEG kalite 75 (boyut aynı) → dizin/<ad>.jpg; asıl dosyalar değişmez."""
+    from PIL import Image
+    Path(dizin).mkdir(parents=True, exist_ok=True)
+    cik = [Path(dizin) / (Path(k).stem + ".jpg") for k in kareler]
+    for k, y in zip(kareler, cik):
+        with Image.open(k) as i:
+            i.convert("RGB").save(y, "JPEG", quality=75)
+    return cik
+
+
+def govde_bayt(sistem, metin, sema, kareler=()):
+    """F3-V9: omni_cagir istek gövdesinin yaklaşık baytı (JSON metin + şema + kare base64)."""
+    return len(json.dumps([sistem, metin, sema])) + sum(4 * -(-Path(k).stat().st_size // 3) + 40 for k in kareler)
 
 
 def _olc(x, yol, o, bos):
@@ -649,35 +688,47 @@ def son_gecis(tas, g, form, m):
     sema = pt._o(ozet=s["ozet"], belirsizlikler=s["belirsizlikler"], **{f"ek_{x}": s[x] for x in SON_LISTE})
     konusma = govde.split("\n## Kareler\n", 1)[0]  # konuşma + OCR; kare yolları yok (görselsiz)
     r = tas(SON_SISTEM, f"{ust}\n## Segmentler\n{konusma}\n\n## Birleşik form (anahtar satırlar)\n" + "\n".join(sat or ["yok"]), sema, model=m)
-    if r.get("hata") or pt._denet(r.get("form"), sema, "son"):
-        return r, r.get("hata") or "şema"
+    if r.get("hata") or (d := pt._denet(r.get("form"), sema, "son")):  # F3-V9: neden kayda (≤ 200 kr)
+        return r, (r.get("hata") or ("JSON" if r.get("form") is None else "şema: " + "; ".join(map(str, d))))[:200]
     f = r["form"]
     form["videolar"][0] = {**birlestir([v, {"id": v.get("id"), **{x: f[f"ek_{x}"] for x in SON_LISTE}, "belirsizlikler": f["belirsizlikler"]}]),
                            "ozet": f["ozet"] or v.get("ozet")}
     return r, None
 
 
-def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False):
+def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False):
     """F3-V5: bolumle(g[1], k) parçaları paralel (≤ PARALEL_TAVAN, fazlası kuyrukta) → birlestir. usd/usage/yeniden toplam, sure duvar saati; parça hatasında birleşim yok.
     F3-V6 (v6): yük dengeli bolumle · parçaya özel talimat + DEĞERLENDİR listesi kullanıcı mesajının başında · bolumler paketten · son_gecis.
-    F3-V8 (alan): parça mesajı ALAN_KURALI + PARCA_OZET ile başlar."""
+    F3-V8 (alan): parça mesajı ALAN_KURALI + PARCA_OZET ile başlar. Son geçiş şema/JSON hatasında bir kez yeniden (F3-V9).
+    F3-V9 (jpeg): kareler JPEG 75 · tüm parça gövdeleri BUYUK_GOVDE altındaysa paralel (≤ k), değilse PARALEL_TAVAN."""
     from concurrent.futures import ThreadPoolExecutor
     parca = bolumle(g[1], k, yuk=v6)
     msg = (lambda i, p: "\n".join([*(ALAN_KURALI, PARCA_OZET) * alan, PARCA_BOLUM, *[PARCA_LINK] * (i > 0)]) + f"\n\n{DEGERLENDIR}{on_cikarim(p)}\n\n{p}") if v6 else (lambda i, p: p)
-    kar = lambda p: {"kareler": [x for x in ek["kareler"] if f"{Path(x).name} · " in p]} if "kareler" in ek else {}
+    j = {x: y for x, y in zip(ek["kareler"], _jpeg(ek["kareler"], tempfile.mkdtemp(prefix="eleme-jpeg-"))) if y.stat().st_size < Path(x).stat().st_size} \
+        if jpeg and ek.get("kareler") else {}  # büyüyen kare asıl haliyle gider (b2QkhmQ0sT0: kaynak JPEG, 75'te gövde %0–3 büyüdü)
+    kar = lambda p: {"kareler": [j.get(x, x) for x in ek["kareler"] if f"{Path(x).name} · " in p]} if "kareler" in ek else {}
+    es, pn = PARALEL_TAVAN, None
+    if jpeg:  # F3-V9: OmniRoute ağır gövdede (≥ BUYUK_GOVDE) eş zamanlı 1; hepsi altındaysa paralel
+        gb = max(govde_bayt(sis(p), msg(i, p), g[2], kar(p).get("kareler", ())) for i, p in enumerate(parca))
+        es, pn = (len(parca), f"paralel {len(parca)}") if gb < BUYUK_GOVDE else (PARALEL_TAVAN, f"sıralı (gövde {gb // 1024} KB > {BUYUK_GOVDE // 1024} KB)")
     t0 = time.monotonic()
-    with ThreadPoolExecutor(min(len(parca), PARALEL_TAVAN)) as h:
+    with ThreadPoolExecutor(min(len(parca), es)) as h:
         ys = list(h.map(lambda ip: tas(sis(ip[1]), msg(*ip), g[2], **kar(ip[1]), model=m), enumerate(parca)))
     hata = next((f"parça {i}: {y['hata']}" for i, y in enumerate(ys, 1) if y.get("hata")), None)
     form, son = None if hata else birlestir([y.get("form") or {} for y in ys], _bolumler(g[1]) if v6 else None), None
+    yn = 0
     if v6 and form and form.get("videolar"):
         r, son = son_gecis(tas, g, form, m)
         ys.append(r)
+        if son and (son.startswith("şema") or son in ("JSON", "form JSON değil")):  # F3-V9: aynı gövdeyle bir kez; usd ve tavana sayılır
+            r, son = son_gecis(tas, g, form, m)
+            ys.append(r)
+            yn = 1
     us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
     y = {"usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
          "usd": None if None in us else sum(us), "sure": round(time.monotonic() - t0, 1),
          "yeniden": sum(y.get("yeniden", 0) for y in ys)}
-    return {"form": form, **y, "hata": hata, **({"k_not": f"k {k}→{len(parca)}"} if len(parca) != k else {}), **({"son_hata": son} if son else {})}
+    return {"form": form, **y, "hata": hata, **({"k_not": f"k {k}→{len(parca)}"} if len(parca) != k else {}), **({"son_hata": son} if son else {}), **({"son_yeniden": 1} if yn else {}), **({"p_not": pn} if pn else {})}
 
 
 def _yaz(y, d):
@@ -696,7 +747,7 @@ JEV_BOYUT_TAVAN = 24  # F3-V8: ELEME_BOYUT modunda (kalite + boyut ayrı istek)
 
 
 def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_kur=omni_cagir, yokla=omni_yokla,
-          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, ornek21=None, kucult=_kucult, kayit=None, yeniden=None, ornek6=None, boyut=None):
+          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, ornek21=None, kucult=_kucult, kayit=None, yeniden=None, ornek6=None, boyut=None, ornek9=None):
     """F3-ELEME adım 4: tek girdi g (sistem, metin, şema, kareler), adaylar tek koşuda. Ön kontrol (kol sabit · varyant · FIYAT · yokla)
     geçmeyen çağrı 0. Aday başı çağrı 1; şema geçerse 2. Sıradaki çağrı B tavanını (çağrı · $; tahmin = adayın son usd'si, yoksa _tahmin)
     aşacaksa yapılmaz → "tavan". usd None (zaman aşımı) harcamaya tahminle girer. supported_parameters'ta reasoning varsa effort minimal.
@@ -722,7 +773,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             ks = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
             durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "bp": [r.get("boyut") for r in ks], "akil": akil}
             continue
-        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6, "V8": ornek6}.get(v)
+        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6, "V8": ornek6, "V9": ornek9}.get(v)
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
                  else f"{v} örneği yok" if v in ("V1", "V21", *PARCA) and not (orn and Path(orn).is_file())
@@ -746,21 +797,21 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         m, v, akil = x["m"], x["v"], x["akil"]
         n, b = PARCA.get(v, 1), "V21" if v in PARCA else v  # F3-V5: V5/V54 = V21 sistemi, liste parçaya süzülür
         nc = n + (v in SON)  # F3-V6: son geçiş çağrısı da tavana sayılır
-        sis = (lambda t, s=g[0] + f"\n\n{EKSIKSIZLIK}" + ORNEK_BASLIK + Path(ornek6).read_text(encoding="utf-8"): s) if v in SON else \
+        sis = (lambda t, s=g[0] + f"\n\n{EKSIKSIZLIK}" + ORNEK_BASLIK + Path(ornek9 if v == "V9" else ornek6).read_text(encoding="utf-8"): s) if v in SON else \
             lambda t, b=b: (g[0] + (f"\n\n{EKSIKSIZLIK}\n\n{DEGERLENDIR}{on_cikarim(t)}" if b in ("V2", "V21") else "")
                             + (ORNEK_BASLIK + Path(ornek if b == "V1" else ornek21).read_text(encoding="utf-8") if b in ("V1", "V21") else ""))
         ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
             if v == "V4" and kare else ek
         ge = {**({"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else {}),  # F3-V8: düşük sıcaklık, seed yalnız destekse
-              **({"temperature": 0.2, **({"seed": 7} if "seed" in (destek or {}).get(m, ()) else {})} if v == "V8" else {})}
+              **({"temperature": 0.2, **({"seed": 7} if "seed" in (destek or {}).get(m, ()) else {})} if v in ("V8", "V9") else {})}
         tas = b_kur(m, env, timeout=zaman, govde_ek=ge or None)
         while len(x["y"]) < 2 and (not x["y"] or gecer(x["y"][-1])):
             tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare) * nc
             if cagri + nc > tavan_cagri or b_usd + tahmin > tavan_usd:
                 x["tavan"] = True
                 break
-            y = _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v == "V8") if n > 1 else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
-            cagri, b_usd = cagri + nc, b_usd + (tahmin if y.get("usd") is None else y["usd"])
+            y = _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v in ("V8", "V9"), jpeg=v == "V9") if n > 1 else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
+            cagri, b_usd = cagri + nc + bool(y.get("son_yeniden")), b_usd + (tahmin if y.get("usd") is None else y["usd"])
             x["y"].append(y)
             if kayit:  # puanlamadan önce diske (koşu 2: Jev hatasında 6 yanıt kayboldu)
                 _yaz(Path(kayit) / dosya(ad) / f"{len(x['y']) - 1}.json", {"yanit": y, "puan": None})
@@ -849,12 +900,13 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
              *([f"önbellek %{100 * t('cached') / t('input_tokens'):.0f}"] if t("input_tokens") and any("cached" in (y.get("usage") or {}) for y in ys) else []),
              "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
              *([f"yeniden {yn}"] if (yn := sum(y.get("yeniden", 0) for y in ys)) else []),
-             *dict.fromkeys(y["k_not"] for y in ys if y.get("k_not")), *(["son geçiş: hata"] if any(y.get("son_hata") for y in ys) else []),
+             *dict.fromkeys(y["k_not"] for y in ys if y.get("k_not")), *dict.fromkeys(y["p_not"] for y in ys if y.get("p_not")),
+             *dict.fromkeys(f"son geçiş: hata ({y['son_hata'][:40]})" for y in ys if y.get("son_hata")),
              *([f"kalite {ozet[m]['kalite']:.2f} · şema {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
              *([rapor[m]["olcum"][0], f"B bant {bant(list(map(sk, pb[m]))):.2f}",  # F3-V8: tekrar bantları (A bandı kur.karar'da)
                 f"görev bant (A {bant(gv(ya, sa['v2'])):.2f} · B {bant(gv(ys, ozet[m]['v2'])):.2f})", rapor[m]["dolu"]] if m in ozet else []),
              *([f"boyut fark: {rapor[m]['boyut']['fark']}"] if m in ozet and "boyut" in rapor[m] else []),
-             *(["seed yok"] if x.get("v") == "V8" and "seed" not in (destek or {}).get(x.get("m"), ()) else []),
+             *(["seed yok"] if x.get("v") in ("V8", "V9") and "seed" not in (destek or {}).get(x.get("m"), ()) else []),
              *([f"Jev {jev[m]}" if jev[m] else "Jev 0 (kayıttan)"] if yeniden and m in ozet else [])]
         if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
             p.append("reasoning parametresi etkisiz")
