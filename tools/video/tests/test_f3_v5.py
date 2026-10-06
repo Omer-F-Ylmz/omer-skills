@@ -297,8 +297,8 @@ def _b6(c, son=None):
         t = ic(m, env)
 
         def tas(sistem, metin, sema, kareler=(), model=None, **_):
-            if sistem == yon.SON_SISTEM:
-                c.append({"i": "son", "metin": metin, "kareler": list(kareler), "sema": sema})
+            if sistem in (yon.SON_SISTEM, getattr(yon, "SON_SISTEM10", None)):
+                c.append({"i": "son", "sistem": sistem, "metin": metin, "kareler": list(kareler), "sema": sema})
                 return son or {"form": SON_OK, "usage": {"input_tokens": 7, "output_tokens": 3}, "usd": 0.001, "sure": 1.0, "hata": None}
             return t(sistem, metin, sema, kareler, model=model)
         return tas
@@ -542,8 +542,8 @@ def test_v8_dolu_alan_satir_rapor(tmp_path):
 
 def test_v8_bilinmeyen_varyant_cagri_0(tmp_path):
     c = []
-    s = _e8(tmp_path, [f"{E1}@V8", f"{E1}@V10"], c)
-    assert s["satirlar"][1] == f"{E1}@V10 · hata: bilinmeyen varyant: V10 · çağrı 0"
+    s = _e8(tmp_path, [f"{E1}@V8", f"{E1}@V11"], c)
+    assert s["satirlar"][1] == f"{E1}@V11 · hata: bilinmeyen varyant: V11 · çağrı 0"
     assert yon.PARCA["V8"] == 4 and "V8" in yon.SON and "V8" in yon.VARYANT and c
 
 
@@ -706,3 +706,92 @@ def test_v9_paralel_ya_da_sirali(tmp_path, monkeypatch):
     en.clear()
     s = _e9(tmp_path / "c", [f"{E1}@V8"], [])
     assert set(en) == {1} and "paralel" not in s["satirlar"][0] and "sıralı" not in s["satirlar"][0]
+
+
+# F3-V10: uyarlanır k · bölümsüz pakette bölüm üretimi · EKSIKSIZLIK10 + SON_SISTEM10
+PB = P.replace("## Chapter\n0:00 Giriş\n2:50 Kurulum\n6:10 Deneme\n", "")
+BOL = [{"zaman": "0:00", "baslik": "Açılış"}, {"zaman": "3:00", "baslik": "Kurulum"}]
+SON_B = {"form": {**SON_OK, "bolumler": BOL}, "usage": {"input_tokens": 7, "output_tokens": 3}, "usd": 0.001, "sure": 1.0, "hata": None}
+SON_HATA = {"form": None, "usage": {}, "usd": 0.001, "sure": 1.0, "hata": "boom"}
+
+
+def _kp(n):  # n zamanlı kare satırlı paket (yük ≈ n × 1000)
+    return "\n".join(["# v · sure_sn 600", "## Segmentler", "[0:01] a", "## Kareler",
+                      *[f"C:/c/k{i:03}.jpg · {i // 60}:{i % 60:02}" for i in range(n)]])
+
+
+def test_v10_yuk_bolumle_ile_ayni():
+    assert 3000 < yon.yuk(P) < 3100 and yon.yuk("# başlık yok") == 0
+
+
+def test_v10_parca_k_yukten():
+    py = yon.PARCA_YUK
+    assert yon.parca_k(P3) == (1, yon.yuk(P3))  # kısa paket
+    assert yon.parca_k(_kp(round(4 * py / 1000)))[0] == 4  # b2QkhmQ0sT0 yükü = 4 × PARCA_YUK
+    assert yon.parca_k(_kp(round(2 * py / 1000)))[0] == 2  # orta yük
+    assert yon.parca_k(_kp(round(9 * py / 1000)))[0] == 4 and yon.parca_k("# boş")[0] == 1
+
+
+def test_v10_k1_tek_cagri_son_gecis(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V10"], c, paket=P3)
+    assert len([x for x in c if x["i"] != "son"]) == 2 and len(c) == 4  # 2 yanıt × (1 parça + son geçiş)
+    assert f" · k 1 (yük {yon.yuk(P3)})" in s["satirlar"][0]
+
+
+def test_v10_bolumlu_paket_mekanik(tmp_path):
+    c = []
+    _e6(tmp_path, [f"{E1}@V10"], c)
+    v = _kayit(tmp_path, f"{E1}@V10")["form"]["videolar"][0]
+    son = [x for x in c if x["i"] == "son"]
+    assert "bolumler" not in son[0]["sema"]["properties"] and yon.SON_BOLUM not in son[0]["metin"]
+    assert [b["baslik"] for b in v["bolumler"]] == ["Giriş", "Kurulum", "Deneme"]
+
+
+def test_v10_bolumsuz_paket_son_gecis_bolum_uretir(tmp_path):
+    c = []
+    _e6(tmp_path, [f"{E1}@V10"], c, paket=PB, b_kur=_b6(c, SON_B))
+    y = _kayit(tmp_path, f"{E1}@V10")
+    son = [x for x in c if x["i"] == "son"]
+    assert son[0]["sema"]["properties"]["bolumler"] == SV["properties"]["videolar"]["items"]["properties"]["bolumler"]
+    assert yon.SON_BOLUM in son[0]["metin"] and all(x["metin"].count("bolumler: boş bırak") == 1 for x in c if x["i"] != "son")
+    assert y["form"]["videolar"][0]["bolumler"] == BOL and pt._denet(y["form"], SV, "form") == []
+
+
+def test_v10_bolumsuz_son_gecis_hata_bolum_bos(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V10"], c, paket=PB, b_kur=_b6(c, SON_HATA))
+    assert _kayit(tmp_path, f"{E1}@V10")["form"]["videolar"][0]["bolumler"] == [] and " · son geçiş: hata" in s["satirlar"][0]
+
+
+def test_v10_metinler_yalniz_v10(tmp_path):
+    e = yon.EKSIKSIZLIK10
+    assert "Emin değilsen ekle" not in e and "öğeyi listeye değil belirsizlikler" in e
+    assert "betimlemesi aday, iddia ya da site_ui öğesi değildir" in e and "(komut, prompt, ayar, başlık, kod, araç adı)" in e
+    assert "5–8 cümle (ana fikir · gösterilen araçlar/teknikler · adımlar · sonuç)" in yon.SON_SISTEM10
+    assert "Emin değilsen ekle" in yon.EKSIKSIZLIK and "5–8" not in yon.SON_SISTEM  # diğer varyantların metni aynı
+    c = []
+    _e6(tmp_path, [f"{E1}@V10"], c)
+    assert {x["sistem"] for x in c if x["i"] != "son"} == {"S\n\n" + e + yon.ORNEK_BASLIK + '{"id": "ORN6"}'}
+    assert {x["sistem"] for x in c if x["i"] == "son"} == {yon.SON_SISTEM10}
+
+
+def test_v10_diger_varyant_metni_ayni(tmp_path):
+    c = []
+    _e6(tmp_path, [f"{E1}@V8"], c)
+    assert {x["sistem"] for x in c if x["i"] != "son"} == {"S\n\n" + yon.EKSIKSIZLIK + yon.ORNEK_BASLIK + '{"id": "ORN6"}'}
+    assert {x["sistem"] for x in c if x["i"] == "son"} == {yon.SON_SISTEM}
+
+
+def test_v10_tanim(tmp_path):
+    ge, c = [], []
+    s = _e6(tmp_path, [f"{E1}@V10"], c, b_kur=_b8(c, ge), destek={E1: ["seed", "temperature"]})
+    assert ge[0] == {"temperature": 0.2, "seed": 7} and "V10" in yon.VARYANT and "V10" in yon.SON
+    p = [x for x in c if x["i"] != "son"]
+    assert p and all(x["metin"].startswith(yon.ALAN_KURALI + "\n" + yon.PARCA_OZET) for x in p) and "seed yok" not in s["satirlar"][0]
+
+
+def test_v10_son_gecis_json_yeniden(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V10"], c, b_kur=_b6(c, {**SON_HATA, "hata": None}))
+    assert len([x for x in c if x["i"] == "son"]) == 4 and "son geçiş: hata (JSON)" in s["satirlar"][0]
