@@ -853,3 +853,9 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Madde 3: parti devam'da YOKLA "OmniRoute yok" + OMNIROUTE_KEY varsa omniroute serve --no-open --daemon (CREATE_NO_WINDOW) bir kez, ≤ 90 s yoklama; kalkarsa "OmniRoute kendiliğinden başlatıldı (N s)" satırı (stdout), kalkmazsa DUR rc 4; anahtarsız doğrudan DUR; testte BASLAT/BEKLE sahte (ecccbfd kırmızı · a767d3d yeşil).
 - Kapanış suite'i 1671/1671 (video 1026 · jev 81 · tests 321 · cc-kopru 181 · mcp-jev 40 · dotnet 22), gitleaks temiz.
 - K2 kısmi: suite boyunca gerçek sayaç 21→27 (fark 6; ana çağrı 2) → env verilmesine rağmen +4 sızıntı; kalan: CAGRI_SAYAC_DIZIN'i ezen ya da yok sayan test (sızdıran suite aranmadı).
+
+## O84 — MÜKEMMEL-2d (K2 kapanışı: sayaç oturuma bağlı · OmniRoute başlatma defter izi), canlı 0
+- cagri_sayac.py: startup/clear sıfırlar + session_id cagri-sayac-oturum.txt'ye; compact/resume korur; başka/eksik session_id sayılmaz; kayıt yoksa ilk olay bağlar (7ff1541/f03fb7c).
+- Sızdıran: cc-kopru hook.mjs:325 hook'u kendi env'iyle (hookOrtami + CLAUDE_PROJECT_DIR=gerçek proje) koşturuyor, CAGRI_SAYAC_DIZIN düşüyor; hijyen düzeltmesi bırakıldı, sayaç bağlaması korur.
+- parti.py: kendiliğinden başlatma defterde adim=omniroute_baslat (sure_s); _defter çağrı saymaz.
+- Suite boyunca ana 15→17 (fark 2 = ana Bash + Agent), alt 0→7 (suite-kosucu 7 araç). K2 yeşil.
