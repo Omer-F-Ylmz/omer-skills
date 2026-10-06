@@ -216,9 +216,10 @@ VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka
            "V6": "V54 + ELEME_ORNEK6 (6 liste dolu) · sabit sistem öneki · yük dengeli bolumle · bolumler paketten · son geçiş (özet + eksik)",
            "V63": "V6, k=3",
            "V8": "V6 + temperature 0.2 (+ seed 7 destekse) + parçalarda ALAN KURALI ve tek cümle özet",
-           "V9": "V8 + ELEME_ORNEK9 (zengin örnek) · son geçiş şema/JSON hatasında bir kez yeniden · kareler JPEG 75 · gövdeler eşik altıysa paralel"}
-PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3, "V8": 4, "V9": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
-SON = ("V6", "V63", "V8", "V9")  # F3-V6: parça + son geçiş (çağrı k + 1)
+           "V9": "V8 + ELEME_ORNEK9 (zengin örnek) · son geçiş şema/JSON hatasında bir kez yeniden · kareler JPEG 75 · gövdeler eşik altıysa paralel",
+           "V10": "V8 + uyarlanır k (yük / PARCA_YUK) · bölümsüz pakette bolumler son geçişten · EKSIKSIZLIK10 + SON_SISTEM10"}
+PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3, "V8": 4, "V9": 4, "V10": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
+SON = ("V6", "V63", "V8", "V9", "V10")  # F3-V6: parça + son geçiş (çağrı k + 1)
 DEGERLENDIR = "DEĞERLENDİR LİSTESİ (paket metninden mekanik çıkarım):\n"
 PARCA_BOLUM = "bolumler: boş bırak ([]); bölümler paketten doldurulur."
 PARCA_LINK = "aciklama_baglantilari: boş bırak ([]); bağlantılar yalnız 1. parçada istenir."
@@ -230,6 +231,9 @@ SON_LISTE = ("adaylar", "iddialar", "kurulum_komutlar", "promptlar", "site_ui")
 SON_SISTEM = ("Bir videonun paket metni (konuşma + ekran metni) ve parça parça çıkarılmış formun anahtar satırları verilir. ozet: tüm videoyu "
               "kapsayan tek bütünlüklü özet. ek_* listelerine yalnız anahtar satırlarda OLMAYAN öğeleri yaz (öğe biçimi ana formdakiyle aynı); "
               "emin değilsen belirsizlikler'e yaz.")
+SON_SISTEM10 = SON_SISTEM.replace("ozet: tüm videoyu kapsayan tek bütünlüklü özet.",  # F3-V10
+                                  "ozet: videonun tamamını kapsayan 5–8 cümle (ana fikir · gösterilen araçlar/teknikler · adımlar · sonuç).")
+SON_BOLUM = "bolumler: paket bölüm (Chapter) içermiyor; konuşma metninden videonun bölümlerini zaman sırasıyla yaz (zaman + başlık)."
 PARALEL_TAVAN = 1  # F3-V5b: OmniRoute OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT varsayılanı (büyük gövde > 256 KiB); fazlası 503 chat_admission_busy
 BUYUK_GOVDE = 256 * 1024  # F3-V9: OmniRoute OMNIROUTE_CHAT_LARGE_BODY_BYTES varsayılanı (chatBodyAdmission.ts:34; ≥ eşik ağır)
 ORNEK_BASLIK = "\n\nÖRNEK ÇIKTI (başka bir videonun onaylı formu; yalnız biçim ve ayrıntı düzeyi için, içeriğini kopyalama):\n"
@@ -241,6 +245,9 @@ EKSIKSIZLIK = ("EKSİKSİZLİK KURALI: Videoda adı geçen, ekranda görünen ya
                "ya da söylenen her prompt promptlar[]'a kelimesi kelimesine. Her kurulum komutu kurulum_komutlar[]'a birebir. Her iddiada "
                "aday_adi doldur. Kısa yazma; her öğede kanıt ve zaman ver. DEĞERLENDİR LİSTESİ'ndeki her öğeyi ya forma ekle ya da neden "
                "eklemediğini belirsizlikler[]'e tek satırla yaz.")
+EKSIKSIZLIK10 = EKSIKSIZLIK.replace("Emin değilsen ekle ve belirsizlikler[]'e yaz. ", (  # F3-V10: gürültü kuralı
+    "Emin değilsen öğeyi listeye değil belirsizlikler[]'e yaz. Konuşmacı, sahne ya da arka plan betimlemesi aday, iddia ya da site_ui "
+    "öğesi değildir; kareden_okunanlar[]'a yalnız anlamlı ekran metni (komut, prompt, ayar, başlık, kod, araç adı) yazılır. "))
 ON_TAVAN = 1500  # F3-V2: DEĞERLENDİR LİSTESİ token tavanı (~4 karakter/token)
 _KOMUT = re.compile(r"\b(?:npm|npx|pip3?|uvx?|brew|winget|git clone|claude (?:mcp|plugin|skills?))\s[^\n,;`]{1,100}")
 
@@ -646,6 +653,27 @@ def bolumle(paket, k, yuk=False):
         k -= 1
 
 
+
+def yuk(paket):
+    """F3-V10: bolumle(yuk=True) toplam yükü: "## Segmentler" sonrası satır/4 + zamanlı kare satırı × 1000 token (yuvarlanmış)."""
+    govde = paket.split("\n## Segmentler\n", 1)[1:]
+    t, bolum = 0, "## Segmentler"
+    for s in ("## Segmentler\n" + govde[0]).splitlines() if govde else ():
+        bolum = s if s.startswith("## ") else bolum
+        z = not s.startswith("## ") and (re.match(r"\[(\d+(?::\d+)+)\]", s) or re.search(r" · (\d+(?::\d+)+)$", s))
+        t += len(s) / 4 + 1000 * (bool(z) and bolum == "## Kareler")
+    return round(t)
+
+
+PARCA_YUK = 8419  # F3-V10: b2QkhmQ0sT0 toplam yükü (yuk) / 4
+
+
+def parca_k(paket):
+    """F3-V10: (k, yük); k = sınır(1, 4, yuvarla(yük / PARCA_YUK)); k 1'de bölümleme yok (tek parça + son geçiş)."""
+    y = yuk(paket)
+    return max(1, min(4, round(y / PARCA_YUK))), y
+
+
 ANAHTAR = {**{x: a for x, (a, _) in OLCUM.items()}, "iz": "ne"}  # F3-V5: birlestir tekilleştirme anahtarı
 
 
@@ -677,30 +705,33 @@ def birlestir(formlar, bolumler=None):
     return out
 
 
-def son_gecis(tas, g, form, m):
+def son_gecis(tas, g, form, m, v10=False):
     """F3-V6: birleşimden sonra tek görselsiz çağrı (paket başlığı + konuşma + OCR + birleşik listelerin anahtar satırları) → ozet ve
-    belirsizlikler yazılır, ek_* öğeleri birlestir (eslesir) ile tekil eklenir. → (yanıt, hata | None); hatada form değişmez."""
+    belirsizlikler yazılır, ek_* öğeleri birlestir (eslesir) ile tekil eklenir. → (yanıt, hata | None); hatada form değişmez.
+    F3-V10 (v10): SON_SISTEM10; paket bölümsüzse bolumler de istenir (SON_BOLUM) ve forma yazılır, hatada [] kalır."""
     from . import parti as pt
     ust, govde = (g[1].split("\n## Segmentler\n", 1) + [""])[:2]
     v = form["videolar"][0]
     sat = [f"- {x}: {_k(o, ANAHTAR[x])}" for x in SON_LISTE for o in v.get(x) or [] if isinstance(o, dict)]
     s = g[2]["properties"]["videolar"]["items"]["properties"]
-    sema = pt._o(ozet=s["ozet"], belirsizlikler=s["belirsizlikler"], **{f"ek_{x}": s[x] for x in SON_LISTE})
+    bol = v10 and not _bolumler(g[1])  # F3-V10: bölümsüz pakette bölümleri son geçiş yazar
+    sema = pt._o(ozet=s["ozet"], belirsizlikler=s["belirsizlikler"], **({"bolumler": s["bolumler"]} if bol else {}), **{f"ek_{x}": s[x] for x in SON_LISTE})
     konusma = govde.split("\n## Kareler\n", 1)[0]  # konuşma + OCR; kare yolları yok (görselsiz)
-    r = tas(SON_SISTEM, f"{ust}\n## Segmentler\n{konusma}\n\n## Birleşik form (anahtar satırlar)\n" + "\n".join(sat or ["yok"]), sema, model=m)
+    r = tas(SON_SISTEM10 if v10 else SON_SISTEM, f"{ust}\n## Segmentler\n{konusma}\n\n## Birleşik form (anahtar satırlar)\n" + "\n".join(sat or ["yok"]) + ("\n\n" + SON_BOLUM) * bol, sema, model=m)
     if r.get("hata") or (d := pt._denet(r.get("form"), sema, "son")):  # F3-V9: neden kayda (≤ 200 kr)
         return r, (r.get("hata") or ("JSON" if r.get("form") is None else "şema: " + "; ".join(map(str, d))))[:200]
     f = r["form"]
     form["videolar"][0] = {**birlestir([v, {"id": v.get("id"), **{x: f[f"ek_{x}"] for x in SON_LISTE}, "belirsizlikler": f["belirsizlikler"]}]),
-                           "ozet": f["ozet"] or v.get("ozet")}
+                           "ozet": f["ozet"] or v.get("ozet"), **({"bolumler": f["bolumler"]} if bol else {})}
     return r, None
 
 
-def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False):
+def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False):
     """F3-V5: bolumle(g[1], k) parçaları paralel (≤ PARALEL_TAVAN, fazlası kuyrukta) → birlestir. usd/usage/yeniden toplam, sure duvar saati; parça hatasında birleşim yok.
     F3-V6 (v6): yük dengeli bolumle · parçaya özel talimat + DEĞERLENDİR listesi kullanıcı mesajının başında · bolumler paketten · son_gecis.
     F3-V8 (alan): parça mesajı ALAN_KURALI + PARCA_OZET ile başlar. Son geçiş şema/JSON hatasında bir kez yeniden (F3-V9).
-    F3-V9 (jpeg): kareler JPEG 75 · tüm parça gövdeleri BUYUK_GOVDE altındaysa paralel (≤ k), değilse PARALEL_TAVAN."""
+    F3-V9 (jpeg): kareler JPEG 75 · tüm parça gövdeleri BUYUK_GOVDE altındaysa paralel (≤ k), değilse PARALEL_TAVAN.
+    F3-V10 (v10): son geçiş SON_SISTEM10 + bölümsüz pakette bolumler."""
     from concurrent.futures import ThreadPoolExecutor
     parca = bolumle(g[1], k, yuk=v6)
     msg = (lambda i, p: "\n".join([*(ALAN_KURALI, PARCA_OZET) * alan, PARCA_BOLUM, *[PARCA_LINK] * (i > 0)]) + f"\n\n{DEGERLENDIR}{on_cikarim(p)}\n\n{p}") if v6 else (lambda i, p: p)
@@ -718,10 +749,10 @@ def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False):
     form, son = None if hata else birlestir([y.get("form") or {} for y in ys], _bolumler(g[1]) if v6 else None), None
     yn = 0
     if v6 and form and form.get("videolar"):
-        r, son = son_gecis(tas, g, form, m)
+        r, son = son_gecis(tas, g, form, m, v10)
         ys.append(r)
         if son and (son.startswith("şema") or son in ("JSON", "form JSON değil")):  # F3-V9: aynı gövdeyle bir kez; usd ve tavana sayılır
-            r, son = son_gecis(tas, g, form, m)
+            r, son = son_gecis(tas, g, form, m, v10)
             ys.append(r)
             yn = 1
     us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
@@ -773,7 +804,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             ks = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
             durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "bp": [r.get("boyut") for r in ks], "akil": akil}
             continue
-        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6, "V8": ornek6, "V9": ornek9}.get(v)
+        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6, "V8": ornek6, "V9": ornek9, "V10": ornek6}.get(v)
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
                  else f"{v} örneği yok" if v in ("V1", "V21", *PARCA) and not (orn and Path(orn).is_file())
@@ -796,21 +827,24 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             continue
         m, v, akil = x["m"], x["v"], x["akil"]
         n, b = PARCA.get(v, 1), "V21" if v in PARCA else v  # F3-V5: V5/V54 = V21 sistemi, liste parçaya süzülür
+        n, yk = parca_k(g[1]) if v == "V10" else (n, None)  # F3-V10: k paketin yükünden
         nc = n + (v in SON)  # F3-V6: son geçiş çağrısı da tavana sayılır
-        sis = (lambda t, s=g[0] + f"\n\n{EKSIKSIZLIK}" + ORNEK_BASLIK + Path(ornek9 if v == "V9" else ornek6).read_text(encoding="utf-8"): s) if v in SON else \
+        sis = (lambda t, s=g[0] + "\n\n" + (EKSIKSIZLIK10 if v == "V10" else EKSIKSIZLIK) + ORNEK_BASLIK + Path(ornek9 if v == "V9" else ornek6).read_text(encoding="utf-8"): s) if v in SON else \
             lambda t, b=b: (g[0] + (f"\n\n{EKSIKSIZLIK}\n\n{DEGERLENDIR}{on_cikarim(t)}" if b in ("V2", "V21") else "")
                             + (ORNEK_BASLIK + Path(ornek if b == "V1" else ornek21).read_text(encoding="utf-8") if b in ("V1", "V21") else ""))
         ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
             if v == "V4" and kare else ek
         ge = {**({"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else {}),  # F3-V8: düşük sıcaklık, seed yalnız destekse
-              **({"temperature": 0.2, **({"seed": 7} if "seed" in (destek or {}).get(m, ()) else {})} if v in ("V8", "V9") else {})}
+              **({"temperature": 0.2, **({"seed": 7} if "seed" in (destek or {}).get(m, ()) else {})} if v in ("V8", "V9", "V10") else {})}
         tas = b_kur(m, env, timeout=zaman, govde_ek=ge or None)
         while len(x["y"]) < 2 and (not x["y"] or gecer(x["y"][-1])):
             tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare) * nc
             if cagri + nc > tavan_cagri or b_usd + tahmin > tavan_usd:
                 x["tavan"] = True
                 break
-            y = _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v in ("V8", "V9"), jpeg=v == "V9") if n > 1 else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
+            y = _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v in ("V8", "V9", "V10"), jpeg=v == "V9", v10=v == "V10") if n > 1 or v == "V10" else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
+            if yk is not None:  # F3-V10: satırda k x (yük y)
+                y["k_not"] = f"k {n} (yük {yk})" + (f" · {y['k_not']}" if y.get("k_not") else "")
             cagri, b_usd = cagri + nc + bool(y.get("son_yeniden")), b_usd + (tahmin if y.get("usd") is None else y["usd"])
             x["y"].append(y)
             if kayit:  # puanlamadan önce diske (koşu 2: Jev hatasında 6 yanıt kayboldu)
@@ -906,7 +940,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
              *([rapor[m]["olcum"][0], f"B bant {bant(list(map(sk, pb[m]))):.2f}",  # F3-V8: tekrar bantları (A bandı kur.karar'da)
                 f"görev bant (A {bant(gv(ya, sa['v2'])):.2f} · B {bant(gv(ys, ozet[m]['v2'])):.2f})", rapor[m]["dolu"]] if m in ozet else []),
              *([f"boyut fark: {rapor[m]['boyut']['fark']}"] if m in ozet and "boyut" in rapor[m] else []),
-             *(["seed yok"] if x.get("v") in ("V8", "V9") and "seed" not in (destek or {}).get(x.get("m"), ()) else []),
+             *(["seed yok"] if x.get("v") in ("V8", "V9", "V10") and "seed" not in (destek or {}).get(x.get("m"), ()) else []),
              *([f"Jev {jev[m]}" if jev[m] else "Jev 0 (kayıttan)"] if yeniden and m in ozet else [])]
         if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
             p.append("reasoning parametresi etkisiz")

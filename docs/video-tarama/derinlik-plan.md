@@ -729,3 +729,12 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - V9 = V8 + ELEME_ORNEK9 + son geçiş yeniden deneme + JPEG/koşullu paralellik (PARCA 4, SON). Bilinmeyen varyant testi V9→V10 (eski test değişti; V9 artık tanımlı).
 - Doğrulama paketi önerisi (koşu yok): short rABIViSQmsc (Yury AI · 39 s · 10 kare) · uzun ptGXxk1-Uj4 (Yıldız Dikme · 911 s · 28 kare). Yedek: k0gwr-vC2Z4 (Duncan Rogoff · 51 s · 10) · 86HM0RUWhCk (Nate AI Automation · 1671 s · 18).
 - Testler: video 978 → 987 (+9).
+
+## O72 F3-V10 — uyarlanır parça sayısı · bölümsüz pakette bölüm · gürültü kuralı · kapsamlı özet (canlı 0)
+- V9 sonucu: Ysr7oNDajJI örneği aday sayısını 18 → 8–10'a düşürdü → geri alındı; V10 V8 örneğiyle (Pj2FnVE-W3c, ornek6).
+- Doğrulama (Ömer, V8, ELEME_BOYUT=1): rABIViSQmsc (short 39 s · 7 kare; 165226) görev 0.58→0.86 · F1 %58→%86 · Jev 2.68→1.92 (−%28.5) · B bant 0.30 · bolumler A 3.5 → B 0 · $0.018 · ~28 s | ptGXxk1-Uj4 (911 s · 6 kare; 165410) görev 0.64→0.88 · Jev 2.77→2.24 (−%19) · B bant 0.22 · bolumler A 10 → B 0 · özet 714→241 kr · $0.026 · ~38 s | b2QkhmQ0sT0 (V8 iki koşu) Jev −%5.5/−%6.5 · görev ≈ A.
+- Kök nedenler: (1) bolumler V6'dan beri yalnız paketin Chapter satırlarından → YouTube bölümü olmayan videoda boş. (2) Sabit k=4 → 39 s'lik video ~10 s'lik parçalar, model parça başına sahne betimliyor. (3) EKSİKSİZLİK KURALI'nda "Emin değilsen ekle" gürültü üretiyor. (4) Son geçiş özeti kısa.
+- V10 = V8 (ornek6 · temperature 0.2 + seed 7 · ALAN KURALI · tek cümle parça özeti) + parca_k: yük = yuk(paket) (bolumle yükü: Segmentler sonrası satır/4 + zamanlı kare × 1000) · k = sınır(1, 4, yuvarla(yük / PARCA_YUK)); k 1'de tek parça + son geçiş; satırda "k x (yük y)" + bölümsüz pakette son geçiş bolumler üretir (SON_BOLUM, şemadaki biçim; Chapter varsa mekanik; hatada []) + EKSIKSIZLIK10 (belirsizse listeye değil belirsizlikler'e; betimleme öğe değil) + SON_SISTEM10 (ozet 5–8 cümle) + son geçiş yeniden denemesi (V9'dan, tüm son geçişli varyantlarda). JPEG/koşullu paralel yok.
+- PARCA_YUK = 8419 (b2QkhmQ0sT0 yükü 33676 / 4). k: b2QkhmQ0sT0 4 · rABIViSQmsc 1 (yük 7280) · ptGXxk1-Uj4 1 (yük 9421).
+- Kararsız test test_kare_url_ciktida_yok: sahte akış URL'si expire=time()+6 sa; iki Kos farklı saniyede kurulursa ikinci çağrı önbellekteki ilk URL'yi kullanır, 403 sahtesi (self.url) eşleşmez → main 0. Test ikinci Kos'a url=ilk.url verir (davranış aynı).
+- Testler: video 987 → 997 (+10). Bilinmeyen varyant testleri V10→V11.

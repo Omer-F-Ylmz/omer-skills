@@ -308,8 +308,9 @@ def test_kare_akis_url_onbellek_ve_sure(ortam):
 
 def test_kare_url_ciktida_yok(ortam, capsys):
     kare_kur(ortam, [0.1] * 5)
-    assert main(["kare", VID, "--t", "1:00"], env=ortam, kos=Kos(ham=ayri)) == 0
-    assert main(["kare", VID, "--t", "2:00"], env=ortam, kos=Kos(ham=ayri, ag_hata=True)) == 1
+    ilk = Kos(ham=ayri)  # ikinci Kos aynı akış URL'siyle: URL expire=time()+6 sa; saniye dönerse önbellekteki URL 403 sahtesiyle eşleşmezdi
+    assert main(["kare", VID, "--t", "1:00"], env=ortam, kos=ilk) == 0
+    assert main(["kare", VID, "--t", "2:00"], env=ortam, kos=Kos(ham=ayri, ag_hata=True, url=ilk.url)) == 1
     cikti = capsys.readouterr()
     assert "403" in cikti.out
     assert "GIZLI123" not in cikti.out + cikti.err and "googlevideo" not in cikti.out + cikti.err
