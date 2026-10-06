@@ -566,3 +566,63 @@ def test_ps1_python_borusu_utf8(ad):
 
 def test_fiyat_ref_kaynakli():
     assert yon.FIYAT["openrouter/google/gemini-3.8-flash"]["kaynak"].startswith("https://openrouter.ai/api/v1/models")
+
+
+# F3-ÖLÇÜM adım 1: Jev isteği B'den önce hesaplanır (A 2 + en fazla B yanıtı, üst sınır 12) · B yanıtı çağrı biter bitmez diske · yeniden puanlama
+def test_eleme_jev_tavani_b_once_cagri_0(tmp_path, monkeypatch):
+    assert yon.JEV_TAVAN == 12
+    monkeypatch.setattr(yon, "JEV_TAVAN", 5)
+    c, p = [], []
+    s = _eleme(tmp_path, [E1, E2], _b_kur(c), puan=lambda ms: p.append(ms) or [0.8] * len(ms))  # 2 + 2×2 = 6 > 5
+    assert c == [] and p == [] and s["satirlar"] == [f"{E1} · hata: TAVAN jev · çağrı 0", f"{E2} · hata: TAVAN jev · çağrı 0"]
+    s = _eleme(tmp_path, [E1], _b_kur(c))  # 2 + 2 = 4 ≤ 5
+    assert c == [E1, E1] and s["jev_istek"] == 4
+
+
+def test_eleme_b_yaniti_puanlamadan_once_diskte(tmp_path):
+    k = tmp_path / "kayit"
+
+    def patla(ms):
+        raise RuntimeError("Jev tavanı")
+    with pytest.raises(RuntimeError):
+        _eleme(tmp_path, [E1], _b_kur([]), puan=patla, kayit=k)
+    for i in (0, 1):
+        d = json.loads((k / "openrouter_openai_gpt-6-luna" / f"{i}.json").read_text(encoding="utf-8"))
+        assert d == {"yanit": IYI, "puan": None}
+
+
+def test_eleme_yeniden_b_cagri_0_diskten_puanlar(tmp_path):
+    k, c, a = tmp_path / "kayit", [], []
+    with pytest.raises(ZeroDivisionError):
+        _eleme(tmp_path, [E1], _b_kur(c), puan=lambda ms: [1 / 0], kayit=k)
+    c.clear()
+    s = _eleme(tmp_path, [E1, E2], _b_kur(c), a, yeniden=k, kayit=k, yokla=lambda m, env, gorsel=False: 1 / 0)
+    assert c == [] and a == [] and s["b_usd"] == 0.0 and s["jev_istek"] == 4
+    assert " · kalite 0.80 · " in s["satirlar"][0] and s["satirlar"][1] == f"{E2} · hata: kayıt yok · çağrı 0"
+    assert set(s["rapor"]) == {E1}
+    assert json.loads((k / "openrouter_openai_gpt-6-luna" / "0.json").read_text(encoding="utf-8"))["puan"] == 0.8
+
+
+def test_eleme_betik_yeniden_ve_jev_istek_tavani(monkeypatch, tmp_path):
+    from video import ikinci_goz as ig
+    p = tmp_path / "vid1" / "paket.md"
+    p.parent.mkdir()
+    p.write_text("p", encoding="utf-8")
+    for ad, d in {"AB_PAKET": str(p), "ELEME_ADAYLAR": E1, "ELEME_YENIDEN": str(tmp_path / "k")}.items():
+        monkeypatch.setenv(ad, d)
+    monkeypatch.setattr(hafif, "GORSEL", False)
+    monkeypatch.setattr(ig, "_post", lambda u, g, b: (200, {"data": []}))
+    g, t = [], []
+    monkeypatch.setattr(yon, "eleme", lambda *a, **k: g.append((a, k)) or {"satirlar": [], "oneri": "", "a_usd": 0.0, "b_usd": 0.0})
+
+    class T:
+        def __init__(self, **k):
+            t.append(k)
+
+        def yargila(self, ms, q):
+            return [{"kalite": 0.5}] * len(ms)
+    monkeypatch.setitem(sys.modules, "jev", types.SimpleNamespace(cekirdek=types.SimpleNamespace(Tasiyici=T)))
+    exec(re.search(r"@'\r?\n(.*?)\r?\n'@", BETIK.with_name("eleme.ps1").read_text(encoding="utf-8"), re.S)[1], {"__name__": "__main__"})
+    (a, k), = g
+    assert k["yeniden"] == k["kayit"] == tmp_path / "k"
+    assert a[5](["x"] * 3) == [0.5] * 3 and t[-1]["istek_tavan"] == 3
