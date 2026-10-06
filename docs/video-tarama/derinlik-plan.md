@@ -882,3 +882,17 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - kanit() doğrulanamadı'yı ayrı sınıf döndürür; k3(dg_u): (i) U'da kare olarak · (ii) U dışında; dg = A/B tekil doğrulanamadı.
 - (i): b2Q geçti · rABI kaldı: kareden_okunanlar (71/14) · ptGX geçti. (ii): b2Q geçti · rABI kaldı: kareden_okunanlar (100/0) · ptGX geçti.
 - doğrulanamadı A/B: b2Q 23/7 · rABI 8/2 · ptGX 12/4. Kesin hüküm 3b görsel doğrulamadan sonra. Rapor: .video-cache/eleme/rapor/k3-20261006.md.
+
+## O88 — MÜKEMMEL-3b: K3 kesin tablo (short örneklemi + görsel doğrulama, canlı)
+- Short örneklemi: Ov-B6K1EsaI (Claude · 56 s · yalnız kare) · WdDXipsKokU (Yıldız Dikme · 36 s · konuşmalı) · WK--kz63hlQ (Chase AI · 59 s · konuşmalı); eleme V10, ELEME_BOYUT=1 (231549 · 231708 · 231808).
+- kanit() kare-görsel kaynağı: görüldü → kare · görülmedi → dayanaksız · belirsiz → doğrulanamadı (9c14f78 kırmızı · 0000937 yeşil).
+- Görsel: openrouter/openai/gpt-6-luna (B Gemini'den farklı aile), video başı tek çağrı; A 43/0/1 · B 11/1/2 (görüldü/görülmedi/belirsiz).
+- Kesin tablo k3(dg_u=False, gorsel) — geri A/B · doğruluk A/B · görev A→B · kare A/B · B kayıp k/k/a · A dayanaksız · belirsiz A/B · hüküm:
+  - b2QkhmQ0sT0: 64/73 · 94/95 · .80→.80 · 56/63 · 3/8/0 · 4 · 1/0 · geçti
+  - rABIViSQmsc (short): 60/53 · 94/100 · .53→.65 · 75/8 · 1/4/0 · 2 · 0/2 · kaldı: geri, kareden_okunanlar
+  - ptGXxk1-Uj4: 75/91 · 100/91 · .82→.90 · 100/100 · 0/0/1 · 0 · 0/0 · kaldı: doğruluk
+  - Ov-B6K1EsaI (short): 75/100 · 100/100 · .24→.93 · 100/100 · 0/0/0 · 0 · 0/0 · geçti
+  - WdDXipsKokU (short): 90/100 · 90/100 · .89→1.00 · 100/100 · 0/0/0 · 1 · 0/0 · geçti
+  - WK--kz63hlQ (short): 44/89 · 100/100 · .58→.97 · 100/67 · 0/1/0 · 0 · 0/0 · kaldı: kareden_okunanlar
+- Genel K3: kaldı (3/6). Short kare okuma 3 short'un 2'sinde (rABI, WK--) kayıp; ptGX doğruluk düşüşü kayıtla tek tek karşılaştırılmadı.
+- Harcanan: model 23 (eleme 18 + görsel 5) · Jev ≤24 (kesin sayı yazılmadı) · ≈$0.25. Rapor: .video-cache/eleme/rapor/k3-20261006.md.
