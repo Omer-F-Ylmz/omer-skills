@@ -836,6 +836,6 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Madde 1 yeşil: cc-kopru K1 envanteri CAGRI_SAYAC_DIZIN geçici dizinle koşar; gerçek oturum sayacından bağımsız (4b52b4c kırmızı · 7b7b42e yeşil).
 - Madde 2 yeşil: cagri_sayac dalga.md'ye yazmaz; 10'da additionalContext "çağrı N/45 · alt M". SessionStart(compact) dalga-durum.ps1 sayımı cagri-sayac(-alt).txt'den okur (repo dışı; yedek ~/.claude/hooks/dalga-durum.ps1.bak).
 - Madde 3 yeşil: alt ajan çağrıları cagri-sayac-alt.txt'de ayrı; ana bütçeye (45) girmez. settings.json değişmedi.
-- K2: kalan iki koşul (sayaç yan etkisiz · cc-kopru testi sayaçtan bağımsız) karşılandı → K2 yeşil.
+- K2: kalan iki koşul (sayaç yan etkisiz · cc-kopru testi sayaçtan bağımsız) K1 envanteri için karşılandı; ancak kapanış suite'inde K1 dışındaki cc-kopru hook testleri gerçek sayacı ~+8 artırdı (CAGRI_SAYAC_DIZIN yalnız K1'de) → K2 kısmi, kalan: cc-kopru test başlangıcında CAGRI_SAYAC_DIZIN geneli.
 - Madde 4 (gizli girdi ~2.2k/çağrı kaynağı) ve 5 (OmniRoute otomatik başlatma): iş sınırı 25'te bırakıldı, teşhis yapılmadı → sonraki dalga.
 - Sayaç: betik değişikliği sıfırlamadı; kırmızı koşuda envanter testi (eski kod) gerçek sayaca +2 yazdı, sayım oradan sürdü.
