@@ -46,7 +46,7 @@ BASLAT = lambda: subprocess.Popen("omniroute serve --no-open --daemon", shell=Tr
 BEKLE = time.sleep
 
 
-def _omni_baslat(model, env, h):
+def _omni_baslat(model, env, h, pdir):
     """MÜKEMMEL-2c (K6 gözetimsiz koşu): OmniRoute'u bir kez başlat, ≤ 90 s yokla; kalkmazsa son hata metni."""
     t0 = time.monotonic()
     try:
@@ -56,7 +56,11 @@ def _omni_baslat(model, env, h):
     for _ in range(30):
         BEKLE(3)
         if not (h := YOKLA(model, env)):
-            print(f"OmniRoute kendiliğinden başlatıldı ({round(time.monotonic() - t0)} s)")
+            sure = round(time.monotonic() - t0)
+            print(f"OmniRoute kendiliğinden başlatıldı ({sure} s)")
+            # MÜKEMMEL-2d: gözetimsiz koşuda kalıcı iz; _defter çağrı saymaz
+            tr.kayit_ekle(pdir / "defter.jsonl", [{"zaman": datetime.now().isoformat(timespec="seconds"), "adim": "omniroute_baslat",
+                                                  "model": model, "usd": 0, "sure_s": sure}])
             return None
     return h
 
@@ -393,7 +397,7 @@ def _maliyet(y):
 
 
 def _defter(pdir):
-    s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith(("ikinci_goz", "tavan"))]  # M5: ikinci göz ayrı tavanda · M6 K3: tavan satırı çağrı değil
+    s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith(("ikinci_goz", "tavan", "omniroute_baslat"))]  # M5: ikinci göz ayrı tavanda · M6 K3: tavan satırı çağrı değil
     # F1 eki: usd None (maliyet bilinmiyor) $ tavanına girmez; çağrı tavanı sınırlar
     return sum(x.get("cagri", 1) for x in s), sum(x["usd"] or 0 for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
 
@@ -726,7 +730,7 @@ def parti(ns, ctx):
         d.pop("yonlendirme", None)
     elif rota.get("saglayici") == "omniroute" and (h := YOKLA(rota.get("model"), ctx["env"])) and not (
             h.startswith("OmniRoute yok") and ctx["env"].get("OMNIROUTE_KEY")
-            and not (h := _omni_baslat(rota.get("model"), ctx["env"], h))):
+            and not (h := _omni_baslat(rota.get("model"), ctx["env"], h, pdir))):
         print(f"DUR: OmniRoute/anahtar yok ({h})")  # O78: sessiz A düşüşü yok, çağrı 0
         return 4
     rc = kos()

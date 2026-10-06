@@ -5,6 +5,9 @@ PostToolUse/PostToolUseFailure → +1; alt ajan içi çağrılar ana bütçeye (
 girmez, cagri-sayac-alt.txt'de ayrı sayılır. Her 10'da modele "çağrı N/45 · alt M",
 40'ta ve ≥45'te uyarı additionalContext. dalga.md'ye dokunmaz. CAGRI_SAYAC_DIZIN
 verilirse sayaç dosyaları orada (test ortamı). Her hata sessizce geçer.
+MÜKEMMEL-2d: sayaç oturuma bağlı — startup/clear sıfırlar ve session_id'yi
+cagri-sayac-oturum.txt'ye yazar, compact/resume korur; başka session_id sayılmaz;
+kayıt yoksa ilk olay bağlar.
 """
 import json
 import os
@@ -28,10 +31,18 @@ def main():
                      or Path(os.environ.get("CLAUDE_PROJECT_DIR") or ".") / ".claude")
         sayac = dizin / "cagri-sayac.txt"
         alt = dizin / "cagri-sayac-alt.txt"
+        oturum = dizin / "cagri-sayac-oturum.txt"
+        sid = olay.get("session_id") or ""
         ad = olay.get("hook_event_name")
         if ad == "SessionStart":
-            sayac.write_text("0", encoding="utf-8")
-            alt.write_text("0", encoding="utf-8")
+            if olay.get("source") not in ("compact", "resume"):
+                sayac.write_text("0", encoding="utf-8")
+                alt.write_text("0", encoding="utf-8")
+            oturum.write_text(sid, encoding="utf-8")
+            return
+        if not oturum.exists():
+            oturum.write_text(sid, encoding="utf-8")
+        elif oturum.read_text(encoding="utf-8") != sid:
             return
         if olay.get("agent_id"):
             alt.write_text(str(_oku(alt) + 1), encoding="utf-8")
