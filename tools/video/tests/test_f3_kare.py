@@ -654,9 +654,22 @@ def test_olcum_dayanak_uc_durum(liste, oge, e):
     assert yon.dayanak(liste, oge, "Konuşma: claude-mem kurulumu npm install claude-mem ile") == e
 
 
+_LISTE = ("bolumler", "adaylar", "aciklama_baglantilari", "site_ui", "promptlar", "iddialar", "kareden_okunanlar", "belirsizlikler",
+          "kurulum_komutlar")
+
+
+def _ad(ad, **k):
+    return {"ad": ad, "tur": sorted(pt.tr.TUR)[0], "ne": "n", "kanit_zamani": "0:01", "kaynak": "altyazı", "kanit": "k", "repo_url": None, **k}
+
+
+def _f(vid="vid1", **listeler):
+    """F3-ÖLÇÜM-3: gerçek şema şekli — listeler videolar[] altında (düz form kök nedendi)."""
+    return {"a": "x", "videolar": [{"id": vid, "ozet": "o", **{x: [] for x in _LISTE}, **listeler}]}
+
+
 def test_olcum_b_dayanakli_fazlasi_d_ye_girer_b_a_dan_buyuk():
     m = "foo ve bar anlatılıyor"
-    a, b = {"adaylar": [{"ad": "foo"}]}, {"adaylar": [{"ad": "foo"}, {"ad": "bar"}, {"ad": "baz"}]}
+    a, b = _f(adaylar=[_ad("foo")]), _f(adaylar=[_ad("foo"), _ad("bar"), _ad("baz")])
     d = yon.referans([a], [b], m)
     assert [x["ad"] for x in d["adaylar"]] == ["foo", "bar"]  # baz dayanaksız → D dışı
     ra, rb = yon.olc_v2(a, d, m), yon.olc_v2(b, d, m)
@@ -665,16 +678,25 @@ def test_olcum_b_dayanakli_fazlasi_d_ye_girer_b_a_dan_buyuk():
 
 def test_olcum_bos_d_agirligi_oranla_dagilir():
     m = "foo ve p1 p2 p3"
-    d = {"adaylar": [{"ad": "foo"}], "promptlar": [{"metin": "p1 p2 p3"}], "kurulum_komutlar": [], "kareden_okunanlar": []}
-    r = yon.olc_v2({"adaylar": [{"ad": "foo"}], "promptlar": []}, d, m)
+    d = yon.referans([_f(adaylar=[_ad("foo")], promptlar=[{"metin": "p1 p2 p3"}])], [], m)
+    r = yon.olc_v2(_f(adaylar=[_ad("foo")]), d, m)
     assert r["kapsam"] == pytest.approx(0.5 / 0.7) and r["f1"] == pytest.approx(0.5 / 0.7) and r["dogruluk"] == 1.0
     assert yon.olc_v2({}, {x: [] for x in yon.OLCUM}, m)["f1"] == 1.0  # D hiç yok → şema başarısı aynen
 
 
 _M = "=== VIDEO vid1 ===\nfoo ve bar anlatılıyor"
-_A = [{**IYI, "form": {"a": "x", "adaylar": [{"ad": "foo"}, {"ad": "Zed", "kaynak": "kare", "karede_gorulen": "logo"}]}},
-      {**IYI, "form": None, "hata": "x"}]
-_B = {E1: {**IYI, "form": {"a": "x", "adaylar": [{"ad": "foo"}, {"ad": "bar"}]}}, E2: {**IYI, "form": {"a": "x", "adaylar": []}}}
+_A = [{**IYI, "form": _f(adaylar=[_ad("foo"), _ad("Zed", kaynak="kare", karede_gorulen="logo")])}, {**IYI, "form": None, "hata": "x"}]
+_B = {E1: {**IYI, "form": _f(adaylar=[_ad("foo"), _ad("bar")])}, E2: {**IYI, "form": _f(adaylar=[])}}
+
+
+def test_olcum_fikstur_gercek_semaya_uyar_ve_d_video_ici():
+    assert all(pt._denet(f, pt.sema(["vid1"]), "form") == [] for f in (_A[0]["form"], *(y["form"] for y in _B.values())))
+    m = "foo ve bar anlatılıyor"
+    iki = {"videolar": _f(adaylar=[_ad("foo")])["videolar"] + _f("vid2", adaylar=[_ad("bar")])["videolar"]}
+    d = yon.referans([iki], [_f("vid2", adaylar=[_ad("foo")])], m)
+    assert [(x["_v"], x["ad"]) for x in d["adaylar"]] == [("vid1", "foo"), ("vid2", "bar"), ("vid2", "foo")]  # foo vid2'de ayrı öğe
+    r = yon.olc_v2(_f("vid2", adaylar=[_ad("foo")]), d, m)
+    assert r["liste"]["adaylar"]["bulunan"] == [2] and r["kapsam"] == pytest.approx(1 / 3) and r["url"] == 0
 
 
 def _o(tmp_path, adaylar, **k):
@@ -706,6 +728,28 @@ def test_eleme_yeniden_v2_ile_puanlar(tmp_path):
         _o(tmp_path, [E1], puanla=lambda ms: [1 / 0], kayit=k)
     s = _o(tmp_path, [E1], yeniden=k, kayit=k)
     assert "F1 %80 (A: kapsam %67" in s["satirlar"][0] and s["rapor"][E1]["olcum"][-1] == "kaçırılan: Zed (yalnız kare)"
+
+
+def test_eleme_olcum_bos_dur(tmp_path, monkeypatch):
+    # F3-ÖLÇÜM-3 korkuluk: A'da dolu liste var ama ölçüm görmüyor (düz form) → D boş → F1 1 sayılmaz
+    duz = {**IYI, "form": {"a": "x", "adaylar": [{"ad": "foo"}]}}
+    monkeypatch.setitem(globals(), "_A", [duz] * 2)
+    monkeypatch.setitem(globals(), "_B", {E1: duz})
+    s = _o(tmp_path, [E1])
+    assert "ÖLÇÜM BOŞ" in s["satirlar"][0] and "DUR (ölçüm boş)" in s["satirlar"][0] and s["rapor"][E1]["olcum"] == ["ÖLÇÜM BOŞ"]
+
+
+def test_eleme_yeniden_jev_puani_kayittan(tmp_path):
+    k = tmp_path / "kayit"
+    _o(tmp_path, [E1], kayit=k)
+    assert json.loads((k / "A" / "0.json").read_text(encoding="utf-8"))["puan"] == 0.8
+    assert json.loads(next((k / re.sub(r"[^\w.@-]", "_", E1)).glob("*.json")).read_text(encoding="utf-8"))["puan"] == 0.8
+    s = _o(tmp_path, [E1], yeniden=k, kayit=k, puanla=lambda ms: [1 / 0])
+    assert "Jev 0 (kayıttan)" in s["satirlar"][0] and s["jev_istek"] == 0 and "F1 %80" in s["satirlar"][0]
+    (k / "A" / "0.json").unlink()
+    n = []
+    s = _o(tmp_path, [E1], yeniden=k, kayit=k, puanla=lambda ms: n.append(len(ms)) or [0.8] * len(ms))
+    assert n == [1] and s["jev_istek"] == 1  # yalnız eksik puan istenir
 
 
 def test_eleme_ps1_olcum_satirlari_cikti_ve_md():
