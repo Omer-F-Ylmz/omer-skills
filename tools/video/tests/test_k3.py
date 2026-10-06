@@ -79,3 +79,16 @@ def test_hukum_bant_disi_kaldi():
 def test_hukum_short_kareden_okunanlar():
     assert yon.k3_hukum(_r(1, 1, ak=0.9, bk=0.8), (1, 1), 0, short=False) == "geçti"
     assert "kareden_okunanlar" in yon.k3_hukum(_r(1, 1, ak=0.9, bk=0.8), (1, 1), 0, short=True)
+
+
+def test_k3_paydalari_doner():
+    """MÜKEMMEL-4: n = ölçünün paydası — geri |U| · doğruluk B form başı öğe ort. · kareden_okunanlar |U_kare|."""
+    r = yon.k3([_f("Ruflo", "Superpowers")], [_f("Ruflo", "Zzqx Yokmuş", "claude-mem")], M)
+    assert r["n"] == {"geri": 3, "dogruluk": 3, "kareden_okunanlar": 0}
+
+
+@pytest.mark.parametrize("n, h", [({"geri": 3, "dogruluk": 11, "kareden_okunanlar": 3}, "geçti"),
+                                  ({"geri": 40, "dogruluk": 40, "kareden_okunanlar": 40}, "kaldı: geri, doğruluk, kareden_okunanlar")])
+def test_hukum_bant_max_005_1_bolu_n(n, h):
+    """MÜKEMMEL-4: eşitlik bandı = max(0.05, 1/n); geri 1→0.67 (n 3) · doğruluk 1→0.91 (n 11) · kare 1→0.67 (n 3)."""
+    assert yon.k3_hukum({**_r(1, 0.67, 1, 0.91, 1, 0.67), "n": n}, (1, 1), 0, short=True) == h
