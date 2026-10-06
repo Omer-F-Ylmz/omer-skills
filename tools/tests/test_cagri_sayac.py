@@ -127,3 +127,41 @@ def test_hata_sessiz_gecer(tmp_path, monkeypatch, capsys):
     monkeypatch.setattr(sys, "stdin", io.StringIO("{bozuk"))
     cs.main()
     assert capsys.readouterr().out == ""
+
+
+# MÜKEMMEL-2d: sayaç kendi oturumuna bağlı (session_id)
+def _oturum(kok):
+    return _sayac(kok, "cagri-sayac-oturum.txt")
+
+
+def test_yabanci_oturum_sayilmaz(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="0")
+    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "startup", "session_id": "A"})
+    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
+    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B"})
+    _kos(kok, monkeypatch, capsys, ARAC)
+    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B", "agent_id": "x"})
+    assert _sayac(kok) == "1" and _sayac(kok, "cagri-sayac-alt.txt") == "0"
+
+
+def test_compact_sayaci_korur(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="0")
+    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "clear", "session_id": "A"})
+    for _ in range(3):
+        _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
+    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "compact", "session_id": "A"})
+    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
+    assert _sayac(kok) == "4"
+
+
+def test_clear_sifirlar_ve_baglar(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="12")
+    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "clear", "session_id": "C"})
+    assert _sayac(kok) == "0" and _oturum(kok) == "C"
+
+
+def test_kayit_yokken_ilk_olay_baglar(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="5")
+    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
+    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B"})
+    assert _sayac(kok) == "6" and _oturum(kok) == "A"

@@ -55,6 +55,9 @@ def test_omni_kendiliginden_baslatildi(tmp_path, monkeypatch, capsys):
         pass
     out = capsys.readouterr().out
     assert baslat == [1] and "OmniRoute kendiliğinden başlatıldı (" in out and "DUR" not in out
+    # MÜKEMMEL-2d: gözetimsiz koşuda kalıcı iz — defterde satır, çağrı tavanına girmez
+    iz = [x for x in pt.tr.kayit_oku(kok / ".kos" / _pid(kok) / "defter.jsonl") if x.get("adim") == "omniroute_baslat"]
+    assert len(iz) == 1 and "sure_s" in iz[0] and pt._defter(kok / ".kos" / _pid(kok))[0] == 0
 
 
 # 2: A taşıyıcısı yalnız --a-yolu ile (yoklama ve V10 yok)
