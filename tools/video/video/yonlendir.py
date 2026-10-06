@@ -684,6 +684,23 @@ def kanit(x, o, metin, kn=None, gorsel=None):
     return {"görüldü": "kare", "görülmedi": None}.get(g, s)
 
 
+def betim_oku(yol):
+    """MÜKEMMEL-4c: betim sınıflama dosyası [{"video", "alan", "oge", "sinif"}] → yalnız "betimleme" (alan, öğe) seti."""
+    with open(yol, encoding="utf-8") as d:
+        return frozenset((s["alan"], s["oge"]) for s in json.load(d) if s["sinif"] == "betimleme")
+
+
+def _metinler(form, vid):
+    """MÜKEMMEL-4c: formun vid videosunda kareden_okunanlar dışı bütün metin değerleri (adaylar.kanit · karede_gorulen · iz …)."""
+    def gez(d):
+        if isinstance(d, str):
+            yield d
+        for e in (d.values() if isinstance(d, dict) else d if isinstance(d, list) else ()):
+            yield from gez(e)
+    return [s for v in (form or {}).get("videolar") or () if isinstance(v, dict) and v.get("id") == vid
+            for a, d in v.items() if a not in ("id", "kareden_okunanlar") for s in gez(d)]
+
+
 def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None, betim=frozenset()):
     """MÜKEMMEL-3a K3: U = A ∪ B dayanaklı öğeleri (alan başı, aynı video içinde eslesir ile tekil). Sistem başı form ortalaması:
     geri = U'dan bulunan / |U| (U boşsa None) · doğruluk = dayanaklı / tüm (0 öğe → 1); "tum" K3_ALAN üzerinden toplam.
@@ -712,8 +729,12 @@ def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None, betim=frozenset()):
             os_ = og(f, x)
             bul = [y for y in u[x] if any(y["_v"] == o["_v"] and eslesir(x, _k(y, k), _k(o, k)) for o in os_)]
             iyi = sum(kanit(x, o, metin, kn, gorsel) is not None for o in os_)
+            ky = [y for y in u[x] if x == "kareden_okunanlar" and y not in bul
+                  and any(eslesir(x, _k(y, k), s) for s in _metinler(f, y["_v"]))]  # 4c: alan bağımsız kare
+            bul += ky
             r[x] = {"bul": bul, "geri": len(bul) / len(u[x]) if u[x] else None, "dogruluk": iyi / len(os_) if os_ else 1.0}
             t = [t[0] + len(bul), t[1] + len(u[x]), t[2] + iyi, t[3] + len(os_)]
+            r["_kayma"] = r.get("_kayma", set()) | {(y["_v"], _k(y, k)) for y in ky}
         return {**r, "tum": {"geri": t[0] / t[1] if t[1] else None, "dogruluk": t[2] / t[3] if t[3] else 1.0}}
 
     def ort(rs):
@@ -727,6 +748,7 @@ def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None, betim=frozenset()):
           for s, fs in (("A", a_formlar), ("B", b_formlar))}
     return {"A": ort(ra), "B": ort(rb), "u": {x: len(u[x]) for x in K3_ALAN}, "kayip": kayip, "a_dayanaksiz": len(az),
             "dg": {"A": len(dg[1]), "B": len(dg[0])}, "betim": bt,
+            "kayma": {s: len(set().union(*(r["_kayma"] for r in rs))) for s, rs in (("A", ra), ("B", rb))},
             "n": {"geri": sum(map(len, u.values())), "dogruluk": sum(bn) / len(bn) if bn else 0, "kareden_okunanlar": len(u["kareden_okunanlar"])}}
 
 
