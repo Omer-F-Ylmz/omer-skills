@@ -808,3 +808,20 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 | K4 hız | parça paralelliğiyle uzun videoda süre ≥ %40 kısa, kalite ve çağrı aynı | açık |
 | K5 uçtan uca | V10 formu → araştırma → /video-uygula, 1 videoda hatasız | açık |
 | K6 gözetimsiz prova | 1 takip kanalından 5 videoluk parti, müdahalesiz tamam | açık |
+
+## O79 MÜKEMMEL-1c — K1 kapanışı (canlı 0)
+- Tahmin (madde 1) 5 çağrı sınırını aştı, bırakıldı; kod değişmedi (CIKTI_CAGRI 1700 sabit). Oran = tahmin / ölçülen:
+
+| Nokta | Ölçülen $ | Oran |
+|---|---|---|
+| b2Q eleme | 0.0409 | 1.04 (KAPANIŞ-2) |
+| rABI | 0.0083 | 1.53 (KAPANIŞ-2) |
+| ptGX | 0.0148 | 0.99 (KAPANIŞ-2) |
+| Ov kabul | 0.0061 | ölçülmedi |
+| vhY7 kabul | 0.0219 | ölçülmedi |
+| b2Q kabul | 0.0335 | ölçülmedi |
+
+- Sonraki: oran betiği g'yi parti._istem ile kurar (≤ 20 satır); çıktı payı parça yüküyle (ölçülen çıktı/çağrı Ov 609 · vhY7 1689 · b2Q 1460).
+- baslat: aynı YOKLA kapısından geçer (parti.py:709, baslat ve devam ortak), açık yok → test yeşil: rc 4, çağrı 0, "DUR: OmniRoute/anahtar yok".
+- --a-yolu CLI (cli.py:1375 kayıtlı) ve üretim YONLENDIRME = ROTA10 (taze modül kopyası; V8 mutasyonunda kırmızı) testleri yeşil.
+- K1: açık (tahmin 0.8–1.3 kanıtsız; rABI 1.53 dışarıda).
