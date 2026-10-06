@@ -865,3 +865,12 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Madde 1: tools/tests yetim suite'ti (1 dosya test_cagri_sayac.py, 14 test, hepsi yeşil); suite-kosucu.md 7. komut olarak eklendi, CAGRI_SAYAC_DIZIN'li (a2f4c48 kırmızı · 621636f yeşil; test_21a beklentisi 7'ye çekildi).
 - Madde 2: hook.mjs:325 öncülü çürütüldü — hookOrtami process.env'i yayıyor, CAGRI_SAYAC_DIZIN hook'a Desktop taklidinde de ulaşıyor; koruma testi ilk koşuda yeşil (934489f), hook.mjs değişmedi.
 - Kapanış: 7 suite 1686 yeşil (video 1026 · jev 81 · tests 321 · cc-kopru 182 · mcp-jev 40 · dotnet 22 · tools/tests 14); gitleaks temiz.
+
+## O86 — MÜKEMMEL-3a: K3 ölçütü (dayanaklı kapsam), canlı 0
+- KARAR: K3 referansı A değil; U = A ∪ B dayanaklı öğeler (kanıt: konuşma · kare OCR/görülen · açıklama/link). yonlendir.k3 + k3_hukum (bant 0.05; görev bandı = A tekrar bandı; short'ta kareden_okunanlar).
+- İlk tablo (V10 kayıtları, Jev 0) — geri A/B · doğruluk A/B · görev A/B · kare A/B · B kayıp k/k/a · A dayanaksız · hüküm:
+  - b2QkhmQ0sT0: 47/52 · 92/97 · 64/52 · 42/47 · 9/18/1 · 5 · kaldı: görev
+  - rABIViSQmsc (short): 50/50 · 94/100 · 43/52 · 71/14 · 2/5/0 · 2 · kaldı: kareden_okunanlar
+  - ptGXxk1-Uj4: 62/85 · 88/91 · 49/62 · 86/86 · 0/1/1 · 3 · geçti
+- B kayıplarının en büyük türü kare (24/38). Rapor: .video-cache/eleme/rapor/k3-20261006.md.
+- K3 durumu: ölçülüyor. Ov için A koşusu ve Jev gerekçesi 3b'de.
