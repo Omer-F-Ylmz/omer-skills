@@ -22,10 +22,12 @@ const hepsi = fs.readdirSync(path.join(KOK, "test"))
 // kalan işaretli süreç = sızıntı -> kırmızı. Node dışı torunlar (powershell, git) sayılmaz.
 const ISARET = fs.mkdtempSync(path.join(os.tmpdir(), "cc-kopru-suit-"));
 // NODE_OPTIONS tırnak içinde ters eğiği kaçış sayar: yol ileri eğikle verilir
+// hook testleri gerçek oturum sayacına (.claude/cagri-sayac.txt) değil buraya sayar (K2)
+const SAYAC = fs.mkdtempSync(path.join(os.tmpdir(), "cagri-sayac-"));
 const onyukle = `--require "${path.join(KOK, "araclar", "isaret.cjs").replaceAll("\\", "/")}"`;
 const p = spawn(process.execPath, ["--test", ...(ek.length ? ek : hepsi)], {
   cwd: KOK, stdio: "inherit",
-  env: { ...process.env, CLAUDE_MEM_WORKER_PORT: String(w.port), CC_KOPRU_SUIT_ISARET: ISARET,
+  env: { ...process.env, CLAUDE_MEM_WORKER_PORT: String(w.port), CC_KOPRU_SUIT_ISARET: ISARET, CAGRI_SAYAC_DIZIN: SAYAC,
          NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ""} ${onyukle}`.trim() },
 });
 
@@ -49,5 +51,6 @@ p.on("close", async (kod) => {
   }
   console.log(`isaretli canli surec: ${canli.length}${canli.length ? " · pid " + canli.join(",") : ""}`);
   fs.rmSync(ISARET, { recursive: true, force: true });
+  fs.rmSync(SAYAC, { recursive: true, force: true });
   process.exit(canli.length ? (kod || 1) : (kod ?? 1));
 });

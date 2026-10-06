@@ -18,7 +18,8 @@ import { sahteWorker } from "./sahte-worker.mjs";
 /** Claude Desktop'ın alt sürece geçirdiği değişkenler (app.asar ofset 3899305). */
 const DESKTOP_ENV = ["APPDATA", "HOMEDRIVE", "HOMEPATH", "LOCALAPPDATA", "PATH",
   "PROCESSOR_ARCHITECTURE", "SYSTEMDRIVE", "SYSTEMROOT", "TEMP", "USERNAME",
-  "USERPROFILE", "PROGRAMFILES"];
+  "USERPROFILE", "PROGRAMFILES",
+  "CAGRI_SAYAC_DIZIN"]; // yalnız test: suit sayacı Desktop benzetiminde de geçici dizinde kalır
 
 /** Ortamı Desktop beyaz listesine indirir; geri alma işlevi döner. Değer basılmaz. */
 export function desktopOrtamiUygula() {

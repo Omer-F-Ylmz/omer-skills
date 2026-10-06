@@ -66,6 +66,7 @@ import * as osS from "node:os";
 test("K1 envanteri iki ortamda aynı", async () => {
   // sayaç hook'u gerçek oturum sayacına değil geçici dizine yazar: sonuç sayaçtan bağımsız
   const sayacDizin = fsS.mkdtempSync(`${osS.tmpdir()}/cagri-sayac-`);
+  const onceki = process.env.CAGRI_SAYAC_DIZIN;
   process.env.CAGRI_SAYAC_DIZIN = sayacDizin;
   let cc, dt;
   try {
@@ -73,7 +74,7 @@ test("K1 envanteri iki ortamda aynı", async () => {
     const geri = desktopOrtamiUygula();
     process.env.CAGRI_SAYAC_DIZIN = sayacDizin;
     try { dt = await envanter(PROJE); } finally { geri(); }
-  } finally { delete process.env.CAGRI_SAYAC_DIZIN; }
+  } finally { process.env.CAGRI_SAYAC_DIZIN = onceki; }
   assert.equal(fsS.readFileSync(`${sayacDizin}/cagri-sayac.txt`, "utf8"), "2");
   assert.ok(cc.length >= 6, `hook envanteri beklenmedik kadar kısa: ${cc.length}`);
   assert.deepEqual(dt, cc);
