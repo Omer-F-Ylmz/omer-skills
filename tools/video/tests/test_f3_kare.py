@@ -96,6 +96,35 @@ def test_fiyat_nex_usage_cost_ile_uyumlu():
     assert abs(usd - 0.0043029) <= 0.0043029 * 0.10
 
 
+@pytest.mark.parametrize("m, g, c", [("openai/gpt-6-luna", 0.1, 0.5), ("cohere/command-a-plus", 0.3, 1.5), ("qwen/qwen3.7-plus", 0.32, 1.28),
+                                     ("mistralai/mistral-large-2512", 0.5, 1.5), ("google/gemini-3.5-flash-lite", 0.3, 2.5)])
+def test_fiyat_eleme_adaylari_kaynakli_bantta(m, g, c):
+    # F3-ELEME adım 3: OpenRouter listesi (6 Eki); tahmini çağrı = girdi × 15k + çıktı × 6k (+ 27 × gorsel) ≤ $0.02
+    f = yon.FIYAT["openrouter/" + m]
+    assert (f["girdi"], f["cikti"]) == (g, c) and f["kaynak"] == "https://openrouter.ai/api/v1/models · 2026-10-06"
+    assert (g * 15000 + c * 6000) / 1e6 + 27 * f.get("gorsel", 0) <= 0.02
+
+
+def test_usd_gorsel_kare_basi():
+    m = "openrouter/google/gemini-3.5-flash-lite"
+    assert yon.FIYAT[m]["gorsel"] == 3e-7  # pricing.image $/görsel
+    assert yon._usd(m, {"prompt_tokens": 1000, "completion_tokens": 100}, {}, kare=27) == pytest.approx((1000 * 0.3 + 100 * 2.5) / 1e6 + 27 * 3e-7)
+
+
+def test_omni_cagir_kare_sayisi_usd_ye(tmp_path):
+    ks = [tmp_path / "1.png", tmp_path / "2.png"]
+    for k in ks:
+        k.write_bytes(b"kare")
+    y = yon.omni_cagir("openrouter/google/gemini-3.5-flash-lite", ENV, _gonder([]))("S", "metin", SEMA, kareler=[str(k) for k in ks])
+    assert y["usd"] == pytest.approx(2 * 3e-7)
+
+
+def test_usd_onbellek_ikinci_kez_sayilmaz():
+    # O57 id5: OmniRoute tokens_input 22832 = 11440 + cache_read 11392 (aynı girdi sha256); prompt_tokens önbelleği zaten içerir, eklenmez
+    u = {"prompt_tokens": 11440, "completion_tokens": 0, "prompt_tokens_details": {"cached_tokens": 11392}}
+    assert yon._usd("openrouter/nex-agi/nex-n2.5-mini", u, {}) == pytest.approx(11440 * 0.025 / 1e6)
+
+
 def test_fiyat_takma_ad_yok():
     assert not [m for m in yon.FIYAT if "/~" in m or ":free" in m or "openrouter/free" in m]
 
@@ -248,3 +277,54 @@ def test_omni_cagir_zaman_asiminda_usd_bilinmiyor(monkeypatch):
     """F3-SÜRE adım 3: zaman aşımında upstream faturalamış olabilir → usd None (0 harcama sayılmaz)."""
     _zaman_asimi(monkeypatch, [])
     assert yon.omni_cagir("m", ENV)("S", "metin", SEMA)["usd"] is None
+
+
+# F3-ELEME adım 2: çıktı tavanı (O57 kaçak üretim 131072) — max_tokens 32768; finish_reason "length" → form None, usd FIYAT'tan (faturalandı).
+def test_omni_cagir_max_tokens_32768():
+    g = []
+    yon.omni_cagir("m", ENV, _gonder(g))("S", "metin", SEMA)
+    assert g[0]["max_tokens"] == 32768
+
+
+def test_omni_cagir_cikti_tavani_hata_usd_fiyattan():
+    m = "openrouter/nex-agi/nex-n2.5-mini"
+    y = yon.omni_cagir(m, ENV, lambda u, g, b: (200, {"choices": [{"finish_reason": "length", "message": {"content": '{"a": "x"}'}}],
+                                                       "usage": {"prompt_tokens": 1000, "completion_tokens": 32768}}, {}))("S", "metin", SEMA)
+    assert y["form"] is None and y["hata"] == "çıktı tavanı (max_tokens 32768)"
+    assert y["usd"] == pytest.approx((1000 * 0.025 + 32768 * 0.1) / 1e6)
+
+
+# F3-ELEME adım 2: A kolu önbelleği — anahtar sistem+metin+şema+kare içerikleri, model, tekrar sırası; kayıt varsa A çağrılmaz; B önbelleğe girmez.
+def _ab_onbellekli(monkeypatch, tmp_path, a, b, model=hafif.MODEL):
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: _tas(b))
+    return yon.ab({"model": model}, "tarama", [("S", "M", SEMA, [str(tmp_path / "1.png")])], KOL_B, _tas(a), ENV,
+                  lambda ms: [0.8] * len(ms), tavan=8, onbellek=tmp_path / "ab")
+
+
+def test_ab_a_onbellek_isabet_a_cagri_0_b_cagrilir(monkeypatch, tmp_path):
+    (tmp_path / "1.png").write_bytes(b"kare")
+    a1, a2, b = [], [], []
+    _ab_onbellekli(monkeypatch, tmp_path, a1, b)
+    s = _ab_onbellekli(monkeypatch, tmp_path, a2, b)
+    assert len(a1) == 2 and a2 == [] and len(b) == 4 and not s["karar"].startswith("DUR") and s["a"]["kalite"] == 0.8
+
+
+def test_ab_a_onbellek_anahtar_kare_ve_model(monkeypatch, tmp_path):
+    (tmp_path / "1.png").write_bytes(b"kare")
+    _ab_onbellekli(monkeypatch, tmp_path, [], [])
+    (tmp_path / "1.png").write_bytes(b"baska kare")
+    a = []
+    _ab_onbellekli(monkeypatch, tmp_path, a, [])
+    m = []
+    _ab_onbellekli(monkeypatch, tmp_path, m, [], model="baska-model")
+    assert len(a) == 2 and len(m) == 2
+
+
+def test_ab_a_hatali_yanit_onbellege_girmez(monkeypatch, tmp_path):
+    (tmp_path / "1.png").write_bytes(b"kare")
+    monkeypatch.setitem(yon.SAGLAYICI, "omniroute", lambda m, env: _tas([]))
+    yon.ab({"model": hafif.MODEL}, "tarama", [("S", "M", SEMA, [str(tmp_path / "1.png")])], KOL_B, _hatali(["x", "x"]), ENV,
+           lambda ms: [0.8] * len(ms), tavan=8, onbellek=tmp_path / "ab")
+    a = []
+    _ab_onbellekli(monkeypatch, tmp_path, a, [])
+    assert len(a) == 2
