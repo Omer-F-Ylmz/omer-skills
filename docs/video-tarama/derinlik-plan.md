@@ -527,6 +527,14 @@ openai/gpt-6-luna $0.0045 (en yeni GPT-6, ucuz) · cohere/command-a-plus $0.0135
 mistralai/mistral-large-2512 $0.0165 (amiral, akıl yürütmesiz) · google/gemini-3.5-flash-lite $0.0195 (+gorsel 3e-7/kare; tavana yakın).
 Hepsi image + structured_outputs + max_tokens; mistral dışı reasoning parametreli. Kırmızı 20a75a0 · yeşil 7730054.
 KALAN Adım 4 (eleme.ps1 + yon.eleme + testler) — sayaç 34'te sığmadı, sonraki oturum.
+O59 (F3-ELEME-2; canlı 0): Adım 0 — cc-kopru test/hook-ortam.test.mjs sayaç 0'da tek başına 4/4 yeşil → test izole değil, gerçek
+.claude/cagri-sayac.txt'ye bağlı; kod yok, KURULUM kalemine (sayaç hook'u) not. Adım 4 — ig._post timeout= (varsayılan 600) · omni_cagir
+timeout/govde_ek + usage.reasoning (completion_tokens_details) · yon.eleme: ön kontrol (kol sabit · FIYAT · omni_yokla gorsel) geçmeyen
+çağrı 0; aday başı 1, şema geçerse 2 (240 s); tavan aday 5 · B çağrı 10 · B $0.15 (sıradaki çağrının tahmini: adayın son usd'si, yoksa
+15k+6k bandı; ilk çağrı tahmini aşabilir); supported_parameters'ta reasoning → effort minimal, yanıtta reasoning > 0 → "etkisiz" işareti;
+geçen B yoksa A çağrılmaz; A _a_onbellek (.video-cache/ab); tek puanla partisi (A 2 + geçen B ≤ 10 metin, Tasiyici istek_tavan 4);
+karar kur.karar (çağrı başı ortalama), öneri AL'ler içinde en yüksek kalite, eşitlikte ucuz. eleme.ps1 supported_parameters için
+OpenRouter katalog GET (ücretsiz). Kırmızı 2aacfa4 · yeşil sonraki commit. Koşu Ömer'de.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
