@@ -1,7 +1,9 @@
 """F1: model yönlendirme — adım başı sağlayıcı/model (durum.json "yonlendirme": {adim: {saglayici, model}}); tanımsız adım bugünkü taşıyıcı + d["model"]."""
 import base64
 import functools
+import hashlib
 import json
+import re
 import time
 from pathlib import Path
 
@@ -11,6 +13,8 @@ OMNI_URL = "http://localhost:20128"  # omni-auth SKILL.md:54-58 (OMNIROUTE_URL v
 OMNI_YOL = "/v1/chat/completions"  # omni-inference SKILL.md:283; F1-KURULUM-2 canlı çağrı 200 (5 Eki) — kesin
 # F1 eki (Ömer, 5 Eki): model → {"girdi": $/1M, "cikti": $/1M, "kaynak": "<url · tarih>"}; boş başlar, değer tahmin edilmez (F1-KURULUM'da sağlayıcı sayfasından)
 _OR = "https://openrouter.ai/api/v1/models · 2026-10-05"  # F1-KURULUM-2: json_schema destekli en ucuz 5 ücretli model; anahtar = OmniRoute model id
+_OR6 = "https://openrouter.ai/api/v1/models · 2026-10-06"
+CIKTI_TAVAN = 32768  # F3-ELEME: O57 kaçak üretim (max_tokens yok → 131072, ~600 s)
 FIYAT = {
     "openrouter/mistralai/mistral-nemo": {"girdi": 0.019, "cikti": 0.03, "kaynak": _OR},  # görselsiz (input_modalities: text) → tarama A/B'ye uygun değil
     "openrouter/inclusionai/ling-3.0-flash-vl": {"girdi": 0.021, "cikti": 0.0616, "kaynak": _OR},
@@ -20,19 +24,26 @@ FIYAT = {
     "openrouter/nex-agi/nex-n2.5-mini": {"girdi": 0.025, "cikti": 0.1,
                                          "kaynak": "https://openrouter.ai/api/v1/models/nex-agi/nex-n2.5-mini/endpoints + usage.cost (Nex AGI) · 2026-10-05"},
     "openrouter/google/gemma-3-4b-it": {"girdi": 0.05, "cikti": 0.1, "kaynak": _OR},  # F3-HAZIRLIK-2: pricing.prompt/completion token başı × 1e6
+    # F3-ELEME: görselli + structured_outputs, sabit kimlik, tahmini çağrı (15k girdi + 6k çıktı) ≤ $0.02; gorsel = pricing.image $/kare
+    "openrouter/openai/gpt-6-luna": {"girdi": 0.1, "cikti": 0.5, "kaynak": _OR6},
+    "openrouter/cohere/command-a-plus": {"girdi": 0.3, "cikti": 1.5, "kaynak": _OR6},
+    "openrouter/qwen/qwen3.7-plus": {"girdi": 0.32, "cikti": 1.28, "kaynak": _OR6},
+    "openrouter/mistralai/mistral-large-2512": {"girdi": 0.5, "cikti": 1.5, "kaynak": _OR6},
+    "openrouter/google/gemini-3.5-flash-lite": {"girdi": 0.3, "cikti": 2.5, "gorsel": 3e-7, "kaynak": _OR6},
 }
 MALIYET_BASLIK = "x-omniroute-response-cost"  # openapi.yaml:1173-1176 (USD, 10 ondalık; "0.0000000000" = ücretsiz ya da fiyatsız)
 
 
-def _usd(model, u, basliklar):
-    """Yanıt başlığı > 0 ise o; değilse usage × FIYAT; model FIYAT'ta yoksa None (0 değil — maliyet bilinmiyor)."""
+def _usd(model, u, basliklar, kare=0):
+    """Yanıt başlığı > 0 ise o; değilse usage × FIYAT (+ kare × gorsel); model FIYAT'ta yoksa None (0 değil — maliyet bilinmiyor).
+    prompt_tokens önbellekten okunanı zaten içerir (cached_tokens alt kümesi) → ayrıca eklenmez."""
     try:
         if (m := float(next((v for k, v in basliklar.items() if k.lower() == MALIYET_BASLIK), 0))) > 0:
             return m
     except ValueError:
         pass
     f = FIYAT.get(model)
-    return (u.get("prompt_tokens", 0) * f["girdi"] + u.get("completion_tokens", 0) * f["cikti"]) / 1e6 if f else None
+    return (u.get("prompt_tokens", 0) * f["girdi"] + u.get("completion_tokens", 0) * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0) if f else None
 
 
 def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
@@ -49,7 +60,7 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
                     "hata": neden.replace(anahtar, "***") if anahtar else neden}
         ekler = [{"type": "image_url", "image_url": {"url": f"data:image/{'png' if str(k).endswith('.png') else 'jpeg'};base64,"
                   + base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
-        govde = {"model": model, "response_format": {"type": "json_schema", "json_schema": {"name": "form", "strict": False, "schema": sema}},
+        govde = {"model": model, "max_tokens": CIKTI_TAVAN, "response_format": {"type": "json_schema", "json_schema": {"name": "form", "strict": False, "schema": sema}},
                  "messages": [{"role": "system", "content": sistem},
                               {"role": "user", "content": [{"type": "text", "text": cli._temizle(metin, env)}, *ekler]}]}
         # Vision Bridge (visionBridge.ts:188) yalnız bizim isteğimizde kapalı: ling'i görselsiz sayıp kareleri 10'a kırpıyordu
@@ -60,13 +71,15 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
             return hata(f"{type(e).__name__}: {e}", None if isinstance(e, TimeoutError) else 0.0)  # zaman aşımı: upstream faturalamış olabilir
         if durum != 200:
             return hata(f"HTTP {durum} " + json.dumps(y.get("error") or "", ensure_ascii=False))
-        u, ic = y.get("usage") or {}, (y.get("choices") or [{}])[0].get("message", {}).get("content") or ""
+        u, sec0 = y.get("usage") or {}, (y.get("choices") or [{}])[0]
+        ic, kesik = sec0.get("message", {}).get("content") or "", sec0.get("finish_reason") == "length"
         try:
-            form = json.loads(ic[ic.find("{"): ic.rfind("}") + 1])
+            form = None if kesik else json.loads(ic[ic.find("{"): ic.rfind("}") + 1])
         except ValueError:
             form = None
         return {"form": form, "usage": {"input_tokens": u.get("prompt_tokens", 0), "output_tokens": u.get("completion_tokens", 0)},
-                "usd": _usd(model, u, ek[0] if ek else {}), "sure": round(time.monotonic() - t0, 1), "hata": None if form is not None else "form JSON değil"}
+                "usd": _usd(model, u, ek[0] if ek else {}, len(kareler)), "sure": round(time.monotonic() - t0, 1),
+                "hata": f"çıktı tavanı (max_tokens {CIKTI_TAVAN})" if kesik else None if form is not None else "form JSON değil"}
     return cagir
 
 
@@ -103,7 +116,24 @@ def sec(d, adim, cagir, env, araclar=()):
     return (SAGLAYICI[s["saglayici"]](s["model"], env), s["model"]) if s else (cagir, d["model"])
 
 
-def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan, araclar=()):
+def _a_onbellek(dizin, tas, model, g, i):
+    """F3-ELEME: A kolu yanıtı diskte; anahtar = sha256(sistem, metin, şema, kare içerikleri) + model + tekrar sırası. Hatalı yanıt yazılmaz."""
+    h = hashlib.sha256()
+    for p in (g[0], g[1], json.dumps(g[2], sort_keys=True, ensure_ascii=False)):
+        h.update(p.encode() + b"\0")
+    for k in g[3] if len(g) > 3 else ():
+        h.update(Path(k).read_bytes() + b"\0")
+    y = Path(dizin) / f"{h.hexdigest()}-{re.sub(r'[^\w.-]', '_', model)}-{i}.json"
+    if y.is_file():
+        return json.loads(y.read_text(encoding="utf-8"))
+    r = tas(*g[:3], **({"kareler": g[3]} if len(g) > 3 else {}), model=model)
+    if not r.get("hata"):
+        y.parent.mkdir(parents=True, exist_ok=True)
+        y.write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8")
+    return r
+
+
+def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, tavan, araclar=(), onbellek=None):
     """F2: aynı girdiler (sistem, metin, şema[, kareler]) iki kolda — A = sec(d, adim) bugünkü, B = kol_b; puanla(metinler) kör (GÖREV+YANIT,
     model adı yok); başarı = hata yok + hattın form doğrulaması (parti._denet); gürültü = A tekrar farkı; karar kur.karar (A1 tablosu). usd None kol → SOR;
     tavan < 2×tekrar×girdi → TAVAN, çağrı yok. yonlendirme yalnız AL'de {adim: kol_b}."""
@@ -119,8 +149,8 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
     gizli = [v for v in (env.get("OMNIROUTE_KEY"), env.get("OPENROUTER_API_KEY")) if v]
     for ad in ("b", "a"):  # önce çağrılar, B önce (nex ~182 s/çağrı): bütün çağrıları hatalı kolda takas da puanla da yok, A çağrılmaz
         tas, model = kollar[ad]
-        yanit[ad] = [[tas(*g[:3], **({"kareler": g[3]} if len(g) > 3 else {}), model=model) for _ in range(tekrar)]
-                     for g in girdiler]
+        yanit[ad] = [[_a_onbellek(onbellek, tas, model, g, i) if ad == "a" and onbellek else
+                      tas(*g[:3], **({"kareler": g[3]} if len(g) > 3 else {}), model=model) for i in range(tekrar)] for g in girdiler]
         ilk = next((y["hata"] for yg in yanit[ad] for y in yg if y.get("hata")), None)
         for v in gizli:
             ilk = ilk and ilk.replace(v, "***")
