@@ -825,3 +825,10 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - baslat: aynı YOKLA kapısından geçer (parti.py:709, baslat ve devam ortak), açık yok → test yeşil: rc 4, çağrı 0, "DUR: OmniRoute/anahtar yok".
 - --a-yolu CLI (cli.py:1375 kayıtlı) ve üretim YONLENDIRME = ROTA10 (taze modül kopyası; V8 mutasyonunda kırmızı) testleri yeşil.
 - K1: açık (tahmin 0.8–1.3 kanıtsız; rABI 1.53 dışarıda).
+
+## O80 MÜKEMMEL-1d — tahmin_v10 kalibrasyonu (canlı 0)
+Sapma kaynağı iki yönlü: girdi çağrı başı ~2.2k token eksik (b2Q 2169 · vhY7 2318 · Ov 2132; kare sayısıyla değil çağrıyla orantılı) · çıktı sabit CIKTI_CAGRI 1700 küçük yükte fazla (Ov ölçülen 609/çağrı).
+Düzeltme (yonlendir.py): GIRDI_CAGRI 2200 çağrı başı girdi · çıktı/çağrı = min(CIKTI_CAGRI, CIKTI_TABAN 600 + parça yükü / CIKTI_YUK 7). KR_TOKEN / KARE_TOKEN değişmedi.
+Oran (tahmin/ölçülen) eski → yeni: b2Q eleme 0.81 → 0.85 · rABI 1.25 → 0.83 · ptGX 0.85 → 0.94 · Ov 1.69 → 1.08 · vhY7 0.91 → 1.00 · b2Q kabul 0.99 → 1.03 (rABI eski O79'da 1.53; bugünkü paketle 1.25).
+Tek ölçek; nokta başı özel durum yok. Alt sınıra yakın: b2Q eleme / rABI (eleme kaydı, kabul dışı koşul).
+Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeşil.

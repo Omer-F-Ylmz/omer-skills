@@ -857,11 +857,12 @@ def _tahmin(m, kare):
 
 
 KR_TOKEN, KARE_TOKEN, CIKTI_CAGRI = 3.5, 1120, 1700  # DERİNLİK-KAPANIŞ-2: CIKTI_CAGRI = V10 eleme ölçümü (171531/171722/171802: 30851 çıktı / 18 çağrı)
+GIRDI_CAGRI, CIKTI_TABAN, CIKTI_YUK = 2200, 600, 7  # MÜKEMMEL-1d: ölçülen girdi − tahmin çağrı başı (b2Q 2169 · vhY7 2318 · Ov 2132) · çıktı/çağrı = TABAN + parça yükü/YUK, üst CIKTI_CAGRI (Ov 609 · b2Q 1460 · vhY7 1689)
 
 
 def tahmin_v10(g, m, ornek=ORNEK_V10):
     """DERİNLİK-KAPANIŞ-2: tara_v10 ön tahmini ($, önbelleksiz) gerçek gövde kurgusuyla — parca_k · yük dengeli bolumle · parça başı önek + şema +
-    mesaj (kr / KR_TOKEN) + kendi kareleri × KARE_TOKEN · son geçiş (üst + konuşma + OCR, görselsiz) · çağrı başı CIKTI_CAGRI çıktı."""
+    mesaj (kr / KR_TOKEN) + kendi kareleri × KARE_TOKEN · son geçiş (üst + konuşma + OCR, görselsiz) · çağrı başı GIRDI_CAGRI girdi + yükle ölçeklenen çıktı (MÜKEMMEL-1d)."""
     f, k = FIYAT[m], parca_k(g[1])[0]
     on = len(g[0] + EKSIKSIZLIK10 + ORNEK_BASLIK + json.dumps(g[2], ensure_ascii=False)) + (len(Path(ornek).read_text(encoding="utf-8")) if Path(ornek).is_file() else 0)
     kr = [Path(x).name for x in (g[3] if len(g) > 3 else ())]
@@ -870,7 +871,8 @@ def tahmin_v10(g, m, ornek=ORNEK_V10):
     gir = sum((on + msg(i, p)) / KR_TOKEN + KARE_TOKEN * sum(f"{x} · " in p for x in kr) for i, p in enumerate(parca))
     ust, govde = (g[1].split("\n## Segmentler\n", 1) + [""])[:2]
     gir += len(SON_SISTEM10 + ust + govde.split("\n## Kareler\n", 1)[0]) / KR_TOKEN
-    return (gir * f["girdi"] + (len(parca) + 1) * CIKTI_CAGRI * f["cikti"]) / 1e6
+    n = len(parca) + 1
+    return ((gir + n * GIRDI_CAGRI) * f["girdi"] + n * min(CIKTI_CAGRI, CIKTI_TABAN + len(g[1]) / len(parca) / CIKTI_YUK) * f["cikti"]) / 1e6
 
 
 JEV_TAVAN = 12  # F3-ÖLÇÜM: puanlama isteği üst sınırı (A 2 + aday 5 × 2); koşu 2 TavanHata ile sonuçsuz kaldı
