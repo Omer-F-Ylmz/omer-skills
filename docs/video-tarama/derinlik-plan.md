@@ -906,3 +906,14 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Seçim: hiçbiri (DUR). rABI kare açığı A'nın betimleme türü kare öğeleri + boş OCR; ptGX doğruluk açığı kanit() boşluğu. V10 hattına adım eklenmedi.
 - Harcanan: model 4 · Jev 22 · $0.0167. Rapor: .video-cache/eleme/rapor/k3-20261006.md (## MÜKEMMEL-4); odak-20261006.json · jev-m4-20261006.json.
 - Sapma: Jev puanı eleme.ps1 puanla yolu (form kendi başına, A'ya karşı değil); Jev gürültüsü ±0.05 tolerans.
+
+## O90 — MÜKEMMEL-4b: kanit() boşluğu + rABI kare teşhisi
+- kanit(): kare öğesi (kareden_okunanlar · kaynak kare · karede_gorulen) tek kaynakta dayanaklı değilse None değil doğrulanamadı (_kare; ecdba5f kırmızı · 6f38cde yeşil).
+- Görsel yeniden (gpt-6-luna, video başı tek, yalnız yeni öğe): b2Q 2 · ptGX 1 · WdDX 1 → 4/0/0 görüldü; 3 çağrı, $0.0016. ptGX "CIAO ENERGY…" artık kare.
+- Ov Jev hücresi (k3-20261006.md B+A+B) → 2.08 (jev-m4 res.A Ov 2.07/2.10).
+- Şema (yonlendir.py:256-257): kareden_okunanlar yalnız anlamlı ekran metni; konuşmacı/sahne betimlemesi değil.
+- rABI A kare öğeleri 11: skill listesi 2 (B kareden_okunanlar'da) · "it works in"/logo 3 (B yalnız adaylar.kanit'te) · betimleme 6 (selfie, portre, mikrofon, logo; B yok).
+- rABI OCR boş: paket 2026-10-04 01:42, OCR adımı c7b2b4d (21:22) sonrası; bayat önbellek, hat hatası değil. Kareler altyazılı (metinsiz değil).
+- Dal b: k3(betim=...) şema dışı öğeleri ölçü dışı bırakır, "betim" ayrı sayı (7c5dffd kırmızı · 9639054 yeşil).
+- Açık: 6 video K3 tablosu betim süzgeciyle yeniden çıkarılmadı (sayaç 30'da durdu); genel K3 hükmü O89'daki gibi kaldı (4/6).
+- Harcanan: model 3 · Jev 0 · $0.0016.
