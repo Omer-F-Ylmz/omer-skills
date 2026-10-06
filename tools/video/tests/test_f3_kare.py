@@ -423,7 +423,7 @@ def test_eleme_karar_ve_oneri(tmp_path):
     s = _eleme(tmp_path, [E1, E2], _b_kur([], {E2: {**IYI, "usd": 0.0005}}))  # kalite eşit → ucuz olan
     assert all(" · AL" in r for r in s["satirlar"]) and s["oneri"].startswith(f"öneri: {E2} ")
     s = _eleme(tmp_path, [E1, E2], _b_kur([], {E2: {**IYI, "usd": 0.0005}}), puan=lambda ms: [0.8, 0.8, 0.9, 0.9, 0.8, 0.8])  # sıra A, E1, E2
-    assert s["oneri"].startswith(f"öneri: {E1} ") and " · kalite 0.90 · başarı 1.00 · AL" in s["satirlar"][0]
+    assert s["oneri"].startswith(f"öneri: {E1} ") and " · kalite 0.90 · şema 1.00 · AL" in s["satirlar"][0]  # F3-V2: satırda şema
 
 
 def test_eleme_betik_girdi_ve_cikti(monkeypatch, tmp_path, capsys):

@@ -654,3 +654,18 @@ A6(c) eki canlı (ağsız, model yok; denendi, O44): O43 komut 1 kalıbı + meka
 - Düzeltme: yon._ogeler öğeleri videolar[] altından video id'siyle (_v) toplar; eşleşme ve D aynı video içinde, sonuç videolar üzerinden toplanır.
 - Ders: (1) ölçüm fikstürü gerçek şemaya (pt.sema) karşı doğrulanır; (2) boş ölçüm DUR — A'da dolu liste varken D boşsa satır "ÖLÇÜM BOŞ", karar "DUR (ölçüm boş)", F1 1 sayılmaz.
 - Jev yeniden kullanım: puanlar kayda yazılır (B kayit/<aday>/<i>.json · A kayit/A/<i>.json); ELEME_YENIDEN'de kayıtta puan varsa Jev çağrılmaz, yalnız eksikler istenir; satırda "Jev 0 (kayıttan)". Canlı çağrı 0.
+
+### O64 — F3-V2 (6 Eki 2026) · canlı model çağrısı 0
+- v2 sonuçları (Ömer yeniden puanlama 20261006-122544 → eleme-20261006-130433.md, Jev kayıttan): A kapsam %67 · doğruluk %61 · F1 %56 |
+  V0 %29/%100/%44 · V1 %20/%100/%31 (promptlar 0 — örnekte prompt yok) · V3 %27/%100/%40.
+- Karar düzeltmesi: kur.karar'a giden başarı = kolun ortalama görev skoru (şema geçti × ağırlıklı F1); şema başarısı satırda ayrı "şema x.xx".
+  Önceki "başarı 1.00→1.00" + AL yanlıştı (doğru hesapta V0 görev düşüşü ~%21, V1 ~%45 → AL değil).
+- Dayanak kalibrasyonu (adaylar): tam ad içerme YA DA parantez içi atılmış ayırt edici kelimelerin (≥ 3 harf, DURAK bağlaç listesi dışı)
+  en az yarısı paket metninde 5 harf önekle. Rapor: "A dayanaksız: <ilk 5>" satırı (kaçırılan satırından önce).
+- V2 = V0 + EKSIKSIZLIK (sistem mesajına aynen) + "DEĞERLENDİR LİSTESİ" (yon.on_cikarim, model çağrısı yok: url · GitHub owner/repo ·
+  kurulum komutu · `kod` · kare OCR satırı · büyük harfle başlayan ad (cümle başı değil); tekil; ON_TAVAN 1500 token ≈ 6000 karakter).
+  b2QkhmQ0sT0 paketinde ~1250 token (kare 129 · ad 42 · url 10); ad öğeleri gürültülü (model eler).
+- V21 = V2 + örnek form. ELEME_ORNEK21 varsayılanı .kos/2026-10-03-short/form/vfLtsYbtJf0.json — yon.ornek_sec: OLCUM'un 4 listesi dolu en kısa
+  Claude formu (86 form içinden, b2QkhmQ0sT0 hariç; 7.1 KB · adaylar 2 · promptlar 1 · komut 7 · kare 8). vfLtsYbtJf0 doğrulamada kullanılmaz.
+- Sapmalar: OCR satırları paket biçimindeki zamanla ([m:ss]) gelir, kare numarasıyla değil; eski test satırı "başarı 1.00" → "şema 1.00" (tarif gereği).
+- Sıradaki: Ömer (1) 122544 yeniden puanla (2) ELEME_ADAYLAR gemini-3.5-flash-lite@V2,@V21; yetmezse V5 bölümleme → token kolu → 2 video.

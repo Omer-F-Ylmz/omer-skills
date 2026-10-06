@@ -190,8 +190,56 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
 
 VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka bir videonun Claude tarama formu",
            "V3": "akıl yürütme düşük (reasoning effort low; supported_parameters'ta yoksa çağrı 0)",
-           "V4": "düşük çözünürlük: kareler aynı, uzun kenar 512 px (yalnız istek gövdesinde; dosyalar değişmez)"}
+           "V4": "düşük çözünürlük: kareler aynı, uzun kenar 512 px (yalnız istek gövdesinde; dosyalar değişmez)",
+           "V2": "V0 + EKSİKSİZLİK KURALI + DEĞERLENDİR LİSTESİ (paket metninden mekanik ön çıkarım; model çağrısı yok)",
+           "V21": "V2 + örnek form (ELEME_ORNEK21; test videosundan olamaz)"}
 ORNEK_BASLIK = "\n\nÖRNEK ÇIKTI (başka bir videonun onaylı formu; yalnız biçim ve ayrıntı düzeyi için, içeriğini kopyalama):\n"
+
+
+EKSIKSIZLIK = ("EKSİKSİZLİK KURALI: Videoda adı geçen, ekranda görünen ya da anlatılan HER araç, kütüphane, servis, model, skill, teknik, "
+               "yöntem ve kavram adaylar[]'da AYRI öğedir; birleştirme, özetleme, sayı sınırı yok. Emin değilsen ekle ve belirsizlikler[]'e yaz. "
+               "Ekrandaki her anlamlı metin (komut, prompt, ayar, başlık, kod) kareden_okunanlar[]'a kare numarasıyla ayrı öğe. Ekranda görünen "
+               "ya da söylenen her prompt promptlar[]'a kelimesi kelimesine. Her kurulum komutu kurulum_komutlar[]'a birebir. Her iddiada "
+               "aday_adi doldur. Kısa yazma; her öğede kanıt ve zaman ver. DEĞERLENDİR LİSTESİ'ndeki her öğeyi ya forma ekle ya da neden "
+               "eklemediğini belirsizlikler[]'e tek satırla yaz.")
+ON_TAVAN = 1500  # F3-V2: DEĞERLENDİR LİSTESİ token tavanı (~4 karakter/token)
+_KOMUT = re.compile(r"\b(?:npm|npx|pip3?|uvx?|brew|winget|git clone|claude (?:mcp|plugin|skills?))\s[^\n,;`]{1,100}")
+
+
+def on_cikarim(metin):
+    """F3-V2 mekanik ön çıkarım (model çağrısı yok): url · GitHub owner/repo · kurulum komutu · `kod` · kare OCR satırı (paket
+    "## Ekran metni (OCR)", [m:ss] ile; gürültü paket yazılırken süzülür) · büyük harfle başlayan ad (cümle başı değil). Tekil,
+    öncelik bu sırayla, ON_TAVAN'da kesilir."""
+    kare, ocr, ad = [], False, []
+    for s in metin.splitlines():
+        if s.startswith(("#", "===")):
+            ocr = s.startswith("## Ekran metni (OCR)")
+            continue
+        if ocr and re.match(r"\[[\d:]+\] ", s):
+            kare.append(s.strip())
+        for c in re.split(r"(?<=[.!?:])\s+", re.sub(r"^\[[\d:]+\]\s*|https?://\S+", " ", s).strip()):
+            ad += [w for w in (x.rstrip(".-+") for x in re.findall(r"\w[\w.+-]*", c)[1:]) if len(w) >= 3 and w[0].isupper()]
+    oge = ([f"url: {u.rstrip('.,;:')}" for u in re.findall(r"https?://[^\s<>\"'`)\]]+", metin)]
+           + [f"repo: {r.strip('.')}" for r in re.findall(r"github\.com/([\w.-]+/[\w.-]+)", metin)]
+           + [f"komut: {k.strip(' .')}" for k in _KOMUT.findall(metin)] + [f"kod: {k}" for k in re.findall(r"`([^`\n]{2,80})`", metin)]
+           + [f"kare: {k}" for k in kare] + [f"ad: {w}" for w in ad])
+    out, n = [], 0
+    for x in dict.fromkeys(oge):
+        n += len(x) + 1
+        if n > ON_TAVAN * 4:
+            break
+        out.append(x)
+    return "\n".join(out)
+
+
+def ornek_sec(yollar, haric=("b2QkhmQ0sT0",)):
+    """F3-V2 V21 örneği: OLCUM listelerinin hepsi dolu en kısa Claude video formu (haric id'ler dışında); yoksa None."""
+    uy = []
+    for y in map(Path, yollar):
+        t = y.read_text(encoding="utf-8")
+        if y.stem not in haric and all(json.loads(t).get(x) for x in OLCUM):
+            uy.append((len(t), str(y), y))
+    return min(uy)[2] if uy else None
 
 
 def _girdi(u):
@@ -275,13 +323,22 @@ def eslesir(liste, a, b):
     return bool(ka and kb) and len(ka & kb) / min(len(ka), len(kb)) >= 0.5
 
 
+DURAK = {"ile", "veya", "icin", "için", "gibi", "ama", "ancak", "the", "and", "for", "with", "from", "into", "via", "but"}  # F3-V2 bağlaç
+
+
+def _ayirt(s):
+    """F3-V2: parantez içi atılır; ayırt edici kelimeler (≥ 3 harf, DURAK dışı)."""
+    return [w for w in re.findall(r"\w+", re.sub(r"\([^)]*\)", " ", s).casefold()) if len(w) >= 3 and w not in DURAK]
+
+
 def dayanak(liste, oge, metin):
     """F3-ÖLÇÜM v2: anahtar paket metninde (konuşma + açıklama + bölümler + kare OCR) → dayanaklı (adaylar tr.normal içerme ·
     komut boşluk normalize içerme · metin/okunan kelimelerinin ≥ yarısı); değil ama kaynak kare / karede_gorulen dolu /
     kareden_okunanlar → doğrulanamadı (cezasız); ikisi de değil → dayanaksız."""
     k = oge.get(OLCUM[liste][0]) or ""
     if liste == "adaylar":
-        var = bool(_n(k)) and _n(k) in _n(metin)
+        w, m = _ayirt(k), {x[:5] for x in re.findall(r"\w+", metin.casefold())}  # F3-V2: ya da kelimelerin ≥ yarısı 5 harf önekle
+        var = bool(_n(k)) and _n(k) in _n(metin) or bool(w) and 2 * sum(x[:5] in m for x in w) >= len(w)
     elif liste == "kurulum_komutlar":
         var = bool(k.split()) and " ".join(k.split()) in " ".join(metin.split())
     else:
@@ -329,7 +386,8 @@ def olc_v2(form, d, metin):
         iyi, kotu = ds.count("dayanaklı"), ds.count("dayanaksız")
         bul = [i for i, y in enumerate(d[x]) if any(y["_v"] == o["_v"] and eslesir(x, y[k], o[k]) for o in os_)]
         kp, dg = len(bul) / len(d[x]) if d[x] else None, iyi / (iyi + kotu) if iyi + kotu else 1.0
-        r["liste"][x] = {"n": len(os_), "kapsam": kp, "dogruluk": dg, "dogrulanamadi": ds.count("doğrulanamadı"), "bulunan": bul}
+        r["liste"][x] = {"n": len(os_), "kapsam": kp, "dogruluk": dg, "dogrulanamadi": ds.count("doğrulanamadı"), "bulunan": bul,
+                        "dayanaksiz": [o[k] for o, z in zip(os_, ds) if z == "dayanaksız"]}
         if d[x]:
             for t, v in (("kapsam", kp), ("dogruluk", dg), ("f1", 2 * kp * dg / (kp + dg) if kp + dg else 0.0)):
                 top[t] += a / wt * v
@@ -353,6 +411,8 @@ def olcum_satirlari(a, b, d, metin):
           + f" · doğruluk %{o(b, x, 'dogruluk') * 100:.0f} · doğrulanamadı {o(b, x, 'dogrulanamadi'):.1f}" for x in OLCUM]
     s.append(f"aciklama_baglantilari (skora girmez): A {_ort(a, 'url'):.1f} · B {_ort(b, 'url'):.1f}")
     kac = [(x, y) for x in OLCUM for i, y in enumerate(d[x]) if not any(i in r["liste"][x]["bulunan"] for r in b)]
+    z = list(dict.fromkeys(y for r in a for x in OLCUM for y in r["liste"][x]["dayanaksiz"]))  # F3-V2: kalibrasyon görünsün
+    s.append("A dayanaksız: " + (", ".join(y[:80] for y in z[:5]) or "yok"))
     s.append("kaçırılan: " + (", ".join(f"{y[OLCUM[x][0]][:80]} ({DAYANAK[dayanak(x, y, metin)]})" for x, y in kac[:5]) or "yok"))
     return s
 
@@ -372,12 +432,12 @@ JEV_TAVAN = 12  # F3-ÖLÇÜM: puanlama isteği üst sınırı (A 2 + aday 5 × 
 
 
 def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_kur=omni_cagir, yokla=omni_yokla,
-          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, kucult=_kucult, kayit=None, yeniden=None):
+          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, ornek21=None, kucult=_kucult, kayit=None, yeniden=None):
     """F3-ELEME adım 4: tek girdi g (sistem, metin, şema, kareler), adaylar tek koşuda. Ön kontrol (kol sabit · varyant · FIYAT · yokla)
     geçmeyen çağrı 0. Aday başı çağrı 1; şema geçerse 2. Sıradaki çağrı B tavanını (çağrı · $; tahmin = adayın son usd'si, yoksa _tahmin)
     aşacaksa yapılmaz → "tavan". usd None (zaman aşımı) harcamaya tahminle girer. supported_parameters'ta reasoning varsa effort minimal.
     F3-VARYANT: aday "model" ya da "model@varyant" (VARYANT): V1 sistem + ornek formu (test videosundan olamaz) · V3 effort low ·
-    V4 kareler kucult ile 512 px. Geçen B yoksa A çağrılmaz; A (2 tekrar) _a_onbellek'ten. Puanlama tek puanla çağrısı (A, sonra adaylar;
+    V4 kareler kucult ile 512 px · F3-V2: V2 EKSIKSIZLIK + DEĞERLENDİR LİSTESİ (on_cikarim) · V21 V2 + ornek21. Geçen B yoksa A çağrılmaz; A (2 tekrar) _a_onbellek'ten. Puanlama tek puanla çağrısı (A, sonra adaylar;
     kör; öğe sayı ya da {"score", ...}). Karar kur.karar (çağrı başı ortalamalarla); öneri = AL'ler içinde en yüksek kalite, eşitlikte ucuz.
     kayit: her yanıt + Jev puanı kayit/<aday>/<i>.json (A: kayit/A). rapor: aday başı alan_farki (A'ya göre)."""
     from . import kur, parti as pt
@@ -388,7 +448,6 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
     gecer = lambda y: not y.get("hata") and not pt._denet(y.get("form"), g[2], "form")
     sk = lambda p: p["score"] if isinstance(p, dict) else p
     dosya = lambda ad: re.sub(r"[^\w.@-]", "_", ad)
-    oid = Path(ornek).stem if ornek else None
     durum, b_usd, cagri = {}, 0.0, 0
     for ad in adaylar:
         m, _, v = ad.partition("@")
@@ -397,10 +456,11 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             ks = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
             durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "akil": akil}
             continue
+        orn = {"V1": ornek, "V21": ornek21}.get(v)
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
-                 else "V1 örneği yok" if v == "V1" and not (ornek and Path(ornek).is_file())
-                 else f"V1 örneği test videosundan ({oid})" if v == "V1" and f"=== VIDEO {oid} ===" in g[1]
+                 else f"{v} örneği yok" if v in ("V1", "V21") and not (orn and Path(orn).is_file())
+                 else f"{v} örneği test videosundan ({Path(orn).stem})" if orn and f"=== VIDEO {Path(orn).stem} ===" in g[1]
                  else "V3: reasoning desteklenmiyor" if v == "V3" and not akil
                  else "fiyat yok" if m not in FIYAT else yokla(m, env, gorsel=bool(kare)))
         durum[ad] = {"neden": neden, "y": [], "akil": akil, "m": m, "v": v}
@@ -416,7 +476,9 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         if x["neden"]:
             continue
         m, v, akil = x["m"], x["v"], x["akil"]
-        sistem = g[0] + ORNEK_BASLIK + Path(ornek).read_text(encoding="utf-8") if v == "V1" else g[0]
+        sistem = (g[0] + (f"\n\n{EKSIKSIZLIK}\n\nDEĞERLENDİR LİSTESİ (paket metninden mekanik çıkarım):\n{on_cikarim(g[1])}"
+                          if v in ("V2", "V21") else "")
+                  + (ORNEK_BASLIK + Path(ornek if v == "V1" else ornek21).read_text(encoding="utf-8") if v in ("V1", "V21") else ""))
         ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
             if v == "V4" and kare else ek
         tas = b_kur(m, env, timeout=zaman, govde_ek={"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else None)
@@ -468,7 +530,8 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
                 pb[ad] = [next(puan) for _ in v]
                 ozet[ad] = ozetle(durum[ad]["y"], list(map(sk, pb[ad])))
                 karar[ad] = ("DUR (ölçüm boş)" if bos else "SOR (maliyet bilinmiyor)" if any(y.get("usd") is None for y in durum[ad]["y"]) else
-                             kur.karar(sa, ozet[ad], None, max(map(sk, pa)) - min(map(sk, pa)), [(sa["gorev"][0], ozet[ad]["gorev"][0])]))
+                             kur.karar(*({**o, "basari": o["gorev"][0]} for o in (sa, ozet[ad])), None,  # F3-V2: başarı = görev skoru
+                                       max(map(sk, pa)) - min(map(sk, pa)), [(sa["gorev"][0], ozet[ad]["gorev"][0])]))
                 rapor[ad] = {**alan_farki([y["form"] for y in ya if y.get("form")], [y["form"] for y in v], g[2]),
                              "olcum": ["ÖLÇÜM BOŞ"] if bos else olcum_satirlari(sa["v2"], ozet[ad]["v2"], d, g[1])}
             al = [(ozet[m]["kalite"], -ozet[m]["maliyet"], m) for m, k in karar.items() if k.startswith("AL")]
@@ -495,7 +558,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         usd = [y.get("usd") for y in ys]
         p = [f"{m}", f"hata: {ilk[:120]}" if ilk else "geçti", f"token {t('input_tokens')}/{t('output_tokens')}/{t('reasoning')}",
              "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
-             *([f"kalite {ozet[m]['kalite']:.2f} · başarı {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
+             *([f"kalite {ozet[m]['kalite']:.2f} · şema {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
              *([rapor[m]["olcum"][0]] if m in ozet else []),
              *([f"Jev {jev[m]}" if jev[m] else "Jev 0 (kayıttan)"] if yeniden and m in ozet else [])]
         if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
