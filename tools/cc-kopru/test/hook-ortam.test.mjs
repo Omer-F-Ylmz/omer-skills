@@ -78,3 +78,11 @@ test("K1 envanteri iki ortamda aynı", async () => {
   assert.ok(cc.length >= 6, `hook envanteri beklenmedik kadar kısa: ${cc.length}`);
   assert.deepEqual(dt, cc);
 }, { timeout: 300000 });
+
+test("suit sayacı geçici dizine yönlendirir; Desktop ortamı korur", () => {
+  // K2: bütün hook testleri gerçek .claude/cagri-sayac.txt yerine suit dizinine sayar
+  const d = process.env.CAGRI_SAYAC_DIZIN;
+  assert.ok(d && d.startsWith(osS.tmpdir()), "CAGRI_SAYAC_DIZIN suit ortamında yok");
+  const geri = desktopOrtamiUygula();
+  try { assert.equal(process.env.CAGRI_SAYAC_DIZIN, d); } finally { geri(); }
+});
