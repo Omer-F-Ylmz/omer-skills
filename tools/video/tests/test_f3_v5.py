@@ -542,8 +542,8 @@ def test_v8_dolu_alan_satir_rapor(tmp_path):
 
 def test_v8_bilinmeyen_varyant_cagri_0(tmp_path):
     c = []
-    s = _e8(tmp_path, [f"{E1}@V8", f"{E1}@V11"], c)
-    assert s["satirlar"][1] == f"{E1}@V11 · hata: bilinmeyen varyant: V11 · çağrı 0"
+    s = _e8(tmp_path, [f"{E1}@V8", f"{E1}@V12"], c)
+    assert s["satirlar"][1] == f"{E1}@V12 · hata: bilinmeyen varyant: V12 · çağrı 0"
     assert yon.PARCA["V8"] == 4 and "V8" in yon.SON and "V8" in yon.VARYANT and c
 
 
@@ -795,3 +795,87 @@ def test_v10_son_gecis_json_yeniden(tmp_path):
     c = []
     s = _e6(tmp_path, [f"{E1}@V10"], c, b_kur=_b6(c, {**SON_HATA, "hata": None}))
     assert len([x for x in c if x["i"] == "son"]) == 4 and "son geçiş: hata (JSON)" in s["satirlar"][0]
+
+
+# F3-V11: ayrıntı örneği (öğe sayısı korunur) · ad/teknik kuralı · EKRAN METNİ (OCR) bloğu
+AD_KURALI = ("adaylar[].ad: aracın ya da kavramın tam adı + kısa tanımı (ör. 'Ağaç modeli: trunk/leaf ve blast radius'); tek kelimelik ad "
+             "yazma. site_ui[].teknik: uygulama ayrıntısı (kütüphane, efekt, etkileşim) en az iki cümle.")
+OCR3 = {"[0:20] ALFA EKRAN", "[3:10] BETA EKRAN", "[8:00] GAMA EKRAN"}
+AYR = {"adaylar": {"video": "src1", "oge": {"ad": "Ağaç modeli: trunk/leaf"}}}
+
+
+def _ks(x):
+    return list(SV["properties"]["videolar"]["items"]["properties"][x]["items"]["properties"])
+
+
+def _oge(x, d, bos=0):
+    return {k: ("" if i < bos else d) for i, k in enumerate(_ks(x))}
+
+
+def _f11(tmp_path, ad, **lst):
+    (tmp_path / f"{ad}.json").write_text(json.dumps({**lst, "fazla": "f" * 50}, ensure_ascii=False), encoding="utf-8")
+    return tmp_path / f"{ad}.json"
+
+
+def _blok(x):
+    return x["metin"].split(yon.EKRAN_OCR + "\n", 1)[1].split("\n\n", 1)[0].splitlines()
+
+
+def test_v11_ayrinti_ornegi_secim(tmp_path):
+    ys = [_f11(tmp_path, "a", adaylar=[_oge("adaylar", "x" * 10), _oge("adaylar", "y" * 300, bos=1)], site_ui=[_oge("site_ui", "s" * 5)]),
+          _f11(tmp_path, "b", adaylar=[_oge("adaylar", "z" * 20)], site_ui=[{**_oge("site_ui", "t" * 2000), "fazla": "f"}]),
+          *[_f11(tmp_path, h, adaylar=[_oge("adaylar", "w" * 99)]) for h in yon.AYRINTI_HARIC]]
+    assert yon.AYRINTI_HARIC == ("b2QkhmQ0sT0", "rABIViSQmsc", "ptGXxk1-Uj4", "Ysr7oNDajJI")
+    a = yon.ayrinti_ornegi(ys, SV)
+    assert a["adaylar"] == {"video": "b", "oge": _oge("adaylar", "z" * 20)}  # dolu 1.0 içinde en uzun; boş alanlı ve hariçler elenir
+    o = a["site_ui"]["oge"]
+    assert a["site_ui"]["video"] == "b" and set(o) == set(_ks("site_ui"))  # şema dışı alan atılır
+    assert 1100 < sum(map(len, o.values())) <= 1200 and all(o.values())  # uzun alan kırpılır, alan boşalmaz
+    assert set(a) == {"adaylar", "site_ui"} and yon.ayrinti_ornegi(ys[2:], SV) == {}
+
+
+def test_v11_onek_ozdes_v10_degismez(tmp_path, monkeypatch):
+    monkeypatch.setattr(yon, "PARCA_YUK", 800)  # k > 1: önek tüm parçalarda özdeş
+    v10 = "S\n\n" + yon.EKSIKSIZLIK10 + yon.ORNEK_BASLIK + '{"id": "ORN6"}'
+    assert yon.AYRINTI_BASLIK == "\n\nAYRINTI ÖRNEĞİ (öğe başına beklenen derinlik; öğe sayısını etkilemez):\n"
+    for v, bek in (("V11", v10 + yon.AYRINTI_BASLIK + json.dumps({"adaylar": AYR["adaylar"]["oge"]}, ensure_ascii=False)), ("V10", v10)):
+        c = []
+        (tmp_path / v).mkdir()
+        _e6(tmp_path / v, [f"{E1}@{v}"], c, ayrinti=AYR)
+        p = [x for x in c if x["i"] != "son"]
+        assert len(p) > 2 and {x["sistem"] for x in p} == {bek}
+    s = _e6(tmp_path, [f"{E1}@V11"], [])
+    assert s["satirlar"][0] == f"{E1}@V11 · hata: V11 ayrıntı örneği yok · çağrı 0"
+
+
+def test_v11_ad_kurali_ocr_blogu_parcaya_suzulur(tmp_path, monkeypatch):
+    assert yon.ALAN_KURALI11 == yon.ALAN_KURALI + " " + AD_KURALI
+    assert yon.EKRAN_OCR.startswith("EKRAN METNİ (OCR)") and ("anlamlı ekran metinlerini (komut, prompt, ayar, başlık, kod, araç adı) "
+                                                             "kareden_okunanlar'a kare zamanıyla aktar") in yon.EKRAN_OCR
+    c = []
+    _e6(tmp_path, [f"{E1}@V11"], c, ayrinti=AYR)  # k 1: aynı mesaj
+    p = [x for x in c if x["i"] != "son"]
+    assert p and all(x["metin"].startswith(yon.ALAN_KURALI11 + "\n" + yon.PARCA_OZET) and set(_blok(x)) == OCR3 for x in p)
+    monkeypatch.setattr(yon, "PARCA_YUK", 800)
+    c = []
+    (tmp_path / "p4").mkdir()
+    _e6(tmp_path / "p4", [f"{E1}@V11"], c, ayrinti=AYR)
+    bl = [_blok(x) for x in c if x["i"] != "son" and yon.EKRAN_OCR in x["metin"]]
+    assert {s for b in bl for s in b} == OCR3 and max(map(len, bl)) < 3  # her parçada yalnız kendi aralığının OCR satırları
+
+
+def test_v11_diger_varyant_metni_ayni(tmp_path):
+    c = []
+    _e6(tmp_path, [f"{E1}@V10"], c, ayrinti=AYR)
+    p = [x for x in c if x["i"] != "son"]
+    assert p and all(x["metin"].startswith(yon.ALAN_KURALI + "\n" + yon.PARCA_OZET + "\n") and AD_KURALI not in x["metin"]
+                     and "EKRAN METNİ" not in x["metin"] for x in p)
+    assert yon.ALAN_KURALI == ALAN and AD_KURALI not in yon.EKSIKSIZLIK10
+
+
+def test_v11_tanim(tmp_path):
+    ge, c = [], []
+    s = _e6(tmp_path, [f"{E1}@V11"], c, b_kur=_b8(c, ge), destek={E1: ["seed"]}, ayrinti=AYR)
+    assert ge[0] == {"temperature": 0.2, "seed": 7} and "V11" in set(yon.VARYANT) & set(yon.SON) & set(yon.PARCA)
+    assert f" · k 1 (yük {yon.yuk(P)})" in s["satirlar"][0] and " · hata" not in s["satirlar"][0]
+    assert {x["sistem"] for x in c if x["i"] == "son"} == {yon.SON_SISTEM10}
