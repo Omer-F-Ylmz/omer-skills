@@ -124,12 +124,28 @@ def test_parti_v10_hata_a_geri_donus(tmp_path, monkeypatch):
     assert t["geri_donus"] == f"{V[0]}: parça 1: form JSON değil" and t["model"] == hafif.MODEL and t["cagri"] == 3 and abs(t["usd"] - 0.013) < 1e-9
 
 
-def test_parti_v10_on_tahmin_tavan_asarsa_geri_donus(tmp_path, monkeypatch):
-    kok = _hazir(tmp_path, usd=0.02)  # _tahmin(M10) × (k 1 + 1) ≈ $0.039 > $0.02
+def test_parti_v10_on_tahmin_tavan_kalir(tmp_path, monkeypatch):
+    kok = _hazir(tmp_path, usd=0.005)  # DERİNLİK-KAPANIŞ-2: tahmin_v10 > kalan $ → video tavanda (YENIDEN); A V10'dan pahalı, çağrılmaz
     monkeypatch.setattr(yon, "tara_v10", lambda *a, **k: pytest.fail("ön tahmin kalan $'ı aşınca tara_v10 çağrılmaz"))
     s = Sahte()
     pt.parti(_ns("devam", _pid(kok)), _ctx(kok, s))
-    assert len(s.cagrilar) == 1 and _tarama(kok)["geri_donus"].startswith(f"{V[0]}: ön tahmin $0.03")
+    t = _tarama(kok)
+    assert s.cagrilar == [] and _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "tavan" in pt.YENIDEN
+    assert "geri_donus" not in t and t["form"].startswith("hata: tavan: ön tahmin $") and t["cagri"] == 0
+
+
+def test_tahmin_v10_parca_ve_kare(tmp_path, monkeypatch):
+    g = _g(tmp_path)
+    t1, t0 = yon.tahmin_v10(g, M10), yon.tahmin_v10(g[:3] + ([],), M10)
+    assert yon.parca_k(P)[0] == 1 and 0 < t0 < t1  # kare artınca artar
+    monkeypatch.setattr(yon, "PARCA_YUK", yon.yuk(P) / 4)
+    assert yon.parca_k(P)[0] == 4 and yon.tahmin_v10(g, M10) > t1  # k 1 < k 4
+
+
+@pytest.mark.parametrize("ad", ["eleme.ps1", "ab-canli.ps1"])
+def test_ps1_utf8_bom(ad):  # DERİNLİK-KAPANIŞ-2: PS 5.1 BOM'suz .ps1'i ANSI okur → here-string "·" Python'a "Â·" olarak gider
+    b = (yon.ORNEK_V10.parent / ad).read_bytes()
+    assert b.startswith(b"\xef\xbb\xbf") or b.isascii()
 
 
 def test_parti_yontem_yok_bugunku_yol(tmp_path, monkeypatch):
