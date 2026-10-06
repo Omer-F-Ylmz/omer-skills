@@ -772,7 +772,7 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - Kabul partisi (Adım 5) bu oturuma sığmadı: docs/video-tarama/kuyruk.md'de YouTube id deseni bulunamadı; kanal kuyruğu kaynağı sonraki oturumda.
 
 ### AÇIK KALEMLER
-- KURULUM: sayaç hook'u alt ajan çağrılarını da sayıyor · cc-kopru hook-ortam testi yalnız sayaç 0'dayken yeşil · OmniRoute otomatik başlatma çalışmıyor (elle) + ilk açılış > 60 s · OMNIROUTE_KEY yoksa hat sessizce eski yolda · fastembed/Pillow bağımlılığı (.video-cache\emb).
+- KURULUM: sayaç hook'u alt ajan çağrılarını da sayıyor · cc-kopru hook-ortam testi yalnız sayaç 0'dayken yeşil · OmniRoute otomatik başlatma çalışmıyor (elle) + ilk açılış > 60 s · OMNIROUTE_KEY yoksa hat sessizce eski yolda · fastembed/Pillow bağımlılığı (.video-cache\emb) · sayaç hook'u dalga.md 1. satırını her çağrıda yazıyor → Read/Edit çakışması; geçici çözüm Python ile tek atım.
 - İYİLEŞTİRME: Jev farkı (b2Q −%5.6 · ptGX −%8.3) · hız (OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT ile parça paralelliği) · kısa videoda kareden_okunanlar zayıf (A 5 · B 1) · V11 dersi (istem büyütmek derinlik getirmedi; OCR çiftlenmesi) · örnek seçiminde öğe sayısı taklidi (V1/V21/V9) · Jev gerekçesiz puan · tahmin_v10 kısa videoda üst bantta (rABI ×1.53; çıktı payı videonun uzunluğuyla ölçeklenmiyor).
 - Testler: video 1012 → 1015 (−1 değişen +4) · jev 81 · tests 320 · mcp-jev 40 · dotnet 22 yeşil; cc-kopru hook-ortam.test.mjs:69 kırmızı (sayaç 0 değil; KURULUM kalemi) → push bekletildi.
 
@@ -784,3 +784,14 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - b2Q (b): gelemez — A geri dönüşü hafif.cagir → canlı claude -p; yanıt önbelleği yok. Önbellek yalnız istem token'ı, defterde ayrı (onb_okuma/onb_yazma). Kırmızı test gerekmedi.
 - DUR bulgusu: tarama.kuyruk_parti partiyi tek türe kurar (short < 2 dk, ≤ 8 · uzun ≤ 3; satır `| id | dk | … | not | bekliyor |`). "3 videoluk tek parti" short + uzun karışık açılamaz → iki parti (short: Ov-B6K1EsaI · uzun: vhY7OGIh1v0 + b2QkhmQ0sT0) ya da tarif kararı.
 - Sayaca sığmayan (sonraki oturum): Ömer komutu (OmniRoute localhost:20128 sağlık · OMNIROUTE_KEY boolean · iki parti · yontem V10 · devam --yeniden-tara · defter satırı · tahmin_v10 $ + süre) · Adım 5 hook teşhisi (ipucu: .claude/dalga.md 1. satırı "çağrı N/45" sayaç hook'unca yazılıyor).
+
+## O77 DERİNLİK-KAPANIŞ-4 — kabul partisi komutu (canlı 0; kod değişmedi)
+- KARAR: iki parti — short Ov-B6K1EsaI · uzun vhY7OGIh1v0 + b2QkhmQ0sT0; takip kanalları kanallar.json (39).
+- Tahmin (önbelleksiz): Ov ↔ rABI $0.0083 · ~13 s · vhY7 ↔ ptGX $0.0148 · ~21 s · b2Q yon.tahmin_v10 $0.0424 (parca_k 4; süre ≈ 5 geçiş × 13 s ≈ 65 s,
+  türetme, ölçüm değil). Tarama dışı model adımı 0 (--ikinci-goz yok; akil koşmaz). $ tavanı: short $0.02 · uzun $0.10 (tahmin × 1.6 yukarı).
+- Yedek: --yeniden-tara {tarih}-{id}.md'yi ezer (parti.py:335-338 write_bytes, aynı parti tarihi), ama b2Q raporu yerelde yok (docs/video-tarama
+  + kayit.jsonl) → O76 (a) "b2Q atlanır" geçersiz, b2Q baslat'ta bekliyor girer. Komut yine de *-b2QkhmQ0sT0.md varsa .video-cache\kabul\yedek\'e kopyalar.
+- Komut docs/video-tarama/kabul-partisi.ps1 (ASCII): sağlık 200 → OMNIROUTE_KEY boolean → baslat --cagri-tavan 0 (paket kurulur, model 0, rc 3) →
+  yonlendirme.tarama.yontem V10 → devam --yeniden-tara --cagri-ek 12 → defter satırları + video durumu (tavan/form_red). baslat'ta id bayrağı yok,
+  kuyruk.md'de Ov/vhY7 yok → özel kuyruk .video-cache\kabul\kuyruk-{short,uzun}.md; açık partide atlanan video DUR.
+- KURULUM: sayaç hook'u dalga.md 1. satırını her çağrıda yazıyor → Read/Edit çakışması; geçici çözüm Python ile tek atım.
