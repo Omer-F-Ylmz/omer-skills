@@ -41,6 +41,24 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "iz (D1, şema 2): videoda anılan HER şey (konuşma m:ss · kare m:ss · açıklama · yorum · linkli sayfa) bir satır — baglandigi: aday adı ya da "
           "'aday değil: <sebep>'; sebep yalnız genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı. 'zaten kurulu' sebep değil: kurulu araç da aday.")
 YOKLA = yon.omni_yokla  # O78: devam öncesi OmniRoute ön kontrolü (testte conftest None)
+BASLAT = lambda: subprocess.Popen("omniroute serve --no-open --daemon", shell=True,  # MÜKEMMEL-2c: pencere açılmaz
+                                  creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+BEKLE = time.sleep
+
+
+def _omni_baslat(model, env, h):
+    """MÜKEMMEL-2c (K6 gözetimsiz koşu): OmniRoute'u bir kez başlat, ≤ 90 s yokla; kalkmazsa son hata metni."""
+    t0 = time.monotonic()
+    try:
+        BASLAT()
+    except OSError:
+        return h
+    for _ in range(30):
+        BEKLE(3)
+        if not (h := YOKLA(model, env)):
+            print(f"OmniRoute kendiliğinden başlatıldı ({round(time.monotonic() - t0)} s)")
+            return None
+    return h
 
 
 OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar", "lisans_kaynak", "kotu_yanlar", "guclendirme", "iz"}  # M2c: opsiyonel alanlar · D1 (b): iz yoksa eski form (şema 1)
@@ -706,7 +724,9 @@ def parti(ns, ctx):
     rota = (d.get("yonlendirme") or {}).get("tarama") or {}
     if getattr(ns, "a_yolu", False):  # O78: A taşıyıcısı yalnız açık bayrakla
         d.pop("yonlendirme", None)
-    elif rota.get("saglayici") == "omniroute" and (h := YOKLA(rota.get("model"), ctx["env"])):
+    elif rota.get("saglayici") == "omniroute" and (h := YOKLA(rota.get("model"), ctx["env"])) and not (
+            h.startswith("OmniRoute yok") and ctx["env"].get("OMNIROUTE_KEY")
+            and not (h := _omni_baslat(rota.get("model"), ctx["env"], h))):
         print(f"DUR: OmniRoute/anahtar yok ({h})")  # O78: sessiz A düşüşü yok, çağrı 0
         return 4
     rc = kos()
