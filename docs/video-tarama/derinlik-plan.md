@@ -872,5 +872,5 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
   - b2QkhmQ0sT0: 47/52 · 92/97 · 64/52 · 42/47 · 9/18/1 · 5 · kaldı: görev
   - rABIViSQmsc (short): 50/50 · 94/100 · 43/52 · 71/14 · 2/5/0 · 2 · kaldı: kareden_okunanlar
   - ptGXxk1-Uj4: 62/85 · 88/91 · 49/62 · 86/86 · 0/1/1 · 3 · geçti
-- B kayıplarının en büyük türü kare (24/38). Rapor: .video-cache/eleme/rapor/k3-20261006.md.
+- B kayıplarının en büyük türü kare (24/37). Rapor: .video-cache/eleme/rapor/k3-20261006.md.
 - K3 durumu: ölçülüyor. Ov için A koşusu ve Jev gerekçesi 3b'de.
