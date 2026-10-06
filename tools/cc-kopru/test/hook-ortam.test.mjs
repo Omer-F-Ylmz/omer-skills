@@ -87,3 +87,14 @@ test("suit sayacı geçici dizine yönlendirir; Desktop ortamı korur", () => {
   const geri = desktopOrtamiUygula();
   try { assert.equal(process.env.CAGRI_SAYAC_DIZIN, d); } finally { geri(); }
 });
+
+test("hook süreci CAGRI_SAYAC_DIZIN'i alır; Desktop taklidinde de", async () => {
+  // MÜKEMMEL-2e: hook.mjs:325 kendi env'ini kurar; sayaç dizini hook'a ulaşmalı
+  const isaret = `${process.env.CAGRI_SAYAC_DIZIN}/hook-isaret`;
+  fsS.rmSync(isaret, { force: true });
+  const [t] = hookTanimlari(kaynak("PreToolUse", "Bash",
+    sahte("require('fs').writeFileSync(process.env.CAGRI_SAYAC_DIZIN+'/hook-isaret','1')")), []);
+  const geri = desktopOrtamiUygula();
+  try { await tekHookKos(t, girdi("PreToolUse", "git status"), PROJE); } finally { geri(); }
+  assert.ok(fsS.existsSync(isaret), "hook CAGRI_SAYAC_DIZIN'siz koştu");
+}, { timeout: 60000 });
