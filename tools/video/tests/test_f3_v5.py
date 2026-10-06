@@ -89,9 +89,9 @@ def _b(c, yanit=None, engel=None):
         def tas(sistem, metin, sema, kareler=(), model=None, **_):
             if engel:
                 engel.wait()  # sıralı çağrıda k'ya ulaşılmaz → BrokenBarrierError
-            i = next(j for j, s in enumerate(("Alfa", "Beta", "Gama")) if s in metin)
+            i = next((j for j, s in enumerate(("Alfa", "Beta", "Gama")) if s in metin), 3)  # 3: konuşmasız parça (V54 6:10–6:45)
             c.append({"i": i, "sistem": sistem, "metin": metin, "kareler": list(kareler)})
-            return (yanit or {}).get(i) or {"form": _vf(f"o{i}", [["Alfa"], ["Beta", "alfa"], ["Gama"]][i]), "usage": {"input_tokens": 10, "output_tokens": 5},
+            return (yanit or {}).get(i) or {"form": _vf(f"o{i}", [["Alfa"], ["Beta", "alfa"], ["Gama"], []][i]), "usage": {"input_tokens": 10, "output_tokens": 5},
                                              "usd": 0.001, "sure": float(i + 1), "hata": None}
         return tas
     return kur
@@ -100,7 +100,10 @@ def _b(c, yanit=None, engel=None):
 def _e5(tmp_path, adaylar, c, **k):
     o = tmp_path / "ORN2.json"
     o.write_text('{"id": "ORN2"}', encoding="utf-8")
-    return yon.eleme(("S", P, SV, list(KARELER)), adaylar, lambda *a, **kw: {"form": None, "hata": "A yok", "usd": 0}, hafif.MODEL, ENV,
+    kr = [tmp_path / x.rsplit("/", 1)[1] for x in KARELER]  # A önbelleği kare dosyalarını okur
+    for x in kr:
+        x.write_bytes(b"k")
+    return yon.eleme(("S", P, SV, kr), adaylar, lambda *a, **kw: {"form": None, "hata": "A yok", "usd": 0}, hafif.MODEL, ENV,
                      lambda ms: [0.8] * len(ms), onbellek=tmp_path / "ab", b_kur=k.pop("b_kur", None) or _b(c),
                      yokla=lambda m, env, gorsel=False: None, ornek21=o, kayit=tmp_path / "k", **k)
 
@@ -116,7 +119,7 @@ def test_v5_v54_k_parca_k_cagri(tmp_path):
     for x in c:  # V21 sistemi + parçaya süzülmüş liste · yalnız aralıktaki kareler
         assert x["sistem"].startswith("S\n\n" + yon.EKSIKSIZLIK) and x["sistem"].endswith(yon.ORNEK_BASLIK + '{"id": "ORN2"}')
         assert "url: https://x.dev/a" in x["sistem"] and ("ad: Alfa" in x["sistem"]) == (x["i"] == 0)
-        assert x["metin"].startswith("Bu çağrı videonun") and x["kareler"] == [KARELER[x["i"]]]
+        assert x["metin"].startswith("Bu çağrı videonun") and [k.name for k in x["kareler"]] == [KARELER[x["i"]].rsplit("/", 1)[1]]
     c4 = []
     _e5(tmp_path, [f"{E1}@V54"], c4)
     assert len(c4) == 8
@@ -143,7 +146,7 @@ def test_v5_tavan_parca_basina(tmp_path):
     assert len(c) == 3 and s["b_usd"] == pytest.approx(0.003)
     c = []
     s = _e5(tmp_path, [f"{E1}@V5"], c, tavan_usd=yon._tahmin(E1, 3) * 2)  # ön tahmin = _tahmin × 3
-    assert c == [] and s["satirlar"][0].endswith(" · tavan")
+    assert c == [] and s["satirlar"][0].endswith(" · hata: tavan · çağrı 0")
 
 
 def test_v5_parca_hatasi(tmp_path):

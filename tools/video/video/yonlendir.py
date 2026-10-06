@@ -1,5 +1,6 @@
 """F1: model yönlendirme — adım başı sağlayıcı/model (durum.json "yonlendirme": {adim: {saglayici, model}}); tanımsız adım bugünkü taşıyıcı + d["model"]."""
 import base64
+import bisect
 import functools
 import hashlib
 import json
@@ -192,7 +193,10 @@ VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka
            "V3": "akıl yürütme düşük (reasoning effort low; supported_parameters'ta yoksa çağrı 0)",
            "V4": "düşük çözünürlük: kareler aynı, uzun kenar 512 px (yalnız istek gövdesinde; dosyalar değişmez)",
            "V2": "V0 + EKSİKSİZLİK KURALI + DEĞERLENDİR LİSTESİ (paket metninden mekanik ön çıkarım; model çağrısı yok)",
-           "V21": "V2 + örnek form (ELEME_ORNEK21; test videosundan olamaz)"}
+           "V21": "V2 + örnek form (ELEME_ORNEK21; test videosundan olamaz)",
+           "V5": "V21 sistemi + bolumle(k=3): parçalar paralel, formlar birlestir ile tek yanıt",
+           "V54": "V5, k=4"}
+PARCA = {"V5": 3, "V54": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
 ORNEK_BASLIK = "\n\nÖRNEK ÇIKTI (başka bir videonun onaylı formu; yalnız biçim ve ayrıntı düzeyi için, içeriğini kopyalama):\n"
 
 
@@ -487,6 +491,76 @@ def olcum_satirlari(a, b, d, metin):
     return s
 
 
+def _sn(s):
+    return functools.reduce(lambda a, x: a * 60 + int(x), s.split(":"), 0)
+
+
+def bolumle(paket, k):
+    """F3-V5: paket süresi k eşit parçaya, sınırlar en yakın bölüm (## Chapter) başlangıcına. Her parça = aralık notu + "## Segmentler"
+    öncesi (başlık · bölümler · açıklama bağlantıları; hepsinde) + aralıktaki konuşma/OCR/kare satırları; damgasız satır ilk parçada."""
+    from .metin import ss
+    ust, govde = (paket.split("\n## Segmentler\n", 1) + [""])[:2]
+    govde = "## Segmentler\n" + govde if govde else ""
+    bas = sorted({_sn(z[1]) for z in re.finditer(r"^(\d+(?::\d+)+) ", ust.split("\n## Chapter\n", 1)[-1].split("\n## ", 1)[0], re.M)})
+    zaman = lambda s: re.match(r"\[(\d+(?::\d+)+)\]", s) or re.search(r" · (\d+(?::\d+)+)$", s)
+    sure = int(z[1]) if (z := re.search(r"sure_sn (\d+)", ust)) else max([_sn(z[1]) for s in govde.splitlines() if (z := zaman(s))] or [0]) + 1
+    sinir = [0]
+    for i in range(1, k):
+        c = [b for b in bas if b > sinir[-1]]
+        sinir.append(min(c, key=lambda b: abs(b - sure * i / k)) if c else max(round(sure * i / k), sinir[-1] + 1))
+    parca = [[f"Bu çağrı videonun {ss(a)}–{ss(b)} aralığı; yalnız bu aralıktaki öğeleri yaz.", ust]
+             for a, b in zip(sinir, sinir[1:] + [max(sure, sinir[-1])])]
+    for s in govde.splitlines():
+        if s.startswith("## "):
+            for p in parca:
+                p.append(s)
+        else:
+            parca[max(bisect.bisect_right(sinir, _sn(z[1])) - 1, 0) if (z := zaman(s)) else 0].append(s)
+    return ["\n".join(p) for p in parca]
+
+
+ANAHTAR = {**{x: a for x, (a, _) in OLCUM.items()}, "iz": "ne"}  # F3-V5: birlestir tekilleştirme anahtarı
+
+
+def birlestir(formlar):
+    """F3-V5: parça formları (zaman sırasıyla) → tek form. videolar[] aynı id'de birleşir · ozet sırayla birleşim · bolumler ve
+    aciklama_baglantilari ilk dolu parçadan bir kez · ANAHTAR listeleri eslesir ile tekil · diğer listeler birebir tekil · gerisi ilk parça."""
+    if formlar and all(isinstance(f.get("videolar"), list) for f in formlar):
+        ids = dict.fromkeys(v.get("id") for f in formlar for v in f["videolar"])
+        return {"videolar": [birlestir([v for f in formlar for v in f["videolar"] if v.get("id") == i]) for i in ids]}
+    out = {}
+    for x in dict.fromkeys(a for f in formlar for a in f):
+        d = [f[x] for f in formlar if x in f]
+        if x == "ozet":
+            out[x] = " ".join(s for s in d if s)
+        elif x in ("bolumler", "aciklama_baglantilari"):
+            out[x] = next((s for s in d if s), d[0])
+        elif isinstance(d[0], list):
+            tut = []
+            for o in (o for s in d for o in s):
+                a = _k(o, ANAHTAR[x]) if x in ANAHTAR and isinstance(o, dict) else o
+                if not any(eslesir(x, a, b) if x in ANAHTAR else a == b for b, _ in tut):
+                    tut.append((a, o))
+            out[x] = [o for _, o in tut]
+        else:
+            out[x] = d[0]
+    return out
+
+
+def _parcali(tas, sis, g, k, ek, m):
+    """F3-V5: bolumle(g[1], k) parçaları paralel (≤ k) → birlestir. usd/usage toplam, sure en uzun; parça hatasında birleşim yok."""
+    from concurrent.futures import ThreadPoolExecutor
+    parca = bolumle(g[1], k)
+    kar = lambda p: {"kareler": [x for x in ek["kareler"] if f"{Path(x).name} · " in p]} if "kareler" in ek else {}
+    with ThreadPoolExecutor(len(parca)) as h:
+        ys = list(h.map(lambda p: tas(sis(p), p, g[2], **kar(p), model=m), parca))
+    us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
+    y = {"usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
+         "usd": None if None in us else sum(us), "sure": max(y.get("sure") or 0 for y in ys)}
+    hata = next((f"parça {i}: {y['hata']}" for i, y in enumerate(ys, 1) if y.get("hata")), None)
+    return {"form": None if hata else birlestir([y.get("form") or {} for y in ys]), **y, "hata": hata}
+
+
 def _yaz(y, d):
     y.parent.mkdir(parents=True, exist_ok=True)
     y.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -526,10 +600,10 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             ks = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
             durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "akil": akil}
             continue
-        orn = {"V1": ornek, "V21": ornek21}.get(v)
+        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21}.get(v)
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
-                 else f"{v} örneği yok" if v in ("V1", "V21") and not (orn and Path(orn).is_file())
+                 else f"{v} örneği yok" if v in ("V1", "V21", *PARCA) and not (orn and Path(orn).is_file())
                  else f"{v} örneği test videosundan ({Path(orn).stem})" if orn and f"=== VIDEO {Path(orn).stem} ===" in g[1]
                  else "V3: reasoning desteklenmiyor" if v == "V3" and not akil
                  else "fiyat yok" if m not in FIYAT else yokla(m, env, gorsel=bool(kare)))
@@ -546,19 +620,20 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         if x["neden"]:
             continue
         m, v, akil = x["m"], x["v"], x["akil"]
-        sistem = (g[0] + (f"\n\n{EKSIKSIZLIK}\n\nDEĞERLENDİR LİSTESİ (paket metninden mekanik çıkarım):\n{on_cikarim(g[1])}"
-                          if v in ("V2", "V21") else "")
-                  + (ORNEK_BASLIK + Path(ornek if v == "V1" else ornek21).read_text(encoding="utf-8") if v in ("V1", "V21") else ""))
+        n, b = PARCA.get(v, 1), "V21" if v in PARCA else v  # F3-V5: V5/V54 = V21 sistemi, liste parçaya süzülür
+        sis = lambda t, b=b: (g[0] + (f"\n\n{EKSIKSIZLIK}\n\nDEĞERLENDİR LİSTESİ (paket metninden mekanik çıkarım):\n{on_cikarim(t)}"
+                                      if b in ("V2", "V21") else "")
+                              + (ORNEK_BASLIK + Path(ornek if b == "V1" else ornek21).read_text(encoding="utf-8") if b in ("V1", "V21") else ""))
         ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
             if v == "V4" and kare else ek
         tas = b_kur(m, env, timeout=zaman, govde_ek={"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else None)
         while len(x["y"]) < 2 and (not x["y"] or gecer(x["y"][-1])):
-            tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare)
-            if cagri >= tavan_cagri or b_usd + tahmin > tavan_usd:
+            tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare) * n
+            if cagri + n > tavan_cagri or b_usd + tahmin > tavan_usd:
                 x["tavan"] = True
                 break
-            y = tas(sistem, g[1], g[2], **ek_v, model=m)
-            cagri, b_usd = cagri + 1, b_usd + (tahmin if y.get("usd") is None else y["usd"])
+            y = _parcali(tas, sis, g, n, ek_v, m) if n > 1 else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
+            cagri, b_usd = cagri + n, b_usd + (tahmin if y.get("usd") is None else y["usd"])
             x["y"].append(y)
             if kayit:  # puanlamadan önce diske (koşu 2: Jev hatasında 6 yanıt kayboldu)
                 _yaz(Path(kayit) / dosya(ad) / f"{len(x['y']) - 1}.json", {"yanit": y, "puan": None})
