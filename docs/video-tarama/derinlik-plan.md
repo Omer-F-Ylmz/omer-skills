@@ -515,6 +515,19 @@ maliyet yazmıyor; FIYAT 0.025/0.1 ile tahmin ≈ $0.013 + $0.014 = $0.027. Adı
 kırmızı 3b1535b · yeşil 9979dbc. Seçenekler (karar Ömer): (a) zaman aşımı yükselt — tavana koşan çıktı yine kesik/JSON değil, önerilmez;
 (b) B'ye max_tokens (+ reasoning sınırı; nex supported_parameters yoklanmadı, canlı 0 kuralı) — yeni B varyantı; (c) qwen3.7-flash.
 
+O58 (F3-ELEME; sayaç elle, canlı 0): Ömer kararı — nex bırakıldı (3 koşunun 2'sinde 131072 kaçak üretim). Yöntem değişti: en ucuzu tek
+tek yoklamak yerine güvenilir adaylar tek koşuda yarışır, kazananı kalite belirler. Gerekçe: A (Claude) ~$0.11/çağrı → ≤ $0.02'lik her B
+%80+ tasarruf (takas AL bölgesi); en dipteki modeller 3 kez çöktü (4-görsel sınırı · takma ad · kaçak üretim).
+Adım 1: call_logs gövdeleri "[omitted: call log artifact size limit exceeded]", request_detail_logs boş → parametre farkı ölçülemedi
+(app.log "2 msgs"; nex satırlarında VISION-BRIDGE yok → kapatma başlığı etkili). id 4/5 aynı girdi sha256 (app.log:298/:306); id 5
+tokens_cache_read 11392 → 22832 = 11440 + 11392 önbellek muhasebesi; _usd prompt_tokens'a önbelleği eklemez (test sabit).
+Adım 2: omni_cagir max_tokens 32768; finish_reason length → form None, "çıktı tavanı (max_tokens 32768)", usd FIYAT'tan · ab onbellek=
+A kolu disk önbelleği (sha256 sistem+metin+şema+kare + model + tekrar; hatalı yanıt yazılmaz; B yok). Adım 3 (1 GET, 464 model → 45 bantta):
+openai/gpt-6-luna $0.0045 (en yeni GPT-6, ucuz) · cohere/command-a-plus $0.0135 (yeni amiral) · qwen/qwen3.7-plus $0.0125 (plus sınıfı) ·
+mistralai/mistral-large-2512 $0.0165 (amiral, akıl yürütmesiz) · google/gemini-3.5-flash-lite $0.0195 (+gorsel 3e-7/kare; tavana yakın).
+Hepsi image + structured_outputs + max_tokens; mistral dışı reasoning parametreli. Kırmızı 20a75a0 · yeşil 7730054.
+KALAN Adım 4 (eleme.ps1 + yon.eleme + testler) — sayaç 34'te sığmadı, sonraki oturum.
+
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
 ruvnet/ruflo); sürüm numarasıyla kurulu plugin'de tag → commit → tarih (derinlik-3.md S3: bugün yalnız sha ile kurulu plugin'de `commits`
