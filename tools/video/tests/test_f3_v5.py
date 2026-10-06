@@ -247,3 +247,119 @@ def test_tek_cagri_etkilenmez(tmp_path):
     c = []
     s = _e5(tmp_path, [f"{E1}@V21"], c)
     assert c and not any(x["metin"].startswith("Bu çağrı videonun") for x in c) and not any(" · yeniden " in x for x in s["satirlar"])
+
+
+# F3-V6: tam örnek · mekanik bölümler · sabit sistem öneki · yük dengesi · son geçiş
+def _form6(tmp_path, ad, dolu):
+    (tmp_path / f"{ad}.json").write_text(json.dumps({**{x: ([{"x": 1}] if x in dolu else []) for x in yon.OLCUM}, "ozet": "o" * len(ad)}), encoding="utf-8")
+    return tmp_path / f"{ad}.json"
+
+
+def test_ornek_sec6_alti_liste(tmp_path):
+    h = list(yon.OLCUM)
+    ys = [_form6(tmp_path, "uzunuzun", h), _form6(tmp_path, "kisa", h), _form6(tmp_path, "k", h[:4]), _form6(tmp_path, "b2QkhmQ0sT0", h)]
+    assert yon.ornek_sec6(ys) == (ys[1], [])
+
+
+def test_ornek_sec6_eksik_rapor(tmp_path):
+    h = list(yon.OLCUM)
+    ys = [_form6(tmp_path, "dort", h[:4]), _form6(tmp_path, "bes", [x for x in h if x != "site_ui"])]
+    assert yon.ornek_sec6(ys) == (ys[1], ["site_ui"])
+
+
+P2 = "\n".join(["=== VIDEO vid1 · süre 9:00 · kare görseli 4 ===", "# vid1 · B · K · süre 9:00 · sure_sn 540 · short: false · dil tr · https://youtu.be/vid1",
+                "## Chapter", *[f"{i}:00 Bölüm {i}" for i in range(9)], "## Segmentler", "[5:00] Alfa.", "[7:00] Gama.",
+                "## Kareler", *[f"C:/c/kare_0{i}.jpg · {i - 1}:30" for i in range(1, 5)]])
+P3 = "\n".join(["=== VIDEO vid1 · süre 4:00 · kare görseli 1 ===", "# vid1 · B · K · süre 4:00 · sure_sn 240 · short: false · dil tr · https://youtu.be/vid1",
+                "## Chapter", "0:00 A", "1:00 B", "2:00 C", "3:00 D", "## Segmentler", "[0:40] Önce Alfa.", "[3:30] Sonra Gama.",
+                "## Kareler", "C:/c/kare_01.jpg · 0:30"])
+
+
+def test_bolumle_yuk_dengesi():
+    assert yon.bolumle(P2, 2)[1].startswith("Bu çağrı videonun 4:00–9:00")  # süreye göre (V5/V54 değişmez)
+    p = yon.bolumle(P2, 2, yuk=True)  # yük = metin/4 + kare × 1000 → 2 kare | 2 kare
+    assert p[1].startswith("Bu çağrı videonun 2:00–9:00") and p[0].count("kare_0") == 2
+
+
+def test_bolumle_bos_parca_k_duser():
+    assert [x.splitlines()[0] for x in yon.bolumle(P3, 3, yuk=True)] == \
+        [f"Bu çağrı videonun {a}–{b} aralığı; yalnız bu aralıktaki öğeleri yaz." for a, b in (("0:00", "1:00"), ("1:00", "4:00"))]
+
+
+SON_OK = {"ozet": "bütün özet", "belirsizlikler": ["s1"], "ek_adaylar": [_aday("Delta"), _aday("alfa")], "ek_iddialar": [],
+          "ek_kurulum_komutlar": [], "ek_promptlar": [], "ek_site_ui": []}
+
+
+def _b6(c, son=None):
+    ic = _b(c)
+
+    def kur(m, env, timeout=600, govde_ek=None):
+        t = ic(m, env)
+
+        def tas(sistem, metin, sema, kareler=(), model=None, **_):
+            if sistem == yon.SON_SISTEM:
+                c.append({"i": "son", "metin": metin, "kareler": list(kareler), "sema": sema})
+                return son or {"form": SON_OK, "usage": {"input_tokens": 7, "output_tokens": 3}, "usd": 0.001, "sure": 1.0, "hata": None}
+            return t(sistem, metin, sema, kareler, model=model)
+        return tas
+    return kur
+
+
+def _e6(tmp_path, adaylar, c, paket=P, **k):
+    o = tmp_path / "ORN6.json"
+    o.write_text('{"id": "ORN6"}', encoding="utf-8")
+    kr = [tmp_path / x.rsplit("/", 1)[1] for x in KARELER]
+    for x in kr:
+        x.write_bytes(b"k")
+    return yon.eleme(("S", paket, SV, kr), adaylar, lambda *a, **kw: {"form": None, "hata": "A yok", "usd": 0}, hafif.MODEL, ENV,
+                     lambda ms: [0.8] * len(ms), onbellek=tmp_path / "ab", b_kur=k.pop("b_kur", None) or _b6(c),
+                     yokla=lambda m, env, gorsel=False: None, ornek6=o, kayit=tmp_path / "k", **k)
+
+
+def test_v6_parca_talimatlari_sistem_ozdes(tmp_path):
+    c = []
+    _e6(tmp_path, [f"{E1}@V63"], c)
+    p = [x for x in c if x["i"] != "son"]
+    assert len(p) == 6 and len({x["sistem"] for x in p}) == 1
+    assert p[0]["sistem"] == "S\n\n" + yon.EKSIKSIZLIK + yon.ORNEK_BASLIK + '{"id": "ORN6"}'
+    for x in p:  # parçaya özel her şey kullanıcı mesajının başında; bolumler hepsinde boş, linkler yalnız 1. parçada
+        assert x["metin"].startswith(yon.PARCA_BOLUM) and (yon.PARCA_LINK in x["metin"]) == ("Bu çağrı videonun 0:00" not in x["metin"])
+        assert "DEĞERLENDİR LİSTESİ" in x["metin"] and ("ad: Alfa" in x["metin"]) == (x["i"] == 0) and "Bu çağrı videonun" in x["metin"]
+
+
+def test_v6_son_gecis_basari(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c)
+    y = _kayit(tmp_path, f"{E1}@V63")
+    v = y["form"]["videolar"][0]
+    assert v["bolumler"] == [{"zaman": "0:00", "baslik": "Giriş"}, {"zaman": "2:50", "baslik": "Kurulum"}, {"zaman": "6:10", "baslik": "Deneme"}]
+    assert v["ozet"] == "bütün özet" and [a["ad"] for a in v["adaylar"]] == ["Alfa", "Beta", "Gama", "Delta"] and "s1" in v["belirsizlikler"]
+    assert pt._denet(y["form"], SV, "form") == []
+    son = [x for x in c if x["i"] == "son"]
+    assert len(son) == 2 and son[0]["kareler"] == [] and "- adaylar: Alfa" in son[0]["metin"] and "ALFA EKRAN" in son[0]["metin"]
+    assert "kare_01" not in son[0]["metin"] and set(son[0]["sema"]["properties"]) == set(SON_OK)
+    assert y["usd"] == pytest.approx(0.004) and y["usage"]["input_tokens"] == 37 and "son geçiş" not in s["satirlar"][0]
+
+
+def test_v6_son_gecis_hata(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c, b_kur=_b6(c, {"form": None, "usage": {}, "usd": 0.001, "sure": 1.0, "hata": "boom"}))
+    y = _kayit(tmp_path, f"{E1}@V63")
+    v = y["form"]["videolar"][0]
+    assert y["hata"] is None and v["ozet"] == "o0 o1 o2" and [a["ad"] for a in v["adaylar"]] == ["Alfa", "Beta", "Gama"] and len(v["bolumler"]) == 3
+    assert y["usd"] == pytest.approx(0.004) and " · son geçiş: hata" in s["satirlar"][0]
+
+
+def test_v6_tavan_son_gecis_sayilir(tmp_path):
+    c = []
+    _e6(tmp_path, [f"{E1}@V63"], c, tavan_cagri=7)  # (3 + 1) + 4 > 7 → ikinci yanıt yok
+    assert len(c) == 4
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c, tavan_cagri=3)
+    assert c == [] and s["satirlar"][0].endswith(" · hata: tavan · çağrı 0")
+
+
+def test_v6_bos_parca_satirda_k(tmp_path):
+    c = []
+    s = _e6(tmp_path, [f"{E1}@V63"], c, paket=P3)
+    assert len([x for x in c if x["i"] != "son"]) == 4 and " · k 3→2" in s["satirlar"][0]
