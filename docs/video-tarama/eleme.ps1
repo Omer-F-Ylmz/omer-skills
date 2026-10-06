@@ -5,6 +5,7 @@ if (-not $env:ELEME_ORNEK) { $env:ELEME_ORNEK = "$PSScriptRoot\..\..\.kos\2026-0
 if (-not $env:ELEME_ORNEK21) { $env:ELEME_ORNEK21 = "$PSScriptRoot\..\..\.kos\2026-10-03-short\form\vfLtsYbtJf0.json" }  # F3-V2 V21 örneği (yon.ornek_sec)
 if (-not $env:ELEME_ORNEK6) { $env:ELEME_ORNEK6 = "$PSScriptRoot\..\..\.kos\2026-09-30-uzun-2\form\Pj2FnVE-W3c.json" }  # F3-V6 V6/V63 örneği (yon.ornek_sec6; 6 liste dolu, doğrulamada kullanılmaz)
 if (-not $env:ELEME_ORNEK9) { $env:ELEME_ORNEK9 = "$PSScriptRoot\..\..\.kos\2026-09-30-uzun\form\Ysr7oNDajJI.json" }  # F3-V9 V9 örneği (yon.ornek_sec9; zengin, doğrulamada kullanılmaz)
+if (-not $env:ELEME_KOS) { $env:ELEME_KOS = "$PSScriptRoot\..\..\.kos" }  # F3-V11 ayrıntı örneği kaynağı (Claude formları; yon.ayrinti_ornegi)
 @'
 import os, sys, time
 from pathlib import Path
@@ -35,8 +36,10 @@ ts, ornek = time.strftime('%Y%m%d-%H%M%S'), Path(os.environ['ELEME_ORNEK']) if o
 ornek21 = Path(os.environ['ELEME_ORNEK21']) if os.environ.get('ELEME_ORNEK21') else None
 ornek6 = Path(os.environ['ELEME_ORNEK6']) if os.environ.get('ELEME_ORNEK6') else None
 ornek9 = Path(os.environ['ELEME_ORNEK9']) if os.environ.get('ELEME_ORNEK9') else None
+ayrinti = yon.ayrinti_ornegi(sorted(Path(os.environ['ELEME_KOS']).glob('*/form/*.json')), g[2]) if os.environ.get('ELEME_KOS') else None  # F3-V11 (yon.AYRINTI_HARIC hariç)
+print('V11 ayrıntı:', ' · '.join(x + ' ' + a['video'] + ' ' + str(sum(len(str(v)) for v in a['oge'].values())) + ' kr' for x, a in (ayrinti or {}).items()))
 print('varyantlar:', ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()), '· V1 örneği', ornek, '· V21 örneği', ornek21)
-s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, ornek21=ornek21, ornek6=ornek6, ornek9=ornek9, boyut=boyut,
+s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, ornek21=ornek21, ornek6=ornek6, ornek9=ornek9, ayrinti=ayrinti, boyut=boyut,
              kayit=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else p.parent.parent / 'eleme' / ts,
              yeniden=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else None)  # yeniden: B çağrısı 0, kayıttan puanla
 for r in (s.get('rapor') or {}).values():  # F3-V8: dolu alan + boyut satırı rapora (konsol + md)
