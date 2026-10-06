@@ -36,6 +36,13 @@ def test_kare_gorsel_dogrulamasi_siniflar(sonuc, kaynak, u, az, dg):
     assert (r["u"]["kareden_okunanlar"], r["a_dayanaksiz"], r["dg"]["A"]) == (u, az, dg)
 
 
+@pytest.mark.parametrize("x, o", [("kareden_okunanlar", {yon.OLCUM["kareden_okunanlar"][0]: "ruflo panel başlık qqq"}),
+                                  ("adaylar", {"ad": "ruflo superpowers claude", "karede_gorulen": "panel"})])
+def test_kare_ogesi_daginik_eslesme_dogrulanamadi(x, o):
+    """MÜKEMMEL-4b: kelimeler bölümlere dağınık (tüm metinde dayanaklı, tek kaynakta değil) kare öğesi → None değil doğrulanamadı."""
+    assert yon.kanit(x, o, M) == "doğrulanamadı"
+
+
 def test_eslesen_oge_tek_sayilir():
     r = yon.k3([_f("Ruflo")], [_f("Ruflo")], M)
     assert r["u"]["adaylar"] == 1
