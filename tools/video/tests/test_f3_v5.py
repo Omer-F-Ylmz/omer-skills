@@ -2,6 +2,7 @@
 birleşir (eslesir ile tekil). Testler sahte, canlı çağrı 0."""
 import json
 import threading
+import time
 
 import pytest
 
@@ -125,7 +126,8 @@ def test_v5_v54_k_parca_k_cagri(tmp_path):
     assert len(c4) == 8
 
 
-def test_v5_paralel(tmp_path):
+def test_v5_paralel(tmp_path, monkeypatch):
+    monkeypatch.setattr(yon, "PARALEL_TAVAN", 3, raising=False)  # F3-V5b: tavan 1 (OmniRoute); paralellik tavan kadar
     c = []
     _e5(tmp_path, [f"{E1}@V5"], c, b_kur=_b(c, engel=threading.Barrier(3, timeout=5)))
     assert len(c) == 6
@@ -160,3 +162,88 @@ def test_v5_bilinmeyen_varyant_cagri_0(tmp_path):
     c = []
     s = _e5(tmp_path, [f"{E1}@V55"], c)
     assert c == [] and s["satirlar"] == [f"{E1}@V55 · hata: bilinmeyen varyant: V55 · çağrı 0"]
+
+
+# F3-V5b: OmniRoute kabul sınırı (chatBodyAdmission.ts — 503 chat_admission_busy, Retry-After 2)
+OK = (200, {"choices": [{"message": {"content": '{"a": 1}'}}], "usage": {"prompt_tokens": 10, "completion_tokens": 5}}, {})
+KABUL = (503, {"error": {"message": "Chat admission capacity is temporarily unavailable. Retry shortly.", "code": "chat_admission_busy"}}, {})
+
+
+def _omni(yanitlar):
+    it, u = iter(yanitlar), []
+    return yon.omni_cagir(E1, ENV, gonder=lambda url, govde, bas: next(it), uyku=u.append)("s", "t", {}), u
+
+
+def test_omni_503_kabul_yeniden_basari():
+    r, u = _omni([KABUL, OK])
+    assert r["hata"] is None and r["yeniden"] == 1 and len(u) == 1 and 2 <= u[0] <= 2.5
+    assert r["usd"] == _omni([OK])[0]["usd"]  # usd yalnız başarılı yanıttan
+
+
+def test_omni_3_yeniden_sonra_hata():
+    r, u = _omni([KABUL] * 4)
+    assert r["hata"].startswith("ölçülemedi: HTTP 503") and r["yeniden"] == 3 and r["usd"] == 0.0
+    assert [int(x) for x in u] == [2, 4, 8] and all(x - int(x) <= 0.5 for x in u)
+
+
+def test_omni_retry_after_uyulur():
+    r, u = _omni([(503, {}, {"retry-after": "7"}), (429, {}, {"Retry-After": "60"}), OK])
+    assert r["hata"] is None and r["yeniden"] == 2 and u == [7.0, 15]
+
+
+def test_omni_diger_hata_yeniden_yok():
+    for y in [(400, {"error": {"message": "Retry later"}}, {}), (503, {"error": {"message": "upstream down"}}, {})]:
+        r, u = _omni([y, OK])
+        assert r["hata"].startswith(f"ölçülemedi: HTTP {y[0]}") and r["yeniden"] == 0 and u == []
+
+
+def test_post_hata_dali_basliklar(monkeypatch):
+    import email.message
+    import io
+    import urllib.error
+    from video import ikinci_goz as ig
+    h = email.message.Message()
+    h["Retry-After"] = "2"
+
+    def ac(*a, **k):
+        raise urllib.error.HTTPError("http://x", 503, "busy", h, io.BytesIO(b'{"error": {}}'))
+    monkeypatch.setattr(ig.urllib.request, "urlopen", ac)
+    assert ig._post("http://x", {}, {}, basliklar=True) == (503, {"error": {}}, {"Retry-After": "2"})
+    assert ig._post("http://x", {}, {}) == (503, {"error": {}})
+
+
+def test_v5_es_zaman_tavan(tmp_path):
+    c, an, en, kilit = [], [0], [0], threading.Lock()
+    ic = _b(c)
+
+    def kur(m, env, timeout=600, govde_ek=None):
+        t = ic(m, env)
+
+        def tas(*a, **k):
+            with kilit:
+                an[0] += 1
+                en[0] = max(en[0], an[0])
+            time.sleep(0.05)
+            try:
+                return t(*a, **k)
+            finally:
+                with kilit:
+                    an[0] -= 1
+        return tas
+    _e5(tmp_path, [f"{E1}@V5"], c, b_kur=kur)
+    assert yon.PARALEL_TAVAN == 1  # OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT varsayılanı
+    assert len(c) == 6 and en[0] <= yon.PARALEL_TAVAN
+    assert _kayit(tmp_path, f"{E1}@V5")["sure"] < 1  # duvar saati, parça sure'lerinin en büyüğü (3.0) değil
+
+
+def test_v5_yeniden_satirda(tmp_path):
+    c = []
+    s = _e5(tmp_path, [f"{E1}@V5"], c, b_kur=_b(c, {1: {"form": None, "usage": {}, "usd": 0.0, "sure": 1.0, "hata": "ölçülemedi: HTTP 503", "yeniden": 3}}))
+    assert _kayit(tmp_path, f"{E1}@V5")["yeniden"] == 3
+    assert any(x.startswith(f"{E1}@V5 ") and " · yeniden 3" in x for x in s["satirlar"])
+
+
+def test_tek_cagri_etkilenmez(tmp_path):
+    c = []
+    s = _e5(tmp_path, [f"{E1}@V21"], c)
+    assert c and not any(x["metin"].startswith("Bu çağrı videonun") for x in c) and not any(" · yeniden " in x for x in s["satirlar"])
