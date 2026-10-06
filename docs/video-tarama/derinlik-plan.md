@@ -859,3 +859,9 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Sızdıran: cc-kopru hook.mjs:325 hook'u kendi env'iyle (hookOrtami + CLAUDE_PROJECT_DIR=gerçek proje) koşturuyor, CAGRI_SAYAC_DIZIN düşüyor; hijyen düzeltmesi bırakıldı, sayaç bağlaması korur.
 - parti.py: kendiliğinden başlatma defterde adim=omniroute_baslat (sure_s); _defter çağrı saymaz.
 - Suite boyunca ana 15→17 (fark 2 = ana Bash + Agent), alt 0→7 (suite-kosucu 7 araç). K2 yeşil.
+
+## O85 — MÜKEMMEL-2e: test altyapısı hijyeni (canlı 0)
+
+- Madde 1: tools/tests yetim suite'ti (1 dosya test_cagri_sayac.py, 14 test, hepsi yeşil); suite-kosucu.md 7. komut olarak eklendi, CAGRI_SAYAC_DIZIN'li (a2f4c48 kırmızı · 621636f yeşil; test_21a beklentisi 7'ye çekildi).
+- Madde 2: hook.mjs:325 öncülü çürütüldü — hookOrtami process.env'i yayıyor, CAGRI_SAYAC_DIZIN hook'a Desktop taklidinde de ulaşıyor; koruma testi ilk koşuda yeşil (934489f), hook.mjs değişmedi.
+- Kapanış: 7 suite 1686 yeşil (video 1026 · jev 81 · tests 321 · cc-kopru 182 · mcp-jev 40 · dotnet 22 · tools/tests 14); gitleaks temiz.

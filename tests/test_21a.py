@@ -24,9 +24,9 @@ def test_suite_kosucu_yalniz_bash_read_sonnet():
 def test_suite_kosucu_alti_sabit_komut_ve_kisa_donus():
     _, g = _ajan()
     for k in ("tools/video", "tools/jev", "python -m pytest -q -p no:cacheprovider tests", "tools/cc-kopru",
-              "mcp/jev", "templates/jev-dotnet/Jev.Tests/Jev.Tests.csproj"):
+              "mcp/jev", "templates/jev-dotnet/Jev.Tests/Jev.Tests.csproj", "tools/tests"):
         assert k in g
-    assert "en fazla 6 satır" in g
+    assert "en fazla 7 satır" in g
 
 
 def test_suite_kosucu_kok_suite_ortam_pythonu_ile():
