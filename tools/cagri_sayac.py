@@ -1,8 +1,10 @@
 """KÜÇÜK-2 çağrı sayacı hook'u (proje .claude/settings.json).
 
-SessionStart → .claude/cagri-sayac.txt = 0. PostToolUse/PostToolUseFailure → +1
-(alt ajan içi çağrılar sayılmaz); her 10'da .claude/dalga.md ilk satırı
-"çağrı N/45"; 40'ta ve ≥45'te modele additionalContext. Her hata sessizce geçer.
+SessionStart → .claude/cagri-sayac.txt = 0 (alt ajan: cagri-sayac-alt.txt = 0).
+PostToolUse/PostToolUseFailure → +1; alt ajan içi çağrılar ana bütçeye (45)
+girmez, cagri-sayac-alt.txt'de ayrı sayılır. Her 10'da modele "çağrı N/45 · alt M",
+40'ta ve ≥45'te uyarı additionalContext. dalga.md'ye dokunmaz. CAGRI_SAYAC_DIZIN
+verilirse sayaç dosyaları orada (test ortamı). Her hata sessizce geçer.
 """
 import json
 import os
@@ -12,37 +14,37 @@ from pathlib import Path
 TAVAN = 45
 
 
+def _oku(dosya):
+    try:
+        return int(dosya.read_text(encoding="utf-8").strip())
+    except (OSError, ValueError):
+        return 0
+
+
 def main():
     try:
         olay = json.loads(sys.stdin.read() or "{}")
-        claude = Path(os.environ.get("CLAUDE_PROJECT_DIR") or ".") / ".claude"
-        sayac = claude / "cagri-sayac.txt"
+        dizin = Path(os.environ.get("CAGRI_SAYAC_DIZIN")
+                     or Path(os.environ.get("CLAUDE_PROJECT_DIR") or ".") / ".claude")
+        sayac = dizin / "cagri-sayac.txt"
+        alt = dizin / "cagri-sayac-alt.txt"
         ad = olay.get("hook_event_name")
         if ad == "SessionStart":
             sayac.write_text("0", encoding="utf-8")
+            alt.write_text("0", encoding="utf-8")
             return
         if olay.get("agent_id"):
+            alt.write_text(str(_oku(alt) + 1), encoding="utf-8")
             return
-        try:
-            n = int(sayac.read_text(encoding="utf-8").strip())
-        except (OSError, ValueError):
-            n = 0
-        n += 1
+        n = _oku(sayac) + 1
         # ponytail: oku-yaz kilitsiz; paralel çağrılarda sayım kaybı kabul (KÜÇÜK-2)
         sayac.write_text(str(n), encoding="utf-8")
-        if n % 10 == 0:
-            dalga = claude / "dalga.md"
-            if dalga.exists():
-                metin = dalga.read_bytes().decode("utf-8")
-                ilk, _, kalan = metin.partition("\n")
-                son = "\r\n" if ilk.endswith("\r") else "\n"
-                if ilk.startswith("çağrı "):
-                    metin = kalan
-                dalga.write_bytes(f"çağrı {n}/{TAVAN}{son}{metin}".encode("utf-8"))
         if n == 40:
             mesaj = f"çağrı 40/{TAVAN}: yeni madde başlatma"
         elif n >= TAVAN:
             mesaj = f"çağrı {n}/{TAVAN}: commit + push ve DUR"
+        elif n % 10 == 0:
+            mesaj = f"çağrı {n}/{TAVAN} · alt {_oku(alt)}"
         else:
             return
         # ASCII JSON (\u kaçışlı): cp1252 konsolda print UnicodeEncodeError vermesin
