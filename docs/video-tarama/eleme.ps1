@@ -20,17 +20,19 @@ if hafif.GORSEL and not kareler:
 # supported_parameters: OpenRouter katalog GET (ücretsiz, anahtarsız; model çağrısı değil)
 liste = ig._post('https://openrouter.ai/api/v1/models', None, {})[1].get('data') or []
 destek = {'openrouter/' + x['id']: x.get('supported_parameters') or [] for x in liste if 'openrouter/' + x.get('id', '') in {a.split('@')[0] for a in adaylar}}
-t = c.Tasiyici(env=env, en_fazla=2, istek_tavan=4)  # tek kör Jev partisi, ≤ 4 istek
-puanla = lambda ms: [x['kalite'] for x in t.yargila(ms, {'kalite': kur.KALITE_Q})]
+# tek kör Jev partisi; istek tavanı = puanlanacak yanıt sayısı (eleme B'den önce ≤ yon.JEV_TAVAN olduğunu denetler)
+puanla = lambda ms: [x['kalite'] for x in c.Tasiyici(env=env, en_fazla=2, istek_tavan=len(ms)).yargila(ms, {'kalite': kur.KALITE_Q})]
 g = (pt.SISTEM, '=== VIDEO ' + v + ' ===\n' + p.read_text(encoding='utf-8'), pt.sema([v], iz=True), kareler)
 print('kareler', len(kareler), '· adaylar', len(adaylar))
 ts, ornek = time.strftime('%Y%m%d-%H%M%S'), Path(os.environ['ELEME_ORNEK']) if os.environ.get('ELEME_ORNEK') else None
 print('varyantlar:', ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()), '· V1 örneği', ornek)
-s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, kayit=p.parent.parent / 'eleme' / ts)
+s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek,
+             kayit=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else p.parent.parent / 'eleme' / ts,
+             yeniden=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else None)  # yeniden: B çağrısı 0, kayıttan puanla
 for r in s['satirlar']:
     print(r)
 print(s['oneri'])
-print(f"toplam: A ${s['a_usd']:.4f} · B ${s['b_usd']:.4f} · Jev ≤4 istek (usd ölçülmüyor)")
+print(f"toplam: A ${s['a_usd']:.4f} · B ${s['b_usd']:.4f} · Jev ≤{s.get('jev_istek', 4)} istek (usd ölçülmüyor)")
 for ad, r in (s.get('rapor') or {}).items():
     print(ad, '·', r['ozet'])
 if s.get('rapor') and os.environ.get('ELEME_DOC'):

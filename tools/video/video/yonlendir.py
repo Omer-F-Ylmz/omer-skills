@@ -257,8 +257,11 @@ def _tahmin(m, kare):
     return (15000 * f["girdi"] + 6000 * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0)
 
 
+JEV_TAVAN = 12  # F3-ÖLÇÜM: puanlama isteği üst sınırı (A 2 + aday 5 × 2); koşu 2 TavanHata ile sonuçsuz kaldı
+
+
 def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_kur=omni_cagir, yokla=omni_yokla,
-          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, kucult=_kucult, kayit=None):
+          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, kucult=_kucult, kayit=None, yeniden=None):
     """F3-ELEME adım 4: tek girdi g (sistem, metin, şema, kareler), adaylar tek koşuda. Ön kontrol (kol sabit · varyant · FIYAT · yokla)
     geçmeyen çağrı 0. Aday başı çağrı 1; şema geçerse 2. Sıradaki çağrı B tavanını (çağrı · $; tahmin = adayın son usd'si, yoksa _tahmin)
     aşacaksa yapılmaz → "tavan". usd None (zaman aşımı) harcamaya tahminle girer. supported_parameters'ta reasoning varsa effort minimal.
@@ -279,15 +282,26 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
     for ad in adaylar:
         m, _, v = ad.partition("@")
         v, akil = v or "V0", "reasoning" in (destek or {}).get(m, ())
+        if yeniden:  # F3-ÖLÇÜM: B çağrısı 0, kayıttaki yanıtlar
+            ys = [json.loads(f.read_text(encoding="utf-8"))["yanit"] for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
+            durum[ad] = {"neden": None if ys else "kayıt yok", "y": ys, "akil": akil}
+            continue
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
                  else "V1 örneği yok" if v == "V1" and not (ornek and Path(ornek).is_file())
                  else f"V1 örneği test videosundan ({oid})" if v == "V1" and f"=== VIDEO {oid} ===" in g[1]
                  else "V3: reasoning desteklenmiyor" if v == "V3" and not akil
                  else "fiyat yok" if m not in FIYAT else yokla(m, env, gorsel=bool(kare)))
-        x = durum[ad] = {"neden": neden, "y": [], "akil": akil}
-        if neden:
+        durum[ad] = {"neden": neden, "y": [], "akil": akil, "m": m, "v": v}
+    acik = [x for x in durum.values() if not x["neden"]]
+    gerek = 2 + sum(len(x["y"]) if yeniden else 2 for x in acik)  # Jev: A 2 + çağrılabilecek en fazla B yanıtı
+    if gerek > JEV_TAVAN:
+        for x in acik:
+            x.update(neden="TAVAN jev", y=[])
+    for ad, x in [] if yeniden else durum.items():
+        if x["neden"]:
             continue
+        m, v, akil = x["m"], x["v"], x["akil"]
         sistem = g[0] + ORNEK_BASLIK + Path(ornek).read_text(encoding="utf-8") if v == "V1" else g[0]
         ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
             if v == "V4" and kare else ek
@@ -300,6 +314,8 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             y = tas(sistem, g[1], g[2], **ek_v, model=m)
             cagri, b_usd = cagri + 1, b_usd + (tahmin if y.get("usd") is None else y["usd"])
             x["y"].append(y)
+            if kayit:  # puanlamadan önce diske (koşu 2: Jev hatasında 6 yanıt kayboldu)
+                _yaz(Path(kayit) / dosya(ad) / f"{len(x['y']) - 1}.json", {"yanit": y, "puan": None})
     gecen = {ad: [y for y in x["y"] if gecer(y)] for ad, x in durum.items()}
     gecen = {ad: v for ad, v in gecen.items() if v}
     a_usd, ozet, karar, rapor, ya, pa, pb = 0.0, {}, {}, {}, [], [], {}
@@ -361,4 +377,4 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         if x.get("tavan"):
             p.append("tavan")
         satirlar.append(" · ".join(p))
-    return {"satirlar": satirlar, "oneri": oneri, "a_usd": a_usd, "b_usd": b_usd, "rapor": rapor}
+    return {"satirlar": satirlar, "oneri": oneri, "a_usd": a_usd, "b_usd": b_usd, "rapor": rapor, "jev_istek": gerek}
