@@ -701,14 +701,19 @@ def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None):
     ra, rb = list(map(olc, a_formlar)), list(map(olc, b_formlar))
     bb = {id(y) for r in rb for x in K3_ALAN for y in r[x]["bul"]}
     kayip = {s: sum(ka[id(y)] == s and id(y) not in bb for x in K3_ALAN for y in u[x]) for s in ("konuşma", "kare", "açıklama")}
+    bn = [sum(len([o for o in _ogeler(f, x) if _k(o, OLCUM[x][0])]) for x in K3_ALAN) for f in b_formlar]
     return {"A": ort(ra), "B": ort(rb), "u": {x: len(u[x]) for x in K3_ALAN}, "kayip": kayip, "a_dayanaksiz": len(az),
-            "dg": {"A": len(dg[1]), "B": len(dg[0])}}
+            "dg": {"A": len(dg[1]), "B": len(dg[0])},
+            "n": {"geri": sum(map(len, u.values())), "dogruluk": sum(bn) / len(bn) if bn else 0, "kareden_okunanlar": len(u["kareden_okunanlar"])}}
 
 
 def k3_hukum(r, gorev, gorev_bant, *, short, esik=0.05):
-    """MÜKEMMEL-3a K3 hükmü: B ≥ A − esik (tum geri · tum doğruluk · short'ta kareden_okunanlar geri) ve görev B ≥ A − gorev_bant."""
+    """MÜKEMMEL-3a K3 hükmü: B ≥ A − bant (tum geri · tum doğruluk · short'ta kareden_okunanlar geri) ve görev B ≥ A − gorev_bant.
+    MÜKEMMEL-4: bant = max(esik, 1/n), n = ölçünün paydası (r["n"]; yoksa esik)."""
     ks = [("geri", "tum", "geri"), ("doğruluk", "tum", "dogruluk")] + ([("kareden_okunanlar", "kareden_okunanlar", "geri")] if short else [])
-    kal = [e for e, x, m in ks if None not in (r["A"][x][m], r["B"][x][m]) and round(r["B"][x][m] - r["A"][x][m] + esik, 6) < 0]
+    bant = lambda m: max(esik, 1 / n) if (n := r.get("n", {}).get(m)) else esik  # noqa: E731
+    kal = [e for e, x, m in ks if None not in (r["A"][x][m], r["B"][x][m])
+           and round(r["B"][x][m] - r["A"][x][m] + bant(x if x != "tum" else m), 6) < 0]
     kal += ["görev"] * (round(gorev[1] - gorev[0] + gorev_bant, 6) < 0)
     return "kaldı: " + ", ".join(kal) if kal else "geçti"
 
