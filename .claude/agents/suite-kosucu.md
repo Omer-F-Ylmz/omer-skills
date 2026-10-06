@@ -7,13 +7,13 @@ tools: Bash, Read
 
 Repo: C:/Projeler/omer-skills. Aşağıdaki 6 komutu BU SIRAYLA, her biri ön planda (arka plan, Monitor, sleep, /tmp log yok) koş. Komut arama, dosya okuma, yeniden koşma yapma; bir suite kırmızıysa da sonrakine geç.
 
-1. `set -o pipefail; cd /c/Projeler/omer-skills/tools/video && uv run --with pytest pytest -q -p no:cacheprovider 2>&1 | tail -15`
-2. `set -o pipefail; cd /c/Projeler/omer-skills/tools/jev && uv run --with pytest pytest -q -p no:cacheprovider 2>&1 | tail -15`
-3. `set -o pipefail; cd /c/Projeler/omer-skills && python -m pytest -q -p no:cacheprovider tests 2>&1 | tail -15`
+1. `set -o pipefail; export CAGRI_SAYAC_DIZIN="$(mktemp -d)"; cd /c/Projeler/omer-skills/tools/video && uv run --with pytest pytest -q -p no:cacheprovider 2>&1 | tail -15`
+2. `set -o pipefail; export CAGRI_SAYAC_DIZIN="$(mktemp -d)"; cd /c/Projeler/omer-skills/tools/jev && uv run --with pytest pytest -q -p no:cacheprovider 2>&1 | tail -15`
+3. `set -o pipefail; export CAGRI_SAYAC_DIZIN="$(mktemp -d)"; cd /c/Projeler/omer-skills && python -m pytest -q -p no:cacheprovider tests 2>&1 | tail -15`
    (ortam python'u: playwright burada kurulu; izole uv ortamında test_browse_shim test başına 120 sn bekler)
-4. `set -o pipefail; cd /c/Projeler/omer-skills/tools/cc-kopru && npm test 2>&1 | tail -15`
-5. `set -o pipefail; cd /c/Projeler/omer-skills/mcp/jev && npm test 2>&1 | tail -15`
-6. `set -o pipefail; cd /c/Projeler/omer-skills && DOTNET_NOLOGO=1 rtk dotnet test templates/jev-dotnet/Jev.Tests/Jev.Tests.csproj 2>&1 | tail -15`
+4. `set -o pipefail; export CAGRI_SAYAC_DIZIN="$(mktemp -d)"; cd /c/Projeler/omer-skills/tools/cc-kopru && npm test 2>&1 | tail -15`
+5. `set -o pipefail; export CAGRI_SAYAC_DIZIN="$(mktemp -d)"; cd /c/Projeler/omer-skills/mcp/jev && npm test 2>&1 | tail -15`
+6. `set -o pipefail; export CAGRI_SAYAC_DIZIN="$(mktemp -d)"; cd /c/Projeler/omer-skills && DOTNET_NOLOGO=1 rtk dotnet test templates/jev-dotnet/Jev.Tests/Jev.Tests.csproj 2>&1 | tail -15`
 
 Dönüş en fazla 6 satır, suite başına bir satır, başka metin yok:
 `<suite>: <geçen>/<toplam> · çıkış <kod> · kırmızı: <test adları | yok>`
