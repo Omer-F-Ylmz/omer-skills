@@ -397,11 +397,11 @@ def test_eleme_sema_hatasi_ikinci_cagri_yok_a_cagrilmaz(tmp_path):
 
 
 def test_eleme_reasoning_istenir_etkisizse_isaret(tmp_path):
-    k, akil = [], {**IYI, "usage": {"input_tokens": 10, "output_tokens": 5, "reasoning": 3}}
+    k, akil = [], {**IYI, "usage": {"input_tokens": 10, "output_tokens": 5, "reasoning": 1500}}  # F3-VARYANT: işaret yalnız > 1000
     s = _eleme(tmp_path, [E1, E2], _b_kur([], {E1: akil}, k), destek={E1: ["reasoning", "max_tokens"], E2: ["max_tokens"]})
     assert k == [(E1, 240, {"reasoning": {"effort": "minimal"}}), (E2, 240, None)]
     assert s["satirlar"][0].endswith(" · reasoning parametresi etkisiz") and "etkisiz" not in s["satirlar"][1]
-    assert " · token 20/10/6 · " in s["satirlar"][0]
+    assert " · token 20/10/3000 · " in s["satirlar"][0]
 
 
 def test_omni_cagir_govde_ek_ve_reasoning_token():
@@ -443,3 +443,126 @@ def test_eleme_betik_girdi_ve_cikti(monkeypatch, tmp_path, capsys):
     assert a[0][1].startswith("=== VIDEO vid1 ===\n") and a[1] == [E1, E2] and k["onbellek"] == tmp_path / "ab"
     assert k["destek"] == {E1: ["reasoning"]}
     assert capsys.readouterr().out.splitlines()[-3:] == ["r1", "öneri: yok", "toplam: A $0.0000 · B $0.0000 · Jev ≤4 istek (usd ölçülmüyor)"]
+
+
+# F3-VARYANT
+def _b_kayit(c, yanit=None):
+    def kur(m, env, timeout=600, govde_ek=None):
+        def tas(sistem, metin, sema, kareler=(), model=None, **_):
+            c.append({"m": m, "sistem": sistem, "kareler": list(kareler), "govde_ek": govde_ek})
+            return (yanit or {}).get(m, IYI)
+        return tas
+    return kur
+
+
+def _v(tmp_path, adaylar, c, kareler=(), **k):
+    return yon.eleme(("S", "=== VIDEO vid1 ===\nM", SEMA, list(kareler)), adaylar, _tas([]), hafif.MODEL, ENV,
+                     k.pop("puanla", lambda ms: [0.8] * len(ms)), onbellek=tmp_path / "ab", b_kur=_b_kayit(c),
+                     yokla=lambda m, env, gorsel=False: None, **k)
+
+
+def test_eleme_varyant_ayristirma_bilinmeyen_cagri_0(tmp_path):
+    c = []
+    s = _v(tmp_path, [E1, f"{E1}@V0", f"{E1}@V9"], c)
+    assert [x["m"] for x in c] == [E1] * 4
+    assert s["satirlar"][0].startswith(f"{E1} · geçti") and s["satirlar"][1].startswith(f"{E1}@V0 · geçti")
+    assert s["satirlar"][2] == f"{E1}@V9 · hata: bilinmeyen varyant: V9 · çağrı 0"
+
+
+def test_eleme_v1_ornek_govdede_test_videosu_disindan(tmp_path):
+    c, o = [], tmp_path / "ORN1.json"
+    o.write_text('{"id": "ORN1", "ozet": "x"}', encoding="utf-8")
+    _v(tmp_path, [f"{E1}@V1", E2], c, ornek=o)
+    assert c[0]["sistem"].startswith("S\n") and '"id": "ORN1"' in c[0]["sistem"] and c[2]["sistem"] == "S"
+    (tmp_path / "vid1.json").write_text('{"id": "vid1"}', encoding="utf-8")
+    c = []
+    s = _v(tmp_path, [f"{E1}@V1"], c, ornek=tmp_path / "vid1.json")
+    assert c == [] and s["satirlar"] == [f"{E1}@V1 · hata: V1 örneği test videosundan (vid1) · çağrı 0"]
+    assert _v(tmp_path, [f"{E1}@V1"], c)["satirlar"] == [f"{E1}@V1 · hata: V1 örneği yok · çağrı 0"] and c == []
+
+
+def test_eleme_v3_effort_low_desteksizse_cagri_0(tmp_path):
+    c = []
+    s = _v(tmp_path, [f"{E1}@V3", f"{E2}@V3", E1], c, destek={E1: ["reasoning"], E2: []})
+    assert [x["govde_ek"] for x in c] == [{"reasoning": {"effort": "low"}}] * 2 + [{"reasoning": {"effort": "minimal"}}] * 2
+    assert s["satirlar"][1] == f"{E2}@V3 · hata: V3: reasoning desteklenmiyor · çağrı 0"
+
+
+def test_eleme_v4_kucuk_kare_27_dosyalar_degismez(tmp_path):
+    ks = []
+    for i in range(27):
+        (k := tmp_path / f"k{i:02}.png").write_bytes(b"orj%d" % i)
+        ks.append(k)
+    c, kc = [], []
+    _v(tmp_path, [f"{E1}@V4", E2], c, kareler=ks, kucult=lambda kl, d: kc.append(d) or [d / Path(x).name for x in kl])
+    assert len(c[0]["kareler"]) == 27 and all(Path(x).parent == kc[0] for x in c[0]["kareler"])
+    assert c[2]["kareler"] == ks and all(k.read_bytes() == b"orj%d" % i for i, k in enumerate(ks))
+
+
+def _png(p, w, h):
+    import struct, zlib
+    blok = lambda t, d: struct.pack(">I", len(d)) + t + d + struct.pack(">I", zlib.crc32(t + d))
+    p.write_bytes(b"\x89PNG\r\n\x1a\n" + blok(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 2, 0, 0, 0))
+                  + blok(b"IDAT", zlib.compress(b"".join(b"\0" + b"\x80" * 3 * w for _ in range(h)))) + blok(b"IEND", b""))
+
+
+def test_kucult_uzun_kenar_512(tmp_path):
+    import struct
+    _png(tmp_path / "a.png", 1024, 600)
+    _png(tmp_path / "b.png", 300, 200)
+    cik = yon._kucult([tmp_path / "a.png", tmp_path / "b.png"], tmp_path / "k")
+    boy = [struct.unpack(">II", Path(x).read_bytes()[16:24]) for x in cik]
+    assert boy == [(512, 300), (300, 200)] and struct.unpack(">II", (tmp_path / "a.png").read_bytes()[16:24]) == (1024, 600)
+
+
+def test_eleme_kayit_yanit_ve_jev_gerekce(tmp_path):
+    c, k = [], tmp_path / "kayit"
+    s = _v(tmp_path, [E1, f"{E2}@V3"], c, kayit=k, puanla=lambda ms: [{"score": 0.8, "reasoning": "r"}] * len(ms))
+    a0 = json.loads((k / "A" / "0.json").read_text(encoding="utf-8"))
+    b1 = json.loads((k / "openrouter_openai_gpt-6-luna" / "1.json").read_text(encoding="utf-8"))
+    assert a0["puan"] == {"score": 0.8, "reasoning": "r"} and b1["yanit"]["form"] == {"a": "x"} and b1["puan"]["score"] == 0.8
+    assert " · kalite 0.80 · " in s["satirlar"][0]
+
+
+def test_alan_farki():
+    sema = {"type": "object", "properties": {"a": {"type": "string"}, "l": {"type": "array", "items": {"type": "object", "properties": {
+        "t": {"type": "string"}}}}, "bos": {"type": "string"}, "eksik": {"type": "string"}}}
+    r = yon.alan_farki([{"a": "xxxx", "l": [{"t": "yy"}, {"t": "z"}, {"t": ""}], "bos": "q"}], [{"a": "x", "l": [], "bos": None}], sema)
+    assert "boş alan A 1.0 → B 2.0" in r["ozet"] and "şemada yok: eksik, l[].t" in r["ozet"]
+    assert "en çok fark: l 3.0→0.0, l[].t 3.0→0.0, bos 1.0→0.0, a 4.0→1.0" in r["ozet"]
+    assert "| l | 3.0 | 0.0 | 100 |" in r["satirlar"]
+
+
+def test_eleme_rapor_aday_basi(tmp_path):
+    s = _v(tmp_path, [E1], [])
+    assert set(s["rapor"]) == {E1} and "en çok fark: a " in s["rapor"][E1]["ozet"]
+
+
+def test_eleme_girdi_onbellek_dahil(tmp_path):
+    a = lambda *x, **k: {**IYI, "usage": {"input_tokens": 2, "cache_read_input_tokens": 100, "cache_creation_input_tokens": 898,
+                                          "output_tokens": 5}, "usd": 0.01}
+    s = yon.eleme(("S", "M", SEMA, []), [E1], a, hafif.MODEL, ENV, lambda ms: [0.8] * len(ms), onbellek=tmp_path / "ab",
+                  b_kur=_b_kayit([]), yokla=lambda m, env, gorsel=False: None)
+    assert " · girdi −%99.0" in s["satirlar"][0]
+
+
+def test_karar_a_girdi_0_yuzde_yazilmaz():
+    from video import kur
+    a = {"kalite": 0.8, "basari": 1.0, "girdi": 0, "cikti": 10, "maliyet": 0.1}
+    assert "girdi" not in kur.karar(a, {**a, "girdi": 50, "maliyet": 0.01}, None, 0, [])
+
+
+def test_eleme_reasoning_1000_alti_isaret_yok(tmp_path):
+    s = _eleme(tmp_path, [E1], _b_kur([], {E1: {**IYI, "usage": {"input_tokens": 10, "output_tokens": 5, "reasoning": 1000}}}),
+               destek={E1: ["reasoning"]})
+    assert "etkisiz" not in s["satirlar"][0]
+
+
+@pytest.mark.parametrize("ad", ["eleme.ps1", "ab-canli.ps1"])
+def test_ps1_python_borusu_utf8(ad):
+    t = BETIK.with_name(ad).read_text(encoding="utf-8")
+    assert "$OutputEncoding = [Text.UTF8Encoding]::new($false)" in t.split("@'")[0]
+
+
+def test_fiyat_ref_kaynakli():
+    assert yon.FIYAT["openrouter/google/gemini-3.8-flash"]["kaynak"].startswith("https://openrouter.ai/api/v1/models")
