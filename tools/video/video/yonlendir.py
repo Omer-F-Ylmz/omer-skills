@@ -296,6 +296,22 @@ def _ocr(metin):
     return out
 
 
+def ocr_aktar(form, metin, tavan=12):
+    """MÜKEMMEL-4 Mekanizma A: video başı OCR satırları (≥3 harf, büyük/küçük harf duyarsız tekrarsız, mevcutlar atlanır, ≤ tavan)
+    form'un kareden_okunanlar listesine {"kare", "okunan", "kaynak": "ocr"} olarak eklenir; paket "=== VIDEO id ===" ile bölünür."""
+    p = dict(re.findall(r"(?ms)^=== VIDEO (\S+) ===\n(.*?)(?=^=== VIDEO |\Z)", metin))
+    for v in form.get("videolar", []):
+        ko = v.setdefault("kareden_okunanlar", [])
+        gor, n = {str(o.get("okunan", "")).casefold() for o in ko}, 0
+        for s in _ocr(p.get(v.get("id"), metin) if p else metin):
+            z, x = s[1:].split("] ", 1)
+            if n < tavan and sum(c.isalpha() for c in x) >= 3 and x.casefold() not in gor:
+                gor.add(x.casefold())
+                ko.append({"kare": z, "okunan": x, "kaynak": "ocr"})
+                n += 1
+    return form
+
+
 def ornek_sec(yollar, haric=("b2QkhmQ0sT0",)):
     """F3-V2 V21 örneği: OLCUM listelerinin hepsi dolu en kısa Claude video formu (haric id'ler dışında); yoksa None."""
     uy = []
