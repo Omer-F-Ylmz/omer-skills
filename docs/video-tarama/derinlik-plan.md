@@ -648,3 +648,9 @@ A6(c) eki canlı (ağsız, model yok; denendi, O44): O43 komut 1 kalıbı + meka
 - Ömer koşusu 20261006-122544 (Jev): V0 −%15.7 · V1 −%5.5 · V3 −%17.8 elendi; V1 adaylar 4.5/14.5, promptları düşürdü (örnekte prompt yok). v2 ile yeniden puanlama Ömer'de.
 - HEDEF: B görev başarısı ≥ A · Jev düşüşü ≤ bant ya da artı · ≤ $0.04/video · ≤ 60 s.
 - Yol haritası: V2 = örnek (tüm listeleri dolu Claude formu, test/doğrulama videoları dışı) + eksiksizlik talimatı + mekanik ön çıkarım (URL · GitHub · kurulum komutu · özel ad → "değerlendir" listesi) + dayanak süzgeci → yetmezse V5 bölümleme (2–3 parça, mekanik birleştirme) → token kolu (kare tekilleştirme · OCR metni · sabit önek önbelleği) → 2 videoda doğrulama → kapanış.
+
+## O63 F3-ÖLÇÜM-3 (2026-10-06)
+- Kök neden: gerçek formda listeler videolar[] altında (videolar[].adaylar[] …); olc_v2/referans kökte arıyordu → D boş → F1 1, "kaçırılan: yok" (eleme-20261006-124649: alan tablosu A adaylar 14.5 iken v2 A 0.0). Testler düz fikstür kullanmıştı.
+- Düzeltme: yon._ogeler öğeleri videolar[] altından video id'siyle (_v) toplar; eşleşme ve D aynı video içinde, sonuç videolar üzerinden toplanır.
+- Ders: (1) ölçüm fikstürü gerçek şemaya (pt.sema) karşı doğrulanır; (2) boş ölçüm DUR — A'da dolu liste varken D boşsa satır "ÖLÇÜM BOŞ", karar "DUR (ölçüm boş)", F1 1 sayılmaz.
+- Jev yeniden kullanım: puanlar kayda yazılır (B kayit/<aday>/<i>.json · A kayit/A/<i>.json); ELEME_YENIDEN'de kayıtta puan varsa Jev çağrılmaz, yalnız eksikler istenir; satırda "Jev 0 (kayıttan)". Canlı çağrı 0.

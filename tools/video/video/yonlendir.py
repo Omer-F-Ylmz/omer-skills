@@ -291,13 +291,28 @@ def dayanak(liste, oge, metin):
             or (oge.get("karede_gorulen") or "").strip() else "dayanaksız")
 
 
+def _ogeler(form, x):
+    """F3-ÖLÇÜM-3: gerçek formda listeler videolar[] altında — öğeye video id'si (_v) eklenir; eşleşme ve D aynı video içinde."""
+    return [{**o, "_v": v.get("id")} for v in (form or {}).get("videolar") or () if isinstance(v, dict)
+            for o in v.get(x) or () if isinstance(o, dict)]
+
+
+def _dolu(x):
+    """F3-ÖLÇÜM-3 boş ölçüm korkuluğu: formun herhangi bir derinliğinde dolu bir OLCUM listesi var mı."""
+    if isinstance(x, dict):
+        return any(k in OLCUM and v or _dolu(v) for k, v in x.items())
+    return isinstance(x, list) and any(map(_dolu, x))
+
+
 def referans(a_formlar, formlar, metin):
-    """F3-ÖLÇÜM v2: D = A formlarının tüm öğeleri ∪ formlar'ın dayanaklı öğeleri (liste başı, eslesir ile tekil; B > A mümkün)."""
+    """F3-ÖLÇÜM v2: D = A formlarının tüm öğeleri ∪ formlar'ın dayanaklı öğeleri (liste başı, aynı video içinde eslesir ile tekil;
+    B > A mümkün)."""
     d = {x: [] for x in OLCUM}
     for f, a_mi in [(f, True) for f in a_formlar] + [(f, False) for f in formlar]:
         for x, (k, _) in OLCUM.items():
-            for o in f.get(x) or ():
-                if o.get(k) and (a_mi or dayanak(x, o, metin) == "dayanaklı") and not any(eslesir(x, o[k], r[k]) for r in d[x]):
+            for o in _ogeler(f, x):
+                if o.get(k) and (a_mi or dayanak(x, o, metin) == "dayanaklı") and \
+                        not any(r["_v"] == o["_v"] and eslesir(x, o[k], r[k]) for r in d[x]):
                     d[x].append(o)
     return d
 
@@ -306,13 +321,13 @@ def olc_v2(form, d, metin):
     """F3-ÖLÇÜM v2 form başı: liste başı n · kapsam (D'den bulunan / |D|; D boşsa None) · doğruluk (dayanaklı / dayanaklı +
     dayanaksız; payda 0 → 1) · doğrulanamadı · bulunan (D sırası) + url sayısı (skora girmez); kapsam/doğruluk/F1 OLCUM
     ağırlıklı, yalnız D'si dolu listeler (ağırlık oranla); D hiç yoksa 1 (görev = şema başarısı)."""
-    r, top = {"liste": {}, "url": len(form.get("aciklama_baglantilari") or ())}, {"kapsam": 0.0, "dogruluk": 0.0, "f1": 0.0}
+    r, top = {"liste": {}, "url": len(_ogeler(form, "aciklama_baglantilari"))}, {"kapsam": 0.0, "dogruluk": 0.0, "f1": 0.0}
     wt = sum(a for x, (_, a) in OLCUM.items() if d[x])
     for x, (k, a) in OLCUM.items():
-        os_ = [o for o in form.get(x) or () if o.get(k)]
+        os_ = [o for o in _ogeler(form, x) if o.get(k)]
         ds = [dayanak(x, o, metin) for o in os_]
         iyi, kotu = ds.count("dayanaklı"), ds.count("dayanaksız")
-        bul = [i for i, y in enumerate(d[x]) if any(eslesir(x, y[k], o[k]) for o in os_)]
+        bul = [i for i, y in enumerate(d[x]) if any(y["_v"] == o["_v"] and eslesir(x, y[k], o[k]) for o in os_)]
         kp, dg = len(bul) / len(d[x]) if d[x] else None, iyi / (iyi + kotu) if iyi + kotu else 1.0
         r["liste"][x] = {"n": len(os_), "kapsam": kp, "dogruluk": dg, "dogrulanamadi": ds.count("doğrulanamadı"), "bulunan": bul}
         if d[x]:
@@ -378,9 +393,9 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
     for ad in adaylar:
         m, _, v = ad.partition("@")
         v, akil = v or "V0", "reasoning" in (destek or {}).get(m, ())
-        if yeniden:  # F3-ÖLÇÜM: B çağrısı 0, kayıttaki yanıtlar
-            ys = [json.loads(f.read_text(encoding="utf-8"))["yanit"] for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
-            durum[ad] = {"neden": None if ys else "kayıt yok", "y": ys, "akil": akil}
+        if yeniden:  # F3-ÖLÇÜM: B çağrısı 0, kayıttaki yanıtlar · F3-ÖLÇÜM-3: kayıttaki Jev puanı tekrar kullanılır
+            ks = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
+            durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "akil": akil}
             continue
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
@@ -390,7 +405,10 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
                  else "fiyat yok" if m not in FIYAT else yokla(m, env, gorsel=bool(kare)))
         durum[ad] = {"neden": neden, "y": [], "akil": akil, "m": m, "v": v}
     acik = [x for x in durum.values() if not x["neden"]]
-    gerek = 2 + sum(len(x["y"]) if yeniden else 2 for x in acik)  # Jev: A 2 + çağrılabilecek en fazla B yanıtı
+    ap = [json.loads(f.read_text(encoding="utf-8")).get("puan") if (f := Path(yeniden) / "A" / f"{i}.json").is_file() else None
+          for i in range(2)] if yeniden else [None, None]
+    # Jev: A 2 + çağrılabilecek en fazla B yanıtı · yeniden: yalnız kayıtta puanı olmayanlar
+    gerek = sum(p is None for p in ap) + sum(sum(p is None for p in x["p"]) if yeniden else 2 for x in acik)
     if gerek > JEV_TAVAN:
         for x in acik:
             x.update(neden="TAVAN jev", y=[])
@@ -435,18 +453,24 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         if all(y.get("hata") for y in ya):
             oneri = f"öneri: yok (DUR: A yanıt vermedi — {ya[0]['hata'][:120]})"
         else:
-            puan = iter(puanla([f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
-                                for y in ya + [y for v in gecen.values() for y in v]]))
+            kp = {ad: [p for y, p in zip(durum[ad]["y"], durum[ad].get("p") or [None] * len(durum[ad]["y"])) if gecer(y)]
+                  for ad in gecen}
+            jev = {ad: sum(p is None for p in v) for ad, v in kp.items()}
+            eski = ap + [p for v in kp.values() for p in v]
+            ms = [f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}" for y in ya + [y for v in gecen.values() for y in v]]
+            yeni = iter(puanla([s for s, p in zip(ms, eski) if p is None]) if None in eski else ())
+            puan = iter([next(yeni) if p is None else p for p in eski])
             pa = [next(puan) for _ in ya]
             d = referans([y["form"] for y in ya if gecer(y)], [y["form"] for v in gecen.values() for y in v], g[1])
+            bos = not any(d.values()) and any(_dolu(y.get("form")) for y in ya)  # F3-ÖLÇÜM-3: veri var, ölçüm görmüyor
             sa = ozetle(ya, list(map(sk, pa)))
             for ad, v in gecen.items():
                 pb[ad] = [next(puan) for _ in v]
                 ozet[ad] = ozetle(durum[ad]["y"], list(map(sk, pb[ad])))
-                karar[ad] = ("SOR (maliyet bilinmiyor)" if any(y.get("usd") is None for y in durum[ad]["y"]) else
+                karar[ad] = ("DUR (ölçüm boş)" if bos else "SOR (maliyet bilinmiyor)" if any(y.get("usd") is None for y in durum[ad]["y"]) else
                              kur.karar(sa, ozet[ad], None, max(map(sk, pa)) - min(map(sk, pa)), [(sa["gorev"][0], ozet[ad]["gorev"][0])]))
                 rapor[ad] = {**alan_farki([y["form"] for y in ya if y.get("form")], [y["form"] for y in v], g[2]),
-                             "olcum": olcum_satirlari(sa["v2"], ozet[ad]["v2"], d, g[1])}
+                             "olcum": ["ÖLÇÜM BOŞ"] if bos else olcum_satirlari(sa["v2"], ozet[ad]["v2"], d, g[1])}
             al = [(ozet[m]["kalite"], -ozet[m]["maliyet"], m) for m, k in karar.items() if k.startswith("AL")]
             oneri = (f"öneri: {max(al)[2]} (kalite {max(al)[0]:.2f} · ${-max(al)[1]:.4f}/çağrı)" if al else
                      "öneri: yok (AL aday yok)")
@@ -472,7 +496,8 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         p = [f"{m}", f"hata: {ilk[:120]}" if ilk else "geçti", f"token {t('input_tokens')}/{t('output_tokens')}/{t('reasoning')}",
              "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
              *([f"kalite {ozet[m]['kalite']:.2f} · başarı {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
-             *([rapor[m]["olcum"][0]] if m in ozet else [])]
+             *([rapor[m]["olcum"][0]] if m in ozet else []),
+             *([f"Jev {jev[m]}" if jev[m] else "Jev 0 (kayıttan)"] if yeniden and m in ozet else [])]
         if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
             p.append("reasoning parametresi etkisiz")
         if x.get("tavan"):
