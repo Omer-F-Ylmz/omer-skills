@@ -246,6 +246,102 @@ def alan_farki(a_formlar, b_formlar, sema):
             "satirlar": [f"| {y} | {a.get(y, 0):.1f} | {b.get(y, 0):.1f} | {f * 100:.0f} |" for f, _, y in sira]}
 
 
+OLCUM = {"adaylar": ("ad", 0.5), "promptlar": ("metin", 0.2), "kurulum_komutlar": ("komut", 0.15), "kareden_okunanlar": ("okunan", 0.15)}
+DAYANAK = {"dayanaklı": "konuşmada var", "doğrulanamadı": "yalnız kare", "dayanaksız": "dayanaksız"}
+
+
+def _n(s):
+    from .tarama import normal
+    return normal(s or "")
+
+
+def _kelime(s):
+    return {w for w in map(_n, (s or "").split()) if w}
+
+
+def eslesir(liste, a, b):
+    """F3-ÖLÇÜM v2 (plan O61): iki anahtar aynı öğe mi — adaylar tr.normal karşılıklı içerme ya da kelime Jaccard ≥ 0.6 ·
+    kurulum_komutlar boşluk normalize içerme · aciklama_baglantilari birebir · promptlar/kareden_okunanlar kelime örtüşmesi
+    (ortak / kısa olanın kelimesi) ≥ 0.5. Eleme'den bağımsız (B hattı süzgeci)."""
+    if liste == "adaylar":
+        na, nb, ka, kb = _n(a), _n(b), _kelime(a), _kelime(b)
+        return bool(na and nb and (na in nb or nb in na)) or bool(ka | kb) and len(ka & kb) / len(ka | kb) >= 0.6
+    if liste == "kurulum_komutlar":
+        na, nb = " ".join((a or "").split()), " ".join((b or "").split())
+        return bool(na and nb) and (na in nb or nb in na)
+    if liste == "aciklama_baglantilari":
+        return bool(a) and a == b
+    ka, kb = _kelime(a), _kelime(b)
+    return bool(ka and kb) and len(ka & kb) / min(len(ka), len(kb)) >= 0.5
+
+
+def dayanak(liste, oge, metin):
+    """F3-ÖLÇÜM v2: anahtar paket metninde (konuşma + açıklama + bölümler + kare OCR) → dayanaklı (adaylar tr.normal içerme ·
+    komut boşluk normalize içerme · metin/okunan kelimelerinin ≥ yarısı); değil ama kaynak kare / karede_gorulen dolu /
+    kareden_okunanlar → doğrulanamadı (cezasız); ikisi de değil → dayanaksız."""
+    k = oge.get(OLCUM[liste][0]) or ""
+    if liste == "adaylar":
+        var = bool(_n(k)) and _n(k) in _n(metin)
+    elif liste == "kurulum_komutlar":
+        var = bool(k.split()) and " ".join(k.split()) in " ".join(metin.split())
+    else:
+        w = _kelime(k)
+        var = bool(w) and len(w & _kelime(metin)) / len(w) >= 0.5
+    return ("dayanaklı" if var else "doğrulanamadı" if liste == "kareden_okunanlar" or oge.get("kaynak") == "kare"
+            or (oge.get("karede_gorulen") or "").strip() else "dayanaksız")
+
+
+def referans(a_formlar, formlar, metin):
+    """F3-ÖLÇÜM v2: D = A formlarının tüm öğeleri ∪ formlar'ın dayanaklı öğeleri (liste başı, eslesir ile tekil; B > A mümkün)."""
+    d = {x: [] for x in OLCUM}
+    for f, a_mi in [(f, True) for f in a_formlar] + [(f, False) for f in formlar]:
+        for x, (k, _) in OLCUM.items():
+            for o in f.get(x) or ():
+                if o.get(k) and (a_mi or dayanak(x, o, metin) == "dayanaklı") and not any(eslesir(x, o[k], r[k]) for r in d[x]):
+                    d[x].append(o)
+    return d
+
+
+def olc_v2(form, d, metin):
+    """F3-ÖLÇÜM v2 form başı: liste başı n · kapsam (D'den bulunan / |D|; D boşsa None) · doğruluk (dayanaklı / dayanaklı +
+    dayanaksız; payda 0 → 1) · doğrulanamadı · bulunan (D sırası) + url sayısı (skora girmez); kapsam/doğruluk/F1 OLCUM
+    ağırlıklı, yalnız D'si dolu listeler (ağırlık oranla); D hiç yoksa 1 (görev = şema başarısı)."""
+    r, top = {"liste": {}, "url": len(form.get("aciklama_baglantilari") or ())}, {"kapsam": 0.0, "dogruluk": 0.0, "f1": 0.0}
+    wt = sum(a for x, (_, a) in OLCUM.items() if d[x])
+    for x, (k, a) in OLCUM.items():
+        os_ = [o for o in form.get(x) or () if o.get(k)]
+        ds = [dayanak(x, o, metin) for o in os_]
+        iyi, kotu = ds.count("dayanaklı"), ds.count("dayanaksız")
+        bul = [i for i, y in enumerate(d[x]) if any(eslesir(x, y[k], o[k]) for o in os_)]
+        kp, dg = len(bul) / len(d[x]) if d[x] else None, iyi / (iyi + kotu) if iyi + kotu else 1.0
+        r["liste"][x] = {"n": len(os_), "kapsam": kp, "dogruluk": dg, "dogrulanamadi": ds.count("doğrulanamadı"), "bulunan": bul}
+        if d[x]:
+            for t, v in (("kapsam", kp), ("dogruluk", dg), ("f1", 2 * kp * dg / (kp + dg) if kp + dg else 0.0)):
+                top[t] += a / wt * v
+    return {**r, **(top if wt else dict.fromkeys(top, 1.0))}
+
+
+def _ort(v, k):
+    return sum(x[k] for x in v) / len(v) if v else 0.0
+
+
+def _yuzde(v):
+    return " · ".join(f"{e} %{_ort(v, k) * 100:.0f}" for e, k in (("kapsam", "kapsam"), ("doğruluk", "dogruluk"), ("F1", "f1")))
+
+
+def olcum_satirlari(a, b, d, metin):
+    """F3-ÖLÇÜM v2 rapor (a, b: olc_v2 form sonuçları): satır · liste başı A/B sayı, kapsam, doğruluk, doğrulanamadı · url sayısı ·
+    B'nin hiçbir yanıtında bulunmayan ilk 5 D öğesi (konuşmada var / yalnız kare / dayanaksız)."""
+    o = lambda v, x, t: sum(r["liste"][x][t] or 0 for r in v) / max(len(v), 1)  # noqa: E731
+    s = [f"{_yuzde(b)} (A: {_yuzde(a)})"]
+    s += [f"{x}: A {o(a, x, 'n'):.1f} · B {o(b, x, 'n'):.1f} · kapsam " + (f"%{o(b, x, 'kapsam') * 100:.0f}" if d[x] else "—")
+          + f" · doğruluk %{o(b, x, 'dogruluk') * 100:.0f} · doğrulanamadı {o(b, x, 'dogrulanamadi'):.1f}" for x in OLCUM]
+    s.append(f"aciklama_baglantilari (skora girmez): A {_ort(a, 'url'):.1f} · B {_ort(b, 'url'):.1f}")
+    kac = [(x, y) for x in OLCUM for i, y in enumerate(d[x]) if not any(i in r["liste"][x]["bulunan"] for r in b)]
+    s.append("kaçırılan: " + (", ".join(f"{y[OLCUM[x][0]][:80]} ({DAYANAK[dayanak(x, y, metin)]})" for x, y in kac[:5]) or "yok"))
+    return s
+
+
 def _yaz(y, d):
     y.parent.mkdir(parents=True, exist_ok=True)
     y.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -328,9 +424,11 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
 
     def ozetle(ys, p):
         n = len(ys)
-        return {"kalite": sum(p) / len(p), "basari": sum(map(gecer, ys)) / n, "gorev": [sum(map(gecer, ys)) / n],
+        v2 = [olc_v2(y["form"], d, g[1]) for y in ys if gecer(y)]  # F3-ÖLÇÜM: görev = şema geçti × ağırlıklı F1
+        return {"kalite": sum(p) / len(p), "basari": sum(map(gecer, ys)) / n, "gorev": [sum(x["f1"] for x in v2) / n],
                 "girdi": sum(_girdi(y.get("usage") or {}) for y in ys) / n,
-                "cikti": sum((y.get("usage") or {}).get("output_tokens", 0) for y in ys) / n, "maliyet": sum(y.get("usd") or 0 for y in ys) / n}
+                "cikti": sum((y.get("usage") or {}).get("output_tokens", 0) for y in ys) / n, "maliyet": sum(y.get("usd") or 0 for y in ys) / n,
+                "v2": v2}
     oneri = "öneri: yok (geçen aday yok)"
     if gecen:
         ya = [_a_onbellek(onbellek, a_say, a_model, g, i) for i in range(2)]
@@ -340,13 +438,15 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             puan = iter(puanla([f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
                                 for y in ya + [y for v in gecen.values() for y in v]]))
             pa = [next(puan) for _ in ya]
+            d = referans([y["form"] for y in ya if gecer(y)], [y["form"] for v in gecen.values() for y in v], g[1])
             sa = ozetle(ya, list(map(sk, pa)))
             for ad, v in gecen.items():
                 pb[ad] = [next(puan) for _ in v]
                 ozet[ad] = ozetle(durum[ad]["y"], list(map(sk, pb[ad])))
                 karar[ad] = ("SOR (maliyet bilinmiyor)" if any(y.get("usd") is None for y in durum[ad]["y"]) else
                              kur.karar(sa, ozet[ad], None, max(map(sk, pa)) - min(map(sk, pa)), [(sa["gorev"][0], ozet[ad]["gorev"][0])]))
-                rapor[ad] = alan_farki([y["form"] for y in ya if y.get("form")], [y["form"] for y in v], g[2])
+                rapor[ad] = {**alan_farki([y["form"] for y in ya if y.get("form")], [y["form"] for y in v], g[2]),
+                             "olcum": olcum_satirlari(sa["v2"], ozet[ad]["v2"], d, g[1])}
             al = [(ozet[m]["kalite"], -ozet[m]["maliyet"], m) for m, k in karar.items() if k.startswith("AL")]
             oneri = (f"öneri: {max(al)[2]} (kalite {max(al)[0]:.2f} · ${-max(al)[1]:.4f}/çağrı)" if al else
                      "öneri: yok (AL aday yok)")
@@ -371,7 +471,8 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         usd = [y.get("usd") for y in ys]
         p = [f"{m}", f"hata: {ilk[:120]}" if ilk else "geçti", f"token {t('input_tokens')}/{t('output_tokens')}/{t('reasoning')}",
              "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
-             *([f"kalite {ozet[m]['kalite']:.2f} · başarı {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ")]
+             *([f"kalite {ozet[m]['kalite']:.2f} · başarı {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
+             *([rapor[m]["olcum"][0]] if m in ozet else [])]
         if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
             p.append("reasoning parametresi etkisiz")
         if x.get("tavan"):

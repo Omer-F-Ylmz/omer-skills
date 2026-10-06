@@ -35,8 +35,10 @@ print(s['oneri'])
 print(f"toplam: A ${s['a_usd']:.4f} · B ${s['b_usd']:.4f} · Jev ≤{s.get('jev_istek', 4)} istek (usd ölçülmüyor)")
 for ad, r in (s.get('rapor') or {}).items():
     print(ad, '·', r['ozet'])
+    for x in r.get('olcum', ()):
+        print('  ', x)
 if s.get('rapor') and os.environ.get('ELEME_DOC'):
     md = Path(os.environ['ELEME_DOC']) / f'eleme-{ts}.md'
-    md.write_text(f'# eleme {ts} · {v}\n\nvaryantlar: ' + ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()) + f' · V1 örneği {ornek}\n\n' + '\n'.join(s['satirlar']) + '\n\n' + s['oneri'] + '\n' + ''.join(f"\n## {ad}\n\n{r['ozet']}\n\n| alan | A | B | fark % |\n|---|---|---|---|\n" + '\n'.join(r['satirlar']) + '\n' for ad, r in s['rapor'].items()), encoding='utf-8')
+    md.write_text(f'# eleme {ts} · {v}\n\nvaryantlar: ' + ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()) + f' · V1 örneği {ornek}\n\n' + '\n'.join(s['satirlar']) + '\n\n' + s['oneri'] + '\n' + ''.join(f"\n## {ad}\n\n{r['ozet']}\n\n" + ''.join(f'- {x}\n' for x in r.get('olcum', ())) + "\n| alan | A | B | fark % |\n|---|---|---|---|\n" + '\n'.join(r['satirlar']) + '\n' for ad, r in s['rapor'].items()), encoding='utf-8')
     print('rapor:', md)
 '@ | & $py -
