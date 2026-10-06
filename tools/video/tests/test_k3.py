@@ -25,6 +25,17 @@ def test_dogrulanamadi_ayri_sinif_ii_de_u_disinda_i_de_kare():
     assert i["dg"] == ii["dg"] == {"A": 1, "B": 0}
 
 
+@pytest.mark.parametrize("sonuc, kaynak, u, az, dg", [("görüldü", "kare", 1, 0, 0), ("görülmedi", None, 0, 1, 0),
+                                                     ("belirsiz", "doğrulanamadı", 0, 0, 1)])
+def test_kare_gorsel_dogrulamasi_siniflar(sonuc, kaynak, u, az, dg):
+    """MÜKEMMEL-3b: kare-görsel — görüldü → dayanaklı (kare) · görülmedi → dayanaksız · belirsiz → doğrulanamadı kalır."""
+    k = yon.OLCUM["kareden_okunanlar"][0]
+    o, gor = {k: "Qwxz Panosu"}, {("kareden_okunanlar", "Qwxz Panosu"): sonuc}
+    assert yon.kanit("kareden_okunanlar", o, M, gorsel=gor) == kaynak
+    r = yon.k3([{"videolar": [{"id": "v", "kareden_okunanlar": [o]}]}], [_f()], M, dg_u=False, gorsel=gor)
+    assert (r["u"]["kareden_okunanlar"], r["a_dayanaksiz"], r["dg"]["A"]) == (u, az, dg)
+
+
 def test_eslesen_oge_tek_sayilir():
     r = yon.k3([_f("Ruflo")], [_f("Ruflo")], M)
     assert r["u"]["adaylar"] == 1
