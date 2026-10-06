@@ -43,9 +43,9 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
         from . import cli  # döngüsel içe aktarma yok
         t0 = time.monotonic()
 
-        def hata(neden):
+        def hata(neden, usd=0.0):
             neden = f"ölçülemedi: {neden}"[:200]
-            return {"form": None, "usage": {}, "usd": 0.0, "sure": round(time.monotonic() - t0, 1),
+            return {"form": None, "usage": {}, "usd": usd, "sure": round(time.monotonic() - t0, 1),
                     "hata": neden.replace(anahtar, "***") if anahtar else neden}
         ekler = [{"type": "image_url", "image_url": {"url": f"data:image/{'png' if str(k).endswith('.png') else 'jpeg'};base64,"
                   + base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
@@ -57,7 +57,7 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
         try:
             durum, y, *ek = gonder(env.get("OMNIROUTE_URL", OMNI_URL).rstrip("/") + OMNI_YOL, govde, bas)
         except OSError as e:  # sunucu yok / zaman aşımı → adım düşmez, sebep hata alanında
-            return hata(f"{type(e).__name__}: {e}")
+            return hata(f"{type(e).__name__}: {e}", None if isinstance(e, TimeoutError) else 0.0)  # zaman aşımı: upstream faturalamış olabilir
         if durum != 200:
             return hata(f"HTTP {durum} " + json.dumps(y.get("error") or "", ensure_ascii=False))
         u, ic = y.get("usage") or {}, (y.get("choices") or [{}])[0].get("message", {}).get("content") or ""
