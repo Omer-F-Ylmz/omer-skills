@@ -709,3 +709,13 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - DAYANAK_ESIK 0.37 (iddialar · site_ui · promptlar; kısa ad/terim ANLAM_ESIK 0.6'da). Kalibrasyon 20 elle etiketli çift (test_f3_v5 _IDDIA/_PENCERE): aynı 0.396–0.799 · ilgisiz −0.006–0.343. Sınır: terimi içermeyen pencere ("blast radius" ↔ yalnız "downstream dependencies") 0.225 → eşik altı; aynı videodan ilgisiz pencere 0.343'e çıkabiliyor (pay dar).
 - Testler: video 941 → 966 (+25). Kırmızı f60d7a9.
 - Sıradaki: V8 kalite derinliği (boyutlu hakem) → F3-V7b token ve hız (kompakt örnek · kare JPEG sıkıştırma → parça gövdesi OMNIROUTE_CHAT_LARGE_BODY_BYTES altı → koşullu paralellik).
+
+## O70 F3-V8 — kararlılık + hakem farkı (canlı 0; 1 anahtarsız OpenRouter GET)
+- Kanıt (Ömer, b2QkhmQ0sT0; ölçüm v3 + DAYANAK_ESIK 0.37): V6 yeniden puanlama 155021 görev 0.71→0.74 · F1 %71→%74 · Jev 2.83→2.51 (−%11) AL; V6 canlı 155044 görev 0.72→0.73 · önbellek %41 → $0.0395 · 58+50 s · Jev 2.85→2.22 (−%22) ONARIM; V63 155031 görev 0.79→0.67 · Jev 2.64 AL (−%14) → k=4 kalır. HEDEF: görev ≥ A ✓ · ≤ $0.04 ✓ (önbellekle) · ≤ 60 s ✓ · Jev ✗ ve kararsız (B 2.51/2.22).
+- Kararsızlık kaynağı: omni_cagir gövdesinde temperature/seed yoktu (sağlayıcı varsayılanı); gürültü bandı yalnız A'dan ölçülüyordu.
+- Hakem ipucu: boş alan A 34 → B 50.5–51.5; öğe başı ayrıntı ince (iz baglandigi 985 → 263–309 kr · iddialar karede_gorulen 83 → 0 · site_ui teknik 99 → 30 · kurulum_komutlar karede_gorulen 147 → 49).
+- V8 = V6 + temperature 0.2 (+ seed 7, supported_parameters'ta varsa; flash-lite ve 3.8-flash katalogda seed ✓, yoksa satırda "seed yok") + parça mesajında ALAN_KURALI + PARCA_OZET ("ozet: tek cümle"; bütün özeti son geçiş yazar). Diğer varyantların gövdesi aynı.
+- Satır: "B bant x.xx · görev bant (A x · B y)" (karar kuralı aynı) · "dolu alan %x (A %y) · bilinmiyor %z (A %w)" (OLCUM listelerindeki öğelerin şema alanları; eksik alan boş, "bilinmiyor" ayrı) · ELEME_BOYUT=1 iken "boyut fark: en büyük 2".
+- Boyutlu hakem (teşhis): kur.BOYUT_Q 5 soru (eksiksizlik · kanit · tutarlilik · dogruluk · ozet; ölçek KALITE_Q) ayrı Jev partisi; karar yalnız KALITE_Q. Rapor boyut A/B ortalaması; JEV_BOYUT_TAVAN 24 ön kontrol B'den önce; ELEME_YENIDEN'de kayıtta olmayan boyutlar sorulur ve kayda yazılır (B çağrısı 0).
+- Testler: video 966 → 978 (+12). Not: dolu alan beklentisi kırmızıda %86 tahminiydi; aday şemasında 8 alan (6/8) → %75'e düzeltildi (yeşil commit).
+- Sıradaki: V9 token + hız — kompakt örnek (liste başına 2 öğe, alanlar tam) · kare JPEG sıkıştırma → parça gövdesi OMNIROUTE_CHAT_LARGE_BODY_BYTES altı → koşullu paralellik; ardından 2 farklı videoda doğrulama.

@@ -214,12 +214,17 @@ VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka
            "V5": "V21 sistemi + bolumle(k=3): parçalar paralel, formlar birlestir ile tek yanıt",
            "V54": "V5, k=4",
            "V6": "V54 + ELEME_ORNEK6 (6 liste dolu) · sabit sistem öneki · yük dengeli bolumle · bolumler paketten · son geçiş (özet + eksik)",
-           "V63": "V6, k=3"}
-PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
-SON = ("V6", "V63")  # F3-V6: parça + son geçiş (çağrı k + 1)
+           "V63": "V6, k=3",
+           "V8": "V6 + temperature 0.2 (+ seed 7 destekse) + parçalarda ALAN KURALI ve tek cümle özet"}
+PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3, "V8": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
+SON = ("V6", "V63", "V8")  # F3-V6: parça + son geçiş (çağrı k + 1)
 DEGERLENDIR = "DEĞERLENDİR LİSTESİ (paket metninden mekanik çıkarım):\n"
 PARCA_BOLUM = "bolumler: boş bırak ([]); bölümler paketten doldurulur."
 PARCA_LINK = "aciklama_baglantilari: boş bırak ([]); bağlantılar yalnız 1. parçada istenir."
+ALAN_KURALI = ("ALAN KURALI: Her öğede şemadaki alanları doldur: karede görülen öğede karede_gorulen'e karede ne göründüğünü yaz; kanit_zamani "
+               "ve kaynak boş kalmaz; kanıt en az bir somut cümle; iz öğelerinde baglandigi neye ve neden bağlandığını açıklar; site_ui öğelerinde "
+               "teknik uygulama ayrıntısını verir. Bilgi yoksa uydurma, 'bilinmiyor' yaz.")
+PARCA_OZET = "ozet: tek cümle; bütün özeti son geçiş yazar."
 SON_LISTE = ("adaylar", "iddialar", "kurulum_komutlar", "promptlar", "site_ui")
 SON_SISTEM = ("Bir videonun paket metni (konuşma + ekran metni) ve parça parça çıkarılmış formun anahtar satırları verilir. ozet: tüm videoyu "
               "kapsayan tek bütünlüklü özet. ek_* listelerine yalnız anahtar satırlarda OLMAYAN öğeleri yaz (öğe biçimi ana formdakiyle aynı); "
@@ -340,6 +345,23 @@ def alan_farki(a_formlar, b_formlar, sema):
 OLCUM = {"adaylar": ("ad", 0.40), "site_ui": ("ne teknik", 0.15), "promptlar": ("metin", 0.15), "iddialar": ("iddia", 0.10),
          "kurulum_komutlar": ("komut", 0.10), "kareden_okunanlar": ("okunan", 0.10)}  # F3-ÖLÇÜM-4: site_ui anahtarı ne + teknik
 DAYANAK = {"dayanaklı": "konuşmada var", "doğrulanamadı": "yalnız kare", "dayanaksız": "dayanaksız"}
+
+
+def dolu_alan(formlar, sema):
+    """F3-V8: OLCUM listelerindeki öğelerin şema alanı doluluğu → (dolu, bilinmiyor, toplam); eksik alan boş, 'bilinmiyor' dolu sayılmaz."""
+    s = ((sema.get("properties") or {}).get("videolar") or {}).get("items", {}).get("properties") or {}  # videolarsız şema → 0/0
+    d = b = n = 0
+    for v in (v for f in formlar for v in (f or {}).get("videolar") or []):
+        for x in OLCUM:
+            ks = list(((s.get(x) or {}).get("items") or {}).get("properties") or ())
+            for o in (o for o in v.get(x) or [] if isinstance(o, dict)):
+                for a in (o.get(k) for k in ks):
+                    n += 1
+                    if isinstance(a, str) and a.strip().lower() == "bilinmiyor":
+                        b += 1
+                    elif a not in (None, "", [], {}):
+                        d += 1
+    return d, b, n
 
 
 def _n(s):
@@ -635,12 +657,13 @@ def son_gecis(tas, g, form, m):
     return r, None
 
 
-def _parcali(tas, sis, g, k, ek, m, v6=False):
+def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False):
     """F3-V5: bolumle(g[1], k) parçaları paralel (≤ PARALEL_TAVAN, fazlası kuyrukta) → birlestir. usd/usage/yeniden toplam, sure duvar saati; parça hatasında birleşim yok.
-    F3-V6 (v6): yük dengeli bolumle · parçaya özel talimat + DEĞERLENDİR listesi kullanıcı mesajının başında · bolumler paketten · son_gecis."""
+    F3-V6 (v6): yük dengeli bolumle · parçaya özel talimat + DEĞERLENDİR listesi kullanıcı mesajının başında · bolumler paketten · son_gecis.
+    F3-V8 (alan): parça mesajı ALAN_KURALI + PARCA_OZET ile başlar."""
     from concurrent.futures import ThreadPoolExecutor
     parca = bolumle(g[1], k, yuk=v6)
-    msg = (lambda i, p: "\n".join([PARCA_BOLUM, *[PARCA_LINK] * (i > 0)]) + f"\n\n{DEGERLENDIR}{on_cikarim(p)}\n\n{p}") if v6 else (lambda i, p: p)
+    msg = (lambda i, p: "\n".join([*(ALAN_KURALI, PARCA_OZET) * alan, PARCA_BOLUM, *[PARCA_LINK] * (i > 0)]) + f"\n\n{DEGERLENDIR}{on_cikarim(p)}\n\n{p}") if v6 else (lambda i, p: p)
     kar = lambda p: {"kareler": [x for x in ek["kareler"] if f"{Path(x).name} · " in p]} if "kareler" in ek else {}
     t0 = time.monotonic()
     with ThreadPoolExecutor(min(len(parca), PARALEL_TAVAN)) as h:
@@ -669,10 +692,11 @@ def _tahmin(m, kare):
 
 
 JEV_TAVAN = 12  # F3-ÖLÇÜM: puanlama isteği üst sınırı (A 2 + aday 5 × 2); koşu 2 TavanHata ile sonuçsuz kaldı
+JEV_BOYUT_TAVAN = 24  # F3-V8: ELEME_BOYUT modunda (kalite + boyut ayrı istek)
 
 
 def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_kur=omni_cagir, yokla=omni_yokla,
-          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, ornek21=None, kucult=_kucult, kayit=None, yeniden=None, ornek6=None):
+          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, ornek21=None, kucult=_kucult, kayit=None, yeniden=None, ornek6=None, boyut=None):
     """F3-ELEME adım 4: tek girdi g (sistem, metin, şema, kareler), adaylar tek koşuda. Ön kontrol (kol sabit · varyant · FIYAT · yokla)
     geçmeyen çağrı 0. Aday başı çağrı 1; şema geçerse 2. Sıradaki çağrı B tavanını (çağrı · $; tahmin = adayın son usd'si, yoksa _tahmin)
     aşacaksa yapılmaz → "tavan". usd None (zaman aşımı) harcamaya tahminle girer. supported_parameters'ta reasoning varsa effort minimal.
@@ -687,6 +711,8 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
     ek = {"kareler": g[3]} if len(g) > 3 else {}
     gecer = lambda y: not y.get("hata") and not pt._denet(y.get("form"), g[2], "form")
     sk = lambda p: p["score"] if isinstance(p, dict) else p
+    gv = lambda ys, v2: (lambda it: [next(it)["f1"] if gecer(y) else 0.0 for y in ys])(iter(v2))  # F3-V8: yanıt başı görev (geçmeyen 0)
+    bant = lambda xs: max(xs) - min(xs) if xs else 0.0
     dosya = lambda ad: re.sub(r"[^\w.@-]", "_", ad)
     durum, b_usd, cagri = {}, 0.0, 0
     for ad in adaylar:
@@ -694,9 +720,9 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         v, akil = v or "V0", "reasoning" in (destek or {}).get(m, ())
         if yeniden:  # F3-ÖLÇÜM: B çağrısı 0, kayıttaki yanıtlar · F3-ÖLÇÜM-3: kayıttaki Jev puanı tekrar kullanılır
             ks = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
-            durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "akil": akil}
+            durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "bp": [r.get("boyut") for r in ks], "akil": akil}
             continue
-        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6}.get(v)
+        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6, "V8": ornek6}.get(v)
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
                  else f"{v} örneği yok" if v in ("V1", "V21", *PARCA) and not (orn and Path(orn).is_file())
@@ -705,11 +731,13 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
                  else "fiyat yok" if m not in FIYAT else yokla(m, env, gorsel=bool(kare)))
         durum[ad] = {"neden": neden, "y": [], "akil": akil, "m": m, "v": v}
     acik = [x for x in durum.values() if not x["neden"]]
-    ap = [json.loads(f.read_text(encoding="utf-8")).get("puan") if (f := Path(yeniden) / "A" / f"{i}.json").is_file() else None
-          for i in range(2)] if yeniden else [None, None]
+    ak = [json.loads(f.read_text(encoding="utf-8")) if yeniden and (f := Path(yeniden) / "A" / f"{i}.json").is_file() else {} for i in range(2)]
+    ap, abp = [r.get("puan") for r in ak], [r.get("boyut") for r in ak]
     # Jev: A 2 + çağrılabilecek en fazla B yanıtı · yeniden: yalnız kayıtta puanı olmayanlar
     gerek = sum(p is None for p in ap) + sum(sum(p is None for p in x["p"]) if yeniden else 2 for x in acik)
-    if gerek > JEV_TAVAN:
+    if boyut:  # F3-V8: boyut soruları ayrı istek; kayıtta olanlar sayılmaz
+        gerek += sum(b is None for b in abp) + sum(sum(b is None for b in x["bp"]) if yeniden else 2 for x in acik)
+    if gerek > (JEV_BOYUT_TAVAN if boyut else JEV_TAVAN):
         for x in acik:
             x.update(neden="TAVAN jev", y=[])
     for ad, x in [] if yeniden else durum.items():
@@ -723,20 +751,22 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
                             + (ORNEK_BASLIK + Path(ornek if b == "V1" else ornek21).read_text(encoding="utf-8") if b in ("V1", "V21") else ""))
         ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
             if v == "V4" and kare else ek
-        tas = b_kur(m, env, timeout=zaman, govde_ek={"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else None)
+        ge = {**({"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else {}),  # F3-V8: düşük sıcaklık, seed yalnız destekse
+              **({"temperature": 0.2, **({"seed": 7} if "seed" in (destek or {}).get(m, ()) else {})} if v == "V8" else {})}
+        tas = b_kur(m, env, timeout=zaman, govde_ek=ge or None)
         while len(x["y"]) < 2 and (not x["y"] or gecer(x["y"][-1])):
             tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare) * nc
             if cagri + nc > tavan_cagri or b_usd + tahmin > tavan_usd:
                 x["tavan"] = True
                 break
-            y = _parcali(tas, sis, g, n, ek_v, m, v6=v in SON) if n > 1 else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
+            y = _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v == "V8") if n > 1 else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
             cagri, b_usd = cagri + nc, b_usd + (tahmin if y.get("usd") is None else y["usd"])
             x["y"].append(y)
             if kayit:  # puanlamadan önce diske (koşu 2: Jev hatasında 6 yanıt kayboldu)
                 _yaz(Path(kayit) / dosya(ad) / f"{len(x['y']) - 1}.json", {"yanit": y, "puan": None})
     gecen = {ad: [y for y in x["y"] if gecer(y)] for ad, x in durum.items()}
     gecen = {ad: v for ad, v in gecen.items() if v}
-    a_usd, ozet, karar, rapor, ya, pa, pb = 0.0, {}, {}, {}, [], [], {}
+    a_usd, ozet, karar, rapor, ya, pa, pb, bpb = 0.0, {}, {}, {}, [], [], {}, {}
 
     def a_say(*a, **k):
         nonlocal a_usd
@@ -776,16 +806,33 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
                                        max(map(sk, pa)) - min(map(sk, pa)), [(sa["gorev"][0], ozet[ad]["gorev"][0])]))
                 rapor[ad] = {**alan_farki([y["form"] for y in ya if y.get("form")], [y["form"] for y in v], g[2]),
                              "olcum": ["ÖLÇÜM BOŞ"] if bos else olcum_satirlari(sa["v2"], ozet[ad]["v2"], d, g[1])}
+                da, db = dolu_alan([y["form"] for y in ya if gecer(y)], g[2]), dolu_alan([y["form"] for y in v], g[2])  # F3-V8
+                yz = lambda t, i: 100 * t[i] / max(t[2], 1)  # noqa: E731
+                rapor[ad]["dolu"] = f"dolu alan %{yz(db, 0):.0f} (A %{yz(da, 0):.0f}) · bilinmiyor %{yz(db, 1):.0f} (A %{yz(da, 1):.0f})"
+            if boyut:  # F3-V8: boyutlu hakem (teşhis; karar yalnız KALITE_Q) · kayıtta olan boyut yeniden sorulmaz
+                eb = abp + [b for ad in gecen for y, b in zip(durum[ad]["y"], durum[ad].get("bp") or [None] * len(durum[ad]["y"])) if gecer(y)]
+                yb = iter(boyut([s for s, b in zip(ms, eb) if b is None]) if None in eb else ())
+                bt = iter([next(yb) if b is None else b for b in eb])
+                abp = [next(bt) for _ in ya]
+                ort = lambda bs: {q: sum(sk(b[q]) for b in bs) / len(bs) for q in kur.BOYUT_Q}  # noqa: E731
+                for ad, v in gecen.items():
+                    bpb[ad] = [next(bt) for _ in v]
+                    oa, ob = ort(abp), ort(bpb[ad])
+                    fk = sorted(kur.BOYUT_Q, key=lambda q: (-abs(oa[q] - ob[q]), q))[:2]
+                    rapor[ad]["boyut"] = {"A": oa, "B": ob, "fark": ", ".join(f"{q} {oa[q]:.2f}→{ob[q]:.2f}" for q in fk)}
+                    rapor[ad]["boyut"]["satir"] = ("boyut A/B: " + " · ".join(f"{q} {oa[q]:.2f}/{ob[q]:.2f}" for q in kur.BOYUT_Q))
             al = [(ozet[m]["kalite"], -ozet[m]["maliyet"], m) for m, k in karar.items() if k.startswith("AL")]
             oneri = (f"öneri: {max(al)[2]} (kalite {max(al)[0]:.2f} · ${-max(al)[1]:.4f}/çağrı)" if al else
                      "öneri: yok (AL aday yok)")
     if kayit:
         for i, y in enumerate(ya):
-            _yaz(Path(kayit) / "A" / f"{i}.json", {"yanit": y, "puan": pa[i] if i < len(pa) else None})
+            _yaz(Path(kayit) / "A" / f"{i}.json", {"yanit": y, "puan": pa[i] if i < len(pa) else None,
+                                                   **({"boyut": abp[i]} if i < len(abp) and abp[i] else {})})
         for ad, x in durum.items():
-            it = iter(pb.get(ad, ()))
+            it, ib, bo = iter(pb.get(ad, ())), iter(bpb.get(ad, ())), x.get("bp") or []
             for i, y in enumerate(x["y"]):
-                _yaz(Path(kayit) / dosya(ad) / f"{i}.json", {"yanit": y, "puan": next(it, None) if gecer(y) else None})
+                b = (next(ib, None) if gecer(y) else None) if ad in bpb else bo[i] if i < len(bo) else None  # F3-V8: kayıttaki boyut korunur
+                _yaz(Path(kayit) / dosya(ad) / f"{i}.json", {"yanit": y, "puan": next(it, None) if gecer(y) else None, **({"boyut": b} if b else {})})
     gizli = [v for v in (env.get("OMNIROUTE_KEY"), env.get("OPENROUTER_API_KEY")) if v]
     satirlar = []
     for m, x in durum.items():
@@ -804,7 +851,10 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
              *([f"yeniden {yn}"] if (yn := sum(y.get("yeniden", 0) for y in ys)) else []),
              *dict.fromkeys(y["k_not"] for y in ys if y.get("k_not")), *(["son geçiş: hata"] if any(y.get("son_hata") for y in ys) else []),
              *([f"kalite {ozet[m]['kalite']:.2f} · şema {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
-             *([rapor[m]["olcum"][0]] if m in ozet else []),
+             *([rapor[m]["olcum"][0], f"B bant {bant(list(map(sk, pb[m]))):.2f}",  # F3-V8: tekrar bantları (A bandı kur.karar'da)
+                f"görev bant (A {bant(gv(ya, sa['v2'])):.2f} · B {bant(gv(ys, ozet[m]['v2'])):.2f})", rapor[m]["dolu"]] if m in ozet else []),
+             *([f"boyut fark: {rapor[m]['boyut']['fark']}"] if m in ozet and "boyut" in rapor[m] else []),
+             *(["seed yok"] if x.get("v") == "V8" and "seed" not in (destek or {}).get(x.get("m"), ()) else []),
              *([f"Jev {jev[m]}" if jev[m] else "Jev 0 (kayıttan)"] if yeniden and m in ozet else [])]
         if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
             p.append("reasoning parametresi etkisiz")

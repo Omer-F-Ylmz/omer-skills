@@ -30,6 +30,12 @@ ENVREF = re.compile(r"\$\{[A-Z_][A-Z0-9_]*\}")
 SALT_OKUR = {"--version", "-v", "version", "--help", "-h", "help", "list", "ls", "show", "status", "info", "search", "get", "view", "doctor", "check"}
 KALITE_Q = {"type": "score", "instructions": "Yanıt (state) görevi eksiksiz ve anlaşılır karşılıyor mu?",
             "criteria": ["karşılamıyor", "kısmen", "büyük ölçüde", "eksiksiz ve anlaşılır"]}
+BOYUT_Q = {k: {"type": "score", "instructions": s, "criteria": KALITE_Q["criteria"]} for k, s in (  # F3-V8: boyutlu hakem (teşhis; karar yalnız KALITE_Q)
+    ("eksiksizlik", "Yanıt videodaki araç, iddia, komut, prompt ve ekran öğelerini eksiksiz kapsıyor mu?"),
+    ("kanit", "Öğe alanları (kanıt, karede görülen, bağlandığı, teknik ayrıntı) dolu ve somut mu?"),
+    ("tutarlilik", "Yanıtta yinelenen ya da parçalanmış öğe yok, öğeler birbiriyle tutarlı mı?"),
+    ("dogruluk", "Yanıt yalnız görevdeki kaynağa dayanıyor, uydurma bilgi içermiyor mu?"),
+    ("ozet", "Özet videonun tamamını bütünlüklü ve anlaşılır biçimde aktarıyor mu?"))}
 ALANLAR = ("cikti", "girdi", "sure", "maliyet", "kalite")
 KONTROL_SN, DESEN_SN = 10, 1  # yanıt kontrolü · desen ön-denetimi (ayrı süreç, zaman aşımı)
 REGEX = ("olgu", "yasak", "satir-desen")

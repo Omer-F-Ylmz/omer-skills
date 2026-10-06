@@ -24,6 +24,9 @@ liste = ig._post('https://openrouter.ai/api/v1/models', None, {})[1].get('data')
 destek = {'openrouter/' + x['id']: x.get('supported_parameters') or [] for x in liste if 'openrouter/' + x.get('id', '') in {a.split('@')[0] for a in adaylar}}
 # tek kör Jev partisi; istek tavanı = puanlanacak yanıt sayısı (eleme B'den önce ≤ yon.JEV_TAVAN olduğunu denetler)
 puanla = lambda ms: [x['kalite'] for x in c.Tasiyici(env=env, en_fazla=2, istek_tavan=len(ms)).yargila(ms, {'kalite': kur.KALITE_Q})]
+# F3-V8 teşhis: ELEME_BOYUT=1 → 5 boyut sorusu ayrı parti (karar yalnız kalite); kayıtta olan boyut yeniden sorulmaz
+boyut = (lambda ms: [{k: x[k] for k in kur.BOYUT_Q} for x in c.Tasiyici(env=env, en_fazla=2, istek_tavan=len(ms)).yargila(ms, kur.BOYUT_Q)]) \
+    if os.environ.get('ELEME_BOYUT') == '1' else None
 g = (pt.SISTEM, '=== VIDEO ' + v + ' ===\n' + p.read_text(encoding='utf-8'), pt.sema([v], iz=True), kareler)
 print('kareler', len(kareler), '· adaylar', len(adaylar))
 ts, ornek = time.strftime('%Y%m%d-%H%M%S'), Path(os.environ['ELEME_ORNEK']) if os.environ.get('ELEME_ORNEK') else None
@@ -31,9 +34,11 @@ ts, ornek = time.strftime('%Y%m%d-%H%M%S'), Path(os.environ['ELEME_ORNEK']) if o
 ornek21 = Path(os.environ['ELEME_ORNEK21']) if os.environ.get('ELEME_ORNEK21') else None
 ornek6 = Path(os.environ['ELEME_ORNEK6']) if os.environ.get('ELEME_ORNEK6') else None
 print('varyantlar:', ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()), '· V1 örneği', ornek, '· V21 örneği', ornek21)
-s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, ornek21=ornek21, ornek6=ornek6,
+s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, ornek21=ornek21, ornek6=ornek6, boyut=boyut,
              kayit=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else p.parent.parent / 'eleme' / ts,
              yeniden=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else None)  # yeniden: B çağrısı 0, kayıttan puanla
+for r in (s.get('rapor') or {}).values():  # F3-V8: dolu alan + boyut satırı rapora (konsol + md)
+    r['olcum'] = [*(r.get('olcum') or ()), *[x for x in (r.get('dolu'), (r.get('boyut') or {}).get('satir')) if x]]
 for r in s['satirlar']:
     print(r)
 print(s['oneri'])

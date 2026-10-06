@@ -536,8 +536,8 @@ def test_v8_dolu_alan_bilinmiyor_ayri():
 
 def test_v8_dolu_alan_satir_rapor(tmp_path):
     s = _e8(tmp_path, [f"{E1}@V8"], [])
-    assert " · dolu alan %86 (A %86) · bilinmiyor %0 (A %0)" in s["satirlar"][0]
-    assert "dolu alan %86 (A %86) · bilinmiyor %0 (A %0)" in s["rapor"][f"{E1}@V8"]["olcum"]
+    assert " · dolu alan %75 (A %75) · bilinmiyor %0 (A %0)" in s["satirlar"][0]
+    assert "dolu alan %75 (A %75) · bilinmiyor %0 (A %0)" == s["rapor"][f"{E1}@V8"]["dolu"]
 
 
 def test_v8_bilinmeyen_varyant_cagri_0(tmp_path):
@@ -558,7 +558,7 @@ def test_boyut_yalniz_modda_rapor(tmp_path):
     s = _e8(tmp_path / "b", [f"{E1}@V8"], [], boyut=_by(bc))
     r = s["rapor"][f"{E1}@V8"]
     assert bc == [4] and r["boyut"]["A"]["kanit"] == 0.9 and r["boyut"]["B"]["kanit"] == 0.5 and r["boyut"]["B"]["dogruluk"] == 0.8
-    assert " · boyut fark: kanit 0.90→0.50, ozet 0.90→0.50" in s["satirlar"][0] and any(x.startswith("boyut A/B:") for x in r["olcum"])
+    assert " · boyut fark: kanit 0.90→0.50, ozet 0.90→0.50" in s["satirlar"][0] and r["boyut"]["satir"].startswith("boyut A/B:")
 
 
 def test_boyut_tavan_on_kontrol(tmp_path, monkeypatch):
