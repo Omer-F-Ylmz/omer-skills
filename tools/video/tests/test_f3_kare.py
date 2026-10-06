@@ -754,3 +754,87 @@ def test_eleme_yeniden_jev_puani_kayittan(tmp_path):
 
 def test_eleme_ps1_olcum_satirlari_cikti_ve_md():
     assert BETIK.with_name("eleme.ps1").read_text(encoding="utf-8").count("r.get('olcum', ())") == 2
+
+
+# F3-V2 (plan O64): karar görev skoruyla · dayanak kalibrasyonu · A dayanaksız satırı · V2/V21 (ön çıkarım + eksiksizlik + örnek)
+def test_eleme_karar_basarisi_gorev_skoru_sema_ayri(tmp_path, monkeypatch):
+    from video import kur
+    k = []
+    monkeypatch.setattr(kur, "karar", lambda a, b, e, gur, gorev: k.append((a["basari"], b["basari"])) or "AL")
+    s = _o(tmp_path, [E1, E2])
+    assert k == [(pytest.approx(0.4), pytest.approx(0.8)), (pytest.approx(0.4), 0.0)]  # şema başarısı (0.5 → 1.0) değil
+    assert "kalite 0.80 · şema 1.00" in s["satirlar"][0]
+
+
+def test_karar_gorev_dususu_20_ustu_al_degil():
+    from video import kur
+    a = {"kalite": 0.8, "basari": 0.56, "maliyet": 0.01, "cikti": 100, "girdi": 0}
+    r = kur.karar(a, {**a, "basari": 0.31, "maliyet": 0.001}, None, 0.0, [(0.56, 0.31)])
+    assert not r.startswith("AL") and "düşüş %44.6" in r
+
+
+@pytest.mark.parametrize("ad, metin, e", [
+    ("Feature gating (özellik kapısı)", "burada feature gates kullanılıyor", "dayanaklı"),
+    ("Ağaç modeli: trunk/leaf ve blast radius", "trunk leaf blast radius", "dayanaklı"),
+    ("Kubernetes operatörü", "trunk leaf blast radius", "dayanaksız")])
+def test_dayanak_ayirt_edici_kelime_onek(ad, metin, e):
+    assert yon.dayanak("adaylar", {"ad": ad, "kaynak": "konusma"}, metin) == e
+
+
+def test_eleme_rapor_a_dayanaksiz_ilk_5(tmp_path, monkeypatch):
+    a = {**IYI, "form": _f(adaylar=[_ad("foo"), *(_ad(f"Qux{i}") for i in range(6))])}
+    monkeypatch.setitem(globals(), "_A", [a, a])
+    o = _o(tmp_path, [E1])["rapor"][E1]["olcum"]
+    assert o[-2] == "A dayanaksız: Qux0, Qux1, Qux2, Qux3, Qux4" and o[-1].startswith("kaçırılan: ")
+
+
+_P = ("=== VIDEO vid1 ===\n[0:01] Önce npx skills add owner/repo, sonra https://github.com/acme/tool-x adresine bakın.\n"
+      "[0:05] Burada `claude-mem` ve SuperClaude var. Tekrar https://github.com/acme/tool-x.\n"
+      "## Ekran metni (OCR)\n[2:30] pip install foo-bar\n[2:31] Settings panel\n## Kareler\n- k1 · 2:30\n")
+
+
+def test_on_cikarim_kalemleri_ve_tekil():
+    s = yon.on_cikarim(_P).splitlines()
+    for x in ("url: https://github.com/acme/tool-x", "repo: acme/tool-x", "komut: npx skills add owner/repo", "komut: pip install foo-bar",
+              "kod: claude-mem", "ad: SuperClaude", "kare: [2:30] pip install foo-bar", "kare: [2:31] Settings panel"):
+        assert x in s, x
+    assert len(s) == len(set(s)) and "kare: - k1 · 2:30" not in s
+    assert not [x for x in s if x in ("ad: Önce", "ad: Burada", "ad: Tekrar", "ad: Settings", "ad: Ekran", "ad: VIDEO")]
+
+
+def test_on_cikarim_token_tavani():
+    s = yon.on_cikarim("\n".join(f"https://x.dev/{i}" for i in range(3000)))
+    assert len(s) <= yon.ON_TAVAN * 4 and s.startswith("url: https://x.dev/0\n")
+
+
+def test_eleme_v2_v21_sistem_mesaji(tmp_path):
+    c, o = [], tmp_path / "ORN2.json"
+    o.write_text('{"id": "ORN2"}', encoding="utf-8")
+    yon.eleme(("S", "=== VIDEO vid1 ===\nhttps://x.dev/a anlatılıyor", SEMA, []), [f"{E1}@V2", f"{E2}@V21"], _tas([]), hafif.MODEL, ENV,
+              lambda ms: [0.8] * len(ms), onbellek=tmp_path / "ab", b_kur=_b_kayit(c), yokla=lambda m, env, gorsel=False: None, ornek21=o)
+    v2, v21 = c[0]["sistem"], c[2]["sistem"]
+    assert v2.startswith("S\n\n" + yon.EKSIKSIZLIK + "\n\nDEĞERLENDİR LİSTESİ") and "url: https://x.dev/a" in v2 and "ORN2" not in v2
+    assert v21.startswith(v2) and v21.endswith(yon.ORNEK_BASLIK + '{"id": "ORN2"}')
+    assert yon.EKSIKSIZLIK.startswith("EKSİKSİZLİK KURALI: Videoda adı geçen") and yon.EKSIKSIZLIK.endswith("belirsizlikler[]'e tek satırla yaz.")
+    c = []
+    s = _v(tmp_path, [f"{E1}@V21", f"{E1}@V22"], c)
+    assert c == [] and s["satirlar"] == [f"{E1}@V21 · hata: V21 örneği yok · çağrı 0", f"{E1}@V22 · hata: bilinmeyen varyant: V22 · çağrı 0"]
+    (tmp_path / "vid1.json").write_text('{"id": "vid1"}', encoding="utf-8")
+    assert _v(tmp_path, [f"{E1}@V21"], c, ornek21=tmp_path / "vid1.json")["satirlar"] == \
+        [f"{E1}@V21 · hata: V21 örneği test videosundan (vid1) · çağrı 0"] and c == []
+
+
+def test_ornek_sec_hepsi_dolu_en_kisa_haric(tmp_path):
+    dolu = {x: [{"k": "v"}] for x in yon.OLCUM}
+
+    def yaz(ad, d):
+        (tmp_path / f"{ad}.json").write_text(json.dumps(d), encoding="utf-8")
+        return tmp_path / f"{ad}.json"
+    ys = [yaz("uzun", {"id": "uzun", **dolu, "ozet": "x" * 500}), yaz("kisa", {"id": "kisa", **dolu, "ozet": "x" * 20}),
+          yaz("eksik", {"id": "eksik", **dolu, "promptlar": []}), yaz("b2QkhmQ0sT0", {"id": "b2QkhmQ0sT0", **dolu})]
+    assert yon.ornek_sec(ys) == tmp_path / "kisa.json" and yon.ornek_sec(ys[2:3]) is None
+
+
+def test_eleme_ps1_ornek21():
+    s = BETIK.with_name("eleme.ps1").read_text(encoding="utf-8")
+    assert "ELEME_ORNEK21" in s and "ornek21=" in s
