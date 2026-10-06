@@ -4,6 +4,7 @@ import bisect
 import functools
 import hashlib
 import json
+import random
 import re
 import subprocess
 import tempfile
@@ -52,7 +53,7 @@ def _usd(model, u, basliklar, kare=0):
     return (u.get("prompt_tokens", 0) * f["girdi"] + u.get("completion_tokens", 0) * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0) if f else None
 
 
-def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None):
+def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sleep):
     """hafif.cagir imzasında OmniRoute (OpenAI biçimi) adaptörü → {form, usage, usd, sure, hata}; anahtar yalnız env OMNIROUTE_KEY, hiçbir çıktıya yazılmaz.
     govde_ek istek gövdesine eklenir (F3-ELEME: reasoning); usage.reasoning yalnız yanıtta reasoning token > 0 ise."""
     anahtar = env.get("OMNIROUTE_KEY") or ""
@@ -64,7 +65,7 @@ def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None):
 
         def hata(neden, usd=0.0):
             neden = f"ölçülemedi: {neden}"[:200]
-            return {"form": None, "usage": {}, "usd": usd, "sure": round(time.monotonic() - t0, 1),
+            return {"form": None, "usage": {}, "usd": usd, "sure": round(time.monotonic() - t0, 1), "yeniden": n,
                     "hata": neden.replace(anahtar, "***") if anahtar else neden}
         ekler = [{"type": "image_url", "image_url": {"url": f"data:image/{'png' if str(k).endswith('.png') else 'jpeg'};base64,"
                   + base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
@@ -73,10 +74,21 @@ def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None):
                               {"role": "user", "content": [{"type": "text", "text": cli._temizle(metin, env)}, *ekler]}], **(govde_ek or {})}
         # Vision Bridge (visionBridge.ts:188) yalnız bizim isteğimizde kapalı: ling'i görselsiz sayıp kareleri 10'a kırpıyordu
         bas = {"Content-Type": "application/json", "x-omniroute-disabled-guardrails": "vision-bridge", **({"Authorization": f"Bearer {anahtar}"} if anahtar else {})}
-        try:
-            durum, y, *ek = gonder(env.get("OMNIROUTE_URL", OMNI_URL).rstrip("/") + OMNI_YOL, govde, bas)
-        except OSError as e:  # sunucu yok / zaman aşımı → adım düşmez, sebep hata alanında
-            return hata(f"{type(e).__name__}: {e}", None if isinstance(e, TimeoutError) else 0.0)  # zaman aşımı: upstream faturalamış olabilir
+        n = 0
+        while True:  # F3-V5b: kabul reddi (503 chat_admission_busy, upstream'e gitmez) ≤ 3 kez yeniden
+            try:
+                durum, y, *ek = gonder(env.get("OMNIROUTE_URL", OMNI_URL).rstrip("/") + OMNI_YOL, govde, bas)
+            except OSError as e:  # sunucu yok / zaman aşımı → adım düşmez, sebep hata alanında
+                return hata(f"{type(e).__name__}: {e}", None if isinstance(e, TimeoutError) else 0.0)  # zaman aşımı: upstream faturalamış olabilir
+            ra = next((v for a, v in (ek[0] if ek else {}).items() if a.lower() == "retry-after"), None)
+            if durum not in (429, 503) or n == 3 or not (ra or re.search("admission|Retry", json.dumps(y))):
+                break
+            n += 1
+            try:
+                bekle = min(float(ra), 15)
+            except (TypeError, ValueError):
+                bekle = 2 ** n + random.uniform(0, 0.5)
+            uyku(bekle)
         if durum != 200:
             return hata(f"HTTP {durum} " + json.dumps(y.get("error") or "", ensure_ascii=False))
         u, sec0 = y.get("usage") or {}, (y.get("choices") or [{}])[0]
@@ -88,7 +100,7 @@ def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None):
         akil = (u.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0
         return {"form": form, "usage": {"input_tokens": u.get("prompt_tokens", 0), "output_tokens": u.get("completion_tokens", 0),
                                         **({"reasoning": akil} if akil else {})},
-                "usd": _usd(model, u, ek[0] if ek else {}, len(kareler)), "sure": round(time.monotonic() - t0, 1),
+                "usd": _usd(model, u, ek[0] if ek else {}, len(kareler)), "sure": round(time.monotonic() - t0, 1), "yeniden": n,
                 "hata": f"çıktı tavanı (max_tokens {CIKTI_TAVAN})" if kesik else None if form is not None else "form JSON değil"}
     return cagir
 
@@ -197,6 +209,7 @@ VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka
            "V5": "V21 sistemi + bolumle(k=3): parçalar paralel, formlar birlestir ile tek yanıt",
            "V54": "V5, k=4"}
 PARCA = {"V5": 3, "V54": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
+PARALEL_TAVAN = 1  # F3-V5b: OmniRoute OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT varsayılanı (büyük gövde > 256 KiB); fazlası 503 chat_admission_busy
 ORNEK_BASLIK = "\n\nÖRNEK ÇIKTI (başka bir videonun onaylı formu; yalnız biçim ve ayrıntı düzeyi için, içeriğini kopyalama):\n"
 
 
@@ -548,15 +561,17 @@ def birlestir(formlar):
 
 
 def _parcali(tas, sis, g, k, ek, m):
-    """F3-V5: bolumle(g[1], k) parçaları paralel (≤ k) → birlestir. usd/usage toplam, sure en uzun; parça hatasında birleşim yok."""
+    """F3-V5: bolumle(g[1], k) parçaları paralel (≤ PARALEL_TAVAN, fazlası kuyrukta) → birlestir. usd/usage/yeniden toplam, sure duvar saati; parça hatasında birleşim yok."""
     from concurrent.futures import ThreadPoolExecutor
     parca = bolumle(g[1], k)
     kar = lambda p: {"kareler": [x for x in ek["kareler"] if f"{Path(x).name} · " in p]} if "kareler" in ek else {}
-    with ThreadPoolExecutor(len(parca)) as h:
+    t0 = time.monotonic()
+    with ThreadPoolExecutor(min(len(parca), PARALEL_TAVAN)) as h:
         ys = list(h.map(lambda p: tas(sis(p), p, g[2], **kar(p), model=m), parca))
     us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
     y = {"usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
-         "usd": None if None in us else sum(us), "sure": max(y.get("sure") or 0 for y in ys)}
+         "usd": None if None in us else sum(us), "sure": round(time.monotonic() - t0, 1),
+         "yeniden": sum(y.get("yeniden", 0) for y in ys)}
     hata = next((f"parça {i}: {y['hata']}" for i, y in enumerate(ys, 1) if y.get("hata")), None)
     return {"form": None if hata else birlestir([y.get("form") or {} for y in ys]), **y, "hata": hata}
 
@@ -703,6 +718,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         usd = [y.get("usd") for y in ys]
         p = [f"{m}", f"hata: {ilk[:120]}" if ilk else "geçti", f"token {t('input_tokens')}/{t('output_tokens')}/{t('reasoning')}",
              "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
+             *([f"yeniden {yn}"] if (yn := sum(y.get("yeniden", 0) for y in ys)) else []),
              *([f"kalite {ozet[m]['kalite']:.2f} · şema {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
              *([rapor[m]["olcum"][0]] if m in ozet else []),
              *([f"Jev {jev[m]}" if jev[m] else "Jev 0 (kayıttan)"] if yeniden and m in ozet else [])]

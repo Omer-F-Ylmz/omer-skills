@@ -685,3 +685,10 @@ bolumle(paket, k): süre k eşit parçaya bölünür, her sınır en yakın böl
 birlestir(formlar): videolar[] aynı id'de birleşir. ozet zaman sırasıyla birleştirilir. bolumler ve aciklama_baglantilari ilk dolu parçadan bir kez alınır. OLCUM listeleri ve iz eslesir (v3) ile tekilleştirilir, öteki listeler birebir tekilleştirilir; skalerler ilk parçadan gelir.
 V5: V21 sistemi + bolumle(k=3). V54: aynısı, k=4. Parçalar paralel çağrılır (≤ k). Bir yanıt = birleşik form; usd ve usage parçaların toplamı, süre en uzun parça. Tavanlar her parça çağrısını sayar; ön tahmin _tahmin × k. Bir parça hata verirse yanıt "parça <i>: <hata>" olur ve birleştirme yapılmaz.
 b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k (18) · 14:05–20:31 3.5k (3). k=4 → 0:00–5:05 4.7k · 5:05–10:20 6.5k · 10:20–16:20 7.2k · 16:20–20:31 1.4k (0 kare).
+
+## O67 F3-V5b — OmniRoute kabul sınırı: 503 yeniden deneme + parça eşzamanlılık tavanı (canlı 0)
+- Kanıt (Ömer koşusu, b2QkhmQ0sT0): flash-lite@V5 parça 1, @V54 parça 2 → HTTP 503 "Chat admission capacity is temporarily unavailable. Retry shortly." Reddedilen parça upstream'e gitmedi (faturasız); başarılı parçalar boşa ($0.025); ilk çağrı hata → ikinci çağrı yok → ELENDİ.
+- OmniRoute: src/shared/middleware/chatBodyAdmission.ts:93 (code chat_admission_busy). Ayar OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT, varsayılan 1 (büyük gövde eşiği OMNIROUTE_CHAT_LARGE_BODY_BYTES); yanıt Retry-After: 2 gönderir. Ayar değişikliği kurulum işi, karar Ömer'in.
+- Yeniden deneme (omni_cagir): 429/503 ve (gövdede admission|Retry ya da Retry-After başlığı) → en fazla 3 yeniden, bekleme 2 → 4 → 8 s (+ ≤ 0.5 s), Retry-After varsa ona uyulur (≤ 15 s); diğer 4xx/5xx yeniden denenmez. usd yalnız başarılı yanıttan; yanıtta "yeniden": n, satırda n > 0 ise "yeniden n". ikinci_goz._post hata dalı basliklar=True'da başlıkları da döner.
+- _parcali: PARALEL_TAVAN = 1 (OmniRoute varsayılanı); fazla parça kuyrukta bekler; süre duvar saati, yeniden toplam.
+- Testler: video 924 → 932 (+8); test_v5_birlesik_yanit sure beklentisi duvar saatine uyarlandı.

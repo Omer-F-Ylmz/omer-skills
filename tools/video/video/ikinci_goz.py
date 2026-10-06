@@ -47,10 +47,11 @@ def _post(url, govde, bas, basliklar=False, timeout=600):
         with urllib.request.urlopen(r, timeout=timeout) as y:
             return (y.status, json.loads(y.read())) + ((dict(y.headers.items()),) if basliklar else ())  # F1 eki: OmniRoute maliyet başlığı
     except urllib.error.HTTPError as e:
+        h = (dict(e.headers.items()),) if basliklar else ()  # F3-V5b: Retry-After hata yanıtında
         try:  # F1: hata gövdesi (ör. 400 invalid_model) sebep olarak korunur
-            return e.code, json.loads(e.read())
+            return (e.code, json.loads(e.read())) + h
         except ValueError:
-            return e.code, {}
+            return (e.code, {}) + h
 
 
 def or_cagir(model, env, gonder=_post, uyku=time.sleep):

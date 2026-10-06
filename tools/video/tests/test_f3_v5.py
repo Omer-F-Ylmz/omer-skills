@@ -139,7 +139,7 @@ def test_v5_birlesik_yanit(tmp_path):
     y = _kayit(tmp_path, f"{E1}@V5")
     v = y["form"]["videolar"][0]
     assert v["ozet"] == "o0 o1 o2" and [a["ad"] for a in v["adaylar"]] == ["Alfa", "Beta", "Gama"] and pt._denet(y["form"], SV, "form") == []
-    assert y["usd"] == pytest.approx(0.003) and y["usage"] == {"input_tokens": 30, "output_tokens": 15} and y["sure"] == 3.0 and y["hata"] is None
+    assert y["usd"] == pytest.approx(0.003) and y["usage"] == {"input_tokens": 30, "output_tokens": 15} and y["sure"] < 1 and y["hata"] is None  # F3-V5b: duvar saati (parça sure toplamı/maksimumu değil)
 
 
 def test_v5_tavan_parca_basina(tmp_path):
