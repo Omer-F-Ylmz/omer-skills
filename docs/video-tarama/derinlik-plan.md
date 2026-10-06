@@ -701,3 +701,11 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - HEDEF: B görev ≥ A · Jev düşüşü ≤ bant ya da artı · ≤ $0.04/video · ≤ 60 s. Testler: video 932 → 941 (+9).
 - Sıradaki F3-V7 (performans): kare JPEG sıkıştırma ile parça gövdeleri OMNIROUTE_CHAT_LARGE_BODY_BYTES eşiğinin altına → koşullu paralellik.
 - KURULUM notu: sayaç hook'u alt ajan çağrılarını da sayıyor (O67'de 55 / gerçek 30).
+
+## O69 F3-V7a — V6 sonrası teşhis + ölçüm doğruluğu (canlı 0; 1 anahtarsız OpenRouter GET)
+- Kanıt (Ömer, b2QkhmQ0sT0): V6 k=4 görev 0.70 = A · kapsam %60 > %58 · Jev 2.83→2.51 (−%11.3) · $0.050 · 54 s; V63 k=3 görev 0.66 (−%19.5) · Jev 2.64 · $0.046 · 47 s → k=4 kalır. HEDEF: görev ✓ · süre ✓ · Jev bant ✗ · $0.04 ✗.
+- Hakem nedenleri: Jev (System One) gerekçe döndürmüyor — yanıt type/score/legend/probabilities/confidence, _api answers'ı olduğu gibi kayda yazıyor. Neden analizi kayıttan yapılamaz; V8'de soru boyutlara bölünerek (kanıt uzunluğu · kapsam · doğruluk) çok soruluk puanla ölçülecek.
+- Önbellek: FIYAT onbellek = pricing.input_cache_read (flash-lite 0.03 · 3.8-flash 0.075 $/1M). _usd (pt − cached) × girdi + cached × onbellek; omni usage.cached (yalnız sağlayıcı bildirdiyse); satırda "önbellek %x". V6 kaydında cached yok: omni_cagir prompt_tokens_details'i kayda taşımıyordu (OmniRoute'un geçirip geçirmediği sonraki canlı koşuda görünür) → V6 önbellek-duyarlı $/çağrı bilinmiyor; üst sınır $0.050.
+- DAYANAK_ESIK 0.37 (iddialar · site_ui · promptlar; kısa ad/terim ANLAM_ESIK 0.6'da). Kalibrasyon 20 elle etiketli çift (test_f3_v5 _IDDIA/_PENCERE): aynı 0.396–0.799 · ilgisiz −0.006–0.343. Sınır: terimi içermeyen pencere ("blast radius" ↔ yalnız "downstream dependencies") 0.225 → eşik altı; aynı videodan ilgisiz pencere 0.343'e çıkabiliyor (pay dar).
+- Testler: video 941 → 966 (+25). Kırmızı f60d7a9.
+- Sıradaki: V8 kalite derinliği (boyutlu hakem) → F3-V7b token ve hız (kompakt örnek · kare JPEG sıkıştırma → parça gövdesi OMNIROUTE_CHAT_LARGE_BODY_BYTES altı → koşullu paralellik).

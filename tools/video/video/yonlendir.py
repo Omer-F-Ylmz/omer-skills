@@ -33,24 +33,28 @@ FIYAT = {
     "openrouter/cohere/command-a-plus": {"girdi": 0.3, "cikti": 1.5, "kaynak": _OR6},
     "openrouter/qwen/qwen3.7-plus": {"girdi": 0.32, "cikti": 1.28, "kaynak": _OR6},
     "openrouter/mistralai/mistral-large-2512": {"girdi": 0.5, "cikti": 1.5, "kaynak": _OR6},
-    "openrouter/google/gemini-3.5-flash-lite": {"girdi": 0.3, "cikti": 2.5, "gorsel": 3e-7, "kaynak": _OR6},
+    # F3-V7a: onbellek = pricing.input_cache_read $/1M (aynı GET, 2026-10-06)
+    "openrouter/google/gemini-3.5-flash-lite": {"girdi": 0.3, "cikti": 2.5, "gorsel": 3e-7, "onbellek": 0.03, "kaynak": _OR6},
     # F3-VARYANT REF: aynı aile bir üst (flash; image + structured_outputs + reasoning). 3.5-flash 1.5/9 → ~40k+3k çağrı ~$0.085 > $0.05;
     # 3.8-flash 0.75/3.75 → ~$0.04
-    "openrouter/google/gemini-3.8-flash": {"girdi": 0.75, "cikti": 3.75, "gorsel": 7.5e-7, "kaynak": "https://openrouter.ai/api/v1/models · 2026-10-06"},
+    "openrouter/google/gemini-3.8-flash": {"girdi": 0.75, "cikti": 3.75, "gorsel": 7.5e-7, "onbellek": 0.075, "kaynak": "https://openrouter.ai/api/v1/models · 2026-10-06"},
 }
 MALIYET_BASLIK = "x-omniroute-response-cost"  # openapi.yaml:1173-1176 (USD, 10 ondalık; "0.0000000000" = ücretsiz ya da fiyatsız)
 
 
 def _usd(model, u, basliklar, kare=0):
     """Yanıt başlığı > 0 ise o; değilse usage × FIYAT (+ kare × gorsel); model FIYAT'ta yoksa None (0 değil — maliyet bilinmiyor).
-    prompt_tokens önbellekten okunanı zaten içerir (cached_tokens alt kümesi) → ayrıca eklenmez."""
+    prompt_tokens önbellekten okunanı zaten içerir (cached_tokens alt kümesi) → ayrıca eklenmez; F3-V7a: o kısım onbellek fiyatıyla (yoksa girdi)."""
     try:
         if (m := float(next((v for k, v in basliklar.items() if k.lower() == MALIYET_BASLIK), 0))) > 0:
             return m
     except ValueError:
         pass
-    f = FIYAT.get(model)
-    return (u.get("prompt_tokens", 0) * f["girdi"] + u.get("completion_tokens", 0) * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0) if f else None
+    if not (f := FIYAT.get(model)):
+        return None
+    c = (u.get("prompt_tokens_details") or {}).get("cached_tokens") or 0
+    return ((u.get("prompt_tokens", 0) - c) * f["girdi"] + c * f.get("onbellek", f["girdi"])
+            + u.get("completion_tokens", 0) * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0)
 
 
 def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sleep):
@@ -99,7 +103,8 @@ def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sl
             form = None
         akil = (u.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0
         return {"form": form, "usage": {"input_tokens": u.get("prompt_tokens", 0), "output_tokens": u.get("completion_tokens", 0),
-                                        **({"reasoning": akil} if akil else {})},
+                                        **({"reasoning": akil} if akil else {}),  # F3-V7a: cached yalnız sağlayıcı bildirdiyse
+                                        **({"cached": c} if (c := (u.get("prompt_tokens_details") or {}).get("cached_tokens")) is not None else {})},
                 "usd": _usd(model, u, ek[0] if ek else {}, len(kareler)), "sure": round(time.monotonic() - t0, 1), "yeniden": n,
                 "hata": f"çıktı tavanı (max_tokens {CIKTI_TAVAN})" if kesik else None if form is not None else "form JSON değil"}
     return cagir
@@ -355,6 +360,8 @@ ANLAM_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"  # F
 ANLAM_ESIK = 0.6  # kalibrasyon: test_f3_kare _AYNI ≥ eşik · _FARKLI < eşik
 ANLAMSAL = True
 ANLAM_LISTE = ("adaylar", "iddialar", "site_ui", "promptlar", "kareden_okunanlar")
+DAYANAK_ESIK = 0.37  # F3-V7a: cümle dayanağı (TR iddia ↔ EN pencere); kalibrasyon test_f3_v5 _IDDIA: aynı ≥ 0.396 · ilgisiz ≤ 0.343
+DAYANAK_LISTE = ("iddialar", "site_ui", "promptlar")  # kısa ad/terim (adaylar, kareden_okunanlar) ANLAM_ESIK'te kalır
 _VEK = {}
 
 
@@ -442,7 +449,7 @@ def dayanak(liste, oge, metin):
         w = _kelime(k)
         var = bool(w) and len(w & _kelime(metin)) / len(w) >= 0.5
     if not var and liste in ANLAM_LISTE and k and _acik() and (p := _pencereler(metin)) is not None:
-        var = float((p @ _vek([k])[0]).max()) >= ANLAM_ESIK  # F3-ÖLÇÜM-4: anlamsal dayanak (en yakın pencere)
+        var = float((p @ _vek([k])[0]).max()) >= (DAYANAK_ESIK if liste in DAYANAK_LISTE else ANLAM_ESIK)  # F3-ÖLÇÜM-4: anlamsal dayanak (en yakın pencere)
     return ("dayanaklı" if var else "doğrulanamadı" if liste == "kareden_okunanlar" or oge.get("kaynak") == "kare"
             or (oge.get("karede_gorulen") or "").strip() else "dayanaksız")
 
@@ -792,6 +799,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         t = lambda k: sum((y.get("usage") or {}).get(k, 0) for y in ys)
         usd = [y.get("usd") for y in ys]
         p = [f"{m}", f"hata: {ilk[:120]}" if ilk else "geçti", f"token {t('input_tokens')}/{t('output_tokens')}/{t('reasoning')}",
+             *([f"önbellek %{100 * t('cached') / t('input_tokens'):.0f}"] if t("input_tokens") and any("cached" in (y.get("usage") or {}) for y in ys) else []),
              "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
              *([f"yeniden {yn}"] if (yn := sum(y.get("yeniden", 0) for y in ys)) else []),
              *dict.fromkeys(y["k_not"] for y in ys if y.get("k_not")), *(["son geçiş: hata"] if any(y.get("son_hata") for y in ys) else []),
