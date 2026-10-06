@@ -328,3 +328,118 @@ def test_ab_a_hatali_yanit_onbellege_girmez(monkeypatch, tmp_path):
     a = []
     _ab_onbellekli(monkeypatch, tmp_path, a, [])
     assert len(a) == 2
+
+
+# F3-ELEME adım 4: yon.eleme — aday başı çağrı 1, şema geçerse 2 (240 s); ön kontrol · tavanlar · reasoning · A önbelleği · karar + öneri.
+E1, E2 = "openrouter/openai/gpt-6-luna", "openrouter/qwen/qwen3.7-plus"
+IYI = {"form": {"a": "x"}, "usage": {"input_tokens": 10, "output_tokens": 5}, "usd": 0.001, "sure": 1.0, "hata": None}
+
+
+def _b_kur(cagri, yanit=None, kur_=None):
+    def kur(m, env, timeout=600, govde_ek=None):
+        if kur_ is not None:
+            kur_.append((m, timeout, govde_ek))
+        return lambda sistem, metin, sema, kareler=(), model=None, **_: cagri.append(m) or (yanit or {}).get(m, IYI)
+    return kur
+
+
+def _eleme(tmp_path, adaylar, b, a=None, puan=None, yokla=lambda m, env, gorsel=False: None, **k):
+    return yon.eleme(("S", "M", SEMA, []), adaylar, _tas([] if a is None else a), hafif.MODEL, ENV, puan or (lambda ms: [0.8] * len(ms)),
+                     onbellek=tmp_path / "ab", b_kur=b, yokla=yokla, **k)
+
+
+def test_eleme_on_kontrol_cagri_0(tmp_path):
+    c, y, a = [], [], []
+    s = _eleme(tmp_path, ["openrouter/~x/y", "openrouter/yok/x", E1], _b_kur(c), a,
+               yokla=lambda m, env, gorsel=False: y.append(m) or "model yok: " + m)
+    assert c == [] and y == [E1] and a == [] and s["oneri"].startswith("öneri: yok")
+    assert s["satirlar"] == ["openrouter/~x/y · hata: kol sabit değil · çağrı 0", "openrouter/yok/x · hata: fiyat yok · çağrı 0",
+                             f"{E1} · hata: model yok: {E1} · çağrı 0"]
+
+
+def test_eleme_aday_tavani(tmp_path):
+    c = []
+    assert _eleme(tmp_path, [E1] * 6, _b_kur(c))["oneri"] == "TAVAN aday 6 > 5" and c == []
+
+
+def test_eleme_harcama_tavani_sonraki_cagri_yok(tmp_path):
+    c, pahali = [], {**IYI, "usd": 0.06}
+    s = _eleme(tmp_path, [E1, E2], _b_kur(c, {E1: pahali, E2: pahali}))
+    # E1 0.06 + 0.06; E2 ilk çağrı tahmini (15k×0.32 + 6k×1.28)/1e6 ≈ 0.0125 → 0.1325 ≤ 0.15 yapılır; ikincisi 0.18 + 0.06 > 0.15 → tavan
+    assert c == [E1, E1, E2] and s["satirlar"][1].endswith(" · tavan") and s["b_usd"] == pytest.approx(0.18)
+
+
+def test_eleme_cagri_tavani(tmp_path):
+    c = []
+    s = _eleme(tmp_path, [E1, E2], _b_kur(c), tavan_cagri=3)
+    assert c == [E1, E1, E2] and s["satirlar"][1].endswith(" · tavan")
+
+
+def test_eleme_zaman_asimi_240_gecer(tmp_path):
+    k = []
+    _eleme(tmp_path, [E1], _b_kur([], kur_=k))
+    assert k == [(E1, 240, None)]
+
+
+def test_post_ve_omni_cagir_timeout_gecer(monkeypatch):
+    from video import ikinci_goz as ig
+    t = []
+    _zaman_asimi(monkeypatch, t)
+    with pytest.raises(TimeoutError):
+        ig._post("http://x:1", None, {}, timeout=240)
+    assert yon.omni_cagir("m", ENV, timeout=240)("S", "metin", SEMA)["hata"] == "ölçülemedi: TimeoutError: timed out" and t == [240, 240]
+
+
+def test_eleme_sema_hatasi_ikinci_cagri_yok_a_cagrilmaz(tmp_path):
+    c, a = [], []
+    s = _eleme(tmp_path, [E1], _b_kur(c, {E1: {**IYI, "form": {"b": 1}}}), a)
+    assert c == [E1] and a == [] and " · hata: şema geçmedi · " in s["satirlar"][0] and s["satirlar"][0].endswith(" · ELENDİ")
+
+
+def test_eleme_reasoning_istenir_etkisizse_isaret(tmp_path):
+    k, akil = [], {**IYI, "usage": {"input_tokens": 10, "output_tokens": 5, "reasoning": 3}}
+    s = _eleme(tmp_path, [E1, E2], _b_kur([], {E1: akil}, k), destek={E1: ["reasoning", "max_tokens"], E2: ["max_tokens"]})
+    assert k == [(E1, 240, {"reasoning": {"effort": "minimal"}}), (E2, 240, None)]
+    assert s["satirlar"][0].endswith(" · reasoning parametresi etkisiz") and "etkisiz" not in s["satirlar"][1]
+    assert " · token 20/10/6 · " in s["satirlar"][0]
+
+
+def test_omni_cagir_govde_ek_ve_reasoning_token():
+    g = []
+    y = yon.omni_cagir("m", ENV, lambda u, gv, b: g.append(gv) or (200, {"choices": [{"message": {"content": '{"a": "x"}'}}], "usage": {
+        "prompt_tokens": 1, "completion_tokens": 2, "completion_tokens_details": {"reasoning_tokens": 7}}}, {}),
+        govde_ek={"reasoning": {"effort": "minimal"}})("S", "metin", SEMA)
+    assert g[0]["reasoning"] == {"effort": "minimal"} and y["usage"] == {"input_tokens": 1, "output_tokens": 2, "reasoning": 7}
+
+
+def test_eleme_a_onbellek_isabet_a_cagri_0(tmp_path):
+    a1, a2 = [], []
+    s1 = _eleme(tmp_path, [E1], _b_kur([]), a1)
+    s2 = _eleme(tmp_path, [E1], _b_kur([]), a2)
+    assert len(a1) == 2 and a2 == [] and s1["a_usd"] == pytest.approx(0.02) and s2["a_usd"] == 0
+
+
+def test_eleme_karar_ve_oneri(tmp_path):
+    s = _eleme(tmp_path, [E1, E2], _b_kur([], {E2: {**IYI, "usd": 0.0005}}))  # kalite eşit → ucuz olan
+    assert all(" · AL" in r for r in s["satirlar"]) and s["oneri"].startswith(f"öneri: {E2} ")
+    s = _eleme(tmp_path, [E1, E2], _b_kur([], {E2: {**IYI, "usd": 0.0005}}), puan=lambda ms: [0.8, 0.8, 0.9, 0.9, 0.8, 0.8])  # sıra A, E1, E2
+    assert s["oneri"].startswith(f"öneri: {E1} ") and " · kalite 0.90 · başarı 1.00 · AL" in s["satirlar"][0]
+
+
+def test_eleme_betik_girdi_ve_cikti(monkeypatch, tmp_path, capsys):
+    from video import ikinci_goz as ig
+    p = tmp_path / "vid1" / "paket.md"
+    p.parent.mkdir()
+    p.write_text("p", encoding="utf-8")
+    monkeypatch.setenv("AB_PAKET", str(p))
+    monkeypatch.setenv("ELEME_ADAYLAR", f" {E1}, {E2} ")
+    monkeypatch.setattr(hafif, "GORSEL", False)
+    monkeypatch.setattr(ig, "_post", lambda u, g, b: (200, {"data": [{"id": "openai/gpt-6-luna", "supported_parameters": ["reasoning"]}]}))
+    g = []
+    monkeypatch.setattr(yon, "eleme", lambda *a, **k: g.append((a, k)) or {"satirlar": ["r1"], "oneri": "öneri: yok", "a_usd": 0.0, "b_usd": 0.0})
+    monkeypatch.setitem(sys.modules, "jev", types.SimpleNamespace(cekirdek=types.SimpleNamespace(Tasiyici=lambda **k: None)))
+    exec(re.search(r"@'\r?\n(.*?)\r?\n'@", BETIK.with_name("eleme.ps1").read_text(encoding="utf-8"), re.S)[1], {"__name__": "__main__"})
+    (a, k), = g
+    assert a[0][1].startswith("=== VIDEO vid1 ===\n") and a[1] == [E1, E2] and k["onbellek"] == tmp_path / "ab"
+    assert k["destek"] == {E1: ["reasoning"]}
+    assert capsys.readouterr().out.splitlines()[-3:] == ["r1", "öneri: yok", "toplam: A $0.0000 · B $0.0000 · Jev ≤4 istek (usd ölçülmüyor)"]
