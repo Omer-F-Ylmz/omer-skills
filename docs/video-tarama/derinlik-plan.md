@@ -775,3 +775,12 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - KURULUM: sayaç hook'u alt ajan çağrılarını da sayıyor · cc-kopru hook-ortam testi yalnız sayaç 0'dayken yeşil · OmniRoute otomatik başlatma çalışmıyor (elle) + ilk açılış > 60 s · OMNIROUTE_KEY yoksa hat sessizce eski yolda · fastembed/Pillow bağımlılığı (.video-cache\emb).
 - İYİLEŞTİRME: Jev farkı (b2Q −%5.6 · ptGX −%8.3) · hız (OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT ile parça paralelliği) · kısa videoda kareden_okunanlar zayıf (A 5 · B 1) · V11 dersi (istem büyütmek derinlik getirmedi; OCR çiftlenmesi) · örnek seçiminde öğe sayısı taklidi (V1/V21/V9) · Jev gerekçesiz puan · tahmin_v10 kısa videoda üst bantta (rABI ×1.53; çıktı payı videonun uzunluğuyla ölçeklenmiyor).
 - Testler: video 1012 → 1015 (−1 değişen +4) · jev 81 · tests 320 · mcp-jev 40 · dotnet 22 yeşil; cc-kopru hook-ortam.test.mjs:69 kırmızı (sayaç 0 değil; KURULUM kalemi) → push bekletildi.
+
+## O76 DERİNLİK-KAPANIŞ-3 — push + kabul partisi hazırlığı (canlı 0; kod değişmedi)
+- Push: cc-kopru 180/180 (sayaç 0, ilk çağrı) → 133bdee origin/main.
+- Kanal kuyruğu kaynağı: docs/video-tarama/kanallar.json (karar "takip"; 39 kanal, tarif 38) → .kos/kanal/<channel_id>.json "videolar" {id: {baslik, sure (s), tarih, tur, url}} (kanal.envanter).
+- Kabul videoları (DERİNLİK id'leri + .video-cache eleme/ab + kayit.jsonl'da geçenler hariç; en yeni): short Ov-B6K1EsaI · Claude · 57 s · uzun vhY7OGIh1v0 · Metics Media · 850 s. shorts sekmesi girdilerinde sure yok; short videos sekmesinden.
+- b2Q (a): atlıyor — parti baslat tdir'de *-<id>.md raporu varsa tarama "tamam/ice_alindi" (parti.py:641). Zorlama bayrağı zaten var: `video parti devam <pid> --yeniden-tara` (tamam/tamam_eksik/form_red/tavan → bekliyor). Kod gerekmedi.
+- b2Q (b): gelemez — A geri dönüşü hafif.cagir → canlı claude -p; yanıt önbelleği yok. Önbellek yalnız istem token'ı, defterde ayrı (onb_okuma/onb_yazma). Kırmızı test gerekmedi.
+- DUR bulgusu: tarama.kuyruk_parti partiyi tek türe kurar (short < 2 dk, ≤ 8 · uzun ≤ 3; satır `| id | dk | … | not | bekliyor |`). "3 videoluk tek parti" short + uzun karışık açılamaz → iki parti (short: Ov-B6K1EsaI · uzun: vhY7OGIh1v0 + b2QkhmQ0sT0) ya da tarif kararı.
+- Sayaca sığmayan (sonraki oturum): Ömer komutu (OmniRoute localhost:20128 sağlık · OMNIROUTE_KEY boolean · iki parti · yontem V10 · devam --yeniden-tara · defter satırı · tahmin_v10 $ + süre) · Adım 5 hook teşhisi (ipucu: .claude/dalga.md 1. satırı "çağrı N/45" sayaç hook'unca yazılıyor).
