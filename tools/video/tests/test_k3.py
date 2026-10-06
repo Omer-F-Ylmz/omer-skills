@@ -16,6 +16,15 @@ def _f(*adlar):
     return {"videolar": [{"id": "v", "adaylar": [{"ad": a} for a in adlar]}]}
 
 
+def test_dogrulanamadi_ayri_sinif_ii_de_u_disinda_i_de_kare():
+    """MÜKEMMEL-3a2: doğrulanamadı öğe (i) U'da kare olarak, (ii) U dışında; sayısı iki varyantta da verilir."""
+    f = {"videolar": [{"id": "v", "kareden_okunanlar": [{yon.OLCUM["kareden_okunanlar"][0]: "Qwxz Panosu"}]}]}
+    i, ii = yon.k3([f], [_f()], M), yon.k3([f], [_f()], M, dg_u=False)
+    assert i["u"]["kareden_okunanlar"] == 1 and ii["u"]["kareden_okunanlar"] == 0
+    assert i["kayip"]["kare"] == 1 and ii["kayip"]["kare"] == 0
+    assert i["dg"] == ii["dg"] == {"A": 1, "B": 0}
+
+
 def test_eslesen_oge_tek_sayilir():
     r = yon.k3([_f("Ruflo")], [_f("Ruflo")], M)
     assert r["u"]["adaylar"] == 1
