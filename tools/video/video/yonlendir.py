@@ -4,6 +4,8 @@ import functools
 import hashlib
 import json
 import re
+import subprocess
+import tempfile
 import time
 from pathlib import Path
 
@@ -30,6 +32,9 @@ FIYAT = {
     "openrouter/qwen/qwen3.7-plus": {"girdi": 0.32, "cikti": 1.28, "kaynak": _OR6},
     "openrouter/mistralai/mistral-large-2512": {"girdi": 0.5, "cikti": 1.5, "kaynak": _OR6},
     "openrouter/google/gemini-3.5-flash-lite": {"girdi": 0.3, "cikti": 2.5, "gorsel": 3e-7, "kaynak": _OR6},
+    # F3-VARYANT REF: aynı aile bir üst (flash; image + structured_outputs + reasoning). 3.5-flash 1.5/9 → ~40k+3k çağrı ~$0.085 > $0.05;
+    # 3.8-flash 0.75/3.75 → ~$0.04
+    "openrouter/google/gemini-3.8-flash": {"girdi": 0.75, "cikti": 3.75, "gorsel": 7.5e-7, "kaynak": "https://openrouter.ai/api/v1/models · 2026-10-06"},
 }
 MALIYET_BASLIK = "x-omniroute-response-cost"  # openapi.yaml:1173-1176 (USD, 10 ondalık; "0.0000000000" = ücretsiz ya da fiyatsız)
 
@@ -171,7 +176,7 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
             bilinmeyen.append(model)
         s[ad] |= {"kalite": sum(map(sum, puan)) / len(hepsi),
                  "gorev": [sum(basari(y, g[2]) for y in yg) / tekrar for g, yg in zip(girdiler, ys)],
-                 "girdi": sum((y.get("usage") or {}).get("input_tokens", 0) for y in hepsi),
+                 "girdi": sum(_girdi(y.get("usage") or {}) for y in hepsi),
                  "cikti": sum((y.get("usage") or {}).get("output_tokens", 0) for y in hepsi),
                  "maliyet": sum(y.get("usd") or 0 for y in hepsi), "puan": puan}
         s[ad]["basari"] = sum(s[ad]["gorev"]) / len(girdiler)
@@ -183,6 +188,69 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
     return {**s, "karar": k, "yonlendirme": {adim: kol_b} if k.startswith("AL") else None}
 
 
+VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka bir videonun Claude tarama formu",
+           "V3": "akıl yürütme düşük (reasoning effort low; supported_parameters'ta yoksa çağrı 0)",
+           "V4": "düşük çözünürlük: kareler aynı, uzun kenar 512 px (yalnız istek gövdesinde; dosyalar değişmez)"}
+ORNEK_BASLIK = "\n\nÖRNEK ÇIKTI (başka bir videonun onaylı formu; yalnız biçim ve ayrıntı düzeyi için, içeriğini kopyalama):\n"
+
+
+def _girdi(u):
+    """A (Claude) girdisinin çoğu önbellekte → input + cache_read + cache_creation (OpenAI biçiminde yalnız input_tokens var)."""
+    return sum(u.get(k, 0) for k in ("input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens"))
+
+
+def _kucult(kareler, dizin):
+    """F3-VARYANT V4: uzun kenar 512 px (küçük kare büyütülmez) → dizin/<ad>; asıl dosyalar değişmez."""
+    Path(dizin).mkdir(parents=True, exist_ok=True)
+    cik = [Path(dizin) / Path(k).name for k in kareler]
+    for k, y in zip(kareler, cik):
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(k), "-vf",
+                        "scale='min(512,iw)':'min(512,ih)':force_original_aspect_ratio=decrease", str(y)], check=True, timeout=60)
+    return cik
+
+
+def _olc(x, yol, o, bos):
+    if isinstance(x, dict):
+        for k, v in x.items():
+            _olc(v, f"{yol}.{k}" if yol else k, o, bos)
+        return
+    bos[0] += x is None or x == "" or x == []
+    o[yol] = o.get(yol, 0) + (len(x) if isinstance(x, (str, list)) else x is not None)
+    for v in x if isinstance(x, list) else ():
+        _olc(v, yol + "[]", o, bos)
+
+
+def _sema_yol(s, yol=""):
+    for k, v in (s.get("properties") or {}).items():
+        p = f"{yol}.{k}" if yol else k
+        yield p
+        yield from _sema_yol(v.get("items") or {}, p + "[]") if "items" in v else _sema_yol(v, p)
+
+
+def alan_farki(a_formlar, b_formlar, sema):
+    """F3-VARYANT: alan alan A'ya göre — ölçü: metin uzunluğu · liste uzunluğu · var 1 (form başı ortalama, liste öğeleri toplanır);
+    boş alan (None/""/[]) sayısı, şemada olup B yanıtında olmayan yollar; fark = |A−B| / max(A, B, 1). → {ozet, satirlar (md tablo)}."""
+    def ort(formlar):
+        o, bos = {}, [0]
+        for f in formlar:
+            _olc(f, "", o, bos)
+        n = max(len(formlar), 1)
+        return {k: v / n for k, v in o.items()}, bos[0] / n
+    a, ba = ort(a_formlar)
+    b, bb = ort(b_formlar)
+    sira = sorted(((abs(a.get(y, 0) - b.get(y, 0)) / max(a.get(y, 0), b.get(y, 0), 1), abs(a.get(y, 0) - b.get(y, 0)), y)
+                   for y in set(a) | set(b)), key=lambda t: (-t[0], -t[1], t[2]))
+    eksik = sorted(set(_sema_yol(sema)) - set(b))
+    return {"ozet": f"boş alan A {ba:.1f} → B {bb:.1f} · şemada yok: {', '.join(eksik) or 'yok'} · en çok fark: "
+                    + ", ".join(f"{y} {a.get(y, 0):.1f}→{b.get(y, 0):.1f}" for _, _, y in sira[:5]),
+            "satirlar": [f"| {y} | {a.get(y, 0):.1f} | {b.get(y, 0):.1f} | {f * 100:.0f} |" for f, _, y in sira]}
+
+
+def _yaz(y, d):
+    y.parent.mkdir(parents=True, exist_ok=True)
+    y.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def _tahmin(m, kare):
     """F3-ELEME: aday ilk çağrısının ön tahmini — O58 bandı 15k girdi + 6k çıktı (+ kare × gorsel)."""
     f = FIYAT[m]
@@ -190,37 +258,51 @@ def _tahmin(m, kare):
 
 
 def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_kur=omni_cagir, yokla=omni_yokla,
-          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15):
-    """F3-ELEME adım 4: tek girdi g (sistem, metin, şema, kareler), adaylar tek koşuda. Ön kontrol (kol sabit · FIYAT · yokla) geçmeyen
-    çağrı 0. Aday başı çağrı 1; şema geçerse 2. Sıradaki çağrı B tavanını (çağrı · $; tahmin = adayın son usd'si, yoksa _tahmin) aşacaksa
-    yapılmaz → "tavan". usd None (zaman aşımı) harcamaya tahminle girer. supported_parameters'ta reasoning varsa effort minimal istenir.
-    Geçen B yoksa A çağrılmaz; A (2 tekrar) _a_onbellek'ten. Puanlama tek puanla çağrısı (A, sonra adaylar; kör). Karar kur.karar
-    (çağrı başı ortalamalarla); öneri = AL'ler içinde en yüksek kalite, eşitlikte ucuz."""
+          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15, ornek=None, kucult=_kucult, kayit=None):
+    """F3-ELEME adım 4: tek girdi g (sistem, metin, şema, kareler), adaylar tek koşuda. Ön kontrol (kol sabit · varyant · FIYAT · yokla)
+    geçmeyen çağrı 0. Aday başı çağrı 1; şema geçerse 2. Sıradaki çağrı B tavanını (çağrı · $; tahmin = adayın son usd'si, yoksa _tahmin)
+    aşacaksa yapılmaz → "tavan". usd None (zaman aşımı) harcamaya tahminle girer. supported_parameters'ta reasoning varsa effort minimal.
+    F3-VARYANT: aday "model" ya da "model@varyant" (VARYANT): V1 sistem + ornek formu (test videosundan olamaz) · V3 effort low ·
+    V4 kareler kucult ile 512 px. Geçen B yoksa A çağrılmaz; A (2 tekrar) _a_onbellek'ten. Puanlama tek puanla çağrısı (A, sonra adaylar;
+    kör; öğe sayı ya da {"score", ...}). Karar kur.karar (çağrı başı ortalamalarla); öneri = AL'ler içinde en yüksek kalite, eşitlikte ucuz.
+    kayit: her yanıt + Jev puanı kayit/<aday>/<i>.json (A: kayit/A). rapor: aday başı alan_farki (A'ya göre)."""
     from . import kur, parti as pt
     if len(adaylar) > en_fazla:
-        return {"satirlar": [], "oneri": f"TAVAN aday {len(adaylar)} > {en_fazla}", "a_usd": 0.0, "b_usd": 0.0}
+        return {"satirlar": [], "oneri": f"TAVAN aday {len(adaylar)} > {en_fazla}", "a_usd": 0.0, "b_usd": 0.0, "rapor": {}}
     kare = len(g[3]) if len(g) > 3 else 0
     ek = {"kareler": g[3]} if len(g) > 3 else {}
     gecer = lambda y: not y.get("hata") and not pt._denet(y.get("form"), g[2], "form")
+    sk = lambda p: p["score"] if isinstance(p, dict) else p
+    dosya = lambda ad: re.sub(r"[^\w.@-]", "_", ad)
+    oid = Path(ornek).stem if ornek else None
     durum, b_usd, cagri = {}, 0.0, 0
-    for m in adaylar:
+    for ad in adaylar:
+        m, _, v = ad.partition("@")
+        v, akil = v or "V0", "reasoning" in (destek or {}).get(m, ())
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
+                 else f"bilinmeyen varyant: {v}" if v not in VARYANT
+                 else "V1 örneği yok" if v == "V1" and not (ornek and Path(ornek).is_file())
+                 else f"V1 örneği test videosundan ({oid})" if v == "V1" and f"=== VIDEO {oid} ===" in g[1]
+                 else "V3: reasoning desteklenmiyor" if v == "V3" and not akil
                  else "fiyat yok" if m not in FIYAT else yokla(m, env, gorsel=bool(kare)))
-        x = durum[m] = {"neden": neden, "y": [], "akil": "reasoning" in (destek or {}).get(m, ())}
+        x = durum[ad] = {"neden": neden, "y": [], "akil": akil}
         if neden:
             continue
-        tas = b_kur(m, env, timeout=zaman, govde_ek={"reasoning": {"effort": "minimal"}} if x["akil"] else None)
+        sistem = g[0] + ORNEK_BASLIK + Path(ornek).read_text(encoding="utf-8") if v == "V1" else g[0]
+        ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
+            if v == "V4" and kare else ek
+        tas = b_kur(m, env, timeout=zaman, govde_ek={"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else None)
         while len(x["y"]) < 2 and (not x["y"] or gecer(x["y"][-1])):
             tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare)
             if cagri >= tavan_cagri or b_usd + tahmin > tavan_usd:
                 x["tavan"] = True
                 break
-            y = tas(*g[:3], **ek, model=m)
+            y = tas(sistem, g[1], g[2], **ek_v, model=m)
             cagri, b_usd = cagri + 1, b_usd + (tahmin if y.get("usd") is None else y["usd"])
             x["y"].append(y)
-    gecen = {m: [y for y in x["y"] if gecer(y)] for m, x in durum.items()}
-    gecen = {m: v for m, v in gecen.items() if v}
-    a_usd, ozet, karar = 0.0, {}, {}
+    gecen = {ad: [y for y in x["y"] if gecer(y)] for ad, x in durum.items()}
+    gecen = {ad: v for ad, v in gecen.items() if v}
+    a_usd, ozet, karar, rapor, ya, pa, pb = 0.0, {}, {}, {}, [], [], {}
 
     def a_say(*a, **k):
         nonlocal a_usd
@@ -231,7 +313,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
     def ozetle(ys, p):
         n = len(ys)
         return {"kalite": sum(p) / len(p), "basari": sum(map(gecer, ys)) / n, "gorev": [sum(map(gecer, ys)) / n],
-                "girdi": sum((y.get("usage") or {}).get("input_tokens", 0) for y in ys) / n,
+                "girdi": sum(_girdi(y.get("usage") or {}) for y in ys) / n,
                 "cikti": sum((y.get("usage") or {}).get("output_tokens", 0) for y in ys) / n, "maliyet": sum(y.get("usd") or 0 for y in ys) / n}
     oneri = "öneri: yok (geçen aday yok)"
     if gecen:
@@ -242,14 +324,23 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             puan = iter(puanla([f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
                                 for y in ya + [y for v in gecen.values() for y in v]]))
             pa = [next(puan) for _ in ya]
-            sa = ozetle(ya, pa)
-            for m, v in gecen.items():
-                ozet[m] = ozetle(durum[m]["y"], [next(puan) for _ in v])
-                karar[m] = ("SOR (maliyet bilinmiyor)" if any(y.get("usd") is None for y in durum[m]["y"]) else
-                            kur.karar(sa, ozet[m], None, max(pa) - min(pa), [(sa["gorev"][0], ozet[m]["gorev"][0])]))
+            sa = ozetle(ya, list(map(sk, pa)))
+            for ad, v in gecen.items():
+                pb[ad] = [next(puan) for _ in v]
+                ozet[ad] = ozetle(durum[ad]["y"], list(map(sk, pb[ad])))
+                karar[ad] = ("SOR (maliyet bilinmiyor)" if any(y.get("usd") is None for y in durum[ad]["y"]) else
+                             kur.karar(sa, ozet[ad], None, max(map(sk, pa)) - min(map(sk, pa)), [(sa["gorev"][0], ozet[ad]["gorev"][0])]))
+                rapor[ad] = alan_farki([y["form"] for y in ya if y.get("form")], [y["form"] for y in v], g[2])
             al = [(ozet[m]["kalite"], -ozet[m]["maliyet"], m) for m, k in karar.items() if k.startswith("AL")]
             oneri = (f"öneri: {max(al)[2]} (kalite {max(al)[0]:.2f} · ${-max(al)[1]:.4f}/çağrı)" if al else
                      "öneri: yok (AL aday yok)")
+    if kayit:
+        for i, y in enumerate(ya):
+            _yaz(Path(kayit) / "A" / f"{i}.json", {"yanit": y, "puan": pa[i] if i < len(pa) else None})
+        for ad, x in durum.items():
+            it = iter(pb.get(ad, ()))
+            for i, y in enumerate(x["y"]):
+                _yaz(Path(kayit) / dosya(ad) / f"{i}.json", {"yanit": y, "puan": next(it, None) if gecer(y) else None})
     gizli = [v for v in (env.get("OMNIROUTE_KEY"), env.get("OPENROUTER_API_KEY")) if v]
     satirlar = []
     for m, x in durum.items():
@@ -265,9 +356,9 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         p = [f"{m}", f"hata: {ilk[:120]}" if ilk else "geçti", f"token {t('input_tokens')}/{t('output_tokens')}/{t('reasoning')}",
              "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
              *([f"kalite {ozet[m]['kalite']:.2f} · başarı {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ")]
-        if x["akil"] and t("reasoning") > 0:
+        if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
             p.append("reasoning parametresi etkisiz")
         if x.get("tavan"):
             p.append("tavan")
         satirlar.append(" · ".join(p))
-    return {"satirlar": satirlar, "oneri": oneri, "a_usd": a_usd, "b_usd": b_usd}
+    return {"satirlar": satirlar, "oneri": oneri, "a_usd": a_usd, "b_usd": b_usd, "rapor": rapor}

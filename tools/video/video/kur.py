@@ -388,7 +388,7 @@ def karar(a, b, e, gurultu, basari):
     dusen = [i + 1 for i, (sa, sb) in enumerate(basari) if sb < sa]
     return (f"{k} [kademe: {kademe}]: tasarruf %{t['maliyet']:.1f} (sıcak $) · düşüş %{d:.1f} (kalite {a['kalite']:.2f}→{b['kalite']:.2f} bant {bant:.2f} · "
             f"başarı {a.get('basari', 0):.2f}→{b.get('basari', 0):.2f}; düşen görev: {', '.join(map(str, dusen)) or 'yok'}) · "
-            f"çıktı −%{t['cikti']:.1f} · girdi −%{t['girdi']:.1f}")
+            f"çıktı −%{t['cikti']:.1f}" + (f" · girdi −%{t['girdi']:.1f}" if a.get("girdi") else ""))  # A girdisi 0: yüzde anlamsız
 
 
 def mekanizma_kaydi(kok, ad, t, dusen, hipotez):

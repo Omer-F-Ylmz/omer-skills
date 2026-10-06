@@ -1,6 +1,9 @@
 $py = "$(uv tool dir)\video-cli\Scripts\python.exe"
+$OutputEncoding = [Text.UTF8Encoding]::new($false)  # Python'a boru UTF-8 (BOM'suz); 5.1 varsayılanı ASCII
+$env:ELEME_DOC = $PSScriptRoot
+if (-not $env:ELEME_ORNEK) { $env:ELEME_ORNEK = "$PSScriptRoot\..\..\.kos\2026-09-30-uzun\form\V0XbuApxlhg.json" }  # V1 örneği (Claude formu)
 @'
-import os, sys
+import os, sys, time
 from pathlib import Path
 from jev import cekirdek as c
 from video import hafif, ikinci_goz as ig, kur, parti as pt, yonlendir as yon
@@ -16,14 +19,22 @@ if hafif.GORSEL and not kareler:
     sys.exit('hata: kare yok')
 # supported_parameters: OpenRouter katalog GET (ücretsiz, anahtarsız; model çağrısı değil)
 liste = ig._post('https://openrouter.ai/api/v1/models', None, {})[1].get('data') or []
-destek = {'openrouter/' + x['id']: x.get('supported_parameters') or [] for x in liste if 'openrouter/' + x.get('id', '') in adaylar}
+destek = {'openrouter/' + x['id']: x.get('supported_parameters') or [] for x in liste if 'openrouter/' + x.get('id', '') in {a.split('@')[0] for a in adaylar}}
 t = c.Tasiyici(env=env, en_fazla=2, istek_tavan=4)  # tek kör Jev partisi, ≤ 4 istek
-puanla = lambda ms: [x['kalite']['score'] for x in t.yargila(ms, {'kalite': kur.KALITE_Q})]
+puanla = lambda ms: [x['kalite'] for x in t.yargila(ms, {'kalite': kur.KALITE_Q})]
 g = (pt.SISTEM, '=== VIDEO ' + v + ' ===\n' + p.read_text(encoding='utf-8'), pt.sema([v], iz=True), kareler)
 print('kareler', len(kareler), '· adaylar', len(adaylar))
-s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek)
+ts, ornek = time.strftime('%Y%m%d-%H%M%S'), Path(os.environ['ELEME_ORNEK']) if os.environ.get('ELEME_ORNEK') else None
+print('varyantlar:', ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()), '· V1 örneği', ornek)
+s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, kayit=p.parent.parent / 'eleme' / ts)
 for r in s['satirlar']:
     print(r)
 print(s['oneri'])
 print(f"toplam: A ${s['a_usd']:.4f} · B ${s['b_usd']:.4f} · Jev ≤4 istek (usd ölçülmüyor)")
+for ad, r in (s.get('rapor') or {}).items():
+    print(ad, '·', r['ozet'])
+if s.get('rapor') and os.environ.get('ELEME_DOC'):
+    md = Path(os.environ['ELEME_DOC']) / f'eleme-{ts}.md'
+    md.write_text(f'# eleme {ts} · {v}\n\nvaryantlar: ' + ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()) + f' · V1 örneği {ornek}\n\n' + '\n'.join(s['satirlar']) + '\n\n' + s['oneri'] + '\n' + ''.join(f"\n## {ad}\n\n{r['ozet']}\n\n| alan | A | B | fark % |\n|---|---|---|---|\n" + '\n'.join(r['satirlar']) + '\n' for ad, r in s['rapor'].items()), encoding='utf-8')
+    print('rapor:', md)
 '@ | & $py -

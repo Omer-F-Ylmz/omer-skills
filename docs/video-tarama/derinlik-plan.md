@@ -535,6 +535,15 @@ timeout/govde_ek + usage.reasoning (completion_tokens_details) · yon.eleme: ön
 geçen B yoksa A çağrılmaz; A _a_onbellek (.video-cache/ab); tek puanla partisi (A 2 + geçen B ≤ 10 metin, Tasiyici istek_tavan 4);
 karar kur.karar (çağrı başı ortalama), öneri AL'ler içinde en yüksek kalite, eşitlikte ucuz. eleme.ps1 supported_parameters için
 OpenRouter katalog GET (ücretsiz). Kırmızı 2aacfa4 · yeşil sonraki commit. Koşu Ömer'de.
+O60 (F3-VARYANT; canlı 0, 1 anahtarsız GET): eleme sonucu (b2QkhmQ0sT0) gemini-3.5-flash-lite 2/2 geçti, kalite 2.85→2.48 (−%13) →
+Ömer: hatta bağlamadan önce düzelt + token azalt. ELEME_ADAYLAR öğesi "model" ya da "model@varyant" (yon.VARYANT): V0 temel · V1 sistem +
+başka videonun Claude formu (ELEME_ORNEK, varsayılan .kos/2026-09-30-uzun/form/V0XbuApxlhg.json; test videosundan olamaz) · V3 effort low
+(reasoning desteksizse çağrı 0) · V4 kareler ffmpeg ile uzun kenar 512 px (kayit/<aday>/kare; asıl dosyalar değişmez) · bilinmeyen çağrı 0.
+REF = google/gemini-3.8-flash 0.75/3.75 (+7.5e-7/kare; 3.5-flash 1.5/9 → ~$0.085 > $0.05). Kayıt: .video-cache/eleme/<ts>/<aday>/<i>.json
+(yanıt + Jev puanı/gerekçe; A: A/). Rapor: alan_farki (boş alan · şemada yok · ölçü fark ilk 5) çıktıda + docs/video-tarama/eleme-<ts>.md.
+Düzeltmeler: girdi = input + cache_read + cache_creation (_girdi; ab + eleme), A girdisi 0 → yüzde yazılmaz · "etkisiz" yalnız reasoning
+> 1000 · ps1 $OutputEncoding UTF-8. AŞIRI UYUM KURALI: varyant seçimi b2QkhmQ0sT0'da yapılır, doğrulama 2 farklı videoda (seçimde
+kullanılmamış, V1 örneği dışında); yalnız seçim videosunda kazanan hatta bağlanmaz.
 
 ## A (devam)
 **A6 (=Y4)** Son commit tarihi kurulu olmayan her repo için de alınır (stop-slop, marketingskills, ui-ux-pro-max-skill, vercel-labs/skills,
