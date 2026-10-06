@@ -684,16 +684,19 @@ def kanit(x, o, metin, kn=None, gorsel=None):
     return {"görüldü": "kare", "görülmedi": None}.get(g, s)
 
 
-def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None):
+def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None, betim=frozenset()):
     """MÜKEMMEL-3a K3: U = A ∪ B dayanaklı öğeleri (alan başı, aynı video içinde eslesir ile tekil). Sistem başı form ortalaması:
     geri = U'dan bulunan / |U| (U boşsa None) · doğruluk = dayanaklı / tüm (0 öğe → 1); "tum" K3_ALAN üzerinden toplam.
     kayıp: hiçbir B formunun bulmadığı U öğeleri kanıt kaynağına göre · a_dayanaksiz: A'nın tekil dayanaksız öğe sayısı.
-    MÜKEMMEL-3a2: dg_u → doğrulanamadı U'da kare olarak (i), değilse U dışında (ii); dg: sistem başı tekil doğrulanamadı sayısı."""
+    MÜKEMMEL-3a2: dg_u → doğrulanamadı U'da kare olarak (i), değilse U dışında (ii); dg: sistem başı tekil doğrulanamadı sayısı.
+    MÜKEMMEL-4b: betim (alan, anahtar) = şema dışı betimleme öğesi → ölçü dışı; "betim": sistem başı tekil sayı."""
     kn, u, ka, az, dg = _kaynaklar(metin), {x: [] for x in K3_ALAN}, {}, set(), {1: set(), 0: set()}
+    tum = lambda f, x: [o for o in _ogeler(f, x) if _k(o, OLCUM[x][0])]  # noqa: E731
+    og = lambda f, x: [o for o in tum(f, x) if (x, _k(o, OLCUM[x][0])) not in betim]  # noqa: E731
     for f, a_mi in [(f, 1) for f in a_formlar] + [(f, 0) for f in b_formlar]:
         for x in K3_ALAN:
             k = OLCUM[x][0]
-            for o in (o for o in _ogeler(f, x) if _k(o, k)):
+            for o in og(f, x):
                 if (s := kanit(x, o, metin, kn, gorsel)) is None:
                     az |= {(x, o["_v"], _k(o, k))} if a_mi else set()
                 elif s == "doğrulanamadı" and (dg[a_mi].add((x, o["_v"], _k(o, k))) or not dg_u):
@@ -706,7 +709,7 @@ def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None):
         r, t = {}, [0, 0, 0, 0]
         for x in K3_ALAN:
             k = OLCUM[x][0]
-            os_ = [o for o in _ogeler(f, x) if _k(o, k)]
+            os_ = og(f, x)
             bul = [y for y in u[x] if any(y["_v"] == o["_v"] and eslesir(x, _k(y, k), _k(o, k)) for o in os_)]
             iyi = sum(kanit(x, o, metin, kn, gorsel) is not None for o in os_)
             r[x] = {"bul": bul, "geri": len(bul) / len(u[x]) if u[x] else None, "dogruluk": iyi / len(os_) if os_ else 1.0}
@@ -719,9 +722,11 @@ def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None):
     ra, rb = list(map(olc, a_formlar)), list(map(olc, b_formlar))
     bb = {id(y) for r in rb for x in K3_ALAN for y in r[x]["bul"]}
     kayip = {s: sum(ka[id(y)] == s and id(y) not in bb for x in K3_ALAN for y in u[x]) for s in ("konuşma", "kare", "açıklama")}
-    bn = [sum(len([o for o in _ogeler(f, x) if _k(o, OLCUM[x][0])]) for x in K3_ALAN) for f in b_formlar]
+    bn = [sum(len(og(f, x)) for x in K3_ALAN) for f in b_formlar]
+    bt = {s: len({(x, o["_v"], _k(o, OLCUM[x][0])) for f in fs for x in K3_ALAN for o in tum(f, x) if (x, _k(o, OLCUM[x][0])) in betim})
+          for s, fs in (("A", a_formlar), ("B", b_formlar))}
     return {"A": ort(ra), "B": ort(rb), "u": {x: len(u[x]) for x in K3_ALAN}, "kayip": kayip, "a_dayanaksiz": len(az),
-            "dg": {"A": len(dg[1]), "B": len(dg[0])},
+            "dg": {"A": len(dg[1]), "B": len(dg[0])}, "betim": bt,
             "n": {"geri": sum(map(len, u.values())), "dogruluk": sum(bn) / len(bn) if bn else 0, "kareden_okunanlar": len(u["kareden_okunanlar"])}}
 
 
