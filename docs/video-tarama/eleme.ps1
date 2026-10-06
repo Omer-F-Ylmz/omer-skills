@@ -3,6 +3,7 @@ $OutputEncoding = [Text.UTF8Encoding]::new($false)  # Python'a boru UTF-8 (BOM's
 $env:ELEME_DOC = $PSScriptRoot
 if (-not $env:ELEME_ORNEK) { $env:ELEME_ORNEK = "$PSScriptRoot\..\..\.kos\2026-09-30-uzun\form\V0XbuApxlhg.json" }  # V1 örneği (Claude formu)
 if (-not $env:ELEME_ORNEK21) { $env:ELEME_ORNEK21 = "$PSScriptRoot\..\..\.kos\2026-10-03-short\form\vfLtsYbtJf0.json" }  # F3-V2 V21 örneği (yon.ornek_sec)
+if (-not $env:ELEME_ORNEK6) { $env:ELEME_ORNEK6 = "$PSScriptRoot\..\..\.kos\2026-09-30-uzun-2\form\Pj2FnVE-W3c.json" }  # F3-V6 V6/V63 örneği (yon.ornek_sec6; 6 liste dolu, doğrulamada kullanılmaz)
 @'
 import os, sys, time
 from pathlib import Path
@@ -28,8 +29,9 @@ print('kareler', len(kareler), '· adaylar', len(adaylar))
 ts, ornek = time.strftime('%Y%m%d-%H%M%S'), Path(os.environ['ELEME_ORNEK']) if os.environ.get('ELEME_ORNEK') else None
 # F3-V2 V21 örneği (yon.ornek_sec: OLCUM listeleri dolu en kısa Claude formu, b2QkhmQ0sT0 hariç; doğrulamada kullanılmaz)
 ornek21 = Path(os.environ['ELEME_ORNEK21']) if os.environ.get('ELEME_ORNEK21') else None
+ornek6 = Path(os.environ['ELEME_ORNEK6']) if os.environ.get('ELEME_ORNEK6') else None
 print('varyantlar:', ' · '.join(f'{k} {d}' for k, d in yon.VARYANT.items()), '· V1 örneği', ornek, '· V21 örneği', ornek21)
-s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, ornek21=ornek21,
+s = yon.eleme(g, adaylar, hafif.cagir, hafif.MODEL, env, puanla, onbellek=p.parent.parent / 'ab', destek=destek, ornek=ornek, ornek21=ornek21, ornek6=ornek6,
              kayit=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else p.parent.parent / 'eleme' / ts,
              yeniden=Path(os.environ['ELEME_YENIDEN']) if os.environ.get('ELEME_YENIDEN') else None)  # yeniden: B çağrısı 0, kayıttan puanla
 for r in s['satirlar']:
