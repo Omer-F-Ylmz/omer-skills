@@ -1,4 +1,4 @@
-$py = "$(uv tool dir)\video-cli\Scripts\python.exe"
+﻿$py = "$(uv tool dir)\video-cli\Scripts\python.exe"
 $OutputEncoding = [Text.UTF8Encoding]::new($false)  # Python'a boru UTF-8 (BOM'suz); 5.1 varsayılanı ASCII
 @'
 import json, os, sys

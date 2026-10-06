@@ -856,6 +856,23 @@ def _tahmin(m, kare):
     return (15000 * f["girdi"] + 6000 * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0)
 
 
+KR_TOKEN, KARE_TOKEN, CIKTI_CAGRI = 3.5, 1120, 1700  # DERİNLİK-KAPANIŞ-2: CIKTI_CAGRI = V10 eleme ölçümü (171531/171722/171802: 30851 çıktı / 18 çağrı)
+
+
+def tahmin_v10(g, m, ornek=ORNEK_V10):
+    """DERİNLİK-KAPANIŞ-2: tara_v10 ön tahmini ($, önbelleksiz) gerçek gövde kurgusuyla — parca_k · yük dengeli bolumle · parça başı önek + şema +
+    mesaj (kr / KR_TOKEN) + kendi kareleri × KARE_TOKEN · son geçiş (üst + konuşma + OCR, görselsiz) · çağrı başı CIKTI_CAGRI çıktı."""
+    f, k = FIYAT[m], parca_k(g[1])[0]
+    on = len(g[0] + EKSIKSIZLIK10 + ORNEK_BASLIK + json.dumps(g[2], ensure_ascii=False)) + (len(Path(ornek).read_text(encoding="utf-8")) if Path(ornek).is_file() else 0)
+    kr = [Path(x).name for x in (g[3] if len(g) > 3 else ())]
+    parca = bolumle(g[1], k, yuk=True)
+    msg = lambda i, p: len("\n".join([ALAN_KURALI, PARCA_OZET, PARCA_BOLUM, *[PARCA_LINK] * (i > 0)]) + DEGERLENDIR + on_cikarim(p) + p)
+    gir = sum((on + msg(i, p)) / KR_TOKEN + KARE_TOKEN * sum(f"{x} · " in p for x in kr) for i, p in enumerate(parca))
+    ust, govde = (g[1].split("\n## Segmentler\n", 1) + [""])[:2]
+    gir += len(SON_SISTEM10 + ust + govde.split("\n## Kareler\n", 1)[0]) / KR_TOKEN
+    return (gir * f["girdi"] + (len(parca) + 1) * CIKTI_CAGRI * f["cikti"]) / 1e6
+
+
 JEV_TAVAN = 12  # F3-ÖLÇÜM: puanlama isteği üst sınırı (A 2 + aday 5 × 2); koşu 2 TavanHata ile sonuçsuz kaldı
 JEV_BOYUT_TAVAN = 24  # F3-V8: ELEME_BOYUT modunda (kalite + boyut ayrı istek)
 

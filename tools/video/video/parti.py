@@ -413,16 +413,20 @@ def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
 
 
 def _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model):
-    """DERİNLİK-KAPANIŞ-1: yonlendirme tarama "yontem": "V10" → video başı yon.tara_v10 (örnek tdir/ornek-v10.json). tara_v10 hatası ya da ön tahmin
-    (_tahmin × (k + 1)) kalan $'ı aşarsa video aynı adımda A taşıyıcısıyla (cagir, d["model"]) taranır → geri_donus; usd ve cagri toplam, video düşmez."""
-    ys, fs, notlar = [], [], []
+    """DERİNLİK-KAPANIŞ-1: yonlendirme tarama "yontem": "V10" → video başı yon.tara_v10 (örnek tdir/ornek-v10.json). tara_v10 hatasında video aynı
+    adımda A taşıyıcısıyla (cagir, d["model"]) taranır → geri_donus; usd ve cagri toplam, video düşmez.
+    DERİNLİK-KAPANIŞ-2: ön tahmin (yon.tahmin_v10) kalan $'ı aşarsa çağrı 0, video "tavan" listesinde (A V10'dan pahalı; A'ya gitmez)."""
+    ys, fs, notlar, tv = [], [], [], []
     for v in kalan:
         kr = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
         g = (SISTEM, _istem([v], pk, hatalar, temizle), sema([v], iz=True), kr)
         kalan_usd = d["tavan"]["usd"] - _defter(pdir)[1] - sum(y.get("usd") or 0 for y in ys)
-        t = yon._tahmin(model, len(kr)) * (yon.parca_k(g[1])[0] + 1) if model in yon.FIYAT else 0.0
-        y = {"form": None, "usd": 0.0, "cagri": 0, "hata": f"ön tahmin ${t:.4f} > kalan ${kalan_usd:.4f}"} if t > kalan_usd \
-            else yon.tara_v10(g, env, model, ornek=Path(tdir) / "ornek-v10.json")
+        t = yon.tahmin_v10(g, model, Path(tdir) / "ornek-v10.json") if model in yon.FIYAT else 0.0
+        if t > kalan_usd:
+            tv.append(v)
+            ys.append({"form": None, "usd": 0.0, "cagri": 0, "hata": f"tavan: ön tahmin ${t:.4f} > kalan ${kalan_usd:.4f}"})
+            continue
+        y = yon.tara_v10(g, env, model, ornek=Path(tdir) / "ornek-v10.json")
         ys.append(y)
         if y.get("hata"):
             notlar.append(f"{v}: {y['hata']}")
@@ -433,7 +437,7 @@ def _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model):
     return {"form": {"videolar": fs} if fs else None, "usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
             "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": sum(y.get("cagri", 1) for y in ys),
             "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"),
-            "model": d["model"] if notlar else model, **({"geri_donus": " · ".join(notlar)[:120]} if notlar else {})}
+            "model": d["model"] if notlar else model, **({"geri_donus": " · ".join(notlar)[:120]} if notlar else {}), **({"tavan": tv} if tv else {})}
 
 
 def _istem(ids, pk, hatalar, temizle):
@@ -523,7 +527,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
                           butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1]), env=env)
             except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
-            hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, kalan)
+            tv = y.get("tavan") or []  # DERİNLİK-KAPANIŞ-2: ön tahmini kalan $'ı aşan video tavanda kalır (YENIDEN)
+            hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, [v for v in kalan if v not in tv])
             for f in (y.get("form") or {}).get("videolar") or []:  # M2e K1: son form diskte (kısmi kabul çağrısız)
                 if isinstance(f, dict) and f.get("id") in kalan:
                     (pdir / "form").mkdir(exist_ok=True)
@@ -535,6 +540,9 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
                 "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), **_maliyet(y), "kare": len(kareler), **{x: y[x] for x in ("cagri", "geri_donus") if y.get(x) is not None},
                 "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])
             onceki = y.get("usd") or 0.0
+            for v in tv:
+                d["videolar"][v]["tarama"]["durum"] = "tavan"
+            kalan = [v for v in kalan if v not in tv]
             if y.get("hata"):
                 for v in kalan:  # M5b K2: bütçe hatası "hata" değil form_red (yeniden başlatılabilir)
                     d["videolar"][v]["tarama"].update(**({"durum": "form_red", "hata": [BUTCE_YOK, y["hata"][:200]]} if "max_budget" in y["hata"]

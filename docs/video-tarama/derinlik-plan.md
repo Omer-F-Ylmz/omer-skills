@@ -757,3 +757,21 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 - Ayarın yeri: parti.py YONLENDIRME (yeni parti, env OMNIROUTE_KEY varsa durum.json'a yazılır). Geri alma (tek satır): parti.py `YONLENDIRME = {}` · açık partide durum.json'dan "yonlendirme" silinir.
 - İYİLEŞTİRME listesine: Jev farkı (−%5.6 b2Q / −%8.3 ptGX, iki videoda) · hız (OmniRoute OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT ile parça paralelliği).
 - Testler: video 1002 → 1012 (+10, test_derinlik_kapanis.py).
+
+## O75 DERİNLİK-KAPANIŞ-2 — tavan düzeltmesi · gerçekçi V10 tahmini · konsol UTF-8 · rapor arşivi · açık kalemler (canlı 0)
+- Sapma (a) düzeltildi: ön tahmin kalan $'ı aşınca video A'ya gitmez (A, V10'dan 3–10 kat pahalı); _tara_v10 çağrı 0 ile "tavan" listesi döner, tarama adımı videoyu "tavan" durumunda bırakır (YENIDEN; --usd-ek ile devam). A geri dönüşü yalnız tara_v10 hatasında. Defter satırı form "hata: tavan: ön tahmin $x > kalan $y", cagri 0.
+- Sapma (b) düzeltildi: yon.tahmin_v10(g, model, ornek) gerçek gövde kurgusuyla — parca_k · yük dengeli bolumle · parça başı (önek + şema + mesaj) / KR_TOKEN 3.5 + kendi kareleri × KARE_TOKEN 1120 · son geçiş (üst + konuşma + OCR, görselsiz) · çağrı başı CIKTI_CAGRI 1700 (ölçülen: 171531/171722/171802 V10 kayıtları, 30851 çıktı / 18 çağrı); önbelleksiz fiyat.
+- tahmin_v10 ↔ ölçülen (ölçülen = iki koşu ortalaması; önbelleksiz tek koşu parantezde; eski = _tahmin × (k + 1)):
+  b2QkhmQ0sT0 k4 · 27 kare: $0.0424 ↔ $0.0409 (×1.04; önbelleksiz $0.0495 ×0.86) · eski $0.0975
+  rABIViSQmsc k1 · 7 kare: $0.0127 ↔ $0.0083 (×1.53; $0.0108 ×1.18) · eski $0.0390
+  ptGXxk1-Uj4 k1 · 6 kare: $0.0146 ↔ $0.0148 (×0.99; $0.0173 ×0.84) · eski $0.0390
+  Girdi token tahmini ölçülenin %79–86'sı; üçü 0.8–1.6 bandında, çıktı payı değişmedi.
+- UTF-8 kök neden: Windows PowerShell 5.1 BOM'suz .ps1'i ANSI (cp1254) okur; here-string içindeki Python literal'leri ("·", "ö") Python'a "Â·", "Ã¶" olarak gider. Bozuk yalnız ps1 literal'inden gelen satırlar (her eleme raporunda 2 satır: başlık + varyantlar), modülden gelenler temiz; konsol kodlaması (utf-8, PYTHONIOENCODING) etkisiz. Düzeltme: eleme.ps1 + ab-canli.ps1 UTF-8 BOM (test_ps1_utf8_bom). Doğrulama: ELEME_YENIDEN 171722 (rABI) → konsol ve rapor "Â/Ã" 0 · A $0 · B $0 · Jev ≤0 istek · kalite 2.63 (kayıtla aynı).
+- Rapor arşivi: docs/video-tarama/eleme-*.md (izlenmeyen, 30) → C:\Projeler\.video-cache\eleme\rapor\; eleme.ps1 ELEME_DOC oraya. O72–O74 tabloları planda özet olarak kalır.
+- Eski test değişti (tarif gereği): test_parti_v10_on_tahmin_tavan_asarsa_geri_donus → test_parti_v10_on_tahmin_tavan_kalir.
+- Kabul partisi (Adım 5) bu oturuma sığmadı: docs/video-tarama/kuyruk.md'de YouTube id deseni bulunamadı; kanal kuyruğu kaynağı sonraki oturumda.
+
+### AÇIK KALEMLER
+- KURULUM: sayaç hook'u alt ajan çağrılarını da sayıyor · cc-kopru hook-ortam testi yalnız sayaç 0'dayken yeşil · OmniRoute otomatik başlatma çalışmıyor (elle) + ilk açılış > 60 s · OMNIROUTE_KEY yoksa hat sessizce eski yolda · fastembed/Pillow bağımlılığı (.video-cache\emb).
+- İYİLEŞTİRME: Jev farkı (b2Q −%5.6 · ptGX −%8.3) · hız (OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT ile parça paralelliği) · kısa videoda kareden_okunanlar zayıf (A 5 · B 1) · V11 dersi (istem büyütmek derinlik getirmedi; OCR çiftlenmesi) · örnek seçiminde öğe sayısı taklidi (V1/V21/V9) · Jev gerekçesiz puan · tahmin_v10 kısa videoda üst bantta (rABI ×1.53; çıktı payı videonun uzunluğuyla ölçeklenmiyor).
+- Testler: video 1012 → 1015 (−1 değişen +4) · jev 81 · tests 320 · mcp-jev 40 · dotnet 22 yeşil; cc-kopru hook-ortam.test.mjs:69 kırmızı (sayaç 0 değil; KURULUM kalemi) → push bekletildi.

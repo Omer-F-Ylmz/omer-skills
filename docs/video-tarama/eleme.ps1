@@ -1,6 +1,6 @@
-$py = "$(uv tool dir)\video-cli\Scripts\python.exe"
+﻿$py = "$(uv tool dir)\video-cli\Scripts\python.exe"
 $OutputEncoding = [Text.UTF8Encoding]::new($false)  # Python'a boru UTF-8 (BOM'suz); 5.1 varsayılanı ASCII
-$env:ELEME_DOC = $PSScriptRoot
+$env:ELEME_DOC = "$PSScriptRoot/../../../.video-cache/eleme/rapor"  # DERİNLİK-KAPANIŞ-2: rapor arşivi repo dışında
 if (-not $env:ELEME_ORNEK) { $env:ELEME_ORNEK = "$PSScriptRoot\..\..\.kos\2026-09-30-uzun\form\V0XbuApxlhg.json" }  # V1 örneği (Claude formu)
 if (-not $env:ELEME_ORNEK21) { $env:ELEME_ORNEK21 = "$PSScriptRoot\..\..\.kos\2026-10-03-short\form\vfLtsYbtJf0.json" }  # F3-V2 V21 örneği (yon.ornek_sec)
 if (-not $env:ELEME_ORNEK6) { $env:ELEME_ORNEK6 = "$PSScriptRoot\..\..\.kos\2026-09-30-uzun-2\form\Pj2FnVE-W3c.json" }  # F3-V6 V6/V63 örneği (yon.ornek_sec6; 6 liste dolu, doğrulamada kullanılmaz)
