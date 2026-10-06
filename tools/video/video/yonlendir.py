@@ -657,26 +657,29 @@ def _kaynaklar(metin):
 
 
 def kanit(x, o, metin, kn=None):
-    """MÜKEMMEL-3a: öğenin kanıt kaynağı (konuşma → kare → açıklama ilk dayanaklı); doğrulanamadı (kare/görülen) → kare; yoksa None."""
+    """MÜKEMMEL-3a: öğenin kanıt kaynağı (konuşma → kare → açıklama ilk dayanaklı); MÜKEMMEL-3a2: doğrulanamadı ayrı sınıf; yoksa None."""
     kn = kn or _kaynaklar(metin)
     return next((s for s in kn if dayanak(x, o, kn[s]) == "dayanaklı"), None) or \
-        ("kare" if dayanak(x, o, metin) == "doğrulanamadı" else None)
+        ("doğrulanamadı" if dayanak(x, o, metin) == "doğrulanamadı" else None)
 
 
-def k3(a_formlar, b_formlar, metin):
+def k3(a_formlar, b_formlar, metin, dg_u=True):
     """MÜKEMMEL-3a K3: U = A ∪ B dayanaklı öğeleri (alan başı, aynı video içinde eslesir ile tekil). Sistem başı form ortalaması:
     geri = U'dan bulunan / |U| (U boşsa None) · doğruluk = dayanaklı / tüm (0 öğe → 1); "tum" K3_ALAN üzerinden toplam.
-    kayıp: hiçbir B formunun bulmadığı U öğeleri kanıt kaynağına göre · a_dayanaksiz: A'nın tekil dayanaksız öğe sayısı."""
-    kn, u, ka, az = _kaynaklar(metin), {x: [] for x in K3_ALAN}, {}, set()
+    kayıp: hiçbir B formunun bulmadığı U öğeleri kanıt kaynağına göre · a_dayanaksiz: A'nın tekil dayanaksız öğe sayısı.
+    MÜKEMMEL-3a2: dg_u → doğrulanamadı U'da kare olarak (i), değilse U dışında (ii); dg: sistem başı tekil doğrulanamadı sayısı."""
+    kn, u, ka, az, dg = _kaynaklar(metin), {x: [] for x in K3_ALAN}, {}, set(), {1: set(), 0: set()}
     for f, a_mi in [(f, 1) for f in a_formlar] + [(f, 0) for f in b_formlar]:
         for x in K3_ALAN:
             k = OLCUM[x][0]
             for o in (o for o in _ogeler(f, x) if _k(o, k)):
                 if (s := kanit(x, o, metin, kn)) is None:
                     az |= {(x, o["_v"], _k(o, k))} if a_mi else set()
+                elif s == "doğrulanamadı" and (dg[a_mi].add((x, o["_v"], _k(o, k))) or not dg_u):
+                    continue
                 elif not any(r["_v"] == o["_v"] and eslesir(x, _k(o, k), _k(r, k)) for r in u[x]):
                     u[x].append(o)
-                    ka[id(o)] = s
+                    ka[id(o)] = "kare" if s == "doğrulanamadı" else s
 
     def olc(f):
         r, t = {}, [0, 0, 0, 0]
@@ -695,7 +698,8 @@ def k3(a_formlar, b_formlar, metin):
     ra, rb = list(map(olc, a_formlar)), list(map(olc, b_formlar))
     bb = {id(y) for r in rb for x in K3_ALAN for y in r[x]["bul"]}
     kayip = {s: sum(ka[id(y)] == s and id(y) not in bb for x in K3_ALAN for y in u[x]) for s in ("konuşma", "kare", "açıklama")}
-    return {"A": ort(ra), "B": ort(rb), "u": {x: len(u[x]) for x in K3_ALAN}, "kayip": kayip, "a_dayanaksiz": len(az)}
+    return {"A": ort(ra), "B": ort(rb), "u": {x: len(u[x]) for x in K3_ALAN}, "kayip": kayip, "a_dayanaksiz": len(az),
+            "dg": {"A": len(dg[1]), "B": len(dg[0])}}
 
 
 def k3_hukum(r, gorev, gorev_bant, *, short, esik=0.05):
