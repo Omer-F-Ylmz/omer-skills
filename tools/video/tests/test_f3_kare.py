@@ -227,3 +227,24 @@ def test_betik_kol_satiri_ilk_hata(monkeypatch, tmp_path, capsys):
     exec(re.search(r"@'\r?\n(.*?)\r?\n'@", BETIK.read_text(encoding="utf-8"), re.S)[1], {"__name__": "__main__"})
     satir = [l for l in capsys.readouterr().out.splitlines() if l.startswith("b ")]
     assert satir == [f"b {M} ilk_hata HTTP 400"]
+
+
+def _zaman_asimi(monkeypatch, gorulen):
+    def urlopen(r, timeout=None):
+        gorulen.append(timeout)
+        raise TimeoutError("timed out")
+    monkeypatch.setattr("urllib.request.urlopen", urlopen)
+
+
+def test_omniroute_yolu_gercek_post_600s_zaman_asimi(monkeypatch):
+    """F3-SÜRE: SAGLAYICI['omniroute'] → omni_cagir varsayılan gonder = ig._post; urlopen'a geçen değer 600, TimeoutError hata alanında."""
+    t = []
+    _zaman_asimi(monkeypatch, t)
+    y = yon.SAGLAYICI["omniroute"]("m", ENV)("S", "metin", SEMA)
+    assert t == [600] and y["form"] is None and y["hata"] == "ölçülemedi: TimeoutError: timed out"
+
+
+def test_omni_cagir_zaman_asiminda_usd_bilinmiyor(monkeypatch):
+    """F3-SÜRE adım 3: zaman aşımında upstream faturalamış olabilir → usd None (0 harcama sayılmaz)."""
+    _zaman_asimi(monkeypatch, [])
+    assert yon.omni_cagir("m", ENV)("S", "metin", SEMA)["usd"] is None
