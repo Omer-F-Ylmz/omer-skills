@@ -40,6 +40,7 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "Gösterilen ya da söylenen her kurulum/terminal komutunu kurulum_komutlar'a yaz (komut · ne yapar · zaman · kaynak). "
           "iz (D1, şema 2): videoda anılan HER şey (konuşma m:ss · kare m:ss · açıklama · yorum · linkli sayfa) bir satır — baglandigi: aday adı ya da "
           "'aday değil: <sebep>'; sebep yalnız genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı. 'zaten kurulu' sebep değil: kurulu araç da aday.")
+YOKLA = yon.omni_yokla  # O78: devam öncesi OmniRoute ön kontrolü (testte conftest None)
 
 
 OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar", "lisans_kaynak", "kotu_yanlar", "guclendirme", "iz"}  # M2c: opsiyonel alanlar · D1 (b): iz yoksa eski form (şema 1)
@@ -475,11 +476,12 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"),
                                        (sg := onb / v / "segmentler.jsonl").is_file() and bool(tr.IPUCU.search(sg.read_text(encoding="utf-8"))))  # M2e K2 · DERİNLİK-1 R4
                 mk = model_kare(n, mt.get("duration") or 0)  # C4 · O11 (5): n aday tabanı, mk model tavanı
-                print(f"paket {v}: kare {n} ({neden})" + (f" · model tavanı {mk}, sınır jeton bütçesi" if mk > n else ""))
                 with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
                     rc = alt(["paket", "--kare", str(n), "--model-tavan", str(mk), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []),
                               *(["--kuyruk", kuyruk] if kuyruk else []), "--", v])  # B ek: bağlantılı video kuyruğa
                 print(b.getvalue(), end="")
+                kn = int(km[1]) if (km := re.search(r"· kare (\d+)", b.getvalue())) else n  # O78: paketin gönderdiği gerçek kare
+                print(f"paket {v}: kare {kn} (aday tabanı {n}: {neden} · model tavanı {mk}, sınır {'model tavanı' if kn >= mk else 'jeton bütçesi'})")
                 if not (onb / v / "paket.md").is_file():
                     from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
                     raise Hata(next((s[6:] for s in reversed(b.getvalue().splitlines()) if s.startswith("hata: ")), f"paket çıkış {rc}, paket.md yok"))
@@ -636,7 +638,7 @@ def parti(ns, ctx):
         (pdir := kok / ".kos" / pid).mkdir(parents=True)
         d = {"parti": pid, "tur": tur, "tarih": tarih, "model": ns.model, "butce": ns.butce, "kuyruk": Path(ns.hedef).as_posix(),
              "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {},
-             **({"yonlendirme": YONLENDIRME} if YONLENDIRME and (ctx.get("env") or {}).get("OMNIROUTE_KEY") else {})}
+             **({"yonlendirme": YONLENDIRME} if YONLENDIRME else {})}  # O78: anahtar yoksa da V10; eksik anahtar devam'da DUR
         for h in secilen:
             eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
             adim = {"durum": "tamam", "deneme": 0, "cikti": eski[-1].as_posix(), "ice_alindi": True} if eski else {"durum": "bekliyor", "deneme": 0}
@@ -701,6 +703,12 @@ def parti(ns, ctx):
     ikinci = {"kapali": d["ikinci_goz_kapali"], "luna": luna, "jev": ctx.get("jev") or _jev(ctx["env"]), "yargic": ctx.get("cagir") or hafif.cagir}
     kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"], ikinci,
                        (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix())
+    rota = (d.get("yonlendirme") or {}).get("tarama") or {}
+    if getattr(ns, "a_yolu", False):  # O78: A taşıyıcısı yalnız açık bayrakla
+        d.pop("yonlendirme", None)
+    elif rota.get("saglayici") == "omniroute" and (h := YOKLA(rota.get("model"), ctx["env"])):
+        print(f"DUR: OmniRoute/anahtar yok ({h})")  # O78: sessiz A düşüşü yok, çağrı 0
+        return 4
     rc = kos()
     if ns.eylem == "kuyruk" and rc == 0:  # M2d K4: form_red bir kez yeniden → akil → panelde dur
         red = [s for s in d["videolar"].values() if s["tarama"]["durum"] == "form_red"]

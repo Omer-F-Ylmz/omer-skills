@@ -795,3 +795,16 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
   yonlendirme.tarama.yontem V10 → devam --yeniden-tara --cagri-ek 12 → defter satırları + video durumu (tavan/form_red). baslat'ta id bayrağı yok,
   kuyruk.md'de Ov/vhY7 yok → özel kuyruk .video-cache\kabul\kuyruk-{short,uzun}.md; açık partide atlanan video DUR.
 - KURULUM: sayaç hook'u dalga.md 1. satırını her çağrıda yazıyor → Read/Edit çakışması; geçici çözüm Python ile tek atım.
+
+## O78 MÜKEMMEL-1 — kabul sonucu + MÜKEMMEL KAPISI
+- Kabul GEÇTİ (V10, geri dönüş 0): Ov-B6K1EsaI 2 çağrı · $0.0061 · 13.6 s | vhY7OGIh1v0 3 · $0.0219 · 28.6 s | b2QkhmQ0sT0 5 · $0.0335 · 40.7 s.
+- Yeniden tarama + 38 kanal kapı yeşilene dek bekler. Kapı:
+
+| Kapı | Ölçüt | Durum |
+|---|---|---|
+| K1 doğruluk | altyazı orijinal dil · paket satırı gerçek kare sayısını ve nedenini yazar · tahmin 6 noktada 0.8–1.3 | MÜKEMMEL-1b |
+| K2 sağlamlık | sessiz A düşüşü 0 · OmniRoute kapalıysa otomatik başlar ya da DUR · sayaç hook'u yan etkisiz · cc-kopru testi sayaçtan bağımsız yeşil | kısmen (DUR: 1b) |
+| K3 kalite | ölçüt A'nın DAYANAKLI öğeleri; 3 doğrulama videosu + Ov-B6K1EsaI'de B dayanaklı kapsam · doğruluk · görev ≥ A, short'ta kareden okuma ≥ A; Jev gerekçeli puan | açık |
+| K4 hız | parça paralelliğiyle uzun videoda süre ≥ %40 kısa, kalite ve çağrı aynı | açık |
+| K5 uçtan uca | V10 formu → araştırma → /video-uygula, 1 videoda hatasız | açık |
+| K6 gözetimsiz prova | 1 takip kanalından 5 videoluk parti, müdahalesiz tamam | açık |

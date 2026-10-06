@@ -63,17 +63,21 @@ def segmentle(satirlar, chapters=None, sure=None, hedef=60):
 
 
 def dil_sec(meta, dil=None):
-    """Öncelik: elle dil → elle en → otomatik orijinal dil (`<dil>-orig`; dil varsayılan tr). Önce tam anahtar, sonra `dil-` öneki.
+    """Öncelik (O78): orijinal dil (meta.language) elle → orijinal oto (`<dil>-orig`) → elle dil → elle en → tek `-orig`
+    (dil varsayılan tr; language yoksa eski sıra). Önce tam anahtar, sonra `dil-` öneki.
     Otomatik çeviri izleri (tlang) hiç seçilmez: yt-dlp'de 429'un en sık sebebi."""
     elle = list(meta.get("subtitles") or {})
-    for d in dict.fromkeys([dil or "tr", "en"]):
-        k = next((k for k in elle if k == d), None) or next((k for k in elle if k.startswith(d + "-")), None)
-        if k:
-            return k, "elle"
     orig = [k for k in meta.get("automatic_captions") or {} if k.endswith("-orig")]
     kok = (meta.get("language") or "").split("-")[0]
-    k = next((k for k in orig if kok and k.split("-")[0] == kok), None) or (orig[0] if len(orig) == 1 else None)
-    return (k, "oto") if k else None
+    bul = lambda d: next((k for k in elle if k == d), None) or next((k for k in elle if k.startswith(d + "-")), None)
+    if kok and (k := bul(kok)):
+        return k, "elle"
+    if kok and (k := next((k for k in orig if k.split("-")[0] == kok), None)):
+        return k, "oto"
+    for d in dict.fromkeys([dil or "tr", "en"]):
+        if k := bul(d):
+            return k, "elle"
+    return (orig[0], "oto") if len(orig) == 1 else None
 
 
 def urller(aciklama):
