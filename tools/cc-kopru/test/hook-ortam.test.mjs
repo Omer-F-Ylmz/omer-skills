@@ -60,11 +60,21 @@ test("K3.3 hata koduyla çıkan hook sessiz geçmez", async () => {
   }
 }, { timeout: 60000 });
 
+import * as fsS from "node:fs";
+import * as osS from "node:os";
+
 test("K1 envanteri iki ortamda aynı", async () => {
-  const cc = await envanter(PROJE);
-  const geri = desktopOrtamiUygula();
-  let dt;
-  try { dt = await envanter(PROJE); } finally { geri(); }
+  // sayaç hook'u gerçek oturum sayacına değil geçici dizine yazar: sonuç sayaçtan bağımsız
+  const sayacDizin = fsS.mkdtempSync(`${osS.tmpdir()}/cagri-sayac-`);
+  process.env.CAGRI_SAYAC_DIZIN = sayacDizin;
+  let cc, dt;
+  try {
+    cc = await envanter(PROJE);
+    const geri = desktopOrtamiUygula();
+    process.env.CAGRI_SAYAC_DIZIN = sayacDizin;
+    try { dt = await envanter(PROJE); } finally { geri(); }
+  } finally { delete process.env.CAGRI_SAYAC_DIZIN; }
+  assert.equal(fsS.readFileSync(`${sayacDizin}/cagri-sayac.txt`, "utf8"), "2");
   assert.ok(cc.length >= 6, `hook envanteri beklenmedik kadar kısa: ${cc.length}`);
   assert.deepEqual(dt, cc);
 }, { timeout: 300000 });
