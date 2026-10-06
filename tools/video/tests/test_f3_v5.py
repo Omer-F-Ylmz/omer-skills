@@ -448,3 +448,137 @@ def test_v7a_kisa_ad_anlam_esikte(anlam7, monkeypatch):
     m = "Today we deploy with Docker Compose."
     assert yon.dayanak("adaylar", {"ad": "Stripe ödeme"}, m) == "dayanaksız"
     assert yon.dayanak("iddialar", {"iddia": "Stripe ödeme", "kaynak": "altyazı"}, m) == "dayanaklı"
+
+
+# F3-V8: kararlılık (temperature/seed · B ve görev bandı) · ALAN KURALI + tek cümle parça özeti · dolu alan · boyutlu hakem
+from video import kur  # noqa: E402
+
+A8 = {"form": _vf("a", ["Alfa", "Beta"]), "usage": {"input_tokens": 10, "output_tokens": 5}, "usd": 0.001, "sure": 1.0, "hata": None}
+BY = {"eksiksizlik", "kanit", "tutarlilik", "dogruluk", "ozet"}
+ALAN = ("ALAN KURALI: Her öğede şemadaki alanları doldur: karede görülen öğede karede_gorulen'e karede ne göründüğünü yaz; kanit_zamani "
+        "ve kaynak boş kalmaz; kanıt en az bir somut cümle; iz öğelerinde baglandigi neye ve neden bağlandığını açıklar; site_ui öğelerinde "
+        "teknik uygulama ayrıntısını verir. Bilgi yoksa uydurma, 'bilinmiyor' yaz.")
+
+
+def _b8(c, ge):
+    ic = _b6(c)
+
+    def kur_(m, env, timeout=600, govde_ek=None):
+        ge.append(govde_ek)
+        return ic(m, env)
+    return kur_
+
+
+def _e8(tmp_path, adaylar, c, ge=None, puanla=None, **k):
+    tmp_path.mkdir(parents=True, exist_ok=True)
+    o = tmp_path / "ORN6.json"
+    o.write_text('{"id": "ORN6"}', encoding="utf-8")
+    kr = [tmp_path / x.rsplit("/", 1)[1] for x in KARELER]
+    for x in kr:
+        x.write_bytes(b"k")
+    return yon.eleme(("S", P, SV, kr), adaylar, lambda *a, **kw: dict(A8), hafif.MODEL, ENV,
+                     puanla or (lambda ms: [0.8] * len(ms)), onbellek=tmp_path / "ab", b_kur=_b8(c, [] if ge is None else ge),
+                     yokla=lambda m, env, gorsel=False: None, ornek6=o, kayit=tmp_path / "k", **k)
+
+
+def _by(bc):
+    def f(ms):
+        bc.append(len(ms))
+        return [{k: (0.9 if i < 2 else 0.5) if k in ("kanit", "ozet") else 0.8 for k in sorted(BY)} for i in range(len(ms))]
+    return f
+
+
+def test_v8_govde_temperature_seed(tmp_path):
+    ge = []
+    s = _e8(tmp_path, [f"{E1}@V8"], [], ge, destek={E1: ["seed", "temperature"]})
+    assert ge == [{"temperature": 0.2, "seed": 7}] and "seed yok" not in s["satirlar"][0]
+
+
+def test_v8_seed_desteksiz_yok(tmp_path):
+    ge = []
+    s = _e8(tmp_path, [f"{E1}@V8"], [], ge, destek={E1: ["temperature", "reasoning"]})
+    assert ge == [{"reasoning": {"effort": "minimal"}, "temperature": 0.2}] and " · seed yok" in s["satirlar"][0]
+
+
+def test_v8_diger_varyant_govde_degismez(tmp_path):
+    ge = []
+    _e8(tmp_path, [f"{E1}@V6", f"{E1}@V63"], [], ge, destek={E1: ["seed", "reasoning"]})
+    assert ge == [{"reasoning": {"effort": "minimal"}}] * 2
+
+
+def test_v8_bant_satirlari(tmp_path):
+    s = _e8(tmp_path, [f"{E1}@V8"], [], puanla=lambda ms: [0.7, 0.9, 0.6, 0.75][:len(ms)])
+    r = s["satirlar"][0]
+    assert " · B bant 0.15 · görev bant (A 0.00 · B 0.00)" in r and "bant 0.20" in r  # A bandı kur.karar satırında
+
+
+def test_v8_alan_kurali_tek_cumle_yalniz_v8_parcalarinda(tmp_path):
+    c8, c6 = [], []
+    _e8(tmp_path / "8", [f"{E1}@V8"], c8)
+    _e8(tmp_path / "6", [f"{E1}@V6"], c6)
+    assert yon.ALAN_KURALI == ALAN and "ozet: tek cümle" in yon.PARCA_OZET
+    p8, p6 = [x for x in c8 if x["i"] != "son"], [x for x in c6 if x["i"] != "son"]
+    assert p8 and all(yon.ALAN_KURALI in x["metin"] and yon.PARCA_OZET in x["metin"] for x in p8)
+    assert p6 and not any(yon.ALAN_KURALI in x["metin"] or yon.PARCA_OZET in x["metin"] for x in p6)
+    assert [x for x in c8 if x["i"] == "son"] and all(yon.ALAN_KURALI not in x["metin"] for x in c8 if x["i"] == "son")
+    assert {x["sistem"] for x in p8} == {x["sistem"] for x in p6}  # sabit sistem öneki V6 ile aynı
+
+
+def test_v8_dolu_alan_bilinmiyor_ayri():
+    ks = list(SV["properties"]["videolar"]["items"]["properties"]["adaylar"]["items"]["properties"])
+    o = {a: "x" for a in ks}
+    o[ks[0]], o[ks[1]] = "bilinmiyor", ""
+    f = _vf("o", [])
+    f["videolar"][0]["adaylar"] = [o, {a: v for a, v in o.items() if a != ks[2]}]  # eksik alan boş sayılır
+    f["videolar"][0]["bolumler"] = [{"zaman": "0:00", "baslik": "x"}]  # paketten gelen liste sayılmaz
+    assert yon.dolu_alan([f], SV) == (2 * len(ks) - 5, 2, 2 * len(ks))
+
+
+def test_v8_dolu_alan_satir_rapor(tmp_path):
+    s = _e8(tmp_path, [f"{E1}@V8"], [])
+    assert " · dolu alan %86 (A %86) · bilinmiyor %0 (A %0)" in s["satirlar"][0]
+    assert "dolu alan %86 (A %86) · bilinmiyor %0 (A %0)" in s["rapor"][f"{E1}@V8"]["olcum"]
+
+
+def test_v8_bilinmeyen_varyant_cagri_0(tmp_path):
+    c = []
+    s = _e8(tmp_path, [f"{E1}@V8", f"{E1}@V9"], c)
+    assert s["satirlar"][1] == f"{E1}@V9 · hata: bilinmeyen varyant: V9 · çağrı 0"
+    assert yon.PARCA["V8"] == 4 and "V8" in yon.SON and "V8" in yon.VARYANT and c
+
+
+def test_boyut_sorulari_olcek_ayni():
+    assert set(kur.BOYUT_Q) == BY and all(q["type"] == "score" and q["criteria"] == kur.KALITE_Q["criteria"] for q in kur.BOYUT_Q.values())
+
+
+def test_boyut_yalniz_modda_rapor(tmp_path):
+    bc = []
+    s = _e8(tmp_path / "0", [f"{E1}@V8"], [])
+    assert "boyut" not in s["rapor"][f"{E1}@V8"] and "boyut fark" not in s["satirlar"][0]
+    s = _e8(tmp_path / "b", [f"{E1}@V8"], [], boyut=_by(bc))
+    r = s["rapor"][f"{E1}@V8"]
+    assert bc == [4] and r["boyut"]["A"]["kanit"] == 0.9 and r["boyut"]["B"]["kanit"] == 0.5 and r["boyut"]["B"]["dogruluk"] == 0.8
+    assert " · boyut fark: kanit 0.90→0.50, ozet 0.90→0.50" in s["satirlar"][0] and any(x.startswith("boyut A/B:") for x in r["olcum"])
+
+
+def test_boyut_tavan_on_kontrol(tmp_path, monkeypatch):
+    assert yon.JEV_BOYUT_TAVAN == 24
+    c, bc = [], []
+    monkeypatch.setattr(yon, "JEV_BOYUT_TAVAN", 7)
+    s = _e8(tmp_path / "a", [f"{E1}@V8"], c, boyut=_by(bc))
+    assert c == [] and bc == [] and s["satirlar"] == [f"{E1}@V8 · hata: TAVAN jev · çağrı 0"] and s["jev_istek"] == 8
+    monkeypatch.setattr(yon, "JEV_BOYUT_TAVAN", 8)
+    assert _e8(tmp_path / "b", [f"{E1}@V8"], c, boyut=_by(bc))["jev_istek"] == 8 and bc == [4]
+
+
+def test_boyut_kayittan_yalniz_eksikler(tmp_path):
+    c, bc, kp = [], [], []
+    _e8(tmp_path, [f"{E1}@V8"], c)  # kayıt boyutsuz
+    n = len(c)
+    pl = lambda ms: kp.append(len(ms)) or [0.8] * len(ms)  # noqa: E731
+    s = _e8(tmp_path, [f"{E1}@V8"], c, puanla=pl, boyut=_by(bc), yeniden=tmp_path / "k")
+    assert len(c) == n and kp == [] and bc == [4] and s["jev_istek"] == 4
+    k = json.loads((tmp_path / "k" / f"{E1}@V8".replace("/", "_") / "0.json").read_text(encoding="utf-8"))
+    assert k["boyut"]["kanit"] == 0.5 and json.loads((tmp_path / "k" / "A" / "1.json").read_text(encoding="utf-8"))["boyut"]["kanit"] == 0.9
+    s = _e8(tmp_path, [f"{E1}@V8"], c, puanla=pl, boyut=_by(bc), yeniden=tmp_path / "k")
+    assert bc == [4] and kp == [] and s["jev_istek"] == 0 and len(c) == n
