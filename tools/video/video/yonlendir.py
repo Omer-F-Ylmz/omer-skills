@@ -644,6 +644,68 @@ def olcum_satirlari(a, b, d, metin):
     return s
 
 
+K3_ALAN = ("adaylar", "promptlar", "kurulum_komutlar", "kareden_okunanlar")
+
+
+def _kaynaklar(metin):
+    """MÜKEMMEL-3a: paket metni "## " bölümlerine göre konuşma (Segmentler) · kare (OCR/Kareler) · açıklama (gerisi) metinlerine."""
+    k = {"konuşma": [], "kare": [], "açıklama": []}
+    for b in re.split(r"(?m)^(?=## )", metin):
+        h = b.split("\n", 1)[0]
+        k["konuşma" if "Segment" in h else "kare" if "OCR" in h or "Kare" in h else "açıklama"].append(b)
+    return {x: "\n".join(v) for x, v in k.items()}
+
+
+def kanit(x, o, metin, kn=None):
+    """MÜKEMMEL-3a: öğenin kanıt kaynağı (konuşma → kare → açıklama ilk dayanaklı); doğrulanamadı (kare/görülen) → kare; yoksa None."""
+    kn = kn or _kaynaklar(metin)
+    return next((s for s in kn if dayanak(x, o, kn[s]) == "dayanaklı"), None) or \
+        ("kare" if dayanak(x, o, metin) == "doğrulanamadı" else None)
+
+
+def k3(a_formlar, b_formlar, metin):
+    """MÜKEMMEL-3a K3: U = A ∪ B dayanaklı öğeleri (alan başı, aynı video içinde eslesir ile tekil). Sistem başı form ortalaması:
+    geri = U'dan bulunan / |U| (U boşsa None) · doğruluk = dayanaklı / tüm (0 öğe → 1); "tum" K3_ALAN üzerinden toplam.
+    kayıp: hiçbir B formunun bulmadığı U öğeleri kanıt kaynağına göre · a_dayanaksiz: A'nın tekil dayanaksız öğe sayısı."""
+    kn, u, ka, az = _kaynaklar(metin), {x: [] for x in K3_ALAN}, {}, set()
+    for f, a_mi in [(f, 1) for f in a_formlar] + [(f, 0) for f in b_formlar]:
+        for x in K3_ALAN:
+            k = OLCUM[x][0]
+            for o in (o for o in _ogeler(f, x) if _k(o, k)):
+                if (s := kanit(x, o, metin, kn)) is None:
+                    az |= {(x, o["_v"], _k(o, k))} if a_mi else set()
+                elif not any(r["_v"] == o["_v"] and eslesir(x, _k(o, k), _k(r, k)) for r in u[x]):
+                    u[x].append(o)
+                    ka[id(o)] = s
+
+    def olc(f):
+        r, t = {}, [0, 0, 0, 0]
+        for x in K3_ALAN:
+            k = OLCUM[x][0]
+            os_ = [o for o in _ogeler(f, x) if _k(o, k)]
+            bul = [y for y in u[x] if any(y["_v"] == o["_v"] and eslesir(x, _k(y, k), _k(o, k)) for o in os_)]
+            iyi = sum(kanit(x, o, metin, kn) is not None for o in os_)
+            r[x] = {"bul": bul, "geri": len(bul) / len(u[x]) if u[x] else None, "dogruluk": iyi / len(os_) if os_ else 1.0}
+            t = [t[0] + len(bul), t[1] + len(u[x]), t[2] + iyi, t[3] + len(os_)]
+        return {**r, "tum": {"geri": t[0] / t[1] if t[1] else None, "dogruluk": t[2] / t[3] if t[3] else 1.0}}
+
+    def ort(rs):
+        o = lambda v: sum(v) / len(v) if v else None  # noqa: E731
+        return {x: {m: o([r[x][m] for r in rs if r[x][m] is not None]) for m in ("geri", "dogruluk")} for x in (*K3_ALAN, "tum")}
+    ra, rb = list(map(olc, a_formlar)), list(map(olc, b_formlar))
+    bb = {id(y) for r in rb for x in K3_ALAN for y in r[x]["bul"]}
+    kayip = {s: sum(ka[id(y)] == s and id(y) not in bb for x in K3_ALAN for y in u[x]) for s in ("konuşma", "kare", "açıklama")}
+    return {"A": ort(ra), "B": ort(rb), "u": {x: len(u[x]) for x in K3_ALAN}, "kayip": kayip, "a_dayanaksiz": len(az)}
+
+
+def k3_hukum(r, gorev, gorev_bant, *, short, esik=0.05):
+    """MÜKEMMEL-3a K3 hükmü: B ≥ A − esik (tum geri · tum doğruluk · short'ta kareden_okunanlar geri) ve görev B ≥ A − gorev_bant."""
+    ks = [("geri", "tum", "geri"), ("doğruluk", "tum", "dogruluk")] + ([("kareden_okunanlar", "kareden_okunanlar", "geri")] if short else [])
+    kal = [e for e, x, m in ks if None not in (r["A"][x][m], r["B"][x][m]) and round(r["B"][x][m] - r["A"][x][m] + esik, 6) < 0]
+    kal += ["görev"] * (round(gorev[1] - gorev[0] + gorev_bant, 6) < 0)
+    return "kaldı: " + ", ".join(kal) if kal else "geçti"
+
+
 def _sn(s):
     return functools.reduce(lambda a, x: a * 60 + int(x), s.split(":"), 0)
 
