@@ -874,3 +874,11 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
   - ptGXxk1-Uj4: 62/85 · 88/91 · 49/62 · 86/86 · 0/1/1 · 3 · geçti
 - B kayıplarının en büyük türü kare (24/37). Rapor: .video-cache/eleme/rapor/k3-20261006.md.
 - K3 durumu: ölçülüyor. Ov için A koşusu ve Jev gerekçesi 3b'de.
+
+## O87 — MÜKEMMEL-3a2: K3 tablosu düzeltmesi (canlı 0 · Jev 0)
+- Görev yeniden hesaplanmaz: eleme raporu satırındaki 'başarı A→B' + 'görev bant (A …)' aynen; V10 ölçümüyle aynı (b2Q 0.80/0.80 · rABI 0.53/0.65 · ptGX 0.82/0.90).
+- O86 tablosu görevi referans/olc_v2 ile yeniden hesaplamıştı (b2Q 64→52 'kaldı: görev' bu yüzden); düzeltildi.
+- Kanıt metni: kayıtta paket/istem yok → eleme.ps1:32 kurucusu ('=== VIDEO v ===' + paket.md); üç paket.md mtime'ı koşudan önce → aynı girdi.
+- kanit() doğrulanamadı'yı ayrı sınıf döndürür; k3(dg_u): (i) U'da kare olarak · (ii) U dışında; dg = A/B tekil doğrulanamadı.
+- (i): b2Q geçti · rABI kaldı: kareden_okunanlar (71/14) · ptGX geçti. (ii): b2Q geçti · rABI kaldı: kareden_okunanlar (100/0) · ptGX geçti.
+- doğrulanamadı A/B: b2Q 23/7 · rABI 8/2 · ptGX 12/4. Kesin hüküm 3b görsel doğrulamadan sonra. Rapor: .video-cache/eleme/rapor/k3-20261006.md.
