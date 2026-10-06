@@ -46,9 +46,11 @@ def _usd(model, u, basliklar, kare=0):
     return (u.get("prompt_tokens", 0) * f["girdi"] + u.get("completion_tokens", 0) * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0) if f else None
 
 
-def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
-    """hafif.cagir imzasında OmniRoute (OpenAI biçimi) adaptörü → {form, usage, usd, sure, hata}; anahtar yalnız env OMNIROUTE_KEY, hiçbir çıktıya yazılmaz."""
+def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None):
+    """hafif.cagir imzasında OmniRoute (OpenAI biçimi) adaptörü → {form, usage, usd, sure, hata}; anahtar yalnız env OMNIROUTE_KEY, hiçbir çıktıya yazılmaz.
+    govde_ek istek gövdesine eklenir (F3-ELEME: reasoning); usage.reasoning yalnız yanıtta reasoning token > 0 ise."""
     anahtar = env.get("OMNIROUTE_KEY") or ""
+    gonder = gonder or functools.partial(ig._post, basliklar=True, timeout=timeout)
 
     def cagir(sistem, metin, sema, kareler=(), **_):
         from . import cli  # döngüsel içe aktarma yok
@@ -62,7 +64,7 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
                   + base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
         govde = {"model": model, "max_tokens": CIKTI_TAVAN, "response_format": {"type": "json_schema", "json_schema": {"name": "form", "strict": False, "schema": sema}},
                  "messages": [{"role": "system", "content": sistem},
-                              {"role": "user", "content": [{"type": "text", "text": cli._temizle(metin, env)}, *ekler]}]}
+                              {"role": "user", "content": [{"type": "text", "text": cli._temizle(metin, env)}, *ekler]}], **(govde_ek or {})}
         # Vision Bridge (visionBridge.ts:188) yalnız bizim isteğimizde kapalı: ling'i görselsiz sayıp kareleri 10'a kırpıyordu
         bas = {"Content-Type": "application/json", "x-omniroute-disabled-guardrails": "vision-bridge", **({"Authorization": f"Bearer {anahtar}"} if anahtar else {})}
         try:
@@ -77,7 +79,9 @@ def omni_cagir(model, env, gonder=functools.partial(ig._post, basliklar=True)):
             form = None if kesik else json.loads(ic[ic.find("{"): ic.rfind("}") + 1])
         except ValueError:
             form = None
-        return {"form": form, "usage": {"input_tokens": u.get("prompt_tokens", 0), "output_tokens": u.get("completion_tokens", 0)},
+        akil = (u.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0
+        return {"form": form, "usage": {"input_tokens": u.get("prompt_tokens", 0), "output_tokens": u.get("completion_tokens", 0),
+                                        **({"reasoning": akil} if akil else {})},
                 "usd": _usd(model, u, ek[0] if ek else {}, len(kareler)), "sure": round(time.monotonic() - t0, 1),
                 "hata": f"çıktı tavanı (max_tokens {CIKTI_TAVAN})" if kesik else None if form is not None else "form JSON değil"}
     return cagir
@@ -177,3 +181,93 @@ def ab(d, adim, girdiler, kol_b, cagir, env, puanla, *, basari=None, tekrar=2, t
     gurultu = max(max(p) - min(p) for p in s["a"]["puan"])
     k = kur.karar(s["a"], s["b"], None, gurultu, list(zip(s["a"]["gorev"], s["b"]["gorev"])))
     return {**s, "karar": k, "yonlendirme": {adim: kol_b} if k.startswith("AL") else None}
+
+
+def _tahmin(m, kare):
+    """F3-ELEME: aday ilk çağrısının ön tahmini — O58 bandı 15k girdi + 6k çıktı (+ kare × gorsel)."""
+    f = FIYAT[m]
+    return (15000 * f["girdi"] + 6000 * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0)
+
+
+def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_kur=omni_cagir, yokla=omni_yokla,
+          zaman=240, en_fazla=5, tavan_cagri=10, tavan_usd=0.15):
+    """F3-ELEME adım 4: tek girdi g (sistem, metin, şema, kareler), adaylar tek koşuda. Ön kontrol (kol sabit · FIYAT · yokla) geçmeyen
+    çağrı 0. Aday başı çağrı 1; şema geçerse 2. Sıradaki çağrı B tavanını (çağrı · $; tahmin = adayın son usd'si, yoksa _tahmin) aşacaksa
+    yapılmaz → "tavan". usd None (zaman aşımı) harcamaya tahminle girer. supported_parameters'ta reasoning varsa effort minimal istenir.
+    Geçen B yoksa A çağrılmaz; A (2 tekrar) _a_onbellek'ten. Puanlama tek puanla çağrısı (A, sonra adaylar; kör). Karar kur.karar
+    (çağrı başı ortalamalarla); öneri = AL'ler içinde en yüksek kalite, eşitlikte ucuz."""
+    from . import kur, parti as pt
+    if len(adaylar) > en_fazla:
+        return {"satirlar": [], "oneri": f"TAVAN aday {len(adaylar)} > {en_fazla}", "a_usd": 0.0, "b_usd": 0.0}
+    kare = len(g[3]) if len(g) > 3 else 0
+    ek = {"kareler": g[3]} if len(g) > 3 else {}
+    gecer = lambda y: not y.get("hata") and not pt._denet(y.get("form"), g[2], "form")
+    durum, b_usd, cagri = {}, 0.0, 0
+    for m in adaylar:
+        neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
+                 else "fiyat yok" if m not in FIYAT else yokla(m, env, gorsel=bool(kare)))
+        x = durum[m] = {"neden": neden, "y": [], "akil": "reasoning" in (destek or {}).get(m, ())}
+        if neden:
+            continue
+        tas = b_kur(m, env, timeout=zaman, govde_ek={"reasoning": {"effort": "minimal"}} if x["akil"] else None)
+        while len(x["y"]) < 2 and (not x["y"] or gecer(x["y"][-1])):
+            tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare)
+            if cagri >= tavan_cagri or b_usd + tahmin > tavan_usd:
+                x["tavan"] = True
+                break
+            y = tas(*g[:3], **ek, model=m)
+            cagri, b_usd = cagri + 1, b_usd + (tahmin if y.get("usd") is None else y["usd"])
+            x["y"].append(y)
+    gecen = {m: [y for y in x["y"] if gecer(y)] for m, x in durum.items()}
+    gecen = {m: v for m, v in gecen.items() if v}
+    a_usd, ozet, karar = 0.0, {}, {}
+
+    def a_say(*a, **k):
+        nonlocal a_usd
+        r = a_tas(*a, **k)
+        a_usd += r.get("usd") or 0
+        return r
+
+    def ozetle(ys, p):
+        n = len(ys)
+        return {"kalite": sum(p) / len(p), "basari": sum(map(gecer, ys)) / n, "gorev": [sum(map(gecer, ys)) / n],
+                "girdi": sum((y.get("usage") or {}).get("input_tokens", 0) for y in ys) / n,
+                "cikti": sum((y.get("usage") or {}).get("output_tokens", 0) for y in ys) / n, "maliyet": sum(y.get("usd") or 0 for y in ys) / n}
+    oneri = "öneri: yok (geçen aday yok)"
+    if gecen:
+        ya = [_a_onbellek(onbellek, a_say, a_model, g, i) for i in range(2)]
+        if all(y.get("hata") for y in ya):
+            oneri = f"öneri: yok (DUR: A yanıt vermedi — {ya[0]['hata'][:120]})"
+        else:
+            puan = iter(puanla([f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}"
+                                for y in ya + [y for v in gecen.values() for y in v]]))
+            pa = [next(puan) for _ in ya]
+            sa = ozetle(ya, pa)
+            for m, v in gecen.items():
+                ozet[m] = ozetle(durum[m]["y"], [next(puan) for _ in v])
+                karar[m] = ("SOR (maliyet bilinmiyor)" if any(y.get("usd") is None for y in durum[m]["y"]) else
+                            kur.karar(sa, ozet[m], None, max(pa) - min(pa), [(sa["gorev"][0], ozet[m]["gorev"][0])]))
+            al = [(ozet[m]["kalite"], -ozet[m]["maliyet"], m) for m, k in karar.items() if k.startswith("AL")]
+            oneri = (f"öneri: {max(al)[2]} (kalite {max(al)[0]:.2f} · ${-max(al)[1]:.4f}/çağrı)" if al else
+                     "öneri: yok (AL aday yok)")
+    gizli = [v for v in (env.get("OMNIROUTE_KEY"), env.get("OPENROUTER_API_KEY")) if v]
+    satirlar = []
+    for m, x in durum.items():
+        ys = x["y"]
+        if not ys:
+            satirlar.append(f"{m} · hata: {x['neden'] or 'tavan'} · çağrı 0")
+            continue
+        ilk = next(((y.get("hata") or "şema geçmedi") for y in ys if not gecer(y)), None)
+        for v in gizli:
+            ilk = ilk and ilk.replace(v, "***")
+        t = lambda k: sum((y.get("usage") or {}).get(k, 0) for y in ys)
+        usd = [y.get("usd") for y in ys]
+        p = [f"{m}", f"hata: {ilk[:120]}" if ilk else "geçti", f"token {t('input_tokens')}/{t('output_tokens')}/{t('reasoning')}",
+             "süre " + "+".join(str(y.get("sure")) for y in ys) + " s", "$/çağrı " + ("?" if None in usd else f"{sum(usd) / len(usd):.4f}"),
+             *([f"kalite {ozet[m]['kalite']:.2f} · başarı {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ")]
+        if x["akil"] and t("reasoning") > 0:
+            p.append("reasoning parametresi etkisiz")
+        if x.get("tavan"):
+            p.append("tavan")
+        satirlar.append(" · ".join(p))
+    return {"satirlar": satirlar, "oneri": oneri, "a_usd": a_usd, "b_usd": b_usd}

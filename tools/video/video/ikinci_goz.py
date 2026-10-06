@@ -41,10 +41,10 @@ def anahtarlar(metin, ad):
     return k | {n for x in re.findall(r"`([^`]+)`", metin) if len(n := tr.normal(x)) >= 3}
 
 
-def _post(url, govde, bas, basliklar=False):
+def _post(url, govde, bas, basliklar=False, timeout=600):
     r = urllib.request.Request(url, None if govde is None else json.dumps(govde).encode(), bas)  # govde None → GET (F3 yoklama)
     try:
-        with urllib.request.urlopen(r, timeout=600) as y:
+        with urllib.request.urlopen(r, timeout=timeout) as y:
             return (y.status, json.loads(y.read())) + ((dict(y.headers.items()),) if basliklar else ())  # F1 eki: OmniRoute maliyet başlığı
     except urllib.error.HTTPError as e:
         try:  # F1: hata gövdesi (ör. 400 invalid_model) sebep olarak korunur
