@@ -656,14 +656,17 @@ def _kaynaklar(metin):
     return {x: "\n".join(v) for x, v in k.items()}
 
 
-def kanit(x, o, metin, kn=None):
-    """MÜKEMMEL-3a: öğenin kanıt kaynağı (konuşma → kare → açıklama ilk dayanaklı); MÜKEMMEL-3a2: doğrulanamadı ayrı sınıf; yoksa None."""
+def kanit(x, o, metin, kn=None, gorsel=None):
+    """MÜKEMMEL-3a: öğenin kanıt kaynağı (konuşma → kare → açıklama ilk dayanaklı); MÜKEMMEL-3a2: doğrulanamadı ayrı sınıf; yoksa None.
+    MÜKEMMEL-3b kare-görsel: gorsel[(alan, anahtar)] görüldü → kare · görülmedi → None · belirsiz/yok → doğrulanamadı kalır."""
     kn = kn or _kaynaklar(metin)
-    return next((s for s in kn if dayanak(x, o, kn[s]) == "dayanaklı"), None) or \
+    s = next((s for s in kn if dayanak(x, o, kn[s]) == "dayanaklı"), None) or \
         ("doğrulanamadı" if dayanak(x, o, metin) == "doğrulanamadı" else None)
+    g = (gorsel or {}).get((x, _k(o, OLCUM[x][0]))) if s == "doğrulanamadı" else None
+    return {"görüldü": "kare", "görülmedi": None}.get(g, s)
 
 
-def k3(a_formlar, b_formlar, metin, dg_u=True):
+def k3(a_formlar, b_formlar, metin, dg_u=True, gorsel=None):
     """MÜKEMMEL-3a K3: U = A ∪ B dayanaklı öğeleri (alan başı, aynı video içinde eslesir ile tekil). Sistem başı form ortalaması:
     geri = U'dan bulunan / |U| (U boşsa None) · doğruluk = dayanaklı / tüm (0 öğe → 1); "tum" K3_ALAN üzerinden toplam.
     kayıp: hiçbir B formunun bulmadığı U öğeleri kanıt kaynağına göre · a_dayanaksiz: A'nın tekil dayanaksız öğe sayısı.
@@ -673,7 +676,7 @@ def k3(a_formlar, b_formlar, metin, dg_u=True):
         for x in K3_ALAN:
             k = OLCUM[x][0]
             for o in (o for o in _ogeler(f, x) if _k(o, k)):
-                if (s := kanit(x, o, metin, kn)) is None:
+                if (s := kanit(x, o, metin, kn, gorsel)) is None:
                     az |= {(x, o["_v"], _k(o, k))} if a_mi else set()
                 elif s == "doğrulanamadı" and (dg[a_mi].add((x, o["_v"], _k(o, k))) or not dg_u):
                     continue
@@ -687,7 +690,7 @@ def k3(a_formlar, b_formlar, metin, dg_u=True):
             k = OLCUM[x][0]
             os_ = [o for o in _ogeler(f, x) if _k(o, k)]
             bul = [y for y in u[x] if any(y["_v"] == o["_v"] and eslesir(x, _k(y, k), _k(o, k)) for o in os_)]
-            iyi = sum(kanit(x, o, metin, kn) is not None for o in os_)
+            iyi = sum(kanit(x, o, metin, kn, gorsel) is not None for o in os_)
             r[x] = {"bul": bul, "geri": len(bul) / len(u[x]) if u[x] else None, "dogruluk": iyi / len(os_) if os_ else 1.0}
             t = [t[0] + len(bul), t[1] + len(u[x]), t[2] + iyi, t[3] + len(os_)]
         return {**r, "tum": {"geri": t[0] / t[1] if t[1] else None, "dogruluk": t[2] / t[3] if t[3] else 1.0}}
