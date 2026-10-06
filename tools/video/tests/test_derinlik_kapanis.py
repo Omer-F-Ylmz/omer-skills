@@ -142,6 +142,19 @@ def test_tahmin_v10_parca_ve_kare(tmp_path, monkeypatch):
     assert yon.parca_k(P)[0] == 4 and yon.tahmin_v10(g, M10) > t1  # k 1 < k 4
 
 
+def test_tahmin_v10_cikti_yuk_olcekli(tmp_path, monkeypatch):  # MÜKEMMEL-1d: küçük yük → küçük çıktı payı, büyük yük → CIKTI_CAGRI üstü; çağrı başı girdi payı
+    g = _g(tmp_path)
+    n = len(yon.bolumle(g[1], yon.parca_k(g[1])[0], yuk=True)) + 1
+    monkeypatch.setitem(yon.FIYAT, "_c", {"girdi": 0, "cikti": 1e6})
+    monkeypatch.setitem(yon.FIYAT, "_g", {"girdi": 1e6, "cikti": 0})
+    assert yon.CIKTI_TABAN * n <= yon.tahmin_v10(g, "_c") < yon.CIKTI_CAGRI * n
+    gc, gi = yon.GIRDI_CAGRI, yon.tahmin_v10(g, "_g")
+    monkeypatch.setattr(yon, "GIRDI_CAGRI", 0)
+    assert gi - yon.tahmin_v10(g, "_g") == pytest.approx(gc * n)
+    monkeypatch.setattr(yon, "CIKTI_YUK", 1e-3)
+    assert yon.tahmin_v10(g, "_c") == pytest.approx(yon.CIKTI_CAGRI * n)
+
+
 @pytest.mark.parametrize("ad", ["eleme.ps1", "ab-canli.ps1"])
 def test_ps1_utf8_bom(ad):  # DERİNLİK-KAPANIŞ-2: PS 5.1 BOM'suz .ps1'i ANSI okur → here-string "·" Python'a "Â·" olarak gider
     b = (yon.ORNEK_V10.parent / ad).read_bytes()
