@@ -626,3 +626,87 @@ def test_eleme_betik_yeniden_ve_jev_istek_tavani(monkeypatch, tmp_path):
     (a, k), = g
     assert k["yeniden"] == k["kayit"] == tmp_path / "k"
     assert a[5](["x"] * 3) == [0.5] * 3 and t[-1]["istek_tavan"] == 3
+
+
+# F3-ÖLÇÜM-2: ölçüm v2 (plan O61) — eşleşme · dayanak · referans D · kapsam/doğruluk/F1 · görev başarısı · rapor · yeniden puanlama
+@pytest.mark.parametrize("liste, a, b, e", [
+    ("adaylar", "Claude-Mem", "claude mem plugin", True),  # tr.normal karşılıklı içerme
+    ("adaylar", "open design tool", "design tool open source", True),  # Jaccard 0.75
+    ("adaylar", "react query", "react router", False),  # Jaccard 0.33
+    ("kurulum_komutlar", "npm  install   x", "npm install x --save", True),
+    ("kurulum_komutlar", "npm i x", "npm install x", False),
+    ("promptlar", "make the hero section bigger", "make hero bigger please", True),  # örtüşme 3/4
+    ("kareden_okunanlar", "write tests", "deploy app", False),
+    ("aciklama_baglantilari", "https://a.b/x", "https://a.b/x", True),
+    ("aciklama_baglantilari", "https://a.b/x", "https://a.b/x/", False)])
+def test_olcum_eslesme_kurallari(liste, a, b, e):
+    assert yon.eslesir(liste, a, b) is e
+
+
+@pytest.mark.parametrize("liste, oge, e", [
+    ("adaylar", {"ad": "Claude Mem", "kaynak": "konusma"}, "dayanaklı"),
+    ("kurulum_komutlar", {"komut": "npm  install claude-mem"}, "dayanaklı"),
+    ("adaylar", {"ad": "Ruflo", "kaynak": "kare", "karede_gorulen": "logo"}, "doğrulanamadı"),
+    ("promptlar", {"metin": "build a landing page", "karede_gorulen": "terminal"}, "doğrulanamadı"),
+    ("kareden_okunanlar", {"kare": "k1", "okunan": "Settings panel"}, "doğrulanamadı"),
+    ("adaylar", {"ad": "Ruflo", "kaynak": "konusma"}, "dayanaksız")])
+def test_olcum_dayanak_uc_durum(liste, oge, e):
+    assert yon.dayanak(liste, oge, "Konuşma: claude-mem kurulumu npm install claude-mem ile") == e
+
+
+def test_olcum_b_dayanakli_fazlasi_d_ye_girer_b_a_dan_buyuk():
+    m = "foo ve bar anlatılıyor"
+    a, b = {"adaylar": [{"ad": "foo"}]}, {"adaylar": [{"ad": "foo"}, {"ad": "bar"}, {"ad": "baz"}]}
+    d = yon.referans([a], [b], m)
+    assert [x["ad"] for x in d["adaylar"]] == ["foo", "bar"]  # baz dayanaksız → D dışı
+    ra, rb = yon.olc_v2(a, d, m), yon.olc_v2(b, d, m)
+    assert ra["kapsam"] == 0.5 and rb["kapsam"] == 1.0 and rb["dogruluk"] == pytest.approx(2 / 3) and rb["f1"] > ra["f1"]
+
+
+def test_olcum_bos_d_agirligi_oranla_dagilir():
+    m = "foo ve p1 p2 p3"
+    d = {"adaylar": [{"ad": "foo"}], "promptlar": [{"metin": "p1 p2 p3"}], "kurulum_komutlar": [], "kareden_okunanlar": []}
+    r = yon.olc_v2({"adaylar": [{"ad": "foo"}], "promptlar": []}, d, m)
+    assert r["kapsam"] == pytest.approx(0.5 / 0.7) and r["f1"] == pytest.approx(0.5 / 0.7) and r["dogruluk"] == 1.0
+    assert yon.olc_v2({}, {x: [] for x in yon.OLCUM}, m)["f1"] == 1.0  # D hiç yok → şema başarısı aynen
+
+
+_M = "=== VIDEO vid1 ===\nfoo ve bar anlatılıyor"
+_A = [{**IYI, "form": {"a": "x", "adaylar": [{"ad": "foo"}, {"ad": "Zed", "kaynak": "kare", "karede_gorulen": "logo"}]}},
+      {**IYI, "form": None, "hata": "x"}]
+_B = {E1: {**IYI, "form": {"a": "x", "adaylar": [{"ad": "foo"}, {"ad": "bar"}]}}, E2: {**IYI, "form": {"a": "x", "adaylar": []}}}
+
+
+def _o(tmp_path, adaylar, **k):
+    ia = iter(_A)
+    return yon.eleme(("S", _M, SEMA, []), adaylar, lambda *x, **kw: next(ia), hafif.MODEL, ENV, k.pop("puanla", lambda ms: [0.8] * len(ms)),
+                     onbellek=tmp_path / "ab", b_kur=_b_kayit([], _B), yokla=lambda m, env, gorsel=False: None, **k)
+
+
+def test_eleme_olcum_v2_gorev_satir_rapor(tmp_path, monkeypatch):
+    from video import kur
+    k = []
+    monkeypatch.setattr(kur, "karar", lambda a, b, e, gur, gorev: k.append(gorev) or "AL")
+    s = _o(tmp_path, [E1, E2])
+    # görev = şema geçti × ağırlıklı F1, yanıt başı ortalama: A (0.8 + 0) / 2 · E1 0.8 · E2 0
+    assert k == [[(pytest.approx(0.4), pytest.approx(0.8))], [(pytest.approx(0.4), 0.0)]]
+    h = "kapsam %67 · doğruluk %100 · F1 %80 (A: kapsam %67 · doğruluk %100 · F1 %80)"
+    assert h in s["satirlar"][0] and s["rapor"][E1]["olcum"][0] == h
+    o = s["rapor"][E2]["olcum"]
+    assert "adaylar: A 2.0 · B 0.0 · kapsam %0 · doğruluk %100 · doğrulanamadı 0.0" in o
+    assert "promptlar: A 0.0 · B 0.0 · kapsam — · doğruluk %100 · doğrulanamadı 0.0" in o
+    assert "aciklama_baglantilari (skora girmez): A 0.0 · B 0.0" in o
+    assert o[-1] == "kaçırılan: foo (konuşmada var), Zed (yalnız kare), bar (konuşmada var)"
+    assert s["rapor"][E1]["olcum"][-1] == "kaçırılan: Zed (yalnız kare)"
+
+
+def test_eleme_yeniden_v2_ile_puanlar(tmp_path):
+    k = tmp_path / "kayit"
+    with pytest.raises(ZeroDivisionError):
+        _o(tmp_path, [E1], puanla=lambda ms: [1 / 0], kayit=k)
+    s = _o(tmp_path, [E1], yeniden=k, kayit=k)
+    assert "F1 %80 (A: kapsam %67" in s["satirlar"][0] and s["rapor"][E1]["olcum"][-1] == "kaçırılan: Zed (yalnız kare)"
+
+
+def test_eleme_ps1_olcum_satirlari_cikti_ve_md():
+    assert BETIK.with_name("eleme.ps1").read_text(encoding="utf-8").count("r.get('olcum', ())") == 2
