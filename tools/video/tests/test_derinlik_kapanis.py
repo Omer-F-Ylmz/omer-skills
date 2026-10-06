@@ -165,14 +165,14 @@ def test_aracli_adim_etkilenmez():
 
 
 def test_yeni_parti_varsayilan_yonlendirme(tmp_path, monkeypatch):
+    monkeypatch.setattr(pt, "YONLENDIRME", ROTA10)  # conftest {} verir; burada gerçek varsayılan
     monkeypatch.setattr(yon, "tara_v10", lambda *a, **k: (_ for _ in ()).throw(KeyboardInterrupt()))
     for ad, anahtar in (("a", True), ("b", False)):
         (kok := tmp_path / ad).mkdir()
         _kurulum(kok, V[:1], sure=300)
         ctx = _ctx(kok, Sahte(kes=1))
-        if anahtar:  # OmniRoute kimliği olan ortamda yeni parti V10 hattıyla açılır; yoksa bugünkü taşıyıcı
+        if anahtar:  # O78: anahtar olsun olmasın yeni parti V10 hattıyla açılır (eksik anahtar devam'da DUR)
             ctx["env"]["OMNIROUTE_KEY"] = "x"
         with pytest.raises(KeyboardInterrupt):
             pt.parti(_ns("baslat", kok / "kuyruk.md"), ctx)
-        assert _durum(kok).get("yonlendirme") == (ROTA10 if anahtar else None)
-    assert pt.YONLENDIRME == ROTA10
+        assert _durum(kok).get("yonlendirme") == ROTA10

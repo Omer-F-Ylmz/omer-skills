@@ -377,7 +377,7 @@ def test_oto_ceviri_izi_secilmez_orijinal_orig_secilir():
 
 
 def test_elle_tr_varsa_secilir():
-    assert m.dil_sec({"language": "en", "subtitles": {"tr": [1], "en": [1]}, "automatic_captions": {"en-orig": [1]}}) == ("tr", "elle")
+    assert m.dil_sec({"language": "en", "subtitles": {"tr": [1], "en": [1]}, "automatic_captions": {"en-orig": [1]}}) == ("en", "elle")  # O78: orijinal dil önce (kurulum-12e sırası değişti)
 
 
 class Kos429(Kos):

@@ -22,4 +22,7 @@ def agsiz(monkeypatch):
         raise urllib.error.URLError("test: ağ yok")
     monkeypatch.setattr(gt, "_al", sayfa_yok)
     monkeypatch.setattr(gt, "uyku", lambda s: None)  # B3 eki: gh arama aralığı/oran sınırı beklemesi testte gerçek uyumaz
-    monkeypatch.delenv("BRAVE_API_KEY", raising=False)  # B4 eki: anahtar verilmeyen testte brave adımı ağa çıkmaz
+    monkeypatch.delenv("BRAVE_API_KEY", raising=False)
+    from video import parti as pt
+    monkeypatch.setattr(pt, "YONLENDIRME", {})  # O78: yeni parti A taşıyıcısıyla açılır; V10 testleri rotayı kendisi verir
+    monkeypatch.setattr(pt, "YOKLA", lambda *a, **k: None, raising=False)  # O78: OmniRoute ön kontrolü ağa çıkmaz  # B4 eki: anahtar verilmeyen testte brave adımı ağa çıkmaz
