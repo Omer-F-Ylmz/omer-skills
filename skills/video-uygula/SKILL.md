@@ -10,7 +10,7 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 ## Akış (ana ajan)
 
 ```text
-1. Tarama: /video-tarama akışı (skills/video-tarama/SKILL.md). --tarama-atla: bugünkü docs/video-tarama/<tarih>-toplu.md kullanılır, alt ajan taraması yok.
+1. Tarama: link başına `video parti link <url>` (V10; geçici tek satırlık kuyruk `.kos/link-<id>.md`, gerçek kuyruk.md'ye satır yok) → rapor + kayıt → `video toplu` otomatik; elle adım yok. rc≠0 → çıktıdaki `video parti devam <pid>`. --tarama-atla: bugünkü docs/video-tarama/<tarih>-toplu.md kullanılır, alt ajan taraması yok.
 2. video projeler                      # docs/projeler.md: proje CLAUDE.md'lerinden 1-2 satır (mtime'la yenilenir)
    video durum                         # docs/durum.md (≤3k token): köprü katalogu · son kararlar · ölçüm bulguları · ELE; bütün envanter okunmaz
 3. Seçim (ana ajan): toplu tablodaki UYGULA + BEKLE adaylarından en fazla 5; ölçüt projeler.md + dört ölçüt

@@ -120,4 +120,4 @@ def test_parti_paket_cagrisi_kuyruk_verir(tmp_path):
     ctx["alt"] = lambda argv: alt.append(argv) or 0
     assert pt.parti(_ns("devam", _pid(kok), yeniden_tara=True, paket_yeniden=True), ctx) == 0
     a = next(a for a in alt if a[0] == "paket")
-    assert a[a.index("--kuyruk") + 1] == (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix() and a[-2:] == ["--", V[0]]
+    assert a[a.index("--kuyruk") + 1] == (kok / "kuyruk.md").as_posix() and a[-2:] == ["--", V[0]]  # MÜKEMMEL-7c U10: partinin kuyruğu

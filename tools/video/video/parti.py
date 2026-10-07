@@ -360,7 +360,7 @@ def _rapor_yaz(d, v, f, p, tdir, ikinci=None, **ek):
     md = rapor_md(f, p, _notlar(d, p)) + (ig.ek_md(ikinci) if ikinci else "")
     r.write_bytes(md.encode("utf-8"))
     adaylar, ele = tr.ayikla(md)
-    tr.kayit_ekle(tdir / "kayit.jsonl", [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"]}])
+    tr.kayit_ekle(Path(d.get("kayit") or tdir / "kayit.jsonl"), [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"]}])
     d["videolar"][v]["tarama"].update(cikti=r.as_posix(), **ek)
 
 
@@ -650,6 +650,23 @@ def parti(ns, ctx):
     tdir = ctx.get("tarama_dizin") or cli._tarama_dizin(ctx)
     alt = ctx.get("alt") or (lambda a: cli.main(a, env=ctx["env"], kos=ctx["kos"], gonder=ctx["gonder"], uyku=ctx["uyku"]))
     temizle = ctx.get("temizle") or (lambda s: cli._temizle(s, ctx["env"]))
+    if ns.eylem == "link":  # MÜKEMMEL-7c U1: tek link → geçici tek satırlık kuyruk → baslat (V10) → toplu; gerçek kuyruk.md'ye dokunulmaz
+        v, onb = m.ID.search(ns.hedef)[1], Path(ctx["kok"])
+        if not (onb / v / "meta.json").is_file():
+            alt(["ozet", "--", v])
+        mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8"))
+        (ky := kok / ".kos" / f"link-{v}.md").parent.mkdir(parents=True, exist_ok=True)
+        ky.write_text("| id | dk | başlık | not | durum |\n|---|---|---|---|---|\n| " + " | ".join(
+            [v, str(round((mt.get("duration") or 0) / 60, 1)), str(mt.get("title") or "?")[:40].replace("|", "/"), "/video-uygula", "bekliyor"]) + " |\n", encoding="utf-8")
+        ns.eylem, ns.hedef = "baslat", ky.as_posix()
+        if rc := parti(ns, ctx):
+            return rc
+        d = next(x for j in sorted((kok / ".kos").glob("*/durum.json"), key=lambda j: j.stat().st_mtime, reverse=True)
+                 if (x := json.loads(j.read_text(encoding="utf-8"))).get("kuyruk") == ky.as_posix())
+        if not (rap := [s["tarama"]["cikti"] for s in d["videolar"].values() if s["tarama"].get("cikti")]):
+            print(f"link: rapor yok — video parti devam {d['parti']}")
+            return 5
+        return alt(["toplu", *rap])
     if ns.eylem in ("baslat", "kuyruk") and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk · KÜÇÜK-1 K3: baslat da
         ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
     if ns.eylem in ("baslat", "kuyruk"):
@@ -674,6 +691,7 @@ def parti(ns, ctx):
         (pdir := kok / ".kos" / pid).mkdir(parents=True)
         d = {"parti": pid, "tur": tur, "tarih": tarih, "model": ns.model, "butce": ns.butce, "kuyruk": Path(ns.hedef).as_posix(),
              "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {},
+             **({"kayit": ns.kayit} if getattr(ns, "kayit", None) else {}),  # MÜKEMMEL-7c U10: varsayılan tarama dizini kayit.jsonl
              **({"yonlendirme": YONLENDIRME} if YONLENDIRME else {})}  # O78: anahtar yoksa da V10; eksik anahtar devam'da DUR
         for h in secilen:
             eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
@@ -738,7 +756,7 @@ def parti(ns, ctx):
     d["ikinci_goz_kapali"] = "--ikinci-goz yok" if d["ikinci_goz"] == "yok" else None if luna else "OPENROUTER_API_KEY yok"
     ikinci = {"kapali": d["ikinci_goz_kapali"], "luna": luna, "jev": ctx.get("jev") or _jev(ctx["env"]), "yargic": ctx.get("cagir") or hafif.cagir}
     kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"], ikinci,
-                       (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix())
+                       d.get("kuyruk"))  # MÜKEMMEL-7c U10: bağlantılı video partiye verilen kuyruğa
     rota = (d.get("yonlendirme") or {}).get("tarama") or {}
     if getattr(ns, "a_yolu", False):  # O78: A taşıyıcısı yalnız açık bayrakla
         d.pop("yonlendirme", None)
