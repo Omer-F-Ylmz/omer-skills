@@ -32,7 +32,7 @@ def _ctx(tmp_path, http, env=None):
         if a[0] == "ffmpeg":
             open(a[-1], "wb").write(b"x")
         return 0, b"", b""
-    return {"kos": kos, "http": http, "env": {"GROQ_API_KEY": "gizli-anahtar-123"} if env is None else env}, d
+    return {"kos": kos, "http": http, "env": {"GROQ_API_KEY": "gizli-anahtar-123"} if env is None else env}, d  # gitleaks:allow (sahte test anahtarı)
 
 
 def test_groq_istek_basligi_onbellek_ve_tavan(tmp_path):
