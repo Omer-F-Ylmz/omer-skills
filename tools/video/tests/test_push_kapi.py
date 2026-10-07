@@ -5,7 +5,7 @@ import subprocess
 from pathlib import Path
 
 BETIK = Path(__file__).resolve().parents[2] / "push-kapi.sh"
-BASH = Path(shutil.which("git")).parents[1] / "usr" / "bin" / "bash.exe"  # Git'in MSYS bash'i: PATH'e yol eklemez, sahteler önce bulunur
+BASH = next(p / "usr/bin/bash.exe" for p in Path(shutil.which("git")).parents if (p / "usr/bin/bash.exe").is_file())  # Git'in MSYS bash'i
 
 
 def _kos(tmp_path, gl_rc):
