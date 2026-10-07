@@ -666,7 +666,10 @@ def parti(ns, ctx):
         if not (rap := [s["tarama"]["cikti"] for s in d["videolar"].values() if s["tarama"].get("cikti")]):
             print(f"link: rapor yok — video parti devam {d['parti']}")
             return 5
-        return alt(["toplu", *rap])
+        rc = alt(["toplu", *rap])
+        d["durum"] = "kapandi"  # 7d: link partisi panel beklemez; açık kalırsa aynı videonun ikinci link'i _acik ile atlanır
+        _yaz(kok / ".kos" / d["parti"] / "durum.json", d)
+        return rc
     if ns.eylem in ("baslat", "kuyruk") and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk · KÜÇÜK-1 K3: baslat da
         ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
     if ns.eylem in ("baslat", "kuyruk"):
