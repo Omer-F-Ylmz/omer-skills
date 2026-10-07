@@ -79,12 +79,30 @@ def sahneler(hashler, f):
 
 
 def tavan_ocr(sure):
-    return min(150, max(30, int(sure / 60 * 6)))
+    """1b-1R R3: OCR kare tavanı max(40, dk×8), en çok 200 (yalnız kare sayısı)."""
+    return min(200, max(40, int(sure / 60 * 8)))
 
 
 def sahne_sec(sahne, tavan):
     """Tavan aşılırsa en az değişen (düşük Hamming) sahneler atılır; zaman sırası korunur."""
     return sorted(sorted(sahne, key=lambda s: -s[1])[:tavan])
+
+
+TABAN_SN = (10, 15, 20)  # ayar · 1b-1R R3: periyodik taban aralıkları sn (tavan aşılırsa büyür)
+
+
+def kare_sec(sahne, sure, f, tavan, taban=TABAN_SN):
+    """1b-1R R3: sahneler + periyodik taban — sahne olmayan her `a` sn'ye bir kare (fark 0). Tavan aşılırsa aralık 10→15→20 büyür,
+    sahneler korunur; 20 sn'de de aşılırsa en düşük Hamming'li sahneler atılır (sahne_sec). Zaman sıralı.
+    ponytail: taban kareleri atılmadan önceki sahnelere göre; uzun boşluk kalırsa sahne atımı sonrası yeniden hesap."""
+    for a in taban:
+        uc = [t for t, _ in sahne] + [sure]
+        per = [(round((b + a * k) * f) / f, 0) for b, c in zip(uc, uc[1:]) for k in range(1, int((c - b) / a) + 1) if b + a * k < c]
+        if len(sahne) + len(per) <= tavan:
+            break
+    else:
+        sahne = sahne_sec(sahne, max(tavan - len(per), 1))
+    return sorted(sahne + per)
 
 
 def ocr_sec(okunan, esik=OCR_DEGISIM):
