@@ -1000,3 +1000,20 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Not: verim > 1 taban O98'in ayrı oturum sıralı süresinden; boş yanıt canlıda tekrarlamadı, geri çekilme yolu yalnız sahte çağrıcıyla sınandı.
 - K4 yeşil: form null 0/6 · hız ölçütü 2/2 · boş yanıt sınıfı yeniden denenir.
 - HARCANAN: B 26 · Jev 0 · $0.139.
+
+## O100 — MÜKEMMEL-6b2: V10s canlı ölçüm + karar · V10s elendi, sonraki V10k
+- Koşu: eleme tek kol V10s (90fd8ab), mevcut paketler, model gemini-3.5-flash-lite; taban son V10 kaydı. Kayıtlar .video-cache/eleme/20261007-1337..1341.
+- video | girdi/çağrı V10→V10s | usd V10→V10s | önbellek % | null/yeniden/boş | K3 | Jev V10→V10s · eksik | kademe
+  b2Q k4 | 16107→17551 | 0.0409→0.0490 | 30→0 | 1/1/0 | KALDI (form null) | 2.67→yok | ELENDİ
+  vhY7 k2 | 16162→15596 | 0.0213→0.0222 | 46→39 | 0/0/0 | GEÇTİ | 2.51→2.29 · prompt/komut | SOR
+  ptGX k1 | 11786→9299 | 0.0148→0.0199 | 43→50 | 0/2/0 | GEÇTİ (kare zamanları 5:46'ya çöktü) | 2.48→2.58 · dayanaksız iddia | AL
+  rABI k1 | 8924→8369 | 0.0083→0.0102 | 40→0 | 0/0/0 | GEÇTİ | 2.62→2.56 · prompt/komut | AL
+  WK-- k1 | 7540→5410 | 0.0120→0.0111 | 0→0 | 0/2/0 | GEÇTİ | 2.19→2.17 · kare okuma | SOR
+  WdDX k1 | 7035→5002 | 0.0075→0.0087 | 0→0 | 0/2/0 | GEÇTİ | 2.62→2.53 · kare okuma | AL
+- Toplam: koşu başına girdi 199.589→210.413 (+%5.4; b2Q hariç +%3.0) · usd 0.1048→0.1211 (+%15.6) → tasarruf yok.
+- Tasarruf mekanizması: yok — şema response_format'tan sistem metnine taşınınca istek şema metni kadar büyüdü; önek önbelleği tutarsız (rABI 40→0, b2Q 30→0, ptGX 43→50). Çağrı başı düşüş yalnız k1 son geçişinin yeniden denemeyle 3 çağrıya bölünmesinden.
+- Kaliteyi bozan: response_format yokken JSON uyumu — b2Q parça 3 bozuk JSON, aynı seed'le yeniden deneme aynı çıktı → form null; ptGX/WK/WdDX son geçiş her koşuda şema hatası + yeniden (7 yeniden); ptGX kareden_okunanlar zamanı çöktü; vhY7 Jev −%8.8, AL→SOR.
+- KARAR: form null 1 > 0 ve SOR 2 → V10s V10'un yerine önerilmez. Sonraki dalga V10k (response_format kalır, şema açıklama metinleri kısalır).
+- Sapma: Jev ≤ 14 için eleme.ps1 scratchpad kopyası A puanını son V10 kaydından aldı (repo değişmedi); WK/WdDX V10 tabanı 6 Eki kaydı; K3 yeni doğrulanamadı kareleri Read ile görsel doğrulandı (9 kare), b2Q'da K3 yok.
+- İYİLEŞTİRME: test_f3_v5 tek başına koşunca embedding yüklenmiyor (21 hata), tam suite'te yeşil → testler arası gizli bağımlılık.
+- HARCANAN: B 33 + görsel 9 = 42 · Jev 10 · $0.193.
