@@ -1017,3 +1017,15 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Sapma: Jev ≤ 14 için eleme.ps1 scratchpad kopyası A puanını son V10 kaydından aldı (repo değişmedi); WK/WdDX V10 tabanı 6 Eki kaydı; K3 yeni doğrulanamadı kareleri Read ile görsel doğrulandı (9 kare), b2Q'da K3 yok.
 - İYİLEŞTİRME: test_f3_v5 tek başına koşunca embedding yüklenmiyor (21 hata), tam suite'te yeşil → testler arası gizli bağımlılık.
 - HARCANAN: B 33 + görsel 9 = 42 · Jev 10 · $0.193.
+
+## O101 — MÜKEMMEL-7 K5 uçtan uca (1 video, köprülü keşif)
+- Video: _0NSNY7n5lE · AI Coding Daily · 5:25 (Mods + "You Should Know" plugin).
+- Tarama (parti V10, pid 2026-10-07-uzun): hatasız · B 2 · $0.0133 · claude -p 0 · form adaylar 2 · kurulum_komutlar 1 · kareden_okunanlar 3 · iz 2 · iddialar 2 · bağlantı 4.
+- Köprü U1 (elle `video toplu`, yalnız keşif): Jev 2 · You Should Know BEKLE · Claude Code Mods ÖNCEDEN-GÖRÜLDÜ · kaybolan aday 0 (form 2 → toplu 2).
+- Araştırma: `video on` çöktü — kos(["mcporter",...]) FileNotFoundError (Windows mcporter.cmd uzantısız bulunmaz). Kırmızı a670c4c · yeşil 9a7e690 (cli.kos shutil.which; tüm kos çağıranları).
+- Sayaç 30'da durdu: on → aday-arastirici → bizde → katman koşulmadı; T0/T1 uygulama 0 · T2 kurulumu 0 · bekleyen/ 0.
+- Hüküm: köprüyle tarama+toplu hatasız; araştırma adımı hata verdi (düzeltildi, yeniden koşulmadı). "K5 yeşil" yazılmaz.
+- Köprüsüz akış için: U1 skills/video-uygula/SKILL.md tarama adımı = `video parti baslat` V10 + parti.py sonunda toplu.md (~15 satır) · U2 form kurulum_komutlar → aday.md `## Kurulum` `- npm|plugin|mcp:` biçimi (getir.py on / akil._aday_md, ~15) · U3-U5 akil._aday_md karar:/Özellikler kararı/Bizde (~10, akil.py:664-673).
+- Yan etki: `parti baslat` scratchpad kuyruğunda bile gerçek kayit.jsonl (+2, 268-269) ve kuyruk.md (+4) yazar; durum hücresi `bekliyor` şart. Bu dosyalar commit edilmedi.
+- Kendi hatam: test_m7.py (eski M7) üzerine yazıldı, commit öncesi amend ile geri getirildi; yeni test test_mukemmel7.py.
+- HARCANAN: B 2 · claude -p 0 · Jev 2 · $0.013.
