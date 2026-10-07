@@ -961,3 +961,16 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Karşı örnek: aynı ölçüm `--tray` ile 4 WT penceresi (`omniroute (v16.3.1)`, `next-server (v16.3.1)`, node.exe, Terminal) gösterdi; pencereyi tepsi/ön plan modu açıyor.
 - BASLAT (parti.py, CREATE_NO_WINDOW + `serve --no-open --daemon`) gerçek süreçle: yeni pencere yok · 20128 2 s'de açık · 2 dk sonra ayakta. BASLAT değişmedi, suite koşulmadı.
 - Görev Zamanlayıcı betiği gerekmedi. Varsayılan terminal değişmedi. Canlı model 0, Jev 0.
+
+## O97 — MÜKEMMEL-6a: K4 parça paralelliği · K4 yeşil değil
+- Ön koşul: PARCA_LINK sabit metin (parçalar birbirinin çıktısına bağlı değil). OmniRoute ~/.omniroute/.env'de OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT yoktu (varsayılan 1) → 4 eklendi (yedek .env.bak-6a); daemon vbs ile yeniden başladı, 20128 dinliyor, pencere yok, 503 yok.
+- Kod: tara_v10 PARCA_PARALEL (varsayılan 4) → _parcali es; PARCA_PARALEL=1 eski sıralı yol. Sıra h.map ile, yeniden deneme parça içi, usd/çağrı toplamı aynı. Test: test_m6a 3 (49c1f64 kırmızı · a449c39 yeşil).
+- K4 tablosu (sure sıralı → paralel · çağrı · usd · K3 · Jev + eksik etiketi):
+  - b2QkhmQ0sT0 k4: 40.7 → 22.0 s (−46%; eleme tabanı 53.2 s ile −59%) · 5→5 · $0.0495/$0.0323 · K3 geçti · Jev 2.66/2.70 → 2.67/2.67, dayanaksız iddia
+  - vhY7OGIh1v0 k2: 28.6 → 21.3 s (−26%) · 3→3 · $0.0272/$0.0155 · K3 geçti · Jev 2.49/2.53, prompt/komut eksik (önceki eleme kaydı yok)
+  - ptGXxk1-Uj4 k1: 21.7 → 24.6 s (+13%) · 2→2 · $0.0173/$0.0123 · K3 geçti · Jev 2.50/2.49 → 2.52/2.44, dayanaksız iddia
+  - rABIViSQmsc k1: 14.0 → 16.6 s (+19%) · 2→2 · $0.0108/$0.0057 · K3 geçti · Jev 2.63/2.63 → 2.63/2.62, eksik yok / aday eksik
+- Hüküm: K4 yeşil değil. b2Q ≥ %40 ama vhY7 −%26; k1'de +%13/+%19 (tek çağrı, paralellik yok; varyans olası ama gerileme dışlanamadı).
+- Ölçüm kusurları: B yanıtları önceki V10 kaydıyla aynı token/form (OmniRoute cacheRead) → soğuk koşu değil, yeni sınır gerçek eşzamanlı yük altında sınanmadı; ELEME_BOYUT=1 yalnız b2Q'da verildi (diğer 3'te unutuldu); vhY7 tabanı kabul defteri.
+- Harcanan: B 24 çağrı + görsel 0 (≤34) · Jev ≤16 (≤20) · $0.171 (≤0.40).
+- Sonraki: önbelleksiz (seed/istem farkı ya da cache kapalı) soğuk ölçüm, 4 videoda ELEME_BOYUT=1, k1 için 2 tekrar.
