@@ -1,26 +1,732 @@
 {
- "not": "altın taslak: yalnız ham dump (aciklama/altyazi/ocr/yorum) kaynaklı",
+ "not": "altın: Desktop doğruladı 2026-10-07 (adaylar = adlandırılmış varlıklar; betimsel bulgular ogrenimler'de; belirsiz=true payda dışı)",
  "adaylar": [
-  {"ad": "Sonnet 5.5", "alias": ["Sonet 5.5", "Claude Sonnet 5.5"], "tur": "model", "zaman": "0:00", "kaynak": "ses", "kanit": "Sonet 5.5 çıktı; aynı proje iki modele yaptırıldı"},
-  {"ad": "Opus 5.5", "alias": ["Claude Opus 5.5"], "tur": "model", "zaman": "0:02", "kaynak": "ses", "kanit": "Opus 5.5 karşılaştırma modeli; sonuçta daha iyi bulundu"},
-  {"ad": "Three.js", "alias": ["ThreeJS", "three js"], "tur": "kütüphane", "zaman": "0:00", "kaynak": "açıklama", "kanit": "hashtag #threejs, 3D parçacık sahnesi"}
+  {
+   "ad": "Sonnet 5.5",
+   "alias": [
+    "Sonet 5.5",
+    "Claude Sonnet 5.5",
+    "sonnet55",
+    "Sonnet"
+   ],
+   "tur": "model",
+   "zaman": "0:00",
+   "kaynak": "ses",
+   "kanit": "Sonet 5.5 çıktı; aynı proje iki modele yaptırıldı"
+  },
+  {
+   "ad": "Opus 5.5",
+   "alias": [
+    "Opus 5.'i",
+    "Claude Opus 5.5",
+    "opus55",
+    "Opus"
+   ],
+   "tur": "model",
+   "zaman": "0:02",
+   "kaynak": "ses",
+   "kanit": "Opus 5.5 kompleks işlerde Sonet 5.5'in önünde çalışıyor"
+  },
+  {
+   "ad": "Awwwards",
+   "alias": [
+    "Awwwards SOTD",
+    "Site of the Day",
+    "günün web sitesi",
+    "Awwwards-level"
+   ],
+   "tur": "servis",
+   "zaman": "0:50",
+   "kaynak": "ekran",
+   "kanit": "OCR: SOTD 7.4/10 · Site of the Day - Dec 25, 2021"
+  },
+  {
+   "ad": "Claude Code",
+   "alias": [
+    "Claude",
+    "cloud",
+    "Claude Code",
+    "Claude Desktop",
+    "#claude",
+    "Claude Code (Claude Desktop)"
+   ],
+   "tur": "uygulama",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR: Local · opus-brain-2 · +Auto · Opus 5.5 · High; Type / for commands"
+  },
+  {
+   "ad": "Auto modu",
+   "alias": [
+    "+Auto",
+    "Auto"
+   ],
+   "tur": "teknik",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR: model seçicinin yanında +Auto",
+   "belirsiz": true
+  },
+  {
+   "ad": "Three.js",
+   "alias": [
+    "three.js",
+    "threejs",
+    "#threejs"
+   ],
+   "tur": "kütüphane",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR prompt: WebGL / Three.js / canvas / shader work; açıklamada #threejs"
+  },
+  {
+   "ad": "WebGL",
+   "alias": [
+    "#webgl"
+   ],
+   "tur": "teknik",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR prompt: technically ambitious WebGL / Three.js / canvas / shader work"
+  },
+  {
+   "ad": "Canvas",
+   "alias": [
+    "HTML canvas"
+   ],
+   "tur": "teknik",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR prompt: WebGL / Three.js / canvas / shader work"
+  },
+  {
+   "ad": "Fragment shader",
+   "alias": [
+    "shader",
+    "shader work"
+   ],
+   "tur": "teknik",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR: shader work; 3:30 computed analytically in the fragment shader"
+  },
+  {
+   "ad": "Framer Motion",
+   "alias": [],
+   "tur": "kütüphane",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR prompt: Do not use basic Framer Motion presets as the design"
+  },
+  {
+   "ad": "Subagent",
+   "alias": [
+    "ajan",
+    "Ajan (subagent)",
+    "subagent",
+    "Ajan",
+    "alt ajan"
+   ],
+   "tur": "teknik",
+   "zaman": "3:13",
+   "kaynak": "ses",
+   "kanit": "herhangi bir ajan vesaire çalıştırmayacağım; adil karşılaştırma için"
+  },
+  {
+   "ad": "Built-in browser",
+   "alias": [
+    "built-in browser",
+    "Opened in Browser",
+    "Opening a page"
+   ],
+   "tur": "uygulama",
+   "zaman": "3:28",
+   "kaynak": "ekran",
+   "kanit": "OCR: I'll start by studying Dala live in the built-in browser"
+  },
+  {
+   "ad": "Vite",
+   "alias": [],
+   "tur": "kütüphane",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: scaffold the project with Vite, TypeScript, Three.js, GSAP, and Lenis"
+  },
+  {
+   "ad": "TypeScript",
+   "alias": [
+    "TS",
+    "noise.ts"
+   ],
+   "tur": "kütüphane",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: scaffold with Vite, TypeScript; Created noise.ts"
+  },
+  {
+   "ad": "GSAP",
+   "alias": [
+    "GreenSock"
+   ],
+   "tur": "kütüphane",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: Vite, TypeScript, Three.js, GSAP, and Lenis"
+  },
+  {
+   "ad": "Lenis",
+   "alias": [],
+   "tur": "kütüphane",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: ... GSAP, and Lenis; 4:15 Real wheel scrolling through Lenis works"
+  },
+  {
+   "ad": "Neue Montreal",
+   "alias": [
+    "PP Neue Montreal"
+   ],
+   "tur": "font",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: Dala ... Neue Montreal typography; ticari olduğu için muadil aranıyor"
+  },
+  {
+   "ad": "Inter Tight",
+   "alias": [],
+   "tur": "font",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: I'll go with Inter Tight for the typography"
+  },
+  {
+   "ad": "Web Worker",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: procedural shape generators ... which run in a Web Worker"
+  },
+  {
+   "ad": "Depth-of-field",
+   "alias": [
+    "depth-of-field softness"
+   ],
+   "tur": "teknik",
+   "zaman": "4:15",
+   "kaynak": "ekran",
+   "kanit": "OCR: Depth-of-field softness gives the near triangles a nice weight"
+  },
+  {
+   "ad": "Manyetik butonlar",
+   "alias": [
+    "magnetic buttons"
+   ],
+   "tur": "teknik",
+   "zaman": "4:15",
+   "kaynak": "ekran",
+   "kanit": "OCR: magnetic buttons, focus styles and a noscript fallback"
+  },
+  {
+   "ad": "npm",
+   "alias": [
+    "npm run build"
+   ],
+   "tur": "CLI",
+   "zaman": "4:54",
+   "kaynak": "ekran",
+   "kanit": "OCR: npm run build passes"
+  },
+  {
+   "ad": "Claude memory",
+   "alias": [
+    "Recalled a memory",
+    "saved 3 memories",
+    "save project notes"
+   ],
+   "tur": "teknik",
+   "zaman": "4:54",
+   "kaynak": "ekran",
+   "kanit": "OCR: Recalled a memory, saved 3 memories"
+  }
  ],
  "linkler": [
-  {"url": "https://dala.craftedbygc.com/", "sinif": "referans-site", "aday": false, "kaynak": "aciklama"},
-  {"url": "https://dala.craftedbygc.com/", "sinif": "referans-site", "aday": false, "kaynak": "yorum"}
+  {
+   "url": "https://dala.craftedbygc.com/",
+   "sinif": "referans-site",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://dala.craftedbygc.com/",
+   "sinif": "referans-site",
+   "aday": false,
+   "kaynak": "yorum"
+  }
  ],
  "site_ui": [
-  {"teknik": "Scroll'a bağlı parçacıklar farklı 3D modeller oluşturuyor", "mekanizma": "video/görsel yok, scroll ile tetiklenen parçacık sistemi", "kutuphaneler": [], "zaman": "0:27"},
-  {"teknik": "Parçacıklı beyin modeli hover efekti", "mekanizma": "imleç beyin üzerindeyken parçacıklar tepki verir", "kutuphaneler": [], "zaman": "5:27"},
-  {"teknik": "Scroll ile tünelin içinden geçiş", "mekanizma": "aşağı kaydırdıkça kamera tünelde ilerler", "kutuphaneler": [], "zaman": "7:36"},
-  {"teknik": "Scroll ile tetiklenen slider", "mekanizma": "scroll ilerledikçe kayan galeri", "kutuphaneler": [], "zaman": "7:59"}
+  {
+   "teknik": "Beyne tıkla → düşünce kıvılcımı (Engram, Opus ile yapılmış giriş sitesi)",
+   "mekanizma": "Parçacık beyne tıklanınca 'thought' tetikleniyor; ardından 'SCROLL TO FOLLOW IT' ile düşünce scroll'da izleniyor",
+   "kutuphaneler": [],
+   "zaman": "0:04"
+  },
+  {
+   "teknik": "Scroll'a bağlı parçacıkların farklı 3D modellere dönüşmesi (Engram)",
+   "mekanizma": "Video/görsel yok; gerçek zamanlı parçacıklar scroll ilerledikçe yeni şekillere morph oluyor",
+   "kutuphaneler": [],
+   "zaman": "0:27"
+  },
+  {
+   "teknik": "Dala: beyin parçalanıp ampul, dünya ve footer'da şirket logosu oluyor",
+   "mekanizma": "Tek parçacık sistemi scroll boyunca şekilden şekle geçiyor; Opus analizi: küreden beyne, beyinden logoya yumuşak easing'li WebGL morph",
+   "kutuphaneler": [],
+   "zaman": "1:23"
+  },
+  {
+   "teknik": "Engram: sinir ağı küçük beyinlere (ekip üyeleri) dönüşüyor, footer'da beyin, geri scroll'da akış sürüyor",
+   "mekanizma": "Kesintisiz scroll'a bağlı parçacık akışı; ters yönde kaydırınca durumlar geri oynuyor",
+   "kutuphaneler": [],
+   "zaman": "2:14"
+  },
+  {
+   "teknik": "Opus/Tessel: tek wireframe sürü spark → brain → question → vortex → geodesic → sea → team → finale",
+   "mekanizma": "Prosedürel şekil üreteçleri Web Worker'da; logo altı üçgenli altıgen, biri yerinden kaydırılmış",
+   "kutuphaneler": [
+    "Vite",
+    "TypeScript",
+    "Three.js",
+    "GSAP",
+    "Lenis"
+   ],
+   "zaman": "3:30"
+  },
+  {
+   "teknik": "Sonnet/Murmur: her parçacık 3D dönen anti-aliased üçgen çerçevesi (~18k üçgen, akış hiç sıfırlanmıyor)",
+   "mekanizma": "Üçgen fragment shader'da analitik çiziliyor; durum morph'u, stagger ve akış GPU'da; durumlar kuş → saçılma → kadran → çekirdek → patlama → nehir → logo",
+   "kutuphaneler": [
+    "Vite",
+    "Lenis"
+   ],
+   "zaman": "3:30"
+  },
+  {
+   "teknik": "Scroll koreografisi: DOM bölümlerine bağlı keyframe zaman çizelgesi",
+   "mekanizma": "Keyframe'ler DOM bölümlerine sabitlendiği için masaüstü ve mobil düzene kendiliğinden uyuyor",
+   "kutuphaneler": [],
+   "zaman": "3:30"
+  },
+  {
+   "teknik": "Scroll-scrubbed karakter bazlı metin açılışı + loader/boot orkestrasyonu",
+   "mekanizma": "Metin harf harf scroll ilerlemesine bağlı açılıyor; yükleyici açılış sırasını yönetiyor",
+   "kutuphaneler": [],
+   "zaman": "3:30"
+  },
+  {
+   "teknik": "İmleç etkileşimi: girdap, tıklama şok dalgası, basılı tut-topla / bırak-patlat",
+   "mekanizma": "Basılı tutunca sürü imlece toplanıyor, bırakınca şok dalgasıyla dışa patlıyor",
+   "kutuphaneler": [],
+   "zaman": "4:15"
+  },
+  {
+   "teknik": "Scroll hızına tepki + manyetik butonlar",
+   "mekanizma": "Sert kaydırmada sürü çalkalanıyor; gerçek tekerlek scroll'u Lenis üzerinden",
+   "kutuphaneler": [
+    "Lenis"
+   ],
+   "zaman": "4:15"
+  },
+  {
+   "teknik": "Depth-of-field yumuşaklığı",
+   "mekanizma": "Kameraya yakın üçgenlere alan derinliği bulanıklığı verilerek ağırlık kazandırılıyor",
+   "kutuphaneler": [],
+   "zaman": "4:15"
+  },
+  {
+   "teknik": "Parçacık yay simülasyonu: semi-implicit entegrasyon + substepping",
+   "mekanizma": "Açık Euler düşük kare hızında parçacıkları dağıtıyordu; yarı-örtük entegrasyon ve alt adımlarla her FPS'te kararlı",
+   "kutuphaneler": [],
+   "zaman": "4:15"
+  },
+  {
+   "teknik": "Dayanıklılık: reduced-motion, WebGL-hata ve noscript yedekleri; dokunmatikte takılı kalmayan hover",
+   "mekanizma": "Hareket azaltma tercihinde ve WebGL yokken yedek görünüm; touch cihazda hover durumu yapışmıyor",
+   "kutuphaneler": [],
+   "zaman": "4:15"
+  },
+  {
+   "teknik": "Opus ayar turu: toz haleleri, küçültülmüş patlama, sabitlenmiş people sahnesi + focus slider",
+   "mekanizma": "Aşırı pozlama toz haleleriyle azaltılıyor, patlama metni örtmeyecek ölçekte, people sahnesi sticky",
+   "kutuphaneler": [],
+   "zaman": "4:20"
+  },
+  {
+   "teknik": "Mobil cila: canvas yüksekliği, safe area, stilize scrollbar, hero 'breathing'",
+   "mekanizma": "320px'e kadar düzen korunuyor; mobil menü overlay ve anchor navigasyonu ekleniyor",
+   "kutuphaneler": [],
+   "zaman": "4:45"
+  },
+  {
+   "teknik": "Sonnet kuş sekansı: kanat çırpma, kamera üstten dönüş, saçılma alanının içinden uçuş",
+   "mekanizma": "Kuş parçacıklara dağılıyor ve kamera oluşan alanın içinden geçiyor",
+   "kutuphaneler": [],
+   "zaman": "4:54"
+  },
+  {
+   "teknik": "Dala'daki parçacık beyin hover efekti",
+   "mekanizma": "İmleç beynin üzerindeyken parçacıklar tepki veriyor; Opus korudu, Sonnet büyük dalga efektine çevirdi",
+   "kutuphaneler": [],
+   "zaman": "5:27"
+  },
+  {
+   "teknik": "Sonnet: arka planda sürekli hareket eden yoğun parçacıklar (performans sorunu)",
+   "mekanizma": "Fazla parçacık ve hareket tarayıcıyı yoruyor; MacBook'ta akıcı, ortalama Windows/Android'de kasar",
+   "kutuphaneler": [],
+   "zaman": "5:51"
+  },
+  {
+   "teknik": "Bölüm sayacı ve etiketi (01/10 REMEMBER … 10 FLOW)",
+   "mekanizma": "Altta aktif bölüm numarası ve adı scroll ile güncelleniyor",
+   "kutuphaneler": [],
+   "zaman": "7:05"
+  },
+  {
+   "teknik": "Parçacıkların içine giriş + fiziksel geçiş animasyonu (Opus)",
+   "mekanizma": "Kamera parçacık bulutunun içine dalıyor; geçişte fizik tabanlı ek animasyon",
+   "kutuphaneler": [],
+   "zaman": "7:09"
+  },
+  {
+   "teknik": "ASK bölümü: yazılan soru + kaynaklı cevap kartı",
+   "mekanizma": "Sorgu çubuğuna soru yazılıyor, altında '3 SOURCES · 2 PEOPLE' etiketli yanıt beliriyor",
+   "kutuphaneler": [],
+   "zaman": "7:27"
+  },
+  {
+   "teknik": "Scroll ile tünelin içinden geçiş",
+   "mekanizma": "Aşağı kaydırdıkça kamera tünel boyunca ilerliyor",
+   "kutuphaneler": [],
+   "zaman": "7:36"
+  },
+  {
+   "teknik": "Scroll ile tetiklenen people slider'ı (FOCUS 01/03)",
+   "mekanizma": "Sticky sahnede scroll ilerledikçe ekip kartları sırayla değişiyor",
+   "kutuphaneler": [],
+   "zaman": "7:48"
+  }
  ],
- "promptlar": [{"zaman": "3:28", "konu": "Dala referanslı Awwwards seviyesi 3D web sitesi promptu", "kaynak": "ekran"}],
- "komutlar": [],
- "urller": [{"url": "dala.craftedbygc.com", "zaman": "0:50", "kaynak": "ekran"}],
+ "promptlar": [
+  {
+   "zaman": "3:02",
+   "konu": "Dala referanslı Awwwards seviyesi interaktif 3D site (ana prompt, iki modele aynı)",
+   "kaynak": "ekran",
+   "ozet": "Boş projede sıfırdan Awwwards seviyesi site kur; Dala'yı canlı tarayıcıda baştan sona incele, renk/akış/geçiş dilini koru, test et, boş portta çalıştır."
+  },
+  {
+   "zaman": "4:54",
+   "konu": "Opus oturumunda takip promptu: beyin geçişlerini yavaşlat",
+   "kaynak": "ekran",
+   "ozet": "Giriş kutusunda kesik görünen istek: beyin geçişlerini yavaşlatmak; yazılmış takip mesajı ya da öneri olabilir."
+  },
+  {
+   "zaman": "4:54",
+   "konu": "Sonnet oturumunda takip promptu: yeniden kaydırıp Dala ile karşılaştır",
+   "kaynak": "ekran",
+   "ozet": "Siteyi bir kez daha baştan kaydırıp Dala ile karşılaştırma isteği; giriş kutusunda görünüyor, öneri olabilir."
+  }
+ ],
+ "komutlar": [
+  {
+   "komut": "npm run build",
+   "zaman": "4:54",
+   "kaynak": "ekran"
+  }
+ ],
+ "urller": [
+  {
+   "url": "https://dala.craftedbygc.com/",
+   "zaman": "3:28",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "localhost:5174",
+   "zaman": "3:30",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "http://localhost:5391/",
+   "zaman": "4:54",
+   "kaynak": "ekran"
+  }
+ ],
  "is_akisi": [
-  {"adim": "ödüllü referans siteyi (Dala) incele", "zaman": "0:51", "araclar": []},
-  {"adim": "aynı promptu Opus 5.5 ve Sonnet 5.5'e ayrı dosyalarda ver (effort yüksek, ajan yok)", "zaman": "2:58", "araclar": ["Opus 5.5", "Sonnet 5.5"]},
-  {"adim": "token ve süreyi izle, iki sonucu karşılaştır", "zaman": "3:30", "araclar": []}
+  {
+   "adim": "Opus 5.5 ile yaptığı parçacıklı siteyi (Engram) göster: video/görsel yok, scroll ile parçacık morph'u",
+   "zaman": "0:00",
+   "araclar": [
+    "Opus 5.5"
+   ]
+  },
+  {
+   "adim": "Referansı incele: Awwwards'ta Dala'nın SOTD sayfası (Site of the Day, 25 Ara 2021), sonra canlı Dala'da baştan sona kaydır (beyin → ampul → dünya → footer logo)",
+   "zaman": "0:50",
+   "araclar": [
+    "Awwwards"
+   ]
+  },
+  {
+   "adim": "Müşteri için yaptığı Engram'ı göster: beyin korunmuş, sinir ağı → küçük beyinler (ekip), footer'da beyin, geri scroll'da akış sürüyor",
+   "zaman": "2:00",
+   "araclar": []
+  },
+  {
+   "adim": "Promptta parçacık seviyesini sınırla ki tüm cihazlarda akıcı çalışsın",
+   "zaman": "2:45",
+   "araclar": [
+    "Parçacık yoğunluğunu sınırla"
+   ]
+  },
+  {
+   "adim": "Claude'da iki ayrı klasör/oturum aç (opus-brain-2, sonnet-brain-2) ve aynı promptu ikisine yapıştır",
+   "zaman": "2:58",
+   "araclar": [
+    "Claude Code (Claude Desktop)",
+    "Dala referanslı Awwwards site promptu"
+   ]
+  },
+  {
+   "adim": "Effort'u High seç, adil karşılaştırma için ajan çalıştırma; Opus 5.5 ve Sonnet 5.5 oturumlarını gönder",
+   "zaman": "3:08",
+   "araclar": [
+    "Effort (High)",
+    "Auto modu",
+    "Opus 5.5",
+    "Sonnet 5.5"
+   ]
+  },
+  {
+   "adim": "Modeller önce Dala'yı yerleşik tarayıcıda canlı inceliyor",
+   "zaman": "3:28",
+   "araclar": [
+    "Built-in browser"
+   ]
+  },
+  {
+   "adim": "~20. dakikada token/süre kontrolü (Opus 19.4k, Sonnet 27.1k): Opus önce inceleyip test ediyor, Sonnet doğrudan kuruyor; iskelet Vite + TypeScript + Three.js + GSAP + Lenis, font Inter Tight (Neue Montreal ticari), port 5173 dolu → 5174",
+   "zaman": "3:30",
+   "araclar": [
+    "Vite",
+    "TypeScript",
+    "Three.js",
+    "GSAP",
+    "Lenis",
+    "Inter Tight",
+    "Neue Montreal"
+   ]
+  },
+  {
+   "adim": "Ajanlar sayfayı yakalayıp ara durumları inceliyor; pane throttling yüzünden yakalamadan önce bekleme ekleniyor",
+   "zaman": "3:55",
+   "araclar": [
+    "Built-in browser",
+    "Tarayıcıda yakalayıp referansla yan yana karşılaştırma"
+   ]
+  },
+  {
+   "adim": "~38. dakikada tokenlar başa baş (Opus ~48.7k, Sonnet ~48.8k): debug hook, yay simülasyonu düzeltmesi, production build, CPU/draw-call ölçümü, 320px/tablet testleri",
+   "zaman": "4:13",
+   "araclar": [
+    "npm",
+    "Built-in browser"
+   ]
+  },
+  {
+   "adim": "~10-15 dk sonra bitiş: Opus 'Tessel'i localhost:5174'te, Sonnet 'Murmur'u localhost:5391'de (socket probe) çalıştırıyor; npm run build geçiyor; Opus proje notlarını hafızaya kaydediyor, Sonnet Dala ile yan yana karşılaştırıyor",
+   "zaman": "4:54",
+   "araclar": [
+    "npm",
+    "Vite",
+    "Claude memory",
+    "Socket probe ile boş port bulma"
+   ]
+  },
+  {
+   "adim": "Sonuçları kaydırarak karşılaştır: Sonnet beyin yerine kuş ve dalga yapmış, çok parçacık kullanmış (performans riski); Dala hover'ını Opus korumuş",
+   "zaman": "5:02",
+   "araclar": [
+    "Sonnet 5.5",
+    "Opus 5.5"
+   ]
+  },
+  {
+   "adim": "Opus sonucunu incele: beyin korunmuş, parçacıkların içine giriş, fiziksel geçiş, tünel, slider",
+   "zaman": "7:00",
+   "araclar": [
+    "Opus 5.5"
+   ]
+  },
+  {
+   "adim": "Karar: tokenlar neredeyse eşit; zor yazılım işinde Opus, gündelik işte (PDF, sunum) Sonnet",
+   "zaman": "8:03",
+   "araclar": [
+    "Zor işte Opus, gündelik işte Sonnet"
+   ]
+  }
+ ],
+ "ogrenimler": [
+  {
+   "ogrenim": "Zor işte Opus, gündelik işte Sonnet",
+   "tur": "ipucu",
+   "zaman": "0:12",
+   "kaynak": "ses",
+   "kanit": "Opus kompleks işlerde önde; Sonnet PDF/sunum gibi gündelik işlerde"
+  },
+  {
+   "ogrenim": "Scroll ile tetiklenen parçacık morph'u",
+   "tur": "teknik",
+   "zaman": "0:27",
+   "kaynak": "ses",
+   "kanit": "scroll ile tetiklenen parçacıklar farklı modeller oluşturuyor; video/görsel yok"
+  },
+  {
+   "ogrenim": "Parçacık yoğunluğunu sınırla",
+   "tur": "ipucu",
+   "zaman": "2:45",
+   "kaynak": "ses",
+   "kanit": "prompta parçacık seviyesini belirli seviyede tutun; tüm cihazlara uyumlu"
+  },
+  {
+   "ogrenim": "Aynı prompt ile iki modeli paralel A/B karşılaştırma",
+   "tur": "iş akışı",
+   "zaman": "2:58",
+   "kaynak": "ses",
+   "kanit": "iki ayrı dosya: opus brain 2, sonet brain 2; token/süre izleniyor"
+  },
+  {
+   "ogrenim": "Dala referanslı Awwwards site promptu",
+   "tur": "prompt",
+   "zaman": "2:58",
+   "kaynak": "ses",
+   "kanit": "promptumu yapıştırıyorum; tam metin sabit yorumda"
+  },
+  {
+   "ogrenim": "Effort (High)",
+   "tur": "ipucu",
+   "zaman": "3:02",
+   "kaynak": "ekran",
+   "kanit": "OCR: Opus 5.5 | High; ses 3:08 effor olarak yüksek olanı seçtim"
+  },
+  {
+   "ogrenim": "Parçacık hover efekti",
+   "tur": "teknik",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: smooth easing and glassy hover effects; ses 5:27 hover efekti var"
+  },
+  {
+   "ogrenim": "Prosedürel şekil/nokta üreteçleri",
+   "tur": "teknik",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: procedural point generators for each visual state"
+  },
+  {
+   "ogrenim": "DOM bölümlerine bağlı keyframe scroll koreografisi",
+   "tur": "teknik",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: keyframe timeline anchored to the DOM sections"
+  },
+  {
+   "ogrenim": "Scroll-scrubbed karakter bazlı metin açılışı",
+   "tur": "teknik",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: Next the text-reveal system (scroll-scrubbed per-character"
+  },
+  {
+   "ogrenim": "Canlı override/debug hook + URL parametreleri",
+   "tur": "ipucu",
+   "zaman": "3:30",
+   "kaynak": "ekran",
+   "kanit": "OCR: add orientation as URL params so I can iterate quickly"
+  },
+  {
+   "ogrenim": "Tarayıcıda yakalayıp referansla yan yana karşılaştırma",
+   "tur": "iş akışı",
+   "zaman": "3:55",
+   "kaynak": "ekran",
+   "kanit": "OCR: Ran page script, captured page; 4:54 side-by-side comparison against Dala"
+  },
+  {
+   "ogrenim": "Pane throttling'e karşı yakalamadan önce bekleme",
+   "tur": "ipucu",
+   "zaman": "4:10",
+   "kaynak": "ekran",
+   "kanit": "OCR: screenshots stale due to pane throttling; add short waits"
+  },
+  {
+   "ogrenim": "Semi-implicit entegrasyon + substepping",
+   "tur": "teknik",
+   "zaman": "4:15",
+   "kaynak": "ekran",
+   "kanit": "OCR: explicit Euler unstable; rewriting with semi-implicit integration and substepping"
+  },
+  {
+   "ogrenim": "Scroll hızına tepki",
+   "tur": "teknik",
+   "zaman": "4:15",
+   "kaynak": "ekran",
+   "kanit": "OCR: scroll-velocity reactivity (the flock agitates when you scroll hard)"
+  },
+  {
+   "ogrenim": "Basılı tut-topla / bırak-şok dalgası",
+   "tur": "teknik",
+   "zaman": "4:15",
+   "kaynak": "ekran",
+   "kanit": "OCR: press-and-hold, flock swarms toward cursor, bursts in shockwave"
+  },
+  {
+   "ogrenim": "Reduced-motion / WebGL-hata / noscript yedekleri",
+   "tur": "teknik",
+   "zaman": "4:15",
+   "kaynak": "ekran",
+   "kanit": "OCR: add reduced-motion and WebGL-failure fallbacks; noscript fallback"
+  },
+  {
+   "ogrenim": "Kare başına CPU + draw-call ölçümü",
+   "tur": "ipucu",
+   "zaman": "4:15",
+   "kaynak": "ekran",
+   "kanit": "OCR: measure per-frame CPU cost and draw-call stats"
+  },
+  {
+   "ogrenim": "Socket probe ile boş port bulma",
+   "tur": "ipucu",
+   "zaman": "4:57",
+   "kaynak": "ekran",
+   "kanit": "OCR: found that port free with a socket probe; Vite set to fail"
+  },
+  {
+   "ogrenim": "Fiziksel geçiş animasyonu",
+   "tur": "teknik",
+   "zaman": "7:22",
+   "kaynak": "ses",
+   "kanit": "böyle fiziksel bir animasyon katmış; bunu ben söylemedim"
+  },
+  {
+   "ogrenim": "Scroll ile tünel geçişi",
+   "tur": "teknik",
+   "zaman": "7:36",
+   "kaynak": "ses",
+   "kanit": "aşağı kaydırdıkça tünelin içerisinden geçiyoruz"
+  },
+  {
+   "ogrenim": "Scroll ile slider",
+   "tur": "teknik",
+   "zaman": "7:59",
+   "kaynak": "ses",
+   "kanit": "Vow. Slider yapmış burayı"
+  }
  ]
 }

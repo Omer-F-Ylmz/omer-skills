@@ -1,26 +1,16 @@
 {
- "not": "altın taslak: yalnız ham dump (aciklama/altyazi/ocr/yorum) kaynaklı",
+ "not": "altın: Desktop doğruladı 2026-10-07 (adaylar = adlandırılmış varlıklar; betimsel bulgular ogrenimler'de; belirsiz=true payda dışı)",
  "adaylar": [
   {
    "ad": "Opus 5.5",
    "alias": [
     "Claude Opus 5.5",
-    "Opus 5"
+    "Opus5.5"
    ],
    "tur": "model",
-   "zaman": "0:02",
-   "kaynak": "ses",
-   "kanit": "Anthropic released a very new model and that is Opus 5.5"
-  },
-  {
-   "ad": "Claude Design",
-   "alias": [
-    "Claude design"
-   ],
-   "tur": "uygulama",
-   "zaman": "1:11",
-   "kaynak": "ses",
-   "kanit": "write slash, search for design; Refining designs with Claude design"
+   "zaman": "0:00",
+   "kaynak": "ekran",
+   "kanit": "Ekranda 'Introducing Claude Opus 5.5'; ses: 'Anthropic released ... Opus 5.5'"
   },
   {
    "ad": "Figma",
@@ -28,15 +18,34 @@
    "tur": "uygulama",
    "zaman": "0:00",
    "kaynak": "açıklama",
-   "kanit": "başlıkta End of Figma Web Design; Figma alternatifi olarak"
+   "kanit": "Başlık 'End of Figma Web Design?'; 'more than just a Figma alternative'"
   },
   {
-   "ad": "Gemini",
+   "ad": "Claude Code",
    "alias": [],
-   "tur": "uygulama",
-   "zaman": "5:04",
-   "kaynak": "ses",
-   "kanit": "in the Gemini I have generated this picture"
+   "tur": "CLI",
+   "zaman": "0:00",
+   "kaynak": "yorum",
+   "kanit": "Yorum: 'You could've had Claude Code edit this video'; 0:00 öneri başlığında"
+  },
+  {
+   "ad": "Higgsfield",
+   "alias": [],
+   "tur": "servis",
+   "zaman": "0:00",
+   "kaynak": "yorum",
+   "kanit": "Yorum: 'find appropriate Broll from Higgsfield or some other tool'"
+  },
+  {
+   "ad": "Jev",
+   "alias": [
+    "Claude+Jev"
+   ],
+   "tur": "servis",
+   "zaman": "0:00",
+   "kaynak": "ekran",
+   "kanit": "Yalnız YouTube öneri başlığında: 'Jev will 10x your Claude Code'",
+   "belirsiz": true
   },
   {
    "ad": "ChatGPT",
@@ -44,15 +53,119 @@
     "chat GPT"
    ],
    "tur": "uygulama",
-   "zaman": "5:07",
+   "zaman": "0:09",
+   "kaynak": "ekran",
+   "kanit": "chatgpt.com/c/6ab2fcec… 'Emerald Serpent Crown Portrait'; yorum: 00:09'dan itibaren"
+  },
+  {
+   "ad": "Claude",
+   "alias": [
+    "cloud",
+    "clot"
+   ],
+   "tur": "uygulama",
+   "zaman": "0:14",
+   "kaynak": "ekran",
+   "kanit": "Sekme 'Design - Claude'; ses 1:05 'back over here in the cloud'"
+  },
+  {
+   "ad": "Claude Design",
+   "alias": [
+    "Claude design"
+   ],
+   "tur": "uygulama",
+   "zaman": "0:14",
+   "kaynak": "ekran",
+   "kanit": "Sekme 'Design - Claude'; 1:21 'Design ×' çipi, 'Choose design system...'"
+  },
+  {
+   "ad": "Pinterest",
+   "alias": [],
+   "tur": "servis",
+   "zaman": "0:49",
+   "kaynak": "ekran",
+   "kanit": "in.pinterest.com/pin/812688695303781495/; ses: 'right now I'm in the Pinterest'"
+  },
+  {
+   "ad": "Claude Artifacts",
+   "alias": [
+    "Artifact",
+    "artifact"
+   ],
+   "tur": "servis",
+   "zaman": "2:02",
+   "kaynak": "ekran",
+   "kanit": "'User-generated artifact content'; 'Created 2 files, used Artifact'"
+  },
+  {
+   "ad": "Archivo",
+   "alias": [],
+   "tur": "font",
+   "zaman": "2:22",
+   "kaynak": "ekran",
+   "kanit": "'I used Archivo for headings and Instrument Sans for body text'"
+  },
+  {
+   "ad": "Instrument Sans",
+   "alias": [],
+   "tur": "font",
+   "zaman": "2:22",
+   "kaynak": "ekran",
+   "kanit": "'I used Archivo for headings and Instrument Sans for body text'"
+  },
+  {
+   "ad": "Gemini",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "5:04",
+   "kaynak": "ekran",
+   "kanit": "gemini.google.com/app/013d57f9fb0519f8; ses: 'in the Gemini I have generated this picture'"
+  },
+  {
+   "ad": "Vanilla JS",
+   "alias": [
+    "HTML, CSS ve JS",
+    "plain HTML, CSS and JavaScript"
+   ],
+   "tur": "teknik",
+   "zaman": "6:15",
    "kaynak": "ses",
-   "kanit": "in the chat GPT I have this another picture"
+   "kanit": "ses: 'coded in JS, CSS, and HTML'; ekran 6:33 'Vanilla JS, no dependencies'"
+  },
+  {
+   "ad": "prefers-reduced-motion",
+   "alias": [
+    "reduce motion",
+    "prefersReducedMotion"
+   ],
+   "tur": "teknik",
+   "zaman": "6:33",
+   "kaynak": "ekran",
+   "kanit": "matchMedia('(prefers-reduced-motion: reduce)'); 'reduce motion' açıksa efektler kapanır"
+  },
+  {
+   "ad": "Appear efekti",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "6:33",
+   "kaynak": "ekran",
+   "kanit": "'Sections fade in as you scroll to them'; ses 7:09 'appear effect'"
+  },
+  {
+   "ad": "Parallax",
+   "alias": [
+    "Parallax efekti"
+   ],
+   "tur": "teknik",
+   "zaman": "7:03",
+   "kaynak": "ses",
+   "kanit": "ses: 'add animation to this website such as parallax effect'"
   }
  ],
  "linkler": [
   {
    "url": "https://www.udemy.com/course/become-web-design-pro-with-figma/?referralCode=75A96A7E9541F367B6AD&couponCode=MT250915G2",
-   "sinif": "sosyal",
+   "sinif": "diğer",
    "aday": false,
    "kaynak": "aciklama"
   },
@@ -70,50 +183,169 @@
   },
   {
    "url": "https://drive.google.com/file/d/1mz-QINyJJJXIPzyMgBzLTccP8gB1yEUr/view?usp=sharing",
-   "sinif": "referans-site",
+   "sinif": "diğer",
    "aday": false,
    "kaynak": "aciklama"
   }
  ],
  "site_ui": [
   {
-   "teknik": "İmleç hareketiyle parallax efekti",
-   "mekanizma": "imleç ve görsel/öğe katmanları farklı hızlarda kayar",
+   "teknik": "Ekran görüntüsünden stil kopyalayan landing page",
+   "mekanizma": "Claude Design referans görseli okuyup fotoğrafları ondan kırpar, artboard ekler; koyu editoryal ajans sayfası üretir; eksik footer'ı placeholder'la tamamlar",
    "kutuphaneler": [],
-   "zaman": "7:44"
+   "zaman": "2:02"
   },
   {
-   "teknik": "Scroll ile beliren (appear) animasyonu",
-   "mekanizma": "bölümler görünür olunca animasyonla belirir",
+   "teknik": "Başlık/gövde font eşleşmesi",
+   "mekanizma": "Referanstaki grotesk yazıya yakın olsun diye başlıkta Archivo (büyük harf), gövdede Instrument Sans",
    "kutuphaneler": [],
-   "zaman": "7:09"
+   "zaman": "2:22"
+  },
+  {
+   "teknik": "Kademeli yükseklikte kart dizilimi",
+   "mekanizma": "Beyaz bölümde Strategy, Growth, Creative, Powerful kartları farklı (staggered) yüksekliklerde yerleşir",
+   "kutuphaneler": [],
+   "zaman": "2:22"
+  },
+  {
+   "teknik": "Tweaks paneliyle accent rengi değişimi",
+   "mekanizma": "Lime accent sayfanın Tweaks panelinden değişir; kodda renk ve fontlar CSS'in başında tek yerde, accent tek satırlık düzenleme",
+   "kutuphaneler": [],
+   "zaman": "2:22"
+  },
+  {
+   "teknik": "Ortak stil öğeleriyle yeni bölüm ekleme",
+   "mekanizma": "Yeni testimonial ve footer, Archivo büyük harf başlıkları, glass pill'leri, yeşil çizgili paneli, lime accent ve artı ikonlarını yeniden kullanır",
+   "kutuphaneler": [],
+   "zaman": "3:48"
+  },
+  {
+   "teknik": "Testimonial carousel",
+   "mekanizma": "01/04 sayaçlı, glass pill içinde önceki/sonraki okları; JS'te 7 saniyede bir değişir, ok ve noktalar çalışır, fare üstündeyken durur, swipe desteği var",
+   "kutuphaneler": [],
+   "zaman": "3:48"
+  },
+  {
+   "teknik": "Footer: CTA, newsletter ve başa dön",
+   "mekanizma": "'Let's shape your next era' + Start a project, Navigate/Services kolonları, e-posta kutusu, 'Back to top ↑' bağlantısı",
+   "kutuphaneler": [],
+   "zaman": "4:18"
+  },
+  {
+   "teknik": "Tam genişlik hero görseli ve kenar karartma",
+   "mekanizma": "Fotoğraf üste sabitlenir; sol, sağ ve alt kenarlar hafif karartılır ki beyaz başlık okunsun; hero zemini fotoğrafa uyan koyu yeşil",
+   "kutuphaneler": [],
+   "zaman": "5:48"
+  },
+  {
+   "teknik": "Scroll'da küçülen (compact) header",
+   "mekanizma": "scrollY > 40 olunca header'a is-scrolled sınıfı eklenir; scroll dinleyicisi passive: true",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "Tam ekran menü",
+   "mekanizma": "Menü butonu tam ekran menü açar, Esc ile kapanır; aria-expanded/aria-label güncellenir, odak ilk linke taşınır, requestAnimationFrame ile is-open",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "Scroll-spy gezinme vurgusu",
+   "mekanizma": "Üst menü linkleri o an bulunulan bölümü vurgular",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "Scroll'da beliren bölümler (appear)",
+   "mekanizma": "Bölümler görünüme girince fade-in ile belirir; animasyon isteğinden sonra parallax ile birlikte scroll'da çalışır",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "Sayaç (count-up) animasyonu",
+   "mekanizma": "Hero'daki %95 rakamı sayfa yüklenince sayarak yükselir",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "Newsletter e-posta doğrulama",
+   "mekanizma": "Kutu e-posta biçimini kontrol eder ama göndermez; main.js'te e-posta servisi bağlanacak yer işaretli",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "Responsive düzen",
+   "mekanizma": "Düzen ekran boyutuna uyar; Claude siteyi tarayıcıda masaüstü ve telefon genişliğinde açıp hata olmadığını söyler",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "prefers-reduced-motion ile hareket kapatma",
+   "mekanizma": "matchMedia('(prefers-reduced-motion: reduce)') açıksa tüm efektler kapanır, menü geçiş süresi 0'a iner",
+   "kutuphaneler": [],
+   "zaman": "6:33"
+  },
+  {
+   "teknik": "Parallax efekti",
+   "mekanizma": "Katmanlar scroll'da farklı hızda kayar; README'den parallax gücü ayarlanır; konuşmacı imleç hareketinde de parallax gösteriyor",
+   "kutuphaneler": [],
+   "zaman": "7:03"
+  },
+  {
+   "teknik": "Özel imleç, eğilen kartlar, imlece yaslanan butonlar",
+   "mekanizma": "Custom cursor, tilt kartlar ve imlece doğru eğilen butonlar yalnız fare/trackpad'de çalışır; telefonda kapalı kalır",
+   "kutuphaneler": [],
+   "zaman": "7:31"
+  },
+  {
+   "teknik": "Intro ekranı",
+   "mekanizma": "Tarayıcı oturumunda ilk açılışta bir kez oynar; README'de nasıl kaldırılacağı anlatılır",
+   "kutuphaneler": [],
+   "zaman": "7:31"
+  },
+  {
+   "teknik": "Kayan metin şeridi (marquee)",
+   "mekanizma": "Branding · Art direction · Digital identity · Product design şeridi karelerde kesilerek kayıyor; OCR'dan çıkarım, konuşmada adı geçmiyor",
+   "kutuphaneler": [],
+   "zaman": "8:23"
   }
  ],
  "promptlar": [
   {
    "zaman": "1:40",
-   "konu": "design this website",
-   "kaynak": "ses"
+   "konu": "Referans görselden site tasarımı",
+   "kaynak": "ses",
+   "ozet": "Pinterest ekran görüntüsünü Design moduna yapıştırıp başka bilgi vermeden yalnızca bu siteyi tasarlamasını istiyor."
   },
   {
    "zaman": "3:21",
-   "konu": "testimonial ve footer bölümlerini ekle",
-   "kaynak": "ses"
+   "konu": "Testimonial ve footer bölümleri",
+   "kaynak": "ses",
+   "ozet": "Aynı stilde, sitenin parçası gibi duran iki bölüm istiyor: testimonial ve mevcut footer'ın yerine yenisi."
   },
   {
    "zaman": "5:28",
-   "konu": "hero görselini verilen görselle değiştir",
-   "kaynak": "ses"
+   "konu": "Hero görselini değiştirme",
+   "kaynak": "ses",
+   "ozet": "Yüklediği yılan portresi görselini hero görselinin yerine koymasını istiyor."
   },
   {
-   "zaman": "6:12",
-   "konu": "siteyi JS, CSS ve HTML ile kodla",
-   "kaynak": "ses"
+   "zaman": "6:07",
+   "konu": "HTML, CSS ve JS'e kodlama",
+   "kaynak": "ses",
+   "ozet": "Tasarımın en basit diller olan JavaScript, CSS ve HTML ile kodlanmasını istiyor."
   },
   {
    "zaman": "6:54",
-   "konu": "parallax, appear efekti ve etkileşim animasyonları ekle",
-   "kaynak": "ses"
+   "konu": "Animasyon ve etkileşim ekleme",
+   "kaynak": "ses",
+   "ozet": "Siteye parallax, beliren (appear) efekt ve bazı etkileşimler eklenmesini istiyor."
+  },
+  {
+   "zaman": "7:31",
+   "konu": "Siteyi çalıştırma",
+   "kaynak": "ekran",
+   "ozet": "Siteyi çalıştırıp çalıştıramayacağını soruyor; Claude onu canlı web sayfası (artifact) olarak yayınlıyor."
   }
  ],
  "komutlar": [
@@ -125,13 +357,18 @@
  ],
  "urller": [
   {
+   "url": "youtube.com/watch?v=1f13Bl1sYkw",
+   "zaman": "0:00",
+   "kaynak": "ekran"
+  },
+  {
    "url": "chatgpt.com/c/6ab2fcec-5ed4-83e9-bbf9-cd85e18c5bf8",
    "zaman": "0:09",
    "kaynak": "ekran"
   },
   {
    "url": "in.pinterest.com/pin/812688695303781495/",
-   "zaman": "0:48",
+   "zaman": "0:49",
    "kaynak": "ekran"
   },
   {
@@ -143,51 +380,137 @@
    "url": "web.telegram.org/a/#-1002173683675",
    "zaman": "8:54",
    "kaynak": "ekran"
+  },
+  {
+   "url": "https://youtu.be/9IPwFoy1x08",
+   "zaman": "8:54",
+   "kaynak": "ekran"
   }
  ],
  "is_akisi": [
   {
-   "adim": "Pinterest'ten bir site tasarımı seç, görseli kopyala",
-   "zaman": "0:47",
-   "araclar": []
+   "adim": "Hero için önceden ChatGPT'de üretilmiş yılan portresi görseli girişte gösterilir",
+   "zaman": "0:09",
+   "araclar": [
+    "ChatGPT"
+   ]
   },
   {
-   "adim": "Claude'da /design ile görseli yapıştır, 'design this website' de",
+   "adim": "Claude sohbet panelinde Opus 5.5 seçili (Medium) olarak başlanır",
+   "zaman": "0:31",
+   "araclar": [
+    "Claude",
+    "Opus 5.5"
+   ]
+  },
+  {
+   "adim": "Pinterest'te yalnız üç bölümü görünen bir ajans sitesi referansı seçilip görsel kopyalanır",
+   "zaman": "0:47",
+   "araclar": [
+    "Pinterest"
+   ]
+  },
+  {
+   "adim": "Claude'da '/' yazılıp Design modu seçilir; design system seçilmez",
    "zaman": "1:11",
+   "araclar": [
+    "Claude",
+    "Claude Design"
+   ]
+  },
+  {
+   "adim": "Referans görsel yapıştırılır ve başka bilgi vermeden 'Design this website' yazılır",
+   "zaman": "1:21",
    "araclar": [
     "Claude Design",
     "Opus 5.5"
    ]
   },
   {
-   "adim": "testimonial ve footer bölümlerini ekletip sonuncuyu değiştir",
-   "zaman": "3:11",
+   "adim": "Claude istemi Design paneline taşır; artboard ekler, referanstan fotoğraf kırpar, Archivo/Instrument Sans seçer, Artifact olarak kurar",
+   "zaman": "2:01",
+   "araclar": [
+    "Claude Design",
+    "Claude Artifacts",
+    "Archivo",
+    "Instrument Sans"
+   ]
+  },
+  {
+   "adim": "Sonuç yakınlaştırılıp referans görselle karşılaştırılır",
+   "zaman": "2:23",
    "araclar": [
     "Claude Design"
    ]
   },
   {
-   "adim": "hero görselini Gemini veya ChatGPT'de üretilen görselle değiştir",
-   "zaman": "4:46",
+   "adim": "Beğenilmeyen son bölüm için aynı stilde testimonial + yeni footer istenir",
+   "zaman": "3:09",
+   "araclar": [
+    "Claude Design"
+   ]
+  },
+  {
+   "adim": "Claude sayfayı yeniden okuyup testimonial ekler, footer'ı değiştirir; placeholder'lı sonuç incelenir",
+   "zaman": "3:48",
    "araclar": [
     "Claude Design",
+    "Claude Artifacts"
+   ]
+  },
+  {
+   "adim": "Tasarımı farklılaştırmak için Gemini ve ChatGPT'de önceden üretilmiş iki görsel karşılaştırılır, biri seçilip indirilir",
+   "zaman": "4:59",
+   "araclar": [
     "Gemini",
     "ChatGPT"
    ]
   },
   {
-   "adim": "tasarımı JS, CSS ve HTML dosyalarına kodlat",
-   "zaman": "6:02",
+   "adim": "Görsel Claude'a yüklenip hero görselinin değiştirilmesi istenir; Claude kenarları karartılmış tam genişlik hero yapar",
+   "zaman": "5:21",
    "araclar": [
     "Claude Design"
    ]
   },
   {
-   "adim": "parallax ve appear animasyonu ekletip çalışan siteyi gözden geçir",
-   "zaman": "6:54",
+   "adim": "Tasarım düz HTML/CSS/JS'e kodlatılır: index.html, css/styles.css, js/main.js, assets/images, README.md; ZIP indirme sunulur",
+   "zaman": "6:02",
+   "araclar": [
+    "Claude Design",
+    "Vanilla JS"
+   ]
+  },
+  {
+   "adim": "Dosyalar çalıştırılmadan önce parallax, appear ve etkileşim animasyonları ekletilir",
+   "zaman": "6:46",
    "araclar": [
     "Claude Design"
    ]
+  },
+  {
+   "adim": "'can you run it?' ile site canlı web sayfası (artifact) olarak yayınlatılır",
+   "zaman": "7:31",
+   "araclar": [
+    "Claude",
+    "Claude Artifacts"
+   ]
+  },
+  {
+   "adim": "Canlı sitede parallax, hover efektleri, testimonial, footer, tam ekran görünüm, menü ve responsive davranış gözden geçirilir",
+   "zaman": "7:41",
+   "araclar": [
+    "Claude Artifacts"
+   ]
+  }
+ ],
+ "ogrenimler": [
+  {
+   "ogrenim": "Tweaks paneli",
+   "tur": "ipucu",
+   "zaman": "2:22",
+   "kaynak": "ekran",
+   "kanit": "'the lime accent can be changed from the page's Tweaks panel'"
   }
  ]
 }

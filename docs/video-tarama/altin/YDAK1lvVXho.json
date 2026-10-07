@@ -1,33 +1,664 @@
 {
- "not": "editör yok",
+ "not": "altın: Desktop doğruladı 2026-10-07 (adaylar = adlandırılmış varlıklar; betimsel bulgular ogrenimler'de; belirsiz=true payda dışı)",
  "adaylar": [
-  {"ad": "GPT Astra", "alias": ["Astra", "Asra"], "tur": "model", "zaman": "0:04", "kaynak": "ses", "kanit": "OpenAI'ın Astra modeli ile gözlük sitesi yapıldı"},
-  {"ad": "Fable 5.1", "alias": ["Claude Fable 5.1", "Fable"], "tur": "model", "zaman": "0:33", "kaynak": "ses", "kanit": "aynı proje Claude Fable 5.1 ile de yapıldı"},
-  {"ad": "Three.js", "alias": ["ThreeJS"], "tur": "kütüphane", "zaman": "5:09", "kaynak": "ekran", "kanit": "açıklamada Three.js ile 3D gözlük; prompt ekranda"},
-  {"ad": "GSAP", "alias": [], "tur": "kütüphane", "zaman": "5:09", "kaynak": "ekran", "kanit": "açıklamada GSAP animasyonları; prompt ekranda"},
-  {"ad": "ScrollTrigger", "alias": ["Scroll Trigger"], "tur": "kütüphane", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki promptta GSAP and ScrollTrigger"},
-  {"ad": "design-dna", "alias": [], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply design-dna"},
-  {"ad": "scrollcraft", "alias": ["scroll-craft"], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply scrollcraft"},
-  {"ad": "frontend-design", "alias": [], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply frontend-design"},
-  {"ad": "design-taste-frontend", "alias": [], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply design-taste-frontend"}
+  {
+   "ad": "Sketchfab",
+   "alias": [],
+   "tur": "servis",
+   "zaman": "0:00",
+   "kaynak": "açıklama",
+   "kanit": "Açıklama: 'Projede kullandığım 3D gözlük modeli' sketchfab.com linki"
+  },
+  {
+   "ad": "GPT Astra",
+   "alias": [
+    "Astra",
+    "Asra",
+    "GPT-6 Astra",
+    "GPT ASTRA"
+   ],
+   "tur": "model",
+   "zaman": "0:04",
+   "kaynak": "ses",
+   "kanit": "\"Open AI'ın Astra modelini kullanıma sunmasıydı\"; ekranda GPT-6 Astra High"
+  },
+  {
+   "ad": "Fable 5.1",
+   "alias": [
+    "Claude Fable 5.1",
+    "Cloud Fable 5.1",
+    "Fable",
+    "Fel 5.1"
+   ],
+   "tur": "model",
+   "zaman": "0:33",
+   "kaynak": "ses",
+   "kanit": "\"Aynı projeyi Cloud Fable 5.1 ile yapacağız\"; ekranda Fable 5.1 High"
+  },
+  {
+   "ad": "Claude",
+   "alias": [
+    "Cloud",
+    "Claude Code"
+   ],
+   "tur": "uygulama",
+   "zaman": "0:33",
+   "kaynak": "ses",
+   "kanit": "\"teknik işlerde cloud'u kullanmayı seviyorum\"; ekranda Local oturum, Auto, Fable 5.1"
+  },
+  {
+   "ad": "Awwwards",
+   "alias": [
+    "Awwwards-level",
+    "Over Styles",
+    "overstay"
+   ],
+   "tur": "servis",
+   "zaman": "4:24",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'The ambition is an Awwwards-level experience'"
+  },
+  {
+   "ad": "scroll-driven storytelling",
+   "alias": [
+    "scroll tabanlı anlatım"
+   ],
+   "tur": "teknik",
+   "zaman": "4:24",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'luxury brand experience with ambitious scroll-driven storytelling'"
+  },
+  {
+   "ad": "Codex",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "4:24",
+   "kaynak": "ekran",
+   "kanit": "Adı geçmiyor; Astra arayüzü 'What should we work on in…' · Approve for me",
+   "belirsiz": true
+  },
+  {
+   "ad": "exploded view",
+   "alias": [
+    "parçalama",
+    "gözlük parçalanıyor",
+    "exploded and folding anatomy"
+   ],
+   "tur": "teknik",
+   "zaman": "4:29",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'create exploded views when the model structure supports it'"
+  },
+  {
+   "ad": "Three.js",
+   "alias": [
+    "ThreeJS"
+   ],
+   "tur": "kütüphane",
+   "zaman": "5:09",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'relevant GSAP, Three.js, and 3D scroll skills'"
+  },
+  {
+   "ad": "GSAP",
+   "alias": [],
+   "tur": "kütüphane",
+   "zaman": "5:09",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'relevant GSAP, Three.js, and 3D scroll skills'"
+  },
+  {
+   "ad": "design-dna",
+   "alias": [],
+   "tur": "skill",
+   "zaman": "5:09",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'Read and apply the available design-dna, scrollcraft…'"
+  },
+  {
+   "ad": "scrollcraft",
+   "alias": [
+    "scroll-craft"
+   ],
+   "tur": "skill",
+   "zaman": "5:09",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'apply the available design-dna, scrollcraft, frontend-design'"
+  },
+  {
+   "ad": "frontend-design",
+   "alias": [],
+   "tur": "skill",
+   "zaman": "5:09",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'scrollcraft, frontend-design, design-taste-frontend' skill listesi"
+  },
+  {
+   "ad": "design-taste-frontend",
+   "alias": [
+    "depign-taste-frontend"
+   ],
+   "tur": "skill",
+   "zaman": "5:09",
+   "kaynak": "ekran",
+   "kanit": "Prompt: 'frontend-design, design-taste-frontend, and relevant GSAP' (OCR: depign)"
+  },
+  {
+   "ad": "TypeScript",
+   "alias": [],
+   "tur": "kütüphane",
+   "zaman": "5:35",
+   "kaynak": "ekran",
+   "kanit": "Astra özeti: 'Production build and TypeScript checks pass.'"
+  },
+  {
+   "ad": "reduced motion",
+   "alias": [
+    "reduced-motion"
+   ],
+   "tur": "teknik",
+   "zaman": "5:35",
+   "kaynak": "ekran",
+   "kanit": "Astra özeti: 'mobile layouts, and reduced motion'"
+  },
+  {
+   "ad": "Chrome DevTools",
+   "alias": [
+    "DevTools"
+   ],
+   "tur": "uygulama",
+   "zaman": "7:21",
+   "kaynak": "ekran",
+   "kanit": "Adı geçmiyor; Dimensions: iPhone 14 Pro Max 430×932, Elements/Console/Network",
+   "belirsiz": true
+  },
+  {
+   "ad": "Next.js",
+   "alias": [],
+   "tur": "kütüphane",
+   "zaman": "7:21",
+   "kaynak": "ekran",
+   "kanit": "DevTools DOM: script src '_next/static/chunks/index-…js'",
+   "belirsiz": true
+  },
+  {
+   "ad": "Georgia",
+   "alias": [],
+   "tur": "font",
+   "zaman": "7:21",
+   "kaynak": "ekran",
+   "kanit": "Astra sitesi CSS: font display: Georgia, \"Times New Roman\", serif"
+  },
+  {
+   "ad": "Times New Roman",
+   "alias": [],
+   "tur": "font",
+   "zaman": "7:21",
+   "kaynak": "ekran",
+   "kanit": "Astra sitesi CSS: font display: Georgia, \"Times New Roman\", serif"
+  },
+  {
+   "ad": "Arial",
+   "alias": [],
+   "tur": "font",
+   "zaman": "7:21",
+   "kaynak": "ekran",
+   "kanit": "Astra sitesi CSS: font sans: Arial, …"
+  },
+  {
+   "ad": "OpenAI Pro paketi",
+   "alias": [
+    "Pro paket",
+    "120 dolarlık paket"
+   ],
+   "tur": "servis",
+   "zaman": "8:07",
+   "kaynak": "ses",
+   "kanit": "\"Open AI tarafında 120 dolar olan paketi kullanıyorum… pro paket\""
+  },
+  {
+   "ad": "Fable 5",
+   "alias": [],
+   "tur": "model",
+   "zaman": "9:06",
+   "kaynak": "ekran",
+   "kanit": "Kullanım istatistiği ekranı: 'Favorite model Fable 5'",
+   "belirsiz": true
+  },
+  {
+   "ad": "contact sheet",
+   "alias": [
+    "contact sheets"
+   ],
+   "tur": "teknik",
+   "zaman": "9:57",
+   "kaynak": "ekran",
+   "kanit": "Fable: 'Now reviewing the three new contact sheets.'"
+  },
+  {
+   "ad": "ScrollTrigger",
+   "alias": [
+    "GSAP ScrollTrigger",
+    "Scroll Trigger"
+   ],
+   "tur": "kütüphane",
+   "zaman": "9:58",
+   "kaynak": "ekran",
+   "kanit": "Fable özeti: 'seeked from a GSAP ScrollTrigger timeline'"
+  },
+  {
+   "ad": "Bodoni Moda",
+   "alias": [],
+   "tur": "font",
+   "zaman": "9:58",
+   "kaynak": "ekran",
+   "kanit": "Fable özeti: 'Type is Bodoni Moda with Hanken Grotesk.'"
+  },
+  {
+   "ad": "Hanken Grotesk",
+   "alias": [],
+   "tur": "font",
+   "zaman": "9:58",
+   "kaynak": "ekran",
+   "kanit": "Fable özeti: 'Type is Bodoni Moda with Hanken Grotesk.'"
+  },
+  {
+   "ad": "parallax",
+   "alias": [
+    "asymmetric parallax",
+    "paralaks"
+   ],
+   "tur": "teknik",
+   "zaman": "9:58",
+   "kaynak": "ekran",
+   "kanit": "Fable özeti: 'four fine optical frames in an asymmetric parallax'"
+  },
+  {
+   "ad": "rim light",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "9:58",
+   "kaynak": "ekran",
+   "kanit": "Fable özeti: 'at that exact scroll position a rim light rises'"
+  },
+  {
+   "ad": "lens-shape wipe",
+   "alias": [
+    "dairesel açılan geçiş",
+    "vipe"
+   ],
+   "tur": "teknik",
+   "zaman": "9:58",
+   "kaynak": "ekran",
+   "kanit": "OCR 'lens-shape _ vipe'; 11:01'de daire büyüyerek açılıyor",
+   "belirsiz": true
+  },
+  {
+   "ad": "Blender",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "12:09",
+   "kaynak": "ses",
+   "kanit": "\"blenderda illa üzerine oynamanız gerekmiyor\""
+  }
  ],
  "linkler": [
-  {"url": "https://sketchfab.com/3d-models/glasses-09-5d4ef7145b1b426cb129e3d661f7c2e6", "sinif": "referans-site", "aday": false, "kaynak": "aciklama"}
+  {
+   "url": "https://sketchfab.com/3d-models/glasses-09-5d4ef7145b1b426cb129e3d661f7c2e6",
+   "sinif": "diğer",
+   "aday": true,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "http://localhost:5179/",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "yorum"
+  }
  ],
  "site_ui": [
-  {"teknik": "Scroll ile gözün içine giren pinli video (scroll'a bağlı video oynatma)", "mekanizma": "scroll ilerlemesi video playhead'ine eşlenir, durunca kare sabit kalır", "kutuphaneler": ["GSAP", "ScrollTrigger"], "zaman": "0:11"},
-  {"teknik": "Scroll ile dönen gerçek zamanlı 3D gözlük", "mekanizma": "Three.js sahnesinde gözlük modeli scroll'a göre döner", "kutuphaneler": ["Three.js"], "zaman": "5:57"},
-  {"teknik": "Scroll ile tetiklenen slider", "mekanizma": "scroll ilerledikçe kayan ürün galerisi", "kutuphaneler": [], "zaman": "6:46"},
-  {"teknik": "Büyük puntolu marka adı tipografisi", "mekanizma": "devasa font ile marka adı bölümü", "kutuphaneler": [], "zaman": "6:59"},
-  {"teknik": "Dairesel büyüyerek açılan geçiş", "mekanizma": "scroll ile daire maskesi genişler", "kutuphaneler": [], "zaman": "11:01"},
-  {"teknik": "Scroll ile parçalanan gözlük (exploded view)", "mekanizma": "model parçaları scroll'a göre ayrılıp farklı açılardan gösterilir", "kutuphaneler": ["Three.js"], "zaman": "11:13"}
+  {
+   "teknik": "Pinli, scroll'a bağlı göz videosu hero'su (scrub)",
+   "mekanizma": "Hero pinlenir; scroll ilerlemesi video playhead'ine eşlenir, ileri/geri sarar, durunca karede kalır; açılışta poster, seek için optimize türev video",
+   "kutuphaneler": [
+    "GSAP",
+    "ScrollTrigger"
+   ],
+   "zaman": "0:11"
+  },
+  {
+   "teknik": "Scroll'la dönen, hareketi takip eden gerçek zamanlı 3D gözlük",
+   "mekanizma": "Three.js sahnesinde gerçek model scroll ile döner, gözlük farklı açılardan gösterilir",
+   "kutuphaneler": [
+    "Three.js"
+   ],
+   "zaman": "0:15"
+  },
+  {
+   "teknik": "Görsel detay overlay'i ve fitting talep formu",
+   "mekanizma": "Her görsel detay overlay'i açar; 'Request' CTA'sı NAME/EMAIL/FRAME alanlı randevu formuna bağlanır (ölü kontrol yok)",
+   "kutuphaneler": [],
+   "zaman": "0:21"
+  },
+  {
+   "teknik": "Astra: videodan 3D gözlüğe siyah beklemesiz geçiş",
+   "mekanizma": "Video irisin içinde biter, son kareler siyah bekleme olmadan modele kararır; siteye girer girmez gözlük döner",
+   "kutuphaneler": [
+    "Three.js"
+   ],
+   "zaman": "5:35"
+  },
+  {
+   "teknik": "Kişisel seçim listesi ve ürün diyalogları",
+   "mekanizma": "Ürünler 'Your edit (00)' sayaçlı kişisel listeye kaydedilir; ürünler diyalog penceresinde açılır",
+   "kutuphaneler": [],
+   "zaman": "5:35"
+  },
+  {
+   "teknik": "Reduced-motion alternatifi",
+   "mekanizma": "Hareket azaltma tercihinde animasyonsuz erişilebilir sürüm; iki model de bunu uygular, Fable ayrıca test eder",
+   "kutuphaneler": [],
+   "zaman": "5:35"
+  },
+  {
+   "teknik": "Editoryal kompozisyon: farklı boyutta görseller ve font karşıtlığı",
+   "mekanizma": "Arka planla uyumlu ürün görselleri farklı ölçeklerde; serif display ile sans gövde yazısı eşleşir",
+   "kutuphaneler": [],
+   "zaman": "6:16"
+  },
+  {
+   "teknik": "Scroll ile tetiklenen ürün slider'ı",
+   "mekanizma": "Scroll ilerledikçe ürünler yatay kayar; Fable sürümünde pinli yatay ray (pinned horizontal rail)",
+   "kutuphaneler": [],
+   "zaman": "6:46"
+  },
+  {
+   "teknik": "Dev puntolu marka adı bölümü",
+   "mekanizma": "Marka adı ekranı kaplayan çok büyük font boyutuyla yazılır",
+   "kutuphaneler": [],
+   "zaman": "6:59"
+  },
+  {
+   "teknik": "CSS token'larıyla tema ve smooth scroll",
+   "mekanizma": ":root'ta --paper/--ink/--line, --radius:0, --font-sans/--font-display değişkenleri; html scroll-behavior: smooth",
+   "kutuphaneler": [],
+   "zaman": "7:21"
+  },
+  {
+   "teknik": "Mobil uyarlama ve hafif 3D model",
+   "mekanizma": "Aynı scroll/3D deneyimi mobilde; model ~5 MB'a optimize edildiği için telefonda kasmaz",
+   "kutuphaneler": [
+    "Three.js"
+   ],
+   "zaman": "7:30"
+  },
+  {
+   "teknik": "Footage'dan türetilen palet ve font çifti",
+   "mekanizma": "Palet videodan: neredeyse siyah yeşil, kemik, yosun aksanı; tipografi Bodoni Moda + Hanken Grotesk",
+   "kutuphaneler": [],
+   "zaman": "9:58"
+  },
+  {
+   "teknik": "3D model materyallerinin yeniden kurulumu",
+   "mekanizma": "Model normalize edilir: temiz metal, siyah asetat uçlar, cam lensler; üçüncü taraf logolu sap dokusu değiştirilir",
+   "kutuphaneler": [
+    "Three.js"
+   ],
+   "zaman": "9:58"
+  },
+  {
+   "teknik": "Asimetrik paralaks görsel dizisi",
+   "mekanizma": "Dört ince optik çerçeve görseli asimetrik paralaksla farklı hızlarda kayar",
+   "kutuphaneler": [],
+   "zaman": "9:58"
+  },
+  {
+   "teknik": "Fable: gözü vurgulayan beyaz ışık/gölge, başlık kenarda",
+   "mekanizma": "Gözün çevresine beyaz shadow eklenir; metin gözü kapatmayacak şekilde kenara alınır",
+   "kutuphaneler": [],
+   "zaman": "10:13"
+  },
+  {
+   "teknik": "Fable: karanlıktan rim light ile gözlük reveal (handoff)",
+   "mekanizma": "Video gözbebeğinde biter, pupil maskesi feather'lanır; aynı scroll noktasında rim light yükselir, kamera geri çekilip çerçeveyi gösterir; boş siyah scroll yok",
+   "kutuphaneler": [
+    "Three.js",
+    "GSAP",
+    "ScrollTrigger"
+   ],
+   "zaman": "10:25"
+  },
+  {
+   "teknik": "Dairesel / lens şekilli büyüyerek açılan geçiş (wipe)",
+   "mekanizma": "Scroll ile daire (lens) maskesi yavaşça büyüyüp sonraki sahneyi açar",
+   "kutuphaneler": [],
+   "zaman": "11:01"
+  },
+  {
+   "teknik": "Exploded view: gözlük anatomisi parçalanıp kapanır",
+   "mekanizma": "Düz modelin lens, köprü, bar ve sapları scroll'la ayrılır; kamera istasyonları farklı açılar, LENS/RIM etiketleri; geri scroll'da kapanır",
+   "kutuphaneler": [
+    "Three.js",
+    "GSAP",
+    "ScrollTrigger"
+   ],
+   "zaman": "11:13"
+  }
  ],
- "promptlar": [{"zaman": "4:26", "konu": "VEIL gözlük markası Awwwards seviyesi site promptu", "kaynak": "yorum"}],
+ "promptlar": [
+  {
+   "zaman": "2:03",
+   "konu": "Revizyon isteği: gözlüğü büyüt",
+   "kaynak": "ekran",
+   "ozet": "Gözlüğü daha büyük göstermesini isteyen revizyon; ölçekle birlikte kamera açısı, yazı yerleşimi ve sahne geçişleri de uyarlanmalı."
+  },
+  {
+   "zaman": "4:24",
+   "konu": "VEIL lüks gözlük markası için Awwwards seviyesi site (Astra)",
+   "kaynak": "ekran",
+   "ozet": "Göz videosu, 3D gözlük modelleri ve 10 görselle scroll anlatımlı lüks site; yaratıcı yön modelde, skill'leri uygula, siyah boşluksuz geçiş, tarayıcıda doğrula."
+  },
+  {
+   "zaman": "9:06",
+   "konu": "Aynı prompt Claude Fable 5.1'e",
+   "kaynak": "ekran",
+   "ozet": "Astra'ya verilen promptun birebir aynısı; tek fark siteyi localhost:5179 portunda ayağa kaldırması, sonda doğrulama kontrol listesi."
+  },
+  {
+   "zaman": "9:57",
+   "konu": "Mobil kontrol takip promptu",
+   "kaynak": "ekran",
+   "ozet": "Fable'a Türkçe kısa takip isteği: masaüstü kontrollerinden sonra siteyi mobilde de kontrol etmesi."
+  }
+ ],
  "komutlar": [],
- "urller": [{"url": "localhost:3000", "zaman": "1:14", "kaynak": "ekran"}],
+ "urller": [
+  {
+   "url": "localhost:3000",
+   "zaman": "1:14",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "http://localhost:5179/",
+   "zaman": "9:06",
+   "kaynak": "ekran"
+  }
+ ],
  "is_akisi": [
-  {"adim": "video, 3D model ve 10 görseli projeye koyup tasarımı modele bırakan promptu Astra'ya ver", "zaman": "4:23", "araclar": ["GPT Astra"]},
-  {"adim": "aynı promptu farklı portla Fable 5.1'e (yüksek performans) ver", "zaman": "9:02", "araclar": ["Fable 5.1"]},
-  {"adim": "iki sonucu karşılaştır", "zaman": "12:17", "araclar": []}
+  {
+   "adim": "Promptu yaz: teknik detay vermeden tasarımı modele bırak, yalnız giriş videosu ve scroll davranışını açıkça iste",
+   "zaman": "4:26",
+   "araclar": []
+  },
+  {
+   "adim": "Varlıkları projeye koy: göz videosu, ~5 MB'a optimize 3D gözlük modeli (Sketchfab), 10 ürün görseli",
+   "zaman": "4:39",
+   "araclar": [
+    "Sketchfab"
+   ]
+  },
+  {
+   "adim": "Promptta mevcut skill'leri uygulat: design-dna, scrollcraft, frontend-design, design-taste-frontend, GSAP/Three.js",
+   "zaman": "5:09",
+   "araclar": [
+    "design-dna",
+    "scrollcraft",
+    "frontend-design",
+    "design-taste-frontend",
+    "GSAP",
+    "Three.js"
+   ]
+  },
+  {
+   "adim": "Promptu GPT-6 Astra High'a gönder; Astra ~40 dk çalışır, build/TypeScript ve masaüstü-mobil tarayıcı kontrollerini kendisi yapar",
+   "zaman": "5:25",
+   "araclar": [
+    "GPT Astra",
+    "TypeScript"
+   ]
+  },
+  {
+   "adim": "Revizyon promptlarıyla ilerle (ör. gözlüğü büyüt); Astra ölçek, kamera ve tipografiyi birlikte düzenler",
+   "zaman": "2:03",
+   "araclar": [
+    "GPT Astra"
+   ]
+  },
+  {
+   "adim": "Astra sonucunu localhost:3000'de masaüstünde scroll ederek incele",
+   "zaman": "5:34",
+   "araclar": []
+  },
+  {
+   "adim": "Mobil görünümü DevTools cihaz modunda (iPhone 14 Pro Max 430×932) test et",
+   "zaman": "7:21",
+   "araclar": [
+    "Chrome DevTools"
+   ]
+  },
+  {
+   "adim": "Claude'da Fable 5.1'i High seç; aynı promptu yalnız portu 5179 yapıp yapıştır ve gönder",
+   "zaman": "9:06",
+   "araclar": [
+    "Claude",
+    "Fable 5.1"
+   ]
+  },
+  {
+   "adim": "Fable doğrulama turları: paralel bağımsız kontroller, probe ekran görüntüleri, contact sheet, etkileşim ve reduced-motion testi, production build; bulunan hataları düzeltir",
+   "zaman": "9:57",
+   "araclar": [
+    "Fable 5.1"
+   ]
+  },
+  {
+   "adim": "Takip promptuyla mobilde de kontrol ettir",
+   "zaman": "9:57",
+   "araclar": [
+    "Fable 5.1"
+   ]
+  },
+  {
+   "adim": "Fable sonucunu localhost:5179'da incele ve Astra ile bölüm bölüm karşılaştır",
+   "zaman": "10:01",
+   "araclar": []
+  },
+  {
+   "adim": "Parçalama animasyonunu düz modelden modelin kendisine yaptır; büyük modelleri Blender yerine Claude/Astra ile işle",
+   "zaman": "11:51",
+   "araclar": [
+    "Claude",
+    "GPT Astra"
+   ]
+  },
+  {
+   "adim": "Genel değerlendirme: iki modeli de aktif kullanmaya devam",
+   "zaman": "12:17",
+   "araclar": [
+    "GPT Astra",
+    "Fable 5.1"
+   ]
+  },
+  {
+   "adim": "Bölüşüm: keskin teknik işler Claude, geniş analiz/çok yerli backend değişikliği Astra",
+   "zaman": "12:30",
+   "araclar": [
+    "Claude",
+    "GPT Astra"
+   ]
+  },
+  {
+   "adim": "Zor bug: önce Claude ile tespit, sonra Astra'ya ver, iki modeli konuştur, kendin hakem ol",
+   "zaman": "13:08",
+   "araclar": [
+    "Claude",
+    "GPT Astra"
+   ]
+  }
+ ],
+ "ogrenimler": [
+  {
+   "ogrenim": "Scroll'a bağlı video (scrub)",
+   "tur": "teknik",
+   "zaman": "0:11",
+   "kaynak": "ses",
+   "kanit": "\"Sayfayı kaydırdıkça gözün içine giriyoruz\"; özet: footage scrubs under the wheel"
+  },
+  {
+   "ogrenim": "Video yerleşimini promptta açıkça belirt",
+   "tur": "ipucu",
+   "zaman": "4:47",
+   "kaynak": "ses",
+   "kanit": "\"Bunu söylemeniz gerekiyor… Söylemezseniz kendisi karar verir\""
+  },
+  {
+   "ogrenim": "Scroll ile tetiklenen slider",
+   "tur": "teknik",
+   "zaman": "6:46",
+   "kaynak": "ses",
+   "kanit": "\"scroll'la beraber tetiklenen bir slider yapmış\""
+  },
+  {
+   "ogrenim": "3D modeli ~5 MB'a optimize et",
+   "tur": "ipucu",
+   "zaman": "7:41",
+   "kaynak": "ses",
+   "kanit": "\"ortalama 5 MB'ta tuttum… çoğu telefonda kasma yapmaz\""
+  },
+  {
+   "ogrenim": "Adil kıyas: aynı prompt, iki model High, farklı port",
+   "tur": "ipucu",
+   "zaman": "9:06",
+   "kaynak": "ses",
+   "kanit": "\"Fable 5.1'i seçtim ve yüksek performansta\"; \"portu farklı söyledim\""
+  },
+  {
+   "ogrenim": "Promptun sonuna tarayıcı doğrulama listesi koy",
+   "tur": "ipucu",
+   "zaman": "9:06",
+   "kaynak": "ekran",
+   "kanit": "Prompt sonu: Forward/backward scrolling… All 10 images are integrated maddeleri"
+  },
+  {
+   "ogrenim": "Düz 3D modeli Blender yerine modelle işle",
+   "tur": "ipucu",
+   "zaman": "11:51",
+   "kaynak": "ses",
+   "kanit": "\"normal dümdüz model verdim. Modeli kendisi işleyerek yaptı\""
+  },
+  {
+   "ogrenim": "Görev bölüşümü: keskin teknik iş Claude, geniş analiz Astra",
+   "tur": "iş akışı",
+   "zaman": "12:30",
+   "kaynak": "ses",
+   "kanit": "\"teknik işlerde cloud'u… analiz işlerinde… Astra'yı kullanıyorum\""
+  },
+  {
+   "ogrenim": "Zor bug'da iki modeli konuşturma",
+   "tur": "iş akışı",
+   "zaman": "13:08",
+   "kaynak": "ses",
+   "kanit": "\"İlk olarak cloud'la saptıyorum… Astra'ya atıyorum… konuşturuyorum\""
+  }
  ]
 }
