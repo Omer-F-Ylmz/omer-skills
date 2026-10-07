@@ -737,9 +737,10 @@ def _goz_ocr(ctx, d, kd, sure, f):
     ham = _kos(ctx, ["ffmpeg", "-v", "error", "-i", str(v), "-an", "-vf", f"fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"],
                SURE["sahne"])
     sahne = gz.kare_sec(gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f), sure, f, gz.tavan_ocr(sure))
-    sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne) or "0"
-    _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",
-               "-q:v", "3", str(kd / "s%04d.jpg")], SURE["sahne"])
+    for i in range(0, max(len(sahne), 1), 50):  # 1b-1R: ~117 terimlik select ffmpeg'de "Cannot allocate memory" → ≤50 terimlik parçalar
+        sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0"  # ponytail: parça başına bir çözme geçişi
+        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",
+                   "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")], SURE["sahne"])
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
     bas, okunan, inc = time.monotonic(), [], []
