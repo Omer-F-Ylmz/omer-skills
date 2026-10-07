@@ -1256,10 +1256,12 @@ def _http(url, veri, basliklar):
     import urllib.error
     import urllib.request
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, data=veri, headers=basliklar, method="POST"), timeout=300) as r:
+        # Cloudflare Python-urllib UA'sını 1010/403 ile keser → kendi UA
+        with urllib.request.urlopen(urllib.request.Request(url, data=veri, headers={**basliklar, "User-Agent": "video-cli/1.0"}, method="POST"),
+                                    timeout=300) as r:
             return r.read()
-    except urllib.error.HTTPError as e:  # gövde/başlık yazılmaz (anahtar sızmasın)
-        raise Hata(f"groq HTTP {e.code}") from None
+    except urllib.error.HTTPError as e:  # başlık yazılmaz (anahtar sızmasın); gövdenin ilk satırı hata kodunu taşır
+        raise Hata(f"groq HTTP {e.code} {e.read()[:60].decode('utf-8', 'replace').strip()}") from None
     except urllib.error.URLError as e:
         raise Hata(f"groq ağ: {e.reason}") from None
 
@@ -1365,11 +1367,11 @@ def temizle(ns, ctx):
 def altin(ns, ctx):  # VİDEO-GÖZ-1a K4: rapor.md altın JSON'a karşı (salt okur)
     f, s = (au.kapsam, au.kapsam_satirlar) if ns.eylem == "kapsam" else (au.puan, au.satirlar)
     metin, a = Path(ns.rapor).read_text(encoding="utf-8"), json.loads(Path(ns.altin).read_text(encoding="utf-8"))
-    if ns.eylem == "kapsam" and ns.sozluk != "dosya":  # 1b-1 M5: (a) sözlüksüz · (c) altın-dahil (yalnız bilgi; tüm paket ses kaynağı)
+    if ns.eylem == "kapsam" and ns.sozluk == "yok":  # 1b-1 M5: (a) sözlüksüz
         metin = re.sub(r"^## Sözlük eşleşmeleri.*?(?=^## |\Z)", "", metin, flags=re.M | re.S)
-        if ns.sozluk == "ek":
-            sz = [*gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt"), *((x["ad"], x.get("alias", [])) for x in a.get("adaylar", []))]
-            metin += "\n".join(["## Sözlük eşleşmeleri", *gz.eslesme_satirlari(gz.eslesmeler([("ses", 0, metin)], sz))]) + "\n"
+    elif ns.eylem == "kapsam" and ns.sozluk == "ek":  # (c) altın-dahil, yalnız bilgi: mevcut eşleşmeler kalır, altın adları tüm pakette (ses) aranır
+        sz = [(x["ad"], x.get("alias", [])) for x in a.get("adaylar", [])]
+        metin += "\n".join(["## Sözlük eşleşmeleri", *gz.eslesme_satirlari(gz.eslesmeler([("ses", 0, metin)], sz))]) + "\n"
     for x in s(f(metin, a)):
         print(x)
     return 0
