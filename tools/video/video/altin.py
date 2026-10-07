@@ -151,6 +151,32 @@ def kapsam_satirlar(p):
             "komut kaçan: " + (", ".join(f"{a} ({n})" for a, n in p["komut_kacan"]) or "yok")]
 
 
+def _icerir(metin, adlar):
+    """1b-1R R6: kapsam ile aynı eşleşme (gecer), tek metin için."""
+    kel = [norm(w) for w in re.findall(r"\w+", metin.casefold())]
+    pencere = {"".join(kel[i:i + k]) for k in range(1, 6) for i in range(len(kel))}
+    return any(gecer(x, norm(metin), pencere) for x in adlar)
+
+
+def kacan_alt(kacan, altin, ham, gurultu, esik=0.5, pay=5):
+    """1b-1R R6: 'ekranda-var-OCR-kaçırdı' kaçanına ham goz/ocr.json'dan alt neden. Ham satırda geçiyor → bütçe-attı (güven ≥ esik, gürültü
+    değil) | gürültü-süzgeci | düşük-güven; geçmiyor → altın zamanı ±pay sn'de okunan kare var: OCR-okuyamadı, yok: örnekleme-boşluğu."""
+    from . import metin as m
+    aday, out = {a["ad"]: a for a in altin.get("adaylar", [])}, []
+    for ad, neden in kacan:
+        if neden != NEDEN["ekran"] or ad not in aday:
+            out.append((ad, neden))
+            continue
+        a = aday[ad]
+        sat = [(x, s) for _, r in ham for x, s, _ in r if _icerir(x, [ad, *a.get("alias", [])])]
+        z = m.sn(a["zaman"]) if a.get("zaman") else None
+        alt = ("bütçe-attı" if any(s >= esik and not gurultu(x) for x, s in sat) else "gürültü-süzgeci" if any(s >= esik for _, s in sat)
+               else "düşük-güven" if sat else "OCR-okuyamadı" if z is not None and any(abs(t - z) <= pay for t, _ in ham)
+               else "örnekleme-boşluğu")
+        out.append((ad, f"{neden}/{alt}"))
+    return out
+
+
 KISALTICI = re.compile(r"\b(?:bit\.ly|t\.co|tinyurl\.com|goo\.gl|lnkd\.in|buff\.ly|ow\.ly|rebrand\.ly|dub\.sh|shorturl\.at|is\.gd|cutt\.ly)/", re.I)
 YONLEN = re.compile(r"[?&](?:ref|aff|via|utm_\w+)=|/(?:go|out|r|redirect|aff)/", re.I)
 

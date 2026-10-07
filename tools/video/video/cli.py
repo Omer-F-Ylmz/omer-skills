@@ -1397,7 +1397,10 @@ def altin(ns, ctx):  # VİDEO-GÖZ-1a K4: rapor.md altın JSON'a karşı (salt o
     elif ns.eylem == "kapsam" and ns.sozluk == "ek":  # (c) altın-dahil, yalnız bilgi: mevcut eşleşmeler kalır, altın adları tüm pakette (ses) aranır
         sz = [(x["ad"], x.get("alias", [])) for x in a.get("adaylar", [])]
         metin += "\n".join(["## Sözlük eşleşmeleri", *gz.eslesme_satirlari(gz.eslesmeler([("ses", 0, metin)], sz))]) + "\n"
-    for x in s(f(metin, a)):
+    p = f(metin, a)
+    if ns.eylem == "kapsam" and (oj := Path(ns.rapor).parent / "goz" / "ocr.json").is_file():  # 1b-1R R6: kaçan alt nedeni
+        p["kacan"] = au.kacan_alt(p["kacan"], a, json.loads(oj.read_text(encoding="utf-8"))["ham"], _ocr_gurultu)
+    for x in s(p):
         print(x)
     return 0
 
