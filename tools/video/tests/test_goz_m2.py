@@ -13,7 +13,7 @@ def test_sahne_son_tutulana_hamming_5ten_buyuk():
 
 
 def test_ocr_kare_tavani():
-    assert g.tavan_ocr(180) == 30 and g.tavan_ocr(600) == 60 and g.tavan_ocr(40 * 60) == 150
+    assert g.tavan_ocr(180) == 40 and g.tavan_ocr(600) == 80 and g.tavan_ocr(40 * 60) == 200  # 1b-1R R3
 
 
 def test_tavan_asilinca_en_az_degisen_atilir_zaman_sirasi_korunur():

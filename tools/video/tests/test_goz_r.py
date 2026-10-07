@@ -50,3 +50,13 @@ def test_r2_tek_satir_degisen_kare_metne_girer(tmp_path, monkeypatch):
     ctx, d, _ = _goz_sahte(tmp_path, monkeypatch, metin)
     cli._goz(ctx, d, 20, "", [], 1, o := {})
     assert "Kestrelapp integration enabled for this project" in str(gz.ekran_metni(o["metin"], ""))
+
+
+def test_r3_tavan_ve_periyodik_taban():
+    assert (gz.tavan_ocr(60), gz.tavan_ocr(600), gz.tavan_ocr(1800), gz.tavan_ocr(3600)) == (40, 80, 200, 200)
+    assert gz.kare_sec([(0, 64)], 31, 1, 40) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # sahne yok: her 10 sn
+    sahne = [(float(i), 30) for i in range(50)]  # 30 dk sabit ekran + ilk 50 sn'de 50 sahne
+    k = gz.kare_sec(sahne, 1800, 1, gz.tavan_ocr(1800))
+    t = [x for x, _ in k]
+    assert len(k) <= 200 and all(s in k for s in sahne) and t == sorted(t)  # tavan içinde, sahneler korunur
+    assert max(b - a for a, b in zip(t, t[1:])) <= 15 and t[-1] >= 1780  # aralık 15'e büyür, taban videoya yayılır
