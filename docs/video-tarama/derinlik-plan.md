@@ -943,3 +943,11 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - **K3 yeşil** (ölçüt O92 + Jev puanı + eksik yön etiketi).
 - OmniRoute pencere: Startup\OmniRoute.vbs Run zaten pencere stili 0 (cmd gizli); vbs değişmedi. Çalışan ağaç: node 9704 (ebeveyni 35252 yaşamıyor) → node 5508 · esbuild · tray. Görünür "omniroute (v16.3.1)" konsolunun kaynağı kanıtlanmadı (aday: Windows Terminal varsayılan terminal devri ya da omniroute'un kendini yeniden başlatması) → DUR, sonraki dalga.
 - OmniRoute sürümü: paket 3.8.50 (pencere başlığındaki v16.3.1 paket sürümü değil).
+
+## O95 — MÜKEMMEL-5e: OmniRoute gizli başlatma (conhost --headless) · DUR
+
+- Denenen yol: Startup\OmniRoute.vbs `WshShell.Run "conhost.exe --headless cmd /c ""node omniroute.mjs serve --no-open --tray"" > log 2>&1", 0, False` (yedek OmniRoute.vbs.bak-5e).
+- Sonuç: 20128 9 s'de açıldı ama yine görünür pencere çıktı (`next-server (v16.3.1)`; yeni OpenConsole + headless olmayan conhost); log 792 B, `Tray worker did not become ready`, süreç ağacı kısa sürede öldü.
+- Geri dönüş: 5b öncesi yedek (log'suz) geri kondu; o da gizli değil: `omniroute (v16.3.1)` penceresi açık, 20128 2 s'de açık, süreç ayakta.
+- Kanıt: pencereyi vbs'in kendi konsolu değil, omniroute'un başlattığı node alt süreci açıyor (yeni konsol → WT varsayılan terminal → OpenConsole). Stil 0 ve headless sarmalayıcı alt sürecin konsoluna ulaşmıyor.
+- AÇIK: gizleme vbs düzeyinde çözülmüyor; aday yollar omniroute'un alt süreç başlatma seçeneği (windowsHide/detached) ya da varsayılan terminali Windows Console Host'a çevirmek — karar Ömer'de. Canlı model 0, Jev 0.
