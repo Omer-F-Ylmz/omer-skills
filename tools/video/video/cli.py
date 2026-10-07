@@ -382,7 +382,7 @@ def _ocr(ctx, yollar):
     1b-1 M1: ctx["rapid"] (yükleyici) varsa RapidOCR birincil, yerel çözünürlükte; Windows OCR yalnız import/model hatasında (ctx["ocr_motor"])."""
     if ctx.get("rapid"):
         try:
-            motor = ctx["rapid"]()
+            motor = ctx["_motor"] = ctx.get("_motor") or ctx["rapid"]()  # M2: parça parça çağrılır, motor bir kez
             ctx["ocr_motor"] = "rapidocr"
             return {Path(y).name: gz.ocr_satirlar(motor(y)) for y in yollar}
         except Exception as e:  # ImportError · model dosyası yok/bozuk → Windows OCR (sebep künyede)
@@ -457,7 +457,9 @@ def paket(ns, ctx):
     ocr = {}
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     try:
-        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, 0, ns.model_tavan or ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
+        kareler, kare_yok = (_goz(ctx, d, meta.get("duration") or 0, taban, isaret, ns.model_tavan or (min(gz.MODEL_UST, ns.kare) if 0 < (meta.get("duration") or 0) < SHORT_SN else gz.MODEL_UST), ocr)
+                             if ctx.get("rapid") and not ns.incelenmedi  # 1b-1 M2; ponytail: _kareler yolu yalnız rapid'siz (test sahteleri), eski paket testleri yeni hatta taşınınca silinir
+                             else _kareler(ctx, d, [*isaret, *zamanlar], 0, 0, ns.model_tavan or ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
@@ -469,17 +471,19 @@ def paket(ns, ctx):
     if ns.kuyruk and Path(ns.kuyruk).is_file():
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
-          f" · https://youtu.be/{ns.id} · ocr_motor {ctx.get('ocr_motor') or 'yok'}",
+          f" · https://youtu.be/{ns.id} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
-          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join(str(s.get("metin")) for s in seg))]
+          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join(str(s.get("metin")) for s in seg), butce=gz.butce(meta.get("duration") or 0))]
                                                 or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
           *(["## İncelenmedi", *i] if (i := [f"[{m.ss(t)}] {sebep}" for t, sebep in sorted(ocr.get("incelenmedi", []))]) else []),
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
+    for v in d.glob("goz-video.*"):  # 1b-1 M2: video dosyası paket sonunda silinir, kareler kalır
+        v.unlink()
     if ocr.get("gurultu_satir"):  # O11 (4): atılan gürültü satırları denetim için
         (d / "ocr-gurultu.txt").write_text("".join(f"{m.ss(t)} · {x}\n" for t, x in sorted(ocr["gurultu_satir"], key=lambda g: g[0])), encoding="utf-8")
     sj = json.loads((d / "sahne.json").read_text(encoding="utf-8")) if (d / "sahne.json").is_file() else {"durum": "sahne ?"}
@@ -664,6 +668,50 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
         else:
             tut.append((t, yol))
     return sorted(tut)
+
+
+def _video_indir(ctx, d):
+    """1b-1 M2: ≤1080p video-only akış bir kez <id>/goz-video.<ext>; ffmpeg yerelde çalışır, paket sonunda silinir."""
+    if not (v := next(d.glob("goz-video.*"), None)):
+        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
+                   yt_url(d.name)], SURE["ses"])
+        if not (v := next(d.glob("goz-video.*"), None)):
+            raise Hata("video inmedi")
+    return v
+
+
+def _goz(ctx, d, sure, altyazi, isaret, n, ocr):
+    """1b-1 M2: aşama 1 fps 1 (≥10 dk 0.5) 160 px gri dHash → sahne; aşama 2 sahnenin yerel çözünürlükteki karesi → OCR (≤tavan, ≤OCR_SN),
+    değişim ≥0.15 olan metin pakete. Modele ayrı m*.jpg: ≤n kare 768/28 (yeni ad/URL önce, sonra işaret). ocr dict yerinde dolar."""
+    v, f = _video_indir(ctx, d), gz.fps(sure)
+    ham = _kos(ctx, ["ffmpeg", "-v", "error", "-i", str(v), "-an", "-vf", f"fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"],
+               SURE["sahne"])
+    sahne = gz.sahne_sec(gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f), gz.tavan_ocr(sure))
+    kd = d / "kareler"
+    shutil.rmtree(kd, ignore_errors=True)
+    kd.mkdir()
+    sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne) or "0"
+    _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",
+               "-q:v", "3", str(kd / "s%04d.jpg")], SURE["sahne"])
+    yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
+    bas, okunan, inc = time.monotonic(), [], []
+    for i in range(0, len(yollar), 10):
+        if time.monotonic() - bas > gz.OCR_SN:
+            inc = [(t, "OCR süresi") for t, _ in yollar[i:]]
+            break
+        o = _ocr(ctx, [y for _, y in yollar[i:i + 10]])
+        okunan += [(t, [x for x in o.get(y.name, []) if not _ocr_gurultu(x)]) for t, y in yollar[i:i + 10]]
+        ocr.setdefault("gurultu_satir", []).extend((t, x) for t, y in yollar[i:i + 10] for x in o.get(y.name, []) if _ocr_gurultu(x))
+    kareler = []
+    for t in gz.model_sec([*okunan, *((t, []) for t, _ in inc)], altyazi, isaret, n):
+        y = kd / f"k{int(t * 10):06d}.jpg"
+        w, h = m.jpeg_boyut(y.read_bytes())
+        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(y), "-vf", "scale=%d:%d,format=yuvj420p" % gz.olcek(w, h), "-q:v", "4",
+                   str(mk := y.with_name("m" + y.name[1:]))], SURE["ffmpeg"])
+        kareler.append((t, mk))
+    ocr.update(durum="✓", metin=gz.ocr_sec(okunan), secilen=len(sahne), ocr_kare=len(okunan), ocr_sn=round(time.monotonic() - bas),
+               incelenmedi=inc, gurultu=len(ocr.get("gurultu_satir", [])), montaj=0)
+    return kareler
 
 
 def oku(ns, ctx):

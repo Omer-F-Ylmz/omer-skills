@@ -1,5 +1,6 @@
 """VİDEO-GÖZ-1b-1: GÖZ katmanı saf yardımcıları (ekran metni süzgeci · model karesi ölçeği · kare seçimi · yorum/URL · ad sözlüğü)."""
 import re
+from difflib import SequenceMatcher
 
 from .altin import norm
 
@@ -55,6 +56,58 @@ def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(
             top += token(x)
             tut.append((t, x))
     return sorted(tut)
+
+
+SAHNE_HAM, OCR_DEGISIM, OCR_SN, MODEL_UST = 5, 0.15, 240, 6  # ayar · M2: sahne Hamming > · OCR metin değişimi ≥ · OCR süresi sn · model karesi
+AD = re.compile(r"\b[A-Z][\w.+-]{2,}|(?:https?://|www\.)\S+|\b[\w-]+\.(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design)\b\S*")
+
+
+def fps(sure):
+    return 0.5 if sure >= 600 else 1
+
+
+def sahneler(hashler, f):
+    """Aşama 1: [dHash] (fps f, zaman sırası) → [(t, Hamming)]; son tutulan kareye Hamming > SAHNE_HAM olan an sahne, ilk kare hep (64)."""
+    out, son = [], None
+    for i, h in enumerate(hashler):
+        if (d := 64 if son is None else bin(h ^ son).count("1")) > SAHNE_HAM:
+            out.append((round(i / f, 1), d))
+            son = h
+    return out
+
+
+def tavan_ocr(sure):
+    return min(150, max(30, int(sure / 60 * 6)))
+
+
+def sahne_sec(sahne, tavan):
+    """Tavan aşılırsa en az değişen (düşük Hamming) sahneler atılır; zaman sırası korunur."""
+    return sorted(sorted(sahne, key=lambda s: -s[1])[:tavan])
+
+
+def ocr_sec(okunan, esik=OCR_DEGISIM):
+    """Aşama 2: [(t, satırlar)] zaman sırasıyla → son tutulan metne göre değişim (1 - benzerlik) ≥ esik olanlar; metinsiz kare yok."""
+    tut, son = [], ""
+    for t, s in okunan:
+        if (k := "\n".join(s).casefold()) and 1 - SequenceMatcher(None, son, k, autojunk=False).ratio() >= esik:
+            tut.append((t, s))
+            son = k
+    return tut
+
+
+def butce(sure):
+    return min(5000, max(1500, int(sure / 60 * 200)))
+
+
+def model_sec(okunan, altyazi, isaret, n=MODEL_UST):
+    """Modele ≤n kare (sahne varsa en az min(n, sahne)): önce en çok yeni ad/URL getiren (altyazıda ve önceki karelerde yok), sonra segment
+    işaretine ≤5 sn yakın, sonra zaman."""
+    alt, gor, puan = norm(altyazi), set(), []
+    for t, s in sorted(okunan):
+        yeni = {k for x in s for z in AD.findall(x) if (k := norm(z)) and k not in alt} - gor
+        gor |= yeni
+        puan.append((-len(yeni), not any(abs(t - i) <= 5 for i in isaret), t))
+    return sorted(t for *_, t in sorted(puan)[:n])
 
 
 MODEL_KOK = "C:/Projeler/.tmp-video/models/rapidocr/"  # ayar · VIDEO_OCR_MODEL ile değişir
