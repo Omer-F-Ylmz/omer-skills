@@ -70,3 +70,38 @@ def test_cli_altin_puan(capsys):
     assert cli.main(["altin", "puan", str(FX / "rapor.md"), str(FX / "altin.json")], env={}) == 0
     out = capsys.readouterr().out
     assert "yakalama 3/6" in out and "rapor alanı yok" in out and "kaçan: Opus 5.5 (model)" in out
+
+
+def _puan_ile(altin):
+    return au.puan((FX / "rapor.md").read_text(encoding="utf-8"), altin)
+
+
+BELIRSIZLI = {"adaylar": [{"ad": "Three.js", "tur": "kütüphane"},
+                          {"ad": "Uydurma Araç", "tur": "uygulama", "belirsiz": True},
+                          {"ad": "Hiç Geçmeyen", "tur": "model", "belirsiz": True}]}
+
+
+def test_belirsiz_aday_paydada_yok_bulunursa_ayri_satirda():
+    p = _puan_ile(BELIRSIZLI)
+    assert p["yakalama"] == (1, 1) and p["kacan"] == []
+    assert p["belirsiz"] == (1, 2)
+    assert "  belirsiz bulundu 1/2" in au.satirlar(p)
+
+
+def test_tur_kiriliminda_belirsizler_haric():
+    assert _puan_ile(BELIRSIZLI)["tur"] == {"kütüphane": (1, 1)}
+
+
+def test_ogrenimler_tum_metinde_ayni_satir_kelime_ortusmesi():
+    metin = "# Rapor\n\n- Lenis kaydırmayı yumuşatır, GSAP ile birlikte\n- kamera sabit\n"
+    p = au.puan(metin, {"ogrenimler": [
+        {"ogrenim": "Lenis ile kaydırmayı yumuşat", "tur": "ipucu"},  # lenis+kaydırmayı aynı satır → 2/3
+        {"ogrenim": "Kamera titreşimi gimbal ile azaltılır", "tur": "ipucu"},  # yalnız kamera → 1/4
+        {"ogrenim": "Lenis kaydırmayı yumuşatır", "tur": "ipucu", "belirsiz": True}]})  # paydada yok
+    assert p["ogrenimler"] == (1, 2)
+    assert "öğrenimler: yakalama 1/2" in au.satirlar(p)
+
+
+def test_ogrenimler_ve_belirsiz_yoksa_satir_cikmaz():
+    s = au.satirlar(_puan())
+    assert not any(x.startswith("öğrenimler") or "belirsiz" in x for x in s)
