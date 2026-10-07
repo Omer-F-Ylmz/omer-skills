@@ -6,7 +6,7 @@ requires-python = ">=3.12"
 dependencies = [
     "fastembed>=0.8.1",
     "jev-cli",
-    "onnxruntime==1.30.0",
+    "onnxruntime-directml==1.24.4",
     "rapidocr==3.9.2",
 ]
 
@@ -25,3 +25,6 @@ packages = ["video"]
 
 [dependency-groups]
 dev = ["pytest"]
+
+[tool.uv]
+override-dependencies = ["onnxruntime; sys_platform == 'never'"]  # 1b-1R R4: fastembed onnxruntime ister; onnxruntime-directml aynı modülü verir, birlikte durmaz

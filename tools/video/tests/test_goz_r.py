@@ -85,7 +85,6 @@ def test_r4_ocr_cihaz_motordan():
     ctx = {"rapid": yukle}
     cli._ocr(ctx, ["C:/x/k1.jpg"])
     assert ctx["ocr_cihaz"] == "dml"
-# === R6
 
 
 def test_r6_kacan_alt_nedeni():

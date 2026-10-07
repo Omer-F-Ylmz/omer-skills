@@ -231,7 +231,7 @@ def birlestir(parcalar):
 MODEL_KOK = "C:/Projeler/.tmp-video/models/rapidocr/"  # ayar · VIDEO_OCR_MODEL ile değişir
 MODEL_DOSYA = {"Det.model_path": "ch_PP-OCRv5_det_mobile.onnx", "Cls.model_path": "ch_ppocr_mobile_v2.0_cls_mobile.onnx",
                "Rec.model_path": "latin_PP-OCRv5_rec_mobile.onnx", "Rec.rec_keys_path": "ppocrv5_latin_dict.txt"}  # gitleaks:allow (dosya adı) · 1b-1R R1: OCR önbellek anahtarında
-OCR_CIHAZ = "cpu"  # ayar · 1b-1R R4: dml | cpu — DML ≥2× hızlıysa dml (onnxruntime-directml)
+OCR_CIHAZ = "dml"  # ayar · 1b-1R R4: dml | cpu — 20 kare DML 0,245 vs CPU 1,585 sn/kare (6,5×) → dml
 
 
 def rapid_yukle(cihaz=None):
