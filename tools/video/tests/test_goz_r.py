@@ -85,3 +85,15 @@ def test_r4_ocr_cihaz_motordan():
     ctx = {"rapid": yukle}
     cli._ocr(ctx, ["C:/x/k1.jpg"])
     assert ctx["ocr_cihaz"] == "dml"
+# === R6
+
+
+def test_r6_kacan_alt_nedeni():
+    e = "ekranda-var-OCR-kaçırdı"
+    altin = {"adaylar": [{"ad": a, "zaman": z, "kaynak": "ekran"} for a, z in
+                         [("Kestrelapp", "0:05"), ("Falconkit", "0:05"), ("Gannetdb", "0:05"), ("Heronjs", "0:20"), ("Ibisapi", "1:40")]]}
+    ham = [[0.0, [["Kestrelapp opens", 0.9, 0], ["~Falconkit", 0.9, 1], ["Gannetdb", 0.3, 2]]], [22.0, [["unrelated text", 0.9, 0]]]]
+    kacan = [(a["ad"], e) for a in altin["adaylar"]] + [("Jaybird", "ASR-bozdu")]
+    assert au.kacan_alt(kacan, altin, ham, lambda x: x.startswith("~")) == [
+        ("Kestrelapp", f"{e}/bütçe-attı"), ("Falconkit", f"{e}/gürültü-süzgeci"), ("Gannetdb", f"{e}/düşük-güven"),
+        ("Heronjs", f"{e}/OCR-okuyamadı"), ("Ibisapi", f"{e}/örnekleme-boşluğu"), ("Jaybird", "ASR-bozdu")]
