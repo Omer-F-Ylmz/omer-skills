@@ -6,6 +6,8 @@ requires-python = ">=3.12"
 dependencies = [
     "fastembed>=0.8.1",
     "jev-cli",
+    "onnxruntime==1.30.0",
+    "rapidocr==3.9.2",
 ]
 
 [project.scripts]

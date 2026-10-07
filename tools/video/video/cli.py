@@ -17,6 +17,7 @@ from jev import cekirdek as c
 from jev import skill as sk
 
 from . import altin as au
+from . import goz as gz
 from . import departman as dp
 from . import getir as gt
 from . import kanal as kn
@@ -377,7 +378,17 @@ def _ocr_model(satirlar):
 
 
 def _ocr(ctx, yollar):
-    """C3: tüm kareler tek PowerShell çağrısında (ocr.ps1, Windows.Media.Ocr tr + en) → {dosya adı: birleşik satırlar}."""
+    """C3: tüm kareler tek PowerShell çağrısında (ocr.ps1, Windows.Media.Ocr tr + en) → {dosya adı: birleşik satırlar}.
+    1b-1 M1: ctx["rapid"] (yükleyici) varsa RapidOCR birincil, yerel çözünürlükte; Windows OCR yalnız import/model hatasında (ctx["ocr_motor"])."""
+    if ctx.get("rapid"):
+        try:
+            motor = ctx["rapid"]()
+            ctx["ocr_motor"] = "rapidocr"
+            return {Path(y).name: gz.ocr_satirlar(motor(y)) for y in yollar}
+        except Exception as e:  # ImportError · model dosyası yok/bozuk → Windows OCR (sebep künyede)
+            ctx["ocr_motor"] = f"windows (rapidocr: {' '.join(str(e).split())[:60]})"
+    else:
+        ctx.setdefault("ocr_motor", "windows")
     out = _kos(ctx, ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(OCR_PS), *map(str, yollar)], SURE["ocr"])
     return {ad: _ocr_birlestir(k.get("tr") or [], k.get("en") or []) for ad, k in json.loads(out.decode("utf-8") or "{}").items()}
 
@@ -443,10 +454,10 @@ def paket(ns, ctx):
         if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
             zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
         isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
-    ocr, gor = {}, set()
+    ocr = {}
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     try:
-        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, GENISLIK, ns.model_tavan or ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
+        kareler, kare_yok = (_kareler(ctx, d, [*isaret, *zamanlar], 0, 0, ns.model_tavan or ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
@@ -458,13 +469,13 @@ def paket(ns, ctx):
     if ns.kuyruk and Path(ns.kuyruk).is_file():
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
-          f" · https://youtu.be/{ns.id}",
+          f" · https://youtu.be/{ns.id} · ocr_motor {ctx.get('ocr_motor') or 'yok'}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
-          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, s in sorted(ocr.get("metin", [])) for x in s if not (x in gor or gor.add(x))]
-                                                or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # aynı satır bir kez; boşsa bölüm yok
+          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join(str(s.get("metin")) for s in seg))]
+                                                or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
           *(["## İncelenmedi", *i] if (i := [f"[{m.ss(t)}] {sebep}" for t, sebep in sorted(ocr.get("incelenmedi", []))]) else []),
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"
@@ -490,7 +501,7 @@ def _akis_url(ctx, d):
         e = re.search(r"[?&/]expire[=/](\d+)", url)
         if e and int(e.group(1)) - 300 > time.time():
             return url
-    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", "bv*[height<=720][vcodec!=none]/b", yt_url(d.name)], SURE["meta"])
+    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]/b", yt_url(d.name)], SURE["meta"])
     url = out.decode("utf-8", "replace").strip().splitlines()[0]
     yol.write_text(url, encoding="utf-8")
     return url
@@ -498,7 +509,7 @@ def _akis_url(ctx, d):
 
 def _kare_uret(ctx, d, url, t, pencere, g):
     """Tek zaman: ffmpeg girişte atlar (-ss -i'den önce). Önce tam t karesi; pencere>0 ise [t-p, t+p] sahne değişimleri ek. Video dosyası yok."""
-    olcek = f"scale='min({g},iw)':-2,format=yuvj420p"  # mjpeg sınırlı-aralık YUV'u reddeder
+    olcek = f"scale='min({g},iw)':-2,format=yuvj420p" if g else "format=yuvj420p"  # mjpeg sınırlı-aralık YUV'u reddeder · 1b-1 M1: g=0 → yerel (OCR)
     kd = d / "kareler"
     kd.mkdir(exist_ok=True)
     ad = f"k{int(t):05d}"
@@ -638,6 +649,12 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
                 o["montaj"] += 1
     tut, yazi = [], "\n".join([taban or "", *(x for _, s in o["metin"] for x in s)])  # O11: bütçe OCR dahil tam metinle (pt.girdi_tk)
     for t, yol in model:
+        if not g and ocr is not None and yol.is_file():  # 1b-1 M1: OCR yerel çözünürlükte bitti; modele uzun kenar ≤768, kenarlar 28'in katı
+            w, h = m.jpeg_boyut(yol.read_bytes())
+            _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(yol), "-vf", "scale=%d:%d,format=yuvj420p" % gz.olcek(w, h), "-q:v", "4",
+                       str(yol.with_suffix(".k.jpg"))], SURE["ffmpeg"])
+            if (k := yol.with_suffix(".k.jpg")).is_file():
+                k.replace(yol)
         if len(tut) >= en_fazla:
             o["incelenmedi"].append((t, f"kare tavanı {en_fazla}"))
             yol.unlink(missing_ok=True)
@@ -1220,7 +1237,7 @@ def altin(ns, ctx):  # VİDEO-GÖZ-1a K4: rapor.md altın JSON'a karşı (salt o
     return 0
 
 
-def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
+def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, ocr=None):
     argv = [a.rstrip("\r") for a in (sys.argv[1:] if argv is None else argv)]  # 24e-1 K2: CRLF listeden gelen yol
     if argv[:1] == ["--whisper"]:
         argv[0] = "whisper"
@@ -1402,7 +1419,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
     geri = lambda x: x[1:] if isinstance(x, str) and x[:1] == "\0" else x  # noqa: E731
     vars(ns).update({k: [geri(y) for y in x] if isinstance(x, list) else geri(x) for k, x in vars(ns).items()})
     env = os.environ if env is None else env
-    ctx = {"env": env, "kos": kos, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK), "al": al or gt._al,  # B2: sayfa okuyucu
+    ctx = {"env": env, "kos": kos, "rapid": ocr, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK), "al": al or gt._al,  # B2: sayfa okuyucu
            "gh": lambda a: json.loads(subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", check=True).stdout)}  # DERİNLİK-1 R3
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
@@ -1421,4 +1438,4 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
 def calistir():
     for akis in (sys.stdout, sys.stderr):
         akis.reconfigure(encoding="utf-8")
-    sys.exit(main())
+    sys.exit(main(ocr=gz.rapid_yukle))  # 1b-1 M1: RapidOCR yalnız gerçek koşuda; testler Windows OCR sahtesiyle

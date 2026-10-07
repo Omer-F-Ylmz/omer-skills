@@ -261,7 +261,7 @@ def test_kare_akis_url_giris_atlamali_video_yazilmaz(ortam, capsys):
     kos = Kos(ham=ayri)
     assert main(["kare", VID, "--t", "1:00,2:00", "--genislik", "1200"], env=ortam, kos=kos) == 0
     yt = [a for a in kos.cagri if a[0] == "yt-dlp"]
-    assert len(yt) == 1 and "-g" in yt[0] and yt[0][yt[0].index("-f") + 1] == "bv*[height<=720][vcodec!=none]/b"
+    assert len(yt) == 1 and "-g" in yt[0] and yt[0][yt[0].index("-f") + 1] == "bv*[width<=1920][height<=1920][vcodec!=none]/b"
     net = ag(kos)
     assert len(net) == 4  # zaman başına: tam-t karesi + pencere sahne kareleri
     for a in net:

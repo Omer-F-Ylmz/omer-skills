@@ -37,7 +37,7 @@ def test_model_karesi_768_ve_28_kati():
 def test_rapidocr_yoksa_windows_yedegi_ve_motor_adi():
     def yukle():
         raise ImportError("rapidocr yok")
-    ctx = {"rapid": yukle, "kos": lambda a, t, env=None: b'{"k1.jpg": {"tr": [["Merhaba", 0, 0, 10, 10]], "en": []}}', "env": {}}
+    ctx = {"rapid": yukle, "kos": lambda a, timeout: (0, b'{"k1.jpg": {"tr": [["Merhaba", 0, 0, 10, 10]], "en": []}}', b""), "env": {}}
     assert cli._ocr(ctx, ["C:/x/k1.jpg"]) == {"k1.jpg": ["Merhaba"]}
     assert ctx["ocr_motor"].startswith("windows")
 
