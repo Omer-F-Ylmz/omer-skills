@@ -33,7 +33,7 @@ def test_r4_yorum_baglantilari(tmp_path, monkeypatch):
     lk, durum = cli._yorumlar({"uyku": lambda s: None}, tmp_path)
     assert lk == ["https://github.com/a/b", "https://x.io/p"] and durum == "✓"
     a = " ".join(gelen[0])
-    assert "--write-comments" in a and "--skip-download" in a and "max_comments=20" in a
+    assert "--write-comments" in a and "--skip-download" in a and "max_comments=60" in a
     assert json.loads((tmp_path / "yorumlar.json").read_text(encoding="utf-8"))["durum"] == "✓"
 
 

@@ -2,7 +2,7 @@
 import re
 from difflib import SequenceMatcher
 
-from .altin import norm
+from .altin import norm, url_norm
 
 OCR_GUVEN, OCR_BUTCE, MODEL_KENAR = 0.5, 3000, 768  # ayar · M1: RapidOCR skor eşiği · Ekran metni jeton bütçesi · modele giden kare uzun kenarı
 URL_KOMUT = re.compile(r"https?://|www\.|\b[\w-]+\.(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design)\b"
@@ -108,6 +108,36 @@ def model_sec(okunan, altyazi, isaret, n=MODEL_UST):
         gor |= yeni
         puan.append((-len(yeni), not any(abs(t - i) <= 5 for i in isaret), t))
     return sorted(t for *_, t in sorted(puan)[:n])
+
+
+YORUM_SATIR = re.compile(r"https?://|www\.|\b(?:npx|pip|uvx?|git)\b|`|\b\d{1,2}:\d{2}\b", re.I)
+URL_BUL = re.compile(r"(?:https?://)?(?:localhost:\d+|(?:[\w-]+\.)+(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design|no)\b)"
+                     r"(?:/[^\s)\]>,'\"]*)?", re.I)
+
+
+def yorum_sec(ham, sozluk=(), butce=800, token=lambda s: len(s) // 4 + 1):
+    """M4: sabit ve kanal sahibi yorumu tam (satırlar ' / '), diğerlerinden yalnız link/kod/komut/zaman damgası/sözlük adı taşıyan satır;
+    öncelik sabit > sahip > diğer (yt-dlp top sırası), ≤ butce."""
+    tam = [f"[{'sabit' if k == 'pinned' else 'sahip'}] " + " / ".join(x.strip() for x in h["text"].splitlines() if x.strip())
+           for k in ("pinned", "sahip") for h in ham if h.get(k) and (k == "pinned" or not h.get("pinned"))]
+    diger = [x.strip() for h in ham if not (h.get("pinned") or h.get("sahip")) for x in h["text"].splitlines()
+             if x.strip() and (YORUM_SATIR.search(x) or sozlukte(x, sozluk))]
+    out, top = [], 0
+    for x in [*tam, *diger]:
+        if top + token(x) <= butce:
+            top += token(x)
+            out.append(x)
+    return out
+
+
+def urller_bul(kaynaklar):
+    """M4: [(kaynak, t, metin)] → [(url, kaynak, ilk t)] tekil (url_norm), zamana göre; konuşmadaki 'dot/nokta' noktaya çevrilir."""
+    ilk = {}
+    for k, t, x in kaynaklar:
+        for u in URL_BUL.findall(re.sub(r"\s+(?:dot|nokta)\s+", ".", x, flags=re.I)):
+            if (a := url_norm(u := u.rstrip(".,;:"))) not in ilk or t < ilk[a][2]:
+                ilk[a] = (u, k, t)
+    return sorted(ilk.values(), key=lambda v: v[2])
 
 
 MODEL_KOK = "C:/Projeler/.tmp-video/models/rapidocr/"  # ayar · VIDEO_OCR_MODEL ile değişir

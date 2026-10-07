@@ -401,7 +401,7 @@ def test_altyazi_tek_istek_sleep_subtitles(ortam):
     assert main(["ozet", VID], env=ortam, kos=kos) == 0
     alt = [a for a in kos.cagri if "--sub-langs" in a]
     assert len(alt) == 1 and alt[0][alt[0].index("--sub-langs") + 1] == "en"
-    assert alt[0][alt[0].index("--sleep-subtitles") + 1] == "2"
+    assert alt[0][alt[0].index("--sleep-subtitles") + 1] == "3"
 
 
 def test_429_iki_tekrar_sonra_exit_4_yarim_dosya_yok(ortam, capsys):

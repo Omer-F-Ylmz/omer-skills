@@ -145,7 +145,7 @@ def _ozet_bir(ctx, v, dil):
     anahtar, tur = secim
     for eski in d.glob("altyazi*"):
         eski.unlink()
-    _yt(ctx, ["yt-dlp", "--skip-download", "--no-warnings", "--write-subs" if tur == "elle" else "--write-auto-subs", "--sleep-subtitles", "2",
+    _yt(ctx, ["yt-dlp", "--skip-download", "--no-warnings", "--write-subs" if tur == "elle" else "--write-auto-subs", "--ignore-errors", "--sleep-subtitles", "3",
               "--sub-langs", anahtar, "--sub-format", "vtt", "-o", str(d / "altyazi.%(ext)s"), yt_url(v)], SURE["altyazi"], d)
     vtt = next(d.glob("altyazi*.vtt"), None)
     if vtt is None:
@@ -394,19 +394,21 @@ def _ocr(ctx, yollar):
 
 
 def _yorumlar(ctx, d):
-    """DERİNLİK-1 R4: sabitlenmiş/yazar yorumlarındaki bağlantılar (en fazla 20 yorum, indirme yok; yorumlar.json). → (bağlantılar, kapsam durumu)"""
+    """DERİNLİK-1 R4 · 1b-1 M4: en çok 60 top yorum (kanal sahibi yanıtları dahil, indirme yok) → yorumlar.json ham {text, pinned, sahip};
+    bağlantılar yalnız sabit/sahip yorumlarından. → (bağlantılar, kapsam durumu)"""
     yol = d / "yorumlar.json"
     j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
-    if j.get("durum") != "✓":
+    if j.get("durum") != "✓" or "ham" not in j:  # M4: eski biçim (yalnız sabit/sahip metni) yeniden çekilir
         ctx["uyku"](2)  # meta isteğinin ardından beklemesiz istek yok
         try:  # _yt değil: hata yolunda altyazı dosyası silinmesin
             js = json.loads(_kos(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", "--write-comments", "--extractor-args",
-                                       "youtube:max_comments=20,20,0,0;comment_sort=top", yt_url(d.name)], SURE["meta"]))
-            j = {"durum": "✓", "yorumlar": [x.get("text") or "" for x in js.get("comments") or [] if x.get("is_pinned") or x.get("author_is_uploader")]}
+                                       "youtube:max_comments=60,60,20,5;comment_sort=top", yt_url(d.name)], SURE["meta"]))
+            j = {"durum": "✓", "ham": [{"text": x.get("text") or "", "pinned": bool(x.get("is_pinned")), "sahip": bool(x.get("author_is_uploader"))}
+                                      for x in js.get("comments") or []]}
         except Exception as e:  # sessiz dönüş yok: sebep Kapsam'da
-            j = {"durum": f"yorum alınamadı ({' '.join(str(e).split())[:80]})", "yorumlar": []}
+            j = {"durum": f"yorum alınamadı ({' '.join(str(e).split())[:80]})", "ham": []}
         yol.write_text(json.dumps(j, ensure_ascii=False), encoding="utf-8")
-    return list(dict.fromkeys(u for t in j["yorumlar"] for u in m.urller(t))), j["durum"]
+    return list(dict.fromkeys(u for h in j["ham"] if h["pinned"] or h["sahip"] for u in m.urller(h["text"]))), j["durum"]
 
 
 def _bagli_video(ctx, v, bl, ky):
@@ -478,6 +480,10 @@ def paket(ns, ctx):
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
           *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join(str(s.get("metin")) for s in seg), butce=gz.butce(meta.get("duration") or 0))]
                                                 or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
+          *(["## Ekranda/konuşmada URL'ler", *[f"{u} · {k} · {m.ss(t)}" for u, k, t in uu]] if (uu := gz.urller_bul(  # 1b-1 M4
+              [*(("ekran", t, x) for t, s in ocr.get("metin", []) for x in s), *(("ses", s["bas"], str(s.get("metin"))) for s in seg)])) else []),
+          *(["## Yorumlar", *yr] if (yr := gz.yorum_sec(json.loads(y.read_text(encoding="utf-8")).get("ham", [])  # 1b-1 M4: ≤800 tk
+                                                       if (y := d / "yorumlar.json").is_file() else [])) else []),
           *(["## İncelenmedi", *i] if (i := [f"[{m.ss(t)}] {sebep}" for t, sebep in sorted(ocr.get("incelenmedi", []))]) else []),
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"

@@ -10,6 +10,7 @@ def _meta(kok, v, sure):
     d.mkdir(parents=True)
     (d / "meta.json").write_text(json.dumps({"id": v, "title": "Başlık", "channel": "Kanal", "duration": sure,
                                              "description": "bak https://ornek.dev"}), encoding="utf-8")
+    (d / "yorumlar.json").write_text('{"durum": "✓", "ham": []}', encoding="utf-8")  # 1b-1 M4: gerçek yorum çekilmez (ağsız)
     return d
 
 
