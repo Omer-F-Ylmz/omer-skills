@@ -48,6 +48,7 @@ WHISPER_PARCA = 1200  # ayar · C1: whisper parça boyu (sn); yarıda kalırsa k
 
 
 def kos(args, timeout=120, env=None):
+    args = [shutil.which(args[0]) or args[0], *args[1:]]  # MÜKEMMEL-7: Windows'ta npm .cmd sarmalayıcısı (mcporter.cmd) uzantısız bulunmaz
     r = subprocess.run(args, capture_output=True, timeout=timeout, env=env)
     return r.returncode, r.stdout, r.stderr
 
