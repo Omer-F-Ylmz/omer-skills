@@ -79,3 +79,38 @@ FaChtkkG9X4 komut: yok
 d_UE-wHLoZY aday: 3D Enhance (belirsiz), 8K Texture (belirsiz), Adobe After Effects (belirsiz), Adobe Photoshop (belirsiz), Principled BSDF (ekranda-var-OCR-kaçırdı), Anim Player (belirsiz)
 d_UE-wHLoZY url: yok
 d_UE-wHLoZY komut: yok
+
+## 1b-1R son (R0–R6, 2026-10-08)
+Komut (b) = `video altin kapsam <paket.md> <id>.json`; (a) `--sozluk yok`, (c) `--sozluk ek`. Varsayılan ASR auto (R5) → kabul sayıları paket-auto.md'den, groq son iki sütunda. Videolar sırayla tek tek; ölçümde suite/alt ajan yok. groq koşusu auto'nun goz/ocr.json önbelleğini kullandı (OCR aynı, yalnız transkript farklı). 1nGx7WR8YLE ve YDAK1lvVXho ilk koşuda 0 kare verdi (R3 tabanı select'i ~117 terime çıkardı → ffmpeg "Cannot allocate memory"); R3b (≤50 terimlik parça) sonrası yeniden ölçüldü.
+
+| video | aday (a) | aday (b) | aday (c) | komut (b) | url (b) | token (b) metin+kare | model kare | OCR kare / sn | ocr_cihaz | paket sn auto / groq | aday (b) groq | token (b) groq |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| aZe5ZTYcF1M | 18/22 | 19/22 | 19/22 | 1/1 | 3/3 | 8079 (5649+2430) | 6 | 78 / 18 | dml | 181 / 10 | 19/22 | 8021 |
+| 1nGx7WR8YLE | 15/18 | 15/18 | 15/18 | 0/0 | 3/5 | 10678 (8248+2430) | 6 | 117 / 32 | dml | 269 / 7 | 15/18 | 10556 |
+| YDAK1lvVXho | 15/26 | 19/26 | 19/26 | 0/0 | 1/2 | 11127 (8697+2430) | 6 | 122 / 24 | dml | 260 / 6 | 19/26 | 10932 |
+| FaChtkkG9X4 | 14/16 | 15/16 | 15/16 | 1/1 | 4/6 | 7197 (4767+2430) | 6 | 73 / 21 | dml | 123 / 23 | 15/16 | 7194 |
+| d_UE-wHLoZY | 12/13 | 12/13 | 12/13 | 0/0 | 1/1 | 4400 (1970+2430) | 6 | 40 / 13 | dml | 24 / 4 | 12/13 | 4383 |
+| TOPLAM | 74/95 (%77,9) | 80/95 (%84,2) | 80/95 (%84,2) | 2/2 | 12/17 (%70,6) | 41481 | 30 | 430 / 108 (0,25 sn/kare) | dml | 857 / 50 | 80/95 | 41086 |
+
+Kabul: aday (b) 80/95 < 86 ✗ · komut 2/2 ✓ · url 12/17 < 16 ✗ · token 41481 ≤ 49465 ✓. 1b-1 son → 1b-1R: aday 63 → 80, url 7 → 12, token 35998 → 41481.
+OCR cihazı (R4): 20 kare, ısınma karesi hariç, DML 0,245 · CPU 1,585 sn/kare (6,5×) → varsayılan dml; künyede ocr_cihaz dml 5/5.
+ASR kıyası (R5, kaynak=ses adaylar yalnız ## Segmentler): auto 19/20 · groq 17/20 → groq < auto+2, varsayılan auto (kod değişmedi). Video başına auto/groq: aZe5 3/3 · 1nGx 5/5 · YDAK 5/5 · FaCh 1/1 (2 aday) · d_UE 5/3. Yeni Groq çağrısı 2 (FaChtkkG9X4, d_UE-wHLoZY).
+Kaçan alt nedeni (R6): ham goz/ocr.json'dan; değişim-süzgeci R2 sonrası metin yolunda süzgeç kalmadığı için üretilmez.
+
+## 1b-1R son kaçanlar
+aZe5ZTYcF1M kaçan: Web Worker (ekranda-var-OCR-kaçırdı/bütçe-attı), Manyetik butonlar (ekranda-var-OCR-kaçırdı/bütçe-attı), Claude memory (ekranda-var-OCR-kaçırdı/bütçe-attı)
+aZe5ZTYcF1M url kaçan: yok
+aZe5ZTYcF1M komut kaçan: yok
+FaChtkkG9X4 kaçan: Appear efekti (ekranda-var-OCR-kaçırdı/OCR-okuyamadı)
+FaChtkkG9X4 url kaçan: chatgpt.com/c/6ab2fcec-5ed4-83e9-bbf9-cd85e18c5bf8 (ekranda), https://youtu.be/9IPwFoy1x08 (ekranda)
+FaChtkkG9X4 komut kaçan: yok
+d_UE-wHLoZY kaçan: 3D Enhance (belirsiz), 8K Texture (belirsiz), Adobe After Effects (belirsiz), Adobe Photoshop (belirsiz), Principled BSDF (ekranda-var-OCR-kaçırdı/gürültü-süzgeci), Anim Player (belirsiz)
+d_UE-wHLoZY url kaçan: yok
+d_UE-wHLoZY komut kaçan: yok
+1nGx7WR8YLE kaçan: Claude Code (belirsiz), scrollcraft (ekranda-var-OCR-kaçırdı/bütçe-attı), Lighthouse (belirsiz), Chrome DevTools (belirsiz), ffmpeg (yorumda), cut-and-extend (yorumda)
+1nGx7WR8YLE url kaçan: https://mcp.topview.ai/mcp (ekranda), https://mcp.example.com/mcp (ekranda)
+1nGx7WR8YLE komut kaçan: yok
+YDAK1lvVXho kaçan: scrollcraft (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), design-taste-frontend (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), Chrome DevTools (belirsiz), contact sheet (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), Bodoni Moda (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), Hanken Grotesk (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), parallax (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), rim light (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), lens-shape wipe (belirsiz)
+YDAK1lvVXho url kaçan: localhost:3000 (ekranda)
+YDAK1lvVXho komut kaçan: yok
+Alt neden sayısı (b): OCR-okuyamadı 8 · bütçe-attı 4 · gürültü-süzgeci 1 · 
