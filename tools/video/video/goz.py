@@ -60,7 +60,7 @@ def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(
     return sorted(tut)
 
 
-SAHNE_HAM, OCR_DEGISIM, OCR_SN, MODEL_UST = 5, 0.15, 240, 6  # ayar · M2: sahne Hamming > · OCR metin değişimi ≥ · OCR süresi sn · model karesi
+SAHNE_HAM, OCR_DEGISIM, OCR_GUVENLIK, MODEL_UST = 5, 0.15, 900, 6  # ayar · M2: sahne Hamming > · OCR metin değişimi ≥ · 1b-1R R4: OCR güvenlik tavanı sn (kesim kare sayısıyla) · model karesi
 AD = re.compile(r"\b[A-Z][\w.+-]{2,}|(?:https?://|www\.)\S+|\b[\w-]+\.(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design)\b\S*")
 
 
@@ -103,6 +103,17 @@ def kare_sec(sahne, sure, f, tavan, taban=TABAN_SN):
     else:
         sahne = sahne_sec(sahne, max(tavan - len(per), 1))
     return sorted(sahne + per)
+
+
+def kapsam_sira(n):
+    """1b-1R R4: OCR sırası kapsamaya göre — eşit aralıklı seyrek geçiş, sonra boşluklar (8 → 0,4,2,6,1,3,5,7); kesilirse kayıp videoya yayılır."""
+    s, sira, gor = 1 << max(n - 1, 0).bit_length(), [], set()
+    while s:
+        yeni = [i for i in range(0, n, s) if i not in gor]
+        sira += yeni
+        gor.update(yeni)
+        s //= 2
+    return sira
 
 
 def ocr_sec(okunan, esik=OCR_DEGISIM):
@@ -220,9 +231,10 @@ def birlestir(parcalar):
 MODEL_KOK = "C:/Projeler/.tmp-video/models/rapidocr/"  # ayar · VIDEO_OCR_MODEL ile değişir
 MODEL_DOSYA = {"Det.model_path": "ch_PP-OCRv5_det_mobile.onnx", "Cls.model_path": "ch_ppocr_mobile_v2.0_cls_mobile.onnx",
                "Rec.model_path": "latin_PP-OCRv5_rec_mobile.onnx", "Rec.rec_keys_path": "ppocrv5_latin_dict.txt"}  # gitleaks:allow (dosya adı) · 1b-1R R1: OCR önbellek anahtarında
+OCR_CIHAZ = "cpu"  # ayar · 1b-1R R4: dml | cpu — DML ≥2× hızlıysa dml (onnxruntime-directml)
 
 
-def rapid_yukle():
+def rapid_yukle(cihaz=None):
     """Gerçek RapidOCR (det/cls PP-OCR mobile + Latin PP-OCRv5 rec, yerel model, ağ yok) → yol → [(metin, skor, üst y)].
     Import/model hatası yükselir: cli._ocr Windows OCR'a düşer. ponytail: ı → i okunur (Latin sözlüğü); eşleşme norm'la."""
     import os
@@ -230,7 +242,11 @@ def rapid_yukle():
     k = (os.environ.get("VIDEO_OCR_MODEL") or MODEL_KOK).rstrip("/\\") + "/"
     if eksik := [f for f in MODEL_DOSYA.values() if not os.path.isfile(k + f)]:
         raise FileNotFoundError(f"model yok: {', '.join(eksik)}")
-    ocr = RapidOCR(params={"Global.model_root_dir": k, **{a: k + f for a, f in MODEL_DOSYA.items()},
+    cihaz = cihaz or OCR_CIHAZ
+    if cihaz == "dml":  # R4: DirectML yalnız sağlayıcı varsa; yoksa cpu (künyede)
+        import onnxruntime
+        cihaz = "dml" if "DmlExecutionProvider" in onnxruntime.get_available_providers() else "cpu"
+    ocr = RapidOCR(params={"Global.model_root_dir": k, "EngineConfig.onnxruntime.use_dml": cihaz == "dml", **{a: k + f for a, f in MODEL_DOSYA.items()},
                            "Det.ocr_version": OCRVersion.PPOCRV5, "Det.lang_type": LangDet.CH, "Det.model_type": ModelType.MOBILE,
                            "Cls.ocr_version": OCRVersion.PPOCRV4, "Cls.lang_type": LangCls.CH, "Cls.model_type": ModelType.MOBILE,
                            "Rec.ocr_version": OCRVersion.PPOCRV5, "Rec.lang_type": LangRec.LATIN, "Rec.model_type": ModelType.MOBILE})
@@ -239,6 +255,7 @@ def rapid_yukle():
         r = ocr(str(yol))
         return [(t, float(s), float(min(p[1] for p in b))) for t, s, b in
                 zip(r.txts or (), r.scores or (), r.boxes if r.boxes is not None else ())]
+    oku.cihaz = cihaz
     return oku
 
 
