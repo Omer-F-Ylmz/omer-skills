@@ -1029,3 +1029,16 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Yan etki: `parti baslat` scratchpad kuyruğunda bile gerçek kayit.jsonl (+2, 268-269) ve kuyruk.md (+4) yazar; durum hücresi `bekliyor` şart. Bu dosyalar commit edilmedi.
 - Kendi hatam: test_m7.py (eski M7) üzerine yazıldı, commit öncesi amend ile geri getirildi; yeni test test_mukemmel7.py.
 - HARCANAN: B 2 · claude -p 0 · Jev 2 · $0.013.
+
+## O102 — MÜKEMMEL-7b K5 keşif sonu (on → araştırma → bizde → katman, köprülü)
+- Girdi: _0NSNY7n5lE · O101 toplu (2 aday). Tarama yeniden koşulmadı.
+- on: You Should Know rc 0 (on.md, aday iskeleti; repo yok, güvenlik ön taraması yok) · Claude Code Mods `--tur teknik` rc 2 tasarım gereği (cli.py:1153, iskelet yok, T0 yolu) → aday.md'yi ana ajan yazdı.
+- Araştırma (aday-arastirici, 6 araç): you-should-know `arastirma: tam`, rapor-denetle geçti; CC v2.1.287 yerleşik mod, yalnız etkileşimli (claude -p'de koşmaz), telemetri açık, "maliyet artırmaz" iddiası yanlış.
+- Mods ÖNCEDEN-GÖRÜLDÜ eşleşmesi (`/model` 0.90) yanlış → karşılaştırıldı: CC yerleşik plugin-authoring skill'i karşılar.
+- bizde: rc 0 · Jev 4 · ikisine de `kurulum: yok` (yerleşik plugin/skill görülmüyor).
+- karar (ana ajan): ikisi ÖĞREN. katman: rc 0 · Jev 4 · Mods ÖĞREN → bilgi/claude-code-mods.md · ysk özellik yan-ajan-notu DENE → docs/denemeler/you-should-know-yan-ajan-notu.md (aday düzeyi ÖĞREN ile çelişki sessiz geçti). T0/T1 kurulum 0 · bekleyen/ 0 · RED 0.
+- Aday akışı: form 2 → toplu 2 → on 2 (1 iskelet + 1 T0) → bizde 2 → katman 2 (ÖĞREN 1 · DENE 1) · kayıp 0.
+- U2 bulgusu: kurulum_komutlar (1, `/plugin enable cc-plugin-you-should-know@builtin`) on.md'ye ve araştırıcıyla aday.md Kurulum/Geri alma/Telemetri kapatma'ya geçti; köprülü akışta kayıp yok. Komut slash biçiminde, `- plugin:` satırına dönmez.
+- Hata (çökme) 0 → kod değişmedi, suite koşulmadı. Bulgular tasarım boşluğu, aşağıdaki listeye.
+- Köprüsüz değişiklik listesi (güncel): U1 tarama = `parti baslat` V10 + toplu.md · U2 kurulum_komutlar → aday.md `## Kurulum` (slash `/plugin enable X@builtin` → "yerleşik: elle" notu, onay hattına girmez) · U3-U5 akil._aday_md karar/Özellikler/Bizde · U6 teknik/ipucu adayına akil aday.md yazsın (6 bölüm; on rc 2'de iskelet yok) · U7 katman: aday `karar:` ≠ özellik kararı → ÇELİŞKİ (sessiz geçiş yok) · U8 yalnız etkileşimli özellik (claude -p'de koşmaz) DENE değil ÖĞREN/elle deneme · U9 bizde: yerleşik CC plugin/skill (`@builtin`, plugin-authoring) kurulu sayılsın · U10 `parti baslat` verilen kuyruk dosyasına yazsın, deneme koşusunun kayıt yolu ayarlanabilsin (şu an gerçek kuyruk.md + kayit.jsonl).
+- HARCANAN: B 0 · claude -p 0 · Jev 8 · OpenRouter $0. "K5 yeşil" yazılmaz; sonraki K6 = U1-U10 köprüsüz.
