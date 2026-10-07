@@ -52,12 +52,19 @@ def _kelime(s):
     return set(re.findall(r"\w{4,}", s.casefold()))
 
 
+def _ortusur(s, satir_kelimeleri):
+    k = _kelime(s)
+    return any(2 * len(k & r) >= len(k) > 0 for r in satir_kelimeleri)
+
+
 def puan(metin, altin):
     rapor_adlar = _ilk_sutun(metin, "Adaylar", "ad")
-    tur, kacan, yazim, isabetli = {}, [], [0, 0], set()
+    tur, kacan, yazim, isabetli, bel = {}, [], [0, 0], set(), [0, 0]
     for a in altin.get("adaylar", []):
-        t = tur.setdefault(a["tur"], [0, 0]); t[1] += 1
         bulunan = [r for r in rapor_adlar if eslesir(r, a["ad"], a.get("alias", []))]
+        if a.get("belirsiz"):  # paydaya girmez; bulunursa ayrı sayılır
+            bel[1] += 1; bel[0] += bool(bulunan); isabetli.update(bulunan); continue
+        t = tur.setdefault(a["tur"], [0, 0]); t[1] += 1
         if not bulunan:
             kacan.append((a["ad"], a["tur"])); continue
         t[0] += 1; isabetli.update(bulunan)
@@ -78,13 +85,18 @@ def puan(metin, altin):
     # ponytail: site_ui kelime örtüşmesi (altın kelimelerinin ≥yarısı), anlamsal eşleşme gerekirse Jev
     rt = [_kelime(x) for x in _ilk_sutun(metin, "Site/UI", "teknik")]
     ui = altin.get("site_ui", [])
-    ui_y = sum(any(2 * len(_kelime(u["teknik"]) & r) >= len(_kelime(u["teknik"])) > 0 for r in rt) for u in ui)
+    ui_y = sum(_ortusur(u["teknik"], rt) for u in ui)
 
     rk = [norm(x) for x in _ilk_sutun(metin, "Kurulum/komutlar", "komut")]
     km = altin.get("komutlar", [])
     km_y = sum(any(norm(k["komut"]) in r for r in rk) for k in km)
 
+    tum = [_kelime(s) for s in metin.splitlines()]
+    og = [o for o in altin.get("ogrenimler", []) if not o.get("belirsiz")]
+    ogr = (sum(_ortusur(o["ogrenim"], tum) for o in og), len(og)) if "ogrenimler" in altin else None
+
     return {"yakalama": yak, "isabet": (len(isabetli), len(rapor_adlar)), "ad_yazim": tuple(yazim),
+            "belirsiz": tuple(bel), "ogrenimler": ogr,
             "tur": {k: tuple(v) for k, v in tur.items()}, "link_aciklama": link["aciklama"], "link_yorum": link["yorum"],
             "site_ui": (ui_y, len(ui)), "komutlar": (km_y, len(km)), "kacan": kacan, "alan_yok": list(ALAN_YOK),
             **{k: (0, len(altin.get(k, []))) for k in ALAN_YOK}}
@@ -94,7 +106,9 @@ def satirlar(p):
     f = lambda t: f"{t[0]}/{t[1]}"  # noqa: E731
     return [f"adaylar: yakalama {f(p['yakalama'])} · isabet {f(p['isabet'])} · ad yazım {f(p['ad_yazim'])}",
             "  tür " + " · ".join(f"{k} {f(v)}" for k, v in p["tur"].items()),
+            *([f"  belirsiz bulundu {f(p['belirsiz'])}"] if p["belirsiz"][1] else []),
             *(f"linkler {k}: yakalama {f(p['link_' + k]['yakalama'])} · sınıf {f(p['link_' + k]['sinif'])}" for k in ("aciklama", "yorum")),
             f"site_ui: yakalama {f(p['site_ui'])}", f"komutlar: yakalama {f(p['komutlar'])}",
+            *([f"öğrenimler: yakalama {f(p['ogrenimler'])}"] if p["ogrenimler"] else []),
             *(f"{k}: rapor alanı yok {f(p[k])}" for k in p["alan_yok"]),
             "kaçan: " + (", ".join(f"{a} ({t})" for a, t in p["kacan"]) or "yok")]
