@@ -6,7 +6,10 @@ from datetime import date
 from difflib import SequenceMatcher
 from pathlib import Path
 
-from jev import skill as sk
+try:  # 1b-1 M0: altin/kapsam jev'siz kabukta da içe alınır; sk kullanan yollar jev ister
+    from jev import skill as sk
+except ImportError:
+    sk = None
 
 from . import metin as m
 

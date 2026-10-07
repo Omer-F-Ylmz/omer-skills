@@ -1,5 +1,6 @@
 """VİDEO-GÖZ-1a K4: rapor.md'yi altın JSON'a karşı puanlar (salt okur, LLM yok)."""
 import re
+from pathlib import Path
 
 from .tarama import bolum, tablolar
 
@@ -100,6 +101,50 @@ def puan(metin, altin):
             "tur": {k: tuple(v) for k, v in tur.items()}, "link_aciklama": link["aciklama"], "link_yorum": link["yorum"],
             "site_ui": (ui_y, len(ui)), "komutlar": (km_y, len(km)), "kacan": kacan, "alan_yok": list(ALAN_YOK),
             **{k: (0, len(altin.get(k, []))) for k in ALAN_YOK}}
+
+
+NEDEN = {"ekran": "ekranda-var-OCR-kaçırdı", "açıklama": "açıklamada", "aciklama": "açıklamada", "yorum": "yorumda"}
+
+
+def gecer(ad, duz, pencere):
+    """1b-1 M0: norm ≤4 → kelime sınırı (1-3 ardışık kelime birebir); ≥5 → alt dize ya da ≤5 kelimelik pencereyle lev ≤1."""
+    n = norm(ad)
+    if len(n) <= 4:
+        return bool(n) and n in pencere
+    return n in duz or any(abs(len(w) - len(n)) <= 1 and lev(w, n) <= 1 for w in pencere)
+
+
+def _jpeg(yol):
+    from . import metin as m
+    p = Path(yol)
+    return m.jpeg_boyut(p.read_bytes()) if p.is_file() else None
+
+
+def kapsam(paket, altin, boyut=_jpeg):
+    """1b-1 M0: altın aday/komut/url'nin paket.md metninde geçme oranı + paket jetonu (metin krk/4 + kare ⌈w/28⌉×⌈h/28⌉). LLM yok."""
+    kel = [norm(w) for w in re.findall(r"\w+", paket.casefold())]
+    pencere = {"".join(kel[i:i + k]) for k in range(1, 6) for i in range(len(kel))}
+    duz, ses = norm(paket), bool(re.search(r"^\[\d", bolum(paket, "Segmentler"), re.M))
+    y, n, kacan = 0, 0, []
+    for a in altin.get("adaylar", []):
+        if any(gecer(x, duz, pencere) for x in [a["ad"], *a.get("alias", [])]):
+            y += not a.get("belirsiz"); n += not a.get("belirsiz"); continue
+        n += not a.get("belirsiz")
+        k = a.get("kaynak", "")
+        kacan.append((a["ad"], "belirsiz" if a.get("belirsiz") else ("ASR-bozdu" if ses else "ses-yok") if k == "ses" else NEDEN.get(k, "ses-yok")))
+    km = altin.get("komutlar", [])
+    ur = altin.get("urller", [])
+    kare = [b for s in bolum(paket, "Kareler").splitlines() if (yol := s.split(" · ")[0].strip()) and (b := boyut(yol))]
+    return {"aday": (y, n), "komut": (sum(norm(k["komut"]) in duz for k in km), len(km)),
+            "url": (sum(norm(url_norm(u["url"])) in duz for u in ur), len(ur)), "kacan": kacan,
+            "token": {"metin": len(paket) // 4, "kare": sum(-(-w // 28) * -(-h // 28) for w, h in kare), "kare_n": len(kare)}}
+
+
+def kapsam_satirlar(p):
+    t = p["token"]
+    return [f"kapsam: aday {p['aday'][0]}/{p['aday'][1]} · komut {p['komut'][0]}/{p['komut'][1]} · url {p['url'][0]}/{p['url'][1]}",
+            f"token: metin {t['metin']} + kare {t['kare']} ({t['kare_n']} kare) = {t['metin'] + t['kare']}",
+            "kaçan: " + (", ".join(f"{a} ({n})" for a, n in p["kacan"]) or "yok")]
 
 
 def satirlar(p):

@@ -1214,7 +1214,8 @@ def temizle(ns, ctx):
 
 
 def altin(ns, ctx):  # VİDEO-GÖZ-1a K4: rapor.md altın JSON'a karşı (salt okur)
-    for x in au.satirlar(au.puan(Path(ns.rapor).read_text(encoding="utf-8"), json.loads(Path(ns.altin).read_text(encoding="utf-8")))):
+    f, s = (au.kapsam, au.kapsam_satirlar) if ns.eylem == "kapsam" else (au.puan, au.satirlar)
+    for x in s(f(Path(ns.rapor).read_text(encoding="utf-8"), json.loads(Path(ns.altin).read_text(encoding="utf-8")))):
         print(x)
     return 0
 
@@ -1350,7 +1351,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
     x = alt.add_parser("departman-geri", help="23 K2: kayit.jsonl'de departmansız karar kayıtları → departman + katalog 'Videodan gelen'")
     x.add_argument("--istek-tavan", type=int, default=30, metavar="M", help="en fazla M Jev isteği")
     x = alt.add_parser("altin", help="VİDEO-GÖZ-1a: rapor.md'yi altın JSON'a karşı puanlar (LLM yok)")
-    x.add_argument("eylem", choices=["puan"])
+    x.add_argument("eylem", choices=["puan", "kapsam"])  # 1b-1 M0: kapsam rapor yerine paket.md alır
     x.add_argument("rapor")
     x.add_argument("altin")
     x = alt.add_parser("teknik", help="23 K5: rapor Site/UI teknikleri → ÖĞREN kartı (frontend) ya da UYARLA bekleyen; frontend katalog ## Teknikler")
