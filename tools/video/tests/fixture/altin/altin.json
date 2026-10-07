@@ -1,0 +1,31 @@
+{
+ "not": "fixture",
+ "adaylar": [
+  {"ad": "Sonnet 5.5", "alias": ["Sonet 5.5"], "tur": "model", "zaman": "0:10", "kaynak": "ses", "kanit": "x"},
+  {"ad": "Opus 5.5", "alias": [], "tur": "model", "zaman": "0:05", "kaynak": "ses", "kanit": "x"},
+  {"ad": "Three.js", "alias": [], "tur": "kütüphane", "zaman": "1:00", "kaynak": "ekran", "kanit": "x"},
+  {"ad": "GSAP", "alias": [], "tur": "kütüphane", "zaman": "1:05", "kaynak": "ekran", "kanit": "x"},
+  {"ad": "Lenis", "alias": [], "tur": "kütüphane", "zaman": "1:06", "kaynak": "ekran", "kanit": "x"},
+  {"ad": "TopView", "alias": ["Tabiew"], "tur": "uygulama", "zaman": "4:00", "kaynak": "açıklama", "kanit": "x"}
+ ],
+ "linkler": [
+  {"url": "https://topview.ai/?via=xyz", "sinif": "araç", "aday": true, "kaynak": "aciklama"},
+  {"url": "https://dala.craftedbygc.com", "sinif": "referans-site", "aday": false, "kaynak": "aciklama"},
+  {"url": "https://github.com/x/y", "sinif": "araç", "aday": true, "kaynak": "yorum"},
+  {"url": "https://patreon.com/z", "sinif": "sosyal", "aday": false, "kaynak": "yorum"}
+ ],
+ "site_ui": [
+  {"teknik": "Scroll'a bağlı parçacık animasyonu", "mekanizma": "x", "kutuphaneler": ["Three.js"], "zaman": "0:00"},
+  {"teknik": "WebGL beyin modeli hover efekti", "mekanizma": "x", "kutuphaneler": [], "zaman": "2:00"}
+ ],
+ "promptlar": [{"zaman": "3:10", "konu": "site promptu", "kaynak": "ekran"}],
+ "komutlar": [
+  {"komut": "npm run dev", "zaman": "3:00", "kaynak": "ekran"},
+  {"komut": "npx skills add foo", "zaman": "3:30", "kaynak": "ses"}
+ ],
+ "urller": [{"url": "dala.craftedbygc.com", "zaman": "1:00", "kaynak": "ekran"}],
+ "is_akisi": [
+  {"adim": "ilham sitesini seç", "zaman": "1:00", "araclar": []},
+  {"adim": "aynı promptu iki modele ver", "zaman": "3:00", "araclar": ["Claude Code"]}
+ ]
+}
