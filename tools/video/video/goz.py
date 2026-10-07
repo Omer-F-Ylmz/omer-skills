@@ -200,6 +200,8 @@ def birlestir(parcalar):
 
 
 MODEL_KOK = "C:/Projeler/.tmp-video/models/rapidocr/"  # ayar · VIDEO_OCR_MODEL ile değişir
+MODEL_DOSYA = {"Det.model_path": "ch_PP-OCRv5_det_mobile.onnx", "Cls.model_path": "ch_ppocr_mobile_v2.0_cls_mobile.onnx",
+               "Rec.model_path": "latin_PP-OCRv5_rec_mobile.onnx", "Rec.rec_keys_path": "ppocrv5_latin_dict.txt"}  # gitleaks:allow (dosya adı) · 1b-1R R1: OCR önbellek anahtarında
 
 
 def rapid_yukle():
@@ -208,11 +210,9 @@ def rapid_yukle():
     import os
     from rapidocr import LangCls, LangDet, LangRec, ModelType, OCRVersion, RapidOCR
     k = (os.environ.get("VIDEO_OCR_MODEL") or MODEL_KOK).rstrip("/\\") + "/"
-    dosya = {"Det.model_path": "ch_PP-OCRv5_det_mobile.onnx", "Cls.model_path": "ch_ppocr_mobile_v2.0_cls_mobile.onnx",
-             "Rec.model_path": "latin_PP-OCRv5_rec_mobile.onnx", "Rec.rec_keys_path": "ppocrv5_latin_dict.txt"}  # gitleaks:allow (dosya adı)
-    if eksik := [f for f in dosya.values() if not os.path.isfile(k + f)]:
+    if eksik := [f for f in MODEL_DOSYA.values() if not os.path.isfile(k + f)]:
         raise FileNotFoundError(f"model yok: {', '.join(eksik)}")
-    ocr = RapidOCR(params={"Global.model_root_dir": k, **{a: k + f for a, f in dosya.items()},
+    ocr = RapidOCR(params={"Global.model_root_dir": k, **{a: k + f for a, f in MODEL_DOSYA.items()},
                            "Det.ocr_version": OCRVersion.PPOCRV5, "Det.lang_type": LangDet.CH, "Det.model_type": ModelType.MOBILE,
                            "Cls.ocr_version": OCRVersion.PPOCRV4, "Cls.lang_type": LangCls.CH, "Cls.model_type": ModelType.MOBILE,
                            "Rec.ocr_version": OCRVersion.PPOCRV5, "Rec.lang_type": LangRec.LATIN, "Rec.model_type": ModelType.MOBILE})

@@ -377,20 +377,24 @@ def _ocr_model(satirlar):
             or m.anlamsiz_oran(metin) > 1 - OCR_GUVEN)
 
 
-def _ocr(ctx, yollar):
+def _ocr(ctx, yollar, ham=False):
     """C3: tüm kareler tek PowerShell çağrısında (ocr.ps1, Windows.Media.Ocr tr + en) → {dosya adı: birleşik satırlar}.
-    1b-1 M1: ctx["rapid"] (yükleyici) varsa RapidOCR birincil, yerel çözünürlükte; Windows OCR yalnız import/model hatasında (ctx["ocr_motor"])."""
+    1b-1 M1: ctx["rapid"] (yükleyici) varsa RapidOCR birincil, yerel çözünürlükte; Windows OCR yalnız import/model hatasında (ctx["ocr_motor"]).
+    1b-1R R1: ham=True → süzülmemiş [[metin, skor, y]] (Windows OCR skor vermez: 1.0, y = satır sırası)."""
     if ctx.get("rapid"):
         try:
             motor = ctx["_motor"] = ctx.get("_motor") or ctx["rapid"]()  # M2: parça parça çağrılır, motor bir kez
             ctx["ocr_motor"] = "rapidocr"
+            if ham:
+                return {Path(y).name: [[str(x), round(float(s), 3), int(u)] for x, s, u in motor(y)] for y in yollar}
             return {Path(y).name: gz.ocr_satirlar(motor(y)) for y in yollar}
         except Exception as e:  # ImportError · model dosyası yok/bozuk → Windows OCR (sebep künyede)
             ctx["ocr_motor"] = f"windows (rapidocr: {' '.join(str(e).split())[:60]})"
     else:
         ctx.setdefault("ocr_motor", "windows")
     out = _kos(ctx, ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(OCR_PS), *map(str, yollar)], SURE["ocr"])
-    return {ad: _ocr_birlestir(k.get("tr") or [], k.get("en") or []) for ad, k in json.loads(out.decode("utf-8") or "{}").items()}
+    r = {ad: _ocr_birlestir(k.get("tr") or [], k.get("en") or []) for ad, k in json.loads(out.decode("utf-8") or "{}").items()}
+    return {ad: [[x, 1.0, i] for i, x in enumerate(s)] for ad, s in r.items()} if ham else r
 
 
 def _yorumlar(ctx, d):
@@ -696,14 +700,41 @@ def _video_indir(ctx, d):
 
 def _goz(ctx, d, sure, altyazi, isaret, n, ocr):
     """1b-1 M2: aşama 1 fps 1 (≥10 dk 0.5) 160 px gri dHash → sahne; aşama 2 sahnenin yerel çözünürlükteki karesi → OCR (≤tavan, ≤OCR_SN),
-    değişim ≥0.15 olan metin pakete. Modele ayrı m*.jpg: ≤n kare 768/28 (yeni ad/URL önce, sonra işaret). ocr dict yerinde dolar."""
-    v, f = _video_indir(ctx, d), gz.fps(sure)
+    değişim ≥0.15 olan metin pakete. Modele ayrı m*.jpg: ≤n kare 768/28 (yeni ad/URL önce, sonra işaret). ocr dict yerinde dolar.
+    1b-1R R1: <id>/goz/ önbelleği — ocr.json süzülmemiş ham OCR (kare t · [metin, skor, y]); anahtar aynıysa video inmez, OCR koşmaz.
+    Güven eşiği + gürültü süzgeci okurken (eşik değişince OCR yeniden koşmaz); m*.jpg goz/kareler'de kalır, paket varyantları birbirini silmez."""
+    g, f = d / "goz", gz.fps(sure)
+    kd, oj = g / "kareler", g / "ocr.json"
+    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.tavan_ocr(sure), "model": gz.MODEL_DOSYA}
+    on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
+    if on.get("anahtar") != anahtar:
+        shutil.rmtree(g, ignore_errors=True)
+        kd.mkdir(parents=True)
+        on = {"anahtar": anahtar, **_goz_ocr(ctx, d, kd, sure, f)}
+        oj.write_text(json.dumps(on, ensure_ascii=False), encoding="utf-8")
+    ctx["ocr_motor"] = on["motor"]
+    okunan = [(t, [x for x in gz.ocr_satirlar(r) if not _ocr_gurultu(x)]) for t, r in on["ham"]]
+    ocr["gurultu_satir"] = [(t, x) for t, r in on["ham"] for x in gz.ocr_satirlar(r) if _ocr_gurultu(x)]
+    inc = [tuple(x) for x in on["inc"]]
+    kareler = []
+    for t in gz.model_sec([*okunan, *((t, []) for t, _ in inc)], altyazi, isaret, n):
+        y = kd / f"k{int(t * 10):06d}.jpg"
+        if not (mk := y.with_name("m" + y.name[1:])).is_file():
+            w, h = m.jpeg_boyut(y.read_bytes())
+            _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(y), "-vf", "scale=%d:%d,format=yuvj420p" % gz.olcek(w, h), "-q:v", "4", str(mk)],
+                 SURE["ffmpeg"])
+        kareler.append((t, mk))
+    ocr.update(durum="✓", metin=gz.ocr_sec(okunan), secilen=len(on["sahne"]), ocr_kare=len(okunan), ocr_sn=on["sn"], incelenmedi=inc,
+               gurultu=len(ocr["gurultu_satir"]), montaj=0)
+    return kareler
+
+
+def _goz_ocr(ctx, d, kd, sure, f):
+    """1b-1R R1: video → dHash sahne → kareler (kd) → ham OCR; ocr.json'a yazılacak dict."""
+    v = _video_indir(ctx, d)
     ham = _kos(ctx, ["ffmpeg", "-v", "error", "-i", str(v), "-an", "-vf", f"fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"],
                SURE["sahne"])
     sahne = gz.sahne_sec(gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f), gz.tavan_ocr(sure))
-    kd = d / "kareler"
-    shutil.rmtree(kd, ignore_errors=True)
-    kd.mkdir()
     sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne) or "0"
     _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",
                "-q:v", "3", str(kd / "s%04d.jpg")], SURE["sahne"])
@@ -713,19 +744,9 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr):
         if time.monotonic() - bas > gz.OCR_SN:
             inc = [(t, "OCR süresi") for t, _ in yollar[i:]]
             break
-        o = _ocr(ctx, [y for _, y in yollar[i:i + 10]])
-        okunan += [(t, [x for x in o.get(y.name, []) if not _ocr_gurultu(x)]) for t, y in yollar[i:i + 10]]
-        ocr.setdefault("gurultu_satir", []).extend((t, x) for t, y in yollar[i:i + 10] for x in o.get(y.name, []) if _ocr_gurultu(x))
-    kareler = []
-    for t in gz.model_sec([*okunan, *((t, []) for t, _ in inc)], altyazi, isaret, n):
-        y = kd / f"k{int(t * 10):06d}.jpg"
-        w, h = m.jpeg_boyut(y.read_bytes())
-        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(y), "-vf", "scale=%d:%d,format=yuvj420p" % gz.olcek(w, h), "-q:v", "4",
-                   str(mk := y.with_name("m" + y.name[1:]))], SURE["ffmpeg"])
-        kareler.append((t, mk))
-    ocr.update(durum="✓", metin=gz.ocr_sec(okunan), secilen=len(sahne), ocr_kare=len(okunan), ocr_sn=round(time.monotonic() - bas),
-               incelenmedi=inc, gurultu=len(ocr.get("gurultu_satir", [])), montaj=0)
-    return kareler
+        o = _ocr(ctx, [y for _, y in yollar[i:i + 10]], ham=True)
+        okunan += [(t, o.get(y.name, [])) for t, y in yollar[i:i + 10]]
+    return {"sahne": sahne, "ham": okunan, "inc": inc, "sn": round(time.monotonic() - bas), "motor": ctx.get("ocr_motor") or "yok"}
 
 
 def oku(ns, ctx):
