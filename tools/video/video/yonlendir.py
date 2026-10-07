@@ -1038,7 +1038,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
     ak = [json.loads(f.read_text(encoding="utf-8")) if yeniden and (f := Path(yeniden) / "A" / f"{i}.json").is_file() else {} for i in range(2)]
     ap, abp = [r.get("puan") for r in ak], [r.get("boyut") for r in ak]
     # Jev: A 2 + çağrılabilecek en fazla B yanıtı · yeniden: yalnız kayıtta puanı olmayanlar
-    gerek = sum(p is None for p in ap) + sum(sum(p is None for p in x["p"]) if yeniden else 2 for x in acik)
+    gerek = sum(map(kur.puan_eksik, ap)) + sum(sum(map(kur.puan_eksik, x["p"])) if yeniden else 2 for x in acik)  # MÜKEMMEL-5c: etiketsiz kayıt da
     if boyut:  # F3-V8: boyut soruları ayrı istek; kayıtta olanlar sayılmaz
         gerek += sum(b is None for b in abp) + sum(sum(b is None for b in x["bp"]) if yeniden else 2 for x in acik)
     if gerek > (JEV_BOYUT_TAVAN if boyut else JEV_TAVAN):
@@ -1097,11 +1097,11 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
         else:
             kp = {ad: [p for y, p in zip(durum[ad]["y"], durum[ad].get("p") or [None] * len(durum[ad]["y"])) if gecer(y)]
                   for ad in gecen}
-            jev = {ad: sum(p is None for p in v) for ad, v in kp.items()}
+            jev = {ad: sum(map(kur.puan_eksik, v)) for ad, v in kp.items()}
             eski = ap + [p for v in kp.values() for p in v]
             ms = [f"GÖREV: {g[1]}\nYANIT: {json.dumps(y.get('form'), ensure_ascii=False)}" for y in ya + [y for v in gecen.values() for y in v]]
-            yeni = iter(puanla([s for s, p in zip(ms, eski) if p is None]) if None in eski else ())
-            puan = iter([next(yeni) if p is None else p for p in eski])
+            yeni = iter(puanla([s for s, p in zip(ms, eski) if kur.puan_eksik(p)]) if any(map(kur.puan_eksik, eski)) else ())
+            puan = iter([next(yeni) if kur.puan_eksik(p) else p for p in eski])
             pa = [next(puan) for _ in ya]
             d = referans([y["form"] for y in ya if gecer(y)], [y["form"] for v in gecen.values() for y in v], g[1])
             bos = not any(d.values()) and any(_dolu(y.get("form")) for y in ya)  # F3-ÖLÇÜM-3: veri var, ölçüm görmüyor
@@ -1159,7 +1159,9 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
              *([f"yeniden {yn}"] if (yn := sum(y.get("yeniden", 0) for y in ys)) else []),
              *dict.fromkeys(y["k_not"] for y in ys if y.get("k_not")), *dict.fromkeys(y["p_not"] for y in ys if y.get("p_not")),
              *dict.fromkeys(f"son geçiş: hata ({y['son_hata'][:40]})" for y in ys if y.get("son_hata")),
-             *([f"kalite {ozet[m]['kalite']:.2f} · şema {ozet[m]['basari']:.2f}"] if m in ozet else []), karar.get(m, "ELENDİ"),
+             *([f"kalite {ozet[m]['kalite']:.2f} · şema {ozet[m]['basari']:.2f}"] if m in ozet else []),
+             *([f"eksik: {' | '.join(map(kur.eksik_yazi, pb[m]))} (A {' | '.join(map(kur.eksik_yazi, pa))})"]  # MÜKEMMEL-5c
+               if m in ozet and any(isinstance(p, dict) and "eksik" in p for p in pb[m]) else []), karar.get(m, "ELENDİ"),
              *([rapor[m]["olcum"][0], f"B bant {bant(list(map(sk, pb[m]))):.2f}",  # F3-V8: tekrar bantları (A bandı kur.karar'da)
                 f"görev bant (A {bant(gv(ya, sa['v2'])):.2f} · B {bant(gv(ys, ozet[m]['v2'])):.2f})", rapor[m]["dolu"]] if m in ozet else []),
              *([f"boyut fark: {rapor[m]['boyut']['fark']}"] if m in ozet and "boyut" in rapor[m] else []),

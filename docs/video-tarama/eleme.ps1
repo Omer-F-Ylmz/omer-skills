@@ -24,8 +24,8 @@ if hafif.GORSEL and not kareler:
 # supported_parameters: OpenRouter katalog GET (ücretsiz, anahtarsız; model çağrısı değil)
 liste = ig._post('https://openrouter.ai/api/v1/models', None, {})[1].get('data') or []
 destek = {'openrouter/' + x['id']: x.get('supported_parameters') or [] for x in liste if 'openrouter/' + x.get('id', '') in {a.split('@')[0] for a in adaylar}}
-# tek kör Jev partisi; istek tavanı = puanlanacak yanıt sayısı (eleme B'den önce ≤ yon.JEV_TAVAN olduğunu denetler)
-puanla = lambda ms: [x['kalite'] for x in c.Tasiyici(env=env, en_fazla=2, istek_tavan=len(ms)).yargila(ms, {'kalite': kur.KALITE_Q})]
+# tek kör Jev partisi (kalite + eksik yön etiketi aynı istekte); eleme B'den önce ≤ yon.JEV_TAVAN olduğunu denetler
+puanla = lambda ms: kur.jev_puanla(ms, env)
 # F3-V8 teşhis: ELEME_BOYUT=1 → 5 boyut sorusu ayrı parti (karar yalnız kalite); kayıtta olan boyut yeniden sorulmaz
 boyut = (lambda ms: [{k: x[k] for k in kur.BOYUT_Q} for x in c.Tasiyici(env=env, en_fazla=2, istek_tavan=len(ms)).yargila(ms, kur.BOYUT_Q)]) \
     if os.environ.get('ELEME_BOYUT') == '1' else None

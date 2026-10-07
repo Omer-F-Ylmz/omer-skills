@@ -36,6 +36,27 @@ BOYUT_Q = {k: {"type": "score", "instructions": s, "criteria": KALITE_Q["criteri
     ("tutarlilik", "Yanıtta yinelenen ya da parçalanmış öğe yok, öğeler birbiriyle tutarlı mı?"),
     ("dogruluk", "Yanıt yalnız görevdeki kaynağa dayanıyor, uydurma bilgi içermiyor mu?"),
     ("ozet", "Özet videonun tamamını bütünlüklü ve anlaşılır biçimde aktarıyor mu?"))}
+# MÜKEMMEL-5c (O93 a): gerekçe yerine Jev eksik yön etiketi; liste yalnız burada
+EKSIK_ETIKET = ("eksik yok", "aday eksik", "prompt/komut eksik", "kare okuma eksik", "yüzeysel (ayrıntı az)", "dayanaksız iddia")
+EKSIK_Q = {"type": "choice", "instructions": "Bu formun en büyük eksiği hangisi?", "criteria": dict(zip(EKSIK_ETIKET, (
+    "form görevi eksiksiz karşılıyor", "videoda anılan araç/skill/kaynak formda yok", "videodaki prompt ya da komut metni formda yok",
+    "karede görülen ekran öğeleri formda yok", "öğeler var ama ayrıntı ve kanıt az", "form kaynakta dayanağı olmayan iddia içeriyor")))}
+
+
+def jev_puanla(ms, env, tas=None):
+    """Form başı tek Jev isteği: kalite puanı + eksik yön etiketi aynı istekte (API state başına 1 HTTP) → istek tavanı = form sayısı."""
+    return [{**x["kalite"], "eksik": x["eksik"]} for x in (tas or c.Tasiyici)(env=env, en_fazla=2, istek_tavan=len(ms)).yargila(ms, {"kalite": KALITE_Q, "eksik": EKSIK_Q})]
+
+
+def eksik_yazi(p):
+    """'<etiket> (p)'; ikinci etiket olasılığı ≥ 0.25 ise o da. Etiketsiz puan → '-'."""
+    pr = sorted(((p.get("eksik") or {}).get("probabilities") or {}).items(), key=lambda t: -t[1]) if isinstance(p, dict) else []
+    return " · ".join(f"{e} ({v:.2f})" for i, (e, v) in enumerate(pr[:2]) if i == 0 or v >= 0.25) or "-"
+
+
+def puan_eksik(p):
+    """Yeniden puanlamada sorulacak mı: puan yok ya da Jev puanı etiketsiz (skaler eski kayıt korunur)."""
+    return p is None or isinstance(p, dict) and "eksik" not in p
 ALANLAR = ("cikti", "girdi", "sure", "maliyet", "kalite")
 KONTROL_SN, DESEN_SN = 10, 1  # yanıt kontrolü · desen ön-denetimi (ayrı süreç, zaman aşımı)
 REGEX = ("olgu", "yasak", "satir-desen")

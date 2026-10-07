@@ -620,12 +620,13 @@ def test_eleme_betik_yeniden_ve_jev_istek_tavani(monkeypatch, tmp_path):
             t.append(k)
 
         def yargila(self, ms, q):
-            return [{"kalite": 0.5}] * len(ms)
+            return [{"kalite": {"score": 0.5}, "eksik": {}}] * len(ms)  # MÜKEMMEL-5c: puan + eksik yön etiketi
     monkeypatch.setitem(sys.modules, "jev", types.SimpleNamespace(cekirdek=types.SimpleNamespace(Tasiyici=T)))
+    monkeypatch.setattr("video.kur.c", sys.modules["jev"].cekirdek)  # puanla artık kur.jev_puanla üzerinden
     exec(re.search(r"@'\r?\n(.*?)\r?\n'@", BETIK.with_name("eleme.ps1").read_text(encoding="utf-8"), re.S)[1], {"__name__": "__main__"})
     (a, k), = g
     assert k["yeniden"] == k["kayit"] == tmp_path / "k"
-    assert a[5](["x"] * 3) == [0.5] * 3 and t[-1]["istek_tavan"] == 3
+    assert a[5](["x"] * 3) == [{"score": 0.5, "eksik": {}}] * 3 and t[-1]["istek_tavan"] == 3
 
 
 # F3-ÖLÇÜM-2: ölçüm v2 (plan O61) — eşleşme · dayanak · referans D · kapsam/doğruluk/F1 · görev başarısı · rapor · yeniden puanlama
