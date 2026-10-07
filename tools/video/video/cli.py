@@ -435,6 +435,11 @@ def paket(ns, ctx):
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
     dil = m.dil_sec(meta)
     ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare, " ".join(str(s.get("metin")) for s in seg))
+    tur = {"elle": "manual", "oto": "auto"}.get(dil[1], "auto") if dil and seg else "yok"  # 1b-1 M3: künyede altyazı türü
+    if ns.asr == "groq" and tur != "manual" and not ns.kare_yalniz:  # 1b-1 M3: manuel yoksa Groq (önbellek groq.txt)
+        g_seg, kaynak = _asr(ctx, d, meta.get("duration") or 0, (dil[0] if dil else "en")[:2],
+                             gz.groq_prompt(gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt"), meta.get("description") or ""))
+        seg, tur = (m.segmentle(g_seg, meta.get("chapters"), meta.get("duration") or None), kaynak) if g_seg else (seg, f"{tur} ({kaynak} yok)")
     yalniz = ns.kare_yalniz or not seg  # M8 K2 (ii): altyazı yok ya da whisper çıktısı anlamsız → kare-yalnız paket
     seg = [] if yalniz else seg
     km = next((j[ns.id] for f in sorted(ctx["kok"].glob("kuyruk-meta-*.json"), reverse=True)
@@ -474,7 +479,7 @@ def paket(ns, ctx):
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     yham = json.loads((d / "yorumlar.json").read_text(encoding="utf-8")).get("ham", []) if (d / "yorumlar.json").is_file() else []
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
-          f" · https://youtu.be/{ns.id} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)}",
+          f" · https://youtu.be/{ns.id} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
@@ -1242,6 +1247,76 @@ def on_(ns, ctx):
     return 0
 
 
+GROQ_URL, GROQ_UST = "https://api.groq.com/openai/v1/audio/transcriptions", 12  # ayar · M3: parti başına en çok Groq çağrısı
+WCPP = Path(r"C:\Projeler\.tmp-video\whisper.cpp\v1.8.0\Release\whisper-cli.exe")
+WMODEL = Path(r"C:\Projeler\.tmp-video\models")
+
+
+def _http(url, veri, basliklar):
+    import urllib.error
+    import urllib.request
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, data=veri, headers=basliklar, method="POST"), timeout=300) as r:
+            return r.read()
+    except urllib.error.HTTPError as e:  # gövde/başlık yazılmaz (anahtar sızmasın)
+        raise Hata(f"groq HTTP {e.code}") from None
+    except urllib.error.URLError as e:
+        raise Hata(f"groq ağ: {e.reason}") from None
+
+
+def _groq_istek(ctx, yol, dil, prompt):
+    """Tek parça → Groq whisper-large-v3-turbo segments. Anahtar yalnız başlıkta; sayaç ctx["groq_n"] ≤ GROQ_UST."""
+    if ctx.setdefault("groq_n", 0) >= GROQ_UST:
+        raise Hata(f"Groq tavanı {GROQ_UST}")
+    if not (anahtar := ctx["env"].get("GROQ_API_KEY")):
+        raise Hata("GROQ_API_KEY yok")
+    ctx["groq_n"] += 1
+    sinir = f"----goz{time.time_ns()}"
+    alan = {"model": "whisper-large-v3-turbo", "language": dil, "prompt": prompt, "response_format": "verbose_json", "temperature": "0"}
+    govde = b"".join(f'--{sinir}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in alan.items() if v)
+    govde += (f'--{sinir}\r\nContent-Disposition: form-data; name="file"; filename="{yol.name}"\r\nContent-Type: audio/flac\r\n\r\n'.encode()
+              + yol.read_bytes() + f"\r\n--{sinir}--\r\n".encode())
+    return json.loads(ctx["http"](GROQ_URL, govde, {"Authorization": f"Bearer {anahtar}", "Content-Type": f"multipart/form-data; boundary={sinir}"}))["segments"]
+
+
+def _asr(ctx, d, sure, dil, prompt):
+    """1b-1 M3: groq.txt önbellek → Groq (16 kHz mono FLAC, ≤24 MB parça, offset birleştirme) → hata/kota/anahtar yok: whisper.cpp GPU
+    (WMODEL'de ggml-large-v3-turbo*.bin varsa) → yoksa (None, "faster-whisper"): `video whisper` CPU yolu, sebep ctx["asr_not"]."""
+    yol = d / "groq.txt"
+    if yol.is_file():
+        return [(float(a), b) for s in yol.read_text(encoding="utf-8").splitlines() if s for a, _, b in [s.partition("\t")]], "groq"
+    ses = d / "ses16k.flac"
+    if not ses.is_file():
+        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "ba/b", "-o", str(d / "ses.%(ext)s"), yt_url(d.name)], SURE["ses"])
+        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(next(d.glob("ses.*"))), "-ac", "1", "-ar", "16000", "-c:a", "flac", str(ses)], SURE["ses"])
+    try:
+        parca = []
+        for bas, uz in gz.parca_plani(sure, ses.stat().st_size):
+            p = d / f"p{int(bas)}.flac"
+            _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-ss", str(bas), "-t", str(uz), "-i", str(ses), "-c:a", "flac", str(p)], SURE["ses"])
+            parca.append((bas, _groq_istek(ctx, p, dil, prompt)))
+            p.unlink(missing_ok=True)
+        seg = gz.birlestir(parca)
+        yol.write_text("".join(f"{t}\t{x}\n" for t, x in seg), encoding="utf-8")
+        return seg, "groq"
+    except (Hata, OSError, ValueError, KeyError) as e:
+        neden = " ".join(str(e).split())[:80]
+    model = next(WMODEL.glob("ggml-large-v3-turbo*.bin"), None) if WMODEL.is_dir() else None
+    if not (model and WCPP.is_file()):
+        ctx["asr_not"] = f"groq: {neden}; whisper.cpp modeli yok → faster-whisper (video whisper)"
+        return None, "faster-whisper"
+    try:
+        wav = d / "ses16k.wav"
+        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(ses), "-ar", "16000", "-ac", "1", "-c:a", "pcm_s16le", str(wav)], SURE["ses"])
+        _kos(ctx, [str(WCPP), "-m", str(model), "-f", str(wav), "-l", dil, "--prompt", prompt, "-oj", "-of", str(d / "wcpp")], SURE["sahne"])
+        j = json.loads((d / "wcpp.json").read_text(encoding="utf-8"))
+        ctx["asr_not"] = f"groq: {neden} → whisper.cpp"
+        return [(x["offsets"]["from"] / 1000, x["text"].strip()) for x in j["transcription"] if x["text"].strip()], "whisper.cpp"
+    except (Hata, OSError, ValueError, KeyError) as e:
+        ctx["asr_not"] = f"groq: {neden}; whisper.cpp: {' '.join(str(e).split())[:60]} → faster-whisper (video whisper)"
+        return None, "faster-whisper"
+
+
 def whisper(ns, ctx):
     d = _dizin(ctx, ns.id)
     if (d / "segmentler.jsonl").is_file():
@@ -1317,6 +1392,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     x = alt.add_parser("paket", help="alt ajan girdisi tek dosya: künye · chapter · linkler · sade segmentler · kareler (yalnız ekran sorusu)")
     x.add_argument("id")
     x.add_argument("--kare", type=int, default=6, help="en fazla N kare (ekran p'si en yüksek)")
+    x.add_argument("--asr", choices=["auto", "groq"], default="auto", help="1b-1 M3: manuel altyazı yoksa transkript kaynağı (groq: ≤12 çağrı/parti)")
     x.add_argument("--model-tavan", type=int, help="O11 (5): modele giden en fazla M kare (varsayılan --kare); --kare aday tabanı kalır")
     x.add_argument("--kare-yalniz", action="store_true", help="M8 K2: segmentleri yok say (whisper çıktısı anlamsız) → kare-yalnız paket")
     x.add_argument("--incelenmedi", action="store_true", help="C4 ikinci geçiş: yalnız kapsam.json'daki incelenmedi anlar (ilk paket → paket-1.md)")
@@ -1483,7 +1559,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     geri = lambda x: x[1:] if isinstance(x, str) and x[:1] == "\0" else x  # noqa: E731
     vars(ns).update({k: [geri(y) for y in x] if isinstance(x, list) else geri(x) for k, x in vars(ns).items()})
     env = os.environ if env is None else env
-    ctx = {"env": env, "kos": kos, "rapid": ocr, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK), "al": al or gt._al,  # B2: sayfa okuyucu
+    ctx = {"env": env, "kos": kos, "rapid": ocr, "http": _http, "gonder": gonder, "uyku": uyku, "kok": Path(env.get("VIDEO_CACHE") or KOK), "al": al or gt._al,  # B2: sayfa okuyucu
            "gh": lambda a: json.loads(subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", check=True).stdout)}  # DERİNLİK-1 R3
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,

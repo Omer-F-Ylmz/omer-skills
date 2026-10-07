@@ -174,6 +174,31 @@ def eslesme_satirlari(es):
     return [f"{k} · {kay} · {m.ss(t) if kay in ('ekran', 'ses') else '-'}" + (f" · bulanık: {w}" if w else "") for k, kay, t, w in es]
 
 
+def groq_prompt(sz, metin, sinir=224, tk=lambda s: len(s) // 4 + 1):
+    """M3: Groq/Whisper prompt'u — altın-hariç sözlüğün kanonik adları; metinde (açıklama/ekran) geçenler önce (geçiş sırasıyla),
+    sonra sözlük sırası; ', ' ile ≤ sinir jeton."""
+    d = norm(metin)
+    yer = {k: min((i for a in (k, *al) if len(n := norm(a)) > 2 and (i := d.find(n)) >= 0), default=-1) for k, al in sz}
+    out = ""
+    for k in [*sorted((k for k in yer if yer[k] >= 0), key=yer.get), *(k for k in yer if yer[k] < 0)]:
+        if tk(y := f"{out}, {k}" if out else k) > sinir:
+            break
+        out = y
+    return out
+
+
+def parca_plani(sure, bayt, sinir=24_000_000):
+    """M3: 16 kHz mono FLAC ≤ sinir bayt parçalar → [(başlangıç sn, süre sn)] (eşit süre)."""
+    n = -(-bayt // sinir)
+    uz = -(-int(sure) // n) if n > 1 else sure
+    return [(i * uz, uz) for i in range(n)]
+
+
+def birlestir(parcalar):
+    """M3: [(offset, Groq segments)] → [(t, metin)]; boş metin atılır."""
+    return [(round(offset + x["start"], 3), x["text"].strip()) for offset, ss in parcalar for x in ss if x["text"].strip()]
+
+
 MODEL_KOK = "C:/Projeler/.tmp-video/models/rapidocr/"  # ayar · VIDEO_OCR_MODEL ile değişir
 
 
