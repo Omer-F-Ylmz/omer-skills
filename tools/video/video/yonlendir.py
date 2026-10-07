@@ -4,6 +4,7 @@ import bisect
 import functools
 import hashlib
 import json
+import os
 import random
 import re
 import subprocess
@@ -898,7 +899,7 @@ def _bozuk(y, sema):
     return ("şema: " + "; ".join(map(str, d)))[:200] if d else None
 
 
-def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False, v11=False, yeniden=False):
+def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False, v11=False, yeniden=False, es=None):
     """F3-V5: bolumle(g[1], k) parçaları paralel (≤ PARALEL_TAVAN, fazlası kuyrukta) → birlestir. usd/usage/yeniden toplam, sure duvar saati; parça hatasında birleşim yok.
     F3-V6 (v6): yük dengeli bolumle · parçaya özel talimat + DEĞERLENDİR listesi kullanıcı mesajının başında · bolumler paketten · son_gecis.
     F3-V8 (alan): parça mesajı ALAN_KURALI + PARCA_OZET ile başlar. Son geçiş şema/JSON hatasında bir kez yeniden (F3-V9).
@@ -914,7 +915,7 @@ def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False,
     j = {x: y for x, y in zip(ek["kareler"], _jpeg(ek["kareler"], tempfile.mkdtemp(prefix="eleme-jpeg-"))) if y.stat().st_size < Path(x).stat().st_size} \
         if jpeg and ek.get("kareler") else {}  # büyüyen kare asıl haliyle gider (b2QkhmQ0sT0: kaynak JPEG, 75'te gövde %0–3 büyüdü)
     kar = lambda p: {"kareler": [j.get(x, x) for x in ek["kareler"] if f"{Path(x).name} · " in p]} if "kareler" in ek else {}
-    es, pn = PARALEL_TAVAN, None
+    es, pn = es or PARALEL_TAVAN, None
     if jpeg:  # F3-V9: OmniRoute ağır gövdede (≥ BUYUK_GOVDE) eş zamanlı 1; hepsi altındaysa paralel
         gb = max(govde_bayt(sis(p), msg(i, p), g[2], kar(p).get("kareler", ())) for i, p in enumerate(parca))
         es, pn = (len(parca), f"paralel {len(parca)}") if gb < BUYUK_GOVDE else (PARALEL_TAVAN, f"sıralı (gövde {gb // 1024} KB > {BUYUK_GOVDE // 1024} KB)")
@@ -961,7 +962,8 @@ def tara_v10(g, env, model, *, tas=None, ornek=ORNEK_V10, ek=None, zaman=600, b_
     s = g[0] + "\n\n" + EKSIKSIZLIK10 + ORNEK_BASLIK + Path(ornek).read_text(encoding="utf-8")
     tas = tas or b_kur(model, env, timeout=zaman, govde_ek={"temperature": 0.2, "seed": 7})
     ek = ({"kareler": g[3]} if len(g) > 3 else {}) if ek is None else ek
-    return {"parca_yeniden": 0, **_parcali(tas, lambda t: s, g, k, ek, model, v6=True, alan=True, v10=True, yeniden=True), "k": k}
+    es = int(os.environ.get("PARCA_PARALEL", "4"))  # MÜKEMMEL-6a (K4): parçalar eşzamanlı; 1 = sıralı (geri alma yolu)
+    return {"parca_yeniden": 0, **_parcali(tas, lambda t: s, g, k, ek, model, v6=True, alan=True, v10=True, yeniden=True, es=es), "k": k}
 
 
 def _yaz(y, d):
