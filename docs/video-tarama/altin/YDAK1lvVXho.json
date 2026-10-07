@@ -1,0 +1,33 @@
+{
+ "not": "editör yok",
+ "adaylar": [
+  {"ad": "GPT Astra", "alias": ["Astra", "Asra"], "tur": "model", "zaman": "0:04", "kaynak": "ses", "kanit": "OpenAI'ın Astra modeli ile gözlük sitesi yapıldı"},
+  {"ad": "Fable 5.1", "alias": ["Claude Fable 5.1", "Fable"], "tur": "model", "zaman": "0:33", "kaynak": "ses", "kanit": "aynı proje Claude Fable 5.1 ile de yapıldı"},
+  {"ad": "Three.js", "alias": ["ThreeJS"], "tur": "kütüphane", "zaman": "5:09", "kaynak": "ekran", "kanit": "açıklamada Three.js ile 3D gözlük; prompt ekranda"},
+  {"ad": "GSAP", "alias": [], "tur": "kütüphane", "zaman": "5:09", "kaynak": "ekran", "kanit": "açıklamada GSAP animasyonları; prompt ekranda"},
+  {"ad": "ScrollTrigger", "alias": ["Scroll Trigger"], "tur": "kütüphane", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki promptta GSAP and ScrollTrigger"},
+  {"ad": "design-dna", "alias": [], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply design-dna"},
+  {"ad": "scrollcraft", "alias": ["scroll-craft"], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply scrollcraft"},
+  {"ad": "frontend-design", "alias": [], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply frontend-design"},
+  {"ad": "design-taste-frontend", "alias": [], "tur": "skill", "zaman": "5:09", "kaynak": "yorum", "kanit": "yorumdaki prompt: apply design-taste-frontend"}
+ ],
+ "linkler": [
+  {"url": "https://sketchfab.com/3d-models/glasses-09-5d4ef7145b1b426cb129e3d661f7c2e6", "sinif": "referans-site", "aday": false, "kaynak": "aciklama"}
+ ],
+ "site_ui": [
+  {"teknik": "Scroll ile gözün içine giren pinli video (scroll'a bağlı video oynatma)", "mekanizma": "scroll ilerlemesi video playhead'ine eşlenir, durunca kare sabit kalır", "kutuphaneler": ["GSAP", "ScrollTrigger"], "zaman": "0:11"},
+  {"teknik": "Scroll ile dönen gerçek zamanlı 3D gözlük", "mekanizma": "Three.js sahnesinde gözlük modeli scroll'a göre döner", "kutuphaneler": ["Three.js"], "zaman": "5:57"},
+  {"teknik": "Scroll ile tetiklenen slider", "mekanizma": "scroll ilerledikçe kayan ürün galerisi", "kutuphaneler": [], "zaman": "6:46"},
+  {"teknik": "Büyük puntolu marka adı tipografisi", "mekanizma": "devasa font ile marka adı bölümü", "kutuphaneler": [], "zaman": "6:59"},
+  {"teknik": "Dairesel büyüyerek açılan geçiş", "mekanizma": "scroll ile daire maskesi genişler", "kutuphaneler": [], "zaman": "11:01"},
+  {"teknik": "Scroll ile parçalanan gözlük (exploded view)", "mekanizma": "model parçaları scroll'a göre ayrılıp farklı açılardan gösterilir", "kutuphaneler": ["Three.js"], "zaman": "11:13"}
+ ],
+ "promptlar": [{"zaman": "4:26", "konu": "VEIL gözlük markası Awwwards seviyesi site promptu", "kaynak": "yorum"}],
+ "komutlar": [],
+ "urller": [{"url": "localhost:3000", "zaman": "1:14", "kaynak": "ekran"}],
+ "is_akisi": [
+  {"adim": "video, 3D model ve 10 görseli projeye koyup tasarımı modele bırakan promptu Astra'ya ver", "zaman": "4:23", "araclar": ["GPT Astra"]},
+  {"adim": "aynı promptu farklı portla Fable 5.1'e (yüksek performans) ver", "zaman": "9:02", "araclar": ["Fable 5.1"]},
+  {"adim": "iki sonucu karşılaştır", "zaman": "12:17", "araclar": []}
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "not": "altın taslak: yalnız ham dump (aciklama/altyazi/ocr/yorum) kaynaklı",
+ "adaylar": [
+  {"ad": "Figma", "alias": [], "tur": "uygulama", "zaman": "0:05", "kaynak": "ses", "kanit": "We're back in Figma and add a frame"},
+  {"ad": "Tripo AI", "alias": ["Tripo", "TripoAI", "Tripo 3D"], "tur": "uygulama", "zaman": "0:14", "kaynak": "ses", "kanit": "In Tripo AI, generate a few car variations; 3D model üretimi"},
+  {"ad": "Blender", "alias": [], "tur": "uygulama", "zaman": "0:28", "kaynak": "ses", "kanit": "In Blender, create a plane... render the animation"},
+  {"ad": "GPT Image 2", "alias": [], "tur": "model", "zaman": "0:15", "kaynak": "ekran", "kanit": "Tripo Generate Image ekranında GPT Image 2"},
+  {"ad": "Nano Banana", "alias": [], "tur": "model", "zaman": "0:17", "kaynak": "ekran", "kanit": "Tripo Edit Image ekranında Nano Banana"}
+ ],
+ "linkler": [
+  {"url": "https://bachynskyi.notion.site/Create-a-Stylized-3D-Hero-Section-with-Figma-Tripo-AI-Blender-38b1dab9c14b80d2b496d4df61f11b01", "sinif": "referans-site", "aday": false, "kaynak": "yorum"}
+ ],
+ "site_ui": [
+  {"teknik": "Stilize 3D araba animasyonu ile hero bölümü (Figma arayüzü üstüne Blender render)", "mekanizma": "Blender'da eğri boyunca giden araba render edilip Figma UI ile birleştirilir", "kutuphaneler": [], "zaman": "0:44"}
+ ],
+ "promptlar": [],
+ "komutlar": [],
+ "urller": [{"url": "studio.tripo3d.ai/workspace/generate-image", "zaman": "0:15", "kaynak": "ekran"}],
+ "is_akisi": [
+  {"adim": "Figma'da frame aç; logo, araba adı, özellik satırı, büyük başlık ve ok yerleştir", "zaman": "0:05", "araclar": ["Figma"]},
+  {"adim": "Tripo AI'da araba varyasyonları üret, en iyisini seç, tekerlekleri kaldır", "zaman": "0:14", "araclar": ["Tripo AI"]},
+  {"adim": "araba görselinden multi-view üret, 3D modeli oluştur, tekerlek için tekrarla, export et", "zaman": "0:19", "araclar": ["Tripo AI"]},
+  {"adim": "Blender'da plane, materyal ve duvar ekle, araba ve tekerlek modelini içe aktar", "zaman": "0:28", "araclar": ["Blender"]},
+  {"adim": "tekerlek dönüşünü animasyonla, bezier curve ile arabayı yola oturt", "zaman": "0:34", "araclar": ["Blender"]},
+  {"adim": "ışık ve kamerayı ayarla, animasyonu render al, UI ile birleştir", "zaman": "0:39", "araclar": ["Blender"]}
+ ]
+}

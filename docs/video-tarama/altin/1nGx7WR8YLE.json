@@ -1,0 +1,42 @@
+{
+ "not": "altın taslak: yalnız ham dump (aciklama/altyazi/ocr/yorum) kaynaklı",
+ "adaylar": [
+  {"ad": "Topview", "alias": ["TopView", "Tabiew", "Tab view", "TW View"], "tur": "uygulama", "zaman": "1:11", "kaynak": "ses", "kanit": "video üretim platformu, MCP ile Claude'a bağlanıyor; video sponsoru"},
+  {"ad": "Seedance 2.5", "alias": ["Seedance"], "tur": "model", "zaman": "0:00", "kaynak": "açıklama", "kanit": "açıklamada Seedance 2.5; 25 sn image_to_video"},
+  {"ad": "GPT Astra", "alias": ["Astra"], "tur": "model", "zaman": "0:54", "kaynak": "ses", "kanit": "üretilen video Astra'ya verilip web sitesi yaptırılıyor"},
+  {"ad": "Fable", "alias": ["Claude Fable", "Fable 5"], "tur": "model", "zaman": "3:33", "kaynak": "ekran", "kanit": "açıklamada Fable; ekranda Favorite model Fable 5"},
+  {"ad": "Claude", "alias": ["Cloud"], "tur": "uygulama", "zaman": "0:47", "kaynak": "ses", "kanit": "görsel Claude'a verilip Topview MCP ile video üretiliyor"},
+  {"ad": "ChatGPT", "alias": ["Chatç bitti", "ChatGPT'ye"], "tur": "uygulama", "zaman": "1:53", "kaynak": "ses", "kanit": "görseldeki yazıyı kaldırma ve prompt analizi için"},
+  {"ad": "design-dna", "alias": [], "tur": "skill", "zaman": "11:07", "kaynak": "ekran", "kanit": "Use these 4 installed skills: design-dna"},
+  {"ad": "frontend-design", "alias": [], "tur": "skill", "zaman": "11:07", "kaynak": "ekran", "kanit": "Use these 4 installed skills: frontend-design"},
+  {"ad": "design-taste-frontend", "alias": [], "tur": "skill", "zaman": "11:07", "kaynak": "ekran", "kanit": "Use these 4 installed skills: design-taste-frontend"},
+  {"ad": "scrollcraft", "alias": ["scroll-craft"], "tur": "skill", "zaman": "11:07", "kaynak": "ekran", "kanit": "Use these 4 installed skills: scrollcraft"},
+  {"ad": "ffmpeg", "alias": [], "tur": "araç", "zaman": "0:00", "kaynak": "yorum", "kanit": "yorumdaki promptta kare çıkarma ve klip birleştirme"}
+ ],
+ "linkler": [
+  {"url": "https://www.topview.ai/?via=dlws", "sinif": "sponsor", "aday": true, "kaynak": "aciklama"},
+  {"url": "https://tr.pinterest.com/pin/1035124295783058224/", "sinif": "referans-site", "aday": false, "kaynak": "yorum"}
+ ],
+ "site_ui": [
+  {"teknik": "Scroll ile oda oda kesintisiz villa gezintisi (scroll'a bağlı video)", "mekanizma": "Seedance ile üretilen 25 sn kesintisiz video scroll ilerlemesine bağlı", "kutuphaneler": [], "zaman": "0:14"},
+  {"teknik": "Bulunulan odayı gösteren etiket", "mekanizma": "scroll sırasında hangi odada olunduğu yazıyla belirtilir", "kutuphaneler": [], "zaman": "12:33"},
+  {"teknik": "Mobil cihazlar için düşürülmüş video çözünürlüğü", "mekanizma": "performans için cihaza göre çözünürlük azaltma", "kutuphaneler": [], "zaman": "12:05"}
+ ],
+ "promptlar": [
+  {"zaman": "3:20", "konu": "Topview connector ile villa fly-through videosu promptu", "kaynak": "ekran"},
+  {"zaman": "11:07", "konu": "4 skill ile emlak sitesi promptu", "kaynak": "ekran"}
+ ],
+ "komutlar": [],
+ "urller": [
+  {"url": "behance.net/gallery/244165135/Luxury-Residence-Website-UIUx-Case-Study", "zaman": "1:44", "kaynak": "ekran"},
+  {"url": "mcp.topview.ai/mcp", "zaman": "2:58", "kaynak": "ekran"}
+ ],
+ "is_akisi": [
+  {"adim": "Pinterest'te referans görsel bul", "zaman": "1:23", "araclar": []},
+  {"adim": "görseli ChatGPT'ye ver, yazıyı kaldır", "zaman": "1:53", "araclar": ["ChatGPT"]},
+  {"adim": "Topview'ı Claude'a custom connector (MCP) olarak bağla", "zaman": "2:47", "araclar": ["Claude", "Topview"]},
+  {"adim": "promptu önce okut, onaylayınca Seedance 2.5 ile 25 sn video üret", "zaman": "7:27", "araclar": ["Claude", "Seedance 2.5"]},
+  {"adim": "prompt analizini ChatGPT'ye kontrol ettir", "zaman": "8:41", "araclar": ["ChatGPT"]},
+  {"adim": "üretilen videoyu GPT Astra'ya ver, web sitesini yaptır", "zaman": "10:58", "araclar": ["GPT Astra"]}
+ ]
+}

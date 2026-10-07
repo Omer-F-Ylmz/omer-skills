@@ -1,0 +1,193 @@
+{
+ "not": "altın taslak: yalnız ham dump (aciklama/altyazi/ocr/yorum) kaynaklı",
+ "adaylar": [
+  {
+   "ad": "Opus 5.5",
+   "alias": [
+    "Claude Opus 5.5",
+    "Opus 5"
+   ],
+   "tur": "model",
+   "zaman": "0:02",
+   "kaynak": "ses",
+   "kanit": "Anthropic released a very new model and that is Opus 5.5"
+  },
+  {
+   "ad": "Claude Design",
+   "alias": [
+    "Claude design"
+   ],
+   "tur": "uygulama",
+   "zaman": "1:11",
+   "kaynak": "ses",
+   "kanit": "write slash, search for design; Refining designs with Claude design"
+  },
+  {
+   "ad": "Figma",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "0:00",
+   "kaynak": "açıklama",
+   "kanit": "başlıkta End of Figma Web Design; Figma alternatifi olarak"
+  },
+  {
+   "ad": "Gemini",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "5:04",
+   "kaynak": "ses",
+   "kanit": "in the Gemini I have generated this picture"
+  },
+  {
+   "ad": "ChatGPT",
+   "alias": [
+    "chat GPT"
+   ],
+   "tur": "uygulama",
+   "zaman": "5:07",
+   "kaynak": "ses",
+   "kanit": "in the chat GPT I have this another picture"
+  }
+ ],
+ "linkler": [
+  {
+   "url": "https://www.udemy.com/course/become-web-design-pro-with-figma/?referralCode=75A96A7E9541F367B6AD&couponCode=MT250915G2",
+   "sinif": "sosyal",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://discord.gg/kGyq9EfSfq",
+   "sinif": "sosyal",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://t.me/dvxuicommunity",
+   "sinif": "sosyal",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://drive.google.com/file/d/1mz-QINyJJJXIPzyMgBzLTccP8gB1yEUr/view?usp=sharing",
+   "sinif": "referans-site",
+   "aday": false,
+   "kaynak": "aciklama"
+  }
+ ],
+ "site_ui": [
+  {
+   "teknik": "İmleç hareketiyle parallax efekti",
+   "mekanizma": "imleç ve görsel/öğe katmanları farklı hızlarda kayar",
+   "kutuphaneler": [],
+   "zaman": "7:44"
+  },
+  {
+   "teknik": "Scroll ile beliren (appear) animasyonu",
+   "mekanizma": "bölümler görünür olunca animasyonla belirir",
+   "kutuphaneler": [],
+   "zaman": "7:09"
+  }
+ ],
+ "promptlar": [
+  {
+   "zaman": "1:40",
+   "konu": "design this website",
+   "kaynak": "ses"
+  },
+  {
+   "zaman": "3:21",
+   "konu": "testimonial ve footer bölümlerini ekle",
+   "kaynak": "ses"
+  },
+  {
+   "zaman": "5:28",
+   "konu": "hero görselini verilen görselle değiştir",
+   "kaynak": "ses"
+  },
+  {
+   "zaman": "6:12",
+   "konu": "siteyi JS, CSS ve HTML ile kodla",
+   "kaynak": "ses"
+  },
+  {
+   "zaman": "6:54",
+   "konu": "parallax, appear efekti ve etkileşim animasyonları ekle",
+   "kaynak": "ses"
+  }
+ ],
+ "komutlar": [
+  {
+   "komut": "/design",
+   "zaman": "1:11",
+   "kaynak": "ses"
+  }
+ ],
+ "urller": [
+  {
+   "url": "chatgpt.com/c/6ab2fcec-5ed4-83e9-bbf9-cd85e18c5bf8",
+   "zaman": "0:09",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "in.pinterest.com/pin/812688695303781495/",
+   "zaman": "0:48",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "gemini.google.com/app/013d57f9fb0519f8",
+   "zaman": "5:04",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "web.telegram.org/a/#-1002173683675",
+   "zaman": "8:54",
+   "kaynak": "ekran"
+  }
+ ],
+ "is_akisi": [
+  {
+   "adim": "Pinterest'ten bir site tasarımı seç, görseli kopyala",
+   "zaman": "0:47",
+   "araclar": []
+  },
+  {
+   "adim": "Claude'da /design ile görseli yapıştır, 'design this website' de",
+   "zaman": "1:11",
+   "araclar": [
+    "Claude Design",
+    "Opus 5.5"
+   ]
+  },
+  {
+   "adim": "testimonial ve footer bölümlerini ekletip sonuncuyu değiştir",
+   "zaman": "3:11",
+   "araclar": [
+    "Claude Design"
+   ]
+  },
+  {
+   "adim": "hero görselini Gemini veya ChatGPT'de üretilen görselle değiştir",
+   "zaman": "4:46",
+   "araclar": [
+    "Claude Design",
+    "Gemini",
+    "ChatGPT"
+   ]
+  },
+  {
+   "adim": "tasarımı JS, CSS ve HTML dosyalarına kodlat",
+   "zaman": "6:02",
+   "araclar": [
+    "Claude Design"
+   ]
+  },
+  {
+   "adim": "parallax ve appear animasyonu ekletip çalışan siteyi gözden geçir",
+   "zaman": "6:54",
+   "araclar": [
+    "Claude Design"
+   ]
+  }
+ ]
+}

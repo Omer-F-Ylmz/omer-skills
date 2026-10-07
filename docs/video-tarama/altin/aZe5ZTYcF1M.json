@@ -1,0 +1,26 @@
+{
+ "not": "altın taslak: yalnız ham dump (aciklama/altyazi/ocr/yorum) kaynaklı",
+ "adaylar": [
+  {"ad": "Sonnet 5.5", "alias": ["Sonet 5.5", "Claude Sonnet 5.5"], "tur": "model", "zaman": "0:00", "kaynak": "ses", "kanit": "Sonet 5.5 çıktı; aynı proje iki modele yaptırıldı"},
+  {"ad": "Opus 5.5", "alias": ["Claude Opus 5.5"], "tur": "model", "zaman": "0:02", "kaynak": "ses", "kanit": "Opus 5.5 karşılaştırma modeli; sonuçta daha iyi bulundu"},
+  {"ad": "Three.js", "alias": ["ThreeJS", "three js"], "tur": "kütüphane", "zaman": "0:00", "kaynak": "açıklama", "kanit": "hashtag #threejs, 3D parçacık sahnesi"}
+ ],
+ "linkler": [
+  {"url": "https://dala.craftedbygc.com/", "sinif": "referans-site", "aday": false, "kaynak": "aciklama"},
+  {"url": "https://dala.craftedbygc.com/", "sinif": "referans-site", "aday": false, "kaynak": "yorum"}
+ ],
+ "site_ui": [
+  {"teknik": "Scroll'a bağlı parçacıklar farklı 3D modeller oluşturuyor", "mekanizma": "video/görsel yok, scroll ile tetiklenen parçacık sistemi", "kutuphaneler": [], "zaman": "0:27"},
+  {"teknik": "Parçacıklı beyin modeli hover efekti", "mekanizma": "imleç beyin üzerindeyken parçacıklar tepki verir", "kutuphaneler": [], "zaman": "5:27"},
+  {"teknik": "Scroll ile tünelin içinden geçiş", "mekanizma": "aşağı kaydırdıkça kamera tünelde ilerler", "kutuphaneler": [], "zaman": "7:36"},
+  {"teknik": "Scroll ile tetiklenen slider", "mekanizma": "scroll ilerledikçe kayan galeri", "kutuphaneler": [], "zaman": "7:59"}
+ ],
+ "promptlar": [{"zaman": "3:28", "konu": "Dala referanslı Awwwards seviyesi 3D web sitesi promptu", "kaynak": "ekran"}],
+ "komutlar": [],
+ "urller": [{"url": "dala.craftedbygc.com", "zaman": "0:50", "kaynak": "ekran"}],
+ "is_akisi": [
+  {"adim": "ödüllü referans siteyi (Dala) incele", "zaman": "0:51", "araclar": []},
+  {"adim": "aynı promptu Opus 5.5 ve Sonnet 5.5'e ayrı dosyalarda ver (effort yüksek, ajan yok)", "zaman": "2:58", "araclar": ["Opus 5.5", "Sonnet 5.5"]},
+  {"adim": "token ve süreyi izle, iki sonucu karşılaştır", "zaman": "3:30", "araclar": []}
+ ]
+}
