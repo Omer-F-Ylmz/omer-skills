@@ -29,7 +29,7 @@ def test_eleme_v10s_sema_metin_v10_degismedi(tmp_path):
 
     def kur(c):
         def b_kur(m, env, **kw):
-            gor.setdefault(len(gor), kw)
+            gor.setdefault(id(c), []).append(dict(kw))
             kw.pop("sema_metin", None)
             return v5._b6(c)(m, env, **kw)
         return b_kur
@@ -38,6 +38,7 @@ def test_eleme_v10s_sema_metin_v10_degismedi(tmp_path):
     for ad, v, c in (("a", "V10", c10), ("b", "V10s", c10s)):
         (tmp_path / ad).mkdir()
         v5._e6(tmp_path / ad, [f"{E1}@{v}"], c, b_kur=kur(c))
-    assert "sema_metin" not in gor[0] and gor[1].get("sema_metin") is True
-    assert c10s == c10  # aynı parça/son geçiş sistemleri, metinler, kareler (şema eklemesi omni_cagir içinde)
+    assert not any("sema_metin" in k for k in gor[id(c10)]) and any(k.get("sema_metin") is True for k in gor[id(c10s)])
+    yol = lambda c, ad: json.dumps(c, ensure_ascii=False, default=str).replace(json.dumps(str(tmp_path / ad))[1:-1], "K")
+    assert yol(c10s, "b") == yol(c10, "a")  # aynı parça/son geçiş sistemleri, metinler, kareler (şema eklemesi omni_cagir içinde)
     assert v5._kayit(tmp_path / "b", f"{E1}@V10s")["form"] == v5._kayit(tmp_path / "a", f"{E1}@V10")["form"]

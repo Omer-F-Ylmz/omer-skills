@@ -58,9 +58,13 @@ def _usd(model, u, basliklar, kare=0):
             + u.get("completion_tokens", 0) * f["cikti"]) / 1e6 + kare * f.get("gorsel", 0)
 
 
-def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sleep):
+SEMA_BASLIK = "\n\nYANIT ŞEMASI: yalnız bu JSON şemasına uyan tek bir JSON nesnesi döndür (açıklama ya da kod çiti yok):\n"  # MÜKEMMEL-6b
+
+
+def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sleep, sema_metin=False):
     """hafif.cagir imzasında OmniRoute (OpenAI biçimi) adaptörü → {form, usage, usd, sure, hata}; anahtar yalnız env OMNIROUTE_KEY, hiçbir çıktıya yazılmaz.
-    govde_ek istek gövdesine eklenir (F3-ELEME: reasoning); usage.reasoning yalnız yanıtta reasoning token > 0 ise."""
+    govde_ek istek gövdesine eklenir (F3-ELEME: reasoning); usage.reasoning yalnız yanıtta reasoning token > 0 ise.
+    MÜKEMMEL-6b (V10s): sema_metin → response_format yok, şema sistem metninin sonuna JSON metni olarak eklenir."""
     anahtar = env.get("OMNIROUTE_KEY") or ""
     gonder = gonder or functools.partial(ig._post, basliklar=True, timeout=timeout)
 
@@ -74,7 +78,9 @@ def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sl
                     "hata": neden.replace(anahtar, "***") if anahtar else neden}
         ekler = [{"type": "image_url", "image_url": {"url": f"data:image/{'png' if str(k).endswith('.png') else 'jpeg'};base64,"
                   + base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
-        govde = {"model": model, "max_tokens": CIKTI_TAVAN, "response_format": {"type": "json_schema", "json_schema": {"name": "form", "strict": False, "schema": sema}},
+        rf = {} if sema_metin else {"response_format": {"type": "json_schema", "json_schema": {"name": "form", "strict": False, "schema": sema}}}
+        sistem = sistem + SEMA_BASLIK + json.dumps(sema, ensure_ascii=False) if sema_metin else sistem
+        govde = {"model": model, "max_tokens": CIKTI_TAVAN, **rf,
                  "messages": [{"role": "system", "content": sistem},
                               {"role": "user", "content": [{"type": "text", "text": cli._temizle(metin, env)}, *ekler]}], **(govde_ek or {})}
         # Vision Bridge (visionBridge.ts:188) yalnız bizim isteğimizde kapalı: ling'i görselsiz sayıp kareleri 10'a kırpıyordu
@@ -221,9 +227,11 @@ VARYANT = {"V0": "temel (bugünkü)", "V1": "tek örnek: sistem mesajına başka
            "V8": "V6 + temperature 0.2 (+ seed 7 destekse) + parçalarda ALAN KURALI ve tek cümle özet",
            "V9": "V8 + ELEME_ORNEK9 (zengin örnek) · son geçiş şema/JSON hatasında bir kez yeniden · kareler JPEG 75 · gövdeler eşik altıysa paralel",
            "V10": "V8 + uyarlanır k (yük / PARCA_YUK) · bölümsüz pakette bolumler son geçişten · EKSIKSIZLIK10 + SON_SISTEM10",
-           "V11": "V10 + AYRINTI ÖRNEĞİ (liste başı en derin öğe, ayrinti_ornegi; öğe sayısı korunur) · ALAN_KURALI11 (ad + teknik) · parçada EKRAN METNİ (OCR) bloğu"}
-PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3, "V8": 4, "V9": 4, "V10": 4, "V11": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
-SON = ("V6", "V63", "V8", "V9", "V10", "V11")  # F3-V6: parça + son geçiş (çağrı k + 1)
+           "V11": "V10 + AYRINTI ÖRNEĞİ (liste başı en derin öğe, ayrinti_ornegi; öğe sayısı korunur) · ALAN_KURALI11 (ad + teknik) · parçada EKRAN METNİ (OCR) bloğu",
+           "V10s": "V10, response_format yok · şema sabit önekin sonunda metin (MÜKEMMEL-6b; yalnız eleme)"}
+PARCA = {"V5": 3, "V54": 4, "V6": 4, "V63": 3, "V8": 4, "V9": 4, "V10": 4, "V11": 4, "V10s": 4}  # F3-V5: parça sayısı (tavanlar parça çağrısını sayar)
+SON = ("V6", "V63", "V8", "V9", "V10", "V11", "V10s")  # F3-V6: parça + son geçiş (çağrı k + 1)
+V10L = ("V10", "V11", "V10s")  # MÜKEMMEL-6b: uyarlanır k · EKSIKSIZLIK10 · son geçiş SON_SISTEM10 olan varyantlar
 DEGERLENDIR = "DEĞERLENDİR LİSTESİ (paket metninden mekanik çıkarım):\n"
 PARCA_BOLUM = "bolumler: boş bırak ([]); bölümler paketten doldurulur."
 PARCA_LINK = "aciklama_baglantilari: boş bırak ([]); bağlantılar yalnız 1. parçada istenir."
@@ -1048,7 +1056,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             ks = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((Path(yeniden) / dosya(ad)).glob("*.json"))]
             durum[ad] = {"neden": None if ks else "kayıt yok", "y": [r["yanit"] for r in ks], "p": [r.get("puan") for r in ks], "bp": [r.get("boyut") for r in ks], "akil": akil}
             continue
-        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6, "V8": ornek6, "V9": ornek9, "V10": ornek6, "V11": ornek6}.get(v)
+        orn = {"V1": ornek, "V21": ornek21, "V5": ornek21, "V54": ornek21, "V6": ornek6, "V63": ornek6, "V8": ornek6, "V9": ornek9, "V10": ornek6, "V11": ornek6, "V10s": ornek6}.get(v)
         neden = ("kol sabit değil" if m.startswith("~") or "/~" in m or ":free" in m or "openrouter/free" in m
                  else f"bilinmeyen varyant: {v}" if v not in VARYANT
                  else f"{v} örneği yok" if v in ("V1", "V21", *PARCA) and not (orn and Path(orn).is_file())
@@ -1072,23 +1080,23 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
             continue
         m, v, akil = x["m"], x["v"], x["akil"]
         n, b = PARCA.get(v, 1), "V21" if v in PARCA else v  # F3-V5: V5/V54 = V21 sistemi, liste parçaya süzülür
-        n, yk = parca_k(g[1]) if v in ("V10", "V11") else (n, None)  # F3-V10: k paketin yükünden
+        n, yk = parca_k(g[1]) if v in V10L else (n, None)  # F3-V10: k paketin yükünden
         nc = n + (v in SON)  # F3-V6: son geçiş çağrısı da tavana sayılır
-        sis = (lambda t, s=g[0] + "\n\n" + (EKSIKSIZLIK10 if v in ("V10", "V11") else EKSIKSIZLIK) + ORNEK_BASLIK + Path(ornek9 if v == "V9" else ornek6).read_text(encoding="utf-8")
+        sis = (lambda t, s=g[0] + "\n\n" + (EKSIKSIZLIK10 if v in V10L else EKSIKSIZLIK) + ORNEK_BASLIK + Path(ornek9 if v == "V9" else ornek6).read_text(encoding="utf-8")
                      + (AYRINTI_BASLIK + json.dumps({x: a["oge"] for x, a in ayrinti.items()}, ensure_ascii=False) if v == "V11" else ""): s) if v in SON else \
             lambda t, b=b: (g[0] + (f"\n\n{EKSIKSIZLIK}\n\n{DEGERLENDIR}{on_cikarim(t)}" if b in ("V2", "V21") else "")
                             + (ORNEK_BASLIK + Path(ornek if b == "V1" else ornek21).read_text(encoding="utf-8") if b in ("V1", "V21") else ""))
         ek_v = {"kareler": kucult(g[3], (Path(kayit) if kayit else Path(tempfile.mkdtemp(prefix="eleme-"))) / dosya(ad) / "kare")} \
             if v == "V4" and kare else ek
         ge = {**({"reasoning": {"effort": "low" if v == "V3" else "minimal"}} if akil else {}),  # F3-V8: düşük sıcaklık, seed yalnız destekse
-              **({"temperature": 0.2, **({"seed": 7} if "seed" in (destek or {}).get(m, ()) else {})} if v in ("V8", "V9", "V10", "V11") else {})}
-        tas = b_kur(m, env, timeout=zaman, govde_ek=ge or None)
+              **({"temperature": 0.2, **({"seed": 7} if "seed" in (destek or {}).get(m, ()) else {})} if v in ("V8", "V9", *V10L) else {})}
+        tas = b_kur(m, env, timeout=zaman, govde_ek=ge or None, **({"sema_metin": True} if v == "V10s" else {}))  # MÜKEMMEL-6b
         while len(x["y"]) < 2 and (not x["y"] or gecer(x["y"][-1])):
             tahmin = (x["y"][-1].get("usd") if x["y"] else None) or _tahmin(m, kare) * nc
             if cagri + nc > tavan_cagri or b_usd + tahmin > tavan_usd:
                 x["tavan"] = True
                 break
-            y = tara_v10(g, env, m, tas=tas, ornek=ornek6, ek=ek_v) if v == "V10" else _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v in ("V8", "V9", "V10", "V11"), jpeg=v == "V9", v10=v in ("V10", "V11"), v11=v == "V11") if n > 1 or v in ("V10", "V11") else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
+            y = tara_v10(g, env, m, tas=tas, ornek=ornek6, ek=ek_v) if v in ("V10", "V10s") else _parcali(tas, sis, g, n, ek_v, m, v6=v in SON, alan=v in ("V8", "V9", *V10L), jpeg=v == "V9", v10=v in V10L, v11=v == "V11") if n > 1 or v in V10L else tas(sis(g[1]), g[1], g[2], **ek_v, model=m)
             if yk is not None:  # F3-V10: satırda k x (yük y)
                 y["k_not"] = f"k {n} (yük {yk})" + (f" · {y['k_not']}" if y.get("k_not") else "")
             cagri, b_usd = cagri + nc + bool(y.get("son_yeniden")) + y.get("parca_yeniden", 0), b_usd + (tahmin if y.get("usd") is None else y["usd"])
@@ -1188,7 +1196,7 @@ def eleme(g, adaylar, a_tas, a_model, env, puanla, *, onbellek, destek=None, b_k
              *([rapor[m]["olcum"][0], f"B bant {bant(list(map(sk, pb[m]))):.2f}",  # F3-V8: tekrar bantları (A bandı kur.karar'da)
                 f"görev bant (A {bant(gv(ya, sa['v2'])):.2f} · B {bant(gv(ys, ozet[m]['v2'])):.2f})", rapor[m]["dolu"]] if m in ozet else []),
              *([f"boyut fark: {rapor[m]['boyut']['fark']}"] if m in ozet and "boyut" in rapor[m] else []),
-             *(["seed yok"] if x.get("v") in ("V8", "V9", "V10", "V11") and "seed" not in (destek or {}).get(x.get("m"), ()) else []),
+             *(["seed yok"] if x.get("v") in ("V8", "V9", *V10L) and "seed" not in (destek or {}).get(x.get("m"), ()) else []),
              *([f"Jev {jev[m]}" if jev[m] else "Jev 0 (kayıttan)"] if yeniden and m in ozet else [])]
         if x["akil"] and max((y.get("usage") or {}).get("reasoning", 0) for y in ys) > 1000:  # F3-VARYANT: küçük iz gürültü sayılır
             p.append("reasoning parametresi etkisiz")
