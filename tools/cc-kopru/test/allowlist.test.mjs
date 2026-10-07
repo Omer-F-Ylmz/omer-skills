@@ -253,3 +253,38 @@ test("M2f K6: video parti izin listesi yalniz durum", () => {
   red("video", ["parti", "kapat", "x"]);
   red("video", ["parti", "yeni-bir-komut", "x"]);
 });
+
+// ---------------------------------------------------------------- KURULUM-VIDEO K3
+const URL_ = "https://www.youtube.com/watch?v=aZe5ZTYcF1M";
+
+test("K3: crv URL ve --help izinli; cerez/yt-dlp-arg/viewer/kb/overwrite red", () => {
+  gecer("crv", [URL_]);
+  gecer("crv", ["--help"]);
+  for (const b of ["--cookies", "--cookies-from-browser", "--yt-dlp-arg", "--viewer", "--kb", "--overwrite"]) {
+    red("crv", [URL_, b, "x"]);
+  }
+});
+
+test("K3: summarize yalniz --extract ile; alt komutlar red", () => {
+  gecer("summarize", [URL_, "--extract"]);
+  gecer("summarize", [URL_, "--slides", "--extract"]);
+  gecer("summarize", ["--help"]);
+  red("summarize", [URL_]);                      // --extract'siz = LLM ozeti
+  for (const a of ["daemon", "config", "refresh-free"]) red("summarize", [a, "--extract"]);
+});
+
+test("K3: mcp-video-analyzer yalniz analyze; argumansiz (MCP sunucusu) red", () => {
+  gecer("mcp-video-analyzer", ["analyze", URL_, "--ocr-language", "tur"]);
+  gecer("mcp-video-analyzer", ["--version"]);
+  red("mcp-video-analyzer", []);
+  red("mcp-video-analyzer", ["--ocr-language", "tur", "analyze"]);
+  red("mcp-video-analyzer", ["serve"]);
+});
+
+test("K3: whisper-cli PATH disi mutlak yol; cikti yolu bayragi red", () => {
+  const d = komutDenetle("whisper-cli", ["-m", "model.bin", "-f", "a.wav", "-otxt"], AYAR);
+  assert.match(d.yol, /whisper-cli\.exe$/i);
+  gecer("whisper-cli", ["--help"]);
+  red("whisper-cli", ["-f", "a.wav", "-of", "C:/x/y"]);
+  red("whisper-cli", ["-f", "a.wav", "--output-file", "C:/x/y"]);
+});

@@ -270,7 +270,7 @@ export function komutDenetle(arac, args, ayar, cwd) {
     if (n >= 0) cikanArgs = [...args.slice(0, n + 1), "--", ...args.slice(n + 1)];
   }
 
-  const yol = yolBul(arac);
+  const yol = kural.yol || yolBul(arac);   // K3: PATH dışı araç (whisper-cli) mutlak yolla
   if (!yol) throw new Error(`'${arac}' PATH'te bulunamadı`);
   return { arac, args: cikanArgs, yol };
 }
@@ -589,7 +589,7 @@ export function kos({ arac, args, cwd, timeoutSn, ayar, env, denetimAtla, kullan
   // denetimAtla: cagiran zaten komutDenetle'den gecirdi (hook yeniden yazimi sarmalamasi)
   const calisma = cwdCoz(cwd, ayar);
   // denetim `--` ayiricisini eklemis olabilir (11l K2); kosan argv denetimden cikandir.
-  const d = denetimAtla ? { yol: yolBul(arac), args } : komutDenetle(arac, args, ayar, calisma);
+  const d = denetimAtla ? { yol: ayar.izinli[arac]?.yol || yolBul(arac), args } : komutDenetle(arac, args, ayar, calisma);
   const yol = d.yol;
   if (!yol) throw new Error(`'${arac}' PATH'te bulunamadi`);
   args = d.args;   // asagidaki her dal (shim · cmd /c · dogrudan) ayni argv'yi gormeli
