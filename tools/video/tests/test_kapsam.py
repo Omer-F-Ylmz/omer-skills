@@ -71,6 +71,20 @@ def test_cli_altin_kapsam(tmp_path, capsys):
     assert "aday 1/1" in capsys.readouterr().out
 
 
+def test_norm_noktasiz_i_katlanir():
+    assert au.norm("Iğdır ışık") == au.norm("iğdir işik") == "iğdirişik"
+
+
+def test_url_ve_komut_kacan_nedeni(capsys):
+    p = PAKET.replace("https://github.com/acme/tool", "https://bit.ly/x1")
+    a = _altin(urller=[{"url": "https://a.dev/x", "kaynak": "açıklama"}, {"url": "https://b.dev", "kaynak": "yorum"},
+                       {"url": "localhost:5174", "kaynak": "ekran"}], komutlar=[{"komut": "/design", "kaynak": "ses"}])
+    k = au.kapsam(p, a, boyut=lambda y: None)
+    assert k["url_kacan"] == [("https://a.dev/x", "kısaltıcı"), ("https://b.dev", "yorumda"), ("localhost:5174", "ekranda")]
+    assert k["komut_kacan"] == [("/design", "ses")] and "url kaçan: https://a.dev/x (kısaltıcı)" in "\n".join(au.kapsam_satirlar(k))
+    assert au._url_neden({"url": "x", "kaynak": "açıklama"}, PAKET) == "açıklamada-yok"
+
+
 def test_altin_jevsiz_ice_alinir():
     kod = "import sys; sys.modules['jev'] = None; from video import altin; print('ok')"
     r = subprocess.run([sys.executable, "-c", kod], cwd=Path(__file__).parents[1], capture_output=True, text=True)

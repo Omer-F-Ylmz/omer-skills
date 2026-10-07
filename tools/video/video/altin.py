@@ -8,7 +8,7 @@ ALAN_YOK = ("urller", "is_akisi", "promptlar")  # rapor şemasında karşılığ
 
 
 def norm(s):
-    return re.sub(r"[\W_]+", "", s.casefold())
+    return re.sub(r"[\W_]+", "", s.casefold().replace("ı", "i"))  # 1b-1: RapidOCR ı'yı i okur → iki taraf katlanır
 
 
 def lev(a, b):
@@ -135,8 +135,10 @@ def kapsam(paket, altin, boyut=_jpeg):
     km = altin.get("komutlar", [])
     ur = altin.get("urller", [])
     kare = [b for s in bolum(paket, "Kareler").splitlines() if (yol := s.split(" · ")[0].strip()) and (b := boyut(yol))]
-    return {"aday": (y, n), "komut": (sum(norm(k["komut"]) in duz for k in km), len(km)),
-            "url": (sum(norm(url_norm(u["url"])) in duz for u in ur), len(ur)), "kacan": kacan,
+    uk = [(u["url"], _url_neden(u, paket)) for u in ur if norm(url_norm(u["url"])) not in duz]
+    kk = [(k["komut"], k.get("kaynak", "?")) for k in km if norm(k["komut"]) not in duz]
+    return {"aday": (y, n), "komut": (len(km) - len(kk), len(km)), "url": (len(ur) - len(uk), len(ur)), "kacan": kacan,
+            "url_kacan": uk, "komut_kacan": kk,
             "token": {"metin": len(paket) // 4, "kare": sum(-(-w // 28) * -(-h // 28) for w, h in kare), "kare_n": len(kare)}}
 
 
@@ -144,7 +146,24 @@ def kapsam_satirlar(p):
     t = p["token"]
     return [f"kapsam: aday {p['aday'][0]}/{p['aday'][1]} · komut {p['komut'][0]}/{p['komut'][1]} · url {p['url'][0]}/{p['url'][1]}",
             f"token: metin {t['metin']} + kare {t['kare']} ({t['kare_n']} kare) = {t['metin'] + t['kare']}",
-            "kaçan: " + (", ".join(f"{a} ({n})" for a, n in p["kacan"]) or "yok")]
+            "kaçan: " + (", ".join(f"{a} ({n})" for a, n in p["kacan"]) or "yok"),
+            "url kaçan: " + (", ".join(f"{a} ({n})" for a, n in p["url_kacan"]) or "yok"),
+            "komut kaçan: " + (", ".join(f"{a} ({n})" for a, n in p["komut_kacan"]) or "yok")]
+
+
+KISALTICI = re.compile(r"\b(?:bit\.ly|t\.co|tinyurl\.com|goo\.gl|lnkd\.in|buff\.ly|ow\.ly|rebrand\.ly|dub\.sh|shorturl\.at|is\.gd|cutt\.ly)/", re.I)
+YONLEN = re.compile(r"[?&](?:ref|aff|via|utm_\w+)=|/(?:go|out|r|redirect|aff)/", re.I)
+
+
+def _url_neden(u, paket):
+    """Kaçan URL nedeni: açıklamada-yok | yorumda | redirect | kısaltıcı | ekranda (altın kaynağına göre)."""
+    k = u.get("kaynak", "açıklama")
+    if k == "yorum":
+        return "yorumda"
+    if k not in ("açıklama", "aciklama"):
+        return "ekranda"
+    a = bolum(paket, "Açıklama bağlantıları")
+    return "kısaltıcı" if KISALTICI.search(a) else "redirect" if YONLEN.search(a) else "açıklamada-yok"
 
 
 def satirlar(p):

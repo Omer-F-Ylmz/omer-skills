@@ -67,7 +67,7 @@ def rapid_yukle():
     from rapidocr import LangCls, LangDet, LangRec, ModelType, OCRVersion, RapidOCR
     k = (os.environ.get("VIDEO_OCR_MODEL") or MODEL_KOK).rstrip("/\\") + "/"
     dosya = {"Det.model_path": "ch_PP-OCRv5_det_mobile.onnx", "Cls.model_path": "ch_ppocr_mobile_v2.0_cls_mobile.onnx",
-             "Rec.model_path": "latin_PP-OCRv5_rec_mobile.onnx", "Rec.rec_keys_path": "ppocrv5_latin_dict.txt"}
+             "Rec.model_path": "latin_PP-OCRv5_rec_mobile.onnx", "Rec.rec_keys_path": "ppocrv5_latin_dict.txt"}  # gitleaks:allow (dosya adı)
     if eksik := [f for f in dosya.values() if not os.path.isfile(k + f)]:
         raise FileNotFoundError(f"model yok: {', '.join(eksik)}")
     ocr = RapidOCR(params={"Global.model_root_dir": k, **{a: k + f for a, f in dosya.items()},
