@@ -14,12 +14,14 @@ def _goz_sahte(tmp_path, monkeypatch, metin):
     monkeypatch.setattr(cli, "_video_indir", lambda ctx, d: d / "goz-video.mp4")
     monkeypatch.setattr(gz, "sahneler", lambda h, f: [(t, 64) for t in sorted(metin)])
     monkeypatch.setattr(cli.m, "jpeg_boyut", lambda b: (1280, 720))
-    sayac = {"oku": 0}
+    sayac = {"oku": 0, "secim": []}
 
     def kos(a, timeout=None):
         if a[0] == "ffmpeg" and "rawvideo" not in a:
-            n = sum(x.count("eq(n,") for x in a)
-            for y in ([a[-1] % (i + 1) for i in range(n)] if "%" in a[-1] else [a[-1]]):
+            n, s0 = sum(x.count("eq(n,") for x in a), int(a[a.index("-start_number") + 1]) if "-start_number" in a else 1
+            if n:
+                sayac["secim"].append(n)
+            for y in ([a[-1] % (s0 + i) for i in range(n)] if "%" in a[-1] else [a[-1]]):
                 Path(y).write_bytes(b"x")
         return 0, b"", b""
 
@@ -60,6 +62,13 @@ def test_r3_tavan_ve_periyodik_taban():
     t = [x for x, _ in k]
     assert len(k) <= 200 and all(s in k for s in sahne) and t == sorted(t)  # tavan içinde, sahneler korunur
     assert max(b - a for a, b in zip(t, t[1:])) <= 15 and t[-1] >= 1780  # aralık 15'e büyür, taban videoya yayılır
+
+
+def test_r3_uzun_secim_ffmpeg_ifadesi_parcali(tmp_path, monkeypatch):
+    metin = {float(t): [] for t in range(0, 1200, 10)}  # 120 kare: tek select'te ~117 eq(n,) ffmpeg "Cannot allocate memory" verdi
+    ctx, d, sayac = _goz_sahte(tmp_path, monkeypatch, metin)
+    cli._goz(ctx, d, 1200, "", [], 2, {})
+    assert sum(sayac["secim"]) == 120 and max(sayac["secim"]) <= 50 and sayac["oku"] == 120
 
 
 def test_r4_kapsam_sira():
