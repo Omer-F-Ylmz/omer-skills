@@ -1042,3 +1042,24 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Hata (çökme) 0 → kod değişmedi, suite koşulmadı. Bulgular tasarım boşluğu, aşağıdaki listeye.
 - Köprüsüz değişiklik listesi (güncel): U1 tarama = `parti baslat` V10 + toplu.md · U2 kurulum_komutlar → aday.md `## Kurulum` (slash `/plugin enable X@builtin` → "yerleşik: elle" notu, onay hattına girmez) · U3-U5 akil._aday_md karar/Özellikler/Bizde · U6 teknik/ipucu adayına akil aday.md yazsın (6 bölüm; on rc 2'de iskelet yok) · U7 katman: aday `karar:` ≠ özellik kararı → ÇELİŞKİ (sessiz geçiş yok) · U8 yalnız etkileşimli özellik (claude -p'de koşmaz) DENE değil ÖĞREN/elle deneme · U9 bizde: yerleşik CC plugin/skill (`@builtin`, plugin-authoring) kurulu sayılsın · U10 `parti baslat` verilen kuyruk dosyasına yazsın, deneme koşusunun kayıt yolu ayarlanabilsin (şu an gerçek kuyruk.md + kayit.jsonl).
 - HARCANAN: B 0 · claude -p 0 · Jev 8 · OpenRouter $0. "K5 yeşil" yazılmaz; sonraki K6 = U1-U10 köprüsüz.
+
+## O103 — MÜKEMMEL-7d K5 son koşu (2026-10-07)
+- U1/U10 (7c): `video parti link <url>` → .kos/link-<id>.md tek satır → baslat V10 → toplu; paket --kuyruk partinin kuyruğu, --kayit yolu.
+- Link kapanışı (7d): toplu sonrası parti `kapandi`; aynı videonun ikinci link'i _acik'e takılmaz, mevcut rapor içe alınır (yeniden tarama yok). kırmızı d0ef0f9 · yeşil 31d590f.
+- Skill kopyası: senkron video-uygula SKILL.md = repo (D4AE827D…).
+
+| adım | sonuç |
+|---|---|
+| video | l_WQx_XUsRY · AI Coding Daily · 9:52 · /wayfinder (Matt Pocock) |
+| tarama | parti link rc 0 · pid 2026-10-07-uzun-2 · B 2 · $0.0138 · form 7 → toplu 7 (UYGULA 4 · BEKLE 1 · ÇİFT 1 · ÖNCEDEN 1) |
+| seçim | 5 (UYGULA 4 + BEKLE 1); retro ÇİFT · grill-me ÖNCEDEN → ZATEN VAR |
+| on | 5/5 rc 0 |
+| araştırma | aday-arastirici 4 (prompt adayı iskeletle) · rapor-denetle 4/4 |
+| bizde | 3 skill aday rc 0 · Jev 6 |
+| katman | 5/5 karar rc 0 · Jev 11: ÖĞREN 3 · UYARLA 1 · DENE 1 · ALTERNATİF 1 · KUR(ONAY) 3 |
+| ölçüt | elle adım 0 · çökme 0 · aday kaybı 0 · T2 kurulumu 0 · kuyruk.md satır 0 |
+
+- K5 hükmü: K5 yeşil (7 suite yeşil koşuluyla).
+- UYGULA-KALİTE: U2 köprülü kayıp · U3-U5 · U6 teknik aday.md · U7 karar çelişkisi · U8 etkileşimli DENE · U9 yerleşik bizde.
+  Yeni gözlem: ASR ad hatası (grill-with-dogs = grill-with-docs) aday adına geçiyor · SkillSpector HIGH sayısı repo geneli, skill klasörüne ayrılmıyor · katman Jev tavanı (11) 5 adayda dolu.
+- Harcanan: B 2 · claude -p 0 · Jev 24/24 · $0.0138 (Jev $ ölçülmedi).
