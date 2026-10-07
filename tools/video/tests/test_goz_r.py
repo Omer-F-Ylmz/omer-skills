@@ -60,3 +60,28 @@ def test_r3_tavan_ve_periyodik_taban():
     t = [x for x, _ in k]
     assert len(k) <= 200 and all(s in k for s in sahne) and t == sorted(t)  # tavan içinde, sahneler korunur
     assert max(b - a for a, b in zip(t, t[1:])) <= 15 and t[-1] >= 1780  # aralık 15'e büyür, taban videoya yayılır
+
+
+def test_r4_kapsam_sira():
+    assert gz.kapsam_sira(8) == [0, 4, 2, 6, 1, 3, 5, 7] and sorted(gz.kapsam_sira(13)) == list(range(13)) and gz.kapsam_sira(0) == []
+
+
+def test_r4_guvenlik_tavani_kayip_videoya_yayilir(tmp_path, monkeypatch):
+    metin = {float(t): [f"Screen line number {t} shows the editor content"] for t in range(0, 300, 10)}
+    ctx, d, sayac = _goz_sahte(tmp_path, monkeypatch, metin)
+    monkeypatch.setattr(gz, "OCR_GUVENLIK", -1)  # ilk 10'luk gruptan sonra keser
+    cli._goz(ctx, d, 300, "", [], 2, o := {})
+    t = [x for x, _ in o["metin"]]
+    assert sayac["oku"] == 10 and t == sorted(t) and min(t) == 0 and max(t) >= 250
+    assert len(o["incelenmedi"]) == 20 and {n for _, n in o["incelenmedi"]} == {"OCR güvenlik tavanı"}
+
+
+def test_r4_ocr_cihaz_motordan():
+    def yukle():
+        def oku(yol):
+            return [("Topview", 0.9, 1)]
+        oku.cihaz = "dml"
+        return oku
+    ctx = {"rapid": yukle}
+    cli._ocr(ctx, ["C:/x/k1.jpg"])
+    assert ctx["ocr_cihaz"] == "dml"
