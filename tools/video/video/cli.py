@@ -700,7 +700,7 @@ def _video_indir(ctx, d):
 
 def _goz(ctx, d, sure, altyazi, isaret, n, ocr):
     """1b-1 M2: aşama 1 fps 1 (≥10 dk 0.5) 160 px gri dHash → sahne; aşama 2 sahnenin yerel çözünürlükteki karesi → OCR (≤tavan, ≤OCR_SN),
-    değişim ≥0.15 olan metin pakete. Modele ayrı m*.jpg: ≤n kare 768/28 (yeni ad/URL önce, sonra işaret). ocr dict yerinde dolar.
+    okunan tüm metin pakete (1b-1R R2; değişim ≥0.15 yalnız model karesi seçiminde). Modele ayrı m*.jpg: ≤n kare 768/28 (yeni ad/URL önce, sonra işaret). ocr dict yerinde dolar.
     1b-1R R1: <id>/goz/ önbelleği — ocr.json süzülmemiş ham OCR (kare t · [metin, skor, y]); anahtar aynıysa video inmez, OCR koşmaz.
     Güven eşiği + gürültü süzgeci okurken (eşik değişince OCR yeniden koşmaz); m*.jpg goz/kareler'de kalır, paket varyantları birbirini silmez."""
     g, f = d / "goz", gz.fps(sure)
@@ -717,14 +717,14 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr):
     ocr["gurultu_satir"] = [(t, x) for t, r in on["ham"] for x in gz.ocr_satirlar(r) if _ocr_gurultu(x)]
     inc = [tuple(x) for x in on["inc"]]
     kareler = []
-    for t in gz.model_sec([*okunan, *((t, []) for t, _ in inc)], altyazi, isaret, n):
+    for t in gz.model_sec([*gz.ocr_sec(okunan), *((t, []) for t, _ in inc)], altyazi, isaret, n):
         y = kd / f"k{int(t * 10):06d}.jpg"
         if not (mk := y.with_name("m" + y.name[1:])).is_file():
             w, h = m.jpeg_boyut(y.read_bytes())
             _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(y), "-vf", "scale=%d:%d,format=yuvj420p" % gz.olcek(w, h), "-q:v", "4", str(mk)],
                  SURE["ffmpeg"])
         kareler.append((t, mk))
-    ocr.update(durum="✓", metin=gz.ocr_sec(okunan), secilen=len(on["sahne"]), ocr_kare=len(okunan), ocr_sn=on["sn"], incelenmedi=inc,
+    ocr.update(durum="✓", metin=okunan, secilen=len(on["sahne"]), ocr_kare=len(okunan), ocr_sn=on["sn"], incelenmedi=inc,
                gurultu=len(ocr["gurultu_satir"]), montaj=0)
     return kareler
 
