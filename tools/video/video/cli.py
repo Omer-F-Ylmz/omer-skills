@@ -16,6 +16,7 @@ from pathlib import Path
 from jev import cekirdek as c
 from jev import skill as sk
 
+from . import altin as au
 from . import departman as dp
 from . import getir as gt
 from . import kanal as kn
@@ -1212,6 +1213,12 @@ def temizle(ns, ctx):
     return 0
 
 
+def altin(ns, ctx):  # VİDEO-GÖZ-1a K4: rapor.md altın JSON'a karşı (salt okur)
+    for x in au.satirlar(au.puan(Path(ns.rapor).read_text(encoding="utf-8"), json.loads(Path(ns.altin).read_text(encoding="utf-8")))):
+        print(x)
+    return 0
+
+
 def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
     argv = [a.rstrip("\r") for a in (sys.argv[1:] if argv is None else argv)]  # 24e-1 K2: CRLF listeden gelen yol
     if argv[:1] == ["--whisper"]:
@@ -1342,6 +1349,10 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
     x.add_argument("--istek-tavan", type=int, default=40, metavar="M", help="en fazla M Jev isteği")
     x = alt.add_parser("departman-geri", help="23 K2: kayit.jsonl'de departmansız karar kayıtları → departman + katalog 'Videodan gelen'")
     x.add_argument("--istek-tavan", type=int, default=30, metavar="M", help="en fazla M Jev isteği")
+    x = alt.add_parser("altin", help="VİDEO-GÖZ-1a: rapor.md'yi altın JSON'a karşı puanlar (LLM yok)")
+    x.add_argument("eylem", choices=["puan"])
+    x.add_argument("rapor")
+    x.add_argument("altin")
     x = alt.add_parser("teknik", help="23 K5: rapor Site/UI teknikleri → ÖĞREN kartı (frontend) ya da UYARLA bekleyen; frontend katalog ## Teknikler")
     x.add_argument("raporlar", nargs="+")
     x = alt.add_parser("temizle", help="eski önbellek klasörlerini siler")
@@ -1394,7 +1405,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None):
            "gh": lambda a: json.loads(subprocess.run(["gh", *a], capture_output=True, text=True, encoding="utf-8", check=True).stdout)}  # DERİNLİK-1 R3
     try:
         return {"ozet": ozet, "suz": suz, "sor": sor, "kare": kare, "whisper": whisper, "temizle": temizle, "kayit": kayit, "adlar": adlar, "oku": oku, "paket": paket, "izle": izle,
-                "rapor-denetle": rapor_denetle, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
+                "rapor-denetle": rapor_denetle, "altin": altin, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
                 "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti, "panel": pt.panel, "kanal": kn.kanal}[ns.komut](ns, ctx)
