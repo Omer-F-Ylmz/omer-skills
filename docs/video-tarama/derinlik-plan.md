@@ -804,7 +804,7 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 |---|---|---|
 | K1 doğruluk | altyazı orijinal dil · paket satırı gerçek kare sayısını ve nedenini yazar · tahmin 6 noktada 0.8–1.3 | MÜKEMMEL-1b |
 | K2 sağlamlık | sessiz A düşüşü 0 · OmniRoute kapalıysa otomatik başlar ya da DUR · sayaç hook'u yan etkisiz · cc-kopru testi sayaçtan bağımsız yeşil | kısmen (DUR: 1b) |
-| K3 kalite | ölçüt A'nın DAYANAKLI öğeleri; 3 doğrulama videosu + Ov-B6K1EsaI'de B dayanaklı kapsam · doğruluk · görev ≥ A, short'ta kareden okuma ≥ A; Jev gerekçeli puan | açık |
+| K3 kalite | ölçüt A'nın DAYANAKLI öğeleri; 3 doğrulama videosu + Ov-B6K1EsaI'de B dayanaklı kapsam · doğruluk · görev ≥ A, short'ta kareden okuma ≥ A; Jev puanı + eksik yön etiketi | yeşil |
 | K4 hız | parça paralelliğiyle uzun videoda süre ≥ %40 kısa, kalite ve çağrı aynı | açık |
 | K5 uçtan uca | V10 formu → araştırma → /video-uygula, 1 videoda hatasız | açık |
 | K6 gözetimsiz prova | 1 takip kanalından 5 videoluk parti, müdahalesiz tamam | açık |
@@ -937,3 +937,9 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Jev gerekçesi DUR (K3 ölçüt yeşil, gerekçe açık kalır): skor yanıtında gerekçe alanı yok (kayıttaki puan anahtarları type · score · legend · probabilities · confidence); soru tipleri yalnız noul · choice · score, "metin üretmez". Canlı sonda: "text" tipli soru → sağlayıcı 400 (1 Jev isteği, model 0). Kod değişikliği yok.
 - Seçenekler: (a) gerekçe yerine Jev choice sorusu — sabit "eksik yön" seçenekleri (ör. alan eksik · yanlış alan · biçim · tam), seçilen etiket + olasılık puan satırına; Jev içinde kalır. (b) gerekçeyi ucuz bir LLM'e ayrı çağrı (model çağrısı > 0, tavan gerekir). (c) puan + confidence + legend'den kural tabanlı tek cümle (ör. "2.47 · büyük ölçüde · güven 0.85") — yeni çağrı yok, gerçek gerekçe değil.
 - OmniRoute: Startup\OmniRoute.vbs çıktısı (stdout+stderr) cmd /c ile %LOCALAPPDATA%\OmniRoute-acilis\omniroute-<YYYYMMDD-HHMMSS>.log dosyasına; tek değişiklik bu, yedek OmniRoute.vbs.bak. Elle koşu 10:23:15 → log 840 B, 20128 açık. Bir sonraki açılışta log okunur (ipucu: --tray kabuk hazır olmadan).
+
+## O94 — MÜKEMMEL-5d: K3 kapanışı (canlı doğrulama) · OmniRoute gizli pencere teşhisi
+- Canlı doğrulama: b2QkhmQ0sT0 kaydı 20261006-173626 kopyası, ELEME_YENIDEN (B çağrısı 0). Puan kayıt → yeni: A 2.85/2.83 → 2.84/2.84 · B@V11 2.47 → 2.50 (hepsi ±0.05). Etiket: A "eksik yok" (0.37 · 0.44) · B "aday eksik" (0.50). B/1 kayıtta puansız → puanlanmadı. Jev 3 istek = 3 form (etiket aynı istekte, JEV_TAVAN 12 değişmedi) · model 0 · $0.
+- **K3 yeşil** (ölçüt O92 + Jev puanı + eksik yön etiketi).
+- OmniRoute pencere: Startup\OmniRoute.vbs Run zaten pencere stili 0 (cmd gizli); vbs değişmedi. Çalışan ağaç: node 9704 (ebeveyni 35252 yaşamıyor) → node 5508 · esbuild · tray. Görünür "omniroute (v16.3.1)" konsolunun kaynağı kanıtlanmadı (aday: Windows Terminal varsayılan terminal devri ya da omniroute'un kendini yeniden başlatması) → DUR, sonraki dalga.
+- OmniRoute sürümü: paket 3.8.50 (pencere başlığındaki v16.3.1 paket sürümü değil).
