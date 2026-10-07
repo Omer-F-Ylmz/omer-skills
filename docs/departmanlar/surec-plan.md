@@ -16,6 +16,7 @@ Müdür: `departman-surec-plan`
 | autoplan | skill | Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk an… | - | - |
 | claude-mem:do | skill | Execute a phased implementation plan using subagents. | Use when asked to execute, run, or carry out a plan — especially one created by make-plan | - |
 | claude-mem:make-plan | skill | Create a detailed, phased implementation plan with documentation discovery. | Use when asked to plan a feature, task, or multi-step implementation — especially before … | - |
+| domain-modeling | skill | Aktif alan modeli disiplini: oturumda terim çatışmasını GLOSSARY.md'ye karşı yakalar, bel… | - | - |
 | office-hours | skill | YC Office Hours — two modes. | - | - |
 | phoenix-prd-pipeline:phoenix-ambiguity-hunter | skill | Role 05 of the Phoenix Security spec pipeline. | - | - |
 | phoenix-prd-pipeline:phoenix-batch-planner | skill | Role 09 of the Phoenix Security spec pipeline. | - | - |
@@ -41,5 +42,8 @@ Müdür: `departman-surec-plan`
 ## Videodan gelen
 
 - mimaride-claude-detayda-codex-iş-akışı · ÖĞREN · video LbBC5Wew4qs
+- wayfinder/harita-ve-bilet-planlama · ÖĞREN · video l_WQx_XUsRY
+- domain-modeling/sozluk-catisma-denetimi · UYARLA · video l_WQx_XUsRY
+- domain-modeling/adr-teklifi · DENE · video l_WQx_XUsRY
 
 ## Elle

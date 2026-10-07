@@ -15,5 +15,6 @@ Müdür: yok (<3 araç ya da henüz yazılmadı)
 - minimax-api-anahtarı-oluşturma-bakiye-yü · KUR · video XemheY_aM1g
 - minimax-indirim-kodu-12-ek-indirim · ÖĞREN · video XemheY_aM1g
 - detaylı-video-prompt-u-sahne-kamera-ışık · KUR · video 4cE9t4rE0-0
+- zor-eval-fikirleri-promptu · ÖĞREN · video l_WQx_XUsRY
 
 ## Elle

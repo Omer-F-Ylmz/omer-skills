@@ -62,6 +62,7 @@ Müdür: `departman-surec-ajan-arac`
 | example-skills:mcp-builder | skill | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to … | Use when building MCP servers to integrate externa | Claude API / ajan |
 | example-skills:skill-creator | skill | Create new skills, modify and improve existing skills, and measure skill performance. | Use when users want to create a skill from scratch, edit, or optimize an existing skill, … | MCP |
 | freeze | skill | Restrict file edits to a specific directory for the session. | - | - |
+| grill-with-dogs | skill | Videodaki "grill-with-dogs" büyük olasılıkla "grill-with-docs" ses hatası (repoda dogs yo… | - | - |
 | gstack | skill | Router for the gstack skill suite. | - | - |
 | gstack-upgrade | skill | Upgrade gstack to the latest version. | - | - |
 | hookify:writing-rules | skill | This skill should be used when the user asks to "create a hookify rule", "write a hook ru… | - | - |
@@ -139,5 +140,10 @@ Müdür: `departman-surec-ajan-arac`
 - context-mode/sandbox-context-saving · DENE · video v-vRYtvWDYs
 - you-should-know/yan-ajan-notu · DENE · video _0NSNY7n5lE
 - claude-code-mods · ÖĞREN · video _0NSNY7n5lE
+- grill-with-dogs/grill-with-docs · KUR · video l_WQx_XUsRY
+- grill-with-dogs/grilling · KUR · video l_WQx_XUsRY
+- grill-with-dogs/domain-modeling · KUR · video l_WQx_XUsRY
+- grill-with-dogs/grill-me · ÖĞREN · video l_WQx_XUsRY
+- whisper-flow/sesle-yazdirma · ALTERNATİF · video l_WQx_XUsRY
 
 ## Elle
