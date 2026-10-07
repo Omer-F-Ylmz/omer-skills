@@ -98,8 +98,10 @@ def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sl
             return hata(f"HTTP {durum} " + json.dumps(y.get("error") or "", ensure_ascii=False))
         u, sec0 = y.get("usage") or {}, (y.get("choices") or [{}])[0]
         ic, kesik = sec0.get("message", {}).get("content") or "", sec0.get("finish_reason") == "length"
+        # MÜKEMMEL-6a3: OpenRouter upstream 429 OmniRoute zarfında 200 gelir (finish_reason error, token 0, kısmi içerik) → geçici "boş yanıt"
+        bos = sec0.get("finish_reason") == "error" or bool(sec0.get("error")) or not ic.strip() or u.get("completion_tokens") == 0
         try:
-            form = None if kesik else json.loads(ic[ic.find("{"): ic.rfind("}") + 1])
+            form = None if kesik or bos else json.loads(ic[ic.find("{"): ic.rfind("}") + 1])
         except ValueError:
             form = None
         akil = (u.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0
@@ -107,7 +109,7 @@ def omni_cagir(model, env, gonder=None, timeout=600, govde_ek=None, uyku=time.sl
                                         **({"reasoning": akil} if akil else {}),  # F3-V7a: cached yalnız sağlayıcı bildirdiyse
                                         **({"cached": c} if (c := (u.get("prompt_tokens_details") or {}).get("cached_tokens")) is not None else {})},
                 "usd": _usd(model, u, ek[0] if ek else {}, len(kareler)), "sure": round(time.monotonic() - t0, 1), "yeniden": n,
-                "hata": f"çıktı tavanı (max_tokens {CIKTI_TAVAN})" if kesik else None if form is not None else "form JSON değil"}
+                "hata": f"çıktı tavanı (max_tokens {CIKTI_TAVAN})" if kesik else BOS if bos else None if form is not None else "form JSON değil"}
     return cagir
 
 
@@ -890,6 +892,24 @@ def son_gecis(tas, g, form, m, v10=False):
     return r, None
 
 
+BOS, BOS_BEKLE = "boş yanıt", (2, 6)  # MÜKEMMEL-6a3: upstream 429 birkaç saniyede açılmıyor (O99: 5 s sonra yine 429)
+
+
+def _bos_dayan(tas, bos):
+    """MÜKEMMEL-6a3: "boş yanıt" geçici hata — BOS_BEKLE geri çekilmesiyle ≤ 2 yeniden; usd/usage toplanır, her yeniden bos'a eklenir."""
+    def sar(*a, **k):
+        ys = [tas(*a, **k)]
+        for b in BOS_BEKLE:
+            if ys[-1].get("hata") != BOS:
+                break
+            time.sleep(b)
+            bos.append(b)
+            ys.append(tas(*a, **k))
+        us, ks = [y.get("usd") for y in ys], dict.fromkeys(x for y in ys for x in (y.get("usage") or {}))
+        return {**ys[-1], "usage": {x: sum((y.get("usage") or {}).get(x, 0) for y in ys) for x in ks}, "usd": None if None in us else sum(us)}
+    return sar
+
+
 def _bozuk(y, sema):
     """DERİNLİK-KAPANIŞ-1: parça yanıtı yeniden denenir mi → neden | None (yalnız JSON ya da şema hatası; HTTP/zaman aşımı değil)."""
     from . import parti as pt
@@ -915,7 +935,8 @@ def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False,
     j = {x: y for x, y in zip(ek["kareler"], _jpeg(ek["kareler"], tempfile.mkdtemp(prefix="eleme-jpeg-"))) if y.stat().st_size < Path(x).stat().st_size} \
         if jpeg and ek.get("kareler") else {}  # büyüyen kare asıl haliyle gider (b2QkhmQ0sT0: kaynak JPEG, 75'te gövde %0–3 büyüdü)
     kar = lambda p: {"kareler": [j.get(x, x) for x in ek["kareler"] if f"{Path(x).name} · " in p]} if "kareler" in ek else {}
-    es, pn = es or PARALEL_TAVAN, None
+    es, pn, bos = es or PARALEL_TAVAN, None, []
+    tas = _bos_dayan(tas, bos)
     if jpeg:  # F3-V9: OmniRoute ağır gövdede (≥ BUYUK_GOVDE) eş zamanlı 1; hepsi altındaysa paralel
         gb = max(govde_bayt(sis(p), msg(i, p), g[2], kar(p).get("kareler", ())) for i, p in enumerate(parca))
         es, pn = (len(parca), f"paralel {len(parca)}") if gb < BUYUK_GOVDE else (PARALEL_TAVAN, f"sıralı (gövde {gb // 1024} KB > {BUYUK_GOVDE // 1024} KB)")
@@ -945,7 +966,7 @@ def _parcali(tas, sis, g, k, ek, m, v6=False, alan=False, jpeg=False, v10=False,
     y = {"usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
          "usd": None if None in us else sum(us), "sure": round(time.monotonic() - t0, 1),
          "yeniden": sum(y.get("yeniden", 0) for y in ys)}
-    return {"form": form, **y, "hata": hata, "cagri": len(ys) + pyn, **({"parca_yeniden": pyn} if pyn else {}), **({"k_not": f"k {k}→{len(parca)}"} if len(parca) != k else {}), **({"son_hata": son} if son else {}), **({"son_yeniden": 1} if yn else {}), **({"p_not": pn} if pn else {})}
+    return {"form": form, **y, "hata": hata, "cagri": len(ys) + pyn + len(bos), **({"bos_yanit": len(bos)} if bos else {}), **({"parca_yeniden": pyn} if pyn else {}), **({"k_not": f"k {k}→{len(parca)}"} if len(parca) != k else {}), **({"son_hata": son} if son else {}), **({"son_yeniden": 1} if yn else {}), **({"p_not": pn} if pn else {})}
 
 
 ORNEK_V10 = Path(__file__).resolve().parents[3] / "docs" / "video-tarama" / "ornek-v10.json"  # DERİNLİK-KAPANIŞ-1: Pj2FnVE-W3c formunun birebir kopyası

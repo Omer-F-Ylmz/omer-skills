@@ -53,7 +53,7 @@ def test_bos_yanit_geri_cekilmeyle_toparlanir(tmp_path, monkeypatch):
     assert y["hata"] is None and y["form"] == taban["form"] and "son_hata" not in y
     assert y["bos_yanit"] == 3 and y["cagri"] == taban["cagri"] + 3 and t.n == {"Alfa": 1, "Beta": 3, "Gama": 1, "SON": 2}
     assert y["usd"] == pytest.approx(taban["usd"] + 3 * BOS["usd"])
-    assert sorted(uyku) == [2, 2, 6] and "parca_yeniden" not in y  # JSON yeniden denemesinden ayrı
+    assert sorted(uyku) == [2, 2, 6] and y["parca_yeniden"] == 0  # JSON yeniden denemesinden ayrı
 
 
 def test_bos_yanit_iki_yenidenden_sonra_hata(tmp_path, monkeypatch):
