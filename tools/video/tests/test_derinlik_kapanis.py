@@ -124,6 +124,48 @@ def test_parti_v10_hata_a_geri_donus(tmp_path, monkeypatch):
     assert t["geri_donus"] == f"{V[0]}: parça 1: form JSON değil" and t["model"] == hafif.MODEL and t["cagri"] == 3 and abs(t["usd"] - 0.013) < 1e-9
 
 
+# MÜKEMMEL-8a: geçici hata (boş yanıt/429 · 5xx · zaman aşımı) A'ya gitmez → "yeniden", parti sonunda ≥60 s sonra bir tur
+def _gecici(tmp_path, monkeypatch, basari):
+    kok, n, bek = _hazir(tmp_path), [], []
+    a = Sahte()
+
+    def v10(g, env, model, **k):
+        n.append(1)
+        return {**a(*g[:3]), "usd": 0.004, "cagri": 3} if len(n) in basari else \
+            {"form": None, "usage": {}, "usd": 0.0, "sure": 1.0, "hata": 'parça 1: ölçülemedi: HTTP 429 "rate limit"', "cagri": 1}
+    monkeypatch.setattr(yon, "tara_v10", v10)
+    monkeypatch.setattr(pt, "BEKLE", bek.append)
+    s = Sahte()
+    pt.parti(_ns("devam", _pid(kok)), _ctx(kok, s))
+    return kok, s, n, bek
+
+
+def test_parti_v10_gecici_hata_a_yok_son_tur(tmp_path, monkeypatch):
+    kok, s, n, bek = _gecici(tmp_path, monkeypatch, {2})
+    t = [x for x in _defter(kok) if x["adim"] == "tarama"]
+    assert s.cagrilar == [] and len(n) == 2 and bek.count(60) == 1 and pt.SON_TUR_SN == 60
+    assert "geri_donus" not in t[0] and V[0] in t[0]["gecici"] and _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "tamam"
+
+
+def test_parti_v10_gecici_iki_tur_yeniden_kalir(tmp_path, monkeypatch, capsys):
+    kok, s, n, bek = _gecici(tmp_path, monkeypatch, set())
+    assert s.cagrilar == [] and len(n) == 2 and bek.count(60) == 1
+    assert _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "yeniden" in pt.YENIDEN and _durum(kok)["durum"] != "tamam"
+    assert f"{V[0]} (tarama: parça 1: ölçülemedi: HTTP 429" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("h", ["parça 1: boş yanıt", "parça 2: ölçülemedi: HTTP 503 x", "parça 1: ölçülemedi: TimeoutError: timed out", "zaman aşımı 600 sn"])
+def test_gecici_sinif(h):
+    assert pt.gecici(h) and not pt.gecici("parça 1: form JSON değil") and not pt.gecici("parça 1: şema: eksik id")
+
+
+def test_parti_v10_kalici_geri_donus_ozette(tmp_path, monkeypatch, capsys):
+    kok = _hazir(tmp_path)
+    monkeypatch.setattr(yon, "tara_v10", lambda g, env, model, **k: {"form": None, "usage": {}, "usd": 0.0, "sure": 1.0, "hata": "parça 1: form JSON değil", "cagri": 1})
+    pt.parti(_ns("devam", _pid(kok)), _ctx(kok, Sahte()))
+    assert f"geri dönüş: {V[0]}: parça 1: form JSON değil" in capsys.readouterr().out
+
+
 def test_parti_v10_on_tahmin_tavan_kalir(tmp_path, monkeypatch):
     kok = _hazir(tmp_path, usd=0.005)  # DERİNLİK-KAPANIŞ-2: tahmin_v10 > kalan $ → video tavanda (YENIDEN); A V10'dan pahalı, çağrılmaz
     monkeypatch.setattr(yon, "tara_v10", lambda *a, **k: pytest.fail("ön tahmin kalan $'ı aşınca tara_v10 çağrılmaz"))
