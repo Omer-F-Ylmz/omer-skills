@@ -989,3 +989,14 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Hüküm: K4 yeşil değil. Hız ölçütü 4/4 geçti (O97 k1 +%13/+%19 gürültü/önbellek etkisiydi); ama b2Q paralel kolunda 2 koşunun 1'i 4 eşzamanlı parçada boş yanıtla bozuldu → kalite aynı değil.
 - Harcanan: B 48 (≤50) · Jev 0 (≤16) · $0.335 (≤0.45).
 - Sonraki: boş 200 yanıtın kök nedeni (OmniRoute kabul/ Gemini eşzamanlı yük); boş yanıtı yeniden denenebilir hata sayma ya da PARCA_PARALEL tavanı — kırmızı test önce.
+
+## O99 — MÜKEMMEL-6a3: boş 200 yanıt teşhisi + geri çekilmeli yeniden deneme · K4 yeşil
+- Kök neden: oran sınırı (upstream 429), OmniRoute değil. Kanıt: call_logs/2026-10-07/2026-10-07T09-47-39.096Z_1791366456478-9eb49e.json responseBody.choices[0].error.code=429, metadata.error_type=rate_limit_exceeded, finish_reason=error, native_finish_reason null, token 0/0, 2.6 s; sağlayıcı openrouter google/gemini-3.5-flash-lite. İkisi de parça 2 (ilk + 5 s sonraki JSON yeniden denemesi); diğer 3 parça aynı dilimde STOP. usage_history bunları success=1 sayıyor. İçerik bloğu / zaman aşımı / OmniRoute kabulü elendi.
+- Düzeltme: omni_cagir finish_reason error · choices error · boş içerik · completion 0 → hata "boş yanıt" (JSON/şemadan ayrı). _parcali _bos_dayan: parça + son geçiş BOS_BEKLE (2 s, 6 s) ile ≤ 2 yeniden; usd/usage toplanır, cagri ve bos_yanit sayılır. Test: test_m6a3 4 (ba06e7c kırmızı · f6d55ce yeşil).
+- Tavan kararı: PARCA_PARALEL 4 kalır, OmniRoute sınırı değişmedi (.bak yok) — ölçümde 4 eşzamanlıda boş yanıt 0.
+- Dayanıklılık (tara_v10 doğrudan, paralel 4; sıralı taban O98: b2Q 52.8 s, vhY7 32.7 s):
+  b2Q 1 soğuk 16.1 s · 2 16.1 · 3 17.5 · 4 17.0 — bos_yanit 0, form dolu, cagri 5'er; kazanç 0.67–0.70 / teorik 0.60 → verim ort 1.14
+  vhY7 1 soğuk 16.3 s · 2 14.7 — bos_yanit 0, form dolu, cagri 3'er; kazanç 0.50/0.55 / teorik 0.33 → verim ort 1.58
+- Not: verim > 1 taban O98'in ayrı oturum sıralı süresinden; boş yanıt canlıda tekrarlamadı, geri çekilme yolu yalnız sahte çağrıcıyla sınandı.
+- K4 yeşil: form null 0/6 · hız ölçütü 2/2 · boş yanıt sınıfı yeniden denenir.
+- HARCANAN: B 26 · Jev 0 · $0.139.
