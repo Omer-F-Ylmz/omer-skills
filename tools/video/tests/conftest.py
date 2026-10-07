@@ -26,3 +26,4 @@ def agsiz(monkeypatch):
     from video import parti as pt
     monkeypatch.setattr(pt, "YONLENDIRME", {})  # O78: yeni parti A taşıyıcısıyla açılır; V10 testleri rotayı kendisi verir
     monkeypatch.setattr(pt, "YOKLA", lambda *a, **k: None, raising=False)  # O78: OmniRoute ön kontrolü ağa çıkmaz  # B4 eki: anahtar verilmeyen testte brave adımı ağa çıkmaz
+    monkeypatch.setattr(pt, "eksik_adim", lambda d: [])  # O92: eski fikstürler damgasız paket yazar; koruma yalnız test_mukemmel5a'da gerçek

@@ -414,6 +414,7 @@ def _bagli_video(ctx, v, bl, ky):
 def paket(ns, ctx):
     """Alt ajan girdisi tek dosya <önbellek>/<id>/paket.md: künye · chapter · linkler · sadeleştirilmiş segmentler · kare yolları.
     Kareler: yalnız ekran sorusu (p varsa istek yok) → ekran p'si en yüksek --kare zamanın tam-t karesi. Segment metni stdout'a yazılmaz."""
+    from .parti import PAKET_ADIMLARI  # cli parti'yi içe alır: döngüsel, yerel
     d = ctx["kok"] / ns.id
     seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan) if ns.istek_tavan != 0 else (_oku(d) if (d / "segmentler.jsonl").is_file() else [], None, 0, None)  # M2a: tavan 0 → Jev yok, kareler segment sırasıyla
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
@@ -472,7 +473,8 @@ def paket(ns, ctx):
     inc = sorted(ocr.get("incelenmedi", []))
     ky.write_text(json.dumps({"izleme": f"{'kare-yalnız' if yalniz else f'segment {len(seg)}'} · "  # C4 Kapsam satırı → parti durum.json → panel
                                         f"{f'sahne {len(sj['sahneler'])}' if sj.get('durum') == '✓' else sj.get('durum')} · seçilen {ocr.get('secilen', 0)} · "
-                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)} · OCR gürültü {ocr.get('gurultu', 0)}{f" · tekrar (montaj) {n}" if (n := ocr.get('montaj')) else ''}", "incelenmedi": inc, "erisilemedi": hata}, ensure_ascii=False), encoding="utf-8")
+                                        f"OCR {len(ocr.get('metin', []))} · model {len(kareler)} · incelenmedi {len(inc)} · OCR gürültü {ocr.get('gurultu', 0)}{f" · tekrar (montaj) {n}" if (n := ocr.get('montaj')) else ''}", "incelenmedi": inc, "erisilemedi": hata,
+                              "adimlar": list(PAKET_ADIMLARI)}, ensure_ascii=False), encoding="utf-8")  # MÜKEMMEL-5a damga
     print(f"paket: {yol.as_posix()} · kareler: {' '.join(y.as_posix() for _, y in kareler) or 'yok'} · segment {len(seg)} · kare {len(kareler)} · ~{c.token(yol.read_text(encoding='utf-8'))} token metin"
           f" + ~{sum(_kare_tk(y)[1] for _, y in kareler)} kare · istek {istek}")
     return 0

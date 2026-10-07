@@ -396,8 +396,18 @@ def _maliyet(y):
     return {"usd": None, "maliyet": "bilinmiyor"} if "usd" in y and y["usd"] is None else {"usd": y.get("usd") or 0.0}
 
 
+PAKET_ADIMLARI = ("yorum", "baglanti", "sahne", "ocr")  # MÜKEMMEL-5a: paket hattı adım damgası (cli.paket yazar); yeni adım → eski paketler eksik
+
+
+def eksik_adim(d):
+    """MÜKEMMEL-5a: <önbellek>/<id>/kapsam.json damgasında olmayan paket adımları (damgasız ya da kapsam.json yok → hepsi)."""
+    k = Path(d) / "kapsam.json"
+    s = set(json.loads(k.read_text(encoding="utf-8")).get("adimlar", ())) if k.is_file() else set()
+    return [x for x in PAKET_ADIMLARI if x not in s]
+
+
 def _defter(pdir):
-    s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith(("ikinci_goz", "tavan", "omniroute_baslat"))]  # M5: ikinci göz ayrı tavanda · M6 K3: tavan satırı çağrı değil
+    s = [x for x in tr.kayit_oku(pdir / "defter.jsonl") if not x.get("adim", "").startswith(("ikinci_goz", "tavan", "omniroute_baslat", "paket_yenilendi"))]  # M5: ikinci göz ayrı tavanda · M6 K3: tavan satırı çağrı değil
     # F1 eki: usd None (maliyet bilinmiyor) $ tavanına girmez; çağrı tavanı sınırlar
     return sum(x.get("cagri", 1) for x in s), sum(x["usd"] or 0 for x in s), sum(x["girdi"] + x["onb_okuma"] + x["onb_yazma"] + x["cikti"] for x in s)
 
@@ -489,6 +499,10 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None)
         try:
             yeniden = a.pop("yeniden", False)  # DERİNLİK-1 R4b: --paket-yeniden → ozet atlanır, paket R4 ile yeniden kurulur
             ince = a.pop("incelenmedi", False)  # C4 ikinci geçiş
+            if not yeniden and (onb / v / "paket.md").is_file() and (eksik := eksik_adim(onb / v)):  # MÜKEMMEL-5a: bayat paket → model 0 yeniden kurulum
+                tr.kayit_ekle(pdir / "defter.jsonl", [{"zaman": datetime.now().isoformat(timespec="seconds"), "adim": "paket_yenilendi", "video": v,
+                                                       "not": f"paket yenilendi (eksik: {', '.join(eksik)})"}])
+                yeniden = True
             if yeniden or not (onb / v / "paket.md").is_file():
                 if not yeniden:
                     alt(["ozet", "--", v])

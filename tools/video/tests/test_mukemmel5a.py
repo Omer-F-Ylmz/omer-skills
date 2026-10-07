@@ -2,8 +2,17 @@
 model çağrısı yapmadan yeniden kurulur, deftere "paket yenilendi (eksik: …)" satırı düşer (çağrı saymaz)."""
 import json
 
+import pytest
+
 from video import parti as pt
 from test_m9 import _alt, _d
+
+GERCEK = pt.eksik_adim  # conftest yoklamayı [] yapar; bu dosya gerçek korumayı ölçer
+
+
+@pytest.fixture(autouse=True)
+def gercek_koruma(monkeypatch):
+    monkeypatch.setattr(pt, "eksik_adim", GERCEK)
 
 
 def _kur(onb, v, adimlar):
