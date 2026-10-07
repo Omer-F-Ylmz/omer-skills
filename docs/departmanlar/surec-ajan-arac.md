@@ -137,5 +137,7 @@ Müdür: `departman-surec-ajan-arac`
 - scroll-craft/referans-videodan-scroll-geçişleri · ÖĞREN · video 39IlNR-P3-Q
 - everything-claude-code/kurulu · ZATEN VAR · video v-vRYtvWDYs
 - context-mode/sandbox-context-saving · DENE · video v-vRYtvWDYs
+- you-should-know/yan-ajan-notu · DENE · video _0NSNY7n5lE
+- claude-code-mods · ÖĞREN · video _0NSNY7n5lE
 
 ## Elle
