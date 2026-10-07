@@ -922,6 +922,13 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - yon.betim_oku: betim dosyası (video · alan · öğe · sınıf) → k3(betim=...) seti; k3 "kayma": U kare öğesi sistemin başka alanında (adaylar.kanit · karede_gorulen · iz …) eslesir → bulundu, sistem başı ayrı sayı (ca89afe kırmızı · 7c59bd0 yeşil).
 - Betim (Jev 1 batch, 97 öğe): A ekran 46 / betim 21 · B 28 / 2. Dosya .video-cache/eleme/rapor/betim-20261007.json. Sınırda düşük güvenli öğeler var (0.1–0.3).
 - K3 (geri A/B · doğ A/B · kare A/B · kayma A/B · betim A/B): b2Q 68/74·95/95·87/88·14/11·4/2 geçti · rABI 41/77·90/100·100/100·1/0·9/0 geçti · ptGX 62/84·87/100·92/83·1/0·2/0 geçti · Ov 67/100·100/100·100/100·0/0·2/0 geçti · WdDX 80/100·100/100·83/100·2/1·4/0 geçti · WK-- 45/90·100/100·100/100·2/1·0/0 geçti.
-- Genel K3: 6/6 geçti → **K3 yeşil**. Formlar her videonun son V10 koşusu; görev bandı A/B bandının büyüğü (B ≥ A, hüküm değişmez).
+- Genel K3: 6/6 geçti → **K3 ölçüt yeşil (Jev gerekçesi açık)**. Formlar her videonun son V10 koşusu; görev bandı A/B bandının büyüğü (B ≥ A, hüküm değişmez).
 - Açık: bayat paket koruması (adım damgası + parti/eleme yolunda otomatik yeniden kurulum) sayaç nedeniyle sonraki dalgaya; giriş parti._kos yeniden dalı.
 - Harcanan: Jev 1 · model 0 · ≈$0.002. Rapor: k3-20261006.md (## MÜKEMMEL-4c).
+
+## O92 — MÜKEMMEL-5a: bayat paket koruması · OmniRoute otomatik başlatma teşhisi
+- Damga: parti.PAKET_ADIMLARI = (yorum · baglanti · sahne · ocr) tek yerde; cli.paket kapsam.json "adimlar" yazar; parti.eksik_adim(d); _kos damgasız/eksik paket → model 0 yeniden kurulum + defter "paket_yenilendi" (çağrı saymaz) (4fdfd3d kırmızı · 060bade yeşil).
+- Test: conftest YOKLA kalıbı (eksik_adim varsayılan []); test_mukemmel5a gerçek işlevi geri takar. Fikstür tek tek damgalanmadı.
+- Bayat paket sayımı (.video-cache, yeniden kurulum yok): 88 paketin 88'i bayat; hepsi damgasız (yorum · baglanti · sahne · ocr eksik, 88'er). İlk parti koşusu her paketi yeniden kurar.
+- OmniRoute: Startup\OmniRoute.vbs açılışta çalıştı (boot 09:41:33; app.log 06:42:56Z STARTUP zamanlayıcıları); süreç 06:42:59Z'den sonra hata/shutdown satırı olmadan öldü. Elle vbs → 20128 16 s'de açık, kalıcı. Yol/komut/PATH geçerli; kök neden açılışa özgü sessiz ölüm (stderr yok) → kanıtsız, değişiklik yok. Sonraki: vbs çıktısını dosyaya yönlendirip bir açılış gözlemi.
+- Açık: Jev gerekçesi (eleme puanla üretim çağıranı yok).
