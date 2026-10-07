@@ -951,3 +951,13 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Geri dönüş: 5b öncesi yedek (log'suz) geri kondu; o da gizli değil: `omniroute (v16.3.1)` penceresi açık, 20128 2 s'de açık, süreç ayakta.
 - Kanıt: pencereyi vbs'in kendi konsolu değil, omniroute'un başlattığı node alt süreci açıyor (yeni konsol → WT varsayılan terminal → OpenConsole). Stil 0 ve headless sarmalayıcı alt sürecin konsoluna ulaşmıyor.
 - AÇIK: gizleme vbs düzeyinde çözülmüyor; aday yollar omniroute'un alt süreç başlatma seçeneği (windowsHide/detached) ya da varsayılan terminali Windows Console Host'a çevirmek — karar Ömer'de. Canlı model 0, Jev 0.
+
+## O96 — MÜKEMMEL-5f: OmniRoute daemon modu · yeşil
+
+- Kanıt notu: 5e log'unda `Tray worker did not become ready` ve ardından süreç ağacının ölümü; O92'deki açılış ölümünün muhtemel nedeni tepsi işçisi. Tepsisiz başlatma iki sorunu birlikte çözüyor.
+- `serve --help`: `--daemon` (arka planda çalış), `--no-tray`, `--tray` (isteğe bağlı); pencere gizleme seçeneği yok. Tepsi varsayılan olarak kapalı.
+- Denenen yol: Startup\OmniRoute.vbs `... omniroute.mjs serve --no-open --daemon", 0, False` (eskisi `--tray`; yedek OmniRoute.vbs.bak-5f).
+- Doğrulama (vbs elle, süreç önce durduruldu): yeni pencere yok · 20128 2 s'de açık · 2 dk sonra port açık, 1 omniroute süreci.
+- Karşı örnek: aynı ölçüm `--tray` ile 4 WT penceresi (`omniroute (v16.3.1)`, `next-server (v16.3.1)`, node.exe, Terminal) gösterdi; pencereyi tepsi/ön plan modu açıyor.
+- BASLAT (parti.py, CREATE_NO_WINDOW + `serve --no-open --daemon`) gerçek süreçle: yeni pencere yok · 20128 2 s'de açık · 2 dk sonra ayakta. BASLAT değişmedi, suite koşulmadı.
+- Görev Zamanlayıcı betiği gerekmedi. Varsayılan terminal değişmedi. Canlı model 0, Jev 0.
