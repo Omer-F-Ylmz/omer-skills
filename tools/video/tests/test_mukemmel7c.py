@@ -45,3 +45,17 @@ def test_u1_link_tek_komut_toplu_gercek_kuyruga_dokunmaz(tmp_path):
     d = json.loads((kok / ".kos" / _pid(kok) / "durum.json").read_text(encoding="utf-8"))
     assert d["kuyruk"] != gercek.as_posix() and d["videolar"][V[0]]["tarama"]["durum"] == "tamam"
     assert [a for a in alt if a[0] == "toplu"] == [["toplu", d["videolar"][V[0]]["tarama"]["cikti"]]]
+
+
+def test_7d_link_partisi_kapanir_ikinci_link_atlanmaz(tmp_path):
+    """7d: link partisi toplu'dan sonra kapanır; aynı videonun ikinci link'i açık-parti engeline takılmaz, mevcut rapor yeniden taranmaz."""
+    kok = _kurulum(tmp_path, [V[0]], sure=300)
+    (kok / "c" / V[0] / "meta.json").write_text(json.dumps({"duration": 300, "title": "Araç"}), encoding="utf-8")
+    ctx, alt = _ctx(kok, Sahte()), []
+    ctx["alt"] = lambda argv: alt.append(argv) or 0
+    url = f"https://www.youtube.com/watch?v={V[0]}"
+    assert pt.parti(_ns("link", url), ctx) == 0
+    assert [json.loads(j.read_text(encoding="utf-8"))["durum"] for j in (kok / ".kos").glob("*/durum.json")] == ["kapandi"]
+    assert pt.parti(_ns("link", url), ctx) == 0
+    toplu = [a for a in alt if a[0] == "toplu"]
+    assert len(toplu) == 2 and toplu[0] == toplu[1]
