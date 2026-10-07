@@ -1063,3 +1063,12 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - UYGULA-KALİTE: U2 köprülü kayıp · U3-U5 · U6 teknik aday.md · U7 karar çelişkisi · U8 etkileşimli DENE · U9 yerleşik bizde.
   Yeni gözlem: ASR ad hatası (grill-with-dogs = grill-with-docs) aday adına geçiyor · SkillSpector HIGH sayısı repo geneli, skill klasörüne ayrılmıyor · katman Jev tavanı (11) 5 adayda dolu.
 - Harcanan: B 2 · claude -p 0 · Jev 24/24 · $0.0138 (Jev $ ölçülmedi).
+
+
+## O104 — MÜKEMMEL-8a: K6 hazırlığı (429 kuralı + gözetimsiz prova betiği, canlı 0)
+- 429 kuralı (tools/video/video/parti.py): `GECICI`/`gecici()` (boş yanıt · HTTP 429/5xx · zaman aşımı) → `_tara_v10` A'ya gitmez, video tarama "yeniden" (YENIDEN'e eklendi), defter `gecici`. `_kos(tur=0)` parti sonunda `BEKLE(SON_TUR_SN=60)` + yalnız "yeniden" videolarla bir tur; ikinci tur da düşerse "yeniden" kalır, özette "hatalı videolar". Kalıcı hata (JSON/şema) → A geri dönüşü bugünkü gibi; özette "geri dönüş:" satırı.
+- Testler: test_derinlik_kapanis.py +7 (geçici→A 0 + son tur · iki tur yeniden kalır + özet · gecici sınıfı ×4 · kalıcı geri dönüş özette). Kırmızı 037fc5c · yeşil e8e2d48.
+- Betik: docs/video-tarama/k6-prova.ps1 (ASCII, BOM yok, parse 0 hata). Çalıştırma: `powershell -NoProfile -ExecutionPolicy Bypass -File docs\video-tarama\k6-prova.ps1 [-OmniKapat] [-Listele]`. Tavan 40 çağrı · $0.40. Özet: k6-ozet-<tarih>.md; çıkış 0/1.
+- Seçim (-Listele): kanal Yıldız Dikme (UCjMMpIfNMakJk4JKqyM5NQQ) · 5 uzun: aZe5ZTYcF1M · 1nGx7WR8YLE · 24sgaCb2P1A · 1KDGaBUb9I8 · YDAK1lvVXho → parti 1 (3) + parti 2 (2), ardışık.
+- Sapma: kanaldan parti başlatan hazır yol yok → betik .kos\kanal\<cid>.json envanterinden seçer, .kos altında geçici kuyruk yazar (link yolu gibi); gerçek kuyruk.md'ye yazılmaz, kayit.jsonl gerçek. Geçici kuyruk biçimi (InvariantCulture dk) ve -OmniKapat canlı sınanmadı.
+- K6 ölçütü: çıkış 0 · 5/5 tamam · elle müdahale 0 · geçici hatada A çağrısı 0 · her olağandışı olay özette · (-OmniKapat ile) OmniRoute'u hat açtı (defter omniroute_baslat).
