@@ -1,0 +1,300 @@
+# Video ASR sozlugu: her satir `kanonik ad | alias1, alias2`. Aliaslar ASR/yazim bozulmalaridir; ad esleme icin kullanilir.
+# Kaynaklar sirayla: genel liste, CC plugin/MCP/arac adlari, kayit.jsonl adaylari.
+React | Rect, Ri act
+Next.js | Nekst JS, Next
+Vite | Vit, Veet
+Tailwind CSS | Tailwind, Tailwind CSS 4, Teylvind
+shadcn/ui | shadcn, şadcn
+GSAP | GreenSock, Ci sap
+ScrollTrigger |
+Three.js | Tri JS, Three
+React Three Fiber | R3F, React 3 Fiber
+Framer Motion | Motion, Freymır Motion
+Framer | Freymır, Framer site
+Lenis | Lenis scroll, Lenis smooth scroll, Lenis'i
+Spline | Spline 3D, Splayn
+Webflow | Webflov
+Astro | Astro JS, Estro
+Svelte | SvelteKit, Svelt
+Vue | Vue.js, View JS
+Nuxt | Nuxt JS
+Angular | Angülar
+Remix | Rimiks
+Solid.js |
+TypeScript | TS, Taypskript
+JavaScript | JS, Cavaskript
+Node.js | Nod
+Bun | Ban
+Deno | Dino
+Express | Express JS, Expres
+Hono | Honno
+Zustand | Zustant
+Redux | Rediks
+TanStack Query | React Query, Tan Stack
+Zod | Zot
+Prisma | Prizma
+Drizzle | Drizzle ORM
+tRPC |
+Radix UI | Radix, Radiks
+Headless UI | Headless
+Material UI | MUI
+Chakra UI | Chakra
+Bootstrap | Bootstrap CSS
+Sass | SCSS
+CSS Modules | CSS module
+styled-components |
+Emotion | Emotion CSS
+Anime.js |
+Lottie | Lotti
+Rive | Rive animasyon
+Matter.js |
+p5.js | p5
+D3.js | D3
+Chart.js |
+Babylon.js |
+PixiJS | Pixi
+Swiper | Sviper
+Locomotive Scroll | Locomotive
+WebGL |
+WebGPU |
+GLSL | shader
+Playwright | Pleyrayt, Play right
+Puppeteer | Puppeter
+Cypress | Saypres
+Vitest |
+Jest | Jest test
+Storybook |
+ESLint |
+Prettier | Pretier
+Turborepo |
+Inter | Inter font
+Geist | Geist font, Gayst
+Satoshi | Satoşi
+General Sans | Jeneral Sans
+Clash Display | Klaş Display, Clash
+Space Grotesk | Space Grotesque
+Instrument Serif | Instrument
+Playfair Display | Playfair
+DM Sans | DM Sans font
+Plus Jakarta Sans | Jakarta Sans
+Poppins | Popins
+Montserrat | Montserat
+Roboto | Roboto font
+Manrope | Manrop
+Outfit | Outfit font
+Syne | Sine
+Cabinet Grotesk | Cabinet
+Fraunces | Fraunses
+JetBrains Mono |
+Google Fonts | Google Fontlar, Google Font
+Lucide | Lucide icons, Lucid
+Heroicons |
+Phosphor Icons | Phosphor
+Claude Code | Clod Code, Klod Code, Cloud Code, Claud Code, CC
+Claude | Clod, Klod, Claud, Cloud
+Claude Sonnet | Sonnet, Sonet, Sonet 4, Sonnet 4, Claude Sonet
+Claude Opus | Opus, Opus 4, Opus 4.5, Opus 5, Opus 5.5, Claude Opus 5.5
+Claude Haiku | Haiku, Haiku 4.5, Hayku
+Claude Fable | Fable, Fable 5, Fable 5.1, Claude Fable 5, Claude Fable 5.1
+Claude Design | Clod Design
+Claude Desktop | Claude masaüstü
+Anthropic | Antropik, Entropik
+ChatGPT | Çat GPT
+GPT-5 | GPT-5.6, GPT 5.6 Sol
+OpenAI |
+Codex | OpenAI Codex, Kodeks, Codex CLI
+Gemini | Cemini, Gemini 3, Gemini Pro
+Nano Banana | Nano Banana 2, Nano Banana Pro, Nano muz
+Midjourney | Midjorney, MJ
+Runway | Runway ML
+Kling | Kling AI, Kling 3.0, Kling AI v3, Kling 3, Kling 2.6
+Veo | Veo 3, Veo 3.1, Vio
+Sora | Sora 2, Sora AI
+Higgsfield | Higsfield, Higgsfield AI
+ElevenLabs | 11 Labs
+Suno | Suno AI, Sunno
+Cursor | Cursor IDE, Kursor
+Windsurf |
+v0 | v0.dev, V Zero, V sıfır
+Bolt | Bolt.new
+Lovable | Lovable AI, Lovabıl
+Replit | Replit Agent, Replet
+Perplexity | Perplexity AI, Perpleksiti
+n8n | N sekiz N, n eight n, n8n-io/n8n
+Make | Make.com, Integromat
+Zapier | Zapir, Zapyer
+Figma | Figma MCP, Figma Make, Figma plugin, Fiğma
+Stitch | Google Stitch, Stich
+Blender | Blender 3D, Blendır
+Tripo | Tripo AI, Tripo 3D
+Meshy | Meshy AI, Meshi
+ComfyUI | Comfy, Konfi UI
+Krea | Krea AI, Kria
+Leonardo | Leonardo AI
+Flux | Flux AI, Flux Kontext
+Stable Diffusion | Stable Difüzyon, SDXL
+Ideogram | Ideogram AI
+Pika | Pika Labs
+Luma | Luma AI, Luma Dream Machine
+HeyGen | Hey Jen
+Descript | Descript AI
+CapCut | Kapkat
+DaVinci Resolve | Davinci
+Canva | Canva AI, Kanva
+Adobe Firefly | Firefly, Fayrfly
+Photoshop | Photoshop AI, Fotoşop
+After Effects | Afte Effects
+Notion | Noşın, Notion AI
+Obsidian | Obsidyan
+Linear | Linear app
+Slack | Slak
+Discord | Diskord
+Telegram | Telgraf
+Grok | Grok AI, Groq
+DeepSeek | Dipsik
+Qwen | Kwen, Quen
+Kimi | Kimi K2, Kimi K3
+Llama | Lama, Llama 4
+Mistral | Mistral AI
+OpenRouter |
+Ollama | Olama
+Hugging Face | Hugin Face
+LangChain |
+LlamaIndex |
+Pinecone |
+GitHub | Gitub, GitHub Copilot
+Git | Git worktree
+Vercel | Versel, Vercell, Vercel CLI
+Netlify | Netlifay, Netlify deploy
+Cloudflare | Cloudflare Pages
+Supabase | Supabez, Süpabeys
+Firebase | Fayrbeys
+Docker | Doker
+Kubernetes | K8s, Kubernets
+npm | npx
+pnpm |
+Yarn | Yarn pkg
+uv | uv tool, ew vi
+Python | Piton
+Rust | Rast
+Go | Golang
+PostgreSQL | Postgres, Postgre
+MongoDB | Mongo
+Redis | Redis cache
+Stripe | Strayp, Stripe CLI
+Sentry | Sentri
+Postman | Postmen
+VS Code | Visual Studio Code, VS Kod
+Warp | Warp terminal
+iTerm | iTerm2
+Windows Terminal | Windows Terminali
+PowerShell |
+Git Bash |
+WSL | Windows Subsystem for Linux
+ngrok |
+Playwright MCP | Playwright MCP sunucusu
+MCP | Model Context Protocol, Emsipi
+csharp-lsp | C# LSP
+skill-creator |
+plugin-dev |
+claude-md-management |
+superpowers | Süper pauırs, Superpowers plugin
+dotnet-data |
+dotnet-aspnetcore |
+dotnet-test |
+dotnet-nuget |
+dotnet-msbuild | MSBuild
+frontend-craft |
+frontend-design | frontend design skill
+21st | 21st.dev, 21st MCP, Magic MCP, Twenty first
+impeccable | İmpekabıl
+nateherk-design |
+claude-mem | Claude Memory, Clod Mem
+headroom | Hedrum
+example-skills |
+claude-api |
+agent-sdk-dev | Agent SDK
+claude-opus-4-5-migration | opus 4.5 migration
+code-review |
+commit-commands |
+explanatory-output-style |
+feature-dev |
+hookify |
+learning-output-style |
+pr-review-toolkit |
+ralph-wiggum | Ralph loop, Ralph Wigum
+security-guidance |
+taste-skill | Taste, Leonxlnx/taste-skill
+design-mastery |
+cli-anything |
+humanizer | Hümanayzır
+ponytail | Poni teyl, dietrichgebert/ponytail
+andrej-karpathy-skills | Karpathy skills
+everything-claude-code | ECC
+agent-skills |
+typesafe |
+mslearn | Microsoft Learn
+context7 | Context seven, Kontekst 7
+mcp-sequential-thinking | Sequential Thinking
+code-review MCP |
+mcp-fetch |
+mcp-git |
+mcp-time |
+mcp-memory |
+mcp-filesystem |
+brave-search | Brave search MCP
+jev | Jeff, Cev, Jev (TypeSafe AI), Jev TypeSafe
+graphify | Grafify
+gstack | Stack (Garry Tan)
+agent-reach |
+rtk | rtk gain, Rust Token Killer
+gitleaks |
+semgrep |
+playwright-cli |
+skill-ui |
+strix | Strik, usestrix/strix
+design-dna | zanwei/design-dna
+video-izle |
+video-tarama |
+Caveman | JuliusBrussee/caveman, Kevmen
+Firecrawl | Firecrawl CLI
+Apify | apify.com
+Composio | Composio MCP, Rube
+Exa | Exa search, Exa arama
+Repomix | yamadashy/repomix
+NotebookLM | NotebookLM-py
+Mem0 | mem0ai/mem0, Mem Zero
+Hermes Agent | Hermes, NousResearch/hermes-agent
+OpenClaw | openclaw/openclaw
+Paperclip | paperclipai/paperclip
+Antigravity | Google Antigravity
+Remotion | remotion-dev/skills, Remotion skills
+Emil Kowalski | Emil Kowalski skills, Emil Kowalski motion skill
+Awwwards | awwwards.com
+Mobbin | mobbin.com
+Dribbble | Dribbble referans
+Excalidraw | Excalidraw diagram skill
+SkillUI CLI |
+Skills CLI | npx skills, skills.sh
+Find Skills | install skills
+Ruflo | Rufflow, Rooflow
+Teable | Teable App Builder
+TestSprite | TestSprite CLI
+OpenArt |
+Seedance | Seedance 2.5, Seedance 2
+MiniMax | MiniMax M3, MiniMax API
+Xiaomi MiMo | MiMo V2.5
+fal.ai | fal
+Sketchfab | Sketchfab 3D
+BlenderKit | Blenderkit eklentisi
+Hostinger | Hostinger MCP, Hostinger VPS
+Glaido | sesle yazma
+Wispr Flow | whisper flow
+Typefully | typefully.com
+LightRAG |
+Browser Use | Browser Use + Jev
+GitMCP | idosal/git-mcp
+Context Mode | mksglu/context-mode
+MarkItDown |
+Pyright | Pyright LSP
+Remotion Studio |

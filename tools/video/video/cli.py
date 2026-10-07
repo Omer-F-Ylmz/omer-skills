@@ -456,7 +456,7 @@ def paket(ns, ctx):
         if (yalniz or 0 < (meta.get("duration") or 0) < SHORT_SN) and len(zamanlar) < ns.kare:  # M8 K5: short çoğunlukla tek segment → 1 kare; süreye yay
             zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
         isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
-    ocr = {}
+    ocr, sz = {}, gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt")  # 1b-1 M5: altın-hariç ad sözlüğü
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     try:
         kareler, kare_yok = (_goz(ctx, d, meta.get("duration") or 0, taban, isaret, ns.model_tavan or (min(gz.MODEL_UST, ns.kare) if 0 < (meta.get("duration") or 0) < SHORT_SN else gz.MODEL_UST), ocr)
@@ -472,18 +472,21 @@ def paket(ns, ctx):
     (d / "baglantilar.json").write_text(json.dumps(bl + yeni, ensure_ascii=False, indent=1), encoding="utf-8")
     if ns.kuyruk and Path(ns.kuyruk).is_file():
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
+    yham = json.loads((d / "yorumlar.json").read_text(encoding="utf-8")).get("ham", []) if (d / "yorumlar.json").is_file() else []
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
           f" · https://youtu.be/{ns.id} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
-          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join(str(s.get("metin")) for s in seg), butce=gz.butce(meta.get("duration") or 0))]
+          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join(str(s.get("metin")) for s in seg), gz.sozluk_adlari(sz), gz.butce(meta.get("duration") or 0))]
                                                 or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
           *(["## Ekranda/konuşmada URL'ler", *[f"{u} · {k} · {m.ss(t)}" for u, k, t in uu]] if (uu := gz.urller_bul(  # 1b-1 M4
               [*(("ekran", t, x) for t, s in ocr.get("metin", []) for x in s), *(("ses", s["bas"], str(s.get("metin"))) for s in seg)])) else []),
-          *(["## Yorumlar", *yr] if (yr := gz.yorum_sec(json.loads(y.read_text(encoding="utf-8")).get("ham", [])  # 1b-1 M4: ≤800 tk
-                                                       if (y := d / "yorumlar.json").is_file() else [])) else []),
+          *(["## Yorumlar", *yr] if (yr := gz.yorum_sec(yham, gz.sozluk_adlari(sz))) else []),  # 1b-1 M4: ≤800 tk
+          *(["## Sözlük eşleşmeleri", *es] if (es := gz.eslesme_satirlari(gz.eslesmeler(  # 1b-1 M5: ad · kaynak · ilk zaman (+ bulanık öneri)
+              [*(("ekran", t, x) for t, s in ocr.get("metin", []) for x in s), *(("ses", s["bas"], str(s.get("metin"))) for s in seg),
+               ("açıklama", 0, meta.get("description") or ""), *(("yorum", 0, h["text"]) for h in yham)], sz))) else []),
           *(["## İncelenmedi", *i] if (i := [f"[{m.ss(t)}] {sebep}" for t, sebep in sorted(ocr.get("incelenmedi", []))]) else []),
           "## Kareler", *([f"{yol.as_posix()} · {m.ss(t)}" for t, yol in kareler] or [kare_yok or "yok"])]
     yol = d / "paket.md"
@@ -1286,7 +1289,13 @@ def temizle(ns, ctx):
 
 def altin(ns, ctx):  # VİDEO-GÖZ-1a K4: rapor.md altın JSON'a karşı (salt okur)
     f, s = (au.kapsam, au.kapsam_satirlar) if ns.eylem == "kapsam" else (au.puan, au.satirlar)
-    for x in s(f(Path(ns.rapor).read_text(encoding="utf-8"), json.loads(Path(ns.altin).read_text(encoding="utf-8")))):
+    metin, a = Path(ns.rapor).read_text(encoding="utf-8"), json.loads(Path(ns.altin).read_text(encoding="utf-8"))
+    if ns.eylem == "kapsam" and ns.sozluk != "dosya":  # 1b-1 M5: (a) sözlüksüz · (c) altın-dahil (yalnız bilgi; tüm paket ses kaynağı)
+        metin = re.sub(r"^## Sözlük eşleşmeleri.*?(?=^## |\Z)", "", metin, flags=re.M | re.S)
+        if ns.sozluk == "ek":
+            sz = [*gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt"), *((x["ad"], x.get("alias", [])) for x in a.get("adaylar", []))]
+            metin += "\n".join(["## Sözlük eşleşmeleri", *gz.eslesme_satirlari(gz.eslesmeler([("ses", 0, metin)], sz))]) + "\n"
+    for x in s(f(metin, a)):
         print(x)
     return 0
 
@@ -1422,7 +1431,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     x = alt.add_parser("departman-geri", help="23 K2: kayit.jsonl'de departmansız karar kayıtları → departman + katalog 'Videodan gelen'")
     x.add_argument("--istek-tavan", type=int, default=30, metavar="M", help="en fazla M Jev isteği")
     x = alt.add_parser("altin", help="VİDEO-GÖZ-1a: rapor.md'yi altın JSON'a karşı puanlar (LLM yok)")
-    x.add_argument("eylem", choices=["puan", "kapsam"])  # 1b-1 M0: kapsam rapor yerine paket.md alır
+    x.add_argument("eylem", choices=["puan", "kapsam"])
+    x.add_argument("--sozluk", choices=["dosya", "yok", "ek"], default="dosya", help="kapsam: yok = (a) Sözlük eşleşmeleri atılır · ek = (c) altın adları sözlüğe katılır")  # 1b-1 M0: kapsam rapor yerine paket.md alır
     x.add_argument("rapor")
     x.add_argument("altin")
     x = alt.add_parser("teknik", help="23 K5: rapor Site/UI teknikleri → ÖĞREN kartı (frontend) ya da UYARLA bekleyen; frontend katalog ## Teknikler")

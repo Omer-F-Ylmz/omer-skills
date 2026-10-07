@@ -51,7 +51,7 @@ def test_paket_bolumleri_ve_satir_bicimi(ortam, capsys):
     md = paket_md(ortam)
     assert md.splitlines()[0].startswith(f"# {VID} · Deneme videosu · Kanal · süre 5:00")
     b = bolumler(md)
-    assert list(b) == ["Chapter", "Açıklama bağlantıları", "Segmentler", "Kareler"]
+    assert list(b) == ["Chapter", "Açıklama bağlantıları", "Segmentler", "Sözlük eşleşmeleri", "Kareler"]  # 1b-1 M5: graphify sözlükte
     assert b["Chapter"] == ["0:00 Giriş", "1:40 Asıl"] and b["Açıklama bağlantıları"] == ["https://a.com/x", "https://b.io/y"]
     assert len(b["Segmentler"]) == 3 and all(SEG.match(s) for s in b["Segmentler"])
     assert b["Segmentler"][0] == "[0:00] ARAC EKRAN graphify kurulur"

@@ -1,8 +1,10 @@
 """VİDEO-GÖZ-1b-1: GÖZ katmanı saf yardımcıları (ekran metni süzgeci · model karesi ölçeği · kare seçimi · yorum/URL · ad sözlüğü)."""
 import re
 from difflib import SequenceMatcher
+from pathlib import Path
 
-from .altin import norm, url_norm
+from . import metin as m
+from .altin import lev, norm, url_norm
 
 OCR_GUVEN, OCR_BUTCE, MODEL_KENAR = 0.5, 3000, 768  # ayar · M1: RapidOCR skor eşiği · Ekran metni jeton bütçesi · modele giden kare uzun kenarı
 URL_KOMUT = re.compile(r"https?://|www\.|\b[\w-]+\.(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design)\b"
@@ -138,6 +140,38 @@ def urller_bul(kaynaklar):
             if (a := url_norm(u := u.rstrip(".,;:"))) not in ilk or t < ilk[a][2]:
                 ilk[a] = (u, k, t)
     return sorted(ilk.values(), key=lambda v: v[2])
+
+
+def sozluk_oku(yol):
+    """M5: sozluk.txt 'kanonik | alias, alias' (# yorum, boş satır atlanır) → [(kanonik, [alias])]; dosya yoksa []."""
+    y = Path(yol)
+    return [(k.strip(), [x.strip() for x in a.split(",") if x.strip()]) for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else [])
+            if s.strip() and not s.lstrip().startswith("#") for k, _, a in [s.partition("|")]]
+
+
+def sozluk_adlari(sz):
+    return [x for k, a in sz for x in (k, *a)]
+
+
+def eslesmeler(kaynaklar, sz):
+    """M5: [(kaynak, t, metin)] → [(kanonik, kaynak, ilk t, bulanık biçim | None)] zamana göre. Kesin: norm ≤4 kelime sınırı, ≥5 alt dize;
+    kesin yoksa yalnız ses kaynağında bulanık öneri (ilk harf aynı, lev ≤1; ≥8 harfte ≤2). Metin değişmez, yalnız eşleme satırı."""
+    adlar, ilk = [(k, [n for a in (k, *al) if (n := norm(a))]) for k, al in sz], {}
+    for kay, t, x in sorted(kaynaklar, key=lambda q: q[1]):
+        d, p = norm(x), _pencere(x)
+        for k, ns in adlar:
+            if k in ilk:
+                continue
+            if any(n in p if len(n) <= 4 else n in d for n in ns):
+                ilk[k] = (k, kay, t, None)
+            elif kay == "ses" and (w := next((w for n in ns if len(n) >= 5 for w in p if w[:1] == n[:1] and abs(len(w) - len(n)) <= 2
+                                              and lev(w, n) <= (2 if len(n) >= 8 else 1)), None)):
+                ilk[k] = (k, kay, t, w)
+    return sorted(ilk.values(), key=lambda v: v[2])
+
+
+def eslesme_satirlari(es):
+    return [f"{k} · {kay} · {m.ss(t) if kay in ('ekran', 'ses') else '-'}" + (f" · bulanık: {w}" if w else "") for k, kay, t, w in es]
 
 
 MODEL_KOK = "C:/Projeler/.tmp-video/models/rapidocr/"  # ayar · VIDEO_OCR_MODEL ile değişir
