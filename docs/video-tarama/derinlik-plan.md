@@ -805,7 +805,7 @@ b2QkhmQ0sT0 (girdi_tk): k=3 → 0:00–6:31 5.1k (6 kare) · 6:31–14:05 11.0k 
 | K1 doğruluk | altyazı orijinal dil · paket satırı gerçek kare sayısını ve nedenini yazar · tahmin 6 noktada 0.8–1.3 | MÜKEMMEL-1b |
 | K2 sağlamlık | sessiz A düşüşü 0 · OmniRoute kapalıysa otomatik başlar ya da DUR · sayaç hook'u yan etkisiz · cc-kopru testi sayaçtan bağımsız yeşil | kısmen (DUR: 1b) |
 | K3 kalite | ölçüt A'nın DAYANAKLI öğeleri; 3 doğrulama videosu + Ov-B6K1EsaI'de B dayanaklı kapsam · doğruluk · görev ≥ A, short'ta kareden okuma ≥ A; Jev puanı + eksik yön etiketi | yeşil |
-| K4 hız | parça paralelliğiyle uzun videoda süre ≥ %40 kısa, kalite ve çağrı aynı | açık |
+| K4 hız | parça paralelliğiyle k ≥ 2'de ölçülen kazanç ≥ teorik × 0.70 (teorik (k−1)/(k+1): k2 %33 · k3 %50 · k4 %60), çağrı ve kalite aynı; k = 1'de paralel ≤ sıralı × 1.15 | açık |
 | K5 uçtan uca | V10 formu → araştırma → /video-uygula, 1 videoda hatasız | açık |
 | K6 gözetimsiz prova | 1 takip kanalından 5 videoluk parti, müdahalesiz tamam | açık |
 
@@ -974,3 +974,18 @@ Test: test_tahmin_v10_cikti_yuk_olcekli (kırmızı 014070b → yeşil). K1 yeş
 - Ölçüm kusurları: B yanıtları önceki V10 kaydıyla aynı token/form (OmniRoute cacheRead) → soğuk koşu değil, yeni sınır gerçek eşzamanlı yük altında sınanmadı; ELEME_BOYUT=1 yalnız b2Q'da verildi (diğer 3'te unutuldu); vhY7 tabanı kabul defteri.
 - Harcanan: B 24 çağrı + görsel 0 (≤34) · Jev ≤16 (≤20) · $0.171 (≤0.40).
 - Sonraki: önbelleksiz (seed/istem farkı ya da cache kapalı) soğuk ölçüm, 4 videoda ELEME_BOYUT=1, k1 için 2 tekrar.
+
+## O98 — MÜKEMMEL-6a2: önbellek teşhisi + K4 ölçütü + aynı-oturum ölçüm · K4 yeşil değil
+- Ölçüt (KARAR): k ≥ 2'de kazanç ≥ teorik (k−1)/(k+1) × 0.70, çağrı ve kalite aynı; k = 1'de paralel ≤ sıralı × 1.15.
+- Yanıt önbelleği: OmniRoute storage.sqlite databaseSettings semanticCacheEnabled=true ama isabet 0 (call_logs 468 satırın hepsi cache_source=upstream, semantic_cache tablosu boş; O97'nin 24 çağrısı gerçek upstream). Atlatma/ayar değişikliği gerekmedi, .bak yok.
+- cacheRead = Gemini örtük istem önbelleği; girdi maliyetini düşürür ve çıktıyı da değiştirir: önbelleksiz koşu V10 kaydı 0.json'u, önbellekli koşu 1.json'u token token üretir (16 koşunun 15'i). DERİNLİK "2 tekrar"ı yanıt önbelleğinden gelmedi; ikinci tekrar gerçek çağrıydı, istem önbelleğine düştü (daha hızlı/ucuz, çıktı az farklı).
+- Ölçüm: tara_v10 doğrudan (eleme.ps1 her koşuda Jev harcıyordu), sıralı → paralel → sıralı → paralel, ELEME_BOYUT=1 (tara_v10'u etkilemiyor). Her videoda yalnız 1. koşu önbelleksiz (sıralı kola soğuk ceza).
+- K4 tablosu (süre sıralı → paralel ort. · kazanç · teorik · verim · çağrı · usd sıralı/paralel · hüküm):
+  - b2QkhmQ0sT0 k4: 52.8 → 23.2 s (yalnız geçerli koşu) · −%56 · %60 · 0.93 · 5/5 · 0.0495+0.0258 / 0.0279+0.0722 · hız geçti, paralel koşu 4 hatalı (iki boş 200 yanıt, 0 token, "parça 2: form JSON değil", yeniden deneme de boş → form null)
+  - vhY7OGIh1v0 k2: 32.7 → 21.8 s · −%33 · %33 · 1.00 · 3/3 · 0.0272+0.0198 / 0.0155+0.0155 · geçti
+  - ptGXxk1-Uj4 k1: 24.7 → 24.8 s · ×1.00 · — · ≤1.15 · 2/2 · 0.0173+0.0123 / 0.0123+0.0123 · geçti
+  - rABIViSQmsc k1: 15.9 → 15.5 s · ×0.97 · — · ≤1.15 · 2/2 · 0.0108+0.0057 / 0.0057+0.0057 · geçti
+- Çıktılar: başarılı her paralel koşu önceki V10 kaydıyla aynı → K3/Jev yeniden hesaplanmadı ("aynı"). b2Q sıralı koşu 3 iki kayıttan da farklı (önbellek 73028).
+- Hüküm: K4 yeşil değil. Hız ölçütü 4/4 geçti (O97 k1 +%13/+%19 gürültü/önbellek etkisiydi); ama b2Q paralel kolunda 2 koşunun 1'i 4 eşzamanlı parçada boş yanıtla bozuldu → kalite aynı değil.
+- Harcanan: B 48 (≤50) · Jev 0 (≤16) · $0.335 (≤0.45).
+- Sonraki: boş 200 yanıtın kök nedeni (OmniRoute kabul/ Gemini eşzamanlı yük); boş yanıtı yeniden denenebilir hata sayma ya da PARCA_PARALEL tavanı — kırmızı test önce.
