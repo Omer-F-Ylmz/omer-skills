@@ -3,6 +3,7 @@ import json
 
 from video import altin as au
 from video import cli
+from video import goz as gz
 
 
 def _kur(tmp_path, ocr, paket):
@@ -43,3 +44,13 @@ def test_t2_taban_5_sn_tavan_kurali_ayni():
     from video import goz as gz
     assert gz.TABAN_SN[0] == 5 and gz.kare_sec([(0, 64)], 16, 1, 40) == [(0, 64), (5, 0), (10, 0), (15, 0)]
     assert gz.kare_sec([(0, 64)], 31, 1, 4) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # tavan aşılırsa 5→10 büyür
+
+
+def test_t3_tavan_dk16_5_sn_aralik_korunur():
+    """1b-1T T3 teşhis: dk×8 tavanında 10-15 dk videolar 20 sn'de de taşıp sahne atıyordu → dk×16, 60-400."""
+    assert (gz.tavan_ocr(60), gz.tavan_ocr(600), gz.tavan_ocr(2400)) == (60, 160, 400)
+    sahne = [(i * 20.0, 30) for i in range(30)]  # 10 dk + 30 sahne
+    t = [x for x, _ in gz.kare_sec(sahne, 600, 1, gz.tavan_ocr(600))]
+    assert max(b - a for a, b in zip(t, t[1:])) <= 5  # aralık 5 sn kalır
+    k = gz.kare_sec([(0, 30)], 2400, 1, gz.tavan_ocr(2400))  # 40 dk: 5 sn'de 480 > 400 → aralık büyür
+    assert len(k) <= 400 and max(b - a for (a, _), (b, _) in zip(k, k[1:])) == 10
