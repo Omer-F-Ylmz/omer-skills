@@ -89,8 +89,8 @@ def sahneler(hashler, f):
 
 
 def tavan_ocr(sure):
-    """1b-1R R3: OCR kare tavanı max(40, dk×8), en çok 200 (yalnız kare sayısı)."""
-    return min(200, max(40, int(sure / 60 * 8)))
+    """1b-1T T3: OCR kare tavanı max(60, dk×16), en çok 400 (yalnız kare sayısı) — dk×8'de 10-15 dk videolar 20 sn'de de taşıyordu."""
+    return min(400, max(60, int(sure / 60 * 16)))
 
 
 def sahne_sec(sahne, tavan):

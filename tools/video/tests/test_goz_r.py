@@ -55,12 +55,12 @@ def test_r2_tek_satir_degisen_kare_metne_girer(tmp_path, monkeypatch):
 
 
 def test_r3_tavan_ve_periyodik_taban():
-    assert (gz.tavan_ocr(60), gz.tavan_ocr(600), gz.tavan_ocr(1800), gz.tavan_ocr(3600)) == (40, 80, 200, 200)
+    assert (gz.tavan_ocr(60), gz.tavan_ocr(600), gz.tavan_ocr(1800), gz.tavan_ocr(3600)) == (60, 160, 400, 400)  # 1b-1T T3: dk×16
     assert gz.kare_sec([(0, 64)], 31, 1, 6) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # sahne yok, 5 sn tavanı aşar: her 10 sn
     sahne = [(float(i), 30) for i in range(50)]  # 30 dk sabit ekran + ilk 50 sn'de 50 sahne
     k = gz.kare_sec(sahne, 1800, 1, gz.tavan_ocr(1800))
     t = [x for x, _ in k]
-    assert len(k) <= 200 and all(s in k for s in sahne) and t == sorted(t)  # tavan içinde, sahneler korunur
+    assert len(k) <= 400 and all(s in k for s in sahne) and t == sorted(t)  # tavan içinde, sahneler korunur
     assert max(b - a for a, b in zip(t, t[1:])) <= 15 and t[-1] >= 1780  # aralık 15'e büyür, taban videoya yayılır
 
 
@@ -68,7 +68,7 @@ def test_r3_uzun_secim_ffmpeg_ifadesi_parcali(tmp_path, monkeypatch):
     metin = {float(t): [] for t in range(0, 1200, 10)}  # 120 kare: tek select'te ~117 eq(n,) ffmpeg "Cannot allocate memory" verdi
     ctx, d, sayac = _goz_sahte(tmp_path, monkeypatch, metin)
     cli._goz(ctx, d, 1200, "", [], 2, {})
-    assert sum(sayac["secim"]) == 120 and max(sayac["secim"]) <= 50 and sayac["oku"] == 120
+    assert sum(sayac["secim"]) == 240 and max(sayac["secim"]) <= 50 and sayac["oku"] == 240  # 1b-1T T3: dk×16 → 5 sn taban sığar
 
 
 def test_r4_kapsam_sira():
@@ -82,7 +82,7 @@ def test_r4_guvenlik_tavani_kayip_videoya_yayilir(tmp_path, monkeypatch):
     cli._goz(ctx, d, 300, "", [], 2, o := {})
     t = [x for x, _ in o["metin"]]
     assert sayac["oku"] == 10 and t == sorted(t) and min(t) == 0 and max(t) >= 250
-    assert len(o["incelenmedi"]) == 20 and {n for _, n in o["incelenmedi"]} == {"OCR güvenlik tavanı"}
+    assert len(o["incelenmedi"]) == 50 and {n for _, n in o["incelenmedi"]} == {"OCR güvenlik tavanı"}
 
 
 def test_r4_ocr_cihaz_motordan():
