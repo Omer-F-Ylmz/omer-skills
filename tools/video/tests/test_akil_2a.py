@@ -141,7 +141,7 @@ kare_01.jpg · ZZZ
 
 
 def test_terimler_kume():
-    assert bk.terimler(PAKET) == {"MCP", "three.js", "claude-code", "gsap", "Space Grotesk", "GitHub", "topview.ai", "mcp.topview.ai"}
+    assert bk.terimler(PAKET) == {"three.js", "claude-code", "gsap", "Space Grotesk", "GitHub", "topview.ai", "mcp.topview.ai"}
 
 
 RAPOR = ("# b\n## Adaylar\n| ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |\n|---|---|---|---|---|---|---|\n"
@@ -158,10 +158,25 @@ def test_bekci_tek_cagri_ve_bos_cagri_yok():
 
     def tas(sis, msg, sema, **k):
         c.append(msg)
-        return {"form": {"kararlar": [{"terim": "gsap", "aday": True, "tur": "CLI", "neden": "animasyon kütüphanesi"},
-                                     {"terim": "GitHub", "aday": False, "tur": "CLI", "neden": "genel"}]}, "usage": {"input_tokens": 5}, "usd": 0.001}
+        return {"form": {"kararlar": [{"terim": "gsap", "aday": True, "tur": "CLI", "neden": "animasyon kütüphanesi", "kanit": "npm i gsap yazıyoruz"},
+                                     {"terim": "GitHub", "aday": False, "tur": "CLI", "neden": "genel", "kanit": ""}]}, "usage": {"input_tokens": 5}, "usd": 0.001}
     md, ozet = bk.bekci(RAPOR, PAKET, tas)
     assert len(c) == 1 and ozet["cagri"] == 1 and ozet["eklenen"] == ["gsap"]
     assert re.search(r"^\| gsap \| yok \| CLI \| yok \| .* \| kaynak: bekçi \|$", md, re.M) and "## Açıklama bağlantıları" in md
     md2, o2 = bk.bekci(RAPOR, "# v\nhiçbir şey yok\n", tas)
     assert o2["cagri"] == 0 and o2["eklenen"] == [] and md2 == RAPOR and len(c) == 1
+
+
+def test_terimler_kisa_buyuk_harf_ve_genel_terim_dusurur():
+    assert bk.terimler("[0:10] HTML CSS API GPU FAQ ASAP kullandık, ANTHROPIC ve three.js var.\n") == {"ANTHROPIC", "three.js"}
+    assert bk.kalan("# b\n## Adaylar\n", {"html", "Json", "UI", "gsap"}) == ["gsap"]
+
+
+def test_bekci_kanit_paketten_birebir_yoksa_reddeder():
+    def tas(kanit):
+        return lambda *a, **k: {"form": {"kararlar": [{"terim": "gsap", "aday": True, "tur": "CLI", "neden": "n", "kanit": kanit}]}}
+    assert bk.bekci(RAPOR, PAKET, tas("npm i gsap yazıyoruz"))[1]["eklenen"] == ["gsap"]
+    assert bk.bekci(RAPOR, PAKET, tas("NPM  i   GSAP yazıyoruz"))[1]["eklenen"] == ["gsap"]  # boşluk/büyük-küçük harf esnek
+    assert bk.bekci(RAPOR, PAKET, tas("gsap yazıyoruz"))[1]["eklenen"] == []  # < 3 kelime
+    assert bk.bekci(RAPOR, PAKET, tas("gsap ile animasyon yapıyoruz"))[1]["eklenen"] == []  # pakette yok
+    assert "kanit" in bk.SEMA["properties"]["kararlar"]["items"]["required"]
