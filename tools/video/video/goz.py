@@ -97,6 +97,23 @@ def sahneler(hashler, f):
 
 
 TAVAN_SURUM = "sahne+dk12/800"  # önbellek anahtarı: tavanın sayısı değil formülü
+YOGUN_SURUM, YOGUN_UST = "url±2/120", 120  # DEVAM-4: URL'li karenin komşuları, tavan dışı ek kare üst sınırı
+URL_BENZER = re.compile(r"https?://|www\.|[a-z0-9-]+\.(?:ai|com|io|dev|app|sh|so|org|net|co)\b", re.I)
+
+
+def url_benzer(x):
+    return bool(URL_BENZER.search(x))
+
+
+def yogun_zaman(okunmus, url_t, sure, ust=YOGUN_UST):
+    """DEVAM-4: URL benzeri satırlı karelerin t-2..t+2 sn komşuları; okunmuş ve [0, süre] dışı atlanır, URL zaman sırasıyla en çok ust, sıralı."""
+    gor, ek = set(okunmus), []
+    for t in sorted(url_t):
+        for k in (t - 2, t - 1, t + 1, t + 2):
+            if 0 <= k <= sure and k not in gor and len(ek) < ust:
+                gor.add(k)
+                ek.append(k)
+    return sorted(ek)
 
 
 def tavan_ocr(sure, n_sahne):

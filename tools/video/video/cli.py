@@ -708,7 +708,7 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     Güven eşiği + gürültü süzgeci okurken (eşik değişince OCR yeniden koşmaz); m*.jpg goz/kareler'de kalır, paket varyantları birbirini silmez."""
     g, f = d / "goz", gz.fps(sure)
     kd, oj = g / "kareler", g / "ocr.json"
-    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM,"model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ}
+    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ}
     on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
     if on.get("anahtar") != anahtar:
         shutil.rmtree(g, ignore_errors=True)
@@ -753,7 +753,18 @@ def _goz_ocr(ctx, d, kd, sure, f):
         if time.monotonic() - bas > gz.OCR_GUVENLIK:  # R4: kesim kare sayısıyla; süre yalnız güvenlik tavanı
             inc = sorted((t, "OCR güvenlik tavanı") for t, _ in yollar[i + 10:])
             break
-    return {"sahne": sahne, "ham": sorted(okunan, key=lambda x: x[0]), "inc": inc, "sn": round(time.monotonic() - bas),
+    ek = [] if inc else gz.yogun_zaman([t for t, _ in okunan], [t for t, r in okunan if any(gz.url_benzer(x) for x, *_ in r)], sure)
+    for t in ek:  # DEVAM-4: URL komşu yoğunlaştırma, tavan dışı; ponytail: kare başına bir -ss çözme, ≤120
+        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", str(v), "-an", "-frames:v", "1", "-q:v", "3", str(kd / f"k{int(t * 10):06d}.jpg")],
+             SURE["sahne"])
+    ek = [(t, kd / f"k{int(t * 10):06d}.jpg") for t in ek if (kd / f"k{int(t * 10):06d}.jpg").is_file()]
+    for i in range(0, len(ek), 10):
+        if time.monotonic() - bas > gz.OCR_GUVENLIK:
+            inc = sorted((t, "OCR güvenlik tavanı") for t, _ in ek[i:])
+            break
+        o = _ocr(ctx, [y for _, y in ek[i:i + 10]], ham=True)
+        okunan += [(t, o.get(y.name, [])) for t, y in ek[i:i + 10]]
+    return {"sahne": sahne, "ham": sorted(okunan, key=lambda x: x[0]), "inc": inc, "sn": round(time.monotonic() - bas), "yogun": len(ek),
             "motor": ctx.get("ocr_motor") or "yok", "cihaz": ctx.get("ocr_cihaz") or "yok"}
 
 
