@@ -131,3 +131,17 @@ Alt neden önce→sonra: OCR-okuyamadı 8→6 · bütçe-attı 4→2 · gürült
 S3 kanıtı: 1nGx sabit+sahip yorum 849 tk (ffmpeg, cut-and-extend içinde) 800 bütçesini aşıp tümden atılıyordu → S3b ile geri geldi. YDAK 60 yorumda Bodoni Moda / Hanken Grotesk / parallax / rim light / contact sheet hiç yok.
 S2 kanıtı: d_UE 0:32–0:37 "Principled BSDF" (güven 0,96–1,0), anlamsiz_oran 0,5 → gürültü sayılıyordu.
 S4 (OCR-okuyamadı deneyi: A mobile · B PP-OCRv5 server det · C 2×2 döşeme, 6 aday + 2 URL) yapılmadı — bütçe; 1b-2'ye ya da ayrı dalgaya.
+
+## 1b-1T son (2026-10-08)
+Değişiklikler: T1 bütçe-attı etiketi (gürültü süzgeci sözlükle) · T2 TABAN_SN 5 sn · T3 tavan_ocr = min(800, atım öncesi sahne + dk×12), önbellek anahtarı formül sürümü · ekran_metni düzey içinde altyazıya göre yeni bilgi çoktan aza, eşitte erken zaman.
+S4 (tam kare, t±3): A mobile url 2/2 (FaCh 532-535 youtu.be, 1nGx 180 mcp.topview.ai/mcp) · YDAK 4/5 (rim light yok) · FaCh Appear yok · sn/kare A 0,43-0,72, C 2×2 1,14-2,01 · B model inmedi (modelscope reset, HF 401) → sorun örnekleme, TABAN_SN 5.
+Teşhis: dk×8/dk×16 tavanında aZe5 (atım öncesi ≥151 sahne; ocr.json'daki sayı atım sonrası) 5 sn'de 218 > 157 → 20 sn + sahne atımı. Yeni tavan 5 sn tabanı hep sığdırır; aralık yalnız 800'de büyür.
+Ölçüm (videolar sırayla, suite/alt ajan yok; aZe5 + FaCh ilk koşuda yt-dlp 403 → tekrar): sahne (atım öncesi) · OCR kare · OCR sn · tepe bellek
+- aZe5ZTYcF1M: aday 20/22 (1b-1S 20) · komut 1/1 · url 3/3 · işe yarar 1/1 · token 9792 · 246 · 297 · 64 · 1,02 GB
+- 1nGx7WR8YLE: aday 17/18 (18 ↓) · komut 0/0 · url 4/5 · işe yarar 2/3 · token 12644 · 180 · 269 · 149 · 1,09 GB
+- YDAK1lvVXho: aday 21/26 (21) · komut 0/0 · url 1/2 · işe yarar 0/0 · token 13443 · 168 · 266 · 53 · 1,12 GB
+- FaChtkkG9X4: aday 15/16 (15) · komut 1/1 · url 6/6 · işe yarar 4/4 · token 8154 · 122 · 186 · 53 · 0,91 GB
+- d_UE-wHLoZY: aday 13/13 (13) · komut 0/0 · url 1/1 · işe yarar 1/1 · token 4307 · 49 · 49 · 15 · 0,98 GB
+Toplam: aday 86/95 · komut 2/2 · url 15/17 · işe yarar url 8/9 · token 48340. Kabul: aday ≥87 ✗ · video gerilemesi ✗ (1nGx scrollcraft bütçe-attı) · komut ✓ · işe yarar ≥8/9 sayıca ✓ ama mcp.topview.ai/mcp zorunlu ✗ · token ✓.
+- FaCh youtu.be/9IPwFoy1x08 artık tutuluyor (5 sn taban). topview: ocr.json'da 30+ "Topview" satırı, "mcp.topview.ai" hiç yok — S4'teki 180 sn tam karesi örneklemede yok ya da okunmuyor.
+- Kalan 1b-2'ye: youtu.be harf onarımı (aday kimlikler + oEmbed, en çok N istek) · rim light / Appear (OCR-okuyamadı) · topview URL karesi · 1nGx scrollcraft bütçe-attı (daha çok OCR satırı aynı bütçeye giriyor).
