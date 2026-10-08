@@ -131,3 +131,45 @@ def test_tam_akis_devam_ve_ozet(tmp_path):
     assert "[aşama] A paket" in log
     o = ozet.read_text(encoding="utf-8")
     assert "tamam_eksik: 1" in o and "token: 51" in o and "paket: toplam 20" in o
+
+
+def test_baslat_usd_tavani_gecer(tmp_path):
+    _kur(tmp_path, {"adimlar": []})
+    r, log, ozet, cagri = _kos(tmp_path)
+    assert "--usd-tavan 3.75" in cagri and "--usd-tavan-max 3.75" in cagri
+
+
+def test_kod3_kimlikli_tavan_ayni_partide_devam(tmp_path):
+    """Gece 2026-10-09: baslat tavanda 3 döndü, kimlik satırı vardı → 'kuyruk bos' sanıldı, özet 0."""
+    def d(b):
+        return {"parti": "P1", "durum": "tavan" if b == "tavan" else "tamam", "tavan": {"cagri": 50, "usd": 3.75},
+                "videolar": {"A": {"tarama": {"durum": "tamam_eksik"}}, "B": {"tarama": {"durum": b}}}}
+    satir = {"adim": "tarama", "girdi": 1, "onb_okuma": 0, "onb_yazma": 0, "cikti": 0, "usd": 1.9, "cagri": 2}
+    _kur(tmp_path, {"adimlar": [
+        {"kod": 3, "cikti": ["parti: P1 · short · 2 video · tavan 50 çağrı / $3.75", "parti: tavan aşıldı (50 çağrı / $3.75), motor durdu"],
+         "yaz": {"P1": {"durum": d("tavan"), "defter": [satir, satir]}}},
+        {"yaz": {"P1": {"durum": d("tamam_eksik"), "defter": [satir, satir, satir]}}},
+    ]})
+    r, log, ozet, cagri = _kos(tmp_path)
+    s = cagri.splitlines()
+    assert s[1].startswith("parti devam P1") and "--cagri-ek" in s[1] and "--usd-ek" in s[1]
+    assert "DUR: kuyruk bos" in log  # ikinci baslat: gerçekten boş
+    o = ozet.read_text(encoding="utf-8")
+    assert "partiler: P1" in o and "tamam_eksik: 2" in o and "tavan: 0" in o and "hata: 0" in o
+
+
+def test_tavan_gecelik_butce_bitince_durur(tmp_path):
+    d = {"parti": "P1", "durum": "tavan", "tavan": {"cagri": 50, "usd": 3.75},
+         "videolar": {"A": {"tarama": {"durum": "tavan"}}}}
+    satir = {"adim": "tarama", "girdi": 0, "onb_okuma": 0, "onb_yazma": 0, "cikti": 0, "usd": 3.8, "cagri": 50}
+    _kur(tmp_path, {"adimlar": [{"kod": 3, "cikti": ["parti: P1 · short · 1 video · tavan 50 çağrı / $3.75"],
+                                 "yaz": {"P1": {"durum": d, "defter": [satir]}}}]})
+    r, log, ozet, cagri = _kos(tmp_path, "-Tavan", "50")
+    assert "devam" not in cagri and "DUR: tavan" in log
+    assert "tavan: 1" in ozet.read_text(encoding="utf-8")
+
+
+def test_kimliksiz_kod1_kuyruk_bos_kod2_hata(tmp_path):
+    _kur(tmp_path, {"adimlar": [{"kod": 2, "cikti": ["parti: kuyruğun sıradaki partisi uzun"]}]})
+    r, log, ozet, cagri = _kos(tmp_path)
+    assert "DUR: baslat hata (cikis 2)" in log

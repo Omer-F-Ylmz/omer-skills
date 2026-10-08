@@ -39,6 +39,7 @@ $asama = @{}       # asama adi -> @(sn, adet)
 $ardisik403 = 0
 $ardisikHata = 0
 $neden = 'bitti'
+$ic = [Globalization.CultureInfo]::InvariantCulture
 
 function Log($m) { Add-Content -Path $logYol -Encoding UTF8 -Value ("{0} {1}" -f (Get-Date -Format 's'), $m) }
 
@@ -73,16 +74,17 @@ function Defter($pid_) {
     if (Test-Path $y) { Get-Content $y -Encoding UTF8 | Where-Object { $_.Trim() } | ForEach-Object { $_ | ConvertFrom-Json } }
 }
 
-function Kullanilan {   # parti.py _defter: ikinci_goz/tavan/omniroute_baslat/paket_yenilendi satirlari cagri degil
-    $n = 0
-    foreach ($p in $partiler) {
-        foreach ($r in Defter $p) {
-            if ("$($r.adim)" -match '^(ikinci_goz|tavan|omniroute_baslat|paket_yenilendi)') { continue }
-            $n += if ($null -ne $r.cagri) { [int]$r.cagri } else { 1 }
-        }
+function Harcanan($p) {   # parti.py _defter: ikinci_goz/tavan/omniroute_baslat/paket_yenilendi satirlari cagri degil; @(cagri, usd)
+    $n = 0; $u = 0.0
+    foreach ($r in Defter $p) {
+        if ("$($r.adim)" -match '^(ikinci_goz|tavan|omniroute_baslat|paket_yenilendi)') { continue }
+        $n += if ($null -ne $r.cagri) { [int]$r.cagri } else { 1 }
+        if ($null -ne $r.usd) { $u += [double]$r.usd }
     }
-    $n
+    @($n, $u)
 }
+
+function Kullanilan { $n = 0; foreach ($p in $partiler) { $n += (Harcanan $p)[0] }; $n }
 
 Log "BASLA paralel=$Paralel enfazla=$EnFazla tavan=$Tavan kok=$Kok"
 while ($true) {
@@ -99,23 +101,36 @@ while ($true) {
     $tavanParti = 2 * $EnFazla
     if ((Kullanilan) + $tavanParti -gt $Tavan) { $neden = 'tavan'; break }
 
-    $cikti = Cagir 'parti', 'baslat', '--en-fazla', $EnFazla, '--paralel', $Paralel, '--cagri-tavan', $tavanParti
-    if ($kod -in 1, 3) { $neden = 'kuyruk bos'; break }   # 1: bekleyen yok - 3: hepsi baska acik partide
-    if ($kod -ne 0) { $neden = "baslat hata (cikis $kod)"; break }
-    $m = $cikti | Where-Object { $_ -match '^parti: \S+ ' } | Select-Object -First 1
-    if (-not $m) { $neden = 'parti kimligi okunamadi'; break }
+    $u = ($EnFazla * 0.15).ToString($ic)   # olculen ~0.11 $/video; cli varsayilani 1.0 gecede 13 videoda durdurdu
+    $a = 'parti', 'baslat', '--en-fazla', $EnFazla, '--paralel', $Paralel, '--cagri-tavan', $tavanParti, '--usd-tavan', $u
+    if ($EnFazla * 0.15 -gt 2.0) { $a += '--usd-tavan-max', $u }   # cli usd_max varsayilani 2.0 bu tavanin altinda kalmasin
+    $cikti = Cagir $a
+    # parti sonucu durum.json'dan: tavanda baslat 3 doner ama parti kurulmustur
+    $m = $cikti | Where-Object { $_ -match '^parti: \S+ . \w+ . \d+ video' } | Select-Object -First 1
+    if (-not $m) {
+        $neden = if ($kod -in 1, 3) { 'kuyruk bos' } else { "baslat hata (cikis $kod)" }   # 1: bekleyen yok - 3: hepsi baska acik partide
+        break
+    }
     $pid_ = ($m -split ' ')[1]
     $partiler += $pid_
     if ($ardisik403 -ge 3) { $neden = '403'; break }
 
     $devam = 0
-    while ((Durum $pid_).durum -notin 'tamam', 'tavan', 'iptal', 'hata', 'kapandi') {
+    while (($d = Durum $pid_).durum -notin 'tamam', 'iptal', 'hata', 'kapandi') {
         if (++$devam -gt 5) { $neden = "parti $pid_ ilerlemiyor"; break }
-        Cagir 'parti', 'devam', $pid_ | Out-Null
+        $a = 'parti', 'devam', $pid_
+        if ($d.durum -eq 'tavan') {   # ayni partide devam: kalan video basina 2 cagri, gecelik tavan icinde
+            $kalan = @($d.videolar.PSObject.Properties | Where-Object { $_.Value.tarama.durum -in 'bekliyor', 'hata', 'tavan', 'yeniden' }).Count
+            $ek = [math]::Min(2 * $kalan, $Tavan - (Kullanilan))
+            if ($ek -le 0) { $neden = 'tavan'; break }
+            $h = Harcanan $pid_
+            $a += '--cagri-ek', [math]::Max(0, $h[0] + $ek - [int]$d.tavan.cagri),
+                '--usd-ek', ([math]::Max(0.0, $h[1] + $ek * 0.075 - [double]$d.tavan.usd)).ToString('0.0000', $ic)
+        }
+        Cagir $a | Out-Null
         if ($ardisik403 -ge 3) { $neden = '403'; break }
     }
     if ($neden -ne 'bitti') { break }
-    if ((Durum $pid_).durum -eq 'tavan') { $neden = 'parti tavani'; break }
 
     # tarama hatasi: videolar sirayla, ardisik 3 hata
     foreach ($v in (Durum $pid_).videolar.PSObject.Properties) {
@@ -128,23 +143,22 @@ if ($neden -eq '403' -or $partiler.Count -gt 0 -and $ardisik403 -ge 3) { $neden 
 Log "DUR: $neden"
 
 # ozet
-$sayi = @{ islenen = 0; tamam = 0; tamam_eksik = 0; hata = 0 }
+$sayi = @{ islenen = 0; tamam = 0; tamam_eksik = 0; tavan = 0; hata = 0 }
 $tok = 0; $usd = 0.0; $usdVar = $false
 foreach ($p in $partiler) {
     foreach ($v in (Durum $p).videolar.PSObject.Properties) {
         $sayi.islenen++
-        switch ($v.Value.tarama.durum) { 'tamam' { $sayi.tamam++ } 'tamam_eksik' { $sayi.tamam_eksik++ } 'bekliyor' { } default { $sayi.hata++ } }
+        switch ($v.Value.tarama.durum) { 'tamam' { $sayi.tamam++ } 'tamam_eksik' { $sayi.tamam_eksik++ } 'tavan' { $sayi.tavan++ } 'bekliyor' { } default { $sayi.hata++ } }
     }
     foreach ($r in Defter $p) {
         $tok += [long]$r.girdi + [long]$r.onb_okuma + [long]$r.onb_yazma + [long]$r.cikti
         if ($null -ne $r.usd) { $usd += [double]$r.usd; $usdVar = $true }
     }
 }
-$ic = [Globalization.CultureInfo]::InvariantCulture
-$sn = [math]::Round($sw.Elapsed.TotalSeconds)
+$sn =[math]::Round($sw.Elapsed.TotalSeconds)
 $ort = if ($sayi.islenen) { [math]::Round($sn / $sayi.islenen, 1).ToString($ic) } else { '-' }
 $o = @("# Gece ozeti $gun", '', "- durma nedeni: $neden", "- partiler: $($partiler -join ', ')",
-    "- islenen: $($sayi.islenen)", "- tamam: $($sayi.tamam)", "- tamam_eksik: $($sayi.tamam_eksik)", "- hata: $($sayi.hata)",
+    "- islenen: $($sayi.islenen)", "- tamam: $($sayi.tamam)", "- tamam_eksik: $($sayi.tamam_eksik)", "- tavan: $($sayi.tavan)", "- hata: $($sayi.hata)",
     "- token: $tok", "- claude -p cagri: $(Kullanilan)",
     $(if ($usdVar) { "- usd esdegeri: $($usd.ToString('0.0000', $ic))" } else { '- usd esdegeri: defterde yok' }),
     "- toplam sure: $sn sn", "- video basina ortalama: $ort sn", '', '## Asama sureleri')

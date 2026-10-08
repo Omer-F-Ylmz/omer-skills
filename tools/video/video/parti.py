@@ -970,7 +970,7 @@ def parti(ns, ctx):
             from . import akil
             return akil.denetim_isle(d, kok)
         if getattr(ns, "cagri_ek", 0) or getattr(ns, "usd_ek", 0):  # M2b: tavan yalnız açıkça yükseltilir
-            d["tavan"] = {"cagri": d["tavan"]["cagri"] + ns.cagri_ek, "usd": round(d["tavan"]["usd"] + ns.usd_ek, 4)}
+            d["tavan"].update(cagri=d["tavan"]["cagri"] + ns.cagri_ek, usd=round(d["tavan"]["usd"] + ns.usd_ek, 4))  # ONARIM: cagri_max/usd_max/genis korunur
         if ns.eylem == "akil" and getattr(ns, "yeniden", False):  # DERİNLİK-1 R6: araştırma dahil yeniden (R1–R5); kurulu envanterden, Ömer hücreleri panelde korunur
             for a in d.get("adaylar", {}).values():
                 for x in ("durum", "deneme", "hata", "repo_arama", "guncellik"):
