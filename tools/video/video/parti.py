@@ -295,7 +295,19 @@ def _h(x):
 
 
 def _kg(x):
-    return f" (karede: {_h(x['karede_gorulen'])})" if x.get("karede_gorulen") else ""
+    if not (k := x.get("karede_gorulen")):
+        return ""
+    return f" (karede: kanıttan) {_h(k)}" if x.get("kaynak") == "kare" and k == x.get("kanit") else f" (karede: {_h(k)})"
+
+
+def kanittan(form):
+    """ONARIM 2 KARAR: kaynak=kare satırında karede_gorulen boş, kanit doluysa karede_gorulen = kanit (raporda '(karede: kanıttan) …'). Yerinde; disk yazımından önce."""
+    for f in (form or {}).get("videolar") or []:
+        for b in ("adaylar", "site_ui", "promptlar", "iddialar") if isinstance(f, dict) else ():
+            for x in f.get(b) or []:
+                if isinstance(x, dict) and x.get("kaynak") == "kare" and not (x.get("karede_gorulen") or "").strip() and (x.get("kanit") or "").strip():
+                    x["karede_gorulen"] = x["kanit"]
+    return form
 
 
 def _nk(s):  # M4c: yalnız gösterim (test_m4 K1 testi); şema nasil/kutuphane istemez
@@ -480,7 +492,9 @@ def _kismi_kabul(pdir, d, v, p, tdir):
     y = pdir / "form" / f"{v}.json"
     if not y.is_file():
         return False
-    f, eksik = kismi(json.loads(y.read_text(encoding="utf-8")), dogrula({"videolar": [json.loads(y.read_text(encoding="utf-8"))]}, {v: p}, [v]).get(v, []), v)
+    form = kanittan({"videolar": [json.loads(y.read_text(encoding="utf-8"))]})  # ONARIM 2: yedek kural; disk ve rapor tutarlı
+    y.write_text(json.dumps(form["videolar"][0], ensure_ascii=False, indent=1), encoding="utf-8")
+    f, eksik = kismi(form["videolar"][0], dogrula(form, {v: p}, [v]).get(v, []), v)
     try:
         _rapor_yaz(d, v, f, p, tdir, durum="tamam_eksik" if eksik else "tamam", eksik=eksik, hata=None)
     except (KeyError, TypeError, AttributeError) as e:  # biçimi bozuk form rapora dökülemez: form_red kalır
@@ -622,6 +636,8 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
                 kun.append(f"tek kol: {mdl} {y.get('hata') or 'form yok'}"[:200])
             else:
                 kolf.append(f)
+                (pdir / "form").mkdir(exist_ok=True)  # ONARIM 2: kol başı ham form (birleşik form/<id>.json ayrı yazılır)
+                (pdir / "form" / f"{v}.{mdl.split('-')[1]}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
                 kun.append(f"{mdl}: {y.get('model') or mdl} · {sum((y.get('usage') or {}).get(a, 0) for a in ('input_tokens', 'cache_read_input_tokens', 'cache_creation_input_tokens', 'output_tokens'))} tk")
         if kolf:
             fs.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])
@@ -756,6 +772,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
             tv = y.get("tavan") or []  # DERİNLİK-KAPANIŞ-2: ön tahmini kalan $'ı aşan video tavanda kalır (YENIDEN)
             ig_ = {}
+            kanittan(y.get("form"))
             with YAZ:
                 hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, [v for v in kalan if v not in tv])
             for f in (y.get("form") or {}).get("videolar") or []:  # M2e K1: son form diskte (kısmi kabul çağrısız)

@@ -106,11 +106,11 @@ def url_benzer(x):
 
 
 def yogun_zaman(okunmus, url_t, sure, ust=YOGUN_UST):
-    """DEVAM-4: URL benzeri satırlı karelerin t-2..t+2 sn komşuları; okunmuş ve [0, süre] dışı atlanır, URL zaman sırasıyla en çok ust, sıralı."""
+    """DEVAM-4: URL benzeri satırlı karelerin t-2..t+2 sn komşuları; okunmuş ve [0, süre-1] dışı atlanır, URL zaman sırasıyla en çok ust, sıralı."""
     gor, ek = set(okunmus), []
     for t in sorted(url_t):
         for k in (t - 2, t - 1, t + 1, t + 2):
-            if 0 <= k <= sure and k not in gor and len(ek) < ust:
+            if 0 <= k <= sure - 1 and k not in gor and len(ek) < ust:  # ONARIM 3: akış meta süreden kısa; -ss süre → ffmpeg paket yok (rc -22), tüm OCR düşer
                 gor.add(k)
                 ek.append(k)
     return sorted(ek)

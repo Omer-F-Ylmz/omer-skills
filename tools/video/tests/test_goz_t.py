@@ -70,7 +70,7 @@ def test_t3_ekran_metni_yeni_bilgisi_cok_satir_once():
 def test_d4_url_komsu_yogun():
     """DEVAM-4: URL'li karenin t±1, t±2 komşuları — okunmuş ve [0, süre] dışı atlanır, tekrarsız, sıralı, en çok üst."""
     assert gz.url_benzer("https://mcp.topview.ai/claude") and gz.url_benzer("w.ai/claude") and not gz.url_benzer("Topview MCp")
-    assert gz.yogun_zaman([0, 2, 180, 182], [0, 180, 182], 181, 120) == [1, 178, 179, 181]
+    assert gz.yogun_zaman([0, 2, 180, 182], [0, 180, 182], 181, 120) == [1, 178, 179]  # ONARIM 3: t=süre son kareden sonra → ffmpeg paket yok (rc -22)
     assert len(gz.yogun_zaman([], [float(i * 10) for i in range(100)], 2000, 120)) == 120
 
 
