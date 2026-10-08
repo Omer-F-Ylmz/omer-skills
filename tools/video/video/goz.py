@@ -191,6 +191,19 @@ def _yorum_oncelikli(x, sozluk):
     return bool(YORUM_SATIR.search(x) or sozlukte(x, sozluk) or TERIM.search(x) or TIRELI.search(x))
 
 
+def aciklama_duz(aciklama, butce=600, token=lambda s: len(s) // 4 + 1):
+    """DEVAM-1: açıklama düz metni; URL ve chapter (zaman damgalı) satırları çıkar (başka bölümde var), boş satırlar tekil, ≤ butce tk (taşan satırlar atılır)."""
+    out, top = [], 0
+    for x in (x.strip() for x in (aciklama or "").splitlines()):
+        if not x or re.search(r"https?://", x) or re.match(r"^\W*(?:\d{1,2}:)?\d{1,2}:\d{2}\b", x):
+            continue
+        if top + token(x) > butce:
+            break
+        out.append(x)
+        top += token(x)
+    return out
+
+
 def yorum_sec(ham, sozluk=(), butce=1500, token=lambda s: len(s) // 4 + 1):
     """M4: sabit ve kanal sahibi yorumu tam (satırlar ' / '), diğerlerinden yalnız link/kod/komut/zaman damgası/sözlük adı/TERIM/tireli
     terim taşıyan satır; öncelik sabit > sahip > diğer (yt-dlp top sırası), ≤ butce. 1b-1S S3b: sabit/sahip yorumu kalan bütçeyi aşarsa

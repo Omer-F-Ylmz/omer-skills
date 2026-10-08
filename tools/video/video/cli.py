@@ -489,6 +489,7 @@ def paket(ns, ctx):
           f" · https://youtu.be/{ns.id} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}{f' · {n}' if (n := ctx.get('goz_not')) else ''}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
+          *(["## Açıklama", *ac] if (ac := gz.aciklama_duz(meta.get("description"))) else []),  # DEVAM-1: düz metin, URL/chapter satırsız, ≤600 tk
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
           *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join([*(m.sadelestir(s["metin"]) for s in seg), *(str(c_.get("title")) for c_ in meta.get("chapters") or []), *lk]), gz.sozluk_adlari(sz), gz.butce(meta.get("duration") or 0))]
