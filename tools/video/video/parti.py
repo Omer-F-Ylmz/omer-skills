@@ -384,8 +384,25 @@ def kismi(f, hatalar, v):
     return f, eksik
 
 
+def kanit_suz(f, paket):
+    """1b-2a DEVAM-3: adı paket metninde `gecer` kuralıyla bulunmayan aday Adaylar'dan Belirsizlikler'e 'kanıtsız' notuyla taşınır. LLM yok."""
+    from .altin import gecer, norm
+    kel = [norm(w) for w in re.findall(r"\w+", paket.casefold())]
+    pencere = {"".join(kel[i:i + k]) for k in range(1, 6) for i in range(len(kel))}
+    duz, f = norm(paket), json.loads(json.dumps(f))
+    kal = []
+    for a in f.get("adaylar") or []:
+        if isinstance(a, dict) and isinstance(a.get("ad"), str) and not gecer(a["ad"], duz, pencere):
+            f.setdefault("belirsizlikler", []).append(f"{a['ad']}: kanıtsız (adı paket metninde geçmiyor)")
+        else:
+            kal.append(a)
+    f["adaylar"] = kal
+    return f
+
+
 def _rapor_yaz(d, v, f, p, tdir, ikinci=None, **ek):
-    r = tdir / f"{d['tarih']}-{v}{'-incelenmedi' if d['videolar'][v]['tarama'].get('gecis') == 2 else ''}.md"  # C4: ilk rapor ezilmez
+    f = kanit_suz(f, p["metin"])
+    r =tdir / f"{d['tarih']}-{v}{'-incelenmedi' if d['videolar'][v]['tarama'].get('gecis') == 2 else ''}.md"  # C4: ilk rapor ezilmez
     r.parent.mkdir(parents=True, exist_ok=True)
     md = rapor_md(f, p, _notlar(d, p)) + (ig.ek_md(ikinci) if ikinci else "")
     r.write_bytes(md.encode("utf-8"))
