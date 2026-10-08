@@ -36,3 +36,10 @@ def test_t1_kapsam_ile_teshis_tutarli():
         a = next(x for x in altin["adaylar"] if x["ad"] == ad)
         assert any(au._icerir(x, [ad, *a.get("alias", [])]) for _, r in ham for x, _, _ in r)
         assert not au._icerir(paket, [ad, *a.get("alias", [])])  # paket metninde kapsam ile aynı karar
+
+
+def test_t2_taban_5_sn_tavan_kurali_ayni():
+    # S4: A (mevcut mobile) tam karede t±3'te buluyor (FaCh 532-535 youtu.be · 1nGx 180 mcp.topview.ai/mcp · YDAK 4/5) → sorun örnekleme
+    from video import goz as gz
+    assert gz.TABAN_SN[0] == 5 and gz.kare_sec([(0, 64)], 16, 1, 40) == [(0, 64), (5, 0), (10, 0), (15, 0)]
+    assert gz.kare_sec([(0, 64)], 31, 1, 4) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # tavan aşılırsa 5→10 büyür
