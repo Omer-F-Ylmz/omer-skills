@@ -42,20 +42,30 @@ def oncelik(satir, sozluk, altyazi):
     return 2 if any(norm(t) not in altyazi for t in TERIM.findall(satir)) else 3
 
 
+def _bilgi(s):
+    """1b-1S S1: satırın bilgi birimleri — ≥3 harfli kelimeler (norm) ve ardışık kelime çiftleri."""
+    k = [n for w in re.findall(r"\w+", s) if (n := norm(w))]
+    return {w for w in k if len(w) >= 3} | {f"{a} {b}" for a, b in zip(k, k[1:])}
+
+
 def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(s) // 4 + 1):
-    """metin [(t, [satır])] → [(t, satır)] zaman sırasıyla. Aynı satır bir kez, altyazıda zaten geçen satır yok; bütçe aşılırsa
-    öncelik sözlük > URL/komut > yeni teknik terim > diğer (eşitte erken zaman)."""
+    """metin [(t, [satır])] → [(t, satır)] zaman sırasıyla. altyazı = paketin başka bölümlerinde yazan metin (1b-1S S1). Satır yalnız
+    yeni bilgi getiriyorsa (tutulan ekran metninde ve altyazıda olmayan ≥1 kelime ya da çift) tutulur; öncelik sözlük > URL/komut >
+    yeni teknik terim > diğer (eşitte erken zaman), bütçe aynı sırayla."""
     alt, gor, aday = norm(altyazi), set(), []
     for t, ss in sorted(metin):
         for x in ss:
-            if not (k := norm(x)) or k in gor or k in alt:
+            if not (k := norm(x)) or k in gor:
                 continue
             gor.add(k)
             aday.append((oncelik(x, sozluk, alt), t, x))
-    tut, top = [], 0
+    bil, tut, top = _bilgi(altyazi), [], 0
     for _, t, x in sorted(aday, key=lambda a: (a[0], a[1])):
+        if (b := _bilgi(x)) <= bil:
+            continue
         if top + token(x) <= butce:
             top += token(x)
+            bil |= b
             tut.append((t, x))
     return sorted(tut)
 

@@ -489,7 +489,7 @@ def paket(ns, ctx):
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
-          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join(str(s.get("metin")) for s in seg), gz.sozluk_adlari(sz), gz.butce(meta.get("duration") or 0))]
+          *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join([*(m.sadelestir(s["metin"]) for s in seg), *(str(c_.get("title")) for c_ in meta.get("chapters") or []), *lk]), gz.sozluk_adlari(sz), gz.butce(meta.get("duration") or 0))]
                                                 or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
           *(["## Ekranda/konuşmada URL'ler", *[f"{u} · {k} · {m.ss(t)}" for u, k, t in uu]] if (uu := gz.urller_bul(  # 1b-1 M4
               [*(("ekran", t, x) for t, s in ocr.get("metin", []) for x in s), *(("ses", s["bas"], str(s.get("metin"))) for s in seg)])) else []),
