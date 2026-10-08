@@ -105,3 +105,42 @@ def test_ogrenimler_tum_metinde_anlamsal_eslesme():
 def test_ogrenimler_ve_belirsiz_yoksa_satir_cikmaz():
     s = au.satirlar(_puan())
     assert not any(x.startswith("öğrenimler") or "belirsiz" in x for x in s)
+
+
+# --- 1b-2a DEVAM-3: puanlayıcı (gecer eşleşmesi · tek-bire-bir · yalnız aday türleri) ---
+def _r(*adlar):
+    return "# r\n## Adaylar\n| ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |\n|---|---|---|---|---|---|---|\n" + "".join(f"| {a} | yok | x | yok | y | 0:10 | ses |\n" for a in adlar)
+
+
+def test_devam3_alias_gecer_ile_icinde_gecen_ad():
+    g = {"adaylar": [{"ad": "Depth-of-field", "alias": [], "tur": "teknik"}]}
+    assert au.puan(_r("Derinlik bulanıklığı (depth of field)"), g)["yakalama"] == (1, 1)
+
+
+def test_devam3_astra_model_adi_icinde():
+    g = {"adaylar": [{"ad": "GPT Astra", "alias": ["Astra", "GPT-6 Astra"], "tur": "model"}]}
+    assert au.puan(_r("GPT-6 Astra High"), g)["yakalama"] == (1, 1)
+
+
+def test_devam3_prompt_turu_payda_disi():
+    g = {"adaylar": [{"ad": "Three.js", "tur": "kütüphane"}, {"ad": "Sahneyi kur", "tur": "prompt"}, {"ad": "Püf", "tur": "ipucu"}]}
+    p = au.puan(_r("Three.js"), g)
+    assert p["yakalama"] == (1, 1) and p["kurulabilir"] == (1, 1) and "prompt" not in p["tur"]
+
+
+def test_devam3_tek_satir_iki_adayi_doyurmaz():
+    g = {"adaylar": [{"ad": "Claude", "tur": "uygulama"}, {"ad": "Fable 5.1", "alias": ["Fable"], "tur": "model"}]}
+    p = au.puan(_r("Claude Fable 5.1 High"), g)
+    assert p["yakalama"] == (1, 2) and p["isabet"] == (1, 1)
+
+
+def test_devam3_fazla_satir_isabetli_ama_recall_artmaz():
+    g = {"adaylar": [{"ad": "Figma", "tur": "uygulama"}]}
+    p = au.puan(_r("Figma", "Figma Make"), g)
+    assert p["yakalama"] == (1, 1) and p["isabet"] == (2, 2)
+
+
+def test_devam3_kurulabilir_font_ve_teknik_haric():
+    g = {"adaylar": [{"ad": "Archivo", "tur": "font"}, {"ad": "Parallax", "tur": "teknik"}, {"ad": "GSAP", "tur": "kütüphane"}]}
+    p = au.puan(_r("GSAP"), g)
+    assert p["yakalama"] == (1, 3) and p["kurulabilir"] == (1, 1)
