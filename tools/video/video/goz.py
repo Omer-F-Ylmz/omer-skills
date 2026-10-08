@@ -272,9 +272,9 @@ def rapid_yukle(cihaz=None):
     if eksik := [f for f in MODEL_DOSYA.values() if not os.path.isfile(k + f)]:
         raise FileNotFoundError(f"model yok: {', '.join(eksik)}")
     cihaz = cihaz or OCR_CIHAZ
-    if cihaz == "dml":  # R4: DirectML yalnız sağlayıcı varsa; yoksa cpu (künyede)
+    if cihaz == "dml":  # R4: DirectML yalnız sağlayıcı varsa; 1b-1S S5: yoksa cpu, künyede "cpu (dml yok)" (kur.sh override'ı düşmüş olabilir)
         import onnxruntime
-        cihaz = "dml" if "DmlExecutionProvider" in onnxruntime.get_available_providers() else "cpu"
+        cihaz = "dml" if "DmlExecutionProvider" in onnxruntime.get_available_providers() else "cpu (dml yok)"
     ocr = RapidOCR(params={"Global.model_root_dir": k, "EngineConfig.onnxruntime.use_dml": cihaz == "dml", **{a: k + f for a, f in MODEL_DOSYA.items()},
                            "Det.ocr_version": OCRVersion.PPOCRV5, "Det.lang_type": LangDet.CH, "Det.model_type": ModelType.MOBILE,
                            "Cls.ocr_version": OCRVersion.PPOCRV4, "Cls.lang_type": LangCls.CH, "Cls.model_type": ModelType.MOBILE,
