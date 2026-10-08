@@ -56,7 +56,7 @@ def test_r2_tek_satir_degisen_kare_metne_girer(tmp_path, monkeypatch):
 
 def test_r3_tavan_ve_periyodik_taban():
     assert (gz.tavan_ocr(60), gz.tavan_ocr(600), gz.tavan_ocr(1800), gz.tavan_ocr(3600)) == (40, 80, 200, 200)
-    assert gz.kare_sec([(0, 64)], 31, 1, 40) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # sahne yok: her 10 sn
+    assert gz.kare_sec([(0, 64)], 31, 1, 7) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # sahne yok, 5 sn tavanı aşar: her 10 sn
     sahne = [(float(i), 30) for i in range(50)]  # 30 dk sabit ekran + ilk 50 sn'de 50 sahne
     k = gz.kare_sec(sahne, 1800, 1, gz.tavan_ocr(1800))
     t = [x for x, _ in k]

@@ -98,11 +98,11 @@ def sahne_sec(sahne, tavan):
     return sorted(sorted(sahne, key=lambda s: -s[1])[:tavan])
 
 
-TABAN_SN = (10, 15, 20)  # ayar · 1b-1R R3: periyodik taban aralıkları sn (tavan aşılırsa büyür)
+TABAN_SN = (5, 10, 15, 20)  # ayar · 1b-1T S4: A tam karede buluyor → 5 sn · 1b-1R R3: periyodik taban aralıkları sn (tavan aşılırsa büyür)
 
 
 def kare_sec(sahne, sure, f, tavan, taban=TABAN_SN):
-    """1b-1R R3: sahneler + periyodik taban — sahne olmayan her `a` sn'ye bir kare (fark 0). Tavan aşılırsa aralık 10→15→20 büyür,
+    """1b-1R R3: sahneler + periyodik taban — sahne olmayan her `a` sn'ye bir kare (fark 0). Tavan aşılırsa aralık 5→10→15→20 büyür,
     sahneler korunur; 20 sn'de de aşılırsa en düşük Hamming'li sahneler atılır (sahne_sec). Zaman sıralı.
     ponytail: taban kareleri atılmadan önceki sahnelere göre; uzun boşluk kalırsa sahne atımı sonrası yeniden hesap."""
     for a in taban:
