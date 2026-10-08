@@ -49,3 +49,12 @@ def test_s5_dml_saglayici_yoksa_cpu_ve_kunye(tmp_path, monkeypatch):
     monkeypatch.setitem(sys.modules, "onnxruntime", types.SimpleNamespace(get_available_providers=lambda: ["CPUExecutionProvider"]))
     oku = g.rapid_yukle("dml")
     assert oku.cihaz == "cpu (dml yok)" and al["EngineConfig.onnxruntime.use_dml"] is False
+
+
+def test_s6_url_ise_yarar_ve_degersiz_ayri_sayilir():
+    from video import altin as au
+    ur = ["https://mcp.topview.ai/mcp", "localhost:3000", "http://127.0.0.1:8000/x", "https://mcp.example.com/mcp",
+          "https://chatgpt.com/c/6ab2", "https://claude.ai/chat/abc", "https://web.telegram.org/k", "https://youtu.be/9IPwFoy1x08"]
+    p = au.kapsam("## Segmentler\nbak https://mcp.topview.ai/mcp ve localhost:3000\n", {"urller": [{"url": u} for u in ur]})
+    assert p["url"] == (2, 8) and p["url_ise"] == (1, 2)
+    assert "url 2/8 · işe yarar url 1/2" in au.kapsam_satirlar(p)[0]
