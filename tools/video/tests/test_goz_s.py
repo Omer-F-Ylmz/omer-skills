@@ -33,3 +33,19 @@ def test_s3b_butceyi_asan_sabit_yorum_kirpilir_oncelikli_satirlar_kalir():
 def test_s3_diger_yorumda_tireli_terim_satiri_tutulur():
     ham = [{"text": "great video\nI use cut-and-extend daily", "pinned": False, "sahip": False}]
     assert g.yorum_sec(ham) == ["I use cut-and-extend daily"]
+
+
+def test_s5_dml_saglayici_yoksa_cpu_ve_kunye(tmp_path, monkeypatch):
+    import sys
+    import types
+    for f in g.MODEL_DOSYA.values():
+        (tmp_path / f).write_text("x")
+    monkeypatch.setenv("VIDEO_OCR_MODEL", str(tmp_path))
+    al = {}
+    ro = types.SimpleNamespace(RapidOCR=lambda params: al.update(params) or (lambda y: None),
+                               **{k: types.SimpleNamespace(PPOCRV5=1, PPOCRV4=1, CH=1, LATIN=1, MOBILE=1)
+                                  for k in ("LangCls", "LangDet", "LangRec", "ModelType", "OCRVersion")})
+    monkeypatch.setitem(sys.modules, "rapidocr", ro)
+    monkeypatch.setitem(sys.modules, "onnxruntime", types.SimpleNamespace(get_available_providers=lambda: ["CPUExecutionProvider"]))
+    oku = g.rapid_yukle("dml")
+    assert oku.cihaz == "cpu (dml yok)" and al["EngineConfig.onnxruntime.use_dml"] is False
