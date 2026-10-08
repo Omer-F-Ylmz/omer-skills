@@ -2,6 +2,7 @@
 repo: gh api ile README ilk 120 satır · ağaç derinlik 2 · istenen dosyanın ≤200 satırı. on: ikisini .kos/<video>/<ad>/on.md'ye yazar."""
 import hashlib
 import html
+import http.client
 import json
 from fnmatch import fnmatchcase
 import os
@@ -82,7 +83,7 @@ def getir(url, n=6000, cache=None, al=_al):
     p = _Ayikla(url)
     try:
         p.feed(al(url))
-    except urllib.error.URLError as e:  # HTTPError dahil: ham traceback yerine anlamlı hata
+    except (urllib.error.URLError, http.client.InvalidURL) as e:  # HTTPError dahil · YT1 5: bozuk port da (ValueError)
         raise GetirHata(f"getir {url}: {getattr(e, 'code', '') or ''} {getattr(e, 'reason', e)}".replace("  ", " ")) from None
     metin = "\n".join(p.anametin or p.tum)
     out = "\n".join([f"# {' '.join(p.baslik.split()) or url}", f"kaynak: {url}", "", kes(metin, n), "", "## Bağlantılar",
