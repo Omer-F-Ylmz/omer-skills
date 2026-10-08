@@ -67,6 +67,7 @@ class RamYetersiz(Hata):
 # YT1 3: boru hattı kaynak kapıları (modül düzeyi: tüm iş parçacıkları aynı sayacı paylaşır)
 INDIR, SAHNE, OCR, TAMPON = (threading.Semaphore(n) for n in (2, 1, 1, 3))  # eşzamanlı indirme · ffmpeg sahne/kare · OCR · indirilmiş-OCR'sız video
 INDIR_ARA, RASTGELE, _INDIR_SON, _INDIR_KILIT = None, random.uniform, [None], threading.Lock()  # indirme başlangıçları arası boşluk (sn aralığı); parti paralel>1 iken (5, 15) yapar
+_MOTOR, _MOTOR_KILIT = [None], threading.Lock()  # (yükleyici, motor)
 KUYRUK_KILIT = threading.Lock()  # _bagli_video kuyruk.md oku-değiştir-yaz
 RAM_ESIK_GB, RAM_BEKLE, RAM_DENEME = 2, 60, 10  # ayar · YT1 3: indirme/OCR öncesi en az boş RAM · bekleme sn · ardışık düşük üst sınırı
 
@@ -414,7 +415,10 @@ def _ocr(ctx, yollar, ham=False):
     1b-1R R1: ham=True → süzülmemiş [[metin, skor, y]] (Windows OCR skor vermez: 1.0, y = satır sırası)."""
     if ctx.get("rapid"):
         try:
-            motor = ctx["_motor"] = ctx.get("_motor") or ctx["rapid"]()  # M2: parça parça çağrılır, motor bir kez
+            with _MOTOR_KILIT:  # YT1 3e: motor süreç başına bir kez (iş parçacığı başına DirectML oturumu çöküyordu); çağrılar OCR kapısıyla zaten tek tek
+                if _MOTOR[0] is None or _MOTOR[0][0] is not ctx["rapid"]:
+                    _MOTOR[0] = (ctx["rapid"], ctx["rapid"]())
+                motor = ctx["_motor"] = _MOTOR[0][1]
             ctx["ocr_motor"] = "rapidocr"
             ctx["ocr_cihaz"] = getattr(motor, "cihaz", "cpu")  # 1b-1R R4
             if ham:

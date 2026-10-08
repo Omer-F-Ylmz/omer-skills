@@ -893,7 +893,7 @@ def parti(ns, ctx):
     from . import cli, uygula as uy  # döngüsel içe aktarma yok: yalnız varsayılanlar için
     kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
     tdir = ctx.get("tarama_dizin") or cli._tarama_dizin(ctx)
-    alt = ctx.get("alt") or (lambda a: cli.main(a, env=ctx["env"], kos=ctx["kos"], gonder=ctx["gonder"], uyku=ctx["uyku"]))
+    alt = ctx.get("alt") or (lambda a: cli.main(a, env=ctx["env"], kos=ctx["kos"], gonder=ctx["gonder"], uyku=ctx["uyku"], ocr=ctx.get("rapid")))  # YT1 3e: parti alt-komutları RapidOCR yükleyicisini de alır (yoksa göz yolu hiç koşmuyordu)
     temizle = ctx.get("temizle") or (lambda s: cli._temizle(s, ctx["env"]))
     if ns.eylem == "link":  # MÜKEMMEL-7c U1: tek link → geçici tek satırlık kuyruk → baslat (V10) → toplu; gerçek kuyruk.md'ye dokunulmaz
         v, onb = m.ID.search(ns.hedef)[1], Path(ctx["kok"])
