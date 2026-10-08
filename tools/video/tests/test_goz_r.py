@@ -39,9 +39,9 @@ def test_r1_ayni_id_iki_paket_kareleri_durur_ocr_yeniden_kosmaz(tmp_path, monkey
     ctx, d, sayac = _goz_sahte(tmp_path, monkeypatch, metin)
     k1 = cli._goz(ctx, d, 30, "", [0.0], 2, o1 := {})
     k2 = cli._goz({"kos": ctx["kos"], "rapid": ctx["rapid"]}, d, 30, "", [20.0], 2, o2 := {})
-    assert sayac["oku"] == 3  # 2. koşu OCR'ı önbellekten alır
+    assert sayac["oku"] == 6  # 1b-1T: taban 5 sn → 0..25 · 2. koşu OCR'ı önbellekten alır
     assert k1 != k2 and all(y.is_file() for _, y in [*k1, *k2])  # varyant başka varyantın m*.jpg'sini silmez
-    assert o2["metin"] == o1["metin"] and o2["ocr_kare"] == 3
+    assert o2["metin"] == o1["metin"] and o2["ocr_kare"] == 6
     ham = json.loads((d / "goz" / "ocr.json").read_text(encoding="utf-8"))["ham"]
     assert ham[0] == [0.0, [["Topview dashboard shows the project settings", 0.9, 0]]]  # süzülmemiş: metin · skor · y · kare t
 
@@ -56,7 +56,7 @@ def test_r2_tek_satir_degisen_kare_metne_girer(tmp_path, monkeypatch):
 
 def test_r3_tavan_ve_periyodik_taban():
     assert (gz.tavan_ocr(60), gz.tavan_ocr(600), gz.tavan_ocr(1800), gz.tavan_ocr(3600)) == (40, 80, 200, 200)
-    assert gz.kare_sec([(0, 64)], 31, 1, 7) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # sahne yok, 5 sn tavanı aşar: her 10 sn
+    assert gz.kare_sec([(0, 64)], 31, 1, 6) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # sahne yok, 5 sn tavanı aşar: her 10 sn
     sahne = [(float(i), 30) for i in range(50)]  # 30 dk sabit ekran + ilk 50 sn'de 50 sahne
     k = gz.kare_sec(sahne, 1800, 1, gz.tavan_ocr(1800))
     t = [x for x, _ in k]
