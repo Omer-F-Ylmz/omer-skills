@@ -46,19 +46,48 @@ def _rapor_linkler(metin):
     return out
 
 
+ADAY_TUR = {"araç", "uygulama", "servis", "model", "kütüphane", "skill", "MCP", "CLI", "plugin", "font", "teknik"}  # 1b-2a DEVAM-3: prompt/ipucu/iş akışı ayrı alanlarda ölçülür
+KURULABILIR_DISI = {"font", "teknik"}
+
+
+def _eslestir(adj, n):
+    """Tek-bire-bir azami eşleme (Kuhn): adj[i] = altın i'nin eşleşebildiği rapor satırları → {altın: rapor}."""
+    sahip = {}
+
+    def dene(i, gor):
+        for j in adj[i]:
+            if j not in gor:
+                gor.add(j)
+                if j not in sahip or dene(sahip[j], gor):
+                    sahip[j] = i
+                    return True
+        return False
+
+    for i in range(n):
+        dene(i, set())
+    return {i: j for j, i in sahip.items()}
+
+
 def puan(metin, altin):
     rapor_adlar = _ilk_sutun(metin, "Adaylar", "ad")
+    adaylar = [a for a in altin.get("adaylar", []) if a["tur"] in ADAY_TUR]
+    ad_lar = lambda a: [a["ad"], *a.get("alias", [])]  # noqa: E731
+    es = [[j for j, r in enumerate(rapor_adlar) if _icerir(r, ad_lar(a))] for a in adaylar]  # gecer: kapsamla aynı kural
+    pay = [i for i, a in enumerate(adaylar) if not a.get("belirsiz")]
+    atama = _eslestir([es[i] for i in pay], len(pay))
     tur, kacan, yazim, isabetli, bel = {}, [], [0, 0], set(), [0, 0]
-    for a in altin.get("adaylar", []):
-        bulunan = [r for r in rapor_adlar if eslesir(r, a["ad"], a.get("alias", []))]
+    for i, a in enumerate(adaylar):
+        isabetli.update(es[i])
         if a.get("belirsiz"):  # paydaya girmez; bulunursa ayrı sayılır
-            bel[1] += 1; bel[0] += bool(bulunan); isabetli.update(bulunan); continue
+            bel[1] += 1; bel[0] += bool(es[i]); continue
         t = tur.setdefault(a["tur"], [0, 0]); t[1] += 1
-        if not bulunan:
+        k = pay.index(i)
+        if k not in atama:
             kacan.append((a["ad"], a["tur"])); continue
-        t[0] += 1; isabetli.update(bulunan)
-        yazim[1] += 1; yazim[0] += any(norm(r) == norm(a["ad"]) for r in bulunan)
+        t[0] += 1
+        yazim[1] += 1; yazim[0] += norm(rapor_adlar[atama[k]]) == norm(a["ad"])
     yak = sum(v[0] for v in tur.values()), sum(v[1] for v in tur.values())
+    kur = tuple(sum(v[x] for k, v in tur.items() if k not in KURULABILIR_DISI) for x in (0, 1))
 
     rl, link = _rapor_linkler(metin), {}
     for k in ("aciklama", "yorum"):
@@ -84,7 +113,7 @@ def puan(metin, altin):
     u_iy = [u for u in u_ur if not DEGERSIZ.search(url_norm(u["url"]))]
     yeni = {"urller": (sum(url_norm(u["url"]) in uu for u in u_ur), len(u_ur)), "urller_iy": (sum(url_norm(u["url"]) in uu for u in u_iy), len(u_iy)),
             "is_akisi": sem["is_akisi"][::-1], "promptlar": sem["promptlar"][::-1]}
-    return {"yakalama": yak, "isabet": (len(isabetli), len(rapor_adlar)), "ad_yazim": tuple(yazim),
+    return {"yakalama": yak, "kurulabilir": kur, "isabet": (len(isabetli), len(rapor_adlar)), "ad_yazim": tuple(yazim),
             "belirsiz": tuple(bel), "ogrenimler": ogr,
             "tur": {k: tuple(v) for k, v in tur.items()}, "link_aciklama": link["aciklama"], "link_yorum": link["yorum"],
             "site_ui": sem["site_ui"][::-1], "komutlar": (km_y, len(km)), "kacan": kacan, "alan_yok": list(ALAN_YOK), **yeni}
