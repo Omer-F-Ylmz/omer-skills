@@ -137,7 +137,7 @@ def ocr_sec(okunan, esik=OCR_DEGISIM):
 
 
 def butce(sure):
-    return min(5000, max(1500, int(sure / 60 * 200)))
+    return min(5000, max(1500, int(sure / 60 * 300)))  # 1b-1S: dk×200→300 (bütçe-attı; toplam token ≤49465)
 
 
 def model_sec(okunan, altyazi, isaret, n=MODEL_UST):
