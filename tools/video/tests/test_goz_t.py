@@ -1,3 +1,4 @@
+import pytest
 """VİDEO-GÖZ-1b-1T: T1 teşhis etiketi kapsam ile aynı eşleşme ve aynı gürültü süzgeciyle (sözlüklü) · T2 S4 kararı."""
 import json
 
@@ -71,6 +72,33 @@ def test_d4_url_komsu_yogun():
     assert gz.url_benzer("https://mcp.topview.ai/claude") and gz.url_benzer("w.ai/claude") and not gz.url_benzer("Topview MCp")
     assert gz.yogun_zaman([0, 2, 180, 182], [0, 180, 182], 181, 120) == [1, 178, 179, 181]
     assert len(gz.yogun_zaman([], [float(i * 10) for i in range(100)], 2000, 120)) == 120
+
+
+def _indir_sahte(monkeypatch, tmp_path, sonuc):
+    from video import cli
+    cagri = []
+
+    def kos(ctx, args, timeout):
+        cagri.append(args)
+        if sonuc[len(cagri) - 1] == 403:
+            raise cli.Hata("yt-dlp rc=1: ERROR: unable to download video data: HTTP Error 403: Forbidden")
+        (tmp_path / "goz-video.mp4").write_bytes(b"v")
+    monkeypatch.setattr(cli, "_kos", kos)
+    monkeypatch.setattr(cli.time, "sleep", lambda s: cagri.append(("uyku", s)))
+    return cli, cagri
+
+
+def test_d4_indirme_403_bir_kez_tekrar(monkeypatch, tmp_path):
+    cli, cagri = _indir_sahte(monkeypatch, tmp_path, [403, 0])
+    assert cli._video_indir({}, tmp_path).name == "goz-video.mp4" and ("uyku", 10) in cagri and len(cagri) == 3
+
+
+def test_d4_indirme_403_iki_kez_kunye(monkeypatch, tmp_path):
+    cli, cagri = _indir_sahte(monkeypatch, tmp_path, [403, 403])
+    ctx = {}
+    with pytest.raises(cli.Hata):
+        cli._video_indir(ctx, tmp_path)
+    assert ctx["goz_not"] == "göz: yok (indirme 403)" and len(cagri) == 3
 
 
 def test_t3_ekran_metni_acgozlu_kopya_yerine_yeni_ad():
