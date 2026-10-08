@@ -145,3 +145,13 @@ Teşhis: dk×8/dk×16 tavanında aZe5 (atım öncesi ≥151 sahne; ocr.json'daki
 Toplam: aday 86/95 · komut 2/2 · url 15/17 · işe yarar url 8/9 · token 48340. Kabul: aday ≥87 ✗ · video gerilemesi ✗ (1nGx scrollcraft bütçe-attı) · komut ✓ · işe yarar ≥8/9 sayıca ✓ ama mcp.topview.ai/mcp zorunlu ✗ · token ✓.
 - FaCh youtu.be/9IPwFoy1x08 artık tutuluyor (5 sn taban). topview: ocr.json'da 30+ "Topview" satırı, "mcp.topview.ai" hiç yok — S4'teki 180 sn tam karesi örneklemede yok ya da okunmuyor.
 - Kalan 1b-2'ye: youtu.be harf onarımı (aday kimlikler + oEmbed, en çok N istek) · rim light / Appear (OCR-okuyamadı) · topview URL karesi · 1nGx scrollcraft bütçe-attı (daha çok OCR satırı aynı bütçeye giriyor).
+
+### DEVAM-4/5 (2026-10-08)
+Değişiklikler: ekran_metni düzey içi lazy greedy (yeni bilgi/token, kazanç 0 düşer, sığmayan atlanır) · URL komşu yoğunlaştırma (URL benzeri satırlı karenin t±1, ±2 sn'si; tavan dışı, video başına ≤120; anahtar "yogun": "url±2/120") · yt-dlp 403 → 10 sn, tek tekrar; yine 403 → künyede "göz: yok (indirme 403)", olcum.sh çıkış 4.
+- Ölçüm-1 (yalnız paketleme, 5/5 OCR önbellek isabeti): aday 87/95 (aZe5 20 · 1nGx 18 · YDAK 21 · FaCh 15 · d_UE 13) · komut 2/2 · işe yarar 8/9 · token 48837. Alt neden: 1nGx scrollcraft bütçe-attı → tutuldu.
+- Ölçüm-2 (baştan, sırayla): sahne · OCR kare · ek kare (yoğun) · OCR sn · tepe bellek · aday · URL · token
+  aZe5 246 · 318 · 21 · 77 · 1,13 GB · 20/22 · 3/3 · 9895 | 1nGx 180 · 305 · 36 · 105 · 1,03 GB · 18/18 · 4/5 · 12862 | YDAK 168 · 296 · 30 · 67 · 1,08 GB · 21/26 · 1/2 · 13565
+  FaCh 122 · 244 · 58 · 86 · 0,90 GB · 15/16 · 6/6 · 8263 | d_UE 49 · 49 · 0 · 15 · 1,02 GB · 13/13 · 1/1 · 4318
+  Toplam: aday 87/95 · komut 2/2 · işe yarar URL 8/9 · token 48903. Alt neden önce→sonra: aZe5 bütçe-attı (Manyetik butonlar, Claude memory) → (Web Worker, Manyetik butonlar); 1nGx scrollcraft bütçe-attı → tutuldu.
+- Kabul: önceden verilmiş istisnayla KABUL — yalnız mcp.topview.ai/mcp kaçtı. 1nGx ek kareler: 181 "w.ai/claude", 191 "https://mcp.topview.ai/claud"; ekrandaki yol /claude, altın /mcp.
+- 1b-2'ye: topview — alan adı okundu, yol tamamlama (altın yolu /mcp mi /claude mı, ayrıca doğrula).
