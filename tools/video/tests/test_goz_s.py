@@ -17,3 +17,19 @@ def test_s2_kisaltma_cikarilir_sozluk_adi_korunur():
     assert not cli._ocr_gurultu("Principled BSDF")  # d_UE 0:32: anlamsiz_oran BSDF'yi sayıyordu
     assert cli._ocr_gurultu("BSDF") and cli._ocr_gurultu("XQZT VBNM")  # kalan boş → eski kural
     assert cli._ocr_gurultu("GSAP") and not cli._ocr_gurultu("GSAP", ["GSAP"])
+
+
+def test_s3b_butceyi_asan_sabit_yorum_kirpilir_oncelikli_satirlar_kalir():
+    dolgu = [f"this is just a long filler sentence about nothing number {i} ok" for i in range(80)]
+    ham = [{"text": "\n".join([*dolgu, "Fix only the exit with cut-and-extend", "see https://x.dev/y"]), "pinned": True, "sahip": True}]
+    tk = lambda s: len(s) // 4 + 1  # noqa: E731
+    assert 1200 <= tk(" / ".join(ham[0]["text"].splitlines())) < 1500
+    out = g.yorum_sec(ham, butce=1000)
+    assert len(out) == 1 and out[0].startswith("[sabit] ") and tk(out[0]) <= 1000
+    assert "cut-and-extend" in out[0] and "https://x.dev/y" in out[0] and dolgu[0] in out[0] and dolgu[-1] not in out[0]
+    assert "number 79" in g.yorum_sec(ham)[0]  # varsayılan bütçe 1500: tam yorum
+
+
+def test_s3_diger_yorumda_tireli_terim_satiri_tutulur():
+    ham = [{"text": "great video\nI use cut-and-extend daily", "pinned": False, "sahip": False}]
+    assert g.yorum_sec(ham) == ["I use cut-and-extend daily"]
