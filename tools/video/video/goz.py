@@ -1,4 +1,5 @@
 """VİDEO-GÖZ-1b-1: GÖZ katmanı saf yardımcıları (ekran metni süzgeci · model karesi ölçeği · kare seçimi · yorum/URL · ad sözlüğü)."""
+import heapq
 import re
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -51,7 +52,8 @@ def _bilgi(s):
 def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(s) // 4 + 1):
     """metin [(t, [satır])] → [(t, satır)] zaman sırasıyla. altyazı = paketin başka bölümlerinde yazan metin (1b-1S S1). Satır yalnız
     yeni bilgi getiriyorsa (tutulan ekran metninde ve altyazıda olmayan ≥1 kelime ya da çift) tutulur; öncelik sözlük > URL/komut >
-    yeni teknik terim > diğer; düzey içinde altyazıya göre yeni bilgisi çok olan önce (1b-1T T3), eşitte erken zaman; bütçe aynı sırayla."""
+    yeni teknik terim > diğer; düzey içinde açgözlü: kalanlardan yeni bilgi/token en büyük olan (eşitte erken zaman), kazancı 0 düşer,
+    bütçeye sığmayan atlanır (DEVAM-4)."""
     alt, gor, aday = norm(altyazi), set(), []
     for t, ss in sorted(metin):
         for x in ss:
@@ -60,13 +62,19 @@ def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(
             gor.add(k)
             aday.append((oncelik(x, sozluk, alt), t, x))
     bil, tut, top = _bilgi(altyazi), [], 0
-    for _, t, x in sorted(aday, key=lambda a: (a[0], -len(_bilgi(a[2]) - bil), a[1])):
-        if (b := _bilgi(x)) <= bil:
-            continue
-        if top + token(x) <= butce:
-            top += token(x)
-            bil |= b
-            tut.append((t, x))
+    for p in sorted({a[0] for a in aday}):  # DEVAM-4: düzey içinde lazy greedy — kazanç yalnız azalır, yığındaki değer üst sınır
+        yig = [(-len(_bilgi(x) - bil) / token(x), t, x) for q, t, x in aday if q == p]
+        heapq.heapify(yig)
+        while yig:
+            k, t, x = heapq.heappop(yig)
+            if not (g := len(_bilgi(x) - bil)):
+                continue
+            if -g / token(x) > k:
+                heapq.heappush(yig, (-g / token(x), t, x))
+            elif top + token(x) <= butce:
+                top += token(x)
+                bil |= _bilgi(x)
+                tut.append((t, x))
     return sorted(tut)
 
 
