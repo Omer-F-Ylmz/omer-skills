@@ -708,7 +708,7 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     Güven eşiği + gürültü süzgeci okurken (eşik değişince OCR yeniden koşmaz); m*.jpg goz/kareler'de kalır, paket varyantları birbirini silmez."""
     g, f = d / "goz", gz.fps(sure)
     kd, oj = g / "kareler", g / "ocr.json"
-    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.tavan_ocr(sure), "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ}
+    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM,"model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ}
     on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
     if on.get("anahtar") != anahtar:
         shutil.rmtree(g, ignore_errors=True)
@@ -738,7 +738,8 @@ def _goz_ocr(ctx, d, kd, sure, f):
     v = _video_indir(ctx, d)
     ham = _kos(ctx, ["ffmpeg", "-v", "error", "-i", str(v), "-an", "-vf", f"fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"],
                SURE["sahne"])
-    sahne = gz.kare_sec(gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f), sure, f, gz.tavan_ocr(sure))
+    sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
+    sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
     for i in range(0, max(len(sahne), 1), 50):  # 1b-1R: ~117 terimlik select ffmpeg'de "Cannot allocate memory" → ≤50 terimlik parçalar
         sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0"  # ponytail: parça başına bir çözme geçişi
         _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",

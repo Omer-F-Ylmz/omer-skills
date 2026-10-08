@@ -51,7 +51,7 @@ def _bilgi(s):
 def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(s) // 4 + 1):
     """metin [(t, [satır])] → [(t, satır)] zaman sırasıyla. altyazı = paketin başka bölümlerinde yazan metin (1b-1S S1). Satır yalnız
     yeni bilgi getiriyorsa (tutulan ekran metninde ve altyazıda olmayan ≥1 kelime ya da çift) tutulur; öncelik sözlük > URL/komut >
-    yeni teknik terim > diğer (eşitte erken zaman), bütçe aynı sırayla."""
+    yeni teknik terim > diğer; düzey içinde altyazıya göre yeni bilgisi çok olan önce (1b-1T T3), eşitte erken zaman; bütçe aynı sırayla."""
     alt, gor, aday = norm(altyazi), set(), []
     for t, ss in sorted(metin):
         for x in ss:
@@ -60,7 +60,7 @@ def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(
             gor.add(k)
             aday.append((oncelik(x, sozluk, alt), t, x))
     bil, tut, top = _bilgi(altyazi), [], 0
-    for _, t, x in sorted(aday, key=lambda a: (a[0], a[1])):
+    for _, t, x in sorted(aday, key=lambda a: (a[0], -len(_bilgi(a[2]) - bil), a[1])):
         if (b := _bilgi(x)) <= bil:
             continue
         if top + token(x) <= butce:
@@ -88,9 +88,12 @@ def sahneler(hashler, f):
     return out
 
 
-def tavan_ocr(sure):
-    """1b-1T T3: OCR kare tavanı max(60, dk×16), en çok 400 (yalnız kare sayısı) — dk×8'de 10-15 dk videolar 20 sn'de de taşıyordu."""
-    return min(400, max(60, int(sure / 60 * 16)))
+TAVAN_SURUM = "sahne+dk12/800"  # önbellek anahtarı: tavanın sayısı değil formülü
+
+
+def tavan_ocr(sure, n_sahne):
+    """1b-1T T3: OCR kare tavanı = atım öncesi sahne sayısı + dk×12, en çok 800 — 5 sn tabanı (dk×12) hep sığar, aralık yalnız 800'de büyür."""
+    return min(800, n_sahne + int(sure / 60 * 12))
 
 
 def sahne_sec(sahne, tavan):
