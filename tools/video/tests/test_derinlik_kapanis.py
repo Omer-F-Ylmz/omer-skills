@@ -113,6 +113,14 @@ def test_parti_v10_tara_v10_cagrilir(tmp_path, monkeypatch):
     assert t["model"] == M10 and t["cagri"] == 3 and "geri_donus" not in t and pt._defter(kok / ".kos" / _pid(kok))[0] == 3
 
 
+def test_parti_v10_usage_ic_ice_sozluk_toplam_bozmaz(tmp_path, monkeypatch):  # 1b-2a KAPANIŞ: ikili yoldaki canlı bulgu V10 geri alma yolunda da
+    kok, a = _hazir(tmp_path), Sahte()
+    monkeypatch.setattr(yon, "tara_v10", lambda g, env, model, **k: {**a(*g[:3]), "usage": {"input_tokens": 4, "cache_creation": {"ephemeral_5m_input_tokens": 7}},
+                                                                    "usd": 0.004, "cagri": 1})
+    pt.parti(_ns("devam", _pid(kok)), _ctx(kok, Sahte()))
+    assert _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "tamam"
+
+
 def test_parti_v10_hata_a_geri_donus(tmp_path, monkeypatch):
     kok = _hazir(tmp_path)
     monkeypatch.setattr(yon, "tara_v10", lambda g, env, model, **k: {"form": None, "usage": {"input_tokens": 5}, "usd": 0.003, "sure": 1.0,

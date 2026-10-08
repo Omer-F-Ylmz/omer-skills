@@ -512,6 +512,12 @@ def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
         return f, {"not": [f"ikinci göz: hata ({e})"[:200] + " — Sonnet sonucu"]}
 
 
+def _usage_topla(ys):
+    """Sayısal usage alanlarının toplamı; iç içe alanlar (claude -p "cache_creation": {...}) toplanmaz."""
+    ks = dict.fromkeys(a for y in ys for a, s in (y.get("usage") or {}).items() if isinstance(s, (int, float)))
+    return {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks}
+
+
 def _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model):
     """DERİNLİK-KAPANIŞ-1: yonlendirme tarama "yontem": "V10" → video başı yon.tara_v10 (örnek tdir/ornek-v10.json). tara_v10 hatasında video aynı
     adımda A taşıyıcısıyla (cagir, d["model"]) taranır → geri_donus; usd ve cagri toplam, video düşmez.
@@ -535,8 +541,8 @@ def _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model):
             y = cagir(*g[:3], kareler=kr, model=d["model"], butce=min(d["butce"], kalan_usd - (y.get("usd") or 0)), env=env)
             ys.append(y)
         fs += [f for f in (y.get("form") or {}).get("videolar") or [] if isinstance(f, dict)]
-    us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
-    return {"form": {"videolar": fs} if fs else None, "usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
+    us = [y.get("usd") for y in ys]
+    return {"form": {"videolar": fs} if fs else None, "usage": _usage_topla(ys),
             "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": sum(y.get("cagri", 1) for y in ys),
             "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"),
             "model": d["model"] if notlar else model, **({"geri_donus": " · ".join(notlar)[:120]} if notlar else {}), **({"tavan": tv} if tv else {}), **({"gecici": gc} if gc else {})}
@@ -562,8 +568,8 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         if kolf:
             fs.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])
         d["videolar"][v]["tarama"]["kunye"] = " · ".join(kun)
-    us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a, s in (y.get("usage") or {}).items() if isinstance(s, (int, float)))  # iç içe usage alanları (cache_creation {...}) toplanmaz
-    return {"form": {"videolar": fs} if fs else None, "usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
+    us = [y.get("usd") for y in ys]
+    return {"form": {"videolar": fs} if fs else None, "usage": _usage_topla(ys),
             "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": len(ys),
             "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"), "model": "+".join(modeller)}
 
