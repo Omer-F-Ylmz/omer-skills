@@ -46,11 +46,21 @@ def test_t2_taban_5_sn_tavan_kurali_ayni():
     assert gz.kare_sec([(0, 64)], 31, 1, 4) == [(0, 64), (10, 0), (20, 0), (30, 0)]  # tavan aşılırsa 5→10 büyür
 
 
-def test_t3_tavan_dk16_5_sn_aralik_korunur():
-    """1b-1T T3 teşhis: dk×8 tavanında 10-15 dk videolar 20 sn'de de taşıp sahne atıyordu → dk×16, 60-400."""
-    assert (gz.tavan_ocr(60), gz.tavan_ocr(600), gz.tavan_ocr(2400)) == (60, 160, 400)
-    sahne = [(i * 20.0, 30) for i in range(30)]  # 10 dk + 30 sahne
-    t = [x for x, _ in gz.kare_sec(sahne, 600, 1, gz.tavan_ocr(600))]
-    assert max(b - a for a, b in zip(t, t[1:])) <= 5  # aralık 5 sn kalır
-    k = gz.kare_sec([(0, 30)], 2400, 1, gz.tavan_ocr(2400))  # 40 dk: 5 sn'de 480 > 400 → aralık büyür
-    assert len(k) <= 400 and max(b - a for (a, _), (b, _) in zip(k, k[1:])) == 10
+def test_t3_tavan_sahne_dk12_800():
+    """1b-1T T3 teşhis: dk×16'da aZe5 (≥151 sahne) 5 sn'de 218 > 157 → 20 sn + sahne atımı. Tavan = atım öncesi sahne + dk×12, en çok 800."""
+    assert (gz.tavan_ocr(600, 151), gz.tavan_ocr(2400, 600)) == (271, 800)
+    sahne = [(float(i), 30) for i in range(151)]  # aZe5 benzeri: 10 dk + 151 sahne (ilk 151 sn)
+    k = gz.kare_sec(sahne, 600, 1, gz.tavan_ocr(600, len(sahne)))
+    t = [x for x, _ in k]
+    assert all(s in k for s in sahne) and max(b - a for a, b in zip(t, t[1:])) <= 5  # atım yok, aralık 5 sn
+    sahne = [(float(i), 30) for i in range(600)]  # 40 dk + 600 sahne: 5 sn'de 960 > 800 → 10 sn
+    k = gz.kare_sec(sahne, 2400, 1, gz.tavan_ocr(2400, len(sahne)))
+    t = [x for x, _ in k]
+    assert len(k) <= 800 and all(s in k for s in sahne) and max(b - a for a, b in zip(t, t[1:])) == 10
+
+
+def test_t3_ekran_metni_yeni_bilgisi_cok_satir_once():
+    """Aynı p3 düzeyinde bütçe dar → yeni bilgisi çok olan (geç) satır tutulur, tekrara yakın (erken) satır düşer."""
+    alt = "we use web workers for background tasks"
+    o = gz.ekran_metni([(1, ["we use web workers for tasks ok"]), (2, ["worker thread pool sizing guide"])], alt, butce=1, token=lambda s: 1)
+    assert o == [(2, "worker thread pool sizing guide")]
