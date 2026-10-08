@@ -48,7 +48,15 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "is_akisi: videoda yapılan işin adımları sırasıyla, her adımda kullanılan araçlarla. promptlar: videoda yazılan ya da okunan promptlar (amac=konu, metin=özet ya da metin). "
           "urller: ekranda görünen, söylenen, açıklamada ya da yorumda geçen HER URL (zaman, kaynak, aday). "
           "Bağlantı sinif: 'sponsor' yalnız açık ifadeyle (\"sponsorluğunda\", \"sponsored by\", \"#ad\", ücretli ortaklık); yönlendirme parametresi ya da indirim kodu varsa 'affiliate'; diğerleri 'diğer'. "
-          "Bağlantının alan adı videoda kullanılan/anlatılan bir aracı adlandırıyorsa aday_mi true ve o araç adaylar'da olmalı.")
+          "Bağlantının alan adı videoda kullanılan/anlatılan bir aracı adlandırıyorsa aday_mi true ve o araç adaylar'da olmalı. "
+          # 1b-2a tur 2: genel kurallar
+          "Dil: is_akisi.adim, promptlar.amac ve metin, site_ui.teknik ve ne Türkçe yazılır; promptlar.metin promptun Türkçe özetidir (ne istediği ve kısıtları), birebir alıntı değil. "
+          "İş akışı ayrıntısı: her ayrı eylem kendi adımıdır; kontrol, düzeltme, yeniden deneme, test, dışa aktarma ve yayın da adımdır; 10 dakikalık videoda genelde 10-15 adım olur; her adım kullandığı araçları adlandırır. "
+          "Adaylar ayrıca şunları kapsar: font aileleri, CSS, 3B ya da gölgelendirici (GPU) teknikleri, sunucunun içinde çalıştığı ana yapay zekâ aracı ya da modeli (apaçık olsa bile), "
+          "araç olarak kullanılan her servis ya da site, her skill/eklenti; ad ekranda göründüğü gibi yazılır. "
+          "site_ui: kurulan sayfada görünen her arayüz, animasyon ya da yerleşim tekniği ayrı satırdır; Türkçe ad ve ardından parantez içinde yaygın İngilizce terim yazılır. "
+          "Bağlantı aday_mi: referans ya da ilham sayfası (portfolyo, pin, galeri, demo site) aday_mi false; yalnız izleyicinin kullanabileceği araç ya da servis bağlantısı true. "
+          "Kare gönderildiyse karede_gorulen her zaman doldurulur.")
 YOKLA = yon.omni_yokla  # O78: devam öncesi OmniRoute ön kontrolü (testte conftest None)
 BASLAT = lambda: subprocess.Popen("omniroute serve --no-open --daemon", shell=True,  # MÜKEMMEL-2c: pencere açılmaz
                                   creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
