@@ -390,18 +390,14 @@ def kismi(f, hatalar, v):
 
 
 def kanit_suz(f, paket):
-    """1b-2a DEVAM-3: adı paket metninde `gecer` kuralıyla bulunmayan aday Adaylar'dan Belirsizlikler'e 'kanıtsız' notuyla taşınır. LLM yok."""
+    """1b-2a DEVAM-4: adı paket metninde `gecer` kuralıyla bulunmayan aday Adaylar'da kalır, kanıt hücresine 'kanıt: kare' (kaynak kare) ya da 'kanıt: yok' notu eklenir. LLM yok."""
     from .altin import gecer, norm
     kel = [norm(w) for w in re.findall(r"\w+", paket.casefold())]
     pencere = {"".join(kel[i:i + k]) for k in range(1, 6) for i in range(len(kel))}
     duz, f = norm(paket), json.loads(json.dumps(f))
-    kal = []
     for a in f.get("adaylar") or []:
         if isinstance(a, dict) and isinstance(a.get("ad"), str) and not gecer(a["ad"], duz, pencere):
-            f.setdefault("belirsizlikler", []).append(f"{a['ad']}: kanıtsız (adı paket metninde geçmiyor)")
-        else:
-            kal.append(a)
-    f["adaylar"] = kal
+            a["kanit"] = f"{a.get('kanit') or ''} · kanıt: {'kare' if a.get('kaynak') == 'kare' else 'yok'}".lstrip(" ·")
     return f
 
 
