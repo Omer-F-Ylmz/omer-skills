@@ -87,3 +87,14 @@ def test_iki_kol_hata_form_red(tmp_path, monkeypatch):
     cagir = lambda *a, **k: say.append(k["model"]) or {"form": None, "usage": {}, "usd": 0.0, "sure": 0.1, "hata": "rc 1: x"}
     pt.parti(_ns("baslat", kok / "kuyruk.md"), _ctx(kok, cagir))
     assert len(say) == 2 and _durum(kok)["videolar"][V[0]]["tarama"]["durum"] in ("hata", "form_red")
+
+
+def test_usage_ic_ice_sozluk_toplam_bozmaz(tmp_path, monkeypatch):  # canlı bulgu: claude -p usage'ında "cache_creation": {...} gibi iç içe alanlar var
+    monkeypatch.setattr(pt, "YONLENDIRME", _ikili())
+    kok, sahte = _kurulum(tmp_path, V[:1], sure=300), Sahte()
+
+    def cagir(sistem, metin, sema, **k):
+        y = sahte(sistem, metin, sema)
+        return {**y, "usage": {**y["usage"], "cache_creation": {"ephemeral_5m_input_tokens": 7}, "service_tier": "standard"}}
+    assert pt.parti(_ns("baslat", kok / "kuyruk.md"), _ctx(kok, cagir)) == 0
+    assert _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "tamam"

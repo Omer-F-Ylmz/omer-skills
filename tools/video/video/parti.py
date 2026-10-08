@@ -562,7 +562,7 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         if kolf:
             fs.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])
         d["videolar"][v]["tarama"]["kunye"] = " · ".join(kun)
-    us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
+    us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a, s in (y.get("usage") or {}).items() if isinstance(s, (int, float)))  # iç içe usage alanları (cache_creation {...}) toplanmaz
     return {"form": {"videolar": fs} if fs else None, "usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
             "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": len(ys),
             "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"), "model": "+".join(modeller)}
