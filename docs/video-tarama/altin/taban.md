@@ -78,6 +78,6 @@ Yeni ölçü, kurgu 2:
 | d_UE-wHLoZY | 6/6 | 10/15 | 1/1 | 1/1 | 0/0 |
 | toplam | 51/61 | 71/96 | 16/18 | 9/10 | 2/2 |
 
-Sapma: birincil kurulabilir 51/61 (eşik 52, 1 aday farkla) · aZe5 9/10 · FaCh 7/8 — kabul, gerekçe: koşu oynaklığı ±3, çift dikişte yeniden işlenecek (Desktop kararı 2026-10-08). (Puanlayıcı paydası: aZe5 9/12, FaCh 7/10; kaçanlar `docs/yol-haritasi.md` "1b-2a kurgu 2 kaçanlar".)
+Sapma: birincil kurulabilir 51/61 (eşik 52, 1 aday farkla) · aZe5 9 (eşik 10, altın 12) · FaCh 7 (eşik 8, altın 10) — kabul, gerekçe: koşu oynaklığı ±3, çift dikişte yeniden işlenecek (Desktop kararı 2026-10-08). (Puanlayıcı paydası: aZe5 9/12, FaCh 7/10; kaçanlar `docs/yol-haritasi.md` "1b-2a kurgu 2 kaçanlar".)
 
 İkincil (geçici ölçü, 1b-2b'de yeniden doğrulanacak): iş akışı 46/71 · promptlar 12/23 · site_ui 23/73 · öğrenim anlamsal 32/47.

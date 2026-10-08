@@ -17,6 +17,7 @@ Desktop'ın tuttuğu sıra. Linkler ve tek tek istekler: `docs/video-tarama/bekl
        - aZe5 Awwwards (servis) · OCR 'SOTD 7.4/10 · Site of the Day - Dec 25, 2021' · satır 82 "[0:51] Site of the Day - Dec 25, 2021" · hayır (kare ve yorum satırları "aday değil: konu dışı")
        - aZe5 Claude Code (uygulama) · OCR 'Local · opus-brain-2 · +Auto · Opus 5.5 · High; Type / for commands' · pakette yok · hayır (rapor "Claude uygulaması mı, Claude Code mu net değil" notu)
        - aZe5 Built-in browser (uygulama) · OCR "I'll start by studying Dala live in the built-in browser" · satır 210 "[4:54] dala.craftedbygc.com · Opened in Browser" · hayır (kare 4:54 satırı "aday değil: genel kavram")
+     - aZe5 Claude Code pakette yok — ASR 'cloud code' olabilir → altyazıda sözlükle ad onarımı (Claude Code, Claude Design, Higgsfield, Figma vb.)
 2. **Token ve performans:** her şeyde ~%30 tasarruf, Headroom geliştirme, token araçları (ponytail vb.), RAM optimizasyonu (ağır işlerin ~10 GB boş RAM isteği)
 
 ## Sonra paralel (Ömer, 8 Eki: üç kol aynı anda)
