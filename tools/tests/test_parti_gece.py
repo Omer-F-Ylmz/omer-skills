@@ -124,7 +124,7 @@ def test_tam_akis_devam_ve_ozet(tmp_path):
         {"cikti": ["parti: P1 · short · 2 video · tavan 50 çağrı / $1.0"],
          "yaz": {"P1": {"durum": d("calisiyor"), "defter": [satir]}}},
         {"hata": ["[aşama] A paket bitti 2026-10-08T01:00:00 12.5", "[aşama] B paket bitti 2026-10-08T01:00:05 7.5"],
-         "yaz": {"P1": {"durum": d("tamam"), "defter": [satir, satir]}}},
+         "yaz": {"P1": {"durum": d("tamam"), "defter": [satir, satir, satir]}}},
     ]})
     r, log, ozet, cagri = _kos(tmp_path)
     assert "parti devam P1" in cagri and "kapat" not in cagri
