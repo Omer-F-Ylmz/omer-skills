@@ -1279,6 +1279,12 @@ def kapat(pdir, d, kok, ctx):
         kos([*git, "commit", "-q", "-m", f"parti {d['parti']} kuyruk: {len(islenen)} işlendi ({sha})"])
     d["durum"] = "kapandi"  # M12 K2: açık parti koruması kapanmış partiyi yok sayar
     pt._yaz(pdir / "durum.json", d)
-    rc = kos([*git, "push", "-q"], 120)[0]
-    print(f"kapat: commit {sha} · kuyruk {len(islenen)} işlendi · push {'tamam' if not rc else 'BAŞARISIZ'}" + (f" · UYARI eski rapor: {' · '.join(uyari)}" if uyari else ""))
+    if ctx["env"].get("VIDEO_PUSH_YOK") == "1":
+        print("push atlandı (VIDEO_PUSH_YOK)")
+        rc = 0
+        push = "atlandı"
+    else:
+        rc = kos([*git, "push", "-q"], 120)[0]
+        push = "tamam" if not rc else "BAŞARISIZ"
+    print(f"kapat: commit {sha} · kuyruk {len(islenen)} işlendi · push {push}" + (f" · UYARI eski rapor: {' · '.join(uyari)}" if uyari else ""))
     return rc

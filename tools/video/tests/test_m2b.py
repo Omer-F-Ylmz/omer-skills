@@ -233,3 +233,11 @@ def test_kapat_sizintida_commit_yok(tmp_path):
     assert pt.parti(_ns("kapat", p.name), {**_actx(kok, None), "kos": kos}) == 0
     assert sum("commit" in a for a in cagri) >= 1 and any("push" in a for a in cagri)
     assert "abc1234" in (kok / "kuyruk.md").read_text(encoding="utf-8")
+
+
+def test_kapat_push_yok_env(tmp_path):
+    p = _parti(tmp_path, "2026-09-29-short", {V[0]: _rapor(V[0], [("Hızlı Araç", "CLI", None)])})
+    kos, cagri = _kos_sahte(False)
+    c = _actx(tmp_path, None)
+    assert pt.parti(_ns("kapat", p.name), {**c, "kos": kos, "env": {**c["env"], "VIDEO_PUSH_YOK": "1"}}) == 0
+    assert sum("commit" in a for a in cagri) >= 1 and not any("push" in a for a in cagri)
