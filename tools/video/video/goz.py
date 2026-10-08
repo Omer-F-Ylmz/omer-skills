@@ -156,15 +156,34 @@ URL_BUL = re.compile(r"(?:https?://)?(?:localhost:\d+|(?:[\w-]+\.)+(?:com|io|ai|
                      r"(?:/[^\s)\]>,'\"]*)?", re.I)
 
 
-def yorum_sec(ham, sozluk=(), butce=800, token=lambda s: len(s) // 4 + 1):
-    """M4: sabit ve kanal sahibi yorumu tam (satırlar ' / '), diğerlerinden yalnız link/kod/komut/zaman damgası/sözlük adı taşıyan satır;
-    öncelik sabit > sahip > diğer (yt-dlp top sırası), ≤ butce."""
-    tam = [f"[{'sabit' if k == 'pinned' else 'sahip'}] " + " / ".join(x.strip() for x in h["text"].splitlines() if x.strip())
-           for k in ("pinned", "sahip") for h in ham if h.get(k) and (k == "pinned" or not h.get("pinned"))]
-    diger = [x.strip() for h in ham if not (h.get("pinned") or h.get("sahip")) for x in h["text"].splitlines()
-             if x.strip() and (YORUM_SATIR.search(x) or sozlukte(x, sozluk))]
+TIRELI = re.compile(r"\b[^\W\d_]+(?:-[^\W\d_]+)+\b")  # 1b-1S S3: cut-and-extend
+
+
+def _yorum_oncelikli(x, sozluk):
+    return bool(YORUM_SATIR.search(x) or sozlukte(x, sozluk) or TERIM.search(x) or TIRELI.search(x))
+
+
+def yorum_sec(ham, sozluk=(), butce=1500, token=lambda s: len(s) // 4 + 1):
+    """M4: sabit ve kanal sahibi yorumu tam (satırlar ' / '), diğerlerinden yalnız link/kod/komut/zaman damgası/sözlük adı/TERIM/tireli
+    terim taşıyan satır; öncelik sabit > sahip > diğer (yt-dlp top sırası), ≤ butce. 1b-1S S3b: sabit/sahip yorumu kalan bütçeyi aşarsa
+    atılmaz, satırlarına bölünür — önce öncelikli satırlar, kalan bütçe sırayla; seçilenler özgün sırada."""
     out, top = [], 0
-    for x in [*tam, *diger]:
+    for k in ("pinned", "sahip"):
+        for h in ham:
+            if not h.get(k) or (k == "sahip" and h.get("pinned")):
+                continue
+            on, sat = f"[{'sabit' if k == 'pinned' else 'sahip'}] ", [x.strip() for x in h["text"].splitlines() if x.strip()]
+            if token(on + " / ".join(sat)) > butce - top:
+                sec = set()
+                for n in sorted(range(len(sat)), key=lambda n: not _yorum_oncelikli(sat[n], sozluk)):
+                    if token(on + " / ".join(sat[i] for i in sorted(sec | {n}))) <= butce - top:
+                        sec.add(n)
+                sat = [sat[i] for i in sorted(sec)]
+            if sat:
+                out.append(x := on + " / ".join(sat))
+                top += token(x)
+    for x in [x.strip() for h in ham if not (h.get("pinned") or h.get("sahip")) for x in h["text"].splitlines()
+              if x.strip() and _yorum_oncelikli(x, sozluk)]:
         if top + token(x) <= butce:
             top += token(x)
             out.append(x)
