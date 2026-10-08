@@ -92,11 +92,11 @@ def test_tur_kiriliminda_belirsizler_haric():
     assert _puan_ile(BELIRSIZLI)["tur"] == {"kütüphane": (1, 1)}
 
 
-def test_ogrenimler_tum_metinde_ayni_satir_kelime_ortusmesi():
+def test_ogrenimler_tum_metinde_anlamsal_eslesme():
     metin = "# Rapor\n\n- Lenis kaydırmayı yumuşatır, GSAP ile birlikte\n- kamera sabit\n"
     p = au.puan(metin, {"ogrenimler": [
-        {"ogrenim": "Lenis ile kaydırmayı yumuşat", "tur": "ipucu"},  # lenis+kaydırmayı aynı satır → 2/3
-        {"ogrenim": "Kamera titreşimi gimbal ile azaltılır", "tur": "ipucu"},  # yalnız kamera → 1/4
+        {"ogrenim": "Lenis ile kaydırmayı yumuşat", "tur": "ipucu"},  # aynı anlamlı satır var
+        {"ogrenim": "Supabase tablosuna satır güvenliği politikası eklenir", "tur": "ipucu"},  # 1b-2a DEVAM-1: anlamsal; konu dışı → eşleşmez
         {"ogrenim": "Lenis kaydırmayı yumuşatır", "tur": "ipucu", "belirsiz": True}]})  # paydada yok
     assert p["ogrenimler"] == (1, 2)
     assert "öğrenimler: yakalama 1/2" in au.satirlar(p)

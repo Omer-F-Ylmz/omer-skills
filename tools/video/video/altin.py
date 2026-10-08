@@ -2,6 +2,7 @@
 import re
 from pathlib import Path
 
+from . import anlamsal
 from .tarama import bolum, tablolar
 
 ALAN_YOK = ()  # 1b-2a: urller · is_akisi · promptlar artık rapor şemasında; alan_yok anahtarı boş liste olarak kalır
@@ -45,15 +46,6 @@ def _rapor_linkler(metin):
     return out
 
 
-def _kelime(s):
-    return set(re.findall(r"\w{4,}", s.casefold()))
-
-
-def _ortusur(s, satir_kelimeleri):
-    k = _kelime(s)
-    return any(2 * len(k & r) >= len(k) > 0 for r in satir_kelimeleri)
-
-
 def puan(metin, altin):
     rapor_adlar = _ilk_sutun(metin, "Adaylar", "ad")
     tur, kacan, yazim, isabetli, bel = {}, [], [0, 0], set(), [0, 0]
@@ -79,31 +71,23 @@ def puan(metin, altin):
                 s[0] += r["aday"] == bool(l.get("aday")) and r["sponsor"] == (l.get("sinif") == "sponsor")
         link[k] = {"yakalama": tuple(y), "sinif": tuple(s)}
 
-    # ponytail: site_ui kelime örtüşmesi (altın kelimelerinin ≥yarısı), anlamsal eşleşme gerekirse Jev
-    rt = [_kelime(x) for x in _ilk_sutun(metin, "Site/UI", "teknik")]
-    ui = altin.get("site_ui", [])
-    ui_y = sum(_ortusur(u["teknik"], rt) for u in ui)
+    sem = {k: (len(g), len(anlamsal.esle(g, r, anlamsal.ESIK[k]))) for k, (g, r) in anlamsal.alanlar(metin, altin).items()}  # 1b-2a DEVAM-1: anlamsal
 
     rk = [norm(x) for x in _ilk_sutun(metin, "Kurulum/komutlar", "komut")]
     km = altin.get("komutlar", [])
     km_y = sum(any(norm(k["komut"]) in r for r in rk) for k in km)
 
-    tum = [_kelime(s) for s in metin.splitlines()]
-    og = [o for o in altin.get("ogrenimler", []) if not o.get("belirsiz")]
-    ogr = (sum(_ortusur(o["ogrenim"], tum) for o in og), len(og)) if "ogrenimler" in altin else None
+    ogr = (sem["ogrenimler"][1], sem["ogrenimler"][0]) if "ogrenimler" in altin else None
 
     uu = [url_norm(r[0]) for _, rows in tablolar(bolum(metin, "URL'ler")) for r in rows if r]
     u_ur = altin.get("urller", [])
     u_iy = [u for u in u_ur if not DEGERSIZ.search(url_norm(u["url"]))]
-    ak = [_kelime(x) for x in bolum(metin, "İş akışı").splitlines()]
-    pr = [_kelime(x) for x in bolum(metin, "Promptlar").splitlines()]
     yeni = {"urller": (sum(url_norm(u["url"]) in uu for u in u_ur), len(u_ur)), "urller_iy": (sum(url_norm(u["url"]) in uu for u in u_iy), len(u_iy)),
-            "is_akisi": (sum(_ortusur(a["adim"], ak) for a in altin.get("is_akisi", [])), len(altin.get("is_akisi", []))),
-            "promptlar": (sum(_ortusur(q.get("ozet") or q["konu"], pr) for q in altin.get("promptlar", [])), len(altin.get("promptlar", [])))}
+            "is_akisi": sem["is_akisi"][::-1], "promptlar": sem["promptlar"][::-1]}
     return {"yakalama": yak, "isabet": (len(isabetli), len(rapor_adlar)), "ad_yazim": tuple(yazim),
             "belirsiz": tuple(bel), "ogrenimler": ogr,
             "tur": {k: tuple(v) for k, v in tur.items()}, "link_aciklama": link["aciklama"], "link_yorum": link["yorum"],
-            "site_ui": (ui_y, len(ui)), "komutlar": (km_y, len(km)), "kacan": kacan, "alan_yok": list(ALAN_YOK), **yeni}
+            "site_ui": sem["site_ui"][::-1], "komutlar": (km_y, len(km)), "kacan": kacan, "alan_yok": list(ALAN_YOK), **yeni}
 
 
 NEDEN = {"ekran": "ekranda-var-OCR-kaçırdı", "açıklama": "açıklamada", "aciklama": "açıklamada", "yorum": "yorumda"}
