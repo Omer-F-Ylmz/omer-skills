@@ -541,6 +541,8 @@ def paket(ns, ctx):
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
         kareler, kare_yok = [], f"kare yok: {' '.join(str(e).split())}"[:200]
+    if gozsuz:  # DEVAM-3 d: görsel gönderinin görselleri AKIL'a da kare olarak gider (sıralı, kısa video tavanı)
+        kareler = [(0, d / g) for g in (meta.get("gorseller") or [])[:IPUCU_KARE]]
     bl, hata = tr.link_topla({  # B1: dört kaynak, sınıflı
         "açıklama": "\n".join(ak), "yorum": "\n".join(yk), "ocr": "\n".join(x for _, s in ocr.get("metin", []) for x in s),
         "altyazı": "\n".join(str(s.get("metin")) for s in seg)}), []
@@ -550,7 +552,7 @@ def paket(ns, ctx):
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     yham = json.loads((d / "yorumlar.json").read_text(encoding="utf-8")).get("ham", []) if (d / "yorumlar.json").is_file() else []
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
-          f" · {meta.get('url') or f'https://youtu.be/{ns.id}'} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}{f' · {n}' if (n := ctx.get('goz_not')) else ''}"
+          f" · {igm and meta.get('url') or f'https://youtu.be/{ns.id}'} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}{f' · {n}' if (n := ctx.get('goz_not')) else ''}"
           f"{f' · platform: instagram · tür: {meta.get("ig_tur")} · yorum: girişsiz alınamıyor' if igm else ''}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),

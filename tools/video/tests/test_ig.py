@@ -105,7 +105,7 @@ def test_embed_verisi_yok():
 # --- engel / bekleme
 def test_429_bekle_bir_tekrar(monkeypatch, igsiz):
     cagri = _sahte_al(monkeypatch, (429, "u", ""), (200, "u", REEL))
-    assert ig.sayfa("DdUf3qJOvTO") == REEL and len(cagri) == 2 and igsiz[1] == [120]
+    assert ig.sayfa("DdUf3qJOvTO") == ig.ayristir(REEL) and len(cagri) == 2 and igsiz[1] == [120]
 
 
 def test_engel_not(monkeypatch, igsiz):
@@ -129,7 +129,7 @@ def test_basari_engel_sayacini_sifirlar(monkeypatch):
     _sahte_al(monkeypatch, (429, "u", ""), (429, "u", ""), (200, "u", REEL))
     with pytest.raises(ig.IgHata):
         ig.sayfa("a")
-    assert ig.sayfa("a") == REEL and ig._ENGEL[0] == 0
+    assert ig.sayfa("a") == ig.ayristir(REEL) and ig._ENGEL[0] == 0
 
 
 def test_istekler_arasi_10_20_sn(monkeypatch, igsiz):
@@ -137,6 +137,37 @@ def test_istekler_arasi_10_20_sn(monkeypatch, igsiz):
     ig.sayfa("a")
     ig.sayfa("b")
     assert len(igsiz[1]) == 1 and 10 <= igsiz[1][0] <= 20
+
+
+HATA_SAYFASI = '<html>"pageID":"httpErrorPage"</html>'
+
+
+def test_sessiz_engel_sayilir_3te_durur(monkeypatch):  # DEVAM-3 c: 200 dönen hata sayfası = sessiz engel
+    cagri = _sahte_al(monkeypatch, (200, "u", HATA_SAYFASI))
+    for _ in range(3):
+        with pytest.raises(ig.IgHata, match="embed verisi yok"):
+            ig.sayfa("a")
+    with pytest.raises(ig.IgHata, match="durdu"):
+        ig.sayfa("b")
+    assert len(cagri) == 3
+
+
+def test_sessiz_engel_basari_sifirlar(monkeypatch):
+    _sahte_al(monkeypatch, (200, "u", HATA_SAYFASI), (200, "u", HATA_SAYFASI), (200, "u", REEL))
+    for _ in range(2):
+        with pytest.raises(ig.IgHata):
+            ig.sayfa("a")
+    assert ig._ENGEL[0] == 2 and ig.sayfa("a") == ig.ayristir(REEL) and ig._ENGEL[0] == 0
+
+
+@pytest.mark.parametrize("hata", [urllib.error.URLError("dns"), TimeoutError("timed out"), ConnectionResetError("reset")])
+def test_al_ag_hatasi_ighata(monkeypatch, hata):  # DEVAM-3 b
+    def urlopen(req, timeout=None):
+        raise hata
+    monkeypatch.setattr(urllib.request, "urlopen", urlopen)
+    monkeypatch.setattr(ig, "_al", GERCEK_AL)
+    with pytest.raises(ig.IgHata, match="ig: ağ"):
+        ig._al("https://www.instagram.com/p/a/embed/captioned/")
 
 
 # --- çerez
@@ -233,7 +264,7 @@ def test_paket_reel_asr(monkeypatch, tmp_path, capsys):
     assert "platform: instagram · tür: reel · yorum: girişsiz alınamıyor" in kunye and "mahemas.ai" in kunye
     assert "## Açıklama" in md and "merhaba bu bir reel" in md
     pk = pt.paket_oku(d / "paket.md")
-    assert pk["id"] == "ig-DdUf3qJOvTO" and pk["url"] == "https://www.instagram.com/reel/DdUf3qJOvTO/"
+    assert pk["id"] == "ig-DdUf3qJOvTO" and pk["url"] == "https://www.instagram.com/reel/DdUf3qJOvTO/" and pk["kareler"] == []
 
 
 def test_paket_post_ocr_sirali(monkeypatch, tmp_path, capsys):
@@ -242,6 +273,14 @@ def test_paket_post_ocr_sirali(monkeypatch, tmp_path, capsys):
     assert "tür: görsel gönderi" in md.splitlines()[0] and "https://www.instagram.com/p/DeL7DvgFLRM/" in md.splitlines()[0]
     yer = [md.index(f"### görsel {i}\n") for i in range(1, 7)]
     assert yer == sorted(yer) and "gorsel-3 kurulum" in md
+    assert [Path(k).name for k in pt.paket_oku(d / "paket.md")["kareler"]] == [f"gorsel-{i}.jpg" for i in range(1, 7)]  # DEVAM-3 d: AKIL'a da
+
+
+def test_paket_post_kareler_8_tavan(monkeypatch, tmp_path, capsys):
+    sm = sm_of(CAR)
+    sm["edge_sidecar_to_children"]["edges"] *= 2  # 12 görsel
+    _, o, d, md, _ = _paketle(monkeypatch, tmp_path, sayfa(sm), "ig-DeL7DvgFLRM", capsys)
+    assert len(o.yollar) == 12 and [Path(k).name for k in pt.paket_oku(d / "paket.md")["kareler"]] == [f"gorsel-{i}.jpg" for i in range(1, 9)]
 
 
 def test_reel_video_yok_goz_notu(monkeypatch, tmp_path, capsys):
@@ -284,6 +323,18 @@ def test_youtube_rapor_bayt_esdeger():
     assert pk["url"] == "https://youtu.be/d_UE-wHLoZY"
     f = _F(ozet="ö", bolumler=[], iz=None)
     assert pt.rapor_md(f, pk, []) == pt.rapor_md(f, {**pk, "url": None}, [])  # url'siz = eski biçim (sabit youtu.be)
+
+
+def test_youtube_kunye_akis_url_sizmaz(tmp_path):  # DEVAM-3 a: yt-dlp üst düzey 'url' imzalı akış adresi
+    d = tmp_path / "c" / "dQw4w9WgXcQ"
+    d.mkdir(parents=True)
+    (d / "meta.json").write_text(json.dumps({"id": "dQw4w9WgXcQ", "title": "t", "channel": "k", "duration": 0, "chapters": [], "description": "",
+                                             "url": "https://rr1---sn-x.googlevideo.com/videoplayback?sig=SAHTE"}), encoding="utf-8")
+    (d / "segmentler.jsonl").write_text(json.dumps({"bas": 0, "son": 5, "metin": "merhaba bu bir deneme konuşması"}) + "\n", encoding="utf-8")
+    (d / "yorumlar.json").write_text(json.dumps({"durum": "✓", "ham": []}), encoding="utf-8")
+    assert main(["paket", "--kare", "0", "--istek-tavan", "0", "--", "dQw4w9WgXcQ"], env=_ortam(tmp_path), kos=_kos, uyku=lambda s: None, al=_al) == 0
+    kunye = (d / "paket.md").read_text(encoding="utf-8").splitlines()[0]
+    assert "· https://youtu.be/dQw4w9WgXcQ ·" in kunye and "googlevideo" not in kunye
 
 
 # --- kuyruk / parti (taklitli: ağ, yt-dlp, model yok)

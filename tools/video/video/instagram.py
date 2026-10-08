@@ -22,7 +22,7 @@ BASLIK = {  # DEVAM-1 basamak a: tam Chrome başlık seti (çıplak UA'ya Instag
     "Upgrade-Insecure-Requests": "1",
 }
 ARA = (10, 20)  # ayar: embed istekleri arası rastgele sn
-ENGEL_BEKLE, ENGEL_UST = 120, 3  # ayar: 429/giriş → bekle, 1 tekrar; art arda N engel → IG durur
+ENGEL_BEKLE, ENGEL_UST = 120, 3  # ayar: 429/giriş → bekle, 1 tekrar; art arda N engel (sessiz engel dahil) → IG durur
 _KILIT, _SON, _ENGEL = threading.Lock(), [None], [0]
 uyku, saat = time.sleep, time.monotonic  # testte sahte
 
@@ -41,6 +41,8 @@ def _al(url):
             return r.status, r.geturl(), r.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
         return e.code, url, ""
+    except (urllib.error.URLError, OSError) as e:  # DEVAM-3 b: DNS/zaman aşımı/bağlantı → link not alır, paket çökmez
+        raise IgHata(f"ig: ağ hatası {type(e).__name__}") from None
 
 
 def _indir(url, yol):
@@ -52,7 +54,8 @@ def _indir(url, yol):
 
 
 def sayfa(kod):
-    """Embed sayfası; istekler arası ARA sn; 429/giriş yönlendirmesi → ENGEL_BEKLE sn, 1 tekrar, yine engel → IgHata('ig: engellendi')."""
+    """Embed sayfası → ayristir; istekler arası ARA sn; 429/giriş yönlendirmesi → ENGEL_BEKLE sn, 1 tekrar, yine engel → IgHata('ig: engellendi').
+    200 dönen hata sayfası (embed verisi yok) da engel sayılır; sayaç yalnız ayrışan sayfada sıfırlanır."""
     url = f"https://www.instagram.com/p/{kod}/embed/captioned/"
     with _KILIT:
         if _ENGEL[0] >= ENGEL_UST:
@@ -69,10 +72,15 @@ def sayfa(kod):
         else:
             _ENGEL[0] += 1
             raise IgHata("ig: engellendi")
+        if durum != 200:
+            raise IgHata(f"ig: HTTP {durum}")
+        try:
+            p = ayristir(html)
+        except IgHata:
+            _ENGEL[0] += 1
+            raise
         _ENGEL[0] = 0
-    if durum != 200:
-        raise IgHata(f"ig: HTTP {durum}")
-    return html
+    return p
 
 
 def ayristir(html):
@@ -94,7 +102,7 @@ def ayristir(html):
 def getir(d):
     """ig-<kod> klasörü: sayfa → ayrıştır → medya hemen indir (imzalı adres süreli) → meta.json (adres yazılmaz)."""
     kod = d.name[3:]
-    p = ayristir(sayfa(kod))
+    p = sayfa(kod)
     video, gorseller, goz_not = False, [], None
     if p["tur"] == "reel":
         if p["ogeler"][0]["video"]:
