@@ -7,6 +7,7 @@ Desktop'ın tuttuğu sıra. Linkler ve tek tek istekler: `docs/video-tarama/bekl
    - 1b-2a DEVAM-1: rapor kalitesi + model karşılaştırması (Sonnet 5.5 / Haiku)
    - YouTube partisi (87 video)
    - Instagram desteği + 39 reel
+   - VİDEO-PLATFORM-1 (bekleyen-linkler.md'den): Instagram desteği açılana kadar linkler orada bekler; Instagram gönderileri görsel kaydırmalı olabilir → görsel OCR + açıklama yolu
    - Kurulum turu: videolardaki skill · MCP · plugin · CLI, CC + Desktop; Higgsfield, DaLUGUbMp4K aracı, humanizer geliştirme
    - Kalan: 1b-2b · MODEL-1 (yeni modeller + Fable tarzı düşünmeyi ucuz modellere öğretme) · 1c (kurulum fabrikası, %90-95) · kanal takibi (YouTube + Instagram) · video anlama araçları · çift dikiş
      - 1b-2b ölçü notu (1b-2a DEVAM-2): anlamsal ölçü onaylanmadı. Öğrenim: künye/kareler/tablo ayırıcı satırları eşleşiyor (0.535 "kareler: görsel girdi", 0.564). site_ui: eşik ayırmıyor (doğru 0.668–0.696, yanlış 0.707–0.714). Çözüm adayı: yalnız içerik satırları + sınır bandında yargıç (Jev ya da ucuz LLM, tavanlı). Şimdiki ikincil sayılar geçici.
@@ -30,6 +31,7 @@ Paralel kurallar:
 - Skill/MCP/plugin kurulumu global: kurulumlar tek oturumda, sırayla yapılır, sonra bütün oturumlar yeniden açılır.
 - Ağır işler (Blender render, ölçüm, tam suite, tarayıcılı tarama) aynı anda tek tane; hafif işler (araştırma, plan, kod) paralel.
 - Üç CC oturumu Max haftalık limitini daha hızlı tüketir; toplam token aynı, süre kısalır.
+- Claude Red (Ömer'in notu; ne olduğu videolar işlenince netleşir): kendi uygulamalarımızda ve yaptığımız her işte saldırı/güvenlik testi, güvenlik en üst seviye → kurulum turu + her projenin kapanış listesi güvenlik maddeleri
 
 ## Daha sonra
 6. Kendi modlar (Mavuika vücudu → Lauma, ZZZ vücut modu) + mod araçları
