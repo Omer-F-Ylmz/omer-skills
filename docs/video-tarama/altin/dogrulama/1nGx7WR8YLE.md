@@ -79,3 +79,16 @@ Kaynaklar baştan sona okundu: aciklama · yorum · altyazi · groq · ocr (124 
 - Chrome DevTools: tarayıcı adı görünmüyor.
 - localhost:4173: OCR'da yalnız "t:4173" var.
 - GPT Astra'nın çalıştığı arayüz ("What should we work on in villa-project-example?", "Approve for me", "Open in / Undo / Review") büyük olasılıkla Codex uygulaması. Adı ekranda geçmediği için is_akisi araçlarına yazılmadı.
+
+## Ek (VİDEO-AKIL-1b-2a, 2026-10-08): urller += https://mcp.topview.ai/claude (ekran, 3:01)
+Kaynak: C:\Projeler\.video-cache\1nGx7WR8YLE\goz\ocr.json, "ham" listesi (girdi = [saniye, [[metin, güven, x]...]]). Ham satırlar, verbatim:
+- t=182.0 (3:02): `https://mcp.topview.ai/claude` (0.999)
+- t=183.0 (3:03): `https://mcp.topview.ai/claude` (0.996)
+- t=190.0 (3:10): `https://mcp.topview.ai/claudL` (0.973)  (OCR hatası)
+- t=191.0 (3:11): `https://mcp.topview.ai/claud` (0.975)  (kısmi okuma)
+Not: ilk görünüm 182 sn = 3:02; gold zamanı 3:01 olarak istendi, url_norm eşitliği zamana bakmaz.
+Canlı denetim (curl -s -o /dev/null -w "%{http_code}", 2026-10-08):
+- https://mcp.topview.ai/claude -> 401 (ilk denemede 000 bağlantı hatası, sonra iki denemede 401)
+- https://mcp.topview.ai/mcp -> 401
+- https://mcp.topview.ai/zz9q (rastgele) -> 200, gövde `{"code":"0001","info":"未知失败","data":null}` (hata JSON)
+Sonuç: beklendiği gibi /claude ve /mcp kimlik doğrulama ister (gerçek uç noktalar), rastgele yol 200 + hata JSON.
