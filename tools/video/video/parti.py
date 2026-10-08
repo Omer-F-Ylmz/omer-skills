@@ -427,7 +427,7 @@ def _rapor_yaz(d, v, f, p, tdir, ikinci=None, **ek):
     md = rapor_md(f, p, _notlar(d, p) + ([k] if (k := d["videolar"][v]["tarama"].get("kunye")) else [])) + (ig.ek_md(ikinci) if ikinci else "")
     r.write_bytes(md.encode("utf-8"))
     adaylar, ele = tr.ayikla(md)
-    tr.kayit_ekle(Path(d.get("kayit") or tdir / "kayit.jsonl"), [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"]}])
+    tr.kayit_ekle(Path(d.get("kayit") or tdir / "kayit.jsonl"), [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"], "konu": tr.konu_etiketle(md + p["metin"])}])  # YT1 2: rapor md + paket metni
     d["videolar"][v]["tarama"].update(cikti=r.as_posix(), **ek)
 
 

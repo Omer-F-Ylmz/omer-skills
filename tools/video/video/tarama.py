@@ -318,6 +318,21 @@ def ice_al(dizin):
     return out
 
 
+KONU = {"otomasyon/iş": ("otomasyon", "automation", "n8n", "make.com", "zapier", "workflow", "ajans", "agency", "müşteri", "client", "satış", "sell", "gelir", "revenue"),
+        "3d/blender": ("blender", "3d", "three.js", "tripo", "render", "mesh"),
+        "site/frontend": ("landing", "website", "frontend", "tailwind", "css", "ui", "web sitesi"),
+        "oyun": ("oyun", "game", "unity", "unreal", "godot"),
+        "model/llm": ("llm", "gpt", "gemini", "opus", "sonnet", "haiku", "model"),
+        "token": ("token", "context", "bağlam", "maliyet", "cost"),
+        "güvenlik": ("güvenlik", "security", "pentest", "vulnerab", "sızıntı", "secret")}  # YT1 2: konu etiketi sözlüğü
+
+
+def konu_etiketle(metin):
+    """YT1 2: çok etiketli konu; kelime başı eşleşmesi (\\bkelime…), etiketin anahtarlarından toplam vuruş ≥2.
+    # ponytail: anahtar kelime eşiği 2; gürültülüyse Jev ile"""
+    return [e for e, ks in KONU.items() if sum(len(re.findall(r"\b" + re.escape(k), metin, re.I)) for k in ks) >= 2]
+
+
 def kayit_oku(yol):
     yol = Path(yol)
     return [json.loads(x) for x in yol.read_text(encoding="utf-8").splitlines() if x.strip()] if yol.is_file() else []
