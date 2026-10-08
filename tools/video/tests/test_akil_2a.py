@@ -180,3 +180,18 @@ def test_bekci_kanit_paketten_birebir_yoksa_reddeder():
     assert bk.bekci(RAPOR, PAKET, tas("gsap yazıyoruz"))[1]["eklenen"] == []  # < 3 kelime
     assert bk.bekci(RAPOR, PAKET, tas("gsap ile animasyon yapıyoruz"))[1]["eklenen"] == []  # pakette yok
     assert "kanit" in bk.SEMA["properties"]["kararlar"]["items"]["required"]
+
+
+# --- DEVAM-3 B: kanıt süzgeci ---
+def _kf(ad):
+    return {"adaylar": [{"ad": ad, "tur": "arac", "ne": "x"}], "belirsizlikler": []}
+
+
+def test_kanit_suz_paketsiz_aday_belirsizlige():
+    f = pt.kanit_suz(_kf("Cursor"), "## Segmentler\n[0:00] burada Playwright ile test yazdık\n")
+    assert f["adaylar"] == [] and any("Cursor" in b and "kanıtsız" in b for b in f["belirsizlikler"])
+
+
+def test_kanit_suz_paketteki_aday_kalir():
+    f = pt.kanit_suz(_kf("Playwright"), "## Segmentler\n[0:00] burada Playwright ile test yazdık\n")
+    assert [a["ad"] for a in f["adaylar"]] == ["Playwright"] and f["belirsizlikler"] == []
