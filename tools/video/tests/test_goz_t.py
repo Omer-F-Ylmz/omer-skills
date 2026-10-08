@@ -64,3 +64,10 @@ def test_t3_ekran_metni_yeni_bilgisi_cok_satir_once():
     alt = "we use web workers for background tasks"
     o = gz.ekran_metni([(1, ["we use web workers for tasks ok"]), (2, ["worker thread pool sizing guide"])], alt, butce=1, token=lambda s: 1)
     assert o == [(2, "worker thread pool sizing guide")]
+
+
+def test_t3_ekran_metni_acgozlu_kopya_yerine_yeni_ad():
+    """DEVAM-4: düzey içinde açgözlü kazanç/token — aynı UI metninin 3 kopyası + tek kelimelik yeni ad, bütçe 2 satır → ad tutulur, ikinci kopya düşer."""
+    c = "open the settings panel and choose display theme"
+    o = gz.ekran_metni([(1, [c]), (2, [c + " now"]), (3, [c + " fast"]), (4, ["Zenmark"])], "", butce=28)
+    assert o == [(2, c + " now"), (4, "Zenmark")]
