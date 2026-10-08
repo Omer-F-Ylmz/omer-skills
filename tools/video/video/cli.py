@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import sys
 import threading
+import random
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -57,6 +58,34 @@ def kos(args, timeout=120, env=None):
 
 class Hata(Exception):
     pass
+
+
+class RamYetersiz(Hata):
+    pass
+
+
+# YT1 3: boru hattı kaynak kapıları (modül düzeyi: tüm iş parçacıkları aynı sayacı paylaşır)
+INDIR, SAHNE, OCR, TAMPON = (threading.Semaphore(n) for n in (2, 1, 1, 3))  # eşzamanlı indirme · ffmpeg sahne/kare · OCR · indirilmiş-OCR'sız video
+INDIR_ARA, RASTGELE, _INDIR_SON, _INDIR_KILIT = None, random.uniform, [None], threading.Lock()  # indirme başlangıçları arası boşluk (sn aralığı); parti paralel>1 iken (5, 15) yapar
+KUYRUK_KILIT = threading.Lock()  # _bagli_video kuyruk.md oku-değiştir-yaz
+RAM_ESIK_GB, RAM_BEKLE, RAM_DENEME = 2, 60, 10  # ayar · YT1 3: indirme/OCR öncesi en az boş RAM · bekleme sn · ardışık düşük üst sınırı
+
+
+def bos_ram():
+    return pt._bos_ram_gb()
+
+
+def _ram_kapi(ctx):
+    """YT1 3: boş RAM < RAM_ESIK_GB ise RAM_BEKLE sn bekle; RAM_DENEME ardışık düşük ölçüm → RamYetersiz (parti durur)."""
+    for i in range(RAM_DENEME):
+        if (gb := bos_ram()) >= RAM_ESIK_GB:
+            return
+        if i == RAM_DENEME - 1:
+            raise RamYetersiz(f"RAM yetersiz: boş {gb:.1f} GB < {RAM_ESIK_GB} ({RAM_DENEME} ardışık ölçüm)")
+        ctx["uyku"](RAM_BEKLE)
+
+
+asama = pt.asama  # YT1 3: aşama zamanlaması parti.py'de (CAGIR de orada)
 
 
 class HizHata(Hata):
@@ -420,6 +449,11 @@ def _yorumlar(ctx, d):
 
 def _bagli_video(ctx, v, bl, ky):
     """B ek: açıklama/yorum/sayfa'daki video linki kuyrukta (her durumda) yoksa 'bağlantılı video (<v>)' notuyla eklenir; kanal takibi yok."""
+    with KUYRUK_KILIT:  # YT1 3: paralel paketlerde kuyruk.md oku-değiştir-yaz tek parça
+        _bagli_video_(ctx, v, bl, ky)
+
+
+def _bagli_video_(ctx, v, bl, ky):
     metin = ky.read_bytes().decode("utf-8")
     var = {tr._hucre(s)[0] for s in metin.splitlines() if s.lstrip().startswith("|")}
     ids = [g[1] for x in bl if x["sinif"] == "video" and any(k.split()[0] in ("açıklama", "yorum", "sayfa") for k in x["kaynak"])
@@ -444,8 +478,9 @@ def paket(ns, ctx):
     ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare, " ".join(str(s.get("metin")) for s in seg))
     tur = {"elle": "manual", "oto": "auto"}.get(dil[1], "auto") if dil and seg else "yok"  # 1b-1 M3: künyede altyazı türü
     if ns.asr == "groq" and tur != "manual" and not ns.kare_yalniz:  # 1b-1 M3: manuel yoksa Groq (önbellek groq.txt)
-        g_seg, kaynak = _asr(ctx, d, meta.get("duration") or 0, (dil[0] if dil else "en")[:2],
-                             gz.groq_prompt(gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt"), meta.get("description") or ""))
+        with asama(ns.id, "asr"):
+            g_seg, kaynak = _asr(ctx, d, meta.get("duration") or 0, (dil[0] if dil else "en")[:2],
+                                 gz.groq_prompt(gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt"), meta.get("description") or ""))
         seg, tur = (m.segmentle(g_seg, meta.get("chapters"), meta.get("duration") or None), kaynak) if g_seg else (seg, f"{tur} ({kaynak} yok)")
     yalniz = ns.kare_yalniz or not seg  # M8 K2 (ii): altyazı yok ya da whisper çıktısı anlamsız → kare-yalnız paket
     seg = [] if yalniz else seg
@@ -693,20 +728,29 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
 
 
 def _video_indir(ctx, d):
-    """1b-1 M2: ≤1080p video-only akış bir kez <id>/goz-video.<ext>; ffmpeg yerelde çalışır, paket sonunda silinir."""
+    """1b-1 M2: ≤1080p video-only akış bir kez <id>/goz-video.<ext>; ffmpeg yerelde çalışır, paket sonunda silinir.
+    YT1 3: RAM kapısı · INDIR (≤2 eşzamanlı) · INDIR_ARA varsa başlangıçlar arası rastgele boşluk."""
     if not (v := next(d.glob("goz-video.*"), None)):
-        for i in (0, 1):  # DEVAM-4: 403 → 10 sn bekle, bir kez tekrar; yine 403 → künyede görünür
-            try:
-                _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
-                           yt_url(d.name)], SURE["ses"])
-                break
-            except Hata as e:
-                if "403" not in str(e):
-                    raise
-                if i:
-                    ctx["goz_not"] = "göz: yok (indirme 403)"
-                    raise
-                time.sleep(10)
+        _ram_kapi(ctx)
+        with INDIR:
+            if INDIR_ARA:
+                with _INDIR_KILIT:
+                    if _INDIR_SON[0] is not None and (bek := _INDIR_SON[0] + RASTGELE(*INDIR_ARA) - time.monotonic()) > 0:
+                        ctx["uyku"](bek)
+                    _INDIR_SON[0] = time.monotonic()
+            with asama(d.name, "indir"):
+                for i in (0, 1):  # DEVAM-4: 403 → 10 sn bekle, bir kez tekrar; yine 403 → künyede görünür
+                    try:
+                        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
+                                   yt_url(d.name)], SURE["ses"])
+                        break
+                    except Hata as e:
+                        if "403" not in str(e):
+                            raise
+                        if i:
+                            ctx["goz_not"] = "göz: yok (indirme 403)"
+                            raise
+                        time.sleep(10)
         if not (v := next(d.glob("goz-video.*"), None)):
             raise Hata("video inmedi")
     return v
@@ -745,36 +789,47 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
 
 
 def _goz_ocr(ctx, d, kd, sure, f):
-    """1b-1R R1: video → dHash sahne → kareler (kd) → ham OCR; ocr.json'a yazılacak dict."""
+    """YT1 3: TAMPON — indirmeden önce alınır, bu videonun OCR'ı bitince (hata dahil) bırakılır; indirilmiş-OCR'sız video ≤3."""
+    with TAMPON:
+        return _goz_ocr_govde(ctx, d, kd, sure, f)
+
+
+def _goz_ocr_govde(ctx, d, kd, sure, f):
+    """1b-1R R1: video → dHash sahne → kareler (kd) → ham OCR; ocr.json'a yazılacak dict.
+    YT1 3: SAHNE (ffmpeg dhash + kare çıkarma + ek -ss kareleri) ve OCR bölümleri birer eşzamanlı; OCR saati bekleme değil OCR'ın kendi süresini sayar."""
     v = _video_indir(ctx, d)
-    ham = _kos(ctx, ["ffmpeg", "-v", "error", "-i", str(v), "-an", "-vf", f"fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"],
-               SURE["sahne"])
-    sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
-    sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
-    for i in range(0, max(len(sahne), 1), 50):  # 1b-1R: ~117 terimlik select ffmpeg'de "Cannot allocate memory" → ≤50 terimlik parçalar
-        sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0"  # ponytail: parça başına bir çözme geçişi
-        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",
-                   "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")], SURE["sahne"])
+    with SAHNE, asama(d.name, "sahne"):
+        ham = _kos(ctx, ["ffmpeg", "-v", "error", "-i", str(v), "-an", "-vf", f"fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"],
+                   SURE["sahne"])
+        sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
+        sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
+        for i in range(0, max(len(sahne), 1), 50):  # 1b-1R: ~117 terimlik select ffmpeg'de "Cannot allocate memory" → ≤50 terimlik parçalar
+            sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0"  # ponytail: parça başına bir çözme geçişi
+            _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",
+                       "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")], SURE["sahne"])
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
-    bas, okunan, inc = time.monotonic(), [], []
-    for i in range(0, len(yollar), 10):
-        o = _ocr(ctx, [y for _, y in yollar[i:i + 10]], ham=True)
-        okunan += [(t, o.get(y.name, [])) for t, y in yollar[i:i + 10]]
-        if time.monotonic() - bas > gz.OCR_GUVENLIK:  # R4: kesim kare sayısıyla; süre yalnız güvenlik tavanı
-            inc = sorted((t, "OCR güvenlik tavanı") for t, _ in yollar[i + 10:])
-            break
-    ek = [] if inc else gz.yogun_zaman([t for t, _ in okunan], [t for t, r in okunan if any(gz.url_benzer(x) for x, *_ in r)], sure)
-    for t in ek:  # DEVAM-4: URL komşu yoğunlaştırma, tavan dışı; ponytail: kare başına bir -ss çözme, ≤120
-        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", str(v), "-an", "-frames:v", "1", "-q:v", "3", str(kd / f"k{int(t * 10):06d}.jpg")],
-             SURE["sahne"])
-    ek = [(t, kd / f"k{int(t * 10):06d}.jpg") for t in ek if (kd / f"k{int(t * 10):06d}.jpg").is_file()]
-    for i in range(0, len(ek), 10):
-        if time.monotonic() - bas > gz.OCR_GUVENLIK:
-            inc = sorted((t, "OCR güvenlik tavanı") for t, _ in ek[i:])
-            break
-        o = _ocr(ctx, [y for _, y in ek[i:i + 10]], ham=True)
-        okunan += [(t, o.get(y.name, [])) for t, y in ek[i:i + 10]]
+    _ram_kapi(ctx)
+    with OCR, asama(d.name, "ocr"):
+        bas, okunan, inc = time.monotonic(), [], []
+        for i in range(0, len(yollar), 10):
+            o = _ocr(ctx, [y for _, y in yollar[i:i + 10]], ham=True)
+            okunan += [(t, o.get(y.name, [])) for t, y in yollar[i:i + 10]]
+            if time.monotonic() - bas > gz.OCR_GUVENLIK:  # R4: kesim kare sayısıyla; süre yalnız güvenlik tavanı
+                inc = sorted((t, "OCR güvenlik tavanı") for t, _ in yollar[i + 10:])
+                break
+        ek = [] if inc else gz.yogun_zaman([t for t, _ in okunan], [t for t, r in okunan if any(gz.url_benzer(x) for x, *_ in r)], sure)
+        with SAHNE:  # OCR → SAHNE sırası tek yönlü (SAHNE tutan OCR beklemez): kilitlenme yok
+            for t in ek:  # DEVAM-4: URL komşu yoğunlaştırma, tavan dışı; ponytail: kare başına bir -ss çözme, ≤120
+                _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", str(v), "-an", "-frames:v", "1", "-q:v", "3", str(kd / f"k{int(t * 10):06d}.jpg")],
+                     SURE["sahne"])
+        ek = [(t, kd / f"k{int(t * 10):06d}.jpg") for t in ek if (kd / f"k{int(t * 10):06d}.jpg").is_file()]
+        for i in range(0, len(ek), 10):
+            if time.monotonic() - bas > gz.OCR_GUVENLIK:
+                inc = sorted((t, "OCR güvenlik tavanı") for t, _ in ek[i:])
+                break
+            o = _ocr(ctx, [y for _, y in ek[i:i + 10]], ham=True)
+            okunan += [(t, o.get(y.name, [])) for t, y in ek[i:i + 10]]
     return {"sahne": sahne, "ham": sorted(okunan, key=lambda x: x[0]), "inc": inc, "sn": round(time.monotonic() - bas), "yogun": len(ek),
             "motor": ctx.get("ocr_motor") or "yok", "cihaz": ctx.get("ocr_cihaz") or "yok"}
 
@@ -1583,6 +1638,8 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     x.add_argument("--neden", help="iptal: M12 K3 — iptal nedeni (zorunlu)")
     x.add_argument("hedef", nargs="?", help="baslat/kuyruk: kuyruk.md (varsayılan docs/video-tarama/kuyruk.md) · devam/durum: parti-id")
     x.add_argument("--en-fazla", type=int, default=25, metavar="N", help="1b-2a KAPANIŞ: parti başına en fazla N video")
+    x.add_argument("--paralel", type=int, default=1, metavar="N", help="YT1 3: ikili yolda N video boru hattı (paketle → tara) eşzamanlı; 1 = art arda")
+    x.add_argument("--yalniz-paket", action="store_true", help="YT1 3: paketleme biter, tarama (model çağrısı) yapılmaz")
     g = x.add_mutually_exclusive_group()
     g.add_argument("--short", action="store_true")
     g.add_argument("--uzun", action="store_true")

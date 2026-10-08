@@ -242,9 +242,10 @@ def _hucre(s):
     return [x.strip() for x in s.strip().strip("|").split("|")]
 
 
-def kuyruk_parti(metin):
+def kuyruk_parti(metin, kapsiz=False):
     """24e-2 K6: bekleyen video satırları sıra 1'den; ilk satırın türü partiyi belirler (short <2 dk ≤8 · uzun ≤3),
-    notunda anılan ya da onu anan aynı türden bekleyen önce gelir. → (tür, [hücreler])"""
+    notunda anılan ya da onu anan aynı türden bekleyen önce gelir. → (tür, [hücreler])
+    YT1 3: kapsiz=True (ikili yol) → 3/8 sınırı yok, türden bağımsız tüm bekleyenler (tür ilk satırdan); sınırı çağıran --en-fazla koyar."""
     sira, bek = 9, []
     for s in metin.splitlines():
         if x := re.match(r"###\s+Sıra\s+(\d+)", s):
@@ -259,6 +260,8 @@ def kuyruk_parti(metin):
     ayni = [h for h in bek if (float(h[1]) < 2) == kisa]
     bag = [h for h in ayni[1:] if h[0] in ayni[0][3] or ayni[0][0] in h[3]]
     parti = list({h[0]: h for h in [ayni[0], *bag, *ayni]}.values())
+    if kapsiz:
+        return ("short" if kisa else "uzun"), list({h[0]: h for h in [*parti, *bek]}.values())
     return ("short", parti[:8]) if kisa else ("uzun", parti[:3])
 
 

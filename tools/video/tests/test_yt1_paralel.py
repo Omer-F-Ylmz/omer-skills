@@ -125,11 +125,11 @@ def test_dokuz_video_dort_is_parcacigi(tmp_path, monkeypatch):
         return 0
 
     def ozet_(ns, ctx):
-        _sahte_alt(ctx["kok"])(["ozet", "--", ns.id])
+        _sahte_alt(ctx["kok"])(["ozet", "--", ns.hedef[0]])
         return 0
     monkeypatch.setattr(cli, "paket", paket_)
     monkeypatch.setattr(cli, "ozet", ozet_)
-    kok, ctx, ns = _kur(tmp_path, monkeypatch, idler, cagir=_cagir_uyku(.03), paralel=4)
+    kok, ctx, ns = _kur(tmp_path, monkeypatch, idler, cagir=_cagir_uyku(.03), paralel=4, en_fazla=25)
     assert pt.parti(ns, ctx) == 0
     assert len(ctxler) == 9 and len({id(c) for c in ctxler}) == 9
     kayit = [json.loads(s) for s in (kok / "docs" / "video-tarama" / "kayit.jsonl").read_text(encoding="utf-8").splitlines()]

@@ -3,10 +3,13 @@ Durum .kos/<parti-id>/durum.json (her adımda atomik), defter .kos/<parti-id>/de
 import io
 import json
 import os
-from contextlib import redirect_stdout
+from contextlib import contextmanager, redirect_stdout
 import re
 import subprocess
+import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from importlib.util import find_spec
 from collections import Counter
 from datetime import date, datetime
@@ -24,6 +27,47 @@ IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci
 YENIDEN = {"bekliyor", "hata", "tavan", "yeniden"}
 GECICI, SON_TUR_SN = re.compile(r"boş yanıt|HTTP (429|5\d\d)\b|zaman aşımı|timed? ?out", re.I), 60  # MÜKEMMEL-8a: geçici hata A'ya gitmez, parti sonunda bir tur
 gecici = lambda h: bool(GECICI.search(h or ""))
+
+
+YAZ = threading.RLock()  # YT1 3: kayit.jsonl · defter.jsonl · durum.json yazımı ve d değişiklikleri; ponytail: tek global kilit; darboğaz olursa dosya başına kilit
+CAGIR = threading.Semaphore(6)  # YT1 3: eşzamanlı model çağrısı
+
+
+@contextmanager
+def asama(kimlik, ad):
+    """YT1 3: aşama zamanlaması stderr'e (paket.md'ye değil): [aşama] <id> <ad> başla <iso> · bitti <iso> <sn>."""
+    t0, an = time.monotonic(), lambda: datetime.now().isoformat(timespec="seconds")
+    print(f"[aşama] {kimlik} {ad} başla {an()}", file=sys.stderr, flush=True)
+    try:
+        yield
+    finally:
+        print(f"[aşama] {kimlik} {ad} bitti {an()} {time.monotonic() - t0:.1f}", file=sys.stderr, flush=True)
+
+
+class _Yon:
+    """YT1 3: sys.stdout vekili — _yakala() iş parçacığı başına yakalar (redirect_stdout süreç geneli)."""
+
+    def __init__(self, asil):
+        self.asil, self.yer = asil, threading.local()
+
+    def write(self, x):
+        return (b if (b := getattr(self.yer, "b", None)) is not None else self.asil).write(x)
+
+    def __getattr__(self, a):
+        return getattr(self.asil, a)
+
+
+@contextmanager
+def _yakala():
+    if not isinstance(y := sys.stdout, _Yon):
+        with redirect_stdout(io.StringIO()) as b:
+            yield b
+        return
+    y.yer.b = b = io.StringIO()
+    try:
+        yield b
+    finally:
+        y.yer.b = None
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
 YONLENDIRME = {"tarama": {"yontem": "ikili", "modeller": ["claude-sonnet-5-5", "claude-haiku-5-5"]}}  # 1b-2a KAPANIŞ: yeni parti tarama kurgu 2 (sonnet + haiku claude -p, birlestir) · geri alma: bu satır {} ya da durum.json'dan "yonlendirme" silinir
 # geri alma (V10): YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1
@@ -497,6 +541,11 @@ def _jev(env):
     return yargila
 
 
+def _kilitli_ekle(yol, s):
+    with YAZ:
+        tr.kayit_ekle(yol, [s])
+
+
 def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
     """M5: Sonnet formu geçtikten sonra ikinci göz; her hata notla biter, video düşmez."""
     if not ikinci or ikinci.get("kapali"):
@@ -507,7 +556,7 @@ def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
     luna = lambda butce: ikinci["luna"](SISTEM, _istem([v], {v: p}, {}, temizle), sema([v], iz=True), kareler=kareler, model=ig.LUNA, butce=butce, env=env)
     try:
         return ig.uygula(v, f, p, luna, ikinci["jev"], ikinci["yargic"], env, kalan, lambda x: dogrula({"videolar": [x]}, {v: p}, [v]).get(v),
-                         lambda s: tr.kayit_ekle(pdir / "defter.jsonl", [s]))
+                         lambda s: _kilitli_ekle(pdir / "defter.jsonl", s))
     except Exception as e:  # beklenmeyen hata: Sonnet sonucu aynen
         return f, {"not": [f"ikinci göz: hata ({e})"[:200] + " — Sonnet sonucu"]}
 
@@ -550,14 +599,23 @@ def _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model):
 
 def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
     """1b-2a KAPANIŞ: kurgu 2 — video başı her model için bir claude -p (≤2 çağrı, yeniden istek yok); iki form → birlestir (modeller[0] birincil),
-    tek kol hata → öbür kol tek başına + künye "tek kol: <model> <hata>", iki kol hata → o video formsuz (form_red yolu). Künye d["videolar"][v]["tarama"]["kunye"]."""
-    ys, fs = [], []
+    tek kol hata → öbür kol tek başına + künye "tek kol: <model> <hata>", iki kol hata → o video formsuz (form_red yolu). Künye d["videolar"][v]["tarama"]["kunye"].
+    YT1 3: iki kol eşzamanlı (2'li havuz, CAGIR kapısı); sonuçlar model listesi sırasıyla toplanır → birlestir(a, b) değişmez. Kol bütçesi video başına bir kez
+    hesaplanır (ilk kolun harcaması ikinciden düşülmez). İki kol da geçici hata (429/5xx/zaman aşımı) verdiyse video "gecici" → parti sonunda bir tur."""
+    ys, fs, gc = [], [], {}
     for v in kalan:
         kr = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+        istem = _istem([v], pk, hatalar, temizle)
+        with YAZ:
+            butce = min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys))
+
+        def kol(mdl, v=v, kr=kr, istem=istem, butce=butce):
+            with CAGIR, asama(v, "model"):
+                return cagir(SISTEM, istem, sema([v], iz=True), kareler=kr, model=mdl, butce=butce, env=env)
+        with ThreadPoolExecutor(len(modeller)) as ex:
+            yy = [f.result() for f in [ex.submit(kol, mdl) for mdl in modeller]]
         kolf, kun = [], []
-        for mdl in modeller:
-            y = cagir(SISTEM, _istem([v], pk, hatalar, temizle), sema([v], iz=True), kareler=kr, model=mdl,
-                      butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys)), env=env)
+        for mdl, y in zip(modeller, yy):
             ys.append(y)
             f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
             if y.get("hata") or f is None:
@@ -567,11 +625,14 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
                 kun.append(f"{mdl}: {y.get('model') or mdl} · {sum((y.get('usage') or {}).get(a, 0) for a in ('input_tokens', 'cache_read_input_tokens', 'cache_creation_input_tokens', 'output_tokens'))} tk")
         if kolf:
             fs.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])
-        d["videolar"][v]["tarama"]["kunye"] = " · ".join(kun)
+        elif any(gecici(y.get("hata")) for y in yy):
+            gc[v] = next(y["hata"] for y in yy if gecici(y.get("hata")))[:200]
+        with YAZ:
+            d["videolar"][v]["tarama"]["kunye"] = " · ".join(kun)
     us = [y.get("usd") for y in ys]
     return {"form": {"videolar": fs} if fs else None, "usage": _usage_topla(ys),
             "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": len(ys),
-            "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"), "model": "+".join(modeller)}
+            "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"), "model": "+".join(modeller), **({"gecici": gc} if gc else {})}
 
 
 def _istem(ids, pk, hatalar, temizle):
@@ -590,30 +651,43 @@ def _notlar(d, pk):
             *([pk["kare_not"]] if pk.get("kare_not") else []), *(["altyazı yok: kare-yalnız"] if pk.get("kare_yalniz") else [])]
 
 
-def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None, tur=0):
+def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None, tur=0, paralel=1, yalniz_paket=False):
+    """YT1 3: ikili yolda her video tek iş (paketle → tara → rapor), `paralel` iş eşzamanlı, aşama bariyeri yok. Diğer yollar (V10/A) eskisi gibi art arda:
+    önce tüm paketler, sonra gruplar. d / durum / defter / kayit yazımları ve d değişiklikleri tek global YAZ kilidi altında. yalniz_paket: tarama yok."""
     yol = pdir / "durum.json"
-    for v, s in d["videolar"].items():  # aşama 2: mevcut ozet/whisper/paket komutları (Jev 0: --istek-tavan 0)
+    ikili = ((d.get("yonlendirme") or {}).get("tarama") or {}).get("yontem") == "ikili"  # 1b-2a KAPANIŞ
+    dur = threading.Event()  # YT1 3: RAM yetersiz → başlamamış işler atlanır, parti durur
+    asil = sys.stdout
+    if not isinstance(asil, _Yon):  # redirect_stdout süreç geneli: paralelde iş parçacıkları birbirinin çıktısını yakalar → iş parçacığı başına vekil
+        sys.stdout = _Yon(asil)
+
+    def paketle(v, s):  # aşama 2: mevcut ozet/whisper/paket komutları (Jev 0: --istek-tavan 0)
         a = s["paket"]
-        if a["durum"] == "tamam" or a["deneme"] >= 3:
-            continue
-        a["deneme"] += 1
+        with YAZ:
+            if a["durum"] == "tamam" or a["deneme"] >= 3:
+                return
+            a["deneme"] += 1
         try:
-            yeniden = a.pop("yeniden", False)  # DERİNLİK-1 R4b: --paket-yeniden → ozet atlanır, paket R4 ile yeniden kurulur
-            ince = a.pop("incelenmedi", False)  # C4 ikinci geçiş
+            with YAZ:
+                yeniden = a.pop("yeniden", False)  # DERİNLİK-1 R4b: --paket-yeniden → ozet atlanır, paket R4 ile yeniden kurulur
+                ince = a.pop("incelenmedi", False)  # C4 ikinci geçiş
             if not yeniden and (onb / v / "paket.md").is_file() and (eksik := eksik_adim(onb / v)):  # MÜKEMMEL-5a: bayat paket → model 0 yeniden kurulum
-                tr.kayit_ekle(pdir / "defter.jsonl", [{"zaman": datetime.now().isoformat(timespec="seconds"), "adim": "paket_yenilendi", "video": v,
-                                                       "not": f"paket yenilendi (eksik: {', '.join(eksik)})"}])
+                with YAZ:
+                    tr.kayit_ekle(pdir / "defter.jsonl", [{"zaman": datetime.now().isoformat(timespec="seconds"), "adim": "paket_yenilendi", "video": v,
+                                                           "not": f"paket yenilendi (eksik: {', '.join(eksik)})"}])
                 yeniden = True
             if yeniden or not (onb / v / "paket.md").is_file():
                 if not yeniden:
                     alt(["ozet", "--", v])
                 mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
-                s["konusma"] = _konusma(onb / v, mt, alt)  # C1 (M8 K2 (i) ≤5 dk sınırı kalktı)
+                kons = _konusma(onb / v, mt, alt)  # C1 (M8 K2 (i) ≤5 dk sınırı kalktı)
+                with YAZ:
+                    s["konusma"] = kons
                 yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
                 n, neden = kare_sayisi(mt.get("duration") or 0, site_mu(f"{s.get('not', '')} {mt.get('title') or ''}"),
                                        (sg := onb / v / "segmentler.jsonl").is_file() and bool(tr.IPUCU.search(sg.read_text(encoding="utf-8"))))  # M2e K2 · DERİNLİK-1 R4
                 mk = model_kare(n, mt.get("duration") or 0)  # C4 · O11 (5): n aday tabanı, mk model tavanı
-                with redirect_stdout(io.StringIO()) as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
+                with _yakala() as b:  # M9 K3: alt komutun "hata:" iletisi sebep olur
                     rc = alt(["paket", "--kare", str(n), "--model-tavan", str(mk), "--istek-tavan", "0", *(["--kare-yalniz"] if yalniz else []), *(["--incelenmedi"] if ince else []),
                               *(["--kuyruk", kuyruk] if kuyruk else []), "--", v])  # B ek: bağlantılı video kuyruğa
                 print(b.getvalue(), end="")
@@ -622,91 +696,148 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
                 if not (onb / v / "paket.md").is_file():
                     from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
                     raise Hata(next((s[6:] for s in reversed(b.getvalue().splitlines()) if s.startswith("hata: ")), f"paket çıkış {rc}, paket.md yok"))
-            a.update(durum="tamam", cikti=(onb / v / "paket.md").as_posix())
-            if (yj := onb / v / "yorumlar.json").is_file():  # DERİNLİK-1 R4: Kapsam yorum alanı
-                s["yorum"] = json.loads(yj.read_text(encoding="utf-8"))["durum"]
-            if (kj := onb / v / "kapsam.json").is_file():  # C4: Kapsam izleme alanı
-                s["izleme"] = json.loads(kj.read_text(encoding="utf-8"))["izleme"]
+            with YAZ:
+                a.update(durum="tamam", cikti=(onb / v / "paket.md").as_posix())
+                if (yj := onb / v / "yorumlar.json").is_file():  # DERİNLİK-1 R4: Kapsam yorum alanı
+                    s["yorum"] = json.loads(yj.read_text(encoding="utf-8"))["durum"]
+                if (kj := onb / v / "kapsam.json").is_file():  # C4: Kapsam izleme alanı
+                    s["izleme"] = json.loads(kj.read_text(encoding="utf-8"))["izleme"]
         except (Exception, SystemExit) as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
-            a.update(durum="hata", hata=f"{type(e).__name__}: {f'çıkış {e.code}' if isinstance(e, SystemExit) else e}"[:200])
-        _yaz(yol, d)
-    bek = [v for v, s in d["videolar"].items()
-           if s["paket"]["durum"] == "tamam" and (s["tarama"]["durum"] == "yeniden" if tur else s["tarama"]["durum"] in YENIDEN) and s["tarama"]["deneme"] < 3]
-    pk = {v: paket_oku(onb / v / "paket.md") for v in bek}
-    kare_sigdir(pk, onb)
-    for v in pk:  # C4 (O10): girdi tavanı izleme'yi değiştirmiş olabilir
-        if (kj := onb / v / "kapsam.json").is_file():
-            d["videolar"][v]["izleme"] = json.loads(kj.read_text(encoding="utf-8"))["izleme"]
-    for g in gruplar(pk):  # aşama 3-4
-        for v in g:
-            d["videolar"][v]["tarama"]["deneme"] += 1
-        _yaz(yol, d)
+            with YAZ:
+                a.update(durum="hata", hata=f"{type(e).__name__}: {f'çıkış {e.code}' if isinstance(e, SystemExit) else e}"[:200])
+            if "RAM yetersiz" in str(e):
+                dur.set()
+        with YAZ:
+            _yaz(yol, d)
+
+    def bekleyen(vs):
+        with YAZ:
+            bek = [v for v in vs if (s := d["videolar"][v])["paket"]["durum"] == "tamam"
+                   and (s["tarama"]["durum"] == "yeniden" if tur else s["tarama"]["durum"] in YENIDEN) and s["tarama"]["deneme"] < 3]
+        pk = {v: paket_oku(onb / v / "paket.md") for v in bek}
+        kare_sigdir(pk, onb)
+        with YAZ:
+            for v in pk:  # C4 (O10): girdi tavanı izleme'yi değiştirmiş olabilir
+                if (kj := onb / v / "kapsam.json").is_file():
+                    d["videolar"][v]["izleme"] = json.loads(kj.read_text(encoding="utf-8"))["izleme"]
+        return bek, pk
+
+    def tara(g, pk, bek):  # aşama 3-4: tek grup; 3 → tavan, motor durur
+        with YAZ:
+            for v in g:
+                d["videolar"][v]["tarama"]["deneme"] += 1
+            _yaz(yol, d)
         kalan, hatalar, onceki = list(g), {}, 0.0
-        ikili = ((d.get("yonlendirme") or {}).get("tarama") or {}).get("yontem") == "ikili"  # 1b-2a KAPANIŞ
         for _ in range(1 if ikili else 3):  # ilk istek + en fazla 2 yeniden istek · ikili: yeniden istek yok (video ≤2 çağrı)
-            if _tavan(pdir, d):
-                for v in bek:
-                    if d["videolar"][v]["tarama"]["durum"] in YENIDEN and v in kalan and v in hatalar:  # M2e: formu geçmemiş video tavanda da form_red (sonra --kismi-kabul)
-                        d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
-                    elif d["videolar"][v]["tarama"]["durum"] in YENIDEN:
-                        d["videolar"][v]["tarama"]["durum"] = "tavan"
-                d["durum"] = "tavan"
-                _yaz(yol, d)
-                print(f"parti: tavan aşıldı ({d['tavan']['cagri']} çağrı / ${d['tavan']['usd']}), motor durdu")
-                return 3
-            if hatalar and d["tavan"]["usd"] - _defter(pdir)[1] < onceki:  # M5b K2: kalan $ son istekten (tahmin) az → yeniden istek yok, form_red
-                for v in kalan:
-                    d["videolar"][v]["tarama"].update(durum="form_red", hata=[BUTCE_YOK, *hatalar[v][:4]])
-                kalan = []
-                break
-            kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
-            c, model = (None, None) if ikili else yon.sec(d, "tarama", cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü · ikili: sağlayıcı yok
-            v10 = ((d.get("yonlendirme") or {}).get("tarama") or {}).get("yontem") == "V10"  # DERİNLİK-KAPANIŞ-1
-            try:
+            with YAZ:
+                if _tavan(pdir, d):  # ponytail: paralelde denetim çağrıdan önce; en çok `paralel` iş tavanı birer çağrı aşabilir
+                    for v in bek:
+                        if d["videolar"][v]["tarama"]["durum"] in YENIDEN and v in kalan and v in hatalar:  # M2e: formu geçmemiş video tavanda da form_red (sonra --kismi-kabul)
+                            d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
+                        elif d["videolar"][v]["tarama"]["durum"] in YENIDEN:
+                            d["videolar"][v]["tarama"]["durum"] = "tavan"
+                    d["durum"] = "tavan"
+                    _yaz(yol, d)
+                    print(f"parti: tavan aşıldı ({d['tavan']['cagri']} çağrı / ${d['tavan']['usd']}), motor durdu")
+                    return 3
+                if hatalar and d["tavan"]["usd"] - _defter(pdir)[1] < onceki:  # M5b K2: kalan $ son istekten (tahmin) az → yeniden istek yok, form_red
+                    for v in kalan:
+                        d["videolar"][v]["tarama"].update(durum="form_red", hata=[BUTCE_YOK, *hatalar[v][:4]])
+                    kalan = []
+                    break
+                kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+                c, model = (None, None) if ikili else yon.sec(d, "tarama", cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü · ikili: sağlayıcı yok
+                v10 = ((d.get("yonlendirme") or {}).get("tarama") or {}).get("yontem") == "V10"  # DERİNLİK-KAPANIŞ-1
+            try:  # model çağrısı kilitsiz: asıl bekleme burada
                 y = _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, d["yonlendirme"]["tarama"]["modeller"]) if ikili else \
                     _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model) if v10 else c(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=model,
                           butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1]), env=env)
             except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
             tv = y.get("tavan") or []  # DERİNLİK-KAPANIŞ-2: ön tahmini kalan $'ı aşan video tavanda kalır (YENIDEN)
-            hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, [v for v in kalan if v not in tv])
+            ig_ = {}
+            with YAZ:
+                hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, [v for v in kalan if v not in tv])
             for f in (y.get("form") or {}).get("videolar") or []:  # M2e K1: son form diskte (kısmi kabul çağrısız)
                 if isinstance(f, dict) and f.get("id") in kalan:
                     (pdir / "form").mkdir(exist_ok=True)
                     (pdir / "form" / f"{f['id']}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
             u = y.get("usage") or {}
-            tr.kayit_ekle(pdir / "defter.jsonl", [{
-                "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": y.get("model") or model,
-                "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
-                "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), **_maliyet(y), "kare": len(kareler), **{x: y[x] for x in ("cagri", "geri_donus", "gecici") if y.get(x) is not None},
-                "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])
-            onceki = y.get("usd") or 0.0
-            for v in tv:
-                d["videolar"][v]["tarama"]["durum"] = "tavan"
-            for v, h in (y.get("gecici") or {}).items():  # MÜKEMMEL-8a
-                d["videolar"][v]["tarama"].update(durum="yeniden", hata=h)
-            kalan = [v for v in kalan if v not in tv and v not in (y.get("gecici") or {})]
-            if y.get("hata"):
-                for v in kalan:  # M5b K2: bütçe hatası "hata" değil form_red (yeniden başlatılabilir)
-                    d["videolar"][v]["tarama"].update(**({"durum": "form_red", "hata": [BUTCE_YOK, y["hata"][:200]]} if "max_budget" in y["hata"]
-                                                         else {"durum": "hata", "hata": y["hata"][:200]}))
-                kalan = []
-                break
-            for v in kalan:
-                if v not in hatalar:
-                    f, e = _ikinci(pdir, d, v, next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], temizle, env, ikinci)
+            with YAZ:
+                tr.kayit_ekle(pdir / "defter.jsonl", [{
+                    "zaman": datetime.now().isoformat(timespec="seconds"), "adim": "tarama", "videolar": kalan, "model": y.get("model") or model,
+                    "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0), "onb_yazma": u.get("cache_creation_input_tokens", 0),
+                    "cikti": u.get("output_tokens", 0), "sure": y.get("sure"), **_maliyet(y), "kare": len(kareler), **{x: y[x] for x in ("cagri", "geri_donus", "gecici") if y.get(x) is not None},
+                    "form": f"hata: {y['hata']}" if y.get("hata") else f"red {len(hatalar)}/{len(kalan)}" if hatalar else "gecti"}])
+                onceki = y.get("usd") or 0.0
+                for v in tv:
+                    d["videolar"][v]["tarama"]["durum"] = "tavan"
+                for v, h in (y.get("gecici") or {}).items():  # MÜKEMMEL-8a
+                    d["videolar"][v]["tarama"].update(durum="yeniden", hata=h)
+                kalan = [v for v in kalan if v not in tv and v not in (y.get("gecici") or {})]
+                if y.get("hata"):
+                    for v in kalan:  # M5b K2: bütçe hatası "hata" değil form_red (yeniden başlatılabilir)
+                        d["videolar"][v]["tarama"].update(**({"durum": "form_red", "hata": [BUTCE_YOK, y["hata"][:200]]} if "max_budget" in y["hata"]
+                                                             else {"durum": "hata", "hata": y["hata"][:200]}))
+                    kalan = []
+                    break
+                gecen = [v for v in kalan if v not in hatalar]
+            for v in gecen:  # ikinci göz ağ çağrısı yapabilir: kilitsiz
+                ig_[v] = _ikinci(pdir, d, v, next(f for f in y["form"]["videolar"] if f.get("id") == v), pk[v], temizle, env, ikinci)
+            with YAZ:
+                for v, (f, e) in ig_.items():
                     _rapor_yaz(d, v, f, pk[v], tdir, ikinci=e, durum="tamam", usage=u, grup=len(kalan), hata=None, **({"ikinci_goz": ig.ozet(e)} if e else {}))
-            kalan = [v for v in kalan if v in hatalar]
-            _yaz(yol, d)
+                kalan = [v for v in kalan if v in hatalar]
+                _yaz(yol, d)
             if not kalan:
                 break
-        for v in kalan:  # M2e K1: 2 yeniden istekten sonra kısmi kabul; son form yoksa form_red
-            if not _kismi_kabul(pdir, d, v, pk[v], tdir):
-                d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
+        with YAZ:
+            for v in kalan:  # M2e K1: 2 yeniden istekten sonra kısmi kabul; son form yoksa form_red
+                if not _kismi_kabul(pdir, d, v, pk[v], tdir):
+                    d["videolar"][v]["tarama"].update(durum="form_red", hata=hatalar[v][:5])
+            _yaz(yol, d)
+        return 0
+
+    def is_(v):  # YT1 3: ikili iş = bir videonun paketle → tara hattı
+        if dur.is_set():
+            return 0
+        paketle(v, d["videolar"][v])
+        if yalniz_paket or dur.is_set():
+            return 0
+        bek, pk = bekleyen([v])
+        return next((rc for g in gruplar(pk) if (rc := tara(g, pk, bek)) == 3), 0)
+
+    try:
+        if ikili:
+            ex = ThreadPoolExecutor(max(1, paralel))
+            try:
+                if 3 in [f.result() for f in [ex.submit(is_, v) for v in list(d["videolar"])]]:
+                    return 3
+            finally:
+                ex.shutdown(cancel_futures=True)  # kesinti / tavan: bekleyen işler başlamaz
+        else:
+            for v, s in d["videolar"].items():
+                paketle(v, s)
+            if not yalniz_paket:
+                bek, pk = bekleyen(list(d["videolar"]))
+                for g in gruplar(pk):  # aşama 3-4
+                    if tara(g, pk, bek) == 3:
+                        return 3
+    finally:
+        if isinstance(sys.stdout, _Yon) and sys.stdout is not asil:
+            sys.stdout = asil
+    if dur.is_set():
+        d["durum"] = "yarim"
         _yaz(yol, d)
+        print("parti: DUR — RAM yetersiz (10 ardışık düşük ölçüm); başlamamış videolar bekliyor, boşalınca `devam`")
+        return 6
     if not tur and any(s["tarama"]["durum"] == "yeniden" for s in d["videolar"].values()):  # MÜKEMMEL-8a: parti sonu, ≥60 s sonra bir tur daha
         BEKLE(SON_TUR_SN)
-        return _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci, kuyruk, tur=1)
+        return _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci, kuyruk, tur=1, paralel=paralel, yalniz_paket=yalniz_paket)
+    if tur and ikili:  # YT1 3: ikinci turdan sonra hâlâ geçici hata → o video hata, diğerleri tamam
+        for s in d["videolar"].values():
+            if s["tarama"]["durum"] == "yeniden":
+                s["tarama"]["durum"] = "hata"
     d["durum"] = "tamam" if all(s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red") for s in d["videolar"].values()) else "yarim"
     _yaz(yol, d)
     return 0
@@ -754,6 +885,10 @@ def _acik(kok):
     return acik
 
 
+def _ikili_mi(ns):
+    return not getattr(ns, "a_yolu", False) and ((YONLENDIRME or {}).get("tarama") or {}).get("yontem") == "ikili"
+
+
 def parti(ns, ctx):
     from . import cli, uygula as uy  # döngüsel içe aktarma yok: yalnız varsayılanlar için
     kok = Path(ctx["env"].get("VIDEO_UYGULA_KOK") or uy.KOK)
@@ -783,7 +918,7 @@ def parti(ns, ctx):
     if ns.eylem in ("baslat", "kuyruk") and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk · KÜÇÜK-1 K3: baslat da
         ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
     if ns.eylem in ("baslat", "kuyruk"):
-        tur, satirlar = tr.kuyruk_parti(Path(ns.hedef).read_bytes().decode("utf-8"))
+        tur, satirlar = tr.kuyruk_parti(Path(ns.hedef).read_bytes().decode("utf-8"), kapsiz=_ikili_mi(ns))  # YT1 3: ikili yolda 3/8 sınırı yok, --en-fazla geçerli
         if not satirlar:
             print("parti: kuyrukta bekleyen video yok")
             return 1
@@ -868,8 +1003,9 @@ def parti(ns, ctx):
     luna = ctx.get("luna") or (ig.or_cagir(ig.LUNA, ctx["env"]) if ctx["env"].get("OPENROUTER_API_KEY") else None)
     d["ikinci_goz_kapali"] = "--ikinci-goz yok" if d["ikinci_goz"] == "yok" else None if luna else "OPENROUTER_API_KEY yok"
     ikinci = {"kapali": d["ikinci_goz_kapali"], "luna": luna, "jev": ctx.get("jev") or _jev(ctx["env"]), "yargic": ctx.get("cagir") or hafif.cagir}
+    n_par = max(1, getattr(ns, "paralel", 1) or 1)
     kos = lambda: _kos(pdir, d, Path(ctx["kok"]), Path(tdir), alt, temizle, ctx.get("cagir") or hafif.cagir, ctx["env"], ikinci,
-                       d.get("kuyruk"))  # MÜKEMMEL-7c U10: bağlantılı video partiye verilen kuyruğa
+                       d.get("kuyruk"), paralel=n_par, yalniz_paket=getattr(ns, "yalniz_paket", False))  # MÜKEMMEL-7c U10: bağlantılı video partiye verilen kuyruğa
     rota = (d.get("yonlendirme") or {}).get("tarama") or {}
     if getattr(ns, "a_yolu", False):  # O78: A taşıyıcısı yalnız açık bayrakla
         d.pop("yonlendirme", None)
@@ -878,7 +1014,11 @@ def parti(ns, ctx):
             and not (h := _omni_baslat(rota.get("model"), ctx["env"], h, pdir))):
         print(f"DUR: OmniRoute/anahtar yok ({h})")  # O78: sessiz A düşüşü yok, çağrı 0
         return 4
-    rc = kos()
+    cli.INDIR_ARA = (5, 15) if n_par > 1 else None  # YT1 3: indirme başlangıçları arası rastgele boşluk yalnız paralelde
+    try:
+        rc = kos()
+    finally:
+        cli.INDIR_ARA = None
     if ns.eylem == "kuyruk" and rc == 0:  # M2d K4: form_red bir kez yeniden → akil → panelde dur
         red = [s for s in d["videolar"].values() if s["tarama"]["durum"] == "form_red"]
         for s in red:
