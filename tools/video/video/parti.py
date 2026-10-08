@@ -56,7 +56,12 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "araç olarak kullanılan her servis ya da site, her skill/eklenti; ad ekranda göründüğü gibi yazılır. "
           "site_ui: kurulan sayfada görünen her arayüz, animasyon ya da yerleşim tekniği ayrı satırdır; Türkçe ad ve ardından parantez içinde yaygın İngilizce terim yazılır. "
           "Bağlantı aday_mi: referans ya da ilham sayfası (portfolyo, pin, galeri, demo site) aday_mi false; yalnız izleyicinin kullanabileceği araç ya da servis bağlantısı true. "
-          "Kare gönderildiyse karede_gorulen her zaman doldurulur.")
+          "Kare gönderildiyse karede_gorulen her zaman doldurulur. "
+          # 1b-2a DEVAM-3: genel kurallar
+          "Adaylar.ad kısa kanonik addır (en çok 4 kelime, ekranda göründüğü gibi yazılır); açıklama ayrı alanına yazılır. "
+          "Yalnız bir menüde ya da listede görünen, videoda kullanılmayan öğeler Adaylar'a değil Belirsizlikler'e yazılır. "
+          "Görsel efekt ve etkileşim tarifleri Site/UI'ye yazılır; Adaylar'a teknik yalnız özel adı varsa girer. "
+          "Sohbet arayüzüne yazılan /slash komutlar Kurulum/komutlar'a yazılır.")
 YOKLA = yon.omni_yokla  # O78: devam öncesi OmniRoute ön kontrolü (testte conftest None)
 BASLAT = lambda: subprocess.Popen("omniroute serve --no-open --daemon", shell=True,  # MÜKEMMEL-2c: pencere açılmaz
                                   creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
