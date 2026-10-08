@@ -27,7 +27,7 @@ def test_ocr_degisim_esigi_ve_metinsiz_kare():
 
 
 def test_ekran_metni_butcesi_sureye_bagli():
-    assert g.butce(5 * 60) == 1500 and g.butce(15 * 60) == 3000 and g.butce(40 * 60) == 5000
+    assert g.butce(5 * 60) == 1500 and g.butce(15 * 60) == 4500  # 1b-1S S1: dk×300 and g.butce(40 * 60) == 5000
 
 
 def test_model_karesi_yeni_terim_sonra_isaret_taban_min6():
