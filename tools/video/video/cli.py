@@ -341,11 +341,13 @@ def _kat(s):
     return s.translate(KATLA).lower()
 
 
-def _ocr_gurultu(s):
-    """C3 düzeltme: anlamlı kelime yok (≥5 harf ya da OCR_YAYGIN) ya da anlamsız oranı > 1 - OCR_GUVEN → pakete yazılmaz; komut/URL ve kod
-    satırı korunur. ponytail: sözlük yok; kısa gerçek satır ("Save", "kith add") ayırt edilemez, yaygın listesi ayarda."""
-    if KOMUT.search(s) or KOD.search(s):
+def _ocr_gurultu(s, sozluk=()):
+    """C3 düzeltme: anlamlı kelime yok (≥5 harf ya da OCR_YAYGIN) ya da anlamsız oranı > 1 - OCR_GUVEN → pakete yazılmaz; komut/URL, kod,
+    1b-1S S2: sözlük adı içeren satır korunur; [A-Z]{3,5} kısaltmalar (BSDF — anlamsiz_oran sesli harfsizi sayar) çıkarılıp kalan
+    metin sınanır, kalan boşsa eski kural. ponytail: kısa gerçek satır ("Save", "kith add") ayırt edilemez, yaygın listesi ayarda."""
+    if KOMUT.search(s) or KOD.search(s) or gz.sozlukte(s, sozluk):
         return False
+    s = re.sub(r"\b[A-Z]{3,5}\b", " ", s).strip() or s
     return not any(len(w) >= 5 or _kat(w) in OCR_YAYGIN for w in re.findall(r"[^\W\d_]+", s)) or m.anlamsiz_oran(s) > 1 - OCR_GUVEN
 
 
@@ -469,7 +471,7 @@ def paket(ns, ctx):
     ocr, sz = {}, gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt")  # 1b-1 M5: altın-hariç ad sözlüğü
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     try:
-        kareler, kare_yok = (_goz(ctx, d, meta.get("duration") or 0, taban, isaret, ns.model_tavan or (min(gz.MODEL_UST, ns.kare) if 0 < (meta.get("duration") or 0) < SHORT_SN else gz.MODEL_UST), ocr)
+        kareler, kare_yok = (_goz(ctx, d, meta.get("duration") or 0, taban, isaret, ns.model_tavan or (min(gz.MODEL_UST, ns.kare) if 0 < (meta.get("duration") or 0) < SHORT_SN else gz.MODEL_UST), ocr, gz.sozluk_adlari(sz))
                              if ctx.get("rapid") and not ns.incelenmedi  # 1b-1 M2; ponytail: _kareler yolu yalnız rapid'siz (test sahteleri), eski paket testleri yeni hatta taşınınca silinir
                              else _kareler(ctx, d, [*isaret, *zamanlar], 0, 0, ns.model_tavan or ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
                              if zamanlar else []), None
@@ -699,7 +701,7 @@ def _video_indir(ctx, d):
     return v
 
 
-def _goz(ctx, d, sure, altyazi, isaret, n, ocr):
+def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     """1b-1 M2: aşama 1 fps 1 (≥10 dk 0.5) 160 px gri dHash → sahne; aşama 2 sahnenin yerel çözünürlükteki karesi → OCR (≤tavan, ≤OCR_GUVENLIK),
     okunan tüm metin pakete (1b-1R R2; değişim ≥0.15 yalnız model karesi seçiminde). Modele ayrı m*.jpg: ≤n kare 768/28 (yeni ad/URL önce, sonra işaret). ocr dict yerinde dolar.
     1b-1R R1: <id>/goz/ önbelleği — ocr.json süzülmemiş ham OCR (kare t · [metin, skor, y]); anahtar aynıysa video inmez, OCR koşmaz.
@@ -715,8 +717,8 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr):
         oj.write_text(json.dumps(on, ensure_ascii=False), encoding="utf-8")
     ctx["ocr_motor"] = on["motor"]
     ctx["ocr_cihaz"] = on.get("cihaz", "yok")
-    okunan = [(t, [x for x in gz.ocr_satirlar(r) if not _ocr_gurultu(x)]) for t, r in on["ham"]]
-    ocr["gurultu_satir"] = [(t, x) for t, r in on["ham"] for x in gz.ocr_satirlar(r) if _ocr_gurultu(x)]
+    okunan = [(t, [x for x in gz.ocr_satirlar(r) if not _ocr_gurultu(x, sozluk)]) for t, r in on["ham"]]
+    ocr["gurultu_satir"] = [(t, x) for t, r in on["ham"] for x in gz.ocr_satirlar(r) if _ocr_gurultu(x, sozluk)]
     inc = [tuple(x) for x in on["inc"]]
     kareler = []
     for t in gz.model_sec([*gz.ocr_sec(okunan), *((t, []) for t, _ in inc)], altyazi, isaret, n):
