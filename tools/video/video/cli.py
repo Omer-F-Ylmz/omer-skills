@@ -19,6 +19,7 @@ from jev import skill as sk
 
 from . import altin as au
 from . import goz as gz
+from . import instagram as ig
 from . import departman as dp
 from . import getir as gt
 from . import kanal as kn
@@ -95,7 +96,16 @@ class HizHata(Hata):
 
 def yt_url(vid):
     """yt-dlp'ye kimlik hiç çıplak verilmez: tireli kimlik (-_S3KD0ZIfI) seçenek sanılır."""
+    if vid.startswith("ig-"):  # VİDEO-PLATFORM-1
+        return f"https://www.instagram.com/p/{vid[3:]}/"
     return vid if vid.startswith(("http://", "https://")) else f"https://www.youtube.com/watch?v={vid}"
+
+
+def _ig_getir(d):
+    try:
+        return ig.getir(d)
+    except ig.IgHata as e:
+        raise Hata(str(e)) from None
 
 
 def _kos(ctx, args, timeout):
@@ -145,6 +155,8 @@ def _meta(ctx, d):
     yol = d / "meta.json"
     if yol.is_file():
         return json.loads(yol.read_text(encoding="utf-8"))
+    if d.name.startswith("ig-"):  # VİDEO-PLATFORM-1: embed sayfası + medya (yt-dlp yok)
+        return _ig_getir(d)
     j = json.loads(_yt(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", yt_url(d.name)], SURE["meta"], d))
     alan = ("id", "title", "language", "channel", "channel_id", "channel_url", "duration", "chapters", "description", "subtitles", "automatic_captions")
     meta = {k: j.get(k) for k in alan}
@@ -169,6 +181,9 @@ def _ozet_bir(ctx, v, dil):
         return 0, _ozet_satir(d, meta, _oku(d), "önbellek")
     meta = _meta(ctx, d)
     (d / "linkler.json").write_text(json.dumps(m.urller(meta.get("description")), ensure_ascii=False), encoding="utf-8")
+    if meta.get("platform") == "instagram":  # altyazı yok; reel konuşması paket'te Groq'tan
+        _yaz(d, [])
+        return 0, _ozet_satir(d, meta, [], "instagram")
     secim = m.dil_sec(meta, dil)
     if not secim:
         return 3, [f"{v} · {(meta.get('title') or '?')[:80]}", f"altyazı yok → `video --whisper {v}` (CPU, açık bayrakla)"]
@@ -437,6 +452,9 @@ def _yorumlar(ctx, d):
     """DERİNLİK-1 R4 · 1b-1 M4: en çok 60 top yorum (kanal sahibi yanıtları dahil, indirme yok) → yorumlar.json ham {text, pinned, sahip};
     bağlantılar yalnız sabit/sahip yorumlarından. → (bağlantılar, kapsam durumu)"""
     yol = d / "yorumlar.json"
+    if d.name.startswith("ig-"):  # VİDEO-PLATFORM-1: IG yorumu girişsiz alınamıyor; istek yok
+        yol.write_text(json.dumps({"durum": "yorum: girişsiz alınamıyor", "ham": []}, ensure_ascii=False), encoding="utf-8")
+        return [], "yorum: girişsiz alınamıyor"
     j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
     if j.get("durum") != "✓" or "ham" not in j:  # M4: eski biçim (yalnız sabit/sahip metni) yeniden çekilir
         ctx["uyku"](2)  # meta isteğinin ardından beklemesiz istek yok
@@ -478,10 +496,14 @@ def paket(ns, ctx):
     d = ctx["kok"] / ns.id
     seg, _, istek, _ = _suz(ctx, d, ["ekran"], ns.istek_tavan) if ns.istek_tavan != 0 else (_oku(d) if (d / "segmentler.jsonl").is_file() else [], None, 0, None)  # M2a: tavan 0 → Jev yok, kareler segment sırasıyla
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
+    igm = meta.get("platform") == "instagram"  # VİDEO-PLATFORM-1: reel → Groq + göz; görsel gönderi → görsel OCR
+    ns.kare_yalniz = ns.kare_yalniz and not igm  # parti altyazısız IG'ye kare-yalnız der; reel konuşması Groq'tan gelir
+    if igm and meta.get("goz_not"):
+        ctx["goz_not"] = meta["goz_not"]
     dil = m.dil_sec(meta)
     ns.kare = kare_tavan(meta.get("duration") or 0, ns.kare, " ".join(str(s.get("metin")) for s in seg))
     tur = {"elle": "manual", "oto": "auto"}.get(dil[1], "auto") if dil and seg else "yok"  # 1b-1 M3: künyede altyazı türü
-    if ns.asr == "groq" and tur != "manual" and not ns.kare_yalniz:  # 1b-1 M3: manuel yoksa Groq (önbellek groq.txt)
+    if (ns.asr == "groq" or igm and meta.get("video")) and tur != "manual" and not ns.kare_yalniz:  # karar 4: IG reel'de auto = Groq  # 1b-1 M3: manuel yoksa Groq (önbellek groq.txt)
         with asama(ns.id, "asr"):
             g_seg, kaynak = _asr(ctx, d, meta.get("duration") or 0, (dil[0] if dil else "en")[:2],
                                  gz.groq_prompt(gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt"), meta.get("description") or ""))
@@ -509,9 +531,12 @@ def paket(ns, ctx):
         isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
     ocr, sz = {}, gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt")  # 1b-1 M5: altın-hariç ad sözlüğü
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
+    if gozsuz := igm and not meta.get("video"):  # görsel gönderi ya da videosuz reel: göz yok, görseller sırayla OCR
+        go = _ocr(ctx, [d / g for g in meta.get("gorseller") or []]) if meta.get("gorseller") else {}
+        ocr["ocr_kare"], zamanlar = len(go), []
     try:
         kareler, kare_yok = (_goz(ctx, d, meta.get("duration") or 0, taban, isaret, ns.model_tavan or (min(gz.MODEL_UST, ns.kare) if 0 < (meta.get("duration") or 0) < SHORT_SN else gz.MODEL_UST), ocr, gz.sozluk_adlari(sz))
-                             if ctx.get("rapid") and not ns.incelenmedi  # 1b-1 M2; ponytail: _kareler yolu yalnız rapid'siz (test sahteleri), eski paket testleri yeni hatta taşınınca silinir
+                             if ctx.get("rapid") and not ns.incelenmedi and not gozsuz  # 1b-1 M2; ponytail: _kareler yolu yalnız rapid'siz (test sahteleri), eski paket testleri yeni hatta taşınınca silinir
                              else _kareler(ctx, d, [*isaret, *zamanlar], 0, 0, ns.model_tavan or ns.kare, not ns.incelenmedi, isaret, meta.get("duration") or 0, ocr, taban)
                              if zamanlar else []), None
     except Hata as e:  # M9 K2: taze adresle de kare yok → paket düşmez; altyazı + açıklama + bağlantılar kalır
@@ -525,14 +550,17 @@ def paket(ns, ctx):
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     yham = json.loads((d / "yorumlar.json").read_text(encoding="utf-8")).get("ham", []) if (d / "yorumlar.json").is_file() else []
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
-          f" · https://youtu.be/{ns.id} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}{f' · {n}' if (n := ctx.get('goz_not')) else ''}",
+          f" · {meta.get('url') or f'https://youtu.be/{ns.id}'} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}{f' · {n}' if (n := ctx.get('goz_not')) else ''}"
+          f"{f' · platform: instagram · tür: {meta.get("ig_tur")} · yorum: girişsiz alınamıyor' if igm else ''}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Açıklama", *ac] if (ac := gz.aciklama_duz(meta.get("description"))) else []),  # DEVAM-1: düz metin, URL/chapter satırsız, ≤600 tk
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
           "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
           *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join([*(m.sadelestir(s["metin"]) for s in seg), *(str(c_.get("title")) for c_ in meta.get("chapters") or []), *lk]), gz.sozluk_adlari(sz), gz.butce(meta.get("duration") or 0))]
-                                                or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
+                                                or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),
+          *(["## Görsel metni (OCR)", *[x for i, g in enumerate(meta["gorseller"], 1) for x in (f"### görsel {i}", *(go.get(g) or ["(metin yok)"]))]]
+            if igm and meta.get("gorseller") else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
           *(["## Ekranda/konuşmada URL'ler", *[f"{u} · {k} · {m.ss(t)}" for u, k, t in uu]] if (uu := gz.urller_bul(  # 1b-1 M4
               [*(("ekran", t, x) for t, s in ocr.get("metin", []) for x in s), *(("ses", s["bas"], str(s.get("metin"))) for s in seg)])) else []),
           *(["## Yorumlar", *yr] if (yr := gz.yorum_sec(yham, gz.sozluk_adlari(sz))) else []),  # 1b-1 M4: ≤800 tk
@@ -734,7 +762,10 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
 def _video_indir(ctx, d):
     """1b-1 M2: ≤1080p video-only akış bir kez <id>/goz-video.<ext>; ffmpeg yerelde çalışır, paket sonunda silinir.
     YT1 3: RAM kapısı · INDIR (≤2 eşzamanlı) · INDIR_ARA varsa başlangıçlar arası rastgele boşluk."""
-    if not (v := next(d.glob("goz-video.*"), None)):
+    if not (v := next(d.glob("goz-video.*"), None)) and d.name.startswith("ig-"):  # VİDEO-PLATFORM-1: imzalı adres süreli → sayfa yeniden, video getir'den
+        _ig_getir(d)
+        v = next(d.glob("goz-video.*"), None)
+    if not v:
         _ram_kapi(ctx)
         with INDIR:
             if INDIR_ARA:
@@ -1399,8 +1430,9 @@ def _asr(ctx, d, sure, dil, prompt):
         return [(float(a), b) for s in yol.read_text(encoding="utf-8").splitlines() if s for a, _, b in [s.partition("\t")]], "groq"
     ses = d / "ses16k.flac"
     if not ses.is_file():
-        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "ba/b", "-o", str(d / "ses.%(ext)s"), yt_url(d.name)], SURE["ses"])
-        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(next(d.glob("ses.*"))), "-ac", "1", "-ar", "16000", "-c:a", "flac", str(ses)], SURE["ses"])
+        if not d.name.startswith("ig-"):  # VİDEO-PLATFORM-1: IG sesi getir'in indirdiği videodan
+            _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "ba/b", "-o", str(d / "ses.%(ext)s"), yt_url(d.name)], SURE["ses"])
+        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(_video_indir(ctx, d) if d.name.startswith("ig-") else next(d.glob("ses.*"))), "-ac", "1", "-ar", "16000", "-c:a", "flac", str(ses)], SURE["ses"])
     try:
         parca = []
         for bas, uz in gz.parca_plani(sure, ses.stat().st_size):

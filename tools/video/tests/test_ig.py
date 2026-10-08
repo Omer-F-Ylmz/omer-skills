@@ -284,3 +284,40 @@ def test_youtube_rapor_bayt_esdeger():
     assert pk["url"] == "https://youtu.be/d_UE-wHLoZY"
     f = _F(ozet="ö", bolumler=[], iz=None)
     assert pt.rapor_md(f, pk, []) == pt.rapor_md(f, {**pk, "url": None}, [])  # url'siz = eski biçim (sabit youtu.be)
+
+
+# --- kuyruk / parti (taklitli: ağ, yt-dlp, model yok)
+def _parti_kur(monkeypatch, tmp_path, html, url):
+    from test_m2a import Sahte, _ctx
+    cagri = {"asr": 0, "goz": 0, "alt": []}
+    _sahte_al(monkeypatch, (200, "u", html))
+    monkeypatch.setattr(ig, "_indir", lambda u, yol: yol.write_bytes(b"\xff\xd8sahte"))
+    monkeypatch.setattr(cli, "_asr", lambda *a: cagri.update(asr=cagri["asr"] + 1) or ([(0.0, "merhaba bu bir reel konuşması aracı anlatıyor")], "groq"))
+    monkeypatch.setattr(cli, "_goz", lambda *a, **k: cagri.update(goz=cagri["goz"] + 1) or [])
+    monkeypatch.setattr(cli, "_MOTOR", [None])
+    o, env = _Ocr(), _ortam(tmp_path)
+    (tmp_path / "kuyruk.md").write_text(f"### Sıra 1\n| id | dk | başlık | not | durum |\n|---|---|---|---|---|\n| {url} | 1.1 | t | - | bekliyor |\n", encoding="utf-8")
+    ctx = {**_ctx(tmp_path, Sahte()), "kok": Path(env["VIDEO_CACHE"]),
+           "alt": lambda a: cagri["alt"].append(a) or (main(a, env=env, kos=_kos, uyku=lambda s: None, al=_al, ocr=lambda: o.motor) if a[0] in ("ozet", "paket") else 0)}
+    return cagri, o, ctx
+
+
+@pytest.mark.parametrize("url,vid,asr,goz,ocr", [("https://www.instagram.com/reel/DdUf3qJOvTO/?igsh=abc", "ig-DdUf3qJOvTO", 1, 1, 0),
+                                                 ("https://www.instagram.com/p/DeL7DvgFLRM/", "ig-DeL7DvgFLRM", 0, 0, 6)])
+def test_parti_kuyruk_ig(monkeypatch, tmp_path, url, vid, asr, goz, ocr):
+    from test_m2a import _ns, _pid
+    cagri, o, ctx = _parti_kur(monkeypatch, tmp_path, REEL if "reel" in url else CAR, url)
+    assert pt.parti(_ns("baslat", tmp_path / "kuyruk.md"), ctx) == 0
+    assert {a[0] for a in cagri["alt"]} >= {"ozet", "paket"} and all(a[-1] == vid for a in cagri["alt"] if a[0] in ("ozet", "paket"))
+    assert (cagri["asr"], cagri["goz"], len(o.yollar)) == (asr, goz, ocr)
+    d = json.loads((tmp_path / ".kos" / _pid(tmp_path) / "durum.json").read_text(encoding="utf-8"))
+    assert d["videolar"][vid]["paket"]["durum"] == "tamam" and d["videolar"][vid]["tarama"]["durum"] == "tamam"
+    rapor = Path(d["videolar"][vid]["tarama"]["cikti"]).read_text(encoding="utf-8")
+    assert f"https://www.instagram.com/{'reel' if asr else 'p'}/{vid[3:]}/" in rapor.split("## Özet")[0] and "youtu.be" not in rapor
+
+
+def test_parti_link_ig(monkeypatch, tmp_path):
+    from test_m2a import _ns
+    cagri, _, ctx = _parti_kur(monkeypatch, tmp_path, REEL, "x")
+    assert pt.parti(_ns("link", "https://www.instagram.com/reels/DdUf3qJOvTO/"), ctx) == 0
+    assert cagri["alt"][0] == ["ozet", "--", "ig-DdUf3qJOvTO"]

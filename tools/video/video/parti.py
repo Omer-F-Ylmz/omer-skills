@@ -284,7 +284,8 @@ def paket_oku(yol):
     sure = int(x[1]) if (x := re.search(r"· sure_sn (\d+)", metin)) else m.sn(re.search(r"· süre (\S+)", metin)[1])
     dil = re.search(r"· dil (\S+)", metin)
     satir = lambda b: [s.strip() for s in tr.bolum(metin, b).splitlines() if s.strip() and s.strip() != "yok" and not s.startswith("kare yok: ")]
-    return {"kare_not": next((s for s in metin.splitlines() if s.startswith("kare yok: ")), None), "id": bas[0], "baslik": bas[1], "kanal": bas[2], "sure": sure, "dil": dil[1] if dil else "?", "metin": metin,
+    url = re.search(r" · (https?://\S+) · altyazı ", metin.splitlines()[0])  # VİDEO-PLATFORM-1: künye adresi (eski paket: yok → youtu.be)
+    return {"kare_not": next((s for s in metin.splitlines() if s.startswith("kare yok: ")), None), "id": bas[0], "url": url[1] if url else None, "baslik": bas[1], "kanal": bas[2], "sure": sure, "dil": dil[1] if dil else "?", "metin": metin,
             "short": x[1] == "true" if (x := re.search(r"· short: (true|false)", metin)) else tr.short_mu(sure),
             "kare_yalniz": "altyazı yok: kare-yalnız" in metin, "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")],
             "kare_zaman": [_ks(s.split(" · ")[1]) if " · " in s else None for s in satir("Kareler")]}  # ölçüm betikleri (olcum_m4/m4b)
@@ -312,7 +313,7 @@ def _sinif(b):
 
 def rapor_md(f, pk, notlar):
     """Mevcut rapor biçimi (docs/video-tarama/*.md) koddan; prompt'lar Adaylar'a `prompt` satırı olarak girer."""
-    L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · https://youtu.be/{pk['id']}" + (" · şema 2" if f.get("iz") is not None else ""),
+    L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · {pk.get('url') or f'https://youtu.be/{pk["id"]}'}" + (" · şema 2" if f.get("iz") is not None else ""),
          *notlar, "## Özet", _h(f["ozet"]), "## Bölümler", *([f"- {_h(b['zaman'])} {_h(b['baslik'])}" for b in f["bolumler"]] or ["- yok"]),
          "## Adaylar", "| ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |", "|---|---|---|---|---|---|---|",
          *[f"| {_h(a['ad'])} | yok | {a['tur']} | {_h(a['repo_url'] or 'yok')} | {_h(a['ne'])} | {_h(a['kanit_zamani'])} | {_h(a['kanit'])}{_kg(a)} |" for a in f["adaylar"]],
@@ -680,7 +681,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
                 if not yeniden:
                     alt(["ozet", "--", v])
                 mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
-                kons = _konusma(onb / v, mt, alt)  # C1 (M8 K2 (i) ≤5 dk sınırı kalktı)
+                kons = "instagram: altyazı yok; reel → Groq (paket)" if v.startswith("ig-") else _konusma(onb / v, mt, alt)  # C1 · VİDEO-PLATFORM-1: IG'de whisper/yt-dlp yok (M8 K2 (i) ≤5 dk sınırı kalktı)
                 with YAZ:
                     s["konusma"] = kons
                 yalniz = not _anlamli(onb / v / "segmentler.jsonl")  # M8 K2 (ii): altyazı yok / whisper boş ya da yalnız müzik → kare-yalnız
@@ -896,7 +897,10 @@ def parti(ns, ctx):
     alt = ctx.get("alt") or (lambda a: cli.main(a, env=ctx["env"], kos=ctx["kos"], gonder=ctx["gonder"], uyku=ctx["uyku"], ocr=ctx.get("rapid")))  # YT1 3e: parti alt-komutları RapidOCR yükleyicisini de alır (yoksa göz yolu hiç koşmuyordu)
     temizle = ctx.get("temizle") or (lambda s: cli._temizle(s, ctx["env"]))
     if ns.eylem == "link":  # MÜKEMMEL-7c U1: tek link → geçici tek satırlık kuyruk → baslat (V10) → toplu; gerçek kuyruk.md'ye dokunulmaz
-        v, onb = m.ID.search(ns.hedef)[1], Path(ctx["kok"])
+        v, onb = m.vid(ns.hedef), Path(ctx["kok"])  # VİDEO-PLATFORM-1 karar 6: tek kimlik yardımcısı (YouTube 11 tam · IG ig-<kod>)
+        if not v:
+            from .cli import Hata  # cli parti'yi içe alır: döngüsel, yerel
+            raise Hata(f"link: kimlik çözülemedi: {ns.hedef}")
         if not (onb / v / "meta.json").is_file():
             alt(["ozet", "--", v])
         mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8"))

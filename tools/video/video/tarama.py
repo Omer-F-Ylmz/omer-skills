@@ -239,7 +239,10 @@ def rapor_videolari(metin, v):
 
 
 def _hucre(s):
-    return [x.strip() for x in s.strip().strip("|").split("|")]
+    h = [x.strip() for x in s.strip().strip("|").split("|")]
+    if "instagram.com/" in h[0]:  # VİDEO-PLATFORM-1: kuyruk satırındaki IG adresi ig-<kod> olarak okunur
+        h[0] = m.vid(h[0]) or h[0]
+    return h
 
 
 def kuyruk_parti(metin, kapsiz=False):
