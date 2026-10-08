@@ -187,9 +187,16 @@ def _kf(ad):
     return {"adaylar": [{"ad": ad, "tur": "arac", "ne": "x"}], "belirsizlikler": []}
 
 
-def test_kanit_suz_paketsiz_aday_belirsizlige():
-    f = pt.kanit_suz(_kf("Cursor"), "## Segmentler\n[0:00] burada Playwright ile test yazdık\n")
-    assert f["adaylar"] == [] and any("Cursor" in b and "kanıtsız" in b for b in f["belirsizlikler"])
+def test_kanit_suz_kare_adayi_tasinmaz_notlanir():
+    f = _kf("Cursor"); f["adaylar"][0]["kaynak"] = "kare"
+    f = pt.kanit_suz(f, "## Segmentler\n[0:00] burada Playwright ile test yazdık\n")
+    assert [a["ad"] for a in f["adaylar"]] == ["Cursor"] and "kanıt: kare" in f["adaylar"][0]["kanit"] and f["belirsizlikler"] == []
+
+
+def test_kanit_suz_eslesmeyen_aday_adaylarda_kalir_kanit_yok():
+    f = _kf("Cursor"); f["adaylar"][0]["kaynak"] = "altyazı"
+    f = pt.kanit_suz(f, "## Segmentler\n[0:00] burada Playwright ile test yazdık\n")
+    assert [a["ad"] for a in f["adaylar"]] == ["Cursor"] and "kanıt: yok" in f["adaylar"][0]["kanit"] and f["belirsizlikler"] == []
 
 
 def test_kanit_suz_paketteki_aday_kalir():
