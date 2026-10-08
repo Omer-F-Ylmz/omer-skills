@@ -4,7 +4,7 @@ from pathlib import Path
 
 from .tarama import bolum, tablolar
 
-ALAN_YOK = ("urller", "is_akisi", "promptlar")  # rapor şemasında karşılığı yok → 0, boşluk görünür
+ALAN_YOK = ()  # 1b-2a: urller · is_akisi · promptlar artık rapor şemasında; alan_yok anahtarı boş liste olarak kalır
 
 
 def norm(s):
@@ -40,12 +40,8 @@ def _rapor_linkler(metin):
     for s in bolum(metin, "Açıklama bağlantıları").splitlines():
         m = re.search(r"https?://\S+", s)
         if s.lstrip().startswith("-") and m:
-            out[url_norm(m[0])] = {"aday": "aday: evet" in s, "sponsor": "sponsor" in s.casefold()}
-    for _, rows in tablolar(bolum(metin, "İz")):
-        for r in rows:
-            for m in re.finditer(r"https?://\S+", " ".join(r)):
-                if url_norm(m[0]) in out and "sponsor" in " ".join(r).casefold():
-                    out[url_norm(m[0])]["sponsor"] = True
+            c = re.search(r"sınıf: (\w+)", s)  # 1b-2a: yalnız açık sınıf alanı; "sponsor değil" gibi alt dizeler sayılmaz
+            out[url_norm(m[0])] = {"aday": "aday: evet" in s, "sponsor": bool(c) and c[1] == "sponsor"}
     return out
 
 
@@ -96,11 +92,18 @@ def puan(metin, altin):
     og = [o for o in altin.get("ogrenimler", []) if not o.get("belirsiz")]
     ogr = (sum(_ortusur(o["ogrenim"], tum) for o in og), len(og)) if "ogrenimler" in altin else None
 
+    uu = [url_norm(r[0]) for _, rows in tablolar(bolum(metin, "URL'ler")) for r in rows if r]
+    u_ur = altin.get("urller", [])
+    u_iy = [u for u in u_ur if not DEGERSIZ.search(url_norm(u["url"]))]
+    ak = [_kelime(x) for x in bolum(metin, "İş akışı").splitlines()]
+    pr = [_kelime(x) for x in bolum(metin, "Promptlar").splitlines()]
+    yeni = {"urller": (sum(url_norm(u["url"]) in uu for u in u_ur), len(u_ur)), "urller_iy": (sum(url_norm(u["url"]) in uu for u in u_iy), len(u_iy)),
+            "is_akisi": (sum(_ortusur(a["adim"], ak) for a in altin.get("is_akisi", [])), len(altin.get("is_akisi", []))),
+            "promptlar": (sum(_ortusur(q.get("ozet") or q["konu"], pr) for q in altin.get("promptlar", [])), len(altin.get("promptlar", [])))}
     return {"yakalama": yak, "isabet": (len(isabetli), len(rapor_adlar)), "ad_yazim": tuple(yazim),
             "belirsiz": tuple(bel), "ogrenimler": ogr,
             "tur": {k: tuple(v) for k, v in tur.items()}, "link_aciklama": link["aciklama"], "link_yorum": link["yorum"],
-            "site_ui": (ui_y, len(ui)), "komutlar": (km_y, len(km)), "kacan": kacan, "alan_yok": list(ALAN_YOK),
-            **{k: (0, len(altin.get(k, []))) for k in ALAN_YOK}}
+            "site_ui": (ui_y, len(ui)), "komutlar": (km_y, len(km)), "kacan": kacan, "alan_yok": list(ALAN_YOK), **yeni}
 
 
 NEDEN = {"ekran": "ekranda-var-OCR-kaçırdı", "açıklama": "açıklamada", "aciklama": "açıklamada", "yorum": "yorumda"}
@@ -205,5 +208,5 @@ def satirlar(p):
             *(f"linkler {k}: yakalama {f(p['link_' + k]['yakalama'])} · sınıf {f(p['link_' + k]['sinif'])}" for k in ("aciklama", "yorum")),
             f"site_ui: yakalama {f(p['site_ui'])}", f"komutlar: yakalama {f(p['komutlar'])}",
             *([f"öğrenimler: yakalama {f(p['ogrenimler'])}"] if p["ogrenimler"] else []),
-            *(f"{k}: rapor alanı yok {f(p[k])}" for k in p["alan_yok"]),
+            *(f"{k}: yakalama {f(p[k])}" for k in ("urller", "urller_iy", "is_akisi", "promptlar")),
             "kaçan: " + (", ".join(f"{a} ({t})" for a, t in p["kacan"]) or "yok")]

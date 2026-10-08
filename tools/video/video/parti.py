@@ -41,7 +41,14 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "Anahtar, şifre, token değeri yazma. Site/landing/frontend içerikli videoda site_ui doldur. Emin olmadığını belirsizliklere yaz. "
           "Gösterilen ya da söylenen her kurulum/terminal komutunu kurulum_komutlar'a yaz (komut · ne yapar · zaman · kaynak). "
           "iz (D1, şema 2): videoda anılan HER şey (konuşma m:ss · kare m:ss · açıklama · yorum · linkli sayfa) bir satır — baglandigi: aday adı ya da "
-          "'aday değil: <sebep>'; sebep yalnız genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı. 'zaten kurulu' sebep değil: kurulu araç da aday.")
+          "'aday değil: <sebep>'; sebep yalnız genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı. 'zaten kurulu' sebep değil: kurulu araç da aday. "
+          # 1b-2a: eksiksiz aday + yeni alanlar + link sınıfı
+          "Adaylar: paketin HERHANGİ bir yerinde (altyazı · ekran metni · açıklama · yorumlar · linkli sayfalar) adı geçen VE videoda gösterilen/kullanılan/anlatılan her "
+          "araç, model, servis, kütüphane, font, skill, MCP, CLI ve teknik; yalnız reklamı yapılan aday değil; adı ekranda yazıldığı gibi yaz. "
+          "is_akisi: videoda yapılan işin adımları sırasıyla, her adımda kullanılan araçlarla. promptlar: videoda yazılan ya da okunan promptlar (amac=konu, metin=özet ya da metin). "
+          "urller: ekranda görünen, söylenen, açıklamada ya da yorumda geçen HER URL (zaman, kaynak, aday). "
+          "Bağlantı sinif: 'sponsor' yalnız açık ifadeyle (\"sponsorluğunda\", \"sponsored by\", \"#ad\", ücretli ortaklık); yönlendirme parametresi ya da indirim kodu varsa 'affiliate'; diğerleri 'diğer'. "
+          "Bağlantının alan adı videoda kullanılan/anlatılan bir aracı adlandırıyorsa aday_mi true ve o araç adaylar'da olmalı.")
 YOKLA = yon.omni_yokla  # O78: devam öncesi OmniRoute ön kontrolü (testte conftest None)
 BASLAT = lambda: subprocess.Popen("omniroute serve --no-open --daemon", shell=True,  # MÜKEMMEL-2c: pencere açılmaz
                                   creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
@@ -67,7 +74,7 @@ def _omni_baslat(model, env, h, pdir):
     return h
 
 
-OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar", "lisans_kaynak", "kotu_yanlar", "guclendirme", "iz"}  # M2c: opsiyonel alanlar · D1 (b): iz yoksa eski form (şema 1)
+OPS = {"karede_gorulen", "erisilemez", "alt_tur", "kullanim_kosullari", "ucretsiz_katman", "veri_gizliligi", "bizde_karsilik", "kurulum_komutlar", "lisans_kaynak", "kotu_yanlar", "guclendirme", "iz", "urller", "is_akisi", "sinif"}  # M2c: opsiyonel alanlar · D1 (b): iz yoksa eski form (şema 1)
 
 
 def _o(**alan):
@@ -89,7 +96,9 @@ def sema(ids, iz=False):
     """Tarayıcı formu (motor-sema.md §1); tür listeleri rapor-denetle'ninkiyle aynı. iz=True: modele giden şemada İz zorunlu (D1 b)."""
     video = _o(id={"type": "string", "enum": list(ids)}, ozet=S, bolumler=_d(_o(zaman=ZMN, baslik=S)),
                adaylar=_d(_o(ad=S, tur={"type": "string", "enum": sorted(tr.TUR)}, ne=S, kanit_zamani=ZMN, kaynak=KAYNAK, kanit=S, repo_url=N, **KG)),
-               aciklama_baglantilari=_d(_o(url=S, ne=S, aday_mi={"type": "boolean"}, neden=S, aday_adi=N, erisilemez=N)),
+               aciklama_baglantilari=_d(_o(url=S, ne=S, aday_mi={"type": "boolean"}, neden=S, aday_adi=N, erisilemez=N, sinif={"type": "string", "enum": ["sponsor", "affiliate", "diğer"]})),
+               urller=_d(_o(url=S, zaman=ZMN, kaynak={"type": "string", "enum": ["ekran", "ses", "açıklama", "yorum"]}, aday={"type": "boolean"})),  # 1b-2a
+               is_akisi=_d(_o(adim=S, araclar=_d(S))),  # 1b-2a: liste sırası = adım sırası
                site_ui=_d(_o(teknik=S, ne=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
                promptlar=_d(_o(metin=S, amac=S, kanit_zamani=ZMN, kaynak=KAYNAK, **KG)),
                iddialar=_d(_o(iddia=S, kanit_zamani=ZMN, kaynak=KAYNAK, tur={"type": "string", "enum": sorted(tr.IDDIA_TUR)}, aday_adi=N, **KG)),
@@ -235,6 +244,14 @@ def _nk(s):  # M4c: yalnız gösterim (test_m4 K1 testi); şema nasil/kutuphane 
     return f" — nasıl: {_h(s['nasil'])} · kütüphane: {_h(s['kutuphane'])}" if s.get("nasil") else ""
 
 
+AFFILIATE = re.compile(r"[?&]via=|[?&]ref=|utm_medium=affiliate|partnerlinks|indirim kodu|discount code|promo code|coupon code", re.I)  # 1b-2a
+
+
+def _sinif(b):
+    """1b-2a: modelin açık 'sponsor' beyanı korunur (affiliate ezmez); aksi halde affiliate regex url+ne üzerinde, yoksa model değeri ya da 'diğer'."""
+    return b["sinif"] if b.get("sinif") == "sponsor" else "affiliate" if AFFILIATE.search(f"{b['url']} {b['ne']}") else b.get("sinif") or "diğer"
+
+
 def rapor_md(f, pk, notlar):
     """Mevcut rapor biçimi (docs/video-tarama/*.md) koddan; prompt'lar Adaylar'a `prompt` satırı olarak girer."""
     L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · https://youtu.be/{pk['id']}" + (" · şema 2" if f.get("iz") is not None else ""),
@@ -243,7 +260,7 @@ def rapor_md(f, pk, notlar):
          *[f"| {_h(a['ad'])} | yok | {a['tur']} | {_h(a['repo_url'] or 'yok')} | {_h(a['ne'])} | {_h(a['kanit_zamani'])} | {_h(a['kanit'])}{_kg(a)} |" for a in f["adaylar"]],
          *[f"| {_h(p['amac'])} | yok | prompt | yok | {_h(p['metin'])} | {_h(p['kanit_zamani'])} | kaynak: {p['kaynak']} |" for p in f["promptlar"]],
          "## Açıklama bağlantıları",
-         *([f"- {b['url']} — {_h(b['ne'])} · aday: {'evet (' + _h(b['aday_adi'] or '?') + ')' if b['aday_mi'] else 'hayır'} · {_h(b['neden'])}" + (f" · erişilemez: {_h(b['erisilemez'])}" if b.get('erisilemez') else "")
+         *([f"- {b['url']} — {_h(b['ne'])} · aday: {'evet (' + _h(b['aday_adi'] or '?') + ')' if b['aday_mi'] else 'hayır'} · {_h(b['neden'])} · sınıf: {_sinif(b)}" + (f" · erişilemez: {_h(b['erisilemez'])}" if b.get('erisilemez') else "")
             for b in f["aciklama_baglantilari"]] or ["- yok"])]
     if f["site_ui"]:
         L += [f"## {tr.SITE_UI}", "| teknik | ne işe yarar | zaman | kaynak |", "|---|---|---|---|",
@@ -260,6 +277,9 @@ def rapor_md(f, pk, notlar):
           "## Kareden okunanlar", *([f"- {_h(k['kare'])}: {_h(k['okunan'])}" for k in f["kareden_okunanlar"]] or ["- yok"]),
           "## Belirsizlikler", *([f"- {_h(b)}" for b in f["belirsizlikler"]] or ["- yok"]),
           "## Atlanan segment oranı", f"0/{seg} (paket tam okuma, motor)"]
+    L += ["## URL'ler", *(["| url | zaman | kaynak | aday |", "|---|---|---|---|", *[f"| {_h(u['url'])} | {_h(u['zaman'])} | {u['kaynak']} | {'evet' if u['aday'] else 'hayır'} |" for u in f["urller"]]] if f.get("urller") else ["- yok"]),
+          "## İş akışı", *([f"- {i}. adım — {_h(a['adim'])} — araçlar: {', '.join(map(_h, a['araclar'])) or 'yok'}" for i, a in enumerate(f["is_akisi"], 1)] if f.get("is_akisi") else ["- yok"]),
+          "## Promptlar", *([f"- {_h(p['amac'])} — {_h(p['metin'])}" for p in f["promptlar"]] or ["- yok"])]  # 1b-2a: mevcut bölümlerin sonuna eklenir
     return "\n".join(L) + "\n"
 
 
@@ -328,7 +348,7 @@ def kare_sigdir(pk, onb=None):
             p["kareler"] = p["kareler"][:n]
 
 
-LISTE = ("bolumler", "adaylar", "aciklama_baglantilari", "site_ui", "promptlar", "iddialar", "kareden_okunanlar", "belirsizlikler")
+LISTE = ("bolumler", "adaylar", "aciklama_baglantilari", "site_ui", "promptlar", "iddialar", "kareden_okunanlar", "belirsizlikler", "urller", "is_akisi")
 AD = ("ad", "teknik", "amac", "iddia", "url", "kare", "baslik")
 
 

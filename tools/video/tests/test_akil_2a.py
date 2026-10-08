@@ -105,8 +105,9 @@ def _altin_adlar():
 
 
 def test_talimatta_altin_adi_yok():
-    t = au.norm(" ".join([pt.SISTEM, yon.EKSIKSIZLIK10, yon.ALAN_KURALI, yon.SON_SISTEM10]))
-    assert [x for x in _altin_adlar() if x in t] == []
+    kel = [au.norm(w) for w in re.findall(r"\w+", " ".join([pt.SISTEM, yon.EKSIKSIZLIK10, yon.ALAN_KURALI, yon.SON_SISTEM10]).casefold())]
+    pencere = {"".join(kel[i:i + k]) for k in range(1, 6) for i in range(len(kel))}  # kelime sınırı: "segment" adı "segmentleri" içinde sayılmaz
+    assert [x for x in _altin_adlar() if x in pencere] == []
     o = json.loads(yon.ORNEK_V10.read_text(encoding="utf-8"))
     assert o["id"] not in {p.stem for p in ALTIN_DIZ.glob("*.json")}
 

@@ -55,11 +55,11 @@ def test_komutlar_kurulum_tablosundan():
     assert _puan()["komutlar"] == (1, 2)
 
 
-def test_rapor_alani_olmayanlar_sifir_ve_isaretli():
+def test_yeni_alanlar_rapor_bolumu_yokken_sifir():  # 1b-2a: alan_yok boş; fixture raporunda URL'ler/İş akışı/Promptlar bölümü yok
     p = _puan()
     for k, n in (("urller", 1), ("is_akisi", 2), ("promptlar", 1)):
-        assert p[k] == (0, n) and k in p["alan_yok"]
-    assert "komutlar" not in p["alan_yok"]
+        assert p[k] == (0, n)
+    assert p["alan_yok"] == []
 
 
 def test_kacan_adaylar():
@@ -69,7 +69,7 @@ def test_kacan_adaylar():
 def test_cli_altin_puan(capsys):
     assert cli.main(["altin", "puan", str(FX / "rapor.md"), str(FX / "altin.json")], env={}) == 0
     out = capsys.readouterr().out
-    assert "yakalama 3/6" in out and "rapor alanı yok" in out and "kaçan: Opus 5.5 (model)" in out
+    assert "yakalama 3/6" in out and "urller: yakalama 0/1" in out and "kaçan: Opus 5.5 (model)" in out
 
 
 def _puan_ile(altin):

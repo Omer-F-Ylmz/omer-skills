@@ -140,7 +140,8 @@
    "aday_mi": false,
    "neden": "Gumroad ürün sayfası, içeriği doğrulanamıyor; büyük olasılıkla ücretli/indirilebilir kaynak.",
    "aday_adi": null,
-   "erisilemez": "Gumroad ürün sayfası, içerik doğrulanamadı (muhtemelen ücretli/giriş gerektiren)"
+   "erisilemez": "Gumroad ürün sayfası, içerik doğrulanamadı (muhtemelen ücretli/giriş gerektiren)",
+   "sinif": "diğer"
   },
   {
    "url": "https://www.skool.com/doa/",
@@ -148,7 +149,8 @@
    "aday_mi": false,
    "neden": "Topluluk tanıtımı, araç değil.",
    "aday_adi": null,
-   "erisilemez": "Skool topluluğu, üyelik/giriş gerekli"
+   "erisilemez": "Skool topluluğu, üyelik/giriş gerekli",
+   "sinif": "diğer"
   }
  ],
  "site_ui": [
@@ -311,5 +313,63 @@
   "Videoda ilk denemede plugin bulunamadı, marketplace ile ikinci yol gösterildi; kare 7'de komutların 'gerçek paket değil' yanıtı görünüyor, sonucun kesin doğruluğu belirsiz.",
   "Kare 4'te 2 ve 3 aşamaları boş '?' kutuları; içerik altyazıdan çıkarıldı.",
   "Bazı kanıt zamanları (ör. 14:12, 6:33) yaklaşık."
+ ],
+ "urller": [
+  {
+   "url": "https://esadcom.gumroad.com/l/site",
+   "zaman": "açıklama",
+   "kaynak": "açıklama",
+   "aday": false
+  },
+  {
+   "url": "https://www.skool.com/doa/",
+   "zaman": "açıklama",
+   "kaynak": "açıklama",
+   "aday": false
+  }
+ ],
+ "is_akisi": [
+  {
+   "adim": "VS Code'a Claude Code eklentisini kur",
+   "araclar": [
+    "Claude Code for VS Code"
+   ]
+  },
+  {
+   "adim": "Claude.md dosyasını hazırla",
+   "araclar": [
+    "Claude.md"
+   ]
+  },
+  {
+   "adim": "frontend-design yetkinliğini plugin/marketplace ile yükle",
+   "araclar": [
+    "frontend-design (claude-code-plugins)"
+   ]
+  },
+  {
+   "adim": "Basit promptla topluluk sitesini ürettir",
+   "araclar": [
+    "Claude Code for VS Code"
+   ]
+  },
+  {
+   "adim": "Ekran görüntüsü döngüsüyle siteyi iyileştir",
+   "araclar": [
+    "Tam sayfa ekran görüntüsü (DevTools)"
+   ]
+  },
+  {
+   "adim": "Bileşen kütüphanesinden animasyon ekle",
+   "araclar": [
+    "21st.dev bileşen kütüphanesi"
+   ]
+  },
+  {
+   "adim": "GitHub ve Vercel ile canlıya al",
+   "araclar": [
+    "GitHub + Vercel dağıtımı"
+   ]
+  }
  ]
 }
