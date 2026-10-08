@@ -66,6 +66,13 @@ def test_t3_ekran_metni_yeni_bilgisi_cok_satir_once():
     assert o == [(2, "worker thread pool sizing guide")]
 
 
+def test_d4_url_komsu_yogun():
+    """DEVAM-4: URL'li karenin t±1, t±2 komşuları — okunmuş ve [0, süre] dışı atlanır, tekrarsız, sıralı, en çok üst."""
+    assert gz.url_benzer("https://mcp.topview.ai/claude") and gz.url_benzer("w.ai/claude") and not gz.url_benzer("Topview MCp")
+    assert gz.yogun_zaman([0, 2, 180, 182], [0, 180, 182], 181, 120) == [1, 178, 179, 181]
+    assert len(gz.yogun_zaman([], [float(i * 10) for i in range(100)], 2000, 120)) == 120
+
+
 def test_t3_ekran_metni_acgozlu_kopya_yerine_yeni_ad():
     """DEVAM-4: düzey içinde açgözlü kazanç/token — aynı UI metninin 3 kopyası + tek kelimelik yeni ad, bütçe 2 satır → ad tutulur, ikinci kopya düşer."""
     c = "open the settings panel and choose display theme"
