@@ -114,3 +114,20 @@ YDAK1lvVXho kaçan: scrollcraft (ekranda-var-OCR-kaçırdı/OCR-okuyamadı), des
 YDAK1lvVXho url kaçan: localhost:3000 (ekranda)
 YDAK1lvVXho komut kaçan: yok
 Alt neden sayısı (b): OCR-okuyamadı 8 · bütçe-attı 4 · gürültü-süzgeci 1 · 
+
+## 1b-1S son (2026-10-08)
+Komut (b) = `video altin kapsam <paket.md> <id>.json`; paketler OCR önbelleğiyle (goz/ocr.json anahtarı değişmedi, yeniden OCR yok), ASR auto, videolar sırayla tek tek, ölçümde suite/alt ajan yok.
+Değişiklikler: S1 ekran metni yalnız yeni bilgi (≥3 harf kelime ya da ardışık çift; tohum = segment + chapter + açıklama bağlantıları) · S1b bütçe dk×200→300 · S2 gürültü süzgeci sözlük adını korur, [A-Z]{3,5} kısaltmayı çıkarıp kalanı sınar · S3/S3b yorum bütçesi 800→1500, bütçeyi aşan sabit/sahip yorumu satır satır kırpılır · S5 kur.sh + "cpu (dml yok)" künyesi · S6 işe yarar/değersiz URL.
+- aZe5ZTYcF1M: aday 20/22 (1b-1R 19) · komut 1/1 · url 3/3 · işe yarar 1/1 · token 9889
+- 1nGx7WR8YLE: aday 18/18 (15) · komut 0/0 · url 3/5 · işe yarar 2/3 · token 12955
+- YDAK1lvVXho: aday 21/26 (19) · komut 0/0 · url 1/2 · işe yarar 0/0 · token 12037
+- FaChtkkG9X4: aday 15/16 (15) · komut 1/1 · url 5/6 · işe yarar 3/4 · token 8259
+- d_UE-wHLoZY: aday 13/13 (12) · komut 0/0 · url 1/1 · işe yarar 1/1 · token 4343
+Toplam: aday 87/95 · komut 2/2 · url 13/17 · işe yarar url 7/9 · token 47483. Kabul: aday ≥86 ✓ · video gerilemesi yok ✓ · komut ✓ · token ≤49465 ✓ · işe yarar url ≥8/9 ✗ (mcp.topview.ai/mcp kaçıyor).
+Ara ölçüm (S1–S6, bütçe dk×200): aday 85/95 · url 13/17 · işe yarar 7/9 · token 43497.
+Alt neden önce→sonra: OCR-okuyamadı 8→6 · bütçe-attı 4→2 · gürültü-süzgeci 1→0 · yorumda 2→0.
+- Kalan bütçe-attı (aZe5): Manyetik butonlar, Claude memory — benzetimde sınırsız bütçede de pakete girmiyor; etiket yanlış olabilir (ham satır yeni-bilgi süzgecine ya da eşleşmeye takılıyor), 1b-2'de bakılacak.
+- Kalan OCR-okuyamadı: YDAK contact sheet 9:57, Bodoni Moda/Hanken Grotesk/parallax/rim light 9:58 · FaCh Appear efekti 6:33. İşe yarar URL kaçanı: mcp.topview.ai/mcp (1nGx 2:45; OCR'da yalnız "Topview MCp" satırı var, URL okunmuyor), youtu.be/9IPwFoy1x08 (FaCh 8:54).
+S3 kanıtı: 1nGx sabit+sahip yorum 849 tk (ffmpeg, cut-and-extend içinde) 800 bütçesini aşıp tümden atılıyordu → S3b ile geri geldi. YDAK 60 yorumda Bodoni Moda / Hanken Grotesk / parallax / rim light / contact sheet hiç yok.
+S2 kanıtı: d_UE 0:32–0:37 "Principled BSDF" (güven 0,96–1,0), anlamsiz_oran 0,5 → gürültü sayılıyordu.
+S4 (OCR-okuyamadı deneyi: A mobile · B PP-OCRv5 server det · C 2×2 döşeme, 6 aday + 2 URL) yapılmadı — bütçe; 1b-2'ye ya da ayrı dalgaya.
