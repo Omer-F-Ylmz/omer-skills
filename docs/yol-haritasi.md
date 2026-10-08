@@ -10,6 +10,13 @@ Desktop'ın tuttuğu sıra. Linkler ve tek tek istekler: `docs/video-tarama/bekl
    - Kurulum turu: videolardaki skill · MCP · plugin · CLI, CC + Desktop; Higgsfield, DaLUGUbMp4K aracı, humanizer geliştirme
    - Kalan: 1b-2b · MODEL-1 (yeni modeller + Fable tarzı düşünmeyi ucuz modellere öğretme) · 1c (kurulum fabrikası, %90-95) · kanal takibi (YouTube + Instagram) · video anlama araçları · çift dikiş
      - 1b-2b ölçü notu (1b-2a DEVAM-2): anlamsal ölçü onaylanmadı. Öğrenim: künye/kareler/tablo ayırıcı satırları eşleşiyor (0.535 "kareler: görsel girdi", 0.564). site_ui: eşik ayırmıyor (doğru 0.668–0.696, yanlış 0.707–0.714). Çözüm adayı: yalnız içerik satırları + sınır bandında yargıç (Jev ya da ucuz LLM, tavanlı). Şimdiki ikincil sayılar geçici.
+     - **1b-2a kurgu 2 kaçanlar (FaCh · aZe5)** — kurulabilir = font/teknik dışı; kurgu 2 (m4 sonnet birincil + haiku, kanıt süzgeci salt işaretle) kurulabilir 51/61; kaçan 6 aday (FaCh 3, aZe5 3). Format: ad · altın kanıt · paket.md ilk satır · raporda başka adla mı.
+       - FaCh Figma (uygulama) · başlık 'End of Figma Web Design?' · satır 1 "# FaChtkkG9X4 · New Claude Opus 5.5 ! End of Figma Web Design?" · hayır (yalnız başlık/udemy bağlantısı)
+       - FaCh Claude Code (CLI) · yorum 'You could've had Claude Code edit this video'; 0:00 öneri başlığı · satır 61 "[0:00] Minutes Using Claude Code" · hayır (kare satırı "aday değil")
+       - FaCh Higgsfield (servis) · yorum 'find appropriate Broll from Higgsfield or some other tool' · satır 379 (yorum bloğu, adı satır sonunda) · hayır (yorum satırı "aday değil: konu dışı")
+       - aZe5 Awwwards (servis) · OCR 'SOTD 7.4/10 · Site of the Day - Dec 25, 2021' · satır 82 "[0:51] Site of the Day - Dec 25, 2021" · hayır (kare ve yorum satırları "aday değil: konu dışı")
+       - aZe5 Claude Code (uygulama) · OCR 'Local · opus-brain-2 · +Auto · Opus 5.5 · High; Type / for commands' · pakette yok · hayır (rapor "Claude uygulaması mı, Claude Code mu net değil" notu)
+       - aZe5 Built-in browser (uygulama) · OCR "I'll start by studying Dala live in the built-in browser" · satır 210 "[4:54] dala.craftedbygc.com · Opened in Browser" · hayır (kare 4:54 satırı "aday değil: genel kavram")
 2. **Token ve performans:** her şeyde ~%30 tasarruf, Headroom geliştirme, token araçları (ponytail vb.), RAM optimizasyonu (ağır işlerin ~10 GB boş RAM isteği)
 
 ## Sonra paralel (Ömer, 8 Eki: üç kol aynı anda)

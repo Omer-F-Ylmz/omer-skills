@@ -53,3 +53,31 @@ Taslak kaçanlar:
 - YDAK1lvVXho: Three.js (kütüphane), GSAP (kütüphane), ScrollTrigger (kütüphane), design-dna (skill), scrollcraft (skill), frontend-design (skill), design-taste-frontend (skill)
 - FaChtkkG9X4: Claude Design (uygulama), Figma (uygulama), ChatGPT (uygulama)
 - d_UE-wHLoZY: GPT Image 2 (model), Nano Banana (model)
+
+## 1b-2a uçtan uca
+
+Kurgu 2 = m4 sonnet (birincil) + m4 haiku birleşimi, kanıt süzgeci salt işaretle; `video altin puan` ile puanlandı (0 çağrı, DEVAM-4 B ile aynı betik). Eski satır: "Doğrulanmış altınla (2026-10-07)" tablosu, commit 20451a5 (2026-10-07).
+
+Eski ölçüyle (aynı alanlar: aday yakalama · url · iş akışı):
+
+| satır | aday yakalama | url | iş akışı |
+|---|---|---|---|
+| eski (2026-10-07, 20451a5) | 18/95 | 0/17 | 0/71 |
+| kurgu 2 | 60/96 | 16/18 | 46/71 |
+
+Paydalar: aday 95→96 (YDAK +1), url 17→18 (1nGx +1); altın DEVAM'larda büyüdü. Eskide url ve iş akışı ALAN_YOK olduğu için 0 çıkmıştı; şimdi rapor şemasında karşılıkları var.
+
+Yeni ölçü, kurgu 2:
+
+| id | kurulabilir | isabet | url | işe yarar url | komut |
+|---|---|---|---|---|---|
+| aZe5ZTYcF1M | 9/12 | 13/16 | 3/3 | 1/1 | 1/1 |
+| 1nGx7WR8YLE | 15/17 | 19/22 | 5/6 | 3/4 | 0/0 |
+| YDAK1lvVXho | 14/16 | 19/22 | 1/2 | 0/0 | 0/0 |
+| FaChtkkG9X4 | 7/10 | 10/21 | 6/6 | 4/4 | 1/1 |
+| d_UE-wHLoZY | 6/6 | 10/15 | 1/1 | 1/1 | 0/0 |
+| toplam | 51/61 | 71/96 | 16/18 | 9/10 | 2/2 |
+
+Sapma: birincil kurulabilir 51/61 (eşik 52, 1 aday farkla) · aZe5 9/10 · FaCh 7/8 — kabul, gerekçe: koşu oynaklığı ±3, çift dikişte yeniden işlenecek (Desktop kararı 2026-10-08). (Puanlayıcı paydası: aZe5 9/12, FaCh 7/10; kaçanlar `docs/yol-haritasi.md` "1b-2a kurgu 2 kaçanlar".)
+
+İkincil (geçici ölçü, 1b-2b'de yeniden doğrulanacak): iş akışı 46/71 · promptlar 12/23 · site_ui 23/73 · öğrenim anlamsal 32/47.
