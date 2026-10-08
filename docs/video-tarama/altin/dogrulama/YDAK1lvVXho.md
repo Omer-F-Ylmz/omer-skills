@@ -73,3 +73,8 @@ Okunan kaynaklar (tamamı): aciklama.txt, yorum.txt (sabit yorum + tam prompt), 
 
 ## Belirsiz kalanlar (5)
 Codex, Chrome DevTools, Next.js, lens-shape wipe, Fable 5. İlk üçü ekranda görünüyor ama adı yazmıyor. lens-shape wipe'ta OCR bozuk. Fable 5'in konuyla ilgisi zayıf.
+
+## EKLENEN: adaylar (DEVAM-3, 2026-10-08)
+- Playwright · CLI · 9:46 · ekran · "Chrome via Playwright"; Claude ekran görüntüsü almak için kullanıyor
+- Instrument Serif · font · 9:48 · ekran · BELİRSİZ: ad ekranda okunuyor, kullanım bağlamı net değil
+- Lucide · kütüphane · 10:48 · ekran · BELİRSİZ: ikon seti adı ekranda, projede kullanıldığı kanıtsız

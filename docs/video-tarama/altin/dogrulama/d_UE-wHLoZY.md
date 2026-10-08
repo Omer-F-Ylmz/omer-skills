@@ -63,3 +63,6 @@ Okunan kaynaklar (tamamı): aciklama.txt, yorum.txt (16 yorum, hepsi aynı Notio
 - Render+UI birleştirmenin hangi araçla yapıldığı söylenmiyor; dock'taki Ae/Ai/Ps simgeleri olası ama kanıtsız → belirsiz.
 - komutlar boş: ekranda/konuşmada terminal/CLI/slash komutu yok (Blender durum çubuğu kısayolları komut sayılmadı).
 - Girmeyenler: FERRARI/LUMI (tasarımdaki araba adı), Notion (yalnız link alan adı, videoda geçmiyor), Blender çalışma alanı sekmeleri (Geometry Nodes, Shading vb. arayüz sözcükleri), Material Output, Texture/Animate/Variants (genel sözcük), promosyon kodları.
+
+## EKLENEN — adaylar (DEVAM-3, 2026-10-08)
+- Principled Volume · teknik · 0:41 · ekran · BELİRSİZ: OCR'da shader düğümü adı, kullanım bağlamı net değil

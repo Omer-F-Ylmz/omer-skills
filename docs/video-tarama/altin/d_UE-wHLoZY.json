@@ -240,6 +240,15 @@
    "kaynak": "ekran",
    "kanit": "OCR: Generate in Parts | New",
    "belirsiz": true
+  },
+  {
+   "ad": "Principled Volume",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "0:41",
+   "kaynak": "ekran",
+   "kanit": "OCR: Principled Volume shader düğümü; kullanım bağlamı net değil",
+   "belirsiz": true
   }
  ],
  "linkler": [

@@ -56,3 +56,6 @@ Okunan kaynaklar: aciklama.txt, yorum.txt, altyazi.txt, groq.txt, ocr.txt (175 k
 - Girmeyenler: "Ask Gemini" (0:14, Chrome tarayıcı düğmesi), "Choose design system…" (Claude Design arayüz seçeneği, kullanılmadı), "Auto Reels", Instagram, WorldofAI, RoboNuggets (öneri başlıkları/kanal adları), Anthropic (şirket), Telegram/Discord/Udemy/Google Drive (yalnız topluluk/kurs linki, sosyal kategorisinde), "Opus 5.5 Medium | Manual" (efor/mod etiketi; konuşmacı bahsetmiyor), README.md/index.html (dosya adı).
 - groq.txt son satırı "User, C-Raw, TTS…" Whisper halüsinasyonu; ilk satır ("# prompt: …") ASR'ye verilen bağlam listesi; ikisi de kanıt sayılmadı.
 - komutlar: ekranda terminal komutu yok ("ran 2 commands" yalnız özet satırı); tek komut "/design".
+
+## DÜZELTİLEN (DEVAM-3, 2026-10-08)
+- Appear efekti: alias eklendi "Görünme animasyonu" (raporlar efekti Türkçe adlandırıyor)

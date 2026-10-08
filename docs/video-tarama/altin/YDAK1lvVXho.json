@@ -300,6 +300,32 @@
    "zaman": "12:09",
    "kaynak": "ses",
    "kanit": "\"blenderda illa üzerine oynamanız gerekmiyor\""
+  },
+  {
+   "ad": "Playwright",
+   "alias": [],
+   "tur": "CLI",
+   "zaman": "9:46",
+   "kaynak": "ekran",
+   "kanit": "Ekranda 'Chrome via Playwright'; Claude ekran görüntüsü almak için kullanıyor"
+  },
+  {
+   "ad": "Instrument Serif",
+   "alias": [],
+   "tur": "font",
+   "zaman": "9:48",
+   "kaynak": "ekran",
+   "kanit": "Ekran 9:48; ad okunuyor ama kullanım bağlamı net değil",
+   "belirsiz": true
+  },
+  {
+   "ad": "Lucide",
+   "alias": [],
+   "tur": "kütüphane",
+   "zaman": "10:48",
+   "kaynak": "ekran",
+   "kanit": "Ekran 10:48; ikon seti adı, projede kullanıldığı kanıtsız",
+   "belirsiz": true
   }
  ],
  "linkler": [
