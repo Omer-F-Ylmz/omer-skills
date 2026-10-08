@@ -486,7 +486,7 @@ def paket(ns, ctx):
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     yham = json.loads((d / "yorumlar.json").read_text(encoding="utf-8")).get("ham", []) if (d / "yorumlar.json").is_file() else []
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
-          f" · https://youtu.be/{ns.id} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}",
+          f" · https://youtu.be/{ns.id} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}{f' · {n}' if (n := ctx.get('goz_not')) else ''}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
@@ -694,8 +694,18 @@ def _kareler(ctx, d, zamanlar, pencere, g, en_fazla, sahne=False, oncelik=(), su
 def _video_indir(ctx, d):
     """1b-1 M2: ≤1080p video-only akış bir kez <id>/goz-video.<ext>; ffmpeg yerelde çalışır, paket sonunda silinir."""
     if not (v := next(d.glob("goz-video.*"), None)):
-        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
-                   yt_url(d.name)], SURE["ses"])
+        for i in (0, 1):  # DEVAM-4: 403 → 10 sn bekle, bir kez tekrar; yine 403 → künyede görünür
+            try:
+                _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
+                           yt_url(d.name)], SURE["ses"])
+                break
+            except Hata as e:
+                if "403" not in str(e):
+                    raise
+                if i:
+                    ctx["goz_not"] = "göz: yok (indirme 403)"
+                    raise
+                time.sleep(10)
         if not (v := next(d.glob("goz-video.*"), None)):
             raise Hata("video inmedi")
     return v

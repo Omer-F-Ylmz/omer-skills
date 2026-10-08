@@ -84,21 +84,22 @@ def _indir_sahte(monkeypatch, tmp_path, sonuc):
             raise cli.Hata("yt-dlp rc=1: ERROR: unable to download video data: HTTP Error 403: Forbidden")
         (tmp_path / "goz-video.mp4").write_bytes(b"v")
     monkeypatch.setattr(cli, "_kos", kos)
-    monkeypatch.setattr(cli.time, "sleep", lambda s: cagri.append(("uyku", s)))
-    return cli, cagri
+    uyku = []
+    monkeypatch.setattr(cli.time, "sleep", uyku.append)
+    return cli, cagri, uyku
 
 
 def test_d4_indirme_403_bir_kez_tekrar(monkeypatch, tmp_path):
-    cli, cagri = _indir_sahte(monkeypatch, tmp_path, [403, 0])
-    assert cli._video_indir({}, tmp_path).name == "goz-video.mp4" and ("uyku", 10) in cagri and len(cagri) == 3
+    cli, cagri, uyku = _indir_sahte(monkeypatch, tmp_path, [403, 0])
+    assert cli._video_indir({}, tmp_path).name == "goz-video.mp4" and uyku == [10] and len(cagri) == 2
 
 
 def test_d4_indirme_403_iki_kez_kunye(monkeypatch, tmp_path):
-    cli, cagri = _indir_sahte(monkeypatch, tmp_path, [403, 403])
+    cli, cagri, uyku = _indir_sahte(monkeypatch, tmp_path, [403, 403])
     ctx = {}
     with pytest.raises(cli.Hata):
         cli._video_indir(ctx, tmp_path)
-    assert ctx["goz_not"] == "göz: yok (indirme 403)" and len(cagri) == 3
+    assert ctx["goz_not"] == "göz: yok (indirme 403)" and uyku == [10] and len(cagri) == 2
 
 
 def test_t3_ekran_metni_acgozlu_kopya_yerine_yeni_ad():
