@@ -33,4 +33,4 @@ def test_a_yolu_cli(monkeypatch, ek, beklenen):
 def test_uretim_yonlendirme_rota10():
     spec = importlib.util.spec_from_file_location("video._parti_kopya", pt.__file__)
     spec.loader.exec_module(kopya := importlib.util.module_from_spec(spec))
-    assert kopya.YONLENDIRME == ROTA10
+    assert kopya.YONLENDIRME == {"tarama": {"yontem": "ikili", "modeller": ["claude-sonnet-5-5", "claude-haiku-5-5"]}}  # 1b-2a KAPANIŞ: varsayılan kurgu 2 (V10 geri alma notu parti.py'de)

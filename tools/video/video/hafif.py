@@ -73,7 +73,7 @@ def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, aracla
     hata = None if isinstance(form, dict) and not son.get("is_error") else \
         f"{son.get('subtype') or 'rc ' + str(r.returncode)}: {str(son.get('result') or (r.stderr or '').strip()[-200:])[:200]}"
     return {"form": None if hata else form, "usage": son.get("usage") or {}, "usd": son.get("total_cost_usd") or 0.0,
-            "sure": round(time.monotonic() - t, 1), "hata": hata}
+            "sure": round(time.monotonic() - t, 1), "hata": hata, "model": ",".join(son.get("modelUsage") or {}) or None}  # 1b-2a KAPANIŞ: yanıttaki gerçek model kimliği
 
 
 def cagir(sistem, metin, sema, kareler=(), model=MODEL, butce=0.5, timeout=600, env=None, kos=_kos, araclar=()):

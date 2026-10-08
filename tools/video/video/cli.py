@@ -1582,7 +1582,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     x.add_argument("--kayit", metavar="JSONL", help="MÜKEMMEL-7c U10: rapor kaydı (varsayılan tarama dizini kayit.jsonl)")
     x.add_argument("--neden", help="iptal: M12 K3 — iptal nedeni (zorunlu)")
     x.add_argument("hedef", nargs="?", help="baslat/kuyruk: kuyruk.md (varsayılan docs/video-tarama/kuyruk.md) · devam/durum: parti-id")
-    x.add_argument("--en-fazla", type=int, default=8, metavar="N")
+    x.add_argument("--en-fazla", type=int, default=25, metavar="N", help="1b-2a KAPANIŞ: parti başına en fazla N video")
     g = x.add_mutually_exclusive_group()
     g.add_argument("--short", action="store_true")
     g.add_argument("--uzun", action="store_true")

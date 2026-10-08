@@ -25,7 +25,8 @@ YENIDEN = {"bekliyor", "hata", "tavan", "yeniden"}
 GECICI, SON_TUR_SN = re.compile(r"boş yanıt|HTTP (429|5\d\d)\b|zaman aşımı|timed? ?out", re.I), 60  # MÜKEMMEL-8a: geçici hata A'ya gitmez, parti sonunda bir tur
 gecici = lambda h: bool(GECICI.search(h or ""))
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
-YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1: yeni parti (env OMNIROUTE_KEY varsa) tarama V10 hattında · geri alma: bu satır {} ya da durum.json'dan "yonlendirme" silinir
+YONLENDIRME = {"tarama": {"yontem": "ikili", "modeller": ["claude-sonnet-5-5", "claude-haiku-5-5"]}}  # 1b-2a KAPANIŞ: yeni parti tarama kurgu 2 (sonnet + haiku claude -p, birlestir) · geri alma: bu satır {} ya da durum.json'dan "yonlendirme" silinir
+# geri alma (V10): YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
 KARE_UST = 60  # ayar · C4 (O11): uzun videoda modele giden kare güvenlik üst sınırı; asıl sınır cli.PAKET_BUTCE (Ömer onayı: tavan 20 → bütçe)
@@ -401,11 +402,29 @@ def kanit_suz(f, paket):
     return f
 
 
+def birlestir(a, b):
+    """1b-2a KAPANIŞ: a birincil; adaylar gecer ile iki yönde tekil, url/komut url_norm/norm birleşimi (a'nın sınıfı kalır), kalan alanlar a'dan, a'da yoksa b'den."""
+    from .altin import gecer, norm, url_norm
+    f = json.loads(json.dumps(a))
+    def gec(x, y):
+        kel = [norm(w) for w in re.findall(r"\w+", y.casefold())]
+        return gecer(x, norm(y), {"".join(kel[i:i + k]) for k in range(1, 6) for i in range(len(kel))})
+    var = lambda x, L: any(gec(x["ad"], y["ad"]) or gec(y["ad"], x["ad"]) for y in L)
+    f["adaylar"] = f.get("adaylar", []) + [x for x in b.get("adaylar", []) if not var(x, f.get("adaylar", []))]
+    for k, anah, nm in (("urller", "url", url_norm), ("kurulum_komutlar", "komut", norm), ("aciklama_baglantilari", "url", url_norm)):
+        gor = {nm(x[anah]) for x in f.get(k) or []}
+        f[k] = (f.get(k) or []) + [x for x in b.get(k) or [] if nm(x[anah]) not in gor]
+    for k in ("is_akisi", "promptlar", "site_ui", "iz", "iddialar"):
+        if not f.get(k) and b.get(k):
+            f[k] = b[k]
+    return f
+
+
 def _rapor_yaz(d, v, f, p, tdir, ikinci=None, **ek):
     f = kanit_suz(f, p["metin"])
     r =tdir / f"{d['tarih']}-{v}{'-incelenmedi' if d['videolar'][v]['tarama'].get('gecis') == 2 else ''}.md"  # C4: ilk rapor ezilmez
     r.parent.mkdir(parents=True, exist_ok=True)
-    md = rapor_md(f, p, _notlar(d, p)) + (ig.ek_md(ikinci) if ikinci else "")
+    md = rapor_md(f, p, _notlar(d, p) + ([k] if (k := d["videolar"][v]["tarama"].get("kunye")) else [])) + (ig.ek_md(ikinci) if ikinci else "")
     r.write_bytes(md.encode("utf-8"))
     adaylar, ele = tr.ayikla(md)
     tr.kayit_ekle(Path(d.get("kayit") or tdir / "kayit.jsonl"), [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"]}])
@@ -523,6 +542,32 @@ def _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model):
             "model": d["model"] if notlar else model, **({"geri_donus": " · ".join(notlar)[:120]} if notlar else {}), **({"tavan": tv} if tv else {}), **({"gecici": gc} if gc else {})}
 
 
+def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
+    """1b-2a KAPANIŞ: kurgu 2 — video başı her model için bir claude -p (≤2 çağrı, yeniden istek yok); iki form → birlestir (modeller[0] birincil),
+    tek kol hata → öbür kol tek başına + künye "tek kol: <model> <hata>", iki kol hata → o video formsuz (form_red yolu). Künye d["videolar"][v]["tarama"]["kunye"]."""
+    ys, fs = [], []
+    for v in kalan:
+        kr = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+        kolf, kun = [], []
+        for mdl in modeller:
+            y = cagir(SISTEM, _istem([v], pk, hatalar, temizle), sema([v], iz=True), kareler=kr, model=mdl,
+                      butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys)), env=env)
+            ys.append(y)
+            f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
+            if y.get("hata") or f is None:
+                kun.append(f"tek kol: {mdl} {y.get('hata') or 'form yok'}"[:200])
+            else:
+                kolf.append(f)
+                kun.append(f"{mdl}: {y.get('model') or mdl} · {sum((y.get('usage') or {}).get(a, 0) for a in ('input_tokens', 'cache_read_input_tokens', 'cache_creation_input_tokens', 'output_tokens'))} tk")
+        if kolf:
+            fs.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])
+        d["videolar"][v]["tarama"]["kunye"] = " · ".join(kun)
+    us, ks = [y.get("usd") for y in ys], dict.fromkeys(a for y in ys for a in (y.get("usage") or {}))
+    return {"form": {"videolar": fs} if fs else None, "usage": {a: sum((y.get("usage") or {}).get(a, 0) for y in ys) for a in ks},
+            "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": len(ys),
+            "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"), "model": "+".join(modeller)}
+
+
 def _istem(ids, pk, hatalar, temizle):
     s = "\n\n".join(f"=== VIDEO {v} · süre {m.ss(pk[v]['sure'])} · kare görseli {len(pk[v]['kareler']) if hafif.GORSEL else 0} ===\n"
                     f"{temizle(pk[v]['metin'])}" for v in ids)
@@ -591,7 +636,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
             d["videolar"][v]["tarama"]["deneme"] += 1
         _yaz(yol, d)
         kalan, hatalar, onceki = list(g), {}, 0.0
-        for _ in range(3):  # ilk istek + en fazla 2 yeniden istek
+        ikili = ((d.get("yonlendirme") or {}).get("tarama") or {}).get("yontem") == "ikili"  # 1b-2a KAPANIŞ
+        for _ in range(1 if ikili else 3):  # ilk istek + en fazla 2 yeniden istek · ikili: yeniden istek yok (video ≤2 çağrı)
             if _tavan(pdir, d):
                 for v in bek:
                     if d["videolar"][v]["tarama"]["durum"] in YENIDEN and v in kalan and v in hatalar:  # M2e: formu geçmemiş video tavanda da form_red (sonra --kismi-kabul)
@@ -608,10 +654,11 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
                 kalan = []
                 break
             kareler = [k for v in kalan for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
-            c, model = yon.sec(d, "tarama", cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü
+            c, model = (None, None) if ikili else yon.sec(d, "tarama", cagir, env)  # F1: adım başı yönlendirme; tanımsızsa bugünkü · ikili: sağlayıcı yok
             v10 = ((d.get("yonlendirme") or {}).get("tarama") or {}).get("yontem") == "V10"  # DERİNLİK-KAPANIŞ-1
             try:
-                y = _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model) if v10 else c(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=model,
+                y = _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, d["yonlendirme"]["tarama"]["modeller"]) if ikili else \
+                    _tara_v10(kalan, pk, hatalar, temizle, d, pdir, tdir, env, cagir, model) if v10 else c(SISTEM, _istem(kalan, pk, hatalar, temizle), sema(kalan, iz=True), kareler=kareler, model=model,
                           butce=min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1]), env=env)
             except Exception as e:  # M2b K0: çağrı ortası kesinti → durum hata; devam yalnız bu grubu yeniden çağırır
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
