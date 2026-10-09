@@ -1,7 +1,9 @@
 """VİDEO-PLATFORM-1: herkese açık Instagram gönderisi → <önbellek>/ig-<kod>/ (meta.json + medya).
 Tek uç embed/captioned; Cookie başlığı yok, oturum yok, tarayıcı çerezi okunmaz. İmzalı medya adresi hiçbir yere yazılmaz."""
+import html as htmlmod
 import json
 import random
+import re
 import threading
 import time
 import urllib.error
@@ -53,42 +55,67 @@ def _indir(url, yol):
         raise IgHata(f"ig indirme: {gizle(url)} {getattr(e, 'code', '') or type(e).__name__}") from None
 
 
+def _iste(url):
+    """İstekler arası ARA sn; 429/giriş yönlendirmesi → ENGEL_BEKLE sn, 1 tekrar, yine engel → IgHata('ig: engellendi'). _KILIT içinde çağrılır."""
+    for i in (0, 1):
+        if i:
+            uyku(ENGEL_BEKLE)
+        elif _SON[0] is not None and (b := _SON[0] + random.uniform(*ARA) - saat()) > 0:
+            uyku(b)
+        durum, son, html = _al(url)
+        _SON[0] = saat()
+        if durum != 429 and "/accounts/login" not in son:
+            break
+    else:
+        _ENGEL[0] += 1
+        raise IgHata("ig: engellendi")
+    if durum != 200:
+        raise IgHata(f"ig: HTTP {durum}")
+    return html
+
+
+def _coz(f, html):
+    try:
+        return f(html)
+    except IgHata:
+        _ENGEL[0] += 1
+        raise
+
+
 def sayfa(kod):
-    """Embed sayfası → ayristir; istekler arası ARA sn; 429/giriş yönlendirmesi → ENGEL_BEKLE sn, 1 tekrar, yine engel → IgHata('ig: engellendi').
-    200 dönen hata sayfası (embed verisi yok) da engel sayılır; sayaç yalnız ayrışan sayfada sıfırlanır."""
-    url = f"https://www.instagram.com/p/{kod}/embed/captioned/"
+    """Embed sayfası → ayristir. 200 dönen hata sayfası (embed verisi yok) da engel sayılır; sayaç yalnız ayrışan sayfada sıfırlanır.
+    ONARIM-5: gömme kapalı (contextJSON null) → aynı aralık kuralıyla /p/<kod>/ ana sayfası 1 kez → og meta; engel sayılmaz."""
     with _KILIT:
         if _ENGEL[0] >= ENGEL_UST:
             raise IgHata(f"ig: parti durdu (art arda {ENGEL_UST} engel)")
-        for i in (0, 1):
-            if i:
-                uyku(ENGEL_BEKLE)
-            elif _SON[0] is not None and (b := _SON[0] + random.uniform(*ARA) - saat()) > 0:
-                uyku(b)
-            durum, son, html = _al(url)
-            _SON[0] = saat()
-            if durum != 429 and "/accounts/login" not in son:
-                break
-        else:
-            _ENGEL[0] += 1
-            raise IgHata("ig: engellendi")
-        if durum != 200:
-            raise IgHata(f"ig: HTTP {durum}")
-        try:
-            p = ayristir(html)
-        except IgHata:
-            _ENGEL[0] += 1
-            raise
+        p = _coz(ayristir, _iste(f"https://www.instagram.com/p/{kod}/embed/captioned/"))
+        if p is None:
+            p = _coz(og_ayristir, _iste(f"https://www.instagram.com/p/{kod}/"))
         _ENGEL[0] = 0
     return p
 
 
+def og_ayristir(html):
+    """Ana sayfa og:title/description/image → ayristir biçimi (tur 'kısıtlı'); açıklamadan 'N likes, M comments - hesap on tarih:' öneki ayıklanır."""
+    og = {m[1]: htmlmod.unescape(m[2]) for m in re.finditer(r'<meta property="og:(\w+)" content="([^"]*)"', html)}
+    if not (og.get("title") or og.get("description")):
+        raise IgHata("ig: embed verisi yok")
+    a = og.get("description") or ""
+    m = re.match(r'[\d.,]+[KMB]? likes?, [\d.,]+[KMB]? comments? - (\S+) on [^:]+: "(.*)"\.?\s*$', a, re.S)
+    return {"tur": "kısıtlı", "hesap": m[1] if m else og.get("title", "?").split(" on Instagram")[0], "aciklama": m[2] if m else a, "sure": None,
+            "ogeler": [{"video": None, "gorsel": og.get("image")}]}
+
+
 def ayristir(html):
-    """Gömülü contextJSON (JSON içinde JSON dizesi) → {tur, hesap, aciklama, sure, ogeler[{video, gorsel}]}; kaçışları json çözer."""
+    """Gömülü contextJSON (JSON içinde JSON dizesi) → {tur, hesap, aciklama, sure, ogeler[{video, gorsel}]}; kaçışları json çözer.
+    contextJSON null (sahibi gömmeyi kapatmış) → None."""
     i = html.find('"contextJSON":')
     sm = None
     if i >= 0:
-        sm = (json.loads(json.JSONDecoder().raw_decode(html, i + 14)[0]).get("gql_data") or {}).get("shortcode_media")
+        ic = json.JSONDecoder().raw_decode(html, i + 14)[0]
+        if ic is None:
+            return None
+        sm = (json.loads(ic).get("gql_data") or {}).get("shortcode_media")
     if not sm:
         raise IgHata("ig: embed verisi yok")
     yan = (sm.get("edge_sidecar_to_children") or {}).get("edges")
@@ -111,6 +138,8 @@ def getir(d):
         else:
             goz_not = "göz: yok (embed video vermedi)"
     else:  # ponytail: karışık sidecar'da video öğesinin yalnız kapağı OCR'lanır; video işlemek gerekirse ayrı adım
+        if p["tur"] == "kısıtlı":
+            goz_not = "göz: yok (gömme kapalı; yalnız kapak + açıklama)"
         for i, o in enumerate(p["ogeler"], 1):
             if o["gorsel"]:
                 _indir(o["gorsel"], d / f"gorsel-{i}.jpg")
@@ -118,7 +147,7 @@ def getir(d):
     ilk = next((s.strip() for s in p["aciklama"].splitlines() if s.strip()), "")
     meta = {"id": d.name, "title": (ilk[:80] or f"instagram {p['tur']}").replace("·", "-"), "language": None, "channel": p["hesap"].replace("·", "-"),
             "duration": p["sure"] or 0, "chapters": [], "description": p["aciklama"], "subtitles": {}, "automatic_captions": {},
-            "platform": "instagram", "ig_tur": "reel" if p["tur"] == "reel" else "görsel gönderi",
+            "platform": "instagram", "ig_tur": {"reel": "reel", "kısıtlı": "kısıtlı gönderi"}.get(p["tur"], "görsel gönderi"),
             "url": f"https://www.instagram.com/{'reel' if p['tur'] == 'reel' else 'p'}/{kod}/", "video": video, "gorseller": gorseller, "goz_not": goz_not}
     (d / "meta.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
     return meta

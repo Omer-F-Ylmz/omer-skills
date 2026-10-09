@@ -187,3 +187,18 @@ def test_erisilemez_parti_ilerlemiyor_demez(tmp_path):
     assert cagri.count("parti devam P1") == 1
     o = ozet.read_text(encoding="utf-8")
     assert "tamam: 1" in o and "hata: 0" in o
+
+
+# ONARIM-5: kalan yalnız kalıcı paket hatası (3 kez düştü) → parti tamam; koşucu "ilerlemiyor" deyip durmaz, sonraki partiye geçer
+def test_kalici_paket_hatasi_sonraki_partiye_gecer(tmp_path):
+    v = lambda p, t, h=None: {"paket": {"durum": p, "deneme": 3, "hata": h}, "tarama": {"durum": t}}
+    d = lambda durum: {"durum": durum, "tavan": {"cagri": 4, "usd": 0.3},
+                       "videolar": {"A": v("tamam", "tamam"), "B": v("hata", "bekliyor", "hata: paket 3 kez düştü: TypeError: x")}}
+    _kur(tmp_path, {"adimlar": [
+        {"kod": 0, "cikti": ["parti: P1 · short · 2 video"], "yaz": {"P1": {"durum": d("yarim")}}},
+        {"kod": 0, "cikti": ["parti P1 · durum tamam"], "yaz": {"P1": {"durum": d("tamam")}}},
+        {"kod": 0, "cikti": ["parti: P2 · short · 1 video"], "yaz": {"P2": {"durum": {"durum": "tamam", "tavan": {"cagri": 2, "usd": 0.15},
+                                                                                       "videolar": {"C": v("tamam", "tamam")}}}}}]})
+    r, log, ozet, cagri = _kos(tmp_path, "-EnFazla", "2", "-Tavan", "20")
+    assert "ilerlemiyor" not in log and "DUR: kuyruk bos" in log, log
+    assert cagri.count("parti devam P1") == 1 and "partiler: P1, P2" in ozet.read_text(encoding="utf-8")

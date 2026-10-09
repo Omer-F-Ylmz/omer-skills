@@ -50,3 +50,19 @@ def test_403_kalici_degil(tmp_path):
     pd, onb, td, d, alt, _ = _kur(tmp_path, "ERROR: unable to download video data: HTTP Error 403: Forbidden")
     pt._kos(pd, d, onb, td, alt, str, None, {})
     assert d["videolar"][V]["paket"]["durum"] == "hata" and d["durum"] == "yarim" and not (td / "kayit.jsonl").exists()
+
+
+# ONARIM-5: aynı videoda paket 3 kez düşerse kalıcı hata; kayıt notu; kalan yalnız kalıcı hata → parti tamam
+def test_paket_3_kez_duserse_kalici_hata_parti_tamam(tmp_path):
+    pd, onb, td, d, _, _ = _kur(tmp_path, "")
+    cagri = []
+
+    def alt(a):
+        cagri.append(a[0])
+        raise TypeError("the JSON object must be str, bytes or bytearray, not NoneType")
+    for _ in range(4):
+        assert pt._kos(pd, d, onb, td, alt, str, None, {}) == 0
+    a = d["videolar"][V]["paket"]
+    sebep = "hata: paket 3 kez düştü: TypeError: the JSON object must be str, bytes or bytearray, not NoneType"
+    assert cagri == ["ozet"] * 3 and a["durum"] == "hata" and a["hata"] == sebep and d["durum"] == "tamam"
+    assert [(x["id"], x["etiket"], x["not"]) for x in tr.kayit_oku(td / "kayit.jsonl")] == [(V, "hata", sebep)]

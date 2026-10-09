@@ -233,7 +233,7 @@ class _Ocr:
 
 def _paketle(monkeypatch, tmp_path, html, hedef, capsys):
     cagri = {"asr": 0, "goz": 0}
-    _sahte_al(monkeypatch, (200, "u", html))
+    _sahte_al(monkeypatch, *[(200, "u", h) for h in (html if isinstance(html, tuple) else (html,))])
     monkeypatch.setattr(ig, "_indir", lambda u, yol: yol.write_bytes(b"\xff\xd8sahte"))
 
     def asr(ctx, d, sure, dil, prompt):
@@ -422,3 +422,35 @@ def test_ig_rapor_kunye_eki():
     assert reel.endswith("/reel/DdUf3qJOvTO/ · platform: instagram · tür: reel · yorum: girişsiz alınamıyor")
     assert post.endswith("/p/DeL7DvgFLRM/ · platform: instagram · tür: görsel gönderi · yorum: girişsiz alınamıyor")
     assert "platform:" not in pt.rapor_md(f, {**pk, "id": "abcdefghijk", "url": None}, []).splitlines()[2]
+    # ONARIM-5: tür ve göz notu paket künyesinden (gömme kapalı reel: url /p/, tür kısıtlı gönderi)
+    kis = pt.rapor_md(f, {**pk, "id": "ig-DcY-csFDG6f", "url": "https://www.instagram.com/p/DcY-csFDG6f/",
+                          "metin": "# ig-DcY-csFDG6f · b · k · süre 0:00 · göz: yok (gömme kapalı; yalnız kapak + açıklama) · platform: instagram · tür: kısıtlı gönderi · yorum: girişsiz alınamıyor\n"}, []).splitlines()[2]
+    assert kis.endswith("/p/DcY-csFDG6f/ · platform: instagram · tür: kısıtlı gönderi · göz: yok (gömme kapalı; yalnız kapak + açıklama) · yorum: girişsiz alınamıyor")
+
+
+# --- ONARIM-5: gömme kapalı (contextJSON null) → ana sayfa og meta yedeği
+KAPALI = '<script>{"require":[[{"contextJSON":null}]]}</script>'
+ANA = (FIX / "DcY-csFDG6f-ana.html").read_text(encoding="utf-8")
+
+
+def test_og_ayristir_onek_ayiklanir():
+    p = ig.og_ayristir(ANA)
+    assert p["tur"] == "kısıtlı" and p["hesap"] == "oguzhanxkaragoz" and p["sure"] is None
+    assert p["aciklama"] == "Claude’u aşırı zeki yapan 176k Like’lı dosya 🤩"
+    assert p["ogeler"] == [{"video": None, "gorsel": "https://scontent.cdninstagram.com/v/t51.82787-15/783616854_18620543956004211_7801888052023116321_n.jpg?REDACTED"}]
+
+
+def test_gomme_kapali_ana_sayfa_yedegi(monkeypatch, tmp_path, capsys, igsiz):
+    cagri, o, d, md, _ = _paketle(monkeypatch, tmp_path, (KAPALI, ANA), "ig-DcY-csFDG6f", capsys)
+    kunye = md.splitlines()[0]
+    assert "tür: kısıtlı gönderi" in kunye and "göz: yok (gömme kapalı; yalnız kapak + açıklama)" in kunye
+    assert cagri == {"asr": 0, "goz": 0} and o.yollar == ["gorsel-1.jpg"] and "aşırı zeki" in md and "likes" not in md
+    assert [Path(k).name for k in pt.paket_oku(d / "paket.md")["kareler"]] == ["gorsel-1.jpg"]
+    assert len(igsiz[1]) == 1 and 10 <= igsiz[1][0] <= 20 and ig._ENGEL[0] == 0  # aynı istek aralığı; engel sayılmaz
+
+
+def test_gomme_kapali_ana_sayfa_bos_engel_sayilir(monkeypatch):
+    cagri = _sahte_al(monkeypatch, (200, "u", KAPALI), (200, "u", "<html></html>"))
+    with pytest.raises(ig.IgHata, match="embed verisi yok"):
+        ig.sayfa("DcY-csFDG6f")
+    assert cagri == ["https://www.instagram.com/p/DcY-csFDG6f/embed/captioned/", "https://www.instagram.com/p/DcY-csFDG6f/"] and ig._ENGEL[0] == 1

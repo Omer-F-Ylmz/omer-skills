@@ -333,7 +333,8 @@ def _sinif(b):
 def rapor_md(f, pk, notlar):
     """Mevcut rapor biçimi (docs/video-tarama/*.md) koddan; prompt'lar Adaylar'a `prompt` satırı olarak girer."""
     L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · {pk.get('url') or f'https://youtu.be/{pk["id"]}'}"
-         + (f" · platform: instagram · tür: {'reel' if '/reel/' in (pk.get('url') or '') else 'görsel gönderi'} · yorum: girişsiz alınamıyor" if pk["id"].startswith("ig-") else "")  # SMOKE-DÜZELT B2
+         + (f" · platform: instagram · tür: {x[1] if (x := re.search(r' · tür: ([^·\n]+?) · ', pk.get('metin') or '')) else 'reel' if '/reel/' in (pk.get('url') or '') else 'görsel gönderi'}"
+            f"{f' · {g[1]}' if (g := re.search(r' · (göz: yok \(gömme kapalı[^)]*\))', pk.get('metin') or '')) else ''} · yorum: girişsiz alınamıyor" if pk["id"].startswith("ig-") else "")  # SMOKE-DÜZELT B2 · ONARIM-5: tür/göz paket künyesinden
          + (" · şema 2" if f.get("iz") is not None else ""),
          *notlar, "## Özet", _h(f["ozet"]), "## Bölümler", *([f"- {_h(b['zaman'])} {_h(b['baslik'])}" for b in f["bolumler"]] or ["- yok"]),
          "## Adaylar", "| ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |", "|---|---|---|---|---|---|---|",
@@ -740,6 +741,10 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
         except (Exception, SystemExit) as e:  # tek videonun indirme hatası partiyi durdurmaz; devam yeniden dener
             with YAZ:
                 a.update(durum="hata", hata=f"{type(e).__name__}: {f'çıkış {e.code}' if isinstance(e, SystemExit) else e}"[:200])
+                if a["deneme"] >= 3 and "RAM yetersiz" not in str(e):  # ONARIM-5: 3. düşüş kalıcı; parti tamam sayımı bu öneke bakar; sıfırlama (hata=None) kaldırır
+                    a["hata"] = f"hata: paket 3 kez düştü: {a['hata'][:120]}"
+                    tr.kayit_ekle(Path(d.get("kayit") or tdir / "kayit.jsonl"), [{"id": v, "tarih": d["tarih"], "parti": d["parti"],
+                                                                                  "etiket": "hata", "not": a["hata"]}])
             if "RAM yetersiz" in str(e):
                 dur.set()
         with YAZ:
@@ -874,7 +879,8 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
         for s in d["videolar"].values():
             if s["tarama"]["durum"] == "yeniden":
                 s["tarama"]["durum"] = "hata"
-    d["durum"] = "tamam" if all(s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red") or s["paket"]["durum"] == "erisilemez" for s in d["videolar"].values()) else "yarim"
+    d["durum"] = "tamam" if all(s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red") or s["paket"]["durum"] == "erisilemez"
+                                or str(s["paket"].get("hata") or "").startswith("hata: paket 3 kez") for s in d["videolar"].values()) else "yarim"
     _yaz(yol, d)
     return 0
 
