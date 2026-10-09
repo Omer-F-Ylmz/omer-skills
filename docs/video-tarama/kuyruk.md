@@ -368,31 +368,31 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | TK_BXQga5lk | 0.4 | This Free AI Tool lets you scrape anything off the internet  |  | işlendi: e8c952d |
 | t7Bw9bKmTv4 | 0.3 | Claude Code'u çok daha akıllı ve verimli hale getiren açık k |  | işlendi: e8c952d |
 | d3edAqFCJ14 | 0.3 | How to Make Animated Website with Claude |  | işlendi: e8c952d |
-| tmjEIYMLxsA | 0.6 | Claude Code projelerinizi hızlandırıp kalıcı hafıza ve güven |  | raporlu |
-| ajs7ivYlr1I | 0.8 | Claude Code Just Got Way Better at Web Design #webdesign #cl |  | raporlu |
-| YDLXsLKK7Ic | 0.6 | Anthropic just launched Claude Academy with Free AI courses  |  | raporlu |
-| pX-7WMwPCrw | 1.3 | Claude can now edit videos |  | raporlu |
-| mDUPbfV3VIk | 0.8 | GPT‑6’nın Asıl Gücü: Bilgisayarını Kontrol Etsin |  | raporlu |
-| wqNoE_GJc_c | 0.3 | How to Make Animated 3D websites with Claude |  | raporlu |
-| 0sQxSXyVPwI | 1.0 | Opus5.5 ile Kusursuz Animasyonlar Nasıl Oluşturulur ? |  | raporlu |
-| ENKCgIZ-82I | 1.9 | Yapay Zekâya Kodunu İki Kez İncelet |  | raporlu |
-| nmwf7ne08ms | 0.8 | 1.000 Hazır Claude Skill Ücretsiz! Claude Code'u Güçlendir |  | raporlu |
-| Uz3smz83raA | 0.8 | CLAUDE CODE'A MODS ÖZELLİĞİ GELDİ! |  | raporlu |
-| AaDVj2a57d4 | 0.5 | Claude Code'da limitlerin hızlı bitiyorsa bu komutu bilmen l |  | raporlu |
-| jYyHjpndukk | 0.8 | NVIDIA, Yapay Zekâ Skill’lerini Kurmadan Önce Tarıyor |  | raporlu |
-| fzaHuV9l3g8 | 1.1 | Mistral Large 4 aka "le Chonk": Europe's Biggest Open Model |  | raporlu |
-| BKX9EHtttC0 | 0.8 | GitHub'da biri OmniRoute diye bir araç yaptı ve Claude Code' |  | raporlu |
-| IgNBqyU9lZo | 0.5 | En iyi Claude Code Skill’i |  | raporlu |
-| 8mNDYPpPFz8 | 0.6 | Sürekli aynı komutları yazmaktan kurtaran Claude slash komut |  | raporlu |
-| sEKaAgokMkE | 1.2 | Claude launches everyday problem-solving skills with video a |  | raporlu |
-| wx-AOllxnww | 0.6 | Use these 12 AI Skills to automate your Linkedin with Claude |  | raporlu |
-| 3YCaEsf1mlM | 1.5 | There is finally a Claude for AI video - Pexo AI |  | raporlu |
-| Srjqf8B3k4c | 0.6 | Build a $10,000 Website With One Line of Code |  | raporlu |
-| dsE5X_-x8KE | 0.8 | Don't use Claude Code untill you've installed these 5 AI Plu |  | raporlu |
-| KGGpiYJWXHU | 1.6 | Top 5 Claude Skills Out of 100,000 That Actually Matter |  | raporlu |
-| CaHT7D_B03s | 1.7 | Run a 744 Billion Parameter AI Model on a Regular Laptop for |  | raporlu |
-| 4JYMZCAzcBY | 1.0 | Did Ornith 1.5 Just Beat Claude Opus? |  | raporlu |
-| 7dU9hZKvfMY | 0.9 | Ücretsiz portföy ve hisse analizi sunan yeni Google Finance  |  | raporlu |
+| tmjEIYMLxsA | 0.6 | Claude Code projelerinizi hızlandırıp kalıcı hafıza ve güven |  | işlendi: cd67d9f |
+| ajs7ivYlr1I | 0.8 | Claude Code Just Got Way Better at Web Design #webdesign #cl |  | işlendi: cd67d9f |
+| YDLXsLKK7Ic | 0.6 | Anthropic just launched Claude Academy with Free AI courses  |  | işlendi: cd67d9f |
+| pX-7WMwPCrw | 1.3 | Claude can now edit videos |  | işlendi: cd67d9f |
+| mDUPbfV3VIk | 0.8 | GPT‑6’nın Asıl Gücü: Bilgisayarını Kontrol Etsin |  | işlendi: cd67d9f |
+| wqNoE_GJc_c | 0.3 | How to Make Animated 3D websites with Claude |  | işlendi: cd67d9f |
+| 0sQxSXyVPwI | 1.0 | Opus5.5 ile Kusursuz Animasyonlar Nasıl Oluşturulur ? |  | işlendi: cd67d9f |
+| ENKCgIZ-82I | 1.9 | Yapay Zekâya Kodunu İki Kez İncelet |  | işlendi: cd67d9f |
+| nmwf7ne08ms | 0.8 | 1.000 Hazır Claude Skill Ücretsiz! Claude Code'u Güçlendir |  | işlendi: cd67d9f |
+| Uz3smz83raA | 0.8 | CLAUDE CODE'A MODS ÖZELLİĞİ GELDİ! |  | işlendi: cd67d9f |
+| AaDVj2a57d4 | 0.5 | Claude Code'da limitlerin hızlı bitiyorsa bu komutu bilmen l |  | işlendi: cd67d9f |
+| jYyHjpndukk | 0.8 | NVIDIA, Yapay Zekâ Skill’lerini Kurmadan Önce Tarıyor |  | işlendi: cd67d9f |
+| fzaHuV9l3g8 | 1.1 | Mistral Large 4 aka "le Chonk": Europe's Biggest Open Model |  | işlendi: cd67d9f |
+| BKX9EHtttC0 | 0.8 | GitHub'da biri OmniRoute diye bir araç yaptı ve Claude Code' |  | işlendi: cd67d9f |
+| IgNBqyU9lZo | 0.5 | En iyi Claude Code Skill’i |  | işlendi: cd67d9f |
+| 8mNDYPpPFz8 | 0.6 | Sürekli aynı komutları yazmaktan kurtaran Claude slash komut |  | işlendi: cd67d9f |
+| sEKaAgokMkE | 1.2 | Claude launches everyday problem-solving skills with video a |  | işlendi: cd67d9f |
+| wx-AOllxnww | 0.6 | Use these 12 AI Skills to automate your Linkedin with Claude |  | işlendi: cd67d9f |
+| 3YCaEsf1mlM | 1.5 | There is finally a Claude for AI video - Pexo AI |  | işlendi: cd67d9f |
+| Srjqf8B3k4c | 0.6 | Build a $10,000 Website With One Line of Code |  | işlendi: cd67d9f |
+| dsE5X_-x8KE | 0.8 | Don't use Claude Code untill you've installed these 5 AI Plu |  | işlendi: cd67d9f |
+| KGGpiYJWXHU | 1.6 | Top 5 Claude Skills Out of 100,000 That Actually Matter |  | işlendi: cd67d9f |
+| CaHT7D_B03s | 1.7 | Run a 744 Billion Parameter AI Model on a Regular Laptop for |  | işlendi: cd67d9f |
+| 4JYMZCAzcBY | 1.0 | Did Ornith 1.5 Just Beat Claude Opus? |  | işlendi: cd67d9f |
+| 7dU9hZKvfMY | 0.9 | Ücretsiz portföy ve hisse analizi sunan yeni Google Finance  |  | işlendi: cd67d9f |
 | s9stQXjITkI | 7.3 | RIP HIggsfield! This AI Video Generator Destroys Higgsfield  |  | raporlu |
 | Pw2x2yXTIUE | 13.1 | Claude Sonnet 5.5 is Absurd! (3D, Web Design, Animation) |  | raporlu |
 | nPxMF2YV77I | 15.4 | I Built $10000 Website With Free AI Tools In 15 Minutes // N |  | raporlu |
