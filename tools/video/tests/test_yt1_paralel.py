@@ -216,7 +216,7 @@ def _goz_kur(tmp_path, monkeypatch):
     return sahne, ocr, en_tampon
 
 
-def test_sahne_ve_ocr_asla_iki_olmaz_tampon_uc(tmp_path, monkeypatch):
+def test_sahne_en_iki_ocr_asla_iki_olmaz_tampon_uc(tmp_path, monkeypatch):
     sahne, ocr, en_tampon = _goz_kur(tmp_path, monkeypatch)
     hatalar = []
 
@@ -230,7 +230,7 @@ def test_sahne_ve_ocr_asla_iki_olmaz_tampon_uc(tmp_path, monkeypatch):
     [t.start() for t in ts]
     [t.join() for t in ts]
     assert not hatalar, hatalar
-    assert sahne.en == 1 and ocr.en == 1 and 1 <= en_tampon[0] <= 3
+    assert 1 <= sahne.en <= 2 and ocr.en == 1 and 1 <= en_tampon[0] <= 3  # HIZ-3b: SAHNE 2
     assert cli.TAMPON._value == 3  # her iş sonunda bırakıldı
 
 

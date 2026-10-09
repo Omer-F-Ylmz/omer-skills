@@ -66,7 +66,7 @@ class RamYetersiz(Hata):
 
 
 # YT1 3: boru hattı kaynak kapıları (modül düzeyi: tüm iş parçacıkları aynı sayacı paylaşır)
-INDIR, SAHNE, OCR, TAMPON = (threading.Semaphore(n) for n in (2, 1, 1, 3))  # eşzamanlı indirme · ffmpeg sahne/kare · OCR · indirilmiş-OCR'sız video
+INDIR, SAHNE, OCR, TAMPON = (threading.Semaphore(n) for n in (2, 2, 1, 3))  # eşzamanlı indirme · ffmpeg sahne/kare · OCR · indirilmiş-OCR'sız video
 INDIR_ARA, RASTGELE, _INDIR_SON, _INDIR_KILIT = None, random.uniform, [None], threading.Lock()  # indirme başlangıçları arası boşluk (sn aralığı); parti paralel>1 iken (5, 15) yapar
 _MOTOR, _MOTOR_KILIT = [None], threading.Lock()  # (yükleyici, motor)
 KUYRUK_KILIT = threading.Lock()  # _bagli_video kuyruk.md oku-değiştir-yaz
@@ -831,31 +831,55 @@ def _goz_ocr(ctx, d, kd, sure, f):
         return _goz_ocr_govde(ctx, d, kd, sure, f)
 
 
-def _kare_cikar(ctx, v, kd, sahne, f):
+def _hw(ctx, v):
+    """HIZ-3b: AV1 goz-video → NVDEC (cuda) giriş seçenekleri + süzgeç başı format=yuv420p; tam videoda eski yolla bayt bayt aynı ölçüldü.
+    AV1 değil ya da ffprobe hatası → None (eski yol)."""
+    try:
+        c = _kos(ctx, ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=codec_name", "-of", "csv=p=0", str(v)], SURE["meta"])
+    except Hata:
+        return None
+    return (["-hwaccel", "cuda", "-c:v", "av1"], "format=yuv420p,") if c.strip() == b"av1" else None
+
+
+def _ff(ctx, hw, cmd, timeout):
+    """HIZ-3b: cmd(giris, on) → ffmpeg argümanları. hw ile koşar; hwaccel başlatılamazsa (GPU yok / hata) aynı komut hwaccel'siz (eski yol)."""
+    if hw:
+        try:
+            return _kos(ctx, cmd(*hw), timeout)
+        except Hata:
+            pass
+    return _kos(ctx, cmd([], ""), timeout)
+
+
+def _kare_cikar(ctx, v, kd, sahne, f, hw=None):
     """HIZ-2: seçilen kareler tek çözme geçişinde — fps → split=K, dal başına ≤50 terimlik select (1b-1R: ~117 terimlik select ffmpeg'de
     "Cannot allocate memory"), dal başına ayrı image2 çıkışı; adlar/numara eski parçalı yolla aynı. Uzun graf komut satırı yerine betik dosyasında."""
     p = range(0, max(len(sahne), 1), 50)
-    graf = [f"[0:v]fps={f},split={len(p)}" + "".join(f"[a{i}]" for i in p)]
-    graf += [f"[a{i}]select='" + ("+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0") + f"',format=yuvj420p[o{i}]" for i in p]
-    (b := kd / "secim.txt").write_text(";".join(graf), encoding="utf-8")
+    b = kd / "secim.txt"
+
+    def cmd(giris, on):
+        graf = [f"[0:v]{on}fps={f},split={len(p)}" + "".join(f"[a{i}]" for i in p)]
+        graf += [f"[a{i}]select='" + ("+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0") + f"',format=yuvj420p[o{i}]" for i in p]
+        b.write_text(";".join(graf), encoding="utf-8")
+        return ["ffmpeg", "-v", "error", "-y", *giris, "-i", str(v), "-/filter_complex", str(b),
+                *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")])]
     try:
-        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-/filter_complex", str(b),
-                   *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")])],
-             SURE["sahne"])
+        _ff(ctx, hw, cmd, SURE["sahne"])
     finally:
         b.unlink(missing_ok=True)
 
 
 def _goz_ocr_govde(ctx, d, kd, sure, f):
     """1b-1R R1: video → dHash sahne → kareler (kd) → ham OCR; ocr.json'a yazılacak dict.
-    YT1 3: SAHNE (ffmpeg dhash + kare çıkarma + ek -ss kareleri) ve OCR bölümleri birer eşzamanlı; OCR saati bekleme değil OCR'ın kendi süresini sayar."""
+    YT1 3: SAHNE (ffmpeg dhash + kare çıkarma + ek -ss kareleri) en fazla 2 (HIZ-3b), OCR 1 eşzamanlı; OCR saati bekleme değil OCR'ın kendi süresini sayar."""
     v = _video_indir(ctx, d)
     with SAHNE, asama(d.name, "sahne"):
-        ham = _kos(ctx, ["ffmpeg", "-v", "error", "-i", str(v), "-an", "-vf", f"fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"],
-                   SURE["sahne"])
+        hw = _hw(ctx, v)
+        ham = _ff(ctx, hw, lambda giris, on: ["ffmpeg", "-v", "error", *giris, "-i", str(v), "-an", "-vf",
+                                              f"{on}fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"], SURE["sahne"])
         sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
         sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
-        _kare_cikar(ctx, v, kd, sahne, f)
+        _kare_cikar(ctx, v, kd, sahne, f, hw)
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
     _ram_kapi(ctx)
@@ -870,8 +894,8 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
         ek = [] if inc else gz.yogun_zaman([t for t, _ in okunan], [t for t, r in okunan if any(gz.url_benzer(x) for x, *_ in r)], sure)
         with SAHNE:  # OCR → SAHNE sırası tek yönlü (SAHNE tutan OCR beklemez): kilitlenme yok
             for t in ek:  # DEVAM-4: URL komşu yoğunlaştırma, tavan dışı; ponytail: kare başına bir -ss çözme, ≤120
-                _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-ss", str(t), "-i", str(v), "-an", "-frames:v", "1", "-q:v", "3", str(kd / f"k{int(t * 10):06d}.jpg")],
-                     SURE["sahne"])
+                _ff(ctx, hw, lambda giris, _, t=t: ["ffmpeg", "-v", "error", "-y", "-ss", str(t), *giris, "-i", str(v), "-an", "-frames:v", "1", "-q:v", "3",
+                                                    str(kd / f"k{int(t * 10):06d}.jpg")], SURE["sahne"])  # HIZ-3b: -ss karesi süzgeçsiz ölçüldü
         ek = [(t, kd / f"k{int(t * 10):06d}.jpg") for t in ek if (kd / f"k{int(t * 10):06d}.jpg").is_file()]
         for i in range(0, len(ek), 10):
             if time.monotonic() - bas > gz.OCR_GUVENLIK:
