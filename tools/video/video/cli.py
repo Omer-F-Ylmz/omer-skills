@@ -1735,7 +1735,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     x.add_argument("--yeniden-tara", action="store_true", help="devam: M2d — tamam/form_red/tavan videoları düzeltilmiş girdiyle yeniden tara")
     x.add_argument("--paket-yeniden", action="store_true", help="devam --yeniden-tara ile: DERİNLİK-1 R4b — paket R4 ile yeniden kurulur (yorum + kare; ozet yok)")
     x.add_argument("--incelenmedi", action="store_true", help="devam: C4 — incelenmedi anı kalan videolar ikinci geçişte (paket --incelenmedi + yeniden tarama)")
-    x.add_argument("--yeniden", action="store_true", help="akil: M2g K1 — geliştirme karşılaştırması yeniden (yalnız gelistir + panel)")
+    x.add_argument("--yeniden", nargs="?", const=True, default=False, metavar="VIDEO", help="akil: M2g K1 — geliştirme karşılaştırması yeniden · devam <id> --yeniden <video>: KAPANIŞ-2 tavan/deneme sınırındaki videonun sayacı sıfırlanır")
     x.add_argument("--cagri-ek", type=int, default=0, help="devam/akil/kapat: çağrı tavanını açıkça yükselt")
     x.add_argument("--a-yolu", action="store_true", help="devam: V10 rotasını bırak, A taşıyıcısıyla tara (OmniRoute yokken açık seçim)")
     x.add_argument("--usd-ek", type=float, default=0.0, help="devam/akil/kapat: $ tavanını açıkça yükselt")

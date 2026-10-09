@@ -1036,7 +1036,8 @@ def panel_uygula(ns, ctx):
     return rc
 
 
-MOTOR_DOCS = ("docs/video-tarama", "docs/kurulumlar", "docs/denemeler", "docs/departmanlar", "docs/olcumler")
+PARTI_ORTAK = ("docs/video-tarama/kayit.jsonl", "docs/video-tarama/kuyruk.md", "docs/video-tarama/bilinen-araclar.txt",
+               "docs/video-tarama/kanallar.json", "docs/kurulumlar/kayit.jsonl")  # KAPANIŞ-2: partilerin ortak yazdığı dosyalar (bütün dosya alınır)
 
 
 def _islenmemis(kok, pid):
@@ -1243,12 +1244,16 @@ def kapat(pdir, d, kok, ctx):
     from .kanal import takip_ekle  # KANAL-2a A3: Ömer kuralı — yeni kanal takibe (kanallar.json bu commit'e girer)
     takip_ekle(Path(kok), [v for v, s in d["videolar"].items() if s["tarama"]["durum"] in ("tamam", "tamam_eksik")], ctx,
                Path(d["kuyruk"]).read_text(encoding="utf-8") if d.get("kuyruk") and Path(d["kuyruk"]).is_file() else "")
-    out = kos([*git, "status", "--porcelain", "--", *MOTOR_DOCS])[1].decode("utf-8", "replace")  # M6 K6: izli değişiklik de tüm motor klasörlerinden
+    # KAPANIŞ-2: yalnız bu partinin yolları (parti dizini · raporlar · adaylar · ortak kayıt/kuyruk); Ömer'in docs değişikliği alınmaz
+    kp = Path(kok).resolve()
+    ic = [Path(y).resolve() for y in [d.get("kuyruk"), *(s["tarama"].get("cikti") for s in d["videolar"].values())] if y]
+    yol = [f"docs/kurulumlar/parti/{d['parti']}", *PARTI_ORTAK, *(y.relative_to(kp).as_posix() for y in ic if y.is_relative_to(kp)),
+           *(f"docs/kurulumlar/adaylar/{_aday_yol(kok, a).name}" for a in d.get("adaylar", {}))]
+    out = kos([*git, "status", "--porcelain", "--", *yol])[1].decode("utf-8", "replace")
     dosya = [s[3:].strip().strip('"') for s in out.splitlines() if s.strip() and not s.startswith("?? ")]
     if dosya:
         print("kapat: eklenecek izli: " + " · ".join(dosya))
-    # M3a K0a: motorun yazdığı docs klasörlerindeki izlenmeyen dosyalar da değişen sayılır; commit'ten önce listelenir
-    izl = [s[3:].strip().strip('"') for s in kos([*git, "status", "--porcelain", "--untracked-files=all", "--", *MOTOR_DOCS])[1]
+    izl = [s[3:].strip().strip('"') for s in kos([*git, "status", "--porcelain", "--untracked-files=all", "--", *yol])[1]
            .decode("utf-8", "replace").splitlines() if s.startswith("?? ")]
     if izl:
         print("kapat: eklenecek izlenmeyen: " + " · ".join(izl))
@@ -1268,7 +1273,7 @@ def kapat(pdir, d, kok, ctx):
     say = Counter(a["durum"] for a in ad.values())
     if kos([*git, "commit", "-q", "-m", f"parti {d['parti']}: {len(islenen)}/{len(d['videolar'])} video · {len(ad)} aday (kurulu {say['kurulu']} · "
             f"araştırılan {say['tamam']} · önceden {say['onceki']}) · panel docs/kurulumlar/parti/{d['parti']}/panel.md · defter {n} çağrı "
-            f"${usd:.4f} {tk} jeton"])[0]:
+            f"${usd:.4f} {tk} jeton", "--", *dosya])[0]:  # KAPANIŞ-2: yalnız partinin dosyaları; Ömer'in staged dosyası commit'e girmez
         print("kapat: commit başarısız")
         return 1
     sha = kos([*git, "rev-parse", "--short", "HEAD"])[1].decode("utf-8", "replace").strip()
@@ -1276,7 +1281,7 @@ def kapat(pdir, d, kok, ctx):
     if ky and ky.is_file() and islenen:
         ky.write_bytes(tr.kuyruk_isle(ky.read_bytes().decode("utf-8"), set(islenen), sha).encode("utf-8"))
         kos([*git, "add", "--", ky.as_posix()])
-        kos([*git, "commit", "-q", "-m", f"parti {d['parti']} kuyruk: {len(islenen)} işlendi ({sha})"])
+        kos([*git, "commit", "-q", "-m", f"parti {d['parti']} kuyruk: {len(islenen)} işlendi ({sha})", "--", ky.as_posix()])
     d["durum"] = "kapandi"  # M12 K2: açık parti koruması kapanmış partiyi yok sayar
     pt._yaz(pdir / "durum.json", d)
     if ctx["env"].get("VIDEO_PUSH_YOK") == "1":

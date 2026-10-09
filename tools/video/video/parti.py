@@ -76,6 +76,18 @@ def _yakala():
     finally:
         y.yer.b = None
 BUTCE_YOK = "tavan: yeniden istek bütçesi yok"  # M5b K2
+
+
+def yeniden_ac(d, v):
+    """KAPANIŞ-2: devam --yeniden <video> — tavan/deneme sınırındaki tek videonun bitmemiş aşamaları bekliyor/deneme 0; durum.json notlar'a iz."""
+    if v not in d["videolar"]:
+        raise SystemExit(f"devam --yeniden: partide yok: {v}")
+    s = d["videolar"][v]
+    onceki = {a: f"{s[a]['durum']}/{s[a].get('deneme', 0)}" for a in ("paket", "tarama") if s[a]["durum"] not in ("tamam", "tamam_eksik")}
+    for a in onceki:
+        s[a].update(durum="bekliyor", deneme=0, hata=None)
+    d.setdefault("notlar", []).append({"video": v, "olay": "devam --yeniden", "onceki": onceki, "zaman": time.strftime("%Y-%m-%d %H:%M")})
+    print(f"devam --yeniden {v}: {onceki or 'sıfırlanacak aşama yok'} → bekliyor/0")
 YONLENDIRME = {"tarama": {"yontem": "ikili", "modeller": ["claude-sonnet-5-5", "claude-haiku-5-5"]}}  # 1b-2a KAPANIŞ: yeni parti tarama kurgu 2 (sonnet + haiku claude -p, birlestir) · geri alma: bu satır {} ya da durum.json'dan "yonlendirme" silinir
 # geri alma (V10): YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
@@ -1028,6 +1040,8 @@ def parti(ns, ctx):
         if ns.eylem in ("akil", "kapat"):
             from . import akil
             return akil.akil(pdir, d, kok, Path(tdir), ctx, getattr(ns, "tum", False)) if ns.eylem == "akil" else akil.kapat(pdir, d, kok, ctx)
+        if ns.eylem == "devam" and isinstance(getattr(ns, "yeniden", None), str):
+            yeniden_ac(d, ns.yeniden)
         if getattr(ns, "yeniden_tara", False):  # M2d: _temizle URL hatası sonrası — bitmiş videolar düzeltilmiş girdiyle yeniden taranır
             for s in d["videolar"].values():
                 if s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red", "tavan"):
