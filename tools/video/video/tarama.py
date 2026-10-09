@@ -280,6 +280,20 @@ def kuyruk_isle(metin, ids, sha):
     return "".join(out)
 
 
+def kuyruk_raporlu(metin, kayit, tdir, haric=()):
+    """KUYRUK-HEDEF: kayıtta raporu olan (tamam/tamam_eksik) ya da `tdir`de `*-<id>.md` raporu bulunan bekleyen satırın
+    yalnız durum hücresi `raporlu` olur; çağrısız, satır sonu korunur. → (metin, [id])"""
+    kay, out, ids = {x["id"] for x in kayit_oku(kayit) if x.get("rapor")}, [], []
+    for s in metin.splitlines(keepends=True):
+        g = s.rstrip("\r\n")
+        h = _hucre(g)
+        if g.lstrip().startswith("|") and len(h) == 5 and h[4] == "bekliyor" and h[0] not in haric and (h[0] in kay or any(Path(tdir).glob(f"*-{h[0]}.md"))):
+            s = f"{g[:g.rstrip().rstrip('|').rfind('|') + 1]} raporlu |{s[len(g):]}"
+            ids.append(h[0])
+        out.append(s)
+    return "".join(out), ids
+
+
 def kuyruk_ekle(metin, satirlar, raporlu, muaf, baslik, gunluk=None):
     """KANAL-2b C4: (id, süre, başlık, not) satırları `baslik` altında `bekliyor` eklenir; kuyrukta bekleyen ya da
     tarihli raporu olan id atlanır, `muaf` yalnız rapor atlamasından kurtulur. Satır sonu dosyanınki. → (metin, {id: sebep})

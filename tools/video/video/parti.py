@@ -942,7 +942,7 @@ def parti(ns, ctx):
         (ky := kok / ".kos" / f"link-{v}.md").parent.mkdir(parents=True, exist_ok=True)
         ky.write_text("| id | dk | başlık | not | durum |\n|---|---|---|---|---|\n| " + " | ".join(
             [v, str(round((mt.get("duration") or 0) / 60, 1)), str(mt.get("title") or "?")[:40].replace("|", "/"), "/video-uygula", "bekliyor"]) + " |\n", encoding="utf-8")
-        ns.eylem, ns.hedef = "baslat", ky.as_posix()
+        ns.eylem, ns.hedef, ns.tekrar = "baslat", ky.as_posix(), True  # KUYRUK-HEDEF: açık istekte raporlu video yeniden alınır
         if rc := parti(ns, ctx):
             return rc
         d = next(x for j in sorted((kok / ".kos").glob("*/durum.json"), key=lambda j: j.stat().st_mtime, reverse=True)
@@ -957,14 +957,18 @@ def parti(ns, ctx):
     if ns.eylem in ("baslat", "kuyruk") and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk · KÜÇÜK-1 K3: baslat da
         ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
     if ns.eylem in ("baslat", "kuyruk"):
-        tur, satirlar = tr.kuyruk_parti(Path(ns.hedef).read_bytes().decode("utf-8"), kapsiz=_ikili_mi(ns))  # YT1 3: ikili yolda 3/8 sınırı yok, --en-fazla geçerli
+        metin, acik = Path(ns.hedef).read_bytes().decode("utf-8"), _acik(kok)  # M12 K2: kapanmamış partideki video ikinci partiye alınmaz
+        metin, raporlu = (metin, []) if getattr(ns, "tekrar", False) else tr.kuyruk_raporlu(metin, Path(getattr(ns, "kayit", None) or Path(tdir) / "kayit.jsonl"), tdir, acik)
+        if raporlu:  # KUYRUK-HEDEF: raporlu video partiye alınmaz, kuyrukta `raporlu` olur; link (tekrar) ve açık parti hariç
+            Path(ns.hedef).write_bytes(metin.encode("utf-8"))
+            print(f"kuyruk: {len(raporlu)} satır raporlu (atlandı)")
+        tur, satirlar = tr.kuyruk_parti(metin, kapsiz=_ikili_mi(ns))  # YT1 3: ikili yolda 3/8 sınırı yok, --en-fazla geçerli
         if not satirlar:
             print("parti: kuyrukta bekleyen video yok")
             return 1
         if (ns.short and tur != "short") or (ns.uzun and tur != "uzun"):
             print(f"parti: kuyruğun sıradaki partisi {tur}")
             return 2
-        acik = _acik(kok)  # M12 K2: kapanmamış partideki video ikinci partiye alınmaz
         secilen = [h for h in satirlar if h[0] not in acik][:ns.en_fazla]
         if atla := sorted({acik[h[0]] for h in satirlar if h[0] in acik}):
             print(f"açık parti: {' · '.join(atla)} — önce: video parti kapat {atla[0]}" + (" (videoları atlandı)" if secilen else ""))

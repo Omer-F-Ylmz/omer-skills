@@ -170,7 +170,7 @@ def test_mevcut_rapor_tamam_olarak_ice_alinir(tmp_path):
     s = Sahte()
     pt.parti(_ns("baslat", kok / "kuyruk.md"), _ctx(kok, s))
     assert s.cagrilar[0][0] == [V[1]] and r.read_text(encoding="utf-8") == "# eski\n"
-    assert _durum(kok)["videolar"][V[0]]["tarama"]["durum"] == "tamam"
+    assert V[0] not in _durum(kok)["videolar"] and "| raporlu |" in (kok / "kuyruk.md").read_text(encoding="utf-8")  # KUYRUK-HEDEF
 
 
 def test_tavan_asilinca_motor_durur(tmp_path):

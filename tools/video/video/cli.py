@@ -1362,6 +1362,10 @@ def kuyruk(ns, ctx):
         y.write_bytes(tr.kuyruk_isle(metin, set(ns.isle.split(",")), ns.commit).encode("utf-8"))
         print(f"kuyruk: işlendi: {ns.commit} · {ns.isle}")
         return 0
+    metin, raporlu = tr.kuyruk_raporlu(metin, _tarama_dizin(ctx) / "kayit.jsonl", _tarama_dizin(ctx))  # KUYRUK-HEDEF: çağrısız
+    if raporlu:
+        y.write_bytes(metin.encode("utf-8"))
+        print(f"kuyruk: {len(raporlu)} satır raporlu")
     tur, parti = tr.kuyruk_parti(metin)
     print(f"kuyruk: sıradaki parti ({tur or 'yok'}, {len(parti)}/{8 if tur == 'short' else 3})")
     for h in parti:
