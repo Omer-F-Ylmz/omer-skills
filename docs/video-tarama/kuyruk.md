@@ -174,48 +174,48 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ew2ev-VsknQ | 15.6 | I Solved Claude Code's Biggest Problem: It Doesn't Forget An | kaynak: Ömer | işlendi: ff2a720 |
 | 0i65C2vzjpw | 8.8 | How to Get Claude Opus 5 & Kimi K3 for FREE (No Credit Card) | kaynak: Ömer | işlendi: ff2a720 |
 | 1M-z8O29ML8 | 18.7 | You're Using Jev + Claude Wrong | kaynak: Ömer | işlendi: ff2a720 |
-| GPpYwjMoLio | 10.3 | I Built $10000 Website With Free Al Tools In 10 Minutes / Fr | kaynak: Ömer | bekliyor |
-| 6CaQ9ZFuuKI | 21.1 | Claude Code: The Complete AI-Native SDLC Guide | kaynak: Ömer | bekliyor |
+| GPpYwjMoLio | 10.3 | I Built $10000 Website With Free Al Tools In 10 Minutes / Fr | kaynak: Ömer | işlendi: 26a3240 |
+| 6CaQ9ZFuuKI | 21.1 | Claude Code: The Complete AI-Native SDLC Guide | kaynak: Ömer | işlendi: 26a3240 |
 | aZe5ZTYcF1M | 9.9 | Sonnet 5.5 Better? I Built an Award-Winning 3D Website with  | kaynak: Ömer | raporlu |
 | 3AzJh3YXfh8 | 0.8 | Cut Claude Code’s Output in Half | kaynak: Ömer | işlendi: 6ea954f |
 | iD_L-NacyB0 | 0.6 | 5 Claude Plugins That Make AI Websites Look Premium | kaynak: Ömer | işlendi: 6ea954f |
 | 9ywqgu3R_mw | 1.7 | This $40M Startup Was Replaced After Just 3 Days! | kaynak: Ömer | işlendi: 6ea954f |
 | y6Jo7lq3i8s | 0.7 | How to Run Claude Code Completely Free forever (2026) | kaynak: Ömer | işlendi: 6ea954f |
-| ccBDUlcLx9I | 4.8 | Opus 5.5 Neden Favorim Oldu? | kaynak: Ömer | bekliyor |
-| w86c1q59QKU | 2.0 | This Open Source Tool Removes AI's Safety Filters | kaynak: Ömer | bekliyor |
+| ccBDUlcLx9I | 4.8 | Opus 5.5 Neden Favorim Oldu? | kaynak: Ömer | işlendi: 26a3240 |
+| w86c1q59QKU | 2.0 | This Open Source Tool Removes AI's Safety Filters | kaynak: Ömer | işlendi: 26a3240 |
 | RYSSqlhuOkU | 0.2 | Build crazy 3D website with Claude | kaynak: Ömer | işlendi: aeb3a34 |
 | JjrbjHcS2PM | 0.5 | Claude Opus 5.5 Is Taking Over YouTube... | kaynak: Ömer | işlendi: aeb3a34 |
 | IimeDwWBtWE | 0.7 | The Official Package That Gives Claude 11 New Professions | kaynak: Ömer | işlendi: aeb3a34 |
 | SwXcetzsSeI | 1.8 | Claude, Gemini, ChatGPT, and Grok Combined Into One Tool - C | kaynak: Ömer | işlendi: aeb3a34 |
-| _SVU3oC4JX8 | 13.5 | 25 Tricks to Level Up Claude Design in 13 Mins | kaynak: Ömer | bekliyor |
+| _SVU3oC4JX8 | 13.5 | 25 Tricks to Level Up Claude Design in 13 Mins | kaynak: Ömer | işlendi: 26a3240 |
 | QrCqBSBHCIo | 0.7 | OmniRoute: The Only AI Endpoint You Need in 2026 | kaynak: Ömer | işlendi: aeb3a34 |
 | ZKOwrG8lnmE | 1.1 | Claude’a Ödüllü Site Yaptırdım | kaynak: Ömer | işlendi: aeb3a34 |
 | 0CtisONmL4E | 1.6 | You're Paying 20x More For Your Claude Tokens Than You Need | kaynak: Ömer | işlendi: aeb3a34 |
 | X0BKFLeoepQ | 0.8 | Analyze Content by Having Claude Watch Dozens of Videos | kaynak: Ömer | işlendi: aeb3a34 |
 | YrOczcifYbQ | 0.5 | How to Make Animated YouTube Videos with Claude Code | kaynak: Ömer | işlendi: aeb3a34 |
-| e3vex7__Pqc | 3.0 | 9 Hottest GitHub Repos For Claude Code (Oct. 2026) | kaynak: Ömer | bekliyor |
+| e3vex7__Pqc | 3.0 | 9 Hottest GitHub Repos For Claude Code (Oct. 2026) | kaynak: Ömer | işlendi: 26a3240 |
 | ofqHdK9_Tmg | 0.6 | CLI Anything lets you connect Claude Code to any App you use | kaynak: Ömer | işlendi: aeb3a34 |
 | o0VU6aQg7IM | 0.4 | Stop Paying for AI APIs! Get Free Access to 100,000+ Models  | kaynak: Ömer | işlendi: aeb3a34 |
-| tTe7GOJuc0E | 2.6 | Claude Code just got a massive update #claude #tech | kaynak: Ömer | bekliyor |
-| EOdXR6lU5ZA | 22.3 | This NEW Jev + Claude OS Just Changed Every AI Workflow | kaynak: Ömer | bekliyor |
+| tTe7GOJuc0E | 2.6 | Claude Code just got a massive update #claude #tech | kaynak: Ömer | işlendi: 26a3240 |
+| EOdXR6lU5ZA | 22.3 | This NEW Jev + Claude OS Just Changed Every AI Workflow | kaynak: Ömer | işlendi: 26a3240 |
 | eJnk0dTaDPA | 1.9 | 5 Plugins to Make Claude Code Autonomous | kaynak: Ömer | işlendi: aeb3a34 |
-| 6mG6tS6WG00 | 18.8 | How To Use Claude Code Sub-Agents Better Than 99% of People | kaynak: Ömer | bekliyor |
-| z1CcbB4Yj3U | 13.3 | Claude Design ile Web Sitemi Yaptım, Yayınladım (Tek Satır K | kaynak: Ömer | bekliyor |
+| 6mG6tS6WG00 | 18.8 | How To Use Claude Code Sub-Agents Better Than 99% of People | kaynak: Ömer | işlendi: 26a3240 |
+| z1CcbB4Yj3U | 13.3 | Claude Design ile Web Sitemi Yaptım, Yayınladım (Tek Satır K | kaynak: Ömer | işlendi: 26a3240 |
 | rqb994ZQ1fA | 0.8 | AI Just Replaced Expensive Website Agencies (6-Step Workflow | kaynak: Ömer | işlendi: aeb3a34 |
 | koLhN1PpZYU | 0.5 | Claude AI X Shopify for custom theme sections | kaynak: Ömer | işlendi: aeb3a34 |
-| IlGilsEsLqo | 10.2 | Claude Code ile Ücretsiz Profesyonel Video Oluştur | kaynak: Ömer | bekliyor |
-| 0f4TJMg7jLA | 15.9 | Why Is This New AI So Different? / JEA | kaynak: Ömer | bekliyor |
-| iTIfy4Kmeo0 | 8.6 | AWWWARDS-LEVEL CINEMATIC WEBSITE WITH GPT-6 ASTRA | kaynak: Ömer | bekliyor |
-| uu-qQVfncko | 17.2 | Claude Limitlerine artık asla takılma | kaynak: Ömer | bekliyor |
-| Xu2SIKz8B58 | 186.4 | CLAUDE CODE FULL KURS 3+ SAAT: Kur ve Sat (2026) | kaynak: Ömer | bekliyor |
-| uWMt6KppPrM | 42.1 | Tüm Oyun Yapımı Araçları Bir Platformda - Vibe Code'lu Asset | kaynak: Ömer · takip: hayır | bekliyor |
-| rcrUN04qQmc | 13.2 | AN AI THAT MAKES MONEY? And It's FREE! / MoneyPrinter | kaynak: Ömer | bekliyor |
+| IlGilsEsLqo | 10.2 | Claude Code ile Ücretsiz Profesyonel Video Oluştur | kaynak: Ömer | işlendi: 26a3240 |
+| 0f4TJMg7jLA | 15.9 | Why Is This New AI So Different? / JEA | kaynak: Ömer | işlendi: 26a3240 |
+| iTIfy4Kmeo0 | 8.6 | AWWWARDS-LEVEL CINEMATIC WEBSITE WITH GPT-6 ASTRA | kaynak: Ömer | işlendi: 26a3240 |
+| uu-qQVfncko | 17.2 | Claude Limitlerine artık asla takılma | kaynak: Ömer | işlendi: 26a3240 |
+| Xu2SIKz8B58 | 186.4 | CLAUDE CODE FULL KURS 3+ SAAT: Kur ve Sat (2026) | kaynak: Ömer | işlendi: 26a3240 |
+| uWMt6KppPrM | 42.1 | Tüm Oyun Yapımı Araçları Bir Platformda - Vibe Code'lu Asset | kaynak: Ömer · takip: hayır | işlendi: 26a3240 |
+| rcrUN04qQmc | 13.2 | AN AI THAT MAKES MONEY? And It's FREE! / MoneyPrinter | kaynak: Ömer | işlendi: 26a3240 |
 | YDAK1lvVXho | 15.3 | I Built an Award-Worthy Website with GPT Astra! Better Than  | kaynak: Ömer | raporlu |
-| EsW_sKnkI2g | 11.8 | ChatGPT Astra 6 + Fable 5.1’e Blender Kullandırdım — Sonuca  | kaynak: Ömer | bekliyor |
-| -CS8r-P3NBI | 19.9 | DeepSeek Harness: Qwen 3.8 + Ollama - Ücretsiz Claude Code | kaynak: Ömer · takip: hayır | bekliyor |
-| PUtaB4uYvvA | 13.8 | How I Use GPT Astra: Create Your Own Skill | kaynak: Ömer | bekliyor |
-| m-f56P_L660 | 15.3 | Claude Fable 5 Built a $10K Website in Minutes | kaynak: Ömer | bekliyor |
-| tUq5cfOtfR8 | 23.6 | I Built a One-Person Design Team with Claude Design | kaynak: Ömer | bekliyor |
+| EsW_sKnkI2g | 11.8 | ChatGPT Astra 6 + Fable 5.1’e Blender Kullandırdım — Sonuca  | kaynak: Ömer | işlendi: 26a3240 |
+| -CS8r-P3NBI | 19.9 | DeepSeek Harness: Qwen 3.8 + Ollama - Ücretsiz Claude Code | kaynak: Ömer · takip: hayır | işlendi: 26a3240 |
+| PUtaB4uYvvA | 13.8 | How I Use GPT Astra: Create Your Own Skill | kaynak: Ömer | işlendi: 26a3240 |
+| m-f56P_L660 | 15.3 | Claude Fable 5 Built a $10K Website in Minutes | kaynak: Ömer | işlendi: 26a3240 |
+| tUq5cfOtfR8 | 23.6 | I Built a One-Person Design Team with Claude Design | kaynak: Ömer | işlendi: 26a3240 |
 | 3fdb_giOrLo | 16.3 | 9 Free AI Agent Skills You NEED to Install Now | kaynak: Ömer | bekliyor |
 | PJ4JAim5-jQ | 10.2 | WEB DESIGN IS HISTORY! (Claude Code + Stitch) | kaynak: Ömer | bekliyor |
 | 6_rCyryA6hg | 9.9 | Claude Code Can Now Automate Your Videos (Remotion + Opus 5. | kaynak: Ömer | bekliyor |
@@ -456,13 +456,13 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | s9stQXjITkI | 7.3 | RIP HIggsfield! This AI Video Generator Destroys Higgsfield  |  | işlendi: bad7a76 |
 | Pw2x2yXTIUE | 13.1 | Claude Sonnet 5.5 is Absurd! (3D, Web Design, Animation) |  | işlendi: bad7a76 |
 | nPxMF2YV77I | 15.4 | I Built $10000 Website With Free AI Tools In 15 Minutes // N |  | işlendi: bad7a76 |
-| NAumQObJEwM | 17.9 | Turn Claude into a Design Genius... Just Watch |  | bekliyor |
-| kBWqtBu4hEI | 11.4 | Neden Her Şeyi Terminalde Yapıyorum? (Claude Code + Modlar) |  | bekliyor |
+| NAumQObJEwM | 17.9 | Turn Claude into a Design Genius... Just Watch |  | işlendi: 26a3240 |
+| kBWqtBu4hEI | 11.4 | Neden Her Şeyi Terminalde Yapıyorum? (Claude Code + Modlar) |  | işlendi: 26a3240 |
 | Xv9GJZSMCPU | 19.0 | Claude Code ile Meta Reklamlarını Analiz Et: Kazanan Reklamı |  | işlendi: bad7a76 |
 | 6Ij9-f2T2Ck | 12.4 | Claude Opus 5.5 Just Solved Motion Graphics (No More AI Slop |  | işlendi: bad7a76 |
 | Kx1juJ2G7xo | 9.9 | 16 Years in 3D. Then I Tried ChatGPT Astra in Blender. |  | işlendi: bad7a76 |
 | -GhTq_HrINY | 22.0 | GPT-6 Astra is INSANE at Building Websites (Full Tutorial) |  | işlendi: bad7a76 |
-| auYy3ISrfYk | 20.0 | Bugün Sıfırdan Başlasam Ne Yapardım: Otomasyon mu, Uygulama  |  | bekliyor |
+| auYy3ISrfYk | 20.0 | Bugün Sıfırdan Başlasam Ne Yapardım: Otomasyon mu, Uygulama  |  | işlendi: 26a3240 |
 | yUuFvL1lK4k | 3.4 | Mods in Claude Code: change how Claude Code works |  | işlendi: bad7a76 |
 | uNgK2sAKTjM | 15.5 | İyi Sandığınız Prompt Artık Kötü! Claude Her Şeyi Değiştirdi |  | işlendi: bad7a76 |
 | 2f7ZkImNHFo | 8.7 | Never hit Claudes Usage Limit Again |  | raporlu |
