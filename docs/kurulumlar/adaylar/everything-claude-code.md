@@ -26,3 +26,4 @@ karar: ZATEN VAR
 gerekce: kurulu: everything-claude-code
 ## Destek
 - L2JKgj7WzU4 · 5:45 · 48 ajan, 182 skill, 68 komut, token optimizasyonu, kalıcı bellek, güvenlik taraması; birden çok harness'te çalışır. · kanıt: 48 specialized agents, 182 skills, 68 commands, token optimization
+- rABIViSQmsc · 0:00 · Claude'u geliştirici ekibine çeviren skill, alt ajan ve komut seti; birden çok kodlama aracında çalışır. · kanıt: The project is called Everything Claude code, and the author, Afan Mustafa
