@@ -168,6 +168,23 @@ def test_kod3_kimlikli_tavan_ayni_partide_devam(tmp_path):
     assert "partiler: P1" in o and "tamam_eksik: 2" in o and "tavan: 0" in o and "hata: 0" in o
 
 
+def test_usd_ek_defter_ortalamasindan(tmp_path):
+    """uzun-4 2026-10-09: sabit 0.075 $/çağrı, uzun videoda ~0.16; kalan 1 videonun ön tahmini tavanı aşıp parti ilerlemedi."""
+    def d(b):
+        return {"parti": "P1", "durum": "tavan" if b == "tavan" else "tamam", "tavan": {"cagri": 40, "usd": 6.66},
+                "videolar": {"A": {"tarama": {"durum": "tamam"}}, "B": {"tarama": {"durum": b}}}}
+    satir = {"adim": "tarama", "girdi": 0, "onb_okuma": 0, "onb_yazma": 0, "cikti": 0, "usd": 0.16, "cagri": 1}
+    _kur(tmp_path, {"adimlar": [
+        {"kod": 3, "cikti": ["parti: P1 · uzun · 2 video · tavan 40 çağrı / $6.66"],
+         "yaz": {"P1": {"durum": d("tavan"), "defter": [satir] * 40}}},
+        {"yaz": {"P1": {"durum": d("tamam"), "defter": [satir] * 42}}},
+    ]})
+    r, log, ozet, cagri = _kos(tmp_path)
+    s = cagri.split()
+    ek = float(s[s.index("--usd-ek") + 1])
+    assert 6.66 + ek - 6.4 >= 2 * 0.16 * 1.5 - 1e-6  # kalan 1 video = 2 çağrı × ortalama × 1.5
+
+
 def test_tavan_gecelik_butce_bitince_durur(tmp_path):
     d = {"parti": "P1", "durum": "tavan", "tavan": {"cagri": 50, "usd": 3.75},
          "videolar": {"A": {"tarama": {"durum": "tavan"}}}}

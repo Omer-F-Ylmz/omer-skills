@@ -125,8 +125,9 @@ while ($true) {
             $ek = [math]::Min(2 * $kalan, $Tavan - (Kullanilan))
             if ($ek -le 0) { $neden = 'tavan'; break }
             $h = Harcanan $pid_
+            $ort = if ($h[0] -gt 0) { $h[1] / $h[0] * 1.5 } else { 0.15 }   # defter ortalamasi; sabit 0.075 uzun videoda (~0.16) yetmedi
             $a += '--cagri-ek', [math]::Max(0, $h[0] + $ek - [int]$d.tavan.cagri),
-                '--usd-ek', ([math]::Max(0.0, $h[1] + $ek * 0.075 - [double]$d.tavan.usd)).ToString('0.0000', $ic)
+                '--usd-ek', ([math]::Max(0.0, $h[1] + $ek * $ort - [double]$d.tavan.usd)).ToString('0.0000', $ic)
         }
         Cagir $a | Out-Null
         if ($ardisik403 -ge 3) { $neden = '403'; break }
