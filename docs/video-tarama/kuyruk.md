@@ -328,6 +328,66 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 5hezvIlJcjs | 14.1 | 11 Günde Sıfırdan Uygulama Yapıp Satıyor | bağlantılı video (auYy3ISrfYk) | bekliyor |
 | 4UmXrwvrxKs | 48.6 | Kod Yazmadan Kendi Uygulamanı Kur ve Sat | bağlantılı video (auYy3ISrfYk) | bekliyor |
 | NYFGCESmikA | 315.9 | DHH: Future of Programming, AI, Agentic  | bağlantılı video (VRtD88WgaBk) | bekliyor |
+| pywfao8gZyo | 25.2 | Vibe Coding Bitti: Ölçülebilir AI Uygula | bağlantılı video (gKRrT6biuag) | bekliyor |
+| EFqVVIDCyMs | 17.2 | Claude Sonnet 5 Gerçekten Ne Yapabiliyor | bağlantılı video (gKRrT6biuag) | bekliyor |
+| 9VSs2glPECM | 32.3 | I Tested 7 FREE Claude Code Alternatives | bağlantılı video (OXBdKEpHEOI) | bekliyor |
+| DpOWdBVcCB0 | 16.9 | Tek Bir Prompt ile Profesyonel Youtube V | bağlantılı video (cf6zi39Aaq0) | bekliyor |
+| XJJZGa_QIZ0 | 16.3 | Claude Code ile n8n Otomasyonlarını Daki | bağlantılı video (cf6zi39Aaq0) | bekliyor |
+| SeuhYVg8-AU | 7.4 | Gemini CLI + Google MCPs: Migrate & depl | bağlantılı video (185XGEMefgc) | bekliyor |
+| 8NSyI-npJCU | 21.6 | The NEW Agentic OS standard for Claude 5 | bağlantılı video (Zs3faMCDYNs) | bekliyor |
+| 9lFE4T7iZKM | 16.1 | I Ran GPT-6 for 3 Days Non-Stop and It C | bağlantılı video (doR2RhsneRA) | bekliyor |
+| 3CDhK-uVDuY | 6.7 | Use Claude Fable 5.1 for FREE (3 Working | bağlantılı video (0i65C2vzjpw) | bekliyor |
+| GJmlik1C4Tg | 15.5 | Superpowers vs. GSD: The Results Shocked | bağlantılı video (6CaQ9ZFuuKI) | bekliyor |
+| rOs-TFUeuSg | 1.9 | GSAP Showreel 2025 | bağlantılı video (_SVU3oC4JX8) | bekliyor |
+| ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| 1zerGmW_Ayo | 24.0 | Paran Büyüdükçe Özgürlüğün Fiyatı Değişi | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| 82OfzGFlHYI | 8.4 | Yapay Zekada Çin Dönemi: Yeni Kimi K3 Ne | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| srsUdB1KrQw | 1.5 | Bir Konuyu Gerçekten Öğrendiğini Nasıl A | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| 9VYpGCwY_FU | 0.4 | Satış Yapacak Müşteri Bulurken Sorman Ge | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| 7XzVlPrGkuw | 30.1 | Bir Fikrin Para Edip Etmediğini Öğrenmen | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| -Q5JEwahEGo | 2.1 | Yapay Zekadan 10 Kat Fazla Verim Al: Kon | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| I2xpNuKmJZ4 | 1.4 | Bilgi Bedava Oldu, Peki Neden Para Kazan | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| cOXevshu0a4 | 15.4 | Kendi Kendini Nasıl Eğitirsin (NotebookL | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| XMRuFXDY08A | 1.2 | Çok Okumak Seni İyi Bir Yatırımcı Yapmaz | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| Evdv_HSFHBk | 1.6 | What is Netlify? | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| D7EphcxbEhs | 1.4 | From 0 views to 10,000+ on every video - | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| bh4MMBHtkg4 | 1.4 | 3 changes that 10x'd my YouTube channel  | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| VcGeA4vsht4 | 0.9 | How a technical founder built a marketin | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| Ic5ka0wjxs8 | 0.9 | The AI shift that 3x'd my client output  | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| LhQij3eE9Oo | 0.8 | Wrong audience = zero leads. Here's the  | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| gM8T5PJeWgw | 1.0 | The framework that ended my random posti | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| Drzs_gmNoTA | 0.8 | This tool tells you which thumbnails win | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| WNNVqIxkTog | 0.9 | This diagnostic fixed my YouTube channel | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| KWdQAZveHWg | 10.1 | Tek Bir Prompt ile Profesyonel Video Üre | bağlantılı video (IlGilsEsLqo) | bekliyor |
+| toAE8NfqzzY | 15.8 | Bu GitHub Reposu Ajansları Bitirebilir:  | bağlantılı video (IlGilsEsLqo) | bekliyor |
+| 23m0eG1Qr1c | 2.2 | Blender @ Annecy 2018 | bağlantılı video (EsW_sKnkI2g) | bekliyor |
+| whPWKecazgM | 35.7 | World Building in Blender - Ian Hubert | bağlantılı video (EsW_sKnkI2g) | bekliyor |
+| nXvWTR88sfU | 30.0 | 30 Dakikada Claude Code'un %95'ini Öğren | bağlantılı video (Xu2SIKz8B58) | raporlu |
+| qm0ZlYezt1Q | 125.1 | CLAUDE CODE FULL KURS 2 SAAT: Kur ve Sat | bağlantılı video (Xu2SIKz8B58) | bekliyor |
+| hxQshcD3e1Y | 18.2 | How I Automated Meta Ads Insights with A | bağlantılı video (Xu2SIKz8B58) | bekliyor |
+| i6OjYfQTMoE | 1.6 | How Businesses are using Gemini for Goog | bağlantılı video (Xu2SIKz8B58) | bekliyor |
+| WwdmQzv_w54 | 2.4 | How to scrape TikTok videos, hashtags, c | bağlantılı video (Xu2SIKz8B58) | bekliyor |
+| HMVSCEh72n4 | 10.5 | The Complete Guide to Making Cinematic A | bağlantılı video (6_rCyryA6hg) | bekliyor |
+| QP9Cd21Bk2I | 13.2 | CLAUDE CODE'U LİMİTSİZ YAP! (Claude Code | bağlantılı video (PJ4JAim5-jQ) | bekliyor |
+| r-MPiu0E4W4 | 111.7 | Design with AI - Full Guide (Tools, Work | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| lsgVRCJ4fko | 240.7 | Learn Design Systems: Figma Variables, C | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| L-tpK7Eeuow | 123.8 | Design System & Figma Variable Set Up -  | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| opTANvl9G1g | 214.4 | Build a Design System - Full Course | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| VezxOhvoXqU | 26.3 | Train Claude on Your Design System (Adva | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| ALkqhXv0GPk | 108.9 | Design to Developer Handoff in Figma - F | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| EyeO-yWSkYE | 61.1 | Multi-Brand Design System and Figma Vari | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| CywNFhAG-sE | 2.0 | Extended Tutorial - On Scroll Video | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| 9Itin5QBACU | 5.2 | DRAG TO ROTATE – Interactive 3D in Eleme | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| BOHnf9veNNU | 2.3 | Steal My Elementor Portfolio (Free Templ | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| gh76Hy-rmtg | 12.7 | VIDEO IN IMAGE? - FULL ELEMENTOR TUTORIA | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| qjRnf-h_5p0 | 4.3 | Make Any Website Look 10x Better | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| e4xHOX7ddnk | 6.5 | IMAGE WAVE EFFECT ON HOVER - Elementor c | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| Zl-MS9TY8_w | 10.8 | SNAP ON SCROLL - GSAP Elementor Scrolltr | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| R5-B_mOlcl4 | 7.8 | I Redesigned a Subscriber’s Website… But | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| Osnd1m7Jxg4 | 11.2 | I Redesigned Your Ugly Websites (Sorry…) | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| yezd-afdvjc | 9.3 | REVEAL CONTENT ON SCROLL - GSAP Elemento | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| UBxWEWZ6UYM | 13.1 | CINEMATIC SLIDER – Full Elementor Tutori | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| frpM0nlPKfY | 8.2 | IMAGE EXPAND ON SCROLL - GSAP Elementor  | bağlantılı video (_gZx1IxrOrk) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
@@ -465,3 +525,32 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dd_iThjj32v | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
 | ig-DdbLPvsgm48 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
 | ig-DeOuCSrDCj8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DcEFABnvBuH | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DcvL2bDEmVh | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Ddvh-YiFem7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DdUk0Lrx0rw | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DafbtU_M-Pt | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DeFB_WgChZf | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dd3Y_5aCbMT | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dd6MfpeKgfG | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DdrHopWCeag | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DdyRkV4ihXm | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DeCMQXjvuM3 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DdQ_Js8AJVi | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Ddjo8rhBPXD | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DcBvyX_O7If | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DaqHHm8y-iB | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DeHX2VRDjHz | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DdeLN4ujZGN | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DeL_StuiJbK | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dd9nkV-AC9G | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DeJuYIwoByh | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DeEqgZ7oBN7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dd_j1EtoIyb | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Ddv0we2odg2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DcgPETIMIhq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DdjgNfBtToS | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dbi2LaIMenv | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dc1NYVJA8A2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dd6pRc_sye8 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DaLUGUbMp4K | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
