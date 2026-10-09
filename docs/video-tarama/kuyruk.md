@@ -83,30 +83,30 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | AWBsGEuVhuE | 0.8 | 4 CC GitHub repos | 4 repo | işlendi: b0535dd |
 | pR2nuRcLqbI | 0.9 | CC into a dev team in 5 min | 2K1Ps-l4yxk ile aynı konu | işlendi: b0535dd |
 | 2K1Ps-l4yxk | 0.9 | CC'yi yazılım ekibi gibi çalıştır | pR2nuRcLqbI | işlendi: b0535dd |
-| jaAI2evZF44 | 1.8 | Live premium data access | MCP/veri kaynağı | raporlu |
-| DB7DFLa40N4 | 0.7 | Ücretsiz veri çeken 3 eklenti | MCP adayları | raporlu |
-| ZeLSu-ZpeAI | 0.6 | CC çalışırken para kazandıran eklenti | iddia sınama | raporlu |
-| yiO_eMIsSZQ | 0.7 | Olmazsa olmaz 3 MCP | kurulu MCP eşdeğer kontrolü | raporlu |
-| aX7QAfld7hs | 1.3 | 5 MCP servers | kurulu MCP eşdeğer kontrolü | raporlu |
-| UI-FviGoSuY | 0.7 | 181 yetenek tek pakette | paket içeriği; departman envanteriyle karşılaştır | raporlu |
-| N3zTn2Q1spI | 0.8 | 35 prompt hatasını engelle | kural/prompt adayları (T0) | raporlu |
-| geuBwE3l0HM | 1.1 | 5 free GitHub repos | repo adları | raporlu |
-| 4qIZmI_1Zgs | 1.5 | 1000 free APIs for CC | kaynak listesi | raporlu |
-| DQtj7GJE8-I | 1.4 | Full app with AI, no code | iş akışı | raporlu |
+| jaAI2evZF44 | 1.8 | Live premium data access | MCP/veri kaynağı | işlendi: 2fe5a4a |
+| DB7DFLa40N4 | 0.7 | Ücretsiz veri çeken 3 eklenti | MCP adayları | işlendi: 2fe5a4a |
+| ZeLSu-ZpeAI | 0.6 | CC çalışırken para kazandıran eklenti | iddia sınama | işlendi: 2fe5a4a |
+| yiO_eMIsSZQ | 0.7 | Olmazsa olmaz 3 MCP | kurulu MCP eşdeğer kontrolü | işlendi: 2fe5a4a |
+| aX7QAfld7hs | 1.3 | 5 MCP servers | kurulu MCP eşdeğer kontrolü | işlendi: 2fe5a4a |
+| UI-FviGoSuY | 0.7 | 181 yetenek tek pakette | paket içeriği; departman envanteriyle karşılaştır | işlendi: 2fe5a4a |
+| N3zTn2Q1spI | 0.8 | 35 prompt hatasını engelle | kural/prompt adayları (T0) | işlendi: 2fe5a4a |
+| geuBwE3l0HM | 1.1 | 5 free GitHub repos | repo adları | işlendi: 2fe5a4a |
+| 4qIZmI_1Zgs | 1.5 | 1000 free APIs for CC | kaynak listesi | işlendi: 2fe5a4a |
+| DQtj7GJE8-I | 1.4 | Full app with AI, no code | iş akışı | işlendi: 2fe5a4a |
 
 ### Sıra 3 — genel iş akışı ve diğer alanlar
 | id | süre | başlık (kısa) | Desktop notu | durum |
 |---|---|---|---|---|
-| CzGKgU26dP8 | 0.8 | Video kurgusunu otomatikleştirdim (Burhan) | zm6qZXGbFvU ile aynı başlık; kaynak calesthio/OpenMontage ile birlikte | raporlu |
-| zm6qZXGbFvU | 0.8 | Video kurgusunu otomatikleştirdim (Burhan) | CzGKgU26dP8 | raporlu |
-| duRYNLlG9TM | 0.8 | OmniVoice: 600+ dilde ses klonlama | araç; lisans/güvenlik | raporlu |
-| EL9iPRnoWl4 | 0.6 | 270 AI uzmanıyla ajans | ajan paketi | raporlu |
-| sUN3y3CRylc | 0.8 | Google'dan 15 ücretsiz AI aracı | liste | raporlu |
-| 5KX8wIu7g_A | 1.6 | AI agents on your team | platform | raporlu |
-| I7B7-R-4s9c | 1.7 | 5 Claude features run your business | özellikler | raporlu |
-| JhM-rGP5Kx0 | 1.4 | Social media team with 0 employees | 3 link; iş akışı | raporlu |
-| DSTOK9Ui2rw | 1.6 | 4 skills for resume | job-search ile ilgili; skill adayları | raporlu |
-| JLxM8NjvuEw | 0.7 | Claude room redesign | görsel üretim kullanımı | raporlu |
+| CzGKgU26dP8 | 0.8 | Video kurgusunu otomatikleştirdim (Burhan) | zm6qZXGbFvU ile aynı başlık; kaynak calesthio/OpenMontage ile birlikte | işlendi: 2fe5a4a |
+| zm6qZXGbFvU | 0.8 | Video kurgusunu otomatikleştirdim (Burhan) | CzGKgU26dP8 | işlendi: 2fe5a4a |
+| duRYNLlG9TM | 0.8 | OmniVoice: 600+ dilde ses klonlama | araç; lisans/güvenlik | işlendi: 2fe5a4a |
+| EL9iPRnoWl4 | 0.6 | 270 AI uzmanıyla ajans | ajan paketi | işlendi: 2fe5a4a |
+| sUN3y3CRylc | 0.8 | Google'dan 15 ücretsiz AI aracı | liste | işlendi: 2fe5a4a |
+| 5KX8wIu7g_A | 1.6 | AI agents on your team | platform | işlendi: 2fe5a4a |
+| I7B7-R-4s9c | 1.7 | 5 Claude features run your business | özellikler | işlendi: 2fe5a4a |
+| JhM-rGP5Kx0 | 1.4 | Social media team with 0 employees | 3 link; iş akışı | işlendi: 2fe5a4a |
+| DSTOK9Ui2rw | 1.6 | 4 skills for resume | job-search ile ilgili; skill adayları | işlendi: 2fe5a4a |
+| JLxM8NjvuEw | 0.7 | Claude room redesign | görsel üretim kullanımı | işlendi: 2fe5a4a |
 
 ### Kaynaklar (video değil; `video on --repo` + araştırıcı)
 | kaynak | ilgili video | Desktop notu | durum |
@@ -122,13 +122,13 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 
 | id | süre | başlık (kısa) | not | durum |
 |---|---|---|---|---|
-| jDtLcMOLjIQ | 1.0 | 8 Claude Skills that actually matter | kaynak: Ömer | raporlu |
+| jDtLcMOLjIQ | 1.0 | 8 Claude Skills that actually matter | kaynak: Ömer | işlendi: 2fe5a4a |
 | VRtD88WgaBk | 2.5 | Top 10 NEW Github Repos Every Claude User Must Try | kaynak: Ömer | bekliyor |
 | b2QkhmQ0sT0 | 20.5 | How I Review AI Code - (Meta Senior Staff Engineer) | kaynak: Ömer | raporlu |
-| VRqW0d8-dIU | 1.6 | Someone just gave Claude Code permanent memory and It's Free | kaynak: Ömer | raporlu |
-| OLsE1GReCBs | 0.8 | Use these 4 AI Plugins to stop your AI from creating generic | kaynak: Ömer | raporlu |
-| bVXiNb9RyyI | 1.8 | How an Anthropic designer uses Claude Slides | kaynak: Ömer | raporlu |
-| yZdxHcgCsmI | 0.6 | Open Montage is a Free Agentic Video Production Agent for cr | kaynak: Ömer | raporlu |
+| VRqW0d8-dIU | 1.6 | Someone just gave Claude Code permanent memory and It's Free | kaynak: Ömer | işlendi: 2fe5a4a |
+| OLsE1GReCBs | 0.8 | Use these 4 AI Plugins to stop your AI from creating generic | kaynak: Ömer | işlendi: 2fe5a4a |
+| bVXiNb9RyyI | 1.8 | How an Anthropic designer uses Claude Slides | kaynak: Ömer | işlendi: 2fe5a4a |
+| yZdxHcgCsmI | 0.6 | Open Montage is a Free Agentic Video Production Agent for cr | kaynak: Ömer | işlendi: 2fe5a4a |
 | fZIBK_4fKq8 | 0.5 | Use Claude Code for free with unlimited usage using Omnirout | kaynak: Ömer | raporlu |
 | RshyfhbaNHA | 0.4 | I Built a $10,000 3D Website with FREE AI Tools in 5 Minutes | kaynak: Ömer | raporlu |
 | eWdvFbDxkJE | 1.2 | Top 5 Claude Code Plugins (2026) | kaynak: Ömer | raporlu |
