@@ -33,7 +33,7 @@ def test_bolumler_ve_tam_url(tmp_path):
     (tmp_path / "v2" / "kapsam.json").write_text(json.dumps({"incelenmedi": [[95, "kare tavanı 8"]]}), encoding="utf-8")
     t = ak.denetim_md(_d(), _z(), _karar(), tmp_path)
     b = lambda ad: tr.bolum(t, ad)  # noqa: E731
-    assert f"supabase · {YT}v1" in b("KAÇAN?") and f"Cursor · {YT}v2" in b("KAÇAN?")
+    assert f"supabase · {YT}v1" in b("KAÇAN?") and "Cursor" not in b("KAÇAN?") and f"{ak.DUSUK_KURAL}: 1" in b("KAÇAN?")  # KAPANIŞ-3
     assert f"Next.js · aday değil: genel kavram · {YT}v1&t=60s" in b("aday değil")
     assert "- a1 · çözülmedi: x · https://github.com/o/a1" in b("ONARIM BEKLİYOR")
     assert f"- v2 · 1 an · {YT}v2&t=95s" in b("İncelenmedi")

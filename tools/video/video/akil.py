@@ -1121,7 +1121,7 @@ def denetim_md(d, z, karar, onb=None, eski=None, boy=3):
     b = lambda ad_, s: [f"## {ad_}", *(s or ["- yok"])]  # noqa: E731
     L = [f"# Denetim — {d.get('parti', '')}", "Desktop: her satırdaki adresleri aç; bulguyu sondaki ## Desktop'a yaz.",
          *b("KAÇAN?", [f"- {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["kacan"]]
-              + [f"- (düşük güven) {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["dusuk"]]
+              + ([f"- {DUSUK_KURAL}: {len(z['dusuk'])}"] if z["dusuk"] else [])
               + [f"- eski şema: {v} · İz yok, KAÇAN? denetimi yapılmadı · {_yt(v)}" for v in z.get("eski_sema", [])]),
          *b("aday değil", [f"- {v} · {pt._h(n)} · {pt._h(s)} · {_yt(v, (m := tr.ZAMAN.search(q)) and m.group())}" for v, q, n, s in z.get("degil", [])]),
          *b("ONARIM BEKLİYOR", [f"- {k} · {pt._h(karar[k][1])} · {url(k)}" for k in onarim]),
@@ -1130,7 +1130,7 @@ def denetim_md(d, z, karar, onb=None, eski=None, boy=3):
          *b(f"Rastgele {boy} (tohum {d.get('parti', '')})", [f"- {k} · {url(k)}" for k in random.Random(d.get("parti", "")).sample(kalan, min(boy, len(kalan)))])]
     S, n = DESKTOP_SABLON + _desktop(eski), DENETIM_SATIR - len(DESKTOP_SABLON) - 1  # E2: Ömer'in Desktop satırları kesilmez
     L = L + S if len(L) <= n + 1 else L[:n] + S + [f"… {len(L) - n} satır kesildi (tavan {DENETIM_SATIR})"]
-    return "\n".join(L) + "\n"
+    return tr.gizle("\n".join(L) + "\n")
 
 
 DESKTOP_TUR = ("KAÇAN-doğru", "KAÇAN-yanlış", "aday-değil-itiraz", "kötü-yan", "onarım", "güçlendirme", "not")  # ayar · E2
@@ -1213,11 +1213,24 @@ def _denetim_satir(z):
     return ([f"bahis {z['bahis']} · bağlanan {z['baglanan']} · aday değil {z['aday_degil']} (%{oran}) · KAÇAN? {len(z['kacan'])} · "
              f"düşük güven {len(z['dusuk'])} · İz yok {len(z['iz_yok'])} · konuşma alınamadı {len(z['konusma_yok'])} · erişilemedi {len(z['erisilemedi'])}"]
             + (["UYARI: aday değil oranı %5'i aşıyor"] if oran > 5 else [])
-            + [f"- KAÇAN? {v} · {k} · {pt._h(x)}" for v, k, x in z["kacan"]]
-            + [f"- KAÇAN? (düşük güven) {v} · {k} · {pt._h(x)}" for v, k, x in z["dusuk"]]
+            + [tr.gizle(f"- KAÇAN? {v} · {k} · {pt._h(x)}") for v, k, x in z["kacan"]]
+            + ([f"- {DUSUK_KURAL}: {len(z['dusuk'])}"] if z["dusuk"] else [])
             + [f"- İz yok: {v} → devam --yeniden-tara" for v in z["iz_yok"]]
             + [f"- konuşma alınamadı: {v} ({k}) → --paket-yeniden ile whisper" for v, k in z["konusma_yok"]]
-            + [f"- erişilemedi: {v} · {u} ({x})" for v, u, x in z["erisilemedi"]])
+            + [tr.gizle(f"- erişilemedi: {v} · {u} ({x})") for v, u, x in z["erisilemedi"]])
+
+
+DUSUK_KURAL = "düşük güven — otomatik (OCR gürültüsü / genel terim)"  # KAPANIŞ-3 (Desktop): "(düşük güven)" KAÇAN? otomatik kapanır
+
+
+def kacan_dok(kok, pid, z):
+    """KAPANIŞ-3: gerçek KAÇAN? otomatik kapanmaz → .kos/kopru/kacan-gercek.md (parti · video · kaynak · terim); partinin eski satırları yenilenir."""
+    y = Path(kok) / ".kos" / "kopru" / "kacan-gercek.md"
+    eski = [s for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else ["# Gerçek KAÇAN? — Desktop kararı bekliyor"])
+            if not s.startswith(f"- {pid} · ")]
+    y.parent.mkdir(parents=True, exist_ok=True)
+    y.write_text("\n".join(eski + [tr.gizle(f"- {pid} · {v} · {k} · {pt._h(x)}") for v, k, x in z["kacan"]]) + "\n", encoding="utf-8")
+    return y
 
 
 def kapat(pdir, d, kok, ctx):
@@ -1236,6 +1249,8 @@ def kapat(pdir, d, kok, ctx):
     z = denetim(d, kok, ctx.get("kok"))
     tr.bilinen_ekle(kok, list(d.get("adaylar", {})))  # D2 (a): yeni aday adları kalıcı sözlüğe
     if z["kacan"] or z["iz_yok"] or z["konusma_yok"]:
+        if z["kacan"]:  # KAPANIŞ-3: gerçek KAÇAN? Desktop'a dökülür; parti bekler, diğer partiler sürer
+            print(f"kapat: Desktop kararı bekliyor: {len(z['kacan'])} KAÇAN? → {kacan_dok(kok, d['parti'], z).as_posix()}")
         print("kapat: Denetim → DUR (KAÇAN?: bağla ya da sebep yaz · İz yok: devam --yeniden-tara · konuşma alınamadı: --paket-yeniden)\n" + "\n".join(_denetim_satir(z)))
         return 1
     if eks := _islenmemis(Path(kok), d["parti"]):
@@ -1261,6 +1276,10 @@ def kapat(pdir, d, kok, ctx):
     if not dosya:
         print("kapat: değişen dosya yok")
         return 0
+    for y in (kp / x for x in dosya if x.endswith(".md")):  # KAPANIŞ-3: rapor/aday/denetim md'lerinde gizli değer süzgeci
+        if y.is_file() and (t := y.read_bytes().decode("utf-8")) != (g := tr.gizle(t)):
+            y.write_bytes(g.encode("utf-8"))
+            print(f"kapat: gizli değer süzüldü: {y.relative_to(kp).as_posix()}")
     kos([*git, "add", "--", *dosya])
     rc, o, e = kos(["gitleaks", "git", "--pre-commit", "--staged", "--redact", "--no-banner", Path(kok).as_posix()])
     if rc:

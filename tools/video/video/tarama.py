@@ -496,6 +496,34 @@ def denetle(metin, sure=None):
 
 
 IZ_SEBEP = re.compile(r"genel kavram|başka adayın parçası \(\S[^)]*\)|sponsor/reklam|konu dışı", re.I)
+GIZLI = re.compile(r"(?i)(?<![\w-])(key|api_key|apikey|token|access_token|secret|sig|signature|password)=(?!\[gizlendi\])[^&\s#)\]\"'<>|`]+")
+
+
+def gizle(metin):
+    """KAPANIŞ-3: URL sorgusundaki ya da çıplak key/token/secret/sig/password=… değeri "[gizlendi]" (ekrandaki demo olsa bile)."""
+    return GIZLI.sub(r"\1=[gizlendi]", metin)
+
+
+def iz_ayikla(metin):
+    """KAPANIŞ-3: ## İz'de IZ_SEBEP'e uymayan "aday değil" satırı silinir, bölüm sonuna "İz: yok (geçersiz sebep ayıklandı)" notu."""
+    L, ic, cik, son = metin.split("\n"), False, [], None
+    for i, s in enumerate(L):
+        if s.startswith("## "):
+            ic = s[3:].strip().startswith("İz")
+        elif ic and s.lstrip().startswith("|") and len(h := [x.strip() for x in s.strip().strip("|").split("|")]) > 2 \
+                and h[2].casefold().startswith("aday değil") and not IZ_SEBEP.fullmatch(h[2].split(":", 1)[-1].strip()):
+            cik.append(i)
+            L[i] = f"- İz: yok (geçersiz sebep ayıklandı) · {h[1]}"
+        if ic:
+            son = i
+    if not cik:
+        return metin
+    notlar = [L[i] for i in cik]
+    L = [s for i, s in enumerate(L) if i not in cik]
+    son -= len(cik)
+    while son > 0 and not L[son].strip():
+        son -= 1
+    return "\n".join(L[:son + 1] + notlar + L[son + 1:])
 KACAN_URL = re.compile(r"https?://[^\s|)>\]]+")
 KACAN_DESEN = [re.compile(r"(?<![\w./:-])[A-Za-z0-9][\w.-]*/[\w.-]*\w(?![\w/])"),  # owner/repo
                re.compile(r"\b(?:npx|uvx|pipx? install|npm i(?:nstall)?(?: -g)?|claude mcp add|/plugin install)\s+(?:-\S+\s+)*([\w@./-]+)"),
