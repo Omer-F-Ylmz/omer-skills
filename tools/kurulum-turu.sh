@@ -22,7 +22,7 @@ log() { printf '%s\t%s\n' "$(date +%H:%M:%S)" "$*" | tee -a "$LOG"; }
 calis() { if [ "$MOD" = "--kuru" ]; then echo "+ $*"; else "$@"; fi; }
 geri() { [ "$MOD" = "--kuru" ] || echo "$*" >> "$GERI"; }
 # marketplace'in GERÇEK yeri (known_marketplaces.json installLocation) → git için Windows biçimi
-mkonum() { cygpath -m "$(python -I -c "import json,sys;print(json.load(open(sys.argv[1],encoding='utf-8'))[sys.argv[2]]['installLocation'])" "$HOME/.claude/plugins/known_marketplaces.json" "$1")"; }
+mkonum() { cygpath -m "$(python -I -c "import json,sys;print(json.load(open(sys.argv[1],encoding='utf-8'))[sys.argv[2]]['installLocation'])" "$(cygpath -m "$HOME/.claude/plugins/known_marketplaces.json")" "$1")"; }
 
 # --- doğrulayıcılar (pipefail + grep -q SIGPIPE tuzağına düşmemek için here-string) ---
 plugin_var() { grep -qF "$1" <<<"$(claude plugin list 2>&1)"; }
