@@ -12,6 +12,7 @@ param(
     [int]$Tavan = 200,
     [string]$Video = '',
     [string]$Kok = '',
+    [string]$Kuyruk = '',   # bos: parti.py varsayilan kuyrugu (docs/video-tarama/kuyruk.md)
     [string]$RamOku = '',   # bos: bos RAM (MB) Win32_OperatingSystem'den; dolu: son cikti satiri MB donen komut (test)
     [int]$Bekle = 60,
     [switch]$Baslat
@@ -20,7 +21,7 @@ $ErrorActionPreference = 'Continue'
 $repo = Split-Path (Split-Path $PSScriptRoot)
 if ($Baslat) {
     $a = '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $PSCommandPath, '-Paralel', $Paralel, '-EnFazla', $EnFazla, '-Tavan', $Tavan, '-Bekle', $Bekle
-    foreach ($p in 'Video', 'Kok', 'RamOku') { if (Get-Variable $p -ValueOnly) { $a += "-$p", (Get-Variable $p -ValueOnly) } }
+    foreach ($p in 'Video', 'Kok', 'Kuyruk', 'RamOku') { if (Get-Variable $p -ValueOnly) { $a += "-$p", (Get-Variable $p -ValueOnly) } }
     $p = Start-Process powershell -WindowStyle Hidden -PassThru -ArgumentList $a
     "PID $($p.Id)"
     return
@@ -102,7 +103,7 @@ while ($true) {
     if ((Kullanilan) + $tavanParti -gt $Tavan) { $neden = 'tavan'; break }
 
     $u = ($EnFazla * 0.15).ToString($ic)   # olculen ~0.11 $/video; cli varsayilani 1.0 gecede 13 videoda durdurdu
-    $a = 'parti', 'baslat', '--en-fazla', $EnFazla, '--paralel', $Paralel, '--cagri-tavan', $tavanParti, '--usd-tavan', $u
+    $a = @('parti', 'baslat') + @($Kuyruk | Where-Object { $_ }) + @('--en-fazla', $EnFazla, '--paralel', $Paralel, '--cagri-tavan', $tavanParti, '--usd-tavan', $u)
     if ($EnFazla * 0.15 -gt 2.0) { $a += '--usd-tavan-max', $u }   # cli usd_max varsayilani 2.0 bu tavanin altinda kalmasin
     $cikti = Cagir $a
     # parti sonucu durum.json'dan: tavanda baslat 3 doner ama parti kurulmustur

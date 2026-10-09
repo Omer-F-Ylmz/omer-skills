@@ -139,6 +139,16 @@ def test_baslat_usd_tavani_gecer(tmp_path):
     assert "--usd-tavan 3.75" in cagri and "--usd-tavan-max 3.75" in cagri
 
 
+def test_kuyruk_parametresi_baslata_gecer(tmp_path):
+    _kur(tmp_path, {"adimlar": []})
+    ky = str(tmp_path / "kuyruk-yt1-uzun.md")
+    r, log, ozet, cagri = _kos(tmp_path, "-Kuyruk", ky)
+    assert cagri.startswith(f"parti baslat {ky} ") and f"> video parti baslat {ky} " in log
+    (b := tmp_path / "b").mkdir()
+    _kur(b, {"adimlar": []})
+    assert _kos(b)[3].startswith("parti baslat --en-fazla")  # -Kuyruk yok: davranis ayni
+
+
 def test_kod3_kimlikli_tavan_ayni_partide_devam(tmp_path):
     """Gece 2026-10-09: baslat tavanda 3 döndü, kimlik satırı vardı → 'kuyruk bos' sanıldı, özet 0."""
     def d(b):
