@@ -42,18 +42,18 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | V-CIbnAAhc4 | 0.6 | CC + Google Stitch entegrasyonu | Stitch MCP kurulu → ZATEN VAR; akış ÖĞREN | işlendi: 7bc7142 |
 | Vngbdm2IEXM | 1.1 | UI concept: Figma + AE + Blender | tasarım tekniği (Site/UI); 3D + hareket | işlendi: 7bc7142 |
 | q1QQN08ZK6I | 1.0 | Living hero section (UI × 3D × motion) | hero tekniği; web-sahne-desenleri | işlendi: 7bc7142 |
-| eKnpRVgqXR8 | 1.1 | UI tutorial Figma + Blender | tasarım tekniği | işlendi: 4d1c6d8 |
-| 9opJeH9j9qs | 0.9 | UX/UI concept Figma + AE + Blender | tasarım tekniği | işlendi: 4d1c6d8 |
-| -_S3KD0ZIfI | 0.9 | GPT 6 Astra → Blender | 3D varlık üretimi (Blender otomasyonu) | işlendi: 4d1c6d8 |
-| AAtagrbBOto | 1.1 | CC motion design studio (Remotion) | Remotion skill; video/hareket | işlendi: 4d1c6d8 |
+| eKnpRVgqXR8 | 1.1 | UI tutorial Figma + Blender | tasarım tekniği | işlendi: 2807261 |
+| 9opJeH9j9qs | 0.9 | UX/UI concept Figma + AE + Blender | tasarım tekniği | işlendi: 2807261 |
+| -_S3KD0ZIfI | 0.9 | GPT 6 Astra → Blender | 3D varlık üretimi (Blender otomasyonu) | işlendi: 2807261 |
+| AAtagrbBOto | 1.1 | CC motion design studio (Remotion) | Remotion skill; video/hareket | işlendi: 2807261 |
 
 ### Sıra 2 — araç / skill / plugin / MCP / resmi kaynak
 | id | süre | başlık (kısa) | Desktop notu | durum |
 |---|---|---|---|---|
 | gv0WHhKelSE | 25.9 | Claude Code best practices (Anthropic) | RESMİ kaynak: her öneri kural adayı → kural çifti; iddialar birincil kaynak | işlendi: 83e8d83 |
-| Nn0OyCWer1k | 1.9 | "I built Claude Code. Use Subagents." | alt ajan kullanım ipuçları; suite-kosucu/araştırıcı düzenimizle karşılaştır | işlendi: 4d1c6d8 |
+| Nn0OyCWer1k | 1.9 | "I built Claude Code. Use Subagents." | alt ajan kullanım ipuçları; suite-kosucu/araştırıcı düzenimizle karşılaştır | işlendi: 2807261 |
 | ZAaxx3qyT8g | 7.6 | CC agent dashboard | -INveHwbRz4 ile aynı özellik (agent view); sürüm/özellik | işlendi: 83e8d83 |
-| -INveHwbRz4 | 0.7 | Introducing agent view (Claude resmi) | resmi özellik duyurusu | işlendi: 4d1c6d8 |
+| -INveHwbRz4 | 0.7 | Introducing agent view (Claude resmi) | resmi özellik duyurusu | işlendi: 2807261 |
 | j7Fyi5gQ85k | 44.5 | Sıfırdan Jev Masterclass (Burhan) | JEV TAM KULLANIM: bizim jev CLI/hook/kalibre ile karşılaştır; bilmediğimiz özellik → ÖĞREN/UYARLA | işlendi: 090d56a |
 | Wz4qYO-91zg | 11.0 | Jev: 75 kat hızlı karar | Jev iddiaları → iddia sınama (13b kalibrasyonumuz) | işlendi: 090d56a |
 | EJyuu6zlQCg | 16.7 | 5 skills I use daily (Matt Pocock) | kaynak mattpocock/skills ile birlikte | işlendi: 090d56a |
@@ -68,8 +68,8 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | cAeQjck1jHs | 16.2 | 9 skills daily (Zinho) | skill adları | işlendi: 77c718f |
 | kMk4pvFJ13s | 17.3 | 5 skills worth $500K | skill adları | işlendi: f9416d2 |
 | 3XIGcM7VICc | 20.2 | 6 AI skills (Nate Herk) | GÖRÜLDÜ (eski akış) → yeni hatla yeniden | işlendi: f9416d2 |
-| 40KWXNxzgPA | 0.7 | Strix: uygulamana saldır | GÖRÜLDÜ; strix kurulu → ZATEN VAR + yeni kullanım | işlendi: 4d1c6d8 |
-| FAN5w6y-rgk | 0.9 | CC'nin en büyük sorununu çözdüm (Ömer Göçmen) | 9 link; çözülen sorun ve mekanizma | işlendi: 4d1c6d8 |
+| 40KWXNxzgPA | 0.7 | Strix: uygulamana saldır | GÖRÜLDÜ; strix kurulu → ZATEN VAR + yeni kullanım | işlendi: 2807261 |
+| FAN5w6y-rgk | 0.9 | CC'nin en büyük sorununu çözdüm (Ömer Göçmen) | 9 link; çözülen sorun ve mekanizma | işlendi: 2807261 |
 | g3Mh8Hws-jo | 1.8 | Hackathon winner CC setup | rABIViSQmsc ile aynı (everything-claude-code?) | raporlu |
 | rABIViSQmsc | 0.7 | Hackathon winner open-sourced setup | g3Mh8Hws-jo ile aynı konu | raporlu |
 | I0ADpAN2qT0 | 0.5 | Tüm güvenlik açıklarını bulan eklenti | güvenlik departmanı; kurulu (strix/semgrep) eşdeğer kontrolü | raporlu |
