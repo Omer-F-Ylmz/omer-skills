@@ -343,31 +343,31 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | zYlCtVGRwKo | 0.6 | Free LLM API Lets you run Claude Code for Free with almost u |  | işlendi: aeb3a34 |
 | q3DoYC8oUwk | 0.6 | This Free AI skill finds and fixes security holes in your vi |  | işlendi: aeb3a34 |
 | F0NvTpHAoeY | 0.6 | Slack içinde Claude'u etiketleyerek tüm verilerinizi ve rapo |  | işlendi: aeb3a34 |
-| DSlg2sQxvO4 | 0.6 | The 3 Best AI Tools to Scrape Anything of the internet using |  | raporlu |
-| ruDw4HfIuYE | 0.6 | Someone just open-sourced Claude Design and made it 100% fre |  | raporlu |
-| QXmgdiTKA_g | 0.6 | Steal the Design.md Files of Apple, Spotify, Ferrari, Tesla, |  | raporlu |
-| 2qM93WXeKdY | 0.7 | GPT-6 in Blender: How to Actually Use MCPs & SKILLS |  | raporlu |
-| mSmeMX0f0oU | 0.5 | CapCut'a Artık Para Vermene Gerek Yok |  | raporlu |
-| eQKE0uUCzQU | 0.1 | OTP Verification UI using HTML, CSS & JavaScript / #shorts # |  | raporlu |
-| UMG0jPM4t6c | 0.6 | These 3 Websites gives you access to over 100+ Free AI API K |  | raporlu |
-| 2X_allmlnnc | 0.8 | Claude Code'u gerçek bir yazılım uzmanına dönüştüren 5 gizli |  | raporlu |
-| Jc2KAzrZgyg | 1.0 | My new ui concept, for Porsche 911 turbo. Web design and ani |  | raporlu |
-| sUvLZHSXslQ | 0.5 | Freebuff is a 100% Free AI Coding Agent with No Subscription |  | raporlu |
-| 5_WwhRDSSBM | 1.0 | Nova Concept - Figma UiUx Design + Blender 3D |  | raporlu |
-| VrxXx1GxDnc | 1.0 | My new ui concept Softies, made in figma and blender 3d |  | raporlu |
-| 5Mh_LjMFFjc | 0.9 | If you're using Claude Code, you need to install these 5 AI  |  | raporlu |
-| zNJeSYRH1oc | 0.3 | How to Make 3D websites with Claude and Scrolltide |  | raporlu |
-| Ap78QPcqhqA | 0.4 | Google Ads reklamlarınızı, sayfalarınızı ve etiketlerinizi C |  | raporlu |
-| WYJxGSfXLZQ | 1.0 | Calibri runs 744B parameter AI on laptop without a GPU using |  | raporlu |
-| 6H9luwL3lFo | 0.5 | This free AI tool lets you clone any website with just one s |  | raporlu |
-| C0JN0-sNPXQ | 1.2 | OpenAI Just Gave Astra Its Own Virtual Computer With Dots |  | raporlu |
-| JlRiNyHS5ks | 0.4 | Prompts Chat is the World's Biggest Free AI Prompt Library w |  | raporlu |
-| vyrVH8S9JVE | 0.7 | NVIDIA SkillSpector is a Free AI Tool that Scans your Claude |  | raporlu |
-| k8K2xvLzxWI | 0.8 | Claude’un Gereksiz İş Yapmasını Engelleyen 4 Sınır |  | raporlu |
-| wa-WgyzwuQk | 0.7 | Tek Promptla Profesyonel Website Kur ve Sat (Claude Code) |  | raporlu |
-| TK_BXQga5lk | 0.4 | This Free AI Tool lets you scrape anything off the internet  |  | raporlu |
-| t7Bw9bKmTv4 | 0.3 | Claude Code'u çok daha akıllı ve verimli hale getiren açık k |  | raporlu |
-| d3edAqFCJ14 | 0.3 | How to Make Animated Website with Claude |  | raporlu |
+| DSlg2sQxvO4 | 0.6 | The 3 Best AI Tools to Scrape Anything of the internet using |  | işlendi: e8c952d |
+| ruDw4HfIuYE | 0.6 | Someone just open-sourced Claude Design and made it 100% fre |  | işlendi: e8c952d |
+| QXmgdiTKA_g | 0.6 | Steal the Design.md Files of Apple, Spotify, Ferrari, Tesla, |  | işlendi: e8c952d |
+| 2qM93WXeKdY | 0.7 | GPT-6 in Blender: How to Actually Use MCPs & SKILLS |  | işlendi: e8c952d |
+| mSmeMX0f0oU | 0.5 | CapCut'a Artık Para Vermene Gerek Yok |  | işlendi: e8c952d |
+| eQKE0uUCzQU | 0.1 | OTP Verification UI using HTML, CSS & JavaScript / #shorts # |  | işlendi: e8c952d |
+| UMG0jPM4t6c | 0.6 | These 3 Websites gives you access to over 100+ Free AI API K |  | işlendi: e8c952d |
+| 2X_allmlnnc | 0.8 | Claude Code'u gerçek bir yazılım uzmanına dönüştüren 5 gizli |  | işlendi: e8c952d |
+| Jc2KAzrZgyg | 1.0 | My new ui concept, for Porsche 911 turbo. Web design and ani |  | işlendi: e8c952d |
+| sUvLZHSXslQ | 0.5 | Freebuff is a 100% Free AI Coding Agent with No Subscription |  | işlendi: e8c952d |
+| 5_WwhRDSSBM | 1.0 | Nova Concept - Figma UiUx Design + Blender 3D |  | işlendi: e8c952d |
+| VrxXx1GxDnc | 1.0 | My new ui concept Softies, made in figma and blender 3d |  | işlendi: e8c952d |
+| 5Mh_LjMFFjc | 0.9 | If you're using Claude Code, you need to install these 5 AI  |  | işlendi: e8c952d |
+| zNJeSYRH1oc | 0.3 | How to Make 3D websites with Claude and Scrolltide |  | işlendi: e8c952d |
+| Ap78QPcqhqA | 0.4 | Google Ads reklamlarınızı, sayfalarınızı ve etiketlerinizi C |  | işlendi: e8c952d |
+| WYJxGSfXLZQ | 1.0 | Calibri runs 744B parameter AI on laptop without a GPU using |  | işlendi: e8c952d |
+| 6H9luwL3lFo | 0.5 | This free AI tool lets you clone any website with just one s |  | işlendi: e8c952d |
+| C0JN0-sNPXQ | 1.2 | OpenAI Just Gave Astra Its Own Virtual Computer With Dots |  | işlendi: e8c952d |
+| JlRiNyHS5ks | 0.4 | Prompts Chat is the World's Biggest Free AI Prompt Library w |  | işlendi: e8c952d |
+| vyrVH8S9JVE | 0.7 | NVIDIA SkillSpector is a Free AI Tool that Scans your Claude |  | işlendi: e8c952d |
+| k8K2xvLzxWI | 0.8 | Claude’un Gereksiz İş Yapmasını Engelleyen 4 Sınır |  | işlendi: e8c952d |
+| wa-WgyzwuQk | 0.7 | Tek Promptla Profesyonel Website Kur ve Sat (Claude Code) |  | işlendi: e8c952d |
+| TK_BXQga5lk | 0.4 | This Free AI Tool lets you scrape anything off the internet  |  | işlendi: e8c952d |
+| t7Bw9bKmTv4 | 0.3 | Claude Code'u çok daha akıllı ve verimli hale getiren açık k |  | işlendi: e8c952d |
+| d3edAqFCJ14 | 0.3 | How to Make Animated Website with Claude |  | işlendi: e8c952d |
 | tmjEIYMLxsA | 0.6 | Claude Code projelerinizi hızlandırıp kalıcı hafıza ve güven |  | raporlu |
 | ajs7ivYlr1I | 0.8 | Claude Code Just Got Way Better at Web Design #webdesign #cl |  | raporlu |
 | YDLXsLKK7Ic | 0.6 | Anthropic just launched Claude Academy with Free AI courses  |  | raporlu |
