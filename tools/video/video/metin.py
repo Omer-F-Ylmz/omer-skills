@@ -84,7 +84,12 @@ def urller(aciklama):
     return list(dict.fromkeys(u.rstrip(".,;:!?") for u in URL.findall(aciklama or "")))
 
 
+IG = re.compile(r"instagram\.com/(?:reels?|p|tv)/([\w-]+)|^(ig-[\w-]+)$")  # VİDEO-PLATFORM-1: tek biçim ig-<kod>; öneksiz hiçbir şey IG değil
+
+
 def vid(s):
+    if g := IG.search(s.strip()):
+        return g[2] or f"ig-{g[1]}"
     g = ID.search(s.strip())
     return (g[1] or g[2]) if g else None
 
