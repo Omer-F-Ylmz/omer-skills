@@ -183,26 +183,26 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | y6Jo7lq3i8s | 0.7 | How to Run Claude Code Completely Free forever (2026) | kaynak: Ömer | işlendi: 6ea954f |
 | ccBDUlcLx9I | 4.8 | Opus 5.5 Neden Favorim Oldu? | kaynak: Ömer | bekliyor |
 | w86c1q59QKU | 2.0 | This Open Source Tool Removes AI's Safety Filters | kaynak: Ömer | bekliyor |
-| RYSSqlhuOkU | 0.2 | Build crazy 3D website with Claude | kaynak: Ömer | raporlu |
-| JjrbjHcS2PM | 0.5 | Claude Opus 5.5 Is Taking Over YouTube... | kaynak: Ömer | raporlu |
-| IimeDwWBtWE | 0.7 | The Official Package That Gives Claude 11 New Professions | kaynak: Ömer | raporlu |
-| SwXcetzsSeI | 1.8 | Claude, Gemini, ChatGPT, and Grok Combined Into One Tool - C | kaynak: Ömer | raporlu |
+| RYSSqlhuOkU | 0.2 | Build crazy 3D website with Claude | kaynak: Ömer | işlendi: aeb3a34 |
+| JjrbjHcS2PM | 0.5 | Claude Opus 5.5 Is Taking Over YouTube... | kaynak: Ömer | işlendi: aeb3a34 |
+| IimeDwWBtWE | 0.7 | The Official Package That Gives Claude 11 New Professions | kaynak: Ömer | işlendi: aeb3a34 |
+| SwXcetzsSeI | 1.8 | Claude, Gemini, ChatGPT, and Grok Combined Into One Tool - C | kaynak: Ömer | işlendi: aeb3a34 |
 | _SVU3oC4JX8 | 13.5 | 25 Tricks to Level Up Claude Design in 13 Mins | kaynak: Ömer | bekliyor |
-| QrCqBSBHCIo | 0.7 | OmniRoute: The Only AI Endpoint You Need in 2026 | kaynak: Ömer | raporlu |
-| ZKOwrG8lnmE | 1.1 | Claude’a Ödüllü Site Yaptırdım | kaynak: Ömer | raporlu |
-| 0CtisONmL4E | 1.6 | You're Paying 20x More For Your Claude Tokens Than You Need | kaynak: Ömer | raporlu |
-| X0BKFLeoepQ | 0.8 | Analyze Content by Having Claude Watch Dozens of Videos | kaynak: Ömer | raporlu |
-| YrOczcifYbQ | 0.5 | How to Make Animated YouTube Videos with Claude Code | kaynak: Ömer | raporlu |
+| QrCqBSBHCIo | 0.7 | OmniRoute: The Only AI Endpoint You Need in 2026 | kaynak: Ömer | işlendi: aeb3a34 |
+| ZKOwrG8lnmE | 1.1 | Claude’a Ödüllü Site Yaptırdım | kaynak: Ömer | işlendi: aeb3a34 |
+| 0CtisONmL4E | 1.6 | You're Paying 20x More For Your Claude Tokens Than You Need | kaynak: Ömer | işlendi: aeb3a34 |
+| X0BKFLeoepQ | 0.8 | Analyze Content by Having Claude Watch Dozens of Videos | kaynak: Ömer | işlendi: aeb3a34 |
+| YrOczcifYbQ | 0.5 | How to Make Animated YouTube Videos with Claude Code | kaynak: Ömer | işlendi: aeb3a34 |
 | e3vex7__Pqc | 3.0 | 9 Hottest GitHub Repos For Claude Code (Oct. 2026) | kaynak: Ömer | bekliyor |
-| ofqHdK9_Tmg | 0.6 | CLI Anything lets you connect Claude Code to any App you use | kaynak: Ömer | raporlu |
-| o0VU6aQg7IM | 0.4 | Stop Paying for AI APIs! Get Free Access to 100,000+ Models  | kaynak: Ömer | raporlu |
+| ofqHdK9_Tmg | 0.6 | CLI Anything lets you connect Claude Code to any App you use | kaynak: Ömer | işlendi: aeb3a34 |
+| o0VU6aQg7IM | 0.4 | Stop Paying for AI APIs! Get Free Access to 100,000+ Models  | kaynak: Ömer | işlendi: aeb3a34 |
 | tTe7GOJuc0E | 2.6 | Claude Code just got a massive update #claude #tech | kaynak: Ömer | bekliyor |
 | EOdXR6lU5ZA | 22.3 | This NEW Jev + Claude OS Just Changed Every AI Workflow | kaynak: Ömer | bekliyor |
-| eJnk0dTaDPA | 1.9 | 5 Plugins to Make Claude Code Autonomous | kaynak: Ömer | raporlu |
+| eJnk0dTaDPA | 1.9 | 5 Plugins to Make Claude Code Autonomous | kaynak: Ömer | işlendi: aeb3a34 |
 | 6mG6tS6WG00 | 18.8 | How To Use Claude Code Sub-Agents Better Than 99% of People | kaynak: Ömer | bekliyor |
 | z1CcbB4Yj3U | 13.3 | Claude Design ile Web Sitemi Yaptım, Yayınladım (Tek Satır K | kaynak: Ömer | bekliyor |
-| rqb994ZQ1fA | 0.8 | AI Just Replaced Expensive Website Agencies (6-Step Workflow | kaynak: Ömer | raporlu |
-| koLhN1PpZYU | 0.5 | Claude AI X Shopify for custom theme sections | kaynak: Ömer | raporlu |
+| rqb994ZQ1fA | 0.8 | AI Just Replaced Expensive Website Agencies (6-Step Workflow | kaynak: Ömer | işlendi: aeb3a34 |
+| koLhN1PpZYU | 0.5 | Claude AI X Shopify for custom theme sections | kaynak: Ömer | işlendi: aeb3a34 |
 | IlGilsEsLqo | 10.2 | Claude Code ile Ücretsiz Profesyonel Video Oluştur | kaynak: Ömer | bekliyor |
 | 0f4TJMg7jLA | 15.9 | Why Is This New AI So Different? / JEA | kaynak: Ömer | bekliyor |
 | iTIfy4Kmeo0 | 8.6 | AWWWARDS-LEVEL CINEMATIC WEBSITE WITH GPT-6 ASTRA | kaynak: Ömer | bekliyor |
@@ -225,7 +225,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 79hKdSVr5oE | 16.7 | USE CLAUDE COWORK FOR FREE / CLAUDE DESKTOP FREE ACCESS TRIC | kaynak: Ömer | bekliyor |
 | uaVYHiF8f7k | 15.8 | Turn Claude Into a Video Editing GENIUS (in 3 simple steps) | kaynak: Ömer | bekliyor |
 | QUI6Ug4cHnE | 16.7 | I Built The Ultimate Claude Website Design Skill (steal this | kaynak: Ömer | bekliyor |
-| SjboYsIV67A | 0.6 | Supabase Nedir? Backend Yazmadan Proje Geliştir! #backend #c | kaynak: Ömer | raporlu |
+| SjboYsIV67A | 0.6 | Supabase Nedir? Backend Yazmadan Proje Geliştir! #backend #c | kaynak: Ömer | işlendi: aeb3a34 |
 | e7TY56-yIvM | 12.8 | Everything You Know About Skills IS OUTDATED | kaynak: Ömer | bekliyor |
 | misjUj4Q_ho | 23.0 | Building a Real App with Claude Code (Start to Finish) | kaynak: Ömer | bekliyor |
 | vsGwx28z4jk | 7.0 | Anthropic Just Revealed 12 New Rules for Prompting Opus 5.5 | kaynak: Ömer | bekliyor |
@@ -334,15 +334,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 ### Sıra 0 — genel (8 Eki, sınıflanmadı)
 | id | süre | başlık (kısa) | Desktop notu: özellikle bakılacaklar | durum |
 |---|---|---|---|---|
-| qvjZnWfbW0Y | 0.8 | Ekran kartı olmadan yapay zeka modellerini yerel cihazda çev |  | raporlu |
-| A1NrAlw1lHw | 0.8 | These are the Only 5 Claude Code Plugins You Actually Need |  | raporlu |
-| QzDnfL2e6cQ | 0.7 | Claude just dropped 11 Official plugins that turn Claude Cod |  | raporlu |
-| Ftn112RZ6IE | 0.3 | How to Make Animated Site with Claude in 5 Minutes 😱 |  | raporlu |
-| gTMFKLnC0So | 0.7 | Google has silently released 15 AI tools that are completely |  | raporlu |
-| 7cBexZWBfOo | 0.5 | Claude Can Now Edit Full Videos Using DaVinci Resolve's Offi |  | raporlu |
-| zYlCtVGRwKo | 0.6 | Free LLM API Lets you run Claude Code for Free with almost u |  | raporlu |
-| q3DoYC8oUwk | 0.6 | This Free AI skill finds and fixes security holes in your vi |  | raporlu |
-| F0NvTpHAoeY | 0.6 | Slack içinde Claude'u etiketleyerek tüm verilerinizi ve rapo |  | raporlu |
+| qvjZnWfbW0Y | 0.8 | Ekran kartı olmadan yapay zeka modellerini yerel cihazda çev |  | işlendi: aeb3a34 |
+| A1NrAlw1lHw | 0.8 | These are the Only 5 Claude Code Plugins You Actually Need |  | işlendi: aeb3a34 |
+| QzDnfL2e6cQ | 0.7 | Claude just dropped 11 Official plugins that turn Claude Cod |  | işlendi: aeb3a34 |
+| Ftn112RZ6IE | 0.3 | How to Make Animated Site with Claude in 5 Minutes 😱 |  | işlendi: aeb3a34 |
+| gTMFKLnC0So | 0.7 | Google has silently released 15 AI tools that are completely |  | işlendi: aeb3a34 |
+| 7cBexZWBfOo | 0.5 | Claude Can Now Edit Full Videos Using DaVinci Resolve's Offi |  | işlendi: aeb3a34 |
+| zYlCtVGRwKo | 0.6 | Free LLM API Lets you run Claude Code for Free with almost u |  | işlendi: aeb3a34 |
+| q3DoYC8oUwk | 0.6 | This Free AI skill finds and fixes security holes in your vi |  | işlendi: aeb3a34 |
+| F0NvTpHAoeY | 0.6 | Slack içinde Claude'u etiketleyerek tüm verilerinizi ve rapo |  | işlendi: aeb3a34 |
 | DSlg2sQxvO4 | 0.6 | The 3 Best AI Tools to Scrape Anything of the internet using |  | raporlu |
 | ruDw4HfIuYE | 0.6 | Someone just open-sourced Claude Design and made it 100% fre |  | raporlu |
 | QXmgdiTKA_g | 0.6 | Steal the Design.md Files of Apple, Spotify, Ferrari, Tesla, |  | raporlu |
