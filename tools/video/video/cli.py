@@ -1717,7 +1717,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     x.add_argument("--kare", type=int, default=0, help="openrouter vision: gönderilecek kare (≤6; short ≤3)")
     x.add_argument("--tarih")
     x = alt.add_parser("parti", help="MOTOR-M2a: kuyruk → paket → hafif claude -p tarayıcı formu → rapor + kayıt; .kos/<parti-id>/durum.json + defter.jsonl")
-    x.add_argument("eylem", choices=["baslat", "kuyruk", "link", "devam", "durum", "akil", "kapat", "iptal", "denetim-isle"])
+    x.add_argument("eylem", choices=["baslat", "kuyruk", "link", "devam", "durum", "akil", "kapat", "iptal", "denetim-isle", "kacan-karar"])
     x.add_argument("--kayit", metavar="JSONL", help="MÜKEMMEL-7c U10: rapor kaydı (varsayılan tarama dizini kayit.jsonl)")
     x.add_argument("--neden", help="iptal: M12 K3 — iptal nedeni (zorunlu)")
     x.add_argument("hedef", nargs="?", help="baslat/kuyruk: kuyruk.md (varsayılan docs/video-tarama/kuyruk.md) · devam/durum: parti-id")

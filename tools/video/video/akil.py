@@ -1084,7 +1084,7 @@ def denetim(d, kok, onb=None):
         e, u = tr.kacan_video(r, Path(onb) / v / "paket.md" if onb else Path(""), soz)
         z["kacan"] += [(v, k, x) for k, x in e]
         z["dusuk"] += [(v, k, x) for k, x in u]
-    return z
+    return kacan_kapat(kok, d.get("parti", ""), z)
 
 
 YT = "https://www.youtube.com/watch?v="
@@ -1122,7 +1122,7 @@ def denetim_md(d, z, karar, onb=None, eski=None, boy=3):
     b = lambda ad_, s: [f"## {ad_}", *(s or ["- yok"])]  # noqa: E731
     L = [f"# Denetim — {d.get('parti', '')}", "Desktop: her satırdaki adresleri aç; bulguyu sondaki ## Desktop'a yaz.",
          *b("KAÇAN?", [f"- {v} · {k} · {pt._h(x)} · {_yt(v)}" for v, k, x in z["kacan"]]
-              + ([f"- {DUSUK_KURAL}: {len(z['dusuk'])}"] if z["dusuk"] else [])
+              + ([f"- {DUSUK_KURAL}: {len(z['dusuk'])}"] if z["dusuk"] else []) + _kapanan_satir(z)
               + [f"- eski şema: {v} · İz yok, KAÇAN? denetimi yapılmadı · {_yt(v)}" for v in z.get("eski_sema", [])]),
          *b("aday değil", [f"- {v} · {pt._h(n)} · {pt._h(s)} · {_yt(v, (m := tr.ZAMAN.search(q)) and m.group())}" for v, q, n, s in z.get("degil", [])]),
          *b("ONARIM BEKLİYOR", [f"- {k} · {pt._h(karar[k][1])} · {url(k)}" for k in onarim]),
@@ -1215,7 +1215,7 @@ def _denetim_satir(z):
              f"düşük güven {len(z['dusuk'])} · İz yok {len(z['iz_yok'])} · konuşma alınamadı {len(z['konusma_yok'])} · erişilemedi {len(z['erisilemedi'])}"]
             + (["UYARI: aday değil oranı %5'i aşıyor"] if oran > 5 else [])
             + [tr.gizle(f"- KAÇAN? {v} · {k} · {pt._h(x)}") for v, k, x in z["kacan"]]
-            + ([f"- {DUSUK_KURAL}: {len(z['dusuk'])}"] if z["dusuk"] else [])
+            + ([f"- {DUSUK_KURAL}: {len(z['dusuk'])}"] if z["dusuk"] else []) + _kapanan_satir(z)
             + [f"- İz yok: {v} → devam --yeniden-tara" for v in z["iz_yok"]]
             + [f"- konuşma alınamadı: {v} ({k}) → --paket-yeniden ile whisper" for v, k in z["konusma_yok"]]
             + [tr.gizle(f"- erişilemedi: {v} · {u} ({x})") for v, u, x in z["erisilemedi"]])
@@ -1232,6 +1232,59 @@ def kacan_dok(kok, pid, z):
                 if not s.startswith(f"- {pid} · ")]
         y.write_text("\n".join(eski + [tr.gizle(f"- {pid} · {v} · {k} · {pt._h(x)}") for v, k, x in z["kacan"]]) + "\n", encoding="utf-8")
     return y
+
+
+KACAN_KARAR = "docs/kurulumlar/kacan-karar.tsv"  # KAPANIŞ-4: Desktop KAÇAN? kararları (parti · video · kaynak · terim · karar · sebep)
+ADAY_SEBEP = "kurulum turu adayı (docs/kurulumlar/kacan-adaylar.md)"
+
+
+def _kacan_anahtar(pid, v, k, x):
+    return pid, v, k, tr.gizle(pt._h(x))
+
+
+def _kararlar(kok):
+    y = Path(kok) / KACAN_KARAR
+    return {tuple(s[:4]): s for s in (x.split("\t") for x in y.read_text(encoding="utf-8").splitlines()[1:]) if len(s) == 6} if y.is_file() else {}
+
+
+def kacan_kapat(kok, pid, z):
+    """KAPANIŞ-4: kayıtlı Desktop kararı olan KAÇAN? sebebiyle kapanır (z["kapanan"]); kalanı engellemeye devam eder."""
+    kr, z["kapanan"], kalan = _kararlar(kok), [], []
+    for v, k, x in z["kacan"]:
+        s = kr.get(_kacan_anahtar(pid, v, k, x))
+        (z["kapanan"].append((v, k, x, s[5])) if s else kalan.append((v, k, x)))
+    z["kacan"] = kalan
+    return z
+
+
+def _kapanan_satir(z):
+    return [f"- Desktop kararıyla kapandı — {s}: {n}" for s, n in Counter(x[3] for x in z.get("kapanan", [])).items()]
+
+
+def kacan_karar(kok, tsv):
+    """KAPANIŞ-4: `video parti kacan-karar <tsv>` — Desktop triyajı repoya (aday → kurulum turu sebebi; sebepsiz satır alınmaz),
+    kacan-gercek.md'den kararlı satırlar düşer. Uydurma yok: eşleşmeyen KAÇAN? / karar sayılır (varsa rc 1)."""
+    y, g = Path(kok) / KACAN_KARAR, Path(kok) / ".kos" / "kopru" / "kacan-gercek.md"
+    yeni, bos = {}, 0
+    for s in (x.split("\t") for x in Path(tsv).read_text(encoding="utf-8").splitlines()[1:] if x.strip()):
+        if len(s) != 6 or s[4] not in ("kapat", "aday") or (s[4] == "kapat" and not s[5].strip()):
+            bos += 1
+            continue
+        s = [*s[:3], tr.gizle(pt._h(s[3])), s[4], ADAY_SEBEP if s[4] == "aday" else tr.gizle(s[5].strip())]
+        yeni[tuple(s[:4])] = s
+    y.parent.mkdir(parents=True, exist_ok=True)
+    with kilit(y):
+        kr = {**_kararlar(kok), **yeni}
+        y.write_text("parti\tvideo\tkaynak\tterim\tkarar\tsebep\n" + "".join("\t".join(s) + "\n" for s in kr.values()), encoding="utf-8")
+    with kilit(g):
+        sat = g.read_text(encoding="utf-8").splitlines() if g.is_file() else ["# Gerçek KAÇAN? — Desktop kararı bekliyor"]
+        acik = [x for x in sat[1:] if (p := x.removeprefix("- ").split(" · ", 3)) and len(p) == 4]
+        kalan = [x for x in acik if tuple(x.removeprefix("- ").split(" · ", 3)) not in kr]
+        g.write_text("\n".join(sat[:1] + kalan) + "\n", encoding="utf-8")
+    eslesen = {tuple(x.removeprefix("- ").split(" · ", 3)) for x in acik} & set(yeni)
+    print(f"kacan-karar: uygulanan {len(acik) - len(kalan)} · eşleşmeyen KAÇAN? {len(kalan)} · eşleşmeyen karar {len(set(yeni) - eslesen)}"
+          f" · okunamayan {bos} → {y.as_posix()}")
+    return 1 if kalan or bos or set(yeni) - eslesen else 0
 
 
 def kapat(pdir, d, kok, ctx):

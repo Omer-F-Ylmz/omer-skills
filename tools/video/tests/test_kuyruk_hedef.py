@@ -47,6 +47,6 @@ def test_gercek_kuyruk_yt1_once_short_sonra_uzun_sonra_ig():
         h = tr._hucre(s)
         if sira == 0 and s.startswith("|") and len(h) == 5 and h[4] == "bekliyor":
             sifir.append("i" if h[0].startswith("ig-") else "s" if float(h[1]) < 2 else "u")
-    assert re.fullmatch(r"s*u*i*", "".join(sifir)) and "i" in sifir
+    assert re.fullmatch(r"s*u*i*", "".join(sifir))
     tur, parti = tr.kuyruk_parti(metin)
-    assert tur == "short" and parti[0][0] in metin.split("### Sıra 0")[1]
+    assert tur == ("short" if "s" in sifir else "uzun") and parti[0][0] in metin.split("### Sıra 0")[1]

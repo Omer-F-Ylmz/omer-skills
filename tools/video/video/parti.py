@@ -1010,6 +1010,9 @@ def parti(ns, ctx):
             d["videolar"][h[0]] = {"paket": dict(adim), "tarama": dict(adim), "not": " ".join(h[2:4])}  # M2e K2: site/UI kare tavanı
         _yaz(pdir / "durum.json", d)
         print(f"parti: {pid} · {tur} · {len(d['videolar'])} video · tavan {ns.cagri_tavan} çağrı / ${ns.usd_tavan}")
+    elif ns.eylem == "kacan-karar":  # KAPANIŞ-4: hedef = Desktop triyaj tsv'si
+        from . import akil
+        return akil.kacan_karar(kok, ns.hedef)
     else:
         pdir = kok / ".kos" / ns.hedef
         if not (pdir / "durum.json").is_file():
