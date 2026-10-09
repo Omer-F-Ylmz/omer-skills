@@ -123,7 +123,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | id | süre | başlık (kısa) | not | durum |
 |---|---|---|---|---|
 | jDtLcMOLjIQ | 1.0 | 8 Claude Skills that actually matter | kaynak: Ömer | işlendi: 2fe5a4a |
-| VRtD88WgaBk | 2.5 | Top 10 NEW Github Repos Every Claude User Must Try | kaynak: Ömer | bekliyor |
+| VRtD88WgaBk | 2.5 | Top 10 NEW Github Repos Every Claude User Must Try | kaynak: Ömer | işlendi: ff2a720 |
 | b2QkhmQ0sT0 | 20.5 | How I Review AI Code - (Meta Senior Staff Engineer) | kaynak: Ömer | raporlu |
 | VRqW0d8-dIU | 1.6 | Someone just gave Claude Code permanent memory and It's Free | kaynak: Ömer | işlendi: 2fe5a4a |
 | OLsE1GReCBs | 0.8 | Use these 4 AI Plugins to stop your AI from creating generic | kaynak: Ömer | işlendi: 2fe5a4a |
@@ -133,47 +133,47 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | RshyfhbaNHA | 0.4 | I Built a $10,000 3D Website with FREE AI Tools in 5 Minutes | kaynak: Ömer | işlendi: 6ea954f |
 | eWdvFbDxkJE | 1.2 | Top 5 Claude Code Plugins (2026) | kaynak: Ömer | işlendi: 6ea954f |
 | zaBDyEfhrnk | 0.4 | Turn ideas into fully animated 3D sites in seconds #webdesig | kaynak: Ömer | işlendi: 6ea954f |
-| 9hetShMMp2s | 11.3 | Claude Code Mods Are Game Changers. Set Up These 5 NOW. | kaynak: Ömer | bekliyor |
-| Rn4nmFRPe0s | 9.2 | Claude Mods Is The Biggest Claude Code Upgrade Since Skills | kaynak: Ömer | bekliyor |
+| 9hetShMMp2s | 11.3 | Claude Code Mods Are Game Changers. Set Up These 5 NOW. | kaynak: Ömer | işlendi: ff2a720 |
+| Rn4nmFRPe0s | 9.2 | Claude Mods Is The Biggest Claude Code Upgrade Since Skills | kaynak: Ömer | işlendi: ff2a720 |
 | VVDV2m78qa4 | 0.7 | An AI model 100 times faster and cheaper than Claude: JEV | kaynak: Ömer | işlendi: 6ea954f |
 | d_UE-wHLoZY | 0.8 | My New UI design Tutorial: Figma → AI → Blender | kaynak: Ömer | raporlu |
 | UcWTeZepXJc | 0.5 | This AI Builds 3D Websites From One Prompt | kaynak: Ömer | işlendi: 6ea954f |
-| Ig3k61xIEvc | 10.2 | NEW Claude Code Mod Update! | kaynak: Ömer | bekliyor |
-| EIoPt1ry6ng | 113.2 | Claude Code'u nasıl kullanıyorum? Sıfırdan AI destekli uygul | kaynak: Ömer | bekliyor |
+| Ig3k61xIEvc | 10.2 | NEW Claude Code Mod Update! | kaynak: Ömer | işlendi: ff2a720 |
+| EIoPt1ry6ng | 113.2 | Claude Code'u nasıl kullanıyorum? Sıfırdan AI destekli uygul | kaynak: Ömer | işlendi: ff2a720 |
 | rMw6YJz0Ows | 0.6 | Google just dropped over 100 AI skills that make your Claude | kaynak: Ömer | işlendi: 6ea954f |
 | 08lDzkR6UrA | 0.3 | You don't need a subscription to use the top AI video models | kaynak: Ömer | işlendi: 6ea954f |
 | 7eVylM1pTrA | 0.7 | 3 Free AI PLugins to Turn Claude Code Into an SEO Expert | kaynak: Ömer | işlendi: 6ea954f |
-| gKRrT6biuag | 32.8 | Claude Sonnet 5.5 vs Opus 5.5: Aynı PRD ile 3D Oyun Yaptırdı | kaynak: Ömer | bekliyor |
+| gKRrT6biuag | 32.8 | Claude Sonnet 5.5 vs Opus 5.5: Aynı PRD ile 3D Oyun Yaptırdı | kaynak: Ömer | işlendi: ff2a720 |
 | XjCOxsRU3N8 | 0.4 | Anthropic Releases 13 Free Certificate Courses for Claude an | kaynak: Ömer | işlendi: 6ea954f |
 | NOnIrDx2b_4 | 0.8 | Top 4 Claude Code Plugins to use while Vibe Coding | kaynak: Ömer | işlendi: 6ea954f |
 | cCfOfjRaEGc | 0.3 | free-claude-code: Run Claude Code Without Paying Anthropic | kaynak: Ömer | işlendi: 6ea954f |
-| FIiV06klo4E | 9.6 | 0928 opus55 final2 | kaynak: Ömer | bekliyor |
+| FIiV06klo4E | 9.6 | 0928 opus55 final2 | kaynak: Ömer | işlendi: ff2a720 |
 | BJhyAatSo1A | 1.4 | This New Skill Let You Vibe Code Apple Level Websites | kaynak: Ömer | işlendi: 6ea954f |
-| jH1IjqI3Pi4 | 20.0 | THE FEATURE THAT BOOSTS PRODUCTIVITY / CLAUDE MODS | kaynak: Ömer | bekliyor |
+| jH1IjqI3Pi4 | 20.0 | THE FEATURE THAT BOOSTS PRODUCTIVITY / CLAUDE MODS | kaynak: Ömer | işlendi: ff2a720 |
 | 6ZSfOO-ZvOs | 1.1 | DeepSeek's New AI Coding Tool is a Game Changer! What is Dee | kaynak: Ömer | işlendi: 6ea954f |
-| x3SZvxoOmi0 | 21.7 | How to Create UI Designs for After Effects (Viral Apple Styl | kaynak: Ömer | bekliyor |
-| 9C4TRbucmhQ | 15.7 | This 1 Claude Skill fully replaces your Higgsfield Subscript | kaynak: Ömer | bekliyor |
+| x3SZvxoOmi0 | 21.7 | How to Create UI Designs for After Effects (Viral Apple Styl | kaynak: Ömer | işlendi: ff2a720 |
+| 9C4TRbucmhQ | 15.7 | This 1 Claude Skill fully replaces your Higgsfield Subscript | kaynak: Ömer | işlendi: ff2a720 |
 | QIevCKcRbUs | 1.1 | Run Claude Code FREE W/ Unlimited Usage | kaynak: Ömer | işlendi: 6ea954f |
 | 1YAss6m8QDo | 0.6 | Mimic tool converts apps into Python code for easy access | kaynak: Ömer | işlendi: 6ea954f |
 | Uc18mso08Ro | 1.0 | I Accidentally Turned Claude Into a Hacker... | kaynak: Ömer | işlendi: 6ea954f |
-| OXBdKEpHEOI | 8.8 | Claude Opus 5.5 + Fable 5.1 for FREE? (It Actually Works!) | kaynak: Ömer | bekliyor |
-| w3Lb7N3MxIg | 11.2 | How to use Claude Code For Free in 2026 | kaynak: Ömer | bekliyor |
-| cf6zi39Aaq0 | 8.1 | Yapay Zeka Uygulamalarında Pazar Henüz Boş | kaynak: Ömer | bekliyor |
-| 185XGEMefgc | 12.4 | MCP vs API: Why traditional APIs are failing AI agents | kaynak: Ömer | bekliyor |
-| _5S2LyYQ_Ys | 20.0 | CLAUDE BUNU DA YAPTI (Bu Kadar İyi Olmamalıydı..) | kaynak: Ömer | bekliyor |
-| Zs3faMCDYNs | 14.9 | Turn Claude Code Into Your AI Operating System (4 Layers) | kaynak: Ömer | bekliyor |
-| z8UPAVTh2aE | 8.2 | How To Make Your GitHub Stand Out (Gets You Hired!) | kaynak: Ömer | bekliyor |
+| OXBdKEpHEOI | 8.8 | Claude Opus 5.5 + Fable 5.1 for FREE? (It Actually Works!) | kaynak: Ömer | işlendi: ff2a720 |
+| w3Lb7N3MxIg | 11.2 | How to use Claude Code For Free in 2026 | kaynak: Ömer | işlendi: ff2a720 |
+| cf6zi39Aaq0 | 8.1 | Yapay Zeka Uygulamalarında Pazar Henüz Boş | kaynak: Ömer | işlendi: ff2a720 |
+| 185XGEMefgc | 12.4 | MCP vs API: Why traditional APIs are failing AI agents | kaynak: Ömer | işlendi: ff2a720 |
+| _5S2LyYQ_Ys | 20.0 | CLAUDE BUNU DA YAPTI (Bu Kadar İyi Olmamalıydı..) | kaynak: Ömer | işlendi: ff2a720 |
+| Zs3faMCDYNs | 14.9 | Turn Claude Code Into Your AI Operating System (4 Layers) | kaynak: Ömer | işlendi: ff2a720 |
+| z8UPAVTh2aE | 8.2 | How To Make Your GitHub Stand Out (Gets You Hired!) | kaynak: Ömer | işlendi: ff2a720 |
 | 83YfBtINu74 | 0.5 | Get Paid While Claude Code Thinks: Introducing Kickbacks.ai! | kaynak: Ömer | işlendi: 6ea954f |
 | BwSMNbleLAE | 0.6 | How To Build Fully Interactive 3D Websites using Claude Code | kaynak: Ömer | işlendi: 6ea954f |
-| doR2RhsneRA | 20.6 | This Is What $2,175 of Opus 5.5 Tokens Can Do... | kaynak: Ömer | bekliyor |
+| doR2RhsneRA | 20.6 | This Is What $2,175 of Opus 5.5 Tokens Can Do... | kaynak: Ömer | işlendi: ff2a720 |
 | t7uIIuYX2lw | 1.3 | Graph Engineering Nedir? | kaynak: Ömer | işlendi: 6ea954f |
-| AlqUtIHHuvI | 24.8 | 7 Free GitHub Repos That Make Claude So Good It Feels Illega | kaynak: Ömer | bekliyor |
-| 747ZnEtsRbg | 20.3 | How to Make Insane Motion Graphics With Opus 5.5 | kaynak: Ömer | bekliyor |
+| AlqUtIHHuvI | 24.8 | 7 Free GitHub Repos That Make Claude So Good It Feels Illega | kaynak: Ömer | işlendi: ff2a720 |
+| 747ZnEtsRbg | 20.3 | How to Make Insane Motion Graphics With Opus 5.5 | kaynak: Ömer | işlendi: ff2a720 |
 | rgSR8ggOwV4 | 1.9 | This Claude MCP Tool Replaces Your Entire Marketing Stack in | kaynak: Ömer | işlendi: 6ea954f |
-| C1yAkQ9Y2BI | 8.9 | Claude Code ile Tasarım Harikası Web Siteleri Yap! (Artık Ço | kaynak: Ömer | bekliyor |
-| ew2ev-VsknQ | 15.6 | I Solved Claude Code's Biggest Problem: It Doesn't Forget An | kaynak: Ömer | bekliyor |
-| 0i65C2vzjpw | 8.8 | How to Get Claude Opus 5 & Kimi K3 for FREE (No Credit Card) | kaynak: Ömer | bekliyor |
-| 1M-z8O29ML8 | 18.7 | You're Using Jev + Claude Wrong | kaynak: Ömer | bekliyor |
+| C1yAkQ9Y2BI | 8.9 | Claude Code ile Tasarım Harikası Web Siteleri Yap! (Artık Ço | kaynak: Ömer | işlendi: ff2a720 |
+| ew2ev-VsknQ | 15.6 | I Solved Claude Code's Biggest Problem: It Doesn't Forget An | kaynak: Ömer | işlendi: ff2a720 |
+| 0i65C2vzjpw | 8.8 | How to Get Claude Opus 5 & Kimi K3 for FREE (No Credit Card) | kaynak: Ömer | işlendi: ff2a720 |
+| 1M-z8O29ML8 | 18.7 | You're Using Jev + Claude Wrong | kaynak: Ömer | işlendi: ff2a720 |
 | GPpYwjMoLio | 10.3 | I Built $10000 Website With Free Al Tools In 10 Minutes / Fr | kaynak: Ömer | bekliyor |
 | 6CaQ9ZFuuKI | 21.1 | Claude Code: The Complete AI-Native SDLC Guide | kaynak: Ömer | bekliyor |
 | aZe5ZTYcF1M | 9.9 | Sonnet 5.5 Better? I Built an Award-Winning 3D Website with  | kaynak: Ömer | raporlu |
@@ -316,7 +316,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | wv46HPeL71A | 15.5 | EDİT PROGRAMLARINA ELVEDA! (Claude Code  | bağlantılı video (0sQxSXyVPwI) | bekliyor |
 | 64B3Qr0VmX4 | 182.2 | 🔴 Opus 5.5 Şu Ana Kadar Kullandığım En İ | bağlantılı video (ENKCgIZ-82I) | bekliyor |
 | ZMFty0XE9L4 | 60.2 | Build a Pro 3D Website Animation (No GSA | bağlantılı video (Pw2x2yXTIUE) | bekliyor |
-| G0xr7l8r7cA | 1.1 | What We Offer_Vertex Wireless | bağlantılı video (Pw2x2yXTIUE) | raporlu |
+| G0xr7l8r7cA | 1.1 | What We Offer_Vertex Wireless | bağlantılı video (Pw2x2yXTIUE) | işlendi: ff2a720 |
 | cnnDG0pPkTk | 18.9 | Reklam Bütçesi Olmadan Müşteri Bulmak: # | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | AkYbv-5Ro_A | 33.5 | Claude Managed Agents ile Otonom Reklam  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | N4s51kudOhQ | 9.3 | Claude Code ile Sıfırdan Kendi Reklam Vi | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
