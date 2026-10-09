@@ -51,13 +51,16 @@ kur_plugin() {
 
 # S|owner/repo|sha   → SKILL.md içeren her klasör ~/.claude/skills/<ad> olarak kopyalanır
 kur_skill() {
-  local repo=$1 sha=$2 d="$KLON/${1/\//__}" f s ad
+  # MSYS_NO_PATHCONV=1 altında Windows git /c/... yolunu çözemez → cygpath -m (C:/...) şart
+  local repo=$1 sha=$2 d f s ad
+  d="$(cygpath -m "$KLON")/${1/\//__}"
   if [ "$(git -C "$d" rev-parse HEAD 2>/dev/null)" != "$sha" ]; then
-    d="$LOGD/klon/${repo/\//__}"; [ "$MOD" = "--kuru" ] || rm -rf "$d"
+    d="$(cygpath -m "$LOGD")/klon/${repo/\//__}"; [ "$MOD" = "--kuru" ] || rm -rf "$d"
     calis git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" "$d" || return 1
     calis git -C "$d" checkout -q "$sha" || return 1
   fi
   [ "$MOD" = "--kuru" ] && { echo "+ kopya $repo SKILL.md klasörleri → $SKD/"; return 0; }
+  [ -d "$d" ] || { log "HATA klon yok $repo"; return 1; }
   while IFS= read -r f; do
     s=$(dirname "$f"); ad=$(basename "$s"); [ "$s" = "$d" ] && ad=${repo#*/}
     if [ -e "$SKD/$ad" ]; then log "ATLA/CAKISMA skill $ad ($repo)"; continue; fi
