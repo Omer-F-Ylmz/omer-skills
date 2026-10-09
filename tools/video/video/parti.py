@@ -332,7 +332,9 @@ def _sinif(b):
 
 def rapor_md(f, pk, notlar):
     """Mevcut rapor biçimi (docs/video-tarama/*.md) koddan; prompt'lar Adaylar'a `prompt` satırı olarak girer."""
-    L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · {pk.get('url') or f'https://youtu.be/{pk["id"]}'}" + (" · şema 2" if f.get("iz") is not None else ""),
+    L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · {pk.get('url') or f'https://youtu.be/{pk["id"]}'}"
+         + (f" · platform: instagram · tür: {'reel' if '/reel/' in (pk.get('url') or '') else 'görsel gönderi'} · yorum: girişsiz alınamıyor" if pk["id"].startswith("ig-") else "")  # SMOKE-DÜZELT B2
+         + (" · şema 2" if f.get("iz") is not None else ""),
          *notlar, "## Özet", _h(f["ozet"]), "## Bölümler", *([f"- {_h(b['zaman'])} {_h(b['baslik'])}" for b in f["bolumler"]] or ["- yok"]),
          "## Adaylar", "| ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |", "|---|---|---|---|---|---|---|",
          *[f"| {_h(a['ad'])} | yok | {a['tur']} | {_h(a['repo_url'] or 'yok')} | {_h(a['ne'])} | {_h(a['kanit_zamani'])} | {_h(a['kanit'])}{_kg(a)} |" for a in f["adaylar"]],

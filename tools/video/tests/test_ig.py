@@ -372,3 +372,53 @@ def test_parti_link_ig(monkeypatch, tmp_path):
     cagri, _, ctx = _parti_kur(monkeypatch, tmp_path, REEL, "x")
     assert pt.parti(_ns("link", "https://www.instagram.com/reels/DdUf3qJOvTO/"), ctx) == 0
     assert cagri["alt"][0] == ["ozet", "--", "ig-DdUf3qJOvTO"]
+
+
+# --- SMOKE-DÜZELT B1: köprü süreci User kapsamı anahtarları görmüyor → HKCU\Environment
+class _Winreg:
+    HKEY_CURRENT_USER = "HKCU"
+
+    def __init__(self, deger):
+        self.deger, self.sorulan = deger, []
+
+    def OpenKey(self, kok, yol):
+        assert (kok, yol) == ("HKCU", "Environment")
+        import contextlib
+        return contextlib.nullcontext(self)
+
+    def QueryValueEx(self, k, ad):
+        self.sorulan.append(ad)
+        if ad not in self.deger:
+            raise FileNotFoundError(ad)
+        return self.deger[ad], 1
+
+
+def test_kullanici_env_hkcu(monkeypatch, capsys):
+    import sys
+    sahte = _Winreg({"GROQ_API_KEY": "s1", "OPENROUTER_API_KEY": "s2"})
+    monkeypatch.setitem(sys.modules, "winreg", sahte)
+    monkeypatch.setattr(sys, "platform", "win32")
+    env = {"OPENROUTER_API_KEY": "s3"}
+    cli._kullanici_env(env)
+    assert ("GROQ_API_KEY" in env, "GEMINI_API_KEY" in env, env["OPENROUTER_API_KEY"] == "s3") == (True, False, True)  # yalnız varlık; dolu olana dokunulmaz
+    assert "OPENROUTER_API_KEY" not in sahte.sorulan
+    assert capsys.readouterr() == ("", "")
+
+
+def test_kullanici_env_windows_disi(monkeypatch):
+    import sys
+    monkeypatch.setattr(sys, "platform", "linux")
+    env = {}
+    cli._kullanici_env(env)
+    assert env == {}
+
+
+# --- SMOKE-DÜZELT B2: IG rapor künyesi platform/tür/yorum eki
+def test_ig_rapor_kunye_eki():
+    f = _F(ozet="ö", bolumler=[], iz=None)
+    pk = {"id": "ig-DdUf3qJOvTO", "baslik": "b", "kanal": "k", "sure": 68, "dil": "?", "metin": ""}
+    reel = pt.rapor_md(f, {**pk, "url": "https://www.instagram.com/reel/DdUf3qJOvTO/"}, []).splitlines()[2]
+    post = pt.rapor_md(f, {**pk, "id": "ig-DeL7DvgFLRM", "url": "https://www.instagram.com/p/DeL7DvgFLRM/"}, []).splitlines()[2]
+    assert reel.endswith("/reel/DdUf3qJOvTO/ · platform: instagram · tür: reel · yorum: girişsiz alınamıyor")
+    assert post.endswith("/p/DeL7DvgFLRM/ · platform: instagram · tür: görsel gönderi · yorum: girişsiz alınamıyor")
+    assert "platform:" not in pt.rapor_md(f, {**pk, "id": "abcdefghijk", "url": None}, []).splitlines()[2]

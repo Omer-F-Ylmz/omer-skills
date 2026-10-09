@@ -1727,7 +1727,22 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
         return 1
 
 
+def _kullanici_env(env):
+    """SMOKE-DÜZELT B1: köprü süreci User kapsamı ortamı görmüyor → eksik anahtarlar HKCU\\Environment'tan; değer basılmaz, dolu olana dokunulmaz."""
+    if sys.platform != "win32":
+        return
+    import winreg
+    for ad in ("GROQ_API_KEY", "GEMINI_API_KEY", "OPENROUTER_API_KEY"):
+        if not env.get(ad):
+            try:
+                with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as k:
+                    env[ad] = winreg.QueryValueEx(k, ad)[0]
+            except OSError:
+                pass
+
+
 def calistir():
     for akis in (sys.stdout, sys.stderr):
         akis.reconfigure(encoding="utf-8")
+    _kullanici_env(os.environ)
     sys.exit(main(ocr=gz.rapid_yukle))  # 1b-1 M1: RapidOCR yalnız gerçek koşuda; testler Windows OCR sahtesiyle
