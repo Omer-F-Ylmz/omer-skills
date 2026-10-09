@@ -831,6 +831,21 @@ def _goz_ocr(ctx, d, kd, sure, f):
         return _goz_ocr_govde(ctx, d, kd, sure, f)
 
 
+def _kare_cikar(ctx, v, kd, sahne, f):
+    """HIZ-2: seçilen kareler tek çözme geçişinde — fps → split=K, dal başına ≤50 terimlik select (1b-1R: ~117 terimlik select ffmpeg'de
+    "Cannot allocate memory"), dal başına ayrı image2 çıkışı; adlar/numara eski parçalı yolla aynı. Uzun graf komut satırı yerine betik dosyasında."""
+    p = range(0, max(len(sahne), 1), 50)
+    graf = [f"[0:v]fps={f},split={len(p)}" + "".join(f"[a{i}]" for i in p)]
+    graf += [f"[a{i}]select='" + ("+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0") + f"',format=yuvj420p[o{i}]" for i in p]
+    (b := kd / "secim.txt").write_text(";".join(graf), encoding="utf-8")
+    try:
+        _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-/filter_complex", str(b),
+                   *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")])],
+             SURE["sahne"])
+    finally:
+        b.unlink(missing_ok=True)
+
+
 def _goz_ocr_govde(ctx, d, kd, sure, f):
     """1b-1R R1: video → dHash sahne → kareler (kd) → ham OCR; ocr.json'a yazılacak dict.
     YT1 3: SAHNE (ffmpeg dhash + kare çıkarma + ek -ss kareleri) ve OCR bölümleri birer eşzamanlı; OCR saati bekleme değil OCR'ın kendi süresini sayar."""
@@ -840,10 +855,7 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
                    SURE["sahne"])
         sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
         sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
-        for i in range(0, max(len(sahne), 1), 50):  # 1b-1R: ~117 terimlik select ffmpeg'de "Cannot allocate memory" → ≤50 terimlik parçalar
-            sec = "+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0"  # ponytail: parça başına bir çözme geçişi
-            _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(v), "-an", "-vf", f"fps={f},select='{sec}',format=yuvj420p", "-fps_mode", "vfr",
-                       "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")], SURE["sahne"])
+        _kare_cikar(ctx, v, kd, sahne, f)
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
     _ram_kapi(ctx)

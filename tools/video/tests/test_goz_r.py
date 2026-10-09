@@ -14,14 +14,18 @@ def _goz_sahte(tmp_path, monkeypatch, metin):
     monkeypatch.setattr(cli, "_video_indir", lambda ctx, d: d / "goz-video.mp4")
     monkeypatch.setattr(gz, "sahneler", lambda h, f: [(t, 64) for t in sorted(metin)])
     monkeypatch.setattr(cli.m, "jpeg_boyut", lambda b: (1280, 720))
-    sayac = {"oku": 0, "secim": []}
+    sayac = {"oku": 0, "secim": [], "gecis": 0}
 
     def kos(a, timeout=None):
         if a[0] == "ffmpeg" and "rawvideo" not in a:
-            n, s0 = sum(x.count("eq(n,") for x in a), int(a[a.index("-start_number") + 1]) if "-start_number" in a else 1
-            if n:
-                sayac["secim"].append(n)
-            for y in ([a[-1] % (s0 + i) for i in range(n)] if "%" in a[-1] else [a[-1]]):
+            if "-/filter_complex" in a:  # HIZ-2: tek çözme; betikte split dalları sırayla, her dal bir -start_number çıkışı
+                dal = [x.count("eq(n,") for x in Path(a[a.index("-/filter_complex") + 1]).read_text().split(";")[1:]]
+            else:
+                dal = [sum(x.count("eq(n,") for x in a)]
+            sayac["gecis"] += any(dal)
+            sayac["secim"] += [n for n in dal if n]
+            bas = [int(a[j + 1]) for j, x in enumerate(a) if x == "-start_number"] or [1]
+            for y in ([a[-1] % (s0 + i) for s0, n in zip(bas, dal) for i in range(n)] if "%" in a[-1] else [a[-1]]):
                 Path(y).write_bytes(b"x")
         return 0, b"", b""
 
@@ -69,6 +73,7 @@ def test_r3_uzun_secim_ffmpeg_ifadesi_parcali(tmp_path, monkeypatch):
     ctx, d, sayac = _goz_sahte(tmp_path, monkeypatch, metin)
     cli._goz(ctx, d, 1200, "", [], 2, {})
     assert sum(sayac["secim"]) == 240 and max(sayac["secim"]) <= 50 and sayac["oku"] == 240  # 1b-1T T3: dk×16 → 5 sn taban sığar
+    assert sayac["gecis"] == 1  # HIZ-2: parçalar tek çözme geçişinde (split → dal başına select)
 
 
 def test_r4_kapsam_sira():
