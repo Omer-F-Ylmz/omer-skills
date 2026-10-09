@@ -481,7 +481,10 @@ def _bagli_video(ctx, v, bl, ky):
 
 def _bagli_video_(ctx, v, bl, ky):
     metin = ky.read_bytes().decode("utf-8")
-    var = {tr._hucre(s)[0] for s in metin.splitlines() if s.lstrip().startswith("|")}
+    sat_ = [tr._hucre(s) for s in metin.splitlines() if s.lstrip().startswith("|")]
+    if any(h[0] == v and len(h) > 3 and h[3].startswith("bağlantılı video (") for h in sat_):  # DERİNLİK-1: bağlantılı videonun kendi linkleri kuyruğa girmez (yt-dlp isteği de yok)
+        return
+    var = {h[0] for h in sat_}
     ids = [g[1] for x in bl if x["sinif"] == "video" and any(k.split()[0] in ("açıklama", "yorum", "sayfa") for k in x["kaynak"])
            and (g := m.ID.search(x["url"])) and g[1] and g[1] not in var and g[1] != v]
     sat, sayac = [], [0]

@@ -82,6 +82,18 @@ def test_bagli_video_tek_bolum_ve_parti_secer(ortam, tmp_path):
     assert [h[0] for h in tr.kuyruk_parti(k)[1]] == ["DDDDDDDDDDD", "CCCCCCCCCCC"]  # parti baslat seçer
 
 
+def test_derinlik1_bagli_video_kaynagindan_eklenmez(ortam, tmp_path):
+    """DERİNLİK-1: kaynak satırın notu 'bağlantılı video (' ile başlıyorsa ekleme ve yt-dlp isteği yok; derinlik-1 kaynağından eklenir."""
+    onbellek(ortam, ["x"], duration=600, description="https://youtu.be/CCCCCCCCCCC")
+    baslik = "# kuyruk\n| id | süre | başlık | not | durum |\n|---|---|---|---|---|\n"
+    for ad, no, beklenen in (("normal", "x", 1), ("bagli", "bağlantılı video (ZZZZZZZZZZZ)", 0)):
+        ky = tmp_path / f"{ad}.md"
+        ky.write_text(f"{baslik}| {VID} | 10.0 | k | {no} | bekliyor |\n", encoding="utf-8")
+        kos = Kos({"k00030": {"tr": [], "en": []}})
+        assert _paket(ortam, kos, "--kuyruk", str(ky)) == 0
+        assert ky.read_text(encoding="utf-8").count("CCCCCCCCCCC") == beklenen and len(kos.yt) == beklenen
+
+
 def test_paket_kuyruksuz_kuyruga_dokunmaz(ortam):
     onbellek(ortam, ["x"], duration=600, description="https://youtu.be/CCCCCCCCCCC")
     kos = Kos({"k00030": {"tr": [], "en": []}})
