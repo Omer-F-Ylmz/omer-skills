@@ -31,3 +31,8 @@ karar: ÖĞREN
 gerekce: kurulu; yeni olan kullanım biçimi, kurulum yok
 ## Destek
 - uuUo7gWuH9w · 8:37 · Tasarım sistemi, palet ve tipografi ile daha iyi web arayüzleri ürettiren Anthropic plugini. · kanıt: Web arayüzleri için tasarım sistemi ve skill'ler ekliyor; müzik uygulaması demosu.
+- k0gwr-vC2Z4 · 0:00 · Anthropic'in jenerik yapay zeka görünümünü azaltan arayüz eklentisi · kanıt: Altyazı: 'front-end design from Anthropic kills the generic AI look'. (karede: 0:08 karesi Superpowers sayfası; bu eklenti karede görünmüyor.)
+
+## Güncellik (2026-10-04)
+- kurulu d182ca4 ↔ upstream 44490cc · son commit 2026-09-01
+- yeni skill/komut/ajan: yok
