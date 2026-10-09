@@ -1,0 +1,12 @@
+repo	sonuc	sebep
+poyrazavsever/life-kernel	KUR	skillspector C1/H26 yanlis pozitif (connect.ts yalniz talimat basar, telemetri/gizli okuma yok); MIT; ayri Node sunucu calistirir
+remotion-dev/remotion	KUR	npm kutuphanesi, skill yok (skill'ler remotion-dev/skills'te); lisans ozel: <=3 calisanli sirket/bireye ucretsiz, buyuklere Company License
+remotion-dev/skills	KUR	12 resmi skill, semgrep/gitleaks temiz, hook/MCP yok; lisans yok - yalniz kisisel kullanim; kodu kendi repomuza kopyalamayiz
+robonuggets/excalidraw-skill	KUR	Tek skill temiz (C0/H0); canvas icin ayri mcp_excalidraw klonu gerekir; lisans yok - yalniz kisisel kullanim; kopyalamayiz
+ruvnet/ruflo	RED	izin/baglam: 203 skill, 52 eklenti, hook ve MCP npx @latest ile sabitlenmemis uzak kod ceker; .claude/settings.json genis izin
+ryze-ai-adgent/open-seo-mcp-skills	WEB	Skill'ler uzak Ryze MCP baglayicisina (connector.get-ryze.ai) dayanir; yerel kod yok, temiz; MIT
+scasella/claude-flightdeck	KUR	CC 2.1.287+ mod; ag/dosya/shell cagrisi yok, hook yalniz register.tsx; gitleaks 3 bulgu test fixture; MIT
+scrapegraphai/scrapegraph-ai	HESAP GEREKIR	OPENAI_API_KEY (kendi LLM) ya da SGAI_API_KEY; python kutuphanesi, telemetri var (opt-out); eklenti dosyasi yok
+serpapi/serpapi-mcp	HESAP GEREKIR	SERPAPI_API_KEY (ucretsiz kota sinirli, ustu ucretli); kod temiz, MIT
+sezaakgun/cc-arcade	KUR	Prompt ustu oyunlar; ag/dosya/shell yok; CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1 gerekir; MIT
+shawnpana/phone-harness	KUR-duzeltmeli	Telemetriyi kapat: PHONE_HARNESS_TELEMETRY=0 (PostHog'a gorev metni gider); C2 exec() yerel betik kosucusu, PostHog anahtari public

@@ -1,0 +1,35 @@
+repo	sonuc	sebep
+michael-obele/drizzle-docs	KUR	MCP npm drizzle-docs-mcp@3.0.2 pinli; gitleaks 0; skillspector bulguları yanlış pozitif
+microsoft/markitdown	KUR	MIT; semgrep/gitleaks temiz; uv tool ile pinli sürüm
+mksglu/context-mode	KUR-duzeltmeli	lisans ELv2 (kaynak-açık değil); postinstall+hook incele, --ignore-scripts; gitleaks 7 test verisi
+morluto/rea	KUR-duzeltmeli	prepare betiği ve ikili analiz MCP incele; Windows desteği doğrula; gitleaks 1 fixture
+mthli/cc-shorts	RED	platform (yalnız macOS)
+mvanhorn/last30days-skill	KUR-duzeltmeli	anahtarlar opsiyonel (X_BEARER_TOKEN, SCRAPECREATORS); çerez/oturum alanlarını boş bırak; gitleaks 30 test verisi
+nanako0129/sepia	KUR	MIT; 6 skill; semgrep/gitleaks temiz
+nateherkai/scroll-craft	ZATEN VAR	nateherk-design:scroll-craft
+neondatabase/mcp-server-neon	HESAP GEREKIR	NEON_API_KEY (Neon hesabı); gitleaks 2 test verisi
+nexu-io/open-design	KUR-duzeltmeli	418 skill context şişirir, yalnız gerekeni seç; install.sh ve .mcp.json incele (Apache-2.0)
+nidhinjs/prompt-master	KUR	MIT; tek skill; skillspector HIGH yanlış pozitif; son commit 2026-08
+nyldn/plugins	KUR	lisans yok — yalnız kişisel kullanım; kodu kendi repomuza kopyalamayız; yalnız marketplace dizini, içerikler ayrı taranır
+obra/superpowers	ZATEN VAR	superpowers plugin (claude-plugins-official)
+ollama/ollama	WEB	yerel uygulama/sunucu, CC aracı değil
+openai/codex-plugin-cc	HESAP GEREKIR	OPENAI_API_KEY ya da ChatGPT girişi (Codex CLI); Stop review-gate hook'unu kapat
+openclaw/openclaw	WEB	kişisel asistan uygulaması, 49 skill ve 8 GB; CC aracı değil
+owl-listener/designer-skills	KUR-duzeltmeli	111 skill context şişirir (design/impeccable ile çift), yalnız gerekeni seç
+pablo-mano/obsidian-cli-skill	KUR	lisans yok — yalnız kişisel kullanım; kodu kendi repomuza kopyalamayız; Obsidian CLI gerekir
+pacifio/atlas	WEB	masaüstü uygulaması (Tauri/Rust), CC aracı değil
+paperclipai/paperclip	WEB	sunucu/uygulama (ajan orkestrasyon), CC aracı değil
+phuryn/claude-usage	KUR	MIT; yerel kullanım paneli; son commit 2026-07; temiz
+pixel-agents-hq/pixel-agents	WEB	VS Code eklentisi/yerel web uygulaması
+zanwei/design-dna	ZATEN VAR	anthropic-skills:design-dna
+voltagent/awesome-design-md	KUR	MIT; salt DESIGN.md koleksiyonu, çalıştırılabilir kod yok
+viticci/remctl	RED	platform (yalnız macOS)
+vercel-labs/skills	ZATEN VAR	skill-ui CLI (npm -g)
+timescale/tiger-cli	HESAP GEREKIR	TIGER_PUBLIC_KEY, TIGER_SECRET_KEY (Tiger Data hesabı)
+tigerless-labs/agent-memory	ZATEN VAR	mcp-memory MCP ve claude-mem
+thu-maic/openmaic	WEB	sınıf/eğitim web uygulaması; gitleaks 8 test verisi
+thanhthuduc99/video-to-website	KUR	lisans yok — yalnız kişisel kullanım; kodu kendi repomuza kopyalamayız; tek skill, tarama temiz
+testsprite/testsprite-cli	HESAP GEREKIR	TESTSPRITE_API_KEY; telemetri/güncelleme bildirimi: TESTSPRITE_NO_UPDATE_NOTIFIER=1
+tashfeenahmed/freellmapi	WEB	kendi barındırılan LLM vekil sunucusu (uygulama); gitleaks 44 örnek/doc
+supabase/agent-skills	ZATEN VAR	supabase plugin ve supabase-postgres-best-practices
+stripe/stripe-cli	HESAP GEREKIR	STRIPE_API_KEY (Stripe hesabı); gitleaks 42 test anahtarı

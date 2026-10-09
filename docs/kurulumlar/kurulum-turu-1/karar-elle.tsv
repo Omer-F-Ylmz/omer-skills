@@ -1,0 +1,49 @@
+repo	sonuc	sebep
+every-app/open-seo	HESAP GEREKIR	DATAFORSEO_API_KEY; PostHog telemetri varsayilan acik -> OPENSEO_TELEMETRY_DISABLED=1
+eyaprak/skills	KUR	skillspector HIGH = env'den API anahtari okuma (beklenen); ilgili skill'de GOOGLE_GEMINI_API_KEY/MISTRAL_API_KEY/TELEGRAM_BOT_TOKEN
+emilkowalski/skills	KUR	skillspector HIGH yanlis pozitif (sablon metni)
+firecrawl/firecrawl	WEB	AGPL-3.0 sunucu monoreposu; CC'ye kurulacak skill/CLI degil
+getagentseal/codeburn	KUR-duzeltmeli	telemetri deseni Electron bridge, kapatma bayragi bulunamadi; kurulumda ag cagrisi izle
+ggml-org/llama.cpp	KUR	CRITICAL = dev bagimliligi transformers CVE; curl|sh yalnız README; torch.load yalniz guvenilir model
+googleworkspace/cli	HESAP GEREKIR	Google OAuth: GOOGLE_WORKSPACE_CLI_CLIENT_SECRET/GOOGLE_WORKSPACE_CLI_TOKEN; semgrep ERROR = repo CI
+herdrdev/herdr	KUR	curl|sh yalnız README; semgrep/gitleaks paketleme/vendor, sir yok
+heygen-com/hyperframes	KUR-duzeltmeli	telemetri varsayilan acik -> HYPERFRAMES_NO_TELEMETRY=1 / DO_NOT_TRACK=1
+hkuds/vibe-trading	HESAP GEREKIR	DEEPSEEK_API_KEY (LLM saglayici); gitleaks 14 agent/scripts/w4a_*.py dogrulanmadi, haric tut
+ibelick/ui-skills	KUR	telemetri bulgusu veri dosyasi (yanlis pozitif)
+idosal/git-mcp	KUR-duzeltmeli	uzak MCP kullaniminda repo adlari gitmcp.io'ya gider; yerel calistir
+jakeschincariol/linkedin-agent-skill	KUR	hooks.json veri dosyasi, olay/komut yok
+jakubantalik/thinking-orbs	KUR	gitleaks 40 = golden test verisi
+jsmastery-pro/skills	KUR	skillspector HIGH yanlis pozitif (sablon)
+justvugg/colibri	KUR-duzeltmeli	gitleaks 13 = referans tensor verisi; telemetri bayragi bulunamadi; COLI_API_KEY yerel
+karanb192/cache-tax	KUR-duzeltmeli	function-hook modulu (CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1), ag yok
+leonxlnx/unlazy	KUR-duzeltmeli	check-supervisor.mjs:16 spawn shell:true girdisini kurulumdan once oku
+lexmount/moli	KUR	curl|sh yalnız README; gitleaks test fixture
+littledivy/mimic	KUR	curl|sh = resmi uv kurulumu; telemetri istem metni
+magnitudedev/magnitude	KUR	telemetri yalniz bagimlilik adi
+mengto/skills	KUR	gizli-okuma bulgusu yayin oncesi denetim betigi (gondermez)
+elevenlabs/elevenlabs-mcp	RED	arsivli + calistirilabilir kod
+avenoxai/serai	RED	repo yok (404)
+barvin/number-flow	RED	repo yok (404)
+bilawalsidhu/godseyeview	RED	repo yok (404)
+deepseek-ai/deepseek-harness	HESAP GEREKIR	DEEPSEEK_API_KEY; ayri ajan cercevesi, CC eklentisi degil; hook ornek mod
+daymade/claude-code-skills	KUR-duzeltmeli	CLAUDE.md curl|bash kurulumu yerine /plugin; --dangerously-skip-permissions alias onerisini uygulama
+1jehuang/jcode	WEB	bagimsiz Rust ajani, CC'ye kurulmaz
+alishahryar1/free-claude-code	RED	AGPL-3.0 vekil, istemi 3. taraf saglayiciya yonlendirir + claude'u --dangerously-skip-permissions ile baslatir (cli/managed/claude.py:141)
+cline/cline	WEB	VS Code uzantisi/SDK, CC'ye kurulmaz
+composiohq/composio	HESAP GEREKIR	COMPOSIO_API_KEY; SDK/CLI
+czlonkowski/n8n-mcp	HESAP GEREKIR	N8N_API_URL+N8N_API_KEY (yonetim araclari); telemetri opt-in
+chromedevtools/chrome-devtools-mcp	KUR-duzeltmeli	--no-usage-statistics (varsayilan acik) + CHROME_DEVTOOLS_MCP_NO_UPDATE_CHECKS
+aminforou/mcp-gsc	HESAP GEREKIR	Google Search Console OAuth: GSC_OAUTH_CLIENT_SECRETS_FILE / GSC_CREDENTIALS_PATH; uv.lock bagimlilik CVE (anyio, pyjwt) yukselt
+agentrhq/webcmd	KUR	postinstall yalniz kabuk tamamlama dosyasi yazar
+davekiss/env	KUR-duzeltmeli	mods modulu (.env yazar, prompt.submit); mods calisma zamani destegini dogrula; gitleaks test ornekleri
+achimala/claude-toons	KUR-duzeltmeli	mods modulu api.anthropic.com cagirir (ek token maliyeti)
+artemnovichkov/xcode-mods	RED	yalniz macOS (xcrun/Xcode), Windows'ta calismaz; guvenlik riski yok
+data-goblin/claude-code-filetree	KUR	mods modulu, yalniz yerel git/find, ag yok
+android/skills	KUR-duzeltmeli	play_store_scraper.py verify_ssl=False dalini kullanma; HIGH'lar belge/yanlis pozitif
+affaan-m/ecc	KUR-duzeltmeli	~25 hook her arac cagrisinda; ECC_HOOK_PROFILE minimal / ECC_DISABLED_HOOKS; ag yok
+derv82/wifit3	RED	kapsam dışı
+hunxbyts/ghosttrack	RED	kapsam dışı
+snailsploit/claude-red	RED	kapsam dışı
+ruvnet/ruview	RED	kapsam dışı
+apify/agent-skills	HESAP GEREKIR	APIFY_TOKEN (Apify hesabı); ad çakışması: kurulu agent-skills farklı repo
+firecrawl/firecrawl-claude-plugin	HESAP GEREKIR	FIRECRAWL_API_KEY (Firecrawl hesabı)
