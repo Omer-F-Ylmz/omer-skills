@@ -229,3 +229,34 @@ def test_kalici_paket_hatasi_sonraki_partiye_gecer(tmp_path):
     r, log, ozet, cagri = _kos(tmp_path, "-EnFazla", "2", "-Tavan", "20")
     assert "ilerlemiyor" not in log and "DUR: kuyruk bos" in log, log
     assert cagri.count("parti devam P1") == 1 and "partiler: P1, P2" in ozet.read_text(encoding="utf-8")
+
+
+# GECE-4b: baslat 0xC0000005 ile çöktü (parti satırı stdout tamponunda kayboldu) → koşucu durmaz, kendi kuyruğunun yeni partisine devam
+CALISIYOR = {"durum": "calisiyor", "tavan": {"cagri": 4, "usd": 0.3}, "videolar": {}}
+
+
+def test_cokme_baslat_ayni_partiye_devam(tmp_path):
+    _kur(tmp_path, {"adimlar": [
+        {"kod": -1073741819, "hata": ["[aşama] V1 ocr başla"], "yaz": {
+            "P0": {"durum": {**CALISIYOR, "kuyruk": "C:/x/.kos/kuyruk-ig-hesap.md"}},  # öteki koşucunun partisi
+            "P1": {"durum": {**CALISIYOR, "kuyruk": "C:/x/docs/video-tarama/kuyruk.md"}}}},
+        {"kod": 0, "cikti": ["parti P1 · durum tamam"], "yaz": {"P1": {"durum": {**CALISIYOR, "durum": "tamam"}}}}]})
+    r, log, ozet, cagri = _kos(tmp_path, "-CokmeBekle", "0")
+    assert "baslat hata" not in log and "DUR: kuyruk bos" in log, log
+    assert cagri.count("parti devam P1") == 1 and "devam P0" not in cagri
+    assert "[int]$CokmeBekle = 30" in PS1.read_text(encoding="ascii")
+
+
+def test_cokme_uc_denemede_de_cokerse_durur(tmp_path):
+    _kur(tmp_path, {"adimlar": [{"kod": -1073741819, "yaz": {"P1": {"durum": {**CALISIYOR, "kuyruk": "kuyruk.md"}}}}]
+                    + [{"kod": -1073740791}] * 3})
+    r, log, ozet, cagri = _kos(tmp_path, "-CokmeBekle", "0")
+    assert cagri.count("parti devam P1") == 3 and "DUR: cokme" in log, log
+    assert ozet.is_file()
+
+
+def test_devam_normal_hata_kodu_cokme_sayilmaz(tmp_path):
+    _kur(tmp_path, {"adimlar": [{"kod": 0, "cikti": ["parti: P1 · short · 1 video"], "yaz": {"P1": {"durum": CALISIYOR}}}]
+                    + [{"kod": 2}] * 6})
+    r, log, ozet, cagri = _kos(tmp_path, "-CokmeBekle", "0")
+    assert "DUR: parti P1 ilerlemiyor" in log and "cokme" not in log.lower(), log

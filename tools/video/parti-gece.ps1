@@ -15,12 +15,13 @@ param(
     [string]$Kuyruk = '',   # bos: parti.py varsayilan kuyrugu (docs/video-tarama/kuyruk.md)
     [string]$RamOku = '',   # bos: bos RAM (MB) Win32_OperatingSystem'den; dolu: son cikti satiri MB donen komut (test)
     [int]$Bekle = 60,
+    [int]$CokmeBekle = 30,   # GECE-4b: cokme (negatif cikis, 0xC0000005 vb.) sonrasi ayni partiye devam oncesi bekleme
     [switch]$Baslat
 )
 $ErrorActionPreference = 'Continue'
 $repo = Split-Path (Split-Path $PSScriptRoot)
 if ($Baslat) {
-    $a = '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $PSCommandPath, '-Paralel', $Paralel, '-EnFazla', $EnFazla, '-Tavan', $Tavan, '-Bekle', $Bekle
+    $a = '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $PSCommandPath, '-Paralel', $Paralel, '-EnFazla', $EnFazla, '-Tavan', $Tavan, '-Bekle', $Bekle, '-CokmeBekle', $CokmeBekle
     foreach ($p in 'Video', 'Kok', 'Kuyruk', 'RamOku') { if (Get-Variable $p -ValueOnly) { $a += "-$p", (Get-Variable $p -ValueOnly) } }
     $p = Start-Process powershell -WindowStyle Hidden -PassThru -ArgumentList $a
     "PID $($p.Id)"
@@ -92,6 +93,12 @@ function Harcanan($p) {   # parti.py _defter: ikinci_goz/tavan/omniroute_baslat/
     @($n, $u)
 }
 
+function YeniParti($once) {   # GECE-4b: cokunce "parti:" satiri stdout tamponunda kaybolur; bu kosucunun kuyruguna ait yeni parti klasoru
+    $k = [IO.Path]::GetFileName($(if ($Kuyruk) { $Kuyruk } else { 'kuyruk.md' }))
+    Get-ChildItem $kos -Directory | Where-Object { $_.Name -notin $once -and [IO.Path]::GetFileName("$((Durum $_.Name).kuyruk)") -eq $k } |
+        Sort-Object CreationTime | Select-Object -Last 1 -ExpandProperty Name
+}
+
 function Kullanilan { $n = 0; foreach ($p in $partiler) { $n += (Harcanan $p)[0] }; $n }
 
 Log "BASLA paralel=$Paralel enfazla=$EnFazla tavan=$Tavan kok=$Kok"
@@ -112,15 +119,22 @@ while ($true) {
     $u = ($EnFazla * 0.15).ToString($ic)   # olculen ~0.11 $/video; cli varsayilani 1.0 gecede 13 videoda durdurdu
     $a = @('parti', 'baslat') + @($Kuyruk | Where-Object { $_ }) + @('--en-fazla', $EnFazla, '--paralel', $Paralel, '--cagri-tavan', $tavanParti, '--usd-tavan', $u)
     if ($EnFazla * 0.15 -gt 2.0) { $a += '--usd-tavan-max', $u }   # cli usd_max varsayilani 2.0 bu tavanin altinda kalmasin
+    $once = @(Get-ChildItem $kos -Directory | ForEach-Object Name)
     $cikti = Cagir $a
     if ($ardisikLimit -ge 3) { $neden = $limitNeden; break }
     # parti sonucu durum.json'dan: tavanda baslat 3 doner ama parti kurulmustur
     $m = $cikti | Where-Object { $_ -match '^parti: \S+ . \w+ . \d+ video' } | Select-Object -First 1
-    if (-not $m) {
+    $cokme = 0
+    if ($m) { $pid_ = ($m -split ' ')[1] }
+    elseif ($kod -lt 0 -and ($pid_ = YeniParti $once)) {   # cokme: negatif cikis (0xC0000005, 0xC0000409 ...)
+        $cokme = 1
+        Log "COKME: baslat (cikis $kod), $CokmeBekle sn sonra parti devam $pid_"
+        Start-Sleep -Seconds $CokmeBekle
+    }
+    else {
         $neden = if ($kod -in 1, 3) { 'kuyruk bos' } else { "baslat hata (cikis $kod)" }   # 1: bekleyen yok - 3: hepsi baska acik partide
         break
     }
-    $pid_ = ($m -split ' ')[1]
     $partiler += $pid_
     if ($ardisik403 -ge 3) { $neden = '403'; break }
 
@@ -138,6 +152,11 @@ while ($true) {
                 '--usd-ek', ([math]::Max(0.0, $h[1] + $ek * $ort - [double]$d.tavan.usd)).ToString('0.0000', $ic)
         }
         Cagir $a | Out-Null
+        if ($kod -lt 0) {   # ayni partiye en fazla 3 cokme donusu
+            if (++$cokme -gt 3) { $neden = "cokme (cikis $kod, parti $pid_ 3 donuste de coktu)"; break }
+            Log "COKME: devam (cikis $kod), $CokmeBekle sn sonra parti devam $pid_"
+            Start-Sleep -Seconds $CokmeBekle
+        }
         if ($ardisik403 -ge 3) { $neden = '403'; break }
         if ($ardisikLimit -ge 3) { $neden = $limitNeden; break }
     }

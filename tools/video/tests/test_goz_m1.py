@@ -45,3 +45,12 @@ def test_rapidocr_yoksa_windows_yedegi_ve_motor_adi():
 def test_rapidocr_birincil():
     ctx = {"rapid": lambda: lambda yol: [("Topview", 0.95, 10), ("gürültü", 0.2, 20)]}
     assert cli._ocr(ctx, ["C:/x/k2.jpg"]) == {"k2.jpg": ["Topview"]} and ctx["ocr_motor"] == "rapidocr"
+
+
+# GECE-4b: iki koşucu aynı anda DirectML → onnxruntime_pybind11_state 0xC0000005; RapidOCR süreçler arası kilit altında
+def test_rapidocr_surecler_arasi_kilit_altinda(tmp_path, monkeypatch):
+    monkeypatch.setattr(cli, "OCR_KILIT", tmp_path / "ocr")
+    gor = []
+    ctx = {"rapid": lambda: lambda yol: gor.append((tmp_path / "ocr.kilit").exists()) or [("Topview", 0.95, 10)]}
+    assert cli._ocr(ctx, ["C:/x/k3.jpg"]) == {"k3.jpg": ["Topview"]}
+    assert gor == [True] and not (tmp_path / "ocr.kilit").exists()

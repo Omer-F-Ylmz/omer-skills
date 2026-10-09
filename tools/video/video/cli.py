@@ -8,6 +8,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import threading
 import random
 import time
@@ -366,6 +367,7 @@ def kare_tavan(sure, n, metin=""):
 ISARET = re.compile(r"\b(?:ekran|screen|repo|github|link|url|https?://|komut|command|terminal|prompt|ayar|setting|config)", re.I)  # C2: altyazıda ekrana/repoya/linke/komuta/prompta/ayara işaret
 SAHNE_ESIK = 0.3
 OCR_PS = Path(__file__).with_name("ocr.ps1")
+OCR_KILIT = Path(tempfile.gettempdir()) / "video-ocr"  # GECE-4b: tüm koşucuların ortak RapidOCR/DirectML kilidi (<yol>.kilit)
 MONTAJ_SN = 5  # ayar · C5: bu pencerede ≥3 sahne kesimi → hızlı kurgu (montaj)
 OCR_BENZER, DHASH_SAHNE = 0.9, 10  # ayar · O11 (3): katlanmış OCR metni benzerliği ≥ → tekrar · aynı sahnede dHash Hamming ≤ → tekrar
 ADAY_UST = 150  # ayar · O11 (5): paket aday kare üst sınırı (merkez + işaret + tüm sahneler); aşan sahneler skor sırasıyla "aday tavanı"
@@ -431,15 +433,16 @@ def _ocr(ctx, yollar, ham=False):
     1b-1R R1: ham=True → süzülmemiş [[metin, skor, y]] (Windows OCR skor vermez: 1.0, y = satır sırası)."""
     if ctx.get("rapid"):
         try:
-            with _MOTOR_KILIT:  # YT1 3e: motor süreç başına bir kez (iş parçacığı başına DirectML oturumu çöküyordu); çağrılar OCR kapısıyla zaten tek tek
-                if _MOTOR[0] is None or _MOTOR[0][0] is not ctx["rapid"]:
-                    _MOTOR[0] = (ctx["rapid"], ctx["rapid"]())
-                motor = ctx["_motor"] = _MOTOR[0][1]
-            ctx["ocr_motor"] = "rapidocr"
-            ctx["ocr_cihaz"] = getattr(motor, "cihaz", "cpu")  # 1b-1R R4
-            if ham:
-                return {Path(y).name: [[str(x), round(float(s), 3), int(u)] for x, s, u in motor(y)] for y in yollar}
-            return {Path(y).name: gz.ocr_satirlar(motor(y)) for y in yollar}
+            with kilit(OCR_KILIT):  # GECE-4b: iki koşucu aynı anda DirectML → onnxruntime 0xC0000005; kurulum + çıkarım süreçler arası tek tek
+                with _MOTOR_KILIT:  # YT1 3e: motor süreç başına bir kez (iş parçacığı başına DirectML oturumu çöküyordu); çağrılar OCR kapısıyla zaten tek tek
+                    if _MOTOR[0] is None or _MOTOR[0][0] is not ctx["rapid"]:
+                        _MOTOR[0] = (ctx["rapid"], ctx["rapid"]())
+                    motor = ctx["_motor"] = _MOTOR[0][1]
+                ctx["ocr_motor"] = "rapidocr"
+                ctx["ocr_cihaz"] = getattr(motor, "cihaz", "cpu")  # 1b-1R R4
+                if ham:
+                    return {Path(y).name: [[str(x), round(float(s), 3), int(u)] for x, s, u in motor(y)] for y in yollar}
+                return {Path(y).name: gz.ocr_satirlar(motor(y)) for y in yollar}
         except Exception as e:  # ImportError · model dosyası yok/bozuk → Windows OCR (sebep künyede)
             ctx["ocr_motor"] = f"windows (rapidocr: {' '.join(str(e).split())[:60]})"
     else:
