@@ -742,3 +742,67 @@
 {"ad": "domain-modeling/adr-teklifi", "aday": "domain-modeling", "ozellik": "adr-teklifi", "yargi": "DENE", "karar": "deneme: docs/denemeler/domain-modeling-adr-teklifi.md", "gerekce": "lisans: MIT; güvenlik: SkillSpector 15 HIGH/CRITICAL tüm repo için, skill klasörü kod içermez", "tarih": "2026-10-07", "video": "l_WQx_XUsRY", "kanal": "AI Coding Daily", "sponsor": false, "departman": "surec-plan"}
 {"ad": "whisper-flow/sesle-yazdirma", "aday": "whisper-flow", "ozellik": "sesle-yazdirma", "yargi": "ALTERNATİF", "karar": "lisans: kapalı kaynak, bulut zorunlu; yerel alternatif Handy / whisper.cpp (MIT) daha uygun", "gerekce": "lisans: kapalı kaynak, bulut zorunlu; yerel alternatif Handy / whisper.cpp (MIT) daha uygun", "tarih": "2026-10-07", "video": "l_WQx_XUsRY", "kanal": "AI Coding Daily", "sponsor": false, "departman": "surec-ajan-arac"}
 {"ad": "zor-eval-fikirleri-promptu", "katman": "-", "yargi": "ÖĞREN", "karar": "kart yazıldı: bilgi/zor-eval-fikirleri-promptu.md", "tarih": "2026-10-07", "video": "l_WQx_XUsRY", "kanal": "AI Coding Daily", "sponsor": false, "kaynak_commit": null, "geri_alma": "-", "departman": "diger"}
+{"ad": "ucretsiz-llm-api-deposu-adi-belirtilmemi", "karar": "RED (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "jcode", "karar": "UYARLA (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "harness-katmani-ajan-ara-katmani", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "graphify", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "webcmd", "karar": "UYARLA (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "markitdown-microsoft", "karar": "DENE (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "headroom", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "codeburn", "karar": "ERTELE (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "ponytail", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "superpowers", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "claude-mem", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "impeccable", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "task-observer", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "claude-code", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "framer-motion", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "ui-ux-pro-max-skill", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "21st-dev-komutu", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-short"}
+{"ad": "token-kullanim-denetim-promptu", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "clear", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "model-effort-u-oturum-basinda-sabitle", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "cikti-filtreleme-hook-dosyasi", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "mcp-sunucu-listesi-ile-kullanilmayanlari", "karar": "RED (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "subagent-i-haiku-ya-ayarlama", "karar": "DENE (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "rewind", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "context-usage-cost-ve-yanma-hizi-gosterg", "karar": "ERTELE (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "claude-code-yapilandirmasini-token-tuket", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "arac-ciktisini-ajan-gormeden-once-filtre", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "token-dashboard", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "session-handoff-skill", "karar": "UYARLA (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "clear-ve-compact-ile-temiz-baslangic", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "claude-projelerine-belge-koymak", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "oturum-ortasinda-claude-md-duzenleme", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "github-reposundaki-token-dashboard-u-cla", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "rtk", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "headroom", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "ponytail", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "graphify", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "rtk-etkinken-claude-code-a-commit-ve-pus", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "headroom-sarmali-oturumda-simplify-skill", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun"}
+{"ad": "claude-md-web-tasarim-kurallari", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "frontend-design-skill", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "ekran-goruntusu-dongusu-puppeteer", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "web-sitesi-klonlama-devtools-ekran-gorun", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "21st-dev-bilesenleri", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "github-vercel-otomatik-dagitim", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "marka-varliklariyla-kisa-istemle-fronten", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "animasyonlu-arka-planda-ekran-goruntusu-", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "degisiklikleri-onay-olmadan-canliya-itme", "karar": "RED (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-09-29-uzun-2"}
+{"ad": "everything-claude-code-ecc", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "guvenlik-denetleyicisi-security-guidance", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "skill-creator", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "superpowers", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "claude-icinde-mevcut-goreve-uygun-skill-", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "rooflow-karede-ruflo", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "frontend-design", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "code-review", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "security-review", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "claude-mem", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "stack-garry-tan", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "surekli-ogrenme-sistemi-ecc-icinde", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "everything-claude-code", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "security-guidance", "karar": "ZATEN VAR (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "claude-dan-goreve-uygun-skill-i-bulup-on", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
+{"ad": "ruflo", "karar": "ÖĞREN (Ömer, panel)", "tarih": "2026-10-09", "parti": "2026-10-03-short"}
