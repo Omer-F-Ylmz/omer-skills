@@ -393,18 +393,18 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | CaHT7D_B03s | 1.7 | Run a 744 Billion Parameter AI Model on a Regular Laptop for |  | işlendi: cd67d9f |
 | 4JYMZCAzcBY | 1.0 | Did Ornith 1.5 Just Beat Claude Opus? |  | işlendi: cd67d9f |
 | 7dU9hZKvfMY | 0.9 | Ücretsiz portföy ve hisse analizi sunan yeni Google Finance  |  | işlendi: cd67d9f |
-| s9stQXjITkI | 7.3 | RIP HIggsfield! This AI Video Generator Destroys Higgsfield  |  | raporlu |
-| Pw2x2yXTIUE | 13.1 | Claude Sonnet 5.5 is Absurd! (3D, Web Design, Animation) |  | raporlu |
-| nPxMF2YV77I | 15.4 | I Built $10000 Website With Free AI Tools In 15 Minutes // N |  | raporlu |
+| s9stQXjITkI | 7.3 | RIP HIggsfield! This AI Video Generator Destroys Higgsfield  |  | işlendi: bad7a76 |
+| Pw2x2yXTIUE | 13.1 | Claude Sonnet 5.5 is Absurd! (3D, Web Design, Animation) |  | işlendi: bad7a76 |
+| nPxMF2YV77I | 15.4 | I Built $10000 Website With Free AI Tools In 15 Minutes // N |  | işlendi: bad7a76 |
 | NAumQObJEwM | 17.9 | Turn Claude into a Design Genius... Just Watch |  | bekliyor |
 | kBWqtBu4hEI | 11.4 | Neden Her Şeyi Terminalde Yapıyorum? (Claude Code + Modlar) |  | bekliyor |
-| Xv9GJZSMCPU | 19.0 | Claude Code ile Meta Reklamlarını Analiz Et: Kazanan Reklamı |  | raporlu |
-| 6Ij9-f2T2Ck | 12.4 | Claude Opus 5.5 Just Solved Motion Graphics (No More AI Slop |  | raporlu |
-| Kx1juJ2G7xo | 9.9 | 16 Years in 3D. Then I Tried ChatGPT Astra in Blender. |  | raporlu |
-| -GhTq_HrINY | 22.0 | GPT-6 Astra is INSANE at Building Websites (Full Tutorial) |  | raporlu |
+| Xv9GJZSMCPU | 19.0 | Claude Code ile Meta Reklamlarını Analiz Et: Kazanan Reklamı |  | işlendi: bad7a76 |
+| 6Ij9-f2T2Ck | 12.4 | Claude Opus 5.5 Just Solved Motion Graphics (No More AI Slop |  | işlendi: bad7a76 |
+| Kx1juJ2G7xo | 9.9 | 16 Years in 3D. Then I Tried ChatGPT Astra in Blender. |  | işlendi: bad7a76 |
+| -GhTq_HrINY | 22.0 | GPT-6 Astra is INSANE at Building Websites (Full Tutorial) |  | işlendi: bad7a76 |
 | auYy3ISrfYk | 20.0 | Bugün Sıfırdan Başlasam Ne Yapardım: Otomasyon mu, Uygulama  |  | bekliyor |
-| yUuFvL1lK4k | 3.4 | Mods in Claude Code: change how Claude Code works |  | raporlu |
-| uNgK2sAKTjM | 15.5 | İyi Sandığınız Prompt Artık Kötü! Claude Her Şeyi Değiştirdi |  | raporlu |
+| yUuFvL1lK4k | 3.4 | Mods in Claude Code: change how Claude Code works |  | işlendi: bad7a76 |
+| uNgK2sAKTjM | 15.5 | İyi Sandığınız Prompt Artık Kötü! Claude Her Şeyi Değiştirdi |  | işlendi: bad7a76 |
 | 2f7ZkImNHFo | 8.7 | Never hit Claudes Usage Limit Again |  | raporlu |
 | wvV-kgc6krI | 19.3 | Vibe Coding’i Nasıl Yapıyorum? Skills, MCP ve Çalışma Akışım |  | raporlu |
 | 48E49fup32E | 24.4 | Canlıda Sıfırdan SaaS Kuruyorum #1 - Fikir ve Pazar Araştırm |  | raporlu |
@@ -452,16 +452,16 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-DePUVuRiq7r | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | işlendi: f2b65bf |
 | ig-Dd0645CiHH9 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | işlendi: f2b65bf |
 | ig-DeEzJ6mCEY3 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | işlendi: f2b65bf |
-| ig-Ddy0WIDAv8w | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-Ddqym0VAqzU | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DeD8sC4gqrO | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-Ddc1db7Cj_D | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DdjKZp4H-mG | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DeB_xCxDT_F | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DeHET6Djdww | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DdbkqpEH9t8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-Dd9RvQDiUVH | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DeHGj-mG-5V | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-Dd_iThjj32v | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DdbLPvsgm48 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
-| ig-DeOuCSrDCj8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Ddy0WIDAv8w | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-Ddqym0VAqzU | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DeD8sC4gqrO | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-Ddc1db7Cj_D | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DdjKZp4H-mG | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DeB_xCxDT_F | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DeHET6Djdww | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DdbkqpEH9t8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-Dd9RvQDiUVH | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DeHGj-mG-5V | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-Dd_iThjj32v | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DdbLPvsgm48 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
+| ig-DeOuCSrDCj8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
