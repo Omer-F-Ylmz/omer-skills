@@ -18,6 +18,7 @@ from pathlib import Path
 from jev import cekirdek as c
 
 from . import hafif
+from . import goz as gz
 from . import metin as m
 from . import ikinci_goz as ig
 from . import tarama as tr
@@ -307,7 +308,7 @@ def paket_oku(yol):
     url = re.search(r" · (https?://\S+) · altyazı ", metin.splitlines()[0])  # VİDEO-PLATFORM-1: künye adresi (eski paket: yok → youtu.be)
     return {"kare_not": next((s for s in metin.splitlines() if s.startswith("kare yok: ")), None), "id": bas[0], "url": url[1] if url else None, "baslik": bas[1], "kanal": bas[2], "sure": sure, "dil": dil[1] if dil else "?", "metin": metin,
             "short": x[1] == "true" if (x := re.search(r"· short: (true|false)", metin)) else tr.short_mu(sure),
-            "kare_yalniz": "altyazı yok: kare-yalnız" in metin, "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")],
+            "ocr": Path(yol).parent / "goz" / "ocr.json", "kare_yalniz": "altyazı yok: kare-yalnız" in metin, "linkler": satir("Açıklama bağlantıları"), "kareler": [s.split(" · ")[0] for s in satir("Kareler")],
             "kare_zaman": [_ks(s.split(" · ")[1]) if " · " in s else None for s in satir("Kareler")]}  # ölçüm betikleri (olcum_m4/m4b)
 
 
@@ -328,6 +329,24 @@ def kanittan(form):
             for x in f.get(b) or []:
                 if isinstance(x, dict) and x.get("kaynak") == "kare" and not (x.get("karede_gorulen") or "").strip() and (x.get("kanit") or "").strip():
                     x["karede_gorulen"] = x["kanit"]
+    return form
+
+
+def ocrdan(form, pk):
+    """KAREDE-OCR-1: kaynak=kare, karede_gorulen+kanit boş → satır zamanına en yakın karenin ham OCR'ı (model çağrısı yok; ONARIM 2'den sonra). OCR boş/zaman yok → eksik kalır."""
+    for f in (form or {}).get("videolar") or []:
+        yol = ((pk or {}).get(f.get("id") if isinstance(f, dict) else None) or {}).get("ocr")
+        if not yol or not Path(yol).is_file():
+            continue
+        ham = json.loads(Path(yol).read_text(encoding="utf-8")).get("ham") or []
+        for b in ("adaylar", "site_ui", "promptlar", "iddialar", "kurulum_komutlar"):
+            for x in f.get(b) or []:
+                z = _ks(x.get("kanit_zamani")) if isinstance(x, dict) and x.get("kanit_zamani") != "açıklama" else None
+                if z is None or x.get("kaynak") != "kare" or (x.get("karede_gorulen") or "").strip() or (x.get("kanit") or "").strip() or not ham:
+                    continue
+                t, r = min(ham, key=lambda a: abs(a[0] - z))
+                if s := tr.gizle(" ".join(gz.ocr_satirlar(r)))[:200].strip():
+                    x["karede_gorulen"] = f"(karede OCR) {s}"
     return form
 
 
@@ -516,7 +535,7 @@ def _kismi_kabul(pdir, d, v, p, tdir):
     y = pdir / "form" / f"{v}.json"
     if not y.is_file():
         return False
-    form = kanittan({"videolar": [json.loads(y.read_text(encoding="utf-8"))]})  # ONARIM 2: yedek kural; disk ve rapor tutarlı
+    form = ocrdan(kanittan({"videolar": [json.loads(y.read_text(encoding="utf-8"))]}), {v: p})  # ONARIM 2: yedek kural; disk ve rapor tutarlı · KAREDE-OCR-1
     y.write_text(json.dumps(form["videolar"][0], ensure_ascii=False, indent=1), encoding="utf-8")
     f, eksik = kismi(form["videolar"][0], dogrula(form, {v: p}, [v]).get(v, []), v)
     try:
@@ -809,7 +828,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
                 y = {"hata": f"taşıyıcı: {e}"[:200]}
             tv = y.get("tavan") or []  # DERİNLİK-KAPANIŞ-2: ön tahmini kalan $'ı aşan video tavanda kalır (YENIDEN)
             ig_ = {}
-            kanittan(y.get("form"))
+            ocrdan(kanittan(y.get("form")), pk)  # KAREDE-OCR-1
             with YAZ:
                 hatalar = {} if y.get("hata") else dogrula(y.get("form"), pk, [v for v in kalan if v not in tv])
             for f in (y.get("form") or {}).get("videolar") or []:  # M2e K1: son form diskte (kısmi kabul çağrısız)
