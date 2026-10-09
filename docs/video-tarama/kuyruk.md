@@ -80,9 +80,9 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | -qosBoq8V6A | 0.7 | Claude'da 60 ajanı aynı anda | DuDrHzaBQ3k; RAM kuralımızla çakışma notu | işlendi: 0304017 |
 | k0gwr-vC2Z4 | 0.8 | 6 plugins nobody uses | liste | işlendi: 0304017 |
 | enFgYQvI1dM | 1.3 | Most powerful free coding agent | ücretsiz ajan → L9c49WVG_ho ile birlikte değerlendir | işlendi: aaa5dd0 |
-| AWBsGEuVhuE | 0.8 | 4 CC GitHub repos | 4 repo | raporlu |
-| pR2nuRcLqbI | 0.9 | CC into a dev team in 5 min | 2K1Ps-l4yxk ile aynı konu | raporlu |
-| 2K1Ps-l4yxk | 0.9 | CC'yi yazılım ekibi gibi çalıştır | pR2nuRcLqbI | raporlu |
+| AWBsGEuVhuE | 0.8 | 4 CC GitHub repos | 4 repo | işlendi: b0535dd |
+| pR2nuRcLqbI | 0.9 | CC into a dev team in 5 min | 2K1Ps-l4yxk ile aynı konu | işlendi: b0535dd |
+| 2K1Ps-l4yxk | 0.9 | CC'yi yazılım ekibi gibi çalıştır | pR2nuRcLqbI | işlendi: b0535dd |
 | jaAI2evZF44 | 1.8 | Live premium data access | MCP/veri kaynağı | raporlu |
 | DB7DFLa40N4 | 0.7 | Ücretsiz veri çeken 3 eklenti | MCP adayları | raporlu |
 | ZeLSu-ZpeAI | 0.6 | CC çalışırken para kazandıran eklenti | iddia sınama | raporlu |
