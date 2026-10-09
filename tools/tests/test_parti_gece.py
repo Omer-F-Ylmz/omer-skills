@@ -173,3 +173,17 @@ def test_kimliksiz_kod1_kuyruk_bos_kod2_hata(tmp_path):
     _kur(tmp_path, {"adimlar": [{"kod": 2, "cikti": ["parti: kuyruğun sıradaki partisi uzun"]}]})
     r, log, ozet, cagri = _kos(tmp_path)
     assert "DUR: baslat hata (cikis 2)" in log
+
+
+# ONARIM-3: kalan yalnız erisilemez video → parti devam tamam döner; koşucu "ilerlemiyor" demez, erisilemez hata sayılmaz
+def test_erisilemez_parti_ilerlemiyor_demez(tmp_path):
+    v = lambda p, t: {"paket": {"durum": p}, "tarama": {"durum": t}}
+    d = lambda durum: {"durum": durum, "tavan": {"cagri": 4, "usd": 0.3}, "videolar": {"A": v("tamam", "tamam"), "B": v("erisilemez", "bekliyor")}}
+    _kur(tmp_path, {"adimlar": [
+        {"kod": 0, "cikti": ["parti: P1 · short · 2 video"], "yaz": {"P1": {"durum": d("yarim")}}},
+        {"kod": 0, "cikti": ["parti P1 · durum tamam"], "yaz": {"P1": {"durum": d("tamam")}}}]})
+    r, log, ozet, cagri = _kos(tmp_path, "-EnFazla", "2", "-Tavan", "20")
+    assert "ilerlemiyor" not in log and "DUR: kuyruk bos" in log, log
+    assert cagri.count("parti devam P1") == 1
+    o = ozet.read_text(encoding="utf-8")
+    assert "tamam: 1" in o and "hata: 0" in o

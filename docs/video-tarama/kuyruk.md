@@ -285,6 +285,32 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | dDx6E6FYKM4 | 19.6 | I Deleted My Custom Laravel AI Guideline | bağlantılı video (_0NSNY7n5lE) | bekliyor |
 | btimnusiRIA | 13.0 | I Tested NEW Gemini 3.7 Flash in Antigra | bağlantılı video (_0NSNY7n5lE) | bekliyor |
 | y9qrEhoeMR8 | 24.6 | I Tried Kimi Code with Kimi K3: Deep-Div | bağlantılı video (_0NSNY7n5lE) | bekliyor |
+| fC0Z_CjEYLU | 3.0 | AgentShield: Autonomous Security Tool fo | bağlantılı video (UI-FviGoSuY) | bekliyor |
+| CMzyOiUyEVc | 6.3 | How to Use Claude Code for FREE in 2026  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| il_5Ii6v4-Y | 10.4 | Claude Code БЕЗЛИМИТНО за 5 минут / Gemi | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| Rxdc36yUyOQ | 11.2 | Como Conectar Todas iAs no Claude Code,  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| NJ0TQ-pyMDY | 12.7 | I Gave CLAUDE CODE 1.6 Billion Free Toke | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| NuNDpeZYQ28 | 17.0 | Stop Paying For Claude: I Found A Way To | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| q1hFEja170A | 36.1 | Lo consiguió! Omniroute Regala la Mejor  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| Er4Jqoz7QaU | 22.7 | I Tested All 10 of Claude Code's Creator | bağlantılı video (eWdvFbDxkJE) | bekliyor |
+| ARsCKGoKut0 | 21.3 | Lovable Ücretsiz Oldu! Takipçim İçin Kod | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| lWevKkUhGfI | 16.6 | N8N ile Otomatikleştirilmiş Veo 3 Viral  | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| rVn-iaSxVS8 | 14.9 | ComfyUI ve n8n ile Kodsuz ve Otomatik Gö | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| nudCt2F7Tug | 20.4 | Claude 4 Abartıldığı Kadar İyi Mi? / Cla | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| OPBIumlvDQo | 20.5 | Viral Shorts Otomasyonu / Sıfır Kodla Ot | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| e1DzQAh4Xw0 | 29.3 | Bu AI Aracıyla Tüm Siteleri Sömür / Dump | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| BjqaV253lNI | 16.9 | Kodlama İçin En İyi Mcp Server - Context | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| gmYYHjlOJTI | 21.0 | Yapay Zeka İle Hiç Kod Yazmadan Web Site | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| wlyl_yv7nSk | 23.7 | Bu AI Agent Her Gün Otomatik İçerik Üret | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| uKoi9uQLdCs | 16.2 | Claude AI ile MCP Servislerini Denedim:  | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| gXhVFwzN4_4 | 0.0 | ? | bağlantılı video (6ZSfOO-ZvOs) · meta hatası: yt-dlp -J başarısız | bekliyor |
+| bXBS2Hzr-vU | 20.8 | n8n ile Kodsuz ve Ücretsiz Kendi Veriler | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| 7tInlFRcTEQ | 25.6 | n8n’i Kendi Bilgisayarında Ücretsiz Çalı | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| U6gg_bi1I70 | 27.7 | How to Use Claude Code for FREE (2026) | bağlantılı video (y6Jo7lq3i8s) | bekliyor |
+| BMMcmmnjrM8 | 243.3 | How to Build Mobile Apps with Claude Cod | bağlantılı video (y6Jo7lq3i8s) | bekliyor |
+| D7TIvqtSZQE | 11.5 | Claude Code Works Better With Loops, Not | bağlantılı video (eJnk0dTaDPA) | bekliyor |
+| VUCChmNYpKU | 17.5 | Claude Knowledge Base + Scheduled Loop = | bağlantılı video (eJnk0dTaDPA) | bekliyor |
+| jE9OAeeeB-Y | 12.4 | How to Configure Claude with Davinci Res | bağlantılı video (7cBexZWBfOo) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 

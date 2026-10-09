@@ -27,6 +27,13 @@ IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci
 YENIDEN = {"bekliyor", "hata", "tavan", "yeniden"}
 GECICI, SON_TUR_SN = re.compile(r"boş yanıt|HTTP (429|5\d\d)\b|zaman aşımı|timed? ?out", re.I), 60  # MÜKEMMEL-8a: geçici hata A'ya gitmez, parti sonunda bir tur
 gecici = lambda h: bool(GECICI.search(h or ""))
+ERISILEMEZ = ((r"members[- ]only|Join this channel|channel's members", "üyelere özel"), (r"Private video", "özel video"),
+              (r"Video unavailable|has been removed|\bremoved\b", "kaldırılmış / yok"), (r"Sign in to confirm your age", "yaş doğrulaması"))  # ONARIM-3: kalıcı; 403 değil
+
+
+def erisilemez(cikti):
+    """yt-dlp çıktısında kalıcı erişim hatası → kısa sebep, yoksa None."""
+    return next((s for k, s in ERISILEMEZ if re.search(k, cikti or "", re.I)), None)
 
 
 YAZ = threading.RLock()  # YT1 3: kayit.jsonl · defter.jsonl · durum.json yazımı ve d değişiklikleri; ponytail: tek global kilit; darboğaz olursa dosya başına kilit
@@ -680,7 +687,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
     def paketle(v, s):  # aşama 2: mevcut ozet/whisper/paket komutları (Jev 0: --istek-tavan 0)
         a = s["paket"]
         with YAZ:
-            if a["durum"] == "tamam" or a["deneme"] >= 3:
+            if a["durum"] in ("tamam", "erisilemez") or a["deneme"] >= 3:
                 return
             a["deneme"] += 1
         try:
@@ -694,8 +701,17 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
                 yeniden = True
             if yeniden or not (onb / v / "paket.md").is_file():
                 if not yeniden:
-                    alt(["ozet", "--", v])
-                mt = json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
+                    with _yakala() as b:
+                        alt(["ozet", "--", v])
+                    print(b.getvalue(), end="")
+                    if sb := erisilemez(b.getvalue()):  # ONARIM-3: kalıcı erişim hatası → yeniden denenmez, rapor yok
+                        with YAZ:
+                            a.update(durum="erisilemez", hata=f"erişilemez: {sb}")
+                            tr.kayit_ekle(Path(d.get("kayit") or tdir / "kayit.jsonl"), [{"id": v, "tarih": d["tarih"], "parti": d["parti"],
+                                                                                          "etiket": "erisilemez", "not": f"erişilemez: {sb}"}])
+                            _yaz(yol, d)
+                        return
+                mt =json.loads((onb / v / "meta.json").read_text(encoding="utf-8")) if (onb / v / "meta.json").is_file() else {}
                 kons = _konusma(onb / v, mt, alt)  # C1 (M8 K2 (i) ≤5 dk sınırı kalktı)
                 with YAZ:
                     s["konusma"] = kons
@@ -855,7 +871,7 @@ def _kos(pdir, d, onb, tdir, alt, temizle, cagir, env, ikinci=None, kuyruk=None,
         for s in d["videolar"].values():
             if s["tarama"]["durum"] == "yeniden":
                 s["tarama"]["durum"] = "hata"
-    d["durum"] = "tamam" if all(s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red") for s in d["videolar"].values()) else "yarim"
+    d["durum"] = "tamam" if all(s["tarama"]["durum"] in ("tamam", "tamam_eksik", "form_red") or s["paket"]["durum"] == "erisilemez" for s in d["videolar"].values()) else "yarim"
     _yaz(yol, d)
     return 0
 
