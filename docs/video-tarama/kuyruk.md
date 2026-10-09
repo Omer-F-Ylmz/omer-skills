@@ -316,7 +316,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | wv46HPeL71A | 15.5 | EDİT PROGRAMLARINA ELVEDA! (Claude Code  | bağlantılı video (0sQxSXyVPwI) | bekliyor |
 | 64B3Qr0VmX4 | 182.2 | 🔴 Opus 5.5 Şu Ana Kadar Kullandığım En İ | bağlantılı video (ENKCgIZ-82I) | bekliyor |
 | ZMFty0XE9L4 | 60.2 | Build a Pro 3D Website Animation (No GSA | bağlantılı video (Pw2x2yXTIUE) | bekliyor |
-| G0xr7l8r7cA | 1.1 | What We Offer_Vertex Wireless | bağlantılı video (Pw2x2yXTIUE) | bekliyor |
+| G0xr7l8r7cA | 1.1 | What We Offer_Vertex Wireless | bağlantılı video (Pw2x2yXTIUE) | raporlu |
 | cnnDG0pPkTk | 18.9 | Reklam Bütçesi Olmadan Müşteri Bulmak: # | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | AkYbv-5Ro_A | 33.5 | Claude Managed Agents ile Otonom Reklam  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | N4s51kudOhQ | 9.3 | Claude Code ile Sıfırdan Kendi Reklam Vi | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
@@ -327,6 +327,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | eS-lEvneqBo | 24.4 | Sadece E-mail ile 0'dan İlk Müşterilerin | bağlantılı video (auYy3ISrfYk) | bekliyor |
 | 5hezvIlJcjs | 14.1 | 11 Günde Sıfırdan Uygulama Yapıp Satıyor | bağlantılı video (auYy3ISrfYk) | bekliyor |
 | 4UmXrwvrxKs | 48.6 | Kod Yazmadan Kendi Uygulamanı Kur ve Sat | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| NYFGCESmikA | 315.9 | DHH: Future of Programming, AI, Agentic  | bağlantılı video (VRtD88WgaBk) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
@@ -342,125 +343,125 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | zYlCtVGRwKo | 0.6 | Free LLM API Lets you run Claude Code for Free with almost u |  | raporlu |
 | q3DoYC8oUwk | 0.6 | This Free AI skill finds and fixes security holes in your vi |  | raporlu |
 | F0NvTpHAoeY | 0.6 | Slack içinde Claude'u etiketleyerek tüm verilerinizi ve rapo |  | raporlu |
-| DSlg2sQxvO4 | 0.6 | The 3 Best AI Tools to Scrape Anything of the internet using |  | bekliyor |
-| ruDw4HfIuYE | 0.6 | Someone just open-sourced Claude Design and made it 100% fre |  | bekliyor |
-| QXmgdiTKA_g | 0.6 | Steal the Design.md Files of Apple, Spotify, Ferrari, Tesla, |  | bekliyor |
-| 2qM93WXeKdY | 0.7 | GPT-6 in Blender: How to Actually Use MCPs & SKILLS |  | bekliyor |
-| mSmeMX0f0oU | 0.5 | CapCut'a Artık Para Vermene Gerek Yok |  | bekliyor |
-| eQKE0uUCzQU | 0.1 | OTP Verification UI using HTML, CSS & JavaScript / #shorts # |  | bekliyor |
-| UMG0jPM4t6c | 0.6 | These 3 Websites gives you access to over 100+ Free AI API K |  | bekliyor |
-| 2X_allmlnnc | 0.8 | Claude Code'u gerçek bir yazılım uzmanına dönüştüren 5 gizli |  | bekliyor |
-| Jc2KAzrZgyg | 1.0 | My new ui concept, for Porsche 911 turbo. Web design and ani |  | bekliyor |
-| sUvLZHSXslQ | 0.5 | Freebuff is a 100% Free AI Coding Agent with No Subscription |  | bekliyor |
-| 5_WwhRDSSBM | 1.0 | Nova Concept - Figma UiUx Design + Blender 3D |  | bekliyor |
-| VrxXx1GxDnc | 1.0 | My new ui concept Softies, made in figma and blender 3d |  | bekliyor |
-| 5Mh_LjMFFjc | 0.9 | If you're using Claude Code, you need to install these 5 AI  |  | bekliyor |
-| zNJeSYRH1oc | 0.3 | How to Make 3D websites with Claude and Scrolltide |  | bekliyor |
-| Ap78QPcqhqA | 0.4 | Google Ads reklamlarınızı, sayfalarınızı ve etiketlerinizi C |  | bekliyor |
-| WYJxGSfXLZQ | 1.0 | Calibri runs 744B parameter AI on laptop without a GPU using |  | bekliyor |
-| 6H9luwL3lFo | 0.5 | This free AI tool lets you clone any website with just one s |  | bekliyor |
-| C0JN0-sNPXQ | 1.2 | OpenAI Just Gave Astra Its Own Virtual Computer With Dots |  | bekliyor |
-| JlRiNyHS5ks | 0.4 | Prompts Chat is the World's Biggest Free AI Prompt Library w |  | bekliyor |
-| vyrVH8S9JVE | 0.7 | NVIDIA SkillSpector is a Free AI Tool that Scans your Claude |  | bekliyor |
-| k8K2xvLzxWI | 0.8 | Claude’un Gereksiz İş Yapmasını Engelleyen 4 Sınır |  | bekliyor |
-| wa-WgyzwuQk | 0.7 | Tek Promptla Profesyonel Website Kur ve Sat (Claude Code) |  | bekliyor |
-| TK_BXQga5lk | 0.4 | This Free AI Tool lets you scrape anything off the internet  |  | bekliyor |
-| t7Bw9bKmTv4 | 0.3 | Claude Code'u çok daha akıllı ve verimli hale getiren açık k |  | bekliyor |
-| d3edAqFCJ14 | 0.3 | How to Make Animated Website with Claude |  | bekliyor |
-| tmjEIYMLxsA | 0.6 | Claude Code projelerinizi hızlandırıp kalıcı hafıza ve güven |  | bekliyor |
-| ajs7ivYlr1I | 0.8 | Claude Code Just Got Way Better at Web Design #webdesign #cl |  | bekliyor |
-| YDLXsLKK7Ic | 0.6 | Anthropic just launched Claude Academy with Free AI courses  |  | bekliyor |
-| pX-7WMwPCrw | 1.3 | Claude can now edit videos |  | bekliyor |
-| mDUPbfV3VIk | 0.8 | GPT‑6’nın Asıl Gücü: Bilgisayarını Kontrol Etsin |  | bekliyor |
-| wqNoE_GJc_c | 0.3 | How to Make Animated 3D websites with Claude |  | bekliyor |
-| 0sQxSXyVPwI | 1.0 | Opus5.5 ile Kusursuz Animasyonlar Nasıl Oluşturulur ? |  | bekliyor |
-| ENKCgIZ-82I | 1.9 | Yapay Zekâya Kodunu İki Kez İncelet |  | bekliyor |
-| nmwf7ne08ms | 0.8 | 1.000 Hazır Claude Skill Ücretsiz! Claude Code'u Güçlendir |  | bekliyor |
-| Uz3smz83raA | 0.8 | CLAUDE CODE'A MODS ÖZELLİĞİ GELDİ! |  | bekliyor |
-| AaDVj2a57d4 | 0.5 | Claude Code'da limitlerin hızlı bitiyorsa bu komutu bilmen l |  | bekliyor |
-| jYyHjpndukk | 0.8 | NVIDIA, Yapay Zekâ Skill’lerini Kurmadan Önce Tarıyor |  | bekliyor |
-| fzaHuV9l3g8 | 1.1 | Mistral Large 4 aka "le Chonk": Europe's Biggest Open Model |  | bekliyor |
-| BKX9EHtttC0 | 0.8 | GitHub'da biri OmniRoute diye bir araç yaptı ve Claude Code' |  | bekliyor |
-| IgNBqyU9lZo | 0.5 | En iyi Claude Code Skill’i |  | bekliyor |
-| 8mNDYPpPFz8 | 0.6 | Sürekli aynı komutları yazmaktan kurtaran Claude slash komut |  | bekliyor |
-| sEKaAgokMkE | 1.2 | Claude launches everyday problem-solving skills with video a |  | bekliyor |
-| wx-AOllxnww | 0.6 | Use these 12 AI Skills to automate your Linkedin with Claude |  | bekliyor |
-| 3YCaEsf1mlM | 1.5 | There is finally a Claude for AI video - Pexo AI |  | bekliyor |
-| Srjqf8B3k4c | 0.6 | Build a $10,000 Website With One Line of Code |  | bekliyor |
-| dsE5X_-x8KE | 0.8 | Don't use Claude Code untill you've installed these 5 AI Plu |  | bekliyor |
-| KGGpiYJWXHU | 1.6 | Top 5 Claude Skills Out of 100,000 That Actually Matter |  | bekliyor |
-| CaHT7D_B03s | 1.7 | Run a 744 Billion Parameter AI Model on a Regular Laptop for |  | bekliyor |
-| 4JYMZCAzcBY | 1.0 | Did Ornith 1.5 Just Beat Claude Opus? |  | bekliyor |
-| 7dU9hZKvfMY | 0.9 | Ücretsiz portföy ve hisse analizi sunan yeni Google Finance  |  | bekliyor |
-| s9stQXjITkI | 7.3 | RIP HIggsfield! This AI Video Generator Destroys Higgsfield  |  | bekliyor |
-| Pw2x2yXTIUE | 13.1 | Claude Sonnet 5.5 is Absurd! (3D, Web Design, Animation) |  | bekliyor |
-| nPxMF2YV77I | 15.4 | I Built $10000 Website With Free AI Tools In 15 Minutes // N |  | bekliyor |
+| DSlg2sQxvO4 | 0.6 | The 3 Best AI Tools to Scrape Anything of the internet using |  | raporlu |
+| ruDw4HfIuYE | 0.6 | Someone just open-sourced Claude Design and made it 100% fre |  | raporlu |
+| QXmgdiTKA_g | 0.6 | Steal the Design.md Files of Apple, Spotify, Ferrari, Tesla, |  | raporlu |
+| 2qM93WXeKdY | 0.7 | GPT-6 in Blender: How to Actually Use MCPs & SKILLS |  | raporlu |
+| mSmeMX0f0oU | 0.5 | CapCut'a Artık Para Vermene Gerek Yok |  | raporlu |
+| eQKE0uUCzQU | 0.1 | OTP Verification UI using HTML, CSS & JavaScript / #shorts # |  | raporlu |
+| UMG0jPM4t6c | 0.6 | These 3 Websites gives you access to over 100+ Free AI API K |  | raporlu |
+| 2X_allmlnnc | 0.8 | Claude Code'u gerçek bir yazılım uzmanına dönüştüren 5 gizli |  | raporlu |
+| Jc2KAzrZgyg | 1.0 | My new ui concept, for Porsche 911 turbo. Web design and ani |  | raporlu |
+| sUvLZHSXslQ | 0.5 | Freebuff is a 100% Free AI Coding Agent with No Subscription |  | raporlu |
+| 5_WwhRDSSBM | 1.0 | Nova Concept - Figma UiUx Design + Blender 3D |  | raporlu |
+| VrxXx1GxDnc | 1.0 | My new ui concept Softies, made in figma and blender 3d |  | raporlu |
+| 5Mh_LjMFFjc | 0.9 | If you're using Claude Code, you need to install these 5 AI  |  | raporlu |
+| zNJeSYRH1oc | 0.3 | How to Make 3D websites with Claude and Scrolltide |  | raporlu |
+| Ap78QPcqhqA | 0.4 | Google Ads reklamlarınızı, sayfalarınızı ve etiketlerinizi C |  | raporlu |
+| WYJxGSfXLZQ | 1.0 | Calibri runs 744B parameter AI on laptop without a GPU using |  | raporlu |
+| 6H9luwL3lFo | 0.5 | This free AI tool lets you clone any website with just one s |  | raporlu |
+| C0JN0-sNPXQ | 1.2 | OpenAI Just Gave Astra Its Own Virtual Computer With Dots |  | raporlu |
+| JlRiNyHS5ks | 0.4 | Prompts Chat is the World's Biggest Free AI Prompt Library w |  | raporlu |
+| vyrVH8S9JVE | 0.7 | NVIDIA SkillSpector is a Free AI Tool that Scans your Claude |  | raporlu |
+| k8K2xvLzxWI | 0.8 | Claude’un Gereksiz İş Yapmasını Engelleyen 4 Sınır |  | raporlu |
+| wa-WgyzwuQk | 0.7 | Tek Promptla Profesyonel Website Kur ve Sat (Claude Code) |  | raporlu |
+| TK_BXQga5lk | 0.4 | This Free AI Tool lets you scrape anything off the internet  |  | raporlu |
+| t7Bw9bKmTv4 | 0.3 | Claude Code'u çok daha akıllı ve verimli hale getiren açık k |  | raporlu |
+| d3edAqFCJ14 | 0.3 | How to Make Animated Website with Claude |  | raporlu |
+| tmjEIYMLxsA | 0.6 | Claude Code projelerinizi hızlandırıp kalıcı hafıza ve güven |  | raporlu |
+| ajs7ivYlr1I | 0.8 | Claude Code Just Got Way Better at Web Design #webdesign #cl |  | raporlu |
+| YDLXsLKK7Ic | 0.6 | Anthropic just launched Claude Academy with Free AI courses  |  | raporlu |
+| pX-7WMwPCrw | 1.3 | Claude can now edit videos |  | raporlu |
+| mDUPbfV3VIk | 0.8 | GPT‑6’nın Asıl Gücü: Bilgisayarını Kontrol Etsin |  | raporlu |
+| wqNoE_GJc_c | 0.3 | How to Make Animated 3D websites with Claude |  | raporlu |
+| 0sQxSXyVPwI | 1.0 | Opus5.5 ile Kusursuz Animasyonlar Nasıl Oluşturulur ? |  | raporlu |
+| ENKCgIZ-82I | 1.9 | Yapay Zekâya Kodunu İki Kez İncelet |  | raporlu |
+| nmwf7ne08ms | 0.8 | 1.000 Hazır Claude Skill Ücretsiz! Claude Code'u Güçlendir |  | raporlu |
+| Uz3smz83raA | 0.8 | CLAUDE CODE'A MODS ÖZELLİĞİ GELDİ! |  | raporlu |
+| AaDVj2a57d4 | 0.5 | Claude Code'da limitlerin hızlı bitiyorsa bu komutu bilmen l |  | raporlu |
+| jYyHjpndukk | 0.8 | NVIDIA, Yapay Zekâ Skill’lerini Kurmadan Önce Tarıyor |  | raporlu |
+| fzaHuV9l3g8 | 1.1 | Mistral Large 4 aka "le Chonk": Europe's Biggest Open Model |  | raporlu |
+| BKX9EHtttC0 | 0.8 | GitHub'da biri OmniRoute diye bir araç yaptı ve Claude Code' |  | raporlu |
+| IgNBqyU9lZo | 0.5 | En iyi Claude Code Skill’i |  | raporlu |
+| 8mNDYPpPFz8 | 0.6 | Sürekli aynı komutları yazmaktan kurtaran Claude slash komut |  | raporlu |
+| sEKaAgokMkE | 1.2 | Claude launches everyday problem-solving skills with video a |  | raporlu |
+| wx-AOllxnww | 0.6 | Use these 12 AI Skills to automate your Linkedin with Claude |  | raporlu |
+| 3YCaEsf1mlM | 1.5 | There is finally a Claude for AI video - Pexo AI |  | raporlu |
+| Srjqf8B3k4c | 0.6 | Build a $10,000 Website With One Line of Code |  | raporlu |
+| dsE5X_-x8KE | 0.8 | Don't use Claude Code untill you've installed these 5 AI Plu |  | raporlu |
+| KGGpiYJWXHU | 1.6 | Top 5 Claude Skills Out of 100,000 That Actually Matter |  | raporlu |
+| CaHT7D_B03s | 1.7 | Run a 744 Billion Parameter AI Model on a Regular Laptop for |  | raporlu |
+| 4JYMZCAzcBY | 1.0 | Did Ornith 1.5 Just Beat Claude Opus? |  | raporlu |
+| 7dU9hZKvfMY | 0.9 | Ücretsiz portföy ve hisse analizi sunan yeni Google Finance  |  | raporlu |
+| s9stQXjITkI | 7.3 | RIP HIggsfield! This AI Video Generator Destroys Higgsfield  |  | raporlu |
+| Pw2x2yXTIUE | 13.1 | Claude Sonnet 5.5 is Absurd! (3D, Web Design, Animation) |  | raporlu |
+| nPxMF2YV77I | 15.4 | I Built $10000 Website With Free AI Tools In 15 Minutes // N |  | raporlu |
 | NAumQObJEwM | 17.9 | Turn Claude into a Design Genius... Just Watch |  | bekliyor |
 | kBWqtBu4hEI | 11.4 | Neden Her Şeyi Terminalde Yapıyorum? (Claude Code + Modlar) |  | bekliyor |
-| Xv9GJZSMCPU | 19.0 | Claude Code ile Meta Reklamlarını Analiz Et: Kazanan Reklamı |  | bekliyor |
-| 6Ij9-f2T2Ck | 12.4 | Claude Opus 5.5 Just Solved Motion Graphics (No More AI Slop |  | bekliyor |
-| Kx1juJ2G7xo | 9.9 | 16 Years in 3D. Then I Tried ChatGPT Astra in Blender. |  | bekliyor |
-| -GhTq_HrINY | 22.0 | GPT-6 Astra is INSANE at Building Websites (Full Tutorial) |  | bekliyor |
+| Xv9GJZSMCPU | 19.0 | Claude Code ile Meta Reklamlarını Analiz Et: Kazanan Reklamı |  | raporlu |
+| 6Ij9-f2T2Ck | 12.4 | Claude Opus 5.5 Just Solved Motion Graphics (No More AI Slop |  | raporlu |
+| Kx1juJ2G7xo | 9.9 | 16 Years in 3D. Then I Tried ChatGPT Astra in Blender. |  | raporlu |
+| -GhTq_HrINY | 22.0 | GPT-6 Astra is INSANE at Building Websites (Full Tutorial) |  | raporlu |
 | auYy3ISrfYk | 20.0 | Bugün Sıfırdan Başlasam Ne Yapardım: Otomasyon mu, Uygulama  |  | bekliyor |
-| yUuFvL1lK4k | 3.4 | Mods in Claude Code: change how Claude Code works |  | bekliyor |
-| uNgK2sAKTjM | 15.5 | İyi Sandığınız Prompt Artık Kötü! Claude Her Şeyi Değiştirdi |  | bekliyor |
-| 2f7ZkImNHFo | 8.7 | Never hit Claudes Usage Limit Again |  | bekliyor |
-| wvV-kgc6krI | 19.3 | Vibe Coding’i Nasıl Yapıyorum? Skills, MCP ve Çalışma Akışım |  | bekliyor |
-| 48E49fup32E | 24.4 | Canlıda Sıfırdan SaaS Kuruyorum #1 - Fikir ve Pazar Araştırm |  | bekliyor |
-| DqSQG2MjXrs | 112.7 | Sıfırdan SaaS Kuruyorum #2 - MVP Özellikleri |  | bekliyor |
-| kZA8okSEeLI | 12.8 | ChatGPT Reklamları: 0'dan Kurulum |  | bekliyor |
-| XZK4AQ5ZFkw | 7.8 | I Found a FREE AI Workspace With Claude Opus 5.5 & GPT-6 Ast |  | bekliyor |
-| rscb1DgJtNg | 14.2 | Claude Now Does Video (FOR FREE) Thanks To JavaScript |  | bekliyor |
-| LDn7rQKIFro | 10.0 | Claude Code Just Dropped MODS. (Master it in 10 Minutes). |  | bekliyor |
-| iybpwbY3Z-Q | 13.8 | Claude artık SketchUp'ta model çiziyor |  | bekliyor |
-| eD2WncwdnKg | 7.8 | Claude + Higgsfield ile SIFIRDAN Viral Yapay Zeka Animasyonl |  | bekliyor |
-| OhnKe-L5-lU | 31.7 | Bir Ajan Nasıl Çalışır ve Ne Kadar Harcar? Şirketimin İçi |  | bekliyor |
-| Hrcq00y9EhU | 11.7 | Make Rive Animations in Minutes With Claude Code |  | bekliyor |
-| OFvi-pvHmbo | 14.7 | Create INSANE Scenes In Blender + GPT-6 Astra + Higgsfield |  | bekliyor |
-| Vok_nReMFaU | 23.6 | The Engineering System for AI Agents. |  | bekliyor |
-| zke3bTtvmLo | 15.8 | How to Make Viral Motion Graphics With AI With 0$ (Turned it |  | bekliyor |
-| J3ixyAtVjO4 | 7.5 | Claude'u Uçuracak Yeni Araç Çıktı! Yeni Google Stitch CLI |  | bekliyor |
-| hvfflSAIDaE | 15.3 | Claude Code'un Tasarım Sorununu Çözen Skill Güncellendi (Imp |  | bekliyor |
-| XgodrpnfmHY | 6.6 | CLAUDE CODE'A MODS GELDİ! KENDİ CLAUDE'UMU YAPTIM |  | bekliyor |
-| snErQUyqwCU | 25.1 | How to Build $10K Websites in Minutes (Claude AI) |  | bekliyor |
-| U6xZX4YWFkU | 17.4 | Claude Mods, Skill'lerden Beri Claude Code'un En Büyük Günce |  | bekliyor |
-| Iy8x1GM49Qc | 22.0 | Limitini Claude mu Bitiriyor, Efor Ayarın mı? |  | bekliyor |
-| LbP3BYSTzdw | 11.9 | Claude 24 Saat Boyunca Ben Oldu: Tüm Hesaplarıma Erişim Verd |  | bekliyor |
-| ig-DeAE_1oNAt8 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd9efY9osb9 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdSaxEKjhg_ | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DbnZLJFMcSY | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdnzgroER7E | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd378iLM0E7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd7WudICfJf | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdeVVlpT9zW | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Ddw99b-uVNj | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeGeaxYjeCq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeJt637CpcM | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeHjYqKNzkz | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd1dJi9j-vq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd8z9XYjY-T | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdL6Q0rox-Z | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DcY-csFDG6f | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeJXDXkIagD | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdDncIvs_rJ | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdOS_a4CKeY | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dc4cu6cySSA | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdBscjLqzfg | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeEiGKKIKqB | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DePUVuRiq7r | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd0645CiHH9 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeEzJ6mCEY3 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Ddy0WIDAv8w | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Ddqym0VAqzU | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeD8sC4gqrO | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Ddc1db7Cj_D | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdjKZp4H-mG | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeB_xCxDT_F | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeHET6Djdww | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdbkqpEH9t8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd9RvQDiUVH | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeHGj-mG-5V | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-Dd_iThjj32v | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DdbLPvsgm48 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
-| ig-DeOuCSrDCj8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | bekliyor |
+| yUuFvL1lK4k | 3.4 | Mods in Claude Code: change how Claude Code works |  | raporlu |
+| uNgK2sAKTjM | 15.5 | İyi Sandığınız Prompt Artık Kötü! Claude Her Şeyi Değiştirdi |  | raporlu |
+| 2f7ZkImNHFo | 8.7 | Never hit Claudes Usage Limit Again |  | raporlu |
+| wvV-kgc6krI | 19.3 | Vibe Coding’i Nasıl Yapıyorum? Skills, MCP ve Çalışma Akışım |  | raporlu |
+| 48E49fup32E | 24.4 | Canlıda Sıfırdan SaaS Kuruyorum #1 - Fikir ve Pazar Araştırm |  | raporlu |
+| DqSQG2MjXrs | 112.7 | Sıfırdan SaaS Kuruyorum #2 - MVP Özellikleri |  | raporlu |
+| kZA8okSEeLI | 12.8 | ChatGPT Reklamları: 0'dan Kurulum |  | raporlu |
+| XZK4AQ5ZFkw | 7.8 | I Found a FREE AI Workspace With Claude Opus 5.5 & GPT-6 Ast |  | raporlu |
+| rscb1DgJtNg | 14.2 | Claude Now Does Video (FOR FREE) Thanks To JavaScript |  | raporlu |
+| LDn7rQKIFro | 10.0 | Claude Code Just Dropped MODS. (Master it in 10 Minutes). |  | raporlu |
+| iybpwbY3Z-Q | 13.8 | Claude artık SketchUp'ta model çiziyor |  | raporlu |
+| eD2WncwdnKg | 7.8 | Claude + Higgsfield ile SIFIRDAN Viral Yapay Zeka Animasyonl |  | raporlu |
+| OhnKe-L5-lU | 31.7 | Bir Ajan Nasıl Çalışır ve Ne Kadar Harcar? Şirketimin İçi |  | raporlu |
+| Hrcq00y9EhU | 11.7 | Make Rive Animations in Minutes With Claude Code |  | raporlu |
+| OFvi-pvHmbo | 14.7 | Create INSANE Scenes In Blender + GPT-6 Astra + Higgsfield |  | raporlu |
+| Vok_nReMFaU | 23.6 | The Engineering System for AI Agents. |  | raporlu |
+| zke3bTtvmLo | 15.8 | How to Make Viral Motion Graphics With AI With 0$ (Turned it |  | raporlu |
+| J3ixyAtVjO4 | 7.5 | Claude'u Uçuracak Yeni Araç Çıktı! Yeni Google Stitch CLI |  | raporlu |
+| hvfflSAIDaE | 15.3 | Claude Code'un Tasarım Sorununu Çözen Skill Güncellendi (Imp |  | raporlu |
+| XgodrpnfmHY | 6.6 | CLAUDE CODE'A MODS GELDİ! KENDİ CLAUDE'UMU YAPTIM |  | raporlu |
+| snErQUyqwCU | 25.1 | How to Build $10K Websites in Minutes (Claude AI) |  | raporlu |
+| U6xZX4YWFkU | 17.4 | Claude Mods, Skill'lerden Beri Claude Code'un En Büyük Günce |  | raporlu |
+| Iy8x1GM49Qc | 22.0 | Limitini Claude mu Bitiriyor, Efor Ayarın mı? |  | raporlu |
+| LbP3BYSTzdw | 11.9 | Claude 24 Saat Boyunca Ben Oldu: Tüm Hesaplarıma Erişim Verd |  | raporlu |
+| ig-DeAE_1oNAt8 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd9efY9osb9 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdSaxEKjhg_ | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DbnZLJFMcSY | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdnzgroER7E | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd378iLM0E7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd7WudICfJf | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdeVVlpT9zW | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Ddw99b-uVNj | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeGeaxYjeCq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeJt637CpcM | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeHjYqKNzkz | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd1dJi9j-vq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd8z9XYjY-T | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdL6Q0rox-Z | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DcY-csFDG6f | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeJXDXkIagD | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdDncIvs_rJ | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdOS_a4CKeY | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dc4cu6cySSA | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdBscjLqzfg | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeEiGKKIKqB | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DePUVuRiq7r | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd0645CiHH9 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeEzJ6mCEY3 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Ddy0WIDAv8w | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Ddqym0VAqzU | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeD8sC4gqrO | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Ddc1db7Cj_D | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdjKZp4H-mG | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeB_xCxDT_F | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeHET6Djdww | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdbkqpEH9t8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd9RvQDiUVH | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeHGj-mG-5V | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-Dd_iThjj32v | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DdbLPvsgm48 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
+| ig-DeOuCSrDCj8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | raporlu |
