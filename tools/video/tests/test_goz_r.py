@@ -2,9 +2,18 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from video import altin as au
 from video import cli
 from video import goz as gz
+
+
+@pytest.fixture(autouse=True)
+def _canli_yuk_yalitimi(tmp_path, monkeypatch):
+    """Kök sebep (flaky): _ocr ortak %TEMP%/video-ocr kilidini, _ram_kapi gerçek boş RAM'i kullanır; canlı koşucular varken test 60-190 sn bekleyip Windows OCR'a düşüyordu."""
+    monkeypatch.setattr(cli, "OCR_KILIT", tmp_path / "ocr-kilit")
+    monkeypatch.setattr(cli, "bos_ram", lambda: 1e6)
 
 
 def _goz_sahte(tmp_path, monkeypatch, metin):

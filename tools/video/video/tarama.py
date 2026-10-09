@@ -498,7 +498,7 @@ def denetle(metin, sure=None):
 
 
 IZ_SEBEP = re.compile(r"genel kavram|başka adayın parçası \(\S[^)]*\)|sponsor/reklam|konu dışı", re.I)
-GIZLI = re.compile(r"(?i)(?<![\w-])(key|api_key|apikey|token|access_token|secret|sig|signature|password)=(?!\[gizlendi\])[^&\s#)\]\"'<>|`]+")
+GIZLI = re.compile(r"(?i)(?<![\w-])(key|api_key|apikey|token|access_token|secret|sig|signature|password|(?-i:[A-Z][A-Z0-9_]*_(?:KEY|TOKEN|SECRET|PASSWORD)))=(?!\[gizlendi\])[^&\s#)\]\"'<>|`]+")
 
 
 def gizle(metin):
@@ -679,13 +679,16 @@ def site_ui_denetle(metin):
     if not t or not t[0][1]:
         return [] if uyarilar(metin) else [f"bölüm eksik: ## {SITE_UI}"]
     h, oku = [], bolum(metin, "Kareden okunanlar").casefold()
+    kunye = bolum(metin, "Künye")  # TEST-HIJYEN-1: instagram + reel olmayan (görsel/carousel) gönderide zaman yerine "görsel N/M" kanıt sayılır
+    gorsel = "platform: instagram" in kunye and not re.search(r"tür: reel\b", kunye)
+    zaman = lambda x: ZAMAN.search(x) or (gorsel and re.search(r"görsel \d+/\d+", x))
     for s in t[0][1]:
         if len(s) != 4 or any(x in ("", "-") for x in (s[0], s[1], s[3])):
             h.append(f"boş alan: teknik satırı {s[0] or '?'} (teknik·kanıt·kütüphane/araç·bizde)")
         elif s[3] in ("altyazı", "kare", "açıklama"):  # M2e K1: motor biçimi (teknik·ne·zaman·kaynak); açıklama kaynaklı kalemde zaman beklenmez
-            if s[3] != "açıklama" and not ZAMAN.search(s[2]):
+            if s[3] != "açıklama" and not zaman(s[2]):
                 h.append(f"kanıt zamansız: {s[0]} (m:ss + kare yolu ya da altyazı)")
-        elif not ZAMAN.search(s[1]):
+        elif not zaman(s[1]):
             h.append(f"kanıt zamansız: {s[0]} (m:ss + kare yolu ya da altyazı)")
         elif s[2] not in ("", "-") and not s[2].casefold().startswith("tahmin") and s[2].casefold() not in oku + s[1].casefold():
             h.append(f"kütüphane kanıtsız: {s[0]} → {s[2]} (ekranda/açıklamada yoksa 'tahmin: …')")

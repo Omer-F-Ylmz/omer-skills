@@ -114,3 +114,17 @@ def test_alt_tur_cakismasi(tmp_path):
     a.update(alt_tur="servis", esdeger_p=0.2, arac=True)
     s = _satir(tmp_path, a)
     assert "alt tür çakışması" in s and "servis: koşullar" not in s
+
+
+# TEST-HIJYEN-1: instagram görsel/carousel gönderisinde zaman yerine görsel sırası ("görsel 2/5") kanıt sayılır; reel ve YouTube'da zaman şartı kalır
+def _site_ui(kunye, zaman):
+    return (f"# r\n\n## Künye\n{kunye}\n\n## Özet\nlanding css tailwind\n\n## Site/UI teknikleri\n| teknik | ne işe yarar | zaman | kaynak |\n|---|---|---|---|\n"
+            f"| Form akışı | adım adım form (karede: x) | {zaman} | kare |\n\n## Kareden okunanlar\nform\n")
+
+
+def test_instagram_gorsel_sirasi_zaman_yerine_kabul():
+    ig = "x · süre: 0:00 · platform: instagram · tür: görsel gönderi · yorum: y"
+    assert not any("zamansız" in h for h in tr.site_ui_denetle(_site_ui(ig, "görsel 2/5")))
+    assert any("zamansız" in h for h in tr.site_ui_denetle(_site_ui(ig, "açıklama")))
+    for k in (ig.replace("görsel gönderi", "reel"), "x · süre: 3:00 · https://youtu.be/abc"):  # reel/YouTube: görsel sırası yetmez
+        assert any("zamansız" in h for h in tr.site_ui_denetle(_site_ui(k, "görsel 2/5")))
