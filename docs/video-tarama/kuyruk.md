@@ -70,15 +70,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 3XIGcM7VICc | 20.2 | 6 AI skills (Nate Herk) | GÖRÜLDÜ (eski akış) → yeni hatla yeniden | işlendi: f9416d2 |
 | 40KWXNxzgPA | 0.7 | Strix: uygulamana saldır | GÖRÜLDÜ; strix kurulu → ZATEN VAR + yeni kullanım | işlendi: 2807261 |
 | FAN5w6y-rgk | 0.9 | CC'nin en büyük sorununu çözdüm (Ömer Göçmen) | 9 link; çözülen sorun ve mekanizma | işlendi: 2807261 |
-| g3Mh8Hws-jo | 1.8 | Hackathon winner CC setup | rABIViSQmsc ile aynı (everything-claude-code?) | raporlu |
-| rABIViSQmsc | 0.7 | Hackathon winner open-sourced setup | g3Mh8Hws-jo ile aynı konu | raporlu |
-| I0ADpAN2qT0 | 0.5 | Tüm güvenlik açıklarını bulan eklenti | güvenlik departmanı; kurulu (strix/semgrep) eşdeğer kontrolü | raporlu |
+| g3Mh8Hws-jo | 1.8 | Hackathon winner CC setup | rABIViSQmsc ile aynı (everything-claude-code?) | işlendi: 0304017 |
+| rABIViSQmsc | 0.7 | Hackathon winner open-sourced setup | g3Mh8Hws-jo ile aynı konu | işlendi: 0304017 |
+| I0ADpAN2qT0 | 0.5 | Tüm güvenlik açıklarını bulan eklenti | güvenlik departmanı; kurulu (strix/semgrep) eşdeğer kontrolü | işlendi: 0304017 |
 | PWRWO749oro | 2.2 | Top 5 plugins from day one | liste | işlendi: f9416d2 |
-| BiEvvC_66AQ | 0.6 | Top 5 CC skills | liste | raporlu |
-| vfLtsYbtJf0 | 1.3 | Skill that installs skills | skill-ui-cli eşdeğeri | raporlu |
-| DuDrHzaBQ3k | 0.9 | 60 AI agents inside CC | -qosBoq8V6A ile aynı konu | raporlu |
-| -qosBoq8V6A | 0.7 | Claude'da 60 ajanı aynı anda | DuDrHzaBQ3k; RAM kuralımızla çakışma notu | raporlu |
-| k0gwr-vC2Z4 | 0.8 | 6 plugins nobody uses | liste | raporlu |
+| BiEvvC_66AQ | 0.6 | Top 5 CC skills | liste | işlendi: 0304017 |
+| vfLtsYbtJf0 | 1.3 | Skill that installs skills | skill-ui-cli eşdeğeri | işlendi: 0304017 |
+| DuDrHzaBQ3k | 0.9 | 60 AI agents inside CC | -qosBoq8V6A ile aynı konu | işlendi: 0304017 |
+| -qosBoq8V6A | 0.7 | Claude'da 60 ajanı aynı anda | DuDrHzaBQ3k; RAM kuralımızla çakışma notu | işlendi: 0304017 |
+| k0gwr-vC2Z4 | 0.8 | 6 plugins nobody uses | liste | işlendi: 0304017 |
 | enFgYQvI1dM | 1.3 | Most powerful free coding agent | ücretsiz ajan → L9c49WVG_ho ile birlikte değerlendir | işlendi: aaa5dd0 |
 | AWBsGEuVhuE | 0.8 | 4 CC GitHub repos | 4 repo | raporlu |
 | pR2nuRcLqbI | 0.9 | CC into a dev team in 5 min | 2K1Ps-l4yxk ile aynı konu | raporlu |
