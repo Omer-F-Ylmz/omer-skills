@@ -20,7 +20,9 @@ TAMAM=0; HATA=0
 
 log() { printf '%s\t%s\n' "$(date +%H:%M:%S)" "$*" | tee -a "$LOG"; }
 calis() { if [ "$MOD" = "--kuru" ]; then echo "+ $*"; else "$@"; fi; }
-geri() { echo "$*" >> "$GERI"; }
+geri() { [ "$MOD" = "--kuru" ] || echo "$*" >> "$GERI"; }
+# marketplace'in GERÇEK yeri (known_marketplaces.json installLocation) → git için Windows biçimi
+mkonum() { cygpath -m "$(python -I -c "import json,sys;print(json.load(open(sys.argv[1],encoding='utf-8'))[sys.argv[2]]['installLocation'])" "$HOME/.claude/plugins/known_marketplaces.json" "$1")"; }
 
 # --- doğrulayıcılar (pipefail + grep -q SIGPIPE tuzağına düşmemek için here-string) ---
 plugin_var() { grep -qF "$1" <<<"$(claude plugin list 2>&1)"; }
@@ -36,9 +38,10 @@ kur_plugin() {
   fi
   [ "$MOD" = "--kuru" ] && { echo "+ git -C $PMD/$m checkout $sha; claude plugin install <hepsi>@$m"; return 0; }
   # pin: katalog klonunu SHA'ya sabitle, sonra kur
-  git -C "$PMD/$m" fetch -q origin "$sha" 2>/dev/null || true
-  git -C "$PMD/$m" checkout -q "$sha" || { log "PIN-HATA $m $sha"; return 1; }
-  for p in $(python -I -c "import json,sys;print(' '.join(x['name'] for x in json.load(open(sys.argv[1],encoding='utf-8'))['plugins']))" "$PMD/$m/.claude-plugin/marketplace.json"); do
+  local ml; ml=$(mkonum "$m") || { log "PIN-HATA $m konum bulunamadi"; return 1; }
+  git -C "$ml" fetch -q origin "$sha" 2>/dev/null || true
+  git -C "$ml" checkout -q "$sha" || { log "PIN-HATA $m $sha"; return 1; }
+  for p in $(python -I -c "import json,sys;print(' '.join(x['name'] for x in json.load(open(sys.argv[1],encoding='utf-8'))['plugins']))" "$ml/.claude-plugin/marketplace.json"); do
     if plugin_var "$p@$m"; then log "ATLA plugin $p@$m"; continue; fi
     claude plugin install -y --scope user "$p@$m" </dev/null || { log "HATA install $p@$m"; return 1; }
     plugin_var "$p@$m" || { log "HATA dogrula $p@$m"; claude plugin uninstall "$p@$m" || true; return 1; }
@@ -50,7 +53,7 @@ kur_plugin() {
 kur_skill() {
   local repo=$1 sha=$2 d="$KLON/${1/\//__}" f s ad
   if [ "$(git -C "$d" rev-parse HEAD 2>/dev/null)" != "$sha" ]; then
-    d="$LOGD/klon/${repo/\//__}"; rm -rf "$d"
+    d="$LOGD/klon/${repo/\//__}"; [ "$MOD" = "--kuru" ] || rm -rf "$d"
     calis git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" "$d" || return 1
     calis git -C "$d" checkout -q "$sha" || return 1
   fi
@@ -191,7 +194,7 @@ N|codeburn@0.9.25|
 # U: uv
 U|markitdown[all]==0.1.8|markitdown
 U|phone-harness==0.3.0|phone-harness
-U|mimic-client==0.1.0|mimic-client
+U|git+https://github.com/littledivy/mimic@8cf998ac0b365806d8e522d34107cc504ecaa345|mimic-client
 U|droidasc==0.1.1.post3|droidasc
 U|git+https://github.com/phuryn/claude-usage@3eea154474e93761f774ed38beeaf45baf838a45|claude-usage
 # M: MCP (stdio)
