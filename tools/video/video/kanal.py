@@ -5,6 +5,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from . import tarama as tr
+from .kilit import kilit
 
 KOK = Path(__file__).resolve().parents[3]
 IPTAL = {"2026-10-01-uzun"}  # iptal edilen parti: satırları değer kaynağı sayılmaz
@@ -210,28 +211,29 @@ def takip_ekle(kok, vids, ctx, kuyruk=""):
     KANAL-2b C1: notunda `takip: hayır` olan satır da eklemez."""
     envanterden = {tr._hucre(s)[0] for s in kuyruk.splitlines() if s.lstrip().startswith("|") and ("kaynak: kanal:" in s or "takip: hayır" in s)}
     yol, vky = kok / "docs/video-tarama/kanallar.json", kok / ".kos/kanal/video-kanal.json"
-    j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
-    vk = json.loads(vky.read_text(encoding="utf-8")) if vky.is_file() else {}
-    eklenen = []
-    for v in vids:
-        if v in envanterden:
-            continue
-        y = Path(ctx["kok"]) / v / "meta.json" if ctx.get("kok") else None
-        m = json.loads(y.read_text(encoding="utf-8")) if y and y.is_file() else {}
-        if not m.get("channel_id"):
-            m = vk.get(v, {})
-        if not (cid := m.get("channel_id")):
-            print(f"uyarı: takip: {v} channel_id yok (meta · video-kanal.json) — eklenmedi")
-            continue
-        if cid in j or any(a.get("channel_id") == cid for a in j.values()):
-            continue
-        j[cid] = {"kanal": m.get("channel") or "?", "channel_id": cid, "url": m.get("channel_url") or "", "karar": "takip", "kaynak": "otomatik · Ömer kuralı 3 Eki"}
-        eklenen.append(cid)
-    if eklenen:
-        yol.parent.mkdir(parents=True, exist_ok=True)
-        yol.write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
-        print(f"takip: {len(eklenen)} yeni kanal → kanallar.json ({' · '.join(eklenen)})")
-    return eklenen
+    with kilit(yol):  # KİLİT-1: kapat'lar aynı anda kanallar.json yazabilir
+        j = json.loads(yol.read_text(encoding="utf-8")) if yol.is_file() else {}
+        vk = json.loads(vky.read_text(encoding="utf-8")) if vky.is_file() else {}
+        eklenen = []
+        for v in vids:
+            if v in envanterden:
+                continue
+            y = Path(ctx["kok"]) / v / "meta.json" if ctx.get("kok") else None
+            m = json.loads(y.read_text(encoding="utf-8")) if y and y.is_file() else {}
+            if not m.get("channel_id"):
+                m = vk.get(v, {})
+            if not (cid := m.get("channel_id")):
+                print(f"uyarı: takip: {v} channel_id yok (meta · video-kanal.json) — eklenmedi")
+                continue
+            if cid in j or any(a.get("channel_id") == cid for a in j.values()):
+                continue
+            j[cid] = {"kanal": m.get("channel") or "?", "channel_id": cid, "url": m.get("channel_url") or "", "karar": "takip", "kaynak": "otomatik · Ömer kuralı 3 Eki"}
+            eklenen.append(cid)
+        if eklenen:
+            yol.parent.mkdir(parents=True, exist_ok=True)
+            yol.write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"takip: {len(eklenen)} yeni kanal → kanallar.json ({' · '.join(eklenen)})")
+        return eklenen
 
 
 def _tarih(e):

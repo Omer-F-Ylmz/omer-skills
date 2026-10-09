@@ -28,6 +28,7 @@ from . import metin as m
 from . import ogren as og
 from . import parti as pt
 from . import tarama as tr
+from .kilit import kilit
 from . import uygula as uy
 
 KOK = r"C:\Projeler\.video-cache"
@@ -485,8 +486,11 @@ def _bagli_video_(ctx, v, bl, ky):
         j = kn._istek(ctx, ["yt-dlp", "-J", "--skip-download", "--no-warnings", f"https://youtu.be/{i}"], sayac) or {}
         sat.append((i, round((j.get("duration") or 0) / 60, 1), str(j.get("title") or "?")[:40].replace("|", "/"), f"bağlantılı video ({v})",
                     "" if j else "yt-dlp -J başarısız"))
-    if sat:
-        ky.write_bytes(tr.kuyruk_ekle(metin, sat, set(), set(), "## Bağlantılı videolar")[0].encode("utf-8"))
+    with kilit(ky):  # KİLİT-1: yt-dlp kilit dışında; kuyruk kilit altında yeniden okunur (başka süreç yazmış olabilir)
+        metin = ky.read_bytes().decode("utf-8")
+        var = {tr._hucre(s)[0] for s in metin.splitlines() if s.lstrip().startswith("|")}
+        if sat := [s for s in sat if s[0] not in var]:
+            ky.write_bytes(tr.kuyruk_ekle(metin, sat, set(), set(), "## Bağlantılı videolar")[0].encode("utf-8"))
 
 
 def paket(ns, ctx):
@@ -1395,12 +1399,14 @@ def kuyruk(ns, ctx):
         if not ns.commit:
             print("kuyruk: --isle için --commit gerekli")
             return 2
-        y.write_bytes(tr.kuyruk_isle(metin, set(ns.isle.split(",")), ns.commit).encode("utf-8"))
+        with kilit(y):  # KİLİT-1: süreçler arası oku-değiştir-yaz
+            y.write_bytes(tr.kuyruk_isle(y.read_bytes().decode("utf-8"), set(ns.isle.split(",")), ns.commit).encode("utf-8"))
         print(f"kuyruk: işlendi: {ns.commit} · {ns.isle}")
         return 0
-    metin, raporlu = tr.kuyruk_raporlu(metin, _tarama_dizin(ctx) / "kayit.jsonl", _tarama_dizin(ctx))  # KUYRUK-HEDEF: çağrısız
-    if raporlu:
-        y.write_bytes(metin.encode("utf-8"))
+    with kilit(y):  # KİLİT-1
+        metin, raporlu = tr.kuyruk_raporlu(y.read_bytes().decode("utf-8"), _tarama_dizin(ctx) / "kayit.jsonl", _tarama_dizin(ctx))  # KUYRUK-HEDEF: çağrısız
+        if raporlu:
+            y.write_bytes(metin.encode("utf-8"))
         print(f"kuyruk: {len(raporlu)} satır raporlu")
     tur, parti = tr.kuyruk_parti(metin)
     print(f"kuyruk: sıradaki parti ({tur or 'yok'}, {len(parti)}/{8 if tur == 'short' else 3})")

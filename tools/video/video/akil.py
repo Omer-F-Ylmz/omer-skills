@@ -14,6 +14,7 @@ from . import getir as gt
 from . import metin as mt
 from . import parti as pt
 from . import tarama as tr
+from .kilit import kilit
 from . import uygula as uy
 from . import yonlendir as yon
 
@@ -1226,10 +1227,10 @@ DUSUK_KURAL = "düşük güven — otomatik (OCR gürültüsü / genel terim)"  
 def kacan_dok(kok, pid, z):
     """KAPANIŞ-3: gerçek KAÇAN? otomatik kapanmaz → .kos/kopru/kacan-gercek.md (parti · video · kaynak · terim); partinin eski satırları yenilenir."""
     y = Path(kok) / ".kos" / "kopru" / "kacan-gercek.md"
-    eski = [s for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else ["# Gerçek KAÇAN? — Desktop kararı bekliyor"])
-            if not s.startswith(f"- {pid} · ")]
-    y.parent.mkdir(parents=True, exist_ok=True)
-    y.write_text("\n".join(eski + [tr.gizle(f"- {pid} · {v} · {k} · {pt._h(x)}") for v, k, x in z["kacan"]]) + "\n", encoding="utf-8")
+    with kilit(y):  # KİLİT-1: kapat'lar aynı anda yazabilir
+        eski = [s for s in (y.read_text(encoding="utf-8").splitlines() if y.is_file() else ["# Gerçek KAÇAN? — Desktop kararı bekliyor"])
+                if not s.startswith(f"- {pid} · ")]
+        y.write_text("\n".join(eski + [tr.gizle(f"- {pid} · {v} · {k} · {pt._h(x)}") for v, k, x in z["kacan"]]) + "\n", encoding="utf-8")
     return y
 
 
@@ -1298,7 +1299,8 @@ def kapat(pdir, d, kok, ctx):
     sha = kos([*git, "rev-parse", "--short", "HEAD"])[1].decode("utf-8", "replace").strip()
     ky = Path(d["kuyruk"]) if d.get("kuyruk") else None  # M3a K0a: yapay (geliştirme) partide kuyruk yok → adım atlanır
     if ky and ky.is_file() and islenen:
-        ky.write_bytes(tr.kuyruk_isle(ky.read_bytes().decode("utf-8"), set(islenen), sha).encode("utf-8"))
+        with kilit(ky):  # KİLİT-1: koşucular aynı kuyruğa yazıyor olabilir
+            ky.write_bytes(tr.kuyruk_isle(ky.read_bytes().decode("utf-8"), set(islenen), sha).encode("utf-8"))
         kos([*git, "add", "--", ky.as_posix()])
         kos([*git, "commit", "-q", "-m", f"parti {d['parti']} kuyruk: {len(islenen)} işlendi ({sha})", "--", ky.as_posix()])
     d["durum"] = "kapandi"  # M12 K2: açık parti koruması kapanmış partiyi yok sayar

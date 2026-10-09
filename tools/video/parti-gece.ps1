@@ -33,7 +33,11 @@ $env:VIDEO_UYGULA_KOK = $Kok   # parti.py ayni kokten okur
 $kos = Join-Path $Kok '.kos'
 New-Item -ItemType Directory -Force $kos | Out-Null
 $gun = Get-Date -Format 'yyyy-MM-dd'
-$logYol = Join-Path $kos "gece-$gun.log"
+$adEk = if ($Kuyruk) { '-' + [IO.Path]::GetFileNameWithoutExtension($Kuyruk) } else { '' }   # KILIT-1: iki kosucu ayni gun ayri log/ozet
+$logYol = Join-Path $kos "gece-$gun$adEk.log"
+$ardisikLimit = 0
+$limitSifir = ''
+$limitNeden = "kullan$([char]0x131)m limiti"   # betik ASCII; PS 5.1 BOM'suz UTF-8'i ANSI okur
 $sw = [Diagnostics.Stopwatch]::StartNew()
 $partiler = @()
 $asama = @{}       # asama adi -> @(sn, adet)
@@ -53,6 +57,9 @@ function Cagir([string[]]$a) {   # cocuk cikti (stdout+stderr) loga; satirlari d
     Log "> video $($a -join ' ')"
     $s = @(& $Video @a 2>&1 | ForEach-Object { "$_" })
     $script:kod = $LASTEXITCODE
+    $lim = @($s | Where-Object { $_ -match 'usage limit|rate.?limit|\b429\b' })   # KILIT-1: claude -p kullanim limiti, art arda 3 cagri -> DUR
+    if ($lim) { $script:ardisikLimit++ } else { $script:ardisikLimit = 0 }
+    foreach ($l in $lim) { if ($l -match '(?i)\breset\w*\b.*') { $script:limitSifir = $Matches[0] } }
     foreach ($l in $s) {
         Log "  $l"
         if ($l -match '\[a.ama\] (\S+) (\S+) bitti (\S+) ([\d.,]+)') {
@@ -106,6 +113,7 @@ while ($true) {
     $a = @('parti', 'baslat') + @($Kuyruk | Where-Object { $_ }) + @('--en-fazla', $EnFazla, '--paralel', $Paralel, '--cagri-tavan', $tavanParti, '--usd-tavan', $u)
     if ($EnFazla * 0.15 -gt 2.0) { $a += '--usd-tavan-max', $u }   # cli usd_max varsayilani 2.0 bu tavanin altinda kalmasin
     $cikti = Cagir $a
+    if ($ardisikLimit -ge 3) { $neden = $limitNeden; break }
     # parti sonucu durum.json'dan: tavanda baslat 3 doner ama parti kurulmustur
     $m = $cikti | Where-Object { $_ -match '^parti: \S+ . \w+ . \d+ video' } | Select-Object -First 1
     if (-not $m) {
@@ -131,6 +139,7 @@ while ($true) {
         }
         Cagir $a | Out-Null
         if ($ardisik403 -ge 3) { $neden = '403'; break }
+        if ($ardisikLimit -ge 3) { $neden = $limitNeden; break }
     }
     if ($neden -ne 'bitti') { break }
 
@@ -163,10 +172,12 @@ $o = @("# Gece ozeti $gun", '', "- durma nedeni: $neden", "- partiler: $($partil
     "- islenen: $($sayi.islenen)", "- tamam: $($sayi.tamam)", "- tamam_eksik: $($sayi.tamam_eksik)", "- tavan: $($sayi.tavan)", "- hata: $($sayi.hata)",
     "- token: $tok", "- claude -p cagri: $(Kullanilan)",
     $(if ($usdVar) { "- usd esdegeri: $($usd.ToString('0.0000', $ic))" } else { '- usd esdegeri: defterde yok' }),
-    "- toplam sure: $sn sn", "- video basina ortalama: $ort sn", '', '## Asama sureleri')
+    "- toplam sure: $sn sn", "- video basina ortalama: $ort sn")
+if ($neden -eq $limitNeden) { $o += "- sifirlanma: $(if ($limitSifir) { $limitSifir } else { 'ciktida yok' })" }
+$o += '', '## Asama sureleri'
 foreach ($k in $asama.Keys | Sort-Object) {
     $t = $asama[$k][0]; $c = $asama[$k][1]
     $o += "- ${k}: toplam $($t.ToString('0.#', $ic)) sn, ortalama $(([math]::Round($t / $c, 1)).ToString($ic)) sn ($c adet)"
 }
-Set-Content -Path (Join-Path $kos "ozet-$gun.md") -Encoding UTF8 -Value $o
+Set-Content -Path (Join-Path $kos "ozet-$gun$adEk.md") -Encoding UTF8 -Value $o
 exit 0

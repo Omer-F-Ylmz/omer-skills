@@ -21,6 +21,7 @@ from . import hafif
 from . import metin as m
 from . import ikinci_goz as ig
 from . import tarama as tr
+from .kilit import kilit
 from . import yonlendir as yon
 
 IG_TAVAN = {"or_usd": .10, "jev": 150, "yargic": 8}  # M5: parti başına ikinci göz tavanları (OpenRouter $ · Jev durum · yargıç çağrı)
@@ -975,11 +976,12 @@ def parti(ns, ctx):
     if ns.eylem in ("baslat", "kuyruk") and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk · KÜÇÜK-1 K3: baslat da
         ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
     if ns.eylem in ("baslat", "kuyruk"):
-        metin, acik = Path(ns.hedef).read_bytes().decode("utf-8"), _acik(kok)  # M12 K2: kapanmamış partideki video ikinci partiye alınmaz
-        metin, raporlu = (metin, []) if getattr(ns, "tekrar", False) else tr.kuyruk_raporlu(metin, Path(getattr(ns, "kayit", None) or Path(tdir) / "kayit.jsonl"), tdir, acik)
-        if raporlu:  # KUYRUK-HEDEF: raporlu video partiye alınmaz, kuyrukta `raporlu` olur; link (tekrar) ve açık parti hariç
-            Path(ns.hedef).write_bytes(metin.encode("utf-8"))
-            print(f"kuyruk: {len(raporlu)} satır raporlu (atlandı)")
+        with kilit(ns.hedef):  # KİLİT-1: süreçler arası oku-değiştir-yaz
+            metin, acik = Path(ns.hedef).read_bytes().decode("utf-8"), _acik(kok)  # M12 K2: kapanmamış partideki video ikinci partiye alınmaz
+            metin, raporlu = (metin, []) if getattr(ns, "tekrar", False) else tr.kuyruk_raporlu(metin, Path(getattr(ns, "kayit", None) or Path(tdir) / "kayit.jsonl"), tdir, acik)
+            if raporlu:  # KUYRUK-HEDEF: raporlu video partiye alınmaz, kuyrukta `raporlu` olur; link (tekrar) ve açık parti hariç
+                Path(ns.hedef).write_bytes(metin.encode("utf-8"))
+                print(f"kuyruk: {len(raporlu)} satır raporlu (atlandı)")
         tur, satirlar = tr.kuyruk_parti(metin, kapsiz=_ikili_mi(ns))  # YT1 3: ikili yolda 3/8 sınırı yok, --en-fazla geçerli
         if not satirlar:
             print("parti: kuyrukta bekleyen video yok")

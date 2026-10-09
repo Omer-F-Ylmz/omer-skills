@@ -58,7 +58,7 @@ def _kos(tmp_path, *ek):
          "-Video", str(tmp_path / "video.cmd"), "-RamOku", str(tmp_path / "ram.cmd"),
          "-Kok", str(tmp_path), "-Bekle", "0", *ek],
         capture_output=True, text=True, encoding="utf-8", env=env, timeout=120)
-    gun = date.today().isoformat()
+    gun = date.today().isoformat() + (f"-{Path(ek[ek.index('-Kuyruk') + 1]).stem}" if "-Kuyruk" in ek else "")  # KİLİT-1: kuyruk adı eki
     log = tmp_path / ".kos" / f"gece-{gun}.log"
     ozet = tmp_path / ".kos" / f"ozet-{gun}.md"
     cagri = (tmp_path / "calls.log").read_text(encoding="utf-8") if (tmp_path / "calls.log").exists() else ""

@@ -12,6 +12,7 @@ except ImportError:
     sk = None
 
 from . import metin as m
+from .kilit import kilit
 
 ESIK = 0.8
 YERLESIK = ("Claude Code", "Claude Desktop", "claude.ai")
@@ -362,9 +363,10 @@ def kayit_ekle(yol, girdiler):
     """23c K5: append-only; eski satırın baytı değişmez (sonda satır sonu yoksa önce o eklenir)."""
     yol = Path(yol)
     yol.parent.mkdir(parents=True, exist_ok=True)
-    bas = "\n" if yol.is_file() and (b := yol.read_bytes()) and not b.endswith(b"\n") else ""
-    with yol.open("a", encoding="utf-8", newline="\n") as f:
-        f.write(bas + "".join(json.dumps(g, ensure_ascii=False) + "\n" for g in girdiler))
+    with kilit(yol):  # KİLİT-1: süreçler arası
+        bas = "\n" if yol.is_file() and (b := yol.read_bytes()) and not b.endswith(b"\n") else ""
+        with yol.open("a", encoding="utf-8", newline="\n") as f:
+            f.write(bas + "".join(json.dumps(g, ensure_ascii=False) + "\n" for g in girdiler))
 
 
 def bos_yol(y):
@@ -617,14 +619,14 @@ def kacan_sozluk(kok):
 def bilinen_ekle(kok, adlar):
     """D2 (a): parti kapanışında yeni aday adları bilinen-araclar.txt'ye eklenir; büyük/küçük harf farkı tekrar sayılır."""
     b = Path(kok) / BILINEN
-    L = [x.strip() for x in b.read_text(encoding="utf-8").splitlines() if x.strip()] if b.is_file() else []
-    n = len(L)
-    for a in adlar:
-        if a.casefold() not in {x.casefold() for x in L}:
-            L.append(a)
-    if len(L) > n:  # yeni ad yoksa dosyaya dokunulmaz
-        b.parent.mkdir(parents=True, exist_ok=True)
-        b.write_text("".join(f"{x}\n" for x in L), encoding="utf-8")
+    with kilit(b):  # KİLİT-1: süreçler arası oku-değiştir-yaz
+        L = [x.strip() for x in b.read_text(encoding="utf-8").splitlines() if x.strip()] if b.is_file() else []
+        n = len(L)
+        for a in adlar:
+            if a.casefold() not in {x.casefold() for x in L}:
+                L.append(a)
+        if len(L) > n:  # yeni ad yoksa dosyaya dokunulmaz
+            b.write_text("".join(f"{x}\n" for x in L), encoding="utf-8")
 
 
 def kacan_dusuk(rapor, kaynaklar, sozluk):
