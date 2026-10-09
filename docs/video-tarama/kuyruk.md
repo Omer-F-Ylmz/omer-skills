@@ -311,6 +311,22 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | D7TIvqtSZQE | 11.5 | Claude Code Works Better With Loops, Not | bağlantılı video (eJnk0dTaDPA) | bekliyor |
 | VUCChmNYpKU | 17.5 | Claude Knowledge Base + Scheduled Loop = | bağlantılı video (eJnk0dTaDPA) | bekliyor |
 | jE9OAeeeB-Y | 12.4 | How to Configure Claude with Davinci Res | bağlantılı video (7cBexZWBfOo) | bekliyor |
+| IJS08TVGut0 | 9.7 | I Found a Way To Use AI Agents Like Code | bağlantılı video (sUvLZHSXslQ) | bekliyor |
+| GKM1pHYY7F8 | 10.3 | GPT-6’nın Olayı Zekâ Değil | bağlantılı video (mDUPbfV3VIk) | bekliyor |
+| wv46HPeL71A | 15.5 | EDİT PROGRAMLARINA ELVEDA! (Claude Code  | bağlantılı video (0sQxSXyVPwI) | bekliyor |
+| 64B3Qr0VmX4 | 182.2 | 🔴 Opus 5.5 Şu Ana Kadar Kullandığım En İ | bağlantılı video (ENKCgIZ-82I) | bekliyor |
+| ZMFty0XE9L4 | 60.2 | Build a Pro 3D Website Animation (No GSA | bağlantılı video (Pw2x2yXTIUE) | bekliyor |
+| G0xr7l8r7cA | 1.1 | What We Offer_Vertex Wireless | bağlantılı video (Pw2x2yXTIUE) | bekliyor |
+| cnnDG0pPkTk | 18.9 | Reklam Bütçesi Olmadan Müşteri Bulmak: # | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
+| AkYbv-5Ro_A | 33.5 | Claude Managed Agents ile Otonom Reklam  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
+| N4s51kudOhQ | 9.3 | Claude Code ile Sıfırdan Kendi Reklam Vi | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
+| F0PIbAXhujs | 25.4 | Dev Pazarlama Ekibini tek Yapay Zekâ Aja | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
+| eF48AGf9f7A | 4.1 | How to Connect Claude to multiple Gmail  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
+| 4r-gw-_XBW4 | 14.7 | 2026’da Otomasyona Sıfırdan Başlasaydım  | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| Az0tdFAlPhA | 10.7 | Otomasyon Hizmeti Nasıl Fiyatlandırılır? | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| eS-lEvneqBo | 24.4 | Sadece E-mail ile 0'dan İlk Müşterilerin | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| 5hezvIlJcjs | 14.1 | 11 Günde Sıfırdan Uygulama Yapıp Satıyor | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| 4UmXrwvrxKs | 48.6 | Kod Yazmadan Kendi Uygulamanı Kur ve Sat | bağlantılı video (auYy3ISrfYk) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
