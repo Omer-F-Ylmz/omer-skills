@@ -73,36 +73,36 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | DD-SiFV93sQ | 84.5 | I Made $250K In 30 Days: The FASTEST Way | Ömer 10 Eki | işlendi: 00e995e |
 | TnduiS4kyg8 | 23.3 | Build a Stunning 3D Website with Claude  | Ömer 10 Eki | işlendi: 00e995e |
 | R_uf5OfMGio | 62.9 | Can AI Make a Game Engine? | Ömer 10 Eki | işlendi: 00e995e |
-| aFEEwCteLe4 | 14.7 | Yapay Zeka Fikrimi Çalışan Bir Uygulamay | Ömer 10 Eki | bekliyor |
-| r68MhqAUvR8 | 23.7 | How to Build Cinematic 3D Websites in Mi | Ömer 10 Eki | bekliyor |
+| aFEEwCteLe4 | 14.7 | Yapay Zeka Fikrimi Çalışan Bir Uygulamay | Ömer 10 Eki | işlendi: ace8175 |
+| r68MhqAUvR8 | 23.7 | How to Build Cinematic 3D Websites in Mi | Ömer 10 Eki | işlendi: ace8175 |
 | dF_uxyJyeu0 | 0.8 | You can now build Blender scenes just by | Ömer 10 Eki | işlendi: 00e995e |
-| LCwT00LrPZg | 21.3 | 9 Claude Skills I Use Every Single Day | Ömer 10 Eki | bekliyor |
-| 0e7C9fzX4pc | 11.6 | Bir Esnafa 10 Dakikada Web Sitesi ve Rek | Ömer 10 Eki | bekliyor |
-| bE0XcTv3tKg | 14.8 | Watch me vibe code an Animated App (Opus | Ömer 10 Eki | bekliyor |
-| eFB79TYI-Vw | 20.4 | Somebody Vibe Coded EVERY SINGLE ADOBE A | Ömer 10 Eki | bekliyor |
-| DWMGfkFD5SI | 19.0 | Claude ile Otomatik Teklif Sistemi Kurdu | Ömer 10 Eki | bekliyor |
-| ACal_vkrc9Q | 9.5 | I Gave Claude AI Full Control Of Blender | Ömer 10 Eki | bekliyor |
-| 6yWPy5aVHb8 | 15.2 | How To Make INSANE Motion Graphics With  | Ömer 10 Eki | bekliyor |
-| J4oygRI6mN0 | 21.3 | How I Make Insane Motion Graphics with O | Ömer 10 Eki | bekliyor |
-| d67-HDSvMw8 | 10.3 | Yapay Zeka Artık Videoyu da Editliyor! / | Ömer 10 Eki | bekliyor |
-| WEMlzWMFc3k | 20.5 | Top 8 AI-Design Tips (Emil animation ski | Ömer 10 Eki | bekliyor |
+| LCwT00LrPZg | 21.3 | 9 Claude Skills I Use Every Single Day | Ömer 10 Eki | işlendi: ace8175 |
+| 0e7C9fzX4pc | 11.6 | Bir Esnafa 10 Dakikada Web Sitesi ve Rek | Ömer 10 Eki | işlendi: ace8175 |
+| bE0XcTv3tKg | 14.8 | Watch me vibe code an Animated App (Opus | Ömer 10 Eki | işlendi: ace8175 |
+| eFB79TYI-Vw | 20.4 | Somebody Vibe Coded EVERY SINGLE ADOBE A | Ömer 10 Eki | işlendi: ace8175 |
+| DWMGfkFD5SI | 19.0 | Claude ile Otomatik Teklif Sistemi Kurdu | Ömer 10 Eki | işlendi: ace8175 |
+| ACal_vkrc9Q | 9.5 | I Gave Claude AI Full Control Of Blender | Ömer 10 Eki | işlendi: ace8175 |
+| 6yWPy5aVHb8 | 15.2 | How To Make INSANE Motion Graphics With  | Ömer 10 Eki | işlendi: ace8175 |
+| J4oygRI6mN0 | 21.3 | How I Make Insane Motion Graphics with O | Ömer 10 Eki | işlendi: ace8175 |
+| d67-HDSvMw8 | 10.3 | Yapay Zeka Artık Videoyu da Editliyor! / | Ömer 10 Eki | işlendi: ace8175 |
+| WEMlzWMFc3k | 20.5 | Top 8 AI-Design Tips (Emil animation ski | Ömer 10 Eki | işlendi: ace8175 |
 | 9sqJCcnSI50 | 0.8 | Claude Opus 5.5 enables fast, low-cost a | Ömer 10 Eki | işlendi: 00e995e |
-| nIB0QSIm7-0 | 9.8 | 2 NEW AI Models FREE! 🔥 Mistral Large 4  | Ömer 10 Eki | bekliyor |
-| DYdvJCxWd6M | 34.4 | Hermes Agent - Full Tutorial & Setup Gui | Ömer 10 Eki | bekliyor |
-| HzXD4GVqXwM | 17.0 | I Fully Automated My Video Editing Using | Ömer 10 Eki | bekliyor |
-| 38_48YQ6iOs | 16.1 | Yapay Zeka ile Kendi Masaüstü Uygulamanı | Ömer 10 Eki | bekliyor |
-| DO45w8HX6nA | 44.5 | Claude ile SaaS'ımı Baştan Yaptım: 1,3$  | Ömer 10 Eki | bekliyor |
-| MIiwOtKf3SI | 8.1 | I Made 3D Motion Graphics With FREE AI T | Ömer 10 Eki | bekliyor |
-| WEUlsIqoKFQ | 6.2 | how to build STUNNING websites | Ömer 10 Eki | bekliyor |
-| 7FU98O0JLHs | 23.0 | Turn Claude Into A Design GENIUS In 3 Si | Ömer 10 Eki | bekliyor |
-| 4Hvkv_I8QDE | 24.6 | Obsidian in 24 Minutes | Ömer 10 Eki | bekliyor |
+| nIB0QSIm7-0 | 9.8 | 2 NEW AI Models FREE! 🔥 Mistral Large 4  | Ömer 10 Eki | işlendi: ace8175 |
+| DYdvJCxWd6M | 34.4 | Hermes Agent - Full Tutorial & Setup Gui | Ömer 10 Eki | işlendi: ace8175 |
+| HzXD4GVqXwM | 17.0 | I Fully Automated My Video Editing Using | Ömer 10 Eki | işlendi: ace8175 |
+| 38_48YQ6iOs | 16.1 | Yapay Zeka ile Kendi Masaüstü Uygulamanı | Ömer 10 Eki | işlendi: ace8175 |
+| DO45w8HX6nA | 44.5 | Claude ile SaaS'ımı Baştan Yaptım: 1,3$  | Ömer 10 Eki | işlendi: ace8175 |
+| MIiwOtKf3SI | 8.1 | I Made 3D Motion Graphics With FREE AI T | Ömer 10 Eki | işlendi: ace8175 |
+| WEUlsIqoKFQ | 6.2 | how to build STUNNING websites | Ömer 10 Eki | işlendi: ace8175 |
+| 7FU98O0JLHs | 23.0 | Turn Claude Into A Design GENIUS In 3 Si | Ömer 10 Eki | işlendi: ace8175 |
+| 4Hvkv_I8QDE | 24.6 | Obsidian in 24 Minutes | Ömer 10 Eki | işlendi: ace8175 |
 | COJAZQM1aeQ | 1.7 | Build an App With Claude Design | Ömer 10 Eki | işlendi: 00e995e |
-| rM-wRmxmfDI | 12.8 | Sıfırdan Viral Bir Karakter Tasarladım v | Ömer 10 Eki | bekliyor |
+| rM-wRmxmfDI | 12.8 | Sıfırdan Viral Bir Karakter Tasarladım v | Ömer 10 Eki | işlendi: ace8175 |
 | 4efBpthpF6w | 0.8 | Premiere Pro'da Animasyon Oluşturmak Çok | Ömer 10 Eki | işlendi: 00e995e |
-| YUWBku1cNEA | 10.5 | Claude Code + Seedance 2.5 = Insane Webs | Ömer 10 Eki | bekliyor |
+| YUWBku1cNEA | 10.5 | Claude Code + Seedance 2.5 = Insane Webs | Ömer 10 Eki | işlendi: ace8175 |
 | idJQMJwHtyM | 1.0 | Claude for Google Workspace™ | Ömer 10 Eki | işlendi: 00e995e |
-| 7RVf25Rg0Mc | 28.8 | you need to try Paperclip RIGHT NOW! | Ömer 10 Eki | bekliyor |
-| eIkTn5kgNaI | 13.2 | Claude Opus 5.5 ile Mobil Uygulama Yaptı | Ömer 10 Eki | bekliyor |
+| 7RVf25Rg0Mc | 28.8 | you need to try Paperclip RIGHT NOW! | Ömer 10 Eki | işlendi: ace8175 |
+| eIkTn5kgNaI | 13.2 | Claude Opus 5.5 ile Mobil Uygulama Yaptı | Ömer 10 Eki | işlendi: ace8175 |
 | o_FJ1NIH9yw | 28.9 | God’s Eye View Blew Up. Here's What You  | Ömer 10 Eki | bekliyor |
 | y4YupFxhAog | 14.5 | How I create viral animated reels using  | Ömer 10 Eki | bekliyor |
 | 8KUDeKO1iyU | 21.1 | Haiku 5.5 ile Yapay Zeka Ekibi Kurdum /  | Ömer 10 Eki | bekliyor |
