@@ -244,6 +244,24 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-DdWS9LZEUl7 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
 | ig-DePBMFZiGkO | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
 | ig-Dclo7W4jjQj | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DcNc-EszHJF | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
+| ig-Dd5bRQ9ApLj | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
+| ig-DeHNkMklMK7 | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 5) | bekliyor |
+| ig-Dd9dsD8gDxf | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
+| ig-DdO8U92kcyw | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 4) | bekliyor |
+| ig-DeGTXaHkidF | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
+| ig-DeRwKUAsJW9 | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
+| ig-DdrEmDHkouJ | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
+| ig-DePQ2O3ElPy | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 4) | bekliyor |
+| ig-DdveM-dDrFx | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
+| ig-Dd3zGoKArLr | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
+| ig-DdwURoumtRW | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
+| ig-DeQjyfjksz6 | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
+| ig-DeH33EMgBYT | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
+| ig-Dd_sICVjFKq | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 7) | bekliyor |
+| ig-DeFBWx2E95r | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 6) | bekliyor |
+| ig-DeMwM03Deph | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
+| ig-DeR8IEFAPCz | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
 
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
@@ -724,6 +742,8 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | zp13W8z6WQM | 29.6 | I Tested Tripo P2.0 for Production: Is I | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 | 1vw39QCcQjg | 14.1 | AI Just Solved UV Unwrapping and It's Cr | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 | 3SFDXcr-dQ4 | 25.7 | AI Texturing Like a Pro — My Full 3D Wor | bağlantılı video (VeOU0FnTjjc) | bekliyor |
+| wgoi4xxztrs | 0.8 | Link Kısalt Para Kazan 7/24 Anlık Ödeme  | bağlantılı video (bQoEelGwy6c) | bekliyor |
+| o9mYq_BhKjI | 13.3 | Kendi Kurgu Eklentimi Yaptım! Ses, Görse | bağlantılı video (c4nRtwe5EbM) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
