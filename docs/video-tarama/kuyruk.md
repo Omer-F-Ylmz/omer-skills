@@ -39,31 +39,31 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-DeCixT6ilL7 | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
 | ig-DeChw05s6ID | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
 | ig-DePX37ZNk75 | 1.0 | Instagram reel | Ömer notu: DeepSeek son modelini ucuz/ücretsiz alt ajan yapma | işlendi: 701a3a9 |
-| ig-DeRBkGLIBBZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeRooX1C5FT | 1.0 | Instagram reel | Ömer notu: Claude'a bağlayıp daha iyi ve kaliteli çalıştırma (önceki notla aynı başlık) | bekliyor |
-| ig-DcthaPNoqQm | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DdEUwLgE-Sb | 1.0 | Instagram reel | Ömer notu: Google AI Studio/Playground'u Claude'a bağlayıp daha iyi/kaliteli çalıştırma | bekliyor |
-| ig-DeObaLjuUXt | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DePtyBoAOPd | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Ddqj0svm6yq | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DePUywkjHEz | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dd_tRbkP0qO | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| gxAXIdCNr-E | 0.6 | Obsidian 1.14 Just Got 5 HUGE Upgrades | Ömer 10 Eki | bekliyor |
-| 7CKYk8FX6UY | 0.8 | How to sell n8n automation for $3,000 | Ömer 10 Eki | bekliyor |
+| ig-DeRBkGLIBBZ | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DeRooX1C5FT | 1.0 | Instagram reel | Ömer notu: Claude'a bağlayıp daha iyi ve kaliteli çalıştırma (önceki notla aynı başlık) | işlendi: 35517c9 |
+| ig-DcthaPNoqQm | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DdEUwLgE-Sb | 1.0 | Instagram reel | Ömer notu: Google AI Studio/Playground'u Claude'a bağlayıp daha iyi/kaliteli çalıştırma | işlendi: 35517c9 |
+| ig-DeObaLjuUXt | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DePtyBoAOPd | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-Ddqj0svm6yq | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DePUywkjHEz | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-Dd_tRbkP0qO | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| gxAXIdCNr-E | 0.6 | Obsidian 1.14 Just Got 5 HUGE Upgrades | Ömer 10 Eki | işlendi: 35517c9 |
+| 7CKYk8FX6UY | 0.8 | How to sell n8n automation for $3,000 | Ömer 10 Eki | işlendi: 35517c9 |
 | ig-DdrOw7ItBTu | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeSQoHQzAKO | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeCHIhrk0Th | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Ddt16ilkRGB | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dd-Xxv2H4VH | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeP3RRyN8T9 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeHiUezkt8m | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dd9Yv2ciKVY | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeMmzkxMpFZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeSLlBNsnJv | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DdVWXArCa_T | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dcn3KY8A9Wa | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeMXKf9NIci | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DcRlYhYMHwZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeSQoHQzAKO | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DeCHIhrk0Th | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-Ddt16ilkRGB | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-Dd-Xxv2H4VH | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DeP3RRyN8T9 | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DeHiUezkt8m | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-Dd9Yv2ciKVY | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DeMmzkxMpFZ | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DeSLlBNsnJv | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DdVWXArCa_T | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-Dcn3KY8A9Wa | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DeMXKf9NIci | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
+| ig-DcRlYhYMHwZ | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
 | ig-DeJ9WfkkyBm | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 00e995e |
 | fw2ID5ucY-Q | 16.5 | Claude Code Ayarlarını Hemen Bu Şekilde  | Ömer 10 Eki | işlendi: 00e995e |
 | De4dE0Fbpy4 | 19.4 | Bu Shorts/Reels Videolarını Sadece Opus  | Ömer 10 Eki | işlendi: 00e995e |
