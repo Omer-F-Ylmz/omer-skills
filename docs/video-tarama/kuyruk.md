@@ -744,6 +744,8 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 3SFDXcr-dQ4 | 25.7 | AI Texturing Like a Pro — My Full 3D Wor | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 | wgoi4xxztrs | 0.8 | Link Kısalt Para Kazan 7/24 Anlık Ödeme  | bağlantılı video (bQoEelGwy6c) | işlendi: bfe565e |
 | o9mYq_BhKjI | 13.3 | Kendi Kurgu Eklentimi Yaptım! Ses, Görse | bağlantılı video (c4nRtwe5EbM) | bekliyor |
+| IZPGFAS_tRY | 13.6 | I Made Claude Code FREE Using 25+ AI Mod | bağlantılı video (qzPvSYVyqaw) | bekliyor |
+| vZE0j_WCRvI | 7.2 | What does a consultant actually do? | bağlantılı video (m6nA5EV-_g0) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
