@@ -518,23 +518,23 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | fFJz7ZSrUCA | 21.0 | Spaceship.com WordPress Tutorial 2026 -  | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Spaceship.com WordPress Tutorial 2026 -) |
 | P9JO6KU_ZD0 | 35.3 | MailerLite Tutorial for Beginners 2026 - | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (MailerLite Tutorial for Beginners 2026 -) |
 | g6DE1MpMX-8 | 52.8 | ActiveCampaign Tutorial for Beginners (2 | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (ActiveCampaign Tutorial for Beginners (2) |
-| ZumXpZzDsgo | 11.5 | AI Is Rotting Your Brain -  Just Look At | bağlantılı video (_0NSNY7n5lE) | bekliyor |
-| dDx6E6FYKM4 | 19.6 | I Deleted My Custom Laravel AI Guideline | bağlantılı video (_0NSNY7n5lE) | bekliyor |
-| btimnusiRIA | 13.0 | I Tested NEW Gemini 3.7 Flash in Antigra | bağlantılı video (_0NSNY7n5lE) | bekliyor |
-| y9qrEhoeMR8 | 24.6 | I Tried Kimi Code with Kimi K3: Deep-Div | bağlantılı video (_0NSNY7n5lE) | bekliyor |
+| ZumXpZzDsgo | 11.5 | AI Is Rotting Your Brain -  Just Look At | bağlantılı video (_0NSNY7n5lE) | işlendi: a45920c |
+| dDx6E6FYKM4 | 19.6 | I Deleted My Custom Laravel AI Guideline | bağlantılı video (_0NSNY7n5lE) | işlendi: a45920c |
+| btimnusiRIA | 13.0 | I Tested NEW Gemini 3.7 Flash in Antigra | bağlantılı video (_0NSNY7n5lE) | işlendi: a45920c |
+| y9qrEhoeMR8 | 24.6 | I Tried Kimi Code with Kimi K3: Deep-Div | bağlantılı video (_0NSNY7n5lE) | işlendi: a45920c |
 | fC0Z_CjEYLU | 3.0 | AgentShield: Autonomous Security Tool fo | bağlantılı video (UI-FviGoSuY) | raporlu |
-| CMzyOiUyEVc | 6.3 | How to Use Claude Code for FREE in 2026  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
-| il_5Ii6v4-Y | 10.4 | Claude Code БЕЗЛИМИТНО за 5 минут / Gemi | bağlantılı video (fZIBK_4fKq8) | bekliyor |
-| Rxdc36yUyOQ | 11.2 | Como Conectar Todas iAs no Claude Code,  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
-| NJ0TQ-pyMDY | 12.7 | I Gave CLAUDE CODE 1.6 Billion Free Toke | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| CMzyOiUyEVc | 6.3 | How to Use Claude Code for FREE in 2026  | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
+| il_5Ii6v4-Y | 10.4 | Claude Code БЕЗЛИМИТНО за 5 минут / Gemi | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
+| Rxdc36yUyOQ | 11.2 | Como Conectar Todas iAs no Claude Code,  | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
+| NJ0TQ-pyMDY | 12.7 | I Gave CLAUDE CODE 1.6 Billion Free Toke | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
 | NuNDpeZYQ28 | 17.0 | Stop Paying For Claude: I Found A Way To | bağlantılı video (fZIBK_4fKq8) | bekliyor |
-| q1hFEja170A | 36.1 | Lo consiguió! Omniroute Regala la Mejor  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
-| Er4Jqoz7QaU | 22.7 | I Tested All 10 of Claude Code's Creator | bağlantılı video (eWdvFbDxkJE) | bekliyor |
-| ARsCKGoKut0 | 21.3 | Lovable Ücretsiz Oldu! Takipçim İçin Kod | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| lWevKkUhGfI | 16.6 | N8N ile Otomatikleştirilmiş Veo 3 Viral  | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| rVn-iaSxVS8 | 14.9 | ComfyUI ve n8n ile Kodsuz ve Otomatik Gö | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| nudCt2F7Tug | 20.4 | Claude 4 Abartıldığı Kadar İyi Mi? / Cla | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| OPBIumlvDQo | 20.5 | Viral Shorts Otomasyonu / Sıfır Kodla Ot | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| q1hFEja170A | 36.1 | Lo consiguió! Omniroute Regala la Mejor  | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
+| Er4Jqoz7QaU | 22.7 | I Tested All 10 of Claude Code's Creator | bağlantılı video (eWdvFbDxkJE) | işlendi: a45920c |
+| ARsCKGoKut0 | 21.3 | Lovable Ücretsiz Oldu! Takipçim İçin Kod | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
+| lWevKkUhGfI | 16.6 | N8N ile Otomatikleştirilmiş Veo 3 Viral  | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
+| rVn-iaSxVS8 | 14.9 | ComfyUI ve n8n ile Kodsuz ve Otomatik Gö | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
+| nudCt2F7Tug | 20.4 | Claude 4 Abartıldığı Kadar İyi Mi? / Cla | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
+| OPBIumlvDQo | 20.5 | Viral Shorts Otomasyonu / Sıfır Kodla Ot | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
 | e1DzQAh4Xw0 | 29.3 | Bu AI Aracıyla Tüm Siteleri Sömür / Dump | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
 | BjqaV253lNI | 16.9 | Kodlama İçin En İyi Mcp Server - Context | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
 | gmYYHjlOJTI | 21.0 | Yapay Zeka İle Hiç Kod Yazmadan Web Site | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
@@ -575,7 +575,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 9lFE4T7iZKM | 16.1 | I Ran GPT-6 for 3 Days Non-Stop and It C | bağlantılı video (doR2RhsneRA) | bekliyor |
 | 3CDhK-uVDuY | 6.7 | Use Claude Fable 5.1 for FREE (3 Working | bağlantılı video (0i65C2vzjpw) | bekliyor |
 | GJmlik1C4Tg | 15.5 | Superpowers vs. GSD: The Results Shocked | bağlantılı video (6CaQ9ZFuuKI) | bekliyor |
-| rOs-TFUeuSg | 1.9 | GSAP Showreel 2025 | bağlantılı video (_SVU3oC4JX8) | bekliyor |
+| rOs-TFUeuSg | 1.9 | GSAP Showreel 2025 | bağlantılı video (_SVU3oC4JX8) | işlendi: a45920c |
 | ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
 | 1zerGmW_Ayo | 24.0 | Paran Büyüdükçe Özgürlüğün Fiyatı Değişi | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Paran Büyüdükçe Özgürlüğün Fiyatı Değişi) |
 | 82OfzGFlHYI | 8.4 | Yapay Zekada Çin Dönemi: Yeni Kimi K3 Ne | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
@@ -589,8 +589,8 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | Evdv_HSFHBk | 1.6 | What is Netlify? | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (What is Netlify?) |
 | D7EphcxbEhs | 1.4 | From 0 views to 10,000+ on every video - | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (From 0 views to 10,000+ on every video -) |
 | bh4MMBHtkg4 | 1.4 | 3 changes that 10x'd my YouTube channel  | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (3 changes that 10x'd my YouTube channel) |
-| VcGeA4vsht4 | 0.9 | How a technical founder built a marketin | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| Ic5ka0wjxs8 | 0.9 | The AI shift that 3x'd my client output  | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| VcGeA4vsht4 | 0.9 | How a technical founder built a marketin | bağlantılı video (z1CcbB4Yj3U) | işlendi: a45920c |
+| Ic5ka0wjxs8 | 0.9 | The AI shift that 3x'd my client output  | bağlantılı video (z1CcbB4Yj3U) | işlendi: a45920c |
 | LhQij3eE9Oo | 0.8 | Wrong audience = zero leads. Here's the  | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Wrong audience = zero leads. Here's the) |
 | gM8T5PJeWgw | 1.0 | The framework that ended my random posti | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (The framework that ended my random posti) |
 | Drzs_gmNoTA | 0.8 | This tool tells you which thumbnails win | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (This tool tells you which thumbnails win) |
@@ -602,7 +602,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | nXvWTR88sfU | 30.0 | 30 Dakikada Claude Code'un %95'ini Öğren | bağlantılı video (Xu2SIKz8B58) | raporlu |
 | qm0ZlYezt1Q | 125.1 | CLAUDE CODE FULL KURS 2 SAAT: Kur ve Sat | bağlantılı video (Xu2SIKz8B58) | bekliyor |
 | hxQshcD3e1Y | 18.2 | How I Automated Meta Ads Insights with A | bağlantılı video (Xu2SIKz8B58) | bekliyor |
-| i6OjYfQTMoE | 1.6 | How Businesses are using Gemini for Goog | bağlantılı video (Xu2SIKz8B58) | bekliyor |
+| i6OjYfQTMoE | 1.6 | How Businesses are using Gemini for Goog | bağlantılı video (Xu2SIKz8B58) | işlendi: a45920c |
 | WwdmQzv_w54 | 2.4 | How to scrape TikTok videos, hashtags, c | bağlantılı video (Xu2SIKz8B58) | bekliyor |
 | HMVSCEh72n4 | 10.5 | The Complete Guide to Making Cinematic A | bağlantılı video (6_rCyryA6hg) | bekliyor |
 | QP9Cd21Bk2I | 13.2 | CLAUDE CODE'U LİMİTSİZ YAP! (Claude Code | bağlantılı video (PJ4JAim5-jQ) | bekliyor |
@@ -873,7 +873,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Ddv0we2odg2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
 | ig-DcgPETIMIhq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
 | ig-DdjgNfBtToS | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
-| ig-Dbi2LaIMenv | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Dc1NYVJA8A2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Dd6pRc_sye8 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DaLUGUbMp4K | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-Dbi2LaIMenv | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: a45920c |
+| ig-Dc1NYVJA8A2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: a45920c |
+| ig-Dd6pRc_sye8 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: a45920c |
+| ig-DaLUGUbMp4K | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: a45920c |
