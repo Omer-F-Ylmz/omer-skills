@@ -711,6 +711,19 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | wVAp04tX4Io | 5.6 | Skip the Xcode Instruments Tutorial, Do  | bağlantılı video (ijHxGWFnrNA) | bekliyor |
 | hDFOy-ynJ6I | 29.5 | AI Wrote Swift Code That Looked Fine… Un | bağlantılı video (ijHxGWFnrNA) | bekliyor |
 | mD6vpokRpsU | 5.6 | AI Agents Can Now Control the iOS Simula | bağlantılı video (ijHxGWFnrNA) | bekliyor |
+| MeVVCKsCBaY | 16.9 | Claude Skills Nedir? Bir Kez Öğret, Hep  | bağlantılı video (AYPx7yJmbNg) | bekliyor |
+| 8L_9hXnUzRk | 1.4 | Incredibles 2 (2018) - Elastigirl vs. Sc | bağlantılı video (AYPx7yJmbNg) | bekliyor |
+| 83NI19L7fhQ | 12.4 | How Claude Replaced Higgsfield (Build Th | bağlantılı video (IUV8QzwIb6g) | bekliyor |
+| nZG8StgCdws | 36.1 | I Made Claude Cowork Generate 100+ UGC A | bağlantılı video (IUV8QzwIb6g) | bekliyor |
+| oq7I4S0Ql2k | 23.4 | This One Claude Skill Makes $10K Website | bağlantılı video (IUV8QzwIb6g) | bekliyor |
+| KcOST3Ogq_g | 28.6 | Google Omni + Claude Code Just Fired My  | bağlantılı video (IUV8QzwIb6g) | bekliyor |
+| sa2tYsMpjMg | 14.7 | How to Create a Book Cover for FREE with | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
+| H4x8fH-vd1g | 10.3 | How to Upload a Book to Amazon KDP (Comp | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
+| w8yVXfUyp3E | 8.4 | How to Get Book Reviews on Amazon KDP Us | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
+| CZgZmPd-ETY | 15.7 | How to Sell More Books on Amazon KDP WIT | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
+| zp13W8z6WQM | 29.6 | I Tested Tripo P2.0 for Production: Is I | bağlantılı video (VeOU0FnTjjc) | bekliyor |
+| 1vw39QCcQjg | 14.1 | AI Just Solved UV Unwrapping and It's Cr | bağlantılı video (VeOU0FnTjjc) | bekliyor |
+| 3SFDXcr-dQ4 | 25.7 | AI Texturing Like a Pro — My Full 3D Wor | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
