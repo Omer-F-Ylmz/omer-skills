@@ -566,33 +566,33 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | D7TIvqtSZQE | 11.5 | Claude Code Works Better With Loops, Not | bağlantılı video (eJnk0dTaDPA) | işlendi: bfe565e |
 | VUCChmNYpKU | 17.5 | Claude Knowledge Base + Scheduled Loop = | bağlantılı video (eJnk0dTaDPA) | işlendi: bfe565e |
 | jE9OAeeeB-Y | 12.4 | How to Configure Claude with Davinci Res | bağlantılı video (7cBexZWBfOo) | işlendi: bfe565e |
-| IJS08TVGut0 | 9.7 | I Found a Way To Use AI Agents Like Code | bağlantılı video (sUvLZHSXslQ) | bekliyor |
-| GKM1pHYY7F8 | 10.3 | GPT-6’nın Olayı Zekâ Değil | bağlantılı video (mDUPbfV3VIk) | bekliyor |
-| wv46HPeL71A | 15.5 | EDİT PROGRAMLARINA ELVEDA! (Claude Code  | bağlantılı video (0sQxSXyVPwI) | bekliyor |
-| 64B3Qr0VmX4 | 182.2 | 🔴 Opus 5.5 Şu Ana Kadar Kullandığım En İ | bağlantılı video (ENKCgIZ-82I) | bekliyor |
-| ZMFty0XE9L4 | 60.2 | Build a Pro 3D Website Animation (No GSA | bağlantılı video (Pw2x2yXTIUE) | bekliyor |
+| IJS08TVGut0 | 9.7 | I Found a Way To Use AI Agents Like Code | bağlantılı video (sUvLZHSXslQ) | işlendi: 84d3586 |
+| GKM1pHYY7F8 | 10.3 | GPT-6’nın Olayı Zekâ Değil | bağlantılı video (mDUPbfV3VIk) | işlendi: 84d3586 |
+| wv46HPeL71A | 15.5 | EDİT PROGRAMLARINA ELVEDA! (Claude Code  | bağlantılı video (0sQxSXyVPwI) | işlendi: 84d3586 |
+| 64B3Qr0VmX4 | 182.2 | 🔴 Opus 5.5 Şu Ana Kadar Kullandığım En İ | bağlantılı video (ENKCgIZ-82I) | işlendi: 84d3586 |
+| ZMFty0XE9L4 | 60.2 | Build a Pro 3D Website Animation (No GSA | bağlantılı video (Pw2x2yXTIUE) | işlendi: 84d3586 |
 | G0xr7l8r7cA | 1.1 | What We Offer_Vertex Wireless | bağlantılı video (Pw2x2yXTIUE) | işlendi: ff2a720 |
 | cnnDG0pPkTk | 18.9 | Reklam Bütçesi Olmadan Müşteri Bulmak: # | bağlantılı video (Xv9GJZSMCPU) | atlandı: konu dışı (Reklam Bütçesi Olmadan Müşteri Bulmak: #) |
-| AkYbv-5Ro_A | 33.5 | Claude Managed Agents ile Otonom Reklam  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
-| N4s51kudOhQ | 9.3 | Claude Code ile Sıfırdan Kendi Reklam Vi | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
-| F0PIbAXhujs | 25.4 | Dev Pazarlama Ekibini tek Yapay Zekâ Aja | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
-| eF48AGf9f7A | 4.1 | How to Connect Claude to multiple Gmail  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
-| 4r-gw-_XBW4 | 14.7 | 2026’da Otomasyona Sıfırdan Başlasaydım  | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| AkYbv-5Ro_A | 33.5 | Claude Managed Agents ile Otonom Reklam  | bağlantılı video (Xv9GJZSMCPU) | işlendi: 84d3586 |
+| N4s51kudOhQ | 9.3 | Claude Code ile Sıfırdan Kendi Reklam Vi | bağlantılı video (Xv9GJZSMCPU) | işlendi: 84d3586 |
+| F0PIbAXhujs | 25.4 | Dev Pazarlama Ekibini tek Yapay Zekâ Aja | bağlantılı video (Xv9GJZSMCPU) | işlendi: 84d3586 |
+| eF48AGf9f7A | 4.1 | How to Connect Claude to multiple Gmail  | bağlantılı video (Xv9GJZSMCPU) | işlendi: 84d3586 |
+| 4r-gw-_XBW4 | 14.7 | 2026’da Otomasyona Sıfırdan Başlasaydım  | bağlantılı video (auYy3ISrfYk) | işlendi: 84d3586 |
 | Az0tdFAlPhA | 10.7 | Otomasyon Hizmeti Nasıl Fiyatlandırılır? | bağlantılı video (auYy3ISrfYk) | atlandı: konu dışı (Otomasyon Hizmeti Nasıl Fiyatlandırılır?) |
 | eS-lEvneqBo | 24.4 | Sadece E-mail ile 0'dan İlk Müşterilerin | bağlantılı video (auYy3ISrfYk) | atlandı: konu dışı (Sadece E-mail ile 0'dan İlk Müşterilerin) |
-| 5hezvIlJcjs | 14.1 | 11 Günde Sıfırdan Uygulama Yapıp Satıyor | bağlantılı video (auYy3ISrfYk) | bekliyor |
-| 4UmXrwvrxKs | 48.6 | Kod Yazmadan Kendi Uygulamanı Kur ve Sat | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| 5hezvIlJcjs | 14.1 | 11 Günde Sıfırdan Uygulama Yapıp Satıyor | bağlantılı video (auYy3ISrfYk) | işlendi: 84d3586 |
+| 4UmXrwvrxKs | 48.6 | Kod Yazmadan Kendi Uygulamanı Kur ve Sat | bağlantılı video (auYy3ISrfYk) | işlendi: 84d3586 |
 | NYFGCESmikA | 315.9 | DHH: Future of Programming, AI, Agentic  | bağlantılı video (VRtD88WgaBk) | atlandı: konu dışı (DHH: Future of Programming, AI, Agentic) |
-| pywfao8gZyo | 25.2 | Vibe Coding Bitti: Ölçülebilir AI Uygula | bağlantılı video (gKRrT6biuag) | bekliyor |
-| EFqVVIDCyMs | 17.2 | Claude Sonnet 5 Gerçekten Ne Yapabiliyor | bağlantılı video (gKRrT6biuag) | bekliyor |
-| 9VSs2glPECM | 32.3 | I Tested 7 FREE Claude Code Alternatives | bağlantılı video (OXBdKEpHEOI) | bekliyor |
-| DpOWdBVcCB0 | 16.9 | Tek Bir Prompt ile Profesyonel Youtube V | bağlantılı video (cf6zi39Aaq0) | bekliyor |
-| XJJZGa_QIZ0 | 16.3 | Claude Code ile n8n Otomasyonlarını Daki | bağlantılı video (cf6zi39Aaq0) | bekliyor |
-| SeuhYVg8-AU | 7.4 | Gemini CLI + Google MCPs: Migrate & depl | bağlantılı video (185XGEMefgc) | bekliyor |
-| 8NSyI-npJCU | 21.6 | The NEW Agentic OS standard for Claude 5 | bağlantılı video (Zs3faMCDYNs) | bekliyor |
-| 9lFE4T7iZKM | 16.1 | I Ran GPT-6 for 3 Days Non-Stop and It C | bağlantılı video (doR2RhsneRA) | bekliyor |
-| 3CDhK-uVDuY | 6.7 | Use Claude Fable 5.1 for FREE (3 Working | bağlantılı video (0i65C2vzjpw) | bekliyor |
-| GJmlik1C4Tg | 15.5 | Superpowers vs. GSD: The Results Shocked | bağlantılı video (6CaQ9ZFuuKI) | bekliyor |
+| pywfao8gZyo | 25.2 | Vibe Coding Bitti: Ölçülebilir AI Uygula | bağlantılı video (gKRrT6biuag) | işlendi: 84d3586 |
+| EFqVVIDCyMs | 17.2 | Claude Sonnet 5 Gerçekten Ne Yapabiliyor | bağlantılı video (gKRrT6biuag) | işlendi: 84d3586 |
+| 9VSs2glPECM | 32.3 | I Tested 7 FREE Claude Code Alternatives | bağlantılı video (OXBdKEpHEOI) | işlendi: 84d3586 |
+| DpOWdBVcCB0 | 16.9 | Tek Bir Prompt ile Profesyonel Youtube V | bağlantılı video (cf6zi39Aaq0) | işlendi: 84d3586 |
+| XJJZGa_QIZ0 | 16.3 | Claude Code ile n8n Otomasyonlarını Daki | bağlantılı video (cf6zi39Aaq0) | işlendi: 84d3586 |
+| SeuhYVg8-AU | 7.4 | Gemini CLI + Google MCPs: Migrate & depl | bağlantılı video (185XGEMefgc) | işlendi: 84d3586 |
+| 8NSyI-npJCU | 21.6 | The NEW Agentic OS standard for Claude 5 | bağlantılı video (Zs3faMCDYNs) | işlendi: 84d3586 |
+| 9lFE4T7iZKM | 16.1 | I Ran GPT-6 for 3 Days Non-Stop and It C | bağlantılı video (doR2RhsneRA) | işlendi: 84d3586 |
+| 3CDhK-uVDuY | 6.7 | Use Claude Fable 5.1 for FREE (3 Working | bağlantılı video (0i65C2vzjpw) | işlendi: 84d3586 |
+| GJmlik1C4Tg | 15.5 | Superpowers vs. GSD: The Results Shocked | bağlantılı video (6CaQ9ZFuuKI) | işlendi: 84d3586 |
 | rOs-TFUeuSg | 1.9 | GSAP Showreel 2025 | bağlantılı video (_SVU3oC4JX8) | işlendi: a45920c |
 | ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
 | 1zerGmW_Ayo | 24.0 | Paran Büyüdükçe Özgürlüğün Fiyatı Değişi | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Paran Büyüdükçe Özgürlüğün Fiyatı Değişi) |
