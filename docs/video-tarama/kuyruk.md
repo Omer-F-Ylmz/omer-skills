@@ -745,7 +745,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | CgG3dtH5IMM | 1.4 | I turned my house into a VIDEO GAME! | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
 | nuhh_KfCz9M | 21.7 | your house needs TWO networks (here's wh | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
 | 5pXMOUB_y0c | 74.9 | openAI is coming for grok and Jev | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
-| BeNxDM6XJK4 | 0.0 | ? | bağlantılı video (7RVf25Rg0Mc) · meta hatası: yt-dlp -J başarısız | bekliyor |
+| BeNxDM6XJK4 | 0.0 | NetworkChuck canlı yayın | bağlantılı video (7RVf25Rg0Mc) · LIVE_STREAM_OFFLINE, kayıt yok (Desktop Chrome 10 Eki); açıklama linkleri .kos/kopru/ig-chrome/yt-BeNxDM6XJK4.md → TUR-6d | kayıt yok |
 | zXeL8KbDmi4 | 0.0 | ? | bağlantılı video (7RVf25Rg0Mc) · meta hatası: yt-dlp -J başarısız | bekliyor |
 | d1i1V4StMVI | 1.4 | Your AI App Works. Can You Sell It? | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
 | CbWySQdAM60 | 21.9 | i got one....and it's FAST!!! | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
