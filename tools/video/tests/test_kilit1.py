@@ -70,3 +70,33 @@ def test_gece_kuyruk_ekli_ad_ve_kullanim_limiti(tmp_path):
 def test_gece_kuyruksuz_eski_ad(tmp_path):
     kos, g = _gece(tmp_path), date.today().isoformat()
     assert (kos / f"gece-{g}.log").is_file() and (kos / f"ozet-{g}.md").is_file()
+
+
+def test_baslat_eszamanli_ayrik_video_kumesi(tmp_path):  # KILIT-2: seçim + pid mkdir + durum.json yazımı tek kilit altında
+    import threading
+    import time
+    from test_m2a import Sahte, _ctx, _kurulum, _ns
+    from video import parti as pt
+    vs = [f"a{i:010d}" for i in range(6)]
+    kok = _kurulum(tmp_path, vs)
+    gercek, hata = pt.tr.kuyruk_parti, []
+
+    def yavas(*a, **k):  # yarış penceresini açar: seçim ile durum.json yazımı arası 0.4 sn
+        r = gercek(*a, **k)
+        time.sleep(0.4)
+        return r
+    pt.tr.kuyruk_parti = yavas
+
+    def kos():
+        try:
+            pt.parti(_ns("baslat", kok / "kuyruk.md", en_fazla=3), _ctx(kok, Sahte()))
+        except Exception as e:  # noqa: BLE001
+            hata.append(repr(e))
+    try:
+        ts = [threading.Thread(target=kos) for _ in range(2)]
+        [t.start() for t in ts]
+        [t.join() for t in ts]
+    finally:
+        pt.tr.kuyruk_parti = gercek
+    kumeler = [set(json.loads(j.read_text(encoding="utf-8"))["videolar"]) for j in sorted((kok / ".kos").glob("*/durum.json"))]
+    assert not hata and len(kumeler) == 2 and not (kumeler[0] & kumeler[1]) and kumeler[0] | kumeler[1] == set(vs)

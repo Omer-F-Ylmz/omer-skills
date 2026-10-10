@@ -1046,39 +1046,39 @@ def parti(ns, ctx):
     if ns.eylem in ("baslat", "kuyruk") and not ns.hedef:  # M2d K4: tek komut; varsayılan kuyruk · KÜÇÜK-1 K3: baslat da
         ns.hedef = (kok / "docs" / "video-tarama" / "kuyruk.md").as_posix()
     if ns.eylem in ("baslat", "kuyruk"):
-        with kilit(ns.hedef):  # KİLİT-1: süreçler arası oku-değiştir-yaz
+        with kilit(ns.hedef):  # KİLİT-1: süreçler arası oku-değiştir-yaz · KİLİT-2: seçim + pid mkdir + durum.json yazımı da aynı kilit altında
             metin, acik = Path(ns.hedef).read_bytes().decode("utf-8"), _acik(kok)  # M12 K2: kapanmamış partideki video ikinci partiye alınmaz
             metin, raporlu = (metin, []) if getattr(ns, "tekrar", False) else tr.kuyruk_raporlu(metin, Path(getattr(ns, "kayit", None) or Path(tdir) / "kayit.jsonl"), tdir, acik)
             if raporlu:  # KUYRUK-HEDEF: raporlu video partiye alınmaz, kuyrukta `raporlu` olur; link (tekrar) ve açık parti hariç
                 Path(ns.hedef).write_bytes(metin.encode("utf-8"))
                 print(f"kuyruk: {len(raporlu)} satır raporlu (atlandı)")
-        tur, satirlar = tr.kuyruk_parti(metin, kapsiz=_ikili_mi(ns))  # YT1 3: ikili yolda 3/8 sınırı yok, --en-fazla geçerli
-        if not satirlar:
-            print("parti: kuyrukta bekleyen video yok")
-            return 1
-        if (ns.short and tur != "short") or (ns.uzun and tur != "uzun"):
-            print(f"parti: kuyruğun sıradaki partisi {tur}")
-            return 2
-        secilen = [h for h in satirlar if h[0] not in acik][:ns.en_fazla]
-        if atla := sorted({acik[h[0]] for h in satirlar if h[0] in acik}):
-            print(f"açık parti: {' · '.join(atla)} — önce: video parti kapat {atla[0]}" + (" (videoları atlandı)" if secilen else ""))
-        if not secilen:
-            return 3
-        tarih = ns.tarih or date.today().isoformat()
-        pid, i = f"{tarih}-{tur}", 1
-        while (kok / ".kos" / pid).exists():
-            i += 1
-            pid = f"{tarih}-{tur}-{i}"
-        (pdir := kok / ".kos" / pid).mkdir(parents=True)
-        d = {"parti": pid, "tur": tur, "tarih": tarih, "model": ns.model, "butce": ns.butce, "kuyruk": Path(ns.hedef).as_posix(),
-             "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {},
-             **({"kayit": ns.kayit} if getattr(ns, "kayit", None) else {}),  # MÜKEMMEL-7c U10: varsayılan tarama dizini kayit.jsonl
-             **({"yonlendirme": YONLENDIRME} if YONLENDIRME else {})}  # O78: anahtar yoksa da V10; eksik anahtar devam'da DUR
-        for h in secilen:
-            eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
-            adim = {"durum": "tamam", "deneme": 0, "cikti": eski[-1].as_posix(), "ice_alindi": True} if eski else {"durum": "bekliyor", "deneme": 0}
-            d["videolar"][h[0]] = {"paket": dict(adim), "tarama": dict(adim), "not": " ".join(h[2:4])}  # M2e K2: site/UI kare tavanı
-        _yaz(pdir / "durum.json", d)
+            tur, satirlar = tr.kuyruk_parti(metin, kapsiz=_ikili_mi(ns))  # YT1 3: ikili yolda 3/8 sınırı yok, --en-fazla geçerli
+            if not satirlar:
+                print("parti: kuyrukta bekleyen video yok")
+                return 1
+            if (ns.short and tur != "short") or (ns.uzun and tur != "uzun"):
+                print(f"parti: kuyruğun sıradaki partisi {tur}")
+                return 2
+            secilen = [h for h in satirlar if h[0] not in acik][:ns.en_fazla]
+            if atla := sorted({acik[h[0]] for h in satirlar if h[0] in acik}):
+                print(f"açık parti: {' · '.join(atla)} — önce: video parti kapat {atla[0]}" + (" (videoları atlandı)" if secilen else ""))
+            if not secilen:
+                return 3
+            tarih = ns.tarih or date.today().isoformat()
+            pid, i = f"{tarih}-{tur}", 1
+            while (kok / ".kos" / pid).exists():
+                i += 1
+                pid = f"{tarih}-{tur}-{i}"
+            (pdir := kok / ".kos" / pid).mkdir(parents=True)
+            d = {"parti": pid, "tur": tur, "tarih": tarih, "model": ns.model, "butce": ns.butce, "kuyruk": Path(ns.hedef).as_posix(),
+                 "tavan": {"cagri": ns.cagri_tavan, "usd": ns.usd_tavan, "cagri_max": getattr(ns, "cagri_tavan_max", 30), "usd_max": getattr(ns, "usd_tavan_max", 2.0)}, "durum": "calisiyor", "videolar": {},
+                 **({"kayit": ns.kayit} if getattr(ns, "kayit", None) else {}),  # MÜKEMMEL-7c U10: varsayılan tarama dizini kayit.jsonl
+                 **({"yonlendirme": YONLENDIRME} if YONLENDIRME else {})}  # O78: anahtar yoksa da V10; eksik anahtar devam'da DUR
+            for h in secilen:
+                eski = sorted(Path(tdir).glob(f"*-{h[0]}.md"))  # mevcut rapor yeniden taranmaz
+                adim = {"durum": "tamam", "deneme": 0, "cikti": eski[-1].as_posix(), "ice_alindi": True} if eski else {"durum": "bekliyor", "deneme": 0}
+                d["videolar"][h[0]] = {"paket": dict(adim), "tarama": dict(adim), "not": " ".join(h[2:4])}  # M2e K2: site/UI kare tavanı
+            _yaz(pdir / "durum.json", d)
         print(f"parti: {pid} · {tur} · {len(d['videolar'])} video · tavan {ns.cagri_tavan} çağrı / ${ns.usd_tavan}")
     elif ns.eylem == "kacan-karar":  # KAPANIŞ-4: hedef = Desktop triyaj tsv'si
         from . import akil
