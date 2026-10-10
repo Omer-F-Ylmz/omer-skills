@@ -67,3 +67,4 @@ Anahtar değerleri hiçbir dosyaya yazılmaz: `setx <ENV> <değer>` ile kullanı
 | remorses/zele, superdesigndev/treg | OAuth / ? | — | — | lisanssız / özel lisans |
 | ScrapeGraphAI | SGAI_API_KEY | scrapegraphai.com | var | proje bağımlılığı (tetikleyici.md) |
 | Google Workspace CLI, Vibe-Trading | OAuth / ALPHAVANTAGE_API_KEY | — | — | 95 + 91 skill bağlam şişirir (tetikleyici.md) |
+| coderabbit (coderabbitai/skills, resmi marketplace plugin) | CodeRabbit CLI girişi (`coderabbit auth`), hesap | coderabbit.ai | — | MIT, tur-4; skill'ler girişsiz çalışmaz, kurulmadı |

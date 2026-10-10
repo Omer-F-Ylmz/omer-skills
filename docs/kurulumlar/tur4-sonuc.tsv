@@ -1,0 +1,35 @@
+aday	gerçek	sınıf	alt sınıf	lisans	★	pin	not
+dev.epicgames.com	dev.epicgames.com (Unreal Engine dokümanı)	AYRI-UYGULAMA	i	—	—	—	web dokümanı, kurulacak şey yok
+actorcore.reallusion.com	ActorCore (Reallusion 3D hareket/karakter mağazası)	AYRI-UYGULAMA	i	ticari	—	—	web mağaza, hesap ister
+shadowfallstudios/als-community	PanicPetal/ALS-Community	RED		NOASSERTION	2684	—	Unreal Engine eklentisi; lisans belirsiz, son commit 2024-07
+soupday/cc_blender_tools	soupday/cc_blender_tools	AYRI-UYGULAMA	ii	GPL-3.0	521	007f1b234117	Blender eklentisi 2.4.4 (release dosyası yok, kaynak zip); Blender + Character Creator hattı
+magazine.reallusion.com	Reallusion Magazine	AYRI-UYGULAMA	i	—	—	—	web yayın
+soupday/ccic-blender-pipeline-plugin	soupday/CCiC-Blender-Pipeline-Plugin	AYRI-UYGULAMA	ii	GPL-3.0	134	2c5699e39d20	Blender eklentisi 2.4.4, Character Creator/iClone gerekir
+a8aj-1/det	—	RED	bulunamadı	—	—	—	GitHub 404, OCR bozuğu kurtarılamadı
+aoe2/genie	—	RED	bulunamadı	—	—	—	GitHub 404
+aw.githubusercontent.com	(raw.githubusercontent.com parçası)	RED	gürültü	—	—	—	OCR kırığı
+bodies/constraints	—	RED	bulunamadı	—	—	—	GitHub 404 (Unreal fizik terimi)
+chaosclothsharedsimconfig/gam	—	RED	gürültü	—	—	—	Unreal Chaos Cloth ayar adı
+coderabbit	coderabbitai/skills (resmi marketplace plugin 'coderabbit')	HESAP		MIT	187	928c3b61f71b	CodeRabbit CLI kimlik doğrulaması ister; hesaplar.md
+copy/run-py	—	RED	gürültü	—	—	—	komut parçası
+copy/run-pyr	—	RED	gürültü	—	—	—	komut parçası
+dammyjay93/interfa	Dammyjay93/interface-design	KUR	plugin	MIT	5785	2f9be3206855	marketplace+plugin, user scope; 2026-06 son commit
+deploy/docker-compose-ss1.ym1	—	RED	gürültü	—	—	—	dosya yolu OCR
+deploy/docker-compose-ssl.ym1	—	RED	gürültü	—	—	—	dosya yolu OCR
+deploy/docker-compose-ssl.ymt	—	RED	gürültü	—	—	—	dosya yolu OCR
+discussions.reallusion.com	Reallusion forum	AYRI-UYGULAMA	i	—	—	—	web forum
+flesync.app	filesync.app (FileSync, web dosya aktarımı)	AYRI-UYGULAMA	i	—	—	—	OCR düzeltmesi; yalnız filesync.app yanıt veriyor
+fllesync.app	filesync.app	AYRI-UYGULAMA	i	—	—	—	flesync.app ile aynı
+glow/self-llumination	—	RED	gürültü	—	—	—	Unreal malzeme terimi (self-illumination)
+huibui-ai/aemma	—	RED	bulunamadı	—	—	—	GitHub 404
+ibtests/palmierprofests	—	RED	bulunamadı	—	—	—	GitHub 404
+mobile-android-designwshobson/age	JimLiu/baoyu-skills	KUR-duzeltmeli	skill	MIT	26512	1567581c26ec	21 skill: 14 kuruldu; atlanan 6: danger-gemini-web, danger-x-to-markdown (ters mühendislik web API), post-to-x/weibo/wechat (otomatik paylaşım), electron-extract; wechat-summary yanlışlıkla kopyalandı (silinecek)
+mobile-android-design.. wshobson/age	wshobson/agents → plugins/ui-design/skills/mobile-android-design	KUR-duzeltmeli	skill	MIT	40315	46891e7e60da	yalnız o skill klasörü kopyalandı (94 plugin'lik marketplace eklenmedi)
+ocalhost:4000	(localhost:4000)	RED	gürültü	—	—	—	OCR kırığı
+qwen/qwen3-4b-instruct-2507	Qwen/Qwen3-4B-Instruct-2507 (HuggingFace modeli)	AYRI-UYGULAMA	ii	apache-2.0	—	—	model ağırlığı ~8GB (bf16, 4.0B param); LM Studio/Ollama ile; kurulmadı
+sky/roois-a2	SkyworkAI/SkyReels-V2	AYRI-UYGULAMA	iii	NOASSERTION (HF: other)	7608	—	video üretim modeli, 14B ≈ 14GB+ GPU; özel lisans
+skyworka/sikyreels-v2	SkyworkAI/SkyReels-V2	AYRI-UYGULAMA	iii	NOASSERTION (HF: other)	7608	—	aynı
+skyworka/skyrels-v2	SkyworkAI/SkyReels-V2	AYRI-UYGULAMA	iii	NOASSERTION (HF: other)	7608	—	aynı
+ssal-1/der	—	RED	bulunamadı	—	—	—	GitHub 404
+tips.reallusion.com	Reallusion ipuçları	AYRI-UYGULAMA	i	—	—	—	web
+vercel-labs/sk11s	vercel-labs/skills (npm 'skills' CLI 1.7.2 + find-skills)	ÖNERİLMEZ		MIT	33597	13e4063a1cf9	CLI telemetri gönderir (DISABLE_TELEMETRY/DO_NOT_TRACK var), pinsiz/lisanssız repo kurma yolu açar

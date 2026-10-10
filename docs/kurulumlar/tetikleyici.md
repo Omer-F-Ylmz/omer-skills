@@ -19,3 +19,4 @@ Bunlar şimdi kurulmadı; ilgili iş çıkınca kurulur.
 | git-mcp | Yerel çalıştırma yolu belli olunca | resmi kullanım uzak (gitmcp.io); yerel stdio karşılığı doğrulanamadı |
 | excalidraw-mcp | Lisans netleşince | repo lisanssız; npm `excalidraw-mcp@1.0.0` kaynağı doğrulanamadı |
 | function-hook mod'ları (claude-toons, davekiss/env, cache-tax) | Açmaya karar verince | klonlar `C:\Projeler\uygulamalar\fn-hook-mods\` altında KAPALI. Açmak için `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1` ve `CLAUDE_CODE_PLUGIN_DIRS`; claude-toons ek Anthropic API maliyeti getirir |
+| coderabbit plugin | CodeRabbit hesabı açıp CLI ile giriş yapılınca: `claude plugin install coderabbit@claude-plugins-official` | tur-4 HESAP |
