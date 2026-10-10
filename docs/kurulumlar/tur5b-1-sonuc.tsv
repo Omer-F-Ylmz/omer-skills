@@ -1,0 +1,186 @@
+aday	tür	sınıf	alt sınıf	lisans	pin	not
+docs.lovable.dev	site/ürün	HESAP		—	—	Lovable: resmi agent skill/MCP bulunamadı; hesap isteyen servis
+docs.paperclip.ing	site/ürün	AYRI-UYGULAMA	ii	MIT	—	Paperclip ajan orkestrasyon uygulaması; repodaki skill'ler repo-içi geliştirici işi
+kepano/flexoki	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+motion.dev	site/ürün	AYRI-UYGULAMA	i	—	—	kütüphane/uygulama dokümanı; resmi skill/MCP/plugin bulunamadı (motion.dev: yalnız npm kütüphanesi, repo skill'leri bakım içi)
+electronjs.org	site/ürün	AYRI-UYGULAMA	i	—	—	kütüphane/uygulama dokümanı; resmi skill/MCP/plugin bulunamadı (motion.dev: yalnız npm kütüphanesi, repo skill'leri bakım içi)
+toiletsquad.hogwarts.studio	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+docs.mobbin.com	site/ürün	HESAP		MIT	—	resmi mobbin/skills + Mobbin MCP var, ama Pro/Team plan + tarayıcı girişi ister; hesaplar.md
+docs.expo.dev	site/ürün	KUR		MIT	d4f484024fec	resmi Expo agent skill plugin (expo-plugins marketplace, plugin expo); yalnız expo, deprecated ve experiments alınmaz
+expo.dev	site/ürün	KUR		MIT	d4f484024fec	resmi Expo agent skill plugin (expo-plugins marketplace, plugin expo); yalnız expo, deprecated ve experiments alınmaz
+	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+0798011d-3d9c-4945-936d-6a4d581f7d60.frame.claudeusercontent.com	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+361c9274-52a7-4a87-9768-7be53322d569.frame.claudeusercontent.com	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+connfig.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+console.prova.so	site/ürün	HESAP		—	—	prova.so servisi, hesap/kredi ister
+dev.animaapp.com	site/ürün	HESAP		—	—	Anima servisi, hesap ister; skill yok
+gowtham0992/link	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+lineaprompt.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+newcafemadrid.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+tabella-phenomenon.netlify.app	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+apollo	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+apps.cansincengiz.me	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+auth.hostinger.com	site/ürün	ZATEN		—	—	hostinger MCP + deploy-app kurulu
+equationalapplications/curated-thoughts	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+genmail.go.link	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+getartcraft.com	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+googleapis.com	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+higgsfield.ai/pricing	site/ürün	HESAP		—	—	Higgsfield servisi/MCP, hesap ister (Tur 5 ile aynı)
+kde/oxygen-icons	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+kokonutui.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+mb.com.ph	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi, resmi skill/MCP/plugin yok
+mcp.higgsfield.ai	site/ürün	HESAP		—	—	Higgsfield servisi/MCP, hesap ister (Tur 5 ile aynı)
+stephango.com	site/ürün	ZATEN		MIT	—	kepano/obsidian-skills = plugin obsidian@obsidian-skills kurulu
++34%20603%2013%2077%2066	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+--registry	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+17.3k/1m	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+2fstatic.higgsfield.ai	site/ürün	HESAP		—	—	Higgsfield servisi/MCP, hesap ister (Tur 5 ile aynı)
+2fx.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+363sudbury.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+3d/editorial	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+a3.prova.so/overview	site/ürün	HESAP		—	—	prova.so servisi, hesap/kredi ister
+ace.c9.io	site/ürün	AYRI-UYGULAMA	i	—	—	kütüphane/uygulama dokümanı; resmi skill/MCP/plugin bulunamadı (motion.dev: yalnız npm kütüphanesi, repo skill'leri bakım içi)
+activetheory.net	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+adoratorio.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+agent-reach	araç adı benzeri	ZATEN		—	—	skill agent-reach kurulu
+agent.abacus.ai	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+agentgrid.io	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+agentskills/agentskills	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+agnestoth.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+ahiggsfield/oli	GitHub repo	HESAP		—	—	Higgsfield servisi/MCP, hesap ister (Tur 5 ile aynı)
+ajaxorg/ace	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+aktanilanlararastirlacaklargereklihttps/wwwyoutube.c.sk	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanilanlararatirlacaklargereklihttps/wwwyoutube.c.sik	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararagtinlacaklargereklihtps/wwwyoutube.c.sik	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararagtirlacaklargereklihtps/wwwyoutube.c.sk	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararagtirlacaklargereklihttps/wwwyoutube.c..sik	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararagtrlacaklargereklihtps/wwwyoutube.c.sk	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararastirlacaklargereklihttps/wwwyoutube.c.sik	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararastirlacaklargereklihttps/wwwyoutube.c.sk	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararastrlcaklargereklhttps/wwyoutube.sik	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktanlanlararatirlacaklargereklihttps/wwwyoutube.c.sk	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aktarnilanlararastirilacaklargereklihttps/wwwyoutube.c..sik	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+alexis-brand-design-cv-996579.hostingersite.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+amber-ugc-ads-landing-652133.hostingersite.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+amd.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+animaapp.com	site/ürün	HESAP		—	—	Anima servisi, hesap ister; skill yok
+anthropic/c1aude-haiku-4.5	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+anthropic/c1aude-opus-5-fast	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+anthropic/claude-opus-4.6	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+anthropic/claude-opus-5	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+anthropics/oss-scanner	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+api.prova.so	site/ürün	HESAP		—	—	prova.so servisi, hesap/kredi ister
+app.craft.io	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+app.prova.so/analytics	site/ürün	HESAP		—	—	prova.so servisi, hesap/kredi ister
+app.prova.so/billing	site/ürün	HESAP		—	—	prova.so servisi, hesap/kredi ister
+app.prova.so/credits	site/ürün	HESAP		—	—	prova.so servisi, hesap/kredi ister
+app.prova.so/domains	site/ürün	HESAP		—	—	prova.so servisi, hesap/kredi ister
+app.slack.com	site/ürün	ZATEN		—	—	Slack MCP (plugin design) kurulu
+apps.cansincengiz.m..	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+aptransit.co	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+aqualoqa.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+aquest.it	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+are.na	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi, resmi skill/MCP/plugin yok
+areebali.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+astraea-extraordinary-worlds.createaprowebsite.chatgpt.site	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+astraeatrav	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+astraeatravel.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+astro-auts/pilots	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+atomato.co	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+automatic/conditional	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+awards/recognition	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+b.com/barty	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+beautify-web/js-beautify	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+becore.se	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+before.click	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+bluntumbrellas.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+bolt.new	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+brandlogo.co	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+bricedarmon.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+briefbox.me	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+buildinamsterdam.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+butter.video	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+cafedelriomadrid.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+cerebrium.ai	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+chat.expo.dev	site/ürün	KUR		MIT	d4f484024fec	resmi Expo agent skill plugin (expo-plugins marketplace, plugin expo); yalnız expo, deprecated ve experiments alınmaz
+chatgpt.com/connector_platform_oauth_redirect	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+chimezie	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+chrisnocode/wanc-os	GitHub repo	RED	bulunamadı	—	—	GitHub 404 / OCR bozuğu kurtarılamadı
+city-confidential.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+claude.aifartifact/7gz2afqrrgugtcienro5tk	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+claude.i	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+clbthemes.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+cloudstudio.es	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+coloniazacamil.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+conelmorrofino.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+consumer-withdrawal.eu	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+cooksworld.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+cr-z.0/reference-se-sio	GitHub repo	RED	bulunamadı	—	—	GitHub 404 / OCR bozuğu kurtarılamadı
+craft.io	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+createaprowebzite.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+crl-2026.webflow.io	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+crmsnbleyd/flexoki-emacs-theme	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+css.onlineviewer.net	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+curated.design	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+curbed.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+davidhdev/react-bits	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+de1s/gpt-image-2	GitHub repo	ZATEN		—	—	OCR; gpt-image-2 skill (image-generation-skills) kurulu
+deadlyponies.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+deepseek/deepseek-v4-flas	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+deepseek/deepseek-v4-flash	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+deepseek/deepseek-v4-flash-07	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+deepseek/deepseek-v4-flash-0731	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+design-system-demo.lovable.app	site/ürün	HESAP		—	—	Lovable: resmi agent skill/MCP bulunamadı; hesap isteyen servis
+desktop.telegram.org	site/ürün	AYRI-UYGULAMA	i	—	—	kütüphane/uygulama dokümanı; resmi skill/MCP/plugin bulunamadı (motion.dev: yalnız npm kütüphanesi, repo skill'leri bakım içi)
+deusqata/codebase-memory-mcp	GitHub repo	AYRI-UYGULAMA	ii	MIT	—	OCR; DeusData/codebase-memory-mcp, ikili MCP sunucusu, SKILL.md yok
+dezeen.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+digitaldarts.com.au"	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+digitaleconomy.stanf@d.edu	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+digitaleconomy.stanford.edu	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi, resmi skill/MCP/plugin yok
+dnve_goot	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+doc	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+docs.animaapp.com	site/ürün	HESAP		—	—	Anima servisi, hesap ister; skill yok
+docs.dokploy.com	site/ürün	AYRI-UYGULAMA	i	—	—	kütüphane/uygulama dokümanı; resmi skill/MCP/plugin bulunamadı (motion.dev: yalnız npm kütüphanesi, repo skill'leri bakım içi)
+docs.gooc	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+docs.lovable.dev/tips	site/ürün	HESAP		—	—	Lovable: resmi agent skill/MCP bulunamadı; hesap isteyen servis
+dogstudio.co	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+dqcs.goo	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+drive.gooi	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+drive.gool	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+duda.works	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+edesigninteractive.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+electronicmaterialsoffice.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+elle.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+equationalapplications/curated-thoughts-integrations	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+erclip/v2026.831	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+esmadrid.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+euandeas/omarchy-flexoki-dark-theme	GitHub repo	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+expo.fyi	site/ürün	KUR		MIT	d4f484024fec	resmi Expo agent skill plugin (expo-plugins marketplace, plugin expo); yalnız expo, deprecated ve experiments alınmaz
+failed	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+fatihce	araç adı benzeri	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+fatihcengiz.co/kedi-kulagi-uzun-saten-abiye-elbise	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+feature/accord_	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+femmefatale.paris	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+flycrooked.com	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+flyhermes.ai	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+fonts.gstatic.com"	site/ürün	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+footer.design	site/ürün	AYRI-UYGULAMA	i	—	—	web sitesi/ürün sayfası; resmi skill/MCP/plugin yok
+frontend-design:frontend-design	araç adı benzeri	ZATEN		—	—	plugin frontend-design kurulu
+games/ue_5	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+getbootstrap.com	site/ürün	AYRI-UYGULAMA	i	—	—	kütüphane/uygulama dokümanı; resmi skill/MCP/plugin bulunamadı (motion.dev: yalnız npm kütüphanesi, repo skill'leri bakım içi)
+getlayers.al/templates	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+github.com/affaan	site/ürün	ZATEN		MIT	—	affaan-m/ECC kurulu
+github.com/docling	site/ürün	RED	kapsam	MIT	—	docling Python kütüphanesi; repo-içi skill'ler bakım işi
+github.com/gsd-build	site/ürün	RED	kapsam	MIT	—	npm kurulumlu harness, SKILL.md yok; ECC/superpowers ile çakışır
+github.com/headroomlabs	site/ürün	ZATEN		—	—	headroom kurulu
+github.com/jasonlee	site/ürün	RED	kapsam	—	—	tema/kütüphane/spec/araç; SKILL.md veya plugin yok
+github.com/multica	site/ürün	RED	lisans	NOASSERTION	—	lisans belirsiz (lisans kapısı); platform, kurulacak skill yok
+github.com/opencut	site/ürün	AYRI-UYGULAMA	ii	MIT	—	OpenCut video editörü uygulaması
+github.com/rtk	site/ürün	ZATEN		—	—	rtk kurulu
+github.con/multica	GitHub repo	RED	lisans	NOASSERTION	—	lisans belirsiz (lisans kapısı); platform, kurulacak skill yok
+github.con/yeachan	GitHub repo	RED	kapsam	MIT	—	oh-my-claudecode: 49 skill + hook'lu harness; marketplace tamamı istenmez, ECC ile çakışır
+github.cos/shareai	GitHub repo	RED	kapsam	MIT	—	learn-claude-code: 4 skill (agent-builder, code-review, mcp-builder, pdf) hepsi mevcutla çakışır
+gkihk/kanban_setups_megathread_hermes_agent_june	GitHub repo	RED	gürültü	—	—	OCR/yazım gürültüsü, komut/dosya yolu parçası
+go.streamlinehq.com	site/ürün	HESAP		—	—	ticari servis, hesap ister, skill yok
+google/gemini-3.1-pro-preview	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
+google/gemini-3.7-flash	GitHub repo	RED	gürültü	—	—	OpenRouter model kimliği, repo değil
