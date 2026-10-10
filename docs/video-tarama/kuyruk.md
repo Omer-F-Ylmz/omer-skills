@@ -178,31 +178,31 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Ddl9BrhBZf_ | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: e79312b |
 | ig-DcjDj6fyoZ0 | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: e79312b |
 | ig-DePLcw_Dbwo | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: e79312b |
-| ig-DcTI5sfoLGR | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-Ddi0-0Cm1fd | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-Ddcd73yAshV | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeSGk5jK7vl | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdIELTZD2Uw | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdUELmKktcr | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DePxKw0NdvX | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdCs5vOiHRY | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdSXJx4vQEK | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeAjtFgCUdj | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-Dd7W9zfkxrT | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdlOsiCjMvG | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeQWqNXOa72 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeHF3GPTD_s | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeB6QU6N4Ec | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeAne_MjMoi | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-Ddy8IKZBsFl | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdO6-1QkjR- | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DddrOAliOMK | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdZQ5SaDxDV | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdXFyD1AX3T | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdbhJqIH8BU | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeR8oSgsnfh | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-Dd_wlJNqYVv | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DeCuH4lgGQj | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DcTI5sfoLGR | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-Ddi0-0Cm1fd | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-Ddcd73yAshV | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeSGk5jK7vl | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdIELTZD2Uw | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdUELmKktcr | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DePxKw0NdvX | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdCs5vOiHRY | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdSXJx4vQEK | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeAjtFgCUdj | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-Dd7W9zfkxrT | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdlOsiCjMvG | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeQWqNXOa72 | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeHF3GPTD_s | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeB6QU6N4Ec | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeAne_MjMoi | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-Ddy8IKZBsFl | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdO6-1QkjR- | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DddrOAliOMK | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdZQ5SaDxDV | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdXFyD1AX3T | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DdbhJqIH8BU | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeR8oSgsnfh | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-Dd_wlJNqYVv | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
+| ig-DeCuH4lgGQj | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
 | ig-Dd_6vBAIM5L | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
 | ig-DdWzc45k8wY | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
 | ig-DcCT3UfpFAn | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
