@@ -229,31 +229,31 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dd3t8ixmPHo | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: e35cb06 |
 | ig-DeG9u_slJ4z | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: e35cb06 |
 | ig-DeGRG3zCQOj | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: e35cb06 |
-| ig-DdcN55fx0YL | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DeChDzQDFXy | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-Dd7WYSniFvP | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DcoU-a2D1uC | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-Dd1dpeIo2T1 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DcJv73uBTM6 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DeKuUWUKp7J | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DeKFBr0vRpv | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-Dd7OINtIAaM | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-Da5LyKeONUo | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DcbDo37zTvJ | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DeJi6Z3FBeT | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DdWS9LZEUl7 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DePBMFZiGkO | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-Dclo7W4jjQj | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
-| ig-DcNc-EszHJF | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
-| ig-Dd5bRQ9ApLj | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
-| ig-DeHNkMklMK7 | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 5) | bekliyor |
-| ig-Dd9dsD8gDxf | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
-| ig-DdO8U92kcyw | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 4) | bekliyor |
-| ig-DeGTXaHkidF | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
-| ig-DeRwKUAsJW9 | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
-| ig-DdrEmDHkouJ | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
-| ig-DePQ2O3ElPy | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 4) | bekliyor |
-| ig-DdveM-dDrFx | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
+| ig-DdcN55fx0YL | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DeChDzQDFXy | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-Dd7WYSniFvP | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DcoU-a2D1uC | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-Dd1dpeIo2T1 | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DcJv73uBTM6 | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DeKuUWUKp7J | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DeKFBr0vRpv | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-Dd7OINtIAaM | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-Da5LyKeONUo | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DcbDo37zTvJ | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DeJi6Z3FBeT | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DdWS9LZEUl7 | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DePBMFZiGkO | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-Dclo7W4jjQj | 1.0 | Instagram reel | Ömer 10 Eki c | işlendi: b7d2cb2 |
+| ig-DcNc-EszHJF | 1.0 | Instagram reel | Ömer 10 Eki d | işlendi: b7d2cb2 |
+| ig-Dd5bRQ9ApLj | 1.0 | Instagram reel | Ömer 10 Eki d | işlendi: b7d2cb2 |
+| ig-DeHNkMklMK7 | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 5) | işlendi: b7d2cb2 |
+| ig-Dd9dsD8gDxf | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | işlendi: b7d2cb2 |
+| ig-DdO8U92kcyw | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 4) | işlendi: b7d2cb2 |
+| ig-DeGTXaHkidF | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | işlendi: b7d2cb2 |
+| ig-DeRwKUAsJW9 | 1.0 | Instagram reel | Ömer 10 Eki d | işlendi: b7d2cb2 |
+| ig-DdrEmDHkouJ | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | işlendi: b7d2cb2 |
+| ig-DePQ2O3ElPy | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 4) | işlendi: b7d2cb2 |
+| ig-DdveM-dDrFx | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | işlendi: b7d2cb2 |
 | ig-Dd3zGoKArLr | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | işlendi: bfe565e |
 | ig-DdwURoumtRW | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | işlendi: bfe565e |
 | ig-DeQjyfjksz6 | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | işlendi: bfe565e |
