@@ -1,0 +1,25 @@
+alan	sınıf	teknoloji	etiketler	en iyi efekt	bizde nerede
+jesperlandberg.com	V	Nuxt (Vue), tek WebGL canvas, Basis transcoder, Mux video	webgl-sahne, nuxt, sanal-kaydırma, siyah-minimal	Tek tam ekran WebGL sahnesi; sayfa DOM kaydırması yok (scrollHeight=720)	Tasarımcı-mühendis portföyü; sahne tabanlı vitrin
+landonorris.com	V	Webflow, Lenis, Rive, jQuery 3.5.1	pin-scroll, lenis, rive, webflow, spor-marka	Lenis + 21 canvas/Rive animasyonu; 0.75s cubic-bezier(0.65,0.05,0,1) geçişleri	Kişisel marka/atlet; sticky bölümler + canvas animasyon
+recent.design	V	React SPA (Vite, route-chunk), Sentry, özel CDN, Inter + Departure Mono	galeri, sonsuz-akış, oklch-renk, mikro-etkileşim	İnce 0.12–0.18s cubic-bezier(0.2,0,0,1) hover/opacity; oklch renk	Tasarım ilham galerisi arayüzü (kart + dialog)
+screensdesign.com	V	React (Vite), Tailwind, Meta Pixel, Rethink Sans + Grifter	galeri, ürün-kütüphanesi, bob-animasyon, tailwind	Uygulama ikon alanı `app-icon-field-bob 4.6s ease-in-out`	Mobil uygulama ekran kütüphanesi / AI ekran üretici landing
+3d-camera-landing-page.netlify.app	V	Next.js (App Router), Tailwind, 1 WebGL canvas, JS 367 KB	3d-ürün, scroll-kamera, webgl-hero, demo	Kaydırmayla dönen 3D kamera, dev "Pro" başlığı 153.6px	Ürün tanıtım 3D landing şablonu
+3d-character.dora.run	V	ulaşılamadı	ulaşılamadı	-	-
+aaronrandallart.com	V	Adobe Portfolio (myportfolio.com), Typekit fontları, JS 86 KB	portfolio-şablon, minimal, grid	Adobe Portfolio hazır şablon; özel efekt yok	Sanatçı portföyü; ders: şablon ve sade grid
+adamvromman.net	V	Astro 5.15.5, Three.js (FlyingObjects 747 KB), Draco WASM, Matomo	webgl-hero, astro, uçan-3d-nesneler, draco	Astro bileşeninde 3D uçan nesneler (Draco sıkıştırmalı), canvas sahnesi	3D nesne vitrini portföyü
+adoratorio.com	V	Vue (Vite), tek WebGL canvas, PP Adoratorio özel font, JS 140 KB	ajans-vitrini, webgl-geçiş, sanal-kaydırma, vue	Vue + WebGL canvas, 1s cubic-bezier(0.215,0.61,0.355,1) renk geçişi	Ajans portföyü; sahne/grid geçişi
+agnestoth.com	V	Shopify, GSAP 3.12.5 + ScrollTrigger, Lenis, Jost + FreightBig Pro	lüks-ürün, gsap, scrolltrigger, lenis, shopify, editoryal	GSAP ScrollTrigger + Lenis; 1.2–1.4s cubic-bezier(0.22,1,0.36,1) reveal	Lüks e-ticaret; Shopify tema + GSAP reveal
+airpods-gen2.dora.run	V	ulaşılamadı	ulaşılamadı	-	-
+anime-scene-gallery.vercel.app	V	React (Vite), Tailwind, JS 95 KB, barındırma Vercel	galeri, minimal, demo	Yalnız "Anime Scene Gallery" başlığı; içerik yüklenmedi (boş sayfa)	Küçük demo galeri; örnek yok
+aptransit.co	V	Mapbox GL 2.12.0, Turf.js 6, anime.js 3.2.2, 1 canvas (3D harita)	harita-3d, mapbox, anime-js, canlı-veri	Mapbox 3D bina haritasında canlı metro konumları (anime.js ile geçiş)	Veri-odaklı 3D harita ürün sitesi
+are.na	V	Next.js (Pages Router), özel "areal" font, JS 569 KB (_app 371 KB)	editoryal, bloklar-koleksiyon, minimal, sade-tipografi	Aşırı sade tipografi; transform 0.24s cubic-bezier(0.22,1,0.36,1) mikro-etkileşim	Fikir/koleksiyon platformu; sade bilgi tasarımı
+areebali.com	V	Next.js (App Router), 1 canvas, radial-gradient zemin, Inter + League Spartan + Libre Baskerville	portfolio, canvas-arka-plan, gradient, ai-tasarım	Radyal gradyan + canvas arka plan; "Standby" tek ekran giriş	Tasarımcı portföyü (tek ekran, durağan)
+becore.se	V	Shopify (Dawn benzeri tema), Tailwind sınıfları, Cabin + Inter, JS 573 KB (99 dosya)	e-ticaret, shopify, alt-çizgi-hover	Bağlantı hover'ında background-size 0.2s ile kayan alt çizgi	Shopify mağaza; link altı çizgi animasyonu
+bricedarmon.com	V	ulaşılamadı	ulaşılamadı	-	-
+cadence.rubenstom.com	V	Statik HTML + 4 küçük JS (animations 4 KB, home 3 KB, copy 2 KB), Cloudflare, Poppins, JS 9 KB	hareket-kütüphanesi, vibecode, scroll-reveal, hafif	74 SVG hareket kartı; 0.7s opacity+transform scroll reveal, JS yalnız 9 KB	Hareket parçacıkları galerisi (copy-paste)
+camera-webgi.vercel.app	V	WEBGi (Pixotronics, three tabanlı), tek canvas, Draco, JS 837 KB	3d-ürün, webgi, scroll-kamera, demo	WEBGi viewer + kaydırmayla kamera yolu, "Pro" 184px başlık	TweakPane'siz ürün 3D landing (TWEEN/GSAP ile)
+cloudstudio.es	V	Three.js r160, Lenis, React, Lottie	kinetik-tipografi, fizik-animasyon, three, lenis, mascot	Matter.js fizik + 14 canvas; Three mascot, "AI that actually ships" 115px	Ajans/ürün tanıtım; fizikli etkileşimli öğeler
+component.gallery	V	Astro, Preact adası (Search), Tailwind, Instrument Sans/Serif	galeri, astro, adalar-mimarisi, sıfır-js-hedefi	Astro ada mimarisi: yalnız arama Preact, toplam JS 10 KB	Bileşen kütüphanesi referansı (UI desen kataloğu)
+curated.design	V	Astro, Tailwind, PostHog (array.js 105 KB), bunny CDN	galeri, astro, oklch-renk, ilham-küratörlük	Hedvig Letters Serif 48px/300 başlık + Euclid; 0.24s cubic-bezier(0.22,1,0.36,1) kart	Web tasarım ilham koleksiyonu; endüstri etiket filtreleri
+dala.craftedbygc.com	V	Özel bundle (vendor.js + theme.js), tek canvas, PP Neue Montreal, JS 248 KB	ajans-vitrini, clip-path-geçiş, pin-scroll, mor-vurgu	clip-path 1.1s cubic-bezier(0.215,0.61,0.355,1) ile bölüm/görsel açılması	Kolektif zeka/topluluk ürün sitesi; clip-path reveal
+dalesportfolio.com	V	ulaşılamadı	ulaşılamadı	-	-
