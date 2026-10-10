@@ -1,0 +1,7 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata
+G01	1	2	78390	14243	963	92635	1	35.3	0.6492	1	10	2023	56		
+G03	1	4	99449	107337	8068	206790	5	106.3	0.9784	1	10	2023	56	Skill:anthropic-skills:departman-frontend,Skill:frontend-craft:frontend-craft	
+G08	1	4	87054	112529	1106	199587	2	48.6	0.7411	1	10	1950	56	Bash	
+G01	2	2	78407	14243	971	92652	1	35.9	0.6495	1	10	2023	56		
+G03	2	6	99853	207897	5185	307756	5	81.6	0.9441	1	10	2023	56	Skill:anthropic-skills:departman-frontend,Skill:frontend-craft:frontend-craft	
+G08	2	4	81573	117665	1038	199242	2	52.0	0.6969	1	10	1950	56	Bash	

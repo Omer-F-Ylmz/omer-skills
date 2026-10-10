@@ -28,7 +28,7 @@
   "rubrik":[{"puan":3,"regex":"traversal|\\.\\./|path"},{"puan":3,"regex":"SQL ?injection|enjeksiyon"},{"puan":2,"regex":"parametre|prepared|\\?\\s*,|\\$1"},{"puan":2,"regex":"path\\.(resolve|normalize|basename)|root:"}]},
  {"id":"G10","kol":"Remotion/GSAP animasyon","istem":"GSAP ile bir başlığı (h1) aşağıdan 40px kayarak ve opaklığı 0→1 olacak şekilde 0.8 sn'de giren, scroll'a bağlı olmayan bir animasyon yaz. Remotion yerine GSAP.",
   "kabul":"gsap.from veya fromTo; y:40, opacity:0, duration:0.8","arac":[],
-  "rubrik":[{"puan":4,"regex":"gsap\\.(from|fromTo|to)"},{"puan":2,"regex":"y:\\s*40"},{"puan":2,"regex":"opacity:\\s*0"},{"puan":2,"regex":"duration:\\s*0?\\.8"}]},
+  "rubrik":[{"puan":4,"regex":"gsap\\.(from|fromTo|to)"},{"puan":2,"regex":"y:[^,}\\n]*40"},{"puan":2,"regex":"(opacity|autoAlpha):\\s*0"},{"puan":2,"regex":"duration:\\s*0?\\.8"}]},
  {"id":"G11","kol":"oyun (Three.js) küçük özellik","istem":"Three.js sahnesinde WASD ile hareket eden bir küp ve ona bakan takip kamerası için minimal bir örnek ver (tek HTML, importmap ile).",
   "kabul":"importmap, keydown/keyup, requestAnimationFrame, camera.lookAt","arac":[],
   "rubrik":[{"puan":2,"regex":"importmap"},{"puan":3,"regex":"keydown|KeyW"},{"puan":3,"regex":"requestAnimationFrame|setAnimationLoop"},{"puan":2,"regex":"lookAt"}]},
