@@ -178,3 +178,4 @@ Anahtar değerleri hiçbir dosyaya yazılmaz: `setx <ENV> <değer>` ile kullanı
 | Aiven (Aiven-Open/mcp-aiven) | Aiven token | aiven.io | — | Apache-2.0, tur-6b-1; kurulmadı |
 | EnesCinr/twitter-mcp | X (Twitter) API anahtarları | developer.x.com | — | MIT, tur-6b-1; kurulmadı |
 | DeepSeek API, Gemini API (generativelanguage), Virlo, Placid, Smithery, Jamf, agent.pw | hesap / API anahtarı | — | — | tur-6b-1; Gemini skill'leri kuruldu, anahtar ayrı; ayrıntı tur6b-1-sonuc.tsv |
+| Figma-Context-MCP (glips), Fastn, Sentry MCP (mcp.sentry.dev), OpenRouter, Pushover | Figma API anahtarı / Fastn / Sentry / OpenRouter / Pushover hesabı | — | — | tur-6b-2; kurulmadı (OpenRouterTeam/skills lisanssız) |
