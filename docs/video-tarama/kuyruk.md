@@ -123,24 +123,24 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | VQyYzLJ6xos | 12.2 | Anthropic Just Revealed 10 NEW Rules for | Ömer 10 Eki | işlendi: 0f146f9 |
 | IUV8QzwIb6g | 9.5 | Claude Replaced Higgsfield with This FRE | Ömer 10 Eki | işlendi: 0f146f9 |
 | JrFZ_ky7AzE | 28.5 | The SIMPLEST Way To Make Money Online Wi | Ömer 10 Eki | işlendi: 0f146f9 |
-| 1CSh8tBR1oc | 14.9 | VIRAL Carousels With Motion Graphics 0$  | Ömer 10 Eki | bekliyor |
-| TLQLfa7yH4I | 17.1 | I Turned GPT-6 Astra Into a 24/7 Stock T | Ömer 10 Eki | bekliyor |
-| lDrAZ1wAyVs | 12.8 | 9 NEW Claude Mods that can truly change  | Ömer 10 Eki | bekliyor |
-| tf_yi6DtDOQ | 9.8 | $7000 Portfolio Website With Free AI Too | Ömer 10 Eki | bekliyor |
-| 5WQk9WiWcYQ | 13.3 | 10 Hermes Agent Skills You NEED To Insta | Ömer 10 Eki | bekliyor |
-| AKcjBPvF788 | 4.8 | Google Flow Now Connects to Claude Code  | Ömer 10 Eki | bekliyor |
-| AYPx7yJmbNg | 14.0 | Claude Code ile YouTube Videosu Nasıl Ya | Ömer 10 Eki | bekliyor |
-| WrCjAAl9okA | 6.2 | A $6.3 billion open-weight model just go | Ömer 10 Eki | bekliyor |
-| fq3wx-AR6B0 | 19.6 | Claude Motion Design Just Destroyed Webs | Ömer 10 Eki | bekliyor |
-| VeOU0FnTjjc | 14.4 | Creating 3D Character with AI in 1 Min v | Ömer 10 Eki | bekliyor |
-| bQoEelGwy6c | 20.2 | Yapay Zeka ile İş Bul (0 Kodlama) | Ömer 10 Eki | bekliyor |
+| 1CSh8tBR1oc | 14.9 | VIRAL Carousels With Motion Graphics 0$  | Ömer 10 Eki | raporlu |
+| TLQLfa7yH4I | 17.1 | I Turned GPT-6 Astra Into a 24/7 Stock T | Ömer 10 Eki | raporlu |
+| lDrAZ1wAyVs | 12.8 | 9 NEW Claude Mods that can truly change  | Ömer 10 Eki | raporlu |
+| tf_yi6DtDOQ | 9.8 | $7000 Portfolio Website With Free AI Too | Ömer 10 Eki | raporlu |
+| 5WQk9WiWcYQ | 13.3 | 10 Hermes Agent Skills You NEED To Insta | Ömer 10 Eki | raporlu |
+| AKcjBPvF788 | 4.8 | Google Flow Now Connects to Claude Code  | Ömer 10 Eki | raporlu |
+| AYPx7yJmbNg | 14.0 | Claude Code ile YouTube Videosu Nasıl Ya | Ömer 10 Eki | raporlu |
+| WrCjAAl9okA | 6.2 | A $6.3 billion open-weight model just go | Ömer 10 Eki | raporlu |
+| fq3wx-AR6B0 | 19.6 | Claude Motion Design Just Destroyed Webs | Ömer 10 Eki | raporlu |
+| VeOU0FnTjjc | 14.4 | Creating 3D Character with AI in 1 Min v | Ömer 10 Eki | raporlu |
+| bQoEelGwy6c | 20.2 | Yapay Zeka ile İş Bul (0 Kodlama) | Ömer 10 Eki | raporlu |
 | qMDdJ_LDpoE | 0.7 | Claude Code için 1.6 milyar ücretsiz tok | Ömer 10 Eki | işlendi: 00e995e |
-| AlLwSqFsZec | 2.8 | Anthropic's New Rules: Everything You Ne | Ömer 10 Eki | bekliyor |
-| gRJVZr9UxHU | 12.7 | OpenCode’u Yeniden Denedim… Bi Daha CLI  | Ömer 10 Eki | bekliyor |
-| HOXrLsVqinY | 22.3 | Opus 5.5 Just 10X'd Claude Design… | Ömer 10 Eki | bekliyor |
-| mJ6ZvGiwZEc | 4.5 | Claude Motion Explained: Make Videos Ins | Ömer 10 Eki | bekliyor |
-| c4nRtwe5EbM | 26.4 | Viral Kanalları Analiz Edip Özgünleştiri | Ömer 10 Eki | bekliyor |
-| XNcKUSL1CTE | 103.6 | The Ultimate Beginner’s Guide to Hermes  | Ömer 10 Eki | bekliyor |
+| AlLwSqFsZec | 2.8 | Anthropic's New Rules: Everything You Ne | Ömer 10 Eki | raporlu |
+| gRJVZr9UxHU | 12.7 | OpenCode’u Yeniden Denedim… Bi Daha CLI  | Ömer 10 Eki | raporlu |
+| HOXrLsVqinY | 22.3 | Opus 5.5 Just 10X'd Claude Design… | Ömer 10 Eki | raporlu |
+| mJ6ZvGiwZEc | 4.5 | Claude Motion Explained: Make Videos Ins | Ömer 10 Eki | raporlu |
+| c4nRtwe5EbM | 26.4 | Viral Kanalları Analiz Edip Özgünleştiri | Ömer 10 Eki | raporlu |
+| XNcKUSL1CTE | 103.6 | The Ultimate Beginner’s Guide to Hermes  | Ömer 10 Eki | raporlu |
 | egzwTdmTZbU | 0.5 | This Free Site Makes Claude Build Better | Ömer 10 Eki | işlendi: 00e995e |
 | y4GwCCsYwvQ | 24.6 | Claude Opus 5.5 Is INSANE at Motion Grap | Ömer 10 Eki | bekliyor |
 | mQBuZ6Dp0u0 | 133.8 | How I Build AI Teammates With Claude Cod | Ömer 10 Eki | bekliyor |
@@ -262,6 +262,39 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-DeFBWx2E95r | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 6) | işlendi: bfe565e |
 | ig-DeMwM03Deph | 1.0 | Instagram reel | Ömer 10 Eki d | işlendi: bfe565e |
 | ig-DeR8IEFAPCz | 1.0 | Instagram reel | Ömer 10 Eki d | işlendi: bfe565e |
+| ig-DeTo0LzsCcL | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-Dd3veoMgCEX | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DdwJADlBFnX | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-Ddx_ku0Bxmk | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DcbxXZnFYRh | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-Ddl4bemIeyC | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeISdaGiYkM | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DatZTo9ybM4 | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DcBFIkCNDPy | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeR_xczkbK6 | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DdhP3u5gDci | 1.0 | Instagram reel | Ömer 10 Eki e · post | bekliyor |
+| ig-DdcBCJRRQFT | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DdznBJLyoEz | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-Ddz7Ra-H8El | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 4) | bekliyor |
+| ig-DeQj7lmCQVk | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 5) | bekliyor |
+| ig-DdNW01LN8R9 | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeR3K9LAq97 | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-Dd0PFtECZvj | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 2) | bekliyor |
+| ig-DeUG1aZFYSH | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-Dcbg5mAOwUy | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeDLmLpIJLj | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 6) | bekliyor |
+| ig-DdE_pXAquOQ | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeUETofiMoF | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 2) | bekliyor |
+| ig-DbUQaEsgqeZ | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DePGXHGtniA | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeQjLTYOYNk | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DcgRoqMEpZb | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeBliaoOLvc | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-DeT8XphH4jq | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 5) | bekliyor |
+| ig-DeCjTAWiSMn | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
+| ig-Dd86Z4wlKw4 | 1.0 | Instagram reel | Ömer 10 Eki e · post | bekliyor |
+| ig-DdoRKQUAdeM | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 4) | bekliyor |
+| HYMDaMcuSGQ | 106.8 | AJANLAR & CLAUDE CODE MASTERCLASS: Kendi Ajan Sistemini Kur (2026) | Ömer 10 Eki e · Selma Kocabıyık, 17 chapter, 24 link — ajan sistemi kurulumu: bizdeki departman/ajan düzeni, /ajan-getir ve KALİTE-1 ile karşılaştır; kanal takibe | bekliyor |
 
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
@@ -471,18 +504,18 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | PUtaB4uYvvA | 13.8 | How I Use GPT Astra: Create Your Own Skill | kaynak: Ömer | işlendi: 26a3240 |
 | m-f56P_L660 | 15.3 | Claude Fable 5 Built a $10K Website in Minutes | kaynak: Ömer | işlendi: 26a3240 |
 | tUq5cfOtfR8 | 23.6 | I Built a One-Person Design Team with Claude Design | kaynak: Ömer | işlendi: 26a3240 |
-| 3fdb_giOrLo | 16.3 | 9 Free AI Agent Skills You NEED to Install Now | kaynak: Ömer | bekliyor |
-| PJ4JAim5-jQ | 10.2 | WEB DESIGN IS HISTORY! (Claude Code + Stitch) | kaynak: Ömer | bekliyor |
-| 6_rCyryA6hg | 9.9 | Claude Code Can Now Automate Your Videos (Remotion + Opus 5. | kaynak: Ömer | bekliyor |
-| ljJuOxTsrtY | 17.2 | Design with Claude Code: A Crash Course | kaynak: Ömer | bekliyor |
-| _gZx1IxrOrk | 5.1 | Websites Can’t Have Aura? Watch This | kaynak: Ömer | bekliyor |
-| bxSr8QAQt7c | 21.9 | How To Use Claude Code In Visual Studio Code - Step by Step | kaynak: Ömer | bekliyor |
-| 79hKdSVr5oE | 16.7 | USE CLAUDE COWORK FOR FREE / CLAUDE DESKTOP FREE ACCESS TRIC | kaynak: Ömer | bekliyor |
-| uaVYHiF8f7k | 15.8 | Turn Claude Into a Video Editing GENIUS (in 3 simple steps) | kaynak: Ömer | bekliyor |
-| QUI6Ug4cHnE | 16.7 | I Built The Ultimate Claude Website Design Skill (steal this | kaynak: Ömer | bekliyor |
+| 3fdb_giOrLo | 16.3 | 9 Free AI Agent Skills You NEED to Install Now | kaynak: Ömer | raporlu |
+| PJ4JAim5-jQ | 10.2 | WEB DESIGN IS HISTORY! (Claude Code + Stitch) | kaynak: Ömer | raporlu |
+| 6_rCyryA6hg | 9.9 | Claude Code Can Now Automate Your Videos (Remotion + Opus 5. | kaynak: Ömer | raporlu |
+| ljJuOxTsrtY | 17.2 | Design with Claude Code: A Crash Course | kaynak: Ömer | raporlu |
+| _gZx1IxrOrk | 5.1 | Websites Can’t Have Aura? Watch This | kaynak: Ömer | raporlu |
+| bxSr8QAQt7c | 21.9 | How To Use Claude Code In Visual Studio Code - Step by Step | kaynak: Ömer | raporlu |
+| 79hKdSVr5oE | 16.7 | USE CLAUDE COWORK FOR FREE / CLAUDE DESKTOP FREE ACCESS TRIC | kaynak: Ömer | raporlu |
+| uaVYHiF8f7k | 15.8 | Turn Claude Into a Video Editing GENIUS (in 3 simple steps) | kaynak: Ömer | raporlu |
+| QUI6Ug4cHnE | 16.7 | I Built The Ultimate Claude Website Design Skill (steal this | kaynak: Ömer | raporlu |
 | SjboYsIV67A | 0.6 | Supabase Nedir? Backend Yazmadan Proje Geliştir! #backend #c | kaynak: Ömer | işlendi: aeb3a34 |
-| e7TY56-yIvM | 12.8 | Everything You Know About Skills IS OUTDATED | kaynak: Ömer | bekliyor |
-| misjUj4Q_ho | 23.0 | Building a Real App with Claude Code (Start to Finish) | kaynak: Ömer | bekliyor |
+| e7TY56-yIvM | 12.8 | Everything You Know About Skills IS OUTDATED | kaynak: Ömer | raporlu |
+| misjUj4Q_ho | 23.0 | Building a Real App with Claude Code (Start to Finish) | kaynak: Ömer | raporlu |
 | vsGwx28z4jk | 7.0 | Anthropic Just Revealed 12 New Rules for Prompting Opus 5.5 | kaynak: Ömer | bekliyor |
 | 5eBlDBD0nho | 34.9 | AI agenti od nuly: Tohle potřebujete vědět | kaynak: Ömer | bekliyor |
 | qLfSDQ5NGh0 | 12.8 | He Finally 10x Claude Code With This Method | kaynak: Ömer | bekliyor |
@@ -498,14 +531,14 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 9_SZFIW7tus | 24.7 | 5 GitHub Repos: Kill AI Slop, Go Viral, Make Money | kaynak: Ömer | bekliyor |
 | 6U3k4H346Es | 20.4 | GPT-6 Astra Built a $10K Website in Minutes | kaynak: Ömer | bekliyor |
 | FaChtkkG9X4 | 9.2 | New Claude Opus 5.5 ! End of Figma Web Design? | kaynak: Ömer | raporlu |
-| wVVt2eOb0L8 | 22.8 | Así Edito todos mis Vídeos con Claude Opus 5.5 en minutos y  | kaynak: Ömer | bekliyor |
-| xno-O4vAx7Q | 18.4 | I Had Claude Opus 5.5 Build a Mobile App, Website and Motion | kaynak: Ömer | bekliyor |
-| HRe7LxuyHy4 | 15.3 | Stop Wasting AI Credits! Higgsfield Blender Plugin Workflow  | kaynak: Ömer | bekliyor |
-| L-BLg_qDrx0 | 23.8 | How to Make a 3D Scroll Animation Website in Minutes (AI + N | kaynak: Ömer | bekliyor |
-| -QFHIoCo-Ko | 96.5 | Full Walkthrough: Workflow for AI Coding — Matt Pocock | kaynak: Ömer | bekliyor |
-| Ua0APTMVcb8 | 12.7 | Insane GitHub Repos That 10x Your Codex And Claude Code Setu | kaynak: Ömer | bekliyor |
-| OIAWkkSO4WY | 11.8 | Claude Opus 5.5 Is INSANE at Motion Graphics | kaynak: Ömer | bekliyor |
-| ryX4RSMJf9Q | 21.9 | Claude ile Sıfırdan Oyun Yapıyorum (kod yok) / Bölüm 2: İlk  | kaynak: Ömer | bekliyor |
+| wVVt2eOb0L8 | 22.8 | Así Edito todos mis Vídeos con Claude Opus 5.5 en minutos y  | kaynak: Ömer | raporlu |
+| xno-O4vAx7Q | 18.4 | I Had Claude Opus 5.5 Build a Mobile App, Website and Motion | kaynak: Ömer | raporlu |
+| HRe7LxuyHy4 | 15.3 | Stop Wasting AI Credits! Higgsfield Blender Plugin Workflow  | kaynak: Ömer | raporlu |
+| L-BLg_qDrx0 | 23.8 | How to Make a 3D Scroll Animation Website in Minutes (AI + N | kaynak: Ömer | raporlu |
+| -QFHIoCo-Ko | 96.5 | Full Walkthrough: Workflow for AI Coding — Matt Pocock | kaynak: Ömer | raporlu |
+| Ua0APTMVcb8 | 12.7 | Insane GitHub Repos That 10x Your Codex And Claude Code Setu | kaynak: Ömer | raporlu |
+| OIAWkkSO4WY | 11.8 | Claude Opus 5.5 Is INSANE at Motion Graphics | kaynak: Ömer | raporlu |
+| ryX4RSMJf9Q | 21.9 | Claude ile Sıfırdan Oyun Yapıyorum (kod yok) / Bölüm 2: İlk  | kaynak: Ömer | raporlu |
 | p9pPveeSOCQ | 10.9 | The Secret to Building Premium Websites with Claude / Claude | kaynak: Ömer · yeniden: eski hat | raporlu |
 | hAYPvExWmCw | 51.6 | Hafızayı Sıfırdan Anlattım - Claude Code, Obsidian, Notebook | kaynak: Ömer · yeniden: eski hat | raporlu |
 | 818VZH9hi9A | 26.6 | Kendi "Vibe Coding" Sistemimi Kurdum (Adım Adım Rehber) | kaynak: Ömer · yeniden: eski hat | raporlu |
@@ -519,12 +552,12 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 
 | id | süre | başlık (kısa) | not | durum |
 |---|---|---|---|---|
-| nQFtsehu7h0 | 32.9 | Complete Beginner's Guide to OpenAI’s Co | bağlantılı video (b2QkhmQ0sT0) | bekliyor |
-| mZzhfPle9QU | 46.2 | How I use Claude Code (Meta L7 Senior St | bağlantılı video (b2QkhmQ0sT0) | bekliyor |
+| nQFtsehu7h0 | 32.9 | Complete Beginner's Guide to OpenAI’s Co | bağlantılı video (b2QkhmQ0sT0) | raporlu |
+| mZzhfPle9QU | 46.2 | How I use Claude Code (Meta L7 Senior St | bağlantılı video (b2QkhmQ0sT0) | raporlu |
 | x64j_wVCHZU | 29.0 | Hostinger Website Builder Tutorial 2026  | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Hostinger Website Builder Tutorial 2026) |
 | nJMqRgKkkBg | 35.9 | Shopify Tutorial for Beginners 2026 - St | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Shopify Tutorial for Beginners 2026 - St) |
 | vg47M_qKQdE | 47.1 | Squarespace Tutorial for Beginners 2026  | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Squarespace Tutorial for Beginners 2026) |
-| cZlnnbHNKrE | 59.8 | Webflow Tutorial for Beginners - Start H | bağlantılı video (vhY7OGIh1v0) | bekliyor |
+| cZlnnbHNKrE | 59.8 | Webflow Tutorial for Beginners - Start H | bağlantılı video (vhY7OGIh1v0) | raporlu |
 | _wzdGCRCP8s | 46.8 | Hostinger WordPress Tutorial 2026 (COMPL | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Hostinger WordPress Tutorial 2026 (COMPL) |
 | kOf7qIQ_dPM | 45.7 | Bluehost WordPress Tutorial 2026 - COMPL | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Bluehost WordPress Tutorial 2026 - COMPL) |
 | 6KuJNTsyhCs | 19.0 | Cloudways WordPress Tutorial 2026: Step- | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Cloudways WordPress Tutorial 2026: Step-) |
@@ -594,15 +627,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 3CDhK-uVDuY | 6.7 | Use Claude Fable 5.1 for FREE (3 Working | bağlantılı video (0i65C2vzjpw) | işlendi: 84d3586 |
 | GJmlik1C4Tg | 15.5 | Superpowers vs. GSD: The Results Shocked | bağlantılı video (6CaQ9ZFuuKI) | işlendi: 84d3586 |
 | rOs-TFUeuSg | 1.9 | GSAP Showreel 2025 | bağlantılı video (_SVU3oC4JX8) | işlendi: a45920c |
-| ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | raporlu |
 | 1zerGmW_Ayo | 24.0 | Paran Büyüdükçe Özgürlüğün Fiyatı Değişi | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Paran Büyüdükçe Özgürlüğün Fiyatı Değişi) |
-| 82OfzGFlHYI | 8.4 | Yapay Zekada Çin Dönemi: Yeni Kimi K3 Ne | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| 82OfzGFlHYI | 8.4 | Yapay Zekada Çin Dönemi: Yeni Kimi K3 Ne | bağlantılı video (z1CcbB4Yj3U) | raporlu |
 | srsUdB1KrQw | 1.5 | Bir Konuyu Gerçekten Öğrendiğini Nasıl A | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bir Konuyu Gerçekten Öğrendiğini Nasıl A) |
 | 9VYpGCwY_FU | 0.4 | Satış Yapacak Müşteri Bulurken Sorman Ge | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Satış Yapacak Müşteri Bulurken Sorman Ge) |
 | 7XzVlPrGkuw | 30.1 | Bir Fikrin Para Edip Etmediğini Öğrenmen | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bir Fikrin Para Edip Etmediğini Öğrenmen) |
-| -Q5JEwahEGo | 2.1 | Yapay Zekadan 10 Kat Fazla Verim Al: Kon | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| -Q5JEwahEGo | 2.1 | Yapay Zekadan 10 Kat Fazla Verim Al: Kon | bağlantılı video (z1CcbB4Yj3U) | raporlu |
 | I2xpNuKmJZ4 | 1.4 | Bilgi Bedava Oldu, Peki Neden Para Kazan | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bilgi Bedava Oldu, Peki Neden Para Kazan) |
-| cOXevshu0a4 | 15.4 | Kendi Kendini Nasıl Eğitirsin (NotebookL | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| cOXevshu0a4 | 15.4 | Kendi Kendini Nasıl Eğitirsin (NotebookL | bağlantılı video (z1CcbB4Yj3U) | raporlu |
 | XMRuFXDY08A | 1.2 | Çok Okumak Seni İyi Bir Yatırımcı Yapmaz | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Çok Okumak Seni İyi Bir Yatırımcı Yapmaz) |
 | Evdv_HSFHBk | 1.6 | What is Netlify? | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (What is Netlify?) |
 | D7EphcxbEhs | 1.4 | From 0 views to 10,000+ on every video - | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (From 0 views to 10,000+ on every video -) |
@@ -613,15 +646,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | gM8T5PJeWgw | 1.0 | The framework that ended my random posti | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (The framework that ended my random posti) |
 | Drzs_gmNoTA | 0.8 | This tool tells you which thumbnails win | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (This tool tells you which thumbnails win) |
 | WNNVqIxkTog | 0.9 | This diagnostic fixed my YouTube channel | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (This diagnostic fixed my YouTube channel) |
-| KWdQAZveHWg | 10.1 | Tek Bir Prompt ile Profesyonel Video Üre | bağlantılı video (IlGilsEsLqo) | bekliyor |
-| toAE8NfqzzY | 15.8 | Bu GitHub Reposu Ajansları Bitirebilir:  | bağlantılı video (IlGilsEsLqo) | bekliyor |
-| 23m0eG1Qr1c | 2.2 | Blender @ Annecy 2018 | bağlantılı video (EsW_sKnkI2g) | bekliyor |
-| whPWKecazgM | 35.7 | World Building in Blender - Ian Hubert | bağlantılı video (EsW_sKnkI2g) | bekliyor |
+| KWdQAZveHWg | 10.1 | Tek Bir Prompt ile Profesyonel Video Üre | bağlantılı video (IlGilsEsLqo) | raporlu |
+| toAE8NfqzzY | 15.8 | Bu GitHub Reposu Ajansları Bitirebilir:  | bağlantılı video (IlGilsEsLqo) | raporlu |
+| 23m0eG1Qr1c | 2.2 | Blender @ Annecy 2018 | bağlantılı video (EsW_sKnkI2g) | raporlu |
+| whPWKecazgM | 35.7 | World Building in Blender - Ian Hubert | bağlantılı video (EsW_sKnkI2g) | raporlu |
 | nXvWTR88sfU | 30.0 | 30 Dakikada Claude Code'un %95'ini Öğren | bağlantılı video (Xu2SIKz8B58) | raporlu |
-| qm0ZlYezt1Q | 125.1 | CLAUDE CODE FULL KURS 2 SAAT: Kur ve Sat | bağlantılı video (Xu2SIKz8B58) | bekliyor |
-| hxQshcD3e1Y | 18.2 | How I Automated Meta Ads Insights with A | bağlantılı video (Xu2SIKz8B58) | bekliyor |
+| qm0ZlYezt1Q | 125.1 | CLAUDE CODE FULL KURS 2 SAAT: Kur ve Sat | bağlantılı video (Xu2SIKz8B58) | raporlu |
+| hxQshcD3e1Y | 18.2 | How I Automated Meta Ads Insights with A | bağlantılı video (Xu2SIKz8B58) | raporlu |
 | i6OjYfQTMoE | 1.6 | How Businesses are using Gemini for Goog | bağlantılı video (Xu2SIKz8B58) | işlendi: a45920c |
-| WwdmQzv_w54 | 2.4 | How to scrape TikTok videos, hashtags, c | bağlantılı video (Xu2SIKz8B58) | bekliyor |
+| WwdmQzv_w54 | 2.4 | How to scrape TikTok videos, hashtags, c | bağlantılı video (Xu2SIKz8B58) | raporlu |
 | HMVSCEh72n4 | 10.5 | The Complete Guide to Making Cinematic A | bağlantılı video (6_rCyryA6hg) | bekliyor |
 | QP9Cd21Bk2I | 13.2 | CLAUDE CODE'U LİMİTSİZ YAP! (Claude Code | bağlantılı video (PJ4JAim5-jQ) | bekliyor |
 | r-MPiu0E4W4 | 111.7 | Design with AI - Full Guide (Tools, Work | bağlantılı video (ljJuOxTsrtY) | bekliyor |
