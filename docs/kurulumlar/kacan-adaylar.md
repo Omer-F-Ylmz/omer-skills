@@ -1222,3 +1222,113 @@ Kaynak: kapanış-6 KAÇAN? triyajı (docs/kurulumlar/kacan-karar-3.tsv). Öncek
 | ssal-1/der | GitHub repo | 1 | 1 | ig-DdyRkV4ihXm |
 | tips.reallusion.com | site/ürün | 1 | 1 | RDRhMQ2_Zyw |
 | vercel-labs/sk11s | GitHub repo | 1 | 1 | ig-DdrHopWCeag |
+
+## Tur 5 adayları (2026-10-10 öğle)
+
+Kaynak: kapanış-7 KAÇAN? triyajı (docs/kurulumlar/kacan-karar-4.tsv). Önceki tüm adaylar (Tur 1-4), kurulum-turu-1/3 tabloları ve tur3-*.tsv ile tekilleştirildi; 146 benzersiz adaydan 43 zaten vardı, 103 yeni.
+
+| aday | tür | satır | video | örnek video |
+|---|---|---|---|---|
+| hostingdunyam.com.tr | site/ürün | 26 | 1 | fw2ID5ucY-Q |
+| docs.hazelengine.com | site/ürün | 9 | 1 | R_uf5OfMGio |
+| pixellab.ai | site/ürün | 8 | 1 | Hhx9QZwYoZY |
+| stableaudio.com | site/ürün | 2 | 1 | dF_uxyJyeu0 |
+| use.app | site/ürün | 2 | 1 | fw2ID5ucY-Q |
+| 1.2k/day | GitHub repo | 1 | 1 | Qi5qY3r0k3A |
+| 1.6k/day | GitHub repo | 1 | 1 | Qi5qY3r0k3A |
+| 2.4k/day | GitHub repo | 1 | 1 | Qi5qY3r0k3A |
+| a4/letter | GitHub repo | 1 | 1 | DD-SiFV93sQ |
+| aacooling | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| acooling | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| addyosmani/agent-skillsl | GitHub repo | 1 | 1 | ig-DeCfWoGMIET |
+| airdoctors | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| andy00l/sharetopus | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| app.vanta.com | site/ürün | 1 | 1 | DD-SiFV93sQ |
+| b89a4b33bcfcea6e/test-cases | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| bagusardin25/teamdynamics | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| bagusardin25/timeora | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| c2pa/metadata | GitHub repo | 1 | 1 | ig-Dctk1TiK2KP |
+| cal-com- | araç adı benzeri | 1 | 1 | TnduiS4kyg8 |
+| cloudinary | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| codecrafters-io/build | GitHub repo | 1 | 1 | ypTQFBnrYCc |
+| codercup.ai | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| context7 | araç adı benzeri | 1 | 1 | fw2ID5ucY-Q |
+| coversour | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| crypticsaiyan/polydub | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| delta.dev | site/ürün | 1 | 1 | qMDdJ_LDpoE |
+| developers.hostinger.com | site/ürün | 1 | 1 | R_uf5OfMGio |
+| dietrichgebert/ponytall | GitHub repo | 1 | 1 | ig-DeCfWoGMIET |
+| docdance | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| docs.polyhaven.com | site/ürün | 1 | 1 | R_uf5OfMGio |
+| dotnet | araç adı benzeri | 1 | 1 | R_uf5OfMGio |
+| dutchman | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| dutchmar | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| energycoi | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| epggifz7.insforge.site | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| farhank15/mantiz | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| fix/emoji-base-vs16-gap | GitHub repo | 1 | 1 | ig-Dctk1TiK2KP |
+| fix/macos-export | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| freecodecamp.github.io | site/ürün | 1 | 1 | ypTQFBnrYCc |
+| garrethbotha.com | site/ürün | 1 | 1 | R_uf5OfMGio |
+| gionatannese.com | site/ürün | 1 | 1 | ig-Da3O00jpo3R |
+| github-action.d3jiomworrav5x.amplifyapp.com/github-aci | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| github.com/loginintegration | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| github.om/paper | GitHub repo | 1 | 1 | ig-DcxV37-CJOC |
+| gpui.rs | site/ürün | 1 | 1 | qMDdJ_LDpoE |
+| guillaumemeyer/watermarks-remover | GitHub repo | 1 | 1 | ig-Dctk1TiK2KP |
+| guillaumemeyer/watghmarks-remover | GitHub repo | 1 | 1 | ig-Dctk1TiK2KP |
+| guillaumerbyer/watermarks-remover | GitHub repo | 1 | 1 | ig-Dctk1TiK2KP |
+| ibisworld.com/united | site/ürün | 1 | 1 | DD-SiFV93sQ |
+| integration/wave-f1 | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| ls/non-technical | GitHub repo | 1 | 1 | fw2ID5ucY-Q |
+| lxcario/cinepurr-watchtogether | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| m_/s_ | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| mcp.higgsfielk | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| mcp.higgsfleldl.al | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| mcp.higsfield.ai | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| mcp.hlgsfield.al | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| mordorintelligence.com/industry | site/ürün | 1 | 1 | DD-SiFV93sQ |
+| no/aigameengine-gpt.git | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| ocalhost:3001 | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| ocomfort.: | site/ürün | 1 | 1 | DD-SiFV93sQ |
+| office.graffico.it | site/ürün | 1 | 1 | ig-Da3O00jpo3R |
+| otherworlds/youtube | GitHub repo | 1 | 1 | DD-SiFV93sQ |
+| out/reels_ | GitHub repo | 1 | 1 | De4dE0Fbpy4 |
+| packages/hermes-client | GitHub repo | 1 | 1 | 4oW29EP4bCk |
+| pagerduty | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| pixellab.ai/create | site/ürün | 1 | 1 | Hhx9QZwYoZY |
+| pixellab.ai/objects | site/ürün | 1 | 1 | Hhx9QZwYoZY |
+| pixellab.ai/pixellab | site/ürün | 1 | 1 | Hhx9QZwYoZY |
+| platform.stability.ai | site/ürün | 1 | 1 | dF_uxyJyeu0 |
+| plugins/herald-os-bridge | GitHub repo | 1 | 1 | 4oW29EP4bCk |
+| pon/hiddon-cc | GitHub repo | 1 | 1 | fw2ID5ucY-Q |
+| qwen/qwen3.8-27b | GitHub repo | 1 | 1 | vMWrVcyl5zE |
+| radixark/qwen3.8-278-nvfp4-8f16-lmead | GitHub repo | 1 | 1 | vMWrVcyl5zE |
+| radixark/qwen3.8-27b-nvfp4-8f16-lmhead | GitHub repo | 1 | 1 | vMWrVcyl5zE |
+| raw.git | site/ürün | 1 | 1 | R_uf5OfMGio |
+| revelatio.studio | site/ürün | 1 | 1 | ig-Da3O00jpo3R |
+| rusty.com/startwithcho | site/ürün | 1 | 1 | R_uf5OfMGio |
+| scenes/levell.bscene | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| sketchfab.com/3d | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| sketchfab.com/3d-models | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| stability.ai | site/ürün | 1 | 1 | dF_uxyJyeu0 |
+| status.hostingdunyam.net | site/ürün | 1 | 1 | fw2ID5ucY-Q |
+| strikingly.com | site/ürün | 1 | 1 | ig-Da3O00jpo3R |
+| studio.tripo3d.ai | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| studio.tripo3d.ai/referral | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| studiocherno/coral | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| tanshvas | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| tengbao/vanta | GitHub repo | 1 | 1 | ig-Da3O00jpo3R |
+| thechen | araç adı benzeri | 1 | 1 | R_uf5OfMGio |
+| thecherno/aigameengine | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| tools/check-format | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| tripo3d.ai | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| typpo/public-apls | GitHub repo | 1 | 1 | ypTQFBnrYCc |
+| uniservea | araç adı benzeri | 1 | 1 | DD-SiFV93sQ |
+| vantajs.com | site/ürün | 1 | 1 | ig-Da3O00jpo3R |
+| voice/voiceover_style.nd | GitHub repo | 1 | 1 | fw2ID5ucY-Q |
+| wave-d/runtime | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| wave-e-skills-docs-games/coinrun | GitHub repo | 1 | 1 | R_uf5OfMGio |
+| yashwanth-3000/creator-skill-generator | GitHub repo | 1 | 1 | TnduiS4kyg8 |
+| your-app.corn | site/ürün | 1 | 1 | TnduiS4kyg8 |
+| zed.dev | site/ürün | 1 | 1 | qMDdJ_LDpoE |
