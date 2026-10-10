@@ -171,3 +171,6 @@ Anahtar değerleri hiçbir dosyaya yazılmaz: `setx <ENV> <değer>` ile kullanı
 | ScrapeGraphAI | SGAI_API_KEY | scrapegraphai.com | var | proje bağımlılığı (tetikleyici.md) |
 | Google Workspace CLI, Vibe-Trading | OAuth / ALPHAVANTAGE_API_KEY | — | — | 95 + 91 skill bağlam şişirir (tetikleyici.md) |
 | coderabbit (coderabbitai/skills, resmi marketplace plugin) | CodeRabbit CLI girişi (`coderabbit auth`), hesap | coderabbit.ai | — | MIT, tur-4; skill'ler girişsiz çalışmaz, kurulmadı |
+| mrdainami/kie-mcp (+ kie.ai) | KIE_API_KEY | kie.ai | — | MIT, tur-6; MCP + generate-anything skill anahtarsız çalışmaz, kurulmadı |
+| composio-mcp (ComposioHQ/composio) | Composio API anahtarı / hesap | composio.dev | — | MIT, tur-6; hesaplı, kurulmadı |
+| windsor.ai, TikTok/Whop/Skool/MediaSilo/Lumio/Vanta ve benzeri ticari servisler | hesap / API anahtarı | — | — | tur-6, skill yok; ayrıntı tur6-sonuc.tsv |
