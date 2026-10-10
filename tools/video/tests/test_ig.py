@@ -461,3 +461,35 @@ def test_gomme_kapali_ana_sayfa_bos_engel_sayilir(monkeypatch):
     with pytest.raises(ig.IgHata, match="embed verisi yok"):
         ig.sayfa("DcY-csFDG6f")
     assert cagri == ["https://www.instagram.com/p/DcY-csFDG6f/embed/captioned/", "https://www.instagram.com/p/DcY-csFDG6f/"] and ig._ENGEL[0] == 1
+
+
+# --- IG-KARUSEL-1: karuselin tüm slaytları (video slayt dahil) · slayt N/M künyesi · kısmi işareti
+def _karisik():
+    sm = sm_of(CAR)
+    sm["edge_sidecar_to_children"]["edges"][1]["node"].update(is_video=True, video_url="https://v.example/b.mp4")
+    return sayfa(sm)
+
+
+def test_karisik_karusel_video_slayt_indirilir(monkeypatch, tmp_path):
+    _sahte_al(monkeypatch, (200, "u", _karisik()))
+    monkeypatch.setattr(ig, "_indir", lambda u, yol: yol.write_bytes(b"x"))
+    d = tmp_path / "ig-DeL7DvgFLRM"
+    d.mkdir()
+    meta = ig.getir(d)
+    assert meta["slayt_toplam"] == 6 and meta["slayt_video"] == ["slayt-2.mp4"] and (d / "slayt-2.mp4").is_file() and len(meta["gorseller"]) == 6
+
+
+def test_paket_karisik_karusel_kunye_ve_video_kareleri(monkeypatch, tmp_path, capsys):
+    def kos(ctx, a, timeout=None):
+        assert a[0] == "ffmpeg" and a[-1].endswith("slayt-2-%d.jpg")
+        for k in (1, 2):
+            Path(a[-1] % k).write_bytes(b"\xff\xd8")
+    monkeypatch.setattr(cli, "_kos", kos)
+    _, o, d, md, _ = _paketle(monkeypatch, tmp_path, _karisik(), "https://www.instagram.com/p/DeL7DvgFLRM/", capsys)
+    assert " · slayt 6/6 · yorum:" in md.splitlines()[0] and "karusel kısmi" not in md.splitlines()[0]
+    assert "slayt-2-1.jpg" in o.yollar and "### slayt 2 (video) kare 2\n" in md and "ses işlenmedi" in md
+
+
+def test_kisitli_karusel_kismi(monkeypatch, tmp_path, capsys):
+    _, _, d, md, _ = _paketle(monkeypatch, tmp_path, (KAPALI, ANA), "ig-DcY-csFDG6f", capsys)
+    assert " · slayt 1/? · karusel kısmi: 1/? · yorum:" in md.splitlines()[0]

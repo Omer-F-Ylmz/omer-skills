@@ -542,7 +542,10 @@ def paket(ns, ctx):
     ocr, sz = {}, gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt")  # 1b-1 M5: altın-hariç ad sözlüğü
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     if gozsuz := igm and not meta.get("video"):  # görsel gönderi ya da videosuz reel: göz yok, görseller sırayla OCR
-        go = _ocr(ctx, [d / g for g in meta.get("gorseller") or []]) if meta.get("gorseller") else {}
+        for v in meta.get("slayt_video") or []:  # IG-KARUSEL-1: video slayttan 3 sn arayla ≤3 kare; ses işlenmez
+            _kos(ctx, ["ffmpeg", "-v", "error", "-y", "-i", str(d / v), "-vf", "fps=1/3", "-frames:v", "3", "-q:v", "4", str(d / f"{Path(v).stem}-%d.jpg")], SURE["ffmpeg"])
+        vk = {v: sorted(d.glob(f"{Path(v).stem}-?.jpg")) for v in meta.get("slayt_video") or []}
+        go = _ocr(ctx, [*(d / g for g in meta.get("gorseller") or []), *(y for ys in vk.values() for y in ys)]) if meta.get("gorseller") else {}
         ocr["ocr_kare"], zamanlar = len(go), []
     try:
         kareler, kare_yok = (_goz(ctx, d, meta.get("duration") or 0, taban, isaret, ns.model_tavan or (min(gz.MODEL_UST, ns.kare) if 0 < (meta.get("duration") or 0) < SHORT_SN else gz.MODEL_UST), ocr, gz.sozluk_adlari(sz))
@@ -561,9 +564,11 @@ def paket(ns, ctx):
     if ns.kuyruk and Path(ns.kuyruk).is_file():
         _bagli_video(ctx, ns.id, bl + yeni, Path(ns.kuyruk))
     yham = json.loads((d / "yorumlar.json").read_text(encoding="utf-8")).get("ham", []) if (d / "yorumlar.json").is_file() else []
+    k_, M_ = len(meta.get("gorseller") or []), meta.get("slayt_toplam")  # IG-KARUSEL-1: künye "slayt k/M"; k<M ya da M bilinmez (og yedeği) → "karusel kısmi"
+    slayt = f" · slayt {k_}/{M_ or '?'}" + (f" · karusel kısmi: {k_}/{M_ or '?'}" if igm and meta.get("ig_tur") != "reel" and k_ < (M_ or k_ + 1) else "") if igm and meta.get("ig_tur") != "reel" else ""
     md = [f"# {ns.id} · {meta.get('title')} · {meta.get('channel')} · süre {m.ss(meta.get('duration') or 0)} · sure_sn {int(meta.get('duration') or 0)} · short: {str(km['short'] if 'short' in km else tr.short_mu(meta.get('duration') or 0)).lower()} · dil {dil[0] if dil else '?'}"
           f" · {igm and meta.get('url') or f'https://youtu.be/{ns.id}'} · altyazı {tur}{f' ({n})' if (n := ctx.get('asr_not')) else ''} · ocr_motor {ctx.get('ocr_motor') or 'yok'} · ocr_kare {ocr.get('ocr_kare', 0)} · ocr_sn {ocr.get('ocr_sn', 0)} · ocr_cihaz {ctx.get('ocr_cihaz') or 'yok'}{f' · {n}' if (n := ctx.get('goz_not')) else ''}"
-          f"{f' · platform: instagram · tür: {meta.get("ig_tur")} · yorum: girişsiz alınamıyor' if igm else ''}",
+          f"{f' · platform: instagram · tür: {meta.get("ig_tur")}{slayt} · yorum: girişsiz alınamıyor' if igm else ''}",
           "## Chapter", *([f"{m.ss(c_['start_time'])} {c_.get('title')}" for c_ in meta.get("chapters") or []] or ["yok"]),
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Açıklama", *ac] if (ac := gz.aciklama_duz(meta.get("description"))) else []),  # DEVAM-1: düz metin, URL/chapter satırsız, ≤600 tk
@@ -573,6 +578,8 @@ def paket(ns, ctx):
                                                 or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),
           *(["## Görsel metni (OCR)", *[x for i, g in enumerate(meta["gorseller"], 1) for x in (f"### görsel {i}", *(go.get(g) or ["(metin yok)"]))]]
             if igm and meta.get("gorseller") else []),  # 1b-1 M1: aynı satır bir kez, altyazıda geçen yok, ≤3000 tk öncelikli; boşsa bölüm yok
+          *([x for v, ys in vk.items() for k, y in enumerate(ys, 1) for x in (f"### slayt {Path(v).stem[6:]} (video) kare {k}", *(go.get(y.name) or ["(metin yok)"]))] + ["(video slayt: yalnız kareler OCR; ses işlenmedi)"]
+            if igm and gozsuz and vk else []),  # IG-KARUSEL-1
           *(["## Ekranda/konuşmada URL'ler", *[f"{u} · {k} · {m.ss(t)}" for u, k, t in uu]] if (uu := gz.urller_bul(  # 1b-1 M4
               [*(("ekran", t, x) for t, s in ocr.get("metin", []) for x in s), *(("ses", s["bas"], str(s.get("metin"))) for s in seg)])) else []),
           *(["## Yorumlar", *yr] if (yr := gz.yorum_sec(yham, gz.sozluk_adlari(sz))) else []),  # 1b-1 M4: ≤800 tk

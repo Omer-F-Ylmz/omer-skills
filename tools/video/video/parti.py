@@ -366,7 +366,7 @@ def rapor_md(f, pk, notlar):
     """Mevcut rapor biçimi (docs/video-tarama/*.md) koddan; prompt'lar Adaylar'a `prompt` satırı olarak girer."""
     L = [f"# {pk['baslik']}", "## Künye", f"{pk['baslik']} · {pk['kanal']} · süre: {m.ss(pk['sure'])} · {pk['dil']} · {pk.get('url') or f'https://youtu.be/{pk["id"]}'}"
          + (f" · platform: instagram · tür: {x[1] if (x := re.search(r' · tür: ([^·\n]+?) · ', pk.get('metin') or '')) else 'reel' if '/reel/' in (pk.get('url') or '') else 'görsel gönderi'}"
-            f"{f' · {g[1]}' if (g := re.search(r' · (göz: yok \(gömme kapalı[^)]*\))', pk.get('metin') or '')) else ''} · yorum: girişsiz alınamıyor" if pk["id"].startswith("ig-") else "")  # SMOKE-DÜZELT B2 · ONARIM-5: tür/göz paket künyesinden
+            f"{f' · {g[1]}' if (g := re.search(r' · (göz: yok \(gömme kapalı[^)]*\))', pk.get('metin') or '')) else ''}{''.join(f' · {z}' for z in re.findall(r' · (slayt \d+/[\d?]+|karusel kısmi: \d+/[\d?]+)(?= · |\n|$)', pk.get('metin') or ''))} · yorum: girişsiz alınamıyor" if pk["id"].startswith("ig-") else "")  # SMOKE-DÜZELT B2 · ONARIM-5: tür/göz paket künyesinden
          + (" · şema 2" if f.get("iz") is not None else ""),
          *notlar, "## Özet", _h(f["ozet"]), "## Bölümler", *([f"- {_h(b['zaman'])} {_h(b['baslik'])}" for b in f["bolumler"]] or ["- yok"]),
          "## Adaylar", "| ad | sözlük | tür | link | ne işe yarar | zaman | kanıt |", "|---|---|---|---|---|---|---|",

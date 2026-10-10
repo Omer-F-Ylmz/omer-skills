@@ -130,24 +130,28 @@ def getir(d):
     """ig-<kod> klasörü: sayfa → ayrıştır → medya hemen indir (imzalı adres süreli) → meta.json (adres yazılmaz)."""
     kod = d.name[3:]
     p = sayfa(kod)
-    video, gorseller, goz_not = False, [], None
+    video, gorseller, slayt_video, goz_not = False, [], [], None
     if p["tur"] == "reel":
         if p["ogeler"][0]["video"]:
             _indir(p["ogeler"][0]["video"], d / "goz-video.mp4")
             video = True
         else:
             goz_not = "göz: yok (embed video vermedi)"
-    else:  # ponytail: karışık sidecar'da video öğesinin yalnız kapağı OCR'lanır; video işlemek gerekirse ayrı adım
+    else:  # IG-KARUSEL-1: her slayt sırayla; video slaytın kapağı gorsel-N.jpg, videosu slayt-N.mp4 (paket kareleri OCR'lar; ses işlenmez)
         if p["tur"] == "kısıtlı":
             goz_not = "göz: yok (gömme kapalı; yalnız kapak + açıklama)"
         for i, o in enumerate(p["ogeler"], 1):
             if o["gorsel"]:
                 _indir(o["gorsel"], d / f"gorsel-{i}.jpg")
                 gorseller.append(f"gorsel-{i}.jpg")
+            if o["video"]:
+                _indir(o["video"], d / f"slayt-{i}.mp4")
+                slayt_video.append(f"slayt-{i}.mp4")
     ilk = next((s.strip() for s in p["aciklama"].splitlines() if s.strip()), "")
     meta = {"id": d.name, "title": (ilk[:80] or f"instagram {p['tur']}").replace("·", "-"), "language": None, "channel": p["hesap"].replace("·", "-"),
             "duration": p["sure"] or 0, "chapters": [], "description": p["aciklama"], "subtitles": {}, "automatic_captions": {},
             "platform": "instagram", "ig_tur": {"reel": "reel", "kısıtlı": "kısıtlı gönderi"}.get(p["tur"], "görsel gönderi"),
-            "url": f"https://www.instagram.com/{'reel' if p['tur'] == 'reel' else 'p'}/{kod}/", "video": video, "gorseller": gorseller, "goz_not": goz_not}
+            "url": f"https://www.instagram.com/{'reel' if p['tur'] == 'reel' else 'p'}/{kod}/", "video": video, "gorseller": gorseller, "goz_not": goz_not,
+            "slayt_toplam": len(p["ogeler"]) if p["tur"] == "post" else None, "slayt_video": slayt_video}  # kısıtlı (og yedeği): toplam bilinmez
     (d / "meta.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
     return meta
