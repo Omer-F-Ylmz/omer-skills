@@ -1,0 +1,118 @@
+ad	tür	kaynak	video	SONUÇ	sebep / düzeltme	kurulum yolu	anahtar env adı
+santionispirits.com	servis	santionispirits.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+say1/kanit	repo	github.com/say1/kanit	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+search.brave.com/search	servis	search.brave.com/search	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+security.demodesk.com	servis	security.demodesk.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+seewhateyesee.org	servis	seewhateyesee.org	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+selmakcby/vault-radar	repo	github.com/selmakcby/vault-radar	1	RED	MIT, 15★, push 2026-08-31; not okuma radarı, kanıt/ilgi düşük		
+serverisidebar/rowl	repo	github.com/serverisidebar/rowl	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+shadows/extra-large	repo	github.com/shadows/extra-large	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+share.descrint	servis	share.descrint	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+sign-in/register	repo	github.com/sign-in/register	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+signin.anchorbrowser.io	servis	signin.anchorbrowser.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+sivanhavkin/entelgia	repo	github.com/sivanhavkin/entelgia	1	RED	MIT, 12★; deneysel bilişsel mimari araştırması, skill/MCP değil		
+skilthat	cli/skill/mcp?		1	RED	bulunamadı: GitHub aramasında sonuç yok		
+skool.cc.	servis	skool.cc.	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+skool.cu.	servis	skool.cu.	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+skyvern-ai/skyvern	repo	github.com/skyvern-ai/skyvern	1	AYRI-UYGULAMA	AGPL-3.0, 23164★, push 2026-10-09; tarayıcı otomasyon platformu/sunucu, skill değil		
+smtg-ai/claude-squad	repo	github.com/smtg-ai/claude-squad	1	AYRI-UYGULAMA	AGPL-3.0, 8583★, push 2026-08-20; tmux tabanlı TUI, çoklu ajan yöneticisi (Windows'ta tmux yok)		
+socialcameo.com	servis	socialcameo.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+sourcegraph	cli/skill/mcp?		1	RED	bulunamadı: belirsiz ad; yalnız düşük yıldızlı topluluk MCP/skill'i (13–41★), Sourcegraph hesabı ister		
+spacestongyi-mal/z-image-turbolike	repo	github.com/spacestongyi-mal/z-image-turbolike	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+spanner	cli/skill/mcp?		1	RED	bulunamadı: belirsiz ad, yalnız 0–2★ deneysel MCP'ler		
+sre/thart.tox	repo	github.com/sre/thart.tox	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+start.ccstrategic.io/skool	servis	start.ccstrategic.io/skool	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+status.claude.com	servis	status.claude.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+status.stripe.com	servis	status.stripe.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+status/sectoraathird-partysservige	repo	github.com/status/sectoraathird-partysservige	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+stratosphere.io	servis	stratosphere.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+strikethrough/dim	repo	github.com/strikethrough/dim	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+strix	cli/skill/mcp?		1	RED	kapsam dışı		
+studiomeala.com	servis	studiomeala.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+subscribe.wordpress.com	servis	subscribe.wordpress.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+supabase-community/create-t3-turbo	repo	github.com/supabase-community/create-t3-turbo	1	RED	MIT, 330★, push 2024-05; başlangıç şablonu		
+supabase-community/nextjs-subscription-payments	repo	github.com/supabase-community/nextjs-subscription-payments	1	RED	MIT, 97★; SaaS şablonu		
+supabase-community/vercel-ai-chatbot	repo	github.com/supabase-community/vercel-ai-chatbot	1	RED	sohbet uygulaması şablonu (854★, 2024-05'ten beri durgun)		
+supabase/agent-sk111	repo	github.com/supabase/agent-sk111	1	KUR	OCR → supabase/agent-skills: resmî Supabase skill'leri (MIT, 2706★, push 2026-10-02); Supabase işi çıkınca; SkillSpector kurulumdan önce	~/.claude/skills/ kopyası @c9be0e931b79	
+superdesigndev/treg	repo	github.com/superdesigndev/treg	1	HESAP	'OpenRouter for agent tools' (4933★, push 2026-10-09, lisans NOASSERTION/özel); barındırılan hizmet, anahtar ister; lisans koşulu okunmalı		env adı doğrulanmadı
+superpowers:subagent-driven-development	skill		1	ZATEN	superpowers eklentisi kurulu (obra/superpowers, 296882★)		
+support.claude.com	servis	support.claude.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+susearch/vi3_anowy_elophant	repo	github.com/susearch/vi3_anowy_elophant	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+sustainability.aboutamazon.com	servis	sustainability.aboutamazon.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+svgexport.io	servis	svgexport.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+syrizelink/openfic	repo	github.com/syrizelink/openfic	1	AYRI-UYGULAMA	Apache-2.0, 1195★; roman yazma masaüstü uygulaması		
+taekchef/claude-code-zh-cn	repo	github.com/taekchef/claude-code-zh-cn	1	RED	MIT, 789★; Çince arayüz yerelleştirmesi, ilgisiz		
+tasks/t.ask-2.js0m	repo	github.com/tasks/t.ask-2.js0m	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+teapearce.github.io	servis	teapearce.github.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+tecs/teu.os.ef	repo	github.com/tecs/teu.os.ef	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+tengilemalamala.com	servis	tengilemalamala.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+thebirthwave.com	servis	thebirthwave.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+thsopics/know.-plugins	repo	github.com/thsopics/know.-plugins	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+tienda.zapler.com	servis	tienda.zapler.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+tinyhumans.ai	servis	tinyhumans.ai	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+todavanod/aio1	repo	github.com/todavanod/aio1	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+todavaood/ai01	repo	github.com/todavaood/ai01	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+todavgood/aio1	repo	github.com/todavgood/aio1	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+todaygond/aio1	repo	github.com/todaygond/aio1	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+todaygood/aio1	repo	github.com/todaygood/aio1	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+todomvc.com	servis	todomvc.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+tong-io/tongflow	repo	github.com/tong-io/tongflow	1	AYRI-UYGULAMA	AGPL-3.0, 1042★; GenAI platformu/sunucu		
+traderalice/fixa...390b3fte	repo	github.com/traderalice/fixa...390b3fte	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+traderalice/oper	repo	github.com/traderalice/oper	1	AYRI-UYGULAMA	KURTARILDI → TraderAlice/OpenAlice; iii; AGPL-3.0 ★7259; AI trading ajanı; ÖNERİLMEZ: finansal hesap/anahtar, gerçek para riski	sabit @ 87bc415260aa	
+trendyol.comfapplefiphone-15-128-gb-mavi-p-762254881	servis	trendyol.comfapplefiphone-15-128-gb-mavi-p-762254881	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+trufflesecus	cli/skill/mcp?		1	RED	OCR → trufflesecurity/trufflehog (28400★); gizli anahtar tarayıcı, gitleaks kurulu ve örtüşür		
+trust.file.ai	servis	trust.file.ai	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+tt-a1i.github.io	servis	tt-a1i.github.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+tt-a1i/axchify	repo	github.com/tt-a1i/axchify	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+turkolister.co.uk	servis	turkolister.co.uk	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+types/spdx-expression-parse	repo	github.com/types/spdx-expression-parse	1	RED	OCR → @types/spdx-expression-parse (npm 4.0.0); tür paketi		
+typesafe-ai/system-one-adapter-python	repo	github.com/typesafe-ai/system-one-adapter-python	1	RED	MIT, 385★; Python kütüphanesi		
+typesafe:typesafe-ai	skill		1	RED	bulunamadı: skill kaynağı yok (yalnız typesafe-ai Python kütüphanesi)		
+typpo/quickchart-csharp	repo	github.com/typpo/quickchart-csharp	1	RED	MIT, 23★; istemci kütüphanesi		
+typpo/quickchart-java	repo	github.com/typpo/quickchart-java	1	RED	lisans yok, 11★; istemci kütüphanesi		
+typpo/quickchart-js	repo	github.com/typpo/quickchart-js	1	RED	MIT, 75★; istemci kütüphanesi		
+typpo/quickchart-php	repo	github.com/typpo/quickchart-php	1	RED	MIT, 46★; istemci kütüphanesi		
+typpo/quickchart-python	repo	github.com/typpo/quickchart-python	1	RED	MIT, 66★; istemci kütüphanesi		
+typpo/quickchart-ruby	repo	github.com/typpo/quickchart-ruby	1	RED	MIT, 14★; istemci kütüphanesi		
+unity6tksorceress.igames/msic-geraunity	repo	github.com/unity6tksorceress.igames/msic-geraunity	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+unreallabsai/unreal-agent	repo	github.com/unreallabsai/unreal-agent	1	RED	MIT, 2180★; ajan çalışma çatısı, skill/MCP değil, ilgisiz		
+unseen.co	servis	unseen.co	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+usercontent.com/christopherkahl	servis	usercontent.com/christopherkahl	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+utube.com	servis	utube.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+v267/v268	repo	github.com/v267/v268	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+v3b.fal.media	servis	v3b.fal.media	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+vault-index/brain-build	repo	github.com/vault-index/brain-build	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+vault/claude.mc	repo	github.com/vault/claude.mc	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+vectorize-io/hindsight	repo	github.com/vectorize-io/hindsight	1	RED	MIT, 47692★; ajan belleği; claude-mem ile örtüşür, ikinci bellek enjektörü riski		
+velammalnexus.com	servis	velammalnexus.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+vercel-labs/agent-browser	repo	github.com/vercel-labs/agent-browser	1	KUR-duzeltmeli	Apache-2.0, 43722★, push 2026-10-09; tarayıcı otomasyon CLI'ı; Playwright MCP ile örtüşür, yalnız gerekirse; kurulumda tarayıcı indirir, yerel kontrol izni	npm i -g agent-browser@0.39.0 (repo @44af39842650)	
+vercel-labs/agent-ski11s	repo	github.com/vercel-labs/agent-ski11s	1	RED	OCR → vercel-labs/agent-skills (32127★) lisans yok: lisans kapısı, kurulmaz		
+vercel-labs/next-skills	repo	github.com/vercel-labs/next-skills	1	RED	lisans yok (983★, push 2026-09-16): lisans kapısı, kurulmaz		
+vercel.com/new	servis	vercel.com/new	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+vercel.com/viktoroddy-1863s	servis	vercel.com/viktoroddy-1863s	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+vibely.app	servis	vibely.app	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+visx.21st.dev	servis	visx.21st.dev	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+vitest/coverage-v8	repo	github.com/vitest/coverage-v8	1	RED	OCR → @vitest/coverage-v8 (npm 5.0.3, MIT); test kütüphanesi		
+vmicheli.github.io	servis	vmicheli.github.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+vowautoparts.us	servis	vowautoparts.us	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+vswyh1971/aiev	repo	github.com/vswyh1971/aiev	1	RED	0★, lisans yok		
+wallpapers/light-m	repo	github.com/wallpapers/light-m	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+wangrongsheng/awesome-llm-resources	repo	github.com/wangrongsheng/awesome-llm-resources	1	RED	Apache-2.0, 9012★; bağlantı listesi		
+wavect.io	servis	wavect.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+wcodescascadeur/cascadeuranimatians	repo	github.com/wcodescascadeur/cascadeuranimatians	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+wecanfixeverything.com	servis	wecanfixeverything.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+whisper-flow	cli/skill/mcp?		1	RED	dimastatz/whisper-flow (985★): gerçek zamanlı yazıya dökme çatısı, skill/MCP değil		
+workos	cli/skill/mcp?		1	RED	bulunamadı: resmî skill/MCP kaynağı doğrulanamadı (npm @workos-inc/mcp 404)		
+worktree/revert-pr-3087	repo	github.com/worktree/revert-pr-3087	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+worldnuclearreport.org	servis	worldnuclearreport.org	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ww.trendyol.comfapple	servis	ww.trendyol.comfapple	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+www.skol.com/tirendaz-academy	servis	www.skol.com/tirendaz-academy	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+xingyeai.com	servis	xingyeai.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+xming521/weclone	repo	github.com/xming521/weclone	1	AYRI-UYGULAMA	AGPL-3.0, 18286★; sohbet geçmişinden yapay ikiz, kişisel veri; skill değil		
+yarnpkg/cli-dist	repo	github.com/yarnpkg/cli-dist	1	RED	OCR → @yarnpkg/cli-dist (npm 4.18.1, BSD-2); paket yöneticisi		
+zai-org/zcode	repo	github.com/zai-org/zcode	1	AYRI-UYGULAMA	Apache-2.0, 7596★; Z.ai kodlama ajanı çatısı (ayrı ajan)		
+zhizhuodemao/js-reverse-mcp	repo	github.com/zhizhuodemao/js-reverse-mcp	1	RED	kapsam dışı		
+zhouxiaoka/autoclip	repo	github.com/zhouxiaoka/autoclip	1	AYRI-UYGULAMA	MIT, 9283★, push 2026-10-09; video kırpma masaüstü uygulaması		
+zoominfo	cli/skill/mcp?		1	HESAP	Zoominfo/zoominfo-mcp-plugin (8★, push 2026-09-30); ZoomInfo kurumsal hesabı; işle ilgisiz		env adı doğrulanmadı
+zseven-w/openpencstime	repo	github.com/zseven-w/openpencstime	1	AYRI-UYGULAMA	OCR → ZSeven-W/openpencil (MIT, 6113★, push 2026-10-09); vektör tasarım uygulaması		
+×.com	servis	×.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		

@@ -1,0 +1,121 @@
+ad	tür	kaynak	video	SONUÇ	sebep / düzeltme	kurulum yolu	anahtar env adı
+feat/todo-skeleton	repo	github.com/feat/todo-skeleton	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+felores/kie-cli-mcp	repo	github.com/felores/kie-cli-mcp	1	HESAP	Kie.ai medya API CLI+MCP; MIT, 80★, push 2026-10-07; ücretli üretim API sınırı gerekir	npm/mcp: github.com/felores/kie-cli-mcp @aa43e3955591 (kurulumdan sonra SHA doğrula)	KIE_API_KEY
+figma-plugin	skill/mcp	-	1	ZATEN	envanterde figma girdisi var (_inv_*); ek kurulum gereksiz		
+figma.com	servis	figma.com	1	AYRI-UYGULAMA	Figma tasarım uygulaması; hesap		
+file.ai	servis	file.ai	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+filec/cascadeurno	repo	github.com/filec/cascadeurno	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+filmakademie.de	servis	filmakademie.de	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+filmmore.eu	servis	filmmore.eu	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+find-skills	skill/mcp	-	1	RED	kurulu değil; kaynak belirsiz ad, ayrı aday notu docs/kurulumlar/adaylar/find-skills-install-skills.md		
+folder/20241206_165409_unreal.fbx	repo	github.com/folder/20241206_165409_unreal.fbx	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+fondazionecsc.it	servis	fondazionecsc.it	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+fontjoy.com	servis	fontjoy.com	1	AYRI-UYGULAMA	tarayıcı font eşleştirici; kurulum yok		
+fullstory	skill/mcp	-	1	RED	bulunamadı: resmi olmayan 0★ repolar (creevey-equals/fullstory-mcp vb.)		
+g2/capterra	repo	github.com/g2/capterra	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+gabbitt.co.uk	servis	gabbitt.co.uk	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+gentlestories.online	servis	gentlestories.online	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+geojson.io	servis	geojson.io	1	AYRI-UYGULAMA	tarayıcı harita aracı; kurulum yok		
+ghcr.io/zseven	servis	ghcr.io/zseven	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+git-for-windows.github.io	servis	git-for-windows.github.io	1	ZATEN	Git for Windows kurulu (git/Git Bash çalışıyor)		
+github.00m/s8arch	repo	github.com/github.00m/s8arch	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+github.comfowner	servis	github.comfowner	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+glaido.com	servis	glaido.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+gle.com/search	servis	gle.com/search	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+globalgatewayteachertraining.com	servis	globalgatewayteachertraining.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+globalprivacycontrol.org	servis	globalprivacycontrol.org	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+gnano-banana-pro/edit	repo	github.com/gnano-banana-pro/edit	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+gncr.1o/zseven	repo	github.com/gncr.1o/zseven	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+google-cloud-storage	skill/mcp	-	1	RED	kurulum nesnesi değil: gcloud/SDK servisi		
+google-stitch	skill/mcp	-	1	RED	bulunamadı: resmi kaynak yok; gabelul/stitch-kit 45★ (apache-2.0) üçüncü taraf, doğrulanmadı		
+gpt-4o/gemini	repo	github.com/gpt-4o/gemini	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+gpt-4o/geminiuwanitg	repo	github.com/gpt-4o/geminiuwanitg	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+gpt-5.4/medium	repo	github.com/gpt-5.4/medium	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+graphify.com	servis	graphify.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+greengadgetguru.com	servis	greengadgetguru.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+grok.com	servis	grok.com	1	AYRI-UYGULAMA	Grok model servisi; hesap		
+gsap.com	servis	gsap.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+gsap.com/showcase	servis	gsap.com/showcase	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+guillaumecolombel.fr	servis	guillaumecolombel.fr	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+gumroad.com	servis	gumroad.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+hackernews.com	servis	hackernews.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+hand_additiona/pointj	repo	github.com/hand_additiona/pointj	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+hayaaesthetics.com	servis	hayaaesthetics.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+hayatintegrated.com	servis	hayatintegrated.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+help.ketone.com	servis	help.ketone.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+heretic-project.org	servis	heretic-project.org	1	RED	kapsam dışı		
+hermes-masterclass.vercel.app	servis	hermes-masterclass.vercel.app	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+heygen.com	servis	heygen.com	1	AYRI-UYGULAMA	HeyGen video servisi; hesap		
+higgsfield.ai/privacy-policy	servis	higgsfield.ai/privacy-policy	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+higgsfield.ai/terms-of-use-a	servis	higgsfield.ai/terms-of-use-a	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+hler/regexp_parser	repo	github.com/hler/regexp_parser	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+hoainho/img2threeis-showcase	repo	github.com/hoainho/img2threeis-showcase	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+hostinger	skill/mcp	-	1	RED	bulunamadı: yalnız 0★ üçüncü taraf repolar		
+htpsfimcp.chatplace.io/mcp	servis	htpsfimcp.chatplace.io/mcp	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+hugainaface.c	servis	hugainaface.c	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+huyml.co	servis	huyml.co	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+hvperframes/heygen	repo	github.com/hvperframes/heygen	1	KUR	KURTARILDI → heygen-com/hyperframes; Apache-2.0 ★59796 push 2026-10-10; .claude-plugin/marketplace.json var	sabit @ f85614ecb222e7ffedf61d6f16811fae6eae5427	
+hwchase17/langchain	repo	github.com/hwchase17/langchain	1	RED	langchain-ai/langchain olarak taşındı; MIT 147503★ kütüphane, skill/eklenti değil		
+hypit-ai/hypit	repo	github.com/hypit-ai/hypit	1	RED	lisans NOASSERTION (belirsiz); yüz/ses değiştirip viral video klonlama uygulaması, skill değil		
+iadt.ie	servis	iadt.ie	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ibanfirst.com/dashboard	servis	ibanfirst.com/dashboard	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ikaijua/awesome-aitools	repo	github.com/ikaijua/awesome-aitools	1	RED	araç listesi (CC-BY-4.0, 6217★); kurulacak nesne değil		
+illoca.unseen.co	servis	illoca.unseen.co	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+imaginefrontier.com	servis	imaginefrontier.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+inbox/fmfcgzqhvrbzcdhndhcm	repo	github.com/inbox/fmfcgzqhvrbzcdhndhcm	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+inferen-sh/skil1s	repo	github.com/inferen-sh/skil1s	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+inference.net	servis	inference.net	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+infistar.ai	servis	infistar.ai	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+insider.windows.com	servis	insider.windows.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ip-52-53-175-49.tetra-data.tinyfish.io	servis	ip-52-53-175-49.tetra-data.tinyfish.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+iquine.com.br	servis	iquine.com.br	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+itchangesfree/open	repo	github.com/itchangesfree/open	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+jack000/fontjoy	repo	github.com/jack000/fontjoy	1	RED	2017 sonrası push yok; font eşleştirme uygulaması, skill değil (MIT, 1436★)		
+jesperlandberg.com	servis	jesperlandberg.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+jev/cevap-bekliyor	repo	github.com/jev/cevap-bekliyor	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+jev/finans-resmi	repo	github.com/jev/finans-resmi	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+jev/sea-tarih	repo	github.com/jev/sea-tarih	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+jev/son-tarih	repo	github.com/jev/son-tarih	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+jharilela/n8n-workflows	repo	github.com/jharilela/n8n-workflows	1	RED	lisans yok (kişisel kullanım), 46★; n8n iş akışı dökümü		
+jianchang512/pyvideotrans	repo	github.com/jianchang512/pyvideotrans	1	AYRI-UYGULAMA	video çeviri/dublaj masaüstü uygulaması; GPL-3.0, 19278★, push 2026-10-07; kod repoya kopyalanmaz	uygulama: github.com/jianchang512/pyvideotrans release	çeviri/TTS sağlayıcı anahtarları (isteğe bağlı)
+joaotavora/eglot	repo	github.com/joaotavora/eglot	1	RED	Emacs LSP istemcisi (GPL-3.0); bu ortamla ilgisiz		
+jobs.lever.co	servis	jobs.lever.co	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+kanaafertility.com	servis	kanaafertility.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ketone.com	servis	ketone.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+keygraph.io	servis	keygraph.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+kimi.ai	servis	kimi.ai	1	AYRI-UYGULAMA	Kimi model servisi; hesap		
+kling.ai	servis	kling.ai	1	AYRI-UYGULAMA	Kling video üretim servisi; hesap		
+koishizzp/esm3-agent	repo	github.com/koishizzp/esm3-agent	1	RED	lisans yok, 1★; protein modeli ajanı, kapsam dışı		
+lakr233/vphone-c	repo	github.com/lakr233/vphone-c	1	RED	KURTARILDI → Lakr233/vphone-cli; MIT ★15101; macOS/Xcode aracı, Windows'ta çalışmaz		
+langchain-ai/langchain-nextjs-template	repo	github.com/langchain-ai/langchain-nextjs-template	1	RED	Next.js başlangıç şablonu (MIT, 2535★); skill/araç değil		
+leadedu.com.br	servis	leadedu.com.br	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+legeling/prompthub	repo	github.com/legeling/prompthub	1	AYRI-UYGULAMA	prompt/skill yönetim masaüstü uygulaması; AGPL-3.0, 1699★, push 2026-09-28; AGPL: koşulları rapora	uygulama: github.com/legeling/PromptHub release	yok (bulut senkron isteğe bağlı)
+lennxink/taate-satl1	repo	github.com/lennxink/taate-satl1	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+letta-ai/claude-subconscious	repo	github.com/letta-ai/claude-subconscious	1	HESAP	Letta ajanı Claude Code eklentisi; MIT, 2903★, push 2026-09-25; konuşmaları Letta sunucusuna gönderir (telemetri/gizlilik riski), claude-mem ile çakışır; sürekli bellek çift enjeksiyon	claude plugin marketplace add letta-ai/claude-subconscious (pin 4f766fbae398)	LETTA_API_KEY
+lighpanda-io/browseirelcases	repo	github.com/lighpanda-io/browseirelcases	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+lightricks/pr-2026-01-29	repo	github.com/lightricks/pr-2026-01-29	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+lingfengqaq/webnovel-writer	repo	github.com/lingfengqaq/webnovel-writer	1	RED	GPL-3.0 web roman yazma ajanı (7400★); projeyle ilgisiz, GPL		
+livingrichwithcoupons.com	servis	livingrichwithcoupons.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+llm-benchmarks.diegoromero.es	servis	llm-benchmarks.diegoromero.es	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+llms.anchorbrowser.io	servis	llms.anchorbrowser.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+login/login.com	repo	github.com/login/login.com	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+logs/editor.g	repo	github.com/logs/editor.g	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+logs/editor.log	repo	github.com/logs/editor.log	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+looplj/axonhub	repo	github.com/looplj/axonhub	1	AYRI-UYGULAMA	LLM ağ geçidi/SDK sunucusu; Apache-2.0, 5347★, push 2026-10-08; skill değil, kendi sunucu	docker/binary: github.com/looplj/axonhub @e863c6fe1942	provider anahtarları (ör. OPENAI_API_KEY)
+lordicon.com/licenses	servis	lordicon.com/licenses	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+lrepositorm/on.nt	repo	github.com/lrepositorm/on.nt	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+ltodavannd/ai01	repo	github.com/ltodavannd/ai01	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+ltodavaond/aio1	repo	github.com/ltodavaond/aio1	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+ltodavaood/aio1	repo	github.com/ltodavaood/aio1	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+ltssssss_jack/videos	repo	github.com/ltssssss_jack/videos	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+lucasrosati/claude-code-memory-setup	repo	github.com/lucasrosati/claude-code-memory-setup	1	RED	claude-mem zaten kurulu; aynı iş (bellek kurulum rehberi), MIT 1015★; çift bellek katmanı istemiyoruz		
+lukaponikvar/alxpravo	repo	github.com/lukaponikvar/alxpravo	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+lumalabs.ai	servis	lumalabs.ai	1	AYRI-UYGULAMA	Luma video üretim servisi; hesap		
+lusha	skill/mcp	-	1	HESAP	lusha-oss/lusha-mcp-plugin (MIT, 4★) yalnız aday; satış verisi/kişisel veri tarama riski, ücretli hesap; doğrulanmadı	claude plugin: github.com/lusha-oss/lusha-mcp-plugin (SHA kurulumdan önce çözülecek)	LUSHA_API_KEY
+madslorentzen/a-customne	repo	github.com/madslorentzen/a-customne	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+main/cover-aispiay	repo	github.com/main/cover-aispiay	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+main/cover-display	repo	github.com/main/cover-display	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+mainframe-two.vercel.app	servis	mainframe-two.vercel.app	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+maozi-114/mintima	repo	github.com/maozi-114/mintima	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+marketplace.reallusion.com	servis	marketplace.reallusion.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+mativ.com.pe	servis	mativ.com.pe	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		

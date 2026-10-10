@@ -1,0 +1,121 @@
+ad	tür	kaynak	video	SONUÇ	sebep / düzeltme	kurulum yolu	anahtar env adı
+harry0703/moneyprinterturbo	uygulama	github.com/harry0703/MoneyPrinterTurbo	8	AYRI-UYGULAMA	MIT ★129334 push 2026-10-09; py uygulaması (Docker/WebUI), CC eklentisi değil; LLM anahtarı ister	git clone @ b819f7e1213c (uygulama olarak)
+claude.com	servis	claude.com	7	ZATEN	Claude hesabı/Claude Code kullanımda
+airtable	MCP	github.com/domdomegg/airtable-mcp-server	6	HESAP	MIT ★456 push 2026-09-09; npm airtable-mcp-server 1.14.0	claude mcp add --scope user airtable -- npx -y airtable-mcp-server@1.14.0	AIRTABLE_API_KEY (varsayım, README'den doğrula)
+netlify.com	servis	netlify.com	4	HESAP	URL 200; Netlify hesabı; CLI MIT	npm i -g netlify-cli@27.12.0	NETLIFY_AUTH_TOKEN (varsayım)
+convex	skill	github.com/get-convex/agent-skills	4	KUR	Apache-2.0 ★65 push 2026-10-01; skill, anahtar gerekmez (convex npm yalnız proje bağımlılığı)	~/.claude/skills/ kopyası @ 2cfe645c87f9
+microsoft/github-copilot-for-azure	skill	github.com/microsoft/GitHub-Copilot-for-Azure	4	HESAP	★255 push 2026-10-09; lisans SPDX NOASSERTION (LICENSE dosyası var: kurulumdan önce oku); Azure aboneliği ister	~/.claude/skills/ kopyası @ f2526ae58149	az login oturumu (env yok); AZURE_SUBSCRIPTION_ID (varsayım)
+remote-control	özellik	-	4	ZATEN	Claude Code yerleşik özelliği; kurulacak paket yok
+developer.chrome.com	servis	developer.chrome.com	3	RED	doküman sitesi (URL 200), kurulacak şey yok
+platform.claude.com	servis	platform.claude.com	3	ZATEN	Anthropic API konsolu; hesap mevcut
+openrouter.ai	servis	openrouter.ai	3	HESAP	URL 200; yalnız API, npm paketi yok		OPENROUTER_API_KEY (varsayım)
+quickchart.io	servis	quickchart.io	3	RED	anahtarsız HTTP grafik API'si; kurulacak şey yok (typpo/quickchart sunucu kodu ayrı)
+kie.ai	servis	kie.ai	3	HESAP	URL 200; yalnız API		KIE_API_KEY (varsayım)
+minimax.io	servis	minimax.io	3	HESAP	URL 200; yalnız API		MINIMAX_API_KEY (varsayım)
+upload-post.com	servis	upload-post.com	3	HESAP	URL 200; yalnız API		UPLOAD_POST_API_KEY (varsayım)
+awwwards.com	servis	awwwards.com	3	RED	galeri sitesi, kurulacak şey yok
+community.n8n.io	servis	community.n8n.io	3	RED	forum, kurulacak şey yok
+deepseek-ai/eepeekhamness	CLI	github.com/deepseek-ai/deepseek-harness	3	ZATEN	OCR bozuk; gerçek repo deepseek-harness MIT ★246332, kurulum-turu-1.md'de HESAP GEREKIR olarak sınıflandı		DEEPSEEK_API_KEY
+fl/www.trendyol	repo	-	3	RED	bulunamadı (gh api 404; arama yalnız ★0-8 Trendyol MCP'leri, eşleşme doğrulanamaz)
+imessage	MCP	github.com/anipotts/imessage-mcp	3	RED	macOS'a özgü (Messages veritabanı); makine Windows. Referans: MIT ★27 push 2026-10-05
+jev/soguk-sais	repo	-	3	RED	bulunamadı (gh api 404, arama boş)
+keshav1sharma/browseros-agent	uygulama	github.com/browseros-ai/BrowserOS	3	AYRI-UYGULAMA	aday repo fork ★0 push 2025-09 (RED); gerçek kaynak BrowserOS AGPL-3.0 ★13854 push 2026-10-09, tarayıcı uygulaması	uygulama indirimi; sabit @ 9d4eaf6ae878
+opencode.ai	CLI	opencode.ai	3	AYRI-UYGULAMA	ayrı kodlama ajanı, CC eklentisi değil; npm MIT	npm i -g opencode-ai@1.18.35
+research/v23_snowy_elephant	repo	-	3	RED	bulunamadı (gh api 404, arama boş)
+vscode.dev	servis	vscode.dev	3	RED	web editörü, kapsam dışı
+zapler.com	servis	zapler.com	3	AYRI-UYGULAMA	URL 200; web servisi, paket/repo bulunamadı; içerik doğrulanmadı
+docs.kie.ai	servis	docs.kie.ai	2	HESAP	kie.ai dokümanı (aynı API)		KIE_API_KEY (varsayım)
+docs.typesafe.ai	servis	docs.typesafe.ai	2	RED	URL 200 ama paket/repo bulunamadı
+vercel.com	servis	vercel.com	2	HESAP	Vercel hesabı; CLI Apache-2.0	npm i -g vercel@63.1.2	VERCEL_TOKEN (varsayım)
+anthropics/claude-code-playground	demo	github.com/anthropics/claude-code-playground	2	KUR-duzeltmeli	Apache-2.0 ★177 push 2026-10-08; demo deposu, yalnız skills/ klasörü uygun; skills/ içeriği Tur 3c'de okunmadan kurulmaz	~/.claude/skills/ kopyası (skills/<ad>) @ 569c5283d9a0
+console.groq.com	servis	console.groq.com	2	HESAP	Groq hesabı; yalnız API		GROQ_API_KEY (varsayım)
+purpledoubled/locally-uncensored	uygulama	github.com/PurpleDoubleD/locally-uncensored	2	AYRI-UYGULAMA	AGPL-3.0 ★2124 push 2026-10-09; masaüstü yerel AI stüdyosu; lisans AGPL koşulu rapora	uygulama olarak; sabit @ 81691b182282
+tasteskill.dev	servis	tasteskill.dev	2	ZATEN	taste-skill (MIT) zaten kurulu
+docs.claude.com	servis	docs.claude.com	2	ZATEN	Anthropic dokümanı, kurulacak şey yok
+robolabs.so	servis	robolabs.so	2	RED	URL 200 ama paket/repo bulunamadı
+hermes-agent.nousresearch.com	servis	hermes-agent.nousresearch.com	2	AYRI-UYGULAMA	Hermes Agent: ayrı ajan çerçevesi, CC eklentisi değil
+pinterest.com	servis	pinterest.com	2	RED	sosyal site, kurulacak şey yok
+a24.raviklaassens.com	servis	a24.raviklaassens.com	2	RED	kişisel/portfolyo sitesi
+ackblitz-labs/bolt.diy	uygulama	github.com/stackblitz-labs/bolt.diy	2	AYRI-UYGULAMA	OCR: stackblitz-labs; MIT ★19939 push 2026-10-09; web uygulaması, LLM anahtarı ister	git clone @ 10d94fb8daec
+agent-teams	özellik	-	2	ZATEN	Claude Code yerleşik özelliği; kurulacak paket yok
+agricidaniel/claude-ads	plugin	github.com/AgriciDaniel/claude-ads	2	KUR-duzeltmeli	MIT ★9848 push 2026-10-07; plugin+py betikleri: betik izinleri okunmadan açılmaz; reklam platformu token'ları isteğe bağlı	claude plugin marketplace add AgriciDaniel/claude-ads + install (pin ac2164493391: kurulumdan sonra SHA doğrula)
+alion/wjtzbodlenpqjrtcpsv	repo	-	2	RED	bulunamadı (anlamsız ad, gh api 404)
+anthropics/sk111s	skill	github.com/anthropics/skills	2	ZATEN	OCR bozuk; anthropics/skills, example-skills@anthropic-agent-skills kurulu
+anthropics/sk11ls	skill	github.com/anthropics/skills	2	ZATEN	aynı (OCR bozuk); example-skills@anthropic-agent-skills kurulu
+app.notion.com	servis	app.notion.com	2	HESAP	Notion hesabı; resmi barındırılan MCP/API		NOTION_TOKEN (varsayım)
+app.pocketsflow.com	servis	app.pocketsflow.com	2	AYRI-UYGULAMA	web uygulaması, URL 200
+apps/ecc-tools	GitHub App	github.com/apps/ecc-tools	2	AYRI-UYGULAMA	GitHub App (ecc.tools), repo değil; ecc eklentisi zaten kurulu
+arc/chart.tax	repo	-	2	RED	bulunamadı (gh api 404; arama ilgisiz)
+besyayt-outpttg/-altina-kaydet-ve	repo	-	2	RED	bulunamadı (OCR parçası, anlamsız)
+caveman	skill	github.com/JuliusBrussee/caveman	2	ZATEN	Apache-2.0 ★110773 push 2026-10-09 @ 2e08b9177c07; envanterde npm @caveman-ai/cli@1.3.4 kurulu (aynı proje olduğu doğrulanmadı; npm 'caveman' başka paket, kullanma)
+cchainpocket.pocketsflow.com/product-video	servis	chainpocket.pocketsflow.com/product-video	2	AYRI-UYGULAMA	pocketsflow alt yolu, URL 200
+chatgpt.com	servis	chatgpt.com	2	RED	rakip hizmet, kurulacak şey yok (403)
+claude-code-curriculum-deploy.vercel.app	servis	claude-code-curriculum-deploy.vercel.app	2	RED	tek müfredat sitesi, kurulacak şey yok
+claude-code/testing	repo	-	2	RED	bulunamadı (anlamsız ad)
+comfyui	uygulama	comfyui + artokun/comfyui-mcp	2	AYRI-UYGULAMA	önce ComfyUI uygulaması şart (GPU); MCP adayı artokun/comfyui-mcp MIT ★802 push 2026-10-05	ComfyUI ayrı kurulur; MCP sonra
+console.typesafe.ai	servis	console.typesafe.ai	2	RED	URL 403; paket/repo bulunamadı
+docs.github.com	servis	docs.github.com	2	RED	doküman sitesi
+draftly.space/3d-builder	repo	-	2	RED	bulunamadı (gh api 404, arama boş)
+firefox.com	servis	firefox.com	2	RED	tarayıcı, kapsam dışı
+geminicli.com	CLI	geminicli.com	2	AYRI-UYGULAMA	ayrı ajan CLI; npm Apache-2.0	npm i -g @google/gemini-cli@0.63.0	GEMINI_API_KEY (varsayım)
+ghcr.io	servis	ghcr.io	2	RED	kapsayıcı kayıt defteri, kurulacak şey yok
+h-mmer/pentest-a	repo	-	2	RED	kapsam dışı
+hand_addiione/point.r	repo	-	2	RED	bulunamadı (gh api 404)
+hoainho/mg2thr	repo	-	2	RED	bulunamadı (gh api 404; kullanıcı hoainho'nun benzer adlı repo'su yok)
+hunter	MCP	hunter.io	2	RED	doğrulanabilir kaynak yok (Hunter.io MCP repoları ★0; npm 'hunter' boş yer tutucu)
+iilab-al/peagent	repo	github.com/IILab-AI/PEagent	2	RED	★26 son push 2025-04-07, lisans/kullanım belirsiz
+img.ly	servis	img.ly	2	HESAP	URL 200; ticari SDK (lisans anahtarı); kurulum yolu doğrulanmadı
+interfaces.dev	servis	interfaces.dev	2	RED	URL 200 ama paket/repo bulunamadı
+ir.minimax.cn	servis	ir.minimax.cn	2	RED	yatırımcı ilişkileri sitesi
+jev-chat/jev-chat-jarvis	skill	github.com/jev-chat/jev-chat-jarvis	2	KUR-duzeltmeli	MIT ★7522 push 2026-10-08; kökte cn/ ve global/; hangisi skill olduğu ve izinleri kurulumdan önce okunmalı	~/.claude/skills/ kopyası @ fdf8d28c811b
+key.ai	servis	key.ai	2	RED	URL 200 ama paket/repo bulunamadı
+lovable	skill	github.com/Brad-Cat/lovable-claude-code-skills	2	RED	kaynak zayıf (★1); lovable.dev web uygulaması; npm 'lovable' boş
+lovable.dev	servis	lovable.dev	2	AYRI-UYGULAMA	web uygulaması (URL 403)
+mcp.higgsfield.a	servis	mcp.higgsfield.a	2	RED	URL doğrulanamadı (OCR kesik, mcp.higgsfield.ai olabilir); bulunamadı
+mukul975/anthropic-cybersecurity-skills	repo	-	2	RED	kapsam dışı
+nsole.apiry.com/sto	servis	-	2	RED	bulunamadı (OCR kesik, bağlantı hatası)
+omer/omer_vault	repo	-	2	RED	bulunamadı (gh api 404)
+ongyi-mai/z-image-turbo	model	Tongyi-MAI/Z-Image-Turbo	2	RED	bulunamadı (GitHub'da yok; model GPU ister)
+param-shankar/hiervue-ai-interviewer	repo	github.com/Param-shankar/Hiervue-AI-Interviewer-	2	RED	★3 son push 2024-04-21, lisans yok
+quickmagic.ai/home	servis	quickmagic.ai	2	AYRI-UYGULAMA	web uygulaması, URL 200
+reactbits.dev	servis	reactbits.dev	2	RED	React bileşen kitaplığı, skill/MCP değil
+remotion-dev/element-p	repo	-	2	RED	bulunamadı (gh api 404)
+remotion-dev/ski1ls	skill	github.com/remotion-dev/skills	2	ZATEN	OCR bozuk; remotion-* skill'leri envanterde (12 adet) kurulu; lisans SPDX yok (★4961)
+replit.com	servis	replit.com	2	AYRI-UYGULAMA	web IDE
+schemastore/schemastore	veri	github.com/SchemaStore/schemastore	2	RED	Apache-2.0 ★3855; JSON şema veri deposu, kurulacak araç değil
+sent.dm	servis	sent.dm	2	HESAP	URL 200; mesajlaşma API'si		SENT_API_KEY (varsayım)
+sponsors/leonxlnx	repo	-	2	RED	GitHub Sponsors sayfası, repo değil
+stripe.com	servis	stripe.com	2	HESAP	Stripe hesabı; SDK MIT	npm i stripe@23.0.0 (proje bağımlılığı)	STRIPE_API_KEY (varsayım)
+tastecode.dev	servis	tastecode.dev	2	RED	URL 200 ama paket/repo bulunamadı
+ts.ai	servis	ts.ai	2	RED	URL 200 ama paket/repo bulunamadı
+tt-a1i/archify	skill	github.com/tt-a1i/archify	2	KUR	MIT ★81166 push 2026-10-09; diyagram skill'i; SKILL.md yolunu kopyalamadan önce doğrula	~/.claude/skills/ kopyası @ 7f483b61e8f6
+v0.app	servis	v0.app	2	AYRI-UYGULAMA	Vercel web uygulaması
+xoogler.key.ai	servis	xoogler.key.ai	2	RED	URL 200 ama paket/repo bulunamadı
+zseven-w/openpencil	uygulama	github.com/ZSeven-W/openpencil	2	AYRI-UYGULAMA	MIT ★6113 push 2026-10-09; Rust/Tauri vektör tasarım uygulaması	uygulama; sabit @ 40902a3fa595
+canvasui.dev	servis	canvasui.dev	1	RED	URL 200 ama paket/repo bulunamadı
+gunlukmenu.com	servis	gunlukmenu.com	1	RED	tek site, kurulacak şey yok
+docs.fal.ai	servis	docs.fal.ai	1	HESAP	fal hesabı; npm @fal-ai/client MIT	npm i @fal-ai/client@1.10.1 (proje bağımlılığı)	FAL_KEY (varsayım)
+docs.stripe.com	servis	docs.stripe.com	1	HESAP	stripe.com ile aynı		STRIPE_API_KEY (varsayım)
+kimaki.dev	servis	kimaki.dev	1	RED	URL 200 ama paket/repo bulunamadı
+tldraw.com	servis	tldraw.com	1	AYRI-UYGULAMA	web çizim uygulaması
+app.lumalabs.ai	servis	app.lumalabs.ai	1	HESAP	Luma hesabı; web uygulaması		LUMA_API_KEY (varsayım)
+openship.io	servis	openship.io	1	AYRI-UYGULAMA	URL 200; web servisi, paket/repo bulunamadı
+omarchy.org	servis	omarchy.org	1	RED	Linux dağıtımı, kapsam dışı
+docs.anchorbrowser.io	servis	docs.anchorbrowser.io	1	HESAP	URL 200; API hesabı		ANCHOR_API_KEY (varsayım)
+gist.github.com	servis	gist.github.com	1	RED	GitHub gist sitesi
+knadh/listmonk	uygulama	github.com/knadh/listmonk	1	AYRI-UYGULAMA	AGPL-3.0 ★23726 push 2026-10-07; kendi sunucuna kurulan bülten uygulaması	sabit @ 82db22ce7a06
+cal.com	servis	cal.com	1	AYRI-UYGULAMA	web takvim uygulaması
+docs.inference.net	servis	docs.inference.net	1	HESAP	URL 200; API hesabı		INFERENCE_API_KEY (varsayım)
+lordicon.com	servis	lordicon.com	1	AYRI-UYGULAMA	animasyonlu simge servisi (web)
+platform.minimax.cn	servis	platform.minimax.cn	1	HESAP	minimax API konsolu		MINIMAX_API_KEY (varsayım)
+releases.ubuntu.com	servis	releases.ubuntu.com	1	RED	ISO indirme sitesi
+supabase.com	servis	supabase.com	1	ZATEN	supabase eklentisi ve MCP bağlı
+code.visualstudio.com	servis	code.visualstudio.com	1	RED	editör, kapsam dışı
+docs.httpsms.com	servis	docs.httpsms.com	1	HESAP	URL 200; SMS API hesabı		HTTPSMS_API_KEY (varsayım)
+arena.ai	servis	arena.ai	1	AYRI-UYGULAMA	model karşılaştırma web sitesi
+artificialanalysis.ai	servis	artificialanalysis.ai	1	RED	benchmark sitesi, kurulacak şey yok
+ccsub.net	servis	ccsub.net	1	RED	URL 200 ama paket/repo bulunamadı
+cdn.jsdelivr.net	servis	cdn.jsdelivr.net	1	RED	CDN, kurulacak şey yok
+citevue.com	servis	citevue.com	1	AYRI-UYGULAMA	URL 200; web servisi, paket/repo bulunamadı
+davila7/claude-code-templates	plugin	github.com/davila7/claude-code-templates	1	KUR-duzeltmeli	MIT ★32502 push 2026-10-09; plugin+npm 1.29.7; CLI analitik/telemetri içerebilir: kaynakta ara ve kapat, .mcp.json ve .env.example izinlerini oku	claude plugin marketplace add davila7/claude-code-templates + install (pin a34435945926: kurulumdan sonra SHA doğrula)
+docs.openclaw.ai	servis	docs.openclaw.ai	1	AYRI-UYGULAMA	OpenClaw ayrı ajan, CC eklentisi değil

@@ -1,0 +1,121 @@
+ad	tür	kaynak	video	SONUÇ	sebep / düzeltme	kurulum yolu	anahtar env adı
+docs.pocketsflow.com	servis	docs.pocketsflow.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+docs.upload-post.com	servis	docs.upload-post.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+firecrawl/firecrawl-docs	repo	github.com/firecrawl/firecrawl-docs	1	RED	★99 push 2026-10-09 lisans yok; dokümantasyon deposu, kurulacak şey yok; Firecrawl CLI/eklenti zaten kurulum-turu-1'de HESAP		
+instacart/snacks	repo	github.com/instacart/snacks	1	RED	Apache-2.0 ★82 push 2025-05-30; Instacart React bileşen kütüphanesi (ic-snacks), skill/eklenti değil		
+newbondlab.com	servis	newbondlab.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+openclaw/openclaw-windows-node	repo	github.com/openclaw/openclaw-windows-node	1	AYRI-UYGULAMA	MIT ★2142 push 2026-10-09; OpenClaw Windows eşlik uygulaması, CC eklentisi değil	git clone @ 037c17dcb581 (uygulama olarak)	
+physicsteachermomma.com	servis	physicsteachermomma.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+roadtoglobal.org	servis	roadtoglobal.org	1	RED	servis/site (URL 200), kurulacak paket yok		
+selenium.dev	servis	selenium.dev	1	RED	doküman sitesi (URL 200); tarayıcı otomasyonu için playwright zaten var		
+sterll/claude-terminal	repo	github.com/sterll/claude-terminal	1	AYRI-UYGULAMA	GPL-3.0 ★75 push 2026-10-08; Claude Code için masaüstü terminal uygulaması (npm claude-terminal@1.3.6); GPL koşulu: kod kopyalama yok, yalnız bağımsız uygulama	git clone @ 7dc742cf9b24 (uygulama olarak)	
+wavespeed.ai	servis	wavespeed.ai	1	HESAP	WaveSpeed görsel/video API servisi (URL 200); paket doğrulanmadı		WAVESPEED_API_KEY (varsayım)
+10web.io/website-builder	servis	10web.io/website-builder	1	RED	bulunamadı: URL açılmadı (404)		
+127.0.0.:3080	servis	127.0.0.:3080	1	RED	bulunamadı: URL açılmadı (ERR)		
+127.0.8.1:5173	servis	127.0.8.1:5173	1	RED	bulunamadı: URL açılmadı (ERR)		
+127.o.o.1:4343.you	servis	127.o.o.1:4343.you	1	RED	bulunamadı: URL açılmadı (ERR)		
+1ss/1o8	repo	github.com/1ss/1o8	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+247.cappenlabs.com.br	servis	247.cappenlabs.com.br	1	RED	servis/site (URL 200), kurulacak paket yok		
+2sgithub.com/mirayatech	servis	2sgithub.com/mirayatech	1	RED	bulunamadı: URL açılmadı (ERR)		
+310.0k/1.0m	repo	github.com/310.0k/1.0m	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+320.0k/1.0m	repo	github.com/320.0k/1.0m	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+350-creatives/channel	repo	github.com/350-creatives/channel	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+350-creatives/transcri	repo	github.com/350-creatives/transcri	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+4.9k/month	repo	github.com/4.9k/month	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+40.0k/1.0m	repo	github.com/40.0k/1.0m	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+60.0k/1.0m	repo	github.com/60.0k/1.0m	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+90c-4555-98de-43ee44a6adef/scratchpad	repo	github.com/90c-4555-98de-43ee44a6adef/scratchpad	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+90s/irving	repo	github.com/90s/irving	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+abaaesthetic.com	servis	abaaesthetic.com	1	RED	bulunamadı: URL açılmadı (ERR)		
+abatable.com	servis	abatable.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+ably.com	servis	ably.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+aboutamazon.com	servis	aboutamazon.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+acme/order-service	repo	github.com/acme/order-service	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+acme/submissions-apl	repo	github.com/acme/submissions-apl	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+activecampaign	belirsiz	-	1	RED	bulunamadı: resmi skill/MCP yok; npm activecampaign@1.2.5 eski API sarmalayıcı SDK		
+adamjelley.github.io	servis	adamjelley.github.io	1	RED	servis/site (URL 200), kurulacak paket yok		
+addilone/polnt.r	repo	github.com/addilone/polnt.r	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+adele.uxpin.com	servis	adele.uxpin.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+adobe-for-creativity	belirsiz	-	1	HESAP	claude-plugins-official pazaryeri listesinde mevcut (ad doğrulandı, içerik/lisans doğrulanmadı); Adobe hesabı ister	/plugin install adobe-for-creativity@claude-plugins-official	Adobe hesabı oturumu (varsayım)
+aerr/esterecties.tet	repo	github.com/aerr/esterecties.tet	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+agent.minimax.cn	servis	agent.minimax.cn	1	RED	servis/site (URL 200), kurulacak paket yok		
+agsfield.ai/mcp	servis	agsfield.ai/mcp	1	RED	bulunamadı: URL açılmadı (ERR)		
+ai.google.dev	servis	ai.google.dev	1	HESAP	Gemini API doküman/anahtar sitesi (URL 200); tek başına kurulacak paket yok, Gemini API anahtarı gerekirse HESAP		GEMINI_API_KEY (varsayım)
+ai.studio	servis	ai.studio	1	RED	servis/site (URL 200), kurulacak paket yok		
+aiginxuancai/mintimage	repo	github.com/aiginxuancai/mintimage	1	AYRI-UYGULAMA	OCR düzeltmesi aiqinxuancai/MintImage; ★106 push 2026-09-09; LİSANS YOK (kurulmaz, yalnız bilgi); AI görsel istemcisi, CC eklentisi değil	git clone lisans netleşince (kod kopyalama yok)	OpenAI uyumlu API anahtarı
+aixploria.com	servis	aixploria.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+alibaba/open-code-review	repo	github.com/alibaba/open-code-review	1	HESAP	Apache-2.0 ★45173 push 2026-10-08; Go CLI `ocr` + CC eklentisi (plugins/open-code-review, .claude-plugin); LLM sağlayıcı anahtarı ister; install.sh/postinstall binary indirir: sürüm sabitle, betiği çalıştırma	npm i -g @alibaba-group/open-code-review@1.12.13 (repo @ fabbdb296b0d); eklenti: plugins/open-code-review/README.md#claude-code	sağlayıcı anahtarı (README Configuration'dan doğrula; ad varsayım)
+allaboutcookies.org	servis	allaboutcookies.org	1	RED	servis/site (URL 403), kurulacak paket yok		
+amandabraga.com	servis	amandabraga.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+amazon.jobs	servis	amazon.jobs	1	RED	servis/site (URL 200), kurulacak paket yok		
+amazon.science	servis	amazon.science	1	RED	servis/site (URL 200), kurulacak paket yok		
+anara.com	servis	anara.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+angles/sub-questions	repo	github.com/angles/sub-questions	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+animationworkshop.via.dk	servis	animationworkshop.via.dk	1	RED	servis/site (URL 200), kurulacak paket yok		
+anthropic-ai/claude-agent-sdk-win32-x64	repo	github.com/anthropic-ai/claude-agent-sdk-win32-x64	1	RED	GitHub deposu yok (404); npm platform ikilisi @anthropic-ai/claude-agent-sdk bağımlılığı, tek başına kurulmaz		
+anthropic/claude-opus-5.5	repo	github.com/anthropic/claude-opus-5.5	1	RED	bulunamadı: model adı, repo yok (404)		
+anthropic/claude-sonnet-5	repo	github.com/anthropic/claude-sonnet-5	1	RED	bulunamadı: model adı, repo yok (404)		
+anthropics/claude-plugins-community	repo	github.com/anthropics/claude-plugins-community	1	RED	Apache-2.0 ★4600 push 2026-10-05; salt-okunur topluluk pazaryeri aynası: kurulacak tek şey yok, her eklenti ayrı aday olarak değerlendirilir		
+anthropics/sk1lls	repo	github.com/anthropics/sk1lls	1	RED	bulunamadı (404): OCR bozuk ad		
+antigravity.google	servis	antigravity.google	1	AYRI-UYGULAMA	Google Antigravity IDE (URL 200), CC eklentisi değil		
+antihub-project/antigv-plugin	repo	github.com/antihub-project/antigv-plugin	1	RED	AntiHub-Project/Antigv-plugin ★33 push 2026-02-26; lisans NOASSERTION; Antigravity→OpenAI vekil sunucusu (hesap belirteci aktarımı), CC eklentisi değil		
+api-inference.modelscope.ai	servis	api-inference.modelscope.ai	1	RED	bulunamadı: URL açılmadı (404)		
+api.htpsms.com	servis	api.htpsms.com	1	RED	bulunamadı: URL açılmadı (ERR)		
+api.openaf.	servis	api.openaf.	1	RED	bulunamadı: URL açılmadı (ERR)		
+api.siliconflow.en	servis	api.siliconflow.en	1	RED	bulunamadı: URL açılmadı (ERR)		
+api.together.ai	servis	api.together.ai	1	HESAP	Together AI API (URL 200); eklenti değil, API anahtarlı servis		TOGETHER_API_KEY (varsayım)
+apify/instagram-reel-scraper	repo	github.com/apify/instagram-reel-scraper	1	RED	bulunamadı: GitHub deposu yok (Apify mağaza aktörü, 404)		
+apihub.agnes-ai.com/v1	servis	apihub.agnes-ai.com/v1	1	RED	bulunamadı: URL açılmadı (404)		
+app.brantial.ai/2344joverview	servis	app.brantial.ai/2344joverview	1	RED	bulunamadı: URL açılmadı (404)		
+app.emergent.sh/home	servis	app.emergent.sh/home	1	RED	web uygulaması (vibe-coding servisi), URL 200; CC eklentisi/CLI doğrulanmadı		
+app.n8n-mcp.com	servis	app.n8n-mcp.com	1	ZATEN	n8n-mcp (czlonkowski/n8n-mcp MIT ★23052) kurulum-turu-1'de HESAP olarak kayıtlı; bu satır barındırılan servis		
+app.notion.com/chat	servis	app.notion.com/chat	1	RED	Notion giriş/OAuth alt yolu (URL 200); Notion MCP (mcp.notion.com) envanterde ayrı kayıtlı		
+app.notion.com/login	servis	app.notion.com/login	1	RED	Notion giriş/OAuth alt yolu (URL 200); Notion MCP (mcp.notion.com) envanterde ayrı kayıtlı		
+app.notion.com/oauth2callback	servis	app.notion.com/oauth2callback	1	RED	Notion giriş/OAuth alt yolu (URL 200); Notion MCP (mcp.notion.com) envanterde ayrı kayıtlı		
+app.notion.com/onboarding	servis	app.notion.com/onboarding	1	RED	Notion giriş/OAuth alt yolu (URL 200); Notion MCP (mcp.notion.com) envanterde ayrı kayıtlı		
+app.notion.com/signup	servis	app.notion.com/signup	1	RED	Notion giriş/OAuth alt yolu (URL 200); Notion MCP (mcp.notion.com) envanterde ayrı kayıtlı		
+app.notion.com/verifynopopupblockerhtmlandredirect	servis	app.notion.com/verifynopopupblockerhtmlandredirect	1	RED	Notion giriş/OAuth alt yolu (URL 200); Notion MCP (mcp.notion.com) envanterde ayrı kayıtlı		
+app.omagic.ai	servis	app.omagic.ai	1	RED	servis/site (URL 200), kurulacak paket yok		
+app.upload-post.com/api-keys	servis	app.upload-post.com/api-keys	1	RED	Upload-Post servis paneli (URL 200); resmi CC paketi doğrulanmadı		
+arc/bashboard.tax	repo	github.com/arc/bashboard.tax	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+arcade.dev	servis	arcade.dev	1	HESAP	Arcade MCP/araç ağ geçidi servisi (URL 200); paket doğrulanmadı		ARCADE_API_KEY (varsayım)
+arculus.cappenlabs.com.br	servis	arculus.cappenlabs.com.br	1	RED	servis/site (URL 200), kurulacak paket yok		
+ark.cn-beijing.volces.com	servis	ark.cn-beijing.volces.com	1	RED	servis/site (URL 401), kurulacak paket yok		
+articleforge.com	servis	articleforge.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+artstation.com	servis	artstation.com	1	RED	servis/site (URL 403), kurulacak paket yok		
+arxiyorg	belirsiz	-	1	RED	bulunamadı: OCR bozuk ad, kaynak bulunamadı		
+astra.grandviewresearch.com	servis	astra.grandviewresearch.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+astral.st	servis	astral.st	1	RED	bulunamadı: URL açılmadı (ERR)		
+audience/performance	repo	github.com/audience/performance	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+aut.ac.nz	servis	aut.ac.nz	1	RED	servis/site (URL 403), kurulacak paket yok		
+auth0	belirsiz	-	1	HESAP	auth0/auth0-mcp-server MIT ★122 push 2026-10-06; npm @auth0/auth0-mcp-server yalnız 0.1.0-beta.19 (beta): yönetim API'sine erişir, geniş yetki riski; Auth0 tenant ister. npm 'auth0' SDK'dır, MCP değil	claude mcp add auth0 -- npx -y @auth0/auth0-mcp-server@0.1.0-beta.19 run (repo @ 10390b40dc48); beta: kurmadan önce izin kapsamını gözden geçir	Auth0 oturumu (auth0 login; env yok)
+autodownload/profile_downloads	repo	github.com/autodownload/profile_downloads	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+automationorbit.com	servis	automationorbit.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+b0o/schemastore.nvim	repo	github.com/b0o/schemastore.nvim	1	RED	Apache-2.0 ★1040; Neovim eklentisi, CC ile ilgisiz		
+base-ui.21st.dev	servis	base-ui.21st.dev	1	RED	21st.dev bileşen sitesi; 21st MCP envanterde kayıtlı		
+basketikun/infinite-canvas	repo	github.com/basketikun/infinite-canvas	1	AYRI-UYGULAMA	MIT ★7426 push 2026-09-23; AI üretim canvas web uygulaması, CC eklentisi değil; üretim sağlayıcı anahtarları ister	git clone @ dab19adc0847 (uygulama olarak)	
+bei/code-frome	repo	github.com/bei/code-frome	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+bing.com	servis	bing.com	1	RED	arama motoru sitesi, kurulacak şey yok		
+birthandbondbysheethal.com	servis	birthandbondbysheethal.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+blotato.com	servis	blotato.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+boards.greenhouse.lo	servis	boards.greenhouse.lo	1	RED	bulunamadı: URL açılmadı (ERR)		
+brandmark.io	servis	brandmark.io	1	RED	servis/site (URL 200), kurulacak paket yok		
+browser-use/brow	repo	github.com/browser-use/brow	1	AYRI-UYGULAMA	KURTARILDI → browser-use/browser-use; iii; MIT ★117430; py kütüphane/ajan, LLM anahtarı ister	sabit @ c75e8476e26d18b7617643bc2ae082fae8eae431	
+browser-use/brows	repo	github.com/browser-use/brows	1	AYRI-UYGULAMA	KURTARILDI → browser-use/browser-use; iii; MIT ★117430; py kütüphane/ajan, LLM anahtarı ister	sabit @ c75e8476e26d18b7617643bc2ae082fae8eae431	
+browser-use/jev-ultrafast	repo	github.com/browser-use/jev-ultrafast	1	AYRI-UYGULAMA	MIT ★22476 push 2026-09-30; py tarayıcı ajanı (TypeSafe Jev + küçük LLM), CC eklentisi değil; LLM anahtarı ister; bulut bekleme listesi tanıtımı var	git clone @ 1231850a0bf1 (uygulama olarak)	
+bs-393/ai-labs-claude-skills	repo	github.com/bs-393/ai-labs-claude-skills	1	KUR-duzeltmeli	KURTARILDI → ailabs-393/ai-labs-claude-skills; MIT ★455 push 2025-11 (bayat); packages/ skill'lerini elle kopyala, install-skills.mjs okunmadan çalıştırma	sabit @ 1a12bc7aadcc7b211f77a7455db454b77a71f827	
+bspcertification.org	servis	bspcertification.org	1	RED	servis/site (URL 200), kurulacak paket yok		
+build.nvidia.com/models	servis	build.nvidia.com/models	1	RED	NVIDIA model kataloğu sitesi (URL 200), kurulacak şey yok		
+buildmyagent.io	servis	buildmyagent.io	1	RED	servis/site (URL 200), kurulacak paket yok		
+builtkindly.com	servis	builtkindly.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+c./program	repo	github.com/c./program	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+c440.0k/1.0m	repo	github.com/c440.0k/1.0m	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+canva.com	servis	canva.com	1	HESAP	Canva hesabı; mcp.canva.com/mcp 401 döndü (uç var, OAuth ister); paket/lisans doğrulanmadı	claude mcp add --transport http canva https://mcp.canva.com/mcp (OAuth)	Canva OAuth (env yok)
+canvas-ui/particle-reveal-react	repo	github.com/canvas-ui/particle-reveal-react	1	RED	bulunamadı: GitHub 404, arama uygun sonuç vermedi (OCR bozuk ad)		
+caoa.com.br	servis	caoa.com.br	1	RED	servis/site (URL 200), kurulacak paket yok		
+cappen.com	servis	cappen.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+careers.gogle.com	servis	careers.gogle.com	1	RED	bulunamadı: URL açılmadı (ERR)		
+cartoonitalia.it	servis	cartoonitalia.it	1	RED	servis/site (URL 200), kurulacak paket yok		
+cascadeur.com	servis	cascadeur.com	1	AYRI-UYGULAMA	ticari masaüstü animasyon uygulaması (URL 200), CC eklentisi değil		
+casky.ai	servis	casky.ai	1	RED	servis/site (URL 200), kurulacak paket yok		
+catsgym.com	servis	catsgym.com	1	RED	servis/site (URL 200), kurulacak paket yok		

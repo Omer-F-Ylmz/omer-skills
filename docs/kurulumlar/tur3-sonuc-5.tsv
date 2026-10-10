@@ -1,0 +1,121 @@
+ad	tür	kaynak	video	SONUÇ	sebep / düzeltme	kurulum yolu	anahtar env adı
+mattn/go-sqlite3	repo	github.com/mattn/go-sqlite3	1	RED	Go kütüphanesi (MIT, 9247★, push 2026-09-28); skill/CLI/MCP değil		
+mayl-yaz3lim/seuklyat-pano	repo	github.com/mayl-yaz3lim/seuklyat-pano	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+maysunsolar.com	servis	maysunsolar.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+maysunsolar.it	servis	maysunsolar.it	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+mcp.zapier.com	servis	mcp.zapier.com	1	HESAP	barındırılan Zapier MCP; Zapier hesabı ve ücretli görev sınırı; URL/anahtar kullanıcıya özel		env adı doğrulanmadı
+meetingdevices.withgoogle.com	servis	meetingdevices.withgoogle.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+megalinter.github.io	servis	megalinter.github.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+meta.ai	servis	meta.ai	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+metr.org	servis	metr.org	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+mh/apartmentanimation	repo	github.com/mh/apartmentanimation	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+mh/mh_character.fbx	repo	github.com/mh/mh_character.fbx	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+microsoft/azure-s	repo	github.com/microsoft/azure-s	1	HESAP	OCR → microsoft/azure-skills: resmî eklenti (MIT, 1554★, push 2026-10-09); Azure aboneliği gerekir	claude plugin marketplace add microsoft/azure-skills (pin 0727d81638d6: kurulumdan sonra SHA doğrula)	az login (env yok)
+microsoft/azure-sk111s	repo	github.com/microsoft/azure-sk111s	1	HESAP	OCR → microsoft/azure-skills (yukarıdaki satırla aynı kaynak)	claude plugin marketplace add microsoft/azure-skills (pin 0727d81638d6)	az login (env yok)
+minimaxi.com/v1	servis	minimaxi.com/v1	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+mirayatech123/mirayatechl23	repo	github.com/mirayatech123/mirayatechl23	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+miro.cam	servis	miro.cam	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+mizorewww/laya-mlx	repo	github.com/mizorewww/laya-mlx	1	RED	Apple MLX çalışma zamanı (Apache-2.0, 6853★); Windows'ta çalışmaz, kütüphane		
+mlabenne/harmless_atpaca	repo	github.com/mlabenne/harmless_atpaca	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+mm0/world	repo	github.com/mm0/world	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+modernc.org/libc	servis	modernc.org/libc	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+morningside.ai	servis	morningside.ai	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+motricese.com.br	servis	motricese.com.br	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+msitarzewski/agency-agents	repo	github.com/msitarzewski/agency-agents	1	KUR-duzeltmeli	MIT, 158525★, push 2026-10-07; dev yığını: yalnız seçili bölümler (engineering/design/security) kopyalanır, toplu kurulum betiği çalıştırılmaz (bağlam şişer)	agent dosyası kopyası ~/.claude/agents/ @f99f6aa910a4	
+mssolarmodules.com	servis	mssolarmodules.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+multimodalart/qwen-image-multiple-a	repo	github.com/multimodalart/qwen-image-multiple-a	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+musistudio/claude-code-router	repo	github.com/musistudio/claude-code-router	1	RED	MIT, 37604★, push 2026-10-09; yerel vekil ANTHROPIC_BASE_URL'yi ele geçirir, headroom vekiliyle çakışır; sağlayıcı anahtarı ister		
+n.dev/lab-guess	servis	n.dev/lab-guess	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+n8n.io	servis	n8n.io	1	AYRI-UYGULAMA	n8n iş akışı uygulaması; hesap/sunucu		
+nandhakishorm/laya	repo	github.com/nandhakishorm/laya	1	RED	karar modeli kütüphanesi (Apache-2.0, 31970★); skill/MCP değil		
+nateherkai/herk-2.0	repo	github.com/nateherkai/herk-2.0	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+nathanhodgson.ai	servis	nathanhodgson.ai	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ndard/motion-control	repo	github.com/ndard/motion-control	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+ndolestudio/htpsms-go	repo	github.com/ndolestudio/htpsms-go	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+ndolestudio/httpsms	repo	github.com/ndolestudio/httpsms	1	AYRI-UYGULAMA	Android SMS ağ geçidi sunucusu (AGPL-3.0, 5951★, push 2026-10-06); skill/MCP değil; hesap		
+neondoorlit.com	servis	neondoorlit.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+netflix.com	servis	netflix.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+netlify	cli/skill/mcp?		1	HESAP	resmî @netlify/mcp (ISC) 1.18.0; netlify-cli 27.12.0 (MIT, 1921★); Netlify hesabı	npm i -g @netlify/mcp@1.18.0	NETLIFY_AUTH_TOKEN
+nev/ed.etart	repo	github.com/nev/ed.etart	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+news-oceanacidification-icc.org	servis	news-oceanacidification-icc.org	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+news.ycombinator.com	servis	news.ycombinator.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+nexrone.com	servis	nexrone.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+nimble	cli/skill/mcp?		1	RED	bulunamadı: belirsiz ad, GitHub aramasında ilgili skill/CLI/MCP yok		
+nizos/tdd-guard	repo	github.com/nizos/tdd-guard	1	KUR-duzeltmeli	MIT, 2360★, push 2026-10-05; Claude Code TDD hook'u (npm + .claude-plugin); hook her Write/Edit'te ek model çağrısı yapar: kurulumdan önce hooks.json oku, çağrı sınırı koy; ponytail ile örtüşür	npm i -g tdd-guard@1.7.0 (repo @7245912d8a36)	
+nominatim.openstreetmap.org	servis	nominatim.openstreetmap.org	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+notion.com	servis	notion.com	1	AYRI-UYGULAMA	Notion uygulaması; hesap		
+now./acy	repo	github.com/now./acy	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+ntgroup/echomimic_	repo	github.com/ntgroup/echomimic_	1	AYRI-UYGULAMA	KURTARILDI → antgroup/echomimic; iii; Apache-2.0 ★4313; GPU modeli; ÖNERİLMEZ: yüz/ses sentezi (kişisel veri/gri alan), GPU yok	sabit @ c32b3a557003f84ead1483a2d2386035685d984d	
+nvidia/nemotron-3-ultra-550b-a55b	repo	github.com/nvidia/nemotron-3-ultra-550b-a55b	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+oa-icc.ipsl.fr	servis	oa-icc.ipsl.fr	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ocalhost:4173	skill		1	RED	yerel geliştirme adresi; kurulum nesnesi değil		
+od/workffle_upioad_re	repo	github.com/od/workffle_upioad_re	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+odysseeclinic.com.au	servis	odysseeclinic.com.au	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ollama.com/download	servis	ollama.com/download	1	AYRI-UYGULAMA	Ollama yerel çalıştırıcı (uygulama)		
+ollama.com/search	servis	ollama.com/search	1	AYRI-UYGULAMA	Ollama model kataloğu (uygulama)		
+om/google-maps	repo	github.com/om/google-maps	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+omacom/try-omarchy	repo	github.com/omacom/try-omarchy	1	RED	Omarchy (Linux masaüstü) deneme betiği; MIT, 2543★; işle ilgisiz		
+omacom/try-omarchy-windows	repo	github.com/omacom/try-omarchy-windows	1	RED	Omarchy deneme betiği (MIT, 579★); işle ilgisiz		
+omni.cappenlabs.com.br	servis	omni.cappenlabs.com.br	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+one/few-step	repo	github.com/one/few-step	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+onurtirpan.com	servis	onurtirpan.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+openai/apt-oss-20b	repo	github.com/openai/apt-oss-20b	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+openresearch.sh	servis	openresearch.sh	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+opera.com	servis	opera.com	1	AYRI-UYGULAMA	Opera tarayıcısı (uygulama)		
+orets/wasdakavair	repo	github.com/orets/wasdakavair	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+orms.gle	servis	orms.gle	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+our.today	servis	our.today	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+outreach-pack/tracker	repo	github.com/outreach-pack/tracker	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+owser-use/web-ui	repo	github.com/owser-use/web-ui	1	AYRI-UYGULAMA	OCR → browser-use/web-ui (MIT, 16606★, push 2026-09-25); Python web uygulaması, LLM anahtarı ister		
+pacvetemergency.com	servis	pacvetemergency.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+pandas	cli/skill/mcp?		1	RED	Python veri kütüphanesi (PyPI, BSD-3); skill/MCP değil		
+paneruntimniplatform/socket	repo	github.com/paneruntimniplatform/socket	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+partnerle.com	servis	partnerle.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+pen-webui/open	repo	github.com/pen-webui/open	1	AYRI-UYGULAMA	OCR → open-webui/open-webui (154146★, push 2026-10-09, lisans NOASSERTION/özel); sunucu uygulaması		
+penglonghuang/chinese-novelist-skill	repo	github.com/penglonghuang/chinese-novelist-skill	1	KUR	MIT, 3340★, push 2026-10-06; Çince roman yazma skill'i, ilgi düşük; SkillSpector kurulumdan önce çalıştırılır	~/.claude/skills/ kopyası @6a64a0465103	
+peoplewinningbets/shorts	repo	github.com/peoplewinningbets/shorts	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+pinterest-style-gall-v600.boit.host	servis	pinterest-style-gall-v600.boit.host	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+pixeleyehospitals.com	servis	pixeleyehospitals.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+pixels.market/illustrati	repo	github.com/pixels.market/illustrati	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+plugins.omarchy.org	servis	plugins.omarchy.org	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+ponytail:ponytail-review	skill		1	ZATEN	ponytail@ponytail eklentisi kurulu (_inv_plugin)		
+portal.nousresearch.com	servis	portal.nousresearch.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+pptr.dev	servis	pptr.dev	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+praiaguadalupe.com.br	servis	praiaguadalupe.com.br	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+preethiudhayaraja.com	servis	preethiudhayaraja.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+preymaker.com	servis	preymaker.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+prodeagroup.com	servis	prodeagroup.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+producthunt.com	servis	producthunt.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+project/weather-forecast-motion	repo	github.com/project/weather-forecast-motion	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+prompt-caching	cli/skill/mcp?		1	RED	kavram/özellik adı; kurulabilir kaynak yok		
+prosple	cli/skill/mcp?		1	RED	bulunamadı: GitHub aramasında ilgili kaynak yok		
+protocols.io	servis	protocols.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+prototipal.com	servis	prototipal.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+pycache_/_init_.cpython-314.pyc	repo	github.com/pycache_/_init_.cpython-314.pyc	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+python.langchain.com	servis	python.langchain.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+qixing-jk/all-api-hub	repo	github.com/qixing-jk/all-api-hub	1	RED	tarayıcı eklentisi, New-API hesap panosu (AGPL-3.0, 4923★); işle ilgisiz		
+quickmagic.ai/captu	servis	quickmagic.ai/captu	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+quickmagic.ai/horn	servis	quickmagic.ai/horn	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+rbd/pnpm-vol	repo	github.com/rbd/pnpm-vol	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+rccl.cappenlabs.com.br	servis	rccl.cappenlabs.com.br	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+rea-agentcompany	cli/skill/mcp?		1	RED	kapsam dışı		
+rea-agents@latest	npm		1	RED	kapsam dışı		
+react-bits/pixelcard-js-css	repo	github.com/react-bits/pixelcard-js-css	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+react-three/fiber	repo	github.com/react-three/fiber	1	RED	OCR → pmndrs/react-three-fiber (MIT, 32819★); npm kütüphanesi, skill değil		
+reactbits.dev/text	servis	reactbits.dev/text	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+reat/cloud-render-worker	repo	github.com/reat/cloud-render-worker	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+recommended/info	repo	github.com/recommended/info	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+remorses/zele	repo	github.com/remorses/zele	1	HESAP	Gmail/Outlook e-posta+takvim CLI; 299★, push 2026-10-08, lisans yok — yalnız kişisel kullanım; OAuth ile posta erişimi (izin riski yüksek)	npm i -g zele@0.10.0 (repo @0caa71ed56bf)	OAuth (env adı doğrulanmadı)
+remotion.dev/brand	servis	remotion.dev/brand	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+replicate/replicate-javascript	repo	github.com/replicate/replicate-javascript	1	RED	SDK kütüphanesi (Apache-2.0, 597★, push 2025-11-17); skill/MCP değil		
+riomarrecife.com.br	servis	riomarrecife.com.br	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+riverside.com	servis	riverside.com	1	AYRI-UYGULAMA	Riverside kayıt servisi; hesap		
+robonuggets-design-inspo.vercel.app	servis	robonuggets-design-inspo.vercel.app	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+rubrio-references/index.htmi	repo	github.com/rubrio-references/index.htmi	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+s0/3imus.php	repo	github.com/s0/3imus.php	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+saif.google	servis	saif.google	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+sam-machine/creations	repo	github.com/sam-machine/creations	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+sampies/cascy.esc	repo	github.com/sampies/cascy.esc	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+sana-video/longsana	repo	github.com/sana-video/longsana	1	RED	bulunamadı: GitHub 404 (OCR bozuk ya da var olmayan ad)		
+santalarch.com	servis	santalarch.com	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		
+santifer.io	servis	santifer.io	1	RED	web sitesi/servis; kurulabilir skill/CLI/MCP kaynağı yok		

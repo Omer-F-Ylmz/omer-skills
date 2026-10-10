@@ -1,0 +1,121 @@
+ad	tür	kaynak	video	SONUÇ	sebep / düzeltme	kurulum yolu	anahtar env adı
+cfpb/capital-framework	repo	github.com/cfpb/capital-framework	1	RED	RED: arşivli (archived=true), son push 2020-07, CC0 UI çerçevesi; Claude aracı değil		
+chainpocket.pocketsflow.com	servis	chainpocket.pocketsflow.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+channel/conversation	repo	github.com/channel/conversation	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+chaos.com	servis	chaos.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+chartjs.org	servis	chartjs.org	1	RED	servis/site (URL 200), kurulacak paket yok		
+checkout/page.tax	repo	github.com/checkout/page.tax	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+chromedevtools/chrome-devtox	repo	github.com/chromedevtools/chrome-devtox	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+circleback	cli/skill/mcp?		1	RED	RED: bulunamadı: tek aday IagoElion/circleback-mcp-server 0★ üçüncü taraf, resmi kaynak doğrulanamadı		
+cita-777/metapi	repo	github.com/cita-777/metapi	1	AYRI-UYGULAMA	MIT, 3308★, push 2026-09-06; New API/OneHub gibi AI relay sitelerini birleştiren ağ geçidi sunucusu, skill değil; hesap/relay anahtarları gerekir	uygulama: repo klonu @ 88634b0d7207 (ayrı çalıştırma)	
+claims-ani/toctc	repo	github.com/claims-ani/toctc	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+claims-ani/tocts	repo	github.com/claims-ani/tocts	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+claude-code-website-design/temporary	repo	github.com/claude-code-website-design/temporary	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+claude-mcp-list	cli/skill/mcp?		1	RED	RED: bulunamadı: tek bir araç değil, 'awesome' liste adı (composio-community/awesome-claude-plugins vb.); kurulacak paket yok		
+claude.a	servis	claude.a	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+claude.aj/settings	repo	github.com/claude.aj/settings	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+clickhouse	cli/skill/mcp?		1	HESAP	resmi ClickHouse/mcp-clickhouse, Apache-2.0, 883★, push 2026-10-06, PyPI mcp-clickhouse 0.7.0; ClickHouse sunucusu/hesabı gerekir; ekleme mcp olarak, sabit sürüm	uv tool install mcp-clickhouse==0.7.0 (repo @ d21fe75a6f09; sürümü kurulumdan sonra doğrula)	CLICKHOUSE_HOST, CLICKHOUSE_USER, CLICKHOUSE_PASSWORD
+cnam.fr	servis	cnam.fr	1	RED	servis/site (URL 200), kurulacak paket yok		
+codexu/note-gen	repo	github.com/codexu/note-gen	1	AYRI-UYGULAMA	GPL-3.0, 12878★, push 2026-10-09; Tauri masaüstü Markdown not uygulaması, Claude aracı değil; GPL kodu repoya kopyalanmaz	uygulama: GitHub release @ a4d912f853d1	
+codity.ai	servis	codity.ai	1	RED	servis/site (URL 200), kurulacak paket yok		
+colab.google	servis	colab.google	1	RED	servis/site (URL 200), kurulacak paket yok		
+community.quickchart.io	servis	community.quickchart.io	1	RED	servis/site (URL 200), kurulacak paket yok		
+console.clyouthe	servis	console.clyouthe	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+contrib/add-host	repo	github.com/contrib/add-host	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+control-center/con	repo	github.com/control-center/con	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+controlrigmoduwmodtaes/med-tes	repo	github.com/controlrigmoduwmodtaes/med-tes	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+convaiinnovations/laya	repo	github.com/convaiinnovations/laya	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+corona-partners.com	servis	corona-partners.com	1	RED	servis/site (bot engeli 406), kurulacak paket yok		
+cotis-dev/otis-dev-ff	repo	github.com/cotis-dev/otis-dev-ff	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+cp.23/vlaydrat	repo	github.com/cp.23/vlaydrat	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+create-video@latest	npm		1	AYRI-UYGULAMA	Remotion iskelet üreticisi (npx create-video), npm 4.0.534; lisans 'SEE LICENSE IN LICENSE.md' (Remotion şirket lisansı, MIT/Apache değil: koşulları raporla); Claude aracı değil, video projesi başlatır	npx create-video@4.0.534 (proje başında tek seferlik)	
+creativeocean.com	servis	creativeocean.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+creativeskillnet.ie	servis	creativeskillnet.ie	1	RED	servis/site (URL 200), kurulacak paket yok		
+creatorstoolbox.com/most-popular-resources	servis	creatorstoolbox.com/most-popular-resources	1	RED	servis/site (URL 200), kurulacak paket yok		
+creditgenie.com	servis	creditgenie.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+cskool.com/ai-profit-lab	servis	cskool.com/ai-profit-lab	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+cskool.com/aiworkshop	servis	cskool.com/aiworkshop	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+ctdocuments/reallusi	repo	github.com/ctdocuments/reallusi	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+customjanimation/motionivideotomotion	repo	github.com/customjanimation/motionivideotomotion	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+d3/vega	repo	github.com/d3/vega	1	RED	KURTARILDI → vega/vega; BSD-3 ★12015; JS grafik kütüphanesi, Claude aracı değil		
+d8j0ntlcm91z4.cl.oudfront.net	servis	d8j0ntlcm91z4.cl.oudfront.net	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+danielravina/steml	repo	github.com/danielravina/steml	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+dash/confia.ison	repo	github.com/dash/confia.ison	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+dashboard.composio.dev	servis	dashboard.composio.dev	1	RED	servis/site (URL 200), kurulacak paket yok		
+dashboard.n8n-mcp.com	servis	dashboard.n8n-mcp.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+dashboard.render.com	servis	dashboard.render.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+dashboard.stripe.com	servis	dashboard.stripe.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+dashboard.stripe.com/coupons	servis	dashboard.stripe.com/coupons	1	RED	servis/site (URL 200), kurulacak paket yok		
+dashboard.stripe.com/products	servis	dashboard.stripe.com/products	1	RED	servis/site (URL 200), kurulacak paket yok		
+datadog	cli/skill/mcp?		1	HESAP	datadog-labs/mcp-server (resmi organizasyon), MIT, 45★, push 2026-09-25; npm @datadog/mcp-server yok; Datadog hesabı gerekir; sürüm/SHA kurulumda sabitlenecek	mcp: repo klonu, SHA kurulumda alınacak (datadog-labs/mcp-server)	DD_API_KEY, DD_APP_KEY
+date/party-size	repo	github.com/date/party-size	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+davidlubofsky.com	servis	davidlubofsky.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+de.ai/new	servis	de.ai/new	1	RED	servis/site (URL 200), kurulacak paket yok		
+dealnews.com	servis	dealnews.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+decentralizedfuture.xyz	servis	decentralizedfuture.xyz	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+deepseek-ai/dsh-client-ui	repo	github.com/deepseek-ai/dsh-client-ui	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+deepseek-ai/dsh-system-prompt	repo	github.com/deepseek-ai/dsh-system-prompt	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+deepseek.com	servis	deepseek.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+demo.playwright.dev	servis	demo.playwright.dev	1	RED	RED: bulunamadı (URL erişilemez: ERR 404)		
+demodesk.com	servis	demodesk.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+depreciation/amortization	repo	github.com/depreciation/amortization	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+depseek-a/deepseek-amess	repo	github.com/depseek-a/deepseek-amess	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+dermeaclinic.com	servis	dermeaclinic.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+design.minimax.cn	servis	design.minimax.cn	1	RED	servis/site (URL 200), kurulacak paket yok		
+designrocket.io	servis	designrocket.io	1	RED	servis/site (URL 200), kurulacak paket yok		
+desyayroutputs/altinak	repo	github.com/desyayroutputs/altinak	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+desyaytoutptts/-altine-kaydet-ve-dortk	repo	github.com/desyaytoutptts/-altine-kaydet-ve-dortk	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+desyaytoutputs/altine-kayelet-ve-dorul	repo	github.com/desyaytoutputs/altine-kayelet-ve-dorul	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+developer.royalcanin.com	servis	developer.royalcanin.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+developers.googleblog.com	servis	developers.googleblog.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+dhh.dk	servis	dhh.dk	1	RED	servis/site (URL 200), kurulacak paket yok		
+dimartarmizi/omn	repo	github.com/dimartarmizi/omn	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+discord.supabase.com	servis	discord.supabase.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+discuss.ai.google.dev	servis	discuss.ai.google.dev	1	RED	servis/site (URL 200), kurulacak paket yok		
+dmmaze/ballonstranslator	repo	github.com/dmmaze/ballonstranslator	1	AYRI-UYGULAMA	GPL-3.0, 5199★, push 2026-10-04; manga çeviri masaüstü uygulaması, Claude aracı değil	uygulama: GitHub release @ ea9dcd5e18fb	
+docs.arcade.dev	servis	docs.arcade.dev	1	RED	servis/site (URL 200), kurulacak paket yok		
+docs.file.ai	servis	docs.file.ai	1	RED	servis/site (URL 200), kurulacak paket yok		
+docs.go..it7usp=driv	servis	docs.go..it7usp=driv	1	RED	RED: bulunamadı (URL erişilemez: ERR UnicodeError)		
+docs.google..	servis	docs.google..	1	RED	RED: bulunamadı (URL erişilemez: ERR UnicodeError)		
+docs.microsoft.com	servis	docs.microsoft.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+docs.netlify.com	servis	docs.netlify.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+docs.pafiling	servis	docs.pafiling	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+docs.skyvern.com	servis	docs.skyvern.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+doi.oro	servis	doi.oro	1	RED	RED: bulunamadı (URL erişilemez: ERR URLError)		
+doing/install.s	repo	github.com/doing/install.s	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+domaiyoucgetilbuilst-ingi/gdm	repo	github.com/domaiyoucgetilbuilst-ingi/gdm	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+dorukyalcinsoy.com/my	servis	dorukyalcinsoy.com/my	1	RED	RED: bulunamadı (URL erişilemez: ERR 404)		
+drafly/d-e	repo	github.com/drafly/d-e	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+dream-num/univer	repo	github.com/dream-num/univer	1	RED	RED: Apache-2.0, 22508★, push 2026-10-09; ofis (tablo/doc/slayt) JS kütüphanesi, kurulacak skill/MCP yok; ürün geliştirirken npm bağımlılığı olur		
+dropbox	cli/skill/mcp?		1	RED	RED: bulunamadı: resmi Dropbox MCP yok; tek aday ngs/dropbox-mcp-server 7★ üçüncü taraf OAuth belirteci ister		DROPBOX_ACCESS_TOKEN
+dropbox/scooter	repo	github.com/dropbox/scooter	1	RED	RED: SCSS UI çerçevesi, son push 2022-08, lisans NOASSERTION; Claude aracı değil		
+dspjobhub.com	servis	dspjobhub.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+e-projects/ai-video	repo	github.com/e-projects/ai-video	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+e-sutomao/026-03-29-firecravi-ci-reseach	repo	github.com/e-sutomao/026-03-29-firecravi-ci-reseach	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+edolus.com	servis	edolus.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+eds-js/reoct	repo	github.com/eds-js/reoct	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+eepbeepmeep/yuegp	repo	github.com/eepbeepmeep/yuegp	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+eloialonso.github.io	servis	eloialonso.github.io	1	RED	servis/site (URL 200), kurulacak paket yok		
+eloialonso/diamond	repo	github.com/eloialonso/diamond	1	RED	RED: MIT, 2114★, son push 2024-12; RL/difüzyon araştırma kodu (GPU eğitimi), Claude aracı değil		
+eloistree/2024_03_19_hackwowgroup	repo	github.com/eloistree/2024_03_19_hackwowgroup	1	RED	RED: 0★, lisans yok, hackathon not deposu; araç değil		
+email/andoutreach	repo	github.com/email/andoutreach	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+emanueleielo/junie-system-prompt	repo	github.com/emanueleielo/junie-system-prompt	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+emergent.sh	servis	emergent.sh	1	RED	servis/site (URL 200), kurulacak paket yok		
+emp0.com	servis	emp0.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+en.aau.dk	servis	en.aau.dk	1	RED	servis/site (URL 200), kurulacak paket yok		
+engineering/academic	repo	github.com/engineering/academic	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+eom/codeeraterfeads-findertm1angsirg	repo	github.com/eom/codeeraterfeads-findertm1angsirg	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+erictechpro/social-invest	repo	github.com/erictechpro/social-invest	1	RED	RED: 3★, lisans yok (yalnız kişisel kullanım, kopyalanmaz); yatırım fenomeni takip uygulaması, olgunluk düşük		
+etollaindcss/tyoc	repo	github.com/etollaindcss/tyoc	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+evals.typesafe.ai	servis	evals.typesafe.ai	1	RED	servis/site (URL 200), kurulacak paket yok		
+everything-claude-code	cli/skill/mcp?		1	ZATEN	affaan-m/ECC (MIT, 275955★, push 2026-10-09) zaten ecc eklentisi olarak kurulu		
+examples/-anditethandlesbenchmark	repo	github.com/examples/-anditethandlesbenchmark	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+experiments.thisiswhitespace.com	servis	experiments.thisiswhitespace.com	1	RED	servis/site (URL 200), kurulacak paket yok		
+fal-ai/fal	repo	github.com/fal-ai/fal	1	RED	RED: Apache-2.0, 965★, push 2026-10-09; Python SDK/sunucusuz ML platformu, Claude aracı değil; kullanılırsa FAL_KEY hesabı gerekir		FAL_KEY
+fal-ai/fal-dart	repo	github.com/fal-ai/fal-dart	1	RED	RED: MIT, 12★, son push 2024-09; Dart/Flutter istemci SDK'sı, araç değil		FAL_KEY
+fal-ai/fal-java	repo	github.com/fal-ai/fal-java	1	RED	RED: MIT, 15★, son push 2024-09; JVM istemci SDK'sı, araç değil		FAL_KEY
+fal-ai/fal-js	repo	github.com/fal-ai/fal-js	1	RED	RED: MIT, 187★, push 2026-10-07; JS istemci SDK'sı (kütüphane), skill/MCP değil; kullanılırsa HESAP FAL_KEY		FAL_KEY
+fal-ai/fal-swift	repo	github.com/fal-ai/fal-swift	1	RED	RED: MIT, 214★, son push 2024-06; Swift istemci SDK'sı, araç değil		FAL_KEY
+fal-ai/kling	repo	github.com/fal-ai/kling	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+fal-ai/sync-1.6.0	repo	github.com/fal-ai/sync-1.6.0	1	RED	RED: bulunamadı (GitHub API 404; OCR bozuk ad olabilir)		
+fctp.it	servis	fctp.it	1	RED	servis/site (URL 200), kurulacak paket yok		
