@@ -64,18 +64,18 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dcn3KY8A9Wa | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
 | ig-DeMXKf9NIci | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
 | ig-DcRlYhYMHwZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeJ9WfkkyBm | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| fw2ID5ucY-Q | 16.5 | Claude Code Ayarlarını Hemen Bu Şekilde  | Ömer 10 Eki | bekliyor |
-| De4dE0Fbpy4 | 19.4 | Bu Shorts/Reels Videolarını Sadece Opus  | Ömer 10 Eki | bekliyor |
-| yNDwmWVXw9I | 1.7 | Ornith 1.5 Wrote Its Own Training Data   | Ömer 10 Eki | bekliyor |
-| H84vfy96m_k | 355.4 | How Senior Engineers Build With AI (Full | Ömer 10 Eki | bekliyor |
-| cQm5Tdyhgps | 8.0 | This NEW Claude Update is ABSURD! | Ömer 10 Eki | bekliyor |
-| DD-SiFV93sQ | 84.5 | I Made $250K In 30 Days: The FASTEST Way | Ömer 10 Eki | bekliyor |
-| TnduiS4kyg8 | 23.3 | Build a Stunning 3D Website with Claude  | Ömer 10 Eki | bekliyor |
-| R_uf5OfMGio | 62.9 | Can AI Make a Game Engine? | Ömer 10 Eki | bekliyor |
+| ig-DeJ9WfkkyBm | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 00e995e |
+| fw2ID5ucY-Q | 16.5 | Claude Code Ayarlarını Hemen Bu Şekilde  | Ömer 10 Eki | işlendi: 00e995e |
+| De4dE0Fbpy4 | 19.4 | Bu Shorts/Reels Videolarını Sadece Opus  | Ömer 10 Eki | işlendi: 00e995e |
+| yNDwmWVXw9I | 1.7 | Ornith 1.5 Wrote Its Own Training Data   | Ömer 10 Eki | işlendi: 00e995e |
+| H84vfy96m_k | 355.4 | How Senior Engineers Build With AI (Full | Ömer 10 Eki | işlendi: 00e995e |
+| cQm5Tdyhgps | 8.0 | This NEW Claude Update is ABSURD! | Ömer 10 Eki | işlendi: 00e995e |
+| DD-SiFV93sQ | 84.5 | I Made $250K In 30 Days: The FASTEST Way | Ömer 10 Eki | işlendi: 00e995e |
+| TnduiS4kyg8 | 23.3 | Build a Stunning 3D Website with Claude  | Ömer 10 Eki | işlendi: 00e995e |
+| R_uf5OfMGio | 62.9 | Can AI Make a Game Engine? | Ömer 10 Eki | işlendi: 00e995e |
 | aFEEwCteLe4 | 14.7 | Yapay Zeka Fikrimi Çalışan Bir Uygulamay | Ömer 10 Eki | bekliyor |
 | r68MhqAUvR8 | 23.7 | How to Build Cinematic 3D Websites in Mi | Ömer 10 Eki | bekliyor |
-| dF_uxyJyeu0 | 0.8 | You can now build Blender scenes just by | Ömer 10 Eki | bekliyor |
+| dF_uxyJyeu0 | 0.8 | You can now build Blender scenes just by | Ömer 10 Eki | işlendi: 00e995e |
 | LCwT00LrPZg | 21.3 | 9 Claude Skills I Use Every Single Day | Ömer 10 Eki | bekliyor |
 | 0e7C9fzX4pc | 11.6 | Bir Esnafa 10 Dakikada Web Sitesi ve Rek | Ömer 10 Eki | bekliyor |
 | bE0XcTv3tKg | 14.8 | Watch me vibe code an Animated App (Opus | Ömer 10 Eki | bekliyor |
@@ -86,7 +86,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | J4oygRI6mN0 | 21.3 | How I Make Insane Motion Graphics with O | Ömer 10 Eki | bekliyor |
 | d67-HDSvMw8 | 10.3 | Yapay Zeka Artık Videoyu da Editliyor! / | Ömer 10 Eki | bekliyor |
 | WEMlzWMFc3k | 20.5 | Top 8 AI-Design Tips (Emil animation ski | Ömer 10 Eki | bekliyor |
-| 9sqJCcnSI50 | 0.8 | Claude Opus 5.5 enables fast, low-cost a | Ömer 10 Eki | bekliyor |
+| 9sqJCcnSI50 | 0.8 | Claude Opus 5.5 enables fast, low-cost a | Ömer 10 Eki | işlendi: 00e995e |
 | nIB0QSIm7-0 | 9.8 | 2 NEW AI Models FREE! 🔥 Mistral Large 4  | Ömer 10 Eki | bekliyor |
 | DYdvJCxWd6M | 34.4 | Hermes Agent - Full Tutorial & Setup Gui | Ömer 10 Eki | bekliyor |
 | HzXD4GVqXwM | 17.0 | I Fully Automated My Video Editing Using | Ömer 10 Eki | bekliyor |
@@ -96,19 +96,19 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | WEUlsIqoKFQ | 6.2 | how to build STUNNING websites | Ömer 10 Eki | bekliyor |
 | 7FU98O0JLHs | 23.0 | Turn Claude Into A Design GENIUS In 3 Si | Ömer 10 Eki | bekliyor |
 | 4Hvkv_I8QDE | 24.6 | Obsidian in 24 Minutes | Ömer 10 Eki | bekliyor |
-| COJAZQM1aeQ | 1.7 | Build an App With Claude Design | Ömer 10 Eki | bekliyor |
+| COJAZQM1aeQ | 1.7 | Build an App With Claude Design | Ömer 10 Eki | işlendi: 00e995e |
 | rM-wRmxmfDI | 12.8 | Sıfırdan Viral Bir Karakter Tasarladım v | Ömer 10 Eki | bekliyor |
-| 4efBpthpF6w | 0.8 | Premiere Pro'da Animasyon Oluşturmak Çok | Ömer 10 Eki | bekliyor |
+| 4efBpthpF6w | 0.8 | Premiere Pro'da Animasyon Oluşturmak Çok | Ömer 10 Eki | işlendi: 00e995e |
 | YUWBku1cNEA | 10.5 | Claude Code + Seedance 2.5 = Insane Webs | Ömer 10 Eki | bekliyor |
-| idJQMJwHtyM | 1.0 | Claude for Google Workspace™ | Ömer 10 Eki | bekliyor |
+| idJQMJwHtyM | 1.0 | Claude for Google Workspace™ | Ömer 10 Eki | işlendi: 00e995e |
 | 7RVf25Rg0Mc | 28.8 | you need to try Paperclip RIGHT NOW! | Ömer 10 Eki | bekliyor |
 | eIkTn5kgNaI | 13.2 | Claude Opus 5.5 ile Mobil Uygulama Yaptı | Ömer 10 Eki | bekliyor |
 | o_FJ1NIH9yw | 28.9 | God’s Eye View Blew Up. Here's What You  | Ömer 10 Eki | bekliyor |
 | y4YupFxhAog | 14.5 | How I create viral animated reels using  | Ömer 10 Eki | bekliyor |
 | 8KUDeKO1iyU | 21.1 | Haiku 5.5 ile Yapay Zeka Ekibi Kurdum /  | Ömer 10 Eki | bekliyor |
 | 8yE6G1Lup1s | 182.8 | HERMES AGENT FULL COURSE 3 HOURS: Build  | Ömer 10 Eki | bekliyor |
-| 6kzYCoxGtQs | 1.1 | DeepSeek V4.1 Flash: What Actually Chang | Ömer 10 Eki | bekliyor |
-| HDJL5_grCbg | 1.1 | GLM-5.3 Got Smarter Without More Paramet | Ömer 10 Eki | bekliyor |
+| 6kzYCoxGtQs | 1.1 | DeepSeek V4.1 Flash: What Actually Chang | Ömer 10 Eki | işlendi: 00e995e |
+| HDJL5_grCbg | 1.1 | GLM-5.3 Got Smarter Without More Paramet | Ömer 10 Eki | işlendi: 00e995e |
 | oz2CwrPV2Rg | 12.4 | Anthropic Engineers Just 10x'd Everyone' | Ömer 10 Eki | bekliyor |
 | XgMhU4CE-lQ | 12.0 | Paste This Into GPT-6 Astra, Never Run O | Ömer 10 Eki | bekliyor |
 | n50KkoucMpU | 9.3 | How to Create AI Motion Graphics in Minu | Ömer 10 Eki | bekliyor |
@@ -116,8 +116,8 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ijHxGWFnrNA | 10.0 | Claude Code ile Mobil Uygulama Geliştiri | Ömer 10 Eki | bekliyor |
 | 6nGc3yCGByI | 22.7 | Claude AI + Whop Clipping = $6,500/Month | Ömer 10 Eki | bekliyor |
 | QunIbbJ6ZgI | 8.8 | Animate Insane Websites with AI | Ömer 10 Eki | bekliyor |
-| Qi5qY3r0k3A | 1.5 | I Built an AI Dropshipping Operating Sys | Ömer 10 Eki | bekliyor |
-| h2-71T3rEqc | 1.1 | A 4B AI Model That Beats 12B Models | Ömer 10 Eki | bekliyor |
+| Qi5qY3r0k3A | 1.5 | I Built an AI Dropshipping Operating Sys | Ömer 10 Eki | işlendi: 00e995e |
+| h2-71T3rEqc | 1.1 | A 4B AI Model That Beats 12B Models | Ömer 10 Eki | işlendi: 00e995e |
 | qCLP_ZYQBM0 | 2.3 | Stop Using Claude Code Without Knowing T | Ömer 10 Eki | bekliyor |
 | sGt1ACELN4k | 21.3 | I Finally Solved AI Video Editing (Full  | Ömer 10 Eki | bekliyor |
 | VQyYzLJ6xos | 12.2 | Anthropic Just Revealed 10 NEW Rules for | Ömer 10 Eki | bekliyor |
@@ -134,23 +134,23 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | fq3wx-AR6B0 | 19.6 | Claude Motion Design Just Destroyed Webs | Ömer 10 Eki | bekliyor |
 | VeOU0FnTjjc | 14.4 | Creating 3D Character with AI in 1 Min v | Ömer 10 Eki | bekliyor |
 | bQoEelGwy6c | 20.2 | Yapay Zeka ile İş Bul (0 Kodlama) | Ömer 10 Eki | bekliyor |
-| qMDdJ_LDpoE | 0.7 | Claude Code için 1.6 milyar ücretsiz tok | Ömer 10 Eki | bekliyor |
+| qMDdJ_LDpoE | 0.7 | Claude Code için 1.6 milyar ücretsiz tok | Ömer 10 Eki | işlendi: 00e995e |
 | AlLwSqFsZec | 2.8 | Anthropic's New Rules: Everything You Ne | Ömer 10 Eki | bekliyor |
 | gRJVZr9UxHU | 12.7 | OpenCode’u Yeniden Denedim… Bi Daha CLI  | Ömer 10 Eki | bekliyor |
 | HOXrLsVqinY | 22.3 | Opus 5.5 Just 10X'd Claude Design… | Ömer 10 Eki | bekliyor |
 | mJ6ZvGiwZEc | 4.5 | Claude Motion Explained: Make Videos Ins | Ömer 10 Eki | bekliyor |
 | c4nRtwe5EbM | 26.4 | Viral Kanalları Analiz Edip Özgünleştiri | Ömer 10 Eki | bekliyor |
 | XNcKUSL1CTE | 103.6 | The Ultimate Beginner’s Guide to Hermes  | Ömer 10 Eki | bekliyor |
-| egzwTdmTZbU | 0.5 | This Free Site Makes Claude Build Better | Ömer 10 Eki | bekliyor |
+| egzwTdmTZbU | 0.5 | This Free Site Makes Claude Build Better | Ömer 10 Eki | işlendi: 00e995e |
 | y4GwCCsYwvQ | 24.6 | Claude Opus 5.5 Is INSANE at Motion Grap | Ömer 10 Eki | bekliyor |
 | mQBuZ6Dp0u0 | 133.8 | How I Build AI Teammates With Claude Cod | Ömer 10 Eki | bekliyor |
-| vMWrVcyl5zE | 0.5 | TypeLLM: Make Your LLM Answer in Exact,  | Ömer 10 Eki | bekliyor |
+| vMWrVcyl5zE | 0.5 | TypeLLM: Make Your LLM Answer in Exact,  | Ömer 10 Eki | işlendi: 00e995e |
 | omihvjf0A2k | 4.5 | Getting started with Claude Code Project | Ömer 10 Eki | bekliyor |
-| ypTQFBnrYCc | 0.7 | 10 GitHub Repos Every Developer Should K | Ömer 10 Eki | bekliyor |
+| ypTQFBnrYCc | 0.7 | 10 GitHub Repos Every Developer Should K | Ömer 10 Eki | işlendi: 00e995e |
 | qzPvSYVyqaw | 12.2 | Get 7.4 BILLION Free Tokens/Month from 3 | Ömer 10 Eki | bekliyor |
 | 3ziCXSiZcTc | 10.9 | Create INSANE Animations and 3D Design w | Ömer 10 Eki | bekliyor |
-| rdn59XRREM8 | 0.6 | Ornith 1.0 LLMs | Ömer 10 Eki | bekliyor |
-| 4oW29EP4bCk | 0.6 | Herald OS DESTROYS Hermes Agent Desktop? | Ömer 10 Eki | bekliyor |
+| rdn59XRREM8 | 0.6 | Ornith 1.0 LLMs | Ömer 10 Eki | işlendi: 00e995e |
+| 4oW29EP4bCk | 0.6 | Herald OS DESTROYS Hermes Agent Desktop? | Ömer 10 Eki | işlendi: 00e995e |
 | m6nA5EV-_g0 | 24.5 | Şirketlerin Bilmediği 14 Ücretsiz Uygula | Ömer 10 Eki | bekliyor |
 | VwGrXe2ricE | 22.3 | Claude Design Now Builds Beautiful $10,0 | Ömer 10 Eki | bekliyor |
 | ig-DeSY-CliO19 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
@@ -648,7 +648,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | sE1s5ZYfxqk | 8.1 | Pixellab Tutorial: Tilesets (Isometric/H | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | fvPmuk-usgw | 7.0 | Vibe Coding a Full Game with PixelLab MC | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | BdoUMKhZ1Ys | 4.8 | Build a Complete RPG UI Set with PixelLa | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| Hhx9QZwYoZY | 1.9 | Introducing Object Creator: Make Pixel A | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| Hhx9QZwYoZY | 1.9 | Introducing Object Creator: Make Pixel A | bağlantılı video (ryX4RSMJf9Q) | işlendi: 00e995e |
 | moCpjMOOBGk | 12.7 | PixelLab Tutorial: How to Generate & Ani | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | j2bE9gq914U | 12.6 | How to Use Animate with Text in PixelLab | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | zghUW8fGqsM | 6.9 | This Tool Generates Pixel Animations for | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
