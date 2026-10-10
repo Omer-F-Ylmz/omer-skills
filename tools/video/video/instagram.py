@@ -9,6 +9,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
 BASLIK = {  # DEVAM-1 basamak a: tam Chrome başlık seti (çıplak UA'ya Instagram hata sayfası veriyor)
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
@@ -126,19 +127,42 @@ def ayristir(html):
                        for o in ([e["node"] for e in yan] if yan else [sm])]}
 
 
+CHROME_NOT = Path(__file__).resolve().parents[3] / ".kos" / "kopru" / "ig-chrome"  # Desktop Chrome okumaları (yerel, gitignore)
+
+
+def chrome_notu(kod, kok=None):
+    """VIDEO-E: embed + og ikisi de boş döndüğünde Desktop'ın Chrome okuması (ig-<kod>.md) yedek meta olur → ayristir biçimi
+    (tur 'kısıtlı', medya yok). Not yoksa None. Açıklama = '## Açıklama özeti' bölümü (yoksa başlık sonrası tüm metin)."""
+    f = (kok or CHROME_NOT) / f"ig-{kod}.md"
+    if not f.is_file():
+        return None
+    t = f.read_text(encoding="utf-8", errors="replace")
+    m = re.search(r"^hesap:\s*@?([\w.]+)", t, re.M)
+    b = re.search(r"^## Açıklama özeti\s*\n(.*?)(?=^## |\Z)", t, re.M | re.S)
+    ac = (b[1] if b else t.split("\n", 1)[-1]).strip()
+    return {"tur": "kısıtlı", "hesap": m[1] if m else "?", "aciklama": ac, "sure": None, "ogeler": [], "kaynak": "chrome-notu"}
+
+
 def getir(d):
-    """ig-<kod> klasörü: sayfa → ayrıştır → medya hemen indir (imzalı adres süreli) → meta.json (adres yazılmaz)."""
+    """ig-<kod> klasörü: sayfa → ayrıştır → medya hemen indir (imzalı adres süreli) → meta.json (adres yazılmaz).
+    'embed verisi yok' → Desktop Chrome notu varsa yedek meta (medya yok, göz yok); yoksa hata aynen yükselir."""
     kod = d.name[3:]
-    p = sayfa(kod)
+    try:
+        p = sayfa(kod)
+    except IgHata as e:
+        if "embed verisi yok" not in str(e) or not (p := chrome_notu(kod)):
+            raise
     video, gorseller, slayt_video, goz_not = False, [], [], None
-    if p["tur"] == "reel":
+    if p.get("kaynak") == "chrome-notu":
+        goz_not = "göz: yok (embed/og boş; açıklama Desktop Chrome notundan)"
+    elif p["tur"] == "reel":
         if p["ogeler"][0]["video"]:
             _indir(p["ogeler"][0]["video"], d / "goz-video.mp4")
             video = True
         else:
             goz_not = "göz: yok (embed video vermedi)"
     else:  # IG-KARUSEL-1: her slayt sırayla; video slaytın kapağı gorsel-N.jpg, videosu slayt-N.mp4 (paket kareleri OCR'lar; ses işlenmez)
-        if p["tur"] == "kısıtlı":
+        if p["tur"] == "kısıtlı" and not goz_not:
             goz_not = "göz: yok (gömme kapalı; yalnız kapak + açıklama)"
         for i, o in enumerate(p["ogeler"], 1):
             if o["gorsel"]:
