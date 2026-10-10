@@ -519,11 +519,14 @@ def birlestir(a, b):
     return f
 
 
+def _md(d, v, f, p):
+    return rapor_md(kanit_suz(f, p["metin"]), p, _notlar(d, p) + ([k] if (k := d["videolar"][v]["tarama"].get("kunye")) else []))
+
+
 def _rapor_yaz(d, v, f, p, tdir, ikinci=None, **ek):
-    f = kanit_suz(f, p["metin"])
     r =tdir / f"{d['tarih']}-{v}{'-incelenmedi' if d['videolar'][v]['tarama'].get('gecis') == 2 else ''}.md"  # C4: ilk rapor ezilmez
     r.parent.mkdir(parents=True, exist_ok=True)
-    md = rapor_md(f, p, _notlar(d, p) + ([k] if (k := d["videolar"][v]["tarama"].get("kunye")) else [])) + (ig.ek_md(ikinci) if ikinci else "")
+    md = _md(d, v, f, p) + (ig.ek_md(ikinci) if ikinci else "")
     r.write_bytes(md.encode("utf-8"))
     adaylar, ele = tr.ayikla(md)
     tr.kayit_ekle(Path(d.get("kayit") or tdir / "kayit.jsonl"), [{"id": v, "tarih": d["tarih"], "rapor": r.name, "adaylar": adaylar, "ele": ele, "parti": d["parti"], "konu": tr.konu_etiketle(md + p["metin"])}])  # YT1 2: rapor md + paket metni
@@ -544,6 +547,54 @@ def _kismi_kabul(pdir, d, v, p, tdir):
         print(f"kısmi kabul: {v} rapor yazılamadı: {e}"[:200])
         return False
     return True
+
+
+def rapor_yenile(kok, onb, ids, kuru):
+    """KAREDE-OCR-2: kapanmış partinin tamam_eksik raporları — diskteki form + sonradan bulunan OCR (model çağrısı yok) → aynı rapor dosyasının üzerine.
+    Eski rapor, eski formdan yeniden üretilebilirse yazılır (ikinci göz kuyruğu korunur); üretilemezse dokunulmaz. 'calisiyor' parti atlanır.
+    kayit.jsonl append-only: satır eklenmez/güncellenmez (ponytail: kayıttaki aday listesi eski kalır; yeniden ayıklama gerekirse ayrı iş)."""
+    say = Counter()
+    for pid in ids:
+        pdir = Path(kok) / ".kos" / pid
+        if not (pdir / "durum.json").is_file():
+            print(f"parti yok: {pdir.as_posix()}")
+            say["yok"] += 1
+            continue
+        d = json.loads((pdir / "durum.json").read_text(encoding="utf-8"))
+        if d.get("durum") == "calisiyor":
+            say["acik"] += 1
+            continue
+        degisti = False
+        for v, s in d["videolar"].items():
+            t, y, r = s["tarama"], pdir / "form" / f"{v}.json", Path(s["tarama"].get("cikti") or "")
+            if t.get("durum") != "tamam_eksik" or not (y.is_file() and r.is_file() and (Path(onb) / v / "paket.md").is_file()):
+                say["uygun_degil"] += 1
+                continue
+            p, ham = paket_oku(Path(onb) / v / "paket.md"), json.loads(y.read_text(encoding="utf-8"))
+            eski = kanittan({"videolar": [json.loads(json.dumps(ham))]})["videolar"][0]
+            yeni = ocrdan({"videolar": [json.loads(json.dumps(eski))]}, {v: p})["videolar"][0]
+            if yeni == eski:
+                say["degismez"] += 1
+                continue
+            md0, tam = r.read_bytes().decode("utf-8"), lambda x: kismi(x, dogrula({"videolar": [x]}, {v: p}, [v]).get(v, []), v)
+            taban = _md(d, v, tam(eski)[0], p)
+            if not md0.startswith(taban):
+                say["uretilemedi"] += 1
+                continue
+            f, eksik = tam(yeni)
+            md = _md(d, v, f, p) + md0[len(taban):]
+            if md == md0:
+                say["degismez"] += 1
+                continue
+            say["tamam" if not eksik else "eksik_kalan"] += 1
+            if not kuru:
+                r.write_bytes(md.encode("utf-8"))
+                y.write_text(json.dumps(yeni, ensure_ascii=False, indent=1), encoding="utf-8")
+                t.update(durum="tamam" if not eksik else "tamam_eksik", eksik=eksik, hata=None)
+                degisti = True
+        if degisti:
+            _yaz(pdir / "durum.json", d)
+    return say
 
 
 def _yaz(yol, d):
@@ -1032,6 +1083,11 @@ def parti(ns, ctx):
     elif ns.eylem == "kacan-karar":  # KAPANIŞ-4: hedef = Desktop triyaj tsv'si
         from . import akil
         return akil.kacan_karar(kok, ns.hedef)
+    elif ns.eylem == "rapor-yenile":  # KAREDE-OCR-2
+        ids = [x for x in [ns.hedef, *getattr(ns, "diger", [])] if x]
+        s = rapor_yenile(kok, Path(ctx["kok"]), ids, getattr(ns, "kuru", False))
+        print(f"rapor-yenile{' (kuru)' if getattr(ns, 'kuru', False) else ''}: " + " · ".join(f"{k} {n}" for k, n in sorted(s.items())))
+        return 1 if s["yok"] and not ids[1:] else 0
     else:
         pdir = kok / ".kos" / ns.hedef
         if not (pdir / "durum.json").is_file():

@@ -16,6 +16,13 @@ from video.cli import main
 FIX = Path(__file__).parent / "fixture" / "ig"
 REEL, CAR = (FIX / "DdUf3qJOvTO.html").read_text(encoding="utf-8"), (FIX / "DeL7DvgFLRM.html").read_text(encoding="utf-8")
 GERCEK_AL = ig._al  # autouse sahteden önce
+
+
+@pytest.fixture(autouse=True)
+def _ocr_yalitimi(tmp_path, monkeypatch):
+    """test_goz_r ile aynı sınıf: ortak %TEMP%/video-ocr kilidi + gerçek boş RAM canlı koşucularda testi bekletip düşürüyordu."""
+    monkeypatch.setattr(cli, "OCR_KILIT", tmp_path / "ocr-kilit")
+    monkeypatch.setattr(cli, "bos_ram", lambda: 1e6)
 IMZALI = "https://instagram.fist1-1.fna.fbcdn.net/v/t50/x.mp4?oh=00_SIR&oe=6A1B2C3D&_nc_ht=x"
 
 
