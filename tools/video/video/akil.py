@@ -1287,6 +1287,31 @@ def kacan_karar(kok, tsv):
     return 1 if kalan or bos or set(yeni) - eslesen else 0
 
 
+def _gitleaks_maskele(kos, tara_gl, kp):
+    """gitleaks json raporundaki her Secret'ı ilgili dosyada '[gizlendi]' yapar; değer hiç basılmaz.
+    Rapor geçici dosyadadır ve silinir. Maskelenen dosya sayısını döner (0 → maskelenemedi)."""
+    import os
+    import tempfile
+    fd, rap = tempfile.mkstemp(suffix=".json")
+    os.close(fd)
+    try:
+        kos([*tara_gl, "--report-format", "json", "--report-path", rap])
+        try:
+            bulgular = json.loads(Path(rap).read_text(encoding="utf-8") or "[]")
+        except (OSError, ValueError):
+            return 0
+        n = 0
+        for b in bulgular:
+            y, s = Path(kp) / b.get("File", ""), b.get("Secret") or ""
+            if len(s) >= 8 and y.is_file() and s in (t := y.read_bytes().decode("utf-8")):
+                y.write_bytes(t.replace(s, "[gizlendi]").encode("utf-8"))
+                n += 1
+                print(f"kapat: gitleaks bulgusu maskelendi: {b.get('RuleID')} · {y.relative_to(kp).as_posix()}")
+        return n
+    finally:
+        os.unlink(rap)
+
+
 def kapat(pdir, d, kok, ctx):
     """rapor-denetle (tüm parti) → gitleaks (değişen dosyalar, staged) → temizse commit + kuyruk --isle + push; sızıntıda commit yok (DUR)."""
     kos = lambda a, t=300: uy._kos(ctx, a, t)  # noqa: E731
@@ -1335,7 +1360,11 @@ def kapat(pdir, d, kok, ctx):
             y.write_bytes(g.encode("utf-8"))
             print(f"kapat: gizli değer süzüldü: {y.relative_to(kp).as_posix()}")
     kos([*git, "add", "--", *dosya])
-    rc, o, e = kos(["gitleaks", "git", "--pre-commit", "--staged", "--redact", "--no-banner", Path(kok).as_posix()])
+    tara_gl = ["gitleaks", "git", "--pre-commit", "--staged", "--no-banner", Path(kok).as_posix()]
+    rc, o, e = kos([*tara_gl[:4], "--redact", *tara_gl[4:]])
+    if rc and _gitleaks_maskele(kos, tara_gl, kp):  # TOKEN-7c 4: değer basılmadan maskele + yeniden tara
+        kos([*git, "add", "--", *dosya])
+        rc, o, e = kos([*tara_gl[:4], "--redact", *tara_gl[4:]])
     if rc:
         kos([*git, "reset", "-q", "--", *dosya])
         print(f"kapat: gitleaks SIZINTI → commit yok, DUR\n{(o + e).decode('utf-8', 'replace')[-600:]}")

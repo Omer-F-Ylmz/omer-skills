@@ -235,6 +235,33 @@ def test_kapat_sizintida_commit_yok(tmp_path):
     assert "abc1234" in (kok / "kuyruk.md").read_text(encoding="utf-8")
 
 
+# TOKEN-7c 4: gitleaks bulgusu değeri basılmadan maskelenir, yeniden taranır; temizse commit
+def test_kapat_sizinti_maskelenir(tmp_path, capsys):
+    kok = tmp_path
+    gizli = "AKzq81" + "XyQ93mPLr0aWvBn"
+    p = _parti(kok, "2026-09-29-short", {V[0]: _rapor(V[0], [("Hızlı Araç", "CLI", None)])})
+    rap = kok / "docs" / "video-tarama" / "2026-09-29-aaaaaaaaaa1.md"
+    rap.write_text(rap.read_text(encoding="utf-8") + f"\nekranda apiKey = '{gizli}' görünüyor\n", encoding="utf-8")  # raporu ezme: rapor-denetle DUR olur
+    cagri = []
+
+    def kos(args, timeout=None, env=None):
+        cagri.append(args)
+        if args[0] == "git" and "status" in args:
+            return 0, b" M docs/video-tarama/2026-09-29-aaaaaaaaaa1.md\n", b""
+        if "gitleaks" in args[0]:
+            if gizli not in rap.read_text(encoding="utf-8"):
+                return 0, b"no leaks found", b""
+            if "--report-path" in args:
+                open(args[args.index("--report-path") + 1], "w", encoding="utf-8").write(json.dumps(
+                    [{"File": "docs/video-tarama/2026-09-29-aaaaaaaaaa1.md", "Secret": gizli, "RuleID": "generic-api-key"}]))
+            return 1, b"leaks found: 1", b""
+        return 0, b"abc1234\n", b""
+    assert pt.parti(_ns("kapat", p.name), {**_actx(kok, None), "kos": kos}) == 0
+    assert gizli not in rap.read_text(encoding="utf-8") and "[gizlendi]" in rap.read_text(encoding="utf-8")
+    assert gizli not in capsys.readouterr().out
+    assert sum("commit" in a for a in cagri) >= 1
+
+
 def test_kapat_push_yok_env(tmp_path):
     p = _parti(tmp_path, "2026-09-29-short", {V[0]: _rapor(V[0], [("Hızlı Araç", "CLI", None)])})
     kos, cagri = _kos_sahte(False)
