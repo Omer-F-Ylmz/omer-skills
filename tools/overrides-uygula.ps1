@@ -2,12 +2,13 @@
 #   .\tools\overrides-uygula.ps1          # yedek al + birleştir (mevcut anahtarlar korunur)
 #   .\tools\overrides-uygula.ps1 -Geri    # yedekten döner
 # Windows PowerShell 5.1: ConvertTo-Json -Depth 100 şart (varsayılan 2 iç içe nesneyi keser).
-param([switch]$Geri)
+#   .\tools\overrides-uygula.ps1 -Blok overrides-ek.json   # .kos\kurulum-2\ altındaki başka blok (varsayılan overrides.json)
+param([switch]$Geri, [string]$Blok = 'overrides.json')
 $ErrorActionPreference = 'Stop'
 $ayar = Join-Path $env:USERPROFILE '.claude\settings.json'
 $yedek = "$ayar.bak-overrides"
 $kok = Split-Path $PSScriptRoot -Parent
-$blok = Join-Path $kok '.kos\kurulum-2\overrides.json'
+$blok = Join-Path $kok (Join-Path '.kos\kurulum-2' $Blok)
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 # Başsız ajanı durduran/gereksiz bağlam ekleyen hook bayrakları (docs/kurulumlar/hook-karar.md)
 $envEk = [ordered]@{
