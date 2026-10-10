@@ -1,6 +1,6 @@
 # camera-webgi.vercel.app
 
-- **Ne:** TweakPane'siz ürün 3D landing (TWEEN/GSAP ile) · **Sınıf:** V (galeri/vitrin) · **Kaynak video:** iYwCzKy6W40 · **İncelendi:** 2026-10-10
+- **Ne:** Ürün 3D landing demosu · **Sınıf:** V (galeri/vitrin) · **Kaynak video:** iYwCzKy6W40 · **İncelendi:** 2026-10-10
 - **Teknoloji:** WEBGi (Pixotronics, three tabanlı) · tek canvas · Draco · JS 837 KB · Vercel
 - **Etiketler:** 3d-ürün, webgi, scroll-kamera, demo
 
@@ -15,6 +15,6 @@
 - WEBGi viewer + kaydırmayla kamera yolu, "Pro" 184px başlık
 
 ## Bizde kullanım
-- TweakPane'siz ürün 3D landing (TWEEN/GSAP ile). İlgili skill: frontend-craft, scroll-craft, web-sahne-desenleri.
+- Ürün 3D landing demosu. İlgili skill: frontend-craft, scroll-craft, web-sahne-desenleri.
 - Dikkat: yalnız teknik/mekanizma çıkarıldı; görsel, font, 3D model ve kaynak kod kopyalanmaz. Ticari fontlar için ücretsiz alternatif yukarıda.
 - Sınırlama: galeri örnekleri bu turda gezilmedi; ilgili JS dosyalarına inilmedi, mekanizma ölçülen DOM/CSS/ağ verisinden çıkarıldı.
