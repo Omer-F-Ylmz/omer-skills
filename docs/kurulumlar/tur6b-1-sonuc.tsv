@@ -1,0 +1,128 @@
+aday	tür	sınıf	alt sınıf	lisans	pin	not	video
+docs.n8n.io	site/ürün	KUR		MIT	cb6caa7b3ae8	czlonkowski/n8n-skills 15 skill kuruldu; n8n-mcp MCP zaten bağlı	7tInlFRcTEQ
+smithery.ai	site/ürün	HESAP		AGPL-3.0	—	smithery-ai/cli AGPL-3.0 + Smithery hesabı/anahtarı; ağ kopyası lisans nedeniyle kurulmadı	BjqaV253lNI
+docs.docker.com	site/ürün	AYRI-UYGULAMA	ii	MIT	—	Docker Desktop/Engine masaüstü; docker/mcp-gateway'in tek skill'i (otel-instrument) .claude/ altında olduğu için kopyalanmadı	7tInlFRcTEQ
+nextjs.org	site/ürün	RED	lisans	—	—	resmi vercel/next-devtools-mcp ve vercel-labs/next-skills deposunda lisans dosyası yok (0 SKILL.md); nextjs-on-cloudflare skill'i ayrıca kuruldu	BjqaV253lNI
+bun.sh	site/ürün	AYRI-UYGULAMA	ii	NOASSERTION	—	Bun çalışma zamanı (masaüstü); skill/MCP değil	gmYYHjlOJTI
+app.netlify.com	site/ürün	KUR		MIT	b5894c0e1c16	netlify/context-and-tools skill'leri kuruldu; @netlify/mcp zaten bağlı	gmYYHjlOJTI
+oven-sh/bun	GitHub repo	AYRI-UYGULAMA	ii	NOASSERTION	—	Bun çalışma zamanı (masaüstü); skill/MCP değil	gmYYHjlOJTI
+	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+dev.virlo.ai	site/ürün	HESAP		—	—	Virlo API anahtarı ister (virlo.ai açık); resmi skill/MCP bulunamadı; hesaplar.md	VUCChmNYpKU
+docs.strix.ai	site/ürün	ÖNERİLMEZ		Apache-2.0	62b496430da5	usestrix/strix: otonom saldırı/pentest ajanı (9 skill incelendi); saldırı aracı kuralı: kurulmadı, klon yok	ig-DeRwKUAsJW9
+generativelanguage.googleapis.com	site/ürün	HESAP		Apache-2.0	832c8f941143	GEMINI_API_KEY ister; gemini-skills ayrıca KUR; hesaplar.md	7tInlFRcTEQ
+agent.pw	site/ürün	HESAP		—	—	site açık (200); yönetilen hesaplı servis, resmi skill/MCP deposu bulunamadı	BjqaV253lNI
+answers.netlify.com	site/ürün	AYRI-UYGULAMA	i	—	—	Netlify forum sitesi	gmYYHjlOJTI
+api.deepseek.com	site/ürün	HESAP		—	—	DeepSeek API anahtarı; hesaplar.md	U6gg_bi1I70
+app.strix.ai	site/ürün	ÖNERİLMEZ		Apache-2.0	62b496430da5	usestrix/strix: otonom saldırı/pentest ajanı (9 skill incelendi); saldırı aracı kuralı: kurulmadı, klon yok	ig-DeKuUWUKp7J
+areweturboyet.com	site/ürün	RED	gürültü	—	—	Turbopack durum sayfası; araç değil	BjqaV253lNI
+docker.com	site/ürün	AYRI-UYGULAMA	ii	MIT	—	Docker Desktop/Engine masaüstü; docker/mcp-gateway'in tek skill'i (otel-instrument) .claude/ altında olduğu için kopyalanmadı	7tInlFRcTEQ
+google-gemini/cookbook	GitHub repo	KUR		Apache-2.0	832c8f941143	google-gemini/gemini-skills 3 skill kuruldu (resmi); cookbook/model kimliği buna eşlendi	7tInlFRcTEQ
+models/gemini-1.0-pro	GitHub repo	KUR		Apache-2.0	832c8f941143	google-gemini/gemini-skills 3 skill kuruldu (resmi); cookbook/model kimliği buna eşlendi	7tInlFRcTEQ
+n8n-io/n8n-hosting	GitHub repo	AYRI-UYGULAMA	iii	MIT	—	n8n sunucu kurulumu (docker-compose/k8s)	7tInlFRcTEQ
+n8n-io/task-runner-launcher	GitHub repo	AYRI-UYGULAMA	iii	NOASSERTION	—	n8n sunucu bileşeni (Go ikili)	7tInlFRcTEQ
+nodejs/node	GitHub repo	ZATEN		NOASSERTION	—	Node/npx kurulu (MCP'ler npx ile çalışıyor)	uKoi9uQLdCs
+ocalhost:8000	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+placid.app	site/ürün	HESAP		—	—	Placid ticari şablon/görsel API, hesap ister	uKoi9uQLdCs
+0glips/figma-c	GitHub repo	RED	bulunamadı	—	—	OCR kırığı, gh 404; Figma için resmi mcp.figma.com zaten bağlı	gmYYHjlOJTI
+0xplaygrounds/rig	GitHub repo	RED	kapsam	MIT	—	Rust LLM kütüphanesi (rig); skill/MCP değil	ig-DcJv73uBTM6
+10	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+192.168.1.121:800	site/ürün	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+1c	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+1ocalhost:8008	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+1ocalhost:80ee	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+1ocalhost:8e8e	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	wlyl_yv7nSk
+8enescinar/twitter-mcp	GitHub repo	HESAP		MIT	—	OCR→EnesCinr/twitter-mcp (MIT, son push 2025-07); X API anahtarları ister; hesaplar.md	uKoi9uQLdCs
+active/free-claude	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+affaan-m/agentshield	GitHub repo	AYRI-UYGULAMA	ii	MIT	—	npm tarayıcı CLI'si (ajan yapılandırması denetler); skill/MCP yok, klon gerekmedi	ig-DcJv73uBTM6
+affaan-m/behavioral_rl	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/dprc-autotrader-v1	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/dprc-autotrader-v2	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/econ-research-ss24	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/econ-research-wi24	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/hypermamba	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/market-manipulation-microcap-crypto	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/quranic-arabic-recognition-dl	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/research	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/sol-onchain-analyst	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/stoictradingai	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-m/supply-chain-ml-optimization	GitHub repo	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+affaan-r/readme.nd	GitHub repo	RED	bulunamadı	—	—	OCR kırığı	ig-DcJv73uBTM6
+affaanmustafa.com	site/ürün	RED	kapsam	—	—	affaan-m kişisel araştırma/ders deposu; skill/MCP değil	ig-DcJv73uBTM6
+agent-view	araç adı benzeri	AYRI-UYGULAMA	ii	—	—	eşleşme belirsiz (Frayo44/agent-view MIT; hallucinogen/agent-viewer lisanssız) — tmux ajan paneli, masaüstü araç	BMMcmmnjrM8
+agy/claude-opus	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+agy/claude-son	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+agy/gemini-3.1-pro-hi	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+agy/gemini-3.1-pro-hig	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+agy/gemini-3.1-pro-high	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+agy/gemini-3.5-flash-high	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+agy/gemini-3.5-flash-medium	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+agy/gemini-pro-agent	GitHub repo	RED	gürültü	—	—	Antigravity model adı (agy/…), repo değil	NuNDpeZYQ28
+aiven	araç adı benzeri	HESAP		Apache-2.0	—	Aiven-Open/mcp-aiven (Apache-2.0) Aiven token ister; hesaplar.md	uKoi9uQLdCs
+alishahryar/fee-claude-c	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryar/fre-claude-cc	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryar/free-c	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryar/free-claude-co	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryar/ree-claude-co	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryar1/free-claude-co	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryar1/ree-claude-co	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryari/fee-claude-c	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryari/free-claude-c	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryarl/free-claude-code.gt	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryarl/free-claude-cos	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryarl/ree-claude-co	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryart/free-claude-co	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+alishahryart/ree-claude-cor	GitHub repo	RED	lisans	NOASSERTION	—	OCR→alishahryar1/free-claude-code (57k yıldız); lisans NOASSERTION, lisans kapısı	U6gg_bi1I70
+anthropic/claude-3-opus	GitHub repo	RED	gürültü	—	—	model kimliği, repo değil	NuNDpeZYQ28
+api.deepseek.com/anthropic	site/ürün	HESAP		—	—	DeepSeek API anahtarı; hesaplar.md	U6gg_bi1I70
+api.virlo.ai	site/ürün	HESAP		—	—	Virlo API anahtarı ister (virlo.ai açık); resmi skill/MCP bulunamadı; hesaplar.md	VUCChmNYpKU
+api.w.org	site/ürün	RED	gürültü	—	—	WordPress REST başlık bağlantısı	wlyl_yv7nSk
+app.fastn.dev	site/ürün	HESAP		MIT	—	fastn-ai/fastn-mcp (MIT, son push 2026-06) fastn hesabı/anahtarı ister; hesaplar.md	uKoi9uQLdCs
+arxiv.org	site/ürün	KUR		Apache-2.0	0.8.2	blazickjp/arxiv-mcp-server MCP (user scope, uvx ==0.8.2, anahtarsız) eklendi; Connected	U6gg_bi1I70
+aunctach/contavt7	GitHub repo	KUR		MIT	522c4db4fa2e	OCR contavt7→context7; upstash/context7 skill'leri (context7-cli, context7-mcp, find-docs) kuruldu	BjqaV253lNI
+ay.ive	site/ürün	RED	gürültü	—	—	OCR kırığı (ay.ive ≈ ive/Jony Ive anlatımı), araç değil	wgoi4xxztrs
+ayoprotocol.com	site/ürün	RED	kapsam	—	—	kripto/web3 protokol sitesi	ig-DcJv73uBTM6
+benescinaz/twitter-mcp	GitHub repo	HESAP		MIT	—	OCR→EnesCinr/twitter-mcp (MIT, son push 2025-07); X API anahtarları ister; hesaplar.md	uKoi9uQLdCs
+black-forest-labs/flux.1-schnell	GitHub repo	AYRI-UYGULAMA	iii	—	—	GPU/model (HF); fal MCP zaten bağlı	uKoi9uQLdCs
+brave-search	araç adı benzeri	ZATEN		MIT	—	brave-search MCP kurulu ve bağlı	NuNDpeZYQ28
+bttes/obs.twimg	GitHub repo	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	ig-Dclo7W4jjQj
+careers.cloud.com	site/ürün	RED	gürültü	—	—	kariyer sayfası	BMMcmmnjrM8
+cem/cennecterttinstall	GitHub repo	RED	gürültü	—	—	OCR kırığı (connect/install)	NuNDpeZYQ28
+claude/sandcastles	GitHub repo	RED	bulunamadı	—	—	gh 404	ig-Da5LyKeONUo
+claw.ai/lo	site/ürün	RED	bulunamadı	—	—	OCR kırığı	BMMcmmnjrM8
+clean	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	NuNDpeZYQ28
+cloud.com	site/ürün	RED	gürültü	—	—	OCR kırığı (claude.com?), ürün sitesi araç değil	BMMcmmnjrM8
+cloudflare/cloudflared	GitHub repo	AYRI-UYGULAMA	ii	Apache-2.0	—	cloudflared ikili tünel istemcisi; cloudflare/skills ayrıca kuruldu	7tInlFRcTEQ
+cmd/shift-cli	GitHub repo	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	nbgGxzOMqpg
+cmd/shift-click	GitHub repo	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	nbgGxzOMqpg
+coderspace.io	site/ürün	RED	kapsam	—	—	kodlama topluluğu sitesi	uKoi9uQLdCs
+coffee-shop-video.netlify.app	site/ürün	RED	gürültü	—	—	tek bir demo site	gmYYHjlOJTI
+create-next-app	araç adı benzeri	RED	kapsam	—	—	npx iskele komutu; nextjs.org ile aynı gerekçe	D7TIvqtSZQE
+createsupabase/schema.sql	GitHub repo	RED	gürültü	—	—	dosya adı; Supabase MCP+skill zaten kurulu	D7TIvqtSZQE
+cursor/1e38c1e9	GitHub repo	RED	gürültü	—	—	Cursor commit/oturum kimliği	nbgGxzOMqpg
+cursor/1e38cte9	GitHub repo	RED	gürültü	—	—	Cursor commit/oturum kimliği	nbgGxzOMqpg
+cursor/le38c1e9	GitHub repo	RED	gürültü	—	—	Cursor commit/oturum kimliği	nbgGxzOMqpg
+cursor/le38cte9	GitHub repo	RED	gürültü	—	—	Cursor commit/oturum kimliği	nbgGxzOMqpg
+deepseek/deepseek-v4-flash-20260423	GitHub repo	RED	gürültü	—	—	model kimliği, repo değil	U6gg_bi1I70
+developers.figma.com	site/ürün	ZATEN		—	—	mcp.figma.com MCP'si bağlı (claude mcp list)	gmYYHjlOJTI
+dexploy.com	site/ürün	RED	bulunamadı	—	—	site yanıt vermiyor	ig-DcJv73uBTM6
+dnd-kit/core	GitHub repo	RED	kapsam	—	—	npm UI kütüphanesi; araç değil	NuNDpeZYQ28
+dnd-kit/sortable	GitHub repo	RED	kapsam	—	—	npm UI kütüphanesi; araç değil	NuNDpeZYQ28
+docs.docker.com/get	site/ürün	AYRI-UYGULAMA	ii	MIT	—	Docker Desktop/Engine masaüstü; docker/mcp-gateway'in tek skill'i (otel-instrument) .claude/ altında olduğu için kopyalanmadı	7tInlFRcTEQ
+docs.docker.com/get-starte	site/ürün	AYRI-UYGULAMA	ii	MIT	—	Docker Desktop/Engine masaüstü; docker/mcp-gateway'in tek skill'i (otel-instrument) .claude/ altında olduğu için kopyalanmadı	7tInlFRcTEQ
+docs.fastn.ai	site/ürün	HESAP		MIT	—	fastn-ai/fastn-mcp (MIT, son push 2026-06) fastn hesabı/anahtarı ister; hesaplar.md	uKoi9uQLdCs
+docs.gc	site/ürün	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	bXBS2Hzr-vU
+docs.jamf.com	site/ürün	HESAP		—	—	Jamf Pro kurumsal MDM, lisanslı hesap	7tInlFRcTEQ
+docs.mcpjam.com	site/ürün	AYRI-UYGULAMA	ii	NOASSERTION	—	MCPJam Inspector (MCP test uygulaması); lisans NOASSERTION	uKoi9uQLdCs
+docs.n8n.lo	site/ürün	KUR		MIT	cb6caa7b3ae8	czlonkowski/n8n-skills 15 skill kuruldu; n8n-mcp MCP zaten bağlı	7tInlFRcTEQ
+does	araç adı benzeri	RED	gürültü	—	—	terminal/yerel adres/kısayol parçası	BjqaV253lNI
+elizaos/eliza	GitHub repo	AYRI-UYGULAMA	iii	MIT	—	ElizaOS ajan çatısı (sunucu); skill/MCP değil	ig-DcJv73uBTM6
+emoji-mart/react	GitHub repo	RED	kapsam	—	—	npm UI kütüphanesi; araç değil	NuNDpeZYQ28
+enescinar/twitter-mcp	GitHub repo	HESAP		MIT	—	OCR→EnesCinr/twitter-mcp (MIT, son push 2025-07); X API anahtarları ister; hesaplar.md	uKoi9uQLdCs
+enescinr/ftwitter-mcp	GitHub repo	HESAP		MIT	—	OCR→EnesCinr/twitter-mcp (MIT, son push 2025-07); X API anahtarları ister; hesaplar.md	uKoi9uQLdCs
+enescinr/fwtte-mcp	GitHub repo	HESAP		MIT	—	OCR→EnesCinr/twitter-mcp (MIT, son push 2025-07); X API anahtarları ister; hesaplar.md	uKoi9uQLdCs
+enescinr/fwttr-mcp	GitHub repo	HESAP		MIT	—	OCR→EnesCinr/twitter-mcp (MIT, son push 2025-07); X API anahtarları ister; hesaplar.md	uKoi9uQLdCs
+enescint/ftwtter-mcp	GitHub repo	HESAP		MIT	—	OCR→EnesCinr/twitter-mcp (MIT, son push 2025-07); X API anahtarları ister; hesaplar.md	uKoi9uQLdCs
+erictechpro/eric-tech-free-lead-magnet	GitHub repo	RED	bulunamadı	—	—	gh 404 benzeri; kişisel lead-magnet	D7TIvqtSZQE
+evalstate/map-hfspace	GitHub repo	KUR		MIT	0.5.4	OCR→evalstate/mcp-hfspace; npm @llmindset/mcp-hfspace@0.5.4 MCP (user scope, anahtarsız) eklendi; Connected	uKoi9uQLdCs
+evanollama/tiny-stories-50m-release	GitHub repo	RED	gürültü	—	—	HF model kimliği	U6gg_bi1I70
+faircode.io	site/ürün	RED	kapsam	—	—	FairEmail geliştirici sitesi; araç değil	7tInlFRcTEQ

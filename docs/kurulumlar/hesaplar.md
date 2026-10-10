@@ -174,3 +174,7 @@ Anahtar değerleri hiçbir dosyaya yazılmaz: `setx <ENV> <değer>` ile kullanı
 | mrdainami/kie-mcp (+ kie.ai) | KIE_API_KEY | kie.ai | — | MIT, tur-6; MCP + generate-anything skill anahtarsız çalışmaz, kurulmadı |
 | composio-mcp (ComposioHQ/composio) | Composio API anahtarı / hesap | composio.dev | — | MIT, tur-6; hesaplı, kurulmadı |
 | windsor.ai, TikTok/Whop/Skool/MediaSilo/Lumio/Vanta ve benzeri ticari servisler | hesap / API anahtarı | — | — | tur-6, skill yok; ayrıntı tur6-sonuc.tsv |
+| fastn (fastn-ai/fastn-mcp) | fastn hesabı/anahtarı | fastn.ai | — | MIT, tur-6b-1; kurulmadı |
+| Aiven (Aiven-Open/mcp-aiven) | Aiven token | aiven.io | — | Apache-2.0, tur-6b-1; kurulmadı |
+| EnesCinr/twitter-mcp | X (Twitter) API anahtarları | developer.x.com | — | MIT, tur-6b-1; kurulmadı |
+| DeepSeek API, Gemini API (generativelanguage), Virlo, Placid, Smithery, Jamf, agent.pw | hesap / API anahtarı | — | — | tur-6b-1; Gemini skill'leri kuruldu, anahtar ayrı; ayrıntı tur6b-1-sonuc.tsv |
