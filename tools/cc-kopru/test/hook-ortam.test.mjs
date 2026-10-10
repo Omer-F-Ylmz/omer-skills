@@ -60,6 +60,21 @@ test("K3.3 hata koduyla çıkan hook sessiz geçmez", async () => {
   }
 }, { timeout: 60000 });
 
+test("K3.4 exit 0 + stderr bilgi satırı etiketlenmez; context-mode ipucu bağlama girmez", async () => {
+  for (const olay of ["PreToolUse", "PostToolUse"]) {
+    const t = hookTanimlari(kaynak(olay, "Bash",
+      sahte("process.stderr.write('[Hook] bilgi');process.stdout.write(JSON.stringify({hookSpecificOutput:{hookEventName:'" + olay + "',additionalContext:'<context_guidance>mcp__plugin_context-mode_context-mode__ctx_execute</context_guidance>'}}));process.exit(0)")), []);
+    const r = await hookKos(t, girdi(olay, "git status"));
+    assert.equal(r.karar, "izin");
+    assert.doesNotMatch(r.ekBaglam, /\[hook hata:/, r.ekBaglam);
+    assert.doesNotMatch(r.ekBaglam, /context_guidance/, r.ekBaglam);
+  }
+  const t2 = hookTanimlari(kaynak("PreToolUse", "Bash",
+    sahte("process.stdout.write(JSON.stringify({hookSpecificOutput:{hookEventName:'PreToolUse',additionalContext:'gercek-baglam'}}))")), []);
+  const r2 = await hookKos(t2, girdi("PreToolUse", "git status"));
+  assert.match(r2.ekBaglam, /gercek-baglam/);
+}, { timeout: 60000 });
+
 import * as fsS from "node:fs";
 import * as osS from "node:os";
 

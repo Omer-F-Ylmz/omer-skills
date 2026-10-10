@@ -1,5 +1,9 @@
 {
   "tam": {"ek": [], "not": "kurulu her şey (taban)"},
   "hafif": {"ek": ["--strict-mcp-config", "--disable-slash-commands"], "not": "MCP yok, skill/slash komutu yok; araçlar ve CLAUDE.md duruyor"},
+  "nameonly": {"ek": [], "settings": "profil-nameonly.json", "not": "KÜTÜPHANE-4 kol a: init'teki her skill name-only, departman-* yönlendirici + çekirdek açıklamalı (profil_uret.py). /context: Skills 49.3k = taban (150k karakter bütçe tavanı) → jeton farkı yok"},
+  "nameonly75": {"ek": [], "settings": "profil-nameonly-75k.json", "not": "nameonly + SLASH_COMMAND_TOOL_CHAR_BUDGET=75000 → /context Skills 24.3k (taban 49.3k)"},
+  "tam75": {"ek": [], "settings": "profil-tam-75k.json", "not": "yalnız bütçe 75000 → Skills 24.3k"},
+  "nameonly40": {"ek": [], "settings": "profil-nameonly-40k.json", "not": "nameonly + bütçe 40000 → Skills 18.3k"},
   "paket-index": {"ek": [], "not": "ileride: name-only + departman yönlendirici; uygulanınca ek dolacak"}
 }

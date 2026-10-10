@@ -28,5 +28,12 @@ Not: ilk üç kolda `--max-budget-usd 0.5` ilk turda aşıldı → result olayı
 4. **Hook gürültüsü (stderr etiketi) susturma** — ≈ −50 jeton/köprü çağrısı (küçük ama bedava); `hook.mjs` düzeltmesi + test. Kalite etkisi yok (gerçek hata exit≠0 ile hâlâ görünür). Uygulayan: Claude (ayrı dalga, test ile).
 5. **Runner profil sıkılaştırma** — günlük 2000+ çağrıda sabit 6.9k'nın altına inmek zor; asıl kazanç paket boyutunda (cc 20–30k/çağrı): kare sayısı/paket sıkıştırma. Ek: `ab_ucuz.py` ve `kur.py` deneme çağrılarına A1 bayrakları. Kalite koruma: rapor denetimi (`video rapor-denetle`) geçişi + kalite puanı ≥ taban A/B. Uygulayan: Claude (runner'a şimdi dokunulmadı).
 
+## KÜTÜPHANE-4 bulguları (10 Eki öğleden sonra)
+- `/context` (yerel, model çağrısı yok) ile ölçüldü: **Skills 49.3k = `SLASH_COMMAND_TOOL_CHAR_BUDGET` 150000 tavanı**. Tavansız (600000) istek: tam 189.5k · name-only 164.4k → liste bugün tavanda kırpılıyor, skill'lerin çoğu modele hiç görünmüyor.
+- Yalnız name-only (1726 skill, departman-* + 42 çekirdek açıklamalı): jeton farkı **0** (tavan sabit), 294 satır kısaldı → aynı bütçeye daha çok ad sığıyor (keşif artışı, maliyet sabit). 12 görev A/B G01–G05: bağlam 136–141k, kalite aynı.
+- Bütçe kolu: 75000 → Skills **24.3k** (−25k, /context toplam 91.4k → 67.4k); 40000 → 18.3k. Ajan listesi 29.2k (273 ajan; 186 plugin, 87 kullanıcı) ikinci büyük kalem.
+- Koşucu düzeltmeleri: TSV satır satır, `--arka` (profil başına ayrı günlük), `--bekle-pid`, geçici klasör temizlik hatası koşuyu düşürmez (G12 bu yüzden düşmüştü), init ad dökümü `<tarih>-<profil>-init.json`.
+- Profil üretimi: `tools/olcum/profil_uret.py` (name-only blok) + `profil_varyant.py` (bütçe env'i). Çıktı json'ları gitignore'da, komutla yeniden üretilir.
+
 ## Sonraki adım
 Düzeltilmiş koşucu ile `tam` ve `hafif` profil taban ölçümü (12+12 çağrı, ~4 USD/çağrı tavanı konuşulmalı: tam profilde tek "tamam yaz" ≈ 1.05 USD).

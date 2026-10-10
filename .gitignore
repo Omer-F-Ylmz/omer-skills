@@ -16,3 +16,4 @@ docs/denemeler/.kos/caveman-compress/
 mcp/jev/.vitest/
 .cache/
 olcum/motor-usage.jsonl
+tools/olcum/profil-*.json

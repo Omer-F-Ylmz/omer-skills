@@ -384,12 +384,15 @@ export async function hookKos(tanimlar, girdi, { projeDir } = {}) {
       };
     }
     if (hso?.updatedInput) toolInput = { ...toolInput, ...hso.updatedInput };
-    if (hso?.additionalContext) baglam.push(String(hso.additionalContext));
-    if (!j && r.out.trim()) baglam.push(r.out.trim());
+    // köprü tüketicisinde olmayan araçlara yönlendiren ipucu (context-mode) bağlama girmez
+    const yerinde = (s) => !/mcp__plugin_context-mode/.test(s);
+    if (hso?.additionalContext && yerinde(String(hso.additionalContext))) baglam.push(String(hso.additionalContext));
+    if (!j && r.out.trim() && yerinde(r.out)) baglam.push(r.out.trim());
     // exit 0 ile bildirilen hook hatası (CC bunu kullanıcıya gösterir) yutulmaz
     if (j?.systemMessage) baglam.push(`[hook uyarı: ${t.anahtar}] ${String(j.systemMessage).trim()}`);
-    // hook hatası çıktı başlığına girer: hook adı · exit · stderr ilk satırı
-    if (r.kod !== 0 || r.err.trim()) {
+    // hook hatası çıktı başlığına girer: hook adı · exit · stderr ilk satırı. exit 0 + stderr CC'de
+    // modele gitmez (bilgi satırı) → etiketlenmez
+    if (r.kod !== 0) {
       const ilk = r.err.trim().split(/\r?\n/)[0] || "";
       baglam.push(`[hook hata: ${t.anahtar} exit ${r.kod}]${ilk ? " " + ilk : ""}`);
     }
