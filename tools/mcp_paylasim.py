@@ -4,13 +4,16 @@ CC oturumları bunlara http URL'siyle bağlanır (oturum başı süreç yerine t
 Kullanım:
   python tools/mcp_paylasim.py yapilandir <kaynak.json> <cikti.json>   # proxy named-server config (env değerleri yalnız dosyaya)
   python tools/mcp_paylasim.py karsilastir <kaynak.json> <port> [ad..]  # stdio tools/list == http tools/list ?
+  pythonw tools/mcp_paylasim.py bekci <sunucular.json> [port]             # proxy düşerse yeniden başlatır (pid'ler cfg dizininde)
 Env DEĞERİ hiçbir modda basılmaz.
 """
-import json, os, sys, urllib.request
+import json, os, subprocess, sys, time, urllib.request
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(__file__))
 
 PORT = 47800
+PROXY = Path.home() / ".local" / "bin" / "mcp-proxy.exe"
 # Durumsuz ya da tek dosya/tek hesap durumlu (paylaşımı güvenli) sunucular.
 # Oturum başı kalanlar: playwright/puppeteer (tarayıcı), mcp-filesystem/mcp-git (roots/cwd),
 # blender/unity/godot (yerel editör köprüsü), codebase-memory-mcp (proje indeksi), http olanlar zaten süreçsiz.
@@ -72,7 +75,37 @@ def karsilastir(sunucular, port, adlar):
     return sonuc
 
 
+def ayakta(port):
+    try:
+        urllib.request.urlopen(f"http://127.0.0.1:{port}/status", timeout=3); return True
+    except Exception:
+        return False
+
+
+def bekci(cfg, port=PORT, turlar=None):
+    """Port ayaktaysa 15 sn bekler; değilse proxy'yi başlatır, bitmesini bekler, 5 sn bekler.
+    Her başlatmadan önce port bakılır (çift başlatma yok). Pid'ler: <cfg dizini>/bekci.pid, proxy.pid."""
+    dizin = Path(cfg).parent
+    (dizin / "bekci.pid").write_text(str(os.getpid()))
+    n = 0
+    while turlar is None or n < turlar:
+        n += 1
+        if ayakta(port):
+            time.sleep(15)
+            continue
+        with open(dizin / "proxy.log", "a") as log:
+            p = subprocess.Popen([str(PROXY), "--host", "127.0.0.1", "--port", str(port), "--pass-environment",
+                                  "--named-server-config", str(cfg)], stdout=log, stderr=subprocess.STDOUT,
+                                 stdin=subprocess.DEVNULL, creationflags=0x08000000)
+            (dizin / "proxy.pid").write_text(str(p.pid))
+            p.wait()
+        time.sleep(5)
+
+
 if __name__ == "__main__":
+    if sys.argv[1] == "bekci":  # pythonw: stdout yok, json okunmaz
+        bekci(sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else PORT)
+        sys.exit()
     sys.stdout.reconfigure(encoding="utf-8")
     kip, kaynak = sys.argv[1], json.load(open(sys.argv[2], encoding="utf-8"))
     sunucular = kaynak.get("mcpServers", kaynak)
