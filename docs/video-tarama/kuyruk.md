@@ -123,36 +123,36 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | VQyYzLJ6xos | 12.2 | Anthropic Just Revealed 10 NEW Rules for | Ömer 10 Eki | işlendi: 0f146f9 |
 | IUV8QzwIb6g | 9.5 | Claude Replaced Higgsfield with This FRE | Ömer 10 Eki | işlendi: 0f146f9 |
 | JrFZ_ky7AzE | 28.5 | The SIMPLEST Way To Make Money Online Wi | Ömer 10 Eki | işlendi: 0f146f9 |
-| 1CSh8tBR1oc | 14.9 | VIRAL Carousels With Motion Graphics 0$  | Ömer 10 Eki | raporlu |
-| TLQLfa7yH4I | 17.1 | I Turned GPT-6 Astra Into a 24/7 Stock T | Ömer 10 Eki | raporlu |
-| lDrAZ1wAyVs | 12.8 | 9 NEW Claude Mods that can truly change  | Ömer 10 Eki | raporlu |
-| tf_yi6DtDOQ | 9.8 | $7000 Portfolio Website With Free AI Too | Ömer 10 Eki | raporlu |
-| 5WQk9WiWcYQ | 13.3 | 10 Hermes Agent Skills You NEED To Insta | Ömer 10 Eki | raporlu |
-| AKcjBPvF788 | 4.8 | Google Flow Now Connects to Claude Code  | Ömer 10 Eki | raporlu |
-| AYPx7yJmbNg | 14.0 | Claude Code ile YouTube Videosu Nasıl Ya | Ömer 10 Eki | raporlu |
-| WrCjAAl9okA | 6.2 | A $6.3 billion open-weight model just go | Ömer 10 Eki | raporlu |
-| fq3wx-AR6B0 | 19.6 | Claude Motion Design Just Destroyed Webs | Ömer 10 Eki | raporlu |
-| VeOU0FnTjjc | 14.4 | Creating 3D Character with AI in 1 Min v | Ömer 10 Eki | raporlu |
-| bQoEelGwy6c | 20.2 | Yapay Zeka ile İş Bul (0 Kodlama) | Ömer 10 Eki | raporlu |
+| 1CSh8tBR1oc | 14.9 | VIRAL Carousels With Motion Graphics 0$  | Ömer 10 Eki | işlendi: dd82ac7 |
+| TLQLfa7yH4I | 17.1 | I Turned GPT-6 Astra Into a 24/7 Stock T | Ömer 10 Eki | işlendi: dd82ac7 |
+| lDrAZ1wAyVs | 12.8 | 9 NEW Claude Mods that can truly change  | Ömer 10 Eki | işlendi: dd82ac7 |
+| tf_yi6DtDOQ | 9.8 | $7000 Portfolio Website With Free AI Too | Ömer 10 Eki | işlendi: dd82ac7 |
+| 5WQk9WiWcYQ | 13.3 | 10 Hermes Agent Skills You NEED To Insta | Ömer 10 Eki | işlendi: dd82ac7 |
+| AKcjBPvF788 | 4.8 | Google Flow Now Connects to Claude Code  | Ömer 10 Eki | işlendi: dd82ac7 |
+| AYPx7yJmbNg | 14.0 | Claude Code ile YouTube Videosu Nasıl Ya | Ömer 10 Eki | işlendi: dd82ac7 |
+| WrCjAAl9okA | 6.2 | A $6.3 billion open-weight model just go | Ömer 10 Eki | işlendi: dd82ac7 |
+| fq3wx-AR6B0 | 19.6 | Claude Motion Design Just Destroyed Webs | Ömer 10 Eki | işlendi: dd82ac7 |
+| VeOU0FnTjjc | 14.4 | Creating 3D Character with AI in 1 Min v | Ömer 10 Eki | işlendi: dd82ac7 |
+| bQoEelGwy6c | 20.2 | Yapay Zeka ile İş Bul (0 Kodlama) | Ömer 10 Eki | işlendi: dd82ac7 |
 | qMDdJ_LDpoE | 0.7 | Claude Code için 1.6 milyar ücretsiz tok | Ömer 10 Eki | işlendi: 00e995e |
-| AlLwSqFsZec | 2.8 | Anthropic's New Rules: Everything You Ne | Ömer 10 Eki | raporlu |
-| gRJVZr9UxHU | 12.7 | OpenCode’u Yeniden Denedim… Bi Daha CLI  | Ömer 10 Eki | raporlu |
-| HOXrLsVqinY | 22.3 | Opus 5.5 Just 10X'd Claude Design… | Ömer 10 Eki | raporlu |
-| mJ6ZvGiwZEc | 4.5 | Claude Motion Explained: Make Videos Ins | Ömer 10 Eki | raporlu |
-| c4nRtwe5EbM | 26.4 | Viral Kanalları Analiz Edip Özgünleştiri | Ömer 10 Eki | raporlu |
-| XNcKUSL1CTE | 103.6 | The Ultimate Beginner’s Guide to Hermes  | Ömer 10 Eki | raporlu |
+| AlLwSqFsZec | 2.8 | Anthropic's New Rules: Everything You Ne | Ömer 10 Eki | işlendi: dd82ac7 |
+| gRJVZr9UxHU | 12.7 | OpenCode’u Yeniden Denedim… Bi Daha CLI  | Ömer 10 Eki | işlendi: dd82ac7 |
+| HOXrLsVqinY | 22.3 | Opus 5.5 Just 10X'd Claude Design… | Ömer 10 Eki | işlendi: dd82ac7 |
+| mJ6ZvGiwZEc | 4.5 | Claude Motion Explained: Make Videos Ins | Ömer 10 Eki | işlendi: dd82ac7 |
+| c4nRtwe5EbM | 26.4 | Viral Kanalları Analiz Edip Özgünleştiri | Ömer 10 Eki | işlendi: dd82ac7 |
+| XNcKUSL1CTE | 103.6 | The Ultimate Beginner’s Guide to Hermes  | Ömer 10 Eki | işlendi: dd82ac7 |
 | egzwTdmTZbU | 0.5 | This Free Site Makes Claude Build Better | Ömer 10 Eki | işlendi: 00e995e |
-| y4GwCCsYwvQ | 24.6 | Claude Opus 5.5 Is INSANE at Motion Grap | Ömer 10 Eki | bekliyor |
-| mQBuZ6Dp0u0 | 133.8 | How I Build AI Teammates With Claude Cod | Ömer 10 Eki | bekliyor |
+| y4GwCCsYwvQ | 24.6 | Claude Opus 5.5 Is INSANE at Motion Grap | Ömer 10 Eki | işlendi: dd82ac7 |
+| mQBuZ6Dp0u0 | 133.8 | How I Build AI Teammates With Claude Cod | Ömer 10 Eki | işlendi: dd82ac7 |
 | vMWrVcyl5zE | 0.5 | TypeLLM: Make Your LLM Answer in Exact,  | Ömer 10 Eki | işlendi: 00e995e |
-| omihvjf0A2k | 4.5 | Getting started with Claude Code Project | Ömer 10 Eki | bekliyor |
+| omihvjf0A2k | 4.5 | Getting started with Claude Code Project | Ömer 10 Eki | işlendi: dd82ac7 |
 | ypTQFBnrYCc | 0.7 | 10 GitHub Repos Every Developer Should K | Ömer 10 Eki | işlendi: 00e995e |
-| qzPvSYVyqaw | 12.2 | Get 7.4 BILLION Free Tokens/Month from 3 | Ömer 10 Eki | bekliyor |
-| 3ziCXSiZcTc | 10.9 | Create INSANE Animations and 3D Design w | Ömer 10 Eki | bekliyor |
+| qzPvSYVyqaw | 12.2 | Get 7.4 BILLION Free Tokens/Month from 3 | Ömer 10 Eki | işlendi: dd82ac7 |
+| 3ziCXSiZcTc | 10.9 | Create INSANE Animations and 3D Design w | Ömer 10 Eki | işlendi: dd82ac7 |
 | rdn59XRREM8 | 0.6 | Ornith 1.0 LLMs | Ömer 10 Eki | işlendi: 00e995e |
 | 4oW29EP4bCk | 0.6 | Herald OS DESTROYS Hermes Agent Desktop? | Ömer 10 Eki | işlendi: 00e995e |
-| m6nA5EV-_g0 | 24.5 | Şirketlerin Bilmediği 14 Ücretsiz Uygula | Ömer 10 Eki | bekliyor |
-| VwGrXe2ricE | 22.3 | Claude Design Now Builds Beautiful $10,0 | Ömer 10 Eki | bekliyor |
+| m6nA5EV-_g0 | 24.5 | Şirketlerin Bilmediği 14 Ücretsiz Uygula | Ömer 10 Eki | işlendi: dd82ac7 |
+| VwGrXe2ricE | 22.3 | Claude Design Now Builds Beautiful $10,0 | Ömer 10 Eki | işlendi: dd82ac7 |
 | ig-DeSY-CliO19 | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: e79312b |
 | ig-DeSCS3FigUS | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: e79312b |
 | ig-DdccgmSG8E9 | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: e79312b |
@@ -586,7 +586,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | rVn-iaSxVS8 | 14.9 | ComfyUI ve n8n ile Kodsuz ve Otomatik Gö | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
 | nudCt2F7Tug | 20.4 | Claude 4 Abartıldığı Kadar İyi Mi? / Cla | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
 | OPBIumlvDQo | 20.5 | Viral Shorts Otomasyonu / Sıfır Kodla Ot | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
-| e1DzQAh4Xw0 | 29.3 | Bu AI Aracıyla Tüm Siteleri Sömür / Dump | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| e1DzQAh4Xw0 | 29.3 | Bu AI Aracıyla Tüm Siteleri Sömür / Dump | bağlantılı video (6ZSfOO-ZvOs) | işlendi: dd82ac7 |
 | BjqaV253lNI | 16.9 | Kodlama İçin En İyi Mcp Server - Context | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
 | gmYYHjlOJTI | 21.0 | Yapay Zeka İle Hiç Kod Yazmadan Web Site | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
 | wlyl_yv7nSk | 23.7 | Bu AI Agent Her Gün Otomatik İçerik Üret | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
