@@ -700,31 +700,31 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dd_iThjj32v | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
 | ig-DdbLPvsgm48 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
 | ig-DeOuCSrDCj8 | 1.0 | Instagram görsel gönderi | 8 Eki; görsel kaydırmalı olabilir · süre ölçülmedi, short sayıldı | işlendi: bad7a76 |
-| ig-DcEFABnvBuH | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DcvL2bDEmVh | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Ddvh-YiFem7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DdUk0Lrx0rw | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DafbtU_M-Pt | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DeFB_WgChZf | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Dd3Y_5aCbMT | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Dd6MfpeKgfG | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DdrHopWCeag | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DdyRkV4ihXm | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DeCMQXjvuM3 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DdQ_Js8AJVi | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Ddjo8rhBPXD | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DcBvyX_O7If | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DaqHHm8y-iB | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DeHX2VRDjHz | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DdeLN4ujZGN | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DeL_StuiJbK | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Dd9nkV-AC9G | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DeJuYIwoByh | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DeEqgZ7oBN7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Dd_j1EtoIyb | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-Ddv0we2odg2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DcgPETIMIhq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
-| ig-DdjgNfBtToS | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
+| ig-DcEFABnvBuH | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DcvL2bDEmVh | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-Ddvh-YiFem7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DdUk0Lrx0rw | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DafbtU_M-Pt | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DeFB_WgChZf | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-Dd3Y_5aCbMT | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-Dd6MfpeKgfG | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DdrHopWCeag | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DdyRkV4ihXm | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DeCMQXjvuM3 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DdQ_Js8AJVi | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-Ddjo8rhBPXD | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DcBvyX_O7If | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DaqHHm8y-iB | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DeHX2VRDjHz | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DdeLN4ujZGN | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DeL_StuiJbK | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-Dd9nkV-AC9G | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DeJuYIwoByh | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DeEqgZ7oBN7 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-Dd_j1EtoIyb | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-Ddv0we2odg2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DcgPETIMIhq | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
+| ig-DdjgNfBtToS | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: 31a4994 |
 | ig-Dbi2LaIMenv | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
 | ig-Dc1NYVJA8A2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
 | ig-Dd6pRc_sye8 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | bekliyor |
