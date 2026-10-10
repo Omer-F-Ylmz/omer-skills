@@ -153,6 +153,97 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 4oW29EP4bCk | 0.6 | Herald OS DESTROYS Hermes Agent Desktop? | Ömer 10 Eki | bekliyor |
 | m6nA5EV-_g0 | 24.5 | Şirketlerin Bilmediği 14 Ücretsiz Uygula | Ömer 10 Eki | bekliyor |
 | VwGrXe2ricE | 22.3 | Claude Design Now Builds Beautiful $10,0 | Ömer 10 Eki | bekliyor |
+| ig-DeSY-CliO19 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeSCS3FigUS | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdccgmSG8E9 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DbbkbsaNFPY | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Dbpyz7FCLC3 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeMsuI4E3gJ | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Ddyxm8hk7DV | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeNAVCRuc54 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Dd3wMMsnz2P | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Ddj6zP4gKi6 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeAf-XgiK_a | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdO1UioAHAS | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Dd_-HzruoMJ | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdxDGbogAZV | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DePvqHlDuTU | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeARMMfxv3f | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeRKUg7oS2u | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DePJIkfkSpb | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Ddq_d1bDV_Z | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdQ0TcctfUy | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DcRVnOftH8c | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DbL-SXnMKDF | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Ddl9BrhBZf_ | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DcjDj6fyoZ0 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DePLcw_Dbwo | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DcTI5sfoLGR | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Ddi0-0Cm1fd | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Ddcd73yAshV | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeSGk5jK7vl | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdIELTZD2Uw | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdUELmKktcr | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DePxKw0NdvX | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdCs5vOiHRY | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdSXJx4vQEK | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeAjtFgCUdj | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Dd7W9zfkxrT | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdlOsiCjMvG | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeQWqNXOa72 | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeHF3GPTD_s | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeB6QU6N4Ec | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeAne_MjMoi | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Ddy8IKZBsFl | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdO6-1QkjR- | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DddrOAliOMK | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdZQ5SaDxDV | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdXFyD1AX3T | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdbhJqIH8BU | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeR8oSgsnfh | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Dd_wlJNqYVv | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DeCuH4lgGQj | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Dd_6vBAIM5L | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DdWzc45k8wY | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-DcCT3UfpFAn | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdthypfEnR_ | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdcLYmex8_9 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdXX6JSsWa1 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Ddj_aUfK1Dh | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Dd9R75ej5jv | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeEzggoDMYU | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeQO86WO9l5 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DcjijrZud4- | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeIGcthDcYm | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Ddsm5_8gAx6 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeHyIk7KEjW | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdSkPLHI7pO | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdoV5mik0DU | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdjVME_lbWd | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Dd4C4cEj3Ht | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdGj15rkj_o | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeTdabkG7hK | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeNTvqHI41o | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdMIQE6kh8W | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdT_OwyFeoj | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Dd3t8ixmPHo | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeG9u_slJ4z | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeGRG3zCQOj | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdcN55fx0YL | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeChDzQDFXy | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Dd7WYSniFvP | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DcoU-a2D1uC | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Dd1dpeIo2T1 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DcJv73uBTM6 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeKuUWUKp7J | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeKFBr0vRpv | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Dd7OINtIAaM | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Da5LyKeONUo | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DcbDo37zTvJ | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DeJi6Z3FBeT | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DdWS9LZEUl7 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-DePBMFZiGkO | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
+| ig-Dclo7W4jjQj | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
 
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
@@ -548,8 +639,8 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | veShHxQYPzo | 290.0 | AI Engineer Summit 2023 — DAY 1 Livestre | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
 | HGZEvWWCc8E | 2.0 | Is this the best talk to type app for th | bağlantılı video (misjUj4Q_ho) | bekliyor |
 | ERmRT2-YLvI | 20.3 | Claude ile Sıfırdan Oyun Yapıyorum (kod  | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| wjvUIPylcy0 | 88.1 | CLAUDE CODE FULL KURS 1.5 SAAT: 0'dan ba | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| T7xJ1gaZP7I | 8.4 | Uygulamamız $100K gelir elde etti, şimdi | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| wjvUIPylcy0 | 88.1 | CLAUDE CODE FULL KURS 1.5 SAAT: 0'dan ba | bağlantılı video (ryX4RSMJf9Q) | raporlu |
+| T7xJ1gaZP7I | 8.4 | Uygulamamız $100K gelir elde etti, şimdi | bağlantılı video (ryX4RSMJf9Q) | raporlu |
 | Iaxk_8ftJ5s | 20.1 | Build a Game with AI - Full PixelLab Gam | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | r8ySiSRRvz4 | 10.8 | Level Up Your Game: Custom Sprite Animat | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | 9eAlZlQmZBg | 8.3 | The Ultimate PixelLab Inpainting Guide f | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
@@ -563,6 +654,63 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | zghUW8fGqsM | 6.9 | This Tool Generates Pixel Animations for | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | qVDkp1baJkU | 7.2 | How to Create Interior Maps for Top-Down | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | sqhxhForIDQ | 2.3 | Voice SoundPack - Military Radio | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| XaYubuLtW8M | 10.6 | Claude Mods - The Biggest Claude Code Up | bağlantılı video (eN77oHqAiUU) | bekliyor |
+| 88zWBJ8L4y8 | 19.0 | How To Find Clients & Make Your First $1 | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| Cm0Tnm97mC4 | 14.3 | How to Make a Website in 10 Minutes / Ea | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| iIC4k0P6Wf8 | 6.4 | How to Setup A Professional Email Addres | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| 0_3A0uAkBZ0 | 3.7 | How to Make a FREE Logo in 5 Minutes / 3 | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| Bikzi6s5TfI | 35.5 | How to Make a Website / Step by Step 202 | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| fDTwHIKltpc | 26.0 | The EASY way to build a beautiful websit | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| HNAv85MfGUI | 26.1 | OpenClaw Full Tutorial for Beginners (St | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| 0myoSPfSL2c | 28.6 | Wordpress Tutorial for Beginners (2026)  | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| 65ALoG4S4mU | 20.6 | How To Create a Free Website in 2026 (wi | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| 3YG3XLmBX4A | 14.2 | Elementor Wordpress Tutorial / Master th | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| bhVyTMJPwJc | 30.5 | Build a Wordpress Website with Claude in | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| QdxyP4SP-Bo | 32.4 | Elementor WordPress Tutorial for Beginne | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| d975dVX01ps | 22.8 | Master WordPress in 20 Minutes (Beginner | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| I87YstyGW_0 | 22.4 | The RIGHT Way to Deploy a Claude AI Webs | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| LUVHbHbWQVk | 34.6 | How to Make a Website / Step-by-Step Beg | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| ApriQQWMuTw | 25.5 | WordPress Tutorial For Beginners 2026 -  | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| UWm_NpAyrlc | 8.8 | This app paywall made $73,800 last month | bağlantılı video (bE0XcTv3tKg) | bekliyor |
+| wZ76cFqZG2o | 16.1 | Yapay Zeka Klonumu Oluşturdum! Yapay Zek | bağlantılı video (De4dE0Fbpy4) | bekliyor |
+| 5mi_tYSdkWQ | 22.7 | I Tried The Vibe Coded After Effects Clo | bağlantılı video (eFB79TYI-Vw) | bekliyor |
+| U_jTYMOlXio | 22.2 | Somebody Vibe Coded Microsoft Office, an | bağlantılı video (eFB79TYI-Vw) | bekliyor |
+| RP7QH24Qqvs | 37.8 | Claude Skills Nedir ve Nasıl Kullanılır? | bağlantılı video (DWMGfkFD5SI) | bekliyor |
+| -tabaM5l3s0 | 42.4 | Fei-Fei Li is Solving the Hardest Proble | bağlantılı video (d67-HDSvMw8) | bekliyor |
+| oJEBn_hcOyM | 20.1 | Copy This LinkedIn Message Formula, It’l | bağlantılı video (HzXD4GVqXwM) | bekliyor |
+| JxIZbV_XjAs | 13.1 | Introducing the GAME ENGINE series! | bağlantılı video (R_uf5OfMGio) | bekliyor |
+| 5ZHh8vUcEak | 31.4 | How Ray Casting and Sphere Intersection  | bağlantılı video (R_uf5OfMGio) | bekliyor |
+| w4srt6vZMdU | 12.8 | Hackathon'da 1. Oldum: Claude ile 12 Saa | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| SyuBcwa0bqQ | 1.8 | How OpenAI connects with customers and e | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| o2c2_EGP8w4 | 2.1 | Slack helps Box bring agents to every em | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| EOTqujB8_R4 | 1.8 | Caraway Brings All The Right Ingredients | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| 8NjVIWfje1o | 2.0 | Slack helps Rivian do business in the fa | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| INymz5VwLmk | 15.9 | How I consistently study with a full tim | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
+| MHPGeQD8TvI | 13.4 | How I would learn to code (if I could st | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
+| _qa5iWdfNKg | 17.8 | Talk - Practical Pigment Mixing for Digi | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
+| OuEYbtG5ZFY | 9.8 | Kod Bilmeden Mobil Uygulama Yaptım ve Go | bağlantılı video (eIkTn5kgNaI) | bekliyor |
+| iWuFokf8g8o | 14.8 | ​Kod Bilmeden Mobil Uygulamadan Para Kaz | bağlantılı video (eIkTn5kgNaI) | bekliyor |
+| QQEgIo4Juxg | 32.6 | you need to use Hermes RIGHT NOW!! (good | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| CgG3dtH5IMM | 1.4 | I turned my house into a VIDEO GAME! | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| nuhh_KfCz9M | 21.7 | your house needs TWO networks (here's wh | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| 5pXMOUB_y0c | 74.9 | openAI is coming for grok and Jev | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| BeNxDM6XJK4 | 0.0 | ? | bağlantılı video (7RVf25Rg0Mc) · meta hatası: yt-dlp -J başarısız | bekliyor |
+| zXeL8KbDmi4 | 0.0 | ? | bağlantılı video (7RVf25Rg0Mc) · meta hatası: yt-dlp -J başarısız | bekliyor |
+| d1i1V4StMVI | 1.4 | Your AI App Works. Can You Sell It? | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| CbWySQdAM60 | 21.9 | i got one....and it's FAST!!! | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| JP9_clebjDE | 1.1 | Your App Crashed. Now AI Gets to Work. | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| GRJaKcXZS94 | 10.0 | We Got Open Source God’s Eye Before GTA  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
+| ooMXEwl7N8Y | 15.3 | The AI Arsenal That Could Stop World War | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
+| p3uBMqCPSDk | 14.8 | Meet NEO, Your Robot Butler in Training  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
+| gElClXpg4J0 | 16.1 | The Next Computer? Your Glasses / Shahra | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
+| E3Yo7PULlPs | 15.6 | The Artist-Driven Innovation Behind the  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
+| id4YRO7G0wE | 25.6 | The AI Revolution Is Underhyped / Eric S | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
+| DMvFXKg0r50 | 49.8 | How To Build a Responsive Modern Website | bağlantılı video (tf_yi6DtDOQ) | bekliyor |
+| iVhRBA9tkHA | 0.9 | How to Download Pinterest Videos, Images | bağlantılı video (n50KkoucMpU) | bekliyor |
+| nbgGxzOMqpg | 1.7 | I Put the iOS Simulator in Cursor, Claud | bağlantılı video (ijHxGWFnrNA) | bekliyor |
+| wVAp04tX4Io | 5.6 | Skip the Xcode Instruments Tutorial, Do  | bağlantılı video (ijHxGWFnrNA) | bekliyor |
+| hDFOy-ynJ6I | 29.5 | AI Wrote Swift Code That Looked Fine… Un | bağlantılı video (ijHxGWFnrNA) | bekliyor |
+| mD6vpokRpsU | 5.6 | AI Agents Can Now Control the iOS Simula | bağlantılı video (ijHxGWFnrNA) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
