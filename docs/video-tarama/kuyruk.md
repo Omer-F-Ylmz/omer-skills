@@ -103,26 +103,26 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | idJQMJwHtyM | 1.0 | Claude for Google Workspace™ | Ömer 10 Eki | işlendi: 00e995e |
 | 7RVf25Rg0Mc | 28.8 | you need to try Paperclip RIGHT NOW! | Ömer 10 Eki | işlendi: ace8175 |
 | eIkTn5kgNaI | 13.2 | Claude Opus 5.5 ile Mobil Uygulama Yaptı | Ömer 10 Eki | işlendi: ace8175 |
-| o_FJ1NIH9yw | 28.9 | God’s Eye View Blew Up. Here's What You  | Ömer 10 Eki | bekliyor |
-| y4YupFxhAog | 14.5 | How I create viral animated reels using  | Ömer 10 Eki | bekliyor |
-| 8KUDeKO1iyU | 21.1 | Haiku 5.5 ile Yapay Zeka Ekibi Kurdum /  | Ömer 10 Eki | bekliyor |
-| 8yE6G1Lup1s | 182.8 | HERMES AGENT FULL COURSE 3 HOURS: Build  | Ömer 10 Eki | bekliyor |
+| o_FJ1NIH9yw | 28.9 | God’s Eye View Blew Up. Here's What You  | Ömer 10 Eki | işlendi: 0f146f9 |
+| y4YupFxhAog | 14.5 | How I create viral animated reels using  | Ömer 10 Eki | işlendi: 0f146f9 |
+| 8KUDeKO1iyU | 21.1 | Haiku 5.5 ile Yapay Zeka Ekibi Kurdum /  | Ömer 10 Eki | işlendi: 0f146f9 |
+| 8yE6G1Lup1s | 182.8 | HERMES AGENT FULL COURSE 3 HOURS: Build  | Ömer 10 Eki | işlendi: 0f146f9 |
 | 6kzYCoxGtQs | 1.1 | DeepSeek V4.1 Flash: What Actually Chang | Ömer 10 Eki | işlendi: 00e995e |
 | HDJL5_grCbg | 1.1 | GLM-5.3 Got Smarter Without More Paramet | Ömer 10 Eki | işlendi: 00e995e |
-| oz2CwrPV2Rg | 12.4 | Anthropic Engineers Just 10x'd Everyone' | Ömer 10 Eki | bekliyor |
-| XgMhU4CE-lQ | 12.0 | Paste This Into GPT-6 Astra, Never Run O | Ömer 10 Eki | bekliyor |
-| n50KkoucMpU | 9.3 | How to Create AI Motion Graphics in Minu | Ömer 10 Eki | bekliyor |
-| Fuo1i_-9Frc | 8.6 | Someone Just Rebuilt Adobe for Free, and | Ömer 10 Eki | bekliyor |
-| ijHxGWFnrNA | 10.0 | Claude Code ile Mobil Uygulama Geliştiri | Ömer 10 Eki | bekliyor |
-| 6nGc3yCGByI | 22.7 | Claude AI + Whop Clipping = $6,500/Month | Ömer 10 Eki | bekliyor |
-| QunIbbJ6ZgI | 8.8 | Animate Insane Websites with AI | Ömer 10 Eki | bekliyor |
+| oz2CwrPV2Rg | 12.4 | Anthropic Engineers Just 10x'd Everyone' | Ömer 10 Eki | işlendi: 0f146f9 |
+| XgMhU4CE-lQ | 12.0 | Paste This Into GPT-6 Astra, Never Run O | Ömer 10 Eki | işlendi: 0f146f9 |
+| n50KkoucMpU | 9.3 | How to Create AI Motion Graphics in Minu | Ömer 10 Eki | işlendi: 0f146f9 |
+| Fuo1i_-9Frc | 8.6 | Someone Just Rebuilt Adobe for Free, and | Ömer 10 Eki | işlendi: 0f146f9 |
+| ijHxGWFnrNA | 10.0 | Claude Code ile Mobil Uygulama Geliştiri | Ömer 10 Eki | işlendi: 0f146f9 |
+| 6nGc3yCGByI | 22.7 | Claude AI + Whop Clipping = $6,500/Month | Ömer 10 Eki | işlendi: 0f146f9 |
+| QunIbbJ6ZgI | 8.8 | Animate Insane Websites with AI | Ömer 10 Eki | işlendi: 0f146f9 |
 | Qi5qY3r0k3A | 1.5 | I Built an AI Dropshipping Operating Sys | Ömer 10 Eki | işlendi: 00e995e |
 | h2-71T3rEqc | 1.1 | A 4B AI Model That Beats 12B Models | Ömer 10 Eki | işlendi: 00e995e |
-| qCLP_ZYQBM0 | 2.3 | Stop Using Claude Code Without Knowing T | Ömer 10 Eki | bekliyor |
-| sGt1ACELN4k | 21.3 | I Finally Solved AI Video Editing (Full  | Ömer 10 Eki | bekliyor |
-| VQyYzLJ6xos | 12.2 | Anthropic Just Revealed 10 NEW Rules for | Ömer 10 Eki | bekliyor |
-| IUV8QzwIb6g | 9.5 | Claude Replaced Higgsfield with This FRE | Ömer 10 Eki | bekliyor |
-| JrFZ_ky7AzE | 28.5 | The SIMPLEST Way To Make Money Online Wi | Ömer 10 Eki | bekliyor |
+| qCLP_ZYQBM0 | 2.3 | Stop Using Claude Code Without Knowing T | Ömer 10 Eki | işlendi: 0f146f9 |
+| sGt1ACELN4k | 21.3 | I Finally Solved AI Video Editing (Full  | Ömer 10 Eki | işlendi: 0f146f9 |
+| VQyYzLJ6xos | 12.2 | Anthropic Just Revealed 10 NEW Rules for | Ömer 10 Eki | işlendi: 0f146f9 |
+| IUV8QzwIb6g | 9.5 | Claude Replaced Higgsfield with This FRE | Ömer 10 Eki | işlendi: 0f146f9 |
+| JrFZ_ky7AzE | 28.5 | The SIMPLEST Way To Make Money Online Wi | Ömer 10 Eki | işlendi: 0f146f9 |
 | 1CSh8tBR1oc | 14.9 | VIRAL Carousels With Motion Graphics 0$  | Ömer 10 Eki | bekliyor |
 | TLQLfa7yH4I | 17.1 | I Turned GPT-6 Astra Into a 24/7 Stock T | Ömer 10 Eki | bekliyor |
 | lDrAZ1wAyVs | 12.8 | 9 NEW Claude Mods that can truly change  | Ömer 10 Eki | bekliyor |
@@ -203,8 +203,8 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-DeR8oSgsnfh | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
 | ig-Dd_wlJNqYVv | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
 | ig-DeCuH4lgGQj | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: c2afa20 |
-| ig-Dd_6vBAIM5L | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
-| ig-DdWzc45k8wY | 1.0 | Instagram reel | Ömer 10 Eki b | bekliyor |
+| ig-Dd_6vBAIM5L | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: 0f146f9 |
+| ig-DdWzc45k8wY | 1.0 | Instagram reel | Ömer 10 Eki b | işlendi: 0f146f9 |
 | ig-DcCT3UfpFAn | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
 | ig-DdthypfEnR_ | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
 | ig-DdcLYmex8_9 | 1.0 | Instagram reel | Ömer 10 Eki c | bekliyor |
@@ -699,9 +699,9 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | JxIZbV_XjAs | 13.1 | Introducing the GAME ENGINE series! | bağlantılı video (R_uf5OfMGio) | bekliyor |
 | 5ZHh8vUcEak | 31.4 | How Ray Casting and Sphere Intersection  | bağlantılı video (R_uf5OfMGio) | bekliyor |
 | w4srt6vZMdU | 12.8 | Hackathon'da 1. Oldum: Claude ile 12 Saa | bağlantılı video (DO45w8HX6nA) | bekliyor |
-| SyuBcwa0bqQ | 1.8 | How OpenAI connects with customers and e | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| SyuBcwa0bqQ | 1.8 | How OpenAI connects with customers and e | bağlantılı video (DO45w8HX6nA) | işlendi: 0f146f9 |
 | o2c2_EGP8w4 | 2.1 | Slack helps Box bring agents to every em | bağlantılı video (DO45w8HX6nA) | bekliyor |
-| EOTqujB8_R4 | 1.8 | Caraway Brings All The Right Ingredients | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| EOTqujB8_R4 | 1.8 | Caraway Brings All The Right Ingredients | bağlantılı video (DO45w8HX6nA) | işlendi: 0f146f9 |
 | 8NjVIWfje1o | 2.0 | Slack helps Rivian do business in the fa | bağlantılı video (DO45w8HX6nA) | bekliyor |
 | INymz5VwLmk | 15.9 | How I consistently study with a full tim | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
 | MHPGeQD8TvI | 13.4 | How I would learn to code (if I could st | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
@@ -709,14 +709,14 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | OuEYbtG5ZFY | 9.8 | Kod Bilmeden Mobil Uygulama Yaptım ve Go | bağlantılı video (eIkTn5kgNaI) | bekliyor |
 | iWuFokf8g8o | 14.8 | ​Kod Bilmeden Mobil Uygulamadan Para Kaz | bağlantılı video (eIkTn5kgNaI) | bekliyor |
 | QQEgIo4Juxg | 32.6 | you need to use Hermes RIGHT NOW!! (good | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
-| CgG3dtH5IMM | 1.4 | I turned my house into a VIDEO GAME! | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| CgG3dtH5IMM | 1.4 | I turned my house into a VIDEO GAME! | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
 | nuhh_KfCz9M | 21.7 | your house needs TWO networks (here's wh | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
 | 5pXMOUB_y0c | 74.9 | openAI is coming for grok and Jev | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
 | BeNxDM6XJK4 | 0.0 | ? | bağlantılı video (7RVf25Rg0Mc) · meta hatası: yt-dlp -J başarısız | bekliyor |
 | zXeL8KbDmi4 | 0.0 | ? | bağlantılı video (7RVf25Rg0Mc) · meta hatası: yt-dlp -J başarısız | bekliyor |
-| d1i1V4StMVI | 1.4 | Your AI App Works. Can You Sell It? | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| d1i1V4StMVI | 1.4 | Your AI App Works. Can You Sell It? | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
 | CbWySQdAM60 | 21.9 | i got one....and it's FAST!!! | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
-| JP9_clebjDE | 1.1 | Your App Crashed. Now AI Gets to Work. | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| JP9_clebjDE | 1.1 | Your App Crashed. Now AI Gets to Work. | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
 | GRJaKcXZS94 | 10.0 | We Got Open Source God’s Eye Before GTA  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
 | ooMXEwl7N8Y | 15.3 | The AI Arsenal That Could Stop World War | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
 | p3uBMqCPSDk | 14.8 | Meet NEO, Your Robot Butler in Training  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
