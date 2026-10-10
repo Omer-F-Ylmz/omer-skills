@@ -1,0 +1,25 @@
+alan	sınıf	teknoloji	etiketler	en iyi efekt	bizde nerede
+bunyamin.dev	V	ulaşılamadı	ulaşılamadı	-	-
+isanurdogdu.com	V	Next.js (App Router, Turbopack), animasyon kütüphanesi yok; saf CSS	editoryal, kinetik-tipografi, css-animasyon	Yükselme animasyonu: CSS keyframe rise 0.7s, ease (0.2,0.7,0.2,1)	Kişisel/freelance portföy sayfası
+styles.refero.design	V	Next.js (App Router), Tailwind, Vercel	galeri, tasarım-sistemi-kütüphanesi, tailwind	Siteleri DESIGN.md (stil belgesi) olarak sunmak	Stil belgesi (DESIGN.md) üretimi fikri; frontend-craft referansı
+motionsites.ai	V	React SPA (Vite, assets/index-*.js), Tailwind, hls.js 151 KB, Meta Pixel	galeri, hls-video-arka-plan, shimmer-iskelet	Kartlar hls.js ile akış videosu önizlemesi oynatıyor	Hero için video arka plan + prompt satışı fikri
+mobbin.com	V	Next.js (App Router), özel font saans, 1.9 MB video	galeri, ürün-akışı-arşivi, scroll-reveal	Kaydırmada opacity+transform 1s, ease (0.19,1,0.22,1)	Landing'de kaydırmayla beliren kartlar
+scrolltide.co	V	Next.js (App Router), Tailwind, WebGL canvas, 103 video öğesi	sinematik-landing, webgl-hero, video-kart, prompt-satışı	103 video + WebGL canvas ile sinematik şablon kütüphanesi	Sinematik landing şablonları
+transitions.dev	V	Statik/SSR sayfa, Cloudflare, 3 canvas, Inter	galeri, geçiş-kütüphanesi, blur-geçiş	opacity+transform+filter(blur) 0.3s easeOutQuint geçişi	Sayfa/öğe geçişi kütüphanesi için kaynak
+awwwards.com	V	Sunucu render (Laravel/PHP benzeri, runtime.js), Swiper, Lottie, reCAPTCHA + Meta Pixel	galeri, ödül-sistemi, swiper	Ana sayfada Site of the Day kartı + Swiper karuseli	Ödüllü site keşfi
+dribbble.com	V	Rails + Stimulus/Webpacker (assets/shots-*), Mona Sans, iskelet yükleme	galeri, sonsuz-kaydırma, iskelet-ekran	Sonsuz kaydırma + skeleton-pulse 1.7s iskeletleri	Sonsuz kaydırma galeri kalıbı
+linear.app	V	Next.js (App Router), Inter Variable + Berkeley Mono, 192 JS parçası	ürün-sitesi, koyu-tema, scroll-anlatı, mikro-etkileşim	Kaydırmayla beliren ürün illüstrasyonları, 0.1s hızlı renk geçişleri	Koyu SaaS landing deseni
+refero.design	V	Özel SPA (js/main.js 379 KB), Stripe, Base-Variable + Title fontu	galeri, ürün-ekran-arşivi, arama-merkezli	Hero'da büyük arama kutusu + sticky 4 öğeli filtre	Referans galerisi arama arayüzü
+deck.gallery	V	Astro (adalar) + React, Clerk (auth, 559 KB), Inter	galeri, sunum-arşivi, astro-adaları	Çok uzun masonry akışı (20132px) + easeOutQuint opacity/transform	Çok uzun galeri sayfası performansı
+godly.design	V	Astro, Tailwind (oklch renk), medium-zoom, .webmcp/bridge.js	galeri, oklch-palet, hafif-js	Yalnız 42 KB JS ile 17942px galeri	Hafif galeri; oklch palet
+rasulov.net	V	Next.js (App Router), Poppins, Meta Pixel	kurs-landing, sticky-bölüm, dönüşüm	Sticky başlık + 4 fixed öğe ile uzun satış sayfası	Eğitim/kurs landing sayfası düzeni
+referral.design	V	ulaşılamadı	ulaşılamadı (park edilmiş alan)	-	-
+60fps.design	V	Framer (Framer Motion, DotLottie, React), 33 video, Inter	galeri, mobil-animasyon-arşivi, framer, lottie	Kart video önizlemeleri + sticky filtre	Mikro-animasyon referansı
+activetheory.net	V	Özel WebGL motoru (Hydra, app.js 340 KB), basis/draco, özel font NB Architekt	webgl-hero, 3d-ürün, imleç-efekti, özel-motor	Tek WebGL canvas tüm siteyi çiziyor, DOM yok denecek kadar az	Etkileşimli 3B portfolyo
+animations.dev	V	Next.js (App Router), Tailwind, Inter + Berkeley Mono + Open Runde	kurs-landing, serif-vurgu, editoryal	Metinde italik serif vurgu (serifInline) ile ton değişimi	Animasyon kursu landing'i; Emil Kowalski
+craftwork.design	V	Next.js (App Router), Tailwind, 1 WebGL canvas, 49 JS dosyası (734 KB)	harf-blur-animasyonu, sticky-hero, webgl-arka-plan	Başlıkta harf harf blur→net `home-blur-char 0.6s` animasyonu	Hero başlık animasyonu (harf blur)
+footer.design	V	Webflow, Finsweet attributes (cms-load, animation), 27 KB JS	galeri, webflow, cms-yükleme	Webflow + Finsweet ile CMS listesini sonsuz yükleme	Footer ilhamı için koleksiyon
+hydroflowdrink.com	V	Next.js (Pages/App), Lenis, 1 video, Montserrat + Poppins	ürün-landing, lenis, sticky-hero	Lenis yumuşak kaydırma + sabit HYDROFLOW başlığı	İçecek/ürün tanıtım sayfası
+illoca.unseen.co	V	Nuxt (Vue), Lenis, WebGL canvas, Tailwind	webgl-hero, nuxt, lenis, ajans-vitrini	WebGL canvas + Lenis, scrollHeight=720 (sanal kaydırma)	Mimari ürün sunum sitesi
+inspora.design	V	Next.js (App Router), Inter, 15 video	galeri, sticky-başlık	Tasarım koleksiyonu; 15 video önizleme, sade Inter + açık gri	Koleksiyon sayfası düzeni
+jeskojets.com	V	Webflow, GSAP 3.13.0 + ScrollTrigger + SplitText, Lenis, Barba.js	pin-scroll, splittext, sayfa-geçişi, webgl-küre, lenis, gsap	GSAP SplitText + ScrollTrigger + Lenis; globe.gl ile etkileşimli dünya	Özel jet/lüks landing; sayfa geçişi
