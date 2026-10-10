@@ -128,10 +128,12 @@ NPM_PREFIX = (r"C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages"
               r"\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64")
 NODE_GIRIS = {
     "puppeteer":    [r"node_modules\puppeteer-mcp-server\dist\index.js"],
-    "brave-search": [r"node_modules\@brave\brave-search-mcp-server\dist\index.js"],
-    "stitch":       [r"node_modules\@_davideast\stitch-mcp\bin\stitch-mcp.js", "proxy"],
+    # RAM-1 (fa71473): yerel kurulum C:\AI\mcp\<ad>, tools/mcp-launch/<ad>.cmd ile ayni giris
+    "brave-search": [r"C:\AI\mcp\brave-search\node_modules\@brave\brave-search-mcp-server\dist\index.js"],
+    "stitch":       [r"C:\AI\mcp\stitch\node_modules\@_davideast\stitch-mcp\bin\stitch-mcp.js", "proxy"],
     "claude-design": [r"C:\Projeler\omer-skills\tools\cc-kopru\tasarim.mjs"],
 }
+NODE_ANAHTAR = {"brave-search": "BRAVE_API_KEY", "stitch": "STITCH_API_KEY"}
 
 
 def ayikla(argv):
@@ -162,6 +164,15 @@ def spawner_uygula(ad, komut, cagri, spawner):
         return komut, cagri
     cagri = [os.path.join(NPM_PREFIX, y) if y.startswith("node_modules") else y
              for y in NODE_GIRIS[ad]]
+    # cmd sarmalayicisinin yaptigi gibi anahtari HKCU'dan surec ortamina al; hicbir yere basilmaz
+    anahtar = NODE_ANAHTAR.get(ad)
+    if anahtar and not os.environ.get(anahtar):
+        import winreg
+        try:
+            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as k:
+                os.environ[anahtar] = winreg.QueryValueEx(k, anahtar)[0]
+        except OSError:
+            pass
     return os.path.join(NPM_PREFIX, "node.exe"), cagri
 
 if __name__ == "__main__":
