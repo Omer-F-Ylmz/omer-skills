@@ -142,7 +142,9 @@ def init_yaz(yol, init):
         return
     oz = {}
     for k, v in init.items():
-        if isinstance(v, list):
+        if k == "tools" and isinstance(v, list):  # araç adları (mcp__netlify__…) gitleaks yanlış alarmı üretiyor → yalnız sayı
+            oz[k] = {"toplam": len(v), "mcp": sum(1 for x in v if str(x).startswith("mcp__"))}
+        elif isinstance(v, list):
             oz[k] = [x.get("name") if isinstance(x, dict) else x for x in v]
         else:
             oz[k] = v

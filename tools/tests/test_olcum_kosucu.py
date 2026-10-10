@@ -85,8 +85,10 @@ def test_ayar_birlestir_mevcut_ezilmez_env_yazilir():
 
 def test_init_yaz_yalniz_ad(tmp_path):
     y = tmp_path / "i.json"
-    kosucu.init_yaz(y, {"mcp_servers": [{"name": "x", "status": "connected"}], "skills": ["a"], "model": "m"})
+    kosucu.init_yaz(y, {"mcp_servers": [{"name": "x", "status": "connected"}], "skills": ["a"], "model": "m",
+                        "tools": ["Bash", "mcp__netlify__netlify-coding-rules"]})
     d = json.loads(y.read_text(encoding="utf-8"))
-    assert d == {"mcp_servers": ["x"], "skills": ["a"], "model": "m"}
+    assert d == {"mcp_servers": ["x"], "skills": ["a"], "model": "m", "tools": {"toplam": 2, "mcp": 1}}
+    assert "netlify" not in y.read_text(encoding="utf-8")
     kosucu.init_yaz(y, {"skills": ["b"]})
     assert json.loads(y.read_text(encoding="utf-8"))["skills"] == ["a"]
