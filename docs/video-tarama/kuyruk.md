@@ -254,14 +254,14 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-DdrEmDHkouJ | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
 | ig-DePQ2O3ElPy | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 4) | bekliyor |
 | ig-DdveM-dDrFx | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
-| ig-Dd3zGoKArLr | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
-| ig-DdwURoumtRW | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | bekliyor |
-| ig-DeQjyfjksz6 | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
-| ig-DeH33EMgBYT | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | bekliyor |
-| ig-Dd_sICVjFKq | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 7) | bekliyor |
-| ig-DeFBWx2E95r | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 6) | bekliyor |
-| ig-DeMwM03Deph | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
-| ig-DeR8IEFAPCz | 1.0 | Instagram reel | Ömer 10 Eki d | bekliyor |
+| ig-Dd3zGoKArLr | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | işlendi: bfe565e |
+| ig-DdwURoumtRW | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 2) | işlendi: bfe565e |
+| ig-DeQjyfjksz6 | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | işlendi: bfe565e |
+| ig-DeH33EMgBYT | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 3) | işlendi: bfe565e |
+| ig-Dd_sICVjFKq | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 7) | işlendi: bfe565e |
+| ig-DeFBWx2E95r | 1.0 | Instagram reel | Ömer 10 Eki d · karusel (img 6) | işlendi: bfe565e |
+| ig-DeMwM03Deph | 1.0 | Instagram reel | Ömer 10 Eki d | işlendi: bfe565e |
+| ig-DeR8IEFAPCz | 1.0 | Instagram reel | Ömer 10 Eki d | işlendi: bfe565e |
 
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
@@ -545,7 +545,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | il_5Ii6v4-Y | 10.4 | Claude Code БЕЗЛИМИТНО за 5 минут / Gemi | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
 | Rxdc36yUyOQ | 11.2 | Como Conectar Todas iAs no Claude Code,  | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
 | NJ0TQ-pyMDY | 12.7 | I Gave CLAUDE CODE 1.6 Billion Free Toke | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
-| NuNDpeZYQ28 | 17.0 | Stop Paying For Claude: I Found A Way To | bağlantılı video (fZIBK_4fKq8) | bekliyor |
+| NuNDpeZYQ28 | 17.0 | Stop Paying For Claude: I Found A Way To | bağlantılı video (fZIBK_4fKq8) | işlendi: bfe565e |
 | q1hFEja170A | 36.1 | Lo consiguió! Omniroute Regala la Mejor  | bağlantılı video (fZIBK_4fKq8) | işlendi: a45920c |
 | Er4Jqoz7QaU | 22.7 | I Tested All 10 of Claude Code's Creator | bağlantılı video (eWdvFbDxkJE) | işlendi: a45920c |
 | ARsCKGoKut0 | 21.3 | Lovable Ücretsiz Oldu! Takipçim İçin Kod | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
@@ -554,18 +554,18 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | nudCt2F7Tug | 20.4 | Claude 4 Abartıldığı Kadar İyi Mi? / Cla | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
 | OPBIumlvDQo | 20.5 | Viral Shorts Otomasyonu / Sıfır Kodla Ot | bağlantılı video (6ZSfOO-ZvOs) | işlendi: a45920c |
 | e1DzQAh4Xw0 | 29.3 | Bu AI Aracıyla Tüm Siteleri Sömür / Dump | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| BjqaV253lNI | 16.9 | Kodlama İçin En İyi Mcp Server - Context | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| gmYYHjlOJTI | 21.0 | Yapay Zeka İle Hiç Kod Yazmadan Web Site | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| wlyl_yv7nSk | 23.7 | Bu AI Agent Her Gün Otomatik İçerik Üret | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| uKoi9uQLdCs | 16.2 | Claude AI ile MCP Servislerini Denedim:  | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
+| BjqaV253lNI | 16.9 | Kodlama İçin En İyi Mcp Server - Context | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
+| gmYYHjlOJTI | 21.0 | Yapay Zeka İle Hiç Kod Yazmadan Web Site | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
+| wlyl_yv7nSk | 23.7 | Bu AI Agent Her Gün Otomatik İçerik Üret | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
+| uKoi9uQLdCs | 16.2 | Claude AI ile MCP Servislerini Denedim:  | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
 | gXhVFwzN4_4 | 0.0 | ? | bağlantılı video (6ZSfOO-ZvOs) · meta hatası: yt-dlp -J başarısız | bekliyor |
-| bXBS2Hzr-vU | 20.8 | n8n ile Kodsuz ve Ücretsiz Kendi Veriler | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| 7tInlFRcTEQ | 25.6 | n8n’i Kendi Bilgisayarında Ücretsiz Çalı | bağlantılı video (6ZSfOO-ZvOs) | bekliyor |
-| U6gg_bi1I70 | 27.7 | How to Use Claude Code for FREE (2026) | bağlantılı video (y6Jo7lq3i8s) | bekliyor |
-| BMMcmmnjrM8 | 243.3 | How to Build Mobile Apps with Claude Cod | bağlantılı video (y6Jo7lq3i8s) | bekliyor |
-| D7TIvqtSZQE | 11.5 | Claude Code Works Better With Loops, Not | bağlantılı video (eJnk0dTaDPA) | bekliyor |
-| VUCChmNYpKU | 17.5 | Claude Knowledge Base + Scheduled Loop = | bağlantılı video (eJnk0dTaDPA) | bekliyor |
-| jE9OAeeeB-Y | 12.4 | How to Configure Claude with Davinci Res | bağlantılı video (7cBexZWBfOo) | bekliyor |
+| bXBS2Hzr-vU | 20.8 | n8n ile Kodsuz ve Ücretsiz Kendi Veriler | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
+| 7tInlFRcTEQ | 25.6 | n8n’i Kendi Bilgisayarında Ücretsiz Çalı | bağlantılı video (6ZSfOO-ZvOs) | işlendi: bfe565e |
+| U6gg_bi1I70 | 27.7 | How to Use Claude Code for FREE (2026) | bağlantılı video (y6Jo7lq3i8s) | işlendi: bfe565e |
+| BMMcmmnjrM8 | 243.3 | How to Build Mobile Apps with Claude Cod | bağlantılı video (y6Jo7lq3i8s) | işlendi: bfe565e |
+| D7TIvqtSZQE | 11.5 | Claude Code Works Better With Loops, Not | bağlantılı video (eJnk0dTaDPA) | işlendi: bfe565e |
+| VUCChmNYpKU | 17.5 | Claude Knowledge Base + Scheduled Loop = | bağlantılı video (eJnk0dTaDPA) | işlendi: bfe565e |
+| jE9OAeeeB-Y | 12.4 | How to Configure Claude with Davinci Res | bağlantılı video (7cBexZWBfOo) | işlendi: bfe565e |
 | IJS08TVGut0 | 9.7 | I Found a Way To Use AI Agents Like Code | bağlantılı video (sUvLZHSXslQ) | bekliyor |
 | GKM1pHYY7F8 | 10.3 | GPT-6’nın Olayı Zekâ Değil | bağlantılı video (mDUPbfV3VIk) | bekliyor |
 | wv46HPeL71A | 15.5 | EDİT PROGRAMLARINA ELVEDA! (Claude Code  | bağlantılı video (0sQxSXyVPwI) | bekliyor |
@@ -724,13 +724,13 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | E3Yo7PULlPs | 15.6 | The Artist-Driven Innovation Behind the  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
 | id4YRO7G0wE | 25.6 | The AI Revolution Is Underhyped / Eric S | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
 | DMvFXKg0r50 | 49.8 | How To Build a Responsive Modern Website | bağlantılı video (tf_yi6DtDOQ) | bekliyor |
-| iVhRBA9tkHA | 0.9 | How to Download Pinterest Videos, Images | bağlantılı video (n50KkoucMpU) | bekliyor |
-| nbgGxzOMqpg | 1.7 | I Put the iOS Simulator in Cursor, Claud | bağlantılı video (ijHxGWFnrNA) | bekliyor |
+| iVhRBA9tkHA | 0.9 | How to Download Pinterest Videos, Images | bağlantılı video (n50KkoucMpU) | işlendi: bfe565e |
+| nbgGxzOMqpg | 1.7 | I Put the iOS Simulator in Cursor, Claud | bağlantılı video (ijHxGWFnrNA) | işlendi: bfe565e |
 | wVAp04tX4Io | 5.6 | Skip the Xcode Instruments Tutorial, Do  | bağlantılı video (ijHxGWFnrNA) | bekliyor |
 | hDFOy-ynJ6I | 29.5 | AI Wrote Swift Code That Looked Fine… Un | bağlantılı video (ijHxGWFnrNA) | bekliyor |
 | mD6vpokRpsU | 5.6 | AI Agents Can Now Control the iOS Simula | bağlantılı video (ijHxGWFnrNA) | bekliyor |
 | MeVVCKsCBaY | 16.9 | Claude Skills Nedir? Bir Kez Öğret, Hep  | bağlantılı video (AYPx7yJmbNg) | bekliyor |
-| 8L_9hXnUzRk | 1.4 | Incredibles 2 (2018) - Elastigirl vs. Sc | bağlantılı video (AYPx7yJmbNg) | bekliyor |
+| 8L_9hXnUzRk | 1.4 | Incredibles 2 (2018) - Elastigirl vs. Sc | bağlantılı video (AYPx7yJmbNg) | işlendi: bfe565e |
 | 83NI19L7fhQ | 12.4 | How Claude Replaced Higgsfield (Build Th | bağlantılı video (IUV8QzwIb6g) | bekliyor |
 | nZG8StgCdws | 36.1 | I Made Claude Cowork Generate 100+ UGC A | bağlantılı video (IUV8QzwIb6g) | bekliyor |
 | oq7I4S0Ql2k | 23.4 | This One Claude Skill Makes $10K Website | bağlantılı video (IUV8QzwIb6g) | bekliyor |
@@ -742,7 +742,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | zp13W8z6WQM | 29.6 | I Tested Tripo P2.0 for Production: Is I | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 | 1vw39QCcQjg | 14.1 | AI Just Solved UV Unwrapping and It's Cr | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 | 3SFDXcr-dQ4 | 25.7 | AI Texturing Like a Pro — My Full 3D Wor | bağlantılı video (VeOU0FnTjjc) | bekliyor |
-| wgoi4xxztrs | 0.8 | Link Kısalt Para Kazan 7/24 Anlık Ödeme  | bağlantılı video (bQoEelGwy6c) | bekliyor |
+| wgoi4xxztrs | 0.8 | Link Kısalt Para Kazan 7/24 Anlık Ödeme  | bağlantılı video (bQoEelGwy6c) | işlendi: bfe565e |
 | o9mYq_BhKjI | 13.3 | Kendi Kurgu Eklentimi Yaptım! Ses, Görse | bağlantılı video (c4nRtwe5EbM) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
