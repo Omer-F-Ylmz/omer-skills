@@ -64,10 +64,10 @@ Emrullah Yaprak, Claude Sonnet 5.5 ile Opus 5.5'i aynı PRD (66 kullanıcı hika
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| /goal prd.md dosyasındaki Kargola oyununu bu klasörde sıfırdan geliştir ... | Claude Code'da hedef sağlanana kadar otonom çalıştırır | 6:48 | kare |
-| /prd-yaz | prd-yaz skill'ini çağırır; PRD için sorular sorar | 4:20 | kare |
-| npm run dev | Vite geliştirme sunucusunu başlatır | 9:12 | kare |
-| npm run dev -- --port 5174 | Sunucuyu 5174 portunda başlatır (ekranda npm uyarısı gösteriyor) | 9:12 | kare |
+| /goal prd.md dosyasındaki Kargola oyununu bu klasörde sıfırdan geliştir ... | Claude Code'da hedef sağlanana kadar otonom çalıştırır (karede: (karede OCR) – — · SPACE - F tam ekran - R tekrar 13 / 18 IGOAL /goal: bitene kadar çal Hayır: “devam et" Model çaliır Hakem bakar: “hedef sağlandi mi?" Evet: i biter × Hedef verilir KOMUT /goal prd.md dosyasindak) | 6:48 | kare |
+| /prd-yaz | prd-yaz skill'ini çağırır; PRD için sorular sorar (karede: (karede OCR) 6 / 18 — — · SPACE · F tam ekran - R tekrar PRD-YAZ prd-yaz skill'i önce beni sorguladi SORU KARARIM Three.js + Vite + TypeScript Hangi teknoloji? Oyun kapaliyken zaman işlesin mi? Evet, gerçek süre,) | 4:20 | kare |
+| npm run dev | Vite geliştirme sunucusunu başlatır (karede: (karede OCR) File Edit Selection File Edit Selection 08 □ kargola-opus □ X kargola-sonnet × × ← * Preview prd.md × Preview prd.md × * PRD: Kargola (tarayicida oynanan 3D sipariş paketleme ve PRD: Kargola (tarayici) | 9:12 | kare |
+| npm run dev -- --port 5174 | Sunucuyu 5174 portunda başlatır (ekranda npm uyarısı gösteriyor) (karede: (karede OCR) File Edit Selection File Edit Selection 08 □ kargola-opus □ X kargola-sonnet × × ← * Preview prd.md × Preview prd.md × * PRD: Kargola (tarayicida oynanan 3D sipariş paketleme ve PRD: Kargola (tarayici) | 9:12 | kare |
 | vite 5174 | Vite'ı 5174 portunda başlatır; 5173 meşgul olduğu için port değişir. (karede: Terminalde '> vite 5174' ve 'Port 5173 is in use, trying another one...' çıktısı.) | 9:12 | kare |
 | npm run dev --port 5174 (tam sözdizimi belirsiz) | Vite'ı belirli bir portta açmayı denemek; npm bu parametreyi 'Unknown cli config' uyarısıyla tanımadı. (karede: Terminalde 'npm warn Unknown cli config "--port"' uyarısı.) | 9:12 | kare |
 | /goal prd.md dosyasındaki Kargola oyununu bu klasörde sıfırdan geliştir. İş, PRD'deki kabul kriterlerinin tamamı kanıtıyla sağlandığında ve teslim raporu yazıldığında biter. Görsel kalite standardı en az oyun mantığı kadar önemlidir. | Claude Code'da hedef koşusunu başlatır; hakem 'hedef sağlandı mı?' diye kontrol eder, sağlanmazsa model devam eder. (karede: Slayt: '/goal prd.md dosyasındaki Kargola oyununu...' komut kutusu.) | 6:48 | kare |

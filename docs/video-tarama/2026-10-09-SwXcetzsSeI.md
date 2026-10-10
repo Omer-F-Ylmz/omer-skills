@@ -70,9 +70,9 @@ InsiderForce tanıtım videosu: Abacus AI'ın ChatLLM aracı, RouteLLM ile her i
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| yarn add bcryptjs @nestjs/jwt | Agent backend için bağımlılık ekler | 1:05 | kare |
-| yarn run build | Projeyi derler | 1:07 | kare |
-| yarn run start:dev | Geliştirme sunucusunu başlatır | 1:07 | kare |
+| yarn add bcryptjs @nestjs/jwt | Agent backend için bağımlılık ekler (karede: (karede OCR) C □ / candy_crush_app / nodejs_space / src / auth / auth.service.ts user_id: user.id, current_level: 1, Deep Agent }. I'll build a vibrant and engaging Candy Crush mobile app :({ with all the featu) | 1:05 | kare |
+| yarn run build | Projeyi derler (karede: (karede OCR) < : Preview 1dv @ Settings </> Code * < Deploy × logic handles all edge cases, and the animations provide Current :: a polished, AAA mobile game experience. Perfect! Now let me build and save a checkp) | 1:07 | kare |
+| yarn run start:dev | Geliştirme sunucusunu başlatır (karede: (karede OCR) < : Preview 1dv @ Settings </> Code * < Deploy × logic handles all edge cases, and the animations provide Current :: a polished, AAA mobile game experience. Perfect! Now let me build and save a checkp) | 1:07 | kare |
 | cd [yol] | Ajan terminalinde proje dizinine geçer (yol gizlenmiş). (karede: Ajan terminal satırında 'Running: cd [yol]' yazıyor.) | 1:05 | kare |
 | cd [yol] && cat app.json / grep -A 5 "extra" | app.json dosyasında 'extra' bölümünün ilk satırlarını gösterir. (karede: Terminalde 'ubuntu@sandbox' istemiyle cat app.json / grep komutu görünüyor.) | 1:06 | kare |
 | yarn add bcryptjs @nestjs/jwt passport @nestjs/passport passport-jwt @types/bcryptjs | Şifre karma, JWT ve Passport kimlik doğrulama paketlerini kurar (OCR ile kısmen okundu, yeniden oluşturuldu). (karede: Terminal satırlarında yarn add komutları görünüyor; bazı paket adları okunaksız.) | 1:05 | kare |

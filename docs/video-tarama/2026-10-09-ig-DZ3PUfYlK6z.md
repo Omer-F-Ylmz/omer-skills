@@ -40,12 +40,12 @@ OpenWA, WhatsApp hesaplarını API'ye çeviren açık kaynaklı, kendi sunucunuz
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| git clone https://github.com/rmyndharis/OpenWA.git | OpenWA deposunu yerel makineye klonlar | 0:27 | kare |
-| cd OpenWA | Klonlanan klasöre girer | 0:27 | kare |
-| docker compose -f docker-compose.dev.yml up -d | OpenWA'yı Docker ile arka planda başlatır | 0:27 | kare |
-| systemctl --user enable podman.socket | Podman rootless için soketi etkinleştirir | 0:29 | kare |
-| systemctl --user start podman.socket | Podman soketini başlatır | 0:29 | kare |
-| git clone https://github.com/rmyndharis/0penWA.git | Podman bölümünde depoyu klonlar (ekranda '0penWA' yazımı OCR ile okundu) | 0:28 | kare |
+| git clone https://github.com/rmyndharis/OpenWA.git | OpenWA deposunu yerel makineye klonlar (karede: (karede OCR) GitHub - rmyndharis/Ope× + Install → C github.com/rmyndharis/OpenWA © : ← READMECode of conduct8Contributing Security MIT license React to messages with emoji M Message Reactions Bulk Messaging Send) | 0:27 | kare |
+| cd OpenWA | Klonlanan klasöre girer (karede: (karede OCR) GitHub - rmyndharis/Ope× + Install → C github.com/rmyndharis/OpenWA © : ← READMECode of conduct8Contributing Security MIT license React to messages with emoji M Message Reactions Bulk Messaging Send) | 0:27 | kare |
+| docker compose -f docker-compose.dev.yml up -d | OpenWA'yı Docker ile arka planda başlatır (karede: (karede OCR) GitHub - rmyndharis/Ope× + Install → C github.com/rmyndharis/OpenWA © : ← READMECode of conduct8Contributing Security MIT license React to messages with emoji M Message Reactions Bulk Messaging Send) | 0:27 | kare |
+| systemctl --user enable podman.socket | Podman rootless için soketi etkinleştirir (karede: (karede OCR) GitHub - rmyndharis/Ope× + → C github.com/rmyndharis/OpenWA Install © : ← Security READMECode of conduct8Contributing MIT license WhatsApp Channels support Channels/Newsletter V Labels Management Or) | 0:29 | kare |
+| systemctl --user start podman.socket | Podman soketini başlatır (karede: (karede OCR) GitHub - rmyndharis/Ope× + → C github.com/rmyndharis/OpenWA Install © : ← Security READMECode of conduct8Contributing MIT license WhatsApp Channels support Channels/Newsletter V Labels Management Or) | 0:29 | kare |
+| git clone https://github.com/rmyndharis/0penWA.git | Podman bölümünde depoyu klonlar (ekranda '0penWA' yazımı OCR ile okundu) (karede: (karede OCR) GitHub - rmyndharis/Ope× + → C github.com/rmyndharis/OpenWA Install © : ← MIT license Security READMECode of conduct8Contributing Advanced Feature Status Description Create, manage, and message group) | 0:28 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

@@ -42,17 +42,17 @@ Video, açık kaynaklı yapay zekâ tabanlı vektör tasarım aracı OpenPencil'
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| brew install --cask openpencil | macOS'ta masaüstü uygulamayı kurar | 0:27 | kare |
-| scoop bucket add openpencil https://github.com/zseven-w/scoop-openpen | Windows'ta Scoop bucket ekler (URL ekranda kesik) | 0:28 | kare |
-| npm install -g @zseven-w/openpencil | Paketi global kurar | 0:29 | kare |
-| bun install | Bağımlılıkları kurar | 0:31 | kare |
-| bun --bun run dev | Geliştirme sunucusunu http://localhost:3000'de başlatır | 0:31 | kare |
-| bun run electron:dev | Electron masaüstü uygulamasını geliştirme modunda açar | 0:32 | kare |
-| docker run -d -p 3000:3000 ghcr.io/zseven-w/openpencil:latest | Hazır imajı 3000 portunda çalıştırır | 0:42 | kare |
-| docker volume create openpencil-claude-auth | Claude girişini kalıcı kılmak için birim oluşturur | 0:39 | kare |
-| docker run -it --rm ... ghcr.io/zseven-w/openpencil-claude:latest claude login | Konteynerde Claude girişi yapar | 0:39 | kare |
-| docker build --target full -t openpencil-full . | Tüm CLI araçlarıyla tam imaj derler | 0:42 | kare |
-| docker build --target with-claude -t openpencil-claude | Claude CLI'lı imaj derler (ekranda kesik) | 0:42 | kare |
+| brew install --cask openpencil | macOS'ta masaüstü uygulamayı kurar (karede: (karede OCR) GitHub - ZSeven-W/open + Install → C github.com/ZSeven-W/openpencil © : ← README MIT license i≡ Witn tninking; GP 1-40/GeminI aisabie Copilot CLIs. Design from your terminal thinking; smaller models) | 0:27 | kare |
+| scoop bucket add openpencil https://github.com/zseven-w/scoop-openpen | Windows'ta Scoop bucket ekler (URL ekranda kesik) (karede: (karede OCR) GitHub - ZSeven-W/open + × Install → C github.com/ZSeven-W/openpencil © : ← MIT license README i≡ reliable output. Style Guides Design-as-Code .op files are JSON — human- Built-in style guide library) | 0:28 | kare |
+| npm install -g @zseven-w/openpencil | Paketi global kurar (karede: (karede OCR) GitHub - ZSeven-W/open × + → C github.com/ZSeven-W/openpencil Install © : ← MIT license README i≡ etc.) to Al-generated designs. MCP properties. Code export to React + Tailwind or HTML + CSS. tools fo) | 0:29 | kare |
+| bun install | Bağımlılıkları kurar (karede: (karede OCR) GitHub - ZSeven-W/open; × + Install → C github.com/ZSeven-W/openpencil © : ← READMEMIT license i≡ Multi-Platform Code Embeddable SDK © Export pen-engine (headless) + pen-react (React UI SDK) — embed) | 0:31 | kare |
+| bun --bun run dev | Geliştirme sunucusunu http://localhost:3000'de başlatır (karede: (karede OCR) GitHub - ZSeven-W/open; × + Install → C github.com/ZSeven-W/openpencil © : ← READMEMIT license i≡ Multi-Platform Code Embeddable SDK © Export pen-engine (headless) + pen-react (React UI SDK) — embed) | 0:31 | kare |
+| bun run electron:dev | Electron masaüstü uygulamasını geliştirme modunda açar (karede: (karede OCR) GitHub - ZSeven-W/open: × + → C github.com/ZSeven-W/openpencil Install © : ← README MIT license i≡ — ( ) ExporEto reucE raIvina, MiL CSS, Vue, Svelte, Flutter, SwiftUI, engine in your own app. Jetpa) | 0:32 | kare |
+| docker run -d -p 3000:3000 ghcr.io/zseven-w/openpencil:latest | Hazır imajı 3000 portunda çalıştırır (karede: (karede OCR) GitHub - ZSeven-W/open; × + → C github.com/ZSeven-W/openpencil Install © : ← MIT license README i≡ Docker Multiple image variants are available — pick the one that fits your needs: Image Size Include) | 0:42 | kare |
+| docker volume create openpencil-claude-auth | Claude girişini kalıcı kılmak için birim oluşturur (karede: (karede OCR) GitHub - ZSeven-W/open × + Install → C github.com/ZSeven-W/openpencil © : ← READMEMIT license Quick Start (Deveiopment) # Install dependencies bun install # Start dev server at http://localhost:3000) | 0:39 | kare |
+| docker run -it --rm ... ghcr.io/zseven-w/openpencil-claude:latest claude login | Konteynerde Claude girişi yapar (karede: (karede OCR) GitHub - ZSeven-W/open × + Install → C github.com/ZSeven-W/openpencil © : ← READMEMIT license Quick Start (Deveiopment) # Install dependencies bun install # Start dev server at http://localhost:3000) | 0:39 | kare |
+| docker build --target full -t openpencil-full . | Tüm CLI araçlarıyla tam imaj derler (karede: (karede OCR) GitHub - ZSeven-W/open; × + → C github.com/ZSeven-W/openpencil Install © : ← MIT license README i≡ Docker Multiple image variants are available — pick the one that fits your needs: Image Size Include) | 0:42 | kare |
+| docker build --target with-claude -t openpencil-claude | Claude CLI'lı imaj derler (ekranda kesik) (karede: (karede OCR) GitHub - ZSeven-W/open; × + → C github.com/ZSeven-W/openpencil Install © : ← MIT license README i≡ Docker Multiple image variants are available — pick the one that fits your needs: Image Size Include) | 0:42 | kare |
 | brew tap zseven-W/openpencil | Homebrew tap deposunu ekler (OCR'da kesik okundu) | 0:29 | altyazı |
 | docker run -it --rm -v openpencil-claude-auth:/root/.claude ghcr.io/zseven-w/openpencil-claude:latest claude login | Konteynerde Claude CLI OAuth girişi yapar ve bilgiyi volume'a kaydeder | 0:39 | altyazı |
 | docker build --target base -t openpencil . | Dockerfile'ın base hedefini openpencil imajı olarak derler | 0:41 | altyazı |

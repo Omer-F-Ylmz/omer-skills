@@ -34,9 +34,9 @@ Video, GitHub üzerindeki 'wifit3' adlı açık kaynak projeyi tanıtıyor. Proj
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| chmod +x wifit3-linux-x64 && /wifit3-linux- | Linux'ta (sudo olmadan) ikili dosyayı çalıştırılabilir yapar ve çalıştırır. Komut ekranda kesik okundu. | 1:06 | kare |
-| wifit3-windows-x64.exe | Windows'ta indirilen dosyayı çalıştırır. | 1:06 | kare |
-| xattr -d com.apple.quarantine wifit3-macos-universal2 | macOS'un karantina özniteliğini kaldırarak indirilen ikili dosyanın açılmasını sağlar. Ekranda 'com.appie.quarantine' olarak okundu, düzeltildi. | 1:08 | kare |
+| chmod +x wifit3-linux-x64 && /wifit3-linux- | Linux'ta (sudo olmadan) ikili dosyayı çalıştırılabilir yapar ve çalıştırır. Komut ekranda kesik okundu. (karede: (karede OCR) derv82/wifit3 Contributing README GPL-2.0 license : Realtek 2.4/5 Auscoumer 600 Mbps GHz RTL8821CU Realtek 2.4/5 ASUS USB-BE93 RTL8922AU ZH9 Realtek 2.4/5 TP-Link T3U Plus, Archer GHz T4U v3 / T4U+ RT) | 1:06 | kare |
+| wifit3-windows-x64.exe | Windows'ta indirilen dosyayı çalıştırır. (karede: (karede OCR) derv82/wifit3 Contributing README GPL-2.0 license : Realtek 2.4/5 Auscoumer 600 Mbps GHz RTL8821CU Realtek 2.4/5 ASUS USB-BE93 RTL8922AU ZH9 Realtek 2.4/5 TP-Link T3U Plus, Archer GHz T4U v3 / T4U+ RT) | 1:06 | kare |
+| xattr -d com.apple.quarantine wifit3-macos-universal2 | macOS'un karantina özniteliğini kaldırarak indirilen ikili dosyanın açılmasını sağlar. Ekranda 'com.appie.quarantine' olarak okundu, düzeltildi. (karede: (karede OCR) derv82/wifit3 Contributing GPL-2.0 license README : TP-Link T3U Plus, Archer 2.4/5 Realtek ZH9 T4U v3 / T4U+ RTL8822BU Realtek 2.4/5 D-Link AC13U GHz RTL8822CU Realtek 2.4 GHz ALFA AWUS036H RTL8187L R) | 1:08 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

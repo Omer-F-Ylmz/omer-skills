@@ -34,11 +34,11 @@ Kısa reel: Claude Code, bilgisayarda yaşayan dijital bir çalışan olarak anl
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| /pr-description | PR açıklaması yazan skill'i çalıştırır. | 0:53 | kare |
-| git diff master...HEAD | Dal değişikliklerini gösterir. | 0:55 | kare |
-| git branch -a && git log --oneline -10 | Dalları ve son 10 commit'i listeler. | 0:55 | kare |
-| /model | Model seçimi için ipucu olarak gösterilir. | 0:21 | kare |
-| /mobile | Claude'u telefonda kullanma ipucu. | 0:55 | kare |
+| /pr-description | PR açıklaması yazan skill'i çalıştırır. (karede: (karede OCR) auth.py — fastapi-project :del * Available Skills The following skills are available for invocation: Skill: /documentation Description: Writes documentation - READMEs, API docs, code cep documentation) | 0:53 | kare |
+| git diff master...HEAD | Dal değişikliklerini gösterir. (karede: (karede OCR) auth.py — fastapi-project del PR Description Writing to separate paths from revisions, like this: Use'-' 'git <command> [<revision>...] - [<file>...] Bash(git branch -a && git log --oneline -10) cep m) | 0:55 | kare |
+| git branch -a && git log --oneline -10 | Dalları ve son 10 commit'i listeler. (karede: (karede OCR) auth.py — fastapi-project del PR Description Writing to separate paths from revisions, like this: Use'-' 'git <command> [<revision>...] - [<file>...] Bash(git branch -a && git log --oneline -10) cep m) | 0:55 | kare |
+| /model | Model seçimi için ipucu olarak gösterilir. (karede: (karede OCR) *Claude Code Type /model to pick the right tool for the job. > take my latest meeting notes and make a proposal / Ask before edits Mesela bir) | 0:21 | kare |
+| /mobile | Claude'u telefonda kullanma ipucu. (karede: (karede OCR) auth.py — fastapi-project del PR Description Writing to separate paths from revisions, like this: Use'-' 'git <command> [<revision>...] - [<file>...] Bash(git branch -a && git log --oneline -10) cep m) | 0:55 | kare |
 | git diff main...HEAD | Ana dal ile mevcut dal arasındaki değişiklikleri gösterir. (karede: OCR (ekran metni): pr-description yönergesinde komut satırı) | 0:50 | kare |
 | /commit | Commit mesajı yazan skill'in sohbetteki komutu; ekranda örnek olarak anılıyor. (karede: OCR (ekran metni): 'type the command (e.g., /commit)' ifadesi) | 0:53 | kare |
 ## İddialar

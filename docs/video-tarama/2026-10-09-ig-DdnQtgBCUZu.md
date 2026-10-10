@@ -50,14 +50,14 @@ gittrend.io'dan 29 saniyelik reel: StemKit, herhangi bir YouTube şarkısını v
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| npm install | Bağımlılıkları kurar (kaynaktan geliştirme) | 0:15 | kare |
-| npm run dev | Geliştirme modunda uygulamayı başlatır | 0:15 | kare |
-| bash scripts/fetch-ffmpeg.sh | macOS/Linux için ffmpeg ve kütüphaneleri indirir | 0:17 | kare |
-| powershell scripts/fetch-ffmpeg.ps1 | Windows için ffmpeg indirir (bir kez) | 0:17 | kare |
-| npm run dist:linux | Linux AppImage + deb (x64) derler | 0:17 | kare |
-| npm run dist:win | Windows NSIS + zip derler | 0:17 | kare |
-| npm run dist:all | Eşleşen işletim sisteminde tüm hedefleri derler | 0:18 | kare |
-| xattr -cr /Applications/StemKit.app | macOS Gatekeeper karantinasını kaldırır | 0:12 | kare |
+| npm install | Bağımlılıkları kurar (kaynaktan geliştirme) (karede: (karede OCR) GitHub - danielravina/stem × + github.com/danielravina/stemkit#readme Install © C * : ← → MIT license : Security README Export any stem (or all) as WAV ● Fully offline after setup — separation runs on) | 0:15 | kare |
+| npm run dev | Geliştirme modunda uygulamayı başlatır (karede: (karede OCR) GitHub - danielravina/stem × + github.com/danielravina/stemkit#readme Install © C * : ← → MIT license : Security README Export any stem (or all) as WAV ● Fully offline after setup — separation runs on) | 0:15 | kare |
+| bash scripts/fetch-ffmpeg.sh | macOS/Linux için ffmpeg ve kütüphaneleri indirir (karede: (karede OCR) GitHub - danielravina/stem × + Install github.com/danielravina/stemkit#readme © C * : ← → Security MIT license : README Windows: Stemkit-Setup-x.y.z.exe (installer) or portable .zip Linux (x64): Stemk) | 0:17 | kare |
+| powershell scripts/fetch-ffmpeg.ps1 | Windows için ffmpeg indirir (bir kez) (karede: (karede OCR) GitHub - danielravina/stem × + Install github.com/danielravina/stemkit#readme © C * : ← → Security MIT license : README Windows: Stemkit-Setup-x.y.z.exe (installer) or portable .zip Linux (x64): Stemk) | 0:17 | kare |
+| npm run dist:linux | Linux AppImage + deb (x64) derler (karede: (karede OCR) GitHub - danielravina/stem × + Install github.com/danielravina/stemkit#readme © C * : ← → Security MIT license : README Windows: Stemkit-Setup-x.y.z.exe (installer) or portable .zip Linux (x64): Stemk) | 0:17 | kare |
+| npm run dist:win | Windows NSIS + zip derler (karede: (karede OCR) GitHub - danielravina/stem × + Install github.com/danielravina/stemkit#readme © C * : ← → Security MIT license : README Windows: Stemkit-Setup-x.y.z.exe (installer) or portable .zip Linux (x64): Stemk) | 0:17 | kare |
+| npm run dist:all | Eşleşen işletim sisteminde tüm hedefleri derler (karede: (karede OCR) GitHub - danielravina/steml × + Install % github.com/danielravina/stemkit#readme © C * : ← → : Security README MIT license engine (~2 GB) — one time. fmpeg is bundled — nothing else to install. its ow) | 0:18 | kare |
+| xattr -cr /Applications/StemKit.app | macOS Gatekeeper karantinasını kaldırır (karede: (karede OCR) GitHub - danielravina/stem × + github.com/danielravina/stemkit#readme Install © C * : ← → Security MIT license : README 016+4 Features ●Built-in YouTube search, or paste a link Choose your instruments) | 0:12 | kare |
 | pbcopy | Sertifika çıktısını (base64) panoya kopyalar; tam komut ekranda görünmüyor (karede: Ekran metni: 'pbcopy' satırı (OCR)) | 0:22 | kare |
 ## İddialar
 | iddia | zaman | tür |

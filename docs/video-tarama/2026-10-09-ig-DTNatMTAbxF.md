@@ -27,9 +27,9 @@ Kısa reel (0:19): ezremove.ai sitesinin Video Watermark Remover aracı tanıtı
 | Sürükle-bırak yükleme bölgesi (drag-and-drop upload zone) | Video yükleme alanı ve yeşil yükleme düğmesi (karede: Kesikli çerçeveli alanda 'Or drag a video here' yazısı; ortada yeşil yükleme düğmesi ve imleç.) | 0:07 | kare |
 | Gereksinim bilgi listesi (spec list) | Desteklenen format ve limit bilgi satırları (karede: Max Resolution 4K (3840px), Max Size ≤500MB, Supported formats mp4 ..., Max duration 5mins.) | 0:07 | kare |
 | Video önizleme (video preview) | Video önizleme alanı; filigranlı görüntü üzerinde imleç (karede: Sarı saçlı, sari giymiş bir kişinin görüntüsü; sol altta soluk filigran yazısı; imleç yüz hizasında.) | 0:08 | kare |
-| Fırça boyutu ayarlı maskeleme (brush mask) | Brush Size ile filigran üzerine boyama (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:10 | kare |
-| Önce-sonra karşılaştırma (before/after comparison) | BEFORE & AFTER önizleme karşılaştırması (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:02 | kare |
-| Eylem düğmesi (call-to-action button) | Remove Watermark (free) düğmesi (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:13 | kare |
+| Fırça boyutu ayarlı maskeleme (brush mask) | Brush Size ile filigran üzerine boyama (karede: (karede OCR) Background Removal Al Remover 20px Brush Size: K) | 0:10 | kare |
+| Önce-sonra karşılaştırma (before/after comparison) | BEFORE & AFTER önizleme karşılaştırması (karede: (karede OCR) BEFORE & AFTER lBbICTE! ccaepu com AIAlcom) | 0:02 | kare |
+| Eylem düğmesi (call-to-action button) | Remove Watermark (free) düğmesi (karede: (karede OCR) * 10 Log in 0 Remove Watermark (free)) | 0:13 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

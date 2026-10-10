@@ -37,7 +37,7 @@ Kısa bir reel: AI çıktılarının birbirine benzemesinden sıkılanlar için 
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| /skills | Claude Code'da yüklü skill'leri listeler (OCR'da /skits olarak okundu; emin değilim). | 0:41 | kare |
+| /skills | Claude Code'da yüklü skill'leri listeler (OCR'da /skits olarak okundu; emin değilim). (karede: (karede OCR) Claude Code mcp_claude_ai_Notion__notion-create-comment L mcp_claude_ai_Notion_notion-get-comments mcp_claude_ai_Notion_notion-get-teams L mcp_claude_ai_Notion__notion-get-users Custon agents · /agent) | 0:41 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

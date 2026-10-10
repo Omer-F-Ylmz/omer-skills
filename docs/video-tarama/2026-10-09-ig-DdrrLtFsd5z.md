@@ -35,7 +35,7 @@ Kısa reel, ücretsiz ve açık kaynaklı prompts.chat prompt kütüphanesini ta
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| claude mcp add prompt-chat | prompts.chat kütüphanesini Claude Code'a MCP sunucusu olarak ekler. Komutun devamı görünmüyor. | 0:16 | kare |
+| claude mcp add prompt-chat | prompts.chat kütüphanesini Claude Code'a MCP sunucusu olarak ekler. Komutun devamı görünmüyor. (karede: (karede OCR) Prompt Chat MCP PROMPTS 10.000+ claude proept-en*t → -/project claude mcp add prompt-chat Connecting to Prompt Chat MCP server. bir MCP server olarak) | 0:16 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

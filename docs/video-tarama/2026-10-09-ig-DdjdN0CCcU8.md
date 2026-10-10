@@ -28,7 +28,7 @@ Kısa reel: Laya adlı açık kaynak, yerel çalışan bir System 1 karar modeli
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| pip install laya | Laya paketini kurar; çıktıda laya-0.3.4 görünür. Komut metni tam okunmadı, çıktıdan çıkarıldı. | 0:08 | kare |
+| pip install laya | Laya paketini kurar; çıktıda laya-0.3.4 görünür. Komut metni tam okunmadı, çıktıdan çıkarıldı. (karede: (karede OCR) View Mon 21 Sep 08:32 Terminal Shell Edit laya - zsh © install pip $ laya installed laya-0.3.4 Successfully N model) | 0:08 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|
@@ -70,6 +70,7 @@ Kısa reel: Laya adlı açık kaynak, yerel çalışan bir System 1 karar modeli
 - Tam pip komutu okunmadı, yalnız kurulum çıktısı var.
 - Yorumlar girişsiz alınamadı.
 - Kare listesindeki 3 kare 0:22, 0:23, 0:30'a ait; 0:29 prompt karesi görsel olarak doğrulanmadı.
+- EKSİK: rapor (süre dışı zaman: 08:32 > 0:32)
 ## Atlanan segment oranı
 0/1 (paket tam okuma, motor)
 ## URL'ler

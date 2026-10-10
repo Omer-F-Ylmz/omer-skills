@@ -41,10 +41,10 @@ Kısa reel: Claude Code ile profesyonel web sitesi kurma rehberinin tanıtımı.
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| curl -fsSL https://claude.ai/install.sh / bash | Claude Code'u macOS/Linux/WSL'e kurar. | 0:08 | kare |
-| irm https://claude.ai/install.ps1 / iex | Claude Code'u Windows PowerShell'e kurar. | 0:07 | kare |
-| npm i framer-motion | Framer Motion paketini projeye kurar. | 0:13 | kare |
-| uipro init --ai antigravity | UI UX Pro Max skill'ini başlatır (ekranda görünen örnek). | 0:17 | kare |
+| curl -fsSL https://claude.ai/install.sh / bash | Claude Code'u macOS/Linux/WSL'e kurar. (karede: (karede OCR) 1. Install claude code on console :url -fsSL https://claude.ai/install.sh / bash komutu) | 0:08 | kare |
+| irm https://claude.ai/install.ps1 / iex | Claude Code'u Windows PowerShell'e kurar. (karede: (karede OCR) 1. Install claude code English Search.... Ctrl KAsk AlClaude Developer Platform Deployment Administration Configuration Reference Resources de macOS, Linux, WSL: curl -fsSL https://claude.ai/install.s) | 0:07 | kare |
+| npm i framer-motion | Framer Motion paketini projeye kurar. (karede: (karede OCR) motíon 2. Install Framer 548 Dependents 1,381 Versions Install npm i framer-motion URL'ye Repository github.ce ivision/motion) | 0:13 | kare |
+| uipro init --ai antigravity | UI UX Pro Max skill'ini başlatır (ekranda görünen örnek). (karede: (karede OCR) max skill 3. UI/.pro GitHub Copilot Cursor W Windsurf Antigravity Kiro UI UX Pro Max Design I Intelligence Searchable database of Ul styles, color palettes, font pairings, chart types, and UX guidelin) | 0:17 | kare |
 | curl -fsSL https://claude.ai/install.cmd -o install.cmd && (devamı ekranda kesik) | Windows CMD'de kurulum dosyasını indirir (karede: 'Windows CMD:' altında curl satırı, sonu ekranda kesik) | 0:07 | kare |
 | claude --help | Claude Code yardım menüsünü açar; kurulumun çalıştığını doğrular (karede: Terminalde 'claude --help to get started' yazısı) | 0:14 | kare |
 | echo 'export PATH="$HOME/... (ekranda kesik) | ~/.local/bin dizinini PATH'e eklemek için shell yapılandırmasına satır ekler (karede: Terminalde kesik 'echo export PATH' satırı) | 0:25 | kare |

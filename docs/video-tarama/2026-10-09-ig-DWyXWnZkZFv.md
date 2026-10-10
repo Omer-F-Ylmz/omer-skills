@@ -26,7 +26,7 @@ Kısa reel, VITRUSH (ekranda 'VidRush' olarak da geçiyor) adlı yapay zekâ ara
 | teknik | ne işe yarar | zaman | kaynak |
 |---|---|---|---|
 | Senaryo onay ekranı (script approval screen) | Solda senaryo metni, altta 'Approve Script' düğmesi, sağda sohbet paneli ve kredi göstergesi (1000 credits) (karede: Koyu arayüzde 'The Killing Grounds of WWII' senaryosu, altta Approve Script düğmesi, sağda sohbet kutusu) | 0:18 | kare |
-| İlerleme durumu metinleri (progress status text) | 'Researching the topic', 'Developing sections', 'Preparing voiceover' gibi adımlar (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:15 | kare |
+| İlerleme durumu metinleri (progress status text) | 'Researching the topic', 'Developing sections', 'Preparing voiceover' gibi adımlar (karede: (karede OCR) Getting your content ready Setting up your video Researching the topic Organizing the structure Refining the content Crafting your intro Developing sections yapiyor,) | 0:15 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

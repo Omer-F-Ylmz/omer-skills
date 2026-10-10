@@ -59,10 +59,10 @@ Kısa reel: Claude Code'u ücretsiz kullanmak için GitHub'daki 'Free Claude Cod
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| npm install -g @anthropic-ai/claude-code | Claude Code'u global kurar | 0:20 | kare |
-| uv python install 3.14 | Python 3.14 kurar | 0:20 | kare |
-| uv self update | uv'yi günceller | 0:20 | kare |
-| curl -LsSf https://astral.sh/uv/install.sh / sh | macOS/Linux'ta uv kurar | 0:20 | kare |
+| npm install -g @anthropic-ai/claude-code | Claude Code'u global kurar (karede: (karede OCR) Optional voice-note transcription through local Whisper or NVIDIA NIM. Local Admin Ul at/adminto edit supported proxy settings, validate changes, and check providers (loopback access only). Quick Star) | 0:20 | kare |
+| uv python install 3.14 | Python 3.14 kurar (karede: (karede OCR) Optional voice-note transcription through local Whisper or NVIDIA NIM. Local Admin Ul at/adminto edit supported proxy settings, validate changes, and check providers (loopback access only). Quick Star) | 0:20 | kare |
+| uv self update | uv'yi günceller (karede: (karede OCR) Optional voice-note transcription through local Whisper or NVIDIA NIM. Local Admin Ul at/adminto edit supported proxy settings, validate changes, and check providers (loopback access only). Quick Star) | 0:20 | kare |
+| curl -LsSf https://astral.sh/uv/install.sh / sh | macOS/Linux'ta uv kurar (karede: (karede OCR) Optional voice-note transcription through local Whisper or NVIDIA NIM. Local Admin Ul at/adminto edit supported proxy settings, validate changes, and check providers (loopback access only). Quick Star) | 0:20 | kare |
 | irm https://... (kırpılmış) | Windows'ta uv kurulum betiğini PowerShell üzerinden indirir; tam komut okunamadı (karede: OCR ile okunan ekran: 'Windows PowerShell:' altında kırpılmış irm satırı) | 0:21 | kare |
 | powershell -Executi... (kırpılmış) | PowerShell'i ExecutionPolicy ile çalıştırıp uv kurulum betiğini çalıştırır; tam komut okunamadı (karede: OCR ile okunan ekran: kırpılmış 'powershell -Executi' satırı) | 0:21 | kare |
 | curl -LsSf https://astral.sh/uv/install.sh | uv kurulum betiğini indirir (ekranda tekrar görünen kısaltılmış satır) (karede: OCR ile okunan ekran: curl -LsSf satırı; sonunda '/ sh' görünmüyor) | 0:22 | kare |

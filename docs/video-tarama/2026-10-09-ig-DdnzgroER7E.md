@@ -38,7 +38,7 @@ Kısa reel: GitHub'da sızdırıldığı söylenen tek bir kod dosyası (GODMOD3
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| /watch-video https://youtu.be/T0HQXdCAo5k visual | Claude Code'da YouTube videosunu kare + görsel analizle işleyen skill'i çalıştırır | 0:01 | kare |
+| /watch-video https://youtu.be/T0HQXdCAo5k visual | Claude Code'da YouTube videosunu kare + görsel analizle işleyen skill'i çalıştırır (karede: (karede OCR) corey@mbp: ~ - claude * Welcome to Claude Code! claude-fable-5 /watch-video https://youtu.be/T0HQXdCAo5k visual Skill(watch-video) source: YouTube · depth: visual - frames + vision pass ? for shortcut) | 0:01 | kare |
 | claude | Terminalde Claude Code oturumunu başlatır (pencere başlığında görünüyor). (karede: Terminal başlığı 'corey@mbp: ~ - claude'; ekranda 'Welcome to Claude Code!' yazıyor.) | 0:00 | kare |
 ## İddialar
 | iddia | zaman | tür |

@@ -38,7 +38,7 @@ Kısa videoda yazar, Claude Code ile tek satırlık komutla 2 dakikada 10.000 do
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| echo 'export PATH="$HOME/.… | PATH ayarını kabuk yapılandırmasına ekler (komut kesik görünüyor) | 0:20 | kare |
+| echo 'export PATH="$HOME/.… | PATH ayarını kabuk yapılandırmasına ekler (komut kesik görünüyor) (karede: (karede OCR) : — cla. Claude Code v2.1.81 Sonnet 4.6 . Claude Pro [Pasted text #1 +710 lines][Pasted text #2 +710 lines] Native installation exists echo 'export PATH="$HOME/. in) | 0:20 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|
@@ -75,6 +75,7 @@ Kısa videoda yazar, Claude Code ile tek satırlık komutla 2 dakikada 10.000 do
 - 'Tek satır komut' metni videoda gösterilmiyor.
 - Ekran metnindeki Canva, Cursor, Windsurf vb. adlar GitHub konularından; videoda kullanılmıyor.
 - Notion bağlantısı videoda kullanılmıyor, yalnız rehber barındırıyor.
+- EKSİK: rapor (alıntı 39 kelime > 15: $HOME/.… / PATH ayarını kabuk yapılandır…)
 ## Atlanan segment oranı
 0/1 (paket tam okuma, motor)
 ## URL'ler

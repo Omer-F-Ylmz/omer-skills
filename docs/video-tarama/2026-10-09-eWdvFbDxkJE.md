@@ -43,10 +43,10 @@ Charlie Automates, 75 saniyelik kısa videoda Claude Code için 5 eklenti/araç 
 |---|---|---|---|
 | wc -l [yol]/src/*.rs [yol]/src/**/*.rs 2>/dev/null / tail -1 | herdr kaynak dosyalarının satır sayısını sayar; Claude Code ajanı çalıştırdı ve izin istedi. Yollar kısaltıldı. (karede: İzin istemi: 'Execute wc -l [yol]' ve 'Yes, and always allow low impact commands' seçenekleri.) | 0:15 | kare |
 | /review | Claude Code'da mevcut değişiklikleri inceletir (sohbet komutu). (karede: Sağ paneldeki Claude Code girişinde '/review on my curr…' yazısı.) | 0:15 | kare |
-| /init | Claude Code'da proje için CLAUDE.md talimat dosyası oluşturur (sohbet komutu). | 0:21 | kare |
+| /init | Claude Code'da proje için CLAUDE.md talimat dosyası oluşturur (sohbet komutu). (karede: (karede OCR) 0 Contributing Apache-2.0 license README v.0.4.0.mp4 LLn-prexy 1 ) claude naster Claude Code v2.1.92 2 herer Ren /init to create a ClAllE.md file nith instruttions for Claude Wuleome back Can! master) | 0:21 | kare |
 | /graphify | AI kodlama asistanında Graphify'ı çalıştırır (sohbet komutu). (karede: 'Type /graphify in your AI coding assistant' yazısı.) | 0:24 | kare |
 | /quorum | Claude Code Setup örneğinde birden çok modele aynı soruyu sorar (sohbet komutu, OCR ile okundu). (karede: Sneak Preview'da '> /quorum is running…' satırı.) | 0:49 | kare |
-| /llm | Örnek çıktıda birden çok modelli sorgu başlatır (sohbet komutu, OCR ile okundu). | 0:54 | kare |
+| /llm | Örnek çıktıda birden çok modelli sorgu başlatır (sohbet komutu, OCR ile okundu). (karede: (karede OCR) :m README computers. Sneak Preview A simple sneak preview of some of the configured features is: * Welcome to Claude Code! /help for help, /status for your current setup cwd: /Users/rse/Work/speechflo) | 0:54 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

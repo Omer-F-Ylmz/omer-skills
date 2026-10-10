@@ -64,7 +64,7 @@ Kısa reel: OmniRoute adlı ücretsiz yapay zekâ ağ geçidi tanıtılıyor. Cl
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| /compact | Claude Code konuşmasını sıkıştırır | 0:21 | kare |
+| /compact | Claude Code konuşmasını sıkıştırır (karede: (karede OCR) No recent activity Opus 4.6 Claude Max · higlewismenelams.com's Organization -/sample-project I Conversation compacted (ctrl+o for history) /compact Read src/routes/auth.ts (75 Lines) Read src/middle) | 0:21 | kare |
 | ctrl+o | Sıkıştırılmış oturumun tam geçmişini açmak için kısayol (ekrandaki ipucu). (karede: 'Conversation compacted (ctrl+o for history)' ve 'ctrl+o to expand' ipuçları görünüyor.) | 0:21 | kare |
 ## İddialar
 | iddia | zaman | tür |

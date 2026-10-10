@@ -33,13 +33,13 @@ Kısa video, Claude Code'un ön yüz tasarımındaki zayıflığını Google Sti
 ## Site/UI teknikleri
 | teknik | ne işe yarar | zaman | kaynak |
 |---|---|---|---|
-| Sinematik açılış sayfası, animasyonlu hero bölümü, 8 bölüm, kaydırılabilir yerleşim (cinematic landing page, hero section, scrolling sections) | Stitch ile üretilen COSMOS uzay yolculuğu sitesi (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:15 | kare |
-| Sıvı cam tasarım sistemi (liquid-glass design system) ve mikro animasyonlar (micro animations) | Prompt'ta istenen ortak görsel stil (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:15 | kare |
+| Sinematik açılış sayfası, animasyonlu hero bölümü, 8 bölüm, kaydırılabilir yerleşim (cinematic landing page, hero section, scrolling sections) | Stitch ile üretilen COSMOS uzay yolculuğu sitesi (karede: (karede OCR) Welcome to Stitch.. Make me an app for discovering Califor... A trip packing checklist app that sugge... Design a Cinematic landing page for Space-Travel private business named "COSMOS" with an animat) | 0:15 | kare |
+| Sıvı cam tasarım sistemi (liquid-glass design system) ve mikro animasyonlar (micro animations) | Prompt'ta istenen ortak görsel stil (karede: (karede OCR) Welcome to Stitch.. Make me an app for discovering Califor... A trip packing checklist app that sugge... Design a Cinematic landing page for Space-Travel private business named "COSMOS" with an animat) | 0:15 | kare |
 | Mobil uygulama ekranı: büyük sayı göstergesi, istatistik kartları, alt gezinme çubuğu (bottom navigation bar) | Kafein takip uygulaması ekranları (karede: Telefon çerçevesinde 245 mg halka ilerleme göstergesi ve Dash/Timeline/Scan/Insights sekmeleri.) | 0:13 | kare |
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| claude mcp add stitch --transport http --url "https://stitch.googleapis.com/mcp" --header "X-Goog-Api-Key: <anahtar>" | Stitch MCP sunucusunu Claude Code'a ekler. | 0:29 | kare |
+| claude mcp add stitch --transport http --url "https://stitch.googleapis.com/mcp" --header "X-Goog-Api-Key: <anahtar>" | Stitch MCP sunucusunu Claude Code'a ekler. (karede: (karede OCR) 0 ≥ AEON - Compl AEON -F Setup MCP ← COSP Connect your IDE or CLI to Stitch via the Model Context Protocol (MCP). Client Claude Code API Key E ...279066c36386 Configuration claude mcp add stitch \ M -) | 0:29 | kare |
 | claude mcp add stitch --transport http --url "https://stitch.googleapis.com/mcp" --header "X-Gong-Api-Key: <API_ANAHTARI>" | Stitch MCP sunucusunu 'stitch' adıyla HTTP üzerinden Claude Code'a ekler; API anahtarını header ile gönderir. Anahtar değeri bu alana yazılmadı. (karede: OCR ile okundu: Claude Code terminalinde 'claude mcp add stitch \ --transport http \ --url "https://stitch.googleapis.com/mcp" \ --header "X-Gong-Api-Key: ..."' satırları görünüyor.) | 0:29 | kare |
 ## İddialar
 | iddia | zaman | tür |

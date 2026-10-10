@@ -36,7 +36,7 @@ mr.pynk, Higgsfield aboneliğini değiştirebileceği iddia edilen 'Generate' ad
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| /setup | Sağlayıcı anahtarlarını bağlamak için kullanılır; anahtarlar bağlı değilken üretim öncesi çalıştırılması öneriliyor. | 0:33 | kare |
+| /setup | Sağlayıcı anahtarlarını bağlamak için kullanılır; anahtarlar bağlı değilken üretim öncesi çalıştırılması öneriliyor. (karede: (karede OCR) GPT Image, 2K high quality, one image Model Route Est. cost Notes GPT Image Kie Al 10 credits at 2K. There's no quality setting, so every $0.05 2K image is billed at this price 2.5 High quality, fal') | 0:33 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

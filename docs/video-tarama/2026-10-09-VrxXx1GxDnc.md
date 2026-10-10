@@ -41,7 +41,7 @@ Andrii Bachinskyi, 'Softies' adlı oyuncak markası için bir arayüz konsepti t
 ## Site/UI teknikleri
 | teknik | ne işe yarar | zaman | kaynak |
 |---|---|---|---|
-| Gradyan arka planlı çerçeve (gradient frame) | Figma tasarımında sayfanın gradyan dolgulu çerçevesi. (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:08 | kare |
+| Gradyan arka planlı çerçeve (gradient frame) | Figma tasarımında sayfanın gradyan dolgulu çerçevesi. (karede: (karede OCR) Position -265 X -706 Y Rotation L0° 4 Layout Flow %0 ↑8 00 Dimensions W 1600 H 1000 Clip content Appearance Opacity Corner radius CC0 100% Libraries Custom + × B8 □ Fill Linear 10 Linear Stroke Effect) | 0:08 | kare |
 | Başlık, büyük numara ve açıklama metni yerleşimi (hero typography layout) | SOFTIES başlığı, 'We create cozy, cuddly toys' metni ve numara. | 0:03 | altyazı |
 | Animasyonlu 3B çizgi arka planı (animated 3D lines background) | Blender'da üretilip render edilen, Trim Curve ile çizilen bükülmüş çizgiler. | 0:32 | altyazı |
 | Kırmızı perde dokulu 3B arka plan (3D curtain backdrop) | Kesitlerde ekranın alt ve üstünde kırmızı perde benzeri arka plan görünüyor. (karede: Düğüm editörünün altında ve üstünde kırmızı perde benzeri arka plan görünüyor.) | 0:24 | kare |

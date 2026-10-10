@@ -27,8 +27,8 @@ Kısa reel: Manus AI'ı 'dünyanın ilk gerçek genel yapay zekâ ajanı' diye t
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
 | mkdir -p conservation_momentum && cd conservation_momentum | Manus'un proje klasörünü oluşturup içine girmesi; ekranda kısmen okunuyor. (karede: 'Executing command mkdir -p conservation_momentum && cd conservation_mome...' satırı görünüyor.) | 0:24 | kare |
-| mkdir -p japan_trip && cd japan... | Manus'un Japonya seyahat planı için 'japan_trip' klasörü oluşturup dizine girmesi (Manus çalışma günlüğü; izleyici çalıştırmıyor). | 0:17 | kare |
-| cd [yol] && python3 tesla_technical_analys... | Manus'un Tesla teknik analiz betiğini python3 ile çalıştırması (Manus çalışma günlüğü; izleyici çalıştırmıyor). | 0:22 | kare |
+| mkdir -p japan_trip && cd japan... | Manus'un Japonya seyahat planı için 'japan_trip' klasörü oluşturup dizine girmesi (Manus çalışma günlüğü; izleyici çalıştırmıyor). (karede: (karede OCR) , manus 7-Day Japan Itin... * Log in ceremonies, and Zen meditation, as well as plan for Nara's deer park visit. I'llalso create a detailed HTML travel handbook with maps, attraction descriptions, ess) | 0:17 | kare |
+| cd [yol] && python3 tesla_technical_analys... | Manus'un Tesla teknik analiz betiğini python3 ile çalıştırması (Manus çalışma günlüğü; izleyici çalıştırmıyor). (karede: (karede OCR) 2 , manusComprehensive Tesla Stock Analysis and Investm... Log in View all files in this task Continue: Perform technical analysis on Tesla stock Moving to perform technical analysis on Tesla stock Ex) | 0:22 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

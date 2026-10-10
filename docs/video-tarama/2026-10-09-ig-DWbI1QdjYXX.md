@@ -26,10 +26,10 @@ Kısa reel, Google'ın Gemini ile geliştirdiği ücretsiz Little Language Lesso
 ## Site/UI teknikleri
 | teknik | ne işe yarar | zaman | kaynak |
 |---|---|---|---|
-| Dil seçim listesi (dropdown list) | Dilleri alt alta listeleyen, imleçle vurgulanan seçim listesi (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:16 | kare |
-| Ses butonlu ifade kartları (phrase cards) | Her ifade için hoparlör ikonlu, açık mavi kartlar (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:13 | kare |
-| Diyalog baloncukları ve satır içi çeviri (chat bubbles, inline translation) | Konuşmacı adlı mesajlar, altı çizili ifadeye açıklama balonu (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:31 | kare |
-| Devam butonu (Tap here to continue) | Diyalogda sonraki adıma geçiren alt bağlantı (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:31 | kare |
+| Dil seçim listesi (dropdown list) | Dilleri alt alta listeleyen, imleçle vurgulanan seçim listesi (karede: (karede OCR) German Greek Hebrew Hindi Italian Japanese Yemek siparişi Portuguese (Brazil)) | 0:16 | kare |
+| Ses butonlu ifade kartları (phrase cards) | Her ifade için hoparlör ikonlu, açık mavi kartlar (karede: (karede OCR) Phrases ¿Dónde puedo surfear? A Where can I surf? Las olas están muy grandes. 4) The waves are very big. Necesito alquilar una tabla. 4) I need to rent a surfboard. Cuidado con la corriente. 4) Wat üc) | 0:13 | kare |
+| Diyalog baloncukları ve satır içi çeviri (chat bubbles, inline translation) | Konuşmacı adlı mesajlar, altı çizili ifadeye açıklama balonu (karede: (karede OCR) English Slang Hang Clara, a spirited woman in her late twenties, works at 'El Rincón Lector', a cozy independent bookshop nestled in Madrid's historic Barrio de las Letras. Marco, a quiet and thoughtf) | 0:31 | kare |
+| Devam butonu (Tap here to continue) | Diyalogda sonraki adıma geçiren alt bağlantı (karede: (karede OCR) English Slang Hang Clara, a spirited woman in her late twenties, works at 'El Rincón Lector', a cozy independent bookshop nestled in Madrid's historic Barrio de las Letras. Marco, a quiet and thoughtf) | 0:31 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

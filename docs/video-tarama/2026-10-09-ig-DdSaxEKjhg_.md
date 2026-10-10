@@ -40,8 +40,8 @@ Kısa reel, Claude-Red adlı ücretsiz ve açık kaynaklı saldırgan güvenlik 
 | cat Skills/active-directory/**/SKILL.md / claude --system-file - | Active Directory skill'lerini sistem prompt'u olarak verir (karede: cat Skills/active-directory/**/SKILL.md / claude --system-file -) | 0:10 | kare |
 | ./install.sh --category web | Yalnız web kategorisini kurar (karede: ./install.sh --category web # single category) | 0:12 | kare |
 | ./install.sh --target ~/.claude/skills | Açık hedef klasöre kurar (karede: ./install.sh --target ~/.claude/skills # explicit target) | 0:12 | kare |
-| git clone --filter=blob:none --sparse https://github.com/SnailSploit/claude-red | Blob'suz sparse modda klonlar; yalnız seçilen dizinler indirilir | 0:08 | kare |
-| ./install.sh | Etkileşimli (interactive) kurulum betiğini çalıştırır | 0:12 | kare |
+| git clone --filter=blob:none --sparse https://github.com/SnailSploit/claude-red | Blob'suz sparse modda klonlar; yalnız seçilen dizinler indirilir (karede: (karede OCR) GitHub - SnailSploit/Claude× + Install % github.com/SnailSploit/Claude-Red#readme © C * : ← Contributing : Security README MIT license snailsploit.com claude-red Offensive security skills for Claude —) | 0:08 | kare |
+| ./install.sh | Etkileşimli (interactive) kurulum betiğini çalıştırır (karede: (karede OCR) GitHub - SnailSploit/Claude × + Install github.com/SnailSploit/Claude-Red#readme © C * % : ← Contributing : README MIT license Security system. Each skillis a structured sKILL . md file that primes Cl) | 0:12 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

@@ -31,9 +31,9 @@ Kısa videoda ücretsiz GitHub reposu screenshot-to-code ile tek bir ekran gör�
 ## Site/UI teknikleri
 | teknik | ne işe yarar | zaman | kaynak |
 |---|---|---|---|
-| Kahraman bölümü ve gezinme çubuğu (hero section, navbar) | Restoran/kahve sitesi örneklerinde başlık, rezervasyon düğmesi ve menü bağlantıları (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:33 | kare |
-| İmleci takip eden etkileşim (cursor-follow interaction) | Ekranda 'Move your cursor!' yazan etkileşimli bölüm (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:34 | kare |
-| Kart ızgarası ve değer önerisi bölümü (card grid, value-prop section) | Üç kart ve üç fayda metninden oluşan bölüm düzeni (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:27 | kare |
+| Kahraman bölümü ve gezinme çubuğu (hero section, navbar) | Restoran/kahve sitesi örneklerinde başlık, rezervasyon düğmesi ve menü bağlantıları (karede: (karede OCR) Kaya FlavoP Fresh, bold flavors rooted in tradition. From our kitchen to your table, every dish is made with care, real ingredients, and a whole lot of heart. Reserve a Table View Menu kaya GOODFOOD R) | 0:33 | kare |
+| İmleci takip eden etkileşim (cursor-follow interaction) | Ekranda 'Move your cursor!' yazan etkileşimli bölüm (karede: (karede OCR) Reserve a Table Move your cursor! What are you in the mood for?) | 0:34 | kare |
+| Kart ızgarası ve değer önerisi bölümü (card grid, value-prop section) | Üç kart ve üç fayda metninden oluşan bölüm düzeni (karede: (karede OCR) Working for 4m 35s l'll replace that accordion-style "From raw thought.." block with a light value-prop section that matches the attached layout: headline/text at top, three product cards, and three b) | 0:27 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

@@ -39,7 +39,7 @@ Kısa reel: msitarzewski/agency-agents açık kaynak deposunu tanıtıyor. 17 b�
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| ./scripts/install.sh --tool claude-code | Ajan dosyalarını Claude Code'a kurar | 0:12 | kare |
+| ./scripts/install.sh --tool claude-code | Ajan dosyalarını Claude Code'a kurar (karede: (karede OCR) *16 DROPS INTO ~/.claude/agents ALSO CURSOR, CODEX, GEMINI $ install.sh --tool claude-code ./scripts/install.sh - -tool claude-code It plugs straight) | 0:12 | kare |
 | brew install agency-agents | macOS'ta masaüstü uygulamasını kurar (karede: Başlıkta 'NO CLONE, NO TERMINAL brew install agency-agents' yazıyor) | 0:14 | kare |
 | install.sh --tool claude-code | Ajanları Claude Code'a kuran betik çağrısı; ekranda '$' ön ekiyle gösteriliyor. (karede: '$ install.sh --tool claude-code' satırı (0:12 karesi gönderilmedi; OCR'dan okundu).) | 0:12 | kare |
 | ./scripts/install.sh | Depodaki kurulum betiğinin yolu; bölüm filtresi bu betikle uygulanıyor. (karede: './scripts/install.sh' satırı (0:12 karesi gönderilmedi; OCR'dan okundu).) | 0:12 | kare |

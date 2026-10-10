@@ -36,7 +36,7 @@ Kısa bir Instagram reel'i: tarayıcıdan ayrılmadan JavaScript, Python, web ta
 | Alt terminal konsol çubuğu (fixed terminal bar) | Altta sabit 'TERMINAL / CANLI KONSOL' paneli, HAZIR durumu ve repo mesajı. (karede: Altta 'repo: 100% ücretsiz...' satırı ve yeşil HAZIR etiketi.) | 0:04 | kare |
 | Altyazı bindirmesi (caption overlay) | Ortada kalın beyaz konuşma altyazısı. (karede: Ortada 'Tarayıcından hiç ayrılmadan JavaScript,' yazısı.) | 0:04 | kare |
 | Sonuç tablosu ve durum etiketi (status table) | KURS / DURUM tablosunda 'Tamamlandı' yeşil işareti. (karede: Full Stack Roadmap satırı, yeşil ✓ Tamamlandı.) | 0:08 | kare |
-| Sertifika görseli (certificate mockup) | Uluslararası sertifika örneği gösteriliyor. (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:15 | kare |
+| Sertifika görseli (certificate mockup) | Uluslararası sertifika örneği gösteriliyor. (karede: (karede OCR) Uluslararasi Sertifika Certiticaur pletion This Gertifics That has completed the requirements of and is awarded this certificate. Given by: This Year of Dav of projeli The Arid Moin) | 0:15 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

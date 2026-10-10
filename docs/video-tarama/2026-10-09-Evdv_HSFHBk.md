@@ -51,7 +51,7 @@ Netlify tanıtım videosu: uygulama yapay zekâya tarif edilerek ya da editörde
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| npm run … (komut ekranda kesik) | Netlify build aşamasında özel build komutu olarak çalıştırılır; tam komut okunamadı. | 0:41 | kare |
+| npm run … (komut ekranda kesik) | Netlify build aşamasında özel build komutu olarak çalıştırılır; tam komut okunamadı. (karede: (karede OCR) 12:32:19 PM: build-image version: 8c9b1115cf47daa4d19510cfee34034469213d7a (noble-new-builc 1 12:32:19 PM: buildbot version: b37d60600e9fbd0a1bcdda16d43f1897be4759fc 2 12:32:19 PM: Building with cache) | 0:41 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|
@@ -98,6 +98,9 @@ Netlify tanıtım videosu: uygulama yapay zekâya tarif edilerek ya da editörde
 - Sözlükteki Descript, Next.js, Three.js, Inter, JavaScript eşleşmeleri OCR/ses hatası; videoda kullanılmıyor.
 - Build komutu 'npm ru...' kesik görünüyor; tam komut okunamadı, kurulum komutu yazılmadı.
 - Prompt satırları ekli üç kareden değil OCR ekran metninden alındı; OCR gürültülü.
+- EKSİK: rapor (süre dışı zaman: 12:32:19 > 1:39)
+- EKSİK: rapor (süre dışı zaman: 12:32:19 > 1:39)
+- EKSİK: rapor (süre dışı zaman: 12:32:19 > 1:39)
 ## Atlanan segment oranı
 0/2 (paket tam okuma, motor)
 ## URL'ler

@@ -46,22 +46,22 @@ git.radar reeli, alphaXiv'in açık kaynak OpenResearch aracını tanıtıyor. A
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| curl -LsSf https://openresearch.sh/install.sh / sh | macOS/Linux'ta OpenResearch CLI'ı kurar. | 0:03 | kare |
-| orx up | Yerel paneli http://127.0.0.1:4791 adresinde açar. | 0:06 | kare |
-| orx up --remote user@host | Çalışma alanını uzak GPU makinesinin yanında çalıştırır. | 0:33 | kare |
-| orx install-skills | OpenResearch skill'ini desteklenen kodlama ajanlarına kurar. | 0:41 | kare |
-| orx projects | Projeleri listeler. | 0:42 | kare |
-| orx runs <project-id> | Projenin çalıştırmalarını listeler. | 0:42 | kare |
-| orx exp run <experiment-id> | Bir deneyi çalıştırır. | 0:43 | kare |
-| orx logs <run-id> | Çalıştırma günlüklerini gösterir. | 0:43 | kare |
-| orx discover keyword <query> | Anahtar kelimeyle keşif yapar. | 0:44 | kare |
-| orx paper <arxiv-id-or-doi> | arXiv kimliği veya DOI ile makale getirir. | 0:44 | kare |
-| orx --help | Tüm komutların yardımını gösterir. | 0:45 | kare |
-| orx telemetry status | Telemetri durumunu gösterir. | 0:55 | kare |
-| orx <command> --no-telemetry | Tek komutta telemetriyi kapatır. | 0:56 | kare |
-| orx project view <p…> | Bir projenin ayrıntılarını gösterir (komut ekranda kesik). | 0:43 | kare |
-| orx --help / orx <command> --help | Tüm komutların ve komut yardımının listesini gösterir. | 0:45 | kare |
-| orx telemetry off | Telemetriyi kalıcı olarak kapatır. | 0:59 | kare |
+| curl -LsSf https://openresearch.sh/install.sh / sh | macOS/Linux'ta OpenResearch CLI'ı kurar. (karede: (karede OCR) alphaXiv/OpenResearch 955ebe7 - 22 minutes ago Add Spani... rdereparadores and sox8502 MIT license README :m OpenResearch The local-first workspace for research agents and autoresearch. Turn * Claude) | 0:03 | kare |
+| orx up | Yerel paneli http://127.0.0.1:4791 adresinde açar. (karede: (karede OCR) alphaXiv/OpenResearch MIT license README : OpenResearch The local-first workspace for research agents and autoresearch. Turn * Claude Code, Codex, OpenCode, or Cursor into research agents that can rev) | 0:06 | kare |
+| orx up --remote user@host | Çalışma alanını uzak GPU makinesinin yanında çalıştırır. (karede: (karede OCR) alphaXiv/OpenResearch Track variants in a git-native Reproducible experiment tree; every run receives experiments an immutable archive of its recorded commit. Keep logs, diffs, files, results, and Evi) | 0:33 | kare |
+| orx install-skills | OpenResearch skill'ini desteklenen kodlama ajanlarına kurar. (karede: (karede OCR) alphaXiv/OpenResearch Keep projects, conversations, Local experiments, runs, logs, code, and ownership artifacts on your machine. Autoresearch OpenResearch can run the fulloop autonomously: propose an) | 0:41 | kare |
+| orx projects | Projeleri listeler. (karede: (karede OCR) alphaXiv/OpenResearch expenments, runs, ¡ogs, coue, anu ownership artifacts on your machine. Autoresearch OpenResearch can run the full loop autonomously: propose an idea, change the code, launch an e) | 0:42 | kare |
+| orx runs <project-id> | Projenin çalıştırmalarını listeler. (karede: (karede OCR) alphaXiv/OpenResearch expenments, runs, ¡ogs, coue, anu ownership artifacts on your machine. Autoresearch OpenResearch can run the full loop autonomously: propose an idea, change the code, launch an e) | 0:42 | kare |
+| orx exp run <experiment-id> | Bir deneyi çalıştırır. (karede: (karede OCR) alphaXiv/OpenResearch Autoresearch OpenResearch can run the full loop autonomously: propose an idea, change the code, launch an experiment, inspect the evidence, and decide what to try next. Multiple) | 0:43 | kare |
+| orx logs <run-id> | Çalıştırma günlüklerini gösterir. (karede: (karede OCR) alphaXiv/OpenResearch Autoresearch OpenResearch can run the full loop autonomously: propose an idea, change the code, launch an experiment, inspect the evidence, and decide what to try next. Multiple) | 0:43 | kare |
+| orx discover keyword <query> | Anahtar kelimeyle keşif yapar. (karede: (karede OCR) alphaXiv/OpenResearch OpenResearch can run the full loop autonomously: propose an idea, change the code, launch an experiment, inspect the evidence, and decide what to try next. Multiple agents can ex) | 0:44 | kare |
+| orx paper <arxiv-id-or-doi> | arXiv kimliği veya DOI ile makale getirir. (karede: (karede OCR) alphaXiv/OpenResearch OpenResearch can run the full loop autonomously: propose an idea, change the code, launch an experiment, inspect the evidence, and decide what to try next. Multiple agents can ex) | 0:44 | kare |
+| orx --help | Tüm komutların yardımını gösterir. (karede: (karede OCR) alphaXiv/OpenResearch an idea, cnange tne code, launch an experiment, inspect tne evidence, and decide what to try next. Multiple agents can explore different directions in parallel while the experime) | 0:45 | kare |
+| orx telemetry status | Telemetri durumunu gösterir. (karede: (karede OCR) alphaXiv/OpenResearch level authentication, so other users on that host can reach it. CLI and agent integration orx install-skills Common commands: orx projects orx project view <project-id> orx runs) | 0:55 | kare |
+| orx <command> --no-telemetry | Tek komutta telemetriyi kapatır. (karede: (karede OCR) alphaXiv/OpenResearch it. CLI and agent integration Install the OpenResearch skill into supported coding agents: orx install-skills Common commands: [P orx projects orx project view <project-id> orx r) | 0:56 | kare |
+| orx project view <p…> | Bir projenin ayrıntılarını gösterir (komut ekranda kesik). (karede: (karede OCR) alphaXiv/OpenResearch Autoresearch OpenResearch can run the full loop autonomously: propose an idea, change the code, launch an experiment, inspect the evidence, and decide what to try next. Multiple) | 0:43 | kare |
+| orx --help / orx <command> --help | Tüm komutların ve komut yardımının listesini gösterir. (karede: (karede OCR) alphaXiv/OpenResearch an idea, cnange tne code, launch an experiment, inspect tne evidence, and decide what to try next. Multiple agents can explore different directions in parallel while the experime) | 0:45 | kare |
+| orx telemetry off | Telemetriyi kalıcı olarak kapatır. (karede: (karede OCR) alphaXiv/OpenResearch orx install-skills Common commands: orx projects orx project view <project-id> orx runs orx logs orx exp run orx discover keyword <query> orx paper «arxİv-İd-or-d0İ» Run orx—help) | 0:59 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

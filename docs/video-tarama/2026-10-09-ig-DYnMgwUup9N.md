@@ -33,7 +33,7 @@ Kısa reel: Claude Code üzerinde kurulmuş özel bir sistemle marka URL'si veri
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
 | ls [yol]/Ads/brands/PYNK/ | PYNK marka klasöründeki ürün ve referans dosyalarını listeler; ürün sayısı ve çekim kayıtları bu çıktıdan okunuyor. (karede: Bash çıktısında 'IN ls [yol]/Ads/brands/PYNK/' ve altında pole-guy-jacket, shot- satırları görünüyor.) | 0:12 | kare |
-| ls [yol]/brands/ 2>/dev/null | Markalar klasörünü listeler; hata çıktısını gizler. Komutun tam metni kırpılmış görünüyor, '2>/dev,' olarak okundu. | 0:27 | kare |
+| ls [yol]/brands/ 2>/dev/null | Markalar klasörünü listeler; hata çıktısını gizler. Komutun tam metni kırpılmış görünüyor, '2>/dev,' olarak okundu. (karede: (karede OCR) nstall Python project d... Build Rhode.com website× * Build Rhode.com website www.rhode.com Thought for 1s > brand-dna-builder skill Thought for Os > Read SKILL. md Thought for 0s > Starting with Step) | 0:27 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

@@ -41,11 +41,11 @@ Claude Code'u yaratan Boris Cherny'nin 10 ipucundan ilk dördü anlatılıyor: P
 |---|---|---|---|
 | Shift-Tab | Claude Code'da Plan Mode'u etkinleştirir. | 0:04 | altyazı |
 | /init | CLAUDE.md dosyası oluşturur. (karede: Claude Code karşılama ekranında 'Run /init to create a CLAUDE.md file' ipucu.) | 0:34 | kare |
-| claude | Terminalde Claude Code oturumunu başlatır (proje klasöründe) | 0:34 | kare |
+| claude | Terminalde Claude Code oturumunu başlatır (proje klasöründe) (karede: (karede OCR) ClaudeCode claude-agent-sdk-demos % claude Claude Code v2.8.68 started Tips for getting Welcome back Claude! Run /init to create a CLAUDE Recent activity No recent activity Opus 4.5 . Claude Max -/Pro) | 0:34 | kare |
 | gh issue view 6 | GitHub issue 6'nın ayrıntılarını terminalde gösterir (karede: Sağ terminal panelinde 'Bash(gh issue view 6)' satırı) | 0:15 | kare |
 | git worktree | Aynı repo için ayrı çalışma dizinleri açar; paralel agent oturumları için kullanılır (yalnızca adı söylenir, komut gösterilmez) | 0:00 | altyazı |
-| ctrl-g | Claude Code'da prompt'u Vim içinde düzenler | 0:35 | kare |
-| Ctrl+Esc | VS Code'da Claude paneline odağı verir ya da çıkarır | 0:06 | kare |
+| ctrl-g | Claude Code'da prompt'u Vim içinde düzenler (karede: (karede OCR) ClaudeCode claude-agent-sdk-demos % claude Claude Code v2.0.60 Tips for getting started Run /init to create a CLAUDE.md file with Welcome back Claude! Recent activity No recent activity Opus 4.5 - Cla) | 0:35 | kare |
+| Ctrl+Esc | VS Code'da Claude paneline odağı verir ya da çıkarır (karede: (karede OCR) * Claude Code × ... Untitled + Claude Code Use Claude Code in the terminal to configure Th~/ll...lh. AACD ktrl esc to focus or unfocus Claude </> Edit automatically index.html + │ koda dokunmadan önce) | 0:06 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

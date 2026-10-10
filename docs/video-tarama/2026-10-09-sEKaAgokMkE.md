@@ -38,7 +38,7 @@ Kısa videoda Claude için üç skill tanıtılıyor: yanıtı öne alıp adıml
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| npm install jsonwebtoken@latest | Örnek sohbet çıktısında paketi günceller | 0:22 | kare |
+| npm install jsonwebtoken@latest | Örnek sohbet çıktısında paketi günceller (karede: (karede OCR) What changes Before After Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the Run npm install jsomwebtoken@latest, then edit token verification, and th) | 0:22 | kare |
 | npm test -- auth.spec.ts | auth.spec.ts test dosyasını çalıştırır (örnek çıktı; OCR'da 'autn' okundu). (karede: Örnek çıktıda '3. Run npm test -- autn.spec.ts' satırı görünüyor.) | 0:22 | kare |
 | ls | Geçerli dizindeki dosya ve klasörleri listeler. (karede: Terminalde ls komutu ve dizin listesi görünüyor.) | 0:40 | kare |
 ## İddialar

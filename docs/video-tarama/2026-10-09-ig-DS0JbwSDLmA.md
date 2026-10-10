@@ -32,7 +32,7 @@ Kısa reel: yapay zekâ ajansı için müşteri bulma yöntemi. Meta Events Mana
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| Meta Pixel base code (<script> ... fbq ...) kopyalanıp sitenin head bölümüne yapıştırılır | Ziyaretçi verisini Meta'ya göndererek yeniden hedefleme kitlesi oluşturur. | 0:09 | kare |
+| Meta Pixel base code (<script> ... fbq ...) kopyalanıp sitenin head bölümüne yapıştırılır | Ziyaretçi verisini Meta'ya göndererek yeniden hedefleme kitlesi oluşturur. (karede: (karede OCR) Install Meta Pixel on your website The Meta Pixel is a piece of code that you add to your website by cop below and pasting it into the header section of your website. Copy base code Copy the Meta Pixe) | 0:09 | kare |
 | Meta Pixel temel kodunu (<script> ... fbq) kopyala ve sitenin <head> bölümüne yapıştır | Sitedeki ziyaretleri izleyen Meta Pixel kodunu ekler; böylece ziyaretçiler yeniden hedeflenebilir. | 0:00 | altyazı |
 ## İddialar
 | iddia | zaman | tür |

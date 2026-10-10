@@ -56,12 +56,12 @@ Kısa reel: Google'ın ücretsiz yapay zekâ 'vibe coding' araçlarından beşi 
 | Üç ekranlı mobil uygulama tasarımı (mobile app mockup, yoga uygulaması) | Stitch çıktısı: Yoga Flow karşılama, kütüphane ve ders detay ekranları yan yana. (karede: 'AI UI Designer' başlığı altında üç mobil ekran: Yoga for Every Body & Mind, Library, Morning Vinyasa Flow) | 0:23 | kare |
 | Kart tabanlı açık temalı arayüz (card layout, light theme) | FriendTrivia uygulaması: karşılama, SocialTrivia ana sayfa ve skor ekranı. (karede: Üç ekran: FriendTrivia 'Quiz Your Squad', SocialTrivia 'Good evening, Alex!', 'Round 3 Results +150 Points!') | 0:24 | kare |
 | Koyu tema, brütalist tipografi (dark mode, bold typography) | MONOLITH mimari stüdyo uygulaması: Barbican, About Us, Get in Touch ekranları. (karede: Üç koyu mavi/siyah ekran: 'The Barbican Complex', 'About Us', 'Get in Touch') | 0:25 | kare |
-| Açılış sayfası (landing page) üretimi | Antigravity ile uçuş takip sitesi açılış sayfası oluşturulur: canlı harita, 'Track Flight' düğmesi. (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:14 | kare |
+| Açılış sayfası (landing page) üretimi | Antigravity ile uçuş takip sitesi açılış sayfası oluşturulur: canlı harita, 'Track Flight' düğmesi. (karede: (karede OCR) landing page Build a landing page for a flight tracker website + Planning^ Gemini 3 Pro Generating Image: landing page for a flight tracker website TrackMyFlight Q TrackMyFlight: Simple, Fast, Reliabl) | 0:14 | kare |
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
-| yarn install | Jules görevinde proje bağımlılıklarını yükler. | 0:39 | kare |
-| npm run dev | Projeyi derleyip çalıştırarak doğrular. | 0:41 | kare |
+| yarn install | Jules görevinde proje bağımlılıklarını yükler. (karede: (karede OCR) Run Tests jules bets 0 p o Install yarn. package-lock.json uosfabeped yarn.lock Check if yam is aready instaled. 1.6.22 Instal project dependencies. °0.4.1 1/690 Run yarn Install to update dependen) | 0:39 | kare |
+| npm run dev | Projeyi derleyip çalıştırarak doğrular. (karede: (karede OCR) Manage Codebase julesbeta 0 yamn.lock uosfabeped Project compiled successflly with npn run dev after switching from yarn to.. 1.0.22 mde-jsfreoct": Project compled successfl with npem run dev afer sit) | 0:41 | kare |
 ## İddialar
 | iddia | zaman | tür |
 |---|---|---|

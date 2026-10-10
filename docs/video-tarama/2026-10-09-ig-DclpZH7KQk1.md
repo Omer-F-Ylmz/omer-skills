@@ -33,8 +33,8 @@ Kısa reel: Emil Kowalski'nin GitHub'daki emilkowalski/skills deposundaki /apple
 ## Site/UI teknikleri
 | teknik | ne işe yarar | zaman | kaynak |
 |---|---|---|---|
-| Paralaks kaydırma (parallax scrolling) | Apple tarzı premium sayfada paralaks kaydırma örneği gösteriliyor (OCR). (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:16 | kare |
-| Yay animasyonu (spring animation) | Yay tabanlı, kesintiye uğrayabilir animasyon; bounce 0 ile aşımsız varsayılan. (karede: EKSİK: karede_gorulen (kare gönderildi, karede görülen boş olamaz)) | 0:22 | kare |
+| Paralaks kaydırma (parallax scrolling) | Apple tarzı premium sayfada paralaks kaydırma örneği gösteriliyor (OCR). (karede: (karede OCR) Beautiful parallax designed animasyonlu) | 0:16 | kare |
+| Yay animasyonu (spring animation) | Yay tabanlı, kesintiye uğrayabilir animasyon; bounce 0 ile aşımsız varsayılan. (karede: (karede OCR) Claude Code 00 import { animate } from 'motion'; icin) | 0:22 | kare |
 ## Kurulum/komutlar
 | komut | ne yapar | zaman | kaynak |
 |---|---|---|---|
