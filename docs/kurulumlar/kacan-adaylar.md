@@ -1181,3 +1181,44 @@ Kaynak: kapanış-5 KAÇAN? triyajı (docs/kurulumlar/kacan-karar-2.tsv). Mevcut
 | zoominfo | araç adı benzeri | 1 | 1 | IlGilsEsLqo |
 | zseven-w/openpencstime | GitHub repo | 1 | 1 | ig-DaIHoDKE9cT |
 | ×.com | site/ürün | 1 | 1 | EOdXR6lU5ZA |
+
+## Tur 4 adayları (2026-10-10)
+
+Kaynak: kapanış-6 KAÇAN? triyajı (docs/kurulumlar/kacan-karar-3.tsv). Önceki tüm adaylar (kacan-adaylar.md Tur 1-3), kurulum-turu-1/3 tabloları ve tur3-*.tsv ile tekilleştirildi; 54 benzersiz adaydan 20 zaten vardı, 34 yeni.
+
+| aday | tür | satır | video | örnek video |
+|---|---|---|---|---|
+| dev.epicgames.com | site/ürün | 19 | 3 | OhAjOVCSSt8 |
+| actorcore.reallusion.com | site/ürün | 3 | 3 | OhAjOVCSSt8 |
+| shadowfallstudios/als-community | GitHub repo | 3 | 3 | OhAjOVCSSt8 |
+| soupday/cc_blender_tools | GitHub repo | 3 | 1 | zreDqBeYqtE |
+| magazine.reallusion.com | site/ürün | 2 | 2 | OhAjOVCSSt8 |
+| soupday/ccic-blender-pipeline-plugin | GitHub repo | 2 | 1 | zreDqBeYqtE |
+| a8aj-1/det | GitHub repo | 1 | 1 | ig-DdyRkV4ihXm |
+| aoe2/genie | GitHub repo | 1 | 1 | ig-DeCMQXjvuM3 |
+| aw.githubusercontent.com | site/ürün | 1 | 1 | ig-DdgKOaPDXwD |
+| bodies/constraints | GitHub repo | 1 | 1 | OhAjOVCSSt8 |
+| chaosclothsharedsimconfig/gam | GitHub repo | 1 | 1 | tNWoqRa-zvE |
+| coderabbit | araç adı benzeri | 1 | 1 | ig-DeMIIOLomwz |
+| copy/run-py | GitHub repo | 1 | 1 | ig-DZQwFlqIIxS |
+| copy/run-pyr | GitHub repo | 1 | 1 | ig-DZQwFlqIIxS |
+| dammyjay93/interfa | GitHub repo | 1 | 1 | ig-DdrHopWCeag |
+| deploy/docker-compose-ss1.ym1 | GitHub repo | 1 | 1 | ig-DdKcLiJgczB |
+| deploy/docker-compose-ssl.ym1 | GitHub repo | 1 | 1 | ig-DdKcLiJgczB |
+| deploy/docker-compose-ssl.ymt | GitHub repo | 1 | 1 | ig-DdKcLiJgczB |
+| discussions.reallusion.com | site/ürün | 1 | 1 | tNWoqRa-zvE |
+| flesync.app | site/ürün | 1 | 1 | ig-DdKcLiJgczB |
+| fllesync.app | site/ürün | 1 | 1 | ig-DdKcLiJgczB |
+| glow/self-llumination | GitHub repo | 1 | 1 | az0xwhnLZS4 |
+| huibui-ai/aemma | GitHub repo | 1 | 1 | ig-DcvL2bDEmVh |
+| ibtests/palmierprofests | GitHub repo | 1 | 1 | ig-Dd3Y_5aCbMT |
+| jimliu/baoyu-skills | GitHub repo | 1 | 1 | ig-DdrHopWCeag |
+| mobile-android-designwshobson/age | GitHub repo | 1 | 1 | ig-DdrHopWCeag |
+| ocalhost:4000 | araç adı benzeri | 1 | 1 | ig-DdgKOaPDXwD |
+| qwen/qwen3-4b-instruct-2507 | GitHub repo | 1 | 1 | ig-DcvL2bDEmVh |
+| sky/roois-a2 | GitHub repo | 1 | 1 | ig-Ddvh-YiFem7 |
+| skyworka/sikyreels-v2 | GitHub repo | 1 | 1 | ig-Ddvh-YiFem7 |
+| skyworka/skyrels-v2 | GitHub repo | 1 | 1 | ig-Ddvh-YiFem7 |
+| ssal-1/der | GitHub repo | 1 | 1 | ig-DdyRkV4ihXm |
+| tips.reallusion.com | site/ürün | 1 | 1 | RDRhMQ2_Zyw |
+| vercel-labs/sk11s | GitHub repo | 1 | 1 | ig-DdrHopWCeag |
