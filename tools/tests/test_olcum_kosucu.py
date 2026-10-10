@@ -6,6 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "olcum"))
 import kosucu  # noqa: E402
 import profil_uret  # noqa: E402
 import profil_varyant  # noqa: E402
+import ayar_uygula  # noqa: E402
 
 
 def _akis(*olaylar):
@@ -71,6 +72,15 @@ def test_profil_varyant_env_butce(tmp_path, monkeypatch):
     d = json.loads(profil_varyant.uret("v", 75000, "taban.json").read_text(encoding="utf-8"))
     assert d == {"skillOverrides": {"a": "name-only"}, "env": {"SLASH_COMMAND_TOOL_CHAR_BUDGET": "75000"}}
     assert json.loads(profil_varyant.uret("w", 40000).read_text(encoding="utf-8")) == {"env": {"SLASH_COMMAND_TOOL_CHAR_BUDGET": "40000"}}
+
+
+def test_ayar_birlestir_mevcut_ezilmez_env_yazilir():
+    ayar = {"skillOverrides": {"a": "off"}, "env": {"SLASH_COMMAND_TOOL_CHAR_BUDGET": "150000", "X": "1"}, "hooks": {"h": 1}}
+    profil = {"skillOverrides": {"a": "name-only", "b": "name-only"}, "env": {"SLASH_COMMAND_TOOL_CHAR_BUDGET": "75000"}}
+    eklenen, degisen = ayar_uygula.birlestir(ayar, profil)
+    assert ayar["skillOverrides"] == {"a": "off", "b": "name-only"} and eklenen == 1
+    assert ayar["env"] == {"SLASH_COMMAND_TOOL_CHAR_BUDGET": "75000", "X": "1"} and ayar["hooks"] == {"h": 1}
+    assert degisen == {"SLASH_COMMAND_TOOL_CHAR_BUDGET": ("150000", "75000")}
 
 
 def test_init_yaz_yalniz_ad(tmp_path):

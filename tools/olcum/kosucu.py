@@ -159,6 +159,9 @@ def kos_profil(ad, p, gorevler, tarih, tekrar):
                 time.sleep(30); bekle += 30
             o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None)
             init_yaz(CIKTI / f"{tarih}-{ad}-init.json", o["init"])
+            metin_dir = CIKTI / f"{tarih}-{ad}"  # yanıt metni: LLM yargıç (jev) ile kolları karşılaştırmak için
+            metin_dir.mkdir(exist_ok=True)
+            (metin_dir / f"{g['id']}-{n}.md").write_text(o["metin"], encoding="utf-8")
             i, cc, cr, out = jeton(o["usage"])
             sn = len(o["init"].get("skills") or []) if o["init"] else 0
             mn = len(o["init"].get("mcp_servers") or []) if o["init"] else 0
