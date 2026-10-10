@@ -2,7 +2,7 @@
 
 Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/lisans/push/ağaç). Canlı CC ayarına dokunulmadı; sahnelendi = klonlandı/paketlendi, canlıya `.kos/kopru/onay/tur_6c_b_kur.py` ile (TOKEN-7c sonrası). Tek satır = tek kalem; durum: sahnelendi / CLI kuruldu / hesap bekliyor / ayrı uygulama / onarım bekliyor.
 
-Özet: onarım bekliyor 167 · hesap bekliyor 180 · ayrı uygulama 76 · sahnelendi 25 · CLI kuruldu 2
+Özet: onarım bekliyor 167 · hesap bekliyor 180 · ayrı uygulama 71 · sahnelendi 25 · CLI kuruldu 7
 
 | ad | durum | not |
 |---|---|---|
@@ -24,7 +24,7 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | andy00l/sharetopus | onarım bekliyor | sebep: not'taki saldırı/yan etki giderilmedi; kurulmadı |
 | animaapp.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | anthropics/claude-code-playground | onarım bekliyor | skill/MCP yok (Apache-2.0, ★190): kütüphane/uygulama; Bölüm 2'ye taşındı |
-| ape-services/us | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| ape-services/us | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | api-docs.omnisend.com | hesap bekliyor | anahtar ister; hesap-gereken.md |
 | api.deepseek.com | hesap bekliyor | DeepSeek API; hesap-gereken.md |
 | api.deepseek.com/anthropic | hesap bekliyor | DeepSeek API; hesap-gereken.md |
@@ -47,10 +47,10 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | apps/ecc-tools | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | arcade.dev | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | atomicbot.ai | hesap bekliyor | anahtar ister; hesap-gereken.md |
-| ausrishaneudivtwordists/te | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| ausrishaneudivtwordists/te | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | basketikun/infinite-canvas | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | benescinaz/twitter-mcp | hesap bekliyor | anahtarları ister; hesap-gereken.md |
-| bg-muted/3e | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| bg-muted/3e | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | black-forest-labs/flux.1-schnell | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | bolt.new | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | brave/brave-browser | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
@@ -62,53 +62,53 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | butter.video | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | cal-com- | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | canva.com | hesap bekliyor | Canva hesabı; hesap-gereken.md |
-| cation/wjtzbodtenpqjrtcpsv | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| cation/wjtzbodtenpqjrtcpsv | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | cchainpocket.pocketsflow.com/product-video | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | cerebrium.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | cita-777/metapi | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | claude-plugins/premiere-pro-mcp | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | claude.ji/design | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | cloud./design | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
-| cloudflare/cloudflared | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| cloudflare/cloudflared | CLI kuruldu | CLI kuruldu: cloudflared 2026.8.2 (zaten kurulu, winget) |
 | cloudinary | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | coderabbit | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | codexu/note-gen | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| com/kevin-liu | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| com/v1 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| comfyui | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| com/kevin-liu | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| com/v1 | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| comfyui | ayrı uygulama | Docker/WSL gerekir (GPU + Python ortamı); CC dışı, bu dalgada kurulmadı |
 | composio-mcp | hesap bekliyor | Composio hesabı; hesap-gereken.md |
 | console.groq.com | hesap bekliyor | Groq hesabı; hesap-gereken.md |
 | console.prova.so | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | craft.io | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | datadog | hesap bekliyor | Datadog hesabı; hesap-gereken.md |
 | davila7/claude-code-templates | sahnelendi | şablon deposu, 915 skill: ECC ile örtüşür, toplu içe alma yok (yeni kurulum gerekmez) |
-| decpceek-ai/deepseek-hamess | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-a/deepeek-harnes | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-a/deepseek-harnes | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/deepeek-harnes | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/deepeek-harness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/eepeekhaness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/eepseek-harness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/eepseekhamess | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/eepseekhamness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/eepseekhaness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepseek-ai/eepsek-harness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deepsek-a/deepseek-hamness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| decpceek-ai/deepseek-hamess | onarım bekliyor | çözüldü: deepseek-ai/deepseek-harness (MIT, ★247k); diğer deepseek-* OCR varyantlarıyla aynı hedef; Bölüm 2'de kalır (zaten envanterde var, duplicate kurulum yok) |
+| deepseek-a/deepeek-harnes | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-a/deepseek-harnes | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/deepeek-harnes | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/deepeek-harness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/eepeekhaness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/eepseek-harness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/eepseekhamess | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/eepseekhamness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/eepseekhaness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepseek-ai/eepsek-harness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deepsek-a/deepseek-hamness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | deepsek-a/deepseek-haress | onarım bekliyor | skill/MCP yok (None, ★0): kütüphane/uygulama; Bölüm 2'ye taşındı |
-| deeseek-a/deepseek-hamess | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deeseek-a/deepseek-hamness | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| deeseek-ai/eepeek-hanes | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| deeseek-a/deepseek-hamess | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deeseek-a/deepseek-hamness | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| deeseek-ai/eepeek-hanes | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | design-system-demo.lovable.app | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| desktop/run_xsens_007_add_steps.casc | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| desyaytoutputs/-altna-kaydet-ve | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| desktop/run_xsens_007_add_steps.casc | onarım bekliyor | repo değil: yerel 3D/animasyon varlık dosyası (.casc) OCR'ı, GitHub deposu değil; Bölüm 2'den çıkar |
+| desyaytoutputs/-altna-kaydet-ve | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | deusqata/codebase-memory-mcp | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | dev.animaapp.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | dev.virlo.ai | hesap bekliyor | Virlo API; hesap-gereken.md |
 | dmmaze/ballonstranslator | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | docs.anchorbrowser.io | hesap bekliyor | API hesabı; hesap-gereken.md |
 | docs.animaapp.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| docs.docker.com/get | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| docs.docker.com/get-starte | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| docs.docker.com/get | ayrı uygulama | Docker Desktop'ın kendisi; WSL2 gerektirir, bu makinede elle onay ister |
+| docs.docker.com/get-starte | ayrı uygulama | Docker Desktop'ın kendisi; WSL2 gerektirir, bu makinede elle onay ister |
 | docs.fal.ai | hesap bekliyor | fal hesabı; hesap-gereken.md |
 | docs.fastn.ai | hesap bekliyor | fastn hesabı; hesap-gereken.md |
 | docs.httpsms.com | hesap bekliyor | SMS API hesabı; hesap-gereken.md |
@@ -122,29 +122,29 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | docs.strix.ai | onarım bekliyor | sebep: not'taki saldırı/yan etki giderilmedi; kurulmadı |
 | docs.whop.com | hesap bekliyor | anahtar ister; hesap-gereken.md |
 | draftly.space/3d-bulder | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
-| elizaos/eliza | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| elizaos/eliza | ayrı uygulama | Docker/Node servis yığını (uzun kurulum); bu dalgada kurulmadı |
 | enescinar/twitter-mcp | hesap bekliyor | anahtarları ister; hesap-gereken.md |
 | enescinr/ftwitter-mcp | hesap bekliyor | anahtarları ister; hesap-gereken.md |
 | enescinr/fwtte-mcp | hesap bekliyor | anahtarları ister; hesap-gereken.md |
 | enescinr/fwttr-mcp | hesap bekliyor | anahtarları ister; hesap-gereken.md |
 | enescint/ftwtter-mcp | hesap bekliyor | anahtarları ister; hesap-gereken.md |
-| entitlement/debug | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| erc/chart.tax | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| entitlement/debug | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| erc/chart.tax | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | fastn.ai | hesap bekliyor | Fastn hesabı; hesap-gereken.md |
 | felores/kie-cli-mcp | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | figma-developer-mcp | hesap bekliyor | Figma API; hesap-gereken.md |
 | figma-developer-mcp-figma-api-key | hesap bekliyor | Figma API; hesap-gereken.md |
 | flash.co/www.trendyol | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
-| flass/www.trendyol | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| flass/www.trendyol | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | flyhermes.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| fo/v1 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| folder/cascy.casc | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| fo/v1 | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| folder/cascy.casc | onarım bekliyor | repo değil: yerel 3D/animasyon varlık dosyası (.casc) OCR'ı, GitHub deposu değil; Bölüm 2'den çıkar |
 | generativelanguage.googleapis.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | getartcraft.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | github.com/Barty | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | github.com/BerriAI/litellm | onarım bekliyor | lisans NOASSERTION (MIT/Apache değil): koşulları oku, sonra kur |
 | github.com/ChristopherKahler/base | onarım bekliyor | lisans NOASSERTION (MIT/Apache değil): koşulları oku, sonra kur |
-| github.com/Jakeschincar1ol/1inkedin-agent-: | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| github.com/Jakeschincar1ol/1inkedin-agent-: | onarım bekliyor | çözülemedi (düşük güven); tek sonuç habjeb/linkedin-agent-claude (★0, kullanıcı adı eşleşmiyor) |
 | github.com/KDE/kdenlive | onarım bekliyor | skill/MCP yok (GPL-3.0, ★5824): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | github.com/Leonxlnx/taste-skill | sahnelendi | taste-skill kurulu (MIT) (yeni kurulum gerekmez) |
 | github.com/Stirling-Tools/Stirling-PDF | onarım bekliyor | lisans NOASSERTION (MIT/Apache değil): koşulları oku, sonra kur |
@@ -163,7 +163,7 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | github.com/anthropics/courses/blob/master/real_world_prompting/README.md | onarım bekliyor | skill/MCP yok (NOASSERTION, ★22876): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | github.com/apify/crawlee | onarım bekliyor | skill/MCP yok (Apache-2.0, ★26104): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | github.com/apify/impit | onarım bekliyor | skill/MCP yok (Apache-2.0, ★609): kütüphane/uygulama; Bölüm 2'ye taşındı |
-| github.com/calesthio/OpenMontagel | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| github.com/calesthio/OpenMontagel | onarım bekliyor | çözüldü: calesthio/OpenMontage — lisans AGPL-3.0 (MIT/Apache değil): koşulları oku, sonra kur |
 | github.com/dani-garcia/vaultwarden | onarım bekliyor | skill/MCP yok (AGPL-3.0, ★68798): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | github.com/data | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | github.com/decolua/9router | sahnelendi | MIT ★30565; 9 skill; dist/yukle-13 + kur betiği |
@@ -187,9 +187,9 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | github.com/new | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | github.com/nvidia/skillspectd | sahnelendi | skillspector kurulu (yeni kurulum gerekmez) |
 | github.com/nvidia/skillspectrd | sahnelendi | skillspector kurulu (yeni kurulum gerekmez) |
-| github.com/opencut | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| github.com/opencut | ayrı uygulama | Docker (self-host video editör); bu dalgada kurulmadı |
 | github.com/pbakaus/impeccable | sahnelendi | impeccable kurulu (yeni kurulum gerekmez) |
-| github.com/pbákaus/ipeccabile/commit/5ce4a5c6b5072877cbd22bcde9e68f9bf5818e51n | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| github.com/pbákaus/ipeccabile/commit/5ce4a5c6b5072877cbd22bcde9e68f9bf5818e51n | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | github.com/pydantic/httpx2 | onarım bekliyor | skill/MCP yok (BSD-3-Clause, ★1539): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | github.com/remotion-dev/remotion/blob/main/LICENSE.md | onarım bekliyor | lisans NOASSERTION (MIT/Apache değil): koşulları oku, sonra kur |
 | github.com/remotion-dev/skills | onarım bekliyor | lisans None (MIT/Apache değil): koşulları oku, sonra kur |
@@ -197,8 +197,8 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | github.com/star-history/star-history | sahnelendi | MIT ★9578; 1 skill; dist/yukle-13 + kur betiği |
 | github.com/tailwindlabs/tailwindcss | onarım bekliyor | skill/MCP yok (MIT, ★97850): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | github.com/zachlatta/freeflow | sahnelendi | MIT ★2847; 1 skill; dist/yukle-13 + kur betiği |
-| github.com/zk/claude-mods | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| github.com/ςalesthio/Openl | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| github.com/zk/claude-mods | onarım bekliyor | çözülemedi; denenen sorgu: 'claude-mods' (karanb192/awesome-claude-code-mods, hamzafer/claude-code-mods, JohnnyVizz/claude-kit — hiçbiri 'zk' kullanıcısıyla eşleşmedi) |
+| github.com/ςalesthio/Openl | onarım bekliyor | çözüldü (aynı hedef): calesthio/OpenMontage — lisans AGPL-3.0 (MIT/Apache değil): koşulları oku, sonra kur |
 | github.comftrufflesecurity/tr | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | github/agentshield | ayrı uygulama | agentshield CLI kurulu (yeni kurulum gerekmez) |
 | githubharald/simplehtr | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
@@ -211,7 +211,7 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | guillaumemeyer/watermarks-remover | onarım bekliyor | sebep: not'taki saldırı/yan etki giderilmedi; kurulmadı |
 | guillaumemeyer/watghmarks-remover | onarım bekliyor | sebep: not'taki saldırı/yan etki giderilmedi; kurulmadı |
 | guillaumerbyer/watermarks-remover | onarım bekliyor | sebep: not'taki saldırı/yan etki giderilmedi; kurulmadı |
-| hand_aditiona/pointr | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| hand_aditiona/pointr | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | harry0703/moneyprintertbo | onarım bekliyor | SkillSpector --no-llm HIGH (E2 env toplama, TM2): skill'ler dist/yukle-13/_inceleme'de, kur betiğinde yok; insan incelemesi sonra kur |
 | harry0703/moneyprinterturbo | onarım bekliyor | SkillSpector --no-llm HIGH (E2 env toplama, TM2): skill'ler dist/yukle-13/_inceleme'de, kur betiğinde yok; insan incelemesi sonra kur |
 | harry0703/moneypriterturbo | onarım bekliyor | SkillSpector --no-llm HIGH (E2 env toplama, TM2): skill'ler dist/yukle-13/_inceleme'de, kur betiğinde yok; insan incelemesi sonra kur |
@@ -227,11 +227,11 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | hf-audio/whisper-large-v3-turbo | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | higgsfield.ai/aifimage | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | higgsfield.ai/pricing | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| highlight/sliders.casc | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| highlight/sliders.casc | onarım bekliyor | repo değil: yerel 3D/animasyon varlık dosyası (.casc) OCR'ı, GitHub deposu değil; Bölüm 2'den çıkar |
 | higsfielda/ainfluencer-studio | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| hoainho/mg2thre | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| hoainho/mg2thre | onarım bekliyor | çözülemedi; gh search sonuç vermedi |
 | hostingdunyam.com.tr | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| htps/raw.githubusercontent | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| htps/raw.githubusercontent | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | http://creati | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | http://ocalhost:37777/apifobservation/(id | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | http://ocalhost:8080/Documents/Trave | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
@@ -248,18 +248,18 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | ikotodo33/llama3.2edited | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | iktof.com | hesap bekliyor | platform hesabı; hesap-gereken.md |
 | iktok.com | hesap bekliyor | platform hesabı; hesap-gereken.md |
-| illab-al/peagent | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| illab-al/peagent | onarım bekliyor | çözüldü: IILab-AI/PEagent (★26; lisans yok/NOASSERTION — koşulları oku) |
 | img.ly | hesap bekliyor | anahtarı); hesap-gereken.md |
 | inferen-sh/sk111s | onarım bekliyor | lisans None (MIT/Apache değil): koşulları oku, sonra kur |
 | infezen-sh/sk11ls | onarım bekliyor | lisans None (MIT/Apache değil): koşulları oku, sonra kur |
-| injuries/limitations | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| io/v1 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| is/sil-creator | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| injuries/limitations | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| io/v1 | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| is/sil-creator | onarım bekliyor | repo değil: muhtemelen 'skill-creator' OCR'ı, zaten kurulu (ECC/skill-creator) |
 | isagalaev/highlight.js | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | jev-chat/jev-chat-jarvis | onarım bekliyor | skill/MCP yok (MIT, ★7551): kütüphane/uygulama; Bölüm 2'ye taşındı |
-| jev-chat/jev-chat-jaxvis | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| jev/soguk-satis | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| jev/soguk-sis | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| jev-chat/jev-chat-jaxvis | onarım bekliyor | repo değil: iç araç ('jev' CLI) ekran görüntüsü OCR'ı; Bölüm 2'den çıkar |
+| jev/soguk-satis | onarım bekliyor | repo değil: iç araç ('jev' CLI) ekran görüntüsü OCR'ı; Bölüm 2'den çıkar |
+| jev/soguk-sis | onarım bekliyor | repo değil: iç araç ('jev' CLI) ekran görüntüsü OCR'ı; Bölüm 2'den çıkar |
 | jianchang512/pyvideotrans | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | jimliu/baoyu-skills | sahnelendi | baoyu-* kurulu (yeni kurulum gerekmez) |
 | jnmetacode/superpowers-zh | sahnelendi | MIT ★8291; 21 skill; dist/yukle-13 + kur betiği |
@@ -270,14 +270,14 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | kie.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | kie.ai/nano-banana-2-lite | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | knadh/listmonk | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| labs/bolt.diy | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| labs/bolt.diy | onarım bekliyor | çözüldü: stackblitz-labs/bolt.diy (MIT, ★19.9k) |
 | learn.chatgpt.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | legeling/prompthub | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | leonxlnx/taste-skill | sahnelendi | taste-skill kurulu (MIT) (yeni kurulum gerekmez) |
 | letta-ai/claude-subconscious | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | lidlezz.app | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | lidlezz.app/tr | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| local/cheap-alternative | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| local/cheap-alternative | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | loomshot.a | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | loomshot.ai/gallery | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | loomshot.ai/generate | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
@@ -285,7 +285,7 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | looplj/axonhub | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | lumio.ai | hesap bekliyor | anahtar ister; hesap-gereken.md |
 | lusha | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| marketplace/actions | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| marketplace/actions | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | mcp.higgsfield.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | mcp.higgsfielk | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | mcp.higgsfleldl.al | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
@@ -293,8 +293,8 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | mcp.hlgsfield.al | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | mcp.sentry.dev | hesap bekliyor | sentry-mcp OAuth ile Sentry hesabı; hesap-gereken.md |
 | mcp.zapier.com | hesap bekliyor | Zapier hesabı; hesap-gereken.md |
-| mh/apartmentanimation_bar_002.casc | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| mh/apartmentanimation_bar_003.casc | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| mh/apartmentanimation_bar_002.casc | onarım bekliyor | repo değil: yerel 3D/animasyon varlık dosyası (.casc) OCR'ı, GitHub deposu değil; Bölüm 2'den çıkar |
+| mh/apartmentanimation_bar_003.casc | onarım bekliyor | repo değil: yerel 3D/animasyon varlık dosyası (.casc) OCR'ı, GitHub deposu değil; Bölüm 2'den çıkar |
 | microsoft/azure-s | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | microsoft/azure-sk111s | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | microsoft/github-copilot-for-azure | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
@@ -303,17 +303,17 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | midjourney.com | hesap bekliyor | Midjourney abonelik hesabı; hesap-gereken.md |
 | midjourney.com/explore | hesap bekliyor | Midjourney abonelik hesabı; hesap-gereken.md |
 | minimax.io | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| minlo/s3 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| minlo/s3 | onarım bekliyor | çözülemedi (düşük güven); olası: minio/minio (AGPL-3.0 — MIT/Apache değil, lisans kapısı zaten engelleyecekti) |
 | mobbin.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | mobile-android-design.. wshobson/age | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
-| mobile-android-designwshobson/age | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| modelcontextprotocol/inspector | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| mobile-android-designwshobson/age | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| modelcontextprotocol/inspector | CLI kuruldu | CLI kuruldu: npm -g @modelcontextprotocol/inspector 2.10.1 (postinstall script allow-scripts ile atlandı, --version çalışıyor) |
 | mrdainami/kie-mcp | hesap bekliyor | kie.ai hesabı; hesap-gereken.md |
 | mrdainami/nami | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | msitarzewski/agency-agents | onarım bekliyor | skill/MCP yok (MIT, ★158711): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | mukul97s/anthropic-cybersecurity-skills | sahnelendi | 818 saldırı/güvenlik skill; tarama + ayrı karar (yeni kurulum gerekmez) |
-| n8n-io/n8n-hosting | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| n8n-io/task-runner-launcher | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| n8n-io/n8n-hosting | ayrı uygulama | Docker gerekir (resmi kurulum yolu); bu dalgada kurulmadı |
+| n8n-io/task-runner-launcher | ayrı uygulama | Docker/n8n-hosting'e bağımlı; bu dalgada kurulmadı |
 | nat_wan/it_hp245_llama3.2 | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | nat_wan/little-llama | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | ndolestudio/httpsms | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
@@ -322,14 +322,14 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | nightvision | hesap bekliyor | anahtar ister; hesap-gereken.md |
 | nizos/tdd-guard | sahnelendi | MIT ★2360; 1 skill; dist/yukle-13 + kur betiği |
 | ntgroup/echomimic_ | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| o1/o3 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| ollama.com/download | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| ollama.com/search | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| o1/o3 | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| ollama.com/download | CLI kuruldu | CLI kuruldu: ollama 0.40.2 (zaten kurulu) |
+| ollama.com/search | CLI kuruldu | CLI kuruldu: ollama 0.40.2 (zaten kurulu); model adı, kurulum konusu değil |
 | ollama/gemma4 | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | ollama/llama3.1 | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| omer/omer_vault_1 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| omer/omer_vault_1 | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | onboard.windsor.ai | hesap bekliyor | API anahtarı; hesap-gereken.md |
-| ongyi-mal/z-image-turbo | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| ongyi-mal/z-image-turbo | onarım bekliyor | çözülemedi; olası: Tongyi-MAI/Z-Image (Apache-2.0, ★12k) ama '-turbo' varyantı GitHub'da değil (HF/ModelScope alanı); doğrulanamadı |
 | oomshot.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | open-gsd/gsd-core | onarım bekliyor | SkillSpector --no-llm CRITICAL (TM2, P1, AR3): skill'ler dist/yukle-13/_inceleme'de, kur betiğinde yok; insan incelemesi sonra kur |
 | open.higgsfiel.ai/biling | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
@@ -342,14 +342,14 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | openrouter.ai/keys | hesap bekliyor | OpenRouter hesabı; hesap-gereken.md |
 | openrouter.ai/logs | hesap bekliyor | OpenRouter hesabı; hesap-gereken.md |
 | openrouter.ai/sign-in | hesap bekliyor | OpenRouter hesabı; hesap-gereken.md |
-| oven-sh/bun | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| oven-sh/bun | CLI kuruldu | CLI kuruldu: bun 1.4.2 (zaten kurulu, winget) |
 | owalalife.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | owser-use/web-ui | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | pagerduty | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| param-shankar/hiervue-al-interviewer | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| pays-/h3 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| param-shankar/hiervue-al-interviewer | onarım bekliyor | çözüldü (düşük yıldız): Param-shankar/Hiervue-AI-Interviewer- (lisans yok/NOASSERTION; lisans kapısı — koşulları oku) |
+| pays-/h3 | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | pen-webui/open | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| pentest-agents-suite/pentest | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| pentest-agents-suite/pentest | onarım bekliyor | çözülemedi; denenen sorgu: 'pentest agents suite' (eşleşme yok) |
 | pixellab.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | pixellab.ai/create | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | pixellab.ai/objects | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
@@ -357,13 +357,13 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | placid.app | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | platform.minimax.cn | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | platform.stability.ai | hesap bekliyor | API anahtarı; hesap-gereken.md |
-| plays/30d | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| plays/30d | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | preferences.trovebrands.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| processes/3d | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| processes/3d | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | projects/claude-vide | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | projects/com.lveditor | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | prova.so/tr | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| purpledoubled/lo | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| purpledoubled/lo | onarım bekliyor | çözülemedi (düşük güven); tek sonuç PurpleDoubleD/PurpleDoubleD (★2, ilgisiz görünüyor) |
 | purpledoubled/locally-uncensored | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | pushover.net | hesap bekliyor | anahtarı; hesap-gereken.md |
 | quickmagic.ai/home | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
@@ -371,21 +371,21 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | remorses/zele | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | remotion-dev/element-pr | onarım bekliyor | lisans None (MIT/Apache değil): koşulları oku, sonra kur |
 | remotion/claude-code-plugin | onarım bekliyor | lisans None (MIT/Apache değil): koşulları oku, sonra kur |
-| rosearch/vi3_snowy_elephant | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| roseazch/v23_snowy_elephant | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| rosearch/vi3_snowy_elephant | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
+| roseazch/v23_snowy_elephant | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | router-for-me/cliproxyapi | onarım bekliyor | skill/MCP yok (MIT, ★54739): kütüphane/uygulama; Bölüm 2'ye taşındı |
-| s10k/mo | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| s10k/mo | onarım bekliyor | çözülemedi; denenen sorgu: 's10k' (3 ilgisiz sonuç) |
 | sensortower.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | sent.dm | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | serus.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| shadcn/u1 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| shadcn/u1 | onarım bekliyor | çözüldü: shadcn-ui/ui (MIT, ★125k) — zaten claude.ai/kurulu envanterde (yeni paket çıkmaz) |
 | shopify.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | siddiquinashra/llama3.2 | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | skillbit.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | skills/premiere-pro-mcp | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | skool.cc | hesap bekliyor | anahtar ister; hesap-gereken.md |
 | sky/roois-a2 | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| skyvern-ai/skyvern | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+| skyvern-ai/skyvern | ayrı uygulama | Docker/Python servis (tarayıcı otomasyonu arka ucu); bu dalgada kurulmadı |
 | skyworka/sikyreels-v2 | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | skyworka/skyrels-v2 | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | smithery.ai | hesap bekliyor | Smithery hesabı; hesap-gereken.md |
@@ -393,9 +393,9 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | soumikmahato/browseros-agent | onarım bekliyor | skill/MCP yok (AGPL-3.0, ★0): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | soupday/cc_blender_tools | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | soupday/ccic-blender-pipeline-plugin | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| sponsors/schemastore | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| sponsors/schemastore | onarım bekliyor | çözüldü: SchemaStore/schemastore (Apache-2.0, ★3.9k) |
 | ssscript.app | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| st-de/ol | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| st-de/ol | onarım bekliyor | çözülemedi; OCR fragmanı bir GitHub deposuna/kullanıcı adına benzemiyor (yerel dosya adı, UI metni veya URL parçası); ikinci sorgu denenmedi |
 | stability.ai | hesap bekliyor | API anahtarı; hesap-gereken.md |
 | stableaudio.com | hesap bekliyor | API anahtarı; hesap-gereken.md |
 | star-history/star-history | sahnelendi | MIT ★9578; 1 skill; dist/yukle-13 + kur betiği |
@@ -408,12 +408,12 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | supabase/supabase | onarım bekliyor | 23 skill ama repo-içi geliştirme/ürün skill'i (★111307); klonlanmadı, ihtiyaç olursa tek tek |
 | superdesigndev/treg | hesap bekliyor | anahtar ister; hesap-gereken.md |
 | support.pushover.net | hesap bekliyor | anahtarı; hesap-gereken.md |
-| sword/shieldbash.casc | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| sword/swordtestrealfixedconstrained.casc | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| sword/shieldbash.casc | onarım bekliyor | repo değil: yerel 3D/animasyon varlık dosyası (.casc) OCR'ı, GitHub deposu değil; Bölüm 2'den çıkar |
+| sword/swordtestrealfixedconstrained.casc | onarım bekliyor | repo değil: yerel 3D/animasyon varlık dosyası (.casc) OCR'ı, GitHub deposu değil; Bölüm 2'den çıkar |
 | syrizelink/openfic | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| tailwindcss/vite | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| tailwindess/vite | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
-| thu-maic/0penmaic | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| tailwindcss/vite | onarım bekliyor | çözülemedi; muhtemelen iki ayrı araç (tailwindcss + vite) OCR'da birleşti, tek depo değil |
+| tailwindess/vite | onarım bekliyor | çözülemedi; muhtemelen iki ayrı araç (tailwindcss + vite) OCR'da birleşti, tek depo değil |
+| thu-maic/0penmaic | onarım bekliyor | çözüldü: THU-MAIC/OpenMAIC (MIT, ★40.3k) |
 | tiktof.com | hesap bekliyor | platform hesabı; hesap-gereken.md |
 | tikt∂k.com | hesap bekliyor | platform hesabı; hesap-gereken.md |
 | tkt∂k.com | hesap bekliyor | platform hesabı; hesap-gereken.md |
@@ -424,7 +424,7 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | trovebrands.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | trufflesecurity/tzuffl, | onarım bekliyor | OCR/ayrıştırma kırığı, gerçek kaynak yok; Bölüm 2'ye taşındı |
 | trust.lovable.dev | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| tt-ali/archify | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| tt-ali/archify | onarım bekliyor | çözüldü: tt-a1i/archify (MIT, ★81.6k) |
 | twbs/bootstrap | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | typpo/quickchart | onarım bekliyor | skill/MCP yok (AGPL-3.0, ★2059): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | upload-post.com | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
@@ -445,9 +445,9 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | worldllabs.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | worldllabs.aiflabs | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
 | wowmade.ai | hesap bekliyor | hesap (notta servis adı yok); hesap-gereken.md |
-| writing-plansobra/superpowere | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| writing-plansobra/superpowere | onarım bekliyor | çözülemedi; denenen sorgu: 'superpowers claude' (eşleşme güvenilir değil) |
 | xming521/weclone | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
-| yalz-/h2 | onarım bekliyor | depo çözülemedi (OCR bozuk ad); Bölüm 2'ye taşındı, gerçek adı gelince kur |
+| yalz-/h2 | onarım bekliyor | çözülemedi; denenen sorgu: 'yalz' (ivan-tkatchev/yalz77 vb. ilgisiz) |
 | yanze/pulid-flux | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | yours7himanshu/browseros-agent | onarım bekliyor | skill/MCP yok (AGPL-3.0, ★0): kütüphane/uygulama; Bölüm 2'ye taşındı |
 | zai-org/zcode | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
@@ -456,3 +456,11 @@ Kaynak: tur-6c-liste.md Bölüm 1, 450 satır. GitHub çözümü: gh api (★/li
 | zoominfo | hesap bekliyor | ZoomInfo kurumsal hesabı; hesap-gereken.md |
 | zseven-w/openpencil | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
 | zseven-w/openpencstime | ayrı uygulama | CC dışı masaüstü/servis uygulaması |
+
+## TUR-6c-B1-devam madde 5 (e-partisi adayları, hafif profil — klon/SkillSpector sonraki dalgada)
+
+| ad | durum | not |
+|---|---|---|
+| microsoft/markitdown | hesap bekliyor | lisans MIT ★189k doğrulandı; klon/paket sonraki dalgada (TUR-6d) |
+| musistudio/claude-code-router | hesap bekliyor | lisans MIT ★37.6k doğrulandı; klon/paket sonraki dalgada (TUR-6d) |
+| fast-jev-compaction, Winnow, Blink, jev-codex-router, Canny, jev-review, OpenViking, OpenWhispr | onarım bekliyor | tam depo/kullanıcı adı _e-partisi.md'de yok (reel/karusel ekran görüntüsü); gh search denenmedi (zaman), TUR-6d'de ad teyidi gerekiyor |

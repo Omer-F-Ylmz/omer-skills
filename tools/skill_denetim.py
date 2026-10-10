@@ -43,6 +43,8 @@ YANLIS_ALARM = [
     ("dotnet-test-run-tests.zip", "yol", r"^scripts/CI$", "düz metin (CI betikleri) — bağlantı değil"),
     ("nateherk-design-scroll-craft.zip", "yol", r"^assets/01", "şablon HTML'de örnek video adı"),
     ("superpowers-writing-skills.zip", "yol", r"^\.\./some-skill$", "örnek skill adı"),
+    # TUR-6c-B1-devam · "yol": buyuk() modu alt skill'in kendi script'ini KAYNAK-N.md'ye taşır; TALIMAT.md metnindeki orijinal `scripts/*` yolu aynen kalır
+    ("davila7-video-paket.zip", "yol", r"^scripts/sora\.py$", "buyuk() modu script'i KAYNAK-N.md'ye gömdü; TALIMAT.md'deki orijinal yol metinde kaldı"),
     ("phoenix-security-review-0day-scanner.zip", "yol", r"languages/\{python", "glob ifadesi"),
     # KURULUM-8 · "yol": kaynak pakette de yok — üst akış eksiği, zip kusuru değil
     ("claude-mem-ccs-align.zip", "yol", r"^\.\./\.\./src/", "plugin paketinde src/ yok (üst akış)"),
