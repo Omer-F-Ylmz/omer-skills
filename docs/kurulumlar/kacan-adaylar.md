@@ -1332,3 +1332,379 @@ Kaynak: kapanış-7 KAÇAN? triyajı (docs/kurulumlar/kacan-karar-4.tsv). Öncek
 | yashwanth-3000/creator-skill-generator | GitHub repo | 1 | 1 | TnduiS4kyg8 |
 | your-app.corn | site/ürün | 1 | 1 | TnduiS4kyg8 |
 | zed.dev | site/ürün | 1 | 1 | qMDdJ_LDpoE |
+
+## Tur 5b adayları (2026-10-10)
+
+Kaynak: kapanış-7 KAÇAN? triyajı (docs/kurulumlar/kacan-karar-4b.tsv). Önceki tüm adaylar, kurulum-turu-1/3 tabloları ve tur3-*.tsv ile tekilleştirildi; 480 benzersiz adaydan 111 zaten vardı, 369 yeni.
+
+| aday | tür | satır | video | örnek video |
+|---|---|---|---|---|
+| docs.lovable.dev | site/ürün | 37 | 1 | WEMlzWMFc3k |
+| docs.paperclip.ing | site/ürün | 16 | 1 | 7RVf25Rg0Mc |
+| kepano/flexoki | GitHub repo | 10 | 1 | 4Hvkv_I8QDE |
+| motion.dev | site/ürün | 10 | 1 | ig-Dd7W9zfkxrT |
+| electronjs.org | site/ürün | 9 | 1 | 38_48YQ6iOs |
+| toiletsquad.hogwarts.studio | site/ürün | 8 | 1 | 7RVf25Rg0Mc |
+| docs.mobbin.com | site/ürün | 7 | 1 | WEMlzWMFc3k |
+| docs.expo.dev | site/ürün | 5 | 1 | eIkTn5kgNaI |
+| expo.dev | site/ürün | 4 | 1 | eIkTn5kgNaI |
+|  | araç adı benzeri | 3 | 1 | aFEEwCteLe4 |
+| 0798011d-3d9c-4945-936d-6a4d581f7d60.frame.claudeusercontent.com | site/ürün | 3 | 1 | DO45w8HX6nA |
+| 361c9274-52a7-4a87-9768-7be53322d569.frame.claudeusercontent.com | site/ürün | 3 | 1 | DO45w8HX6nA |
+| connfig.com | site/ürün | 3 | 1 | DO45w8HX6nA |
+| console.prova.so | site/ürün | 3 | 1 | DO45w8HX6nA |
+| dev.animaapp.com | site/ürün | 3 | 1 | DO45w8HX6nA |
+| gowtham0992/link | GitHub repo | 3 | 1 | 4Hvkv_I8QDE |
+| lineaprompt.com | site/ürün | 3 | 1 | DO45w8HX6nA |
+| newcafemadrid.com | site/ürün | 3 | 1 | 0e7C9fzX4pc |
+| tabella-phenomenon.netlify.app | site/ürün | 3 | 1 | DO45w8HX6nA |
+| apollo | araç adı benzeri | 2 | 2 | eFB79TYI-Vw |
+| apps.cansincengiz.me | site/ürün | 2 | 1 | DO45w8HX6nA |
+| auth.hostinger.com | site/ürün | 2 | 2 | DYdvJCxWd6M |
+| equationalapplications/curated-thoughts | GitHub repo | 2 | 1 | 4Hvkv_I8QDE |
+| genmail.go.link | site/ürün | 2 | 1 | 4Hvkv_I8QDE |
+| getartcraft.com | site/ürün | 2 | 1 | eFB79TYI-Vw |
+| googleapis.com | site/ürün | 2 | 1 | DWMGfkFD5SI |
+| higgsfield.ai/pricing | site/ürün | 2 | 2 | 0e7C9fzX4pc |
+| kde/oxygen-icons | GitHub repo | 2 | 1 | nIB0QSIm7-0 |
+| kokonutui.com | site/ürün | 2 | 1 | ig-Dd7W9zfkxrT |
+| mb.com.ph | site/ürün | 2 | 1 | d67-HDSvMw8 |
+| mcp.higgsfield.ai | site/ürün | 2 | 2 | 0e7C9fzX4pc |
+| stephango.com | site/ürün | 2 | 1 | 4Hvkv_I8QDE |
+| +34%20603%2013%2077%2066 | araç adı benzeri | 1 | 1 | 0e7C9fzX4pc |
+| --registry | araç adı benzeri | 1 | 1 | 7RVf25Rg0Mc |
+| 17.3k/1m | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| 2fstatic.higgsfield.ai | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| 2fx.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| 363sudbury.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| 3d/editorial | GitHub repo | 1 | 1 | MIiwOtKf3SI |
+| a3.prova.so/overview | site/ürün | 1 | 1 | DO45w8HX6nA |
+| ace.c9.io | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| activetheory.net | site/ürün | 1 | 1 | DO45w8HX6nA |
+| adoratorio.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| agent-reach | araç adı benzeri | 1 | 1 | DYdvJCxWd6M |
+| agent.abacus.ai | site/ürün | 1 | 1 | bE0XcTv3tKg |
+| agentgrid.io | site/ürün | 1 | 1 | DO45w8HX6nA |
+| agentskills/agentskills | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| agnestoth.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| ahiggsfield/oli | GitHub repo | 1 | 1 | d67-HDSvMw8 |
+| ajaxorg/ace | GitHub repo | 1 | 1 | nIB0QSIm7-0 |
+| aktanilanlararastirlacaklargereklihttps/wwwyoutube.c.sk | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanilanlararatirlacaklargereklihttps/wwwyoutube.c.sik | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararagtinlacaklargereklihtps/wwwyoutube.c.sik | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararagtirlacaklargereklihtps/wwwyoutube.c.sk | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararagtirlacaklargereklihttps/wwwyoutube.c..sik | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararagtrlacaklargereklihtps/wwwyoutube.c.sk | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararastirlacaklargereklihttps/wwwyoutube.c.sik | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararastirlacaklargereklihttps/wwwyoutube.c.sk | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararastrlcaklargereklhttps/wwyoutube.sik | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktanlanlararatirlacaklargereklihttps/wwwyoutube.c.sk | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| aktarnilanlararastirilacaklargereklihttps/wwwyoutube.c..sik | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| alexis-brand-design-cv-996579.hostingersite.com | site/ürün | 1 | 1 | HzXD4GVqXwM |
+| amber-ugc-ads-landing-652133.hostingersite.com | site/ürün | 1 | 1 | HzXD4GVqXwM |
+| amd.com | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| animaapp.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| anthropic/c1aude-haiku-4.5 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| anthropic/c1aude-opus-5-fast | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| anthropic/claude-opus-4.6 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| anthropic/claude-opus-5 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| anthropics/oss-scanner | GitHub repo | 1 | 1 | HzXD4GVqXwM |
+| api.prova.so | site/ürün | 1 | 1 | DO45w8HX6nA |
+| app.craft.io | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| app.prova.so/analytics | site/ürün | 1 | 1 | DO45w8HX6nA |
+| app.prova.so/billing | site/ürün | 1 | 1 | DO45w8HX6nA |
+| app.prova.so/credits | site/ürün | 1 | 1 | DO45w8HX6nA |
+| app.prova.so/domains | site/ürün | 1 | 1 | DO45w8HX6nA |
+| app.slack.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| apps.cansincengiz.m.. | site/ürün | 1 | 1 | DO45w8HX6nA |
+| aptransit.co | site/ürün | 1 | 1 | DO45w8HX6nA |
+| aqualoqa.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| aquest.it | site/ürün | 1 | 1 | DO45w8HX6nA |
+| are.na | site/ürün | 1 | 1 | DO45w8HX6nA |
+| areebali.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| astraea-extraordinary-worlds.createaprowebsite.chatgpt.site | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| astraeatrav | araç adı benzeri | 1 | 1 | r68MhqAUvR8 |
+| astraeatravel.com | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| astro-auts/pilots | GitHub repo | 1 | 1 | r68MhqAUvR8 |
+| atomato.co | site/ürün | 1 | 1 | DO45w8HX6nA |
+| automatic/conditional | GitHub repo | 1 | 1 | ig-DbL-SXnMKDF |
+| awards/recognition | GitHub repo | 1 | 1 | ig-DcTI5sfoLGR |
+| b.com/barty | site/ürün | 1 | 1 | 6yWPy5aVHb8 |
+| beautify-web/js-beautify | GitHub repo | 1 | 1 | nIB0QSIm7-0 |
+| becore.se | site/ürün | 1 | 1 | DO45w8HX6nA |
+| before.click | site/ürün | 1 | 1 | DO45w8HX6nA |
+| bluntumbrellas.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| bolt.new | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| brandlogo.co | site/ürün | 1 | 1 | DO45w8HX6nA |
+| bricedarmon.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| briefbox.me | site/ürün | 1 | 1 | DO45w8HX6nA |
+| buildinamsterdam.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| butter.video | site/ürün | 1 | 1 | DO45w8HX6nA |
+| cafedelriomadrid.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| cerebrium.ai | site/ürün | 1 | 1 | DO45w8HX6nA |
+| chat.expo.dev | site/ürün | 1 | 1 | eIkTn5kgNaI |
+| chatgpt.com/connector_platform_oauth_redirect | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| chimezie | araç adı benzeri | 1 | 1 | 4Hvkv_I8QDE |
+| chrisnocode/wanc-os | GitHub repo | 1 | 1 | HzXD4GVqXwM |
+| city-confidential.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| claude.aifartifact/7gz2afqrrgugtcienro5tk | GitHub repo | 1 | 1 | DO45w8HX6nA |
+| claude.i | site/ürün | 1 | 1 | DO45w8HX6nA |
+| clbthemes.com | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| cloudstudio.es | site/ürün | 1 | 1 | DO45w8HX6nA |
+| coloniazacamil.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| conelmorrofino.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| consumer-withdrawal.eu | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| cooksworld.com | site/ürün | 1 | 1 | 4Hvkv_I8QDE |
+| cr-z.0/reference-se-sio | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| craft.io | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| createaprowebzite.com | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| crl-2026.webflow.io | site/ürün | 1 | 1 | DO45w8HX6nA |
+| crmsnbleyd/flexoki-emacs-theme | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| css.onlineviewer.net | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| curated.design | site/ürün | 1 | 1 | DO45w8HX6nA |
+| curbed.com | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| davidhdev/react-bits | GitHub repo | 1 | 1 | ig-DePLcw_Dbwo |
+| de1s/gpt-image-2 | GitHub repo | 1 | 1 | ig-DdZQ5SaDxDV |
+| deadlyponies.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| deepseek/deepseek-v4-flas | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| deepseek/deepseek-v4-flash | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| deepseek/deepseek-v4-flash-07 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| deepseek/deepseek-v4-flash-0731 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| design-system-demo.lovable.app | site/ürün | 1 | 1 | WEMlzWMFc3k |
+| desktop.telegram.org | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| deusqata/codebase-memory-mcp | GitHub repo | 1 | 1 | ig-DbL-SXnMKDF |
+| dezeen.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| digitaldarts.com.au" | site/ürün | 1 | 1 | DO45w8HX6nA |
+| digitaleconomy.stanf@d.edu | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| digitaleconomy.stanford.edu | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| dnve_goot | araç adı benzeri | 1 | 1 | DWMGfkFD5SI |
+| doc | araç adı benzeri | 1 | 1 | eIkTn5kgNaI |
+| docs.animaapp.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| docs.dokploy.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| docs.gooc | site/ürün | 1 | 1 | DWMGfkFD5SI |
+| docs.lovable.dev/tips | site/ürün | 1 | 1 | WEMlzWMFc3k |
+| dogstudio.co | site/ürün | 1 | 1 | DO45w8HX6nA |
+| dqcs.goo | site/ürün | 1 | 1 | DWMGfkFD5SI |
+| drive.gooi | site/ürün | 1 | 1 | DWMGfkFD5SI |
+| drive.gool | site/ürün | 1 | 1 | DWMGfkFD5SI |
+| duda.works | site/ürün | 1 | 1 | DO45w8HX6nA |
+| edesigninteractive.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| electronicmaterialsoffice.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| elle.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| equationalapplications/curated-thoughts-integrations | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| erclip/v2026.831 | GitHub repo | 1 | 1 | 7RVf25Rg0Mc |
+| esmadrid.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| euandeas/omarchy-flexoki-dark-theme | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| expo.fyi | site/ürün | 1 | 1 | eIkTn5kgNaI |
+| failed | araç adı benzeri | 1 | 1 | DYdvJCxWd6M |
+| fatihce | araç adı benzeri | 1 | 1 | DO45w8HX6nA |
+| fatihcengiz.co/kedi-kulagi-uzun-saten-abiye-elbise | GitHub repo | 1 | 1 | DO45w8HX6nA |
+| feature/accord_ | GitHub repo | 1 | 1 | YUWBku1cNEA |
+| femmefatale.paris | site/ürün | 1 | 1 | DO45w8HX6nA |
+| flycrooked.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| flyhermes.ai | site/ürün | 1 | 1 | 4Hvkv_I8QDE |
+| fonts.gstatic.com" | site/ürün | 1 | 1 | 7FU98O0JLHs |
+| footer.design | site/ürün | 1 | 1 | DO45w8HX6nA |
+| frontend-design:frontend-design | araç adı benzeri | 1 | 1 | 38_48YQ6iOs |
+| games/ue_5 | GitHub repo | 1 | 1 | 0e7C9fzX4pc |
+| getbootstrap.com | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| getlayers.al/templates | GitHub repo | 1 | 1 | ig-DeMmzkxMpFZ |
+| github.com/affaan | site/ürün | 1 | 1 | ig-DdO1UioAHAS |
+| github.com/docling | site/ürün | 1 | 1 | ig-DdZQ5SaDxDV |
+| github.com/gsd-build | site/ürün | 1 | 1 | DO45w8HX6nA |
+| github.com/headroomlabs | site/ürün | 1 | 1 | ig-DdO1UioAHAS |
+| github.com/jasonlee | site/ürün | 1 | 1 | J4oygRI6mN0 |
+| github.com/multica | site/ürün | 1 | 1 | ig-DdO1UioAHAS |
+| github.com/opencut | site/ürün | 1 | 1 | ig-DdZQ5SaDxDV |
+| github.com/rtk | site/ürün | 1 | 1 | ig-DdO1UioAHAS |
+| github.con/multica | GitHub repo | 1 | 1 | ig-DdZQ5SaDxDV |
+| github.con/yeachan | GitHub repo | 1 | 1 | ig-DdO1UioAHAS |
+| github.cos/shareai | GitHub repo | 1 | 1 | ig-DdO1UioAHAS |
+| gkihk/kanban_setups_megathread_hermes_agent_june | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| go.streamlinehq.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| google/gemini-3.1-pro-preview | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| google/gemini-3.7-flash | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| google/nano-banana-pro | GitHub repo | 1 | 1 | DO45w8HX6nA |
+| googleworkspace/li | GitHub repo | 1 | 1 | DWMGfkFD5SI |
+| greptile | araç adı benzeri | 1 | 1 | HzXD4GVqXwM |
+| grubstreet.com | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| hellomonday.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| help.sensortower.com | site/ürün | 1 | 1 | eIkTn5kgNaI |
+| hermes-agent-5x5l.srv1903879.hstgr.cloud/cron | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| hermes-agent-5x5l.srv1903879.hstgr.cloud/modeis | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| hermes-assets.nousresearch.com/hermes-setup.dmg | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| higgsfield.ai/aifimage | site/ürün | 1 | 1 | YUWBku1cNEA |
+| highlightjs.org | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| higsfielda/ainfluencer-studio | GitHub repo | 1 | 1 | rM-wRmxmfDI |
+| hostinger.com | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| hpanel.hostinger.com | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| hpanel.hostinger.com/add | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| hpanel.hostinger.com/migrations | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| hpanel.hostinger.com/purchase-new | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| hueylightshop.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| hyperagent | araç adı benzeri | 1 | 1 | HzXD4GVqXwM |
+| hyperframes-registryheygen-com/hyper | GitHub repo | 1 | 1 | ig-DePtyBoAOPd |
+| hyperframes@0.8.27 | site/ürün | 1 | 1 | LCwT00LrPZg |
+| id-preview--a3f03bad-0c2e-4820-86d6-1fc732c0b2e.lovable.app | site/ürün | 1 | 1 | WEMlzWMFc3k |
+| iggsfielda/ai-influencer-studio | GitHub repo | 1 | 1 | rM-wRmxmfDI |
+| igsield.a/aifuencer-studio | GitHub repo | 1 | 1 | rM-wRmxmfDI |
+| imccae | araç adı benzeri | 1 | 1 | 7FU98O0JLHs |
+| imeccare | araç adı benzeri | 1 | 1 | 7FU98O0JLHs |
+| img.shields.io | site/ürün | 1 | 1 | LCwT00LrPZg |
+| immersive-g.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| impeccable.style/live | GitHub repo | 1 | 1 | 7FU98O0JLHs |
+| impeccaore | araç adı benzeri | 1 | 1 | 7FU98O0JLHs |
+| inspora.design | site/ürün | 1 | 1 | DO45w8HX6nA |
+| inter/system-font-only | GitHub repo | 1 | 1 | 7FU98O0JLHs |
+| isagalaev/highlight.js | GitHub repo | 1 | 1 | nIB0QSIm7-0 |
+| jakobtfaber | araç adı benzeri | 1 | 1 | 4Hvkv_I8QDE |
+| javascript.onlineviewer.net | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| jcsuzanne.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| jjettas.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| joinswsh.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| jquery.com | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| jquery/jquery | GitHub repo | 1 | 1 | nIB0QSIm7-0 |
+| jsbeautifier.org | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| json.onlineviewer.net | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| justcreateit.com.au | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| kaikaku.ai | site/ürün | 1 | 1 | HzXD4GVqXwM |
+| kde.org | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| kepano/flexoki-neovim | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| kepano/flexoki-obsidian | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| kepano/flexoki-sublime | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| killstar.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| kling-video/v3.0 | GitHub repo | 1 | 1 | aFEEwCteLe4 |
+| learn.chatgpt.com | site/ürün | 1 | 1 | HzXD4GVqXwM |
+| leeholmes.uk | site/ürün | 1 | 1 | DO45w8HX6nA |
+| leonxlnx/taste-skil | GitHub repo | 1 | 1 | 7FU98O0JLHs |
+| lidlezz.app | site/ürün | 1 | 1 | DO45w8HX6nA |
+| lidlezz.app/tr | site/ürün | 1 | 1 | DO45w8HX6nA |
+| linux/x64 | GitHub repo | 1 | 1 | 7RVf25Rg0Mc |
+| locomotive.ca | site/ürün | 1 | 1 | DO45w8HX6nA |
+| loomshot.a | site/ürün | 1 | 1 | DO45w8HX6nA |
+| loomshot.ai/gallery | site/ürün | 1 | 1 | DO45w8HX6nA |
+| loomshot.ai/generate | site/ürün | 1 | 1 | DO45w8HX6nA |
+| loomshot.ai/mannequins | site/ürün | 1 | 1 | DO45w8HX6nA |
+| macos.telegram.org | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| madamepolare.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| magnus919om | araç adı benzeri | 1 | 1 | 4Hvkv_I8QDE |
+| makemepulse.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| mariavasilyeva.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| mdebeauty.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| meermohsin.me | site/ürün | 1 | 1 | DO45w8HX6nA |
+| menu/add-remove | GitHub repo | 1 | 1 | eFB79TYI-Vw |
+| merci-michel.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| meticsmedia.com/hermes-jpy | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| midjourney.com | site/ürün | 1 | 1 | WEUlsIqoKFQ |
+| midjourney.com/explore | site/ürün | 1 | 1 | WEUlsIqoKFQ |
+| mijobello.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| milyunviajesporelmundo.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| minimax/minimax-m3 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| miralife.app | site/ürün | 1 | 1 | DO45w8HX6nA |
+| mobbin.com | site/ürün | 1 | 1 | WEMlzWMFc3k |
+| mobilehtml5.org | site/ürün | 1 | 1 | DO45w8HX6nA |
+| monks.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| moonshotai/kimi-k3 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| myreli/sn-flexoki | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| myrhotels.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| neko.engineering | site/ürün | 1 | 1 | DO45w8HX6nA |
+| networkchuck.com | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| nodejs.org | site/ürün | 1 | 1 | r68MhqAUvR8 |
+| npma12.0.2 | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| ocode/wanc-os | GitHub repo | 1 | 1 | HzXD4GVqXwM |
+| offpossible.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| onlinehtmlviewer.com | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| onlineviewer.net | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| oomshot.ai | site/ürün | 1 | 1 | DO45w8HX6nA |
+| open-gsd/gsd-core | GitHub repo | 1 | 1 | DO45w8HX6nA |
+| open.higgsfiel.ai/biling | site/ürün | 1 | 1 | aFEEwCteLe4 |
+| open.higgsfield.ai/billing | site/ürün | 1 | 1 | aFEEwCteLe4 |
+| open.higgsfield.ai/explore | site/ürün | 1 | 1 | aFEEwCteLe4 |
+| open.higgsfield.ai/pricing | site/ürün | 1 | 1 | aFEEwCteLe4 |
+| openai/gpt-5.5-pro | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| openai/gpt-image-2.5-flare | GitHub repo | 1 | 1 | DO45w8HX6nA |
+| openjsf.org | site/ürün | 1 | 1 | 38_48YQ6iOs |
+| openrouter.ai/activity | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| openrouter/claude-o | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| openrouter/claude-opus-4.8 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| opensource.adobe.com/spectrum-web | site/ürün | 1 | 1 | WEMlzWMFc3k |
+| outbond.notion.site | site/ürün | 1 | 1 | HzXD4GVqXwM |
+| paperclip_task_id/comments | GitHub repo | 1 | 1 | 7RVf25Rg0Mc |
+| paperclip_task_id/interactions | GitHub repo | 1 | 1 | 7RVf25Rg0Mc |
+| perappelgren.de | site/ürün | 1 | 1 | DO45w8HX6nA |
+| project/fireworks-motion | GitHub repo | 1 | 1 | LCwT00LrPZg |
+| prova.so/tr | site/ürün | 1 | 1 | DO45w8HX6nA |
+| quanna1210/add-publicatahub | GitHub repo | 1 | 1 | ig-DcthaPNoqQm |
+| quanna1210/add-publicdat | GitHub repo | 1 | 1 | ig-DcthaPNoqQm |
+| quanna1210/add-publicdatahub | GitHub repo | 1 | 1 | ig-DcthaPNoqQm |
+| quicksend-prototype.jasonlee-brands.workers.dev | site/ürün | 1 | 1 | J4oygRI6mN0 |
+| qwen/qwen3 | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| qwen/qwen3.6-35b-a3b | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| qwen/qwen3.8 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| recent.design | site/ürün | 1 | 1 | DO45w8HX6nA |
+| reeftechnology.com | site/ürün | 1 | 1 | HzXD4GVqXwM |
+| reelmotion.fit | site/ürün | 1 | 1 | DO45w8HX6nA |
+| registry.modelcontextprotocol.io | site/ürün | 1 | 1 | 4Hvkv_I8QDE |
+| release/v3.8.52 | GitHub repo | 1 | 1 | ig-DeP3RRyN8T9 |
+| renders/automated-editing | GitHub repo | 1 | 1 | HzXD4GVqXwM |
+| renders/autonrganization | GitHub repo | 1 | 1 | HzXD4GVqXwM |
+| reputationsquad.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| resn.co.nz | site/ürün | 1 | 1 | DO45w8HX6nA |
+| sct/fireworks-motion | GitHub repo | 1 | 1 | LCwT00LrPZg |
+| sensortower.com | site/ürün | 1 | 1 | eIkTn5kgNaI |
+| serus.ai | site/ürün | 1 | 1 | DO45w8HX6nA |
+| shopify.com | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| simplified/traditional | GitHub repo | 1 | 1 | eFB79TYI-Vw |
+| sixescricket.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| sk...ontend-design | site/ürün | 1 | 1 | WEMlzWMFc3k |
+| skillbit.com | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| slack.dev | site/ürün | 1 | 1 | DO45w8HX6nA |
+| springsummer.dk | site/ürün | 1 | 1 | DO45w8HX6nA |
+| ssscript.app | site/ürün | 1 | 1 | DO45w8HX6nA |
+| stephango.com/flexoki | site/ürün | 1 | 1 | 4Hvkv_I8QDE |
+| stgr.cloud/sessions | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| storytold/photocraft-corpus | GitHub repo | 1 | 1 | eFB79TYI-Vw |
+| supaste.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| switchblade-awwwards.vercel.app | site/ürün | 1 | 1 | DO45w8HX6nA |
+| taste-skill | araç adı benzeri | 1 | 1 | LCwT00LrPZg |
+| terracotta/burnt-orange | GitHub repo | 1 | 1 | MIiwOtKf3SI |
+| text.onlineviewer.net | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| the-decoder.com | site/ürün | 1 | 1 | HzXD4GVqXwM |
+| thecut.com | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| thepaperclip.hogwarts.studio | site/ürün | 1 | 1 | 7RVf25Rg0Mc |
+| thomas-ciszewski-photography.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| tobi/qmd | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| toyfight.co | site/ürün | 1 | 1 | DO45w8HX6nA |
+| trust.lovable.dev | site/ürün | 1 | 1 | WEMlzWMFc3k |
+| twbs/bootstrap | GitHub repo | 1 | 1 | nIB0QSIm7-0 |
+| umanmade.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| users/tn.shen.dsh.agent | GitHub repo | 1 | 1 | ig-DdEUwLgE-Sb |
+| users/tn.sheng.dsh.agent | GitHub repo | 1 | 1 | ig-DdEUwLgE-Sb |
+| users/tn.sheng.dshy.agent | GitHub repo | 1 | 1 | ig-DdEUwLgE-Sb |
+| v0.15/v0 | GitHub repo | 1 | 1 | 4Hvkv_I8QDE |
+| vals.ai | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| veintidosgrados.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| videos/firewarks-motion | GitHub repo | 1 | 1 | LCwT00LrPZg |
+| videos/fireworks-motion | GitHub repo | 1 | 1 | LCwT00LrPZg |
+| vulture.com | site/ürün | 1 | 1 | DYdvJCxWd6M |
+| waterllama.com | site/ürün | 1 | 1 | eIkTn5kgNaI |
+| webzooo.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| whatships.com | site/ürün | 1 | 1 | J4oygRI6mN0 |
+| whpcreative.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| wiemer.store | site/ürün | 1 | 1 | DO45w8HX6nA |
+| witcharon/claude-reel-skills | GitHub repo | 1 | 1 | DO45w8HX6nA |
+| working/freshly_squeezed_v02.aep | GitHub repo | 1 | 1 | LCwT00LrPZg |
+| worldlabs.aif | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| worldlabs.aiflabs | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| worldllabs.ai | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| worldllabs.aiflabs | site/ürün | 1 | 1 | d67-HDSvMw8 |
+| woty-workshops/rosewoodcabins | GitHub repo | 1 | 1 | YUWBku1cNEA |
+| wowmade.ai | site/ürün | 1 | 1 | DO45w8HX6nA |
+| ww.awwwards.com | site/ürün | 1 | 1 | DO45w8HX6nA |
+| ww.electronjs.orga | site/ürün | 1 | 1 | 38_48YQ6iOs |
+| ww.esmadrid.com | site/ürün | 1 | 1 | 0e7C9fzX4pc |
+| x-ai/grok-4.6 | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| x290/y1134 | GitHub repo | 1 | 1 | YUWBku1cNEA |
+| xiaomi/mimo-v2.5-pro | GitHub repo | 1 | 1 | DYdvJCxWd6M |
+| xml.onlineviewer.net | site/ürün | 1 | 1 | nIB0QSIm7-0 |
+| zentry.com | site/ürün | 1 | 1 | ig-DePLcw_Dbwo |
