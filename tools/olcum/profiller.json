@@ -1,0 +1,5 @@
+{
+  "tam": {"ek": [], "not": "kurulu her şey (taban)"},
+  "hafif": {"ek": ["--strict-mcp-config", "--disable-slash-commands"], "not": "MCP yok, skill/slash komutu yok; araçlar ve CLAUDE.md duruyor"},
+  "paket-index": {"ek": [], "not": "ileride: name-only + departman yönlendirici; uygulanınca ek dolacak"}
+}
