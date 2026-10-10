@@ -83,6 +83,14 @@ def test_ayar_birlestir_mevcut_ezilmez_env_yazilir():
     assert degisen == {"SLASH_COMMAND_TOOL_CHAR_BUDGET": ("150000", "75000")}
 
 
+def test_ayar_birlestir_yalniz_agent_deny_eklenir():
+    ayar = {"permissions": {"deny": ["Read(./bin/**)", "Agent(x)"], "allow": ["Bash(git status)"]}}
+    profil = {"permissions": {"deny": ["Agent(x)", "Agent(y)", "Bash(rm:*)"], "allow": ["Bash(*)"]}}
+    _, degisen = ayar_uygula.birlestir(ayar, profil)
+    assert ayar["permissions"] == {"deny": ["Read(./bin/**)", "Agent(x)", "Agent(y)"], "allow": ["Bash(git status)"]}
+    assert degisen == {"permissions.deny": (2, 3)} and "env" not in ayar
+
+
 def test_init_yaz_yalniz_ad(tmp_path):
     y = tmp_path / "i.json"
     kosucu.init_yaz(y, {"mcp_servers": [{"name": "x", "status": "connected"}], "skills": ["a"], "model": "m",

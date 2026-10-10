@@ -1,0 +1,5 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata
+G01	1	2	96240	14243	889	110485	1	45.1	0.7906	1	8	1945	53		
+G01	2	2	96093	14243	1196	110338	1	41.8	0.7955	1	10	1945	55		
+G01	3	2	96091	14243	1070	110336	1	44.1	0.793	1	8	1945	55		
+G01	4	2	96950	14243	1110	111195	1	41.5	0.8007	1	8	1945	55		

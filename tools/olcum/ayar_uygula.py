@@ -21,9 +21,18 @@ def birlestir(ayar, profil):
         if k not in so:
             so[k] = v
             eklenen += 1
-    env = ayar.setdefault("env", {})
-    degisen = {k: (env.get(k), v) for k, v in (profil.get("env") or {}).items() if env.get(k) != v}
-    env.update(profil.get("env") or {})
+    degisen = {}
+    if profil.get("env"):
+        env = ayar.setdefault("env", {})
+        degisen = {k: (env.get(k), v) for k, v in profil["env"].items() if env.get(k) != v}
+        env.update(profil["env"])
+    # permissions.deny yalnız Agent(...) gizleme için (Ömer onayı 10 Eki); mevcut kurallar korunur, yalnız eksik eklenir
+    yeni_deny = [k for k in (profil.get("permissions") or {}).get("deny", []) if k.startswith("Agent(")]
+    if yeni_deny:
+        deny = ayar.setdefault("permissions", {}).setdefault("deny", [])
+        ek = [k for k in yeni_deny if k not in deny]
+        deny.extend(ek)
+        degisen["permissions.deny"] = (len(deny) - len(ek), len(deny))
     return eklenen, degisen
 
 
