@@ -14,31 +14,31 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 
 | id | dk | başlık | not | durum |
 |---|---|---|---|---|
-| ig-DcwL8LqiuH6 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeMeuQ6KfOf | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Da3O00jpo3R | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeHwElbMdg1 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| eN77oHqAiUU | 1.2 | What Are Claude Code Mods? | Ömer 10 Eki | bekliyor |
-| ig-DcOELo1zGtz | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DcV4_XvTded | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DcDla-qRkoR | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dd85OwXN4Gl | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dc8fKPEgN92 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dd9ZUN4DiEy | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DcxV37-CJOC | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dd_B3mbjVqw | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Da-xfKrR9Bw | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DcBt7fBspOp | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeQJUaBC61_ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeCfWoGMIET | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Dctk1TiK2KP | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeFKAw1xM1b | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeHgoP8kxyV | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-Ddly_cvkhP3 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DdZmPY4u-xd | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeCixT6ilL7 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DeChw05s6ID | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
-| ig-DePX37ZNk75 | 1.0 | Instagram reel | Ömer notu: DeepSeek son modelini ucuz/ücretsiz alt ajan yapma | bekliyor |
+| ig-DcwL8LqiuH6 | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeMeuQ6KfOf | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Da3O00jpo3R | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeHwElbMdg1 | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| eN77oHqAiUU | 1.2 | What Are Claude Code Mods? | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DcOELo1zGtz | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DcV4_XvTded | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DcDla-qRkoR | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Dd85OwXN4Gl | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Dc8fKPEgN92 | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Dd9ZUN4DiEy | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DcxV37-CJOC | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Dd_B3mbjVqw | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Da-xfKrR9Bw | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DcBt7fBspOp | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeQJUaBC61_ | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeCfWoGMIET | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Dctk1TiK2KP | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeFKAw1xM1b | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeHgoP8kxyV | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-Ddly_cvkhP3 | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DdZmPY4u-xd | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeCixT6ilL7 | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DeChw05s6ID | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 701a3a9 |
+| ig-DePX37ZNk75 | 1.0 | Instagram reel | Ömer notu: DeepSeek son modelini ucuz/ücretsiz alt ajan yapma | işlendi: 701a3a9 |
 | ig-DeRBkGLIBBZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
 | ig-DeRooX1C5FT | 1.0 | Instagram reel | Ömer notu: Claude'a bağlayıp daha iyi ve kaliteli çalıştırma (önceki notla aynı başlık) | bekliyor |
 | ig-DcthaPNoqQm | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
