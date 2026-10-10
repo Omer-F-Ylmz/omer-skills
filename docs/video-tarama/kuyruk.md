@@ -8,6 +8,152 @@ Sıra (yalnız işleme sırası, eleme değil): 1 = site yapımı / prompt / tok
 Meta önbelleği (başlık, kanal, süre, açıklama, açıklama linkleri): C:\Projeler\.video-cache\kuyruk-meta-2026-09-28.json
 Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 
+## Eklenen: 2026-10-10 (Ömer, LINK-3)
+
+### Sıra 0 — Ömer 10 Eki
+
+| id | dk | başlık | not | durum |
+|---|---|---|---|---|
+| ig-DcwL8LqiuH6 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeMeuQ6KfOf | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Da3O00jpo3R | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeHwElbMdg1 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| eN77oHqAiUU | 1.2 | What Are Claude Code Mods? | Ömer 10 Eki | bekliyor |
+| ig-DcOELo1zGtz | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DcV4_XvTded | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DcDla-qRkoR | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dd85OwXN4Gl | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dc8fKPEgN92 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dd9ZUN4DiEy | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DcxV37-CJOC | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dd_B3mbjVqw | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Da-xfKrR9Bw | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DcBt7fBspOp | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeQJUaBC61_ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeCfWoGMIET | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dctk1TiK2KP | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeFKAw1xM1b | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeHgoP8kxyV | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Ddly_cvkhP3 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DdZmPY4u-xd | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeCixT6ilL7 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeChw05s6ID | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DePX37ZNk75 | 1.0 | Instagram reel | Ömer notu: DeepSeek son modelini ucuz/ücretsiz alt ajan yapma | bekliyor |
+| ig-DeRBkGLIBBZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeRooX1C5FT | 1.0 | Instagram reel | Ömer notu: Claude'a bağlayıp daha iyi ve kaliteli çalıştırma (önceki notla aynı başlık) | bekliyor |
+| ig-DcthaPNoqQm | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DdEUwLgE-Sb | 1.0 | Instagram reel | Ömer notu: Google AI Studio/Playground'u Claude'a bağlayıp daha iyi/kaliteli çalıştırma | bekliyor |
+| ig-DeObaLjuUXt | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DePtyBoAOPd | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Ddqj0svm6yq | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DePUywkjHEz | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dd_tRbkP0qO | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| gxAXIdCNr-E | 0.6 | Obsidian 1.14 Just Got 5 HUGE Upgrades | Ömer 10 Eki | bekliyor |
+| 7CKYk8FX6UY | 0.8 | How to sell n8n automation for $3,000 | Ömer 10 Eki | bekliyor |
+| ig-DdrOw7ItBTu | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeSQoHQzAKO | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeCHIhrk0Th | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Ddt16ilkRGB | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dd-Xxv2H4VH | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeP3RRyN8T9 | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeHiUezkt8m | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dd9Yv2ciKVY | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeMmzkxMpFZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeSLlBNsnJv | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DdVWXArCa_T | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-Dcn3KY8A9Wa | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeMXKf9NIci | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DcRlYhYMHwZ | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DeJ9WfkkyBm | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| fw2ID5ucY-Q | 16.5 | Claude Code Ayarlarını Hemen Bu Şekilde  | Ömer 10 Eki | bekliyor |
+| De4dE0Fbpy4 | 19.4 | Bu Shorts/Reels Videolarını Sadece Opus  | Ömer 10 Eki | bekliyor |
+| yNDwmWVXw9I | 1.7 | Ornith 1.5 Wrote Its Own Training Data   | Ömer 10 Eki | bekliyor |
+| H84vfy96m_k | 355.4 | How Senior Engineers Build With AI (Full | Ömer 10 Eki | bekliyor |
+| cQm5Tdyhgps | 8.0 | This NEW Claude Update is ABSURD! | Ömer 10 Eki | bekliyor |
+| DD-SiFV93sQ | 84.5 | I Made $250K In 30 Days: The FASTEST Way | Ömer 10 Eki | bekliyor |
+| TnduiS4kyg8 | 23.3 | Build a Stunning 3D Website with Claude  | Ömer 10 Eki | bekliyor |
+| R_uf5OfMGio | 62.9 | Can AI Make a Game Engine? | Ömer 10 Eki | bekliyor |
+| aFEEwCteLe4 | 14.7 | Yapay Zeka Fikrimi Çalışan Bir Uygulamay | Ömer 10 Eki | bekliyor |
+| r68MhqAUvR8 | 23.7 | How to Build Cinematic 3D Websites in Mi | Ömer 10 Eki | bekliyor |
+| dF_uxyJyeu0 | 0.8 | You can now build Blender scenes just by | Ömer 10 Eki | bekliyor |
+| LCwT00LrPZg | 21.3 | 9 Claude Skills I Use Every Single Day | Ömer 10 Eki | bekliyor |
+| 0e7C9fzX4pc | 11.6 | Bir Esnafa 10 Dakikada Web Sitesi ve Rek | Ömer 10 Eki | bekliyor |
+| bE0XcTv3tKg | 14.8 | Watch me vibe code an Animated App (Opus | Ömer 10 Eki | bekliyor |
+| eFB79TYI-Vw | 20.4 | Somebody Vibe Coded EVERY SINGLE ADOBE A | Ömer 10 Eki | bekliyor |
+| DWMGfkFD5SI | 19.0 | Claude ile Otomatik Teklif Sistemi Kurdu | Ömer 10 Eki | bekliyor |
+| ACal_vkrc9Q | 9.5 | I Gave Claude AI Full Control Of Blender | Ömer 10 Eki | bekliyor |
+| 6yWPy5aVHb8 | 15.2 | How To Make INSANE Motion Graphics With  | Ömer 10 Eki | bekliyor |
+| J4oygRI6mN0 | 21.3 | How I Make Insane Motion Graphics with O | Ömer 10 Eki | bekliyor |
+| d67-HDSvMw8 | 10.3 | Yapay Zeka Artık Videoyu da Editliyor! / | Ömer 10 Eki | bekliyor |
+| WEMlzWMFc3k | 20.5 | Top 8 AI-Design Tips (Emil animation ski | Ömer 10 Eki | bekliyor |
+| 9sqJCcnSI50 | 0.8 | Claude Opus 5.5 enables fast, low-cost a | Ömer 10 Eki | bekliyor |
+| nIB0QSIm7-0 | 9.8 | 2 NEW AI Models FREE! 🔥 Mistral Large 4  | Ömer 10 Eki | bekliyor |
+| DYdvJCxWd6M | 34.4 | Hermes Agent - Full Tutorial & Setup Gui | Ömer 10 Eki | bekliyor |
+| HzXD4GVqXwM | 17.0 | I Fully Automated My Video Editing Using | Ömer 10 Eki | bekliyor |
+| 38_48YQ6iOs | 16.1 | Yapay Zeka ile Kendi Masaüstü Uygulamanı | Ömer 10 Eki | bekliyor |
+| DO45w8HX6nA | 44.5 | Claude ile SaaS'ımı Baştan Yaptım: 1,3$  | Ömer 10 Eki | bekliyor |
+| MIiwOtKf3SI | 8.1 | I Made 3D Motion Graphics With FREE AI T | Ömer 10 Eki | bekliyor |
+| WEUlsIqoKFQ | 6.2 | how to build STUNNING websites | Ömer 10 Eki | bekliyor |
+| 7FU98O0JLHs | 23.0 | Turn Claude Into A Design GENIUS In 3 Si | Ömer 10 Eki | bekliyor |
+| 4Hvkv_I8QDE | 24.6 | Obsidian in 24 Minutes | Ömer 10 Eki | bekliyor |
+| COJAZQM1aeQ | 1.7 | Build an App With Claude Design | Ömer 10 Eki | bekliyor |
+| rM-wRmxmfDI | 12.8 | Sıfırdan Viral Bir Karakter Tasarladım v | Ömer 10 Eki | bekliyor |
+| 4efBpthpF6w | 0.8 | Premiere Pro'da Animasyon Oluşturmak Çok | Ömer 10 Eki | bekliyor |
+| YUWBku1cNEA | 10.5 | Claude Code + Seedance 2.5 = Insane Webs | Ömer 10 Eki | bekliyor |
+| idJQMJwHtyM | 1.0 | Claude for Google Workspace™ | Ömer 10 Eki | bekliyor |
+| 7RVf25Rg0Mc | 28.8 | you need to try Paperclip RIGHT NOW! | Ömer 10 Eki | bekliyor |
+| eIkTn5kgNaI | 13.2 | Claude Opus 5.5 ile Mobil Uygulama Yaptı | Ömer 10 Eki | bekliyor |
+| o_FJ1NIH9yw | 28.9 | God’s Eye View Blew Up. Here's What You  | Ömer 10 Eki | bekliyor |
+| y4YupFxhAog | 14.5 | How I create viral animated reels using  | Ömer 10 Eki | bekliyor |
+| 8KUDeKO1iyU | 21.1 | Haiku 5.5 ile Yapay Zeka Ekibi Kurdum /  | Ömer 10 Eki | bekliyor |
+| 8yE6G1Lup1s | 182.8 | HERMES AGENT FULL COURSE 3 HOURS: Build  | Ömer 10 Eki | bekliyor |
+| 6kzYCoxGtQs | 1.1 | DeepSeek V4.1 Flash: What Actually Chang | Ömer 10 Eki | bekliyor |
+| HDJL5_grCbg | 1.1 | GLM-5.3 Got Smarter Without More Paramet | Ömer 10 Eki | bekliyor |
+| oz2CwrPV2Rg | 12.4 | Anthropic Engineers Just 10x'd Everyone' | Ömer 10 Eki | bekliyor |
+| XgMhU4CE-lQ | 12.0 | Paste This Into GPT-6 Astra, Never Run O | Ömer 10 Eki | bekliyor |
+| n50KkoucMpU | 9.3 | How to Create AI Motion Graphics in Minu | Ömer 10 Eki | bekliyor |
+| Fuo1i_-9Frc | 8.6 | Someone Just Rebuilt Adobe for Free, and | Ömer 10 Eki | bekliyor |
+| ijHxGWFnrNA | 10.0 | Claude Code ile Mobil Uygulama Geliştiri | Ömer 10 Eki | bekliyor |
+| 6nGc3yCGByI | 22.7 | Claude AI + Whop Clipping = $6,500/Month | Ömer 10 Eki | bekliyor |
+| QunIbbJ6ZgI | 8.8 | Animate Insane Websites with AI | Ömer 10 Eki | bekliyor |
+| Qi5qY3r0k3A | 1.5 | I Built an AI Dropshipping Operating Sys | Ömer 10 Eki | bekliyor |
+| h2-71T3rEqc | 1.1 | A 4B AI Model That Beats 12B Models | Ömer 10 Eki | bekliyor |
+| qCLP_ZYQBM0 | 2.3 | Stop Using Claude Code Without Knowing T | Ömer 10 Eki | bekliyor |
+| sGt1ACELN4k | 21.3 | I Finally Solved AI Video Editing (Full  | Ömer 10 Eki | bekliyor |
+| VQyYzLJ6xos | 12.2 | Anthropic Just Revealed 10 NEW Rules for | Ömer 10 Eki | bekliyor |
+| IUV8QzwIb6g | 9.5 | Claude Replaced Higgsfield with This FRE | Ömer 10 Eki | bekliyor |
+| JrFZ_ky7AzE | 28.5 | The SIMPLEST Way To Make Money Online Wi | Ömer 10 Eki | bekliyor |
+| 1CSh8tBR1oc | 14.9 | VIRAL Carousels With Motion Graphics 0$  | Ömer 10 Eki | bekliyor |
+| TLQLfa7yH4I | 17.1 | I Turned GPT-6 Astra Into a 24/7 Stock T | Ömer 10 Eki | bekliyor |
+| lDrAZ1wAyVs | 12.8 | 9 NEW Claude Mods that can truly change  | Ömer 10 Eki | bekliyor |
+| tf_yi6DtDOQ | 9.8 | $7000 Portfolio Website With Free AI Too | Ömer 10 Eki | bekliyor |
+| 5WQk9WiWcYQ | 13.3 | 10 Hermes Agent Skills You NEED To Insta | Ömer 10 Eki | bekliyor |
+| AKcjBPvF788 | 4.8 | Google Flow Now Connects to Claude Code  | Ömer 10 Eki | bekliyor |
+| AYPx7yJmbNg | 14.0 | Claude Code ile YouTube Videosu Nasıl Ya | Ömer 10 Eki | bekliyor |
+| WrCjAAl9okA | 6.2 | A $6.3 billion open-weight model just go | Ömer 10 Eki | bekliyor |
+| fq3wx-AR6B0 | 19.6 | Claude Motion Design Just Destroyed Webs | Ömer 10 Eki | bekliyor |
+| VeOU0FnTjjc | 14.4 | Creating 3D Character with AI in 1 Min v | Ömer 10 Eki | bekliyor |
+| bQoEelGwy6c | 20.2 | Yapay Zeka ile İş Bul (0 Kodlama) | Ömer 10 Eki | bekliyor |
+| qMDdJ_LDpoE | 0.7 | Claude Code için 1.6 milyar ücretsiz tok | Ömer 10 Eki | bekliyor |
+| AlLwSqFsZec | 2.8 | Anthropic's New Rules: Everything You Ne | Ömer 10 Eki | bekliyor |
+| gRJVZr9UxHU | 12.7 | OpenCode’u Yeniden Denedim… Bi Daha CLI  | Ömer 10 Eki | bekliyor |
+| HOXrLsVqinY | 22.3 | Opus 5.5 Just 10X'd Claude Design… | Ömer 10 Eki | bekliyor |
+| mJ6ZvGiwZEc | 4.5 | Claude Motion Explained: Make Videos Ins | Ömer 10 Eki | bekliyor |
+| c4nRtwe5EbM | 26.4 | Viral Kanalları Analiz Edip Özgünleştiri | Ömer 10 Eki | bekliyor |
+| XNcKUSL1CTE | 103.6 | The Ultimate Beginner’s Guide to Hermes  | Ömer 10 Eki | bekliyor |
+| egzwTdmTZbU | 0.5 | This Free Site Makes Claude Build Better | Ömer 10 Eki | bekliyor |
+| y4GwCCsYwvQ | 24.6 | Claude Opus 5.5 Is INSANE at Motion Grap | Ömer 10 Eki | bekliyor |
+| mQBuZ6Dp0u0 | 133.8 | How I Build AI Teammates With Claude Cod | Ömer 10 Eki | bekliyor |
+| vMWrVcyl5zE | 0.5 | TypeLLM: Make Your LLM Answer in Exact,  | Ömer 10 Eki | bekliyor |
+| omihvjf0A2k | 4.5 | Getting started with Claude Code Project | Ömer 10 Eki | bekliyor |
+| ypTQFBnrYCc | 0.7 | 10 GitHub Repos Every Developer Should K | Ömer 10 Eki | bekliyor |
+| qzPvSYVyqaw | 12.2 | Get 7.4 BILLION Free Tokens/Month from 3 | Ömer 10 Eki | bekliyor |
+| 3ziCXSiZcTc | 10.9 | Create INSANE Animations and 3D Design w | Ömer 10 Eki | bekliyor |
+| rdn59XRREM8 | 0.6 | Ornith 1.0 LLMs | Ömer 10 Eki | bekliyor |
+| 4oW29EP4bCk | 0.6 | Herald OS DESTROYS Hermes Agent Desktop? | Ömer 10 Eki | bekliyor |
+| m6nA5EV-_g0 | 24.5 | Şirketlerin Bilmediği 14 Ücretsiz Uygula | Ömer 10 Eki | bekliyor |
+| VwGrXe2ricE | 22.3 | Claude Design Now Builds Beautiful $10,0 | Ömer 10 Eki | bekliyor |
+
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
 ### Sıra 1 — token tasarrufu
@@ -266,26 +412,26 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 |---|---|---|---|---|
 | nQFtsehu7h0 | 32.9 | Complete Beginner's Guide to OpenAI’s Co | bağlantılı video (b2QkhmQ0sT0) | bekliyor |
 | mZzhfPle9QU | 46.2 | How I use Claude Code (Meta L7 Senior St | bağlantılı video (b2QkhmQ0sT0) | bekliyor |
-| x64j_wVCHZU | 29.0 | Hostinger Website Builder Tutorial 2026  | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| nJMqRgKkkBg | 35.9 | Shopify Tutorial for Beginners 2026 - St | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| vg47M_qKQdE | 47.1 | Squarespace Tutorial for Beginners 2026  | bağlantılı video (vhY7OGIh1v0) | bekliyor |
+| x64j_wVCHZU | 29.0 | Hostinger Website Builder Tutorial 2026  | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Hostinger Website Builder Tutorial 2026) |
+| nJMqRgKkkBg | 35.9 | Shopify Tutorial for Beginners 2026 - St | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Shopify Tutorial for Beginners 2026 - St) |
+| vg47M_qKQdE | 47.1 | Squarespace Tutorial for Beginners 2026  | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Squarespace Tutorial for Beginners 2026) |
 | cZlnnbHNKrE | 59.8 | Webflow Tutorial for Beginners - Start H | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| _wzdGCRCP8s | 46.8 | Hostinger WordPress Tutorial 2026 (COMPL | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| kOf7qIQ_dPM | 45.7 | Bluehost WordPress Tutorial 2026 - COMPL | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| 6KuJNTsyhCs | 19.0 | Cloudways WordPress Tutorial 2026: Step- | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| 8avVj8fr2bA | 15.2 | DreamHost WordPress Tutorial 2026: Step- | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| 3j92MHKR7RA | 19.0 | HostGator WordPress Tutorial 2026 - Step | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| hiSvgsTyGc4 | 19.1 | IONOS WordPress Tutorial 2026 - Full Ste | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| NP_nS90nM04 | 16.2 | Namecheap WordPress Tutorial 2026: Step- | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| CCXOg3XAlu4 | 13.9 | SiteGround WordPress Tutorial 2026: Step | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| fFJz7ZSrUCA | 21.0 | Spaceship.com WordPress Tutorial 2026 -  | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| P9JO6KU_ZD0 | 35.3 | MailerLite Tutorial for Beginners 2026 - | bağlantılı video (vhY7OGIh1v0) | bekliyor |
-| g6DE1MpMX-8 | 52.8 | ActiveCampaign Tutorial for Beginners (2 | bağlantılı video (vhY7OGIh1v0) | bekliyor |
+| _wzdGCRCP8s | 46.8 | Hostinger WordPress Tutorial 2026 (COMPL | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Hostinger WordPress Tutorial 2026 (COMPL) |
+| kOf7qIQ_dPM | 45.7 | Bluehost WordPress Tutorial 2026 - COMPL | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Bluehost WordPress Tutorial 2026 - COMPL) |
+| 6KuJNTsyhCs | 19.0 | Cloudways WordPress Tutorial 2026: Step- | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Cloudways WordPress Tutorial 2026: Step-) |
+| 8avVj8fr2bA | 15.2 | DreamHost WordPress Tutorial 2026: Step- | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (DreamHost WordPress Tutorial 2026: Step-) |
+| 3j92MHKR7RA | 19.0 | HostGator WordPress Tutorial 2026 - Step | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (HostGator WordPress Tutorial 2026 - Step) |
+| hiSvgsTyGc4 | 19.1 | IONOS WordPress Tutorial 2026 - Full Ste | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (IONOS WordPress Tutorial 2026 - Full Ste) |
+| NP_nS90nM04 | 16.2 | Namecheap WordPress Tutorial 2026: Step- | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Namecheap WordPress Tutorial 2026: Step-) |
+| CCXOg3XAlu4 | 13.9 | SiteGround WordPress Tutorial 2026: Step | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (SiteGround WordPress Tutorial 2026: Step) |
+| fFJz7ZSrUCA | 21.0 | Spaceship.com WordPress Tutorial 2026 -  | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (Spaceship.com WordPress Tutorial 2026 -) |
+| P9JO6KU_ZD0 | 35.3 | MailerLite Tutorial for Beginners 2026 - | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (MailerLite Tutorial for Beginners 2026 -) |
+| g6DE1MpMX-8 | 52.8 | ActiveCampaign Tutorial for Beginners (2 | bağlantılı video (vhY7OGIh1v0) | atlandı: konu dışı (ActiveCampaign Tutorial for Beginners (2) |
 | ZumXpZzDsgo | 11.5 | AI Is Rotting Your Brain -  Just Look At | bağlantılı video (_0NSNY7n5lE) | bekliyor |
 | dDx6E6FYKM4 | 19.6 | I Deleted My Custom Laravel AI Guideline | bağlantılı video (_0NSNY7n5lE) | bekliyor |
 | btimnusiRIA | 13.0 | I Tested NEW Gemini 3.7 Flash in Antigra | bağlantılı video (_0NSNY7n5lE) | bekliyor |
 | y9qrEhoeMR8 | 24.6 | I Tried Kimi Code with Kimi K3: Deep-Div | bağlantılı video (_0NSNY7n5lE) | bekliyor |
-| fC0Z_CjEYLU | 3.0 | AgentShield: Autonomous Security Tool fo | bağlantılı video (UI-FviGoSuY) | bekliyor |
+| fC0Z_CjEYLU | 3.0 | AgentShield: Autonomous Security Tool fo | bağlantılı video (UI-FviGoSuY) | raporlu |
 | CMzyOiUyEVc | 6.3 | How to Use Claude Code for FREE in 2026  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
 | il_5Ii6v4-Y | 10.4 | Claude Code БЕЗЛИМИТНО за 5 минут / Gemi | bağlantılı video (fZIBK_4fKq8) | bekliyor |
 | Rxdc36yUyOQ | 11.2 | Como Conectar Todas iAs no Claude Code,  | bağlantılı video (fZIBK_4fKq8) | bekliyor |
@@ -317,17 +463,17 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 64B3Qr0VmX4 | 182.2 | 🔴 Opus 5.5 Şu Ana Kadar Kullandığım En İ | bağlantılı video (ENKCgIZ-82I) | bekliyor |
 | ZMFty0XE9L4 | 60.2 | Build a Pro 3D Website Animation (No GSA | bağlantılı video (Pw2x2yXTIUE) | bekliyor |
 | G0xr7l8r7cA | 1.1 | What We Offer_Vertex Wireless | bağlantılı video (Pw2x2yXTIUE) | işlendi: ff2a720 |
-| cnnDG0pPkTk | 18.9 | Reklam Bütçesi Olmadan Müşteri Bulmak: # | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
+| cnnDG0pPkTk | 18.9 | Reklam Bütçesi Olmadan Müşteri Bulmak: # | bağlantılı video (Xv9GJZSMCPU) | atlandı: konu dışı (Reklam Bütçesi Olmadan Müşteri Bulmak: #) |
 | AkYbv-5Ro_A | 33.5 | Claude Managed Agents ile Otonom Reklam  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | N4s51kudOhQ | 9.3 | Claude Code ile Sıfırdan Kendi Reklam Vi | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | F0PIbAXhujs | 25.4 | Dev Pazarlama Ekibini tek Yapay Zekâ Aja | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | eF48AGf9f7A | 4.1 | How to Connect Claude to multiple Gmail  | bağlantılı video (Xv9GJZSMCPU) | bekliyor |
 | 4r-gw-_XBW4 | 14.7 | 2026’da Otomasyona Sıfırdan Başlasaydım  | bağlantılı video (auYy3ISrfYk) | bekliyor |
-| Az0tdFAlPhA | 10.7 | Otomasyon Hizmeti Nasıl Fiyatlandırılır? | bağlantılı video (auYy3ISrfYk) | bekliyor |
-| eS-lEvneqBo | 24.4 | Sadece E-mail ile 0'dan İlk Müşterilerin | bağlantılı video (auYy3ISrfYk) | bekliyor |
+| Az0tdFAlPhA | 10.7 | Otomasyon Hizmeti Nasıl Fiyatlandırılır? | bağlantılı video (auYy3ISrfYk) | atlandı: konu dışı (Otomasyon Hizmeti Nasıl Fiyatlandırılır?) |
+| eS-lEvneqBo | 24.4 | Sadece E-mail ile 0'dan İlk Müşterilerin | bağlantılı video (auYy3ISrfYk) | atlandı: konu dışı (Sadece E-mail ile 0'dan İlk Müşterilerin) |
 | 5hezvIlJcjs | 14.1 | 11 Günde Sıfırdan Uygulama Yapıp Satıyor | bağlantılı video (auYy3ISrfYk) | bekliyor |
 | 4UmXrwvrxKs | 48.6 | Kod Yazmadan Kendi Uygulamanı Kur ve Sat | bağlantılı video (auYy3ISrfYk) | bekliyor |
-| NYFGCESmikA | 315.9 | DHH: Future of Programming, AI, Agentic  | bağlantılı video (VRtD88WgaBk) | bekliyor |
+| NYFGCESmikA | 315.9 | DHH: Future of Programming, AI, Agentic  | bağlantılı video (VRtD88WgaBk) | atlandı: konu dışı (DHH: Future of Programming, AI, Agentic) |
 | pywfao8gZyo | 25.2 | Vibe Coding Bitti: Ölçülebilir AI Uygula | bağlantılı video (gKRrT6biuag) | bekliyor |
 | EFqVVIDCyMs | 17.2 | Claude Sonnet 5 Gerçekten Ne Yapabiliyor | bağlantılı video (gKRrT6biuag) | bekliyor |
 | 9VSs2glPECM | 32.3 | I Tested 7 FREE Claude Code Alternatives | bağlantılı video (OXBdKEpHEOI) | bekliyor |
@@ -340,24 +486,24 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | GJmlik1C4Tg | 15.5 | Superpowers vs. GSD: The Results Shocked | bağlantılı video (6CaQ9ZFuuKI) | bekliyor |
 | rOs-TFUeuSg | 1.9 | GSAP Showreel 2025 | bağlantılı video (_SVU3oC4JX8) | bekliyor |
 | ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| 1zerGmW_Ayo | 24.0 | Paran Büyüdükçe Özgürlüğün Fiyatı Değişi | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| 1zerGmW_Ayo | 24.0 | Paran Büyüdükçe Özgürlüğün Fiyatı Değişi | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Paran Büyüdükçe Özgürlüğün Fiyatı Değişi) |
 | 82OfzGFlHYI | 8.4 | Yapay Zekada Çin Dönemi: Yeni Kimi K3 Ne | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| srsUdB1KrQw | 1.5 | Bir Konuyu Gerçekten Öğrendiğini Nasıl A | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| 9VYpGCwY_FU | 0.4 | Satış Yapacak Müşteri Bulurken Sorman Ge | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| 7XzVlPrGkuw | 30.1 | Bir Fikrin Para Edip Etmediğini Öğrenmen | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| srsUdB1KrQw | 1.5 | Bir Konuyu Gerçekten Öğrendiğini Nasıl A | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bir Konuyu Gerçekten Öğrendiğini Nasıl A) |
+| 9VYpGCwY_FU | 0.4 | Satış Yapacak Müşteri Bulurken Sorman Ge | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Satış Yapacak Müşteri Bulurken Sorman Ge) |
+| 7XzVlPrGkuw | 30.1 | Bir Fikrin Para Edip Etmediğini Öğrenmen | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bir Fikrin Para Edip Etmediğini Öğrenmen) |
 | -Q5JEwahEGo | 2.1 | Yapay Zekadan 10 Kat Fazla Verim Al: Kon | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| I2xpNuKmJZ4 | 1.4 | Bilgi Bedava Oldu, Peki Neden Para Kazan | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| I2xpNuKmJZ4 | 1.4 | Bilgi Bedava Oldu, Peki Neden Para Kazan | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bilgi Bedava Oldu, Peki Neden Para Kazan) |
 | cOXevshu0a4 | 15.4 | Kendi Kendini Nasıl Eğitirsin (NotebookL | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| XMRuFXDY08A | 1.2 | Çok Okumak Seni İyi Bir Yatırımcı Yapmaz | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| Evdv_HSFHBk | 1.6 | What is Netlify? | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| D7EphcxbEhs | 1.4 | From 0 views to 10,000+ on every video - | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| bh4MMBHtkg4 | 1.4 | 3 changes that 10x'd my YouTube channel  | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| XMRuFXDY08A | 1.2 | Çok Okumak Seni İyi Bir Yatırımcı Yapmaz | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Çok Okumak Seni İyi Bir Yatırımcı Yapmaz) |
+| Evdv_HSFHBk | 1.6 | What is Netlify? | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (What is Netlify?) |
+| D7EphcxbEhs | 1.4 | From 0 views to 10,000+ on every video - | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (From 0 views to 10,000+ on every video -) |
+| bh4MMBHtkg4 | 1.4 | 3 changes that 10x'd my YouTube channel  | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (3 changes that 10x'd my YouTube channel) |
 | VcGeA4vsht4 | 0.9 | How a technical founder built a marketin | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
 | Ic5ka0wjxs8 | 0.9 | The AI shift that 3x'd my client output  | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| LhQij3eE9Oo | 0.8 | Wrong audience = zero leads. Here's the  | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| gM8T5PJeWgw | 1.0 | The framework that ended my random posti | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| Drzs_gmNoTA | 0.8 | This tool tells you which thumbnails win | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
-| WNNVqIxkTog | 0.9 | This diagnostic fixed my YouTube channel | bağlantılı video (z1CcbB4Yj3U) | bekliyor |
+| LhQij3eE9Oo | 0.8 | Wrong audience = zero leads. Here's the  | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Wrong audience = zero leads. Here's the) |
+| gM8T5PJeWgw | 1.0 | The framework that ended my random posti | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (The framework that ended my random posti) |
+| Drzs_gmNoTA | 0.8 | This tool tells you which thumbnails win | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (This tool tells you which thumbnails win) |
+| WNNVqIxkTog | 0.9 | This diagnostic fixed my YouTube channel | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (This diagnostic fixed my YouTube channel) |
 | KWdQAZveHWg | 10.1 | Tek Bir Prompt ile Profesyonel Video Üre | bağlantılı video (IlGilsEsLqo) | bekliyor |
 | toAE8NfqzzY | 15.8 | Bu GitHub Reposu Ajansları Bitirebilir:  | bağlantılı video (IlGilsEsLqo) | bekliyor |
 | 23m0eG1Qr1c | 2.2 | Blender @ Annecy 2018 | bağlantılı video (EsW_sKnkI2g) | bekliyor |
@@ -370,11 +516,11 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | HMVSCEh72n4 | 10.5 | The Complete Guide to Making Cinematic A | bağlantılı video (6_rCyryA6hg) | bekliyor |
 | QP9Cd21Bk2I | 13.2 | CLAUDE CODE'U LİMİTSİZ YAP! (Claude Code | bağlantılı video (PJ4JAim5-jQ) | bekliyor |
 | r-MPiu0E4W4 | 111.7 | Design with AI - Full Guide (Tools, Work | bağlantılı video (ljJuOxTsrtY) | bekliyor |
-| lsgVRCJ4fko | 240.7 | Learn Design Systems: Figma Variables, C | bağlantılı video (ljJuOxTsrtY) | bekliyor |
-| L-tpK7Eeuow | 123.8 | Design System & Figma Variable Set Up -  | bağlantılı video (ljJuOxTsrtY) | bekliyor |
-| opTANvl9G1g | 214.4 | Build a Design System - Full Course | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| lsgVRCJ4fko | 240.7 | Learn Design Systems: Figma Variables, C | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Learn Design Systems: Figma Variables, C) |
+| L-tpK7Eeuow | 123.8 | Design System & Figma Variable Set Up -  | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Design System & Figma Variable Set Up -) |
+| opTANvl9G1g | 214.4 | Build a Design System - Full Course | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Build a Design System - Full Course) |
 | VezxOhvoXqU | 26.3 | Train Claude on Your Design System (Adva | bağlantılı video (ljJuOxTsrtY) | bekliyor |
-| ALkqhXv0GPk | 108.9 | Design to Developer Handoff in Figma - F | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| ALkqhXv0GPk | 108.9 | Design to Developer Handoff in Figma - F | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Design to Developer Handoff in Figma - F) |
 | EyeO-yWSkYE | 61.1 | Multi-Brand Design System and Figma Vari | bağlantılı video (ljJuOxTsrtY) | bekliyor |
 | CywNFhAG-sE | 2.0 | Extended Tutorial - On Scroll Video | bağlantılı video (_gZx1IxrOrk) | bekliyor |
 | 9Itin5QBACU | 5.2 | DRAG TO ROTATE – Interactive 3D in Eleme | bağlantılı video (_gZx1IxrOrk) | bekliyor |
@@ -388,6 +534,35 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | yezd-afdvjc | 9.3 | REVEAL CONTENT ON SCROLL - GSAP Elemento | bağlantılı video (_gZx1IxrOrk) | bekliyor |
 | UBxWEWZ6UYM | 13.1 | CINEMATIC SLIDER – Full Elementor Tutori | bağlantılı video (_gZx1IxrOrk) | bekliyor |
 | frpM0nlPKfY | 8.2 | IMAGE EXPAND ON SCROLL - GSAP Elementor  | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| es7cLQBc7ns | 15.8 | How I Built a Revenue-Ready App With Ato | bağlantılı video (ig-Dd9nkV-AC9G) | bekliyor |
+| htM02KMNZnk | 516.9 | WF2026: Software Factories & Keynotes ft | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| 6IxSbMhT7v4 | 474.4 | AIE Miami Keynote & Talks ft. OpenCode.  | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| _xQnSNlBP_w | 609.2 | AIE Singapore Day 1 ft. Minister, NanoCl | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| wjXowoQ7E8c | 86.5 | AI Engineer Melbourne 2026 Keynote Lives | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| O_IMsEg91g8 | 551.0 | AIE Europe Keynotes & OpenClaw ft Deepmi | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| xmbSQz-PNMM | 537.1 | AIE CODE Day 2: ft Google Deepmind, Anth | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| wyUdpmj9-64 | 506.6 | AI Engineer Paris 2025 (Day 2) | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| z4zXicOAF28 | 517.9 | AI Engineer World's Fair 2025 - Day 1 Ke | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| D7BzTxVVMuw | 506.6 | AI Engineer Summit 2025: Agent Engineeri | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| 5zE2sMka620 | 518.9 | AI Engineer World’s Fair 2024 — Keynotes | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| veShHxQYPzo | 290.0 | AI Engineer Summit 2023 — DAY 1 Livestre | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| HGZEvWWCc8E | 2.0 | Is this the best talk to type app for th | bağlantılı video (misjUj4Q_ho) | bekliyor |
+| ERmRT2-YLvI | 20.3 | Claude ile Sıfırdan Oyun Yapıyorum (kod  | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| wjvUIPylcy0 | 88.1 | CLAUDE CODE FULL KURS 1.5 SAAT: 0'dan ba | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| T7xJ1gaZP7I | 8.4 | Uygulamamız $100K gelir elde etti, şimdi | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| Iaxk_8ftJ5s | 20.1 | Build a Game with AI - Full PixelLab Gam | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| r8ySiSRRvz4 | 10.8 | Level Up Your Game: Custom Sprite Animat | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| 9eAlZlQmZBg | 8.3 | The Ultimate PixelLab Inpainting Guide f | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| oCJWxfEwX-o | 11.2 | PixelLab Character States: The New Way t | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| sE1s5ZYfxqk | 8.1 | Pixellab Tutorial: Tilesets (Isometric/H | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| fvPmuk-usgw | 7.0 | Vibe Coding a Full Game with PixelLab MC | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| BdoUMKhZ1Ys | 4.8 | Build a Complete RPG UI Set with PixelLa | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| Hhx9QZwYoZY | 1.9 | Introducing Object Creator: Make Pixel A | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| moCpjMOOBGk | 12.7 | PixelLab Tutorial: How to Generate & Ani | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| j2bE9gq914U | 12.6 | How to Use Animate with Text in PixelLab | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| zghUW8fGqsM | 6.9 | This Tool Generates Pixel Animations for | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| qVDkp1baJkU | 7.2 | How to Create Interior Maps for Top-Down | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| sqhxhForIDQ | 2.3 | Voice SoundPack - Military Radio | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
