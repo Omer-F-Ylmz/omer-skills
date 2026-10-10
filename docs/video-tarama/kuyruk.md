@@ -627,15 +627,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 3CDhK-uVDuY | 6.7 | Use Claude Fable 5.1 for FREE (3 Working | bağlantılı video (0i65C2vzjpw) | işlendi: 84d3586 |
 | GJmlik1C4Tg | 15.5 | Superpowers vs. GSD: The Results Shocked | bağlantılı video (6CaQ9ZFuuKI) | işlendi: 84d3586 |
 | rOs-TFUeuSg | 1.9 | GSAP Showreel 2025 | bağlantılı video (_SVU3oC4JX8) | işlendi: a45920c |
-| ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | raporlu |
+| ZUsWB1nBVZw | 14.3 | Claude Code Kurulumu / Kodlamaya Başlama | bağlantılı video (z1CcbB4Yj3U) | işlendi: 292fb60 |
 | 1zerGmW_Ayo | 24.0 | Paran Büyüdükçe Özgürlüğün Fiyatı Değişi | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Paran Büyüdükçe Özgürlüğün Fiyatı Değişi) |
-| 82OfzGFlHYI | 8.4 | Yapay Zekada Çin Dönemi: Yeni Kimi K3 Ne | bağlantılı video (z1CcbB4Yj3U) | raporlu |
+| 82OfzGFlHYI | 8.4 | Yapay Zekada Çin Dönemi: Yeni Kimi K3 Ne | bağlantılı video (z1CcbB4Yj3U) | işlendi: 292fb60 |
 | srsUdB1KrQw | 1.5 | Bir Konuyu Gerçekten Öğrendiğini Nasıl A | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bir Konuyu Gerçekten Öğrendiğini Nasıl A) |
 | 9VYpGCwY_FU | 0.4 | Satış Yapacak Müşteri Bulurken Sorman Ge | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Satış Yapacak Müşteri Bulurken Sorman Ge) |
 | 7XzVlPrGkuw | 30.1 | Bir Fikrin Para Edip Etmediğini Öğrenmen | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bir Fikrin Para Edip Etmediğini Öğrenmen) |
-| -Q5JEwahEGo | 2.1 | Yapay Zekadan 10 Kat Fazla Verim Al: Kon | bağlantılı video (z1CcbB4Yj3U) | raporlu |
+| -Q5JEwahEGo | 2.1 | Yapay Zekadan 10 Kat Fazla Verim Al: Kon | bağlantılı video (z1CcbB4Yj3U) | işlendi: 292fb60 |
 | I2xpNuKmJZ4 | 1.4 | Bilgi Bedava Oldu, Peki Neden Para Kazan | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Bilgi Bedava Oldu, Peki Neden Para Kazan) |
-| cOXevshu0a4 | 15.4 | Kendi Kendini Nasıl Eğitirsin (NotebookL | bağlantılı video (z1CcbB4Yj3U) | raporlu |
+| cOXevshu0a4 | 15.4 | Kendi Kendini Nasıl Eğitirsin (NotebookL | bağlantılı video (z1CcbB4Yj3U) | işlendi: 292fb60 |
 | XMRuFXDY08A | 1.2 | Çok Okumak Seni İyi Bir Yatırımcı Yapmaz | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (Çok Okumak Seni İyi Bir Yatırımcı Yapmaz) |
 | Evdv_HSFHBk | 1.6 | What is Netlify? | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (What is Netlify?) |
 | D7EphcxbEhs | 1.4 | From 0 views to 10,000+ on every video - | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (From 0 views to 10,000+ on every video -) |
@@ -646,32 +646,32 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | gM8T5PJeWgw | 1.0 | The framework that ended my random posti | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (The framework that ended my random posti) |
 | Drzs_gmNoTA | 0.8 | This tool tells you which thumbnails win | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (This tool tells you which thumbnails win) |
 | WNNVqIxkTog | 0.9 | This diagnostic fixed my YouTube channel | bağlantılı video (z1CcbB4Yj3U) | atlandı: konu dışı (This diagnostic fixed my YouTube channel) |
-| KWdQAZveHWg | 10.1 | Tek Bir Prompt ile Profesyonel Video Üre | bağlantılı video (IlGilsEsLqo) | raporlu |
-| toAE8NfqzzY | 15.8 | Bu GitHub Reposu Ajansları Bitirebilir:  | bağlantılı video (IlGilsEsLqo) | raporlu |
-| 23m0eG1Qr1c | 2.2 | Blender @ Annecy 2018 | bağlantılı video (EsW_sKnkI2g) | raporlu |
-| whPWKecazgM | 35.7 | World Building in Blender - Ian Hubert | bağlantılı video (EsW_sKnkI2g) | raporlu |
+| KWdQAZveHWg | 10.1 | Tek Bir Prompt ile Profesyonel Video Üre | bağlantılı video (IlGilsEsLqo) | işlendi: 292fb60 |
+| toAE8NfqzzY | 15.8 | Bu GitHub Reposu Ajansları Bitirebilir:  | bağlantılı video (IlGilsEsLqo) | işlendi: 292fb60 |
+| 23m0eG1Qr1c | 2.2 | Blender @ Annecy 2018 | bağlantılı video (EsW_sKnkI2g) | işlendi: 292fb60 |
+| whPWKecazgM | 35.7 | World Building in Blender - Ian Hubert | bağlantılı video (EsW_sKnkI2g) | işlendi: 292fb60 |
 | nXvWTR88sfU | 30.0 | 30 Dakikada Claude Code'un %95'ini Öğren | bağlantılı video (Xu2SIKz8B58) | raporlu |
-| qm0ZlYezt1Q | 125.1 | CLAUDE CODE FULL KURS 2 SAAT: Kur ve Sat | bağlantılı video (Xu2SIKz8B58) | raporlu |
-| hxQshcD3e1Y | 18.2 | How I Automated Meta Ads Insights with A | bağlantılı video (Xu2SIKz8B58) | raporlu |
+| qm0ZlYezt1Q | 125.1 | CLAUDE CODE FULL KURS 2 SAAT: Kur ve Sat | bağlantılı video (Xu2SIKz8B58) | işlendi: 292fb60 |
+| hxQshcD3e1Y | 18.2 | How I Automated Meta Ads Insights with A | bağlantılı video (Xu2SIKz8B58) | işlendi: 292fb60 |
 | i6OjYfQTMoE | 1.6 | How Businesses are using Gemini for Goog | bağlantılı video (Xu2SIKz8B58) | işlendi: a45920c |
-| WwdmQzv_w54 | 2.4 | How to scrape TikTok videos, hashtags, c | bağlantılı video (Xu2SIKz8B58) | raporlu |
-| HMVSCEh72n4 | 10.5 | The Complete Guide to Making Cinematic A | bağlantılı video (6_rCyryA6hg) | bekliyor |
-| QP9Cd21Bk2I | 13.2 | CLAUDE CODE'U LİMİTSİZ YAP! (Claude Code | bağlantılı video (PJ4JAim5-jQ) | bekliyor |
-| r-MPiu0E4W4 | 111.7 | Design with AI - Full Guide (Tools, Work | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| WwdmQzv_w54 | 2.4 | How to scrape TikTok videos, hashtags, c | bağlantılı video (Xu2SIKz8B58) | işlendi: 292fb60 |
+| HMVSCEh72n4 | 10.5 | The Complete Guide to Making Cinematic A | bağlantılı video (6_rCyryA6hg) | işlendi: 292fb60 |
+| QP9Cd21Bk2I | 13.2 | CLAUDE CODE'U LİMİTSİZ YAP! (Claude Code | bağlantılı video (PJ4JAim5-jQ) | işlendi: 292fb60 |
+| r-MPiu0E4W4 | 111.7 | Design with AI - Full Guide (Tools, Work | bağlantılı video (ljJuOxTsrtY) | işlendi: 292fb60 |
 | lsgVRCJ4fko | 240.7 | Learn Design Systems: Figma Variables, C | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Learn Design Systems: Figma Variables, C) |
 | L-tpK7Eeuow | 123.8 | Design System & Figma Variable Set Up -  | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Design System & Figma Variable Set Up -) |
 | opTANvl9G1g | 214.4 | Build a Design System - Full Course | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Build a Design System - Full Course) |
-| VezxOhvoXqU | 26.3 | Train Claude on Your Design System (Adva | bağlantılı video (ljJuOxTsrtY) | bekliyor |
+| VezxOhvoXqU | 26.3 | Train Claude on Your Design System (Adva | bağlantılı video (ljJuOxTsrtY) | işlendi: 292fb60 |
 | ALkqhXv0GPk | 108.9 | Design to Developer Handoff in Figma - F | bağlantılı video (ljJuOxTsrtY) | atlandı: konu dışı (Design to Developer Handoff in Figma - F) |
-| EyeO-yWSkYE | 61.1 | Multi-Brand Design System and Figma Vari | bağlantılı video (ljJuOxTsrtY) | bekliyor |
-| CywNFhAG-sE | 2.0 | Extended Tutorial - On Scroll Video | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| 9Itin5QBACU | 5.2 | DRAG TO ROTATE – Interactive 3D in Eleme | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| BOHnf9veNNU | 2.3 | Steal My Elementor Portfolio (Free Templ | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| gh76Hy-rmtg | 12.7 | VIDEO IN IMAGE? - FULL ELEMENTOR TUTORIA | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| qjRnf-h_5p0 | 4.3 | Make Any Website Look 10x Better | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| e4xHOX7ddnk | 6.5 | IMAGE WAVE EFFECT ON HOVER - Elementor c | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| Zl-MS9TY8_w | 10.8 | SNAP ON SCROLL - GSAP Elementor Scrolltr | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| R5-B_mOlcl4 | 7.8 | I Redesigned a Subscriber’s Website… But | bağlantılı video (_gZx1IxrOrk) | bekliyor |
+| EyeO-yWSkYE | 61.1 | Multi-Brand Design System and Figma Vari | bağlantılı video (ljJuOxTsrtY) | işlendi: 292fb60 |
+| CywNFhAG-sE | 2.0 | Extended Tutorial - On Scroll Video | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
+| 9Itin5QBACU | 5.2 | DRAG TO ROTATE – Interactive 3D in Eleme | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
+| BOHnf9veNNU | 2.3 | Steal My Elementor Portfolio (Free Templ | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
+| gh76Hy-rmtg | 12.7 | VIDEO IN IMAGE? - FULL ELEMENTOR TUTORIA | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
+| qjRnf-h_5p0 | 4.3 | Make Any Website Look 10x Better | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
+| e4xHOX7ddnk | 6.5 | IMAGE WAVE EFFECT ON HOVER - Elementor c | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
+| Zl-MS9TY8_w | 10.8 | SNAP ON SCROLL - GSAP Elementor Scrolltr | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
+| R5-B_mOlcl4 | 7.8 | I Redesigned a Subscriber’s Website… But | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
 | Osnd1m7Jxg4 | 11.2 | I Redesigned Your Ugly Websites (Sorry…) | bağlantılı video (_gZx1IxrOrk) | bekliyor |
 | yezd-afdvjc | 9.3 | REVEAL CONTENT ON SCROLL - GSAP Elemento | bağlantılı video (_gZx1IxrOrk) | bekliyor |
 | UBxWEWZ6UYM | 13.1 | CINEMATIC SLIDER – Full Elementor Tutori | bağlantılı video (_gZx1IxrOrk) | bekliyor |
