@@ -115,3 +115,82 @@ def test_ekle_sinir_asilirsa_hangisi_yeniye(tmp_path):
     with pytest.raises(ValueError) as e:
         E.ekle(zp, kaynak, tmp_path / "o2")
     assert "n249" in str(e.value) and "yeni pakete" in str(e.value)
+
+
+# --- büyük mod (--buyuk) ---
+def _buyuk_skill(tmp_path):
+    return skill(tmp_path / "k", "s1", [
+        ("ref.md", "REF-ICERIK"), ("notes/x.md", "NOT-ICERIK"), ("run.py", "print('KOD')"),
+        ("data.json", "{}"), ("img.bin", "a\x00b"), ("dev.txt", "x" * 1_100_000)])
+
+
+def test_buyuk_dosya_turleri(tmp_path):
+    [(zp, _)] = P.buyuk("bb-paket", "konu", [_buyuk_skill(tmp_path)], tmp_path / "o")
+    z = zipfile.ZipFile(zp)
+    L = [x for x in z.namelist() if "/skills/s1/" in x]
+    assert sorted(L) == ["bb-paket/skills/s1/KAYNAK-1.md", "bb-paket/skills/s1/REFERANS.md", "bb-paket/skills/s1/TALIMAT.md"]
+    ref = z.read("bb-paket/skills/s1/REFERANS.md").decode()
+    assert "## [ref.md]" in ref and "## [notes/x.md]" in ref and "REF-ICERIK" in ref
+    assert "`img.bin`" in ref and "`dev.txt`" in ref and str(tmp_path / "k" / "s1") in ref  # ikili/büyük: liste + asıl konum
+    kay = z.read("bb-paket/skills/s1/KAYNAK-1.md").decode()
+    assert "### run.py" in kay and "print('KOD')" in kay and "### data.json" in kay
+    assert "xxxxxxxx" not in kay + ref
+    assert "REFERANS.md" in z.read("bb-paket/skills/s1/TALIMAT.md").decode()
+    assert sum(1 for x in z.namelist() if x.split("/")[-1].lower() == "skill.md") == 1
+
+
+def test_buyuk_ek_dosyasiz_skill_yalniz_talimat(tmp_path):
+    [(zp, n)] = P.buyuk("bb-paket", "konu", [skill(tmp_path / "k", "s1")], tmp_path / "o")
+    assert n == 2 and zipfile.ZipFile(zp).namelist().count("bb-paket/skills/s1/TALIMAT.md") == 1
+
+
+def test_buyuk_kaynak_bolme(tmp_path, monkeypatch):
+    monkeypatch.setattr(P, "PARCA", 300)
+    s = skill(tmp_path / "k", "s1", [(f"f{i}.py", "y" * 100) for i in range(5)])
+    [(zp, _)] = P.buyuk("bb-paket", "konu", [s], tmp_path / "o")
+    z = zipfile.ZipFile(zp)
+    parcalar = sorted(x for x in z.namelist() if "KAYNAK-" in x)
+    assert len(parcalar) >= 2
+    toplam = "".join(z.read(x).decode() for x in parcalar)
+    assert all(toplam.count(f"### f{i}.py") == 1 for i in range(5))
+
+
+def test_buyuk_dengeli_bolme(tmp_path, monkeypatch):
+    monkeypatch.setattr(P, "SINIR", 12)
+    kaynak = [skill(tmp_path / "k", f"s{i}", [("r.md", "x")]) for i in range(8)]
+    sonuc = P.buyuk("bb-paket", "konu", kaynak, tmp_path / "o")
+    assert [zp.name for zp, _ in sonuc] == ["bb-paket-1.zip", "bb-paket-2.zip"]
+    assert all(n <= 12 for _, n in sonuc)
+    sayi = [sum(1 for x in zipfile.ZipFile(zp).namelist() if x.endswith("/TALIMAT.md")) for zp, _ in sonuc]
+    assert sayi == [4, 4]
+    assert "(bölüm 1/2)" in zipfile.ZipFile(sonuc[0][0]).read("bb-paket-1/SKILL.md").decode()
+
+
+def test_buyuk_zip_siniri_boler(tmp_path, monkeypatch):
+    monkeypatch.setattr(P, "BUYUK_BOYUT", 9000)
+    rnd = lambda i: __import__("random").Random(i).randbytes(2000).hex()  # sıkışmayan metin ~4 KB
+    kaynak = [skill(tmp_path / "k", f"s{i}", [("a.py", rnd(i))]) for i in range(4)]
+    sonuc = P.buyuk("bb-paket", "konu", kaynak, tmp_path / "o")
+    assert len(sonuc) == 2 and all(zp.stat().st_size <= 9000 for zp, _ in sonuc)
+
+
+def test_buyuk_tek_skill_sigmazsa_valueerror(tmp_path, monkeypatch):
+    monkeypatch.setattr(P, "SINIR", 2)
+    with pytest.raises(ValueError):
+        P.buyuk("bb-paket", "konu", [skill(tmp_path / "k", "s1", [("r.md", "x")])], tmp_path / "o")
+
+
+@pytest.mark.parametrize("ad", ["claude-paket", "x-Anthropic-y"])
+def test_buyuk_adda_claude_yasak(tmp_path, ad):
+    with pytest.raises(ValueError):
+        P.buyuk(ad, "konu", [skill(tmp_path / "k", "a1")], tmp_path / "o")
+
+
+def test_buyuk_aciklama_siniri(tmp_path):
+    with pytest.raises(ValueError):
+        P.buyuk("bb-paket", "u" * 300, [skill(tmp_path / "k", "a1")], tmp_path / "o")
+
+
+def test_buyuk_cli(tmp_path):
+    assert P.main(["--buyuk", "bb-paket", "konu", str(tmp_path / "o"), str(_buyuk_skill(tmp_path))]) == 0
+    assert (tmp_path / "o" / "bb-paket.zip").is_file()

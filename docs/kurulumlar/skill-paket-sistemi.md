@@ -11,7 +11,7 @@ claude.ai kullanıcı yüklemelerinde 1000 kayıt sınırı var; skill'ler aile 
 ## Araçlar (`tools/skill-paket/`)
 - `paketle.py <paket-adi> "<konu>" <cikti_dizini> <skill_dizini>...` yeni paket zip'i üretir.
 - `ekle.py [--uzerine] <mevcut.zip> <cikti_dizini> <skill_dizini>...` mevcut pakete skill ekler, aynı adla yeni zip üretir. Eski alt skill'ler bayt bayt aynı kalır. Aynı adlı alt skill varsa hata verir, `--uzerine` değiştirir. Sınır aşılırsa hata metni hangi skill'lerin yeni pakete gitmesi gerektiğini yazar.
-- `test_paketle.py` pytest (12 test): `python -m pytest tools/skill-paket -q`.
+- `test_paketle.py` + `test_envanter.py` pytest (24 test): `python -m pytest tools/skill-paket -q`.
 - `tek-sefer/` Desktop'ın yazdığı geçmiş betikler (`aile_paket`, `ecc_paket`, `tek_skillmd`, `p3`); /tmp ve /mnt yolları sabit, yeniden koşulmaz.
 
 ## Akış
@@ -21,26 +21,20 @@ claude.ai kullanıcı yüklemelerinde 1000 kayıt sınırı var; skill'ler aile 
 4. **Doğrulama:** yüklenen paket geri indirilir, dosya sayısı üretilen zip'le karşılaştırılır.
 
 ## Arşiv
-- `dist\yukle-12\_paket_yuklenen`: canlı paketler.
-- `dist\yukle-12\_paket_hazir`: bekleyen paketler. `dist/` git'te izlenmez.
+- `dist\yukle-12\_paket_yuklenen`: canlı paketler (51 zip + 3 tekil olacak). `mattpocock-paket.zip` `_paket_hazir`'dan buraya **kopyalandı** (orijinal yerinde). `dist/` git'te izlenmez.
+- `dist\yukle-12\_paket_hazir`: bekleyen/eski paketler.
 
-## Envanter (dist'teki zip'lerden sayıldı; skill = `skills/<ad>/TALIMAT.md`)
-Canlı (`_paket_yuklenen`, 22) + `mattpocock-paket` (canlı, zip `_paket_hazir`'da duruyor) = 23 paket.
+## Envanter (10 Eki 2026 10:30)
+- claude.ai: **450/1000** kayıt = 389 eski + 51 paket + 9 paketsiz tekil (ideagram, web-design-engineer, banana, beautiful-article, img, orchestration, kb-retriever, last30days, webcmd-browser) + 3 kişisel tekil (fatura-kutusu, teklif-kutusu, prd-yaz).
+- Kopyalardan 1 kayıt kaldı: `information-density`. Ömer kaldıracak.
+- Paketlerde toplam **1358 skill**. 638 ikili dosya (213 MB) pakete alınmadı; asılları CC'de duruyor (REFERANS.md sonunda liste + asıl konum).
+- Bu sabahki büyük yükleme: CC'de olup claude.ai'de olmayan 464 skill → 11 büyük paket + 3 tekil zip (`--buyuk` modunun atası: Desktop betiği `dist\yukle-12\_paket_yuklenen\buyuk_paket.py`).
+- Not: yerel `_paket_yuklenen` klasöründe şu an 37 zip var (Desktop'ın 51 + 3'ü tam kopyalanmamış); canlı sayım claude.ai'dedir.
 
-| paket | skill | | paket | skill |
-|---|---|---|---|---|
-| azure-altyapi | 35 | | ecc-jvm | 18 |
-| azure-uygulama-ai | 18 | | ecc-ml-bilim-saglik | 19 |
-| context-mode | 8 | | ecc-orkestrasyon | 33 |
-| designer-ai | 19 | | linkedin-agent | 11 |
-| designer-liderlik | 57 | | marketing-skills | 49 |
-| ecc-ag-homelab | 10 | | obsidian (v2) | 6 |
-| ecc-ajan | 34 | | octo | 56 |
-| ecc-backend | 25 | | reklam-ads | 33 |
-| ecc-devops-guvenlik | 22 | | sepia | 6 |
-| ecc-diller | 24 | | mattpocock | 32 |
-| ecc-frontend | 24 | | | |
-| ecc-icerik-pazarlama | 22 | | | |
-| ecc-is-operasyon | 23 | | | |
+## Kural
+Yeni skill önce temasının paketine `ekle.py` ile girer ve Replace ile yüklenir. Yeni tema varsa `paketle.py --buyuk` ile paket yapılır.
 
-Bekleyen 14 (`_paket_hazir`): adobe 14 · ai-etkilesim-tasarim 24 · android 25 · arayuz-iyilestirme 13 · chrome-devtools 7 · daymade-belge-finans-macos 21 · daymade-gelistirici 24 · daymade-ses 5 · erisilebilirlik 51 · hareket-altyazi-3d 9 · hyperframes 7 · tasarim-arastirma-strateji 38 · tasarim-etkilesim-ui 40 · tasarim-sistem-prototip 35.
+## Büyük mod ve envanter
+- `paketle.py --buyuk <ad> "<konu>" <cikti> <skill_dizini>...`: alt skill başına en çok `TALIMAT.md` · `REFERANS.md` (tüm ek .md'ler `## [yol]` + ikili listesi ve asıl konum) · `KAYNAK-n.md` (diğer metinler `### yol` + kod bloğu, parça ~1.2 MB). Metin = ≤1 MB, NUL'suz, UTF-8. Tema taşarsa `<ad>-1`, `-2`… dengeli bölünür (≤200 dosya, zip ≤9 MB). Mevcut kurallar aynı.
+- `envanter.py <claudeai_adlar.json> <cikti_dizini> [--home DIR]`: eski `envanter_fark` + `eksik_topla` + `eksik_metin` tek komutta. Girdi `{"giris": [...], "paket_uyesi": [...]}`; çıktı `envanter-fark.tsv` + `eksik-metin.zip`. Ad varyantları: `gstack-` öneki, claude→cc, `claude-` silme, `cc-` öneki. Son koşu: 464 eksik.
+- Testler: `python -m pytest tools/skill-paket -q` (24 test).
