@@ -188,3 +188,15 @@ Yapılmadı: haiku "kaçan tarayıcı" ikinci geçiş, OCR hedefli yüksek çöz
 | ASR_ONAR · C3a · C3d · haiku | ölçülmedi / yazılmadı | bayrakta / yok |
 Video suit bu oturumda tam koşmadı (yalnız test_video13 4/4) — runner ağacı goz.py değişikliğini yüklüyor; sonraki oturum ilk iş suit.
 Sonraki: v13_olc.log OZET/PUAN → 3 tekrar ortalaması Kabul satırına göre K/C2K kararı; HYMDaMcuSGQ.json doğrula + commit; iki taraf yalnız varsayılan değişirse.
+
+# VİDEO-13-devam-2
+ARA (çağrı hook 45 sınırı). Commit 13bc246 · 114b36c.
+1. K varsayılan: parti.JETON = "K" (model karesi 512 kenar); `VIDEO_JETON=0` eski yol (768). Kırmızı-önce: test_k_varsayilan_jeton_0_eski_yol (768≠512 görüldü → yeşil). test_t7c3 bayrak testi K'ya güncellendi.
+   Yan onarım: a9adb49'dan beri kırmızı test_talimatta_altin_adi_yok — HYMDaMcuSGQ altınında talimatta geçen 2 genel eşad ("Skill", "yönlendirme") çıkarıldı (ad "Skills"/"Routing" duruyor).
+2. FaChtkkG9X4 aday 9.0→8.3 kökü (okuyucu alt ajan, v13 raporları + altin puan): fark Claude Artifacts (taban kaçırma 1/3 → K 2/3) ve Parallax (1/3 → 2/3). İkisi de paket.md metninde (Parallax transkript 7:03, Artifacts OCR 5 satır) → küçültme kaynaklı değil, model gürültüsü. 768 istisnası EKLENMEDİ; 5+ tekrar ya da toplamda yoğun metinli karede düşüş çıkarsa bakılır.
+3. C3a 'O' (bayraklı): kare_ocr — ham OCR'ı ≥20 satır ve ≥%90'ı güven ≥0.9 olan kare görüntü olarak gitmez; o karenin istemde olmayan OCR satırları "KARE OCR METNİ" ekiyle metin olarak eklenir; görsel kare (az satır) / düşük güven kalır. K'dan önce uygulanır (VIDEO_JETON=KO).
+   C3d: yeni kod yok — sabit önek zaten 'A' (şemada id enum yok; sistem+şema videolar arası aynı, kareler istemden sonra). K üstünde KA kolu olarak ölçülüyor.
+   Haiku kaçan tarayıcı: YAPILMADI (bütçe). Ölçüm: .claude/v13b_olc.py K ↔ KO ↔ KA, altın 4 video ×3, olcum_sira --oncelik (pid 29612, sırada suit biletinin arkasında), Σ USD ≥19 → dur. Günlük .kos/kopru/v13b_olc.log, sonuç .claude/v13b/.
+4. İKİ TARAF: skills/video-* metninde VIDEO_JETON geçmiyor (K iç varsayılan, kullanıcı yüzeyi değişmedi) → skill/zip değişikliği YAPILMADI; "K ne zaman kapatılır" notu eklenecekse sonraki tur.
+Suit: video 1355/1355 yeşil (doğrudan pytest; tam suit.py zaten sırada öncelikli bilet 37508, çakışmasın diye ikinci bilet açılmadı).
+Kalan: v13b sonucu → Kabul satırına göre O/A kararı; haiku ikinci geçiş; skill metni notu.
