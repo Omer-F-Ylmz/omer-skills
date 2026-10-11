@@ -779,6 +779,10 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | o9mYq_BhKjI | 13.3 | Kendi Kurgu Eklentimi Yaptım! Ses, Görse | bağlantılı video (c4nRtwe5EbM) | bekliyor |
 | IZPGFAS_tRY | 13.6 | I Made Claude Code FREE Using 25+ AI Mod | bağlantılı video (qzPvSYVyqaw) | bekliyor |
 | vZE0j_WCRvI | 7.2 | What does a consultant actually do? | bağlantılı video (m6nA5EV-_g0) | bekliyor |
+| 7XhX8P0ebEU | 28.6 | Şirketimde 13 Ajan Var, Maaş Ödemiyorum: | bağlantılı video (HYMDaMcuSGQ) | raporlu |
+| 166KYdgWQto | 30.8 | Sıfırdan 7/24 Çalışan Ajan Kurumu (Herme | bağlantılı video (HYMDaMcuSGQ) | raporlu |
+| uB7UQA5iaTU | 29.9 | Jev’in İçini Açtım: Beni Yargılayan ve M | bağlantılı video (HYMDaMcuSGQ) | bekliyor |
+| MbEDNiKe4bo | 6.7 | Claude Code'u Yanlış Kullanıyorsunuz! Mo | bağlantılı video (HYMDaMcuSGQ) | raporlu |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
