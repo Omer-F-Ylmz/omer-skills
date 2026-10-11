@@ -4,14 +4,18 @@
 
 Sıra (her anahtar isteğe bağlı): nesneler → yigin → duzenle → isik → kamera → patlat → anim/kare → kaydet → glb →
 onizle → render → ozet. --blend yoksa fabrika sahnesi boşaltılır. Hatalı spec Blender işi başlamadan reddedilir.
-  nesneler: [{ad, tur: kup|silindir|kure|koni|duzlem|torus, boyut [m], konum, donus [derece], malzeme, bevel [m]}]
+  nesneler: [{ad, tur: kup|silindir|kure|koni|duzlem|torus, boyut [m], konum, donus [derece], malzeme, bevel [m],
+             ust (koni üst/alt yarıçap oranı, 0 sivri), ekler: [{tur, boyut, konum, donus}]}] — ekler (sap, ağız,
+             tutamak) nesnenin merkezine göre konumlanır ve TEK nesneye birleşir: tanınır biçim için kullan
   malzeme : malzemeler.py tarif adı ya da {"renk": [r,g,b], "metal": 0..1, "puruz": 0..1}
   yigin   : "X"|"Y"|"Z" — nesneler sırayla üst üste;  patlat: {"eksen": "Z", "aralik": 0.05} — patlatılmış görünüm
   duzenle : [{nesne, bevel, subdiv, decimate (oran), uv: akilli|lightmap, malzeme}]
-  isik    : isik_kur profili (3 nokta + world dolgu, boyut_m ile);  kamera: "oto" | {konum, hedef, lens}
+  isik    : isik_kur profili (3 nokta + world dolgu; boyut_m/merkez verilmezse mesh kutusundan). Render istenip
+            sahnede ışık yoksa 'urun' kendiliğinden kurulur; malzemesiz mesh'e nötr gri atanır.
+             kamera: "oto" | {konum, hedef, lens}
   hdri    : .hdr/.exr yolu — world dolgusu (Poly Haven CC0: python tools/varlik_indir.py indir polyhaven <id>)
   anim    : [{nesne, kanal: location|rotation_euler|scale, kareler: [[kare, [x,y,z]]]}];  kare: [baş, son]
-  onizle  : {yol, px=256, motor=workbench};  render: {yol | klasor, px, motor: workbench|eevee|cycles, ornek, adim}
+  onizle  : {yol, px=256, motor=eevee};  render: {yol | klasor, px, motor: workbench|eevee|cycles, ornek, adim}
   ozet    : alan listesi (ad tur boyut konum malzeme ucgen uv) — yalnız mesh'ler, istenen alanlar
 """
 import ast
@@ -58,6 +62,8 @@ def dogrula(spec):
             if k in n and len(n[k]) != 3:
                 h.append(f"nesneler[{i}]: {k} 3 sayı olmalı")
         malzeme(f"nesneler[{i}]", n.get("malzeme"))
+        h += [f"nesneler[{i}].ekler[{j}]: tur '{e.get('tur')}' yok; mevcut {TURLER}"
+              for j, e in enumerate(n.get("ekler", [])) if e.get("tur") not in TURLER]
     for i, d in enumerate(spec.get("duzenle", [])):
         h += [f"duzenle[{i}]: bilinmeyen anahtar: {k}" for k in d if k not in DUZENLE]
         malzeme(f"duzenle[{i}]", d.get("malzeme"))
@@ -106,22 +112,33 @@ def _blender_ana():
         b = o.modifiers.new("Bevel", "BEVEL")
         b.width, b.segments, b.limit_method = w, 2, "ANGLE"
 
-    yeni = []
-    for n in spec.get("nesneler", []):
-        tur = n["tur"]
+    def ilkel(tur, ust=0.0):
         {"kup": lambda: ops.mesh.primitive_cube_add(size=1),
          "silindir": lambda: ops.mesh.primitive_cylinder_add(vertices=32, radius=0.5, depth=1),
          "kure": lambda: ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.5),
-         "koni": lambda: ops.mesh.primitive_cone_add(vertices=32, radius1=0.5, radius2=0, depth=1),
+         "koni": lambda: ops.mesh.primitive_cone_add(vertices=32, radius1=0.5, radius2=0.5 * ust, depth=1),
          "duzlem": lambda: ops.mesh.primitive_plane_add(size=1),
          "torus": lambda: ops.mesh.primitive_torus_add(major_radius=0.375, minor_radius=0.125)}[tur]()
-        o = bpy.context.active_object
+        if tur in ("silindir", "kure", "koni", "torus"):
+            ops.object.shade_smooth_by_angle()
+        return bpy.context.active_object
+
+    yeni = []
+    for n in spec.get("nesneler", []):
+        tur = n["tur"]
+        o = ilkel(tur, n.get("ust", 0.0))
         o.name = o.data.name = n["ad"]
         o["tur"] = tur
         o.scale = [b or 1 for b in n.get("boyut", (1, 1, 1))]
         ops.object.transform_apply(location=False, rotation=False, scale=True)
-        if tur in ("silindir", "kure", "koni", "torus"):
-            ops.object.shade_smooth_by_angle()
+        for e in n.get("ekler", []):
+            x = ilkel(e["tur"], e.get("ust", 0.0))
+            x.scale, x.location = [b or 1 for b in e.get("boyut", (1, 1, 1))], e.get("konum", (0, 0, 0))
+            x.rotation_euler = [math.radians(d) for d in e.get("donus", (0, 0, 0))]
+            ops.object.transform_apply(location=True, rotation=True, scale=True)
+            o.select_set(True)
+            bpy.context.view_layer.objects.active = o
+            ops.object.join()
         o.location = n.get("konum", (0, 0, 0))
         o.rotation_euler = [math.radians(d) for d in n.get("donus", (0, 0, 0))]
         if "malzeme" in n:
@@ -157,13 +174,19 @@ def _blender_ana():
             ata(o, d["malzeme"])
 
     meshler = [o for o in sc.objects if o.type == "MESH"]
-    if "isik" in spec:
-        isik_kur.kur(spec["isik"], spec.get("boyut_m", 0.1), hdri=spec.get("hdri"))
 
-    def kamera_oto():
+    def kutu():
         dg = bpy.context.evaluated_depsgraph_get()
         ks = [o.matrix_world @ Vector(k) for o in meshler for k in o.evaluated_get(dg).bound_box]
-        mn, mx = Vector([min(k[i] for k in ks) for i in range(3)]), Vector([max(k[i] for k in ks) for i in range(3)])
+        return Vector([min(k[i] for k in ks) for i in range(3)]), Vector([max(k[i] for k in ks) for i in range(3)])
+
+    isiksiz = not any(o.type == "LIGHT" for o in sc.objects) and ("onizle" in spec or "render" in spec)
+    if meshler and ("isik" in spec or isiksiz):  # Faz 5 g2: ışıksız --blend sahnesi siyah render veriyordu
+        mn, mx = kutu()
+        isik_kur.kur(spec.get("isik", "urun"), spec.get("boyut_m", max(mx - mn)), merkez=(mn + mx) / 2, hdri=spec.get("hdri"))
+
+    def kamera_oto():
+        mn, mx = kutu()
         merkez, r = (mn + mx) / 2, max((mx - mn).length / 2, 1e-3)
         return merkez + Vector((0.6, -1, 0.45)).normalized() * r / math.sin(math.radians(39.6) / 2) * 1.1, merkez, 50
 
@@ -191,6 +214,9 @@ def _blender_ana():
     if "kare" in spec:
         sc.frame_start, sc.frame_end = spec["kare"]
 
+    for o in meshler:  # Faz 5 g3: malzemesiz mesh render'da/GLB'de tanımsız kalıyordu
+        if not any(o.data.materials):
+            ata(o, {})
     if "kaydet" in spec:
         Path(spec["kaydet"]).parent.mkdir(parents=True, exist_ok=True)
         ops.wm.save_as_mainfile(filepath=spec["kaydet"])
@@ -230,7 +256,7 @@ def _blender_ana():
     sonuc = {"gecti": True}
     if "onizle" in spec:
         o = spec["onizle"]
-        motor(o.get("motor", "workbench"), o.get("px", 256))
+        motor(o.get("motor", "eevee"), o.get("px", 256))
         sonuc["onizle"] = cek(o["yol"])
     if "render" in spec:
         r = spec["render"]

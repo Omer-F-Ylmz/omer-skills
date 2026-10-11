@@ -11,6 +11,7 @@ import pytest
 KOK = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(KOK / "tools"))
 sys.path.insert(0, str(KOK / "tools" / "blender" / "lib"))
+sys.path.insert(0, str(KOK / "tools" / "blender"))
 import blender_cli as bc  # noqa: E402
 import blender_oturum as bo  # noqa: E402
 import tarif  # noqa: E402
@@ -124,3 +125,54 @@ def test_zor_patlatilmis_kahve_makinesi_glb(proje):
     z = [ad[a]["konum"][2] for a, _, _ in parcalar]
     assert z == sorted(z) and min(b - a for a, b in zip(z, z[1:])) > 0.05
     assert sum(n["ucgen"] for n in s["ozet"]) < 5000  # düşük poli
+
+
+def test_dogrula_ekler():
+    assert tarif.dogrula({"nesneler": [{"ad": "A", "tur": "koni", "ust": 0.6, "ekler": [{"tur": "kup"}]}]}) == []
+    assert any("ekler" in h for h in tarif.dogrula({"nesneler": [{"ad": "A", "tur": "kup", "ekler": [{"tur": "yok"}]}]}))
+
+
+def test_yalin_oturum_bayraklari():
+    import yalin
+    b = yalin.bayraklar()
+    assert {"--strict-mcp-config", "--disable-slash-commands", "--setting-sources"} <= set(b)
+    sistem = b[b.index("--system-prompt") + 1]
+    assert "seramik_sirli" in sistem and "pirinc" in sistem and str(TARIF) in sistem  # tek seferde doğru spec için
+
+
+def parlaklik(png):
+    Image = pytest.importorskip("PIL.Image")
+    h = Image.open(png).convert("L").histogram()
+    return sum(i * n for i, n in enumerate(h)) / sum(h) / 255, sum(h[250:]) / sum(h)
+
+
+@blender
+def test_isiksiz_malzemesiz_sahne_karanlik_kalmaz(proje):
+    """Faz 5 g2/g3: --blend ışıksız/malzemesiz sahnede render siyah, malzeme_hepsi düşük çıkıyordu."""
+    kos({"nesneler": [{"ad": "GEO-Fincan", "tur": "silindir", "boyut": [0.08, 0.08, 0.09], "konum": [0, 0, 0.045]}],
+         "kaydet": str(proje / "ham.blend")})
+    s = kos({"kaydet": str(proje / "ham2.blend"), "onizle": {"yol": str(proje / "ham.png"), "px": 128},
+             "ozet": ["ad", "malzeme"]}, blend=proje / "ham.blend")
+    assert s["diger"].get("LIGHT", 0) >= 3 and all(n["malzeme"] for n in s["ozet"])
+    ort, yanik = parlaklik(proje / "ham.png")
+    assert 0.2 < ort < 0.9 and yanik < 0.02
+
+
+@blender
+def test_beyaz_seramik_yanmaz(proje):
+    """Faz 5 g1: seramik_sirli profilinde karenin %55-62'si yanık (≥250) çıkıyordu; taban-2 (kör 9/10) %0.1."""
+    kos({"nesneler": [{"ad": "GEO-Zemin", "tur": "duzlem", "boyut": [1, 1, 1], "malzeme": {"renk": [0.75, 0.75, 0.75], "puruz": 0.9}},
+                      {"ad": "GEO-Fincan", "tur": "silindir", "boyut": [0.08, 0.08, 0.09], "konum": [0, 0, 0.055],
+                       "malzeme": "seramik_sirli"}],
+         "isik": "seramik_sirli", "kamera": {"konum": [0.35, -0.5, 0.25], "hedef": [0, 0, 0.05], "lens": 85},
+         "onizle": {"yol": str(proje / "beyaz.png"), "px": 128}})
+    ort, yanik = parlaklik(proje / "beyaz.png")
+    assert 0.35 < ort < 0.85 and yanik < 0.02
+
+
+@blender
+def test_koni_ust_ve_ekler_tek_nesne(proje):
+    s = kos({"nesneler": [{"ad": "GEO-Cezve", "tur": "koni", "ust": 0.7, "boyut": [0.1, 0.1, 0.1],
+                           "ekler": [{"tur": "kup", "boyut": [0.08, 0.01, 0.01], "konum": [0.08, 0, 0.03]}]}],
+             "ozet": ["ad", "boyut"]})
+    assert [n["ad"] for n in s["ozet"]] == ["GEO-Cezve"] and s["ozet"][0]["boyut"][0] > 0.15

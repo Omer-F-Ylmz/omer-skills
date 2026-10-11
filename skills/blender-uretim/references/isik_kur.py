@@ -22,7 +22,7 @@ PROFILLER = {
     "seramik_sirli": {"oran": (5, 1, 1.5), "K": 5000, "hdri": 0.3, "serit": True},  # öneri
     "seramik_mat": {"oran": (5, 1, 1), "K": 5000, "hdri": 0.3},  # öneri: kenar 1
 }
-ANAHTAR_W = 300  # öneri: 1 m'de anahtar gücü (W), uzaklığın karesiyle büyür; kalibrasyon düğmesi budur
+ANAHTAR_W = 40  # BLENDER-1 Faz 5 ölçümü: 300'de beyaz seramik karesinin %55-62'si yanıyordu; 1 m'de anahtar gücü (W), uzaklığın karesiyle büyür; kalibrasyon düğmesi budur
 
 
 def agac(idb) -> Any:
