@@ -99,19 +99,81 @@ def jeton(u):
 PENCERESIZ = 0x08000000 if os.name == "nt" else 0  # CREATE_NO_WINDOW: pencere açılmaz, torunlar (MCP/hook) bu gizli konsolu devralır
 
 
+def is_olustur():
+    """Windows Job Object (KILL_ON_JOB_CLOSE): kapanınca içindeki bütün torun ağacı ölür. Windows dışında None."""
+    if os.name != "nt":
+        return None
+    k = ctypes.windll.kernel32
+    k.CreateJobObjectW.restype = ctypes.c_void_p
+    k.AssignProcessToJobObject.argtypes = [ctypes.c_void_p, ctypes.c_void_p]
+    k.SetInformationJobObject.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_void_p, ctypes.c_ulong]
+    k.CloseHandle.argtypes = [ctypes.c_void_p]
+    is_ = k.CreateJobObjectW(None, None)
+
+    class Temel(ctypes.Structure):
+        _fields_ = [("a", ctypes.c_int64), ("b", ctypes.c_int64), ("LimitFlags", ctypes.c_ulong), ("c", ctypes.c_size_t),
+                    ("d", ctypes.c_size_t), ("e", ctypes.c_ulong), ("f", ctypes.c_size_t), ("g", ctypes.c_ulong), ("h", ctypes.c_ulong)]
+
+    class Sinir(ctypes.Structure):
+        _fields_ = [("Temel", Temel), ("io", ctypes.c_uint64 * 6), ("i", ctypes.c_size_t * 4)]
+
+    s = Sinir()
+    s.Temel.LimitFlags = 0x2000  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+    if not k.SetInformationJobObject(is_, 9, ctypes.byref(s), ctypes.sizeof(s)):  # JobObjectExtendedLimitInformation
+        k.CloseHandle(is_)
+        return None
+    return is_
+
+
+def is_ata(is_, pr):
+    if is_:
+        ctypes.windll.kernel32.AssignProcessToJobObject(is_, ctypes.c_void_p(int(pr._handle)))
+
+
+def is_kapat(is_):
+    if is_:
+        ctypes.windll.kernel32.CloseHandle(is_)
+
+
+def calistir(args, env, cwd, timeout):
+    """subprocess.run yerine: claude işe atanır, bitişte/timeout'ta iş kapanır → torunlar (remotion studio vb.) ölür. → (stdout, rc, stderr)"""
+    is_ = is_olustur()
+    pr = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8", errors="replace", env=env, cwd=cwd,
+                          creationflags=PENCERESIZ)
+    is_ata(is_, pr)  # ponytail: atamadan önce doğan torunlar işte değil; supur() onları yakalar
+    try:
+        out, err = pr.communicate(timeout=timeout)
+        return out, pr.returncode, err
+    except subprocess.TimeoutExpired:
+        pr.kill()
+        is_kapat(is_)
+        is_ = None
+        out, _ = pr.communicate()
+        return out or "", -9, "timeout"
+    finally:
+        is_kapat(is_)
+
+
+def supur(ad):
+    """Emniyet: komut satırında geçici dizin adı (olcum-xxxx) geçen kalan süreçleri PID ile sonlandır. Ad ile öldürme yok."""
+    if os.name != "nt" or not ad:
+        return
+    ps = ("Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -and $_.CommandLine.Contains('%s') } "
+          "| ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }" % ad.replace("'", ""))
+    subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, creationflags=PENCERESIZ, timeout=60)
+
+
 def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
-    """Tek `claude -p`. ANTHROPIC_BASE_URL (headroom vekili) alt süreçte kaldırılır — araçları gizliyor. Boş cwd yoksa geçici boş klasör."""
+    """Tek `claude -p`. ANTHROPIC_BASE_URL (headroom vekili) alt süreçte kaldırılır — araçları gizliyor. Boş cwd yoksa geçici boş klasör.
+    BROWSER=none: Remotion/Vite vb. tarayıcı/pencere açmaz."""
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
+    env["BROWSER"] = "none"
     args = ["claude", "-p", istem, *ROTA, "--max-budget-usd", f"{butce:.2f}", *([] if not model else ["--model", model]), *ek]
     # claude'un yan süreçleri (MCP/hook) klasörü bir süre tutabiliyor → temizlik hatası koşuyu düşürmez
     with tempfile.TemporaryDirectory(prefix="olcum-", ignore_cleanup_errors=True) as bos:
         t = time.monotonic()
-        try:
-            r = subprocess.run(args, capture_output=True, encoding="utf-8", errors="replace", env=env, cwd=cwd or bos, timeout=timeout,
-                               creationflags=PENCERESIZ)
-            out, rc, err = r.stdout, r.returncode, r.stderr
-        except subprocess.TimeoutExpired as e:
-            out, rc, err = (e.stdout or "") if isinstance(e.stdout, str) else "", -9, "timeout"
+        out, rc, err = calistir(args, env, cwd or bos, timeout)
+        supur(Path(bos).name)
         sure = round(time.monotonic() - t, 1)
     o = ayristir(out)
     o["sure"], o["rc"], o["hata"] = sure, rc, (err or "").strip().replace("\t", " ").replace("\n", " ")[-200:] if rc else ""
