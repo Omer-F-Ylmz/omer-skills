@@ -94,7 +94,7 @@ YONLENDIRME = {"tarama": {"yontem": "ikili", "modeller": ["claude-sonnet-5-5", "
 # geri alma (V10): YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
-JETON = "C"  # TOKEN-7c-devam-4 altin ölçümü: C yakalama 25/38 ≥ taban 23/38, jeton/video −20% → açık; A/B jeton düşürmedi → kapalı · TOKEN-7c-devam-3 ikili yol bayrakları (env VIDEO_JETON geçersiz kılar), harf başına: A şemada id enum yok (videolar arası sabit önek → önbellek okunur) · B haiku dar şema · C model karesi dhash ayıklama + JETON_KARE tavanı
+JETON = ""  # VİDEO-9 (Desktop kararı 09:12): C 3. turda yakalama 35/56 < taban 37, ad yazım 26 < 31, USD +21% → KAPALI (kalite düşmez kuralı); C2 (piksel farkı) kalite = taban, jeton −10.9% ama USD +1.7% → onarım bekliyor (env VIDEO_JETON=C2) · TOKEN-7c-devam-4: C yakalama 25/38 ≥ taban 23/38, jeton/video −20% → açılmıştı; A/B jeton düşürmedi → kapalı · TOKEN-7c-devam-3 ikili yol bayrakları (env VIDEO_JETON geçersiz kılar), harf başına: A şemada id enum yok (videolar arası sabit önek → önbellek okunur) · B haiku dar şema · C model karesi dhash ayıklama + JETON_KARE tavanı
 JETON_KARE, JETON_HAM = 30, 5
 B_DISI = ("bolumler", "kareden_okunanlar", "belirsizlikler")  # birlestir b'den almaz
 KARE_UST = 60  # ayar · C4 (O11): uzun videoda modele giden kare güvenlik üst sınırı; asıl sınır cli.PAKET_BUTCE (Ömer onayı: tavan 20 → bütçe)
