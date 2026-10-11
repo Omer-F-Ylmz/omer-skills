@@ -9,7 +9,13 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 
 Üretim rehberi (ölçü · ad · teslim: render → GLB → `blender_dogrula --glb` · ışık/malzeme/web referansları): **blender-uretim** skill'i. Bu skill oturum ve araç kurallarını tutar.
 
-## Akış (her Blender işinde, sıra değişmez)
+## Önce tarif (jeton: MCP turu yok, GUI açılmaz)
+İş tarif anahtarlarına sığıyorsa (ilkel nesne · ölçü · malzeme · ışık · kamera · yığ/patlat · bevel/subdiv/decimate/UV · keyframe · önizleme/render · GLB · özet) oturum AÇILMAZ:
+spec JSON'u `Desktop\<Proje>\blender\sahneler\<ad>.json`'a yaz → `blender_cli.py C:/Projeler/omer-skills/tools/blender/lib/tarif.py @<spec.json> [--blend B]`
+→ tek satır özet JSON (+ `onizle` 256 px, tek Read). Anahtarlar ve sıra: `tarif.py` başlığı; hatalı spec Blender açılmadan mevcut adlarla reddedilir.
+Düzeltme = spec'te değeri değiştir, yeniden koş (kod yazılmaz). Tarife sığmayan kısım (serbest modelleme, düğüm ağacı) için aşağıdaki akış.
+
+## Akış (canlı oturum gereken işte, sıra değişmez)
 1. `ac C:\Users\pc\Desktop\<Proje>\blender\<ad>.blend` — var olan dosya. Yeni dosya: `ac <yol> --yeni` (dosya varsa reddeder, boş sahneyle oluşturur).
 2. İş: blender MCP araçları (önce sahneyi incele: ≤10 nesnede `get_objects_summary`, üstünde hedefli bpy sorgusu; varsayma).
 3. Kaydet: MCP ile `bpy.ops.wm.save_mainfile()` → `bpy.data.is_dirty == False` doğrula. Kirliyse bir kez daha kaydet; ikinci denemede de kirliyse quit GÖNDERME, DUR ve Ömer'e bildir.
@@ -34,7 +40,7 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 ## Komut kartı (argparse imzaları; `python C:/Projeler/omer-skills/tools/<araç>` · [ ] isteğe bağlı, yazılı değer varsayılan)
 ```
 blender_oturum.py ac <yol> [--yeni] | kapat | durum
-blender_cli.py <betik> [json='{}'] [--blend B] [--zaman-asimi 300]
+blender_cli.py <betik> [json='{}' | @spec.json] [--blend B] [--zaman-asimi 300]
 blender_dogrula.py <blend> [--beklenen ad=GxDxY]... [--butce-ucgen 500000] [--glb G] [--serbest ad1,ad2] [--zaman-asimi 300]
 blender_gorunum.py <blend> [--referans R] [--iou-esik 0.90] [--bbox-esik 0.03] [--zaman-asimi 600]
 blender_pisir.py <blend> --mod isik|ao [--nesneler a,b] [--boyut 1024|2048] [--hdr] [--png16] [--zaman-asimi 900]

@@ -1,0 +1,110 @@
+"""BLENDER-1 Faz 3: tarif kütüphanesi — saf doğrulama (Blender'sız) + 4 temsilî görev (gerçek Blender, exe yoksa atlanır).
+
+Blender açan testler yalnız ortak sırayla: python .kos/kopru/arka.py <log> .kos/kopru/olcum_sira.py -m pytest ... -k blender
+"""
+import json
+import sys
+from pathlib import Path
+
+import pytest
+
+KOK = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(KOK / "tools"))
+sys.path.insert(0, str(KOK / "tools" / "blender" / "lib"))
+import blender_cli as bc  # noqa: E402
+import blender_oturum as bo  # noqa: E402
+import tarif  # noqa: E402
+
+TARIF = KOK / "tools" / "blender" / "lib" / "tarif.py"
+blender = pytest.mark.skipif(not Path(bo.BLENDER).is_file(), reason="Blender exe yok")
+
+
+# --- saf: spec Blender açılmadan reddedilir (boş koşu = boşa jeton + dakika)
+def test_dogrula_temiz_spec():
+    assert tarif.dogrula({"nesneler": [{"ad": "GEO-A", "tur": "kup", "boyut": [1, 1, 1], "malzeme": "bakir"}],
+                          "isik": "urun", "onizle": {"yol": "x.png"}}) == []
+
+
+@pytest.mark.parametrize("spec, parca", [
+    ({"bilinmez": 1}, "bilinmez"),
+    ({"nesneler": [{"ad": "A", "tur": "ucgen"}]}, "tur"),
+    ({"nesneler": [{"ad": "A", "tur": "kup", "boyut": [1, 1]}]}, "boyut"),
+    ({"nesneler": [{"ad": "A", "tur": "kup", "malzeme": "altin"}]}, "malzeme"),
+    ({"nesneler": [{"tur": "kup"}]}, "ad"),
+    ({"isik": "disko"}, "isik"),
+    ({"anim": [{"nesne": "A", "kanal": "renk", "kareler": [[1, 0]]}]}, "kanal"),
+    ({"duzenle": [{"nesne": "A", "uçur": 1}]}, "uçur"),
+    ({"ozet": ["ad", "ruh"]}, "ruh"),
+])
+def test_dogrula_hatalar(spec, parca):
+    hatalar = tarif.dogrula(spec)
+    assert hatalar and any(parca in h for h in hatalar), hatalar
+
+
+def test_cli_spec_dosyadan(tmp_path, monkeypatch):
+    spec = tmp_path / "s.json"
+    spec.write_text(json.dumps({"ozet": ["ad"]}), encoding="utf-8")
+    gelen = {}
+    monkeypatch.setattr(bc, "calistir", lambda b, a, bl, z: (gelen.update(a), (0, {"gecti": True}, 1))[1])
+    assert bc.main([str(TARIF), "@" + str(spec)]) == 0 and gelen == {"ozet": ["ad"]}
+
+
+# --- gerçek Blender: Faz 1'in 3 temsilî görevi + zor görev, her biri TEK headless koşu
+@pytest.fixture(scope="module")
+def proje(tmp_path_factory):
+    kok = tmp_path_factory.mktemp("masaustu")
+    (kok / "P" / "blender").mkdir(parents=True)
+    eski, bo.MASAUSTU = bo.MASAUSTU, kok
+    yield kok / "P" / "blender"
+    bo.MASAUSTU = eski
+
+
+def kos(spec, blend=None):
+    kod, sonuc, _ = bc.calistir(TARIF, spec, blend, zaman_asimi=300)
+    assert kod == 0, sonuc
+    return sonuc
+
+
+@blender
+def test_gorev1_sahne_malzeme_isik(proje):
+    s = kos({"nesneler": [{"ad": "GEO-Fincan", "tur": "silindir", "boyut": [0.08, 0.08, 0.09], "konum": [0, 0, 0.045],
+                           "malzeme": "seramik_sirli", "bevel": 0.002},
+                          {"ad": "GEO-Zemin", "tur": "duzlem", "boyut": [1, 1, 0], "malzeme": {"renk": [0.8, 0.8, 0.8]}}],
+             "isik": "urun", "boyut_m": 0.09, "kamera": "oto",
+             "kaydet": str(proje / "g1.blend"), "onizle": {"yol": str(proje / "g1.png"), "px": 256},
+             "ozet": ["ad", "boyut", "malzeme"]})
+    assert s["gecti"] and Path(proje / "g1.blend").is_file() and Path(proje / "g1.png").is_file()
+    ad = {n["ad"]: n for n in s["ozet"]}
+    assert ad["GEO-Fincan"]["malzeme"] == ["MAT-SeramikSirli"] and abs(ad["GEO-Fincan"]["boyut"][2] - 0.09) < 1e-3
+    assert len(json.dumps(s)) < 1500  # özet küçük kalır: MCP sahne JSON'u yerine
+
+
+@blender
+def test_gorev2_duzenle_uv(proje):
+    s = kos({"duzenle": [{"nesne": "GEO-Fincan", "subdiv": 1, "uv": "akilli"}],
+             "kaydet": str(proje / "g2.blend"), "ozet": ["ad", "ucgen", "uv"]}, blend=proje / "g1.blend")
+    f = next(n for n in s["ozet"] if n["ad"] == "GEO-Fincan")
+    assert f["uv"] >= 1 and f["ucgen"] > 100
+
+
+@blender
+def test_gorev3_anim_render(proje):
+    s = kos({"anim": [{"nesne": "GEO-Fincan", "kanal": "rotation_euler", "kareler": [[1, [0, 0, 0]], [12, [0, 0, 90]]]}],
+             "kare": [1, 12], "render": {"klasor": str(proje / "kareler"), "px": 128, "motor": "workbench", "adim": 4}},
+            blend=proje / "g2.blend")
+    assert len(s["render"]) == 3 and all(Path(p).is_file() for p in s["render"])
+
+
+@blender
+def test_zor_patlatilmis_kahve_makinesi_glb(proje):
+    parcalar = [("GEO-Taban", "kup", [0.25, 0.2, 0.04]), ("GEO-Govde", "kup", [0.2, 0.18, 0.25]),
+                ("GEO-Hazne", "silindir", [0.1, 0.1, 0.15]), ("GEO-Kapak", "silindir", [0.11, 0.11, 0.02])]
+    s = kos({"nesneler": [{"ad": a, "tur": t, "boyut": b, "malzeme": "pirinc" if a == "GEO-Kapak" else {"renk": [0.1, 0.1, 0.1]}}
+                          for a, t, b in parcalar],
+             "yigin": "Z", "patlat": {"eksen": "Z", "aralik": 0.05},
+             "kaydet": str(proje / "telve.blend"), "glb": str(proje / "telve.glb"), "ozet": ["ad", "konum", "ucgen"]})
+    assert Path(proje / "telve.glb").stat().st_size > 1000
+    ad = {n["ad"]: n for n in s["ozet"]}
+    z = [ad[a]["konum"][2] for a, _, _ in parcalar]
+    assert z == sorted(z) and min(b - a for a, b in zip(z, z[1:])) > 0.05
+    assert sum(n["ucgen"] for n in s["ozet"]) < 5000  # düşük poli
