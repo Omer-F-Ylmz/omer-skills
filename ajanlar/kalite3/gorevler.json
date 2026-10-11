@@ -1,0 +1,6014 @@
+[
+ {
+  "ajan": "fe-tasarim-yonu",
+  "model": "sonnet",
+  "istem": "Propose a design direction for a coffee roaster landing page in 6 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)palette|renk|color",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)typograph|font|yazı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)spacing|grid|layout|boşluk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)reference|mood|tone|referans",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-bilesen-yazar",
+  "model": "sonnet",
+  "istem": "Describe how you would build a reusable Button component with variants and states.",
+  "rubrik": [
+   {
+    "regex": "(?i)variant|props",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)focus|hover",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)disabled|loading",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)aria|a11y|access",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-animasyon-tasarimci",
+  "model": "sonnet",
+  "istem": "Plan a fade-up entrance animation for a card grid that stays smooth.",
+  "rubrik": [
+   {
+    "regex": "(?i)transform|opacity",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reduced-motion|prefers",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)duration|ms|easing|stagger",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)layout|paint|60fps|performance",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-a11y-denetci",
+  "model": "haiku",
+  "istem": "List the top accessibility checks for a login form.",
+  "rubrik": [
+   {
+    "regex": "(?i)label",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)contrast|kontrast",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)focus|keyboard|klavye",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)aria|wcag|role",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-performans-olcer",
+  "model": "sonnet",
+  "istem": "A landing page has LCP 4.5s. List what you check first.",
+  "rubrik": [
+   {
+    "regex": "(?i)LCP",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)image|görsel|webp|avif",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lazy|preload|defer",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)bundle|script|font",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-form-tasarimci",
+  "model": "sonnet",
+  "istem": "Design a signup form with email and password including validation messages.",
+  "rubrik": [
+   {
+    "regex": "(?i)label",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)validation|doğrula",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)error|hata",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)autocomplete|type=|inputmode",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-tipografi-uzmani",
+  "model": "haiku",
+  "istem": "Propose a type scale and font pairing for a fintech dashboard.",
+  "rubrik": [
+   {
+    "regex": "(?i)scale|ölçek|rem",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)line-height|leading|satır",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)pair|serif|sans",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)weight|measure|ch",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-renk-sistemi",
+  "model": "sonnet",
+  "istem": "Create a color token set for a note-taking app with light and dark themes.",
+  "rubrik": [
+   {
+    "regex": "(?i)token|variable|--",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)contrast|4\\.5|kontrast",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dark|koyu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)accent|primary|neutral",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-responsive-kontrol",
+  "model": "sonnet",
+  "istem": "How do you verify a pricing page at three widths? List the checks.",
+  "rubrik": [
+   {
+    "regex": "(?i)375|mobile|mobil",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)768|tablet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)1280|desktop",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)overflow|taşma|wrap",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)touch|44|tap",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-webgl-3d-hero",
+  "model": "sonnet",
+  "istem": "Outline a 3D product hero with a fallback for mobile.",
+  "rubrik": [
+   {
+    "regex": "(?i)canvas|webgl|three",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fallback|yedek|poster",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pixelratio|dpr|performance|fps",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)lighting|camera|light",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-tailwind-duzenleyici",
+  "model": "haiku",
+  "istem": "Explain how to reduce repeated Tailwind class strings in a card list.",
+  "rubrik": [
+   {
+    "regex": "(?i)component|bileşen|partial",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)theme|config|token",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)@apply|extract|cva",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)order|prettier|sort",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-css-hata-bulucu",
+  "model": "sonnet",
+  "istem": "A flex child overflows its container. List likely causes in order.",
+  "rubrik": [
+   {
+    "regex": "(?i)min-width|min-w",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)overflow",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)flex|shrink|basis",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)specificity|z-index|stacking",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-landing-iskelet",
+  "model": "sonnet",
+  "istem": "Give the section order for a SaaS landing page.",
+  "rubrik": [
+   {
+    "regex": "(?i)hero",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cta|call to action",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)proof|testimonial|logo|social",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)pricing|faq|feature",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-dashboard-duzeni",
+  "model": "sonnet",
+  "istem": "Plan the layout of an admin dashboard with KPIs, a chart and a table.",
+  "rubrik": [
+   {
+    "regex": "(?i)kpi|metric",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hierarchy|hiyerarşi|grid",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)empty|skeleton|loading",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)filter|sort|table",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-ikon-sistemi",
+  "model": "haiku",
+  "istem": "Define icon sizing and stroke rules for a UI kit.",
+  "rubrik": [
+   {
+    "regex": "(?i)16|20|24|size|boyut",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stroke|çizgi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)set|library|svg",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)label|aria|alt",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-karanlik-mod",
+  "model": "sonnet",
+  "istem": "How would you add dark mode to a site that uses hard coded colors?",
+  "rubrik": [
+   {
+    "regex": "(?i)token|variable|semantic",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)prefers-color-scheme|system",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)contrast|kontrast",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)toggle|storage|flash",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-bos-durum-yazar",
+  "model": "haiku",
+  "istem": "Write empty, loading and error states for a project list screen.",
+  "rubrik": [
+   {
+    "regex": "(?i)empty|boş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)loading|skeleton|yükleniyor",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)error|hata|retry|tekrar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)button|action|cta",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-navigasyon-tasarimci",
+  "model": "sonnet",
+  "istem": "Design the navigation for a 20 page documentation site.",
+  "rubrik": [
+   {
+    "regex": "(?i)mobile|drawer|hamburger",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)current|active|aria-current",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)keyboard|focus",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)depth|group|search|breadcrumb",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-gorsel-optimize",
+  "model": "haiku",
+  "istem": "List steps to optimize a hero image set for the web.",
+  "rubrik": [
+   {
+    "regex": "(?i)webp|avif",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)srcset|sizes|responsive",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lazy|loading",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)width|height|dimension|cls",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-meta-seo-duzeltici",
+  "model": "haiku",
+  "istem": "Which meta tags does a blog post need? List them.",
+  "rubrik": [
+   {
+    "regex": "(?i)title",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)description",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)canonical",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)og:|open graph|twitter",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)robots|schema|json-ld",
+    "puan": 1
+   }
+  ]
+ },
+ {
+  "ajan": "fe-scroll-hikayesi",
+  "model": "sonnet",
+  "istem": "Outline a four-scene scrollytelling page for a bike brand.",
+  "rubrik": [
+   {
+    "regex": "(?i)scene|section|sahne",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)pin|sticky",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)scrub|progress|timeline",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mobile|reduced",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-tasarim-sistemi-kurucu",
+  "model": "sonnet",
+  "istem": "List what a minimal design system for a small SaaS must contain.",
+  "rubrik": [
+   {
+    "regex": "(?i)token",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)component|bileşen",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)spacing|scale",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)document|md|guideline",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-ux-metin-yazar",
+  "model": "haiku",
+  "istem": "Rewrite the error message Invalid input into helpful UI copy.",
+  "rubrik": [
+   {
+    "regex": "(?i)specific|ne|what",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)action|try|dene",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)tone|friendly|polite",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)short|concise|brief",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-slayt-kurucu",
+  "model": "sonnet",
+  "istem": "Describe the structure of a keyboard-navigable HTML slide deck.",
+  "rubrik": [
+   {
+    "regex": "(?i)slide|section",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)keyboard|arrow|key",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)transition|animation",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)print|export|pdf|fullscreen",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-tasarim-incele",
+  "model": "sonnet",
+  "istem": "What do you check when reviewing a finished landing page?",
+  "rubrik": [
+   {
+    "regex": "(?i)hierarchy|hiyerarşi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)spacing|alignment|hizalama",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)consistency|tutarl",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)generic|template|şablon|slop",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-react-bilesen-inceleme",
+  "model": "sonnet",
+  "istem": "A React list re-renders on every keystroke. List the likely causes.",
+  "rubrik": [
+   {
+    "regex": "(?i)memo|usememo|usecallback",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)key",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)state|lift|context",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)profiler|devtools|measure",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-cursor-efekt",
+  "model": "sonnet",
+  "istem": "Plan a magnetic button hover effect that is cheap to run.",
+  "rubrik": [
+   {
+    "regex": "(?i)pointer|mouse|cursor",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)requestAnimationFrame|raf|transform",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)touch|mobile|coarse",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reduced|fallback",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-mikro-etkilesim",
+  "model": "haiku",
+  "istem": "Suggest micro-interactions for a like button and a toggle.",
+  "rubrik": [
+   {
+    "regex": "(?i)150|200|300|ms|duration",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)feedback|state|durum",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)easing|ease|spring",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)reduced|subtle|ince",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "fe-yazdir-stili",
+  "model": "haiku",
+  "istem": "What CSS do you add so an invoice page prints cleanly?",
+  "rubrik": [
+   {
+    "regex": "(?i)@media print|print",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)page-break|break-inside|break-after",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hide|display:none|gizle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)margin|@page|size",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-efcore-modelleme",
+  "model": "sonnet",
+  "istem": "Show how to configure a one-to-many relation in EF Core with Fluent API.",
+  "rubrik": [
+   {
+    "regex": "(?i)HasMany|HasOne|WithMany",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)OnModelCreating|IEntityTypeConfiguration|Fluent",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)foreign key|HasForeignKey|fk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)index|HasIndex|maxlength",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-efcore-sorgu-hizlandir",
+  "model": "sonnet",
+  "istem": "A page runs 200 SQL queries per load with EF Core. What do you check?",
+  "rubrik": [
+   {
+    "regex": "(?i)N\\+1|include|split",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)AsNoTracking|tracking",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Select|projection|projeksiyon",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)log|sql|profile",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-efcore-migration",
+  "model": "sonnet",
+  "istem": "How do you safely rename a column with EF Core migrations without data loss?",
+  "rubrik": [
+   {
+    "regex": "(?i)migration|add-migration|migrations add",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rename|RenameColumn",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)script|sql|idempotent",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)backup|data loss|veri",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-webapi-endpoint",
+  "model": "sonnet",
+  "istem": "Design a POST endpoint that creates an order and returns the right status codes.",
+  "rubrik": [
+   {
+    "regex": "(?i)201|created",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)400|validation|badrequest",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)dto|record",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)route|MapPost|HttpPost|location",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dn-minimal-api-kurucu",
+  "model": "haiku",
+  "istem": "Sketch a minimal API group for a todo list with typed results.",
+  "rubrik": [
+   {
+    "regex": "(?i)MapGroup|group",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)TypedResults|Results",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)MapGet|MapPost",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)async|await|task",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-xunit-test-yazar",
+  "model": "sonnet",
+  "istem": "Write an xUnit test for a method that applies a discount to a price.",
+  "rubrik": [
+   {
+    "regex": "(?i)\\[Fact\\]|\\[Theory\\]|fact|theory",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Assert\\.|assert",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)arrange|act|given|when",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)name|Should|_",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-msbuild-hata-cozucu",
+  "model": "opus",
+  "istem": "dotnet build fails with MSB3277. How do you diagnose it?",
+  "rubrik": [
+   {
+    "regex": "(?i)MSB3277|conflict|version",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)binlog|/bl",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reference|assembly|dependency",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)bindingredirect|unify|pin|central",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-msbuild-hiz",
+  "model": "sonnet",
+  "istem": "A 40 project solution builds in 12 minutes. What do you measure first?",
+  "rubrik": [
+   {
+    "regex": "(?i)baseline|measure|ölç",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)parallel|-m|maxcpu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)incremental|artımlı|cache",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)binlog|analyzer",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-nuget-yonetici",
+  "model": "haiku",
+  "istem": "How do you move a solution to central package management?",
+  "rubrik": [
+   {
+    "regex": "(?i)Directory\\.Packages\\.props|central|cpm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)PackageVersion|version",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)vulnerab|audit|list package",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)transitive|lock",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-razor-sayfa",
+  "model": "sonnet",
+  "istem": "Describe a Razor Page for editing a customer with validation.",
+  "rubrik": [
+   {
+    "regex": "(?i)PageModel|OnPost|BindProperty",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)validation|ModelState|Required",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)tag helper|asp-for",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)antiforgery|csrf",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-identity-auth",
+  "model": "opus",
+  "istem": "How do you add JWT bearer auth with role policies to a Web API?",
+  "rubrik": [
+   {
+    "regex": "(?i)AddAuthentication|JwtBearer|jwt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)policy|AddAuthorization|role",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)secret|key|user-secrets|vault",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)https|expire|lifetime",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-di-ve-config",
+  "model": "haiku",
+  "istem": "When do you pick scoped versus singleton lifetimes in ASP.NET Core?",
+  "rubrik": [
+   {
+    "regex": "(?i)scoped",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)singleton",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)transient",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)IOptions|options|configuration",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)captive|dbcontext|thread",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-middleware-yazar",
+  "model": "sonnet",
+  "istem": "Design a middleware that adds a correlation id to every request.",
+  "rubrik": [
+   {
+    "regex": "(?i)Use\\(|UseMiddleware|InvokeAsync",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)next|pipeline|order",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)header|correlation",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ProblemDetails|exception|log",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-gozlemlenebilirlik",
+  "model": "sonnet",
+  "istem": "How would you add tracing and metrics to an ASP.NET Core API?",
+  "rubrik": [
+   {
+    "regex": "(?i)OpenTelemetry|otel|AddOpenTelemetry",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)structured|serilog|ILogger",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)metric|counter|histogram",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)trace|span|exporter|otlp",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dn-async-denetci",
+  "model": "sonnet",
+  "istem": "What async mistakes do you look for in a C# controller?",
+  "rubrik": [
+   {
+    "regex": "(?i)\\.Result|\\.Wait|block",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CancellationToken|cancel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)async void|fire",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ConfigureAwait|deadlock|context",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-linq-optimize",
+  "model": "haiku",
+  "istem": "List common LINQ performance mistakes.",
+  "rubrik": [
+   {
+    "regex": "(?i)multiple enumeration|çoklu|deferred|ertelen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ToList|ToArray|materializ",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Any\\(\\)|Count|Contains",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)HashSet|dictionary|lookup",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dn-nullable-gecis",
+  "model": "haiku",
+  "istem": "How do you adopt nullable reference types in an existing project step by step?",
+  "rubrik": [
+   {
+    "regex": "(?i)enable|Nullable",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)warning|uyarı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)\\?|annotation|required",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)null!|suppress|bang|!",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dn-blazor-bilesen",
+  "model": "sonnet",
+  "istem": "How do you choose a render mode for a Blazor component?",
+  "rubrik": [
+   {
+    "regex": "(?i)\\[Parameter\\]|parameter",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)EventCallback|event",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)InteractiveServer|InteractiveWebAssembly|render mode|static",
+    "puan": 4
+   },
+   {
+    "regex": "(?i)StateHasChanged|lifecycle|OnInitialized",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-signalr-gercek-zamanli",
+  "model": "sonnet",
+  "istem": "Describe a SignalR hub for live order status updates.",
+  "rubrik": [
+   {
+    "regex": "(?i)Hub|MapHub",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)group|Groups.AddToGroupAsync",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)reconnect|yeniden",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)auth|scale|backplane|redis",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-api-surumleme",
+  "model": "sonnet",
+  "istem": "Which API changes are breaking and how do you version around them?",
+  "rubrik": [
+   {
+    "regex": "(?i)breaking|kırıcı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)version|v1|header|url",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)deprecat|sunset",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)contract|openapi|swagger",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-openapi-dokuman",
+  "model": "haiku",
+  "istem": "How do you document response types and examples in a .NET API?",
+  "rubrik": [
+   {
+    "regex": "(?i)ProducesResponseType|Produces|response",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)swagger|openapi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)example|örnek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)summary|description|xml",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-dotnet-performans",
+  "model": "opus",
+  "istem": "A .NET API has rising memory. How do you investigate?",
+  "rubrik": [
+   {
+    "regex": "(?i)profile|dotnet-trace|counters|dump",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)allocation|gc|heap",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)span|pool|stringbuilder",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)benchmark|benchmarkdotnet",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-efcore-seed-veri",
+  "model": "haiku",
+  "istem": "How do you seed lookup data in EF Core without duplicates?",
+  "rubrik": [
+   {
+    "regex": "(?i)HasData|seed",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)idempotent|exists|any|upsert",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)environment|development|prod",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)migration|key|id",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-csproj-sadelestir",
+  "model": "haiku",
+  "istem": "How do you remove duplication across many csproj files?",
+  "rubrik": [
+   {
+    "regex": "(?i)Directory\\.Build\\.props|props",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)SDK|default|glob",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Compile Include|remove|redundant",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)targets|central|shared",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "sec-sir-tarayici",
+  "model": "haiku",
+  "istem": "How do you scan a repository and its history for leaked API keys?",
+  "rubrik": [
+   {
+    "regex": "(?i)gitleaks|trufflehog|scan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)history|git log|geçmiş",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rotate|revoke|döndür",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)env|vault|gitignore",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-sast-kosucu",
+  "model": "sonnet",
+  "istem": "How do you run SAST on a web app and triage the results?",
+  "rubrik": [
+   {
+    "regex": "(?i)semgrep|opengrep|codeql",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)false positive|noise|yanlış pozitif|triage",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)severity|critical|high|önem",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ci|pipeline",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-auth-denetci",
+  "model": "opus",
+  "istem": "List the main weaknesses you check in a login and password reset flow.",
+  "rubrik": [
+   {
+    "regex": "(?i)session|cookie|httponly|secure",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rate limit|lockout|brute",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)token|jwt|expire",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)reset|enumerat|mfa|2fa",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "sec-kvkk-gdpr-kontrol",
+  "model": "sonnet",
+  "istem": "A signup form collects name, email and phone. What KVKK duties apply?",
+  "rubrik": [
+   {
+    "regex": "(?i)consent|rıza|açık rıza",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)retention|saklama|süre",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)delete|silme|erase|right",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)kvkk|gdpr|aydınlatma|veri sorumlusu",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-bagimlilik-acik",
+  "model": "haiku",
+  "istem": "How do you audit npm and NuGet dependencies for vulnerabilities?",
+  "rubrik": [
+   {
+    "regex": "(?i)npm audit|dotnet list package|vulnerab",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lock|lockfile",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)upgrade|patch|update",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)transitive|sbom|abandon",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-owasp-web-test",
+  "model": "sonnet",
+  "istem": "Which OWASP Top 10 categories do you test first for a login page?",
+  "rubrik": [
+   {
+    "regex": "(?i)injection|sqli",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)xss",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)access control|idor|broken",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)authoriz|scope|izin",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "sec-api-guvenlik",
+  "model": "sonnet",
+  "istem": "What API security checks do you run on a user profile endpoint?",
+  "rubrik": [
+   {
+    "regex": "(?i)IDOR|object level|BOLA",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mass assignment|overposting",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rate limit|throttl",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)auth|token|scope",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "sec-tehdit-modelleme",
+  "model": "opus",
+  "istem": "Threat model a file upload feature briefly.",
+  "rubrik": [
+   {
+    "regex": "(?i)STRIDE|spoof|tamper",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trust boundary|güven sınır",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)mitigat|önlem",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)malware|size|type|path",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-guvenlik-baslik",
+  "model": "haiku",
+  "istem": "Which security headers does a web app need and why?",
+  "rubrik": [
+   {
+    "regex": "(?i)CSP|content-security",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)HSTS|strict-transport",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)CORS|origin",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)X-Frame|frame-ancestors|nosniff|referrer",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "sec-injection-denetci",
+  "model": "sonnet",
+  "istem": "How do you spot SQL injection in code review and fix it?",
+  "rubrik": [
+   {
+    "regex": "(?i)parameter|prepared|parametreli",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)concatenat|string|birleştir",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)taint|source|sink|input",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)orm|escape|whitelist|allowlist",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-xss-csrf-denetci",
+  "model": "sonnet",
+  "istem": "How do you prevent stored XSS and CSRF in a comment form?",
+  "rubrik": [
+   {
+    "regex": "(?i)encode|escape|sanitize",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CSP",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)csrf|antiforgery|samesite",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)innerHTML|dangerously|v-html",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-pentest-plani",
+  "model": "opus",
+  "istem": "Outline the scope and rules for a web app penetration test.",
+  "rubrik": [
+   {
+    "regex": "(?i)scope|kapsam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)authoriz|permission|izin|rules of engagement",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)recon|enumerat",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)report|bulgu|finding",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-cikis-oncesi-guvenlik",
+  "model": "sonnet",
+  "istem": "Give a pre-release security checklist for a small web app.",
+  "rubrik": [
+   {
+    "regex": "(?i)secret|sır",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)auth|login",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)depend|bağımlılık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)header|https|tls",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)block|stop|durdur|go/no-go",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-docker-guvenlik",
+  "model": "sonnet",
+  "istem": "What security issues do you look for in a Dockerfile?",
+  "rubrik": [
+   {
+    "regex": "(?i)root|USER",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)secret|ARG|ENV",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)base image|slim|distroless|pin",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)scan|trivy|grype|cve",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-ci-guvenlik-tarama",
+  "model": "sonnet",
+  "istem": "How do you add SAST and secret scanning to a CI pipeline?",
+  "rubrik": [
+   {
+    "regex": "(?i)pipeline|ci|workflow",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)semgrep|sast|codeql",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)gitleaks|secret",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)threshold|fail|block|eşik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)schedule|pr|pull request",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-loglama-gizlilik",
+  "model": "haiku",
+  "istem": "What sensitive data must never appear in application logs?",
+  "rubrik": [
+   {
+    "regex": "(?i)password|parola|token",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pii|personal|kişisel",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)mask|redact|maskele",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stack trace|error page",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-sifreleme-denetci",
+  "model": "sonnet",
+  "istem": "Which hash should store passwords and which mistakes are common?",
+  "rubrik": [
+   {
+    "regex": "(?i)bcrypt|argon2|scrypt|pbkdf2",
+    "puan": 4
+   },
+   {
+    "regex": "(?i)md5|sha1|sha-1",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)salt|random",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)key|kms|rotate",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-jwt-oturum",
+  "model": "sonnet",
+  "istem": "What are common JWT mistakes in a web app?",
+  "rubrik": [
+   {
+    "regex": "(?i)expire|exp|lifetime",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)alg|none|hs256|signature",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)localstorage|httponly|cookie",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)refresh|revoke",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-yetkilendirme-matrisi",
+  "model": "sonnet",
+  "istem": "Describe a role and permission check for admin, editor and viewer.",
+  "rubrik": [
+   {
+    "regex": "(?i)matrix|matris",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)role|rol",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)deny|default|least privilege|en az",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)endpoint|server-side|sunucu",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-guvenlik-raporu",
+  "model": "haiku",
+  "istem": "How do you structure a security findings report for developers?",
+  "rubrik": [
+   {
+    "regex": "(?i)severity|önem|critical",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)evidence|kanıt|poc",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fix|remediat|düzelt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)summary|özet",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-ai-kod-guvenlik",
+  "model": "sonnet",
+  "istem": "What security gaps are typical in AI generated apps?",
+  "rubrik": [
+   {
+    "regex": "(?i)secret|hardcoded|key",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)authorization|rls|row level|access",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)prompt injection|input",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)validation|default",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-zero-trust-ag",
+  "model": "opus",
+  "istem": "Which exposure checks do you do before putting a service on the internet?",
+  "rubrik": [
+   {
+    "regex": "(?i)port|firewall|exposure",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)least privilege|en az yetki",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)segment|vpn|private",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)mfa|logging|audit",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-sema-tasarim",
+  "model": "sonnet",
+  "istem": "Design tables for orders and order items with constraints.",
+  "rubrik": [
+   {
+    "regex": "(?i)primary key|pk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)foreign key|fk|references",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)not null|unique|check",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)normaliz|index",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-sorgu-optimize",
+  "model": "sonnet",
+  "istem": "A query scans a 10M row table. How do you speed it up?",
+  "rubrik": [
+   {
+    "regex": "(?i)explain|analyze|plan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)index",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)seq scan|sequential|scan",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)join|select \\*|limit",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-migration-planlayici",
+  "model": "opus",
+  "istem": "How do you rename a column on a live database without downtime?",
+  "rubrik": [
+   {
+    "regex": "(?i)expand|contract|add",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)backfill|batch",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|geri",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)concurrent|lock|downtime",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "db-rls-politika",
+  "model": "sonnet",
+  "istem": "Write an RLS policy so users can only read their own rows.",
+  "rubrik": [
+   {
+    "regex": "(?i)enable row level security|ENABLE ROW",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)create policy|policy",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)auth\\.uid|uid|using",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)with check|select|insert|update",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-indeks-danismani",
+  "model": "sonnet",
+  "istem": "How do you decide which columns to index?",
+  "rubrik": [
+   {
+    "regex": "(?i)where|filter|join",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)composite|btree|gin|partial",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)write|maintenance|cost",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)unused|pg_stat|duplicate",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "db-supabase-kurucu",
+  "model": "sonnet",
+  "istem": "How do you start a Supabase project with auth and one table?",
+  "rubrik": [
+   {
+    "regex": "(?i)migration|supabase db",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)auth",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rls|policy",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)anon|service_role|key",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "db-efcore-sql-gecis",
+  "model": "sonnet",
+  "istem": "How do you see and improve the SQL EF Core generates?",
+  "rubrik": [
+   {
+    "regex": "(?i)ToQueryString|log|logging|sql",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Select|projection|projeksiyon",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)AsNoTracking",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)split query|include|cartesian",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "db-veri-modelleme-nosql",
+  "model": "sonnet",
+  "istem": "When do you choose a column store over a row store?",
+  "rubrik": [
+   {
+    "regex": "(?i)query pattern|access pattern|sorgu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)denormaliz",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)aggregate|analytic|olap",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)partition|order by|key",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-sql-yazar",
+  "model": "haiku",
+  "istem": "Write SQL for the top 3 customers by revenue per month.",
+  "rubrik": [
+   {
+    "regex": "(?i)WITH|cte",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)row_number|rank|window|over",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)group by|sum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)limit|order by",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-yedekleme-geri-yukleme",
+  "model": "sonnet",
+  "istem": "What does a sound database backup plan include?",
+  "rubrik": [
+   {
+    "regex": "(?i)restore|geri yükle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rpo|rto",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)pitr|point in time|wal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)offsite|test|encrypt",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-baglanti-havuzu",
+  "model": "haiku",
+  "istem": "An app hits too many connections. What do you check?",
+  "rubrik": [
+   {
+    "regex": "(?i)pool|pgbouncer|pooler",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)max_connections|limit",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)timeout|idle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)leak|close|dispose",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "db-veri-kalitesi",
+  "model": "haiku",
+  "istem": "What SQL checks find bad data in a customers table?",
+  "rubrik": [
+   {
+    "regex": "(?i)duplicate|tekrar|group by having",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)null|boş",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)range|format|regex|constraint",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)count|sample",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-analitik-sorgu",
+  "model": "sonnet",
+  "istem": "Write the approach for a weekly signup retention query.",
+  "rubrik": [
+   {
+    "regex": "(?i)cohort|retention|funnel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)group by|date_trunc|week",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timezone|window",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)index|partition",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-trigger-fonksiyon",
+  "model": "sonnet",
+  "istem": "Write a trigger that updates an updated_at column.",
+  "rubrik": [
+   {
+    "regex": "(?i)create function|plpgsql|function",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)create trigger|before update|trigger",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)now\\(\\)|updated_at",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)security definer|test",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-veri-tasima",
+  "model": "sonnet",
+  "istem": "How do you migrate a table between databases and verify it?",
+  "rubrik": [
+   {
+    "regex": "(?i)count|checksum|row count",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)staging|copy|dry run",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)batch|chunk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|cutover|downtime",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "db-sema-inceleme",
+  "model": "sonnet",
+  "istem": "What do you look for when auditing an inherited schema?",
+  "rubrik": [
+   {
+    "regex": "(?i)primary key|key",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)index",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)type|varchar|text|numeric",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)constraint|naming|orphan",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-docx-uretici",
+  "model": "sonnet",
+  "istem": "How do you generate a structured Word report with headings and a table?",
+  "rubrik": [
+   {
+    "regex": "(?i)heading|başlık",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)style|stil",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)table|tablo",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)docx|template|python-docx|şablon",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-pptx-sunum",
+  "model": "sonnet",
+  "istem": "Plan a 6 slide deck for a quarterly update.",
+  "rubrik": [
+   {
+    "regex": "(?i)slide|slayt",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)title|başlık|message",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)visual|chart|görsel|grafik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)agenda|summary|özet",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-pdf-uretici",
+  "model": "sonnet",
+  "istem": "How do you generate a PDF report with page numbers from HTML?",
+  "rubrik": [
+   {
+    "regex": "(?i)pdf|weasy|playwright|chrome",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)page number|sayfa numarası|footer",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)font|embed|göm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)margin|page-break|@page",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-xlsx-tablo",
+  "model": "sonnet",
+  "istem": "How do you structure an Excel workbook with a data sheet and summary?",
+  "rubrik": [
+   {
+    "regex": "(?i)formula|formül",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sheet|sayfa",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)chart|grafik|pivot",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)format|header|başlık|number",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-readme-yazar",
+  "model": "haiku",
+  "istem": "Outline a README for a small CLI tool.",
+  "rubrik": [
+   {
+    "regex": "(?i)install|kurulum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)usage|kullanım|example|örnek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)license|lisans|contribut",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)title|description|açıklama",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-adr-yazar",
+  "model": "sonnet",
+  "istem": "Write the sections of an ADR for choosing a database.",
+  "rubrik": [
+   {
+    "regex": "(?i)context|bağlam",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)decision|karar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)alternative|option|seçenek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)consequence|sonuç|trade",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-degisiklik-gunlugu",
+  "model": "haiku",
+  "istem": "Draft changelog sections for a release with a breaking change.",
+  "rubrik": [
+   {
+    "regex": "(?i)added|eklendi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)changed|değişti",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fixed|düzeltildi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)breaking|kırıcı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)version|sürüm|date|tarih",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-metin-sadelestir",
+  "model": "haiku",
+  "istem": "Explain how you remove filler and robotic phrasing from a paragraph.",
+  "rubrik": [
+   {
+    "regex": "(?i)filler|dolgu|padding",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)active|aktif|direct",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)shorter|kısa|concise",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)meaning|anlam|tone",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-api-dokumani",
+  "model": "sonnet",
+  "istem": "What must every API endpoint doc include?",
+  "rubrik": [
+   {
+    "regex": "(?i)parameter|parametre",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)example|örnek|curl",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)error|hata|status",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)auth|header",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-rapor-ozetleyici",
+  "model": "haiku",
+  "istem": "How do you summarize a 30 page report into one page?",
+  "rubrik": [
+   {
+    "regex": "(?i)decision|karar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)action|aksiyon|next step",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)open question|açık soru|risk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)key|özet|summary",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-diyagram-cizer",
+  "model": "sonnet",
+  "istem": "Describe a Mermaid diagram for a login flow.",
+  "rubrik": [
+   {
+    "regex": "(?i)mermaid|svg|diagram",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)node|düğüm|box",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)arrow|flow|akış|edge",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)label|etiket",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-toplanti-notu",
+  "model": "haiku",
+  "istem": "How do you turn meeting notes into an action list?",
+  "rubrik": [
+   {
+    "regex": "(?i)owner|sahip|assignee",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)date|tarih|deadline",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)decision|karar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)action|aksiyon",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-teknik-teklif",
+  "model": "sonnet",
+  "istem": "List the sections of a short project proposal.",
+  "rubrik": [
+   {
+    "regex": "(?i)scope|kapsam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timeline|takvim|schedule",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)price|fiyat|cost|bütçe",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)assumption|varsayım|out of scope",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "dok-tablo-duzenle",
+  "model": "haiku",
+  "istem": "How do you present a data table in a report readably?",
+  "rubrik": [
+   {
+    "regex": "(?i)unit|birim",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)align|hizala|right",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sort|sırala",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)caption|başlık|label|kaynak",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)round|decimal|ondalık",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-cevirmen-teknik",
+  "model": "haiku",
+  "istem": "How do you keep terminology consistent when translating docs?",
+  "rubrik": [
+   {
+    "regex": "(?i)glossary|sözlük|terminology|terim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)code|command|komut",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)consistent|tutarl",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)review|context|bağlam",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-sorun-giderme-rehberi",
+  "model": "haiku",
+  "istem": "Structure a troubleshooting guide for a login error.",
+  "rubrik": [
+   {
+    "regex": "(?i)symptom|belirti",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cause|neden",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fix|çözüm|solution",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)verify|doğrula|check",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-birim-test-yazar",
+  "model": "sonnet",
+  "istem": "Write unit test cases for a function that validates a password.",
+  "rubrik": [
+   {
+    "regex": "(?i)edge|boundary|sınır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)assert|expect",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)name|should|given",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)empty|null|short|long",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "qa-e2e-playwright",
+  "model": "sonnet",
+  "istem": "Plan an end to end test for a login flow with Playwright.",
+  "rubrik": [
+   {
+    "regex": "(?i)getByRole|locator|selector",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)expect|assert",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)wait|auto-wait|waitFor",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fixture|baseURL|trace",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-test-bosluk-analiz",
+  "model": "sonnet",
+  "istem": "How do you decide which untested code to cover first?",
+  "rubrik": [
+   {
+    "regex": "(?i)coverage|kapsam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)risk|critical|kritik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)complexity|crap|karmaşıklık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)branch|path|edge",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-test-kokusu",
+  "model": "haiku",
+  "istem": "What test smells do you look for in a flaky suite?",
+  "rubrik": [
+   {
+    "regex": "(?i)sleep|wait",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)shared state|global|order",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)no assert|assertion",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)flaky|random|time",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-flaky-avci",
+  "model": "opus",
+  "istem": "A test fails 1 in 20 runs. How do you find the cause?",
+  "rubrik": [
+   {
+    "regex": "(?i)repeat|loop|rerun|seed",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)isolate|order|parallel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timing|race|async",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fix|retry|quarantine",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-regresyon-testi",
+  "model": "sonnet",
+  "istem": "A bug report says totals are wrong with a 100 percent coupon. Plan the regression test.",
+  "rubrik": [
+   {
+    "regex": "(?i)reproduce|repro|yeniden üret",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)failing|red|kırmızı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)coupon|100|edge",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fix|green|pass",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-api-test",
+  "model": "sonnet",
+  "istem": "Which cases do you test for a create user endpoint?",
+  "rubrik": [
+   {
+    "regex": "(?i)status|200|201|400|404",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)schema|payload|json",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)auth|401|403",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)validation|duplicate|missing",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "qa-gorsel-qa",
+  "model": "sonnet",
+  "istem": "How do you visually QA a page before release?",
+  "rubrik": [
+   {
+    "regex": "(?i)width|viewport|375|1280",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)screenshot|ekran görüntüsü",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)overflow|alignment|spacing",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)console|error",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-manuel-test-plani",
+  "model": "haiku",
+  "istem": "Write a short manual test checklist for a checkout feature.",
+  "rubrik": [
+   {
+    "regex": "(?i)step|adım",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)expected|beklenen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)priority|öncelik|critical",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)negative|edge|error",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "qa-test-verisi",
+  "model": "haiku",
+  "istem": "How do you create deterministic test data?",
+  "rubrik": [
+   {
+    "regex": "(?i)factory|builder|fixture",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)seed|deterministic|sabit",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fake|anonym|sentetik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)minimal|small",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-performans-yuk-testi",
+  "model": "sonnet",
+  "istem": "Design a load test for an API expecting 500 requests per second.",
+  "rubrik": [
+   {
+    "regex": "(?i)k6|jmeter|locust|tool",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)threshold|p95|latency",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ramp|stage|concurrent",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)error rate|throughput|rps",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "qa-test-kapsami-raporu",
+  "model": "haiku",
+  "istem": "How do you report and interpret test coverage?",
+  "rubrik": [
+   {
+    "regex": "(?i)coverage|kapsam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)uncovered|branch|line",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)critical|risk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)threshold|trend|eşik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-mutasyon-denetci",
+  "model": "sonnet",
+  "istem": "How do you tell if tests are strong, not just covering lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)mutation|mutant",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)assert|assertion",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)weak|strong|zayıf",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)behavior|davranış|outcome",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-mobil-qa",
+  "model": "sonnet",
+  "istem": "List mobile specific test cases for a login screen.",
+  "rubrik": [
+   {
+    "regex": "(?i)rotation|orientation|dönme",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)offline|network|çevrimdışı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)keyboard|gesture|touch",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)device|simulator|os version",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "qa-erisilebilirlik-testi",
+  "model": "haiku",
+  "istem": "How do you test a page for accessibility in practice?",
+  "rubrik": [
+   {
+    "regex": "(?i)axe|lighthouse|automated",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)keyboard|tab|klavye",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)screen reader|aria|label",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)contrast|kontrast",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-test-iskelet-dotnet",
+  "model": "haiku",
+  "istem": "How do you add a test project to an existing .NET solution?",
+  "rubrik": [
+   {
+    "regex": "(?i)dotnet new|xunit|mstest|nunit",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reference|add reference|ProjectReference",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)dotnet test",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sample|first test",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-hata-yeniden-uret",
+  "model": "sonnet",
+  "istem": "A user says the page sometimes shows a blank screen. How do you reproduce it?",
+  "rubrik": [
+   {
+    "regex": "(?i)steps|adım|reproduce",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)environment|browser|version|ortam",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)log|console|network",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)root cause|kök neden|hypothesis",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "qa-ci-test-duzeni",
+  "model": "sonnet",
+  "istem": "How do you speed up a slow test pipeline?",
+  "rubrik": [
+   {
+    "regex": "(?i)parallel|shard|split",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)tag|category|trait|fast|slow",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cache",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)nightly|schedule|pr",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "qa-sozlesme-testi",
+  "model": "sonnet",
+  "istem": "How do you keep front end and API in sync with contract tests?",
+  "rubrik": [
+   {
+    "regex": "(?i)contract|sözleşme|pact",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)schema|openapi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)consumer|provider|tüketici",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)version|break|ci",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-test-ilk-yaklasim",
+  "model": "sonnet",
+  "istem": "Walk through TDD for a function that parses a duration string.",
+  "rubrik": [
+   {
+    "regex": "(?i)red|failing|kırmızı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)green|pass|yeşil",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)refactor|temizle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)small|one test|minimal",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "bl-modelleme-plani",
+  "model": "sonnet",
+  "istem": "Plan the modeling steps for a ceramic coffee cup in Blender.",
+  "rubrik": [
+   {
+    "regex": "(?i)reference|ölçü|proportion|dimension",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)modifier|bevel|subdivision|mirror",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)topology|quad|edge loop|poly",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)origin|scale|apply",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-malzeme-kurucu",
+  "model": "sonnet",
+  "istem": "Describe a ceramic glaze material setup in Blender with the Principled BSDF.",
+  "rubrik": [
+   {
+    "regex": "(?i)principled|bsdf",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)roughness|pürüz",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)metallic|specular|ior",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)texture|normal|node",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "bl-isik-kurulumu",
+  "model": "sonnet",
+  "istem": "How do you light a product render in Blender for a soft studio look?",
+  "rubrik": [
+   {
+    "regex": "(?i)key|fill|rim|back",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)area|softbox|size",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)hdri|world|environment",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)exposure|power|watt|intensity",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "bl-animasyon-anahtar",
+  "model": "sonnet",
+  "istem": "Plan a 4 second turntable animation of a product in Blender.",
+  "rubrik": [
+   {
+    "regex": "(?i)keyframe|anahtar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fps|frame|kare",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)interpolation|bezier|easing|linear",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)loop|rotation|cycle",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-render-ayari",
+  "model": "sonnet",
+  "istem": "How do you get a clean, quick product render in Blender?",
+  "rubrik": [
+   {
+    "regex": "(?i)cycles|eevee",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)samples|örnek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)denois",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)resolution|çözünürlük|png|exr|film",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "bl-glb-disa-aktar",
+  "model": "sonnet",
+  "istem": "How do you export a Blender model to an optimized GLB for the web?",
+  "rubrik": [
+   {
+    "regex": "(?i)glb|gltf",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)draco|compress|size|boyut",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)apply|scale|transform",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)texture|pbr|1024|2048",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-uv-acma",
+  "model": "haiku",
+  "istem": "How do you unwrap UVs for a mug so textures do not stretch?",
+  "rubrik": [
+   {
+    "regex": "(?i)seam|dikiş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stretch|germe|checker",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)texel|density|scale",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)overlap|island|pack",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "bl-dokuya-pisirme",
+  "model": "sonnet",
+  "istem": "Explain how to bake a normal map from a high poly model in Blender.",
+  "rubrik": [
+   {
+    "regex": "(?i)bake|pişir",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)normal map|normal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)high.?poly|low.?poly|cage",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ao|ambient|margin|selected to active",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-kamera-kompozisyon",
+  "model": "haiku",
+  "istem": "What camera settings suit a product close up render in Blender?",
+  "rubrik": [
+   {
+    "regex": "(?i)focal|mm|lens|odak",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)depth of field|dof|aperture",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)framing|composition|rule of thirds|çerçeve",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)angle|sensor",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-sahne-temizlik",
+  "model": "haiku",
+  "istem": "How do you tidy a Blender scene before handing it off?",
+  "rubrik": [
+   {
+    "regex": "(?i)collection|koleksiyon",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)naming|name|ad",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)orphan|purge|unused",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hierarchy|parent",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-geometri-dugumleri",
+  "model": "opus",
+  "istem": "How would you scatter objects across a surface using Geometry Nodes?",
+  "rubrik": [
+   {
+    "regex": "(?i)geometry nodes|node",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)instance|scatter|distribute",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)seed|random|density",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)group|input|parameter",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-rig-iskelet",
+  "model": "sonnet",
+  "istem": "Outline how to rig a simple robotic arm in Blender.",
+  "rubrik": [
+   {
+    "regex": "(?i)armature|bone|kemik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)weight|ağırlık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ik|inverse kinematics|constraint",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)parent|pivot|pose",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-gorsel-ani-kontrol",
+  "model": "haiku",
+  "istem": "How do you detect flipped normals and non-manifold geometry?",
+  "rubrik": [
+   {
+    "regex": "(?i)normal|flip|recalculate",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)non.?manifold|hole|delete loose",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)texture|missing|path",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)statistics|overlay|3d.?print",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "bl-urun-turntable",
+  "model": "sonnet",
+  "istem": "Plan a seamless turntable render of a teapot for a web page.",
+  "rubrik": [
+   {
+    "regex": "(?i)360|rotation|döndür",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)loop|seamless|first.?last",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)frame|fps|kare",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ffmpeg|webm|mp4|png sequence",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "bl-mod-modeli-blender",
+  "model": "sonnet",
+  "istem": "What do you check when importing a game character into Blender for editing?",
+  "rubrik": [
+   {
+    "regex": "(?i)scale|unit|ölçek|axis",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)vertex group|bone|weight",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)export|import|fbx|format",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)backup|original|yedek",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-video-senaryo",
+  "model": "sonnet",
+  "istem": "Write a 30 second script for a product promo video.",
+  "rubrik": [
+   {
+    "regex": "(?i)hook|kanca",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)scene|shot|sahne",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)duration|second|saniye|sn",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cta|call to action|voiceover|narrat",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "vid-kisa-klip-secici",
+  "model": "sonnet",
+  "istem": "How do you pick short clip moments from a one hour recording?",
+  "rubrik": [
+   {
+    "regex": "(?i)transcript|altyazı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)highlight|peak|moment",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)timestamp|start|end|zaman",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)length|duration|sınır",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-ffmpeg-donusturucu",
+  "model": "haiku",
+  "istem": "Give ffmpeg commands to compress a 1080p mp4 and extract one frame.",
+  "rubrik": [
+   {
+    "regex": "(?i)ffmpeg",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)-crf|bitrate|-b:v",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)-ss|-t|trim|kes",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)libx264|libx265|codec|-vframes|fps",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "vid-altyazi-uretici",
+  "model": "haiku",
+  "istem": "How do you produce readable subtitle files for a short video?",
+  "rubrik": [
+   {
+    "regex": "(?i)srt|vtt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)line|satır|character|karakter",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)timing|timestamp|zaman",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reading speed|cps|saniye",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-remotion-kurucu",
+  "model": "sonnet",
+  "istem": "How do you structure a Remotion video with three scenes?",
+  "rubrik": [
+   {
+    "regex": "(?i)composition",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sequence|series",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)interpolate|spring|useCurrentFrame",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fps|durationInFrames|render",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-hareket-grafigi",
+  "model": "sonnet",
+  "istem": "Plan a lower third animation in 3 beats.",
+  "rubrik": [
+   {
+    "regex": "(?i)ease|easing",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timing|frame|duration|süre",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)title|lower third|typography|metin",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)contrast|safe area|okunur",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-ses-duzeni",
+  "model": "haiku",
+  "istem": "What loudness targets and mixing rules do you use for web video?",
+  "rubrik": [
+   {
+    "regex": "(?i)lufs|loudness|db",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)duck|ducking|music|müzik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)voice|voiceover|konuşma",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)noise|normalize|eq",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "vid-video-ozetle",
+  "model": "haiku",
+  "istem": "How do you summarize a 40 minute talk efficiently?",
+  "rubrik": [
+   {
+    "regex": "(?i)transcript|caption|altyazı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timestamp|zaman",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)key point|özet|summary",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)frame|screenshot|kare",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-kare-cikarici",
+  "model": "haiku",
+  "istem": "How do you extract a frame every 10 seconds and make a contact sheet?",
+  "rubrik": [
+   {
+    "regex": "(?i)ffmpeg",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fps=1/10|interval|every|aralık",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)tile|montage|contact sheet|grid",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)scale|thumbnail|küçük",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-video-performans-web",
+  "model": "sonnet",
+  "istem": "How do you make a hero video load fast on the web?",
+  "rubrik": [
+   {
+    "regex": "(?i)mp4|webm|h264|av1",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)poster",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)preload|lazy|autoplay|muted",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)bitrate|size|boyut",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-hyperframes-kompozisyon",
+  "model": "sonnet",
+  "istem": "How do you author a video as HTML with a timeline?",
+  "rubrik": [
+   {
+    "regex": "(?i)html|css|dom",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)timeline|gsap|time",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)render|frame|screenshot|puppeteer",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fps|audio|sync",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-sosyal-video-bicim",
+  "model": "haiku",
+  "istem": "What aspect ratios and safe areas do you use for social video?",
+  "rubrik": [
+   {
+    "regex": "(?i)9:16|vertical|dikey",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)1:1|square|kare",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)16:9|wide",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)safe area|crop|güvenli",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "vid-video-brief",
+  "model": "haiku",
+  "istem": "What goes in a one page video brief?",
+  "rubrik": [
+   {
+    "regex": "(?i)goal|amaç",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)audience|kitle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)length|duration|süre",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)deliverable|format|teslim",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "vid-gecis-ve-ritim",
+  "model": "haiku",
+  "istem": "How do you critique the pacing of a rough cut?",
+  "rubrik": [
+   {
+    "regex": "(?i)pace|pacing|ritim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cut|trim|kes",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)transition|geçiş",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)audience|attention|dikkat|hook",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "vid-premiere-akis",
+  "model": "sonnet",
+  "istem": "How do you organize a Premiere project and export for YouTube?",
+  "rubrik": [
+   {
+    "regex": "(?i)bin|folder|klasör",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sequence|timeline",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)proxy|codec|preset",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)export|h.?264|bitrate",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-mod-onarim",
+  "model": "sonnet",
+  "istem": "A character mod shows a missing texture after a game patch. How do you diagnose it?",
+  "rubrik": [
+   {
+    "regex": "(?i)hash",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ini|d3dx",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)log|error",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)backup|yedek|version|update|güncelle",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-ini-yazar",
+  "model": "haiku",
+  "istem": "How do you add a key to toggle a costume part in a mod ini?",
+  "rubrik": [
+   {
+    "regex": "(?i)key|tuş",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)\\$|variable|değişken",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)condition|if|endif",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)type = cycle|toggle|section|TextureOverride",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-mod-birlestirici",
+  "model": "sonnet",
+  "istem": "Two mods overwrite the same texture slot. How do you merge them?",
+  "rubrik": [
+   {
+    "regex": "(?i)slot|ps-t|resource",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hash|override",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)conflict|çakış",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)merge|test|backup",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-motoru-script",
+  "model": "sonnet",
+  "istem": "Sketch a health and damage component for a game object.",
+  "rubrik": [
+   {
+    "regex": "(?i)health|hp",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)damage|hasar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)event|signal|callback",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)update|delta|frame|tick",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-denge",
+  "model": "sonnet",
+  "istem": "How do you balance an RPG damage and level curve?",
+  "rubrik": [
+   {
+    "regex": "(?i)curve|eğri|exponential|linear",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)playtest|test",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cost|reward|ödül",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)variable|tunable|spreadsheet|tablo",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-seviye-tasarim",
+  "model": "sonnet",
+  "istem": "Describe a tutorial level layout teaching jump and attack.",
+  "rubrik": [
+   {
+    "regex": "(?i)pacing|tempo",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tutorial|teach|öğret",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)landmark|goal|hedef",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)difficulty|zorluk|ramp",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-dusman-ai",
+  "model": "sonnet",
+  "istem": "Design a simple patrol, chase, attack AI for an enemy.",
+  "rubrik": [
+   {
+    "regex": "(?i)state machine|state|durum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)patrol|chase|attack",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)perception|range|sight|menzil",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cooldown|reaction|telegraph",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-performans",
+  "model": "sonnet",
+  "istem": "A web game drops to 20 fps. What do you profile first?",
+  "rubrik": [
+   {
+    "regex": "(?i)profile|profiler",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)draw call|batch|instanc",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)garbage|allocation|pool",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)physics|fps|frame time",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-ses-geri-bildirim",
+  "model": "haiku",
+  "istem": "How do you make a sword hit feel impactful?",
+  "rubrik": [
+   {
+    "regex": "(?i)shake|titreme",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)hit.?stop|hitpause|freeze|pause",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sound|ses",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)particle|flash|effect",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-mod-paketleme",
+  "model": "haiku",
+  "istem": "What goes in a shared mod package?",
+  "rubrik": [
+   {
+    "regex": "(?i)readme",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)version|sürüm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)install|kurulum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)uninstall|compat|credit|lisans",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-envanter",
+  "model": "sonnet",
+  "istem": "Design a data model for a stacking inventory.",
+  "rubrik": [
+   {
+    "regex": "(?i)item|eşya",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)stack|quantity|adet",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)slot",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)save|serialize|json|kaydet",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-three-oyun-sahne",
+  "model": "sonnet",
+  "istem": "Outline the main loop of a simple three.js game.",
+  "rubrik": [
+   {
+    "regex": "(?i)requestAnimationFrame|loop|döngü",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)input|keyboard|klavye",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)collision|hitbox|raycast",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)delta|fixed|timestep",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-dokuman",
+  "model": "haiku",
+  "istem": "What sections go in a one page game design doc?",
+  "rubrik": [
+   {
+    "regex": "(?i)core loop|döngü",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mechanic|mekanik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)scope|kapsam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)audience|platform|referans",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-kayit-sistemi",
+  "model": "sonnet",
+  "istem": "How do you design a safe save system for a game?",
+  "rubrik": [
+   {
+    "regex": "(?i)version|sürüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)serialize|json|binary",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)backup|corrupt|bozuk",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)slot|autosave|migrate",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-mod-guvenlik-kontrol",
+  "model": "haiku",
+  "istem": "What do you check before installing a downloaded game mod?",
+  "rubrik": [
+   {
+    "regex": "(?i)exe|dll|executable|script",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)source|kaynak|author|reputation",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)scan|virus|hash",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)backup|sandbox",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-n8n-akis-tasarimi",
+  "model": "sonnet",
+  "istem": "Design an n8n workflow that saves form submissions to a sheet and sends an email.",
+  "rubrik": [
+   {
+    "regex": "(?i)trigger|webhook|schedule",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)node|düğüm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)branch|if|switch",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)credential|error|retry",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "otm-n8n-ifade-kod",
+  "model": "sonnet",
+  "istem": "How do you transform items with a Code node in n8n?",
+  "rubrik": [
+   {
+    "regex": "(?i)\\$json|\\$input|items",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)map|filter|return",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)expression|{{|ifade",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)item|json",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-n8n-hata-yonetimi",
+  "model": "sonnet",
+  "istem": "How do you make an n8n workflow report failures?",
+  "rubrik": [
+   {
+    "regex": "(?i)error trigger|error workflow|hata",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)retry|yeniden",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)alert|notify|slack|email|bildir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)continue on fail|timeout",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-webhook-tasarimci",
+  "model": "sonnet",
+  "istem": "How do you build a safe webhook receiver?",
+  "rubrik": [
+   {
+    "regex": "(?i)signature|imza|hmac",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)idempot",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)200|ack|quick",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)queue|retry|kuyruk",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-zamanlanmis-gorev",
+  "model": "haiku",
+  "istem": "How do you schedule a nightly job safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)cron|schedule|zamanlan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lock|overlap|çakış",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)log|alert",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)timezone|idempot",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-api-entegrasyon",
+  "model": "sonnet",
+  "istem": "How do you pull all pages from a rate limited API?",
+  "rubrik": [
+   {
+    "regex": "(?i)pagination|page|cursor|sayfa",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rate limit|429|backoff",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)auth|token|key",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)retry|timeout",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-veri-esleme",
+  "model": "haiku",
+  "istem": "How do you map customer records between two systems?",
+  "rubrik": [
+   {
+    "regex": "(?i)mapping|eşle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)default|varsayılan|null",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)type|convert|format",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)validate|doğrula|unique",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "otm-google-sheets-akis",
+  "model": "haiku",
+  "istem": "Outline automating form responses into a sheet with a notification.",
+  "rubrik": [
+   {
+    "regex": "(?i)trigger|onFormSubmit|tetik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sheet|spreadsheet|appendRow",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)email|notification|bildirim",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)quota|limit|permission",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "otm-tarayici-otomasyon",
+  "model": "sonnet",
+  "istem": "How do you automate a login and download in Playwright safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)playwright|puppeteer|selenium",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)wait|auto|expect",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)credential|env|secret|storage state",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)download|selector|locator",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "otm-mail-otomasyon",
+  "model": "haiku",
+  "istem": "What must a recurring email automation include?",
+  "rubrik": [
+   {
+    "regex": "(?i)template|şablon",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)unsubscribe|abonelik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)throttle|rate|limit",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)spf|dkim|bounce|log",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "otm-dosya-isleme-botu",
+  "model": "haiku",
+  "istem": "How do you batch rename files safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)dry.?run|preview|önizle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)backup|copy|original|yedek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pattern|glob|regex",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)log|undo",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-bildirim-yonlendirme",
+  "model": "haiku",
+  "istem": "How do you reduce alert noise in a notification workflow?",
+  "rubrik": [
+   {
+    "regex": "(?i)severity|önem|level",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dedup|group|grup",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)channel|slack|email|kanal",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)quiet|schedule|rate",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-ajan-is-akisi-kur",
+  "model": "sonnet",
+  "istem": "How do you add an LLM step to an automation safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)validate|schema|json",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)approval|human|onay",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)prompt|tool",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)log|cost|limit",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-otomasyon-izleme",
+  "model": "haiku",
+  "istem": "What metrics do you track for automated workflows?",
+  "rubrik": [
+   {
+    "regex": "(?i)success|failure|başarı|hata",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)duration|latency|süre",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)alert|threshold|eşik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cost|volume|execution",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-kutuphane-dokuman",
+  "model": "haiku",
+  "istem": "How do you check the current API for a library before using it?",
+  "rubrik": [
+   {
+    "regex": "(?i)version|sürüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)official|resmi|docs",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)example|sample|örnek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)changelog|deprecat|migration",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-web-arastirma",
+  "model": "sonnet",
+  "istem": "How do you research a technical question reliably on the web?",
+  "rubrik": [
+   {
+    "regex": "(?i)primary|official|birincil|resmi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cross|compare|çapraz|conflict",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)date|current|güncel",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cite|source|link|kaynak",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-youtube-ozet",
+  "model": "haiku",
+  "istem": "How do you summarize a video link cheaply?",
+  "rubrik": [
+   {
+    "regex": "(?i)caption|transcript|altyazı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timestamp|zaman",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)summary|özet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)frame|screenshot|kare",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-kod-tabani-kesfi",
+  "model": "haiku",
+  "istem": "How do you quickly understand an unfamiliar repository?",
+  "rubrik": [
+   {
+    "regex": "(?i)entry point|main|giriş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)structure|module|folder|dizin",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)readme|test|config",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)trace|call|dependency",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ara-repo-karsilastirma",
+  "model": "sonnet",
+  "istem": "How do you compare two open source libraries for adoption?",
+  "rubrik": [
+   {
+    "regex": "(?i)license|lisans",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)maintain|commit|activity|aktif",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)stars|downloads|issues",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fit|criteria|ölçüt",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ara-lisans-kontrol",
+  "model": "haiku",
+  "istem": "How do you decide if you can use code from an external repo?",
+  "rubrik": [
+   {
+    "regex": "(?i)license|lisans",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mit|apache|gpl",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)condition|attribution|koşul",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)no license|unlicensed|yok",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-makale-ozet",
+  "model": "haiku",
+  "istem": "How do you summarize a research paper accurately?",
+  "rubrik": [
+   {
+    "regex": "(?i)claim|iddia",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)evidence|kanıt|data",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)limit|sınır|caveat",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)method|sonuç|result",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-ogrenme-plani",
+  "model": "haiku",
+  "istem": "Make a one week plan to learn a new web framework.",
+  "rubrik": [
+   {
+    "regex": "(?i)day|gün|week|hafta",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)exercise|practice|alıştırma",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)goal|milestone|hedef",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)project|build|checkpoint",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ara-arac-degerlendirme",
+  "model": "sonnet",
+  "istem": "How do you evaluate a new dev tool before adopting it?",
+  "rubrik": [
+   {
+    "regex": "(?i)need|ihtiyaç",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cost|price|maliyet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)security|risk|license",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)alternative|compare|alternatif",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ara-sorun-arastirma",
+  "model": "haiku",
+  "istem": "How do you research an unfamiliar error message?",
+  "rubrik": [
+   {
+    "regex": "(?i)exact|tam|quote",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)issue|github|stack",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)version|sürüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fix|workaround|çözüm",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-dokuman-indeksle",
+  "model": "haiku",
+  "istem": "How do you organize scattered project notes into a searchable index?",
+  "rubrik": [
+   {
+    "regex": "(?i)index|indeks",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tag|etiket",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)link|bağlantı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)structure|folder|başlık",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ara-rakip-analizi",
+  "model": "sonnet",
+  "istem": "How do you build a competitor comparison for a SaaS product?",
+  "rubrik": [
+   {
+    "regex": "(?i)pricing|fiyat",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)feature|özellik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)positioning|segment|konum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)source|public|kaynak",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ara-web-kazima",
+  "model": "sonnet",
+  "istem": "What rules do you follow when scraping a public website?",
+  "rubrik": [
+   {
+    "regex": "(?i)robots|terms|şart",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rate|delay|throttle|yavaş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)selector|parse|json",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cache|user.?agent",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-yeni-arac-kurulum-arastirma",
+  "model": "sonnet",
+  "istem": "How do you research install steps and requirements for a new CLI tool?",
+  "rubrik": [
+   {
+    "regex": "(?i)official|resmi|docs",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)requirement|prerequisite|ön koşul",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)windows|os|platform",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)version|path|env",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-commit-mesaji",
+  "model": "haiku",
+  "istem": "Write a commit message for a change that fixes a null check in the login handler.",
+  "rubrik": [
+   {
+    "regex": "(?i)fix\\(|fix:",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)scope|login",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)null",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)why|because|neden|reason",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "git-dal-stratejisi",
+  "model": "haiku",
+  "istem": "How do you structure branches for two parallel features?",
+  "rubrik": [
+   {
+    "regex": "(?i)branch|dal",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)worktree",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rebase|merge",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)short.?lived|pull request|pr",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "git-pr-aciklama",
+  "model": "haiku",
+  "istem": "Write a PR description for adding rate limiting to an API.",
+  "rubrik": [
+   {
+    "regex": "(?i)summary|özet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)test|kanıt|evidence",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)risk|rollback",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)scope|breaking|issue",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-ci-boru-hatti",
+  "model": "sonnet",
+  "istem": "Sketch a GitHub Actions workflow for a .NET project.",
+  "rubrik": [
+   {
+    "regex": "(?i)on:|trigger|push|pull_request",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)build|test",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cache",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)matrix|artifact|lint|setup-dotnet",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "git-yayin-oncesi-kontrol",
+  "model": "sonnet",
+  "istem": "Give a pre-ship checklist for a web release.",
+  "rubrik": [
+   {
+    "regex": "(?i)test",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)migration|database|şema",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|geri",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)flag|monitor|canary|izle",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "git-canary-izleme",
+  "model": "sonnet",
+  "istem": "How do you roll out a risky change with a canary?",
+  "rubrik": [
+   {
+    "regex": "(?i)percent|yüzde|5%|gradual",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)metric|error rate|latency",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)abort|rollback|geri",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)threshold|eşik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-deploy-hazirlik",
+  "model": "sonnet",
+  "istem": "What do you verify before the first deploy of a web app?",
+  "rubrik": [
+   {
+    "regex": "(?i)env|environment|ortam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)build",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)domain|dns|https",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|health|log",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "git-cakisma-cozucu",
+  "model": "sonnet",
+  "istem": "How do you resolve a tricky merge conflict safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)both|iki taraf|intent|amaç",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)test",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)conflict marker|<<<<<<<|markers",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)abort|backup|diff",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-surum-numaralama",
+  "model": "haiku",
+  "istem": "How do you decide the next semantic version?",
+  "rubrik": [
+   {
+    "regex": "(?i)major",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)minor",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)patch",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)breaking|kırıcı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tag|changelog",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-gecmis-temizle",
+  "model": "sonnet",
+  "istem": "How do you remove an accidentally committed file from history safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)backup|yedek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)filter|rebase|bfg|filter-repo",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)force|push|lease",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rotate|secret|credential",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-issue-triyaj",
+  "model": "haiku",
+  "istem": "How do you triage a backlog of 50 issues quickly?",
+  "rubrik": [
+   {
+    "regex": "(?i)duplicate|tekrar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)severity|priority|öncelik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)label|etiket",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)next|owner|sahip",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-surum-notlari",
+  "model": "haiku",
+  "istem": "Turn three merged changes into release notes.",
+  "rubrik": [
+   {
+    "regex": "(?i)user|kullanıcı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)breaking|kırıcı|migration",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fix|feature|improve",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)version|date|sürüm",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-niyet-netlestirme",
+  "model": "haiku",
+  "istem": "A user says make the app faster. What do you clarify?",
+  "rubrik": [
+   {
+    "regex": "(?i)question|soru",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)assumption|varsayım",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)acceptance|kabul|criteria|ölçüt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)metric|measure|ölç|baseline",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "pln-prd-yazar",
+  "model": "sonnet",
+  "istem": "List the sections of a short PRD for a search feature.",
+  "rubrik": [
+   {
+    "regex": "(?i)goal|hedef",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)non.?goal|out of scope|kapsam dışı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)acceptance|kabul",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)user|metric|story",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-gorev-bolme",
+  "model": "sonnet",
+  "istem": "Break a user login feature into ordered tasks.",
+  "rubrik": [
+   {
+    "regex": "(?i)order|sıra",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)dependency|bağımlı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)test|check|doğrula",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)small|task|görev",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "pln-mimari-plan",
+  "model": "opus",
+  "istem": "Propose an architecture for adding notifications to an app.",
+  "rubrik": [
+   {
+    "regex": "(?i)component|bileşen|module",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)data flow|akış|queue|event",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trade.?off|alternative|seçenek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)risk|failure|scale",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-kapsam-kesici",
+  "model": "sonnet",
+  "istem": "A plan has 12 features and 2 weeks. How do you cut it?",
+  "rubrik": [
+   {
+    "regex": "(?i)smallest|mvp|minimum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)defer|later|ertele",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)value|impact|etki",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)risk|dependency",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-risk-kaydi",
+  "model": "haiku",
+  "istem": "List top risks for migrating a database.",
+  "rubrik": [
+   {
+    "regex": "(?i)likelihood|olasılık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)impact|etki",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)mitigat|önlem",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)owner|trigger|rollback",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "pln-kabul-olcutleri",
+  "model": "haiku",
+  "istem": "Write acceptance criteria for a password reset feature.",
+  "rubrik": [
+   {
+    "regex": "(?i)given|when|then",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)error|invalid|expired|hata",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)measur|within|seconds|sayı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)email|token|link",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "pln-teknik-spec",
+  "model": "sonnet",
+  "istem": "What sections does a technical spec for a new API need?",
+  "rubrik": [
+   {
+    "regex": "(?i)interface|api|endpoint",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)edge|error|hata",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)open question|açık soru",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)test|migration|compat",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "pln-dalga-plani",
+  "model": "sonnet",
+  "istem": "Write a three step plan to add a feature flag to an app.",
+  "rubrik": [
+   {
+    "regex": "(?i)step|adım",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)file|dosya",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)verify|test|doğrula",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rollback|flag|order",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "pln-fikir-olgunlastir",
+  "model": "sonnet",
+  "istem": "Refine the idea of a habit tracker app into options.",
+  "rubrik": [
+   {
+    "regex": "(?i)option|seçenek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trade.?off|pros|cons",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)recommend|öneri",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)user|audience|kitle",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-bagimlilik-haritasi",
+  "model": "haiku",
+  "istem": "How do you find the critical path in a plan?",
+  "rubrik": [
+   {
+    "regex": "(?i)critical path|kritik yol",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)parallel|paralel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dependency|bağımlı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)block|sequence|sıra",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-karar-kaydi",
+  "model": "haiku",
+  "istem": "How do you record a design decision briefly?",
+  "rubrik": [
+   {
+    "regex": "(?i)context|bağlam",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)decision|karar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reason|rationale|gerekçe",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)alternative|reject|seçenek",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-kod-inceleme-genel",
+  "model": "sonnet",
+  "istem": "What do you check in a code review of a 200 line change?",
+  "rubrik": [
+   {
+    "regex": "(?i)correct|bug|doğruluk",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)test",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)security|güvenlik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)readab|naming|design|performance",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "inc-sadelestirme",
+  "model": "sonnet",
+  "istem": "How do you simplify a long function safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)test|behavior|davranış",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)extract|split|böl",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)duplicat|dead|tekrar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)small|step|commit",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-dogrulama-oncesi-bitis",
+  "model": "haiku",
+  "istem": "What evidence do you require before saying a bug fix is done?",
+  "rubrik": [
+   {
+    "regex": "(?i)test|run|çalıştır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)output|evidence|kanıt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reproduc|before after|önce sonra",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)regression|edge",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-ponytail-kod",
+  "model": "haiku",
+  "istem": "What signs of over engineering do you look for in a change?",
+  "rubrik": [
+   {
+    "regex": "(?i)abstraction|soyut",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)unused|dead|kullanılmayan",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)config|single|tek kullan",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)delete|remove|sil",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "inc-plan-incele",
+  "model": "sonnet",
+  "istem": "What gaps do you look for in an implementation plan?",
+  "rubrik": [
+   {
+    "regex": "(?i)gap|missing|eksik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)risk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)test|verify",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|dependency|scope",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "inc-uretim-hazirligi",
+  "model": "opus",
+  "istem": "What do you check before a service goes to production?",
+  "rubrik": [
+   {
+    "regex": "(?i)logging|monitor|metric",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)failure|timeout|retry",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)security|secret",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollout|rollback|scal",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "inc-inceleme-geri-bildirim",
+  "model": "haiku",
+  "istem": "How do you handle a review comment you think is wrong?",
+  "rubrik": [
+   {
+    "regex": "(?i)verify|doğrula",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)explain|gerekçe|reason",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fix|apply|uygula",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)polite|discuss|tartış",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-karpathy-ilkeleri",
+  "model": "haiku",
+  "istem": "How do you judge whether a diff stays within the requested scope?",
+  "rubrik": [
+   {
+    "regex": "(?i)scope|kapsam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)unrelated|ilgisiz",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)assumption|varsayım",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)minimal|simple|small",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "inc-devex-inceleme",
+  "model": "sonnet",
+  "istem": "How do you review the developer experience of a repo?",
+  "rubrik": [
+   {
+    "regex": "(?i)setup|kurulum|onboard",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)error message|hata mesaj",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)docs|readme|doküman",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)time|minutes|süre|first run",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "inc-retro-yazar",
+  "model": "haiku",
+  "istem": "Write a 5 line retrospective for a finished sprint.",
+  "rubrik": [
+   {
+    "regex": "(?i)worked|iyi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)failed|improve|kötü|sorun",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)action|aksiyon",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)owner|next|sonraki",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "inc-test-kalitesi-inceleme",
+  "model": "sonnet",
+  "istem": "What makes a test suite review pass for a PR?",
+  "rubrik": [
+   {
+    "regex": "(?i)assert",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)edge|boundary|sınır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)isolat|mock|independent",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)name|readab|flaky",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-pr-boyut-kontrol",
+  "model": "haiku",
+  "istem": "When should a PR be split and how?",
+  "rubrik": [
+   {
+    "regex": "(?i)size|lines|satır|büyük",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)split|böl",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)single|focus|tek amaç",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)review|test",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-baglam-butcesi",
+  "model": "haiku",
+  "istem": "How do you find what is eating a model context window?",
+  "rubrik": [
+   {
+    "regex": "(?i)token",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)largest|biggest|büyük",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)trim|compact|kısalt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)measure|ölç|budget",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-log-ozetleyici",
+  "model": "haiku",
+  "istem": "How do you read a 50 MB build log without loading it?",
+  "rubrik": [
+   {
+    "regex": "(?i)grep|filter|filtre",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)count|sayı|uniq",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)first|root|ilk hata",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)line|context|tail",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-oturum-kaydi",
+  "model": "haiku",
+  "istem": "What goes in a good session handoff note?",
+  "rubrik": [
+   {
+    "regex": "(?i)decision|karar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)state|current|durum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)next|sonraki",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)file|branch|open",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-hafiza-arama",
+  "model": "haiku",
+  "istem": "How do you find a decision made in an earlier session?",
+  "rubrik": [
+   {
+    "regex": "(?i)search|keyword|ara",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)date|tarih",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)source|session|oturum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)verify|summary|özet",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-alt-ajan-dagitim",
+  "model": "sonnet",
+  "istem": "How do you decide what to parallelize across subagents?",
+  "rubrik": [
+   {
+    "regex": "(?i)independent|bağımsız",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)parallel|paralel",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)summary|özet",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)contract|scope|conflict",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-model-secimi",
+  "model": "haiku",
+  "istem": "How do you decide between small and large models for tasks?",
+  "rubrik": [
+   {
+    "regex": "(?i)haiku|small|küçük",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sonnet|opus|large|büyük",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cost|maliyet|cheap",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)verify|sample|örnekle",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-cikti-sikistirma",
+  "model": "haiku",
+  "istem": "How do you shrink a 2000 line test run to a useful summary?",
+  "rubrik": [
+   {
+    "regex": "(?i)summary|özet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)count|sayı|pass|fail",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)name|failing|kırmızı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)save|log|file",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-maliyet-denetci",
+  "model": "haiku",
+  "istem": "How do you find where AI or API spend is wasted?",
+  "rubrik": [
+   {
+    "regex": "(?i)repeat|duplicate|tekrar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cache|batch",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)limit|ceiling|sınır|budget",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)measure|log|usage",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-dosya-okuma-disiplini",
+  "model": "haiku",
+  "istem": "How do you find a function in a big repo with minimal reading?",
+  "rubrik": [
+   {
+    "regex": "(?i)grep|search|ara",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)range|line|satır|offset",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)narrow|dar|small",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)index|graph|symbol",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-bilgi-tabani-hazirla",
+  "model": "sonnet",
+  "istem": "How do you build a small knowledge base for a project?",
+  "rubrik": [
+   {
+    "regex": "(?i)tag|etiket",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)short|concise|kısa",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)date|stale|güncel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)source|link|index",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-skill-yazar",
+  "model": "sonnet",
+  "istem": "What makes a skill description trigger reliably?",
+  "rubrik": [
+   {
+    "regex": "(?i)trigger|tetik|use when",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)description|açıklama",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)reference|progressive|referans",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)short|concise|token",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-hook-yazar",
+  "model": "sonnet",
+  "istem": "How do you write a PreToolUse hook that blocks a risky command?",
+  "rubrik": [
+   {
+    "regex": "(?i)PreToolUse|pretooluse",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)matcher|match",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)exit|block|deny|2",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)json|stdin|input",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-mcp-sunucu-yazar",
+  "model": "sonnet",
+  "istem": "What makes a good MCP tool definition?",
+  "rubrik": [
+   {
+    "regex": "(?i)tool|araç",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)schema|input|şema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)error|hata",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)description|name|stdio|transport",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-plugin-iskelet",
+  "model": "sonnet",
+  "istem": "What files make up a Claude Code plugin?",
+  "rubrik": [
+   {
+    "regex": "(?i)plugin\\.json|manifest",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)commands|agents|hooks|skills",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)directory|dizin|structure",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)settings|version",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-ajan-tanimi-yazar",
+  "model": "sonnet",
+  "istem": "How do you define a focused subagent?",
+  "rubrik": [
+   {
+    "regex": "(?i)frontmatter|name|description",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tools|araç",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)model",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)prompt|short|output|çıktı",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-slash-komut-yazar",
+  "model": "haiku",
+  "istem": "How do you create a slash command with arguments?",
+  "rubrik": [
+   {
+    "regex": "(?i)\\$ARGUMENTS|argument|argüman",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)allowed-tools|tools|izin",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)markdown|frontmatter|description",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)step|adım",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-claude-api-gelistirici",
+  "model": "sonnet",
+  "istem": "How do you integrate the Claude API with tool use?",
+  "rubrik": [
+   {
+    "regex": "(?i)messages|api|sdk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tool|tool_use",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cache|caching",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)stream|retry|rate",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-prompt-denetci",
+  "model": "sonnet",
+  "istem": "How do you tighten a vague agent prompt?",
+  "rubrik": [
+   {
+    "regex": "(?i)format|biçim|schema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ambig|belirsiz|vague",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)example|örnek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)inject|guard|constraint|sınır",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-skill-test",
+  "model": "sonnet",
+  "istem": "How do you measure whether a skill description improves triggering?",
+  "rubrik": [
+   {
+    "regex": "(?i)trigger|tetik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rubric|rubrik|score|puan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)baseline|before after|önce sonra",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sample|run|paired",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-ajan-orkestrasyon",
+  "model": "opus",
+  "istem": "How do you structure a multi agent workflow reliably?",
+  "rubrik": [
+   {
+    "regex": "(?i)role|rol",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)handoff|devir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)state|context|durum",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)approval|human|failure|onay",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-mcp-kurulum-denetci",
+  "model": "haiku",
+  "istem": "What do you check before enabling a new MCP server?",
+  "rubrik": [
+   {
+    "regex": "(?i)permission|izin|scope",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)secret|token|env",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)source|license|lisans",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)network|write|read",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-migrasyon-model",
+  "model": "sonnet",
+  "istem": "How do you migrate an app to a newer Claude model safely?",
+  "rubrik": [
+   {
+    "regex": "(?i)model id|version|sürüm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)eval|test|compare",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)prompt|regress",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|baseline|fallback",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-codex-claude-koprusu",
+  "model": "haiku",
+  "istem": "How do you port instructions from Claude Code to another agent CLI?",
+  "rubrik": [
+   {
+    "regex": "(?i)instruction|talimat|claude\\.md|agents\\.md",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)config|setting|ayar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)secret|token",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)mapping|equivalent|eşdeğer",
+    "puan": 3
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-ogrenilen-ders",
+  "model": "haiku",
+  "istem": "How do you turn a mistake into a reusable rule?",
+  "rubrik": [
+   {
+    "regex": "(?i)rule|kural",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)evidence|kanıt|example",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)short|one line|tek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)generaliz|root cause|kök",
+    "puan": 3
+   }
+  ]
+ }
+]
