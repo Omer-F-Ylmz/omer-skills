@@ -83,8 +83,9 @@ def ayristir(stdout):
             o["usage"] = x.get("usage") or {}
             o["usd"] = x.get("total_cost_usd") or 0.0
             o["sure_ms"] = x.get("duration_ms") or 0
-            o["metin"] = str(x.get("result") or "")
-            o["tur"] = x.get("num_turns") or 0
+            # Arka plan Agent'ı akışta birden çok result üretir, sonuncusu boş (num_turns 0) → yanıtı ezmesin
+            o["metin"] = str(x.get("result") or "") or o["metin"]
+            o["tur"] = x.get("num_turns") or o["tur"]
             o["model"] = x.get("modelUsage") or {}
     o["usage"] = o["usage"] or o.get("usage_ilk") or {}
     return o

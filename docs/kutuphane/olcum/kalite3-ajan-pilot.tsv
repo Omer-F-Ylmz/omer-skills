@@ -1,0 +1,14 @@
+aile	ajan	kol	puan	usd	jeton	ana_jeton	alt_model	sure
+arastirma-ogrenme	ara-arac-degerlendirme	ajan	10	0.3091	821512	726299	claude-sonnet-5-5	95.1
+arastirma-ogrenme	ara-arac-degerlendirme	ana	10	0.2849	75400	75400	claude-sonnet-5-5	62.0
+arastirma-ogrenme	ara-dokuman-indeksle	ana	10	0.0142	76151	76151	claude-haiku-5-5	64.2
+backend-dotnet	dn-api-surumleme	ana	10	0.2917	76080	76080	claude-sonnet-5-5	55.6
+backend-dotnet	dn-async-denetci	ana	10	0.2894	75848	75848	claude-sonnet-5-5	54.7
+belge	dok-adr-yazar	ajan	10	0.4409	1015000	736171	claude-sonnet-5-5	144.7
+belge	dok-adr-yazar	ana	10	0.289	75810	75810	claude-sonnet-5-5	53.7
+belge	dok-api-dokumani	ajan	10	0.2937	817903	723935	claude-sonnet-5-5	95.0
+belge	dok-api-dokumani	ana	10	0.2829	75161	75161	claude-sonnet-5-5	50.5
+blender	bl-animasyon-anahtar	ana	10	0.3196	153686	153686	claude-sonnet-5-5	92.5
+blender	bl-dokuya-pisirme	ajan	10	0.3331	879345	734698	claude-sonnet-5-5	113.4
+blender	bl-dokuya-pisirme	ana	10	0.2884	75742	75742	claude-sonnet-5-5	64.2
+frontend	fe-a11y-denetci	ana	10	0.0142	76224	76224	claude-haiku-5-5	65.7

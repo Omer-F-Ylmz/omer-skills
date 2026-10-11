@@ -42,14 +42,24 @@ def alt(mu):
     return ",".join(sorted(d)) or "-", jeton(d)
 
 
+def dene(*a, **k):
+    """Boş yanıt puan 0 değil ölçüm hatasıdır: bir kez yeniden denenir, yine boşsa puan() 'hata' yazar."""
+    o = kosucu.kos(*a, **k)
+    return o if o["metin"].strip() else kosucu.kos(*a, **k)
+
+
+def puan(o, rubrik):
+    return kosucu.puanla(o["metin"], rubrik) if o["metin"].strip() else "hata"
+
+
 def kos(ad, t, ezme, gorev):
     istem = f"Delegate this task to the {ad} subagent with the Agent tool, then return its answer verbatim.\n\n{gorev}"
-    return kosucu.kos(istem, ek(ad, t, ezme), model=ANA, butce=1.5)
+    return dene(istem, ek(ad, t, ezme), model=ANA, butce=1.5)
 
 
 def ana(gorev, model):
     """Ana oturum kolu: görev ajansız, kurulu skill'lerle, ajanın modelinde."""
-    return kosucu.kos(gorev, [], model=model, butce=1.5)
+    return dene(gorev, [], model=model, butce=1.5)
 
 
 def pilot(en_fazla=48):
@@ -63,7 +73,7 @@ def pilot(en_fazla=48):
     cagri = 0
     for aile in sorted(p for p in AJAN.iterdir() if p.is_dir()):
         for ad in [y.stem for y in sorted(aile.glob("*.md")) if y.stem in gorevler][:2]:
-            if (ad, "ana") in bitti:
+            if {(ad, "ajan"), (ad, "ana")} <= bitti:
                 continue
             if cagri + 2 > en_fazla:
                 return
@@ -78,7 +88,7 @@ def pilot(en_fazla=48):
                 am, aj = alt(mu) if kol == "ajan" else (",".join(sorted(mu)) or "-", 0)
                 (YANIT / f"{ad}-{kol}.md").write_text(o["metin"], encoding="utf-8", newline="\n")
                 with PILOT.open("a", encoding="utf-8", newline="\n") as f:
-                    f.write("\t".join(map(str, [aile.name, ad, kol, kosucu.puanla(o["metin"], g["rubrik"]), round(o["usd"], 4),
+                    f.write("\t".join(map(str, [aile.name, ad, kol, puan(o, g["rubrik"]), round(o["usd"], 4),
                                                 jeton(mu), jeton(mu) - aj, am, o["sure"]])) + "\n")
 
 
@@ -102,12 +112,18 @@ def main(kip):
         for aile in sorted(p for p in AJAN.iterdir() if p.is_dir()):
             ad = next(y.stem for y in sorted(aile.glob("*.md")) if y.stem in gorevler)
             isler += [(aile.name, ad, m, m) for m in ("sonnet", "opus")]
+    bitti = {tuple(s.split("\t")[1:5]) for s in TSV.read_text(encoding="utf-8").splitlines()[1:]}
+    YANIT.mkdir(parents=True, exist_ok=True)
     for aile, ad, model, ezme in isler:
+        kol = "yok" if ezme is None else (ezme or "bos")
+        if kip == "karsilastir" and (kip, aile, ad, kol) in bitti:
+            continue
         g = gorevler[ad]
         _, t = tanim(AJAN / aile / f"{ad}.md", model)
         o = kos(ad, t, ezme, g["istem"])
+        (YANIT / f"{ad}-{kol}.md").write_text(o["metin"], encoding="utf-8", newline="\n")
         am, aj = alt(o.get("model") or {})
-        satir(time.strftime("%H:%M"), kip, aile, ad, "yok" if ezme is None else (ezme or "bos"), am, kosucu.puanla(o["metin"], g["rubrik"]),
+        satir(time.strftime("%H:%M"), kip, aile, ad, kol, am, puan(o, g["rubrik"]),
               round(o["usd"], 4), jeton(o.get("model") or {}), aj, o["sure"], sum(a == f"Agent:{ad}" for a in o["araclar"]))
         if kip == "karsilastir" and model not in am:
             sys.exit(f"{ad}: {model} ezmesi istendi, alt ajan modeli {am} — ezme işlemiyor, durdu")

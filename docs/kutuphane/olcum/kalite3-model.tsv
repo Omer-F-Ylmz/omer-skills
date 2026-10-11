@@ -1,0 +1,15 @@
+tarih	kip	aile	ajan	kol	alt_model	puan	usd	jeton	alt_jeton	sure	agent_cagri
+18:18	dogrula	frontend	fe-tasarim-yonu	yok	claude-sonnet-5-5	0	0.1385	324329	94237	57.2	1
+18:20	dogrula	frontend	fe-tasarim-yonu	bos	-	5	1.0347	1373364	0	97.2	1
+22:04	karsilastir	arastirma-ogrenme	ara-arac-degerlendirme	sonnet	claude-sonnet-5-5	10	0.9469	1028848	305294	118.0	1
+22:06	karsilastir	arastirma-ogrenme	ara-arac-degerlendirme	opus	claude-opus-5-5	10	0.4626	816775	96244	99.0	1
+22:10	karsilastir	backend-dotnet	dn-api-surumleme	opus	claude-opus-5-5	10	0.6286	1021861	281878	149.4	1
+22:17	karsilastir	blender	bl-animasyon-anahtar	opus	claude-opus-5-5	7	0.4214	820098	95179	94.1	1
+22:28	karsilastir	otomasyon	otm-ajan-is-akisi-kur	opus	claude-opus-5-5	10	0.4292	821736	95092	112.7	1
+22:30	karsilastir	oyun-mod	oyn-dusman-ai	sonnet	claude-sonnet-5-5	10	0.3214	829666	95634	100.6	1
+22:33	karsilastir	oyun-mod	oyn-dusman-ai	opus	claude-opus-5-5	10	0.6819	1083232	348867	211.4	1
+22:35	karsilastir	surec-ajan-arac	ajn-ajan-orkestrasyon	sonnet	claude-sonnet-5-5	10	0.3212	869323	143876	130.6	1
+22:38	karsilastir	surec-ajan-arac	ajn-ajan-orkestrasyon	opus	claude-opus-5-5	10	0.8111	1114453	379328	144.0	1
+22:40	karsilastir	surec-git-yayin	git-cakisma-cozucu	sonnet	claude-sonnet-5-5	10	0.3797	857433	123792	125.0	1
+22:42	karsilastir	surec-git-yayin	git-cakisma-cozucu	opus	claude-opus-5-5	10	0.577	925579	200788	128.7	1
+22:46	karsilastir	frontend	fe-a11y-denetci	sonnet	claude-sonnet-5-5	10	0.2605	503006	271825	-	1

@@ -81,3 +81,37 @@ def test_pilot_departman_basina_iki_ajan_iki_kol_tavanli_surer(tmp_path, monkeyp
     satirlar = (tmp_path / "p.tsv").read_text(encoding="utf-8").splitlines()
     assert len(cagri) == 8 and len(satirlar) == 9 and satirlar[-1].split("\t")[1:4] == ["b1", "ana", "7"]
     assert (tmp_path / "yanit" / "b1-ana.md").read_text(encoding="utf-8") == "ok"  # Jev yargıcı için
+
+
+def test_ayristir_arka_plan_ajaninda_bos_son_result_yaniti_ezmez():
+    # devam-6 kök neden: Agent arka planda koşunca -p akışında 3 result olur (132 kr "arka planda" → 2186 kr yanıt → 0 kr, num_turns 0);
+    # son result'ı almak karsilastir/pilot ajan kolunun ~yarısını 0 puan yaptı.
+    s = "\n".join(json.dumps({"type": "result", "result": r, "num_turns": n, "total_cost_usd": 0.26})
+                  for r, n in (("running in background", 2), ("YANIT", 1), ("", 0)))
+    o = kosucu.ayristir(s)
+    assert o["metin"] == "YANIT" and o["usd"] == 0.26
+
+
+def test_bos_yanit_bir_kez_yeniden_denenir_sonra_hata(monkeypatch):
+    cagri = []
+    monkeypatch.setattr(kosucu, "kos", lambda *a, **k: cagri.append(1) or {"metin": " "})
+    o = mo.ana("i", "sonnet")
+    assert len(cagri) == 2 and mo.puan(o, [{"regex": ".", "puan": 10}]) == "hata"
+    assert mo.puan({"metin": "ok"}, [{"regex": "ok", "puan": 7}]) == 7
+
+
+def test_karsilastir_yaniti_saklar_ve_bitmis_satiri_atlar(tmp_path, monkeypatch):
+    aile = tmp_path / "ajan" / "frontend"
+    aile.mkdir(parents=True)
+    (aile / "fe-x.md").write_text("---\nname: fe-x\ndescription: d\nmodel: opus\n---\nG\n", encoding="utf-8")
+    (tmp_path / "ajan" / "gorevler.json").write_text(json.dumps([{"ajan": "fe-x", "istem": "i", "rubrik": []}]), encoding="utf-8")
+    monkeypatch.setattr(mo, "AJAN", tmp_path / "ajan")
+    monkeypatch.setattr(mo, "TSV", tmp_path / "m.tsv")
+    monkeypatch.setattr(mo, "YANIT", tmp_path / "yanit")
+    cagri = []
+    monkeypatch.setattr(mo, "kos", lambda ad, t, ezme, gorev: cagri.append(ezme) or {
+        "metin": "Y", "usd": 0.1, "sure": 1, "araclar": [], "model": {f"claude-{ezme}-5-5": {"inputTokens": 1}}})
+    mo.main("karsilastir")
+    mo.main("karsilastir")  # sürdürme: yazılmış satırlar yeniden koşmaz
+    assert cagri == ["sonnet", "opus"]
+    assert (tmp_path / "yanit" / "fe-x-opus.md").read_text(encoding="utf-8") == "Y"
