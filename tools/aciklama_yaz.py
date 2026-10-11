@@ -63,11 +63,14 @@ def gecerli(eski, yeni):
 
 
 def claude(istem, model, timeout=900):
-    """Tek `claude -p`, istem stdin'den (Windows komut satırı sınırı). Araçsız, boş geçici klasörde."""
+    """Tek `claude -p`, istem stdin'den (Windows komut satırı sınırı). Araçsız, boş geçici klasörde.
+    MCP ve skill listesi yüklenmez (saf metin işi): ENABLE_TOOL_SEARCH=false iken her çağrı ~900 MCP aracı +
+    ~2000 skill listesini önek olarak taşıyor ve her oturum ~75 alt süreç / ~3-4 GB açıyordu."""
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
     with tempfile.TemporaryDirectory(prefix="aciklama-", ignore_cleanup_errors=True) as bos:
         t = time.monotonic()
         r = subprocess.run(["claude", "-p", "--model", model, "--output-format", "json", "--max-turns", "1",
+                            "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands",
                             "--disallowedTools", "Bash,Edit,Write,Read,Glob,Grep,WebFetch,WebSearch,Task,Agent"],
                            input=istem, capture_output=True, encoding="utf-8", errors="replace", env=env, cwd=bos,
                            timeout=timeout, creationflags=PENCERESIZ)
