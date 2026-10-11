@@ -685,34 +685,34 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | xmbSQz-PNMM | 537.1 | AIE CODE Day 2: ft Google Deepmind, Anth | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
 | wyUdpmj9-64 | 506.6 | AI Engineer Paris 2025 (Day 2) | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
 | z4zXicOAF28 | 517.9 | AI Engineer World's Fair 2025 - Day 1 Ke | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
-| D7BzTxVVMuw | 506.6 | AI Engineer Summit 2025: Agent Engineeri | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| 5zE2sMka620 | 518.9 | AI Engineer World’s Fair 2024 — Keynotes | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| veShHxQYPzo | 290.0 | AI Engineer Summit 2023 — DAY 1 Livestre | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| HGZEvWWCc8E | 2.0 | Is this the best talk to type app for th | bağlantılı video (misjUj4Q_ho) | bekliyor |
-| ERmRT2-YLvI | 20.3 | Claude ile Sıfırdan Oyun Yapıyorum (kod  | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| D7BzTxVVMuw | 506.6 | AI Engineer Summit 2025: Agent Engineeri | bağlantılı video (-QFHIoCo-Ko) | işlendi: 8826f98 |
+| 5zE2sMka620 | 518.9 | AI Engineer World’s Fair 2024 — Keynotes | bağlantılı video (-QFHIoCo-Ko) | işlendi: 8826f98 |
+| veShHxQYPzo | 290.0 | AI Engineer Summit 2023 — DAY 1 Livestre | bağlantılı video (-QFHIoCo-Ko) | işlendi: 8826f98 |
+| HGZEvWWCc8E | 2.0 | Is this the best talk to type app for th | bağlantılı video (misjUj4Q_ho) | işlendi: 8826f98 |
+| ERmRT2-YLvI | 20.3 | Claude ile Sıfırdan Oyun Yapıyorum (kod  | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
 | wjvUIPylcy0 | 88.1 | CLAUDE CODE FULL KURS 1.5 SAAT: 0'dan ba | bağlantılı video (ryX4RSMJf9Q) | raporlu |
 | T7xJ1gaZP7I | 8.4 | Uygulamamız $100K gelir elde etti, şimdi | bağlantılı video (ryX4RSMJf9Q) | raporlu |
-| Iaxk_8ftJ5s | 20.1 | Build a Game with AI - Full PixelLab Gam | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| r8ySiSRRvz4 | 10.8 | Level Up Your Game: Custom Sprite Animat | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| 9eAlZlQmZBg | 8.3 | The Ultimate PixelLab Inpainting Guide f | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| oCJWxfEwX-o | 11.2 | PixelLab Character States: The New Way t | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| sE1s5ZYfxqk | 8.1 | Pixellab Tutorial: Tilesets (Isometric/H | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| fvPmuk-usgw | 7.0 | Vibe Coding a Full Game with PixelLab MC | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| Iaxk_8ftJ5s | 20.1 | Build a Game with AI - Full PixelLab Gam | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| r8ySiSRRvz4 | 10.8 | Level Up Your Game: Custom Sprite Animat | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| 9eAlZlQmZBg | 8.3 | The Ultimate PixelLab Inpainting Guide f | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| oCJWxfEwX-o | 11.2 | PixelLab Character States: The New Way t | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| sE1s5ZYfxqk | 8.1 | Pixellab Tutorial: Tilesets (Isometric/H | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| fvPmuk-usgw | 7.0 | Vibe Coding a Full Game with PixelLab MC | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
 | BdoUMKhZ1Ys | 4.8 | Build a Complete RPG UI Set with PixelLa | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
 | Hhx9QZwYoZY | 1.9 | Introducing Object Creator: Make Pixel A | bağlantılı video (ryX4RSMJf9Q) | işlendi: 00e995e |
-| moCpjMOOBGk | 12.7 | PixelLab Tutorial: How to Generate & Ani | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| j2bE9gq914U | 12.6 | How to Use Animate with Text in PixelLab | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| zghUW8fGqsM | 6.9 | This Tool Generates Pixel Animations for | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| qVDkp1baJkU | 7.2 | How to Create Interior Maps for Top-Down | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| sqhxhForIDQ | 2.3 | Voice SoundPack - Military Radio | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
-| XaYubuLtW8M | 10.6 | Claude Mods - The Biggest Claude Code Up | bağlantılı video (eN77oHqAiUU) | bekliyor |
-| 88zWBJ8L4y8 | 19.0 | How To Find Clients & Make Your First $1 | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| Cm0Tnm97mC4 | 14.3 | How to Make a Website in 10 Minutes / Ea | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| iIC4k0P6Wf8 | 6.4 | How to Setup A Professional Email Addres | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| 0_3A0uAkBZ0 | 3.7 | How to Make a FREE Logo in 5 Minutes / 3 | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| Bikzi6s5TfI | 35.5 | How to Make a Website / Step by Step 202 | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| fDTwHIKltpc | 26.0 | The EASY way to build a beautiful websit | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| HNAv85MfGUI | 26.1 | OpenClaw Full Tutorial for Beginners (St | bağlantılı video (r68MhqAUvR8) | bekliyor |
+| moCpjMOOBGk | 12.7 | PixelLab Tutorial: How to Generate & Ani | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| j2bE9gq914U | 12.6 | How to Use Animate with Text in PixelLab | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| zghUW8fGqsM | 6.9 | This Tool Generates Pixel Animations for | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| qVDkp1baJkU | 7.2 | How to Create Interior Maps for Top-Down | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| sqhxhForIDQ | 2.3 | Voice SoundPack - Military Radio | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
+| XaYubuLtW8M | 10.6 | Claude Mods - The Biggest Claude Code Up | bağlantılı video (eN77oHqAiUU) | işlendi: 8826f98 |
+| 88zWBJ8L4y8 | 19.0 | How To Find Clients & Make Your First $1 | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
+| Cm0Tnm97mC4 | 14.3 | How to Make a Website in 10 Minutes / Ea | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
+| iIC4k0P6Wf8 | 6.4 | How to Setup A Professional Email Addres | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
+| 0_3A0uAkBZ0 | 3.7 | How to Make a FREE Logo in 5 Minutes / 3 | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
+| Bikzi6s5TfI | 35.5 | How to Make a Website / Step by Step 202 | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
+| fDTwHIKltpc | 26.0 | The EASY way to build a beautiful websit | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
+| HNAv85MfGUI | 26.1 | OpenClaw Full Tutorial for Beginners (St | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
 | 0myoSPfSL2c | 28.6 | Wordpress Tutorial for Beginners (2026)  | bağlantılı video (r68MhqAUvR8) | bekliyor |
 | 65ALoG4S4mU | 20.6 | How To Create a Free Website in 2026 (wi | bağlantılı video (r68MhqAUvR8) | bekliyor |
 | 3YG3XLmBX4A | 14.2 | Elementor Wordpress Tutorial / Master th | bağlantılı video (r68MhqAUvR8) | bekliyor |
