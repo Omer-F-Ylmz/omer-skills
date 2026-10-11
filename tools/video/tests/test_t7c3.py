@@ -26,4 +26,20 @@ def test_c_yinelenen_kare_atilir_tavan(tmp_path, monkeypatch):
     assert pt.kare_ayikla(kr) == [kr[0], kr[2]]  # 2 ve 4, 1'in yinesi (dönüp gelen ekran dahil)
     monkeypatch.setattr(pt, "JETON_KARE", 2)
     kr = [kare(f"k{i}.jpg", 10 * i + 5) for i in range(8)]
-    assert len(pt.kare_ayikla(kr)) == 2
+    assert len(pt.kare_ayikla(kr)) == 2 and len(pt.kare_ayikla(kr, piksel=True)) == 2
+
+
+def test_c2_piksel_farki_yazi_degisimini_tutar(tmp_path):
+    """VİDEO-9: dHash aynı / yazı farklı kare C'de atılıyordu; C2 (goz.es_kare yöntemi) tutar, dönüp gelen eş ekranı atar."""
+    from video import metin as m
+
+    def kare(ad, yazi=False, ters=False):
+        im = Image.linear_gradient("L").rotate(270 if ters else 90).resize((480, 270))
+        if yazi:
+            im.paste(0, (120, 100, 150, 115))  # 30×15 yazı bloğu: 9×8 dHash'i değiştirmez, piksel oranı 0.0035 > ES_ORAN
+        im.save(p := tmp_path / ad)
+        return str(p)
+    a, b, c, d = kare("1.png"), kare("2.png", yazi=True), kare("3.png"), kare("4.png", ters=True)
+    dh = lambda y: m.dhash(Image.open(y).convert("L").resize((9, 8)).tobytes())
+    assert dh(a) == dh(b) and pt.kare_ayikla([a, b]) == [a]  # C'nin kaybı
+    assert pt.kare_ayikla([a, b, c, d], piksel=True) == [a, b, d]  # 3, 1'in eşi (dönüp gelen ekran)

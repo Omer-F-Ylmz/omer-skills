@@ -718,7 +718,7 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
     for v in kalan:
         kr = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
         istem = _istem([v], pk, hatalar, temizle)
-        if "C" in jt and len(kr2 := kare_ayikla(kr)) < len(kr):
+        if "C" in jt and len(kr2 := kare_ayikla(kr, piksel="C2" in jt)) < len(kr):
             kr, istem = kr2, istem + f"\n\nKARE GÖRSELLERİ ({len(kr2)}/{len(kr)}, sırayla; diğerleri yinelendiği için gönderilmedi): " + ", ".join(Path(k).name for k in kr2)
         with YAZ:
             butce = min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys))
@@ -766,14 +766,21 @@ def jeton_sema(v, jt, mdl):
     return s
 
 
-def kare_ayikla(kr):
-    """C: tutulan bir kareye dHash Hamming ≤ JETON_HAM olan kare atılır (dönüp gelen ekran dahil); kalan JETON_KARE üstüyse eşit aralıkla seçilir."""
+def kare_ayikla(kr, piksel=False):
+    """C: tutulan bir kareye dHash Hamming ≤ JETON_HAM olan kare atılır (dönüp gelen ekran dahil); kalan JETON_KARE üstüyse eşit aralıkla seçilir.
+    VİDEO-9 C2 (piksel=True): eşlik goz.es_kare yöntemiyle — 480×270 gri, |fark|>40 oranı < gz.ES_ORAN (dHash yazı değişimini görmüyordu)."""
+    import numpy as np
     from PIL import Image
     tut, hs = [], []
     for k in kr:
         with Image.open(k) as im:
-            h = m.dhash(im.convert("L").resize((9, 8)).tobytes())
-        if all(bin(h ^ x).count("1") > JETON_HAM for x in hs):
+            if piksel:
+                h = np.asarray(im.convert("L").resize((480, 270)), dtype=np.int16)
+                es = any((np.abs(h - x) > 40).mean() < gz.ES_ORAN for x in hs)
+            else:
+                h = m.dhash(im.convert("L").resize((9, 8)).tobytes())
+                es = any(bin(h ^ x).count("1") <= JETON_HAM for x in hs)
+        if not es:
             tut.append(k)
             hs.append(h)
     n = JETON_KARE
