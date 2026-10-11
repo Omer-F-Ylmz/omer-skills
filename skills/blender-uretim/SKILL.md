@@ -1,6 +1,6 @@
 ---
 name: blender-uretim
-description: "Blender'da 3D ürün üretimi: fincan/cezve modelle, ışıkla, malzeme kur, render al, GLB'yi web'e hazırla; blender-oturum ile yükle. 3DMigoto, three.js kodu, 2D görsel değil."
+description: "Blender'da 3D ürün üretimi ve bpy (Blender Python) betiği/kodu: obje ekle, fincan/cezve modelle, ışıkla, malzeme kur, render al, GLB'yi web'e hazırla; blender-oturum ile yükle. 3DMigoto, three.js kodu, 2D görsel değil."
 ---
 
 # blender-uretim — Blender'da ürün üretimi rehberi
