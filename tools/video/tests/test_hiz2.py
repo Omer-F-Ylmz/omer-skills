@@ -39,3 +39,22 @@ def test_melez_yalniz_dhash_anahtar_kare(tmp_path, monkeypatch):
     c = _kur(tmp_path, monkeypatch, (0, b"av1\n"))
     dh, fc = [a for a, g in c if "rawvideo" in a], [a for a, g in c if g]
     assert dh and fc and all(map(_ak, dh)) and not any(map(_ak, fc))
+
+
+def test_melez_kare_cikarma_paralel_dilim(tmp_path, monkeypatch):
+    """VİDEO-HIZ-4: melezde kare çıkarma dilim başına `-ss ızgara -t` süreci; select n dilime göre, numara sahne sırasıyla sürer."""
+    from video import cli
+    monkeypatch.setattr(gz, "ANAHTAR_SN", 20)
+    monkeypatch.setattr(cli, "PARCA", 2)
+    monkeypatch.setenv("VIDEO_HIZ2", "2")
+    fc = sorted((a, g) for a, g in _kur(tmp_path, monkeypatch, (0, b"av1\n")) if g)
+    assert len(fc) == 2 and all("-ss" in a and "-t" in a for a, _ in fc)
+    d = {int(a[a.index("-start_number") + 1]): g for a, g in fc}
+    assert min(d) == 1 and d[1].count("eq(n,") + 1 == max(d)  # ikinci dilim birincinin kare sayısından sonra numaralanır
+    assert all("eq(n,0)" in g for _, g in fc)  # her dilim kendi ızgara başından sayar
+
+
+def test_altyazi_hedefli_ek_kare():
+    """VİDEO-HIZ-4: araç/repo/URL/komut geçen altyazı satırı → ızgara karesi; ±3 sn'de kare varsa, süre dışıysa ya da sıradan konuşmaysa yok."""
+    s = [(10.2, "clone the GitHub repo"), (31.0, "npm install it"), (40.0, "hello everyone"), (61.0, "run this command"), (99.0, "open the link")]
+    assert gz.altyazi_zaman(s, 90, 0.5, [0.0, 30.0, 60.0]) == [(10.0, 0)]

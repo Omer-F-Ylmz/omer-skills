@@ -119,6 +119,20 @@ def yogun_zaman(okunmus, url_t, sure, ust=YOGUN_UST):
     return sorted(ek)
 
 
+ALTYAZI_IZ = re.compile(r"\b(github|repo|repository|link|url|dot com|install|npm|npx|pip|command|terminal|cli|mcp|open[- ]source)\b", re.I)  # ayar · VİDEO-HIZ-4
+
+
+def altyazi_zaman(satirlar, sure, f, var, pay=3):
+    """VİDEO-HIZ-4: altyazıda araç/repo/URL/komut geçen satırın zamanına ızgara karesi (fark 0) — anahtar kare taramasının kaçırdığı kısa slayt;
+    ±pay sn içinde kare varsa atlanır. ponytail: O(n·ek) yakınlık taraması, ek yüzlerce olursa bisect."""
+    ek = []
+    for t, x in satirlar:
+        g = round(t * f) / f
+        if t < sure and ALTYAZI_IZ.search(x) and all(abs(g - k) > pay for k in [*var, *ek]):
+            ek.append(g)
+    return [(t, 0) for t in ek]
+
+
 def tavan_ocr(sure, n_sahne):
     """1b-1T T3: OCR kare tavanı = atım öncesi sahne sayısı + dk×12, en çok 800 — 5 sn tabanı (dk×12) hep sığar, aralık yalnız 800'de büyür."""
     return min(800, n_sahne + int(sure / 60 * 12))

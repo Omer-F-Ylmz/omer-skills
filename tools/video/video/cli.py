@@ -868,25 +868,38 @@ def _ff(ctx, hw, cmd, timeout):
     return _kos(ctx, cmd([], ""), timeout)
 
 
+PARCA = 4  # ayar · VİDEO-HIZ-4: melezde (VIDEO_HIZ2=2) tam çözmeli kare çıkarma paralel dilim sayısı
+
+
 def _hiz2(sure):
     """VİDEO-HIZ-3: anahtar-kare yolu kalite kanıtlanana dek bayraklı, varsayılan kapalı; açıkken önbellek anahtarı ayrışır. env VIDEO_HIZ2=1 iki geçiş
-    anahtar kare (30 dk −73%, slayt geri çağırma %62.5) · =2 melez: dhash taraması anahtar kare, seçilen kareler tam çözme (−34%, slayt %90.6)."""
+    anahtar kare (30 dk −73%, slayt geri çağırma %62.5) · =2 melez: dhash taraması anahtar kare, seçilen kareler tam çözme (−34%, slayt %90.6;
+    HIZ-4 paralel dilim −54%, slayt aynı)."""
     h = os.environ.get("VIDEO_HIZ2", "")
     return h if sure >= gz.ANAHTAR_SN and h in ("1", "2") else ""
 
 
-def _kare_cikar(ctx, v, kd, sahne, f, hw=None, ak=()):
+def _kare_cikar(ctx, v, kd, sahne, f, hw=None, ak=(), parca=1, bas=None):
     """HIZ-2: seçilen kareler tek çözme geçişinde — fps → split=K, dal başına ≤50 terimlik select (1b-1R: ~117 terimlik select ffmpeg'de
-    "Cannot allocate memory"), dal başına ayrı image2 çıkışı; adlar/numara eski parçalı yolla aynı. Uzun graf komut satırı yerine betik dosyasında."""
+    "Cannot allocate memory"), dal başına ayrı image2 çıkışı; adlar/numara eski parçalı yolla aynı. Uzun graf komut satırı yerine betik dosyasında.
+    VİDEO-HIZ-4: parca>1 → sahne zaman dilimlerine bölünür, dilim başına `-ss ızgara -t` süreci paralel (bas = dilimin sahne sırası)."""
+    if bas is None and parca > 1 and len(sahne) > 1:
+        k = -(-len(sahne) // parca)
+        with ThreadPoolExecutor(parca) as ex:
+            list(ex.map(lambda i: _kare_cikar(ctx, v, kd, sahne[i:i + k], f, hw, ak, bas=i), range(0, len(sahne), k)))
+        return
+    n0 = round(sahne[0][0] * f) if bas is not None else 0
+    ss = ["-ss", f"{n0 / f:.3f}", "-t", f"{(round(sahne[-1][0] * f) - n0 + 2) / f:.3f}"] if bas is not None else []
     p = range(0, max(len(sahne), 1), 50)
-    b = kd / "secim.txt"
+    b = kd / f"secim{bas or ''}.txt"
 
     def cmd(giris, on):
         graf = [f"[0:v]{on}fps={f},split={len(p)}" + "".join(f"[a{i}]" for i in p)]
-        graf += [f"[a{i}]select='" + ("+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0") + f"',format=yuvj420p[o{i}]" for i in p]
+        graf += [f"[a{i}]select='" + ("+".join(f"eq(n,{round(t * f) - n0})" for t, _ in sahne[i:i + 50]) or "0") + f"',format=yuvj420p[o{i}]" for i in p]
         b.write_text(";".join(graf), encoding="utf-8")
-        return ["ffmpeg", "-v", "error", "-y", *ak, *giris, "-i", str(v), "-/filter_complex", str(b),
-                *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")])]
+        return ["ffmpeg", "-v", "error", "-y", *ak, *ss, *giris, "-i", str(v), "-/filter_complex", str(b),
+                *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-start_number", str((bas or 0) + i + 1),
+                                          str(kd / "s%04d.jpg")])]
     try:
         _ff(ctx, hw, cmd, SURE["sahne"])
     finally:
@@ -906,7 +919,9 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
                                               f"{on}fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"], SURE["sahne"])
         sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
         sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
-        _kare_cikar(ctx, v, kd, sahne, f, hw, ak if h == "1" else [])
+        if h == "2" and (vtt := next(d.glob("altyazi*.vtt"), None)):  # VİDEO-HIZ-4: altyazıda araç/URL/komut anına hedefli ek kare
+            sahne = sorted(sahne + gz.altyazi_zaman(m.vtt_ayristir(vtt.read_text(encoding="utf-8")), sure, f, [t for t, _ in sahne]))
+        _kare_cikar(ctx, v, kd, sahne, f, hw, ak if h == "1" else [], PARCA if h == "2" else 1)
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
     _ram_kapi(ctx)
