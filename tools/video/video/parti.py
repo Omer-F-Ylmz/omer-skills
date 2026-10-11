@@ -110,7 +110,7 @@ SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıkla
           "Anahtar, şifre, token değeri yazma. Site/landing/frontend içerikli videoda site_ui doldur. Emin olmadığını belirsizliklere yaz. "
           "Gösterilen ya da söylenen her kurulum/terminal komutunu kurulum_komutlar'a yaz (komut · ne yapar · zaman · kaynak). "
           "iz (D1, şema 2): videoda anılan HER şey (konuşma m:ss · kare m:ss · açıklama · yorum · linkli sayfa) bir satır — baglandigi: aday adı ya da "
-          "'aday değil: <sebep>'; sebep yalnız genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı. 'zaten kurulu' sebep değil: kurulu araç da aday. "
+          "'aday değil: <sebep>'; sebep yalnız genel kavram · başka adayın parçası (<aday>) · sponsor/reklam · konu dışı; sebebe açıklama ekleme (kanıta yaz), aday adındaki parantezi at: başka adayın parçası (Inpaint v3). 'zaten kurulu' sebep değil: kurulu araç da aday. "
           # 1b-2a: eksiksiz aday + yeni alanlar + link sınıfı
           "Adaylar: paketin HERHANGİ bir yerinde (altyazı · ekran metni · açıklama · yorumlar · linkli sayfalar) adı geçen VE videoda gösterilen/kullanılan/anlatılan her "
           "araç, model, servis, kütüphane, font, skill, MCP, CLI ve teknik; yalnız reklamı yapılan aday değil; adı ekranda yazıldığı gibi yaz. "

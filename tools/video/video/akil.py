@@ -1316,6 +1316,15 @@ def kapat(pdir, d, kok, ctx):
     """rapor-denetle (tüm parti) → gitleaks (değişen dosyalar, staged) → temizse commit + kuyruk --isle + push; sızıntıda commit yok (DUR)."""
     kos = lambda a, t=300: uy._kos(ctx, a, t)  # noqa: E731
     git = ["git", "-C", Path(kok).as_posix()]
+    duz = 0  # KALİTE-V1: kendi raporunda İz sebebi/alıntı biçimi rapor-denetle'den önce düzelir (serbest açıklama kanıt hücresinde kalır)
+    for s in d["videolar"].values():
+        if (t := s["tarama"])["durum"] in ("tamam", "tamam_eksik") and t.get("cikti") and not t.get("ice_alindi"):
+            g, n = tr.iz_duzelt((y := Path(t["cikti"])).read_bytes().decode("utf-8"))
+            if n:
+                y.write_bytes(g.encode("utf-8"))
+                duz += n
+    if duz:
+        print(f"kapat: İz/alıntı biçimi düzeltildi: {duz} satır")
     kotu = {Path(t["cikti"]).name: (h, t.get("ice_alindi")) for s in d["videolar"].values() if (t := s["tarama"])["durum"] in ("tamam", "tamam_eksik") and t.get("cikti")
             if (h := tr.denetle(Path(t["cikti"]).read_text(encoding="utf-8")))}
     uyari = {k: h for k, (h, ice) in kotu.items() if ice}  # M12 K1: içe alınan (bu partide yazılmamış) eski rapor UYARI; kendi raporu sıkı

@@ -526,6 +526,34 @@ def iz_ayikla(metin):
     while son > 0 and not L[son].strip():
         son -= 1
     return "\n".join(L[:son + 1] + notlar + L[son + 1:])
+
+
+def iz_duzelt(metin):
+    """KALİTE-V1 (k8b_duzelt mantığı): ## İz'de IZ_SEBEP'e uymayan "aday değil" sebebi izinli biçime çevrilir — iç içe parantez
+    sadeleşir, izinsiz/ekli sebebin serbest metni kanıt hücresine [sebep: …]; >15 kelime alıntı kısalır. CRLF korunur → (metin, düzeltilen satır)."""
+    crlf, L, ic = "\r\n" in metin, metin.replace("\r\n", "\n").split("\n"), False
+    Y = list(L)
+    for i, s in enumerate(L):
+        if s.startswith("## "):
+            ic = s[3:].strip().startswith("İz")
+            continue
+        c = s.split("|")
+        if not (ic and s.lstrip().startswith("|") and len(c) > 4 and c[3].strip().casefold().startswith("aday değil")):
+            continue
+        sb = c[3].split(":", 1)[-1].strip()
+        if IZ_SEBEP.fullmatch(sb):
+            continue
+        m = re.fullmatch(r"başka adayın parçası \((.+)\)", sb, re.I)
+        if m and (ad := " ".join(re.sub(r"[()]", " ", m[1]).split())):
+            c[3] = f" aday değil: başka adayın parçası ({ad}) "  # yalnız parantez sadeleşti: bilgi kaybı yok
+        else:
+            c[3] = f" aday değil: {next((k for k in ('sponsor/reklam', 'konu dışı') if k in sb.casefold()), 'genel kavram')} "
+            c[4] = f" [sebep: {sb}] " if c[4].strip() in ("", "-") else f"{c[4].rstrip()} [sebep: {sb}] "
+        Y[i] = "|".join(c)
+    y = ALINTI.sub(lambda a: a[0] if len(w := a[1].split()) <= ALINTI_KELIME else f"{a[0][0]}{' '.join(w[:ALINTI_KELIME])}…{a[0][-1]}",
+                   "\n".join(Y)).split("\n")
+    n = sum(a != b for a, b in zip(L, y))
+    return ("\r\n".join(y) if crlf else "\n".join(y)) if n else metin, n
 KACAN_URL = re.compile(r"https?://[^\s|)>\]]+")
 KACAN_DESEN = [re.compile(r"(?<![\w./:-])[A-Za-z0-9][\w.-]*/[\w.-]*\w(?![\w/])"),  # owner/repo
                re.compile(r"\b(?:npx|uvx|pipx? install|npm i(?:nstall)?(?: -g)?|claude mcp add|/plugin install)\s+(?:-\S+\s+)*([\w@./-]+)"),
