@@ -295,15 +295,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dd86Z4wlKw4 | 1.0 | Instagram reel | Ömer 10 Eki e · post | işlendi: 63a985c |
 | ig-DdoRKQUAdeM | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 4) | işlendi: 63a985c |
 | HYMDaMcuSGQ | 106.8 | AJANLAR & CLAUDE CODE MASTERCLASS: Kendi Ajan Sistemini Kur (2026) | Ömer 10 Eki e · Selma Kocabıyık, 17 chapter, 24 link — ajan sistemi kurulumu: bizdeki departman/ajan düzeni, /ajan-getir ve KALİTE-1 ile karşılaştır; kanal takibe | işlendi: 63a985c |
-| ig-DdxKYYvRysZ | 1.0 | Instagram gönderi | Ömer 10 Eki 21:23 · IG gönderi | bekliyor |
-| ig-DeOQHqBk9Pz | 1.0 | Instagram gönderi | Ömer 10 Eki 21:43 · IG gönderi (kaydırmalı, img 3) | bekliyor |
-| ig-DeUkYfLn4n5 | 1.0 | Instagram gönderi | Ömer 10 Eki 22:18 · IG gönderi (kaydırmalı, img 2) | bekliyor |
-| ig-DePWmOHCPX1 | 1.0 | Instagram gönderi | Ömer 11 Eki 03:51 · IG gönderi (kaydırmalı, img 5) | bekliyor |
-| ig-Dd4Ama8mnza | 1.0 | Instagram gönderi | Ömer 11 Eki 03:52 · IG gönderi (kaydırmalı, img 2) | bekliyor |
-| ig-DeUem9KjcIE | 1.0 | Instagram reel | Ömer 11 Eki 03:52 · IG reel | bekliyor |
-| ig-DdRd0SNkrW- | 1.0 | Instagram gönderi | Ömer 11 Eki 03:57 · IG gönderi (kaydırmalı, img 4) | bekliyor |
-| ig-DeUbXXoo2mi | 1.0 | Instagram reel | Ömer 11 Eki 13:33 · IG reel | bekliyor |
-| ig-DeMrKekk7RU | 1.0 | Instagram gönderi | Ömer 11 Eki 13:59 · IG gönderi (kaydırmalı, img 8) | bekliyor |
+| ig-DdxKYYvRysZ | 1.0 | Instagram gönderi | Ömer 10 Eki 21:23 · IG gönderi | işlendi: a39f3d0 |
+| ig-DeOQHqBk9Pz | 1.0 | Instagram gönderi | Ömer 10 Eki 21:43 · IG gönderi (kaydırmalı, img 3) | işlendi: a39f3d0 |
+| ig-DeUkYfLn4n5 | 1.0 | Instagram gönderi | Ömer 10 Eki 22:18 · IG gönderi (kaydırmalı, img 2) | işlendi: a39f3d0 |
+| ig-DePWmOHCPX1 | 1.0 | Instagram gönderi | Ömer 11 Eki 03:51 · IG gönderi (kaydırmalı, img 5) | işlendi: a39f3d0 |
+| ig-Dd4Ama8mnza | 1.0 | Instagram gönderi | Ömer 11 Eki 03:52 · IG gönderi (kaydırmalı, img 2) | işlendi: a39f3d0 |
+| ig-DeUem9KjcIE | 1.0 | Instagram reel | Ömer 11 Eki 03:52 · IG reel | işlendi: a39f3d0 |
+| ig-DdRd0SNkrW- | 1.0 | Instagram gönderi | Ömer 11 Eki 03:57 · IG gönderi (kaydırmalı, img 4) | işlendi: a39f3d0 |
+| ig-DeUbXXoo2mi | 1.0 | Instagram reel | Ömer 11 Eki 13:33 · IG reel | işlendi: a39f3d0 |
+| ig-DeMrKekk7RU | 1.0 | Instagram gönderi | Ömer 11 Eki 13:59 · IG gönderi (kaydırmalı, img 8) | işlendi: a39f3d0 |
 
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
@@ -781,24 +781,24 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | H4x8fH-vd1g | 10.3 | How to Upload a Book to Amazon KDP (Comp | bağlantılı video (JrFZ_ky7AzE) | işlendi: 087c739 |
 | w8yVXfUyp3E | 8.4 | How to Get Book Reviews on Amazon KDP Us | bağlantılı video (JrFZ_ky7AzE) | işlendi: 087c739 |
 | CZgZmPd-ETY | 15.7 | How to Sell More Books on Amazon KDP WIT | bağlantılı video (JrFZ_ky7AzE) | işlendi: 087c739 |
-| zp13W8z6WQM | 29.6 | I Tested Tripo P2.0 for Production: Is I | bağlantılı video (VeOU0FnTjjc) | bekliyor |
-| 1vw39QCcQjg | 14.1 | AI Just Solved UV Unwrapping and It's Cr | bağlantılı video (VeOU0FnTjjc) | bekliyor |
-| 3SFDXcr-dQ4 | 25.7 | AI Texturing Like a Pro — My Full 3D Wor | bağlantılı video (VeOU0FnTjjc) | bekliyor |
+| zp13W8z6WQM | 29.6 | I Tested Tripo P2.0 for Production: Is I | bağlantılı video (VeOU0FnTjjc) | işlendi: a39f3d0 |
+| 1vw39QCcQjg | 14.1 | AI Just Solved UV Unwrapping and It's Cr | bağlantılı video (VeOU0FnTjjc) | işlendi: a39f3d0 |
+| 3SFDXcr-dQ4 | 25.7 | AI Texturing Like a Pro — My Full 3D Wor | bağlantılı video (VeOU0FnTjjc) | işlendi: a39f3d0 |
 | wgoi4xxztrs | 0.8 | Link Kısalt Para Kazan 7/24 Anlık Ödeme  | bağlantılı video (bQoEelGwy6c) | işlendi: bfe565e |
-| o9mYq_BhKjI | 13.3 | Kendi Kurgu Eklentimi Yaptım! Ses, Görse | bağlantılı video (c4nRtwe5EbM) | bekliyor |
-| IZPGFAS_tRY | 13.6 | I Made Claude Code FREE Using 25+ AI Mod | bağlantılı video (qzPvSYVyqaw) | bekliyor |
-| vZE0j_WCRvI | 7.2 | What does a consultant actually do? | bağlantılı video (m6nA5EV-_g0) | bekliyor |
+| o9mYq_BhKjI | 13.3 | Kendi Kurgu Eklentimi Yaptım! Ses, Görse | bağlantılı video (c4nRtwe5EbM) | işlendi: a39f3d0 |
+| IZPGFAS_tRY | 13.6 | I Made Claude Code FREE Using 25+ AI Mod | bağlantılı video (qzPvSYVyqaw) | işlendi: a39f3d0 |
+| vZE0j_WCRvI | 7.2 | What does a consultant actually do? | bağlantılı video (m6nA5EV-_g0) | işlendi: a39f3d0 |
 | 7XhX8P0ebEU | 28.6 | Şirketimde 13 Ajan Var, Maaş Ödemiyorum: | bağlantılı video (HYMDaMcuSGQ) | raporlu |
 | 166KYdgWQto | 30.8 | Sıfırdan 7/24 Çalışan Ajan Kurumu (Herme | bağlantılı video (HYMDaMcuSGQ) | raporlu |
-| uB7UQA5iaTU | 29.9 | Jev’in İçini Açtım: Beni Yargılayan ve M | bağlantılı video (HYMDaMcuSGQ) | bekliyor |
+| uB7UQA5iaTU | 29.9 | Jev’in İçini Açtım: Beni Yargılayan ve M | bağlantılı video (HYMDaMcuSGQ) | işlendi: a39f3d0 |
 | MbEDNiKe4bo | 6.7 | Claude Code'u Yanlış Kullanıyorsunuz! Mo | bağlantılı video (HYMDaMcuSGQ) | raporlu |
-| FDvmdxcYVkU | 14.6 | One Society, or Two? The Age of Autonomo | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-FDvmdxcYVkU.md | bekliyor |
-| LvQ6VQ33fLM | 18.9 | Ang Li, Simular / theCUBE + NYSE Wired: | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-LvQ6VQ33fLM.md | bekliyor |
-| zNbM93cmrms | 11.8 | How to Get to AGI | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-zNbM93cmrms.md | bekliyor |
-| DIu7xA898go | 28.2 | Solve coding, solve AGI [Reflection.ai l | bağlantılı video (_xQnSNlBP_w) | bekliyor |
-| qdmxApz3EJI | 19.2 | On Engineering AI Systems that Endure Th | bağlantılı video (_xQnSNlBP_w) | bekliyor |
-| cMSprbJ95jg | 496.1 | AIE CODE 2025: AI Leadership ft Anthropi | bağlantılı video (_xQnSNlBP_w) | bekliyor |
-| t4IQwMa5-6U | 74.6 | The AI Agenda: GPT5 leaks and the busine | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| FDvmdxcYVkU | 14.6 | One Society, or Two? The Age of Autonomo | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-FDvmdxcYVkU.md | işlendi: a39f3d0 |
+| LvQ6VQ33fLM | 18.9 | Ang Li, Simular / theCUBE + NYSE Wired: | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-LvQ6VQ33fLM.md | işlendi: a39f3d0 |
+| zNbM93cmrms | 11.8 | How to Get to AGI | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-zNbM93cmrms.md | işlendi: a39f3d0 |
+| DIu7xA898go | 28.2 | Solve coding, solve AGI [Reflection.ai l | bağlantılı video (_xQnSNlBP_w) | işlendi: a39f3d0 |
+| qdmxApz3EJI | 19.2 | On Engineering AI Systems that Endure Th | bağlantılı video (_xQnSNlBP_w) | işlendi: a39f3d0 |
+| cMSprbJ95jg | 496.1 | AIE CODE 2025: AI Leadership ft Anthropi | bağlantılı video (_xQnSNlBP_w) | işlendi: a39f3d0 |
+| t4IQwMa5-6U | 74.6 | The AI Agenda: GPT5 leaks and the busine | bağlantılı video (_xQnSNlBP_w) | işlendi: a39f3d0 |
 | 8UDj3-JDfYY | 87.0 | Anthropic, Glean & OpenRouter: How AI Mo | bağlantılı video (_xQnSNlBP_w) | bekliyor |
 | emWgP_fr04k | 43.9 | ⚡ Inside Google Labs: Building The Gemin | bağlantılı video (_xQnSNlBP_w) | bekliyor |
 | deMrq2uzRKA | 27.6 | Michael Truell: How Cursor Builds at the | bağlantılı video (_xQnSNlBP_w) | bekliyor |
