@@ -103,5 +103,12 @@
   ],
   "settings": "../../.claude/b2-aile/settings.json",
   "not": "TUR-6c-B2-devam: tam + 96 aile paketi (açıklamalı, --add-dir) + 3 MCP + 2 plugin (cybersecurity aile paketlerinden); canlıya dokunmaz"
+ },
+ "jevyol": {
+  "ek": [
+   "--append-system-prompt",
+   "- jev: judgment over text/items (sınıfla, etiketle, kategorize et, puanla, olasılık/güven ver, ikinci görüş, \"aynı mı / eşdeğer mi\", toplu yargı) → don't judge it yourself: call `mcp__jev__jev_evaluate` (one item) or `mcp__jev__jev_batch` (many); the jev skill explains question wording."
+  ],
+  "not": "JEV-1-devam-4: tam + global CLAUDE.md jev yönlendirme satırının vekili (onay/jev_1d4_uygula.py aynı metni ekler); canlıya dokunmaz"
  }
 }
