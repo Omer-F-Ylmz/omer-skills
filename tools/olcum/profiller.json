@@ -89,5 +89,19 @@
   ],
   "settings": "../../.claude/b2-olcum/settings.json",
   "not": "TUR-6c-B2: tam + kur.py'nin ekleyeceği skill (--add-dir, name-only) + 3 MCP + 3 plugin; canlıya dokunmaz"
+ },
+ "b2aile": {
+  "ek": [
+   "--add-dir",
+   "C:\\Projeler\\omer-skills\\.claude\\b2-aile",
+   "--mcp-config",
+   "C:\\Projeler\\omer-skills\\.claude\\b2-aile\\mcp.json",
+   "--plugin-dir",
+   "C:\\Projeler\\.tmp-kurulum6c\\hermoso",
+   "--plugin-dir",
+   "C:\\Projeler\\.tmp-kurulum6c\\agent-browser"
+  ],
+  "settings": "../../.claude/b2-aile/settings.json",
+  "not": "TUR-6c-B2-devam: tam + 96 aile paketi (açıklamalı, --add-dir) + 3 MCP + 2 plugin (cybersecurity aile paketlerinden); canlıya dokunmaz"
  }
 }
