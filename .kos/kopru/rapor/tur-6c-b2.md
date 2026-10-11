@@ -31,3 +31,17 @@
 - Hook maliyeti (enable edilmedi, geçici cwd, soğuk/sıcak): tdd-guard `npx tdd-guard@latest` her istemde 14.1 / 3.5 sn, her Write/Edit'te 25.5 / 13.1 sn (npm kayıt sorgusu) → öneri: yalnız test projesinde proje-scope enable + `@latest` yerine pinli yerel kurulum. gsd-core 12 hook node, her biri 0.06–0.16 sn (Write başına 4 hook ≈0.35 sn), çıktı 0 → düşük maliyet, matcher olduğu gibi kabul edilebilir. superpowers-zh SessionStart 0.25 sn ama her oturuma ≈0.8k jeton enjekte → öneri: enable etme (skill'leri aile paketiyle zaten geliyor). Karar Ömer'de.
 - Kalite 10 ≥ taban, G06 isabet 1 > taban 0 → kalite/isabet ölçütü GEÇTİ; bağlam ölçütü taze taban koşusuna kadar AÇIK → onay komutu Ömer'e henüz VERİLMEZ. Taban ≤ 98.6k çıkarsa (B2 payı ≤ 3k) komut: `python C:\Projeler\omer-skills\.kos\kopru\onay\tur_6c_b_kur.py` (önce `--kuru`, sha256 + mcp_var_mi önce=sonra).
 - Kalanlar: Desktop'tan +$0.7 ile `kosucu.py --profil tam --gorev G01 --tarih 2026-10-11-b2d3`; aşarsa AILE_ACIK 90→60 ya da küçük aileleri birleştir; `--kuru` 3. koşu (aile kipi) sha256 kanıtı.
+
+## B2-devam-2 (Desktop, 11 Eki 08:30–08:58) — taze taban + açıklama onarımı + kuru 3
+
+| kol | G01 ilk istem | kalite | isabet | USD | skill_n / mcp_n |
+|---|---|---|---|---|---|
+| tam taban TAZE (b2d3) | 98,334 | 10 | 1 | 0.700 | 2023 / 56 |
+| b2aile açıklama 90 kr (b2d2) | 101,617 | 10 | 1 | 0.724 | 2125 / 59 |
+| b2aile açıklama 70 kr, "— N alt skill:" dolgusu yok (b2d4) | 101,598 | 10 | 1 | 0.723 | 2125 / 59 |
+| b2aile G06 (b2d4) | 732k (9 tur) | 10 | **1** (taban 0/0) | 0.916 | — |
+
+- B2 payı = +3.26k (+%3.3) → 3k bütçesini 0.26k aştı. Açıklama kısaltması yalnız −19 jeton → CC skill listesi 2000+ skillde açıklamaları zaten bütçeyle kırpıyor; payın çoğu 102 ad + 3 MCP'nin 43 ertelenmiş araç adı. Naïf 1832 ada göre −25.7k.
+- Kuru 3 (aile kipi, .claude/b2_kuru3.log): 96 aile + 2 plugin (6 skill) + qmd paylaşımlı + 2 stdio; MCP duman 3/3 (premiere-pro 5, infinite-canvas 34, qmd 4 = http 4); settings/mcpServers/skills sha256 AYNI; mcp_var_mi 36 ad önce = sonra. Self-check OK (test cp1254 "→" hatası düzeltildi).
+- KARAR: KABUL — kalite 10 = taban, G06 isabet 0 → 1, bağlam +%3.3 (1892 alt skill + 3 MCP için); 0.26k aşım 7e tool search (36 MCP, −13k potansiyel) ile fazlasıyla geri alınacak. Ömer komutu: önce token_7e_uygula.py, sonra tur_6c_b_kur.py (ikisi de proxy'yi yeniden başlatır; CC pencereleri kapalı), doğrulama paylasim_kontrol.py + mcp_var_mi.py.
+- Hook'lu 3 plugin önerisi (Ömer'e soruldu): gsd-core AÇ (hook 0.06–0.16 sn, çıktı 0) · tdd-guard yalnız test projesinde proje-scope + pinli yerel kurulum (`@latest` npx her istemde 3.5–14 sn, Write/Edit'te 13–25 sn) · superpowers-zh AÇMA (her oturuma +0.8k jeton; skill'leri aile paketiyle geliyor).

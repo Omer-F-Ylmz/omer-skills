@@ -783,6 +783,16 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 166KYdgWQto | 30.8 | Sıfırdan 7/24 Çalışan Ajan Kurumu (Herme | bağlantılı video (HYMDaMcuSGQ) | raporlu |
 | uB7UQA5iaTU | 29.9 | Jev’in İçini Açtım: Beni Yargılayan ve M | bağlantılı video (HYMDaMcuSGQ) | bekliyor |
 | MbEDNiKe4bo | 6.7 | Claude Code'u Yanlış Kullanıyorsunuz! Mo | bağlantılı video (HYMDaMcuSGQ) | raporlu |
+| FDvmdxcYVkU | 14.6 | One Society, or Two? The Age of Autonomo | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-FDvmdxcYVkU.md | bekliyor |
+| LvQ6VQ33fLM | 18.9 | Ang Li, Simular / theCUBE + NYSE Wired: | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-LvQ6VQ33fLM.md | bekliyor |
+| zNbM93cmrms | 11.8 | How to Get to AGI | bağlantılı video (_xQnSNlBP_w) · VİDEO-12: rapor .claude/v8/yeni/yeniden-1-zNbM93cmrms.md | bekliyor |
+| DIu7xA898go | 28.2 | Solve coding, solve AGI [Reflection.ai l | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| qdmxApz3EJI | 19.2 | On Engineering AI Systems that Endure Th | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| cMSprbJ95jg | 496.1 | AIE CODE 2025: AI Leadership ft Anthropi | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| t4IQwMa5-6U | 74.6 | The AI Agenda: GPT5 leaks and the busine | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| 8UDj3-JDfYY | 87.0 | Anthropic, Glean & OpenRouter: How AI Mo | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| emWgP_fr04k | 43.9 | ⚡ Inside Google Labs: Building The Gemin | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| deMrq2uzRKA | 27.6 | Michael Truell: How Cursor Builds at the | bağlantılı video (_xQnSNlBP_w) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
