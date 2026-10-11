@@ -49,3 +49,9 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
     if ayar:
         args += ["--settings", json.dumps(ayar)]
     return args, ({"CC_PROFIL": ad} if "pluginKapat" in p else {})
+
+
+if __name__ == "__main__":  # başlatıcı: python tools/cc_profil.py d-frontend [claude argümanları]
+    import subprocess, sys
+    a, e = kur(sys.argv[1])
+    sys.exit(subprocess.call(["claude", *a, *sys.argv[2:]], env={**os.environ, **e}))

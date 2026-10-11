@@ -20,5 +20,18 @@
    "claude-mem-cowork@thedotmack"
   ],
   "ttl": "5m"
- }
+ },
+ "d-arastirma-ogrenme": {"mcp": ["brave-search", "context7", "mcp-fetch", "mslearn", "arxiv", "markitdown", "mcp-time"]},
+ "d-backend-dotnet": {"mcp": ["mslearn", "context7", "mcp-git", "github", "mcp-time"]},
+ "d-frontend": {"mcp": ["21st", "figma", "claude-design", "stitch", "playwright", "context7", "mcp-time"]},
+ "d-test-qa": {"mcp": ["playwright", "puppeteer", "mcp-time"]},
+ "d-veri-db": {"mcp": ["clickhouse", "drizzle-docs", "airtable", "mcp-time"]},
+ "d-surec-inceleme": {"mcp": ["code-review", "github", "mcp-git", "mcp-time"]},
+ "d-surec-git-yayin": {"mcp": ["github", "mcp-git", "netlify", "hostinger", "mcp-time"]},
+ "d-surec-ajan-arac": {"mcp": ["jev", "context7", "mcp-time"]},
+ "d-surec-plan": {"mcp": ["mcp-sequential-thinking", "mcp-time"]},
+ "d-verimlilik": {"mcp": ["headroom", "jev", "mcp-time"]},
+ "d-belge": {"mcp": ["markitdown", "mcp-time"]},
+ "d-guvenlik": {"mcp": ["github", "mcp-git", "mcp-time"]},
+ "d-3d": {"mcp": ["blender", "godot", "unity", "mcp-time"]}
 }
