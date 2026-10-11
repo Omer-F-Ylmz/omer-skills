@@ -23,6 +23,7 @@ TASI = re.compile(r"example|örnek|reference|referans|table|tablo|\bapi\b|param|
                   r"appendix|\bekler?\b|faq|\bsss\b|history|changelog|geçmiş|sürüm notu", re.I)
 ORNEK = re.compile(r"example|örnek", re.I)
 KURAL = re.compile(r"\b(MUST|NEVER|ALWAYS|DO NOT|ASLA|HER ZAMAN|YAPMA)\b")
+DIZIN = re.compile(r"^#{3,4} +(.+?) *$|^ *[-*] +(?:`([^`\n]{2,40})`|\*\*([^*\n]{2,40})\*\*)", re.M)
 KUCUK_BOLUM = 300
 TR = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
 
@@ -108,7 +109,10 @@ def iyilestir(kaynak, cikti, mcp, esle, istek=None, tavan=1024):
         ilk = next((s.strip() for s in icerik.splitlines()[1:] if s.strip() and not s.lstrip().startswith(("#", "```"))), "")
         ozet = re.split(r"(?<=[.!?])\s", ilk)[0][:160]
         kural = "".join(f"{k}\n" for k in kurallar(icerik))  # taşınan bölümün kural satırları çekirdekte kalır
-        yeni.append(f"## {baslik}\n\n{ozet}\n{kural}Ayrıntı: [references/{ad}.md](references/{ad}.md)\n\n")
+        # işaretçi dizin taşır: alt başlıklar + madde anahtarları; çıplak "Ayrıntı" kural adlarını gizliyordu (pilot ui-ux-pro-max)
+        dizin = ", ".join(dict.fromkeys("".join(t) for t in DIZIN.findall(icerik)))[:400]
+        icin = f" for: {dizin}" if dizin else ""
+        yeni.append(f"## {baslik}\n\n{ozet}\n{kural}Read [references/{ad}.md](references/{ad}.md){icin}\n\n")
     if notlar:
         yeni.append("\n" + "".join(notlar))
     cekirdek = "".join(yeni)

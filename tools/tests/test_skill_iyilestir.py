@@ -77,6 +77,20 @@ def test_siniflandirici_is_akisi_kalir_ekler_tasinir(tmp_path):
     assert r["kayip"] == []
 
 
+def test_isaretci_dizin_tasir(tmp_path):
+    """KALİTE-3 pilot: çıplak 'Ayrıntı: [..]' işaretçisi taşınan kural adlarını gizliyordu (ui-ux-pro-max reduced-motion 3/3→1/3)."""
+    uzun = "Filler sentence here. " * 400
+    govde = (f"# S\n\nGiriş.\n\n## Quick reference\n\nRules by priority.\n\n### Accessibility\n\n"
+             f"- `reduced-motion` - Respect prefers-reduced-motion.\n- **color-contrast** - 4.5:1.\n\n{uzun}\n")
+    d = tmp_path / "s"
+    d.mkdir()
+    (d / "SKILL.md").write_text(f"---\nname: s\ndescription: Use when x.\n---\n{govde}", encoding="utf-8")
+    si.iyilestir(d, tmp_path / "o", set(), {})
+    cekirdek = (tmp_path / "o/SKILL.md").read_text(encoding="utf-8")
+    satir = next(s for s in cekirdek.splitlines() if "references/quick-reference.md" in s)
+    assert satir.startswith("Read ") and all(k in satir for k in ("Accessibility", "reduced-motion", "color-contrast"))
+
+
 def test_kontrol_listesi_kaybi_yakalar():
     once = "## A\n- MUST do x\n```\nkomut --bayrak\n```\n"
     assert si.kontrol(once, ["## A\n"]) == ["- MUST do x", "komut --bayrak"]
