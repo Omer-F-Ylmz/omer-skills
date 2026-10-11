@@ -1,7 +1,7 @@
 ---
 name: aday-arastirici
 description: video-uygula skill'inin aday başına alt ajanı. Prompt'taki tek satırla (ad · tür · video · ipucu/link) repo metasını, kurulum adımlarını, skill ise SkillSpector sonucunu toplar; docs/kurulumlar/adaylar/<ad>.md yazar; yalnız yol + ≤3 satır döner.
-model: sonnet
+model: claude-sonnet-5-5
 tools: Bash, Read, Edit, WebSearch
 maxTurns: 12
 ---

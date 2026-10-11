@@ -132,7 +132,7 @@ def test_alt_ajan_yalniz_bash_read_write():
     on = (KOK / ".claude" / "agents" / "video-tarayici.md").read_text(encoding="utf-8").split("---")[1]
     alan = dict(x.split(":", 1) for x in on.strip().splitlines())
     assert {t.strip() for t in alan["tools"].split(",")} == {"Bash", "Read", "Write"}
-    assert alan["model"].strip() == "sonnet"
+    assert alan["model"].strip() == "claude-sonnet-5-5"
 
 
 # --- 12d: sabit görev metni alt ajan tanımında (paralel ajanlar arası önbellek) ---

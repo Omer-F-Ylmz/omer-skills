@@ -94,6 +94,9 @@ YONLENDIRME = {"tarama": {"yontem": "ikili", "modeller": ["claude-sonnet-5-5", "
 # geri alma (V10): YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
+JETON = ""  # TOKEN-7c-devam-3 ikili yol bayrakları (env VIDEO_JETON geçersiz kılar), harf başına: A şemada id enum yok (videolar arası sabit önek → önbellek okunur) · B haiku dar şema · C model karesi dhash ayıklama + JETON_KARE tavanı
+JETON_KARE, JETON_HAM = 30, 5
+B_DISI = ("bolumler", "kareden_okunanlar", "belirsizlikler")  # birlestir b'den almaz
 KARE_UST = 60  # ayar · C4 (O11): uzun videoda modele giden kare güvenlik üst sınırı; asıl sınır cli.PAKET_BUTCE (Ömer onayı: tavan 20 → bütçe)
 WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
 AGIR = re.compile(r"^(?:blender|genshinimpact|yuanshen|zenlesszonezero|starrail|client-win64-shipping|testhost)\.exe\b|pytest|dotnet\S* test",
@@ -711,21 +714,26 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
     YT1 3: iki kol eşzamanlı (2'li havuz, CAGIR kapısı); sonuçlar model listesi sırasıyla toplanır → birlestir(a, b) değişmez. Kol bütçesi video başına bir kez
     hesaplanır (ilk kolun harcaması ikinciden düşülmez). İki kol da geçici hata (429/5xx/zaman aşımı) verdiyse video "gecici" → parti sonunda bir tur."""
     ys, fs, gc = [], [], {}
+    jt = (env or os.environ).get("VIDEO_JETON", JETON)
     for v in kalan:
         kr = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
         istem = _istem([v], pk, hatalar, temizle)
+        if "C" in jt and len(kr2 := kare_ayikla(kr)) < len(kr):
+            kr, istem = kr2, istem + f"\n\nKARE GÖRSELLERİ ({len(kr2)}/{len(kr)}, sırayla; diğerleri yinelendiği için gönderilmedi): " + ", ".join(Path(k).name for k in kr2)
         with YAZ:
             butce = min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys))
 
         def kol(mdl, v=v, kr=kr, istem=istem, butce=butce):
             with CAGIR, asama(v, "model"):
-                return cagir(SISTEM, istem, sema([v], iz=True), kareler=kr, model=mdl, butce=butce, env=env)
+                return cagir(SISTEM, istem, jeton_sema(v, jt, mdl), kareler=kr, model=mdl, butce=butce, env=env)
         with ThreadPoolExecutor(len(modeller)) as ex:
             yy = [f.result() for f in [ex.submit(kol, mdl) for mdl in modeller]]
         kolf, kun = [], []
         for mdl, y in zip(modeller, yy):
             ys.append(y)
             f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
+            if f is not None and "B" in jt:  # dar şemalı kol tek kalırsa rapor alanları boş liste
+                f = {**dict.fromkeys(B_DISI, []), **f}
             if y.get("hata") or f is None:
                 kun.append(f"tek kol: {mdl} {y.get('hata') or 'form yok'}"[:200])
             else:
@@ -743,6 +751,33 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
     return {"form": {"videolar": fs} if fs else None, "usage": _usage_topla(ys),
             "usd": None if None in us else sum(us), "sure": round(sum(y.get("sure") or 0 for y in ys), 1), "cagri": len(ys),
             "hata": None if fs else next((y["hata"] for y in reversed(ys) if y.get("hata")), "form yok"), "model": "+".join(modeller), **({"gecici": gc} if gc else {})}
+
+
+def jeton_sema(v, jt, mdl):
+    """TOKEN-7c-devam-3: A → id enum yok (şema videodan bağımsız, önek önbelleği) · B → haiku kolunda B_DISI alanları yok (çıktı jetonu)."""
+    s = sema([v], iz=True)
+    vid = s["properties"]["videolar"]["items"]
+    if "A" in jt:
+        vid["properties"]["id"] = {"type": "string"}
+    if "B" in jt and "haiku" in mdl:
+        for k in B_DISI:
+            vid["properties"].pop(k)
+            vid["required"].remove(k)
+    return s
+
+
+def kare_ayikla(kr):
+    """C: tutulan bir kareye dHash Hamming ≤ JETON_HAM olan kare atılır (dönüp gelen ekran dahil); kalan JETON_KARE üstüyse eşit aralıkla seçilir."""
+    from PIL import Image
+    tut, hs = [], []
+    for k in kr:
+        with Image.open(k) as im:
+            h = m.dhash(im.convert("L").resize((9, 8)).tobytes())
+        if all(bin(h ^ x).count("1") > JETON_HAM for x in hs):
+            tut.append(k)
+            hs.append(h)
+    n = JETON_KARE
+    return tut if len(tut) <= n else [tut[round(i * (len(tut) - 1) / (n - 1))] for i in range(n)]
 
 
 def _istem(ids, pk, hatalar, temizle):

@@ -1,7 +1,7 @@
 ---
 name: okuyucu
 description: Salt-okuma analiz alt ajanı (sonnet). Transcript karşılaştırma, resmi doküman araştırması, kör puan. Dosya yazmaz/değiştirmez; yalnız istenen özeti kanıt satırlarıyla döner.
-model: sonnet
+model: claude-sonnet-5-5
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: video-tarayici
 description: video-tarama skill'inin link başına alt ajanı. Prompt'taki tek satırla (id · paket · kareler · rapor) paket.md + kareleri okur, rapor yazar, `video rapor-denetle` ile denetler; yalnız rapor yolu + ≤5 satır döner.
-model: sonnet
+model: claude-sonnet-5-5
 tools: Bash, Read, Write
 ---
 

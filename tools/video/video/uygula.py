@@ -1116,7 +1116,7 @@ def ajan_denetle(ns, ctx):
             continue
         m = y.read_text(encoding="utf-8")
         model, tools = (re.search(rf"^{k}:\s*(.*?)\s*$", m, re.M) for k in ("model", "tools"))
-        if not model or model[1] != "sonnet":
+        if not model or model[1] not in ("sonnet", "claude-sonnet-5-5"):  # TOKEN-7a: tam ad kalıcı karar
             h.append(f"{t}: model {model[1] if model else 'yok'} (sonnet olmalı)")
         ts = [x.strip() for x in (tools[1] if tools else "").split(",") if x.strip()]
         if not ts or "*" in ts or len(ts) > 4:
