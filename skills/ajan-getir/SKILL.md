@@ -1,6 +1,6 @@
 ---
 name: ajan-getir
-description: Use when a task fits a specialist agent that is not in the Agent tool's list (141 hidden plugin agents + 87 user agents, e.g. "Database Optimizer", "octo:droids:octo-debugger"), or when the user says /ajan-getir <ad|konu>. Finds the agent in katalog.tsv and runs it as a general-purpose subagent with that agent's prompt and model.
+description: Use when a task fits a specialist agent that is not in the Agent tool's list (141 hidden plugin agents + 87 user agents, e.g. "Database Optimizer", "octo:droids:octo-debugger"), or when the user says /ajan-getir [ad|konu]. Finds the agent in katalog.tsv and runs it as a general-purpose subagent with that agent's prompt and model.
 ---
 
 # ajan-getir
@@ -15,7 +15,9 @@ Gizli ajanlar (settings.json `Agent(...)` deny listesi) ve kullanıcı ajanları
    <rol>{gövde}</rol>
    <gorev>{kullanıcının işi + gerekli dosya yolları}</gorev>
    Çıktıyı {çıktı yolu} dosyasına yaz; bana yalnız yol + ≤5 satır özet dön.
+   Dosyayı ve özeti kullanıcının dilinde yaz ({dil}).
    ```
+   `{dil}` = kullanıcının isteğinin dili (Türkçe istem → Türkçe). Sen de kullanıcıya aynı dilde dön.
 4. **Doğrula:** çıktı dosyasının var olduğunu kontrol et; yolu kullanıcıya ver.
 
 Katalog eskidiyse (yeni plugin/ajan): `python tools/ajan_katalog.py` (omer-skills reposunda) yeniden üretir.
