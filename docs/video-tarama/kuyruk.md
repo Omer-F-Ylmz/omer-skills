@@ -799,10 +799,10 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | qdmxApz3EJI | 19.2 | On Engineering AI Systems that Endure Th | bağlantılı video (_xQnSNlBP_w) | işlendi: a39f3d0 |
 | cMSprbJ95jg | 496.1 | AIE CODE 2025: AI Leadership ft Anthropi | bağlantılı video (_xQnSNlBP_w) | işlendi: a39f3d0 |
 | t4IQwMa5-6U | 74.6 | The AI Agenda: GPT5 leaks and the busine | bağlantılı video (_xQnSNlBP_w) | işlendi: a39f3d0 |
-| 8UDj3-JDfYY | 87.0 | Anthropic, Glean & OpenRouter: How AI Mo | bağlantılı video (_xQnSNlBP_w) | bekliyor |
-| emWgP_fr04k | 43.9 | ⚡ Inside Google Labs: Building The Gemin | bağlantılı video (_xQnSNlBP_w) | bekliyor |
-| deMrq2uzRKA | 27.6 | Michael Truell: How Cursor Builds at the | bağlantılı video (_xQnSNlBP_w) | bekliyor |
-| zSngJFKTsrM | 8.5 | Claude Code Tutorial: Skills (The Part M | bağlantılı video (ig-DdxKYYvRysZ) | bekliyor |
+| 8UDj3-JDfYY | 87.0 | Anthropic, Glean & OpenRouter: How AI Mo | bağlantılı video (_xQnSNlBP_w) | işlendi: d9569b1 |
+| emWgP_fr04k | 43.9 | ⚡ Inside Google Labs: Building The Gemin | bağlantılı video (_xQnSNlBP_w) | işlendi: d9569b1 |
+| deMrq2uzRKA | 27.6 | Michael Truell: How Cursor Builds at the | bağlantılı video (_xQnSNlBP_w) | işlendi: d9569b1 |
+| zSngJFKTsrM | 8.5 | Claude Code Tutorial: Skills (The Part M | bağlantılı video (ig-DdxKYYvRysZ) | işlendi: d9569b1 |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
