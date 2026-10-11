@@ -50,7 +50,7 @@ def test_catal(tmp_path):
     # hook'lar: yalnız seçilenler, injection tarayıcı yalnız dış içerik
     hj = json.loads((tmp_path / "hooks" / "hooks.json").read_text())["hooks"]
     kalan = {(e, h["command"].split("/hooks/")[1][:-4], m.get("matcher")) for e, L in hj.items() for m in L for h in m["hooks"]}
-    assert kalan == {("SessionStart", "gsd-ensure-canonical-path", None), ("PreToolUse", "gsd-write-guard", "Write"),
+    assert kalan == {("SessionStart", "gsd-ensure-canonical-path", None), ("PreToolUse", "gsd-write-guard", "Write"), ("PreToolUse", "gsd-secret-read-guard", "Read|Grep|Bash"),
                      ("PostToolUse", "gsd-read-injection-scanner", "WebFetch|WebSearch"), ("FileChanged", "gsd-config-reload", "config.json")}
     atif = (tmp_path / "ATIF.md").read_text(encoding="utf-8")
     assert "MIT" in atif and "651bd2f" in atif and (tmp_path / "LICENSE").exists()

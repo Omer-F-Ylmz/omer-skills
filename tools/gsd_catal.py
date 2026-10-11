@@ -9,6 +9,7 @@ from pathlib import Path
 
 SURUM = "1.16.0-omer.1"
 TUT = {("SessionStart", "gsd-ensure-canonical-path"), ("PreToolUse", "gsd-write-guard"),
+       ("PreToolUse", "gsd-secret-read-guard"),
        ("PostToolUse", "gsd-read-injection-scanner"), ("FileChanged", "gsd-config-reload")}
 DAR = {"gsd-read-injection-scanner": "WebFetch|WebSearch"}  # yerel Read her çağrıda taranmaz; dış içerik taranır
 ACIKLAMA = ("GSD spec-driven geliştirme: proje/milestone/phase planı, PLAN.md, ROADMAP, SPEC/PRD, discuss/plan/execute/verify-phase, "
