@@ -868,7 +868,7 @@ def _ff(ctx, hw, cmd, timeout):
     return _kos(ctx, cmd([], ""), timeout)
 
 
-def _kare_cikar(ctx, v, kd, sahne, f, hw=None):
+def _kare_cikar(ctx, v, kd, sahne, f, hw=None, ak=()):
     """HIZ-2: seçilen kareler tek çözme geçişinde — fps → split=K, dal başına ≤50 terimlik select (1b-1R: ~117 terimlik select ffmpeg'de
     "Cannot allocate memory"), dal başına ayrı image2 çıkışı; adlar/numara eski parçalı yolla aynı. Uzun graf komut satırı yerine betik dosyasında."""
     p = range(0, max(len(sahne), 1), 50)
@@ -878,7 +878,7 @@ def _kare_cikar(ctx, v, kd, sahne, f, hw=None):
         graf = [f"[0:v]{on}fps={f},split={len(p)}" + "".join(f"[a{i}]" for i in p)]
         graf += [f"[a{i}]select='" + ("+".join(f"eq(n,{round(t * f)})" for t, _ in sahne[i:i + 50]) or "0") + f"',format=yuvj420p[o{i}]" for i in p]
         b.write_text(";".join(graf), encoding="utf-8")
-        return ["ffmpeg", "-v", "error", "-y", *giris, "-i", str(v), "-/filter_complex", str(b),
+        return ["ffmpeg", "-v", "error", "-y", *ak, *giris, "-i", str(v), "-/filter_complex", str(b),
                 *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-start_number", str(i + 1), str(kd / "s%04d.jpg")])]
     try:
         _ff(ctx, hw, cmd, SURE["sahne"])
@@ -892,11 +892,13 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
     v = _video_indir(ctx, d)
     with SAHNE, asama(d.name, "sahne"):
         hw = _hw(ctx, v)
-        ham = _ff(ctx, hw, lambda giris, on: ["ffmpeg", "-v", "error", *giris, "-i", str(v), "-an", "-vf",
+        # VİDEO-HIZ-2: uzun videoda iki geçiş de yalnız anahtar kareleri çözer (aynı ızgara → zamanlar hizalı); 10 dk AV1 52 sn → 0.7 sn
+        ak = ["-skip_frame", "nokey"] if sure >= gz.ANAHTAR_SN else []
+        ham = _ff(ctx, hw, lambda giris, on: ["ffmpeg", "-v", "error", *ak, *giris, "-i", str(v), "-an", "-vf",
                                               f"{on}fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"], SURE["sahne"])
         sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
         sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
-        _kare_cikar(ctx, v, kd, sahne, f, hw)
+        _kare_cikar(ctx, v, kd, sahne, f, hw, ak)
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
     _ram_kapi(ctx)

@@ -82,6 +82,9 @@ SAHNE_HAM, OCR_DEGISIM, OCR_GUVENLIK, MODEL_UST = 5, 0.15, 900, 6  # ayar · M2:
 AD = re.compile(r"\b[A-Z][\w.+-]{2,}|(?:https?://|www\.)\S+|\b[\w-]+\.(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design)\b\S*")
 
 
+ANAHTAR_SN = 3600  # ayar · VİDEO-HIZ-2: bu süreden uzun videoda sahne/kare geçişleri yalnız anahtar kare çözer (-skip_frame nokey)
+
+
 def fps(sure):
     return 0.5 if sure >= 600 else 1
 
