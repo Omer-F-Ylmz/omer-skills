@@ -34,6 +34,12 @@ def test_belge_ornek_anahtari_yanlis_alarm_degil(tmp_path):
     gercek = _zip(tmp_path / "g.zip", {"g/SKILL.md": "---\nname: g\ndescription: Use when g.\n---\n",
                                          "g/R.md": "AKIA" + "Q3J7K2LM9PZT4WXY"})
     assert any("gizli" in x for x in zd.denetle(gercek))
+    tablo = _zip(tmp_path / "h.zip", {"h/SKILL.md": "---\nname: h\ndescription: Use when h.\n---\n",
+                                       "h/R.md": "| Private Key | `-----BEGIN " + "PRIVATE KEY-----` | PEM format |"})
+    assert zd.denetle(tablo) == []
+    pem = _zip(tmp_path / "i.zip", {"i/SKILL.md": "---\nname: i\ndescription: Use when i.\n---\n",
+                                     "i/k.pem": "-----BEGIN " + "PRIVATE KEY-----\n" + "M" * 64 + "\n"})
+    assert any("gizli" in x for x in zd.denetle(pem))
 
 
 def test_eksik_ve_uzun(tmp_path):

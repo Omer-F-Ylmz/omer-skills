@@ -7,7 +7,8 @@ import sys
 import zipfile
 from pathlib import Path
 
-GIZLI = re.compile(rb"sk-ant-[A-Za-z0-9_-]{8}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30}|-----BEGIN [A-Z ]*PRIVATE KEY")
+GIZLI = re.compile(rb"sk-ant-[A-Za-z0-9_-]{8}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30}"
+                   rb"|-----BEGIN [A-Z ]*PRIVATE KEY-----\s+[A-Za-z0-9+/=]{40}")  # PEM: gövdesi olan anahtar, tablo sözü değil
 ORNEK = re.compile(rb"EXAMPLE|XXXX|EXPOSED|FAKE|DUMMY|\.\.\.", re.I)  # belge örneği/yer tutucu (AWS: AKIAIOSFODNN7EXAMPLE)
 COP = re.compile(r"(^|/)(__pycache__/|\.DS_Store$|Thumbs\.db$)|\.pyc$")
 
