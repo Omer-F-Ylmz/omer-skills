@@ -59,3 +59,42 @@ def test_ozet_puan(tmp_path):
     sayi, aile = fd.ozet(satirlar)
     assert sayi["cift"] == 2 and sayi["pd_yok"] == 1 and sayi.get("kirik_bag") == 2  # sisman + references/a.md'si olmayan plugin kopyası
     assert aile["iyi"] == 100 and aile["sisman"] < 100 and aile["pk-paket"] == 100
+
+
+def test_yuklenmeyen_kopyalar_haric(tmp_path):
+    # kök neden: ecc'nin docs/<dil> ve .kiro kopyaları CC'ye yüklenmez ama denetime ve açıklama hedefine giriyordu
+    ev = _kur(tmp_path)
+    pl = ev / ".claude/plugins/cache/mk/pl/1.0"
+    for d in ("docs/ja-JP/skills/iyi", ".kiro/skills/iyi", ".agents/skills/iyi", "skills/kat/derin"):
+        _skill(pl / d, "iyi", "kopya")
+    _skill(pl / "ozel/ek", "ek", "Özel yol. Use when E.")
+    (pl / ".claude-plugin").mkdir()
+    (pl / ".claude-plugin/plugin.json").write_text(json.dumps({"skills": ["./ozel/ek", "./skills/"]}), encoding="utf-8")
+    kok = ev / ".claude/plugins/cache/mk/tek/1.0"
+    _skill(kok, "tek", "Kök skill. Use when T.")
+    _skill(kok / "docs/es", "tek", "copia")
+    sk = ev / ".claude/skills"
+    _skill(sk / "aile/.cursor/skills/alt", "alt", "kopya")
+    _skill(sk / "aile/docs/zh-CN/skills/alt", "alt", "kopya")
+    paket = ev / ".claude/plugins/cache/mk/paket/1.0"
+    _skill(paket / "pa", "pa", "Paket üyesi. Use when P.")
+    _skill(paket / "pb", "pb", "listede yok")
+    mp = ev / ".claude/plugins/marketplaces/mk/.claude-plugin/marketplace.json"
+    mp.parent.mkdir(parents=True)
+    mp.write_text(json.dumps({"plugins": [{"name": "paket", "skills": ["./pa"]}]}), encoding="utf-8")
+    ip = ev / ".claude/plugins/installed_plugins.json"
+    ip.write_text(json.dumps({"plugins": {"pl@mk": [{"installPath": str(pl)}], "tek@mk": [{"installPath": str(kok)}],
+                                          "paket@mk": [{"installPath": str(paket)}]}}), encoding="utf-8")
+    haric = __import__("collections").Counter()
+    yollar = {Path(k["yol"]).relative_to(ev).as_posix() for k in fd.topla(ev, haric)}
+    assert {y for y in yollar if "plugins" in y} == {".claude/plugins/cache/mk/pl/1.0/skills/iyi/SKILL.md",
+                                                     ".claude/plugins/cache/mk/pl/1.0/ozel/ek/SKILL.md",
+                                                     ".claude/plugins/cache/mk/tek/1.0/SKILL.md",
+                                                     ".claude/plugins/cache/mk/paket/1.0/pa/SKILL.md"}  # marketplace skills
+    assert not any("docs/" in y or "/." in y.replace("/.claude/", "/") for y in yollar)
+    assert haric == {"docs": 3, ".kiro": 1, ".agents": 1, ".cursor": 1, "skills/<kat>/<ad>": 1, "pb": 1}
+
+
+def test_tetik_cok_dilli():
+    for metin in ("Usar cuando se pide x.", "在需要X时使用。", "何时使用", "Xが必要な時に使用。", "X가 필요할 때 사용."):
+        assert fd.TETIK.search(metin), metin

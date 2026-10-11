@@ -8,7 +8,8 @@ import argparse, collections, hashlib, json, posixpath, re, sys
 from pathlib import Path
 
 ATLA = {".trash", "synced"}
-TETIK = re.compile(r"use when|use this|use for|when the user|when you|trigger|invoke|proactively|kullan|tetikle|zaman|durumda|için", re.I)
+TETIK = re.compile(r"use when|use this|use for|when the user|when you|trigger|invoke|proactively|kullan|tetikle|zaman|durumda|için"
+                   r"|[时時]使用|時に使用|何[时時]|때 사용|사용할 때|usar cuando|úsal[oa]", re.I)
 BAG = re.compile(r"\]\(([^)#\s]+)\)|`((?:references|scripts|assets|reference|docs)/[^`\s]+)`")
 MCP = re.compile(r"mcp__([A-Za-z0-9_.-]+?)__")
 EMIR = re.compile(r"\b(ALWAYS|NEVER|MUST NOT|MUST|DO NOT|HER ZAMAN|ASLA)\b\s+((?:\w+\s+){2}\w+)", re.I)
@@ -45,9 +46,53 @@ def _dosya_kaydi(md, kok, kaynak, aile, mevcut):
             "kaynak": kaynak, "aile": aile, "yol": str(md), "dizin": md.parent.relative_to(kok).as_posix(), "mevcut": mevcut}
 
 
-def _dizin_kayitlari(kok, kaynak, aile_adi):
+def _pazar_skills(ev, anahtar):
+    """marketplace.json'da plugin girdisinin "skills" yolları (daymade paketleri plugin.json'suz bunu kullanır)."""
+    ad, _, pazar = anahtar.partition("@")
+    m = ev / ".claude/plugins/marketplaces" / pazar / ".claude-plugin/marketplace.json"
+    try:
+        girdi = next((p for p in json.loads(m.read_text(encoding="utf-8")).get("plugins", []) if p.get("name") == ad), {})
+    except (OSError, ValueError):
+        return []
+    s = girdi.get("skills") or []
+    return [s] if isinstance(s, str) else s
+
+
+def _plugin_yuklenen(kok, ek=()):
+    """CC'nin plugin sürüm kökünden yüklediği SKILL.md'ler: kök SKILL.md, skills/<ad>/, plugin.json ve marketplace.json
+    "skills" yolları (ek; yol skill dizini ya da skill dizinlerinin üstü). docs/<dil>, .kiro, .agents vb. kopyalar yüklenmez."""
+    yollar = ["skills", *ek]
+    pj = kok / ".claude-plugin/plugin.json"
+    if pj.exists():
+        try:
+            s = json.loads(pj.read_text(encoding="utf-8")).get("skills") or []
+        except ValueError:
+            s = []
+        yollar += [s] if isinstance(s, str) else s
+    out = {kok / "SKILL.md"}
+    for y in yollar:
+        d = kok / y
+        out |= {d / "SKILL.md"} if (d / "SKILL.md").exists() else set(d.glob("*/SKILL.md"))
+    return out
+
+
+def _haric_sinif(parts):
+    for p in parts[:-1]:
+        if p == "docs" or p.startswith("."):
+            return p
+    return "skills/<kat>/<ad>" if parts[0] == "skills" else parts[0]
+
+
+def _dizin_kayitlari(kok, kaynak, aile_adi, yuklenen=None, haric=None):
+    """yuklenen verilmezse (gevşek) gizli dizin ve docs/ altındaki kopyalar atlanır; atlananlar haric'e sayılır."""
     for md in sorted(kok.rglob("SKILL.md")):
-        if ATLA & set(md.relative_to(kok).parts):
+        parts = md.relative_to(kok).parts
+        if ATLA & set(parts):
+            continue
+        if (md not in yuklenen if yuklenen is not None
+                else any(p == "docs" or p.startswith(".") for p in parts[:-1])):
+            if haric is not None:
+                haric[_haric_sinif(parts)] += 1
             continue
         d = md.parent
         mevcut = {p.relative_to(d).as_posix() for p in d.rglob("*") if p.is_file()}
@@ -70,15 +115,15 @@ def _synced_kayitlari(kok):
             yield k
 
 
-def topla(ev):
-    kayit = list(_dizin_kayitlari(ev / ".claude/skills", "gevşek", None))
+def topla(ev, haric=None):
+    kayit = list(_dizin_kayitlari(ev / ".claude/skills", "gevşek", None, haric=haric))
     ip = ev / ".claude/plugins/installed_plugins.json"
     if ip.exists():
         for anahtar, liste in json.loads(ip.read_text(encoding="utf-8")).get("plugins", {}).items():
             for x in liste[:1]:
                 p = Path(x.get("installPath", ""))
                 if p.is_dir():
-                    kayit += _dizin_kayitlari(p, "plugin", anahtar.split("@")[0])
+                    kayit += _dizin_kayitlari(p, "plugin", anahtar.split("@")[0], _plugin_yuklenen(p, _pazar_skills(ev, anahtar)), haric)
     return kayit + list(_synced_kayitlari(ev / ".claude/skills/synced"))
 
 
@@ -182,7 +227,8 @@ def main():
     ap.add_argument("--ozet", default="docs/kutuphane/skill-denetim-ozet.md")
     a = ap.parse_args()
     ev = Path(a.ev)
-    kayit = topla(ev)
+    haric = collections.Counter()
+    kayit = topla(ev, haric)
     satirlar = denetle(kayit, mcp_adlari(ev))
     with open(a.tsv, "w", encoding="utf-8", newline="\n") as f:
         f.write("\t".join(ALANLAR) + "\n")
@@ -194,6 +240,7 @@ def main():
     satir = [f"# Skill filosu statik denetimi (KALİTE-3 Faz 1)", "",
              f"Kayıt {len(satirlar)} · " + " · ".join(f"{k} {v}" for k, v in kaynak.most_common())
              + f" · aile {len(aile)}",
+             f"Yüklenmeyen kopya (hariç) {sum(haric.values())}: " + " · ".join(f"{k} {v}" for k, v in haric.most_common()),
              f"Gövde jetonu (≈karakter/4): toplam {sum(gj)} · ortanca {gj[len(gj) // 2]} · >{PD_SINIR}: {sum(1 for x in gj if x > PD_SINIR)}", "",
              "## Sorun sınıfı başına", ""] + [f"- {s}: {sayi.get(s, 0)}" for s in SORUNLAR] + [
              "", "## En düşük puanlı 30 aile (puan · skill sayısı)", ""]
