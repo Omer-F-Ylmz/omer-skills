@@ -793,10 +793,12 @@ def _video_indir(ctx, d):
                         ctx["uyku"](bek)
                     _INDIR_SON[0] = time.monotonic()
             with asama(d.name, "indir"):
+                mj = d / "meta.json"  # VİDEO-8: 9 sa video 900 sn'de inmedi (O_IMsEg91g8) → tavan süre/2
+                tavan = max(SURE["ses"], int((json.loads(mj.read_text(encoding="utf-8")).get("duration") or 0) / 2) if mj.exists() else 0)
                 for i in (0, 1):  # DEVAM-4: 403 → 10 sn bekle, bir kez tekrar; yine 403 → künyede görünür
                     try:
                         _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
-                                   yt_url(d.name)], SURE["ses"])
+                                   yt_url(d.name)], tavan)
                         break
                     except Hata as e:
                         if "403" not in str(e):
