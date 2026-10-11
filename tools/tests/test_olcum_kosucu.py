@@ -110,3 +110,16 @@ def test_init_yaz_yalniz_ad(tmp_path):
     assert "netlify" not in y.read_text(encoding="utf-8")
     kosucu.init_yaz(y, {"skills": ["b"]})
     assert json.loads(y.read_text(encoding="utf-8"))["skills"] == ["a"]
+
+
+def test_isabet_skill_ad_alani_yok_sayilir():
+    assert kosucu.isabet(["Skill:anthropic-skills:blender-oturum"], ["Skill:blender"]) == 1
+    assert kosucu.isabet(["Bash"], ["Skill:blender"]) == 0
+    assert kosucu.isabet(["Agent:video-tarayici"], ["Skill:video"]) == 0
+
+
+def test_rubrik_yazilan_dosyayi_da_gorur():
+    s = json.dumps({"type": "assistant", "message": {"content": [
+        {"type": "tool_use", "name": "Write", "input": {"file_path": "a.ts", "content": "page.goto('/login')"}}]}})
+    o = kosucu.ayristir(s)
+    assert o["girdi"] == ["page.goto('/login')"]

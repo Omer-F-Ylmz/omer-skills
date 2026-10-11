@@ -6,6 +6,7 @@ description: ".NET/backend müdürü: ASP.NET Core API, EF, MSBuild, NuGet sıra
 # Departman: backend-dotnet — iş sırası
 
 Katalog: `docs/departmanlar/backend-dotnet.md`.
+Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
 ## Adımlar
 1. **Doküman** — API/sürüm sorusu önce `mslearn` (CLI önce: `dotnet`, `gh`).

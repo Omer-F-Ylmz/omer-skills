@@ -54,7 +54,7 @@ def pid_canli(pid):
 
 def ayristir(stdout):
     """stream-json satırları → {usage, usd, sure_ms, metin, araclar, init, hook, tur}. Anahtar/istem değeri taşımaz."""
-    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "init": {}, "hook": [], "tur": 0}
+    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "girdi": [], "init": {}, "hook": [], "tur": 0}
     for s in (stdout or "").splitlines():
         try:
             x = json.loads(s)
@@ -79,6 +79,8 @@ def ayristir(stdout):
                     elif ad in ("Task", "Agent"):
                         ad = "Agent:" + str((b.get("input") or {}).get("subagent_type") or "")
                     o["araclar"].append(ad)
+                    g = b.get("input") or {}  # dosyaya yazılan/koşturulan çıktı da rubriğe girer (yalnız son metin değil)
+                    o["girdi"].extend(str(g[k]) for k in ("content", "new_string", "command") if g.get(k))
         elif t == "result":
             o["usage"] = x.get("usage") or {}
             o["usd"] = x.get("total_cost_usd") or 0.0
@@ -121,8 +123,10 @@ def puanla(metin, rubrik):
 
 
 def isabet(araclar, beklenen):
-    """beklenen = [] → araç gerekmez (1); aksi halde beklenen adlardan biri kullanıldıysa 1 (önek eşleşmesi: 'Skill:' tüm skill'leri sayar)."""
-    return 1 if not beklenen else int(any(a.startswith(b) for a in araclar for b in beklenen))
+    """beklenen = [] → araç gerekmez (1); aksi halde beklenen adlardan biri kullanıldıysa 1 (önek eşleşmesi: 'Skill:' tüm skill'leri sayar).
+    Skill ad alanı yok sayılır: 'Skill:anthropic-skills:blender-oturum' 'Skill:blender' ile de eşleşir (claude.ai senkron kopyası)."""
+    adlar = [x for a in araclar for x in (a, "Skill:" + a.rsplit(":", 1)[-1]) if a.startswith("Skill:") or x == a]
+    return 1 if not beklenen else int(any(a.startswith(b) for a in adlar for b in beklenen))
 
 
 def profil_ek(p):
@@ -172,7 +176,7 @@ def kos_profil(ad, p, gorevler, tarih, tekrar):
             sn = len(o["init"].get("skills") or []) if o["init"] else 0
             mn = len(o["init"].get("mcp_servers") or []) if o["init"] else 0
             s = "\t".join(str(v) for v in (g["id"], n, i, cc, cr, out, i + cc + cr, o["tur"], o["sure"], round(o["usd"], 4),
-                                           isabet(o["araclar"], g["arac"]), puanla(o["metin"], g["rubrik"]), sn, mn,
+                                           isabet(o["araclar"], g["arac"]), puanla("\n".join([o["metin"], *o["girdi"]]), g["rubrik"]), sn, mn,
                                            ",".join(dict.fromkeys(o["araclar"])), o["hata"]))
             satir_yaz(yol, s)
             print(ad, s, flush=True)

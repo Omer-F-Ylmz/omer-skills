@@ -6,6 +6,7 @@ description: "Plan müdürü: niyet, spec, PRD ve plan sırası. Yeni iş ya da 
 # Departman: surec-plan — iş sırası
 
 Katalog: `docs/departmanlar/surec-plan.md` · yaşam döngüsü `docs/departmanlar/organizasyon.md`.
+Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
 ## Adımlar
 1. **Niyet** — belirsiz istek: `brainstorming`; eksik gereksinim `interview-me`, ham fikir `idea-refine`.

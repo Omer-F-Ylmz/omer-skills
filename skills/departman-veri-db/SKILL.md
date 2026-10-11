@@ -6,6 +6,7 @@ description: "Veri/DB müdürü: şema, migration, sorgu ve Supabase/Postgres/EF
 # Departman: veri-db — iş sırası
 
 Katalog: `docs/departmanlar/veri-db.md`.
+Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
 ## Adımlar
 1. **Kurallar** — Postgres'e dokunmadan önce `supabase-postgres-best-practices`.

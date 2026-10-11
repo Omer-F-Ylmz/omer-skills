@@ -6,6 +6,7 @@ description: "Verimlilik müdürü: token/context tasarrufu, çıktı sıkışt�
 # Departman: verimlilik — iş sırası
 
 Katalog: `docs/departmanlar/verimlilik.md`.
+Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
 ## Adımlar
 1. **Komut çıktısı** — kabuk komutları `rtk` ile yoğunlaşır; sonuç kullanışsızsa `rtk proxy`.
