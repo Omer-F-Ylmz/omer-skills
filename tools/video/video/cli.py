@@ -926,7 +926,9 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
             sahne = sorted(sahne + gz.altyazi_zaman(m.vtt_ayristir(vtt.read_text(encoding="utf-8")), sure, f, [t for t, _ in sahne]))
         _kare_cikar(ctx, v, kd, sahne, f, hw, ak if h == "1" else [], PARCA if h == "2" else 1)
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
+    es = gz.es_kare(yollar) if h == "2" else {}  # VİDEO-HIZ-6: ardışık piksel eşi karenin OCR'ı atlanır, kaynağın satırları kopyalanır
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
+    eslik, yollar = [t for t, _ in yollar if t in es], [(t, y) for t, y in yollar if t not in es]
     _ram_kapi(ctx)
     with OCR, asama(d.name, "ocr"):
         bas, okunan, inc = time.monotonic(), [], []
@@ -936,6 +938,9 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
             if time.monotonic() - bas > gz.OCR_GUVENLIK:  # R4: kesim kare sayısıyla; süre yalnız güvenlik tavanı
                 inc = sorted((t, "OCR güvenlik tavanı") for t, _ in yollar[i + 10:])
                 break
+        oku_ = dict(okunan)
+        okunan += [(t, oku_[es[t]]) for t in eslik if es[t] in oku_]
+        inc = sorted(inc + [(t, "OCR güvenlik tavanı") for t in eslik if es[t] not in oku_])
         ek = [] if inc else gz.yogun_zaman([t for t, _ in okunan], [t for t, r in okunan if any(gz.url_benzer(x) for x, *_ in r)], sure)
         with SAHNE:  # OCR → SAHNE sırası tek yönlü (SAHNE tutan OCR beklemez): kilitlenme yok
             for t in ek:  # DEVAM-4: URL komşu yoğunlaştırma, tavan dışı; ponytail: kare başına bir -ss çözme, ≤120

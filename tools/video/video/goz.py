@@ -170,6 +170,28 @@ def ara_kare(hashler, f, var, esik=ARA_HAM):
             if b - a > 1 and bin(hashler[a] ^ hashler[b]).count("1") > esik and (a + b) // 2 not in var]
 
 
+ES_ORAN = 0.003  # ayar · VİDEO-HIZ-6: 480 px gride |fark|>40 piksel oranı bundan küçükse kare son okunanın eşi (OCR atlanır); 0.002 kayıpsız ama −36 kare
+
+
+def es_kare(yollar, oran=ES_ORAN):
+    """VİDEO-HIZ-6: [(t, jpg)] → {eş t: kaynak t}; zaman sırasıyla son okunan kareye piksel farkı < oran olan kare OCR'sız, kaynağın satırlarını alır.
+    dHash (9×8…64×64) yazı değişimini görmüyordu (30 dk AV1: ≥0.97 eşte slayt@80 %93.8); piksel farkı küçük metin değişimini yakalar."""
+    import numpy as np
+    from PIL import Image
+    es, son = {}, None
+    for t, y in sorted(yollar):
+        try:
+            p = np.asarray(Image.open(y).convert("L").resize((480, 270)), dtype=np.int16)
+        except OSError:  # okunamayan kare: eş sayılmaz, OCR'a gider
+            son = None
+            continue
+        if son is not None and (np.abs(p - son[1]) > 40).mean() < oran:
+            es[t] = son[0]
+        else:
+            son = (t, p)
+    return es
+
+
 def kapsam_sira(n):
     """1b-1R R4: OCR sırası kapsamaya göre — eşit aralıklı seyrek geçiş, sonra boşluklar (8 → 0,4,2,6,1,3,5,7); kesilirse kayıp videoya yayılır."""
     s, sira, gor = 1 << max(n - 1, 0).bit_length(), [], set()

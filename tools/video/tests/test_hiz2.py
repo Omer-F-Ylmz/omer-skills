@@ -71,3 +71,14 @@ def test_altyazi_hedefli_ek_kare():
     """VİDEO-HIZ-4: araç/repo/URL/komut geçen altyazı satırı → ızgara karesi; ±3 sn'de kare varsa, süre dışıysa ya da sıradan konuşmaysa yok."""
     s = [(10.2, "clone the GitHub repo"), (31.0, "npm install it"), (40.0, "hello everyone"), (61.0, "run this command"), (99.0, "open the link")]
     assert gz.altyazi_zaman(s, 90, 0.5, [0.0, 30.0, 60.0]) == [(10.0, 0)]
+
+
+def test_es_kare_ardisik_esi_atlar(tmp_path):
+    """VİDEO-HIZ-6: zaman sırasıyla son okunan kareyle piksel farkı < ES_ORAN olan kare OCR'sız, kaynağı eşlenir; farklı kare okunur."""
+    from PIL import Image, ImageDraw
+    y = {}
+    for t, metin in ((0.0, "slayt bir"), (2.0, "slayt bir"), (4.0, "slayt iki baska metin"), (6.0, "slayt iki baska metin")):
+        im = Image.new("L", (960, 540), 255)
+        ImageDraw.Draw(im).text((100, 200), metin, fill=0, font_size=60)
+        im.save(y.setdefault(t, tmp_path / f"k{int(t * 10):06d}.jpg"))
+    assert gz.es_kare(list(reversed(y.items()))) == {2.0: 0.0, 6.0: 4.0}
