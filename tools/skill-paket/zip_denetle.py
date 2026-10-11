@@ -1,6 +1,6 @@
 """claude.ai'ye yüklemeden ÖNCE skill zip denetimi (yükleme reddini ve çöp dosyayı önceden yakalar).
   python tools/skill-paket/zip_denetle.py <zip ya da klasör> [...]   → sorun yoksa rc 0
-Kontrol: SKILL.md var · yol derinliği < 10 klasör · .git yok · name ve description var · description ≤ 1024 karakter ve XML/açılı ayraç (< >) yok
+Kontrol: SKILL.md var · en çok 200 dosya · yol derinliği < 10 klasör · .git yok · name ve description var · description ≤ 1024 karakter ve XML/açılı ayraç (< >) yok
 (claude.ai reddeder) · __pycache__/.pyc/.DS_Store yok · gizli anahtar deseni yok (değer yazdırılmaz)."""
 import re
 import sys
@@ -10,6 +10,7 @@ from pathlib import Path
 GIZLI = re.compile(rb"sk-ant-[A-Za-z0-9_-]{8}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30}"
                    rb"|-----BEGIN [A-Z ]*PRIVATE KEY-----\s+[A-Za-z0-9+/=]{40}")  # PEM: gövdesi olan anahtar, tablo sözü değil
 ORNEK = re.compile(rb"EXAMPLE|XXXX|EXPOSED|FAKE|DUMMY|\.\.\.", re.I)  # belge örneği/yer tutucu (AWS: AKIAIOSFODNN7EXAMPLE)
+EN_COK_DOSYA = 200  # claude.ai: "Zip contains too many files (maximum 200)"
 COP = re.compile(r"(^|/)(__pycache__/|\.DS_Store$|Thumbs\.db$)|\.pyc$")
 
 
@@ -45,6 +46,8 @@ def denetle(zp):
             sorun.append(f"description {len(acik)} karakter > 1024")
         if re.search(r"[<>]", acik):
             sorun.append("description XML/açılı ayraç içeriyor (claude.ai reddeder)")
+        if len(adlar) > EN_COK_DOSYA:  # klasör girişleri de sayılır (temkinli)
+            sorun.append(f"{len(adlar)} dosya > {EN_COK_DOSYA} (claude.ai 'too many files' ile reddeder)")
         derin = [a for a in adlar if a.rstrip("/").count("/") >= 10]
         if derin:
             sorun.append(f"{len(derin)} yol çok derin (≥10 klasör; claude.ai reddeder, ör. {derin[0]})")

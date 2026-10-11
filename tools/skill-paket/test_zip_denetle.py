@@ -54,6 +54,15 @@ def test_derinlik_ve_git_klasoru(tmp_path):
     assert zd.denetle(sig) == []
 
 
+def test_dosya_sayisi_200_siniri(tmp_path):
+    # 17:54: claude.ai ajan-getir.zip'i (286 dosya) "Zip contains too many files (maximum 200)" ile reddetti
+    bas = {"m/SKILL.md": "---\nname: m\ndescription: Use when m.\n---\n"}
+    fazla = _zip(tmp_path / "m.zip", {**bas, **{f"m/r/{i}.md": "x" for i in range(200)}})  # 201 giriş
+    assert any("200" in x and "dosya" in x for x in zd.denetle(fazla))
+    sinir = _zip(tmp_path / "n.zip", {**bas, **{f"m/r/{i}.md": "x" for i in range(199)}})  # tam 200
+    assert zd.denetle(sinir) == []
+
+
 def test_eksik_ve_uzun(tmp_path):
     assert any("SKILL.md yok" in x for x in zd.denetle(_zip(tmp_path / "c.zip", {"c/README.md": "x"})))
     uzun = _zip(tmp_path / "d.zip", {"d/SKILL.md": "---\nname: d\ndescription: " + "a" * 1100 + "\n---\n"})
