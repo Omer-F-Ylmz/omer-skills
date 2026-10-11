@@ -58,9 +58,8 @@ def main(kip):
     if kip == "dogrula":
         isler = [("frontend", "fe-tasarim-yonu", "opus", ezme) for ezme in (None, "")]
     else:
-        # dogrula'da "" ezmesi frontmatter opus'u gerçekten koşturmadıysa --settings env ezmesi işlemiyor: 32 çağrı boşa gitmesin
-        if not any(s.split("\t")[4:6] == ["bos", "claude-opus-5-5"] for s in TSV.read_text(encoding="utf-8").splitlines()):
-            sys.exit("dogrula: '' ezmesiyle opus görülmedi — karsilastir koşulmadı")
+        # Karsilastir açık ezme (sonnet/opus) kullanır; 18:20 dogrula: "" ezmesi frontmatter'ı geri getirmiyor (alt ajan ana modelde),
+        # bu yüzden ön koşul yerine her satırda kanıt: alt model istenen değilse ezme işlemiyor → kalan çağrılar boşa gitmesin.
         isler = []
         for aile in sorted(p for p in AJAN.iterdir() if p.is_dir()):
             ad = next(y.stem for y in sorted(aile.glob("*.md")) if y.stem in gorevler)
@@ -72,6 +71,8 @@ def main(kip):
         am, aj = alt(o.get("model") or {})
         satir(time.strftime("%H:%M"), kip, aile, ad, "yok" if ezme is None else (ezme or "bos"), am, kosucu.puanla(o["metin"], g["rubrik"]),
               round(o["usd"], 4), jeton(o.get("model") or {}), aj, o["sure"], sum(a == f"Agent:{ad}" for a in o["araclar"]))
+        if kip == "karsilastir" and model not in am:
+            sys.exit(f"{ad}: {model} ezmesi istendi, alt ajan modeli {am} — ezme işlemiyor, durdu")
 
 
 if __name__ == "__main__":

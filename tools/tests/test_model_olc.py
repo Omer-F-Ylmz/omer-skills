@@ -27,6 +27,31 @@ def test_alt_jeton_ana_modeli_disarida_birakir():
     assert mo.alt(mu) == ("claude-opus-5-5", 16)
 
 
+def test_karsilastir_ezme_islemezse_ilk_satirdan_sonra_durur(tmp_path, monkeypatch):
+    # 18:20 dogrula: "" ezmesi frontmatter opus'u geri getirmedi (alt ajan ana modelde) → eski ön koşul karsilastir'ı hiç koşturmadı.
+    # Karsilastir açık model ezmesi (sonnet/opus) kullanır; işlemediği an (alt model ≠ istenen) kalan çağrılar boşa gitmesin.
+    aile = tmp_path / "ajan" / "frontend"
+    aile.mkdir(parents=True)
+    (aile / "fe-x.md").write_text("---\nname: fe-x\ndescription: d\nmodel: opus\n---\nG\n", encoding="utf-8")
+    (tmp_path / "ajan" / "gorevler.json").write_text(json.dumps([{"ajan": "fe-x", "istem": "i", "rubrik": []}]), encoding="utf-8")
+    monkeypatch.setattr(mo, "AJAN", tmp_path / "ajan")
+    monkeypatch.setattr(mo, "TSV", tmp_path / "m.tsv")
+    cagri = []
+
+    def sahte(ad, t, ezme, gorev):
+        cagri.append(ezme)
+        return {"metin": "x", "usd": 0.1, "sure": 1, "araclar": ["Agent:fe-x"],
+                "model": {"claude-haiku-5-5": {"inputTokens": 1}, "claude-haiku-5-5-alt": {"inputTokens": 1}}}
+    monkeypatch.setattr(mo, "kos", sahte)
+    try:
+        mo.main("karsilastir")
+        assert False, "durmalıydı"
+    except SystemExit as e:
+        assert "ezme" in str(e)
+    assert cagri == ["sonnet"]
+    assert len((tmp_path / "m.tsv").read_text(encoding="utf-8").splitlines()) == 2  # başlık + kanıt satırı
+
+
 def test_ayristir_model_usage_tasir():
     s = json.dumps({"type": "result", "modelUsage": {"m": {"inputTokens": 1}}})
     assert kosucu.ayristir(s)["model"] == {"m": {"inputTokens": 1}}
