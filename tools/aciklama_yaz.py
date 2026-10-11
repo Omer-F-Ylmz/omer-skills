@@ -70,7 +70,9 @@ def claude(istem, model, timeout=900):
     with tempfile.TemporaryDirectory(prefix="aciklama-", ignore_cleanup_errors=True) as bos:
         t = time.monotonic()
         r = subprocess.run(["claude", "-p", "--model", model, "--output-format", "json", "--max-turns", "1",
-                            "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands",
+                            # video/hafif.py A1 kalıbı (MOTOR-M2a): araçsız, ayar/hook/MCP/skill yüklemeden, oturum yazmadan
+                            "--tools", "", "--setting-sources", "", "--strict-mcp-config", "--safe-mode",
+                            "--disable-slash-commands", "--no-session-persistence",
                             "--disallowedTools", "Bash,Edit,Write,Read,Glob,Grep,WebFetch,WebSearch,Task,Agent"],
                            input=istem, capture_output=True, encoding="utf-8", errors="replace", env=env, cwd=bos,
                            timeout=timeout, creationflags=PENCERESIZ)
