@@ -55,3 +55,29 @@ def test_karsilastir_ezme_islemezse_ilk_satirdan_sonra_durur(tmp_path, monkeypat
 def test_ayristir_model_usage_tasir():
     s = json.dumps({"type": "result", "modelUsage": {"m": {"inputTokens": 1}}})
     assert kosucu.ayristir(s)["model"] == {"m": {"inputTokens": 1}}
+
+
+def test_pilot_departman_basina_iki_ajan_iki_kol_tavanli_surer(tmp_path, monkeypatch):
+    # devam-5 adım 3: her yeni ajan tek görevle ajan kolu ↔ ana-oturum kolu; departman başına ilk 2 ajan, çift yarım kalmaz
+    g = []
+    for dep in ("a-dep", "b-dep"):
+        (tmp_path / "ajan" / dep).mkdir(parents=True)
+        for i in range(3):
+            ad = f"{dep[0]}{i}"
+            (tmp_path / "ajan" / dep / f"{ad}.md").write_text(f"---\nname: {ad}\ndescription: d\nmodel: opus\n---\nG\n", encoding="utf-8")
+            g.append({"ajan": ad, "model": "opus", "istem": "i", "rubrik": [{"regex": "ok", "puan": 7}]})
+    (tmp_path / "ajan" / "gorevler.json").write_text(json.dumps(g), encoding="utf-8")
+    monkeypatch.setattr(mo, "AJAN", tmp_path / "ajan")
+    monkeypatch.setattr(mo, "PILOT", tmp_path / "p.tsv")
+    monkeypatch.setattr(mo, "YANIT", tmp_path / "yanit")
+    cagri = []
+    sonuc = {"metin": "ok", "usd": 0.1, "sure": 1, "araclar": [], "model": {"claude-opus-5-5": {"inputTokens": 4}}}
+    monkeypatch.setattr(mo, "kos", lambda ad, t, ezme, gorev: cagri.append((ad, "ajan", ezme, t["model"])) or sonuc)
+    monkeypatch.setattr(mo, "ana", lambda gorev, model: cagri.append(("ana", model)) or sonuc)
+    mo.pilot(6)
+    assert cagri == [("a0", "ajan", "opus", "opus"), ("ana", "opus"), ("a1", "ajan", "opus", "opus"), ("ana", "opus"),
+                     ("b0", "ajan", "opus", "opus"), ("ana", "opus")]
+    mo.pilot(6)  # sürdürme: yazılmış çiftler atlanır, kalan tek çift koşar
+    satirlar = (tmp_path / "p.tsv").read_text(encoding="utf-8").splitlines()
+    assert len(cagri) == 8 and len(satirlar) == 9 and satirlar[-1].split("\t")[1:4] == ["b1", "ana", "7"]
+    assert (tmp_path / "yanit" / "b1-ana.md").read_text(encoding="utf-8") == "ok"  # Jev yargıcı için

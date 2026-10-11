@@ -2,7 +2,8 @@
 koşunun oturumunda `--settings` env ile ezilir; değer yazdırılmaz, kanıt result.modelUsage'daki model adlarıdır.
 Ana oturum haiku (alt ajan jetonu ayrı model anahtarında kalsın diye), ajan `--agents` ile verilir.
   python tools/model_olc.py dogrula        # ezme yok ↔ "" : frontmatter opus'lu ajan gerçekte hangi modelde koştu
-  python tools/model_olc.py karsilastir    # her aileden ilk ajan × sonnet/opus → docs/kutuphane/olcum/kalite3-model.tsv"""
+  python tools/model_olc.py karsilastir    # her aileden ilk ajan × sonnet/opus → docs/kutuphane/olcum/kalite3-model.tsv
+  python tools/model_olc.py pilot [N]      # departman başına 2 ajan: ajan kolu ↔ ana oturum kolu, en fazla N çağrı → kalite3-ajan-pilot.tsv"""
 import json
 import sys
 import time
@@ -14,6 +15,8 @@ from olcum import kosucu  # noqa: E402
 KOK = Path(__file__).resolve().parents[1]
 AJAN = KOK / "ajanlar/kalite3"
 TSV = KOK / "docs/kutuphane/olcum/kalite3-model.tsv"
+PILOT = KOK / "docs/kutuphane/olcum/kalite3-ajan-pilot.tsv"
+YANIT = KOK / ".kalite3/ajan-yanit"
 ANA = "haiku"
 
 
@@ -42,6 +45,41 @@ def alt(mu):
 def kos(ad, t, ezme, gorev):
     istem = f"Delegate this task to the {ad} subagent with the Agent tool, then return its answer verbatim.\n\n{gorev}"
     return kosucu.kos(istem, ek(ad, t, ezme), model=ANA, butce=1.5)
+
+
+def ana(gorev, model):
+    """Ana oturum kolu: görev ajansız, kurulu skill'lerle, ajanın modelinde."""
+    return kosucu.kos(gorev, [], model=model, butce=1.5)
+
+
+def pilot(en_fazla=48):
+    """Ajan modeli frontmatter'daki; canlı env ezmesin diye açık ezme verilir (dogrula 18:20: "" geri getirmiyor)."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    gorevler = {g["ajan"]: g for g in json.loads((AJAN / "gorevler.json").read_text(encoding="utf-8"))}
+    if not PILOT.exists():
+        PILOT.write_text("aile\tajan\tkol\tpuan\tusd\tjeton\tana_jeton\talt_model\tsure\n", encoding="utf-8", newline="\n")
+    bitti = {tuple(s.split("\t")[1:3]) for s in PILOT.read_text(encoding="utf-8").splitlines()[1:]}
+    YANIT.mkdir(parents=True, exist_ok=True)
+    cagri = 0
+    for aile in sorted(p for p in AJAN.iterdir() if p.is_dir()):
+        for ad in [y.stem for y in sorted(aile.glob("*.md")) if y.stem in gorevler][:2]:
+            if (ad, "ana") in bitti:
+                continue
+            if cagri + 2 > en_fazla:
+                return
+            g = gorevler[ad]
+            _, t = tanim(aile / f"{ad}.md", g["model"])
+            for kol in ("ajan", "ana"):
+                if (ad, kol) in bitti:
+                    continue
+                o = kos(ad, t, g["model"], g["istem"]) if kol == "ajan" else ana(g["istem"], g["model"])
+                cagri += 1
+                mu = o.get("model") or {}
+                am, aj = alt(mu) if kol == "ajan" else (",".join(sorted(mu)) or "-", 0)
+                (YANIT / f"{ad}-{kol}.md").write_text(o["metin"], encoding="utf-8", newline="\n")
+                with PILOT.open("a", encoding="utf-8", newline="\n") as f:
+                    f.write("\t".join(map(str, [aile.name, ad, kol, kosucu.puanla(o["metin"], g["rubrik"]), round(o["usd"], 4),
+                                                jeton(mu), jeton(mu) - aj, am, o["sure"]])) + "\n")
 
 
 def satir(*a):
@@ -76,4 +114,7 @@ def main(kip):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    if sys.argv[1] == "pilot":
+        pilot(*map(int, sys.argv[2:3]))
+    else:
+        main(sys.argv[1])
