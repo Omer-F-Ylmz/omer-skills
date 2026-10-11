@@ -58,6 +58,9 @@ def main(kip):
     if kip == "dogrula":
         isler = [("frontend", "fe-tasarim-yonu", "opus", ezme) for ezme in (None, "")]
     else:
+        # dogrula'da "" ezmesi frontmatter opus'u gerçekten koşturmadıysa --settings env ezmesi işlemiyor: 32 çağrı boşa gitmesin
+        if not any(s.split("\t")[4:6] == ["bos", "claude-opus-5-5"] for s in TSV.read_text(encoding="utf-8").splitlines()):
+            sys.exit("dogrula: '' ezmesiyle opus görülmedi — karsilastir koşulmadı")
         isler = []
         for aile in sorted(p for p in AJAN.iterdir() if p.is_dir()):
             ad = next(y.stem for y in sorted(aile.glob("*.md")) if y.stem in gorevler)
