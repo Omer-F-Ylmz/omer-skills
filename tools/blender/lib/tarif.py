@@ -25,7 +25,9 @@ import sys
 import time
 from pathlib import Path
 
-REF = Path(__file__).resolve().parents[3] / "skills" / "blender-uretim" / "references"
+REF = Path(__file__).resolve().parent  # claude.ai zip: references/ içinde, isik_kur yanında
+if not (REF / "isik_kur.py").is_file():
+    REF = REF.parents[2] / "skills" / "blender-uretim" / "references"
 TURLER = ("kup", "silindir", "kure", "koni", "duzlem", "torus")
 KANALLAR = ("location", "rotation_euler", "scale")
 ALANLAR = ("ad", "tur", "boyut", "konum", "malzeme", "ucgen", "uv")
@@ -85,7 +87,8 @@ def _blender_ana():
     import malzemeler
 
     t0 = time.time()
-    spec = json.loads(sys.argv[sys.argv.index("--") + 1])
+    arg = sys.argv[sys.argv.index("--") + 1]
+    spec = json.loads(Path(arg[1:]).read_text(encoding="utf-8") if arg.startswith("@") else arg)
     hatalar = dogrula(spec)
     if hatalar:
         print("SONUC:" + json.dumps({"gecti": False, "hatalar": hatalar}, ensure_ascii=False))
@@ -240,8 +243,11 @@ def _blender_ana():
             sc.eevee.taa_render_samples = ornek
         else:
             sys.path.insert(0, str(REF.parents[2] / "tools"))
-            from blender_pisir import _gpu
-            cihaz = _gpu(sc)  # CPU'da kalırsa aynı görüntü katlarca yavaş
+            try:
+                from blender_pisir import _gpu
+                cihaz = _gpu(sc)  # CPU'da kalırsa aynı görüntü katlarca yavaş
+            except ImportError:  # ponytail: claude.ai zip'inde blender_pisir yok → CPU; GPU gerekirse repo yolu
+                cihaz = "CPU"
             isik_kur.cycles_denoise(sc, ornek)
             sc.cycles.use_adaptive_sampling = True  # gürültü eşiğine (0.01) ulaşan piksel erken durur
             sc.cycles.denoising_input_passes = "RGB_ALBEDO_NORMAL"  # kenar/doku ayrıntısı korunur
