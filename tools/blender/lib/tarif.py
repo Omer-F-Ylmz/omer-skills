@@ -2,7 +2,7 @@
 
     python tools/blender_cli.py tools/blender/lib/tarif.py @spec.json [--blend Desktop\\<Proje>\\blender\\x.blend]
 
-Sıra (her anahtar isteğe bağlı): nesneler → yigin → duzenle → isik → kamera → patlat → anim/kare → kaydet → glb →
+Sıra (her anahtar isteğe bağlı): nesneler → yigin → duzenle → patlat → isik → kamera → anim/kare → kaydet → glb →
 onizle → render → ozet. --blend yoksa fabrika sahnesi boşaltılır. Hatalı spec Blender işi başlamadan reddedilir.
   nesneler: [{ad, tur: kup|silindir|kure|koni|duzlem|torus, boyut [m], konum, donus [derece], malzeme, bevel [m],
              ust (koni üst/alt yarıçap oranı, 0 sivri), ekler: [{tur, boyut, konum, donus}]}] — ekler (sap, ağız,
@@ -12,9 +12,9 @@ onizle → render → ozet. --blend yoksa fabrika sahnesi boşaltılır. Hatalı
   duzenle : [{nesne, bevel, subdiv, decimate (oran), uv: akilli|lightmap, malzeme}]
   isik    : isik_kur profili (3 nokta + world dolgu; boyut_m/merkez verilmezse mesh kutusundan). Render istenip
             sahnede ışık yoksa 'urun' kendiliğinden kurulur; malzemesiz mesh'e nötr gri atanır.
-             kamera: "oto" | {konum, hedef, lens}
+             kamera: "oto" | {konum, hedef, lens} — oto/ışık kutusu düz zemini (duzlem) saymaz, ürünü kadrajlar
   hdri    : .hdr/.exr yolu — world dolgusu (Poly Haven CC0: python tools/varlik_indir.py indir polyhaven <id>)
-  anim    : [{nesne, kanal: location|rotation_euler|scale, kareler: [[kare, [x,y,z]]]}];  kare: [baş, son]
+  anim    : [{nesne, kanal: location|rotation_euler|scale, kareler: [[kare, [x,y,z]]]}] — rotation_euler DERECE (tam tur 360);  kare: [baş, son]
   onizle  : {yol, px=256, motor=eevee};  render: {yol | klasor, px, motor: workbench|eevee|cycles, ornek, adim}
   ozet    : alan listesi (ad tur boyut konum malzeme ucgen uv) — yalnız mesh'ler, istenen alanlar
 """
@@ -174,10 +174,17 @@ def _blender_ana():
             ata(o, d["malzeme"])
 
     meshler = [o for o in sc.objects if o.type == "MESH"]
+    if "patlat" in spec:  # Faz 5 v2 g4: ışık/kamera patlatılmış hâli kadrajlamalı
+        p = spec["patlat"]
+        e = "XYZ".index(p.get("eksen", "Z"))
+        for i, o in enumerate(sorted(meshler, key=lambda o: o.location[e])):
+            o.location[e] += i * p.get("aralik", 0.05)
+    bpy.context.view_layer.update()
+    urun = [o for o in meshler if min(o.dimensions) > 1e-4] or meshler  # Faz 5 v2 g1: 1 m zemin fincanı minik yapıyordu
 
     def kutu():
         dg = bpy.context.evaluated_depsgraph_get()
-        ks = [o.matrix_world @ Vector(k) for o in meshler for k in o.evaluated_get(dg).bound_box]
+        ks = [o.matrix_world @ Vector(k) for o in urun for k in o.evaluated_get(dg).bound_box]
         return Vector([min(k[i] for k in ks) for i in range(3)]), Vector([max(k[i] for k in ks) for i in range(3)])
 
     isiksiz = not any(o.type == "LIGHT" for o in sc.objects) and ("onizle" in spec or "render" in spec)
@@ -199,12 +206,6 @@ def _blender_ana():
         sc.camera, kam.data.lens, kam.location = kam, lens, konum
         kam.data.clip_end = max(100, (konum - hedef).length * 10)
         kam.rotation_euler = (hedef - konum).to_track_quat("-Z", "Y").to_euler()
-
-    if "patlat" in spec:
-        p = spec["patlat"]
-        e = "XYZ".index(p.get("eksen", "Z"))
-        for i, o in enumerate(sorted(meshler, key=lambda o: o.location[e])):
-            o.location[e] += i * p.get("aralik", 0.05)
 
     for a in spec.get("anim", []):
         o = obj[a["nesne"]]
@@ -254,6 +255,8 @@ def _blender_ana():
         return str(yol)
 
     sonuc = {"gecti": True}
+    if k:
+        sonuc["kamera"] = {"konum": [round(x, 3) for x in konum], "hedef": [round(x, 3) for x in hedef]}
     if "onizle" in spec:
         o = spec["onizle"]
         motor(o.get("motor", "eevee"), o.get("px", 256))

@@ -176,3 +176,30 @@ def test_koni_ust_ve_ekler_tek_nesne(proje):
                            "ekler": [{"tur": "kup", "boyut": [0.08, 0.01, 0.01], "konum": [0.08, 0, 0.03]}]}],
              "ozet": ["ad", "boyut"]})
     assert [n["ad"] for n in s["ozet"]] == ["GEO-Cezve"] and s["ozet"][0]["boyut"][0] > 0.15
+
+
+@blender
+def test_oto_kamera_zemini_kadraja_katmaz(proje):
+    """Faz 5 v2 g1: oto kamera 1×1 m zemini de kutuya katıyordu → fincan karede minik (kör kompozisyon 2)."""
+    s = kos({"nesneler": [{"ad": "GEO-Zemin", "tur": "duzlem", "boyut": [1, 1, 1]},
+                          {"ad": "GEO-Fincan", "tur": "silindir", "boyut": [0.08, 0.08, 0.09], "konum": [0, 0, 0.055]}],
+             "kamera": "oto"})
+    konum, hedef = (s["kamera"][a] for a in ("konum", "hedef"))
+    assert sum((a - b) ** 2 for a, b in zip(konum, hedef)) ** 0.5 < 0.6 and abs(hedef[2] - 0.055) < 0.02
+
+
+@blender
+def test_patlat_kadraj_ve_isik_parca_degil(proje):
+    """Faz 5 v2 g4: kamera patlatmadan önce kuruluyordu (üst parçalar kadraj dışı); metal şeritleri MESH'ti
+    (denetçi patlatma_aralik'ta parça saydı, GLB'ye girdi)."""
+    s = kos({"nesneler": [{"ad": f"GEO-P{i}", "tur": "silindir", "boyut": [0.1, 0.1, 0.05]} for i in range(5)],
+             "yigin": "Z", "patlat": {"eksen": "Z", "aralik": 0.06}, "isik": "metal", "kamera": "oto",
+             "ozet": ["ad", "konum"]})
+    assert all(n["ad"].startswith("GEO-") for n in s["ozet"])
+    z = [n["konum"][2] for n in s["ozet"]]
+    assert abs(s["kamera"]["hedef"][2] - (min(z) + max(z)) / 2) < 0.02
+
+
+def test_anim_donus_birimi_derece():
+    """Faz 5 v2 g3: anim'de birim yazmıyordu → model radyan verdi (2π = 6.28°), donus_360 düştü."""
+    assert "360" in next(s for s in tarif.__doc__.splitlines() if "anim" in s and "kareler" in s)

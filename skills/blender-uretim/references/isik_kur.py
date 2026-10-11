@@ -154,10 +154,15 @@ def hdri_dolgu(yol=None, guc=0.3):
 
 
 def serit(m=(0, 0, 0), d=1.0, boyut_m=0.1, guc=5.0):
-    """İki dikey şerit softbox, kameraya görünmez: sırlı yüzeyde/metalde uzun vurgu çizgisi."""
+    """İki dikey şerit softbox (dikdörtgen AREA, kameraya görünmez): sırlı yüzeyde/metalde uzun vurgu çizgisi.
+    Faz 5 v2 g4: ışıyan MESH'ti → GLB'ye ve parça sayımına giriyordu. Güç = ışıma × alan (Cycles eşdeğeri)."""
     h = max(boyut_m * 3, 0.5)
-    return [_gorunmez_duzlem(ad, h / 6, h, kure(m, d, az, 5), m, guc)
-            for ad, az in (("LGT-SeritSol", -70), ("LGT-SeritSag", 70))]
+    obs = []
+    for ad, az in (("LGT-SeritSol", -70), ("LGT-SeritSag", 70)):
+        o = isik(ad, "AREA", guc * h * h / 6, kure(m, d, az, 5), m, h / 6)
+        o.data.shape, o.data.size_y, o.visible_camera = "RECTANGLE", h, False
+        obs.append(o)
+    return obs
 
 
 def gorunmez_dolgu(m=(0, 0, 0), d=1.0, guc=2.0):
