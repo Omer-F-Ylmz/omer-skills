@@ -5,7 +5,7 @@
 (b) açıklamada tetik yoksa / kısaysa Messages Batch isteği (haiku yazar) JSONL'e eklenir; gönderim ayrı adım.
 (c) kurulu olmayan mcp__<ad> eşleme tablosundaki kurulu karşılığa bağlanır; karşılık yoksa çekirdeğe not düşülür.
 (d) çift birleştirme bu araçta yok: denetim TSV'sindeki cift>0 kayıtlar model adımında ele alınır.
-python tools/skill_iyilestir.py <cikti_dizini> <skill_dizini>... [--istek istek.jsonl] [--esle esle.json]
+python tools/skill_iyilestir.py <cikti_dizini> <skill_dizini>... [--istek istek.jsonl] [--esle esle.json] [--koru gorev.json]
 """
 import argparse, json, re, shutil, sys
 from pathlib import Path
@@ -53,12 +53,14 @@ def kontrol(once, parcalar):
     return eksik
 
 
-def kurallar(icerik):
-    """Kod bloğu dışındaki MUST/NEVER/ASLA... satırları."""
+def kurallar(icerik, koru=()):
+    """Kod bloğu dışındaki MUST/NEVER/ASLA... satırları + koru desenine uyan satırlar (kod satırı çitle)."""
     kod, out = False, []
     for satir in icerik.splitlines():
         if satir.lstrip().startswith("```"):
             kod = not kod
+        elif any(re.search(k, satir, re.I) for k in koru):
+            out.append(f"```\n{satir}\n```" if kod else satir)
         elif not kod and KURAL.search(satir):
             out.append(satir)
     return out
@@ -73,7 +75,7 @@ def _slug(baslik, kullanilan):
     return aday
 
 
-def iyilestir(kaynak, cikti, mcp, esle, istek=None, tavan=1024):
+def iyilestir(kaynak, cikti, mcp, esle, istek=None, tavan=1024, koru=()):
     kaynak, cikti = Path(kaynak), Path(cikti)
     shutil.copytree(kaynak, cikti, dirs_exist_ok=True)
     metin = (kaynak / "SKILL.md").read_text(encoding="utf-8")
@@ -108,7 +110,8 @@ def iyilestir(kaynak, cikti, mcp, esle, istek=None, tavan=1024):
         refler.append((ad, icerik))
         ilk = next((s.strip() for s in icerik.splitlines()[1:] if s.strip() and not s.lstrip().startswith(("#", "```"))), "")
         ozet = re.split(r"(?<=[.!?])\s", ilk)[0][:160]
-        kural = "".join(f"{k}\n" for k in kurallar(icerik))  # taşınan bölümün kural satırları çekirdekte kalır
+        # taşınan bölümün kural satırları + ölçümde gereken (koru) satırları çekirdekte kalır (pilot r2: işaretçi yetmedi)
+        kural = "".join(f"{k}\n" for k in kurallar(icerik, koru))
         # işaretçi dizin taşır: alt başlıklar + madde anahtarları; çıplak "Ayrıntı" kural adlarını gizliyordu (pilot ui-ux-pro-max)
         dizin = ", ".join(dict.fromkeys("".join(t) for t in DIZIN.findall(icerik)))[:400]
         icin = f" for: {dizin}" if dizin else ""
@@ -140,12 +143,16 @@ def main():
     ap.add_argument("skiller", nargs="+")
     ap.add_argument("--istek")
     ap.add_argument("--esle")
+    ap.add_argument("--koru", help="ölçüm görev JSON'u: skill adının rubrik desenlerine uyan satırlar çekirdekte kalır")
     a = ap.parse_args()
     esle = json.loads(Path(a.esle).read_text(encoding="utf-8")) if a.esle else {}
+    koru = {}
+    for g in json.loads(Path(a.koru).read_text(encoding="utf-8")) if a.koru else []:
+        koru.setdefault(g["ad"], []).extend(m["regex"] for m in g["rubrik"])
     mcp, hata = mcp_adlari(Path.home()), 0
     print("ad\tonce\tsonra\tbolundu\tkayip\tarac\tnot")
     for s in a.skiller:
-        r = iyilestir(s, Path(a.cikti) / Path(s).name, mcp, esle, a.istek)
+        r = iyilestir(s, Path(a.cikti) / Path(s).name, mcp, esle, a.istek, koru=koru.get(Path(s).name, ()))
         hata += bool(r["kayip"])
         print(f"{r['ad']}\t{r['once']}\t{r['sonra']}\t{int(r['bolundu'])}\t{len(r['kayip'])}\t{';'.join(r['arac'])}\t{r['not']}")
     sys.exit(1 if hata else 0)

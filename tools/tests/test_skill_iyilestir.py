@@ -55,6 +55,20 @@ def test_bol_bilgi_kaybi_yok(tmp_path):
     assert (d / "SKILL.md").read_text(encoding="utf-8").count("Hata ayrıntısı") == 500  # orijinal dokunulmaz
 
 
+def test_koru_satiri_cekirdekte_kalir(tmp_path):
+    # pilot r2: kalite düşen madde (create-design-md `--color-*`, ui-ux-pro-max reduced-motion) references'ta kalınca
+    # model ya okumak için tur harcadı ya kaçırdı → ölçümde gereken satır taşınan bölümden çekirdeğe kopyalanır
+    d = _skill(tmp_path)
+    (d / "SKILL.md").write_text((d / "SKILL.md").read_text(encoding="utf-8").replace(
+        "```bash\n", "Honor `prefers-reduced-motion` in every animation.\n```bash\n"), encoding="utf-8")
+    cikti = tmp_path / "out"
+    r = si.iyilestir(d, cikti, set(), {}, koru=[r"reduced-motion", r"--sayfa\s+1-3"])
+    cekirdek = (cikti / "SKILL.md").read_text(encoding="utf-8")
+    assert "Honor `prefers-reduced-motion` in every animation." in cekirdek
+    assert "```\npdf birlestir --sayfa 1-3 a.pdf\n```" in cekirdek  # kod satırı çitle korunur
+    assert (cikti / "references/reference-flags.md").is_file() and r["once"] > 2 * r["sonra"] and r["kayip"] == []
+
+
 def test_siniflandirici_is_akisi_kalir_ekler_tasinir(tmp_path):
     uzun = "Ayrıntılı açıklama cümlesi. " * 300
     bolumler = ["Stage 1: Context Gathering", "Step 2 - Draft", "Output format", "Rules and prohibitions", "Phase 3",
