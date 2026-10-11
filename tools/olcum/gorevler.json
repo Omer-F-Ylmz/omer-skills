@@ -15,7 +15,7 @@
   "kabul":"pdf ile ilgili doğru skill adını verir (pdf / tablo çıkarma)","arac":["Skill"],
   "rubrik":[{"puan":6,"regex":"pdf"},{"puan":2,"regex":"tablo|table"},{"puan":2,"regex":"csv"}]},
  {"id":"G06","kol":"web araştırma","istem":"Playwright'ın en güncel kararlı sürümü nedir ve trace viewer'ı CLI'dan nasıl açarım? Kaynak URL ver.",
-  "kabul":"Web aracı kullanılır; 'show-trace' komutu; kaynak URL","arac":["WebSearch","WebFetch","mcp__"],
+  "kabul":"Web aracı kullanılır; 'show-trace' komutu; kaynak URL","arac":["WebSearch","WebFetch","mcp__mcp-fetch__","mcp__brave-search__","mcp__context7__","mcp__plugin_context-mode_context-mode__ctx_fetch_and_index","Skill:departman-arastirma","Skill:anthropic-skills:departman-arastirma"],
   "rubrik":[{"puan":4,"regex":"show-trace"},{"puan":3,"regex":"https?://"},{"puan":3,"regex":"1\\.\\d+"}]},
  {"id":"G07","kol":"Blender/3D","istem":"Blender Python (bpy) ile sahneye 2 m kenarlı bir küp ekleyen ve ona kırmızı Principled BSDF malzeme atayan kod ver.",
   "kabul":"primitive_cube_add(size=2), Principled BSDF, Base Color kırmızı","arac":["Skill:blender","Skill"],

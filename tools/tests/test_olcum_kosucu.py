@@ -42,6 +42,16 @@ def test_puan_tavan_ve_isabet():
     assert kosucu.isabet(["Read"], ["Skill"]) == 0
 
 
+def test_g06_isabet_yalniz_gercek_web_araci():
+    g = next(x for x in json.loads((kosucu.DIZIN / "gorevler.json").read_text(encoding="utf-8")) if x["id"] == "G06")
+    for a in ("WebFetch", "WebSearch", "mcp__mcp-fetch__fetch", "mcp__brave-search__brave_web_search", "mcp__context7__query-docs",
+              "mcp__plugin_context-mode_context-mode__ctx_fetch_and_index",
+              "Skill:anthropic-skills:departman-arastirma-ogrenme", "Skill:departman-arastirma-ogrenme"):
+        assert kosucu.isabet(["Bash", a], g["arac"]) == 1, a
+    for a in ("mcp__plugin_context-mode_context-mode__ctx_execute", "Bash", "Skill:frontend-craft:frontend-craft"):
+        assert kosucu.isabet([a], g["arac"]) == 0, a
+
+
 def test_profil_ek_settings_mutlak_yol():
     ek = kosucu.profil_ek({"ek": ["--strict-mcp-config"], "settings": "profil-x.json"})
     assert ek[0] == "--strict-mcp-config" and ek[1] == "--settings"
