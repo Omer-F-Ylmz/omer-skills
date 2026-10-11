@@ -73,5 +73,21 @@
   "ek": [],
   "settings": "profil-k7b-kazanan.json",
   "not": "TOKEN-7b-devam-2 kazananlar: kol 1 (b40k) + kol 2 (think10k) + kol 3 (cmnudge); rtk-onisle zaten canlı"
+ },
+ "b2sonra": {
+  "ek": [
+   "--add-dir",
+   "C:\\Projeler\\omer-skills\\.claude\\b2-olcum",
+   "--mcp-config",
+   "C:\\Projeler\\omer-skills\\.claude\\b2-olcum\\mcp.json",
+   "--plugin-dir",
+   "C:\\Projeler\\.tmp-kurulum6c\\hermoso",
+   "--plugin-dir",
+   "C:\\Projeler\\.tmp-kurulum6c\\mukul975",
+   "--plugin-dir",
+   "C:\\Projeler\\.tmp-kurulum6c\\agent-browser"
+  ],
+  "settings": "../../.claude/b2-olcum/settings.json",
+  "not": "TUR-6c-B2: tam + kur.py'nin ekleyeceği skill (--add-dir, name-only) + 3 MCP + 3 plugin; canlıya dokunmaz"
  }
 }
