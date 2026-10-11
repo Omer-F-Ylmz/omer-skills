@@ -110,3 +110,40 @@ def test_init_yaz_yalniz_ad(tmp_path):
     assert "netlify" not in y.read_text(encoding="utf-8")
     kosucu.init_yaz(y, {"skills": ["b"]})
     assert json.loads(y.read_text(encoding="utf-8"))["skills"] == ["a"]
+
+
+def test_jev_doldur_kosu_sonu_toplu_ve_erisilemezse_regex_aynen(tmp_path):
+    assert kosucu.BASLIK.endswith("\thata\tjev\tjev_guven")
+    d = tmp_path / "2026-10-11-p"
+    d.mkdir()
+    (d / "G01-1.md").write_text("yanıt", encoding="utf-8")
+    y = tmp_path / "2026-10-11-p.tsv"
+    kosucu.satir_yaz(y, "G01\t1" + "\tx" * 14)
+    once = y.read_text(encoding="utf-8")
+
+    class Bozuk:
+        def yargila(self, s, q):
+            raise OSError("ağ yok")
+    kosucu.jev_doldur(y, d, tasiyici=Bozuk())
+    assert y.read_text(encoding="utf-8") == once
+
+    class Sahte:
+        cagri = 0
+        def yargila(self, s, q):
+            Sahte.cagri += 1
+            return [{"kalite": {"score": 3.5, "confidence": 0.6}} for _ in s]
+    kosucu.jev_doldur(y, d, tasiyici=Sahte())
+    assert Sahte.cagri == 1 and y.read_text(encoding="utf-8").splitlines()[1].endswith("\t7.0\t0.6")
+
+
+def test_karsilastir_regex_doymussa_jev_ayirir(tmp_path, monkeypatch):
+    import karsilastir
+    monkeypatch.setattr(karsilastir, "D", tmp_path)
+    for ad, jv in (("a", ("6.0", "")), ("b", ("9.0", "8.0"))):
+        satir = [kosucu.BASLIK] + ["\t".join([g, "1", "0", "0", "0", "5", "100", "1", "1", "0.1", "1", "10", "0", "0", "", "", j, ""])
+                                  for g, j in zip(("G01", "G02"), jv)]
+        (tmp_path / f"2026-10-11-{ad}.tsv").write_text("\n".join(satir) + "\n", encoding="utf-8")
+    assert karsilastir.ozet(karsilastir.oku("2026-10-11", "a"), {"G01", "G02"})["jev"] == 6.0
+    karsilastir.main(["2026-10-11", "a", "b"])
+    md = (tmp_path / "2026-10-11-karsilastirma.md").read_text(encoding="utf-8")
+    assert "jev ayırır: b" in md and "| G01 | 10/1/6.0 | 10/1/9.0 |" in md

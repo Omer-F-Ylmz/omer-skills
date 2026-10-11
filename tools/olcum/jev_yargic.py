@@ -1,5 +1,5 @@
 """JEV-1 (a): kosucu yanıt metinlerini Jev ile puanlar — regex rubriğin yanına anlamsal kalite (0-10).
-  python tools/olcum/jev_yargic.py <olcum-dizini>... [--en-fazla N] [--istek-tavan N] [--jsonl yol] [--kuru]
+  python tools/olcum/jev_yargic.py <olcum-dizini>... [--en-fazla N] [--istek-tavan N] [--jsonl yol] [--tsv-yaz] [--kuru]
 Her <dizin>/<GID>-<tekrar>.md için state = görev istemi + kabul ölçütü + yanıt; tek score sorusu (6 seviye → 0-10).
 Ücret: Jev girdi $0.042/M token (≈ yanıt başına $0.0001); --en-fazla batch çağrı tavanı (200 yanıt/çağrı)."""
 import argparse
@@ -29,7 +29,7 @@ def veri(dizinler):
             if not m or m[1] not in gorev:
                 continue
             g, metin = gorev[m[1]], f.read_text(encoding="utf-8", errors="replace")
-            out.append({"dosya": f"{d.name}/{f.name}", "gorev": m[1], "regex": puanla(metin, g["rubrik"]),
+            out.append({"dosya": f"{d.name}/{f.name}", "gorev": m[1], "tekrar": m[2], "regex": puanla(metin, g["rubrik"]),
                         "state": {"gorev": g["istem"], "kabul": g["kabul"], "yanit": metin}})
     return out
 
@@ -41,12 +41,32 @@ def jev_puanla(kayitlar, tasiyici):
     return kayitlar
 
 
+def tsv_doldur(tsv, kayitlar):
+    """<dizin>.tsv'nin jev/jev_guven sütunlarını (gorev, tekrar) eşleşmesiyle doldurur; eski başlığa sütun eklenir, puansız satır boş kalır."""
+    L = Path(tsv).read_text(encoding="utf-8").splitlines()
+    b = L[0].split("\t")
+    if "jev" not in b:
+        b += ["jev", "jev_guven"]
+    i = b.index("jev")
+    p = {(k["gorev"], k["tekrar"]): k for k in kayitlar if "jev" in k}
+    out = ["\t".join(b)]
+    for s in L[1:]:
+        r = s.split("\t")
+        r += [""] * (len(b) - len(r))
+        if (r[0], r[1]) in p:
+            k = p[(r[0], r[1])]
+            r[i:i + 2] = [str(k["jev"]), "" if k.get("guven") is None else str(k["guven"])]
+        out.append("\t".join(r))
+    Path(tsv).write_text("\n".join(out) + "\n", encoding="utf-8")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("dizinler", nargs="+")
     ap.add_argument("--en-fazla", type=int, default=2)
     ap.add_argument("--jsonl")
     ap.add_argument("--istek-tavan", type=int, default=250, help="API arka ucunda yanıt başına 1 HTTP isteği (tekrarlar dahil)")
+    ap.add_argument("--tsv-yaz", action="store_true", help="puanları kardeş <dizin>.tsv'ye jev/jev_guven sütunu olarak yaz")
     ap.add_argument("--kuru", action="store_true", help="ağa çıkmadan yalnız veri + regex")
     ns = ap.parse_args(argv)
     kayitlar = veri(ns.dizinler)
@@ -58,6 +78,10 @@ def main(argv=None):
         print(f"jev: {len(kayitlar)} yanıt · {t.cagri} çağrı · {t.istek} istek · ${usd:.4f} · backend {t.b['ad']}")
     for k in kayitlar:
         print(f"{k['dosya']}\tregex {k['regex']}\tjev {k.get('jev', '-')}\tgüven {k.get('guven', '-')}")
+    if ns.tsv_yaz and not ns.kuru:
+        for d in map(Path, ns.dizinler):
+            if (d.parent / f"{d.name}.tsv").exists():
+                tsv_doldur(d.parent / f"{d.name}.tsv", [k for k in kayitlar if k["dosya"].startswith(f"{d.name}/")])
     if ns.jsonl:
         Path(ns.jsonl).write_text("".join(json.dumps(k, ensure_ascii=False) + "\n" for k in kayitlar), encoding="utf-8")
 
