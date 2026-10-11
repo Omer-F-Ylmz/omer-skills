@@ -817,7 +817,7 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     Güven eşiği + gürültü süzgeci okurken (eşik değişince OCR yeniden koşmaz); m*.jpg goz/kareler'de kalır, paket varyantları birbirini silmez."""
     g, f = d / "goz", gz.fps(sure)
     kd, oj = g / "kareler", g / "ocr.json"
-    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ}
+    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ, **({"hiz2": 1} if _hiz2(sure) else {})}
     on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
     if on.get("anahtar") != anahtar:
         shutil.rmtree(g, ignore_errors=True)
@@ -868,6 +868,11 @@ def _ff(ctx, hw, cmd, timeout):
     return _kos(ctx, cmd([], ""), timeout)
 
 
+def _hiz2(sure):
+    """VİDEO-HIZ-3: anahtar-kare yolu kalite kanıtlanana dek bayraklı (env VIDEO_HIZ2=1), varsayılan kapalı; açıkken önbellek anahtarı ayrışır."""
+    return sure >= gz.ANAHTAR_SN and os.environ.get("VIDEO_HIZ2") == "1"
+
+
 def _kare_cikar(ctx, v, kd, sahne, f, hw=None, ak=()):
     """HIZ-2: seçilen kareler tek çözme geçişinde — fps → split=K, dal başına ≤50 terimlik select (1b-1R: ~117 terimlik select ffmpeg'de
     "Cannot allocate memory"), dal başına ayrı image2 çıkışı; adlar/numara eski parçalı yolla aynı. Uzun graf komut satırı yerine betik dosyasında."""
@@ -893,7 +898,7 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
     with SAHNE, asama(d.name, "sahne"):
         hw = _hw(ctx, v)
         # VİDEO-HIZ-2: uzun videoda iki geçiş de yalnız anahtar kareleri çözer (aynı ızgara → zamanlar hizalı); 10 dk AV1 52 sn → 0.7 sn
-        ak = ["-skip_frame", "nokey"] if sure >= gz.ANAHTAR_SN else []
+        ak = ["-skip_frame", "nokey"] if _hiz2(sure) else []
         ham = _ff(ctx, hw, lambda giris, on: ["ffmpeg", "-v", "error", *ak, *giris, "-i", str(v), "-an", "-vf",
                                               f"{on}fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"], SURE["sahne"])
         sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
