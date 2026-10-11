@@ -103,7 +103,7 @@ AGIR = re.compile(r"^(?:blender|genshinimpact|yuanshen|zenlesszonezero|starrail|
                   re.I | re.M)  # ayar · C1 ağır süreç: Blender · oyun (tam süreç adı; blender-mcp sayılmaz) · tam suit (komut satırı)
 KARE_TK = 1_600  # O11: yalnız dosyası okunamayan kare için; asıl hesap girdi_tk (gerçek boyut, cli._kare_tk)
 SISTEM = ("Video tarayıcısısın. Her VIDEO bloğu bir paket: künye, açıklama bağlantıları, altyazı segmentleri, kare listesi. "
-          "Her video için formu Türkçe ve eksiksiz doldur; zorunlu alanlar boş olamaz. Zamanlar m:ss ve video süresi içinde "
+          "Her video için formu Türkçe ve eksiksiz doldur; zorunlu alanlar boş olamaz. Zamanlar m:ss (≥1 sa: h:mm:ss, paketteki gibi) ve video süresi içinde "
           "(yalnız açıklamada geçiyorsa 'açıklama'). Açıklama bağlantılarının HER biri için karar ver (aday_mi + neden); erişilemeyende (ücretli topluluk, giriş gerekli) "
           "aday_mi false + erisilemez: <sebep>. "
           "Alıntı en fazla 15 kelime. Kareden okunan bilgide kaynak 'kare' (ekli görseller, sırası bloklardaki kare listesiyle aynı). "
@@ -170,7 +170,7 @@ def _d(x):
 S = {"type": "string", "minLength": 1}
 N = {"type": ["string", "null"]}
 KAYNAK = {"type": "string", "enum": ["altyazı", "kare", "açıklama"]}
-ZMN = {"type": "string", "minLength": 1, "description": "m:ss, video süresi içinde; yalnız açıklamadaysa 'açıklama'"}
+ZMN = {"type": "string", "minLength": 1, "description": "m:ss (≥1 sa: h:mm:ss), video süresi içinde; yalnız açıklamadaysa 'açıklama'"}
 KG = {"karede_gorulen": {"type": ["string", "null"], "description": "kare gönderildiyse zorunlu: karede tam olarak ne görülüyor"}}
 
 

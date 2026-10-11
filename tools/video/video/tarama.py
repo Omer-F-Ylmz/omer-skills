@@ -23,6 +23,7 @@ TUR = {"skill", "plugin", "MCP", "CLI", "teknik", "iş akışı", "ipucu", "prom
 ALINTI_KELIME = 15
 DOSYA = re.compile(r"(?:(\d{4}-\d\d-\d\d)-)?([\w-]{11})")
 ZAMAN = re.compile(r"(?<![\d:.])(?:\d{1,2}:)?\d{1,2}:\d{2}(?![\d:])")
+UC_DK = re.compile(r"(?<![\d:.])(\d{3}):(\d{2})(?![\d:])")  # VİDEO-12: 356:08 → 5:56:08
 ALINTI = re.compile(r"[“\"]([^”\"\n]*)[”\"]")
 MADDE = re.compile(r"^- (.+?) → (\S+)")
 SITE_UI = "Site/UI teknikleri"  # 23 K5: frontend/site içerikli videoda zorunlu
@@ -250,19 +251,22 @@ def kuyruk_parti(metin, kapsiz=False):
     """24e-2 K6: bekleyen video satırları sıra 1'den; ilk satırın türü partiyi belirler (short <2 dk ≤8 · uzun ≤3),
     notunda anılan ya da onu anan aynı türden bekleyen önce gelir. → (tür, [hücreler])
     YT1 3: kapsiz=True (ikili yol) → 3/8 sınırı yok, türden bağımsız tüm bekleyenler (tür ilk satırdan); sınırı çağıran --en-fazla koyar."""
-    sira, bek = 9, []
+    sira, bek, bagli = 9, [], 0
     for s in metin.splitlines():
         if x := re.match(r"###\s+Sıra\s+(\d+)", s):
             sira = int(x[1])
+        elif re.match(r"##\s", s):
+            bagli = int(s[3:].strip() == "Bağlantılı videolar")  # VİDEO-12: otomatik eklenen bağlantılılar açıkça kuyruklananlardan sonra
         h = _hucre(s)
         if s.lstrip().startswith("|") and len(h) == 5 and h[4] == "bekliyor" and re.fullmatch(r"\d+(?:\.\d+)?", h[1]):
-            bek.append((sira, len(bek), h))
+            bek.append((bagli, sira, len(bek), h))
+    oto = {h[0] for b, *_, h in bek if b}
     bek = [h for *_, h in sorted(bek)]
     if not bek:
         return None, []
     kisa = float(bek[0][1]) < 2
     ayni = [h for h in bek if (float(h[1]) < 2) == kisa]
-    bag = [h for h in ayni[1:] if h[0] in ayni[0][3] or ayni[0][0] in h[3]]
+    bag = [h for h in ayni[1:] if h[0] not in oto and (h[0] in ayni[0][3] or ayni[0][0] in h[3])]
     parti = list({h[0]: h for h in [ayni[0], *bag, *ayni]}.values())
     if kapsiz:
         return ("short" if kisa else "uzun"), list({h[0]: h for h in [*parti, *bek]}.values())
@@ -552,6 +556,8 @@ def iz_duzelt(metin):
         Y[i] = "|".join(c)
     y = ALINTI.sub(lambda a: a[0] if len(w := a[1].split()) <= ALINTI_KELIME else f"{a[0][0]}{' '.join(w[:ALINTI_KELIME])}…{a[0][-1]}",
                    "\n".join(Y)).split("\n")
+    # VİDEO-12: ≥100 dk zaman mmm:ss yazılırsa ZAMAN tanımaz ("kanıt zamansız") → aynı an h:mm:ss (paket biçimi; uydurma yok)
+    y = [UC_DK.sub(lambda z: f"{int(z[1]) // 60}:{int(z[1]) % 60:02}:{z[2]}", s) for s in y]
     n = sum(a != b for a, b in zip(L, y))
     return ("\r\n".join(y) if crlf else "\n".join(y)) if n else metin, n
 KACAN_URL = re.compile(r"https?://[^\s|)>\]]+")
