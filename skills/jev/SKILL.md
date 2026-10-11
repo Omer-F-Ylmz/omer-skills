@@ -1,6 +1,6 @@
 ---
 name: jev
-description: "Jev (TypeSafe) tipli yargı: çok öğeli sınıflandırma/puanlama, kalibre olasılık, ikinci görüş. jev_* araçları, soru yazımı, güven bantları."
+description: "Jev (TypeSafe) tipli yargı. Kullanıcı birden çok öğeyi sınıflamak, etiketlemek ya da puanlamak istediğinde (yorum olumlu/olumsuz, commit biçimi uygun mu, yanıt 0-10), kalibre olasılık/güven, 'ikinci görüş', iki metin aynı şeyi mi söylüyor, toplu (batch) yargı ya da bool/choice/score/noul yargı sorusu yazma istendiğinde ÖNCE bunu yükle; elle sınıflama yapma. Tetik: sınıfla, etiketle, puanla, olasılık ver, ikinci görüş, aynı mı, toplu etiket, yargı sorusu, güven bandı, classify, label, score, judge, jev_evaluate, jev_batch."
 ---
 
 # Jev — tipli yargı aracı
