@@ -8,7 +8,8 @@ onizle → render → ozet. --blend yoksa fabrika sahnesi boşaltılır. Hatalı
   malzeme : malzemeler.py tarif adı ya da {"renk": [r,g,b], "metal": 0..1, "puruz": 0..1}
   yigin   : "X"|"Y"|"Z" — nesneler sırayla üst üste;  patlat: {"eksen": "Z", "aralik": 0.05} — patlatılmış görünüm
   duzenle : [{nesne, bevel, subdiv, decimate (oran), uv: akilli|lightmap, malzeme}]
-  isik    : isik_kur profili (boyut_m ile);  kamera: "oto" | {konum, hedef, lens}
+  isik    : isik_kur profili (3 nokta + world dolgu, boyut_m ile);  kamera: "oto" | {konum, hedef, lens}
+  hdri    : .hdr/.exr yolu — world dolgusu (Poly Haven CC0: python tools/varlik_indir.py indir polyhaven <id>)
   anim    : [{nesne, kanal: location|rotation_euler|scale, kareler: [[kare, [x,y,z]]]}];  kare: [baş, son]
   onizle  : {yol, px=256, motor=workbench};  render: {yol | klasor, px, motor: workbench|eevee|cycles, ornek, adim}
   ozet    : alan listesi (ad tur boyut konum malzeme ucgen uv) — yalnız mesh'ler, istenen alanlar
@@ -24,7 +25,7 @@ REF = Path(__file__).resolve().parents[3] / "skills" / "blender-uretim" / "refer
 TURLER = ("kup", "silindir", "kure", "koni", "duzlem", "torus")
 KANALLAR = ("location", "rotation_euler", "scale")
 ALANLAR = ("ad", "tur", "boyut", "konum", "malzeme", "ucgen", "uv")
-ANAHTARLAR = ("nesneler", "yigin", "duzenle", "isik", "boyut_m", "kamera", "patlat", "anim", "kare", "kaydet", "glb",
+ANAHTARLAR = ("nesneler", "yigin", "duzenle", "isik", "hdri", "boyut_m", "kamera", "patlat", "anim", "kare", "kaydet", "glb",
               "onizle", "render", "ozet")
 DUZENLE = ("nesne", "bevel", "subdiv", "decimate", "uv", "malzeme")
 
@@ -62,6 +63,8 @@ def dogrula(spec):
         malzeme(f"duzenle[{i}]", d.get("malzeme"))
     if "isik" in spec and spec["isik"] not in profiller:
         h.append(f"isik '{spec['isik']}' yok; mevcut {profiller}")
+    if "hdri" in spec and not (Path(spec["hdri"]).suffix.lower() in (".hdr", ".exr") and Path(spec["hdri"]).is_file()):
+        h.append(f"hdri '{spec['hdri']}' .hdr/.exr dosyası değil (indir: python tools/varlik_indir.py indir polyhaven <id>)")
     h += [f"anim: kanal '{a.get('kanal')}' yok; mevcut {KANALLAR}" for a in spec.get("anim", [])
           if a.get("kanal") not in KANALLAR]
     h += [f"ozet: alan '{a}' yok; mevcut {ALANLAR}" for a in spec.get("ozet", []) if a not in ALANLAR]
@@ -155,7 +158,7 @@ def _blender_ana():
 
     meshler = [o for o in sc.objects if o.type == "MESH"]
     if "isik" in spec:
-        isik_kur.kur(spec["isik"], spec.get("boyut_m", 0.1))
+        isik_kur.kur(spec["isik"], spec.get("boyut_m", 0.1), hdri=spec.get("hdri"))
 
     def kamera_oto():
         dg = bpy.context.evaluated_depsgraph_get()
@@ -198,6 +201,7 @@ def _blender_ana():
         sc.render.resolution_x = sc.render.resolution_y = px
         sc.render.resolution_percentage = 100
         sc.render.image_settings.file_format = "PNG"
+        sc.view_settings.view_transform = "AgX"  # --blend eski dosyada Standard/Filmic kalmış olabilir
         if ad == "workbench":
             sc.render.engine = "BLENDER_WORKBENCH"
             sc.display.shading.color_type = "MATERIAL"

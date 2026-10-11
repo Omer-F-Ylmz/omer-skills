@@ -25,6 +25,11 @@ def test_dogrula_temiz_spec():
                           "isik": "urun", "onizle": {"yol": "x.png"}}) == []
 
 
+def test_dogrula_hdri_dosyasi(tmp_path):
+    (tmp_path / "studio_1k.hdr").write_bytes(b"#?RADIANCE")
+    assert tarif.dogrula({"isik": "urun", "hdri": str(tmp_path / "studio_1k.hdr")}) == []
+
+
 @pytest.mark.parametrize("spec, parca", [
     ({"bilinmez": 1}, "bilinmez"),
     ({"nesneler": [{"ad": "A", "tur": "ucgen"}]}, "tur"),
@@ -35,6 +40,8 @@ def test_dogrula_temiz_spec():
     ({"anim": [{"nesne": "A", "kanal": "renk", "kareler": [[1, 0]]}]}, "kanal"),
     ({"duzenle": [{"nesne": "A", "uçur": 1}]}, "uçur"),
     ({"ozet": ["ad", "ruh"]}, "ruh"),
+    ({"isik": "urun", "hdri": "yok/studio.hdr"}, "hdri"),
+    ({"hdri": __file__}, "hdri"),
 ])
 def test_dogrula_hatalar(spec, parca):
     hatalar = tarif.dogrula(spec)
