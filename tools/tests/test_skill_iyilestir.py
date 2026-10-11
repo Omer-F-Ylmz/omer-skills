@@ -55,6 +55,28 @@ def test_bol_bilgi_kaybi_yok(tmp_path):
     assert (d / "SKILL.md").read_text(encoding="utf-8").count("Hata ayrıntısı") == 500  # orijinal dokunulmaz
 
 
+def test_siniflandirici_is_akisi_kalir_ekler_tasinir(tmp_path):
+    uzun = "Ayrıntılı açıklama cümlesi. " * 300
+    bolumler = ["Stage 1: Context Gathering", "Step 2 - Draft", "Output format", "Rules and prohibitions", "Phase 3",
+                "Examples", "API reference", "Quick reference", "Templates", "Appendix", "FAQ", "Changelog"]
+    govde = "# Akış\n\nGiriş.\n\n" + "".join(f"## {b}\n\n{b} ilk cümle. {uzun}\n\n" for b in bolumler)
+    govde += "## Example 1\n\nKısa örnek bir.\n\n## Example 2\n\nKısa örnek iki.\n\n"
+    govde += "## Parameters\n\n" + uzun + "\n- NEVER pass --force in production.\n"
+    d = tmp_path / "akis"
+    d.mkdir()
+    (d / "SKILL.md").write_text(f"---\nname: akis\ndescription: Use when x.\n---\n{govde}", encoding="utf-8")
+    r = si.iyilestir(d, tmp_path / "o", set(), {})
+    refs = {p.stem for p in (tmp_path / "o/references").iterdir()}
+    cekirdek = (tmp_path / "o/SKILL.md").read_text(encoding="utf-8")
+    for b in bolumler[:5]:  # iş akışı / çıktı biçimi / kurallar çekirdekte bütün kalır
+        assert cekirdek.count(f"{b} ilk cümle") == 1 and cekirdek.count("Ayrıntılı açıklama") >= 1
+    assert {"stage-1-context-gathering", "step-2-draft", "output-format", "rules-and-prohibitions", "phase-3"}.isdisjoint(refs)
+    assert {"examples", "api-reference", "quick-reference", "templates", "appendix", "faq", "changelog", "parameters"} <= refs
+    assert "Kısa örnek bir." in cekirdek and "example-2" in refs  # en fazla 1 kısa örnek çekirdekte
+    assert "NEVER pass --force in production." in cekirdek  # taşınan bölümdeki kural satırı çekirdekte kalır
+    assert r["kayip"] == []
+
+
 def test_kontrol_listesi_kaybi_yakalar():
     once = "## A\n- MUST do x\n```\nkomut --bayrak\n```\n"
     assert si.kontrol(once, ["## A\n"]) == ["- MUST do x", "komut --bayrak"]

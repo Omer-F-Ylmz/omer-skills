@@ -14,8 +14,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from skill_filo_denetim import MCP, PD_SINIR, TETIK, ayir, jeton, mcp_adlari  # noqa: E402
 
 YAZAR, DENETCI = "claude-haiku-5-5", "claude-sonnet-5-5"
-CEKIRDEK = re.compile(r"when|use|usage|workflow|quick|start|rule|step|overview|instruction|process|core|important|"
-                      r"kural|akış|adım|kullan|zaman|genel|önemli|talimat", re.I)
+# Çekirdekte kalır: tetik/ne zaman, iş akışı adımları, kurallar/yasaklar, çıktı biçimi, en fazla 1 kısa örnek.
+CEKIRDEK = re.compile(r"when|use|usage|workflow|quick ?start|start|rule|step|stage|phase|overview|instruction|process|core|"
+                      r"important|output|format|prohibit|never|must|don'?t|avoid|final|checklist|verif|"
+                      r"kural|akış|adım|aşama|kullan|zaman|genel|önemli|talimat|çıktı|biçim|yasak", re.I)
+# Taşınır (CEKIRDEK'i ezer): uzun örnekler, referans tabloları, API/parametre listeleri, şablonlar, ekler, SSS, geçmiş.
+TASI = re.compile(r"example|örnek|reference|referans|table|tablo|\bapi\b|param|flag|option|seçenek|template|şablon|"
+                  r"appendix|\bekler?\b|faq|\bsss\b|history|changelog|geçmiş|sürüm notu", re.I)
+ORNEK = re.compile(r"example|örnek", re.I)
 KURAL = re.compile(r"\b(MUST|NEVER|ALWAYS|DO NOT|ASLA|HER ZAMAN|YAPMA)\b")
 KUCUK_BOLUM = 300
 TR = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
@@ -44,6 +50,17 @@ def kontrol(once, parcalar):
         if s and (kod or s.startswith("#") or KURAL.search(s)) and s not in hepsi:
             eksik.append(s)
     return eksik
+
+
+def kurallar(icerik):
+    """Kod bloğu dışındaki MUST/NEVER/ASLA... satırları."""
+    kod, out = False, []
+    for satir in icerik.splitlines():
+        if satir.lstrip().startswith("```"):
+            kod = not kod
+        elif not kod and KURAL.search(satir):
+            out.append(satir)
+    return out
 
 
 def _slug(baslik, kullanilan):
@@ -75,15 +92,23 @@ def iyilestir(kaynak, cikti, mcp, esle, istek=None, tavan=1024):
     giris, bol = bolumler(govde)
     yeni, refler, kullanilan = [giris], [], {p.stem for p in (kaynak / "references").glob("*.md")}
     bolundu = once > PD_SINIR
+    ornek_var = False
     for baslik, icerik in bol:
-        if not bolundu or CEKIRDEK.search(baslik) or jeton(icerik) <= KUCUK_BOLUM:
+        kucuk = jeton(icerik) <= KUCUK_BOLUM
+        if ORNEK.search(baslik):
+            kal = kucuk and not ornek_var
+            ornek_var |= kal
+        else:
+            kal = kucuk or (bool(CEKIRDEK.search(baslik)) and not TASI.search(baslik))
+        if not bolundu or kal:
             yeni.append(icerik)
             continue
         ad = _slug(baslik, kullanilan)
         refler.append((ad, icerik))
         ilk = next((s.strip() for s in icerik.splitlines()[1:] if s.strip() and not s.lstrip().startswith(("#", "```"))), "")
         ozet = re.split(r"(?<=[.!?])\s", ilk)[0][:160]
-        yeni.append(f"## {baslik}\n\n{ozet}\nAyrıntı: [references/{ad}.md](references/{ad}.md)\n\n")
+        kural = "".join(f"{k}\n" for k in kurallar(icerik))  # taşınan bölümün kural satırları çekirdekte kalır
+        yeni.append(f"## {baslik}\n\n{ozet}\n{kural}Ayrıntı: [references/{ad}.md](references/{ad}.md)\n\n")
     if notlar:
         yeni.append("\n" + "".join(notlar))
     cekirdek = "".join(yeni)
