@@ -10,8 +10,10 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 Üretim rehberi (ölçü · ad · teslim: render → GLB → `blender_dogrula --glb` · ışık/malzeme/web referansları): **blender-uretim** skill'i. Bu skill oturum ve araç kurallarını tutar.
 
 ## Önce tarif (jeton: MCP turu yok, GUI açılmaz)
-İş tarif anahtarlarına sığıyorsa (ilkel nesne · ölçü · malzeme · ışık · kamera · yığ/patlat · bevel/subdiv/decimate/UV · keyframe · önizleme/render · GLB · özet) oturum AÇILMAZ:
-spec JSON'u `Desktop\<Proje>\blender\sahneler\<ad>.json`'a yaz → `blender_cli.py C:/Projeler/omer-skills/tools/blender/lib/tarif.py @<spec.json> [--blend B]`
+İş tarif anahtarlarına sığıyorsa (ilkel nesne + ekler/ust · ölçü · malzeme · ışık · kamera · yığ/patlat · bevel/subdiv/decimate/UV · keyframe · önizleme/render · GLB · özet) oturum AÇILMAZ.
+Claude Code'da (claude CLI varsa) işi tek Bash ile yalın oturuma devret — önek ~5k, ≤4 tur; isteği kullanıcının sözleriyle, çıktı yollarıyla ver:
+`python C:/Projeler/omer-skills/tools/blender/yalin.py "<istek + mutlak çıktı yolları>" [--blend B]` → dönen `sonuc` + jeton özetini aktar.
+claude CLI yoksa (claude.ai) kendin: spec JSON'u `Desktop\<Proje>\blender\sahneler\<ad>.json`'a yaz → `blender_cli.py C:/Projeler/omer-skills/tools/blender/lib/tarif.py @<spec.json> [--blend B]`
 → tek satır özet JSON (+ `onizle` 256 px, tek Read). Anahtarlar ve sıra: `tarif.py` başlığı; hatalı spec Blender açılmadan mevcut adlarla reddedilir.
 Düzeltme = spec'te değeri değiştir, yeniden koş (kod yazılmaz). 3+ koşuluk ayar döngüsü (ölçü/ışık/kamera arama) sonnet alt ajana: spec yolu + kabul ölçütü ver, yalnız son özet + önizleme yolu dönsün. Tarife sığmayan kısım (serbest modelleme, düğüm ağacı) için aşağıdaki akış.
 
