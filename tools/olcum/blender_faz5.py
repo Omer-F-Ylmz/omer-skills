@@ -19,8 +19,9 @@ from pathlib import Path
 
 DIZIN = Path(__file__).resolve().parent
 KOK = DIZIN.parents[1]
-sys.path[:0] = [str(DIZIN), str(KOK / "tools")]
+sys.path[:0] = [str(DIZIN), str(KOK / "tools"), str(KOK / "tools" / "blender")]
 import blender_cli as bc  # noqa: E402
+import yalin  # noqa: E402
 import blender_oturum as bo  # noqa: E402
 import kosucu  # noqa: E402
 
@@ -52,8 +53,7 @@ GOREV = {
 YOL = {
     "taban": "Blender headless açık; resmi Blender MCP sunucusu 127.0.0.1:9876'da bağlı ({sahne}). İşi yalnız blender MCP araçlarıyla "
              "yap; blender_cli.py ve tarif.py kullanma, Blender'ı açıp kapatma.",
-    "tarif": "Blender MCP kullanma. İşi tarif ile yap: spec JSON yaz → python " + str(KOK / "tools" / "blender_cli.py") + " " + str(TARIF) + " "
-             "@spec.json{blend}; anahtarlar ve malzeme/ışık adları tools/blender/lib/tarif.py docstring'inde (yollar " + str(KOK) + " altında). Tek koşu hedefle.",
+    "tarif": "{blend}",  # devam-3: blender-oturum'un devrettiği yalın oturum (yalin.bayraklar) — sistem istemi tarifi taşır
 }
 
 
@@ -152,9 +152,10 @@ def kos_bir(g, yol, t, baz):
         p = mcp_ac(blend or baz["bos"])
         ek = YOL["taban"].format(sahne=f"açık dosya: {blend}" if blend else "boş sahne")
     else:
-        ek = YOL["tarif"].format(blend=f" --blend {blend}" if blend else "")
+        ek = YOL["tarif"].format(blend=f"Başlangıç sahnesi: --blend {blend}" if blend else "")
     try:
-        o = kosucu.kos(istem.format(d=d) + "\n\n" + ek, ek=IZIN, model=MODEL, timeout=1500, butce=BUTCE[yol])
+        o = kosucu.kos(istem.format(d=d) + "\n\n" + ek, ek=IZIN if yol == "taban" else yalin.bayraklar(), model=MODEL,
+                       timeout=1500, butce=BUTCE[yol])
     finally:
         if p:
             kapat(p)
