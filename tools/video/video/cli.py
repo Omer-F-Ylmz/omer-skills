@@ -917,8 +917,11 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
         ak = ["-skip_frame", "nokey"] if h else []
         ham = _ff(ctx, hw, lambda giris, on: ["ffmpeg", "-v", "error", *ak, *giris, "-i", str(v), "-an", "-vf",
                                               f"{on}fps={f},scale=160:-2,format=gray,scale=9:8", "-f", "rawvideo", "-"], SURE["sahne"])
-        sahne = gz.sahneler([m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)], f)
+        hs = [m.dhash(ham[i:i + 72]) for i in range(0, len(ham) - 71, 72)]
+        sahne = gz.sahneler(hs, f)
         sahne = gz.kare_sec(sahne, sure, f, gz.tavan_ocr(sure, len(sahne)))
+        if h == "2":  # VİDEO-HIZ-5: kaydırılan ekran — art arda anahtar kareler çok farklıysa aradaki orta ızgara karesi
+            sahne = sorted(sahne + gz.ara_kare(hs, f, [t for t, _ in sahne]))
         if h == "2" and (vtt := next(d.glob("altyazi*.vtt"), None)):  # VİDEO-HIZ-4: altyazıda araç/URL/komut anına hedefli ek kare
             sahne = sorted(sahne + gz.altyazi_zaman(m.vtt_ayristir(vtt.read_text(encoding="utf-8")), sure, f, [t for t, _ in sahne]))
         _kare_cikar(ctx, v, kd, sahne, f, hw, ak if h == "1" else [], PARCA if h == "2" else 1)

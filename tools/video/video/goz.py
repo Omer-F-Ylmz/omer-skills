@@ -78,6 +78,7 @@ def ekran_metni(metin, altyazi, sozluk=(), butce=OCR_BUTCE, token=lambda s: len(
     return sorted(tut)
 
 
+ARA_HAM = 5  # ayar · VİDEO-HIZ-5: melezde art arda anahtar kare Hamming'i bundan büyükse aradaki orta ızgara karesi de seçilir
 SAHNE_HAM, OCR_DEGISIM, OCR_GUVENLIK, MODEL_UST = 5, 0.15, 900, 6  # ayar · M2: sahne Hamming > · OCR metin değişimi ≥ · 1b-1R R4: OCR güvenlik tavanı sn (kesim kare sayısıyla) · model karesi
 AD = re.compile(r"\b[A-Z][\w.+-]{2,}|(?:https?://|www\.)\S+|\b[\w-]+\.(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design)\b\S*")
 
@@ -159,6 +160,14 @@ def kare_sec(sahne, sure, f, tavan, taban=TABAN_SN):
         sahne = sahne_sec(sahne, max(tavan - len(per), 1))
     # VİDEO-HIZ-5: yuvarlanan taban karesi sahneyle aynı ızgara n'ine düşebilir → tekil n (aynı t'de en yüksek Hamming, yani sahne kalır)
     return sorted({round(t * f): (t, h) for t, h in sorted(sahne + per)}.values())
+
+
+def ara_kare(hashler, f, var, esik=ARA_HAM):
+    """VİDEO-HIZ-5: anahtar-kare taramasında ızgara son anahtar kareyi tekrarlar; art arda iki anahtar kare arası Hamming > esik ise aradaki orta
+    ızgara karesi (fark 0) — kaydırılan ekranın (PR/belge) anahtar kareler arası içeriği. var: mevcut t'ler, aynı ızgara n'i atlanır."""
+    bas, var = [i for i in range(len(hashler)) if not i or hashler[i] != hashler[i - 1]], {round(t * f) for t in var}
+    return [((a + b) // 2 / f, 0) for a, b in zip(bas, bas[1:])
+            if b - a > 1 and bin(hashler[a] ^ hashler[b]).count("1") > esik and (a + b) // 2 not in var]
 
 
 def kapsam_sira(n):

@@ -60,6 +60,13 @@ def test_kare_sec_izgara_n_tekil():
     assert gz.kare_sec([(0.0, 64), (2.0, 20), (8.0, 15)], 10, 0.5, 100) == [(0.0, 64), (2.0, 20), (8.0, 15)]
 
 
+def test_ara_kare_kaydirma():
+    """VİDEO-HIZ-5: anahtar-kare ızgarası (tekrarlı hash) — 0→4 çok farklı → orta n 2; 4→5 bitişik, 5→9 benzer; 9→12 farklı → n 10 (var'da ise atlanır)."""
+    hs = [0, 0, 0, 0, 0xFFFF, 0xFFFF0000, 0xFFFF0000, 0xFFFF0000, 0xFFFF0000, 0xFFFF0001, 0xFFFF0001, 0xFFFF0001, 0x0F]
+    assert gz.ara_kare(hs, 0.5, [0.0, 20.0]) == [(4.0, 0)]
+    assert gz.ara_kare(hs, 0.5, [4.0]) == [(20.0, 0)]
+
+
 def test_altyazi_hedefli_ek_kare():
     """VİDEO-HIZ-4: araç/repo/URL/komut geçen altyazı satırı → ızgara karesi; ±3 sn'de kare varsa, süre dışıysa ya da sıradan konuşmaysa yok."""
     s = [(10.2, "clone the GitHub repo"), (31.0, "npm install it"), (40.0, "hello everyone"), (61.0, "run this command"), (99.0, "open the link")]
