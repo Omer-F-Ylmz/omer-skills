@@ -5,7 +5,7 @@ from video import parti as pt
 
 
 def test_bayrak_kapali_sema_ayni():
-    assert pt.JETON == "" and pt.jeton_sema("abc", "", "claude-haiku-5-5") == pt.sema(["abc"], iz=True)
+    assert pt.JETON == "C" and pt.jeton_sema("abc", "", "claude-haiku-5-5") == pt.sema(["abc"], iz=True)
 
 
 def test_a_enum_yok_b_yalniz_haiku():

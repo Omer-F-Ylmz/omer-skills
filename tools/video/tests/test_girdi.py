@@ -263,9 +263,10 @@ def test_mcp_kolu_config_ve_arac_izni_yalniz_o_kolda(ortam, kok, tmp_path):
     for a, e in k.claude():
         if e["KOL"] == "b":
             assert a[a.index("--mcp-config") + 1] == str(kok / "cm.json")
+            assert "--strict-mcp-config" in a and a.count("--mcp-config") == 1  # TOKEN-7c-devam-4: hafif profil, yalnız kolun MCP'si
             assert a[a.index("--allowedTools") + 1] == "Read,Grep,mcp__caveman"
         else:
-            assert "--mcp-config" not in a and a[a.index("--allowedTools") + 1] == "Read,Grep"
+            assert "--mcp-config" not in a and "--strict-mcp-config" not in a and a[a.index("--allowedTools") + 1] == "Read,Grep"
     s = (kok / "docs" / "denemeler" / "d-sonuc.md").read_text(encoding="utf-8")
     assert "mcp çağrı: a 0 · b 8" in s  # 2 görev × 2 koşu × 2 çağrı; başka sunucunun çağrısı sayılmaz
     assert "devreye girmedi" not in s

@@ -499,8 +499,8 @@ def _kollar(metin, kok, env, hata):
                 k["rapor"].append(f"sistem {arg.strip()}")
             elif tur == "mcp" and (kok / arg.strip()).is_file():  # 20b-devam: o çağrıya özel MCP; global ayar değişmez
                 k["mcp"] = list(json.loads((kok / arg.strip()).read_text(encoding="utf-8"))["mcpServers"])
-                k["ek"] += ["--mcp-config", str(kok / arg.strip())]
-                k["kimlik"] += "\0mcp " + arg.strip()
+                k["ek"] += ["--strict-mcp-config", "--mcp-config", str(kok / arg.strip())]  # TOKEN-7c-devam-4: hafif profil, kullanıcı MCP'leri açılmaz
+                k["kimlik"] += "\0mcp-strict " + arg.strip()
                 k["rapor"].append(f"mcp {arg.strip()}")
             elif tur not in ("önek",):
                 hata.append(f"kol {k['ad']}: {tur} {arg.strip() if tur == 'sistem' else ''} geçersiz")
