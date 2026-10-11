@@ -53,12 +53,34 @@ def test_melez_kare_cikarma_paralel_dilim(tmp_path, monkeypatch):
     from video import cli
     monkeypatch.setattr(gz, "ANAHTAR_SN", 20)
     monkeypatch.setattr(cli, "PARCA", 2)
+    monkeypatch.setattr(cli, "bos_ram", lambda: 1e6)
     monkeypatch.setenv("VIDEO_HIZ2", "2")
     fc = sorted((a, g) for a, g in _kur(tmp_path, monkeypatch, (0, b"av1\n")) if g)
     assert len(fc) == 2 and all("-ss" in a and "-t" in a for a, _ in fc)
     d = {int(a[a.index("-start_number") + 1]): g for a, g in fc}
     assert min(d) == 1 and d[1].count("eq(n,") + 1 == max(d)  # ikinci dilim birincinin kare sayısından sonra numaralanır
     assert all("eq(n,0)" in g for _, g in fc)  # her dilim kendi ızgara başından sayar
+
+
+@pytest.mark.parametrize("bos, beklenen", [(1e6, 4), (14.0, 4), (11.0, 2), (6.0, 1), (0.3, 1)])
+def test_dilim_sayisi_bos_ram(monkeypatch, bos, beklenen):
+    """VİDEO-8b: 9 sa AV1'de 4 dilim × ~2.5 GB + paralel parti RAM'i %98'e çıkardı → dilim = (boş − 2·RAM_ESIK_GB) // PARCA_GB, 1..PARCA."""
+    from video import cli
+    monkeypatch.setattr(cli, "PARCA", 4)
+    monkeypatch.setattr(cli, "PARCA_GB", 2.5)
+    monkeypatch.setattr(cli, "RAM_ESIK_GB", 2)
+    assert cli._parca(bos) == beklenen
+
+
+def test_melez_dusuk_ramda_tek_dilim(tmp_path, monkeypatch):
+    from video import cli
+    monkeypatch.setattr(gz, "ANAHTAR_SN", 20)
+    monkeypatch.setattr(cli, "PARCA", 4)
+    monkeypatch.setattr(cli, "PARCA_GB", 1e7)  # boş RAM (1e6) < 1 dilim → tek süreç; RAM kapısı (bos_ram) geçer
+    monkeypatch.setattr(cli, "bos_ram", lambda: 1e6)
+    monkeypatch.setenv("VIDEO_HIZ2", "2")
+    fc = [a for a, g in _kur(tmp_path, monkeypatch, (0, b"av1\n")) if g]
+    assert len(fc) == 1 and "-ss" not in fc[0]
 
 
 def test_kare_sec_izgara_n_tekil():

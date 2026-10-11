@@ -870,7 +870,13 @@ def _ff(ctx, hw, cmd, timeout):
     return _kos(ctx, cmd([], ""), timeout)
 
 
-PARCA = 4  # ayar · VİDEO-HIZ-4: melezde (VIDEO_HIZ2=2) tam çözmeli kare çıkarma paralel dilim sayısı
+PARCA = 4  # ayar · VİDEO-HIZ-4: melezde (VIDEO_HIZ2=2) tam çözmeli kare çıkarma paralel dilim sayısı (üst sınır)
+PARCA_GB = 2.5  # ayar · VİDEO-8b: 9 sa AV1 (xmbSQz-PNMM) dilim başına ffmpeg 2.1–2.6 GB → 4 dilim + paralel parti RAM %98; dilim sayısı boş RAM'e göre
+
+
+def _parca(bos):
+    """VİDEO-8b: boş RAM'den (iki RAM_ESIK_GB payı bırakılır) PARCA_GB'lik dilim; en az 1, en çok PARCA."""
+    return max(1, min(PARCA, int((bos - 2 * RAM_ESIK_GB) // PARCA_GB)))
 
 
 def _hiz2(sure):
@@ -926,7 +932,7 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
             sahne = sorted(sahne + gz.ara_kare(hs, f, [t for t, _ in sahne]))
         if h == "2" and (vtt := next(d.glob("altyazi*.vtt"), None)):  # VİDEO-HIZ-4: altyazıda araç/URL/komut anına hedefli ek kare
             sahne = sorted(sahne + gz.altyazi_zaman(m.vtt_ayristir(vtt.read_text(encoding="utf-8")), sure, f, [t for t, _ in sahne]))
-        _kare_cikar(ctx, v, kd, sahne, f, hw, ak if h == "1" else [], PARCA if h == "2" else 1)
+        _kare_cikar(ctx, v, kd, sahne, f, hw, ak if h == "1" else [], _parca(bos_ram()) if h == "2" else 1)
     yollar = [(t, y.replace(kd / f"k{int(t * 10):06d}.jpg")) for (t, _), y in zip(sahne, sorted(kd.glob("s*.jpg")))]
     es = gz.es_kare(yollar) if h == "2" else {}  # VİDEO-HIZ-6: ardışık piksel eşi karenin OCR'ı atlanır, kaynağın satırları kopyalanır
     yollar = [yollar[i] for i in gz.kapsam_sira(len(yollar))]  # R4: seyrek geçiş önce; kesilirse kayıp videoya yayılır
