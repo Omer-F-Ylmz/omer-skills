@@ -50,7 +50,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dd_tRbkP0qO | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
 | gxAXIdCNr-E | 0.6 | Obsidian 1.14 Just Got 5 HUGE Upgrades | Ömer 10 Eki | işlendi: 35517c9 |
 | 7CKYk8FX6UY | 0.8 | How to sell n8n automation for $3,000 | Ömer 10 Eki | işlendi: 35517c9 |
-| ig-DdrOw7ItBTu | 1.0 | Instagram reel | Ömer 10 Eki | bekliyor |
+| ig-DdrOw7ItBTu | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 63a985c |
 | ig-DeSQoHQzAKO | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
 | ig-DeCHIhrk0Th | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
 | ig-Ddt16ilkRGB | 1.0 | Instagram reel | Ömer 10 Eki | işlendi: 35517c9 |
@@ -286,15 +286,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-DdE_pXAquOQ | 1.0 | Instagram reel | Ömer 10 Eki e | işlendi: f56e031 |
 | ig-DeUETofiMoF | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 2) | işlendi: f56e031 |
 | ig-DbUQaEsgqeZ | 1.0 | Instagram reel | Ömer 10 Eki e | işlendi: f56e031 |
-| ig-DePGXHGtniA | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
-| ig-DeQjLTYOYNk | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
-| ig-DcgRoqMEpZb | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
-| ig-DeBliaoOLvc | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
-| ig-DeT8XphH4jq | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 5) | bekliyor |
-| ig-DeCjTAWiSMn | 1.0 | Instagram reel | Ömer 10 Eki e | bekliyor |
-| ig-Dd86Z4wlKw4 | 1.0 | Instagram reel | Ömer 10 Eki e · post | bekliyor |
-| ig-DdoRKQUAdeM | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 4) | bekliyor |
-| HYMDaMcuSGQ | 106.8 | AJANLAR & CLAUDE CODE MASTERCLASS: Kendi Ajan Sistemini Kur (2026) | Ömer 10 Eki e · Selma Kocabıyık, 17 chapter, 24 link — ajan sistemi kurulumu: bizdeki departman/ajan düzeni, /ajan-getir ve KALİTE-1 ile karşılaştır; kanal takibe | bekliyor |
+| ig-DePGXHGtniA | 1.0 | Instagram reel | Ömer 10 Eki e | işlendi: 63a985c |
+| ig-DeQjLTYOYNk | 1.0 | Instagram reel | Ömer 10 Eki e | işlendi: 63a985c |
+| ig-DcgRoqMEpZb | 1.0 | Instagram reel | Ömer 10 Eki e | işlendi: 63a985c |
+| ig-DeBliaoOLvc | 1.0 | Instagram reel | Ömer 10 Eki e | işlendi: 63a985c |
+| ig-DeT8XphH4jq | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 5) | işlendi: 63a985c |
+| ig-DeCjTAWiSMn | 1.0 | Instagram reel | Ömer 10 Eki e | işlendi: 63a985c |
+| ig-Dd86Z4wlKw4 | 1.0 | Instagram reel | Ömer 10 Eki e · post | işlendi: 63a985c |
+| ig-DdoRKQUAdeM | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 4) | işlendi: 63a985c |
+| HYMDaMcuSGQ | 106.8 | AJANLAR & CLAUDE CODE MASTERCLASS: Kendi Ajan Sistemini Kur (2026) | Ömer 10 Eki e · Selma Kocabıyık, 17 chapter, 24 link — ajan sistemi kurulumu: bizdeki departman/ajan düzeni, /ajan-getir ve KALİTE-1 ile karşılaştır; kanal takibe | işlendi: 63a985c |
 
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
@@ -672,19 +672,19 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | e4xHOX7ddnk | 6.5 | IMAGE WAVE EFFECT ON HOVER - Elementor c | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
 | Zl-MS9TY8_w | 10.8 | SNAP ON SCROLL - GSAP Elementor Scrolltr | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
 | R5-B_mOlcl4 | 7.8 | I Redesigned a Subscriber’s Website… But | bağlantılı video (_gZx1IxrOrk) | işlendi: 292fb60 |
-| Osnd1m7Jxg4 | 11.2 | I Redesigned Your Ugly Websites (Sorry…) | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| yezd-afdvjc | 9.3 | REVEAL CONTENT ON SCROLL - GSAP Elemento | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| UBxWEWZ6UYM | 13.1 | CINEMATIC SLIDER – Full Elementor Tutori | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| frpM0nlPKfY | 8.2 | IMAGE EXPAND ON SCROLL - GSAP Elementor  | bağlantılı video (_gZx1IxrOrk) | bekliyor |
-| es7cLQBc7ns | 15.8 | How I Built a Revenue-Ready App With Ato | bağlantılı video (ig-Dd9nkV-AC9G) | bekliyor |
-| htM02KMNZnk | 516.9 | WF2026: Software Factories & Keynotes ft | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| 6IxSbMhT7v4 | 474.4 | AIE Miami Keynote & Talks ft. OpenCode.  | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| _xQnSNlBP_w | 609.2 | AIE Singapore Day 1 ft. Minister, NanoCl | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| wjXowoQ7E8c | 86.5 | AI Engineer Melbourne 2026 Keynote Lives | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| O_IMsEg91g8 | 551.0 | AIE Europe Keynotes & OpenClaw ft Deepmi | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| xmbSQz-PNMM | 537.1 | AIE CODE Day 2: ft Google Deepmind, Anth | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| wyUdpmj9-64 | 506.6 | AI Engineer Paris 2025 (Day 2) | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
-| z4zXicOAF28 | 517.9 | AI Engineer World's Fair 2025 - Day 1 Ke | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
+| Osnd1m7Jxg4 | 11.2 | I Redesigned Your Ugly Websites (Sorry…) | bağlantılı video (_gZx1IxrOrk) | işlendi: 63a985c |
+| yezd-afdvjc | 9.3 | REVEAL CONTENT ON SCROLL - GSAP Elemento | bağlantılı video (_gZx1IxrOrk) | işlendi: 63a985c |
+| UBxWEWZ6UYM | 13.1 | CINEMATIC SLIDER – Full Elementor Tutori | bağlantılı video (_gZx1IxrOrk) | işlendi: 63a985c |
+| frpM0nlPKfY | 8.2 | IMAGE EXPAND ON SCROLL - GSAP Elementor  | bağlantılı video (_gZx1IxrOrk) | işlendi: 63a985c |
+| es7cLQBc7ns | 15.8 | How I Built a Revenue-Ready App With Ato | bağlantılı video (ig-Dd9nkV-AC9G) | işlendi: 63a985c |
+| htM02KMNZnk | 516.9 | WF2026: Software Factories & Keynotes ft | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
+| 6IxSbMhT7v4 | 474.4 | AIE Miami Keynote & Talks ft. OpenCode.  | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
+| _xQnSNlBP_w | 609.2 | AIE Singapore Day 1 ft. Minister, NanoCl | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
+| wjXowoQ7E8c | 86.5 | AI Engineer Melbourne 2026 Keynote Lives | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
+| O_IMsEg91g8 | 551.0 | AIE Europe Keynotes & OpenClaw ft Deepmi | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
+| xmbSQz-PNMM | 537.1 | AIE CODE Day 2: ft Google Deepmind, Anth | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
+| wyUdpmj9-64 | 506.6 | AI Engineer Paris 2025 (Day 2) | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
+| z4zXicOAF28 | 517.9 | AI Engineer World's Fair 2025 - Day 1 Ke | bağlantılı video (-QFHIoCo-Ko) | işlendi: 63a985c |
 | D7BzTxVVMuw | 506.6 | AI Engineer Summit 2025: Agent Engineeri | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
 | 5zE2sMka620 | 518.9 | AI Engineer World’s Fair 2024 — Keynotes | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
 | veShHxQYPzo | 290.0 | AI Engineer Summit 2023 — DAY 1 Livestre | bağlantılı video (-QFHIoCo-Ko) | bekliyor |
