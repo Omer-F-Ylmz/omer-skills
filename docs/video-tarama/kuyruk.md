@@ -295,6 +295,15 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dd86Z4wlKw4 | 1.0 | Instagram reel | Ömer 10 Eki e · post | işlendi: 63a985c |
 | ig-DdoRKQUAdeM | 1.0 | Instagram reel | Ömer 10 Eki e · karusel (img 4) | işlendi: 63a985c |
 | HYMDaMcuSGQ | 106.8 | AJANLAR & CLAUDE CODE MASTERCLASS: Kendi Ajan Sistemini Kur (2026) | Ömer 10 Eki e · Selma Kocabıyık, 17 chapter, 24 link — ajan sistemi kurulumu: bizdeki departman/ajan düzeni, /ajan-getir ve KALİTE-1 ile karşılaştır; kanal takibe | işlendi: 63a985c |
+| ig-DdxKYYvRysZ | 1.0 | Instagram gönderi | Ömer 10 Eki 21:23 · IG gönderi | bekliyor |
+| ig-DeOQHqBk9Pz | 1.0 | Instagram gönderi | Ömer 10 Eki 21:43 · IG gönderi (kaydırmalı, img 3) | bekliyor |
+| ig-DeUkYfLn4n5 | 1.0 | Instagram gönderi | Ömer 10 Eki 22:18 · IG gönderi (kaydırmalı, img 2) | bekliyor |
+| ig-DePWmOHCPX1 | 1.0 | Instagram gönderi | Ömer 11 Eki 03:51 · IG gönderi (kaydırmalı, img 5) | bekliyor |
+| ig-Dd4Ama8mnza | 1.0 | Instagram gönderi | Ömer 11 Eki 03:52 · IG gönderi (kaydırmalı, img 2) | bekliyor |
+| ig-DeUem9KjcIE | 1.0 | Instagram reel | Ömer 11 Eki 03:52 · IG reel | bekliyor |
+| ig-DdRd0SNkrW- | 1.0 | Instagram gönderi | Ömer 11 Eki 03:57 · IG gönderi (kaydırmalı, img 4) | bekliyor |
+| ig-DeUbXXoo2mi | 1.0 | Instagram reel | Ömer 11 Eki 13:33 · IG reel | bekliyor |
+| ig-DeMrKekk7RU | 1.0 | Instagram gönderi | Ömer 11 Eki 13:59 · IG gönderi (kaydırmalı, img 8) | bekliyor |
 
 ## Eklenen: 2026-09-28 (83 tekil video + 6 kaynak)
 
