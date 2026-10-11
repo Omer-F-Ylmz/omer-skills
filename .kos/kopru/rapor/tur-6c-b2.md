@@ -21,10 +21,13 @@
 | tam (taban, t7c 11 Eki ×2) | G01 | 85.3k | 8 / 10 | 1 / 1 | 0.70 / 0.59 | 45 / 38 sn |
 | tam (taban, t7b ×2) | G06 | 85.4k (cc) | 10 / 10 | 0 / 0 | 0.72 / 0.72 | 46 / 44 sn |
 | b2sonra (1008 gevşek + 824 plugin, name-only) | G01 ×1 | **127.3k (+42k)** | 10 | 1 | 1.04 | 74 sn |
-| b2aile (96 aile, açıklamalı) | G01 ×2 + G06 ×1 | ölçüm sürüyor → `docs/kutuphane/olcum/2026-10-11-b2d*-b2aile.tsv` | | | | |
+| b2aile (96 aile, açıklamalı) | G01 ×2 | 101.6k / 101.6k (b2sonra'dan −25.7k) | 10 / 10 | 1 / 1 | 0.72 / 0.72 | 42 / 40 sn |
+| b2aile | G06 ×1 | 91.7k (cc) | 10 | **1** (Skill:departman-arastirma + mcp-fetch + context7) | 0.85 | 69 sn |
+
+- Taban eskimiş: b2aile init'inde taban (t7c) dışında 20 plugin MCP sunucusu (design:* ×7, azure, supabase, expo, fal, context-mode, claude-mem…) ve ~410 araç fazla (448 → 903); bunlar B2 kalemi değil, zaten kurulu plugin'ler. B2'nin payı: +102 skill adı (≈2.2k) + 3 MCP 43 ertelenmiş araç (≈0.6k) ≈ 2.8k (tahmin). 101.6k − 85.3k = 16.3k farkın kesin ayrımı için taze `tam` G01 ×1 (≈$0.7) gerekiyor; toplam $4 tavanını aşacağı için koşulmadı (harcanan $3.33).
 
 - Onarım: onay betiği artık 1832 adı değil, claude.ai ile aynı 96 aile paketini (`dist/yukle-13/_paket`, 1892 alt skill, B1-devam denetimli) `~/.claude/skills/<aile>`'ye açar; açıklama = konu + alt skill adları (≤90 kr, tetikleme anahtar kelimesi), kaba tahmin ≈2.2k jeton. cybersecurity-skills (818) plugin olarak değil mukul975-* aile paketleri olarak gelir (kapatma yok, kurulmamıştı); hermoso + agent-browser plugin (6 ad, name-only). Self-check güncel: OK.
-- Bütçe: b2sonra G01 ×1 (×2 değil) — +42k ilk koşuda kesin; $4 tavanı onarım ölçümüne ayrıldı. Harcanan ≈$1.04 + b2aile ≈$2.2.
+- Bütçe: b2sonra G01 ×1 (×2 değil) — +42k ilk koşuda kesin; $4 tavanı onarım ölçümüne ayrıldı. Harcanan $1.04 + b2aile $2.29 = $3.33.
 - Hook maliyeti (enable edilmedi, geçici cwd, soğuk/sıcak): tdd-guard `npx tdd-guard@latest` her istemde 14.1 / 3.5 sn, her Write/Edit'te 25.5 / 13.1 sn (npm kayıt sorgusu) → öneri: yalnız test projesinde proje-scope enable + `@latest` yerine pinli yerel kurulum. gsd-core 12 hook node, her biri 0.06–0.16 sn (Write başına 4 hook ≈0.35 sn), çıktı 0 → düşük maliyet, matcher olduğu gibi kabul edilebilir. superpowers-zh SessionStart 0.25 sn ama her oturuma ≈0.8k jeton enjekte → öneri: enable etme (skill'leri aile paketiyle zaten geliyor). Karar Ömer'de.
-- Onay (b2aile ölçümü ≤ taban + 3k ve kalite ≥ taban çıkarsa): `python C:\Projeler\omer-skills\.kos\kopru\onay\tur_6c_b_kur.py` — önce `--kuru` (sha256 + mcp_var_mi önce=sonra).
-- Kalanlar: b2aile sonuçları tabloya; bağlam aşarsa AILE_ACIK düşür (90→60) ya da küçük aileleri birleştir; `--kuru` 3. koşu (aile kipi) sha256 kanıtı.
+- Kalite 10 ≥ taban, G06 isabet 1 > taban 0 → kalite/isabet ölçütü GEÇTİ; bağlam ölçütü taze taban koşusuna kadar AÇIK → onay komutu Ömer'e henüz VERİLMEZ. Taban ≤ 98.6k çıkarsa (B2 payı ≤ 3k) komut: `python C:\Projeler\omer-skills\.kos\kopru\onay\tur_6c_b_kur.py` (önce `--kuru`, sha256 + mcp_var_mi önce=sonra).
+- Kalanlar: Desktop'tan +$0.7 ile `kosucu.py --profil tam --gorev G01 --tarih 2026-10-11-b2d3`; aşarsa AILE_ACIK 90→60 ya da küçük aileleri birleştir; `--kuru` 3. koşu (aile kipi) sha256 kanıtı.
