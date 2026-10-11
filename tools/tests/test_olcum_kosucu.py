@@ -29,6 +29,14 @@ def test_ayristir_result_usage_tur_ve_araclar():
     assert o["init"]["skills"] == ["a", "b"]
 
 
+def test_ayristir_read_yollarini_kaydeder():
+    s = _akis({"type": "assistant", "message": {"content": [
+        {"type": "tool_use", "name": "Read", "input": {"file_path": "C:\\p\\.claude\\skills\\k3-x\\references\\a.md"}},
+        {"type": "tool_use", "name": "Bash", "input": {"command": "ls"}}]}})
+    o = kosucu.ayristir(s)
+    assert o["okunan"] == ["C:/p/.claude/skills/k3-x/references/a.md"]
+
+
 def test_ayristir_result_yoksa_ilk_tur_usage():
     o = kosucu.ayristir(_akis({"type": "assistant", "message": {"usage": {"input_tokens": 9}, "content": []}}, "bozuk"))
     assert o["usage"] == {"input_tokens": 9}

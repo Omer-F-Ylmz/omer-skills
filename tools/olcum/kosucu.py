@@ -53,8 +53,8 @@ def pid_canli(pid):
 
 
 def ayristir(stdout):
-    """stream-json satırları → {usage, usd, sure_ms, metin, araclar, init, hook, tur}. Anahtar/istem değeri taşımaz."""
-    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "init": {}, "hook": [], "tur": 0}
+    """stream-json satırları → {usage, usd, sure_ms, metin, araclar, okunan, init, hook, tur}. Anahtar/istem değeri taşımaz."""
+    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "okunan": [], "init": {}, "hook": [], "tur": 0}
     for s in (stdout or "").splitlines():
         try:
             x = json.loads(s)
@@ -78,6 +78,8 @@ def ayristir(stdout):
                         ad = "Skill:" + str((b.get("input") or {}).get("skill") or (b.get("input") or {}).get("command") or "")
                     elif ad in ("Task", "Agent"):
                         ad = "Agent:" + str((b.get("input") or {}).get("subagent_type") or "")
+                    elif ad == "Read":  # hangi references bölümü okundu: vekil değil kanıt
+                        o["okunan"].append(str((b.get("input") or {}).get("file_path") or "").replace("\\", "/"))
                     o["araclar"].append(ad)
         elif t == "result":
             o["usage"] = x.get("usage") or {}

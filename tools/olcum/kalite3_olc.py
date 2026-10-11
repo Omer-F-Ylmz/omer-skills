@@ -2,7 +2,7 @@
 
 Kalite kolu: her skill iki sürümüyle (once = ~/.claude/skills/<ad> kopyası, sonra = .kalite3/pilot/<ad>) ayrı boş
 proje klasörüne .claude/skills/k3-<ad> olarak konur; istem "Use the k3-<ad> skill" der → jeton, süre, USD, regex rubrik,
-skill yüklendi mi, Read sayısı (references okuması). Tekrarlar araya serpilir (tekrar → skill → varyant).
+skill yüklendi mi, Read sayısı + okunan yollar (references okuması). Tekrarlar araya serpilir (tekrar → skill → varyant).
 Tetik kolu (--tetik): skill listesi (pilot + sabit sahte adaylar) + görev istemleri → model her istem için skill seçer;
 önce açıklamalar vs yeni açıklamalar (aciklama-yeni.jsonl, geçerli olanlar). Yeniden başlatınca yazılmış satırlar atlanır.
 python tools/olcum/kalite3_olc.py <gorev.json> <cikti.tsv> [--tekrar 3] [--en-fazla 72] [--tetik aciklama-yeni.jsonl]
@@ -53,7 +53,8 @@ def kalite_kolu(gorevler, cikti, tekrar, en_fazla):
                 i, cc, cr, out = jeton(o["usage"])
                 skill = int(any(a == f"Skill:k3-{g['ad']}" or a.endswith(f":k3-{g['ad']}") for a in o["araclar"]))
                 satir = [g["ad"], v, t, i, cc, cr, out, o["sure"], round(o["usd"], 4), puanla(o["metin"], g["rubrik"]),
-                         skill, o["araclar"].count("Read"), o["rc"]]
+                         skill, o["araclar"].count("Read"), o["rc"],
+                         ",".join(y.split(f"k3-{g['ad']}/", 1)[-1] for y in o["okunan"])]  # okunan yol: skill köküne göre
                 with open(cikti, "a", encoding="utf-8", newline="\n") as f:
                     f.write("\t".join(map(str, satir)) + "\n")
                 print("\t".join(map(str, satir)), flush=True)
