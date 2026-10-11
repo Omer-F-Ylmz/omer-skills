@@ -54,6 +54,12 @@ def test_melez_kare_cikarma_paralel_dilim(tmp_path, monkeypatch):
     assert all("eq(n,0)" in g for _, g in fc)  # her dilim kendi ızgara başından sayar
 
 
+def test_kare_sec_izgara_n_tekil():
+    """VİDEO-HIZ-5: taban karesi yuvarlanınca sonraki sahneyle aynı ızgara n'ine düşer (2+5=7 → n 4 = 8.0 sn); select tek kare üretir, zip
+    sonraki tüm zamanları kaydırırdı (438 sahne → 425 dosya). Tekil n, aynı karede sahne (Hamming) korunur."""
+    assert gz.kare_sec([(0.0, 64), (2.0, 20), (8.0, 15)], 10, 0.5, 100) == [(0.0, 64), (2.0, 20), (8.0, 15)]
+
+
 def test_altyazi_hedefli_ek_kare():
     """VİDEO-HIZ-4: araç/repo/URL/komut geçen altyazı satırı → ızgara karesi; ±3 sn'de kare varsa, süre dışıysa ya da sıradan konuşmaysa yok."""
     s = [(10.2, "clone the GitHub repo"), (31.0, "npm install it"), (40.0, "hello everyone"), (61.0, "run this command"), (99.0, "open the link")]

@@ -157,7 +157,8 @@ def kare_sec(sahne, sure, f, tavan, taban=TABAN_SN):
             break
     else:
         sahne = sahne_sec(sahne, max(tavan - len(per), 1))
-    return sorted(sahne + per)
+    # VİDEO-HIZ-5: yuvarlanan taban karesi sahneyle aynı ızgara n'ine düşebilir → tekil n (aynı t'de en yüksek Hamming, yani sahne kalır)
+    return sorted({round(t * f): (t, h) for t, h in sorted(sahne + per)}.values())
 
 
 def kapsam_sira(n):
