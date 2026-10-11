@@ -874,8 +874,8 @@ PARCA = 4  # ayar · VİDEO-HIZ-4: melezde (VIDEO_HIZ2=2) tam çözmeli kare ç�
 def _hiz2(sure):
     """VİDEO-HIZ-3: anahtar-kare yolu kalite kanıtlanana dek bayraklı, varsayılan kapalı; açıkken önbellek anahtarı ayrışır. env VIDEO_HIZ2=1 iki geçiş
     anahtar kare (30 dk −73%, slayt geri çağırma %62.5) · =2 melez: dhash taraması anahtar kare, seçilen kareler tam çözme (−34%, slayt %90.6;
-    HIZ-4 paralel dilim −54%, slayt aynı)."""
-    h = os.environ.get("VIDEO_HIZ2", "")
+    HIZ-4 paralel dilim −54%, slayt aynı). VİDEO-8: HIZ-7 A/B geri çağırma ≥ eski + rapor-denetle GEÇTİ → bayraksız =2; VIDEO_HIZ2=0 eski yol."""
+    h = os.environ.get("VIDEO_HIZ2", "2")
     return h if sure >= gz.ANAHTAR_SN and h in ("1", "2") else ""
 
 

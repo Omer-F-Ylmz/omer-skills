@@ -11,13 +11,11 @@ def _ak(a):
     return any(a[i:i + 2] == AK for i in range(len(a)))
 
 
-@pytest.mark.parametrize("esik, bayrak, uzun", [(20, "1", True), (3600, "1", False), (20, None, False)])
+@pytest.mark.parametrize("esik, bayrak, uzun", [(20, "1", True), (3600, "1", False), (20, "0", False)])
 def test_uzun_videoda_iki_gecis_anahtar_kare(tmp_path, monkeypatch, esik, bayrak, uzun):
     monkeypatch.setattr(gz, "ANAHTAR_SN", esik)  # _kur süre=30 sn
     if bayrak:
         monkeypatch.setenv("VIDEO_HIZ2", bayrak)
-    else:  # VİDEO-HIZ-3: bayraksız varsayılan kapalı
-        monkeypatch.delenv("VIDEO_HIZ2", raising=False)
     c = _kur(tmp_path, monkeypatch, (0, b"av1\n"))
     dh, fc, ss = ([a for a, g in c if k(a, g)] for k in (lambda a, g: "rawvideo" in a, lambda a, g: g, lambda a, g: "-ss" in a))
     assert dh and fc and ss
@@ -36,6 +34,15 @@ def test_melez_yalniz_dhash_anahtar_kare(tmp_path, monkeypatch):
     """VİDEO-HIZ-3 VIDEO_HIZ2=2: dhash taraması anahtar kare, kare çıkarma tam çözme (seçilen t'nin gerçek karesi)."""
     monkeypatch.setattr(gz, "ANAHTAR_SN", 20)
     monkeypatch.setenv("VIDEO_HIZ2", "2")
+    c = _kur(tmp_path, monkeypatch, (0, b"av1\n"))
+    dh, fc = [a for a, g in c if "rawvideo" in a], [a for a, g in c if g]
+    assert dh and fc and all(map(_ak, dh)) and not any(map(_ak, fc))
+
+
+def test_bayraksiz_uzun_video_melez(tmp_path, monkeypatch):
+    """VİDEO-8: HIZ-7 A/B (HYMDaMcuSGQ) geri çağırma ≥ eski + rapor-denetle GEÇTİ → bayraksız ≥ ANAHTAR_SN melez (=2); VIDEO_HIZ2=0 eski yol."""
+    monkeypatch.setattr(gz, "ANAHTAR_SN", 20)
+    monkeypatch.delenv("VIDEO_HIZ2", raising=False)
     c = _kur(tmp_path, monkeypatch, (0, b"av1\n"))
     dh, fc = [a for a, g in c if "rawvideo" in a], [a for a, g in c if g]
     assert dh and fc and all(map(_ak, dh)) and not any(map(_ak, fc))
