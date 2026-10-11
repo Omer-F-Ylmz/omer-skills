@@ -6,7 +6,8 @@
 Kabul listesi docs/kutuphane/kalite3-kabul.txt (satır başına skill adı; Faz 3 karar tablosundan). Açıklama: .kalite3/aciklama-yeni.jsonl
 içinde gecerli=true ve sonnet denetimi sorun bildirmemiş satırlar. Yalnız gevşek ~/.claude/skills/<ad> yazılır; plugin/synced
 kopyaları dist zip'iyle gider. MODEL KURALI: ~/.claude/settings.json env'deki CLAUDE_CODE_SUBAGENT_MODEL kaldırılır
-(her ajan frontmatter `model:` ile ölçülen en iyi modelde koşar; değer yazdırılmaz, settings.json yedeklenir). Hiçbir skill silinmez/kapatılmaz; MCP listesi önce=sonra değilse rc=1.
+(her ajan frontmatter `model:` ile ölçülen en iyi modelde koşar; değer yazdırılmaz, settings.json yedeklenir).
+AJANLAR: docs/kutuphane/kalite3-ajan-kabul.txt'teki (pilotu geçen) ajanlar/kalite3/*/<ad>.md → ~/.claude/agents/<ad>.md (varsa yedeklenir). Hiçbir skill silinmez/kapatılmaz; MCP listesi önce=sonra değilse rc=1.
 """
 import json, re, shutil, sys, time
 from pathlib import Path
@@ -65,6 +66,13 @@ def plan(ev=EV, kok=KOK):
     return out
 
 
+def ajan_plani(kok=KOK):
+    yol = kok / "docs" / "kutuphane" / "kalite3-ajan-kabul.txt"
+    kabul = [s.strip() for s in yol.read_text(encoding="utf-8").splitlines() if s.strip()] if yol.exists() else []
+    kaynak = {f.stem: f for f in (kok / "ajanlar" / "kalite3").glob("*/*.md")}
+    return [(ad, kaynak[ad]) for ad in kabul if ad in kaynak]
+
+
 def uygula(ev=EV, kok=KOK):
     once = mcp_var_mi(ev)
     yedek = ev / ".claude" / "yedek" / f"kalite3-{time.strftime('%Y%m%d-%H%M%S')}"
@@ -84,9 +92,19 @@ def uygula(ev=EV, kok=KOK):
         del j["env"]["CLAUDE_CODE_SUBAGENT_MODEL"]
         ayar.write_text(json.dumps(j, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         print("  settings.json env: CLAUDE_CODE_SUBAGENT_MODEL kaldırıldı")
-    (ev / ".claude" / "yedek" / "kalite3-son.json").write_text(
-        json.dumps({"yedek": str(yedek), "adlar": [p["ad"] for p in liste], "ayar": ayar_var}), encoding="utf-8")
-    print(f"uygulandı {len(liste)} skill · yedek {yedek}")
+    ajanlar = ajan_plani(kok)
+    for ad, kaynak in ajanlar:
+        hedef = ev / ".claude" / "agents" / f"{ad}.md"
+        if hedef.exists():
+            (yedek / "agents").mkdir(parents=True, exist_ok=True)
+            shutil.copy2(hedef, yedek / "agents" / hedef.name)
+        hedef.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(kaynak, hedef)
+    yedek.mkdir(parents=True, exist_ok=True)
+    (ev / ".claude" / "yedek" / "kalite3-son.json").write_text(json.dumps(
+        {"yedek": str(yedek), "adlar": [p["ad"] for p in liste], "ayar": ayar_var, "ajanlar": [a for a, _ in ajanlar]}),
+        encoding="utf-8")
+    print(f"uygulandı {len(liste)} skill · {len(ajanlar)} ajan · yedek {yedek}")
     return once == mcp_var_mi(ev)
 
 
@@ -99,6 +117,9 @@ def geri(ev=EV):
         shutil.copytree(Path(son["yedek"]) / ad, hedef)
     if son.get("ayar"):
         shutil.copy2(Path(son["yedek"]) / "settings.json", ev / ".claude" / "settings.json")
+    for ad in son.get("ajanlar", []):
+        hedef, eski = ev / ".claude" / "agents" / f"{ad}.md", Path(son["yedek"]) / "agents" / f"{ad}.md"
+        shutil.copy2(eski, hedef) if eski.exists() else hedef.unlink(missing_ok=True)
     print(f"geri alındı {len(son['adlar'])} skill")
     return once == mcp_var_mi(ev)
 
@@ -114,6 +135,10 @@ def main():
         for p in plan():
             print(f"{p['ad']}\tbölünmüş={'evet' if p['bolunmus'] else 'hayır'}\taçıklama={'yeni' if p['aciklama'] else '-'}")
         print(f"settings.json env CLAUDE_CODE_SUBAGENT_MODEL: {'var → kaldırılacak' if subagent_env_var_mi() else 'yok'}")
+        for ad, kaynak in ajan_plani():
+            m = re.search(r"^model:\s*(\S+)", kaynak.read_text(encoding="utf-8"), re.M)
+            var = (EV / ".claude" / "agents" / f"{ad}.md").exists()
+            print(f"ajan {ad}\tmodel={m.group(1) if m else '-'}\t{'üzerine (yedekli)' if var else 'yeni'}")
         ok = True
     print("mcp önce=sonra" if ok else "HATA: MCP listesi değişti")
     sys.exit(0 if ok else 1)

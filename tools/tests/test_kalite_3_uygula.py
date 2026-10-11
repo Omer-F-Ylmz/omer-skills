@@ -40,3 +40,16 @@ def test_subagent_model_env_kaldirilir_ve_geri_gelir(tmp_path):
     assert not k3u.subagent_env_var_mi(tmp_path)
     assert k3u.geri(tmp_path)
     assert json.loads(ayar.read_text(encoding="utf-8"))["env"]["CLAUDE_CODE_SUBAGENT_MODEL"] == "x"
+
+
+def test_gecen_ajanlar_kurulur_ve_geri_alinir(tmp_path):
+    kok, ev = tmp_path / "kok", tmp_path / "ev"
+    (kok / "ajanlar" / "kalite3" / "frontend").mkdir(parents=True)
+    (kok / "ajanlar" / "kalite3" / "frontend" / "fe-x.md").write_text("---\nname: fe-x\nmodel: sonnet\n---\nyeni\n", encoding="utf-8")
+    (kok / "docs" / "kutuphane").mkdir(parents=True)
+    (kok / "docs" / "kutuphane" / "kalite3-ajan-kabul.txt").write_text("fe-x\nyok-boyle\n", encoding="utf-8")
+    assert k3u.ajan_plani(kok) == [("fe-x", kok / "ajanlar" / "kalite3" / "frontend" / "fe-x.md")]
+    assert k3u.uygula(ev, kok)
+    assert (ev / ".claude" / "agents" / "fe-x.md").read_text(encoding="utf-8").endswith("yeni\n")
+    assert k3u.geri(ev)
+    assert not (ev / ".claude" / "agents" / "fe-x.md").exists()  # önceden yoktu → geri alınca yok
