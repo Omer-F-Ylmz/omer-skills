@@ -30,3 +30,12 @@ def test_hw_dususunde_anahtar_kare_korunur(tmp_path, monkeypatch):
     monkeypatch.setenv("VIDEO_HIZ2", "1")
     c = _kur(tmp_path, monkeypatch, (0, b"av1\n"), hw_hata=True)
     assert all(_ak(a) for a, g in c if "rawvideo" in a or g)
+
+
+def test_melez_yalniz_dhash_anahtar_kare(tmp_path, monkeypatch):
+    """VİDEO-HIZ-3 VIDEO_HIZ2=2: dhash taraması anahtar kare, kare çıkarma tam çözme (seçilen t'nin gerçek karesi)."""
+    monkeypatch.setattr(gz, "ANAHTAR_SN", 20)
+    monkeypatch.setenv("VIDEO_HIZ2", "2")
+    c = _kur(tmp_path, monkeypatch, (0, b"av1\n"))
+    dh, fc = [a for a, g in c if "rawvideo" in a], [a for a, g in c if g]
+    assert dh and fc and all(map(_ak, dh)) and not any(map(_ak, fc))
