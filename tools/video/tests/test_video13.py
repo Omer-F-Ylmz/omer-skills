@@ -45,3 +45,15 @@ def test_k_varsayilan_jeton_0_eski_yol(tmp_path, monkeypatch):  # VİDEO-13-deva
 def test_ocr_buyuk_harf_slash_komutu_katlanir():  # VİDEO-13-devam: "/USAGE" ve "/"yu I okuyan "IUSAGE" → /usage; sıradan büyük harf dokunulmaz
     s = gz.ocr_satirlar([("/USAGE - BU CLAUDE CODE", 0.9, 1), ("IUSAGE - BU CLAUDE CODE SOHBETI", 0.9, 2), ("IMPORTANT NOTE", 0.9, 3), ("/compact", 0.9, 4)])
     assert s == ["/usage - BU CLAUDE CODE", "/usage - BU CLAUDE CODE SOHBETI", "IMPORTANT NOTE", "/compact"]
+
+
+def test_c3a_yazi_karesi_goruntu_yerine_eksik_ocr_metni(tmp_path):  # VİDEO-13-devam-2 C3a 'O': yazı ağırlıklı kare atılır, istemde olmayan OCR satırı eklenir
+    import json
+    oj = tmp_path / "ocr.json"
+    yazi = [[f"satir {i}", .95, i] for i in range(pt.OCR_KARE_SATIR)]
+    oj.write_text(json.dumps({"ham": [[1.0, yazi], [2.0, [["logo", .99, 1]]], [3.0, [[f"x{i}", .5, i] for i in range(30)]]]}), encoding="utf-8")
+    kr = [str(tmp_path / f"k0000{i}0.jpg") for i in (1, 2, 3)]
+    tut, ek = pt.kare_ocr(kr, oj, "satir 0 ve satir 1 zaten istemde")
+    assert tut == kr[1:]  # az satırlı (görsel) ve düşük güvenli kare kalır
+    assert "k000010.jpg" in ek and "satir 2" in ek and "satir 0 " not in ek and "satir 1 " not in ek
+    assert pt.kare_ocr(kr, tmp_path / "yok.json", "") == (kr, "")
