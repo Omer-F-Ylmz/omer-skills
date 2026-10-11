@@ -318,6 +318,25 @@ def eslesmeler(kaynaklar, sz):
     return sorted(ilk.values(), key=lambda v: v[2])
 
 
+def asr_onar(metin, sz):
+    """VİDEO-13 (env VIDEO_ASR_ONAR=1): altyazıda 1–3 kelimelik bulanık ad (eslesmeler'in ses kuralı: ilk harf aynı, lev ≤1; ≥8 harfte ≤2)
+    kanonik adla değişir ("cloud code" → Claude Code); kesin geçen ad ve <5 harfli adlar dokunulmaz."""
+    adlar, ks, deg, i = [(k, n) for k, al in sz for a in (k, *al) if len(n := norm(a)) >= 5], list(re.finditer(r"\w+", metin)), [], 0
+    while i < len(ks):
+        for n_ in (3, 2, 1):
+            w = "".join(norm(x.group()) for x in ks[i:i + n_])
+            if i + n_ <= len(ks) and all(w != n for _, n in adlar) and (k := next((k for k, n in adlar if w[:1] == n[:1] and abs(len(w) - len(n)) <= 2
+                                                                                and lev(w, n) <= (2 if len(n) >= 8 else 1)), None)):
+                deg.append((ks[i].start(), ks[i + n_ - 1].end(), k))
+                i += n_
+                break
+        else:
+            i += 1
+    for b, s, k in reversed(deg):
+        metin = metin[:b] + k + metin[s:]
+    return metin
+
+
 def eslesme_satirlari(es):
     return [f"{k} · {kay} · {m.ss(t) if kay in ('ekran', 'ses') else '-'}" + (f" · bulanık: {w}" if w else "") for k, kay, t, w in es]
 

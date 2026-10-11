@@ -96,6 +96,7 @@ SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağr
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
 JETON = ""  # VİDEO-9 (Desktop kararı 09:12): C 3. turda yakalama 35/56 < taban 37, ad yazım 26 < 31, USD +21% → KAPALI (kalite düşmez kuralı); C2 (piksel farkı) kalite = taban, jeton −10.9% ama USD +1.7% → onarım bekliyor (env VIDEO_JETON=C2) · TOKEN-7c-devam-4: C yakalama 25/38 ≥ taban 23/38, jeton/video −20% → açılmıştı; A/B jeton düşürmedi → kapalı · TOKEN-7c-devam-3 ikili yol bayrakları (env VIDEO_JETON geçersiz kılar), harf başına: A şemada id enum yok (videolar arası sabit önek → önbellek okunur) · B haiku dar şema · C model karesi dhash ayıklama + JETON_KARE tavanı
 JETON_KARE, JETON_HAM = 30, 5
+JETON_KENAR = 512  # ayar · VİDEO-13 C3 'K': model karesi uzun kenarı (MODEL_KENAR 768 → ~%55 görüntü jetonu)
 B_DISI = ("bolumler", "kareden_okunanlar", "belirsizlikler")  # birlestir b'den almaz
 KARE_UST = 60  # ayar · C4 (O11): uzun videoda modele giden kare güvenlik üst sınırı; asıl sınır cli.PAKET_BUTCE (Ömer onayı: tavan 20 → bütçe)
 WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
@@ -720,6 +721,8 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         istem = _istem([v], pk, hatalar, temizle)
         if "C" in jt and len(kr2 := kare_ayikla(kr, piksel="C2" in jt)) < len(kr):
             kr, istem = kr2, istem + f"\n\nKARE GÖRSELLERİ ({len(kr2)}/{len(kr)}, sırayla; diğerleri yinelendiği için gönderilmedi): " + ", ".join(Path(k).name for k in kr2)
+        if "K" in jt and kr:
+            kr = kare_kucult(kr, pdir / "kucuk" / v, JETON_KENAR)
         with YAZ:
             butce = min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys))
 
@@ -764,6 +767,19 @@ def jeton_sema(v, jt, mdl):
             vid["properties"].pop(k)
             vid["required"].remove(k)
     return s
+
+
+def kare_kucult(kr, hedef, kenar):
+    """VİDEO-13 C3 (b) 'K': model karesinin uzun kenarı ≤ kenar (görüntü jetonu ≈ piksel/750); kaynak kare (önbellek) değişmez, kopya hedef/ altına, ad aynı."""
+    from PIL import Image
+    Path(hedef).mkdir(parents=True, exist_ok=True)
+    out = []
+    for k in kr:
+        with Image.open(k) as im:
+            im.thumbnail((kenar, kenar))
+            im.save(y := Path(hedef) / Path(k).name, quality=85)
+        out.append(y)
+    return out
 
 
 def kare_ayikla(kr, piksel=False):

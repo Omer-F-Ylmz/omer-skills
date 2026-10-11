@@ -540,6 +540,7 @@ def paket(ns, ctx):
             zamanlar = [round(meta["duration"] * (i + 0.5) / ns.kare, 1) for i in range(ns.kare)]
         isaret = [(s["bas"] + s["son"]) / 2 for s in seg if ISARET.search(str(s.get("metin")))]
     ocr, sz = {}, gz.sozluk_oku(_tarama_dizin(ctx) / "sozluk.txt")  # 1b-1 M5: altın-hariç ad sözlüğü
+    asr = (lambda x: gz.asr_onar(x, sz)) if os.environ.get("VIDEO_ASR_ONAR") == "1" else (lambda x: x)  # VİDEO-13: kanıta dek kapalı
     taban = "\n".join([*(str(s.get("metin")) for s in seg), *(lk or [])])  # O11: OCR _kareler'de eklenir; ponytail: künye/chapter satırları sayılmaz
     if gozsuz := igm and not meta.get("video"):  # görsel gönderi ya da videosuz reel: göz yok, görseller sırayla OCR
         for v in meta.get("slayt_video") or []:  # IG-KARUSEL-1: video slayttan 3 sn arayla ≤3 kare; ses işlenmez
@@ -573,7 +574,7 @@ def paket(ns, ctx):
           "## Açıklama bağlantıları", *(lk or ["yok"]),
           *(["## Açıklama", *ac] if (ac := gz.aciklama_duz(meta.get("description"))) else []),  # DEVAM-1: düz metin, URL/chapter satırsız, ≤600 tk
           *(["## Bağlantılı sayfalar", *[f"{x['url']} ({x['kaynak'][0]})" for x in yeni]] if yeni else []),  # erişilemeyen → kapsam.json (Ömer, O21)
-          "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := m.sadelestir(s["metin"]))],
+          "## Segmentler", *(["altyazı yok: kare-yalnız — kanıt kaynağı kare/açıklama; altyazı kanıtı beklenmez"] if yalniz else []), *[f"[{m.ss(s['bas'])}] {x}" for s in seg if (x := asr(m.sadelestir(s["metin"])))],
           *(["## Ekran metni (OCR)", *e] if (e := [f"[{m.ss(t)}] {x}" for t, x in gz.ekran_metni(ocr.get("metin", []), "\n".join([*(m.sadelestir(s["metin"]) for s in seg), *(str(c_.get("title")) for c_ in meta.get("chapters") or []), *lk]), gz.sozluk_adlari(sz), gz.butce(meta.get("duration") or 0))]
                                                 or [x for x in [ocr.get("durum", "✓")] if x != "✓"]) else []),
           *(["## Görsel metni (OCR)", *[x for i, g in enumerate(meta["gorseller"], 1) for x in (f"### görsel {i}", *(go.get(g) or ["(metin yok)"]))]]
