@@ -94,6 +94,9 @@ def jeton(u):
     return (u.get("input_tokens", 0), u.get("cache_creation_input_tokens", 0), u.get("cache_read_input_tokens", 0), u.get("output_tokens", 0))
 
 
+PENCERESIZ = 0x08000000 if os.name == "nt" else 0  # CREATE_NO_WINDOW: pencere açılmaz, torunlar (MCP/hook) bu gizli konsolu devralır
+
+
 def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
     """Tek `claude -p`. ANTHROPIC_BASE_URL (headroom vekili) alt süreçte kaldırılır — araçları gizliyor. Boş cwd yoksa geçici boş klasör."""
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
@@ -102,7 +105,8 @@ def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
     with tempfile.TemporaryDirectory(prefix="olcum-", ignore_cleanup_errors=True) as bos:
         t = time.monotonic()
         try:
-            r = subprocess.run(args, capture_output=True, encoding="utf-8", errors="replace", env=env, cwd=cwd or bos, timeout=timeout)
+            r = subprocess.run(args, capture_output=True, encoding="utf-8", errors="replace", env=env, cwd=cwd or bos, timeout=timeout,
+                               creationflags=PENCERESIZ)
             out, rc, err = r.stdout, r.returncode, r.stderr
         except subprocess.TimeoutExpired as e:
             out, rc, err = (e.stdout or "") if isinstance(e.stdout, str) else "", -9, "timeout"
@@ -191,7 +195,7 @@ def main(argv=None):
         # her arka koşu kendi günlüğüne yazar: devralınan Windows tutamacı O_APPEND taşımaz, ortak dosyada satırlar ezilir
         yol_log = ARKA_LOG.with_name(f"olcum-arka-{ns.profil.replace(',', '+')}.log")
         log = open(yol_log, "a", encoding="utf-8")
-        bayrak = 0x00000008 | 0x00000200 if os.name == "nt" else 0
+        bayrak = (PENCERESIZ | 0x00000200) if os.name == "nt" else 0  # DETACHED (konsolsuz) üst süreç → claude.exe yeni konsol açıyor, Windows Terminal öne getiriyordu
         pr = subprocess.Popen([sys.executable, str(Path(__file__).resolve()), *arg], stdout=log, stderr=subprocess.STDOUT,
                               stdin=subprocess.DEVNULL, cwd=str(KOK), creationflags=bayrak, close_fds=True)
         print(f"arka pid {pr.pid} · günlük {yol_log}")
