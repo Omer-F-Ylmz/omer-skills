@@ -12,7 +12,8 @@ KOK = Path(__file__).resolve().parents[2]
 KORU = [r"(^|:)departman-", r"(^|:)frontend-craft$", r"(^|:)impeccable$", r"(^|:)frontend-design$", r"(^|:)ui-ux-pro-max$",
         r"(^|:)graphify", r"blender", r"(^|:)using-superpowers$", r"(^|:)(pdf|docx|pptx|xlsx)$",
         r"(^|:)(omer-kutuphaneler|web-sahne-desenleri|sdp|surec|gorsel-uret|mod-atolyesi|prd-yaz|teklif-kutusu|fatura-kutusu|headroom-compress|jev)$",
-        r"(^|:)video-(izle|uygula|tarama)$", r"-desktop$"]
+        r"(^|:)video-(izle|uygula|tarama)$", r"-desktop$",
+        r"(^|:)(deep-research|last30days|agent-reach|web-search|search-first|exa-search)$"]  # TOKEN-7d a: G06 web/araştırma
 
 
 def koru(ad):

@@ -5,7 +5,7 @@
  {"id":"G02","kol":"ASP.NET endpoint+test","istem":"ASP.NET Core minimal API'de GET /urunler/{id} endpoint'i ve xunit testini yaz (EF Core InMemory). 404 durumu dahil. Yalnız kod ver.",
   "kabul":"MapGet + 404 (Results.NotFound) + xunit testi (200 ve 404)","arac":[],
   "rubrik":[{"puan":3,"regex":"MapGet"},{"puan":3,"regex":"NotFound"},{"puan":2,"regex":"\\[Fact\\]"},{"puan":2,"regex":"InMemory|WebApplicationFactory"}]},
- {"id":"G03","kol":"frontend bölüm (DESIGN.md akışı)","istem":"Bir kahve markası için landing sayfasının hero bölümünü tasarla. Hangi skill/akışla başlarsın ve ilk adımın ne? Önce DESIGN.md akışını anlat, sonra hero HTML/CSS ver.",
+ {"id":"G03","kol":"frontend bölüm (DESIGN.md akışı)","istem":"Bir kahve markası için landing sayfasının hero bölümünü tasarla. Hangi skill/akışla başlarsın ve ilk adımın ne? Önce DESIGN.md akışını anlat, sonra hero HTML/CSS ver. Yalnız metin yanıtı ver; dosya oluşturma, komut çalıştırma.",
   "kabul":"DESIGN.md/frontend-craft akışı anılır; hero kodu erişilebilir (alt, kontrast) ve ölçeklenir","arac":["Skill:frontend-craft","Skill:impeccable","Skill:frontend-design"],
   "rubrik":[{"puan":3,"regex":"DESIGN\\.md"},{"puan":3,"regex":"<section|<header"},{"puan":2,"regex":"clamp\\(|@media|rem"},{"puan":2,"regex":"alt=|aria-|prefers-reduced"}]},
  {"id":"G04","kol":"video tarama raporu özet","istem":"docs/video-tarama/ altındaki en yeni 2026-10-09-*.md raporunu oku ve 3 maddede özetle (hangi araç/teknik, kurulum değeri, öneri).",
@@ -34,5 +34,14 @@
   "rubrik":[{"puan":2,"regex":"importmap"},{"puan":3,"regex":"keydown|KeyW"},{"puan":3,"regex":"requestAnimationFrame|setAnimationLoop"},{"puan":2,"regex":"lookAt"}]},
  {"id":"G12","kol":"prompt/plan yazma","istem":"Bir e-ticaret sitesine 'sepeti kaydet' özelliği eklemek için bir uygulama planı yaz: en çok 6 adım, her adımda doğrulama ölçütü ve risk.",
   "kabul":"≤6 adım; her adımda doğrulama + risk","arac":[],
-  "rubrik":[{"puan":3,"regex":"(?s)1[\\.\\)].*6[\\.\\)]"},{"puan":3,"regex":"doğrulama|kabul|test"},{"puan":2,"regex":"risk"},{"puan":2,"regex":"(?s)^(?!.*\\n7[\\.\\)])"}]}
+  "rubrik":[{"puan":3,"regex":"(?s)1[\\.\\)].*6[\\.\\)]"},{"puan":3,"regex":"doğrulama|kabul|test"},{"puan":2,"regex":"risk"},{"puan":2,"regex":"(?s)^(?!.*\\n7[\\.\\)])"}]},
+ {"id":"G13","kol":"zor: inatçı hata","istem":"Bu Python kodu tek tek denenince doğru görünüyor ama testler birlikte koşunca listeler birbirine karışıyor ve her düğme aynı değeri basıyor. Kök nedenleri (birden fazla) bul, neden olduğunu kanıtla, düzelt:\ndef ekle(x, liste=[]):\n    liste.append(x)\n    return liste\ndugmeler = [lambda: print(i) for i in range(3)]",
+  "kabul":"İki kök neden: değiştirilebilir varsayılan argüman + lambda geç bağlama; None nöbetçisi + i=i (ya da partial) düzeltmesi","arac":[],
+  "rubrik":[{"puan":3,"regex":"varsayılan|default|mutable|değiştirilebilir"},{"puan":3,"regex":"=\\s*None|is None"},{"puan":2,"regex":"geç bağlama|late binding|closure|kapanış"},{"puan":2,"regex":"i\\s*=\\s*i|partial"}]},
+ {"id":"G14","kol":"zor: mimari","istem":"Günde 5 milyon bildirim (e-posta + push) gönderen bir servisin mimarisini tasarla: kuyruk, yeniden deneme, çift gönderim önleme, kalıcı hata yönetimi ve yatay ölçekleme. Her kararın ödünleşimini yaz; en çok 12 madde.",
+  "kabul":"Kuyruk + backoff'lu yeniden deneme + idempotency anahtarı + DLQ + ödünleşimler","arac":[],
+  "rubrik":[{"puan":2,"regex":"kuyruk|queue|Kafka|SQS|RabbitMQ"},{"puan":3,"regex":"idempot"},{"puan":2,"regex":"backoff|üstel|exponential"},{"puan":3,"regex":"dead.?letter|DLQ"}]},
+ {"id":"G15","kol":"zor: Blender","istem":"Blender Python (bpy) ile 10×10 küp ızgarası kur; her küpün yüksekliği merkeze uzaklığa bağlı sinüs dalgası olsun, hepsi tek malzemeyi paylaşsın, dalga 1–120 kare arasında keyframe'lerle ilerlesin. Geometry Nodes kullanma; tek betik ver.",
+  "kabul":"primitive_cube_add döngüsü, math.sin, ortak malzeme, keyframe_insert ile 1–120 animasyon","arac":["Skill:blender","Skill"],
+  "rubrik":[{"puan":2,"regex":"primitive_cube_add"},{"puan":2,"regex":"sin\\("},{"puan":3,"regex":"keyframe_insert"},{"puan":1,"regex":"120"},{"puan":2,"regex":"materials\\.(append|new)|active_material"}]}
 ]

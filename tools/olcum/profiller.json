@@ -44,6 +44,11 @@
   "settings": "profil-k7b-b40k.json",
   "not": "TOKEN-7b kol 1: SLASH_COMMAND_TOOL_CHAR_BUDGET 40000 (taban canlı 75000)"
  },
+ "k7b-b40k-koru": {
+  "ek": [],
+  "settings": "profil-k7b-b40k-koru.json",
+  "not": "TOKEN-7d a: b40k + KORU dışı skill'ler name-only (KORU'ya web/araştırma skill'leri eklendi) — bütçe yönlendiricilere kalır"
+ },
  "k7b-think10k": {
   "ek": [],
   "settings": "profil-k7b-think10k.json",
