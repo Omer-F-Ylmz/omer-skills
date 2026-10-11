@@ -212,7 +212,15 @@ def _blender_ana():
                 sc.render.engine = "BLENDER_EEVEE_NEXT"
             sc.eevee.taa_render_samples = ornek
         else:
+            sys.path.insert(0, str(REF.parents[2] / "tools"))
+            from blender_pisir import _gpu
+            cihaz = _gpu(sc)  # CPU'da kalırsa aynı görüntü katlarca yavaş
             isik_kur.cycles_denoise(sc, ornek)
+            sc.cycles.use_adaptive_sampling = True  # gürültü eşiğine (0.01) ulaşan piksel erken durur
+            sc.cycles.denoising_input_passes = "RGB_ALBEDO_NORMAL"  # kenar/doku ayrıntısı korunur
+            sonuc["motor"] = {"motor": sc.render.engine, "cihaz": cihaz, "ornek": sc.cycles.samples,
+                              "adaptif": sc.cycles.use_adaptive_sampling, "denoise": sc.cycles.use_denoising,
+                              "gecis": sc.cycles.denoising_input_passes}
 
     def cek(yol):
         sc.render.filepath = str(yol)

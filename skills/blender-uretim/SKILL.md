@@ -14,6 +14,9 @@ Referanslar — v1 tesliminden önce yalnız `olculer.md` okunur; ışık `isik_
 - `malzemeler.md` + `malzemeler.py` — malzeme tarifleri; `malzemeler.kur(ad)`
 - `donel-model.md` — silüetten Screw, kulp/ağız/sap
 - `web-aktarim.md` — export, pişirme kararı, AgX eşleme, three.js tarafı
+- `bpy-teknik.md` — headless bpy tuzakları, geometri/malzeme/ışık/render/animasyon API notları (tarife sığmayan iş için)
+- `varlik-hatti.md` — topoloji, adlandırma, UV/doku, dışa aktarım hedefleri, doğrulama listesi; sonunda "Tarife sığmayan iş"
+- `KAYNAK.md` — uyarlanan MIT kaynaklar (Rapcan, blender-kiln), sabit SHA, lisans metni
 
 `#no` = docs/kaynak-tarama/7-blender.md kaynağı · `öneri` = kaynaksız varsayılanımız; öneriyi kaynak gibi sunma.
 

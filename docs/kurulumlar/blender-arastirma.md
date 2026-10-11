@@ -84,5 +84,16 @@ Fiyat/kredi verisi üçüncü taraf özetlerinden; resmi fiyat sayfası Tripo i�
 
 Karar özeti: Tripo SDK betikle isteğe bağlı (tavan "en fazla N varlık"); Meshy/Rodin/Hunyuan/GVHMR/FreeMoCap RED; yeni MCP sunucularının hiçbiri kurulmaz (mimari karar).
 
+## Profesyonel iş akışı (Blender 5.2; M = docs.blender.org/manual/en/latest/, A = docs.blender.org/api/current/, CY = intern/cycles/blender/addon/properties.py)
+- **Render örnek + denoise (Cycles):** kod varsayılanı samples 4096, adaptive açık, eşik 0.01 (kılavuz aralığı 0.1–0.001), min 0 = otomatik; denoise açık, girdi RGB_ALBEDO_NORMAL, prefilter ACCURATE, kalite HIGH (CY; M render/cycles/render_settings/sampling.html — "en az Albedo"). Kılavuz: Automatic denoiser OIDN'i OptiX'e tercih eder. **Tarife yansıyan:** GPU seçimi (önceden CPU'da kalıyordu; kalite aynı, süre kısa) + adaptive/albedo-normal açıkça (eski .blend ayarı sızmasın); tarif örneği 64 + denoise kalır. Test: test_cycles_gpu_adaptif_denoise.
+- **Gürültü:** Filter Glossy (bpy `blur_glossy`) 1.0 başlangıç; caustics "yaygın gürültü kaynağı", yalnız firefly varsa kapat (cam görünümü değişir → tarif varsayılanı değişmedi); Clamp Indirect parlak yerleri kısar (M light_paths.html).
+- **EEVEE:** taa_render_samples 64 varsayılan (tarif aynı); raytracing kapalı varsayılan (A SceneEEVEE).
+- **Renk:** AgX 4.0'dan beri varsayılan, Filmic kullanımdan kalktı; exposure 0, gamma 1 (release_notes/4.0/color_management, M displays_views.html). Tarif AgX'i zaten sabitliyor.
+- **HDRI/varlık:** Environment Texture (equirectangular) ile dünya ışığı (M environment.html); Poly Haven CC0, atıf gerekmez (polyhaven.com/license) → tarif `hdri`. Asset Browser: `ID.asset_mark()` (A bpy.types.ID).
+- **Geometry nodes:** modifier + node group; Instance on Points hızlı (veri çoğaltmaz), Realize Instances tek tek düzenleme için (M modeling/geometry_nodes). Tarife alınmadı (tarife sığmayan iş; bpy-teknik.md).
+- **Prosedürel malzeme:** Noise (fraktal Perlin), Voronoi (Worley), Wave; Principled girişleri Base Color/Roughness/Metallic/IOR/Coat/Sheen/Transmission/Emission/Subsurface "Weight" alt başlıklı (M principled.html). Mevcut malzemeler.py yeterli; değişmedi.
+- **Kamera/kompozisyon:** Composition Guides thirds/golden; F-stop düşük = güçlü alan derinliği, Focus Object mesafeyi geçersiz kılar (M render/cameras.html; A Camera, CameraDOFSettings: fstop 2.8, use_dof kapalı). Tarif `oto` kamera 50 mm + 3/4 açı kalır; DOF ürün netliğini düşürebileceği için varsayılan kapalı.
+- **3 nokta ışık:** kılavuzda yok (bulunamadı); ışık birimi W, Area `spread` varsayılan π (A AreaLight). Tarifin isik_kur "urun" profili kaynağı mevcut referansta.
+
 ## Doğrulanamayanlar
 Tripo resmi fiyat sayfası (403, üçüncü taraf özet); Tripo 2000 kredi hibesi (tek kaynak); GVHMR ve sam-3d-objects LICENSE içeriği (okunmadı); TRELLIS.2 ağırlık lisansı; kiln ve blenderwright'ın Windows'ta çalışması; blenderwright ile blend-ai'nin aynı proje olup olmadığı (depo adı değişmiş olabilir; blend-ai adı gh api'de 404).

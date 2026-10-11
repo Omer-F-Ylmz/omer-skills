@@ -103,6 +103,15 @@ def test_gorev3_anim_render(proje):
 
 
 @blender
+def test_cycles_gpu_adaptif_denoise(proje):
+    s = kos({"nesneler": [{"ad": "GEO-Kup", "tur": "kup", "boyut": [0.1, 0.1, 0.1]}], "isik": "urun", "boyut_m": 0.1,
+             "render": {"yol": str(proje / "c.png"), "px": 32, "motor": "cycles", "ornek": 16}})
+    m = s["motor"]  # hız kaliteyi düşürmeden: GPU varsa GPU, adaptif örnekleme + albedo/normal destekli denoise
+    assert m["motor"] == "CYCLES" and m["cihaz"] != "" and m["ornek"] == 16
+    assert m["adaptif"] and m["denoise"] and m["gecis"] == "RGB_ALBEDO_NORMAL"
+
+
+@blender
 def test_zor_patlatilmis_kahve_makinesi_glb(proje):
     parcalar = [("GEO-Taban", "kup", [0.25, 0.2, 0.04]), ("GEO-Govde", "kup", [0.2, 0.18, 0.25]),
                 ("GEO-Hazne", "silindir", [0.1, 0.1, 0.15]), ("GEO-Kapak", "silindir", [0.11, 0.11, 0.02])]

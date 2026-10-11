@@ -15,6 +15,11 @@ spec JSON'u `Desktop\<Proje>\blender\sahneler\<ad>.json`'a yaz → `blender_cli.
 → tek satır özet JSON (+ `onizle` 256 px, tek Read). Anahtarlar ve sıra: `tarif.py` başlığı; hatalı spec Blender açılmadan mevcut adlarla reddedilir.
 Düzeltme = spec'te değeri değiştir, yeniden koş (kod yazılmaz). 3+ koşuluk ayar döngüsü (ölçü/ışık/kamera arama) sonnet alt ajana: spec yolu + kabul ölçütü ver, yalnız son özet + önizleme yolu dönsün. Tarife sığmayan kısım (serbest modelleme, düğüm ağacı) için aşağıdaki akış.
 
+## blenderwright (191 araç; küresel MCP listesinde YOK)
+Yalnız mevcut blender MCP'nin yapamadığı iş için (mesh kalite raporu: non-manifold/ters normal, fizik, geniş modelleme seti) o oturuma özel açılır:
+`claude --mcp-config C:/Projeler/omer-skills/tools/blender/mcp/blenderwright.json` (uvx blenderwright==2.2.1, `BLENDERWRIGHT_TOOLSETS=core` ≈ şema maliyetinin küçük kısmı; gerekirse `core,physics,animation`).
+Ön koşul: eklenti `onay/blender_1_uygula.py` ile kurulu. Port 9876'yı blender-mcp eklentisiyle paylaşır (sunucu tarafı sabit) → aynı anda biri: blender-mcp sunucusunu durdur, blenderwright N-panelinden Start Server. İş bitince oturum kapanır; sıradaki oturum normal açılır.
+
 ## Akış (canlı oturum gereken işte, sıra değişmez)
 1. `ac C:\Users\pc\Desktop\<Proje>\blender\<ad>.blend` — var olan dosya. Yeni dosya: `ac <yol> --yeni` (dosya varsa reddeder, boş sahneyle oluşturur).
 2. İş: blender MCP araçları (önce sahneyi incele: ≤10 nesnede `get_objects_summary`, üstünde hedefli bpy sorgusu; varsayma).
