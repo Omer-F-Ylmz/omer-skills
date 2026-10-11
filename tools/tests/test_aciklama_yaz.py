@@ -88,3 +88,9 @@ def test_tetik_cok_dilli():
     for metin in ("Hace x. Usar cuando se pide x.", "做X。在需要X时使用。", "Xを行う。Xが必要な時に使用。",
                   "X를 한다. X가 필요할 때 사용.", "PDF birleştirir. PDF istendiğinde kullan."):
         assert ay.gecerli("eski", metin), metin
+
+
+def test_istem_her_dilde_tetik_kalibi_verir():
+    """KALİTE-3 parti 28: JA kayıtlar 7 çağrıda geçmedi — istem yalnız EN/TR tetik kalıbı veriyordu, haiku JA'da kalıpsız yazdı."""
+    for kalip in ("Use when", "kullan", "時に使用", "时使用", "때 사용"):
+        assert kalip in ay.YAZ_ISTEM and ay.TETIK.search(kalip)
