@@ -206,3 +206,20 @@ def test_tablo_25_satiri_gecmez():
     satirlar = t.splitlines()
     assert len(satirlar) <= 25 and "--json" in satirlar[-1]
     assert "x|y" not in t
+
+
+# --- nesne state (JEV-1 olc_a 17:38: jev_yargic {gorev, kabul, yanit} verdi, redakte str bekledi -> TypeError) ---
+def test_nesne_state_alan_alan_redakte_edilir_nesne_olarak_gider():
+    s = Sahte()
+    t, _ = tasiyici(s)
+    t.yargila([{"gorev": "g", "yanit": ["bana ali@ornek.com yaz", 3]}], NOUL)
+    gonderilen = s.istekler[0][2]["state"]
+    assert gonderilen == {"gorev": "g", "yanit": ["bana [REDAKTE:e-posta] yaz", 3]}
+
+
+def test_buyuk_nesne_state_metne_cevrilip_bolunur():
+    s = Sahte()
+    t, _ = tasiyici(s)
+    satir = "a" * 100 + "\n"
+    t.yargila([{"yanit": satir * (c.STATE_TOKEN // 10)}], NOUL)
+    assert len(s.istekler) >= 2 and all(isinstance(i[2]["state"], str) for i in s.istekler)
