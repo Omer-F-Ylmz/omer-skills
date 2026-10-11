@@ -171,6 +171,19 @@ def test_beyaz_seramik_yanmaz(proje):
 
 
 @blender
+def test_sirli_seramik_vurgu_verir(proje):
+    """Faz 5 v3 g1: oto kamerada sırlı fincan mat (max 228, ≥235 %0; kör isik 4) — taban-2 (isik 8) ≥235 %0.5."""
+    kos({"nesneler": [{"ad": "GEO-Zemin", "tur": "duzlem", "boyut": [1, 1, 1], "malzeme": {"renk": [0.7, 0.7, 0.7], "puruz": 0.9}},
+                      {"ad": "GEO-Tabak", "tur": "silindir", "boyut": [0.14, 0.14, 0.01], "konum": [0, 0, 0.005],
+                       "malzeme": "seramik_sirli"},
+                      {"ad": "GEO-Fincan", "tur": "silindir", "boyut": [0.08, 0.08, 0.09], "konum": [0, 0, 0.055],
+                       "malzeme": "seramik_sirli"}],
+         "isik": "seramik_sirli", "kamera": "oto", "onizle": {"yol": str(proje / "sir.png"), "px": 192}})
+    h = pytest.importorskip("PIL.Image").open(proje / "sir.png").convert("L").histogram()
+    assert sum(h[235:]) / sum(h) > 0.002 and sum(h[250:]) / sum(h) < 0.02
+
+
+@blender
 def test_koni_ust_ve_ekler_tek_nesne(proje):
     s = kos({"nesneler": [{"ad": "GEO-Cezve", "tur": "koni", "ust": 0.7, "boyut": [0.1, 0.1, 0.1],
                            "ekler": [{"tur": "kup", "boyut": [0.08, 0.01, 0.01], "konum": [0.08, 0, 0.03]}]}],

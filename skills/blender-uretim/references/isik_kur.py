@@ -19,7 +19,8 @@ PROFILLER = {
     "ahsap": {"oran": (4, 1, 1.5), "K": 3000, "hdri": 0.3},  # #1
     "kumas": {"oran": (3, 1, 0.5), "K": None, "hdri": 0.3},  # #1
     "metal": {"oran": (5, 1, 1.5), "K": 5000, "hdri": 0.1, "serit": True},  # ZYk3OOf-gBk: uzun alan, az HDRI
-    "seramik_sirli": {"oran": (5, 1, 1.5), "K": 5000, "hdri": 0.3, "serit": True},  # öneri
+    # kenar: oto kameranın (azimut 31°) tam karşısı, alçak — sır yansıması üst/tabak yüzeyinden kameraya döner (Faz 5 v3 g1: 160°/45°'de vurgu %0)
+    "seramik_sirli": {"oran": (5, 1, 1.5), "K": 5000, "hdri": 0.3, "serit": True, "kenar": (-150, 25)},
     "seramik_mat": {"oran": (5, 1, 1), "K": 5000, "hdri": 0.3},  # öneri: kenar 1
 }
 ANAHTAR_W = 40  # BLENDER-1 Faz 5 ölçümü: 300'de beyaz seramik karesinin %55-62'si yanıyordu; 1 m'de anahtar gücü (W), uzaklığın karesiyle büyür; kalibrasyon düğmesi budur
@@ -126,7 +127,7 @@ def kur(profil="urun", boyut_m=0.1, merkez=(0, 0, 0), etiket=None, hdri=None):
     s = max(boyut_m * 2, 0.3)  # öneri: alan ışığı ürüne göre geniş ve yakın (wySOWP-MevI, 4Uy2SzB-Kuk)
     obs = [isik("LGT-Anahtar", "AREA", birim * a, kure(m, d, -40, 30), etiket or m, s, p["K"]),
            isik("LGT-Dolgu", "AREA", birim * f, kure(m, d, 60, 10), m, s * 1.5, p["K"]),
-           isik("LGT-Kenar", "AREA", birim * k, kure(m, d, 160, 45), m, s * 0.5, p["K"])]
+           isik("LGT-Kenar", "AREA", birim * k, kure(m, d, *p.get("kenar", (160, 45))), m, s * 0.5, p["K"])]
     if p.get("serit"):
         obs += serit(m, d, boyut_m)
     if p.get("gradyan"):
