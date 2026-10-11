@@ -707,7 +707,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | oCJWxfEwX-o | 11.2 | PixelLab Character States: The New Way t | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
 | sE1s5ZYfxqk | 8.1 | Pixellab Tutorial: Tilesets (Isometric/H | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
 | fvPmuk-usgw | 7.0 | Vibe Coding a Full Game with PixelLab MC | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
-| BdoUMKhZ1Ys | 4.8 | Build a Complete RPG UI Set with PixelLa | bağlantılı video (ryX4RSMJf9Q) | bekliyor |
+| BdoUMKhZ1Ys | 4.8 | Build a Complete RPG UI Set with PixelLa | bağlantılı video (ryX4RSMJf9Q) | işlendi: 087c739 |
 | Hhx9QZwYoZY | 1.9 | Introducing Object Creator: Make Pixel A | bağlantılı video (ryX4RSMJf9Q) | işlendi: 00e995e |
 | moCpjMOOBGk | 12.7 | PixelLab Tutorial: How to Generate & Ani | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
 | j2bE9gq914U | 12.6 | How to Use Animate with Text in PixelLab | bağlantılı video (ryX4RSMJf9Q) | işlendi: 8826f98 |
@@ -749,38 +749,38 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | MHPGeQD8TvI | 13.4 | How I would learn to code (if I could st | bağlantılı video (4Hvkv_I8QDE) | işlendi: 9c783a2 |
 | _qa5iWdfNKg | 17.8 | Talk - Practical Pigment Mixing for Digi | bağlantılı video (4Hvkv_I8QDE) | işlendi: 9c783a2 |
 | OuEYbtG5ZFY | 9.8 | Kod Bilmeden Mobil Uygulama Yaptım ve Go | bağlantılı video (eIkTn5kgNaI) | işlendi: 9c783a2 |
-| iWuFokf8g8o | 14.8 | ​Kod Bilmeden Mobil Uygulamadan Para Kaz | bağlantılı video (eIkTn5kgNaI) | bekliyor |
-| QQEgIo4Juxg | 32.6 | you need to use Hermes RIGHT NOW!! (good | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| iWuFokf8g8o | 14.8 | ​Kod Bilmeden Mobil Uygulamadan Para Kaz | bağlantılı video (eIkTn5kgNaI) | işlendi: 087c739 |
+| QQEgIo4Juxg | 32.6 | you need to use Hermes RIGHT NOW!! (good | bağlantılı video (7RVf25Rg0Mc) | işlendi: 087c739 |
 | CgG3dtH5IMM | 1.4 | I turned my house into a VIDEO GAME! | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
-| nuhh_KfCz9M | 21.7 | your house needs TWO networks (here's wh | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
-| 5pXMOUB_y0c | 74.9 | openAI is coming for grok and Jev | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| nuhh_KfCz9M | 21.7 | your house needs TWO networks (here's wh | bağlantılı video (7RVf25Rg0Mc) | işlendi: 087c739 |
+| 5pXMOUB_y0c | 74.9 | openAI is coming for grok and Jev | bağlantılı video (7RVf25Rg0Mc) | işlendi: 087c739 |
 | BeNxDM6XJK4 | 0.0 | NetworkChuck canlı yayın | bağlantılı video (7RVf25Rg0Mc) · LIVE_STREAM_OFFLINE, kayıt yok (Desktop Chrome 10 Eki); açıklama linkleri .kos/kopru/ig-chrome/yt-BeNxDM6XJK4.md → TUR-6d | kayıt yok |
 | zXeL8KbDmi4 | 0.0 | ? | bağlantılı video (7RVf25Rg0Mc) · meta hatası: yt-dlp -J başarısız | bekliyor |
 | d1i1V4StMVI | 1.4 | Your AI App Works. Can You Sell It? | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
-| CbWySQdAM60 | 21.9 | i got one....and it's FAST!!! | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
+| CbWySQdAM60 | 21.9 | i got one....and it's FAST!!! | bağlantılı video (7RVf25Rg0Mc) | işlendi: 087c739 |
 | JP9_clebjDE | 1.1 | Your App Crashed. Now AI Gets to Work. | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
-| GRJaKcXZS94 | 10.0 | We Got Open Source God’s Eye Before GTA  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
-| ooMXEwl7N8Y | 15.3 | The AI Arsenal That Could Stop World War | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
-| p3uBMqCPSDk | 14.8 | Meet NEO, Your Robot Butler in Training  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
-| gElClXpg4J0 | 16.1 | The Next Computer? Your Glasses / Shahra | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
-| E3Yo7PULlPs | 15.6 | The Artist-Driven Innovation Behind the  | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
-| id4YRO7G0wE | 25.6 | The AI Revolution Is Underhyped / Eric S | bağlantılı video (o_FJ1NIH9yw) | bekliyor |
-| DMvFXKg0r50 | 49.8 | How To Build a Responsive Modern Website | bağlantılı video (tf_yi6DtDOQ) | bekliyor |
+| GRJaKcXZS94 | 10.0 | We Got Open Source God’s Eye Before GTA  | bağlantılı video (o_FJ1NIH9yw) | işlendi: 087c739 |
+| ooMXEwl7N8Y | 15.3 | The AI Arsenal That Could Stop World War | bağlantılı video (o_FJ1NIH9yw) | işlendi: 087c739 |
+| p3uBMqCPSDk | 14.8 | Meet NEO, Your Robot Butler in Training  | bağlantılı video (o_FJ1NIH9yw) | işlendi: 087c739 |
+| gElClXpg4J0 | 16.1 | The Next Computer? Your Glasses / Shahra | bağlantılı video (o_FJ1NIH9yw) | işlendi: 087c739 |
+| E3Yo7PULlPs | 15.6 | The Artist-Driven Innovation Behind the  | bağlantılı video (o_FJ1NIH9yw) | işlendi: 087c739 |
+| id4YRO7G0wE | 25.6 | The AI Revolution Is Underhyped / Eric S | bağlantılı video (o_FJ1NIH9yw) | işlendi: 087c739 |
+| DMvFXKg0r50 | 49.8 | How To Build a Responsive Modern Website | bağlantılı video (tf_yi6DtDOQ) | işlendi: 087c739 |
 | iVhRBA9tkHA | 0.9 | How to Download Pinterest Videos, Images | bağlantılı video (n50KkoucMpU) | işlendi: bfe565e |
 | nbgGxzOMqpg | 1.7 | I Put the iOS Simulator in Cursor, Claud | bağlantılı video (ijHxGWFnrNA) | işlendi: bfe565e |
-| wVAp04tX4Io | 5.6 | Skip the Xcode Instruments Tutorial, Do  | bağlantılı video (ijHxGWFnrNA) | bekliyor |
-| hDFOy-ynJ6I | 29.5 | AI Wrote Swift Code That Looked Fine… Un | bağlantılı video (ijHxGWFnrNA) | bekliyor |
-| mD6vpokRpsU | 5.6 | AI Agents Can Now Control the iOS Simula | bağlantılı video (ijHxGWFnrNA) | bekliyor |
-| MeVVCKsCBaY | 16.9 | Claude Skills Nedir? Bir Kez Öğret, Hep  | bağlantılı video (AYPx7yJmbNg) | bekliyor |
+| wVAp04tX4Io | 5.6 | Skip the Xcode Instruments Tutorial, Do  | bağlantılı video (ijHxGWFnrNA) | işlendi: 087c739 |
+| hDFOy-ynJ6I | 29.5 | AI Wrote Swift Code That Looked Fine… Un | bağlantılı video (ijHxGWFnrNA) | işlendi: 087c739 |
+| mD6vpokRpsU | 5.6 | AI Agents Can Now Control the iOS Simula | bağlantılı video (ijHxGWFnrNA) | işlendi: 087c739 |
+| MeVVCKsCBaY | 16.9 | Claude Skills Nedir? Bir Kez Öğret, Hep  | bağlantılı video (AYPx7yJmbNg) | işlendi: 087c739 |
 | 8L_9hXnUzRk | 1.4 | Incredibles 2 (2018) - Elastigirl vs. Sc | bağlantılı video (AYPx7yJmbNg) | işlendi: bfe565e |
-| 83NI19L7fhQ | 12.4 | How Claude Replaced Higgsfield (Build Th | bağlantılı video (IUV8QzwIb6g) | bekliyor |
-| nZG8StgCdws | 36.1 | I Made Claude Cowork Generate 100+ UGC A | bağlantılı video (IUV8QzwIb6g) | bekliyor |
-| oq7I4S0Ql2k | 23.4 | This One Claude Skill Makes $10K Website | bağlantılı video (IUV8QzwIb6g) | bekliyor |
-| KcOST3Ogq_g | 28.6 | Google Omni + Claude Code Just Fired My  | bağlantılı video (IUV8QzwIb6g) | bekliyor |
-| sa2tYsMpjMg | 14.7 | How to Create a Book Cover for FREE with | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
-| H4x8fH-vd1g | 10.3 | How to Upload a Book to Amazon KDP (Comp | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
-| w8yVXfUyp3E | 8.4 | How to Get Book Reviews on Amazon KDP Us | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
-| CZgZmPd-ETY | 15.7 | How to Sell More Books on Amazon KDP WIT | bağlantılı video (JrFZ_ky7AzE) | bekliyor |
+| 83NI19L7fhQ | 12.4 | How Claude Replaced Higgsfield (Build Th | bağlantılı video (IUV8QzwIb6g) | işlendi: 087c739 |
+| nZG8StgCdws | 36.1 | I Made Claude Cowork Generate 100+ UGC A | bağlantılı video (IUV8QzwIb6g) | işlendi: 087c739 |
+| oq7I4S0Ql2k | 23.4 | This One Claude Skill Makes $10K Website | bağlantılı video (IUV8QzwIb6g) | işlendi: 087c739 |
+| KcOST3Ogq_g | 28.6 | Google Omni + Claude Code Just Fired My  | bağlantılı video (IUV8QzwIb6g) | işlendi: 087c739 |
+| sa2tYsMpjMg | 14.7 | How to Create a Book Cover for FREE with | bağlantılı video (JrFZ_ky7AzE) | işlendi: 087c739 |
+| H4x8fH-vd1g | 10.3 | How to Upload a Book to Amazon KDP (Comp | bağlantılı video (JrFZ_ky7AzE) | işlendi: 087c739 |
+| w8yVXfUyp3E | 8.4 | How to Get Book Reviews on Amazon KDP Us | bağlantılı video (JrFZ_ky7AzE) | işlendi: 087c739 |
+| CZgZmPd-ETY | 15.7 | How to Sell More Books on Amazon KDP WIT | bağlantılı video (JrFZ_ky7AzE) | işlendi: 087c739 |
 | zp13W8z6WQM | 29.6 | I Tested Tripo P2.0 for Production: Is I | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 | 1vw39QCcQjg | 14.1 | AI Just Solved UV Unwrapping and It's Cr | bağlantılı video (VeOU0FnTjjc) | bekliyor |
 | 3SFDXcr-dQ4 | 25.7 | AI Texturing Like a Pro — My Full 3D Wor | bağlantılı video (VeOU0FnTjjc) | bekliyor |
