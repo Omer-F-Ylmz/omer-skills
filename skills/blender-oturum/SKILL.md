@@ -13,7 +13,7 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 İş tarif anahtarlarına sığıyorsa (ilkel nesne · ölçü · malzeme · ışık · kamera · yığ/patlat · bevel/subdiv/decimate/UV · keyframe · önizleme/render · GLB · özet) oturum AÇILMAZ:
 spec JSON'u `Desktop\<Proje>\blender\sahneler\<ad>.json`'a yaz → `blender_cli.py C:/Projeler/omer-skills/tools/blender/lib/tarif.py @<spec.json> [--blend B]`
 → tek satır özet JSON (+ `onizle` 256 px, tek Read). Anahtarlar ve sıra: `tarif.py` başlığı; hatalı spec Blender açılmadan mevcut adlarla reddedilir.
-Düzeltme = spec'te değeri değiştir, yeniden koş (kod yazılmaz). Tarife sığmayan kısım (serbest modelleme, düğüm ağacı) için aşağıdaki akış.
+Düzeltme = spec'te değeri değiştir, yeniden koş (kod yazılmaz). 3+ koşuluk ayar döngüsü (ölçü/ışık/kamera arama) sonnet alt ajana: spec yolu + kabul ölçütü ver, yalnız son özet + önizleme yolu dönsün. Tarife sığmayan kısım (serbest modelleme, düğüm ağacı) için aşağıdaki akış.
 
 ## Akış (canlı oturum gereken işte, sıra değişmez)
 1. `ac C:\Users\pc\Desktop\<Proje>\blender\<ad>.blend` — var olan dosya. Yeni dosya: `ac <yol> --yeni` (dosya varsa reddeder, boş sahneyle oluşturur).
