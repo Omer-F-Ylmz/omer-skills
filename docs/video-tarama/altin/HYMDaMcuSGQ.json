@@ -210,7 +210,6 @@
   {
    "ad": "Skills",
    "alias": [
-    "Skill",
     "yetenek",
     "yetenekler"
    ],
@@ -494,9 +493,7 @@
   },
   {
    "ad": "Routing",
-   "alias": [
-    "yönlendirme"
-   ],
+   "alias": [],
    "tur": "teknik",
    "zaman": "18:28",
    "kaynak": "ses",
