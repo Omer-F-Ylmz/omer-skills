@@ -713,33 +713,33 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | Bikzi6s5TfI | 35.5 | How to Make a Website / Step by Step 202 | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
 | fDTwHIKltpc | 26.0 | The EASY way to build a beautiful websit | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
 | HNAv85MfGUI | 26.1 | OpenClaw Full Tutorial for Beginners (St | bağlantılı video (r68MhqAUvR8) | işlendi: 8826f98 |
-| 0myoSPfSL2c | 28.6 | Wordpress Tutorial for Beginners (2026)  | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| 65ALoG4S4mU | 20.6 | How To Create a Free Website in 2026 (wi | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| 3YG3XLmBX4A | 14.2 | Elementor Wordpress Tutorial / Master th | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| bhVyTMJPwJc | 30.5 | Build a Wordpress Website with Claude in | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| QdxyP4SP-Bo | 32.4 | Elementor WordPress Tutorial for Beginne | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| d975dVX01ps | 22.8 | Master WordPress in 20 Minutes (Beginner | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| I87YstyGW_0 | 22.4 | The RIGHT Way to Deploy a Claude AI Webs | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| LUVHbHbWQVk | 34.6 | How to Make a Website / Step-by-Step Beg | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| ApriQQWMuTw | 25.5 | WordPress Tutorial For Beginners 2026 -  | bağlantılı video (r68MhqAUvR8) | bekliyor |
-| UWm_NpAyrlc | 8.8 | This app paywall made $73,800 last month | bağlantılı video (bE0XcTv3tKg) | bekliyor |
-| wZ76cFqZG2o | 16.1 | Yapay Zeka Klonumu Oluşturdum! Yapay Zek | bağlantılı video (De4dE0Fbpy4) | bekliyor |
-| 5mi_tYSdkWQ | 22.7 | I Tried The Vibe Coded After Effects Clo | bağlantılı video (eFB79TYI-Vw) | bekliyor |
-| U_jTYMOlXio | 22.2 | Somebody Vibe Coded Microsoft Office, an | bağlantılı video (eFB79TYI-Vw) | bekliyor |
-| RP7QH24Qqvs | 37.8 | Claude Skills Nedir ve Nasıl Kullanılır? | bağlantılı video (DWMGfkFD5SI) | bekliyor |
-| -tabaM5l3s0 | 42.4 | Fei-Fei Li is Solving the Hardest Proble | bağlantılı video (d67-HDSvMw8) | bekliyor |
-| oJEBn_hcOyM | 20.1 | Copy This LinkedIn Message Formula, It’l | bağlantılı video (HzXD4GVqXwM) | bekliyor |
-| JxIZbV_XjAs | 13.1 | Introducing the GAME ENGINE series! | bağlantılı video (R_uf5OfMGio) | bekliyor |
-| 5ZHh8vUcEak | 31.4 | How Ray Casting and Sphere Intersection  | bağlantılı video (R_uf5OfMGio) | bekliyor |
-| w4srt6vZMdU | 12.8 | Hackathon'da 1. Oldum: Claude ile 12 Saa | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| 0myoSPfSL2c | 28.6 | Wordpress Tutorial for Beginners (2026)  | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| 65ALoG4S4mU | 20.6 | How To Create a Free Website in 2026 (wi | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| 3YG3XLmBX4A | 14.2 | Elementor Wordpress Tutorial / Master th | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| bhVyTMJPwJc | 30.5 | Build a Wordpress Website with Claude in | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| QdxyP4SP-Bo | 32.4 | Elementor WordPress Tutorial for Beginne | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| d975dVX01ps | 22.8 | Master WordPress in 20 Minutes (Beginner | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| I87YstyGW_0 | 22.4 | The RIGHT Way to Deploy a Claude AI Webs | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| LUVHbHbWQVk | 34.6 | How to Make a Website / Step-by-Step Beg | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| ApriQQWMuTw | 25.5 | WordPress Tutorial For Beginners 2026 -  | bağlantılı video (r68MhqAUvR8) | işlendi: 9c783a2 |
+| UWm_NpAyrlc | 8.8 | This app paywall made $73,800 last month | bağlantılı video (bE0XcTv3tKg) | işlendi: 9c783a2 |
+| wZ76cFqZG2o | 16.1 | Yapay Zeka Klonumu Oluşturdum! Yapay Zek | bağlantılı video (De4dE0Fbpy4) | işlendi: 9c783a2 |
+| 5mi_tYSdkWQ | 22.7 | I Tried The Vibe Coded After Effects Clo | bağlantılı video (eFB79TYI-Vw) | işlendi: 9c783a2 |
+| U_jTYMOlXio | 22.2 | Somebody Vibe Coded Microsoft Office, an | bağlantılı video (eFB79TYI-Vw) | işlendi: 9c783a2 |
+| RP7QH24Qqvs | 37.8 | Claude Skills Nedir ve Nasıl Kullanılır? | bağlantılı video (DWMGfkFD5SI) | işlendi: 9c783a2 |
+| -tabaM5l3s0 | 42.4 | Fei-Fei Li is Solving the Hardest Proble | bağlantılı video (d67-HDSvMw8) | işlendi: 9c783a2 |
+| oJEBn_hcOyM | 20.1 | Copy This LinkedIn Message Formula, It’l | bağlantılı video (HzXD4GVqXwM) | işlendi: 9c783a2 |
+| JxIZbV_XjAs | 13.1 | Introducing the GAME ENGINE series! | bağlantılı video (R_uf5OfMGio) | işlendi: 9c783a2 |
+| 5ZHh8vUcEak | 31.4 | How Ray Casting and Sphere Intersection  | bağlantılı video (R_uf5OfMGio) | işlendi: 9c783a2 |
+| w4srt6vZMdU | 12.8 | Hackathon'da 1. Oldum: Claude ile 12 Saa | bağlantılı video (DO45w8HX6nA) | işlendi: 9c783a2 |
 | SyuBcwa0bqQ | 1.8 | How OpenAI connects with customers and e | bağlantılı video (DO45w8HX6nA) | işlendi: 0f146f9 |
-| o2c2_EGP8w4 | 2.1 | Slack helps Box bring agents to every em | bağlantılı video (DO45w8HX6nA) | bekliyor |
+| o2c2_EGP8w4 | 2.1 | Slack helps Box bring agents to every em | bağlantılı video (DO45w8HX6nA) | işlendi: 9c783a2 |
 | EOTqujB8_R4 | 1.8 | Caraway Brings All The Right Ingredients | bağlantılı video (DO45w8HX6nA) | işlendi: 0f146f9 |
-| 8NjVIWfje1o | 2.0 | Slack helps Rivian do business in the fa | bağlantılı video (DO45w8HX6nA) | bekliyor |
-| INymz5VwLmk | 15.9 | How I consistently study with a full tim | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
-| MHPGeQD8TvI | 13.4 | How I would learn to code (if I could st | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
-| _qa5iWdfNKg | 17.8 | Talk - Practical Pigment Mixing for Digi | bağlantılı video (4Hvkv_I8QDE) | bekliyor |
-| OuEYbtG5ZFY | 9.8 | Kod Bilmeden Mobil Uygulama Yaptım ve Go | bağlantılı video (eIkTn5kgNaI) | bekliyor |
+| 8NjVIWfje1o | 2.0 | Slack helps Rivian do business in the fa | bağlantılı video (DO45w8HX6nA) | işlendi: 9c783a2 |
+| INymz5VwLmk | 15.9 | How I consistently study with a full tim | bağlantılı video (4Hvkv_I8QDE) | işlendi: 9c783a2 |
+| MHPGeQD8TvI | 13.4 | How I would learn to code (if I could st | bağlantılı video (4Hvkv_I8QDE) | işlendi: 9c783a2 |
+| _qa5iWdfNKg | 17.8 | Talk - Practical Pigment Mixing for Digi | bağlantılı video (4Hvkv_I8QDE) | işlendi: 9c783a2 |
+| OuEYbtG5ZFY | 9.8 | Kod Bilmeden Mobil Uygulama Yaptım ve Go | bağlantılı video (eIkTn5kgNaI) | işlendi: 9c783a2 |
 | iWuFokf8g8o | 14.8 | ​Kod Bilmeden Mobil Uygulamadan Para Kaz | bağlantılı video (eIkTn5kgNaI) | bekliyor |
 | QQEgIo4Juxg | 32.6 | you need to use Hermes RIGHT NOW!! (good | bağlantılı video (7RVf25Rg0Mc) | bekliyor |
 | CgG3dtH5IMM | 1.4 | I turned my house into a VIDEO GAME! | bağlantılı video (7RVf25Rg0Mc) | işlendi: 0f146f9 |
