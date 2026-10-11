@@ -871,7 +871,7 @@ def _ff(ctx, hw, cmd, timeout):
 
 
 PARCA = 4  # ayar · VİDEO-HIZ-4: melezde (VIDEO_HIZ2=2) tam çözmeli kare çıkarma paralel dilim sayısı (üst sınır)
-PARCA_GB = 2.5  # ayar · VİDEO-8b: 9 sa AV1 (xmbSQz-PNMM) dilim başına ffmpeg 2.1–2.6 GB → 4 dilim + paralel parti RAM %98; dilim sayısı boş RAM'e göre
+PARCA_GB = 1  # ayar · VİDEO-8b: dilim sayısı boş RAM'e göre · VİDEO-10: kodlayıcı -threads 1 + cuda çıkışla K6 dilim tepe özel bellek 0.66 GB (önce 3.57)
 
 
 def _parca(bos):
@@ -902,11 +902,13 @@ def _kare_cikar(ctx, v, kd, sahne, f, hw=None, ak=(), parca=1, bas=None):
     b = kd / f"secim{bas or ''}.txt"
 
     def cmd(giris, on):
+        if giris:  # VİDEO-10: kareler GPU'da, yalnız süzgeçte indirilir (10 dk 9 sa AV1: 48 → 25 sn, md5 aynı); 10-bit (p010) → hata → _ff eski yol
+            giris, on = [*giris, "-hwaccel_output_format", "cuda"], "hwdownload,format=nv12," + on
         graf = [f"[0:v]{on}fps={f},split={len(p)}" + "".join(f"[a{i}]" for i in p)]
         graf += [f"[a{i}]select='" + ("+".join(f"eq(n,{round(t * f) - n0})" for t, _ in sahne[i:i + 50]) or "0") + f"',format=yuvj420p[o{i}]" for i in p]
         b.write_text(";".join(graf), encoding="utf-8")
         return ["ffmpeg", "-v", "error", "-y", *ak, *ss, *giris, "-i", str(v), "-/filter_complex", str(b),
-                *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-start_number", str((bas or 0) + i + 1),
+                *(x for i in p for x in ["-map", f"[o{i}]", "-fps_mode", "vfr", "-q:v", "3", "-threads", "1", "-start_number", str((bas or 0) + i + 1),  # VİDEO-10: dal başı mjpeg -threads 1: K6 tampon 3.6 → 0.7 GB
                                           str(kd / "s%04d.jpg")])]
     try:
         _ff(ctx, hw, cmd, SURE["sahne"])
