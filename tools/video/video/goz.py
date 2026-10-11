@@ -92,6 +92,7 @@ AD = re.compile(r"\b[A-Z][\w.+-]{2,}|(?:https?://|www\.)\S+|\b[\w-]+\.(?:com|io|
 
 
 ANAHTAR_SN = 3600  # ayar · VİDEO-HIZ-2: bu süreden uzun videoda sahne/kare geçişleri yalnız anahtar kare çözer (-skip_frame nokey)
+ANAHTAR_UZUN_SN = 600  # ayar · VİDEO-14: env VIDEO_UZUN_HIZ=1 iken eşik (10-60 dk da melez yol; HIZ-7 A/B'si 107 dk HYMD'deydi)
 
 
 def fps(sure):
@@ -380,6 +381,12 @@ MODEL_DOSYA = {"Det.model_path": "ch_PP-OCRv5_det_mobile.onnx", "Cls.model_path"
 OCR_CIHAZ = "dml"  # ayar · 1b-1R R4: dml | cpu — 20 kare DML 0,245 vs CPU 1,585 sn/kare (6,5×) → dml
 
 
+def ocr_det():
+    """VİDEO-14: env VIDEO_OCR_DET=<px> → algılama girdisi uzun kenar ≤ px (tanıma kırpıntıları özgün kareden); 0 = RapidOCR varsayılanı (1080p tam)."""
+    import os
+    return int(os.environ.get("VIDEO_OCR_DET") or 0)
+
+
 def rapid_yukle(cihaz=None):
     """Gerçek RapidOCR (det/cls PP-OCR mobile + Latin PP-OCRv5 rec, yerel model, ağ yok) → yol → [(metin, skor, üst y)].
     Import/model hatası yükselir: cli._ocr Windows OCR'a düşer. ponytail: ı → i okunur (Latin sözlüğü); eşleşme norm'la."""
@@ -395,7 +402,8 @@ def rapid_yukle(cihaz=None):
     ocr = RapidOCR(params={"Global.model_root_dir": k, "EngineConfig.onnxruntime.use_dml": cihaz == "dml", **{a: k + f for a, f in MODEL_DOSYA.items()},
                            "Det.ocr_version": OCRVersion.PPOCRV5, "Det.lang_type": LangDet.CH, "Det.model_type": ModelType.MOBILE,
                            "Cls.ocr_version": OCRVersion.PPOCRV4, "Cls.lang_type": LangCls.CH, "Cls.model_type": ModelType.MOBILE,
-                           "Rec.ocr_version": OCRVersion.PPOCRV5, "Rec.lang_type": LangRec.LATIN, "Rec.model_type": ModelType.MOBILE})
+                           "Rec.ocr_version": OCRVersion.PPOCRV5, "Rec.lang_type": LangRec.LATIN, "Rec.model_type": ModelType.MOBILE,
+                           **({"Det.limit_type": "max", "Det.limit_side_len": d} if (d := ocr_det()) else {})})
 
     def oku(yol):
         r = ocr(str(yol))

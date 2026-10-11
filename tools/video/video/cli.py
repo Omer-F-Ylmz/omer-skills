@@ -820,7 +820,8 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     Güven eşiği + gürültü süzgeci okurken (eşik değişince OCR yeniden koşmaz); m*.jpg goz/kareler'de kalır, paket varyantları birbirini silmez."""
     g, f = d / "goz", gz.fps(sure)
     kd, oj = g / "kareler", g / "ocr.json"
-    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ, **({"hiz2": h} if (h := _hiz2(sure)) else {})}
+    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ, **({"hiz2": h} if (h := _hiz2(sure)) else {}),
+               **({"det": k} if (k := gz.ocr_det()) else {})}
     on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
     if on.get("anahtar") != anahtar:
         shutil.rmtree(g, ignore_errors=True)
@@ -885,7 +886,8 @@ def _hiz2(sure):
     anahtar kare (30 dk −73%, slayt geri çağırma %62.5) · =2 melez: dhash taraması anahtar kare, seçilen kareler tam çözme (−34%, slayt %90.6;
     HIZ-4 paralel dilim −54%, slayt aynı). VİDEO-8: HIZ-7 A/B geri çağırma ≥ eski + rapor-denetle GEÇTİ → bayraksız =2; VIDEO_HIZ2=0 eski yol."""
     h = os.environ.get("VIDEO_HIZ2", "2")
-    return h if sure >= gz.ANAHTAR_SN and h in ("1", "2") else ""
+    esik = gz.ANAHTAR_UZUN_SN if os.environ.get("VIDEO_UZUN_HIZ") == "1" else gz.ANAHTAR_SN  # VİDEO-14: bayraklı, altın ölçümüne dek kapalı
+    return h if sure >= esik and h in ("1", "2") else ""
 
 
 def _kare_cikar(ctx, v, kd, sahne, f, hw=None, ak=(), parca=1, bas=None):
