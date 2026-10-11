@@ -802,6 +802,7 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | 8UDj3-JDfYY | 87.0 | Anthropic, Glean & OpenRouter: How AI Mo | bağlantılı video (_xQnSNlBP_w) | bekliyor |
 | emWgP_fr04k | 43.9 | ⚡ Inside Google Labs: Building The Gemin | bağlantılı video (_xQnSNlBP_w) | bekliyor |
 | deMrq2uzRKA | 27.6 | Michael Truell: How Cursor Builds at the | bağlantılı video (_xQnSNlBP_w) | bekliyor |
+| zSngJFKTsrM | 8.5 | Claude Code Tutorial: Skills (The Part M | bağlantılı video (ig-DdxKYYvRysZ) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
