@@ -18,7 +18,8 @@ def test_gizli_plugin_ve_kullanici_ajanlari(tmp_path):
     _ajan(tmp_path / "plugins/cache/mk/pl/1.0/agents/acik.md", "acik")
     _ajan(tmp_path / "agents/kullanici.md", "Kullanıcı Ajanı", aciklama="Tek\tsekmeli açıklama. Devamı.")
     satirlar, eksik = ak.uret(tmp_path)
-    assert [s[0] for s in satirlar] == ["pl:gizli", "pl:alt:derin", "Kullanıcı Ajanı"]  # açık plugin ajanı katalogda yok
+    # KALİTE-3: açık plugin ajanı da katalogda (claude.ai sürümünde Agent listesi yok); gizliler önce
+    assert [s[0] for s in satirlar] == ["pl:gizli", "pl:alt:derin", "pl:acik", "Kullanıcı Ajanı"]
     assert satirlar[0][1] == "sonnet" and satirlar[1][1] == "inherit"
     assert satirlar[0][2] == "Bir iş yapar." and "\t" not in satirlar[1][2]
     assert satirlar[0][3].endswith("agents/gizli.md")

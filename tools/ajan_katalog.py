@@ -46,6 +46,11 @@ def uret(ev=EV):
             satirlar.append((ad, model, tek, pa[ad].as_posix()))
         else:
             eksik.append(ad)
+    gorulen = {s[3] for s in satirlar}
+    for ad, yol in pa.items():  # açık plugin ajanları: claude.ai sürümünde Agent listesi yok, katalog tek kaynak
+        if yol.as_posix() not in gorulen and ad.endswith(":" + on_bilgi(yol)[0]):
+            gorulen.add(yol.as_posix())
+            satirlar.append((ad, *on_bilgi(yol)[1:], yol.as_posix()))
     for yol in sorted((ev / "agents").glob("*.md")):
         ad, model, tek = on_bilgi(yol)
         satirlar.append((ad, model, tek, yol.as_posix()))
