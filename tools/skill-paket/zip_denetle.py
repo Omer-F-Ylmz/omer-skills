@@ -1,6 +1,6 @@
 """claude.ai'ye yüklemeden ÖNCE skill zip denetimi (yükleme reddini ve çöp dosyayı önceden yakalar).
   python tools/skill-paket/zip_denetle.py <zip ya da klasör> [...]   → sorun yoksa rc 0
-Kontrol: SKILL.md var · name ve description var · description ≤ 1024 karakter ve XML/açılı ayraç (< >) yok
+Kontrol: SKILL.md var · yol derinliği < 10 klasör · .git yok · name ve description var · description ≤ 1024 karakter ve XML/açılı ayraç (< >) yok
 (claude.ai reddeder) · __pycache__/.pyc/.DS_Store yok · gizli anahtar deseni yok (değer yazdırılmaz)."""
 import re
 import sys
@@ -45,6 +45,12 @@ def denetle(zp):
             sorun.append(f"description {len(acik)} karakter > 1024")
         if re.search(r"[<>]", acik):
             sorun.append("description XML/açılı ayraç içeriyor (claude.ai reddeder)")
+        derin = [a for a in adlar if a.rstrip("/").count("/") >= 10]
+        if derin:
+            sorun.append(f"{len(derin)} yol çok derin (≥10 klasör; claude.ai reddeder, ör. {derin[0]})")
+        git = [a for a in adlar if "/.git/" in "/" + a]
+        if git:
+            sorun.append(f".git klasörü {len(git)} dosya (ör. {git[0]})")
         cop = [a for a in adlar if COP.search(a)]
         if cop:
             sorun.append(f"çöp dosya {len(cop)} (ör. {cop[0]}; __pycache__/.pyc)")

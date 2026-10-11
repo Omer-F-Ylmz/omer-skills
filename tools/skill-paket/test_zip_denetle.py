@@ -42,6 +42,18 @@ def test_belge_ornek_anahtari_yanlis_alarm_degil(tmp_path):
     assert any("gizli" in x for x in zd.denetle(pem))
 
 
+def test_derinlik_ve_git_klasoru(tmp_path):
+    # 17:47: claude.ai frontend-slides-paket'i "Zip file contains path more than 10 folders deep" ile reddetti; içinde .git/ de vardı
+    derin = "j/" + "/".join(f"d{i}" for i in range(10)) + "/x.md"
+    z = _zip(tmp_path / "j.zip", {"j/SKILL.md": "---\nname: j\ndescription: Use when j.\n---\n", derin: "x",
+                                  "j/r/.git/HEAD": "ref"})
+    s = " ".join(zd.denetle(z))
+    assert "derin" in s and ".git" in s
+    sig = _zip(tmp_path / "k.zip", {"k/SKILL.md": "---\nname: k\ndescription: Use when k.\n---\n",
+                                    "k/" + "/".join(f"d{i}" for i in range(8)) + "/x.md": "x"})  # 9 ayraç: sınır içi (red örneği 10 ayraçtı)
+    assert zd.denetle(sig) == []
+
+
 def test_eksik_ve_uzun(tmp_path):
     assert any("SKILL.md yok" in x for x in zd.denetle(_zip(tmp_path / "c.zip", {"c/README.md": "x"})))
     uzun = _zip(tmp_path / "d.zip", {"d/SKILL.md": "---\nname: d\ndescription: " + "a" * 1100 + "\n---\n"})
