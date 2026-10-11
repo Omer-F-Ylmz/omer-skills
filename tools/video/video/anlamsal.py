@@ -26,14 +26,19 @@ def embed(metinler):
 
 
 def jev():
-    """JEV-1-devam-2 (3): eşdeğerlik yargıcı (Jev noul, tek toplu çağrı); anahtar/ağ hatasında None → kosinüs."""
+    """JEV-1-devam-2 (3): eşdeğerlik yargıcı (Jev noul, tek toplu çağrı); anahtar/ağ hatasında None → kosinüs.
+    JEV-1-devam-3: hata sessiz değil — neden yargic.hata'da ve stderr'de (ölçüm betikleri buna bakar)."""
     def yargic(ciftler):
+        yargic.hata = None
         try:
             from jev import cekirdek as c
             t = c.Tasiyici(en_fazla=len(ciftler), istek_tavan=2 * len(ciftler) + 2)
             return [v["es"]["noul"] >= 0.5 for v in t.yargila([{"altin": a, "rapor_satiri": s} for a, s in ciftler], ES_Q)]
-        except Exception:
+        except Exception as e:
+            yargic.hata = f"{type(e).__name__}: {e}"
+            print(f"anlamsal: Jev yargıcı yanıt vermedi ({yargic.hata}) → {len(ciftler)} bant çifti kosinüsle", file=sys.stderr)
             return None
+    yargic.hata = None
     return yargic
 
 
