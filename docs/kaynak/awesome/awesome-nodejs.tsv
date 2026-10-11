@@ -1,0 +1,590 @@
+ad	url	aciklama	bolum
+Website	https://nodejs.org		Official
+Documentation	https://nodejs.org/dist/latest/docs/api/		Official
+Repository	https://github.com/nodejs/node		Official
+webtorrent	https://github.com/webtorrent/webtorrent	Streaming torrent client for Node.js and the browser.	Packages / Mad science
+peerflix	https://github.com/mafintosh/peerflix	Streaming torrent client.	Packages / Mad science
+ipfs	https://github.com/ipfs/helia	Distributed file system that seeks to connect all computing devices with the same system of…	Packages / Mad science
+stackgl	https://github.com/stackgl	Open software ecosystem for WebGL, built on top of browserify and npm.	Packages / Mad science
+peerwiki	https://github.com/mafintosh/peerwiki	All of Wikipedia on BitTorrent.	Packages / Mad science
+peercast	https://github.com/mafintosh/peercast	Stream a torrent video to Chromecast.	Packages / Mad science
+BitcoinJS	https://github.com/bitcoinjs/bitcoinjs-lib	Clean, readable, proven Bitcoin library.	Packages / Mad science
+Bitcore	https://github.com/bitpay/bitcore	Pure and powerful Bitcoin library.	Packages / Mad science
+PDFKit	https://github.com/foliojs/pdfkit	PDF generation library.	Packages / Mad science
+turf	https://github.com/Turfjs/turf	Modular geospatial processing and analysis engine.	Packages / Mad science
+webcat	https://github.com/mafintosh/webcat	p2p pipe across the web using WebRTC that uses your GitHub private/public key for authentication.	Packages / Mad science
+NodeOS	https://github.com/NodeOS/NodeOS	The first operating system powered by npm.	Packages / Mad science
+YodaOS	https://github.com/yodaos-project/yodaos	AI operating system.	Packages / Mad science
+Brain.js	https://github.com/BrainJS/brain.js	Machine-learning framework.	Packages / Mad science
+Pipcook	https://github.com/alibaba/pipcook	Front-end algorithm framework to create a machine learning pipeline.	Packages / Mad science
+Cytoscape.js	https://github.com/cytoscape/cytoscape.js	Graph theory (a.k.a. network) modeling and analysis.	Packages / Mad science
+js-git	https://github.com/creationix/js-git	JavaScript implementation of Git.	Packages / Mad science
+xlsx	https://github.com/SheetJS/sheetjs	Pure JS Excel spreadsheet reader and writer.	Packages / Mad science
+isomorphic-git	https://github.com/isomorphic-git/isomorphic-git	Pure JavaScript implementation of Git.	Packages / Mad science
+np	https://github.com/sindresorhus/np	Better `npm publish`.	Packages / Command-line apps
+npm-name	https://github.com/sindresorhus/npm-name	Check a package name's availability on npm.	Packages / Command-line apps
+gh-home	https://github.com/sindresorhus/gh-home	Open the GitHub page of the repo in the current directory.	Packages / Command-line apps
+npm-home	https://github.com/sindresorhus/npm-home	Open the npm page of a package.	Packages / Command-line apps
+trash	https://github.com/sindresorhus/trash	Safer alternative to `rm`.	Packages / Command-line apps
+speed-test	https://github.com/sindresorhus/speed-test	Test your internet connection speed and ping.	Packages / Command-line apps
+pageres	https://github.com/sindresorhus/pageres	Capture website screenshots.	Packages / Command-line apps
+cpy	https://github.com/sindresorhus/cpy	Copy files.	Packages / Command-line apps
+vtop	https://github.com/MrRio/vtop	More better top, with nice charts.	Packages / Command-line apps
+empty-trash	https://github.com/sindresorhus/empty-trash	Empty the trash.	Packages / Command-line apps
+is-up	https://github.com/sindresorhus/is-up	Check whether a website is up or down.	Packages / Command-line apps
+is-online	https://github.com/sindresorhus/is-online	Check if the internet connection is up.	Packages / Command-line apps
+public-ip	https://github.com/sindresorhus/public-ip	Get your public IP address.	Packages / Command-line apps
+clipboard-cli	https://github.com/sindresorhus/clipboard-cli	Copy & paste on the terminal.	Packages / Command-line apps
+XO	https://github.com/xojs/xo	Enforce strict code style using the JavaScript happiness style.	Packages / Command-line apps
+ESLint	https://github.com/eslint/eslint	The pluggable linting utility for JavaScript.	Packages / Command-line apps
+David	https://github.com/alanshaw/david	Tells you when your package npm dependencies are out of date.	Packages / Command-line apps
+http-server	https://github.com/http-party/http-server	Simple, zero-config command-line HTTP server.	Packages / Command-line apps
+Live Server	https://github.com/tapio/live-server	Development HTTP-server with livereload capability.	Packages / Command-line apps
+bcat	https://github.com/kessler/node-bcat	Pipe command output to web browsers.	Packages / Command-line apps
+normit	https://github.com/pawurb/normit	Google Translate with speech synthesis in your terminal.	Packages / Command-line apps
+fkill	https://github.com/sindresorhus/fkill-cli	Fabulously kill processes. Cross-platform.	Packages / Command-line apps
+pjs	https://github.com/danielstjules/pjs	Pipeable JavaScript. Quickly filter, map, and reduce from the terminal.	Packages / Command-line apps
+license-checker	https://github.com/davglass/license-checker	Check licenses of your app's dependencies.	Packages / Command-line apps
+browser-run	https://github.com/juliangruber/browser-run	Easily run code in a browser environment.	Packages / Command-line apps
+tmpin	https://github.com/sindresorhus/tmpin	Adds stdin support to any CLI app that accepts file input.	Packages / Command-line apps
+wallpaper	https://github.com/sindresorhus/wallpaper	Change the desktop wallpaper.	Packages / Command-line apps
+pen	https://github.com/hatashiro/pen	Live Markdown preview in the browser from your favorite editor.	Packages / Command-line apps
+dark-mode	https://github.com/sindresorhus/dark-mode	Toggle the macOS Dark Mode.	Packages / Command-line apps
+Jsome	https://github.com/Javascipt/Jsome	Pretty prints JSON with configurable colors and indentation.	Packages / Command-line apps
+mobicon	https://github.com/samverschueren/mobicon-cli	Mobile app icon generator.	Packages / Command-line apps
+mobisplash	https://github.com/samverschueren/mobisplash-cli	Mobile app splash screen generator.	Packages / Command-line apps
+diff2html-cli	https://github.com/rtfpessoa/diff2html-cli	Pretty git diff to HTML generator.	Packages / Command-line apps
+trymodule	https://github.com/victorb/trymodule	Try out npm packages in the terminal.	Packages / Command-line apps
+jscpd	https://github.com/kucherenko/jscpd	Copy/paste detector for source code.	Packages / Command-line apps
+atmo	https://github.com/Raathigesh/Atmo	Server-side API mocking.	Packages / Command-line apps
+auto-install	https://github.com/siddharthkp/auto-install	Auto installs dependencies as you code.	Packages / Command-line apps
+cost-of-modules	https://github.com/siddharthkp/cost-of-modules	Find out which dependencies are slowing you down.	Packages / Command-line apps
+localtunnel	https://github.com/localtunnel/localtunnel	Expose your localhost to the world.	Packages / Command-line apps
+svg-term-cli	https://github.com/marionebl/svg-term-cli	Share terminal sessions via SVG.	Packages / Command-line apps
+gtop	https://github.com/aksakalli/gtop	System monitoring dashboard for the terminal.	Packages / Command-line apps
+themer	https://github.com/themerdev/themer	Generate themes for your editor, terminal, wallpaper, Slack, and more.	Packages / Command-line apps
+carbon-now-cli	https://github.com/mixn/carbon-now-cli	Beautiful images of your code — from right inside your terminal.	Packages / Command-line apps
+cash-cli	https://github.com/xxczaki/cash-cli	Convert between 170 currencies.	Packages / Command-line apps
+taskbook	https://github.com/klaussinani/taskbook	Tasks, boards & notes for the command-line habitat.	Packages / Command-line apps
+discharge	https://github.com/brandonweiss/discharge	Easily deploy static websites to Amazon S3.	Packages / Command-line apps
+npkill	https://github.com/voidcosmos/npkill	Easily find and remove old and heavy node_modules folders.	Packages / Command-line apps
+lodash	https://github.com/lodash/lodash	Utility library delivering consistency, customization, performance, & extras. A better and faster Underscore.js.	Packages / Functional programming
+immutable	https://github.com/immutable-js/immutable-js	Immutable data collections.	Packages / Functional programming
+Ramda	https://github.com/ramda/ramda	Utility library with a focus on flexible functional composition enabled by automatic currying and reversed…	Packages / Functional programming
+Mout	https://github.com/mout/mout	Utility library with the biggest difference between other existing solutions is that you can choose…	Packages / Functional programming
+RxJS	https://github.com/reactivex/rxjs	Functional reactive library for transforming, composing, and querying various kinds of data.	Packages / Functional programming
+Kefir.js	https://github.com/kefirjs/kefir	Reactive library with focus on high performance and low memory usage.	Packages / Functional programming
+got	https://github.com/sindresorhus/got	Nicer interface to the built-in `http` module.	Packages / HTTP
+undici	https://github.com/nodejs/undici	High performance HTTP client written from scratch with zero dependencies.	Packages / HTTP
+ky-universal	https://github.com/sindresorhus/ky-universal	Universal HTTP client based on Fetch.	Packages / HTTP
+node-fetch	https://github.com/node-fetch/node-fetch	`window.fetch` for Node.js.	Packages / HTTP
+axios	https://github.com/axios/axios	Promise based HTTP client (works in the browser too).	Packages / HTTP
+superagent	https://github.com/visionmedia/superagent	HTTP request library.	Packages / HTTP
+http-fake-backend	https://github.com/micromata/http-fake-backend	Build a fake backend by providing the content of JSON files or JavaScript objects through…	Packages / HTTP
+cacheable-request	https://github.com/lukechilds/cacheable-request	Wrap native HTTP requests with RFC compliant cache support.	Packages / HTTP
+gotql	https://github.com/khaosdoctor/gotql	GraphQL request library built on got.	Packages / HTTP
+global-agent	https://github.com/gajus/global-agent	Global HTTP/HTTPS proxy agent that is configurable using environment variables.	Packages / HTTP
+smoke	https://github.com/sinedied/smoke	File-based HTTP mock server with recording abilities.	Packages / HTTP
+purest	https://github.com/simov/purest	REST client.	Packages / HTTP
+debug	https://github.com/debug-js/debug	Tiny debugging utility.	Packages / Debugging / Profiling
+why-is-node-running	https://github.com/mafintosh/why-is-node-running	Node.js is running but you don't know why?	Packages / Debugging / Profiling
+njsTrace	https://github.com/valyouw/njstrace	Instrument and trace your code, see all function calls, arguments, return values, as well as…	Packages / Debugging / Profiling
+vstream	https://github.com/joyent/node-vstream	Instrumentable streams mix-ins to inspect a pipeline of streams.	Packages / Debugging / Profiling
+stackman	https://github.com/watson/stackman	Enhance an error stacktrace with code excerpts and other goodies.	Packages / Debugging / Profiling
+locus	https://github.com/alidavut/locus	Starts a REPL at runtime that has access to all variables.	Packages / Debugging / Profiling
+0x	https://github.com/davidmarkclements/0x	Flamegraph profiling.	Packages / Debugging / Profiling
+ctrace	https://github.com/automation-stack/ctrace	Well-formatted and improved trace system calls and signals.	Packages / Debugging / Profiling
+leakage	https://github.com/andywer/leakage	Write memory leak tests.	Packages / Debugging / Profiling
+llnode	https://github.com/nodejs/llnode	Post-mortem analysis tool which allows you to inspect objects and get insights from a crashed…	Packages / Debugging / Profiling
+thetool	https://github.com/sfninja/thetool	Capture different CPU, memory, and other profiles for your app in Chrome DevTools friendly format.	Packages / Debugging / Profiling
+swagger-stats	https://github.com/slanatech/swagger-stats	Trace API calls and monitor API performance, health, and usage metrics.	Packages / Debugging / Profiling
+NiM	https://github.com/june07/nim	Manages DevTools debugging workflow.	Packages / Debugging / Profiling
+dats	https://github.com/immobiliare/dats	Minimalistic and zero-dependencies StatsD client.	Packages / Debugging / Profiling
+pino	https://github.com/pinojs/pino	Extremely fast logger inspired by Bunyan.	Packages / Logging
+winston	https://github.com/winstonjs/winston	Multi-transport async logging library.	Packages / Logging
+console-log-level	https://github.com/watson/console-log-level	The most simple logger imaginable with support for log levels and custom prefixes.	Packages / Logging
+storyboard	https://github.com/guigrpa/storyboard	End-to-end, hierarchical, real-time, colorful logs and stories.	Packages / Logging
+consola	https://github.com/unjs/consola	Console logger.	Packages / Logging
+chalk	https://github.com/chalk/chalk	Terminal string styling done right.	Packages / Command-line utilities
+meow	https://github.com/sindresorhus/meow	CLI app helper.	Packages / Command-line utilities
+yargs	https://github.com/yargs/yargs	Command-line parser that automatically generates an elegant user-interface.	Packages / Command-line utilities
+ora	https://github.com/sindresorhus/ora	Elegant terminal spinner.	Packages / Command-line utilities
+get-stdin	https://github.com/sindresorhus/get-stdin	Easier stdin.	Packages / Command-line utilities
+log-update	https://github.com/sindresorhus/log-update	Log by overwriting the previous output in the terminal. Useful for rendering progress bars, animations,…	Packages / Command-line utilities
+Ink	https://github.com/vadimdemedes/ink	React for interactive command-line apps.	Packages / Command-line utilities
+listr2	https://github.com/listr2/listr2	Terminal task list.	Packages / Command-line utilities
+conf	https://github.com/sindresorhus/conf	Simple config handling for your app or module.	Packages / Command-line utilities
+ansi-escapes	https://github.com/sindresorhus/ansi-escapes	ANSI escape codes for manipulating the terminal.	Packages / Command-line utilities
+log-symbols	https://github.com/sindresorhus/log-symbols	Colored symbols for various log levels.	Packages / Command-line utilities
+figures	https://github.com/sindresorhus/figures	Unicode symbols with Windows CMD fallbacks.	Packages / Command-line utilities
+boxen	https://github.com/sindresorhus/boxen	Create boxes in the terminal.	Packages / Command-line utilities
+terminal-link	https://github.com/sindresorhus/terminal-link	Create clickable links in the terminal.	Packages / Command-line utilities
+terminal-image	https://github.com/sindresorhus/terminal-image	Display images in the terminal.	Packages / Command-line utilities
+string-width	https://github.com/sindresorhus/string-width	Get the visual width of a string - the number of columns required to display…	Packages / Command-line utilities
+cli-truncate	https://github.com/sindresorhus/cli-truncate	Truncate a string to a specific width in the terminal.	Packages / Command-line utilities
+blessed	https://github.com/chjj/blessed	Curses-like library.	Packages / Command-line utilities
+Inquirer.js	https://github.com/SBoudrias/Inquirer.js	Interactive command-line prompt.	Packages / Command-line utilities
+yn	https://github.com/sindresorhus/yn	Parse yes/no like values.	Packages / Command-line utilities
+cli-table3	https://github.com/cli-table/cli-table3	Pretty unicode tables.	Packages / Command-line utilities
+drawille	https://github.com/madbence/node-drawille	Draw on the terminal with unicode braille characters.	Packages / Command-line utilities
+ascii-charts	https://github.com/jstrace/chart	ASCII bar chart in the terminal.	Packages / Command-line utilities
+progress	https://github.com/visionmedia/node-progress	Flexible ascii progress bar.	Packages / Command-line utilities
+insight	https://github.com/yeoman/insight	Helps you understand how your tool is being used by anonymously reporting usage metrics to…	Packages / Command-line utilities
+cli-cursor	https://github.com/sindresorhus/cli-cursor	Toggle the CLI cursor.	Packages / Command-line utilities
+cli-columns	https://github.com/shannonmoeller/cli-columns	Columnated unicode and ansi-safe text lists.	Packages / Command-line utilities
+cfonts	https://github.com/dominikwilkowski/cfonts	Sexy ASCII fonts for the console.	Packages / Command-line utilities
+multispinner	https://github.com/codekirei/node-multispinner	Multiple, simultaneous, individually controllable CLI spinners.	Packages / Command-line utilities
+omelette	https://github.com/f/omelette	Shell autocompletion helper.	Packages / Command-line utilities
+cross-env	https://github.com/kentcdodds/cross-env	Set environment variables cross-platform.	Packages / Command-line utilities
+shelljs	https://github.com/shelljs/shelljs	Portable Unix shell commands.	Packages / Command-line utilities
+sudo-block	https://github.com/sindresorhus/sudo-block	Block users from running your app with root permissions.	Packages / Command-line utilities
+sparkly	https://github.com/sindresorhus/sparkly	Generate sparklines `▁▂▃▅▂▇`.	Packages / Command-line utilities
+Bit	https://github.com/teambit/bit	Create, maintain, find and use small modules and components across repositories.	Packages / Command-line utilities
+gradient-string	https://github.com/bokub/gradient-string	Beautiful color gradients in terminal output.	Packages / Command-line utilities
+oclif	https://github.com/oclif/oclif	CLI framework complete with parser, automatic documentation, testing, and plugins.	Packages / Command-line utilities
+terminal-size	https://github.com/sindresorhus/terminal-size	Reliably get the terminal window size.	Packages / Command-line utilities
+Cliffy	https://github.com/drew-y/cliffy	Framework for interactive CLIs.	Packages / Command-line utilities
+zx	https://github.com/google/zx	Write shell scripts in JavaScript.	Packages / Command-line utilities
+parcel	https://github.com/parcel-bundler/parcel	Blazing fast, zero config web app bundler.	Packages / Build tools
+webpack	https://github.com/webpack/webpack	Packs modules and assets for the browser.	Packages / Build tools
+rollup	https://github.com/rollup/rollup	Next-generation ES2015 module bundler.	Packages / Build tools
+gulp	https://github.com/gulpjs/gulp	Streaming and fast build system that favors code over config.	Packages / Build tools
+Broccoli	https://github.com/broccolijs/broccoli	Fast, reliable asset pipeline, supporting constant-time rebuilds and compact build definitions.	Packages / Build tools
+Brunch	https://github.com/brunch/brunch	Front-end web app build tool with simple declarative config, fast incremental compilation, and an opinionated…	Packages / Build tools
+FuseBox	https://github.com/fuse-box/fuse-box	Fast build system that combines the power of webpack, JSPM and SystemJS, with first-class TypeScript…	Packages / Build tools
+pkg	https://github.com/vercel/pkg	Package your Node.js project into an executable.	Packages / Build tools
+Vite	https://github.com/vitejs/vite	Front-end build tool with hot module replacement and static asset bundling.	Packages / Build tools
+johnny-five	https://github.com/rwaldron/johnny-five	Firmata based Arduino Framework.	Packages / Hardware
+serialport	https://github.com/serialport/node-serialport	Access serial ports for reading and writing.	Packages / Hardware
+usb	https://github.com/node-usb/node-usb	USB library.	Packages / Hardware
+i2c-bus	https://github.com/fivdi/i2c-bus	I2C serial bus access.	Packages / Hardware
+onoff	https://github.com/fivdi/onoff	GPIO access and interrupt detection.	Packages / Hardware
+spi-device	https://github.com/fivdi/spi-device	SPI serial bus access.	Packages / Hardware
+pigpio	https://github.com/fivdi/pigpio	Fast GPIO, PWM, servo control, state change notification, and interrupt handling on the Raspberry Pi.	Packages / Hardware
+gps	https://github.com/infusion/GPS.js	NMEA parser for handling GPS receivers.	Packages / Hardware
+modbus-serial	https://github.com/yaacov/node-modbus-serial	A pure JavaScript implementation of MODBUS-RTU (serial and TCP).	Packages / Hardware
+marko	https://github.com/marko-js/marko	HTML-based templating engine that compiles templates to CommonJS modules and supports streaming, async rendering and…	Packages / Templating
+nunjucks	https://github.com/mozilla/nunjucks	Templating engine with inheritance, asynchronous control, and more (jinja2 inspired).	Packages / Templating
+handlebars.js	https://github.com/handlebars-lang/handlebars.js	Superset of Mustache templates which adds powerful features like helpers and more advanced blocks.	Packages / Templating
+EJS	https://github.com/mde/ejs	Simple unopinionated templating language.	Packages / Templating
+Pug	https://github.com/pugjs/pug	High-performance template engine heavily influenced by Haml.	Packages / Templating
+Fastify	https://github.com/fastify/fastify	Fast and low overhead web framework.	Packages / Web frameworks
+Next.js	https://github.com/vercel/next.js	Minimalistic framework for server-rendered universal JavaScript web apps.	Packages / Web frameworks
+Nuxt.js	https://github.com/nuxt/nuxt.js	Minimalistic framework for server-rendered Vue.js apps.	Packages / Web frameworks
+Hapi	https://github.com/hapijs/hapi	Framework for building applications and services.	Packages / Web frameworks
+Micro	https://github.com/vercel/micro	Minimalistic microservice framework with an async approach.	Packages / Web frameworks
+Koa	https://github.com/koajs/koa	Framework designed by the team behind Express, which aims to be a smaller, more expressive,…	Packages / Web frameworks
+Express	https://github.com/expressjs/express	Web application framework, providing a robust set of features for building single and multi-page, and…	Packages / Web frameworks
+Feathers	https://github.com/feathersjs/feathers	Microservice framework built in the spirit of Express.	Packages / Web frameworks
+LoopBack	https://github.com/loopbackio/loopback-next	Powerful framework for creating REST APIs and easily connecting to backend data sources.	Packages / Web frameworks
+Meteor	https://github.com/meteor/meteor	An ultra-simple, database-everywhere, data-on-the-wire, pure-JavaScript web framework. *(You might like awesome-meteor)*	Packages / Web frameworks
+Restify	https://github.com/restify/node-restify	Enables you to build correct REST web services.	Packages / Web frameworks
+ThinkJS	https://github.com/thinkjs/thinkjs	Framework with ES2015+ support, WebSockets, REST API.	Packages / Web frameworks
+ActionHero	https://github.com/actionhero/actionhero	Framework for making reusable & scalable APIs for TCP sockets, WebSockets, and HTTP clients.	Packages / Web frameworks
+seneca	https://github.com/senecajs/seneca	Toolkit for writing microservices.	Packages / Web frameworks
+AdonisJs	https://github.com/adonisjs/core	A true MVC framework for Node.js built on solid foundations of Dependency Injection and IoC…	Packages / Web frameworks
+Moleculer	https://github.com/moleculerjs/moleculer	Fast & powerful microservices framework.	Packages / Web frameworks
+Nest	https://github.com/nestjs/nest	Angular-inspired framework for building efficient and scalable server-side apps.	Packages / Web frameworks
+TypeGraphQL	https://github.com/MichalLytek/type-graphql	Modern framework for creating GraphQL APIs with TypeScript, using classes and decorators.	Packages / Web frameworks
+Tinyhttp	https://github.com/tinyhttp/tinyhttp	Modern and fast Express-like web framework.	Packages / Web frameworks
+Marble.js	https://github.com/marblejs/marble	Functional reactive framework for building server-side apps, based on TypeScript and RxJS.	Packages / Web frameworks
+Lad	https://github.com/ladjs/lad	Framework made by a former Express TC and Koa member that bundles web, API, job,…	Packages / Web frameworks
+Ts.ED	https://github.com/tsedio/tsed	Intuitive  TypeScript framework for building server-side apps on top of Express.js or Koa.js.	Packages / Web frameworks
+Hono	https://github.com/honojs/hono	Small and fast web framework.	Packages / Web frameworks
+documentation.js	https://github.com/documentationjs/documentation	API documentation generator with support for ES2015+ and flow annotation.	Packages / Documentation
+Docco	https://github.com/jashkenas/docco	Documentation generator which produces an HTML document that displays your comments intermingled with your code.	Packages / Documentation
+JSDoc	https://github.com/jsdoc/jsdoc	API documentation generator similar to JavaDoc or PHPDoc.	Packages / Documentation
+Docusaurus	https://github.com/facebook/docusaurus	Documentation website generator that leverages React and Markdown, and comes with translation and versioning features.	Packages / Documentation
+del	https://github.com/sindresorhus/del	Delete files/folders using globs.	Packages / Filesystem
+globby	https://github.com/sindresorhus/globby	Glob files with support for multiple patterns.	Packages / Filesystem
+chokidar	https://github.com/paulmillr/chokidar	Filesystem watcher which stabilizes events from `fs.watch` and `fs.watchFile` as well as using native `fsevents`…	Packages / Filesystem
+find-up	https://github.com/sindresorhus/find-up	Find a file by walking up parent directories.	Packages / Filesystem
+proper-lockfile	https://github.com/moxystudio/node-proper-lockfile	Inter-process and inter-machine lockfile utility.	Packages / Filesystem
+load-json-file	https://github.com/sindresorhus/load-json-file	Read and parse a JSON file.	Packages / Filesystem
+write-json-file	https://github.com/sindresorhus/write-json-file	Stringify and write JSON to a file atomically.	Packages / Filesystem
+fs-write-stream-atomic	https://github.com/npm/fs-write-stream-atomic	Like `fs.createWriteStream()`, but atomic.	Packages / Filesystem
+filenamify	https://github.com/sindresorhus/filenamify	Convert a string to a valid filename.	Packages / Filesystem
+istextorbinary	https://github.com/bevry/istextorbinary	Check if a file is text or binary.	Packages / Filesystem
+fs-jetpack	https://github.com/szwacz/fs-jetpack	Completely redesigned file system API for convenience in everyday use.	Packages / Filesystem
+fs-extra	https://github.com/jprichardson/node-fs-extra	Extra methods for the `fs` module.	Packages / Filesystem
+package-directory	https://github.com/sindresorhus/package-directory	Find the root directory of an npm package.	Packages / Filesystem
+filehound	https://github.com/nspragg/filehound	Flexible and fluent interface for searching the file system.	Packages / Filesystem
+move-file	https://github.com/sindresorhus/move-file	Move a file, even works across devices.	Packages / Filesystem
+tempy	https://github.com/sindresorhus/tempy	Get a random temporary file or directory path.	Packages / Filesystem
+pify	https://github.com/sindresorhus/pify	Promisify a callback-style function.	Packages / Control flow
+delay	https://github.com/sindresorhus/delay	Delay a promise a specified amount of time.	Packages / Control flow
+promise-memoize	https://github.com/nodeca/promise-memoize	Memoize promise-returning functions, with expire and prefetch.	Packages / Control flow
+valvelet	https://github.com/lpinca/valvelet	Limit the execution rate of a promise-returning function.	Packages / Control flow
+p-map	https://github.com/sindresorhus/p-map	Map over promises concurrently.	Packages / Control flow
+More…	https://github.com/sindresorhus/promise-fun		Packages / Control flow
+RxJS	https://github.com/ReactiveX/RxJS	Reactive programming.	Packages / Control flow
+observable-to-promise	https://github.com/sindresorhus/observable-to-promise	Convert an Observable to a Promise.	Packages / Control flow
+More…	https://github.com/sindresorhus/awesome-observables		Packages / Control flow
+Highland.js	https://github.com/caolan/highland	Manages synchronous and asynchronous code easily, using nothing more than standard JavaScript and Node-like Streams.	Packages / Control flow
+get-stream	https://github.com/sindresorhus/get-stream	Get a stream as a string or buffer.	Packages / Streams
+from2	https://github.com/hughsk/from2	Convenience wrapper for ReadableStream, inspired by `through2`.	Packages / Streams
+into-stream	https://github.com/sindresorhus/into-stream	Convert a buffer/string/array/object into a stream.	Packages / Streams
+duplexify	https://github.com/mafintosh/duplexify	Turn a writeable and readable stream into a single streams2 duplex stream.	Packages / Streams
+pumpify	https://github.com/mafintosh/pumpify	Combine an array of streams into a single duplex stream.	Packages / Streams
+peek-stream	https://github.com/mafintosh/peek-stream	Transform stream that lets you peek the first line before deciding how to parse it.	Packages / Streams
+binary-split	https://github.com/maxogden/binary-split	Newline (or any delimiter) splitter stream.	Packages / Streams
+byline	https://github.com/jahewson/node-byline	Super-simple line-by-line Stream reader.	Packages / Streams
+first-chunk-stream	https://github.com/sindresorhus/first-chunk-stream	Transform the first chunk in a stream.	Packages / Streams
+pad-stream	https://github.com/sindresorhus/pad-stream	Pad each line in a stream.	Packages / Streams
+multistream	https://github.com/feross/multistream	Combine multiple streams into a single stream.	Packages / Streams
+readable-stream	https://github.com/nodejs/readable-stream	Mirror of Streams2 and Streams3 implementations in core.	Packages / Streams
+through2-concurrent	https://github.com/almost/through2-concurrent	Transform object streams concurrently.	Packages / Streams
+µWebSockets	https://github.com/uNetworking/uWebSockets	Highly scalable WebSocket server & client library.	Packages / Real-time
+Socket.io	https://github.com/socketio/socket.io	Enables real-time bidirectional event-based communication.	Packages / Real-time
+Faye	https://github.com/faye/faye	Real-time client-server message bus, based on Bayeux protocol.	Packages / Real-time
+SocketCluster	https://github.com/SocketCluster/socketcluster	Scalable HTTP + WebSocket engine which can run on multiple CPU cores.	Packages / Real-time
+Primus	https://github.com/primus/primus	An abstraction layer for real-time frameworks to prevent module lock-in.	Packages / Real-time
+deepstream.io	https://github.com/deepstreamIO/deepstream.io-client-js	Scalable real-time microservice framework.	Packages / Real-time
+Kalm	https://github.com/kalm/kalm.js	Low-level socket router and middleware framework.	Packages / Real-time
+MQTT.js	https://github.com/mqttjs/MQTT.js	Client for MQTT - Pub-sub based messaging protocol for use on top of TCP/IP.	Packages / Real-time
+rpc-websockets	https://github.com/elpheria/rpc-websockets	JSON-RPC 2.0 implementation over WebSockets.	Packages / Real-time
+Aedes	https://github.com/moscajs/aedes	Barebone MQTT server that can run on any stream server.	Packages / Real-time
+sharp	https://github.com/lovell/sharp	The fastest module for resizing JPEG, PNG, WebP and TIFF images.	Packages / Image
+image-type	https://github.com/sindresorhus/image-type	Detect the type of an image.	Packages / Image
+image-dimensions	https://github.com/sindresorhus/image-dimensions	Get the dimensions of an image.	Packages / Image
+lwip	https://github.com/EyalAr/lwip	Lightweight image processor which does not require ImageMagick.	Packages / Image
+pica	https://github.com/nodeca/pica	High quality & fast resize (lanczos3) in pure JS. Alternative to canvas drawImage(), when no…	Packages / Image
+jimp	https://github.com/oliver-moran/jimp	Image processing in pure JavaScript.	Packages / Image
+qrcode	https://github.com/soldair/node-qrcode	QR code and bar code generator.	Packages / Image
+ImageScript	https://github.com/matmen/ImageScript	Image processing in JavaScript, utilizing WebAssembly for performance.	Packages / Image
+iconv-lite	https://github.com/ashtuchkin/iconv-lite	Convert character encodings.	Packages / Text
+string-length	https://github.com/sindresorhus/string-length	Get the real length of a string - by correctly counting astral symbols and ignoring…	Packages / Text
+camelcase	https://github.com/sindresorhus/camelcase	Convert a dash/dot/underscore/space separated string to camelCase: foo-bar → fooBar.	Packages / Text
+escape-string-regexp	https://github.com/sindresorhus/escape-string-regexp	Escape RegExp special characters.	Packages / Text
+splice-string	https://github.com/sindresorhus/splice-string	Remove or replace part of a string like `Array#splice`.	Packages / Text
+indent-string	https://github.com/sindresorhus/indent-string	Indent each line in a string.	Packages / Text
+strip-indent	https://github.com/sindresorhus/strip-indent	Strip leading whitespace from every line in a string.	Packages / Text
+detect-indent	https://github.com/sindresorhus/detect-indent	Detect the indentation of code.	Packages / Text
+he	https://github.com/mathiasbynens/he	HTML entity encoder/decoder.	Packages / Text
+i18n-node	https://github.com/mashpie/i18n-node	Simple translation module with dynamic JSON storage.	Packages / Text
+babelfish	https://github.com/nodeca/babelfish	i18n with very easy syntax for plurals.	Packages / Text
+matcher	https://github.com/sindresorhus/matcher	Simple wildcard matching.	Packages / Text
+unhomoglyph	https://github.com/nodeca/unhomoglyph	Normalize visually similar unicode characters.	Packages / Text
+i18next	https://github.com/i18next/i18next	Internationalization framework.	Packages / Text
+nanoid	https://github.com/ai/nanoid	Tiny, secure, URL-friendly, unique string ID generator.	Packages / Text
+StegCloak	https://github.com/kurolabs/stegcloak	Conceal secrets within strings, in plain sight.	Packages / Text
+random-int	https://github.com/sindresorhus/random-int	Generate a random integer.	Packages / Number
+random-float	https://github.com/sindresorhus/random-float	Generate a random float.	Packages / Number
+unique-random	https://github.com/sindresorhus/unique-random	Generate random numbers that are consecutively unique.	Packages / Number
+round-to	https://github.com/sindresorhus/round-to	Round a number to a specific number of decimal places: `1.234` → `1.2`.	Packages / Number
+ndarray	https://github.com/scijs/ndarray	Multidimensional arrays.	Packages / Math
+mathjs	https://github.com/josdejong/mathjs	An extensive math library.	Packages / Math
+math-clamp	https://github.com/sindresorhus/math-clamp	Clamp a number.	Packages / Math
+algebra	https://github.com/fibo/algebra	Algebraic structures.	Packages / Math
+multimath	https://github.com/nodeca/multimath	Core to create fast image math in WebAssembly and JS.	Packages / Math
+Luxon	https://github.com/moment/luxon	Library for working with dates and times.	Packages / Date
+date-fns	https://github.com/date-fns/date-fns	Modern date utility.	Packages / Date
+Day.js	https://github.com/iamkun/dayjs	Immutable date library alternative to Moment.js.	Packages / Date
+dateformat	https://github.com/felixge/node-dateformat	Date formatting.	Packages / Date
+tz-format	https://github.com/samverschueren/tz-format	Format a date with timezone: `2015-11-30T10:40:35+01:00`.	Packages / Date
+cctz	https://github.com/floatdrop/node-cctz	Fast parsing, formatting, and timezone conversion for dates.	Packages / Date
+normalize-url	https://github.com/sindresorhus/normalize-url	Normalize a URL.	Packages / URL
+humanize-url	https://github.com/sindresorhus/humanize-url	Humanize a URL: https://sindresorhus.com → sindresorhus.com.	Packages / URL
+url-unshort	https://github.com/nodeca/url-unshort	Expand shortened URLs.	Packages / URL
+speakingurl	https://github.com/pid/speakingurl	Generate a slug from a string with transliteration.	Packages / URL
+linkify-it	https://github.com/markdown-it/linkify-it	Link patterns detector with full unicode support.	Packages / URL
+url-pattern	https://github.com/snd/url-pattern	Easier than regex string matching patterns for URLs and other strings.	Packages / URL
+embedza	https://github.com/nodeca/embedza	Create HTML snippets/embeds from URLs using info from oEmbed, Open Graph, meta tags.	Packages / URL
+joi	https://github.com/sideway/joi	Object schema description language and validator for JavaScript objects.	Packages / Data validation
+is-my-json-valid	https://github.com/mafintosh/is-my-json-valid	JSON Schema validator that uses code generation to be extremely fast.	Packages / Data validation
+property-validator	https://github.com/nettofarah/property-validator	Easy property validation for Express.	Packages / Data validation
+schema-inspector	https://github.com/schema-inspector/schema-inspector	JSON API sanitization and validation.	Packages / Data validation
+ajv	https://github.com/ajv-validator/ajv	The fastest JSON Schema validator. Supports v5, v6 and v7 proposals.	Packages / Data validation
+Superstruct	https://github.com/ianstormtaylor/superstruct	Simple and composable way to validate data in JavaScript (and TypeScript).	Packages / Data validation
+yup	https://github.com/jquense/yup	Object schema validation.	Packages / Data validation
+zod	https://github.com/colinhacks/zod	TypeScript-first schema validation with static type inference.	Packages / Data validation
+remark	https://github.com/remarkjs/remark	Markdown processor powered by plugins.	Packages / Parsing
+markdown-it	https://github.com/markdown-it/markdown-it	Markdown parser with 100% CommonMark support, extensions and syntax plugins.	Packages / Parsing
+parse5	https://github.com/inikulin/parse5	Fast full-featured spec compliant HTML parser.	Packages / Parsing
+@parcel/css	https://github.com/parcel-bundler/parcel-css	A CSS parser, transformer, and minifier written in Rust.	Packages / Parsing
+strip-json-comments	https://github.com/sindresorhus/strip-json-comments	Strip comments from JSON.	Packages / Parsing
+strip-css-comments	https://github.com/sindresorhus/strip-css-comments	Strip comments from CSS.	Packages / Parsing
+parse-json	https://github.com/sindresorhus/parse-json	Parse JSON with more helpful errors.	Packages / Parsing
+URI.js	https://github.com/medialize/URI.js	URL mutation.	Packages / Parsing
+JSONStream	https://github.com/dominictarr/JSONStream	Streaming JSON.parse and stringify.	Packages / Parsing
+neat-csv	https://github.com/sindresorhus/neat-csv	Fast CSV parser. Callback interface for the above.	Packages / Parsing
+csv-parser	https://github.com/mafintosh/csv-parser	Streaming CSV parser that aims to be faster than everyone else.	Packages / Parsing
+PEG.js	https://github.com/pegjs/pegjs	Simple parser generator that produces fast parsers with excellent error reporting.	Packages / Parsing
+x-ray	https://github.com/matthewmueller/x-ray	Web scraping utility.	Packages / Parsing
+nearley	https://github.com/kach/nearley	Simple, fast, powerful parsing for JavaScript.	Packages / Parsing
+binary-extract	https://github.com/juliangruber/binary-extract	Extract a value from a buffer of JSON without parsing the whole thing.	Packages / Parsing
+Stylecow	https://github.com/stylecow/stylecow	Parse, manipulate and convert modern CSS to make it compatible with all browsers. Extensible with…	Packages / Parsing
+js-yaml	https://github.com/nodeca/js-yaml	Very fast YAML parser.	Packages / Parsing
+xml2js	https://github.com/Leonidas-from-XIV/node-xml2js	XML to JavaScript object converter.	Packages / Parsing
+Jison	https://github.com/zaach/jison	Friendly JavaScript parser generator. It shares genes with Bison, Yacc and family.	Packages / Parsing
+google-libphonenumber	https://github.com/ruimarinho/google-libphonenumber	Parse, format, store and validate phone numbers.	Packages / Parsing
+ref	https://github.com/TooTallNate/ref	Read/write structured binary data in Buffers.	Packages / Parsing
+xlsx-populate	https://github.com/dtjohnson/xlsx-populate	Read/write Excel XLSX.	Packages / Parsing
+Chevrotain	https://github.com/Chevrotain/chevrotain	Very fast and feature rich parser building toolkit for JavaScript.	Packages / Parsing
+fast-xml-parser	https://github.com/NaturalIntelligence/fast-xml-parser	Validate and parse XML.	Packages / Parsing
+pretty-bytes	https://github.com/sindresorhus/pretty-bytes	Convert bytes to a human readable string: `1337` → `1.34 kB`.	Packages / Humanize
+pretty-ms	https://github.com/sindresorhus/pretty-ms	Convert milliseconds to a human readable string: `1337000000` → `15d 11h 23m 20s`.	Packages / Humanize
+ms	https://github.com/vercel/ms	Tiny millisecond conversion utility.	Packages / Humanize
+pretty-error	https://github.com/AriaMinaei/pretty-error	Errors with less clutter.	Packages / Humanize
+read-art	https://github.com/Tjatse/node-readability	Extract readable content from any page.	Packages / Humanize
+yazl	https://github.com/thejoshwolfe/yazl	Zip.	Packages / Compression
+yauzl	https://github.com/thejoshwolfe/yauzl	Unzip.	Packages / Compression
+Archiver	https://github.com/archiverjs/node-archiver	Streaming interface for archive generation, supporting ZIP and TAR.	Packages / Compression
+pako	https://github.com/nodeca/pako	High speed zlib port to pure js (deflate, inflate, gzip).	Packages / Compression
+tar-stream	https://github.com/mafintosh/tar-stream	Streaming tar parser and generator. Also see tar-fs.	Packages / Compression
+get-port	https://github.com/sindresorhus/get-port	Get an available port.	Packages / Network
+ipify	https://github.com/sindresorhus/ipify	Get your public IP address.	Packages / Network
+getmac	https://github.com/bevry/getmac	Get the computer MAC address.	Packages / Network
+DHCP	https://github.com/infusion/node-dhcp	DHCP client and server.	Packages / Network
+netcat	https://github.com/roccomuso/netcat	Netcat port in pure JS.	Packages / Network
+PostgreSQL	https://github.com/brianc/node-postgres	PostgreSQL client. Pure JavaScript and native libpq bindings.	Packages / Database
+Redis	https://github.com/luin/ioredis	Redis client.	Packages / Database
+LevelUP	https://github.com/Level/levelup	LevelDB.	Packages / Database
+MySQL	https://github.com/mysqljs/mysql	MySQL client.	Packages / Database
+couchdb-nano	https://github.com/apache/couchdb-nano	CouchDB client.	Packages / Database
+Aerospike	https://github.com/aerospike/aerospike-client-nodejs	Aerospike client.	Packages / Database
+Couchbase	https://github.com/couchbase/couchnode	Couchbase client.	Packages / Database
+MongoDB	https://github.com/mongodb/node-mongodb-native	MongoDB driver.	Packages / Database
+Sequelize	https://github.com/sequelize/sequelize	Multi-dialect ORM. Supports PostgreSQL, SQLite, MySQL, and more.	Packages / Database
+Bookshelf	https://github.com/bookshelf/bookshelf	ORM for PostgreSQL, MySQL and SQLite3 in the style of Backbone.js.	Packages / Database
+Mongoose	https://github.com/Automattic/mongoose	Elegant MongoDB object modeling.	Packages / Database
+Waterline	https://github.com/balderdashy/waterline	Datastore-agnostic tool that dramatically simplifies interaction with one or more databases.	Packages / Database
+OpenRecord	https://github.com/PhilWaldmann/openrecord	ORM for PostgreSQL, MySQL, SQLite3 and RESTful datastores. Similar to ActiveRecord.	Packages / Database
+pg-promise	https://github.com/vitaly-t/pg-promise	PostgreSQL framework for native SQL using promises.	Packages / Database
+slonik	https://github.com/gajus/slonik	PostgreSQL client with strict types, detailed logging and assertions.	Packages / Database
+Objection.js	https://github.com/Vincit/objection.js	Lightweight ORM built on the SQL query builder Knex.	Packages / Database
+TypeORM	https://github.com/typeorm/typeorm	ORM for PostgreSQL, MariaDB, MySQL, SQLite, and more.	Packages / Database
+MikroORM	https://github.com/mikro-orm/mikro-orm	TypeScript ORM based on Data Mapper, Unit of Work and Identity Map patterns. Supports MongoDB,…	Packages / Database
+Prisma	https://github.com/prisma/prisma	Modern database access (ORM alternative). Auto-generated and type-safe query builder in TypeScript. Supports PostgreSQL, MySQL…	Packages / Database
+Drizzle ORM	https://github.com/drizzle-team/drizzle-orm	TypeScript ORM that supports various databases such as PostgreSQL.	Packages / Database
+Knex	https://github.com/knex/knex	Query builder for PostgreSQL, MySQL and SQLite3, designed to be flexible, portable, and fun to…	Packages / Database
+NeDB	https://github.com/louischatriot/nedb	Embedded persistent database written in JavaScript.	Packages / Database
+Lowdb	https://github.com/typicode/lowdb	Small JavaScript database powered by Lodash.	Packages / Database
+Keyv	https://github.com/jaredwray/keyv	Simple key-value storage with support for multiple backends.	Packages / Database
+Finale	https://github.com/tommybananas/finale	RESTful endpoint generator for your Sequelize models.	Packages / Database
+database-js	https://github.com/mlaanderson/database-js	Wrapper for multiple databases with a JDBC-like connection.	Packages / Database
+Mongo Seeding	https://github.com/pkosiec/mongo-seeding	Populate MongoDB databases with JavaScript and JSON files.	Packages / Database
+@databases	https://github.com/ForbesLindesay/atdatabases	Query PostgreSQL, MySQL and SQLite3 with plain SQL without risking SQL injection.	Packages / Database
+pg-mem	https://github.com/oguimbal/pg-mem	In-memory PostgreSQL instance for your tests.	Packages / Database
+AVA	https://github.com/avajs/ava	Futuristic test runner.	Packages / Testing
+Mocha	https://github.com/mochajs/mocha	Feature-rich test framework making asynchronous testing simple and fun.	Packages / Testing
+nyc	https://github.com/istanbuljs/nyc	Code coverage tool built on istanbul that works with subprocesses.	Packages / Testing
+tap	https://github.com/tapjs/node-tap	TAP test framework.	Packages / Testing
+tape	https://github.com/substack/tape	TAP-producing test harness.	Packages / Testing
+power-assert	https://github.com/power-assert-js/power-assert	Provides descriptive assertion messages through the standard assert interface.	Packages / Testing
+Mochify	https://github.com/mantoni/mochify.js	TDD with Browserify, Mocha, PhantomJS and WebDriver.	Packages / Testing
+trevor	https://github.com/vadimdemedes/trevor	Run tests against multiple versions of Node.js without switching versions manually or pushing to Travis…	Packages / Testing
+loadtest	https://github.com/alexfernandez/loadtest	Run load tests for your web application, with an API for automation.	Packages / Testing
+Sinon.JS	https://github.com/sinonjs/sinon	Test spies, stubs and mocks.	Packages / Testing
+navit	https://github.com/nodeca/navit	PhantomJS / SlimerJS wrapper to simplify browser test scripting.	Packages / Testing
+Nock	https://github.com/nock/nock	HTTP mocking and expectations.	Packages / Testing
+intern	https://github.com/theintern/intern	Code testing stack.	Packages / Testing
+toxy	https://github.com/h2non/toxy	Hackable HTTP proxy to simulate failure scenarios and network conditions.	Packages / Testing
+hook-std	https://github.com/sindresorhus/hook-std	Hook and modify stdout/stderr.	Packages / Testing
+testen	https://github.com/egoist/testen	Run tests for multiple versions of Node.js locally with NVM.	Packages / Testing
+Nightwatch	https://github.com/nightwatchjs/nightwatch	Automated UI testing framework based on Selenium WebDriver.	Packages / Testing
+WebdriverIO	https://github.com/webdriverio/webdriverio	Automated testing based on the WebDriver protocol.	Packages / Testing
+Jest	https://github.com/facebook/jest	Painless JavaScript testing.	Packages / Testing
+Vitest	https://github.com/vitest-dev/vitest	Fast unit test framework powered by Vite.	Packages / Testing
+TestCafe	https://github.com/DevExpress/testcafe	Automated browser testing.	Packages / Testing
+abstruse	https://github.com/bleenco/abstruse	Continuous Integration server.	Packages / Testing
+CodeceptJS	https://github.com/codeceptjs/CodeceptJS	End-to-end testing.	Packages / Testing
+Puppeteer	https://github.com/puppeteer/puppeteer	Headless Chrome.	Packages / Testing
+Playwright	https://github.com/microsoft/playwright	Headless Chromium, WebKit, and Firefox with a single API.	Packages / Testing
+nve	https://github.com/ehmicky/nve	Run any command on multiple versions of Node.js locally.	Packages / Testing
+axe-core	https://github.com/dequelabs/axe-core	Accessibility engine for automated Web UI testing.	Packages / Testing
+testcontainers-node	https://github.com/testcontainers/testcontainers-node	Provides lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can…	Packages / Testing
+upash	https://github.com/simonepri/upash	Unified API for all password hashing algorithms.	Packages / Security
+themis	https://github.com/cossacklabs/themis	Multilanguage framework for making typical encryption schemes easy to use: data at rest, authenticated data…	Packages / Security
+GuardRails	https://github.com/apps/guardrails	GitHub app that provides security feedback in pull requests.	Packages / Security
+rate-limiter-flexible	https://github.com/animir/node-rate-limiter-flexible	Brute-force and DDoS attack protection.	Packages / Security
+crypto-hash	https://github.com/sindresorhus/crypto-hash	Async non-blocking hashing.	Packages / Security
+jose-simple	https://github.com/davesag/jose-simple	Encryption and decryption of data using the JOSE (JSON Object Signing and Encryption) standard.	Packages / Security
+Benchmark.js	https://github.com/bestiejs/benchmark.js	Benchmarking library that supports high-resolution timers and returns statistically significant results.	Packages / Benchmarking
+babel-minify	https://github.com/babel/minify	ES2015+ aware minifier based on the Babel toolchain.	Packages / Minifiers
+UglifyJS2	https://github.com/mishoo/UglifyJS	JavaScript minifier.	Packages / Minifiers
+clean-css	https://github.com/clean-css/clean-css	CSS minifier.	Packages / Minifiers
+minimize	https://github.com/Swaagie/minimize	HTML minifier.	Packages / Minifiers
+imagemin	https://github.com/imagemin/imagemin	Image minifier.	Packages / Minifiers
+Passport	https://github.com/jaredhanson/passport	Simple, unobtrusive authentication.	Packages / Authentication
+Grant	https://github.com/simov/grant	OAuth providers for Express, Koa, Hapi, Fastify, AWS Lambda, Azure, Google Cloud, Vercel, and many…	Packages / Authentication
+CASL	https://github.com/stalniy/casl	Isomorphic authorization for UI and API.	Packages / Authorization
+node-casbin	https://github.com/casbin/node-casbin	Authorization library that supports access control models like ACL, RBAC and ABAC.	Packages / Authorization
+Nodemailer	https://github.com/nodemailer/nodemailer	The fastest way to handle email.	Packages / Email
+emailjs	https://github.com/eleith/emailjs	Send text/HTML emails with attachments to any SMTP server.	Packages / Email
+email-templates	https://github.com/forwardemail/email-templates	Create, preview, and send custom email templates.	Packages / Email
+MJML	https://github.com/mjmlio/mjml	Markup language designed to reduce the pain of creating responsive emails.	Packages / Email
+Forward Email	https://github.com/forwardemail/forwardemail.net	Open-source and self-hostable email service.	Packages / Email
+bull	https://github.com/OptimalBits/bull	Persistent job and message queue.	Packages / Job queues
+agenda	https://github.com/agenda/agenda	MongoDB-backed job scheduling.	Packages / Job queues
+idoit	https://github.com/nodeca/idoit	Redis-backed job queue engine with advanced job control.	Packages / Job queues
+node-resque	https://github.com/actionhero/node-resque	Redis-backed job queue.	Packages / Job queues
+rsmq	https://github.com/smrchy/rsmq	Redis-backed message queue.	Packages / Job queues
+bee-queue	https://github.com/bee-queue/bee-queue	High-performance Redis-backed job queue.	Packages / Job queues
+RedisSMQ	https://github.com/weyoss/redis-smq	Simple high-performance Redis message queue with real-time monitoring.	Packages / Job queues
+sqs-consumer	https://github.com/bbc/sqs-consumer	Build Amazon Simple Queue Service (SQS) based apps without the boilerplate.	Packages / Job queues
+better-queue	https://github.com/diamondio/better-queue	Simple and efficient job queue when you cannot use Redis.	Packages / Job queues
+bullmq	https://github.com/taskforcesh/bullmq	Persistent job and message queue.	Packages / Job queues
+bree	https://github.com/breejs/bree	Job task scheduler with worker threads, cron, date, and human syntax support.	Packages / Job queues
+graphile-worker	https://github.com/graphile/worker	High performance PostgreSQL job queue.	Packages / Job queues
+n	https://github.com/tj/n	Node.js version management.	Packages / Node.js management
+nave	https://github.com/isaacs/nave	Virtual Environments for Node.js.	Packages / Node.js management
+nodeenv	https://github.com/ekalinin/nodeenv	Node.js virtual environment compatible to Python's virtualenv.	Packages / Node.js management
+nvm for Windows	https://github.com/coreybutler/nvm-windows	Version management for Windows.	Packages / Node.js management
+nodenv	https://github.com/nodenv/nodenv	Version manager that is similar to Ruby's rbenv. It supports auto version switching.	Packages / Node.js management
+fnm	https://github.com/Schniz/fnm	Cross-platform Node.js version manager built in Rust.	Packages / Node.js management
+napi-rs	https://github.com/napi-rs/napi-rs	Framework for building compiled Node.js add-ons in Rust via Node-API.	Packages / Cross-platform integration
+Neon	https://github.com/neon-bindings/neon	Rust bindings for writing safe and fast native Node.js modules.	Packages / Cross-platform integration
+Edge.js	https://github.com/agracio/edge-js	Run .NET and Node.js code in the same process on Windows, macOS, and Linux.	Packages / Cross-platform integration
+DotNetJS	https://github.com/Elringus/DotNetJS	Consume .NET libraries in Node.js using this .NET interoperability layer.	Packages / Cross-platform integration
+retext	https://github.com/retextjs/retext	An extensible natural language system.	Packages / Natural language processing
+franc	https://github.com/wooorm/franc	Detect the language of text.	Packages / Natural language processing
+leven	https://github.com/sindresorhus/leven	Measure the difference between two strings using the Levenshtein distance algorithm.	Packages / Natural language processing
+natural	https://github.com/NaturalNode/natural	Natural language facility.	Packages / Natural language processing
+nlp.js	https://github.com/axa-group/nlp.js	Building bots, with entity extraction, sentiment analysis, automatic language identification, and more.	Packages / Natural language processing
+PM2	https://github.com/Unitech/pm2	Advanced Process Manager.	Packages / Process management
+nodemon	https://github.com/remy/nodemon	Monitor for changes in your app and automatically restart the server.	Packages / Process management
+node-mac	https://github.com/coreybutler/node-mac	Run scripts as a native Mac daemon and log to the console app.	Packages / Process management
+node-linux	https://github.com/coreybutler/node-linux	Run scripts as native system service and log to syslog.	Packages / Process management
+node-windows	https://github.com/coreybutler/node-windows	Run scripts as a native Windows service and log to the Event viewer.	Packages / Process management
+supervisor	https://github.com/petruisfan/node-supervisor	Restart scripts when they crash or restart when a `*.js` file changes.	Packages / Process management
+Phusion Passenger	https://github.com/phusion/passenger	Friendly process manager that integrates directly into Nginx.	Packages / Process management
+robotjs	https://github.com/octalmage/robotjs	Desktop Automation: control the mouse, keyboard and read the screen.	Packages / Automation
+nut.js	https://github.com/nut-tree/nut.js	Cross-platform native GUI automation / testing framework with image matching capabilities which integrates with Jest.	Packages / Automation
+Acorn	https://github.com/acornjs/acorn	Tiny, fast JavaScript parser.	Packages / AST
+babel-parser	https://github.com/babel/babel/tree/master/packages/babel-parser	JavaScript parser used in Babel.	Packages / AST
+DocPad	https://github.com/docpad/docpad	Static site generator with dynamic abilities and huge plugin ecosystem.	Packages / Static site generators
+docsify	https://github.com/docsifyjs/docsify	Markdown documentation site generator with no statically built HTML files.	Packages / Static site generators
+Charge	https://github.com/brandonweiss/charge	Opinionated, zero-config static site generator using JSX and MDX.	Packages / Static site generators
+KeystoneJS	https://github.com/keystonejs/keystone	CMS and web application platform built on Express and MongoDB.	Packages / Content management systems
+ApostropheCMS	https://github.com/apostrophecms/apostrophe	Content management system with an emphasis on intuitive front end content editing and administration built…	Packages / Content management systems
+Strapi	https://github.com/strapi/strapi	Content Management Framework (headless-CMS) to build powerful APIs.	Packages / Content management systems
+Factor	https://github.com/FactorJS/factor	Vue.js dashboard framework and headless CMS.	Packages / Content management systems
+AdminBro	https://github.com/SoftwareBrothers/adminjs	Auto-generated admin panel with CRUD for all your resources.	Packages / Content management systems
+Graphweaver	https://github.com/exogee-technology/graphweaver	CMS and headless GraphQL API.	Packages / Content management systems
+nodeBB	https://github.com/NodeBB/NodeBB	Forum platform for the modern web.	Packages / Forum
+Ghost	https://github.com/TryGhost/Ghost	Simple, powerful publishing platform.	Packages / Blogging
+Hexo	https://github.com/hexojs/hexo	Fast, simple and powerful blogging framework.	Packages / Blogging
+cows	https://github.com/sindresorhus/cows	ASCII cows.	Packages / Weird
+superb	https://github.com/sindresorhus/superb	Get superb like words.	Packages / Weird
+cat-names	https://github.com/sindresorhus/cat-names	Get popular cat names.	Packages / Weird
+dog-names	https://github.com/sindresorhus/dog-names	Get popular dog names.	Packages / Weird
+superheroes	https://github.com/sindresorhus/superheroes	Get superhero names.	Packages / Weird
+supervillains	https://github.com/sindresorhus/supervillains	Get supervillain names.	Packages / Weird
+cool-ascii-faces	https://github.com/maxogden/cool-ascii-faces	Get some cool ascii faces.	Packages / Weird
+cat-ascii-faces	https://github.com/melaniecebula/cat-ascii-faces	`₍˄·͈༝·͈˄₎◞ ̑̑ෆ⃛ (=ↀωↀ=)✧ (^･o･^)ﾉ”`.	Packages / Weird
+nerds	https://github.com/SkyHacks/nerds	Get data from nerdy topics like Harry Potter, Star Wars, and Pokémon.	Packages / Weird
+snappy	https://github.com/kesla/node-snappy	Native bindings for Google's Snappy compression library.	Packages / Serialization
+protobuf	https://github.com/protobufjs/protobuf.js	Implementation of Protocol Buffers.	Packages / Serialization
+compactr	https://github.com/compactr/compactr.js	Implementation of the Compactr protocol.	Packages / Serialization
+execa	https://github.com/sindresorhus/execa	Better `child_process`.	Packages / Miscellaneous
+cheerio	https://github.com/cheeriojs/cheerio	Fast, flexible, and lean implementation of core jQuery designed specifically for the server.	Packages / Miscellaneous
+open	https://github.com/sindresorhus/open	Opens stuff like websites, files, executables.	Packages / Miscellaneous
+hasha	https://github.com/sindresorhus/hasha	Hashing made simple. Get the hash of a buffer/string/stream/file.	Packages / Miscellaneous
+dot-prop	https://github.com/sindresorhus/dot-prop	Get a property from a nested object using a dot path.	Packages / Miscellaneous
+onetime	https://github.com/sindresorhus/onetime	Only run a function once.	Packages / Miscellaneous
+mem	https://github.com/sindresorhus/mem	Memoize functions - an optimization technique used to speed up consecutive function calls by caching…	Packages / Miscellaneous
+strip-bom	https://github.com/sindresorhus/strip-bom	Strip UTF-8 byte order mark (BOM) from a string/buffer/stream.	Packages / Miscellaneous
+os-locale	https://github.com/sindresorhus/os-locale	Get the system locale.	Packages / Miscellaneous
+ssh2	https://github.com/mscdex/ssh2	SSH2 client and server module.	Packages / Miscellaneous
+adit	https://github.com/markelog/adit	SSH tunneling made simple.	Packages / Miscellaneous
+file-type	https://github.com/sindresorhus/file-type	Detect the file type of a Buffer.	Packages / Miscellaneous
+Bottleneck	https://github.com/SGrondin/bottleneck	Rate limiter that makes throttling easy.	Packages / Miscellaneous
+webworker-threads	https://github.com/audreyt/node-webworker-threads	Lightweight Web Worker API implementation with native threads.	Packages / Miscellaneous
+clipboardy	https://github.com/sindresorhus/clipboardy	Access the system clipboard (copy/paste).	Packages / Miscellaneous
+node-pre-gyp	https://github.com/mapbox/node-pre-gyp	Makes it easy to publish and install Node.js C++ addons from binaries.	Packages / Miscellaneous
+opencv	https://github.com/peterbraden/node-opencv	Bindings for OpenCV. The defacto computer vision library.	Packages / Miscellaneous
+dotenv	https://github.com/motdotla/dotenv	Load environment variables from .env file.	Packages / Miscellaneous
+semver	https://github.com/npm/node-semver	Semantic version parser.	Packages / Miscellaneous
+nodegit	https://github.com/nodegit/nodegit	Native bindings to Git.	Packages / Miscellaneous
+json-strictify	https://github.com/pigulla/json-strictify	Safely serialize a value to JSON without data loss or going into an infinite loop.	Packages / Miscellaneous
+jsdom	https://github.com/jsdom/jsdom	JavaScript implementation of HTML and the DOM.	Packages / Miscellaneous
+@sindresorhus/is	https://github.com/sindresorhus/is	Type check values.	Packages / Miscellaneous
+env-dot-prop	https://github.com/simonepri/env-dot-prop	Get, set, or delete nested properties of process.env using a dot path.	Packages / Miscellaneous
+node-video-lib	https://github.com/gkozlenko/node-video-lib	Pure JavaScript library for working with MP4 and FLV video files and creating MPEG-TS chunks…	Packages / Miscellaneous
+basic-ftp	https://github.com/patrickjuchli/basic-ftp	FTP/FTPS client.	Packages / Miscellaneous
+cashify	https://github.com/xxczaki/cashify	Currency conversion.	Packages / Miscellaneous
+genepi	https://github.com/Geode-solutions/genepi	Automatically generate a native Node.js addon from C++ code.	Packages / Miscellaneous
+husky	https://github.com/typicode/husky	Create Git hook scripts.	Packages / Miscellaneous
+patch-package	https://github.com/ds300/patch-package	Make and preserve fixes to npm dependencies.	Packages / Miscellaneous
+editly	https://github.com/mifi/editly	Declarative video editing API.	Packages / Miscellaneous
+wild-wild-path	https://github.com/ehmicky/wild-wild-path	Object property paths with wildcards and regexes.	Packages / Miscellaneous
+uint8array-extras	https://github.com/sindresorhus/uint8array-extras	Useful utilities for working with Uint8Array and Buffer.	Packages / Miscellaneous
+npm	https://docs.npmjs.com/about-npm	The default package manager.	Package Manager
+pnpm	https://pnpm.io	Disk space efficient package manager.	Package Manager
+yarn	https://yarnpkg.com	Alternative package manager.	Package Manager
+bun	https://bun.sh	All-in-one toolkit for JavaScript and TypeScript apps.	Package Manager
+Node.js Best Practices	https://github.com/goldbergyoni/nodebestpractices	Summary and curation of the top-ranked content on Node.js best practices, available in multiple languages.	Resources / Tutorials
+Nodeschool	https://github.com/nodeschool	Learn Node.js with interactive lessons.	Resources / Tutorials
+The Art of Node	https://github.com/maxogden/art-of-node/#the-art-of-node	An introduction to Node.js.	Resources / Tutorials
+module-best-practices	https://github.com/mattdesl/module-best-practices	Some good practices when writing new npm modules.	Resources / Tutorials
+The Node Way	https://github.com/FredKSchott/the-node-way	An entire philosophy of Node.js best practices and guiding principles exists for writing maintainable modules,…	Resources / Tutorials
+You Don't Know Node.js	https://github.com/azat-co/you-dont-know-node	Introduction to Node.js core features and asynchronous JavaScript.	Resources / Tutorials
+Portable Node.js guide	https://github.com/ehmicky/cross-platform-node-guide	Practical guide on how to write portable/cross-platform Node.js code.	Resources / Tutorials
+Build a real web app with no frameworks	https://frameworkless.js.org/course	A set of video tutorials/livestreams to help you build and deploy a real, live web…	Resources / Tutorials
+npms	https://npms.io	Superb package search with deep analysis of package quality using a myriad of metrics.	Resources / Discovery
+npm addict	https://npmaddict.com	Your daily injection of npm packages.	Resources / Discovery
+Error Handling in Node.js	https://sematext.com/blog/node-js-error-handling/		Resources / Articles
+Teach Yourself Node.js in 10 Steps	https://ponyfoo.com/articles/teach-yourself-nodejs-in-10-steps		Resources / Articles
+Mastering the filesystem in Node.js	https://medium.com/@yoshuawuyts/mastering-the-filesystem-in-node-js-4706b7cb0801		Resources / Articles
+Semver: A Primer	https://nodesource.com/blog/semver-a-primer/		Resources / Articles
+Semver: Tilde and Caret	https://nodesource.com/blog/semver-tilde-and-caret/		Resources / Articles
+Why Asynchronous?	https://nodesource.com/blog/why-asynchronous/		Resources / Articles
+Understanding the Node.js Event Loop	https://nodesource.com/blog/understanding-the-nodejs-event-loop/		Resources / Articles
+Understanding Object Streams	https://nodesource.com/blog/understanding-object-streams/		Resources / Articles
+Using Express to Quickly Build a GraphQL Server	https://snipcart.com/blog/graphql-nodejs-express-tutorial		Resources / Articles
+Node Weekly	https://nodeweekly.com	Weekly e-mail round-up of Node.js news and articles.	Resources / Newsletters
+Introduction to Node.js with Ryan Dahl	https://www.youtube.com/watch?v=jo_B4LTHi3I		Resources / Videos
+Hands on with Node.js	https://learn.bevry.me/hands-on-with-node.js/preface		Resources / Videos
+V8 Garbage Collector	https://v8.dev/blog/trash-talk	Trash talk about the V8 garbage collector.	Resources / Videos
+10 Things I Regret About Node.js by Ryan Dahl	https://www.youtube.com/watch?v=M3BM9TB-8yA	Insightful talk by the creator of Node.js about some of its limitations.	Resources / Videos
+Mastering REST APIs in Node.js: Zero-To-Hero	https://www.manning.com/livevideo/mastering-rest-apis-in-nodejs	Video course on how to make REST APIs using Node.js.	Resources / Videos
+Make a vanilla Node.js REST API	https://www.youtube.com/watch?v=_1xa8Bsho6A	Building a REST API without using a framework like Express.	Resources / Videos
+Google I/O 2009 - V8: High Performance JavaScript Engine	https://www.youtube.com/watch?v=FrufJFBSoQY	The basics of V8 architecture and how it optimizes JavaScript execution.	Resources / Videos
+Google I/O 2012 - Breaking the JavaScript Speed Limit with V8	https://www.youtube.com/watch?v=UJPdhx5zTaw	How V8 optimizes JavaScript execution.	Resources / Videos
+Google I/O 2013 - Accelerating Oz with V8: Follow the Yellow Brick Road to JavaScript Performance	https://www.youtube.com/watch?v=VhpdsjBUS3g	How to detect app bottlenecks and optimize performance with V8 knowledge.	Resources / Videos
+Node.js Internal Architecture | Ignition, Turbofan, Libuv	https://www.youtube.com/watch?v=OCjvhCFFPTw	How Node.js works internally, with a focus on V8 and libuv.	Resources / Videos
+Introduction to libuv: What's a Unicorn Velociraptor?	https://www.youtube.com/watch?v=_c51fcXRLGw	`libuv` architecture, thread pool, and event loop, with its source code.	Resources / Videos
+libuv Cross platform asynchronous i/o	https://www.youtube.com/watch?v=kCJ3PFU8Ke8	`libuv` architecture in detail, such as where it's actually using threads.	Resources / Videos
+You Don't Know Node - ForwardJS San Francisco	https://www.youtube.com/watch?v=oPo4EQmkjvY	Explaining Node.js internals with quizzes about V8, libuv, event loop, module, stream, and cluster.	Resources / Videos
+Node.js in Action	https://www.manning.com/books/node-js-in-action-second-edition		Resources / Books
+Node.js in Practice	https://www.amazon.com/Node-js-Practice-Alex-R-Young/dp/1617290939		Resources / Books
+Mastering Node	https://visionmedia.github.io/masteringnode/		Resources / Books
+Node.js 8 the Right Way	https://pragprog.com/book/jwnode2/node-js-8-the-right-way/		Resources / Books
+Professional Node.js: Building JavaScript Based Scalable Software	https://www.amazon.com/Professional-Node-js-Building-JavaScript-Scalable-ebook/dp/B009L7QETY/		Resources / Books
+Secure Your Node.js Web Application	https://www.amazon.com/Secure-Your-Node-js-Web-Application/dp/1680500856		Resources / Books
+Express in Action	https://www.manning.com/books/express-in-action		Resources / Books
+Practical Modern JavaScript	https://www.amazon.com/Practical-Modern-JavaScript-Dive-Future/dp/149194353X		Resources / Books
+Mastering Modular JavaScript	https://www.amazon.com/Mastering-Modular-JavaScript-Nicolas-Bevacqua/dp/1491955686/		Resources / Books
+Get Programming with Node.js	https://www.manning.com/books/get-programming-with-node-js		Resources / Books
+Node.js Cookbook	https://www.amazon.com/dp/1838558756		Resources / Books
+Node.js Design Patterns	https://www.nodejsdesignpatterns.com		Resources / Books
+Node.js blog	https://nodejs.org/en/blog/		Resources / Blogs
+webapplog.com	https://webapplog.com/tag/node-js/	Blog posts on Node.js and JavaScript from the author of Practical Node.js and Pro Express.js…	Resources / Blogs
+Learn to build apps and APIs with Node.js	https://learnnode.com/friend/AWESOME	Video course by Wes Bos.	Resources / Courses
+Real Time Web with Node.js	https://www.pluralsight.com/courses/code-school-real-time-web-with-nodejs		Resources / Courses
+Learn and Understand Node.js	https://www.udemy.com/course/understand-nodejs/		Resources / Courses
+Node.js Full Stack Developer Course	https://kinsta.com/academy/course/node-js-full-stack-developer/		Resources / Courses
+Express.js	https://github.com/azat-co/cheatsheets/tree/master/express4		Resources / Cheatsheets
+Stream FAQs	https://github.com/stephenplusplus/stream-faqs	Answering common questions about streams, covering pagination, events, and more.	Resources / Cheatsheets
+Strong Node.js	https://github.com/jesusprubio/strong-node	Checklist for source code security analysis of a Node.js web service.	Resources / Cheatsheets
+OctoLinker	https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp	Chrome extension that linkifies dependencies in package.json, .js, .jsx, .coffee and .md files on GitHub.	Resources / Tools
+npm-hub	https://chrome.google.com/webstore/detail/npmhub/kbbbjimdjbjclaebffknlabpogocablj	Chrome extension to display npm dependencies at the bottom of a repo's readme.	Resources / Tools
+RunKit	https://runkit.com	Embed a Node.js environment on any website.	Resources / Tools
+github-npm-stats	https://chrome.google.com/webstore/detail/github-npm-stats/oomfflokggoffaiagenekchfnpighcef	Chrome extension that displays npm download stats on GitHub.	Resources / Tools
+npm semver calculator	https://semver.npmjs.com	Visually explore what versions of a package a semver range matches.	Resources / Tools
+CodeSandbox	https://codesandbox.io/templates/node-http-server	Online IDE and prototyping.	Resources / Tools
+Amplication	https://github.com/amplication/amplication	Auto-generates fully functional apps.	Resources / Tools
+RunJS	https://runjs.app	Desktop JavaScript playground.	Resources / Tools
+Stack Overflow	https://stackoverflow.com/questions/tagged/node.js		Resources / Community
+Reddit	https://www.reddit.com/r/node		Resources / Community
+Twitter	https://twitter.com/nodejs		Resources / Community
+Hashnode	https://hashnode.com/n/nodejs		Resources / Community
+Discord	https://discord.com/invite/96WGtJt		Resources / Community
+nodebots	https://nodebots.io	Robots powered by JavaScript.	Resources / Miscellaneous
+node-module-boilerplate	https://github.com/sindresorhus/node-module-boilerplate	Boilerplate to kickstart creating a node module.	Resources / Miscellaneous
+modern-node	https://github.com/sheerun/modern-node	Toolkit for creating node modules with Jest, Prettier, ESLint, and Standard.	Resources / Miscellaneous
+generator-nm	https://github.com/sindresorhus/generator-nm	Scaffold out a node module.	Resources / Miscellaneous
+Microsoft Node.js Guidelines	https://github.com/Microsoft/nodejs-guidelines	Tips, tricks, and resources for working with Node.js on Microsoft platforms.	Resources / Miscellaneous
+Module Requests & Ideas	https://github.com/sindresorhus/project-ideas	Request a JavaScript module you wish existed or get ideas for modules.	Resources / Miscellaneous
+v8-perf	https://github.com/thlorenz/v8-perf	Notes and resources related to V8 and thus Node.js performance.	Resources / Miscellaneous

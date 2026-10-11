@@ -1,0 +1,551 @@
+ad	url	aciklama	bolum
+newsboat	https://github.com/newsboat/newsboat	An extendable RSS feed reader for text terminals.	Entertainment
+mal-cli	https://github.com/L4z3x/mal-cli	MyAnimeList client.	Entertainment
+golazo	https://github.com/0xjuanma/golazo	Soccer matches.	Entertainment
+cmus	https://github.com/cmus/cmus	Small, fast and powerful console music player.	Entertainment / Music
+Instant-Music-Downloader	https://github.com/yask123/Instant-Music-Downloader	Instant music downloader.	Entertainment / Music
+itunes-remote	https://github.com/mischah/itunes-remote	Control iTunes via CLI.	Entertainment / Music
+pianobar	https://6xq.net/pianobar/	Pandora client.	Entertainment / Music
+somafm-cli	https://github.com/rockymadden/somafm-cli	Listen to SomaFM in your terminal.	Entertainment / Music
+mpd	https://github.com/MusicPlayerDaemon/MPD	Music Player Daemon.	Entertainment / Music
+ncmpcpp	https://github.com/arybczak/ncmpcpp	mpd client.	Entertainment / Music
+moc	https://moc.daper.net/	Console audio player for Linux/UNIX.	Entertainment / Music
+musikcube	https://github.com/clangen/musikcube	Cross-platform, terminal-based music player, audio engine, metadata indexer, and server.	Entertainment / Music
+beets	https://github.com/beetbox/beets	Music library manager and tagger.	Entertainment / Music
+spotatui	https://github.com/LargeModGames/spotatui	Spotify client.	Entertainment / Music
+swaglyrics-for-spotify	https://github.com/SwagLyrics/SwagLyrics-For-Spotify	Spotify lyrics.	Entertainment / Music
+dzr	https://github.com/yne/dzr	deezer.com player.	Entertainment / Music
+radio-active	https://github.com/deep5050/radio-active	Internet radio player with 40k+ stations.	Entertainment / Music
+mpvc	https://github.com/gmt4/mpvc	Music player interfacing mpv.	Entertainment / Music
+TUISIC	https://github.com/Dark-Kernel/tuisic	Login-free music streaming.	Entertainment / Music
+termusic	https://github.com/tramhao/termusic	Music player in rust with download capabilities.	Entertainment / Music
+ytm-player	https://github.com/peternaame-boop/ytm-player	YouTube Music player.	Entertainment / Music
+tunein-cli	https://github.com/tsirysndr/tunein-cli	TuneIn and Radio Browser client.	Entertainment / Music
+cliamp	https://github.com/bjarneo/cliamp	Winamp-inspired local, streaming and radio player.	Entertainment / Music
+mpv-music	https://github.com/FurqanHun/mpv-music	Daemonless music player.	Entertainment / Music
+youtube-dl	https://github.com/ytdl-org/youtube-dl	Download videos from YouTube.com and many other video sites.	Entertainment / Video
+streamlink	https://github.com/streamlink/streamlink	Extract streams from various websites to a video player of your choosing.	Entertainment / Video
+mps-youtube	https://github.com/mps-youtube/mps-youtube	Youtube player.	Entertainment / Video
+mpv	https://mpv.io	Superior video player.	Entertainment / Video
+editly	https://github.com/mifi/editly	Declarative video editing.	Entertainment / Video
+yt-dlp	https://github.com/yt-dlp/yt-dlp	A `youtube-dl` fork with additional features and fixes.	Entertainment / Video
+cinema	https://github.com/marm00/cinema	Multiviewer for videos and streams.	Entertainment / Video
+capcut-cli	https://github.com/renezander030/capcut-cli	Edit CapCut/JianYing projects.	Entertainment / Video
+moviemon	https://github.com/iCHAIT/moviemon	Everything about your movies.	Entertainment / Movies
+movie	https://github.com/mayankchd/movie	Get movie info or compare movies.	Entertainment / Movies
+Dwarf Fortress	https://www.bay12games.com/dwarves/	Roguelike construction and management simulation.	Entertainment / Games
+Cataclysm-DDA	https://cataclysmdda.org	Turn-based survival game set in a post-apocalyptic world.	Entertainment / Games
+Pokete	https://github.com/lxgr-linux/Pokete	Pokemon-like.	Entertainment / Games
+NetHack	https://www.nethack.org	Roguelike dungeon crawler.	Entertainment / Games
+epr	https://github.com/wustho/epr	, epy - EPUB reader.	Entertainment / Books
+Bible.Js CLI	https://github.com/BibleJS/BibleApp	Bible.	Entertainment / Books
+SpeedRead	https://github.com/sunsations/speed_read	Spritz-alike speedreader.	Entertainment / Books
+medium-cli	https://github.com/djadmin/medium-cli	Read medium.com stories.	Entertainment / Books
+hygg	https://github.com/kruserr/hygg	Document reader.	Entertainment / Books
+WeeChat	https://weechat.org/	Fast, light and extensible chat client.	Entertainment / Chat
+irssi	https://github.com/irssi/irssi	IRC chat client.	Entertainment / Chat
+kirc	https://github.com/mcpcpc/kirc	Tiny IRC client.	Entertainment / Chat
+concord	https://github.com/chojs23/concord	Discord client.	Entertainment / Chat
+signal-cli	https://github.com/AsamK/signal-cli	Signal client.	Entertainment / Chat
+tlgr	https://github.com/tlgrcli/tlgr	Telegram client.	Entertainment / Chat
+legit	https://github.com/captainsafia/legit	Generate Open Source licences as files or file headers.	Development
+mklicense	https://github.com/cezaraugusto/mklicense	Create a custom LICENSE file painlessly with customized info.	Development
+rebound	https://github.com/shobrook/rebound	Fetch Stack Overflow results on compiler error.	Development
+foy	https://github.com/zaaack/foy	Lightweight general purpose task runner/build tool.	Development
+just	https://github.com/casey/just	Modern `make`-like command runner.	Development
+bcal	https://github.com/jarun/bcal	Byte CALculator for storage conversions and calculations.	Development
+bitwise	https://github.com/mellowcandle/bitwise	Base conversion and bit manipulation.	Development
+cgasm	https://github.com/bnagy/cgasm	x86 assembly documentation.	Development
+grex	https://github.com/pemistahl/grex	Generate regular expressions from user-provided test cases.	Development
+iola	https://github.com/pvarentsov/iola	Socket client with REST API.	Development
+add-gitignore	https://github.com/TejasQ/add-gitignore	Interactively generate a .gitignore for your project based on your needs.	Development
+is-up-cli	https://github.com/sindresorhus/is-up-cli	Check if a domain is up.	Development
+reachable	https://github.com/italolelis/reachable	Check if a domain is up.	Development
+diff2html-cli	https://github.com/rtfpessoa/diff2html-cli	Create pretty HTML from diffs.	Development
+mk	https://github.com/pycontribs/mk	Exposes most common actions you can run in unfamiliar repos.	Development
+dotenv-diff	https://github.com/Chrilleweb/dotenv-diff	Validate environment variable usage in a codebase.	Development
+ota	https://github.com/ota-run/ota	Unified diagnosable repo setup across stacks (local, deploy, CI, agents).	Development
+herdr-reviewr	https://github.com/persiyanov/herdr-reviewr	Review a coding agent's diff and send line comments back to it.	Development
+emacs	https://github.com/emacs-mirror/emacs	An extensible, customizable, free/libre text editor — and more.	Development / Text Editors
+vim	https://github.com/vim/vim	Vim - the ubiquitous text editor.	Development / Text Editors
+neovim	https://github.com/neovim/neovim	Modern vim.	Development / Text Editors
+kakoune	https://github.com/mawww/kakoune	Modal editor inspired by vim.	Development / Text Editors
+micro	https://github.com/zyedidia/micro	A simple and intuitive editor.	Development / Text Editors
+o	https://github.com/xyproto/o	Configuration-free text editor and IDE.	Development / Text Editors
+helix	https://github.com/helix-editor/helix	Modal editor inspired by kakoune.	Development / Text Editors
+Prosaic	https://github.com/DimwitLabs/Prosaic	A writer-first app crafted for long-form writing.	Development / Text Editors
+Microsoft Edit	https://github.com/microsoft/edit	Simple editor.	Development / Text Editors
+caniuse-cmd	https://github.com/sgentle/caniuse-cmd	Search caniuse.com about browser support of features.	Development / Frontend Development
+strip-css-comments-cli	https://github.com/sindresorhus/strip-css-comments-cli	Strip comments from CSS.	Development / Frontend Development
+viewport-list-cli	https://github.com/kevva/viewport-list-cli	Return a list of devices and their viewports.	Development / Frontend Development
+surge	https://surge.sh	Publish static websites for free.	Development / Frontend Development
+localtunnel	https://github.com/localtunnel/localtunnel		Development / Public localhost
+tunnelmole	https://github.com/robbie-cahill/tunnelmole-client		Development / Public localhost
+ngrok	https://ngrok.com/		Development / Public localhost
+ytunnel	https://github.com/yetidevworks/ytunnel	Create and manage Cloudflare Tunnels with custom domains.	Development / Public localhost
+mobicon-cli	https://github.com/SamVerschueren/mobicon-cli	Mobile app icon generator.	Development / Mobile Development
+mobisplash-cli	https://github.com/SamVerschueren/mobisplash-cli	Mobile app splash screen generator.	Development / Mobile Development
+deviceframe	https://github.com/c0bra/deviceframe	Put device frames around your mobile/web/progressive app screenshots.	Development / Mobile Development
+mycli	https://github.com/dbcli/mycli	MySQL client with autocompletion and syntax highlighting.	Development / Database
+pgcli	https://github.com/dbcli/pgcli	Postgres client with autocompletion and syntax highlighting.	Development / Database
+sqlline	https://github.com/julianhyde/sqlline	Shell for issuing SQL via JDBC.	Development / Database
+iredis	https://github.com/laixintao/iredis	Redis client with autocompletion and syntax highlighting.	Development / Database
+usql	https://github.com/xo/usql	Universal SQL client with autocompletion and syntax highlighting.	Development / Database
+rdsai-cli	https://github.com/aliyun/rdsai-cli	AI-powered MySQL client.	Development / Database
+squix	https://github.com/eduardofuncao/squix	SQL client with query management and interactive results.	Development / Database
+pgxcli	https://github.com/Balaji01-4D/pgxcli	Feature-complete PostgreSQL client in Go.	Development / Database
+htconvert	https://github.com/lukechilds/htconvert	Convert .htaccess redirects to nginx.conf redirects.	Development / Devops
+SAWS	https://github.com/donnemartin/saws	Supercharged AWS CLI.	Development / Devops
+s3cmd	https://github.com/s3tools/s3cmd	Fully-Featured S3 client.	Development / Devops
+pm2	https://github.com/Unitech/pm2	Production Process Manager for Node.js.	Development / Devops
+ops	https://github.com/nanovms/ops	Unikernel compilation and orchestration tool.	Development / Devops
+flog	https://github.com/mingrammer/flog	A fake log generator for log formats such as apache-common, apache error and RFC3164 syslog.	Development / Devops
+k9s	https://github.com/derailed/k9s	Manage Kubernetes Clusters.	Development / Devops
+PingMe	https://github.com/kha7iq/pingme	Send messages/alerts to multiple messaging platforms & email.	Development / Devops
+ipfs-deploy	https://github.com/agentofuser/ipfs-deploy	Deploy static websites to IPFS.	Development / Devops
+Discharge	https://github.com/brandonweiss/discharge	Deploy static websites to Amazon S3.	Development / Devops
+updatecli	https://github.com/updatecli/updatecli	A declarative dependency management tool.	Development / Devops
+telert	https://github.com/navig-me/telert	Multi-channel alerts for long-running commands and process/log/uptime monitoring.	Development / Devops
+logdy	https://github.com/logdyhq/logdy-core	Supercharge terminal logs with web UI.	Development / Devops
+s5cmd	https://github.com/peak/s5cmd	Blazing fast S3 and local filesystem execution tool.	Development / Devops
+updo	https://github.com/Owloops/updo	Website monitoring tool.	Development / Devops
+cronboard	https://github.com/antoniorodr/Cronboard	Dashboard for managing cron jobs.	Development / Devops
+s3m	https://github.com/s3m/s3m	Stream of data into S3 buckets.	Development / Devops
+bencher	https://github.com/bencherdev/bencher	A continuous benchmarking tool.	Development / Devops
+RunWisp	https://github.com/runwisp/runwisp	Featureful cron and supervisord replacement.	Development / Devops
+lstags	https://github.com/ivanilves/lstags	Synchronize images across registries.	Development / Docker
+dockly	https://github.com/lirantal/dockly	Interactively manage containers.	Development / Docker
+lazydocker	https://github.com/jesseduffield/lazydocker	Simple docker/docker-compose interface.	Development / Docker
+docker-pushrm	https://github.com/christian-korneck/docker-pushrm	Push a readme to container registries.	Development / Docker
+ctop	https://github.com/bcicen/ctop	Top like interface for container metrics.	Development / Docker
+decompose	https://github.com/s0rg/decompose	Create connections graph for running docker containers.	Development / Docker
+kool	https://github.com/kool-dev/kool	Web development with containers made easy.	Development / Docker
+release-it	https://github.com/webpro/release-it	Automate releases for Git repositories and/or npm packages. Changelog generation, GitHub/GitLab releases, etc.	Development / Release
+clog	https://github.com/clog-tool/clog-cli	A conventional changelog for the rest of us.	Development / Release
+np	https://github.com/sindresorhus/np	A better `npm publish`.	Development / Release
+release	https://github.com/vercel/release	Generate changelogs with a single command.	Development / Release
+semantic-release	https://github.com/semantic-release/semantic-release	Fully automated version management and package publishing.	Development / Release
+vmn	https://github.com/progovoy/vmn	Stamp semantic versions into git tags and restore any release across repos.	Development / Release
+npm-name-cli	https://github.com/sindresorhus/npm-name-cli	Check whether a package name is available on npm.	Development / Npm
+npm-user-cli	https://github.com/sindresorhus/npm-user-cli	Get user info of a npm user.	Development / Npm
+npm-home	https://github.com/sindresorhus/npm-home	Open the npm page of the package in the current directory.	Development / Npm
+pkg-dir-cli	https://github.com/sindresorhus/pkg-dir-cli	Find the root directory of a npm package.	Development / Npm
+npm-check-updates	https://github.com/tjunnone/npm-check-updates	Find newer versions of package dependencies than what your package.json allows.	Development / Npm
+updates	https://github.com/silverwind/updates	Flexible npm dependency update tool.	Development / Npm
+wipe-modules	https://github.com/bntzio/wipe-modules	Remove `node_modules` of inactive projects.	Development / Npm
+npm-deprecated-check	https://github.com/KID-joker/npm-deprecated-check	Check for deprecated dependencies.	Development / Npm
+yo	https://github.com/yeoman/yo	Scaffolding tool for running Yeoman generators.	Development / Boilerplate
+boilr	https://github.com/tmrts/boilr	Create projects from boilerplate templates.	Development / Boilerplate
+cookiecutter	https://github.com/audreyr/cookiecutter	Create projects from templates.	Development / Boilerplate
+mevn-cli	https://github.com/madlabsinc/mevn-cli	Light speed setup for MEVN (Mongo Express Vue Node) Apps.	Development / Boilerplate
+scaffold-static	https://github.com/jamesgeorge007/scaffold-static	Scaffolding utility for vanilla JS.	Development / Boilerplate
+serve	https://github.com/vercel/serve	Serve static files (https, CORS, GZIP compression, etc).	Development / HTTP Server
+simplehttp	https://github.com/snwfdhmp/simplehttp	Easily serve a local directory over HTTP.	Development / HTTP Server
+shell2http	https://github.com/msoap/shell2http	Shell script based HTTP server.	Development / HTTP Server
+HTTPie	https://github.com/httpie/httpie	A user-friendly HTTP client.	Development / HTTP Client
+HTTP Prompt	https://github.com/eliangcs/http-prompt	Interactive HTTP client featuring autocomplete and syntax highlighting.	Development / HTTP Client
+ain	https://github.com/jonaslu/ain	HTTP client with a simple format to organize API endpoints.	Development / HTTP Client
+curlie	https://github.com/rs/curlie	A curl frontend with the ease of use of HTTPie.	Development / HTTP Client
+ATAC	https://github.com/Julien-cpsn/ATAC	A feature-full TUI API client made in Rust.	Development / HTTP Client
+httptap	https://github.com/ozeranskii/httptap	Breakdown and visualize HTTP requests.	Development / HTTP Client
+shellspec	https://github.com/shellspec/shellspec	A full-featured BDD unit-testing framework for all POSIX shells.	Development / Testing
+gdb-dashboard	https://github.com/cyrus-and/gdb-dashboard	Modular visual interface for GDB.	Development / Testing
+loadtest	https://github.com/alexfernandez/loadtest	Run load tests.	Development / Testing
+Step CI	https://github.com/stepci/stepci	API testing and QA framework.	Development / Testing
+bats-core	https://github.com/bats-core/bats-core	Bash Automated Testing System.	Development / Testing
+cmdperf	https://github.com/miklosn/cmdperf	Quickly benchmark and compare command performance.	Development / Testing
+doing	https://github.com/ttscoff/doing/	Keep track of what you’re doing and track what you’ve done.	Productivity
+ffscreencast	https://github.com/cytopia/ffscreencast	A ffmpeg screencast with video overlay and multi monitor support.	Productivity
+meetup-cli	https://github.com/specious/meetup-cli	Meetup.com client.	Productivity
+terjira	https://github.com/keepcosmos/terjira	Jira client.	Productivity
+ipt	https://github.com/drselump14/ipt	Pivotal Tracker client.	Productivity
+uber-cli	https://github.com/jaebradley/uber-cli	Uber client.	Productivity
+Buku	https://github.com/jarun/Buku	Browser-independent bookmark manager.	Productivity
+fjira	https://github.com/mk-5/fjira	Fuzzy finder and TUI application for Jira.	Productivity
+OverTime	https://github.com/diit/overtime-cli	Time-overlap tables for remote teams.	Productivity
+CookCLI	https://github.com/cooklang/CookCLI	Full-featured recipe manager.	Productivity
+hns	https://github.com/primaprashant/hns	Speech-to-text tool to transcribe voice from microphone.	Productivity
+mynav	https://github.com/GianlucaP106/mynav	Workspace and session management TUI.	Productivity
+linear-tui	https://github.com/roeyazroel/linear-tui	Linear TUI client.	Productivity
+jiratui	https://github.com/whyisdifficult/jiratui	TUI app for Jira.	Productivity
+tiki	https://github.com/boolean-maybe/tiki	Markdown-based workflow builder.	Productivity
+yapsnap	https://github.com/kouhxp/yapsnap	Transcribe video URLs, audio files or meetings on your machine.	Productivity
+Timetrap	https://github.com/samg/timetrap	Simple timetracker.	Productivity / Time Tracking
+Timewarrior	https://github.com/GothenburgBitFactory/timewarrior	Utility with simple stopwatch, calendar-based backfill and flexible reporting.	Productivity / Time Tracking
+Watson	https://github.com/TailorDev/Watson	Generate reports for clients and manage your time.	Productivity / Time Tracking
+utt	https://github.com/larose/utt	Simple time tracking tool.	Productivity / Time Tracking
+Bartib	https://github.com/nikolassv/bartib	Easy to use time tracking tool.	Productivity / Time Tracking
+arttime	https://github.com/reportaman/arttime	Featureful timer with native desktop notifications and curated ASCII art.	Productivity / Time Tracking
+Tock	https://github.com/kriuchkov/tock	Powerful time tracking tool.	Productivity / Time Tracking
+Helm	https://github.com/0xjuanma/helm	Minimalistic timer.	Productivity / Time Tracking
+Focusd	https://github.com/0xarchit/Focusd	[Windows] A local, privacy-first screen time monitor.	Productivity / Time Tracking
+idea	https://github.com/IonicaBizau/idea	A lightweight tool for keeping ideas in a safe place quick and easy.	Productivity / Note Taking, Lists, Task Management
+geeknote	https://github.com/vitaly-zdanevich/geeknote	Evernote client.	Productivity / Note Taking, Lists, Task Management
+Taskwarrior	https://taskwarrior.org/	Manage your TODO list.	Productivity / Note Taking, Lists, Task Management
+Terminal velocity	https://vhp.github.io/terminal_velocity/	A fast note-taking app.	Productivity / Note Taking, Lists, Task Management
+eureka	https://github.com/simeg/eureka	Input and store your ideas.	Productivity / Note Taking, Lists, Task Management
+sncli	https://github.com/insanum/sncli	Simplenote client.	Productivity / Note Taking, Lists, Task Management
+td-cli	https://github.com/darrikonn/td-cli	A TODO manager to organize and manage your TODO's across multiple projects.	Productivity / Note Taking, Lists, Task Management
+taskbook	https://github.com/klaussinani/taskbook	Tasks, boards & notes for the command-line habitat.	Productivity / Note Taking, Lists, Task Management
+dnote	https://github.com/dnote/dnote	A interactive, multi-device notebook.	Productivity / Note Taking, Lists, Task Management
+nb	https://github.com/xwmx/nb	A note‑taking, bookmarking, archiving, and knowledge base application.	Productivity / Note Taking, Lists, Task Management
+notesmd-cli	https://github.com/Yakitrak/notesmd-cli	Interact with your Obsidian vault.	Productivity / Note Taking, Lists, Task Management
+journalot	https://github.com/jtaylortech/journalot	Journaling tool with git sync.	Productivity / Note Taking, Lists, Task Management
+rucola	https://github.com/Linus-Mussmaecher/rucola	Manage your markdown notes.	Productivity / Note Taking, Lists, Task Management
+kanban.bash	https://github.com/coderofsalvation/kanban.bash	Kanban todo manager with a CSV backend.	Productivity / Note Taking, Lists, Task Management
+kanban	https://github.com/fulsomenko/kanban	Keyboard-driven project management tool inspired by lazygit.	Productivity / Note Taking, Lists, Task Management
+gtasks	https://github.com/BRO3886/gtasks	Manage Google Tasks.	Productivity / Note Taking, Lists, Task Management
+epiq	https://github.com/ljtn/epiq	Local-first distributed issue tracker backed by Git.	Productivity / Note Taking, Lists, Task Management
+feeling	https://github.com/qiz-li/feeling	Mood tracker that visualizes your emotional patterns over time.	Productivity / Note Taking, Lists, Task Management
+confluence-cli	https://github.com/pchuri/confluence-cli	Confluence client.	Productivity / Note Taking, Lists, Task Management
+NeoMutt	https://neomutt.org	Email client.	Productivity / Email
+mail-duplicate	https://github.com/kdeldycke/mail-deduplicate	Deduplicate mail boxes.	Productivity / Email
+ledger	https://ledger-cli.org/	Powerful, double-entry accounting system.	Productivity / Finance
+hledger	https://hledger.org/	Robust, fast, intuitive plain text accounting tool with CLI, TUI and web interfaces.	Productivity / Finance
+moeda	https://github.com/thompsonemerson/moeda	Foreign exchange rates and currency conversion.	Productivity / Finance
+cash-cli	https://github.com/xxczaki/cash-cli	Convert Currency Rates.	Productivity / Finance
+cointop	https://github.com/miguelmota/cointop	Track cryptocurrencies.	Productivity / Finance
+ticker	https://github.com/achannarasappa/ticker	Stock ticker.	Productivity / Finance
+lakshmi	https://github.com/sarvjeets/lakshmi	Bogleheads inspired tool for managing your investing portfolio.	Productivity / Finance
+WOPR	https://github.com/yaronn/wopr	A simple markup language for creating rich terminal reports, presentations and infographics.	Productivity / Presentations
+decktape	https://github.com/astefanutti/decktape	PDF exporter for HTML presentations.	Productivity / Presentations
+mdp	https://github.com/visit1985/mdp	A markdown presentation tool.	Productivity / Presentations
+sent	https://tools.suckless.org/sent/	Simple plaintext presentation tool.	Productivity / Presentations
+slides	https://github.com/maaslalani/slides	A markdown presentation tool.	Productivity / Presentations
+marp	https://github.com/marp-team/marp-cli	Export Markdown to HTML/PDF/Powerpoint presentations.	Productivity / Presentations
+calcurse	https://calcurse.org/	Calendar and scheduling.	Productivity / Calendars
+gcalcli	https://github.com/insanum/gcalcli	Google calendar client.	Productivity / Calendars
+khal	https://github.com/pimutils/khal	CalDAV ready CLI and TUI calendar.	Productivity / Calendars
+vdirsyncer	https://github.com/pimutils/vdirsyncer	CalDAV sync.	Productivity / Calendars
+remind	https://dianne.skoll.ca/projects/remind/	A sophisticated calendar and alarm program.	Productivity / Calendars
+birthday	https://github.com/IonicaBizau/birthday	Know when a friend's birthday is coming.	Productivity / Calendars
+ical	https://github.com/BRO3886/ical	Manage macOS Calendar.	Productivity / Calendars
+rem	https://github.com/BRO3886/rem	Manage macOS Reminders.	Productivity / Calendars
+aria2	https://github.com/tatsuhiro-t/aria2	HTTP, FTP, SFTP, BitTorrent and Metalink download utility.	Utilities
+bitly-client	https://github.com/specious/bitly-client	Bitly client.	Utilities
+deadlink	https://github.com/nschloe/deadlink	Find dead links in files.	Utilities
+crawley	https://github.com/s0rg/crawley	Unix-way web crawler.	Utilities
+kill-tabs	https://github.com/sindresorhus/kill-tabs	Kill all Chrome tabs.	Utilities
+alex	https://github.com/get-alex/alex	Catch insensitive, inconsiderate writing.	Utilities
+clevercli	https://github.com/clevercli/clevercli	Collection of ChatGPT powered utilities.	Utilities
+OctoType	https://github.com/mahlquistj/octotype	A customizable typing trainer.	Utilities
+gittype	https://github.com/unhappychoice/gittype	Turn your source code into typing challenges.	Utilities
+gravitype	https://github.com/kanakOS01/gravitype	Typing game where words fall from the sky.	Utilities
+amazon-orders	https://github.com/alexdlaird/amazon-orders	Retrieve Amazon order history.	Utilities
+open-pip-cli	https://github.com/albinekb/open-pip-cli	Watch videos in picture-in-picture player.	Utilities / macOS
+osx-wifi-cli	https://github.com/danyshaanan/osx-wifi-cli	Manage wifi connections.	Utilities / macOS
+active-win-cli	https://github.com/sindresorhus/active-win-cli	Get the title/id/etc of the active window.	Utilities / macOS
+stronghold	https://github.com/alichtman/stronghold	Configure security settings from the terminal.	Utilities / macOS
+dark-mode	https://github.com/sindresorhus/dark-mode	Toggle dark mode.	Utilities / macOS
+clippy	https://github.com/neilberkman/clippy	Clipboard tool for interacting with GUI applications.	Utilities / macOS
+anvil	https://github.com/0xjuanma/anvil	Config management and app installations.	Utilities / macOS
+Mole	https://github.com/tw93/Mole	Clean your Mac and more.	Utilities / macOS
+Raccoon	https://github.com/thousandflowers/Raccoon	Security audits, system reports and SSH fleet management.	Utilities / macOS
+gotty	https://github.com/yudai/gotty	Share your terminal as a web application.	Utilities / Terminal Sharing Utilities
+warp	https://github.com/spolu/warp	Secure and simple terminal sharing.	Utilities / Terminal Sharing Utilities
+upterm	https://github.com/owenthereal/upterm	Instant terminal sharing.	Utilities / Terminal Sharing Utilities
+mosh	https://mosh.org/	Remote SSH client that allows roaming with intermittent connectivity.	Utilities / SSH
+xxh	https://github.com/xxh/xxh	Bring your favorite shell wherever you go through SSH.	Utilities / SSH
+get-port-cli	https://github.com/sindresorhus/get-port-cli	Get an available port.	Utilities / Network Utilities
+is-reachable-cli	https://github.com/beatfreaker/is-reachable-cli	Check if hostnames are reachable or not.	Utilities / Network Utilities
+acmetool	https://github.com/hlandau/acmetool	Automatic certificate acquisition for ACME (Let's Encrypt).	Utilities / Network Utilities
+certificate-ripper	https://github.com/Hakky54/certificate-ripper	Extract server certificates.	Utilities / Network Utilities
+neoss	https://github.com/PabloLec/neoss	User-friendly and detailed socket statistics.	Utilities / Network Utilities
+gg	https://github.com/mzz2017/gg	One-click proxy without installing v2ray or anything else.	Utilities / Network Utilities
+rustnet	https://github.com/domcyrus/rustnet	Network monitoring with process identification and deep packet inspection.	Utilities / Network Utilities
+sshuttle	https://github.com/sshuttle/sshuttle	Transparent proxy server that works as a poor man's VPN.	Utilities / Network Utilities
+tldx	https://github.com/brandonyoungdev/tldx	Bulk domain availability checker.	Utilities / Network Utilities
+vortix	https://github.com/Harry-kp/vortix	Featureful VPN UI (WireGuard and OpenVPN.)	Utilities / Network Utilities
+splash-cli	https://github.com/splash-cli/splash-cli	Beautiful wallpapers from Unsplash.	Utilities / Theming and Customization
+wallpaper-cli	https://github.com/sindresorhus/wallpaper-cli	Get or set the desktop wallpaper.	Utilities / Theming and Customization
+themer	https://github.com/mjswensen/themer	Generate personalized themes for your editor, terminal, wallpaper, Slack, and more.	Utilities / Theming and Customization
+JackPaper	https://github.com/jackel27/jackpaper	Set images from Unsplash as wallpaper.	Utilities / Theming and Customization
+QuickWall	https://github.com/deepjyoti30/QuickWall	Directly set wallpapers from Unsplash.	Utilities / Theming and Customization
+oh-my-posh	https://ohmyposh.dev	Prompt theme engine.	Utilities / Theming and Customization
+starship	https://github.com/starship/starship	Minimal, blazing-fast, and infinitely customizable prompt for any shell.	Utilities / Theming and Customization
+gowall	https://github.com/Achno/gowall	Extract image color palette, recolor images/icon and more.	Utilities / Theming and Customization
+cwal	https://github.com/nitinbhat972/cwal	pywal-like color palette generator.	Utilities / Theming and Customization
+has	https://github.com/kdabir/has	Checks for the presence of various commands and their versions on the path.	Utilities / Shell Utilities
+Ultimate Plumber	https://github.com/akavel/up	Write Linux pipes with live previews.	Utilities / Shell Utilities
+fkill-cli	https://github.com/sindresorhus/fkill-cli	Simple cross-platform process killer.	Utilities / Shell Utilities
+task-spooler	https://tracker.debian.org/pkg/task-spooler	Queue jobs for linear execution.	Utilities / Shell Utilities
+undollar	https://github.com/ImFeelingDucky/undollar	Strip the '$' preceding copy-pasted terminal commands.	Utilities / Shell Utilities
+pipe_exec	https://github.com/koraa/pipe_exec	Run executables from stdin, pipes and ttys without creating a temporary file.	Utilities / Shell Utilities
+intelli-shell	https://github.com/lasantosr/intelli-shell	Manage command templates/snippets.	Utilities / Shell Utilities
+envio	https://github.com/envio-cli/envio	Manage environment variables securely.	Utilities / Shell Utilities
+await	https://github.com/slavaGanzin/await	Runs commands in parallel and waits for their termination.	Utilities / Shell Utilities
+aha	https://github.com/theZiz/aha	Convert ANSI output to HTML.	Utilities / Shell Utilities
+fastfetch	https://github.com/fastfetch-cli/fastfetch	System information tool.	Utilities / System Interaction Utilities
+battery-level-cli	https://github.com/gillstrom/battery-level-cli	Get current battery level.	Utilities / System Interaction Utilities
+brightness-cli	https://github.com/kevva/brightness-cli	Change screen brightness (windows).	Utilities / System Interaction Utilities
+Clipboard	https://github.com/Slackadays/Clipboard	Cut, copy, and paste anything, anywhere.	Utilities / System Interaction Utilities
+yank	https://github.com/mptre/yank	Yank terminal output to clipboard.	Utilities / System Interaction Utilities
+screensaver	https://github.com/gillstrom/screensaver	Start the screensaver.	Utilities / System Interaction Utilities
+google-font-installer	https://github.com/lordgiotto/google-font-installer	Download and install Google Web Fonts on your local machine.	Utilities / System Interaction Utilities
+glances	https://nicolargo.github.io/glances/	System monitoring tool.	Utilities / System Interaction Utilities
+tiptop	https://github.com/nschloe/tiptop	System monitor.	Utilities / System Interaction Utilities
+gzip-size-cli	https://github.com/sindresorhus/gzip-size-cli	Get the gzipped size of a file.	Utilities / System Interaction Utilities
+DocToc	https://github.com/thlorenz/doctoc	Generates table of contents for markdown files.	Utilities / Markdown
+grip	https://github.com/joeyespo/grip	Preview markdown files as GitHub would render them.	Utilities / Markdown
+mdv	https://github.com/axiros/terminal_markdown_viewer	Styled terminal markdown viewer.	Utilities / Markdown
+glow	https://github.com/charmbracelet/glow	Styled markdown rendering.	Utilities / Markdown
+gtree	https://github.com/ddddddO/gtree	Use markdown to generate directory trees and the directories itself.	Utilities / Markdown
+Jimmy	https://github.com/marph91/jimmy	Convert various note formats to markdown.	Utilities / Markdown
+mq	https://github.com/harehare/mq	Jq-like markdown processor.	Utilities / Markdown
+mcat	https://github.com/Skardyy/mcat	Markdown, images, video, and document viewer.	Utilities / Markdown
+pass	https://www.passwordstore.org	Password manager.	Utilities / Security
+gopass	https://github.com/gopasspw/gopass	Fully-featured password manager.	Utilities / Security
+xiringuito	https://github.com/ivanilves/xiringuito	SSH-based VPN.	Utilities / Security
+hasha-cli	https://github.com/sindresorhus/hasha-cli	Get the hash of text or stdin.	Utilities / Security
+ots	https://github.com/sniptt-official/ots	Share secrets with others via a one-time URL.	Utilities / Security
+andcli	https://github.com/tjblackheart/andcli	Work with 2FA tokens from multiple OTP providers.	Utilities / Security
+mdlt	https://github.com/metadelta/mdlt	Do quick math right from the command line.	Utilities / Math
+Qalculate	https://github.com/Qalculate/libqalculate	Calculate non-trivial math expressions. Unit conversions, symbolic calculations and more.	Utilities / Math
+numr	https://github.com/nasedkinpv/numr	Natural-language calculator with variables, units, currencies, and live exchange rates.	Utilities / Math
+papis	https://github.com/papis/papis	Extensible document and bibliography manager.	Utilities / Academia
+pubs	https://github.com/pubs/pubs	Scientific bibliography manager.	Utilities / Academia
+OneCite	https://github.com/HzaCode/OneCite	Universal toolkit to generate citations.	Utilities / Academia
+wttr.in	https://github.com/chubin/wttr.in		Utilities / Weather
+wego	https://github.com/schachmat/wego		Utilities / Weather
+weather-cli	https://github.com/riyadhalnur/weather-cli		Utilities / Weather
+weathr	https://github.com/veirt/weathr	ASCII animations.	Utilities / Weather
+linecast	https://github.com/ashuttl/linecast	Weather, tides, sun, moon, and maps.	Utilities / Weather
+s	https://github.com/zquestz/s	Open a web search in your terminal.	Utilities / Browser Replacement
+hget	https://github.com/bevacqua/hget	Render websites in plain text from your terminal.	Utilities / Browser Replacement
+mapscii	https://github.com/rastapasta/mapscii	Terminal Map Viewer.	Utilities / Browser Replacement
+nasa-cli	https://github.com/xxczaki/nasa-cli	Download NASA Picture of the Day.	Utilities / Browser Replacement
+getnews.tech	https://github.com/omgimanerd/getnews.tech	Fetch news headlines from various news outlets.	Utilities / Browser Replacement
+trino	https://github.com/eneserdogan/trino	Translation of words and phrases.	Utilities / Browser Replacement
+translate-shell	https://github.com/soimort/translate-shell	Google Translate interface.	Utilities / Browser Replacement
+speedtest-net	https://github.com/ddsol/speedtest.net	Test internet connection speed and ping using speedtest.net.	Utilities / Internet Speedtest
+speed-test	https://github.com/sindresorhus/speed-test	`speedtest-net` wrapper with different UI.	Utilities / Internet Speedtest
+speedtest-cli	https://github.com/sivel/speedtest-cli	Test internet bandwidth using speedtest.net.	Utilities / Internet Speedtest
+bandwhich	https://github.com/imsnif/bandwhich	Track bandwidth utilization by process.	Utilities / Internet Speedtest
+periodic-table-cli	https://github.com/spirometaxas/periodic-table-cli	View and explore the Periodic Table of Elements.	Utilities / Science
+astroterm	https://github.com/da-luce/astroterm	An ASCII planetarium.	Utilities / Science
+birda	https://github.com/tphakala/birda	Identify bird species from audio recordings.	Utilities / Science
+resumx	https://github.com/resumx/resumx	Markdown resume renderer with auto page-fitting.	Utilities / Professional: Resume
+YAMLResume	https://github.com/yamlresume/yamlresume	Resumes as code.	Utilities / Professional: Resume
+shallow-backup	https://github.com/alichtman/shallow-backup	Git integrated backup tool.	Utilities / Backup
+Plakar	https://github.com/PlakarKorp/plakar	An encrypted, deduplicated, verifiable, and scalable backup engine with no vendor lock-in.	Utilities / Backup
+cmdchallenge	https://cmdchallenge.com	Presents small shell challenge with user submitted solutions.	Command Line Learning
+explainshell	https://explainshell.com	Type a snippet to see the help text for each argument.	Command Line Learning
+howdoi	https://github.com/gleitz/howdoi	Instant coding answers.	Command Line Learning
+how2	https://github.com/santinic/how2	Node.js implementation of howdoi.	Command Line Learning
+The Fuck	https://github.com/nvbn/thefuck	Magnificent app which corrects your previous console command.	Command Line Learning
+tldr	https://github.com/tldr-pages/tldr	Simplified and community-driven man pages.	Command Line Learning
+Wat	https://github.com/dthree/wat	Instant, central, community-built docs.	Command Line Learning
+teachcode	https://github.com/madlabsinc/teachcode	Guide for the earliest lessons of coding.	Command Line Learning
+navi	https://github.com/denisidoro/navi	Interactive cheatsheet tool.	Command Line Learning
+yai	https://github.com/ekkinox/yai	AI powered terminal assistant.	Command Line Learning
+Linux Command Library	https://linuxcommandlibrary.com	Comprehensive command reference including basic knowledge, tips, and examples.	Command Line Learning
+visidata	https://github.com/saulpw/visidata	Spreadsheet multitool for data discovery and arrangement.	Data Manipulation
+sc-im	https://github.com/andmarti1424/sc-im	Vim-like spreadsheet calculator.	Data Manipulation
+nless	https://github.com/mpryor/nothing-less	Interactive pager for exploring tabular data.	Data Manipulation
+jq	https://github.com/stedolan/jq	JSON processor.	Data Manipulation / Processors
+yq	https://github.com/kislyuk/yq	YAML processor.	Data Manipulation / Processors
+dasel	https://github.com/tomwright/dasel	JSON/YAML/TOML/XML processor (like jq/yq).	Data Manipulation / Processors
+yaml-cli	https://github.com/pandastrike/yaml-cli	Query/update YAML.	Data Manipulation / Processors
+ramda-cli	https://github.com/raine/ramda-cli	Process data with functional pipelines.	Data Manipulation / Processors
+xq	https://github.com/sibprogrammer/xq	XML and HTML beautifier and content extractor.	Data Manipulation / Processors
+mq	https://github.com/harehare/mq	Jq-like markdown processor.	Data Manipulation / Processors
+jp	https://github.com/therealklanni/jp	JSON parser.	Data Manipulation / JSON
+fx	https://github.com/antonmedv/fx	Command-line JSON viewer.	Data Manipulation / JSON
+vj	https://github.com/busyloop/vj	Makes JSON human readable.	Data Manipulation / JSON
+underscore-cli	https://github.com/ddopson/underscore-cli	Utility-belt for hacking JSON and Javascript.	Data Manipulation / JSON
+strip-json-comments-cli	https://github.com/sindresorhus/strip-json-comments-cli	Strip comments from JSON.	Data Manipulation / JSON
+GROQ	https://github.com/sanity-io/groq-cli	JSON processor with queries and projections.	Data Manipulation / JSON
+gron	https://github.com/tomnomnom/gron	Make JSON greppable.	Data Manipulation / JSON
+config-file-validator	https://github.com/Boeing/config-file-validator	Validate configuration files.	Data Manipulation / JSON
+dyff	https://github.com/homeport/dyff	YAML diff tool.	Data Manipulation / YAML
+config-file-validator	https://github.com/Boeing/config-file-validator	Validate configuration files.	Data Manipulation / YAML
+parse-columns-cli	https://github.com/sindresorhus/parse-columns-cli	Parse text columns to JSON.	Data Manipulation / Columns
+q	https://harelba.github.io/q/	Execution of SQL-like queries on CSV/TSV/tabular text file.	Data Manipulation / Columns
+figlet	https://www.figlet.org	Creates large text out of ASCII characters.	Data Manipulation / Text
+stegcloak	https://github.com/kurolabs/stegcloak	Hide secrets with invisible characters in plain text securely.	Data Manipulation / Text
+ranger	https://github.com/ranger/ranger	A console file manager with VI key bindings.	Files and Directories / File Managers
+midnight-commander	https://github.com/MidnightCommander/mc	A feature rich visual file manager.	Files and Directories / File Managers
+Vifm	https://vifm.info/	VI influenced file manager.	Files and Directories / File Managers
+nnn	https://github.com/jarun/nnn	File browser and disk usage analyzer with excellent desktop integration.	Files and Directories / File Managers
+lf	https://github.com/gokcehan/lf	Fast, extensively customizable file manager.	Files and Directories / File Managers
+clifm	https://github.com/leo-arch/clifm	The command line file manager.	Files and Directories / File Managers
+far2l	https://github.com/elfmz/far2l	Orthodox file manager.	Files and Directories / File Managers
+yazi	https://github.com/sxyazi/yazi	Blazing fast file manager.	Files and Directories / File Managers
+xplr	https://github.com/sayanarijit/xplr	A hackable, minimal, fast TUI file explorer.	Files and Directories / File Managers
+elio	https://github.com/elio-fm/elio	Snappy, batteries-included file manager.	Files and Directories / File Managers
+trash-cli	https://github.com/sindresorhus/trash-cli	Move files and directories to the trash.	Files and Directories / Deleting, Copying, and Renaming
+empty-trash-cli	https://github.com/sindresorhus/empty-trash-cli	Empty the trash.	Files and Directories / Deleting, Copying, and Renaming
+del-cli	https://github.com/sindresorhus/del-cli	Delete files and folders.	Files and Directories / Deleting, Copying, and Renaming
+cpy-cli	https://github.com/sindresorhus/cpy-cli	Copies files.	Files and Directories / Deleting, Copying, and Renaming
+rename-cli	https://github.com/jhotmann/node-rename-cli	Rename files quickly.	Files and Directories / Deleting, Copying, and Renaming
+renameutils	https://www.nongnu.org/renameutils/	Mass renaming in your editor.	Files and Directories / Deleting, Copying, and Renaming
+nomino	https://github.com/yaa110/nomino	Batch rename utility for developers.	Files and Directories / Deleting, Copying, and Renaming
+diskonaut	https://github.com/imsnif/diskonaut	Disk space navigator.	Files and Directories / Disk Usage
+dua-cli	https://github.com/Byron/dua-cli	Disk usage analyzer.	Files and Directories / Disk Usage
+duf	https://github.com/muesli/duf	A better `df` alternative.	Files and Directories / Disk Usage
+dust	https://github.com/bootandy/dust	A more intuitive version of `du` in Rust.	Files and Directories / Disk Usage
+dutree	https://github.com/nachoparker/dutree	A tool to analyze file system usage written in Rust.	Files and Directories / Disk Usage
+NCDu	https://dev.yorhel.nl/ncdu	A disk usage analyzer with an ncurses interface.	Files and Directories / Disk Usage
+darya	https://github.com/mrkatebzadeh/darya	A disk usage explorer TUI with live treemap.	Files and Directories / Disk Usage
+chokidar-cli	https://github.com/open-cli-tools/chokidar-cli	CLI to watch file system changes.	Files and Directories / Files
+file-type-cli	https://github.com/sindresorhus/file-type-cli	Detect the file type of a file or stdin.	Files and Directories / Files
+bat	https://github.com/sharkdp/bat	A cat clone with syntax highlighting.	Files and Directories / Files
+unix-permissions	https://github.com/ehmicky/unix-permissions	Swiss Army knife for Unix permissions.	Files and Directories / Files
+transmission-cli	https://transmissionbt.com	Torrent client for your command line.	Files and Directories / Files
+webtorrent-cli	https://github.com/feross/webtorrent-cli	Streaming torrent client.	Files and Directories / Files
+entr	https://github.com/eradman/entr	Run an arbitrary command when files change.	Files and Directories / Files
+organize-cli	https://github.com/ManrajGrover/organize-cli	Organize your files automatically.	Files and Directories / Files
+organize-rt	https://gitlab.com/foxido/organize-rt	organize-cli in Rust with more customization.	Files and Directories / Files
+RecoverPy	https://github.com/PabloLec/RecoverPy	Recover overwritten or deleted files.	Files and Directories / Files
+f2	https://github.com/ayoisaiah/f2	A cross-platform tool for fast, safe, and flexible batch renaming.	Files and Directories / Files
+scc	https://github.com/boyter/scc	Count lines of code, blank lines, comment lines, and physical lines of source code.	Files and Directories / Files
+chkbit	https://laktak.github.io/chkbit/	Check your files for data corruption.	Files and Directories / Files
+rclone	https://github.com/ncw/rclone	Sync files with various cloud providers.	Files and Directories / File Sync/Sharing
+ffsend	https://github.com/timvisee/ffsend	Quick file share.	Files and Directories / File Sync/Sharing
+share-cli	https://github.com/marionebl/share-cli	Share files with your local network.	Files and Directories / File Sync/Sharing
+google-drive-upload	https://github.com/labbots/google-drive-upload	Upload/sync with Google Drive.	Files and Directories / File Sync/Sharing
+gdrive-downloader	https://github.com/Akianonymus/gdrive-downloader	Download files/folders from Google Drive.	Files and Directories / File Sync/Sharing
+portal	https://github.com/ZinoKader/portal	Send files between computers.	Files and Directories / File Sync/Sharing
+shbin	https://github.com/Shiphero/shbin/	Turn a Github repo into a pastebin.	Files and Directories / File Sync/Sharing
+sharing	https://github.com/parvardegr/sharing	Send and receive files on your mobile device.	Files and Directories / File Sync/Sharing
+ncp	https://github.com/kha7iq/ncp	Transfer files and folders, to and from NFS servers.	Files and Directories / File Sync/Sharing
+share	https://github.com/beavailable/share	Share and receive files effortlessly over HTTP.	Files and Directories / File Sync/Sharing
+shuk	https://shuk.rs	Quicky share files using Amazon S3 buckets.	Files and Directories / File Sync/Sharing
+croc	https://github.com/schollz/croc	Easily send things from one computer to another.	Files and Directories / File Sync/Sharing
+filecast	https://github.com/gistrec/filecast	Fast file transfer to multiple machines on your LAN.	Files and Directories / File Sync/Sharing
+alder	https://github.com/aweary/alder	Minimal `tree` with colors.	Files and Directories / Directory Listing
+eza	https://github.com/eza-community/eza	Improved version of `ls`.	Files and Directories / Directory Listing
+tre	https://github.com/dduan/tre	`tree` with git awareness, editor aliasing, and more.	Files and Directories / Directory Listing
+ll	https://github.com/antonmedv/ll	`ls` with git status.	Files and Directories / Directory Listing
+lsd	https://github.com/Peltoche/lsd	`ls` with many extra features.	Files and Directories / Directory Listing
+lla	https://github.com/triyanox/lla	Improved `ls` with plugins.	Files and Directories / Directory Listing
+pls	https://github.com/pls-rs/pls	`ls` for the pros.	Files and Directories / Directory Listing
+treepp	https://github.com/Water-Run/treepp	Windows tree++.	Files and Directories / Directory Listing
+autojump	https://github.com/wting/autojump	A cd command that learns - easily navigate directories from the command line.	Files and Directories / Directory Navigation
+pm	https://github.com/Angelmmiguel/pm	The easy way to switch to your projects on the shell.	Files and Directories / Directory Navigation
+z	https://github.com/rupa/z	z is the new j, yo.	Files and Directories / Directory Navigation
+PathPicker	https://github.com/facebook/pathpicker/	After parsing the output from a command, PathPicker presents you with a nice UI to…	Files and Directories / Directory Navigation
+fz	https://github.com/changyuheng/fz.sh	Seamless fuzzy tab completion for z.	Files and Directories / Directory Navigation
+goto	https://github.com/iridakos/goto	Directory aliases for the shell with autocomplete.	Files and Directories / Directory Navigation
+z.lua	https://github.com/skywind3000/z.lua	`cd` command that learns your habits.	Files and Directories / Directory Navigation
+zoxide	https://github.com/ajeetdsouza/zoxide	Fast directory jumper in Rust.	Files and Directories / Directory Navigation
+tere	https://github.com/mgunyho/tere	A faster alternative to using cd and ls.	Files and Directories / Directory Navigation
+happyfinder	https://github.com/hugows/hf	(another) Fuzzy file finder for the command line.	Files and Directories / Search
+find-up-cli	https://github.com/sindresorhus/find-up-cli	Find a file by walking up parent directories.	Files and Directories / Search
+ripgrep	https://github.com/BurntSushi/ripgrep	A line-oriented search tool that recursively searches your current directory for a regex pattern.	Files and Directories / Search
+fzf	https://github.com/junegunn/fzf	A general purpose command-line fuzzy finder, can be used with any list: files/directories, command history,…	Files and Directories / Search
+fselect	https://github.com/jhspetersson/fselect	Find files with SQL-like queries.	Files and Directories / Search
+fd	https://github.com/sharkdp/fd	A simple, fast and user-friendly alternative to `find`.	Files and Directories / Search
+broot	https://github.com/Canop/broot	Fuzzy finder similar to fzf, but with space usage visualization.	Files and Directories / Search
+rare	https://github.com/zix99/rare	Real-time regex aggregation and analysis.	Files and Directories / Search
+skim	https://github.com/lotabout/skim	A general fuzzy finder written in Rust, similar to fzf.	Files and Directories / Search
+ast-grep	https://github.com/ast-grep/ast-grep	A tool for code structural search, linting and rewriting.	Files and Directories / Search
+television	https://github.com/alexpasmantier/television	A very fast general purpose fuzzy finder.	Files and Directories / Search
+srgn	https://github.com/alexpovel/srgn/	A grep-like tool which understands code syntax and also allows for manipulation.	Files and Directories / Search
+rawhide	https://github.com/raforg/rawhide	Find files using pretty C expressions.	Files and Directories / Search
+semantic-grep	https://github.com/arunsupe/semantic-grep	A tool for semantic search using word embeddings (e.g. search for "death" and find "dead",…	Files and Directories / Search
+reflex	https://github.com/reflex-search/reflex	Instant, offline, code-aware search for text, symbols, and import graphs.	Files and Directories / Search
+Vexor	https://github.com/scarletkc/vexor	A semantic search engine for files and code.	Files and Directories / Search
+ygrep	https://github.com/yetidevworks/ygrep	Indexed code search backed by a local Tantivy full-text index.	Files and Directories / Search
+SnowFS	https://github.com/snowtrack/snowfs	A fast, scalable version control system for binaries.	Version Control
+git commander	https://github.com/golbin/git-commander	Interactive git tool.	Version Control / Git
+git-stats	https://github.com/IonicaBizau/git-stats	A local GitHub-like contributions calendar.	Version Control / Git
+dev-time	https://github.com/samverschueren/dev-time-cli	Get the current local time of a GitHub user.	Version Control / Git
+tig	https://github.com/jonas/tig	Text-mode interface for git.	Version Control / Git
+grv	https://github.com/rgburke/grv	Text-mode interface for git with customisable vi bindings.	Version Control / Git
+git-standup	https://github.com/kamranahmedse/git-standup	Recall what you did on the last working day.	Version Control / Git
+git-secret	https://github.com/sobolevn/git-secret	Store your private data inside a git repository.	Version Control / Git
+gitlab-cli	https://github.com/vishwanatharondekar/gitlab-cli	Create GitLab merge requests.	Version Control / Git
+git-extras	https://github.com/tj/git-extras	Git utilities.	Version Control / Git
+gita	https://github.com/nosarthur/gita	Manage multiple git repos side by side.	Version Control / Git
+readme-md-generator	https://github.com/kefranabg/readme-md-generator	Interactively generate README.md files.	Version Control / Git
+semantic-git-commit-cli	https://github.com/JPeer264/node-semantic-git-commit-cli	Ensure semantic commits messages.	Version Control / Git
+import-github-labels-cli	https://github.com/abhijithvijayan/import-github-labels-cli	Sync labels between Github repos.	Version Control / Git
+git-all-branches	https://github.com/zacanger/git-all-branches	Improved `git branch -a`.	Version Control / Git
+czg	https://github.com/Zhengqbbb/cz-git/tree/main/packages/cli	Interactively generate standardized commit messages.	Version Control / Git
+lazygit	https://github.com/jesseduffield/lazygit	Simple TUI for git commands.	Version Control / Git
+bash-git-prompt	https://github.com/magicmonty/bash-git-prompt	Informative and fancy bash prompt for Git users.	Version Control / Git
+gitui	https://github.com/extrawurst/gitui	Blazing fast terminal-ui for git written in Rust.	Version Control / Git
+ggc	https://github.com/bmf-san/ggc	A modern Git tool with both CLI and interactive incremental-search UI.	Version Control / Git
+AI Git Narrator	https://github.com/pmusolino/AI-Git-Narrator	[macOS]: Generate commit messages with AI.	Version Control / Git
+gibr	https://github.com/ytreister/gibr	Easily create consistent git branch names.	Version Control / Git
+gh	https://cli.github.com	Official client (see extensions.)	Version Control / GitHub
+cli-github	https://github.com/IonicaBizau/cli-github	Fancy GitHub client.	Version Control / GitHub
+hub	https://github.com/github/hub	Make git easier to use with GitHub.	Version Control / GitHub
+git-labelmaker	https://github.com/himynameisdave/git-labelmaker	Edit GitHub labels.	Version Control / GitHub
+gitfetch	https://github.com/Matars/gitfetch	Neofetch-style stats of your git forge.	Version Control / GitHub
+gitmoji-cli	https://github.com/carloscuesta/gitmoji-cli	Use emoji in commit messages.	Version Control / Emoji
+gitmoji-changelog	https://github.com/frinyvonnick/gitmoji-changelog	Generate gitmoji changelogs.	Version Control / Emoji
+SVGO	https://github.com/svg/svgo	Optimize SVG files.	Images
+carbon-now-cli	https://github.com/mixn/carbon-now-cli	Generate beautiful images of your code.	Images
+imgur-uploader-cli	https://github.com/kevva/imgur-uploader-cli	Upload images to imgur.	Images
+pageres-cli	https://github.com/sindresorhus/pageres-cli	Capture website screenshots.	Images
+optimizt	https://github.com/343dev/optimizt	Helps prepare images for the web.	Images
+freeze	https://github.com/charmbracelet/freeze	Generate images of code and terminal output.	Images
+rclip	https://github.com/yurijmikhalevich/rclip	Semantic photo search.	Images
+gifgen	https://github.com/lukechilds/gifgen	Simple high quality GIF encoding.	Images / Gif Creation
+gifsicle	https://github.com/kohler/gifsicle	Create, manipulate, and optimize GIF images and animations.	Images / Gif Creation
+ttygif	https://github.com/icholy/ttygif	Convert terminal recordings to animated gifs.	Images / Gif Creation
+ttygif	https://github.com/sugyan/ttygif	ttyrec to gif.	Images / Gif Creation
+ttystudio	https://github.com/chjj/ttystudio	A terminal-to-gif recorder minus the headaches.	Images / Gif Creation
+asciinema	https://github.com/asciinema/asciinema	Terminal session recorder and companion app for asciinema.org.	Images / Gif Creation
+givegif	https://github.com/passy/givegif	GIFs on the command line.	Images / Gif Creation
+imagemagick	https://imagemagick.org	Gold standard for anything images.	Images / Image Conversion
+imgp	https://github.com/jarun/imgp	Blazing fast batch image resizer and rotator.	Images / Image Conversion
+korkut	https://github.com/oguzhaninan/korkut	Quick and simple image processing.	Images / Image Conversion
+pdfjuicer	https://github.com/dmikhr/pdfjuicer	Extract PDF pages as images.	Images / Image Conversion
+gowall	https://github.com/Achno/gowall	Recolor images, OCR, image upscaling and more.	Images / Image Conversion
+img2ascii	https://github.com/JosefVesely/Image-to-ASCII	Convert images to ASCII art.	Images / Image Conversion
+cmatrix	https://github.com/Treri/cmatrix	Scrolling 'Matrix'-like screen.	Screensavers
+pipes.sh	https://github.com/pipeseroni/pipes.sh	Random pipes that grow across the screen.	Screensavers
+YuleLog	https://github.com/Duroktar/YuleLog	Christmas Yule Log fireplace.	Screensavers
+cli-fireplace	https://github.com/dolsup/cli-fireplace	Digital fireplace.	Screensavers
+gitlogue	https://github.com/unhappychoice/gitlogue	Cinematic git commit replay.	Screensavers
+drift	https://github.com/phlx0/drift	Multiple animated scenes.	Screensavers
+cbirds	https://github.com/clainstone/cbirds	A flock of birds simulation.	Screensavers
+cli-mandelbrot	https://github.com/danyshaanan/cli-mandelbrot	Traverse the Mandelbrot fractal.	Graphics
+sparkly-cli	https://github.com/sindresorhus/sparkly-cli	Generate sparklines ▁▂▃▅▂▇..	Graphics
+pastel	https://github.com/sharkdp/pastel	Generate, analyze, convert and manipulate colors.	Graphics
+lowcharts	https://github.com/juan-leon/lowcharts	Draw low-resolution graphs.	Graphics
+quote-cli	https://github.com/riyadhalnur/quote-cli	Get a random quote or the quote of the day in your CLI.	Just for Fun
+fortune	https://github.com/shlomif/fortune-mod	Shows a random fortune.	Just for Fun
+ponysay	https://github.com/erkin/ponysay	Pony rewrite of cowsay.	Just for Fun
+yosay	https://github.com/yeoman/yosay	Like cowsay, but for yeoman.	Just for Fun
+lolcat	https://github.com/busyloop/lolcat	Outputs text in rainbow colors.	Just for Fun
+terminaltexteffects	https://github.com/ChrisBuilds/terminaltexteffects	Plays elaborate animations of text input.	Just for Fun
+text-meme	https://github.com/beatfreaker/text-meme-cli	Generate text memes.	Just for Fun
+dankcli	https://github.com/sggts04/dankcli	Add text to meme image templates.	Just for Fun
+ricksay	https://github.com/roma-guru/ricksay	Quotes from Rick and Morty.	Just for Fun
+emoj	https://github.com/sindresorhus/emoj	Find relevant emoji from text on the command-line.	Just for Fun / Emoji
+emoji-finder	https://github.com/dematerializer/emoji-finder	Quickly find and copy emoji to the clipboard via the command-line.	Just for Fun / Emoji
+oji	https://github.com/xxczaki/oji	Interactive text emoji maker.	Just for Fun / Emoji
+greywall	https://github.com/GreyhavenHQ/greywall	Deny-by-default sandbox with filesystem and network isolation.	AI / Agents
+agent-of-empires	https://github.com/njbrake/agent-of-empires	Coding agent session manager via tmux and git worktrees.	AI / Agents
+agent-deck	https://github.com/asheshgoplani/agent-deck	Dashboard for managing multiple AI coding agent sessions.	AI / Agents
+Sugar	https://github.com/roboticforce/sugar	Autonomous agent that queues and executes tasks in the background.	AI / Agents
+Shep	https://github.com/shep-ai/cli	Multi-session SDLC control center for AI coding agents.	AI / Agents
+InkOS	https://github.com/Narcooo/inkos/blob/master/README.en.md	Novel-writing agent.	AI / Agents
+coi	https://github.com/mensfeld/code-on-incus	Incus container runtime for agents.	AI / Agents
+agentify	https://github.com/koriyoshi2041/agentify	Transform OpenAPI specs into formats for agents.	AI / Agents
+actionbook	https://github.com/actionbook/actionbook	Parallel browser interaction for agents.	AI / Agents
+lean-ctx	https://github.com/yvgude/lean-ctx	Token-saving context runtime for agents.	AI / Agents
+hcom	https://github.com/aannoo/hcom	Orchestration and communication layer for managing multiple agents in their respective TUI apps.	AI / Agents
+toktrack	https://github.com/mag123c/toktrack	Track token usage and cost across all agents.	AI / Agents
+OpenCode	https://github.com/anomalyco/opencode	Open-source agent TUI.	AI / Agents
+Nanocoder	https://github.com/Nano-Collective/nanocoder	Local-first agent TUI.	AI / Agents
+faf-cli	https://github.com/Wolfe-Jam/faf-cli	Authors AGENTS.md, CLAUDE.md and .cursorrules AI-Context files from your repo's real stack.	AI / Agents
+agentty	https://github.com/1ay1/agentty	C++ agent TUI.	AI / Agents
+bosun	https://github.com/yetidevworks/bosun	Agent session manager built on tmux.	AI / Agents
+Keen Code	https://github.com/mochow13/keen-code	Context-aware coding agent written in Go.	AI / Agents
+AgentBridge	https://github.com/raysonmeng/agent-bridge	Local bridge for bidirectional communication between Claude Code and Codex.	AI / Agents
+aye-chat	https://github.com/acrotron/aye-chat	Workspace for editing, running commands, and chatting with your codebase.	AI / LLM Interaction
+cmd-ai	https://github.com/BrodaNoel/cmd-ai	Turns natural language into executable shell commands.	AI / LLM Interaction
+lilbee	https://github.com/tobocop2/lilbee	Use local models to talk to your files, code, and more.	AI / LLM Interaction
+awesome-cli-apps-in-a-csv	https://github.com/toolleeo/awesome-cli-apps-in-a-csv	Extensive list of CLI apps.	Other Resources
+Terminal Trove	https://terminaltrove.com/	List of CLI apps.	Other Resources
+awesome-shell	https://github.com/alebcay/awesome-shell#readme	Command-line utilities and frameworks.	Other Resources
+terminals-are-sexy	https://github.com/k4m4/terminals-are-sexy#readme	Terminal frameworks, plugins & resources.	Other Resources
+awesome-zsh-plugins	https://github.com/unixorn/awesome-zsh-plugins#readme	ZSH frameworks, plugins, tutorials & themes.	Other Resources
+awesome-nodejs clis	https://github.com/sindresorhus/awesome-nodejs#command-line-apps	Node.js modules and resources.	Other Resources
+awesome-git-addons	https://github.com/stevemao/awesome-git-addons#readme	Addons that extend git cli.	Other Resources
+x-cmd	https://github.com/x-cmd/x-cmd	Ecosystem of cli tools, featuring a wide array of improve core utils, AI access and…	Other Resources

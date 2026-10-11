@@ -1,0 +1,321 @@
+ad	url	aciklama	bolum
+AnySQL Maestro	https://www.sqlmaestro.com/products/anysql/maestro	Premier multi-purpose admin tool for database management, control and development 💰 🔒.	IDE
+Aqua Data Studio	https://www.aquafold.com/aquadatastudio	Productivity software for Database Developers, DBAs, and Analysts 💰 🔒.	IDE
+Coginiti Pro	https://www.coginiti.co/products/coginiti-pro/	Modern IDE for analyst and analytics engineers with powerful script and grid functionality 💰 🔒.	IDE
+Database .net	http://fishcodelib.com/Database.htm	Multiple database management tool with support for 20+ databases 🔒.	IDE
+Database Workbench	https://www.upscene.com/database_workbench/	Complete IDE for database design, development and testing for Oracle, SQL Server, PostgreSQL, MySQL, MariaDB,…	IDE
+DataGrip	https://www.jetbrains.com/datagrip	Cross-Platform IDE for Databases & SQL by JetBrains 💰 🔒.	IDE
+DataStation	https://github.com/multiprocessio/datastation	Easily query, script, and visualize data from every database, file, and API.	IDE
+DBeaver	https://github.com/dbeaver/dbeaver	Free universal database manager and SQL client.	IDE
+dbForge Edge	https://www.devart.com/dbforge/edge/	Multidatabase solution for DB development, design, management, and administration of MySQL, MariaDB, SQL Server, Oracle,…	IDE
+dbForge Studio for MySQL	https://www.devart.com/dbforge/mysql/studio	Universal IDE for MySQL and MariaDB database development, management, and administration 💰 🔒.	IDE
+dbForge Studio for Oracle	https://www.devart.com/dbforge/oracle/studio	Powerful IDE for Oracle management, administration, and development 💰 🔒.	IDE
+dbForge Studio for PostgreSQL	https://www.devart.com/dbforge/postgresql/studio	GUI tool for managing and developing databases and objects 💰 🔒.	IDE
+dbForge Studio for SQL Server	https://www.devart.com/dbforge/sql/studio	Powerful integrated development environment for SQL Server development, management, administration, data analysis, and reporting 💰…	IDE
+DBHawk	https://www.datasparc.com/	Datasparc offers database security, database management, database governance and data analytics - all in one…	IDE
+dbKoda	https://github.com/SouthbankSoftware/dbkoda	Modern (JavaScript/Electron framework), open source IDE for MongoDB. It has features to support development, administration…	IDE
+IBExpert	http://www.ibexpert.net/ibe	Comprehensive GUI tool for Firebird and InterBase 💰 🔒.	IDE
+HeidiSQL	https://github.com/HeidiSQL/HeidiSQL	A lightweight client for managing MySQL, MSSQL and PostgreSQL, written in Delphi.	IDE
+Kangaroo	https://github.com/dbkangaroo/kangaroo	A AI-powered SQL client and admin tool for popular databases(SQLite / MySQL / PostgreSQL /…	IDE
+KeepTool	https://keeptool.com	A professional suite of tools for Oracle Database developers, administrators and advanced application users 💰…	IDE
+MySQL Workbench	https://www.mysql.com/products/workbench	Unified visual tool for database architects, developers, and DBAs.	IDE
+Navicat	https://www.navicat.com/en/products#navicat	A database development tool that allows you to simultaneously connect to MySQL, MariaDB, SQL Server,…	IDE
+Oracle SQL Developer	http://www.oracle.com/technetwork/developer-tools/sql-developer	Free, integrated development environment that simplifies the development and management of Oracle Database in both…	IDE
+pgAdmin	https://www.pgadmin.org	The most popular and feature rich Open Source administration and development platform for PostgreSQL, the…	IDE
+pgAdmin3	https://www.bigsql.org/pgadmin3	Long Term Support for pgAdmin3.	IDE
+PL/SQL Developer	https://www.allroundautomations.com/products/pl-sql-developer	IDE that is specifically targeted at the development of stored program units for Oracle Databases…	IDE
+PostgreSQL Maestro	https://www.sqlmaestro.com/products/postgresql/maestro	Complete and powerful database management, admin and development tool for PostgreSQL 💰 🔒.	IDE
+Querybook	https://github.com/pinterest/querybook	Pinterest open-source Big Data Querying UI, combining collocated table metadata and a simple notebook IDE…	IDE
+Slashbase	https://github.com/slashbaseide/slashbase	The open-source collaborative IDE for your databases. Connect to your database, browse data, run a…	IDE
+Sql Server Management Studio	https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms	Integrated environment for managing any SQL infrastructure, for SQL Server and Azure SQL Databases 🔒.	IDE
+Toad	https://www.quest.com/toad/	Premier database solution for developers, admins and data analysts. Manage complex database changes with a…	IDE
+Toad Edge	https://www.toadworld.com/products/toad-edge	Simplified database development tool for MySQL and PostgreSQL 💰 🔒.	IDE
+TOra	https://github.com/tora-tool/tora	Open source SQL IDE for Oracle, MySQL and PostgreSQL dbs.	IDE
+Valentina Studio	https://www.valentina-db.com/en/valentina-studio-overview	Create, administer, query and explore Valentina DB, MySQL, MariaDB, PostgreSQL and SQLite databases for FREE…	IDE
+WebDB	https://webdb.app	Free Efficient Database IDE. Featuring Server Discovery, ERD, Data Generator, AI, NoSQL Structure Manager, Database…	IDE
+Adminer	https://github.com/vrana/adminer	Database management in a single PHP file.	GUI
+Another Redis Desktop Manager	https://github.com/qishibo/AnotherRedisDesktopManager	Free Open Source Redis Manager. Available on Mac, Linux, Windows, Homebrew, Snap, winget, and more.	GUI
+Antares SQL	https://github.com/antares-sql/antares	A modern, fast and productivity driven SQL client with a focus in UX. Available for…	GUI
+Azure Data Studio	https://github.com/microsoft/azuredatastudio	A data management tool that enables working with SQL Server, PostgreSQL, Azure SQL DB and…	GUI
+Beekeeper Studio	https://github.com/beekeeper-studio/beekeeper-studio	Open Source SQL Editor and Database Manager with a privacy commitment in their mission statement.	GUI
+Clidey WhoDB	https://github.com/clidey/whodb	A lightweight database explorer with next-gen UX for all SQL, NoSQL, Caches, and Queues.	GUI
+DbGate	https://github.com/dbgate/dbgate	Database manager for MySQL, PostgreSQL, SQL Server, MongoDB, SQLite and others. Runs under Windows, Linux,…	GUI
+DB Lens	https://github.com/dblens/app	Open Source PostgreSQL GUI - Automatic ER diagrams, Internal DB Insights, Disk Utilisation, Performance Metrics,…	GUI
+DbVisualizer	https://www.dbvis.com	Universal database tool for developers, DBAs and analysts.	GUI
+JackDB	https://www.jackdb.com	Direct SQL access to all your data, no matter where it lives.	GUI
+Jailer	https://github.com/Wisser/Jailer	Database Subsetting and Relational Data Browsing Tool/Client.	GUI
+Malewicz	https://github.com/mgramin/malewicz	Yet Another WEB client for DB schema exploring and performance analysis, but originally created specifically…	GUI
+MissionKontrol	https://www.missionkontrol.io	Modern drag & drop admin panel/client with full user permissions for non-technical users.	GUI
+ocelotgui	https://github.com/ocelot-inc/ocelotgui	For MySQL, MariaDB, and Tarantool. Developed for Linux but can run on Windows.	GUI
+OmniDB	https://github.com/OmniDB/OmniDB	Web tool for database management.	GUI
+Pgweb	https://github.com/sosedoff/pgweb	Web-based database browser for PostgreSQL, written in Go and works on macOS, Linux and Windows…	GUI
+phpLiteAdmin	https://www.phpliteadmin.org	Web-based SQLite database admin tool written in PHP with support for SQLite3 and SQLite2.	GUI
+phpMyAdmin	https://github.com/phpmyadmin/phpmyadmin	A web interface for MySQL and MariaDB.	GUI
+psequel	http://www.psequel.com	Provides a clean and simple interface for you to perform common PostgreSQL tasks quickly.	GUI
+PopSQL	https://popsql.com	Modern, collaborative SQL editor for your team.	GUI
+Postico	https://eggerapps.at/postico	A Modern PostgreSQL Client for the Mac.	GUI
+Robo 3T	https://github.com/Studio3T/robomongo	Shell-centric cross-platform MongoDB management tool.	GUI
+Sequel Ace	https://github.com/Sequel-Ace/Sequel-Ace	MySQL/MariaDB database management for macOS.	GUI
+Sequel Pro	https://github.com/sequelpro/sequelpro	Fast, easy-to-use Mac database management application for working with MySQL & MariaDB databases.	GUI
+SQLite Expert	http://www.sqliteexpert.com/index.html	Graphical interface supports all SQLite features.	GUI
+sqlite-tui	https://github.com/mathaou/sqlite-tui	A TUI for viewing SQLite databases, written in Go.	GUI
+sqlpad	https://github.com/rickbergfalk/sqlpad	Web-based SQL editor run in your own private cloud.	GUI
+SQLPro	https://www.macpostgresclient.com	A simple, powerful PostgreSQL manager for macOS.	GUI
+SQuirreL	https://sourceforge.net/projects/squirrel-sql	Graphical SQL client written in Java that will allow you to view the structure of…	GUI
+SQLTools	https://github.com/mtxr/vscode-sqltools	Database management for VSCode.	GUI
+SQLyog	https://www.webyog.com/product/sqlyog	The most complete and easy to use MySQL GUI.	GUI
+Tabix	https://github.com/tabixio/tabix	SQL Editor & Open source simple business intelligence for Clickhouse.	GUI
+TablePlus	https://github.com/TablePlus/TablePlus	Modern, native, and friendly GUI tool for relational databases: MySQL, PostgreSQL, SQLite & more.	GUI
+TeamPostgreSQL	http://www.teampostgresql.com	PostgreSQL Web Administration GUI - use your PostgreSQL databases from anywhere, with rich, lightning-fast AJAX…	GUI
+Query.me	https://query.me	Collaborative SQL editor in Notebook format. Let's you reference query results using JINJA, visualize data,…	GUI
+ipython-sql	https://github.com/catherinedevlin/ipython-sql	Connect to a database for issue SQL commands within IPython or IPython Notebook.	CLI
+iredis	https://github.com/laixintao/iredis	A Cli for Redis with AutoCompletion and Syntax Highlighting.	CLI
+pgcenter	https://github.com/lesovsky/pgcenter	Top-like admin tool for PostgreSQL.	CLI
+pg_activity	https://github.com/julmon/pg_activity	Top-like application for PostgreSQL server activity monitoring.	CLI
+pg_top	https://github.com/markwkm/pg_top	Top for PostgreSQL.	CLI
+pspg	https://github.com/okbob/pspg	PostgreSQL Pager.	CLI
+diesel-guard	https://github.com/ayarotsky/diesel-guard	Linter for dangerous PostgreSQL migration patterns. It works seamlessly with PostgreSQL SQL files and integrates…	CLI
+SQLcl	http://www.oracle.com/technetwork/developer-tools/sqlcl/overview/index.html	Oracle SQL Developer Command Line (SQLcl) is a free command line interface for Oracle Database.	CLI
+sqlite-utils	https://github.com/simonw/sqlite-utils	CLI tools for manipulating SQLite database files - inserting data, running queries, creating indexes, configuring…	CLI
+SQLLine	https://github.com/julianhyde/sqlline	Command-line shell for issuing SQL to relational databases via JDBC.	CLI
+usql	https://github.com/xo/usql	A universal command-line interface for PostgreSQL, MySQL, Oracle Database, SQLite3, Microsoft SQL Server, and many…	CLI
+athenacli	https://github.com/dbcli/athenacli	CLI tool for AWS Athena service that can do auto-completion and syntax highlighting.	CLI / dbcli
+litecli	https://github.com/dbcli/litecli	CLI for SQLite Databases with auto-completion and syntax highlighting.	CLI / dbcli
+mssql-cli	https://github.com/dbcli/mssql-cli	A command-line client for SQL Server with auto-completion and syntax highlighting.	CLI / dbcli
+mycli	https://github.com/dbcli/mycli	A Terminal Client for MySQL with AutoCompletion and Syntax Highlighting.	CLI / dbcli
+pgcli	https://github.com/dbcli/pgcli	PostgreSQL CLI with autocompletion and syntax highlighting.	CLI / dbcli
+vcli	https://github.com/dbcli/vcli	Vertica CLI with auto-completion and syntax highlighting.	CLI / dbcli
+2bass	https://github.com/CourseOrchestra/2bass	Database configuration-as-code tool that utilizes concept of idempotent DDL scripts.	Schema / Changes
+Atlas	https://github.com/ariga/atlas	Inspect and Apply changes to your database schema.	Schema / Changes
+Bytebase	https://github.com/bytebase/bytebase	Web-based, zero-config, dependency-free database schema change and version control tool for teams.	Schema / Changes
+flyway	https://github.com/flyway/flyway	Database migration tool.	Schema / Changes
+gh-ost	https://github.com/github/gh-ost	Online schema migration for MySQL.	Schema / Changes
+liquibase	https://github.com/liquibase/liquibase	Database-independent library for tracking, managing and applying database schema changes.	Schema / Changes
+migra	https://github.com/djrobstep/migra	Like diff but for PostgreSQL schemas.	Schema / Changes
+node-pg-migrate	https://github.com/salsita/node-pg-migrate	Node.js database migration management built exclusively for PostgreSQL. (But can also be used for other…	Schema / Changes
+pg-osc	https://github.com/shayonj/pg-osc	Easy CLI tool for making zero downtime schema changes and backfills in PostgreSQL.	Schema / Changes
+Prisma Migrate	https://github.com/prisma/migrate	Declarative database schema migration tool that uses a declarative data modeling syntax to describe your…	Schema / Changes
+Pyrseas	https://github.com/perseas/Pyrseas	Provides utilities to describe a PostgreSQL database schema as YAML.	Schema / Changes
+Reshape	https://github.com/fabianlindfors/reshape	An easy-to-use, zero-downtime schema migration tool for Postgres.	Schema / Changes
+SchemaHero	https://github.com/schemahero/schemahero	A Kubernetes operator for declarative database schema management (gitops for database schemas).	Schema / Changes
+Skeema	https://github.com/skeema/skeema	Declarative pure-SQL schema management system for MySQL and MariaDB, with support for sharding and external…	Schema / Changes
+Sqitch	https://github.com/sqitchers/sqitch	Sensible database-native change management for framework-free development and dependable deployment.	Schema / Changes
+sqldef	https://github.com/k0kubun/sqldef	Idempotent schema management for MySQL, PostgreSQL, and more.	Schema / Changes
+yuniql	https://github.com/rdagumampan/yuniql	Yet another schema versioning and migration tool just made with native .NET Core 3.0+ and…	Schema / Changes
+ddl-generator	https://github.com/catherinedevlin/ddl-generator	Infers SQL DDL (Data Definition Language) from table data.	Schema / Code generation
+scheme2ddl	https://github.com/qwazer/scheme2ddl	Command line util for export Oracle schema to set of ddl init scripts with ability…	Schema / Code generation
+Azimutt	https://github.com/azimuttapp/azimutt	An Entity Relationship diagram (ERD) visualization tool, with various filters and inputs to help understand…	Schema / Diagrams
+ChartDB	https://github.com/chartdb/chartdb	Free and Open-source database diagrams editor, visualize and design your DB with a single query.	Schema / Diagrams
+DrawDB	https://github.com/drawdb-io/drawdb	Free, simple, and intuitive online database design tool and SQL generator.	Schema / Diagrams
+DrawSQL	https://drawsql.app	Online database schema diagram editor with SQL import, AI generation, and real-time team collaboration.	Schema / Diagrams
+ERAlchemy	https://github.com/Alexis-benoist/eralchemy	Entity Relation Diagrams generation tool.	Schema / Diagrams
+ERD Lab	https://www.erdlab.io/	Free cloud based entity relationship diagram (ERD) tool made for developers.	Schema / Diagrams
+Liam ERD	https://github.com/liam-hq/liam	Open-source tool that generates beautiful and easy-to-read Entity Relationship Diagrams from your database and ORMs.	Schema / Diagrams
+QuickDBD	https://www.quickdatabasediagrams.com/	Simple online tool to quickly draw database diagrams.	Schema / Diagrams
+dbdocs	https://dbdocs.io/	Create web-based database documentation using DSL code.	Schema / Documentations
+DBML	https://github.com/holistics/dbml	Database Markup Language, designed to define and document database structures.	Schema / Documentations
+SchemaCrawler	https://github.com/schemacrawler/SchemaCrawler	A free database schema discovery and comprehension tool.	Schema / Documentations
+Schema Spy	https://github.com/schemaspy/schemaspy	Generating your database to HTML documentation, including Entity Relationship diagrams.	Schema / Documentations
+tbls	https://github.com/k1LoW/tbls	CI-Friendly tool for document a database, written in Go.	Schema / Documentations
+Database Design	https://github.com/alextanhongpin/database-design	Useful tips for designing robust database schema.	Schema / Design
+DBDiagram	https://dbdiagram.io	A free, simple tool to draw ER diagrams by just writing code.	Schema / Design
+DbSchema	https://dbschema.com/	Universal database designer for out-of-the-box schema management, schema documentation, design in a team, and deployment…	Schema / Design
+ERBuilder Data Modeler	https://soft-builder.com/erbuilder-data-modeler	Easy-to-use database modeling software for high-quality data models. It's a complete data modeling solution for…	Schema / Design
+Moon Modeler	https://www.datensen.com	Data modeling tool for both noSQL and relational databases. Available for Windows, Linux and macOS.	Schema / Design
+Navicat Data Modeler	https://www.navicat.com/en/products/navicat-data-modeler	A powerful and cost-effective database design tool which helps you build high-quality conceptual, logical and…	Schema / Design
+Oracle SQL Developer Data Modeler	http://www.oracle.com/technetwork/developer-tools/datamodeler/overview/index.html	Free graphical tool that enhances productivity and simplifies data modeling tasks.	Schema / Design
+pgmodeler	https://github.com/pgmodeler/pgmodeler	Data modeling tool designed for PostgreSQL.	Schema / Design
+WWW SQL Designer	https://github.com/ondras/wwwsqldesigner	Online SQL diagramming tool.	Schema / Design
+Oracle Database Sample Schemas	https://github.com/oracle/db-sample-schemas	Sample schemas for Oracle Database.	Schema / Samples
+Datasette	https://github.com/simonw/datasette	A tool for exploring and publishing data.	API
+DreamFactory	https://github.com/dreamfactorysoftware/dreamfactory	A open source REST API backend for mobile, web, and IoT applications.	API
+Graphweaver	https://github.com/exogee-technology/graphweaver	Turn multiple data sources into a single GraphQL API.	API
+Hasura GraphQL Engine	https://github.com/hasura/graphql-engine	Blazing fast, instant realtime GraphQL APIs on PostgreSQL with fine grained access control, also trigger…	API
+JdbcREST	https://github.com/synthesized-io/jdbcrest/	REST API for any JDBC-backed database, a PostgREST clone written in Java.	API
+Oracle REST Data Services	http://www.oracle.com/technetwork/developer-tools/rest-data-services	A mid-tier Java application, ORDS maps HTTP(S) verbs (GET, POST, PUT, DELETE, etc.) to database…	API
+Prisma	https://github.com/prismagraphql/prisma	Turns your database into a realtime GraphQL API.	API
+PostGraphile	https://github.com/graphile/postgraphile	Instantly spin-up a GraphQL API server by pointing PostGraphile at your existing PostgreSQL database.	API
+PostgREST	https://github.com/PostgREST/postgrest	REST API for any PostgreSQL database.	API
+prest	https://github.com/prest/prest	Is a way to serve a RESTful API from any databases written in Go.	API
+Remult	https://github.com/remult/remult	End-to-end type-safe CRUD via REST API for your database, with fine-grained access control.	API
+restSQL	https://github.com/restsql/restsql	SQL generator with Java and HTTP APIs, uses a simple RESTful HTTP API with XML…	API
+resquel	https://github.com/formio/resquel	Easily convert your SQL database into a REST API.	API
+sandman2	https://github.com/jeffknupp/sandman2	Automatically generate a RESTful API service for your legacy database.	API
+soul	https://github.com/thevahidal/soul	Automatic SQLite RESTful and realtime API server.	API
+VulcanSQL	https://github.com/Canner/vulcan-sql	Write templated SQL to automatically exposing RESTful APIs from your database/data warehouse/data lake.	API
+Appsmith	https://github.com/appsmithorg/appsmith	Powerful open source low code framework to build internal applications really quickly.	Application platforms
+Budibase	https://github.com/Budibase/budibase	Low-code platform for creating internal apps in minutes.	Application platforms
+ILLA Cloud	https://github.com/illacloud/illa-builder	Low-code internal tool building platform.	Application platforms
+Nhost	https://github.com/nhost/nhost	The Open Source Firebase Alternative with GraphQL.	Application platforms
+Saltcorn	https://github.com/saltcorn/saltcorn	Open source no-code builder for web database applications. Server and drag-and-drop UI builder, data stored…	Application platforms
+SQLPage	https://github.com/sqlpage/SQLPage	Fast SQL-only data application builder. Automatically build a UI on top of SQL queries.	Application platforms
+Tooljet	https://github.com/ToolJet/ToolJet	Open-source low-code platform to build internal tools.	Application platforms
+BaRMan	https://github.com/2ndquadrant-it/barman	Backup and Recovery Manager for PostgreSQL.	Backup
+Databasus	https://github.com/databasus/databasus	Tool for scheduled PostgreSQL backups via web UI with external storages (local, S3, FTP, Google…	Backup
+pgbackrest	https://github.com/pgbackrest/pgbackrest	Reliable PostgreSQL Backup & Restore.	Backup
+pgcopydb	https://github.com/dimitri/pgcopydb	Copy a PostgreSQL database to a target PostgreSQL server (pg_dump | pg_restore on steroids).	Backup
+pg_probackup	https://github.com/postgrespro/pg_probackup	A backup and recovery manager for PostgreSQL.	Backup
+Portabase	https://github.com/Portabase/portabase	Agent-based platform for PostgreSQL backups and restores with decentralized execution and centralized orchestration.	Backup
+Database Lab Engine	https://gitlab.com/postgres-ai/database-lab	Instant thin cloning for PostgreSQL to scale the development process.	Cloning
+clone_schema	https://github.com/denishpatel/pg-clone-schema	PostgreSQL clone schema utility without need of going outside of database.	Cloning
+Spawn	https://spawn.cc/	Cloud service for creating instant database copies for development and CI. No more local db…	Cloning
+ASH Viewer	https://github.com/akardapolov/ASH-Viewer	Provides a graphical view of active session history data within the Oracle and PostgreSQL DB.	Monitoring/Statistics/Performance
+Metis	https://www.metisdata.io/product/troubleshooting	Provides observability and performance tuning for SQL databases.	Monitoring/Statistics/Performance
+Monyog	https://www.webyog.com/product/monyog	Agentless & Cost-effective MySQL Monitoring Tool.	Monitoring/Statistics/Performance
+mssql-monitoring	https://github.com/microsoft/mssql-monitoring	Monitor your SQL Server on Linux performance using collectd, InfluxDB and Grafana.	Monitoring/Statistics/Performance
+Navicat Monitor	https://www.navicat.com/en/products/navicat-monitor	A safe, simple and agentless remote server monitoring tool that is packed with powerful features…	Monitoring/Statistics/Performance
+Percona Monitoring and Management	https://github.com/percona/pmm	Open source platform for managing and monitoring MySQL and MongoDB performance.	Monitoring/Statistics/Performance
+pganalyze collector	https://github.com/pganalyze/collector	Pganalyze statistics collector for gathering PostgreSQL metrics and log data.	Monitoring/Statistics/Performance
+pgbadger	https://github.com/dalibo/pgbadger	A fast PostgreSQL Log Analyzer.	Monitoring/Statistics/Performance
+pgDash	https://pgdash.io	Measure and track every aspect of your PostgreSQL databases.	Monitoring/Statistics/Performance
+PgHero	https://github.com/ankane/pghero	A performance dashboard for PostgreSQL - health checks, suggested indexes, and more.	Monitoring/Statistics/Performance
+pgmetrics	https://github.com/rapidloop/pgmetrics	Collect and display information and stats from a running PostgreSQL server.	Monitoring/Statistics/Performance
+pgMonitor	https://github.com/CrunchyData/pgmonitor	All-in-one tool to easily create an environment to visualize the health and performance of your…	Monitoring/Statistics/Performance
+pgMustard	https://www.pgmustard.com	A user interface for PostgreSQL explain plans, plus tips to improve performance.	Monitoring/Statistics/Performance
+pgstats	https://github.com/gleu/pgstats	Collects PostgreSQL statistics, and either saves them in CSV files or print them on the…	Monitoring/Statistics/Performance
+pgwatch2	https://github.com/cybertec-postgresql/pgwatch2	Flexible self-contained PostgreSQL metrics monitoring/dashboarding solution.	Monitoring/Statistics/Performance
+PostgreSQL Metrics	https://github.com/spotify/postgresql-metrics	Service to extract and provide metrics on your PostgreSQL database.	Monitoring/Statistics/Performance
+PostgreSQL Monitor	https://postgresmonitor.com	An easy-to-use monitoring service for PostgreSQL providing alerts, dashboards, query stats and dynamic recommendations.	Monitoring/Statistics/Performance
+postgres-checkup	https://gitlab.com/postgres-ai/postgres-checkup	New-generation diagnostics tool that allows users to do a deep analysis of the health of…	Monitoring/Statistics/Performance
+Promscale	https://github.com/timescale/promscale	The open-source observability backend for metrics and traces powered by SQL.	Monitoring/Statistics/Performance
+Releem	https://releem.com	Performance monitoring and optimization tool for MySQL & MariaDB that delivers actionable insights and safe…	Monitoring/Statistics/Performance
+Telegraf PostgreSQL plugin	https://github.com/influxdata/telegraf/tree/master/plugins/inputs/postgresql	Provides metrics for your PostgreSQL database.	Monitoring/Statistics/Performance
+pgSCV	https://github.com/weaponry/pgscv	Metrics exporter for PostgreSQL and PostgreSQL-related services.	Monitoring/Statistics/Performance / Prometheus
+postgres_exporter	https://github.com/wrouesnel/postgres_exporter	Prometheus exporter for PostgreSQL server metrics.	Monitoring/Statistics/Performance / Prometheus
+pg_exporter	https://github.com/Vonng/pg_exporter	Fully customizable Prometheus exporter for PostgreSQL & Pgbouncer with fine-grained execution control.	Monitoring/Statistics/Performance / Prometheus
+Mamonsu	https://github.com/postgrespro/mamonsu	Monitoring agent for PostgreSQL.	Monitoring/Statistics/Performance / Zabbix
+Orabbix	http://www.smartmarmot.com/wiki/index.php?title=Orabbix	Plugin designed to work with Zabbix Enterprise Monitor to provide multi-tiered monitoring, performance and availability…	Monitoring/Statistics/Performance / Zabbix
+pg_monz	https://github.com/pg-monz/pg_monz	This is the Zabbix monitoring template for PostgreSQL Database.	Monitoring/Statistics/Performance / Zabbix
+Pyora	https://github.com/bicofino/Pyora	Python script to monitor Oracle Databases.	Monitoring/Statistics/Performance / Zabbix
+ZabbixDBA	https://github.com/anetrusov/ZabbixDBA	Fast, flexible, and continuously developing plugin to monitor your RDBMS.	Monitoring/Statistics/Performance / Zabbix
+DbFit	https://github.com/dbfit/dbfit	A database testing framework that supports easy test-driven development of your database code.	Testing
+pgTAP	https://github.com/theory/pgtap	Unit Testing for PostgreSQL.	Testing
+RegreSQL	https://github.com/dimitri/regresql	Regression Testing your SQL queries.	Testing
+SQLancer	https://github.com/sqlancer/sqlancer	Automatically test DBMS in order to find logic bugs in their implementation.	Testing
+Citus	https://github.com/citusdata/citus	PostgreSQL extension that distributes your data and your queries across multiple nodes.	HA/Failover/Sharding
+patroni	https://github.com/zalando/patroni	A template for PostgreSQL High Availability with ZooKeeper, etcd, or Consul.	HA/Failover/Sharding
+Percona XtraDB Cluster	https://github.com/percona/percona-xtradb-cluster	A High Scalability Solution for MySQL Clustering and High Availability.	HA/Failover/Sharding
+ShardingSphere	https://github.com/apache/shardingsphere	Distributed SQL transaction & query engine for data sharding, scaling, encryption, and more - on…	HA/Failover/Sharding
+stolon	https://github.com/sorintlab/stolon	Cloud native PostgreSQL manager for PostgreSQL high availability.	HA/Failover/Sharding
+pg_auto_failover	https://github.com/citusdata/pg_auto_failover	PostgreSQL extension and service for automated failover and high-availability.	HA/Failover/Sharding
+pglookout	https://github.com/aiven/pglookout	PostgreSQL replication monitoring and failover daemon.	HA/Failover/Sharding
+pgslice	https://github.com/ankane/pgslice	PostgreSQL partitioning as easy as pie.	HA/Failover/Sharding
+PostgreSQL Automatic Failover	https://github.com/ClusterLabs/PAF	High-Availability for PostgreSQL, based on industry references Pacemaker and Corosync.	HA/Failover/Sharding
+autobase	https://github.com/vitabaks/autobase	Open-source DBaaS that automates the deployment and management of highly available PostgreSQL clusters.	HA/Failover/Sharding
+Vitess	https://github.com/vitessio/vitess	Database clustering system for horizontal scaling of MySQL through generalized sharding.	HA/Failover/Sharding
+KubeDB	https://kubedb.com	Making running production-grade databases easy on Kubernetes.	Kubernetes
+PostgreSQL operator	https://github.com/zalando/postgres-operator	The PostgreSQL Operator enables highly-available PostgreSQL clusters on Kubernetes (Kubernetes) powered by Patroni.	Kubernetes
+Spilo	https://github.com/zalando/spilo	HA PostgreSQL Clusters with Docker.	Kubernetes
+StackGres	https://gitlab.com/ongresinc/stackgres	Enterprise-grade, Full Stack PostgreSQL on Kubernetes.	Kubernetes
+MySQLTuner-perl	https://github.com/major/MySQLTuner-perl	Script written in Perl that allows you to review a MySQL installation quickly and make…	Configuration Tuning
+PGConfigurator	https://pgconfigurator.cybertec-postgresql.com	Free online tool to generate an optimized `postgresql.conf`.	Configuration Tuning
+pgtune	https://github.com/gregs1104/pgtune	PostgreSQL configuration wizard.	Configuration Tuning
+postgresqltuner.pl	https://github.com/jfcoz/postgresqltuner	Simple script to analyse your PostgreSQL database configuration, and give tuning advice.	Configuration Tuning
+DBmaestro	https://www.dbmaestro.com	Accelerates release cycles & supports agility across the entire IT ecosystem.	DevOps
+Toad DevOps Toolkit	https://www.quest.com/products/toad-devops-toolkit/	Executes key database development functions within your DevOps workflow —without compromising quality, performance or reliability.	DevOps
+Chartbrew	https://chartbrew.com	Create live dashboards, charts, and client reports from multiple databases and services.	Reporting
+Poli	https://github.com/shzlw/poli	An easy-to-use SQL reporting application built for SQL lovers.	Reporting
+DBdeployer	https://github.com/datacharmer/dbdeployer	Tool that deploys MySQL database servers easily.	Distributions
+dbatools	https://github.com/sqlcollaborative/dbatools	PowerShell module that you may think of like a command-line SQL Server Management Studio.	Distributions
+Postgres.app	https://github.com/PostgresApp/PostgresApp	Full-featured PostgreSQL installation packaged as a standard Mac app.	Distributions
+BigSQL	https://www.bigsql.org	A developer-friendly distribution of PostgreSQL.	Distributions
+Elephant Shed	https://github.com/credativ/elephant-shed	Web-based PostgreSQL management front-end that bundles several utilities and applications for use with PostgreSQL.	Distributions
+Pigsty	https://github.com/Vonng/pigsty	Battery-Included Open-Source Distribution for PostgreSQL with ultimate observability & Database-as-Code toolbox for developers.	Distributions
+Acra	https://github.com/cossacklabs/acra	Database security suite. Database proxy with field-level encryption, search through encrypted data, SQL injections prevention,…	Security
+Databunker	https://github.com/securitybunker/databunker	Special GDPR compliant secure vault for customer records built on top of regular DB.	Security
+Inspektor	https://github.com/poonai/inspektor	Access control layer for databases. Inspektor leverages open policy agent to make policy decisions.	Security
+Holistic.dev	https://holistic.dev	Automatic detection service for database performance, security, and architecture issues.	SQL / Analyzers
+SQLCheck	https://github.com/jarulraj/sqlcheck	Automatically detects common SQL anti-patterns.	SQL / Analyzers
+SQLFluff	https://github.com/sqlfluff/sqlfluff	Dialect-flexible and configurable SQL linter.	SQL / Analyzers
+SQLLineage	https://github.com/reata/sqllineage	SQL Lineage Analysis Tool powered by Python.	SQL / Analyzers
+TSQLLint	https://github.com/tsqllint/tsqllint	A tool for describing, identifying, and reporting the presence of anti-patterns in TSQL scripts.	SQL / Analyzers
+sqlc	https://sqlc.dev	SQL-first code generator producing type-safe bindings for various languages and various databases.	SQL / Code Generators
+SQLDelight	https://sqldelight.github.io/sqldelight	SQL-first code generator producing type-safe bindings for Kotlin and various databases.	SQL / Code Generators
+pGenie	https://pgenie.io	SQL-first code generator producing type-safe bindings for various languages and specializing on the PostgreSQL database.	SQL / Code Generators
+PartiQL	https://partiql.org	SQL-compatible access to relational, semi-structured, and nested data.	SQL / Extensions
+Apache Calcite	https://calcite.apache.org	Dynamic data management framework with advanced SQL features.	SQL / Frameworks
+ZetaSQL	https://github.com/google/zetasql	Analyzer Framework for SQL.	SQL / Frameworks
+CodeBuff	https://github.com/antlr/codebuff	Language-agnostic pretty-printing through machine learning.	SQL / Formatters
+JSQLFormatter	https://github.com/manticore-projects/jsqlformatter	Open Source Java SQL Formatter for many RDBMS based on JSqlParser.	SQL / Formatters
+SQL Online	https://sqlonline.in	A Free Tool to format your SQL Queries followed by content for Analysts.	SQL / Formatters
+pgFormatter	https://github.com/darold/pgFormatter	A PostgreSQL SQL syntax beautifier.	SQL / Formatters
+Poor SQL	https://poorsql.com	Instant free and open-source T-SQL formatting.	SQL / Formatters
+SQL Formatter	https://github.com/zeroturnaround/sql-formatter	JavaScript library for pretty-printing SQL queries.	SQL / Formatters
+Lost at SQL	https://lost-at-sql.therobinlord.com	A SQL learning game to help you pick up basic SQL skills - so that…	SQL / Games
+Querymon	https://codepip.com/games/querymon/	Learn to use SQL queries on the Querydex, a database of monsters from common to…	SQL / Games
+Schemaverse	https://datalemur.com/blog/games-to-learn-sql#schemaverse	A Space-based strategy game implemented entirely within a PostgreSQL database.	SQL / Games
+SQL Island	https://sql-island.informatik.uni-kl.de	After the survived plane crash, you will be stuck on SQL Island for the time…	SQL / Games
+SQL Murder Mystery	https://mystery.knightlab.com	Designed to be both a self-directed lesson to learn SQL concepts and commands and a…	SQL / Games
+SQL Police Department	https://sqlpd.com	In SQLPD, you get to solve crimes while learning SQL at the same time.	SQL / Games
+General SQL Parser	https://www.sqlparser.com	Parsing, formatting, modification and analysis for SQL.	SQL / Parsers
+jOOQ	https://github.com/jOOQ/jOOQ	Parses SQL, translates it to other dialects, and allows for expression tree transformations.	SQL / Parsers
+JSqlParser	https://github.com/JSQLParser/JSqlParser	Parses an SQL statement and translate it into a hierarchy of Java classes.	SQL / Parsers
+libpg_query	https://github.com/pganalyze/libpg_query	C library for accessing the PostgreSQL parser outside of the server environment.	SQL / Parsers
+More SQL Parsing!	https://github.com/klahnakoski/mo-sql-parsing	Parse SQL into JSON.	SQL / Parsers
+sqlparse	https://github.com/andialbrecht/sqlparse	Non-validating SQL parser for Python.	SQL / Parsers
+SQLGlot	https://github.com/tobymao/sqlglot	Pure Python SQL parser, transpiler, and builder.	SQL / Parsers
+CloudQuery	https://github.com/cloudquery/cloudquery	Extracts, transforms, and loads your cloud assets into normalized PostgreSQL tables.	SQL / Über SQL
+csvq	https://github.com/mithrandie/csvq	SQL-like query language for CSV.	SQL / Über SQL
+dsq	https://github.com/multiprocessio/dsq	Commandline tool for running SQL queries against JSON, CSV, Excel, Parquet, and more.	SQL / Über SQL
+MAT Calcite plugin	https://github.com/vlsi/mat-calcite-plugin	This plugin for Eclipse Memory Analyzer allows to query heap dump via SQL.	SQL / Über SQL
+OctoSQL	https://github.com/cube2222/octosql	Query tool that allows you to join, analyse and transform data from multiple databases and…	SQL / Über SQL
+osquery	https://github.com/osquery/osquery	SQL powered operating system instrumentation, monitoring, and analytics.	SQL / Über SQL
+Resmo	https://www.resmo.com	Audit and evaluate resources using SQL.	SQL / Über SQL
+sq	https://github.com/neilotoole/sq	Command line tool that provides jq-style access to structured data sources: SQL databases, or document…	SQL / Über SQL
+Steampipe	https://github.com/turbot/steampipe	Use SQL to instantly query your cloud services (AWS, Azure, GCP and more).	SQL / Über SQL
+TextQL	https://github.com/dinedal/textql	Execute SQL against structured text like CSV or TSV.	SQL / Über SQL
+trdsql	https://github.com/noborus/trdsql	CLI tool that can execute SQL queries on CSV, LTSV, JSON and TBLN.	SQL / Über SQL
+Trino	https://github.com/trinodb/trino	Distributed SQL query engine designed to query large data sets distributed over one or more…	SQL / Über SQL
+SQLLanguageServer	https://github.com/joe-re/sql-language-server	SQL Language Server.	SQL / Language Server Protocol
+sqls	https://github.com/lighttiger2505/sqls	SQL Language Server written in Go.	SQL / Language Server Protocol
+Advanced SQL Puzzles	https://github.com/smpetersgithub/AdvancedSQLPuzzles	Difficult set-based SQL puzzles.	SQL / Learning
+Hackerrank	https://www.hackerrank.com/domains/sql	Practice coding, prepare for interviews, and get hired.	SQL / Learning
+Learn SQL in a Month of Lunches	https://www.manning.com/books/learn-sql-in-a-month-of-lunches	A book about how to use SQL to retrieve, filter, and analyze data.	SQL / Learning
+LeetCode	https://leetcode.com/problemset/database	Enhance your skills, expand your knowledge and prepare for technical interviews.	SQL / Learning
+Select Star SQL	https://selectstarsql.com	Free interactive book which aims to be the best place on the internet for learning…	SQL / Learning
+StrataScratch	https://www.stratascratch.com/blog/categories/sql	Data science educational resources.	SQL / Learning
+SQL Murder Mystery	https://github.com/NUKnightLab/sql-mysteries	Self-directed lesson to learn SQL concepts and commands and a fun game for experienced SQL…	SQL / Learning
+pev2	https://github.com/dalibo/pev2	A Vue.js component to show a graphical visualization of a PostgreSQL execution plan.	SQL / Plan
+pg_flame	https://github.com/mgartner/pg_flame	A flamegraph generator for PostgreSQL `EXPLAIN ANALYZE` output.	SQL / Plan
+DBA MultiTool	https://github.com/LowlyDBA/dba-multitool	T-SQL scripts for the long haul: optimizing storage, on-the-fly documentation, and general administrative needs for…	SQL / Scripts
+pgx_scripts	https://github.com/pgexperts/pgx_scripts	A collection of useful little scripts for database analysis and administration, created by our team…	SQL / Scripts
+pgsql-bloat-estimation	https://github.com/ioguix/pgsql-bloat-estimation	Queries to measure statistical bloat in indexes and tables for PostgreSQL.	SQL / Scripts
+pgWikiDont	https://gitlab.com/depesz/pgWikiDont	SQL test that checks if your database follows rules from <https://wiki.postgresql.org/wiki/Don't_Do_This>.	SQL / Scripts
+pg-utils	https://github.com/dataegret/pg-utils	Useful PostgreSQL utilities.	SQL / Scripts
+PostgreSQL cheat sheet	https://postgrescheatsheet.com	Useful SQL-scripts and commands by <timescale.com>.	SQL / Scripts
+postgres_dba	https://github.com/NikolayS/postgres_dba	The missing set of useful tools for PostgreSQL DBAs and all engineers.	SQL / Scripts
+postgres_queries_and_commands.sql	https://gist.github.com/rgreenjr/3637525	Useful PostgreSQL Queries and Commands.	SQL / Scripts
+TPT	https://github.com/tanelpoder/tpt-oracle	These sqlplus scripts are for Oracle Database performance optimization & troubleshooting.	SQL / Scripts
+dbt	https://github.com/dbt-labs/dbt-core	Transform your data by simply writing select statements, while dbt handles turning these statements into…	Data
+QuickTable	https://quicktable.io	Empowers everyone to access, clean, analyze, transform, and model data with no code.	Data
+Amundsen	https://github.com/amundsen-io/amundsen	Metadata driven application for improving the productivity of data analysts, data scientists and engineers when…	Data / Catalog
+DataHub	https://github.com/datahub-project/datahub	The Metadata Platform for the Modern Data Stack.	Data / Catalog
+Marquez	https://github.com/MarquezProject/marquez	Collect, aggregate, and visualize a data ecosystem's metadata.	Data / Catalog
+Dwh.dev	https://dwh.dev	Nexgen data lineage for Snowflake.	Data / Lineage
+Benerator	https://github.com/rapiddweller/rapiddweller-benerator-ce	Generate, obfuscate (anonymize / pseudonymize) and migrate data for development, testing and training purposes.	Data / Generation/Masking/Subsetting
+dbForge Data Generator for MySQL	https://www.devart.com/dbforge/mysql/data-generator	Powerful GUI tool for creating massive volumes of realistic test data.	Data / Generation/Masking/Subsetting
+dbForge Data Generator for Oracle	https://www.devart.com/dbforge/oracle/data-generator	Small but mighty GUI tool for populating Oracle schemas with tons of realistic test data.	Data / Generation/Masking/Subsetting
+dbForge Data Generator for SQL Server	https://www.devart.com/dbforge/sql/data-generator	Powerful GUI tool for a fast generation of meaningful test data for databases.	Data / Generation/Masking/Subsetting
+Faker	https://github.com/faker-js/faker	Generate massive amounts of fake data in the browser and Node.js.	Data / Generation/Masking/Subsetting
+Greenmask	https://github.com/GreenmaskIO/greenmask	Database anonymization and synthetic data generation tool for MySQL and PostgreSQL.	Data / Generation/Masking/Subsetting
+myanon	https://github.com/ppomes/myanon	Streaming anonymizer for MySQL dump files. Reads mysqldump from stdin, writes anonymized version to stdout.…	Data / Generation/Masking/Subsetting
+Noisia	https://github.com/lesovsky/noisia	Harmful workload generator for PostgreSQL.	Data / Generation/Masking/Subsetting
+quick-seed	https://github.com/miit-daga/quick-seed	Database-agnostic seeding tool for generating realistic test data with support for PostgreSQL, MySQL, SQLite, Prisma,…	Data / Generation/Masking/Subsetting
+SB Data Generator	https://soft-builder.com/sb-data-generator	Simple and powerful tool to generate and populate selected tables or entire databases with realistic…	Data / Generation/Masking/Subsetting
+SQLable	https://sqlable.com/generator/	Generate fake data in the browser.	Data / Generation/Masking/Subsetting
+Synthesized TDK	https://docs.synthesized.io/tdk/latest	DevOps' best friend for database masking and generation.	Data / Generation/Masking/Subsetting
+Data Profiler	https://github.com/capitalone/dataprofiler	The DataProfiler is a Python library designed to make data analysis, monitoring, and sensitive data…	Data / Data Profilers
+Desbordante	https://github.com/desbordante/desbordante-core	An open-source data profiler specifically focused on discovery and validation of complex patterns in data.	Data / Data Profilers
+YData Profiling	https://github.com/ydataai/ydata-profiling	A general-purpose open-source data profiler for high-level analysis of a dataset.	Data / Data Profilers
+dtle	https://github.com/actiontech/dtle	Distributed Data Transfer Service for MySQL.	Data / Replication
+Litestream	https://github.com/benbjohnson/litestream	Streaming replication for SQLite.	Data / Replication
+pgsync	https://github.com/ankane/pgsync	Sync PostgreSQL data between databases.	Data / Replication
+pg_chameleon	https://github.com/the4thdoctor/pg_chameleon	MySQL to PostgreSQL replica system written in Python 3. The system use the library mysql-replication…	Data / Replication
+PGDeltaStream	https://github.com/hasura/pgdeltastream	A Golang webserver to stream PostgreSQL changes at-least-once over websockets, using PostgreSQL logical decoding feature.	Data / Replication
+repmgr	https://github.com/2ndQuadrant/repmgr	The Most Popular Replication Manager for PostgreSQL.	Data / Replication
+data-diff	https://github.com/datafold/data-diff	Command-line tool and Python library to efficiently diff rows across two different databases.	Data / Compare
+KS DB Merge Tools	https://ksdbmerge.tools	GUI to compare and sync DB schema and data. For Oracle Database, MySQL, MariaDB, SQL…	Data / Compare
+The "Database as Code" Manifesto	https://github.com/mgramin/database-as-code	Treat your database as Code.	Papers
+Grokking Relational Database Design	https://www.manning.com/books/grokking-relational-database-design	A friendly illustrated guide to designing and implementing your first database.	Papers
+MindsDB	https://github.com/mindsdb/mindsdb	In-database Machine Learning.	Machine Learning
+SQLFlow	https://github.com/sql-machine-learning/sqlflow	Brings SQL and AI together.	Machine Learning

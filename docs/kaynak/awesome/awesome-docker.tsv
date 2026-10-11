@@ -1,0 +1,395 @@
+ad	url	aciklama	bolum
+Moby	https://github.com/moby/moby		Projects / Official Projects
+Docker Hub	https://hub.docker.com		Projects / Official Projects
+Docker Compose	https://github.com/docker/compose/	Define and run multi-container applications with Docker.	Projects / Official Projects
+colima	https://github.com/abiosoft/colima	Container runtimes on macOS (and Linux) with minimal setup.	Projects / Engine & Runtime
+containerd	https://github.com/containerd/containerd	An open and reliable container runtime.	Projects / Engine & Runtime
+cri-o	https://github.com/cri-o/cri-o	Open Container Initiative-based implementation of Kubernetes Container Runtime Interface.	Projects / Engine & Runtime
+gVisor	https://github.com/google/gvisor	Application Kernel for Containers.	Projects / Engine & Runtime
+lxc	https://github.com/lxc/lxc	LXC - Linux Containers.	Projects / Engine & Runtime
+Mocker	https://github.com/us/mocker	Docker-compatible container CLI for macOS, built on Apple's Containerization framework.	Projects / Engine & Runtime
+podman	https://github.com/containers/libpod	Libpod is a library used to create container pods. Home of Podman.	Projects / Engine & Runtime
+runc	https://github.com/opencontainers/runc	CLI tool for spawning and running containers according to the OCI specification.	Projects / Engine & Runtime
+runtime-tools	https://github.com/opencontainers/runtime-tools	Oci-runtime-tool is a collection of tools for working with the OCI runtime specification.	Projects / Engine & Runtime
+youki	https://github.com/youki-dev/youki	Container runtime written in Rust, implementing the OCI runtime specification.	Projects / Engine & Runtime
+ansible-bender	https://github.com/ansible-community/ansible-bender	A tool utilising `ansible` and `buildah`.	Building Images / Builder
+apko	https://github.com/chainguard-dev/apko	Declarative OCI image builder from apk packages; reproducible by design.	Building Images / Builder
+buildah	https://github.com/containers/buildah	A tool that facilitates building OCI images.	Building Images / Builder
+BuildKit	https://github.com/moby/buildkit	Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit.	Building Images / Builder
+buildx	https://github.com/docker/buildx	Official Docker CLI plugin for multi-platform builds backed by BuildKit.	Building Images / Builder
+cekit	https://github.com/cekit/cekit	A tool used by openshift to build base images using different build engines.	Building Images / Builder
+dlayer	https://github.com/orisano/dlayer	Docker layer analyzer.	Building Images / Builder
+docker-companion	https://github.com/mudler/docker-companion	A command line tool written in Golang to squash and unpack docker images.	Building Images / Builder
+docker-repack	https://github.com/orf/docker-repack	Repacks a Docker image into a smaller, more efficient version that makes it significantly faster…	Building Images / Builder
+DockerSlim	https://github.com/docker-slim/docker-slim	shrinks fat Docker images creating the smallest possible images.	Building Images / Builder
+earthly	https://github.com/earthly/earthly	Containerized build automation with Dockerfile-meets-Makefile syntax.	Building Images / Builder
+essex	https://github.com/utensils/essex	Boilerplate for Docker Based Projects: Essex is a CLI utility written in bash to quickly…	Building Images / Builder
+HPC Container Maker	https://github.com/NVIDIA/hpc-container-maker	Generates Dockerfiles from a high level Python recipe, including building blocks for High-Performance Computing components.	Building Images / Builder
+img	https://github.com/genuinetools/img	Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder.	Building Images / Builder
+ko	https://github.com/ko-build/ko	Build and deploy Go applications as container images without a Dockerfile.	Building Images / Builder
+nix2container	https://github.com/nlewo/nix2container	Build OCI images with Nix without `docker load` round-trips.	Building Images / Builder
+packer	https://developer.hashicorp.com/packer/integrations/hashicorp/docker/latest/components/builder/docker	Hashicorp tool to build machine images including docker image integrated with configuration management tools like…	Building Images / Builder
+Production-Ready Python Containers	https://pythonspeed.com/products/pythoncontainer/	yen: A template for creating production-ready Docker images for Python applications.	Building Images / Builder
+RAUDI	https://github.com/cybersecsi/RAUDI	A tool to automatically update (and optionally push to Docker Hub) Docker Images for 3rd…	Building Images / Builder
+runlike	https://github.com/lavie/runlike	Generate `docker run`command and options from running containers.	Building Images / Builder
+Whaler	https://github.com/P3GLEG/Whaler	Program to reverse Docker images into Dockerfiles.	Building Images / Builder
+Chainguard Images	https://github.com/chainguard-images/images	Minimal, signed, SBOM-attested container images built on Wolfi.	Building Images / Base Images
+distroless	https://github.com/GoogleContainerTools/distroless	Language focused docker images, minus the operating system.	Building Images / Base Images
+melange	https://github.com/chainguard-dev/melange	Build apk packages from declarative YAML for use with apko.	Building Images / Base Images
+pglayers	https://github.com/pglayers/pglayers	Pre-built PostgreSQL extensions as composable Docker layers. 50+ extensions, ready-to-use combined images (full, Azure-compatible).	Building Images / Base Images
+Wolfi	https://github.com/wolfi-dev/os	Undistro Linux designed for containers; glibc-based, signed, daily SBOMs.	Building Images / Base Images
+Dockerfile Generator	https://github.com/ozankasikci/dockerfile-generator	`dfg` is both a Go library and an executable that produces valid Dockerfiles using various…	Building Images / Dockerfile
+Dockershelf	https://github.com/Dockershelf/dockershelf	A repository that serves as a collector for docker recipes that are universal, efficient and…	Building Images / Dockerfile
+Dofigen	https://github.com/lenra-io/dofigen	A Dockerfile generator using a simplified description in YAML or JSON format.	Building Images / Dockerfile
+Trsuted Builds	https://dockerfile.github.io/	Trusted Automated Docker Builds. Dockerfile Project maintains a central repository of Dockerfile for various popular…	Building Images / Dockerfile
+Dockadvisor	https://github.com/deckrun/dockadvisor	Lightweight Dockerfile linter with 60+ rules, quality scoring, and security checks.	Building Images / Linter
+docker-image-size-limit	https://github.com/wemake-services/docker-image-size-limit	A tool to keep an eye on your docker images size.	Building Images / Linter
+Hadolint	https://github.com/hadolint/hadolint	A Dockerfile linter that checks for best practices, common mistakes, and is also able to…	Building Images / Linter
+Amazon Elastic Container Registry	https://aws.amazon.com/ecr/	yen: Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it…	Image Lifecycle / Registry
+Azure Container Registry	https://azure.microsoft.com/en-us/products/container-registry/#overview	yen: Manage a Docker private registry as a first-class Azure resource.	Image Lifecycle / Registry
+Cloudsmith	https://cloudsmith.com/product/formats/docker-registry	yen: A fully managed package management SaaS, with first-class support for public and private Docker…	Image Lifecycle / Registry
+Container Registry Service	https://container-registry.com/	yen: Harbor based Container Management Solution as a Service for teams and organizations. Free tier…	Image Lifecycle / Registry
+Cycle.io	https://cycle.io/	yen: Bare-metal container hosting.	Image Lifecycle / Registry
+DigitalOcean	https://www.digitalocean.com/products/container-registry	yen: DigitalOcean Container Registry.	Image Lifecycle / Registry
+Docker Hub	https://hub.docker.com/	provided by Docker Inc.	Image Lifecycle / Registry
+Dragonfly	https://github.com/dragonflyoss/Dragonfly2	Provide efficient, stable and secure file distribution and image acceleration based on p2p technology.	Image Lifecycle / Registry
+GCP Artifact Registry	https://docs.cloud.google.com/artifact-registry/docs	yen: Fast, private Docker image storage on Google Cloud Platform.	Image Lifecycle / Registry
+Gitea Container Registry	https://docs.gitea.com/usage/packages/container	Integrated Docker registry in Gitea, ideal for private, small-scale image hosting.	Image Lifecycle / Registry
+GitHub Container Registry	https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry	GitHub's solution for storing and managing Docker images, with tight integration into GitHub Actions.	Image Lifecycle / Registry
+GitLab Container Registry	https://docs.gitlab.com/user/packages/container_registry/	Registry focused on using its images in GitLab CI.	Image Lifecycle / Registry
+Granite Registry	https://granite.so/products/docker-registry	yen: Store private Docker images alongside the workloads that pull them, with scoped read-only and…	Image Lifecycle / Registry
+Harbor	https://github.com/goharbor/harbor	An open source trusted cloud native registry project that stores, signs, and scans content. Supports…	Image Lifecycle / Registry
+JFrog Artifactory	https://jfrog.com/artifactory/	yen: Artifact Repository Manager, can be used as private Docker Registry as well.	Image Lifecycle / Registry
+kontain.me	https://github.com/imjasonh/kontain.me	On-demand container image registry that builds and serves images when they are pulled.	Image Lifecycle / Registry
+Kraken	https://github.com/uber/kraken	Uber's Highly scalable P2P docker registry, capable of distributing TBs of data in seconds.	Image Lifecycle / Registry
+NORA	https://github.com/getnora-io/nora	Lightweight multi-protocol artifact registry supporting Docker, Maven, npm, Cargo and PyPI in a single 32MB…	Image Lifecycle / Registry
+nscr	https://github.com/jhstatewide/nscr	A light-weight, self-contained container registry that's easy to run and maintain.	Image Lifecycle / Registry
+Quay.io	https://quay.io/	yen: Secure hosting for private Docker repositories.	Image Lifecycle / Registry
+Registryo	https://github.com/inmagik/registryo	UI and token based authentication server for onpremise docker registry.	Image Lifecycle / Registry
+RepoFlow	https://www.repoflow.io	A simple and easy-to-use package management platform with Docker support alongside other formats like PyPI,…	Image Lifecycle / Registry
+Sonatype Nexus Repository	https://www.sonatype.com/products/sonatype-nexus-repository	Manage binaries and build artifacts across your software supply chain.	Image Lifecycle / Registry
+crane	https://github.com/google/go-containerregistry/tree/main/cmd/crane	Lightweight CLI to manipulate registry images, from `go-containerregistry`.	Image Lifecycle / Registry CLI
+go-containerregistry	https://github.com/google/go-containerregistry	Go library and CLI tools (`crane`, `gcrane`, `registry`) for working with container registries.	Image Lifecycle / Registry CLI
+oras	https://github.com/oras-project/oras	Push and pull arbitrary OCI artifacts to and from any OCI registry.	Image Lifecycle / Registry CLI
+regctl	https://github.com/regclient/regclient	Daemonless registry client; copy, inspect, modify, and sign OCI images.	Image Lifecycle / Registry CLI
+skopeo	https://github.com/containers/skopeo	Work with remote image registries: retrieve information, copy images, sign content.	Image Lifecycle / Registry CLI
+Anchor	https://github.com/SongStitch/anchor/	A tool to ensure reproducible builds by pinning dependencies inside your Dockerfiles.	Image Lifecycle / Image Scanning & SBOM
+Anchor Enterprise	https://anchore.com/	yen: Analyze images for CVE vulnerabilities and against custom security policies.	Image Lifecycle / Image Scanning & SBOM
+BomLens	https://github.com/sktelecom/bomlens	Scan container images (plus source, binaries, and firmware) into CycloneDX SBOMs with vulnerability, license, and…	Image Lifecycle / Image Scanning & SBOM
+Clair	https://github.com/quay/clair	Clair is an open source project for the static analysis of vulnerabilities in appc and…	Image Lifecycle / Image Scanning & SBOM
+Docker Scout	https://github.com/docker/scout-cli	Official Docker CLI for SBOM generation, vulnerability analysis, and policy evaluation.	Image Lifecycle / Image Scanning & SBOM
+Grype	https://github.com/anchore/grype	A vulnerability scanner for container images, filesystems and SBOMs.	Image Lifecycle / Image Scanning & SBOM
+oscap-docker	https://github.com/OpenSCAP/openscap	OpenSCAP provides oscap-docker tool which is used to scan Docker containers and images.	Image Lifecycle / Image Scanning & SBOM
+pindock	https://github.com/deadnews/pindock	Pin and update Docker image digests in Dockerfiles and compose files.	Image Lifecycle / Image Scanning & SBOM
+Syft	https://github.com/anchore/syft	CLI tool and library for generating a Software Bill of Materials (SBOM) from container images…	Image Lifecycle / Image Scanning & SBOM
+Trivy	https://github.com/aquasecurity/trivy	Aqua Security's open source simple and comprehensive vulnerability scanner for containers (suitable for CI).	Image Lifecycle / Image Scanning & SBOM
+cosign	https://github.com/sigstore/cosign	Container signing, verification, and transparency log for OCI artifacts.	Image Lifecycle / Supply Chain
+in-toto	https://github.com/in-toto/in-toto	Framework for supply chain attestations; underpins SLSA and cosign provenance.	Image Lifecycle / Supply Chain
+policy-controller	https://github.com/sigstore/policy-controller	Kubernetes admission controller enforcing cosign signatures on container images.	Image Lifecycle / Supply Chain
+witness	https://github.com/in-toto/witness	Generate and verify in-toto attestations across the build pipeline.	Image Lifecycle / Supply Chain
+Composerize	https://github.com/magicmark/composerize	Convert docker run commands into docker-compose files.	Running Containers / Composition
+ctk	https://github.com/ctk-hq/ctk	Visual composer for container based workloads.	Running Containers / Composition
+kompose	https://github.com/kubernetes/kompose	Go from Docker Compose to Kubernetes.	Running Containers / Composition
+plash	https://github.com/ihucos/plash	A container run and build engine - runs inside docker.	Running Containers / Composition
+podman-compose	https://github.com/containers/podman-compose	A script to run docker-compose.yml using podman.	Running Containers / Composition
+Smalte	https://github.com/roquie/smalte	Dynamically configure applications that require static configuration in docker container.	Running Containers / Composition
+CloudSlang	https://github.com/CloudSlang/cloud-slang	CloudSlang is a workflow engine to create Docker process automation.	Running Containers / Orchestration
+docker rollout	https://github.com/Wowu/docker-rollout	Zero downtime deployment for Docker Compose services.	Running Containers / Orchestration
+Kubernetes	https://github.com/kubernetes/kubernetes	Open source orchestration system for Docker containers by Google.	Running Containers / Orchestration
+Mesos	https://github.com/apache/mesos	Resource/Job scheduler for containers, VM's and physical hosts.	Running Containers / Orchestration
+Nebula	https://github.com/nebula-orchestrator	A Docker orchestration tool designed to manage massive scale distributed clusters.	Running Containers / Orchestration
+Nomad	https://github.com/hashicorp/nomad	Easily deploy applications at any scale. A Distributed, Highly Available, Datacenter-Aware Scheduler.	Running Containers / Orchestration
+Rancher	https://github.com/rancher/rancher	An open source project that provides a complete platform for operating Docker in production.	Running Containers / Orchestration
+Swarm-cronjob	https://github.com/crazy-max/swarm-cronjob	Create jobs on a time-based schedule on Swarm.	Running Containers / Orchestration
+Amazon ECS	https://aws.amazon.com/ecs/	yen: A management service on EC2 that supports Docker containers.	Running Containers / Deployment & Platforms
+Appfleet	https://appfleet.com/	yen: Edge platform to deploy and manage containerized services globally; routes traffic to the closest…	Running Containers / Deployment & Platforms
+Azure AKS	https://azure.microsoft.com/en-us/products/kubernetes-service/	yen: Fully managed Kubernetes container orchestration service.	Running Containers / Deployment & Platforms
+blackfish	https://gitlab.com/blackfish/blackfish	A CoreOS VM to build swarm clusters for Dev & Production.	Running Containers / Deployment & Platforms
+BosnD	https://gitlab.com/n0r1sk/bosnd	BosnD, the boatswain daemon - A dynamic configuration file writer & service reloader for dynamically…	Running Containers / Deployment & Platforms
+caprover	https://github.com/caprover/caprover	[Previously known as CaptainDuckDuck] Automated Scalable Webserver Package (automated Docker+nginx) - Heroku on Steroids.	Running Containers / Deployment & Platforms
+Cloud 66	https://www.cloud66.com	yen: Full-stack hosted container management as a service.	Running Containers / Deployment & Platforms
+Cloud Run Compose	https://docs.cloud.google.com/run/docs/deploy-run-compose	yen: Deploy `docker-compose.yaml` files directly to Google Cloud Run as a managed service.	Running Containers / Deployment & Platforms
+Convox Rack	https://github.com/convox/rack	Convox Rack is open source PaaS built on top of expert infrastructure automation and devops…	Running Containers / Deployment & Platforms
+docker-to-iac	https://github.com/deploystackio/docker-to-iac	Translate docker run and commit into Infrastructure as Code templates for AWS, Render.com and DigitalOcean.	Running Containers / Deployment & Platforms
+doco-cd	https://github.com/kimdre/doco-cd	Lightweight GitOps and Continuous Deployment tool to deploy Docker Compose projects and Swarm stacks using…	Running Containers / Deployment & Platforms
+Dokku	https://github.com/dokku/dokku	Docker powered mini-Heroku that helps you build and manage the lifecycle of applications.	Running Containers / Deployment & Platforms
+Exoframe	https://github.com/exoframejs/exoframe	A self-hosted tool that allows simple one-command deployments using Docker.	Running Containers / Deployment & Platforms
+Giant Swarm	https://www.giantswarm.io/	yen: Simple microservice infrastructure. Deploy your containers in seconds.	Running Containers / Deployment & Platforms
+Google Container Engine	https://docs.cloud.google.com/kubernetes-engine/docs	yen: Docker containers on Google Cloud Computing powered by [Kubernetes][kubernetes].	Running Containers / Deployment & Platforms
+Grafeas	https://github.com/grafeas/grafeas	A common API for metadata about containers, from image and build details to security vulnerabilities.	Running Containers / Deployment & Platforms
+Mesosphere DC/OS Platform	https://d2iq.com/products/dcos	yen: Integrated platform for data and containers built on Apache Mesos.	Running Containers / Deployment & Platforms
+OpenRun	https://github.com/openrundev/openrun	Builds, deploys, proxies, authenticates and auto-pauses web apps with Docker or Kubernetes.	Running Containers / Deployment & Platforms
+Red Hat OpenShift Dedicated	https://www.redhat.com/en/technologies/cloud-computing/openshift/dedicated	yen: Fully-managed Red Hat® OpenShift® service on Amazon Web Services and Google Cloud.	Running Containers / Deployment & Platforms
+swarm-ansible	https://github.com/LombardiDaniel/swarm-ansible?tab=readme-ov-file	Swarm-Ansible bootstraps a production-ready swarm cluster using ansible. Comes with tools to automate CI, help…	Running Containers / Deployment & Platforms
+SwarmManagement	https://github.com/hansehe/SwarmManagement	Swarm Management is a python application, installed with pip. The application makes it easy to…	Running Containers / Deployment & Platforms
+Triton	https://www.joyent.com/	yen: Elastic container-native infrastructure.	Running Containers / Deployment & Platforms
+Tsuru	https://github.com/tsuru/tsuru	Tsuru is an extensible and open source Platform as a Service software.	Running Containers / Deployment & Platforms
+werf	https://github.com/werf/werf	Werf is a CI/CD tool for building Docker images efficiently and deploying them to Kubernetes…	Running Containers / Deployment & Platforms
+docker-custodian	https://github.com/Yelp/docker-custodian	Keep docker hosts tidy.	Running Containers / Garbage Collection
+Docuum	https://github.com/stepchowfun/docuum	Least recently used (LRU) eviction of Docker images.	Running Containers / Garbage Collection
+docker-dns	https://github.com/bytesharky/docker-dns	Lightweight DNS forwarder for Docker containers, resolves container names with custom suffixes (e.g. `.docker`) on…	Networking & Proxies / Networking
+Flannel	https://github.com/coreos/flannel/	Flannel is a virtual network that gives a subnet to each host for use with…	Networking & Proxies / Networking
+netshoot	https://github.com/nicolaka/netshoot	The netshoot container has a powerful set of networking tools to help troubleshoot Docker networking…	Networking & Proxies / Networking
+Pipework	https://github.com/jpetazzo/pipework	Software-Defined Networking for Linux Containers, Pipework works with "plain" LXC containers, and with the awesome…	Networking & Proxies / Networking
+registrator	https://github.com/gliderlabs/registrator	Service registry bridge for Docker.	Networking & Proxies / Networking
+BunkerWeb	https://github.com/bunkerity/bunkerweb	Open-source and next-gen Web Application Firewall (WAF).	Networking & Proxies / Reverse Proxy
+caddy-docker-proxy	https://github.com/lucaslorentz/caddy-docker-proxy	Caddy-based reverse proxy, configured with service or container labels.	Networking & Proxies / Reverse Proxy
+caddy-docker-upstreams	https://github.com/invzhi/caddy-docker-upstreams	Docker upstreams module for Caddy, configured with container labels.	Networking & Proxies / Reverse Proxy
+Docker Dnsmasq Updater	https://github.com/moonbuggy/docker-dnsmasq-updater	Update a remote dnsmasq server with Docker container hostnames.	Networking & Proxies / Reverse Proxy
+docker-flow-proxy	https://github.com/docker-flow/docker-flow-proxy	Reconfigures proxy every time a new service is deployed, or when a service is scaled.	Networking & Proxies / Reverse Proxy
+Let's Encrypt Nginx-proxy Companion	https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion	A lightweight companion container for the nginx-proxy. It allow the creation/renewal of Let's Encrypt certificates…	Networking & Proxies / Reverse Proxy
+mesh-router	https://github.com/Yundera/mesh-router	Free domain(nsl.sh) provider for Docker containers with automatic HTTPS routing. Uses Wireguard VPN to securely…	Networking & Proxies / Reverse Proxy
+Nginx Proxy Manager	https://github.com/jc21/nginx-proxy-manager	A beautiful web interface for proxying web based services with SSL.	Networking & Proxies / Reverse Proxy
+OpenResty Manager	https://github.com/Safe3/openresty-manager	The easiest using, powerful and beautiful OpenResty Manager(Nginx Enhanced Version), open source alternative to OpenResty…	Networking & Proxies / Reverse Proxy
+Swarm Router	https://github.com/flavioaiello/swarm-router	A zero config service name based router for docker swarm mode with a fresh and…	Networking & Proxies / Reverse Proxy
+Træfɪk	https://github.com/containous/traefik	Automated reverse proxy and load-balancer for Docker, Mesos, Consul, Etcd.	Networking & Proxies / Reverse Proxy
+Docker Volume Backup	https://github.com/offen/docker-volume-backup	Backup Docker volumes locally or to any S3 compatible storage.	Projects / Storage & Data
+Label Backup	https://github.com/resulgg/label-backup	A lightweight, Docker-aware backup agent that automatically discovers and backs up containerized databases (PostgreSQL, MySQL,…	Projects / Storage & Data
+Netshare	https://github.com/ContainX/docker-volume-netshare	Docker NFS, AWS EFS, Ceph & Samba/CIFS Volume Plugin.	Projects / Storage & Data
+portworx	https://portworx.com	yen: Decentralized storage solution for persistent, shared and replicated volumes.	Projects / Storage & Data
+quobyte	https://www.quobyte.com/	yen: Fully fault-tolerant distributed file system with a docker volume driver.	Projects / Storage & Data
+resq	https://github.com/mashb1t/resq	Restic-powered Docker backups for volumes, databases, and .env files, with or without stopping containers. Works…	Projects / Storage & Data
+REX-Ray	https://github.com/rexray/rexray	provides a vendor agnostic storage orchestration engine. The primary design goal is to provide persistent…	Projects / Storage & Data
+ADRG	https://github.com/jaldertech/adrg	Dynamic Docker resource governor using cgroups v2 to manage system load.	Projects / Observability
+AppDynamics	https://github.com/Appdynamics/docker-monitoring-extension	yen: Docker Monitoring extension gathers metrics from the Docker Remote API, either using Unix Socket…	Projects / Observability
+Autoheal	https://github.com/willfarrell/docker-autoheal	Monitor and restart unhealthy docker containers automatically.	Projects / Observability
+Better Stack	https://betterstack.com/community/guides/scaling-docker/	yen: A Docker-compatible observability stack that delivers log aggregation and uptime monitoring for containerized apps.	Projects / Observability
+cAdvisor	https://github.com/google/cadvisor	Analyzes resource usage and performance characteristics of running containers.	Projects / Observability
+Datadog	https://www.datadoghq.com/	yen: Full-stack monitoring service with first-class Docker, Kubernetes, and Mesos support.	Projects / Observability
+DLIA	https://github.com/zorak1103/dlia	DLIA is an AI-powered Docker log monitoring agent that uses Large Language Models (LLMs) to…	Projects / Observability
+docker-exporter	https://github.com/dlepaux/docker-exporter	Lightweight Prometheus exporter for Docker container metrics written in Rust. Correct cgroup v2 memory working…	Projects / Observability
+Docker-Sentinel	https://github.com/Will-Luck/Docker-Sentinel	Automated container updates with per-container policies, rollback safety, and a real-time web dashboard.	Projects / Observability
+DockProbe	https://github.com/deep-on/dockprobe	Lightweight Docker monitoring dashboard in a single container. Real-time metrics, 6 anomaly detection rules, Telegram…	Projects / Observability
+DockProc	https://gitlab.com/n0r1sk/dockproc	I/O monitoring for containers on processlevel.	Projects / Observability
+dockprom	https://github.com/stefanprodan/dockprom	Docker hosts and containers monitoring with Prometheus, Grafana, cAdvisor, NodeExporter and AlertManager.	Projects / Observability
+Doku	https://github.com/amerkurev/doku	Doku is a simple web-based application that allows you to monitor Docker disk usage.	Projects / Observability
+Dozzle	dozzle	Monitor container logs in real-time with a browser or mobile device.	Projects / Observability
+Drydock	https://github.com/CodesWhat/drydock	Container update monitoring with web dashboard, 23 registry providers, 20 notification triggers, and distributed agent…	Projects / Observability
+Dynatrace	https://docs.dynatrace.com/docs/observe/infrastructure-observability/container-platform-monitoring	yen: Monitor containerized applications without installing agents or modifying your Run commands.	Projects / Observability
+Grafana Docker Dashboard Template	https://grafana.com/grafana/dashboards/179-docker-prometheus-monitoring/	A template for your Docker, Grafana and Prometheus stack.	Projects / Observability
+InfraCanvas	https://github.com/bytestrix/InfraCanvas	Live visual map of containers, pods, volumes, and networks on any Linux server. Single binary,…	Projects / Observability
+Maintenant	https://github.com/kolapsis/maintenant	Self-discovering infrastructure monitoring for Docker and Kubernetes. Auto-detects containers via labels, with endpoint monitoring, heartbeats,…	Projects / Observability
+Middleware	https://middleware.io/	yen: Monitor Docker hosts, containers, logs, and application performance from a unified observability platform.	Projects / Observability
+Site24x7	https://www.site24x7.com/docker-monitoring.html	yen: Docker Monitoring for DevOps and IT, SaaS Pay-per-Host model.	Projects / Observability
+Sysdig Monitor	https://www.sysdig.com/products/monitor	yen: Software or SaaS service that monitors, alerts, and troubleshoots containers using system calls; container-specific…	Projects / Observability
+Wiremap	https://github.com/codeofmario/wiremap	A self-hosted visual Docker network topology explorer with real-time log streaming, live stats, embedded terminal,…	Projects / Observability
+Aqua Security	https://www.aquasec.com	yen: Securing container-based applications from Dev to Production on any platform.	Projects / Security
+buildcage	https://github.com/dash14/buildcage	Restricts outbound network access during Docker builds to prevent supply chain attacks, working as a…	Projects / Security
+CetusGuard	https://github.com/hectorm/cetusguard	CetusGuard is a tool that protects the Docker daemon socket by filtering calls to its…	Projects / Security
+Checkov	https://github.com/bridgecrewio/checkov	Static analysis for infrastructure as code manifests (Terraform, Kubernetes, Cloudformation, Helm, Dockerfile, Kustomize) find security…	Projects / Security
+compose-lint	https://github.com/tmatens/compose-lint	Lints Docker Compose files for security misconfigurations — privileged containers, unpinned images, Docker socket mounts,…	Projects / Security
+container-explorer	https://github.com/google/container-explorer	Forensic utility to explore Docker and containerd container details from mounted disk images.	Projects / Security
+Deepfence Threat Mapper	https://github.com/deepfence/ThreatMapper	Powerful runtime vulnerability scanner for kubernetes, virtual machines and serverless.	Projects / Security
+Den	https://github.com/us/den	Self-hosted sandbox runtime for AI agents with Docker containers, security hardening, REST API and WebSocket…	Projects / Security
+docker-bench-security	https://github.com/docker/docker-bench-security	Script that checks for dozens of common best-practices around deploying Docker containers in production.	Projects / Security
+docker-socket-proxy	https://github.com/Tecnativa/docker-socket-proxy	HAProxy-based fine-grained filter for the Docker API socket; widely used to expose a restricted socket…	Projects / Security
+KICS	https://github.com/checkmarx/kics	An infrastructure-as-code scanning tool, find security vulnerabilities, compliance issues, and infrastructure misconfigurations early in the…	Projects / Security
+Prisma Cloud	https://www.paloaltonetworks.com/prisma/cloud	yen: (Previously Twistlock Security Suite) detects vulnerabilities, hardens container images, and enforces security policies across…	Projects / Security
+segspec	https://github.com/dormstern/segspec	Extracts network dependencies from Docker Compose, Kubernetes manifests, Helm charts, and other config files to…	Projects / Security
+Sysdig Falco	https://github.com/falcosecurity/falco	Sysdig Falco is an open source container security monitor. It can monitor application, container, host,…	Projects / Security
+Sysdig Secure	https://www.sysdig.com/solutions/cloud-detection-and-response-cdr	yen: Sysdig Secure addresses run-time security through behavioral monitoring and defense, and provides deep forensics…	Projects / Security
+Trend Micro DeepSecurity	https://www.trendmicro.com/en_us/business/products/hybrid-cloud/deep-security.html	yen: Trend Micro DeepSecurity offers runtime protection for container workloads and hosts as well as…	Projects / Security
+Docker DB Manager	https://github.com/AbianS/docker-db-manager	Desktop app for managing Docker database containers with visual interface and one-click operations.	User Interfaces / Desktop
+Docker Desktop	https://www.docker.com/products/docker-desktop/	Official native app. Only for Windows and MacOS.	User Interfaces / Desktop
+Gantry (Desktop)	https://github.com/getgantry/gantry	Native macOS app (SwiftUI, no Electron) for managing and monitoring Docker hosts, local and over…	User Interfaces / Desktop
+Simple Docker UI	https://github.com/felixgborrego/simple-docker-ui	Built on Electron.	User Interfaces / Desktop
+Stevedore	https://github.com/slonopotamus/stevedore	Good Docker Desktop replacement for Windows. Both Linux and Windows Containers are supported. slonopotamus.	User Interfaces / Desktop
+bosun	https://github.com/psychedelicdevx/bosun	A keyboard-driven terminal UI for Docker with compose project grouping, live logs, stats, and shell…	User Interfaces / Terminal
+d4s	https://github.com/jr-k/d4s	A fast, keyboard-driven terminal UI to manage Docker containers, Compose stacks, and Swarm services with…	User Interfaces / Terminal
+dcinja	https://github.com/Falldog/dcinja	The powerful and smallest binary size of template engine for docker command line environment.	User Interfaces / Terminal
+dctl	https://github.com/FabienD/docker-stack	Dctl is a Cli tool that helps developers by allowing them to execute all docker…	User Interfaces / Terminal
+decompose	https://github.com/s0rg/decompose	Reverse-engineering tool for docker environments.	User Interfaces / Terminal
+dive	https://github.com/wagoodman/dive	A tool for exploring each layer in a docker image.	User Interfaces / Terminal
+docker pushrm	https://github.com/christian-korneck/docker-pushrm	A Docker CLI plugin that lets you push the README.md file from the current directory…	User Interfaces / Terminal
+docker-captain	https://github.com/lucabello/docker-captain	A friendly CLI to manage multiple Docker Compose deployments with style — powered by Typer,…	User Interfaces / Terminal
+dockerfile-mode	https://github.com/spotify/dockerfile-mode	An Emacs mode for handling Dockerfiles.	User Interfaces / Terminal
+dockerfilegraph	https://github.com/patrickhoefler/dockerfilegraph	Visualize your multi-stage Dockerfiles.	User Interfaces / Terminal
+dockly	https://github.com/lirantal/dockly	An interactive shell UI for managing Docker containers.	User Interfaces / Terminal
+DockMate	https://github.com/shubh-io/dockmate	Lightweight terminal-based Docker and Podman manager with a text-based user interface,.	User Interfaces / Terminal
+DockSTARTer	https://github.com/GhostWriters/DockSTARTer	DockSTARTer helps you get started with home server apps running in Docker.	User Interfaces / Terminal
+DockTUI	https://github.com/strmax195-hue/docktui	Fast, zero-dependency terminal dashboard for Docker and Compose.	User Interfaces / Terminal
+dockup	https://github.com/paulo-amaral/dockup	TUI to install, harden and maintain container runtimes: Docker Engine + Compose v2, NVIDIA Container…	User Interfaces / Terminal
+dprs	https://github.com/durableprogramming/dprs	A developer-focused TUI for managing Docker containers with real-time log streaming and container management.	User Interfaces / Terminal
+dry	https://github.com/moncho/dry	An interactive CLI for Docker containers.	User Interfaces / Terminal
+easydocker	https://github.com/joao-zanutto/easydocker	A Terminal UI highly inpired by k9s levaraging beatiful BubbleTea graphics.	User Interfaces / Terminal
+goManageDocker	https://github.com/ajayd-san/gomanagedocker	TUI tool to view and manage your docker objects blazingly fast with sensible keybindings, also…	User Interfaces / Terminal
+layerx	https://github.com/deveshctl/layerx	Inspect container image layers in a TUI — browse filesystem diffs, view file contents inline,…	User Interfaces / Terminal
+lazydocker	https://github.com/jesseduffield/lazydocker	The lazier way to manage everything docker. A simple terminal UI for both docker and…	User Interfaces / Terminal
+lazyjournal	https://github.com/Lifailon/lazyjournal	A interface for reading and filtering the logs output of Docker and Podman containers like…	User Interfaces / Terminal
+oxker	https://github.com/mrjackwills/oxker	A simple tui to view & control docker containers.	User Interfaces / Terminal
+proco	https://github.com/shiwaforce/poco	Proco will help you to organise and manage Docker, Docker-Compose, Kubernetes projects of any complexity…	User Interfaces / Terminal
+scuba	https://github.com/JonathonReinhart/scuba	Transparently use Docker containers to encapsulate software build environments,.	User Interfaces / Terminal
+supdock	https://github.com/segersniels/supdock	Allows for slightly more visual usage of Docker with an interactive prompt.	User Interfaces / Terminal
+swarmcli	https://github.com/Eldara-Tech/swarmcli	Swarm Management at the speed of thought — with real-time log streaming, instant shell access…	User Interfaces / Terminal
+tdocker	https://github.com/pivovarit/tdocker	A `docker ps` replacement for everyday container operations.	User Interfaces / Terminal
+wharf	https://github.com/idesyatov/wharf	A k9s-inspired TUI for Docker Compose with vim-style navigation, real-time CPU/MEM monitoring with braille charts,…	User Interfaces / Terminal
+Arcane	https://github.com/getarcaneapp/arcane	An easy and modern Docker management platform, built with everybody in mind.	User Interfaces / Web
+CASA	https://github.com/knrdl/casa	Outsource the administration of a handful of containers to your co-workers,.	User Interfaces / Web
+Container Web TTY	https://github.com/wrfly/container-web-tty	Connect your containers via a web-tty.	User Interfaces / Web
+Docker Commander	https://github.com/koduj-dev/docker-commander	A self-hosted Docker management and monitoring UI with multi-host support, Compose management, aggregated logs, alerts,…	User Interfaces / Web
+Docker Registry Browser	https://github.com/klausmeyer/docker-registry-browser	Web Interface for the Docker Registry HTTP API v2.	User Interfaces / Web
+docker-swarm-visualizer	https://github.com/dockersamples/docker-swarm-visualizer	Visualizes Docker services on a Docker Swarm (for running demos).	User Interfaces / Web
+dockge	https://github.com/louislam/dockge	Easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager.	User Interfaces / Web
+DockScope	https://github.com/ManuelR-T/dockscope	Visualizes Docker containers in a 3D dependency graph with live metrics, logs, and an in-browser…	User Interfaces / Web
+Komodo	https://github.com/mbecker20/komodo	A tool to build and deploy software on many servers.	User Interfaces / Web
+Portainer	https://github.com/portainer/portainer	A lightweight management UI for managing your Docker hosts or Docker Swarm clusters.	User Interfaces / Web
+Swarmpit	https://github.com/swarmpit/swarmpit	Swarmpit provides simple and easy to use interface for your Docker Swarm cluster. You can…	User Interfaces / Web
+usulnet	https://github.com/fr4nsys/usulnet	A complete and modern Docker management platform designed for sysadmin, devops with enterprise grade tools,…	User Interfaces / Web
+docker.el	https://github.com/Silex/docker.el	Manage docker from Emacs.	User Interfaces / IDE Integrations
+contajners	https://github.com/lispyclouds/contajners	An idiomatic, data-driven, REPL friendly Clojure client for OCI container engines.	Developer Workflow / API Client
+Docker Client for JVM	https://github.com/gesellix/docker-client	A Docker remote api client library for the JVM, written in Groovy.	Developer Workflow / API Client
+Docker Client TypeScript	https://gitlab.com/masaeedu/docker-client	Docker API client for JavaScript, automatically generated from Swagger API definition from moby repository.	Developer Workflow / API Client
+docker-controller-bot	https://github.com/dgongut/docker-controller-bot	Telegram bot to control docker containers.	Developer Workflow / API Client
+docker-maven-plugin	https://github.com/fabric8io/docker-maven-plugin	A Maven plugin for running and creating Docker images.	Developer Workflow / API Client
+Docker.DotNet	https://github.com/Microsoft/Docker.DotNet	C#/.NET HTTP client for the Docker remote API.	Developer Workflow / API Client
+Docker.Registry.DotNet	https://github.com/ChangemakerStudios/Docker.Registry.DotNet	.NET (C#) Client Library for interacting with a Docker Registry API (v2).	Developer Workflow / API Client
+dockerode	https://github.com/apocas/dockerode	Docker Remote API node.js module.	Developer Workflow / API Client
+go-dockerclient	https://github.com/fsouza/go-dockerclient/	Go HTTP client for the Docker remote API.	Developer Workflow / API Client
+Gradle Docker plugin	https://github.com/gesellix/gradle-docker-plugin	A Docker remote api plugin for Gradle.	Developer Workflow / API Client
+Portainer stack utils	https://github.com/greenled/portainer-stack-utils	Bash script to deploy/update/undeploy Docker stacks in a Portainer instance from a docker-compose yaml file.	Developer Workflow / API Client
+sbt-docker	https://github.com/marcuslonnberg/sbt-docker	Create Docker images directly from sbt.	Developer Workflow / API Client
+Buddy	https://buddy.works	yen: The best of Git, build & deployment tools combined into one powerful tool that…	Developer Workflow / CI/CD
+Captain	https://github.com/harbur/captain	Convert your Git workflow to Docker containers ready for Continuous Delivery.	Developer Workflow / CI/CD
+CircleCI	https://circleci.com/	yen: Push or pull Docker images from your build environment, or build and run containers…	Developer Workflow / CI/CD
+CodeFresh	https://octopus.com/codefresh	yen: End-to-end build, test, and share for Docker applications, with automated testing.	Developer Workflow / CI/CD
+ConcourseCI	https://concourse-ci.org	yen: Pipeline-oriented CI SaaS platform for DevOps teams.	Developer Workflow / CI/CD
+Defang	https://github.com/DefangLabs/defang	Deploy Docker Compose to your favorite cloud in minutes.	Developer Workflow / CI/CD
+Depot	https://depot.dev	yen: Build Docker images fast, in the cloud. Blazing fast compute, automatic intelligent caching, and…	Developer Workflow / CI/CD
+Diun	https://github.com/crazy-max/diun	Receive notifications when an image or repository is updated on a Docker registry.	Developer Workflow / CI/CD
+dockcheck	https://github.com/mag37/dockcheck	A script checking updates for docker images without pulling then auto-update selected/all containers. With notifications,…	Developer Workflow / CI/CD
+Docker plugin for Jenkins	https://github.com/jenkinsci/docker-plugin/	The aim of the docker plugin is to be able to use a docker host…	Developer Workflow / CI/CD
+Drone	https://github.com/drone/drone	Continuous integration server built on Docker and configured using YAML files.	Developer Workflow / CI/CD
+Gantry	https://github.com/shizunge/gantry	Automatically update selected Docker swarm services.	Developer Workflow / CI/CD
+GitLab Runner	https://gitlab.com/gitlab-org/gitlab-runner	GitLab has integrated CI to test, build and deploy your code with the use of…	Developer Workflow / CI/CD
+Jaypore CI	https://github.com/theSage21/jaypore_ci	Simple, very flexible, powerful CI / CD / automation system configured in Python. Offline and…	Developer Workflow / CI/CD
+Kraken CI	https://github.com/Kraken-CI/kraken	Modern CI/CD, open-source, on-premise system that is highly scalable and focused on testing. One of…	Developer Workflow / CI/CD
+Screwdriver	https://screwdriver.cd/	yen: Yahoo's OpenSource buildplatform designed for Continous Delivery.	Developer Workflow / CI/CD
+Self Hosted Runner	https://github.com/youssefbrr/self-hosted-runner	Dockerized solution for setting up a self-hosted GitHub Actions runner with support for Linux, macOS,…	Developer Workflow / CI/CD
+Semaphore CI	https://semaphore.io/	yen: High-performance cloud CI that builds, tests and ships containers to production.	Developer Workflow / CI/CD
+Skipper	https://github.com/Stratoscale/skipper	Easily dockerize your Git repository.	Developer Workflow / CI/CD
+Tekton CD	https://tekton.dev/	A cloud-native pipeline resource.	Developer Workflow / CI/CD
+TravisCI	https://www.travis-ci.com/	yen: Hosted CI for GitHub projects with Docker support.	Developer Workflow / CI/CD
+coder	https://github.com/coder/coder	Remote development machines powered by Terraform or Docker.	Developer Workflow / Development Environment
+dde	https://github.com/whatwedo/dde	Local development environment toolset based on Docker.	Developer Workflow / Development Environment
+DIP	https://github.com/bibendi/dip	CLI utility for straightforward provisioning and interacting with an application configured by docker-compose.	Developer Workflow / Development Environment
+EnvCLI	https://github.com/EnvCLI/EnvCLI	Replace your local installation of Node, Go, ... with project-specific docker containers.	Developer Workflow / Development Environment
+Gebug	https://github.com/moshebe/gebug	A tool that makes debugging of Dockerized Go applications super easy by enabling Debugger and…	Developer Workflow / Development Environment
+HarborPilot	https://github.com/potterwhite/HarborPilot	Automated multi-platform Docker image builder for embedded Linux development (RK3588, RV1126, RK3568). Features three-layer config…	Developer Workflow / Development Environment
+Lando	https://github.com/lando/lando	Lando is for developers who want to quickly specify and painlessly spin up the services…	Developer Workflow / Development Environment
+Laradock	https://github.com/laradock/laradock	Full PHP development environment based on Docker, running Nginx/Apache, PHP, MySQL, Redis and more as…	Developer Workflow / Development Environment
+uniget	https://github.com/uniget-org/cli	Uni(versal)get, the installer and updater for container tools and beyond (formerly docker-setup).	Developer Workflow / Development Environment
+Zsh-in-Docker	https://github.com/deluan/zsh-in-docker	Install Zsh, Oh-My-Zsh and plugins inside a Docker container with one line!.	Developer Workflow / Development Environment
+Apache OpenWhisk	https://github.com/apache/openwhisk	A serverless, open source cloud platform that executes functions in response to events at any…	Developer Workflow / Serverless
+Koyeb	https://www.koyeb.com/	yen: Koyeb is a developer-friendly serverless platform to deploy apps globally. Seamlessly run Docker containers,…	Developer Workflow / Serverless
+OpenFaaS	https://github.com/openfaas/faas	A complete serverless functions framework for Docker and Kubernetes.	Developer Workflow / Serverless
+Container Structure Test	https://github.com/GoogleContainerTools/container-structure-test	A framework to validate the structure of an image by checking the outputs of commands…	Developer Workflow / Testing
+dgoss	https://github.com/goss-org/goss/tree/master/extras/dgoss	A fast YAML based tool for validating docker containers.	Developer Workflow / Testing
+Kurtosis	https://github.com/kurtosis-tech/kurtosis	A composable build system for multi-container test environments that provides developers with: a powerful Python-like…	Developer Workflow / Testing
+Pumba	https://github.com/alexei-led/pumba	Chaos testing tool for Docker. Can be deployed on kubernetes and CoreOS cluster.	Developer Workflow / Testing
+Hokusai	https://github.com/artsy/hokusai	A Docker + Kubernetes CLI for application developers; used to containerize an application and to…	Developer Workflow / Wrappers
+Preevy	https://github.com/livecycle/preevy	Preview environments for Docker and Docker Compose projects. Test your changes and get feedback from…	Developer Workflow / Wrappers
+subuser	https://github.com/subuser-security/subuser	Makes it easy to securely and portably run graphical desktop applications in Docker.	Developer Workflow / Wrappers
+udocker	https://github.com/indigo-dc/udocker	A tool to execute simple docker containers in batch or interactive systems without root privileges.	Developer Workflow / Wrappers
+Vagrant - Docker provider	https://developer.hashicorp.com/vagrant/docs/providers/docker/basics	Good starting point is vagrant-docker-example.	Developer Workflow / Wrappers
+cdebug	https://github.com/iximiuz/cdebug	Swiss-army knife for debugging running containers via ephemeral sidecars; works with Docker, containerd, and Kubernetes.	Projects / In-Container Tooling
+ckron	https://github.com/nicomt/ckron	A cron-style job scheduler for docker,.	Projects / In-Container Tooling
+docker-gen	https://github.com/jwilder/docker-gen	Generate files from docker container meta-data.	Projects / In-Container Tooling
+dockerize	https://github.com/powerman/dockerize	Utility to simplify running applications in docker containers.	Projects / In-Container Tooling
+GoSu	https://github.com/tianon/gosu	Run this specific application as this specific user and get out of the pipeline (entrypoint…	Projects / In-Container Tooling
+is-docker	https://github.com/sindresorhus/is-docker	Check if the process is running inside a Docker container.	Projects / In-Container Tooling
+microcheck	https://github.com/tarampampam/microcheck	Lightweight health check utilities for Docker containers (75 KB instead of 9.3 MB for httpcheck…	Projects / In-Container Tooling
+Ofelia	https://github.com/mcuadros/ofelia/	Ofelia is a modern and low footprint job scheduler for docker environments, built on Go.…	Projects / In-Container Tooling
+su-exec	https://github.com/ncopa/su-exec	This is a simple tool that will simply execute a program with different privileges. The…	Projects / In-Container Tooling
+supercronic	https://github.com/aptible/supercronic	Crontab-compatible job runner, designed specifically to run in containers.	Projects / In-Container Tooling
+Benefits of using Docker	https://semaphore.io/blog/docker-benefits	for development and delivery, with a practical roadmap for adoption.	Learning Resources / Where to Start
+Bootstrapping Microservices	https://www.manning.com/books/bootstrapping-microservices-with-docker-kubernetes-and-terraform	A practical and project-based guide to building applications with microservices, starts by building a Docker…	Learning Resources / Where to Start
+Docker Curriculum	https://github.com/prakhar1989/docker-curriculum	A comprehensive tutorial for getting started with Docker. Teaches how to use Docker and deploy…	Learning Resources / Where to Start
+Docker Documentation	https://docs.docker.com/	the official documentation.	Learning Resources / Where to Start
+Docker for beginners	https://github.com/groda/big_data/blob/master/docker_for_beginners.md	A tutorial for beginners who need to learn the basics of Docker—from "Hello world!" to…	Learning Resources / Where to Start
+Docker for novices	https://www.youtube.com/watch?v=xsjSadjKXns	An introduction to Docker for developers and testers who have never used it. (Video 1h40,…	Learning Resources / Where to Start
+Docker katas	https://github.com/eficode-academy/docker-katas	A series of labs that will take you from "Hello Docker" to deploying a containerized…	Learning Resources / Where to Start
+Docker simplified in 55 seconds	https://www.youtube.com/watch?v=vP_4DlOH1G4	An animated high-level introduction to Docker. Think of it as a visual tl;dr that makes…	Learning Resources / Where to Start
+Docker Training	https://training.mirantis.com	yen:	Learning Resources / Where to Start
+Dockerlings	https://github.com/furkan/dockerlings	Learn docker from inside your terminal, with a modern TUI and bite sized exercises.	Learning Resources / Where to Start
+Introduction à Docker	https://blog.stephane-robert.info/docs/conteneurs/moteurs-conteneurs/docker/	A dedicated section to master Docker on a French site about DevSecOps: From the basics…	Learning Resources / Where to Start
+Learn Docker	https://github.com/dwyl/learn-docker	step-by-step tutorial and more resources (video, articles, cheat sheets)	Learning Resources / Where to Start
+Learn Docker (Visually)	https://pagertree.com/learn/docker/overview	A beginner-focused high-level overview of all the major components of Docker and how they fit…	Learning Resources / Where to Start
+Play With Docker	https://training.play-with-docker.com/	PWD is a great way to get started with Docker from beginner to advanced users.…	Learning Resources / Where to Start
+Practical Guide about Docker Commands in Spanish	https://github.com/brunocascio/docker-espanol	This Spanish guide contains the use of basic docker commands with real life examples.	Learning Resources / Where to Start
+Setting Python Development Environment with VScode and Docker	https://github.com/RamiKrispin/vscode-python	A step-by-step tutorial for setting up a dockerized Python development environment with VScode, Docker, and…	Learning Resources / Where to Start
+The Docker Handbook	https://docker-handbook.farhan.dev/	An open-source book that teaches you the fundamentals, best practices and some intermediate Docker functionalities.…	Learning Resources / Where to Start
+eon01	https://github.com/eon01/DockerCheatSheet		Learning Resources / Where to Start
+dimonomid	https://github.com/dimonomid/docker-quick-ref	(PDF)	Learning Resources / Where to Start
+JensPiegsa	https://github.com/JensPiegsa/docker-cheat-sheet		Learning Resources / Where to Start
+wsargent	https://github.com/wsargent/docker-cheat-sheet	(Most popular)	Learning Resources / Where to Start
+Docker on Windows behind a firewall	https://toedter.com/2015/05/11/docker-on-windows-behind-a-firewall/		Learning Resources / Where to Start (Windows)
+Docker Reference Architecture: Modernizing Traditional .NET Framework Applications	https://docs.mirantis.com/containers/v3.0/dockeree-ref-arch/app-dev/modernize-dotnet-apps.html	You will learn to identify the types of .NET Framework applications that are good candidates…	Learning Resources / Where to Start (Windows)
+Docker with Microsoft SQL 2016 + ASP.NET	https://blog.alexellis.io/docker-does-sql2016-aspnet/	Demonstration running ASP.NET and SQL Server workloads in Docker	Learning Resources / Where to Start (Windows)
+Exploring ASP.NET Core with Docker in both Linux and Windows Containers	https://www.hanselman.com/blog/exploring-aspnet-core-with-docker-in-both-linux-and-windows-containers	Running ASP.NET Core apps in Linux and Windows containers, using [Docker for Windows][docker-for-windows]	Learning Resources / Where to Start (Windows)
+Running a Legacy ASP.NET App in a Windows Container	https://blog.sixeyed.com/dockerizing-nerd-dinner-part-1-running-a-legacy-asp-net-app-in-a-windows-container/	Steps for Dockerizing a legacy ASP.NET app and running as a Windows container	Learning Resources / Where to Start (Windows)
+Windows Containers and Docker: The 101	https://www.youtube.com/watch?v=N7SG2wEyQtM	A 20-minute overview, using Docker to run PowerShell, ASP.NET Core and ASP.NET apps.	Learning Resources / Where to Start (Windows)
+Windows Containers Quick Start	https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/	Overview of Windows containers, drilling down to Quick Starts for Windows 10 and Windows Server…	Learning Resources / Where to Start (Windows)
+Cloud Native Landscape	https://github.com/cncf/landscape		Learning Resources / Books & Tutorials
+Docker Blog	https://www.docker.com/blog/	Regular updates about Docker, the community and tools.	Learning Resources / Books & Tutorials
+Docker Certification	https://intellipaat.com/docker-training-course/?US	yen: Will help you to will Learn Docker containerization, running Docker containers, Image creation, Dockerfile,…	Learning Resources / Books & Tutorials
+Docker dev bookmarks	https://www.codever.dev/search?q=docker	Use the tag docker.	Learning Resources / Books & Tutorials
+Docker in Action, Second Edition	https://www.manning.com/books/docker-in-action-second-edition		Learning Resources / Books & Tutorials
+Docker in Practice, Second Edition	https://www.manning.com/books/docker-in-practice-second-edition		Learning Resources / Books & Tutorials
+Docker packaging guide for Python	https://pythonspeed.com/docker/	A series of detailed articles on the specifics of Docker packaging for Python.	Learning Resources / Books & Tutorials
+Learn Docker in a Month of Lunches	https://www.manning.com/books/learn-docker-in-a-month-of-lunches		Learning Resources / Books & Tutorials
+Learn Docker	https://coursesity.com/blog/best-docker-tutorials/	Learn Docker - curated list of the top online docker tutorials and courses.	Learning Resources / Books & Tutorials
+Programming Community Curated Resources for learning Docker	https://hackr.io/tutorials/learn-docker		Learning Resources / Books & Tutorials
+Awesome Compose	https://github.com/docker/awesome-compose	Docker Compose samples.	Learning Resources / Awesome Lists
+Awesome Kubernetes	https://github.com/ramitsurana/awesome-kubernetes		Learning Resources / Awesome Lists
+Awesome Linux Container	https://github.com/Friz-zy/awesome-linux-containers	more general about container than this repo.	Learning Resources / Awesome Lists
+Awesome Selfhosted	https://github.com/awesome-selfhosted/awesome-selfhosted	list of Free Software network services and web applications which can be hosted locally by…	Learning Resources / Awesome Lists
+Awesome Sysadmin	https://github.com/n1trux/awesome-sysadmin		Learning Resources / Awesome Lists
+ToolsOfTheTrade	https://github.com/cjbarber/ToolsOfTheTrade	a list of SaaS and On premise applications	Learning Resources / Awesome Lists
+An Annotated Docker Config for Frontend Web Development	https://nystudio107.com/blog/an-annotated-docker-config-for-frontend-web-development	A local development environment with Docker allows you to shrink-wrap the devops your project needs…	Learning Resources / Demos and Examples
+Local Docker DB	https://github.com/alexmacarthur/local-docker-db	a list of docker-compose samples for a lot of databases	Learning Resources / Demos and Examples
+Webstack-micro	https://github.com/ferbs/webstack-micro	Demo web app showing how Docker Compose might be used to set up an API…	Learning Resources / Demos and Examples
+Docker Caveats	https://docker-saigon.github.io/post/Docker-Caveats/	What You Should Know About Running Docker In Production (written 11 APRIL 2016).	Learning Resources / Good Tips
+Docker Containers on the Desktop	https://blog.jessfraz.com/post/docker-containers-on-the-desktop/		Learning Resources / Good Tips
+Docker vs. VMs? Combining Both for Cloud Portability Nirvana	https://www.flexera.com/blog/finops/		Learning Resources / Good Tips
+Don't Repeat Yourself with Anchors, Aliases and Extensions in Docker Compose Files	https://medium.com/@kinghuang/docker-compose-anchors-aliases-extensions-a1e4105d70bd		Learning Resources / Good Tips
+GUI Apps with Docker	https://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/		Learning Resources / Good Tips
+Docker Pirates ARMed with explosive stuff	https://blog.hypriot.com/	Huge resource on clustering, swarm, docker, pre-installed image for SD card on Raspberry Pi	Learning Resources / Raspberry Pi & ARM
+Get Docker up and running on the RaspberryPi in three steps	https://github.com/umiddelb/armhf/wiki/Get-Docker-up-and-running-on-the-RaspberryPi-%28ARMv6%29-in-three-steps		Learning Resources / Raspberry Pi & ARM
+git push docker containers to linux devices	https://www.balena.io	Modern DevOps for IoT, leveraging git and Docker.	Learning Resources / Raspberry Pi & ARM
+Installing, running, using Docker on armhf (ARMv7) devices	https://github.com/umiddelb/armhf/wiki/Installing,-running,-using-docker-on-armhf-%28ARMv7%29-devices		Learning Resources / Raspberry Pi & ARM
+Bringing new security features to Docker	https://opensource.com/business/14/9/security-for-docker		Learning Resources / Security Articles
+CVE Scanning Alpine images with Multi-stage builds in Docker 17.05	https://github.com/tomwillfixit/alpine-cvecheck		Learning Resources / Security Articles
+Docker Secure Deployment Guidelines	https://github.com/AonCyberLabs/Docker-Secure-Deployment-Guidelines		Learning Resources / Security Articles
+Docker Security - Quick Reference	https://binarymist.io/publication/docker-security/		Learning Resources / Security Articles
+Docker Security: Are Your Containers Tightly Secured to the Ship? SlideShare	https://www.slideshare.net/slideshow/docker-security-are-your-containers-tightly-secured-to-the-ship/43834790		Learning Resources / Security Articles
+How CVE's are handled on Offical Docker Images	https://github.com/docker-library/official-images/issues/1448		Learning Resources / Security Articles
+Lynis is an open source security auditing tool including Docker auditing	https://cisofy.com/lynis/		Learning Resources / Security Articles
+Security Best Practices for Building Docker Images	https://linux-audit.com/tags/docker/		Learning Resources / Security Articles
+Software Engineering Radio interview of Docker Security Team Lead (Diogo Mónica)	https://www.se-radio.net/2017/05/se-radio-episode-290-diogo-monica-on-docker-security/		Learning Resources / Security Articles
+Ten Docker Image Security Best Practices Cheat Sheet	https://snyk.io/blog/10-docker-image-security-best-practices/		Learning Resources / Security Articles
+Top ten most popular docker images each contain at least 30 vulnerabilities	https://snyk.io/blog/top-ten-most-popular-docker-images-each-contain-at-least-30-vulnerabilities/		Learning Resources / Security Articles
+Tuning Docker with the newest security enhancements	https://opensource.com/business/15/3/docker-security-tuning		Learning Resources / Security Articles
+10 best practices to containerize Node.js web applications with Docker	https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/		Learning Resources / Security Articles
+Deploying and scaling applications with Docker, Swarm, and a tiny bit of Python magic	https://www.youtube.com/watch?v=GpHMTR7P2Ms	(3:11:06)	Learning Resources / Videos
+Docker Course	https://www.youtube.com/watch?v=UZpyvK6UGFo	(Spanish)	Learning Resources / Videos
+Docker for Developers	https://www.youtube.com/watch?v=FdkNAjjO5yQ	(54:26)	Learning Resources / Videos
+Docker from scratch	https://www.youtube.com/playlist?list=PLLhEJK7fQIxD-btrjrqdEfQHbkZnQrmqE	(1:22:01)	Learning Resources / Videos
+Docker: How to Use Your Own Private Registry	https://www.youtube.com/watch?v=CAewZCBT4PI	(15:01)	Learning Resources / Videos
+Docker in Production	https://www.youtube.com/watch?v=Glk5d5WP6MI	(36:05)	Learning Resources / Videos
+Docker Primer to Docker Compose	https://www.youtube.com/watch?v=G-s2GXGAjTk	(1:56:45)	Learning Resources / Videos
+Docker Registry from scratch	https://www.youtube.com/playlist?list=PLLhEJK7fQIxAz3d4Fj3edq7UcxEhdTCBm	(44:40)	Learning Resources / Videos
+Docker Swarm from scratch	https://www.youtube.com/playlist?list=PLLhEJK7fQIxAY4gZd1Wl-GsLvg-e9Ap1e	(1:41:28)	Learning Resources / Videos
+Extending Docker with Plugins	https://vimeo.com/110835013	(15:21)	Learning Resources / Videos
+From Local Docker Development to Production Deployments	https://www.youtube.com/watch?v=7CZFpHUPqXw		Learning Resources / Videos
+Introduction to Docker and containers	https://www.youtube.com/watch?v=ZVaRK10HBjo	(3:09:00)	Learning Resources / Videos
+Logging on Docker: What You Need to Know	https://vimeo.com/123341629	(51:27)	Learning Resources / Videos
+Performance Analysis of Docker - Jeremy Eder	https://www.youtube.com/watch?v=6f2E6PKYb0w	(1:36:58)	Learning Resources / Videos
+Scalable Microservices with Kubernetes	https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615	Free Udacity course	Learning Resources / Videos
+State of containers: a debate with CoreOS, VMware and Google	https://www.youtube.com/watch?v=IiITP3yIRd8	(27:38)	Learning Resources / Videos
+Docker BR on Telegram	https://telegram.me/dockerbr		Communities and Meetups / Brazilian
+Docker Community	https://www.docker.com/community/		Communities and Meetups / English
+Docker Events	https://www.docker.com/events/		Communities and Meetups / English
+Docker Online Meetup	https://www.meetup.com/en-AU/Docker-Online-Meetup/		Communities and Meetups / English
+Docker Reddit Community	https://www.reddit.com/r/docker/		Communities and Meetups / English
+Docker Russian-speaking Community	https://t.me/docker_ru		Communities and Meetups / Russian
+Docker Tips	https://dockertips.com/		Communities and Meetups / Spanish
