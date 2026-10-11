@@ -1,5 +1,5 @@
 """JEV-1 (a): kosucu yanıt metinlerini Jev ile puanlar — regex rubriğin yanına anlamsal kalite (0-10).
-  python tools/olcum/jev_yargic.py <olcum-dizini>... [--en-fazla N] [--jsonl yol] [--kuru]
+  python tools/olcum/jev_yargic.py <olcum-dizini>... [--en-fazla N] [--istek-tavan N] [--jsonl yol] [--kuru]
 Her <dizin>/<GID>-<tekrar>.md için state = görev istemi + kabul ölçütü + yanıt; tek score sorusu (6 seviye → 0-10).
 Ücret: Jev girdi $0.042/M token (≈ yanıt başına $0.0001); --en-fazla batch çağrı tavanı (200 yanıt/çağrı)."""
 import argparse
@@ -46,12 +46,13 @@ def main(argv=None):
     ap.add_argument("dizinler", nargs="+")
     ap.add_argument("--en-fazla", type=int, default=2)
     ap.add_argument("--jsonl")
+    ap.add_argument("--istek-tavan", type=int, default=250, help="API arka ucunda yanıt başına 1 HTTP isteği (tekrarlar dahil)")
     ap.add_argument("--kuru", action="store_true", help="ağa çıkmadan yalnız veri + regex")
     ns = ap.parse_args(argv)
     kayitlar = veri(ns.dizinler)
     if not ns.kuru:
         from jev.cekirdek import Tasiyici
-        t = Tasiyici(en_fazla=ns.en_fazla)
+        t = Tasiyici(en_fazla=ns.en_fazla, istek_tavan=ns.istek_tavan)
         jev_puanla(kayitlar, t)
         usd = sum(u.get("cost") or 0 for u in t.kullanim)
         print(f"jev: {len(kayitlar)} yanıt · {t.cagri} çağrı · {t.istek} istek · ${usd:.4f} · backend {t.b['ad']}")
