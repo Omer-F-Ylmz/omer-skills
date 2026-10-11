@@ -125,6 +125,12 @@ def test_rubrik_yazilan_dosyayi_da_gorur():
     assert o["girdi"] == ["page.goto('/login')"]
 
 
+def test_rubrik_windows_yol_ayiricisi():
+    # A01–A03 (16:12): yanıt `C:\\...\\.claude\\ajan-getir-e2e\\A01.md` dedi, rubrik `/` bekledi → kalite 10 yerine 5
+    r = [{"puan": 5, "regex": r"ajan-getir-e2e/A01\.md"}, {"puan": 5, "regex": r"C:\\Projeler"}]
+    assert kosucu.puanla(r"kaydedildi: C:\Projeler\omer-skills\.claude\ajan-getir-e2e\A01.md", r) == 10
+
+
 # --- KOSUCU-TEMIZ: süreç sızıntısı ---
 import os  # noqa: E402
 import subprocess  # noqa: E402

@@ -181,7 +181,10 @@ def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
 
 
 def puanla(metin, rubrik):
-    return min(10, sum(m["puan"] for m in rubrik if re.search(m["regex"], metin, re.I | re.S)))
+    """Regex rubriği; Windows yol ayırıcısı `\\` olan yanıt `/` bekleyen kalıpla da eşleşir (A01–A03: 5 yerine 10)."""
+    duz = metin.replace("\\", "/")
+    return min(10, sum(m["puan"] for m in rubrik
+                       if re.search(m["regex"], metin, re.I | re.S) or re.search(m["regex"], duz, re.I | re.S)))
 
 
 def isabet(araclar, beklenen):
