@@ -15,6 +15,6 @@ def test_istemler_zipe_gomulur_yol_goreli(tmp_path):
     (sk / "katalog.tsv").write_text(f"ad\tmodel\ttek_satir\tyol\nocto:droids:Code Reviewer\tsonnet\tt\t{a.as_posix()}\n", encoding="utf-8")
     zp = az.paketle(sk, tmp_path / "out.zip")
     with zipfile.ZipFile(zp) as z:
-        assert z.read("ajan-getir/references/ajanlar/octo-droids-code-reviewer.md").decode() == a.read_text(encoding="utf-8")
+        assert z.read("ajan-getir/references/ajanlar/octo-droids-code-reviewer.md") == a.read_bytes()
         assert z.read("ajan-getir/katalog.tsv").decode().splitlines()[1].endswith("\treferences/ajanlar/octo-droids-code-reviewer.md")
         assert "ajan-getir/SKILL.md" in z.namelist()
