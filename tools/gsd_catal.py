@@ -12,8 +12,8 @@ TUT = {("SessionStart", "gsd-ensure-canonical-path"), ("PreToolUse", "gsd-write-
        ("PreToolUse", "gsd-secret-read-guard"),
        ("PostToolUse", "gsd-read-injection-scanner"), ("FileChanged", "gsd-config-reload")}
 DAR = {"gsd-read-injection-scanner": "WebFetch|WebSearch"}  # yerel Read her çağrıda taranmaz; dış içerik taranır
-ACIKLAMA = ("GSD spec-driven geliştirme: proje/milestone/phase planı, PLAN.md, ROADMAP, SPEC/PRD, discuss/plan/execute/verify-phase, "
-            "quick task, UAT. /gsd <alt> [arg]. Web/doküman araştırması, sürüm sorusu ya da tek dosyalık kod işi için değil.")
+ACIKLAMA = ("GSD çok fazlı proje yönetimi: yeni proje, .planning/ROADMAP.md + STATE.md, faz planla/yürüt/doğrula, "
+            "oturumlar arası ilerleme. /gsd <alt> [arg]. Tek seferlik SPEC/uygulama planı, araştırma ya da tek dosyalık kod işi için değil.")
 
 
 def _acik(md):

@@ -43,6 +43,8 @@ def test_catal(tmp_path):
     sk = (tmp_path / "skills" / "gsd" / "SKILL.md").read_text(encoding="utf-8")
     acik = sk.split("description:", 1)[1].split("\n", 1)[0]
     assert len(acik) <= 260 and "plan-phase — Create detailed phase plan" in sk and "ajanlar/" in sk
+    # tetik yalnız çok fazlı proje işi: tek seferlik SPEC/plan departman-surec-plan'da kalır (HOOK-3-devam-2 P1/P2)
+    assert "çok fazlı" in acik and "ROADMAP.md" in acik and "STATE.md" in acik and "SPEC/PRD" not in acik and "Tek seferlik SPEC" in acik
     pj = json.loads((tmp_path / ".claude-plugin" / "plugin.json").read_text())
     assert "commands" not in pj and pj["version"] == "1.16.0-omer.1"
     mj = json.loads((tmp_path / ".claude-plugin" / "marketplace.json").read_text())
