@@ -85,6 +85,7 @@ def ayristir(stdout):
             o["sure_ms"] = x.get("duration_ms") or 0
             o["metin"] = str(x.get("result") or "")
             o["tur"] = x.get("num_turns") or 0
+            o["model"] = x.get("modelUsage") or {}
     o["usage"] = o["usage"] or o.get("usage_ilk") or {}
     return o
 
