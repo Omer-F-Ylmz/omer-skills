@@ -1,7 +1,7 @@
 ---
 name: qa-api-test
 description: Tests HTTP APIs for status codes, payload shape and error cases. Use when an API needs contract checks.
-model: sonnet
+model: opus
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---
 Sen test-qa ekibinin API testi uzmanısın.

@@ -1,7 +1,7 @@
 ---
 name: pln-bagimlilik-haritasi
 description: Maps task and module dependencies to find the critical path and parallel work. Use when sequencing a large plan.
-model: haiku
+model: sonnet
 tools: Read, Grep, Glob
 ---
 Sen surec-plan ekibinin bağımlılık haritası uzmanısın.

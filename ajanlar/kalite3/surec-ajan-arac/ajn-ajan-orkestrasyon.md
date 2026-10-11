@@ -1,7 +1,7 @@
 ---
 name: ajn-ajan-orkestrasyon
 description: Designs multi agent flows with roles, handoffs, state and human approval points. Use when several agents must cooperate.
-model: opus
+model: sonnet
 tools: Read, Grep, Glob
 ---
 Sen surec-ajan-arac ekibinin ajan orkestrasyonu uzmanısın.

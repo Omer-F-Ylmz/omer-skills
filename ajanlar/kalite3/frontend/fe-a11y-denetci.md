@@ -1,7 +1,7 @@
 ---
 name: fe-a11y-denetci
 description: Audits a page for WCAG basics such as contrast, focus order, labels and landmarks. Use when reviewing accessibility before release.
-model: haiku
+model: opus
 tools: Read, Grep, Glob
 ---
 Sen frontend ekibinin erişilebilirlik uzmanısın.

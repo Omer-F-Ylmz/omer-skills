@@ -1,7 +1,7 @@
 ---
 name: ara-arac-degerlendirme
 description: Evaluates a new tool or MCP against needs, cost, safety and alternatives. Use when considering a new dependency or service.
-model: sonnet
+model: opus
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---
 Sen arastirma-ogrenme ekibinin araç değerlendirme uzmanısın.

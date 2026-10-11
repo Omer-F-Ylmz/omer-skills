@@ -27,3 +27,16 @@ def test_uygula_geri_gidis_donus(tmp_path):
     assert (canli / "references" / "r.md").exists()
     assert k3u.geri(ev) is True
     assert (canli / "SKILL.md").read_text(encoding="utf-8").endswith("UZUN GÖVDE\n") and not (canli / "references").exists()
+
+
+def test_subagent_model_env_kaldirilir_ve_geri_gelir(tmp_path):
+    ayar = tmp_path / ".claude" / "settings.json"
+    ayar.parent.mkdir(parents=True)
+    ayar.write_text(json.dumps({"env": {"CLAUDE_CODE_SUBAGENT_MODEL": "x", "BASKA": "1"}, "model": "opus"}), encoding="utf-8")
+    assert k3u.subagent_env_var_mi(tmp_path)
+    assert k3u.uygula(tmp_path, tmp_path)
+    j = json.loads(ayar.read_text(encoding="utf-8"))
+    assert j == {"env": {"BASKA": "1"}, "model": "opus"}
+    assert not k3u.subagent_env_var_mi(tmp_path)
+    assert k3u.geri(tmp_path)
+    assert json.loads(ayar.read_text(encoding="utf-8"))["env"]["CLAUDE_CODE_SUBAGENT_MODEL"] == "x"

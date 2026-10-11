@@ -5,7 +5,8 @@
   python onay/kalite_3_uygula.py --geri   # son yedeği geri koyar
 Kabul listesi docs/kutuphane/kalite3-kabul.txt (satır başına skill adı; Faz 3 karar tablosundan). Açıklama: .kalite3/aciklama-yeni.jsonl
 içinde gecerli=true ve sonnet denetimi sorun bildirmemiş satırlar. Yalnız gevşek ~/.claude/skills/<ad> yazılır; plugin/synced
-kopyaları dist zip'iyle gider. Hiçbir skill silinmez/kapatılmaz; MCP listesi önce=sonra değilse rc=1.
+kopyaları dist zip'iyle gider. MODEL KURALI: ~/.claude/settings.json env'deki CLAUDE_CODE_SUBAGENT_MODEL kaldırılır
+(her ajan frontmatter `model:` ile ölçülen en iyi modelde koşar; değer yazdırılmaz, settings.json yedeklenir). Hiçbir skill silinmez/kapatılmaz; MCP listesi önce=sonra değilse rc=1.
 """
 import json, re, shutil, sys, time
 from pathlib import Path
@@ -24,6 +25,14 @@ def mcp_var_mi(ev=EV):
     for p in (j.get("projects") or {}).values():
         adlar |= set((p or {}).get("mcpServers") or {})
     return adlar
+
+
+def subagent_env_var_mi(ev=EV):
+    """settings.json env'de CLAUDE_CODE_SUBAGENT_MODEL var mı (yalnız evet/hayır)."""
+    try:
+        return "CLAUDE_CODE_SUBAGENT_MODEL" in (json.loads((ev / ".claude" / "settings.json").read_text(encoding="utf-8")).get("env") or {})
+    except (OSError, ValueError):
+        return False
 
 
 def aciklama_yaz(skill_md, yeni):
@@ -66,8 +75,17 @@ def uygula(ev=EV, kok=KOK):
             shutil.copytree(p["bolunmus"], p["hedef"], dirs_exist_ok=True)
         if p["aciklama"] and not aciklama_yaz(p["hedef"] / "SKILL.md", p["aciklama"]):
             print(f"  {p['ad']}: açıklama çok satırlı, elle")
-    (ev / ".claude" / "yedek" / "kalite3-son.json").write_text(json.dumps({"yedek": str(yedek), "adlar": [p["ad"] for p in liste]}),
-                                                                encoding="utf-8")
+    ayar_var = subagent_env_var_mi(ev)
+    if ayar_var:
+        ayar = ev / ".claude" / "settings.json"
+        yedek.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ayar, yedek / "settings.json")
+        j = json.loads(ayar.read_text(encoding="utf-8"))
+        del j["env"]["CLAUDE_CODE_SUBAGENT_MODEL"]
+        ayar.write_text(json.dumps(j, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        print("  settings.json env: CLAUDE_CODE_SUBAGENT_MODEL kaldırıldı")
+    (ev / ".claude" / "yedek" / "kalite3-son.json").write_text(
+        json.dumps({"yedek": str(yedek), "adlar": [p["ad"] for p in liste], "ayar": ayar_var}), encoding="utf-8")
     print(f"uygulandı {len(liste)} skill · yedek {yedek}")
     return once == mcp_var_mi(ev)
 
@@ -79,6 +97,8 @@ def geri(ev=EV):
         hedef = ev / ".claude" / "skills" / ad
         shutil.rmtree(hedef)
         shutil.copytree(Path(son["yedek"]) / ad, hedef)
+    if son.get("ayar"):
+        shutil.copy2(Path(son["yedek"]) / "settings.json", ev / ".claude" / "settings.json")
     print(f"geri alındı {len(son['adlar'])} skill")
     return once == mcp_var_mi(ev)
 
@@ -93,6 +113,7 @@ def main():
     else:
         for p in plan():
             print(f"{p['ad']}\tbölünmüş={'evet' if p['bolunmus'] else 'hayır'}\taçıklama={'yeni' if p['aciklama'] else '-'}")
+        print(f"settings.json env CLAUDE_CODE_SUBAGENT_MODEL: {'var → kaldırılacak' if subagent_env_var_mi() else 'yok'}")
         ok = True
     print("mcp önce=sonra" if ok else "HATA: MCP listesi değişti")
     sys.exit(0 if ok else 1)
