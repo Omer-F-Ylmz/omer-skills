@@ -8,7 +8,7 @@ description: Use when a task fits a specialist agent that is not in the Agent to
 Gizli ajanlar (settings.json `Agent(...)` deny listesi) ve kullanıcı ajanları Agent aracında görünmez; deny listesi DEĞİŞMEZ. Bu skill onları general-purpose alt ajanla taklit eder.
 
 1. **Bul:** `katalog.tsv` (bu klasörde; sütunlar ad · model · tek_satir · yol) Grep ile ara — konu kelimesi veya ad. Katalogu baştan sona okuma. Ajan Agent aracında zaten görünüyorsa doğrudan onu çağır. Birden çok aday → tek satırına göre en uygununu seç; belirsizse kullanıcıya 2–3 aday göster.
-2. **Oku:** seçilen satırın `yol` dosyasını Read ile oku (claude.ai paketinde yol bu skill klasörüne göreli: `references/ajanlar/…`); frontmatter sonrası gövde = ajanın sistem istemi.
+2. **Oku:** seçilen satırın `yol`u: CC'de mutlak dosya → Read ile oku. claude.ai paketinde `references/ajanlar/GRUP.md#Lbas-bit` (bu skill klasörüne göreli) → yalnız o satır aralığını oku (Read offset=bas, limit=bit−bas+1 ya da view aralığı); grup dosyasının tamamını okuma. Frontmatter sonrası gövde = ajanın sistem istemi.
 3. **Koş:** Agent aracı, `subagent_type: general-purpose`, `model`: katalogdaki model (`sonnet`/`opus`/`haiku`; `inherit` → model verme). Prompt:
    ```
    Aşağıdaki rolü üstlen ve görevi yap.
