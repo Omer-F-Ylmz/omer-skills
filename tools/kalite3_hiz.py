@@ -258,7 +258,8 @@ class Kosu:
     def gozcu(self):
         """d13 parti 2 bitince zinciri durdur (parti 3 bu koşuda paralel) ve parti 2'nin düşenlerini onarıma al."""
         while not self.p2_bitti:
-            if "d13 zinciri parti 2/3 BİTTİ" in SIRA_MD.read_text(encoding="utf-8"):
+            sira_md = SIRA_MD.read_text(encoding="utf-8")
+            if "d13 zinciri parti 2/3 BİTTİ" in sira_md:
                 r = subprocess.run(["powershell", "-NoProfile", "-Command",
                                     "(Get-CimInstance Win32_Process | ? { $_.CommandLine -like '*d13_zincir.py*' -and $_.Name -like 'python*' }).ProcessId"],
                                    capture_output=True, text=True, creationflags=kosucu.PENCERESIZ)
@@ -272,6 +273,8 @@ class Kosu:
                             self.ana.setdefault((s["ajan"], gorev[s["ajan"]]["model"]), s)
                     self.onarim_tohumu()
                     self.p2_bitti = True
+                if "parti 2/3 sonrası durduruldu" in sira_md:  # yeniden başlatma: satır zaten yazıldı
+                    continue
                 with SIRA_MD.open("a", encoding="utf-8", newline="\n") as f:
                     f.write(f"- 12 Eki {time.strftime('%H:%M')} KALİTE-3-HIZ: d13 zinciri parti 2/3 sonrası durduruldu; "
                             f"parti 3 + onarım kalite3c paralel kuyruğunda (tools/kalite3_hiz.py)\n")
