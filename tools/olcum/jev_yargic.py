@@ -5,6 +5,7 @@ Her <dizin>/<GID>-<tekrar>.md için state = görev istemi + kabul ölçütü + y
 import argparse
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -136,6 +137,14 @@ def jev_puanla(kayitlar, tasiyici, onbellek=None):
         k["jev"] = round(c["kalite"]["score"] * 2, 1)  # 0-5 → 0-10
         k["guven"] = c["kalite"].get("confidence")
     return kayitlar
+
+
+def belirsiz(jevler, oran=0.2, merkez=7.0):
+    """Karma yargı (JEV-2 d5): Jev puanı (0-10) merkeze en yakın ⌈oran·n⌉ öğenin indeksi — yalnız bunlar Opus'a yükseltilir.
+    JEV-1 n=50 opus ref (örneklem içi): %20 → ρ 0.43→0.62 (merkez 6-8 arası hep ≥0.57; rastgele %20: 0.60), Opus çağrısı %80 az.
+    %10'da merkeze duyarlı (0.50-0.57). Puansız (None) atlanır."""
+    puanli = [i for i, j in enumerate(jevler) if j is not None]
+    return sorted(puanli, key=lambda i: abs(jevler[i] - merkez))[:math.ceil(oran * len(puanli))]
 
 
 def tsv_doldur(tsv, kayitlar):

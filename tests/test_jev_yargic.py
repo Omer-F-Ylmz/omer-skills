@@ -142,3 +142,8 @@ def test_onbellekli_tasiyici_yerine_gecer(tmp_path):
     assert o.gelen is t.gelen  # kullanim/cagri gibi öznitelikler taşıyıcıdan okunur
     with pytest.raises(JevHata):  # eski çağıranların sözleşmesi: cevapsız → JevHata (biten öğeler önbellekte)
         jev_yargic.Onbellekli(Sayan(lambda s: None), tmp_path / "ob.json").yargila([{"x": 2}], {"k": {}})
+
+
+def test_belirsiz_merkeze_en_yakini_secer_puansizi_atlar():
+    assert jev_yargic.belirsiz([10.0, 7.2, None, 2.0, 6.0, 9.0, 8.0, 4.0, 7.0, 5.0], oran=0.2) == [8, 1]
+    assert jev_yargic.belirsiz([], oran=0.1) == []
