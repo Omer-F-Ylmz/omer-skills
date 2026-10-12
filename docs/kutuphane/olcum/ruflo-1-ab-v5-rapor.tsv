@@ -1,0 +1,10 @@
+zaman	aile	sira	kol	puan	gizli	tur	input	cache_creation	cache_read	output	usd	sure_sn	ders_ids	rc	notlar
+01:37:22	rapor	1	derssiz	0.625	0.125	4	8	80479	260093	600	0.38	104.0		0	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: sayı binlik ayırıcı noktayla yazılmadı (ör. 33.061) | gizli ölçüt: tarih GG.AA.YYYY değil
+01:40:17	rapor	1	dersli	0.75	0.25	3	6	78267	171066	656	0.3539	103.6		0	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: tarih GG.AA.YYYY değil
+01:41:59	rapor	2	derssiz	0.625	0.125	4	8	80418	260025	546	0.3792	101.6		0	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: sayı binlik ayırıcı noktayla yazılmadı (ör. 2.924) | gizli ölçüt: tarih GG.AA.YYYY değil
+01:44:16	rapor	2	dersli	1.0	0.5	4	6	80595	175504	895	0.3664	81.0	f939dd,e57821	0	
+01:47:01	rapor	3	derssiz	0.625	0.125	3	6	78340	171058	730	0.3549	165.3		0	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: sayı binlik ayırıcı noktayla yazılmadı (ör. 35.334) | gizli ölçüt: tarih GG.AA.YYYY değil
+01:52:03	rapor	3	dersli	1.0	0.5	5	8	80930	261445	1054	0.3866	206.5	e57821,f939dd	0	
+01:54:14	rapor	4	derssiz	0.625	0.125	4	8	80477	260088	570	0.3796	131.4		0	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: sayı binlik ayırıcı noktayla yazılmadı (ör. 2.598) | gizli ölçüt: tarih GG.AA.YYYY değil
+01:58:35	rapor	4	dersli	1.0	0.5	3	6	80463	175343	847	0.3654	154.0	e57821,f939dd	0	
+02:00:42	rapor	5	derssiz	0.75	0.25	4	8	80212	259565	608	0.3789	127.4		0	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: tarih GG.AA.YYYY değil
