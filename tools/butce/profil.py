@@ -4,7 +4,8 @@
   (öncelik) açıklamalı ('on') küme = KORU (profil_uret) ∪ skillUsage'da olan; diğer 'on' skill'ler → name-only.
       Bütçe taşınca CC açıklamayı en az kullanılandan düşürüyor; 'on' küme bütçeye sığınca hiç kullanılmamış KORU (jev) de açıklamalı kalır.
 Hiçbir skill silinmez; name-only skill Skill aracıyla ve departman-* yönlendiricisiyle çağrılabilir kalır. Canlı yalnız OKUNUR.
-  python tools/butce/profil.py <context.md> <çıktı.json>"""
+  python tools/butce/profil.py <context.md> <çıktı.json> [kapatmasiz] [butce=N]
+  kapatmasiz (butce1b): (b) yok, hiçbir skill off olmaz; butce=N: SLASH_COMMAND_TOOL_CHAR_BUDGET env'i profile yazılır."""
 import collections, json, sys
 from pathlib import Path
 
@@ -22,12 +23,12 @@ def cc_koru(ad):
     return koru(ad) and not ad.endswith("-desktop")
 
 
-def uret(tablo, mevcut, kullanim):
+def uret(tablo, mevcut, kullanim, kapat=True):
     yerel = {ad for ad, (kaynak, _) in tablo.items() if kaynak == "User"}
     yeni = {}
     for ad in tablo:
         kok = ad.removeprefix("anthropic-skills:")
-        if ad.startswith("anthropic-skills:") and kok in yerel:
+        if kapat and ad.startswith("anthropic-skills:") and kok in yerel:
             yeni[ad] = "off"
         elif mevcut.get(ad, "on") == "on" and not (cc_koru(ad) or ad in kullanim):
             yeni[ad] = "name-only"
@@ -36,16 +37,20 @@ def uret(tablo, mevcut, kullanim):
     return yeni
 
 
-def main(ctx, cikti):
+def main(ctx, cikti, *secenek):
     ayar = json.loads((EV / ".claude/settings.json").read_text(encoding="utf-8"))
     mevcut = ayar.get("skillOverrides", {})
     kullanim = json.loads((EV / ".claude.json").read_text(encoding="utf-8")).get("skillUsage", {})
     tablo = context_tablosu(ctx)
-    yeni = uret(tablo, mevcut, kullanim)
+    yeni = uret(tablo, mevcut, kullanim, "kapatmasiz" not in secenek)
     print("değişen", len(yeni), dict(collections.Counter(f"{mevcut.get(a, 'on')}→{v}" for a, v in yeni.items())))
     son = {**mevcut, **yeni}
     print("listede on (açıklamalı aday):", sum(1 for a in tablo if son.get(a, "on") == "on"))
-    Path(cikti).write_text(json.dumps({"skillOverrides": son}, ensure_ascii=False, indent=1), encoding="utf-8")
+    profil = {"skillOverrides": son}
+    for s in secenek:
+        if s.startswith("butce="):
+            profil["env"] = {"SLASH_COMMAND_TOOL_CHAR_BUDGET": s[6:]}
+    Path(cikti).write_text(json.dumps(profil, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 if __name__ == "__main__":
