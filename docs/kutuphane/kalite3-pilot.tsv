@@ -1,0 +1,21 @@
+ad	once	sonra	bolundu	kayip	arac	not
+benchmark	7110	5786	1	0		0
+cloudflare-one-migrations	3075	1099	1	0		0
+code-review	4616	2322	1	0		0
+create-design-md	3939	659	1	0		0
+devex-review	19178	10270	1	0		0
+doc-coauthoring	3873	3873	0	0		0
+document-generate	11622	9335	1	0		0
+gstack	3709	1714	1	0		0
+learn	8667	6311	1	0		0
+netlify-config	3903	1695	1	0		0
+netlify-forms	2715	1819	1	0		0
+netlify-functions	4556	3920	1	0		0
+plan-tune	13926	7704	1	0		1
+sentry-get-started	2949	1993	1	0		0
+sentry-instrument	3037	3037	0	0		0
+setup-browser-cookies	2962	2061	1	0		0
+skillify	11512	8929	1	0		0
+sync-gbrain	13200	10933	1	0		1
+ui-ux-pro-max	13458	4414	1	0		0
+write-swift	10423	1241	1	0		0

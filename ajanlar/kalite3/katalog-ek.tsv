@@ -1,0 +1,261 @@
+ad	model	tek_satir	yol
+fe-tasarim-yonu	sonnet	Chooses a bold visual direction and writes the design brief for a page. Use when starting a landing, dashboard or redesign and the look is undecided.	ajanlar/kalite3/frontend/fe-tasarim-yonu.md
+fe-bilesen-yazar	sonnet	Builds a small reusable UI component with states and props. Use when asked for a button, card, modal or menu component.	ajanlar/kalite3/frontend/fe-bilesen-yazar.md
+fe-animasyon-tasarimci	sonnet	Designs UI motion with transform and opacity only, respecting reduced motion. Use when adding hover, entrance or scroll animations.	ajanlar/kalite3/frontend/fe-animasyon-tasarimci.md
+fe-a11y-denetci	haiku	Audits a page for WCAG basics such as contrast, focus order, labels and landmarks. Use when reviewing accessibility before release.	ajanlar/kalite3/frontend/fe-a11y-denetci.md
+fe-performans-olcer	sonnet	Finds frontend load and render bottlenecks such as large images, blocking scripts and layout shift. Use when a page feels slow or Lighthouse scores drop.	ajanlar/kalite3/frontend/fe-performans-olcer.md
+fe-form-tasarimci	sonnet	Designs forms with clear labels, inline validation and error recovery. Use when building signup, checkout or settings forms.	ajanlar/kalite3/frontend/fe-form-tasarimci.md
+fe-tipografi-uzmani	haiku	Sets a type scale, font pairing and line length for a UI. Use when text looks flat, crowded or inconsistent.	ajanlar/kalite3/frontend/fe-tipografi-uzmani.md
+fe-renk-sistemi	sonnet	Builds a color system with tokens, contrast checks and dark mode variants. Use when defining or fixing a palette.	ajanlar/kalite3/frontend/fe-renk-sistemi.md
+fe-responsive-kontrol	sonnet	Checks layout at mobile, tablet and desktop widths and lists breakages. Use when a page must work on all screen sizes.	ajanlar/kalite3/frontend/fe-responsive-kontrol.md
+fe-webgl-3d-hero	sonnet	Plans and writes a three.js style 3D hero scene with a fallback for weak devices. Use when a landing needs a WebGL hero.	ajanlar/kalite3/frontend/fe-webgl-3d-hero.md
+fe-tailwind-duzenleyici	haiku	Cleans and consolidates Tailwind classes, extracting repeated patterns into components. Use when markup has long repeated class strings.	ajanlar/kalite3/frontend/fe-tailwind-duzenleyici.md
+fe-css-hata-bulucu	sonnet	Debugs CSS issues such as overflow, stacking context, specificity and flex or grid surprises. Use when a layout looks wrong and the cause is unclear.	ajanlar/kalite3/frontend/fe-css-hata-bulucu.md
+fe-landing-iskelet	sonnet	Writes the section skeleton and copy slots of a landing page with one clear call to action. Use when building a marketing or product landing page.	ajanlar/kalite3/frontend/fe-landing-iskelet.md
+fe-dashboard-duzeni	sonnet	Lays out dashboards with clear hierarchy, dense tables and chart placement. Use when designing admin panels or analytics screens.	ajanlar/kalite3/frontend/fe-dashboard-duzeni.md
+fe-ikon-sistemi	haiku	Keeps icon usage consistent in size, stroke and naming. Use when icons look mixed or inconsistent.	ajanlar/kalite3/frontend/fe-ikon-sistemi.md
+fe-karanlik-mod	sonnet	Adds dark mode with semantic tokens and system preference support. Use when a site needs a dark theme.	ajanlar/kalite3/frontend/fe-karanlik-mod.md
+fe-bos-durum-yazar	haiku	Designs empty, loading and error states with helpful copy and one action. Use when screens show blank or raw errors.	ajanlar/kalite3/frontend/fe-bos-durum-yazar.md
+fe-navigasyon-tasarimci	sonnet	Designs navigation bars, menus and mobile drawers with clear current state. Use when structuring site or app navigation.	ajanlar/kalite3/frontend/fe-navigasyon-tasarimci.md
+fe-gorsel-optimize	haiku	Optimizes images with modern formats, sizes and lazy loading. Use when images slow the page.	ajanlar/kalite3/frontend/fe-gorsel-optimize.md
+fe-meta-seo-duzeltici	haiku	Fixes title, description, canonical and social preview tags. Use when pages lack proper metadata.	ajanlar/kalite3/frontend/fe-meta-seo-duzeltici.md
+fe-scroll-hikayesi	sonnet	Plans scroll-driven storytelling sections with pinned scenes and reveal timing. Use when building scrollytelling pages.	ajanlar/kalite3/frontend/fe-scroll-hikayesi.md
+fe-tasarim-sistemi-kurucu	sonnet	Creates design tokens, component rules and a DESIGN.md for a project. Use when a project needs consistent UI rules.	ajanlar/kalite3/frontend/fe-tasarim-sistemi-kurucu.md
+fe-ux-metin-yazar	haiku	Writes short clear UI copy for buttons, errors and onboarding. Use when interface text is vague or wordy.	ajanlar/kalite3/frontend/fe-ux-metin-yazar.md
+fe-slayt-kurucu	sonnet	Builds a single-file HTML slide deck with keyboard navigation. Use when asked for web based presentations.	ajanlar/kalite3/frontend/fe-slayt-kurucu.md
+fe-tasarim-incele	sonnet	Reviews a built UI against its intended design and flags generic or inconsistent parts. Use when judging whether UI looks finished.	ajanlar/kalite3/frontend/fe-tasarim-incele.md
+fe-react-bilesen-inceleme	sonnet	Reviews React code for needless re-renders, effects and bundle weight. Use when a React UI is slow.	ajanlar/kalite3/frontend/fe-react-bilesen-inceleme.md
+fe-cursor-efekt	sonnet	Adds pointer-reactive effects like magnetic buttons and reveal hovers without hurting performance. Use when asked for interactive cursor polish.	ajanlar/kalite3/frontend/fe-cursor-efekt.md
+fe-mikro-etkilesim	haiku	Defines small feedback animations for clicks, toggles and saves. Use when UI feels dead or abrupt.	ajanlar/kalite3/frontend/fe-mikro-etkilesim.md
+fe-yazdir-stili	haiku	Writes print stylesheets that hide chrome and keep content readable. Use when a page must print or export well.	ajanlar/kalite3/frontend/fe-yazdir-stili.md
+dn-efcore-modelleme	sonnet	Designs EF Core entities, relations and configurations with Fluent API. Use when adding or reshaping the data model.	ajanlar/kalite3/backend-dotnet/dn-efcore-modelleme.md
+dn-efcore-sorgu-hizlandir	sonnet	Finds slow EF Core queries such as N+1, missing AsNoTracking and client evaluation. Use when data access is slow.	ajanlar/kalite3/backend-dotnet/dn-efcore-sorgu-hizlandir.md
+dn-efcore-migration	sonnet	Creates and reviews EF Core migrations safely, including data-preserving changes. Use when schema changes ship.	ajanlar/kalite3/backend-dotnet/dn-efcore-migration.md
+dn-webapi-endpoint	sonnet	Writes ASP.NET Core Web API endpoints with correct status codes and validation. Use when adding controllers or minimal API routes.	ajanlar/kalite3/backend-dotnet/dn-webapi-endpoint.md
+dn-minimal-api-kurucu	haiku	Scaffolds minimal API endpoint groups with typed results. Use when a small service needs routes quickly.	ajanlar/kalite3/backend-dotnet/dn-minimal-api-kurucu.md
+dn-xunit-test-yazar	sonnet	Writes xUnit tests with arrange act assert and clear names. Use when C# code needs unit tests.	ajanlar/kalite3/backend-dotnet/dn-xunit-test-yazar.md
+dn-msbuild-hata-cozucu	opus	Diagnoses MSBuild and dotnet build failures using binary logs. Use when a build fails and console output is unclear.	ajanlar/kalite3/backend-dotnet/dn-msbuild-hata-cozucu.md
+dn-msbuild-hiz	sonnet	Finds why builds are slow and proposes caching and parallelism fixes. Use when solution build time grows.	ajanlar/kalite3/backend-dotnet/dn-msbuild-hiz.md
+dn-nuget-yonetici	haiku	Manages NuGet packages with central versioning and update checks. Use when dependencies drift or need upgrading.	ajanlar/kalite3/backend-dotnet/dn-nuget-yonetici.md
+dn-razor-sayfa	sonnet	Builds Razor Pages and Blazor components with model binding and validation. Use when writing server rendered UI in ASP.NET Core.	ajanlar/kalite3/backend-dotnet/dn-razor-sayfa.md
+dn-identity-auth	opus	Sets up ASP.NET Core Identity, cookies, JWT and policy based authorization. Use when adding login, roles or token auth.	ajanlar/kalite3/backend-dotnet/dn-identity-auth.md
+dn-di-ve-config	haiku	Wires dependency injection and typed options with correct lifetimes. Use when services or settings need structuring.	ajanlar/kalite3/backend-dotnet/dn-di-ve-config.md
+dn-middleware-yazar	sonnet	Writes ASP.NET Core middleware for logging, error handling and correlation ids. Use when a cross-cutting request concern is needed.	ajanlar/kalite3/backend-dotnet/dn-middleware-yazar.md
+dn-gozlemlenebilirlik	sonnet	Adds structured logging, metrics and OpenTelemetry tracing to a .NET service. Use when production behavior is invisible.	ajanlar/kalite3/backend-dotnet/dn-gozlemlenebilirlik.md
+dn-async-denetci	sonnet	Reviews C# async code for blocking calls, missing cancellation and fire and forget. Use when async code hangs or deadlocks.	ajanlar/kalite3/backend-dotnet/dn-async-denetci.md
+dn-linq-optimize	haiku	Spots LINQ misuse such as repeated enumeration and ToList in loops. Use when collection code is slow or unclear.	ajanlar/kalite3/backend-dotnet/dn-linq-optimize.md
+dn-nullable-gecis	haiku	Enables nullable reference types and fixes warnings safely. Use when migrating a project to nullable.	ajanlar/kalite3/backend-dotnet/dn-nullable-gecis.md
+dn-blazor-bilesen	sonnet	Builds Blazor components with parameters, events and render mode choices. Use when creating interactive Blazor UI.	ajanlar/kalite3/backend-dotnet/dn-blazor-bilesen.md
+dn-signalr-gercek-zamanli	sonnet	Adds SignalR hubs for real time updates with groups and reconnect handling. Use when live push is needed.	ajanlar/kalite3/backend-dotnet/dn-signalr-gercek-zamanli.md
+dn-api-surumleme	sonnet	Reviews API contracts for breaking changes and proposes versioning. Use when changing public endpoints.	ajanlar/kalite3/backend-dotnet/dn-api-surumleme.md
+dn-openapi-dokuman	haiku	Adds OpenAPI metadata, examples and response types to endpoints. Use when API docs are thin.	ajanlar/kalite3/backend-dotnet/dn-openapi-dokuman.md
+dn-dotnet-performans	opus	Profiles .NET services for allocations, hot paths and GC pressure. Use when CPU or memory grows in production.	ajanlar/kalite3/backend-dotnet/dn-dotnet-performans.md
+dn-efcore-seed-veri	haiku	Writes idempotent seed data using HasData or startup seeders. Use when dev databases need initial rows.	ajanlar/kalite3/backend-dotnet/dn-efcore-seed-veri.md
+dn-csproj-sadelestir	haiku	Simplifies csproj files with Directory.Build.props and SDK defaults. Use when project files are bloated or duplicated.	ajanlar/kalite3/backend-dotnet/dn-csproj-sadelestir.md
+sec-sir-tarayici	haiku	Scans a repo and git history for leaked keys, tokens and passwords, reporting only locations never values. Use when committing, publishing or after a suspected leak.	ajanlar/kalite3/guvenlik/sec-sir-tarayici.md
+sec-sast-kosucu	sonnet	Runs static analysis rules over code and triages findings into real versus noise. Use when reviewing code before release.	ajanlar/kalite3/guvenlik/sec-sast-kosucu.md
+sec-auth-denetci	opus	Reviews login, session, token and password reset flows for weaknesses. Use when auth code changes or before launch.	ajanlar/kalite3/guvenlik/sec-auth-denetci.md
+sec-kvkk-gdpr-kontrol	sonnet	Maps personal data flows to KVKK or GDPR duties such as consent, retention and deletion. Use when a feature collects user data.	ajanlar/kalite3/guvenlik/sec-kvkk-gdpr-kontrol.md
+sec-bagimlilik-acik	haiku	Checks dependency manifests for known vulnerable or abandoned packages and proposes safe upgrades. Use when updating packages or before release.	ajanlar/kalite3/guvenlik/sec-bagimlilik-acik.md
+sec-owasp-web-test	sonnet	Tests a web app against OWASP Top 10 categories with safe probes on authorized targets. Use when asked for a web security test.	ajanlar/kalite3/guvenlik/sec-owasp-web-test.md
+sec-api-guvenlik	sonnet	Tests REST APIs for broken object authorization, mass assignment and missing rate limits. Use when exposing a new API.	ajanlar/kalite3/guvenlik/sec-api-guvenlik.md
+sec-tehdit-modelleme	opus	Builds a STRIDE threat model with trust boundaries and ranked mitigations. Use when designing a feature that handles sensitive data.	ajanlar/kalite3/guvenlik/sec-tehdit-modelleme.md
+sec-guvenlik-baslik	haiku	Sets CSP, HSTS, CORS and cookie headers for a web app. Use when hardening a site before launch.	ajanlar/kalite3/guvenlik/sec-guvenlik-baslik.md
+sec-injection-denetci	sonnet	Finds SQL, command and template injection sinks by tracing untrusted input. Use when code builds queries or shell commands from input.	ajanlar/kalite3/guvenlik/sec-injection-denetci.md
+sec-xss-csrf-denetci	sonnet	Reviews front end and server code for XSS and CSRF gaps. Use when rendering user content or accepting form posts.	ajanlar/kalite3/guvenlik/sec-xss-csrf-denetci.md
+sec-pentest-plani	opus	Plans an authorized pentest with scope, rules of engagement and reporting. Use when scoping a security test.	ajanlar/kalite3/guvenlik/sec-pentest-plani.md
+sec-cikis-oncesi-guvenlik	sonnet	Runs a pre-release security checklist across secrets, auth, deps and headers. Use before deploying a project.	ajanlar/kalite3/guvenlik/sec-cikis-oncesi-guvenlik.md
+sec-docker-guvenlik	sonnet	Reviews Dockerfiles and compose files for root users, secrets and fat images. Use when containerizing an app.	ajanlar/kalite3/guvenlik/sec-docker-guvenlik.md
+sec-ci-guvenlik-tarama	sonnet	Adds security scanning steps to CI pipelines with sensible fail thresholds. Use when automating security checks.	ajanlar/kalite3/guvenlik/sec-ci-guvenlik-tarama.md
+sec-loglama-gizlilik	haiku	Checks logs and error pages for leaked personal data, tokens and stack traces. Use when adding logging or error handling.	ajanlar/kalite3/guvenlik/sec-loglama-gizlilik.md
+sec-sifreleme-denetci	sonnet	Reviews cryptography use such as hashing, randomness, TLS and key storage. Use when code hashes passwords or encrypts data.	ajanlar/kalite3/guvenlik/sec-sifreleme-denetci.md
+sec-jwt-oturum	sonnet	Reviews JWT and session handling for expiry, storage and revocation. Use when issuing tokens to clients.	ajanlar/kalite3/guvenlik/sec-jwt-oturum.md
+sec-yetkilendirme-matrisi	sonnet	Builds a role by action matrix and checks that every endpoint enforces it. Use when an app has multiple user roles.	ajanlar/kalite3/guvenlik/sec-yetkilendirme-matrisi.md
+sec-guvenlik-raporu	haiku	Turns raw security findings into a prioritized report with fix steps. Use when findings must be communicated to a team.	ajanlar/kalite3/guvenlik/sec-guvenlik-raporu.md
+sec-ai-kod-guvenlik	sonnet	Reviews AI generated code for hardcoded secrets, missing authorization and unsafe defaults. Use when shipping vibe coded apps.	ajanlar/kalite3/guvenlik/sec-ai-kod-guvenlik.md
+sec-zero-trust-ag	opus	Reviews network segmentation and least privilege access for a small deployment. Use when exposing services to the internet.	ajanlar/kalite3/guvenlik/sec-zero-trust-ag.md
+db-sema-tasarim	sonnet	Designs normalized relational schemas with keys, constraints and naming. Use when adding tables or modeling new data.	ajanlar/kalite3/veri-db/db-sema-tasarim.md
+db-sorgu-optimize	sonnet	Reads query plans and rewrites slow SQL with better indexes and joins. Use when a query is slow.	ajanlar/kalite3/veri-db/db-sorgu-optimize.md
+db-migration-planlayici	opus	Plans safe migrations with expand and contract steps for zero downtime. Use when changing live schemas.	ajanlar/kalite3/veri-db/db-migration-planlayici.md
+db-rls-politika	sonnet	Writes and reviews Postgres row level security policies. Use when tables are exposed through Supabase or a public API.	ajanlar/kalite3/veri-db/db-rls-politika.md
+db-indeks-danismani	sonnet	Chooses indexes by access pattern and finds unused or duplicate ones. Use when tuning read heavy tables.	ajanlar/kalite3/veri-db/db-indeks-danismani.md
+db-supabase-kurucu	sonnet	Sets up Supabase projects, tables, auth and storage with local migrations. Use when starting a Supabase backed app.	ajanlar/kalite3/veri-db/db-supabase-kurucu.md
+db-efcore-sql-gecis	sonnet	Inspects generated SQL of EF Core queries and fixes inefficient translations. Use when LINQ becomes slow SQL.	ajanlar/kalite3/veri-db/db-efcore-sql-gecis.md
+db-veri-modelleme-nosql	sonnet	Models document, key value and analytic column stores around query patterns. Use when picking or shaping a non relational store.	ajanlar/kalite3/veri-db/db-veri-modelleme-nosql.md
+db-sql-yazar	haiku	Writes clear SQL with CTEs, window functions and safe parameters. Use when asked for reports or data pulls.	ajanlar/kalite3/veri-db/db-sql-yazar.md
+db-yedekleme-geri-yukleme	sonnet	Reviews backup, point in time recovery and restore drills for a database. Use when planning data safety.	ajanlar/kalite3/veri-db/db-yedekleme-geri-yukleme.md
+db-baglanti-havuzu	haiku	Checks connection pooling and timeouts to avoid exhausted connections. Use when apps hit max connections errors.	ajanlar/kalite3/veri-db/db-baglanti-havuzu.md
+db-veri-kalitesi	haiku	Finds duplicates, nulls and out of range values with simple SQL checks. Use when data looks wrong or before imports.	ajanlar/kalite3/veri-db/db-veri-kalitesi.md
+db-analitik-sorgu	sonnet	Writes aggregations, funnels and cohort queries for product analytics. Use when answering business questions from data.	ajanlar/kalite3/veri-db/db-analitik-sorgu.md
+db-trigger-fonksiyon	sonnet	Writes Postgres functions and triggers for audit columns and derived data. Use when logic belongs next to the data.	ajanlar/kalite3/veri-db/db-trigger-fonksiyon.md
+db-veri-tasima	sonnet	Plans and runs data migrations between databases with validation counts. Use when moving or merging data stores.	ajanlar/kalite3/veri-db/db-veri-tasima.md
+db-sema-inceleme	sonnet	Reviews an existing schema for missing keys, bad types and naming issues. Use when inheriting or auditing a database.	ajanlar/kalite3/veri-db/db-sema-inceleme.md
+dok-docx-uretici	sonnet	Generates structured Word reports with headings, tables and styles. Use when a docx deliverable is requested.	ajanlar/kalite3/belge/dok-docx-uretici.md
+dok-pptx-sunum	sonnet	Builds slide decks with one idea per slide and consistent layout. Use when a presentation is requested.	ajanlar/kalite3/belge/dok-pptx-sunum.md
+dok-pdf-uretici	sonnet	Produces print ready PDFs from HTML or markdown with page numbers and fonts. Use when a PDF deliverable is requested.	ajanlar/kalite3/belge/dok-pdf-uretici.md
+dok-xlsx-tablo	sonnet	Builds spreadsheets with typed columns, formulas and charts. Use when data must be delivered as xlsx.	ajanlar/kalite3/belge/dok-xlsx-tablo.md
+dok-readme-yazar	haiku	Writes short READMEs with purpose, install, usage and troubleshooting. Use when a repo lacks a clear README.	ajanlar/kalite3/belge/dok-readme-yazar.md
+dok-adr-yazar	sonnet	Writes architecture decision records with context, options and consequences. Use when a technical choice must be recorded.	ajanlar/kalite3/belge/dok-adr-yazar.md
+dok-degisiklik-gunlugu	haiku	Writes changelogs and release notes grouped by added, changed and fixed. Use when releasing a version.	ajanlar/kalite3/belge/dok-degisiklik-gunlugu.md
+dok-metin-sadelestir	haiku	Rewrites wordy or machine sounding text into plain direct prose. Use when text feels padded or robotic.	ajanlar/kalite3/belge/dok-metin-sadelestir.md
+dok-api-dokumani	sonnet	Documents endpoints with parameters, examples and error responses. Use when an API needs reference docs.	ajanlar/kalite3/belge/dok-api-dokumani.md
+dok-rapor-ozetleyici	haiku	Summarizes long documents into key points, decisions and open questions. Use when a document is too long to read.	ajanlar/kalite3/belge/dok-rapor-ozetleyici.md
+dok-diyagram-cizer	sonnet	Draws architecture and flow diagrams in Mermaid or SVG with clear labels. Use when text needs a visual.	ajanlar/kalite3/belge/dok-diyagram-cizer.md
+dok-toplanti-notu	haiku	Turns raw meeting notes into decisions, owners and dates. Use when notes need cleaning up.	ajanlar/kalite3/belge/dok-toplanti-notu.md
+dok-teknik-teklif	sonnet	Drafts proposals and specs with scope, timeline and pricing assumptions. Use when a client facing document is needed.	ajanlar/kalite3/belge/dok-teknik-teklif.md
+dok-tablo-duzenle	haiku	Formats data tables and chart captions for documents. Use when numbers must be presented clearly.	ajanlar/kalite3/belge/dok-tablo-duzenle.md
+dok-cevirmen-teknik	haiku	Translates technical text between Turkish and English keeping terms consistent. Use when docs must be bilingual.	ajanlar/kalite3/belge/dok-cevirmen-teknik.md
+dok-sorun-giderme-rehberi	haiku	Writes troubleshooting guides as symptom, cause, fix tables. Use when support questions repeat.	ajanlar/kalite3/belge/dok-sorun-giderme-rehberi.md
+qa-birim-test-yazar	sonnet	Writes focused unit tests with clear names and one behavior per test. Use when new logic lacks tests.	ajanlar/kalite3/test-qa/qa-birim-test-yazar.md
+qa-e2e-playwright	sonnet	Writes Playwright end to end tests with stable selectors and waits. Use when a user flow needs browser coverage.	ajanlar/kalite3/test-qa/qa-e2e-playwright.md
+qa-test-bosluk-analiz	sonnet	Finds untested code paths and risky areas by coverage and complexity. Use when deciding where to add tests.	ajanlar/kalite3/test-qa/qa-test-bosluk-analiz.md
+qa-test-kokusu	haiku	Detects test smells such as sleeps, shared state and no assertions. Use when tests are flaky or hard to read.	ajanlar/kalite3/test-qa/qa-test-kokusu.md
+qa-flaky-avci	opus	Reproduces and root causes flaky tests by looping runs and isolating order or timing. Use when a test fails intermittently.	ajanlar/kalite3/test-qa/qa-flaky-avci.md
+qa-regresyon-testi	sonnet	Writes a failing regression test first for a reported bug, then confirms the fix. Use when fixing a bug.	ajanlar/kalite3/test-qa/qa-regresyon-testi.md
+qa-api-test	sonnet	Tests HTTP APIs for status codes, payload shape and error cases. Use when an API needs contract checks.	ajanlar/kalite3/test-qa/qa-api-test.md
+qa-gorsel-qa	sonnet	Inspects a running page at several widths and reports visual defects with screenshots. Use when checking a UI before release.	ajanlar/kalite3/test-qa/qa-gorsel-qa.md
+qa-manuel-test-plani	haiku	Writes manual test checklists with steps, expected results and priorities. Use when a feature needs human verification.	ajanlar/kalite3/test-qa/qa-manuel-test-plani.md
+qa-test-verisi	haiku	Builds small deterministic test data and factories without real personal data. Use when tests need fixtures.	ajanlar/kalite3/test-qa/qa-test-verisi.md
+qa-performans-yuk-testi	sonnet	Designs load tests with realistic traffic and clear pass thresholds. Use when checking capacity before launch.	ajanlar/kalite3/test-qa/qa-performans-yuk-testi.md
+qa-test-kapsami-raporu	haiku	Runs coverage and summarizes uncovered critical lines by file. Use when asked how well code is tested.	ajanlar/kalite3/test-qa/qa-test-kapsami-raporu.md
+qa-mutasyon-denetci	sonnet	Judges whether tests would catch real bugs by reviewing assertions and mutation ideas. Use when coverage is high but bugs escape.	ajanlar/kalite3/test-qa/qa-mutasyon-denetci.md
+qa-mobil-qa	sonnet	Tests mobile flows on simulators for gestures, rotation and offline cases. Use when verifying a mobile build.	ajanlar/kalite3/test-qa/qa-mobil-qa.md
+qa-erisilebilirlik-testi	haiku	Runs automated accessibility checks and a keyboard walkthrough. Use when verifying a page for a11y.	ajanlar/kalite3/test-qa/qa-erisilebilirlik-testi.md
+qa-test-iskelet-dotnet	haiku	Scaffolds a .NET test project with references, runner and sample test. Use when a solution lacks tests.	ajanlar/kalite3/test-qa/qa-test-iskelet-dotnet.md
+qa-hata-yeniden-uret	sonnet	Turns a vague bug report into minimal reproduction steps and a root cause. Use when a bug cannot be reproduced.	ajanlar/kalite3/test-qa/qa-hata-yeniden-uret.md
+qa-ci-test-duzeni	sonnet	Splits tests into fast and slow groups with tags and caching in CI. Use when pipelines are slow.	ajanlar/kalite3/test-qa/qa-ci-test-duzeni.md
+qa-sozlesme-testi	sonnet	Writes contract tests between services or front end and API. Use when two teams change interfaces independently.	ajanlar/kalite3/test-qa/qa-sozlesme-testi.md
+qa-test-ilk-yaklasim	sonnet	Drives small features red green refactor with one failing test at a time. Use when building new logic test first.	ajanlar/kalite3/test-qa/qa-test-ilk-yaklasim.md
+bl-modelleme-plani	sonnet	Plans low-poly or hard-surface Blender models with proportions, topology and modifiers. Use when starting to model a product or prop.	ajanlar/kalite3/blender/bl-modelleme-plani.md
+bl-malzeme-kurucu	sonnet	Builds Principled BSDF materials with roughness, metallic and texture inputs. Use when a Blender object needs a realistic material.	ajanlar/kalite3/blender/bl-malzeme-kurucu.md
+bl-isik-kurulumu	sonnet	Sets up three point or studio lighting for product renders in Blender. Use when a scene looks flat or harsh.	ajanlar/kalite3/blender/bl-isik-kurulumu.md
+bl-animasyon-anahtar	sonnet	Plans keyframe animation, easing and turntables in Blender. Use when an object or camera must move.	ajanlar/kalite3/blender/bl-animasyon-anahtar.md
+bl-render-ayari	sonnet	Chooses Cycles or Eevee settings, samples and denoising for clean renders. Use when renders are noisy or slow.	ajanlar/kalite3/blender/bl-render-ayari.md
+bl-glb-disa-aktar	sonnet	Prepares and exports Blender models to GLB for web use with small file size. Use when a model goes to three.js or the web.	ajanlar/kalite3/blender/bl-glb-disa-aktar.md
+bl-uv-acma	haiku	Unwraps UVs with seams, even texel density and no overlaps. Use when textures stretch or bake wrong.	ajanlar/kalite3/blender/bl-uv-acma.md
+bl-dokuya-pisirme	sonnet	Bakes normal, AO and color maps from high to low poly in Blender. Use when detail must move into textures.	ajanlar/kalite3/blender/bl-dokuya-pisirme.md
+bl-kamera-kompozisyon	haiku	Sets camera focal length, framing and depth of field for product shots. Use when a render framing feels off.	ajanlar/kalite3/blender/bl-kamera-kompozisyon.md
+bl-sahne-temizlik	haiku	Cleans Blender scenes by naming objects, grouping collections and removing unused data. Use when a scene is messy before export.	ajanlar/kalite3/blender/bl-sahne-temizlik.md
+bl-geometri-dugumleri	opus	Builds procedural setups with Geometry Nodes for arrays, scattering and instancing. Use when manual modeling would be repetitive.	ajanlar/kalite3/blender/bl-geometri-dugumleri.md
+bl-rig-iskelet	sonnet	Plans armature, weight painting and simple IK rigs. Use when a model must pose or deform.	ajanlar/kalite3/blender/bl-rig-iskelet.md
+bl-gorsel-ani-kontrol	haiku	Checks a Blender scene for flipped normals, non-manifold edges and missing textures. Use when a model looks broken.	ajanlar/kalite3/blender/bl-gorsel-ani-kontrol.md
+bl-urun-turntable	sonnet	Renders product turntable frames and assembles a loop for web use. Use when a rotating product preview is requested.	ajanlar/kalite3/blender/bl-urun-turntable.md
+bl-mod-modeli-blender	sonnet	Moves characters or props between Blender and game formats checking scale, bones and vertex groups. Use when preparing assets for game mods.	ajanlar/kalite3/blender/bl-mod-modeli-blender.md
+vid-video-senaryo	sonnet	Writes short video scripts with hook, beats and shot list. Use when planning a short promo or explainer.	ajanlar/kalite3/video/vid-video-senaryo.md
+vid-kisa-klip-secici	sonnet	Finds the best moments in a long video transcript for short clips. Use when cutting highlights.	ajanlar/kalite3/video/vid-kisa-klip-secici.md
+vid-ffmpeg-donusturucu	haiku	Builds ffmpeg commands to convert, trim, compress and extract frames. Use when media files need processing.	ajanlar/kalite3/video/vid-ffmpeg-donusturucu.md
+vid-altyazi-uretici	haiku	Creates and times subtitles in SRT or VTT with readable line lengths. Use when a video needs captions.	ajanlar/kalite3/video/vid-altyazi-uretici.md
+vid-remotion-kurucu	sonnet	Builds programmatic videos with Remotion compositions, sequences and interpolation. Use when video is generated from code.	ajanlar/kalite3/video/vid-remotion-kurucu.md
+vid-hareket-grafigi	sonnet	Designs motion graphics timing, easing and typography animation for titles and lower thirds. Use when graphics must move cleanly.	ajanlar/kalite3/video/vid-hareket-grafigi.md
+vid-ses-duzeni	haiku	Plans voice, music and effects levels with ducking and loudness targets. Use when audio feels uneven in a video.	ajanlar/kalite3/video/vid-ses-duzeni.md
+vid-video-ozetle	haiku	Summarizes a video from its captions into key points with timestamps. Use when a video must be understood quickly.	ajanlar/kalite3/video/vid-video-ozetle.md
+vid-kare-cikarici	haiku	Extracts frames and builds thumbnails or contact sheets from videos. Use when stills are needed.	ajanlar/kalite3/video/vid-kare-cikarici.md
+vid-video-performans-web	sonnet	Optimizes web video delivery with formats, poster images and lazy loading. Use when a page video is heavy.	ajanlar/kalite3/video/vid-video-performans-web.md
+vid-hyperframes-kompozisyon	sonnet	Builds videos from HTML and CSS timelines rendered to frames. Use when a motion piece is authored as web code.	ajanlar/kalite3/video/vid-hyperframes-kompozisyon.md
+vid-sosyal-video-bicim	haiku	Adapts a video to vertical, square and wide formats with safe areas. Use when posting to several platforms.	ajanlar/kalite3/video/vid-sosyal-video-bicim.md
+vid-video-brief	haiku	Writes a one page video brief with goal, audience, length and deliverables. Use when a video request is vague.	ajanlar/kalite3/video/vid-video-brief.md
+vid-gecis-ve-ritim	haiku	Reviews edit pacing, cuts and transitions for flow. Use when a cut feels slow or jumpy.	ajanlar/kalite3/video/vid-gecis-ve-ritim.md
+vid-premiere-akis	sonnet	Plans Premiere Pro edits with bins, sequences and export presets. Use when editing in Premiere.	ajanlar/kalite3/video/vid-premiere-akis.md
+oyn-mod-onarim	sonnet	Diagnoses broken 3DMigoto style game mods by checking ini sections, hashes and logs. Use when a mod stops working after a game update.	ajanlar/kalite3/oyun-mod/oyn-mod-onarim.md
+oyn-ini-yazar	haiku	Writes mod ini sections with key toggles, variables and conditionals. Use when a mod needs switches.	ajanlar/kalite3/oyun-mod/oyn-ini-yazar.md
+oyn-mod-birlestirici	sonnet	Merges several mods into one by remapping hashes, slots and buffers. Use when two mods conflict.	ajanlar/kalite3/oyun-mod/oyn-mod-birlestirici.md
+oyn-oyun-motoru-script	sonnet	Writes gameplay scripts such as movement, health and inventory for engines like Unity or Godot. Use when implementing a mechanic.	ajanlar/kalite3/oyun-mod/oyn-oyun-motoru-script.md
+oyn-oyun-denge	sonnet	Reviews game numbers such as damage, costs and progression curves for balance. Use when a game feels too easy or grindy.	ajanlar/kalite3/oyun-mod/oyn-oyun-denge.md
+oyn-seviye-tasarim	sonnet	Designs game level flow with pacing, landmarks and risk reward beats. Use when laying out maps or encounters.	ajanlar/kalite3/oyun-mod/oyn-seviye-tasarim.md
+oyn-dusman-ai	sonnet	Designs enemy behavior with state machines, perception and cooldowns. Use when enemies feel dumb or unfair.	ajanlar/kalite3/oyun-mod/oyn-dusman-ai.md
+oyn-oyun-performans	sonnet	Finds frame rate problems such as draw calls, garbage and physics cost. Use when a game stutters.	ajanlar/kalite3/oyun-mod/oyn-oyun-performans.md
+oyn-oyun-ses-geri-bildirim	haiku	Adds game feel with screen shake, hit pause, sound cues and particles. Use when actions feel weak.	ajanlar/kalite3/oyun-mod/oyn-oyun-ses-geri-bildirim.md
+oyn-mod-paketleme	haiku	Packages mods with clear folder layout, readme and version notes. Use when sharing a mod.	ajanlar/kalite3/oyun-mod/oyn-mod-paketleme.md
+oyn-oyun-envanter	sonnet	Designs inventory data models and UI for stacking, slots and persistence. Use when building item management.	ajanlar/kalite3/oyun-mod/oyn-oyun-envanter.md
+oyn-three-oyun-sahne	sonnet	Builds small three.js browser games with input, loop and collision basics. Use when a playable web prototype is wanted.	ajanlar/kalite3/oyun-mod/oyn-three-oyun-sahne.md
+oyn-oyun-dokuman	haiku	Writes a one page game design document with core loop, mechanics and scope. Use when a game idea needs shape.	ajanlar/kalite3/oyun-mod/oyn-oyun-dokuman.md
+oyn-oyun-kayit-sistemi	sonnet	Builds save and load systems with versioned data and corruption handling. Use when game progress must persist.	ajanlar/kalite3/oyun-mod/oyn-oyun-kayit-sistemi.md
+oyn-mod-guvenlik-kontrol	haiku	Checks downloaded mod files for suspicious scripts, executables and bundled DLLs. Use when installing community mods.	ajanlar/kalite3/oyun-mod/oyn-mod-guvenlik-kontrol.md
+otm-n8n-akis-tasarimi	sonnet	Designs n8n workflows with triggers, branching and clear node naming. Use when automating a repeated process.	ajanlar/kalite3/otomasyon/otm-n8n-akis-tasarimi.md
+otm-n8n-ifade-kod	sonnet	Writes n8n expressions and Code node snippets for mapping and filtering items. Use when data needs reshaping between nodes.	ajanlar/kalite3/otomasyon/otm-n8n-ifade-kod.md
+otm-n8n-hata-yonetimi	sonnet	Adds error workflows, retries and alerts to n8n automations. Use when a workflow fails silently.	ajanlar/kalite3/otomasyon/otm-n8n-hata-yonetimi.md
+otm-webhook-tasarimci	sonnet	Designs webhook receivers with signature checks, idempotency and quick acknowledgements. Use when integrating third party events.	ajanlar/kalite3/otomasyon/otm-webhook-tasarimci.md
+otm-zamanlanmis-gorev	haiku	Sets up scheduled jobs with cron syntax, locking and logs. Use when something must run periodically.	ajanlar/kalite3/otomasyon/otm-zamanlanmis-gorev.md
+otm-api-entegrasyon	sonnet	Connects third party REST APIs with auth, pagination and rate limits. Use when automating data between services.	ajanlar/kalite3/otomasyon/otm-api-entegrasyon.md
+otm-veri-esleme	haiku	Maps fields between systems with defaults, type conversions and validation. Use when two data shapes must line up.	ajanlar/kalite3/otomasyon/otm-veri-esleme.md
+otm-google-sheets-akis	haiku	Automates form to spreadsheet to email flows with Apps Script or no code tools. Use when small office processes need automation.	ajanlar/kalite3/otomasyon/otm-google-sheets-akis.md
+otm-tarayici-otomasyon	sonnet	Automates browser tasks with Playwright, handling waits, logins and downloads. Use when a web task must be scripted.	ajanlar/kalite3/otomasyon/otm-tarayici-otomasyon.md
+otm-mail-otomasyon	haiku	Builds email automations with templates, throttling and unsubscribe handling. Use when sending recurring messages.	ajanlar/kalite3/otomasyon/otm-mail-otomasyon.md
+otm-dosya-isleme-botu	haiku	Writes batch scripts to rename, convert and sort files with dry run mode. Use when many files need the same operation.	ajanlar/kalite3/otomasyon/otm-dosya-isleme-botu.md
+otm-bildirim-yonlendirme	haiku	Routes alerts to chat or email with severity filters and quiet hours. Use when notifications are noisy.	ajanlar/kalite3/otomasyon/otm-bildirim-yonlendirme.md
+otm-ajan-is-akisi-kur	sonnet	Designs LLM powered automations with prompts, tools and human approval gates. Use when AI steps run inside a workflow.	ajanlar/kalite3/otomasyon/otm-ajan-is-akisi-kur.md
+otm-otomasyon-izleme	haiku	Reviews automation runs for failures, duration and cost and proposes alerts. Use when automations need monitoring.	ajanlar/kalite3/otomasyon/otm-otomasyon-izleme.md
+ara-kutuphane-dokuman	haiku	Looks up current library or framework docs and returns the exact API with version. Use when asked about library syntax or migration.	ajanlar/kalite3/arastirma-ogrenme/ara-kutuphane-dokuman.md
+ara-web-arastirma	sonnet	Researches a question across several sources and reports agreement and conflict. Use when a topic needs current facts.	ajanlar/kalite3/arastirma-ogrenme/ara-web-arastirma.md
+ara-youtube-ozet	haiku	Summarizes a YouTube video from captions and pulls only needed frames. Use when a link must be understood without watching.	ajanlar/kalite3/arastirma-ogrenme/ara-youtube-ozet.md
+ara-kod-tabani-kesfi	haiku	Maps an unfamiliar repository by entry points, modules and conventions. Use when onboarding to code.	ajanlar/kalite3/arastirma-ogrenme/ara-kod-tabani-kesfi.md
+ara-repo-karsilastirma	sonnet	Compares open source repos on activity, license, size and fit. Use when choosing between libraries.	ajanlar/kalite3/arastirma-ogrenme/ara-repo-karsilastirma.md
+ara-lisans-kontrol	haiku	Reads repo licenses and states what use is allowed. Use before adopting external code.	ajanlar/kalite3/arastirma-ogrenme/ara-lisans-kontrol.md
+ara-makale-ozet	haiku	Summarizes articles and papers into claims, evidence and limits. Use when long reading must be condensed.	ajanlar/kalite3/arastirma-ogrenme/ara-makale-ozet.md
+ara-ogrenme-plani	haiku	Builds step by step learning plans with exercises and checkpoints. Use when learning a new tool or topic.	ajanlar/kalite3/arastirma-ogrenme/ara-ogrenme-plani.md
+ara-arac-degerlendirme	sonnet	Evaluates a new tool or MCP against needs, cost, safety and alternatives. Use when considering a new dependency or service.	ajanlar/kalite3/arastirma-ogrenme/ara-arac-degerlendirme.md
+ara-sorun-arastirma	haiku	Researches an error message in docs and issue trackers and returns causes and fixes. Use when an error is unfamiliar.	ajanlar/kalite3/arastirma-ogrenme/ara-sorun-arastirma.md
+ara-dokuman-indeksle	haiku	Builds a navigable index of notes and docs with links and tags. Use when knowledge is scattered.	ajanlar/kalite3/arastirma-ogrenme/ara-dokuman-indeksle.md
+ara-rakip-analizi	sonnet	Profiles competitors by features, pricing and positioning from public sources. Use when benchmarking a product.	ajanlar/kalite3/arastirma-ogrenme/ara-rakip-analizi.md
+ara-web-kazima	sonnet	Plans polite scraping with robots rules, rate limits and structured output. Use when data must be collected from pages.	ajanlar/kalite3/arastirma-ogrenme/ara-web-kazima.md
+ara-yeni-arac-kurulum-arastirma	sonnet	Finds official install steps, requirements and gotchas for a tool. Use when installing something new on Windows.	ajanlar/kalite3/arastirma-ogrenme/ara-yeni-arac-kurulum-arastirma.md
+git-commit-mesaji	haiku	Drafts conventional commit messages from a diff with scope and reason. Use when about to commit.	ajanlar/kalite3/surec-git-yayin/git-commit-mesaji.md
+git-dal-stratejisi	haiku	Recommends branch naming, worktree use and merge versus rebase for a team. Use when starting parallel work.	ajanlar/kalite3/surec-git-yayin/git-dal-stratejisi.md
+git-pr-aciklama	haiku	Writes PR descriptions with summary, test evidence and risk notes. Use when opening a pull request.	ajanlar/kalite3/surec-git-yayin/git-pr-aciklama.md
+git-ci-boru-hatti	sonnet	Writes CI workflows for build, test and lint with caching and clear failure output. Use when a repo needs automation.	ajanlar/kalite3/surec-git-yayin/git-ci-boru-hatti.md
+git-yayin-oncesi-kontrol	sonnet	Runs a go or no-go checklist covering tests, migrations, flags and rollback. Use before shipping.	ajanlar/kalite3/surec-git-yayin/git-yayin-oncesi-kontrol.md
+git-canary-izleme	sonnet	Defines canary rollout steps, health signals and abort thresholds. Use when releasing risky changes gradually.	ajanlar/kalite3/surec-git-yayin/git-canary-izleme.md
+git-deploy-hazirlik	sonnet	Checks environment variables, build output and hosting config before deploy. Use when first deploying a site.	ajanlar/kalite3/surec-git-yayin/git-deploy-hazirlik.md
+git-cakisma-cozucu	sonnet	Resolves merge conflicts by understanding both sides and re-running tests. Use when a merge or rebase stops on conflicts.	ajanlar/kalite3/surec-git-yayin/git-cakisma-cozucu.md
+git-surum-numaralama	haiku	Chooses semantic version bumps and updates version files and tags. Use when cutting a release.	ajanlar/kalite3/surec-git-yayin/git-surum-numaralama.md
+git-gecmis-temizle	sonnet	Plans safe history cleanup such as squash, amend and removing committed secrets. Use when history needs fixing before sharing.	ajanlar/kalite3/surec-git-yayin/git-gecmis-temizle.md
+git-issue-triyaj	haiku	Triages issues by severity, duplicates and next action. Use when an issue list needs ordering.	ajanlar/kalite3/surec-git-yayin/git-issue-triyaj.md
+git-surum-notlari	haiku	Writes user facing release notes from merged changes. Use when publishing a version.	ajanlar/kalite3/surec-git-yayin/git-surum-notlari.md
+pln-niyet-netlestirme	haiku	Asks the fewest questions needed to turn a vague request into clear acceptance criteria. Use when a task is ambiguous.	ajanlar/kalite3/surec-plan/pln-niyet-netlestirme.md
+pln-prd-yazar	sonnet	Writes a short product requirements doc with goals, non goals and acceptance criteria. Use when a feature needs a written spec.	ajanlar/kalite3/surec-plan/pln-prd-yazar.md
+pln-gorev-bolme	sonnet	Breaks a feature into small ordered tasks with dependencies and checks. Use when work must be sequenced.	ajanlar/kalite3/surec-plan/pln-gorev-bolme.md
+pln-mimari-plan	opus	Proposes an architecture with components, data flow and trade offs before coding. Use when a feature touches several modules.	ajanlar/kalite3/surec-plan/pln-mimari-plan.md
+pln-kapsam-kesici	sonnet	Cuts a plan down to the smallest shippable slice and defers the rest. Use when scope grows or a deadline is near.	ajanlar/kalite3/surec-plan/pln-kapsam-kesici.md
+pln-risk-kaydi	haiku	Lists project risks with likelihood, impact and mitigation. Use when planning a risky change.	ajanlar/kalite3/surec-plan/pln-risk-kaydi.md
+pln-kabul-olcutleri	haiku	Writes testable acceptance criteria in given when then form. Use when a story lacks done criteria.	ajanlar/kalite3/surec-plan/pln-kabul-olcutleri.md
+pln-teknik-spec	sonnet	Writes technical specs with interfaces, edge cases and open questions. Use before implementing a non trivial feature.	ajanlar/kalite3/surec-plan/pln-teknik-spec.md
+pln-dalga-plani	sonnet	Writes stepwise implementation plans with files to touch and verification per step. Use when starting a multi step change.	ajanlar/kalite3/surec-plan/pln-dalga-plani.md
+pln-fikir-olgunlastir	sonnet	Turns a rough idea into options, trade offs and a recommended direction. Use when brainstorming a new feature.	ajanlar/kalite3/surec-plan/pln-fikir-olgunlastir.md
+pln-bagimlilik-haritasi	haiku	Maps task and module dependencies to find the critical path and parallel work. Use when sequencing a large plan.	ajanlar/kalite3/surec-plan/pln-bagimlilik-haritasi.md
+pln-karar-kaydi	haiku	Records decisions with context, choice and reason in one short entry. Use after a design choice.	ajanlar/kalite3/surec-plan/pln-karar-kaydi.md
+inc-kod-inceleme-genel	sonnet	Reviews a diff for correctness, readability, design, security and performance. Use before merging.	ajanlar/kalite3/surec-inceleme/inc-kod-inceleme-genel.md
+inc-sadelestirme	sonnet	Simplifies recent code without changing behavior, removing duplication and dead branches. Use when code is hard to read.	ajanlar/kalite3/surec-inceleme/inc-sadelestirme.md
+inc-dogrulama-oncesi-bitis	haiku	Checks that claimed work is really done by running tests and viewing outputs. Use before declaring a task finished.	ajanlar/kalite3/surec-inceleme/inc-dogrulama-oncesi-bitis.md
+inc-ponytail-kod	haiku	Finds needless abstractions, unused code and over built parts in a diff. Use when code feels heavier than the task.	ajanlar/kalite3/surec-inceleme/inc-ponytail-kod.md
+inc-plan-incele	sonnet	Reviews an implementation plan for gaps, risks and missing tests before work starts. Use when a plan is written.	ajanlar/kalite3/surec-inceleme/inc-plan-incele.md
+inc-uretim-hazirligi	opus	Reviews production readiness across logging, failure modes, security and rollout. Use before launch of a service.	ajanlar/kalite3/surec-inceleme/inc-uretim-hazirligi.md
+inc-inceleme-geri-bildirim	haiku	Processes review comments by verifying each, fixing valid ones and explaining the rest. Use after receiving review feedback.	ajanlar/kalite3/surec-inceleme/inc-inceleme-geri-bildirim.md
+inc-karpathy-ilkeleri	haiku	Checks a change against simplicity, surgical edits and goal driven verification. Use when a diff touches more than asked.	ajanlar/kalite3/surec-inceleme/inc-karpathy-ilkeleri.md
+inc-devex-inceleme	sonnet	Reviews setup, errors and docs from a new developer view. Use when onboarding is slow.	ajanlar/kalite3/surec-inceleme/inc-devex-inceleme.md
+inc-retro-yazar	haiku	Writes short retrospectives with what worked, what failed and next actions. Use at the end of a work wave.	ajanlar/kalite3/surec-inceleme/inc-retro-yazar.md
+inc-test-kalitesi-inceleme	sonnet	Reviews tests for meaningful assertions, isolation and edge cases. Use when a PR adds tests.	ajanlar/kalite3/surec-inceleme/inc-test-kalitesi-inceleme.md
+inc-pr-boyut-kontrol	haiku	Checks PR size and focus and suggests splitting large changes. Use when a diff is too big to review.	ajanlar/kalite3/surec-inceleme/inc-pr-boyut-kontrol.md
+vrm-baglam-butcesi	haiku	Estimates context cost of files, tools and prompts and proposes trimming. Use when sessions feel bloated.	ajanlar/kalite3/verimlilik/vrm-baglam-butcesi.md
+vrm-log-ozetleyici	haiku	Condenses big logs to error lines, counts and first failing cause. Use when a log is too long to read.	ajanlar/kalite3/verimlilik/vrm-log-ozetleyici.md
+vrm-oturum-kaydi	haiku	Saves a short session handoff with state, decisions and next steps. Use before ending or compacting a session.	ajanlar/kalite3/verimlilik/vrm-oturum-kaydi.md
+vrm-hafiza-arama	haiku	Searches past session notes for earlier decisions and fixes. Use when asked what was done before.	ajanlar/kalite3/verimlilik/vrm-hafiza-arama.md
+vrm-alt-ajan-dagitim	sonnet	Splits independent work into parallel subtasks with clear contracts and returns only summaries. Use when tasks do not depend on each other.	ajanlar/kalite3/verimlilik/vrm-alt-ajan-dagitim.md
+vrm-model-secimi	haiku	Picks the cheapest model that can do a task and states why. Use when planning cost for repeated work.	ajanlar/kalite3/verimlilik/vrm-model-secimi.md
+vrm-cikti-sikistirma	haiku	Wraps noisy command output into short summaries with counts and failing names. Use when tool output is large.	ajanlar/kalite3/verimlilik/vrm-cikti-sikistirma.md
+vrm-maliyet-denetci	haiku	Reviews usage logs and workflows for avoidable token or API spend. Use when bills or limits rise.	ajanlar/kalite3/verimlilik/vrm-maliyet-denetci.md
+vrm-dosya-okuma-disiplini	haiku	Locates facts with search first and reads only narrow line ranges. Use when exploring a large repo cheaply.	ajanlar/kalite3/verimlilik/vrm-dosya-okuma-disiplini.md
+vrm-bilgi-tabani-hazirla	sonnet	Builds a compact knowledge base from project docs for fast retrieval. Use when the same facts are re-explained often.	ajanlar/kalite3/verimlilik/vrm-bilgi-tabani-hazirla.md
+ajn-skill-yazar	sonnet	Writes SKILL.md files with sharp triggers, short bodies and references for detail. Use when creating a new skill.	ajanlar/kalite3/surec-ajan-arac/ajn-skill-yazar.md
+ajn-hook-yazar	sonnet	Writes Claude Code hooks for validation or automation with safe exit codes. Use when an event should trigger a check.	ajanlar/kalite3/surec-ajan-arac/ajn-hook-yazar.md
+ajn-mcp-sunucu-yazar	sonnet	Builds MCP servers with clear tool names, schemas and error messages. Use when exposing a service to an agent.	ajanlar/kalite3/surec-ajan-arac/ajn-mcp-sunucu-yazar.md
+ajn-plugin-iskelet	sonnet	Scaffolds Claude Code plugins with manifest, commands, agents and hooks. Use when packaging tools as a plugin.	ajanlar/kalite3/surec-ajan-arac/ajn-plugin-iskelet.md
+ajn-ajan-tanimi-yazar	sonnet	Writes subagent definitions with narrow tools, a cheap model and a short prompt. Use when creating a custom agent.	ajanlar/kalite3/surec-ajan-arac/ajn-ajan-tanimi-yazar.md
+ajn-slash-komut-yazar	haiku	Writes slash commands with arguments, allowed tools and clear steps. Use when a repeated prompt should become a command.	ajanlar/kalite3/surec-ajan-arac/ajn-slash-komut-yazar.md
+ajn-claude-api-gelistirici	sonnet	Builds Claude API integrations with prompt caching, tool use and streaming. Use when an app calls Claude programmatically.	ajanlar/kalite3/surec-ajan-arac/ajn-claude-api-gelistirici.md
+ajn-prompt-denetci	sonnet	Audits prompts for ambiguity, missing format and injection risks. Use when an agent prompt behaves inconsistently.	ajanlar/kalite3/surec-ajan-arac/ajn-prompt-denetci.md
+ajn-skill-test	sonnet	Measures whether a skill triggers and helps with paired runs and rubrics. Use after writing or changing a skill.	ajanlar/kalite3/surec-ajan-arac/ajn-skill-test.md
+ajn-ajan-orkestrasyon	opus	Designs multi agent flows with roles, handoffs, state and human approval points. Use when several agents must cooperate.	ajanlar/kalite3/surec-ajan-arac/ajn-ajan-orkestrasyon.md
+ajn-mcp-kurulum-denetci	haiku	Reviews MCP and plugin configs for excess permissions and secret exposure. Use before enabling a new MCP server.	ajanlar/kalite3/surec-ajan-arac/ajn-mcp-kurulum-denetci.md
+ajn-migrasyon-model	sonnet	Migrates prompts and code to newer model versions with eval comparison. Use when switching model IDs.	ajanlar/kalite3/surec-ajan-arac/ajn-migrasyon-model.md
+ajn-codex-claude-koprusu	haiku	Maps settings and instructions between Claude Code and other agent CLIs. Use when configuring a second agent tool.	ajanlar/kalite3/surec-ajan-arac/ajn-codex-claude-koprusu.md
+ajn-ogrenilen-ders	haiku	Captures short reusable lessons from a finished task as rules or notes. Use at task close.	ajanlar/kalite3/surec-ajan-arac/ajn-ogrenilen-ders.md

@@ -53,8 +53,8 @@ def pid_canli(pid):
 
 
 def ayristir(stdout):
-    """stream-json satırları → {usage, usd, sure_ms, metin, araclar, init, hook, tur}. Anahtar/istem değeri taşımaz."""
-    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "girdi": [], "init": {}, "hook": [], "tur": 0}
+    """stream-json satırları → {usage, usd, sure_ms, metin, araclar, okunan, girdi, init, hook, tur}. Anahtar/istem değeri taşımaz."""
+    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "okunan": [], "girdi": [], "init": {}, "hook": [], "tur": 0}
     for s in (stdout or "").splitlines():
         try:
             x = json.loads(s)
@@ -78,6 +78,8 @@ def ayristir(stdout):
                         ad = "Skill:" + str((b.get("input") or {}).get("skill") or (b.get("input") or {}).get("command") or "")
                     elif ad in ("Task", "Agent"):
                         ad = "Agent:" + str((b.get("input") or {}).get("subagent_type") or "")
+                    elif ad == "Read":  # hangi references bölümü okundu: vekil değil kanıt
+                        o["okunan"].append(str((b.get("input") or {}).get("file_path") or "").replace("\\", "/"))
                     o["araclar"].append(ad)
                     g = b.get("input") or {}  # dosyaya yazılan/koşturulan çıktı da rubriğe girer (yalnız son metin değil)
                     o["girdi"].extend(str(g[k]) for k in ("content", "new_string", "command") if g.get(k))
@@ -85,8 +87,10 @@ def ayristir(stdout):
             o["usage"] = x.get("usage") or {}
             o["usd"] = x.get("total_cost_usd") or 0.0
             o["sure_ms"] = x.get("duration_ms") or 0
-            o["metin"] = str(x.get("result") or "")
-            o["tur"] = x.get("num_turns") or 0
+            # Arka plan Agent'ı akışta birden çok result üretir, sonuncusu boş (num_turns 0) → yanıtı ezmesin
+            o["metin"] = str(x.get("result") or "") or o["metin"]
+            o["tur"] = x.get("num_turns") or o["tur"]
+            o["model"] = x.get("modelUsage") or {}
     o["usage"] = o["usage"] or o.get("usage_ilk") or {}
     return o
 

@@ -1,0 +1,48 @@
+[
+ {
+  "ad": "netlify-config",
+  "istem": "Write the Netlify config for a Vite SPA: build with `npm run build`, publish `dist`, SPA fallback so client-side routes work, send visitors from Australia and New Zealand from `/` to `/anz`, and redirect `/news/*` to `/blog/...` keeping the rest of the path. Also tell me how to store a Stripe key as a secret and how to stop a false-positive secret-scan failure without turning scanning off. Reply as text, don't create files.",
+  "rubrik": [
+   {
+    "regex": "publish\\s*=\\s*[\\\"']?dist",
+    "puan": 2,
+    "neden": "build/publish"
+   },
+   {
+    "regex": "/\\*\\s+/index\\.html\\s+200|from\\s*=\\s*[\\\"']/\\*[\\\"'].{0,120}status\\s*=\\s*200",
+    "puan": 2,
+    "neden": "SPA geri dusme"
+   },
+   {
+    "regex": "country\\W{0,6}au",
+    "puan": 1,
+    "neden": "Country kosullu yonlendirme"
+   },
+   {
+    "regex": ":splat",
+    "puan": 1,
+    "neden": "splat"
+   },
+   {
+    "regex": "first (matching )?rule|top.to.bottom|specific[^.\\n]{0,40}before|before[^.\\n]{0,30}general",
+    "puan": 1,
+    "neden": "ilk eslesen kazanir sirasi"
+   },
+   {
+    "regex": "--secret|Contains secret values|is_secret",
+    "puan": 2,
+    "neden": "gizli degisken isareti"
+   },
+   {
+    "regex": "SECRETS_SCAN_(SMART_DETECTION_)?OMIT_(VALUES|KEYS|PATHS)",
+    "puan": 1,
+    "neden": "tarama istisnasi"
+   }
+  ],
+  "ref": [
+   "redirects-and-rewrites.md",
+   "secrets-controller.md",
+   "environment-variables.md"
+  ]
+ }
+]

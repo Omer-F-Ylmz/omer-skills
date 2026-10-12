@@ -1,0 +1,538 @@
+[
+ {
+  "ad": "devex-review",
+  "istem": "I can't open a browser, but here is what I know about our new `acme-cli`: install is `npm i -g acme-cli`, then `acme init` needs an API key you only get after a sales call, and when the key is missing it prints just `Error 500`. Do a developer-experience review: estimate the time to hello world and its tier, score the getting-started and error-message dimensions 0-10, and say what a 10 would look like. Give the review as text, do not create files.",
+  "rubrik": [
+   {
+    "regex": "TTHW|time to hello.?world",
+    "puan": 2,
+    "neden": "TTHW kavrami"
+   },
+   {
+    "regex": "Red Flag|Needs Work|Champion|Competitive",
+    "puan": 1,
+    "neden": "TTHW kademesi"
+   },
+   {
+    "regex": "/\\s*10\\b|0-10|out of 10",
+    "puan": 2,
+    "neden": "0-10 puanlama"
+   },
+   {
+    "regex": "GETTING STARTED AUDIT|Friction",
+    "puan": 1,
+    "neden": "getting-started denetim bicimi"
+   },
+   {
+    "regex": "problem.{0,60}cause.{0,60}fix|cause.{0,40}fix",
+    "puan": 1,
+    "neden": "hata mesaji = problem+neden+cozum"
+   },
+   {
+    "regex": "zero friction|first five minutes|\\bT0\\b|credit card|sales call",
+    "puan": 1,
+    "neden": "ilk 5 dk / sifir surtunme ilkesi"
+   },
+   {
+    "regex": "what a 10 (looks|would look)|10 looks like|gap method|a 10 (would|means)",
+    "puan": 2,
+    "neden": "bosluk yontemi: 10 neye benzer"
+   }
+  ],
+  "ref": [
+   "dx-first-principles.md",
+   "cognitive-patterns-how-great-dx-leaders-think.md"
+  ]
+ },
+ {
+  "ad": "plan-tune",
+  "istem": "Question tuning is currently off and I have never been prompted about it. I'm sick of the test-failure triage question: stop asking me about it unless something destructive is involved. Walk me through exactly what you would do step by step, including any prompts or marker files, and the command that records the preference.",
+  "rubrik": [
+   {
+    "regex": "question[_ -]tuning|question-tuning-prompted|consent",
+    "puan": 2,
+    "neden": "onay/opt-in kapisi"
+   },
+   {
+    "regex": "gstack-config set question_tuning true|enable",
+    "puan": 1,
+    "neden": "ayari acma"
+   },
+   {
+    "regex": "ask-only-for-one-way",
+    "puan": 2,
+    "neden": "dogru tercih turu"
+   },
+   {
+    "regex": "gstack-question-preference\\s+--write|question_id",
+    "puan": 2,
+    "neden": "tercih yazma komutu"
+   },
+   {
+    "regex": "one-way door",
+    "puan": 1,
+    "neden": "tek yonlu kapi guvenligi"
+   },
+   {
+    "regex": "Apply\\?|\\[Y/n\\]|explicit (Y|yes)",
+    "puan": 1,
+    "neden": "yazmadan onay"
+   },
+   {
+    "regex": "5-Q|declared (profile|setup)|developer-profile",
+    "puan": 1,
+    "neden": "kurulum/beyan profili"
+   }
+  ],
+  "ref": [
+   "consent-opt-in.md",
+   "set-a-preference.md",
+   "5-q-setup-post-consent-or-via-setup-gate.md"
+  ]
+ },
+ {
+  "ad": "learn",
+  "istem": "Our project has a learnings.jsonl with about 200 raw entries, many of them updates of the same insight. Show me how to summarize it (unique count after dedup, breakdown by type and by source, average confidence) and how to prune stale or contradicting learnings. Don't change any code. Reply with the commands and steps as text.",
+  "rubrik": [
+   {
+    "regex": "learnings\\.jsonl|gstack-learnings-search|/learn (stats|prune)",
+    "puan": 1,
+    "neden": "dosya/komut"
+   },
+   {
+    "regex": "key.{0,15}type|type.{0,15}key|dedup",
+    "puan": 2,
+    "neden": "key+type ile tekillestirme"
+   },
+   {
+    "regex": "BY_TYPE.{0,300}BY_SOURCE|by type.{0,200}by source|by source.{0,200}by type",
+    "puan": 2,
+    "neden": "tur ve kaynak kirilimi"
+   },
+   {
+    "regex": "AVG_CONFIDENCE|average confidence|avg.{0,10}confidence",
+    "puan": 1,
+    "neden": "ortalama guven"
+   },
+   {
+    "regex": "STALE|CONFLICT",
+    "puan": 2,
+    "neden": "bayat/celisen isaretleme"
+   },
+   {
+    "regex": "append-only|latest (entry )?wins|AskUserQuestion|remove this learning",
+    "puan": 2,
+    "neden": "silme/guncelleme usulu"
+   }
+  ],
+  "ref": [
+   "stats.md"
+  ]
+ },
+ {
+  "ad": "code-review",
+  "istem": "Self-review my llama.cpp branch before I open a PR. The diff adds a new model architecture in src/models/foo.cpp, plus CUDA and Metal kernels for it in the same PR, adds a `--foo-mode` flag to common/arg.cpp, reads `n_layer` from GGUF metadata and uses it to index a fixed `LLAMA_MAX_LAYERS` array with no bound check, and the commit message has a `Co-authored-by: Claude` trailer. Give the review notes grouped by severity.",
+  "rubrik": [
+   {
+    "regex": "blocking",
+    "puan": 1,
+    "neden": "ciddiyet gruplamasi"
+   },
+   {
+    "regex": "LLAMA_MAX|bound(s|ed)? check|attacker|out.of.bounds|overflow",
+    "puan": 2,
+    "neden": "guvenlik: dosyadan gelen sayim sinirlanmali"
+   },
+   {
+    "regex": "CPU-only|CPU only|follow-up|separate PR|multiple (ggml )?backends",
+    "puan": 2,
+    "neden": "tek PR'da coklu backend"
+   },
+   {
+    "regex": "model-specific|GGUF metadata|per-model",
+    "puan": 2,
+    "neden": "modele ozel CLI bayragi yasak"
+   },
+   {
+    "regex": "Assisted-by",
+    "puan": 2,
+    "neden": "AI katkisi Assisted-by"
+   },
+   {
+    "regex": "will slow|nits?\\b",
+    "puan": 1,
+    "neden": "ikinci/ucuncu seviye gruplar"
+   }
+  ],
+  "ref": [
+   "scope-and-quick-reject-gate-always.md",
+   "security-review-mandatory.md",
+   "general-always.md",
+   "new-model-architecture.md"
+  ]
+ },
+ {
+  "ad": "document-generate",
+  "istem": "Plan the documentation for a small Python CLI called `pdfstamp`: a `stamp` command, a `--verbose` flag, an `opacity` config option, and an internal scheduler module. Give me the documentation plan (which doc types for which item), the reference-doc template you'd use for `stamp`, the order you'd write in, and the quality checks before committing. Text only, no files.",
+  "rubrik": [
+   {
+    "regex": "Diataxis",
+    "puan": 2,
+    "neden": "Diataxis cercevesi"
+   },
+   {
+    "regex": "tutorial.{0,400}how-to.{0,400}reference.{0,400}explanation",
+    "puan": 1,
+    "neden": "dort ceyrek"
+   },
+   {
+    "regex": "Documentation plan|partition",
+    "puan": 1,
+    "neden": "bolumleme plani"
+   },
+   {
+    "regex": "reference[^.\\n]{0,40}(first|before)|foundation|vocabulary",
+    "puan": 2,
+    "neden": "once referans"
+   },
+   {
+    "regex": "API / Interface|Options / Configuration",
+    "puan": 1,
+    "neden": "referans sablon basliklari"
+   },
+   {
+    "regex": "cross-link|2 clicks|two clicks|README",
+    "puan": 1,
+    "neden": "capraz baglanti/kesfedilebilirlik"
+   },
+   {
+    "regex": "Accuracy gate|compiles|copy-pasted|trade-offs",
+    "puan": 2,
+    "neden": "kalite kapilari"
+   }
+  ],
+  "ref": [
+   "step-3-write-reference-documentation-first.md"
+  ]
+ },
+ {
+  "ad": "netlify-config",
+  "istem": "Write the Netlify config for a Vite SPA: build with `npm run build`, publish `dist`, SPA fallback so client-side routes work, send visitors from Australia and New Zealand from `/` to `/anz`, and redirect `/news/*` to `/blog/...` keeping the rest of the path. Also tell me how to store a Stripe key as a secret and how to stop a false-positive secret-scan failure without turning scanning off. Reply as text, don't create files.",
+  "rubrik": [
+   {
+    "regex": "publish\\s*=\\s*[\\\"']?dist",
+    "puan": 2,
+    "neden": "build/publish"
+   },
+   {
+    "regex": "/\\*\\s+/index\\.html\\s+200|from\\s*=\\s*[\\\"']/\\*[\\\"'].{0,120}status\\s*=\\s*200",
+    "puan": 2,
+    "neden": "SPA geri dusme"
+   },
+   {
+    "regex": "country\\W{0,6}au",
+    "puan": 1,
+    "neden": "Country kosullu yonlendirme"
+   },
+   {
+    "regex": ":splat",
+    "puan": 1,
+    "neden": "splat"
+   },
+   {
+    "regex": "first (matching )?rule|top.to.bottom|specific[^.\\n]{0,40}before|before[^.\\n]{0,30}general",
+    "puan": 1,
+    "neden": "ilk eslesen kazanir sirasi"
+   },
+   {
+    "regex": "--secret|Contains secret values|is_secret",
+    "puan": 2,
+    "neden": "gizli degisken isareti"
+   },
+   {
+    "regex": "SECRETS_SCAN_(SMART_DETECTION_)?OMIT_(VALUES|KEYS|PATHS)",
+    "puan": 1,
+    "neden": "tarama istisnasi"
+   }
+  ],
+  "ref": [
+   "redirects-and-rewrites.md",
+   "secrets-controller.md",
+   "environment-variables.md"
+  ]
+ },
+ {
+  "ad": "netlify-functions",
+  "istem": "Write a Netlify scheduled function in TypeScript that sends a daily digest at 9 AM US Eastern, plus a second function that logs when a deploy fails. Include any limits I should know about. Reply as text, don't create files.",
+  "rubrik": [
+   {
+    "regex": "schedule\\s*[:=]\\s*[\\\"']",
+    "puan": 2,
+    "neden": "schedule yapilandirmasi"
+   },
+   {
+    "regex": "0 1[34] \\* \\* \\*",
+    "puan": 2,
+    "neden": "UTC'ye cevrilmis cron"
+   },
+   {
+    "regex": "30\\s*(s\\b|sec)",
+    "puan": 1,
+    "neden": "30 sn siniri"
+   },
+   {
+    "regex": "published deploy|production deploy|Deploy Preview|Run now",
+    "puan": 1,
+    "neden": "yalniz yayinlanmis deploy'da calisir"
+   },
+   {
+    "regex": "deployFailed",
+    "puan": 2,
+    "neden": "platform olayi isleyicisi"
+   },
+   {
+    "regex": "@netlify/functions",
+    "puan": 1,
+    "neden": "tip importu"
+   },
+   {
+    "regex": "background",
+    "puan": 1,
+    "neden": "olay islevleri arka planda"
+   }
+  ],
+  "ref": [
+   "scheduled-functions-cron.md",
+   "platform-event-functions.md"
+  ]
+ },
+ {
+  "ad": "netlify-forms",
+  "istem": "My Next.js (SSR) app has a contact form with name, email and message fields submitted with fetch, and Netlify isn't recording any submissions. Give me the fix, how the AJAX submit must be done, how to set up a custom thank-you page, and what to check if a legitimate submission is still missing.",
+  "rubrik": [
+   {
+    "regex": "__forms\\.html",
+    "puan": 2,
+    "neden": "statik iskelet dosyasi"
+   },
+   {
+    "regex": "data-netlify",
+    "puan": 1,
+    "neden": "data-netlify"
+   },
+   {
+    "regex": "form-name",
+    "puan": 1,
+    "neden": "gizli form-name"
+   },
+   {
+    "regex": "(fetch|POST|post)[^\\n]{0,80}/__forms\\.html",
+    "puan": 2,
+    "neden": "AJAX POST iskelete"
+   },
+   {
+    "regex": "action\\s*=\\s*[\\\"']/thank-you[\\\"']|extensionless|not\\s+`?/thank-you\\.html",
+    "puan": 1,
+    "neden": "uzantisiz basari sayfasi"
+   },
+   {
+    "regex": "Akismet|spam",
+    "puan": 1,
+    "neden": "kayip gonderim = spam"
+   },
+   {
+    "regex": "match(es|ing)? exactly|exactly match|names? must match|same names?",
+    "puan": 2,
+    "neden": "alan adlari birebir"
+   }
+  ],
+  "ref": [
+   "constraints.md",
+   "js-rendered-ssr-framework-forms-next-js-nuxt-sveltekit-astro-gatsby.md"
+  ]
+ },
+ {
+  "ad": "sentry-get-started",
+  "istem": "[abcd12efg0] I have a brand-new Node/Express repo with no Sentry in it yet, and the Sentry MCP isn't connected in this harness. Lay out how you'd start: what you'd probe first, which onboarding progress tool and stages you'd report, and what you'd do for a brand-new project versus a repo that already uses Sentry. Answer as text, don't run anything.",
+  "rubrik": [
+   {
+    "regex": "onboarding_status_update",
+    "puan": 2,
+    "neden": "ilerleme araci"
+   },
+   {
+    "regex": "(?=.*connect_mcp)(?=.*analyze_project)",
+    "puan": 2,
+    "neden": "baslangic asamalari"
+   },
+   {
+    "regex": "find_organizations|whoami",
+    "puan": 1,
+    "neden": "MCP yoklamasi"
+   },
+   {
+    "regex": "mcp\\.sentry\\.dev",
+    "puan": 1,
+    "neden": "MCP kurulum adresi"
+   },
+   {
+    "regex": "first-error|brand-new|check_stack_trace_quality",
+    "puan": 2,
+    "neden": "yeni kullanici akisi"
+   },
+   {
+    "regex": "sentry-instrument|sentry-debug-issue|existing user",
+    "puan": 1,
+    "neden": "mevcut kullanici yonlendirmesi"
+   },
+   {
+    "regex": "@sentry|sentry-sdk|DSN",
+    "puan": 1,
+    "neden": "depoda Sentry var mi taramasi"
+   }
+  ],
+  "ref": [
+   "onboarding-ui-progress.md"
+  ]
+ },
+ {
+  "ad": "ui-ux-pro-max",
+  "istem": "I'm designing a fintech SaaS landing page in Next.js with a dark-mode dashboard preview. List the ui-ux-pro-max search commands you'd run (whole-product direction, a targeted domain lookup, and the stack rules), how you'd write and sanity-check the queries, and the key accessibility and touch rules you'd enforce. Don't run anything.",
+  "rubrik": [
+   {
+    "regex": "search\\.py.{0,200}--design-system",
+    "puan": 2,
+    "neden": "tasarim sistemi aramasi"
+   },
+   {
+    "regex": "--domain",
+    "puan": 1,
+    "neden": "hedefli alan aramasi"
+   },
+   {
+    "regex": "--stack\\s+nextjs",
+    "puan": 2,
+    "neden": "yigin kurallari"
+   },
+   {
+    "regex": "4\\.5",
+    "puan": 1,
+    "neden": "kontrast orani"
+   },
+   {
+    "regex": "reduced-motion",
+    "puan": 1,
+    "neden": "azaltilmis hareket"
+   },
+   {
+    "regex": "\\b44\\b|24\\s*[x\\u00d7]\\s*24",
+    "puan": 1,
+    "neden": "dokunma hedefi boyutu"
+   },
+   {
+    "regex": "retry once|narrower|dominant intent|2.{0,3}5 (meaningful )?terms",
+    "puan": 2,
+    "neden": "sorgu sozlesmesi"
+   }
+  ],
+  "ref": [
+   "query-contract.md",
+   "quick-reference.md",
+   "search-reference.md"
+  ]
+ },
+ {
+  "ad": "write-swift",
+  "istem": "I'm migrating a Swift 5 app to Swift 6. A `PhotoProcessor` class does heavy image work on `DispatchQueue.global()` and mutates a shared cache guarded by a lock, marked `@unchecked Sendable` to silence warnings. Show the modern rewrite, the order I should migrate in, and how the new tests should be written. Text only.",
+  "rubrik": [
+   {
+    "regex": "@concurrent",
+    "puan": 2,
+    "neden": "agir isi main'den cikarma"
+   },
+   {
+    "regex": "Approachable Concurrency|Default Actor Isolation",
+    "puan": 1,
+    "neden": "yaklasilabilir eszamanlilik ayarlari"
+   },
+   {
+    "regex": "stop sharing|don.t share|own instance|local instance|Mutex|\\bactor\\b",
+    "puan": 1,
+    "neden": "paylasimi kaldir/izole et"
+   },
+   {
+    "regex": "async let|withTaskGroup",
+    "puan": 1,
+    "neden": "yapisal eszamanlilik"
+   },
+   {
+    "regex": "@Test|#expect|Swift Testing",
+    "puan": 2,
+    "neden": "Swift Testing"
+   },
+   {
+    "regex": "complete concurrency|Swift 6 language mode",
+    "puan": 2,
+    "neden": "gecis sirasi"
+   },
+   {
+    "regex": "Instruments|profil",
+    "puan": 1,
+    "neden": "once olc"
+   }
+  ],
+  "ref": [
+   "3-concurrency-stay-single-threaded-until-profiling-says-otherwise.md",
+   "4-sendable-and-sharing-data.md",
+   "11-testing-swift-testing-by-default.md",
+   "16-migrating-an-existing-codebase-to-swift-6.md",
+   "quick-reference.md"
+  ]
+ },
+ {
+  "ad": "create-design-md",
+  "istem": "My repo uses Tailwind v4 and its only governing design source is this CSS: `@theme { --color-primary: #1a73e8; --font-sans: Geist; --font-mono: Geist Mono; --radius: 8px; }`. Write the DESIGN.md I should end up with (frontmatter and the sections you would include) and the exact commands to validate it. Answer as text, don't create files.",
+  "rubrik": [
+   {
+    "regex": "version:\\s*alpha",
+    "puan": 1,
+    "neden": "frontmatter surumu"
+   },
+   {
+    "regex": "typography:\\s*\\n\\s+(sans|mono):\\s*\\n\\s+fontFamily:",
+    "puan": 2,
+    "neden": "typography eslem bicimi"
+   },
+   {
+    "regex": "rounded:\\s*\\n\\s+base:",
+    "puan": 2,
+    "neden": "--radius -> rounded.base"
+   },
+   {
+    "regex": "## Overview",
+    "puan": 1,
+    "neden": "Overview ile baslar"
+   },
+   {
+    "regex": "@google/design\\.md\\s+lint",
+    "puan": 1,
+    "neden": "lint"
+   },
+   {
+    "regex": "export\\s+--format\\s+css-tailwind",
+    "puan": 2,
+    "neden": "dogru disa aktarim hedefi"
+   },
+   {
+    "regex": "--(color|font|radius)-\\*",
+    "puan": 1,
+    "neden": "cikti ailelerinin dogrulanmasi"
+   }
+  ],
+  "ref": [
+   "3-decide-what-belongs.md",
+   "4-write-the-document.md",
+   "5-validate.md"
+  ]
+ }
+]

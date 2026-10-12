@@ -140,6 +140,64 @@ pr-review-toolkit:code-simplifier	opus	Use this agent when code has been written
 pr-review-toolkit:comment-analyzer	inherit	Use this agent when you need to analyze code comments for accuracy, completeness, and long-term maintainability.	C:/Users/pc/.claude/plugins/cache/claude-code-plugins/pr-review-toolkit/1.0.0/agents/comment-analyzer.md
 pr-review-toolkit:silent-failure-hunter	inherit	Use this agent when reviewing code changes in a pull request to identify silent failures, inadequate error handling, and inappropriate fallback behavior.	C:/Users/pc/.claude/plugins/cache/claude-code-plugins/pr-review-toolkit/1.0.0/agents/silent-failure-hunter.md
 pr-review-toolkit:type-design-analyzer	inherit	Use this agent when you need expert analysis of type design in your codebase.	C:/Users/pc/.claude/plugins/cache/claude-code-plugins/pr-review-toolkit/1.0.0/agents/type-design-analyzer.md
+dotnet-test:code-testing-builder	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-builder.agent.md
+dotnet-test:code-testing-fixer	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-fixer.agent.md
+dotnet-test:code-testing-generator	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-generator.agent.md
+dotnet-test:code-testing-implementer	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-implementer.agent.md
+dotnet-test:code-testing-linter	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-linter.agent.md
+dotnet-test:code-testing-planner	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-planner.agent.md
+dotnet-test:code-testing-researcher	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-researcher.agent.md
+dotnet-test:code-testing-tester	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/code-testing-tester.agent.md
+dotnet-test:test-quality-auditor	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/test-quality-auditor.agent.md
+dotnet-test:testability-migration	inherit	>-	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-test/0.2.22/agents/testability-migration.agent.md
+dotnet-msbuild:msbuild-code-review	inherit	Agent that reviews MSBuild project files for anti-patterns, modernization opportunities, and best practices violations.	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-msbuild/0.1.10/agents/msbuild-code-review.agent.md
+dotnet-msbuild:msbuild	inherit	Expert agent for MSBuild and .NET build troubleshooting, optimization, and project file quality.	C:/Users/pc/.claude/plugins/cache/dotnet-agent-skills/dotnet-msbuild/0.1.10/agents/msbuild.agent.md
+feature-dev:code-explorer	sonnet	Deeply analyzes existing codebase features by tracing execution paths, mapping architecture layers, understanding patterns and abstractions, and documenting dep	C:/Users/pc/.claude/plugins/cache/claude-code-plugins/feature-dev/1.0.0/agents/code-explorer.md
+feature-dev:code-reviewer	sonnet	Reviews code for bugs, logic errors, security vulnerabilities, code quality issues, and adherence to project conventions, using confidence-based filtering to re	C:/Users/pc/.claude/plugins/cache/claude-code-plugins/feature-dev/1.0.0/agents/code-reviewer.md
+pr-review-toolkit:code-reviewer	opus	Use this agent when you need to review code for adherence to project guidelines, style guides, and best practices.	C:/Users/pc/.claude/plugins/cache/claude-code-plugins/pr-review-toolkit/1.0.0/agents/code-reviewer.md
+pr-review-toolkit:pr-test-analyzer	inherit	Use this agent when you need to review a pull request for test coverage quality and completeness.	C:/Users/pc/.claude/plugins/cache/claude-code-plugins/pr-review-toolkit/1.0.0/agents/pr-test-analyzer.md
+everything-claude-code:architect	opus	Software architecture specialist for system design, scalability, and technical decision-making.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/architect.md
+everything-claude-code:build-error-resolver	opus	Build and TypeScript error resolution specialist.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/build-error-resolver.md
+everything-claude-code:code-reviewer	opus	Expert code review specialist.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/code-reviewer.md
+everything-claude-code:doc-updater	opus	Documentation and codemap specialist.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/doc-updater.md
+everything-claude-code:e2e-runner	opus	End-to-end testing specialist using Playwright.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/e2e-runner.md
+everything-claude-code:planner	opus	Expert planning specialist for complex features and refactoring.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/planner.md
+everything-claude-code:refactor-cleaner	opus	Dead code cleanup and consolidation specialist.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/refactor-cleaner.md
+everything-claude-code:security-reviewer	opus	Security vulnerability detection and remediation specialist.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/security-reviewer.md
+everything-claude-code:tdd-guide	opus	Test-Driven Development specialist enforcing write-tests-first methodology.	C:/Users/pc/.claude/plugins/cache/everything-claude-code/everything-claude-code/432485ba6b92/agents/tdd-guide.md
+phoenix-security-review:security-reviewer	inherit	Multi-language AppSec review subagent.	C:/Users/pc/.claude/plugins/cache/phoenix-security/phoenix-security-review/1.0.0/agents/security-reviewer.md
+agent-skills:code-reviewer	inherit	Senior code reviewer that evaluates changes across five dimensions — correctness, readability, architecture, security, and performance.	C:/Users/pc/.claude/plugins/cache/addy-agent-skills/agent-skills/0.6.10/agents/code-reviewer.md
+agent-skills:security-auditor	inherit	Security engineer focused on vulnerability detection, threat modeling, and secure coding practices.	C:/Users/pc/.claude/plugins/cache/addy-agent-skills/agent-skills/0.6.10/agents/security-auditor.md
+agent-skills:test-engineer	inherit	QA engineer specialized in test strategy, test writing, and coverage analysis.	C:/Users/pc/.claude/plugins/cache/addy-agent-skills/agent-skills/0.6.10/agents/test-engineer.md
+agent-skills:web-performance-auditor	inherit	Web performance engineer focused on Core Web Vitals, loading, rendering, and network optimization.	C:/Users/pc/.claude/plugins/cache/addy-agent-skills/agent-skills/0.6.10/agents/web-performance-auditor.md
+octo:droids:octo-code-reviewer	opus	Code reviewer.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/droids/octo-code-reviewer.md
+octo:droids:octo-debugger	opus	Debugger.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/droids/octo-debugger.md
+octo:droids:octo-frontend-developer	inherit	Frontend developer.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/droids/octo-frontend-developer.md
+octo:droids:octo-performance-engineer	opus	Performance engineer.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/droids/octo-performance-engineer.md
+octo:droids:octo-security-auditor	opus	Security auditor.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/droids/octo-security-auditor.md
+octo:personas:code-reviewer	opus	Elite code reviewer for AI-powered analysis, security vulnerabilities, performance, and production reliability.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/personas/code-reviewer.md
+octo:personas:debugger	sonnet	Debugging specialist for errors, test failures, and unexpected behavior.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/personas/debugger.md
+octo:personas:frontend-developer	inherit	Build React components, responsive layouts, and client-side state.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/personas/frontend-developer.md
+octo:personas:performance-engineer	inherit	Expert performance engineer for observability, application optimization, and scalable systems.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/personas/performance-engineer.md
+octo:personas:security-auditor	opus	Expert security auditor for DevSecOps, cybersecurity, and compliance.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/personas/security-auditor.md
+octo:personas:test-automator	sonnet	Master AI-powered test automation with modern frameworks, self-healing tests, and comprehensive quality engineering.	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/personas/test-automator.md
+octo:principles:performance-principles	inherit	Critique principles for high-performance code	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/principles/performance.md
+octo:principles:security-principles	inherit	Critique principles for secure code development	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/principles/security.md
+octo:skills:octopus-security-audit	inherit	|	C:/Users/pc/.claude/plugins/cache/nyldn-plugins/octo/11.13.1/agents/skills/security-audit.md
+ecc:a11y-architect	sonnet	Accessibility Architect specializing in WCAG 2.2 compliance for Web and Native platforms.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/a11y-architect.md
+ecc:build-error-resolver	sonnet	Build and TypeScript error resolution specialist.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/build-error-resolver.md
+ecc:code-explorer	sonnet	Deeply analyzes existing codebase features by tracing execution paths, mapping architecture layers, and documenting dependencies to inform new development.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/code-explorer.md
+ecc:code-reviewer	sonnet	Expert code review specialist.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/code-reviewer.md
+ecc:csharp-reviewer	sonnet	Expert C# code reviewer specializing in .NET conventions, async patterns, security, nullable reference types, and performance.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/csharp-reviewer.md
+ecc:gan-planner	sonnet	GAN Harness — Planner agent.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/gan-planner.md
+ecc:performance-optimizer	sonnet	Performance analysis and optimization specialist.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/performance-optimizer.md
+ecc:planner	opus	Expert planning specialist for complex features and refactoring.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/planner.md
+ecc:pr-test-analyzer	sonnet	Review pull request test coverage quality and completeness, with emphasis on behavioral coverage and real bug prevention.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/pr-test-analyzer.md
+ecc:security-reviewer	sonnet	Security vulnerability detection and remediation specialist.	C:/Users/pc/.claude/plugins/cache/ecc/ecc/2.2.3/agents/security-reviewer.md
+banana-claude:visual-architect	inherit	Freeze a visual brief and compile bounded, model-aware prompts for complex, branded, text-heavy, or ambiguous image work.	C:/Users/pc/.claude/plugins/cache/banana-claude-marketplace/banana-claude/3.0.0/agents/visual-architect.md
+banana-claude:visual-critic	inherit	Independently inspect generated or edited image files against a frozen brief.	C:/Users/pc/.claude/plugins/cache/banana-claude-marketplace/banana-claude/3.0.0/agents/visual-critic.md
+ara-arac-degerlendirme	opus	Evaluates a new tool or MCP against needs, cost, safety and alternatives.	C:/Users/pc/.claude/agents/ara-arac-degerlendirme.md
+db-analitik-sorgu	sonnet	Writes aggregations, funnels and cohort queries for product analytics.	C:/Users/pc/.claude/agents/db-analitik-sorgu.md
 Brand Guardian	inherit	Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning	C:/Users/pc/.claude/agents/design-brand-guardian.md
 Image Prompt Engineer	inherit	Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation.	C:/Users/pc/.claude/agents/design-image-prompt-engineer.md
 Inclusive Visuals Specialist	inherit	Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video.	C:/Users/pc/.claude/agents/design-inclusive-visuals-specialist.md
@@ -150,6 +208,8 @@ UX Architect	inherit	Technical architecture and UX specialist who provides devel
 UX Researcher	inherit	Expert user experience researcher specializing in user behavior analysis, usability testing, and data-driven design insights.	C:/Users/pc/.claude/agents/design-ux-researcher.md
 Visual Storyteller	inherit	Expert visual communication specialist focused on creating compelling visual narratives, multimedia content, and brand storytelling through design.	C:/Users/pc/.claude/agents/design-visual-storyteller.md
 Whimsy Injector	inherit	Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences.	C:/Users/pc/.claude/agents/design-whimsy-injector.md
+dn-async-denetci	sonnet	Reviews C# async code for blocking calls, missing cancellation and fire and forget.	C:/Users/pc/.claude/agents/dn-async-denetci.md
+dn-blazor-bilesen	sonnet	Builds Blazor components with parameters, events and render mode choices.	C:/Users/pc/.claude/agents/dn-blazor-bilesen.md
 AI Data Remediation Engineer	inherit	Specialist in self-healing data pipelines — uses air-gapped local SLMs and semantic clustering to automatically detect, classify, and fix data anomalies at scal	C:/Users/pc/.claude/agents/engineering-ai-data-remediation-engineer.md
 AI Engineer	inherit	Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems.	C:/Users/pc/.claude/agents/engineering-ai-engineer.md
 API Platform Engineer	inherit	Expert API platform engineer for public and partner APIs — contract-first design (OpenAPI/gRPC), versioning and deprecation policy, SDK generation, API gateway 	C:/Users/pc/.claude/agents/engineering-api-platform-engineer.md
@@ -215,6 +275,12 @@ WebAssembly Engineer	inherit	Expert WebAssembly engineer — compiling Rust/C++/
 WeChat Mini Program Developer	inherit	Expert WeChat Mini Program developer specializing in 小程序 development with WXML/WXSS/WXS, WeChat API integration, payment systems, subscription messaging, and th	C:/Users/pc/.claude/agents/engineering-wechat-mini-program-developer.md
 WordPress Performance Engineer	inherit	Expert WordPress performance engineer specializing in Core Web Vitals, object caching (Redis/Memcached), page caching, database and WP_Query optimization, the T	C:/Users/pc/.claude/agents/engineering-wordpress-performance.md
 WordPress Shopping Cart Engineer	inherit	Expert WordPress e-commerce engineer specializing in WooCommerce for product catalog management, payment gateway integration, checkout customization, order mana	C:/Users/pc/.claude/agents/engineering-wordpress-shopping-cart.md
+fe-animasyon-tasarimci	sonnet	Designs UI motion with transform and opacity only, respecting reduced motion.	C:/Users/pc/.claude/agents/fe-animasyon-tasarimci.md
+git-cakisma-cozucu	sonnet	Resolves merge conflicts by understanding both sides and re-running tests.	C:/Users/pc/.claude/agents/git-cakisma-cozucu.md
+otm-api-entegrasyon	sonnet	Connects third party REST APIs with auth, pagination and rate limits.	C:/Users/pc/.claude/agents/otm-api-entegrasyon.md
+oyn-dusman-ai	sonnet	Designs enemy behavior with state machines, perception and cooldowns.	C:/Users/pc/.claude/agents/oyn-dusman-ai.md
+pln-dalga-plani	sonnet	Writes stepwise implementation plans with files to touch and verification per step.	C:/Users/pc/.claude/agents/pln-dalga-plani.md
+sec-api-guvenlik	sonnet	Tests REST APIs for broken object authorization, mass assignment and missing rate limits.	C:/Users/pc/.claude/agents/sec-api-guvenlik.md
 AI-Generated Code Security Auditor	inherit	Security reviewer for AI-generated and vibe-coded apps — hunts the hardcoded secrets, broken row-level security, and prompt-injection sinks that coding assistan	C:/Users/pc/.claude/agents/security-ai-generated-code-auditor.md
 Application Security Engineer	inherit	AppSec specialist who secures the software development lifecycle through threat modeling, secure code review, SAST/DAST integration, and developer security educ	C:/Users/pc/.claude/agents/security-appsec-engineer.md
 Security Architect	inherit	Expert security architect specializing in threat modeling, secure-by-design architecture, trust-boundary analysis, defense-in-depth, and risk-based security rev	C:/Users/pc/.claude/agents/security-architect.md
@@ -227,3 +293,5 @@ Secrets & Credential Hygiene Engineer	inherit	Owns the full lifecycle of secrets
 Senior SecOps Engineer	inherit	Defensive application security specialist who scans every code submission for secrets and sensitive data exposure before anything else, then implements or audit	C:/Users/pc/.claude/agents/security-senior-secops.md
 Threat Detection Engineer	inherit	Expert detection engineer specializing in SIEM rule development, MITRE ATT&CK coverage mapping, threat hunting, alert tuning, and detection-as-code pipelines fo	C:/Users/pc/.claude/agents/security-threat-detection-engineer.md
 Threat Intelligence Analyst	inherit	Cyber threat intelligence specialist who tracks adversary groups, maps attack campaigns to MITRE ATT&CK, produces actionable intelligence reports, and builds de	C:/Users/pc/.claude/agents/security-threat-intelligence-analyst.md
+vid-ffmpeg-donusturucu	haiku	Builds ffmpeg commands to convert, trim, compress and extract frames.	C:/Users/pc/.claude/agents/vid-ffmpeg-donusturucu.md
+vrm-alt-ajan-dagitim	sonnet	Splits independent work into parallel subtasks with clear contracts and returns only summaries.	C:/Users/pc/.claude/agents/vrm-alt-ajan-dagitim.md

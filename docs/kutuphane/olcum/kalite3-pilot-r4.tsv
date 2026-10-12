@@ -1,0 +1,13 @@
+ad	varyant	tekrar	input	cache_creation	cache_read	output	sure_sn	usd	kalite	skill_yuklendi	read_n	rc	okunan
+netlify-config	once	1	4	79428	87461	1857	61.0	0.3538	10	1	0	0
+create-design-md	once	1	4	77832	87107	1426	61.0	0.343	10	1	0	0
+netlify-config	once	2	4	79336	87396	1590	64.2	0.3507	9	1	0	0
+create-design-md	once	2	4	78072	87342	1608	53.6	0.3458	10	1	0	0
+netlify-config	once	3	4	74438	92303	1736	61.2	0.3336	10	1	0	0
+create-design-md	once	3	4	78086	87335	1484	53.9	0.3447	10	1	0	0
+netlify-config	sonra	1	6	79895	169294	1637	121.1	0.3698	9	1	1	0	references/secrets-controller.md
+create-design-md	sonra	1	4	76788	87145	1595	80.9	0.3405	10	1	0	0	
+netlify-config	sonra	2	6	78487	171339	1995	96.2	0.3682	10	1	1	0	references/secrets-controller.md
+create-design-md	sonra	2	4	76707	87051	1248	92.9	0.3367	9	1	0	0	
+netlify-config	sonra	3	4	76648	87105	1771	78.6	0.3417	10	1	0	0	
+create-design-md	sonra	3	4	72151	91600	1771	74.3	0.3246	9	1	0	0	
