@@ -25,11 +25,13 @@ JEV_TAVAN = 400
 
 
 def kos(kol, tekrar):
-    """d5: kol = <efor>[-d0][-s|-h] — d0: MAX_THINKING_TOKENS=0 (düşünmesiz) · s/h: tek kol sonnet/haiku. Kol başı süre "kollar"a yazılır."""
+    """d5: kol = <efor>[-d0][-s|-h|-ss] — ss: VIDEO_SHORT_KOL=ss · d0: MAX_THINKING_TOKENS=0 (düşünmesiz) · s/h: tek kol sonnet/haiku. Kol başı süre "kollar"a yazılır."""
     efor, *ek = kol.split("-")
-    env = {k: v for k, v in os.environ.items() if k not in ("VIDEO_SHORT_HIZ", "ANTHROPIC_API_KEY")}
+    env = {k: v for k, v in os.environ.items() if k not in ("VIDEO_SHORT_HIZ", "VIDEO_SHORT_KOL", "ANTHROPIC_API_KEY")}
     if efor != "taban":
         env["VIDEO_SHORT_HIZ"] = efor
+    if "ss" in ek:
+        env["VIDEO_SHORT_KOL"] = "ss"
     if "d0" in ek:
         env["MAX_THINKING_TOKENS"] = "0"
     modeller = [m for m in MODELLER if not ({"s", "h"} & set(ek)) or m.split("-")[1][0] in ek]
@@ -83,6 +85,20 @@ def tek(*kosular):
         (B / f"sonnet-{n}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
+def cift(*kosular):
+    """d5: sonnet×2 (haiku yerine ikinci sonnet low) — kayıtlı koşuların sonnet formları ikişer birlestir → ss-<n>.json (0 -p; duvar = iki kolun büyüğü)."""
+    s = {ad: json.loads((B / f"{ad}.json").read_text(encoding="utf-8")) for ad in kosular}
+    cifter = [(a, b) for i, a in enumerate(kosular) for b in kosular[i + 1:]]
+    for n, (a, b) in enumerate(cifter, 1):
+        out = {}
+        for v in VIDEOLAR:
+            k = [next(k for k in s[x][v]["kollar"] if "sonnet" in k["model"]) for x in (a, b)]
+            f = [json.loads((B / x / "form" / f"{v}.sonnet.json").read_text(encoding="utf-8")) for x in (a, b)]
+            out[v] = {"duvar": max(x["sure"] for x in k), "usd": sum(x["usd"] for x in k), "cikti": sum(x["cikti"] for x in k), "onb_okuma": 0,
+                      "hata": None, "kunye": f"sonnet×2: {a}+{b}", "form": pt.birlestir(*f)}
+        (B / f"ss-{n}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def rapor(*secili):
     kos_ = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(B.glob("*-*.json")) if not secili or p.stem in secili}
     pk = {v: pt.paket_oku(ONB / v / "paket.md") for v in VIDEOLAR}
@@ -123,4 +139,4 @@ def rapor(*secili):
 
 
 if __name__ == "__main__":
-    {"kos": lambda: kos(sys.argv[2], sys.argv[3]), "rapor": lambda: rapor(*sys.argv[2:]), "tek": lambda: tek(*sys.argv[2:])}[sys.argv[1]]()
+    {"kos": lambda: kos(sys.argv[2], sys.argv[3]), "rapor": lambda: rapor(*sys.argv[2:]), "tek": lambda: tek(*sys.argv[2:]), "cift": lambda: cift(*sys.argv[2:])}[sys.argv[1]]()

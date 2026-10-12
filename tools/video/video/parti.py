@@ -769,6 +769,7 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         bs = bolum_sinir(pk[v]) if up in ("1", "2") and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
         sh = (env or os.environ).get("VIDEO_SHORT_HIZ", "low") if pk[v].get("short") else None  # VİDEO-16: short'ta ortak önek (A) + --effort <sh>; d5 KABUL: varsayılan low, "0" kapatır
         sh = None if sh == "0" else sh
+        mv = modeller[:1] * 2 if pk[v].get("short") and (env or os.environ).get("VIDEO_SHORT_KOL") == "ss" else modeller  # d5: haiku kolu ~20k düşünme jetonu (efor yok sayılıyor) → ikinci sonnet
         jtv = jt + "A" if len(bs) > 1 or sh else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
         if len(bs) > 1 and up == "2":  # PARALEL-2: bölüm formu urller/kurulum_komutlar'ı boş geçmesin (Z); birincil model yalnız 1. bölümde (4 çağrı)
             jtv += "Z"
@@ -795,14 +796,14 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         def kol(mdl, kr, istem, v=v, butce=butce, jtv=jtv, sh=sh):
             with CAGIR, asama(v, "model"):
                 return cagir(SISTEM, istem, jeton_sema(v, jtv, mdl), kareler=kr, model=mdl, butce=butce, env=env, **({"efor": sh} if sh else {}))
-        with ThreadPoolExecutor(len(modeller) * len(parca)) as ex:
-            mb = [modeller if j == 0 or "Z" not in jtv else modeller[1:] for j in range(len(parca))]
+        with ThreadPoolExecutor(len(mv) * len(parca)) as ex:
+            mb = [mv if j == 0 or "Z" not in jtv else mv[1:] for j in range(len(parca))]
             yys = [[ex.submit(kol, mdl, kr, istem) for mdl in ml] for ml, (kr, istem) in zip(mb, parca)]
             yys = [[f.result() for f in fl] for fl in yys]
         bf, kun = [], []
         for j, yy in enumerate(yys):
             kolf, ek = [], "" if len(yys) == 1 else f".b{j + 1}"
-            for mdl, y in zip(mb[j], yy):
+            for i, (mdl, y) in enumerate(zip(mb[j], yy)):
                 ys.append(y)
                 f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
                 if f is not None and "B" in jt:  # dar şemalı kol tek kalırsa rapor alanları boş liste
@@ -812,7 +813,7 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
                 else:
                     kolf.append(f)
                     (pdir / "form").mkdir(exist_ok=True)  # ONARIM 2: kol başı ham form (birleşik form/<id>.json ayrı yazılır)
-                    (pdir / "form" / f"{v}.{mdl.split('-')[1]}{ek}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
+                    (pdir / "form" / f"{v}.{mdl.split('-')[1]}{i + 1 if mb[j].count(mdl) > 1 else ''}{ek}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
                     kun.append(f"{mdl}{ek}: {y.get('model') or mdl} · {sum((y.get('usage') or {}).get(a, 0) for a in ('input_tokens', 'cache_read_input_tokens', 'cache_creation_input_tokens', 'output_tokens'))} tk")
             if kolf:
                 bf.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])

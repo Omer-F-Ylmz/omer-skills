@@ -11,7 +11,7 @@ def _kos(monkeypatch, tmp_path, short, env):
     cag = []
 
     def cagir(sis, istem, sema, kareler, model, butce, env, **ek):
-        cag.append((sema["properties"]["videolar"]["items"]["properties"]["id"], ek.get("efor")))
+        cag.append((sema["properties"]["videolar"]["items"]["properties"]["id"], ek.get("efor"), model))
         return {"form": {"videolar": [{"id": "V1", "ozet": model, "adaylar": []}]}, "usd": .01, "usage": {}}
 
     monkeypatch.setattr(parti, "_defter", lambda p: (0, 0))
@@ -23,18 +23,25 @@ def _kos(monkeypatch, tmp_path, short, env):
 
 def test_short_hiz_bayrakli(monkeypatch, tmp_path):
     cag = _kos(monkeypatch, tmp_path, True, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "low"})
-    assert len(cag) == 2 and all("enum" not in s and e == "low" for s, e in cag)
+    assert len(cag) == 2 and all("enum" not in s and e == "low" for s, e, _ in cag)
 
 
 def test_short_hiz_varsayilan_low(monkeypatch, tmp_path):  # d5 KABUL: bayraksız short → low
     cag = _kos(monkeypatch, tmp_path, True, {"VIDEO_JETON": "0"})
-    assert len(cag) == 2 and all("enum" not in s and e == "low" for s, e in cag)
+    assert len(cag) == 2 and all("enum" not in s and e == "low" for s, e, _ in cag)
+
+
+def test_short_kol_ss(monkeypatch, tmp_path):  # d5: VIDEO_SHORT_KOL=ss → short'ta haiku yerine ikinci sonnet; uzun değişmez
+    cag = _kos(monkeypatch, tmp_path, True, {"VIDEO_JETON": "0", "VIDEO_SHORT_KOL": "ss"})
+    assert [m for *_, m in cag] == ["claude-sonnet-5-5"] * 2 and len(list(tmp_path.glob("form/V1.sonnet*.json"))) == 2
+    cag = _kos(monkeypatch, tmp_path, False, {"VIDEO_JETON": "0", "VIDEO_SHORT_KOL": "ss"})
+    assert [m for *_, m in cag] == ["claude-sonnet-5-5", "claude-haiku-5-5"]
 
 
 def test_short_hiz_kapali_ve_uzun(monkeypatch, tmp_path):  # VIDEO_SHORT_HIZ=0 → eski yol; uzun video hiç değişmez
     for short, env in ((True, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "0"}), (False, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "low"}), (False, {"VIDEO_JETON": "0"})):
         cag = _kos(monkeypatch, tmp_path, short, env)
-        assert len(cag) == 2 and all("enum" in s and e is None for s, e in cag)
+        assert len(cag) == 2 and all("enum" in s and e is None for s, e, _ in cag)
 
 
 def test_cagir_effort_bayragi(tmp_path):
