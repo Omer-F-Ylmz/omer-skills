@@ -3,6 +3,8 @@ uygulanmadığından ikili taramanın Haiku yarısı iki kolda aynıdır → yal
 Ölçü: duvar + jeton + $ + tamam_eksik; kalite: form kalemlerinin Jev 'dayanir' oranı + taban kalemlerini kapsama (taban r1↔r2 gürültü tabanı).
 Kullanım (tools/video'da): .venv python olcum_fv.py kos <taban|fable> <tekrar> → .kos/fv/<kol>-<tekrar>.json · olcum_fv.py rapor
 Tavan: koşu başına 12 claude -p (4 koşu = 48), video başına $0.5, Σ $6 (aşılırsa koşu başlamaz) · Jev ≤ 1500 durum (rapor adımı).
+d3 (13 Eki): taban = VİDEO-16 low (kol/video-shorts); kollar taban/A/B/C (VIDEO_FABLE_PROTOKOL), ilk 9 video × 1 = 36 -p → .kos/fv3;
+kapsam/kapsam_d sabit dış referansa göre: d1 taban-1/2 formları (.kos/fv, high efor) — ref satırı ref-1↔ref-2 gürültü tabanıdır.
 """
 import json
 import os
@@ -17,9 +19,11 @@ from video import parti as pt
 REPO = Path(__file__).resolve().parents[2]
 ANA = Path(r"C:\Projeler\omer-skills")  # parti günlükleri ana çalışma ağacında
 ONB = Path(r"C:\Projeler\.video-cache")
-B = ANA / ".kos" / "fv"
+B = ANA / ".kos" / "fv3"
+REF = ANA / ".kos" / "fv"  # d1 taban formları
 VIDEOLAR = ("ig-DeW7JHrgsXb", "ig-DeV9nZPtSsC", "ig-DeHMM45NaFt", "ig-DdrNeEUN63i", "ig-DY_SoPGKv2A", "ig-Db_H8ScP5y-",
-            "ig-DdlurQHG2Mm", "ig-Dcd3eY1iOMA", "ig-DeON0MOB5oi", "ig-DYx4OuVuJuI", "ig-DcRhD2Nto7M", "ig-DdWmIHTC322")
+            "ig-DdlurQHG2Mm", "ig-Dcd3eY1iOMA", "ig-DeON0MOB5oi", "ig-DYx4OuVuJuI", "ig-DcRhD2Nto7M", "ig-DdWmIHTC322")[:9]
+KOLLAR = {"taban": None, "fable": "1", "A": "A", "B": "B", "C": "C"}
 MODELLER = ["claude-sonnet-5-5"]
 JEV_TAVAN = 1500
 USD_TAVAN = 6.0
@@ -29,8 +33,8 @@ def kos(kol, tekrar):
     harcanan = sum(x["usd"] or 0 for p in B.glob("*-*.json") for x in json.loads(p.read_text(encoding="utf-8")).values())
     assert harcanan < USD_TAVAN, f"$ tavanı: {harcanan:.2f} ≥ {USD_TAVAN}"
     env = {k: v for k, v in os.environ.items() if k != "VIDEO_FABLE_PROTOKOL"}
-    if kol == "fable":
-        env["VIDEO_FABLE_PROTOKOL"] = "1"
+    if KOLLAR[kol]:
+        env["VIDEO_FABLE_PROTOKOL"] = KOLLAR[kol]
     pdir = B / f"{kol}-{tekrar}"
     pdir.mkdir(parents=True, exist_ok=True)
     pk = {v: pt.paket_oku(ONB / v / "paket.md") for v in VIDEOLAR}
@@ -67,6 +71,7 @@ def kapsam_d(f, taban, dogru):
 
 def rapor():
     kos_ = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(B.glob("*-*.json"))}
+    kos_.update({f"ref-{i}": json.loads((REF / f"taban-{i}.json").read_text(encoding="utf-8")) for i in (1, 2)})
     pk = {v: pt.paket_oku(ONB / v / "paket.md") for v in VIDEOLAR}
     durum, yer = [], []
     for ad, s in kos_.items():
@@ -88,7 +93,7 @@ def rapor():
     for ad, s in kos_.items():
         kol = ad.rsplit("-", 1)[0]
         for v in VIDEOLAR:
-            tl = [t for t in kos_ if t.startswith("taban-") and t != ad]
+            tl = [t for t in kos_ if t.startswith("ref-") and t != ad]
             taban = [kos_[t][v]["form"] or {} for t in tl]
             kd = [kapsam_d(s[v]["form"] or {}, kos_[t][v]["form"] or {}, dogru.get((t, v), set())) for t in tl]
             kd = [x for x in kd if x is not None]

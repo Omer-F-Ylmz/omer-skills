@@ -204,3 +204,10 @@ def test_hafif_fable_protokol_oneki_yalniz_bayrakla_ve_haiku_disi():
     hafif.cagir("SIS", "m", {}, model="claude-haiku-5-5", env={"VIDEO_FABLE_PROTOKOL": "1"}, kos=kos)
     assert goren[0] == "SIS" and goren[2] == "SIS"
     assert goren[1].startswith(hafif.FABLE_PROTOKOL) and goren[1].endswith("\n\nSIS")
+    for k in "ABC":  # FABLE-VIDEO d3: video-özel varyantlar (A madde 5 · B video kısa · C = B + kapsam listesi), Haiku yine hariç
+        hafif.cagir("SIS", "m", {}, env={"VIDEO_FABLE_PROTOKOL": k}, kos=kos)
+        hafif.cagir("SIS", "m", {}, model="claude-haiku-5-5", env={"VIDEO_FABLE_PROTOKOL": k}, kos=kos)
+    a, b, c = goren[3], goren[5], goren[7]
+    assert goren[4] == goren[6] == goren[8] == "SIS"
+    assert a == hafif.FABLE_VIDEO["A"] + "\n\nSIS" and b == hafif.FABLE_VIDEO["B"] + "\n\nSIS" and c.startswith(hafif.FABLE_VIDEO["B"])
+    assert len(set((a, b, c))) == 3
