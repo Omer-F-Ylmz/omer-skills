@@ -25,8 +25,7 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 - DESIGN.md olmadan kod yok (REF modunda referans kazanır).
 - Screenshot turu sayıyla raporlanır; 4 turu aşmak yasak.
 - a11y 0 hata ve performans sayısı olmadan görsel QA'ya geçilmez; görsel QA geçmeden kapanış yok.
-- Kütüphane yalnız omer-kutuphaneler rafından, gerekçesiz eklenmez.
-- TS projesinde lint: oxlint + dmmulroy/anti-slop kural seti (MIT), proje devDependency'si, sürüm sabit; global kurulmaz (IG-18 DdrNeEUN63i).
+- Kütüphane yalnız omer-kutuphaneler rafından, gerekçesiz eklenmez; TS projesinde lint: oxlint + dmmulroy/anti-slop kural seti (MIT), proje devDependency'si, sürüm sabit; global kurulmaz (IG-18 DdrNeEUN63i).
 
 ## Yapım promptu şablonu
 Site/UI'ı başka bir ajana (ya da alt ajana) yaptırırken prompt bu satırları taşır. Kural kapsamları: omer-kurallar:25 "site/UI yapım promptlarında" (teknoloji + dosya) · omer-kurallar:26 "3D/animasyonlu sahnelerde" (config); küçük işte "en basit çözüm" önde. Videolardan çıkan kalıplar: `docs/departmanlar/frontend-promptlar.md`.
