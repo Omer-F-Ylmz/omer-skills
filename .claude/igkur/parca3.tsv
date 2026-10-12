@@ -1,0 +1,30 @@
+anahtar	ad	tur	link	gonderi	iddia
+codex	Codex	CLI		Dd-FTnEmE_b,DdtP_L9FljV,DeT6XXkiPwj,DeXJQ-kGKUY,DeXr6wCMAEZ	Magpie ile model değiştirilebilen kodlama ajanı
+elevenlabsmcp	ElevenLabs MCP	MCP		Dd18tq_IMQB	ElevenLabs'in Claude'a ses, müzik, efekt, görsel ve dudak senkronlu video üretimi getiren bağlantısı
+reklammetniseslendirmevemzikretimi	Reklam metni, seslendirme ve müzik üretimi	prompt		Dd18tq_IMQB	Bu ürün için kısa bir reklam metni yazmasını, metni seslendirmesini ve uygun bir müzik üretmesini ister.
+reelfactory	reel-factory	skill		Dd1zrTggHCW	Reel üretimi için Claude skill'i
+hookarsenal	hook-arsenal	skill		Dd1zrTggHCW	Hook (açılış cümlesi) skill'i
+conceptgraphics	concept-graphics	skill		Dd1zrTggHCW	Konsept grafikleri skill'i
+goviral	go-viral	skill		Dd1zrTggHCW	Viral içerik skill'i
+scrollstopper	scroll-stopper	skill		Dd1zrTggHCW	Kaydırmayı durduran içerik skill'i
+storyaudit	story-audit	skill		Dd1zrTggHCW	Hikâye denetimi skill'i
+dopamineladder	dopamine-ladder	skill		Dd1zrTggHCW	Dopamin merdiveni skill'i
+viralemotion	viral-emotion	skill		Dd1zrTggHCW	Viral duygu skill'i
+motiongraphics	motion-graphics	skill	https://github.com/Barty-Bart/motion-graphics	Dd1zrTggHCW,DeRvxD6gDCu	Hareketli grafik skill'i
+cameramoves	camera-moves	skill		Dd1zrTggHCW	Kamera hareketleri skill'i
+framedirection	frame-direction	skill		Dd1zrTggHCW	Kare yönetmenliği skill'i
+reeltransitions	reel-transitions	skill		Dd1zrTggHCW	Reel geçişleri skill'i
+oneobjectfilm	one-object-film	skill		Dd1zrTggHCW	Tek nesneli film skill'i
+hookmining	hook-mining	skill		Dd1zrTggHCW	Hook çıkarma (aykırı gönderilerden) skill'i
+ootto	OOTTO	CLI,iş akışı		Dd1zrTggHCW,DeWfqTdm94Z	Videoda 'CLAUDE × OOTTO' ve 'OOTTO FIELD NOTE' olarak geçen marka/araç
+clianything	CLI-Anything	CLI		Dd9NdbFxJLo	Masaüstü yazılımları ajanların kullanabileceği CLI'ye çeviren açık kaynak repo
+clihub	CLI-Hub	CLI		Dd9NdbFxJLo	Topluluk yapımı CLI'lere göz atma, kurma ve yönetme merkezi
+obsstudio	OBS Studio	CLI		Dd9NdbFxJLo	Kayıt için hazır CLI'si olan uygulama
+blender	Blender	CLI,teknik		Dd9NdbFxJLo,DeT6XXkiPwj	3B yazılım; hazır CLI ve 3B drone demosu
+gimp	GIMP	CLI		Dd9NdbFxJLo	Görüntü düzenleyici; hazır CLI
+libreoffice	LibreOffice	CLI		Dd9NdbFxJLo	Ofis paketi; hazır CLI
+audacity	Audacity	CLI,teknik		Dd9NdbFxJLo,DeT6XXkiPwj	Ses editörü; hazır CLI
+zoom	Zoom	CLI		Dd9NdbFxJLo	Toplantı uygulaması; hazır CLI
+krita	Krita	CLI		Dd9NdbFxJLo	Çizim uygulaması; hub'da listeli
+godot	Godot	CLI,teknik		Dd9NdbFxJLo,DeT6XXkiPwj	Oyun motoru; hub'da listeli
+inkscape	Inkscape	CLI		Dd9NdbFxJLo	Vektör çizim; hub'da listeli

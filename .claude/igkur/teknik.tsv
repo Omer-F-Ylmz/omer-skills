@@ -1,0 +1,206 @@
+anahtar	ad	tur	link	gonderi	iddia
+typescript	TypeScript	teknik		DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,DdbyRoJtJV4,DeV0EnpAJCs	n8n MCP otomasyonu doğrular
+litellm	LiteLLM	teknik		DX2ubACJYRN	CodeBurn çağrı fiyatlandırması
+chrome	Chrome	teknik		DX2ubACJYRN	Browser Harness'in tek websocket ile bağlandığı tarayıcı
+claudedesign	Claude Design	teknik		DX2ubACJYRN,DdZs2nUOpMP	Anthropic'in tasarım aracı; Open Design'ın klonlandığı referans ürün
+inter	Inter	teknik		DX2ubACJYRN	Yapay zekânın sık kullandığı, Impeccable'ın kaçınılacak font örneği olarak gösterdiği font
+tailwindcss	Tailwind CSS	teknik		DX2ubACJYRN,Dc3zXkXSxpH,DeV0EnpAJCs,DeWwPtmDvqV	designlang'in ürettiği Tailwind config dosyası
+figma	Figma	teknik		DX2ubACJYRN,DeT6XXkiPwj	designlang'in ürettiği Figma değişken dosyası
+shadcnui	shadcn/ui	teknik		DX2ubACJYRN,DXxQS0AO1Km,Dc3zXkXSxpH	designlang'in ürettiği shadcn/ui tema dosyası
+geist	Geist	teknik		DX2ubACJYRN	Vercel çıktısında tespit edilen font ailesi (Geist, Geist Mono)
+nodejs	Node.js	teknik		DX2ubACJYRN,DXxQS0AO1Km	designlang'in gereksinimi (node>=20) ve Career-Ops rozetinde anılan çalışma zamanı
+go	Go	teknik		DX2ubACJYRN	Career-Ops rozetinde anılan programlama dili
+windsurf	Windsurf	teknik		DX2ubACJYRN	MCP istemcisi olarak anılan IDE
+ruvector	RuVector	teknik		DXxQS0AO1Km	PostgreSQL tabanlı vektör zekâ ve arama katmanı
+sona	SoNA	teknik		DXxQS0AO1Km	Kendi kendine öğrenme sistemi
+moerouting	MoE routing	teknik		DXxQS0AO1Km	Uzman karışımı ile görev yönlendirme (8 uzman)
+aidefence	AIDefence	teknik		DXxQS0AO1Km	Tehdit algılama güvenlik katmanı
+sonnet46	Sonnet 4.6	teknik		DXxQS0AO1Km	Alt ajanın kullandığı model
+opus47	Opus 4.7	teknik		DXxQS0AO1Km	Karmaşık görevler için güçlü model örneği
+gpt54	GPT-5.4	teknik		DXxQS0AO1Km	Yönlendirmede gösterilen model
+gemini31pro	Gemini 3.1 Pro	teknik		DXxQS0AO1Km	Yönlendirmede gösterilen model
+llama31	Llama 3.1	teknik		DXxQS0AO1Km	Yönlendirmede gösterilen model
+groq	Groq	teknik		DXxQS0AO1Km	Örnek projede LLM analiz servisi
+fastapi	FastAPI	teknik		DXxQS0AO1Km	Örnek projedeki arka uç çerçevesi
+nextjs	Next.js	teknik		DXxQS0AO1Km,DdxzONPjVUi	Örnek e-ticaret projesinin çerçevesi
+prisma	Prisma	teknik		DXxQS0AO1Km	Örnek projede veritabanı ORM'i
+nextauthjs	NextAuth.js	teknik		DXxQS0AO1Km	Örnek projede kimlik doğrulama
+stripe	Stripe	teknik		DXxQS0AO1Km	Örnek projede ödeme/checkout
+docker	Docker	teknik		DXxQS0AO1Km	Örnek projede dağıtım ve ortam yapılandırması
+postgresql	PostgreSQL	teknik		DXxQS0AO1Km	RuVector MCP'sinin vektör veritabanı altyapısı
+agenticslides	Agentic Slides	iş akışı		Da0Csy8MYEy	Kimi'nin tek prompt'la slayt üreten özelliği
+nanobananapro	Nano Banana Pro	teknik		Da0Csy8MYEy,DeR11OUkobq	Visual modda görsel üretimi için entegre model
+adaptivemod	Adaptive Mod	teknik		Da0Csy8MYEy	Veriye dayalı profesyonel grafikli slayt modu
+visualmode	Visual Mode	teknik		Da0Csy8MYEy	Görsel ağırlıklı yaratıcı slayt modu
+gamma	Gamma	iş akışı		Da0Csy8MYEy	Rakip sunum aracı olarak anılıyor
+canva	Canva	iş akışı		Da0Csy8MYEy	Rakip tasarım aracı olarak anılıyor
+powerpoint	PowerPoint	iş akışı		Da0Csy8MYEy	Geleneksel sunum aracı; indirme formatı PPT
+googleslides	Google Slides	iş akışı		Da0Csy8MYEy	Dışa aktarma formatı
+yahoofinance	Yahoo Finance	iş akışı		Da0Csy8MYEy	Adaptive modun eriştiği veri kaynağı
+imf	IMF	iş akışı		Da0Csy8MYEy	Veri kaynağı
+worldbank	World Bank	iş akışı		Da0Csy8MYEy	Veri kaynağı (Dünya Bankası)
+googlescholar	Google Scholar	iş akışı		Da0Csy8MYEy	Akademik kaynak
+arxiv	Arxiv	iş akışı		Da0Csy8MYEy	Akademik makale kaynağı
+dnyabankas	Dünya Bankası	teknik		Da0Csy8MYEy	Kimi'nin grafik verisi için eriştiği kaynak (ekranda 'WORLD BANK' olarak da görünüyor).
+claudeopus46	Claude Opus 4.6	teknik		DaagbUMP8Tg	Terminal arayüzünde görünen model
+hooks	Hooks	teknik		DaagbUMP8Tg	Claude Code otomasyon kancaları; plugin'in önerdiği türlerden
+subagents	Subagents	teknik		DaagbUMP8Tg,DcrhGgKyBD8	Güvenlik sorunu için review subagent önerisi
+compact	/compact	ipucu		DaagbUMP8Tg	Konuşmayı sıkıştırma komutu
+react	React	teknik		DaagbUMP8Tg,DeV0EnpAJCs	Frontend kütüphanesi; checkout ekranındaki 'unique key prop' uyarısı React uyarı biçimine benziyor (kesin doğrulanamadı).
+claudemd	CLAUDE.md	teknik		DaagbUMP8Tg	Claude Code'un proje talimat dosyası; /init komutuyla oluşturulması öneriliyor.
+designmd	DESIGN.md	teknik		Dc3zXkXSxpH	Markanın renk, yazı tipi, boşluk ve kurallarını içeren tasarım sistemi dosyası
+tailwindv4	Tailwind v4	teknik		Dc3zXkXSxpH	DESIGN.md sayfasında dışa aktarım sekmesi olarak sunulan format
+apple	Apple	teknik		Dc3zXkXSxpH	Örnek marka tasarım dili (Apple España, SF Pro, 28px yarıçap)
+sfprodisplay	SF Pro Display	teknik		Dc3zXkXSxpH	Apple dosyasında hero başlıklar için belirtilen font ailesi
+sfprotext	SF Pro Text	teknik		Dc3zXkXSxpH	Apple dosyasında gövde metni için belirtilen font ailesi
+makercheckersplit	Maker-checker split	teknik		DcrhGgKyBD8	Yapan ile doğrulayanı ayıran, taze bağlamlı denetçi yaklaşımı
+deepseek	DeepSeek	teknik		Dd-FTnEmE_b	Magpie ile seçilebilen model sağlayıcı
+copilotkit	CopilotKit	teknik		Dd-FTnEmE_b	OpenMuse için proje anahtarı gerektiren çerçeve
+typesafe	TypeSafe	teknik		Dd-FTnEmE_b	Jev Ultrafast'in çalışması için gereken erişim servisi
+connectors	Connectors	ipucu		Dd18tq_IMQB	Claude'un bağlantı dizini; ElevenLabs buradan bulunup eklenir
+oauth	OAuth	teknik		Dd18tq_IMQB	Tek seferlik OAuth girişiyle API anahtarsız bağlantı
+claudeopus	Claude Opus	teknik		Dd1zrTggHCW,DdZs2nUOpMP	Ekranda Opus 5.5 notu görünen model
+instagramapi	Instagram API	teknik		Dd1zrTggHCW	Gönderi verisini çeken API
+python	Python	teknik		Dd9NdbFxJLo,DeW7JHrgsXb	CLI-Hub için gereken sürüm
+pytest	pytest	teknik		Dd9NdbFxJLo	CLI'lerin test çerçevesi
+claudefable51	Claude Fable 5.1	teknik		DdZs2nUOpMP	Sistem istemi sızdırıldığı iddia edilen Anthropic modeli; videonun ana konusu
+claudemythos51	Claude Mythos 5.1	teknik		DdZs2nUOpMP	Fable 5.1 ile aynı temel modeli paylaşan, sistem isteminde anılan model
+claudesonnet	Claude Sonnet	teknik		DdZs2nUOpMP	Ekranda model adı olarak geçiyor
+stitch	Stitch	teknik		DdZs2nUOpMP,DeMoWpdAC1Z	MCP ile içe aktarılıp denetlenen tasarım aracı örnek ekranda
+websearch	web_search	teknik		DdZs2nUOpMP	Sistem isteminde tanımlı arama aracı
+drive	Drive	teknik		DdZs2nUOpMP	Görev akışında erişimi doğrulanan dosya servisi (Google Drive olduğu varsayılıyor).
+heygen	HeyGen	iş akışı		DdbljkbH5b2,DeWwPtmDvqV	Konuşan kafa avatar videosu üreten servis
+openairealtime	OpenAI Realtime	teknik		DdbljkbH5b2	Sesli arama ajanının 'Call Agent' düğümünde kullanılan model
+sora2	Sora 2	teknik		DdbljkbH5b2	UGC reklam şablonunda 5 video promptunun üretildiği video modeli
+apify	Apify	iş akışı		DdbljkbH5b2	Lead üretiminde veri kazıma düğümü
+hubspot	HubSpot	iş akışı		DdbljkbH5b2	Sesli ajanda CRM kişisi oluşturma
+googlecalendar	Google Calendar	iş akışı		DdbljkbH5b2	Randevu oluşturma düğümü
+gpt	GPT	teknik		DdbljkbH5b2	Çok dilli SSS botunun cevap modeli
+openai	OpenAI	teknik		DdbljkbH5b2	Lead araştırma ve zenginleştirme düğümü
+youtubeapi	YouTube API	teknik		DdbljkbH5b2	En iyi performanslı videoları çekme kaynağı
+make	Make	iş akışı		DdbljkbH5b2	Otomasyon platformu; kapakta mor logo olarak görünüyor (logo tanımı tahmini).
+cloudflare	Cloudflare	teknik		DdbyRoJtJV4	security-audit skill'ini yayımlayan şirket.
+vscodedesktop	VS Code Desktop	teknik		DdbyRoJtJV4	Coder çalışma alanından açılabilen editör.
+cursordesktop	Cursor Desktop	teknik		DdbyRoJtJV4	Coder çalışma alanından açılabilen editör.
+intellijidea	IntelliJ IDEA	teknik		DdbyRoJtJV4	Coder çalışma alanından açılabilen IDE.
+sqlinjection	SQL injection	teknik		DdbyRoJtJV4	Open Code Review'ün PR'lerde aradığı zafiyet sınıfı.
+xss	XSS	teknik		DdbyRoJtJV4	PR'lerde aranan zafiyet sınıfı.
+filebrowser	File Browser	teknik		DdbyRoJtJV4	Çalışma alanında dosya gezintisi için uygulama; Coder uygulama listesinde.
+v0	v0	teknik		DdtP_L9FljV	Taste Skill'in uyumlu olduğu AI arayüz üretim servisi (slaytta listelenir, videoda kullanılmaz)
+lovable	Lovable	teknik		DdtP_L9FljV	Taste Skill'in uyumlu olduğu AI uygulama üretim servisi (slaytta listelenir, videoda kullanılmaz)
+netlify	Netlify	teknik		DdxzONPjVUi	Statik/Jamstack site derleme, yayın ve yönetim platformu.
+githubpages	GitHub Pages	teknik		DdxzONPjVUi	GitHub depolarından statik site yayınlama.
+cloudflarepages	Cloudflare Pages	teknik		DdxzONPjVUi	Git tabanlı edge frontend dağıtımı; slayt 4'te CLOUDPAGES etiketiyle de geçiyor.
+render	Render	teknik		DdxzONPjVUi	Web servisi, API ve uygulama barındırma.
+gitlabpages	GitLab Pages	teknik		DdxzONPjVUi	GitLab depolarından statik site yayınlama.
+flyio	Fly.io	teknik		DdxzONPjVUi	Uygulamaları kullanıcıya yakın bölgelerde hafif dağıtımla çalıştırma.
+denodeploy	Deno Deploy	teknik		DdxzONPjVUi	JavaScript/TypeScript uygulamalarını edge'e dağıtma.
+kinsta	Kinsta	teknik		DdxzONPjVUi	Yönetilen platformda uygulama barındırma.
+railway	Railway	teknik		DdxzONPjVUi	Uygulama, servis ve veritabanı dağıtımı.
+replit	Replit	teknik		DdxzONPjVUi	Tarayıcıda kod yazma, çalıştırma ve paylaşma ortamı.
+jev	Jev	teknik		DeHMM45NaFt	TypeSafe'in kapalı, API üzerinden sunulan System One karar modeli; alternatiflerin referansı
+gpt6luna	GPT-6 Luna	teknik		DeHMM45NaFt	OpenAI'ın Decisions API'sini çalıştıran, sınırlı önizlemedeki Jev rakibi
+qwen3508b	Qwen3.5-0.8B	teknik		DeHMM45NaFt	Simple Jev ile örnek olarak kullanılan açık model
+gemma426ba4bit	gemma-4-26B-A4B-it	teknik		DeHMM45NaFt	Simple Jev için örnek açık model
+huggingface	Hugging Face	teknik		DeHMM45NaFt	Modellerin ve demoların barındırıldığı platform
+qwen3627b	Qwen3.6-27B	teknik		DeHMM45NaFt	Open Alternative'in kıyaslamada kullandığı stok model
+localllamatypeddecisions	LocalLLaMA/typed-decisions	teknik		DeHMM45NaFt	400 vakalık topluluk kıyas veri seti
+gliner	GLiNER	teknik		DeHMM45NaFt	Dördüncü alternatifin kullandığı kodlayıcı tabanı
+langchain	LangChain	teknik		DeHMM45NaFt	Laya'nın isteğe bağlı entegrasyonu
+llamaindex	LlamaIndex	teknik		DeHMM45NaFt	Laya'nın isteğe bağlı entegrasyonu
+pytorch	PyTorch	teknik		DeHMM45NaFt	Simple Jev'in yerel çalıştırmada kullandığı derin öğrenme kütüphanesi.
+googleflow	Google Flow	teknik		DeMoWpdAC1Z	Metin veya fotoğraftan video ve görsel üretir
+flowmusic	Flow Music	teknik		DeMoWpdAC1Z	Tam şarkı ve müzik videosu üretir
+pomelli	Pomelli	teknik		DeMoWpdAC1Z	Web sitesini okuyup markaya uygun gönderi üretir
+googleaistudio	Google AI Studio	teknik		DeMoWpdAC1Z	Prompttan çalışan uygulama prototipi, tarayıcıda ücretsiz
+antigravity	Antigravity	teknik		DeMoWpdAC1Z	Uygulama planlayan, kodlayan ve test eden ajan
+jules	Jules	teknik		DeMoWpdAC1Z	GitHub deposunda hata düzeltir, test yazar
+googlecolab	Google Colab	teknik		DeMoWpdAC1Z	Veri yükle, analiz not defteri al
+codewiki	Code Wiki	teknik		DeMoWpdAC1Z	Herkese açık kod tabanını sade dokümanla açıklar
+gemininotebook	Gemini Notebook	teknik		DeMoWpdAC1Z	Kendi belgelerin içinde araştırma; eski adı NotebookLM
+learnyourway	Learn Your Way	teknik		DeMoWpdAC1Z	Konuyu kişiye göre derse dönüştürür
+eloquent	Eloquent	teknik		DeMoWpdAC1Z	Cihazda çalışan sesle yazdırma (dictation)
+edgegallery	Edge Gallery	teknik		DeMoWpdAC1Z	Telefonda çevrimdışı yapay zekâ sohbeti ve görsel soruları
+stax	Stax	teknik		DeMoWpdAC1Z	Kendi testlerinle yapay zekâ modellerini ve promptları karşılaştırır
+mixboard	Mixboard	teknik		DeMoWpdAC1Z	Kapatılan Google Labs deneyi; yerine Google Flow öneriliyor
+opal	Opal	teknik		DeMoWpdAC1Z	Kasım'da kapanacak araç; yerine Skills in Gemini öneriliyor
+gemini	Gemini	teknik		DeMoWpdAC1Z	Google'ın yapay zekâ modeli/uygulaması; gönderi 'Google AI yalnız Gemini değil' diyor
+openchatcut	OpenChatCut	teknik		DePeKi4gE1V	Konuşmalı ajanlar, çoklu iz zaman çizelgesi ve altyazılarla yerel video düzenleyici; OpusClip alternatifi
+opusclip	OpusClip	teknik		DePeKi4gE1V	Ücretli, uzun videoyu kısa kliplere çeviren yapay zekâ aracı; değiştirilen yazılım
+pocketbase	PocketBase	teknik		DePeKi4gE1V	Gömülü SQLite, gerçek zamanlı abonelik, kullanıcı/dosya yönetimi ve yönetici paneli sunan Go backend
+billionmail	BillionMail	teknik		DePeKi4gE1V	Kendi sunucunda çalışan posta sunucusu, bülten ve e-posta pazarlama çözümü
+brevo	Brevo	teknik		DePeKi4gE1V	Ücretli e-posta/SMS pazarlama platformu; değiştirilen yazılım
+snapzy	Snapzy	teknik		DePeKi4gE1V	Ekran görüntüsü, kayıt ve GIF alıp düzenleyen açık kaynak yerel macOS uygulaması
+screenstudio	Screen Studio	teknik		DePeKi4gE1V	Ücretli macOS ekran kaydı aracı; değiştirilen yazılım
+triggerdev	Trigger.dev	teknik		DePeKi4gE1V	Dayanıklı yapay zekâ iş akışları ve arka plan görevleri için geliştirici platformu
+claudecowork	Claude Cowork	iş akışı		DeR11OUkobq	Bağlayıcıların ve görevlerin çalıştırıldığı Claude uygulama modu
+beehive	Beehive	teknik		DeR11OUkobq	Zapier ile kişilerin aktarıldığı e-posta bülteni aracı
+fable5	Fable 5	teknik		DeR11OUkobq	Ekranlarda seçili görünen Claude modeli
+opus55	Opus 5.5	teknik		DeRvxD6gDCu	Kapakta anılan, hareket tasarım stüdyosuna dönüştürülen model.
+aseprite	Aseprite	teknik		DeT6XXkiPwj	Piksel sanat çizimi ve koşma/zıplama animasyonları için sprite editörü.
+meshy	Meshy	teknik		DeT6XXkiPwj	Metin veya görselden mobilya, sandık gibi 3D nesne taslakları üretir.
+unity	Unity	teknik		DeT6XXkiPwj	Oyun motoru; 3D keşif oyunu ve seçimli hikâye örneklerinde modeller/kodlar buraya aktarılıyor.
+ink	Ink	teknik		DeT6XXkiPwj	Oyunlar için anlatı betik dili; oyuncu kararlarına göre değişen diyalog yazılır.
+cascadeur	Cascadeur	teknik		DeT6XXkiPwj	Yapay zekâ destekli saldırı, kaçınma ve düşme animasyonu aracı.
+unrealengine	Unreal Engine	teknik		DeT6XXkiPwj	Animasyonlar aktarılıp saldırı zamanlaması ve isabet alanları ayarlanan oyun motoru.
+phaser	Phaser	teknik		DeT6XXkiPwj	Tarayıcıda çalışan oyunun puanlama, kontrol ve kurallarının yazıldığı oyun çatısı.
+elevenlabs	ElevenLabs	teknik		DeT6XXkiPwj	Kapı gıcırtısı, metal sürtünmesi, ortam uğultusu gibi korku sesleri üretir.
+claudeopus55	Claude Opus 5.5	teknik		DeUowm5udJA	Uygulamaları geliştirmek için kullanılan Anthropic yapay zeka modeli
+photocraft	PhotoCraft	teknik		DeUowm5udJA	Photoshop alternatifi açık kaynaklı uygulama
+vectorcraft	VectorCraft	teknik		DeUowm5udJA	Illustrator alternatifi açık kaynaklı uygulama
+filmcraft	FilmCraft	teknik		DeUowm5udJA	Premiere Pro alternatifi açık kaynaklı uygulama
+photoshop	Photoshop	teknik		DeUowm5udJA	Kopyalanan Adobe uygulaması (referans)
+illustrator	Illustrator	teknik		DeUowm5udJA	Kopyalanan Adobe uygulaması (referans)
+premierepro	Premiere Pro	teknik		DeUowm5udJA	Kopyalanan Adobe uygulaması (referans)
+llmstxt	llms.txt	teknik		DeV0EnpAJCs	Yapay zekâ ajanlarının siteyi anlaması için standart dosya.
+webgl	WebGL	teknik		DeV0EnpAJCs	Componentry'nin etkileşimli 3B/GPU işlemeleri.
+shaders	Shaders	teknik		DeV0EnpAJCs	Space UI'nin sıvı ve animasyon efektlerinde anılan GPU gölgelendirici teknikleri.
+pageagent	Page Agent	teknik		DeV9nZPtSsC	Alibaba'nın siteye gömülen GUI ajanı; tek script etiketiyle kullanıcılar siteyi doğal dille yönetir.
+meetily	Meetily	teknik		DeV9nZPtSsC	Toplantıları kaydedip özetleyen, tamamen yerel çalışan yapay zekâ toplantı notu uygulaması.
+browseruse	browser-use	teknik		DeV9nZPtSsC	Page Agent dokümantasyonunda karşılaştırılan tarayıcı otomasyon aracı.
+airllm	AirLLM	teknik		DeW7JHrgsXb	70B modeli tek 4GB GPU'da, her seferinde bir katman yükleyerek çalıştıran açık kaynaklı Python kütüphanesi
+kimik3	Kimi K3	teknik		DeW7JHrgsXb	2.8 trilyon parametreli, en büyük açık model olarak anılan model; AirLLM ile 4GB altında çalıştığı iddia ediliyor
+apache20	Apache-2.0	teknik		DeW7JHrgsXb	AirLLM'in açık kaynak lisansı
+katmankatmankarm	Katman katman çıkarım	teknik		DeW7JHrgsXb	Modelin yalnızca bir katmanını GPU belleğinde tutarak çalıştırma yöntemi
+llama	Llama	teknik		DeW7JHrgsXb	Açıklamada 8GB'da çalışan 405B Llama olarak anılıyor
+appstore	App Store	teknik		DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+reddit	Reddit	teknik		DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+trustpilot	Trustpilot	teknik		DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+g2	G2	teknik		DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+recentdesign	recent.design	iş akışı		DeWQJuHxx4I	Web tasarım ilham galerisi
+godly	Godly	iş akışı		DeWQJuHxx4I	recent.design'ın eski adı; ilham için
+fontshare	Fontshare	iş akışı		DeWQJuHxx4I	Ticari kullanıma ücretsiz font servisi
+satoshi	Satoshi	teknik		DeWQJuHxx4I	Fontshare'de görünen font ailesi
+generalsans	General Sans	teknik		DeWQJuHxx4I	Fontshare'de görünen font ailesi
+clashdisplay	Clash Display	teknik		DeWQJuHxx4I	Videonun başında ekranda görünen font
+realtimecolors	Realtime Colors	iş akışı		DeWQJuHxx4I	Renk paletini gerçek site üzerinde önizleme aracı
+reactbits	React Bits	iş akışı		DeWQJuHxx4I	215+ animasyonlu React bileşen kütüphanesi
+spline	Spline	iş akışı		DeWQJuHxx4I	Kodsuz 3B sahne hazırlayıp siteye gömme aracı
+squoosh	Squoosh	iş akışı		DeWQJuHxx4I	Görsel sıkıştırma aracı
+mozjpeg	MozJPEG	teknik		DeWQJuHxx4I	Squoosh'ta görünen sıkıştırma kodeği
+pagespeedinsights	PageSpeed Insights	iş akışı		DeWQJuHxx4I	Google'ın hız ve performans testi
+adaptaviralreel	Adapt a viral reel	teknik		DeWfqTdm94Z	Viral Reel'in yapısını bulup transkriptini çıkararak kendi nişine uyarlama
+opendots	OpenDots	iş akışı	https://www.copilotkit.ai/opendots	DeWwPtmDvqV	Her biri kendi bilgisayarına sahip, sürekli açık yapay zekâ çalışma arkadaşları; Slack'te yanıt verir, çağrı alır, göndermeden önce sorar.
+aurelio	Aurelio	iş akışı		DeWwPtmDvqV	Kişisel finans aracı: net değer, ETF içeriği (look-through) ve yerel çalışan yapay zekâ danışmanı.
+spotify	Spotify	teknik		DeWwPtmDvqV	HeyGen örneğinde promoya dönüştürülen site (spotify.com).
+webpagetomp4	Web page to MP4	teknik		DeWwPtmDvqV	Claude'un her sahneyi web sayfası olarak yazdığı, bunun sonra hareketli metin ve görüntülerle bitmiş MP4'e dönüştürüldüğü HeyGen yapımı araç (After Effects alternatifi).
+autohedge	AutoHedge	iş akışı		DeXAMs2Eqgh	4 yapay zekâ ajanıyla (seçim, matematik kontrolü, risk, işlem) çalışan, dizüstünden yönetilen hedge fon.
+vibetrading	Vibe-Trading	iş akışı		DeXAMs2Eqgh	64 finans becerisi olan, ajanların işlem öncesi tartıştığı çok ajanlı ticaret aracı; kripto, hisse, opsiyon.
+librechat	LibreChat	teknik		DeXAMs2Eqgh	Claude, Gemini, ChatGPT, DeepSeek'i tek arayüzde toplayan kendi sunucunda barındırılan sohbet uygulaması.
+openhiggsfieldai	Open Higgsfield AI	teknik		DeXAMs2Eqgh	200+ modelli, yerel çalışan görsel/video üretim stüdyosu; metinden görsel, görselden video.
+openllmvtuber	Open LLM VTuber	teknik		DeXAMs2Eqgh	Masaüstünde yaşayan, sesle konuşan, ekranı gören, çevrimdışı çalışan çizgi karakter yapay zekâ arkadaşı.
+agenticinbox	Agentic Inbox	teknik		DeXAMs2Eqgh	Cloudflare'in kendi barındırılan e-posta istemcisi; yapay zekâ ajanı yanıt taslağı hazırlar.
+camofoxbrowser	Camofox Browser	teknik		DeXAMs2Eqgh	Yapay zekâ botlarını bot tespitinden gizleyen gizli (stealth) tarayıcı.
+cloudflareworkers	Cloudflare Workers	teknik		DeXAMs2Eqgh	Agentic Inbox'ın tamamen üzerinde çalıştığı sunucusuz platform.
+vibekanban	Vibe Kanban	iş akışı		DeXJQ-kGKUY	Kanban panosundan ajanlı geliştirme, kod farkı inceleme ve PR açma; kullanımdan kaldırılma sürecinde.
+asdste100	ASD-STE100	teknik		DeXJQ-kGKUY	Havacılıkta kullanılan Simplified Technical English kontrollü dil standardı.
+yamliaklar	YAML iş akışları	teknik		DeXJQ-kGKUY	Archon'da ajan süreçlerini tanımlama yöntemi.
+rasulovakademi	Rasulov Akademi	iş akışı		DeXJQ-kGKUY	Sunucunun eğitim programı; sponsor/tanıtım amaçlı başvuru çağrısı.
+tourmindapi	TourMind API	teknik		DeXJQ-kGKUY	Booking Skills'in otel, uçuş ve rezervasyon işlemlerinde kullandığı servis (repo metninde anılıyor).
+skillauthoringbestpractices	Skill authoring best practices	teknik		DeXd4jID1y9	Anthropic'in skill yazımı için resmi en iyi uygulamalar rehberi; 500 satır kuralı ve açıklama önerileri buradan
+claudeplatformdocs	Claude Platform Docs	teknik		DeXd4jID1y9	Rehberin gösterildiği Anthropic dokümantasyon sitesi
+skilldescription	Skill description	teknik		DeXd4jID1y9	Üçüncü tekil kişiyle, ne yaptığı ve ne zaman kullanılacağı yazılan açıklama; skill seçimini belirler
+skillsizbaselinetesti	Skill'siz baseline testi	ipucu		DeXd4jID1y9	Skill yazmadan önce Claude'u skill'siz çalıştırıp neyin bozulduğunu gör, sadece onu düzelt
+500satrsnr	500 satır sınırı	ipucu		DeXd4jID1y9	Her skill dosyasını 500 satırın altında tutma önerisi
+testyntemi	Üç test yöntemi	ipucu		DeXd4jID1y9	Skill yazmadan önce skill'siz çalıştırıp hataları görme, sonra yalnızca gerekeni yazma yaklaşımı
+macho	Mach-O	teknik		DeXr6wCMAEZ	Analiz edilen binary biçimi

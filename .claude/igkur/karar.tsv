@@ -1,0 +1,42 @@
+sira	ad	repo	lisans	karar	kanal	gerekce
+1	Caveman	JuliusBrussee/caveman	Apache-2.0	KURULU	CC	caveman CLI kurulu; ponytail ile eşli kullanılıyor
+2	Replica Skill (replica-recon/build/test/entrepreneur dahil)	Jakeschincariol/replica-skill	MIT	KUR	CC+claude.ai(3.taraf)	11 skill, uygulama klonlama akışı; bizde karşılığı yok; tarama koşulu
+3	REA	morluto/rea	MIT	REF	-	yerel ikili tersine mühendislik; kullanım alanımız dışı, replica-skill uygulama düzeyini karşılıyor
+4	Ruflo / Claude Flow	ruvnet/ruflo	MIT	REF	-	RUFLO-1 görevi ayrı yürütüyor (çift iş yok); hgahlot/claude-flow yanlış eşleşme
+5	Strix	usestrix/strix	Apache-2.0	KUR	CC(CLI, uv tool)	kendi uygulamalarımıza sızma testi; Docker + LLM anahtarı gerekir → Ömer listesi; tarama koşulu
+6	browser-use web ajanı	browser-use/jev-ultrafast	MIT	REF	-	bulut LLM anahtarı ister; bizde agent-browser + chrome-devtools + playwright karşılar
+7	Browser Harness	browser-use/browser-harness	MIT	REF	-	CDP ince katman; agent-browser/chrome-devtools karşılığı; iyi yanı (kendini onaran seçici) not edildi
+8	Magpie	yetone/magpie	MIT	DEVIR	router-1	ajanlar için model menüsü = model yönlendirme
+9	zCode	zai-org/ZCode	Apache-2.0	REF	-	ayrı kodlama ajanı + Z.ai hesabı; CC ile çakışır
+10	Coucou	Louis-CFM/coucou	MIT	RED	-	yalnız macOS çentiği/iPhone; Windows'ta çalışmaz (izin bildirimi mekanizması bizde hook ile var)
+11	OpenMuse	CopilotKit/openmuse	MIT	REF	-	ayrı kişisel ajan uygulaması; CC çalışma alanıyla çakışır
+12	transitions.dev	Jakubantalik/transitions.dev	NOASSERTION	DEVIR	animasyon-1	UI geçiş kütüphanesi + skill; lisans belirsiz → animasyon-1 karar verir
+13	yt-dlp	yt-dlp/yt-dlp	Unlicense	KURULU	CC	PATH'te var (video-tarama bağımlılığı)
+14	Homebrew	Homebrew/brew	BSD-2-Clause	RED	-	macOS/Linux paket yöneticisi; Windows'ta winget/uv karşılığı kurulu
+15	Career Ops	career-ops-hq/career-ops	MIT	KUR	CC+claude.ai(3.taraf)	iş arama/CV ajanı; davila7-career-paket'ten kapsamlı; tarama koşulu
+16	app-store-screenshots	ParthJadhav/app-store-screenshots	MIT	KUR	CC+claude.ai(3.taraf)	mağaza görseli üretim skill'i; bizde yok; tarama koşulu
+17	Copywriter	mikiarlo3/ai-copywriter	MIT	KUR	CC+claude.ai(3.taraf)	kanca/senaryo/CTA; bizde yok; tarama koşulu
+18	FFmpeg	FFmpeg/FFmpeg	NOASSERTION	KURULU	CC	PATH'te var
+19	AIHOT	KKKKhazix/AIHOT	MIT	REF	-	haber sitesi çatısı (sunucu); gündem taraması video-tarama/agent-reach ile var
+20	Git	-	-	KURULU	CC	PATH'te var (HelloGitHub yanlış eşleşme)
+21	PageSpeed Insights	-	-	REF	-	Google web aracı (repo yanlış eşleşme, 2022); web-performance-auditor + lighthouse karşılar
+22	Squoosh	GoogleChromeLabs/squoosh	Apache-2.0	REF	-	tarayıcı uygulaması; toplu sıkıştırma ffmpeg/sharp ile
+23	OpenDots	CopilotKit/OpenDots	MIT	REF	-	Slack/arama tabanlı sürekli ajanlar; hesap ve sunucu ister
+24	Idea generator	Olanetsoft/article-idea-generator	yok	REF	-	lisanssız (lisans kapısı); mekanizma: yükselen içerik + neden analizi
+25	GUT	bitwes/Gut	MIT(gh:yok)	REF	-	Godot birim testi; Godot projemiz yok
+26	Reel creator	Yuconium/reel_creator	yok	RED	-	ölü (2024), ★1, lisanssız
+27	Simple/Open açık sınıflandırıcı uç noktaları	featherless-ai/simple-jev; ikermoel/open-alternative-jev; logan-markewich/jeff	Apache/MIT	REF	-	kendi Jev yargıcımız var; GPU/sunucu ister
+28	Lucide	lucide-icons/lucide	ISC(NOASSERTION)	REF	-	ikon seti; projelerde npm bağımlılığı olarak kullanılır (tasarim-1)
+29	CLI-Anything	HKUDS/CLI-Anything	Apache-2.0	KURULU	CC	plugin önbellekte (cli-anything)
+30	Claude Code Usage Monitor	Maciek-roboblog/Claude-Code-Usage-Monitor	MIT	KUR	CC(CLI, uv tool)	jeton/maliyet izleme; bizde ccusage yok; tarama koşulu
+31	Archon	coleam00/Archon	MIT	REF	-	YAML iş akışı harness; mekanizma bizde kopru/gsd ile; iyi yanı (iş akışı dosyası) not edildi
+32	OpenChatCut	0xsline/OpenChatCut	AGPL-3.0	REF	-	yerel video düzenleyici; AGPL, ayrı uygulama; video hattımız ffmpeg tabanlı
+33	Page Agent	alibaba/page-agent	MIT	DEVIR	tasarim-1	siteye gömülen GUI ajanı (tasarim-1.tsv'de)
+34	Claude Code Setup	claude-plugins-official/claude-code-setup	Anthropic	KUR	CC(plugin)	resmi; kod tabanına göre hook/skill/MCP önerir; pazar zaten ekli
+35	Claude Ads	ai-marketing-hub-claude-ads	-	KURULU	CC	plugin önbellekte
+36	security-audit	cloudflare/security-audit-skill	-	KURULU	CC	skill:security-audit kurulu
+37	Maker-checker ayrımı	-	-	KURULU	CC	KALİTE-3 taze bağlamlı denetçi + Jev yargıcı ile var
+38	Skill yazım en iyi uygulamaları	anthropic docs	-	REF	-	skill-creator + zip_denetle kuralları kapsıyor
+39	Skills CLI (npx skills add)	vercel-labs/skills	-	REF	-	kurulum yolu; bizde onay betiği + marketplace
+40	Dd1zrTggHC reel skill seti (11)	çözülmedi	-	KALAN	-	repo bulunamadı; sonraki oturum (brave-search)
+41	Booking Skills / STE / SkillOpt / Trail / Email Voice	çözülmedi	-	KALAN	-	repo bulunamadı; sonraki oturum

@@ -1,0 +1,30 @@
+anahtar	ad	tur	link	gonderi	iddia
+freecad	FreeCAD	CLI		Dd9NdbFxJLo	Rover demosu yapılan CAD yazılımı
+kdenlive	Kdenlive	CLI		Dd9NdbFxJLo	Hub listesinde görünen video düzenleyici
+zotero	Zotero	CLI		Dd9NdbFxJLo	Hub listesinde görünen kaynak/atıf yöneticisi
+n8n	n8n	CLI,iş akışı		Dd9NdbFxJLo,DdbljkbH5b2	Hub listesinde görünen iş akışı otomasyon aracı
+pip	pip	CLI		Dd9NdbFxJLo,DeHMM45NaFt,DeW7JHrgsXb	CLI-Hub paketini kuran Python paket yöneticisi
+slack	Slack	MCP,teknik		DdZs2nUOpMP,DeWwPtmDvqV,DeXConTt1X5	Örnek görevde #acct-acme kanalı taranıyor
+gmail	Gmail	MCP,iş akışı,teknik		DdZs2nUOpMP,DdbljkbH5b2,DeXConTt1X5	Zamanlanmış görevin son 90 gün 'Acme' e-postalarını taradığı e-posta servisi.
+zamanlanmgrevveentegrasyonkullananrnekkullancistemi	Zamanlanmış görev ve entegrasyon kullanan örnek kullanıcı istemi	prompt		DdZs2nUOpMP	Kullanıcı yarınki Acme QBR toplantısı için e-posta, Slack, toplantı kayıtları ve haberlerden hazırlık dokümanı istiyor; renewal e-postası taslak kalacak, gönderilmeyecek; sabah 8'de çalışsın, toplantı sonrası özet ve aksiyonlar gelsin.
+securityaudit	security-audit	skill	https://github.com/cloudflare/security-audit-skill	DdbyRoJtJV4	Cloudflare'in kodlama ajanını çok aşamalı güvenlik denetçisine çeviren skill; bulguları taze bir doğrulayıcı ajan çürütmeye çalışır.
+opencodereview	Open Code Review	CLI		DdbyRoJtJV4	Alibaba'nın hibrit (deterministik hat + LLM ajan) kod inceleme aracı; PR'lerde SQL injection ve XSS arar.
+coder	Coder	plugin		DdbyRoJtJV4	Yapay zekâ ajanlarını kendi sunucularında kilitli çalışma alanlarında çalıştıran platform; LLM kimlik bilgisi tutmaz, her eylem kullanıcıya bağlanır.
+npxskillsadd	npx skills add	CLI		DdbyRoJtJV4	Skills CLI ile skill kurma komutu.
+skillscli	Skills CLI	CLI		DdbyRoJtJV4,DdtP_L9FljV,DeW5NQ1DZhh	npx skills add komutuyla agent skill'lerini kuran komut satırı aracı.
+antiuislop	Anti UI Slop	skill		DdtP_L9FljV	Kodlama ajanını gerçek ürün, mevcut bileşen ve token'lardan çalışmaya iter; jenerik SaaS arayüzünü önler.
+uizze	UIZZE	plugin		DdtP_L9FljV	Ajanlara UI zevki öğreten servis; 800.000+ tasarım keşfi, Agent SDK ve CONNECT düğmesi.
+tasteskill	Taste Skill	skill	https://github.com/Leonxlnx/taste-skill	DdtP_L9FljV,DeW5NQ1DZhh	Ajanın jenerik frontend estetiğine düşmeden güçlü görsel yön belirlemesini sağlar; landing page ve portfolyo için.
+emildesignengineering	Emil Design Engineering	skill		DdtP_L9FljV	Emil Kowalski'nin skill'i; animasyon, easing, etkileşim ve küçük bileşen davranışlarıyla 'vibe-coded' hissini giderir.
+vercelwebdesignguidelines	Vercel Web Design Guidelines	skill	https://github.com/vercel-labs/agent-skills	DdtP_L9FljV	UI kodunu Vercel Web Interface Guidelines'a göre denetler; erişilebilirlik, odak, form, durum ve kenar durumlarını yakalar.
+skillssh	skills.sh	plugin		DdtP_L9FljV	Skill dizini; Vercel skill sayfası kurulum komutu ve istatistik gösteriyor.
+gitleaks	Gitleaks	CLI		DeEJV9mgfNz	Kod deposunda sızdırılmış gizli anahtar ve parolaları tarayan güvenlik aracı
+semgrep	Semgrep	CLI		DeEJV9mgfNz	Kodda güvenlik açıklarını ve hatalı kalıpları statik analizle bulan araç
+trailofbitssecurityskills	Trail of Bits Security Skills	skill		DeEJV9mgfNz	Yapay zekâ kodlama ajanları için güvenlik odaklı skill seti
+laya	Laya	CLI	https://github.com/NandhaKishorM/laya	DeHMM45NaFt	Otoregresif olmayan System 1 karar motoru; tek ileri geçişte 100+ dilde skor ve evet/hayır kararı verir
+openalternativetojev	Open Alternative to Jev	teknik	https://github.com/ikermoel/open-alternative-jev	DeHMM45NaFt	Açık ağırlıklı LLM'den tek ileri geçişte kalibre karar üreten Python paketi (open-alternative-jev)
+simplejev	Simple Jev	teknik	https://github.com/featherless-ai/simple-jev	DeHMM45NaFt	Açık modeli Jev uç noktası gibi kullandıran sınıflandırma/skorlama sunucusu
+featherless	Featherless	teknik	https://github.com/featherless-ai/simple-jev	DeHMM45NaFt	Simple Jev demo sitesi ve API'sini barındıran servis
+uv	uv	CLI		DeHMM45NaFt	Laya kurulumunda önerilen paket yöneticisi
+jeff	Jeff	teknik	https://github.com/logan-markewich/jeff	DeHMM45NaFt	TypeSafe Jev'in kendi sunucunda çalışan, doğrudan yerine geçebilen (drop-in) alternatifi; GliFormer tabanlı.
+gpt6lunadecisionsapirnei	GPT-6 Luna Decisions API örneği	prompt		DeHMM45NaFt	Örnek ekran: 10.000 müşteri talebini (customer_requests.csv) kategorilere yönlendir; Decisions API ile gerçek zamanlı karar.

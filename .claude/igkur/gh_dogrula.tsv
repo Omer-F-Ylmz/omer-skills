@@ -1,0 +1,32 @@
+1	Caveman	JuliusBrussee/caveman	111158	Apache-2.0	2026-10-12	false	🪨 why use many token when few token do trick. Viral skill + proxy for
+2	Replica Skill	Jakeschincariol/replica-skill	2032	MIT	2026-10-03	false	Eleven free Claude skills that clone any app: reverse-engineer it, reb
+3	REA	morluto/rea	135412	MIT	2026-10-12	false	Reverse engineer anything with agents, from app behavior down to nativ
+4	Ruflo	ruvnet/ruflo	74398	MIT	2026-10-12	false	🌊 The original agent harness. Deploy intelligent multi-player swarms,
+5	Strix	usestrix/strix	68091	Apache-2.0	2026-10-11	false	Open-source AI penetration testing tool to find and fix your app’s vul
+6	Jev Ultrafast	browser-use/jev-ultrafast	22710	MIT	2026-09-30	false	Fastest and cheapest web agent
+7	Browser Harness	browser-use/browser-harness	18399	MIT	2026-10-12	false	Browser Harness | Self-healing harness that enables LLMs to complete a
+8	Magpie	yetone/magpie	10171	MIT	2026-10-12	false	Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi
+9	zCode	zai-org/ZCode	7710	Apache-2.0	2026-10-10	false	Z.ai's coding agent harness. Powerful, intelligent, extensible.
+10	Coucou	Louis-CFM/coucou	4917	MIT	2026-10-12	false	A tiny friend in your Mac's notch and on your iPhone that keeps an eye
+11	OpenMuse	CopilotKit/openmuse	4744	MIT	2026-10-12	false	A personal agent with a browser, terminal, files, and work that keeps
+12	transitions.dev	Jakubantalik/transitions.dev	4871	NOASSERTION	2026-10-12	false	UI montion AI agent, a library of 43+ crafted transitions, a skill tha
+13	yt-dlp	yt-dlp/yt-dlp	197117	Unlicense	2026-10-10	false	A feature-rich command-line audio/video downloader
+14	Homebrew	Homebrew/brew	49994	BSD-2-Clause	2026-10-12	false	🍺 The Package Manager for Everywhere
+15	Career Ops	career-ops-hq/career-ops	74134	MIT	2026-10-12	false	Open-source AI job search agent and job finder: scan job boards, score
+16	app-store-screenshots	ParthJadhav/app-store-screenshots	7259	MIT	2026-10-09	false	end to end app store screenshot creation using AI
+17	Copywriter	mikiarlo3/ai-copywriter	1207	MIT	2026-08-01	false	An AI copywriter that uses real copywriting skills + real marketing kn
+18	FFmpeg	FFmpeg/FFmpeg	65035	NOASSERTION	2026-10-12	false	Mirror of https://git.ffmpeg.org/ffmpeg.git
+19	AIHOT	KKKKhazix/AIHOT	7342	MIT	2026-10-12	false	一个自己找热点、自己写日报的网站框架。把信源和精选标准换成你的，它就是你的行业热点站。
+20	Git	521xueweihan/HelloGitHub	181556	yok	2026-09-28	false	:octocat: 分享 GitHub 上有趣、入门级的开源项目。Share interesting, entry-level open s
+21	PageSpeed Insights	ankurparihar/readme-pagespeed-insights	207	Apache-2.0	2022-04-03	false	Google lighthouse stats of your website that you can put in readme
+22	Squoosh	GoogleChromeLabs/squoosh	26018	Apache-2.0	2026-10-07	false	Make images smaller using best-in-class codecs, right in the browser.
+23	OpenDots	CopilotKit/OpenDots	5004	MIT	2026-10-12	false	Your always-on AI coworkers that move between text, calls, and Slack.
+24	Idea generator	Olanetsoft/article-idea-generator	235	yok	2026-08-17	false	Generate your next article idea with ease. Powered by AI.
+25	replica-recon	francescodepatre/ReplicaRecon	0	yok	2026-07-05	false	Offline 3D perception sandbox on Replica indoor scenes — simulated noi
+26	Claude Flow	hgahlot/claude-flow	55	MIT	2026-03-29	false	One-command bootstrap for a maximally efficient Claude Code dev enviro
+27	GUT	bitwes/Gut	2752	yok	2026-08-18	false	Godot Unit Test.  Unit testing tool for Godot Game Engine.
+28	Reel creator	Yuconium/reel_creator	1	yok	2024-07-13	false	automatical reel video generator and uploader
+29	Simple Jev	featherless-ai/simple-jev	602	Apache-2.0	2026-10-07	false	Turn any open model into a classifier/jev endpoint
+30	Jeff	logan-markewich/jeff	298	MIT	2026-09-20	false	A self-hosted drop-in replacement for TypeSafe's jev, powered by GliFo
+31	Lucide	lucide-icons/lucide	24963	NOASSERTION	2026-10-12	false	Beautiful & consistent icon toolkit made by the community. Open-source
+32	Open Alternative to Jev	ikermoel/open-alternative-jev	67	Apache-2.0	2026-09-25	false	Open-source alternative to TypeSafe's Jev: a System One style model la

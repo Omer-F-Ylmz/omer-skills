@@ -1,0 +1,30 @@
+anahtar	ad	tur	link	gonderi	iddia
+skecherui	Skecher UI	plugin		DeV0EnpAJCs	Hareket odaklı React bileşenleri: morphing navigasyon, gooey araç çubukları, liquid-glass yüzeyler, animasyonlu metin.
+spaceui	Space UI	plugin		DeV0EnpAJCs	Liquid switch, morphing kontrol, loader, shader ve gooey efektli React bileşenleri.
+componentry	Componentry	plugin		DeV0EnpAJCs	Sinematik kaydırma, 3B yığınlar, WebGL ve liquid-glass carousel içeren animasyonlu React bileşenleri; shadcn CLI ve MCP ile kurulur.
+arcui	Arc UI	plugin		DeV0EnpAJCs	Dashboard, ayarlar ve auth için tutarlı token'lı, kaynak kodu düzenlenebilir React bileşen ve blokları.
+planes	Planes	plugin		DeV0EnpAJCs	TypeScript, Tailwind ve Motion ile yazılmış, MCP ve llms.txt destekli yapay zekâ dostu React bileşenleri.
+shadcncli	shadcn CLI	CLI		DeV0EnpAJCs	Componentry bileşenlerini kurmak için kullanılan komut satırı aracı.
+strix	Strix	CLI	https://github.com/usestrix/strix	DeV9nZPtSsC	Kendi uygulamanıza gerçek saldırgan gibi sızma testi yapıp açıkları bulan, yama konusunda yardım eden açık kaynak ajan.
+uxdesignerskill	ux-designer-skill	skill		DeW5NQ1DZhh	UX akışlarını, hata durumlarını, dokunma hedeflerini ve WCAG kontrastını planlar.
+canvasdesign	canvas-design	skill		DeW5NQ1DZhh	Tarif edilen çalışmadan bitmiş PNG üretir.
+appstorescreenshots	app-store-screenshots	skill		DeW5NQ1DZhh	Gerekli tüm boyutlarda mockup, başlık ve açık/koyu varyantlı App Store ekran görüntüleri üretir.
+transitionsdev	transitions.dev	skill		DeW5NQ1DZhh	Modal, dropdown ve sayfa açılışları için üretime hazır hareket/geçiş skill'i.
+replicaskill	Replica Skill	skill	https://github.com/Jakeschincariol/replica-skill	DeWPBbShCBu	Uygulama klonlamak için 11 ücretsiz Claude skill'inden oluşan set
+replicarecon	replica-recon	skill		DeWPBbShCBu	Uygulamayı tersine mühendislikle inceleyen skill; /replica-recon <app url> ile çalışır
+replicabuild	replica-build	skill		DeWPBbShCBu	Uygulamayı yeniden inşa eden skill
+replicatest	replica-test	skill		DeWPBbShCBu	Klonu hatalara ve orijinalle uyuma (parity score) karşı test eden skill
+replicaentrepreneur	replica-entrepreneur	skill		DeWPBbShCBu	Kullanıcı yorumlarını okuyup eksik özellikleri bulan ve uygulamada çözen skill
+skillkurulumu	Skill kurulumu	prompt		DeWPBbShCBu	Repo bağlantısı (github.com/Jakeschincariol/replica-skill) Claude Code'a yapıştırılıp skill'lerin kurulması isteniyor.
+lenis	Lenis	teknik	https://github.com/darkroomengineering/lenis	DeWQJuHxx4I	Akıcı, yumuşak kaydırma (smooth scroll) kütüphanesi
+lucide	Lucide	teknik	https://github.com/lucide-icons/lucide	DeWQJuHxx4I	Aynı çizgi stilinde ikon seti
+ideagenerator	Idea generator	skill		DeWfqTdm94Z	Nişteki yükselen Reels'i ve nedenini bulup yeni fikir üretir
+copywriter	Copywriter	skill		DeWfqTdm94Z	Kanca, senaryo, açıklama metni ve CTA yazar
+reelcreator	Reel creator	skill		DeWfqTdm94Z	Fikir ve senaryodan seslendirmeli, müzikli, markalı Reel üretir
+planner	Planner	skill		DeWfqTdm94Z	Haftayı Pazartesi–Pazar planlayıp Reels'i yayına hizalar
+replies	Replies	skill		DeWfqTdm94Z	Yorumlara yanıt verir ve DM gönderir
+instagram	Instagram	MCP,iş akışı		DeWfqTdm94Z,DeXConTt1X5	İçeriğin yayınlandığı ve yorum/DM'lerin geldiği platform
+diagramdesign	diagram-design	skill	https://github.com/cathrynlavery/diagram-design	DeWwPtmDvqV	Tek promptla 44 diyagram türü üretir; bir web sitesinin markasına uyarlanır.
+finceptterminal	Fincept Terminal	CLI		DeXAMs2Eqgh	Bloomberg Terminal alternatifi ücretsiz finans terminali; 20+ ajan, 100+ veri kaynağı.
+claudeads	Claude Ads	skill		DeXAMs2Eqgh	Claude Code için reklam denetim skill'i; Google, Meta, YouTube, LinkedIn, TikTok'u tarar, Ads Health Score verir.
+perplexity	Perplexity	MCP		DeXConTt1X5	Claude'a derin arama ve araştırma yeteneği veren connector

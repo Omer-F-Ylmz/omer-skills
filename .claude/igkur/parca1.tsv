@@ -1,0 +1,30 @@
+anahtar	ad	tur	link	gonderi	iddia
+caveman	Caveman	skill		DX2ubACJYRN	Claude Code çıktısını kısaltıp token tasarrufu sağlar
+graphify	Graphify	CLI		DX2ubACJYRN	Obsidian ile saf RAG arası bilgi grafiği
+browserharness	Browser Harness	CLI		DX2ubACJYRN	Kendini geliştiren tarayıcı ajanı, CDP ince katman
+claudevideo	Claude Video	plugin	https://github.com/bradautomates/claude-video	DX2ubACJYRN	Claude Code'a video izletir; FFmpeg ile kareleri çıkarır
+opendesign	Open Design	CLI		DX2ubACJYRN	Claude Design'ın açık kaynak yerel alternatifi
+codeburn	CodeBurn	CLI		DX2ubACJYRN	Token harcamasını izler ve optimize önerir
+impeccable	Impeccable	skill		DX2ubACJYRN,DdtP_L9FljV	23 komutlu ön yüz tasarım skill'i
+designextract	Design Extract	CLI		DX2ubACJYRN	Bir siteden tasarım sistemi çıkarır (designlang/designtang)
+careerops	Career Ops	skill		DX2ubACJYRN	İş arama, CV üretimi ve takip
+n8nmcpserver	n8n MCP server	MCP		DX2ubACJYRN	Prompttan n8n iş akışı oluşturur
+claudecode	Claude Code	CLI		DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DcrhGgKyBD8,Dd-FTnEmE_b,Dd18tq_IMQB,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DdtP_L9FljV,DeRvxD6gDCu,DeT6XXkiPwj,DeWPBbShCBu,DeXConTt1X5,DeXJQ-kGKUY,DeXd4jID1y9,DeXr6wCMAEZ	Ana yapay zekâ kodlama aracı
+ffmpeg	FFmpeg	CLI,teknik		DX2ubACJYRN,DXxQS0AO1Km,DeRvxD6gDCu	Videoyu karelere böler
+playwright	Playwright	MCP,teknik		DX2ubACJYRN,DdZs2nUOpMP,DeRvxD6gDCu,DeXConTt1X5	Browser Harness için karşılaştırma
+obsidian	Obsidian	CLI,teknik		DX2ubACJYRN,Dd9NdbFxJLo	Graphify karşılaştırması
+ytdlp	yt-dlp	CLI		DX2ubACJYRN	Claude Video bağımlılığı
+homebrew	Homebrew	CLI		DX2ubACJYRN	macOS paket yöneticisi; yt-dlp ve FFmpeg'in ilk kurulum yöntemi olarak anılıyor
+devinforterminal	Devin for Terminal	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+cursoragent	Cursor Agent	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+geminicli	Gemini CLI	CLI		DX2ubACJYRN,DdtP_L9FljV,DeMoWpdAC1Z,DeXr6wCMAEZ	Open Design ve Career-Ops'ta desteklenen kodlama ajanı
+opencode	OpenCode	CLI		DX2ubACJYRN	Open Design ve Career-Ops'ta desteklenen kodlama ajanı
+qwen	Qwen	CLI,teknik		DX2ubACJYRN,DeHMM45NaFt	Open Design'ın desteklediği kodlama ajanı
+copilotcli	Copilot CLI	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+hermesagent	Hermes Agent	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+kimi	Kimi	CLI,iş akışı,teknik		DX2ubACJYRN,Da0Csy8MYEy,Dd-FTnEmE_b	Open Design'ın desteklediği kodlama ajanı
+kiro	Kiro	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+frontenddesign	frontend-design	skill		DX2ubACJYRN	Anthropic'in Claude'u daha iyi ön yüz üretmeye yönlendiren skill'i; Impeccable'ın temeli
+designlang	designlang	CLI		DX2ubACJYRN	Bir web sitesini tarayıp tasarım sistemi (token, Tailwind, Figma, Markdown) üreten araç; videoda 'Design Extract' olarak anılıyor
+git	Git	CLI		DX2ubACJYRN	Depoyu yerel klasöre klonlamak için kullanılan sürüm kontrol aracı
+chatgpt	ChatGPT	ipucu,plugin,teknik		DX2ubACJYRN,Dd-FTnEmE_b,Dd18tq_IMQB	MCP istemcisi olarak anılan yapay zekâ uygulaması

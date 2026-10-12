@@ -1,0 +1,202 @@
+anahtar	ad	tur	link	gonderi	iddia
+caveman	Caveman	skill		DX2ubACJYRN	Claude Code çıktısını kısaltıp token tasarrufu sağlar
+graphify	Graphify	CLI		DX2ubACJYRN	Obsidian ile saf RAG arası bilgi grafiği
+browserharness	Browser Harness	CLI		DX2ubACJYRN	Kendini geliştiren tarayıcı ajanı, CDP ince katman
+claudevideo	Claude Video	plugin	https://github.com/bradautomates/claude-video	DX2ubACJYRN	Claude Code'a video izletir; FFmpeg ile kareleri çıkarır
+opendesign	Open Design	CLI		DX2ubACJYRN	Claude Design'ın açık kaynak yerel alternatifi
+codeburn	CodeBurn	CLI		DX2ubACJYRN	Token harcamasını izler ve optimize önerir
+impeccable	Impeccable	skill		DX2ubACJYRN,DdtP_L9FljV	23 komutlu ön yüz tasarım skill'i
+designextract	Design Extract	CLI		DX2ubACJYRN	Bir siteden tasarım sistemi çıkarır (designlang/designtang)
+careerops	Career Ops	skill		DX2ubACJYRN	İş arama, CV üretimi ve takip
+n8nmcpserver	n8n MCP server	MCP		DX2ubACJYRN	Prompttan n8n iş akışı oluşturur
+claudecode	Claude Code	CLI		DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DcrhGgKyBD8,Dd-FTnEmE_b,Dd18tq_IMQB,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DdtP_L9FljV,DeRvxD6gDCu,DeT6XXkiPwj,DeWPBbShCBu,DeXConTt1X5,DeXJQ-kGKUY,DeXd4jID1y9,DeXr6wCMAEZ	Ana yapay zekâ kodlama aracı
+ffmpeg	FFmpeg	CLI,teknik		DX2ubACJYRN,DXxQS0AO1Km,DeRvxD6gDCu	Videoyu karelere böler
+playwright	Playwright	MCP,teknik		DX2ubACJYRN,DdZs2nUOpMP,DeRvxD6gDCu,DeXConTt1X5	Browser Harness için karşılaştırma
+obsidian	Obsidian	CLI,teknik		DX2ubACJYRN,Dd9NdbFxJLo	Graphify karşılaştırması
+ytdlp	yt-dlp	CLI		DX2ubACJYRN	Claude Video bağımlılığı
+homebrew	Homebrew	CLI		DX2ubACJYRN	macOS paket yöneticisi; yt-dlp ve FFmpeg'in ilk kurulum yöntemi olarak anılıyor
+devinforterminal	Devin for Terminal	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+cursoragent	Cursor Agent	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+geminicli	Gemini CLI	CLI		DX2ubACJYRN,DdtP_L9FljV,DeMoWpdAC1Z,DeXr6wCMAEZ	Open Design ve Career-Ops'ta desteklenen kodlama ajanı
+opencode	OpenCode	CLI		DX2ubACJYRN	Open Design ve Career-Ops'ta desteklenen kodlama ajanı
+qwen	Qwen	CLI,teknik		DX2ubACJYRN,DeHMM45NaFt	Open Design'ın desteklediği kodlama ajanı
+copilotcli	Copilot CLI	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+hermesagent	Hermes Agent	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+kimi	Kimi	CLI,iş akışı,teknik		DX2ubACJYRN,Da0Csy8MYEy,Dd-FTnEmE_b	Open Design'ın desteklediği kodlama ajanı
+kiro	Kiro	CLI		DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+frontenddesign	frontend-design	skill		DX2ubACJYRN	Anthropic'in Claude'u daha iyi ön yüz üretmeye yönlendiren skill'i; Impeccable'ın temeli
+designlang	designlang	CLI		DX2ubACJYRN	Bir web sitesini tarayıp tasarım sistemi (token, Tailwind, Figma, Markdown) üreten araç; videoda 'Design Extract' olarak anılıyor
+git	Git	CLI		DX2ubACJYRN	Depoyu yerel klasöre klonlamak için kullanılan sürüm kontrol aracı
+chatgpt	ChatGPT	ipucu,plugin,teknik		DX2ubACJYRN,Dd-FTnEmE_b,Dd18tq_IMQB	MCP istemcisi olarak anılan yapay zekâ uygulaması
+cursor	Cursor	CLI,teknik		DX2ubACJYRN,DdtP_L9FljV,DeV0EnpAJCs,DeXJQ-kGKUY,DeXr6wCMAEZ	MCP istemcisi olarak anılan IDE
+ruflo	Ruflo	CLI	https://github.com/ruvnet/ruflo	DXxQS0AO1Km	Claude Code'u çok ajanlı sürü sistemine çeviren orkestrasyon çerçevesi
+claudeflow	Claude Flow	CLI		DXxQS0AO1Km	Ruflo'nun eski adı; init komutu bu paketle gösteriliyor
+mcp	MCP	MCP,teknik		DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DdZs2nUOpMP,DeHMM45NaFt,DeV0EnpAJCs,DeWwPtmDvqV,DeXr6wCMAEZ	Ruflo'nun Claude Code'a sunduğu 170+ araçlık entegrasyon
+flownexus	flow-nexus	MCP		DXxQS0AO1Km	Bulut sürü dağıtımı MCP sunucusu
+npm	npm	CLI		DXxQS0AO1Km,DeV9nZPtSsC	Claude Code ve Ruflo kurulum paket yöneticisi
+claudetokenmonitor	Claude Token Monitor	CLI		DXxQS0AO1Km	Token tüketimini izleyen terminal aracı
+github	GitHub	CLI,iş akışı,teknik		DXxQS0AO1Km,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DeRvxD6gDCu,DeV9nZPtSsC,DeW7JHrgsXb,DeWPBbShCBu,DeWwPtmDvqV,DeXAMs2Eqgh,DeXJQ-kGKUY	Ruflo deposunun README, commit ve sürüm sayfaları; videoda sıralama iddiasının kaynağı olarak gösterilir
+claudecodesetup	Claude Code Setup	plugin		DaagbUMP8Tg	Kod tabanını tarayıp uygun hook, skill, subagent ve MCP önerileri sunan resmi Anthropic plugin'i
+claudepluginsofficial	claude-plugins-official	plugin		DaagbUMP8Tg	Anthropic'in resmi plugin deposu; recommender referans dosyaları burada
+skills	Skills	skill		DaagbUMP8Tg	Claude Code skill'leri; plugin tarafından önerilir
+supabase	Supabase	MCP,plugin,teknik		DaagbUMP8Tg,DePeKi4gE1V,DeR11OUkobq	MCP ile bağlanılan veritabanı örneği
+postgres	Postgres	MCP		DaagbUMP8Tg	Açıklamada örnek MCP sunucusu
+vercel	Vercel	MCP,teknik		DaagbUMP8Tg,DdxzONPjVUi	Açıklamada örnek MCP sunucusu
+convex	Convex	MCP		DaagbUMP8Tg	Recommender'a eklenen veritabanı seçeneği
+kodtabantaramas	Kod tabanı taraması	prompt		DaagbUMP8Tg	Kullanıcı Claude'dan tüm kod tabanını taramasını istiyor (scan my entire...).
+supabasemcptesti	Supabase MCP testi	prompt		DaagbUMP8Tg	Supabase'teki en son 5 veritabanı kaydını getirmesi isteniyor.
+designmdlibrary	Design.MD library	skill		Dc3zXkXSxpH	2000'den fazla site tasarım sistemi içeren ücretsiz kütüphane
+sfrdanpromptiletasarmrnei	Sıfırdan prompt ile tasarım örneği	prompt		Dc3zXkXSxpH	Fintech uygulaması için sade, minimal, yumuşak gölgeli, yuvarlak kartlı, tek vurgu renkli bir açılış sayfası tasarla.
+bossloop	Boss Loop	prompt		DcrhGgKyBD8	Görev + işçi alt-ajanlar + katı boss ajanı ile kendi kendine döngüleyen istem tekniği
+claude	Claude	CLI,skill,teknik		DcrhGgKyBD8,Dd18tq_IMQB,Dd1zrTggHCW,Dd9NdbFxJLo,DeHMM45NaFt,DeR11OUkobq,DeT6XXkiPwj,DeV0EnpAJCs,DeW5NQ1DZhh,DeW7JHrgsXb,DeWPBbShCBu,DeWfqTdm94Z,DeWwPtmDvqV,DeXConTt1X5,DeXd4jID1y9	Görevi alan ve alt-ajanları üreten ana yapay zekâ aracı
+bossloopileiiajanlarvekatdenetibosskullanarakuygulamasiteretmek	Boss Loop ile işçi ajanlar ve katı denetçi boss kullanarak uygulama/site üretmek	prompt		DcrhGgKyBD8	Claude'a görev ver ve iyi sonucun çıtasını gösteren gerçek bir örnek ekle; görevi bağımsız değerlendirilebilir en küçük parçalara böl, her parçaya bir işçi alt-ajan ata; kodu yazmamış, taze bağlamlı katı bir boss ajan ata: gerçek çıktıyı açıp çalıştırmayı denesin, geri göndersin, mükemmel puana kadar kullanıcı olmadan döngüde kalsın.
+compositor	Compositor	CLI	https://github.com/robbietilton/Compositor	Dd-FTnEmE_b	Katman, maske ve renk ayarlı ücretsiz açık kaynak Mac görsel düzenleyici
+magpie	Magpie	CLI	https://github.com/yetone/magpie	Dd-FTnEmE_b	Uyumlu kodlama ajanlarını seçilen model sağlayıcısına menü çubuğundan bağlar
+jevultrafast	Jev Ultrafast	CLI	https://github.com/browser-use/jev-ultrafast	Dd-FTnEmE_b	Hedefe göre yazan, seçen, tıklayan tarayıcı ajanı
+zcode	zCode	CLI	https://github.com/zai-org/ZCode	Dd-FTnEmE_b	Z.ai'nin terminal, web ve masaüstünde çalışan kodlama ajanı
+openmuse	OpenMuse	CLI	https://github.com/CopilotKit/openmuse	Dd-FTnEmE_b	Ajana tarayıcı, terminal ve dosyaları tek çalışma alanında veren araç
+aihot	AIHOT	CLI	https://github.com/KKKKhazix/AIHOT	Dd-FTnEmE_b	Kaynaklardan haber seçip gruplayan ve günlük rapor yazan araç
+coucou	Coucou	CLI	https://github.com/Louis-CFM/coucou	Dd-FTnEmE_b	Claude Code oturumlarını izleyip izin isteklerinde bildirim verir
+codex	Codex	CLI		Dd-FTnEmE_b,DdtP_L9FljV,DeT6XXkiPwj,DeXJQ-kGKUY,DeXr6wCMAEZ	Magpie ile model değiştirilebilen kodlama ajanı
+elevenlabsmcp	ElevenLabs MCP	MCP		Dd18tq_IMQB	ElevenLabs'in Claude'a ses, müzik, efekt, görsel ve dudak senkronlu video üretimi getiren bağlantısı
+reklammetniseslendirmevemzikretimi	Reklam metni, seslendirme ve müzik üretimi	prompt		Dd18tq_IMQB	Bu ürün için kısa bir reklam metni yazmasını, metni seslendirmesini ve uygun bir müzik üretmesini ister.
+reelfactory	reel-factory	skill		Dd1zrTggHCW	Reel üretimi için Claude skill'i
+hookarsenal	hook-arsenal	skill		Dd1zrTggHCW	Hook (açılış cümlesi) skill'i
+conceptgraphics	concept-graphics	skill		Dd1zrTggHCW	Konsept grafikleri skill'i
+goviral	go-viral	skill		Dd1zrTggHCW	Viral içerik skill'i
+scrollstopper	scroll-stopper	skill		Dd1zrTggHCW	Kaydırmayı durduran içerik skill'i
+storyaudit	story-audit	skill		Dd1zrTggHCW	Hikâye denetimi skill'i
+dopamineladder	dopamine-ladder	skill		Dd1zrTggHCW	Dopamin merdiveni skill'i
+viralemotion	viral-emotion	skill		Dd1zrTggHCW	Viral duygu skill'i
+motiongraphics	motion-graphics	skill	https://github.com/Barty-Bart/motion-graphics	Dd1zrTggHCW,DeRvxD6gDCu	Hareketli grafik skill'i
+cameramoves	camera-moves	skill		Dd1zrTggHCW	Kamera hareketleri skill'i
+framedirection	frame-direction	skill		Dd1zrTggHCW	Kare yönetmenliği skill'i
+reeltransitions	reel-transitions	skill		Dd1zrTggHCW	Reel geçişleri skill'i
+oneobjectfilm	one-object-film	skill		Dd1zrTggHCW	Tek nesneli film skill'i
+hookmining	hook-mining	skill		Dd1zrTggHCW	Hook çıkarma (aykırı gönderilerden) skill'i
+ootto	OOTTO	CLI,iş akışı		Dd1zrTggHCW,DeWfqTdm94Z	Videoda 'CLAUDE × OOTTO' ve 'OOTTO FIELD NOTE' olarak geçen marka/araç
+clianything	CLI-Anything	CLI		Dd9NdbFxJLo	Masaüstü yazılımları ajanların kullanabileceği CLI'ye çeviren açık kaynak repo
+clihub	CLI-Hub	CLI		Dd9NdbFxJLo	Topluluk yapımı CLI'lere göz atma, kurma ve yönetme merkezi
+obsstudio	OBS Studio	CLI		Dd9NdbFxJLo	Kayıt için hazır CLI'si olan uygulama
+blender	Blender	CLI,teknik		Dd9NdbFxJLo,DeT6XXkiPwj	3B yazılım; hazır CLI ve 3B drone demosu
+gimp	GIMP	CLI		Dd9NdbFxJLo	Görüntü düzenleyici; hazır CLI
+libreoffice	LibreOffice	CLI		Dd9NdbFxJLo	Ofis paketi; hazır CLI
+audacity	Audacity	CLI,teknik		Dd9NdbFxJLo,DeT6XXkiPwj	Ses editörü; hazır CLI
+zoom	Zoom	CLI		Dd9NdbFxJLo	Toplantı uygulaması; hazır CLI
+krita	Krita	CLI		Dd9NdbFxJLo	Çizim uygulaması; hub'da listeli
+godot	Godot	CLI,teknik		Dd9NdbFxJLo,DeT6XXkiPwj	Oyun motoru; hub'da listeli
+inkscape	Inkscape	CLI		Dd9NdbFxJLo	Vektör çizim; hub'da listeli
+freecad	FreeCAD	CLI		Dd9NdbFxJLo	Rover demosu yapılan CAD yazılımı
+kdenlive	Kdenlive	CLI		Dd9NdbFxJLo	Hub listesinde görünen video düzenleyici
+zotero	Zotero	CLI		Dd9NdbFxJLo	Hub listesinde görünen kaynak/atıf yöneticisi
+n8n	n8n	CLI,iş akışı		Dd9NdbFxJLo,DdbljkbH5b2	Hub listesinde görünen iş akışı otomasyon aracı
+pip	pip	CLI		Dd9NdbFxJLo,DeHMM45NaFt,DeW7JHrgsXb	CLI-Hub paketini kuran Python paket yöneticisi
+slack	Slack	MCP,teknik		DdZs2nUOpMP,DeWwPtmDvqV,DeXConTt1X5	Örnek görevde #acct-acme kanalı taranıyor
+gmail	Gmail	MCP,iş akışı,teknik		DdZs2nUOpMP,DdbljkbH5b2,DeXConTt1X5	Zamanlanmış görevin son 90 gün 'Acme' e-postalarını taradığı e-posta servisi.
+zamanlanmgrevveentegrasyonkullananrnekkullancistemi	Zamanlanmış görev ve entegrasyon kullanan örnek kullanıcı istemi	prompt		DdZs2nUOpMP	Kullanıcı yarınki Acme QBR toplantısı için e-posta, Slack, toplantı kayıtları ve haberlerden hazırlık dokümanı istiyor; renewal e-postası taslak kalacak, gönderilmeyecek; sabah 8'de çalışsın, toplantı sonrası özet ve aksiyonlar gelsin.
+securityaudit	security-audit	skill	https://github.com/cloudflare/security-audit-skill	DdbyRoJtJV4	Cloudflare'in kodlama ajanını çok aşamalı güvenlik denetçisine çeviren skill; bulguları taze bir doğrulayıcı ajan çürütmeye çalışır.
+opencodereview	Open Code Review	CLI		DdbyRoJtJV4	Alibaba'nın hibrit (deterministik hat + LLM ajan) kod inceleme aracı; PR'lerde SQL injection ve XSS arar.
+coder	Coder	plugin		DdbyRoJtJV4	Yapay zekâ ajanlarını kendi sunucularında kilitli çalışma alanlarında çalıştıran platform; LLM kimlik bilgisi tutmaz, her eylem kullanıcıya bağlanır.
+npxskillsadd	npx skills add	CLI		DdbyRoJtJV4	Skills CLI ile skill kurma komutu.
+skillscli	Skills CLI	CLI		DdbyRoJtJV4,DdtP_L9FljV,DeW5NQ1DZhh	npx skills add komutuyla agent skill'lerini kuran komut satırı aracı.
+antiuislop	Anti UI Slop	skill		DdtP_L9FljV	Kodlama ajanını gerçek ürün, mevcut bileşen ve token'lardan çalışmaya iter; jenerik SaaS arayüzünü önler.
+uizze	UIZZE	plugin		DdtP_L9FljV	Ajanlara UI zevki öğreten servis; 800.000+ tasarım keşfi, Agent SDK ve CONNECT düğmesi.
+tasteskill	Taste Skill	skill	https://github.com/Leonxlnx/taste-skill	DdtP_L9FljV,DeW5NQ1DZhh	Ajanın jenerik frontend estetiğine düşmeden güçlü görsel yön belirlemesini sağlar; landing page ve portfolyo için.
+emildesignengineering	Emil Design Engineering	skill		DdtP_L9FljV	Emil Kowalski'nin skill'i; animasyon, easing, etkileşim ve küçük bileşen davranışlarıyla 'vibe-coded' hissini giderir.
+vercelwebdesignguidelines	Vercel Web Design Guidelines	skill	https://github.com/vercel-labs/agent-skills	DdtP_L9FljV	UI kodunu Vercel Web Interface Guidelines'a göre denetler; erişilebilirlik, odak, form, durum ve kenar durumlarını yakalar.
+skillssh	skills.sh	plugin		DdtP_L9FljV	Skill dizini; Vercel skill sayfası kurulum komutu ve istatistik gösteriyor.
+gitleaks	Gitleaks	CLI		DeEJV9mgfNz	Kod deposunda sızdırılmış gizli anahtar ve parolaları tarayan güvenlik aracı
+semgrep	Semgrep	CLI		DeEJV9mgfNz	Kodda güvenlik açıklarını ve hatalı kalıpları statik analizle bulan araç
+trailofbitssecurityskills	Trail of Bits Security Skills	skill		DeEJV9mgfNz	Yapay zekâ kodlama ajanları için güvenlik odaklı skill seti
+laya	Laya	CLI	https://github.com/NandhaKishorM/laya	DeHMM45NaFt	Otoregresif olmayan System 1 karar motoru; tek ileri geçişte 100+ dilde skor ve evet/hayır kararı verir
+openalternativetojev	Open Alternative to Jev	teknik	https://github.com/ikermoel/open-alternative-jev	DeHMM45NaFt	Açık ağırlıklı LLM'den tek ileri geçişte kalibre karar üreten Python paketi (open-alternative-jev)
+simplejev	Simple Jev	teknik	https://github.com/featherless-ai/simple-jev	DeHMM45NaFt	Açık modeli Jev uç noktası gibi kullandıran sınıflandırma/skorlama sunucusu
+featherless	Featherless	teknik	https://github.com/featherless-ai/simple-jev	DeHMM45NaFt	Simple Jev demo sitesi ve API'sini barındıran servis
+uv	uv	CLI		DeHMM45NaFt	Laya kurulumunda önerilen paket yöneticisi
+jeff	Jeff	teknik	https://github.com/logan-markewich/jeff	DeHMM45NaFt	TypeSafe Jev'in kendi sunucunda çalışan, doğrudan yerine geçebilen (drop-in) alternatifi; GliFormer tabanlı.
+gpt6lunadecisionsapirnei	GPT-6 Luna Decisions API örneği	prompt		DeHMM45NaFt	Örnek ekran: 10.000 müşteri talebini (customer_requests.csv) kategorilere yönlendir; Decisions API ile gerçek zamanlı karar.
+zapier	Zapier	MCP,teknik		DePeKi4gE1V,DeR11OUkobq	Ücretli çok adımlı iş akışı otomasyon servisi; değiştirilen yazılım
+higgsfield	Higgsfield	plugin		DeR11OUkobq	Claude'a sohbet içinde görsel ve video reklam üretme yeteneği veren bağlayıcı
+clay	Clay	plugin		DeR11OUkobq	Claude içinde potansiyel müşteri bulma bağlayıcısı
+emailvoice	Email Voice	skill		DeR11OUkobq	Gönderilmiş e-postalardan ses profili çıkarıp o sesle taslak yazan ücretsiz skill
+higgsfieldiletekcmledengrselretme	Higgsfield ile tek cümleden görsel üretme	prompt		DeR11OUkobq	Empire State Building'in sokak seviyesinden fotogerçekçi görselini iste; üst katlarından dev bir turuncu-mavi Knicks bayrağı sarksın.
+yenidenkullanlabiliraikarakterveugcreklam	Yeniden kullanılabilir AI karakter ve UGC reklam	prompt		DeR11OUkobq	Kızıl saçlı, çilli, yeşil gözlü bir karakter bir kez oluşturulur; sonraki sahnelerde aynı kişi korunur, ürünle script ve UGC video reklam yazılır.
+clayilepazarlamakiileribulma	Clay ile pazarlama kişileri bulma	prompt		DeR11OUkobq	Bir şirketteki pazarlama kişilerini bul; isim, unvan, LinkedIn ve e-posta ile liste döndür.
+emailvoiceskillinigncelletme	Email Voice skill'ini güncelletme	prompt		DeR11OUkobq	Taslakları kullanıcının sesiyle yaz; gerekirse 'update my email voice' denerek profil yenilenir.
+kiilistesinibeehiveeaktarma	Kişi listesini Beehive'e aktarma	prompt		DeR11OUkobq	Yüklenen sahte lead CSV'sindeki tüm kişileri Zapier MCP ile Beehive'e ekle.
+claudemotion	claude-motion	plugin	https://github.com/whaleyxbt/claude-motion	DeRvxD6gDCu	Hareket yönetimi, kare incelemesi ve kodla üretilen ses sunan toolkit.
+claudemotiondesign	claude-motion-design	skill	https://github.com/howseen-ai/claude-motion-design	DeRvxD6gDCu	Playwright ve FFmpeg kullanan HTML video iş akışı skill'i.
+motiongraphicsskills	motion-graphics-skills	skill	https://github.com/charlie947/motion-graphics-skills	DeRvxD6gDCu	Lansman videosu, grafik ve motion graphics için 13 skill'lik paket.
+clauderemotionskill	claude-remotion-skill	skill	https://github.com/haidrrry/claude-remotion-skill	DeRvxD6gDCu	Altyazı, B-roll ve ses için Remotion video iş akışı skill'i.
+klikanimskillcreation	klik-anim-skill-creation	skill	https://github.com/t3knobox/klik-anim-skill-creation	DeRvxD6gDCu	Remotion için animasyon, kamera ve prodüksiyon rehberi skill paketi.
+hyperframesmotionreelskill	hyperframes-motion-reel-skill	skill	https://github.com/Sunwood-ai-labs/hyperframes-motion-reel-skill	DeRvxD6gDCu	Ritme senkron HyperFrames showreel'leri ve kodla üretilen ses.
+productlaunchmotion	product-launch-motion	skill	https://github.com/AbubakrChan/product-launch-motion	DeRvxD6gDCu	Seslendirme, kamera hareketi ve ses senkronuyla lansman filmi skill'i.
+animate	animate	skill	https://github.com/cth9191/animate	DeRvxD6gDCu	Render öncesi storyboard'lanan kısa Canvas animasyonları skill'i.
+motiondesignskills	motion-design-skills	skill	https://github.com/iart-ai/motion-design-skills	DeRvxD6gDCu	Zamanlama, renk, kompozisyon, logo ve video skill paketi.
+hyperframesstudentkit	hyperframes-student-kit	iş akışı	https://github.com/nateherkai/hyperframes-student-kit	DeRvxD6gDCu	Düzenleme iş akışları ve 406 taslak motion graphics kartı.
+hyperframes	hyperframes	teknik	https://github.com/heygen-com/hyperframes	DeRvxD6gDCu,DeXAMs2Eqgh	HTML, CSS ve zamanlı animasyonu MP4 videoya çeviren video aracı.
+remotion	remotion	teknik	https://github.com/remotion-dev/remotion	DeRvxD6gDCu	React bileşenleriyle video oluşturup render eden araç.
+remotionagentskills	Remotion Agent Skills	skill	https://github.com/remotion-dev/skills	DeRvxD6gDCu	Remotion'da çalışan ajanlar için resmi rehber skill paketi.
+gsap	GSAP	teknik	https://github.com/greensock/GSAP	DeRvxD6gDCu,DeWQJuHxx4I	Web ve kodla video animasyonu için JavaScript zaman çizelgeleri kütüphanesi.
+motiondesignskill	motion-design-skill	skill	https://github.com/LottieFiles/motion-design-skill	DeRvxD6gDCu	Animasyon araçları arasında zamanlama ve koreografi ilkeleri.
+awesomemotiondesignagentskills	awesome-motion-design-agent-skills	teknik	https://github.com/frankxai/awesome-motion-design-agent-skills	DeRvxD6gDCu	Seçilmiş hareket kaynakları ve kurulabilir ajan skill'leri dizini.
+motiondevanimationsskill	motion-dev-animations-skill	skill	https://github.com/199-biotechnologies/motion-dev-animations-skill	DeRvxD6gDCu	Kaydırma, yay ve etkileşimli arayüz için Motion.dev kalıpları web skill'i.
+motion	motion	teknik	https://github.com/motiondivision/motion	DeRvxD6gDCu,DeV0EnpAJCs	JavaScript, React ve Vue için animasyon kütüphanesi.
+lottieweb	lottie-web	teknik	https://github.com/airbnb/lottie-web	DeRvxD6gDCu	Lottie JSON animasyonlarını tarayıcıda oynatan web oynatıcı.
+gut	GUT	teknik	https://github.com/bitwes/Gut	DeT6XXkiPwj	Godot için birim test aracı; Codex'e GUT testleri yazdırılıyor.
+skecherui	Skecher UI	plugin		DeV0EnpAJCs	Hareket odaklı React bileşenleri: morphing navigasyon, gooey araç çubukları, liquid-glass yüzeyler, animasyonlu metin.
+spaceui	Space UI	plugin		DeV0EnpAJCs	Liquid switch, morphing kontrol, loader, shader ve gooey efektli React bileşenleri.
+componentry	Componentry	plugin		DeV0EnpAJCs	Sinematik kaydırma, 3B yığınlar, WebGL ve liquid-glass carousel içeren animasyonlu React bileşenleri; shadcn CLI ve MCP ile kurulur.
+arcui	Arc UI	plugin		DeV0EnpAJCs	Dashboard, ayarlar ve auth için tutarlı token'lı, kaynak kodu düzenlenebilir React bileşen ve blokları.
+planes	Planes	plugin		DeV0EnpAJCs	TypeScript, Tailwind ve Motion ile yazılmış, MCP ve llms.txt destekli yapay zekâ dostu React bileşenleri.
+shadcncli	shadcn CLI	CLI		DeV0EnpAJCs	Componentry bileşenlerini kurmak için kullanılan komut satırı aracı.
+strix	Strix	CLI	https://github.com/usestrix/strix	DeV9nZPtSsC	Kendi uygulamanıza gerçek saldırgan gibi sızma testi yapıp açıkları bulan, yama konusunda yardım eden açık kaynak ajan.
+uxdesignerskill	ux-designer-skill	skill		DeW5NQ1DZhh	UX akışlarını, hata durumlarını, dokunma hedeflerini ve WCAG kontrastını planlar.
+canvasdesign	canvas-design	skill		DeW5NQ1DZhh	Tarif edilen çalışmadan bitmiş PNG üretir.
+appstorescreenshots	app-store-screenshots	skill		DeW5NQ1DZhh	Gerekli tüm boyutlarda mockup, başlık ve açık/koyu varyantlı App Store ekran görüntüleri üretir.
+transitionsdev	transitions.dev	skill		DeW5NQ1DZhh	Modal, dropdown ve sayfa açılışları için üretime hazır hareket/geçiş skill'i.
+replicaskill	Replica Skill	skill	https://github.com/Jakeschincariol/replica-skill	DeWPBbShCBu	Uygulama klonlamak için 11 ücretsiz Claude skill'inden oluşan set
+replicarecon	replica-recon	skill		DeWPBbShCBu	Uygulamayı tersine mühendislikle inceleyen skill; /replica-recon <app url> ile çalışır
+replicabuild	replica-build	skill		DeWPBbShCBu	Uygulamayı yeniden inşa eden skill
+replicatest	replica-test	skill		DeWPBbShCBu	Klonu hatalara ve orijinalle uyuma (parity score) karşı test eden skill
+replicaentrepreneur	replica-entrepreneur	skill		DeWPBbShCBu	Kullanıcı yorumlarını okuyup eksik özellikleri bulan ve uygulamada çözen skill
+skillkurulumu	Skill kurulumu	prompt		DeWPBbShCBu	Repo bağlantısı (github.com/Jakeschincariol/replica-skill) Claude Code'a yapıştırılıp skill'lerin kurulması isteniyor.
+lenis	Lenis	teknik	https://github.com/darkroomengineering/lenis	DeWQJuHxx4I	Akıcı, yumuşak kaydırma (smooth scroll) kütüphanesi
+lucide	Lucide	teknik	https://github.com/lucide-icons/lucide	DeWQJuHxx4I	Aynı çizgi stilinde ikon seti
+ideagenerator	Idea generator	skill		DeWfqTdm94Z	Nişteki yükselen Reels'i ve nedenini bulup yeni fikir üretir
+copywriter	Copywriter	skill		DeWfqTdm94Z	Kanca, senaryo, açıklama metni ve CTA yazar
+reelcreator	Reel creator	skill		DeWfqTdm94Z	Fikir ve senaryodan seslendirmeli, müzikli, markalı Reel üretir
+planner	Planner	skill		DeWfqTdm94Z	Haftayı Pazartesi–Pazar planlayıp Reels'i yayına hizalar
+replies	Replies	skill		DeWfqTdm94Z	Yorumlara yanıt verir ve DM gönderir
+instagram	Instagram	MCP,iş akışı		DeWfqTdm94Z,DeXConTt1X5	İçeriğin yayınlandığı ve yorum/DM'lerin geldiği platform
+diagramdesign	diagram-design	skill	https://github.com/cathrynlavery/diagram-design	DeWwPtmDvqV	Tek promptla 44 diyagram türü üretir; bir web sitesinin markasına uyarlanır.
+finceptterminal	Fincept Terminal	CLI		DeXAMs2Eqgh	Bloomberg Terminal alternatifi ücretsiz finans terminali; 20+ ajan, 100+ veri kaynağı.
+claudeads	Claude Ads	skill		DeXAMs2Eqgh	Claude Code için reklam denetim skill'i; Google, Meta, YouTube, LinkedIn, TikTok'u tarar, Ads Health Score verir.
+perplexity	Perplexity	MCP		DeXConTt1X5	Claude'a derin arama ve araştırma yeteneği veren connector
+firecrawl	Firecrawl	MCP		DeXConTt1X5	Web sitelerini kazıyıp rakip analizi ve marka görselleri çıkaran connector
+posthog	PostHog	MCP		DeXConTt1X5	Kullanıcı kaybı ve site hatalarını bulan analiz connector'ü
+composio	Composio	MCP		DeXConTt1X5	Claude'u birçok uygulamaya tek bağlantıyla bağlayan connector
+youtube	YouTube	MCP		DeXConTt1X5	Composio üzerinden bağlanan uygulama
+facebook	Facebook	MCP		DeXConTt1X5	Composio üzerinden bağlanan uygulama
+meta	Meta	MCP		DeXConTt1X5	Composio üzerinden bağlanan uygulama
+notion	Notion	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+googledrive	Google Drive	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+googlesheets	Google Sheets	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+whatsapp	WhatsApp	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+trello	Trello	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+takvim	Takvim	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen takvim uygulaması
+perplexityilesektraratrmasrnei	Perplexity ile sektör araştırması örneği	prompt		DeXConTt1X5	Kullanıcı Claude'a 'Bu sektörde son gelişmeler neler?' diye soruyor; Perplexity araştırma örneği olarak gösteriliyor.
+steskill	STE Skill	skill		DeXJQ-kGKUY	Belirsiz İngilizce ajan çıktısını ASD-STE100 kurallarıyla sadeleştiren Claude Code becerisi.
+tokenmonitor	Token Monitor	CLI		DeXJQ-kGKUY	Claude Code, Codex, Cursor kullanımını, limit ve maliyeti tek panelde izleyen masaüstü widget.
+bookingskills	Booking Skills	skill		DeXJQ-kGKUY	Ajana otel/uçuş arama, fiyat karşılaştırma ve rezervasyon ekleyen skill seti (TourMind API).
+llmapps	LLM Apps	skill		DeXJQ-kGKUY	Hazır AI agent, RAG ve skill örneklerini toplayan repo (awesome-llm-apps).
+skillopt	SkillOpt	skill		DeXJQ-kGKUY	Model ağırlıklarını değiştirmeden skill metinlerini ajan izlerine göre optimize eder, best_skill.md üretir.
+archon	Archon	CLI		DeXJQ-kGKUY	Kodlama ajanları için YAML iş akışı tabanlı açık kaynak harness builder.
+claudesubagents	Claude Subagents	plugin		DeXJQ-kGKUY	Claude Code için 100+ uzman alt ajan koleksiyonu (awesome-claude-code-subagents).
+claudeskills	Claude Skills	skill		DeXd4jID1y9	Claude'un gerektiğinde açtığı, düz metin dosyasından oluşan yetenek paketleri; videonun ana konusu
+rea	REA	CLI	https://github.com/morluto/rea	DeXr6wCMAEZ	Kaynak kodsuz tersine mühendislikle uygulama özelliklerini çözen, agent'a MCP ve CLI ile bağlanan ücretsiz yerel araç
+reaagents	rea-agents	CLI		DeXr6wCMAEZ	REA MCP sunucusunu ve iş akışı talimatlarını agentlara kuran npx paketi
+npx	npx	CLI		DeXr6wCMAEZ	rea-agents kurulum komutunu çalıştırır
+hopper	Hopper	CLI		DeXr6wCMAEZ	Binary disassembly ve analizinde kullanılan araç
+grokbuild	Grok Build	CLI		DeXr6wCMAEZ	REA'nın desteklediği agent
+uygulamazelliinitersinemhendisliklezme	Uygulama özelliğini tersine mühendislikle çözme	prompt		DeXr6wCMAEZ	Ajanına REA ile bir uygulamada gördüğün özelliğin nasıl çalıştığını araştırmasını istemek (README'deki Notes arama örneği).

@@ -16,6 +16,7 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 
 ## Kapılar
 - Belge koddan türetilir; kodla çelişen iddia yazılmaz.
+- Talimat metni STE ölçüsüyle: cümle ≤20 kelime, etken çatı, kelime başına tek anlam, adım başına tek eylem (IG-40 DeXJQ-kGKUY).
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)

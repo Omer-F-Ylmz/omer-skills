@@ -1,0 +1,407 @@
+sira	puan	anahtar	ad	tur	repo	lisans	yildiz	bizde	devir	gonderi	iddia
+1	13.25	caveman	Caveman	skill	JuliusBrussee/caveman	Apache-2.0	★111123	yok	-	DX2ubACJYRN	Claude Code çıktısını kısaltıp token tasarrufu sağlar
+2	11.16	replicaskill	Replica Skill	skill	Jakeschincariol/replica-skill	MIT	★1983	yok	-	DeWPBbShCBu	Uygulama klonlamak için 11 ücretsiz Claude skill'inden oluşan set
+3	11.10	rea	REA	CLI	morluto/rea	MIT	★124741	yok	-	DeXr6wCMAEZ	Kaynak kodsuz tersine mühendislikle uygulama özelliklerini çözen, agent'a MCP ve CLI ile bağlanan ücretsiz yerel araç
+4	10.87	ruflo	Ruflo	CLI	ruvnet/ruflo	MIT	★74385	yok	-	DXxQS0AO1Km	Claude Code'u çok ajanlı sürü sistemine çeviren orkestrasyon çerçevesi
+5	10.83	strix	Strix	CLI	usestrix/strix	Apache-2.0	★68032	yok	-	DeV9nZPtSsC	Kendi uygulamanıza gerçek saldırgan gibi sızma testi yapıp açıkları bulan, yama konusunda yardım eden açık kaynak ajan.
+6	10.36	jevultrafast	Jev Ultrafast	CLI	browser-use/jev-ultrafast	MIT	★22678	yok	-	Dd-FTnEmE_b	Hedefe göre yazan, seçen, tıklayan tarayıcı ajanı
+7	10.26	browserharness	Browser Harness	CLI	browser-use/browser-harness	MIT	★18396	yok	-	DX2ubACJYRN	Kendini geliştiren tarayıcı ajanı, CDP ince katman
+8	10.00	magpie	Magpie	CLI	yetone/magpie	MIT	★9956	yok	-	Dd-FTnEmE_b	Uyumlu kodlama ajanlarını seçilen model sağlayıcısına menü çubuğundan bağlar
+9	9.89	zcode	zCode	CLI	zai-org/ZCode	Apache-2.0	★7702	yok	-	Dd-FTnEmE_b	Z.ai'nin terminal, web ve masaüstünde çalışan kodlama ajanı
+10	9.69	coucou	Coucou	CLI	Louis-CFM/coucou	MIT	★4886	yok	-	Dd-FTnEmE_b	Claude Code oturumlarını izleyip izin isteklerinde bildirim verir
+11	9.67	openmuse	OpenMuse	CLI	CopilotKit/openmuse	MIT	★4724	yok	-	Dd-FTnEmE_b	Ajana tarayıcı, terminal ve dosyaları tek çalışma alanında veren araç
+12	9.22	transitionsdev	transitions.dev	skill	Jakubantalik/transitions.dev	NOASSERTION	★4867	yok	-	DeW5NQ1DZhh	Modal, dropdown ve sayfa açılışları için üretime hazır hareket/geçiş skill'i.
+13	8.47	ytdlp	yt-dlp	CLI	yt-dlp/yt-dlp	Unlicense	★197044	yok	-	DX2ubACJYRN	Claude Video bağımlılığı
+14	8.02	homebrew	Homebrew	CLI	Homebrew/brew	BSD-2-Clause	★49990	yok	-	DX2ubACJYRN	macOS paket yöneticisi; yt-dlp ve FFmpeg'in ilk kurulum yöntemi olarak anılıyor
+15	6.52	careerops	Career Ops	skill	career-ops-hq/career-ops	MIT	★74106	yok	-	DX2ubACJYRN	İş arama, CV üretimi ve takip
+16	5.92	appstorescreenshots	app-store-screenshots	skill	ParthJadhav/app-store-screenshots	MIT	★7241	yok	-	DeW5NQ1DZhh	Gerekli tüm boyutlarda mockup, başlık ve açık/koyu varyantlı App Store ekran görüntüleri üretir.
+17	5.45	copywriter	Copywriter	skill	mikiarlo3/ai-copywriter	MIT	★1207	yok	-	DeWfqTdm94Z	Kanca, senaryo, açıklama metni ve CTA yazar
+18	5.29	ffmpeg	FFmpeg	CLI,teknik	FFmpeg/FFmpeg	NOASSERTION	★65017	yok	-	DX2ubACJYRN,DXxQS0AO1Km,DeRvxD6gDCu	Videoyu karelere böler
+19	4.93	aihot	AIHOT	CLI	KKKKhazix/AIHOT	MIT	★7295	yok	-	Dd-FTnEmE_b	Kaynaklardan haber seçip gruplayan ve günlük rapor yazan araç
+20	4.63	git	Git	CLI	521xueweihan/HelloGitHub	yok	★181507	yok	-	DX2ubACJYRN	Depoyu yerel klasöre klonlamak için kullanılan sürüm kontrol aracı
+21	4.39	pagespeedinsights	PageSpeed Insights	iş akışı	ankurparihar/readme-pagespeed-insights	Apache-2.0	★207	yok	-	DeWQJuHxx4I	Google'ın hız ve performans testi
+22	4.17	squoosh	Squoosh	iş akışı	GoogleChromeLabs/squoosh	Apache-2.0	★26021	yok	-	DeWQJuHxx4I	Görsel sıkıştırma aracı
+23	3.88	opendots	OpenDots	iş akışı	CopilotKit/OpenDots	MIT	★4970	yok	-	DeWwPtmDvqV	Her biri kendi bilgisayarına sahip, sürekli açık yapay zekâ çalışma arkadaşları; Slack'te yanıt verir, çağrı alır, göndermeden önce sorar.
+24	3.82	ideagenerator	Idea generator	skill	Olanetsoft/article-idea-generator	yok	★235	yok	-	DeWfqTdm94Z	Nişteki yükselen Reels'i ve nedenini bulup yeni fikir üretir
+25	3.60	replicarecon	replica-recon	skill	francescodepatre/ReplicaRecon	yok	★0	yok	-	DeWPBbShCBu	Uygulamayı tersine mühendislikle inceleyen skill; /replica-recon <app url> ile çalışır
+26	3.37	claudeflow	Claude Flow	CLI	hgahlot/claude-flow	MIT	★55	yok	-	DXxQS0AO1Km	Ruflo'nun eski adı; init komutu bu paketle gösteriliyor
+27	2.23	gut	GUT	teknik	bitwes/Gut	yok	★2752	yok	-	DeT6XXkiPwj	Godot için birim test aracı; Codex'e GUT testleri yazdırılıyor.
+28	1.98	reelcreator	Reel creator	skill	Yuconium/reel_creator	yok	★1	yok	-	DeWfqTdm94Z	Fikir ve senaryodan seslendirmeli, müzikli, markalı Reel üretir
+29	1.76	simplejev	Simple Jev	teknik	featherless-ai/simple-jev	Apache-2.0	★602	yok	-	DeHMM45NaFt	Açık modeli Jev uç noktası gibi kullandıran sınıflandırma/skorlama sunucusu
+30	1.70	jeff	Jeff	teknik	logan-markewich/jeff	MIT	★298	yok	-	DeHMM45NaFt	TypeSafe Jev'in kendi sunucunda çalışan, doğrudan yerine geçebilen (drop-in) alternatifi; GliFormer tabanlı.
+31	1.68	lucide	Lucide	teknik	lucide-icons/lucide	NOASSERTION	★24963	yok	-	DeWQJuHxx4I	Aynı çizgi stilinde ikon seti
+32	1.57	openalternativetojev	Open Alternative to Jev	teknik	ikermoel/open-alternative-jev	Apache-2.0	★67	yok	-	DeHMM45NaFt	Açık ağırlıklı LLM'den tek ileri geçişte kalibre karar üreten Python paketi (open-alternative-jev)
+33	1.50	typescript	TypeScript	teknik	-	-	-	yok	-	DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,DdbyRoJtJV4,DeV0EnpAJCs	n8n MCP otomasyonu doğrular
+34	0.75	subagents	Subagents	teknik	-	-	-	yok	-	DaagbUMP8Tg,DcrhGgKyBD8	Güvenlik sorunu için review subagent önerisi
+35	0.56	react	React	teknik	-	-	-	yok	-	DaagbUMP8Tg,DeV0EnpAJCs	Frontend kütüphanesi; checkout ekranındaki 'unique key prop' uyarısı React uyarı biçimine benziyor (kesin doğrulanamadı).
+36	0.50	windsurf	Windsurf	teknik	-	-	-	yok	-	DX2ubACJYRN	MCP istemcisi olarak anılan IDE
+37	0.50	sonnet46	Sonnet 4.6	teknik	-	-	-	yok	-	DXxQS0AO1Km	Alt ajanın kullandığı model
+38	0.50	postgresql	PostgreSQL	teknik	-	-	-	yok	-	DXxQS0AO1Km	RuVector MCP'sinin vektör veritabanı altyapısı
+39	0.50	hooks	Hooks	teknik	-	-	-	yok	-	DaagbUMP8Tg	Claude Code otomasyon kancaları; plugin'in önerdiği türlerden
+40	0.50	claudemd	CLAUDE.md	teknik	-	-	-	yok	-	DaagbUMP8Tg	Claude Code'un proje talimat dosyası; /init komutuyla oluşturulması öneriliyor.
+41	0.50	makercheckersplit	Maker-checker split	teknik	-	-	-	yok	-	DcrhGgKyBD8	Yapan ile doğrulayanı ayıran, taze bağlamlı denetçi yaklaşımı
+42	0.50	openairealtime	OpenAI Realtime	teknik	-	-	-	yok	-	DdbljkbH5b2	Sesli arama ajanının 'Call Agent' düğümünde kullanılan model
+43	0.50	cloudflare	Cloudflare	teknik	-	-	-	yok	-	DdbyRoJtJV4	security-audit skill'ini yayımlayan şirket.
+44	0.50	antigravity	Antigravity	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Uygulama planlayan, kodlayan ve test eden ajan
+45	0.50	opal	Opal	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Kasım'da kapanacak araç; yerine Skills in Gemini öneriliyor
+46	0.50	openchatcut	OpenChatCut	teknik	-	-	-	yok	-	DePeKi4gE1V	Konuşmalı ajanlar, çoklu iz zaman çizelgesi ve altyazılarla yerel video düzenleyici; OpusClip alternatifi
+47	0.50	browseruse	browser-use	teknik	-	-	-	yok	-	DeV9nZPtSsC	Page Agent dokümantasyonunda karşılaştırılan tarayıcı otomasyon aracı.
+48	0.50	agenticinbox	Agentic Inbox	teknik	-	-	-	yok	-	DeXAMs2Eqgh	Cloudflare'in kendi barındırılan e-posta istemcisi; yapay zekâ ajanı yanıt taslağı hazırlar.
+49	0.50	cloudflareworkers	Cloudflare Workers	teknik	-	-	-	yok	-	DeXAMs2Eqgh	Agentic Inbox'ın tamamen üzerinde çalıştığı sunucusuz platform.
+50	0.50	yamliaklar	YAML iş akışları	teknik	-	-	-	yok	-	DeXJQ-kGKUY	Archon'da ajan süreçlerini tanımlama yöntemi.
+51	0.50	tourmindapi	TourMind API	teknik	-	-	-	yok	-	DeXJQ-kGKUY	Booking Skills'in otel, uçuş ve rezervasyon işlemlerinde kullandığı servis (repo metninde anılıyor).
+52	0.50	skillauthoringbestpractices	Skill authoring best practices	teknik	-	-	-	yok	-	DeXd4jID1y9	Anthropic'in skill yazımı için resmi en iyi uygulamalar rehberi; 500 satır kuralı ve açıklama önerileri buradan
+53	0.50	skilldescription	Skill description	teknik	-	-	-	yok	-	DeXd4jID1y9	Üçüncü tekil kişiyle, ne yaptığı ve ne zaman kullanılacağı yazılan açıklama; skill seçimini belirler
+54	0.38	aidefence	AIDefence	teknik	-	-	-	yok	-	DXxQS0AO1Km	Tehdit algılama güvenlik katmanı
+55	0.38	nextjs	Next.js	teknik	-	-	-	yok	-	DXxQS0AO1Km,DdxzONPjVUi	Örnek e-ticaret projesinin çerçevesi
+56	0.38	nanobananapro	Nano Banana Pro	teknik	-	-	-	yok	-	Da0Csy8MYEy,DeR11OUkobq	Visual modda görsel üretimi için entegre model
+57	0.38	claudeopus	Claude Opus	teknik	-	-	-	yok	-	Dd1zrTggHCW,DdZs2nUOpMP	Ekranda Opus 5.5 notu görünen model
+58	0.38	python	Python	teknik	-	-	-	yok	-	Dd9NdbFxJLo,DeW7JHrgsXb	CLI-Hub için gereken sürüm
+59	0.38	pytest	pytest	teknik	-	-	-	yok	-	Dd9NdbFxJLo	CLI'lerin test çerçevesi
+60	0.38	sora2	Sora 2	teknik	-	-	-	yok	-	DdbljkbH5b2	UGC reklam şablonunda 5 video promptunun üretildiği video modeli
+61	0.38	youtubeapi	YouTube API	teknik	-	-	-	yok	-	DdbljkbH5b2	En iyi performanslı videoları çekme kaynağı
+62	0.38	cloudflarepages	Cloudflare Pages	teknik	-	-	-	yok	-	DdxzONPjVUi	Git tabanlı edge frontend dağıtımı; slayt 4'te CLOUDPAGES etiketiyle de geçiyor.
+63	0.38	googleflow	Google Flow	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Metin veya fotoğraftan video ve görsel üretir
+64	0.38	flowmusic	Flow Music	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Tam şarkı ve müzik videosu üretir
+65	0.38	jules	Jules	teknik	-	-	-	yok	-	DeMoWpdAC1Z	GitHub deposunda hata düzeltir, test yazar
+66	0.38	stax	Stax	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Kendi testlerinle yapay zekâ modellerini ve promptları karşılaştırır
+67	0.38	opusclip	OpusClip	teknik	-	-	-	yok	-	DePeKi4gE1V	Ücretli, uzun videoyu kısa kliplere çeviren yapay zekâ aracı; değiştirilen yazılım
+68	0.38	openhiggsfieldai	Open Higgsfield AI	teknik	-	-	-	yok	-	DeXAMs2Eqgh	200+ modelli, yerel çalışan görsel/video üretim stüdyosu; metinden görsel, görselden video.
+69	0.25	chrome	Chrome	teknik	-	-	-	yok	-	DX2ubACJYRN	Browser Harness'in tek websocket ile bağlandığı tarayıcı
+70	0.25	go	Go	teknik	-	-	-	yok	-	DX2ubACJYRN	Career-Ops rozetinde anılan programlama dili
+71	0.25	ruvector	RuVector	teknik	-	-	-	yok	-	DXxQS0AO1Km	PostgreSQL tabanlı vektör zekâ ve arama katmanı
+72	0.25	sona	SoNA	teknik	-	-	-	yok	-	DXxQS0AO1Km	Kendi kendine öğrenme sistemi
+73	0.25	opus47	Opus 4.7	teknik	-	-	-	yok	-	DXxQS0AO1Km	Karmaşık görevler için güçlü model örneği
+74	0.25	groq	Groq	teknik	-	-	-	yok	-	DXxQS0AO1Km	Örnek projede LLM analiz servisi
+75	0.25	fastapi	FastAPI	teknik	-	-	-	yok	-	DXxQS0AO1Km	Örnek projedeki arka uç çerçevesi
+76	0.25	prisma	Prisma	teknik	-	-	-	yok	-	DXxQS0AO1Km	Örnek projede veritabanı ORM'i
+77	0.25	nextauthjs	NextAuth.js	teknik	-	-	-	yok	-	DXxQS0AO1Km	Örnek projede kimlik doğrulama
+78	0.25	stripe	Stripe	teknik	-	-	-	yok	-	DXxQS0AO1Km	Örnek projede ödeme/checkout
+79	0.25	docker	Docker	teknik	-	-	-	yok	-	DXxQS0AO1Km	Örnek projede dağıtım ve ortam yapılandırması
+80	0.25	adaptivemod	Adaptive Mod	teknik	-	-	-	yok	-	Da0Csy8MYEy	Veriye dayalı profesyonel grafikli slayt modu
+81	0.25	visualmode	Visual Mode	teknik	-	-	-	yok	-	Da0Csy8MYEy	Görsel ağırlıklı yaratıcı slayt modu
+82	0.25	dnyabankas	Dünya Bankası	teknik	-	-	-	yok	-	Da0Csy8MYEy	Kimi'nin grafik verisi için eriştiği kaynak (ekranda 'WORLD BANK' olarak da görünüyor).
+83	0.25	claudeopus46	Claude Opus 4.6	teknik	-	-	-	yok	-	DaagbUMP8Tg	Terminal arayüzünde görünen model
+84	0.25	deepseek	DeepSeek	teknik	-	-	-	yok	-	Dd-FTnEmE_b	Magpie ile seçilebilen model sağlayıcı
+85	0.25	copilotkit	CopilotKit	teknik	-	-	-	yok	-	Dd-FTnEmE_b	OpenMuse için proje anahtarı gerektiren çerçeve
+86	0.25	typesafe	TypeSafe	teknik	-	-	-	yok	-	Dd-FTnEmE_b	Jev Ultrafast'in çalışması için gereken erişim servisi
+87	0.25	oauth	OAuth	teknik	-	-	-	yok	-	Dd18tq_IMQB	Tek seferlik OAuth girişiyle API anahtarsız bağlantı
+88	0.25	instagramapi	Instagram API	teknik	-	-	-	yok	-	Dd1zrTggHCW	Gönderi verisini çeken API
+89	0.25	claudesonnet	Claude Sonnet	teknik	-	-	-	yok	-	DdZs2nUOpMP	Ekranda model adı olarak geçiyor
+90	0.25	websearch	web_search	teknik	-	-	-	yok	-	DdZs2nUOpMP	Sistem isteminde tanımlı arama aracı
+91	0.25	gpt	GPT	teknik	-	-	-	yok	-	DdbljkbH5b2	Çok dilli SSS botunun cevap modeli
+92	0.25	openai	OpenAI	teknik	-	-	-	yok	-	DdbljkbH5b2	Lead araştırma ve zenginleştirme düğümü
+93	0.25	vscodedesktop	VS Code Desktop	teknik	-	-	-	yok	-	DdbyRoJtJV4	Coder çalışma alanından açılabilen editör.
+94	0.25	cursordesktop	Cursor Desktop	teknik	-	-	-	yok	-	DdbyRoJtJV4	Coder çalışma alanından açılabilen editör.
+95	0.25	intellijidea	IntelliJ IDEA	teknik	-	-	-	yok	-	DdbyRoJtJV4	Coder çalışma alanından açılabilen IDE.
+96	0.25	sqlinjection	SQL injection	teknik	-	-	-	yok	-	DdbyRoJtJV4	Open Code Review'ün PR'lerde aradığı zafiyet sınıfı.
+97	0.25	xss	XSS	teknik	-	-	-	yok	-	DdbyRoJtJV4	PR'lerde aranan zafiyet sınıfı.
+98	0.25	filebrowser	File Browser	teknik	-	-	-	yok	-	DdbyRoJtJV4	Çalışma alanında dosya gezintisi için uygulama; Coder uygulama listesinde.
+99	0.25	flyio	Fly.io	teknik	-	-	-	yok	-	DdxzONPjVUi	Uygulamaları kullanıcıya yakın bölgelerde hafif dağıtımla çalıştırma.
+100	0.25	denodeploy	Deno Deploy	teknik	-	-	-	yok	-	DdxzONPjVUi	JavaScript/TypeScript uygulamalarını edge'e dağıtma.
+101	0.25	kinsta	Kinsta	teknik	-	-	-	yok	-	DdxzONPjVUi	Yönetilen platformda uygulama barındırma.
+102	0.25	railway	Railway	teknik	-	-	-	yok	-	DdxzONPjVUi	Uygulama, servis ve veritabanı dağıtımı.
+103	0.25	replit	Replit	teknik	-	-	-	yok	-	DdxzONPjVUi	Tarayıcıda kod yazma, çalıştırma ve paylaşma ortamı.
+104	0.25	jev	Jev	teknik	-	-	-	yok	-	DeHMM45NaFt	TypeSafe'in kapalı, API üzerinden sunulan System One karar modeli; alternatiflerin referansı
+105	0.25	gpt6luna	GPT-6 Luna	teknik	-	-	-	yok	-	DeHMM45NaFt	OpenAI'ın Decisions API'sini çalıştıran, sınırlı önizlemedeki Jev rakibi
+106	0.25	qwen3508b	Qwen3.5-0.8B	teknik	-	-	-	yok	-	DeHMM45NaFt	Simple Jev ile örnek olarak kullanılan açık model
+107	0.25	gemma426ba4bit	gemma-4-26B-A4B-it	teknik	-	-	-	yok	-	DeHMM45NaFt	Simple Jev için örnek açık model
+108	0.25	huggingface	Hugging Face	teknik	-	-	-	yok	-	DeHMM45NaFt	Modellerin ve demoların barındırıldığı platform
+109	0.25	qwen3627b	Qwen3.6-27B	teknik	-	-	-	yok	-	DeHMM45NaFt	Open Alternative'in kıyaslamada kullandığı stok model
+110	0.25	localllamatypeddecisions	LocalLLaMA/typed-decisions	teknik	-	-	-	yok	-	DeHMM45NaFt	400 vakalık topluluk kıyas veri seti
+111	0.25	gliner	GLiNER	teknik	-	-	-	yok	-	DeHMM45NaFt	Dördüncü alternatifin kullandığı kodlayıcı tabanı
+112	0.25	langchain	LangChain	teknik	-	-	-	yok	-	DeHMM45NaFt	Laya'nın isteğe bağlı entegrasyonu
+113	0.25	llamaindex	LlamaIndex	teknik	-	-	-	yok	-	DeHMM45NaFt	Laya'nın isteğe bağlı entegrasyonu
+114	0.25	pytorch	PyTorch	teknik	-	-	-	yok	-	DeHMM45NaFt	Simple Jev'in yerel çalıştırmada kullandığı derin öğrenme kütüphanesi.
+115	0.25	googleaistudio	Google AI Studio	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Prompttan çalışan uygulama prototipi, tarayıcıda ücretsiz
+116	0.25	googlecolab	Google Colab	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Veri yükle, analiz not defteri al
+117	0.25	codewiki	Code Wiki	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Herkese açık kod tabanını sade dokümanla açıklar
+118	0.25	gemininotebook	Gemini Notebook	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Kendi belgelerin içinde araştırma; eski adı NotebookLM
+119	0.25	learnyourway	Learn Your Way	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Konuyu kişiye göre derse dönüştürür
+120	0.25	eloquent	Eloquent	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Cihazda çalışan sesle yazdırma (dictation)
+121	0.25	edgegallery	Edge Gallery	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Telefonda çevrimdışı yapay zekâ sohbeti ve görsel soruları
+122	0.25	mixboard	Mixboard	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Kapatılan Google Labs deneyi; yerine Google Flow öneriliyor
+123	0.25	gemini	Gemini	teknik	-	-	-	yok	-	DeMoWpdAC1Z	Google'ın yapay zekâ modeli/uygulaması; gönderi 'Google AI yalnız Gemini değil' diyor
+124	0.25	pocketbase	PocketBase	teknik	-	-	-	yok	-	DePeKi4gE1V	Gömülü SQLite, gerçek zamanlı abonelik, kullanıcı/dosya yönetimi ve yönetici paneli sunan Go backend
+125	0.25	billionmail	BillionMail	teknik	-	-	-	yok	-	DePeKi4gE1V	Kendi sunucunda çalışan posta sunucusu, bülten ve e-posta pazarlama çözümü
+126	0.25	brevo	Brevo	teknik	-	-	-	yok	-	DePeKi4gE1V	Ücretli e-posta/SMS pazarlama platformu; değiştirilen yazılım
+127	0.25	snapzy	Snapzy	teknik	-	-	-	yok	-	DePeKi4gE1V	Ekran görüntüsü, kayıt ve GIF alıp düzenleyen açık kaynak yerel macOS uygulaması
+128	0.25	screenstudio	Screen Studio	teknik	-	-	-	yok	-	DePeKi4gE1V	Ücretli macOS ekran kaydı aracı; değiştirilen yazılım
+129	0.25	triggerdev	Trigger.dev	teknik	-	-	-	yok	-	DePeKi4gE1V	Dayanıklı yapay zekâ iş akışları ve arka plan görevleri için geliştirici platformu
+130	0.25	beehive	Beehive	teknik	-	-	-	yok	-	DeR11OUkobq	Zapier ile kişilerin aktarıldığı e-posta bülteni aracı
+131	0.25	ink	Ink	teknik	-	-	-	yok	-	DeT6XXkiPwj	Oyunlar için anlatı betik dili; oyuncu kararlarına göre değişen diyalog yazılır.
+132	0.25	phaser	Phaser	teknik	-	-	-	yok	-	DeT6XXkiPwj	Tarayıcıda çalışan oyunun puanlama, kontrol ve kurallarının yazıldığı oyun çatısı.
+133	0.25	elevenlabs	ElevenLabs	teknik	-	-	-	yok	-	DeT6XXkiPwj	Kapı gıcırtısı, metal sürtünmesi, ortam uğultusu gibi korku sesleri üretir.
+134	0.25	claudeopus55	Claude Opus 5.5	teknik	-	-	-	yok	-	DeUowm5udJA	Uygulamaları geliştirmek için kullanılan Anthropic yapay zeka modeli
+135	0.25	photocraft	PhotoCraft	teknik	-	-	-	yok	-	DeUowm5udJA	Photoshop alternatifi açık kaynaklı uygulama
+136	0.25	vectorcraft	VectorCraft	teknik	-	-	-	yok	-	DeUowm5udJA	Illustrator alternatifi açık kaynaklı uygulama
+137	0.25	filmcraft	FilmCraft	teknik	-	-	-	yok	-	DeUowm5udJA	Premiere Pro alternatifi açık kaynaklı uygulama
+138	0.25	photoshop	Photoshop	teknik	-	-	-	yok	-	DeUowm5udJA	Kopyalanan Adobe uygulaması (referans)
+139	0.25	illustrator	Illustrator	teknik	-	-	-	yok	-	DeUowm5udJA	Kopyalanan Adobe uygulaması (referans)
+140	0.25	premierepro	Premiere Pro	teknik	-	-	-	yok	-	DeUowm5udJA	Kopyalanan Adobe uygulaması (referans)
+141	0.25	webgl	WebGL	teknik	-	-	-	yok	-	DeV0EnpAJCs	Componentry'nin etkileşimli 3B/GPU işlemeleri.
+142	0.25	meetily	Meetily	teknik	-	-	-	yok	-	DeV9nZPtSsC	Toplantıları kaydedip özetleyen, tamamen yerel çalışan yapay zekâ toplantı notu uygulaması.
+143	0.25	airllm	AirLLM	teknik	-	-	-	yok	-	DeW7JHrgsXb	70B modeli tek 4GB GPU'da, her seferinde bir katman yükleyerek çalıştıran açık kaynaklı Python kütüphanesi
+144	0.25	kimik3	Kimi K3	teknik	-	-	-	yok	-	DeW7JHrgsXb	2.8 trilyon parametreli, en büyük açık model olarak anılan model; AirLLM ile 4GB altında çalıştığı iddia ediliyor
+145	0.25	apache20	Apache-2.0	teknik	-	-	-	yok	-	DeW7JHrgsXb	AirLLM'in açık kaynak lisansı
+146	0.25	katmankatmankarm	Katman katman çıkarım	teknik	-	-	-	yok	-	DeW7JHrgsXb	Modelin yalnızca bir katmanını GPU belleğinde tutarak çalıştırma yöntemi
+147	0.25	llama	Llama	teknik	-	-	-	yok	-	DeW7JHrgsXb	Açıklamada 8GB'da çalışan 405B Llama olarak anılıyor
+148	0.25	appstore	App Store	teknik	-	-	-	yok	-	DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+149	0.25	reddit	Reddit	teknik	-	-	-	yok	-	DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+150	0.25	trustpilot	Trustpilot	teknik	-	-	-	yok	-	DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+151	0.25	g2	G2	teknik	-	-	-	yok	-	DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+152	0.25	mozjpeg	MozJPEG	teknik	-	-	-	yok	-	DeWQJuHxx4I	Squoosh'ta görünen sıkıştırma kodeği
+153	0.25	adaptaviralreel	Adapt a viral reel	teknik	-	-	-	yok	-	DeWfqTdm94Z	Viral Reel'in yapısını bulup transkriptini çıkararak kendi nişine uyarlama
+154	0.25	librechat	LibreChat	teknik	-	-	-	yok	-	DeXAMs2Eqgh	Claude, Gemini, ChatGPT, DeepSeek'i tek arayüzde toplayan kendi sunucunda barındırılan sohbet uygulaması.
+155	0.25	openllmvtuber	Open LLM VTuber	teknik	-	-	-	yok	-	DeXAMs2Eqgh	Masaüstünde yaşayan, sesle konuşan, ekranı gören, çevrimdışı çalışan çizgi karakter yapay zekâ arkadaşı.
+156	0.25	camofoxbrowser	Camofox Browser	teknik	-	-	-	yok	-	DeXAMs2Eqgh	Yapay zekâ botlarını bot tespitinden gizleyen gizli (stealth) tarayıcı.
+157	0.25	asdste100	ASD-STE100	teknik	-	-	-	yok	-	DeXJQ-kGKUY	Havacılıkta kullanılan Simplified Technical English kontrollü dil standardı.
+158	0.25	macho	Mach-O	teknik	-	-	-	yok	-	DeXr6wCMAEZ	Analiz edilen binary biçimi
+159	27.58	geminicli	Gemini CLI	CLI	google-gemini/gemini-cli	Apache-2.0	★107292	yok	tasarim	DX2ubACJYRN,DdtP_L9FljV,DeMoWpdAC1Z,DeXr6wCMAEZ	Open Design ve Career-Ops'ta desteklenen kodlama ajanı
+160	12.22	motiongraphics	motion-graphics	skill	Barty-Bart/motion-graphics	NOASSERTION	★617	yok	animasyon	Dd1zrTggHCW,DeRvxD6gDCu	Hareketli grafik skill'i
+161	11.40	hermesagent	Hermes Agent	CLI	NousResearch/hermes-agent	MIT	★252930	yok	tasarim	DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+162	10.53	componentry	Componentry	plugin	harshjdhv/componentry	MIT	★595	yok	animasyon	DeV0EnpAJCs	Sinematik kaydırma, 3B yığınlar, WebGL ve liquid-glass carousel içeren animasyonlu React bileşenleri; shadcn CLI ve MCP ile kurulur.
+163	10.39	claudemotiondesign	claude-motion-design	skill	howseen-ai/claude-motion-design	MIT	★458	yok	animasyon	DeRvxD6gDCu	Playwright ve FFmpeg kullanan HTML video iş akışı skill'i.
+164	10.02	motiongraphicsskills	motion-graphics-skills	skill	charlie947/motion-graphics-skills	MIT	★223	yok	animasyon	DeRvxD6gDCu	Lansman videosu, grafik ve motion graphics için 13 skill'lik paket.
+165	9.99	motiondesignskill	motion-design-skill	skill	LottieFiles/motion-design-skill	MIT	★2130	yok	animasyon	DeRvxD6gDCu	Animasyon araçları arasında zamanlama ve koreografi ilkeleri.
+166	9.89	productlaunchmotion	product-launch-motion	skill	AbubakrChan/product-launch-motion	MIT	★174	yok	animasyon	DeRvxD6gDCu	Seslendirme, kamera hareketi ve ses senkronuyla lansman filmi skill'i.
+167	9.70	hyperframesmotionreelskill	hyperframes-motion-reel-skill	skill	Sunwood-ai-labs/hyperframes-motion-reel-skill	MIT	★121	yok	animasyon	DeRvxD6gDCu	Ritme senkron HyperFrames showreel'leri ve kodla üretilen ses.
+168	9.46	uxdesignerskill	ux-designer-skill	skill	szilu/ux-designer-skill	MIT	★76	yok	tasarim	DeW5NQ1DZhh	UX akışlarını, hata durumlarını, dokunma hedeflerini ve WCAG kontrastını planlar.
+169	8.66	motiondevanimationsskill	motion-dev-animations-skill	skill	199-biotechnologies/motion-dev-animations-skill	MIT	★163	yok	animasyon	DeRvxD6gDCu	Kaydırma, yay ve etkileşimli arayüz için Motion.dev kalıpları web skill'i.
+170	8.48	motiondesignskills	motion-design-skills	skill	iart-ai/motion-design-skills	MIT	★115	yok	animasyon	DeRvxD6gDCu	Zamanlama, renk, kompozisyon, logo ve video skill paketi.
+171	8.05	copilotcli	Copilot CLI	CLI	github/copilot-cli	NOASSERTION	★11251	yok	tasarim	DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+172	7.22	designextract	Design Extract	CLI	Manavarya09/design-extract	MIT	★4221	yok	tasarim	DX2ubACJYRN	Bir siteden tasarım sistemi çıkarır (designlang/designtang)
+173	6.96	klikanimskillcreation	klik-anim-skill-creation	skill	t3knobox/klik-anim-skill-creation	yok	★62	yok	animasyon	DeRvxD6gDCu	Remotion için animasyon, kamera ve prodüksiyon rehberi skill paketi.
+174	6.70	designlang	designlang	CLI	Nonzero-Sum-Solutions/designlanguage	Unlicense	★4	yok	tasarim	DX2ubACJYRN	Bir web sitesini tarayıp tasarım sistemi (token, Tailwind, Figma, Markdown) üreten araç; videoda 'Design Extract' olarak anılıyor
+175	6.11	spaceui	Space UI	plugin	katas94/WorldSpace_UIToolkit_XR	MIT	★60	yok	animasyon	DeV0EnpAJCs	Liquid switch, morphing kontrol, loader, shader ve gooey efektli React bileşenleri.
+176	5.21	reactbits	React Bits	iş akışı	DavidHDev/react-bits	NOASSERTION	★48964	yok	animasyon	DeWQJuHxx4I	215+ animasyonlu React bileşen kütüphanesi
+177	5.11	claudemotion	claude-motion	plugin	whaleyxbt/claude-motion	MIT	★329	yok	animasyon	DeRvxD6gDCu	Hareket yönetimi, kare incelemesi ve kodla üretilen ses sunan toolkit.
+178	5.10	compositor	Compositor	CLI	robbietilton/Compositor	MIT	★16132	yok	tasarim	Dd-FTnEmE_b	Katman, maske ve renk ayarlı ücretsiz açık kaynak Mac görsel düzenleyici
+179	4.95	skecherui	Skecher UI	plugin	CoDesign-Spa27/skecher-ui	yok	★31	yok	animasyon	DeV0EnpAJCs	Hareket odaklı React bileşenleri: morphing navigasyon, gooey araç çubukları, liquid-glass yüzeyler, animasyonlu metin.
+180	3.42	spline	Spline	iş akışı	yoyo-nb/Thin-Plate-Spline-Motion-Model	MIT	★3607	yok	tasarim	DeWQJuHxx4I	Kodsuz 3B sahne hazırlayıp siteye gömme aracı
+181	3.09	awesomemotiondesignagentskills	awesome-motion-design-agent-skills	teknik	frankxai/awesome-motion-design-agent-skills	CC0-1.0	★51	yok	animasyon	DeRvxD6gDCu	Seçilmiş hareket kaynakları ve kurulabilir ajan skill'leri dizini.
+182	2.85	lottieweb	lottie-web	teknik	airbnb/lottie-web	MIT	★32210	yok	animasyon	DeRvxD6gDCu	Lottie JSON animasyonlarını tarayıcıda oynatan web oynatıcı.
+183	2.85	hyperframesstudentkit	hyperframes-student-kit	iş akışı	nateherkai/hyperframes-student-kit	NOASSERTION	★1334	yok	animasyon	DeRvxD6gDCu	Düzenleme iş akışları ve 406 taslak motion graphics kartı.
+184	2.63	godly	Godly	iş akışı	BRoy98/GodlyTorch	GPL-3.0	★23	yok	tasarim	DeWQJuHxx4I	recent.design'ın eski adı; ilham için
+185	2.40	realtimecolors	Realtime Colors	iş akışı	BlankParticle/tailwind-plugin-realtime-colors	MIT	★9	yok	tasarim	DeWQJuHxx4I	Renk paletini gerçek site üzerinde önizleme aracı
+186	1.76	featherless	Featherless	teknik	featherless-ai/simple-jev	Apache-2.0	★602	yok	tasarim	DeHMM45NaFt	Simple Jev demo sitesi ve API'sini barındıran servis
+187	1.72	fontshare	Fontshare	iş akışı	exadizon/fontshare-downloader	yok	★1	yok	tasarim	DeWQJuHxx4I	Ticari kullanıma ücretsiz font servisi
+188	1.65	arcui	Arc UI	plugin	dxdotdev/arc-ui	MIT	★73	yok	tasarim	DeV0EnpAJCs	Dashboard, ayarlar ve auth için tutarlı token'lı, kaynak kodu düzenlenebilir React bileşen ve blokları.
+189	0.94	tailwindcss	Tailwind CSS	teknik	-	-	-	yok	tasarim	DX2ubACJYRN,Dc3zXkXSxpH,DeV0EnpAJCs,DeWwPtmDvqV	designlang'in ürettiği Tailwind config dosyası
+190	0.75	shadcnui	shadcn/ui	teknik	-	-	-	yok	tasarim	DX2ubACJYRN,DXxQS0AO1Km,Dc3zXkXSxpH	designlang'in ürettiği shadcn/ui tema dosyası
+191	0.75	stitch	Stitch	teknik	-	-	-	yok	tasarim	DdZs2nUOpMP,DeMoWpdAC1Z	MCP ile içe aktarılıp denetlenen tasarım aracı örnek ekranda
+192	0.56	claudedesign	Claude Design	teknik	-	-	-	yok	tasarim	DX2ubACJYRN,DdZs2nUOpMP	Anthropic'in tasarım aracı; Open Design'ın klonlandığı referans ürün
+193	0.56	figma	Figma	teknik	-	-	-	yok	tasarim	DX2ubACJYRN,DeT6XXkiPwj	designlang'in ürettiği Figma değişken dosyası
+194	0.56	nodejs	Node.js	teknik	-	-	-	yok	tasarim	DX2ubACJYRN,DXxQS0AO1Km	designlang'in gereksinimi (node>=20) ve Career-Ops rozetinde anılan çalışma zamanı
+195	0.50	v0	v0	teknik	-	-	-	yok	tasarim	DdtP_L9FljV	Taste Skill'in uyumlu olduğu AI arayüz üretim servisi (slaytta listelenir, videoda kullanılmaz)
+196	0.50	lovable	Lovable	teknik	-	-	-	yok	tasarim	DdtP_L9FljV	Taste Skill'in uyumlu olduğu AI uygulama üretim servisi (slaytta listelenir, videoda kullanılmaz)
+197	0.50	llmstxt	llms.txt	teknik	-	-	-	yok	tasarim	DeV0EnpAJCs	Yapay zekâ ajanlarının siteyi anlaması için standart dosya.
+198	0.50	pageagent	Page Agent	teknik	-	-	-	yok	tasarim	DeV9nZPtSsC	Alibaba'nın siteye gömülen GUI ajanı; tek script etiketiyle kullanıcılar siteyi doğal dille yönetir.
+199	0.38	designmd	DESIGN.md	teknik	-	-	-	yok	tasarim	Dc3zXkXSxpH	Markanın renk, yazı tipi, boşluk ve kurallarını içeren tasarım sistemi dosyası
+200	0.38	tailwindv4	Tailwind v4	teknik	-	-	-	yok	tasarim	Dc3zXkXSxpH	DESIGN.md sayfasında dışa aktarım sekmesi olarak sunulan format
+201	0.38	apple	Apple	teknik	-	-	-	yok	tasarim	Dc3zXkXSxpH	Örnek marka tasarım dili (Apple España, SF Pro, 28px yarıçap)
+202	0.38	claudefable51	Claude Fable 5.1	teknik	-	-	-	yok	fable	DdZs2nUOpMP	Sistem istemi sızdırıldığı iddia edilen Anthropic modeli; videonun ana konusu
+203	0.38	opus55	Opus 5.5	teknik	-	-	-	yok	tasarim	DeRvxD6gDCu	Kapakta anılan, hareket tasarım stüdyosuna dönüştürülen model.
+204	0.38	aseprite	Aseprite	teknik	-	-	-	yok	animasyon	DeT6XXkiPwj	Piksel sanat çizimi ve koşma/zıplama animasyonları için sprite editörü.
+205	0.38	meshy	Meshy	teknik	-	-	-	yok	blender	DeT6XXkiPwj	Metin veya görselden mobilya, sandık gibi 3D nesne taslakları üretir.
+206	0.38	unity	Unity	teknik	-	-	-	yok	blender	DeT6XXkiPwj	Oyun motoru; 3D keşif oyunu ve seçimli hikâye örneklerinde modeller/kodlar buraya aktarılıyor.
+207	0.38	cascadeur	Cascadeur	teknik	-	-	-	yok	animasyon	DeT6XXkiPwj	Yapay zekâ destekli saldırı, kaçınma ve düşme animasyonu aracı.
+208	0.38	unrealengine	Unreal Engine	teknik	-	-	-	yok	animasyon	DeT6XXkiPwj	Animasyonlar aktarılıp saldırı zamanlaması ve isabet alanları ayarlanan oyun motoru.
+209	0.38	shaders	Shaders	teknik	-	-	-	yok	animasyon	DeV0EnpAJCs	Space UI'nin sıvı ve animasyon efektlerinde anılan GPU gölgelendirici teknikleri.
+210	0.38	clashdisplay	Clash Display	teknik	-	-	-	yok	tasarim	DeWQJuHxx4I	Videonun başında ekranda görünen font
+211	0.25	litellm	LiteLLM	teknik	-	-	-	yok	router	DX2ubACJYRN	CodeBurn çağrı fiyatlandırması
+212	0.25	inter	Inter	teknik	-	-	-	yok	tasarim	DX2ubACJYRN	Yapay zekânın sık kullandığı, Impeccable'ın kaçınılacak font örneği olarak gösterdiği font
+213	0.25	geist	Geist	teknik	-	-	-	yok	tasarim	DX2ubACJYRN	Vercel çıktısında tespit edilen font ailesi (Geist, Geist Mono)
+214	0.25	moerouting	MoE routing	teknik	-	-	-	yok	router	DXxQS0AO1Km	Uzman karışımı ile görev yönlendirme (8 uzman)
+215	0.25	gpt54	GPT-5.4	teknik	-	-	-	yok	router	DXxQS0AO1Km	Yönlendirmede gösterilen model
+216	0.25	gemini31pro	Gemini 3.1 Pro	teknik	-	-	-	yok	router	DXxQS0AO1Km	Yönlendirmede gösterilen model
+217	0.25	llama31	Llama 3.1	teknik	-	-	-	yok	router	DXxQS0AO1Km	Yönlendirmede gösterilen model
+218	0.25	sfprodisplay	SF Pro Display	teknik	-	-	-	yok	tasarim	Dc3zXkXSxpH	Apple dosyasında hero başlıklar için belirtilen font ailesi
+219	0.25	sfprotext	SF Pro Text	teknik	-	-	-	yok	tasarim	Dc3zXkXSxpH	Apple dosyasında gövde metni için belirtilen font ailesi
+220	0.25	claudemythos51	Claude Mythos 5.1	teknik	-	-	-	yok	fable	DdZs2nUOpMP	Fable 5.1 ile aynı temel modeli paylaşan, sistem isteminde anılan model
+221	0.25	drive	Drive	teknik	-	-	-	yok	animasyon	DdZs2nUOpMP	Görev akışında erişimi doğrulanan dosya servisi (Google Drive olduğu varsayılıyor).
+222	0.25	netlify	Netlify	teknik	-	-	-	yok	tasarim	DdxzONPjVUi	Statik/Jamstack site derleme, yayın ve yönetim platformu.
+223	0.25	githubpages	GitHub Pages	teknik	-	-	-	yok	tasarim	DdxzONPjVUi	GitHub depolarından statik site yayınlama.
+224	0.25	render	Render	teknik	-	-	-	yok	blender	DdxzONPjVUi	Web servisi, API ve uygulama barındırma.
+225	0.25	gitlabpages	GitLab Pages	teknik	-	-	-	yok	tasarim	DdxzONPjVUi	GitLab depolarından statik site yayınlama.
+226	0.25	pomelli	Pomelli	teknik	-	-	-	yok	tasarim	DeMoWpdAC1Z	Web sitesini okuyup markaya uygun gönderi üretir
+227	0.25	fable5	Fable 5	teknik	-	-	-	yok	fable	DeR11OUkobq	Ekranlarda seçili görünen Claude modeli
+228	0.25	satoshi	Satoshi	teknik	-	-	-	yok	tasarim	DeWQJuHxx4I	Fontshare'de görünen font ailesi
+229	0.25	generalsans	General Sans	teknik	-	-	-	yok	tasarim	DeWQJuHxx4I	Fontshare'de görünen font ailesi
+230	0.25	spotify	Spotify	teknik	-	-	-	yok	tasarim	DeWwPtmDvqV	HeyGen örneğinde promoya dönüştürülen site (spotify.com).
+231	0.25	webpagetomp4	Web page to MP4	teknik	-	-	-	yok	animasyon	DeWwPtmDvqV	Claude'un her sahneyi web sayfası olarak yazdığı, bunun sonra hareketli metin ve görüntülerle bitmiş MP4'e dönüştürüldüğü HeyGen yapımı araç (After Effects alternatifi).
+232	0.25	claudeplatformdocs	Claude Platform Docs	teknik	-	-	-	yok	tasarim	DeXd4jID1y9	Rehberin gösterildiği Anthropic dokümantasyon sitesi
+233	27.53	claudecode	Claude Code	CLI	anthropics/claude-code	yok	★150295	plugin-acik:agent-sdk-dev@claude-code-plugins,plugin-acik:claude-opus-4-5-migration@claude-code-plugins,plugin-acik:code-review@claude-code-plugins	-	DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DcrhGgKyBD8,Dd-FTnEmE_b,Dd18tq_IMQB,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DdtP_L9FljV,DeRvxD6gDCu,DeT6XXkiPwj,DeWPBbShCBu,DeXConTt1X5,DeXJQ-kGKUY,DeXd4jID1y9,DeXr6wCMAEZ	Ana yapay zekâ kodlama aracı
+234	19.76	tasteskill	Taste Skill	skill	Leonxlnx/taste-skill	MIT	★94879	plugin-acik:taste-skill@taste-skill,plugin:taste-skill/taste-skill	tasarim	DdtP_L9FljV,DeW5NQ1DZhh	Ajanın jenerik frontend estetiğine düşmeden güçlü görsel yön belirlemesini sağlar; landing page ve portfolyo için.
+235	19.63	impeccable	Impeccable	skill	pbakaus/impeccable	Apache-2.0	★80026	plugin-acik:impeccable@impeccable,plugin:impeccable/impeccable	tasarim	DX2ubACJYRN,DdtP_L9FljV	23 komutlu ön yüz tasarım skill'i
+236	12.55	securityaudit	security-audit	skill	cloudflare/security-audit-skill	MIT	★28465	skill:security-audit	-	DdbyRoJtJV4	Cloudflare'in kodlama ajanını çok aşamalı güvenlik denetçisine çeviren skill; bulguları taze bir doğrulayıcı ajan çürütmeye çalışır.
+237	12.32	claudevideo	Claude Video	plugin	bradautomates/claude-video	MIT	★18395	plugin:claude-video/watch	-	DX2ubACJYRN	Claude Code'a video izletir; FFmpeg ile kareleri çıkarır
+238	11.33	opencode	OpenCode	CLI	anomalyco/opencode	MIT	★212807	npm:open-code-review,plugin:temp_git_1791614177355_dt7lhc/.opencode,plugin:temp_git_1791700877447_z8m5ot/.opencode	tasarim	DX2ubACJYRN	Open Design ve Career-Ops'ta desteklenen kodlama ajanı
+239	10.54	planes	Planes	plugin	makeplane/plane	AGPL-3.0	★60700	skill:plan-eng-review,skill:threejs-procedural-planets	animasyon	DeV0EnpAJCs	TypeScript, Tailwind ve Motion ile yazılmış, MCP ve llms.txt destekli yapay zekâ dostu React bileşenleri.
+240	10.47	animate	animate	skill	cth9191/animate	MIT	★530	skill:animate,skill:animate-expo	blender	DeRvxD6gDCu	Render öncesi storyboard'lanan kısa Canvas animasyonları skill'i.
+241	10.06	codeburn	CodeBurn	CLI	getagentseal/codeburn	MIT	★11403	npm:codeburn	-	DX2ubACJYRN	Token harcamasını izler ve optimize önerir
+242	9.64	diagramdesign	diagram-design	skill	cathrynlavery/diagram-design	MIT	★51265	skill:diagram-design-paket	tasarim	DeWwPtmDvqV	Tek promptla 44 diyagram türü üretir; bir web sitesinin markasına uyarlanır.
+243	9.24	remotionagentskills	Remotion Agent Skills	skill	remotion-dev/skills	yok	★5047	plugin-acik:accessibility-decisions@designer-skills,plugin-acik:accessible-content@designer-skills,plugin-acik:adaptive-interfaces@designer-skills	animasyon	DeRvxD6gDCu	Remotion'da çalışan ajanlar için resmi rehber skill paketi.
+244	8.25	opendesign	Open Design	CLI	nexu-io/open-design	Apache-2.0	★100647	plugin-acik:open-design@open-design,plugin:open-design/open-design	tasarim	DX2ubACJYRN	Claude Design'ın açık kaynak yerel alternatifi
+245	7.85	n8nmcpserver	n8n MCP server	MCP	vredrick/n8n-mcp	MIT	★34	mcp:n8n-mcp,skill:n8n-mcp-tools-expert,skill:using-n8n-mcp-skills	-	DX2ubACJYRN	Prompttan n8n iş akışı oluşturur
+246	7.66	vercelwebdesignguidelines	Vercel Web Design Guidelines	skill	vercel-labs/agent-skills	yok	★32262	plugin-acik:agent-skills@addy-agent-skills,plugin-acik:claude-api@anthropic-agent-skills,plugin-acik:discernment-nudge@anthropic-agent-skills	tasarim	DdtP_L9FljV	UI kodunu Vercel Web Interface Guidelines'a göre denetler; erişilebilirlik, odak, form, durum ve kenar durumlarını yakalar.
+247	5.55	graphify	Graphify	CLI	Graphify-Labs/graphify	Apache-2.0	★125668	skill:graphify,uv:graphifyy	-	DX2ubACJYRN	Obsidian ile saf RAG arası bilgi grafiği
+248	5.49	playwright	Playwright	MCP,teknik	microsoft/playwright	Apache-2.0	★97520	mcp:playwright,plugin:claude-plugins-official/playwright	-	DX2ubACJYRN,DdZs2nUOpMP,DeRvxD6gDCu,DeXConTt1X5	Browser Harness için karşılaştırma
+249	5.26	laya	Laya	CLI	NandhaKishorM/laya	Apache-2.0	★32449	skill:test-playable-web-games	-	DeHMM45NaFt	Otoregresif olmayan System 1 karar motoru; tek ileri geçişte 100+ dilde skor ve evet/hayır kararı verir
+250	4.85	hyperframes	hyperframes	teknik	heygen-com/hyperframes	Apache-2.0	★61288	plugin-acik:core-skills@hyperframes,plugin-acik:hyperframes@hyperframes,plugin:hyperframes/core-skills	animasyon	DeRvxD6gDCu,DeXAMs2Eqgh	HTML, CSS ve zamanlı animasyonu MP4 videoya çeviren video aracı.
+251	4.80	clauderemotionskill	claude-remotion-skill	skill	haidrrry/claude-remotion-skill	-	yok	-	animasyon	DeRvxD6gDCu	Altyazı, B-roll ve ses için Remotion video iş akışı skill'i.
+252	4.74	motion	motion	teknik	motiondivision/motion	MIT	★34007	skill:cinematic-gsap-lenis-motion-system,skill:fixing-motion-performance,skill:motion-os	animasyon	DeRvxD6gDCu,DeV0EnpAJCs	JavaScript, React ve Vue için animasyon kütüphanesi.
+253	3.75	codex	Codex	CLI	-	-	-	-	-	Dd-FTnEmE_b,DdtP_L9FljV,DeT6XXkiPwj,DeXJQ-kGKUY,DeXr6wCMAEZ	Magpie ile model değiştirilebilen kodlama ajanı
+254	3.36	gsap	GSAP	teknik	greensock/GSAP	yok	★29094	plugin-acik:gsap-skills@gsap-skills,plugin:gsap-skills/gsap-skills,skill:cinematic-gsap-lenis-motion-system	animasyon	DeRvxD6gDCu,DeWQJuHxx4I	Web ve kodla video animasyonu için JavaScript zaman çizelgeleri kütüphanesi.
+255	3.21	obsidian	Obsidian	CLI,teknik	kepano/obsidian-skills	MIT	★49425	plugin-acik:obsidian-cli@obsidian-cli-skill,plugin-acik:obsidian@obsidian-skills,plugin:obsidian-cli-skill/obsidian-cli	-	DX2ubACJYRN,Dd9NdbFxJLo	Graphify karşılaştırması
+256	2.64	remotion	remotion	teknik	remotion-dev/remotion	NOASSERTION	★63422	skill:remotion-best-practices,skill:remotion-captions,skill:remotion-create	blender	DeRvxD6gDCu	React bileşenleriyle video oluşturup render eden araç.
+257	2.50	skillscli	Skills CLI	CLI	-	-	-	-	-	DdbyRoJtJV4,DdtP_L9FljV,DeW5NQ1DZhh	npx skills add komutuyla agent skill'lerini kuran komut satırı aracı.
+258	2.04	lenis	Lenis	teknik	darkroomengineering/lenis	MIT	★16448	skill:cinematic-gsap-lenis-motion-system	animasyon	DeWQJuHxx4I	Akıcı, yumuşak kaydırma (smooth scroll) kütüphanesi
+259	1.88	npm	npm	CLI	-	-	-	-	-	DXxQS0AO1Km,DeV9nZPtSsC	Claude Code ve Ruflo kurulum paket yöneticisi
+260	1.50	frontenddesign	frontend-design	skill	-	-	-	-	router	DX2ubACJYRN	Anthropic'in Claude'u daha iyi ön yüz üretmeye yönlendiren skill'i; Impeccable'ın temeli
+261	1.50	cursor	Cursor	CLI,teknik	-	-	-	-	-	DX2ubACJYRN,DdtP_L9FljV,DeV0EnpAJCs,DeXJQ-kGKUY,DeXr6wCMAEZ	MCP istemcisi olarak anılan IDE
+262	1.50	mcp	MCP	MCP,teknik	-	-	-	-	-	DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DdZs2nUOpMP,DeHMM45NaFt,DeV0EnpAJCs,DeWwPtmDvqV,DeXr6wCMAEZ	Ruflo'nun Claude Code'a sunduğu 170+ araçlık entegrasyon
+263	1.50	flownexus	flow-nexus	MCP	-	-	-	-	-	DXxQS0AO1Km	Bulut sürü dağıtımı MCP sunucusu
+264	1.50	claudecodesetup	Claude Code Setup	plugin	-	-	-	-	-	DaagbUMP8Tg	Kod tabanını tarayıp uygun hook, skill, subagent ve MCP önerileri sunan resmi Anthropic plugin'i
+265	1.50	skills	Skills	skill	-	-	-	-	-	DaagbUMP8Tg	Claude Code skill'leri; plugin tarafından önerilir
+266	1.50	postgres	Postgres	MCP	-	-	-	-	-	DaagbUMP8Tg	Açıklamada örnek MCP sunucusu
+267	1.50	claude	Claude	CLI,skill,teknik	-	-	-	-	-	DcrhGgKyBD8,Dd18tq_IMQB,Dd1zrTggHCW,Dd9NdbFxJLo,DeHMM45NaFt,DeR11OUkobq,DeT6XXkiPwj,DeV0EnpAJCs,DeW5NQ1DZhh,DeW7JHrgsXb,DeWPBbShCBu,DeWfqTdm94Z,DeWwPtmDvqV,DeXConTt1X5,DeXd4jID1y9	Görevi alan ve alt-ajanları üreten ana yapay zekâ aracı
+268	1.50	elevenlabsmcp	ElevenLabs MCP	MCP	-	-	-	-	animasyon	Dd18tq_IMQB	ElevenLabs'in Claude'a ses, müzik, efekt, görsel ve dudak senkronlu video üretimi getiren bağlantısı
+269	1.50	reelfactory	reel-factory	skill	-	-	-	-	-	Dd1zrTggHCW	Reel üretimi için Claude skill'i
+270	1.50	hookarsenal	hook-arsenal	skill	-	-	-	-	-	Dd1zrTggHCW	Hook (açılış cümlesi) skill'i
+271	1.50	conceptgraphics	concept-graphics	skill	-	-	-	-	-	Dd1zrTggHCW	Konsept grafikleri skill'i
+272	1.50	goviral	go-viral	skill	-	-	-	-	-	Dd1zrTggHCW	Viral içerik skill'i
+273	1.50	scrollstopper	scroll-stopper	skill	-	-	-	-	animasyon	Dd1zrTggHCW	Kaydırmayı durduran içerik skill'i
+274	1.50	storyaudit	story-audit	skill	-	-	-	-	-	Dd1zrTggHCW	Hikâye denetimi skill'i
+275	1.50	dopamineladder	dopamine-ladder	skill	-	-	-	-	-	Dd1zrTggHCW	Dopamin merdiveni skill'i
+276	1.50	viralemotion	viral-emotion	skill	-	-	-	-	animasyon	Dd1zrTggHCW	Viral duygu skill'i
+277	1.50	cameramoves	camera-moves	skill	-	-	-	-	-	Dd1zrTggHCW	Kamera hareketleri skill'i
+278	1.50	framedirection	frame-direction	skill	-	-	-	-	-	Dd1zrTggHCW	Kare yönetmenliği skill'i
+279	1.50	reeltransitions	reel-transitions	skill	-	-	-	-	-	Dd1zrTggHCW	Reel geçişleri skill'i
+280	1.50	oneobjectfilm	one-object-film	skill	-	-	-	-	-	Dd1zrTggHCW	Tek nesneli film skill'i
+281	1.50	hookmining	hook-mining	skill	-	-	-	-	-	Dd1zrTggHCW	Hook çıkarma (aykırı gönderilerden) skill'i
+282	1.50	coder	Coder	plugin	-	-	-	-	-	DdbyRoJtJV4	Yapay zekâ ajanlarını kendi sunucularında kilitli çalışma alanlarında çalıştıran platform; LLM kimlik bilgisi tutmaz, her eylem kullanıcıya bağlanır.
+283	1.50	antiuislop	Anti UI Slop	skill	-	-	-	-	tasarim	DdtP_L9FljV	Kodlama ajanını gerçek ürün, mevcut bileşen ve token'lardan çalışmaya iter; jenerik SaaS arayüzünü önler.
+284	1.50	uizze	UIZZE	plugin	-	-	-	-	tasarim	DdtP_L9FljV	Ajanlara UI zevki öğreten servis; 800.000+ tasarım keşfi, Agent SDK ve CONNECT düğmesi.
+285	1.50	emildesignengineering	Emil Design Engineering	skill	-	-	-	-	animasyon	DdtP_L9FljV	Emil Kowalski'nin skill'i; animasyon, easing, etkileşim ve küçük bileşen davranışlarıyla 'vibe-coded' hissini giderir.
+286	1.50	skillssh	skills.sh	plugin	-	-	-	-	-	DdtP_L9FljV	Skill dizini; Vercel skill sayfası kurulum komutu ve istatistik gösteriyor.
+287	1.50	trailofbitssecurityskills	Trail of Bits Security Skills	skill	-	-	-	-	-	DeEJV9mgfNz	Yapay zekâ kodlama ajanları için güvenlik odaklı skill seti
+288	1.50	emailvoice	Email Voice	skill	-	-	-	-	-	DeR11OUkobq	Gönderilmiş e-postalardan ses profili çıkarıp o sesle taslak yazan ücretsiz skill
+289	1.50	replicabuild	replica-build	skill	-	-	-	-	-	DeWPBbShCBu	Uygulamayı yeniden inşa eden skill
+290	1.50	replicatest	replica-test	skill	-	-	-	-	-	DeWPBbShCBu	Klonu hatalara ve orijinalle uyuma (parity score) karşı test eden skill
+291	1.50	replicaentrepreneur	replica-entrepreneur	skill	-	-	-	-	-	DeWPBbShCBu	Kullanıcı yorumlarını okuyup eksik özellikleri bulan ve uygulamada çözen skill
+292	1.50	claudeads	Claude Ads	skill	-	-	-	-	-	DeXAMs2Eqgh	Claude Code için reklam denetim skill'i; Google, Meta, YouTube, LinkedIn, TikTok'u tarar, Ads Health Score verir.
+293	1.50	steskill	STE Skill	skill	-	-	-	-	-	DeXJQ-kGKUY	Belirsiz İngilizce ajan çıktısını ASD-STE100 kurallarıyla sadeleştiren Claude Code becerisi.
+294	1.50	bookingskills	Booking Skills	skill	-	-	-	-	-	DeXJQ-kGKUY	Ajana otel/uçuş arama, fiyat karşılaştırma ve rezervasyon ekleyen skill seti (TourMind API).
+295	1.50	llmapps	LLM Apps	skill	-	-	-	-	-	DeXJQ-kGKUY	Hazır AI agent, RAG ve skill örneklerini toplayan repo (awesome-llm-apps).
+296	1.50	skillopt	SkillOpt	skill	-	-	-	-	-	DeXJQ-kGKUY	Model ağırlıklarını değiştirmeden skill metinlerini ajan izlerine göre optimize eder, best_skill.md üretir.
+297	1.50	claudesubagents	Claude Subagents	plugin	-	-	-	-	-	DeXJQ-kGKUY	Claude Code için 100+ uzman alt ajan koleksiyonu (awesome-claude-code-subagents).
+298	1.50	claudeskills	Claude Skills	skill	-	-	-	-	-	DeXd4jID1y9	Claude'un gerektiğinde açtığı, düz metin dosyasından oluşan yetenek paketleri; videonun ana konusu
+299	1.25	devinforterminal	Devin for Terminal	CLI	-	-	-	-	tasarim	DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+300	1.25	cursoragent	Cursor Agent	CLI	-	-	-	-	tasarim	DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+301	1.25	kiro	Kiro	CLI	-	-	-	-	tasarim	DX2ubACJYRN	Open Design'ın desteklediği kodlama ajanı
+302	1.25	claudetokenmonitor	Claude Token Monitor	CLI	-	-	-	-	-	DXxQS0AO1Km	Token tüketimini izleyen terminal aracı
+303	1.25	clianything	CLI-Anything	CLI	-	-	-	-	-	Dd9NdbFxJLo	Masaüstü yazılımları ajanların kullanabileceği CLI'ye çeviren açık kaynak repo
+304	1.25	pip	pip	CLI	-	-	-	-	-	Dd9NdbFxJLo,DeHMM45NaFt,DeW7JHrgsXb	CLI-Hub paketini kuran Python paket yöneticisi
+305	1.25	opencodereview	Open Code Review	CLI	-	-	-	-	-	DdbyRoJtJV4	Alibaba'nın hibrit (deterministik hat + LLM ajan) kod inceleme aracı; PR'lerde SQL injection ve XSS arar.
+306	1.25	npxskillsadd	npx skills add	CLI	-	-	-	-	-	DdbyRoJtJV4	Skills CLI ile skill kurma komutu.
+307	1.25	finceptterminal	Fincept Terminal	CLI	-	-	-	-	-	DeXAMs2Eqgh	Bloomberg Terminal alternatifi ücretsiz finans terminali; 20+ ajan, 100+ veri kaynağı.
+308	1.25	tokenmonitor	Token Monitor	CLI	-	-	-	-	-	DeXJQ-kGKUY	Claude Code, Codex, Cursor kullanımını, limit ve maliyeti tek panelde izleyen masaüstü widget.
+309	1.25	archon	Archon	CLI	-	-	-	-	-	DeXJQ-kGKUY	Kodlama ajanları için YAML iş akışı tabanlı açık kaynak harness builder.
+310	1.25	reaagents	rea-agents	CLI	-	-	-	-	-	DeXr6wCMAEZ	REA MCP sunucusunu ve iş akışı talimatlarını agentlara kuran npx paketi
+311	1.25	npx	npx	CLI	-	-	-	-	-	DeXr6wCMAEZ	rea-agents kurulum komutunu çalıştırır
+312	1.25	grokbuild	Grok Build	CLI	-	-	-	-	-	DeXr6wCMAEZ	REA'nın desteklediği agent
+313	1.12	github	GitHub	CLI,iş akışı,teknik	-	-	-	-	-	DXxQS0AO1Km,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DeRvxD6gDCu,DeV9nZPtSsC,DeW7JHrgsXb,DeWPBbShCBu,DeWwPtmDvqV,DeXAMs2Eqgh,DeXJQ-kGKUY	Ruflo deposunun README, commit ve sürüm sayfaları; videoda sıralama iddiasının kaynağı olarak gösterilir
+314	1.12	designmdlibrary	Design.MD library	skill	-	-	-	-	tasarim	Dc3zXkXSxpH	2000'den fazla site tasarım sistemi içeren ücretsiz kütüphane
+315	1.12	heygen	HeyGen	iş akışı	-	-	-	-	-	DdbljkbH5b2,DeWwPtmDvqV	Konuşan kafa avatar videosu üreten servis
+316	1.12	higgsfield	Higgsfield	plugin	-	-	-	-	-	DeR11OUkobq	Claude'a sohbet içinde görsel ve video reklam üretme yeteneği veren bağlayıcı
+317	1.12	canvasdesign	canvas-design	skill	-	-	-	-	tasarim	DeW5NQ1DZhh	Tarif edilen çalışmadan bitmiş PNG üretir.
+318	1.00	kimi	Kimi	CLI,iş akışı,teknik	-	-	-	-	tasarim	DX2ubACJYRN,Da0Csy8MYEy,Dd-FTnEmE_b	Open Design'ın desteklediği kodlama ajanı
+319	1.00	chatgpt	ChatGPT	ipucu,plugin,teknik	-	-	-	-	-	DX2ubACJYRN,Dd-FTnEmE_b,Dd18tq_IMQB	MCP istemcisi olarak anılan yapay zekâ uygulaması
+320	1.00	agenticslides	Agentic Slides	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Kimi'nin tek prompt'la slayt üreten özelliği
+321	1.00	supabase	Supabase	MCP,plugin,teknik	-	-	-	-	-	DaagbUMP8Tg,DePeKi4gE1V,DeR11OUkobq	MCP ile bağlanılan veritabanı örneği
+322	1.00	hubspot	HubSpot	iş akışı	-	-	-	-	-	DdbljkbH5b2	Sesli ajanda CRM kişisi oluşturma
+323	1.00	autohedge	AutoHedge	iş akışı	-	-	-	-	-	DeXAMs2Eqgh	4 yapay zekâ ajanıyla (seçim, matematik kontrolü, risk, işlem) çalışan, dizüstünden yönetilen hedge fon.
+324	1.00	vibetrading	Vibe-Trading	iş akışı	-	-	-	-	-	DeXAMs2Eqgh	64 finans becerisi olan, ajanların işlem öncesi tartıştığı çok ajanlı ticaret aracı; kripto, hisse, opsiyon.
+325	1.00	vibekanban	Vibe Kanban	iş akışı	-	-	-	-	-	DeXJQ-kGKUY	Kanban panosundan ajanlı geliştirme, kod farkı inceleme ve PR açma; kullanımdan kaldırılma sürecinde.
+326	0.94	kdenlive	Kdenlive	CLI	-	-	-	-	-	Dd9NdbFxJLo	Hub listesinde görünen video düzenleyici
+327	0.94	gitleaks	Gitleaks	CLI	-	-	-	-	-	DeEJV9mgfNz	Kod deposunda sızdırılmış gizli anahtar ve parolaları tarayan güvenlik aracı
+328	0.94	semgrep	Semgrep	CLI	-	-	-	-	-	DeEJV9mgfNz	Kodda güvenlik açıklarını ve hatalı kalıpları statik analizle bulan araç
+329	0.75	qwen	Qwen	CLI,teknik	-	-	-	-	tasarim	DX2ubACJYRN,DeHMM45NaFt	Open Design'ın desteklediği kodlama ajanı
+330	0.75	canva	Canva	iş akışı	-	-	-	-	tasarim	Da0Csy8MYEy	Rakip tasarım aracı olarak anılıyor
+331	0.75	claudepluginsofficial	claude-plugins-official	plugin	-	-	-	-	-	DaagbUMP8Tg	Anthropic'in resmi plugin deposu; recommender referans dosyaları burada
+332	0.75	vercel	Vercel	MCP,teknik	-	-	-	-	-	DaagbUMP8Tg,DdxzONPjVUi	Açıklamada örnek MCP sunucusu
+333	0.75	convex	Convex	MCP	-	-	-	-	-	DaagbUMP8Tg	Recommender'a eklenen veritabanı seçeneği
+334	0.75	supabasemcptesti	Supabase MCP testi	prompt	-	-	-	-	-	DaagbUMP8Tg	Supabase'teki en son 5 veritabanı kaydını getirmesi isteniyor.
+335	0.75	bossloop	Boss Loop	prompt	-	-	-	-	-	DcrhGgKyBD8	Görev + işçi alt-ajanlar + katı boss ajanı ile kendi kendine döngüleyen istem tekniği
+336	0.75	bossloopileiiajanlarvekatdenetibosskullanarakuygulamasiteretmek	Boss Loop ile işçi ajanlar ve katı denetçi boss kullanarak uygulama/site üretmek	prompt	-	-	-	-	tasarim	DcrhGgKyBD8	Claude'a görev ver ve iyi sonucun çıtasını gösteren gerçek bir örnek ekle; görevi bağımsız değerlendirilebilir en küçük parçalara böl, her parçaya bir işçi alt-ajan ata; kodu yazmamış, taze bağlamlı katı bir boss ajan ata: gerçek çıktıyı açıp çalıştırmayı denesin, geri göndersin, mükemmel puana kadar kullanıcı olmadan döngüde kalsın.
+337	0.75	clay	Clay	plugin	-	-	-	-	-	DeR11OUkobq	Claude içinde potansiyel müşteri bulma bağlayıcısı
+338	0.75	emailvoiceskillinigncelletme	Email Voice skill'ini güncelletme	prompt	-	-	-	-	-	DeR11OUkobq	Taslakları kullanıcının sesiyle yaz; gerekirse 'update my email voice' denerek profil yenilenir.
+339	0.75	kiilistesinibeehiveeaktarma	Kişi listesini Beehive'e aktarma	prompt	-	-	-	-	-	DeR11OUkobq	Yüklenen sahte lead CSV'sindeki tüm kişileri Zapier MCP ile Beehive'e ekle.
+340	0.75	skillkurulumu	Skill kurulumu	prompt	-	-	-	-	-	DeWPBbShCBu	Repo bağlantısı (github.com/Jakeschincariol/replica-skill) Claude Code'a yapıştırılıp skill'lerin kurulması isteniyor.
+341	0.75	recentdesign	recent.design	iş akışı	-	-	-	-	tasarim	DeWQJuHxx4I	Web tasarım ilham galerisi
+342	0.75	planner	Planner	skill	-	-	-	-	-	DeWfqTdm94Z	Haftayı Pazartesi–Pazar planlayıp Reels'i yayına hizalar
+343	0.75	replies	Replies	skill	-	-	-	-	-	DeWfqTdm94Z	Yorumlara yanıt verir ve DM gönderir
+344	0.75	perplexity	Perplexity	MCP	-	-	-	-	-	DeXConTt1X5	Claude'a derin arama ve araştırma yeteneği veren connector
+345	0.75	firecrawl	Firecrawl	MCP	-	-	-	-	tasarim	DeXConTt1X5	Web sitelerini kazıyıp rakip analizi ve marka görselleri çıkaran connector
+346	0.75	posthog	PostHog	MCP	-	-	-	-	tasarim	DeXConTt1X5	Kullanıcı kaybı ve site hatalarını bulan analiz connector'ü
+347	0.75	composio	Composio	MCP	-	-	-	-	-	DeXConTt1X5	Claude'u birçok uygulamaya tek bağlantıyla bağlayan connector
+348	0.75	youtube	YouTube	MCP	-	-	-	-	-	DeXConTt1X5	Composio üzerinden bağlanan uygulama
+349	0.75	facebook	Facebook	MCP	-	-	-	-	-	DeXConTt1X5	Composio üzerinden bağlanan uygulama
+350	0.75	meta	Meta	MCP	-	-	-	-	-	DeXConTt1X5	Composio üzerinden bağlanan uygulama
+351	0.75	notion	Notion	MCP	-	-	-	-	-	DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+352	0.75	googledrive	Google Drive	MCP	-	-	-	-	animasyon	DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+353	0.75	googlesheets	Google Sheets	MCP	-	-	-	-	-	DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+354	0.75	whatsapp	WhatsApp	MCP	-	-	-	-	-	DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+355	0.75	trello	Trello	MCP	-	-	-	-	-	DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+356	0.75	takvim	Takvim	MCP	-	-	-	-	-	DeXConTt1X5	Composio entegrasyonu olarak gösterilen takvim uygulaması
+357	0.75	uygulamazelliinitersinemhendisliklezme	Uygulama özelliğini tersine mühendislikle çözme	prompt	-	-	-	-	-	DeXr6wCMAEZ	Ajanına REA ile bir uygulamada gördüğün özelliğin nasıl çalıştığını araştırmasını istemek (README'deki Notes arama örneği).
+358	0.62	clihub	CLI-Hub	CLI	-	-	-	-	-	Dd9NdbFxJLo	Topluluk yapımı CLI'lere göz atma, kurma ve yönetme merkezi
+359	0.62	obsstudio	OBS Studio	CLI	-	-	-	-	-	Dd9NdbFxJLo	Kayıt için hazır CLI'si olan uygulama
+360	0.62	gimp	GIMP	CLI	-	-	-	-	-	Dd9NdbFxJLo	Görüntü düzenleyici; hazır CLI
+361	0.62	libreoffice	LibreOffice	CLI	-	-	-	-	-	Dd9NdbFxJLo	Ofis paketi; hazır CLI
+362	0.62	zoom	Zoom	CLI	-	-	-	-	-	Dd9NdbFxJLo	Toplantı uygulaması; hazır CLI
+363	0.62	krita	Krita	CLI	-	-	-	-	-	Dd9NdbFxJLo	Çizim uygulaması; hub'da listeli
+364	0.62	inkscape	Inkscape	CLI	-	-	-	-	-	Dd9NdbFxJLo	Vektör çizim; hub'da listeli
+365	0.62	freecad	FreeCAD	CLI	-	-	-	-	-	Dd9NdbFxJLo	Rover demosu yapılan CAD yazılımı
+366	0.62	zotero	Zotero	CLI	-	-	-	-	-	Dd9NdbFxJLo	Hub listesinde görünen kaynak/atıf yöneticisi
+367	0.62	uv	uv	CLI	-	-	-	-	-	DeHMM45NaFt	Laya kurulumunda önerilen paket yöneticisi
+368	0.62	shadcncli	shadcn CLI	CLI	-	-	-	-	-	DeV0EnpAJCs	Componentry bileşenlerini kurmak için kullanılan komut satırı aracı.
+369	0.62	hopper	Hopper	CLI	-	-	-	-	-	DeXr6wCMAEZ	Binary disassembly ve analizinde kullanılan araç
+370	0.56	sfrdanpromptiletasarmrnei	Sıfırdan prompt ile tasarım örneği	prompt	-	-	-	-	tasarim	Dc3zXkXSxpH	Fintech uygulaması için sade, minimal, yumuşak gölgeli, yuvarlak kartlı, tek vurgu renkli bir açılış sayfası tasarla.
+371	0.56	ootto	OOTTO	CLI,iş akışı	-	-	-	-	-	Dd1zrTggHCW,DeWfqTdm94Z	Videoda 'CLAUDE × OOTTO' ve 'OOTTO FIELD NOTE' olarak geçen marka/araç
+372	0.56	blender	Blender	CLI,teknik	-	-	-	-	blender	Dd9NdbFxJLo,DeT6XXkiPwj	3B yazılım; hazır CLI ve 3B drone demosu
+373	0.56	yenidenkullanlabiliraikarakterveugcreklam	Yeniden kullanılabilir AI karakter ve UGC reklam	prompt	-	-	-	-	-	DeR11OUkobq	Kızıl saçlı, çilli, yeşil gözlü bir karakter bir kez oluşturulur; sonraki sahnelerde aynı kişi korunur, ürünle script ve UGC video reklam yazılır.
+374	0.50	gamma	Gamma	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Rakip sunum aracı olarak anılıyor
+375	0.50	powerpoint	PowerPoint	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Geleneksel sunum aracı; indirme formatı PPT
+376	0.50	googleslides	Google Slides	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Dışa aktarma formatı
+377	0.50	yahoofinance	Yahoo Finance	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Adaptive modun eriştiği veri kaynağı
+378	0.50	imf	IMF	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Veri kaynağı
+379	0.50	worldbank	World Bank	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Veri kaynağı (Dünya Bankası)
+380	0.50	googlescholar	Google Scholar	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Akademik kaynak
+381	0.50	arxiv	Arxiv	iş akışı	-	-	-	-	-	Da0Csy8MYEy	Akademik makale kaynağı
+382	0.50	slack	Slack	MCP,teknik	-	-	-	-	-	DdZs2nUOpMP,DeWwPtmDvqV,DeXConTt1X5	Örnek görevde #acct-acme kanalı taranıyor
+383	0.50	gmail	Gmail	MCP,iş akışı,teknik	-	-	-	-	-	DdZs2nUOpMP,DdbljkbH5b2,DeXConTt1X5	Zamanlanmış görevin son 90 gün 'Acme' e-postalarını taradığı e-posta servisi.
+384	0.50	apify	Apify	iş akışı	-	-	-	-	-	DdbljkbH5b2	Lead üretiminde veri kazıma düğümü
+385	0.50	googlecalendar	Google Calendar	iş akışı	-	-	-	-	-	DdbljkbH5b2	Randevu oluşturma düğümü
+386	0.50	make	Make	iş akışı	-	-	-	-	-	DdbljkbH5b2	Otomasyon platformu; kapakta mor logo olarak görünüyor (logo tanımı tahmini).
+387	0.50	claudecowork	Claude Cowork	iş akışı	-	-	-	-	-	DeR11OUkobq	Bağlayıcıların ve görevlerin çalıştırıldığı Claude uygulama modu
+388	0.50	aurelio	Aurelio	iş akışı	-	-	-	-	-	DeWwPtmDvqV	Kişisel finans aracı: net değer, ETF içeriği (look-through) ve yerel çalışan yapay zekâ danışmanı.
+389	0.50	rasulovakademi	Rasulov Akademi	iş akışı	-	-	-	-	-	DeXJQ-kGKUY	Sunucunun eğitim programı; sponsor/tanıtım amaçlı başvuru çağrısı.
+390	0.50	skillsizbaselinetesti	Skill'siz baseline testi	ipucu	-	-	-	-	-	DeXd4jID1y9	Skill yazmadan önce Claude'u skill'siz çalıştırıp neyin bozulduğunu gör, sadece onu düzelt
+391	0.50	500satrsnr	500 satır sınırı	ipucu	-	-	-	-	-	DeXd4jID1y9	Her skill dosyasını 500 satırın altında tutma önerisi
+392	0.50	testyntemi	Üç test yöntemi	ipucu	-	-	-	-	-	DeXd4jID1y9	Skill yazmadan önce skill'siz çalıştırıp hataları görme, sonra yalnızca gerekeni yazma yaklaşımı
+393	0.38	kodtabantaramas	Kod tabanı taraması	prompt	-	-	-	-	-	DaagbUMP8Tg	Kullanıcı Claude'dan tüm kod tabanını taramasını istiyor (scan my entire...).
+394	0.38	reklammetniseslendirmevemzikretimi	Reklam metni, seslendirme ve müzik üretimi	prompt	-	-	-	-	-	Dd18tq_IMQB	Bu ürün için kısa bir reklam metni yazmasını, metni seslendirmesini ve uygun bir müzik üretmesini ister.
+395	0.38	audacity	Audacity	CLI,teknik	-	-	-	-	-	Dd9NdbFxJLo,DeT6XXkiPwj	Ses editörü; hazır CLI
+396	0.38	godot	Godot	CLI,teknik	-	-	-	-	-	Dd9NdbFxJLo,DeT6XXkiPwj	Oyun motoru; hub'da listeli
+397	0.38	n8n	n8n	CLI,iş akışı	-	-	-	-	-	Dd9NdbFxJLo,DdbljkbH5b2	Hub listesinde görünen iş akışı otomasyon aracı
+398	0.38	zamanlanmgrevveentegrasyonkullananrnekkullancistemi	Zamanlanmış görev ve entegrasyon kullanan örnek kullanıcı istemi	prompt	-	-	-	-	-	DdZs2nUOpMP	Kullanıcı yarınki Acme QBR toplantısı için e-posta, Slack, toplantı kayıtları ve haberlerden hazırlık dokümanı istiyor; renewal e-postası taslak kalacak, gönderilmeyecek; sabah 8'de çalışsın, toplantı sonrası özet ve aksiyonlar gelsin.
+399	0.38	gpt6lunadecisionsapirnei	GPT-6 Luna Decisions API örneği	prompt	-	-	-	-	router	DeHMM45NaFt	Örnek ekran: 10.000 müşteri talebini (customer_requests.csv) kategorilere yönlendir; Decisions API ile gerçek zamanlı karar.
+400	0.38	zapier	Zapier	MCP,teknik	-	-	-	-	-	DePeKi4gE1V,DeR11OUkobq	Ücretli çok adımlı iş akışı otomasyon servisi; değiştirilen yazılım
+401	0.38	higgsfieldiletekcmledengrselretme	Higgsfield ile tek cümleden görsel üretme	prompt	-	-	-	-	-	DeR11OUkobq	Empire State Building'in sokak seviyesinden fotogerçekçi görselini iste; üst katlarından dev bir turuncu-mavi Knicks bayrağı sarksın.
+402	0.38	clayilepazarlamakiileribulma	Clay ile pazarlama kişileri bulma	prompt	-	-	-	-	-	DeR11OUkobq	Bir şirketteki pazarlama kişilerini bul; isim, unvan, LinkedIn ve e-posta ile liste döndür.
+403	0.38	instagram	Instagram	MCP,iş akışı	-	-	-	-	-	DeWfqTdm94Z,DeXConTt1X5	İçeriğin yayınlandığı ve yorum/DM'lerin geldiği platform
+404	0.38	perplexityilesektraratrmasrnei	Perplexity ile sektör araştırması örneği	prompt	-	-	-	-	-	DeXConTt1X5	Kullanıcı Claude'a 'Bu sektörde son gelişmeler neler?' diye soruyor; Perplexity araştırma örneği olarak gösteriliyor.
+405	0.25	compact	/compact	ipucu	-	-	-	-	-	DaagbUMP8Tg	Konuşmayı sıkıştırma komutu
+406	0.25	connectors	Connectors	ipucu	-	-	-	-	-	Dd18tq_IMQB	Claude'un bağlantı dizini; ElevenLabs buradan bulunup eklenir

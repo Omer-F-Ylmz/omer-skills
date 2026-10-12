@@ -1,0 +1,28 @@
+anahtar	ad	tur	link	gonderi	iddia
+firecrawl	Firecrawl	MCP		DeXConTt1X5	Web sitelerini kazıyıp rakip analizi ve marka görselleri çıkaran connector
+posthog	PostHog	MCP		DeXConTt1X5	Kullanıcı kaybı ve site hatalarını bulan analiz connector'ü
+composio	Composio	MCP		DeXConTt1X5	Claude'u birçok uygulamaya tek bağlantıyla bağlayan connector
+youtube	YouTube	MCP		DeXConTt1X5	Composio üzerinden bağlanan uygulama
+facebook	Facebook	MCP		DeXConTt1X5	Composio üzerinden bağlanan uygulama
+meta	Meta	MCP		DeXConTt1X5	Composio üzerinden bağlanan uygulama
+notion	Notion	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+googledrive	Google Drive	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+googlesheets	Google Sheets	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+whatsapp	WhatsApp	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+trello	Trello	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen uygulama
+takvim	Takvim	MCP		DeXConTt1X5	Composio entegrasyonu olarak gösterilen takvim uygulaması
+perplexityilesektraratrmasrnei	Perplexity ile sektör araştırması örneği	prompt		DeXConTt1X5	Kullanıcı Claude'a 'Bu sektörde son gelişmeler neler?' diye soruyor; Perplexity araştırma örneği olarak gösteriliyor.
+steskill	STE Skill	skill		DeXJQ-kGKUY	Belirsiz İngilizce ajan çıktısını ASD-STE100 kurallarıyla sadeleştiren Claude Code becerisi.
+tokenmonitor	Token Monitor	CLI		DeXJQ-kGKUY	Claude Code, Codex, Cursor kullanımını, limit ve maliyeti tek panelde izleyen masaüstü widget.
+bookingskills	Booking Skills	skill		DeXJQ-kGKUY	Ajana otel/uçuş arama, fiyat karşılaştırma ve rezervasyon ekleyen skill seti (TourMind API).
+llmapps	LLM Apps	skill		DeXJQ-kGKUY	Hazır AI agent, RAG ve skill örneklerini toplayan repo (awesome-llm-apps).
+skillopt	SkillOpt	skill		DeXJQ-kGKUY	Model ağırlıklarını değiştirmeden skill metinlerini ajan izlerine göre optimize eder, best_skill.md üretir.
+archon	Archon	CLI		DeXJQ-kGKUY	Kodlama ajanları için YAML iş akışı tabanlı açık kaynak harness builder.
+claudesubagents	Claude Subagents	plugin		DeXJQ-kGKUY	Claude Code için 100+ uzman alt ajan koleksiyonu (awesome-claude-code-subagents).
+claudeskills	Claude Skills	skill		DeXd4jID1y9	Claude'un gerektiğinde açtığı, düz metin dosyasından oluşan yetenek paketleri; videonun ana konusu
+rea	REA	CLI	https://github.com/morluto/rea	DeXr6wCMAEZ	Kaynak kodsuz tersine mühendislikle uygulama özelliklerini çözen, agent'a MCP ve CLI ile bağlanan ücretsiz yerel araç
+reaagents	rea-agents	CLI		DeXr6wCMAEZ	REA MCP sunucusunu ve iş akışı talimatlarını agentlara kuran npx paketi
+npx	npx	CLI		DeXr6wCMAEZ	rea-agents kurulum komutunu çalıştırır
+hopper	Hopper	CLI		DeXr6wCMAEZ	Binary disassembly ve analizinde kullanılan araç
+grokbuild	Grok Build	CLI		DeXr6wCMAEZ	REA'nın desteklediği agent
+uygulamazelliinitersinemhendisliklezme	Uygulama özelliğini tersine mühendislikle çözme	prompt		DeXr6wCMAEZ	Ajanına REA ile bir uygulamada gördüğün özelliğin nasıl çalıştığını araştırmasını istemek (README'deki Notes arama örneği).
