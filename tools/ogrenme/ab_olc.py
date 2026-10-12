@@ -184,7 +184,8 @@ def v2(tohum, aile, ad="v2"):
     görevlerin dersleri aynı görevi önceden görmek olurdu), gerisini v2 kendi damıtır.
     d7 (v3): v1 → v2 arasında sistem istemi ~+15k cache_creation büyüdü (20:28 KALİTE-3 yayılımı) → v1 derssiz taban geçersiz;
     v3 derssiz kolu aynı süreçte, aynı anda koşar."""
-    kollar, tavan = (("derssiz", "dersli"), (12, 3.6)) if ad == "v3" else (("dersli",), (8, 2.5))
+    # v4: d7 tur talimatıyla yalnız dersli kol; taban = v3 derssiz satırları (~20 dk önce, aynı sistem istemi — cache_creation ile denetle)
+    kollar, tavan = {"v3": (("derssiz", "dersli"), (12, 3.6)), "v4": (("dersli",), (8, 1.45))}.get(ad, (("dersli",), (8, 2.5)))
     banka = KOK / ".kos" / "ogrenme-ab" / (f"{ad}-{aile}-" + time.strftime("%Y%m%d-%H%M%S"))
     os.environ["OGRENME_DIZIN"] = str(banka)
     for x in (json.loads(s) for s in (Path(tohum) / "dersler.jsonl").read_text(encoding="utf-8").splitlines() if s.strip()):
@@ -249,8 +250,8 @@ def main(devam=None, aileler=("kod", "rapor", "video"), siralar=range(5), kollar
 if __name__ == "__main__":
     if "--kuru" in sys.argv:
         kuru()
-    elif "--v2" in sys.argv or "--v3" in sys.argv:
-        ad = "v3" if "--v3" in sys.argv else "v2"
+    elif {"--v2", "--v3", "--v4"} & set(sys.argv):
+        ad = next(a for a in ("v4", "v3", "v2") if "--" + a in sys.argv)
         v2(*sys.argv[sys.argv.index("--" + ad) + 1:][:2], ad=ad)
     else:
         main(sys.argv[sys.argv.index("--devam") + 1:][:3] if "--devam" in sys.argv else None)

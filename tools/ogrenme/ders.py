@@ -117,7 +117,9 @@ def getir(ajan, gorev, k=K, kosu=""):
     secilen = [x for p, x in puanlar[:k] if p >= puanlar[0][0] * 0.5]
     if not secilen:
         return "", []
-    satirlar, pay = ["Dersler (uymuyorsa yok say; ek tur açma):"], (JETON * 4 - 45) // len(secilen)
+    # d7: v3'te "yazmadan önce doğrula" dersleri video/rapor'da +2-3 tur ekledi (jeton ≈ tur × bağlam) → tur talimatı somut
+    satirlar = ["Dersler (uymuyorsa yok say). Gereken belgeleri ilk turda birlikte oku, tek yazımla bitir; ayrı kontrol turu açma:"]
+    pay = (JETON * 4 - len(satirlar[0])) // len(secilen) - 1
     for x in secilen:  # kural + ne zaman + içeriğin ilk cümlesi; örnek düşer
         s = f"- [{x['id']}·{'kaçın' if x['tur'] == 'basarisizlik' else '✓'}] {x['baslik']} — {x['kosul']}: {re.split(r'(?<=[.!?])\s', x['icerik'])[0]}"
         satirlar.append(s[:pay])
