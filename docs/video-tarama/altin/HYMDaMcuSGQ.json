@@ -1,0 +1,1029 @@
+{
+ "not": "altın: VİDEO-13-devam kör etiket 2026-10-11 (eski koşu raporları birleşimi + paket.md kanıtı; Desktop doğrulaması bekliyor)",
+ "adaylar": [
+  {
+   "ad": "Claude Code",
+   "alias": [
+    "Cloud Code",
+    "Cloud kod"
+   ],
+   "tur": "CLI",
+   "zaman": "1:10",
+   "kaynak": "ses",
+   "kanit": "Açıklama 'Kullandıklarım: Claude Code (Haiku 4.5, Sonnet 5.5, Opus 5.5)'; ses: 'masaüstü, terminal veya VS Code'"
+  },
+  {
+   "ad": "Claude Code Desktop",
+   "alias": [
+    "Claude Code masaüstü uygulaması"
+   ],
+   "tur": "uygulama",
+   "zaman": "1:00:48",
+   "kaynak": "ekran",
+   "kanit": "Ekran başlığı 'GERÇEK EKRAN · CLAUDE CODE MASAÜSTÜ'; ses: 'masaüstü app'imize gelirsek burada routin kısmını görebilirsiniz'"
+  },
+  {
+   "ad": "VS Code",
+   "alias": [
+    "Visual Studio Code",
+    "Visual Studio"
+   ],
+   "tur": "uygulama",
+   "zaman": "4:11",
+   "kaynak": "ses",
+   "kanit": "ses: 'Visual Studio Code içerisindeki terminal kullanımını'; 1:02:36 ekran 'ctrl+g to edit in vs Code'"
+  },
+  {
+   "ad": "Sonnet 5.5",
+   "alias": [
+    "Sonet",
+    "Sonnet",
+    "claude-sonnet-5-5"
+   ],
+   "tur": "model",
+   "zaman": "4:11",
+   "kaynak": "ses",
+   "kanit": "Açıklama 'Claude Code (Haiku 4.5, Sonnet 5.5, Opus 5.5)'; ses: 'Modelimiz Sonet'"
+  },
+  {
+   "ad": "Haiku 4.5",
+   "alias": [
+    "Haiku",
+    "HQ",
+    "claude-haiku-4-5",
+    "claude-haiku-4-5-20251001"
+   ],
+   "tur": "model",
+   "zaman": "54:00",
+   "kaynak": "ses",
+   "kanit": "Açıklama 'Haiku 4.5'; ekran 1:17:00 'claude-haiku-4-5: 9.8k input'; ses 'tek bir HQ çağrısı'"
+  },
+  {
+   "ad": "Opus 5.5",
+   "alias": [
+    "Opus"
+   ],
+   "tur": "model",
+   "zaman": "1:18:06",
+   "kaynak": "ses",
+   "kanit": "Açıklama 'Opus 5.5'; ses: 'Bu kısımda en pahalı modelimiz opus'"
+  },
+  {
+   "ad": "Fable 5.1",
+   "alias": [
+    "Fable 5",
+    "Fable 5'imiz"
+   ],
+   "tur": "model",
+   "zaman": "8:16",
+   "kaynak": "ekran",
+   "kanit": "Ekran 29:24 'Fable 5.1 [high+thin]'; ses 8:16 'bizim Fable 5'imiz olabilir'"
+  },
+  {
+   "ad": "Jev",
+   "alias": [
+    "Jev (TypeSafe)"
+   ],
+   "tur": "model",
+   "zaman": "1:15:20",
+   "kaynak": "ses",
+   "kanit": "Açıklama 'Jev (TypeSafe)' kullandıklarım listesinde; ses: 'Elici kısım aslında Jev olacak. Sınıflandırmayı yapan'"
+  },
+  {
+   "ad": "Hermes Agent",
+   "alias": [
+    "Hermes"
+   ],
+   "tur": "CLI",
+   "zaman": "1:41:48",
+   "kaynak": "ekran",
+   "kanit": "Ekran 1:44:34 'RESMI KURULUM HERMES-AGENT README'; github.com/NousResearch/hermes-agent 51:04; açıklama 'Hermes Agent'"
+  },
+  {
+   "ad": "Python",
+   "alias": [
+    "python3"
+   ],
+   "tur": "teknik",
+   "zaman": "54:38",
+   "kaynak": "ses",
+   "kanit": "Açıklama 'Python'; ses 'sıfır token kod'; ekran komutları python3 betik/…"
+  },
+  {
+   "ad": "Claude Code modları",
+   "alias": [
+    "mod",
+    "mods",
+    "modlar",
+    "ai-agents-masterclass-mods"
+   ],
+   "tur": "plugin",
+   "zaman": "35:36",
+   "kaynak": "açıklama",
+   "kanit": "Repo https://github.com/selmakcby/ai-agents-masterclass-mods; bölüm '35:36 Mod nedir?', 'bunlar pluginlerimiz'"
+  },
+  {
+   "ad": "Hafıza modu",
+   "alias": [
+    "hafiza",
+    "hafiza plugin",
+    "plugins/hafiza"
+   ],
+   "tur": "plugin",
+   "zaman": "45:50",
+   "kaynak": "ekran",
+   "kanit": "Ekran '/hafiza-kur çıktısı' 44:56; 'claude plugin validate plugins/hafiza --strict' 52:28"
+  },
+  {
+   "ad": "Araştırma masası modu",
+   "alias": [
+    "seviye-b-arastirma-masasi"
+   ],
+   "tur": "plugin",
+   "zaman": "1:10:15",
+   "kaynak": "açıklama",
+   "kanit": "Repo https://github.com/selmakcby/seviye-b-arastirma-masasi; bölüm '4B Araştırma masası'"
+  },
+  {
+   "ad": "Seviye A gelen kutusu",
+   "alias": [
+    "seviye-a-gelen-kutusu"
+   ],
+   "tur": "iş akışı",
+   "zaman": "53:37",
+   "kaynak": "ekran",
+   "kanit": "Ekran 1:02:12 'git clone …/seviye-a-gelen-kutusu.git'; açıklama repo linki"
+  },
+  {
+   "ad": "Seviye C dava dosyası",
+   "alias": [
+    "seviye-c-dava-dosyasi"
+   ],
+   "tur": "iş akışı",
+   "zaman": "1:18:06",
+   "kaynak": "açıklama",
+   "kanit": "Repo https://github.com/selmakcby/seviye-c-dava-dosyasi; bölüm '4C Dava dosyası'"
+  },
+  {
+   "ad": "Seviye D dükkan",
+   "alias": [
+    "seviye-d-dukkan"
+   ],
+   "tur": "iş akışı",
+   "zaman": "1:29:39",
+   "kaynak": "açıklama",
+   "kanit": "Repo https://github.com/selmakcby/seviye-d-dukkan; bölüm '4D Dükkan + Hermes'"
+  },
+  {
+   "ad": "Routines",
+   "alias": [
+    "Routine",
+    "routin"
+   ],
+   "tur": "özellik",
+   "zaman": "1:00:48",
+   "kaynak": "ses",
+   "kanit": "Bölüm '1:00:48 Routines'; ses: 'Bilgisayarımız kapalıyken çalışıyor'; code.claude.com/docs/en/routines"
+  },
+  {
+   "ad": "Subagent",
+   "alias": [
+    "alt ajan",
+    "Alt ajanlar"
+   ],
+   "tur": "teknik",
+   "zaman": "25:02",
+   "kaynak": "ses",
+   "kanit": "Bölüm '25:02 Subagent ne zaman?'; ses: 'Alt ajanlar kullanmak… sohbetin dolmaması için'"
+  },
+  {
+   "ad": "CLAUDE.md",
+   "alias": [
+    "Cloud MD",
+    "CLAuDE.md"
+   ],
+   "tur": "teknik",
+   "zaman": "4:11",
+   "kaynak": "ses",
+   "kanit": "ekran 4:11 '# CLAUDE.md'; ses: 'Cloud MD yazıyor… 130 satırı geçmesin'"
+  },
+  {
+   "ad": "Skills",
+   "alias": [
+    "yetenek",
+    "yetenekler"
+   ],
+   "tur": "skill",
+   "zaman": "15:57",
+   "kaynak": "ses",
+   "kanit": "ses: 'Prompt yazmayı minimuma indirmek istiyorsanız yetenekler dosyalarını ayarlayın'; ekran 'gelen-kutusu skill'"
+  },
+  {
+   "ad": "Hooks",
+   "alias": [
+    "Hook"
+   ],
+   "tur": "teknik",
+   "zaman": "15:57",
+   "kaynak": "ses",
+   "kanit": "ses: 'Hook bizim kurallarımız… kırmızı ışıkta dur gibi'; ekran 1:10:20 'hooks/register.ts'"
+  },
+  {
+   "ad": "MCP",
+   "alias": [
+    "Model Context Protocol"
+   ],
+   "tur": "teknik",
+   "zaman": "43:48",
+   "kaynak": "ses",
+   "kanit": "ses: 'MCP sizin ajanızın dış taraftaki uygulamalarla bağlantı kurabilmesini sağlayan açık protokol'"
+  },
+  {
+   "ad": "Auto memory",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "12:53",
+   "kaynak": "ses",
+   "kanit": "ses: 'Auto memory dediğimiz bir şey var ama kısıtlı sayıda bilgi kaydediyor'"
+  },
+  {
+   "ad": "Compaction",
+   "alias": [
+    "compact"
+   ],
+   "tur": "teknik",
+   "zaman": "23:53",
+   "kaynak": "ses",
+   "kanit": "ses: '%60'ı gördüğüm anda direkt compaction direkt özete geçerim'"
+  },
+  {
+   "ad": "Plan modu",
+   "alias": [
+    "plan mode"
+   ],
+   "tur": "teknik",
+   "zaman": "5:13",
+   "kaynak": "ses",
+   "kanit": "ses: 'Her zaman projeye başlamadan önce plan modunu kullanın'"
+  },
+  {
+   "ad": "Context rot",
+   "alias": [
+    "bağlam çürümesi"
+   ],
+   "tur": "teknik",
+   "zaman": "22:53",
+   "kaynak": "ses",
+   "kanit": "ses: 'buna biz context rot diyoruz. Bağlam çürümesi'"
+  },
+  {
+   "ad": "Effort ayarı",
+   "alias": [
+    "efor",
+    "effort"
+   ],
+   "tur": "teknik",
+   "zaman": "29:05",
+   "kaynak": "ses",
+   "kanit": "ses: 'Üçüncüsü bizim eforumuz… modelimizi ne kadar düşüneceğini ayarlıyor'; ekran 29:24 '[high+thin]'"
+  },
+  {
+   "ad": "Dynamic workflows",
+   "alias": [
+    "ultra"
+   ],
+   "tur": "teknik",
+   "zaman": "19:29",
+   "kaynak": "ses",
+   "kanit": "ses: 'Promptunuzun sonuna ultra yazdığınız zaman… onlarca alt ajan'; 'dynamic workflows' 19:29"
+  },
+  {
+   "ad": "Managed Agents",
+   "alias": [
+    "yönetilen ajanlar"
+   ],
+   "tur": "servis",
+   "zaman": "24:53",
+   "kaynak": "ses",
+   "kanit": "ses: 'anthropicin managed agents kısmında yani yönetilen ajanlar kısmında'"
+  },
+  {
+   "ad": "Dreams",
+   "alias": [],
+   "tur": "özellik",
+   "zaman": "24:53",
+   "kaynak": "ses",
+   "kanit": "ses: 'Dreams diye bir özellik var. Ajan uykusunda kendi hafızasını…'"
+  },
+  {
+   "ad": "LLM Wiki",
+   "alias": [
+    "LLM-wiki"
+   ],
+   "tur": "iş akışı",
+   "zaman": "44:49",
+   "kaynak": "ses",
+   "kanit": "ses: 'LLM Wiki sistemimizde yaptığımız hafıza olayları'; ham kaynak + wiki + şema"
+  },
+  {
+   "ad": "Obsidian",
+   "alias": [
+    "Obsidin"
+   ],
+   "tur": "uygulama",
+   "zaman": "1:09:14",
+   "kaynak": "ekran",
+   "kanit": "ses: 'Obsidin gibi bir apple de bunu güzel bir şekilde açıp inceleyebilirsiniz'; ekran 1:09:42 'Obsidian gibi bir uygulamada'"
+  },
+  {
+   "ad": "Playwright",
+   "alias": [],
+   "tur": "CLI",
+   "zaman": "1:07:12",
+   "kaynak": "ses",
+   "kanit": "ses: 'PDF'i herhangi bir playwright ya da Python dosyasıyla scrape'"
+  },
+  {
+   "ad": "Apify",
+   "alias": [
+    "Apifi"
+   ],
+   "tur": "servis",
+   "zaman": "1:35:42",
+   "kaynak": "ses",
+   "kanit": "ses: 'Apifi kullanabilirsiniz. Veriyi güncel olarak çekmenize yarar'"
+  },
+  {
+   "ad": "Telegram",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "54:38",
+   "kaynak": "ses",
+   "kanit": "ses: 'telegramlarımıza bu bağlanabilir… sabah raporu'"
+  },
+  {
+   "ad": "Discord",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "1:00:48",
+   "kaynak": "ses",
+   "kanit": "ses: 'Mesaj olarak bunu Discord üzerinden gönderiyorlar'"
+  },
+  {
+   "ad": "WhatsApp",
+   "alias": [],
+   "tur": "uygulama",
+   "zaman": "1:41:48",
+   "kaynak": "ses",
+   "kanit": "ses/ekran: 'Telegram'a, WhatsApp, Discord… bağlanabiliyor'"
+  },
+  {
+   "ad": "Gmail",
+   "alias": [],
+   "tur": "servis",
+   "zaman": "1:03:51",
+   "kaynak": "ekran",
+   "kanit": "ses: 'Şimdilik Gmail'imi bağlamıyorum'; ekran 1:03:38 claude.ai/customize/connectors 'Gmail'i bağlarsın'"
+  },
+  {
+   "ad": "GitHub",
+   "alias": [],
+   "tur": "servis",
+   "zaman": "1:05:52",
+   "kaynak": "ses",
+   "kanit": "ses: 'GitHub ya da API ile ulaşılabilen bir alan'; ekran 46:28 'GitHub reposunda'"
+  },
+  {
+   "ad": "Git",
+   "alias": [],
+   "tur": "CLI",
+   "zaman": "1:02:10",
+   "kaynak": "ekran",
+   "kanit": "Ekran 1:02:10 'git --version'; 1:03:24 'git remote -v && git push -u origin master'"
+  },
+  {
+   "ad": "WSL",
+   "alias": [
+    "WSL2"
+   ],
+   "tur": "teknik",
+   "zaman": "1:02:10",
+   "kaynak": "ekran",
+   "kanit": "Ekran 1:02:10 'WSL'; 1:44:34 README 'MACOS / LINUX / WSL2'"
+  },
+  {
+   "ad": "TypeScript",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "1:10:20",
+   "kaynak": "ekran",
+   "kanit": "Ekran 1:10:20 'hooks/register.ts satır 1-5, TypeScript'"
+  },
+  {
+   "ad": "UYAP Emsal",
+   "alias": [
+    "emsal.uyap.gov.tr"
+   ],
+   "tur": "servis",
+   "zaman": "1:19:07",
+   "kaynak": "ses",
+   "kanit": "ses: 'C'deki 40 karar UYAP Emsal'den alınmış'; ekran 1:27:12 emsal.uyap.gov.tr/getDokuman"
+  },
+  {
+   "ad": "claude -p",
+   "alias": [
+    "print modu"
+   ],
+   "tur": "CLI",
+   "zaman": "1:46:06",
+   "kaynak": "ekran",
+   "kanit": "Ekran 1:46:06 'claude -p --model sonnet'; 55:14 'claude -p --output-format'"
+  },
+  {
+   "ad": "Buluttaki Claude Code",
+   "alias": [
+    "claude.ai/code"
+   ],
+   "tur": "uygulama",
+   "zaman": "19:29",
+   "kaynak": "ekran",
+   "kanit": "ses: 'Her görev kendi sanal makinesinde'; ekran 5:00 'claude.ai/code'"
+  },
+  {
+   "ad": "Google Drive",
+   "alias": [
+    "drive"
+   ],
+   "tur": "servis",
+   "zaman": "9:17",
+   "kaynak": "ses",
+   "kanit": "ses: 'drive'a attıktan sonra attığını teyit etti' (demo içi, karede görsel yok)",
+   "belirsiz": true
+  },
+  {
+   "ad": "Claude in Chrome",
+   "alias": [
+    "Chrome Browser"
+   ],
+   "tur": "plugin",
+   "zaman": "12:53",
+   "kaynak": "ses",
+   "kanit": "ses: 'Chrome Browser mesela, harika bir eklenti'; Chrome web mağazası linki 'claude' uzantısı",
+   "belirsiz": true
+  },
+  {
+   "ad": "NotebookLM",
+   "alias": [
+    "notebooklm-mcp"
+   ],
+   "tur": "uygulama",
+   "zaman": "1:13:44",
+   "kaynak": "ekran",
+   "kanit": "Yalnız terminal MCP listesinde 'notebooklm-mcp' / 'NotebookLM ekran' 1:13:44; konuşulmuyor",
+   "belirsiz": true
+  },
+  {
+   "ad": "Prompt chaining",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "18:28",
+   "kaynak": "ses",
+   "kanit": "ses: 'A'nın çıktısı B'nin girdisi oluyor' (kavram, ad net değil)",
+   "belirsiz": true
+  },
+  {
+   "ad": "Routing",
+   "alias": [],
+   "tur": "teknik",
+   "zaman": "18:28",
+   "kaynak": "ses",
+   "kanit": "ses: 'Hangi modele hangi eforla gideceği olay bu' (genel kavram)",
+   "belirsiz": true
+  }
+ ],
+ "linkler": [
+  {
+   "url": "https://github.com/selmakcby/ai-agents-masterclass-mods",
+   "sinif": "repo",
+   "aday": true,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://github.com/selmakcby/seviye-a-gelen-kutusu",
+   "sinif": "repo",
+   "aday": true,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://github.com/selmakcby/seviye-b-arastirma-masasi",
+   "sinif": "repo",
+   "aday": true,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://github.com/selmakcby/seviye-c-dava-dosyasi",
+   "sinif": "repo",
+   "aday": true,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://github.com/selmakcby/seviye-d-dukkan",
+   "sinif": "repo",
+   "aday": true,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://youtu.be/7XhX8P0ebEU",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://youtu.be/OhnKe-L5-lU",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://youtu.be/166KYdgWQto",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://youtu.be/uB7UQA5iaTU",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://youtu.be/hAYPvExWmCw",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://youtu.be/kBWqtBu4hEI",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://youtu.be/MbEDNiKe4bo",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://www.anthropic.com/engineering/building-effective-agents",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://code.claude.com/docs/en/features-overview",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://code.claude.com/docs/en/plugins/mods/overview",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://code.claude.com/docs/en/routines",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://metr.org/time-horizons/",
+   "sinif": "diğer",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://github.com/NousResearch/hermes-agent",
+   "sinif": "repo",
+   "aday": true,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://x.com/selmaaii",
+   "sinif": "sosyal",
+   "aday": false,
+   "kaynak": "aciklama"
+  },
+  {
+   "url": "https://instagram.com/selma.builds",
+   "sinif": "sosyal",
+   "aday": false,
+   "kaynak": "aciklama"
+  }
+ ],
+ "site_ui": [],
+ "promptlar": [
+  {
+   "zaman": "5:13",
+   "konu": "Ajan döngüsü: klasör analizi",
+   "kaynak": "ses",
+   "ozet": "Klasördeki dosyaları say, en büyüğünü bul ve ne olduğunu söyle; gereksiz olanların silinmesini öner ama hiçbir şey silme."
+  },
+  {
+   "zaman": "52:37",
+   "konu": "Modun bağlam maliyetini sordurma",
+   "kaynak": "ekran",
+   "ozet": "'Hafıza modu her oturumda kaç token ekliyor, içinde neler var? Kurmadan önce doğrula.'"
+  },
+  {
+   "zaman": "1:01:40",
+   "konu": "Routine'i ajanla kurdurma",
+   "kaynak": "ses",
+   "ozet": "Rutini kur: hafta içi saat 8, Gmail bağlama, örnek gelen kutusunu kullan."
+  },
+  {
+   "zaman": "1:02:50",
+   "konu": "Routines görev metni üretimi",
+   "kaynak": "ses",
+   "ozet": "Repoyu her sabah bulutta koştur; en fazla 10 satırlık görev metni: ne yapacak, ne yapmayacak (posta göndermez)."
+  },
+  {
+   "zaman": "1:11:16",
+   "konu": "Araştırma masası sorusu",
+   "kaynak": "ses",
+   "ozet": "Uzaktan ve hibrit çalışma bilgi çalışanlarının verimliliğini nasıl etkiliyor? (24 makale eleme ve sentez)"
+  },
+  {
+   "zaman": "1:13:18",
+   "konu": "Sentezi hafıza kasasına ekleme",
+   "kaynak": "ses",
+   "ozet": "Hafıza modunu kullanarak kasa kur, sentez.md'yi ekle ve soruyu makalelere dayanarak yanıtla."
+  },
+  {
+   "zaman": "1:37:45",
+   "konu": "Dükkan verisini keşfetme",
+   "kaynak": "ses",
+   "ozet": "Veri klasörüne bak: kaç mesaj, ürün, ödeme var? Önce token harcamadan yalnız betiği çalıştır."
+  }
+ ],
+ "komutlar": [
+  {
+   "komut": "claude",
+   "zaman": "4:11",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/init",
+   "zaman": "4:11",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "Shift+Tab",
+   "zaman": "5:13",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/loop",
+   "zaman": "6:14",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/goal",
+   "zaman": "6:14",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/context",
+   "zaman": "28:52",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/model",
+   "zaman": "29:00",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/effort",
+   "zaman": "29:05",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/compact",
+   "zaman": "29:23",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "/clear",
+   "zaman": "29:23",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "claude --setting-sources project",
+   "zaman": "29:20",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "/hafiza-kur",
+   "zaman": "44:56",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "claude plugin validate plugins/hafiza --strict",
+   "zaman": "52:28",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "claude --plugin-dir plugins/hafiza",
+   "zaman": "52:48",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "claude plugin enable",
+   "zaman": "52:37",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "claude plugin disable",
+   "zaman": "52:37",
+   "kaynak": "ses"
+  },
+  {
+   "komut": "claude -p --output-format json",
+   "zaman": "55:14",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "python3 rapor.py veri/satislar.csv",
+   "zaman": "5:20",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "python3 betik/on_eleme.py ornek-gelen-kutusu",
+   "zaman": "54:10",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "git --version",
+   "zaman": "1:02:10",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "git clone https://github.com/selmakcby/seviye-a-gelen-kutusu.git",
+   "zaman": "1:02:12",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "git remote -v && git push -u origin master",
+   "zaman": "1:03:24",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "python3 olc/puanla.py <yol-adi> <kosu-klasoru> <claude-…>",
+   "zaman": "1:10:42",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "/usage",
+   "zaman": "1:17:00",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "python3 betik/dizin.py veri/kararlar",
+   "zaman": "1:27:06",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "python3 betik/onayla.py",
+   "zaman": "1:28:34",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "python3 sahne/sunucu.py",
+   "zaman": "1:40:26",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash",
+   "zaman": "1:44:34",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "hermes setup",
+   "zaman": "1:44:34",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "claude -p --model sonnet",
+   "zaman": "1:46:06",
+   "kaynak": "ekran"
+  },
+  {
+   "komut": "python3 hermes/claude_devret.py <3 haneli mesaj id>",
+   "zaman": "1:46:06",
+   "kaynak": "ekran"
+  }
+ ],
+ "urller": [
+  {
+   "url": "claude.com/download",
+   "zaman": "1:10",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "claude.ai/code",
+   "zaman": "5:00",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://www.anthropic.com/engineering/building-effective-agents",
+   "zaman": "47:46",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+   "zaman": "48:12",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "hermes-agent.nousresearch.com",
+   "zaman": "51:04",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "github.com/NousResearch/hermes-agent",
+   "zaman": "51:04",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://github.com/selmakcby/seviye-a-gelen-kutusu.git",
+   "zaman": "1:02:12",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "claude.ai/customize/connectors",
+   "zaman": "1:03:38",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://api.anthropic.com/v1/claude_code/routines/trig",
+   "zaman": "1:06:00",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "damiencharlotin.com",
+   "zaman": "1:19:40",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://www.damiencharlotin.com/hallucinations/",
+   "zaman": "1:25:44",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://www.reddit.com/r/paralegal/comments/1uqw2ip/",
+   "zaman": "1:25:46",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://emsal.uyap.gov.tr/getDokuman?id=988187300",
+   "zaman": "1:27:12",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://hermes-agent.nousresearch.com/install.sh",
+   "zaman": "1:44:34",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "localhost:8765",
+   "zaman": "37:14",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "127.0.0.1:8796",
+   "zaman": "1:40:26",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "platform.claude.com",
+   "zaman": "39:48",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://code.claude.com/docs/en/features-overview",
+   "zaman": "32:22",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://code.claude.com/",
+   "zaman": "35:32",
+   "kaynak": "ekran"
+  },
+  {
+   "url": "https://claude.ai",
+   "zaman": "7:28",
+   "kaynak": "ekran"
+  }
+ ],
+ "is_akisi": [
+  {
+   "adim": "Ana oturum Sonnet, ucuz sınıflandırıcı Haiku/Jev, en pahalı karar için Opus: maliyet merdiveni kural, tek adım, döngü, pahalı model",
+   "zaman": "18:28",
+   "araclar": [
+    "Sonnet 5.5",
+    "Haiku 4.5",
+    "Opus 5.5"
+   ]
+  },
+  {
+   "adim": "Hafıza modu kurulur: /hafiza-kur ile raw/wiki/indeks klasörleri",
+   "zaman": "44:56",
+   "araclar": [
+    "Claude Code",
+    "Hafıza modu"
+   ]
+  },
+  {
+   "adim": "Mod kurmadan doğrulanır (plugin validate) ve yalnız oturuma yüklenir (--plugin-dir)",
+   "zaman": "52:28",
+   "araclar": [
+    "Claude Code"
+   ]
+  },
+  {
+   "adim": "A seviyesi: betik ön eleme, Haiku sınıflandırma, Sonnet taslak; gönderim yok",
+   "zaman": "54:10",
+   "araclar": [
+    "Python",
+    "Haiku 4.5",
+    "Sonnet 5.5"
+   ]
+  },
+  {
+   "adim": "Gelen kutusu repo klonlanır, rutin bulutta her sabah koşar (git push gerekir)",
+   "zaman": "1:02:12",
+   "araclar": [
+    "Git",
+    "GitHub",
+    "Routines",
+    "Gmail"
+   ]
+  },
+  {
+   "adim": "B seviyesi: Haiku eleme, Sonnet sentez, hafızaya ekleme",
+   "zaman": "1:11:16",
+   "araclar": [
+    "Araştırma masası modu",
+    "Hafıza modu",
+    "Haiku 4.5",
+    "Sonnet 5.5"
+   ]
+  },
+  {
+   "adim": "C seviyesi: dizin betiği, Haiku, Opus, denetçi, insan onayı",
+   "zaman": "1:27:06",
+   "araclar": [
+    "Python",
+    "Haiku 4.5",
+    "Opus 5.5",
+    "UYAP Emsal"
+   ]
+  },
+  {
+   "adim": "D seviyesi: betik + Haiku bekçi + Sonnet masa; Hermes zor soruyu claude -p ile Claude Code'a devreder",
+   "zaman": "1:41:48",
+   "araclar": [
+    "Hermes Agent",
+    "claude -p",
+    "Claude Code"
+   ]
+  }
+ ],
+ "ogrenimler": []
+}

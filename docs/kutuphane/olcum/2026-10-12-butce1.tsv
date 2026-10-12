@@ -1,0 +1,13 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata
+K03	1	6	75073	156148	2088	231227	6	114.7	0.6736	1	10	2123	62	Skill:anthropic-skills:departman-veri-db,Glob,Skill:dotnet-data:optimizing-ef-core-queries	
+K09	1	10	73766	310143	1762	383919	8	124.3	0.6874	1	10	2123	62	Skill:anthropic-skills:departman-veri-db,Skill:supabase:supabase-postgres-best-practices,Glob,Read	
+K11	1	8	71698	232131	1320	303837	5	96.3	0.6464	1	10	2123	62	Skill:anthropic-skills:departman-belge,Grep,Bash	
+K15	1	2616	78106	480075	1749	560797	8	142.2	0.7663	1	0	2123	62	Skill:anthropic-skills:blender-oturum,Bash,Glob,mcp__blender__get_blendfile_summary_path_info,mcp__blender__get_objects_summary	
+K17	1	1194	81659	810991	3144	893844	12	600.8	0.8831	1	10	2123	62	Skill:remotion-best-practices,Bash,Grep,Read,Write	timeout
+K21	1	4	71257	84784	1133	156045	2	77.9	0.6097	1	10	2051	61	Bash	
+J01	1	1140	74142	235053	1246	310335	4	109.2	0.6696	1	10	2124	62	Skill:anthropic-skills:jev,mcp__jev__jev_batch	
+J02	1	1142	73625	234944	1116	309711	4	72.0	0.6629	1	10	2125	62	Skill:anthropic-skills:jev,mcp__jev__jev_evaluate	
+J03	1	6	73981	157551	2036	231538	4	95.5	0.6641	1	10	2125	62	Skill:anthropic-skills:jev,Grep	
+J04	1	1140	73901	235074	977	310115	4	82.2	0.6623	1	10	2125	62	Skill:anthropic-skills:jev,mcp__jev__jev_batch	
+J05	1	2	69479	5281	222	74762	1	62.5	0.5613	1	10	2125	62		
+J06	1	2	69535	5281	61	74818	1	70.3	0.5586	1	10	2125	62		

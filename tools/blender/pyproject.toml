@@ -1,0 +1,10 @@
+[project]
+name = "omer-blender-tools"
+version = "0.1.0"
+description = "tools/blender (tarif kütüphanesi) — betikler Blender'ın kendi Python'unda koşar; buradaki tek bağımlılık editör/tip denetimi için"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+# bpy tip ipucu/otomatik tamamlama (nutti/fake-bpy-module, MIT); Blender 5.2.1 ile eşleşen sürüm, pinli
+dev = ["fake-bpy-module-5.2==20260730"]

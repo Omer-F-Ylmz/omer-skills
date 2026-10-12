@@ -56,3 +56,14 @@ def test_fixture_kuyruk_yt1_once_short_sonra_uzun_sonra_ig():
     assert tur == "short" and parti[0][0] == "ss1"
     tur, parti = tr.kuyruk_parti("### Sıra 0\n" + _BASLIK + _U + _I)  # short yok → uzun
     assert tur == "uzun" and parti[0][0] == "uu1"
+
+
+def test_uzun_beklet_uzunu_almaz_shortu_alir(monkeypatch):
+    """VİDEO-14: VIDEO_UZUN_BEKLET=1 → uzun video partiye girmez (kuyrukta bekliyor kalır), short aynen sürer."""
+    monkeypatch.setenv("VIDEO_UZUN_BEKLET", "1")
+    k = "### Sıra 0\n" + _BASLIK + _U + _S + _I
+    assert tr.kuyruk_parti(k)[0] == "short"
+    assert [h[0] for h in tr.kuyruk_parti(k, kapsiz=True)[1]] == ["ss1", "ig-x1"]
+    assert tr.kuyruk_parti("### Sıra 0\n" + _BASLIK + _U) == (None, [])
+    monkeypatch.delenv("VIDEO_UZUN_BEKLET")
+    assert tr.kuyruk_parti(k)[0] == "uzun"

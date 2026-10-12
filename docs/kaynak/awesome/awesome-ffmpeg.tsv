@@ -1,0 +1,33 @@
+ad	url	aciklama	bolum
+FFmpeg.org	http://ffmpeg.org	Where it all starts.	Docs
+Filters	https://ffmpeg.org/ffmpeg-filters.html	Docs for FFmpeg's powerful filter chains (scaling, cropping, concatenating, merging, etc.). This is one of…	Docs
+Man page	https://man.cx/ffmpeg	Official FFmpeg man page.	Docs
+Wiki & Bug Tracker	https://trac.ffmpeg.org	Lots of great info on here.	Docs
+CLI flags	https://github.com/transitive-bullshit/ffmpeg-cli-flags/blob/master/readme.md	A comprehensive list of all FFmpeg commandline flags. Really useful for searching random flags that…	Docs
+fluent-ffmpeg	https://github.com/fluent-ffmpeg/node-fluent-ffmpeg	A fluent API to FFmpeg. If you only use one tool from this list, it…	JavaScript
+ffmpeg-probe	https://github.com/transitive-bullshit/ffmpeg-probe	Wrapper around ffprobe for getting info about media files.	JavaScript
+ffmpeg-concat	https://github.com/transitive-bullshit/ffmpeg-concat	Concats a list of videos together using FFmpeg with sexy OpenGL transitions.	JavaScript
+editly	https://github.com/mifi/editly	Declarative video editing tool and library with slick animations and transitions.	JavaScript
+ffmpeg-generate-video-preview	https://github.com/transitive-bullshit/ffmpeg-generate-video-preview	Generates an attractive image strip or GIF preview from a video.	JavaScript
+ffmpeg-extract-frame	https://github.com/transitive-bullshit/ffmpeg-extract-frame	Extracts a single frame from a video.	JavaScript
+ffmpeg-extract-frames	https://github.com/transitive-bullshit/ffmpeg-extract-frames	Extracts screenshots from a video using FFmpeg.	JavaScript
+gif-extract-frames	https://github.com/transitive-bullshit/gif-extract-frames	Extracts frames from GIFs including inter-frame coalescing.	JavaScript
+ffmpeg-extract-audio	https://github.com/transitive-bullshit/ffmpeg-extract-audio	Extracts an audio stream from a media file.	JavaScript
+ffmpeg-on-progress	https://github.com/transitive-bullshit/ffmpeg-on-progress	Utility for robustly reporting progress with fluent-ffmpeg.	JavaScript
+ffmpeg.js	https://github.com/Kagami/ffmpeg.js	Port of FFmpeg to JavaScript via Emscripten. Allows for limited FFmpeg use on the client-side.	JavaScript
+ffmpeg-static	https://github.com/eugeneware/ffmpeg-static	Provides static FFmpeg binaries for macOS, Linux, and Windows. Very useful for CI testing.	JavaScript
+tangerine	https://github.com/niftylettuce/tangerine	Webcam streaming service using Node.js, FFmpeg, WebSockets, and Lad.	JavaScript
+ffparser	https://github.com/NiKlimenko/FFParser	Parse input stream by frames directly into your code as a buffer.	JavaScript
+lottie-render	https://github.com/steven-panxd/lottie-render	Converts Lottie animations to MP4 using Playwright and FFmpeg, as a library or self-hosted HTTP…	JavaScript
+ffmpeg-gl-transition	https://github.com/transitive-bullshit/ffmpeg-gl-transition	FFmpeg filter for applying GLSL transitions between video streams (gl-transitions).	Native
+simplest ffmpeg mobile	https://github.com/leixiaohua1020/simplest_ffmpeg_mobile	FFmpeg examples for Android and iOS.	Mobile
+ijkplayer	https://github.com/Bilibili/ijkplayer	Android / iOS video player based on FFmpeg.	Mobile
+How to Write a Video Player in Less Than 1k Lines	http://dranger.com/ffmpeg		Tutorials
+Learn FFmpeg libav the Hard Way	https://github.com/leandromoreira/ffmpeg-libav-tutorial		Tutorials
+Applying OpenGL Shaders with FFmpeg	https://nervous.io/ffmpeg/opengl/2017/01/31/ffmpeg-opengl	And follow-up.	Tutorials
+A Beginner's FFmpeg Cookbook	https://github.com/talwrii/ffmpeg-cookbook		Tutorials
+FFmpeg Cookbook	https://ghassan-gaidi.github.io/ffmpeg-cookbook/?ref=specD2	Task-first cookbook of tested ffmpeg one-liners (compress, trim, GIF, audio extraction).	Tutorials
+FFmpeg Cheatsheet for Video Automation	https://github.com/rendi-api/ffmpeg-cheatsheet		Tutorials
+Stack Overflow	https://superuser.com/questions/tagged/ffmpeg		Community
+Mailing Lists	https://www.ffmpeg.org/contact.html#MailingLists		Community
+IRC	https://www.ffmpeg.org/contact.html#IRCChannels		Community

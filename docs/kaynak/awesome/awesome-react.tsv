@@ -1,0 +1,149 @@
+ad	url	aciklama	bolum
+React Official Website	https://react.dev/		React / React General Resources
+React GitHub	https://github.com/facebook/react		React / React General Resources
+Reactiflux Discord Channel	https://www.reactiflux.com/		React / React General Resources
+React Community	https://react.dev/community		React / React General Resources
+React Conferences	https://react.dev/community/conferences		React / React General Resources
+React CodeSandbox Playground	https://codesandbox.io/s/new		React / React General Resources
+React Official Tutorial	https://react.dev/learn		React / React Tutorials
+Using React in Visual Studio Code	https://code.visualstudio.com/docs/nodejs/reactjs-tutorial		React / React Tutorials
+React Interview Questions & Answers	https://github.com/sudheerj/reactjs-interview-questions		React / React Tutorials
+Design patterns and Component patterns for building powerful Web Apps	https://www.patterns.dev/		React / React Tutorials
+A simple, scalable, and powerful architecture for building production ready React applications	https://github.com/alan2207/bulletproof-react		React / React Tutorials
+Cheatsheets for experienced React developers getting started with TypeScript	https://github.com/typescript-cheatsheets/react		React / React Tutorials
+next	https://github.com/vercel/next.js	The React Framework	React / React Frameworks
+gatsby	https://github.com/gatsbyjs/gatsby	Build modern websites with React	React / React Frameworks
+remix	https://github.com/remix-run/remix	Full-stack web Framework that lets you focus on the user interface	React / React Frameworks
+react-admin	https://github.com/marmelab/react-admin	A frontend Framework for building B2B applications	React / React Frameworks
+refine	https://github.com/refinedev/refine	Build your React-based CRUD applications, without constraints	React / React Frameworks
+vike	https://github.com/vikejs/vike	The Modular Framework - Next.js & Nuxt alternative	React / React Frameworks
+shadcn-ui	https://github.com/shadcn-ui/ui	Beautifully designed components built using Radix UI and Tailwind CSS	React / React Component Libraries
+ant-design	https://github.com/ant-design/ant-design	An enterprise-class UI design language and React UI library	React / React Component Libraries
+material-ui	https://github.com/mui/material-ui	Ready-to-use foundational React components	React / React Component Libraries
+chakra-ui	https://github.com/chakra-ui/chakra-ui	Component system for building SaaS products with speed	React / React Component Libraries
+react-bits	https://github.com/DavidHDev/react-bits	A collection of animated, interactive & fully customizable React components	React / React Component Libraries
+mantine	https://github.com/mantinedev/mantine	Fully featured React components library	React / React Component Libraries
+react-bootstrap	https://github.com/react-bootstrap/react-bootstrap	Bootstrap components built with React	React / React Component Libraries
+fluentui	https://github.com/microsoft/fluentui	Microsoft's Fluent UI	React / React Component Libraries
+framework7	https://github.com/framework7io/framework7	Full featured HTML framework for building iOS & Android apps	React / React Component Libraries
+ariakit	https://github.com/ariakit/ariakit	Toolkit for building accessible web apps with React	React / React Component Libraries
+react-email	https://github.com/resend/react-email	Unstyled components for creating beautiful emails	React / React Component Libraries
+8bitcn-ui	https://github.com/TheOrcDev/8bitcn-ui	A retro 8-bit themed React component library built on top of shadcn	React / React Component Libraries
+headlessui	https://github.com/tailwindlabs/headlessui	Completely unstyled, accessible UI components for React	React / React Component Libraries
+ruixen-ui	https://github.com/ruixenui/ruixen.com	Modern, lightweight React component library with elegant design	React / React Component Libraries
+billingsdk	https://github.com/dodopayments/billingsdk	Type-safe billing and subscription components built with TypeScript, Tailwind CSS and shadcn/ui	React / React Component Libraries
+redux	https://github.com/reduxjs/redux	Predictable State Container for JavaScript Apps	React / React State Management and Data Fetching
+mobx	https://github.com/mobxjs/mobx	Simple, scalable state management	React / React State Management and Data Fetching
+zustand	https://github.com/pmndrs/zustand	Bear necessities for state management in React	React / React State Management and Data Fetching
+tanstack-query	https://github.com/TanStack/query	Powerful asynchronous state management	React / React State Management and Data Fetching
+swr	https://github.com/vercel/swr	React Hooks for Data Fetching	React / React State Management and Data Fetching
+apollo-client	https://github.com/apollographql/apollo-client	A fully-featured, production ready caching GraphQL client	React / React State Management and Data Fetching
+relay	https://github.com/facebook/relay	A framework for building data-driven React applications	React / React State Management and Data Fetching
+jotai	https://github.com/pmndrs/jotai	Primitive and flexible state management for React	React / React State Management and Data Fetching
+xstate	https://github.com/statelyai/xstate	State machines and statecharts for the modern web	React / React State Management and Data Fetching
+effector	https://github.com/effector/effector	Business logic with ease	React / React State Management and Data Fetching
+immer	https://github.com/immerjs/immer	Create the next immutable state by mutating the current one	React / React State Management and Data Fetching
+immutable-js	https://github.com/immutable-js/immutable-js	Immutable persistent data collections for JavaScript	React / React State Management and Data Fetching
+rxdb	https://github.com/pubkey/rxdb	A fast, offline-first, reactive database for JavaScript Applications	React / React State Management and Data Fetching
+styled-components	https://github.com/styled-components/styled-components	Visual primitives for the component age	React / React Styling
+emotion	https://github.com/emotion-js/emotion	CSS-in-JS library designed for high performance style composition	React / React Styling
+vanilla-extract	https://github.com/vanilla-extract-css/vanilla-extract	Zero-runtime Stylesheets-in-TypeScript	React / React Styling
+react-icons	https://github.com/react-icons/react-icons	SVG React icons of popular icon packs	React / React Icon Libraries
+lucide-react	https://github.com/lucide-icons/lucide	Beautiful & consistent icon toolkit	React / React Icon Libraries
+heroicons	https://github.com/tailwindlabs/heroicons	Beautiful hand-crafted SVG icons by the makers of Tailwind CSS	React / React Icon Libraries
+thesvg	https://github.com/GLINCKER/thesvg	A collection of free SVG icons for popular brands and technologies	React / React Icon Libraries
+react-router	https://github.com/remix-run/react-router	Declarative routing for React	React / React Routing
+speedy-router	https://github.com/anonrig/router	TanStack Router API rebuilt for faster navigations and SSR	React / React Routing
+tanstack-router	https://github.com/TanStack/router	Type-safe router with built-in caching & URL state management	React / React Routing
+vite	https://github.com/vitejs/vite	Next Generation Frontend Tooling	React / React Development Tools
+parcel	https://github.com/parcel-bundler/parcel	The zero configuration build tool for the web	React / React Development Tools
+reactotron	https://github.com/infinitered/reactotron	A desktop app for inspecting your React and React Native projects	React / React Development Tools
+eslint-plugin-react	https://github.com/jsx-eslint/eslint-plugin-react	React specific linting rules for ESLint	React / React Development Tools
+react-scan	https://github.com/aidenybai/react-scan	Scan for React performance issues and eliminate slow renders in your app	React / React Development Tools
+why-did-you-render	https://github.com/welldone-software/why-did-you-render	Monkey patches React to notify you about avoidable re-renders	React / React Development Tools
+ai-sdk	https://github.com/vercel/ai	The AI Toolkit for TypeScript and React from the creators of Next.js	React / React Libraries
+preact	https://github.com/preactjs/preact	Fast React alternative with the same modern API	React / React Libraries
+floating-ui	https://github.com/floating-ui/floating-ui	Toolkit to create floating elements	React / React Libraries
+loadable-components	https://github.com/gregberge/loadable-components	The recommended Code Splitting library for React	React / React Libraries
+react-uploady	https://github.com/rpldy/react-uploady	Modern file-upload components & hooks for React	React / React Libraries
+downshift	https://github.com/downshift-js/downshift	React autocomplete, combobox or select dropdown components	React / React Libraries
+react-error-boundary	https://github.com/bvaughn/react-error-boundary	A React error boundary component that lets you catch errors	React / React Libraries
+reactuse	https://github.com/childrentime/reactuse	Collection of 110+ tree-shakable, SSR-safe, TypeScript-first React Hooks	React / React Libraries
+jest	https://github.com/jestjs/jest	Delightful JavaScript Testing	React / React Testing
+react-testing-library	https://github.com/testing-library/react-testing-library	Simple and complete React DOM testing utilities	React / React Testing
+cypress	https://github.com/cypress-io/cypress	Fast, easy and reliable testing for anything that runs in a browser	React / React Testing
+playwright	https://github.com/microsoft/playwright	A framework for Web Testing and Automation	React / React Testing
+Awesome React Components	https://github.com/brillout/awesome-react-components		React / React Awesome Components
+react-select	https://github.com/JedWatson/react-select	The Select Component for React	React / React Awesome Components
+react-big-calendar	https://github.com/bigcalendar/react-big-calendar	Calendar component	React / React Awesome Components
+react-datepicker	https://github.com/Hacker0x01/react-datepicker/	A simple and reusable datepicker component for React	React / React Awesome Components
+react-qrcode	https://github.com/zpao/qrcode.react	QR component for use with React	React / React Awesome Components
+react-archer	https://github.com/pierpo/react-archer	Draw arrows between React elements	React / React Awesome Components
+react-complex-tree	https://github.com/lukasbach/react-complex-tree	Unopinionated Accessible Tree	React / React Awesome Components
+react-insta-stories	https://github.com/mohitk05/react-insta-stories	A React component for Instagram like stories	React / React Awesome Components
+react-hot-toast	https://github.com/timolins/react-hot-toast	Lightweight and customizable toast notifications for React	React / React Awesome Components
+swiper	https://github.com/nolimits4web/swiper	Most modern mobile touch slider	React / React Awesome Components
+keen-slider	https://github.com/rcbyr/keen-slider	The Touch slider carousel	React / React Awesome Components
+heart-switch	https://github.com/anatoliygatt/heart-switch	A heart-shaped toggle switch component for React	React / React Awesome Components
+kbar	https://github.com/timc1/kbar	Fast, portable, and extensible cmd+k interface for your site	React / React Awesome Components
+tagify	https://github.com/yairEO/tagify	Lightweight, efficient Tags input component	React / React Awesome Components
+puck	https://github.com/puckeditor/puck	The visual editor for React	React / React Awesome Components
+json-edit-react	https://github.com/CarlosNZ/json-edit-react	Highly configurable JSON/Object tree editor/viewer	React / React Awesome Components
+storybook	https://github.com/storybookjs/storybook	Storybook is a frontend workshop for building UI components and pages in isolation	React / React Components Sandboxes
+react-cosmos	https://github.com/react-cosmos/react-cosmos	Dev tool for creating reusable React components	React / React Components Sandboxes
+bit	https://github.com/teambit/bit	A build system for development of composable software	React / React Components Sandboxes
+react-hook-form	https://github.com/react-hook-form/react-hook-form	React Hooks for form state management and validation	React / React Forms
+react-jsonschema-form	https://github.com/rjsf-team/react-jsonschema-form	A React component for building Web forms from JSON Schema	React / React Forms
+formily	https://github.com/alibaba/formily	Alibaba Group Unified Form Solution	React / React Forms
+tanstack-form	https://github.com/TanStack/form	Headless, performant, and type-safe form state management	React / React Forms
+formisch	https://github.com/open-circle/formisch	The schema-based, headless form library for React	React / React Forms
+react-grid-layout	https://github.com/react-grid-layout/react-grid-layout	A draggable and resizable grid layout with responsive breakpoints	React / React Tables and Grids
+tanstack-table	https://github.com/TanStack/table	Headless UI for building powerful tables & datagrids	React / React Tables and Grids
+react-data-grid	https://github.com/Comcast/react-data-grid	Feature-rich and customizable data grid React component	React / React Tables and Grids
+react-map-gl	https://github.com/visgl/react-map-gl	React friendly API wrapper around MapboxGL JS	React / React Maps
+react-leaflet	https://github.com/PaulLeCam/react-leaflet	React components for Leaflet maps	React / React Maps
+recharts	https://github.com/recharts/recharts	Redefined chart library built with React and D3	React / React Charts
+visx	https://github.com/airbnb/visx	Visualization components	React / React Charts
+victory	https://github.com/FormidableLabs/victory	A collection of composable React components for building interactive data visualizations	React / React Charts
+react-vis	https://github.com/uber/react-vis	Data Visualization Components	React / React Charts
+nivo	https://github.com/plouc/nivo	Provides a rich set of data visualization components built on top of the D3 and…	React / React Charts
+xyflow	https://github.com/xyflow/xyflow	A customizable React component for building node-based editors and interactive diagrams	React / React Charts
+react-three-fiber	https://github.com/pmndrs/react-three-fiber	A React renderer for Three.js	React / React Renderers
+ink	https://github.com/vadimdemedes/ink	React for interactive command-line apps	React / React Renderers
+remotion	https://github.com/remotion-dev/remotion	Make videos programmatically with React	React / React Renderers
+react-pdf	https://github.com/diegomura/react-pdf	Create PDF files using React	React / React Renderers
+react-figma	https://github.com/react-figma/react-figma	A React renderer for Figma	React / React Renderers
+markdown-to-jsx	https://github.com/quantizor/markdown-to-jsx	A very fast and versatile markdown toolchain	React / React Renderers
+markstream	https://github.com/Simon-He95/markstream-vue	Streaming Markdown renderer for React and AI chat interfaces	React / React Renderers
+formatjs	https://github.com/formatjs/formatjs	Internationalize your web apps	React / React Internationalization
+react-i18next	https://github.com/i18next/react-i18next	Internationalization for React done right	React / React Internationalization
+react-intlayer	https://github.com/aymericzip/intlayer	Internationalization focused on maintainability for React	React / React Internationalization
+react-spring	https://github.com/pmndrs/react-spring	A spring physics based React animation library	React / React Graphics and Animations
+framer-motion	https://github.com/motiondivision/motion	Open source, production-ready animation and gesture library for React	React / React Graphics and Animations
+auto-animate	https://github.com/formkit/auto-animate	A zero-config, drop-in animation utility that adds smooth transitions	React / React Graphics and Animations
+react-tsparticles	https://github.com/tsparticles/tsparticles	Easily create highly customizable particles effects	React / React Graphics and Animations
+react-parallax-tilt	https://github.com/mkosir/react-parallax-tilt	Easily apply tilt hover effect on React components	React / React Graphics and Animations
+simple-parallax-js	https://github.com/geosigno/simpleParallax.js	The easiest way to get a parallax effect with React and JavaScript	React / React Graphics and Animations
+rescript-compiler	https://github.com/rescript-lang/rescript	A robustly typed language that compiles to efficient and human-readable JavaScript	React / React Integration
+fulcro	https://github.com/fulcrologic/fulcro	A library for development of web applications in clj/cljs	React / React Integration
+excalidraw	https://github.com/excalidraw/excalidraw	An open source virtual hand-drawn style whiteboard.	React / React Real Apps
+mattermost-server	https://github.com/mattermost/mattermost	An open source platform for secure collaboration	React / React Real Apps
+kibana	https://github.com/elastic/kibana	Your window into the Elastic Stack	React / React Real Apps
+webamp	https://github.com/captbaritone/webamp	Winamp 2 reimplemented for the browser	React / React Real Apps
+overreacted	https://github.com/gaearon/overreacted.io	Personal blog by Dan Abramov	React / React Real Apps
+wave	https://github.com/wavetermdev/waveterm	An open-source, cross-platform terminal for seamless workflows	React / React Real Apps
+readest	https://github.com/readest/readest	A minimalistic, feature-rich and cross-platform eBook reader	React / React Real Apps
+bookcars	https://github.com/aelassas/bookcars	Car rental platform	React / React Real Apps
+notifuse	https://github.com/Notifuse/notifuse	Modern self-hosted emailing platform to send newsletters & transactional emails	React / React Real Apps
+cate	https://github.com/0-AI-UG/cate	An open source IDE on an infinite zoomable canvas, with editor, terminal, and browser panels	React / React Real Apps
+React Native Official Website	https://reactnative.dev/		React Native / React Native General Resources
+React Native GitHub	https://github.com/facebook/react-native		React Native / React Native General Resources
+React Native Community	https://reactnative.dev/community/overview		React Native / React Native General Resources
+Expo	https://expo.dev/		React Native / React Native General Resources
+react-navigation	https://github.com/react-navigation/react-navigation	Routing and navigation for your React Native apps	React Native / React Native Navigation
+react-native-vector-icons	https://github.com/oblador/react-native-vector-icons	Customizable Icons for React Native	React Native / React Native Awesome Components
+react-native-gifted-chat	https://github.com/FaridSafi/react-native-gifted-chat	The most complete chat UI for React Native	React Native / React Native Awesome Components
+realm-js	https://github.com/realm/realm-js	A mobile database: an alternative to SQLite & key-value stores	React Native / React Native Libraries
+react-native-device-info	https://github.com/react-native-device-info/react-native-device-info	Device Information for React Native iOS and Android	React Native / React Native Libraries
+react-native-maps	https://github.com/react-native-maps/react-native-maps	React Native Mapview component	React Native / React Native Libraries
+xprem	https://github.com/mercuretechnologies/xprem	Self-hosted OTA updates for Expo and React Native apps	React Native / React Native Libraries

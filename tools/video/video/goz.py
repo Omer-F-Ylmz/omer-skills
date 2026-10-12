@@ -11,11 +11,19 @@ OCR_GUVEN, OCR_BUTCE, MODEL_KENAR = 0.5, 3000, 768  # ayar · M1: RapidOCR skor 
 URL_KOMUT = re.compile(r"https?://|www\.|\b[\w-]+\.(?:com|io|ai|dev|app|org|net|co|so|sh|gg|xyz|me|tr|tech|studio|design)\b"
                        r"|\b(?:npx|npm|pip|uvx?|claude|git|gh|curl|winget|brew)\b|--\w|`", re.I)
 TERIM = re.compile(r"\b(?:[A-Z][a-z]+[A-Z]\w*|[A-Za-z]+\d[\w.]*|[A-Z]{3,}\w*)\b")  # CamelCase · harf+rakam · KISALTMA
+SLASH = {"usage", "init", "compact", "clear", "model", "cost", "context", "help", "mcp", "plugin", "agents", "hooks", "memory", "config",
+         "status", "review", "resume", "rewind", "doctor", "permissions", "export", "fast", "passes", "skills"}  # ayar · CC slash komutları
+SLASH_OCR = re.compile(r"^(?:/|[Il|])([A-Z]{3,})\b")  # VİDEO-13-devam: "/USAGE" · "/"yu I okuyan "IUSAGE"
+
+
+def _slash(x):
+    m = SLASH_OCR.match(x)
+    return f"/{m[1].lower()}{x[m.end():]}" if m and m[1].lower() in SLASH else x
 
 
 def ocr_satirlar(sonuc, esik=OCR_GUVEN):
-    """RapidOCR [(metin, skor, üst y)] → skoru ≥ esik satırlar, yukarıdan aşağı."""
-    return [x.strip() for x, s, _ in sorted(sonuc, key=lambda r: r[2]) if s >= esik and x.strip()]
+    """RapidOCR [(metin, skor, üst y)] → skoru ≥ esik satırlar, yukarıdan aşağı; büyük harf slash komutu katlanır (komut adayı olsun)."""
+    return [_slash(x.strip()) for x, s, _ in sorted(sonuc, key=lambda r: r[2]) if s >= esik and x.strip()]
 
 
 def _pencere(s):

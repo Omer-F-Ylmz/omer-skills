@@ -262,6 +262,8 @@ def kuyruk_parti(metin, kapsiz=False):
             bek.append((bagli, sira, len(bek), h))
     oto = {h[0] for b, *_, h in bek if b}
     bek = [h for *_, h in sorted(bek)]
+    if os.environ.get("VIDEO_UZUN_BEKLET") == "1":  # VİDEO-14: KABUL'e dek uzun (≥2 dk) kuyrukta bekler, short sürer
+        bek = [h for h in bek if float(h[1]) < 2]
     if not bek:
         return None, []
     kisa = float(bek[0][1]) < 2

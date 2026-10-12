@@ -1,4 +1,5 @@
 """VİDEO-GÖZ-1a K4: rapor.md'yi altın JSON'a karşı puanlar (salt okur, LLM yok)."""
+import os
 import re
 from pathlib import Path
 
@@ -100,7 +101,8 @@ def puan(metin, altin):
                 s[0] += r["aday"] == bool(l.get("aday")) and r["sponsor"] == (l.get("sinif") == "sponsor")
         link[k] = {"yakalama": tuple(y), "sinif": tuple(s)}
 
-    sem = {k: (len(g), len(anlamsal.esle(g, r, anlamsal.ESIK[k]))) for k, (g, r) in anlamsal.alanlar(metin, altin).items()}  # 1b-2a DEVAM-1: anlamsal
+    yg = anlamsal.jev() if os.environ.get("VIDEO_JEV_BANT") == "1" else None  # JEV-1-devam-2: ölçüm kabulüne dek kapalı
+    sem = {k: (len(g), len(anlamsal.esle(g, r, anlamsal.ESIK[k], yg))) for k, (g, r) in anlamsal.alanlar(metin, altin).items()}  # 1b-2a DEVAM-1: anlamsal
 
     rk = [norm(x) for x in _ilk_sutun(metin, "Kurulum/komutlar", "komut")]
     km = altin.get("komutlar", [])

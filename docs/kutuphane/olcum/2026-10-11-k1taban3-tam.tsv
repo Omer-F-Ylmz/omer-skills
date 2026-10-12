@@ -1,0 +1,5 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata
+K19	1	8	76414	235066	6109	311488	9	168.5	0.7805	1	10	2134	62	Skill:build-game-inventory,Glob,Write,Bash	
+K20	1	6	70366	154812	828	225184	4	77.0	0.6105	1	6	2134	62	Skill:ship-web-games,Bash	
+K21	1	4	73335	86719	966	160058	2	237.0	0.6234	1	10	2061	62	Bash	
+K22	1	8	102879	260843	2354	363730	7	99.4	0.9223	1	7	2135	62	Skill:anthropic-skills:departman-surec-git-yayin,Skill:ship,Read,Grep	

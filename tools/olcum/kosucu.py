@@ -20,7 +20,7 @@ KOK = DIZIN.parents[1]
 CIKTI = KOK / "docs" / "kutuphane" / "olcum"
 ARKA_LOG = KOK / ".kos" / "kopru" / "olcum-arka.log"
 ROTA = ["--output-format", "stream-json", "--verbose", "--include-hook-events", "--no-session-persistence"]
-BASLIK = "gorev\ttekrar\tinput\tcache_creation\tcache_read\toutput\tbaglam\ttur\tsure_sn\tusd\tarac_isabet\tkalite\tskill_n\tmcp_n\taraclar\thata"
+BASLIK = "gorev\ttekrar\tinput\tcache_creation\tcache_read\toutput\tbaglam\ttur\tsure_sn\tusd\tarac_isabet\tkalite\tskill_n\tmcp_n\taraclar\thata\tjev\tjev_guven"
 RAM_ALT_GB = 6.0
 
 
@@ -53,8 +53,8 @@ def pid_canli(pid):
 
 
 def ayristir(stdout):
-    """stream-json satırları → {usage, usd, sure_ms, metin, araclar, okunan, init, hook, tur}. Anahtar/istem değeri taşımaz."""
-    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "okunan": [], "init": {}, "hook": [], "tur": 0}
+    """stream-json satırları → {usage, usd, sure_ms, metin, araclar, okunan, girdi, init, hook, tur}. Anahtar/istem değeri taşımaz."""
+    o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "okunan": [], "girdi": [], "init": {}, "hook": [], "tur": 0}
     for s in (stdout or "").splitlines():
         try:
             x = json.loads(s)
@@ -81,6 +81,8 @@ def ayristir(stdout):
                     elif ad == "Read":  # hangi references bölümü okundu: vekil değil kanıt
                         o["okunan"].append(str((b.get("input") or {}).get("file_path") or "").replace("\\", "/"))
                     o["araclar"].append(ad)
+                    g = b.get("input") or {}  # dosyaya yazılan/koşturulan çıktı da rubriğe girer (yalnız son metin değil)
+                    o["girdi"].extend(str(g[k]) for k in ("content", "new_string", "command") if g.get(k))
         elif t == "result":
             o["usage"] = x.get("usage") or {}
             o["usd"] = x.get("total_cost_usd") or 0.0
@@ -101,19 +103,81 @@ def jeton(u):
 PENCERESIZ = 0x08000000 if os.name == "nt" else 0  # CREATE_NO_WINDOW: pencere açılmaz, torunlar (MCP/hook) bu gizli konsolu devralır
 
 
+def is_olustur():
+    """Windows Job Object (KILL_ON_JOB_CLOSE): kapanınca içindeki bütün torun ağacı ölür. Windows dışında None."""
+    if os.name != "nt":
+        return None
+    k = ctypes.windll.kernel32
+    k.CreateJobObjectW.restype = ctypes.c_void_p
+    k.AssignProcessToJobObject.argtypes = [ctypes.c_void_p, ctypes.c_void_p]
+    k.SetInformationJobObject.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_void_p, ctypes.c_ulong]
+    k.CloseHandle.argtypes = [ctypes.c_void_p]
+    is_ = k.CreateJobObjectW(None, None)
+
+    class Temel(ctypes.Structure):
+        _fields_ = [("a", ctypes.c_int64), ("b", ctypes.c_int64), ("LimitFlags", ctypes.c_ulong), ("c", ctypes.c_size_t),
+                    ("d", ctypes.c_size_t), ("e", ctypes.c_ulong), ("f", ctypes.c_size_t), ("g", ctypes.c_ulong), ("h", ctypes.c_ulong)]
+
+    class Sinir(ctypes.Structure):
+        _fields_ = [("Temel", Temel), ("io", ctypes.c_uint64 * 6), ("i", ctypes.c_size_t * 4)]
+
+    s = Sinir()
+    s.Temel.LimitFlags = 0x2000  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+    if not k.SetInformationJobObject(is_, 9, ctypes.byref(s), ctypes.sizeof(s)):  # JobObjectExtendedLimitInformation
+        k.CloseHandle(is_)
+        return None
+    return is_
+
+
+def is_ata(is_, pr):
+    if is_:
+        ctypes.windll.kernel32.AssignProcessToJobObject(is_, ctypes.c_void_p(int(pr._handle)))
+
+
+def is_kapat(is_):
+    if is_:
+        ctypes.windll.kernel32.CloseHandle(is_)
+
+
+def calistir(args, env, cwd, timeout):
+    """subprocess.run yerine: claude işe atanır, bitişte/timeout'ta iş kapanır → torunlar (remotion studio vb.) ölür. → (stdout, rc, stderr)"""
+    is_ = is_olustur()
+    pr = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8", errors="replace", env=env, cwd=cwd,
+                          creationflags=PENCERESIZ)
+    is_ata(is_, pr)  # ponytail: atamadan önce doğan torunlar işte değil; supur() onları yakalar
+    try:
+        out, err = pr.communicate(timeout=timeout)
+        return out, pr.returncode, err
+    except subprocess.TimeoutExpired:
+        pr.kill()
+        is_kapat(is_)
+        is_ = None
+        out, _ = pr.communicate()
+        return out or "", -9, "timeout"
+    finally:
+        is_kapat(is_)
+
+
+def supur(ad):
+    """Emniyet: komut satırında geçici dizin adı (olcum-xxxx) geçen kalan süreçleri PID ile sonlandır. Ad ile öldürme yok."""
+    if os.name != "nt" or not ad:
+        return
+    ps = ("Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -and $_.CommandLine.Contains('%s') } "
+          "| ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }" % ad.replace("'", ""))
+    subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, creationflags=PENCERESIZ, timeout=60)
+
+
 def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
-    """Tek `claude -p`. ANTHROPIC_BASE_URL (headroom vekili) alt süreçte kaldırılır — araçları gizliyor. Boş cwd yoksa geçici boş klasör."""
+    """Tek `claude -p`. ANTHROPIC_BASE_URL (headroom vekili) alt süreçte kaldırılır — araçları gizliyor. Boş cwd yoksa geçici boş klasör.
+    BROWSER=none: Remotion/Vite vb. tarayıcı/pencere açmaz."""
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
+    env["BROWSER"] = "none"
     args = ["claude", "-p", istem, *ROTA, "--max-budget-usd", f"{butce:.2f}", *([] if not model else ["--model", model]), *ek]
     # claude'un yan süreçleri (MCP/hook) klasörü bir süre tutabiliyor → temizlik hatası koşuyu düşürmez
     with tempfile.TemporaryDirectory(prefix="olcum-", ignore_cleanup_errors=True) as bos:
         t = time.monotonic()
-        try:
-            r = subprocess.run(args, capture_output=True, encoding="utf-8", errors="replace", env=env, cwd=cwd or bos, timeout=timeout,
-                               creationflags=PENCERESIZ)
-            out, rc, err = r.stdout, r.returncode, r.stderr
-        except subprocess.TimeoutExpired as e:
-            out, rc, err = (e.stdout or "") if isinstance(e.stdout, str) else "", -9, "timeout"
+        out, rc, err = calistir(args, env, cwd or bos, timeout)
+        supur(Path(bos).name)
         sure = round(time.monotonic() - t, 1)
     o = ayristir(out)
     o["sure"], o["rc"], o["hata"] = sure, rc, (err or "").strip().replace("\t", " ").replace("\n", " ")[-200:] if rc else ""
@@ -121,12 +185,17 @@ def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
 
 
 def puanla(metin, rubrik):
-    return min(10, sum(m["puan"] for m in rubrik if re.search(m["regex"], metin, re.I | re.S)))
+    """Regex rubriği; Windows yol ayırıcısı `\\` olan yanıt `/` bekleyen kalıpla da eşleşir (A01–A03: 5 yerine 10)."""
+    duz = metin.replace("\\", "/")
+    return min(10, sum(m["puan"] for m in rubrik
+                       if re.search(m["regex"], metin, re.I | re.S) or re.search(m["regex"], duz, re.I | re.S)))
 
 
 def isabet(araclar, beklenen):
-    """beklenen = [] → araç gerekmez (1); aksi halde beklenen adlardan biri kullanıldıysa 1 (önek eşleşmesi: 'Skill:' tüm skill'leri sayar)."""
-    return 1 if not beklenen else int(any(a.startswith(b) for a in araclar for b in beklenen))
+    """beklenen = [] → araç gerekmez (1); aksi halde beklenen adlardan biri kullanıldıysa 1 (önek eşleşmesi: 'Skill:' tüm skill'leri sayar).
+    Skill ad alanı yok sayılır: 'Skill:anthropic-skills:blender-oturum' 'Skill:blender' ile de eşleşir (claude.ai senkron kopyası)."""
+    adlar = [x for a in araclar for x in (a, "Skill:" + a.rsplit(":", 1)[-1]) if a.startswith("Skill:") or x == a]
+    return 1 if not beklenen else int(any(a.startswith(b) for a in adlar for b in beklenen))
 
 
 def profil_ek(p):
@@ -159,9 +228,25 @@ def init_yaz(yol, init):
     yol.write_text(json.dumps(oz, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
-def kos_profil(ad, p, gorevler, tarih, tekrar):
+def jev_doldur(yol, metin_dir, en_fazla=2, tasiyici=None):
+    """JEV-1: koşu sonu tek jev_batch → TSV jev/jev_guven (regex rubrik 10'da doyuyor, jev ayırır). Jev erişilemezse TSV aynen kalır."""
+    import jev_yargic
+    try:
+        k = jev_yargic.veri([metin_dir])
+        if tasiyici is None:
+            sys.path.insert(0, str(DIZIN.parent / "jev"))
+            from jev.cekirdek import Tasiyici
+            tasiyici = Tasiyici(en_fazla=en_fazla, istek_tavan=len(k) + 10)
+        jev_yargic.tsv_doldur(yol, jev_yargic.jev_puanla(k, tasiyici))
+        print("jev:", len(k), "yanıt puanlandı", flush=True)
+    except Exception as e:  # noqa: BLE001 — jev yardımcı; ölçüm asla düşmez
+        print("jev atlandı:", type(e).__name__, flush=True)
+
+
+def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True):
     ek = profil_ek(p)
     yol = CIKTI / f"{tarih}-{ad}.tsv"
+    metin_dir = CIKTI / f"{tarih}-{ad}"  # yanıt metni: LLM yargıç (jev) ile kolları karşılaştırmak için
     for n in range(1, tekrar + 1):
         for g in gorevler:
             bekle = 0
@@ -169,17 +254,18 @@ def kos_profil(ad, p, gorevler, tarih, tekrar):
                 time.sleep(30); bekle += 30
             o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None)
             init_yaz(CIKTI / f"{tarih}-{ad}-init.json", o["init"])
-            metin_dir = CIKTI / f"{tarih}-{ad}"  # yanıt metni: LLM yargıç (jev) ile kolları karşılaştırmak için
             metin_dir.mkdir(exist_ok=True)
             (metin_dir / f"{g['id']}-{n}.md").write_text(o["metin"], encoding="utf-8")
             i, cc, cr, out = jeton(o["usage"])
             sn = len(o["init"].get("skills") or []) if o["init"] else 0
             mn = len(o["init"].get("mcp_servers") or []) if o["init"] else 0
             s = "\t".join(str(v) for v in (g["id"], n, i, cc, cr, out, i + cc + cr, o["tur"], o["sure"], round(o["usd"], 4),
-                                           isabet(o["araclar"], g["arac"]), puanla(o["metin"], g["rubrik"]), sn, mn,
+                                           isabet(o["araclar"], g["arac"]), puanla("\n".join([o["metin"], *o["girdi"]]), g["rubrik"]), sn, mn,
                                            ",".join(dict.fromkeys(o["araclar"])), o["hata"]))
             satir_yaz(yol, s)
             print(ad, s, flush=True)
+    if jev and yol.exists():
+        jev_doldur(yol, metin_dir)
     print("->", yol, flush=True)
 
 
@@ -190,6 +276,7 @@ def main(argv=None):
     p.add_argument("--tavan", type=int, default=12, help="profil başına en fazla N görev")
     p.add_argument("--tekrar", type=int, default=1, help="görev başına tekrar")
     p.add_argument("--tarih", default=time.strftime("%Y-%m-%d"))
+    p.add_argument("--jevsiz", action="store_true", help="koşu sonu jev puanlamasını atla (varsayılan: tek jev_batch)")
     p.add_argument("--arka", action="store_true", help="ayrık süreçte koş, hemen dön")
     p.add_argument("--bekle-pid", type=int, help="başlamadan önce bu sürecin bitmesini bekle (sıralı kuyruk)")
     ns = p.parse_args(argv)
@@ -215,7 +302,7 @@ def main(argv=None):
     CIKTI.mkdir(parents=True, exist_ok=True)
     print(time.strftime("%H:%M:%S"), "başla", ns.profil, len(gorevler), "görev ×", ns.tekrar, flush=True)
     for ad in ns.profil.split(","):
-        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar)
+        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar, jev=not ns.jevsiz)
     print(time.strftime("%H:%M:%S"), "bitti", flush=True)
     return 0
 

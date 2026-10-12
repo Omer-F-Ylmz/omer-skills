@@ -15,7 +15,9 @@ Gizli ajanlar (settings.json `Agent(...)` deny listesi) ve kullanıcı ajanları
    <rol>{gövde}</rol>
    <gorev>{kullanıcının işi + gerekli dosya yolları}</gorev>
    Çıktıyı {çıktı yolu} dosyasına yaz; bana yalnız yol + ≤5 satır özet dön.
+   Dosyayı ve özeti kullanıcının dilinde yaz ({dil}).
    ```
+   `{dil}` = kullanıcının isteğinin dili (Türkçe istem → Türkçe). Sen de kullanıcıya aynı dilde dön.
    Agent aracı yoksa (claude.ai): rolü bu konuşmada üstlen, görevi kendin yap.
 4. **Doğrula:** çıktı dosyasının var olduğunu kontrol et; yolu kullanıcıya ver.
 

@@ -9,6 +9,9 @@ from .tarama import bolum, tablolar
 
 MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"  # ~0,22 GB
 ESIK = {"is_akisi": 0.55, "promptlar": 0.527, "site_ui": 0.715, "ogrenimler": 0.514}  # 5 referans videonun (tur-1 yalın raporları) çapraz-video çiftlerinin %99'u: `python -m video.anlamsal <altin_dizin> <rapor_kalibi>`
+BANT = 0.1  # JEV-1 (b) n=39 kör Opus: bant içinde kosinüs 25/39 · Jev noul 33/39
+ES_Q = {"es": {"type": "noul", "instructions": "`rapor_satiri`, `altin` ile aynı somut öğeyi (adım/teknik/öğrenim) mi ifade ediyor? Farklı kelimelerle söylenmesi sorun değil.",
+               "criteria": {"true": "Aynı somut öğe (açımlama olabilir)", "false": "Farklı öğe ya da yalnız konu/genel benzerlik"}}}
 _model, _onbellek = None, {}
 
 
@@ -22,15 +25,39 @@ def embed(metinler):
     return np.array([_onbellek[t] for t in metinler]).reshape(len(metinler), -1)
 
 
-def esle(altin, satirlar, esik):
-    """Açgözlü bire-bir: tüm çiftler kosinüse göre azalan; iki taraf da boşsa ve kos ≥ eşik ise alınır → [(altın_i, satır_j, kos)]."""
+def jev():
+    """JEV-1-devam-2 (3): eşdeğerlik yargıcı (Jev noul, tek toplu çağrı); anahtar/ağ hatasında None → kosinüs.
+    JEV-1-devam-3: hata sessiz değil — neden yargic.hata'da ve stderr'de (ölçüm betikleri buna bakar)."""
+    def yargic(ciftler):
+        yargic.hata = None
+        try:
+            from jev import cekirdek as c
+            t = c.Tasiyici(en_fazla=len(ciftler), istek_tavan=2 * len(ciftler) + 2)
+            return [v["es"]["noul"] >= 0.5 for v in t.yargila([{"altin": a, "rapor_satiri": s} for a, s in ciftler], ES_Q)]
+        except Exception as e:
+            yargic.hata = f"{type(e).__name__}: {e}"
+            print(f"anlamsal: Jev yargıcı yanıt vermedi ({yargic.hata}) → {len(ciftler)} bant çifti kosinüsle", file=sys.stderr)
+            return None
+    yargic.hata = None
+    return yargic
+
+
+def esle(altin, satirlar, esik, yargic=None):
+    """Açgözlü bire-bir: tüm çiftler kosinüse göre azalan; iki taraf da boşsa ve kos ≥ eşik ise alınır → [(altın_i, satır_j, kos)].
+    yargic verilirse altın başına en yakın satır eşik ±BANT içindeyse kararı yargic verir (bant dışı kosinüs aynen)."""
     if not altin or not satirlar:
         return []
     k = embed(altin) @ embed(satirlar).T
+    karar = {}
+    if yargic:
+        bant = [(i, int(k[i].argmax())) for i in range(k.shape[0]) if abs(k[i].max() - esik) <= BANT]
+        karar = dict(zip(bant, yargic([(altin[i], satirlar[j]) for i, j in bant]) or [])) if bant else {}
     kul_a, kul_s, out = set(), set(), []
     for i, j in sorted(np.ndindex(k.shape), key=lambda p: -k[p]):
-        if k[i, j] < esik:
+        if k[i, j] < esik - (BANT if karar else 0):
             break
+        if not karar.get((i, j), k[i, j] >= esik):
+            continue
         if i not in kul_a and j not in kul_s:
             kul_a.add(i); kul_s.add(j); out.append((i, j, float(k[i, j])))
     return out

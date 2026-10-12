@@ -94,9 +94,10 @@ YONLENDIRME = {"tarama": {"yontem": "ikili", "modeller": ["claude-sonnet-5-5", "
 # geri alma (V10): YONLENDIRME = {"tarama": {"saglayici": "omniroute", "model": "openrouter/google/gemini-3.5-flash-lite", "yontem": "V10"}}  # DERİNLİK-KAPANIŞ-1
 SHORT_GRUP, GIRDI_TAVAN = 8, 40_000  # parti-motoru.md: short grubu ≤8, çağrı girdisi ≤40k jeton
 BOZUK_ESIK = 0.25  # ayar · C1: anlamsız kelime oranı bunu aşan altyazı bozuk → whisper
-JETON = ""  # VİDEO-9 (Desktop kararı 09:12): C 3. turda yakalama 35/56 < taban 37, ad yazım 26 < 31, USD +21% → KAPALI (kalite düşmez kuralı); C2 (piksel farkı) kalite = taban, jeton −10.9% ama USD +1.7% → onarım bekliyor (env VIDEO_JETON=C2) · TOKEN-7c-devam-4: C yakalama 25/38 ≥ taban 23/38, jeton/video −20% → açılmıştı; A/B jeton düşürmedi → kapalı · TOKEN-7c-devam-3 ikili yol bayrakları (env VIDEO_JETON geçersiz kılar), harf başına: A şemada id enum yok (videolar arası sabit önek → önbellek okunur) · B haiku dar şema · C model karesi dhash ayıklama + JETON_KARE tavanı
+JETON = "K"  # VİDEO-13-devam-2 (Desktop 21:25): K KABUL → varsayılan (×3: yakalama +%3, ad +%8, USD short −%28 uzun −%4); VIDEO_JETON=0 eski yol · VİDEO-9 (Desktop kararı 09:12): C 3. turda yakalama 35/56 < taban 37, ad yazım 26 < 31, USD +21% → KAPALI (kalite düşmez kuralı); C2 (piksel farkı) kalite = taban, jeton −10.9% ama USD +1.7% → onarım bekliyor (env VIDEO_JETON=C2) · TOKEN-7c-devam-4: C yakalama 25/38 ≥ taban 23/38, jeton/video −20% → açılmıştı; A/B jeton düşürmedi → kapalı · TOKEN-7c-devam-3 ikili yol bayrakları (env VIDEO_JETON geçersiz kılar), harf başına: A şemada id enum yok (videolar arası sabit önek → önbellek okunur) · B haiku dar şema · C model karesi dhash ayıklama + JETON_KARE tavanı
 JETON_KARE, JETON_HAM = 30, 5
 JETON_KENAR = 512  # ayar · VİDEO-13 C3 'K': model karesi uzun kenarı (MODEL_KENAR 768 → ~%55 görüntü jetonu)
+OCR_KARE_SATIR, OCR_KARE_GUVEN = 20, 0.9  # ayar · VİDEO-13-devam-2 C3a 'O': ham OCR'ı ≥ bu kadar satır ve ≥%90'ı bu güvende olan kare yazı ekranı sayılır
 B_DISI = ("bolumler", "kareden_okunanlar", "belirsizlikler")  # birlestir b'den almaz
 KARE_UST = 60  # ayar · C4 (O11): uzun videoda modele giden kare güvenlik üst sınırı; asıl sınır cli.PAKET_BUTCE (Ömer onayı: tavan 20 → bütçe)
 WHISPER_RAM_GB, WHISPER_HIZ = 6, 0.5  # ayar · C1: whisper öncesi en az boş RAM · tahmini işlem sn / ses sn (ponytail: kaba, CPU small int8; ölçümle güncellenir)
@@ -721,6 +722,9 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         istem = _istem([v], pk, hatalar, temizle)
         if "C" in jt and len(kr2 := kare_ayikla(kr, piksel="C2" in jt)) < len(kr):
             kr, istem = kr2, istem + f"\n\nKARE GÖRSELLERİ ({len(kr2)}/{len(kr)}, sırayla; diğerleri yinelendiği için gönderilmedi): " + ", ".join(Path(k).name for k in kr2)
+        if "O" in jt and kr:
+            kr, ek = kare_ocr(kr, pk[v].get("ocr") or "", istem)
+            istem += ek
         if "K" in jt and kr:
             kr = kare_kucult(kr, pdir / "kucuk" / v, JETON_KENAR)
         with YAZ:
@@ -780,6 +784,22 @@ def kare_kucult(kr, hedef, kenar):
             im.save(y := Path(hedef) / Path(k).name, quality=85)
         out.append(y)
     return out
+
+
+def kare_ocr(kr, oj, istem):
+    """VİDEO-13-devam-2 C3 (a) 'O': yazı ağırlıklı kare (OCR_KARE_*) modele görüntü olarak gitmez; ham OCR satırlarından istemde olmayanlar metin olarak eklenir.
+    Görsel-özgü içerik (az satır) ya da düşük güven → kare kalır. Kare adı kNNNNNN = saniye×10 (ham OCR 1 fps, en yakın saniye). → (kalan kareler, istem eki)."""
+    ham = {round(t): sat for t, sat in json.loads(Path(oj).read_text(encoding="utf-8")).get("ham", [])} if oj and Path(oj).is_file() else {}
+    tut, ek = [], []
+    for k in kr:
+        m = re.fullmatch(r"k(\d+)", Path(k).stem)
+        sat = ham.get(round(int(m.group(1)) / 10), []) if m else []
+        iyi = [x[0] for x in sat if x[1] >= OCR_KARE_GUVEN]
+        if len(sat) < OCR_KARE_SATIR or len(iyi) < .9 * len(sat):
+            tut.append(k)
+        elif yeni := [x for x in iyi if x.strip() and x not in istem]:
+            ek.append(f"{Path(k).name}: " + " | ".join(yeni))
+    return tut, "\n\nKARE OCR METNİ (yazı ağırlıklı kareler görüntü yerine; yalnız yukarıda geçmeyen satırlar):\n" + "\n".join(ek) if ek else ""
 
 
 def kare_ayikla(kr, piksel=False):

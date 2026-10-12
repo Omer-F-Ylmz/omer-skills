@@ -1,0 +1,9 @@
+gorev	yol	tekrar	input	cache_creation	cache_read	output	toplam	tur	sure_sn	usd	kalite	kalan	mcp_n	bash_n	hata
+g1	tarif	1	12	7957	30071	2568	40608	6	34.9	0.0635	1.0	-	0	5	-
+g2	tarif	1	6	2443	13332	1186	16967	4	19.5	0.0243	1.0	-	0	2	-
+g3	tarif	1	12	4781	33485	2905	41183	6	39.8	0.0549	0.8	donus_360	0	4	-
+g4	tarif	1	16	5533	49708	3164	58421	8	44.2	0.0637	0.833	patlatma_aralik	0	7	-
+g1	tarif	2	14	5452	39876	3316	48658	8	42.5	0.063	1.0	-	0	6	-
+g2	tarif	2	6	2451	13332	1246	17035	4	27.3	0.0249	1.0	-	0	2	-
+g3	tarif	2	12	4702	33054	2773	40541	6	36.2	0.0532	0.8	donus_360	0	5	-
+g4	tarif	2	4	3325	8060	2088	13477	3	33.9	0.0358	0.833	patlatma_aralik	0	1	-

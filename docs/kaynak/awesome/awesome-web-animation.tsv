@@ -1,0 +1,110 @@
+ad	url	aciklama	bolum
+Snap.svg	https://github.com/adobe-webplatform/Snap.svg	The JavaScript library for modern SVG graphics.	SVG
+Svg.js	https://github.com/svgdotjs/svg.js	The lightweight library for manipulating and animating SVG.	SVG
+Vivus	https://github.com/maxwellito/vivus	Library to make drawing animation on SVG.	SVG
+Walkway	https://github.com/ConnorAtherton/walkway	An easy way to animate SVG elements.	SVG
+Raphael	https://github.com/DmitryBaranovskiy/raphael	JavaScript Vector Library.	SVG
+Bonsai	https://github.com/uxebu/bonsai	BonsaiJS is a graphics library and renderer.	SVG
+Lazy Line Painter	https://github.com/merri-ment/lazy-line-painter	A modern JavaScript library for SVG path animation.	SVG
+Flubber	https://github.com/veltman/flubber	Tools for smoother SVG shape morphing and interpolation.	SVG
+Lottie	https://github.com/airbnb/lottie-web	Render After Effects animations natively on the web as SVG or Canvas.	SVG
+GSAP	https://github.com/greensock/GSAP	JavaScript animation library.	Common
+TweenJS	https://github.com/CreateJS/TweenJS	A simple but powerful tweening / animation library for JavaScript. Part of the CreateJS suite…	Common
+Anime.js	https://github.com/juliangarnier/anime	JavaScript animation engine.	Common
+Mojs	https://github.com/mojs/mojs	The motion graphics toolbelt for the web.	Common
+Animo.js	https://github.com/ThrivingKings/animo.js	A powerful little tool for managing CSS animations.	Common
+Move.js	https://github.com/visionmedia/move.js	CSS3 backed JavaScript animation framework.	Common
+Velocity	https://github.com/julianshapiro/velocity	Accelerated JavaScript animation.	Common
+Animateplus	https://github.com/bendc/animateplus	A+ animation module for the modern web.	Common
+Animatic	https://github.com/lvivski/animatic	CSS animations engine.	Common
+Just Animate	https://github.com/just-animate/just-animate	Making Animation Simple.	Common
+Haiku Core	https://github.com/HaikuTeam/core	Interactive UI animation engine for the Web. Core renderer for Haiku Animator.	Common
+Between.js	https://github.com/sasha240100/between.js	Lightweight JavaScript (ES6) tweening engine.	Common
+Progressbar.js	https://github.com/kimmobrunfeldt/progressbar.js	Responsive and slick progress bars.	Common
+Bezier easing	https://github.com/gre/bezier-easing	Cubic-bezier implementation for your JavaScript animation easings.	Common
+Glsl easings	https://github.com/glslify/glsl-easings	Easing functions in GLSL.	Common
+ES6-tween	https://github.com/tweenjs/es6-tween	ES6 version of tween.js.	Common
+Weeee.js	https://github.com/sfi0zy/weeee	Tiny Javascript tweening engine.	Common
+Theatre.js	https://github.com/theatre-js/theatre	Motion design editor for the web.	Common
+Popmotion	https://github.com/Popmotion/popmotion	Simple animation libraries for delightful user interfaces.	Common
+AutoAnimate	https://github.com/formkit/auto-animate	Zero-config, drop-in animation utility for smooth DOM transitions.	Common
+KUTE.js	https://github.com/thednp/kute.js	JavaScript animation engine for modern browsers.	Common
+Rive	https://github.com/rive-app/rive-wasm	Web runtime for interactive Rive animations.	Common
+Animate.css	https://github.com/daneden/animate.css	A cross-browser library of CSS animations. As easy to use as an easy thing.	CSS
+Motion-ui	https://github.com/foundation/motion-ui	The powerful Sass library for creating CSS transitions and animations.	CSS
+Magic	https://github.com/miniMAC/magic	CSS3 Animations with special effects.	CSS
+Css-loaders	https://github.com/lukehaas/css-loaders	A collection of loading spinners animated with CSS.	CSS
+SpinKit	https://github.com/tobiasahlin/SpinKit	A collection of loading indicators animated with CSS.	CSS
+Bounce.js	https://github.com/tictail/bounce.js	Create beautiful CSS3 powered animations in no time.	CSS
+AnimXYZ	https://github.com/ingram-projects/animxyz	Composable CSS animation toolkit powered by CSS variables.	CSS
+Hover.css	https://github.com/IanLunn/Hover	A collection of CSS3 powered hover effects.	CSS
+CSShake	https://github.com/elrumordelaluz/csshake	CSS classes to shake your DOM.	CSS
+Whirl	https://github.com/jh3y/whirl	CSS loading animations with minimal effort.	CSS
+CSS Doodle	https://github.com/css-doodle/css-doodle	A web component for drawing patterns with CSS.	CSS
+EaselJS	https://github.com/CreateJS/EaselJS	EaselJS is a library for building high-performance interactive 2D content in HTML5.	Canvas
+Fabric.js	https://github.com/fabricjs/fabric.js	JavaScript canvas library with animation support.	Canvas
+Paper.js	https://github.com/paperjs/paper.js	The Swiss Army Knife of Vector Graphics Scripting – Scriptographer ported to JavaScript and the…	Canvas
+Konva	https://github.com/konvajs/konva	Konva.js is an HTML5 Canvas JavaScript framework that extends the 2d context by enabling canvas…	Canvas
+Two.js	https://github.com/jonobr1/two.js	A renderer agnostic two-dimensional drawing api for the web with animation support.	Canvas
+Ocanvas	https://github.com/koggdal/ocanvas	JavaScript library for object-based canvas drawing.	Canvas
+Curtainsjs	https://github.com/martinlaxenaire/curtainsjs	Lightweight vanilla WebGL JavaScript library that turns HTML DOM elements into interactive textured planes.	Canvas
+Hover-effect	https://github.com/robin-dela/hover-effect	JavaScript library to draw and animate images on hover.	Canvas
+Pts.js	https://github.com/williamngan/pts	Pts is a typescript/javascript library for visualization and creative-coding.	Canvas
+tsParticles	https://github.com/matteobruni/tsparticles/	tsParticles is a lightweight typescript/javascript library for creating easily particles animations.	Canvas
+PixiJS	https://github.com/pixijs/pixijs	Fast 2D WebGL renderer for interactive graphics and animation.	Canvas
+p5.js	https://github.com/processing/p5.js	Creative coding library for drawing and animation on canvas.	Canvas
+Zdog	https://github.com/metafizzy/zdog	Round, flat, designer-friendly pseudo-3D engine for canvas and SVG.	Canvas
+canvas-confetti	https://github.com/catdad/canvas-confetti	Performant confetti animation in the browser.	Canvas
+Vanta.js	https://github.com/tengbao/vanta	Animated 3D backgrounds for your website.	Canvas
+Three.js	https://github.com/mrdoob/three.js	JavaScript 3D library.	Canvas
+Matter.js	https://github.com/liabru/matter-js	A 2D rigid body physics engine for the web.	Canvas
+AOS	https://github.com/michalsnik/aos	Animate on scroll library.	Animate on scroll
+Laxxx	https://github.com/alexfoxy/laxxx	Simple & light weight (3kb minified & zipped) vanilla JavaScript plugin to create smooth &…	Animate on scroll
+Wow	https://github.com/matthieua/WOW	Reveal CSS animation as you scroll down a page.	Animate on scroll
+Scrollreveal	https://github.com/scrollreveal/scrollreveal	Animate elements as they scroll into view.	Animate on scroll
+ScrollMagic	https://github.com/janpaepke/ScrollMagic	The JavaScript library for magical scroll interactions.	Animate on scroll
+Motus	https://github.com/alexcambose/motus	Animation library that mimics CSS keyframes when scrolling.	Animate on scroll
+Sal	https://github.com/mciastek/sal	Performance focused, lightweight scroll animation library.	Animate on scroll
+Lenis	https://github.com/darkroomengineering/lenis	Lightweight, accessible smooth scroll library.	Animate on scroll
+Locomotive Scroll	https://github.com/locomotivemtl/locomotive-scroll	Detection of elements in viewport and smooth scrolling with parallax.	Animate on scroll
+Rellax	https://github.com/dixonandmoe/rellax	Lightweight vanilla JavaScript parallax library.	Animate on scroll
+ScrollOut	https://github.com/scroll-out/scroll-out	Scroll effects for reveal, parallax, and CSS variables.	Animate on scroll
+Atropos	https://github.com/nolimits4web/atropos	Touch-friendly 3D parallax hover effects.	Animate on scroll
+Malarkey	https://github.com/yuanqing/malarkey	Simulate a typewriter effect in vanilla JavaScript.	Text
+Typed.js	https://github.com/mattboldt/typed.js	A JavaScript Typing Animation Library.	Text
+Shuffle-text	https://github.com/ics-ikeda/shuffle-text	Shuffle-text is JavaScript text effect library such as cool legacy of Flash.	Text
+Typebot	https://github.com/akzhy/typebot	JavaScript library for typing animation.	Text
+Blotter	https://github.com/bradley/Blotter	A JavaScript API for drawing unconventional text effects on the web.	Text
+Splitting	https://github.com/shshaw/Splitting	Microlibrary to split text into words and characters for CSS animation.	Text
+TypeIt	https://github.com/alexmacarthur/typeit	The most versatile JavaScript typewriter effect library.	Text
+TypewriterJS	https://github.com/tameemsafi/typewriterjs	Native JavaScript plugin for typewriter text effects.	Text
+NumberFlow	https://github.com/barvian/number-flow	Animated number component for React, Vue, Svelte, and vanilla JS.	Text
+Motion	https://github.com/framer/motion	Open source, production-ready animation and gesture library for React.	React
+SVGR	https://github.com/gregberge/svgr	Transform SVGs into React components.	React
+React tsParticles	https://github.com/matteobruni/tsparticles/blob/master/components/react/README.md	ReactJS wrapper for *tsParticles*	React
+React spring	https://www.react-spring.io/	Open source, spring-physics based animation library for React that supports interpolations. Fast and easy to…	React
+Lottie React	https://github.com/Gamote/lottie-react	React component for rendering Lottie animations.	React
+Rive React	https://github.com/rive-app/rive-react	React runtime for interactive Rive animations.	React
+React Flip Toolkit	https://github.com/aholachek/react-flip-toolkit	Lightweight magic-move library for configurable layout transitions.	React
+Remotion	https://github.com/remotion-dev/remotion	Create videos programmatically with React.	React
+React Three Fiber	https://github.com/pmndrs/react-three-fiber	A React renderer for Three.js.	React
+React Transition Group	https://github.com/reactjs/react-transition-group	Perform animations when a React component enters or leaves the DOM.	React
+Svgartista	https://svgartista.net/	SVG Artista is a tool that helps you animate stroke and fill properties in your…	GUI tools
+Mantra	https://jeremyckahn.github.io/mantra/	Mantra is a timeline editing tool for web animations. It is inspired by tools such…	GUI tools
+Animista	https://animista.net/	Animista is a place where you can play with a collection of pre-made css animations,…	GUI tools
+Cssanimate	http://cssanimate.com/	Welcome to CssAnimate.com, tool for easy and fast creating CSS3 keyframes animation, right in your…	GUI tools
+Ceaser	https://matthewlein.com/tools/ceaser	Now that we can use CSS transitions in all the modern browsers, let's make them…	GUI tools
+Cubic Bezier	https://cubic-bezier.com/	A great utility for creating Bezier curves. You can import and export curves to/from your…	GUI tools
+Keyframer	http://alexberg.in/keyframer/	Tool that help visualize animation components and output the code required.	GUI tools
+CSS Animation Kit	http://angrytools.com/css/animation/	Select any predefined samples from top panel. Below samples there is a timeline of @keyframes.…	GUI tools
+Rive	https://rive.app/	Real-time interactive animation tool for websites, apps, and games. Design vector graphics and state machines…	GUI tools
+LottieFiles	https://lottiefiles.com/	Platform for creating, editing, and shipping Lottie and dotLottie animations. Browse a huge motion library…	GUI tools
+SVGator	https://www.svgator.com/	Browser-based SVG animation tool with a visual timeline. Animate stroke, fill, morph, and motion along…	GUI tools
+Spline	https://spline.design/	Real-time 3D design tool that runs in the browser. Build interactive 3D scenes and export…	GUI tools
+Cables	https://cables.gl/	Visual programming tool for interactive WebGL content. Connect operators into patches and export real-time visuals…	GUI tools
+Easings.net	https://easings.net/	Visual cheat sheet of easing functions. Compare curves, preview motion, and copy CSS or JavaScript…	GUI tools
+Yuri Artyukh youtube channel	https://www.youtube.com/user/flintyara	This man creates amazing web animations using various technologies for this, and recording it all…	Videos
+GSAP Learning	https://www.youtube.com/@GreenSockLearning	Official GreenSock channel with GSAP tutorials, scroll demos, and plugin walkthroughs.	Videos
+Hyperplexed	https://www.youtube.com/@Hyperplexed	Creative front-end motion breakdowns: hover effects, text animation, and award-style interactions.	Videos
+The Coding Train	https://www.youtube.com/@TheCodingTrain	Daniel Shiffman teaches creative coding, canvas animation, and p5.js in an approachable format.	Videos
+Kevin Powell	https://www.youtube.com/@KevinPowell	Practical CSS animation, transitions, and modern layout techniques.	Videos
