@@ -158,9 +158,12 @@ def yargic(aile, i, d):
 
 AJAN = {"kod": "ab-kod", "rapor": "ab-rapor", "video": "ab-video"}
 DAMIT = ("Bir ajan koşusunun yargıç sonucu aşağıda. Gelecekteki BENZER görevlerde işe yarayacak en fazla 3 genellenebilir ders çıkar "
-         "(kural/yöntem; bu göreve özgü sayı ya da dosya içeriği değil). Yalnız JSON liste döndür, başka metin yok: "
-         '[{"baslik": "...", "kosul": "ne zaman uygulanır", "icerik": "ne yapılmalı"}]\n'
-         "Görev: %s\nPuan: %s/1 (ölçütler görev klasörünün belgelerinden)\nYargıç notları: %s\nAjanın son mesajı: %s")
+         "(kural/yöntem; bu göreve özgü sayı ya da dosya içeriği değil). Puan < 1 ise her yargıç notu için bir düzeltici ders "
+         "(hatanın kaynağı + ilk turda ne yapılmalı). Dersler tur sayısını da azaltmalı: ek doğrulama turu önerme, bağımsız okumaları "
+         "aynı turda paralel yap, yazma ve kontrolü tek adımda birleştir. icerik tek cümle (≤20 kelime), örneksiz. "
+         "Yalnız JSON liste döndür, başka metin yok: "
+         '[{"baslik": "kural", "kosul": "ne zaman uygulanır", "icerik": "ne yapılmalı"}]\n'
+         "Görev: %s\nPuan: %s/1 (ölçütler görev klasörünün belgelerinden)\nTur: %s\nYargıç notları: %s\nAjanın son mesajı: %s")
 
 
 def kuru():
@@ -175,9 +178,27 @@ def kuru():
     print("kuru: 15 görev · yargıç başlangıç < 1, örnek çözüm = 1")
 
 
-def main(devam=None):
+def v2(tohum, aile):
+    """d5: getir ≤2 ders/≤120 jeton + görev metniyle eşleşme + yeni damıtma. Taban = ab.tsv derssiz satırları (görevler deterministik);
+    yalnız dersli kol, görev 2..5. d6: aile başına ayrı süreç/banka/TSV (paralel); tohum yalnız v1'in 1. görev dersleri (sonraki
+    görevlerin dersleri aynı görevi önceden görmek olurdu), gerisini v2 kendi damıtır."""
+    banka = KOK / ".kos" / "ogrenme-ab" / (f"v2-{aile}-" + time.strftime("%Y%m%d-%H%M%S"))
+    os.environ["OGRENME_DIZIN"] = str(banka)
+    for x in (json.loads(s) for s in (Path(tohum) / "dersler.jsonl").read_text(encoding="utf-8").splitlines() if s.strip()):
+        m = re.match(r"ab-(kod|rapor|video)(\d)", x["kaynaklar"][0])
+        if x["durum"] == "aktif" and m and m[1] == aile and m[2] == "0":
+            with tempfile.TemporaryDirectory() as d:
+                ders.ekle(x["ajan"], x["baslik"], x["kosul"], x["icerik"], x["tur"], x["kaynaklar"][0], x["kanit"], kur(m[1], int(m[2]), d))
+    print(time.strftime("%H:%M:%S"), f"v2 tohum: {len(ders.oku())} ders ({banka})", flush=True)
+    main((banka, 0, 0), aileler=(aile,), siralar=range(1, 5), kollar=("dersli",), tsv=TSV.with_name(f"ruflo-1-ab-v2-{aile}.tsv"),
+         tavan=(8, 2.5))
+
+
+def main(devam=None, aileler=("kod", "rapor", "video"), siralar=range(5), kollar=("derssiz", "dersli"), tsv=TSV,
+         tavan=(CAGRI_TAVAN, USD_TAVAN)):
     """devam = (banka, çağrı, usd): yarım koşuyu aynı bankayla sürdürür; TSV'deki (aile, sıra, kol) atlanır, tavanlar toplamda."""
     import kosucu
+    TSV, (CAGRI_TAVAN, USD_TAVAN) = tsv, tavan  # noqa: N806
     banka = Path(devam[0]) if devam else KOK / ".kos" / "ogrenme-ab" / time.strftime("%Y%m%d-%H%M%S")
     banka.mkdir(parents=True, exist_ok=bool(devam))
     os.environ["OGRENME_DIZIN"] = str(banka)
@@ -187,13 +208,13 @@ def main(devam=None):
     with open(TSV, "a", encoding="utf-8", newline="\n") as out:
         if yeni:
             out.write("zaman\taile\tsira\tkol\tpuan\tgizli\ttur\tinput\tcache_creation\tcache_read\toutput\tusd\tsure_sn\tders_ids\trc\tnotlar\n")
-        for aile in ("kod", "rapor", "video"):
-            for i in range(5):
-                for kol in ("derssiz", "dersli"):
+        for aile in aileler:
+            for i in siralar:
+                for kol in kollar:
                     if (aile, str(i + 1), kol) in bitti:
                         continue
-                    if cagri + (2 if kol == "dersli" else 1) > CAGRI_TAVAN or usd >= USD_TAVAN:
-                        print(time.strftime("%H:%M:%S"), f"TAVAN: {cagri} çağrı ${usd:.2f} — durdu", flush=True)
+                    if cagri + (2 if kol == "dersli" else 1) > CAGRI_TAVAN or usd >= USD_TAVAN or kosucu.bos_ram_gb() < 3:
+                        print(time.strftime("%H:%M:%S"), f"TAVAN: {cagri} çağrı ${usd:.2f} boş RAM {kosucu.bos_ram_gb():.1f} GB — durdu", flush=True)
                         return
                     d = tempfile.mkdtemp(prefix=f"ruflo-ab-{aile}{i}-")
                     gorev = kur(aile, i, d)
@@ -203,14 +224,15 @@ def main(devam=None):
                     puan, gizli, notlar = yargic(aile, i, d)
                     if kol == "dersli":
                         ders.geri_bildir(ids, puan >= 1.0) if ids else None
-                        dm = kosucu.kos(DAMIT % (gorev, puan, "; ".join(notlar) or "hepsi geçti", o["metin"][-1500:]),
+                    if kol == "dersli" and i < max(siralar):  # son görevin dersi bu ölçümde kullanılmaz → damıtma çağrısı yok
+                        dm = kosucu.kos(DAMIT % (gorev, puan, o["tur"], "; ".join(notlar) or "hepsi geçti", o["metin"][-1500:]),
                                         ek=["--strict-mcp-config", "--max-turns", "1"], model="haiku", butce=0.2)
                         cagri, usd = cagri + 1, usd + dm["usd"]
                         try:
                             m = dm["metin"]
                             for x in json.loads(m[m.index("["):m.rindex("]") + 1])[:3]:
                                 ders.ekle(AJAN[aile], x["baslik"], x["kosul"], x["icerik"], "basari" if puan >= 1.0 else "basarisizlik",
-                                          f"ab-{aile}{i}", f"puan {puan}")
+                                          f"ab-{aile}{i}", f"puan {puan}", gorev)
                         except (ValueError, KeyError, TypeError) as e:
                             print(time.strftime("%H:%M:%S"), f"damıtma ayrışmadı {aile}{i}: {e}", flush=True)
                     u = kosucu.jeton(o["usage"])
@@ -222,4 +244,9 @@ def main(devam=None):
 
 
 if __name__ == "__main__":
-    kuru() if "--kuru" in sys.argv else main(sys.argv[sys.argv.index("--devam") + 1:][:3] if "--devam" in sys.argv else None)
+    if "--kuru" in sys.argv:
+        kuru()
+    elif "--v2" in sys.argv:
+        v2(*sys.argv[sys.argv.index("--v2") + 1:][:2])
+    else:
+        main(sys.argv[sys.argv.index("--devam") + 1:][:3] if "--devam" in sys.argv else None)
