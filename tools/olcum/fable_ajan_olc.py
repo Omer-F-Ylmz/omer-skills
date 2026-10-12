@@ -101,7 +101,10 @@ def kos_ajan(istem, ad, alan, govde, model, butce=0.6, timeout=600):
                 rc = -9
             finally:
                 kosucu.is_kapat(is_)
-        kosucu.supur(Path(bos).name)
+        try:
+            kosucu.supur(Path(bos).name)
+        except subprocess.TimeoutExpired:  # yük altında CIM sorgusu 60 sn'yi aşıyor (fable-1-d4 19:04 bu yüzden düştü); iş nesnesi zaten kapandı
+            print("supur zaman aşımı (atlandı)", flush=True)
         with akis.open(encoding="utf-8", errors="replace") as f:
             o = kosucu.ayristir(f)
     o["sure"], o["rc"] = round(time.monotonic() - t, 1), rc
