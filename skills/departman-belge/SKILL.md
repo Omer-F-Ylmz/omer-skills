@@ -8,6 +8,8 @@ description: "Belge müdürü: docx/pptx/pdf/xlsx, rapor ve doküman üretim sı
 Katalog: `docs/departmanlar/belge.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
+Skill dizini: bu klasördeki `dizin.md` — alandaki TÜM kurulu skill'ler (ad — ne zaman). Adımdaki araç işe tam uymuyorsa dizin.md'de Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.
+
 ## Adımlar
 1. **Tür** — proje dokümanı `document-generate` / `project-documenter`; karar kaydı `documentation-and-adrs`; ortak yazım `doc-coauthoring`.
 2. **Biçim** — markdown → PDF `make-pdf`; diyagram `diagram`; sunum `wowerpoint`.

@@ -8,6 +8,8 @@ description: "Araştırma müdürü: doküman, web, video ve kaynak tarama sıra
 Katalog: `docs/departmanlar/arastirma-ogrenme.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
+Skill dizini: bu klasördeki `dizin.md` — alandaki TÜM kurulu skill'ler (ad — ne zaman). Adımdaki araç işe tam uymuyorsa dizin.md'de Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.
+
 ## Adımlar
 1. **Doküman** — kütüphane/framework: `context7` (`find-docs`); Microsoft: `mslearn`.
 2. **Web** — arama `brave-search`, sayfa okuma `agent-reach` ya da `mcp-fetch`.

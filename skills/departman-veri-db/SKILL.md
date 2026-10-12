@@ -8,6 +8,8 @@ description: "Veri/DB müdürü: şema, migration, sorgu ve Supabase/Postgres/EF
 Katalog: `docs/departmanlar/veri-db.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
+Skill dizini: bu klasördeki `dizin.md` — alandaki TÜM kurulu skill'ler (ad — ne zaman). Adımdaki araç işe tam uymuyorsa dizin.md'de Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.
+
 ## Adımlar
 1. **Kurallar** — Postgres'e dokunmadan önce `supabase-postgres-best-practices`.
 2. **Şema** — mevcut tabloları incele, sonra migration; Supabase projesinde `supabase`.

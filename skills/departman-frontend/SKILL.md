@@ -9,6 +9,8 @@ Ana hat `frontend-craft`. Çakışmada sıra: frontend-craft > impeccable > ui-u
 Katalog: `docs/departmanlar/frontend.md` · yaşam döngüsü: `docs/departmanlar/organizasyon.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
+Skill dizini: bu klasördeki `dizin.md` — alandaki TÜM kurulu skill'ler (ad — ne zaman). Adımdaki araç işe tam uymuyorsa dizin.md'de Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.
+
 ## Adımlar
 1. **Tasarım kararı** — `DESIGN.md` yoksa önce o: mevcut ürün/site için `create-design-md`, URL'den `design-extractor` · `taste`, görselden `design-dna`. Sonra `frontend-craft` yükle (mod tespiti REF/FREE, yön keşfi → DESIGN.md → DUR). Yön keşfi görsel isterse tuval: `claude-design` · `figma` · `stitch` (DESIGN.md yine önce).
 2. **Yığın** — Razor → `dotnet-aspnetcore` + `frontend-craft` · React/Next → `vercel-react-best-practices` + `vercel-composition-patterns` · Astro → `frontend-craft`.
