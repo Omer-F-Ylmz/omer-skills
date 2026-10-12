@@ -3,7 +3,8 @@ koşunun oturumunda `--settings` env ile ezilir; değer yazdırılmaz, kanıt re
 Ana oturum haiku (alt ajan jetonu ayrı model anahtarında kalsın diye), ajan `--agents` ile verilir.
   python tools/model_olc.py dogrula        # ezme yok ↔ "" : frontmatter opus'lu ajan gerçekte hangi modelde koştu
   python tools/model_olc.py karsilastir    # her aileden ilk ajan × sonnet/opus → docs/kutuphane/olcum/kalite3-model.tsv
-  python tools/model_olc.py pilot [N]      # departman başına 2 ajan: ajan kolu ↔ ana oturum kolu, en fazla N çağrı → kalite3-ajan-pilot.tsv"""
+  python tools/model_olc.py pilot [N]      # departman sırasıyla (her turda her departmandan bir ajan): ajan kolu ↔ ana oturum kolu,
+                                          # en fazla N çağrı → kalite3-ajan-pilot.tsv; yazılmış çiftler atlanır"""
 import json
 import sys
 import time
@@ -36,10 +37,20 @@ def jeton(d):
     return sum(v.get(k, 0) for v in d.values() for k in ("inputTokens", "outputTokens", "cacheReadInputTokens", "cacheCreationInputTokens"))
 
 
-def alt(mu):
-    """(alt ajan model(ler)i, jetonu) — ana (haiku) anahtarı hariç."""
-    d = {m: v for m, v in mu.items() if ANA not in m}
+def ana_model(model):
+    """Delege eden oturumun modeli. Ajan haiku ise sonnet: aynı model anahtarında alt ajan jetonu/USD'si ayrılamıyor
+    (r9: 3 haiku ajanında alt_model '-')."""
+    return "sonnet" if model == "haiku" else ANA
+
+
+def alt(mu, ana=ANA):
+    """(alt ajan model(ler)i, jetonu) — ana oturum anahtarı hariç."""
+    d = {m: v for m, v in mu.items() if ana not in m}
     return ",".join(sorted(d)) or "-", jeton(d)
+
+
+def alt_usd(mu, ana=ANA):
+    return round(sum(v.get("costUSD", 0) for m, v in mu.items() if ana not in m), 4)
 
 
 def dene(*a, **k):
@@ -54,7 +65,7 @@ def puan(o, rubrik):
 
 def kos(ad, t, ezme, gorev):
     istem = f"Delegate this task to the {ad} subagent with the Agent tool, then return its answer verbatim.\n\n{gorev}"
-    return dene(istem, ek(ad, t, ezme), model=ANA, butce=1.5)
+    return dene(istem, ek(ad, t, ezme), model=ana_model(t["model"]), butce=1.5)
 
 
 def ana(gorev, model):
@@ -66,30 +77,36 @@ def pilot(en_fazla=48):
     """Ajan modeli frontmatter'daki; canlı env ezmesin diye açık ezme verilir (dogrula 18:20: "" geri getirmiyor)."""
     sys.stdout.reconfigure(encoding="utf-8")
     gorevler = {g["ajan"]: g for g in json.loads((AJAN / "gorevler.json").read_text(encoding="utf-8"))}
+    baslik = "aile\tajan\tkol\tpuan\tusd\tjeton\tana_jeton\talt_model\tsure\talt_usd\n"
     if not PILOT.exists():
-        PILOT.write_text("aile\tajan\tkol\tpuan\tusd\tjeton\tana_jeton\talt_model\tsure\n", encoding="utf-8", newline="\n")
+        PILOT.write_text(baslik, encoding="utf-8", newline="\n")
+    elif "alt_usd" not in PILOT.read_text(encoding="utf-8").split("\n", 1)[0]:  # r9 dosyası: sütun eklenir, eski satırlar boş
+        PILOT.write_text(baslik + PILOT.read_text(encoding="utf-8").split("\n", 1)[1], encoding="utf-8", newline="\n")
     bitti = {tuple(s.split("\t")[1:3]) for s in PILOT.read_text(encoding="utf-8").splitlines()[1:]}
     YANIT.mkdir(parents=True, exist_ok=True)
     cagri = 0
-    for aile in sorted(p for p in AJAN.iterdir() if p.is_dir()):
-        for ad in [y.stem for y in sorted(aile.glob("*.md")) if y.stem in gorevler][:2]:
-            if {(ad, "ajan"), (ad, "ana")} <= bitti:
+    aileler = {a: [y.stem for y in sorted(a.glob("*.md")) if y.stem in gorevler] for a in sorted(p for p in AJAN.iterdir() if p.is_dir())}
+    sira = [(a, ads[i]) for i in range(max(map(len, aileler.values()), default=0)) for a, ads in aileler.items() if i < len(ads)]
+    for aile, ad in sira:
+        if {(ad, "ajan"), (ad, "ana")} <= bitti:
+            continue
+        if cagri + 2 > en_fazla:
+            return
+        g = gorevler[ad]
+        _, t = tanim(aile / f"{ad}.md", g["model"])
+        ana_m = ana_model(g["model"])
+        for kol in ("ajan", "ana"):
+            if (ad, kol) in bitti:
                 continue
-            if cagri + 2 > en_fazla:
-                return
-            g = gorevler[ad]
-            _, t = tanim(aile / f"{ad}.md", g["model"])
-            for kol in ("ajan", "ana"):
-                if (ad, kol) in bitti:
-                    continue
-                o = kos(ad, t, g["model"], g["istem"]) if kol == "ajan" else ana(g["istem"], g["model"])
-                cagri += 1
-                mu = o.get("model") or {}
-                am, aj = alt(mu) if kol == "ajan" else (",".join(sorted(mu)) or "-", 0)
-                (YANIT / f"{ad}-{kol}.md").write_text(o["metin"], encoding="utf-8", newline="\n")
-                with PILOT.open("a", encoding="utf-8", newline="\n") as f:
-                    f.write("\t".join(map(str, [aile.name, ad, kol, puan(o, g["rubrik"]), round(o["usd"], 4),
-                                                jeton(mu), jeton(mu) - aj, am, o["sure"]])) + "\n")
+            o = kos(ad, t, g["model"], g["istem"]) if kol == "ajan" else ana(g["istem"], g["model"])
+            cagri += 1
+            mu = o.get("model") or {}
+            am, aj = alt(mu, ana_m) if kol == "ajan" else (",".join(sorted(mu)) or "-", 0)
+            au = alt_usd(mu, ana_m) if kol == "ajan" else ""
+            (YANIT / f"{ad}-{kol}.md").write_text(o["metin"], encoding="utf-8", newline="\n")
+            with PILOT.open("a", encoding="utf-8", newline="\n") as f:
+                f.write("\t".join(map(str, [aile.name, ad, kol, puan(o, g["rubrik"]), round(o["usd"], 4),
+                                            jeton(mu), jeton(mu) - aj, am, o["sure"], au])) + "\n")
 
 
 def satir(*a):

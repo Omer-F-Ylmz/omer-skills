@@ -57,7 +57,7 @@ def test_ayristir_model_usage_tasir():
     assert kosucu.ayristir(s)["model"] == {"m": {"inputTokens": 1}}
 
 
-def test_pilot_departman_basina_iki_ajan_iki_kol_tavanli_surer(tmp_path, monkeypatch):
+def test_pilot_departman_sirasiyla_iki_kol_tavanli_surer(tmp_path, monkeypatch):
     # devam-5 adım 3: her yeni ajan tek görevle ajan kolu ↔ ana-oturum kolu; departman başına ilk 2 ajan, çift yarım kalmaz
     g = []
     for dep in ("a-dep", "b-dep"):
@@ -74,12 +74,14 @@ def test_pilot_departman_basina_iki_ajan_iki_kol_tavanli_surer(tmp_path, monkeyp
     sonuc = {"metin": "ok", "usd": 0.1, "sure": 1, "araclar": [], "model": {"claude-opus-5-5": {"inputTokens": 4}}}
     monkeypatch.setattr(mo, "kos", lambda ad, t, ezme, gorev: cagri.append((ad, "ajan", ezme, t["model"])) or sonuc)
     monkeypatch.setattr(mo, "ana", lambda gorev, model: cagri.append(("ana", model)) or sonuc)
-    mo.pilot(6)
-    assert cagri == [("a0", "ajan", "opus", "opus"), ("ana", "opus"), ("a1", "ajan", "opus", "opus"), ("ana", "opus"),
-                     ("b0", "ajan", "opus", "opus"), ("ana", "opus")]
-    mo.pilot(6)  # sürdürme: yazılmış çiftler atlanır, kalan tek çift koşar
+    mo.pilot(6)  # devam-10: departman sırası — her turda her departmandan bir ajan
+    assert cagri == [("a0", "ajan", "opus", "opus"), ("ana", "opus"), ("b0", "ajan", "opus", "opus"), ("ana", "opus"),
+                     ("a1", "ajan", "opus", "opus"), ("ana", "opus")]
+    mo.pilot(3)  # sürdürme: yazılmış çiftler atlanır, çift yarım kalmaz
+    assert [c[0] for c in cagri[6:]] == ["b1", "ana"]
+    mo.pilot(99)  # kalan tüm ajanlar (ilk 2 sınırı yok)
     satirlar = (tmp_path / "p.tsv").read_text(encoding="utf-8").splitlines()
-    assert len(cagri) == 8 and len(satirlar) == 9 and satirlar[-1].split("\t")[1:4] == ["b1", "ana", "7"]
+    assert [c[0] for c in cagri[8:]] == ["a2", "ana", "b2", "ana"] and len(satirlar) == 13
     assert (tmp_path / "yanit" / "b1-ana.md").read_text(encoding="utf-8") == "ok"  # Jev yargıcı için
 
 
@@ -115,3 +117,10 @@ def test_karsilastir_yaniti_saklar_ve_bitmis_satiri_atlar(tmp_path, monkeypatch)
     mo.main("karsilastir")  # sürdürme: yazılmış satırlar yeniden koşmaz
     assert cagri == ["sonnet", "opus"]
     assert (tmp_path / "yanit" / "fe-x-opus.md").read_text(encoding="utf-8") == "Y"
+
+
+def test_haiku_ajanda_ana_oturum_sonnet_alt_usd_ayrilir():
+    # devam-10: haiku ajan + haiku ana → tek model anahtarı, alt_model '-' (r9 güvenilmez 3 ajan); ana sonnet olur
+    assert mo.ana_model("haiku") == "sonnet" and mo.ana_model("opus") == "haiku"
+    mu = {"claude-sonnet-5-5": {"inputTokens": 9, "costUSD": 0.05}, "claude-haiku-5-5": {"inputTokens": 5, "costUSD": 0.01}}
+    assert mo.alt(mu, "sonnet") == ("claude-haiku-5-5", 5) and mo.alt_usd(mu, "sonnet") == 0.01

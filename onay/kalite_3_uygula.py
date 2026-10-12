@@ -73,6 +73,12 @@ def ajan_plani(kok=KOK):
     return [(ad, kaynak[ad]) for ad in kabul if ad in kaynak]
 
 
+def katalog_farkli_mi(ev=EV, kok=KOK):
+    """CC ajan-getir katalog.tsv repo'dakinden farklı mı (yalnız gevşek ~/.claude/skills/ajan-getir kuruluysa)."""
+    canli, repo = ev / ".claude" / "skills" / "ajan-getir" / "katalog.tsv", kok / "skills" / "ajan-getir" / "katalog.tsv"
+    return canli.exists() and repo.exists() and canli.read_bytes() != repo.read_bytes()
+
+
 def uygula(ev=EV, kok=KOK):
     once = mcp_var_mi(ev)
     yedek = ev / ".claude" / "yedek" / f"kalite3-{time.strftime('%Y%m%d-%H%M%S')}"
@@ -101,8 +107,15 @@ def uygula(ev=EV, kok=KOK):
         hedef.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(kaynak, hedef)
     yedek.mkdir(parents=True, exist_ok=True)
+    katalog = katalog_farkli_mi(ev, kok)
+    if katalog:
+        canli = ev / ".claude" / "skills" / "ajan-getir" / "katalog.tsv"
+        shutil.copy2(canli, yedek / "ajan-getir-katalog.tsv")
+        shutil.copy2(kok / "skills" / "ajan-getir" / "katalog.tsv", canli)
+        print("  ajan-getir katalog.tsv güncellendi")
     (ev / ".claude" / "yedek" / "kalite3-son.json").write_text(json.dumps(
-        {"yedek": str(yedek), "adlar": [p["ad"] for p in liste], "ayar": ayar_var, "ajanlar": [a for a, _ in ajanlar]}),
+        {"yedek": str(yedek), "adlar": [p["ad"] for p in liste], "ayar": ayar_var, "ajanlar": [a for a, _ in ajanlar],
+         "katalog": katalog}),
         encoding="utf-8")
     print(f"uygulandı {len(liste)} skill · {len(ajanlar)} ajan · yedek {yedek}")
     return once == mcp_var_mi(ev)
@@ -120,6 +133,8 @@ def geri(ev=EV):
     for ad in son.get("ajanlar", []):
         hedef, eski = ev / ".claude" / "agents" / f"{ad}.md", Path(son["yedek"]) / "agents" / f"{ad}.md"
         shutil.copy2(eski, hedef) if eski.exists() else hedef.unlink(missing_ok=True)
+    if son.get("katalog"):
+        shutil.copy2(Path(son["yedek"]) / "ajan-getir-katalog.tsv", ev / ".claude" / "skills" / "ajan-getir" / "katalog.tsv")
     print(f"geri alındı {len(son['adlar'])} skill")
     return once == mcp_var_mi(ev)
 
@@ -139,6 +154,7 @@ def main():
             m = re.search(r"^model:\s*(\S+)", kaynak.read_text(encoding="utf-8"), re.M)
             var = (EV / ".claude" / "agents" / f"{ad}.md").exists()
             print(f"ajan {ad}\tmodel={m.group(1) if m else '-'}\t{'üzerine (yedekli)' if var else 'yeni'}")
+        print(f"ajan-getir katalog.tsv: {'farklı → güncellenecek (yedekli)' if katalog_farkli_mi() else 'aynı'}")
         ok = True
     print("mcp önce=sonra" if ok else "HATA: MCP listesi değişti")
     sys.exit(0 if ok else 1)

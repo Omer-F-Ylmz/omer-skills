@@ -12,11 +12,9 @@ blender	bl-animasyon-anahtar	ana	10	0.3196	153686	153686	claude-sonnet-5-5	92.5
 blender	bl-dokuya-pisirme	ajan	10	0.3331	879345	734698	claude-sonnet-5-5	113.4
 blender	bl-dokuya-pisirme	ana	10	0.2884	75742	75742	claude-sonnet-5-5	64.2
 frontend	fe-a11y-denetci	ana	10	0.0142	76224	76224	claude-haiku-5-5	65.7
-arastirma-ogrenme	ara-dokuman-indeksle	ajan	10	0.353	804237	804237	-	75.4
 backend-dotnet	dn-api-surumleme	ajan	10	0.5192	1589731	1309405	claude-sonnet-5-5	134.7
 backend-dotnet	dn-async-denetci	ajan	10	0.298	774723	726709	claude-sonnet-5-5	104.8
 blender	bl-animasyon-anahtar	ajan	10	0.4149	993991	723222	claude-sonnet-5-5	115.6
-frontend	fe-a11y-denetci	ajan	10	0.5397	1336402	1336402	-	114.0
 frontend	fe-animasyon-tasarimci	ajan	10	0.2526	443789	231369	claude-sonnet-5-5	141.1
 frontend	fe-animasyon-tasarimci	ana	10	0.3533	160584	160584	claude-sonnet-5-5	77.9
 guvenlik	sec-ai-kod-guvenlik	ajan	5	0.1745	377205	231462	claude-sonnet-5-5	91.6
@@ -29,5 +27,4 @@ otomasyon	otm-api-entegrasyon	ajan	10	0.3064	776379	727790	claude-sonnet-5-5	106
 otomasyon	otm-api-entegrasyon	ana	10	0.2856	75415	75415	claude-sonnet-5-5	90.6
 oyun-mod	oyn-dusman-ai	ajan	10	0.3077	821199	726267	claude-sonnet-5-5	129.5
 oyun-mod	oyn-dusman-ai	ana	10	0.3018	77042	77042	claude-sonnet-5-5	73.6
-oyun-mod	oyn-ini-yazar	ajan	10	0.1895	829833	829833	-	121.1
 oyun-mod	oyn-ini-yazar	ana	10	0.0146	76887	76887	claude-haiku-5-5	63.2

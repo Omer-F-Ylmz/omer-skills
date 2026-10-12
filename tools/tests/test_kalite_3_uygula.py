@@ -53,3 +53,17 @@ def test_gecen_ajanlar_kurulur_ve_geri_alinir(tmp_path):
     assert (ev / ".claude" / "agents" / "fe-x.md").read_text(encoding="utf-8").endswith("yeni\n")
     assert k3u.geri(ev)
     assert not (ev / ".claude" / "agents" / "fe-x.md").exists()  # önceden yoktu → geri alınca yok
+
+
+def test_ajan_getir_katalog_guncellenir_ve_geri_alinir(tmp_path):
+    kok, ev = tmp_path / "kok", tmp_path / "ev"
+    (kok / "skills" / "ajan-getir").mkdir(parents=True)
+    (kok / "skills" / "ajan-getir" / "katalog.tsv").write_text("ad\nyeni-ajan\n", encoding="utf-8")
+    canli = ev / ".claude" / "skills" / "ajan-getir" / "katalog.tsv"
+    canli.parent.mkdir(parents=True)
+    canli.write_text("ad\n", encoding="utf-8")
+    assert k3u.katalog_farkli_mi(ev, kok)
+    assert k3u.uygula(ev, kok)
+    assert canli.read_text(encoding="utf-8") == "ad\nyeni-ajan\n" and not k3u.katalog_farkli_mi(ev, kok)
+    assert k3u.geri(ev)
+    assert canli.read_text(encoding="utf-8") == "ad\n"
