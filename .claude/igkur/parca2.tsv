@@ -1,0 +1,30 @@
+anahtar	ad	tur	link	gonderi	iddia
+cursor	Cursor	CLI,teknik		DX2ubACJYRN,DdtP_L9FljV,DeV0EnpAJCs,DeXJQ-kGKUY,DeXr6wCMAEZ	MCP istemcisi olarak anılan IDE
+ruflo	Ruflo	CLI	https://github.com/ruvnet/ruflo	DXxQS0AO1Km	Claude Code'u çok ajanlı sürü sistemine çeviren orkestrasyon çerçevesi
+claudeflow	Claude Flow	CLI		DXxQS0AO1Km	Ruflo'nun eski adı; init komutu bu paketle gösteriliyor
+mcp	MCP	MCP,teknik		DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DdZs2nUOpMP,DeHMM45NaFt,DeV0EnpAJCs,DeWwPtmDvqV,DeXr6wCMAEZ	Ruflo'nun Claude Code'a sunduğu 170+ araçlık entegrasyon
+flownexus	flow-nexus	MCP		DXxQS0AO1Km	Bulut sürü dağıtımı MCP sunucusu
+npm	npm	CLI		DXxQS0AO1Km,DeV9nZPtSsC	Claude Code ve Ruflo kurulum paket yöneticisi
+claudetokenmonitor	Claude Token Monitor	CLI		DXxQS0AO1Km	Token tüketimini izleyen terminal aracı
+github	GitHub	CLI,iş akışı,teknik		DXxQS0AO1Km,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DeRvxD6gDCu,DeV9nZPtSsC,DeW7JHrgsXb,DeWPBbShCBu,DeWwPtmDvqV,DeXAMs2Eqgh,DeXJQ-kGKUY	Ruflo deposunun README, commit ve sürüm sayfaları; videoda sıralama iddiasının kaynağı olarak gösterilir
+claudecodesetup	Claude Code Setup	plugin		DaagbUMP8Tg	Kod tabanını tarayıp uygun hook, skill, subagent ve MCP önerileri sunan resmi Anthropic plugin'i
+claudepluginsofficial	claude-plugins-official	plugin		DaagbUMP8Tg	Anthropic'in resmi plugin deposu; recommender referans dosyaları burada
+skills	Skills	skill		DaagbUMP8Tg	Claude Code skill'leri; plugin tarafından önerilir
+supabase	Supabase	MCP,plugin,teknik		DaagbUMP8Tg,DePeKi4gE1V,DeR11OUkobq	MCP ile bağlanılan veritabanı örneği
+postgres	Postgres	MCP		DaagbUMP8Tg	Açıklamada örnek MCP sunucusu
+vercel	Vercel	MCP,teknik		DaagbUMP8Tg,DdxzONPjVUi	Açıklamada örnek MCP sunucusu
+convex	Convex	MCP		DaagbUMP8Tg	Recommender'a eklenen veritabanı seçeneği
+kodtabantaramas	Kod tabanı taraması	prompt		DaagbUMP8Tg	Kullanıcı Claude'dan tüm kod tabanını taramasını istiyor (scan my entire...).
+supabasemcptesti	Supabase MCP testi	prompt		DaagbUMP8Tg	Supabase'teki en son 5 veritabanı kaydını getirmesi isteniyor.
+designmdlibrary	Design.MD library	skill		Dc3zXkXSxpH	2000'den fazla site tasarım sistemi içeren ücretsiz kütüphane
+sfrdanpromptiletasarmrnei	Sıfırdan prompt ile tasarım örneği	prompt		Dc3zXkXSxpH	Fintech uygulaması için sade, minimal, yumuşak gölgeli, yuvarlak kartlı, tek vurgu renkli bir açılış sayfası tasarla.
+bossloop	Boss Loop	prompt		DcrhGgKyBD8	Görev + işçi alt-ajanlar + katı boss ajanı ile kendi kendine döngüleyen istem tekniği
+claude	Claude	CLI,skill,teknik		DcrhGgKyBD8,Dd18tq_IMQB,Dd1zrTggHCW,Dd9NdbFxJLo,DeHMM45NaFt,DeR11OUkobq,DeT6XXkiPwj,DeV0EnpAJCs,DeW5NQ1DZhh,DeW7JHrgsXb,DeWPBbShCBu,DeWfqTdm94Z,DeWwPtmDvqV,DeXConTt1X5,DeXd4jID1y9	Görevi alan ve alt-ajanları üreten ana yapay zekâ aracı
+bossloopileiiajanlarvekatdenetibosskullanarakuygulamasiteretmek	Boss Loop ile işçi ajanlar ve katı denetçi boss kullanarak uygulama/site üretmek	prompt		DcrhGgKyBD8	Claude'a görev ver ve iyi sonucun çıtasını gösteren gerçek bir örnek ekle; görevi bağımsız değerlendirilebilir en küçük parçalara böl, her parçaya bir işçi alt-ajan ata; kodu yazmamış, taze bağlamlı katı bir boss ajan ata: gerçek çıktıyı açıp çalıştırmayı denesin, geri göndersin, mükemmel puana kadar kullanıcı olmadan döngüde kalsın.
+compositor	Compositor	CLI	https://github.com/robbietilton/Compositor	Dd-FTnEmE_b	Katman, maske ve renk ayarlı ücretsiz açık kaynak Mac görsel düzenleyici
+magpie	Magpie	CLI	https://github.com/yetone/magpie	Dd-FTnEmE_b	Uyumlu kodlama ajanlarını seçilen model sağlayıcısına menü çubuğundan bağlar
+jevultrafast	Jev Ultrafast	CLI	https://github.com/browser-use/jev-ultrafast	Dd-FTnEmE_b	Hedefe göre yazan, seçen, tıklayan tarayıcı ajanı
+zcode	zCode	CLI	https://github.com/zai-org/ZCode	Dd-FTnEmE_b	Z.ai'nin terminal, web ve masaüstünde çalışan kodlama ajanı
+openmuse	OpenMuse	CLI	https://github.com/CopilotKit/openmuse	Dd-FTnEmE_b	Ajana tarayıcı, terminal ve dosyaları tek çalışma alanında veren araç
+aihot	AIHOT	CLI	https://github.com/KKKKhazix/AIHOT	Dd-FTnEmE_b	Kaynaklardan haber seçip gruplayan ve günlük rapor yazan araç
+coucou	Coucou	CLI	https://github.com/Louis-CFM/coucou	Dd-FTnEmE_b	Claude Code oturumlarını izleyip izin isteklerinde bildirim verir

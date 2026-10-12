@@ -1,0 +1,30 @@
+anahtar	ad	tur	link	gonderi	iddia
+zapier	Zapier	MCP,teknik		DePeKi4gE1V,DeR11OUkobq	Ücretli çok adımlı iş akışı otomasyon servisi; değiştirilen yazılım
+higgsfield	Higgsfield	plugin		DeR11OUkobq	Claude'a sohbet içinde görsel ve video reklam üretme yeteneği veren bağlayıcı
+clay	Clay	plugin		DeR11OUkobq	Claude içinde potansiyel müşteri bulma bağlayıcısı
+emailvoice	Email Voice	skill		DeR11OUkobq	Gönderilmiş e-postalardan ses profili çıkarıp o sesle taslak yazan ücretsiz skill
+higgsfieldiletekcmledengrselretme	Higgsfield ile tek cümleden görsel üretme	prompt		DeR11OUkobq	Empire State Building'in sokak seviyesinden fotogerçekçi görselini iste; üst katlarından dev bir turuncu-mavi Knicks bayrağı sarksın.
+yenidenkullanlabiliraikarakterveugcreklam	Yeniden kullanılabilir AI karakter ve UGC reklam	prompt		DeR11OUkobq	Kızıl saçlı, çilli, yeşil gözlü bir karakter bir kez oluşturulur; sonraki sahnelerde aynı kişi korunur, ürünle script ve UGC video reklam yazılır.
+clayilepazarlamakiileribulma	Clay ile pazarlama kişileri bulma	prompt		DeR11OUkobq	Bir şirketteki pazarlama kişilerini bul; isim, unvan, LinkedIn ve e-posta ile liste döndür.
+emailvoiceskillinigncelletme	Email Voice skill'ini güncelletme	prompt		DeR11OUkobq	Taslakları kullanıcının sesiyle yaz; gerekirse 'update my email voice' denerek profil yenilenir.
+kiilistesinibeehiveeaktarma	Kişi listesini Beehive'e aktarma	prompt		DeR11OUkobq	Yüklenen sahte lead CSV'sindeki tüm kişileri Zapier MCP ile Beehive'e ekle.
+claudemotion	claude-motion	plugin	https://github.com/whaleyxbt/claude-motion	DeRvxD6gDCu	Hareket yönetimi, kare incelemesi ve kodla üretilen ses sunan toolkit.
+claudemotiondesign	claude-motion-design	skill	https://github.com/howseen-ai/claude-motion-design	DeRvxD6gDCu	Playwright ve FFmpeg kullanan HTML video iş akışı skill'i.
+motiongraphicsskills	motion-graphics-skills	skill	https://github.com/charlie947/motion-graphics-skills	DeRvxD6gDCu	Lansman videosu, grafik ve motion graphics için 13 skill'lik paket.
+clauderemotionskill	claude-remotion-skill	skill	https://github.com/haidrrry/claude-remotion-skill	DeRvxD6gDCu	Altyazı, B-roll ve ses için Remotion video iş akışı skill'i.
+klikanimskillcreation	klik-anim-skill-creation	skill	https://github.com/t3knobox/klik-anim-skill-creation	DeRvxD6gDCu	Remotion için animasyon, kamera ve prodüksiyon rehberi skill paketi.
+hyperframesmotionreelskill	hyperframes-motion-reel-skill	skill	https://github.com/Sunwood-ai-labs/hyperframes-motion-reel-skill	DeRvxD6gDCu	Ritme senkron HyperFrames showreel'leri ve kodla üretilen ses.
+productlaunchmotion	product-launch-motion	skill	https://github.com/AbubakrChan/product-launch-motion	DeRvxD6gDCu	Seslendirme, kamera hareketi ve ses senkronuyla lansman filmi skill'i.
+animate	animate	skill	https://github.com/cth9191/animate	DeRvxD6gDCu	Render öncesi storyboard'lanan kısa Canvas animasyonları skill'i.
+motiondesignskills	motion-design-skills	skill	https://github.com/iart-ai/motion-design-skills	DeRvxD6gDCu	Zamanlama, renk, kompozisyon, logo ve video skill paketi.
+hyperframesstudentkit	hyperframes-student-kit	iş akışı	https://github.com/nateherkai/hyperframes-student-kit	DeRvxD6gDCu	Düzenleme iş akışları ve 406 taslak motion graphics kartı.
+hyperframes	hyperframes	teknik	https://github.com/heygen-com/hyperframes	DeRvxD6gDCu,DeXAMs2Eqgh	HTML, CSS ve zamanlı animasyonu MP4 videoya çeviren video aracı.
+remotion	remotion	teknik	https://github.com/remotion-dev/remotion	DeRvxD6gDCu	React bileşenleriyle video oluşturup render eden araç.
+remotionagentskills	Remotion Agent Skills	skill	https://github.com/remotion-dev/skills	DeRvxD6gDCu	Remotion'da çalışan ajanlar için resmi rehber skill paketi.
+gsap	GSAP	teknik	https://github.com/greensock/GSAP	DeRvxD6gDCu,DeWQJuHxx4I	Web ve kodla video animasyonu için JavaScript zaman çizelgeleri kütüphanesi.
+motiondesignskill	motion-design-skill	skill	https://github.com/LottieFiles/motion-design-skill	DeRvxD6gDCu	Animasyon araçları arasında zamanlama ve koreografi ilkeleri.
+awesomemotiondesignagentskills	awesome-motion-design-agent-skills	teknik	https://github.com/frankxai/awesome-motion-design-agent-skills	DeRvxD6gDCu	Seçilmiş hareket kaynakları ve kurulabilir ajan skill'leri dizini.
+motiondevanimationsskill	motion-dev-animations-skill	skill	https://github.com/199-biotechnologies/motion-dev-animations-skill	DeRvxD6gDCu	Kaydırma, yay ve etkileşimli arayüz için Motion.dev kalıpları web skill'i.
+motion	motion	teknik	https://github.com/motiondivision/motion	DeRvxD6gDCu,DeV0EnpAJCs	JavaScript, React ve Vue için animasyon kütüphanesi.
+lottieweb	lottie-web	teknik	https://github.com/airbnb/lottie-web	DeRvxD6gDCu	Lottie JSON animasyonlarını tarayıcıda oynatan web oynatıcı.
+gut	GUT	teknik	https://github.com/bitwes/Gut	DeT6XXkiPwj	Godot için birim test aracı; Codex'e GUT testleri yazdırılıyor.

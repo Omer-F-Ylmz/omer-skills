@@ -1,0 +1,236 @@
+caveman	Caveman	skill	JuliusBrussee/caveman	arama	Apache-2.0	★111123	2026-10-12	-	🪨 why use many token when few token do trick. Viral skill + proxy for coding age	yok	DX2ubACJYRN
+graphify	Graphify	CLI	Graphify-Labs/graphify	arama	Apache-2.0	★125668	2026-10-11	-	Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryab	skill:graphify,uv:graphifyy	DX2ubACJYRN
+browserharness	Browser Harness	CLI	browser-use/browser-harness	arama	MIT	★18396	2026-10-12	-	Browser Harness | Self-healing harness that enables LLMs to complete any task.	yok	DX2ubACJYRN
+claudevideo	Claude Video	plugin	bradautomates/claude-video	link	MIT	★18395	2026-09-25	-	Give Claude the ability to watch any video. /watch downloads, extracts frames, t	plugin:claude-video/watch	DX2ubACJYRN
+opendesign	Open Design	CLI	nexu-io/open-design	arama	Apache-2.0	★100647	2026-10-12	-	🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative	plugin-acik:open-design@open-design,plugin:open-design/open-design	DX2ubACJYRN
+codeburn	CodeBurn	CLI	getagentseal/codeburn	arama	MIT	★11403	2026-10-11	-	Free, local tool to track AI coding token usage and cost across 37 tools and age	npm:codeburn	DX2ubACJYRN
+impeccable	Impeccable	skill	pbakaus/impeccable	arama	Apache-2.0	★80026	2026-10-12	-	The design language that makes your AI harness better at design.	plugin-acik:impeccable@impeccable,plugin:impeccable/impeccable	DX2ubACJYRN,DdtP_L9FljV
+designextract	Design Extract	CLI	Manavarya09/design-extract	arama	MIT	★4221	2026-10-08	-	Extract any website's complete design system with one command. DTCG tokens, sema	yok	DX2ubACJYRN
+careerops	Career Ops	skill	career-ops-hq/career-ops	arama	MIT	★74106	2026-10-12	-	Open-source AI job search agent and job finder: scan job boards, score each job 	yok	DX2ubACJYRN
+n8nmcpserver	n8n MCP server	MCP	vredrick/n8n-mcp	arama	MIT	★34	2026-03-30	-	n8n MCP Server - Documentation and tools for n8n nodes via Model Context Protoco	mcp:n8n-mcp,skill:n8n-mcp-tools-expert,skill:using-n8n-mcp-skills	DX2ubACJYRN
+claudecode	Claude Code	CLI	anthropics/claude-code	arama	yok	★150295	2026-10-11	-	Claude Code is an agentic coding tool that lives in your terminal, understands y	plugin-acik:agent-sdk-dev@claude-code-plugins,plugin-acik:claude-opus-4-5-migration@claude-code-plugins,plugin-acik:code-review@claude-code-plugins	DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DcrhGgKyBD8,Dd-FTnEmE_b,Dd18tq_IMQB,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DdtP_L9FljV,DeRvxD6gDCu,DeT6XXkiPwj,DeWPBbShCBu,DeXConTt1X5,DeXJQ-kGKUY,DeXd4jID1y9,DeXr6wCMAEZ
+ffmpeg	FFmpeg	CLI,teknik	FFmpeg/FFmpeg	arama	NOASSERTION	★65017	2026-10-12	-	Mirror of https://git.ffmpeg.org/ffmpeg.git	yok	DX2ubACJYRN,DXxQS0AO1Km,DeRvxD6gDCu
+playwright	Playwright	MCP,teknik	microsoft/playwright	arama	Apache-2.0	★97520	2026-10-11	-	Playwright is a framework for Web Testing and Automation. It allows testing Chro	mcp:playwright,plugin:claude-plugins-official/playwright	DX2ubACJYRN,DdZs2nUOpMP,DeRvxD6gDCu,DeXConTt1X5
+obsidian	Obsidian	CLI,teknik	kepano/obsidian-skills	arama	MIT	★49425	2026-09-15	-	Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats	plugin-acik:obsidian-cli@obsidian-cli-skill,plugin-acik:obsidian@obsidian-skills,plugin:obsidian-cli-skill/obsidian-cli	DX2ubACJYRN,Dd9NdbFxJLo
+ytdlp	yt-dlp	CLI	yt-dlp/yt-dlp	arama	Unlicense	★197044	2026-10-10	-	A feature-rich command-line audio/video downloader	yok	DX2ubACJYRN
+homebrew	Homebrew	CLI	Homebrew/brew	arama	BSD-2-Clause	★49990	2026-10-12	-	🍺 The Package Manager for Everywhere	yok	DX2ubACJYRN
+devinforterminal	Devin for Terminal	CLI	-	bulunamadı	-	yok	DX2ubACJYRN
+cursoragent	Cursor Agent	CLI	-	bulunamadı	-	yok	DX2ubACJYRN
+geminicli	Gemini CLI	CLI	google-gemini/gemini-cli	arama	Apache-2.0	★107292	2026-10-12	-	An open-source AI agent that brings the power of Gemini directly into your termi	yok	DX2ubACJYRN,DdtP_L9FljV,DeMoWpdAC1Z,DeXr6wCMAEZ
+opencode	OpenCode	CLI	anomalyco/opencode	arama	MIT	★212807	2026-10-12	-	The open source coding agent.	npm:open-code-review,plugin:temp_git_1791614177355_dt7lhc/.opencode,plugin:temp_git_1791700877447_z8m5ot/.opencode	DX2ubACJYRN
+qwen	Qwen	CLI,teknik	-	bulunamadı	-	yok	DX2ubACJYRN,DeHMM45NaFt
+copilotcli	Copilot CLI	CLI	github/copilot-cli	arama	NOASSERTION	★11251	2026-10-10	-	GitHub Copilot CLI brings the power of Copilot coding agent directly to your ter	yok	DX2ubACJYRN
+hermesagent	Hermes Agent	CLI	NousResearch/hermes-agent	arama	MIT	★252930	2026-10-12	-	The agent that grows with you	yok	DX2ubACJYRN
+kimi	Kimi	CLI,iş akışı,teknik	-	bulunamadı	-	plugin-acik:kimi-use@daymade-skills,plugin:daymade-skills/kimi-use,plugin:temp_git_1791614177355_dt7lhc/.kimi-plugin	DX2ubACJYRN,Da0Csy8MYEy,Dd-FTnEmE_b
+kiro	Kiro	CLI	-	bulunamadı	-	yok	DX2ubACJYRN
+frontenddesign	frontend-design	skill	-	bulunamadı	-	plugin-acik:frontend-design@claude-plugins-official,plugin:claude-plugins-official/frontend-design	DX2ubACJYRN
+designlang	designlang	CLI	Nonzero-Sum-Solutions/designlanguage	arama	Unlicense	★4	2026-08-17	-	Nonzero Sum Design Language definition and tools	yok	DX2ubACJYRN
+git	Git	CLI	521xueweihan/HelloGitHub	arama	yok	★181507	2026-09-28	-	:octocat: 分享 GitHub 上有趣、入门级的开源项目。Share interesting, entry-level open source proj	yok	DX2ubACJYRN
+chatgpt	ChatGPT	ipucu,plugin,teknik	-	bulunamadı	-	yok	DX2ubACJYRN,Dd-FTnEmE_b,Dd18tq_IMQB
+cursor	Cursor	CLI,teknik	-	bulunamadı	-	plugin:temp_git_1791614177355_dt7lhc/.cursor-plugin,plugin:temp_git_1791700877447_z8m5ot/.cursor-plugin,plugin:temp_git_1791742076333_cm7vvx/.cursor-plugin	DX2ubACJYRN,DdtP_L9FljV,DeV0EnpAJCs,DeXJQ-kGKUY,DeXr6wCMAEZ
+ruflo	Ruflo	CLI	ruvnet/ruflo	link	MIT	★74385	2026-10-12	-	🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate	yok	DXxQS0AO1Km
+claudeflow	Claude Flow	CLI	hgahlot/claude-flow	arama	MIT	★55	2026-03-29	-	One-command bootstrap for a maximally efficient Claude Code dev environment. Ins	yok	DXxQS0AO1Km
+mcp	MCP	MCP,teknik	-	bulunamadı	-	yok	DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DdZs2nUOpMP,DeHMM45NaFt,DeV0EnpAJCs,DeWwPtmDvqV,DeXr6wCMAEZ
+flownexus	flow-nexus	MCP	-	bulunamadı	-	yok	DXxQS0AO1Km
+npm	npm	CLI	-	bulunamadı	-	yok	DXxQS0AO1Km,DeV9nZPtSsC
+claudetokenmonitor	Claude Token Monitor	CLI	-	bulunamadı	-	yok	DXxQS0AO1Km
+github	GitHub	CLI,iş akışı,teknik	-	bulunamadı	-	mcp:github,plugin-acik:github-contributor@daymade-skills,plugin-acik:github-ops@daymade-skills	DXxQS0AO1Km,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DeRvxD6gDCu,DeV9nZPtSsC,DeW7JHrgsXb,DeWPBbShCBu,DeWwPtmDvqV,DeXAMs2Eqgh,DeXJQ-kGKUY
+agenticslides	Agentic Slides	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+gamma	Gamma	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+canva	Canva	iş akışı	-	bulunamadı	-	mcp:canva,mcp:infinite-canvas,skill:infinite-canvas-paket	Da0Csy8MYEy
+powerpoint	PowerPoint	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+googleslides	Google Slides	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+yahoofinance	Yahoo Finance	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+imf	IMF	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+worldbank	World Bank	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+googlescholar	Google Scholar	iş akışı	-	bulunamadı	-	yok	Da0Csy8MYEy
+arxiv	Arxiv	iş akışı	-	bulunamadı	-	mcp:arxiv	Da0Csy8MYEy
+claudecodesetup	Claude Code Setup	plugin	-	bulunamadı	-	yok	DaagbUMP8Tg
+claudepluginsofficial	claude-plugins-official	plugin	-	bulunamadı	-	plugin-acik:adobe-for-creativity@claude-plugins-official,plugin-acik:claude-md-management@claude-plugins-official,plugin-acik:csharp-lsp@claude-plugins-official	DaagbUMP8Tg
+skills	Skills	skill	-	bulunamadı	-	plugin-acik:accessibility-decisions@designer-skills,plugin-acik:accessible-content@designer-skills,plugin-acik:adaptive-interfaces@designer-skills	DaagbUMP8Tg
+supabase	Supabase	MCP,plugin,teknik	-	bulunamadı	-	plugin-acik:supabase@yerel-kurulum7,plugin:yerel-kurulum7/supabase,skill:supabase	DaagbUMP8Tg,DePeKi4gE1V,DeR11OUkobq
+postgres	Postgres	MCP	-	bulunamadı	-	skill:supabase-postgres-best-practices	DaagbUMP8Tg
+vercel	Vercel	MCP,teknik	-	bulunamadı	-	npm:vercel	DaagbUMP8Tg,DdxzONPjVUi
+convex	Convex	MCP	-	bulunamadı	-	skill:convex,skill:convex-add,skill:convex-advisor	DaagbUMP8Tg
+compact	/compact	ipucu	-	bulunamadı	-	yok	DaagbUMP8Tg
+kodtabantaramas	Kod tabanı taraması	prompt	-	bulunamadı	-	yok	DaagbUMP8Tg
+supabasemcptesti	Supabase MCP testi	prompt	-	bulunamadı	-	yok	DaagbUMP8Tg
+designmdlibrary	Design.MD library	skill	-	bulunamadı	-	yok	Dc3zXkXSxpH
+sfrdanpromptiletasarmrnei	Sıfırdan prompt ile tasarım örneği	prompt	-	bulunamadı	-	yok	Dc3zXkXSxpH
+bossloop	Boss Loop	prompt	-	bulunamadı	-	yok	DcrhGgKyBD8
+claude	Claude	CLI,skill,teknik	-	bulunamadı	-	mcp:claude-design,plugin-acik:adobe-for-creativity@claude-plugins-official,plugin-acik:agent-sdk-dev@claude-code-plugins	DcrhGgKyBD8,Dd18tq_IMQB,Dd1zrTggHCW,Dd9NdbFxJLo,DeHMM45NaFt,DeR11OUkobq,DeT6XXkiPwj,DeV0EnpAJCs,DeW5NQ1DZhh,DeW7JHrgsXb,DeWPBbShCBu,DeWfqTdm94Z,DeWwPtmDvqV,DeXConTt1X5,DeXd4jID1y9
+bossloopileiiajanlarvekatdenetibosskullanarakuygulamasiteretmek	Boss Loop ile işçi ajanlar ve katı denetçi boss kullanarak uygulama/site üretmek	prompt	-	bulunamadı	-	yok	DcrhGgKyBD8
+compositor	Compositor	CLI	robbietilton/Compositor	link	MIT	★16132	2026-10-12	-	The Photoshop alternative for Mac	yok	Dd-FTnEmE_b
+magpie	Magpie	CLI	yetone/magpie	link	MIT	★9956	2026-10-12	-	Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the	yok	Dd-FTnEmE_b
+jevultrafast	Jev Ultrafast	CLI	browser-use/jev-ultrafast	link	MIT	★22678	2026-09-30	-	Fastest and cheapest web agent	yok	Dd-FTnEmE_b
+zcode	zCode	CLI	zai-org/ZCode	link	Apache-2.0	★7702	2026-10-10	-	Z.ai's coding agent harness. Powerful, intelligent, extensible.	yok	Dd-FTnEmE_b
+openmuse	OpenMuse	CLI	CopilotKit/openmuse	link	MIT	★4724	2026-10-12	-	A personal agent with a browser, terminal, files, and work that keeps going buil	yok	Dd-FTnEmE_b
+aihot	AIHOT	CLI	KKKKhazix/AIHOT	link	MIT	★7295	2026-10-12	-	一个自己找热点、自己写日报的网站框架。把信源和精选标准换成你的，它就是你的行业热点站。	yok	Dd-FTnEmE_b
+coucou	Coucou	CLI	Louis-CFM/coucou	link	MIT	★4886	2026-10-12	-	A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your A	yok	Dd-FTnEmE_b
+codex	Codex	CLI	-	bulunamadı	-	plugin-acik:codex@openai-codex,plugin-acik:daymade-codex@daymade-skills,plugin-acik:tibo-reset-codex@daymade-skills	Dd-FTnEmE_b,DdtP_L9FljV,DeT6XXkiPwj,DeXJQ-kGKUY,DeXr6wCMAEZ
+elevenlabsmcp	ElevenLabs MCP	MCP	-	bulunamadı	-	yok	Dd18tq_IMQB
+connectors	Connectors	ipucu	-	bulunamadı	-	yok	Dd18tq_IMQB
+reklammetniseslendirmevemzikretimi	Reklam metni, seslendirme ve müzik üretimi	prompt	-	bulunamadı	-	yok	Dd18tq_IMQB
+reelfactory	reel-factory	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+hookarsenal	hook-arsenal	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+conceptgraphics	concept-graphics	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+goviral	go-viral	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+scrollstopper	scroll-stopper	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+storyaudit	story-audit	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+dopamineladder	dopamine-ladder	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+viralemotion	viral-emotion	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+motiongraphics	motion-graphics	skill	Barty-Bart/motion-graphics	link	NOASSERTION	★617	2026-10-12	-	Motion-graphics skills for Claude Code and Codex.	yok	Dd1zrTggHCW,DeRvxD6gDCu
+cameramoves	camera-moves	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+framedirection	frame-direction	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+reeltransitions	reel-transitions	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+oneobjectfilm	one-object-film	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+hookmining	hook-mining	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+ootto	OOTTO	CLI,iş akışı	-	bulunamadı	-	skill:ootto-content-paket	Dd1zrTggHCW,DeWfqTdm94Z
+clianything	CLI-Anything	CLI	-	bulunamadı	-	plugin-acik:cli-anything@cli-anything,plugin:cli-anything/cli-anything	Dd9NdbFxJLo
+clihub	CLI-Hub	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+obsstudio	OBS Studio	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+blender	Blender	CLI,teknik	-	bulunamadı	-	mcp:blender,plugin-acik:blender@omer-skills,plugin:omer-skills/blender	Dd9NdbFxJLo,DeT6XXkiPwj
+gimp	GIMP	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+libreoffice	LibreOffice	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+audacity	Audacity	CLI,teknik	-	bulunamadı	-	yok	Dd9NdbFxJLo,DeT6XXkiPwj
+zoom	Zoom	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+krita	Krita	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+godot	Godot	CLI,teknik	-	bulunamadı	-	mcp:godot	Dd9NdbFxJLo,DeT6XXkiPwj
+inkscape	Inkscape	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+freecad	FreeCAD	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+kdenlive	Kdenlive	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+zotero	Zotero	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+n8n	n8n	CLI,iş akışı	-	bulunamadı	-	yok	Dd9NdbFxJLo,DdbljkbH5b2
+pip	pip	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo,DeHMM45NaFt,DeW7JHrgsXb
+slack	Slack	MCP,teknik	-	bulunamadı	-	yok	DdZs2nUOpMP,DeWwPtmDvqV,DeXConTt1X5
+gmail	Gmail	MCP,iş akışı,teknik	-	bulunamadı	-	yok	DdZs2nUOpMP,DdbljkbH5b2,DeXConTt1X5
+zamanlanmgrevveentegrasyonkullananrnekkullancistemi	Zamanlanmış görev ve entegrasyon kullanan örnek kullanıcı istemi	prompt	-	bulunamadı	-	yok	DdZs2nUOpMP
+heygen	HeyGen	iş akışı	-	bulunamadı	-	yok	DdbljkbH5b2,DeWwPtmDvqV
+apify	Apify	iş akışı	-	bulunamadı	-	mcp:apify	DdbljkbH5b2
+hubspot	HubSpot	iş akışı	-	bulunamadı	-	yok	DdbljkbH5b2
+googlecalendar	Google Calendar	iş akışı	-	bulunamadı	-	yok	DdbljkbH5b2
+make	Make	iş akışı	-	bulunamadı	-	plugin-acik:tastemaker@codeswithroh,plugin:codeswithroh/tastemaker,skill:davila7-gmod-addon-maker-paket	DdbljkbH5b2
+securityaudit	security-audit	skill	cloudflare/security-audit-skill	link	MIT	★28465	2026-09-14	-	A coding-agent skill for multi-phase security audits with independently verified	skill:security-audit	DdbyRoJtJV4
+opencodereview	Open Code Review	CLI	-	bulunamadı	-	npm:open-code-review	DdbyRoJtJV4
+coder	Coder	plugin	-	bulunamadı	-	mcp:code-review,npm:open-code-review,plugin-acik:code-review@claude-code-plugins	DdbyRoJtJV4
+npxskillsadd	npx skills add	CLI	-	bulunamadı	-	yok	DdbyRoJtJV4
+skillscli	Skills CLI	CLI	-	bulunamadı	-	plugin:daymade-skills/cli-demo-generator	DdbyRoJtJV4,DdtP_L9FljV,DeW5NQ1DZhh
+antiuislop	Anti UI Slop	skill	-	bulunamadı	-	yok	DdtP_L9FljV
+uizze	UIZZE	plugin	-	bulunamadı	-	yok	DdtP_L9FljV
+tasteskill	Taste Skill	skill	Leonxlnx/taste-skill	link	MIT	★94879	2026-10-11	-	Taste-Skill - gives your AI good taste. stops the AI from generating boring, gen	plugin-acik:taste-skill@taste-skill,plugin:taste-skill/taste-skill	DdtP_L9FljV,DeW5NQ1DZhh
+emildesignengineering	Emil Design Engineering	skill	-	bulunamadı	-	yok	DdtP_L9FljV
+vercelwebdesignguidelines	Vercel Web Design Guidelines	skill	vercel-labs/agent-skills	link	yok	★32262	2026-08-28	-	Vercel's official collection of agent skills	plugin-acik:agent-skills@addy-agent-skills,plugin-acik:claude-api@anthropic-agent-skills,plugin-acik:discernment-nudge@anthropic-agent-skills	DdtP_L9FljV
+skillssh	skills.sh	plugin	-	bulunamadı	-	yok	DdtP_L9FljV
+gitleaks	Gitleaks	CLI	-	bulunamadı	-	yok	DeEJV9mgfNz
+semgrep	Semgrep	CLI	-	bulunamadı	-	uv:semgrep	DeEJV9mgfNz
+trailofbitssecurityskills	Trail of Bits Security Skills	skill	-	bulunamadı	-	yok	DeEJV9mgfNz
+laya	Laya	CLI	NandhaKishorM/laya	link	Apache-2.0	★32449	2026-10-12	-	Non-autoregressive System 1 decision engine. Typed choice, score and yes/no deci	skill:test-playable-web-games	DeHMM45NaFt
+openalternativetojev	Open Alternative to Jev	teknik	ikermoel/open-alternative-jev	link	Apache-2.0	★67	2026-09-25	-	Open-source alternative to TypeSafe's Jev: a System One style model layer that g	yok	DeHMM45NaFt
+simplejev	Simple Jev	teknik	featherless-ai/simple-jev	link	Apache-2.0	★602	2026-10-07	-	Turn any open model into a classifier/jev endpoint	yok	DeHMM45NaFt
+featherless	Featherless	teknik	featherless-ai/simple-jev	link	Apache-2.0	★602	2026-10-07	-	Turn any open model into a classifier/jev endpoint	yok	DeHMM45NaFt
+uv	uv	CLI	-	bulunamadı	-	yok	DeHMM45NaFt
+jeff	Jeff	teknik	logan-markewich/jeff	link	MIT	★298	2026-09-20	-	A self-hosted drop-in replacement for TypeSafe's jev, powered by GliFormer.	yok	DeHMM45NaFt
+gpt6lunadecisionsapirnei	GPT-6 Luna Decisions API örneği	prompt	-	bulunamadı	-	yok	DeHMM45NaFt
+zapier	Zapier	MCP,teknik	-	bulunamadı	-	yok	DePeKi4gE1V,DeR11OUkobq
+claudecowork	Claude Cowork	iş akışı	-	bulunamadı	-	yok	DeR11OUkobq
+higgsfield	Higgsfield	plugin	-	bulunamadı	-	yok	DeR11OUkobq
+clay	Clay	plugin	-	bulunamadı	-	yok	DeR11OUkobq
+emailvoice	Email Voice	skill	-	bulunamadı	-	yok	DeR11OUkobq
+higgsfieldiletekcmledengrselretme	Higgsfield ile tek cümleden görsel üretme	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+yenidenkullanlabiliraikarakterveugcreklam	Yeniden kullanılabilir AI karakter ve UGC reklam	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+clayilepazarlamakiileribulma	Clay ile pazarlama kişileri bulma	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+emailvoiceskillinigncelletme	Email Voice skill'ini güncelletme	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+kiilistesinibeehiveeaktarma	Kişi listesini Beehive'e aktarma	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+claudemotion	claude-motion	plugin	whaleyxbt/claude-motion	link	MIT	★329	2026-10-09	-	A motion design toolkit for coding agents.	yok	DeRvxD6gDCu
+claudemotiondesign	claude-motion-design	skill	howseen-ai/claude-motion-design	link	MIT	★458	2026-10-04	-	A Claude Code skill to make motion design videos in pure code: HTML + Playwright	yok	DeRvxD6gDCu
+motiongraphicsskills	motion-graphics-skills	skill	charlie947/motion-graphics-skills	link	MIT	★223	2026-10-11	-	13 Claude Code skills for launch-grade motion graphics. Every frame is code. No 	yok	DeRvxD6gDCu
+clauderemotionskill	claude-remotion-skill	skill	haidrrry/claude-remotion-skill	link	-	yok	DeRvxD6gDCu
+klikanimskillcreation	klik-anim-skill-creation	skill	t3knobox/klik-anim-skill-creation	link	yok	★62	2026-08-06	-	Claude skills for industry-standard Remotion motion graphics: klik-anim-bible (a	yok	DeRvxD6gDCu
+hyperframesmotionreelskill	hyperframes-motion-reel-skill	skill	Sunwood-ai-labs/hyperframes-motion-reel-skill	link	MIT	★121	2026-09-29	-	🎬 Claude Code skill for showreel-grade, beat-synced motion graphics with HyperFr	yok	DeRvxD6gDCu
+productlaunchmotion	product-launch-motion	skill	AbubakrChan/product-launch-motion	link	MIT	★174	2026-08-27	-	Claude Code skill for product launch motion design — make launch videos, promos 	yok	DeRvxD6gDCu
+animate	animate	skill	cth9191/animate	link	MIT	★530	2026-10-05	-	Procedural animation in any style for Claude Code: short single-file canvas vide	skill:animate,skill:animate-expo	DeRvxD6gDCu
+motiondesignskills	motion-design-skills	skill	iart-ai/motion-design-skills	link	MIT	★115	2026-06-22	-	Motion design fundamentals, engines, and brand elements as installable Claude Co	yok	DeRvxD6gDCu
+hyperframesstudentkit	hyperframes-student-kit	iş akışı	nateherkai/hyperframes-student-kit	link	NOASSERTION	★1334	2026-09-28	-	Edit videos, reels, and YouTube Shorts with Codex or Claude Code. 14 skills, tra	yok	DeRvxD6gDCu
+hyperframes	hyperframes	teknik	heygen-com/hyperframes	link	Apache-2.0	★61288	2026-10-12	-	Write HTML. Render video. Built for agents.	plugin-acik:core-skills@hyperframes,plugin-acik:hyperframes@hyperframes,plugin:hyperframes/core-skills	DeRvxD6gDCu,DeXAMs2Eqgh
+remotion	remotion	teknik	remotion-dev/remotion	link	NOASSERTION	★63422	2026-10-12	-	🎥      Make videos programmatically with React	skill:remotion-best-practices,skill:remotion-captions,skill:remotion-create	DeRvxD6gDCu
+remotionagentskills	Remotion Agent Skills	skill	remotion-dev/skills	link	yok	★5047	2026-10-07	-	Agent Skills	plugin-acik:accessibility-decisions@designer-skills,plugin-acik:accessible-content@designer-skills,plugin-acik:adaptive-interfaces@designer-skills	DeRvxD6gDCu
+gsap	GSAP	teknik	greensock/GSAP	link	yok	★29094	2026-04-13	-	GSAP (GreenSock Animation Platform), a JavaScript animation library for the mode	plugin-acik:gsap-skills@gsap-skills,plugin:gsap-skills/gsap-skills,skill:cinematic-gsap-lenis-motion-system	DeRvxD6gDCu,DeWQJuHxx4I
+motiondesignskill	motion-design-skill	skill	LottieFiles/motion-design-skill	link	MIT	★2130	2026-05-18	-	Universal motion design principles for AI agents — timing, easing, choreography,	yok	DeRvxD6gDCu
+awesomemotiondesignagentskills	awesome-motion-design-agent-skills	teknik	frankxai/awesome-motion-design-agent-skills	link	CC0-1.0	★51	2026-10-10	-	Curated motion design agent skills: GSAP, Motion, Remotion, Lottie and Rive for 	yok	DeRvxD6gDCu
+motiondevanimationsskill	motion-dev-animations-skill	skill	199-biotechnologies/motion-dev-animations-skill	link	MIT	★163	2026-03-30	-	Claude Code skill for Motion.dev -- 120fps web animations, spring physics, scrol	yok	DeRvxD6gDCu
+motion	motion	teknik	motiondivision/motion	link	MIT	★34007	2026-10-09	-	A modern animation library for React and JavaScript	skill:cinematic-gsap-lenis-motion-system,skill:fixing-motion-performance,skill:motion-os	DeRvxD6gDCu,DeV0EnpAJCs
+lottieweb	lottie-web	teknik	airbnb/lottie-web	link	MIT	★32210	2025-09-01	-	Render After Effects animations natively on Web, Android and iOS, and React Nati	yok	DeRvxD6gDCu
+gut	GUT	teknik	bitwes/Gut	link	yok	★2752	2026-08-18	-	Godot Unit Test.  Unit testing tool for Godot Game Engine.  	yok	DeT6XXkiPwj
+skecherui	Skecher UI	plugin	CoDesign-Spa27/skecher-ui	arama	yok	★31	2026-10-06	-	motion component library on top of shadcn cli.	yok	DeV0EnpAJCs
+spaceui	Space UI	plugin	katas94/WorldSpace_UIToolkit_XR	arama	MIT	★60	2022-04-11	-	Experimental project that enables non-official runtime worldspace Unity's UITool	yok	DeV0EnpAJCs
+componentry	Componentry	plugin	harshjdhv/componentry	arama	MIT	★595	2026-10-03	-	Animated, production-ready UI components. Built the way real products need them.	yok	DeV0EnpAJCs
+arcui	Arc UI	plugin	dxdotdev/arc-ui	arama	MIT	★73	2025-01-05	ARŞİV	Make your Firefox like the Arc Browser.	yok	DeV0EnpAJCs
+planes	Planes	plugin	makeplane/plane	arama	AGPL-3.0	★60700	2026-10-09	-	🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern	skill:plan-eng-review,skill:threejs-procedural-planets	DeV0EnpAJCs
+shadcncli	shadcn CLI	CLI	-	bulunamadı	-	yok	DeV0EnpAJCs
+strix	Strix	CLI	usestrix/strix	link	Apache-2.0	★68032	2026-10-11	-	Open-source AI penetration testing tool to find and fix your app’s vulnerabiliti	yok	DeV9nZPtSsC
+uxdesignerskill	ux-designer-skill	skill	szilu/ux-designer-skill	arama	MIT	★76	2026-09-28	-	A Claude Code skill that provides comprehensive UX/UI design guidance based on m	yok	DeW5NQ1DZhh
+canvasdesign	canvas-design	skill	-	bulunamadı	-	yok	DeW5NQ1DZhh
+appstorescreenshots	app-store-screenshots	skill	ParthJadhav/app-store-screenshots	arama	MIT	★7241	2026-10-09	-	end to end app store screenshot creation using AI	yok	DeW5NQ1DZhh
+transitionsdev	transitions.dev	skill	Jakubantalik/transitions.dev	arama	NOASSERTION	★4867	2026-10-10	-	UI montion AI agent, a library of 43+ crafted transitions, a skill that fits you	yok	DeW5NQ1DZhh
+replicaskill	Replica Skill	skill	Jakeschincariol/replica-skill	link	MIT	★1983	2026-10-03	-	Eleven free Claude skills that clone any app: reverse-engineer it, rebuild it, t	yok	DeWPBbShCBu
+replicarecon	replica-recon	skill	francescodepatre/ReplicaRecon	arama	yok	★0	2026-07-05	-	Offline 3D perception sandbox on Replica indoor scenes — simulated noisy RGB-D s	yok	DeWPBbShCBu
+replicabuild	replica-build	skill	-	bulunamadı	-	yok	DeWPBbShCBu
+replicatest	replica-test	skill	-	bulunamadı	-	yok	DeWPBbShCBu
+replicaentrepreneur	replica-entrepreneur	skill	-	bulunamadı	-	yok	DeWPBbShCBu
+skillkurulumu	Skill kurulumu	prompt	-	bulunamadı	-	yok	DeWPBbShCBu
+recentdesign	recent.design	iş akışı	-	bulunamadı	-	yok	DeWQJuHxx4I
+godly	Godly	iş akışı	BRoy98/GodlyTorch	arama	GPL-3.0	★23	2018-09-10	-	[NOT MAINTAINED] An app that can control the intensity of the torch of your root	yok	DeWQJuHxx4I
+fontshare	Fontshare	iş akışı	exadizon/fontshare-downloader	arama	yok	★1	2026-09-04	-	Browse, preview, and bulk-download all 100 free Fontshare families. Next.js cata	yok	DeWQJuHxx4I
+realtimecolors	Realtime Colors	iş akışı	BlankParticle/tailwind-plugin-realtime-colors	arama	MIT	★9	2024-02-11	-	A Tailwind CSS plugin that allows you to load colors from URL of Realtime Colors	yok	DeWQJuHxx4I
+reactbits	React Bits	iş akışı	DavidHDev/react-bits	arama	NOASSERTION	★48964	2026-10-12	-	The largest open-source library of animated, interactive, and customizable React	yok	DeWQJuHxx4I
+lenis	Lenis	teknik	darkroomengineering/lenis	link	MIT	★16448	2026-10-02	-	Smooth scroll as it should be	skill:cinematic-gsap-lenis-motion-system	DeWQJuHxx4I
+lucide	Lucide	teknik	lucide-icons/lucide	link	NOASSERTION	★24963	2026-10-11	-	Beautiful & consistent icon toolkit made by the community. Open-source project a	yok	DeWQJuHxx4I
+spline	Spline	iş akışı	yoyo-nb/Thin-Plate-Spline-Motion-Model	arama	MIT	★3607	2024-02-10	-	[CVPR 2022] Thin-Plate Spline Motion Model for Image Animation.	yok	DeWQJuHxx4I
+squoosh	Squoosh	iş akışı	GoogleChromeLabs/squoosh	arama	Apache-2.0	★26021	2026-10-07	-	Make images smaller using best-in-class codecs, right in the browser.	yok	DeWQJuHxx4I
+pagespeedinsights	PageSpeed Insights	iş akışı	ankurparihar/readme-pagespeed-insights	arama	Apache-2.0	★207	2022-04-03	-	Google lighthouse stats of your website that you can put in readme	yok	DeWQJuHxx4I
+ideagenerator	Idea generator	skill	Olanetsoft/article-idea-generator	arama	yok	★235	2026-08-17	-	Generate your next article idea with ease. Powered by AI.	yok	DeWfqTdm94Z
+copywriter	Copywriter	skill	mikiarlo3/ai-copywriter	arama	MIT	★1207	2026-08-01	-	An AI copywriter that uses real copywriting skills + real marketing knowledge wi	yok	DeWfqTdm94Z
+reelcreator	Reel creator	skill	Yuconium/reel_creator	arama	yok	★1	2024-07-13	-	automatical reel video generator and uploader	yok	DeWfqTdm94Z
+planner	Planner	skill	-	bulunamadı	-	yok	DeWfqTdm94Z
+replies	Replies	skill	-	bulunamadı	-	yok	DeWfqTdm94Z
+instagram	Instagram	MCP,iş akışı	-	bulunamadı	-	yok	DeWfqTdm94Z,DeXConTt1X5
+opendots	OpenDots	iş akışı	CopilotKit/OpenDots	arama	MIT	★4970	2026-10-12	-	Your always-on AI coworkers that move between text, calls, and Slack.	yok	DeWwPtmDvqV
+aurelio	Aurelio	iş akışı	-	bulunamadı	-	yok	DeWwPtmDvqV
+diagramdesign	diagram-design	skill	cathrynlavery/diagram-design	link	MIT	★51265	2026-10-10	-	Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory	skill:diagram-design-paket	DeWwPtmDvqV
+autohedge	AutoHedge	iş akışı	-	bulunamadı	-	yok	DeXAMs2Eqgh
+vibetrading	Vibe-Trading	iş akışı	-	bulunamadı	-	yok	DeXAMs2Eqgh
+finceptterminal	Fincept Terminal	CLI	-	bulunamadı	-	yok	DeXAMs2Eqgh
+claudeads	Claude Ads	skill	-	bulunamadı	-	plugin-acik:claude-ads@ai-marketing-hub-claude-ads,plugin:ai-marketing-hub-claude-ads/claude-ads	DeXAMs2Eqgh
+perplexity	Perplexity	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+firecrawl	Firecrawl	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+posthog	PostHog	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+composio	Composio	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+youtube	YouTube	MCP	-	bulunamadı	-	plugin-acik:youtube-downloader@daymade-skills,plugin:daymade-skills/youtube-downloader,skill:baoyu-youtube-transcript	DeXConTt1X5
+facebook	Facebook	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+meta	Meta	MCP	-	bulunamadı	-	skill:3d-metal-material,skill:fixing-metadata,skill:liquid-metal-border	DeXConTt1X5
+notion	Notion	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+googledrive	Google Drive	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+googlesheets	Google Sheets	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+whatsapp	WhatsApp	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+trello	Trello	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+takvim	Takvim	MCP	-	bulunamadı	-	yok	DeXConTt1X5
+perplexityilesektraratrmasrnei	Perplexity ile sektör araştırması örneği	prompt	-	bulunamadı	-	yok	DeXConTt1X5
+steskill	STE Skill	skill	-	bulunamadı	-	plugin-acik:taste-skill@taste-skill,plugin:taste-skill/taste-skill	DeXJQ-kGKUY
+tokenmonitor	Token Monitor	CLI	-	bulunamadı	-	yok	DeXJQ-kGKUY
+bookingskills	Booking Skills	skill	-	bulunamadı	-	yok	DeXJQ-kGKUY
+llmapps	LLM Apps	skill	-	bulunamadı	-	yok	DeXJQ-kGKUY
+skillopt	SkillOpt	skill	-	bulunamadı	-	yok	DeXJQ-kGKUY
+archon	Archon	CLI	-	bulunamadı	-	yok	DeXJQ-kGKUY
+claudesubagents	Claude Subagents	plugin	-	bulunamadı	-	yok	DeXJQ-kGKUY
+vibekanban	Vibe Kanban	iş akışı	-	bulunamadı	-	yok	DeXJQ-kGKUY
+rasulovakademi	Rasulov Akademi	iş akışı	-	bulunamadı	-	yok	DeXJQ-kGKUY
+claudeskills	Claude Skills	skill	-	bulunamadı	-	yok	DeXd4jID1y9
+skillsizbaselinetesti	Skill'siz baseline testi	ipucu	-	bulunamadı	-	yok	DeXd4jID1y9
+500satrsnr	500 satır sınırı	ipucu	-	bulunamadı	-	yok	DeXd4jID1y9
+testyntemi	Üç test yöntemi	ipucu	-	bulunamadı	-	yok	DeXd4jID1y9
+rea	REA	CLI	morluto/rea	link	MIT	★124741	2026-10-12	-	Reverse engineer anything with agents, from app behavior down to native binaries	yok	DeXr6wCMAEZ
+reaagents	rea-agents	CLI	-	bulunamadı	-	npm:rea-agents	DeXr6wCMAEZ
+npx	npx	CLI	-	bulunamadı	-	yok	DeXr6wCMAEZ
+hopper	Hopper	CLI	-	bulunamadı	-	yok	DeXr6wCMAEZ
+grokbuild	Grok Build	CLI	-	bulunamadı	-	yok	DeXr6wCMAEZ
+uygulamazelliinitersinemhendisliklezme	Uygulama özelliğini tersine mühendislikle çözme	prompt	-	bulunamadı	-	yok	DeXr6wCMAEZ

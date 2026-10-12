@@ -1,0 +1,29 @@
+codex	Codex	CLI	openai/codex	arama	Apache-2.0	★128718	2026-10-11	-	Lightweight coding agent that runs in your terminal	plugin-acik:codex@openai-codex,plugin-acik:daymade-codex@daymade-skills,plugin-acik:tibo-reset-codex@daymade-skills	Dd-FTnEmE_b,DdtP_L9FljV,DeT6XXkiPwj,DeXJQ-kGKUY,DeXr6wCMAEZ
+elevenlabsmcp	ElevenLabs MCP	MCP	elevenlabs/elevenlabs-mcp	arama	MIT	★1534	2026-08-20	ARŞİV	The official ElevenLabs MCP server	yok	Dd18tq_IMQB
+reklammetniseslendirmevemzikretimi	Reklam metni, seslendirme ve müzik üretimi	prompt	-	bulunamadı	-	yok	Dd18tq_IMQB
+reelfactory	reel-factory	skill	Shaan-alpha/AI-Reel-Factory	arama	MIT	★2	2026-10-09	-	On-demand AI news Shorts pipeline: researches the news, writes scripts, narrates	yok	Dd1zrTggHCW
+hookarsenal	hook-arsenal	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+conceptgraphics	concept-graphics	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+goviral	go-viral	skill	crealwork/go-viral-or-die	arama	yok	★36	2026-04-24	-	Go Viral or Die — Roy Lee (Cluely) inspired viral marketing skill for Claude Cod	yok	Dd1zrTggHCW
+scrollstopper	scroll-stopper	skill	freaktofen/X-Infinite-Scroll-Stopper	arama	NOASSERTION	★5	2026-01-15	-	Control twitter/X infinite scroll 	yok	Dd1zrTggHCW
+storyaudit	story-audit	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+dopamineladder	dopamine-ladder	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+viralemotion	viral-emotion	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+motiongraphics	motion-graphics	skill	Barty-Bart/motion-graphics	link	NOASSERTION	★612	2026-10-12	-	Motion-graphics skills for Claude Code and Codex.	yok	Dd1zrTggHCW,DeRvxD6gDCu
+cameramoves	camera-moves	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+framedirection	frame-direction	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+reeltransitions	reel-transitions	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+oneobjectfilm	one-object-film	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+hookmining	hook-mining	skill	-	bulunamadı	-	yok	Dd1zrTggHCW
+ootto	OOTTO	CLI,iş akışı	-	bulunamadı	-	skill:ootto-content-paket	Dd1zrTggHCW,DeWfqTdm94Z
+clianything	CLI-Anything	CLI	-	bulunamadı	-	plugin-acik:cli-anything@cli-anything,plugin:cli-anything/cli-anything	Dd9NdbFxJLo
+clihub	CLI-Hub	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+obsstudio	OBS Studio	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+blender	Blender	CLI,teknik	-	bulunamadı	-	mcp:blender,plugin-acik:blender@omer-skills,plugin:omer-skills/blender	Dd9NdbFxJLo,DeT6XXkiPwj
+gimp	GIMP	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+libreoffice	LibreOffice	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+audacity	Audacity	CLI,teknik	-	bulunamadı	-	yok	Dd9NdbFxJLo,DeT6XXkiPwj
+zoom	Zoom	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+krita	Krita	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+godot	Godot	CLI,teknik	-	bulunamadı	-	mcp:godot	Dd9NdbFxJLo,DeT6XXkiPwj
+inkscape	Inkscape	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo

@@ -1,0 +1,29 @@
+zapier	Zapier	MCP,teknik	-	bulunamadı	-	yok	DePeKi4gE1V,DeR11OUkobq
+higgsfield	Higgsfield	plugin	-	bulunamadı	-	yok	DeR11OUkobq
+clay	Clay	plugin	-	bulunamadı	-	yok	DeR11OUkobq
+emailvoice	Email Voice	skill	-	bulunamadı	-	yok	DeR11OUkobq
+higgsfieldiletekcmledengrselretme	Higgsfield ile tek cümleden görsel üretme	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+yenidenkullanlabiliraikarakterveugcreklam	Yeniden kullanılabilir AI karakter ve UGC reklam	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+clayilepazarlamakiileribulma	Clay ile pazarlama kişileri bulma	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+emailvoiceskillinigncelletme	Email Voice skill'ini güncelletme	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+kiilistesinibeehiveeaktarma	Kişi listesini Beehive'e aktarma	prompt	-	bulunamadı	-	yok	DeR11OUkobq
+claudemotion	claude-motion	plugin	whaleyxbt/claude-motion	link	MIT	★328	2026-10-09	-	A motion design toolkit for coding agents.	yok	DeRvxD6gDCu
+claudemotiondesign	claude-motion-design	skill	howseen-ai/claude-motion-design	link	MIT	★452	2026-10-04	-	A Claude Code skill to make motion design videos in pure code: HTML + Playwright	yok	DeRvxD6gDCu
+motiongraphicsskills	motion-graphics-skills	skill	charlie947/motion-graphics-skills	link	MIT	★217	2026-10-11	-	13 Claude Code skills for launch-grade motion graphics. Every frame is code. No 	yok	DeRvxD6gDCu
+clauderemotionskill	claude-remotion-skill	skill	haidrrry/claude-remotion-skill	link	-	yok	DeRvxD6gDCu
+klikanimskillcreation	klik-anim-skill-creation	skill	t3knobox/klik-anim-skill-creation	link	yok	★62	2026-08-06	-	Claude skills for industry-standard Remotion motion graphics: klik-anim-bible (a	yok	DeRvxD6gDCu
+hyperframesmotionreelskill	hyperframes-motion-reel-skill	skill	Sunwood-ai-labs/hyperframes-motion-reel-skill	link	MIT	★121	2026-09-29	-	🎬 Claude Code skill for showreel-grade, beat-synced motion graphics with HyperFr	yok	DeRvxD6gDCu
+productlaunchmotion	product-launch-motion	skill	AbubakrChan/product-launch-motion	link	MIT	★165	2026-08-27	-	Claude Code skill for product launch motion design — make launch videos, promos 	yok	DeRvxD6gDCu
+animate	animate	skill	cth9191/animate	link	MIT	★516	2026-10-05	-	Procedural animation in any style for Claude Code: short single-file canvas vide	skill:animate,skill:animate-expo	DeRvxD6gDCu
+motiondesignskills	motion-design-skills	skill	iart-ai/motion-design-skills	link	MIT	★115	2026-06-22	-	Motion design fundamentals, engines, and brand elements as installable Claude Co	yok	DeRvxD6gDCu
+hyperframesstudentkit	hyperframes-student-kit	iş akışı	nateherkai/hyperframes-student-kit	link	NOASSERTION	★1327	2026-09-28	-	Edit videos, reels, and YouTube Shorts with Codex or Claude Code. 14 skills, tra	yok	DeRvxD6gDCu
+hyperframes	hyperframes	teknik	heygen-com/hyperframes	link	Apache-2.0	★61169	2026-10-12	-	Write HTML. Render video. Built for agents.	plugin-acik:core-skills@hyperframes,plugin-acik:hyperframes@hyperframes,plugin:hyperframes/core-skills	DeRvxD6gDCu,DeXAMs2Eqgh
+remotion	remotion	teknik	remotion-dev/remotion	link	NOASSERTION	★63381	2026-10-12	-	🎥      Make videos programmatically with React	skill:remotion-best-practices,skill:remotion-captions,skill:remotion-create	DeRvxD6gDCu
+remotionagentskills	Remotion Agent Skills	skill	remotion-dev/skills	link	yok	★5044	2026-10-07	-	Agent Skills	plugin-acik:accessibility-decisions@designer-skills,plugin-acik:accessible-content@designer-skills,plugin-acik:adaptive-interfaces@designer-skills	DeRvxD6gDCu
+gsap	GSAP	teknik	greensock/GSAP	link	yok	★29086	2026-04-13	-	GSAP (GreenSock Animation Platform), a JavaScript animation library for the mode	plugin-acik:gsap-skills@gsap-skills,plugin:gsap-skills/gsap-skills,skill:cinematic-gsap-lenis-motion-system	DeRvxD6gDCu,DeWQJuHxx4I
+motiondesignskill	motion-design-skill	skill	LottieFiles/motion-design-skill	link	MIT	★2128	2026-05-18	-	Universal motion design principles for AI agents — timing, easing, choreography,	yok	DeRvxD6gDCu
+awesomemotiondesignagentskills	awesome-motion-design-agent-skills	teknik	frankxai/awesome-motion-design-agent-skills	link	CC0-1.0	★51	2026-10-10	-	Curated motion design agent skills: GSAP, Motion, Remotion, Lottie and Rive for 	yok	DeRvxD6gDCu
+motiondevanimationsskill	motion-dev-animations-skill	skill	199-biotechnologies/motion-dev-animations-skill	link	MIT	★162	2026-03-30	-	Claude Code skill for Motion.dev -- 120fps web animations, spring physics, scrol	yok	DeRvxD6gDCu
+motion	motion	teknik	motiondivision/motion	link	MIT	★33999	2026-10-09	-	A modern animation library for React and JavaScript	skill:cinematic-gsap-lenis-motion-system,skill:fixing-motion-performance,skill:motion-os	DeRvxD6gDCu,DeV0EnpAJCs
+lottieweb	lottie-web	teknik	airbnb/lottie-web	link	MIT	★32209	2025-09-01	-	Render After Effects animations natively on Web, Android and iOS, and React Nati	yok	DeRvxD6gDCu
+gut	GUT	teknik	bitwes/Gut	link	yok	★2752	2026-08-18	-	Godot Unit Test.  Unit testing tool for Godot Game Engine.  	yok	DeT6XXkiPwj

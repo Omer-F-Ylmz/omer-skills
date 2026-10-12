@@ -1,0 +1,43 @@
+anahtar	ad	tur	link	gonderi	iddia
+claudedesign	Claude Design	teknik		DX2ubACJYRN,DdZs2nUOpMP	Anthropic'in tasarım aracı; Open Design'ın klonlandığı referans ürün
+shadcnui	shadcn/ui	teknik		DX2ubACJYRN,DXxQS0AO1Km,Dc3zXkXSxpH	designlang'in ürettiği shadcn/ui tema dosyası
+windsurf	Windsurf	teknik		DX2ubACJYRN	MCP istemcisi olarak anılan IDE
+aidefence	AIDefence	teknik		DXxQS0AO1Km	Tehdit algılama güvenlik katmanı
+gemini31pro	Gemini 3.1 Pro	teknik		DXxQS0AO1Km	Yönlendirmede gösterilen model
+nextjs	Next.js	teknik		DXxQS0AO1Km,DdxzONPjVUi	Örnek e-ticaret projesinin çerçevesi
+docker	Docker	teknik		DXxQS0AO1Km	Örnek projede dağıtım ve ortam yapılandırması
+visualmode	Visual Mode	teknik		Da0Csy8MYEy	Görsel ağırlıklı yaratıcı slayt modu
+subagents	Subagents	teknik		DaagbUMP8Tg,DcrhGgKyBD8	Güvenlik sorunu için review subagent önerisi
+tailwindv4	Tailwind v4	teknik		Dc3zXkXSxpH	DESIGN.md sayfasında dışa aktarım sekmesi olarak sunulan format
+makercheckersplit	Maker-checker split	teknik		DcrhGgKyBD8	Yapan ile doğrulayanı ayıran, taze bağlamlı denetçi yaklaşımı
+oauth	OAuth	teknik		Dd18tq_IMQB	Tek seferlik OAuth girişiyle API anahtarsız bağlantı
+pytest	pytest	teknik		Dd9NdbFxJLo	CLI'lerin test çerçevesi
+stitch	Stitch	teknik		DdZs2nUOpMP,DeMoWpdAC1Z	MCP ile içe aktarılıp denetlenen tasarım aracı örnek ekranda
+sora2	Sora 2	teknik		DdbljkbH5b2	UGC reklam şablonunda 5 video promptunun üretildiği video modeli
+cloudflare	Cloudflare	teknik		DdbyRoJtJV4	security-audit skill'ini yayımlayan şirket.
+sqlinjection	SQL injection	teknik		DdbyRoJtJV4	Open Code Review'ün PR'lerde aradığı zafiyet sınıfı.
+lovable	Lovable	teknik		DdtP_L9FljV	Taste Skill'in uyumlu olduğu AI uygulama üretim servisi (slaytta listelenir, videoda kullanılmaz)
+render	Render	teknik		DdxzONPjVUi	Web servisi, API ve uygulama barındırma.
+kinsta	Kinsta	teknik		DdxzONPjVUi	Yönetilen platformda uygulama barındırma.
+gpt6luna	GPT-6 Luna	teknik		DeHMM45NaFt	OpenAI'ın Decisions API'sini çalıştıran, sınırlı önizlemedeki Jev rakibi
+qwen3627b	Qwen3.6-27B	teknik		DeHMM45NaFt	Open Alternative'in kıyaslamada kullandığı stok model
+llamaindex	LlamaIndex	teknik		DeHMM45NaFt	Laya'nın isteğe bağlı entegrasyonu
+pomelli	Pomelli	teknik		DeMoWpdAC1Z	Web sitesini okuyup markaya uygun gönderi üretir
+googlecolab	Google Colab	teknik		DeMoWpdAC1Z	Veri yükle, analiz not defteri al
+eloquent	Eloquent	teknik		DeMoWpdAC1Z	Cihazda çalışan sesle yazdırma (dictation)
+opal	Opal	teknik		DeMoWpdAC1Z	Kasım'da kapanacak araç; yerine Skills in Gemini öneriliyor
+pocketbase	PocketBase	teknik		DePeKi4gE1V	Gömülü SQLite, gerçek zamanlı abonelik, kullanıcı/dosya yönetimi ve yönetici paneli sunan Go backend
+screenstudio	Screen Studio	teknik		DePeKi4gE1V	Ücretli macOS ekran kaydı aracı; değiştirilen yazılım
+opus55	Opus 5.5	teknik		DeRvxD6gDCu	Kapakta anılan, hareket tasarım stüdyosuna dönüştürülen model.
+ink	Ink	teknik		DeT6XXkiPwj	Oyunlar için anlatı betik dili; oyuncu kararlarına göre değişen diyalog yazılır.
+elevenlabs	ElevenLabs	teknik		DeT6XXkiPwj	Kapı gıcırtısı, metal sürtünmesi, ortam uğultusu gibi korku sesleri üretir.
+filmcraft	FilmCraft	teknik		DeUowm5udJA	Premiere Pro alternatifi açık kaynaklı uygulama
+llmstxt	llms.txt	teknik		DeV0EnpAJCs	Yapay zekâ ajanlarının siteyi anlaması için standart dosya.
+meetily	Meetily	teknik		DeV9nZPtSsC	Toplantıları kaydedip özetleyen, tamamen yerel çalışan yapay zekâ toplantı notu uygulaması.
+apache20	Apache-2.0	teknik		DeW7JHrgsXb	AirLLM'in açık kaynak lisansı
+reddit	Reddit	teknik		DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+generalsans	General Sans	teknik		DeWQJuHxx4I	Fontshare'de görünen font ailesi
+spotify	Spotify	teknik		DeWwPtmDvqV	HeyGen örneğinde promoya dönüştürülen site (spotify.com).
+openllmvtuber	Open LLM VTuber	teknik		DeXAMs2Eqgh	Masaüstünde yaşayan, sesle konuşan, ekranı gören, çevrimdışı çalışan çizgi karakter yapay zekâ arkadaşı.
+asdste100	ASD-STE100	teknik		DeXJQ-kGKUY	Havacılıkta kullanılan Simplified Technical English kontrollü dil standardı.
+claudeplatformdocs	Claude Platform Docs	teknik		DeXd4jID1y9	Rehberin gösterildiği Anthropic dokümantasyon sitesi

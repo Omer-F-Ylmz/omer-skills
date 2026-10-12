@@ -1,0 +1,44 @@
+anahtar	ad	tur	link	gonderi	iddia
+typescript	TypeScript	teknik		DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,DdbyRoJtJV4,DeV0EnpAJCs	n8n MCP otomasyonu doğrular
+inter	Inter	teknik		DX2ubACJYRN	Yapay zekânın sık kullandığı, Impeccable'ın kaçınılacak font örneği olarak gösterdiği font
+geist	Geist	teknik		DX2ubACJYRN	Vercel çıktısında tespit edilen font ailesi (Geist, Geist Mono)
+ruvector	RuVector	teknik		DXxQS0AO1Km	PostgreSQL tabanlı vektör zekâ ve arama katmanı
+sonnet46	Sonnet 4.6	teknik		DXxQS0AO1Km	Alt ajanın kullandığı model
+llama31	Llama 3.1	teknik		DXxQS0AO1Km	Yönlendirmede gösterilen model
+prisma	Prisma	teknik		DXxQS0AO1Km	Örnek projede veritabanı ORM'i
+postgresql	PostgreSQL	teknik		DXxQS0AO1Km	RuVector MCP'sinin vektör veritabanı altyapısı
+dnyabankas	Dünya Bankası	teknik		Da0Csy8MYEy	Kimi'nin grafik verisi için eriştiği kaynak (ekranda 'WORLD BANK' olarak da görünüyor).
+react	React	teknik		DaagbUMP8Tg,DeV0EnpAJCs	Frontend kütüphanesi; checkout ekranındaki 'unique key prop' uyarısı React uyarı biçimine benziyor (kesin doğrulanamadı).
+apple	Apple	teknik		Dc3zXkXSxpH	Örnek marka tasarım dili (Apple España, SF Pro, 28px yarıçap)
+deepseek	DeepSeek	teknik		Dd-FTnEmE_b	Magpie ile seçilebilen model sağlayıcı
+claudeopus	Claude Opus	teknik		Dd1zrTggHCW,DdZs2nUOpMP	Ekranda Opus 5.5 notu görünen model
+claudefable51	Claude Fable 5.1	teknik		DdZs2nUOpMP	Sistem istemi sızdırıldığı iddia edilen Anthropic modeli; videonun ana konusu
+websearch	web_search	teknik		DdZs2nUOpMP	Sistem isteminde tanımlı arama aracı
+gpt	GPT	teknik		DdbljkbH5b2	Çok dilli SSS botunun cevap modeli
+vscodedesktop	VS Code Desktop	teknik		DdbyRoJtJV4	Coder çalışma alanından açılabilen editör.
+xss	XSS	teknik		DdbyRoJtJV4	PR'lerde aranan zafiyet sınıfı.
+netlify	Netlify	teknik		DdxzONPjVUi	Statik/Jamstack site derleme, yayın ve yönetim platformu.
+gitlabpages	GitLab Pages	teknik		DdxzONPjVUi	GitLab depolarından statik site yayınlama.
+railway	Railway	teknik		DdxzONPjVUi	Uygulama, servis ve veritabanı dağıtımı.
+qwen3508b	Qwen3.5-0.8B	teknik		DeHMM45NaFt	Simple Jev ile örnek olarak kullanılan açık model
+localllamatypeddecisions	LocalLLaMA/typed-decisions	teknik		DeHMM45NaFt	400 vakalık topluluk kıyas veri seti
+pytorch	PyTorch	teknik		DeHMM45NaFt	Simple Jev'in yerel çalıştırmada kullandığı derin öğrenme kütüphanesi.
+googleaistudio	Google AI Studio	teknik		DeMoWpdAC1Z	Prompttan çalışan uygulama prototipi, tarayıcıda ücretsiz
+codewiki	Code Wiki	teknik		DeMoWpdAC1Z	Herkese açık kod tabanını sade dokümanla açıklar
+edgegallery	Edge Gallery	teknik		DeMoWpdAC1Z	Telefonda çevrimdışı yapay zekâ sohbeti ve görsel soruları
+gemini	Gemini	teknik		DeMoWpdAC1Z	Google'ın yapay zekâ modeli/uygulaması; gönderi 'Google AI yalnız Gemini değil' diyor
+billionmail	BillionMail	teknik		DePeKi4gE1V	Kendi sunucunda çalışan posta sunucusu, bülten ve e-posta pazarlama çözümü
+triggerdev	Trigger.dev	teknik		DePeKi4gE1V	Dayanıklı yapay zekâ iş akışları ve arka plan görevleri için geliştirici platformu
+aseprite	Aseprite	teknik		DeT6XXkiPwj	Piksel sanat çizimi ve koşma/zıplama animasyonları için sprite editörü.
+cascadeur	Cascadeur	teknik		DeT6XXkiPwj	Yapay zekâ destekli saldırı, kaçınma ve düşme animasyonu aracı.
+claudeopus55	Claude Opus 5.5	teknik		DeUowm5udJA	Uygulamaları geliştirmek için kullanılan Anthropic yapay zeka modeli
+photoshop	Photoshop	teknik		DeUowm5udJA	Kopyalanan Adobe uygulaması (referans)
+webgl	WebGL	teknik		DeV0EnpAJCs	Componentry'nin etkileşimli 3B/GPU işlemeleri.
+browseruse	browser-use	teknik		DeV9nZPtSsC	Page Agent dokümantasyonunda karşılaştırılan tarayıcı otomasyon aracı.
+katmankatmankarm	Katman katman çıkarım	teknik		DeW7JHrgsXb	Modelin yalnızca bir katmanını GPU belleğinde tutarak çalıştırma yöntemi
+trustpilot	Trustpilot	teknik		DeWPBbShCBu	Girişimci becerisinin okuduğu kullanıcı yorumu kaynağı
+clashdisplay	Clash Display	teknik		DeWQJuHxx4I	Videonun başında ekranda görünen font
+webpagetomp4	Web page to MP4	teknik		DeWwPtmDvqV	Claude'un her sahneyi web sayfası olarak yazdığı, bunun sonra hareketli metin ve görüntülerle bitmiş MP4'e dönüştürüldüğü HeyGen yapımı araç (After Effects alternatifi).
+agenticinbox	Agentic Inbox	teknik		DeXAMs2Eqgh	Cloudflare'in kendi barındırılan e-posta istemcisi; yapay zekâ ajanı yanıt taslağı hazırlar.
+yamliaklar	YAML iş akışları	teknik		DeXJQ-kGKUY	Archon'da ajan süreçlerini tanımlama yöntemi.
+skilldescription	Skill description	teknik		DeXd4jID1y9	Üçüncü tekil kişiyle, ne yaptığı ve ne zaman kullanılacağı yazılan açıklama; skill seçimini belirler

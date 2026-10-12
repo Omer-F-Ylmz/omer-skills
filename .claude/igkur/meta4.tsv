@@ -1,0 +1,29 @@
+freecad	FreeCAD	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+kdenlive	Kdenlive	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+zotero	Zotero	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo
+n8n	n8n	CLI,iş akışı	-	bulunamadı	-	yok	Dd9NdbFxJLo,DdbljkbH5b2
+pip	pip	CLI	-	bulunamadı	-	yok	Dd9NdbFxJLo,DeHMM45NaFt,DeW7JHrgsXb
+slack	Slack	MCP,teknik	-	bulunamadı	-	yok	DdZs2nUOpMP,DeWwPtmDvqV,DeXConTt1X5
+gmail	Gmail	MCP,iş akışı,teknik	-	bulunamadı	-	yok	DdZs2nUOpMP,DdbljkbH5b2,DeXConTt1X5
+zamanlanmgrevveentegrasyonkullananrnekkullancistemi	Zamanlanmış görev ve entegrasyon kullanan örnek kullanıcı istemi	prompt	-	bulunamadı	-	yok	DdZs2nUOpMP
+securityaudit	security-audit	skill	cloudflare/security-audit-skill	link	MIT	★28414	2026-09-14	-	A coding-agent skill for multi-phase security audits with independently verified	skill:security-audit	DdbyRoJtJV4
+opencodereview	Open Code Review	CLI	-	bulunamadı	-	npm:open-code-review	DdbyRoJtJV4
+coder	Coder	plugin	-	bulunamadı	-	mcp:code-review,npm:open-code-review,plugin-acik:code-review@claude-code-plugins	DdbyRoJtJV4
+npxskillsadd	npx skills add	CLI	-	bulunamadı	-	yok	DdbyRoJtJV4
+skillscli	Skills CLI	CLI	-	bulunamadı	-	plugin:daymade-skills/cli-demo-generator	DdbyRoJtJV4,DdtP_L9FljV,DeW5NQ1DZhh
+antiuislop	Anti UI Slop	skill	-	bulunamadı	-	yok	DdtP_L9FljV
+uizze	UIZZE	plugin	-	bulunamadı	-	yok	DdtP_L9FljV
+tasteskill	Taste Skill	skill	Leonxlnx/taste-skill	link	MIT	★94829	2026-10-11	-	Taste-Skill - gives your AI good taste. stops the AI from generating boring, gen	plugin-acik:taste-skill@taste-skill,plugin:taste-skill/taste-skill	DdtP_L9FljV,DeW5NQ1DZhh
+emildesignengineering	Emil Design Engineering	skill	-	bulunamadı	-	yok	DdtP_L9FljV
+vercelwebdesignguidelines	Vercel Web Design Guidelines	skill	vercel-labs/agent-skills	link	yok	★32256	2026-08-28	-	Vercel's official collection of agent skills	plugin-acik:agent-skills@addy-agent-skills,plugin-acik:claude-api@anthropic-agent-skills,plugin-acik:discernment-nudge@anthropic-agent-skills	DdtP_L9FljV
+skillssh	skills.sh	plugin	-	bulunamadı	-	yok	DdtP_L9FljV
+gitleaks	Gitleaks	CLI	-	bulunamadı	-	yok	DeEJV9mgfNz
+semgrep	Semgrep	CLI	-	bulunamadı	-	uv:semgrep	DeEJV9mgfNz
+trailofbitssecurityskills	Trail of Bits Security Skills	skill	-	bulunamadı	-	yok	DeEJV9mgfNz
+laya	Laya	CLI	NandhaKishorM/laya	link	Apache-2.0	★32404	2026-10-12	-	Non-autoregressive System 1 decision engine. Typed choice, score and yes/no deci	skill:test-playable-web-games	DeHMM45NaFt
+openalternativetojev	Open Alternative to Jev	teknik	ikermoel/open-alternative-jev	link	Apache-2.0	★67	2026-09-25	-	Open-source alternative to TypeSafe's Jev: a System One style model layer that g	yok	DeHMM45NaFt
+simplejev	Simple Jev	teknik	featherless-ai/simple-jev	link	Apache-2.0	★601	2026-10-07	-	Turn any open model into a classifier/jev endpoint	yok	DeHMM45NaFt
+featherless	Featherless	teknik	featherless-ai/simple-jev	link	Apache-2.0	★601	2026-10-07	-	Turn any open model into a classifier/jev endpoint	yok	DeHMM45NaFt
+uv	uv	CLI	-	bulunamadı	-	yok	DeHMM45NaFt
+jeff	Jeff	teknik	logan-markewich/jeff	link	MIT	★298	2026-09-20	-	A self-hosted drop-in replacement for TypeSafe's jev, powered by GliFormer.	yok	DeHMM45NaFt
+gpt6lunadecisionsapirnei	GPT-6 Luna Decisions API örneği	prompt	-	bulunamadı	-	yok	DeHMM45NaFt
