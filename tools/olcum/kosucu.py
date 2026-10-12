@@ -60,7 +60,7 @@ def pid_canli(pid):
 def ayristir(stdout):
     """stream-json satırları → {usage, usd, sure_ms, metin, araclar, okunan, girdi, init, hook, tur}. Anahtar/istem değeri taşımaz."""
     o = {"usage": {}, "usd": 0.0, "sure_ms": 0, "metin": "", "araclar": [], "okunan": [], "girdi": [], "init": {}, "hook": [], "tur": 0}
-    for s in (stdout or "").splitlines():
+    for s in (stdout or "").splitlines() if not hasattr(stdout, "readline") else stdout:  # dosya: satır satır, bellekte birikmez
         try:
             x = json.loads(s)
         except ValueError:
