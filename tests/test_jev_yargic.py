@@ -118,3 +118,16 @@ def test_jev_puanla_cevapsizi_puansiz_birakir(tmp_path):
     from jev.cekirdek import JevHata
     k = jev_yargic.jev_puanla([{"state": "s"}], Kopuk(1, JevHata), onbellek=tmp_path / "ob.json")
     assert "jev" not in k[0]
+
+
+def test_rapor_onyargi_karar_ve_geri_kuyruk(tmp_path):
+    from jev.cekirdek import JevHata
+
+    class Puan(Sayan):
+        def __init__(self):
+            super().__init__(lambda s: {"kalite": {"score": 4.0 if "iyi" in s["rapor"] else 1.5, "confidence": 0.8}})
+
+    ob = tmp_path / "ob.json"
+    r = jev_yargic.rapor_onyargi(["iyi rapor", "zayıf"], tasiyici=Puan(), onbellek=ob)
+    assert [x["karar"] for x in r] == ["gec", "yeniden"] and r[0]["jev"] == 8.0
+    assert jev_yargic.rapor_onyargi(["yeni"], tasiyici=Kopuk(1, JevHata), onbellek=ob) == [{"jev": None, "guven": None, "karar": None}]

@@ -92,6 +92,25 @@ def yargila(states, questions, tasiyici=None, onbellek=None, parca=PARCA_OB, ag_
     return [tablo.get(a, yeni.get(a)) for a in anahtar]
 
 
+RAPOR_SORU = {"kalite": {"type": "score", "criteria": SEVIYE,
+                         "instructions": "Bu kısa video (shorts) tarama raporu, videodaki iddiaları ve araç/skill adaylarını "
+                                         "kanıta (kare/transkript) dayanarak, somut ve uygulanabilir biçimde çıkarmış mı? "
+                                         "Uydurma, genel geçer ya da kanıtsız aday puanı düşürür; biçim/uzunluk değil içerik."}}
+
+
+def rapor_onyargi(raporlar, tasiyici=None, onbellek=None, esik=6.0):
+    """JEV-2 (b) video ön-yargıcı arayüzü (entegrasyonu VİDEO-16 seçer): rapor metni başına {jev 0-10, guven, karar}.
+    karar: "gec" (jev ≥ esik) | "yeniden" | None (cevapsız → geri kuyruk, sonraki çağrı yalnız bunu ücretler)."""
+    out = []
+    for c in yargila([{"rapor": r} for r in raporlar], RAPOR_SORU, tasiyici, onbellek):
+        if c is None:
+            out.append({"jev": None, "guven": None, "karar": None})
+            continue
+        j = round(c["kalite"]["score"] * 2, 1)
+        out.append({"jev": j, "guven": c["kalite"].get("confidence"), "karar": "gec" if j >= esik else "yeniden"})
+    return out
+
+
 def jev_puanla(kayitlar, tasiyici, onbellek=None):
     for k, c in zip(kayitlar, yargila([k["state"] for k in kayitlar], SORU, tasiyici, onbellek)):
         if c is None:  # geri kuyruk: puansız kalır, sonraki koşu yalnız bunu sorar
