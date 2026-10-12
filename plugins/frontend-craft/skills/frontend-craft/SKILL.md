@@ -10,7 +10,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - SIRA (yeni proje / yeni ana ekran): yön keşfi (Bölüm 11: üç yön, künye + 1440 PNG, DUR, kullanıcı seçer) → DESIGN.md (Bölüm 7: göster, DUR) → iki-pass (Bölüm 8: token planı → yasak listesine karşı eleştiri → inşa) → kod → screenshot döngüsü (Bölüm 2/9). Mevcut DESIGN.md varsa ya da REF modundaysa yön keşfi atlanır.
 - Sunucu şart, `file:///` yasak: static `node ${CLAUDE_SKILL_DIR}/scripts/serve.mjs` (:3000) · aspnet `dotnet run --project <web csproj>`.
 - Screenshot döngüsü: `node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs <url> [etiket]` → 390/768/1440 PNG, her biri Read ile açılır. Tur = screenshot → sapma tablosu → düzelt; min 2, max 4 tur; 4. tur sonunda sapma kalırsa DUR raporu.
-- Kabul: `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` PASS (FREE'de SLOP boş); ELLE BAKILACAK kalemleri raporda ayrıca yanıtlanır; a11y/perf/etkileşim Bölüm 4.
+- Kabul: `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` PASS (FREE'de SLOP boş) + `node ${CLAUDE_SKILL_DIR}/scripts/slop.mjs <url>` TEMİZ; ELLE BAKILACAK kalemleri raporda ayrıca yanıtlanır; a11y/perf/etkileşim Bölüm 4.
 - UI incelemesinde `references/vercel-web-interface.md` kontrol listesi.
 - DESIGN.md tam olarak 6 başlık, fazlası yok:
   1. Stil adı
@@ -75,6 +75,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 
 ## 4. Her iki modda kabul kriterleri
 - `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` → PASS; FREE modunda SLOP satırı boş.
+- `node ${CLAUDE_SKILL_DIR}/scripts/slop.mjs <url>` → TEMİZ (≤1 bayrak; çıkış 0). Hesaplanmış stilden 8 bayrak: gradyan metin · mor-mavi gradyan · ≥2 cam kart · ortalı hero + eş 3'lü kart + h1/gövde <3 · yalnız varsayılan font · ≥4 vurgu ton kümesi · ≥2 kalıp pazarlama sözcüğü (seamless, unlock, elevate…) · ≥2 emoji ikon. Eşikler 17 ödüllü sitenin ölçümünden (16'sı temiz); tek bayrak bilinçli imzaysa DESIGN.md'de gerekçelenir. Bayraklar tur raporunun audit hücresine yazılır.
 - Audit'in ELLE BAKILACAK kalemleri tur raporunda ayrıca yanıtlanır; PASS bu kalemleri kapsamaz.
 - a11y: `html[lang]`, tek `h1`, `header/main/footer` landmark, her `img` alt+width+height, fold altı `loading="lazy"`, kontrast gövde ≥4.5:1 / büyük başlık ≥3:1 (hex'ten hesapla, çiftleri raporla).
 - perf: font ≤2 aile ≤4 dosya, `font-display: swap`, tüm medya boyutlu (CLS 0).
