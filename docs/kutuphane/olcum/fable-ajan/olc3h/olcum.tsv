@@ -1,0 +1,9 @@
+ajan	aile	model	kol	tekrar	input	cache_creation	cache_read	output	usd	sure_sn	regex	tur	rc
+fe-bos-durum-yazar	fe	haiku	proto	1	1769	21360	11158	1587	0.0054	123.9	10	4	0
+ara-dokuman-indeksle	ara	haiku	proto	1	1766	8458	0	455	0.0021	83.2	10	1	0
+fe-bos-durum-yazar	fe	haiku	proto	2	1771	15367	29196	2481	0.0048	230.8	10	5	0
+ara-dokuman-indeksle	ara	haiku	proto	2	1766	3918	2676	1049	0.0015	96.6	10	1	0
+fe-bos-durum-yazar	fe	haiku	taban	1	1769	21193	11608	1454	0.0053	66.2	8	4	0
+ara-dokuman-indeksle	ara	haiku	taban	1	1766	6497	2305	973	0.002	42.4	10	1	0
+fe-bos-durum-yazar	fe	haiku	taban	2	1769	8452	24058	943	0.0026	50.6	8	4	0
+ara-dokuman-indeksle	ara	haiku	taban	2	1766	6494	2305	868	0.0019	62.8	7	1	0
