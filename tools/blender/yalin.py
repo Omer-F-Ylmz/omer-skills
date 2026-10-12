@@ -22,7 +22,9 @@ CLI, TARIF = KOK / "tools" / "blender_cli.py", KOK / "tools" / "blender" / "lib"
 
 TEK_AKIS = ("Araç yok: yanıtın YALNIZ tek ```json bloğunda spec olsun (yollar mutlak); spec'i sistem koşar, sonucu sana döner. "
             "İstenen her çıktıyı tek spec'e koy: nesneler/duzenle, isik, kamera (oto ya da {konum, hedef, lens}), kaydet, glb, "
-            "onizle {yol, px, motor: eevee}, render, ozet. Hata dönerse yalnız düzeltilmiş spec'i ver.\n")
+            "onizle {yol, px, motor: eevee}, render, ozet. İstekte ölçüsü verilen her nesne için \"beklenen\": {ad: [x, y, z]} "
+            "(m, dış kutu; çap 8 cm silindir → [0.08, 0.08, …]) ekle — sistem ölçülen kutuyla ±%15 karşılaştırır. "
+            "Hata dönerse yalnız düzeltilmiş spec'i ver.\n")
 
 
 def sistem(tek=False):
@@ -64,8 +66,8 @@ def tek(istek, blend=None, kos=_claude, calistir=None):
         sys.path.insert(0, str(KOK / "tools"))
         from blender_cli import calistir
     t = {"usage": {}, "tur": 0, "usd": 0.0, "sure": 0.0, "araclar": [], "rc": 1, "hata": ""}
-    istem, spec, hata = istek, None, []
-    for _ in range(2):
+    istem, spec, hata, bek = istek, None, [], {}
+    for i in range(2):
         o = kos(istem, tek_bayraklar())
         for k, v in (o.get("usage") or {}).items():
             if isinstance(v, (int, float)):
@@ -76,15 +78,25 @@ def tek(istek, blend=None, kos=_claude, calistir=None):
         m = re.search(r"\{.*\}", o.get("metin") or "", re.S)
         try:
             spec = json.loads(m.group(0))
+            bek = spec.pop("beklenen", None) or {}  # ölçü kapısı: dogrula/Blender görmez, ozet'le karşılaştırılır
+            if bek:
+                spec["ozet"] = list(dict.fromkeys([*spec.get("ozet", []), "ad", "boyut"]))
             hata = tarif.dogrula(spec)
         except (AttributeError, ValueError) as e:
             spec, hata = None, [f"spec JSON ayrıştırılamadı: {e}"]
         if not hata:
             kod, sonuc, _ = calistir(TARIF, spec, blend)
             if kod == 0:
-                return {**t, "rc": 0, "metin": json.dumps(sonuc, ensure_ascii=False)}
-            hata = [f"blender_cli exit {kod}: {json.dumps(sonuc, ensure_ascii=False)[:1500]}"]
-        istem = f"{istek}\n\nÖnceki spec:\n{json.dumps(spec, ensure_ascii=False)}\nHata: {hata}\nDüzeltilmiş spec'i ver."
+                olcu = {o.get("ad"): o.get("boyut") for o in sonuc.get("ozet") or [] if isinstance(o, dict)}
+                hata = [f"ölçü sapması {ad}: beklenen {b}, ölçülen {olcu.get(ad)} (±%15; ekler gövdeye birleşir, dış kutuyu büyütür)"
+                        for ad, b in bek.items()
+                        if not olcu.get(ad) or any(abs(x - y) > 0.15 * y for x, y in zip(olcu[ad], b))]
+                if not hata or i:
+                    return {**t, "rc": 0, "metin": json.dumps(sonuc, ensure_ascii=False), "hata": "; ".join(hata)[-200:]}
+            else:
+                hata = [f"blender_cli exit {kod}: {json.dumps(sonuc, ensure_ascii=False)[:1500]}"]
+        istem = (f"{istek}\n\nÖnceki spec:\n{json.dumps({**(spec or {}), **({'beklenen': bek} if bek else {})}, ensure_ascii=False)}"
+                 f"\nHata: {hata}\nDüzeltilmiş spec'i ver.")
     return {**t, "metin": f"HATA: {hata}", "hata": str(hata)[-200:]}
 
 

@@ -36,6 +36,23 @@ def test_hatada_tek_duzeltme_turu_ve_jeton_toplanir():
     assert "yok" in istemler[1][0]  # dogrula hatası ikinci isteme gider (Blender açılmadan)
 
 
+def test_beklenen_sapmada_duzeltme_turu():
+    bek = '{"nesneler": [{"ad": "Kupa", "tur": "silindir"}], "beklenen": {"Kupa": [0.08, 0.08, 0.09]}}'
+    istemler, kosulan = [], []
+    olcu = [[0.11, 0.08, 0.09], [0.08, 0.08, 0.09]]
+    o = yalin.tek("kupa yap", kos=_kos([bek, bek], istemler),
+                  calistir=lambda b, a, bl: kosulan.append(a) or (0, {"gecti": True, "ozet": [{"ad": "Kupa", "boyut": olcu.pop(0)}]}, 1))
+    assert "beklenen" not in kosulan[0] and {"ad", "boyut"} <= set(kosulan[0]["ozet"])  # dogrula'dan önce çıkarılır
+    assert o["rc"] == 0 and o["tur"] == 2 and "Kupa" in istemler[1][0] and "0.11" in istemler[1][0]
+
+
+def test_beklenen_tutarsa_tek_tur():
+    bek = '{"nesneler": [{"ad": "Kupa", "tur": "silindir"}], "beklenen": {"Kupa": [0.08, 0.08, 0.09]}}'
+    o = yalin.tek("kupa yap", kos=_kos([bek], []),
+                  calistir=lambda b, a, bl: (0, {"gecti": True, "ozet": [{"ad": "Kupa", "boyut": [0.085, 0.08, 0.09]}]}, 1))
+    assert o["rc"] == 0 and o["tur"] == 1
+
+
 def test_iki_hatada_durur():
     o = yalin.tek("kupa yap", kos=_kos([SPEC, SPEC], []), calistir=lambda b, a, bl: (1, {"gecti": False}, 1))
     assert o["rc"] == 1 and o["tur"] == 2 and "exit 1" in o["hata"]
