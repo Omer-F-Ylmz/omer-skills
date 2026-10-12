@@ -2,3 +2,4 @@ ajan	kol	tekrar	puan	usd	sure	surec	ram_mb	adlar
 bl-isik-kurulumu	yeni	1	10	0.2507	595.0	69	843	bash.exe:45,conhost.exe:16,taskkill.exe:2,node.exe:2,headroom.exe:1,python.exe:1,tail.exe:1,cmd.exe:1
 otm-tarayici-otomasyon	yeni	1	10	0.2977	229.7	64	1054	bash.exe:37,conhost.exe:14,node.exe:6,cmd.exe:2,bun.exe:2,claude.exe:1,sed.exe:1,powershell.exe:1
 oyn-mod-onarim	yeni	2	10	0.2031	400.2	47	578	bash.exe:30,conhost.exe:13,node.exe:4
+bl-glb-disa-aktar	yeni	1	10	0.2731	206.0	68	944	bash.exe:44,conhost.exe:17,node.exe:6,bun.exe:1

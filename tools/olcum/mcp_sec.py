@@ -6,7 +6,7 @@ import os
 import re
 from pathlib import Path
 
-ONEK = re.compile(r"mcp__([A-Za-z0-9_.-]+?)__")
+ONEK = re.compile(r"mcp__([A-Za-z0-9_.-]+?)(?:__|(?![A-Za-z0-9_.-]))")  # --allowedTools mcp__blender (araçsız) da
 
 
 def acik():
@@ -36,6 +36,8 @@ def ek(dizin, *metinler, kaynak=None):
 if __name__ == "__main__":
     assert gereken("x mcp__mcp-git__git_status y", '{"tools": "Read, mcp__serena__find_symbol"}') == ["mcp-git", "serena"]
     assert gereken("Read, Grep") == []
+    assert gereken('["Bash", "mcp__blender"]', "mcp__plugin_context-mode_context-mode__ctx_x") == [
+        "blender", "plugin_context-mode_context-mode"]
     import tempfile
     with tempfile.TemporaryDirectory() as d:
         a = ek(d, "mcp__serena__x mcp__yok__y", kaynak={"serena": {"command": "uvx", "args": ["s"]}, "blender": {}})
