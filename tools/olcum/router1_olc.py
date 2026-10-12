@@ -57,25 +57,27 @@ def kol(ad, sinif):
     return model_sec.bayraklar(sinif)
 
 
-def main(cikti):
+def main(cikti, yeniden=False):
+    """yeniden=True: çağrı yapmaz, var olan ham JSON'lardan TSV'yi yeniden kurar."""
     cikti = Path(cikti); cikti.mkdir(parents=True, exist_ok=True)
     satirlar, n = ["sinif\tkol\ttekrar\tdogru\tgirdi\tcache_yaz\tcache_oku\tcikti\tusd\tsure_ms\thata"], 0
     for t in (1, 2):
         for sinif, (istem, denet) in GOREV.items():
             for ad in ("A", "B"):
-                for _ in range(30):  # RAM %95 altına inene dek ≤30 dk bekle (Ömer 17:16: %97'ye kadar serbest, %2 pay)
+                ham = cikti / f"{sinif}-{ad}-{t}.json"
+                for _ in range(0 if yeniden else 30):  # RAM %95 altına inene dek ≤30 dk bekle (Ömer 17:16: %97'ye kadar serbest, %2 pay)
                     if ram() < 95:
                         break
                     time.sleep(60)
-                if n >= CAGRI_TAVAN or ram() >= 95:
+                if yeniden and not ham.exists() or not yeniden and (n >= CAGRI_TAVAN or ram() >= 95):
                     satirlar.append(f"{sinif}\t{ad}\t{t}\t-\t\t\t\t\t\t\tatlandi(ram/tavan)"); continue
                 n += 1
-                ham = cikti / f"{sinif}-{ad}-{t}.json"
-                with open(ham, "w", encoding="utf-8") as f:
-                    subprocess.run(["claude", "-p", istem, "--output-format", "json", "--max-budget-usd", str(USD_TAVAN), *kol(ad, sinif)],
-                                   stdout=f, stderr=subprocess.STDOUT, timeout=600, stdin=subprocess.DEVNULL)
-                try:
-                    d = json.loads(ham.read_text(encoding="utf-8"))
+                if not yeniden:
+                    with open(ham, "w", encoding="utf-8") as f:
+                        subprocess.run(["claude", "-p", istem, "--output-format", "json", "--max-budget-usd", str(USD_TAVAN), *kol(ad, sinif)],
+                                       stdout=f, stderr=subprocess.STDOUT, timeout=600, stdin=subprocess.DEVNULL)
+                try:  # stdout+stderr aynı dosyada: SessionEnd hook uyarıları JSON'dan sonra gelir → yalnız ilk JSON
+                    d = json.JSONDecoder().raw_decode(ham.read_text(encoding="utf-8").lstrip())[0]
                 except ValueError:
                     satirlar.append(f"{sinif}\t{ad}\t{t}\t0\t\t\t\t\t\t\tjson-yok"); continue
                 u = d.get("usage", {})
@@ -87,4 +89,4 @@ def main(cikti):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], "--yeniden" in sys.argv)
