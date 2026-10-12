@@ -2,6 +2,7 @@
     python tools/tasarim/kanit2.py <cikti_dizini> --kol 160|170 [--kuru]
 1.6.0'ın 1-2. koşuları TASARIM-1 'yeni' kolundan (aynı skill, .kos/kopru/tasarim-kanit/*-yeni-*), burada yalnız 3-4: 4 çağrı.
 1.7.0: 8 çağrı sırayla, brief'ler iç içe (gerçek kullanım: proje proje), ortak geçmiş FC_GECMIS=<cikti>/gecmis-170.tsv (boş başlar).
+171 = 1.7.0 + web fontu kuralı (kör yargıda 170 portfolyo 6.0 < 160 7.25), 8 çağrı $2.5.
 Toplam 12 claude -p (≤20); kol tavanı 160 $2, 170 $3.5 (Σ ≤ $5.5, kör yargı için $0.5 kalır).
 """
 import os
@@ -13,14 +14,14 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import kanit  # noqa: E402
 
 FC160 = kanit.WT / ".claude/fc160/plugins/frontend-craft/skills/frontend-craft"  # git archive b212787
-kanit.KOLLAR = {"160": FC160, "170": kanit.KOLLAR["yeni"], "yeni": kanit.KOLLAR["yeni"]}  # "yeni" = ölçüm betikleri (slop/audit)
+kanit.KOLLAR = {"160": FC160, "170": kanit.KOLLAR["yeni"], "171": kanit.KOLLAR["yeni"], "yeni": kanit.KOLLAR["yeni"]}  # "yeni" = ölçüm betikleri (slop/audit)
 
 
 def main(argv):
     kol = argv[argv.index("--kol") + 1]
     kok = pathlib.Path(argv[0]).resolve()
-    kanit.PORT = {"160": 3919, "170": 3920}[kol]  # iki kol olcum_sira'da paralel
-    tavan = {"160": 2.0, "170": 3.5}[kol]
+    kanit.PORT = {"160": 3919, "170": 3920, "171": 3921}[kol]  # iki kol olcum_sira'da paralel
+    tavan = {"160": 2.0, "170": 3.5, "171": 2.5}[kol]
     plan = [(b, t) for t in ((3, 4) if kol == "160" else (1, 2, 3, 4)) for b in kanit.BRIEF]
     if "--kuru" in argv:
         print(len(plan), "çağrı:", plan, "port", kanit.PORT, "sistem uzunluğu", len(kanit.sistem(kol)))
