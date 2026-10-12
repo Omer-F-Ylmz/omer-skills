@@ -72,8 +72,19 @@ def kapsam_d(f, taban, dogru):
     return round(sum(bool(a & s) for a in t) / len(t), 3) if t else None
 
 
-def rapor():
-    kos_ = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(B.glob("*-*.json"))}
+def tek(*kosular):
+    """d5 kol katkısı: kayıtlı koşuların sonnet kol formundan sanal tek kol koşusu sonnet-<n>.json (claude -p yok; duvar = sonnet kol süresi)."""
+    for n, ad in enumerate(kosular, 1):
+        s, out = json.loads((B / f"{ad}.json").read_text(encoding="utf-8")), {}
+        for v, x in s.items():
+            k = next(k for k in x["kollar"] if "sonnet" in k["model"])
+            out[v] = {"duvar": k["sure"], "usd": k["usd"], "cikti": k["cikti"], "onb_okuma": 0, "hata": None, "kunye": f"tek kol: {ad}",
+                      "form": json.loads((B / ad / "form" / f"{v}.sonnet.json").read_text(encoding="utf-8"))}
+        (B / f"sonnet-{n}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def rapor(*secili):
+    kos_ = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(B.glob("*-*.json")) if not secili or p.stem in secili}
     pk = {v: pt.paket_oku(ONB / v / "paket.md") for v in VIDEOLAR}
     durum, yer = [], []
     for ad, s in kos_.items():
@@ -112,4 +123,4 @@ def rapor():
 
 
 if __name__ == "__main__":
-    {"kos": lambda: kos(sys.argv[2], sys.argv[3]), "rapor": rapor}[sys.argv[1]]()
+    {"kos": lambda: kos(sys.argv[2], sys.argv[3]), "rapor": lambda: rapor(*sys.argv[2:]), "tek": lambda: tek(*sys.argv[2:])}[sys.argv[1]]()
