@@ -25,13 +25,12 @@ JEV_TAVAN = 400
 
 
 def kos(kol, tekrar):
-    """d5: kol = <efor>[-d0][-s|-h|-ss] — ss: VIDEO_SHORT_KOL=ss · d0: MAX_THINKING_TOKENS=0 (düşünmesiz) · s/h: tek kol sonnet/haiku. Kol başı süre "kollar"a yazılır."""
+    """d5: kol = <efor>[-d0][-s|-h|-ss|-ssb] — ss/ssb: VIDEO_SHORT_KOL (ssb: ikinci sonnet dar şema) · d0: MAX_THINKING_TOKENS=0 (düşünmesiz) · s/h: tek kol sonnet/haiku. Kol başı süre "kollar"a yazılır."""
     efor, *ek = kol.split("-")
     env = {k: v for k, v in os.environ.items() if k not in ("VIDEO_SHORT_HIZ", "VIDEO_SHORT_KOL", "ANTHROPIC_API_KEY")}
     if efor != "taban":
         env["VIDEO_SHORT_HIZ"] = efor
-    if "ss" in ek:
-        env["VIDEO_SHORT_KOL"] = "ss"
+    env["VIDEO_SHORT_KOL"] = next((x for x in ek if x in ("ss", "ssb")), "0")  # d7: short varsayılanı ss → eski kollar "0" ile sabit
     if "d0" in ek:
         env["MAX_THINKING_TOKENS"] = "0"
     modeller = [m for m in MODELLER if not ({"s", "h"} & set(ek)) or m.split("-")[1][0] in ek]

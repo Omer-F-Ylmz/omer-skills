@@ -769,7 +769,8 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         bs = bolum_sinir(pk[v]) if up in ("1", "2") and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
         sh = (env or os.environ).get("VIDEO_SHORT_HIZ", "low") if pk[v].get("short") else None  # VİDEO-16: short'ta ortak önek (A) + --effort <sh>; d5 KABUL: varsayılan low, "0" kapatır
         sh = None if sh == "0" else sh
-        mv = modeller[:1] * 2 if pk[v].get("short") and (env or os.environ).get("VIDEO_SHORT_KOL") == "ss" else modeller  # d5: haiku kolu ~20k düşünme jetonu (efor yok sayılıyor) → ikinci sonnet
+        kv = (env or os.environ).get("VIDEO_SHORT_KOL", "ss") if pk[v].get("short") else "0"  # d7: short varsayılanı ss · "0" sonnet+haiku
+        mv = modeller[:1] * 2 if kv in ("ss", "ssb") else modeller  # d5: haiku kolu ~20k düşünme jetonu (efor yok sayılıyor) → ikinci sonnet
         jtv = jt + "A" if len(bs) > 1 or sh else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
         if len(bs) > 1 and up == "2":  # PARALEL-2: bölüm formu urller/kurulum_komutlar'ı boş geçmesin (Z); birincil model yalnız 1. bölümde (4 çağrı)
             jtv += "Z"
@@ -793,12 +794,12 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         with YAZ:
             butce = min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys))
 
-        def kol(mdl, kr, istem, v=v, butce=butce, jtv=jtv, sh=sh):
+        def kol(mdl, kr, istem, dar, v=v, butce=butce, jtv=jtv, sh=sh):
             with CAGIR, asama(v, "model"):
-                return cagir(SISTEM, istem, jeton_sema(v, jtv, mdl), kareler=kr, model=mdl, butce=butce, env=env, **({"efor": sh} if sh else {}))
+                return cagir(SISTEM, istem, jeton_sema(v, jtv + "S" * dar, mdl), kareler=kr, model=mdl, butce=butce, env=env, **({"efor": sh} if sh else {}))
         with ThreadPoolExecutor(len(mv) * len(parca)) as ex:
             mb = [mv if j == 0 or "Z" not in jtv else mv[1:] for j in range(len(parca))]
-            yys = [[ex.submit(kol, mdl, kr, istem) for mdl in ml] for ml, (kr, istem) in zip(mb, parca)]
+            yys = [[ex.submit(kol, mdl, kr, istem, i > 0 and kv == "ssb") for i, mdl in enumerate(ml)] for ml, (kr, istem) in zip(mb, parca)]
             yys = [[f.result() for f in fl] for fl in yys]
         bf, kun = [], []
         for j, yy in enumerate(yys):
@@ -806,7 +807,7 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
             for i, (mdl, y) in enumerate(zip(mb[j], yy)):
                 ys.append(y)
                 f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
-                if f is not None and "B" in jt:  # dar şemalı kol tek kalırsa rapor alanları boş liste
+                if f is not None and ("B" in jt or i > 0 and kv == "ssb"):  # dar şemalı kol tek kalırsa rapor alanları boş liste
                     f = {**dict.fromkeys(B_DISI, []), **f}
                 if y.get("hata") or f is None:
                     kun.append(f"tek kol{ek}: {mdl} {y.get('hata') or 'form yok'}"[:200])
@@ -843,6 +844,10 @@ def jeton_sema(v, jt, mdl):
         for k in B_DISI:
             vid["properties"].pop(k)
             vid["required"].remove(k)
+    if "S" in jt:  # VİDEO-16 d7 ssb: ikinci sonnet kolu B_DISI (birlestir b'den almaz) + iz (birincil kolunki kalır) yazmaz → çıktı jetonu
+        for k in (*B_DISI, "iz"):
+            vid["properties"].pop(k, None)
+            vid["required"] = [r for r in vid["required"] if r != k]
     return s
 
 

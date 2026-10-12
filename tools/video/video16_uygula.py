@@ -1,5 +1,5 @@
 """VİDEO-16 d5 onay betiği: kol/video-shorts → main birleştirme. Canlı `video` aracı main/tools/video'dan editable kurulu (uv tool),
-birleştirince short varsayılanı VIDEO_SHORT_HIZ=low canlıya geçer (VIDEO_SHORT_HIZ=0 eski yol).
+birleştirince short varsayılanı VIDEO_SHORT_HIZ=low + VIDEO_SHORT_KOL=ss (d7: 2×sonnet) canlıya geçer (VIDEO_SHORT_HIZ=0 / VIDEO_SHORT_KOL=0 eski yol).
 Kullanım: python video16_uygula.py [--kuru | uygula | --geri]   (varsayılan --kuru: yalnız rapor, hiçbir şey değişmez)
 uygula: main'deki commitsiz dosyalarla örtüşme ya da birleştirme çakışması varsa reddeder; önceki main ucu + birleştirme .kos/v16/onay-once.txt.
 --geri: birleştirme commit'i `git revert -m 1` ile geri alınır (commitsiz dosyalara dokunulmaz).
@@ -44,7 +44,7 @@ def main(arg="--kuru", repo=ANA, kol=KOL):
     if ortusen or cakisma or dal != "main":
         sys.exit("uygula reddedildi (örtüşme/çakışma/dal)")
     once = git(repo, "rev-parse", "HEAD").stdout.strip()
-    git(repo, "merge", "--no-ff", "--no-edit", "-m", f"VİDEO-16: {kol} → main (short varsayılanı VIDEO_SHORT_HIZ=low)", kol)
+    git(repo, "merge", "--no-ff", "--no-edit", "-m", f"VİDEO-16: {kol} → main (short varsayılanı VIDEO_SHORT_HIZ=low + VIDEO_SHORT_KOL=ss)", kol)
     birles = git(repo, "rev-parse", "HEAD").stdout.strip()
     kayit.parent.mkdir(parents=True, exist_ok=True)
     kayit.write_text(f"{once} {birles}\n", encoding="utf-8")

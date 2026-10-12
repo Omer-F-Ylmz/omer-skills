@@ -38,6 +38,19 @@ def test_short_kol_ss(monkeypatch, tmp_path):  # d5: VIDEO_SHORT_KOL=ss → shor
     assert [m for *_, m in cag] == ["claude-sonnet-5-5", "claude-haiku-5-5"]
 
 
+def test_short_kol_varsayilan_ss(monkeypatch, tmp_path):  # d7: bayraksız short → ss; VIDEO_SHORT_KOL=0 → sonnet+haiku
+    assert [m for *_, m in _kos(monkeypatch, tmp_path, True, {"VIDEO_JETON": "0"})] == ["claude-sonnet-5-5"] * 2
+    assert [m for *_, m in _kos(monkeypatch, tmp_path, True, {"VIDEO_JETON": "0", "VIDEO_SHORT_KOL": "0"})] == ["claude-sonnet-5-5", "claude-haiku-5-5"]
+
+
+def test_short_kol_ssb_dar_ikinci(monkeypatch, tmp_path):  # d7: ssb → ikinci sonnet B_DISI + iz yazmaz (birlestir b'den almaz → çıktı jetonu)
+    sm = []
+    monkeypatch.setattr(parti, "jeton_sema", lambda v, jt, mdl, f=parti.jeton_sema: sm.append(f(v, jt, mdl)) or sm[-1])
+    _kos(monkeypatch, tmp_path, True, {"VIDEO_JETON": "0", "VIDEO_SHORT_KOL": "ssb"})
+    p = [set(s["properties"]["videolar"]["items"]["properties"]) for s in sm]
+    assert len(p) == 2 and {"iz", *parti.B_DISI} <= p[0] and not ({"iz", *parti.B_DISI} & p[1])
+
+
 def test_short_hiz_kapali_ve_uzun(monkeypatch, tmp_path):  # VIDEO_SHORT_HIZ=0 → eski yol; uzun video hiç değişmez
     for short, env in ((True, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "0"}), (False, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "low"}), (False, {"VIDEO_JETON": "0"})):
         cag = _kos(monkeypatch, tmp_path, short, env)
