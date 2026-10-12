@@ -18,14 +18,15 @@ sys.path[:0] = [str(KOK / "onay"), str(KOK / "tools" / "ogrenme")]
 from kalite_3_uygula import EV, mcp_var_mi  # noqa: E402
 import onsoz  # noqa: E402
 
-TSV = [KOK / "docs" / "kutuphane" / "olcum" / f"ruflo-1-ab-v3-{a}.tsv" for a in ("kod", "rapor", "video")]
+# v4 (varsa) aynı (aile, sıra, kol) satırını v3'ün üstüne yazar: d7 tur talimatlı dersli kol, taban v3 derssiz
+TSV = [KOK / "docs" / "kutuphane" / "olcum" / f"ruflo-1-ab-{v}-{a}.tsv" for v in ("v3", "v4") for a in ("kod", "rapor", "video")]
 
 
 def kabul(tsv=TSV):
     """→ (geçti mi, açıklama). Yalnız iki kolu da koşmuş (aile, sıra) çiftleri; ≥12 çift. d7: v3 eşli TSV'ler (aynı sistem istemi);
     şart dersli ort. puan ≥ derssiz VE dersli toplam jeton (input+cache_creation+cache_read+output) < derssiz (Ömer: tabanın altına)."""
     try:
-        satir = [s.split("\t") for t in ([tsv] if isinstance(tsv, Path) else tsv)
+        satir = [s.split("\t") for t in ([tsv] if isinstance(tsv, Path) else [t for t in tsv if t.exists()])
                  for s in t.read_text(encoding="utf-8").splitlines()[1:] if s.strip()]
     except OSError:
         return False, "ölçüm yok"
