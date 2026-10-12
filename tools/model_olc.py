@@ -4,10 +4,13 @@ Ana oturum haiku (alt ajan jetonu ayrı model anahtarında kalsın diye), ajan `
   python tools/model_olc.py dogrula        # ezme yok ↔ "" : frontmatter opus'lu ajan gerçekte hangi modelde koştu
   python tools/model_olc.py karsilastir    # her aileden ilk ajan × sonnet/opus → docs/kutuphane/olcum/kalite3-model.tsv
   python tools/model_olc.py pilot [N]      # departman sırasıyla (her turda her departmandan bir ajan): ajan kolu ↔ ana oturum kolu,
-                                          # en fazla N çağrı → kalite3-ajan-pilot.tsv; yazılmış çiftler atlanır"""
+                                          # en fazla N çağrı → kalite3-ajan-pilot.tsv; yazılmış çiftler atlanır
+  python tools/model_olc.py pilot N ES     # ES çift aynı anda (RAM < %95 beklenir)"""
 import json
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -19,6 +22,7 @@ TSV = KOK / "docs/kutuphane/olcum/kalite3-model.tsv"
 PILOT = KOK / "docs/kutuphane/olcum/kalite3-ajan-pilot.tsv"
 YANIT = KOK / ".kalite3/ajan-yanit"
 ANA = "haiku"
+RAM_TAVAN = 95  # devam-12 EK (a): parti içi eşzamanlılıkta RAM ≤ %95
 
 
 def tanim(yol, model):
@@ -73,8 +77,17 @@ def ana(gorev, model):
     return dene(gorev, [], model=model, butce=1.5)
 
 
-def pilot(en_fazla=48):
-    """Ajan modeli frontmatter'daki; canlı env ezmesin diye açık ezme verilir (dogrula 18:20: "" geri getirmiyor)."""
+def ram():
+    """Ortak sıranın RAM ölçümü (yüzde); devam-13: parti içi her çift başlatmadan önce."""
+    sys.path.insert(0, r"C:\Projeler\omer-skills\.kos\kopru")
+    from olcum_sira import ram as r
+    return r()
+
+
+def pilot(en_fazla=48, es=1, atla=()):
+    """Ajan modeli frontmatter'daki; canlı env ezmesin diye açık ezme verilir (dogrula 18:20: "" geri getirmiyor).
+    es: aynı anda koşan çift sayısı (her başlatmadan önce RAM < RAM_TAVAN beklenir); atla: başka partide koşan ajanlar.
+    Dönüş: bu çağrıda koşulan ajanlar."""
     sys.stdout.reconfigure(encoding="utf-8")
     gorevler = {g["ajan"]: g for g in json.loads((AJAN / "gorevler.json").read_text(encoding="utf-8"))}
     baslik = "aile\tajan\tkol\tpuan\tusd\tjeton\tana_jeton\talt_model\tsure\talt_usd\n"
@@ -84,14 +97,19 @@ def pilot(en_fazla=48):
         PILOT.write_text(baslik + PILOT.read_text(encoding="utf-8").split("\n", 1)[1], encoding="utf-8", newline="\n")
     bitti = {tuple(s.split("\t")[1:3]) for s in PILOT.read_text(encoding="utf-8").splitlines()[1:]}
     YANIT.mkdir(parents=True, exist_ok=True)
-    cagri = 0
     aileler = {a: [y.stem for y in sorted(a.glob("*.md")) if y.stem in gorevler] for a in sorted(p for p in AJAN.iterdir() if p.is_dir())}
     sira = [(a, ads[i]) for i in range(max(map(len, aileler.values()), default=0)) for a, ads in aileler.items() if i < len(ads)]
+    secilen, cagri = [], 0
     for aile, ad in sira:
-        if {(ad, "ajan"), (ad, "ana")} <= bitti:
+        if {(ad, "ajan"), (ad, "ana")} <= bitti or ad in atla:
             continue
         if cagri + 2 > en_fazla:
-            return
+            break
+        secilen.append((aile, ad))
+        cagri += 2
+    kilit = threading.Lock()
+
+    def cift(aile, ad):
         g = gorevler[ad]
         _, t = tanim(aile / f"{ad}.md", g["model"])
         ana_m = ana_model(g["model"])
@@ -99,14 +117,25 @@ def pilot(en_fazla=48):
             if (ad, kol) in bitti:
                 continue
             o = kos(ad, t, g["model"], g["istem"]) if kol == "ajan" else ana(g["istem"], g["model"])
-            cagri += 1
             mu = o.get("model") or {}
             am, aj = alt(mu, ana_m) if kol == "ajan" else (",".join(sorted(mu)) or "-", 0)
             au = alt_usd(mu, ana_m) if kol == "ajan" else ""
             (YANIT / f"{ad}-{kol}.md").write_text(o["metin"], encoding="utf-8", newline="\n")
-            with PILOT.open("a", encoding="utf-8", newline="\n") as f:
+            with kilit, PILOT.open("a", encoding="utf-8", newline="\n") as f:
                 f.write("\t".join(map(str, [aile.name, ad, kol, puan(o, g["rubrik"]), round(o["usd"], 4),
                                             jeton(mu), jeton(mu) - aj, am, o["sure"], au])) + "\n")
+
+    with ThreadPoolExecutor(es) as havuz:
+        isler = []
+        for aile, ad in secilen:
+            while es > 1 and ram() >= RAM_TAVAN:
+                time.sleep(30)
+            isler.append(havuz.submit(cift, aile, ad))
+            while es > 1 and sum(not i.done() for i in isler) >= es:  # yuva boşalınca RAM yeniden ölçülür
+                time.sleep(1)
+        for i in isler:
+            i.result()
+    return [ad for _, ad in secilen]
 
 
 def satir(*a):
@@ -148,6 +177,6 @@ def main(kip):
 
 if __name__ == "__main__":
     if sys.argv[1] == "pilot":
-        pilot(*map(int, sys.argv[2:3]))
+        pilot(*map(int, sys.argv[2:4]))
     else:
         main(sys.argv[1])
