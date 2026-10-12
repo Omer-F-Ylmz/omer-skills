@@ -46,7 +46,7 @@ def kos(kol, brief, tekrar, kok):
                            encoding="utf-8", errors="replace", timeout=1500, creationflags=0x08000000)
         j = json.loads(r.stdout or "{}")
         url, yeni = f"http://localhost:{PORT}/", KOLLAR["yeni"] / "scripts"
-        s = subprocess.run(["node", str(yeni / "slop.mjs"), url, "--json", str(dizin / "slop.json")], capture_output=True, text=True,
+        s = subprocess.run(["node", str(yeni / "slop.mjs"), url, "--json", str(dizin / "slop.json")], cwd=dizin, capture_output=True, text=True,
                            encoding="utf-8", errors="replace", timeout=180, creationflags=0x08000000)
         a = subprocess.run(["node", str(yeni / "audit.mjs"), url, "dev"], capture_output=True, text=True, encoding="utf-8",
                            errors="replace", timeout=180, cwd=KOLLAR["yeni"], creationflags=0x08000000)

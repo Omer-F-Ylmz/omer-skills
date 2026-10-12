@@ -169,6 +169,7 @@ if (process.argv[1]?.endsWith('slop.mjs')) {
   const d = await page.evaluate(MEASURE);
   await browser.close();
   const p = puan(d);
+  (await import('./yakinsama.mjs')).gecmisYaz(d); // yakınsama hafızası: sonraki projede `yakinsama.mjs --gecmis`
   const j = process.argv.indexOf('--json');
   if (j > 0) fs.writeFileSync(process.argv[j + 1], JSON.stringify({ d, ...p }, null, 1));
   console.log(p.slop ? 'SLOP' : 'TEMİZ', `${p.bayrak.length} bayrak`);

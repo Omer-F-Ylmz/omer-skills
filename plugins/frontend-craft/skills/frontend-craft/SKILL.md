@@ -6,7 +6,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 
 ## ÇEKİRDEK (özet; compaction sonrası da bu blok geçerli, ayrıntı ilgili bölümde)
 - Adım 0 · Bağımlılık: `${CLAUDE_SKILL_DIR}/node_modules` yoksa önce `npm ci --ignore-scripts` + `node node_modules/puppeteer/lib/puppeteer/node/cli.js browsers install chrome`; hiçbir script bundan önce koşmaz.
-- Mod tespiti (tek satır rapor): `reference/` varsa REF — birebir eşleme, referans kazanır, Bölüm 3 uygulanmaz, hex'ler `olc-renk.mjs` ile ölçülür. Yoksa FREE — koddan önce marka kimliği kararı `ana #hex · nötr #hex · vurgu #hex · display font · sans font · ölçek 8px` (ana renk mor/indigo/menekşe olamaz), Bölüm 3 zorunlu. `*.csproj` + `Views/`|`Pages/` → aspnet, değilse static.
+- Mod tespiti (tek satır rapor): `reference/` varsa REF — birebir eşleme, referans kazanır, Bölüm 3 uygulanmaz, hex'ler `olc-renk.mjs` ile ölçülür. Yoksa FREE — koddan önce marka kimliği kararı `ana #hex · nötr #hex · vurgu #hex · display font · sans font · ölçek 8px` (ana renk mor/indigo/menekşe olamaz), Bölüm 3 zorunlu; karardan önce yakınsama kırıcı (Bölüm 3a). `*.csproj` + `Views/`|`Pages/` → aspnet, değilse static.
 - SIRA (yeni proje / yeni ana ekran): yön keşfi (Bölüm 11: üç yön, künye + 1440 PNG, DUR, kullanıcı seçer) → DESIGN.md (Bölüm 7: göster, DUR) → iki-pass (Bölüm 8: token planı → yasak listesine karşı eleştiri → inşa) → kod → screenshot döngüsü (Bölüm 2/9). Mevcut DESIGN.md varsa ya da REF modundaysa yön keşfi atlanır.
 - Sunucu şart, `file:///` yasak: static `node ${CLAUDE_SKILL_DIR}/scripts/serve.mjs` (:3000) · aspnet `dotnet run --project <web csproj>`.
 - Screenshot döngüsü: `node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs <url> [etiket]` → 390/768/1440 PNG, her biri Read ile açılır. Tur = screenshot → sapma tablosu → düzelt; min 2, max 4 tur; 4. tur sonunda sapma kalırsa DUR raporu.
@@ -16,7 +16,7 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
   1. Stil adı
   2. Token'lar — 3-6 adet `ad: değer`
   3. Renk — 4-6 isimli hex, jenerik ad yok
-  4. Tipografi — 2 isimli font + ölçek; Inter, Roboto, Arial, Space Grotesk, Poppins yok
+  4. Tipografi — 2 isimli font + ölçek; Inter, Roboto, Arial, Space Grotesk, Poppins yok; font ve zemin hangi brief sözcüğünden geldi (tek satır, Bölüm 3a)
   5. Hareket — süre + easing, en fazla 3 kural (tetikleyici + kütüphane/sürüm/gerekçe)
   6. YASAK LİSTESİ
 - Yasak liste özeti (varsayılan; projeninki DESIGN.md'de, seçilen stille çelişen madde çıkar): mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · birebir "h1+p+2 buton" hero · stok illüstrasyon/3D render hissi · özellik/fayda bölümünde eşit kart tekrarı (ürün ızgarası hariç) · her bölümde aynı boşluk · aşırı glow · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
@@ -72,6 +72,13 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Grid: kırık simetri — ≥1 bölüm asimetrik kolon/tam genişlik dışı; her şey ortalı ve eşit genişlik olmaz.
 - Yasak (jenerik şablon izi bırakan kalıplar): mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · "h1+p+2 buton" hero kalıbı birebir · stok illüstrasyon/3D render hissi · eşit boyutlu kart tekrarı (özellik/fayda bölümlerinde; ürün ızgarası hariç — orada eşit kart zorunlu, kırık simetri sayfa/başlık düzeyinde aranır) · her bölümde aynı boşluk.
 - Bu liste varsayılandır; projenin yasak listesi DESIGN.md'de yazılır ve seçilen stille çelişen maddeler oradan çıkarılır (ör. Glassmorphism seçilen projede blur maddesi geçersiz).
+
+## 3a. Yakınsama kırıcı (FREE, marka kararından önce)
+Yeni AI imzası tek sayfada değil koşular arasında görünür: aynı brief'e her seferinde aynı font, aynı krem zemin, aynı düzen (ölçüm: 4 koşunun 4'ünde Georgia ya da Iowan Old Style + açık-sıcak zemin). Karar şu sırayla verilir:
+1. `node ${CLAUDE_SKILL_DIR}/scripts/yakinsama.mjs --gecmis` → son 5 projenin font aileleri, zemin sınıfı, düzeni. Oradaki font aileleri ve zemin sınıfı bu projede kullanılmaz; düzen en az bir eksende (hero hizası / kart satırı) farklıdır. Geçmiş yoksa (claude.ai, ilk proje) yalnız 2. ve 3. madde geçerlidir.
+2. Refleks seçim yasak: Georgia, Iowan Old Style, Palatino, Fraunces, system-ui başlık; krem/bej zemin (#f0e8dc dolayı). Bunlar "zanaat / editoryal / premium" brief'ine verilen ilk cevaptır, brief'ten değil alışkanlıktan gelir.
+3. Brief'ten türet: brief'teki somut bir nesne ya da malzeme (ör. öğütücünün dökme demiri, mimarın betonu) yazılır; font sınıfı (grotesk / slab / mono / geniş display / dar condensed / hümanist) ve zemin ondan seçilir. DESIGN.md Tipografi başlığında tek satır: `font ← <sözcük> · zemin ← <sözcük>`.
+Kabul kapısında koşan slop.mjs imzayı geçmişe kendisi yazar (proje klasörü başına bir satır); ayrıca yazma adımı yok.
 
 ## 4. Her iki modda kabul kriterleri
 - `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` → PASS; FREE modunda SLOP satırı boş.
