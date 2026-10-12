@@ -239,3 +239,12 @@ def test_karsilastir_regex_doymussa_jev_ayirir(tmp_path, monkeypatch):
     karsilastir.main(["2026-10-11", "a", "b"])
     md = (tmp_path / "2026-10-11-karsilastirma.md").read_text(encoding="utf-8")
     assert "jev ayırır: b" in md and "| G01 | 10/1/6.0 | 10/1/9.0 |" in md
+
+
+def test_supur_zaman_asimi_kosuyu_dusurmez(monkeypatch):
+    # 19:04 cihaz donması: Get-CimInstance 60 sn aştı → TimeoutExpired A/B koşusunu düşürdü
+    def asim(*a, **k):
+        raise subprocess.TimeoutExpired(a[0], 60)
+    monkeypatch.setattr(kosucu.os, "name", "nt")
+    monkeypatch.setattr(kosucu.subprocess, "run", asim)
+    kosucu.supur("olcum-x")

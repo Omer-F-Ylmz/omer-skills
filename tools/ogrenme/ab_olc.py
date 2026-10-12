@@ -175,19 +175,23 @@ def kuru():
     print("kuru: 15 görev · yargıç başlangıç < 1, örnek çözüm = 1")
 
 
-def main():
+def main(devam=None):
+    """devam = (banka, çağrı, usd): yarım koşuyu aynı bankayla sürdürür; TSV'deki (aile, sıra, kol) atlanır, tavanlar toplamda."""
     import kosucu
-    banka = KOK / ".kos" / "ogrenme-ab" / time.strftime("%Y%m%d-%H%M%S")
-    banka.mkdir(parents=True)
+    banka = Path(devam[0]) if devam else KOK / ".kos" / "ogrenme-ab" / time.strftime("%Y%m%d-%H%M%S")
+    banka.mkdir(parents=True, exist_ok=bool(devam))
     os.environ["OGRENME_DIZIN"] = str(banka)
     yeni = not TSV.exists()
-    cagri, usd = 0, 0.0
+    cagri, usd = (int(devam[1]), float(devam[2])) if devam else (0, 0.0)
+    bitti = set() if yeni else {tuple(x.split("	")[1:4]) for x in TSV.read_text(encoding="utf-8").splitlines()[1:]}
     with open(TSV, "a", encoding="utf-8", newline="\n") as out:
         if yeni:
             out.write("zaman\taile\tsira\tkol\tpuan\tgizli\ttur\tinput\tcache_creation\tcache_read\toutput\tusd\tsure_sn\tders_ids\trc\tnotlar\n")
         for aile in ("kod", "rapor", "video"):
             for i in range(5):
                 for kol in ("derssiz", "dersli"):
+                    if (aile, str(i + 1), kol) in bitti:
+                        continue
                     if cagri + (2 if kol == "dersli" else 1) > CAGRI_TAVAN or usd >= USD_TAVAN:
                         print(time.strftime("%H:%M:%S"), f"TAVAN: {cagri} çağrı ${usd:.2f} — durdu", flush=True)
                         return
@@ -218,4 +222,4 @@ def main():
 
 
 if __name__ == "__main__":
-    kuru() if "--kuru" in sys.argv else main()
+    kuru() if "--kuru" in sys.argv else main(sys.argv[sys.argv.index("--devam") + 1:][:3] if "--devam" in sys.argv else None)

@@ -164,7 +164,10 @@ def supur(ad):
         return
     ps = ("Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -and $_.CommandLine.Contains('%s') } "
           "| ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }" % ad.replace("'", ""))
-    subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, creationflags=PENCERESIZ, timeout=60)
+    try:  # emniyet süpürmesi: cihaz donmasında zaman aşımı koşuyu düşürmez
+        subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, creationflags=PENCERESIZ, timeout=60)
+    except subprocess.TimeoutExpired:
+        pass
 
 
 def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
