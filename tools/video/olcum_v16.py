@@ -54,6 +54,13 @@ def kapsam(f, taban):
     return 1.0 if not n else round(1 - len(ig.ozgu(f, taban)) / n, 3)
 
 
+def kapsam_d(f, taban, dogru):
+    """taban'ın Jev'in kaynakta dayanağını bulduğu kalemlerinden f'de anahtar karşılığı olanların oranı (doğru bilgi kaybı)."""
+    s = set().union(*(a for _, _, a in ig.kalemler(f)))
+    t = [a for i, (_, _, a) in enumerate(ig.kalemler(taban)) if i in dogru]
+    return round(sum(bool(a & s) for a in t) / len(t), 3) if t else None
+
+
 def rapor():
     kos_ = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(B.glob("*-*.json"))}
     pk = {v: pt.paket_oku(ONB / v / "paket.md") for v in VIDEOLAR}
@@ -63,25 +70,31 @@ def rapor():
             for i, (b, k, _) in enumerate(ig.kalemler(s[v]["form"] or {})):
                 if b != "kareden_okunanlar" and k.get("kaynak") != "kare":
                     durum.append(f"kalem:\n[{b}] {ig._duz(k)[:400]}\n\nkaynak:\n{ig.kesit(k, pk[v]['metin'])}")
-                    yer.append((ad, v))
+                    yer.append((ad, v, i))
     assert len(durum) <= JEV_TAVAN, f"Jev tavanı: {len(durum)} > {JEV_TAVAN}"
     r = pt._jev(os.environ)(durum, ig.Q)
-    jev = {}
-    for (ad, v), x in zip(yer, r):
+    jev, dogru = {}, {}
+    for (ad, v, i), x in zip(yer, r):
         s = ((x or {}).get("dayanir") or {}).get("noul")
         if s is not None:
             jev.setdefault((ad, v), []).append(s >= .5)
+            if s >= .5:
+                dogru.setdefault((ad, v), set()).add(i)
     ozet = {}
     for ad, s in kos_.items():
         kol = ad.rsplit("-", 1)[0]
         for v in VIDEOLAR:
-            taban = [kos_[t][v]["form"] or {} for t in kos_ if t.startswith("taban-") and t != ad]
+            tl = [t for t in kos_ if t.startswith("taban-") and t != ad]
+            taban = [kos_[t][v]["form"] or {} for t in tl]
+            kd = [kapsam_d(s[v]["form"] or {}, kos_[t][v]["form"] or {}, dogru.get((t, v), set())) for t in tl]
+            kd = [x for x in kd if x is not None]
             j = jev.get((ad, v), [])
             ozet.setdefault(kol, []).append({"kos": ad, "v": v, **{k: s[v][k] for k in ("duvar", "usd", "cikti", "onb_okuma", "hata")},
                                              "kalem": len(ig.kalemler(s[v]["form"] or {})), "dayanir": round(sum(j) / len(j), 3) if j else None,
-                                             "kapsam": round(sum(kapsam(s[v]["form"] or {}, t) for t in taban) / len(taban), 3) if taban else None})
+                                             "kapsam": round(sum(kapsam(s[v]["form"] or {}, t) for t in taban) / len(taban), 3) if taban else None,
+                                             "kapsam_d": round(sum(kd) / len(kd), 3) if kd else None})
     ort = lambda xs: round(sum(xs) / len(xs), 3) if xs else None
-    tablo = {kol: {k: ort([x[k] for x in xs if x[k] is not None]) for k in ("duvar", "usd", "cikti", "onb_okuma", "kalem", "dayanir", "kapsam")}
+    tablo = {kol: {k: ort([x[k] for x in xs if x[k] is not None]) for k in ("duvar", "usd", "cikti", "onb_okuma", "kalem", "dayanir", "kapsam", "kapsam_d")}
              for kol, xs in ozet.items()}
     (B / "rapor.json").write_text(json.dumps({"tablo": tablo, "satir": ozet, "jev_durum": len(durum)}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(tablo, ensure_ascii=False, indent=1), "\njev durum:", len(durum))
