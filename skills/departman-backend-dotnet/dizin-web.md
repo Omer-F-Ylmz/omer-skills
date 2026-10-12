@@ -1,5 +1,24 @@
-# departman-backend-dotnet — skill dizini (9 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-backend-dotnet — skill dizini (28 skill; Grep ile ara, adı Skill aracıyla çağır)
 
+- ajan:dn-async-denetci — async code hangs or deadlocks.
+- ajan:dn-blazor-bilesen — creating interactive Blazor UI.
+- ajan:dn-csproj-sadelestir — project files are bloated or duplicated.
+- ajan:dn-di-ve-config — services or settings need structuring.
+- ajan:dn-dotnet-performans — CPU or memory grows in production.
+- ajan:dn-efcore-migration — schema changes ship.
+- ajan:dn-efcore-modelleme — adding or reshaping the data model.
+- ajan:dn-efcore-seed-veri — dev databases need initial rows.
+- ajan:dn-gozlemlenebilirlik — production behavior is invisible.
+- ajan:dn-identity-auth — adding login, roles or token auth.
+- ajan:dn-minimal-api-kurucu — a small service needs routes quickly.
+- ajan:dn-msbuild-hiz — solution build time grows.
+- ajan:dn-nuget-yonetici — dependencies drift or need upgrading.
+- ajan:dn-nullable-gecis — migrating a project to nullable.
+- ajan:dn-openapi-dokuman — API docs are thin.
+- ajan:dn-razor-sayfa — writing server rendered UI in ASP.NET Core.
+- ajan:dn-signalr-gercek-zamanli — live push is needed.
+- ajan:dn-xunit-test-yazar — C# code needs unit tests.
+- ajan:otm-api-entegrasyon — automating data between services.
 - api-security-testing — Security-test a REST, GraphQL, or gRPC API with Strix — autonomous agents that…
 - azure-altyapi-paket — 35 skill'lik paket (Azure altyapı: AKS/Kubernetes, işlem, depolama, kota, güven…
 - azure-uygulama-ai-paket — 18 skill'lik paket (Azure uygulama ve AI: Foundry, model dağıtımı, fine-tuning,…

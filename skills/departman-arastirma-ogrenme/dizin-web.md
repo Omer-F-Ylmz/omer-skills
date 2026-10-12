@@ -1,5 +1,25 @@
-# departman-arastirma-ogrenme — skill dizini (12 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-arastirma-ogrenme — skill dizini (32 skill; Grep ile ara, adı Skill aracıyla çağır)
 
+- ajan:ara-arac-degerlendirme — considering a new dependency or service.
+- ajan:ara-dokuman-indeksle — knowledge is scattered.
+- ajan:ara-kutuphane-dokuman — asked about library syntax or migration.
+- ajan:ara-lisans-kontrol — Reads repo licenses and states what use is allowed
+- ajan:ara-ogrenme-plani — learning a new tool or topic.
+- ajan:ara-repo-karsilastirma — choosing between libraries.
+- ajan:ara-web-kazima — data must be collected from pages.
+- ajan:ara-yeni-arac-kurulum-arastirma — installing something new on Windows.
+- ajan:ara-youtube-ozet — a link must be understood without watching.
+- ajan:bl-geometri-dugumleri — manual modeling would be repetitive.
+- ajan:bl-kamera-kompozisyon — a render framing feels off.
+- ajan:bl-uv-acma — textures stretch or bake wrong.
+- ajan:oyn-mod-onarim — a mod stops working after a game update.
+- ajan:oyn-oyun-ses-geri-bildirim — actions feel weak.
+- ajan:vid-kare-cikarici — stills are needed.
+- ajan:vid-kisa-klip-secici — cutting highlights.
+- ajan:vid-remotion-kurucu — video is generated from code.
+- ajan:vid-ses-duzeni — audio feels uneven in a video.
+- ajan:vid-sosyal-video-bicim — posting to several platforms.
+- ajan:vid-video-senaryo — planning a short promo or explainer.
 - davila7-ai-research-paket-1 — 66 skill'lik paket (Claude Code şablonları (davila7/claude-code-templates, MIT)…
 - davila7-ai-research-paket-2 — 65 skill'lik paket (Claude Code şablonları (davila7/claude-code-templates, MIT)…
 - davila7-video-paket — 4 skill'lik paket (Claude Code şablonları (davila7/claude-code-templates, MIT):…

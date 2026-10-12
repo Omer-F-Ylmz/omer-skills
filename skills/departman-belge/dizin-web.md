@@ -1,5 +1,20 @@
-# departman-belge — skill dizini (15 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-belge — skill dizini (30 skill; Grep ile ara, adı Skill aracıyla çağır)
 
+- ajan:dok-adr-yazar — a technical choice must be recorded.
+- ajan:dok-api-dokumani — an API needs reference docs.
+- ajan:dok-cevirmen-teknik — docs must be bilingual.
+- ajan:dok-degisiklik-gunlugu — releasing a version.
+- ajan:dok-docx-uretici — a docx deliverable is requested.
+- ajan:dok-pdf-uretici — a PDF deliverable is requested.
+- ajan:dok-pptx-sunum — a presentation is requested.
+- ajan:dok-rapor-ozetleyici — a document is too long to read.
+- ajan:dok-sorun-giderme-rehberi — support questions repeat.
+- ajan:dok-tablo-duzenle — numbers must be presented clearly.
+- ajan:dok-teknik-teklif — a client facing document is needed.
+- ajan:dok-toplanti-notu — notes need cleaning up.
+- ajan:otm-bildirim-yonlendirme — notifications are noisy.
+- ajan:otm-dosya-isleme-botu — many files need the same operation.
+- ajan:oyn-oyun-motoru-script — implementing a mechanic.
 - beautiful-article — 把网页/PDF/DOCX/Markdown/文本素材做成可分享的单文件HTML网页文章（reacticle），触发：做成网页文章/长文
 - davila7-business-marketing-paket — 49 skill'lik paket (Claude Code şablonları (davila7/claude-code-templates, MIT)…
 - davila7-marketing-paket — 1 skill'lik paket (Claude Code şablonları (davila7/claude-code-templates, MIT):…

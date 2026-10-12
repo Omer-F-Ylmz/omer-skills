@@ -1,6 +1,42 @@
-# departman-frontend — skill dizini (58 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-frontend — skill dizini (93 skill; Grep ile ara, adı Skill aracıyla çağır)
 
 - ai-etkilesim-tasarim-paket — 24 skill'lik paket (AI ürün etkileşimi: konuşma kalıpları, ses tonu/persona, aj…
+- ajan:bl-animasyon-anahtar — an object or camera must move.
+- ajan:bl-dokuya-pisirme — detail must move into textures.
+- ajan:bl-glb-disa-aktar — a model goes to three.js or the web.
+- ajan:bl-gorsel-ani-kontrol — a model looks broken.
+- ajan:bl-isik-kurulumu — a scene looks flat or harsh.
+- ajan:bl-malzeme-kurucu — a Blender object needs a realistic material.
+- ajan:bl-mod-modeli-blender — preparing assets for game mods.
+- ajan:bl-sahne-temizlik — a scene is messy before export.
+- ajan:bl-urun-turntable — a rotating product preview is requested.
+- ajan:fe-animasyon-tasarimci — adding hover, entrance or scroll animations.
+- ajan:fe-bilesen-yazar — asked for a button, card, modal or menu component.
+- ajan:fe-bos-durum-yazar — screens show blank or raw errors.
+- ajan:fe-css-hata-bulucu — a layout looks wrong and the cause is unclear.
+- ajan:fe-cursor-efekt — asked for interactive cursor polish.
+- ajan:fe-dashboard-duzeni — designing admin panels or analytics screens.
+- ajan:fe-gorsel-optimize — images slow the page.
+- ajan:fe-ikon-sistemi — icons look mixed or inconsistent.
+- ajan:fe-karanlik-mod — a site needs a dark theme.
+- ajan:fe-meta-seo-duzeltici — pages lack proper metadata.
+- ajan:fe-navigasyon-tasarimci — structuring site or app navigation.
+- ajan:fe-react-bilesen-inceleme — a React UI is slow.
+- ajan:fe-responsive-kontrol — a page must work on all screen sizes.
+- ajan:fe-slayt-kurucu — asked for web based presentations.
+- ajan:fe-tailwind-duzenleyici — markup has long repeated class strings.
+- ajan:fe-tasarim-sistemi-kurucu — a project needs consistent UI rules.
+- ajan:fe-tipografi-uzmani — text looks flat, crowded or inconsistent.
+- ajan:fe-webgl-3d-hero — a landing needs a WebGL hero.
+- ajan:fe-yazdir-stili — a page must print or export well.
+- ajan:otm-webhook-tasarimci — integrating third party events.
+- ajan:oyn-dusman-ai — enemies feel dumb or unfair.
+- ajan:oyn-mod-paketleme — Packages mods with clear folder layout, readme and version notes
+- ajan:oyn-oyun-dokuman — a game idea needs shape.
+- ajan:oyn-three-oyun-sahne — a playable web prototype is wanted.
+- ajan:vid-hareket-grafigi — graphics must move cleanly.
+- ajan:vid-hyperframes-kompozisyon — a motion piece is authored as web code.
+- ajan:vid-video-performans-web — a page video is heavy.
 - animasyon-scroll-paket — 29 skill'lik paket (Web animasyon ve scroll: GSAP, Lenis, sinematik scroll anla…
 - apple-design — Cross-platform UI/UX reviewer grounded in Apple HIG plus design-craft lens
 - arayuz-iyilestirme-paket — 13 skill'lik paket (Arayüz iyileştirme: better-ui/colors/layout/typography/writ…
@@ -51,7 +87,6 @@
 - vercel-react-best-practices — writing, reviewing, or refactoring components, data fetching, bundle size, or p…
 - vercel-react-native-skills — RN components, list performance, animations, or native module work with Expo or…
 - vercel-react-view-transitions — page transitions, route/shared-element animation, list reorder, or directional…
-- web-app-penetration-testing — Pentest a web app or website end to end — black-box testing of a live URL, stag…
 - web-design-engineer — Build or redesign browser visual artifacts in HTML/CSS/JS/React: pages, dashboa…
 - web-design-guidelines — Web Interface Guidelines uyumu icin UI kodunu gozden gecirir
 - web-sahne-desenleri — Premium landing, portfolyo ve 3D hero isinde ac: WebGL imlec reveal, scroll'a b…

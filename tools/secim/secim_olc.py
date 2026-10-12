@@ -1,15 +1,17 @@
 """SKILL-SECIM-1 ölçüm: 40 görevlik seçim seti (secim_gorevler.json) → doğru ilk seçim %, ilk seçime kadar tur, ilk istek girdi jetonu.
-  python tools/secim/secim_olc.py cc <kol: once|sonra> [--tekrar 2] [--tavan 40]
+  python tools/secim/secim_olc.py cc <kol: once|sonra> [--tekrar 2] [--tavan 40] [--bas 1] [--usd 2.0]
     once  = canlı kurulum (senkron departman-* eski hali)
     sonra = senkron departman-* kapalı (yalnız bu süreçte, --settings), yerine .secim/eklenti plugin'i (dizinli departman-*)
   python tools/secim/secim_olc.py web <once|sonra>   → claude.ai vekili: skill'siz, ad listesi + Instructions istemde, 40 görev tek çağrıda
-Çıktı: docs/kutuphane/olcum/<tarih>-secim-<taraf>-<kol>.tsv (satır satır). Canlı ayar değişmez; çağrı başı --max-budget-usd 0.6.
+Çıktı: docs/kutuphane/olcum/<tarih>-secim-<taraf>-<kol>.tsv (satır satır). Canlı ayar değişmez; çağrı başı --max-budget-usd 1.0.
 Doğru ilk seçim: departman-* dışındaki İLK Skill çağrısının kısa adı beklenen listede (departman → doğru skill = doğru yönlendirme)."""
 import json
+import os
 import re
 import shutil
 import sys
 import time
+from itertools import zip_longest
 from pathlib import Path
 
 DIZIN = Path(__file__).resolve().parent
@@ -18,6 +20,10 @@ sys.path.insert(0, str(KOK / "tools" / "olcum"))
 from kosucu import kos  # noqa: E402
 
 GOREV = json.loads((DIZIN / "secim_gorevler.json").read_text(encoding="utf-8"))
+_dep = {}
+for _g in GOREV:
+    _dep.setdefault(_g["dep"], []).append(_g)
+KARISIK = [g for k in zip_longest(*_dep.values()) for g in k if g]  # tavan/usd ile kesilen önek her departmandan örneklesin
 CIKTI = KOK / "docs" / "kutuphane" / "olcum"
 CALISMA = KOK / ".secim"  # gitignore dışı geçici: plugin + settings kopyası
 
@@ -26,17 +32,20 @@ def kisa(a):
     return a.split(":")[-1]
 
 
+GENEL = ("", "general-purpose", "Explore", "Plan", "claude")  # uzman seçimi sayılmaz
+
+
 def ilk_secim(araclar):
-    """(ilk departman-dışı skill kısa adı, o çağrıya kadar araç sayısı)"""
+    """(ilk departman-dışı skill ya da uzman alt ajan kısa adı, o çağrıya kadar araç sayısı)"""
     for i, a in enumerate(araclar):
-        if a.startswith("Skill:") and not kisa(a).startswith("departman-"):
+        if (a.startswith("Skill:") and not kisa(a).startswith("departman-")) or (a.startswith("Agent:") and kisa(a) not in GENEL):
             return kisa(a), i + 1
     return "", len(araclar)
 
 
 def sonra_ek():
     """Dizinli departman-*'ı plugin olarak verir, senkron eski kopyaları bu süreçte kapatır (canlı overrides kopyası + 12 'off')."""
-    ek = CALISMA / "eklenti"
+    ek = CALISMA / f"eklenti-{os.getpid()}"  # paralel sonra süreçleri birbirinin plugin klasörünü silmesin
     shutil.rmtree(ek, ignore_errors=True)
     (ek / ".claude-plugin").mkdir(parents=True)
     (ek / ".claude-plugin" / "plugin.json").write_text('{"name": "secim", "version": "0.0.1"}', encoding="utf-8")
@@ -44,20 +53,25 @@ def sonra_ek():
         shutil.copytree(d, ek / "skills" / d.name)
     ov = json.loads((Path.home() / ".claude/settings.json").read_text(encoding="utf-8")).get("skillOverrides", {})
     ov.update({f"anthropic-skills:{d.name}": "off" for d in (KOK / "skills").glob("departman-*")})
-    s = CALISMA / "settings-sonra.json"
+    s = CALISMA / f"settings-sonra-{os.getpid()}.json"
     s.write_text(json.dumps({"skillOverrides": ov}, ensure_ascii=False), encoding="utf-8")
-    return ["--plugin-dir", str(ek), "--settings", str(s), "--max-turns", "6"]
+    return ["--plugin-dir", str(ek), "--settings", str(s), "--max-turns", "4"]
 
 
-def cc(kol, tekrar, tavan):
-    ek = sonra_ek() if kol == "sonra" else ["--max-turns", "6"]
+def cc(kol, tekrar, tavan, bas=1, usd=2.0):
+    """usd: bu sürecin ölçüm tavanı (plan limiti; 4 paralel süreç × 2.0 + web ≤ $10) — aşılınca durur."""
+    ek = sonra_ek() if kol == "sonra" else ["--max-turns", "4"]
     yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-cc-{kol}.tsv"
     if not yol.exists():
         yol.write_text("gorev\ttekrar\tdogru\tsecilen\ttur\tgirdi\tusd\taraclar\n", encoding="utf-8")
-    for t in range(tekrar):
-        for g in GOREV[:tavan]:
-            o = kos(g["istem"], ek=ek, cwd=str(KOK), butce=0.6)
+    harcanan = 0.0
+    for t in range(bas - 1, bas - 1 + tekrar):
+        for g in KARISIK[:tavan]:
+            if harcanan >= usd:
+                return yol
+            o = kos(g["istem"], ek=ek, cwd=str(KOK), butce=1.0)  # soğuk önbellek ilk çağrısı ~$0.73
             s, tur = ilk_secim(o["araclar"])
+            harcanan += o.get("usd", 0)
             u = o.get("usage_ilk") or {}
             girdi = sum(u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens"))
             with yol.open("a", encoding="utf-8") as f:
@@ -76,7 +90,7 @@ def web(kol):
              "Her görev için kullanacağın TEK skill adını yaz; biçim: `Sxx: ad` satır satır, başka metin yok.\n\n"
              + "\n".join(f"{g['id']}: {g['istem']}" for g in gorevler))
     ek = ["--strict-mcp-config", "--disable-slash-commands", "--max-turns", "15"] + (["--add-dir", str(KOK / "skills")] if kol == "sonra" else [])
-    o = kos(istem, ek=ek, cwd=str(KOK), butce=1.5)
+    o = kos(istem, ek=ek, cwd=str(KOK), butce=0.5)
     cevap = dict(re.findall(r"(S\d\d)\s*:\s*`?([A-Za-z0-9:_-]+)", o.get("metin") or ""))
     yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-web-{kol}.tsv"
     with yol.open("a", encoding="utf-8") as f:
@@ -91,4 +105,6 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     tekrar = int(a[a.index("--tekrar") + 1]) if "--tekrar" in a else 2
     tavan = int(a[a.index("--tavan") + 1]) if "--tavan" in a else 40
-    print(cc(a[1], tekrar, tavan) if a[0] == "cc" else web(a[1]))
+    bas = int(a[a.index("--bas") + 1]) if "--bas" in a else 1
+    usd = float(a[a.index("--usd") + 1]) if "--usd" in a else 2.0
+    print(cc(a[1], tekrar, tavan, bas, usd) if a[0] == "cc" else web(a[1]))

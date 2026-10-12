@@ -1,9 +1,49 @@
-# departman-surec-inceleme — skill dizini (105 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-surec-inceleme — skill dizini (145 skill; Grep ile ara, adı Skill aracıyla çağır)
 
 - adaptive-interfaces:preference-audit — reviewing an existing product for adaptive behaviour.
 - adobe-for-creativity:adobe-document-review — broad ('review this document', 'highlight what matters', 'what should I watch o…
 - agent-skills:code-review-and-quality — reviewing code written by yourself, another agent, or a human
 - agent-skills:code-simplification — refactoring code for clarity without changing behavior
+- ajan:Code Reviewer — Expert code reviewer who provides constructive, actionable feedback focused on…
+- ajan:Compliance Auditor — Expert technical compliance auditor specializing in SOC 2, ISO 27001, HIPAA, an…
+- ajan:agent-skills:code-reviewer — thorough code review before merge.
+- ajan:claude-ads:audit-amazon — Amazon Ads evidence and controls specialist
+- ajan:claude-ads:audit-apple — Apple Ads evidence and controls specialist
+- ajan:claude-ads:audit-creative — Cross-platform creative specialist
+- ajan:claude-ads:audit-google — Google Ads evidence and controls specialist
+- ajan:claude-ads:audit-meta — Meta Ads evidence and controls specialist
+- ajan:claude-ads:audit-microsoft — Microsoft Advertising evidence and controls specialist
+- ajan:claude-ads:audit-pinterest — Pinterest Ads evidence and controls specialist
+- ajan:claude-ads:audit-snapchat — Snapchat Ads evidence and controls specialist
+- ajan:claude-ads:audit-tiktok — TikTok Ads evidence and controls specialist
+- ajan:claude-ads:audit-tracking — Tracking and attribution specialist
+- ajan:claude-ads:audit-x — X Ads evidence and controls specialist
+- ajan:dotnet-msbuild:msbuild-code-review — Agent that reviews MSBuild project files for anti-patterns, modernization oppor…
+- ajan:ecc:code-reviewer — thorough code review before merge.
+- ajan:ecc:cpp-reviewer — all C++ code changes
+- ajan:ecc:fastapi-reviewer — Reviews FastAPI applications for async correctness, dependency injection, Pydan…
+- ajan:ecc:flutter-reviewer — Flutter and Dart code reviewer
+- ajan:ecc:fsharp-reviewer — all F# code changes
+- ajan:ecc:healthcare-reviewer — Reviews healthcare application code for clinical safety, CDSS accuracy, PHI com…
+- ajan:ecc:kotlin-reviewer — Kotlin and Android/KMP code reviewer
+- ajan:ecc:mle-reviewer — ML, MLOps, model training, inference, feature store, or evaluation code changes.
+- ajan:ecc:network-config-reviewer — Reviews router and switch configurations for security, correctness, stale refer…
+- ajan:ecc:php-reviewer — all PHP code changes
+- ajan:ecc:rag-pipeline-reviewer — builds, modifies, or debugs a RAG system, vector store integration, or asks abo…
+- ajan:ecc:refactor-cleaner — Dead code cleanup and consolidation specialist
+- ajan:ecc:swift-reviewer — all Swift code changes
+- ajan:ecc:typescript-reviewer — all TypeScript and JavaScript code changes
+- ajan:fable-advisor:fable-advisor — Second-opinion advisor and final reviewer running Claude's most capable model (…
+- ajan:feature-dev:code-reviewer — thorough code review before merge.
+- ajan:impeccable:impeccable-asset-producer — Produces clean reusable raster assets from approved Impeccable mock references…
+- ajan:impeccable:impeccable-finish-reviewer — Reviews a finished Impeccable build against its direction contract, the approve…
+- ajan:octo:droids:octo-code-reviewer — explicitly starts an Octopus workflow.
+- ajan:octo:personas:code-reviewer — thorough code review before merge.
+- ajan:octo:principles:general-principles — General code quality critique principles
+- ajan:octo:principles:maintainability-principles — Critique principles for maintainable, readable code
+- ajan:octo:principles:performance-principles — Critique principles for high-performance code
+- ajan:octo:skills:octopus-code-review — you need comprehensive code quality assessment, security vulnerability detectio…
+- ajan:pr-review-toolkit:code-reviewer — thorough code review before merge.
 - andrej-karpathy-skills:karpathy-guidelines — writing, reviewing, or refactoring code to avoid overcomplication, make surgica…
 - anthropic-skills:cli-policy-audit — Inspect audit logs, manage access policies, view telemetry data, and review req…
 - anthropic-skills:gstack-autoplan — Auto-review pipeline — reads the full CEO, design, eng, and DX review skills fr…

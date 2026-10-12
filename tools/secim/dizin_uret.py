@@ -11,10 +11,12 @@ from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(KOK / "tools" / "butce"))
+from envanter import on_bilgi  # noqa: E402
 
 SATIR = ("Skill dizini: bu klasörde `dizin.md` (Claude Code: alandaki TÜM kurulu skill'ler) ve `dizin-web.md` (claude.ai: yalnız yüklü olanlar) "
          "— ad — ne zaman. Adımdaki araç işe tam uymuyorsa ortamına uyan dizinde Grep ile işin anahtar kelimesini ara (Read etme), "
-         "bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.")
+         "bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir. `ajan:` kayıtları alt ajandır: "
+         "Claude Code'da Agent aracıyla (subagent_type = ad), claude.ai'de bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula.")
 
 # ponytail: anahtar kelime puanı (ad ×3 + açıklama); yanlış dağılım görülürse kelime ekle, sınıflayıcı model gerekmez
 ALAN = {
@@ -24,7 +26,7 @@ ALAN = {
     "backend-dotnet": "dotnet net csharp asp aspnet blazor efcore entity nuget msbuild xunit maui wpf winforms razor backend server "
                       "api rest grpc azure microservice java spring go golang rust python django fastapi node express",
     "guvenlik": "security secure vulnerability vuln owasp pentest pentesting secret secrets crypto cve exploit threat sast dast fuzz "
-                "malware kvkk gdpr compliance auth oauth jwt xss csrf injection guvenlik sifre",
+                "malware penetration zero trust kvkk gdpr compliance auth oauth jwt xss csrf injection guvenlik sifre",
     "test-qa": "test tests testing qa e2e playwright tdd coverage regression bug debug debugging flaky jest pytest cypress selenium hata",
     "veri-db": "sql database db postgres postgresql mysql sqlite mongo redis data dataset csv excel xlsx spreadsheet pandas analytics "
                "etl schema query bigquery supabase veri tablo",
@@ -46,6 +48,8 @@ ALAN = {
 }
 KELIME = {d: set(k.split()) for d, k in ALAN.items()}
 YEDEK = "arastirma-ogrenme"
+# klasör = departman (ALAN dışıysa puanla); yalnız canlıya kurulmuş (kabul edilmiş) olanlar
+KALITE3 = {md.stem: md for md in (KOK / "ajanlar" / "kalite3").glob("*/*.md") if (Path.home() / ".claude/agents" / md.name).exists()}
 
 
 def kelimeler(s):
@@ -93,12 +97,14 @@ def dagit(skiller):
     for ad, acik in skiller.items():
         if ad.split(":")[-1].startswith("departman-"):
             continue
-        out[departman(ad, acik)].append((ad, ne_zaman(acik)))
+        md = KALITE3.get(ad.split(":")[-1]) if ad.startswith("ajan:") else None
+        dep = md.parent.name if md else ""
+        out[dep if dep in ALAN else departman(ad, acik)].append((ad, ne_zaman(acik)))
     return out
 
 
 def cc_skiller():
-    from envanter import disk_haritasi, on_bilgi
+    from envanter import disk_haritasi
     out, gorulen = {}, set()
     for ad, (_, md) in disk_haritasi().items():  # plugin skill'i iki anahtarla gelir (ad + klasör): yol başına ilki
         if md not in gorulen:
@@ -107,6 +113,21 @@ def cc_skiller():
     for md in sorted(Path.home().glob(".claude/skills/synced/*/*/SKILL.md")):  # claude.ai senkron kopyaları haritada yok
         out.setdefault("anthropic-skills:" + md.parent.name, on_bilgi(md)[1])
     return out
+
+
+def cc_ajanlar(oturum_ajan):
+    """init'teki alt ajanlar (CC'de yüklü) → {'ajan:<ad>': açıklama}; açıklama ~/.claude/agents + plugin agents/ diskinden (kısa adla)."""
+    acik = {}
+    for md in [*Path.home().glob(".claude/agents/*.md"), *Path.home().glob(".claude/plugins/cache/**/agents/**/*.md")]:
+        ad, a = on_bilgi(md)
+        if ad:
+            acik.setdefault(ad.split(":")[-1], a)
+    return {f"ajan:{ad}": acik.get(ad.split(":")[-1], "") for ad in oturum_ajan}
+
+
+def claude_ai_ajanlar():
+    """claude.ai'de alt ajan yok: KALİTE-3 ajanları zip içinde ajanlar/<ad>.md olarak gider, talimat elle uygulanır."""
+    return {f"ajan:{a}": on_bilgi(md)[1] for a, md in KALITE3.items()}
 
 
 def claude_ai_skiller(cc, oturum):
@@ -120,7 +141,11 @@ def yaz(kok, dagilim, dosya):
     for dep, kay in dagilim.items():
         d = kok / "skills" / f"departman-{dep}"
         (d / dosya).write_bytes(dizin_md(dep, kay).encode("utf-8"))
-        g = (d / "SKILL.md").read_text(encoding="utf-8")
+        for ad, _ in kay:  # KALİTE-3 ajan tanımı skill klasörüne (claude.ai zip'i + CC senkron kopyası)
+            if ad.startswith("ajan:") and ad[5:] in KALITE3:
+                (d / "ajanlar").mkdir(exist_ok=True)
+                (d / "ajanlar" / f"{ad[5:]}.md").write_bytes(KALITE3[ad[5:]].read_bytes())
+        g = re.sub(r"\nSkill dizini:[^\n]*\n\n(## Adımlar)", r"\n\1", (d / "SKILL.md").read_text(encoding="utf-8"))
         if SATIR not in g:
             (d / "SKILL.md").write_bytes(g.replace("\n## Adımlar", f"\n{SATIR}\n\n## Adımlar", 1).encode("utf-8"))
 
@@ -128,12 +153,12 @@ def yaz(kok, dagilim, dosya):
 def zipla(kok):
     """claude.ai yüklemesi (CC de bu senkron kopyayı görür): dist/skill-secim-1/departman-<x>.zip, kök klasör = skill adı."""
     import zipfile
-    cikti = kok / "dist" / "skill-secim-1"
+    cikti = kok / "dist" / "skill-secim-1" / "kendi"
     cikti.mkdir(parents=True, exist_ok=True)
     for d in sorted((kok / "skills").glob("departman-*")):
         with zipfile.ZipFile(cikti / f"{d.name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
             for f in sorted(d.rglob("*")):
-                if f.is_file():
+                if f.is_file() and (f.parent.name != "ajanlar" or f.stem in KALITE3):
                     z.write(f, f"{d.name}/{f.relative_to(d).as_posix()}")
     return cikti
 
@@ -141,9 +166,11 @@ def zipla(kok):
 if __name__ == "__main__":
     import json
     sys.stdout.reconfigure(encoding="utf-8")
-    oturum = set(json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))["skills"])
+    init = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    oturum = set(init["skills"])
     cc = cc_skiller()
-    for dosya, sk in (("dizin.md", tekille(cc, oturum)), ("dizin-web.md", claude_ai_skiller(cc, oturum))):
+    for dosya, sk in (("dizin.md", {**tekille(cc, oturum), **cc_ajanlar(init["agents"])}),
+                      ("dizin-web.md", {**claude_ai_skiller(cc, oturum), **claude_ai_ajanlar()})):
         dg = dagit(sk)
         yaz(KOK, dg, dosya)
         print(dosya, " ".join(f"{d}={len(k)}" for d, k in dg.items()), "toplam", sum(map(len, dg.values())))

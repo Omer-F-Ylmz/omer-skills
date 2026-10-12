@@ -1,5 +1,13 @@
-# departman-surec-git-yayin — skill dizini (6 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-surec-git-yayin — skill dizini (14 skill; Grep ile ara, adı Skill aracıyla çağır)
 
+- ajan:git-cakisma-cozucu — a merge or rebase stops on conflicts.
+- ajan:git-canary-izleme — releasing risky changes gradually.
+- ajan:git-ci-boru-hatti — a repo needs automation.
+- ajan:git-commit-mesaji — about to commit.
+- ajan:git-dal-stratejisi — starting parallel work.
+- ajan:git-issue-triyaj — an issue list needs ordering.
+- ajan:git-yayin-oncesi-kontrol — Runs a go or no-go checklist covering tests, migrations, flags and rollback
+- ajan:oyn-mod-birlestirici — two mods conflict.
 - ci-security-scanning-with-strix — Add Strix AI pentest scanning to CI/CD (GitHub Actions, GitLab CI, or managed a…
 - davila7-git-paket — 3 skill'lik paket (Claude Code şablonları (davila7/claude-code-templates, MIT):…
 - deploy-to-vercel — the user requests deployment actions like "deploy my app", "deploy and give me…

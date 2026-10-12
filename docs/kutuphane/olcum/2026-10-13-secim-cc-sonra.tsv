@@ -1,0 +1,8 @@
+gorev	tekrar	dogru	secilen	tur	girdi	usd	araclar
+S01	9	0		1	89376	0.7260	Skill:secim:departman-frontend
+S01	2	0	frontend-craft	1	91608	0.7892	Skill:frontend-craft:frontend-craft
+S01	1	0	frontend-craft	2	88748	0.8271	Skill:secim:departman-frontend,Skill:frontend-craft:frontend-craft,Glob
+S05	2	0		3	90634	0.7579	Skill:secim:departman-backend-dotnet,Glob,Grep
+S05	1	0		3	90634	0.7594	Skill:secim:departman-backend-dotnet,Glob,Grep
+S08	2	0		0	0	1.3057	
+S08	1	0		0	0	1.3580	

@@ -1,0 +1,7 @@
+gorev	tekrar	dogru	secilen	tur	girdi	usd	araclar
+S01	1	0		2	90789	0.7299	Skill:anthropic-skills:departman-frontend,Glob
+S01	2	0		3	91785	0.7916	Skill:anthropic-skills:departman-frontend,Glob,Write
+S05	1	0		3	92072	0.7321	Skill:anthropic-skills:departman-backend-dotnet,Glob,Grep
+S05	2	0		2	92110	0.7106	Skill:anthropic-skills:departman-backend-dotnet,Glob
+S08	1	0		0	92095	1.3610	
+S08	2	0		0	90696	1.2950	

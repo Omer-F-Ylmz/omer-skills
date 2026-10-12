@@ -1,4 +1,4 @@
-# departman-surec-ajan-arac — skill dizini (103 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-surec-ajan-arac — skill dizini (122 skill; Grep ile ara, adı Skill aracıyla çağır)
 
 - 9router-paket — ı)
 - academy-guide — Stop and check this skill before finishing any reply to a question about how to…
@@ -8,6 +8,26 @@
 - agentshield-paket — 1 skill'lik paket (Ajan yapılandırması güvenlik denetimi)
 - ai-labs-paket — 23 skill'lik paket (Genel amaçlı skill derlemesi: geliştirme, pazarlama, belge,…
 - ajan-getir — a task fits a specialist agent that is not in the Agent tool's list (installed…
+- ajan:ajn-ajan-orkestrasyon — several agents must cooperate.
+- ajan:ajn-ajan-tanimi-yazar — creating a custom agent.
+- ajan:ajn-claude-api-gelistirici — an app calls Claude programmatically.
+- ajan:ajn-codex-claude-koprusu — configuring a second agent tool.
+- ajan:ajn-hook-yazar — an event should trigger a check.
+- ajan:ajn-mcp-kurulum-denetci — Reviews MCP and plugin configs for excess permissions and secret exposure
+- ajan:ajn-mcp-sunucu-yazar — exposing a service to an agent.
+- ajan:ajn-migrasyon-model — switching model IDs.
+- ajan:ajn-ogrenilen-ders — Captures short reusable lessons from a finished task as rules or notes
+- ajan:ajn-plugin-iskelet — packaging tools as a plugin.
+- ajan:ajn-prompt-denetci — an agent prompt behaves inconsistently.
+- ajan:ajn-skill-test — Measures whether a skill triggers and helps with paired runs and rubrics
+- ajan:otm-ajan-is-akisi-kur — AI steps run inside a workflow.
+- ajan:otm-google-sheets-akis — small office processes need automation.
+- ajan:otm-mail-otomasyon — sending recurring messages.
+- ajan:otm-n8n-akis-tasarimi — automating a repeated process.
+- ajan:otm-n8n-hata-yonetimi — a workflow fails silently.
+- ajan:otm-n8n-ifade-kod — data needs reshaping between nodes.
+- ajan:otm-otomasyon-izleme — automations need monitoring.
+- ajan:otm-tarayici-otomasyon — a web task must be scripted.
 - android-paket — 26 skill'lik paket (Android: Compose, Navigation 3, CameraX, Media3, Wear/TV, P…
 - autoclip-paket — 2 skill'lik paket (Uzun videoyu otomatik kısa kliplere kesme)
 - awesome-rehber — the user wants an outside tool, library, plugin/addon or learning resource that…
@@ -81,7 +101,6 @@
 - mukul975-red-team-paket — 2 skill'lik paket (Siber güvenlik (mukul975/Anthropic-Cybersecurity-Skills, Apa…
 - mukul975-red-teaming-paket — 33 skill'lik paket (Siber güvenlik (mukul975/Anthropic-Cybersecurity-Skills, Ap…
 - mukul975-soc-operations-paket — 35 skill'lik paket (Siber güvenlik (mukul975/Anthropic-Cybersecurity-Skills, Ap…
-- mukul975-zero-trust-paket — 1 skill'lik paket (Siber güvenlik (mukul975/Anthropic-Cybersecurity-Skills, Apa…
 - octo-paket — 56 skill'lik paket (Octo ajan iş akışları)
 - openclaw-win-paket — 10 skill'lik paket (OpenClaw Windows düğümü yardımcıları)
 - orchestration — delegating work across GPT-6 Luna and Sol lanes, setting effort, and getting Fa…
