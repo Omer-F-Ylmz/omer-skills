@@ -20,7 +20,7 @@ KAYNAK = KOK / "skills" / "calisma-protokolu" / "SKILL.md"
 VARYANT = KOK / "docs" / "kutuphane" / "olcum" / "fable-ajan-protokol"
 KARAR = KOK / "docs" / "kutuphane" / "olcum" / "fable-ajan-karar.tsv"
 HOOK = KOK / "tools" / "fable_ajan_hook.py"
-DERS_TAVAN, PROTOKOL_TAVAN = 300, 250  # jeton; ikisi aynı önsözde: ≤ 550
+DERS_TAVAN, PROTOKOL_TAVAN = 300, 260  # jeton; ikisi aynı önsözde: ≤ 560 (ölçülen sonnet-v2 ~251)
 TABAN = re.compile(r"^skills:.*calisma-protokolu", re.M)  # fable_1_uygula tabanı
 
 
@@ -52,14 +52,23 @@ def model_of(fm):
 
 
 def plan(ev):
-    """→ [(ajan yolu, protokol adı)]: kullanıcı ajanı, aile × model KABUL, taban (skills) değil."""
+    """→ [(ajan yolu, protokol adı)]: kullanıcı ajanı, aile × model KABUL; taban (skills) taşıyan yalnız varyant KABUL'de."""
     kabul, out = kabuller(), []
     for a in sorted((ev / ".claude" / "agents").glob("*.md")):
         fm = frontmatter(a)
         ad = kabul.get((a.stem.split("-")[0], model_of(fm))) if fm is not None else None
-        if ad and not TABAN.search(fm):
+        if ad and (ad != "calisma-protokolu" or not TABAN.search(fm)):
             out.append((a, ad))
     return out
+
+
+def tabani_sok(yol):
+    """Varyant alan ajanda fable_1 tabanı çift protokol olmasın diye çıkar (fable_1 satırı tek başına ekler)."""
+    t = yol.read_bytes().decode("utf-8")
+    y = re.sub(r"^skills:\s*calisma-protokolu[ \t]*\r?\n", "", t, count=1, flags=re.M)
+    if y != t:
+        yol.write_bytes(y.encode("utf-8"))
+    return y != t
 
 
 def harita(ev):
@@ -124,16 +133,19 @@ def main(argv=None, ev=Path.home()):
     if a[0] == "--geri":
         n = sum(enjekte(p, "", geri=True) for p in sorted((ev / ".claude" / "agents").glob("*.md")))
         hook_sok(ev)
-        print("geri alındı:", n, "ajan + hook"); return 0
+        print("geri alındı:", n, "ajan + hook · varyant ajanlarının tabanı: python onay/fable_1_uygula.py uygula"); return 0
     if a[0] != "uygula":
         print(f"KURU: {len(ajanlar)} ajana godmode bloğu · hook {len(h)} plugin ajanı · KABUL {sorted(kabuller().items())}")
         print("  ", " ".join(f"{p.stem}={ad}" for p, ad in ajanlar)); return 0
     yedek = ev / ".claude" / "backups" / f"fable-ajan-{time.strftime('%Y%m%d-%H%M%S')}"
-    degisecek = [(p, ad) for p, ad in ajanlar if enjekte(p, govde(ad), kuru=True)]
+    degisecek = [(p, ad) for p, ad in ajanlar if enjekte(p, govde(ad), kuru=True) or TABAN.search(frontmatter(p))]
     for p, _ in degisecek:
         yedek.mkdir(parents=True, exist_ok=True)
         shutil.copy2(p, yedek / p.name)
-    n = sum(enjekte(p, govde(ad)) for p, ad in degisecek)
+    n = 0
+    for p, ad in degisecek:
+        tabani_sok(p)
+        n += enjekte(p, govde(ad))
     if h:
         hook_kur(ev, h, yedek)
     if mcp(ev) != once:

@@ -60,5 +60,21 @@ def test_katman_taban_ustune_haiku_kisa_ve_plugin_hook(tmp_path, monkeypatch):
     assert "SubagentStart" not in s["hooks"] and s["hooks"]["Stop"] and not (tmp_path / ".claude" / "hooks" / "fable-ajan").exists()
 
 
+def test_varyant_kabul_taban_skills_satirini_degistirir(tmp_path, monkeypatch):
+    """Aile × model varyant KABUL (sonnet-v2) ise fable_1 tabanı çift protokol olmasın diye çıkar, varyant bloğu girer."""
+    ag = kur(tmp_path, monkeypatch)
+    (ag / "db-t.md").write_text("---\nname: db-t\nmodel: sonnet\nskills: calisma-protokolu\n---\nG\n", encoding="utf-8")
+    (ag / "fe-t.md").write_text("---\nname: fe-t\nmodel: sonnet\nskills: calisma-protokolu\n---\nG\n", encoding="utf-8")
+    fau.KARAR.write_text("aile\tmodel\tkarar\tprotokol\ndb\tsonnet\tKABUL\tsonnet-v2\nfe\tsonnet\tKABUL\tcalisma-protokolu\n",
+                         encoding="utf-8")
+    once_fe = (ag / "fe-t.md").read_bytes()
+    for _ in range(2):  # idempotent
+        assert fau.main(["uygula"], ev=tmp_path) == 0
+    t = (ag / "db-t.md").read_text(encoding="utf-8")
+    assert "skills:" not in t and "<!-- godmode:basla -->" in t and fau.govde("sonnet-v2").strip()[:40] in t
+    assert (ag / "fe-t.md").read_bytes() == once_fe
+    assert len(list((tmp_path / ".claude" / "backups").glob("fable-ajan-*/db-t.md"))) == 1
+
+
 def test_protokol_butcede():
     assert fau.jeton(fau.govde()) <= fau.PROTOKOL_TAVAN and fau.DERS_TAVAN == 300

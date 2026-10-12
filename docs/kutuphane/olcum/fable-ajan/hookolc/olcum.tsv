@@ -1,0 +1,17 @@
+ajan	aile	model	kol	tekrar	input	cache_creation	cache_read	output	usd	sure_sn	regex	tur	rc
+sec-injection-denetci	plugin	sonnet	taban	1	2	1422	86668	2059	0.4246	127	10	1	0
+sec-injection-denetci	plugin	sonnet	proto	1	2	1502	84614	2151	0.3812	104	10	1	0
+fe-react-bilesen-inceleme	plugin	sonnet	taban	1	2	1273	84640	1771	0.4785	139	10	1	0
+fe-react-bilesen-inceleme	plugin	sonnet	proto	1	1670	74054	178024	1957	0.4498	141	10	2	0
+sec-api-guvenlik	plugin	sonnet	taban	1	2	1633	85381	2370	0.4113	124	10	1	0
+sec-api-guvenlik	plugin	sonnet	proto	1	2	1526	85449	2197	0.3673	78	10	1	0
+qa-birim-test-yazar	plugin	sonnet	taban	1	2	1275	85465	2925	0.6143	106	8	1	0
+qa-birim-test-yazar	plugin	sonnet	proto	1	2	1363	85460	2149	0.4633	76	7	1	0
+sec-injection-denetci	plugin	sonnet	taban	2	2	1592	85443	2310	0.397	68	10	1	0
+sec-injection-denetci	plugin	sonnet	proto	2	2	1598	85442	2327	0.3692	96	10	1	0
+fe-react-bilesen-inceleme	plugin	sonnet	taban	2	2	1366	85456	1977	0.4667	116	10	1	0
+fe-react-bilesen-inceleme	plugin	sonnet	proto	2	2	1328	85469	1868	0.4445	235	10	1	0
+sec-api-guvenlik	plugin	sonnet	taban	2	2	1272	84828	1744	0.3833	177	10	1	0
+sec-api-guvenlik	plugin	sonnet	proto	2	2	1667	82973	2464	0.3921	200	10	1	0
+qa-birim-test-yazar	plugin	sonnet	taban	2	2	908	86577	2190	0.5946	251	5	1	0
+qa-birim-test-yazar	plugin	sonnet	proto	2	2	1252	85210	2706	0.4794	141	8	1	0
