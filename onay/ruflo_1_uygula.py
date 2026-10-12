@@ -3,7 +3,7 @@
   python onay/ruflo_1_uygula.py --kuru   # plan: hangi ajan değişir, kabul durumu (varsayılan)
   python onay/ruflo_1_uygula.py uygula   # yedek alır → frontmatter sonrası işaretli ders bloğu
   python onay/ruflo_1_uygula.py --geri   # işaretli bloğu söker (yedek ayrıca ~/.claude/yedek/ruflo1-*)
-Kapı: A/B ölçümü (docs/kutuphane/olcum/ruflo-1-ab.tsv) 30 koşu tamam ve dersli ort. puan ≥ derssiz; ders.py ana repoda
+Kapı: eşli A/B (docs/kutuphane/olcum/ruflo-1-ab-v3-*.tsv) ≥12 çift, dersli ort. puan ≥ derssiz VE jeton < derssiz; ders.py ana repoda
 (kol/ruflo main'e birleşmiş) olmalı. Yalnız gevşek ~/.claude/agents dosyaları; plugin ajanlarına, settings.json'a, hook'lara
 dokunulmaz; `ruflo init` koşulmaz. MCP listesi önce=sonra değilse rc=1.
 """
@@ -18,21 +18,26 @@ sys.path[:0] = [str(KOK / "onay"), str(KOK / "tools" / "ogrenme")]
 from kalite_3_uygula import EV, mcp_var_mi  # noqa: E402
 import onsoz  # noqa: E402
 
-TSV = KOK / "docs" / "kutuphane" / "olcum" / "ruflo-1-ab.tsv"
+TSV = [KOK / "docs" / "kutuphane" / "olcum" / f"ruflo-1-ab-v3-{a}.tsv" for a in ("kod", "rapor", "video")]
 
 
 def kabul(tsv=TSV):
-    """→ (geçti mi, açıklama). Yalnız iki kolu da koşmuş (aile, sıra) çiftleri; ≥12 çift (ölçüm ~$0.68/çift, $9.5 kesici ~14'te durur)."""
+    """→ (geçti mi, açıklama). Yalnız iki kolu da koşmuş (aile, sıra) çiftleri; ≥12 çift. d7: v3 eşli TSV'ler (aynı sistem istemi);
+    şart dersli ort. puan ≥ derssiz VE dersli toplam jeton (input+cache_creation+cache_read+output) < derssiz (Ömer: tabanın altına)."""
     try:
-        satir = [s.split("\t") for s in tsv.read_text(encoding="utf-8").splitlines()[1:] if s.strip()]
+        satir = [s.split("\t") for t in ([tsv] if isinstance(tsv, Path) else tsv)
+                 for s in t.read_text(encoding="utf-8").splitlines()[1:] if s.strip()]
     except OSError:
         return False, "ölçüm yok"
-    puan = {(s[1], s[2], s[3]): float(s[4]) for s in satir}  # aynı çift tekrar koştuysa son satır
-    cift = [(a, n) for a, n, k in puan if k == "derssiz" and (a, n, "dersli") in puan]
+    son = {(s[1], s[2], s[3]): s for s in satir}  # aynı çift tekrar koştuysa son satır
+    cift = [(a, n) for a, n, k in son if k == "derssiz" and (a, n, "dersli") in son]
     if len(cift) < 12:
         return False, f"ölçüm eksik ({len(cift)}/12 çift)"
-    ort = {k: statistics.mean(puan[(a, n, k)] for a, n in cift) for k in ("derssiz", "dersli")}
-    return ort["dersli"] >= ort["derssiz"], f"{len(cift)} çift · puan derssiz {ort['derssiz']:.3f} · dersli {ort['dersli']:.3f}"
+    ort = {k: statistics.mean(float(son[(a, n, k)][4]) for a, n in cift) for k in ("derssiz", "dersli")}
+    jet = {k: sum(int(x) for a, n in cift for x in son[(a, n, k)][7:11]) for k in ("derssiz", "dersli")}
+    return (ort["dersli"] >= ort["derssiz"] and jet["dersli"] < jet["derssiz"],
+            f"{len(cift)} çift · puan derssiz {ort['derssiz']:.3f} · dersli {ort['dersli']:.3f}"
+            f" · jeton derssiz {jet['derssiz']} · dersli {jet['dersli']} ({jet['dersli'] / jet['derssiz'] - 1:+.1%})")
 
 
 def ajanlar(ev=EV):

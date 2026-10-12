@@ -7,13 +7,13 @@ import ruflo_1_uygula as r  # noqa: E402
 AJAN = b"---\nname: a\n---\nGovde\n"
 
 
-def kur(tmp_path, dersli):
+def kur(tmp_path, dersli, jeton=900):
     ev = tmp_path / "ev"
     (ev / ".claude" / "agents").mkdir(parents=True)
     (ev / ".claude" / "agents" / "a.md").write_bytes(AJAN)
     tsv = tmp_path / "ab.tsv"
-    tsv.write_text("baslik\n" + "".join(f"t\tk\t{n}\t{k}\t{p}\n" for n in range(12) for k, p in (("derssiz", 0.6), ("dersli", dersli))),
-                   encoding="utf-8")
+    tsv.write_text("baslik\n" + "".join(f"t\tk\t{n}\t{k}\t{p}\t0\t3\t{j}\t0\t0\t0\n" for n in range(12)
+                                        for k, p, j in (("derssiz", 0.6, 1000), ("dersli", dersli, jeton))), encoding="utf-8")
     ders_py = tmp_path / "ders.py"
     ders_py.write_text("", encoding="utf-8")
     return ev, tsv, ders_py, ev / ".claude" / "agents" / "a.md"
@@ -21,6 +21,11 @@ def kur(tmp_path, dersli):
 
 def test_kapi_gecmezse_dokunmaz(tmp_path):
     ev, tsv, ders_py, f = kur(tmp_path, 0.5)
+    assert r.main(ev, "uygula", tsv, ders_py) == 1 and f.read_bytes() == AJAN
+
+
+def test_kalite_iyi_jeton_fazlaysa_gecmez(tmp_path):
+    ev, tsv, ders_py, f = kur(tmp_path, 0.9, jeton=1100)
     assert r.main(ev, "uygula", tsv, ders_py) == 1 and f.read_bytes() == AJAN
 
 
