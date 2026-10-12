@@ -1,0 +1,181 @@
+sira	ad	repo	lisans	karar	kanal	gerekce
+41	Maker-checker split	-	-	UYARLA	CC+claude.ai(kendi)	departman-surec-inceleme Kapılar: yapan denetlemez, kabul denetimi taze bağlamlı ayrı alt ajanla
+42	OpenAI Realtime	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+43	Cloudflare	-	-	KURULU	CC	security-audit skill kurulu (d4 sira 36)
+44	Antigravity	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+45	Opal	-	-	REF	-	kapanıyor; yerine Gemini skills, bizde CC skill düzeni var
+46	OpenChatCut	0xsline/OpenChatCut	agpl-3.0	REF	-	AGPL-3.0 masaüstü video düzenleyici; video-uygula + ffmpeg karşılar (★2296)
+47	browser-use	browser-use/browser-use	MIT	REF	-	d4 kararı: bulut LLM anahtarı ister; agent-browser + chrome-devtools karşılar (★117720)
+48	Agentic Inbox	Panchajanya1999/agentic-inbox-cloudflare	apache-2.0	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★0)
+49	Cloudflare Workers	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+50	YAML iş akışları	coleam00/Archon	MIT	REF	-	Archon YAML iş akışı; d4 kararı: gsd/departman-surec-plan karşılar (★23671)
+51	TourMind API	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+52	Skill authoring best practices	-	-	UYARLA	CC+claude.ai(kendi)	departman-surec-ajan-arac Kapılar: SKILL.md gövdesi ≤500 satır, fazlası references/
+53	Skill description	-	-	UYARLA	CC+claude.ai(kendi)	departman-surec-ajan-arac Kapılar: description 3. tekil kişi, ne yapar + ne zaman
+54	AIDefence	ruvnet/obsidian-brain	yok	REF	-	Ruflo güvenlik katmanı; RUFLO-1 görevi yürütüyor (★32)
+55	Next.js	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+56	Nano Banana Pro	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+57	Claude Opus	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+58	Python	-	-	KURULU	CC	Python 3.12 kurulu
+59	pytest	-	-	KURULU	CC	suitler pytest ile koşuyor
+60	Sora 2	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+61	YouTube API	-	-	REF	-	Google API anahtarı ister; video-tarama yt-dlp ile karşılar
+62	Cloudflare Pages	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+63	Google Flow	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+64	Flow Music	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+65	Jules	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+66	Stax	-	-	REF	-	Google ürünü; kendi testli A/B karşılaştırma olcum kosucu ile var
+67	OpusClip	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+68	Open Higgsfield AI	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+69	Chrome	-	-	KURULU	CC	chrome-devtools MCP + playwright-cli karşılar
+70	Go	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+71	RuVector	ruvnet/RuVector	MIT	REF	-	Ruflo vektör DB; RUFLO-1 görevi yürütüyor (★4559)
+72	SoNA	-	-	REF	-	Ruflo öz-öğrenme; RUFLO-1 görevi yürütüyor (çift iş yok)
+73	Opus 4.7	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+74	Groq	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+75	FastAPI	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+76	Prisma	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+77	NextAuth.js	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+78	Stripe	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+79	Docker	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+80	Adaptive Mod	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+81	Visual Mode	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+82	Dünya Bankası	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+83	Claude Opus 4.6	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+84	DeepSeek	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+85	CopilotKit	CopilotKit/CopilotKit	MIT	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★37961)
+86	TypeSafe	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+87	OAuth	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+88	Instagram API	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+89	Claude Sonnet	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+90	web_search	-	-	KURULU	CC	CC WebSearch + brave-search karşılar
+91	GPT	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+92	OpenAI	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+93	VS Code Desktop	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+94	Cursor Desktop	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+95	IntelliJ IDEA	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+96	SQL injection	-	-	KURULU	CC	semgrep p/security-audit + departman-guvenlik kapsıyor
+97	XSS	-	-	KURULU	CC	semgrep p/security-audit + departman-guvenlik kapsıyor
+98	File Browser	filebrowser/filebrowser	Apache-2.0	REF	-	repo arşivlenmiş; dosya gezintisi gerekmiyor (★35907)
+99	Fly.io	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+100	Deno Deploy	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+101	Kinsta	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+102	Railway	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+103	Replit	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+104	Jev	-	-	REF	-	TypeSafe kapalı modeli; bizim jev aracıyla yalnız ad benzerliği
+105	GPT-6 Luna	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+106	Qwen3.5-0.8B	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+107	gemma-4-26B-A4B-it	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+108	Hugging Face	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+109	Qwen3.6-27B	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+110	LocalLLaMA/typed-decisions	-	-	REF	-	kıyas veri seti; repo bulunamadı
+111	GLiNER	urchade/GLiNER	Apache-2.0	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★4082)
+112	LangChain	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+113	LlamaIndex	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+114	PyTorch	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+115	Google AI Studio	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+116	Google Colab	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+117	Code Wiki	-	-	REF	-	Google ürünü; graphify wiki karşılar
+118	Gemini Notebook	-	-	REF	-	NotebookLM; graphify + markitdown karşılar
+119	Learn Your Way	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+120	Eloquent	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+121	Edge Gallery	google-ai-edge/gallery	Apache-2.0	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★24931)
+122	Mixboard	-	-	RED	-	Google Labs deneyi kapatıldı (ölü)
+123	Gemini	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+124	PocketBase	pocketbase/pocketbase	MIT	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★61372)
+125	BillionMail	Billionmail/BillionMail	AGPL-3.0	REF	-	AGPL e-posta sunucusu; kapsam dışı (★15892)
+126	Brevo	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+127	Snapzy	duongductrong/Snapzy	bsd-3-clause	RED	-	yalnız macOS; Windows karşılığı yok, ekran kaydı ffmpeg ile (★3338)
+128	Screen Studio	-	-	RED	-	ücretli + yalnız macOS
+129	Trigger.dev	triggerdotdev/trigger.dev	Apache-2.0	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★16525)
+130	Beehive	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+131	Ink	inkle/ink	MIT	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★4968)
+132	Phaser	phaserjs/phaser	MIT	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★40459)
+133	ElevenLabs	-	-	REF	-	ses servisi, hesap ister; gerekirse elevenlabs/elevenlabs-mcp (MIT)
+134	Claude Opus 5.5	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+135	PhotoCraft	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+136	VectorCraft	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+137	FilmCraft	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+138	Photoshop	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+139	Illustrator	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+140	Premiere Pro	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+141	WebGL	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+142	Meetily	Zackriya-Solutions/meetily	mit	REF	-	masaüstü toplantı not uygulaması; kapsam dışı, gerekirse Ömer kurar (★31650)
+143	AirLLM	lyogavin/airllm	Apache-2.0	REF	-	katman katman GPU yükleme; yerel büyük model kullanmıyoruz (★37109)
+144	Kimi K3	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+145	Apache-2.0	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+146	Katman katman çıkarım	-	-	REF	-	AirLLM yöntemi; yerel büyük model kullanmıyoruz
+147	Llama	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+148	App Store	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+149	Reddit	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+150	Trustpilot	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+151	G2	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+152	MozJPEG	mozilla/mozjpeg	NOASSERTION	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★5730)
+153	Adapt a viral reel	-	-	REF	-	içerik üretim akışı; reel yapı analizi video-tarama raporunda var
+154	LibreChat	LibreChat-AI/LibreChat	MIT	REF	-	kendi sunuculu sohbet arayüzü; CC/claude.ai ile çakışır (★45575)
+155	Open LLM VTuber	Open-LLM-VTuber/Open-LLM-VTuber	NOASSERTION	REF	-	genel ürün/model/platform/terim; kurulacak araç değil (★14063)
+156	Camofox Browser	jo-inc/camofox-browser	mit	REF	-	bot tespiti atlatma tarayıcısı; kurulmaz (hizmet şartı riski) (★11547)
+157	ASD-STE100	-	-	UYARLA	CC+claude.ai(kendi)	departman-belge Kapılar: STE ölçüsü (kısa cümle, etken çatı, tek anlam); standart metni kopyalanmaz
+158	Mach-O	-	-	REF	-	genel ürün/model/platform/terim; kurulacak araç değil
+159	Gemini CLI	google-gemini/gemini-cli	Apache-2.0	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+160	motion-graphics	Barty-Bart/motion-graphics	NOASSERTION	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+161	Hermes Agent	NousResearch/hermes-agent	MIT	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+162	Componentry	harshjdhv/componentry	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+163	claude-motion-design	howseen-ai/claude-motion-design	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+164	motion-graphics-skills	charlie947/motion-graphics-skills	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+165	motion-design-skill	LottieFiles/motion-design-skill	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+166	product-launch-motion	AbubakrChan/product-launch-motion	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+167	hyperframes-motion-reel-skill	Sunwood-ai-labs/hyperframes-motion-reel-skill	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+168	ux-designer-skill	szilu/ux-designer-skill	MIT	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+169	motion-dev-animations-skill	199-biotechnologies/motion-dev-animations-skill	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+170	motion-design-skills	iart-ai/motion-design-skills	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+171	Copilot CLI	github/copilot-cli	NOASSERTION	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+172	Design Extract	Manavarya09/design-extract	MIT	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+173	klik-anim-skill-creation	t3knobox/klik-anim-skill-creation	yok	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+174	designlang	Nonzero-Sum-Solutions/designlanguage	Unlicense	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+175	Space UI	katas94/WorldSpace_UIToolkit_XR	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+176	React Bits	DavidHDev/react-bits	NOASSERTION	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+177	claude-motion	whaleyxbt/claude-motion	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+178	Compositor	robbietilton/Compositor	MIT	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+179	Skecher UI	CoDesign-Spa27/skecher-ui	yok	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+180	Spline	yoyo-nb/Thin-Plate-Spline-Motion-Model	MIT	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+181	awesome-motion-design-agent-skills	frankxai/awesome-motion-design-agent-skills	CC0-1.0	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+182	lottie-web	airbnb/lottie-web	MIT	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+183	hyperframes-student-kit	nateherkai/hyperframes-student-kit	NOASSERTION	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+184	Godly	BRoy98/GodlyTorch	GPL-3.0	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+185	Realtime Colors	BlankParticle/tailwind-plugin-realtime-colors	MIT	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+186	Featherless	featherless-ai/simple-jev	Apache-2.0	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+187	Fontshare	exadizon/fontshare-downloader	yok	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+188	Arc UI	dxdotdev/arc-ui	MIT	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+189	Tailwind CSS	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+190	shadcn/ui	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+191	Stitch	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+192	Claude Design	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+193	Figma	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+194	Node.js	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+195	v0	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+196	Lovable	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+197	llms.txt	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+198	Page Agent	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+199	DESIGN.md	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+200	Tailwind v4	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+201	Apple	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+202	Claude Fable 5.1	-	-	DEVIR	fable-1	fable departman ajanı yapıyor
+203	Opus 5.5	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+204	Aseprite	-	-	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+205	Meshy	-	-	DEVIR	blender-2	blender departman ajanı yapıyor
+206	Unity	-	-	DEVIR	blender-2	blender departman ajanı yapıyor
+207	Cascadeur	-	-	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+208	Unreal Engine	-	-	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+209	Shaders	-	-	DEVIR	animasyon-1	animasyon departman ajanı yapıyor
+210	Clash Display	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+211	LiteLLM	-	-	DEVIR	router-1	router departman ajanı yapıyor
+212	Inter	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+213	Geist	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+214	MoE routing	-	-	DEVIR	router-1	router departman ajanı yapıyor
+215	GPT-5.4	-	-	DEVIR	router-1	router departman ajanı yapıyor
+216	Gemini 3.1 Pro	-	-	DEVIR	router-1	router departman ajanı yapıyor
+217	Llama 3.1	-	-	DEVIR	router-1	router departman ajanı yapıyor
+218	SF Pro Display	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+219	SF Pro Text	-	-	DEVIR	tasarim-1	tasarim departman ajanı yapıyor
+220	Claude Mythos 5.1	-	-	DEVIR	fable-1	fable departman ajanı yapıyor
