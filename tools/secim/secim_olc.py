@@ -92,7 +92,8 @@ def toplu(kol, tekrar=1, tavan=10.0, cagri=3.0, gorev=GOREV, set_ad="toplu"):
     yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-{set_ad}-{kol}.tsv"
     if not yol.exists():
         yol.write_text("gorev\ttekrar\tdogru\tsecilen\n", encoding="utf-8")
-    for t in range(tekrar):
+    t0 = yol.read_text(encoding="utf-8").count("#OZET")  # tekrar no dosyadaki önceki koşulardan devam eder
+    for t in range(t0, t0 + tekrar):
         harcanan = float(SAYAC.read_text()) if SAYAC.exists() else 0.0
         if harcanan + cagri > tavan:
             print(f"DUR tavan: {harcanan:.2f}+{cagri} > {tavan}")
@@ -122,12 +123,14 @@ def web(kol):
     istem = (f"Sen claude.ai'desin. Profil talimatın:\n{ins}\n\nYüklü skill'ler (yalnız ad):\n{' '.join(adlar)}{dizin}\n\n"
              "Her görev için kullanacağın TEK skill adını yaz; biçim: `Sxx: ad` satır satır, başka metin yok.\n\n"
              + "\n".join(f"{g['id']}: {g['istem']}" for g in gorevler))
-    ek = ["--strict-mcp-config", "--disable-slash-commands", "--max-turns", "15"] + (["--add-dir", str(KOK / "skills")] if kol == "sonra" else [])
+    # d4: boş cwd; taban claude.ai gibi dosya arayamaz (Grep/Read kapalı), sonra yalnız dizin-web.md'leri okuyabilir
+    kapali = "Bash,Write,Edit,NotebookEdit,WebFetch,WebSearch,Agent" + ("" if kol == "sonra" else ",Glob,Grep,Read")
+    ek = ["--strict-mcp-config", "--disable-slash-commands", "--max-turns", "15", "--disallowedTools", kapali] + (["--add-dir", str(KOK / "skills")] if kol == "sonra" else [])
     harcanan = float(SAYAC.read_text()) if SAYAC.exists() else 0.0
     if harcanan + 0.5 > 10.0:
         print(f"DUR tavan: {harcanan:.2f}+0.5 > 10")
         return None
-    o = kos(istem, ek=ek, cwd=str(KOK), butce=0.5)
+    o = kos(istem, ek=ek, butce=0.5)
     SAYAC.write_text(f"{harcanan + o['usd']:.4f}")
     cevap = dict(re.findall(r"(S\d\d)\s*:\s*`?([A-Za-z0-9:_-]+)", o.get("metin") or ""))
     yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-web-{kol}.tsv"
@@ -149,6 +152,10 @@ if __name__ == "__main__":
         z = "--set" in a  # --set zor → secim_gorevler_zor.json (opak adlı uzmanlar; taban/dizin ayrışsın)
         gorev = json.loads((DIZIN / "secim_gorevler_zor.json").read_text(encoding="utf-8")) if z else GOREV
         for kol in a[1].split(","):
-            print(toplu(kol, tekrar if "--tekrar" in a else 1, gorev=gorev, set_ad="toplu-zor" if z else "toplu"))
+            print(toplu(kol, tekrar if "--tekrar" in a else 1, cagri=float(a[a.index("--cagri") + 1]) if "--cagri" in a else 3.0,
+                        gorev=gorev, set_ad="toplu-zor" if z else "toplu"))
+    elif a[0] == "web":
+        for kol in a[1].split(","):
+            print(web(kol))
     else:
         print(cc(a[1], tekrar, tavan, bas, usd) if a[0] == "cc" else web(a[1]))
