@@ -1,5 +1,5 @@
-"""Ders yuvası — ajan önsözü. KALİTE-3-d14 godmode önsöz betiği yazılmadığı için uyumlu kendi yuvamız (devir/kalite-3-d14-ogrenme.md):
-ajan .md'de frontmatter'dan hemen sonra işaretli blok; tek kaynak ONSOZ, idempotent, satır sonu korunur.
+"""Ders yuvası — ajan önsözü. Enjeksiyon KALİTE-3-d14 godmode_onsoz.enjekte'ye devredilir (isaret="ders-yuvasi"; FABLE godmode bloğundan
+bağımsız): ajan .md'de frontmatter'dan hemen sonra işaretli blok; tek kaynak ONSOZ, idempotent, satır sonu korunur.
   python onsoz.py enjekte <ajan.md>... [--kuru] [--geri]
   python onsoz.py istem --ajan AD --gorev "..."   → dersler + istem (claude -p için; ders yoksa istem aynen)"""
 import argparse
@@ -7,38 +7,19 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(1, str(Path(__file__).resolve().parents[1]))  # tools/ (repo) — claude.ai zip'inde godmode_onsoz.py yanında
 import ders  # noqa: E402
+import godmode_onsoz  # noqa: E402
 
-BAS, BIT = "<!-- ders-yuvasi:basla -->", "<!-- ders-yuvasi:bitir -->"
 DERS_PY = "C:/Projeler/omer-skills/tools/ogrenme/ders.py"
-ONSOZ = f"""{BAS}
-## Ders bankası
+ONSOZ = f"""## Ders bankası
 - Başta: `python {DERS_PY} getir --ajan {{ad}} --gorev "<görevin tek satırı>"`; çıkan dersleri (≤3) uygula, göreve uymuyorsa yok say.
-- Sonda: kullandığın her ders için `ders.py geri --id <id> --sonuc basari|basarisizlik`; görev öğretici olduysa ≤3 genellenebilir ders: `ders.py ekle --ajan {{ad}} --sonuc basari|basarisizlik --kaynak <görev> --baslik .. --kosul .. --icerik ..` (sır/anahtar/kişisel veri yazma).
-{BIT}"""
+- Sonda: kullandığın her ders için `ders.py geri --id <id> --sonuc basari|basarisizlik`; görev öğretici olduysa ≤3 genellenebilir ders: `ders.py ekle --ajan {{ad}} --sonuc basari|basarisizlik --kaynak <görev> --baslik .. --kosul .. --icerik ..` (sır/anahtar/kişisel veri yazma)."""
 
 
 def enjekte(yol, kuru=False, geri=False):
     """→ değişti mi. Frontmatter'sız dosya atlanır."""
-    yol = Path(yol)
-    metin = yol.read_bytes().decode("utf-8")
-    nl = "\r\n" if "\r\n" in metin else "\n"
-    if geri:
-        if BAS not in metin:
-            return False
-        bas, bit = metin.index(BAS), metin.index(BIT) + len(BIT) + len(nl)
-        yeni = metin[:bas] + metin[bit:]
-    else:
-        if BAS in metin or not metin.startswith("---"):
-            return False
-        son = metin.find(f"{nl}---{nl}", 3)
-        if son < 0:
-            return False
-        son += len(nl) * 2 + 3
-        yeni = metin[:son] + ONSOZ.format(ad=yol.stem).replace("\n", nl) + nl + metin[son:]
-    if not kuru:
-        yol.write_bytes(yeni.encode("utf-8"))
-    return True
+    return godmode_onsoz.enjekte(yol, ONSOZ, isaret="ders-yuvasi", kuru=kuru, geri=geri)
 
 
 def istem(ajan, gorev):

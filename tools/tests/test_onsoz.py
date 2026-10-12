@@ -38,3 +38,15 @@ def test_blok_istem_onune(tmp_path, monkeypatch):
               "basarisizlik", "k1")
     metin, ids = onsoz.istem("kod", "proje klasöründe görev: fonksiyonu düzelt")
     assert ids and metin.startswith("İlgili dersler") and metin.endswith("fonksiyonu düzelt")
+
+
+def test_fable_godmode_blogu_ile_bagimsiz(tmp_path):
+    import godmode_onsoz
+    f = tmp_path / "ajan.md"
+    f.write_bytes(AJAN)
+    godmode_onsoz.enjekte(f, "FABLE protokolü")
+    assert onsoz.enjekte(f) is True
+    m = f.read_text(encoding="utf-8")
+    assert "<!-- godmode:basla -->" in m and "<!-- ders-yuvasi:basla -->" in m and "--ajan ajan " in m
+    assert len(onsoz.ONSOZ) // 4 <= 150  # ders yuvası statik blok; getir çıktısı ayrıca ≤300 jeton
+    assert onsoz.enjekte(f, geri=True) is True and "FABLE protokolü" in f.read_text(encoding="utf-8")
