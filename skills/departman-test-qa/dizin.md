@@ -1,4 +1,4 @@
-# departman-test-qa — skill dizini (100 skill; Grep ile ara, adı Skill aracıyla çağır)
+# departman-test-qa — skill dizini (112 skill; Grep ile ara, adı Skill aracıyla çağır)
 
 - accessibility-decisions:accessibility-testing-strategy — defining a testing approach, planning QA, setting up automated and manual testi…
 - agent-browser:dogfood — asked to "dogfood", "QA", "exploratory test", "find issues", "bug hunt", "test…
@@ -8,6 +8,19 @@
 - android-skills:android-profiler — asks to record or analyze Android performance data, such as system traces, heap…
 - android-skills:engage-sdk-integration — Helps developers integrate, debug, and resolve Play Engage SDK implementation
 - android-skills:testing-setup — Analyze and create a testing strategy for Android apps - install testing
+- anthropic-skills:application-security-testing — Application security testing (AppSec) across a whole product with Strix — decid…
+- anthropic-skills:gstack-benchmark — Performance regression detection
+- anthropic-skills:gstack-investigate — Systematic debugging with root cause investigation
+- anthropic-skills:gstack-ios-fix — Autonomous iOS bug fixer
+- anthropic-skills:gstack-ios-qa — Live-device iOS QA for SwiftUI apps
+- anthropic-skills:gstack-ios-sync — Regenerate the iOS debug bridge against the latest upstream gstack templates
+- anthropic-skills:gstack-qa — Systematically QA test a web application and fix bugs found
+- anthropic-skills:gstack-qa-only — Report-only QA testing
+- anthropic-skills:omni-combos-routing — Create and manage routing combos with 14 strategies (priority, weighted, round-…
+- anthropic-skills:omni-proxies — Configure HTTP/HTTPS/SOCKS proxies for upstream provider requests
+- anthropic-skills:omni-webhooks — Register, list, test, and remove webhook endpoints
+- anthropic-skills:playwright-cli — Automate browser interactions, test web pages and work with Playwright tests.
+- anthropic-skills:superpowers-tdd — implementing any feature or bugfix, before writing implementation code — write…
 - benchmark — Performance regression detection
 - build-game-camera-controls — isometric framing, follow behavior, orbit/zoom limits, occlusion, lock-on, came…
 - build-game-inventory — item schemas, pickup flows, stack rules, equipment slots, atomic swaps, save mi…
@@ -54,7 +67,6 @@
 - ecc:orch-fix-defect — existing behavior is broken or wrong.
 - ecc:orch-refine-code — the structure should improve but behavior must not change.
 - ecc:perl-testing — 日本語翻訳：このファイルは perl-testing 用の日本語翻訳が必要です
-- ecc:project-guidelines-example — Project-specific skill template covering architecture, patterns, testing, and d…
 - ecc:python-testing — writing or improving Python tests.
 - ecc:quarkus-tdd — Desarrollo guiado por pruebas para Quarkus 3.x LTS usando JUnit 5, Mockito, RES…
 - ecc:react-testing — writing or fixing tests for React components, hooks, or pages.

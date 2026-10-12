@@ -8,7 +8,7 @@ description: "Güvenlik müdürü: sır taraması, SAST, pentest, KVKK sırası.
 Katalog: `docs/departmanlar/guvenlik.md`. Frontend işinde `departman-frontend` adım 7'den çağrılır.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
-Skill dizini: bu klasördeki `dizin.md` — alandaki TÜM kurulu skill'ler (ad — ne zaman). Adımdaki araç işe tam uymuyorsa dizin.md'de Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.
+Skill dizini: bu klasörde `dizin.md` (Claude Code: alandaki TÜM kurulu skill'ler) ve `dizin-web.md` (claude.ai: yalnız yüklü olanlar) — ad — ne zaman. Adımdaki araç işe tam uymuyorsa ortamına uyan dizinde Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.
 
 ## Adımlar
 1. **Sır taraması** — her commit öncesi `gitleaks` (temiz değilse commit yok). Env değerleri asla yazdırılmaz.

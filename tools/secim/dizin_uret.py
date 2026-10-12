@@ -3,7 +3,8 @@ dizin.md (ad — ne zaman, ≤80 kr) yazar; SKILL.md'ye "dizinde Grep, adla ça�
 (Grep ile aranır), listeleme bütçesi değişmez. Yeni skill eklendikçe yeniden koş.
   python tools/secim/dizin_uret.py <init.json>
     → skills/departman-*/dizin.md (CC: canlı disk ~/.claude/skills + plugin'ler, kısa ad başına tek kayıt)
-    → dist/skill-secim-1/claude-ai/departman-*/dizin.md (claude.ai: init'teki anthropic-skills: adları)"""
+    → skills/departman-*/dizin-web.md (claude.ai: init'teki anthropic-skills: adları)
+    → dist/skill-secim-1/departman-*.zip (iki dizin birlikte; claude.ai'ye yüklenir, CC senkron kopyadan görür)"""
 import re
 import sys
 from pathlib import Path
@@ -11,8 +12,9 @@ from pathlib import Path
 KOK = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(KOK / "tools" / "butce"))
 
-SATIR = ("Skill dizini: bu klasördeki `dizin.md` — alandaki TÜM kurulu skill'ler (ad — ne zaman). Adımdaki araç işe tam uymuyorsa "
-         "dizin.md'de Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.")
+SATIR = ("Skill dizini: bu klasörde `dizin.md` (Claude Code: alandaki TÜM kurulu skill'ler) ve `dizin-web.md` (claude.ai: yalnız yüklü olanlar) "
+         "— ad — ne zaman. Adımdaki araç işe tam uymuyorsa ortamına uyan dizinde Grep ile işin anahtar kelimesini ara (Read etme), "
+         "bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir.")
 
 # ponytail: anahtar kelime puanı (ad ×3 + açıklama); yanlış dağılım görülürse kelime ekle, sınıflayıcı model gerekmez
 ALAN = {
@@ -102,6 +104,8 @@ def cc_skiller():
         if md not in gorulen:
             gorulen.add(md)
             out[ad] = on_bilgi(md)[1]
+    for md in sorted(Path.home().glob(".claude/skills/synced/*/*/SKILL.md")):  # claude.ai senkron kopyaları haritada yok
+        out.setdefault("anthropic-skills:" + md.parent.name, on_bilgi(md)[1])
     return out
 
 
@@ -112,16 +116,26 @@ def claude_ai_skiller(cc, oturum):
     return {a: yerel.get(a, "") for a in adlar}
 
 
-def yaz(hedef_kok, dagilim, skill_md=True):
+def yaz(kok, dagilim, dosya):
     for dep, kay in dagilim.items():
-        d = hedef_kok / f"departman-{dep}"
-        d.mkdir(parents=True, exist_ok=True)
-        (d / "dizin.md").write_bytes(dizin_md(dep, kay).encode("utf-8"))
-        sk = d / "SKILL.md"
-        if skill_md and sk.exists():
-            g = sk.read_text(encoding="utf-8")
-            if SATIR not in g:
-                sk.write_bytes(g.replace("\n## Adımlar", f"\n{SATIR}\n\n## Adımlar", 1).encode("utf-8"))
+        d = kok / "skills" / f"departman-{dep}"
+        (d / dosya).write_bytes(dizin_md(dep, kay).encode("utf-8"))
+        g = (d / "SKILL.md").read_text(encoding="utf-8")
+        if SATIR not in g:
+            (d / "SKILL.md").write_bytes(g.replace("\n## Adımlar", f"\n{SATIR}\n\n## Adımlar", 1).encode("utf-8"))
+
+
+def zipla(kok):
+    """claude.ai yüklemesi (CC de bu senkron kopyayı görür): dist/skill-secim-1/departman-<x>.zip, kök klasör = skill adı."""
+    import zipfile
+    cikti = kok / "dist" / "skill-secim-1"
+    cikti.mkdir(parents=True, exist_ok=True)
+    for d in sorted((kok / "skills").glob("departman-*")):
+        with zipfile.ZipFile(cikti / f"{d.name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
+            for f in sorted(d.rglob("*")):
+                if f.is_file():
+                    z.write(f, f"{d.name}/{f.relative_to(d).as_posix()}")
+    return cikti
 
 
 if __name__ == "__main__":
@@ -129,8 +143,8 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     oturum = set(json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))["skills"])
     cc = cc_skiller()
-    for hedef, sk, smd in ((KOK / "skills", tekille(cc, oturum), True),
-                           (KOK / "dist" / "skill-secim-1" / "claude-ai", claude_ai_skiller(cc, oturum), False)):
+    for dosya, sk in (("dizin.md", tekille(cc, oturum)), ("dizin-web.md", claude_ai_skiller(cc, oturum))):
         dg = dagit(sk)
-        yaz(hedef, dg, smd)
-        print(hedef.name, " ".join(f"{d}={len(k)}" for d, k in dg.items()), "toplam", sum(map(len, dg.values())))
+        yaz(KOK, dg, dosya)
+        print(dosya, " ".join(f"{d}={len(k)}" for d, k in dg.items()), "toplam", sum(map(len, dg.values())))
+    print(zipla(KOK))
