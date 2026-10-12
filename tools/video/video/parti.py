@@ -767,7 +767,8 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         kr0 = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
         up = (env or os.environ).get("VIDEO_UZUN_PARALEL")
         bs = bolum_sinir(pk[v]) if up in ("1", "2") and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
-        jtv = jt + "A" if len(bs) > 1 else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
+        sh = (env or os.environ).get("VIDEO_SHORT_HIZ") if pk[v].get("short") else None  # VİDEO-16: short'ta ortak önek (A) + --effort <sh>
+        jtv = jt + "A" if len(bs) > 1 or sh else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
         if len(bs) > 1 and up == "2":  # PARALEL-2: bölüm formu urller/kurulum_komutlar'ı boş geçmesin (Z); birincil model yalnız 1. bölümde (4 çağrı)
             jtv += "Z"
         parca = []
@@ -790,9 +791,9 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         with YAZ:
             butce = min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys))
 
-        def kol(mdl, kr, istem, v=v, butce=butce, jtv=jtv):
+        def kol(mdl, kr, istem, v=v, butce=butce, jtv=jtv, sh=sh):
             with CAGIR, asama(v, "model"):
-                return cagir(SISTEM, istem, jeton_sema(v, jtv, mdl), kareler=kr, model=mdl, butce=butce, env=env)
+                return cagir(SISTEM, istem, jeton_sema(v, jtv, mdl), kareler=kr, model=mdl, butce=butce, env=env, **({"efor": sh} if sh else {}))
         with ThreadPoolExecutor(len(modeller) * len(parca)) as ex:
             mb = [modeller if j == 0 or "Z" not in jtv else modeller[1:] for j in range(len(parca))]
             yys = [[ex.submit(kol, mdl, kr, istem) for mdl in ml] for ml, (kr, istem) in zip(mb, parca)]
