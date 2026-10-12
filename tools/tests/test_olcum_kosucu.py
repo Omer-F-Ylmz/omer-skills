@@ -223,7 +223,7 @@ def test_kos_mcp_hafif_bayrak_ve_strict_cagiran(monkeypatch):
 def test_kos_profil_model_butce_ve_usd_tavani(tmp_path, monkeypatch):
     cagri = []
 
-    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0):
+    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0, mcp=()):
         cagri.append((model, butce))
         return {"init": None, "metin": "", "usage": {}, "tur": 1, "sure": 0, "usd": 0.6, "araclar": [], "girdi": [], "hata": ""}
 
@@ -240,7 +240,7 @@ def test_kos_profil_devam_biten_satirlari_atlar(tmp_path, monkeypatch):
     # 19:04 düşen koşu: aynı komut --devam ile yalnız TSV'de olmayan (görev, tekrar) çiftlerini koşar
     cagri = []
 
-    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0):
+    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0, mcp=()):
         cagri.append(istem)
         return {"init": None, "metin": "", "usage": {}, "tur": 1, "sure": 0, "usd": 0.1, "araclar": [], "girdi": [], "hata": ""}
 
@@ -264,7 +264,9 @@ def test_is_olustur_bellek_tavani():
     kosucu.is_kapat(is_)
 
 
-def test_jev_doldur_kosu_sonu_toplu_ve_erisilemezse_regex_aynen(tmp_path):
+def test_jev_doldur_kosu_sonu_toplu_ve_erisilemezse_regex_aynen(tmp_path, monkeypatch):
+    import jev_yargic
+    monkeypatch.setattr(jev_yargic, "ONBELLEK", tmp_path / "ob.json")  # gerçek ~/.cache önbelleği "yanıt"ı tutabilir
     assert kosucu.BASLIK.endswith("\thata\tjev\tjev_guven")
     d = tmp_path / "2026-10-11-p"
     d.mkdir()
