@@ -5,3 +5,13 @@ ara-kutuphane-dokuman	eski	2	6	0.4391	369.3	114	2076	bash.exe:55,conhost.exe:33,
 bl-glb-disa-aktar	eski	1	10	0.3177	224.6	104	2730	bash.exe:39,conhost.exe:26,node.exe:16,python.exe:7,msedgewebview2.exe:6,dotnet.exe:2,cygpath.exe:1,uvx.exe:1
 qa-e2e-playwright	eski	1	10	0.4228	330.8	108	7096	bash.exe:37,conhost.exe:28,node.exe:18,python.exe:7,msedgewebview2.exe:6,codebase-memory-mcp.exe:2,dotnet.exe:2,sed.exe:1
 otm-tarayici-otomasyon	eski	1	10	0.7995	254.1	65	827	bash.exe:31,conhost.exe:16,node.exe:10,bun.exe:2,python.exe:2,dotnet.exe:2,mcp-server-git.exe:1,cmd.exe:1
+ara-kutuphane-dokuman	eski	1	6	0.6373	250.2	87	1131	bash.exe:35,conhost.exe:25,node.exe:15,python.exe:4,dotnet.exe:2,sh.exe:1,python3.exe:1,bun.exe:1
+db-migration-planlayici	eski	1	8	0.459	143.4	131	2716	bash.exe:53,conhost.exe:36,node.exe:19,python.exe:7,msedgewebview2.exe:6,codebase-memory-mcp.exe:2,dotnet.exe:2,uvx.exe:1
+fe-css-hata-bulucu	eski	1	8	0.6577	222.2	105	2683	bash.exe:33,conhost.exe:29,node.exe:18,python.exe:7,msedgewebview2.exe:6,codebase-memory-mcp.exe:2,dotnet.exe:2,sed.exe:1
+oyn-mod-onarim	eski	1	10	0.6377	168.0	89	1854	bash.exe:34,conhost.exe:25,node.exe:18,python.exe:4,dotnet.exe:2,bun.exe:1,sed.exe:1,codebase-memory-mcp.exe:1
+sec-docker-guvenlik	eski	1	10	0.2806	178.0	128	2226	bash.exe:63,conhost.exe:33,node.exe:20,python.exe:4,dotnet.exe:2,git.exe:1,bun.exe:1,codebase-memory-mcp.exe:1
+vrm-log-ozetleyici	eski	1	5	0.6162	163.6	197	7326	conhost.exe:54,bash.exe:49,node.exe:46,python.exe:14,cmd.exe:14,dotnet.exe:4,codebase-memory-mcp.exe:3,uvx.exe:2
+ajn-migrasyon-model	eski	1	10	0.6967	281.5	120	3253	bash.exe:37,conhost.exe:33,node.exe:29,cmd.exe:9,python.exe:4,dotnet.exe:2,readlink.exe:1,where.exe:1
+bl-isik-kurulumu	eski	2	10	0.7057	283.3	123	3384	bash.exe:36,conhost.exe:33,node.exe:28,cmd.exe:9,python.exe:6,dotnet.exe:2,sed.exe:1,python3.exe:1
+bl-glb-disa-aktar	eski	2	10	0.3052	231.6	118	3343	bash.exe:34,conhost.exe:32,node.exe:28,cmd.exe:9,python.exe:6,dotnet.exe:2,uvx.exe:1,uv.exe:1
+ajn-mcp-kurulum-denetci	eski	2	10	0.6305	234.9	152	3735	bash.exe:53,conhost.exe:39,node.exe:37,cmd.exe:7,python.exe:6,dotnet.exe:2,git.exe:1,uvx.exe:1

@@ -46,9 +46,13 @@ def torunlar(d, kok):
     cocuk = {}
     for pid, (pp, _, _) in d.items():
         cocuk.setdefault(pp, []).append(pid)
-    out, yigin = [], list(cocuk.get(kok, []))
+    # PID yeniden kullanımı ppid döngüsü kurar (ölü ebeveynin PID'i bir toruna verilir): görülen ve ben atlanır
+    out, yigin, gor = [], list(cocuk.get(kok, [])), {kok, os.getpid()}
     while yigin:
         p = yigin.pop()
+        if p in gor:
+            continue
+        gor.add(p)
         out.append(p)
         yigin += cocuk.get(p, [])
     return out
