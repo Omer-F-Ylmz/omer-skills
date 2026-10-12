@@ -32,6 +32,10 @@ class AnahtarYok(JevHata):
     pass
 
 
+class BaglantiHata(JevHata):
+    """Ağ kopuk (tekrarlar tükendi): çağıran duraklatıp öğeyi geri kuyruklayabilir."""
+
+
 def backend(env):
     if env.get("TYPESAFE_API_KEY"):
         return {"ad": "TYPESAFE", "url": "https://api.typesafe.ai/v1/systemone", "anahtar": env["TYPESAFE_API_KEY"]}
@@ -226,7 +230,7 @@ class Tasiyici:
                 if deneme < self.tekrar:  # 24e-1 K4: kopan bağlantı da tekrar denenir
                     self.uyu(_bekle({}, deneme))
                     continue
-                raise JevHata(f"{self.b['ad']}: bağlanılamadı") from None
+                raise BaglantiHata(f"{self.b['ad']}: bağlanılamadı") from None
             if status < 400:
                 return _json(yanit)
             if deneme < self.tekrar and (status in (408, 429) or status >= 500):
