@@ -1,0 +1,7 @@
+dok-teknik-teklif
+bl-uv-acma
+fe-navigasyon-tasarimci
+db-yedekleme-geri-yukleme
+dn-msbuild-hiz
+qa-test-iskelet-dotnet
+sec-sifreleme-denetci

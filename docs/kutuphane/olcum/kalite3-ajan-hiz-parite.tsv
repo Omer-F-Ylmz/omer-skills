@@ -1,0 +1,25 @@
+aile	ajan	kol	tur	model	puan	usd	jeton	alt_model	sure	alt_usd	jev	strict
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-arac-degerlendirme	ana	p	sonnet	10	0.2764	68109	claude-sonnet-5-5	303.5		6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-ajan-arac	ajn-claude-api-gelistirici	ana	p	sonnet	8	0.4614	176491	claude-sonnet-5-5	449.9		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-ajan-arac	ajn-claude-api-gelistirici	ajan	p	sonnet	8	0.5017	610867	claude-sonnet-5-5	597.6	0.3137	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\blender	bl-kamera-kompozisyon	ana	p	haiku	10	0.0127	68907	claude-haiku-5-5	263.0		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\blender	bl-kamera-kompozisyon	ajan	p	haiku	10	0.2814	232730	claude-haiku-5-5	415.8	0.007	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\veri-db	db-migration-planlayici	ana	p	opus	8	0.5588	68466	claude-opus-5-5	227.0		9.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-arac-degerlendirme	ajan	p	sonnet	10	0.2989	397227	claude-sonnet-5-5	535.4	0.1487	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\belge	dok-degisiklik-gunlugu	ajan	p	haiku	8	0.3057	348483	claude-haiku-5-5	463.6	0.0154	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\belge	dok-degisiklik-gunlugu	ana	p	haiku	8	0.0256	163112	claude-haiku-5-5	431.0		1.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-git-yayin	git-cakisma-cozucu	ana	p	sonnet	10	0.2477	65908	claude-sonnet-5-5	253.4		9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-git-yayin	git-cakisma-cozucu	ajan	p	sonnet	10	0.2328	464385	claude-sonnet-5-5	498.8	0.2175	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\veri-db	db-migration-planlayici	ajan	p	opus	hata	0.0	0	-	602.1	0		1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-ajan-arac	ajn-ajan-orkestrasyon	ana	p	opus	8	0.512	66748	claude-opus-5-5	312.1		8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-ajan-arac	ajn-hook-yazar	ana	p	sonnet	10	0.2568	67927	claude-sonnet-5-5	330.0		9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-kod-tabani-kesfi	ajan	p	haiku	10	0.282	231886	claude-haiku-5-5	488.2	0.0067	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-kod-tabani-kesfi	ana	p	haiku	10	0.0126	68384	claude-haiku-5-5	301.7		9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-ajan-arac	ajn-ajan-orkestrasyon	ajan	p	opus	hata	0.0	0	-	602.8	0		1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-makale-ozet	ana	p	haiku	10	0.0126	68291	claude-haiku-5-5	241.5		8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\surec-ajan-arac	ajn-hook-yazar	ajan	p	sonnet	hata	0.0	0	-	603.0	0		1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-repo-karsilastirma	ana	p	sonnet	10	0.2561	67836	claude-sonnet-5-5	235.3		8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-makale-ozet	ajan	p	haiku	10	0.4061	449567	claude-haiku-5-5	601.8	0.0153	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\blender	bl-geometri-dugumleri	ana	p	opus	10	0.503	66290	claude-opus-5-5	246.5		9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\arastirma-ogrenme	ara-repo-karsilastirma	ajan	p	sonnet	8	0.3696	500346	claude-sonnet-5-5	600.9	0.2243	7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\blender	bl-geometri-dugumleri	ajan	p	opus	10	0.2848	258563	claude-opus-5-5	367.6	0.259	9.2	1
