@@ -1,0 +1,5 @@
+zaman	aile	sira	kol	puan	gizli	tur	input	cache_creation	cache_read	output	usd	sure_sn	ders_ids	rc	notlar
+23:56:17	kod	2	dersli	1.0	0.5	8	10	80911	319158	1188	0.3994	88.1	194543,184c98	0	
+23:57:16	kod	3	dersli	0.25	0.0	1	0	0	0	0	0.0	38.6	194543,184c98	1	görünür test başarısız: basla_mi("Merhaba dünya", "merhaba") is True | gizli test başarısız: basla_mi("İSTANBUL", "ist") is True
+23:57:53	kod	4	dersli	0.0	0.0	1	0	0	0	0	0.0	18.4	00f6df,46c59b	1	görünür test başarısız: sirala(["b", "A", "c"]) == ["A", "b", "c"] | gizli test başarısız: sirala(["Işık", "ilaç", "İnek"]) == ["ilaç", "İnek", "Işık"]
+23:58:13	kod	5	dersli	0.0	0.0	1	0	0	0	0	0.0	20.0	077d9e,194543	1	görünür test başarısız: esit_mi(" Elma", "elma ") is True | gizli test başarısız: esit_mi("KIRMIZI", "kırmızı") is True

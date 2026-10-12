@@ -178,20 +178,23 @@ def kuru():
     print("kuru: 15 görev · yargıç başlangıç < 1, örnek çözüm = 1")
 
 
-def v2(tohum, aile):
+def v2(tohum, aile, ad="v2"):
     """d5: getir ≤2 ders/≤120 jeton + görev metniyle eşleşme + yeni damıtma. Taban = ab.tsv derssiz satırları (görevler deterministik);
     yalnız dersli kol, görev 2..5. d6: aile başına ayrı süreç/banka/TSV (paralel); tohum yalnız v1'in 1. görev dersleri (sonraki
-    görevlerin dersleri aynı görevi önceden görmek olurdu), gerisini v2 kendi damıtır."""
-    banka = KOK / ".kos" / "ogrenme-ab" / (f"v2-{aile}-" + time.strftime("%Y%m%d-%H%M%S"))
+    görevlerin dersleri aynı görevi önceden görmek olurdu), gerisini v2 kendi damıtır.
+    d7 (v3): v1 → v2 arasında sistem istemi ~+15k cache_creation büyüdü (20:28 KALİTE-3 yayılımı) → v1 derssiz taban geçersiz;
+    v3 derssiz kolu aynı süreçte, aynı anda koşar."""
+    kollar, tavan = (("derssiz", "dersli"), (12, 3.6)) if ad == "v3" else (("dersli",), (8, 2.5))
+    banka = KOK / ".kos" / "ogrenme-ab" / (f"{ad}-{aile}-" + time.strftime("%Y%m%d-%H%M%S"))
     os.environ["OGRENME_DIZIN"] = str(banka)
     for x in (json.loads(s) for s in (Path(tohum) / "dersler.jsonl").read_text(encoding="utf-8").splitlines() if s.strip()):
         m = re.match(r"ab-(kod|rapor|video)(\d)", x["kaynaklar"][0])
         if x["durum"] == "aktif" and m and m[1] == aile and m[2] == "0":
             with tempfile.TemporaryDirectory() as d:
                 ders.ekle(x["ajan"], x["baslik"], x["kosul"], x["icerik"], x["tur"], x["kaynaklar"][0], x["kanit"], kur(m[1], int(m[2]), d))
-    print(time.strftime("%H:%M:%S"), f"v2 tohum: {len(ders.oku())} ders ({banka})", flush=True)
-    main((banka, 0, 0), aileler=(aile,), siralar=range(1, 5), kollar=("dersli",), tsv=TSV.with_name(f"ruflo-1-ab-v2-{aile}.tsv"),
-         tavan=(8, 2.5))
+    print(time.strftime("%H:%M:%S"), f"{ad} tohum: {len(ders.oku())} ders ({banka})", flush=True)
+    main((banka, 0, 0), aileler=(aile,), siralar=range(1, 5), kollar=kollar, tsv=TSV.with_name(f"ruflo-1-ab-{ad}-{aile}.tsv"),
+         tavan=tavan)
 
 
 def main(devam=None, aileler=("kod", "rapor", "video"), siralar=range(5), kollar=("derssiz", "dersli"), tsv=TSV,
@@ -246,7 +249,8 @@ def main(devam=None, aileler=("kod", "rapor", "video"), siralar=range(5), kollar
 if __name__ == "__main__":
     if "--kuru" in sys.argv:
         kuru()
-    elif "--v2" in sys.argv:
-        v2(*sys.argv[sys.argv.index("--v2") + 1:][:2])
+    elif "--v2" in sys.argv or "--v3" in sys.argv:
+        ad = "v3" if "--v3" in sys.argv else "v2"
+        v2(*sys.argv[sys.argv.index("--" + ad) + 1:][:2], ad=ad)
     else:
         main(sys.argv[sys.argv.index("--devam") + 1:][:3] if "--devam" in sys.argv else None)

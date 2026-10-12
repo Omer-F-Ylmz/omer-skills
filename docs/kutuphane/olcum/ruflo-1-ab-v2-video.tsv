@@ -1,0 +1,5 @@
+zaman	aile	sira	kol	puan	gizli	tur	input	cache_creation	cache_read	output	usd	sure_sn	ders_ids	rc	notlar
+23:56:22	video	2	dersli	1.0	0.5	6	10	80204	316921	862	0.3928	92.8	47c06f,98533d	0	
+23:57:16	video	3	dersli	0.0	0.0	1	0	0	0	0	0.0	33.9	47c06f,98533d	1	etiket.json yok ya da JSON değil
+23:57:52	video	4	dersli	0.0	0.0	1	0	0	0	0	0.0	18.2	b54abe,360262	1	etiket.json yok ya da JSON değil
+23:58:10	video	5	dersli	0.0	0.0	1	0	0	0	0	0.0	17.7	47c06f,32aaf0	1	etiket.json yok ya da JSON değil
