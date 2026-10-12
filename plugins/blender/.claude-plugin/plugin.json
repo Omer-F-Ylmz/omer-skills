@@ -1,0 +1,15 @@
+{
+  "name": "blender",
+  "version": "1.0.0",
+  "description": "Blender skills for Claude Code (local tool paths): blender-oturum session/tool routing and blender-uretim production pipeline (brief, measurements, scene as code, render checks).",
+  "author": {
+    "name": "Ömer Faruk Yılmaz"
+  },
+  "repository": "https://github.com/Omer-F-Ylmz/omer-skills",
+  "keywords": [
+    "blender",
+    "bpy",
+    "3d",
+    "render"
+  ]
+}

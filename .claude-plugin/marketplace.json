@@ -10,6 +10,12 @@
       "source": "./plugins/frontend-craft",
       "version": "1.5.7",
       "category": "development"
+    },
+    {
+      "name": "blender",
+      "source": "./plugins/blender",
+      "version": "1.0.0",
+      "category": "development"
     }
   ]
 }
