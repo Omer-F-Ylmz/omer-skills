@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parçacık akışı — Three.js hero</title>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js" } }</script>
+<script type="module">
+/* ============================ AYAR ============================
+   sayi   : parçacık sayısı (hardwareConcurrency ≤ 4 ise yarıya iner)
+   renkA/B: akış boyunca geçilen iki renk; arka: zemin rengi
+   hiz    : akış hızı (1 = sakin)      cekim: fare/dokunma çekim gücü (0 = kapalı)
+   boyut  : nokta boyutu (px, dpr ile ölçeklenir)      metin: hero başlık/alt/cta (blok JSON'dur, uyarla.py okur)
+   Nasıl uyarlanır:
+   1) Logo/metin şekli: canvas'a metni çiz, getImageData'dan dolu pikselleri örnekle, `aHedef` attribute'u ekle; shader'da p = mix(p, aHedef, uSekil).
+   2) Marka renkleri için yalnız renkA/renkB/arka'yı değiştir; parlaklık fazlaysa boyut ya da fragment'teki 0.9 çarpanını düşür.
+   3) Hero değil de bölüm arka planıysa canvas'ı `position:absolute` yap, boyutu kapsayıcının clientWidth/Height'ından al.
+   ============================================================== */
+const AYAR = {
+  "sayi": 20000, "renkA": "#5b8cff", "renkB": "#ff5fa2", "arka": "#07080d", "hiz": 1, "cekim": 0.9, "boyut": 4.5,
+  "metin": {"baslik": "Akışta kal.", "alt": "Yirmi bin parçacık, tamamı GPU'da hareket ediyor. İmleci gezdir; akış sana doğru eğilsin.", "cta": "Başla"}
+};
+/* ===== AYAR SONU ===== */
+for (const [s, k] of [['h1', 'baslik'], ['.hero p', 'alt'], ['.hero a', 'cta']]) document.querySelector(s).textContent = AYAR.metin[k];
+
+import * as THREE from 'three';
+
+const azGuc = (navigator.hardwareConcurrency || 8) <= 4;
+const N = azGuc ? AYAR.sayi >> 1 : AYAR.sayi;
+const durgun = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(AYAR.arka);
+renderer.domElement.className = 'sahne';
+document.body.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 50);
+camera.position.z = 7;
+
+// Başlangıç konumları + parçacık başına rastgele tohum; bir kez yüklenir, sonra yalnız uniform değişir.
+const konum = new Float32Array(N * 3), tohum = new Float32Array(N);
+for (let i = 0; i < N; i++) {
+  konum[i * 3] = (Math.random() * 2 - 1) * 7;
+  konum[i * 3 + 1] = (Math.random() + Math.random() - 1) * 5;   // ortada yoğun bant
+  konum[i * 3 + 2] = (Math.random() * 2 - 1) * 2;
+  tohum[i] = Math.random();
+}
+const geo = new THREE.BufferGeometry();
+geo.setAttribute('position', new THREE.BufferAttribute(konum, 3));
+geo.setAttribute('aTohum', new THREE.BufferAttribute(tohum, 1));
+
+const u = {
+  uZaman: { value: 0 }, uBoyut: { value: AYAR.boyut * renderer.getPixelRatio() },
+  uFare: { value: new THREE.Vector3() }, uCekim: { value: 0 },
+  uRenkA: { value: new THREE.Color(AYAR.renkA) }, uRenkB: { value: new THREE.Color(AYAR.renkB) },
+};
+
+const mat = new THREE.ShaderMaterial({
+  uniforms: u, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+  vertexShader: /* glsl */`
+    uniform float uZaman, uBoyut, uCekim;
+    uniform vec3 uFare, uRenkA, uRenkB;
+    attribute float aTohum;
+    varying vec3 vRenk;
+    varying float vParlak;
+    // Ucuz akış alanı: iç içe sinüsler (curl benzeri girdap), gürültü dokusu yok.
+    vec3 akis(vec3 p, float t) {
+      return vec3(sin(p.y * 1.1 + t) + sin(p.z * 1.7 - t * 0.6),
+                  sin(p.z * 1.3 + t * 0.8) + sin(p.x * 0.7 - t * 0.5),
+                  sin(p.x * 1.2 + t * 0.4));
+    }
+    void main() {
+      float t = uZaman;
+      vec3 p = position;
+      p.x = mod(p.x + t * (0.25 + aTohum * 0.35) + 7.0, 14.0) - 7.0;   // sağa sürüklen, kenarda sar
+      p += akis(p * 0.45, t * 0.5) * 1.1;
+      p += akis(p * 1.1 + 3.0, t * 0.8) * 0.18;
+      vec3 d = uFare - p;
+      p += d * uCekim * exp(-dot(d.xy, d.xy) * 0.35) * 0.6;           // fareye yumuşak çekim
+      vec4 mv = modelViewMatrix * vec4(p, 1.0);
+      gl_Position = projectionMatrix * mv;
+      gl_PointSize = uBoyut * (0.6 + aTohum) * (7.0 / -mv.z);
+      vRenk = mix(uRenkA, uRenkB, 0.5 + 0.5 * sin(p.x * 0.35 + p.y * 0.25 + t * 0.3));
+      vParlak = 0.35 + 0.65 * aTohum;
+    }`,
+  fragmentShader: /* glsl */`
+    varying vec3 vRenk;
+    varying float vParlak;
+    void main() {
+      float a = 1.0 - smoothstep(0.0, 0.5, length(gl_PointCoord - 0.5));
+      gl_FragColor = vec4(vRenk, a * a * vParlak * 0.9);
+    }`,
+});
+scene.add(new THREE.Points(geo, mat));
+
+// Fare/dokunma: imleci z=0 düzlemine iz düşür; çekim gücü yumuşakça hedefe yaklaşır.
+let cekimHedef = 0;
+const ndc = new THREE.Vector3();
+addEventListener('pointermove', e => {
+  ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1, 0.5).unproject(camera).sub(camera.position).normalize();
+  u.uFare.value.copy(camera.position).addScaledVector(ndc, -camera.position.z / ndc.z);
+  cekimHedef = AYAR.cekim;
+}, { passive: true });
+const birak = e => { if (e.type !== 'pointerup' || e.pointerType !== 'mouse') cekimHedef = 0; };   // parmak kalkınca / imleç çıkınca
+for (const ad of ['pointerup', 'pointercancel']) addEventListener(ad, birak);
+document.documentElement.addEventListener('pointerleave', birak);
+
+function boyutla() {
+  renderer.setSize(innerWidth, innerHeight);
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  if (!dongu) renderer.render(scene, camera);
+}
+
+const saat = new THREE.Timer();
+let dongu = false;
+function kare(ms) {
+  saat.update(ms);
+  const dt = Math.min(saat.getDelta(), 0.05);                         // sekme dönüşünde sıçrama yok
+  u.uZaman.value += dt * AYAR.hiz;
+  u.uCekim.value += (cekimHedef - u.uCekim.value) * Math.min(dt * 4, 1);
+  renderer.render(scene, camera);
+}
+function baslat() { if (!durgun && !dongu) { dongu = true; saat.reset(); renderer.setAnimationLoop(kare); } }
+function durdur() { dongu = false; renderer.setAnimationLoop(null); }
+
+addEventListener('resize', boyutla);
+document.addEventListener('visibilitychange', () => document.hidden ? durdur() : baslat());
+
+u.uZaman.value = 12;                     // statik karede de akış oturmuş görünsün
+boyutla();                               // reduced-motion: bu tek kare kalır
+baslat();
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #07080d; color: #eef0ff; }
+  body { font-family: ui-sans-serif, system-ui, "Segoe UI", sans-serif; overflow: hidden; }
+  .sahne { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; touch-action: none; }
+  .hero { position: relative; z-index: 1; min-height: 100%; display: grid; place-content: center; text-align: center;
+          padding: 0 6vw; justify-items: center; pointer-events: none; }
+  .hero h1 { margin: 0; font-size: clamp(2.4rem, 7vw, 5.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+             text-shadow: 0 2px 30px rgba(7, 8, 13, .9); }
+  .hero p { margin: 1.2rem auto 0; max-width: 34ch; font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.5;
+            color: #c4c9e4; text-shadow: 0 1px 16px rgba(7, 8, 13, .95); }
+  .hero a { pointer-events: auto; display: inline-block; margin-top: 2rem; padding: .8rem 1.6rem; border-radius: 999px;
+            color: #07080d; background: #eef0ff; text-decoration: none; font-weight: 600; }
+  .hero a:focus-visible { outline: 2px solid #ff5fa2; outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <main class="hero">
+    <h1>Akışta kal.</h1>
+    <p>Yirmi bin parçacık, tamamı GPU'da hareket ediyor. İmleci gezdir; akış sana doğru eğilsin.</p>
+    <a href="#">Başla</a>
+  </main>
+</body>
+</html>

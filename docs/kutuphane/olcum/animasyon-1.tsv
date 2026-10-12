@@ -1,0 +1,20 @@
+gorev	yol	tekrar	input	cache_creation	cache_read	output	toplam	tur	sure_sn	usd	kalite	kalan	skill	hata
+w1	taban	1	6	85618	168559	4924	259107	4	416.8	0.4254	1.0	-	Skill:frontend-craft:frontend-craft	-
+w2	taban	1	8	87578	257189	8650	353425	5	602.7	0.4883	1.0	-	Skill:frontend-craft:frontend-craft	-
+b1	taban	1	14	79945	495091	5590	580640	9	1125.3	0.4747	1.0	-	Skill:anthropic-skills:blender-uretim	-
+v1	taban	1	10	75177	315750	2711	393648	6	781.9	0.391	1.0	-	-	-
+w1	taban	2	6	85944	168400	5342	259692	4	399.7	0.4309	1.0	-	Skill:frontend-craft:frontend-craft	-
+w2	taban	2	8	88011	261228	7377	356624	5	377.1	0.4781	1.0	-	Skill:frontend-craft:frontend-craft	-
+b1	taban	2	12	80073	408118	4744	492947	8	659.3	0.4494	1.0	-	Skill:anthropic-skills:blender-uretim	-
+v1	taban	2	16	75768	544094	3837	623715	9	893.1	0.4503	1.0	-	-	-
+w1	yeni0	1	8	88139	261267	6308	355722	5	141.7	0.4679	1.0	-	Skill:frontend-craft:frontend-craft	-
+w1	yeni	1	8763	88796	442049	2622	542230	13	474.0	0.5164	1.0	-	Skill:animasyon-atolyesi,Skill:frontend-craft:frontend-craft	SessionEnd hook [node "${CLAUDE_PLUGIN_ROOT}/scripts/session-lifecycle-hook.mjs" SessionEnd] failed: Hook cancelled
+w2	yeni	1	16	76837	569121	2065	648039	9	320.5	0.4419	1.0	-	Skill:animasyon-atolyesi	-
+b1	yeni	1	9244	82714	410903	1818	504679	9	281.3	0.4497	1.0	-	Skill:animasyon-atolyesi,Skill:anthropic-skills:blender-uretim	-
+v1	yeni	1	10	76259	321213	1088	398570	6	216.0	0.3802	1.0	-	Skill:animasyon-atolyesi	-
+w1	yeni2	1	10	76362	321893	2264	400529	6	268.8	0.3925	0.857	hareket	Skill:animasyon-atolyesi	-
+w2	yeni2	1	8	75164	240918	1268	317358	5	218.1	0.3615	1.0	-	Skill:animasyon-atolyesi	-
+b1	yeni2	1	8	75579	241957	1274	318818	5	229.8	0.3635	1.0	-	Skill:animasyon-atolyesi	-
+v1	yeni2	1	6	74911	162420	723	238060	4	221.6	0.3394	1.0	-	Skill:animasyon-atolyesi	-
+w1	yeni3	1	8	94956	281077	2178	378219	7	144.1	0.4578	1.0	-	Skill:animasyon-atolyesi,Skill:frontend-craft:frontend-craft	-
+w2	yeni3	1	6	79084	167890	987	247967	4	132.6	0.3598	1.0	-	Skill:animasyon-atolyesi	-

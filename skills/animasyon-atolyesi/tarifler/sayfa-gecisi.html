@@ -1,0 +1,150 @@
+<!doctype html>
+<!--
+  Tarif: View Transitions API ile aynı belge içinde liste ↔ detay geçişi; paylaşılan öğe (görsel + başlık) morflanır. Sıfır bağımlılık.
+  Nasıl uyarlanır:
+  1. Yalnız aşağıdaki AYAR bloğunu değiştir (renk, süre, gecikme, eğri, metinler, kartlar); CSS/JS gövdesine dokunma.
+  2. Kart sayısı AYAR.kartlar uzunluğudur; her kartta ad, ozet, metin ve iki renkli degrade (renk: [a, b]) bulunur.
+  3. API'siz tarayıcıda geçiş anında DOM değişimidir; hareketi azalt açıkken morf kapanır, içerik yine değişir.
+-->
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sayfa geçişi tarifi</title>
+<script>
+/* ===== AYAR — uyarlayan ajan yalnız bu bloğu değiştirir ===== */
+/* sure: morf süresi · gecikme: açılışta kartların kademe aralığı · egri: ease-out. Blok JSON'dur (uyarla.py okur). */
+const AYAR = {
+  "renk": {"zemin": "#f3f1ec", "murekkep": "#191816", "soluk": "#6f6a62", "yuzey": "#ffffff", "vurgu": "#2f5d50"},
+  "sure": "550ms",
+  "gecikme": "70ms",
+  "egri": "cubic-bezier(.2, .8, .2, 1)",
+  "metin": {"baslik": "Koleksiyon", "alt": "Bir karta dokunun; aynı görsel detay sayfasına dönüşsün.", "geri": "← Listeye dön"},
+  "kartlar": [
+    {"ad": "Kıyı", "ozet": "Tuz, rüzgâr, ışık.", "renk": ["#f2b880", "#c0532b"], "metin": "Sabahın ilk ışığında kıyı şeridi; dalgaların bıraktığı çizgiler, kumda kuruyan tuz ve uzakta tek bir yelken."},
+    {"ad": "Bozkır", "ozet": "Uçsuz, sarı, sessiz.", "renk": ["#e8d38a", "#9a7b2f"], "metin": "Ufka kadar uzanan sarı otlar; öğle sıcağında titreyen hava ve tek bir ağacın gölgesi."},
+    {"ad": "Orman", "ozet": "Yosun ve reçine.", "renk": ["#8fbf9a", "#2f5d50"], "metin": "Yağmurdan sonra reçine kokusu; yosunlu taşlar, eğrelti otları ve dallardan süzülen yeşil ışık."},
+    {"ad": "Gece", "ozet": "Mürekkep mavisi.", "renk": ["#6f7fd1", "#1d2350"], "metin": "Şehrin ışıkları sönerken beliren yıldızlar; soğuk hava ve uzaktan gelen bir trenin sesi."},
+    {"ad": "Kum", "ozet": "Sıcak, yumuşak, ince.", "renk": ["#f1d2b6", "#b07a5a"], "metin": "Rüzgârın her gün yeniden çizdiği tepeler; akşamüstü uzayan gölgeler ve ayak izleri."},
+    {"ad": "Buz", "ozet": "Berrak ve keskin.", "renk": ["#cfe8f3", "#5d8fb0"], "metin": "Gölün donmuş yüzeyinde çatlak desenleri; nefesin buğusu ve kar altında kaybolan sesler."}
+  ]
+};
+/* ===== AYAR SONU ===== */
+const kok = document.documentElement.style;
+for (const [ad, deger] of Object.entries(AYAR.renk)) kok.setProperty('--' + ad, deger);
+const ms = v => typeof v === 'number' ? v + 'ms' : v; // "sure": 600 de geçerli (birimsiz CSS süresi animasyonu düşürür)
+kok.setProperty('--sure', ms(AYAR.sure)); kok.setProperty('--gecikme', ms(AYAR.gecikme)); kok.setProperty('--egri', AYAR.egri);
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body {
+    margin: 0; min-height: 100svh; background: var(--zemin); color: var(--murekkep);
+    font: 400 1rem/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .kart-ad { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-weight: 600; letter-spacing: -.015em; }
+  main { max-width: 72rem; margin: 0 auto; padding: clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem); }
+  [hidden] { display: none !important; }
+
+  /* Liste */
+  #liste header { margin-bottom: 2rem; }
+  #liste h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.05; margin: 0 0 .35rem; }
+  #liste header p { color: var(--soluk); margin: 0; }
+  .izgara { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.25rem; }
+  .kart {
+    all: unset; box-sizing: border-box; display: grid; gap: .2rem; width: 100%; cursor: pointer;
+    padding: .75rem .75rem 1rem; border-radius: 1.25rem; background: var(--yuzey);
+    box-shadow: 0 1px 0 rgb(0 0 0 / .04), 0 18px 36px -24px rgb(30 25 20 / .35);
+    transition: transform .25s var(--egri), box-shadow .25s var(--egri);
+  }
+  .kart:hover { transform: translateY(-3px); }
+  .kart:focus-visible, .geri:focus-visible { outline: 3px solid var(--vurgu); outline-offset: 3px; }
+  .gorsel, .detay-gorsel {
+    display: block; aspect-ratio: 4 / 3; border-radius: .85rem;
+    background: radial-gradient(circle at 28% 22%, rgb(255 255 255 / .38), transparent 55%), linear-gradient(135deg, var(--a), var(--b));
+  }
+  .gorsel { margin-bottom: .6rem; }
+  .kart-ad { font-size: 1.3rem; line-height: 1.2; justify-self: start; }
+  .kart-ozet { color: var(--soluk); font-size: .92rem; }
+
+  /* İlk açılış: kademeli giriş (yalnız transform + opacity) */
+  .ilk li { animation: giris var(--sure) var(--egri) both; animation-delay: calc(var(--i, 0) * var(--gecikme)); }
+  @keyframes giris { from { opacity: 0; transform: translateY(1rem) scale(.98); } }
+
+  /* Detay */
+  #detay { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+  .geri {
+    grid-column: 1 / -1; justify-self: start; font: inherit; font-weight: 600; cursor: pointer;
+    padding: .55em 1.1em; border: 0; border-radius: 999px; background: var(--murekkep); color: var(--zemin);
+  }
+  .detay-gorsel { border-radius: 1.5rem; view-transition-name: gorsel; }
+  .detay-baslik { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; margin: 0 0 1rem; justify-self: start; width: fit-content; view-transition-name: baslik; }
+  .detay-metin { color: var(--soluk); font-size: 1.15rem; max-width: 36ch; margin: 0; animation: giris var(--sure) var(--egri) both; animation-delay: calc(var(--sure) / 2); }
+  @media (max-width: 44rem) { #detay { grid-template-columns: 1fr; } }
+
+  /* View Transitions: morf süresi/eğrisi */
+  ::view-transition-group(*) { animation-duration: var(--sure); animation-timing-function: var(--egri); }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <section id="liste">
+    <header><h1 data-m="baslik"></h1><p data-m="alt"></p></header>
+    <ul class="izgara ilk"></ul>
+  </section>
+  <section id="detay" hidden>
+    <button class="geri" type="button" data-m="geri"></button>
+    <div class="detay-gorsel" role="img"></div>
+    <div><h2 class="detay-baslik"></h2><p class="detay-metin"></p></div>
+  </section>
+</main>
+<script>
+const M = AYAR.metin, $ = s => document.querySelector(s);
+document.querySelectorAll('[data-m]').forEach(e => e.textContent = M[e.dataset.m]);
+const liste = $('#liste'), detay = $('#detay'), izgara = $('.izgara'), dg = $('.detay-gorsel');
+izgara.innerHTML = AYAR.kartlar.map((k, i) => `<li style="--i:${i}"><button class="kart" type="button" data-i="${i}">
+  <span class="gorsel" style="--a:${k.renk[0]};--b:${k.renk[1]}"></span>
+  <span class="kart-ad">${k.ad}</span><span class="kart-ozet">${k.ozet}</span></button></li>`).join('');
+
+const kart = i => izgara.querySelectorAll('.kart')[i];
+// Paylaşılan öğe adları aynı anda yalnız bir yerde bulunmalı: tıklanan kartta ya da detayda.
+const adla = (i, on) => {
+  kart(i).querySelector('.gorsel').style.viewTransitionName = on ? 'gorsel' : '';
+  kart(i).querySelector('.kart-ad').style.viewTransitionName = on ? 'baslik' : '';
+};
+// API yoksa doğrudan DOM değişimi
+const gecis = f => document.startViewTransition ? document.startViewTransition(f).finished : Promise.resolve(f());
+let aktif = -1;
+
+izgara.addEventListener('click', e => {
+  const b = e.target.closest('.kart');
+  if (!b) return;
+  aktif = +b.dataset.i;
+  const k = AYAR.kartlar[aktif];
+  izgara.classList.remove('ilk');
+  adla(aktif, true);
+  gecis(() => {
+    adla(aktif, false);
+    dg.style.setProperty('--a', k.renk[0]); dg.style.setProperty('--b', k.renk[1]); dg.ariaLabel = k.ad;
+    $('.detay-baslik').textContent = k.ad; $('.detay-metin').textContent = k.metin;
+    liste.hidden = true; detay.hidden = false; $('.geri').focus();
+  });
+});
+$('.geri').addEventListener('click', () => gecis(() => {
+  detay.hidden = true; liste.hidden = false; adla(aktif, true); kart(aktif).focus();
+}).then(() => adla(aktif, false)));
+</script>
+</body>
+</html>
+<!--
+  Çok sayfalı (MPA) kullanım: liste ve detay ayrı HTML dosyalarıysa JS gerekmez. İki sayfanın CSS'ine de
+    @view-transition { navigation: auto; }
+  ekleyin ve paylaşılan öğelere iki sayfada aynı view-transition-name verin (ör. liste sayfasında yalnız tıklanan kartın
+  görseline, detay sayfasında .detay-gorsel'e "gorsel"). Yalnız aynı kökenli gezinmelerde çalışır; hareketi azalt kuralı aynen kalır.
+-->
