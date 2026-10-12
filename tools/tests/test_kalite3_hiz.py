@@ -1,0 +1,108 @@
+import sys
+from collections import deque
+from pathlib import Path
+
+import pytest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import kalite3_hiz as kh  # noqa: E402
+
+AD = "deneme-ajan"
+MD = f"---\nname: {AD}\ndescription: d\ntools: Read\n---\ngövde\n"
+
+
+def o(metin):
+    return {"metin": metin, "usd": 0.01, "sure": 1, "model": {}}
+
+
+@pytest.fixture
+def ortam(tmp_path, monkeypatch):
+    monkeypatch.setattr(kh, "TSV", tmp_path / "hiz.tsv")
+    monkeypatch.setattr(kh, "IS", tmp_path / "is")
+    monkeypatch.setattr(kh, "DUR", tmp_path / "olcum.dur")
+    monkeypatch.setitem(kh.gorev, AD, {"istem": "soru", "rubrik": [{"regex": "(?i)x", "puan": 1}], "model": "sonnet"})
+    (tmp_path / "is").mkdir()
+    yol = tmp_path / f"{AD}.md"
+    yol.write_text(MD, encoding="utf-8")
+    return yol
+
+
+def test_es_tavani_6():
+    assert kh.ES_TAVAN == 6
+
+
+def test_api_hatasi_olcum_sayilmaz(ortam, monkeypatch):
+    monkeypatch.setattr(kh.cagri, "dene", lambda *a, **k: o("API Error: 502 getaddrinfo failed"))
+    with pytest.raises(kh.Gecici):
+        kh.olc(AD, "ana", 0, ortam, "sonnet", ortam.parent)
+    assert not kh.TSV.exists()
+
+
+def test_jev_istisnasi_olcum_sayilmaz(ortam, monkeypatch):
+    monkeypatch.setattr(kh.cagri, "dene", lambda *a, **k: o("x yanıt"))
+
+    def bozuk(*a):
+        raise RuntimeError("OPENROUTER: bağlanılamadı")
+    monkeypatch.setattr(kh, "jev", bozuk)
+    with pytest.raises(kh.Gecici, match="Jev"):
+        kh.olc(AD, "ana", 0, ortam, "sonnet", ortam.parent)
+    assert not kh.TSV.exists()
+
+
+def test_gecici_kuyruga_doner_3_ardisikta_durur(ortam, monkeypatch):
+    def gecici(*a):
+        raise kh.Gecici("API Error: 502")
+    monkeypatch.setattr(kh, "olc", gecici)
+    k = kh.Kosu.__new__(kh.Kosu)
+    k.q, k.calisan, k.ardisik = deque(), 3, 0
+    for i in range(3):
+        k.isle(AD, i, ortam, "sonnet", ortam.parent, None)
+        assert kh.DUR.exists() == (i == 2)
+    assert [x[1] for x in k.q] == [2, 1, 0] and k.calisan == 0
+
+
+def test_onarilan_tanim_geri_donerse_yeniden_onarilmaz(ortam, monkeypatch):
+    yeni = ortam.parent / "yeni.md"
+    yeni.write_text(MD, encoding="utf-8")
+    monkeypatch.setattr(kh, "onar", lambda *a: yeni)
+    monkeypatch.setattr(kh, "olc", lambda *a: (_ for _ in ()).throw(kh.Gecici("Jev")))
+    k = kh.Kosu.__new__(kh.Kosu)
+    k.q, k.calisan, k.ardisik = deque(), 1, 0
+    k.isle(AD, 1, ortam, "sonnet", ortam.parent, ("neden", "yanıt"))
+    assert k.q[0][2] == yeni and k.q[0][5] is None
+
+
+def test_onarim_bicim_eslesmezse_bir_kez_hatirlatir(ortam, monkeypatch):
+    yanit = iter([o("İşte tanım:\n" + MD), o(f"<<<AJAN\n{MD}AJAN>>>")])
+    istemler = []
+    monkeypatch.setattr(kh.cagri, "kos", lambda e, istem, *a, **k: istemler.append(istem) or next(yanit))
+    y = kh.onar(AD, 1, ortam, "neden", "yanıt")
+    assert y and kh.mo.tanim(y, "x")[0] == AD
+    assert len(istemler) == 2 and "<<<AJAN" in istemler[1].split("Current definition:")[-1]
+
+
+def test_onarim_bicim_iki_kez_bozuksa_none(ortam, monkeypatch):
+    istemler = []
+    monkeypatch.setattr(kh.cagri, "kos", lambda e, istem, *a, **k: istemler.append(istem) or o("biçimsiz"))
+    assert kh.onar(AD, 1, ortam, "neden", "yanıt") is None and len(istemler) == 2
+
+
+def test_onarim_api_hatasi_gecici(ortam, monkeypatch):
+    monkeypatch.setattr(kh.cagri, "kos", lambda *a, **k: o("API Error: 502"))
+    with pytest.raises(kh.Gecici):
+        kh.onar(AD, 1, ortam, "neden", "yanıt")
+
+
+def test_devam_yarim_ajani_sonraki_tura_alir(ortam, monkeypatch):
+    monkeypatch.setattr(kh, "sira", lambda: [(ortam.parent, AD)])
+    s = dict.fromkeys(kh.ALAN, "")
+    s.update(aile=str(ortam.parent), ajan=AD, kol="ajan", tur="0", model="sonnet", puan="1.0", usd="0.01", jev="4.0", strict="1")
+    with kh.TSV.open("w", encoding="utf-8", newline="\n") as f:
+        f.write("\t".join(kh.ALAN) + "\n" + "\t".join(str(s[a]) for a in kh.ALAN) + "\n")
+    (kh.IS / "yanit").mkdir()
+    (kh.IS / "yanit" / f"{AD}-ajan-t0.md").write_text("eski yanıt", encoding="utf-8")
+    k = kh.Kosu.__new__(kh.Kosu)
+    k.q, k.gecen, k.ut = deque(), [], {}
+    k.ana = {(AD, "sonnet"): dict(s, kol="ana", jev="6.0")}
+    k.devam()
+    assert [(x[0], x[1], x[5][1]) for x in k.q] == [(AD, 1, "eski yanıt")] and "judge" in k.q[0][5][0]
