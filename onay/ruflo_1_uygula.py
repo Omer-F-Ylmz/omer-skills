@@ -28,7 +28,9 @@ def kabul(tsv=TSV):
     """→ {aile: (geçti mi, açıklama)}. Yalnız iki kolu da koşmuş (aile, sıra) çiftleri, aile başına ≥4 çift;
     şart dersli ort. puan ≥ derssiz VE dersli toplam jeton (input+cache_creation+cache_read+output) < derssiz (Ömer: tabanın altına)."""
     try:
-        satir = [s.split("\t") for t in ([tsv] if isinstance(tsv, Path) else [t for t in tsv if t.exists()])
+        # aile başına yalnız en yeni sürüm dosyası (v5'in eksik satırı v3'ten tamamlanıp karışık çift olmasın)
+        son_dosya = {t.stem.rsplit("-", 1)[1]: t for t in ([] if isinstance(tsv, Path) else tsv) if t.exists()}
+        satir = [s.split("\t") for t in ([tsv] if isinstance(tsv, Path) else son_dosya.values())
                  for s in t.read_text(encoding="utf-8").splitlines()[1:] if s.strip()]
     except OSError:
         satir = []
