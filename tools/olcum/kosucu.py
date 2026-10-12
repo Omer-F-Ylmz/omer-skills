@@ -20,7 +20,7 @@ KOK = DIZIN.parents[1]
 CIKTI = KOK / "docs" / "kutuphane" / "olcum"
 ARKA_LOG = KOK / ".kos" / "kopru" / "olcum-arka.log"
 ROTA = ["--output-format", "stream-json", "--verbose", "--include-hook-events", "--no-session-persistence"]
-BASLIK = "gorev\ttekrar\tinput\tcache_creation\tcache_read\toutput\tbaglam\ttur\tsure_sn\tusd\tarac_isabet\tkalite\tskill_n\tmcp_n\taraclar\thata"
+BASLIK = "gorev\ttekrar\tinput\tcache_creation\tcache_read\toutput\tbaglam\ttur\tsure_sn\tusd\tarac_isabet\tkalite\tskill_n\tmcp_n\taraclar\thata\tjev\tjev_guven"
 RAM_ALT_GB = 6.0
 
 
@@ -224,9 +224,25 @@ def init_yaz(yol, init):
     yol.write_text(json.dumps(oz, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
-def kos_profil(ad, p, gorevler, tarih, tekrar):
+def jev_doldur(yol, metin_dir, en_fazla=2, tasiyici=None):
+    """JEV-1: koşu sonu tek jev_batch → TSV jev/jev_guven (regex rubrik 10'da doyuyor, jev ayırır). Jev erişilemezse TSV aynen kalır."""
+    import jev_yargic
+    try:
+        k = jev_yargic.veri([metin_dir])
+        if tasiyici is None:
+            sys.path.insert(0, str(DIZIN.parent / "jev"))
+            from jev.cekirdek import Tasiyici
+            tasiyici = Tasiyici(en_fazla=en_fazla, istek_tavan=len(k) + 10)
+        jev_yargic.tsv_doldur(yol, jev_yargic.jev_puanla(k, tasiyici))
+        print("jev:", len(k), "yanıt puanlandı", flush=True)
+    except Exception as e:  # noqa: BLE001 — jev yardımcı; ölçüm asla düşmez
+        print("jev atlandı:", type(e).__name__, flush=True)
+
+
+def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True):
     ek = profil_ek(p)
     yol = CIKTI / f"{tarih}-{ad}.tsv"
+    metin_dir = CIKTI / f"{tarih}-{ad}"  # yanıt metni: LLM yargıç (jev) ile kolları karşılaştırmak için
     for n in range(1, tekrar + 1):
         for g in gorevler:
             bekle = 0
@@ -234,7 +250,6 @@ def kos_profil(ad, p, gorevler, tarih, tekrar):
                 time.sleep(30); bekle += 30
             o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None)
             init_yaz(CIKTI / f"{tarih}-{ad}-init.json", o["init"])
-            metin_dir = CIKTI / f"{tarih}-{ad}"  # yanıt metni: LLM yargıç (jev) ile kolları karşılaştırmak için
             metin_dir.mkdir(exist_ok=True)
             (metin_dir / f"{g['id']}-{n}.md").write_text(o["metin"], encoding="utf-8")
             i, cc, cr, out = jeton(o["usage"])
@@ -245,6 +260,8 @@ def kos_profil(ad, p, gorevler, tarih, tekrar):
                                            ",".join(dict.fromkeys(o["araclar"])), o["hata"]))
             satir_yaz(yol, s)
             print(ad, s, flush=True)
+    if jev and yol.exists():
+        jev_doldur(yol, metin_dir)
     print("->", yol, flush=True)
 
 
@@ -255,6 +272,7 @@ def main(argv=None):
     p.add_argument("--tavan", type=int, default=12, help="profil başına en fazla N görev")
     p.add_argument("--tekrar", type=int, default=1, help="görev başına tekrar")
     p.add_argument("--tarih", default=time.strftime("%Y-%m-%d"))
+    p.add_argument("--jevsiz", action="store_true", help="koşu sonu jev puanlamasını atla (varsayılan: tek jev_batch)")
     p.add_argument("--arka", action="store_true", help="ayrık süreçte koş, hemen dön")
     p.add_argument("--bekle-pid", type=int, help="başlamadan önce bu sürecin bitmesini bekle (sıralı kuyruk)")
     ns = p.parse_args(argv)
@@ -280,7 +298,7 @@ def main(argv=None):
     CIKTI.mkdir(parents=True, exist_ok=True)
     print(time.strftime("%H:%M:%S"), "başla", ns.profil, len(gorevler), "görev ×", ns.tekrar, flush=True)
     for ad in ns.profil.split(","):
-        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar)
+        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar, jev=not ns.jevsiz)
     print(time.strftime("%H:%M:%S"), "bitti", flush=True)
     return 0
 

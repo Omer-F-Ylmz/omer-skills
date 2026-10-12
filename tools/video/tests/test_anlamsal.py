@@ -52,6 +52,31 @@ def test_jev_yargic_yoksa_ya_da_hata_verirse_kosinus(monkeypatch):
     assert [(i, j) for i, j, _ in an.esle(["a0", "a1"], ["s0", "s1"], 0.5, yargic=lambda c: None)] == [(1, 1)]
 
 
+def _sahte_jev(monkeypatch, api):
+    from jev import cekirdek as c
+    from video import anlamsal
+    monkeypatch.delenv("TYPESAFE_API_KEY", raising=False)
+    monkeypatch.setenv("OPENROUTER_API_KEY", "x")
+    monkeypatch.setattr(c.Tasiyici, "_api", api)
+    return anlamsal.jev()
+
+
+def test_jev_yargici_nesne_state_cekirdekten_gecer(monkeypatch):
+    # JEV-1-devam-3: main'deki çekirdek dict state'i redakte'de TypeError ile reddediyordu → olc_bant "jev yanıt yok"
+    yg = _sahte_jev(monkeypatch, lambda self, s, q: {"es": {"noul": 0.9 if "klon" in s["rapor_satiri"] else 0.1}})
+    assert yg([("Repo klonlanır", "Repo klonlanıyor"), ("a", "b")]) == [True, False]
+
+
+def test_jev_yargici_hatasi_sessiz_degil(monkeypatch, capsys):
+    from jev import cekirdek as c
+
+    def patla(self, s, q):
+        raise c.JevHata("HTTP 401")
+    yg = _sahte_jev(monkeypatch, patla)
+    assert yg([("a", "b")]) is None
+    assert yg.hata == "JevHata: HTTP 401" and "kosinüs" in capsys.readouterr().err
+
+
 def test_puan_jev_bayragi_varsayilan_kapali(monkeypatch):
     from video import anlamsal
     monkeypatch.delenv("VIDEO_JEV_BANT", raising=False)

@@ -16,13 +16,16 @@ param(
     [string]$RamOku = '',   # bos: bos RAM (MB) Win32_OperatingSystem'den; dolu: son cikti satiri MB donen komut (test)
     [int]$Bekle = 60,
     [int]$CokmeBekle = 30,   # GECE-4b: cokme (negatif cikis, 0xC0000005 vb.) sonrasi ayni partiye devam oncesi bekleme
+    [switch]$UzunBeklet,   # VIDEO-14: uzun videolar parti acilmadan kuyrukta bekler (VIDEO_UZUN_BEKLET=1), short surer
     [switch]$Baslat
 )
+if ($UzunBeklet) { $env:VIDEO_UZUN_BEKLET = '1' }
 $ErrorActionPreference = 'Continue'
 $repo = Split-Path (Split-Path $PSScriptRoot)
 if ($Baslat) {
     $a = '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $PSCommandPath, '-Paralel', $Paralel, '-EnFazla', $EnFazla, '-Tavan', $Tavan, '-Bekle', $Bekle, '-CokmeBekle', $CokmeBekle
     foreach ($p in 'Video', 'Kok', 'Kuyruk', 'RamOku') { if (Get-Variable $p -ValueOnly) { $a += "-$p", (Get-Variable $p -ValueOnly) } }
+    if ($UzunBeklet) { $a += '-UzunBeklet' }
     $p = Start-Process powershell -WindowStyle Hidden -PassThru -ArgumentList $a
     "PID $($p.Id)"
     return

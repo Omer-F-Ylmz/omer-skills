@@ -62,6 +62,12 @@ REDAKSIYON = [
 
 
 def redakte(metin):
+    if isinstance(metin, dict):
+        return {k: redakte(v) for k, v in metin.items()}
+    if isinstance(metin, list):
+        return [redakte(v) for v in metin]
+    if not isinstance(metin, str):
+        return metin
     for tur, desen in REDAKSIYON:
         if tur == "kart":
             metin = desen.sub(lambda m: "[REDAKTE:kart]" if _luhn(re.sub(r"\D", "", m[0])) else m[0], metin)
@@ -77,6 +83,9 @@ def token(s):
 
 def bol_state(s, ust=STATE_TOKEN - 2_000):
     """Soruya pay bırakarak ≤ust token parçalara satır sınırından böler; tek satır taşarsa karakterle keser."""
+    if not isinstance(s, str):  # nesne state: sığarsa yapısıyla gider, sığmazsa JSON metnine çevrilip bölünür
+        metin = json.dumps(s, ensure_ascii=False)
+        return [s] if token(metin) <= ust else bol_state(json.dumps(s, ensure_ascii=False, indent=1), ust)
     if token(s) <= ust:
         return [s]
     sinir, parcalar, cur, n = ust * 4, [], [], 0

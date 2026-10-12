@@ -1,6 +1,6 @@
 ---
 name: jev
-description: "Jev (TypeSafe) tipli yargı: çok öğeli sınıflandırma/puanlama, kalibre olasılık, ikinci görüş. jev_* araçları, soru yazımı, güven bantları."
+description: "Jev (TypeSafe) tipli yargı. Kullanıcı birden çok öğeyi sınıflamak, etiketlemek ya da puanlamak istediğinde (yorum olumlu/olumsuz, commit biçimi uygun mu, yanıt 0-10), kalibre olasılık/güven, 'ikinci görüş', iki metin aynı şeyi mi söylüyor, toplu (batch) yargı ya da bool/choice/score/noul yargı sorusu yazma istendiğinde ÖNCE bunu yükle; elle sınıflama yapma. Tetik: sınıfla, etiketle, puanla, olasılık ver, ikinci görüş, aynı mı, toplu etiket, yargı sorusu, güven bandı, classify, label, score, judge, jev_evaluate, jev_batch."
 ---
 
 # Jev — tipli yargı aracı
@@ -37,6 +37,13 @@ Kanıt (`jev kalibre`, n=40 sentetik TR, jev-1.13): Act 51 yargı · isabet 1.00
 - Desktop (cc-kopru `komut`): `jev kanit <rapor> <kanit...>` (iddia-kanıt denetimi) · `jev tarama <aday.json>` (çift/izin/bakım sıralaması) · tek seferlik soru için `jev_evaluate`.
 - Yalnız Escalate satırları ve ilk-k aralıklar açılır, gerisi context'e girmez.
 - Ne zaman değil: malzeme zaten context'teyse, kod doğruluğu sorusunda, final KABUL/DUR kararında. Jev işaretler, karar ajanda kalır.
+
+## Yargıç / eşdeğerlik (JEV-1 ölçümü, 2026-10-11)
+- Yanıt kalitesi yargıcı: state `{gorev, kabul, yanit}` + tek `score` sorusu (6 seviye → 0-10). Regex rubriği 10'da doyuyorsa (259 yanıtın %86'sı) Jev ayırır. n=50 kör Opus'a karşı: Spearman regex 0.33 · Jev 0.45; MAE 1.30 · 1.19; yanlış alarm 27 · 5. Maliyet yanıt başına ~$0.00005.
+- Eşdeğerlik (aynı somut öğe mi?): `noul`, sınır bandında (kosinüs eşiği ±0.1) kosinüs 25/39 · Jev 33/39. Bant dışında kosinüs yeterli, Jev'e gitme.
+- İddia sınama: iddia + kanıt metni state'te, `noul` "kanıt iddiayı destekliyor mu?" (CC `jev kanit`).
+- CC: `tools/olcum/kosucu.py` koşu sonu tek `jev_batch` ile TSV'ye `jev`/`jev_guven` yazar (`--jevsiz` kapatır); eski ölçüm: `jev_yargic.py <dizin>... --tsv-yaz`. claude.ai: Jev MCP bağlayıcısındaki `jev_batch` aynı state/soru ile.
+- Jev erişilemezse eski yol (regex/kosinüs) aynen; Jev final KABUL/DUR vermez, ayırır.
 
 ## Türkçe
 Canlı ölçüm (2026-09-22, jev-1.13, 3 Türkçe müşteri mesajı, choice/3 seçenek): Türkçe soru+criteria 3/3 isabet, ort. güven 1.00; İngilizce soru+criteria 3/3, ort. güven 1.00.

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "blenderwright": {
+      "command": "uvx",
+      "args": ["blenderwright==2.2.1"],
+      "env": { "BLENDERWRIGHT_TOOLSETS": "core" }
+    }
+  }
+}
