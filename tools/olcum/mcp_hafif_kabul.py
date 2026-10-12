@@ -62,7 +62,10 @@ class Ornekle(threading.Thread):
 
     def run(self):
         while not self.dur.wait(4):
-            d = anlik()
+            try:
+                d = anlik()
+            except subprocess.TimeoutExpired:  # yüklü makinede CIM 60 sn'yi aşabiliyor → örnek atlanır, örnekleyici ölmez
+                continue
             ben = [p for p, (pp, ad, _) in d.items() if pp == os.getpid() and ad.lower().startswith("claude")]
             t = [p for c in ben for p in torunlar(d, c)]
             ram = sum(d[p][2] for p in t)
