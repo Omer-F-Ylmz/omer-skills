@@ -30,7 +30,7 @@ Bizde mi: repo envanteri (kurulum-turu, kacan-*, omer-kutuphaneler) + canlı plu
 | usebruno/bruno | test | git dostu API istemcisi | 0 | MIT | 47.5k · 10-10 | RED — GUI; .http + test suit yeterli |
 | drawdb-io/drawdb | veritabanı | şema diyagramı + SQL üretimi | 0 | AGPL-3.0 | 39.9k · 10-11 | REF — web uygulaması |
 | PostgREST/postgrest | veritabanı | PostgreSQL → REST API | 0 | MIT | 27.7k · 10-11 | REF — ASP.NET yığınımızla çift |
-| nektos/act | devops | GitHub Actions'ı yerelde koşar | 0 | MIT | 72.3k · 08-09 | **KUR** — CI'ı push'suz doğrular; onay betiğinde madde (Docker gerekir) |
+| nektos/act | devops | GitHub Actions'ı yerelde koşar | 0 | MIT | 72.3k · 08-09 | RED — Docker gerekir, makinede Docker yok (Desktop 12 Eki) |
 | leandromoreira/ffmpeg-libav-tutorial | video | ffmpeg/libav iç yapısı | 0 | BSD-3-Clause | 11k · 06-18 | REF — video hattı derinliği |
 | ItzCrazyKns/Vane | otomasyon | yerel AI arama (Perplexica) | 0 | MIT | 37.3k · 09-01 | REF — ücretli API'siz yerel LLM ile |
 | huginn/huginn | otomasyon | izleyip davranan ajanlar | 0 | MIT | 50k · 10-10 | RED — Ruby sunucu yığını, hook/kopru ile çift |
@@ -38,3 +38,13 @@ Bizde mi: repo envanteri (kurulum-turu, kacan-*, omer-kutuphaneler) + canlı plu
 | dair-ai/Prompt-Engineering-Guide | llm-ajan | istem mühendisliği rehberi | 0 | MIT | 79k · 03-11 | REF |
 | jesseduffield/lazygit | cli | git TUI | 0 | MIT | 83.1k · 10-11 | RED — TUI, ajan kullanamaz |
 | Elijas121/consentprobe | gizlilik | çerez reddinden sonra izleme sürüyor mu testi | 0 | MIT | 0 · 10-09 | UYARLA — bakım kanıtsız; fikri KVKK Playwright adımı olarak al |
+
+## PostgreSQL şema diyagramı (12 Eki 2026) — awesome-db-tools "Schema / Diagrams·Documentations" + awesome-postgres
+
+| aday | alan | ne kazandırır | jeton | lisans | bakım | karar + gerekçe |
+|---|---|---|---|---|---|---|
+| k1LoW/tbls | veritabanı | canlı PG'den ER diyagramı (SVG/Mermaid/PlantUML) + Markdown şema dokümanı, CI dostu tek Go binary | 0 | MIT | 4.4k · 09-30 | **KUR** — sonraki awesome turunda onay maddesi (henüz onay betiğinde YOK); CLI, repo içine `dbdoc/` üretir |
+| liam-hq/liam | veritabanı | PG/ORM şemasından etkileşimli web ERD (`npx @liam-hq/cli`) | 0 | Apache-2.0 | 5.1k · 10-09 | UYARLA — departman-veri-db'ye npx satırı (kurulum yok), görsel inceleme için |
+| chartdb/chartdb | veritabanı | tek sorguyla şema içe al, tarayıcıda düzenlenebilir diyagram | 0 | AGPL-3.0 | 23k · 09-13 | REF — self-host web uygulaması; AGPL, kod/fork dağıtılmaz |
+| schemaspy/schemaspy | veritabanı | şemadan HTML doküman + ER görselleri | 0 | LGPL-3.0 | 3.7k · 03-05 | RED — Java+Graphviz yığını, tbls aynı işi tek binary ile yapıyor |
+| azimuttapp/azimutt | veritabanı | büyük şemalarda filtreli ERD keşfi | 0 | MIT | 2.2k · 08-25 | REF — yüzlerce tabloluk şema gelirse |
