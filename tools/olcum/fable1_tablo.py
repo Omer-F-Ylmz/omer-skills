@@ -1,18 +1,21 @@
 """FABLE-1 ölçüm tablosu: kol başına ortalama kalite/çıktı jetonu/$/tur + KABUL kararı (fable-1.md 4. adım).
-  python tools/olcum/fable1_tablo.py
+  python tools/olcum/fable1_tablo.py                  # d3: 2026-10-12* · proto
+  python tools/olcum/fable1_tablo.py 2026-10-12d kisa # d4: model başına KABUL = kalite ≥ taban VE çıktı ≤ taban VE $ ≤ taban
 Geçerli satır: çıktı jetonu > 0 ve timeout yok (ağ kopması/timeout satırları dışarı). Görev başına ortalama, sonra görevler üstü ortalama
 (tekrar sayısı farklı kollar adil kalsın)."""
 import csv
+import sys
 from pathlib import Path
 from statistics import mean
 
 OLCUM = Path(__file__).resolve().parents[2] / "docs" / "kutuphane" / "olcum"
 GOREVLER = ["G02", "G12", "J01", "G13"]
 KOLLAR = ["fable", "s-taban", "s-proto", "h-taban", "h-proto"]
+TARIH = "2026-10-12*"
 
 
 def satirlar(kol):
-    for yol in sorted(OLCUM.glob(f"2026-10-12*-fable1-{kol}.tsv")):
+    for yol in sorted(OLCUM.glob(f"{TARIH}-fable1-{kol}.tsv")):
         with open(yol, encoding="utf-8") as f:
             for r in csv.DictReader(f, delimiter="\t"):
                 if r["gorev"] in GOREVLER and int(r["output"] or 0) > 0 and "timeout" not in (r.get("hata") or ""):
@@ -55,9 +58,28 @@ def karar(o):
     return ("KABUL — " if ok else "RET — ") + " | ".join(sonuc)
 
 
+def karar_d4(o, ek):
+    """Ömer 10 Eki: kalite ASLA düşmez, token her adımda AZALIR → model başına ayrı karar, ortak görevlerde."""
+    sonuc = []
+    for m in ("s", "h"):
+        t, p = o.get(f"{m}-taban"), o.get(f"{m}-{ek}")
+        if not t or not p:
+            sonuc.append(f"{m}: EKSİK"); continue
+        ortak = sorted(set(t["gorev_kalite"]) & set(p["gorev_kalite"]))
+        kt, kp = (mean(x["gorev_kalite"][g] for g in ortak) for x in (t, p))
+        fark = {k: (sum(p["g"][g][k] for g in ortak) / sum(t["g"][g][k] for g in ortak) - 1) * 100 for k in ("output", "usd")}
+        ok = kp >= kt and fark["output"] <= 0 and fark["usd"] <= 0
+        sonuc.append(f"{m}: {'KABUL' if ok else 'RET'} kalite {kt:.2f}->{kp:.2f} · çıktı {fark['output']:+.0f}% · $ {fark['usd']:+.0f}% ({ortak})")
+    return " | ".join(sonuc)
+
+
 if __name__ == "__main__":
+    ek = None
+    if len(sys.argv) > 2:
+        TARIH, ek = sys.argv[1], sys.argv[2]
+        KOLLAR = ["s-taban", f"s-{ek}", "h-taban", f"h-{ek}"]
     o = {k: ozet(k) for k in KOLLAR}
     for k, v in o.items():
         print(k, "veri yok" if not v else
               f"n={v['n']} kalite={v['kalite']:.2f} out={v['output']:.0f} usd={v['usd']:.3f} tur={v['tur']:.1f} {v['gorev_kalite']}")
-    print(karar(o))
+    print(karar_d4(o, ek) if ek else karar(o))
