@@ -25,9 +25,20 @@ JEV_TAVAN = 400
 
 
 def kos(kol, tekrar):
-    env = {k: v for k, v in os.environ.items() if k != "VIDEO_SHORT_HIZ"}
-    if kol != "taban":
-        env["VIDEO_SHORT_HIZ"] = kol
+    """d5: kol = <efor>[-d0][-s|-h] — d0: MAX_THINKING_TOKENS=0 (düşünmesiz) · s/h: tek kol sonnet/haiku. Kol başı süre "kollar"a yazılır."""
+    efor, *ek = kol.split("-")
+    env = {k: v for k, v in os.environ.items() if k not in ("VIDEO_SHORT_HIZ", "ANTHROPIC_API_KEY")}
+    if efor != "taban":
+        env["VIDEO_SHORT_HIZ"] = efor
+    if "d0" in ek:
+        env["MAX_THINKING_TOKENS"] = "0"
+    modeller = [m for m in MODELLER if not ({"s", "h"} & set(ek)) or m.split("-")[1][0] in ek]
+    kayit = []
+
+    def cagir(*a, **k):
+        y = hafif.cagir(*a, **k)
+        kayit.append({"model": k.get("model"), "sure": y.get("sure"), "cikti": (y.get("usage") or {}).get("output_tokens", 0), "usd": y.get("usd")})
+        return y
     pdir = B / f"{kol}-{tekrar}"
     pdir.mkdir(parents=True, exist_ok=True)
     pk = {v: pt.paket_oku(ONB / v / "paket.md") for v in VIDEOLAR}
@@ -37,13 +48,13 @@ def kos(kol, tekrar):
     temizle = lambda s: cli._temizle(s, env)
     sonuc = {}
     for v in VIDEOLAR:
-        t0 = time.time()
-        y = pt._tara_ikili([v], pk, {}, temizle, d, pdir, env, hafif.cagir, MODELLER)
+        t0, kayit[:] = time.time(), []
+        y = pt._tara_ikili([v], pk, {}, temizle, d, pdir, env, cagir, modeller)
         u = y.get("usage") or {}
         sonuc[v] = {"duvar": round(time.time() - t0, 1), "usd": y.get("usd"), "cagri": y.get("cagri"), "hata": y.get("hata"),
                     "cikti": u.get("output_tokens", 0), "girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0),
                     "onb_yazma": u.get("cache_creation_input_tokens", 0), "kunye": d["videolar"][v]["tarama"].get("kunye"),
-                    "form": (y.get("form") or {}).get("videolar", [None])[0]}
+                    "form": (y.get("form") or {}).get("videolar", [None])[0], "kollar": list(kayit)}
         print(v, sonuc[v]["duvar"], "sn", sonuc[v]["usd"], "$", sonuc[v]["hata"], flush=True)
     (B / f"{kol}-{tekrar}.json").write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
 
