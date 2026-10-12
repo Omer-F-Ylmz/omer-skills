@@ -5,7 +5,7 @@ description: Hazır, ölçülmüş animasyon tarifleri — web giriş/scroll, sa
 
 # Animasyon atölyesi
 
-Animasyon/efekt işinde önce buradaki tarifi kopyala, yalnız AYAR bloğunu/argümanları değiştir, sonra `olc.py` ile ölç. Sıfırdan yazmak hem daha çok jeton hem daha çok hata demek; tarifler 60 fps, `prefers-reduced-motion` ve pencere açmama kurallarını zaten taşır.
+Animasyon/efekt işinde buradaki tarifi TEK KOMUTLA üret + ölç. Her ek tur tüm bağlamı yeniden okur; tarifi açıp okuma, Write/Edit ile elle uyarlama, kareye bakma turları sıfırdan yazmaktan pahalıya gelir. Tarifler 60 fps, `prefers-reduced-motion` ve pencere açmama kurallarını zaten taşır.
 
 ## Tarif seçimi
 
@@ -17,15 +17,18 @@ Animasyon/efekt işinde önce buradaki tarifi kopyala, yalnız AYAR bloğunu/arg
 | 3D patlatılmış görünüm (exploded view), kamera yörüngesi, animasyonlu GLB | `tarifler/blender_patlat.py` | Blender (`-b`) |
 | Başlıklı kısa intro/outro videosu (mp4) | `tarifler/video_intro.py` | ffmpeg |
 
-Her tarifin başında "Nasıl uyarlanır" notu var — önce onu oku (yalnız baş yorum, ~15 satır), gövdeyi okumana gerek yok.
+Tarif dosyalarını okuma; ayarlar aşağıda. `<S>` = bu skill'in klasörü.
 
-## Akış
+## Akış (tek Bash çağrısı)
 
-1. Tarifi hedefe kopyala (`cp tarifler/<tarif> <hedef>`), dosya adını görev neyse ona çevir.
-2. Yalnız AYAR bloğunu (html) ya da CLI argümanlarını (py) değiştir: metin, renk, süre, eğri, sayı. Gövdeye dokunma; gerekmedikçe yeniden yazma.
-3. Üret: Blender `"<blender.exe>" -b --factory-startup --python blender_patlat.py -- --cikti <klasör> [--blend <dosya>] [--render 4]` · video `python video_intro.py --baslik ... --alt ... --cikti x.mp4 [--sure 4 --en 1280 --boy 720 --fps 30]`.
-4. Ölç: `python olc.py <dosya> --kare <klasör>` → tek satır JSON. Kabul: html fps ≥55 (WebGL ≥30), `konsol_hata` 0, `reduced_motion` true, `duzen_animasyonu` false, `hareket` > 0 · mp4 en/boy/fps/süre istenenle aynı, `dolu` true · glb `animasyon` ≥1, `mesh` beklenen sayıda.
-5. Kareye bak (`--kare` klasöründeki PNG); sorun yoksa bitti. Ölçüm geçmezse yalnız ilgili AYAR değerini düzelt, yeniden ölç.
+- **html:** `python <S>/uyarla.py <tarif.html> <hedef.html> '<ayar json>'` → kopyalar, AYAR'la derin birleştirir (sözlük birleşir, liste yerine geçer), `<title>` = metin.baslik, ölçer, tek satır JSON basar. Yalnız değişen anahtarları ver.
+  - giris-scroll: `renk{zemin,murekkep,soluk,yuzey,vurgu}` · `sure` (900ms) · `gecikme` (120ms) · `egri` · `metin{baslik,alt,cta,bolumler:[{baslik,metin}]}` (bölüm sayısı = dizi uzunluğu; ilerleme çubuğu hazır).
+  - sayfa-gecisi: `renk{…aynı}` · `sure` · `gecikme` · `egri` · `metin{baslik,alt,geri}` · `kartlar:[{ad,ozet,renk:[a,b],metin}]`.
+  - parcacik-three: `sayi` (20000) · `renkA` · `renkB` · `arka` · `hiz` · `cekim` · `boyut` · `metin{baslik,alt,cta}`.
+- **Blender:** `"<blender.exe>" -b --factory-startup --python <S>/tarifler/blender_patlat.py -- --cikti <klasör> [--blend <dosya>] [--kare 72 --bosluk 0.06 --fps 24 --render 4 --cozunurluk 384] && python <S>/olc.py <klasör>/telve_anim.glb` (kareler `kare_NNNN.png`)
+- **video:** `python <S>/tarifler/video_intro.py --baslik … --alt … --cikti x.mp4 [--sure 4 --en 1280 --boy 720 --fps 30 --renk1 --renk2 --vurgu] && python <S>/olc.py x.mp4`
+
+Kabul (JSON'dan oku): html fps ≥55 (WebGL ≥30), `konsol_hata` 0, `reduced_motion` true, `duzen_animasyonu` false, `hareket` > 0 · mp4 en/boy/fps/süre istenenle aynı, `dolu` true · glb `animasyon` ≥1, `mesh` beklenen sayıda. Geçtiyse BİTTİ — kareye bakma, dosyayı yeniden okuma. Geçmezse yalnız ilgili ayarı değiştirip aynı komutu yeniden koş; ancak o zaman `<hedef>-kare/` PNG'sine bak.
 
 ## Kurallar
 

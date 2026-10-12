@@ -13,19 +13,20 @@
 <title>Sayfa geçişi tarifi</title>
 <script>
 /* ===== AYAR — uyarlayan ajan yalnız bu bloğu değiştirir ===== */
+/* sure: morf süresi · gecikme: açılışta kartların kademe aralığı · egri: ease-out. Blok JSON'dur (uyarla.py okur). */
 const AYAR = {
-  renk: { zemin: '#f3f1ec', murekkep: '#191816', soluk: '#6f6a62', yuzey: '#ffffff', vurgu: '#2f5d50' },
-  sure: '550ms',                         // morf süresi
-  gecikme: '70ms',                       // açılışta kartların kademe aralığı
-  egri: 'cubic-bezier(.2, .8, .2, 1)',   // ease-out
-  metin: { baslik: 'Koleksiyon', alt: 'Bir karta dokunun; aynı görsel detay sayfasına dönüşsün.', geri: '← Listeye dön' },
-  kartlar: [
-    { ad: 'Kıyı',   ozet: 'Tuz, rüzgâr, ışık.',     renk: ['#f2b880', '#c0532b'], metin: 'Sabahın ilk ışığında kıyı şeridi; dalgaların bıraktığı çizgiler, kumda kuruyan tuz ve uzakta tek bir yelken.' },
-    { ad: 'Bozkır', ozet: 'Uçsuz, sarı, sessiz.',   renk: ['#e8d38a', '#9a7b2f'], metin: 'Ufka kadar uzanan sarı otlar; öğle sıcağında titreyen hava ve tek bir ağacın gölgesi.' },
-    { ad: 'Orman',  ozet: 'Yosun ve reçine.',       renk: ['#8fbf9a', '#2f5d50'], metin: 'Yağmurdan sonra reçine kokusu; yosunlu taşlar, eğrelti otları ve dallardan süzülen yeşil ışık.' },
-    { ad: 'Gece',   ozet: 'Mürekkep mavisi.',       renk: ['#6f7fd1', '#1d2350'], metin: 'Şehrin ışıkları sönerken beliren yıldızlar; soğuk hava ve uzaktan gelen bir trenin sesi.' },
-    { ad: 'Kum',    ozet: 'Sıcak, yumuşak, ince.',  renk: ['#f1d2b6', '#b07a5a'], metin: 'Rüzgârın her gün yeniden çizdiği tepeler; akşamüstü uzayan gölgeler ve ayak izleri.' },
-    { ad: 'Buz',    ozet: 'Berrak ve keskin.',      renk: ['#cfe8f3', '#5d8fb0'], metin: 'Gölün donmuş yüzeyinde çatlak desenleri; nefesin buğusu ve kar altında kaybolan sesler.' }
+  "renk": {"zemin": "#f3f1ec", "murekkep": "#191816", "soluk": "#6f6a62", "yuzey": "#ffffff", "vurgu": "#2f5d50"},
+  "sure": "550ms",
+  "gecikme": "70ms",
+  "egri": "cubic-bezier(.2, .8, .2, 1)",
+  "metin": {"baslik": "Koleksiyon", "alt": "Bir karta dokunun; aynı görsel detay sayfasına dönüşsün.", "geri": "← Listeye dön"},
+  "kartlar": [
+    {"ad": "Kıyı", "ozet": "Tuz, rüzgâr, ışık.", "renk": ["#f2b880", "#c0532b"], "metin": "Sabahın ilk ışığında kıyı şeridi; dalgaların bıraktığı çizgiler, kumda kuruyan tuz ve uzakta tek bir yelken."},
+    {"ad": "Bozkır", "ozet": "Uçsuz, sarı, sessiz.", "renk": ["#e8d38a", "#9a7b2f"], "metin": "Ufka kadar uzanan sarı otlar; öğle sıcağında titreyen hava ve tek bir ağacın gölgesi."},
+    {"ad": "Orman", "ozet": "Yosun ve reçine.", "renk": ["#8fbf9a", "#2f5d50"], "metin": "Yağmurdan sonra reçine kokusu; yosunlu taşlar, eğrelti otları ve dallardan süzülen yeşil ışık."},
+    {"ad": "Gece", "ozet": "Mürekkep mavisi.", "renk": ["#6f7fd1", "#1d2350"], "metin": "Şehrin ışıkları sönerken beliren yıldızlar; soğuk hava ve uzaktan gelen bir trenin sesi."},
+    {"ad": "Kum", "ozet": "Sıcak, yumuşak, ince.", "renk": ["#f1d2b6", "#b07a5a"], "metin": "Rüzgârın her gün yeniden çizdiği tepeler; akşamüstü uzayan gölgeler ve ayak izleri."},
+    {"ad": "Buz", "ozet": "Berrak ve keskin.", "renk": ["#cfe8f3", "#5d8fb0"], "metin": "Gölün donmuş yüzeyinde çatlak desenleri; nefesin buğusu ve kar altında kaybolan sesler."}
   ]
 };
 /* ===== AYAR SONU ===== */

@@ -13,20 +13,21 @@
 <title>Giriş + scroll tarifi</title>
 <script>
 /* ===== AYAR — uyarlayan ajan yalnız bu bloğu değiştirir ===== */
+/* sure: tek öğenin giriş süresi · gecikme: kademe aralığı (animation-delay = --i × gecikme) · egri: ease-out. Blok JSON'dur (uyarla.py okur). */
 const AYAR = {
-  renk: { zemin: '#f5f1ea', murekkep: '#1c1a17', soluk: '#6b645a', yuzey: '#fffdf9', vurgu: '#c2410c' },
-  sure: '900ms',                         // tek öğenin giriş süresi
-  gecikme: '120ms',                      // kademe aralığı: animation-delay = --i × gecikme
-  egri: 'cubic-bezier(.16, 1, .3, 1)',   // ease-out
-  metin: {
-    baslik: 'Hareket, anlamı taşısın.',
-    alt: 'Kademeli giriş, kaydırmaya bağlı görünme ve ilerleme çubuğu — yalnız CSS, birkaç satır yedek JS.',
-    cta: 'Bölümlere in',
-    bolumler: [
-      { baslik: 'Önce içerik', metin: 'Başlık ilk karede görünür; yalnız yerine oturur. En büyük içerik boyaması gecikmez.' },
-      { baslik: 'Yalnız transform ve opacity', metin: 'Düzen hesaplanmaz, boyama tekrarlanmaz; kompozitör tek başına yürütür.' },
-      { baslik: 'Kaydırma zaman çizelgesi', metin: 'Bölümler görünüm alanına girdikçe belirir; tarayıcı desteklemiyorsa IntersectionObserver devralır.' },
-      { baslik: 'Hareketi azalt', metin: 'İşletim sistemi tercihi açıksa her şey anında, son hâliyle gelir.' }
+  "renk": {"zemin": "#f5f1ea", "murekkep": "#1c1a17", "soluk": "#6b645a", "yuzey": "#fffdf9", "vurgu": "#c2410c"},
+  "sure": "900ms",
+  "gecikme": "120ms",
+  "egri": "cubic-bezier(.16, 1, .3, 1)",
+  "metin": {
+    "baslik": "Hareket, anlamı taşısın.",
+    "alt": "Kademeli giriş, kaydırmaya bağlı görünme ve ilerleme çubuğu — yalnız CSS, birkaç satır yedek JS.",
+    "cta": "Bölümlere in",
+    "bolumler": [
+      {"baslik": "Önce içerik", "metin": "Başlık ilk karede görünür; yalnız yerine oturur. En büyük içerik boyaması gecikmez."},
+      {"baslik": "Yalnız transform ve opacity", "metin": "Düzen hesaplanmaz, boyama tekrarlanmaz; kompozitör tek başına yürütür."},
+      {"baslik": "Kaydırma zaman çizelgesi", "metin": "Bölümler görünüm alanına girdikçe belirir; tarayıcı desteklemiyorsa IntersectionObserver devralır."},
+      {"baslik": "Hareketi azalt", "metin": "İşletim sistemi tercihi açıksa her şey anında, son hâliyle gelir."}
     ]
   }
 };

@@ -10,13 +10,18 @@
    sayi   : parçacık sayısı (hardwareConcurrency ≤ 4 ise yarıya iner)
    renkA/B: akış boyunca geçilen iki renk; arka: zemin rengi
    hiz    : akış hızı (1 = sakin)      cekim: fare/dokunma çekim gücü (0 = kapalı)
-   boyut  : nokta boyutu (px, dpr ile ölçeklenir)
+   boyut  : nokta boyutu (px, dpr ile ölçeklenir)      metin: hero başlık/alt/cta (blok JSON'dur, uyarla.py okur)
    Nasıl uyarlanır:
    1) Logo/metin şekli: canvas'a metni çiz, getImageData'dan dolu pikselleri örnekle, `aHedef` attribute'u ekle; shader'da p = mix(p, aHedef, uSekil).
    2) Marka renkleri için yalnız renkA/renkB/arka'yı değiştir; parlaklık fazlaysa boyut ya da fragment'teki 0.9 çarpanını düşür.
    3) Hero değil de bölüm arka planıysa canvas'ı `position:absolute` yap, boyutu kapsayıcının clientWidth/Height'ından al.
    ============================================================== */
-const AYAR = { sayi: 20000, renkA: '#5b8cff', renkB: '#ff5fa2', arka: '#07080d', hiz: 1, cekim: 0.9, boyut: 4.5 };
+const AYAR = {
+  "sayi": 20000, "renkA": "#5b8cff", "renkB": "#ff5fa2", "arka": "#07080d", "hiz": 1, "cekim": 0.9, "boyut": 4.5,
+  "metin": {"baslik": "Akışta kal.", "alt": "Yirmi bin parçacık, tamamı GPU'da hareket ediyor. İmleci gezdir; akış sana doğru eğilsin.", "cta": "Başla"}
+};
+/* ===== AYAR SONU ===== */
+for (const [s, k] of [['h1', 'baslik'], ['.hero p', 'alt'], ['.hero a', 'cta']]) document.querySelector(s).textContent = AYAR.metin[k];
 
 import * as THREE from 'three';
 

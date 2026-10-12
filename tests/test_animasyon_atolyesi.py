@@ -31,6 +31,17 @@ def test_glb_sayar(tmp_path):
     assert olc.glb(p) == {"gecerli": False}
 
 
+@pytest.mark.parametrize("ad", ["giris-scroll.html", "sayfa-gecisi.html", "parcacik-three.html"])
+def test_uyarla(tmp_path, ad):
+    import uyarla
+    hedef = tmp_path / "index.html"
+    ayar = uyarla.uyarla(ad, hedef, {"renk": {"vurgu": "#8b4513"}, "metin": {"baslik": "Telve"}, "yeni": [1]})
+    assert ayar["metin"]["baslik"] == "Telve" and ayar["yeni"] == [1]
+    assert len(ayar["metin"]) > 1  # derin birleştirme: verilmeyen anahtarlar kalır
+    s = hedef.read_text(encoding="utf-8")
+    assert "<title>Telve</title>" in s and uyarla.oku(s) == ayar
+
+
 @pytest.mark.skipif(not shutil.which("ffmpeg"), reason="ffmpeg yok")
 def test_video_intro(tmp_path):
     mp4 = tmp_path / "x.mp4"

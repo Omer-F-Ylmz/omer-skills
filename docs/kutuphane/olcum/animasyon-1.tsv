@@ -9,3 +9,6 @@ b1	taban	2	12	80073	408118	4744	492947	8	659.3	0.4494	1.0	-	Skill:anthropic-skil
 v1	taban	2	16	75768	544094	3837	623715	9	893.1	0.4503	1.0	-	-	-
 w1	yeni0	1	8	88139	261267	6308	355722	5	141.7	0.4679	1.0	-	Skill:frontend-craft:frontend-craft	-
 w1	yeni	1	8763	88796	442049	2622	542230	13	474.0	0.5164	1.0	-	Skill:animasyon-atolyesi,Skill:frontend-craft:frontend-craft	SessionEnd hook [node "${CLAUDE_PLUGIN_ROOT}/scripts/session-lifecycle-hook.mjs" SessionEnd] failed: Hook cancelled
+w2	yeni	1	16	76837	569121	2065	648039	9	320.5	0.4419	1.0	-	Skill:animasyon-atolyesi	-
+b1	yeni	1	9244	82714	410903	1818	504679	9	281.3	0.4497	1.0	-	Skill:animasyon-atolyesi,Skill:anthropic-skills:blender-uretim	-
+v1	yeni	1	10	76259	321213	1088	398570	6	216.0	0.3802	1.0	-	Skill:animasyon-atolyesi	-
