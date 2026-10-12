@@ -606,15 +606,21 @@ def paket(ns, ctx):
     return 0
 
 
+def indir_bicim():
+    """VİDEO-14-devam-2 (b): env VIDEO_INDIR_KENAR=<px> → kare/akış videosu uzun kenar ≤ px (sahne çözme ~2×); bayraksız 1920."""
+    k = int(os.environ.get("VIDEO_INDIR_KENAR") or 1920)
+    return f"bv*[width<={k}][height<={k}][vcodec!=none]"
+
+
 def _akis_url(ctx, d):
-    """Doğrudan akış URL'si; akis.url önbelleğinde, URL'deki expire'a 5 dk kalana dek geçerli. URL hiçbir çıktıya yazılmaz."""
-    yol = d / "akis.url"
+    """Doğrudan akış URL'si; akis.url önbelleğinde (VIDEO_INDIR_KENAR'lı: akis<px>.url), URL'deki expire'a 5 dk kalana dek geçerli. URL hiçbir çıktıya yazılmaz."""
+    yol = d / f"akis{os.environ.get('VIDEO_INDIR_KENAR') or ''}.url"
     if yol.is_file():
         url = yol.read_text(encoding="utf-8").strip()
         e = re.search(r"[?&/]expire[=/](\d+)", url)
         if e and int(e.group(1)) - 300 > time.time():
             return url
-    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]/b", yt_url(d.name)], SURE["meta"])
+    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", indir_bicim() + "/b", yt_url(d.name)], SURE["meta"])
     url = out.decode("utf-8", "replace").strip().splitlines()[0]
     yol.write_text(url, encoding="utf-8")
     return url
@@ -798,7 +804,7 @@ def _video_indir(ctx, d):
                 tavan = max(SURE["ses"], int((json.loads(mj.read_text(encoding="utf-8")).get("duration") or 0) / 2) if mj.exists() else 0)
                 for i in (0, 1):  # DEVAM-4: 403 → 10 sn bekle, bir kez tekrar; yine 403 → künyede görünür
                     try:
-                        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
+                        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", indir_bicim(), "-o", str(d / "goz-video.%(ext)s"),
                                    yt_url(d.name)], tavan)
                         break
                     except Hata as e:
