@@ -161,9 +161,13 @@ DAMIT = ("Bir ajan koşusunun yargıç sonucu aşağıda. Gelecekteki BENZER gö
          "(kural/yöntem; bu göreve özgü sayı ya da dosya içeriği değil). Puan < 1 ise her yargıç notu için bir düzeltici ders "
          "(hatanın kaynağı + ilk turda ne yapılmalı). Dersler tur sayısını da azaltmalı: ek doğrulama turu önerme, bağımsız okumaları "
          "aynı turda paralel yap, yazma ve kontrolü tek adımda birleştir. icerik tek cümle (≤20 kelime), örneksiz. "
+         # d8: video/rapor'da dersli kolun ek 2-3 turu gizli kural belgesini bulup okumaktı → kural derse gömülür, belge yeniden okunmaz
+         "Proje kural belgesi bu görev ailesinde sabittir: kurallarını TEK derste somut yaz (anahtar adları, biçim, sıra; tek cümle, "
+         "≤30 kelime, noktalı virgülle) ki sonraki görev belgeyi okumadan uygulasın. "
          "Yalnız JSON liste döndür, başka metin yok: "
          '[{"baslik": "kural", "kosul": "ne zaman uygulanır", "icerik": "ne yapılmalı"}]\n'
-         "Görev: %s\nPuan: %s/1 (ölçütler görev klasörünün belgelerinden)\nTur: %s\nYargıç notları: %s\nAjanın son mesajı: %s")
+         "Görev: %s\nPuan: %s/1 (ölçütler görev klasörünün belgelerinden)\nTur: %s\nYargıç notları: %s\nAjanın son mesajı: %s\n"
+         "Görev klasöründeki proje kural belgesi (yörüngede okunabilir): %s")
 
 
 def kuru():
@@ -217,7 +221,7 @@ def main(devam=None, aileler=("kod", "rapor", "video"), siralar=range(5), kollar
                 for kol in kollar:
                     if (aile, str(i + 1), kol) in bitti:
                         continue
-                    if cagri + (2 if kol == "dersli" else 1) > CAGRI_TAVAN or usd >= USD_TAVAN or kosucu.bos_ram_gb() < 3:
+                    if cagri + (2 if kol == "dersli" else 1) > CAGRI_TAVAN or usd >= USD_TAVAN or kosucu.bos_ram_gb() < 1.6:  # Ömer 13 Eki: RAM %95'e kadar (31.7 GB × %5)
                         print(time.strftime("%H:%M:%S"), f"TAVAN: {cagri} çağrı ${usd:.2f} boş RAM {kosucu.bos_ram_gb():.1f} GB — durdu", flush=True)
                         return
                     d = tempfile.mkdtemp(prefix=f"ruflo-ab-{aile}{i}-")
@@ -229,7 +233,8 @@ def main(devam=None, aileler=("kod", "rapor", "video"), siralar=range(5), kollar
                     if kol == "dersli":
                         ders.geri_bildir(ids, puan >= 1.0) if ids else None
                     if kol == "dersli" and i < max(siralar):  # son görevin dersi bu ölçümde kullanılmaz → damıtma çağrısı yok
-                        dm = kosucu.kos(DAMIT % (gorev, puan, o["tur"], "; ".join(notlar) or "hepsi geçti", o["metin"][-1500:]),
+                        dm = kosucu.kos(DAMIT % (gorev, puan, o["tur"], "; ".join(notlar) or "hepsi geçti", o["metin"][-1500:],
+                                                 (Path(d) / "KURALLAR.md").read_text(encoding="utf-8")),
                                         ek=["--strict-mcp-config", "--max-turns", "1"], model="haiku", butce=0.2)
                         cagri, usd = cagri + 1, usd + dm["usd"]
                         try:
@@ -250,6 +255,10 @@ def main(devam=None, aileler=("kod", "rapor", "video"), siralar=range(5), kollar
 if __name__ == "__main__":
     if "--kuru" in sys.argv:
         kuru()
+    elif "--v5" in sys.argv:  # d8: kural derse gömülü; boş bankayla eşli (derssiz+dersli), aile başına ≤14 çağrı/$4
+        aile = sys.argv[sys.argv.index("--v5") + 1]
+        main((KOK / ".kos" / "ogrenme-ab" / f"v5-{aile}-{time.strftime('%Y%m%d-%H%M%S')}", 0, 0), aileler=(aile,),
+             tsv=TSV.with_name(f"ruflo-1-ab-v5-{aile}.tsv"), tavan=(14, 4.0))
     elif {"--v2", "--v3", "--v4"} & set(sys.argv):
         ad = next(a for a in ("v4", "v3", "v2") if "--" + a in sys.argv)
         v2(*sys.argv[sys.argv.index("--" + ad) + 1:][:2], ad=ad)

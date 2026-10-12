@@ -118,7 +118,8 @@ def getir(ajan, gorev, k=K, kosu=""):
     if not secilen:
         return "", []
     # d7: v3'te "yazmadan önce doğrula" dersleri video/rapor'da +2-3 tur ekledi (jeton ≈ tur × bağlam) → tur talimatı somut
-    satirlar = ["Dersler (uymuyorsa yok say). Gereken belgeleri ilk turda birlikte oku, tek yazımla bitir; ayrı kontrol turu açma:"]
+    # d8: v4'te ek turlar gizli kural belgesini okumaktı → ders kuralı somut taşır, belge aranmaz
+    satirlar = ["Dersler (uymuyorsa yok say). Dersteki proje kuralını doğrudan uygula, kural belgesi arama; girdiyi ilk turda oku, tek yazımla bitir:"]
     pay = (JETON * 4 - len(satirlar[0])) // len(secilen) - 1
     for x in secilen:  # kural + ne zaman + içeriğin ilk cümlesi; örnek düşer
         s = f"- [{x['id']}·{'kaçın' if x['tur'] == 'basarisizlik' else '✓'}] {x['baslik']} — {x['kosul']}: {re.split(r'(?<=[.!?])\s', x['icerik'])[0]}"
