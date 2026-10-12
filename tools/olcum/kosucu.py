@@ -243,7 +243,10 @@ def jev_doldur(yol, metin_dir, en_fazla=2, tasiyici=None):
         print("jev atlandı:", type(e).__name__, flush=True)
 
 
-def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True):
+HARCANAN = [0.0]  # bu süreçte tüm profillerin toplam $'ı (--usd-tavan)
+
+
+def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True, usd_tavan=None):
     ek = profil_ek(p)
     yol = CIKTI / f"{tarih}-{ad}.tsv"
     metin_dir = CIKTI / f"{tarih}-{ad}"  # yanıt metni: LLM yargıç (jev) ile kolları karşılaştırmak için
@@ -252,7 +255,11 @@ def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True):
             bekle = 0
             while bos_ram_gb() < RAM_ALT_GB and bekle < 1800:
                 time.sleep(30); bekle += 30
-            o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None)
+            if usd_tavan and HARCANAN[0] >= usd_tavan:
+                print("usd tavanı doldu:", round(HARCANAN[0], 2), flush=True)
+                break
+            o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None, model=p.get("model"), butce=p.get("butce", 3.0))
+            HARCANAN[0] += o["usd"]
             init_yaz(CIKTI / f"{tarih}-{ad}-init.json", o["init"])
             metin_dir.mkdir(exist_ok=True)
             (metin_dir / f"{g['id']}-{n}.md").write_text(o["metin"], encoding="utf-8")
@@ -279,6 +286,7 @@ def main(argv=None):
     p.add_argument("--jevsiz", action="store_true", help="koşu sonu jev puanlamasını atla (varsayılan: tek jev_batch)")
     p.add_argument("--arka", action="store_true", help="ayrık süreçte koş, hemen dön")
     p.add_argument("--bekle-pid", type=int, help="başlamadan önce bu sürecin bitmesini bekle (sıralı kuyruk)")
+    p.add_argument("--usd-tavan", type=float, help="tüm profillerde toplam $ bu değere ulaşınca yeni çağrı başlatma")
     ns = p.parse_args(argv)
     if ns.arka:
         arg = [a for a in (argv if argv is not None else sys.argv[1:]) if a != "--arka"]
@@ -302,7 +310,7 @@ def main(argv=None):
     CIKTI.mkdir(parents=True, exist_ok=True)
     print(time.strftime("%H:%M:%S"), "başla", ns.profil, len(gorevler), "görev ×", ns.tekrar, flush=True)
     for ad in ns.profil.split(","):
-        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar, jev=not ns.jevsiz)
+        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar, jev=not ns.jevsiz, usd_tavan=ns.usd_tavan)
     print(time.strftime("%H:%M:%S"), "bitti", flush=True)
     return 0
 

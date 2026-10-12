@@ -204,6 +204,22 @@ def test_kos_env_tarayici_acmaz(monkeypatch):
     assert gorulen["env"]["BROWSER"] == "none"
 
 
+def test_kos_profil_model_butce_ve_usd_tavani(tmp_path, monkeypatch):
+    cagri = []
+
+    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0):
+        cagri.append((model, butce))
+        return {"init": None, "metin": "", "usage": {}, "tur": 1, "sure": 0, "usd": 0.6, "araclar": [], "girdi": [], "hata": ""}
+
+    monkeypatch.setattr(kosucu, "kos", sahte)
+    monkeypatch.setattr(kosucu, "CIKTI", tmp_path)
+    monkeypatch.setattr(kosucu, "HARCANAN", [0.0])
+    monkeypatch.setattr(kosucu, "bos_ram_gb", lambda: 64.0)  # gerçek RAM kapısı 30 dk bekletir
+    g = [{"id": f"T{i}", "istem": "x", "arac": [], "rubrik": []} for i in range(3)]
+    kosucu.kos_profil("p", {"model": "m", "butce": 0.5}, g, "t", 2, jev=False, usd_tavan=1.0)
+    assert cagri == [("m", 0.5), ("m", 0.5)]  # 0.6 + 0.6 ≥ 1.0 → üçüncü çağrı yok
+
+
 def test_jev_doldur_kosu_sonu_toplu_ve_erisilemezse_regex_aynen(tmp_path):
     assert kosucu.BASLIK.endswith("\thata\tjev\tjev_guven")
     d = tmp_path / "2026-10-11-p"
