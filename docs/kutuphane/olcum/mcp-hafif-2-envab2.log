@@ -1,0 +1,6 @@
+01:29:46 başladı (olcum.kilit): tools/olcum/env_ab.py docs/kutuphane/olcum/mcp-hafif-2-envab.tsv 1
+  git: ['?', 'rev-parse']
+once	88966	83683	54.4	3	0
+  git: ['?', 'Files\\Git\\mingw64\\bin\\git.exe"', 'remote-https', 'rev-parse']
+sonra	88968	83685	73.6	6	2
+01:31:55 bitti rc 0

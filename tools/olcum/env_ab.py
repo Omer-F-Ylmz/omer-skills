@@ -41,7 +41,7 @@ def kos(ek_env):
     env = {k: v for k, v in os.environ.items()
            if k not in ("ANTHROPIC_BASE_URL", "ANTHROPIC_API_KEY", "DISABLE_AUTOUPDATER", "CLAUDE_MEM_INTERNAL")}
     env.update(ek_env, BROWSER="none")
-    git, klon, kom = set(), set(), {}
+    git, klon, kom, zin = set(), set(), {}, {}
     with tempfile.TemporaryDirectory(prefix="envab-", ignore_cleanup_errors=True) as bos:
         t = time.time()
         p = subprocess.Popen(["claude", "-p", "Sadece 'tamam' yaz.", "--output-format", "json", "--max-budget-usd", BUTCE],
@@ -52,11 +52,18 @@ def kos(ek_env):
             yeni = {q for q in torunlar(d, p.pid) if d[q][1].lower() == "git.exe"}
             git |= yeni
             kom.update({q: d[q][2] for q in yeni})
+            for q in yeni - set(zin):  # klonu kim açıyor: claude mı, bir hook mu (ebeveyn zinciri, komut başları)
+                z, a = [], d[q][0]
+                while a in d and a != p.pid and len(z) < 6:
+                    z.append(d[a][1] + ":" + d[a][2][:70]); a = d[a][0]
+                zin[q] = (d[q][2][:120], z)
             klon |= {q for q in yeni if "clone" in d[q][2] or "temp_" in d[q][2] or "fetch" in d[q][2] or "pull" in d[q][2]}
             time.sleep(1)
         out = p.communicate(timeout=60)[0]
         sure = time.time() - t
     print("  git:", sorted({k.split(" ", 2)[1][:40] if " " in k else "?" for k in kom.values()}), flush=True)
+    for q in klon:
+        print("  klon:", zin[q][0], "\n    <=", " <= ".join(zin[q][1]), flush=True)
     return (*sonuc(out), round(sure, 1), len(git), len(klon))
 
 
