@@ -1,0 +1,3 @@
+zaman	aile	sira	kol	puan	gizli	tur	input	cache_creation	cache_read	output	usd	sure_sn	ders_ids	rc	notlar
+00:43:55	rapor	2	dersli	0.625	0.125	4	8	76569	248342	710	0.3631	232.5	1555b7,57b7b7	0	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: sayı binlik ayırıcı noktayla yazılmadı (ör. 2.924) | gizli ölçüt: tarih GG.AA.YYYY değil
+00:48:56	rapor	3	dersli	1.0	0.5	5	8	75298	244771	932	0.3595	176.7	56f02a,d86812	0	
