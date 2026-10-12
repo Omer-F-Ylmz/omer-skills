@@ -1,33 +1,71 @@
-aile	ajan	kol	puan	usd	jeton	ana_jeton	alt_model	sure	jev
-arastirma-ogrenme	ara-arac-degerlendirme	ajan	10	0.3091	821512	726299	claude-sonnet-5-5	95.1	9.5
-arastirma-ogrenme	ara-arac-degerlendirme	ana	10	0.2849	75400	75400	claude-sonnet-5-5	62.0	7.8
-arastirma-ogrenme	ara-dokuman-indeksle	ana	10	0.0142	76151	76151	claude-haiku-5-5	64.2	9.0
-backend-dotnet	dn-api-surumleme	ana	10	0.2917	76080	76080	claude-sonnet-5-5	55.6	9.6
-backend-dotnet	dn-async-denetci	ana	10	0.2894	75848	75848	claude-sonnet-5-5	54.7	9.2
-belge	dok-adr-yazar	ajan	10	0.4409	1015000	736171	claude-sonnet-5-5	144.7	9.7
-belge	dok-adr-yazar	ana	10	0.289	75810	75810	claude-sonnet-5-5	53.7	8.8
-belge	dok-api-dokumani	ajan	10	0.2937	817903	723935	claude-sonnet-5-5	95.0	8.7
-belge	dok-api-dokumani	ana	10	0.2829	75161	75161	claude-sonnet-5-5	50.5	9.3
-blender	bl-animasyon-anahtar	ana	10	0.3196	153686	153686	claude-sonnet-5-5	92.5	9.0
-blender	bl-dokuya-pisirme	ajan	10	0.3331	879345	734698	claude-sonnet-5-5	113.4	9.0
-blender	bl-dokuya-pisirme	ana	10	0.2884	75742	75742	claude-sonnet-5-5	64.2	9.5
-frontend	fe-a11y-denetci	ana	10	0.0142	76224	76224	claude-haiku-5-5	65.7	9.5
-arastirma-ogrenme	ara-dokuman-indeksle	ajan	10	0.353	804237	804237	-	75.4	9.0
-backend-dotnet	dn-api-surumleme	ajan	10	0.5192	1589731	1309405	claude-sonnet-5-5	134.7	6.7
-backend-dotnet	dn-async-denetci	ajan	10	0.298	774723	726709	claude-sonnet-5-5	104.8	9.7
-blender	bl-animasyon-anahtar	ajan	10	0.4149	993991	723222	claude-sonnet-5-5	115.6	7.9
-frontend	fe-a11y-denetci	ajan	10	0.5397	1336402	1336402	-	114.0	9.5
-frontend	fe-animasyon-tasarimci	ajan	10	0.2526	443789	231369	claude-sonnet-5-5	141.1	9.6
-frontend	fe-animasyon-tasarimci	ana	10	0.3533	160584	160584	claude-sonnet-5-5	77.9	9.5
-guvenlik	sec-ai-kod-guvenlik	ajan	5	0.1745	377205	231462	claude-sonnet-5-5	91.6	9.1
-guvenlik	sec-ai-kod-guvenlik	ana	10	0.2867	75499	75499	claude-sonnet-5-5	65.8	9.5
-guvenlik	sec-api-guvenlik	ajan	10	0.2512	501765	230275	claude-sonnet-5-5	117.7	9.5
-guvenlik	sec-api-guvenlik	ana	10	0.2888	75738	75738	claude-sonnet-5-5	69.3	9.5
-otomasyon	otm-ajan-is-akisi-kur	ajan	10	0.1415	324689	230461	claude-sonnet-5-5	107.6	9.2
-otomasyon	otm-ajan-is-akisi-kur	ana	10	0.2872	75573	75573	claude-sonnet-5-5	72.3	9.8
-otomasyon	otm-api-entegrasyon	ajan	10	0.3064	776379	727790	claude-sonnet-5-5	106.6	9.9
-otomasyon	otm-api-entegrasyon	ana	10	0.2856	75415	75415	claude-sonnet-5-5	90.6	7.8
-oyun-mod	oyn-dusman-ai	ajan	10	0.3077	821199	726267	claude-sonnet-5-5	129.5	9.7
-oyun-mod	oyn-dusman-ai	ana	10	0.3018	77042	77042	claude-sonnet-5-5	73.6	8.2
-oyun-mod	oyn-ini-yazar	ajan	10	0.1895	829833	829833	-	121.1	9.3
-oyun-mod	oyn-ini-yazar	ana	10	0.0146	76887	76887	claude-haiku-5-5	63.2	9.6
+aile	ajan	kol	puan	usd	jeton	ana_jeton	alt_model	sure	alt_usd	jev
+arastirma-ogrenme	ara-arac-degerlendirme	ajan	10	0.3091	821512	726299	claude-sonnet-5-5	95.1		9.5
+arastirma-ogrenme	ara-arac-degerlendirme	ana	10	0.2849	75400	75400	claude-sonnet-5-5	62.0		7.8
+arastirma-ogrenme	ara-dokuman-indeksle	ana	10	0.0142	76151	76151	claude-haiku-5-5	64.2		9.0
+backend-dotnet	dn-api-surumleme	ana	10	0.2917	76080	76080	claude-sonnet-5-5	55.6		9.6
+backend-dotnet	dn-async-denetci	ana	10	0.2894	75848	75848	claude-sonnet-5-5	54.7		9.2
+belge	dok-adr-yazar	ajan	10	0.4409	1015000	736171	claude-sonnet-5-5	144.7		9.7
+belge	dok-adr-yazar	ana	10	0.289	75810	75810	claude-sonnet-5-5	53.7		8.8
+belge	dok-api-dokumani	ajan	10	0.2937	817903	723935	claude-sonnet-5-5	95.0		8.7
+belge	dok-api-dokumani	ana	10	0.2829	75161	75161	claude-sonnet-5-5	50.5		9.3
+blender	bl-animasyon-anahtar	ana	10	0.3196	153686	153686	claude-sonnet-5-5	92.5		9.0
+blender	bl-dokuya-pisirme	ajan	10	0.3331	879345	734698	claude-sonnet-5-5	113.4		9.0
+blender	bl-dokuya-pisirme	ana	10	0.2884	75742	75742	claude-sonnet-5-5	64.2		9.5
+frontend	fe-a11y-denetci	ana	10	0.0142	76224	76224	claude-haiku-5-5	65.7		9.5
+backend-dotnet	dn-api-surumleme	ajan	10	0.5192	1589731	1309405	claude-sonnet-5-5	134.7		6.7
+backend-dotnet	dn-async-denetci	ajan	10	0.298	774723	726709	claude-sonnet-5-5	104.8		9.7
+blender	bl-animasyon-anahtar	ajan	10	0.4149	993991	723222	claude-sonnet-5-5	115.6		7.9
+frontend	fe-animasyon-tasarimci	ajan	10	0.2526	443789	231369	claude-sonnet-5-5	141.1		9.6
+frontend	fe-animasyon-tasarimci	ana	10	0.3533	160584	160584	claude-sonnet-5-5	77.9		9.5
+guvenlik	sec-ai-kod-guvenlik	ajan	5	0.1745	377205	231462	claude-sonnet-5-5	91.6		9.1
+guvenlik	sec-ai-kod-guvenlik	ana	10	0.2867	75499	75499	claude-sonnet-5-5	65.8		9.5
+guvenlik	sec-api-guvenlik	ajan	10	0.2512	501765	230275	claude-sonnet-5-5	117.7		9.5
+guvenlik	sec-api-guvenlik	ana	10	0.2888	75738	75738	claude-sonnet-5-5	69.3		9.5
+otomasyon	otm-ajan-is-akisi-kur	ajan	10	0.1415	324689	230461	claude-sonnet-5-5	107.6		9.2
+otomasyon	otm-ajan-is-akisi-kur	ana	10	0.2872	75573	75573	claude-sonnet-5-5	72.3		9.8
+otomasyon	otm-api-entegrasyon	ajan	10	0.3064	776379	727790	claude-sonnet-5-5	106.6		9.9
+otomasyon	otm-api-entegrasyon	ana	10	0.2856	75415	75415	claude-sonnet-5-5	90.6		7.8
+oyun-mod	oyn-dusman-ai	ajan	10	0.3077	821199	726267	claude-sonnet-5-5	129.5		9.7
+oyun-mod	oyn-dusman-ai	ana	10	0.3018	77042	77042	claude-sonnet-5-5	73.6		8.2
+oyun-mod	oyn-ini-yazar	ana	10	0.0146	76887	76887	claude-haiku-5-5	63.2		9.6
+frontend	fe-a11y-denetci	ajan	10	0.6524	777625	224932	claude-haiku-5-5	119.6	0.3273	8.4
+surec-ajan-arac	ajn-ajan-orkestrasyon	ajan	10	0.6507	604533	228452	claude-opus-5-5	117.6	0.6327	7.4
+surec-ajan-arac	ajn-ajan-orkestrasyon	ana	10	0.5888	76145	76145	claude-opus-5-5	97.7		8.5
+surec-git-yayin	git-cakisma-cozucu	ajan	10	0.2286	428502	228749	claude-sonnet-5-5	106.7	0.2118	9.7
+surec-git-yayin	git-cakisma-cozucu	ana	10	0.2833	75016	75016	claude-sonnet-5-5	99.0		9.7
+surec-inceleme	inc-devex-inceleme	ajan	8	0.8828	998406	685034	claude-sonnet-5-5	147.8	0.2751	8.6
+surec-inceleme	inc-devex-inceleme	ana	8	0.2869	75331	75331	claude-sonnet-5-5	64.5		8.9
+surec-plan	pln-bagimlilik-haritasi	ajan	3	0.658	799698	226167	claude-haiku-5-5	90.1	0.3386	7.9
+surec-plan	pln-bagimlilik-haritasi	ana	8	0.0143	76113	76113	claude-haiku-5-5	67.5		9.4
+test-qa	qa-api-test	ajan	7	0.3386	831338	685648	claude-sonnet-5-5	131.6	0.1564	6.3
+test-qa	qa-api-test	ana	10	0.2838	75028	75028	claude-sonnet-5-5	57.7		6.2
+veri-db	db-analitik-sorgu	ajan	10	0.2353	433340	232105	claude-sonnet-5-5	80.1	0.218	7.6
+veri-db	db-analitik-sorgu	ana	8	0.2893	76002	76002	claude-sonnet-5-5	43.2		7.2
+verimlilik	vrm-alt-ajan-dagitim	ajan	8	0.2491	503553	231314	claude-sonnet-5-5	81.6	0.232	9.3
+verimlilik	vrm-alt-ajan-dagitim	ana	8	0.2852	75590	75590	claude-sonnet-5-5	71.9		8.9
+video	vid-altyazi-uretici	ajan	8	0.3306	322835	228493	claude-haiku-5-5	86.7	0.0065	8.6
+video	vid-altyazi-uretici	ana	10	0.0144	76694	76694	claude-haiku-5-5	61.2		9.0
+arastirma-ogrenme	ara-dokuman-indeksle	ajan	10	0.6897	845866	228607	claude-haiku-5-5	102.3	0.3648	8.4
+oyun-mod	oyn-ini-yazar	ajan	10	0.3289	320865	225942	claude-haiku-5-5	71.2	0.0067	8.7
+surec-ajan-arac	ajn-ajan-tanimi-yazar	ajan	10	0.7775	821319	726859	claude-sonnet-5-5	98.8	0.1263	9.4
+surec-ajan-arac	ajn-ajan-tanimi-yazar	ana	8	0.2748	73102	73102	claude-sonnet-5-5	43.9		5.2
+surec-git-yayin	git-canary-izleme	ajan	10	0.327	878240	735022	claude-sonnet-5-5	92.5	0.1431	9.8
+surec-git-yayin	git-canary-izleme	ana	10	0.2866	75760	75760	claude-sonnet-5-5	42.2		9.6
+surec-inceleme	inc-dogrulama-oncesi-bitis	ajan	8	0.6567	802193	228109	claude-haiku-5-5	86.0	0.3355	8.3
+surec-inceleme	inc-dogrulama-oncesi-bitis	ana	8	0.0141	76121	76121	claude-haiku-5-5	55.7		7.1
+surec-plan	pln-dalga-plani	ajan	10	0.138	324877	230972	claude-sonnet-5-5	79.8	0.121	8.6
+surec-plan	pln-dalga-plani	ana	6	0.2838	75485	75485	claude-sonnet-5-5	57.9		7.2
+test-qa	qa-birim-test-yazar	ajan	3	0.3865	1334194	1215196	claude-sonnet-5-5	67.0	0.1813	0.3
+test-qa	qa-birim-test-yazar	ana	3	0.3603	311396	311396	claude-sonnet-5-5	98.1		5.1
+veri-db	db-baglanti-havuzu	ajan	10	0.7389	1938219	228647	claude-haiku-5-5	106.6	0.4136	6.5
+veri-db	db-baglanti-havuzu	ana	10	0.0147	77263	77263	claude-haiku-5-5	51.9		9.6
+verimlilik	vrm-baglam-butcesi	ajan	10	0.4258	863547	228928	claude-haiku-5-5	87.1	0.0988	8.3
+verimlilik	vrm-baglam-butcesi	ana	10	0.0144	76640	76640	claude-haiku-5-5	35.7		8.9
+video	vid-ffmpeg-donusturucu	ajan	10	0.3342	323554	229054	claude-haiku-5-5	66.9	0.0065	8.6
+video	vid-ffmpeg-donusturucu	ana	10	0.014	76047	76047	claude-haiku-5-5	42.5		7.8
+arastirma-ogrenme	ara-kod-tabani-kesfi	ajan	7	0.3982	828154	228527	claude-haiku-5-5	65.0	0.0741	8.9
+arastirma-ogrenme	ara-kod-tabani-kesfi	ana	10	0.0144	76821	76821	claude-haiku-5-5	35.8		9.0
+backend-dotnet	dn-blazor-bilesen	ajan	8	0.1457	327072	232464	claude-sonnet-5-5	63.2	0.1283	6.6
+backend-dotnet	dn-blazor-bilesen	ana	8	0.2887	75946	75946	claude-sonnet-5-5	47.4		5.2
+belge	dok-cevirmen-teknik	ajan	8	0.4012	828955	228800	claude-haiku-5-5	79.3	0.0751	8.7
+belge	dok-cevirmen-teknik	ana	7	0.0142	76342	76342	claude-haiku-5-5	40.8		8.6

@@ -1,6 +1,6 @@
 ---
 name: ajan-getir
-description: Use when a task fits a specialist agent that is not in the Agent tool's list (284 installed agents: hidden + visible plugin agents and user agents, e.g. "Database Optimizer", "octo:droids:octo-debugger"), or when the user says /ajan-getir AD-or-topic. Finds the agent in katalog.tsv and runs it as a general-purpose subagent with that agent's prompt and model.
+description: Use when a task fits a specialist agent that is not in the Agent tool's list (installed agents: hidden + visible plugin agents and user agents, e.g. "Database Optimizer", "octo:droids:octo-debugger"), or when the user says /ajan-getir AD-or-topic. Finds the agent in katalog.tsv and runs it as a general-purpose subagent with that agent's prompt and model.
 ---
 
 # ajan-getir

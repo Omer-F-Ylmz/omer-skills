@@ -3,12 +3,30 @@ kabul = görev rubriğinin terimleri (iki kola aynı). Çıktı: kalite3-ajan-pi
 Önceki jev tsv'deki (ajan, kol, sure) aynı satırlar yeniden puanlanmaz. Karar (Desktop 03:10): geçti = Jev ≥ ana VE regex ≥ ana
 VE $ ≤ ana × 1.1 — ajan $'ı toplam usd; haiku ajanda (ana oturum sonnet) alt_usd. Geçenler stdout'ta "GECTI ad".
 python .kalite3/ajan_jev.py   (Jev en fazla 2 batch çağrı; yanıt başına ≈ $0.0001)"""
-import csv, json, re, sys
+import csv, json, os, re, sys
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[1]
 sys.path.insert(0, "C:/Projeler/omer-skills/tools/jev")
-from jev.cekirdek import Tasiyici  # noqa: E402
+from jev.cekirdek import ANAHTAR_ADLARI, Tasiyici  # noqa: E402
+
+
+def ortam():
+    """os.environ + süreçte olmayan anahtar adları HKCU\\Environment'tan (salt okuma). Kök neden (d11): anahtarlar
+    kullanıcı ortamına CC başladıktan sonra yazıldı → CC ve arka plan çocukları onları miras almıyor."""
+    env = dict(os.environ)
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as k:
+            for ad in ANAHTAR_ADLARI:
+                if not env.get(ad):
+                    try:
+                        env[ad] = winreg.QueryValueEx(k, ad)[0]
+                    except OSError:
+                        pass
+    except ImportError:
+        pass
+    return env
 
 SEVIYE = ["Hiç karşılamıyor / alakasız", "Çok zayıf", "Kısmen, önemli eksik", "Çoğunlukla, küçük eksik",
           "Tam karşılıyor", "Tam ve örnek nitelikte"]
@@ -51,7 +69,7 @@ def main():
         yeni.append(s)
         state.append({"gorev": g["istem"], "kabul": kabul, "yanit": yanit})
     if state:
-        for s, c in zip(yeni, Tasiyici(en_fazla=2, istek_tavan=len(state) + 10).yargila(state, SORU)):
+        for s, c in zip(yeni, Tasiyici(env=ortam(), en_fazla=2, istek_tavan=len(state) + 10).yargila(state, SORU)):
             s["jev"] = round(c["kalite"]["score"] * 2, 1) if c else ""
     with cikti.open("w", encoding="utf-8", newline="\n") as f:
         w = csv.DictWriter(f, fieldnames=list(satir[0]), delimiter="\t", lineterminator="\n")
