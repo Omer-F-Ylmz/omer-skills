@@ -83,7 +83,7 @@ def ayakta(port):
 
 
 def bekci(cfg, port=PORT, turlar=None):
-    """Port ayaktaysa 15 sn bekler; değilse proxy'yi başlatır, bitmesini bekler, 5 sn bekler.
+    """Port ayaktaysa 15 sn bekler; değilse proxy'yi başlatır, bitmesini (asılıysa öldürülmesini) bekler, 5 sn bekler.
     Her başlatmadan önce port bakılır (çift başlatma yok). Pid'ler: <cfg dizini>/bekci.pid, proxy.pid."""
     dizin = Path(cfg).parent
     (dizin / "bekci.pid").write_text(str(os.getpid()))
@@ -98,7 +98,14 @@ def bekci(cfg, port=PORT, turlar=None):
                                   "--named-server-config", str(cfg)], stdout=log, stderr=subprocess.STDOUT,
                                  stdin=subprocess.DEVNULL, creationflags=0x08000000)
             (dizin / "proxy.pid").write_text(str(p.pid))
-            p.wait()
+            kapali = 0  # süreç canlı ama port 20 yoklama (≈5 dk; açılış ≈2 dk) kapalı = asılı (12 Eki 18:42) → ağacı öldür
+            while p.poll() is None:
+                time.sleep(15)
+                kapali = 0 if ayakta(port) else kapali + 1
+                if kapali >= 20:
+                    subprocess.run(["taskkill", "/F", "/T", "/PID", str(p.pid)], capture_output=True,
+                                   creationflags=0x08000000)
+                    p.wait()
         time.sleep(5)
 
 

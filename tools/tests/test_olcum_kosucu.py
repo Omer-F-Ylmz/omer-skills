@@ -202,6 +202,8 @@ def test_kos_env_tarayici_acmaz(monkeypatch):
     monkeypatch.setattr(kosucu, "supur", lambda ad: None)
     kosucu.kos("x")
     assert gorulen["env"]["BROWSER"] == "none"
+    assert gorulen["env"]["DISABLE_AUTOUPDATER"] == "1"  # MCP-HAFIF-2: eklenti güncelleme klonu (temp_git) yok
+    assert gorulen["env"]["CLAUDE_MEM_INTERNAL"] == "1"  # claude-mem SessionStart bağlamı yok
 
 
 def test_kos_mcp_hafif_bayrak_ve_strict_cagiran(monkeypatch):
