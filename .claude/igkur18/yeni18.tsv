@@ -1,0 +1,128 @@
+anahtar	ad	tur	link	gonderi	iddia	ig40g
+awesomeselfhosted	awesome-selfhosted	teknik		DdCUfgfOb_5	Kendi sunucunda barındırılabilen ücretsiz yazılımların kategorilere ayrılmış GitHub listesi. Videonun ana konusu.	
+selfhostedyazlmreposu	Self-hosted yazılım reposu	teknik		DdCUfgfOb_5	95 kategoride ücretsiz, kendi sunucunda çalışan yazılımların listelendiği README tabanlı depo (konuşmada ~1.250 uygulama)	
+promptmotion	Prompt Motion	iş akışı		DeUUiBhs01A	Hazır animasyon promptlarının bulunduğu kütüphane; animasyon seçilip prompt kopyalanır.	
+eformax	Efor Max	ipucu		DeUUiBhs01A	Claude'da efor ayarını Max'e getirmek daha kaliteli çıktı için öneriliyor.	
+awesomedesignmd	Awesome Design MD	skill		DeW7v7oCZZf	Stripe, Linear gibi 73 gerçek sitenin tasarım sistemini DESIGN.md dosyası olarak verir; projeye kopyalanır.	
+webdesignguidelines	Web Design Guidelines	skill		DeW7v7oCZZf	Vercel'in agent skill'i; küçük dokunma hedefi, kapalı zoom, yükleme durumu eksikliğini işaretler.	
+playwrightmcp	Playwright MCP	MCP		DeW7v7oCZZf,DeON0MOB5oi	Claude'un gerçek tarayıcı açıp tıklamasını, ekran görüntüsü almasını ve hataları düzeltmesini sağlar.	
+linear	Linear	teknik		DeW7v7oCZZf	Tasarım sistemi örneği olarak anılan site.	
+framermotion	Framer Motion	teknik		DeW7v7oCZZf	Taste Skill bölümünde hareket ile ilişkili görünen animasyon kütüphanesi.	
+alsayfasretimi	Açılış sayfası üretimi	prompt		DeW7v7oCZZf	Claude'dan bir açılış sayfası yapmasını ister.	
+tasarmsistemiuygulama	Tasarım sistemi uygulama	prompt		DeW7v7oCZZf	Stripe'ın DESIGN.md tasarım sistemini kullanmasını ister.	
+opus46	Opus 4.6	teknik		DbDvPoNACwY,DbyJNRdPyCj	Arayüzde görünen Claude modeli	
+kling	Kling	teknik		DbDvPoNACwY	Görselden video üreten model (v3 standard image-to-video)	
+falai	fal.ai	teknik		DbDvPoNACwY	Kling modelini çalıştıran servis	
+threejs	Three.js	teknik		DbDvPoNACwY,DeXJcXmFLMv	Film Friends sayfasında 3B için sözlükte eşleşen kütüphane	
+filmfriends	Film Friends	iş akışı		DbDvPoNACwY	Claude Code ile kurulan örnek abonelik sitesi	
+bolt	Bolt	teknik		DbDvPoNACwY	Yorumda, CRM ve chatbot yapısının geliştirildiği AI uygulama oluşturucu olarak anılıyor	
+manychat	Manychat	teknik		DbDvPoNACwY	Yorumda, Instagram otomasyonu için kullanılan araç olarak anılıyor	
+clearbounce	ClearBounce	teknik		DbDvPoNACwY	Türkiye'den e-posta doğrulama (bouncer) servisi; topluluk yorumunda tanıtılıyor	
+claudecodeilefilmfriendssayfasnncanlnizlemekontrol	Claude Code ile Film Friends sayfasının canlı önizleme kontrolü	prompt		DbDvPoNACwY	Uygulamayı başlatıp ürün sayfasından ödemeye kadar gez; mobilde ve koyu modda da düzgün görünsün, yarın yayına alınacak.	
+klingileyzkrnvideosuretimi	Kling ile yüzük ürün videosu üretimi	prompt		DbDvPoNACwY	Siyah beyaz aşırı yakın çekim: yüzük takılı el çenesine dokunuyor, ürün koyu zeminde yavaş dönüyor, bokeh ışıkları, iPhone 16 Pro makro hissi.	
+playwrightcli	Playwright CLI	CLI		DeXJcXmFLMv,DbyJNRdPyCj	Claude'un siteleri birden çok tarayıcıda açıp test etmesini sağlayan tarayıcı otomasyon komut satırı.	
+awesomedesign	awesome design	skill		DeXJcXmFLMv	Gerçek sitelerden esinlenen tipografi, boşluk, buton ve bileşen içeren tasarım sistemleri (DESIGN.md) sağlıyor.	
+img2threejs	img2threejs	skill		DeXJcXmFLMv	Referans görseldeki nesneyi yalnız kodla, prosedürel Three.js modeli olarak yeniden kuruyor; konuşmada 'Image23JS'.	
+tsc	tsc	CLI		DeXJcXmFLMv	TypeScript derleyicisi; --noEmit ile yalnızca tip denetimi yapar	
+claudecodeoturumundaaltajanlakodincelemesi	Claude Code oturumunda alt ajanla kod incelemesi (fon görüntüsü)	prompt		DeXJcXmFLMv	Kod inceleme alt ajanı (code reviewer subagent) çağrılarak en son oluşturulan kodun incelenmesi isteniyor.	
+electron	Electron	teknik		DeV2n53gLgf	Notion masaüstünün üzerinde çalıştığı çatı; clipboard writer olarak anılıyor.	
+skool	Skool	iş akışı		DeV2n53gLgf	Sunucunun topluluk platformu; açıklamada tanıtılıyor, videoda kullanılmıyor.	
+notionpanoyakopyalamaakntersinemhendisliklekarmak	Notion panoya kopyalama akışını tersine mühendislikle çıkarmak	prompt		DeV2n53gLgf	REA ile Notion'ın metin ve HTML'i sistem panosuna nasıl kopyaladığını izle.	
+skillui	Skill UI	skill		DbyJNRdPyCj	Bir sitenin tasarım sistemini ters mühendislikle DESIGN.md dosyasına çıkarır.	
+context7	Context7	MCP		DbyJNRdPyCj	Kodlama asistanına kütüphane ve bağımlılıkların güncel dokümanını sağlar.	
+notiontasarmsistemineuygunuiretmek	Notion tasarım sistemine uygun UI üretmek	prompt		DbyJNRdPyCj	Skill UI çıktısı sonrası Claude Code'a, çıkarılan tasarım sistemiyle eşleşen bir arayüz oluşturması isteniyor.	
+omniroute	OmniRoute	CLI,plugin		Dbs8-TnKEhL,DdlurQHG2Mm	237 yapay zekâ sağlayıcısına bağlanan, limit dolunca sıradaki modele geçen yönlendirici	
+claudemem	Claude Mem	plugin		Dbs8-TnKEhL,DdlurQHG2Mm	Claude'a tüm oturumlar boyunca hafıza veren eklenti	
+headroom	Headroom	plugin		Dbs8-TnKEhL,DdlurQHG2Mm	Yalnızca önemli kısımları geçirerek token tüketimini azaltan proxy	
+taskobserver	Task Observer	skill		Dbs8-TnKEhL	Çalışma şeklinizi izleyip düzeltmelerinizi yakalayan ve diğer skill'leri yeniden yazan eklenti	
+rtk	rtk	CLI		Dbs8-TnKEhL	Headroom başlatılırken kurulan yardımcı araç	
+openrouter	OpenRouter	teknik		Dbs8-TnKEhL,DY_SoPGKv2A	OmniRoute'un ücretsiz token bütçesi hesabında geçen sağlayıcı	
+sqlitevec	sqlite-vec	teknik		Dbs8-TnKEhL	Claude Mem hafıza aramasında vektör geri çağırma için anılan yapı	
+headroomzerindenalanclaudecodeakodtabananaliziyaptrmak	Headroom üzerinden çalışan Claude Code'a kod tabanı analizi yaptırmak	prompt		Dbs8-TnKEhL	Headroom kod tabanını derinlemesine incele, sorunları anla; alt ajanlar kullanılabilir. Rakip ve pazar araştırması paralel yürütülsün.	
+slashbrag	Slash Brag	skill		DdWmIHTC322	Yan projeyi 20 saniyelik lansman videosuna çeviren Claude skill'i (/brag)	
+latentspacesbrag	latent-spaces/brag	plugin		DdWmIHTC322	Skill'in bulunduğu GitHub deposu; .claude-plugin klasörü içerir	
+opus5high	Opus5 High	teknik		DdWmIHTC322	Oturumda seçili model; kullanımın %100'ü Opus	
+hyperframescli	hyperframes-cli	CLI		DdWmIHTC322	HyperFrames komut satırı skill'i	
+hyperframescore	hyperframes-core	skill		DdWmIHTC322	HyperFrames çekirdek skill'i	
+bragbrag	brag:brag	plugin		DdWmIHTC322	Plugin içindeki brag skill'i	
+localhost3002dzenleyici	localhost:3002 düzenleyici	teknik		DdWmIHTC322	Üretilen videonun düzenlenebilir composition önizleme sunucusu	
+dikeysrmisteme	Dikey sürüm isteme	prompt		DdWmIHTC322	Tik Tok için dikey sürüm yapılmasını isteyen öneri/metin sohbet kutusuna yazılı.	
+projeyilansmanvideosunaevirme	Projeyi lansman videosuna çevirme	prompt		DdWmIHTC322	/brag skill'i EasyGB depolama temizleme uygulaması için çalıştırıldı.	
+uiuxpromax	UI UX Pro Max	skill		DcRhD2Nto7M	Claude'a yerleşim, palet ve tipografi gibi tasarım zekâsı veren, aranabilir UI stil/palet/font veritabanı.	
+awesomeclaudedesign	Awesome Claude Design	skill		DcRhD2Nto7M	Projeye bırakılabilen 68 hazır tasarım sistemi koleksiyonu.	
+designmdchrome	design-md-chrome	plugin		DcRhD2Nto7M	Chrome eklentisi: açılan sitenin tüm tasarım sistemini DESIGN.md olarak çıkarır.	
+designmotionprinciples	Design Motion Principles	skill		DcRhD2Nto7M	Yapılan arayüzlere hareket, zamanlama ve easing ekleyen ilkeler.	
+uipro	uipro	CLI		DcRhD2Nto7M	UI UX Pro Max'i projeye kuran komut satırı aracı.	
+designmdgeneratorbytypeui	DESIGN.md Generator by TypeUI	teknik		DcRhD2Nto7M	Token tabanlı DESIGN.md üreten sayfa/örnek.	
+cubicbezier	cubic-bezier	teknik		DcRhD2Nto7M	Hareket easing eğrisi örneği: cubic-bezier(0.77, 0, 0.175, 1).	
+apianything	API Anything	CLI		DeON0MOB5oi	Sitenin ağ trafiğini tersine mühendislikle çözüp operasyon olarak kaydeder; ajan siteyi MCP, CLI veya TypeScript ile API gibi çağırır.	
+googleflights	Google Flights	teknik		DeON0MOB5oi	Karşılaştırma görevinde SFO-JFK uçuşları için kullanılan site.	
+javascript	JavaScript	teknik		DeON0MOB5oi	Depoda küçük oranda kullanılan dil.	
+cstack	cstack	skill		DeON0MOB5oi	Anlatıcının profilinde 'My skills' altında gösterilen başka bir depo.	
+headlesschrome	Headless Chrome	teknik		DeON0MOB5oi	Playwright MCP'nin sürdüğü arka planda çalışan Chrome tarayıcısı.	
+apianythingkurulumu	API Anything kurulumu	prompt		DeON0MOB5oi	Ajana API Anything'i kurmasını söyler ve INSTALL.md GitHub bağlantısını verir.	
+linkedinapisinitersinemhendislik	LinkedIn API'sini tersine mühendislik	prompt		DeON0MOB5oi	Ajandan LinkedIn'in API'sini tersine mühendislikle çıkarmasını ister.	
+screenshottocode	Screenshot to Code	iş akışı		Dcd3eY1iOMA	Ekran görüntüsü, maket ve videodan YZ ile işlevsel kod üreten açık kaynak depo	
+gemini3flashpreview	Gemini 3 Flash Preview	teknik		Dcd3eY1iOMA	Varsayılan YZ modeli, varlık çıkarımı ve video modu	
+gemini31propreview	Gemini 3.1 Pro Preview	teknik		Dcd3eY1iOMA	Varsayılan YZ modellerinden biri	
+gpt55	GPT-5.5	teknik		Dcd3eY1iOMA	README'deki varsayılan model listesinde	
+gpt54mini	GPT-5.4 Mini	teknik		Dcd3eY1iOMA	README'deki varsayılan model listesinde	
+claudeopus48	Claude Opus 4.8	teknik		Dcd3eY1iOMA	README'deki varsayılan model listesinde	
+zimageturbo	z-image-turbo	teknik		Dcd3eY1iOMA	Replicate üzerinden görsel üretim modeli	
+replicate	Replicate	teknik		Dcd3eY1iOMA	Görsel üretimi için isteğe bağlı servis	
+vite	Vite	teknik		Dcd3eY1iOMA	Ön yüz derleme aracı	
+crunchyroll	Crunchyroll	iş akışı		Dcd3eY1iOMA	Klonlanan hedef site	
+openaiagentssdk	OpenAI Agents SDK	teknik		DeChE4DChaA	AI Deep Research Agent projesinde araştırma için kullanılan ajan geliştirme kiti	
+gemini3	Gemini 3	teknik		DeChE4DChaA	VC Due Diligence Agent Team projesinde kullanılan model	
+googleinteractionsapi	Google Interactions API	teknik		DeChE4DChaA	Research Planner & Executor projesinde durumlu konuşmalar için API	
+crewai	CrewAI	teknik		DeChE4DChaA	AI Services Agency projesinde kullanılan çoklu ajan çerçevesi	
+ag2	AG2	teknik		DeChE4DChaA	Adaptive Research Team projesinde geçen ajan çerçevesi	
+x402	x402	teknik		DeChE4DChaA	AI x402 Paying Agent projesinde ödeme yapan ajan protokolü	
+rag	RAG	teknik		DeChE4DChaA	Depoda kapsanan konulardan biri	
+agentskills	Agent skills	skill		DeChE4DChaA,Db_H8ScP5y-	Depoda kapsanan konulardan biri	
+xai	xAI	teknik		DeChE4DChaA	Finans ajanı projesinde anılan xAI model/servisi (OCR'da xAl; doğrulanamadı).	
+textobserver	Text Observer	plugin		DdlurQHG2Mm	Kullanıcının nasıl çalıştığını öğrenip ona uyum sağlayan eklenti.	
+security	Security	plugin		DdlurQHG2Mm	SQL injection gibi açıkları otomatik yakalayan güvenlik taraması eklentisi.	
+contextmode	Context Mode	plugin		DdlurQHG2Mm	Boşa harcanan bağlamı %98 azaltan eklenti.	
+manifest	Manifest	plugin		DdlurQHG2Mm	Her oturum için gerçek zamanlı maliyet takibi.	
+skillbus	Skill-bus	plugin		DdlurQHG2Mm	Birkaç skill'i zincirleyerek birlikte çalıştırır.	
+cavemanksaktdemosu	Caveman kısa çıktı demosu	prompt		DdlurQHG2Mm	Kullanıcı Claude'a Mars'ın kaç uydusu olduğunu soruyor; kısa yanıt Phobos ve Deimos'u veriyor.	
+contextmodebalamtasarrufudemosu	Context Mode bağlam tasarrufu demosu	prompt		DdlurQHG2Mm	Kullanıcı sea level'da suyun kaynama noktasını soruyor; varsayılan stilde uzun, ayrıntılı yanıt geliyor, konsizde kısa yanıt karşılaştırılıyor.	
+omniroutesohbetdemosu	OmniRoute sohbet demosu	prompt		DdlurQHG2Mm	Kullanıcı Kyoto'ya kısa bir seyahat planlıyor ve yerel yemek yerleri öneriyor isteyip Claude'dan 3 günlük plan istiyor.	
+headroomtakipturukarlatrmasbelirsizistekyerinetekseferdenetistek	Headroom takip turu karşılaştırması: belirsiz istek yerine tek seferde net istek	prompt		DdlurQHG2Mm	Kullanıcı yeni espresso makinesi için 120 kelimelik, samimi tonda ve tek net CTA içeren lansman e-postası yazmasını istiyor.	
+claudememkalcbellekdemosu	Claude Mem kalıcı bellek demosu	prompt		DdlurQHG2Mm	Kullanıcı Claude'dan önceki sohbette söylediği yemek kısıtlamalarını hatırlamasını istiyor.	
+usingagentskills	using-agent-skills	skill		Db_H8ScP5y-	Hangi skill'in uygulanacağını belirleyen meta-skill.	
+interviewme	interview-me	skill		Db_H8ScP5y-	Kullanıcının gerçekte ne istediğini tek soruyla çıkaran röportaj skill'i.	
+idearefine	idea-refine	skill		Db_H8ScP5y-	Belirsiz fikirleri somut önerilere çeviren düşünme skill'i.	
+specdrivendevelopment	spec-driven-development	skill		Db_H8ScP5y-	Kod öncesi hedefleri, komutları, yapıyı ve sınırları içeren PRD yazar.	
+planningandtaskbreakdown	planning-and-task-breakdown	skill		Db_H8ScP5y-	Spesifikasyonu kabul kriterli küçük doğrulanabilir görevlere böler.	
+incrementalimplementation	incremental-implementation	skill		Db_H8ScP5y-	İnce dikey dilimlerle uygula, test et, doğrula, commit et.	
+testdrivendevelopment	test-driven-development	skill		Db_H8ScP5y-	Red-Green-Refactor, test piramidi (80/15/5), DAMP over DRY, Beyonce Rule.	
+contextengineering	context-engineering	skill		Db_H8ScP5y-	Ajana doğru bilgiyi doğru zamanda verir (kurallar dosyaları, bağlam paketleme, MCP).	
+sourcedrivendevelopment	source-driven-development	skill		Db_H8ScP5y-	Çerçeve kararlarını resmi dokümantasyona dayandırır.	
+redgreenrefactor	Red-Green-Refactor	teknik		Db_H8ScP5y-	TDD döngüsü.	
+floruvio	flo.ruv.io	teknik		DY_SoPGKv2A	Ruflo'nun çoklu model sohbet arayüzü; paralel MCP araç çağrısı	
+goalruvio	goal.ruv.io	teknik		DY_SoPGKv2A	GOAP A* planlayıcı; sade dilde hedefleri çalıştırılabilir plana çevirir	
+qwen36max	Qwen 3.6 Max	teknik		DY_SoPGKv2A	Ruflo web arayüzünde varsayılan model	
+claudesonnet46	Claude Sonnet 4.6	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+claudehaiku45	Claude Haiku 4.5	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+gemini25pro	Gemini 2.5 Pro	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+gemini25flash	Gemini 2.5 Flash	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+ruvllm	ruvLLM	teknik		DY_SoPGKv2A	Kendi kendini geliştiren yerel model katmanı; MicroLoRA adaptörleri	
+agentdb	AgentDB	teknik		DY_SoPGKv2A	HNSW indeksli ajan veritabanı / paylaşılan bellek	
+ollama	Ollama	CLI		DY_SoPGKv2A	Yerel model sağlayıcısı; Tier-2 sağlayıcı sürümü	
+akllmodelynlendirme	Akıllı model yönlendirme	teknik		DY_SoPGKv2A	Basit görevleri ücretsiz katmana, zorları uygun modele yönlendirme	
+microlora	MicroLoRA	teknik		DY_SoPGKv2A	Yerel model katmanında yönlendirilen küçük LoRA adaptörleri; yörüngelerden öğreniyor.	
+goapaplanner	GOAP A* planner	teknik		DY_SoPGKv2A	Düz dilde verilen hedefleri yürütülebilir adımlara çeviren planlayıcı; goal.ruv.io üzerinden sunuluyor.	
+mongodb	MongoDB	teknik		DY_SoPGKv2A	Veritabanı; Ruflo web arayüzü gömülü Mongo ile birlikte geliyor.	
+kubernetes	Kubernetes	teknik		DY_SoPGKv2A	Konteyner orkestrasyon platformu; Ruflo'nun kendi bulutunuza dağıtım seçeneklerinden biri.	
+tercihiruflobelleinekaydetmek	Tercihi Ruflo belleğine kaydetmek	prompt		DY_SoPGKv2A	Ruflo'nun ruflo_memory_store aracına 'preferences' ad alanında, 'editor_theme' anahtarıyla tercihi kaydetmesini isteyen talimat.	
+uzunsrelibellekzelliinigstermek	Uzun süreli bellek özelliğini göstermek	prompt		DY_SoPGKv2A	'remember my favorite color is indigo' diyerek bilgiyi kaydettirip haftalar sonra sormak; Ruflo'nun hatırlaması bekleniyor.	
+skillspector	SkillSpector	CLI		DdrNeEUN63i	Skill kurulmadan önce prompt injection, veri sızdırma ve tedarik zinciri risklerini tarayan güvenlik tarayıcısı	
+reticle	Reticle	skill		DdrNeEUN63i	Ajan bitti dediğinde gerçek uygulamayı açıp test eden ve düzeltilecek satırı gösteren araç	
+chisle	Chisle	skill		DdrNeEUN63i	Ajanın gevezeliğini ve istenmeyen kodu azaltıp token harcamasını düşüren araç	
+uiskills	UI Skills	skill		DdrNeEUN63i	Boşluk, hareket ve erişilebilirlik için tasarım mühendisliği kuralları sunan skill seti	
+antislop	Anti-Slop	plugin		DdrNeEUN63i	Tembel yapay zekâ kod kalıplarını reddeden oxlint kural seti	
+oxlint	Oxlint	CLI		DdrNeEUN63i	Anti-Slop kurallarının yapılandırıldığı linter	
+chislenajanaverdiitokentasarrufuvegereksiziyapmamakurallar	Chisle'ın ajana verdiği token tasarrufu ve gereksiz iş yapmama kuralları.	prompt		DdrNeEUN63i	Chisle kuralları: gerekmedikçe kod üretme, az yap ve mevcut olanı yeniden kullan; kısa ve odaklı yanıt ver; yalnız gerçekten ilgili bağlamı kullan; YAGNI ilkesiyle hareket et.	
+tasarmmhendisliikurallarnajannuygulamasiinsunmak	Tasarım mühendisliği kurallarını ajanın uygulaması için sunmak.	prompt		DdrNeEUN63i	UI Skills kuralları: boşluğu gruplama için spacing kullan, border-radius'u iç ve dış öğelerde eşleştir, aspect-ratio ile kayma önle, sayılar için tabular-nums kullan, dokunma hedefini en az 44px yap, basılan butonlara ölçek geri bildirimi ekle.	

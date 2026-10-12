@@ -1,0 +1,2 @@
+repo	gitleaks	semgrep	skillspector	betik
+dmmulroy/anti-slop	0 sızıntı	0 bulgu (p/security-audit)	CAUTION 36: HIGH SC6 oxlint~eslint typosquat = yanlış pozitif (oxc-project resmi paketi); 2× RP1 npx sürümsüz → kural satırında sürüm sabit; AS3 README skill listeleme (zararsız)	çalıştırılmadı; package.json pre/postinstall yok

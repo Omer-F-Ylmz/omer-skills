@@ -1,0 +1,33 @@
+anahtar	ad	tur	link	gonderi	iddia	ig40g
+promptmotion	Prompt Motion	iş akışı		DeUUiBhs01A	Hazır animasyon promptlarının bulunduğu kütüphane; animasyon seçilip prompt kopyalanır.	
+playwrightmcp	Playwright MCP	MCP		DeW7v7oCZZf,DeON0MOB5oi	Claude'un gerçek tarayıcı açıp tıklamasını, ekran görüntüsü almasını ve hataları düzeltmesini sağlar.	
+tasarmsistemiuygulama	Tasarım sistemi uygulama	prompt		DeW7v7oCZZf	Stripe'ın DESIGN.md tasarım sistemini kullanmasını ister.	
+threejs	Three.js	teknik		DbDvPoNACwY,DeXJcXmFLMv	Film Friends sayfasında 3B için sözlükte eşleşen kütüphane	
+clearbounce	ClearBounce	teknik		DbDvPoNACwY	Türkiye'den e-posta doğrulama (bouncer) servisi; topluluk yorumunda tanıtılıyor	
+awesomedesign	awesome design	skill		DeXJcXmFLMv	Gerçek sitelerden esinlenen tipografi, boşluk, buton ve bileşen içeren tasarım sistemleri (DESIGN.md) sağlıyor.	
+electron	Electron	teknik		DeV2n53gLgf	Notion masaüstünün üzerinde çalıştığı çatı; clipboard writer olarak anılıyor.	
+context7	Context7	MCP		DbyJNRdPyCj	Kodlama asistanına kütüphane ve bağımlılıkların güncel dokümanını sağlar.	
+headroom	Headroom	plugin		Dbs8-TnKEhL,DdlurQHG2Mm	Yalnızca önemli kısımları geçirerek token tüketimini azaltan proxy	
+sqlitevec	sqlite-vec	teknik		Dbs8-TnKEhL	Claude Mem hafıza aramasında vektör geri çağırma için anılan yapı	
+opus5high	Opus5 High	teknik		DdWmIHTC322	Oturumda seçili model; kullanımın %100'ü Opus	
+localhost3002dzenleyici	localhost:3002 düzenleyici	teknik		DdWmIHTC322	Üretilen videonun düzenlenebilir composition önizleme sunucusu	
+awesomeclaudedesign	Awesome Claude Design	skill		DcRhD2Nto7M	Projeye bırakılabilen 68 hazır tasarım sistemi koleksiyonu.	
+designmdgeneratorbytypeui	DESIGN.md Generator by TypeUI	teknik		DcRhD2Nto7M	Token tabanlı DESIGN.md üreten sayfa/örnek.	
+javascript	JavaScript	teknik		DeON0MOB5oi	Depoda küçük oranda kullanılan dil.	
+linkedinapisinitersinemhendislik	LinkedIn API'sini tersine mühendislik	prompt		DeON0MOB5oi	Ajandan LinkedIn'in API'sini tersine mühendislikle çıkarmasını ister.	
+gpt55	GPT-5.5	teknik		Dcd3eY1iOMA	README'deki varsayılan model listesinde	
+replicate	Replicate	teknik		Dcd3eY1iOMA	Görsel üretimi için isteğe bağlı servis	
+gemini3	Gemini 3	teknik		DeChE4DChaA	VC Due Diligence Agent Team projesinde kullanılan model	
+x402	x402	teknik		DeChE4DChaA	AI x402 Paying Agent projesinde ödeme yapan ajan protokolü	
+textobserver	Text Observer	plugin		DdlurQHG2Mm	Kullanıcının nasıl çalıştığını öğrenip ona uyum sağlayan eklenti.	
+skillbus	Skill-bus	plugin		DdlurQHG2Mm	Birkaç skill'i zincirleyerek birlikte çalıştırır.	
+headroomtakipturukarlatrmasbelirsizistekyerinetekseferdenetistek	Headroom takip turu karşılaştırması: belirsiz istek yerine tek seferde net istek	prompt		DdlurQHG2Mm	Kullanıcı yeni espresso makinesi için 120 kelimelik, samimi tonda ve tek net CTA içeren lansman e-postası yazmasını istiyor.	
+idearefine	idea-refine	skill		Db_H8ScP5y-	Belirsiz fikirleri somut önerilere çeviren düşünme skill'i.	
+testdrivendevelopment	test-driven-development	skill		Db_H8ScP5y-	Red-Green-Refactor, test piramidi (80/15/5), DAMP over DRY, Beyonce Rule.	
+floruvio	flo.ruv.io	teknik		DY_SoPGKv2A	Ruflo'nun çoklu model sohbet arayüzü; paralel MCP araç çağrısı	
+claudehaiku45	Claude Haiku 4.5	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+agentdb	AgentDB	teknik		DY_SoPGKv2A	HNSW indeksli ajan veritabanı / paylaşılan bellek	
+goapaplanner	GOAP A* planner	teknik		DY_SoPGKv2A	Düz dilde verilen hedefleri yürütülebilir adımlara çeviren planlayıcı; goal.ruv.io üzerinden sunuluyor.	
+uzunsrelibellekzelliinigstermek	Uzun süreli bellek özelliğini göstermek	prompt		DY_SoPGKv2A	'remember my favorite color is indigo' diyerek bilgiyi kaydettirip haftalar sonra sormak; Ruflo'nun hatırlaması bekleniyor.	
+uiskills	UI Skills	skill		DdrNeEUN63i	Boşluk, hareket ve erişilebilirlik için tasarım mühendisliği kuralları sunan skill seti	
+tasarmmhendisliikurallarnajannuygulamasiinsunmak	Tasarım mühendisliği kurallarını ajanın uygulaması için sunmak.	prompt		DdrNeEUN63i	UI Skills kuralları: boşluğu gruplama için spacing kullan, border-radius'u iç ve dış öğelerde eşleştir, aspect-ratio ile kayma önle, sayılar için tabular-nums kullan, dokunma hedefini en az 44px yap, basılan butonlara ölçek geri bildirimi ekle.	

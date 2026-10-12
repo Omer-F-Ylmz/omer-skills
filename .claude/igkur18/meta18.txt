@@ -1,0 +1,51 @@
+## task-observer claude
+## skill-bus claude
+## manifest claude code cost
+## api-anything
+goodnight000/api-anything	★747	mit	false	2026-10-12	Turn any website into an API your agent can call. Learns from the site
+uasoft-indonesia/badaso	★1255	mit	false	2026-10-09	Laravel Vue headless CMS / admin panel / dashboard / builder / API CRU
+ksugar/samapi	★118	bsd-3-clause	false	2026-10-09	Segment Anything Model API
+## cstack claude skills
+## reticle claude agent
+## chisle
+JayPokale/Chisle	★652	other	false	2026-10-12	Cut your AI coding agent's token bill on three axes: terse prose, YAGN
+hunter-college-ossd-spr-2020/chislee0708-weekly	★0	other	false	2020-05-11	weekly created for chislee0708
+chislee0708/chislee0708	★0		false	2021-07-13	Personal Description
+## anti-slop oxlint
+victor-software-house/anti-slop	★0	mit	false	2026-08-30	Published fork of dmmulroy/anti-slop: Oxlint rules that reject low-evi
+Pfgoriaux/eden-lint	★0	mit	false	2026-10-08	Shared Biome config, anti-slop Oxlint rules, and env-var naming checks
+## img2threejs
+img2threejs/img2threejs	★17994	apache-2.0	false	2026-10-12	Rebuild the object in a reference image as a code-only, procedural, qu
+img2threejs/img2threejs-showcase	★183		false	2026-10-12	Live demo gallery for img2threejs: procedural Three.js models rebuilt 
+nano-step/img2threejs	★16		false	2026-09-26	
+## skill-ui design.md
+## latent-spaces brag
+mattivilola/brag-codex	★34	mit	false	2026-10-06	Codex-compatible clone of latent-spaces/brag for Hyperframes launch vi
+rahmaglobalnur-boop/https-github.com-latent-spaces-brag	★0		false	2026-09-27	
+MdKasif0/iWriteTech-Video	★1		false	2026-09-30	A 20-second cinematic launch video for iWriteTech, engineered using th
+## awesome-claude-design
+VoltAgent/awesome-claude-design	★4048	mit	false	2026-10-12	Awesome Claude Design: 68 ready-to-use design system inspirations in D
+rohitg00/awesome-claude-design	★1141	mit	false	2026-10-12	Claude Design DESIGN.md prompts by aesthetic family, remix recipes, sk
+bergside/awesome-design-skills	★3138	mit	false	2026-10-12	List of 67 awesome DESIGN.md and SKILL.md design skill files for agent
+## design-md-chrome
+bergside/design-md-chrome	★2990	mit	false	2026-10-12	Chrome extension to extract styles from any website and generate DESIG
+liaocaoxuezhe/get-web-design	★75		false	2026-10-05	将任意线上网站的设计风格提取为一份结构化 `DESIGN.md`。本 skill 是 design-extractor Chrome 扩展的
+Liuwei1125/design-md-token-exporter	★3	mit	false	2026-06-01	Local-first Chrome extension for extracting design tokens and exportin
+## design-motion-principles
+kylezantos/design-motion-principles	★1272	mit	false	2026-10-12	A motion design skill with two modes — build interactive components wi
+LottieFiles/motion-design-skill	★2137	mit	false	2026-10-12	Universal motion design principles for AI agents — timing, easing, cho
+echris6/motion-video-kit	★1092	mit	false	2026-10-12	Claude Code skill kit for premium AI-assisted business videos: indepen
+## omniroute
+diegosouzapw/OmniRoute	★75567	mit	false	2026-10-12	Never stop coding. Free MIT AI gateway: one endpoint, 359 providers (1
+Alph4d0g/opencode-omniroute-auth	★140	mit	false	2026-10-11	opencode authentication provider to authenticate against omniroute
+omnilabs-ai/OmniRouter	★80		false	2026-10-11	
+## prompt motion animation prompts
+## screenshot-to-code
+abi/screenshot-to-code	★80265	mit	false	2026-10-12	Drop in a screenshot and convert it to clean code (HTML/Tailwind/React
+emilwallner/Screenshot-to-code	★16534	other	false	2026-10-12	A neural network that transforms a design mock-up into a static websit
+riccardoperra/codeimage	★2091	mit	false	2026-10-09	A tool to beautify your code screenshots. Built with SolidJS and Fasti
+## awesome-design-md
+VoltAgent/awesome-design-md	★120501	mit	false	2026-10-12	A collection of DESIGN.md files analysis by popular brand design syste
+HU-UH/awesome-design-md	★444	mit	false	2026-10-11	55个精选网站设计系统 DESIGN.md，可给AI Agent使用生成匹配UI
+kzhrknt/awesome-design-md-jp	★988	mit	false	2026-10-12	日本語UIをAIエージェントに正しくつくらせるためのDESIGN.md集。Japanese DESIGN.md collection for
+## ui-skills ibelick

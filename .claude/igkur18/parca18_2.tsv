@@ -1,0 +1,33 @@
+anahtar	ad	tur	link	gonderi	iddia	ig40g
+selfhostedyazlmreposu	Self-hosted yazılım reposu	teknik		DdCUfgfOb_5	95 kategoride ücretsiz, kendi sunucunda çalışan yazılımların listelendiği README tabanlı depo (konuşmada ~1.250 uygulama)	
+webdesignguidelines	Web Design Guidelines	skill		DeW7v7oCZZf	Vercel'in agent skill'i; küçük dokunma hedefi, kapalı zoom, yükleme durumu eksikliğini işaretler.	
+alsayfasretimi	Açılış sayfası üretimi	prompt		DeW7v7oCZZf	Claude'dan bir açılış sayfası yapmasını ister.	
+falai	fal.ai	teknik		DbDvPoNACwY	Kling modelini çalıştıran servis	
+manychat	Manychat	teknik		DbDvPoNACwY	Yorumda, Instagram otomasyonu için kullanılan araç olarak anılıyor	
+playwrightcli	Playwright CLI	CLI		DeXJcXmFLMv,DbyJNRdPyCj	Claude'un siteleri birden çok tarayıcıda açıp test etmesini sağlayan tarayıcı otomasyon komut satırı.	
+claudecodeoturumundaaltajanlakodincelemesi	Claude Code oturumunda alt ajanla kod incelemesi (fon görüntüsü)	prompt		DeXJcXmFLMv	Kod inceleme alt ajanı (code reviewer subagent) çağrılarak en son oluşturulan kodun incelenmesi isteniyor.	
+skillui	Skill UI	skill		DbyJNRdPyCj	Bir sitenin tasarım sistemini ters mühendislikle DESIGN.md dosyasına çıkarır.	
+claudemem	Claude Mem	plugin		Dbs8-TnKEhL,DdlurQHG2Mm	Claude'a tüm oturumlar boyunca hafıza veren eklenti	
+openrouter	OpenRouter	teknik		Dbs8-TnKEhL,DY_SoPGKv2A	OmniRoute'un ücretsiz token bütçesi hesabında geçen sağlayıcı	
+latentspacesbrag	latent-spaces/brag	plugin		DdWmIHTC322	Skill'in bulunduğu GitHub deposu; .claude-plugin klasörü içerir	
+bragbrag	brag:brag	plugin		DdWmIHTC322	Plugin içindeki brag skill'i	
+uiuxpromax	UI UX Pro Max	skill		DcRhD2Nto7M	Claude'a yerleşim, palet ve tipografi gibi tasarım zekâsı veren, aranabilir UI stil/palet/font veritabanı.	
+uipro	uipro	CLI		DcRhD2Nto7M	UI UX Pro Max'i projeye kuran komut satırı aracı.	
+googleflights	Google Flights	teknik		DeON0MOB5oi	Karşılaştırma görevinde SFO-JFK uçuşları için kullanılan site.	
+apianythingkurulumu	API Anything kurulumu	prompt		DeON0MOB5oi	Ajana API Anything'i kurmasını söyler ve INSTALL.md GitHub bağlantısını verir.	
+gemini31propreview	Gemini 3.1 Pro Preview	teknik		Dcd3eY1iOMA	Varsayılan YZ modellerinden biri	
+zimageturbo	z-image-turbo	teknik		Dcd3eY1iOMA	Replicate üzerinden görsel üretim modeli	
+openaiagentssdk	OpenAI Agents SDK	teknik		DeChE4DChaA	AI Deep Research Agent projesinde araştırma için kullanılan ajan geliştirme kiti	
+ag2	AG2	teknik		DeChE4DChaA	Adaptive Research Team projesinde geçen ajan çerçevesi	
+xai	xAI	teknik		DeChE4DChaA	Finans ajanı projesinde anılan xAI model/servisi (OCR'da xAl; doğrulanamadı).	
+manifest	Manifest	plugin		DdlurQHG2Mm	Her oturum için gerçek zamanlı maliyet takibi.	
+omniroutesohbetdemosu	OmniRoute sohbet demosu	prompt		DdlurQHG2Mm	Kullanıcı Kyoto'ya kısa bir seyahat planlıyor ve yerel yemek yerleri öneriyor isteyip Claude'dan 3 günlük plan istiyor.	
+interviewme	interview-me	skill		Db_H8ScP5y-	Kullanıcının gerçekte ne istediğini tek soruyla çıkaran röportaj skill'i.	
+incrementalimplementation	incremental-implementation	skill		Db_H8ScP5y-	İnce dikey dilimlerle uygula, test et, doğrula, commit et.	
+redgreenrefactor	Red-Green-Refactor	teknik		Db_H8ScP5y-	TDD döngüsü.	
+claudesonnet46	Claude Sonnet 4.6	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+ruvllm	ruvLLM	teknik		DY_SoPGKv2A	Kendi kendini geliştiren yerel model katmanı; MicroLoRA adaptörleri	
+microlora	MicroLoRA	teknik		DY_SoPGKv2A	Yerel model katmanında yönlendirilen küçük LoRA adaptörleri; yörüngelerden öğreniyor.	
+tercihiruflobelleinekaydetmek	Tercihi Ruflo belleğine kaydetmek	prompt		DY_SoPGKv2A	Ruflo'nun ruflo_memory_store aracına 'preferences' ad alanında, 'editor_theme' anahtarıyla tercihi kaydetmesini isteyen talimat.	
+chisle	Chisle	skill		DdrNeEUN63i	Ajanın gevezeliğini ve istenmeyen kodu azaltıp token harcamasını düşüren araç	
+chislenajanaverdiitokentasarrufuvegereksiziyapmamakurallar	Chisle'ın ajana verdiği token tasarrufu ve gereksiz iş yapmama kuralları.	prompt		DdrNeEUN63i	Chisle kuralları: gerekmedikçe kod üretme, az yap ve mevcut olanı yeniden kullan; kısa ve odaklı yanıt ver; yalnız gerçekten ilgili bağlamı kullan; YAGNI ilkesiyle hareket et.	

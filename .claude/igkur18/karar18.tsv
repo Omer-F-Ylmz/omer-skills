@@ -1,0 +1,173 @@
+ad	gonderi	karar	hedef	gerekce	repo	lisans
+GitHub	DdCUfgfOb_5,DdWmIHTC322,Dcd3eY1iOMA,DeChE4DChaA,Db_H8ScP5y-,DdrNeEUN63i	DEVİR-IG40	sira 313	IG-40 KURULU: gh CLI + github MCP kurulu	-	-
+Claude Opus 5.5	DeUUiBhs01A,DeXJcXmFLMv	DEVİR-IG40	sira 134	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Claude	DeUUiBhs01A,DdWmIHTC322,DcRhD2Nto7M,DYx4OuVuJuI,Dcd3eY1iOMA,DeChE4DChaA	DEVİR-IG40	sira 267	IG-40 REF: genel ürün (Claude)	-	-
+Impeccable	DeW7v7oCZZf,DeXJcXmFLMv	DEVİR-IG40	sira 235	IG-40 DEVİR: devir/tasarim-*.tsv; tasarim departman ajanı	-	-
+Taste Skill	DeW7v7oCZZf,DeXJcXmFLMv,DcRhD2Nto7M	DEVİR-IG40	sira 234	IG-40 DEVİR: devir/tasarim-*.tsv; tasarim departman ajanı	-	-
+Claude Code	DeW7v7oCZZf,DbDvPoNACwY,DeXJcXmFLMv,DeV2n53gLgf,DbyJNRdPyCj,Dbs8-TnKEhL,DcRhD2Nto7M,DeON0MOB5oi,Dcd3eY1iOMA,DdlurQHG2Mm,Db_H8ScP5y-,DY_SoPGKv2A	DEVİR-IG40	sira 233	IG-40 KURULU: çalışan ana araç (Claude Code)	-	-
+Stripe	DeW7v7oCZZf	DEVİR-IG40	sira 78	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Inter	DeW7v7oCZZf	DEVİR-IG40	sira 212	IG-40 DEVIR: tasarim departman ajanı yapıyor	-	-
+Sonnet 4.6	DbDvPoNACwY	DEVİR-IG40	sira 37	IG-40 KURULU: KALİTE-3 taze bağlamlı denetçi + Jev yargıcı ile var	-	-
+Antigravity	DbDvPoNACwY,DcRhD2Nto7M	DEVİR-IG40	sira 44	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+n8n	DbDvPoNACwY	DEVİR-IG40	sira 397	IG-40 KURULU: n8n-mcp kurulu	-	-
+WhatsApp	DbDvPoNACwY	DEVİR-IG40	sira 354	IG-40 REF: hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors	-	-
+Python	DeXJcXmFLMv,DeChE4DChaA	DEVİR-IG40	sira 58	IG-40 KURULU: Python 3.12 kurulu	-	-
+Git	DeXJcXmFLMv	DEVİR-IG40	sira 20	IG-40 KURULU: PATH'te var (HelloGitHub yanlış eşleşme)	-	-
+npm	DeXJcXmFLMv,Db_H8ScP5y-,DY_SoPGKv2A	DEVİR-IG40	sira 259	IG-40 REF: paket yöneticisi (npm) kurulu, aday değil	-	-
+REA	DeV2n53gLgf	DEVİR-IG40	sira 3	IG-40 REF: yerel ikili tersine mühendislik; kullanım alanımız dışı, replica-skill uygulama düzeyini karşılıyor	-	-
+Codex	DeV2n53gLgf,DbyJNRdPyCj	DEVİR-IG40	sira 253	IG-40 REF: genel ürün (Codex); codex eklentisi envanterde	-	-
+Notion	DeV2n53gLgf,DbyJNRdPyCj	DEVİR-IG40	sira 351	IG-40 REF: hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors	-	-
+Supabase	DbyJNRdPyCj	DEVİR-IG40	sira 321	IG-40 KURULU: plugin yerel-kurulum7/supabase	-	-
+Strix	DbyJNRdPyCj	DEVİR-IG40	sira 5	IG-40 KUR: kendi uygulamalarımıza sızma testi; Docker + LLM anahtarı gerekir → Ömer listesi; tarama koşulu	-	-
+Next.js	DbyJNRdPyCj	DEVİR-IG40	sira 55	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Remotion	DbyJNRdPyCj	DEVİR-IG40	sira 256	IG-40 DEVİR: devir/blender-*.tsv; blender departman ajanı	-	-
+CLAUDE.md	DbyJNRdPyCj	DEVİR-IG40	sira 40	IG-40 DEVIR: sira 269–281 P3 kapsamında (wt igkur-p3 p3/karar.tsv): 7 KURULU (reel-taste+motion-studio), 4 UYARLA → p3/skill/reel-plan, 2 DEVİR animasyon; repo yok (ücretli set)	-	-
+DESIGN.md	DbyJNRdPyCj	DEVİR-IG40	sira 199	IG-40 DEVIR: tasarim departman ajanı yapıyor	-	-
+Cursor	DbyJNRdPyCj,DcRhD2Nto7M	DEVİR-IG40	sira 261	IG-40 REF: genel ürün (Cursor IDE)	-	-
+Claude Code Setup	Dbs8-TnKEhL	DEVİR-IG40	sira 264	IG-40 KURULU: d4 onayında KUR (claude-code-setup); çift kurulmaz	-	-
+Claude Opus	Dbs8-TnKEhL	DEVİR-IG40	sira 57	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+MCP	Dbs8-TnKEhL,DeON0MOB5oi,DeChE4DChaA,Db_H8ScP5y-,DY_SoPGKv2A	DEVİR-IG40	sira 262	IG-40 REF: protokol adı (MCP)	-	-
+hyperframes	DdWmIHTC322	DEVİR-IG40	sira 250	IG-40 DEVİR: devir/animasyon-*.tsv; animasyon departman ajanı	-	-
+Windsurf	DcRhD2Nto7M	DEVİR-IG40	sira 36	IG-40 KURULU: skill:security-audit kurulu	-	-
+TypeScript	DeON0MOB5oi	DEVİR-IG40	sira 33	IG-40 DEVIR: siteye gömülen GUI ajanı (tasarim-1.tsv'de)	-	-
+Claude Opus 4.6	Dcd3eY1iOMA	DEVİR-IG40	sira 83	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+React	Dcd3eY1iOMA	DEVİR-IG40	sira 35	IG-40 KURULU: plugin önbellekte	-	-
+FastAPI	Dcd3eY1iOMA	DEVİR-IG40	sira 75	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Firecrawl	DeChE4DChaA	DEVİR-IG40	sira 345	IG-40 DEVİR: devir/tasarim-*.tsv; tasarim departman ajanı	-	-
+Nano Banana Pro	DeChE4DChaA	DEVİR-IG40	sira 56	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Gemini	DeChE4DChaA	DEVİR-IG40	sira 123	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+GPT	DeChE4DChaA	DEVİR-IG40	sira 91	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+DeepSeek	DeChE4DChaA	DEVİR-IG40	sira 84	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Llama	DeChE4DChaA	DEVİR-IG40	sira 147	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Caveman	DdlurQHG2Mm	DEVİR-IG40	sira 1	IG-40 KURULU: caveman CLI kurulu; ponytail ile eşli kullanılıyor	-	-
+Claude Video	DdlurQHG2Mm	DEVİR-IG40	sira 237	IG-40 KURULU: plugin claude-video kurulu	-	-
+Ruflo	DY_SoPGKv2A	DEVİR-IG40	sira 4	IG-40 REF: RUFLO-1 görevi ayrı yürütüyor (çift iş yok); hgahlot/claude-flow yanlış eşleşme	-	-
+SONA	DY_SoPGKv2A	DEVİR-IG40	sira 72	IG-40 REF: Ruflo öz-öğrenme; RUFLO-1 görevi yürütüyor (çift iş yok)	-	-
+Docker	DY_SoPGKv2A	DEVİR-IG40	sira 79	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+awesome-selfhosted	DdCUfgfOb_5	REF	-	liste; kendi sunuculu yazılım kapsam dışı	awesome-selfhosted/awesome-selfhosted	CC0
+Self-hosted yazılım reposu	DdCUfgfOb_5	REF	-	awesome-selfhosted ile aynı liste	-	-
+Prompt Motion	DeUUiBhs01A	DEVİR	animasyon-1	hazır animasyon istem kütüphanesi; repo belirsiz (crizmo/PromptMotion ★3 zayıf eşleşme)	-	-
+Efor Max	DeUUiBhs01A	REF	-	CC efor ayarı zaten var; varsayılan Ömer kararı	-	-
+Awesome Design MD	DeW7v7oCZZf	DEVİR	tasarim-1	73 marka DESIGN.md; tasarim-katalog ile karşılaştırılsın	VoltAgent/awesome-design-md	MIT
+Web Design Guidelines	DeW7v7oCZZf	DEVİR-IG40	sira 246	IG-40 DEVİR: devir/tasarim-*.tsv; tasarim departman ajanı	vercel-labs/agent-skills	yok
+Playwright MCP	DeW7v7oCZZf,DeON0MOB5oi	DEVİR-IG40	sira 248	IG-40 KURULU: mcp playwright kurulu	microsoft/playwright	Apache-2.0
+Linear	DeW7v7oCZZf	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Framer Motion	DeW7v7oCZZf	DEVİR-IG40	sira 252	IG-40 DEVİR: devir/animasyon-*.tsv; animasyon departman ajanı	motiondivision/motion	MIT
+Açılış sayfası üretimi	DeW7v7oCZZf	REF	-	demo istemi	-	-
+Tasarım sistemi uygulama	DeW7v7oCZZf	REF	-	demo istemi	-	-
+Opus 4.6	DbDvPoNACwY,DbyJNRdPyCj	DEVİR-IG40	sira 83	IG-40 REF: genel ürün/model/platform/terim; kurulacak araç değil	-	-
+Kling	DbDvPoNACwY	DEVİR	animasyon-1	görselden video modeli (fal.ai); hesap/ücret ister	-	-
+fal.ai	DbDvPoNACwY	DEVİR	animasyon-1	Kling çalıştıran servis; hesap/anahtar ister	-	-
+Three.js	DbDvPoNACwY,DeXJcXmFLMv	KURULU	CC	threejs skill + webgpu-threejs-tsl plugin kurulu	-	-
+Film Friends	DbDvPoNACwY	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Bolt	DbDvPoNACwY	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Manychat	DbDvPoNACwY	REF	-	IG otomasyon servisi; hesap ister, kapsam dışı	-	-
+ClearBounce	DbDvPoNACwY	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Claude Code ile Film Friends sayfasının canlı önizleme kontrolü	DbDvPoNACwY	REF	-	demo istemi	-	-
+Kling ile yüzük ürün videosu üretimi	DbDvPoNACwY	DEVİR	animasyon-1	Kling ürün videosu istemi (örnek istem)	-	-
+Playwright CLI	DeXJcXmFLMv,DbyJNRdPyCj	DEVİR-IG40	sira 248	IG-40 KURULU: mcp playwright kurulu	microsoft/playwright	Apache-2.0
+awesome design	DeXJcXmFLMv	DEVİR	tasarim-1	awesome-design-md ile aynı	VoltAgent/awesome-design-md	MIT
+img2threejs	DeXJcXmFLMv	DEVİR	blender-2	görselden prosedürel three.js modeli (3D); blender-2 ile karşılaştırılsın	img2threejs/img2threejs	Apache-2.0
+tsc	DeXJcXmFLMv	KURULU	CC	npx tsc --noEmit; frontend kapıları tip denetimi yapar	-	-
+Claude Code oturumunda alt ajanla kod incelemesi (fon görüntüsü)	DeXJcXmFLMv	REF	-	demo istemi	-	-
+Electron	DeV2n53gLgf	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Skool	DeV2n53gLgf	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Notion panoya kopyalama akışını tersine mühendislikle çıkarmak	DeV2n53gLgf	REF	-	demo istemi	-	-
+Skill UI	DbyJNRdPyCj	DEVİR	tasarim-1	siteden DESIGN.md çıkarır; LİSANS YOK → lisans kapısı (yalnız REF)	amaancoderx/skillui	-
+Context7	DbyJNRdPyCj	KURULU	CC	context7-mcp + context7-cli skill kurulu	-	-
+Notion tasarım sistemine uygun UI üretmek	DbyJNRdPyCj	REF	-	demo istemi	-	-
+OmniRoute	Dbs8-TnKEhL,DdlurQHG2Mm	DEVİR	router-1	çok sağlayıcılı AI ağ geçidi, limitte modele geçiş	diegosouzapw/OmniRoute	MIT
+Claude Mem	Dbs8-TnKEhL,DdlurQHG2Mm	KURULU	CC	claude-mem plugin kurulu	-	-
+Headroom	Dbs8-TnKEhL,DdlurQHG2Mm	KURULU	CC	headroom plugin + uv aracı kurulu	-	-
+Task Observer	Dbs8-TnKEhL	REF	-	repo bulunamadı; düzeltme yakalama feedback belleği + claude-mem ile var	-	-
+rtk	Dbs8-TnKEhL	KURULU	CC	rtk kurulu (RTK.md)	-	-
+OpenRouter	Dbs8-TnKEhL,DY_SoPGKv2A	DEVİR	router-1	OmniRoute sağlayıcısı	-	-
+sqlite-vec	Dbs8-TnKEhL	REF	-	claude-mem iç yapısı; ayrı kurulum gerekmez	-	-
+Headroom üzerinden çalışan Claude Code'a kod tabanı analizi yaptırmak	Dbs8-TnKEhL	REF	-	demo istemi	-	-
+Slash Brag	DdWmIHTC322	DEVİR	animasyon-1	projeyi 20 sn lansman videosuna çevirir (HyperFrames kurulu)	latent-spaces/brag	MIT
+latent-spaces/brag	DdWmIHTC322	DEVİR	animasyon-1	/brag plugin deposu	latent-spaces/brag	MIT
+Opus5 High	DdWmIHTC322	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+hyperframes-cli	DdWmIHTC322	DEVİR-IG40	sira 250	IG-40 DEVİR: devir/animasyon-*.tsv; animasyon departman ajanı	heygen-com/hyperframes	Apache-2.0
+hyperframes-core	DdWmIHTC322	DEVİR-IG40	sira 250	IG-40 DEVİR: devir/animasyon-*.tsv; animasyon departman ajanı	heygen-com/hyperframes	Apache-2.0
+brag:brag	DdWmIHTC322	DEVİR	animasyon-1	/brag plugin skill'i	latent-spaces/brag	MIT
+localhost:3002 düzenleyici	DdWmIHTC322	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Dikey sürüm isteme	DdWmIHTC322	REF	-	demo istemi	-	-
+Projeyi lansman videosuna çevirme	DdWmIHTC322	REF	-	demo istemi	-	-
+UI UX Pro Max	DcRhD2Nto7M	KURULU	CC	ui-ux-pro-max skill kurulu	-	-
+Awesome Claude Design	DcRhD2Nto7M	DEVİR	tasarim-1	68 hazır DESIGN.md	VoltAgent/awesome-claude-design	MIT
+design-md-chrome	DcRhD2Nto7M	DEVİR	tasarim-1	Chrome eklentisi: siteden DESIGN.md (Ömer kurar)	bergside/design-md-chrome	MIT
+Design Motion Principles	DcRhD2Nto7M	DEVİR	animasyon-1	hareket/easing ilkeleri skill'i	kylezantos/design-motion-principles	MIT
+uipro	DcRhD2Nto7M	KURULU	CC	ui-ux-pro-max kurucusu; skill zaten kurulu	-	-
+DESIGN.md Generator by TypeUI	DcRhD2Nto7M	DEVİR	tasarim-1	token tabanlı DESIGN.md üretici	-	-
+cubic-bezier	DcRhD2Nto7M	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+API Anything	DeON0MOB5oi	REF	-	sitelerin iç API'sini tersine mühendislik; hizmet şartı riski (camofox emsali); agent-browser + chrome-devtools + scrapling karşılar	goodnight000/api-anything	MIT
+Google Flights	DeON0MOB5oi	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+JavaScript	DeON0MOB5oi	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+cstack	DeON0MOB5oi	REF	-	★50, aynı yazarın deposu; kanıt yok	goodnight000/cstack	MIT
+Headless Chrome	DeON0MOB5oi	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+API Anything kurulumu	DeON0MOB5oi	REF	-	demo istemi	-	-
+LinkedIn API'sini tersine mühendislik	DeON0MOB5oi	REF	-	demo istemi	-	-
+Screenshot to Code	Dcd3eY1iOMA	DEVİR	tasarim-1	ekran görüntüsünden kod; API anahtarı ister	abi/screenshot-to-code	MIT
+Gemini 3 Flash Preview	Dcd3eY1iOMA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Gemini 3.1 Pro Preview	Dcd3eY1iOMA	DEVİR-IG40	sira 216	IG-40 DEVIR: router departman ajanı yapıyor	-	-
+GPT-5.5	Dcd3eY1iOMA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+GPT-5.4 Mini	Dcd3eY1iOMA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Claude Opus 4.8	Dcd3eY1iOMA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+z-image-turbo	Dcd3eY1iOMA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Replicate	Dcd3eY1iOMA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Vite	Dcd3eY1iOMA	KURULU	CC	vite skill kurulu	-	-
+Crunchyroll	Dcd3eY1iOMA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+OpenAI Agents SDK	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Gemini 3	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Google Interactions API	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+CrewAI	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+AG2	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+x402	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+RAG	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Agent skills	DeChE4DChaA,Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) kurulu	-	-
+xAI	DeChE4DChaA	REF	-	genel ürün/model/terim; kurulacak araç değil	-	-
+Text Observer	DdlurQHG2Mm	REF	-	Task Observer ile aynı; repo bulunamadı	-	-
+Security	DdlurQHG2Mm	KURULU	CC	security-guidance plugin + semgrep kurulu	-	-
+Context Mode	DdlurQHG2Mm	KURULU	CC	context-mode plugin kurulu	-	-
+Manifest	DdlurQHG2Mm	DEVİR	router-1	oturum maliyet takibi; mnfst/llm-gateway (MIT ★7.5k) olabilir, doğrulanmadı	-	-
+Skill-bus	DdlurQHG2Mm	REF	-	repo bulunamadı; skill zinciri departman-* yönlendirmesiyle var	-	-
+Caveman kısa çıktı demosu	DdlurQHG2Mm	REF	-	demo istemi	-	-
+Context Mode bağlam tasarrufu demosu	DdlurQHG2Mm	REF	-	demo istemi	-	-
+OmniRoute sohbet demosu	DdlurQHG2Mm	REF	-	demo istemi	-	-
+Headroom takip turu karşılaştırması: belirsiz istek yerine tek seferde net istek	DdlurQHG2Mm	REF	-	demo istemi	-	-
+Claude Mem kalıcı bellek demosu	DdlurQHG2Mm	REF	-	demo istemi	-	-
+using-agent-skills	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+interview-me	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+idea-refine	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+spec-driven-development	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+planning-and-task-breakdown	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+incremental-implementation	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+test-driven-development	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+context-engineering	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+source-driven-development	Db_H8ScP5y-	KURULU	CC	agent-skills plugin (addyosmani) içinde kurulu	addyosmani/agent-skills	MIT
+Red-Green-Refactor	Db_H8ScP5y-	KURULU	CC	superpowers TDD + agent-skills test-driven-development	-	-
+flo.ruv.io	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+goal.ruv.io	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Qwen 3.6 Max	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Claude Sonnet 4.6	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Claude Haiku 4.5	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Gemini 2.5 Pro	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Gemini 2.5 Flash	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+ruvLLM	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+AgentDB	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Ollama	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Akıllı model yönlendirme	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+MicroLoRA	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+GOAP A* planner	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+MongoDB	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Kubernetes	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Tercihi Ruflo belleğine kaydetmek	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+Uzun süreli bellek özelliğini göstermek	DY_SoPGKv2A	DEVİR	ruflo-1	Ruflo gönderisi; RUFLO-1 yürütüyor	-	-
+SkillSpector	DdrNeEUN63i	KURULU	CC	SkillSpector CLI kurulu (~/.local/bin)	-	-
+Reticle	DdrNeEUN63i	REF	-	repo bulunamadı; bitti-doğrulama verification-before-completion + frontend görsel QA karşılar	-	-
+Chisle	DdrNeEUN63i	REF	-	"kısa yazım + YAGNI = ponytail + caveman kurulu; lisans ""other"""	JayPokale/Chisle	other
+UI Skills	DdrNeEUN63i	KURULU	CC	ui-skills-root skill kurulu	ibelick/ui-skills	MIT
+Anti-Slop	DdrNeEUN63i	UYARLA	CC+claude.ai(kendi)	departman-frontend Kapılar: TS lint oxlint + anti-slop kural seti, proje devDependency, sürüm sabit	dmmulroy/anti-slop	MIT
+Oxlint	DdrNeEUN63i	UYARLA	CC+claude.ai(kendi)	anti-slop satırıyla aynı	oxc-project/oxc	MIT
+Chisle'ın ajana verdiği token tasarrufu ve gereksiz iş yapmama kuralları.	DdrNeEUN63i	REF	-	demo istemi	-	-
+Tasarım mühendisliği kurallarını ajanın uygulaması için sunmak.	DdrNeEUN63i	REF	-	demo istemi	-	-
