@@ -119,13 +119,16 @@ def main(argv=None):
     ap.add_argument("--en-fazla", type=int, default=96)
     ap.add_argument("--usd-tavan", type=float, default=10.0)
     ap.add_argument("--protokol", default=str(KOK / "skills" / "calisma-protokolu" / "SKILL.md"))
+    ap.add_argument("--model", default="sonnet,haiku")
+    ap.add_argument("--kollar", default="taban,proto", help="yansıtma turunda yalnız proto; taban tablo --taban ile gelir")
     ap.add_argument("--kuru", action="store_true", help="yalnız seçimi ve çağrı sayısını yaz")
     ns = ap.parse_args(argv)
     os.environ["OLCUM_MCP_HAFIF"] = "1"
     gorevler = json.loads((KOK / "ajanlar" / "kalite3" / "gorevler.json").read_text(encoding="utf-8"))
     gorev = {g["ajan"]: g for g in gorevler}
-    secim = sec_temsilci(ns.aile.split(","), gorevler)
-    isler = [(a, m, p, kol, r) for r in range(1, ns.tekrar + 1) for a, m, p in secim for kol in random.Random(r).sample(["taban", "proto"], 2)]
+    secim = [s for s in sec_temsilci(ns.aile.split(","), gorevler) if s[1] in ns.model.split(",")]
+    isler = [(a, m, p, kol, r) for r in range(1, ns.tekrar + 1) for a, m, p in secim
+             for kol in random.Random(r).sample(["taban", "proto"], 2) if kol in ns.kollar.split(",")]
     en_fazla = min(ns.en_fazla, TAVAN)
     print(len(secim), "temsilci,", len(isler), "iş, tavan", en_fazla, flush=True)
     for a, m, p in secim:

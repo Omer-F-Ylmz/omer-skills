@@ -36,3 +36,20 @@ def test_is_bellek_tavani_ve_oz_bellek():
     assert ctypes.c_size_t.from_buffer(s, 120).value == f.JOB_TAVAN_MB << 20
     kosucu.is_kapat(is_)
     assert 5 < f.oz_bellek_mb() < f.OZ_TAVAN_MB
+
+
+def test_tablo_tohumla_yalniz_eksik_taban_ve_jev(tmp_path):
+    import fable_ajan_tablo as t
+    b = f.BASLIK
+    k, d = tmp_path / "k", tmp_path / "d"
+    for x in (k, d):
+        (x / "metin").mkdir(parents=True)
+    satir = lambda a, kol, r: "\t".join([a, "fe", "haiku", kol, r] + ["1"] * 9) + "\n"  # noqa: E731
+    (k / "olcum.tsv").write_text(b + satir("x", "taban", "1") + satir("y", "taban", "1"), encoding="utf-8")
+    (k / "metin" / "x__taban__1.md").write_text("T", encoding="utf-8")
+    (k / "jev.json").write_text('{"x__taban__1": 8.0}', encoding="utf-8")
+    (d / "olcum.tsv").write_text(b + satir("x", "proto", "1"), encoding="utf-8")
+    t.tohumla(k, d)
+    t.tohumla(k, d)  # ikinci çağrı bir şey eklemez
+    assert [(s["ajan"], s["kol"]) for s in t.oku(d)] == [("x", "proto"), ("x", "taban")]
+    assert json.loads((d / "jev.json").read_text(encoding="utf-8")) == {"x__taban__1": 8.0}

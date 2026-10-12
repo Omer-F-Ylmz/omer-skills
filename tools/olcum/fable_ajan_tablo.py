@@ -18,6 +18,26 @@ def oku(d):
     return [dict(zip(b, s.split("\t"))) for s in L[1:] if s.strip()]
 
 
+def tohumla(kaynak, d):
+    """Yansıtma turu yalnız proto koşar; kaynak ölçümün taban satırlarını (metin + Jev puanı) eksikse d'ye kopyalar."""
+    mevcut = oku(d)
+    ajanlar, var = {s["ajan"] for s in mevcut}, {(s["ajan"], s["kol"], s["tekrar"]) for s in mevcut}
+    yeni = [s for s in oku(kaynak) if s["kol"] == "taban" and s["ajan"] in ajanlar and (s["ajan"], "taban", s["tekrar"]) not in var]
+    if not yeni:
+        return
+    baslik = (d / "olcum.tsv").read_text(encoding="utf-8").splitlines()[0].split("\t")
+    with open(d / "olcum.tsv", "a", encoding="utf-8") as f:
+        f.writelines("\t".join(s[b] for b in baslik) + "\n" for s in yeni)
+    jk = json.loads((kaynak / "jev.json").read_text(encoding="utf-8")) if (kaynak / "jev.json").exists() else {}
+    jd = json.loads((d / "jev.json").read_text(encoding="utf-8")) if (d / "jev.json").exists() else {}
+    for s in yeni:
+        k = f"{s['ajan']}__taban__{s['tekrar']}"
+        (d / "metin" / f"{k}.md").write_text((kaynak / "metin" / f"{k}.md").read_text(encoding="utf-8"), encoding="utf-8")
+        if k in jk:
+            jd[k] = jk[k]
+    (d / "jev.json").write_text(json.dumps(jd, ensure_ascii=False, indent=0), encoding="utf-8")
+
+
 def jev_puanla(d, satirlar):
     """jev.json önbellek: anahtar ajan__kol__tekrar → 0-10; yalnız eksikler gönderilir."""
     yol = d / "jev.json"
@@ -68,6 +88,8 @@ def karar(o):
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     d = Path(argv[0])
+    if "--taban" in argv:
+        tohumla(Path(argv[argv.index("--taban") + 1]), d)
     satirlar = oku(d)
     jev = {}
     if "--jevsiz" not in argv:
