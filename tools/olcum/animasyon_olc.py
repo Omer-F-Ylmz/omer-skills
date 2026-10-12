@@ -23,7 +23,7 @@ import olc  # noqa: E402
 
 PROJE = Path.home() / "AnimasyonOlcum"
 TSV = kosucu.CIKTI / "animasyon-1.tsv"
-MODEL, BUTCE, TAVAN_USD = "sonnet", 0.5, 7.9  # Σ$8: tavan aşılınca yeni koşu başlamaz (d4: yeni2 en çok +4 çağrı × $0.5, Σ ≤ $7.86)
+MODEL, BUTCE, TAVAN_USD = "sonnet", 0.5, 9.3  # tavan aşılınca yeni koşu başlamaz (d5: yeni2 sonrası $7.30 + yeni3 en çok 2 tur × 2 çağrı × $0.5)
 IZIN = ["--allowedTools", "Bash", "Read", "Write", "Edit", "Glob", "Grep", "Skill"]
 BASLIK = "gorev\tyol\ttekrar\tinput\tcache_creation\tcache_read\toutput\ttoplam\ttur\tsure_sn\tusd\tkalite\tkalan\tskill\thata"
 PENCERE = " Pencere/tarayıcı açma (start, os.startfile yok); her şey arka planda."
@@ -68,7 +68,7 @@ def kos_bir(g, yol, t):
     d = PROJE / f"{g}-{yol}-{t}"
     shutil.rmtree(d, ignore_errors=True)
     d.mkdir(parents=True)
-    if yol in ("yeni", "yeni2"):  # yeni2 = d4 tek komut (uyarla.py) sürümü
+    if yol.startswith("yeni"):  # yeni2 = d4 tek komut (uyarla.py), yeni3 = d5 ms düzeltmesi
         shutil.copytree(SKILL, d / ".claude" / "skills" / "animasyon-atolyesi", ignore=shutil.ignore_patterns("__pycache__"))
         # skill listesi bütçesinde açıklama düşüyor (yalnız ad görünür, yeni0 koşusu skill'i hiç çağırmadı) → yönlendirme satırı
         (d / "CLAUDE.md").write_text(YONLENDIR, encoding="utf-8")
@@ -89,7 +89,7 @@ def onizleme(g, d):
 def yargi_hazirla():
     esle = {}
     for g in GOREV:
-        aday = [f"{yol}-{t}" for yol in ("taban", "yeni", "yeni2") for t in (1, 2) if onizleme(g, PROJE / f"{g}-{yol}-{t}").is_file()]
+        aday = [f"{yol}-{t}" for yol in ("taban", "yeni", "yeni2", "yeni3") for t in (1, 2) if onizleme(g, PROJE / f"{g}-{yol}-{t}").is_file()]
         random.shuffle(aday)
         kor = PROJE / "_yargi" / g
         shutil.rmtree(kor, ignore_errors=True)
