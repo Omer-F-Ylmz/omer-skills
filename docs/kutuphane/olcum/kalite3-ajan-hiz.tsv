@@ -394,3 +394,7 @@ C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\veri-db	db-veri-kalitesi	aja
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-scroll-hikayesi	ajan	2	sonnet	10	0.1925	393516	claude-sonnet-5-5	190.3	0.1742	9.7	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-renk-sistemi	ajan	2	sonnet	10	0.4466	743767	claude-sonnet-5-5	255.2	0.3207	9.3	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-tasarim-incele	ajan	2	sonnet	10	0.1657	392174	claude-sonnet-5-5	212.1	0.1475	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\test-qa	qa-sozlesme-testi	ajan	2	sonnet	10	0.2929	375533	claude-sonnet-5-5	180.8	0.1245	9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\test-qa	qa-test-bosluk-analiz	ajan	2	sonnet	10	0.2782	324839	claude-sonnet-5-5	175.4	0.1124	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-ux-metin-yazar	ajan	2	haiku	7	0.3581	354428	claude-haiku-5-5	177.4	0.0134	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-tasarim-yonu	ajan	2	sonnet	7	0.1689	393872	claude-sonnet-5-5	181.0	0.1507	9.6	1

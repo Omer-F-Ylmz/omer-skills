@@ -157,3 +157,5 @@ dn-msbuild-hata-cozucu
 db-veri-kalitesi
 fe-scroll-hikayesi
 fe-tasarim-incele
+qa-test-bosluk-analiz
+fe-tasarim-yonu
