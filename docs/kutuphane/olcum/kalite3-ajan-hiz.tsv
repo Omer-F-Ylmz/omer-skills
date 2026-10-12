@@ -386,5 +386,11 @@ C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\video	vid-altyazi-uretici	aj
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\guvenlik	sec-guvenlik-raporu	ajan	2	haiku	10	0.4032	373422	claude-haiku-5-5	201.7	0.0155	9.8	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\video	vid-video-brief	ajan	2	haiku	10	0.3521	347219	claude-haiku-5-5	184.9	0.0148	9.7	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\verimlilik	vrm-baglam-butcesi	ajan	2	haiku	10	0.3496	347013	claude-haiku-5-5	175.7	0.012	9.0	1
-C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\verimlilik	vrm-dosya-okuma-disiplini	ajan	2	haiku	0	0.0	0	-	163.3	0	0	1
-C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\verimlilik	vrm-model-secimi	ajan	2	haiku	0	0.0	0	-	137.8	0	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-performans-olcer	ajan	2	sonnet	10	0.3158	325201	claude-sonnet-5-5	100.6	0.1187	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\belge	dok-xlsx-tablo	ajan	1	sonnet	10	0.2126	341599	claude-sonnet-5-5	94.3	0.1131	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\veri-db	db-veri-tasima	ajan	2	sonnet	10	0.1382	296218	claude-sonnet-5-5	138.9	0.1195	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\backend-dotnet	dn-msbuild-hata-cozucu	ajan	2	sonnet	10	0.298	328379	claude-sonnet-5-5	150.7	0.1275	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\veri-db	db-veri-kalitesi	ajan	2	haiku	10	0.3822	343755	claude-haiku-5-5	177.0	0.0089	9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-scroll-hikayesi	ajan	2	sonnet	10	0.1925	393516	claude-sonnet-5-5	190.3	0.1742	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-renk-sistemi	ajan	2	sonnet	10	0.4466	743767	claude-sonnet-5-5	255.2	0.3207	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-tasarim-incele	ajan	2	sonnet	10	0.1657	392174	claude-sonnet-5-5	212.1	0.1475	8.9	1

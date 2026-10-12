@@ -48,8 +48,11 @@ def log(*a):
     print(time.strftime("%H:%M:%S"), *a, flush=True)
 
 
+LIMIT = re.compile(r"hit your (session|usage|weekly) limit|usage limit reached", re.I)  # plan limiti yanıtı (12 Eki 21:00 sahte DÜŞTÜ)
+
+
 def api_hatasi(o):
-    if o["metin"].lstrip().startswith("API Error"):
+    if o["metin"].lstrip().startswith("API Error") or LIMIT.search(o["metin"][:300]):
         raise Gecici(o["metin"].strip()[:120])
     return o
 
@@ -230,7 +233,7 @@ class Kosu:
         self.ana = {}  # (ajan, model) → ana satırı (eski + yeni)
         self.ut = u_tavan(oku(ESKI))
         self.d12 = set((SKILL / ".kalite3/d12-ajanlar.txt").read_text(encoding="utf-8").split())
-        self.p2_bitti, self.ardisik = False, 0
+        self.p2_bitti, self.ardisik, self.bekle = False, 0, 0
         self.ele_alinan = {s["ajan"] for s in oku(TSV)}
         for s in oku(ESKI) + oku(TSV):
             if s["kol"] == "ana" and s["puan"] != "hata" and s["jev"] != "":
@@ -322,6 +325,10 @@ class Kosu:
         """API/Jev hatası: öğe kuyruğun başına; art arda ARDISIK_TAVAN hatada olcum.dur yazılır (döngü yeni öğe başlatmaz)."""
         with kilit:
             self.q.appendleft(is_)
+            if LIMIT.search(str(e)):  # plan limiti: DUR yazılmaz, 15 dk yeni öğe başlatılmaz, sonra kendiliğinden dener
+                self.bekle = time.time() + 900
+                log("LİMİT", is_[0], f"t{is_[1]}", "15 dk bekleme", str(e))
+                return
             self.ardisik += 1
             log("GERİ", is_[0], f"t{is_[1]}", f"ardışık {self.ardisik}", str(e))
             if self.ardisik >= ARDISIK_TAVAN and not DUR.exists():
@@ -422,7 +429,7 @@ class Kosu:
                 if time.time() - ayar > 45:
                     es = es_ayarla(es, r)
                     ayar = time.time()
-                if not bos and cal < es and r < 92 and not DUR.exists() and cagri.n < CAGRI_TAVAN - 3 * ES_TAVAN:
+                if not bos and cal < es and r < 92 and not DUR.exists() and time.time() >= self.bekle and cagri.n < CAGRI_TAVAN - 3 * ES_TAVAN:
                     with kilit:
                         is_ = self.q.popleft()
                         self.calisan += 1

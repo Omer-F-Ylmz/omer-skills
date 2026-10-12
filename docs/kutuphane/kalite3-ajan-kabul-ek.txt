@@ -151,3 +151,9 @@ qa-hata-yeniden-uret
 sec-guvenlik-raporu
 vid-video-brief
 vrm-baglam-butcesi
+dok-xlsx-tablo
+db-veri-tasima
+dn-msbuild-hata-cozucu
+db-veri-kalitesi
+fe-scroll-hikayesi
+fe-tasarim-incele

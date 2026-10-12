@@ -77,6 +77,18 @@ def test_gecici_kuyruga_doner_3_ardisikta_durur(ortam, monkeypatch):
     assert [x[1] for x in k.q] == [2, 1, 0] and k.calisan == 0
 
 
+def test_plan_limiti_olcum_sayilmaz_ve_bekletir(ortam, monkeypatch):
+    monkeypatch.setattr(kh.cagri, "dene", lambda *a, **k: o("You've hit your session limit · resets 11:40pm (Europe/Istanbul)"))
+    with pytest.raises(kh.Gecici, match="limit"):
+        kh.olc(AD, "ana", 0, ortam, "sonnet", ortam.parent)
+    assert not kh.TSV.exists()
+    k = kh.Kosu.__new__(kh.Kosu)
+    k.q, k.calisan, k.ardisik, k.bekle = deque(), 4, 0, 0
+    for i in range(4):
+        k.geri((AD, i), kh.Gecici("You've hit your session limit · resets 11:40pm"))
+    assert not kh.DUR.exists() and k.ardisik == 0 and k.bekle > kh.time.time() + 600  # limit: DUR yok, kendiliğinden bekler
+
+
 def test_onarilan_tanim_geri_donerse_yeniden_onarilmaz(ortam, monkeypatch):
     yeni = ortam.parent / "yeni.md"
     yeni.write_text(MD, encoding="utf-8")
