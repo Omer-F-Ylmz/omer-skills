@@ -131,3 +131,14 @@ def test_rapor_onyargi_karar_ve_geri_kuyruk(tmp_path):
     r = jev_yargic.rapor_onyargi(["iyi rapor", "zayıf"], tasiyici=Puan(), onbellek=ob)
     assert [x["karar"] for x in r] == ["gec", "yeniden"] and r[0]["jev"] == 8.0
     assert jev_yargic.rapor_onyargi(["yeni"], tasiyici=Kopuk(1, JevHata), onbellek=ob) == [{"jev": None, "guven": None, "karar": None}]
+
+
+def test_onbellekli_tasiyici_yerine_gecer(tmp_path):
+    import pytest
+    from jev.cekirdek import JevHata
+    t = Sayan()
+    o = jev_yargic.Onbellekli(t, tmp_path / "ob.json")
+    assert o.yargila([{"x": 1}], {"k": {}}) == o.yargila([{"x": 1}], {"k": {}}) and len(t.gelen) == 1
+    assert o.gelen is t.gelen  # kullanim/cagri gibi öznitelikler taşıyıcıdan okunur
+    with pytest.raises(JevHata):  # eski çağıranların sözleşmesi: cevapsız → JevHata (biten öğeler önbellekte)
+        jev_yargic.Onbellekli(Sayan(lambda s: None), tmp_path / "ob.json").yargila([{"x": 2}], {"k": {}})

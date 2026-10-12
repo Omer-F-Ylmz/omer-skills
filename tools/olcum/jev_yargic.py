@@ -92,6 +92,24 @@ def yargila(states, questions, tasiyici=None, onbellek=None, parca=PARCA_OB, ag_
     return [tablo.get(a, yeni.get(a)) for a in anahtar]
 
 
+class Onbellekli:
+    """Tasiyici yerine geçer (JEV-2 d5): doğrudan `Tasiyici(...).yargila` çağıranlar (kalite3_hiz, fable_ajan_tablo,
+    video parti) tek satırla ortak önbelleğe geçer. Sözleşme korunur: cevapsız öğe varsa JevHata (biten öğeler önbellekte)."""
+
+    def __init__(self, tasiyici, onbellek=None):
+        self.t, self.onbellek = tasiyici, onbellek
+
+    def __getattr__(self, ad):
+        return getattr(self.t, ad)
+
+    def yargila(self, states, questions):
+        from jev.cekirdek import JevHata
+        cevap = yargila(states, questions, self.t, self.onbellek)
+        if None in cevap:
+            raise JevHata(f"{cevap.count(None)}/{len(cevap)} cevapsız (geri kuyruk)")
+        return cevap
+
+
 RAPOR_SORU = {"kalite": {"type": "score", "criteria": SEVIYE,
                          "instructions": "Bu kısa video (shorts) tarama raporu, videodaki iddiaları ve araç/skill adaylarını "
                                          "kanıta (kare/transkript) dayanarak, somut ve uygulanabilir biçimde çıkarmış mı? "
