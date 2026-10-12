@@ -61,10 +61,38 @@ def test_kotu_ders_duser(depo):
 def test_basarisizlik_dersi_isaretlenir_ve_butce(depo):
     for i, w in enumerate(["alfa", "beta", "gama", "delta", "epsilon", "zeta"]):
         ekle(baslik=f"{w} pytest conftest", icerik=f"{w} adımı conftest KeyError " + f"{w}x " * 80, kaynak=f"k{i}",
-             sonuc="basarisizlik" if i % 2 else "basari")
+             sonuc="basarisizlik")
     blok, ids = ders.getir("kod", "pytest conftest KeyError")
-    assert 1 <= len(ids) <= 3 and len(blok) <= ders.JETON * 4
+    assert 1 <= len(ids) <= 2 and len(blok) <= ders.JETON * 4
     assert "kaçın" in blok  # başarısızlıktan gelen ders uyarı olarak sunulur
+
+
+def test_gorev_metniyle_eslesir(depo):
+    # d5: video dersleri istemle ortak terim taşımıyordu → hiç çağrılmadı; ders kaynak görevini de saklar
+    g = "transkript.txt'de anılan yazılım araçlarını etiket.json'a JSON olarak yaz."
+    r = ekle(ajan="video", baslik="Çıktı şemasını belgeden birebir al", kosul="yapılandırılmış çıktı yazarken",
+             icerik="Önce KURALLAR.md oku.", sonuc="basarisizlik", gorev=g)
+    assert ders.getir("video", g)[1] == [r["id"]]
+
+
+def test_en_fazla_iki_ders_kisa_blok(depo):
+    for i, w in enumerate(["alfa", "beta", "gama", "delta"]):
+        ekle(baslik=f"{w} pytest conftest", icerik=f"{w} KeyError düzelt. Örnek: " + "uzun " * 80, kaynak=f"k{i}")
+    blok, ids = ders.getir("kod", "pytest conftest KeyError")
+    assert len(ids) <= 2 and len(blok) <= 120 * 4 and "Örnek" not in blok
+
+
+def test_ek_farkli_yakin_kopya_birlesir(depo):
+    a = ekle(baslik="Çıktı şemasını belgelerden birebir al", kosul="çıktı yazarken")
+    b = ekle(baslik="Çıktı şemasını belgeden birebir al", kosul="çıktı yazarken", kaynak="k2")
+    assert b["id"] == a["id"]
+
+
+def test_iki_bosa_kullanim_duser(depo):
+    r = ekle()
+    ders.geri_bildir([r["id"]], basari=False)
+    ders.geri_bildir([r["id"]], basari=False)
+    assert ders.oku()[0]["durum"] == "dusuk"
 
 
 def test_ajan_kapsami(depo):

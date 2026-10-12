@@ -2,7 +2,8 @@
 
 Döngü: koşu sonu ajan ≤3 ders adayı yazar (damıtma) → yargıç (test/ölçüt/jev sonucu) sonuc=basari|basarisizlik verir →
 ekle(): sır süzgeci + birleştirme (yinelenen ders destek++ alır) → getir(): görev başında ajan kapsamı + BM25 ile top-k ≤3,
-≤300 jeton blok → geri_bildir(): kullanılan dersin görevi başarısızsa güveni düşer, 3 kullanımda güven <0.34 → dusuk (çağrılmaz).
+≤120 jeton blok (≤2 ders, kural + ne zaman, örneksiz) → geri_bildir(): kullanılan dersin görevi başarısızsa güveni düşer,
+2 kullanımda güven <0.34 → dusuk (çağrılmaz). Ders kaynak görev metnini saklar (eşleşme istemle de olur).
 Depo: $OGRENME_DIZIN ya da C:/Projeler/omer-skills/.kos/ogrenme (dersler.jsonl + getirme.jsonl).
 python ders.py getir --ajan kod --gorev "..." | ekle --ajan kod --sonuc basari --dosya aday.json --kaynak <koşu>
               | geri --id a1b2,c3d4 --sonuc basarisizlik | liste
@@ -11,7 +12,7 @@ import argparse, hashlib, json, math, os, re, sys, time
 from pathlib import Path
 
 VARSAYILAN = Path("C:/Projeler/omer-skills/.kos/ogrenme")
-K, JETON, EN_FAZLA_ADAY = 3, 300, 3
+K, JETON, EN_FAZLA_ADAY = 2, 120, 3
 SIR = [r"sk-ant-[\w-]{10,}", r"\bsk-[A-Za-z0-9]{20,}", r"\bgh[pousr]_[A-Za-z0-9]{20,}", r"github_pat_\w{20,}",
        r"\bAKIA[0-9A-Z]{16}\b", r"\bxox[abps]-[\w-]{10,}", r"-----BEGIN [A-Z ]*KEY-----", r"\bBearer\s+[\w.-]{20,}",
        r"(?i)\b(parola|password|şifre|sifre|secret|token|api[_-]?key)\s*[:=]\s*\S+", r"[\w.+-]+@[\w-]+\.[\w.]+",
@@ -25,7 +26,8 @@ def dizin():
 
 
 def kelimeler(metin):
-    return [w for w in re.findall(r"\w+", metin.replace("İ", "i").replace("I", "ı").lower()) if len(w) > 1]
+    # 5 harf kök: Türkçe ekler (belgeden/belgelerden) aynı terime düşer
+    return [w[:5] for w in re.findall(r"\w+", metin.replace("İ", "i").replace("I", "ı").lower()) if len(w) > 1]
 
 
 def oku():
@@ -66,7 +68,7 @@ def _guven(x):
     return (x["yardim"] + 1) / (x["kullanim"] + 2)
 
 
-def ekle(ajan, baslik, kosul, icerik, sonuc, kaynak, kanit=""):
+def ekle(ajan, baslik, kosul, icerik, sonuc, kaynak, kanit="", gorev=""):
     """Sırlı ders reddedilir (ValueError). Aynı ajan + baslik/kosul Jaccard ≥0.8 → birleşir (destek++)."""
     if sir_var(" ".join([baslik, kosul, icerik, kanit])):
         raise ValueError("ders sır/kişisel veri içeriyor — reddedildi")
@@ -86,7 +88,7 @@ def ekle(ajan, baslik, kosul, icerik, sonuc, kaynak, kanit=""):
                 _yaz(dersler)
                 return {"id": x["id"], "durum": "birlesti"}
         x = {"id": hashlib.sha1(f"{ajan}|{baslik}|{kosul}".encode()).hexdigest()[:6], "ajan": ajan, "baslik": baslik[:120],
-             "kosul": kosul[:200], "icerik": icerik[:600], "tur": sonuc, "kanit": kanit[:200], "kaynaklar": [kaynak],
+             "kosul": kosul[:200], "icerik": icerik[:600], "gorev": gorev[:200], "tur": sonuc, "kanit": kanit[:200], "kaynaklar": [kaynak],
              "destek": 1, "kullanim": 0, "yardim": 0, "durum": "aktif", "tarih": time.strftime("%Y-%m-%d"),
              "son": time.strftime("%Y-%m-%d")}
         _yaz(dersler + [x])
@@ -99,7 +101,7 @@ def getir(ajan, gorev, k=K, kosu=""):
     sorgu = set(kelimeler(gorev))
     if not aday or not sorgu:
         return "", []
-    belgeler = [kelimeler(" ".join([x["baslik"], x["kosul"], x["icerik"]])) for x in aday]
+    belgeler = [kelimeler(" ".join([x["baslik"], x["kosul"], x["icerik"], x.get("gorev", "")])) for x in aday]
     ort = sum(map(len, belgeler)) / len(belgeler)
     df = {w: sum(w in set(b) for b in belgeler) for w in sorgu}
     puanlar = []
@@ -115,9 +117,9 @@ def getir(ajan, gorev, k=K, kosu=""):
     secilen = [x for p, x in puanlar[:k] if p >= puanlar[0][0] * 0.5]
     if not secilen:
         return "", []
-    satirlar, pay = ["İlgili dersler (önceki koşulardan; göreve uymuyorsa yok say):"], (JETON * 4 - 70) // len(secilen)
-    for x in secilen:
-        s = f"- [{x['id']} · {'kaçın' if x['tur'] == 'basarisizlik' else '✓'}] {x['baslik']} — ne zaman: {x['kosul']}. {x['icerik']}"
+    satirlar, pay = ["Dersler (uymuyorsa yok say; ek tur açma):"], (JETON * 4 - 45) // len(secilen)
+    for x in secilen:  # kural + ne zaman + içeriğin ilk cümlesi; örnek düşer
+        s = f"- [{x['id']}·{'kaçın' if x['tur'] == 'basarisizlik' else '✓'}] {x['baslik']} — {x['kosul']}: {re.split(r'(?<=[.!?])\s', x['icerik'])[0]}"
         satirlar.append(s[:pay])
     ids = [x["id"] for x in secilen]
     with open(dizin() / "getirme.jsonl", "a", encoding="utf-8", newline="\n") as f:
@@ -132,7 +134,7 @@ def geri_bildir(ids, basari):
             if x["id"] in ids:
                 x["kullanim"] += 1
                 x["yardim"] += int(basari)
-                if x["kullanim"] >= 3 and _guven(x) < 0.34:
+                if x["kullanim"] >= 2 and _guven(x) < 0.34:
                     x["durum"] = "dusuk"
         _yaz(dersler)
 

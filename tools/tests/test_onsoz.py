@@ -37,7 +37,7 @@ def test_blok_istem_onune(tmp_path, monkeypatch):
     ders.ekle("kod", "KURALLAR.md önce okunur", "proje klasöründe görev", "Türkçe İ kuralı KURALLAR.md'de",
               "basarisizlik", "k1")
     metin, ids = onsoz.istem("kod", "proje klasöründe görev: fonksiyonu düzelt")
-    assert ids and metin.startswith("İlgili dersler") and metin.endswith("fonksiyonu düzelt")
+    assert ids and metin.startswith("Dersler") and metin.endswith("fonksiyonu düzelt")
 
 
 def test_fable_godmode_blogu_ile_bagimsiz(tmp_path):
