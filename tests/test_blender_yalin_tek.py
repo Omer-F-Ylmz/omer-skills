@@ -22,7 +22,7 @@ def test_tek_turda_spec_kosulur():
     istemler, kosulan = [], []
     o = yalin.tek("kupa yap", kos=_kos([f"```json\n{SPEC}\n```"], istemler),
                   calistir=lambda b, a, bl: kosulan.append(a) or (0, {"gecti": True, "ozet": {"Kupa": 1}}, 1))
-    assert o["rc"] == 0 and o["tur"] == 1 and kosulan[0]["nesneler"][0]["ad"] == "Kupa"
+    assert o["rc"] == 0 and o["hata"] == "" and o["tur"] == 1 and kosulan[0]["nesneler"][0]["ad"] == "Kupa"
     ek = istemler[0][1]
     assert ek[ek.index("--tools") + 1] == "" and "Write" not in ek  # araçsız: tur başına önek bir kez
     assert '"Kupa": 1' in o["metin"]
@@ -38,4 +38,4 @@ def test_hatada_tek_duzeltme_turu_ve_jeton_toplanir():
 
 def test_iki_hatada_durur():
     o = yalin.tek("kupa yap", kos=_kos([SPEC, SPEC], []), calistir=lambda b, a, bl: (1, {"gecti": False}, 1))
-    assert o["rc"] == 1 and o["tur"] == 2
+    assert o["rc"] == 1 and o["tur"] == 2 and "exit 1" in o["hata"]

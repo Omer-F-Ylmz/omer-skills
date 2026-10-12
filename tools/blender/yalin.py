@@ -63,7 +63,7 @@ def tek(istek, blend=None, kos=_claude, calistir=None):
     if calistir is None:
         sys.path.insert(0, str(KOK / "tools"))
         from blender_cli import calistir
-    t = {"usage": {}, "tur": 0, "usd": 0.0, "sure": 0.0, "araclar": [], "rc": 1}
+    t = {"usage": {}, "tur": 0, "usd": 0.0, "sure": 0.0, "araclar": [], "rc": 1, "hata": ""}
     istem, spec, hata = istek, None, []
     for _ in range(2):
         o = kos(istem, tek_bayraklar())
@@ -85,7 +85,7 @@ def tek(istek, blend=None, kos=_claude, calistir=None):
                 return {**t, "rc": 0, "metin": json.dumps(sonuc, ensure_ascii=False)}
             hata = [f"blender_cli exit {kod}: {json.dumps(sonuc, ensure_ascii=False)[:1500]}"]
         istem = f"{istek}\n\nÖnceki spec:\n{json.dumps(spec, ensure_ascii=False)}\nHata: {hata}\nDüzeltilmiş spec'i ver."
-    return {**t, "metin": f"HATA: {hata}"}
+    return {**t, "metin": f"HATA: {hata}", "hata": str(hata)[-200:]}
 
 
 def main(argv=None):
