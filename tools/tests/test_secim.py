@@ -14,6 +14,16 @@ def test_ilk_secim_yonlendirme_ve_genel_ajani_atlar():
     assert secim_olc.ilk_secim(["Skill:secim:departman-belge", "Glob"]) == ("", 2)
 
 
+def test_toplu_tavan_asilacaksa_cagri_yapmaz(tmp_path, monkeypatch):
+    s = tmp_path / "usd.txt"
+    s.write_text("8.5")
+    monkeypatch.setattr(secim_olc, "SAYAC", s)
+    monkeypatch.setattr(secim_olc, "CIKTI", tmp_path)
+    monkeypatch.setattr(secim_olc, "kos", lambda *a, **k: (_ for _ in ()).throw(AssertionError("çağrı yapıldı")))
+    secim_olc.toplu("once")  # 8.5 + 3.0 > 10
+    assert s.read_text() == "8.5"
+
+
 def test_dizin_satiri_yenisiyle_degisir_tek_kalir(tmp_path, monkeypatch):
     d = tmp_path / "skills" / "departman-belge"
     d.mkdir(parents=True)

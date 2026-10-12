@@ -79,6 +79,39 @@ def cc(kol, tekrar, tavan, bas=1, usd=2.0):
     return yol
 
 
+SAYAC = CALISMA / "d4-usd.txt"  # d4 kümülatif tavan sayacı (tüm toplu çağrılar)
+TOPLU_ISTEM = ("Aşağıdaki görevlerin HİÇBİRİNİ YAPMA. Her biri için bu oturumda ilk çağıracağın, işe EN ÖZGÜ skill ya da alt ajanın adını seç. "
+               "departman-* yönlendirici skill'leri ve genel ajanlar (general-purpose, Explore, Plan) cevap sayılmaz ama departman skill'ini ve "
+               "gösterdiği dosyaları Skill/Read/Grep ile açıp bakabilirsin. Agent çağırma. Son yanıtın yalnız satır satır `Sxx: ad`.\n\n")
+
+
+def toplu(kol, tekrar=1, tavan=10.0, cagri=3.0):
+    """d4 düzeneği: görevler tek çağrıda, sıralı tek süreç, boş cwd (taban wt'deki dizin.md'leri göremez).
+    Sayaç + bir çağrının üst sınırı tavanı aşacaksa çağrı yapılmaz."""
+    ek = (sonra_ek()[:-2] if kol == "sonra" else []) + ["--max-turns", "40", "--disallowedTools", "Bash,Write,Edit,NotebookEdit,WebFetch,WebSearch"]
+    yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-toplu-{kol}.tsv"
+    if not yol.exists():
+        yol.write_text("gorev\ttekrar\tdogru\tsecilen\n", encoding="utf-8")
+    for t in range(tekrar):
+        harcanan = float(SAYAC.read_text()) if SAYAC.exists() else 0.0
+        if harcanan + cagri > tavan:
+            print(f"DUR tavan: {harcanan:.2f}+{cagri} > {tavan}")
+            return yol
+        o = kos(TOPLU_ISTEM + "\n".join(f"{g['id']}: {g['istem']}" for g in GOREV), ek=ek, butce=cagri, timeout=1500)
+        SAYAC.write_text(f"{harcanan + o['usd']:.4f}")
+        cevap = dict(re.findall(r"(S\d\d)\s*:\s*`?([A-Za-z0-9:_-]+)", o.get("metin") or ""))
+        u0, u = o.get("usage_ilk") or {}, o["usage"]
+        jet = lambda x: sum(x.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens"))  # noqa: E731
+        with yol.open("a", encoding="utf-8") as f:
+            for g in GOREV:
+                s = kisa(cevap.get(g["id"], ""))
+                f.write(f"{g['id']}\t{t + 1}\t{int(s in g['beklenen'])}\t{s}\n")
+            f.write(f"#OZET\t{t + 1}\t{sum(kisa(cevap.get(g['id'], '')) in g['beklenen'] for g in GOREV)}/{len(GOREV)}\t"
+                    f"ilk_girdi={jet(u0)} son_girdi={jet(u)} cikti={u.get('output_tokens', 0)} tur={o['tur']} usd={o['usd']:.4f} rc={o['rc']} "
+                    f"araclar={','.join(o['araclar'])[:400]}\n")
+    return yol
+
+
 def web(kol):
     """claude.ai vekili: init'teki anthropic-skills adları + Instructions; sonra kolunda departman dizin-web.md'leri Grep'lenebilir."""
     init = json.loads(sorted(CIKTI.glob("*butce1b-init.json"))[-1].read_text(encoding="utf-8"))
@@ -90,7 +123,12 @@ def web(kol):
              "Her görev için kullanacağın TEK skill adını yaz; biçim: `Sxx: ad` satır satır, başka metin yok.\n\n"
              + "\n".join(f"{g['id']}: {g['istem']}" for g in gorevler))
     ek = ["--strict-mcp-config", "--disable-slash-commands", "--max-turns", "15"] + (["--add-dir", str(KOK / "skills")] if kol == "sonra" else [])
+    harcanan = float(SAYAC.read_text()) if SAYAC.exists() else 0.0
+    if harcanan + 0.5 > 10.0:
+        print(f"DUR tavan: {harcanan:.2f}+0.5 > 10")
+        return None
     o = kos(istem, ek=ek, cwd=str(KOK), butce=0.5)
+    SAYAC.write_text(f"{harcanan + o['usd']:.4f}")
     cevap = dict(re.findall(r"(S\d\d)\s*:\s*`?([A-Za-z0-9:_-]+)", o.get("metin") or ""))
     yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-web-{kol}.tsv"
     with yol.open("a", encoding="utf-8") as f:
@@ -107,4 +145,7 @@ if __name__ == "__main__":
     tavan = int(a[a.index("--tavan") + 1]) if "--tavan" in a else 40
     bas = int(a[a.index("--bas") + 1]) if "--bas" in a else 1
     usd = float(a[a.index("--usd") + 1]) if "--usd" in a else 2.0
-    print(cc(a[1], tekrar, tavan, bas, usd) if a[0] == "cc" else web(a[1]))
+    if a[0] == "toplu":
+        print(toplu(a[1], tekrar if "--tekrar" in a else 1))
+    else:
+        print(cc(a[1], tekrar, tavan, bas, usd) if a[0] == "cc" else web(a[1]))
