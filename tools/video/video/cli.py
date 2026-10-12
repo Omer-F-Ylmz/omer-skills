@@ -12,7 +12,8 @@ import tempfile
 import threading
 import random
 import time
-from concurrent.futures import ThreadPoolExecutor
+from collections import deque
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
 
 from jev import cekirdek as c
@@ -452,6 +453,56 @@ def _ocr(ctx, yollar, ham=False):
     return {ad: [[x, 1.0, i] for i, x in enumerate(s)] for ad, s in r.items()} if ham else r
 
 
+HAVUZ_GB, HAVUZ_ESZ = 1.2, 2  # ayar · VİDEO-14-d4: CPU OCR işçisi tepe özel bellek (1080p, cls0: 1.17 GB ölçüldü) · işçi başı iş parçacığı (çekirdek verimi 1-2'de en iyi)
+_CPU = [None]  # havuz sürecinin CPU motoru
+
+
+def _cpu_hazirla():
+    _CPU[0] = gz.rapid_yukle("cpu", esz=HAVUZ_ESZ)
+
+
+def _cpu_oku(y):
+    return [[str(x), round(float(s), 3), int(u)] for x, s, u in _CPU[0](y)]
+
+
+HAVUZ_EX = lambda n: ProcessPoolExecutor(n, initializer=_cpu_hazirla)  # noqa: E731
+
+
+def _havuz(bos):
+    """VİDEO-14-d4: env VIDEO_OCR_HAVUZ=N → N CPU OCR işçisi; boş RAM'den (iki RAM_ESIK_GB payı) HAVUZ_GB'lik işçiye kısılır; bayraksız 0."""
+    return max(0, min(int(os.environ.get("VIDEO_OCR_HAVUZ") or 0), int((bos - 2 * RAM_ESIK_GB) // HAVUZ_GB)))
+
+
+def _ocr_havuz(ctx, yollar, n, bas):
+    """VİDEO-14-d4: iş çalma — DML (_ocr, 10'lu parti, süreçler arası kilit) ve n CPU süreci aynı kuyruktan çeker; güvenlik tavanı aşılınca
+    çekim durur. CPU işçisi çökerse kare kuyruğa geri döner (DML okur). → ([(t, ham)] yollar sırasıyla, okunmayan t'ler)."""
+    q, oku, kq = deque(yollar), {}, threading.Lock()
+
+    def al(k):
+        with kq:
+            return [] if time.monotonic() - bas > gz.OCR_GUVENLIK else [q.popleft() for _ in range(min(k, len(q)))]
+
+    def dml():
+        while p := al(10):
+            o = _ocr(ctx, [y for _, y in p], ham=True)
+            oku.update((t, o.get(y.name, [])) for t, y in p)
+
+    def cpu(ex):
+        while p := al(1):
+            try:
+                oku[p[0][0]] = ex.submit(_cpu_oku, str(p[0][1])).result()
+            except Exception:
+                with kq:
+                    q.appendleft(p[0])
+                return
+
+    with HAVUZ_EX(n) as ex, ThreadPoolExecutor(n + 1) as th:
+        for f in [th.submit(dml), *(th.submit(cpu, ex) for _ in range(n))]:
+            f.result()
+    dml()  # DML bittikten sonra çöken CPU işçisinin geri koyduğu kare
+    return [(t, oku[t]) for t, _ in yollar if t in oku], [t for t, _ in yollar if t not in oku]
+
+
 def _yorumlar(ctx, d):
     """DERİNLİK-1 R4 · 1b-1 M4: en çok 60 top yorum (kanal sahibi yanıtları dahil, indirme yok) → yorumlar.json ham {text, pinned, sahip};
     bağlantılar yalnız sabit/sahip yorumlarından. → (bağlantılar, kapsam durumu)"""
@@ -821,7 +872,8 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     g, f = d / "goz", gz.fps(sure)
     kd, oj = g / "kareler", g / "ocr.json"
     anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ, **({"hiz2": h} if (h := _hiz2(sure)) else {}),
-               **({"det": k} if (k := gz.ocr_det()) else {}), **({"cls": 0} if gz.ocr_cls0() else {})}
+               **({"det": k} if (k := gz.ocr_det()) else {}), **({"cls": 0} if gz.ocr_cls0() else {}),
+               **({"havuz": 1} if os.environ.get("VIDEO_OCR_HAVUZ", "0") != "0" else {})}  # VİDEO-14-d4: CPU/DML kare dağılımı belirsiz → ayrı önbellek
     on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
     if on.get("anahtar") != anahtar:
         shutil.rmtree(g, ignore_errors=True)
@@ -945,6 +997,9 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
     _ram_kapi(ctx)
     with OCR, asama(d.name, "ocr"):
         bas, okunan, inc = time.monotonic(), [], []
+        if ctx.get("rapid") and (n := _havuz(bos_ram())):  # VİDEO-14-d4: DML + CPU havuzu iş çalma
+            okunan, kalan = _ocr_havuz(ctx, yollar, n, bas)
+            inc, yollar = [(t, "OCR güvenlik tavanı") for t in sorted(kalan)], []
         for i in range(0, len(yollar), 10):
             o = _ocr(ctx, [y for _, y in yollar[i:i + 10]], ham=True)
             okunan += [(t, o.get(y.name, [])) for t, y in yollar[i:i + 10]]

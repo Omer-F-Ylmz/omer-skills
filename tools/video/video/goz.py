@@ -393,9 +393,10 @@ def ocr_cls0():
     return os.environ.get("VIDEO_OCR_CLS") == "0"
 
 
-def rapid_yukle(cihaz=None):
+def rapid_yukle(cihaz=None, esz=0):
     """Gerçek RapidOCR (det/cls PP-OCR mobile + Latin PP-OCRv5 rec, yerel model, ağ yok) → yol → [(metin, skor, üst y)].
-    Import/model hatası yükselir: cli._ocr Windows OCR'a düşer. ponytail: ı → i okunur (Latin sözlüğü); eşleşme norm'la."""
+    Import/model hatası yükselir: cli._ocr Windows OCR'a düşer. ponytail: ı → i okunur (Latin sözlüğü); eşleşme norm'la.
+    VİDEO-14-d4: esz>0 → CPU oturumu esz iş parçacığı (havuz işçileri çekirdekleri bölüşür)."""
     import os
     from rapidocr import LangCls, LangDet, LangRec, ModelType, OCRVersion, RapidOCR
     k = (os.environ.get("VIDEO_OCR_MODEL") or MODEL_KOK).rstrip("/\\") + "/"
@@ -410,7 +411,8 @@ def rapid_yukle(cihaz=None):
                            "Cls.ocr_version": OCRVersion.PPOCRV4, "Cls.lang_type": LangCls.CH, "Cls.model_type": ModelType.MOBILE,
                            "Rec.ocr_version": OCRVersion.PPOCRV5, "Rec.lang_type": LangRec.LATIN, "Rec.model_type": ModelType.MOBILE,
                            **({"Det.limit_type": "max", "Det.limit_side_len": d} if (d := ocr_det()) else {}),
-                           **({"Global.use_cls": False} if ocr_cls0() else {})})
+                           **({"Global.use_cls": False} if ocr_cls0() else {}),
+                           **({"EngineConfig.onnxruntime.intra_op_num_threads": esz} if esz else {})})
 
     def oku(yol):
         r = ocr(str(yol))

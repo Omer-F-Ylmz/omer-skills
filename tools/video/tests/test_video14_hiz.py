@@ -48,3 +48,62 @@ def test_ocr_cls_bayrak(monkeypatch, tmp_path):
     assert "Global.use_cls" not in _params(monkeypatch, tmp_path) and gz.ocr_cls0() is False
     monkeypatch.setenv("VIDEO_OCR_CLS", "0")
     assert _params(monkeypatch, tmp_path)["Global.use_cls"] is False and gz.ocr_cls0() is True
+
+
+def test_ocr_esz(monkeypatch, tmp_path):
+    """VİDEO-14-d4: rapid_yukle(esz=k) → CPU oturumu k iş parçacığı (havuz işçileri çekirdekleri bölüşür); verilmezse RapidOCR varsayılanı."""
+    monkeypatch.delenv("VIDEO_OCR_CLS", raising=False)
+    assert "EngineConfig.onnxruntime.intra_op_num_threads" not in _params(monkeypatch, tmp_path)
+    al = _params(monkeypatch, tmp_path)
+    gz.rapid_yukle("cpu", esz=3)
+    assert al["EngineConfig.onnxruntime.intra_op_num_threads"] == 3
+
+
+def test_havuz_sayi(monkeypatch):
+    """VIDEO_OCR_HAVUZ=N → N CPU işçisi, boş RAM'e göre kısılır (iki RAM_ESIK_GB payı, işçi başı HAVUZ_GB); bayraksız 0."""
+    monkeypatch.delenv("VIDEO_OCR_HAVUZ", raising=False)
+    assert cli._havuz(100) == 0
+    monkeypatch.setenv("VIDEO_OCR_HAVUZ", "6")
+    assert cli._havuz(100) == 6 and cli._havuz(2 * cli.RAM_ESIK_GB + 2 * cli.HAVUZ_GB) == 2 and cli._havuz(1) == 0
+
+
+def _havuz_kur(monkeypatch, cpu):
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+    monkeypatch.setattr(cli, "HAVUZ_EX", ThreadPoolExecutor)
+    monkeypatch.setattr(cli, "_cpu_oku", cpu)
+
+    def motor(y):
+        time.sleep(0.005)
+        return [("dml " + y.name, 0.9, 1)]
+    monkeypatch.setattr(cli, "_MOTOR", [None])
+    return {"rapid": lambda: motor}
+
+
+def test_ocr_havuz_is_calma(monkeypatch, tmp_path):
+    """DML 10'lu partiler + N CPU işçisi aynı kuyruktan çalar; her kare bir kez, sıra yollar sırası; güvenlik tavanı aşılınca kalan döner."""
+    import time
+
+    def cpu(y):
+        time.sleep(0.005)
+        return [["cpu " + y.rsplit("/", 1)[-1].rsplit("\\", 1)[-1], 0.9, 1]]
+    ctx = _havuz_kur(monkeypatch, cpu)
+    yollar = [(float(i), tmp_path / f"k{i:06d}.jpg") for i in range(40)]
+    okunan, kalan = cli._ocr_havuz(ctx, yollar, 3, time.monotonic())
+    assert [t for t, _ in okunan] == [t for t, _ in yollar] and kalan == []
+    assert all(r[0][0].endswith(y.name) for (_, r), (_, y) in zip(okunan, yollar))
+    assert {r[0][0].split()[0] for _, r in okunan} == {"dml", "cpu"}
+    monkeypatch.setattr(gz, "OCR_GUVENLIK", -1)
+    assert cli._ocr_havuz(ctx, yollar, 3, time.monotonic()) == ([], [t for t, _ in yollar])
+
+
+def test_ocr_havuz_cpu_hata(monkeypatch, tmp_path):
+    """CPU işçisi çökerse (model/bellek) kare kaybolmaz: kuyruğa geri döner, DML okur."""
+    import time
+
+    def cpu(y):
+        raise MemoryError("cpu yok")
+    ctx = _havuz_kur(monkeypatch, cpu)
+    yollar = [(float(i), tmp_path / f"k{i:06d}.jpg") for i in range(25)]
+    okunan, kalan = cli._ocr_havuz(ctx, yollar, 2, time.monotonic())
+    assert len(okunan) == 25 and kalan == [] and all(r[0][0].startswith("dml") for _, r in okunan)
