@@ -22,7 +22,8 @@ def main(argv):
     kok = pathlib.Path(argv[0]).resolve()
     kanit.PORT = {"160": 3919, "170": 3920, "171": 3921}[kol]  # iki kol olcum_sira'da paralel
     tavan = {"160": 2.0, "170": 3.5, "171": 2.5}[kol]
-    plan = [(b, t) for t in ((3, 4) if kol == "160" else (1, 2, 3, 4)) for b in kanit.BRIEF]
+    plan = [(b, t) for t in ((3, 4) if kol == "160" else (1, 2, 3, 4)) for b in kanit.BRIEF
+            if not (kok / f"{b}-{kol}-{t}" / "index.html").exists()]  # devam: üretilmiş koşu tekrarlanmaz
     if "--kuru" in argv:
         print(len(plan), "çağrı:", plan, "port", kanit.PORT, "sistem uzunluğu", len(kanit.sistem(kol)))
         return 0

@@ -35,7 +35,7 @@ def sistem(kol):
 def kos(kol, brief, tekrar, kok):
     dizin = kok / f"{brief}-{kol}-{tekrar}"
     dizin.mkdir(parents=True, exist_ok=True)
-    env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}  # headroom vekili alt süreçte araçları gizliyor
+    env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_BASE_URL", "ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}  # headroom vekili araçları gizliyor; anahtar varsa plan yerine API kredisi (d3: 401)
     sunucu = subprocess.Popen([sys.executable, "-m", "http.server", str(PORT)], cwd=dizin, creationflags=0x08000000,
                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
@@ -44,7 +44,10 @@ def kos(kol, brief, tekrar, kok):
                             "--disable-slash-commands", "--tools", "Read,Write,Edit,Bash", "--allowedTools", "Read", "Write", "Edit",
                             "Bash", "--system-prompt", sistem(kol)], cwd=dizin, env=env, capture_output=True, text=True,
                            encoding="utf-8", errors="replace", timeout=1500, creationflags=0x08000000)
+        (dizin / "claude.json").write_text(r.stdout + r.stderr[-2000:], encoding="utf-8")  # hata nedeni (d2: 7 koşu tur 1/$0)
         j = json.loads(r.stdout or "{}")
+        if not (dizin / "index.html").exists():  # yoksa http.server dizin listesini sunar, slop onu "0 bayrak" sayıp geçmişe yazar
+            return [kol, brief, tekrar, 1, "ÜRETİLMEDİ", "-", 0, j.get("total_cost_usd") or 0, j.get("num_turns"), 0, 0]
         url, yeni = f"http://localhost:{PORT}/", KOLLAR["yeni"] / "scripts"
         s = subprocess.run(["node", str(yeni / "slop.mjs"), url, "--json", str(dizin / "slop.json")], cwd=dizin, capture_output=True, text=True,
                            encoding="utf-8", errors="replace", timeout=180, creationflags=0x08000000)

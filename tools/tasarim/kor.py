@@ -41,7 +41,7 @@ def main(argv):
             continue
         subprocess.run(["node", str(BURA / "kor.mjs"), *[str(x) for d, p in zip(sayfalar, resim) for x in (d[1] / "index.html", p)]],
                        cwd=BURA, check=True, timeout=600, creationflags=0x08000000)
-        env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
+        env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_BASE_URL", "ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
         r = subprocess.run(["claude", "-p", ISTEM.format(n=len(resim), brief=metin) + "\n".join(p.name for p in resim),
                             "--model", "opus", "--output-format", "json", "--max-budget-usd", "0.75", "--setting-sources", "",
                             "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands",
