@@ -26,8 +26,13 @@ def test_short_hiz_bayrakli(monkeypatch, tmp_path):
     assert len(cag) == 2 and all("enum" not in s and e == "low" for s, e in cag)
 
 
-def test_short_hiz_bayraksiz_ve_uzun(monkeypatch, tmp_path):
-    for short, env in ((True, {"VIDEO_JETON": "0"}), (False, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "low"})):
+def test_short_hiz_varsayilan_low(monkeypatch, tmp_path):  # d5 KABUL: bayraksız short → low
+    cag = _kos(monkeypatch, tmp_path, True, {"VIDEO_JETON": "0"})
+    assert len(cag) == 2 and all("enum" not in s and e == "low" for s, e in cag)
+
+
+def test_short_hiz_kapali_ve_uzun(monkeypatch, tmp_path):  # VIDEO_SHORT_HIZ=0 → eski yol; uzun video hiç değişmez
+    for short, env in ((True, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "0"}), (False, {"VIDEO_JETON": "0", "VIDEO_SHORT_HIZ": "low"}), (False, {"VIDEO_JETON": "0"})):
         cag = _kos(monkeypatch, tmp_path, short, env)
         assert len(cag) == 2 and all("enum" in s and e is None for s, e in cag)
 

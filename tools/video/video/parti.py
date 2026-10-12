@@ -767,7 +767,8 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         kr0 = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
         up = (env or os.environ).get("VIDEO_UZUN_PARALEL")
         bs = bolum_sinir(pk[v]) if up in ("1", "2") and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
-        sh = (env or os.environ).get("VIDEO_SHORT_HIZ") if pk[v].get("short") else None  # VİDEO-16: short'ta ortak önek (A) + --effort <sh>
+        sh = (env or os.environ).get("VIDEO_SHORT_HIZ", "low") if pk[v].get("short") else None  # VİDEO-16: short'ta ortak önek (A) + --effort <sh>; d5 KABUL: varsayılan low, "0" kapatır
+        sh = None if sh == "0" else sh
         jtv = jt + "A" if len(bs) > 1 or sh else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
         if len(bs) > 1 and up == "2":  # PARALEL-2: bölüm formu urller/kurulum_komutlar'ı boş geçmesin (Z); birincil model yalnız 1. bölümde (4 çağrı)
             jtv += "Z"
