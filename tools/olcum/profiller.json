@@ -104,6 +104,11 @@
   "settings": "../../.claude/b2-aile/settings.json",
   "not": "TUR-6c-B2-devam: tam + 96 aile paketi (açıklamalı, --add-dir) + 3 MCP + 2 plugin (cybersecurity aile paketlerinden); canlıya dokunmaz"
  },
+ "butce1": {
+  "ek": [],
+  "settings": "profil-butce1.json",
+  "not": "SKILL-BUTCE-1: bütçe 75000 aynı; yerelde de olan 119 claude.ai kopyası off (tekil), 'on' küme KORU (-desktop hariç) ∪ skillUsage, diğer 'on' → name-only (tools/butce/profil.py)"
+ },
  "jevyol": {
   "ek": [
    "--append-system-prompt",
