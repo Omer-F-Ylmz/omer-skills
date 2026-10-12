@@ -44,6 +44,9 @@ Kanıt (`jev kalibre`, n=40 sentetik TR, jev-1.13): Act 51 yargı · isabet 1.00
 - İddia sınama: iddia + kanıt metni state'te, `noul` "kanıt iddiayı destekliyor mu?" (CC `jev kanit`).
 - CC: `tools/olcum/kosucu.py` koşu sonu tek `jev_batch` ile TSV'ye `jev`/`jev_guven` yazar (`--jevsiz` kapatır); eski ölçüm: `jev_yargic.py <dizin>... --tsv-yaz`. claude.ai: Jev MCP bağlayıcısındaki `jev_batch` aynı state/soru ile.
 - Jev erişilemezse eski yol (regex/kosinüs) aynen; Jev final KABUL/DUR vermez, ayırır.
+- Önbellek (JEV-2): Jev koşudan koşuya neredeyse deterministik (aynı 50 yanıtta iki koşu ρ 0.99), aynı (soru, state) yeniden sorulmaz; çoklu örnek ortalaması güvenilirlik katmaz. CC: `jev_yargic.yargila` / `Onbellekli(Tasiyici(...))`.
+- Ucuz + güvenilir karma yargı: önce hepsini Jev puanlar; Jev puanı orta banda (7/10'a) en yakın %20 Opus'a gider. n=50: ρ 0.43→0.62, Opus çağrısı %80 az (örneklem içi; rastgele %20 de 0.60 — kazancın çoğu yükseltmenin kendisi). CC: `jev_yargic.belirsiz(jevler)`.
+- Skill yönlendirme hook'u ~2000 aktif skill'de kendi kuralını geçemiyor (hit@3 0.65, p95 3.8 sn, ~$1/gün): kapalı tut; skill sayısı ~400'e inerse `jev skill-olc` ile yeniden ölç.
 
 ## Türkçe
 Canlı ölçüm (2026-09-22, jev-1.13, 3 Türkçe müşteri mesajı, choice/3 seçenek): Türkçe soru+criteria 3/3 isabet, ort. güven 1.00; İngilizce soru+criteria 3/3, ort. güven 1.00.

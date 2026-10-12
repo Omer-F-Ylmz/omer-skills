@@ -164,9 +164,9 @@ def dilimle(aday, n=DILIM, ust=SORU_TOKEN):
     return out + [cur] if cur else out
 
 
-def yonlendir(istem, t, b, aday, sayac=None):
+def yonlendir(istem, t, b, aday, sayac=None, tavan1=None):
     """Aşama 1 (dilim başına choice, tek istek) → ≤10 aday; aşama 2 (aday başına noul, tek istek) → p≥act, ilk 5.
-    sayac: {aşama: [mantıksal çağrı, HTTP istek]} biriktirir."""
+    sayac: {aşama: [mantıksal çağrı, HTTP istek]} biriktirir. tavan1: aşama-1 istek tavanı (hook 1: ücretlenmeden düşer)."""
     sayac = {} if sayac is None else sayac
 
     def yargila(asama, sorular):
@@ -178,12 +178,24 @@ def yonlendir(istem, t, b, aday, sayac=None):
             x[0], x[1] = x[0] + t.cagri - c0, x[1] + t.istek - i0
 
     istem = istem.encode()[:ISTEM_BAYT].decode(errors="ignore")
-    sorular = {f"d{i}": soru1(d) for i, d in enumerate(dilimle(aday))}
-    if c.token(istem) + c.token(json.dumps(sorular, ensure_ascii=False)) >= ISTEK_TOKEN:
-        raise c.JevHata("aşama 1 isteği 60k token sınırını aşıyor")
-    cv = yargila(1, sorular)
-    if not isinstance(cv, dict):
-        raise c.JevHata("aşama 1 yanıtsız")
+    # ponytail: istekler sıralı (1979 aday ≈ 3 istek); p95 sınırı aşılırsa paralel gönder
+    gruplar, cur, tok = [], {}, c.token(istem)
+    for i, d in enumerate(dilimle(aday)):
+        q = soru1(d)
+        if cur and tok + c.token(json.dumps({**cur, f"d{i}": q}, ensure_ascii=False)) >= ISTEK_TOKEN:
+            gruplar.append(cur)
+            cur = {}
+        cur[f"d{i}"] = q
+    if cur:
+        gruplar.append(cur)
+    if (tavan1 and len(gruplar) > tavan1) or any(tok + c.token(json.dumps(g, ensure_ascii=False)) >= ISTEK_TOKEN for g in gruplar):
+        raise c.JevHata("aşama 1 dilimi 60k token sınırını aşıyor")
+    cv = {}
+    for g in gruplar:
+        y = yargila(1, g)
+        if not isinstance(y, dict):
+            raise c.JevHata("aşama 1 yanıtsız")
+        cv.update(y)
     olas = {}
     for y in cv.values():
         for a, p in (y.get("probabilities") or {}).items():
@@ -265,7 +277,7 @@ def hook(girdi, env, ev=None, gonder=None, bugun=None, aday=None, saat=time.mono
                 return c.http_gonder(url, basliklar, govde, timeout=kalan)
 
             t = c.Tasiyici(env=env, en_fazla=2, istek_tavan=2, tekrar=0, gonder=gonder or zamanli, uyu=lambda s: None)
-            _, sonuc = yonlendir(istem, t, _bantlar(ev), aday)
+            _, sonuc = yonlendir(istem, t, _bantlar(ev), aday, tavan1=1)  # 2 sn bütçe: çok istekli aşama-1 ücretlenmez
             durum = "öneri" if sonuc else "act-yok"
             if sonuc:
                 ek = "Jev skill önerisi: " + ", ".join(s["ad"] for s in sonuc[:3])
