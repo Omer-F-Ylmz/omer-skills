@@ -1,7 +1,7 @@
 ---
 name: suite-kosucu
 description: omer-skills tam suit koşucusu. 7 suite'i sabit komutlarla sırayla koşar; komut keşfi, arka plan, bekleme yok. Yalnız suite başına sayı + kırmızı test adları döner (en fazla 7 satır).
-model: claude-sonnet-5-5
+model: sonnet
 tools: Bash, Read
 ---
 
