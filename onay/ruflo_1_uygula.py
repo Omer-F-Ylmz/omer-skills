@@ -22,15 +22,17 @@ TSV = KOK / "docs" / "kutuphane" / "olcum" / "ruflo-1-ab.tsv"
 
 
 def kabul(tsv=TSV):
-    """→ (geçti mi, açıklama). Son 30 satır = bir tam ölçüm."""
+    """→ (geçti mi, açıklama). Yalnız iki kolu da koşmuş (aile, sıra) çiftleri; ≥12 çift (ölçüm ~$0.68/çift, $9.5 kesici ~14'te durur)."""
     try:
-        satir = [s.split("\t") for s in tsv.read_text(encoding="utf-8").splitlines()[1:] if s.strip()][-30:]
+        satir = [s.split("\t") for s in tsv.read_text(encoding="utf-8").splitlines()[1:] if s.strip()]
     except OSError:
         return False, "ölçüm yok"
-    if len(satir) < 30:
-        return False, f"ölçüm eksik ({len(satir)}/30)"
-    ort = {k: statistics.mean(float(s[4]) for s in satir if s[3] == k) for k in ("derssiz", "dersli")}
-    return ort["dersli"] >= ort["derssiz"], f"puan derssiz {ort['derssiz']:.3f} · dersli {ort['dersli']:.3f}"
+    puan = {(s[1], s[2], s[3]): float(s[4]) for s in satir}  # aynı çift tekrar koştuysa son satır
+    cift = [(a, n) for a, n, k in puan if k == "derssiz" and (a, n, "dersli") in puan]
+    if len(cift) < 12:
+        return False, f"ölçüm eksik ({len(cift)}/12 çift)"
+    ort = {k: statistics.mean(puan[(a, n, k)] for a, n in cift) for k in ("derssiz", "dersli")}
+    return ort["dersli"] >= ort["derssiz"], f"{len(cift)} çift · puan derssiz {ort['derssiz']:.3f} · dersli {ort['dersli']:.3f}"
 
 
 def ajanlar(ev=EV):

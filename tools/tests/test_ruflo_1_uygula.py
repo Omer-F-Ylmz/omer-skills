@@ -12,7 +12,7 @@ def kur(tmp_path, dersli):
     (ev / ".claude" / "agents").mkdir(parents=True)
     (ev / ".claude" / "agents" / "a.md").write_bytes(AJAN)
     tsv = tmp_path / "ab.tsv"
-    tsv.write_text("baslik\n" + "".join(f"t\tk\t1\t{k}\t{p}\n" for _ in range(15) for k, p in (("derssiz", 0.6), ("dersli", dersli))),
+    tsv.write_text("baslik\n" + "".join(f"t\tk\t{n}\t{k}\t{p}\n" for n in range(12) for k, p in (("derssiz", 0.6), ("dersli", dersli))),
                    encoding="utf-8")
     ders_py = tmp_path / "ders.py"
     ders_py.write_text("", encoding="utf-8")
