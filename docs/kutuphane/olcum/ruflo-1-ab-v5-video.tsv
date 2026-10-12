@@ -1,0 +1,10 @@
+zaman	aile	sira	kol	puan	gizli	tur	input	cache_creation	cache_read	output	usd	sure_sn	ders_ids	rc	notlar
+01:37:22	video	1	derssiz	0.667	0.167	3	6	79730	174541	452	0.3584	102.7		0	gizli ölçüt: araç adları küçük harf + alfabetik + yinelenmesiz değil | gizli ölçüt: 'kaynak': 'transkript.txt' alanı yok
+01:41:32	video	1	dersli	0.5	0.0	4	8	79866	259239	496	0.3763	132.1		0	gizli ölçüt: anahtar 'araclar' değil | gizli ölçüt: araç adları küçük harf + alfabetik + yinelenmesiz değil | gizli ölçüt: 'kaynak': 'transkript.txt' alanı yok
+01:43:26	video	2	derssiz	1.0	0.5	5	8	80103	259470	609	0.3784	114.3		0	
+01:47:17	video	2	dersli	0.5	0.0	4	6	80512	175297	1103	0.3681	91.7	fe8a37,7cb889	0	gizli ölçüt: anahtar 'araclar' değil | gizli ölçüt: araç adları küçük harf + alfabetik + yinelenmesiz değil | gizli ölçüt: 'kaynak': 'transkript.txt' alanı yok
+01:50:39	video	3	derssiz	0.5	0.0	4	8	79868	259240	492	0.3763	201.8		0	gizli ölçüt: anahtar 'araclar' değil | gizli ölçüt: araç adları küçük harf + alfabetik + yinelenmesiz değil | gizli ölçüt: 'kaynak': 'transkript.txt' alanı yok
+01:55:25	video	3	dersli	0.833	0.333	4	8	78554	255128	789	0.3731	185.2	6bcf03,86b5b5	0	gizli ölçüt: araç adları küçük harf + alfabetik + yinelenmesiz değil
+01:57:43	video	4	derssiz	0.5	0.0	3	6	79725	174555	436	0.3582	137.2		0	gizli ölçüt: anahtar 'araclar' değil | gizli ölçüt: araç adları küçük harf + alfabetik + yinelenmesiz değil | gizli ölçüt: 'kaynak': 'transkript.txt' alanı yok
+02:00:54	video	4	dersli	1.0	0.5	3	6	80175	175222	755	0.3633	115.3	6637a9,8d91a8	0	
+02:03:01	video	5	derssiz	0.5	0.0	3	6	79823	174560	568	0.3599	127.0		0	gizli ölçüt: anahtar 'araclar' değil | gizli ölçüt: araç adları küçük harf + alfabetik + yinelenmesiz değil | gizli ölçüt: 'kaynak': 'transkript.txt' alanı yok
