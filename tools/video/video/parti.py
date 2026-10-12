@@ -765,8 +765,11 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
     jt = (env or os.environ).get("VIDEO_JETON", JETON)
     for v in kalan:
         kr0 = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
-        bs = bolum_sinir(pk[v]) if (env or os.environ).get("VIDEO_UZUN_PARALEL") == "1" and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
+        up = (env or os.environ).get("VIDEO_UZUN_PARALEL")
+        bs = bolum_sinir(pk[v]) if up in ("1", "2") and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
         jtv = jt + "A" if len(bs) > 1 else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
+        if len(bs) > 1 and up == "2":  # PARALEL-2: bölüm formu urller/kurulum_komutlar'ı boş geçmesin (Z); birincil model yalnız 1. bölümde (4 çağrı)
+            jtv += "Z"
         parca = []
         for i, (bas, son) in enumerate(bs):  # VİDEO-14-devam-2 (a): bölüm × model eşzamanlı çağrı, sonra ek çağrısız bolum_birlestir
             if len(bs) == 1:
@@ -791,12 +794,13 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
             with CAGIR, asama(v, "model"):
                 return cagir(SISTEM, istem, jeton_sema(v, jtv, mdl), kareler=kr, model=mdl, butce=butce, env=env)
         with ThreadPoolExecutor(len(modeller) * len(parca)) as ex:
-            yys = [[ex.submit(kol, mdl, kr, istem) for mdl in modeller] for kr, istem in parca]
+            mb = [modeller if j == 0 or "Z" not in jtv else modeller[1:] for j in range(len(parca))]
+            yys = [[ex.submit(kol, mdl, kr, istem) for mdl in ml] for ml, (kr, istem) in zip(mb, parca)]
             yys = [[f.result() for f in fl] for fl in yys]
         bf, kun = [], []
         for j, yy in enumerate(yys):
             kolf, ek = [], "" if len(yys) == 1 else f".b{j + 1}"
-            for mdl, y in zip(modeller, yy):
+            for mdl, y in zip(mb[j], yy):
                 ys.append(y)
                 f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
                 if f is not None and "B" in jt:  # dar şemalı kol tek kalırsa rapor alanları boş liste
@@ -830,6 +834,8 @@ def jeton_sema(v, jt, mdl):
     vid = s["properties"]["videolar"]["items"]
     if "A" in jt:
         vid["properties"]["id"] = {"type": "string"}
+    if "Z" in jt:
+        vid["required"] += [k for k in ("urller", "kurulum_komutlar") if k in vid["properties"] and k not in vid["required"]]
     if "B" in jt and "haiku" in mdl:
         for k in B_DISI:
             vid["properties"].pop(k)

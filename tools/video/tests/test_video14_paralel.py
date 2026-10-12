@@ -76,6 +76,30 @@ def test_tara_ikili_bolumlu(monkeypatch, tmp_path):
     assert y["cagri"] == 2 and all("enum" in s for _, s, _ in cag)
 
 
+def test_tara_ikili_paralel_b(monkeypatch, tmp_path):
+    """PARALEL-2: VIDEO_UZUN_PARALEL=2 → birincil model yalnız 1. bölümde (3+1 = 4 çağrı), bölüm şemasında urller + kurulum_komutlar zorunlu
+    (v14p tekrar 2: b3 iki kol da bu opsiyonel alanları boş geçti → url 14/20, komut 16/31)."""
+    yol = tmp_path / "paket.md"
+    yol.write_text(METIN, encoding="utf-8")
+    pk = {"V1": {**parti.paket_oku(yol), "metin": METIN}}
+    cag = []
+
+    def cagir(sis, istem, sema, kareler, model, butce, env):
+        cag.append((model, "BÖLÜM 1/" in istem, sema["properties"]["videolar"]["items"]["required"]))
+        return {"form": {"videolar": [{"id": "V1", "ozet": model, "adaylar": [{"ad": model}]}]}, "usd": .01, "usage": {}}
+
+    d = {"butce": 1, "tavan": {"usd": 9}, "videolar": {"V1": {"tarama": {}}}}
+    monkeypatch.setattr(parti, "_defter", lambda p: (0, 0))
+    monkeypatch.setattr(parti.hafif, "GORSEL", False)
+    y = parti._tara_ikili(["V1"], pk, {}, lambda s: s, d, tmp_path, {"VIDEO_JETON": "0", "VIDEO_UZUN_PARALEL": "2"}, cagir,
+                          ["claude-sonnet-5-5", "claude-haiku-5-5"])
+    assert y["cagri"] == 4 and [b for m, b, _ in cag if "sonnet" in m] == [True] and sum("haiku" in m for m, _, _ in cag) == 3
+    assert all({"urller", "kurulum_komutlar"} <= set(r) for _, _, r in cag)
+    cag.clear()
+    parti._tara_ikili(["V1"], pk, {}, lambda s: s, d, tmp_path, {"VIDEO_JETON": "0", "VIDEO_UZUN_PARALEL": "1"}, cagir, ["claude-sonnet-5-5", "claude-haiku-5-5"])
+    assert len(cag) == 6 and not any("urller" in r for _, _, r in cag)
+
+
 def test_indir_kenar(monkeypatch, tmp_path):
     """VIDEO_INDIR_KENAR=<px> → yt-dlp biçimi uzun kenar ≤ px, akış URL önbelleği kenara ayrışır; bayraksız 1920."""
     monkeypatch.delenv("VIDEO_INDIR_KENAR", raising=False)
