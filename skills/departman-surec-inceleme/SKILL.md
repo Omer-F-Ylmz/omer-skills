@@ -19,6 +19,7 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 - Kanıtsız "bitti" yok; test çıktısı raporda.
 - Üç başarısız denemeden sonra DUR raporu.
 - Kod projelerinde büyüyen tek dosya (god-file) fark edilince parçalama önerilir; uygulama ayrı karar (24b, video 2n84xa99FRY).
+- Yapan denetlemez: kabul denetimi taze bağlamlı ayrı alt ajanla (yalnız diff + kabul ölçütü; yapanın gerekçesi verilmez) (IG-40 DcrhGgKyBD8).
 
 ## Çakışma
 - Review: `code-review` > `review` (gstack) > `pr-review-toolkit`.

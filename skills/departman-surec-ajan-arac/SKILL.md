@@ -18,6 +18,7 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 ## Kapılar
 - Dış repo kodu/kuralı almadan önce lisans; MIT/Apache değilse koşul rapora.
 - Skill description ≤200 karakter; gövde kısa, ayrıntı referans dosyada.
+- Skill description 3. tekil kişiyle: ne yapar + ne zaman kullanılır; SKILL.md gövdesi ≤500 satır, fazlası references/ dosyasına (IG-40 DeXd4jID1y9).
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
