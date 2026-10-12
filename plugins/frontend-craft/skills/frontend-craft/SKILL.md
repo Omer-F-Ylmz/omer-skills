@@ -137,6 +137,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 ## 10. Referans kaynakları
 - Yön ararken önce referans çıkar, sonra dili yaz: 21st.dev · awwwards.com · lapa.ninja · recent.design · dribbble.com · figma.com/community · designprompts.dev
 - 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz. Adım-araç eşlemesi ve kota kapıları: `references/21st-akis.md`.
+- SIRA'nın her adımında hangi skill/MCP (katalog, design-dna, Stitch, Figma, impeccable, baseline-ui…): `references/yon-hatti.md`.
 - Sabit adımlar (21st MCP kuruluysa, elle arama yok): yön/referans çıkarımı `get_inspiration` (+ kullanılan yön için `record_inspiration_feedback`) · bileşen `get_component` · tema `get_theme` · logo `search_logo`.
 - Referansı kopyalama — ritim, kontrast, boşluk mantığını çıkar, projeye uygula.
 - 3D/WebGL yönü aranırken Three.js resmi örnekleri (threejs.org/examples) referans alınır, kopyalanmaz.
