@@ -27,8 +27,24 @@ def ortam(tmp_path, monkeypatch):
     return yol
 
 
-def test_es_tavani_6():
-    assert kh.ES_TAVAN == 6
+def test_es_tavani_12_ram_90da_artar():
+    assert kh.ES_TAVAN == 12
+    assert kh.es_ayarla(4, 90) == 5 and kh.es_ayarla(4, 91) == 4 and kh.es_ayarla(4, 92) == 3 and kh.es_ayarla(12, 50) == 12
+
+
+def test_ek_kokler_sirada_ve_kuyrukta(tmp_path, monkeypatch):
+    for kok, aile, ad in (("kalite3", "frontend", "fe-a"), ("kalite3-d15", "dil-cerceve", "dil-b"), ("kalite3-d15", "altyapi", "ops-c"),
+                          ("kalite3-ruflo", "surec-plan", "pln-d")):
+        (tmp_path / kok / aile).mkdir(parents=True, exist_ok=True)
+        (tmp_path / kok / aile / f"{ad}.md").write_text(MD, encoding="utf-8")
+        monkeypatch.setitem(kh.gorev, ad, {"istem": "s", "rubrik": [], "model": "sonnet"})
+    monkeypatch.setattr(kh.mo, "AJAN", tmp_path / "kalite3")
+    monkeypatch.setattr(kh, "EK", [tmp_path / "kalite3-d15", tmp_path / "kalite3-ruflo", tmp_path / "yok"])
+    assert [ad for _, ad in kh.sira()] == ["fe-a"]  # d13 parti dilimi yalnız ana kökten
+    k = kh.Kosu.__new__(kh.Kosu)
+    k.q, k.ele_alinan = deque(), {"ops-c"}
+    k.ek_aday()
+    assert [(i[0], i[1], i[4].name) for i in k.q] == [("dil-b", 0, "dil-cerceve"), ("pln-d", 0, "surec-plan")]
 
 
 def test_api_hatasi_olcum_sayilmaz(ortam, monkeypatch):
@@ -94,7 +110,7 @@ def test_onarim_api_hatasi_gecici(ortam, monkeypatch):
 
 
 def test_devam_yarim_ajani_sonraki_tura_alir(ortam, monkeypatch):
-    monkeypatch.setattr(kh, "sira", lambda: [(ortam.parent, AD)])
+    monkeypatch.setattr(kh, "sira", lambda kokler=None: [(ortam.parent, AD)])
     s = dict.fromkeys(kh.ALAN, "")
     s.update(aile=str(ortam.parent), ajan=AD, kol="ajan", tur="0", model="sonnet", puan="1.0", usd="0.01", jev="4.0", strict="1")
     with kh.TSV.open("w", encoding="utf-8", newline="\n") as f:

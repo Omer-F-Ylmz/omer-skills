@@ -29,13 +29,15 @@ ESKI_YANIT = SKILL / ".kalite3/ajan-yanit"
 TSV = KOK / "docs/kutuphane/olcum/kalite3-ajan-hiz.tsv"
 KABUL_EK = KOK / "docs/kutuphane/kalite3-ajan-kabul-ek.txt"
 IS = KOK / ".kalite3/hiz"
-CAGRI_TAVAN, ES_TAVAN, TUR_TAVAN, ARDISIK_TAVAN = 900, 6, 2, 3
+CAGRI_TAVAN, ES_TAVAN, TUR_TAVAN, ARDISIK_TAVAN = 1700, 12, 2, 3  # d15 (13 Eki): +800 çağrı (d15 135 + ruflo ≤15 ajan), es x2
 STRICT = ["--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}']
 ALAN = ["aile", "ajan", "kol", "tur", "model", "puan", "usd", "jeton", "alt_model", "sure", "alt_usd", "jev", "strict"]
 R_ESIK, J_ESIK, U_PAY = 0.6, 5.0, 1.25  # kalibre(): geçenlerin min r 0.8, min Jev 5.7; $ tavanı = 1.25 × geçenlerin max $'ı
 D13_P2 = time.mktime(time.strptime("2026-10-12 09:22:09", "%Y-%m-%d %H:%M:%S"))
+EK = [KOK / "ajanlar/kalite3-d15", KOK / "ajanlar/kalite3-ruflo"]  # yeni aday kökleri (gorevler.json + <aile>/<ad>.md), d13 dilimine girmez
 kilit = threading.Lock()
-gorev = {g["ajan"]: g for g in json.loads((mo.AJAN / "gorevler.json").read_text(encoding="utf-8"))}
+gorev = {g["ajan"]: g for k in [mo.AJAN, *EK] if (k / "gorevler.json").exists()
+         for g in json.loads((k / "gorevler.json").read_text(encoding="utf-8"))}
 
 
 class Gecici(Exception):
@@ -212,9 +214,14 @@ def neden(a, n):
     return "; ".join(k)
 
 
-def sira():
-    aileler = {a: [y.stem for y in sorted(a.glob("*.md")) if y.stem in gorev] for a in sorted(p for p in mo.AJAN.iterdir() if p.is_dir())}
-    return [(a, ads[i]) for i in range(max(map(len, aileler.values()))) for a, ads in aileler.items() if i < len(ads)]
+def sira(kokler=None):
+    aileler = {a: [y.stem for y in sorted(a.glob("*.md")) if y.stem in gorev] for k in (kokler or [mo.AJAN]) if k.exists()
+               for a in sorted(p for p in k.iterdir() if p.is_dir())}
+    return [(a, ads[i]) for i in range(max(map(len, aileler.values()), default=0)) for a, ads in aileler.items() if i < len(ads)]
+
+
+def es_ayarla(es, r):
+    return min(ES_TAVAN, es + 1) if r <= 90 else max(1, es - 1) if r >= 92 else es
 
 
 class Kosu:
@@ -254,6 +261,20 @@ class Kosu:
             self.q.append((ad, 1, aile[ad] / f"{ad}.md", gorev[ad]["model"], aile[ad], (neden(kol[(ad, "ajan")], kol[(ad, "ana")]), yanit)))
             n += 1
         log("onarım kuyruğuna", n, "eski düşen")
+
+    def ek_aday(self):
+        """EK köklerindeki (d15, ruflo) henüz ele alınmamış ajanlar → aşama 1 (t0). Kuyruk boşalınca yeniden çağrılır (koşu sırasında
+        eklenen kök/gorevler.json yeniden başlatmasız alınır)."""
+        for k in EK:
+            if (k / "gorevler.json").exists():
+                gorev.update((g["ajan"], g) for g in json.loads((k / "gorevler.json").read_text(encoding="utf-8")))
+        n = 0
+        for a, ad in sira(EK):
+            if ad not in self.ele_alinan:
+                self.ele_alinan.add(ad)
+                self.q.append((ad, 0, a / f"{ad}.md", gorev[ad]["model"], a, None))
+                n += 1
+        log("yeni aday kuyruğuna", n)
 
     def gozcu(self):
         """d13 parti 2 bitince zinciri durdur (parti 3 bu koşuda paralel) ve parti 2'nin düşenlerini onarıma al."""
@@ -311,7 +332,7 @@ class Kosu:
     def devam(self):
         """Yeniden başlatma: TSV'de son ajan turu düşmüş ama sonraki turu yazılmamış ajanlar (kesilen/İSTİSNA/API hatalı) → sonraki tur.
         TSV'de hiç satırı olmayanları p3/onarim_tohumu zaten kuyruğa alır."""
-        aile, son = {ad: a for a, ad in sira()}, {}
+        aile, son = {ad: a for a, ad in sira([mo.AJAN, *EK])}, {}
         for s in oku(TSV):
             if s["kol"] == "ajan" and s["puan"] != "hata" and s["jev"] != "" and int(s["tur"]) >= int(son.get(s["ajan"], {"tur": -1})["tur"]):
                 son[s["ajan"]] = s
@@ -385,6 +406,7 @@ class Kosu:
         log(f"parti 3 (bu koşu) {len(p3)} ajan · d13 parti 2 {len(p2)} · çağrı {cagri.n}/{CAGRI_TAVAN}")
         self.onarim_tohumu()
         self.devam()
+        self.ek_aday()
         threading.Thread(target=self.gozcu, daemon=True).start()
         es, ayar = 4, 0
         with ThreadPoolExecutor(ES_TAVAN) as havuz:
@@ -392,10 +414,13 @@ class Kosu:
                 with kilit:
                     bos, cal = not self.q, self.calisan
                 if bos and cal == 0 and self.p2_bitti:
-                    break
+                    with kilit:
+                        self.ek_aday()
+                    if not self.q:
+                        break
                 r = mo.ram()
                 if time.time() - ayar > 45:
-                    es = min(ES_TAVAN, es + 1) if r < 85 else max(1, es - 1) if r >= 92 else es
+                    es = es_ayarla(es, r)
                     ayar = time.time()
                 if not bos and cal < es and r < 92 and not DUR.exists() and cagri.n < CAGRI_TAVAN - 3 * ES_TAVAN:
                     with kilit:

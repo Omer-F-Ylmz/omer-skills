@@ -7,7 +7,7 @@ Kabul listesi docs/kutuphane/kalite3-kabul.txt (satır başına skill adı; Faz 
 içinde gecerli=true ve sonnet denetimi sorun bildirmemiş satırlar. Yalnız gevşek ~/.claude/skills/<ad> yazılır; plugin/synced
 kopyaları dist zip'iyle gider. MODEL KURALI: ~/.claude/settings.json env'deki CLAUDE_CODE_SUBAGENT_MODEL kaldırılır
 (her ajan frontmatter `model:` ile ölçülen en iyi modelde koşar; değer yazdırılmaz, settings.json yedeklenir).
-AJANLAR: docs/kutuphane/kalite3-ajan-kabul.txt'teki (pilotu geçen) ajanlar/kalite3/*/<ad>.md → ~/.claude/agents/<ad>.md (varsa yedeklenir). Hiçbir skill silinmez/kapatılmaz; MCP listesi önce=sonra değilse rc=1.
+AJANLAR: docs/kutuphane/kalite3-ajan-kabul.txt'teki (pilotu geçen) ajanlar/{kalite3,kalite3-d15,kalite3-ruflo}/*/<ad>.md → ~/.claude/agents/<ad>.md (varsa yedeklenir). Hiçbir skill silinmez/kapatılmaz; MCP listesi önce=sonra değilse rc=1.
 """
 import json, re, shutil, sys, time
 from pathlib import Path
@@ -69,7 +69,8 @@ def plan(ev=EV, kok=KOK):
 def ajan_plani(kok=KOK):
     yol = kok / "docs" / "kutuphane" / "kalite3-ajan-kabul.txt"
     kabul = [s.strip() for s in yol.read_text(encoding="utf-8").splitlines() if s.strip()] if yol.exists() else []
-    kaynak = {f.stem: f for f in (kok / "ajanlar" / "kalite3").glob("*/*.md")}
+    # kalite3-d15: dil-cerceve (dil-) · altyapi (ops-) · ml-yapay-zeka (ml-) · urun-is (urn-) + mevcut aileler; kalite3-ruflo: ruflo mekanizmaları
+    kaynak = {f.stem: f for k in ("kalite3", "kalite3-d15", "kalite3-ruflo") for f in (kok / "ajanlar" / k).glob("*/*.md")}
     return [(ad, kaynak[ad]) for ad in kabul if ad in kaynak]
 
 
