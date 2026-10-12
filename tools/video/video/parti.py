@@ -674,6 +674,52 @@ def _ikinci(pdir, d, v, f, p, temizle, env, ikinci):
         return f, {"not": [f"ikinci göz: hata ({e})"[:200] + " — Sonnet sonucu"]}
 
 
+UZUN_BOLUM_SN = 1200  # ayar · VİDEO-14-devam-2: env VIDEO_UZUN_PARALEL=1 → bölüm başı ≥ 20 dk, en çok 3 bölüm (14.7 dk tek, 107 dk 3)
+ZAMANLI = ("Segmentler", "Ekran metni", "Ekranda/konuşmada URL", "Sözlük eşleşmeleri", "Kareler")
+VIDEO_DUZEYI = ("Açıklama", "Bağlantılı sayfalar", "Yorumlar")  # "Açıklama bağlantıları" dahil; yalnız 1. bölümde
+_ZS = r"(\d+(?::\d{2}){1,2})"
+
+
+def bolum_sinir(p):
+    """VİDEO-14-devam-2 (a): → [(bas, son)] sn; n = min(3, süre // UZUN_BOLUM_SN); sınır eşit bölme noktasına en yakın Chapter başı (konu sınırı), yoksa eşit."""
+    sure = p["sure"]
+    n = min(3, max(1, sure // UZUN_BOLUM_SN))
+    ch = [c for s in tr.bolum(p["metin"], "Chapter").splitlines() if (z := re.match(_ZS + r"\s", s.strip())) and 0 < (c := int(m.sn(z[1]))) < sure]
+    sin = sorted({min(ch, key=lambda c: abs(c - i * sure / n)) if ch else round(i * sure / n) for i in range(1, n)})
+    return list(zip([0, *sin], [*sin, sure + 1]))
+
+
+def bolum_metin(metin, bas, son, ilk):
+    """Bölüm paketi: zamanlı bölümlerde (segment/OCR/URL/sözlük/kare) yalnız [bas, son) satırları (zamansız satır öncekine bağlı); video düzeyi bölümler
+    (açıklama, bağlantılar, yorumlar) yalnız ilk bölümde; künye ve Chapter hepsinde."""
+    out, bl, tut = [], "", True
+    for s in metin.splitlines():
+        if s.startswith("## "):
+            bl, tut = s[3:], True
+            out.append(s if ilk or not bl.startswith(VIDEO_DUZEYI) else f"{s}\n(video düzeyi; 1. bölüm isteminde)")
+        elif ilk or not bl.startswith(VIDEO_DUZEYI):
+            if bl.startswith(ZAMANLI) and (z := re.match(rf"\[{_ZS}\]", s) or re.search(rf" · {_ZS}\s*$", s)):
+                tut = bas <= m.sn(z[1]) < son
+            if tut or not bl.startswith(ZAMANLI):
+                out.append(s)
+    return "\n".join(out)
+
+
+def bolum_birlestir(fs):
+    """VİDEO-14-devam-2 (a): bölüm formları sırayla tek forma, ek çağrı yok — aday/url/komut/açıklama bağlantısı birlestir ile tekil (yinelenen aday tek),
+    öbür liste alanları uç uca (aynı kalem bir kez), özet birleşik."""
+    f = fs[0]
+    for b in fs[1:]:
+        g = birlestir(f, b)
+        for k, x in b.items():
+            if isinstance(x, list) and k not in ("adaylar", "urller", "kurulum_komutlar", "aciklama_baglantilari"):
+                g[k] = (f.get(k) or []) + [y for y in x if y not in (f.get(k) or [])]
+        if b.get("ozet"):
+            g["ozet"] = f"{f.get('ozet') or ''} {b['ozet']}".strip()
+        f = g
+    return f
+
+
 def _usage_topla(ys):
     """Sayısal usage alanlarının toplamı; iç içe alanlar (claude -p "cache_creation": {...}) toplanmaz."""
     ks = dict.fromkeys(a for y in ys for a, s in (y.get("usage") or {}).items() if isinstance(s, (int, float)))
@@ -718,40 +764,62 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
     ys, fs, gc = [], [], {}
     jt = (env or os.environ).get("VIDEO_JETON", JETON)
     for v in kalan:
-        kr = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
-        istem = _istem([v], pk, hatalar, temizle)
-        if "C" in jt and len(kr2 := kare_ayikla(kr, piksel="C2" in jt)) < len(kr):
-            kr, istem = kr2, istem + f"\n\nKARE GÖRSELLERİ ({len(kr2)}/{len(kr)}, sırayla; diğerleri yinelendiği için gönderilmedi): " + ", ".join(Path(k).name for k in kr2)
-        if "O" in jt and kr:
-            kr, ek = kare_ocr(kr, pk[v].get("ocr") or "", istem)
-            istem += ek
-        if "K" in jt and kr:
-            kr = kare_kucult(kr, pdir / "kucuk" / v, JETON_KENAR)
+        kr0 = [k for k in pk[v]["kareler"] if Path(k).is_file()] if hafif.GORSEL else []
+        up = (env or os.environ).get("VIDEO_UZUN_PARALEL")
+        bs = bolum_sinir(pk[v]) if up in ("1", "2") and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
+        jtv = jt + "A" if len(bs) > 1 else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
+        if len(bs) > 1 and up == "2":  # PARALEL-2: bölüm formu urller/kurulum_komutlar'ı boş geçmesin (Z); birincil model yalnız 1. bölümde (4 çağrı)
+            jtv += "Z"
+        parca = []
+        for i, (bas, son) in enumerate(bs):  # VİDEO-14-devam-2 (a): bölüm × model eşzamanlı çağrı, sonra ek çağrısız bolum_birlestir
+            if len(bs) == 1:
+                kr, istem = kr0, _istem([v], pk, hatalar, temizle)
+            else:
+                bm = bolum_metin(pk[v]["metin"], bas, son, i == 0)
+                kr = [k for k in kr0 if k in bm]
+                istem = _istem([v], {v: {**pk[v], "metin": bm, "kareler": kr}}, hatalar, temizle) + \
+                    f"\n\nBÖLÜM {i + 1}/{len(bs)} ({m.ss(bas)}–{m.ss(min(son, pk[v]['sure']))}): yalnız bu aralığı formla; öbür bölümler ayrı taranıp birleştirilir."
+            if "C" in jt and len(kr2 := kare_ayikla(kr, piksel="C2" in jt)) < len(kr):
+                kr, istem = kr2, istem + f"\n\nKARE GÖRSELLERİ ({len(kr2)}/{len(kr)}, sırayla; diğerleri yinelendiği için gönderilmedi): " + ", ".join(Path(k).name for k in kr2)
+            if "O" in jt and kr:
+                kr, ek = kare_ocr(kr, pk[v].get("ocr") or "", istem)
+                istem += ek
+            if "K" in jt and kr:
+                kr = kare_kucult(kr, pdir / "kucuk" / v, JETON_KENAR)
+            parca.append((kr, istem))
         with YAZ:
             butce = min(d["butce"], d["tavan"]["usd"] - _defter(pdir)[1] - sum(x.get("usd") or 0 for x in ys))
 
-        def kol(mdl, v=v, kr=kr, istem=istem, butce=butce):
+        def kol(mdl, kr, istem, v=v, butce=butce, jtv=jtv):
             with CAGIR, asama(v, "model"):
-                return cagir(SISTEM, istem, jeton_sema(v, jt, mdl), kareler=kr, model=mdl, butce=butce, env=env)
-        with ThreadPoolExecutor(len(modeller)) as ex:
-            yy = [f.result() for f in [ex.submit(kol, mdl) for mdl in modeller]]
-        kolf, kun = [], []
-        for mdl, y in zip(modeller, yy):
-            ys.append(y)
-            f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
-            if f is not None and "B" in jt:  # dar şemalı kol tek kalırsa rapor alanları boş liste
-                f = {**dict.fromkeys(B_DISI, []), **f}
-            if y.get("hata") or f is None:
-                kun.append(f"tek kol: {mdl} {y.get('hata') or 'form yok'}"[:200])
-            else:
-                kolf.append(f)
-                (pdir / "form").mkdir(exist_ok=True)  # ONARIM 2: kol başı ham form (birleşik form/<id>.json ayrı yazılır)
-                (pdir / "form" / f"{v}.{mdl.split('-')[1]}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
-                kun.append(f"{mdl}: {y.get('model') or mdl} · {sum((y.get('usage') or {}).get(a, 0) for a in ('input_tokens', 'cache_read_input_tokens', 'cache_creation_input_tokens', 'output_tokens'))} tk")
-        if kolf:
-            fs.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])
-        elif any(gecici(y.get("hata")) for y in yy):
-            gc[v] = next(y["hata"] for y in yy if gecici(y.get("hata")))[:200]
+                return cagir(SISTEM, istem, jeton_sema(v, jtv, mdl), kareler=kr, model=mdl, butce=butce, env=env)
+        with ThreadPoolExecutor(len(modeller) * len(parca)) as ex:
+            mb = [modeller if j == 0 or "Z" not in jtv else modeller[1:] for j in range(len(parca))]
+            yys = [[ex.submit(kol, mdl, kr, istem) for mdl in ml] for ml, (kr, istem) in zip(mb, parca)]
+            yys = [[f.result() for f in fl] for fl in yys]
+        bf, kun = [], []
+        for j, yy in enumerate(yys):
+            kolf, ek = [], "" if len(yys) == 1 else f".b{j + 1}"
+            for mdl, y in zip(mb[j], yy):
+                ys.append(y)
+                f = next((x for x in (y.get("form") or {}).get("videolar") or [] if isinstance(x, dict)), None)
+                if f is not None and "B" in jt:  # dar şemalı kol tek kalırsa rapor alanları boş liste
+                    f = {**dict.fromkeys(B_DISI, []), **f}
+                if y.get("hata") or f is None:
+                    kun.append(f"tek kol{ek}: {mdl} {y.get('hata') or 'form yok'}"[:200])
+                else:
+                    kolf.append(f)
+                    (pdir / "form").mkdir(exist_ok=True)  # ONARIM 2: kol başı ham form (birleşik form/<id>.json ayrı yazılır)
+                    (pdir / "form" / f"{v}.{mdl.split('-')[1]}{ek}.json").write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
+                    kun.append(f"{mdl}{ek}: {y.get('model') or mdl} · {sum((y.get('usage') or {}).get(a, 0) for a in ('input_tokens', 'cache_read_input_tokens', 'cache_creation_input_tokens', 'output_tokens'))} tk")
+            if kolf:
+                bf.append(birlestir(*kolf) if len(kolf) == 2 else kolf[0])
+            elif len(yys) > 1:
+                kun.append(f"bölüm{ek}: form yok")
+        if bf:
+            fs.append(bolum_birlestir(bf))
+        elif any(gecici(y.get("hata")) for yy in yys for y in yy):
+            gc[v] = next(y["hata"] for yy in yys for y in yy if gecici(y.get("hata")))[:200]
         with YAZ:
             d["videolar"][v]["tarama"]["kunye"] = " · ".join(kun)
     us = [y.get("usd") for y in ys]
@@ -766,6 +834,8 @@ def jeton_sema(v, jt, mdl):
     vid = s["properties"]["videolar"]["items"]
     if "A" in jt:
         vid["properties"]["id"] = {"type": "string"}
+    if "Z" in jt:
+        vid["required"] += [k for k in ("urller", "kurulum_komutlar") if k in vid["properties"] and k not in vid["required"]]
     if "B" in jt and "haiku" in mdl:
         for k in B_DISI:
             vid["properties"].pop(k)
