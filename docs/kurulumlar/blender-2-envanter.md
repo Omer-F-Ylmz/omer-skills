@@ -65,6 +65,11 @@ Windows sütunu: evet = PyPI win_amd64 tekerleği / saf Python / HTTP; `?` = den
 4. **glTF-Transform `optimize` ↔ glb_hat karşılaştırması** (REF): eksik dedup/prune/instance adımını tek ölçümle bul.
 5. **TRELLIS.2 yerel** (KUR-sonra, MIT) veya **Tripo SDK sarmalayıcı** (UYARLA, N-tavanlı): 3B üretim jetonsuz.
 
+Durum (d4 12 Eki): 1 yapıldı (dev grubunda pinli). 3 yerine kendi `beklenen` ölçü kapımız (yalin.tek, ±%15; tek ×10 10/10). 4 kapandı:
+glb_hat zaten `gltf-transform optimize` koşuyor (dedup/instance/prune/weld/simplify varsayılan açık) + meshopt + webp; telve.glb 56→14.3 KB, validate 0 hata —
+ek adım yok. KTX2: toktx/basisu kurulu değil; webp web için yeterli, GPU bellek sorunu görülünce `--texture-compress ktx2` (KTX-Software lisansı okunacak).
+2 Ömer'in Sketchfab token'ını bekliyor; 5 GPU/ücret kararı Ömer'in.
+
 ## Notlar / doğrulanamayanlar
 - blender-mcp eklentimiz port 9876 kullanıyor; bu ahujasid/blender-mcp'nin varsayılan soket portu. Eklentinin kaynağı ahujasid ise RED gerekçesi (kimliksiz soket, telemetri) eklenti için de geçerli olabilir: doğrulanmadı, ayrıca kontrol edilmeli.
 - Sürüm sapması: PyPI bpy 5.2.2, yerel Blender 5.2.1.
