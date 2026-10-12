@@ -4,19 +4,22 @@
   python onay/fable_1_uygula.py uygula   # yedek alır → skill kopyalar → ajan frontmatter'ına `skills: calisma-protokolu` ekler
   python onay/fable_1_uygula.py --geri   # son yedeği geri koyar
 (a) skills/calisma-protokolu → ~/.claude/skills/calisma-protokolu. (b) ~/.claude/agents/*.md: frontmatter'da `skills:` yoksa
-tek satır eklenir (varsa dokunulmaz, plan "elle" der). claude.ai tarafı: dist/fable-1/calisma-protokolu.zip (zip_denetle TEMİZ).
+tek satır eklenir; ATLA_MODEL modelli ajanlar atlanır (varsa dokunulmaz, plan "elle" der). claude.ai tarafı: dist/fable-1/calisma-protokolu.zip (zip_denetle TEMİZ).
 Hiçbir şey silinmez; settings/MCP'ye dokunulmaz."""
 import re, shutil, sys, time
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[1]
 SATIR = "skills: calisma-protokolu"
+ATLA_MODEL = {"haiku"}  # ölçümde RET (çıktı > taban) modeller; KABUL çıkarsa buradan çıkar
 
 
 def plan(ev):
     ajanlar, elle = [], []
     for a in sorted((ev / ".claude" / "agents").glob("*.md")):
         m = re.match(r"---\r?\n(.*?)\r?\n---", a.read_text(encoding="utf-8"), re.S)
+        if m and re.search(r"^model:\s*['\"]?(" + "|".join(ATLA_MODEL) + r")\b", m.group(1), re.M):
+            continue
         (elle if not m or re.search(r"^skills:", m.group(1), re.M) else ajanlar).append(a)
     return ajanlar, elle
 

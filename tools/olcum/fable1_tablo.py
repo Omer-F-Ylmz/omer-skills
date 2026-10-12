@@ -1,6 +1,7 @@
 """FABLE-1 ölçüm tablosu: kol başına ortalama kalite/çıktı jetonu/$/tur + KABUL kararı (fable-1.md 4. adım).
   python tools/olcum/fable1_tablo.py                  # d3: 2026-10-12* · proto
   python tools/olcum/fable1_tablo.py 2026-10-12d kisa # d4: model başına KABUL = kalite ≥ taban VE çıktı ≤ taban VE $ ≤ taban
+  python tools/olcum/fable1_tablo.py 2026-10-12d kisa jev  # kalite = jev sütunu (önce jev_yargic --tsv-yaz; regex 10'da doyuyor)
 Geçerli satır: çıktı jetonu > 0 ve timeout yok (ağ kopması/timeout satırları dışarı). Görev başına ortalama, sonra görevler üstü ortalama
 (tekrar sayısı farklı kollar adil kalsın)."""
 import csv
@@ -12,13 +13,14 @@ OLCUM = Path(__file__).resolve().parents[2] / "docs" / "kutuphane" / "olcum"
 GOREVLER = ["G02", "G12", "J01", "G13"]
 KOLLAR = ["fable", "s-taban", "s-proto", "h-taban", "h-proto"]
 TARIH = "2026-10-12*"
+KALITE = "kalite"
 
 
 def satirlar(kol):
     for yol in sorted(OLCUM.glob(f"{TARIH}-fable1-{kol}.tsv")):
         with open(yol, encoding="utf-8") as f:
             for r in csv.DictReader(f, delimiter="\t"):
-                if r["gorev"] in GOREVLER and int(r["output"] or 0) > 0 and "timeout" not in (r.get("hata") or ""):
+                if r["gorev"] in GOREVLER and int(r["output"] or 0) > 0 and "timeout" not in (r.get("hata") or "") and r.get(KALITE):
                     yield r
 
 
@@ -29,9 +31,9 @@ def ozet(kol):
     if not gorev:
         return None
     alan = lambda k: mean(mean(float(r[k]) for r in rs) for rs in gorev.values())
-    return {"n": sum(map(len, gorev.values())), "gorev": sorted(gorev), "kalite": alan("kalite"),
+    return {"n": sum(map(len, gorev.values())), "gorev": sorted(gorev), "kalite": alan(KALITE),
             "output": alan("output"), "usd": alan("usd"), "tur": alan("tur"),
-            "gorev_kalite": {g: mean(float(r["kalite"]) for r in rs) for g, rs in gorev.items()},
+            "gorev_kalite": {g: mean(float(r[KALITE]) for r in rs) for g, rs in gorev.items()},
             "g": {g: {k: mean(float(r[k]) for r in rs) for k in ("output", "usd")} for g, rs in gorev.items()}}
 
 
@@ -77,6 +79,7 @@ if __name__ == "__main__":
     ek = None
     if len(sys.argv) > 2:
         TARIH, ek = sys.argv[1], sys.argv[2]
+        KALITE = sys.argv[3] if len(sys.argv) > 3 else KALITE
         KOLLAR = ["s-taban", f"s-{ek}", "h-taban", f"h-{ek}"]
     o = {k: ozet(k) for k in KOLLAR}
     for k, v in o.items():

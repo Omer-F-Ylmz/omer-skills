@@ -19,3 +19,12 @@ def test_kuru_uygula_geri(tmp_path):
     assert m.main(["--geri"], ev=tmp_path) == 0
     assert (ag / "a.md").read_bytes() == b"---\r\nname: a\r\n---\r\ngovde\r\n"
     assert not (tmp_path / ".claude" / "skills" / "calisma-protokolu").exists()
+
+
+def test_ret_model_ajanlari_atlanir(tmp_path):
+    # Haiku: protokol çıktıyı artırıyor (d3 +%18, FABLE-AJAN +%35) → KABUL olmadıkça satır eklenmez
+    ag = tmp_path / ".claude" / "agents"; ag.mkdir(parents=True)
+    (ag / "h.md").write_text("---\nname: h\nmodel: haiku\n---\n", encoding="utf-8")
+    (ag / "s.md").write_text("---\nname: s\nmodel: sonnet\n---\n", encoding="utf-8")
+    ajanlar, elle = m.plan(tmp_path)
+    assert [a.name for a in ajanlar] == ["s.md"] and elle == []
