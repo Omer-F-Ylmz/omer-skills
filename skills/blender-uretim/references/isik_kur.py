@@ -19,10 +19,11 @@ PROFILLER = {
     "ahsap": {"oran": (4, 1, 1.5), "K": 3000, "hdri": 0.3},  # #1
     "kumas": {"oran": (3, 1, 0.5), "K": None, "hdri": 0.3},  # #1
     "metal": {"oran": (5, 1, 1.5), "K": 5000, "hdri": 0.1, "serit": True},  # ZYk3OOf-gBk: uzun alan, az HDRI
-    "seramik_sirli": {"oran": (5, 1, 1.5), "K": 5000, "hdri": 0.3, "serit": True},  # öneri
+    # kenar: oto kameranın (azimut 31°) tam karşısı, alçak — sır yansıması üst/tabak yüzeyinden kameraya döner (Faz 5 v3 g1: 160°/45°'de vurgu %0)
+    "seramik_sirli": {"oran": (5, 1, 1.5), "K": 5000, "hdri": 0.3, "serit": True, "kenar": (-150, 25)},
     "seramik_mat": {"oran": (5, 1, 1), "K": 5000, "hdri": 0.3},  # öneri: kenar 1
 }
-ANAHTAR_W = 300  # öneri: 1 m'de anahtar gücü (W), uzaklığın karesiyle büyür; kalibrasyon düğmesi budur
+ANAHTAR_W = 40  # BLENDER-1 Faz 5 ölçümü: 300'de beyaz seramik karesinin %55-62'si yanıyordu; 1 m'de anahtar gücü (W), uzaklığın karesiyle büyür; kalibrasyon düğmesi budur
 
 
 def agac(idb) -> Any:
@@ -126,7 +127,7 @@ def kur(profil="urun", boyut_m=0.1, merkez=(0, 0, 0), etiket=None, hdri=None):
     s = max(boyut_m * 2, 0.3)  # öneri: alan ışığı ürüne göre geniş ve yakın (wySOWP-MevI, 4Uy2SzB-Kuk)
     obs = [isik("LGT-Anahtar", "AREA", birim * a, kure(m, d, -40, 30), etiket or m, s, p["K"]),
            isik("LGT-Dolgu", "AREA", birim * f, kure(m, d, 60, 10), m, s * 1.5, p["K"]),
-           isik("LGT-Kenar", "AREA", birim * k, kure(m, d, 160, 45), m, s * 0.5, p["K"])]
+           isik("LGT-Kenar", "AREA", birim * k, kure(m, d, *p.get("kenar", (160, 45))), m, s * 0.5, p["K"])]
     if p.get("serit"):
         obs += serit(m, d, boyut_m)
     if p.get("gradyan"):
@@ -154,10 +155,15 @@ def hdri_dolgu(yol=None, guc=0.3):
 
 
 def serit(m=(0, 0, 0), d=1.0, boyut_m=0.1, guc=5.0):
-    """İki dikey şerit softbox, kameraya görünmez: sırlı yüzeyde/metalde uzun vurgu çizgisi."""
+    """İki dikey şerit softbox (dikdörtgen AREA, kameraya görünmez): sırlı yüzeyde/metalde uzun vurgu çizgisi.
+    Faz 5 v2 g4: ışıyan MESH'ti → GLB'ye ve parça sayımına giriyordu. Güç = ışıma × alan (Cycles eşdeğeri)."""
     h = max(boyut_m * 3, 0.5)
-    return [_gorunmez_duzlem(ad, h / 6, h, kure(m, d, az, 5), m, guc)
-            for ad, az in (("LGT-SeritSol", -70), ("LGT-SeritSag", 70))]
+    obs = []
+    for ad, az in (("LGT-SeritSol", -70), ("LGT-SeritSag", 70)):
+        o = isik(ad, "AREA", guc * h * h / 6, kure(m, d, az, 5), m, h / 6)
+        o.data.shape, o.data.size_y, o.visible_camera = "RECTANGLE", h, False
+        obs.append(o)
+    return obs
 
 
 def gorunmez_dolgu(m=(0, 0, 0), d=1.0, guc=2.0):

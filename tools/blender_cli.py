@@ -1,6 +1,6 @@
 """BLENDER-ARAC-1 K1: headless Blender betik sözleşmesi — sonraki Blender araçları bunun üstünde.
 
-    python tools/blender_cli.py <betik.py> [json] [--blend Desktop\\<Proje>\\blender\\x.blend] [--zaman-asimi 300]
+    python tools/blender_cli.py <betik.py> [json | @spec.json] [--blend Desktop\\<Proje>\\blender\\x.blend] [--zaman-asimi 300]
 
 Komut: <mutlak Blender exe> -b [dosya.blend] --python <betik> -- <json>. Betik sonucu tek satır
 "SONUC:" + JSON basar. Çıkış: 0 geçti · 1 kapı kaldı ("gecti": false) · 2 kullanım/yol hatası ·
@@ -65,8 +65,8 @@ def main(argv=None):
     ap.add_argument("--zaman-asimi", type=int, default=300)
     a = ap.parse_args(argv)
     try:
-        args = json.loads(a.json)
-    except ValueError:
+        args = json.loads(Path(a.json[1:]).read_text(encoding="utf-8") if a.json.startswith("@") else a.json)
+    except (ValueError, OSError):
         print("json argüman çözülemedi", file=sys.stderr)
         return 2
     kod, sonuc, _ = calistir(a.betik, args, a.blend and Path(a.blend), a.zaman_asimi)

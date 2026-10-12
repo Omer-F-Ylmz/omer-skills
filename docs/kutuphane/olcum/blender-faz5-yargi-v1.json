@@ -1,0 +1,142 @@
+{
+ "g1": {
+  "esle": {
+   "A": "taban-1",
+   "B": "tarif-1",
+   "C": "tarif-2",
+   "D": "taban-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 4,
+    "kompozisyon": 6,
+    "uyum": 5
+   },
+   "B": {
+    "bicim": 7,
+    "isik": 2,
+    "kompozisyon": 7,
+    "uyum": 4
+   },
+   "C": {
+    "bicim": 7,
+    "isik": 2,
+    "kompozisyon": 6,
+    "uyum": 4
+   },
+   "D": {
+    "bicim": 8,
+    "isik": 9,
+    "kompozisyon": 8,
+    "uyum": 9
+   }
+  },
+  "usd": 0.3110272
+ },
+ "g2": {
+  "esle": {
+   "A": "taban-1",
+   "B": "tarif-1",
+   "C": "tarif-2",
+   "D": "taban-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 8,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 2,
+    "isik": 1,
+    "kompozisyon": 2,
+    "uyum": 2
+   },
+   "C": {
+    "bicim": 2,
+    "isik": 1,
+    "kompozisyon": 2,
+    "uyum": 2
+   },
+   "D": {
+    "bicim": 5,
+    "isik": 4,
+    "kompozisyon": 6,
+    "uyum": 5
+   }
+  },
+  "usd": 0.3069406
+ },
+ "g3": {
+  "esle": {
+   "A": "tarif-2",
+   "B": "taban-1",
+   "C": "tarif-1",
+   "D": "taban-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 4,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 4
+   },
+   "B": {
+    "bicim": 4,
+    "isik": 5,
+    "kompozisyon": 4,
+    "uyum": 4
+   },
+   "C": {
+    "bicim": 4,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 4
+   },
+   "D": {
+    "bicim": 4,
+    "isik": 5,
+    "kompozisyon": 4,
+    "uyum": 4
+   }
+  },
+  "usd": 0.30700999999999995
+ },
+ "g4": {
+  "esle": {
+   "A": "taban-1",
+   "B": "taban-2",
+   "C": "tarif-2",
+   "D": "tarif-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 5,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 7,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 8
+   },
+   "C": {
+    "bicim": 3,
+    "isik": 6,
+    "kompozisyon": 5,
+    "uyum": 3
+   },
+   "D": {
+    "bicim": 5,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 5
+   }
+  },
+  "usd": 0.30714679999999994
+ }
+}
