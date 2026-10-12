@@ -1,0 +1,32 @@
+anahtar	ad	tur	link	gonderi	iddia	ig40g
+eformax	Efor Max	ipucu		DeUUiBhs01A	Claude'da efor ayarını Max'e getirmek daha kaliteli çıktı için öneriliyor.	
+linear	Linear	teknik		DeW7v7oCZZf	Tasarım sistemi örneği olarak anılan site.	
+opus46	Opus 4.6	teknik		DbDvPoNACwY,DbyJNRdPyCj	Arayüzde görünen Claude modeli	
+filmfriends	Film Friends	iş akışı		DbDvPoNACwY	Claude Code ile kurulan örnek abonelik sitesi	
+claudecodeilefilmfriendssayfasnncanlnizlemekontrol	Claude Code ile Film Friends sayfasının canlı önizleme kontrolü	prompt		DbDvPoNACwY	Uygulamayı başlatıp ürün sayfasından ödemeye kadar gez; mobilde ve koyu modda da düzgün görünsün, yarın yayına alınacak.	
+img2threejs	img2threejs	skill		DeXJcXmFLMv	Referans görseldeki nesneyi yalnız kodla, prosedürel Three.js modeli olarak yeniden kuruyor; konuşmada 'Image23JS'.	
+skool	Skool	iş akışı		DeV2n53gLgf	Sunucunun topluluk platformu; açıklamada tanıtılıyor, videoda kullanılmıyor.	
+notiontasarmsistemineuygunuiretmek	Notion tasarım sistemine uygun UI üretmek	prompt		DbyJNRdPyCj	Skill UI çıktısı sonrası Claude Code'a, çıkarılan tasarım sistemiyle eşleşen bir arayüz oluşturması isteniyor.	
+taskobserver	Task Observer	skill		Dbs8-TnKEhL	Çalışma şeklinizi izleyip düzeltmelerinizi yakalayan ve diğer skill'leri yeniden yazan eklenti	
+headroomzerindenalanclaudecodeakodtabananaliziyaptrmak	Headroom üzerinden çalışan Claude Code'a kod tabanı analizi yaptırmak	prompt		Dbs8-TnKEhL	Headroom kod tabanını derinlemesine incele, sorunları anla; alt ajanlar kullanılabilir. Rakip ve pazar araştırması paralel yürütülsün.	
+hyperframescli	hyperframes-cli	CLI		DdWmIHTC322	HyperFrames komut satırı skill'i	
+dikeysrmisteme	Dikey sürüm isteme	prompt		DdWmIHTC322	Tik Tok için dikey sürüm yapılmasını isteyen öneri/metin sohbet kutusuna yazılı.	
+designmdchrome	design-md-chrome	plugin		DcRhD2Nto7M	Chrome eklentisi: açılan sitenin tüm tasarım sistemini DESIGN.md olarak çıkarır.	
+cubicbezier	cubic-bezier	teknik		DcRhD2Nto7M	Hareket easing eğrisi örneği: cubic-bezier(0.77, 0, 0.175, 1).	
+cstack	cstack	skill		DeON0MOB5oi	Anlatıcının profilinde 'My skills' altında gösterilen başka bir depo.	
+screenshottocode	Screenshot to Code	iş akışı		Dcd3eY1iOMA	Ekran görüntüsü, maket ve videodan YZ ile işlevsel kod üreten açık kaynak depo	
+gpt54mini	GPT-5.4 Mini	teknik		Dcd3eY1iOMA	README'deki varsayılan model listesinde	
+vite	Vite	teknik		Dcd3eY1iOMA	Ön yüz derleme aracı	
+googleinteractionsapi	Google Interactions API	teknik		DeChE4DChaA	Research Planner & Executor projesinde durumlu konuşmalar için API	
+rag	RAG	teknik		DeChE4DChaA	Depoda kapsanan konulardan biri	
+security	Security	plugin		DdlurQHG2Mm	SQL injection gibi açıkları otomatik yakalayan güvenlik taraması eklentisi.	
+cavemanksaktdemosu	Caveman kısa çıktı demosu	prompt		DdlurQHG2Mm	Kullanıcı Claude'a Mars'ın kaç uydusu olduğunu soruyor; kısa yanıt Phobos ve Deimos'u veriyor.	
+claudememkalcbellekdemosu	Claude Mem kalıcı bellek demosu	prompt		DdlurQHG2Mm	Kullanıcı Claude'dan önceki sohbette söylediği yemek kısıtlamalarını hatırlamasını istiyor.	
+specdrivendevelopment	spec-driven-development	skill		Db_H8ScP5y-	Kod öncesi hedefleri, komutları, yapıyı ve sınırları içeren PRD yazar.	
+contextengineering	context-engineering	skill		Db_H8ScP5y-	Ajana doğru bilgiyi doğru zamanda verir (kurallar dosyaları, bağlam paketleme, MCP).	
+goalruvio	goal.ruv.io	teknik		DY_SoPGKv2A	GOAP A* planlayıcı; sade dilde hedefleri çalıştırılabilir plana çevirir	
+gemini25pro	Gemini 2.5 Pro	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+ollama	Ollama	CLI		DY_SoPGKv2A	Yerel model sağlayıcısı; Tier-2 sağlayıcı sürümü	
+mongodb	MongoDB	teknik		DY_SoPGKv2A	Veritabanı; Ruflo web arayüzü gömülü Mongo ile birlikte geliyor.	
+skillspector	SkillSpector	CLI		DdrNeEUN63i	Skill kurulmadan önce prompt injection, veri sızdırma ve tedarik zinciri risklerini tarayan güvenlik tarayıcısı	
+antislop	Anti-Slop	plugin		DdrNeEUN63i	Tembel yapay zekâ kod kalıplarını reddeden oxlint kural seti	

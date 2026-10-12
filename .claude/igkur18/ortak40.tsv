@@ -1,0 +1,46 @@
+anahtar	ad	tur	link	gonderi	iddia	ig40g
+github	GitHub	teknik		DdCUfgfOb_5,DdWmIHTC322,Dcd3eY1iOMA,DeChE4DChaA,Db_H8ScP5y-,DdrNeEUN63i	Reponun gösterildiği kod barındırma platformu. README ve License sekmeleri görünüyor.	DXxQS0AO1Km,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DeRvxD6gDCu,DeV9nZPtSsC,DeW7JHrgsXb,DeWPBbShCBu,DeWwPtmDvqV,DeXAMs2Eqgh,DeXJQ-kGKUY
+claudeopus55	Claude Opus 5.5	iş akışı,teknik		DeUUiBhs01A,DeXJcXmFLMv	Kopyalanan promptu marka varlıklarıyla uyarlayıp 15 saniyelik marka sunumu üreten model.	DeUowm5udJA
+claude	Claude	CLI,iş akışı,skill,teknik		DeUUiBhs01A,DdWmIHTC322,DcRhD2Nto7M,DYx4OuVuJuI,Dcd3eY1iOMA,DeChE4DChaA	Promptun yapıştırıldığı ve marka varlıklarının eklendiği sohbet arayüzü.	DcrhGgKyBD8,Dd18tq_IMQB,Dd1zrTggHCW,Dd9NdbFxJLo,DeHMM45NaFt,DeR11OUkobq,DeT6XXkiPwj,DeV0EnpAJCs,DeW5NQ1DZhh,DeW7JHrgsXb,DeWPBbShCBu,DeWfqTdm94Z,DeWwPtmDvqV,DeXConTt1X5,DeXd4jID1y9
+impeccable	Impeccable	plugin,skill		DeW7v7oCZZf,DeXJcXmFLMv	24 tasarım komutu ve 59 kural; UI'yı denetler, cilalar, düzeltir.	DX2ubACJYRN,DdtP_L9FljV
+tasteskill	Taste Skill	skill	https://github.com/Leonxlnx/taste-skill	DeW7v7oCZZf,DeXJcXmFLMv,DcRhD2Nto7M	Tasarımın cesurluğunu, hareketini ve yoğunluğunu ayarlatır.	DdtP_L9FljV,DeW5NQ1DZhh
+claudecode	Claude Code	CLI		DeW7v7oCZZf,DbDvPoNACwY,DeXJcXmFLMv,DeV2n53gLgf,DbyJNRdPyCj,Dbs8-TnKEhL,DcRhD2Nto7M,DeON0MOB5oi,Dcd3eY1iOMA,DdlurQHG2Mm,Db_H8ScP5y-,DY_SoPGKv2A	Sayfayı üreten ana yapay zekâ kodlama aracı.	DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DcrhGgKyBD8,Dd-FTnEmE_b,Dd18tq_IMQB,Dd9NdbFxJLo,DdZs2nUOpMP,DdbyRoJtJV4,DdtP_L9FljV,DeRvxD6gDCu,DeT6XXkiPwj,DeWPBbShCBu,DeXConTt1X5,DeXJQ-kGKUY,DeXd4jID1y9,DeXr6wCMAEZ
+stripe	Stripe	teknik		DeW7v7oCZZf	Tasarım sistemi örneği olarak anılan site.	DXxQS0AO1Km
+inter	Inter	teknik		DeW7v7oCZZf	Her yerde kullanılan yazı tipi; Impeccable denetiminde sorun olarak işaretlenir.	DX2ubACJYRN
+sonnet46	Sonnet 4.6	teknik		DbDvPoNACwY	Arayüzde görünen diğer Claude modeli	DXxQS0AO1Km
+antigravity	Antigravity	CLI,teknik		DbDvPoNACwY,DcRhD2Nto7M	Yorumda, CRM sisteminin taşınacağı geliştirme ortamı olarak anılıyor	DeMoWpdAC1Z
+n8n	n8n	iş akışı		DbDvPoNACwY	Yorumlarda e-posta etiketleme, taslak yanıt ve chatbot otomasyonu için kullanılıyor	Dd9NdbFxJLo,DdbljkbH5b2
+whatsapp	WhatsApp	teknik		DbDvPoNACwY	Chatbot'ların çalıştığı mesajlaşma kanalı; yorumlarda ve ön danışma linkinde geçiyor	DeXConTt1X5
+python	Python	teknik		DeXJcXmFLMv,DeChE4DChaA	img2threejs araç takımının Python 3.10+ stdlib ile yazıldığı belirtiliyor.	Dd9NdbFxJLo,DeW7JHrgsXb
+git	Git	CLI		DeXJcXmFLMv	Commit geçmişini listelemek için kullanılan sürüm kontrol aracı	DX2ubACJYRN
+npm	npm	CLI		DeXJcXmFLMv,Db_H8ScP5y-,DY_SoPGKv2A	Node paket yöneticisi; npx ile yerel TypeScript derleyicisini çalıştırmak için kullanıldı	DXxQS0AO1Km,DeV9nZPtSsC
+rea	REA	CLI		DeV2n53gLgf	Kodlama ajanıyla bir uygulamanın çalışma mantığını tersine mühendislikle çıkaran GitHub reposu (Reverse Engineer Anything).	DeXr6wCMAEZ
+codex	Codex	CLI		DeV2n53gLgf,DbyJNRdPyCj	REA'nın çalıştığı ikinci kodlama ajanı.	Dd-FTnEmE_b,DdtP_L9FljV,DeT6XXkiPwj,DeXJQ-kGKUY,DeXr6wCMAEZ
+notion	Notion	teknik		DeV2n53gLgf,DbyJNRdPyCj	Panoya kopyalama mekanizması izlenen örnek masaüstü uygulaması.	DeXConTt1X5
+supabase	Supabase	plugin		DbyJNRdPyCj	Veritabanı kurma ve terminalden yönetme; SQL, şema değişikliği, edge function dağıtımı.	DaagbUMP8Tg,DePeKi4gE1V,DeR11OUkobq
+strix	Strix	plugin		DbyJNRdPyCj	Vibe coded uygulamaya gerçek hacker gibi saldırıp güvenlik açıklarını bulur ve düzeltir.	DeV9nZPtSsC
+nextjs	Next.js	teknik		DbyJNRdPyCj	Playwright çıktısındaki hata mesajlarında ve context7 listesinde görünen framework.	DXxQS0AO1Km,DdxzONPjVUi
+remotion	Remotion	teknik		DbyJNRdPyCj	CLAUDE.md örneğinde proje yapısında anılan video kütüphanesi.	DeRvxD6gDCu
+claudemd	CLAUDE.md	teknik		DbyJNRdPyCj	Claude Code'a proje talimatı veren dosya.	DaagbUMP8Tg
+designmd	DESIGN.md	teknik		DbyJNRdPyCj	Skill UI'nin ürettiği tasarım sistemi markdown dosyası.	Dc3zXkXSxpH
+cursor	Cursor	CLI,teknik		DbyJNRdPyCj,DcRhD2Nto7M	Context7 sayfasında 'Add to Cursor' düğmesiyle görünen editör.	DX2ubACJYRN,DdtP_L9FljV,DeV0EnpAJCs,DeXJQ-kGKUY,DeXr6wCMAEZ
+claudecodesetup	Claude Code Setup	plugin		Dbs8-TnKEhL	Resmi Anthropic eklentisi; kod tabanını tarar, eksik hook, skill ve MCP sunucularını önerir	DaagbUMP8Tg
+claudeopus	Claude Opus	teknik		Dbs8-TnKEhL	Headroom üzerinden çalışan Claude Code oturumunda kullanılan model	Dd1zrTggHCW,DdZs2nUOpMP
+mcp	MCP	MCP,teknik		Dbs8-TnKEhL,DeON0MOB5oi,DeChE4DChaA,Db_H8ScP5y-,DY_SoPGKv2A	Claude Code Setup'ın önerdiği entegrasyon kategorilerinden biri	DXxQS0AO1Km,DaagbUMP8Tg,Dc3zXkXSxpH,DdZs2nUOpMP,DeHMM45NaFt,DeV0EnpAJCs,DeWwPtmDvqV,DeXr6wCMAEZ
+hyperframes	hyperframes	skill		DdWmIHTC322	Video kompozisyonu üretimi için kullanılan skill	DeRvxD6gDCu,DeXAMs2Eqgh
+windsurf	Windsurf	CLI		DcRhD2Nto7M	UI UX Pro Max'in uyumlu olduğu editör.	DX2ubACJYRN
+typescript	TypeScript	teknik		DeON0MOB5oi	API Anything'in dili ve ajanın operasyonları çağırma yollarından biri.	DX2ubACJYRN,DXxQS0AO1Km,DaagbUMP8Tg,DdbyRoJtJV4,DeV0EnpAJCs
+claudeopus46	Claude Opus 4.6	teknik		Dcd3eY1iOMA	README'deki varsayılan model listesinde	DaagbUMP8Tg
+react	React	teknik		Dcd3eY1iOMA	Ön yüz çatısı	DaagbUMP8Tg,DeV0EnpAJCs
+fastapi	FastAPI	teknik		Dcd3eY1iOMA	Arka uç çatısı	DXxQS0AO1Km
+firecrawl	Firecrawl	teknik		DeChE4DChaA	Deep Research Agent'ta web araştırması için kullanılan servis	DeXConTt1X5
+nanobananapro	Nano Banana Pro	teknik		DeChE4DChaA	Home Renovation Agent'ta fotoğraftan render üreten görsel model	Da0Csy8MYEy,DeR11OUkobq
+gemini	Gemini	teknik		DeChE4DChaA	Depodaki projelerde kullanılan model ailesi	DeMoWpdAC1Z
+gpt	GPT	teknik		DeChE4DChaA	Depodaki projelerde kullanılan model ailesi	DdbljkbH5b2
+deepseek	DeepSeek	teknik		DeChE4DChaA	Depodaki projelerde kullanılan model ailesi	Dd-FTnEmE_b
+llama	Llama	teknik		DeChE4DChaA	Depodaki projelerde kullanılan model ailesi	DeW7JHrgsXb
+caveman	Caveman	plugin		DdlurQHG2Mm	Claude'un kısa çıktılarla yanıt vermesini sağlar.	DX2ubACJYRN
+claudevideo	Claude Video	plugin		DdlurQHG2Mm	Claude'un YouTube videolarını sizin yerinize izlemesini sağlar.	DX2ubACJYRN
+ruflo	Ruflo	plugin	https://github.com/ruvnet/ruflo	DY_SoPGKv2A	Claude için açık kaynaklı çoklu ajan orkestrasyon platformu; MCP sunucusu olarak eklenir	DXxQS0AO1Km
+sona	SONA	teknik		DY_SoPGKv2A	Sinirsel öğrenme desenleri; yerel öğrenme	DXxQS0AO1Km
+docker	Docker	teknik		DY_SoPGKv2A	Web arayüzünün Docker olarak paketlenmesi	DXxQS0AO1Km

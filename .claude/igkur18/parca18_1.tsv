@@ -1,0 +1,33 @@
+anahtar	ad	tur	link	gonderi	iddia	ig40g
+awesomeselfhosted	awesome-selfhosted	teknik		DdCUfgfOb_5	Kendi sunucunda barındırılabilen ücretsiz yazılımların kategorilere ayrılmış GitHub listesi. Videonun ana konusu.	
+awesomedesignmd	Awesome Design MD	skill		DeW7v7oCZZf	Stripe, Linear gibi 73 gerçek sitenin tasarım sistemini DESIGN.md dosyası olarak verir; projeye kopyalanır.	
+framermotion	Framer Motion	teknik		DeW7v7oCZZf	Taste Skill bölümünde hareket ile ilişkili görünen animasyon kütüphanesi.	
+kling	Kling	teknik		DbDvPoNACwY	Görselden video üreten model (v3 standard image-to-video)	
+bolt	Bolt	teknik		DbDvPoNACwY	Yorumda, CRM ve chatbot yapısının geliştirildiği AI uygulama oluşturucu olarak anılıyor	
+klingileyzkrnvideosuretimi	Kling ile yüzük ürün videosu üretimi	prompt		DbDvPoNACwY	Siyah beyaz aşırı yakın çekim: yüzük takılı el çenesine dokunuyor, ürün koyu zeminde yavaş dönüyor, bokeh ışıkları, iPhone 16 Pro makro hissi.	
+tsc	tsc	CLI		DeXJcXmFLMv	TypeScript derleyicisi; --noEmit ile yalnızca tip denetimi yapar	
+notionpanoyakopyalamaakntersinemhendisliklekarmak	Notion panoya kopyalama akışını tersine mühendislikle çıkarmak	prompt		DeV2n53gLgf	REA ile Notion'ın metin ve HTML'i sistem panosuna nasıl kopyaladığını izle.	
+omniroute	OmniRoute	CLI,plugin		Dbs8-TnKEhL,DdlurQHG2Mm	237 yapay zekâ sağlayıcısına bağlanan, limit dolunca sıradaki modele geçen yönlendirici	
+rtk	rtk	CLI		Dbs8-TnKEhL	Headroom başlatılırken kurulan yardımcı araç	
+slashbrag	Slash Brag	skill		DdWmIHTC322	Yan projeyi 20 saniyelik lansman videosuna çeviren Claude skill'i (/brag)	
+hyperframescore	hyperframes-core	skill		DdWmIHTC322	HyperFrames çekirdek skill'i	
+projeyilansmanvideosunaevirme	Projeyi lansman videosuna çevirme	prompt		DdWmIHTC322	/brag skill'i EasyGB depolama temizleme uygulaması için çalıştırıldı.	
+designmotionprinciples	Design Motion Principles	skill		DcRhD2Nto7M	Yapılan arayüzlere hareket, zamanlama ve easing ekleyen ilkeler.	
+apianything	API Anything	CLI		DeON0MOB5oi	Sitenin ağ trafiğini tersine mühendislikle çözüp operasyon olarak kaydeder; ajan siteyi MCP, CLI veya TypeScript ile API gibi çağırır.	
+headlesschrome	Headless Chrome	teknik		DeON0MOB5oi	Playwright MCP'nin sürdüğü arka planda çalışan Chrome tarayıcısı.	
+gemini3flashpreview	Gemini 3 Flash Preview	teknik		Dcd3eY1iOMA	Varsayılan YZ modeli, varlık çıkarımı ve video modu	
+claudeopus48	Claude Opus 4.8	teknik		Dcd3eY1iOMA	README'deki varsayılan model listesinde	
+crunchyroll	Crunchyroll	iş akışı		Dcd3eY1iOMA	Klonlanan hedef site	
+crewai	CrewAI	teknik		DeChE4DChaA	AI Services Agency projesinde kullanılan çoklu ajan çerçevesi	
+agentskills	Agent skills	skill		DeChE4DChaA,Db_H8ScP5y-	Depoda kapsanan konulardan biri	
+contextmode	Context Mode	plugin		DdlurQHG2Mm	Boşa harcanan bağlamı %98 azaltan eklenti.	
+contextmodebalamtasarrufudemosu	Context Mode bağlam tasarrufu demosu	prompt		DdlurQHG2Mm	Kullanıcı sea level'da suyun kaynama noktasını soruyor; varsayılan stilde uzun, ayrıntılı yanıt geliyor, konsizde kısa yanıt karşılaştırılıyor.	
+usingagentskills	using-agent-skills	skill		Db_H8ScP5y-	Hangi skill'in uygulanacağını belirleyen meta-skill.	
+planningandtaskbreakdown	planning-and-task-breakdown	skill		Db_H8ScP5y-	Spesifikasyonu kabul kriterli küçük doğrulanabilir görevlere böler.	
+sourcedrivendevelopment	source-driven-development	skill		Db_H8ScP5y-	Çerçeve kararlarını resmi dokümantasyona dayandırır.	
+qwen36max	Qwen 3.6 Max	teknik		DY_SoPGKv2A	Ruflo web arayüzünde varsayılan model	
+gemini25flash	Gemini 2.5 Flash	teknik		DY_SoPGKv2A	README'deki hazır modellerden biri	
+akllmodelynlendirme	Akıllı model yönlendirme	teknik		DY_SoPGKv2A	Basit görevleri ücretsiz katmana, zorları uygun modele yönlendirme	
+kubernetes	Kubernetes	teknik		DY_SoPGKv2A	Konteyner orkestrasyon platformu; Ruflo'nun kendi bulutunuza dağıtım seçeneklerinden biri.	
+reticle	Reticle	skill		DdrNeEUN63i	Ajan bitti dediğinde gerçek uygulamayı açıp test eden ve düzeltilecek satırı gösteren araç	
+oxlint	Oxlint	CLI		DdrNeEUN63i	Anti-Slop kurallarının yapılandırıldığı linter	

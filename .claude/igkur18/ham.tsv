@@ -1,0 +1,218 @@
+gonderi	ad	tur	link	iddia
+DdCUfgfOb_5	awesome-selfhosted	teknik	yok	Kendi sunucunda barındırılabilen ücretsiz yazılımların kategorilere ayrılmış GitHub listesi. Videonun ana konusu.
+DdCUfgfOb_5	GitHub	teknik	yok	Reponun gösterildiği kod barındırma platformu. README ve License sekmeleri görünüyor.
+DdCUfgfOb_5	Self-hosted yazılım reposu	teknik	yok	95 kategoride ücretsiz, kendi sunucunda çalışan yazılımların listelendiği README tabanlı depo (konuşmada ~1.250 uygulama)
+DeUUiBhs01A	Prompt Motion	iş akışı	yok	Hazır animasyon promptlarının bulunduğu kütüphane; animasyon seçilip prompt kopyalanır.
+DeUUiBhs01A	Claude Opus 5.5	iş akışı	yok	Kopyalanan promptu marka varlıklarıyla uyarlayıp 15 saniyelik marka sunumu üreten model.
+DeUUiBhs01A	Claude	iş akışı	yok	Promptun yapıştırıldığı ve marka varlıklarının eklendiği sohbet arayüzü.
+DeUUiBhs01A	Efor Max	ipucu	yok	Claude'da efor ayarını Max'e getirmek daha kaliteli çıktı için öneriliyor.
+DeW7v7oCZZf	Awesome Design MD	skill	yok	Stripe, Linear gibi 73 gerçek sitenin tasarım sistemini DESIGN.md dosyası olarak verir; projeye kopyalanır.
+DeW7v7oCZZf	Impeccable	plugin	yok	24 tasarım komutu ve 59 kural; UI'yı denetler, cilalar, düzeltir.
+DeW7v7oCZZf	Taste Skill	skill	yok	Tasarımın cesurluğunu, hareketini ve yoğunluğunu ayarlatır.
+DeW7v7oCZZf	Web Design Guidelines	skill	yok	Vercel'in agent skill'i; küçük dokunma hedefi, kapalı zoom, yükleme durumu eksikliğini işaretler.
+DeW7v7oCZZf	Playwright MCP	MCP	yok	Claude'un gerçek tarayıcı açıp tıklamasını, ekran görüntüsü almasını ve hataları düzeltmesini sağlar.
+DeW7v7oCZZf	Claude Code	CLI	yok	Sayfayı üreten ana yapay zekâ kodlama aracı.
+DeW7v7oCZZf	Stripe	teknik	yok	Tasarım sistemi örneği olarak anılan site.
+DeW7v7oCZZf	Linear	teknik	yok	Tasarım sistemi örneği olarak anılan site.
+DeW7v7oCZZf	Inter	teknik	yok	Her yerde kullanılan yazı tipi; Impeccable denetiminde sorun olarak işaretlenir.
+DeW7v7oCZZf	Framer Motion	teknik	yok	Taste Skill bölümünde hareket ile ilişkili görünen animasyon kütüphanesi.
+DeW7v7oCZZf	Açılış sayfası üretimi	prompt	yok	Claude'dan bir açılış sayfası yapmasını ister.
+DeW7v7oCZZf	Tasarım sistemi uygulama	prompt	yok	Stripe'ın DESIGN.md tasarım sistemini kullanmasını ister.
+DbDvPoNACwY	Claude Code	CLI	yok	Prompt yazarak uygulama ve video üretimi yapılan kodlama aracı
+DbDvPoNACwY	Opus 4.6	teknik	yok	Arayüzde görünen Claude modeli
+DbDvPoNACwY	Sonnet 4.6	teknik	yok	Arayüzde görünen diğer Claude modeli
+DbDvPoNACwY	Kling	teknik	yok	Görselden video üreten model (v3 standard image-to-video)
+DbDvPoNACwY	fal.ai	teknik	yok	Kling modelini çalıştıran servis
+DbDvPoNACwY	Three.js	teknik	yok	Film Friends sayfasında 3B için sözlükte eşleşen kütüphane
+DbDvPoNACwY	Film Friends	iş akışı	yok	Claude Code ile kurulan örnek abonelik sitesi
+DbDvPoNACwY	Antigravity	teknik	yok	Yorumda, CRM sisteminin taşınacağı geliştirme ortamı olarak anılıyor
+DbDvPoNACwY	Bolt	teknik	yok	Yorumda, CRM ve chatbot yapısının geliştirildiği AI uygulama oluşturucu olarak anılıyor
+DbDvPoNACwY	n8n	iş akışı	yok	Yorumlarda e-posta etiketleme, taslak yanıt ve chatbot otomasyonu için kullanılıyor
+DbDvPoNACwY	Manychat	teknik	yok	Yorumda, Instagram otomasyonu için kullanılan araç olarak anılıyor
+DbDvPoNACwY	WhatsApp	teknik	yok	Chatbot'ların çalıştığı mesajlaşma kanalı; yorumlarda ve ön danışma linkinde geçiyor
+DbDvPoNACwY	ClearBounce	teknik	yok	Türkiye'den e-posta doğrulama (bouncer) servisi; topluluk yorumunda tanıtılıyor
+DbDvPoNACwY	Claude Code ile Film Friends sayfasının canlı önizleme kontrolü	prompt	yok	Uygulamayı başlatıp ürün sayfasından ödemeye kadar gez; mobilde ve koyu modda da düzgün görünsün, yarın yayına alınacak.
+DbDvPoNACwY	Kling ile yüzük ürün videosu üretimi	prompt	yok	Siyah beyaz aşırı yakın çekim: yüzük takılı el çenesine dokunuyor, ürün koyu zeminde yavaş dönüyor, bokeh ışıkları, iPhone 16 Pro makro hissi.
+DeXJcXmFLMv	Claude Opus 5.5	teknik	yok	Eklentilerin güçlendirdiği ana yapay zekâ modeli; web tasarımı için kullanılıyor.
+DeXJcXmFLMv	Taste Skill	skill	https://github.com/Leonxlnx/taste-skill	Claude'un jenerik yapay zekâ arayüzü üretmesini engelleyen, ön yüz tasarım kuralları veren skill.
+DeXJcXmFLMv	Impeccable	skill	yok	Claude'a tasarım sistemi ve tasarım diliyle komutlar veren, tarayıcıda canlı düzenleme sunan araç.
+DeXJcXmFLMv	Playwright CLI	CLI	yok	Claude'un siteleri birden çok tarayıcıda açıp test etmesini sağlayan tarayıcı otomasyon komut satırı.
+DeXJcXmFLMv	awesome design	skill	yok	Gerçek sitelerden esinlenen tipografi, boşluk, buton ve bileşen içeren tasarım sistemleri (DESIGN.md) sağlıyor.
+DeXJcXmFLMv	img2threejs	skill	yok	Referans görseldeki nesneyi yalnız kodla, prosedürel Three.js modeli olarak yeniden kuruyor; konuşmada 'Image23JS'.
+DeXJcXmFLMv	Three.js	teknik	yok	img2threejs'in çıktı olarak ürettiği 3B web çalışma zamanı.
+DeXJcXmFLMv	Python	teknik	yok	img2threejs araç takımının Python 3.10+ stdlib ile yazıldığı belirtiliyor.
+DeXJcXmFLMv	Claude Code	CLI	yok	Eklentilerin çalıştığı Claude'un kodlama arayüzü; ekranda oturum görüntüsü var (/remote-control, subagent).
+DeXJcXmFLMv	Git	CLI	yok	Commit geçmişini listelemek için kullanılan sürüm kontrol aracı
+DeXJcXmFLMv	npm	CLI	yok	Node paket yöneticisi; npx ile yerel TypeScript derleyicisini çalıştırmak için kullanıldı
+DeXJcXmFLMv	tsc	CLI	yok	TypeScript derleyicisi; --noEmit ile yalnızca tip denetimi yapar
+DeXJcXmFLMv	Claude Code oturumunda alt ajanla kod incelemesi (fon görüntüsü)	prompt	yok	Kod inceleme alt ajanı (code reviewer subagent) çağrılarak en son oluşturulan kodun incelenmesi isteniyor.
+DeV2n53gLgf	REA	CLI	yok	Kodlama ajanıyla bir uygulamanın çalışma mantığını tersine mühendislikle çıkaran GitHub reposu (Reverse Engineer Anything).
+DeV2n53gLgf	Claude Code	CLI	yok	REA'nın kullanıldığı kodlama ajanı; ekranda prompt penceresi olarak görünür.
+DeV2n53gLgf	Codex	CLI	yok	REA'nın çalıştığı ikinci kodlama ajanı.
+DeV2n53gLgf	Notion	teknik	yok	Panoya kopyalama mekanizması izlenen örnek masaüstü uygulaması.
+DeV2n53gLgf	Electron	teknik	yok	Notion masaüstünün üzerinde çalıştığı çatı; clipboard writer olarak anılıyor.
+DeV2n53gLgf	Skool	iş akışı	yok	Sunucunun topluluk platformu; açıklamada tanıtılıyor, videoda kullanılmıyor.
+DeV2n53gLgf	Notion panoya kopyalama akışını tersine mühendislikle çıkarmak	prompt	yok	REA ile Notion'ın metin ve HTML'i sistem panosuna nasıl kopyaladığını izle.
+DbyJNRdPyCj	Claude Code	CLI	yok	Videoda eklentilerin kullanıldığı ana yapay zekâ kodlama aracı; Skill UI çıktısı bunun içinde açılıyor.
+DbyJNRdPyCj	Codex	CLI	yok	Claude Code ile birlikte anılan alternatif kodlama aracı.
+DbyJNRdPyCj	Playwright CLI	CLI	yok	YZ'ye tarayıcı açma, ekran görüntüsü alma ve hata yakalama gücü verir.
+DbyJNRdPyCj	Supabase	plugin	yok	Veritabanı kurma ve terminalden yönetme; SQL, şema değişikliği, edge function dağıtımı.
+DbyJNRdPyCj	Strix	plugin	yok	Vibe coded uygulamaya gerçek hacker gibi saldırıp güvenlik açıklarını bulur ve düzeltir.
+DbyJNRdPyCj	Skill UI	skill	yok	Bir sitenin tasarım sistemini ters mühendislikle DESIGN.md dosyasına çıkarır.
+DbyJNRdPyCj	Context7	MCP	yok	Kodlama asistanına kütüphane ve bağımlılıkların güncel dokümanını sağlar.
+DbyJNRdPyCj	Opus 4.6	teknik	yok	Claude Code oturumunda kullanılan model.
+DbyJNRdPyCj	Notion	teknik	yok	Skill UI'nin tasarım sistemini çıkardığı örnek site.
+DbyJNRdPyCj	Next.js	teknik	yok	Playwright çıktısındaki hata mesajlarında ve context7 listesinde görünen framework.
+DbyJNRdPyCj	Remotion	teknik	yok	CLAUDE.md örneğinde proje yapısında anılan video kütüphanesi.
+DbyJNRdPyCj	CLAUDE.md	teknik	yok	Claude Code'a proje talimatı veren dosya.
+DbyJNRdPyCj	DESIGN.md	teknik	yok	Skill UI'nin ürettiği tasarım sistemi markdown dosyası.
+DbyJNRdPyCj	Cursor	teknik	yok	Context7 sayfasında 'Add to Cursor' düğmesiyle görünen editör.
+DbyJNRdPyCj	Notion tasarım sistemine uygun UI üretmek	prompt	yok	Skill UI çıktısı sonrası Claude Code'a, çıkarılan tasarım sistemiyle eşleşen bir arayüz oluşturması isteniyor.
+Dbs8-TnKEhL	OmniRoute	CLI	github.com/diegosouzapw/OmniRoute	237 yapay zekâ sağlayıcısına bağlanan, limit dolunca sıradaki modele geçen yönlendirici
+Dbs8-TnKEhL	Claude Mem	plugin	yok	Claude'a tüm oturumlar boyunca hafıza veren eklenti
+Dbs8-TnKEhL	Headroom	plugin	yok	Yalnızca önemli kısımları geçirerek token tüketimini azaltan proxy
+Dbs8-TnKEhL	Claude Code Setup	plugin	yok	Resmi Anthropic eklentisi; kod tabanını tarar, eksik hook, skill ve MCP sunucularını önerir
+Dbs8-TnKEhL	Task Observer	skill	yok	Çalışma şeklinizi izleyip düzeltmelerinizi yakalayan ve diğer skill'leri yeniden yazan eklenti
+Dbs8-TnKEhL	Claude Code	CLI	yok	Eklentilerin kurulduğu ana yapay zekâ kodlama aracı
+Dbs8-TnKEhL	Claude Opus	teknik	yok	Headroom üzerinden çalışan Claude Code oturumunda kullanılan model
+Dbs8-TnKEhL	rtk	CLI	yok	Headroom başlatılırken kurulan yardımcı araç
+Dbs8-TnKEhL	OpenRouter	teknik	yok	OmniRoute'un ücretsiz token bütçesi hesabında geçen sağlayıcı
+Dbs8-TnKEhL	sqlite-vec	teknik	yok	Claude Mem hafıza aramasında vektör geri çağırma için anılan yapı
+Dbs8-TnKEhL	MCP	teknik	yok	Claude Code Setup'ın önerdiği entegrasyon kategorilerinden biri
+Dbs8-TnKEhL	Headroom üzerinden çalışan Claude Code'a kod tabanı analizi yaptırmak	prompt	yok	Headroom kod tabanını derinlemesine incele, sorunları anla; alt ajanlar kullanılabilir. Rakip ve pazar araştırması paralel yürütülsün.
+DdWmIHTC322	Slash Brag	skill	yok	Yan projeyi 20 saniyelik lansman videosuna çeviren Claude skill'i (/brag)
+DdWmIHTC322	latent-spaces/brag	plugin	yok	Skill'in bulunduğu GitHub deposu; .claude-plugin klasörü içerir
+DdWmIHTC322	Claude	CLI	yok	Skill'in çalıştığı ana yapay zekâ aracı (Claude Code arayüzü)
+DdWmIHTC322	Opus5 High	teknik	yok	Oturumda seçili model; kullanımın %100'ü Opus
+DdWmIHTC322	hyperframes	skill	yok	Video kompozisyonu üretimi için kullanılan skill
+DdWmIHTC322	hyperframes-cli	CLI	yok	HyperFrames komut satırı skill'i
+DdWmIHTC322	hyperframes-core	skill	yok	HyperFrames çekirdek skill'i
+DdWmIHTC322	brag:brag	plugin	yok	Plugin içindeki brag skill'i
+DdWmIHTC322	localhost:3002 düzenleyici	teknik	yok	Üretilen videonun düzenlenebilir composition önizleme sunucusu
+DdWmIHTC322	GitHub	teknik	yok	brag reposunun barındırıldığı kod platformu; repo sayfası 'Go to file', 'Pull requests' ve 'Issues' sekmeleri gösteriyor.
+DdWmIHTC322	Dikey sürüm isteme	prompt	yok	Tik Tok için dikey sürüm yapılmasını isteyen öneri/metin sohbet kutusuna yazılı.
+DdWmIHTC322	Projeyi lansman videosuna çevirme	prompt	yok	/brag skill'i EasyGB depolama temizleme uygulaması için çalıştırıldı.
+DcRhD2Nto7M	UI UX Pro Max	skill	yok	Claude'a yerleşim, palet ve tipografi gibi tasarım zekâsı veren, aranabilir UI stil/palet/font veritabanı.
+DcRhD2Nto7M	Taste Skill	skill	yok	AI slop görünümünü öldürmek için yapılmış skill; siteler diğer Claude çıktıları gibi görünmesin.
+DcRhD2Nto7M	Awesome Claude Design	skill	yok	Projeye bırakılabilen 68 hazır tasarım sistemi koleksiyonu.
+DcRhD2Nto7M	design-md-chrome	plugin	yok	Chrome eklentisi: açılan sitenin tüm tasarım sistemini DESIGN.md olarak çıkarır.
+DcRhD2Nto7M	Design Motion Principles	skill	yok	Yapılan arayüzlere hareket, zamanlama ve easing ekleyen ilkeler.
+DcRhD2Nto7M	Claude	CLI	yok	Ön yüzün üretildiği ana yapay zekâ aracı/modeli.
+DcRhD2Nto7M	Claude Code	CLI	yok	UI UX Pro Max'in desteklediği araçlardan biri; kurulum komutu --ai claude ile.
+DcRhD2Nto7M	Cursor	CLI	yok	UI UX Pro Max'in uyumlu olduğu editör.
+DcRhD2Nto7M	Windsurf	CLI	yok	UI UX Pro Max'in uyumlu olduğu editör.
+DcRhD2Nto7M	Antigravity	CLI	yok	UI UX Pro Max'in uyumlu olduğu araç.
+DcRhD2Nto7M	uipro	CLI	yok	UI UX Pro Max'i projeye kuran komut satırı aracı.
+DcRhD2Nto7M	DESIGN.md Generator by TypeUI	teknik	yok	Token tabanlı DESIGN.md üreten sayfa/örnek.
+DcRhD2Nto7M	cubic-bezier	teknik	yok	Hareket easing eğrisi örneği: cubic-bezier(0.77, 0, 0.175, 1).
+DYx4OuVuJuI	Claude	skill	yok	Videonun konusu olan yapay zekâ asistanı; açıklamada skill'lerle kullanılması öneriliyor.
+DeON0MOB5oi	API Anything	CLI	github.com/goodnight000/api-anything	Sitenin ağ trafiğini tersine mühendislikle çözüp operasyon olarak kaydeder; ajan siteyi MCP, CLI veya TypeScript ile API gibi çağırır.
+DeON0MOB5oi	Claude Code	CLI	yok	Kurulum ve tersine mühendislik promptlarının yazıldığı ana yapay zekâ aracı.
+DeON0MOB5oi	Playwright MCP	MCP	yok	Karşılaştırmada tarayıcı ajanının headless Chrome'u sürmek için kullandığı MCP.
+DeON0MOB5oi	MCP	teknik	yok	API Anything operasyonlarının ajana sunulduğu protokol; karşılaştırmada 'api-anything MCP, no browser'.
+DeON0MOB5oi	Google Flights	teknik	yok	Karşılaştırma görevinde SFO-JFK uçuşları için kullanılan site.
+DeON0MOB5oi	TypeScript	teknik	yok	API Anything'in dili ve ajanın operasyonları çağırma yollarından biri.
+DeON0MOB5oi	JavaScript	teknik	yok	Depoda küçük oranda kullanılan dil.
+DeON0MOB5oi	cstack	skill	github.com/goodnight000/cstack	Anlatıcının profilinde 'My skills' altında gösterilen başka bir depo.
+DeON0MOB5oi	Headless Chrome	teknik	yok	Playwright MCP'nin sürdüğü arka planda çalışan Chrome tarayıcısı.
+DeON0MOB5oi	API Anything kurulumu	prompt	yok	Ajana API Anything'i kurmasını söyler ve INSTALL.md GitHub bağlantısını verir.
+DeON0MOB5oi	LinkedIn API'sini tersine mühendislik	prompt	yok	Ajandan LinkedIn'in API'sini tersine mühendislikle çıkarmasını ister.
+Dcd3eY1iOMA	Screenshot to Code	iş akışı	yok	Ekran görüntüsü, maket ve videodan YZ ile işlevsel kod üreten açık kaynak depo
+Dcd3eY1iOMA	Claude Code	CLI	yok	Aynı siteyi klonlamak için karşılaştırma amacıyla kullanıldı
+Dcd3eY1iOMA	Claude	teknik	yok	Siteyi referans linkten yeniden üretme denemesinde anılan model
+Dcd3eY1iOMA	GitHub	teknik	yok	Deponun bulunduğu ve klonlandığı platform
+Dcd3eY1iOMA	Gemini 3 Flash Preview	teknik	yok	Varsayılan YZ modeli, varlık çıkarımı ve video modu
+Dcd3eY1iOMA	Gemini 3.1 Pro Preview	teknik	yok	Varsayılan YZ modellerinden biri
+Dcd3eY1iOMA	GPT-5.5	teknik	yok	README'deki varsayılan model listesinde
+Dcd3eY1iOMA	GPT-5.4 Mini	teknik	yok	README'deki varsayılan model listesinde
+Dcd3eY1iOMA	Claude Opus 4.6	teknik	yok	README'deki varsayılan model listesinde
+Dcd3eY1iOMA	Claude Opus 4.8	teknik	yok	README'deki varsayılan model listesinde
+Dcd3eY1iOMA	z-image-turbo	teknik	yok	Replicate üzerinden görsel üretim modeli
+Dcd3eY1iOMA	Replicate	teknik	yok	Görsel üretimi için isteğe bağlı servis
+Dcd3eY1iOMA	React	teknik	yok	Ön yüz çatısı
+Dcd3eY1iOMA	Vite	teknik	yok	Ön yüz derleme aracı
+Dcd3eY1iOMA	FastAPI	teknik	yok	Arka uç çatısı
+Dcd3eY1iOMA	Crunchyroll	iş akışı	yok	Klonlanan hedef site
+DeChE4DChaA	OpenAI Agents SDK	teknik	yok	AI Deep Research Agent projesinde araştırma için kullanılan ajan geliştirme kiti
+DeChE4DChaA	Firecrawl	teknik	yok	Deep Research Agent'ta web araştırması için kullanılan servis
+DeChE4DChaA	Gemini 3	teknik	yok	VC Due Diligence Agent Team projesinde kullanılan model
+DeChE4DChaA	Nano Banana Pro	teknik	yok	Home Renovation Agent'ta fotoğraftan render üreten görsel model
+DeChE4DChaA	Google Interactions API	teknik	yok	Research Planner & Executor projesinde durumlu konuşmalar için API
+DeChE4DChaA	CrewAI	teknik	yok	AI Services Agency projesinde kullanılan çoklu ajan çerçevesi
+DeChE4DChaA	AG2	teknik	yok	Adaptive Research Team projesinde geçen ajan çerçevesi
+DeChE4DChaA	x402	teknik	yok	AI x402 Paying Agent projesinde ödeme yapan ajan protokolü
+DeChE4DChaA	Python	teknik	yok	Finance Agent Team projesinin yazıldığı dil
+DeChE4DChaA	Claude	teknik	yok	Depodaki projelerde kullanılan model ailesi
+DeChE4DChaA	Gemini	teknik	yok	Depodaki projelerde kullanılan model ailesi
+DeChE4DChaA	GPT	teknik	yok	Depodaki projelerde kullanılan model ailesi
+DeChE4DChaA	DeepSeek	teknik	yok	Depodaki projelerde kullanılan model ailesi
+DeChE4DChaA	Llama	teknik	yok	Depodaki projelerde kullanılan model ailesi
+DeChE4DChaA	MCP	MCP	yok	Depoda kapsanan konulardan biri
+DeChE4DChaA	RAG	teknik	yok	Depoda kapsanan konulardan biri
+DeChE4DChaA	Agent skills	skill	yok	Depoda kapsanan konulardan biri
+DeChE4DChaA	GitHub	teknik	yok	Projelerin barındırıldığı depo platformu
+DeChE4DChaA	xAI	teknik	yok	Finans ajanı projesinde anılan xAI model/servisi (OCR'da xAl; doğrulanamadı).
+DdlurQHG2Mm	Text Observer	plugin	yok	Kullanıcının nasıl çalıştığını öğrenip ona uyum sağlayan eklenti.
+DdlurQHG2Mm	Security	plugin	yok	SQL injection gibi açıkları otomatik yakalayan güvenlik taraması eklentisi.
+DdlurQHG2Mm	Caveman	plugin	yok	Claude'un kısa çıktılarla yanıt vermesini sağlar.
+DdlurQHG2Mm	Context Mode	plugin	yok	Boşa harcanan bağlamı %98 azaltan eklenti.
+DdlurQHG2Mm	OmniRoute	plugin	yok	Sınırsız ücretsiz AI token sağlayan yönlendirme eklentisi.
+DdlurQHG2Mm	Claude Video	plugin	yok	Claude'un YouTube videolarını sizin yerinize izlemesini sağlar.
+DdlurQHG2Mm	Headroom	plugin	yok	AI token maliyetini yarıya indirir.
+DdlurQHG2Mm	Manifest	plugin	yok	Her oturum için gerçek zamanlı maliyet takibi.
+DdlurQHG2Mm	Skill-bus	plugin	yok	Birkaç skill'i zincirleyerek birlikte çalıştırır.
+DdlurQHG2Mm	Claude Mem	plugin	yok	Oturumlar arası kalıcı bellek sağlar.
+DdlurQHG2Mm	Claude Code	CLI	yok	Eklentilerin çalıştığı ana yapay zekâ kodlama aracı.
+DdlurQHG2Mm	Caveman kısa çıktı demosu	prompt	yok	Kullanıcı Claude'a Mars'ın kaç uydusu olduğunu soruyor; kısa yanıt Phobos ve Deimos'u veriyor.
+DdlurQHG2Mm	Context Mode bağlam tasarrufu demosu	prompt	yok	Kullanıcı sea level'da suyun kaynama noktasını soruyor; varsayılan stilde uzun, ayrıntılı yanıt geliyor, konsizde kısa yanıt karşılaştırılıyor.
+DdlurQHG2Mm	OmniRoute sohbet demosu	prompt	yok	Kullanıcı Kyoto'ya kısa bir seyahat planlıyor ve yerel yemek yerleri öneriyor isteyip Claude'dan 3 günlük plan istiyor.
+DdlurQHG2Mm	Headroom takip turu karşılaştırması: belirsiz istek yerine tek seferde net istek	prompt	yok	Kullanıcı yeni espresso makinesi için 120 kelimelik, samimi tonda ve tek net CTA içeren lansman e-postası yazmasını istiyor.
+DdlurQHG2Mm	Claude Mem kalıcı bellek demosu	prompt	yok	Kullanıcı Claude'dan önceki sohbette söylediği yemek kısıtlamalarını hatırlamasını istiyor.
+Db_H8ScP5y-	Agent Skills	skill	yok	Addy Osmani'nin 24 skill'lik paketi; planlama, kodlama, test ve yayın aşamalarını kapsar.
+Db_H8ScP5y-	using-agent-skills	skill	yok	Hangi skill'in uygulanacağını belirleyen meta-skill.
+Db_H8ScP5y-	interview-me	skill	yok	Kullanıcının gerçekte ne istediğini tek soruyla çıkaran röportaj skill'i.
+Db_H8ScP5y-	idea-refine	skill	yok	Belirsiz fikirleri somut önerilere çeviren düşünme skill'i.
+Db_H8ScP5y-	spec-driven-development	skill	yok	Kod öncesi hedefleri, komutları, yapıyı ve sınırları içeren PRD yazar.
+Db_H8ScP5y-	planning-and-task-breakdown	skill	yok	Spesifikasyonu kabul kriterli küçük doğrulanabilir görevlere böler.
+Db_H8ScP5y-	incremental-implementation	skill	yok	İnce dikey dilimlerle uygula, test et, doğrula, commit et.
+Db_H8ScP5y-	test-driven-development	skill	yok	Red-Green-Refactor, test piramidi (80/15/5), DAMP over DRY, Beyonce Rule.
+Db_H8ScP5y-	context-engineering	skill	yok	Ajana doğru bilgiyi doğru zamanda verir (kurallar dosyaları, bağlam paketleme, MCP).
+Db_H8ScP5y-	source-driven-development	skill	yok	Çerçeve kararlarını resmi dokümantasyona dayandırır.
+Db_H8ScP5y-	Claude Code	CLI	yok	Skill'in çalıştığı ana yapay zekâ kodlama aracı; paket 70+ araçta da çalışıyor.
+Db_H8ScP5y-	GitHub	teknik	yok	Paketin barındırıldığı depo servisi; yıldız, fork, issue sayıları gösterildi.
+Db_H8ScP5y-	MCP	MCP	yok	Context-engineering skill'i kapsamında MCP entegrasyonları anılıyor.
+Db_H8ScP5y-	npm	CLI	yok	Testler 'npm test' ile çalıştırılıyor.
+Db_H8ScP5y-	Red-Green-Refactor	teknik	yok	TDD döngüsü.
+DY_SoPGKv2A	Ruflo	plugin	https://github.com/ruvnet/ruflo	Claude için açık kaynaklı çoklu ajan orkestrasyon platformu; MCP sunucusu olarak eklenir
+DY_SoPGKv2A	Claude Code	CLI	yok	Ruflo'nun MCP sunucusu olarak eklendiği komut satırı aracı
+DY_SoPGKv2A	MCP	MCP	yok	Ruflo araçlarını Claude'a bağlayan Model Context Protocol sunucusu
+DY_SoPGKv2A	npm	CLI	yok	npx ile Ruflo'yu çalıştırma; 21 npm eklentisi
+DY_SoPGKv2A	flo.ruv.io	teknik	yok	Ruflo'nun çoklu model sohbet arayüzü; paralel MCP araç çağrısı
+DY_SoPGKv2A	goal.ruv.io	teknik	yok	GOAP A* planlayıcı; sade dilde hedefleri çalıştırılabilir plana çevirir
+DY_SoPGKv2A	OpenRouter	teknik	yok	README'de 6 öncü modelin sağlandığı servis
+DY_SoPGKv2A	Qwen 3.6 Max	teknik	yok	Ruflo web arayüzünde varsayılan model
+DY_SoPGKv2A	Claude Sonnet 4.6	teknik	yok	README'deki hazır modellerden biri
+DY_SoPGKv2A	Claude Haiku 4.5	teknik	yok	README'deki hazır modellerden biri
+DY_SoPGKv2A	Gemini 2.5 Pro	teknik	yok	README'deki hazır modellerden biri
+DY_SoPGKv2A	Gemini 2.5 Flash	teknik	yok	README'deki hazır modellerden biri
+DY_SoPGKv2A	ruvLLM	teknik	yok	Kendi kendini geliştiren yerel model katmanı; MicroLoRA adaptörleri
+DY_SoPGKv2A	AgentDB	teknik	yok	HNSW indeksli ajan veritabanı / paylaşılan bellek
+DY_SoPGKv2A	SONA	teknik	yok	Sinirsel öğrenme desenleri; yerel öğrenme
+DY_SoPGKv2A	Docker	teknik	yok	Web arayüzünün Docker olarak paketlenmesi
+DY_SoPGKv2A	Ollama	CLI	yok	Yerel model sağlayıcısı; Tier-2 sağlayıcı sürümü
+DY_SoPGKv2A	Akıllı model yönlendirme	teknik	yok	Basit görevleri ücretsiz katmana, zorları uygun modele yönlendirme
+DY_SoPGKv2A	MicroLoRA	teknik	yok	Yerel model katmanında yönlendirilen küçük LoRA adaptörleri; yörüngelerden öğreniyor.
+DY_SoPGKv2A	GOAP A* planner	teknik	yok	Düz dilde verilen hedefleri yürütülebilir adımlara çeviren planlayıcı; goal.ruv.io üzerinden sunuluyor.
+DY_SoPGKv2A	MongoDB	teknik	yok	Veritabanı; Ruflo web arayüzü gömülü Mongo ile birlikte geliyor.
+DY_SoPGKv2A	Kubernetes	teknik	yok	Konteyner orkestrasyon platformu; Ruflo'nun kendi bulutunuza dağıtım seçeneklerinden biri.
+DY_SoPGKv2A	Tercihi Ruflo belleğine kaydetmek	prompt	yok	Ruflo'nun ruflo_memory_store aracına 'preferences' ad alanında, 'editor_theme' anahtarıyla tercihi kaydetmesini isteyen talimat.
+DY_SoPGKv2A	Uzun süreli bellek özelliğini göstermek	prompt	yok	'remember my favorite color is indigo' diyerek bilgiyi kaydettirip haftalar sonra sormak; Ruflo'nun hatırlaması bekleniyor.
+DdrNeEUN63i	SkillSpector	CLI	yok	Skill kurulmadan önce prompt injection, veri sızdırma ve tedarik zinciri risklerini tarayan güvenlik tarayıcısı
+DdrNeEUN63i	Reticle	skill	yok	Ajan bitti dediğinde gerçek uygulamayı açıp test eden ve düzeltilecek satırı gösteren araç
+DdrNeEUN63i	Chisle	skill	yok	Ajanın gevezeliğini ve istenmeyen kodu azaltıp token harcamasını düşüren araç
+DdrNeEUN63i	UI Skills	skill	yok	Boşluk, hareket ve erişilebilirlik için tasarım mühendisliği kuralları sunan skill seti
+DdrNeEUN63i	Anti-Slop	plugin	yok	Tembel yapay zekâ kod kalıplarını reddeden oxlint kural seti
+DdrNeEUN63i	Oxlint	CLI	yok	Anti-Slop kurallarının yapılandırıldığı linter
+DdrNeEUN63i	GitHub	teknik	yok	Beş deponun barındırıldığı platform
+DdrNeEUN63i	Chisle'ın ajana verdiği token tasarrufu ve gereksiz iş yapmama kuralları.	prompt	yok	Chisle kuralları: gerekmedikçe kod üretme, az yap ve mevcut olanı yeniden kullan; kısa ve odaklı yanıt ver; yalnız gerçekten ilgili bağlamı kullan; YAGNI ilkesiyle hareket et.
+DdrNeEUN63i	Tasarım mühendisliği kurallarını ajanın uygulaması için sunmak.	prompt	yok	UI Skills kuralları: boşluğu gruplama için spacing kullan, border-radius'u iç ve dış öğelerde eşleştir, aspect-ratio ile kayma önle, sayılar için tabular-nums kullan, dokunma hedefini en az 44px yap, basılan butonlara ölçek geri bildirimi ekle.
