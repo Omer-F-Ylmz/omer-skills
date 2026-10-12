@@ -1,4 +1,5 @@
 """animasyon-atolyesi: SKILL.md'deki tarifler var, olc.glb sayar, video tarifi istenen mp4'ü üretir."""
+import importlib.util
 import json
 import re
 import shutil
@@ -40,6 +41,18 @@ def test_uyarla(tmp_path, ad):
     assert len(ayar["metin"]) > 1  # derin birleştirme: verilmeyen anahtarlar kalır
     s = hedef.read_text(encoding="utf-8")
     assert "<title>Telve</title>" in s and uyarla.oku(s) == ayar
+
+
+@pytest.mark.skipif(importlib.util.find_spec("playwright") is None, reason="playwright yok")
+@pytest.mark.parametrize("ad", ["giris-scroll.html", "sayfa-gecisi.html"])
+def test_birimsiz_sure_hareketi_bozmaz(tmp_path, ad):
+    # ANİMASYON-1 yeni2 w1: ajan "sure": 600 verdi → CSS'te birimsiz süre → animasyon geçersiz, hareket 0
+    import uyarla
+    hedef = tmp_path / "index.html"
+    uyarla.uyarla(ad, hedef, {"sure": 600, "gecikme": 80})
+    kare = tmp_path / "kare"
+    kare.mkdir()
+    assert olc.sayfa(hedef, kare)["hareket"] > 0
 
 
 @pytest.mark.skipif(not shutil.which("ffmpeg"), reason="ffmpeg yok")

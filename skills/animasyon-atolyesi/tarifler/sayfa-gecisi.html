@@ -32,7 +32,8 @@ const AYAR = {
 /* ===== AYAR SONU ===== */
 const kok = document.documentElement.style;
 for (const [ad, deger] of Object.entries(AYAR.renk)) kok.setProperty('--' + ad, deger);
-kok.setProperty('--sure', AYAR.sure); kok.setProperty('--gecikme', AYAR.gecikme); kok.setProperty('--egri', AYAR.egri);
+const ms = v => typeof v === 'number' ? v + 'ms' : v; // "sure": 600 de geçerli (birimsiz CSS süresi animasyonu düşürür)
+kok.setProperty('--sure', ms(AYAR.sure)); kok.setProperty('--gecikme', ms(AYAR.gecikme)); kok.setProperty('--egri', AYAR.egri);
 </script>
 <style>
   *, *::before, *::after { box-sizing: border-box; }
