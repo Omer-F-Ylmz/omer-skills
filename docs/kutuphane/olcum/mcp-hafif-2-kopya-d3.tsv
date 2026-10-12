@@ -1,0 +1,30 @@
+imza	kopya	mb
+claude.exe app.asar HCS	5	1412
+claude.exe	7	1065
+bash.exe const e.trim();var	7	1040
+cmd.exe cc-kopru.cmd	2	668
+bash.exe portfolyo-171-1 &&	1	555
+cmd.exe mcp-filesystem.cmd	2	408
+node.exe index.js	4	363
+bash.exe v$(ls node	3	340
+cmd.exe mcp-git.cmd	2	325
+node.exe cli.js	2	261
+cmd.exe brave-search.cmd	2	249
+cmd.exe stitch.cmd	2	249
+cmd.exe puppeteer.cmd	2	222
+cmd.exe obsidian.cmd	2	216
+cmd.exe claude-design.cmd	2	209
+headroom.exe mcp serve	2	197
+node.exe mcp-server.cjs	2	190
+blender-mcp.exe	2	170
+mcp-server-fetch.exe	2	170
+code-review-mcp.exe	2	169
+binlog-mcp.exe	2	166
+mcp-server-time.exe	2	150
+bash.exe sg-python.sh security_reminder_hook.py	2	142
+bash.exe	4	131
+conhost.exe 0x4	12	112
+claude.exe app.asar	1	110
+bash.exe session-lifecycle-hook.mjs SessionEnd	1	107
+git.exe status	2	75
+bash.exe # universal-modder-path	2	68

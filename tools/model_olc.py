@@ -65,7 +65,8 @@ def puan(o, rubrik):
 
 def kos(ad, t, ezme, gorev):
     istem = f"Delegate this task to the {ad} subagent with the Agent tool, then return its answer verbatim.\n\n{gorev}"
-    return dene(istem, ek(ad, t, ezme), model=ana_model(t["model"]), butce=1.5)
+    fm = [p.read_text(encoding="utf-8").split("---", 2)[1] for p in AJAN.glob(f"*/{ad}.md")]  # tools: → mcp_sec (OLCUM_MCP_HAFIF)
+    return dene(istem, ek(ad, t, ezme), model=ana_model(t["model"]), butce=1.5, mcp=fm)
 
 
 def ana(gorev, model):

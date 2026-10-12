@@ -203,6 +203,21 @@ def test_kos_env_tarayici_acmaz(monkeypatch):
     monkeypatch.setattr(kosucu, "supur", lambda ad: None)
     kosucu.kos("x")
     assert gorulen["env"]["BROWSER"] == "none"
+    assert gorulen["env"]["DISABLE_AUTOUPDATER"] == "1"  # MCP-HAFIF-2: eklenti güncelleme klonu (temp_git) yok
+    assert gorulen["env"]["CLAUDE_MEM_INTERNAL"] == "1"  # claude-mem SessionStart bağlamı yok
+
+
+def test_kos_mcp_hafif_bayrak_ve_strict_cagiran(monkeypatch):
+    gorulen = []
+    monkeypatch.setattr(kosucu, "calistir", lambda args, env, cwd, timeout: (gorulen.append(args), ("", 0, ""))[1])
+    monkeypatch.setattr(kosucu, "supur", lambda ad: None)
+    monkeypatch.setattr(kosucu.mcp_sec, "tanimlar", lambda yol=None: {"serena": {"command": "s"}, "blender": {}})
+    monkeypatch.setenv("OLCUM_MCP_HAFIF", "0")  # MCP-HAFIF-2: KABUL eşit → varsayılan açık, 0 = tam user MCP
+    kosucu.kos("mcp__blender__x")
+    monkeypatch.delenv("OLCUM_MCP_HAFIF", raising=False)
+    kosucu.kos("mcp__blender__x")
+    kosucu.kos("y", ek=["--strict-mcp-config"])
+    assert [a.count("--strict-mcp-config") for a in gorulen] == [0, 1, 1]
 
 
 def test_kos_profil_model_butce_ve_usd_tavani(tmp_path, monkeypatch):
