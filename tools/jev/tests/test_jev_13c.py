@@ -181,3 +181,21 @@ def test_istem_redakte_edilir(tmp_path):
 def test_python_m_jev_help():
     r = subprocess.run([sys.executable, "-m", "jev", "--help"], cwd=Path(__file__).parents[1], capture_output=True)
     assert r.returncode == 0 and b"skill" in r.stdout
+
+
+def test_2000_aday_asama1_60k_altinda_istege_bolunur():
+    aday = [(f"skill-{i:04d}", "uzun açıklama " * 12) for i in range(2000)]
+    g = Kayit(olas={"skill-1500": 0.9}, p={"skill-1500": 0.95})
+    ilk, sonuc = sk.yonlendir("fatura PDF'i oluştur", tas(g), BANT, aday)
+    s1 = [r for r in g.istekler if any(q["type"] == "choice" for q in r["questions"].values())]
+    assert len(s1) >= 2 and all(c.token(json.dumps(r["questions"], ensure_ascii=False)) < sk.ISTEK_TOKEN for r in s1)
+    assert sum(len(r["questions"]) for r in s1) == len(sk.dilimle(aday))
+    assert ilk[0] == "skill-1500" and sonuc[0]["ad"] == "skill-1500"
+
+
+def test_tavan1_asilirsa_ucretlenmeden_duser():
+    import pytest
+    g = Kayit()
+    with pytest.raises(c.JevHata):
+        sk.yonlendir("x", tas(g), BANT, [(f"s{i:04d}", "uzun açıklama " * 12) for i in range(2000)], tavan1=1)
+    assert g.istekler == []
