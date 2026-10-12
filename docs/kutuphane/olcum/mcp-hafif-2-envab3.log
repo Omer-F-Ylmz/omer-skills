@@ -1,0 +1,11 @@
+01:34:12 sırada: 1. · yuvalar -/-/-/-/-/-/-/- · RAM %96
+01:35:12 başladı (olcum.kilit): tools/olcum/env_ab.py docs/kutuphane/olcum/mcp-hafif-2-envab-d5c.tsv 1
+  git: ['rev-parse', 'version']
+once	88068	82785	78.3	2	0
+  git: ['?', 'Files\\Git\\mingw64\\bin\\git.exe"', 'remote-https']
+  klon: "C:\Program Files\Git\mingw64\bin\git.exe" fetch --force --update-head-ok https://github.com/oraios/serena +refs/heads/v 
+    <= uv.exe:"C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\uv.exe" tool uvx --f <= uvx.exe:uvx --from git+https://github.com/oraios/serena@v1.7.0 serena start-mc
+  klon: "C:\Program Files\Git\mingw64\bin\git.exe" fetch --force --update-head-ok https://github.com/oraios/serena +refs/tags/v1 
+    <= uv.exe:"C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\uv.exe" tool uvx --f <= uvx.exe:uvx --from git+https://github.com/oraios/serena@v1.7.0 serena start-mc
+sonra	90748	85465	68.1	5	2
+01:37:39 bitti rc 0
