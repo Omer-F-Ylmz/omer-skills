@@ -1,6 +1,6 @@
 """MCP-HAFIF-1: ölçüm `claude -p` oturumuna yalnız gereken MCP sunucuları (her oturum ~40 user MCP'yi başlatmasın).
 Gereken = verilen metinlerdeki (istem, --agents JSON'u, ajan `tools:` alanı, görev tanımı) mcp__<sunucu>__ önekleri;
-tanımlar ~/.claude.json mcpServers'tan salt-okunur kopyalanır, gereken yoksa boş config. Bayrak: OLCUM_MCP_HAFIF=1."""
+tanımlar ~/.claude.json mcpServers'tan salt-okunur kopyalanır, gereken yoksa boş config. Bayrak: OLCUM_MCP_HAFIF=0 kapatır."""
 import json
 import os
 import re
@@ -9,8 +9,8 @@ from pathlib import Path
 ONEK = re.compile(r"mcp__([A-Za-z0-9_.-]+?)(?:__|(?![A-Za-z0-9_.-]))")  # --allowedTools mcp__blender (araçsız) da
 
 
-def acik():
-    return os.environ.get("OLCUM_MCP_HAFIF") == "1"
+def acik():  # MCP-HAFIF-2: KABUL 12/12 eşit → varsayılan açık; OLCUM_MCP_HAFIF=0 tam user MCP
+    return os.environ.get("OLCUM_MCP_HAFIF") != "0"
 
 
 def gereken(*metinler):

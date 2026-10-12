@@ -209,9 +209,9 @@ def test_kos_mcp_hafif_bayrak_ve_strict_cagiran(monkeypatch):
     monkeypatch.setattr(kosucu, "calistir", lambda args, env, cwd, timeout: (gorulen.append(args), ("", 0, ""))[1])
     monkeypatch.setattr(kosucu, "supur", lambda ad: None)
     monkeypatch.setattr(kosucu.mcp_sec, "tanimlar", lambda yol=None: {"serena": {"command": "s"}, "blender": {}})
-    monkeypatch.delenv("OLCUM_MCP_HAFIF", raising=False)
+    monkeypatch.setenv("OLCUM_MCP_HAFIF", "0")  # MCP-HAFIF-2: KABUL eşit → varsayılan açık, 0 = tam user MCP
     kosucu.kos("mcp__blender__x")
-    monkeypatch.setenv("OLCUM_MCP_HAFIF", "1")
+    monkeypatch.delenv("OLCUM_MCP_HAFIF", raising=False)
     kosucu.kos("mcp__blender__x")
     kosucu.kos("y", ek=["--strict-mcp-config"])
     assert [a.count("--strict-mcp-config") for a in gorulen] == [0, 1, 1]

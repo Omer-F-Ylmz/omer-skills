@@ -84,10 +84,7 @@ class Ornekle(threading.Thread):
 
 
 def bayrak(kol):
-    if kol == "yeni":
-        os.environ["OLCUM_MCP_HAFIF"] = "1"
-    else:
-        os.environ.pop("OLCUM_MCP_HAFIF", None)
+    os.environ["OLCUM_MCP_HAFIF"] = "1" if kol == "yeni" else "0"
 
 
 def yaz(tsv, satir):

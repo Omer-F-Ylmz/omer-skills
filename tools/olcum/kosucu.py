@@ -174,7 +174,7 @@ def supur(ad):
 
 def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0, mcp=()):
     """Tek `claude -p`. ANTHROPIC_BASE_URL (headroom vekili) alt süreçte kaldırılır — araçları gizliyor. Boş cwd yoksa geçici boş klasör.
-    BROWSER=none: Remotion/Vite vb. tarayıcı/pencere açmaz. OLCUM_MCP_HAFIF=1: yalnız istem/ek/mcp metinlerindeki mcp__<sunucu>__."""
+    BROWSER=none: Remotion/Vite vb. tarayıcı/pencere açmaz. mcp_sec (varsayılan; OLCUM_MCP_HAFIF=0 kapatır): yalnız istem/ek/mcp metinlerindeki mcp__<sunucu>__."""
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
     env["BROWSER"] = "none"
     args = ["claude", "-p", istem, *ROTA, "--max-budget-usd", f"{butce:.2f}", *([] if not model else ["--model", model]), *ek]
