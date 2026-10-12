@@ -1,0 +1,22 @@
+[
+{"id":"S41","dep":"backend-dotnet","istem":"Çözümdeki 15 projede NuGet paket sürümleri dağınık; hepsini tek dosyadan yönetilecek hale getir.","beklenen":["convert-to-cpm","dn-nuget-yonetici","dn-csproj-sadelestir"]},
+{"id":"S42","dep":"guvenlik","istem":"Bu oturumda rm -rf, DROP TABLE, force-push gibi yıkıcı komutlardan önce beni uyaran bir koruma aç.","beklenen":["careful","guard"]},
+{"id":"S43","dep":"frontend","istem":"Add draggable 2D boxes with gravity and collisions to our landing page.","beklenen":["matterjs"]},
+{"id":"S44","dep":"surec-git-yayin","istem":"Kendi 3 VPS'imden oluşan küçük kümeye docker servislerimi dağıt ve Caddy ile ingress kur.","beklenen":["uncloud"]},
+{"id":"S45","dep":"arastirma-ogrenme","istem":"Our support chatbot should notice when a user is getting angry from their messages (caps, repeated !!!).","beklenen":["frustration-detection"]},
+{"id":"S46","dep":"frontend","istem":"Portfolyo ana başlığında kelimeler sırayla, kademeli belirsin.","beklenen":["staggered-word-reveal"]},
+{"id":"S47","dep":"belge","istem":"Design an exit-intent modal to capture emails before visitors leave.","beklenen":["popups"]},
+{"id":"S48","dep":"backend-dotnet","istem":"Frontend ve backend ekipleri paralel çalışıyor; API şemasını iki tarafı kırmadan evriltecek süreci kur.","beklenen":["contract-first"]},
+{"id":"S49","dep":"guvenlik","istem":"Kod tabanımızdaki tehlikeli eval kullanımını yakalayan özel bir statik analiz kuralı yaz.","beklenen":["opengrep-rule-generator"]},
+{"id":"S50","dep":"frontend","istem":"Bu blog sayfasının HTML'inden reklamsız, temiz Markdown çıkar.","beklenen":["defuddle"]},
+{"id":"S51","dep":"surec-plan","istem":"We ran an open card sorting study with 30 users; turn the results into a navigation grouping.","beklenen":["card-sort-analysis"]},
+{"id":"S52","dep":"belge","istem":"Melek yatırımcılara ve VC'lere gönderilecek ilk temas e-postalarını hazırla.","beklenen":["investor-outreach"]},
+{"id":"S53","dep":"belge","istem":"Hollow Knight'ı modlayabilir miyim, hangi motorla yapılmış, modcular nasıl yapıyor?","beklenen":["game-recon"]},
+{"id":"S54","dep":"backend-dotnet","istem":"Kaynak üreteçten gelen tip derlemede bulunamıyor (CS0246); üretilen dosyalar derlemeye girmiyor.","beklenen":["including-generated-files"]},
+{"id":"S55","dep":"backend-dotnet","istem":"dotnet build'in neden yanlış davrandığını incelemek için ikili derleme günlüğü üret.","beklenen":["binlog-generation","binlog-failure-analysis"]},
+{"id":"S56","dep":"arastirma-ogrenme","istem":"Tam cevaplayamadığım bir kararı, başkasının dolduracağı bir soru formuna dönüştür.","beklenen":["to-questionnaire"]},
+{"id":"S57","dep":"test-qa","istem":"dotnet testlerimi her değişiklikte yeniden başlatmadan sıcak yeniden yükleme ile koşmak istiyorum.","beklenen":["mtp-hot-reload"]},
+{"id":"S58","dep":"surec-ajan-arac","istem":"Ajanımız tedarikçilere e-posta taslağı yazsın ama gönderilmeden önce bir insan onaylasın; bu akışı kur.","beklenen":["operator-approval-loop"]},
+{"id":"S59","dep":"arastirma-ogrenme","istem":"Bu 1 saatlik podcast videosunu otomatik olarak kısa kliplere kes.","beklenen":["autoclip-paket","vid-kisa-klip-secici"]},
+{"id":"S60","dep":"arastirma-ogrenme","istem":"İki ekip lideri arasındaki sürtüşmeyi çözmek için bir görüşme planı hazırla.","beklenen":["conflict-resolution"]}
+]
