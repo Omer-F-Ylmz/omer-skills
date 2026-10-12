@@ -27,6 +27,7 @@ MODEL, BUTCE, TAVAN_USD = "sonnet", 0.5, 7.5  # Σ$8: tavan aşılınca yeni ko�
 IZIN = ["--allowedTools", "Bash", "Read", "Write", "Edit", "Glob", "Grep", "Skill"]
 BASLIK = "gorev\tyol\ttekrar\tinput\tcache_creation\tcache_read\toutput\ttoplam\ttur\tsure_sn\tusd\tkalite\tkalan\tskill\thata"
 PENCERE = " Pencere/tarayıcı açma (start, os.startfile yok); her şey arka planda."
+YONLENDIR = "Animasyon/efekt işinde (giriş, scroll, sayfa geçişi, parçacık, 3D exploded, intro video) önce `animasyon-atolyesi` skill'i: tarifi kopyala-uyarla, olc.py ile ölç.\n"
 
 GOREV = {
     "w1": ("index.html", "TELVE kahve markası için tek dosya landing yaz: {d}\\index.html. Hero (başlık 'Telve', alt başlık, CTA) kademeli "
@@ -69,6 +70,8 @@ def kos_bir(g, yol, t):
     d.mkdir(parents=True)
     if yol == "yeni":
         shutil.copytree(SKILL, d / ".claude" / "skills" / "animasyon-atolyesi", ignore=shutil.ignore_patterns("__pycache__"))
+        # skill listesi bütçesinde açıklama düşüyor (yalnız ad görünür, yeni0 koşusu skill'i hiç çağırmadı) → yönlendirme satırı
+        (d / "CLAUDE.md").write_text(YONLENDIR, encoding="utf-8")
     o = kosucu.kos(GOREV[g][1].format(d=d) + PENCERE, ek=IZIN, cwd=str(d), model=MODEL, timeout=1500, butce=BUTCE)
     k, m = kalite(g, d, o)
     (d / "sonuc.json").write_text(json.dumps({"o": {x: o.get(x) for x in ("metin", "araclar", "usage", "tur", "usd", "sure", "rc", "hata")},
