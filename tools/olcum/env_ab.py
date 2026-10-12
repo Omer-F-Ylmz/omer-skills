@@ -10,7 +10,17 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from mcp_hafif_kabul import anlik, torunlar  # noqa: E402
+from mcp_hafif_kabul import torunlar  # noqa: E402
+
+
+def anlik():
+    """{pid: (ppid, ad, komut)} — git'in repo tespiti ile eklenti klonunu (clone/temp_git) ayırmak için komut satırı da."""
+    ps = ("Get-CimInstance Win32_Process | ForEach-Object { \"$($_.ProcessId)`t$($_.ParentProcessId)`t$($_.Name)`t"
+          "$($_.CommandLine -replace '\\s+',' ')\" }")
+    r = subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, text=True,
+                       encoding="utf-8", errors="replace", creationflags=0x08000000, timeout=60)
+    return {int(p[0]): (int(p[1]), p[2], p[3]) for p in (s.split("\t", 3) for s in r.stdout.splitlines())
+            if len(p) == 4 and p[0].isdigit() and p[1].isdigit()}
 
 # $0.50 tavanı ilk turda aşılıyordu (tek "tamam" ≈ $0.66 → error_max_budget_usd, usage sıfır): d4 ölçümü geçersizdi
 BUTCE = "2.00"
@@ -31,7 +41,7 @@ def kos(ek_env):
     env = {k: v for k, v in os.environ.items()
            if k not in ("ANTHROPIC_BASE_URL", "ANTHROPIC_API_KEY", "DISABLE_AUTOUPDATER", "CLAUDE_MEM_INTERNAL")}
     env.update(ek_env, BROWSER="none")
-    git = set()
+    git, klon, kom = set(), set(), {}
     with tempfile.TemporaryDirectory(prefix="envab-", ignore_cleanup_errors=True) as bos:
         t = time.time()
         p = subprocess.Popen(["claude", "-p", "Sadece 'tamam' yaz.", "--output-format", "json", "--max-budget-usd", BUTCE],
@@ -39,16 +49,21 @@ def kos(ek_env):
                              encoding="utf-8", creationflags=0x08000000)
         while p.poll() is None and time.time() - t < 300:
             d = anlik()
-            git |= {q for q in torunlar(d, p.pid) if d[q][1].lower() == "git.exe"}
+            yeni = {q for q in torunlar(d, p.pid) if d[q][1].lower() == "git.exe"}
+            git |= yeni
+            kom.update({q: d[q][2] for q in yeni})
+            klon |= {q for q in yeni if "clone" in d[q][2] or "temp_" in d[q][2] or "fetch" in d[q][2] or "pull" in d[q][2]}
             time.sleep(1)
         out = p.communicate(timeout=60)[0]
         sure = time.time() - t
-    return (*sonuc(out), round(sure, 1), len(git))
+    print("  git:", sorted({k.split(" ", 2)[1][:40] if " " in k else "?" for k in kom.values()}), flush=True)
+    return (*sonuc(out), round(sure, 1), len(git), len(klon))
 
 
 if __name__ == "__main__":
-    satir = ["kol\tgirdi_jeton\tcache_yazma\tsure_sn\tgit_surec"]
-    for ad, e in (("once", {}), ("sonra", {"DISABLE_AUTOUPDATER": "1", "CLAUDE_MEM_INTERNAL": "1"})) * 2:
+    satir = ["kol\tgirdi_jeton\tcache_yazma\tsure_sn\tgit_surec\tgit_klon"]
+    tekrar = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+    for ad, e in (("once", {}), ("sonra", {"DISABLE_AUTOUPDATER": "1", "CLAUDE_MEM_INTERNAL": "1"})) * tekrar:
         satir.append("\t".join(map(str, (ad, *kos(e)))))
         print(satir[-1], flush=True)
     Path(sys.argv[1]).write_text("\n".join(satir) + "\n", encoding="utf-8")
