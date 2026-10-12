@@ -15,7 +15,7 @@ KOK = DIZIN.parents[1]
 def oku(d):
     L = (d / "olcum.tsv").read_text(encoding="utf-8").splitlines()
     b = L[0].split("\t")
-    return [dict(zip(b, s.split("\t"))) for s in L[1:] if s.strip()]
+    return [r for r in (dict(zip(b, s.split("\t"))) for s in L[1:] if s.strip()) if r["output"] != "0"]  # out 0 = limit satırı
 
 
 def tohumla(kaynak, d):
@@ -102,8 +102,21 @@ def main(argv=None):
         f = lambda x: "-" if not x else f"r{x['regex']:.2f} j{x.get('jev', 0):.2f} out{x['out']:.0f} ${x['usd']:.4f} n{x['n']}"  # noqa: E731
         print(f"{aile}\t{model}\t{k}\ttaban {f(ta)}\tproto {f(pr)}")
     if "--yaz" in argv:  # onay/fable_ajan_uygula.py girdisi
-        (KOK / "docs" / "kutuphane" / "olcum" / "fable-ajan-karar.tsv").write_text(
-            "aile\tmodel\tkarar\n" + "".join(f"{a}\t{m}\t{k}\n" for a, m, k, *_ in kararlar if a != "*"), encoding="utf-8")
+        ad = argv[argv.index("--ad") + 1] if "--ad" in argv else "calisma-protokolu"
+        yaz(KOK / "docs" / "kutuphane" / "olcum" / "fable-ajan-karar.tsv", [(a, m, k) for a, m, k, *_ in kararlar if a != "*"], ad)
+
+
+def yaz(yol, kararlar, ad):
+    """Birleştirir (her ölçüm dizini ayrı --yaz): yeni KABUL üstüne yazar (yansıtma turu = daha kısa sürüm), RET eski KABUL'ü silmez."""
+    eski = {}
+    if yol.exists():
+        for s in yol.read_text(encoding="utf-8").splitlines()[1:]:
+            c = s.split("\t")
+            eski[(c[0], c[1])] = (c[2], c[3] if len(c) > 3 else "calisma-protokolu")
+    for a, m, k in kararlar:
+        if k == "KABUL" or eski.get((a, m), ("",))[0] != "KABUL":
+            eski[(a, m)] = (k, ad)
+    yol.write_text("aile\tmodel\tkarar\tprotokol\n" + "".join(f"{a}\t{m}\t{k}\t{p}\n" for (a, m), (k, p) in sorted(eski.items())), encoding="utf-8")
 
 
 if __name__ == "__main__":

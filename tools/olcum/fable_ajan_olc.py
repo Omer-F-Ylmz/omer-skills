@@ -111,6 +111,11 @@ def kos_ajan(istem, ad, alan, govde, model, butce=0.6, timeout=600):
     return o
 
 
+def yapilanlar(tsv):
+    """(ajan, kol, tekrar) kümesi; out 0 satırı (plan/oturum limiti, rc yine 0) yapılmamış sayılır → yeniden koşulur."""
+    return {(c[0], c[3], c[4]) for c in (s.split("\t") for s in tsv.read_text(encoding="utf-8").splitlines()[1:] if s.strip()) if c[8] != "0"}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("cikti")
@@ -140,7 +145,11 @@ def main(argv=None):
     tsv = cikti / "olcum.tsv"
     yapildi = set()
     if tsv.exists():
-        yapildi = {tuple(s.split("\t")[i] for i in (0, 3, 4)) for s in tsv.read_text(encoding="utf-8").splitlines()[1:]}
+        yapildi = yapilanlar(tsv)
+        jy = cikti / "jev.json"  # limit metnine verilmiş eski Jev puanı yeniden koşuda kalmasın
+        if jy.exists():
+            jp = json.loads(jy.read_text(encoding="utf-8"))
+            jy.write_text(json.dumps({k: v for k, v in jp.items() if tuple(k.split("__")) in yapildi}, ensure_ascii=False, indent=0), encoding="utf-8")
     else:
         tsv.write_text(BASLIK, encoding="utf-8")
     proto = protokol_govde(ns.protokol)

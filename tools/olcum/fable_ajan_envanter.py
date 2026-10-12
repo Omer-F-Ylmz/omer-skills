@@ -28,9 +28,19 @@ def aile(ad):
     return on if 2 <= len(on) <= 4 and on.isalpha() and on.islower() else "diger"
 
 
+def plugin_kimlik(yol, ad, cache=EV / "plugins" / "cache"):
+    """cache/<pazar>/<plugin>/<sürüm>/agents/[alt/]x.md → 'plugin:alt:ad' (SubagentStart agent_type ile aynı); skill içi ajan → None."""
+    p = yol.relative_to(cache).parts
+    if "skills" in p or "agents" not in p:
+        return None
+    i = p.index("agents")
+    return ":".join([p[1], *p[i + 1:-1], ad])
+
+
 def ajan_satirlari():
     kaynaklar = [("cc-kullanici", EV / "agents", "*.md"), ("repo-claude", KOK / ".claude" / "agents", "*.md"),
-                 ("repo-ajanlar", KOK / "ajanlar", "**/*.md"), ("plugin", EV / "plugins" / "cache", "**/agents/*.md")]
+                 ("repo-ajanlar", KOK / "ajanlar", "**/*.md"), ("plugin", EV / "plugins" / "cache", "**/agents/**/*.md"),
+                 ("skill", EV / "skills", "**/agents/*.md")]
     for kaynak, kok, desen in kaynaklar:
         if not kok.is_dir():
             continue
@@ -39,6 +49,9 @@ def ajan_satirlari():
                 continue
             metin = yol.read_text(encoding="utf-8", errors="replace")
             ad, model = on_bilgi(metin)
+            if kaynak == "plugin" and ad:
+                kimlik = plugin_kimlik(yol, ad)
+                kaynak, ad = ("plugin", kimlik) if kimlik else ("skill", ad)
             if not ad:
                 continue
             onsoz = ",".join(i.split(":")[0] for i in ISARETLER if i in metin) or "-"
