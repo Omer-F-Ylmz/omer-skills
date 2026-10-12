@@ -1,6 +1,7 @@
 """TASARIM-1 (4) kanıt: aynı brief'le taban (main frontend-craft) vs yeni (kol/tasarim frontend-craft) tek sayfa üretimi.
     python tools/tasarim/kanit.py <cikti_dizini> [--kuru]
-2 brief × 2 kol × 2 tekrar = 8 claude -p (≤16), her çağrı --max-budget-usd 1, toplam $7'yi geçerse durur (Σ$8 tavanı).
+2 brief × 2 kol × 2 tekrar = 8 claude -p; `--kol ciplak` skill'siz 4 çağrı daha (dedektör gerçek AI çıktısını ayırıyor mu; 12 ≤16).
+Her çağrı --max-budget-usd 1; ana koşu toplam $7'yi geçerse durur, çıplak koşu en çok $4 (gerçekleşen Σ < $8).
 Puan: slop.mjs bayrak sayısı (aynı denetçi iki kola) + audit.mjs sonucu + sayfa baytı + usd/tur/jeton → <cikti>/kanit.tsv.
 """
 import json
@@ -16,10 +17,13 @@ KOLLAR = {"taban": pathlib.Path(r"C:\Projeler\omer-skills\plugins\frontend-craft
 BRIEF = {"landing": "El yapımı kahve öğütücü markası 'Telve Atölye' için ürün landing sayfası: hero, 3 özellik, fiyat, SSS, footer.",
          "portfolyo": "Bağımsız mimar 'Deniz Kaya' için portfolyo sayfası: 6 proje, hakkında, iletişim."}
 TAVAN = 7.0
-PORT = 3917
+PORT = 3918 if "ciplak" in sys.argv else 3917  # iki koşu olcum_sira'da paralel düşebilir
 
 
 def sistem(kol):
+    if kol == "ciplak":
+        return (f"Etkileşimsiz koşu. Çalışma dizininde index.html yaz (CSS/JS satır içi, harici görsel yok); sayfa http://localhost:{PORT}/ "
+                "adresinde sunuluyor. Son mesajın tek satır özet.")
     d = KOLLAR[kol]
     skill = (d / "SKILL.md").read_text(encoding="utf-8").replace("${CLAUDE_SKILL_DIR}", d.as_posix())
     return ("frontend-craft skill'ini uygularsın; içeriği aşağıda. Etkileşimsiz koşu: DUR adımlarında kendin seç ve sürdür, "
@@ -59,9 +63,10 @@ def kos(kol, brief, tekrar, kok):
 
 def main(argv):
     kok = pathlib.Path(argv[0]).resolve()
-    plan = [(k, b, t) for t in (1, 2) for b in BRIEF for k in KOLLAR]
+    kollar = ["ciplak"] if "ciplak" in argv else list(KOLLAR)
+    plan = [(k, b, t) for t in (1, 2) for b in BRIEF for k in kollar]
     if "--kuru" in argv:
-        print(len(plan), "çağrı:", plan, "\nsistem uzunluğu:", {k: len(sistem(k)) for k in KOLLAR})
+        print(len(plan), "çağrı:", plan, "\nsistem uzunluğu:", {k: len(sistem(k)) for k in kollar})
         return 0
     kok.mkdir(parents=True, exist_ok=True)
     tsv, toplam = kok / "kanit.tsv", 0.0
