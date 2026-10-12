@@ -40,3 +40,11 @@ def test_ocr_det_bayrak(monkeypatch, tmp_path):
     monkeypatch.setenv("VIDEO_OCR_DET", "1280")
     p = _params(monkeypatch, tmp_path)
     assert p["Det.limit_type"] == "max" and p["Det.limit_side_len"] == 1280 and gz.ocr_det() == 1280
+
+
+def test_ocr_cls_bayrak(monkeypatch, tmp_path):
+    """VIDEO_OCR_CLS=0 → yön sınıflayıcı kapalı (ekran metni hep yatay; HYMD 60 kare −28% süre, cls 180° çevirip çöp okuyordu); bayraksız RapidOCR varsayılanı."""
+    monkeypatch.delenv("VIDEO_OCR_CLS", raising=False)
+    assert "Global.use_cls" not in _params(monkeypatch, tmp_path) and gz.ocr_cls0() is False
+    monkeypatch.setenv("VIDEO_OCR_CLS", "0")
+    assert _params(monkeypatch, tmp_path)["Global.use_cls"] is False and gz.ocr_cls0() is True

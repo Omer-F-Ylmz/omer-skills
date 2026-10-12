@@ -821,7 +821,7 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     g, f = d / "goz", gz.fps(sure)
     kd, oj = g / "kareler", g / "ocr.json"
     anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ, **({"hiz2": h} if (h := _hiz2(sure)) else {}),
-               **({"det": k} if (k := gz.ocr_det()) else {})}
+               **({"det": k} if (k := gz.ocr_det()) else {}), **({"cls": 0} if gz.ocr_cls0() else {})}
     on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
     if on.get("anahtar") != anahtar:
         shutil.rmtree(g, ignore_errors=True)

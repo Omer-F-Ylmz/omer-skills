@@ -387,6 +387,12 @@ def ocr_det():
     return int(os.environ.get("VIDEO_OCR_DET") or 0)
 
 
+def ocr_cls0():
+    """VİDEO-14-devam-3: env VIDEO_OCR_CLS=0 → yön sınıflayıcı (cls) kapalı; ekran metni yatay, HYMD 60 kare 528→381 ms/kare, metin kaybı yok."""
+    import os
+    return os.environ.get("VIDEO_OCR_CLS") == "0"
+
+
 def rapid_yukle(cihaz=None):
     """Gerçek RapidOCR (det/cls PP-OCR mobile + Latin PP-OCRv5 rec, yerel model, ağ yok) → yol → [(metin, skor, üst y)].
     Import/model hatası yükselir: cli._ocr Windows OCR'a düşer. ponytail: ı → i okunur (Latin sözlüğü); eşleşme norm'la."""
@@ -403,7 +409,8 @@ def rapid_yukle(cihaz=None):
                            "Det.ocr_version": OCRVersion.PPOCRV5, "Det.lang_type": LangDet.CH, "Det.model_type": ModelType.MOBILE,
                            "Cls.ocr_version": OCRVersion.PPOCRV4, "Cls.lang_type": LangCls.CH, "Cls.model_type": ModelType.MOBILE,
                            "Rec.ocr_version": OCRVersion.PPOCRV5, "Rec.lang_type": LangRec.LATIN, "Rec.model_type": ModelType.MOBILE,
-                           **({"Det.limit_type": "max", "Det.limit_side_len": d} if (d := ocr_det()) else {})})
+                           **({"Det.limit_type": "max", "Det.limit_side_len": d} if (d := ocr_det()) else {}),
+                           **({"Global.use_cls": False} if ocr_cls0() else {})})
 
     def oku(yol):
         r = ocr(str(yol))
