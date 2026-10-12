@@ -162,6 +162,11 @@ def ozet(satir):
         gurultu = ort(fark)
         esit = None if None in k.values() or gurultu is None else abs(k["yeni"] - k["eski"]) <= gurultu
         print(f"{m}\teski {k['eski']}\tyeni {k['yeni']}\tgürültü {gurultu}\t{'eşit' if esit else 'FARK' if esit is False else '-'}")
+    # karar uyuşması (d3, sonuçtan önce yazıldı): ajan·kol ortalama rubrik puanı ≥5 = geçti; eski↔yeni aynı karar ≥10/12 → eşit
+    gecti = {(s["ajan"], s["kol"]): ort(a["puan"] for a in satir if (a["ajan"], a["kol"]) == (s["ajan"], s["kol"])) for s in satir}
+    ajanlar = {a for a, _ in gecti}
+    uy = sum(((gecti.get((a, "eski")) or 0) >= 5) == ((gecti.get((a, "yeni")) or 0) >= 5) for a in ajanlar)
+    print(f"karar uyuşması {uy}/{len(ajanlar)}\t{'eşit' if uy >= len(ajanlar) - 2 else 'FARK'}")
     hata = Counter(s["kol"] for s in satir if s["puan"] == "hata")
     print("hata", dict(hata), "satır", Counter(s["kol"] for s in satir))
 
