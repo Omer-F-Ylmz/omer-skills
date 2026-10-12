@@ -189,3 +189,18 @@ def test_karar_bekleyeni_silmez_arsive_tasir(tmp_path):
     a = b / "arsiv" / "sor-x.md"
     assert rc == 0 and not (b / "sor-x.md").exists() and a.is_file()
     assert a.read_text(encoding="utf-8").startswith("# SOR x\n") and "RED (Ömer)" in a.read_text(encoding="utf-8")
+
+
+def test_hafif_fable_protokol_oneki_yalniz_bayrakla_ve_haiku_disi():
+    goren = []
+
+    def kos(args, girdi, env, timeout):
+        goren.append(args[args.index("--system-prompt") + 1])
+        son = {"type": "result", "is_error": False, "structured_output": {}, "total_cost_usd": 0, "usage": {}}
+        return subprocess.CompletedProcess(args, 0, json.dumps(son) + "\n", "")
+
+    hafif.cagir("SIS", "m", {}, env={}, kos=kos)
+    hafif.cagir("SIS", "m", {}, env={"VIDEO_FABLE_PROTOKOL": "1"}, kos=kos)
+    hafif.cagir("SIS", "m", {}, model="claude-haiku-5-5", env={"VIDEO_FABLE_PROTOKOL": "1"}, kos=kos)
+    assert goren[0] == "SIS" and goren[2] == "SIS"
+    assert goren[1].startswith(hafif.FABLE_PROTOKOL) and goren[1].endswith("\n\nSIS")

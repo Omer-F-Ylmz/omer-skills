@@ -19,6 +19,16 @@ GORSEL = True  # kareler stream-json image bloğuyla gider; False → rapora "me
 A1 = ["--tools", "", "--setting-sources", "", "--strict-mcp-config", "--safe-mode", "--disable-slash-commands", "--no-session-persistence",
       "--input-format", "stream-json", "--output-format", "stream-json", "--verbose"]
 USAGE_YOL = Path(__file__).resolve().parents[3] / "olcum" / "motor-usage.jsonl"  # TOKEN-1: --no-session-persistence → jsonl'de yok
+# FABLE-VIDEO: FABLE-1 kısa protokolü (skills/calisma-protokolu, Sonnet KABUL / Haiku RET) — VIDEO_FABLE_PROTOKOL=1 ile sistem önüne önek
+FABLE_PROTOKOL = """# Work protocol
+
+1. **Cheapest discovery.** If everything needed is in the prompt, answer directly — no tool calls. Otherwise do the narrowest lookup first; never explore "just in case".
+2. **Defaults over questions.** On ambiguity pick the sensible default, state it in one line, continue. Ask only when a wrong guess is costly or irreversible.
+3. **Smallest thing that works.** Existing helpers, standard library, platform features; no speculative options, layers or configuration.
+4. **Run code only when needed.** Execute only if the task asks for proof or the behavior is genuinely uncertain — one run, no repeat loop.
+5. **Cover every item the task names, nothing more.** Before answering, tick off each item the prompt asks for; don't draft the answer twice.
+6. **Result first, short.** No preamble, no restating the request, no recap, no closing summary or follow-up offers.
+7. **Judgments are decisive.** Verdict or ordered plan first, then 2–4 reasons; don't list options you won't recommend."""
 
 
 def _usage_yaz(args, stdout):
@@ -48,6 +58,8 @@ def _kos(args, girdi, env, timeout):
 def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, araclar, efor=None):
     """→ {form, usage, usd, sure, hata}; hata varsa form None."""
     env = {k: v for k, v in (os.environ if env is None else env).items() if k != "ANTHROPIC_BASE_URL"}
+    if env.get("VIDEO_FABLE_PROTOKOL") == "1" and "haiku" not in model:
+        sistem = FABLE_PROTOKOL + "\n\n" + sistem
     icerik = [{"type": "text", "text": metin}] + [{"type": "image", "source": {"type": "base64", "media_type": mimetypes.guess_type(k)[0] or "image/jpeg",
                                                                                 "data": base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
     girdi = json.dumps({"type": "user", "message": {"role": "user", "content": icerik}}, ensure_ascii=False) + "\n"
