@@ -1,0 +1,257 @@
+ad	video	sinif	tur	link	ne	ornek_video
+shadcn/ui	31	bilesen	teknik		Temel bileşenler için önerilen UI kütüphanesi	5eBlDBD0nho
+Google	8	bilesen	teknik		21st.dev'i bulmak için yapılan web arama servisi.	88zWBJ8L4y8
+Radix UI	8	bilesen	teknik		Bileşen belgelerinde seçenek olarak görünen kütüphane.	DMvFXKg0r50
+React Bits	5	bilesen	iş akışı	http://github.com/DavidHDev/react-bits	Animasyonlu bileşen kütüphanesi (reactbits.dev)	_SVU3oC4JX8
+21st Dev MCP	4	bilesen	MCP	https://github.com/21st-dev/magic-mcp	Uygulama ve web siteleri için 10 binden fazla UI bileşeni ve şablon sunar.	OLsE1GReCBs
+GLSL	3	bilesen	teknik		Gölgelendirici (shader) dili; 21st.dev shader hero bileşeninde	DMvFXKg0r50
+Motion Primitives	3	bilesen	plugin		Kopyala-yapıştır hazır animasyon bileşenleri	ig-DdcLYmex8_9
+shadcn CLI	3	bilesen	CLI		Skiper UI bileşenlerini kaynak kod olarak projeye kopyalayan kurulum aracı.	ig-DdIELTZD2Uw
+Aceternity UI	3	bilesen	plugin		Landing page için 200+ animasyonlu React bileşeni.	ig-Dd86Z4wlKw4
+pnpm	2	bilesen	CLI		Paket yöneticisi; shadcn komutu 'pnpm dlx' ile çalıştırılıyor.	ig-Dc99nLNoD6Y
+Lucide React	2	bilesen	teknik		İkon kütüphanesi, kuruluyor.	ig-DVQd446DxqG
+Magic UI	2	bilesen	iş akışı		150+ ücretsiz animasyonlu bileşen.	ig-DeT8XphH4jq
+Uiverse	2	bilesen	iş akışı		Topluluk yapımı kopyalanabilir UI elemanları.	ig-DeT8XphH4jq
+lucide-icons/lucide	2	bilesen	repo	https://github.com/lucide-icons/lucide		DMvFXKg0r50
+Tailwind CSS	82	css/cati	teknik		Deneme uygulamasının stil çatısı.	3AzJh3YXfh8
+React	77	css/cati	teknik	https://github.com/facebook/react	design-html'in algıladığı çerçeve	2K1Ps-l4yxk
+CSS	40	css/cati	teknik		Cam efektleri, düzen ve tipografi için style.css; kök değişkenler (--glass-bg vb.).	1CSh8tBR1oc
+Next.js	14	css/cati	teknik		Site çatısı (Next.js 16, App Router, TypeScript)	DO45w8HX6nA
+Vite	8	css/cati	teknik		Frontend derleme/geliştirme aracı; Whispr tarafından 'byte' diye yanlış yazıldı.	EIoPt1ry6ng
+Tailwind	7	css/cati	teknik		Superdesign çıktısında kullanılan CSS çatısı	ig-DatZTo9ybM4
+Vue	6	css/cati	teknik		design-html'in algıladığı çerçeve	2K1Ps-l4yxk
+Frontend Developer	6	css/cati	skill		Engineering Division'daki ajan: React/Vue/Angular, UI uygulama, performans.	ig-DaF5vSIsLQU
+Tailwind v4	6	css/cati	teknik		Tasarım sisteminin Tailwind v4 çıktı sekmesi.	NAumQObJEwM
+CSS Variables	5	css/cati	teknik		Tasarım tokenlarının CSS değişkeni çıktısı sekmesi.	NAumQObJEwM
+CSS Modules	3	css/cati	teknik		Örnek kararda dışlanan stil yaklaşımı.	N3zTn2Q1spI
+Flexbox	3	css/cati	teknik		Basit satır/sütun düzenleri için seçilen kapsayıcı türü (CSS Flexbox).	_wzdGCRCP8s
+React 18	3	css/cati	teknik		Web Artifacts Builder'ın sunduğu arayüz kütüphanesi.	ig-DdO6-1QkjR-
+Custom CSS	3	css/cati	teknik		Elementor Advanced sekmesindeki özel CSS alanı; paralaks hareketi için kullanıldı.	UBxWEWZ6UYM
+HTML/CSS/JavaScript	2	css/cati	teknik		Oyunun tek dosya halinde yazıldığı web teknolojileri.	0i65C2vzjpw
+Svelte	2	css/cati	teknik		design-html'in algıladığı çerçeve	2K1Ps-l4yxk
+Screenshot to Code	2	css/cati	CLI	https://github.com/abi/screenshot-to-code	Ekran görüntüsünü HTML/Tailwind/React/Vue koduna çeviren açık kaynaklı araç	6H9luwL3lFo
+CSS değişkenleri	2	css/cati	teknik		Renk ve font için özel CSS özellikleri.	WEMlzWMFc3k
+JS	2	css/cati	teknik		Web sitesi hero ve kaydırma animasyonlarında CSS ile birlikte kullanılan betik dili.	ig-DV_JBKIiGjB
+CSS Grid	2	css/cati	teknik		Dört kolonlu, tek satırlı müşteri logosu ızgarası için Grid layout.	ZMFty0XE9L4
+Elementor HTML widget	2	css/cati	teknik		Galeri HTML kodunu ve ayrıca CSS/JavaScript kodunu sayfaya eklemek için kullanılan widget.	Osnd1m7Jxg4
+Superdesign	2	css/cati	skill	superdesigndev/superdesign	Claude'a tasarım tuvali verir, birkaç yön çıkarır, React ve Tailwind üretir	ig-DatZTo9ybM4
+HTML widget	2	css/cati	teknik		CSS ve JavaScript kodunu sayfaya eklemek için kullanılan Elementor widget'ı.	Zl-MS9TY8_w
+DavidHDev/react-bits	2	css/cati	repo	https://github.com/DavidHDev/react-bits		ig-Da3O00jpo3R
+Inter	46	font	teknik		Arayüz fontu	3ziCXSiZcTc
+Google Fonts	22	font	teknik		Inter'a bağımlı kalmamak için font seçip Claude Code'a söylemek; Claude'a font önerisi de yaptırılabilir.	7FU98O0JLHs
+DM Sans	20	font	teknik		Üretilen koddaki font ailesi	3j92MHKR7RA
+Outfit	12	font	teknik		Nexora tasarım sisteminde başlık fontu olarak gösterilen font	1CSh8tBR1oc
+Poppins	12	font	teknik		Kapak başlıklarında kullanılan font görünümü (tahmin).	ApriQQWMuTw
+JetBrains Mono	11	font	teknik		Marka kılavuzundaki ikinci font ailesi.	64B3Qr0VmX4
+Geist	10	font	teknik		Varsayılan paletin yazı tipi	6Ij9-f2T2Ck
+Montserrat	10	font	teknik		Font Joy ekranında gösterilen font eşleşmesi	3j92MHKR7RA
+Playfair Display	10	font	teknik		Başlık vurgusunda kullanılan italik serif font	0myoSPfSL2c
+Instrument Serif	9	font	teknik		Background Paths sayfasında başlık için kullanılan serif font.	C1yAkQ9Y2BI
+Satoshi	6	font	teknik		Fontshare'de gösterilen font	3ziCXSiZcTc
+Fraunces	5	font	teknik		Editorial tasarımında kullanılan serif font.	EIoPt1ry6ng
+Space Grotesk	5	font	teknik		Tasarım sisteminde görüntüleme (display) fontu.	OuEYbtG5ZFY
+Clash Display	4	font	teknik		Fontshare'de gösterilen font	EIoPt1ry6ng
+Sora	4	font	teknik		Başlık yazı tipi (Google Fonts)	EIoPt1ry6ng
+Fontshare	3	font	iş akışı		Ücretsiz font kaynağı	VwGrXe2ricE
+General Sans	3	font	teknik		Fontshare'de gösterilen sans-serif font ailesi	_SVU3oC4JX8
+IBM Plex Mono	3	font	teknik		Mono font; terminal tarzı widget'ta kullanıldı.	3ziCXSiZcTc
+Cabinet Grotesk	3	font	teknik		Sans font; mood board tipografi örneklerinde görüldü.	8NSyI-npJCU
+@remotion/google-fonts	2	font	teknik		Inter fontunu yükleyen paket	6_rCyryA6hg
+Oswald	2	font	teknik		Site yazı tipi (Google Fonts)	9afZFAUuQnc
+Inter Tight	2	font	teknik		Tasarım sisteminde arayüz (interface) metinleri için font.	misjUj4Q_ho
+Work Sans	2	font	teknik		Gövde/UI fontu (Google Fonts)	3j92MHKR7RA
+IBM Plex Serif	2	font	teknik		Font çiftleri arasında gezilirken görünen font ailesi.	8avVj8fr2bA
+Pinterest	30	galeri	iş akışı		Tasarım kanallarını dolaşarak lüks rezidans gibi ilham verici referans görsellerin temin edildiği platform.	1nGx7WR8YLE
+Dribbble	11	galeri	iş akışı		İlham için tasarım galerisi; Rolls-Royce Desert çalışması buradan indirildi.	7FU98O0JLHs
+Awwwards	9	galeri	iş akışı		İlham/kıyaslama kaynağı olarak ödüllü site listesi kullanma	7FU98O0JLHs
+Refero Styles	8	galeri	iş akışı		styles.refero.design; 2000+ gerçek tasarım sistemini Claude'un okuyabileceği DESIGN.md biçiminde sunan galeri	NAumQObJEwM
+Mobbin	6	galeri	MCP		UI/UX ekran kütüphanesi; Claude'a bağlanan MCP bağlayıcısıyla ekran araştırması, mood board ve marka rehberi üretildi.	VezxOhvoXqU
+Nano Banana	3	galeri	teknik		Pinterest pininde geçen görsel model etiketi	9afZFAUuQnc
+styles.refero.design	3	galeri	iş akışı		2000+ gerçek tasarım sisteminin DESIGN.md galerisi	WEMlzWMFc3k
+Godly	3	galeri	iş akışı		Tasarım ilhamı için web sitesi galerisi.	C1yAkQ9Y2BI
+Mixboard	3	galeri	teknik		Canva ile Pinterest karışımı; birden çok yapay zekâ görseli üretip birleştirmeyi sağlayan araç.	gTMFKLnC0So
+godly.design	3	galeri	iş akışı		İyi tasarlanmış web sitelerini keşfetme galerisi; ekran görüntüsü alıp Claude'a benzerini yaptırma	ig-Ddqj0svm6yq
+Google Chrome	3	galeri	teknik		Claude, Pinterest ve Google aramalarının açıldığı tarayıcı.	RshyfhbaNHA
+Refero	3	galeri	iş akışı		Gerçek ürün ekran ve akışlarından oluşan tasarım araştırma sitesi (web ve iOS).	bE0XcTv3tKg
+Mobbin MCP	2	galeri	MCP		Uygulama arayüz ekranlarını Claude Code'a bağlayan tasarım MCP'si	Hrcq00y9EhU
+recent.design	2	galeri	ipucu		UI, uygulama, ikon ve görsel ilham küratörlüğü; tasarım iş ilanları da var.	ig-DdWzc45k8wY
+Three.js	46	hareket/3b	teknik	https://threejs-fluid-reveal-portfolio.netlify.app/	Ünlü 3D portföy sitesinde kullanılan WebGL/3D kütüphanesi, kişi bu site sayesinde tanınıp kurs satmaya başlamış	3ziCXSiZcTc
+Framer Motion	30	hareket/3b	teknik	https://github.com/motiondivision/motion	Sitedeki animasyonları yöneten kütüphane; npm i framer-motion komutuyla kurulur.	5eBlDBD0nho
+WebGL	23	hareket/3b	teknik		3D jet objesinin ve sahnenin render edilmesini sağlayan teknoloji	3ziCXSiZcTc
+remotion-dev/remotion	12	hareket/3b	repo	https://github.com/remotion-dev/remotion		3fdb_giOrLo
+ScrollTrigger	11	hareket/3b	teknik		Kaydırmaya bağlı animasyon tetikleri	Osnd1m7Jxg4
+Edit Motion Layer	10	hareket/3b	teknik		iClone'da yakalanan hareketi katman düzeltmeleriyle temizleme aracı.	5G7_mEsdhNo
+Lottie	9	hareket/3b	teknik		Animasyonu kod olarak taşıyan dosya formatı	_SVU3oC4JX8
+create-video	8	hareket/3b	CLI		Boş Remotion projesi oluşturan npx paketi (--blank ve my-video seçenekleri).	6_rCyryA6hg
+Motion LIVE	7	hareket/3b	plugin		iClone içinde canlı hareket yakalama cihazlarını/uygulamalarını bağlayan eklenti paneli.	2FmJVfFj4gA
+Pomelli	6	hareket/3b	teknik		Web sitesi bağlantısından marka profili ve sosyal medya içeriği üreten ücretsiz Google Labs pazarlama aracı.	gTMFKLnC0So
+Motion Correction	4	hareket/3b	teknik		Ayak kaymasını düzelten iClone aracı	-6G3FbbQ7Uw
+Root motion	4	hareket/3b	teknik		Difüzyon tabanlı, stil seçilebilen (run, walk, acrobatics) hareket üretimi.	1eFShSYATOI
+Secondary motion	4	hareket/3b	teknik		İkincil hareket filtresi	4OHDiZgctqs
+Spline	4	hareket/3b	teknik		İlham pininin yapıldığı 3B araç	9afZFAUuQnc
+Motion Layer	3	hareket/3b	teknik		Yakalanan hareketi katmanlarla düzenleme aracı	-6G3FbbQ7Uw
+Smart Motion	3	hareket/3b	teknik		Video Mocap görev kuyruğu paneli; toplu üretim ve uygulama	-6G3FbbQ7Uw
+Google Flights	3	hareket/3b	teknik		Zürih-Londra uçuş araması yapılan site.	0f4TJMg7jLA
+ComfyUI	3	hareket/3b	CLI	https://github.com/comfyanonymous/ComfyUI	Hunyuan Motion videosunda geçen arayüz.	1eFShSYATOI
+Fulcrum Motion Cleaning	3	hareket/3b	teknik		Ayakların kaymasını önleyen temizleme aracı	4OHDiZgctqs
+Compensation motion	3	hareket/3b	teknik		AutoPhysics telafi hareketi filtresi	4OHDiZgctqs
+Nano Banana Pro	3	hareket/3b	teknik		Google görsel modeli; takeoutshot, darkwater vb. reklamlarda ve site fotoğraflarında kullanıldı.	9C4TRbucmhQ
+Rive	3	hareket/3b	teknik		Etkileşimli animasyon editörü ve ajanlarla kullanılan Rive CLI	Hrcq00y9EhU
+Anime.js	3	hareket/3b	teknik		Animasyon adaptörü	ig-DdAuz8NDNOU
+Canvas 2D	3	hareket/3b	teknik		Orblar WebGL ve filtre olmadan düz 2D canvas ile çiziliyor	iTIfy4Kmeo0
+Faceware Live	3	hareket/3b	plugin		Motion LIVE Gear List'inde listelenen yüz yakalama cihazı seçeneği.	W3Wiud5xu-E
+Barty-Bart/motion-graphics	3	hareket/3b	repo	https://github.com/Barty-Bart/motion-graphics		6Ij9-f2T2Ck
+darkroomengineering/lenis	3	hareket/3b	repo	https://github.com/darkroomengineering/lenis		ig-Da3O00jpo3R
+greensock/GSAP	3	hareket/3b	repo	https://github.com/greensock/GSAP		ig-Da3O00jpo3R
+@remotion/transitions	2	hareket/3b	teknik		Sahneler arası geçiş paketi	6_rCyryA6hg
+Eleştiri döngüsü	2	hareket/3b	prompt		Acımasız bir motion yönetmeni ol: kareleri 1-10 puanla (hook, okunabilirlik, hareket, çeşitlilik, marka, ses), en kötü 3 sorunu düzelt, heps	747ZnEtsRbg
+Motion Director mode	2	hareket/3b	teknik		AccuFACE'te yalnız yüz için başlatılabilen hareket yönetmeni kipi.	9n6a0i1kXe4
+Canvas UI	2	hareket/3b	iş akışı	https://github.com/DavidHDev/canvas-ui	WebGL/WebGPU efekt kütüphanesi (glass, shatter, particle reveal)	_SVU3oC4JX8
+WebGPU	2	hareket/3b	teknik		Tarayıcıda GPU hesaplama/grafik API'si (WebGL'in yeni nesli)	_SVU3oC4JX8
+prefers-reduced-motion	2	hareket/3b	teknik		Hareket azaltma tercihinde statik kare gösterilir	7FU98O0JLHs
+Motion Transfer	2	hareket/3b	teknik		Bir videoyu hareket referansı olarak kullanıp kendi görsele aktarma özelliği.	ig-DeCVY95tNJH
+Google Search	2	hareket/3b	iş akışı		Araç sitesini bulmak için 'video face swap' aramasında kullanıldı.	ig-DRCQNcCj1Sz
+Motion Director	2	hareket/3b	teknik		Gamepad ile karakterleri gerçek zamanlı yönetme (Play2Animate)	PSIu5Nke81Y
+Leap Motion Controller	2	hareket/3b	plugin		Gear List'te el yakalama cihazı olarak listelenen kontrolcü.	W3Wiud5xu-E
+Faceware Realtime	2	hareket/3b	teknik		Motion LIVE'da Face bölümünde listelenen başka bir yüz yakalama kaynağı.	Yw586cqHY6s
+Anton	2	hareket/3b	teknik		Büyük başlıklarda kullanılan Google font ailesi.	9Itin5QBACU
+Google Docs	2	hareket/3b	teknik		Animasyon için brief'in yazıldığı doküman	DD-SiFV93sQ
+GSAP ScrollTrigger	2	hareket/3b	teknik		Kaydırmayla tetiklenen efektler	TnduiS4kyg8
+Google Antigravity	2	hareket/3b	CLI		Prototipleme ve tarayıcıyı sürerek otomatik QA için IDE.	htM02KMNZnk
+googleworkspace/cli	2	hareket/3b	repo	https://github.com/googleworkspace/cli		DWMGfkFD5SI
+img2threejs/img2threejs	2	hareket/3b	repo	https://github.com/img2threejs/img2threejs		2qM93WXeKdY
+motiondivision/motion	2	hareket/3b	repo	https://github.com/motiondivision/motion		Srjqf8B3k4c
+frontend-design	39	skill/prompt	skill	https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md	Claude Design için ön yüz tasarım skill dosyası; karşılaştırma bağlamında anıldı, bu videoda kullanılmadı.	-GhTq_HrINY
+GSAP	37	skill/prompt	teknik	greensock/gsap-skills	Scroll'a bağlı reveal animasyonu ve context/cleanup yönetimi	1CSh8tBR1oc
+impeccable	30	skill/prompt	skill	https://impeccable.style/	Ön yüz için premium referanslardan tasarım zevki katar; 'slop' görünümü azaltır.	0JZtdAtJiyk
+DESIGN.md	22	skill/prompt	teknik	https://skills.sh/google-labs-code/design.md	Marka stilini renk, tipografi ve kurallarla anlatan düz markdown dosyası; ajan tarif gibi okur	9VSs2glPECM
+21st.dev	20	skill/prompt	iş akışı		Bileşen kütüphanesi; 'copy prompt' ile bileşen promptu Claude Code'a yapıştırılır.	7FU98O0JLHs
+Taste skill	19	skill/prompt	skill	https://github.com/Leonxlnx/taste-skill	Claude'a estetik bir görüş kazandırır; aynı fontlar/gradientlerden kurtarır.	0JZtdAtJiyk
+Stitch	17	skill/prompt	teknik		Normal promptları modern uygulama ve web arayüz tasarımlarına çeviren, koda aktarabilen Google aracı.	IgNBqyU9lZo
+anthropics/skills	15	skill/prompt	repo	https://github.com/anthropics/skills	Anthropic'in resmi skill deposu; frontend-design ve skill-creator buradan geliyor.	79hKdSVr5oE
+taste-skill	13	skill/prompt	skill	https://github.com/leonxlnx/taste-skill	Frontend'i iyi kurgulayan, AI slop görünümünü azaltan skill reposu; Claude Code veya Codex'e kurulabilir.	3ziCXSiZcTc
+UI UX Pro Max	12	skill/prompt	skill	https://github.com/nextlevelbuilder/ui-ux-pro-max-skill	Sorular sorup sitenin amacına göre tasarım sistemi üreten skill; 161 sektöre özel kural ve stack'e özel rehber.	AWBsGEuVhuE
+Lucide	12	skill/prompt	teknik	https://github.com/lucide-icons/lucide	İkon kütüphanesi; Claude promptunun izinli kütüphanelerinde	5eBlDBD0nho
+v0	11	skill/prompt	teknik		Depoda 'v0 Prompts and Tools' klasörü olan araç	NAumQObJEwM
+Google Stitch	10	skill/prompt	teknik		Prompttan görsel tasarım varyantları ve design.md üreten Google aracı; kod kopyalanıp Claude Code'a aktarılır. Ücretsiz.	J3ixyAtVjO4
+leonxlnx/taste-skill	10	skill/prompt	repo	https://github.com/leonxlnx/taste-skill		7FU98O0JLHs
+Frontend Design	9	skill/prompt	skill	https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design	Tasarım sistemi, palet ve tipografi ile daha iyi web arayüzleri ürettiren Anthropic plugini.	KGGpiYJWXHU
+Google AI Studio	9	skill/prompt	teknik		Prompttan tam duyarlı React web sitesi üreten ücretsiz uygulama oluşturucu	6IxSbMhT7v4
+Antigravity	8	skill/prompt	CLI		UI UX Pro Max'in desteklediği yapay zekâ kodlama aracı; uipro init örneğinde kullanılıyor.	AWBsGEuVhuE
+Canvas Design	8	skill/prompt	skill	https://github.com/anthropics/skills	Görsel poster ve kompozisyonları PNG/PDF dosyası olarak oluşturan skill.	ig-DV_JBKIiGjB
+multica-ai/andrej-karpathy-skills	8	skill/prompt	repo	https://github.com/multica-ai/andrej-karpathy-skills		L2JKgj7WzU4
+pbakaus/impeccable	8	skill/prompt	repo	https://github.com/pbakaus/impeccable		7FU98O0JLHs
+Lenis	7	skill/prompt	teknik	http://github.com/darkroomengineering/lenis	Yumuşak scroll (smooth-scroll) kütüphanesi, yaygın bilinen "klasik" skill	JfmAm3sxCSc
+Open Design	7	skill/prompt	CLI	https://github.com/nexu-io/open-design	Claude Design'a açık kaynak alternatif: 31 tasarım skill'i, 72 marka sınıfı tasarım sistemi, 13 kodlama ajanı CLI'ı otomatik algılama.	L2JKgj7WzU4
+Motion	7	skill/prompt	teknik	https://github.com/motiondivision/motion	Skill'de anılan yay (spring) animasyon kütüphanesi.	BJhyAatSo1A
+skills.sh	7	skill/prompt	CLI		README'de skill'lere gözatmak için anılan site	KGGpiYJWXHU
+Prototipal	7	skill/prompt	teknik		Prompt'ların uygulandığı AI video platformu	4UmXrwvrxKs
+ui-ux-pro-max	7	skill/prompt	skill		Listede 15. sıra; UI/UX odaklı (addan anlaşılan)	ig-Dd0PFtECZvj
+nextlevelbuilder/ui-ux-pro-max-skill	7	skill/prompt	repo	https://github.com/nextlevelbuilder/ui-ux-pro-max-skill		AWBsGEuVhuE
+Cowork	6	skill/prompt	teknik		Claude arayüzündeki Cowork sekmesi; skill dosyalarının eklendiği 'Drop files here to add reference materials' alanı görünüyor.	QzDnfL2e6cQ
+Web Artifacts Builder	5	skill/prompt	skill	anthropics/skills	Sohbet içinde çalışan React ve Tailwind arayüzü üreten skill.	ig-Dd3wMMsnz2P
+mattpocock/skills	5	skill/prompt	repo	https://github.com/mattpocock/skills		6CaQ9ZFuuKI
+addyosmani/agent-skills	5	skill/prompt	repo	https://github.com/addyosmani/agent-skills		NOnIrDx2b_4
+Liquid Glass	4	skill/prompt	teknik		Skill'in denetlediği Apple tasarım dili.	BJhyAatSo1A
+Scrolltide	4	skill/prompt	iş akışı		Hazır web sitesi promptları ve bileşen/shader kütüphanesi sunan site; prompt buradan kopyalanıyor	Ftn112RZ6IE
+img2threejs	4	skill/prompt	skill	https://github.com/hoainho/img2threejs	Skill listesinde görünen; kullanımı belirsiz	Ua0APTMVcb8
+emilkowalski/skills	4	skill/prompt	repo	https://github.com/emilkowalski/skills	Tasarımcı ve mühendisler için skill deposu; apple-design burada.	BJhyAatSo1A
+transitions.dev	4	skill/prompt	skill	Jakubantalik/transitions.dev	Kopyala-yapıştır UI animasyonları; Claude Code'a bunları kullandıran skill	ig-Dd3wMMsnz2P
+Theme Factory	4	skill/prompt	skill	https://github.com/anthropics/skills	10 profesyonel tema; seçilmiş paletler ve font eşleştirmeleri sunan skill.	ig-DV_JBKIiGjB
+Draftly	4	skill/prompt	iş akışı		Tek prompttan kaydırma tabanlı 3B animasyonlu web sitesi üreten araç	UcWTeZepXJc
+web-design-guidelines	4	skill/prompt	skill		Leaderboard'da listelenen Vercel skill'i.	IgNBqyU9lZo
+Taste	4	skill/prompt	skill	Leonxlnx/taste-skill	Claude'a palet, yazı tipi ve hiyerarşi gibi tasarım zevki veren skill (design-taste-frontend).	LCwT00LrPZg
+vercel-labs/skills	4	skill/prompt	repo	https://github.com/vercel-labs/skills		5Mh_LjMFFjc
+eyaprak/skills	4	skill/prompt	repo	https://github.com/eyaprak/skills		DWMGfkFD5SI
+cloudflare/security-audit-skill	4	skill/prompt	repo	https://github.com/cloudflare/security-audit-skill		ig-DdccgmSG8E9
+Emil Kowalski skill	3	skill/prompt	skill		Tek komutla Claude'a gerçek hareket, easing ve anlamlı animasyon ekletir.	bAhPV1Sl-rg
+Animate	3	skill/prompt	skill	https://github.com/emilkowalski/skills	Hazır bir siteye adım adım animasyon ekler ve mevcut animasyonları rafine eder.	WEMlzWMFc3k
+Emil design engineering	3	skill/prompt	skill	https://github.com/emilkowalski/skills	Güzel UI bileşenleri ve animasyonları için talimatlar; tasarıma başlamak için en iyi skill.	H84vfy96m_k
+artifact-design	3	skill/prompt	skill		Notion'ın tasarım kurallarını yükleyen dahili skill.	0i65C2vzjpw
+Skills CLI	3	skill/prompt	CLI	https://github.com/ailabs-393/ai-labs-claude-skills	npx skills add ile skill kurulumu (klip içindeki terminal animasyonu)	6Ij9-f2T2Ck
+uipro	3	skill/prompt	CLI		UI UX Pro Max'i projeye kuran komut satırı aracı.	AWBsGEuVhuE
+Windsurf	3	skill/prompt	CLI		UI UX Pro Max'in desteklediği araç olarak sayfada listeleniyor.	AWBsGEuVhuE
+apple-design	3	skill/prompt	skill	https://github.com/emilkowalski/skills	Apple WWDC tasarım ilkelerine dayalı arayüz ve hareket denetimi yapan Claude skill'i.	BJhyAatSo1A
+UI/UX Pro Max	3	skill/prompt	skill		Tasarım ve arayüz için önerilen Claude Code skill'i	DqSQG2MjXrs
+Agentic OS	3	skill/prompt	iş akışı		Simon'ın skill'lerini gösterdiği Agentic Academy skill tarayıcı arayüzü	HOXrLsVqinY
+Motion Design	3	skill/prompt	skill	lottiefiles/motion-design-skill	LottieFiles ekibinin skill'i: Lottie/SVG animasyon, keyframe, etkileşimli durumlar, JSON/dotLottie dışa aktarım.	ig-DbnAbBglD0e
+GLTF	3	skill/prompt	teknik		Three.js skill'inin desteklediği 3B model formatı.	ig-DbnAbBglD0e
+Google Arama	3	skill/prompt	teknik		Arama motoru; 'cursor lovable prompt github' sorgusu burada yapılıyor.	ig-DK12phiCLHp
+Figma Make	3	skill/prompt	CLI		Promptların çıktısının uygulanacağı, siteyi üreten Figma aracı.	ig-DVMexOcD4vd
+Design system	3	skill/prompt	teknik		Renk, tipografi, bileşen kurallarını kaydedip her üretimde kullanan Claude Design özelliği.	COJAZQM1aeQ
+Awesome Claude Design	3	skill/prompt	skill		Hazır DESIGN.md tasarım sistemleri koleksiyonu.	ig-DcRhD2Nto7M
+Design Motion Principles	3	skill/prompt	skill		Animasyon, geçiş ve easing eğrileri ekleyen hareket tasarımı skill'i.	ig-DcRhD2Nto7M
+UI Skills	3	skill/prompt	skill	https://github.com/ibelick/ui-skills	Ajanlar için erişilebilirlik, hareket ve cila odaklı tasarım mühendisliği skill kataloğu.	Ua0APTMVcb8
+mvanhorn/last30days-skill	3	skill/prompt	repo	https://github.com/mvanhorn/last30days-skill		3fdb_giOrLo
+NVIDIA/SkillSpector	3	skill/prompt	repo	https://github.com/NVIDIA/SkillSpector		3fdb_giOrLo
+anthropics/skills.git	3	skill/prompt	repo	https://github.com/anthropics/skills.git		79hKdSVr5oE
+K-Dense-AI/scientific-agent-skills	3	skill/prompt	repo	https://github.com/K-Dense-AI/scientific-agent-skills		AWzzmrCPe-A
+remotion-dev/skills.git	3	skill/prompt	repo	https://github.com/remotion-dev/skills.git		CzGKgU26dP8
+nidhinjs/prompt-master	3	skill/prompt	repo	https://github.com/nidhinjs/prompt-master		N3zTn2Q1spI
+jakeschincariol/linkedin-agent-skill	3	skill/prompt	repo	https://github.com/jakeschincariol/linkedin-agent-skill		ig-DeMKh-6KYjk
+x1xhlol/system-prompts-and-models-of-ai-tools	3	skill/prompt	repo	https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools		ig-DK12phiCLHp
+ibelick/ui-skills	2	skill/prompt	repo	https://github.com/ibelick/ui-skills	Kodlama ajanlarının kullanabileceği hazır UI/tasarım dili skill kayıt defteri	Ua0APTMVcb8
+motionsites.ai	2	skill/prompt	iş akışı	https://motionsites.ai (görselde)	Hazır AI prompt kütüphanesinden landing page promptu kopyalayıp kullanma	GPpYwjMoLio
+Awesome Design.md	2	skill/prompt	prompt	https://github.com/VoltAgent/awesome-design-md	Birçok popüler sitenin tasarım sistemini design.md prompt dosyalarına ayıran depo; Claude Code'a verilecek yapılandırılmış tasarım promptlar	Q9ty3eopOPs
+Emil Kowalski skills	2	skill/prompt	skill	https://github.com/emilkowalski/skills	9 skill'lik set; Apple design, animation vocabulary, Emil design engineering ve Animate öne çıkıyor.	WEMlzWMFc3k
+MCP Market	2	skill/prompt	iş akışı		Agent Skills dizini; code review ve refactor skill'lerinin bulunduğu site.	2X_allmlnnc
+saas-website-builder	2	skill/prompt	skill		find-skills'in eşleştirip kurduğu, SaaS web sitesi oluşturan skill (demo).	5Mh_LjMFFjc
+canvas-design	2	skill/prompt	skill		Sunum görseli için seçilen skill	79hKdSVr5oE
+Apple Human Interface Guidelines	2	skill/prompt	skill		HIG'i skill'e çevirip Apple kurallarına uygun tasarım	BJhyAatSo1A
+Shaders	2	skill/prompt	teknik		Scrolltide'da shader sekmesi ve prompt etiketleri	d3edAqFCJ14
+awesome-design-md	2	skill/prompt	skill	https://github.com/VoltAgent/awesome-design-md	Popüler markaların tasarım sistemlerini DESIGN.md dosyaları olarak sunan GitHub koleksiyonu	ig-DcvkRl6j2ux
+Skill kurulumu	2	skill/prompt	prompt		Claude Code'a UI UX Pro Max skill'ini yüklemesi söyleniyor (Install this skill).	Srjqf8B3k4c
+Skill.md	2	skill/prompt	skill		Yeşil ekran metin animasyonu üreten, 36 satırlık skill dosyası; sohbete ek olarak yüklenmiş.	ig-Ddhaj5cuLk3
+Fable 5.1	2	skill/prompt	teknik		Sohbette seçili model; animasyon promptu bununla çalıştırılıyor.	SwXcetzsSeI
+Skill Creator	2	skill/prompt	skill	https://github.com/anthropics/skills	Tasarım sistemi, marka sesi veya iş akışı için özel skill oluşturan skill.	ig-DV_JBKIiGjB
+/design-sync	2	skill/prompt	skill		Tasarım sistemini repoya çeker veya yapılanı Claude Design'a geri iter.	ig-DZ7HcTGGD5P
+Skills Leaderboard	2	skill/prompt	iş akışı		Skill'lerin install sayısıyla sıralandığı dizin sitesi.	IgNBqyU9lZo
+shadcn skill	2	skill/prompt	skill		shadcn/ui için agent skill (.claude/skills/shadcn/).	Vok_nReMFaU
+theme-factory	2	skill/prompt	skill	https://github.com/anthropics/skills/tree/main/skills/theme-factory	Tema üreten Anthropic skill'i; yazar en çok kullandıklarından biri	DO45w8HX6nA
+Kombai Gallery	2	skill/prompt	iş akışı		20.000+ gerçek web/uygulama ekranı içeren ücretsiz tasarım galerisi; her tasarımda hazır prompt var	egzwTdmTZbU
+Landing page oluşturma	2	skill/prompt	prompt		Hero promptunu Next.js, Tailwind ve shadcn/ui yığınına uyarlatmak; HTML/vanilla JS yerine mevcut yığını kullanmasını, design.md dosyası oluş	H84vfy96m_k
+uipro-cli	2	skill/prompt	CLI		UI UX Pro Max skill'ini kuran 'uipro init' komutu	fDTwHIKltpc
+UX Designer	2	skill/prompt	skill	szilu/ux-designer-skill	Akışları, hata durumlarını, dokunma hedeflerini ve WCAG kontrastını planlayan skill.	ig-Dd3wMMsnz2P
+App Store Screenshots	2	skill/prompt	skill	ParthJadhav/app-store-screenshots	Gerekli tüm boyutlarda mockup, başlık ve açık/koyu varyantlı mağaza ekran görüntüleri üreten skill.	ig-Dd3wMMsnz2P
+WCAG	2	skill/prompt	teknik		UX Designer skill'inin kontrast için dayandığı erişilebilirlik standardı.	ig-Dd3wMMsnz2P
+motion-graphics-skills	2	skill/prompt	skill	https://github.com/charlie947/motion-graphics-skills	Yazarın 13 ücretsiz motion skill paketi (brand-intake, launch-video...)	ig-Dd7WYSniFvP
+ui-ux-pro-max-skill	2	skill/prompt	skill	github.com/nextlevelbuilder/ui-ux-pro-max-skill	Tasarlanmış görünen arayüzler üreten skill.	ig-DdCs5vOiHRY
+vercel-labs/agent-skills	2	skill/prompt	repo	https://github.com/vercel-labs/agent-skills	Vercel'in agent skill'leri: React en iyi pratikleri, web tasarımı, frontend iş akışları	ig-DdtP_L9FljV
+Kage	2	skill/prompt	prompt		Tasarım seçip prompt olarak kopyalama.	ig-DeT8XphH4jq
+Jiro	2	skill/prompt	prompt		Tasarıma göz atıp prompt kopyalama.	ig-DeT8XphH4jq
+VibePrompt	2	skill/prompt	prompt		Fiyatlandırma, hero ve dashboard için hazır promptlar.	ig-DeT8XphH4jq
+GOAT UGC AI	2	skill/prompt	iş akışı	https://github.com/burhankocabiyik/videomaker	Konudan sahne planlayıp prompt yazan, görsel/video üreten açık kaynaklı video stüdyosu arayüzü	N4s51kudOhQ
+emil-design-eng	2	skill/prompt	skill		Emil skill setinin ana skill'i; çoğunlukla animasyon, biraz tasarım tavsiyesi.	WEMlzWMFc3k
+motion-graphics	2	skill/prompt	skill	https://github.com/Barty-Bart/motion-graphics	Hareketli grafik skill'i	ig-Dd1zrTggHCW
+typesafe-ai/skills	2	skill/prompt	repo	https://github.com/typesafe-ai/skills		j7Fyi5gQ85k
+kepano/obsidian-skills	2	skill/prompt	repo	https://github.com/kepano/obsidian-skills		5WQk9WiWcYQ
+remotion-dev/skills	2	skill/prompt	repo	https://github.com/remotion-dev/skills		6_rCyryA6hg
+Auriti-Labs/geo-optimizer-skill	2	skill/prompt	repo	https://github.com/Auriti-Labs/geo-optimizer-skill		7eVylM1pTrA
+mukul975/Anthropic-Cybersecurity-Skills	2	skill/prompt	repo	https://github.com/mukul975/Anthropic-Cybersecurity-Skills		ig-DcOFxr4Ej29
+Jakeschincariol/chatgpt-youtube-agent-skill	2	skill/prompt	repo	https://github.com/Jakeschincariol/chatgpt-youtube-agent-skill		ig-Dd9jX-YtWL2
+nextlevelbuilder/ui-ux-pro-max-skill.git	2	skill/prompt	repo	https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git		fDTwHIKltpc
+asgeirtj/system_prompts_leaks	2	skill/prompt	repo	https://github.com/asgeirtj/system_prompts_leaks		ig-DdYIImkKs4n
+coreyhaines31/marketingskills	2	skill/prompt	repo	https://github.com/coreyhaines31/marketingskills		5WQk9WiWcYQ
+charlie947/motion-graphics-skills	2	skill/prompt	repo	https://github.com/charlie947/motion-graphics-skills		ig-Dd7WYSniFvP
+Jakeschincariol/youtube-agent-skill	2	skill/prompt	repo	https://github.com/Jakeschincariol/youtube-agent-skill		ig-Ddl9BrhBZf_
+jakeschincariol/instagram-agent-skill	2	skill/prompt	repo	https://github.com/jakeschincariol/instagram-agent-skill		ig-DdNW01LN8R9
+Leonxinx/taste-skill	2	skill/prompt	repo	https://github.com/Leonxinx/taste-skill		ig-DdO1UioAHAS
+muratcankoylan/agent-skills-for-context-engineering	2	skill/prompt	repo	https://github.com/muratcankoylan/agent-skills-for-context-engineering		ig-DdO6-1QkjR-
+Jakeschincariol/replica-skill	2	skill/prompt	repo	https://github.com/Jakeschincariol/replica-skill		ig-DeB6QU6N4Ec
+Figma	63	uretici	teknik	https://www.figma.com	Tasarımın ilk aşaması; çerçeve rengi değiştiriliyor.	3ziCXSiZcTc
+Lovable	29	uretici	teknik		Kodlamada 'başlangıç' aracı olarak gösterilen uygulama oluşturucu	5pXMOUB_y0c
+Figma MCP	9	uretici	MCP		Claude'un Figma tasarımlarıyla bağlantı kurmasını sağlar	3ziCXSiZcTc
+Webflow	8	uretici	iş akışı		Bağlanabilen web sitesi servisi.	4UmXrwvrxKs
+Framer	7	uretici	teknik		Ücretli web sitesi oluşturucu (açıklamada Framer AI, slaytta Framer Basic $10).	Bikzi6s5TfI
+ffmpeg	4	uretici	CLI		2 shot stitch için ffmpeg concat.	5zE2sMka620
+Bolt	3	uretici	teknik		Ücretli yapay zekâ kodlayıcı; DeepSite V2 ile karşılaştırılan alternatif olarak anılıyor.	ig-DLw_gWHPqjs
+3dicons	3	uretici	iş akışı		1.440+ açık kaynak 3B ikon; PNG, Figma, Blender; CC0.	ig-DeFBWx2E95r
+Kiwix	2	uretici	teknik		Çevrimdışı Wikipedia, tıbbi referanslar ve e-kitaplar sağlar.	ig-DavMnS4M1ql
+Framer AI	2	uretici	teknik		Web sitesi oluşturucu; ücretli.	ig-DY4gAazPRSJ
+Durable	2	uretici	teknik		Framer AI'ın ücretsiz alternatifi site oluşturucu.	ig-DbcyPKRlHRv
+Opal	2	uretici	plugin		n8n ve Lovable karışımı, no-code AI uygulama oluşturucu.	ig-DSm-QQ_Dxh3
+Bolt.new	2	uretici	iş akışı		README'de alternatif olarak anılan uygulama üretici.	ig-DZ-DVAxMkn9
+GPT Image 2.5 Sunburst	2	uretici	teknik		Figma içinde görsel düzenleme modeli olarak seçili görünüyor.	DO45w8HX6nA
+Kitbitz	2	uretici	iş akışı		2.000+ ücretsiz el çizimi illüstrasyon; Figma eklentisi ve MCP.	ig-DeT8XphH4jq
+Wix	2	uretici	teknik		Sürükle-bırak website builder. Kapsamlı ama ölçeklenebilirlik ve kontrol açısından sınırlı olduğu söyleniyor; video bunu kullanmıyor, ekrand	Bikzi6s5TfI
+GLips/Figma-Context-MCP	2	uretici	repo	https://github.com/GLips/Figma-Context-MCP		gmYYHjlOJTI

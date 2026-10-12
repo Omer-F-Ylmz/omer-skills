@@ -1,0 +1,183 @@
+{
+ "ad": "darkroom",
+ "url": "https://darkroom.engineering",
+ "kat": "editoryal",
+ "d": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": true,
+   "locomotive": false,
+   "three": false,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 0,
+  "ctx": {
+   "webgl2": 1
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "mono",
+   "monospace",
+   "sauce"
+  ],
+  "fontsLoaded": [
+   "therma",
+   "therma fallback",
+   "sauce",
+   "mono"
+  ],
+  "bodyPx": 14,
+  "bodyLh": 1.2,
+  "h1Real": false,
+  "h1Px": 251.001,
+  "h1Lh": 1,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "sauce",
+  "maxPx": 251.001,
+  "ratio": 17.93,
+  "maxRatio": 17.93,
+  "bg": "#000000",
+  "fg": "#e71419",
+  "contrast": 4.51,
+  "uniqColors": 3,
+  "chromatic": 1,
+  "accents": 1,
+  "maxW": 1408,
+  "gutter": 16,
+  "gridPct": 12.9,
+  "flexPct": 17.74,
+  "scrollRatio": 2,
+  "trans": 97,
+  "anim": 0,
+  "elems": 577,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": true,
+  "grads": 2,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": true,
+  "cards3": 0,
+  "hoverN": 10,
+  "lcp": 1372,
+  "hoverDiff": 3,
+  "status": 200,
+  "finalUrl": "https://darkroom.engineering/backrooms",
+  "loadMs": 1340,
+  "net": {
+   "total": 891119,
+   "js": 444844,
+   "css": 16095,
+   "img": 323102,
+   "font": 54336,
+   "media": 99,
+   "n": 54
+  },
+  "sig": {
+   "scrolltrigger": true,
+   "lenis": true,
+   "rmInJs": true,
+   "gsap": true
+  },
+  "rmJsBundle": true
+ },
+ "m": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": true,
+   "locomotive": false,
+   "three": false,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 0,
+  "ctx": {
+   "webgl2": 1
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "mono",
+   "monospace",
+   "sauce"
+  ],
+  "fontsLoaded": [
+   "therma",
+   "therma fallback",
+   "sauce",
+   "mono"
+  ],
+  "bodyPx": 12.48,
+  "bodyLh": 1.25,
+  "h1Real": false,
+  "h1Px": 67.5999,
+  "h1Lh": 1,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "sauce",
+  "maxPx": 67.5999,
+  "ratio": 5.42,
+  "maxRatio": 5.42,
+  "bg": "#000000",
+  "fg": "#e71419",
+  "contrast": 4.51,
+  "uniqColors": 3,
+  "chromatic": 1,
+  "accents": 1,
+  "maxW": 373,
+  "gutter": 8,
+  "gridPct": 8.77,
+  "flexPct": 19.3,
+  "scrollRatio": 2,
+  "trans": 97,
+  "anim": 0,
+  "elems": 573,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": true,
+  "grads": 2,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": true,
+  "cards3": 0,
+  "hoverN": 10,
+  "lcp": 376,
+  "hoverDiff": 0,
+  "status": 200,
+  "finalUrl": "https://darkroom.engineering/backrooms",
+  "loadMs": 576,
+  "net": {
+   "total": 2096727,
+   "js": 445584,
+   "css": 16052,
+   "img": 156458,
+   "font": 54149,
+   "media": 1364901,
+   "n": 56
+  },
+  "sig": {
+   "lenis": true,
+   "rmInJs": true,
+   "scrolltrigger": true,
+   "gsap": true
+  },
+  "rmJsBundle": true
+ }
+}
