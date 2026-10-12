@@ -15,6 +15,11 @@ import tempfile
 import time
 from pathlib import Path
 
+try:
+    from . import mcp_sec
+except ImportError:
+    import mcp_sec
+
 DIZIN = Path(__file__).resolve().parent
 KOK = DIZIN.parents[1]
 CIKTI = KOK / "docs" / "kutuphane" / "olcum"
@@ -167,14 +172,17 @@ def supur(ad):
     subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, creationflags=PENCERESIZ, timeout=60)
 
 
-def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
+def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0, mcp=()):
     """Tek `claude -p`. ANTHROPIC_BASE_URL (headroom vekili) alt süreçte kaldırılır — araçları gizliyor. Boş cwd yoksa geçici boş klasör.
-    BROWSER=none: Remotion/Vite vb. tarayıcı/pencere açmaz."""
+    BROWSER=none: Remotion/Vite vb. tarayıcı/pencere açmaz. OLCUM_MCP_HAFIF=1: yalnız istem/ek/mcp metinlerindeki mcp__<sunucu>__."""
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
     env["BROWSER"] = "none"
     args = ["claude", "-p", istem, *ROTA, "--max-budget-usd", f"{butce:.2f}", *([] if not model else ["--model", model]), *ek]
     # claude'un yan süreçleri (MCP/hook) klasörü bir süre tutabiliyor → temizlik hatası koşuyu düşürmez
-    with tempfile.TemporaryDirectory(prefix="olcum-", ignore_cleanup_errors=True) as bos:
+    with tempfile.TemporaryDirectory(prefix="olcum-", ignore_cleanup_errors=True) as bos, \
+            tempfile.TemporaryDirectory(prefix="mcphafif-", ignore_cleanup_errors=True) as gizli:
+        if mcp_sec.acik() and "--strict-mcp-config" not in ek:  # çağıran zaten strict (kalite3_hiz, ab_olc) → dokunma
+            args += mcp_sec.ek(gizli, istem, *ek, *mcp)
         t = time.monotonic()
         out, rc, err = calistir(args, env, cwd or bos, timeout)
         supur(Path(bos).name)
@@ -258,7 +266,8 @@ def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True, usd_tavan=None):
             if usd_tavan and HARCANAN[0] >= usd_tavan:
                 print("usd tavanı doldu:", round(HARCANAN[0], 2), flush=True)
                 break
-            o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None, model=p.get("model"), butce=p.get("butce", 3.0))
+            o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None, model=p.get("model"), butce=p.get("butce", 3.0),
+                    mcp=[json.dumps(g, ensure_ascii=False)])
             HARCANAN[0] += o["usd"]
             init_yaz(CIKTI / f"{tarih}-{ad}-init.json", o["init"])
             metin_dir.mkdir(exist_ok=True)

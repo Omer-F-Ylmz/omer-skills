@@ -207,7 +207,7 @@ def test_kos_env_tarayici_acmaz(monkeypatch):
 def test_kos_profil_model_butce_ve_usd_tavani(tmp_path, monkeypatch):
     cagri = []
 
-    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0):
+    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0, mcp=()):
         cagri.append((model, butce))
         return {"init": None, "metin": "", "usage": {}, "tur": 1, "sure": 0, "usd": 0.6, "araclar": [], "girdi": [], "hata": ""}
 
@@ -218,6 +218,19 @@ def test_kos_profil_model_butce_ve_usd_tavani(tmp_path, monkeypatch):
     g = [{"id": f"T{i}", "istem": "x", "arac": [], "rubrik": []} for i in range(3)]
     kosucu.kos_profil("p", {"model": "m", "butce": 0.5}, g, "t", 2, jev=False, usd_tavan=1.0)
     assert cagri == [("m", 0.5), ("m", 0.5)]  # 0.6 + 0.6 ≥ 1.0 → üçüncü çağrı yok
+
+
+def test_kos_mcp_hafif_bayrak_ve_strict_cagiran(monkeypatch):
+    gorulen = []
+    monkeypatch.setattr(kosucu, "calistir", lambda args, env, cwd, timeout: (gorulen.append(args), ("", 0, ""))[1])
+    monkeypatch.setattr(kosucu, "supur", lambda ad: None)
+    monkeypatch.setattr(kosucu.mcp_sec, "tanimlar", lambda yol=None: {"serena": {"command": "s"}, "blender": {}})
+    monkeypatch.delenv("OLCUM_MCP_HAFIF", raising=False)
+    kosucu.kos("mcp__blender__x")
+    monkeypatch.setenv("OLCUM_MCP_HAFIF", "1")
+    kosucu.kos("mcp__blender__x")
+    kosucu.kos("y", ek=["--strict-mcp-config"])
+    assert [a.count("--strict-mcp-config") for a in gorulen] == [0, 1, 1]
 
 
 def test_jev_doldur_kosu_sonu_toplu_ve_erisilemezse_regex_aynen(tmp_path):

@@ -1,0 +1,7 @@
+ajan	kol	tekrar	puan	usd	sure	surec	ram_mb	adlar
+bl-isik-kurulumu	eski	1	10	0.1519	460.1	125	2695	bash.exe:52,conhost.exe:31,node.exe:22,cmd.exe:7,python.exe:4,sed.exe:2,dotnet.exe:2,bun.exe:1
+ajn-mcp-kurulum-denetci	eski	1	10	0.31	296.7	120	2814	bash.exe:54,conhost.exe:34,node.exe:19,python.exe:4,cmd.exe:3,dotnet.exe:2,git.exe:1,codebase-memory-mcp.exe:1
+ara-kutuphane-dokuman	eski	2	6	0.4391	369.3	114	2076	bash.exe:55,conhost.exe:33,node.exe:18,python.exe:4,codebase-memory-mcp.exe:1,blender-mcp.exe:1,mcp-server-git.exe:1,cmd.exe:1
+bl-glb-disa-aktar	eski	1	10	0.3177	224.6	104	2730	bash.exe:39,conhost.exe:26,node.exe:16,python.exe:7,msedgewebview2.exe:6,dotnet.exe:2,cygpath.exe:1,uvx.exe:1
+qa-e2e-playwright	eski	1	10	0.4228	330.8	108	7096	bash.exe:37,conhost.exe:28,node.exe:18,python.exe:7,msedgewebview2.exe:6,codebase-memory-mcp.exe:2,dotnet.exe:2,sed.exe:1
+otm-tarayici-otomasyon	eski	1	10	0.7995	254.1	65	827	bash.exe:31,conhost.exe:16,node.exe:10,bun.exe:2,python.exe:2,dotnet.exe:2,mcp-server-git.exe:1,cmd.exe:1
