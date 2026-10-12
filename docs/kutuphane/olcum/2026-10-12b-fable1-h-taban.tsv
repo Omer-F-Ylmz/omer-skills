@@ -1,0 +1,6 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata	jev	jev_guven
+G02	1	2027	69544	5404	4175	76975	1	120.0	0.0163	1	10	2246	62		
+G12	1	2030	69584	5404	2218	77018	1	115.7	0.0153	1	10	2260	62		
+G13	1	2109	69587	5404	509	77100	2	139.4	0.5376	1	5	2260	62	Bash	
+J01	1	2089	144882	978197	1922	1125168	4	143.1	0.1421	1	10	2260	62	Skill:anthropic-skills:jev,mcp__jev__jev_batch	
+G02	2	2027	69523	5404	3038	76954	1	112.4	0.0157	1	10	2260	62		

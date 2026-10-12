@@ -28,7 +28,8 @@ def ozet(kol):
     alan = lambda k: mean(mean(float(r[k]) for r in rs) for rs in gorev.values())
     return {"n": sum(map(len, gorev.values())), "gorev": sorted(gorev), "kalite": alan("kalite"),
             "output": alan("output"), "usd": alan("usd"), "tur": alan("tur"),
-            "gorev_kalite": {g: mean(float(r["kalite"]) for r in rs) for g, rs in gorev.items()}}
+            "gorev_kalite": {g: mean(float(r["kalite"]) for r in rs) for g, rs in gorev.items()},
+            "g": {g: {k: mean(float(r[k]) for r in rs) for k in ("output", "usd")} for g, rs in gorev.items()}}
 
 
 def karar(o):
@@ -42,13 +43,15 @@ def karar(o):
         kt = mean(t["gorev_kalite"][g] for g in ortak)
         kp = mean(p["gorev_kalite"][g] for g in ortak)
         artislar.append(kp - kt)
-        usd = (p["usd"] - t["usd"]) / t["usd"] * 100 if t["usd"] else 0
-        jet = (p["output"] - t["output"]) / t["output"] * 100 if t["output"] else 0
-        sonuc.append(f"{m}: kalite {kt:.2f}→{kp:.2f} ({ortak}) · çıktı {jet:+.0f}% · $ {usd:+.0f}%")
+        top = lambda x, k: sum(x["g"][g][k] for g in ortak)  # $/jeton yalnız ortak görevlerde
+        usd = (top(p, "usd") - top(t, "usd")) / top(t, "usd") * 100
+        jet = (top(p, "output") - top(t, "output")) / top(t, "output") * 100
+        o[f"{m}-jet"] = jet
+        sonuc.append(f"{m}: kalite {kt:.2f}->{kp:.2f} ({ortak}) · çıktı {jet:+.0f}% · $ {usd:+.0f}%")
         if kp < kt or usd > 10:
             return "RET — " + " | ".join(sonuc)
     # Ömer d3: "kalite düşmez, token düşer" → kalite eşitse çıktı jetonu iki modelde de düşmeli
-    ok = mean(artislar) > 0 or all(o[f"{m}-proto"]["output"] < o[f"{m}-taban"]["output"] for m in ("s", "h"))
+    ok = mean(artislar) > 0 or all(o[f"{m}-jet"] < 0 for m in ("s", "h"))
     return ("KABUL — " if ok else "RET — ") + " | ".join(sonuc)
 
 
