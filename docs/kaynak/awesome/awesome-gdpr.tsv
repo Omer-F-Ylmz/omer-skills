@@ -1,0 +1,55 @@
+ad	url	aciklama	bolum
+GDPR (2016/679)	https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN	Official version of GDPR.	Legal text
+GDPR-info	https://gdpr-info.eu/	GDPR linked to relevant articles and section in the preamble (Non-official site).	Legal text
+GDPR-expert	https://www.gdpr-expert.com/home.html?mid=5	Compare the Regulation, Directive and National legislation. Linked to relevant section in preamble (Non-official site).	Legal text
+GDPRhub -> GDPR Articles	https://gdprhub.eu/index.php?title=Category:GDPR_Articles	GDPR articles included commentary.	Legal text
+Guidelines	https://edpb.europa.eu/our-work-tools/general-guidance/gdpr-guidelines-recommendations-best-practices_en	& Opinions from the European Data Protection Board (EDPB).	Guidelines
+ICO: Guide to GDPR	https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/		Guidelines
+Handbook on European data protection law	https://publications.europa.eu/en/publication-detail/-/publication/5b0cfa83-63f3-11e8-ab9c-01aa75ed71a1	Handbook issued by EU.	Guidelines
+Factsheets	https://edps.europa.eu/data-protection/our-work/our-work-by-type/factsheets_en	Factsheets from EU Data Protection Supervisor.	Guidelines
+Open source privacy notice template (Juro)	https://github.com/juro-privacy/free-privacy-notice		Rights of the data subject (art. 12 - 23)
+CNIL - GDPR Developer Guide	https://github.com/LINCnil/GDPR-Developer-Guide		Privacy by Design - Guides for developers (art. 25)
+Norwegian DPA - Software development with Data Protection by Design and by Default	https://www.datatilsynet.no/en/about-privacy/virksomhetenes-plikter/data-protection-by-design-and-by-default/		Privacy by Design - Guides for developers (art. 25)
+Data Pseudonymisation: Advanced Techniques and Use Cases	https://www.enisa.europa.eu/publications/data-pseudonymisation-advanced-techniques-and-use-cases/	Report on pseudonymisation techniques from ENISA.	Privacy by Design - Guides for developers (art. 25)
+Anonymisation, pseudonymisation and privacy enhancing technologies guidance - ICO	https://ico.org.uk/about-the-ico/ico-and-stakeholder-consultations/ico-call-for-views-anonymisation-pseudonymisation-and-privacy-enhancing-technologies-guidance/		Privacy by Design - Guides for developers (art. 25)
+dstack	https://github.com/Dstack-TEE/dstack	Open-source confidential computing framework enabling privacy by design through hardware-enforced isolation for GDPR-compliant data processing.	Privacy by Design - Guides for developers (art. 25)
+Iubenda - Register of data processing activities	https://www.iubenda.com/en/internal-privacy-management		Records of Processing (art. 30)
+OWASP Top 10	https://owasp.org/www-project-top-ten/	Top 10 Web Application Security Risks.	Security (art. 32)
+OWASP Cheat Sheet Series	https://cheatsheetseries.owasp.org/	Concise collection of high value information on specific application security topics.	Security (art. 32)
+Anonymisation, pseudonymisation and privacy enhancing technologies guidance	https://ico.org.uk/about-the-ico/ico-and-stakeholder-consultations/ico-call-for-views-anonymisation-pseudonymisation-and-privacy-enhancing-technologies-guidance/		Security (art. 32)
+ENISA: Recommendations for a methodology of the assessment of severity of personal data breaches	https://www.enisa.europa.eu/publications/dbn-severity		Incident management (art. 33 and 34)
+Google, SRE: Managing Incidents	https://landing.google.com/sre/sre-book/chapters/managing-incidents/		Incident management (art. 33 and 34)
+Troy Hunt: Data breach disclosure 101	https://www.troyhunt.com/data-breach-disclosure-101-how-to-succeed-after-youve-failed/		Incident management (art. 33 and 34)
+Awesome Incident Response	https://github.com/meirwah/awesome-incident-response		Incident management (art. 33 and 34)
+GDPR Enforcement Tracker	http://www.enforcementtracker.com/	Overview of fines and penalties.	Incident management (art. 33 and 34)
+Open-source DPIA software from the French DPA	https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment		Data Protection Impact Assessments (DPIA, art. 35)
+Guidelines on Data Protection Impact Assessment (WP29)	https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=611236		Data Protection Impact Assessments (DPIA, art. 35)
+ISO-standard: Guidelines for privacy impact assessment	https://www.iso.org/standard/86012.html		Data Protection Impact Assessments (DPIA, art. 35)
+DPIA template from ICO	https://iapp.org/resources/article/sample-dpia-template/		Data Protection Impact Assessments (DPIA, art. 35)
+Public DPIA Teams OneDrive SharePoint and Azure AD	https://www.rijksoverheid.nl/documenten/publicaties/2022/02/21/public-dpia-teams-onedrive-sharepoint-and-azure-ad	DPIA of Microsoft Teams in combination with OneDrive, SharePoint Online and the Azure Active Directory.	Data Protection Impact Assessments (DPIA, art. 35)
+RansomLeak GDPR Training	https://ransomleak.com/catalogue/privacy-compliance/	Interactive exercises on lawful bases, DSAR handling, breach response, DPIA, records of processing, and cross-border…	Training and awareness (art. 39)
+Website Evidence Collector (WEC)	https://www.edps.europa.eu/edps-inspection-software_en	EDPS Inspection Software.	Tools
+consentprobe	https://github.com/Elijas121/consentprobe	CLI and GitHub Action that tests whether a website stops tracking after the visitor rejects…	Tools
+Data protection around the world	https://www.cnil.fr/en/data-protection-around-the-world	(CNIL) Map of the level of data protection in each country.	Tools
+Data Protection Laws of the world	https://www.dlapiperdataprotection.com/	(DLA Piper) Compare data protection laws around the world.	Tools
+Comparison of Consent Management Platforms	https://github.com/JermainKroot/best-consent-management-platforms	Hands-on comparison of 9 platforms.	Tools
+disclosedby	https://disclosedby.com	Dated record of the subprocessor lists software companies publish under art. 28, with what changed…	Tools
+European Data Protection Board	https://edpb.europa.eu/	EDPB.	Data Protection Authorities (art. 51 -59)
+European Data Protection Supervisor	https://edps.europa.eu/	EDPS.	Data Protection Authorities (art. 51 -59)
+European Union Agency for Network and Information Security (ENISA)	https://www.enisa.europa.eu/topics/data-protection	ENISA.	Data Protection Authorities (art. 51 -59)
+List of Data Protection Authorities	https://pdpecho.com/the-list/		Data Protection Authorities (art. 51 -59)
+Electronic Frontier Foundation	https://www.eff.org/	Nonprofit defending digital privacy, free speech, and innovation.	Organisations / Projects
+International Association of Privacy Professionals	https://iapp.org/	A resource for privacy professionals.	Organisations / Projects
+Privacy International	https://www.privacyinternational.org	Charity that challenges the governments and companies that want to know everything about individuals, groups,…	Organisations / Projects
+NOYB	https://noyb.eu/	Organisation that brings important issues to the attention of DPAs, enforces the law in civil…	Organisations / Projects
+GDPR.eu	https://gdpr.eu/	Resource for organisations and individuals researching the GDPR (Not official website).	Organisations / Projects
+CyLab Usable Privacy and Security Laboratory	https://cups.cs.cmu.edu/	Research related to understand and improving the usability of privacy and security.	Organisations / Projects
+EPIC	https://epic.org/	Electronic Privacy Information Center.	Organisations / Projects
+Future of Privacy Forum	https://fpf.org/	Catalyst for privacy leadership and scholarship, advancing principled data practices in support of emerging technologies.	Organisations / Projects
+W3C Privacy Interest Group	https://www.w3.org/Privacy/	Leading the web to its full potential.	Organisations / Projects
+CISPE Code of Conduct	https://www.codeofconduct.cloud/	Pan-European sector-specific code for cloud infrastructure service providers under Article 40.	Organisations / Projects
+GDPR Today	https://www.gdprtoday.org/	Privacy news from the Open Rights Group.	Publications
+Spread Privacy	https://spreadprivacy.com/	DuckDuckGo Blog.	Publications
+Freedom To Tinker	https://freedom-to-tinker.com/	Blog from Princeton's CITP, a research center that studies digital technologies in public life.	Publications
+pdpEcho	https://pdpecho.com/	All about personal data protection and privacy, by Gabriela Zanfir-Fortuna.	Publications
+GDPRhub	https://gdprhub.eu/	Free and open wiki that allows anyone to find and share GDPR insights across Europe.	Publications

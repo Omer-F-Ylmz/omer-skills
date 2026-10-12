@@ -1,0 +1,191 @@
+ad	url	aciklama	bolum
+Bruno	https://github.com/usebruno/bruno	Open-source API client for exploring and testing APIs.	Software / API Testing
+API Status Check	https://apistatuscheck.com	Real-time status monitoring dashboard for 188+ third-party APIs (OpenAI, Stripe, AWS, GitHub, etc.) with response…	Software / API Testing
+Polarity	https://www.polarity.so	The First AI QA Engineer that does full E2E, API, UI testing. Understands your entire…	Software / API Testing
+BitDive	https://bitdive.io/	Zero-code API testing platform for Java/Kotlin. Captures deep runtime context (HTTP, SQL, methods), auto-generates mocks…	Software / API Testing
+CORS Tester	https://cors-error.dev/cors-tester/	A tool for developers and API testers to check if an API is CORS-enabled for…	Software / API Testing
+HttpMaster	https://www.httpmaster.net	Professional software tool for HTTP testing and debugging.	Software / API Testing
+Keploy	https://github.com/keploy/keploy	API Testing Platform that automatically generates unit test cases along with dependency mocks.	Software / API Testing
+RestQA	https://github.com/restqa/restqa	REST API testing framework based on Gherkin.	Software / API Testing
+SpecTest	https://github.com/justiceo/spectest	Truly declarative API testing framework in Js, or plain JSON.	Software / API Testing
+Tests Coverage Tool	https://github.com/Nikita-Filonov/tests-coverage-tool	Ultimate tool to measure gRPC service coverage from tests.	Software / API Testing
+Swagger Coverage Tool	https://github.com/Nikita-Filonov/swagger-coverage-tool	The Swagger Coverage Tool is designed to measure API test coverage based on Swagger documentation.…	Software / API Testing
+Webhook Debugger & Logger	https://apify.com/ar27111994/webhook-debugger-logger	Enterprise-grade tool for testing, debugging, and logging incoming webhooks in real-time.	Software / API Testing
+Webhook Debugger	https://github.com/brancogao/webhook-debugger	Open-source, self-hosted webhook inspector with signature verification support.	Software / API Testing
+Spiderhash	https://spiderhash.io/	Webhook debugging and request inspection tool for testing callback payloads, headers, and delivery behavior.	Software / API Testing
+KushoAI	https://kusho.ai/	AI-native platform for API contract testing, end-to-end testing, UI testing, and continuous security scanning, with…	Software / API Testing
+postman2pytest	https://github.com/golikovichev/postman2pytest	Convert a Postman Collection v2.1 JSON file into a ready-to-run pytest test suite.	Software / API Testing
+funapi	https://funapi.dev	A free mock REST API service designed for practicing API testing, automation, and integration with…	Software / API Testing
+BeEF	http://beefproject.com/	Manipulate the browser by exploiting any XSS vulnerabilities you find.	Software / Security Testing
+OWASP ZAP	https://github.com/zaproxy/zaproxy	Intercepting proxy for HTTP traffic manipulation, security scanning, and exploitation.	Software / Security Testing
+BurpSuite	https://portswigger.net/burp/communitydownload	Intercept API and Reply with changes in realtime with according api manipulations.	Software / Security Testing
+Nuclei Scanner	https://github.com/projectdiscovery/nuclei	nuclei is automated scanner for common vulnerability finding on site.	Software / Security Testing
+Darkmoon	https://github.com/ASCIT31/Dark-Moon	Open-source (GPLv3) autonomous AI penetration-testing CLI with 50 specialist agents and 140+ offensive tools over…	Software / Security Testing
+promptfoo	https://github.com/promptfoo/promptfoo	Open-source framework for testing and red teaming LLM applications. Compare prompts, test RAG architectures, run…	Software / AI & LLM Testing
+Tenro	https://github.com/tenro-ai/tenro-python	Open-source testing framework for AI agents. Simulate LLM and tool calls to test edge cases,…	Software / AI & LLM Testing
+voicetest	https://github.com/voicetestdev/voicetest	Open-source test harness for voice AI agents supporting Retell, VAPI, LiveKit, and Bland with autonomous…	Software / AI & LLM Testing
+AgentSkeptic	https://github.com/jwekavanagh/agentskeptic	Verifies AI/agent workflows by checking database state after execution, comparing expected vs observed outcomes with…	Software / AI & LLM Testing
+Evaliphy	https://github.com/evaliphy/evaliphy	Test your AI system end-to-end with Evaliphy. It uses a Playwright-style testing approach and generates…	Software / AI & LLM Testing
+QASkills.sh	https://qaskills.sh	Open registry of 400+ QA and testing skills (Playwright, API, LLM evaluation, accessibility, performance) that…	Software / AI & LLM Testing
+nika	https://github.com/supernovae-st/nika	Workflow engine for AI with testing built in: `nika test` pins a workflow's offline behavior…	Software / AI & LLM Testing
+crilio	https://github.com/mukundzha/crilio	An open-source Python CLI that uses LLM-as-a-Judge to automate semantic regression testing for LLM prompts…	Software / AI & LLM Testing
+aiexpect	https://github.com/dmsehgal/aiexpect	Python assertions for non-deterministic AI text that drop into pytest. Semantic and rule checks work…	Software / AI & LLM Testing
+OrcaReplay	https://github.com/Continuum-AI-Corp/OrcaReplay	Records a coding-agent session below the harness, keeping the verbatim request and response bytes, then…	Software / AI & LLM Testing
+flight-recorder	https://github.com/xag/flight-recorder	Record every nondeterministic input your code reads (LLM answers, HTTP, database, clock, randomness) as one…	Software / AI & LLM Testing
+OrcaPromptVault	https://github.com/Continuum-AI-Corp/OrcaPromptVault	Dated archive of the system prompts and tool-call schemas shipped AI agents send, so tests…	Software / AI & LLM Testing
+Beeceptor	https://beeceptor.com/	Easy to use no-code mock servers for service virtualization. Rest, SOAP, GraphQL supported. Create an…	Software / Service Virtualization
+DeepfakeHTTP	https://github.com/xnbox/DeepfakeHTTP	Web server using HTTP dumps as a response source for API simulation.	Software / Service Virtualization
+fakecloud	https://github.com/faiscadev/fakecloud	Free, open-source local AWS cloud emulator for integration tests, with 23 services at 100% conformance…	Software / Service Virtualization
+mockd	https://github.com/getmockd/mockd	Open-source multi-protocol mock server supporting HTTP, gRPC, GraphQL, WebSocket, MQTT, and SOAP with chaos engineering…	Software / Service Virtualization
+MockServer	https://github.com/mock-server/mockserver-monorepo	Mocking, debugging proxy and chaos engineering tool for multiple protocols (HTTP, gRPC, GraphQL, LLM, MCP,…	Software / Service Virtualization
+WireMock	https://github.com/wiremock/wiremock	Open source HTTP mock engine written in Java. Embed in your test code, run as…	Software / Service Virtualization
+ApiNotes	https://apinotes.io/mock-server	Drop your OpenAPI spec and get a fully functional mock API server instantly. Export to…	Software / Service Virtualization
+Twinbay	https://twinbay.ai	Hosted, stateful twins of third-party APIs such as Shopify, Slack, Zendesk and QuickBooks for integration…	Software / Service Virtualization
+Fluxguard	https://fluxguard.com	Screenshot pixel and DOM change comparisons.	Software / Visual Testing
+GoodLooks	https://github.com/dashcamio/goodlooks	AI-powered visual validation for Playwright tests.	Software / Visual Testing
+Happo	https://happo.io	Cross-browser screenshot and visual regression testing service, integrates with tools like Storybook, Playwright, and Cypress.	Software / Visual Testing
+Image Diff	https://nutilz.com/image-diff	Free, browser-based pixel diff tool for comparing two images and highlighting exactly what changed, with…	Software / Visual Testing
+Lastest	https://lastest.cloud	Visual regression testing for Playwright with AI flake triage and baseline review.	Software / Visual Testing
+TestingBot	https://testingbot.com	Supports automated, manual, and visual testing.	Software / Visual Testing
+recheck-web	https://github.com/retest/recheck-web	Change comparison tool with Golden Masters and "unbreakable Selenium" tests.	Software / Visual Testing
+Sherlo	https://github.com/sherlo-io/sherlo	Visual testing platform for React Native Storybook. Captures screenshots on iOS and Android simulators in…	Software / Visual Testing
+wopee.io	https://wopee.io/	Autonomous visual regression testing platform.	Software / Visual Testing
+SmartUI by TestMu AI (formerly LambdaTest)	https://www.testmuai.com/visual-testing-tool/	AI-Native Visual Testing Tool for Flawless UIs across browsers, apps, websites, and PDFs.	Software / Visual Testing
+Polarity	https://www.polarity.so	Full visual and desktop environments showcasing complete E2E testing for all UI/UX features. Generated you…	Software / UI & End-to-End Testing
+ai-wright	https://github.com/TestChimp/ai-wright	Open-source library that adds AI action, assertion, and data extraction steps to Playwright tests, using…	Software / UI & End-to-End Testing
+blastproof	https://blastproof.dev	Open-source AI agent that runs plain-English e2e tests in a real browser. It reads the…	Software / UI & End-to-End Testing
+BugBug	https://bugbug.io	No-code test automation tool for web applications.	Software / UI & End-to-End Testing
+cloudf.one	https://www.cloudf.one	Rent a real Samsung Android phone in Singapore on a Singtel or M1 SIM and…	Software / UI & End-to-End Testing
+Courgette	https://courgette-testing.com	Declarative BDD UI testing with Gherkin.	Software / UI & End-to-End Testing
+DevAssure	https://app.devassure.io	Agentic testing for E2E web UI on real browsers. Agent can be added to GitHub…	Software / UI & End-to-End Testing
+DeviceLab	https://devicelab.dev	Private device lab infrastructure for mobile testing. Connect your own iOS/Android devices and run Appium,…	Software / UI & End-to-End Testing
+Drengr	https://drengr.dev	Mobile tests written as plain-English tasks instead of selectors, driven by an agent on real…	Software / UI & End-to-End Testing
+Drengr Runner	https://github.com/SharminSirajudeen/drengr-runner	Drive an iOS simulator over HTTP from any language. A 479-line Swift XCTest target replacing…	Software / UI & End-to-End Testing
+Ferrum	https://github.com/rubycdp/ferrum	Chrome automation via CDP with a high-level Ruby API.	Software / UI & End-to-End Testing
+flutter-skill	https://github.com/ai-dashboad/flutter-skill	AI-powered E2E testing via MCP for Flutter, React Native, iOS, Android, Electron, Tauri, KMP, and…	Software / UI & End-to-End Testing
+Hyperbrowser	https://hyperbrowser.ai	Scalable headless browser testing with built-in session recording.	Software / UI & End-to-End Testing
+Hercules	https://github.com/test-zeus-ai/testzeus-hercules	Open-source end-to-end testing agent.	Software / UI & End-to-End Testing
+Kane CLI	https://www.testmuai.com/kane-cli/	Natural-language browser testing from the terminal, locally or in CI, with export to Playwright and…	Software / UI & End-to-End Testing
+Keploy	https://keploy.io	Open-source AI-powered end-to-end testing tool for APIs and microservices that auto-generates test cases and mocks…	Software / UI & End-to-End Testing
+TestMu AI (formerly LambdaTest)	https://www.testmuai.com	Full-Stack Agentic AI Quality Engineering platform that empowers teams to test intelligently and ship faster.	Software / UI & End-to-End Testing
+Mocky Balboa	https://docs.mockybalboa.com/	Mock server side network requests in your fullstack apps declaratively at runtime	Software / UI & End-to-End Testing
+Octomind	https://github.com/OctoMind-dev	AI-powered test case discovery and maintenance.	Software / UI & End-to-End Testing
+playwright-bdd	https://github.com/vitalets/playwright-bdd	BDD-style Playwright testing.	Software / UI & End-to-End Testing
+QA Wolf	https://github.com/qawolf/qawolf	Node.js library for creating browser tests faster.	Software / UI & End-to-End Testing
+qmax-mcp	https://github.com/Quality-Max/qmax-mcp	MCP server and CLI that gives coding agents independent QA evidence before they declare a…	Software / UI & End-to-End Testing
+tapflow	https://github.com/jo-duchan/tapflow	Self-hosted mobile QA tool that streams iOS simulators and Android emulators to the browser for…	Software / UI & End-to-End Testing
+UI Coverage Tool	https://github.com/Nikita-Filonov/ui-coverage-scenario-tool	UI Coverage Tool is an innovative, no-overhead solution for tracking and visualizing UI test coverage…	Software / UI & End-to-End Testing
+VibeView	https://vibeview.io/	Run & test iOS, Android, Apple TV and Android TV apps right in your browser,…	Software / UI & End-to-End Testing
+Waterfall AI Test	https://github.com/jiongfeng/waterfall-ai-test-platform	Open-source visual workbench for Playwright Test Agents that turns requirements into editable plans and verified…	Software / UI & End-to-End Testing
+agent-qa	https://github.com/vostride/agent-qa	Self-improving QA agent for natural-language web and mobile tests, with execution memory and regression detection.	Software / UI & End-to-End Testing
+assay	https://github.com/awss1i/assay	Deterministic command-line QA tool that serves a local web page, drives every control it finds…	Software / UI & End-to-End Testing
+Kiwi TCMS	https://github.com/kiwitcms/Kiwi	Open-source test case management.	Software / Test Management
+qarunbook	https://qarunbook.com	Free shared test runbook where testers record a pass or fail per platform with screenshots,…	Software / Test Management
+skipper	https://github.com/get-skipper/skipper	Real-time test execution control via Google Spreadsheet, enabling instant toggle without code changes.	Software / Test Management
+TestLink	https://github.com/TestLinkOpenSourceTRMS/testlink-code	Open-source test case management system.	Software / Test Management
+Testomatio	https://testomat.io/	Modern TCMS allowing sync of manual and automated tests.	Software / Test Management
+TempMailGrab	https://tempmailgrab.com/api-docs	Disposable email API for temporary inboxes, OTP extraction, verification links, and webhooks in Playwright, Cypress,…	Software / Test Data Management
+Temp Mail 24	https://temp-mail24.com/	Browser-based receive-only temporary inbox for permitted manual signup-flow testing.	Software / Test Data Management
+8½ Minute Mail	https://8m30mail.com/	Receive-only temporary inbox for manual email verification testing, with an 8-minute-30-second default lifetime and no…	Software / Test Data Management
+DATAMIMIC CE	https://github.com/rapiddweller/datamimic	Open-source, deterministic engine for model-driven synthetic test data and PII pseudonymization. Pin a seed and…	Software / Test Data Management
+dbmask	https://github.com/sealandseacat/dbmask	Masks sensitive data in SQL test databases with deterministic fakes and verifies the masking row…	Software / Test Data Management
+Dummy Data Lab	https://timliu724.github.io/dummy-data-lab/	Offline, open-source browser tool for transforming CSV or TXT into controlled dummy data and generating…	Software / Test Data Management
+JSON Validation Test Cases	https://github.com/UtilHatch/json-validation-test-cases	Reusable valid, invalid, and edge-case JSON fixtures for testing parsers, validators, APIs, editors, and error…	Software / Test Data Management
+mailsocket	https://mailsocket.app	Inbox API that waits for an email OTP or magic link and returns it as…	Software / Test Data Management
+Synth	https://github.com/getsynth/synth	Open-source test data generator.	Software / Test Data Management
+Touca	https://github.com/trytouca/trytouca	Continuous regression testing for behavioral and performance comparisons.	Software / Test Data Management
+test-each	https://github.com/ehmicky/test-each	Data-driven testing framework.	Software / Test Data Management
+Sample Files	https://mzeeshan.me/tools/sample-files	Free downloadable test file variants across video, audio, document, and archive formats (MP4, MOV, RTF,…	Software / Test Data Management
+ARADURU File Format Test Corpus	https://teamaraduru-hub.github.io/araduru-file-format-test-corpus/	Open CC0 corpus of deterministic healthy and intentionally broken XLSX, DOCX, PPTX, ZIP, and PDF…	Software / Test Data Management
+FakeNamely	https://fakenamely.com	Free web generator and keyless JSON API for fictional identities, addresses and names across 38…	Software / Test Data Management
+Código ao Ponto	https://codigoaoponto.com/en/tools	Free browser-based test data generators and validators for Brazilian documents (CPF, CNPJ, RG, CNH) with…	Software / Test Data Management
+LaunchStock Test Data Generator	https://launchstock.app/tools/test-data-generator	Browser generator for six modelled businesses: retail, SaaS, healthcare, banking, logistics and HR. Values agree…	Software / Test Data Management
+postal-code-formats	https://github.com/vinceblock99/postal-code-formats	Postal code formats, validation regexes and 9,000 real sample codes for 31 countries, with every…	Software / Test Data Management
+StanzaAPI Test Data	https://stanzaapi.com/datasets	Free CC0 synthetic test data for regulated B2B formats (IBAN, X12, ISO 20022, GS1, VAT,…	Software / Test Data Management
+Anchor Browser	https://anchorbrowser.io	Cloud browser infrastructure with built-in stealth and proxy rotation for automated testing at scale	Software / Browser Extensions & Utilities
+Bug Magnet	https://chrome.google.com/webstore/detail/bug-magnet/efhedldbjahpgjcneebmbolkalbhckfi	Field-based value suggestions for form testing.	Software / Browser Extensions & Utilities
+BugShot	https://chromewebstore.google.com/detail/bugshot/ohakhekagkodklkickemonmifdcbhmig	Capture a bug as a screenshot, a screen or tab recording, or a 30-second replay,…	Software / Browser Extensions & Utilities
+Check All	https://chrispederick.com/work/web-developer/	Provides a "Select All" function where missing.	Software / Browser Extensions & Utilities
+Full Page Screenshot	https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl	Capture full-page screenshots.	Software / Browser Extensions & Utilities
+Form Filler	https://chrome.google.com/webstore/detail/form-filler/bnjjngeaknajbdcgpfkgnonkmififhfo	Auto-fill large forms with dummy data.	Software / Browser Extensions & Utilities
+ProxySwitcher	https://chrome.google.com/webstore/detail/proxy-switcher-manager/onnfghpihccifgojkpnnncpagjcdbjod	Easy proxy switching for test/prod environments.	Software / Browser Extensions & Utilities
+Requestly	https://requestly.io/	A lightweight proxy to intercept and modify network requests.	Software / Browser Extensions & Utilities
+TabQA	https://chromewebstore.google.com/detail/tabqa/ddbodfcbakkoakaonpodnpgbkmmgpedp	Connect, mirror, and control Android devices directly in Chrome via WebUSB without ADB; capture logs,…	Software / Browser Extensions & Utilities
+Colour Blindness Simulator	https://altreus.github.io/colourblind/	Simulate different types of color blindness.	Software / Accessibility & Usability Testing
+RateMyApp Testing Brief Builder	https://ratemyapp.io/tools/app-testing-brief-builder/	Free, no-account tool for writing mobile usability-testing tasks, expected outcomes, and feedback instructions.	Software / Accessibility & Usability Testing
+RatedWithAI	https://ratedwithai.com	AI-powered website accessibility scanner that checks for ADA and WCAG 2.2 compliance with instant actionable…	Software / Accessibility & Usability Testing
+Site Punchlist	https://sitepunchlist.com	Crawls a whole site with axe-core and groups repeated findings by the shared component causing…	Software / Accessibility & Usability Testing
+squirrelscan	https://squirrelscan.com	Audits websites for accessibility, SEO, performance, and security with 260+ rules and returns exact fixes…	Software / Accessibility & Usability Testing
+VertaaUX CLI	https://github.com/VertaaUX/cli	UX, accessibility, and conversion audits from the terminal and CI, with score-based quality gates and…	Software / Accessibility & Usability Testing
+WAVE	https://wave.webaim.org/	Suite of evaluation tools that helps authors make their web content more accessible to individuals…	Software / Accessibility & Usability Testing
+Yslow	http://yslow.org/	Analyze web page performance based on Yahoo!'s rules.	Software / Performance & Load Testing
+Load Testing Hub Panel	https://github.com/Nikita-Filonov/load-testing-hub-panel	Ultimate web UI for visualizing load test results	Software / Performance & Load Testing
+k6	https://github.com/grafana/k6	Modern load testing tool, scriptable in JavaScript, with cloud and open-source options.	Software / Performance & Load Testing
+JMeterHub	https://www.jmeterhub.com	Interactive performance report visualizer for Apache JMeter logs with zero setup, AI conclusions, and shareable…	Software / Performance & Load Testing
+Locust Kubernetes Operator	https://github.com/AbdelrhmanHamouda/locust-k8s-operator	Run distributed Locust load tests on Kubernetes with a LocustTest CRD.	Software / Performance & Load Testing
+Cannon	https://usecannon.com/	Continuous configuration automation for Ethereum.	Software / Web3 & Blockchain Testing
+Dapp.tools	https://dapp.tools/	Command-line tools and smart contract libraries for Ethereum.	Software / Web3 & Blockchain Testing
+Ganache	https://trufflesuite.com/ganache/	Personal Ethereum blockchain for running tests.	Software / Web3 & Blockchain Testing
+Foundry	https://github.com/foundry-rs/foundry	Fast, modular toolkit for Ethereum development.	Software / Web3 & Blockchain Testing
+Hardhat	https://hardhat.org/	Ethereum development and testing environment.	Software / Web3 & Blockchain Testing
+Truffle Suite	https://trufflesuite.com/	Comprehensive smart contract development suite.	Software / Web3 & Blockchain Testing
+Robot Framework Solidity Testing Toolkit	https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit	Robot Framework integration for Solidity testing.	Software / Web3 & Blockchain Testing
+Bats	https://github.com/bats-core/bats-core	Bash Automated Testing System.	Software / Test Automation Frameworks
+Jumpstarter	https://github.com/jumpstarter-dev/jumpstarter	Open source hardware-in-the-loop testing framework for automated testing on real and virtual hardware with CI/CD…	Software / Test Automation Frameworks
+Robot Framework	https://robotframework.org/	Generic open-source automation framework for testing and RPA.	Software / Test Automation Frameworks
+ai-natural-language-tests	https://github.com/aiqualitylab/ai-natural-language-tests	Generates Cypress and Playwright E2E tests from natural language requirements using LangGraph, ChromaDB, and multi-provider…	Software / Test Automation Frameworks
+OpenTester	https://github.com/kznr02/OpenTester	MCP-First Testing Framework: AI Agents Can Now Test Like Humans	Software / Test Automation Frameworks
+Selenium Boot	https://seleniumboot.com	Java framework layered on Selenium WebDriver and TestNG. One Maven dependency and one YAML file…	Software / Test Automation Frameworks
+optics-framework	https://github.com/mozarkai/optics-framework	Self-healing test automation for mobile, web and Smart TV. Keyword-driven CSV/YAML tests run on Appium,…	Software / Test Automation Frameworks
+Captura	https://github.com/MathewSachin/Captura	Open-source video recording tool.	Software / Screen Recording & Session Replays
+Everframe	https://everframe.dev	In-app bug reporter for mobile, web and TV apps that attaches an annotated screenshot, console,…	Software / Screen Recording & Session Replays
+PR Preview	https://www.pr-preview.com/	MCP for Claude Code that drives your web app in a headed browser and records…	Software / Screen Recording & Session Replays
+rrweb	https://github.com/rrweb-io/rrweb	Records the DOM and user interactions as a typed JSON event stream and replays them…	Software / Screen Recording & Session Replays
+Xmind	http://www.xmind.net/	Mind mapping tool for documenting test cases and strategies.	Software / Mind Mapping & Documentation
+Kirro	https://kirro.io	A/B testing tool with visual editor, Bayesian statistics, and GA4 conversion tracking.	Software / A/B Testing
+The Scrum Field Guide, Agile advice for your first year and beyond	https://amzn.to/2OERKEm	Why you might want to move your company to Agile and great practical advice on…	Books
+Fifty quick ideas to improve your Tests	https://amzn.to/2AzMUF7	Great illustrative examples on how to improve tests and why you should do them. Great…	Books
+Agile Testing: A Practical Guide	https://amzn.to/2n1K2aG	A how to guide for those looking to transition to an Agile as a tester…	Books
+Explore It!: Reduce Risk and Increase Confidence with Exploratory Testing	https://amzn.to/2n8axLn	A very good book on structuring Exploratory Testing and designing tests.	Books
+The Domain Testing Workbook	https://amzn.to/2Az4l90	An in-depth look at the most common test technique, Domain Testing (also called Boundary Analysis…	Books
+Don't Make Me Think: A Common Sense Approach to Web Usability	https://amzn.to/2naYmhf	An incredibly useful book for usability testing.	Books
+Lessons Learned in Software Testing	https://amzn.to/2LTjM01	One of the best books on Software Testing, broken into bite size lessons that are…	Books
+UI is Communication	https://amzn.to/2vbiALY	How to make intuitive User Interfaces (UI and Usability Testing).	Books
+Thinking, Fast and Slow	https://amzn.to/2vcjasX	About how we make decisions and how to run experiments (experiments == tests).	Books
+Chaos Engineering: Crash test your applications	https://www.manning.com/books/chaos-engineering	A book on how to design and execute controlled software failure experiments.	Books
+Testing JavaScript Applications	https://www.manning.com/books/testing-javascript-applications	A book about JavaScript testing tools and techniques for developers.	Books
+The Art of Unit Testing, Third Edition	https://www.manning.com/books/the-art-of-unit-testing-third-edition	A book that guides you step by step from your first simple unit tests to…	Books
+Testing Web APIs	https://www.manning.com/books/testing-web-apis	Guarantee the quality and consistency of your web APIs by implementing an automated testing process.	Books
+Effective Software Testing	https://www.manning.com/books/effective-software-testing	A hands-on guide for developers on how to create high quality tests in a systematic…	Books
+Learn to Code	https://github.com/karlhorky/learn-to-program	Another awesome list for developer training	Training (Includes developer training for automation testers)
+Coursera	https://www.coursera.org/	Online courses from top universities.	Training (Includes developer training for automation testers)
+Cybrary	https://www.cybrary.it/	Online free security training.	Training (Includes developer training for automation testers)
+BBST Testing Courses	https://bbst.courses/bbst-testingeducation-materials/	The famous Black Box Software Testing (BBST) courses are university level courses on Software Test…	Training (Includes developer training for automation testers)
+FrontRow	https://github.com/majdukovic/frontrow	Open source React Native mobile app built as a hands on training surface for QA…	Training (Includes developer training for automation testers)
+Janet Gregory	http://janetgregory.ca/blog/		Blogs
+Nikita Sobolev	https://sobolevn.me/		Blogs
+Softwaretester Blog	https://www.softwaretester.blog/		Blogs
+Automation Panda	https://automationpanda.com/		Blogs
+And others	https://github.com/ChristoWolf/awesome-testing-blogs		Blogs
+Coding Jag	https://www.testmuai.com/newsletter	Your weekly dose of the latest in AI, Testing, Development, CI/CD, and Automation—keeping you ahead…	Newsletters
+Software Testing Weekly	https://softwaretestingweekly.com/	A curated round-up of the best software testing news and tools published every Friday.	Newsletters
+Falsehoods	https://github.com/kdeldycke/awesome-falsehood	A funny and educational list of why nothing in Software Development is ever easy. Think…	Suggested Awesome Lists / Must Read
+Naughty Strings	https://github.com/minimaxir/big-list-of-naughty-strings	This is the famous list of Naughty Strings. If you're doing some field validation, look…	Suggested Awesome Lists / Must Read
+Unicode	https://github.com/jagracey/Awesome-Unicode	A great resource for learning how unicode works and the issues it can cause.	Suggested Awesome Lists / Must Read
+The Original	https://github.com/sindresorhus/awesome	The awesome list of awesome lists.	Suggested Awesome Lists / Useful References
+Learn to Code	https://github.com/karlhorky/learn-to-program	Learning to code, for those looking to make the move to automation	Suggested Awesome Lists / Useful References
+Application Security	https://github.com/paragonie/awesome-appsec	Incredibly extensive, but you'll find something to fit the bill.	Suggested Awesome Lists / Useful References
+Selenium	https://github.com/christian-bromann/awesome-selenium	Better than searching Google if you know what you want.	Suggested Awesome Lists / Useful References
+Security	https://github.com/sbilly/awesome-security	This is mostly focused on Infrastructure, but if you're testing a series of systems, this…	Suggested Awesome Lists / Useful References
+Awesome Software Quality	https://github.com/ligurio/awesome-software-quality	A list of free software testing and verification resources.	Suggested Awesome Lists / Useful References
+Awesome AI Testing	https://github.com/tugkanboz/awesome-ai-testing	A curated list of AI-powered testing tools, frameworks, and resources for QA engineers, covering test…	Suggested Awesome Lists / Useful References
+Awesome Cucumber	https://github.com/virajkulkarni14/awesome-cucumber	A (relatively-newer) curated list of awesome Cucumber and Gherkin-related resources.	Suggested Awesome Lists / Useful References
+Awesome JMeter	https://github.com/aliesbelik/awesome-jmeter	A curated collection of resources around Apache JMeter.	Suggested Awesome Lists / Useful References
+Awesome Performance Engineering	https://github.com/be-next/awesome-performance-engineering	A curated collection of tools and resources for performance engineering, covering observability and performance testing.	Suggested Awesome Lists / Useful References
+How They Test	https://github.com/abhivaikar/howtheytest	A curated collection of public resources from tech companies on how they test their software…	Suggested Awesome Lists / Useful References
+Awesome Behave	https://github.com/MathiasPaulenko/awesome-behave#readme	A curated list of Behave resources, tools, and libraries for Python BDD.	Suggested Awesome Lists / Useful References
+How to start QA and Testing career	https://github.com/fityanos/Quality-Assurance-Road-Map	A wide and rich list of strategies, topics, and skills that you need to start…	QA and Testing Road Map
+QALadder	https://qaladder.org	A free, sequenced roadmap from manual QA to SDET, with a 150-question interview bank, browser-based…	QA and Testing Road Map
+Testers Rage Playlist	https://play.spotify.com/user/sanchezni/playlist/5yzT0HrymwEeO8ckqgkPiW	A collaborative playlist from testers for when the red mist descends.	Others
+Software Testing Conferences	http://testingconferences.org/	A list of software testing conferences and workshops.	Others
+Software Testing Interview Tool	https://github.com/TheJambo/ToDoInterviewTest	A very buggy To Do List to facilitate face to face interviews.	Others

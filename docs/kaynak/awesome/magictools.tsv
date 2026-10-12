@@ -1,0 +1,430 @@
+ad	url	aciklama	bolum
+2D Cartoon Mobile Game UI Pack	http://graphicburger.com/mobile-game-gui/	cartoon user interface asset pack. It comes as a layered psd file.	Graphics / Assets/Placeholders
+420 Pixel Art Icons for RPGs	http://7soul1.deviantart.com/art/420-Pixel-Art-Icons-for-RPG-129892453	Set of 420 RPG icons, free for commercial use.	Graphics / Assets/Placeholders
+Blender 3D models	https://www.blender-models.com/	3D models, particle systems/effects	Graphics / Assets/Placeholders
+CGTextures	http://www.textures.com	A large collection of textures.	Graphics / Assets/Placeholders
+GameDev Market	https://www.gamedevmarket.net/	a community-driven marketplace that connects indie game developers with talented asset creators.	Graphics / Assets/Placeholders
+Games-Icons Set	http://game-icons.net/	free icons for your games.	Graphics / Assets/Placeholders
+Iconmonstr	http://iconmonstr.com/	Another free icons resource for your games.	Graphics / Assets/Placeholders
+Kenney Assets	http://kenney.nl/assets	Royalty free assets	Graphics / Assets/Placeholders
+Liberated Pixel Cup assets	http://lpc.opengameart.org	Free graphic assets of the Liberated Pixel Cup (LPC) held by the OpenGameArt forums	Graphics / Assets/Placeholders
+Matcaps	https://github.com/nidorx/matcaps#matcaps	A Huge library of matcap textures in PNG and ZMT, organized by color.	Graphics / Assets/Placeholders
+OpenGameArt	http://opengameart.org/	a media repository intended for use with free software game projects.	Graphics / Assets/Placeholders
+Oryx Design Lab	http://oryxdesignlab.com/	Cheap high quality royalty free sprites	Graphics / Assets/Placeholders
+PlainTextures	http://www.plaintextures.com/	Free high resolution textures, brushes and photos	Graphics / Assets/Placeholders
+Pixelicious	https://www.pixelicious.xyz/	Image-to-Pixel Art converter.	Graphics / Assets/Placeholders
+Poly Pizza	https://poly.pizza	6000+ free low poly models	Graphics / Assets/Placeholders
+Quaternius	https://quaternius.com/	Thousands of free CC0 low-poly 3D models and animated characters.	Graphics / Assets/Placeholders
+Reiner's Tilesets	http://www.reinerstilesets.de/	A blog with free 2D and 3D graphics.	Graphics / Assets/Placeholders
+Sketchfab	https://sketchfab.com/	Publish & embed interactive 3D models.	Graphics / Assets/Placeholders
+SpriteLib	http://www.widgetworx.com/spritelib/	a collection of static and animated graphic objects (also commonly known as sprites).	Graphics / Assets/Placeholders
+StickyPNG	http://www.stickpng.com/	Free transparent PNG images.	Graphics / Assets/Placeholders
+TextureHaven	https://texturehaven.com/	Free textures with additional maps like displacement and bump maps. Also HDRIs.	Graphics / Assets/Placeholders
+TextureKing	http://www.textureking.com/	Free material stock textures	Graphics / Assets/Placeholders
+Vecteezy	http://www.vecteezy.com/	Free Vector Art.	Graphics / Assets/Placeholders
+AnimGen Free Sprite Sheet Tools	https://animgen.com/tools	Browser tools that convert GIFs to sprite sheets and back, slice grid sheets or auto-extract…	Graphics / Spritesheet Tools
+Cheetah-Texture-Packer	https://github.com/scriptum/Cheetah-Texture-Packer	High efficient and fast 2D bin packing tool	Graphics / Spritesheet Tools
+EzSpriteSheet	https://github.com/z64me/EzSpriteSheet	Creates sprite sheets from animated GIFs and more	Graphics / Spritesheet Tools
+Libgdx Texture Packer	https://github.com/libgdx/libgdx/wiki/Texture-packer	Texture Packer built into Libgdx	Graphics / Spritesheet Tools
+Littera	http://kvazars.com/littera	Bitmap font generator	Graphics / Spritesheet Tools
+PixelChart Sprite Sheet Tools	https://pixelchart.app/tools/sprite-sheet-maker/	Pack frames into a sheet with a JSON atlas, slice sheets back into PNGs, and…	Graphics / Spritesheet Tools
+ShoeBox	http://renderhjs.net/shoebox/	Adobe Air based app with game and ui related tools.	Graphics / Spritesheet Tools
+SnowB Bitmap Font	https://snowb.org/	Bitmap font generator	Graphics / Spritesheet Tools
+Sprite Sheet Builder	https://spritesheetbuilder.com/	Free browser-based sprite sheet maker: pack frames, split atlases, convert GIFs, export PNG + JSON/XML…	Graphics / Spritesheet Tools
+TexturePacker	https://www.codeandweb.com/texturepacker	Great spritesheet creation editor.	Graphics / Spritesheet Tools
+Tilesplit	https://github.com/AlexPoulsen/tilesplit	CLI text-based tilesheet splitter and namer. Turn a spritesheet into many separate files with names…	Graphics / Spritesheet Tools
+ImageAlpha	http://pngmini.com/	Mac OS X GUI for pngquant and other tools	Graphics / Bitmap Compression
+Photo Resizer In KB	https://photoresizerinkb.com/	Resize photos easily and free to use	Graphics / Bitmap Compression
+PNGGauntlet	http://pnggauntlet.com/	Smash PNGs for faster sites	Graphics / Bitmap Compression
+PNGoo	https://pngquant.org/PNGoo.0.1.1.zip	Windows GUI for batch conversion.	Graphics / Bitmap Compression
+Pngyu	http://nukesaq88.github.io/Pngyu/	simple PNG image file compression tool.	Graphics / Bitmap Compression
+TinyPNG	https://tinypng.com/	Advanced lossy compression for PNG images that preserves full alpha transparency.	Graphics / Bitmap Compression
+FilterForge	https://www.filterforge.com/	A plugin for Adobe Photoshop that allows you to build your own filters.	Graphics / Texture Tools
+Live Normal	https://tenebrislab.github.io/livenormal/	An Android and iOS app for generating seamless materials on the go. You take a…	Graphics / Texture Tools
+Nebula Forge	https://nebulakit.itch.io/nebula-forge	Browser-based procedural nebula background generator with adjustable controls and PNG export. Runs locally without signup.	Graphics / Texture Tools
+PixelChart Normal Map Generator	https://pixelchart.app/tools/normal-map-generator/	Turns an image into normal, height and ambient occlusion maps with a live WebGL lit…	Graphics / Texture Tools
+PixPlant	http://www.pixplant.com/	PixPlant is a smart 3D texturing tool that creates high quality normal, displacement, specular maps…	Graphics / Texture Tools
+Charas	http://charas-project.net/index.php	Charas is a charset generator for RPG Maker.	Graphics / Character Generators
+AutoTileGen	http://pixelatto.com	AutoTileGen is an automatic tileset generator for 2D game terrains.	Graphics / Tile/Level Editors
+LDtk	https://deepnight.net/tools/ldtk-2d-level-editor/	LDtk is an open-source 2D level editor for indie devs, with a strong focus on…	Graphics / Tile/Level Editors
+MapperMate	https://mappermate.com/	A cloud based tile map editor used to create 2D levels directly in the browser.	Graphics / Tile/Level Editors
+Material Maker	https://github.com/RodZill4/material-maker	procedural texture creator made in Godot	Graphics / Tile/Level Editors
+OGMO Editor	https://ogmo-editor-3.github.io/	generic level editor.	Graphics / Tile/Level Editors
+Overlap2D	https://github.com/UnderwaterApps/overlap2d/	a 2D level and UI editor with an engine agnostic philosophy.	Graphics / Tile/Level Editors
+Sprite Fusion	https://spritefusion.com/	A free level design tool to craft beautiful 2D tilemaps right in your browser using…	Graphics / Tile/Level Editors
+Tiled	http://www.mapeditor.org/	free, easy to use and flexible tile map editor.	Graphics / Tile/Level Editors
+AnimKit	https://www.nasrtech.dev/animkit	Maya animation toolkit with live tweening, smart keys, motion trails, a pose library and Mixamo…	Graphics / Animation
+Cascadeur	https://cascadeur.com/	Powerful physics-based 3D character animation	Graphics / Animation
+Fusion Character Animator	http://loopengo.free.fr/	small tool for Clickteam Fusion 2.5 to facilitate the animation of 2D character sprites for…	Graphics / Animation
+GameAsset.net	https://gameasset.net/	10,000+ free CC0 character animations, previewable in 3D with GLB download.	Graphics / Animation
+GraphicsDale	https://graphicsgale.com/us/	Powerful tool for spriting and pixel art.	Graphics / Animation
+LWF	http://gree.github.io/lwf/	Lightweight SWF. LWF is an animation engine which can play animation data converted from FLASH…	Graphics / Animation
+Mixamo	https://www.mixamo.com/#/	tool for auto auto rigging and animation of 3D humanoid models,	Graphics / Animation
+NixieFX	https://nixiefx.com/	Free browser-based particle and VFX editor for Three.js and PixiJS web games, with an open-source…	Graphics / Animation
+Pixel Composer	https://github.com/Ttanasart-pt/Pixel-Composer	Powerful node-based VFX editor for pixel art	Graphics / Animation
+Spine	http://esotericsoftware.com/	Spine is dedicated to 2D animation, providing an efficient workflow both for creating amazing animation…	Graphics / Animation
+Spriter Pro	https://brashmonkey.com/download-spriter-pro/	Modern tool for sprite animation.	Graphics / Animation
+Affinity Designer	https://affinity.serif.com/de/designer	Vector graphics editor with a bunch of features which also supports Adobe file formats	Graphics / Vector/Image Editor
+Affinity Photo	https://affinity.serif.com/de/photo	Photo and raster graphics editor which works together with Adobe file formats and Affinity Designer	Graphics / Vector/Image Editor
+Aseprite	http://www.aseprite.org/	animated sprite editor & pixel art tool.	Graphics / Vector/Image Editor
+Charas	http://charas-project.net/index.php	Charas is a charset generator for RPG Maker.	Graphics / Vector/Image Editor
+Gimp	http://www.gimp.org/	GNU Image Manipulation Program. It is a freely distributed piece of software for such tasks…	Graphics / Vector/Image Editor
+Inkscape	https://inkscape.org/en/	An open-source vector graphics editor similar to Adobe Illustrator, Corel Draw, Freehand, or Xara X.	Graphics / Vector/Image Editor
+Krita	https://krita.org/	Krita is a professional FREE and open source painting program. It is made by artists…	Graphics / Vector/Image Editor
+LibreSprite	https://libresprite.github.io/	LibreSprite is an open source fork of Aseprite.	Graphics / Vector/Image Editor
+Lightcube	https://www.lightcube.art/	Pixel Art Editor for Windows, supposed PSD files in addition to JPEG, PNG, BMP, GIF.	Graphics / Vector/Image Editor
+Multipaint	http://multipaint.kameli.net	A cross-platform (Win, Linux, Mac) image editor/painter which covers the color limitations of 8-bit machines…	Graphics / Vector/Image Editor
+NormalPainter	https://winteralexander.itch.io/normalpainter	An editor for hand painting stylized normal maps with graphical tablet and joystick support	Graphics / Vector/Image Editor
+Paint.NET	http://www.getpaint.net/	Paint.NET is free image and photo editing software for PCs that run Windows.	Graphics / Vector/Image Editor
+Palette Extractor	https://pixelpixi.github.io/spritewright/palette-extractor/	Extract the exact colour palette from any sprite or image in the browser and export…	Graphics / Vector/Image Editor
+Pickle	http://www.pickleeditor.com/	Another Pixel art Editor.	Graphics / Vector/Image Editor
+PiskelApp	http://www.piskelapp.com/	Free Online Pixel Art and Animated Sprite Tool.	Graphics / Vector/Image Editor
+Pixelmator	http://www.pixelmator.com	Full-featured image editing app for the Mac	Graphics / Vector/Image Editor
+Pixanima	https://pixanima.app	Free in-browser pixel-art and animation editor with layers, a frame timeline, GIF/sprite-sheet export, and an…	Graphics / Vector/Image Editor
+Pixelator	http://pixelatorapp.com	Turn any image into fancy pixel-art	Graphics / Vector/Image Editor
+Pixen	https://github.com/Pixen/Pixen	Pixel Art Editor for OSX	Graphics / Vector/Image Editor
+project one	http://p1.untergrund.net	A picture converter and editor for the Commodore 64 covering different graphics mode of this…	Graphics / Vector/Image Editor
+PyxelEdit	http://pyxeledit.com/	Pixel art editor designed to make it fun and easy to make tilesets, levels and…	Graphics / Vector/Image Editor
+REXPaint	https://www.gridsagegames.com/rexpaint/	a powerful and user-friendly ASCII art editor.	Graphics / Vector/Image Editor
+rx	https://rx.cloudhead.io/	a modern & minimalist pixel editor	Graphics / Vector/Image Editor
+Sprite Fusion Pixel Art Cleaner	https://www.spritefusion.com/pixel-snapper	Convert messy AI-generated pixel art into true, pixel-perfect pixel art. Source	Graphics / Vector/Image Editor
+Spritemate	http://www.spritemate.com	Online Editor for Commodore 64 Sprites	Graphics / Vector/Image Editor
+Squoosh	https://squoosh.app	Make images smaller using best-in-class codecs, right in the browser.	Graphics / Vector/Image Editor
+SVGcode	https://svgco.de/	SVGcode is a Progressive Web App that lets you convert raster images like JPG, PNG,…	Graphics / Vector/Image Editor
+SVG to PNG	https://vexlio.com/svg-to-png/	Batch convert unlimited SVGs to PNG rasters. Privacy-preserving, doesn't require uploading your assets.	Graphics / Vector/Image Editor
+Tilemancer	https://led.itch.io/tilemancer	A quick procedural tile creator designed for pixel-art games.	Graphics / Vector/Image Editor
+Timanthes	http://csdb.dk/release/?id=75871	A pixel art editor for the Commodore 64 computer running on Windows	Graphics / Vector/Image Editor
+Vector Magic	https://vectormagic.com/	Free Raster to Vector Graphics Converter	Graphics / Vector/Image Editor
+VTracer	https://www.visioncortex.org/vtracer/	Raster to Vector Graphics Converter built on top of visioncortex	Graphics / Vector/Image Editor
+3ds Max	http://www.autodesk.com/products/3ds-max/overview		Graphics / Modeling
+Besel	https://www.bezel.it/hq	Make a 3d real-time collaboration design and prototype in your VR headset or mobile AR.	Graphics / Modeling
+Blender	http://www.blender.org/	The free software and open-source 3D grate of the world	Graphics / Modeling
+Canvascript	https://github.com/VBproDev/Canvascript	A tool for creating HTML canvas graphics without writing code.	Graphics / Modeling
+Clara.io	https://clara.io/		Graphics / Modeling
+Daz 3D	https://www.daz3d.com/	A 3D software allows you to easily create custom scenes and characters in seconds.	Graphics / Modeling
+MakeHuman	http://www.makehumancommunity.org/		Graphics / Modeling
+Maya	http://www.autodesk.com/products/maya/overview		Graphics / Modeling
+modo	https://www.foundry.com/products/modo		Graphics / Modeling
+sculptris	https://sculptris.br.uptodown.com/windows	A version by Pixologic and the original 1.01	Graphics / Modeling
+Spline	https://spline.design/	A 3d collaborative real-time	Graphics / Modeling
+Womp	https://womp.com/	A 3D intuitive and easy to use for create right in your browser	Graphics / Modeling
+ZBrush	https://pixologic.com/		Graphics / Modeling
+ZBRUSHCOREMINI	https://www.maxon.net/en/zbrushcoremini	The new version of sculptris by MAXON	Graphics / Modeling
+Canyon Terrain Editor	https://entardev.wordpress.com/other-projects/canyon-terrain-editor/	Create quality, realistic terrain quickly and intuitively	Graphics / Terrain Generators
+DEM Net Elevation API	https://elevationapi.com	Live 3D textured terrain generation from real data - export height/normal maps, glTF, OBJ, STL	Graphics / Terrain Generators
+Fracplanet	https://sourceforge.net/projects/fracplanet/	Fractal planet and terrain generator	Graphics / Terrain Generators
+World Creator	https://www.world-creator.com/	Procedural terrain and landscape generation on the GPU in real time, simulation of erosion and…	Graphics / Terrain Generators
+World Machine	http://www.world-machine.com/	Procedural terrain creation, simulations of nature, and interactive editing	Graphics / Terrain Generators
+WorldLoop	https://github.com/Daniele-Cangi/worldloop-technical-showcase	Procedural architecture and world generation combining semantic CAD, playable structures, voxel terrain, caves and water,…	Graphics / Terrain Generators
+goxel	https://github.com/guillaumechereau/goxel		Graphics / Voxel Editors
+MagicaVoxel	https://ephtracy.github.io/		Graphics / Voxel Editors
+Sproxel	http://sproxel.blogspot.com.br/		Graphics / Voxel Editors
+Voxelle Desktop	https://github.com/Velfi/Voxelle-Desktop		Graphics / Voxel Editors
+6502 Unit Test executor	https://github.com/AsaiYusuke/6502_test_executor	A cross-platform unit testing tool for MOS 6502 assembly. (i.e. NES)	Code / Engines and Frameworks
+Allegro	http://liballeg.org/	Allegro 4 & 5 are cross-platform, open source, game programming libraries, primarily for C and…	Code / Engines and Frameworks
+amulet	http://www.amulet.xyz/	A free Lua-based audio/visual toolkit suitable for small games and experimentation. It runs on Windows,…	Code / Engines and Frameworks
+asimov-ts	https://github.com/pedrozaalex/asimov-ts	A type safe (as much as possible) engine for the web written in TypeScript.	Code / Engines and Frameworks
+Astera	https://github.com/tek256/astera	2D C99 Cross Platform Game Library / Framework	Code / Engines and Frameworks
+axys	https://github.com/axys1/axys	A fork of Cocos2d-x-4.0, it has Full Support OpenAL for all platforms, single texture multi…	Code / Engines and Frameworks
+Azul3D	http://azul3d.org/	A 3D engine written in Go.	Code / Engines and Frameworks
+Babylon.js	https://www.babylonjs.com/	Javascript 3D Library.	Code / Engines and Frameworks
+Bevy	https://bevyengine.org/	A refreshingly simple data-driven game engine built in Rust	Code / Engines and Frameworks
+bgfx	https://github.com/bkaradzic/bgfx	Cross-platform, graphics API agnostic, "Bring Your Own Engine/Framework" style rendering library.	Code / Engines and Frameworks
+bitsy	https://ledoux.itch.io/bitsy	A little editor for little games or worlds. The goal is to make it easy…	Code / Engines and Frameworks
+Bladecoder	https://github.com/bladecoder/bladecoder-adventure-engine	Classic point and click adventure game engine and editor.	Code / Engines and Frameworks
+Blend4Web	http://www.blend4web.com/	A Javascript framework for creating and displaying interactive 3D computer graphics in web browsers.	Code / Engines and Frameworks
+Blitz3D	https://github.com/blitz-research/blitz3d	3D basic-like programming language for fast 3D desktop games.	Code / Engines and Frameworks
+boardgame.io	https://github.com/boardgameio/boardgame.io	State management and multiplayer networking for turn-based games.	Code / Engines and Frameworks
+Box2D	http://box2d.org/	A 2D Physics Engine for Games.	Code / Engines and Frameworks
+Box2D.NET	https://github.com/ikpil/Box2D.NET	A port of Box2D, is a 2D physics engine for games, .NET C#, Unity3D, servers.	Code / Engines and Frameworks
+Bullet	http://bulletphysics.org/wordpress/	Real-time physics simulation.	Code / Engines and Frameworks
+Carimbo	https://github.com/willtobyte/carimbo	A 2D game engine developed in modern C++ using SDL, an Entity-Component-System (ECS) architecture, and…	Code / Engines and Frameworks
+Chipmunk C#	https://github.com/netonjm/ChipmunkSharp	C# implementation of the Chipmunk2D lib.	Code / Engines and Frameworks
+Chipmunk2D	https://chipmunk-physics.net/	A fast and lightweight 2D game physics library.	Code / Engines and Frameworks
+Cinder	https://libcinder.org/	Cinder is a community-developed, free and open source library for professional-quality creative coding in C++.	Code / Engines and Frameworks
+Cocos Creator	https://www.cocos.com/en/creator	Cocos Creator, a free cross-platform game development editor supporting Cocos2d-js, helps developers build 2D and…	Code / Engines and Frameworks
+Cocos2D	https://github.com/los-cocos/cocos	graphic library for games and multimedia, for python language	Code / Engines and Frameworks
+Cocos2d-x	http://cocos2d-x.org/	a C++ OpenGL 2D and 3D game engine. Uses C++ but has JS and Lua…	Code / Engines and Frameworks
+Codename One	https://github.com/codenameone/CodenameOne	Cross-platform Java framework with beta game APIs and a visual Game Builder for 2D and…	Code / Engines and Frameworks
+Construct	https://www.scirra.com/	an HTML5 game maker, meaning you are not actually writing JavaScript. Instead, you use actions,…	Code / Engines and Frameworks
+CopperCube	http://www.ambiera.com/coppercube/	CopperCube is an all-in-one 3D game engine.Very easy to use.	Code / Engines and Frameworks
+Coquette	http://coquette.maryrosecook.com/	A micro framework for JavaScript games. Handles collision detection, the game update loop, canvas rendering,…	Code / Engines and Frameworks
+ct.js	https://ctjs.rocks/	this 2D game engine makes learning programming fun and game development easy by its visual…	Code / Engines and Frameworks
+Dash	https://github.com/Circular-Studios/Dash	A free and open 3D game engine written in D.	Code / Engines and Frameworks
+Dear Imgui	https://github.com/ocornut/imgui/	A bloat-free immediate mode GUI for C++ with minimal dependencies.	Code / Engines and Frameworks
+Defold	http://www.defold.com/	Free 2D Game Engine for Cross-Platform Publishing	Code / Engines and Frameworks
+DEM Net Elevation API C#	https://github.com/dem-net/DEM.Net	Terrain generation from real data with textures, normal maps, glTF, OBJ, STL support	Code / Engines and Frameworks
+Diligent Engine	https://github.com/DiligentGraphics/DiligentEngine	A modern cross-platform low-level graphics library that supports Direct3D11, Direct3D12, OpenGL/GLES, and Vulkan.	Code / Engines and Frameworks
+DotRecast	https://github.com/ikpil/DotRecast	A port of Recast & Detour, navigation mesh toolset for games, Unity3D, servers, C#.	Code / Engines and Frameworks
+E.B.U.R.P	http://pents90.github.io/eburp/	The Eight-Bit Universal Role Playing Engine	Code / Engines and Frameworks
+ENGi	https://github.com/ajhager/engi	A multi-platform 2D game library for Go.	Code / Engines and Frameworks
+engo	https://engoengine.github.io/	Engo is an open-source 2D game engine written in Go.	Code / Engines and Frameworks
+Ebiten	https://ebiten.org/	A dead simple 2D game library in Go.	Code / Engines and Frameworks
+ecs-lib	https://github.com/nidorx/ecs-lib#readme	**ecs-lib** is a tiny and easy to use ECS (Entity Component System) library for game…	Code / Engines and Frameworks
+Ejecta	http://impactjs.com/ejecta	A Fast, Open Source JavaScript, Canvas & Audio Implementation for iOS.	Code / Engines and Frameworks
+EnTT	https://github.com/skypjack/entt	Gaming meets modern C++, a fast and reliable entity-component system (ECS) and much more	Code / Engines and Frameworks
+Excalibur.js	https://excaliburjs.com/	Your friendly TypeScript 2D game engine for the web.	Code / Engines and Frameworks
+FXGL	https://github.com/AlmasB/FXGL	A JavaFX/Kotlin game engine for Win/Mac/Linux.	Code / Engines and Frameworks
+Farseer	https://github.com/VelcroPhysics/VelcroPhysics	a collision detection system with realistic physics responses.	Code / Engines and Frameworks
+Flame	https://github.com/flame-engine/flame	a minimalist game engine for Flutter	Code / Engines and Frameworks
+FlashPunk	http://useflashpunk.net/	free ActionScript 3 library designed for developing 2D Flash games.	Code / Engines and Frameworks
+Flax Engine	https://flaxengine.com/	multi-platform 3D game engine	Code / Engines and Frameworks
+Folded Paper Engine	https://github.com/papercraftgames/folded-paper-engine	Blender to Godot game mechanics engine/plug-ins. Just a few clicks. Super easy. Featuring: 2.5D/first-person/third-person controls,…	Code / Engines and Frameworks
+Forge	https://forgeleaf.com/forge	Powerful and lightweight game framework for Go.	Code / Engines and Frameworks
+Foster	https://github.com/FosterFramework/Foster	A small cross-platform 2D game framework in C#.	Code / Engines and Frameworks
+GameFrameX	https://github.com/GameFrameX/GameFrameX	A cross-engine game framework: Unity and Godot clients on a single actor-model .NET server, sharing…	Code / Engines and Frameworks
+GameMaker	https://gamemaker.io/	GameMaker accommodates the creation of cross-platform video games using drag and drop or a scripting…	Code / Engines and Frameworks
+gameplay	http://gameplay3d.io/	A free, open-source, cross-platform, 2D + 3D game framework written in C++. It is aimed…	Code / Engines and Frameworks
+GameSalad	https://gamesalad.com/	Game Creation Engine for Mac and Windows.	Code / Engines and Frameworks
+GB Studio	https://www.gbstudio.dev/	A free and easy to use retro adventure game creator for your favourite handheld video…	Code / Engines and Frameworks
+GDevelop	https://gdevelop-app.com/	An open-source, cross-platform 2D game engine designed for everyone - it's extensible, fast and easy…	Code / Engines and Frameworks
+ggez	http://ggez.rs/	A Rust library to create Good Games Easily.	Code / Engines and Frameworks
+Gideros	http://giderosmobile.com/	A Cross-Platform framework to create Mobile Apps and games for iOS, Android using Lua programming…	Code / Engines and Frameworks
+Glide Engine	https://github.com/cocoatoucher/Glide	Engine for making 2d games on iOS, macOS and tvOS in Swift programming language, with…	Code / Engines and Frameworks
+Godot	http://www.godotengine.org/	An advanced, feature-packed, multi-platform 2D and 3D open-source game engine.	Code / Engines and Frameworks
+Gorgon	https://www.tape-worm.net/	A 2D rendering API for .NET, written in C#.	Code / Engines and Frameworks
+Grid	https://github.com/Planimeter/game-engine-2d	A multiplayer-first game engine for Lua.	Code / Engines and Frameworks
+HaxeFlixel	http://haxeflixel.com/	Create cross-platform games easier and free.	Code / Engines and Frameworks
+Heaps	https://heaps.io/	Cross platform graphics for high performance games.	Code / Engines and Frameworks
+Horde3D	http://www.horde3d.org/	small open source 3D rendering engine.	Code / Engines and Frameworks
+iio.js	https://github.com/iioinc/iio.js	A javascript library that speeds the creation and deployment of HTML5 Canvas applications	Code / Engines and Frameworks
+ImpactJS	http://impactjs.com/	Impact is a JavaScript Game Engine that allows you to develop stunning HTML5 Games for…	Code / Engines and Frameworks
+Inform7	http://inform7.com/	A design system for interactive fiction based on natural language.	Code / Engines and Frameworks
+Ink	http://www.inklestudios.com/ink/	Scripting language for writing interactive narrative.	Code / Engines and Frameworks
+Irrlicht	http://irrlicht.sourceforge.net/	open source high performance realtime 3D engine written in C++.	Code / Engines and Frameworks
+is::Engine	https://github.com/Is-Daouda/is-Engine	C++, SDL 2 and SFML game engine that allows to create games on Nintendo Switch,…	Code / Engines and Frameworks
+Jitter	https://github.com/mattleibow/jitterphysics	a fast and lightweight physics engine written in C#.	Code / Engines and Frameworks
+jMonkeyEngine 3	http://jmonkeyengine.org/	a 3D open-source game engine for adventurous Java developers.	Code / Engines and Frameworks
+JNGL	https://github.com/jhasse/jngl	a 2D open-source game engine. Develop on Linux, Windows, OS X. Deploy to Nintendo Switch,…	Code / Engines and Frameworks
+JPCT	https://www.jpct.net/	jPCT is a 3D engine for desktop Java and Google's Android.	Code / Engines and Frameworks
+Juno	https://github.com/digitsensitive/juno	Clean and lightweight 2D game framework written in TypeScript	Code / Engines and Frameworks
+Juno	https://github.com/rxi/juno	Framework for making 2D games with chunky pixels in Lua	Code / Engines and Frameworks
+Kivent	http://kivent.org/	A 2D game framework for Kivy.	Code / Engines and Frameworks
+Kivy	http://kivy.org	Cross platform Python framework for creating apps and games for Linux, Windows, OS X, Android…	Code / Engines and Frameworks
+KogGE	https://korge.soywiz.com	Modern Multiplatform Game Engine for Kotlin. Write games for the JVM, JavaScript, Android and iOS…	Code / Engines and Frameworks
+Leadwerks	https://www.leadwerks.com/	Easy-to-learn game engine for 3D and VR.	Code / Engines and Frameworks
+LibGDX	https://libgdx.com/	Powerful (totally free) library for Java, code once and run the game on desktop, Android,…	Code / Engines and Frameworks
+LimeJS	http://www.limejs.com/	HTML5 game framework for building fast, native-experience games for all modern touchscreens and	Code / Engines and Frameworks
+LITIengine	http://litiengine.com/	2D Java Game Engine. It provides all the infrastructure to create tile based 2D games…	Code / Engines and Frameworks
+Lumberyard	https://aws.amazon.com/lumberyard/	Amazon Lumberyard is a free AAA game engine deeply integrated	Code / Engines and Frameworks
+LumixEngine	https://github.com/nem0/LumixEngine	3D Game engine built on C++.	Code / Engines and Frameworks
+Lums	https://github.com/lums-proj/Lums	A 2D / 3D framework written in C++11. Very efficient and modern. Still under heavy…	Code / Engines and Frameworks
+LÖVE	http://love2d.org	Lua 2D Game Engine.	Code / Engines and Frameworks
+MINX	https://github.com/GearChicken/MINX	Open Source 2D game framework written in C++ (to the style of XNA)	Code / Engines and Frameworks
+macroquad	https://github.com/not-fl3/macroquad	The cross-platform game engine in Rust.	Code / Engines and Frameworks
+mach	https://machengine.org/	game engine & graphics toolkit build in zig.	Code / Engines and Frameworks
+Magnum	http://magnum.graphics/	a lightweight and modular 2D/3D graphics/game engine written in C++11	Code / Engines and Frameworks
+Matter.js	http://brm.io/matter-js/	a 2D physics engine for the web.	Code / Engines and Frameworks
+MelonJS	http://melonjs.org	open source light-weight HTML5 game engine.	Code / Engines and Frameworks
+Mini Micro	https://miniscript.org/MiniMicro/	Mini Micro is a fantasy computer for making, playing and sharing 2D games and programs…	Code / Engines and Frameworks
+Monogame	http://www.monogame.net/	Open Source implementation of the Microsoft XNA 4 Framework.	Code / Engines and Frameworks
+Nakama	https://github.com/heroiclabs/nakama	Distributed server for social and realtime games and apps.	Code / Engines and Frameworks
+nCine	https://ncine.github.io/	A cross-platform 2D game engine with an emphasis on performance, written in C++11 and optionally…	Code / Engines and Frameworks
+NodeBox	https://www.nodebox.net/	a family of Python tools to create generative design.	Code / Engines and Frameworks
+nuklear	https://github.com/Immediate-Mode-UI/Nuklear	A single-header ANSI C immediate mode cross-platform GUI library.	Code / Engines and Frameworks
+ÖbEngine	https://github.com/Sygmei/ObEngine	2D Game Engine with Lua Scripting made on top of SFML !	Code / Engines and Frameworks
+ODE	http://www.ode.org/	ODE is an open source, high performance library for simulating rigid body dynamics.	Code / Engines and Frameworks
+Ogre3D	http://www.ogre3d.org/	is a scene-oriented, real-time, flexible 3D rendering engine (as opposed to a game engine) written…	Code / Engines and Frameworks
+OpenFL	http://www.openfl.org/	Open Source Haxe Engine for making multi-platform games.	Code / Engines and Frameworks
+openFrameworks	https://openframeworks.cc/	An open source and free C++ toolkit for creative coding.	Code / Engines and Frameworks
+OpenRA	http://www.openra.net/	OpenRA is a Libre/Free Real Time Strategy Game Engine.	Code / Engines and Frameworks
+OpenXRay	https://github.com/OpenXRay/xray-16	a community-modified X-Ray engine used in S.T.A.L.K.E.R. game series.	Code / Engines and Frameworks
+ORX	https://orx-project.org/	ORX is a 2.5D Data-driven C/C++ open source & multi-platform game development engine.	Code / Engines and Frameworks
+PICO-8	http://www.lexaloffle.com/pico-8.php	A fantasy console for making, sharing and playing tiny games and other computer programs.	Code / Engines and Frameworks
+p2.js	http://schteppe.github.io/p2.js/	JavaScript 2D physics library	Code / Engines and Frameworks
+Panda3D	https://www.panda3d.org/	a framework for 3D rendering and game development for Python and C++ programs.	Code / Engines and Frameworks
+Parlour	https://github.com/braedonsaunders/parlour	Deterministic TypeScript card-game engine with a cozy playable browser table (Blitz, Wild, P2P rooms, no…	Code / Engines and Frameworks
+Phaser	http://phaser.io/	free and fast 2D game framework for making HTML5 games for desktop and mobile web…	Code / Engines and Frameworks
+Piston	http://www.piston.rs/	a modular open source game engine written in Rust.	Code / Engines and Frameworks
+Pixel Vision 8	https://github.com/PixelVision8/PixelVision8	Pixel Vision 8's core philosophy is to teach retro game development with streamlined workflows. PV8…	Code / Engines and Frameworks
+PixiJS	http://www.pixijs.com/	is a newcomer HTML5 game renderer - first released in early 2013. A main appeal…	Code / Engines and Frameworks
+Planck.js	http://piqnt.com/planck.js/	2D JavaScript physics engine for cross-platform HTML5 game development.	Code / Engines and Frameworks
+PlayCanvas	https://playcanvas.com/	A WebGL Game Engine.	Code / Engines and Frameworks
+Processing	https://www.processing.org/	Processing is a programming language, development environment for artists, designers, researchers.	Code / Engines and Frameworks
+PuzzleScript	http://www.puzzlescript.net/	open-source HTML5 puzzle game engine.	Code / Engines and Frameworks
+PyGame-CE	https://pyga.me/docs/index.html	Pygame - Community Edition is a FOSS Python library for multimedia applications (like games). Built…	Code / Engines and Frameworks
+Pyxel	https://github.com/kitao/pyxel	a retro game engine for Python.	Code / Engines and Frameworks
+RPGMaker	http://www.rpgmakerweb.com/	series of programs for the development of role-playing games.	Code / Engines and Frameworks
+Rajawali	https://github.com/Rajawali/Rajawali	Android OpenGL ES 2.0/3.0 Engine	Code / Engines and Frameworks
+raylib	https://www.raylib.com/	a simple and easy-to-use library to enjoy videogames programming, hardware accelerated with OpenGL (1.1, 2.1,…	Code / Engines and Frameworks
+Ren'Py	http://www.renpy.org/	An open-source visual novel engine using the Python language in simplified form. It supports Windows,…	Code / Engines and Frameworks
+RGFW	https://github.com/ColleagueRiley/RGFW	Lightweight multi-platform single-header library for creating windows, supports many graphics contexts and software rendering.	Code / Engines and Frameworks
+Rpgboss	http://rpgboss.com	A 2d rpg game engine and editor based on scala and libgdx. Ease of use,…	Code / Engines and Frameworks
+SceneKit	https://developer.apple.com/documentation/scenekit	Apple proprietary 3D game engine (available on macOS, iOS, iPadOS, tvOS and watchOS).	Code / Engines and Frameworks
+Screen 13	https://github.com/attackgoat/screen-13	An easy-to-use Vulkan rendering engine. Provides a render graph for Rust.	Code / Engines and Frameworks
+SDL	http://libsdl.org/	SDL is a cross-platform library designed to provide low level access to audio, keyboard, mouse,…	Code / Engines and Frameworks
+SFML	http://www.sfml-dev.org/	Simple and Fast Multimedia Library.	Code / Engines and Frameworks
+Solar2D	https://solar2d.com/	A Lua based game engine with focus on ease of iterations and usage.	Code / Engines and Frameworks
+Solarus	https://www.solarus-games.org/	Cross-platform 2D Action/Adventure C++ game engine with Lua API and game editor.	Code / Engines and Frameworks
+Spring	http://springrts.com/	A powerful free cross-platform RTS engine.	Code / Engines and Frameworks
+SpriteKit	https://developer.apple.com/documentation/spritekit	Apple proprietary 2D game engine (available on macOS, iOS, iPadOS, tvOS and watchOS).	Code / Engines and Frameworks
+Stage.js	http://piqnt.com/stage.js/	Lightweight and fast 2D HTML5 rendering and layout engine for cross-platform game development.	Code / Engines and Frameworks
+Starling	http://gamua.com/starling/	The GPU powered 2D Flash API	Code / Engines and Frameworks
+steamworks-ffi-node	https://github.com/ArtyProf/steamworks-ffi-node	a Node.js wrapper for Steamworks SDK.	Code / Engines and Frameworks
+Stencyl	http://www.stencyl.com/	a game creation platform that allows users to create 2D video games for computers, mobile…	Code / Engines and Frameworks
+Stride	https://stride3d.net/	Open Source C# Game Engine.	Code / Engines and Frameworks
+Supernova Engine	https://supernovaengine.org/	Cross-platform game engine for 2D and 3D projects with entity component system (ECS) and data-oriented…	Code / Engines and Frameworks
+Superpowers	https://sparklinlabs.itch.io/superpowers	HTML5 Collaborative 2D/3D Game Maker	Code / Engines and Frameworks
+TIC-80	https://tic.computer/	TIC-80 is a fantasy computer for making, playing and sharing tiny games.	Code / Engines and Frameworks
+Tiny Physics Engine	https://codeberg.org/drummyfish/tinyphysicsengine/	TPE is a small, completely public domain fixed point physically inaccurate pure C header-only 3D…	Code / Engines and Frameworks
+Three.js	http://threejs.org/	Javascript 3D Library.	Code / Engines and Frameworks
+Turbulenz	http://biz.turbulenz.com/developers	Turbulenz offers the ability to build, publish, iterate and monetise high-quality games that react like…	Code / Engines and Frameworks
+Twine	http://twinery.org/	Downloadable or browser-based game development platform that allows users to create linked story paths. Not…	Code / Engines and Frameworks
+Unity 3D	http://unity3d.com/	A development engine for the creation of 2D and 3D games and interactive content.	Code / Engines and Frameworks
+Unreal Engine 4	https://www.unrealengine.com/	the new game engine technology developed by Epic Games.	Code / Engines and Frameworks
+Urho3D	http://urho3d.github.io/	Cross-platform rendering and game engine.	Code / Engines and Frameworks
+ursina	https://www.ursinaengine.org/	A game engine powered by python and panda3d.	Code / Engines and Frameworks
+Vassal	http://www.vassalengine.org/	Vassal is a game engine for building and playing online adaptations of board games and…	Code / Engines and Frameworks
+vectarine	https://github.com/vanyle/vectarine/	Vectarine is a cross-platform game engine focusing on fast prototyping and having fun. Write games…	Code / Engines and Frameworks
+VNovels	https://vnovels.com	A browser-based visual novel maker. You build branching, choice-based stories in a visual scene and…	Code / Engines and Frameworks
+voxel.js	http://voxeljs.com/	voxel.js is a collection of projects that make it easier than ever to create 3D…	Code / Engines and Frameworks
+Wave	http://waveengine.net/	Cross-platform engine written in C#.	Code / Engines and Frameworks
+Wolf RPG Editor English	https://widderune.wixsite.com/widderune/wolf-rpg-editor-english	open source editor for RPG Maker style gamesl	Code / Engines and Frameworks
+WhiteStorm.js	https://github.com/WhitestormJS/whitestorm.js	3d javacript framework for building apps and games	Code / Engines and Frameworks
+AI Game Developer	https://github.com/IvanMurzak/Unity-MCP	`Unity Editor` and `Unity Runtime` AI integration. Unit Test, Coding, C# Roslyn, Reflection, Assets. Helps…	Code / AI
+Coplay	https://coplay.dev?ref=github&utm_source=magictools	AI Copilot for Unity	Code / AI
+Fluent Behaviour Tree	https://github.com/codecapers/Fluent-Behaviour-Tree	C# behaviour tree library with a fluent API released under MIT.	Code / AI
+Ludo.ai	https://ludo.ai	AI sprite generator for game-ready 2D assets, extending to icons, UI, textures, music, 3D and…	Code / AI
+Rosebud AI	https://rosebud.ai	Vibe coding platform for creating 3D games and interactive web apps with AI.	Code / AI
+Sprite Fusion AI Pixel Art Generator	https://www.spritefusion.com/pixel-art-generator	AI-powered browser studio for generating, editing, animating, and exporting game-ready pixel art sprites, icons, props,…	Code / AI
+SimpleAI	https://github.com/mgerhardy/simpleai/	C++11 behaviour tree based library with a QT5 based remote debugger (and with optional LUA…	Code / AI
+BudgetPixel Sound Effects	https://budgetpixel.com/sfx	2,600+ AI-generated sound effects (UI clicks, impacts, whooshes) and 700+ music tracks, WAV/MP3, CC BY…	Audio / Collections
+Free Game Sounds	https://gamesounds.xyz/	Archive of all kinds of royalty-free game sounds.	Audio / Collections
+Freesound	http://www.freesound.org/	collaborative database of Creative Commons Licensed sounds.	Audio / Collections
+Musopen	https://musopen.org/	Royalty free music.	Audio / Collections
+Octave	http://raisedbeaches.com/octave/index.html	free library of UI sounds.	Audio / Collections
+PacDV	http://www.pacdv.com/sounds/index.html	royalty free sounds collection.	Audio / Collections
+SFXMint	https://sfxmint.com/	CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized, with no signup…	Audio / Collections
+SoundBible.com	http://soundbible.com/	Royalty-free, searchable archive of sound effects under various licenses.	Audio / Collections
+Audacity	http://sourceforge.net/projects/audacity/	open source, cross-platform software for recording and editing sounds.	Audio / Music and Audio Editors
+Audiosauna	http://www.audiosauna.com/	transforms your web browser into a fast and flexible music production studio with built in…	Audio / Music and Audio Editors
+Audiotool	http://www.audiotool.com/app	Online music producer.	Audio / Music and Audio Editors
+Bfxr	https://www.bfxr.net/	A tool to make sound effects for computer games.	Audio / Music and Audio Editors
+Bosca Ceoil	http://boscaceoil.net/	Online (and also desktop) music producer made by Terry Cavanagh. Simple, intuitive, has a distinctive…	Audio / Music and Audio Editors
+ChipTone	http://sfbgames.com/chiptone/	Online sound effect generator	Audio / Music and Audio Editors
+Famistudio	https://github.com/BleuBleu/FamiStudio	FamiStudio NES Music Editor.	Audio / Music and Audio Editors
+FamiTracker	https://github.com/Dn-Programming-Core-Management/Dn-FamiTracker	free windows tracker for producing music for the NES/Famicom-systems.	Audio / Music and Audio Editors
+jfxr	http://jfxr.frozenfractal.com	A JavaScript port of the Bfxr sound effect generator.	Audio / Music and Audio Editors
+LMMS	https://lmms.io/	Cross-platform music production software.	Audio / Music and Audio Editors
+MadTracker	http://www.madtracker.org/main.php	a powerful and efficient approach to making music. Versatility and compatibility are guaranteed due to…	Audio / Music and Audio Editors
+MilkyTracker	https://github.com/milkytracker/MilkyTracker	open source tracker for Mac/Linux/Windows platforms.	Audio / Music and Audio Editors
+musagi	http://www.drpetter.se/project_musagi.html	open source, fairly large and sophisticated music editor and synthesizer	Audio / Music and Audio Editors
+Remove Audio Noise Remover	https://remove-audio.com/tools/remove-background-noise	Clean hiss, hum, wind and crowd noise out of voice lines, dialogue and trailer voice-overs…	Audio / Music and Audio Editors
+Resemble	https://www.resemble.ai/unity	Resemble's voice cloning engine within Unity	Audio / Music and Audio Editors
+Soundation	https://soundation.com/	Online Professional music studio.	Audio / Music and Audio Editors
+SunVox	http://www.warmplace.ru/soft/sunvox/	a small, fast and powerful modular synthesizer with pattern-based sequencer (tracker).	Audio / Music and Audio Editors
+Iterary	http://www.iterary.com	Board Game Design Tool.	Board Games
+RPTools	http://www.rptools.net/	a brand of open-source programs designed to enhance traditional pen-and-paper role playing games.	Board Games
+Amit's Game Programming	http://www-cs-students.stanford.edu/~amitp/gameprog.html		Must see / Blogs and Portals
+Designer Notes	http://www.designer-notes.com/		Must see / Blogs and Portals
+Emanuele Feronato's Blog	http://www.emanueleferonato.com/		Must see / Blogs and Portals
+GameIdea	https://gameidea.org		Must see / Blogs and Portals
+Gamasutra	http://www.gamasutra.com/		Must see / Blogs and Portals
+Game Development on StackExchange	http://gamedev.stackexchange.com/		Must see / Blogs and Portals
+GameDevs.org	http://gamedevs.org/		Must see / Blogs and Portals
+GameJolt	http://gamejolt.com/		Must see / Blogs and Portals
+Greenlit Gaming	http://greenlitgaming.com/		Must see / Blogs and Portals
+HTML5 Game Devs Forum	http://www.html5gamedevs.com/		Must see / Blogs and Portals
+HobbyGameDev	http://www.hobbygamedev.com/		Must see / Blogs and Portals
+Html5 Game Development	http://www.html5gamedevelopment.com/		Must see / Blogs and Portals
+iforce2d	http://www.iforce2d.net/		Must see / Blogs and Portals
+IndieDB	http://www.indiedb.com/		Must see / Blogs and Portals
+indiegames	http://indiegames.com/index.html		Must see / Blogs and Portals
+Mod DB	http://www.moddb.com/		Must see / Blogs and Portals
+Java Gaming	http://www.java-gaming.org/		Must see / Blogs and Portals
+Lost Garden	http://www.lostgarden.com/		Must see / Blogs and Portals
+Polygon	http://www.polygon.com/		Must see / Blogs and Portals
+Real-Time Rendering	http://www.realtimerendering.com/		Must see / Blogs and Portals
+Slidedb	http://www.slidedb.com/	On Slide DB we give developers a community they can share their ideas with and…	Must see / Blogs and Portals
+Superlevel	https://superlevel.de/		Must see / Blogs and Portals
+TIGSource	http://www.tigsource.com/		Must see / Blogs and Portals
+WhatGamesAre	http://www.whatgamesare.com/featured-posts.html		Must see / Blogs and Portals
+WTF Games	https://wtfgames.io/	Free HTML5 games playable directly in the browser without downloads or registration.	Must see / Blogs and Portals
+2D Game Development: From Zero To Hero	https://gitlab.com/Penaz/2dgd_f0th		Must see / Books
+3D Math Primer for Graphics and Game Development	http://www.amazon.com/Math-Primer-Graphics-Game-Development/dp/1568817231/		Must see / Books
+AI Workflow for Game Designers	https://eremes81.github.io/game-design-ai-practice-en/		Must see / Books
+Artificial Intelligence for Games	http://www.amazon.com/dp/0123747317?tag=game-prog-books-20		Must see / Books
+Designing Games: A Guide to Engineering Experiences	https://www.amazon.com/Designing-Games-Guide-Engineering-Experiences/dp/1449337937		Must see / Books
+Essential Mathematics for Games and Interactive Applications: A Programmer's Guide	http://www.amazon.com/Essential-Mathematics-Games-Interactive-Applications/dp/0123742978/		Must see / Books
+Flow	http://www.amazon.com/Flow-The-Psychology-Optimal-Experience/dp/0061339202/		Must see / Books
+Game Coding Complete	http://www.amazon.com/Game-Coding-Complete-Fourth-McShaffry/dp/1133776574/		Must see / Books
+Game Development Essentials: Game Level Design	http://www.goodreads.com/book/show/1633392.Game_Development_Essentials		Must see / Books
+Game Engine Architecture	http://www.gameenginebook.com/		Must see / Books
+Game Mechanics: Advanced Game Design	http://www.goodreads.com/book/show/13705461-game-mechanics		Must see / Books
+Game Programming Gems	http://www.amazon.com/Game-Programming-Gems-CD/dp/1584500492		Must see / Books
+Game Programming Patterns	http://gameprogrammingpatterns.com/		Must see / Books
+Game Scripting Mastery	http://www.amazon.com/Scripting-Mastery-Premier-Press-Development/dp/1931841578		Must see / Books
+Geometry for Programmers (book)	https://www.manning.com/books/geometry-for-programmers		Must see / Books
+Hello Scratch: Learn to Program by Making Arcade Games	https://www.manning.com/books/hello-scratch		Must see / Books
+Level Up!	http://www.amazon.com/dp/047068867X?tag=game-prog-books-20		Must see / Books
+Making Games with Python & Pygame	http://inventwithpython.com/pygame/		Must see / Books
+Mathematics For 3D Game Programming And Computer Graphics	http://www.amazon.com/dp/1435458869?tag=game-prog-books-20		Must see / Books
+Nature of Code	http://natureofcode.com/book/		Must see / Books
+Physics for Game Developers	http://www.amazon.com/Physics-Game-Developers-David-Bourg/dp/0596000065		Must see / Books
+Programming Game AI by Example	http://www.amazon.com/dp/1556220782?tag=game-prog-books-20		Must see / Books
+Real-Time Rendering	http://www.amazon.com/Real-Time-Rendering-Third-Edition-Akenine-Moller/dp/1568814240/		Must see / Books
+Rules of Play	http://www.amazon.com/Rules-Play-Game-Design-Fundamentals/dp/0262240459/		Must see / Books
+The Art of Game Design	http://www.amazon.com/The-Art-Game-Design-lenses/dp/0123694965/		Must see / Books
+The Ultimate Guide to Video Game Writing and Design	http://www.goodreads.com/book/show/391752.The_Ultimate_Guide_to_Video_Game_Writing_and_Design		Must see / Books
+The Visual Story	http://www.amazon.com/The-Visual-Story-Creating-Structure/dp/0240807790/		Must see / Books
+Theory of Fun	http://www.amazon.com/Theory-Game-Design-Raph-Koster/dp/1449363210/		Must see / Books
+Tricks of the Windows Game Programming Gurus	http://www.amazon.com/Tricks-Windows-Game-Programming-Gurus/dp/0672313618		Must see / Books
+Unity in Action (book)	https://www.manning.com/books/unity-in-action-second-edition		Must see / Books
+Learn OpenGL: Beginner's guide to 3D rendering and game development with OpenGL and C++	https://www.amazon.de/Learn-OpenGL-Beginners-rendering-development/dp/1789340365/ref=sr_1_1_sspa?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=OpenGl+3d+game&qid=1570646865&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExTzM3UzZDT1ZYUzdCJmVuY3J5cHRlZElkPUEwMDIzMjkxMzJENlFTWkJNQzVCNCZlbmNyeXB0ZWRBZElkPUEwMzgyNTgzMUdUOElZTUtNUjlONCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=		Must see / Books
+Game Developer Magazine	http://www.gdcvault.com/gdmag		Must see / Magazines
+IndieMag	https://www.indiemag.fr/		Must see / Magazines
+awesome-gametalks	https://github.com/hzoo/awesome-gametalks	A curated list of game talks (GDC, youtube, etc).	Must see / Videos/Podcasts
+Twitch GameDev	http://www.twitch.tv/directory/game/Game%20Development	Twitch GameDev Streams	Must see / Videos/Podcasts
+Game jams on itch.io	https://itch.io/jams	Listing of itch.io game jams	Must see / Game Jams
+Game Off	https://gameoff.github.com	GitHub's game jam :octocat:	Must see / Game Jams
+GMTK Game Jam	https://itch.io/jam/gmtk-jam-2022	Popular yearly game jam	Must see / Game Jams
+Indie Game Jams	http://www.indiegamejams.com/	Listing of game jams	Must see / Game Jams
+Ludum Dare	http://ludumdare.com/	very popular game jam	Must see / Game Jams
+One Hour Game Jam	http://onehourgamejam.com/	Weekly 1 hour game jam	Must see / Game Jams
+Casual	https://casual.pm/	Visual Project Management	Must see / Project Management
+Codecks	https://www.codecks.io	Project Management Tool inspired by Collectible Card Games	Must see / Project Management
+IMS Creators	https://ims.cr5.space/	Game Design driven Project Management Tool	Must see / Project Management
+HacknPlan	http://hacknplan.com/	Project management for game developers	Must see / Project Management
+Questlog	https://www.questlog.build	Project management for game developers with built-in GDD editor	Must see / Project Management
+Taiga	https://taiga.io/	Project management platform for agile developers & designers	Must see / Project Management
+Trello	https://trello.com/	Organize and prioritize projects	Must see / Project Management
+Barotrauma	https://github.com/Regalis11/Barotrauma		Must see / Complete Game Sources
+Canabalt iOS	https://github.com/ericjohnson/canabalt-ios		Must see / Complete Game Sources
+Doom 3	https://github.com/id-Software/DOOM-3		Must see / Complete Game Sources
+Doom	https://github.com/id-Software/DOOM		Must see / Complete Game Sources
+Duke Nukem 3D: Atomic Edition	http://legacy.3drealms.com/duke3d/		Must see / Complete Game Sources
+Legend of Elya	https://github.com/Scottcjn/legend-of-elya-n64	N64 dungeon crawler with AI NPCs powered by an 819K-parameter LLM running on the MIPS…	Must see / Complete Game Sources
+NetHack	https://github.com/NetHack/NetHack		Must see / Complete Game Sources
+OpenRA	https://github.com/OpenRA/OpenRA		Must see / Complete Game Sources
+OpenTTD	https://github.com/OpenTTD/OpenTTD		Must see / Complete Game Sources
+Prince of Persia	https://github.com/jmechner/Prince-of-Persia-Apple-II		Must see / Complete Game Sources
+Quake 2	https://github.com/id-Software/Quake-2		Must see / Complete Game Sources
+Quake III Arena	https://github.com/id-Software/Quake-III-Arena		Must see / Complete Game Sources
+Quake	https://github.com/id-Software/Quake		Must see / Complete Game Sources
+SimCity	https://github.com/simhacker/micropolis		Must see / Complete Game Sources
+Wolfenstein 3D	https://github.com/id-Software/wolf3d		Must see / Complete Game Sources
+VVVVVV	https://github.com/TerryCavanagh/VVVVVV		Must see / Complete Game Sources
+Reddit r/gamedev	https://www.reddit.com/r/gamedev/		Must see / Communities
+Game Dev League	https://discord.com/invite/gamedev		Must see / Communities
+Reddit r/IndieGaming	https://www.reddit.com/r/IndieGaming/		Must see / Communities
+Brackeys Discord	https://discord.gg/brackeys		Must see / Communities
+Brackeys Forum	https://forum.brackeys.com/		Must see / Communities
+GameDev.tv	https://community.gamedev.tv/		Must see / Communities
+AdColony	http://www.adcolony.com/	Mobile video Ads service.	Ads
+AdMob by Google	https://www.google.com/admob/	Google's Ads and monetization service for mobile.	Ads
+Appodeal	http://www.appodeal.com/	A programmatic ad mediation solution for mobile apps.	Ads
+Bounty Board Arcade SDK	https://www.bountyboard.gg/arcade/sdk	Rewarded ads, leaderboards and cloud saves for HTML5 games published on the Bounty Board Arcade.	Ads
+ChartBoost	https://www.chartboost.com/	Monetization, analytics platform.	Ads
+Unity Ads	https://unity.com/products/unity-ads	Unity3D Official Ads SDK.	Ads
+Vungle	https://vungle.com/	Video Ads service.	Ads
+Chris Courses: Complete courses for an assortment of 2D games	https://chriscourses.com/		Learn / General Game Development
+Coursera: Introduction to interactive Python programming	https://www.coursera.org/course/interactivepython1		Learn / General Game Development
+HandmadeHero: making 2D game from scratch	https://handmadehero.org/		Learn / General Game Development
+Khan Academy: Advanced JS: Games & Visualizations	https://www.khanacademy.org/computing/cs/programming-games-visualizations		Learn / General Game Development
+Simple HTML5 Canvas Game	http://www.lostdecadegames.com/how-to-make-a-simple-html5-canvas-game/		Learn / General Game Development
+miloyip/game-programmer	https://github.com/miloyip/game-programmer	A Study Path for Game Programmer :octocat:	Learn / General Game Development
+TheChernoProject	https://www.youtube.com/user/TheChernoProject		Learn / General Game Development
+Udacity: HTML5 Game Development	https://www.udacity.com/course/html5-game-development--cs255		Learn / General Game Development
+3D Game Shaders For Beginners	https://github.com/lettier/3d-game-shaders-for-beginners		Learn / Computer Graphics
+Interactive 3D Graphics	https://www.udacity.com/course/interactive-3d-graphics--cs291		Learn / Computer Graphics
+Interactive Computer Graphics	https://www.coursera.org/learn/interactive-computer-graphics		Learn / Computer Graphics

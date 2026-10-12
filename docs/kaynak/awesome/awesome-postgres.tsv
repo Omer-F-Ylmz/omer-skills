@@ -1,0 +1,317 @@
+ad	url	aciklama	bolum
+autobase	https://github.com/vitabaks/autobase	Autobase for PostgreSQL® is an open-source DBaaS that automates the deployment and management of highly…	Contents / High-Availability
+BDR	https://github.com/2ndQuadrant/bdr	BiDirectional Replication - a multimaster replication system for PostgreSQL	Contents / High-Availability
+Patroni	https://github.com/zalando/patroni	Template for PostgreSQL HA with ZooKeeper or etcd.	Contents / High-Availability
+Spock	https://github.com/pgEdge/spock	100% open-source logical multi-master PostgreSQL replication.	Contents / High-Availability
+Stolon	https://github.com/sorintlab/stolon	PostgreSQL HA based on Consul or etcd, with Kubernetes integration.	Contents / High-Availability
+pglookout	https://github.com/aiven/pglookout	Replication monitoring and failover daemon.	Contents / High-Availability
+repmgr	https://github.com/2ndQuadrant/repmgr	Open-source tool suite to manage replication and failover in a cluster of PostgreSQL servers.	Contents / High-Availability
+Slony-I	https://slony.info/	"Master to multiple slaves" replication system with cascading and failover.	Contents / High-Availability
+PAF	https://github.com/ClusterLabs/PAF	PostgreSQL Automatic Failover: High-Availibility for Postgres, based on Pacemaker and Corosync.	Contents / High-Availability
+SkyTools	https://github.com/pgq/skytools-legacy	Replication tools, including PgQ, a queuing system, and Londiste, a replication system a bit simpler…	Contents / High-Availability
+pg_auto_failover	https://github.com/citusdata/pg_auto_failover	Postgres extension and service for automated failover and high-availability.	Contents / High-Availability
+pgrwl	https://github.com/hashmap-kz/pgrwl	Stream write-ahead logs (WAL) from a PostgreSQL server in real time. A drop-in, container-friendly alternative…	Contents / High-Availability
+pg-status	https://github.com/krylosov-aa/pg-status	A microservice that provides HTTP endpoints for instantly retrieving the current master host or a…	Contents / High-Availability
+Barman	https://www.pgbarman.org/index.html	Backup and Recovery Manager for PostgreSQL by 2ndQuadrant.	Contents / Backups
+Databasus	https://databasus.com	tool for scheduled PostgreSQL backups via web UI with external storages (local, S3, FTP, Google…	Contents / Backups
+OmniPITR	https://github.com/omniti-labs/omnipitr	Advanced WAL File Management Tools for PostgreSQL.	Contents / Backups
+pg\_probackup	https://github.com/postgrespro/pg_probackup	A fork of pg\_arman, improved by @PostgresPro, supports incremental backups, backups from replica, multithreaded backup…	Contents / Backups
+pgBackRest	https://pgbackrest.org/	Reliable PostgreSQL Backup & Restore.	Contents / Backups
+pgbackweb	https://github.com/eduardolat/pgbackweb	A Complete Docker-based Postgres backup and maintenance tool with Web UI.	Contents / Backups
+pg\_back	https://github.com/orgrim/pg_back/	pg\_back is a simple backup script	Contents / Backups
+pghoard	https://github.com/aiven/pghoard	Backup and restore tool for cloud object stores (AWS S3, Azure, Google Cloud, OpenStack Swift).	Contents / Backups
+postgres-backup-oss	https://github.com/isaced/postgres-backup-oss	A handy Docker container to periodically backup PostgreSQL to Alibaba Cloud Object Storage Service (OSS)	Contents / Backups
+wal-e	https://github.com/wal-e/wal-e	(obsolete) - Simple Continuous Archiving for PostgreSQL to S3, Azure, or Swift by Heroku.	Contents / Backups
+wal-g	https://github.com/wal-g/wal-g	The successor of WAL-E rewritten in Go. Currently supports cloud object storage services by AWS…	Contents / Backups
+pitrery	https://dalibo.github.io/pitrery/	pitrery is a set of Bash scripts to manage Point In Time Recovery (PITR) backups…	Contents / Backups
+pgbackup-sidecar	https://github.com/Musab520/pgbackup-sidecar	`pgbackup-sidecar` is a lightweight Docker sidecar container designed to automate regular backups of a PostgreSQL…	Contents / Backups
+pg-backups-to-s3	https://github.com/Saicheg/pg-backups-to-s3	Docker-first solution on top of pg_dump with support for environment-based configuration for scheduled PostgreSQL backups…	Contents / Backups
+1bench	https://1bench.dev/postgresql	Native cross-platform GUI with first-class Postgres support alongside Redis, Elasticsearch, ClickHouse, Qdrant, and more (Commercial…	Contents / GUI
+Adminer	https://www.adminer.org/	Full-featured database management tool written in PHP.	Contents / GUI
+AI for Database	https://aifordatabase.com	Chat with your PostgreSQL database in natural language. No SQL needed — get instant insights,…	Contents / GUI
+Beekeeper Studio	https://www.beekeeperstudio.io	Free and open source SQL client with a modern UI and great Postgres support. Cross…	Contents / GUI
+Bytebase	https://www.bytebase.com	Database DevSecOps solution for Developer, Security, DBA, and Platform Engineering teams.	Contents / GUI
+Chartbrew	https://chartbrew.com	Create live dashboards, charts, and client reports from PostgreSQL data. Features a query tool that…	Contents / GUI
+Count	https://count.co/	Web-based analytics platform with a notebook interface which connects to PostgreSQL (Commercial Software).	Contents / GUI
+DataGrip	https://www.jetbrains.com/datagrip/	IDE with advanced tool sets and good cross-platform experience (Commercial Software).	Contents / GUI
+Dekart	https://github.com/dekart-xyz/dekart	Open-source platform to turn PostGIS queries into shareable interactive maps.	Contents / GUI
+Datazenit	https://datazenit.com/	Web-based PostgreSQL GUI (Commercial Software).	Contents / GUI
+DataRow	https://www.datarow.com/	Cross-platform SQL Client for Amazon Redshift: Simple, Effortless, Extensible.	Contents / GUI
+DBConvert Streams	https://streams.dbconvert.com/	Database IDE with migration, federated SQL, and CDC replication for PostgreSQL, MySQL, files, and S3-compatible…	Contents / GUI
+DBeaver	https://dbeaver.io/	Universal Database Manager with excellent support for PostgreSQL.	Contents / GUI
+dbForge Edge	https://www.devart.com/dbforge/edge/	All-in-one multidatabase solution supporting PostgreSQL, MySQL, MariaDB, SQL Server, Oracle, and a wide range of…	Contents / GUI
+DbVisualizer	http://www.dbvis.com	Cross-platform database client for developers, DBAs, and analysts (Commercial Software).	Contents / GUI
+Holistics	https://www.holistics.io/	Online cross platform database management tool and SQL query reporting GUI with strong PostgreSQL support…	Contents / GUI
+JackDB	https://www.jackdb.com/	Web-based SQL query interface (Commercial Software).	Contents / GUI
+Luna Modeler	http://www.datensen.com	Cross-platform desktop data modeling tool (Commercial Software).	Contents / GUI
+Mathesar	https://mathesar.org/	Web application providing an intuitive user experience to databases.	Contents / GUI
+Metabase	https://www.metabase.com/	Simple dashboards, charts and query tool for PostgreSQL.	Contents / GUI
+Numeracy	https://numeracy.co/	Fast SQL editor with charts and dashboards for PostgreSQL (Commercial Software).	Contents / GUI
+OrcaQ	https://github.com/cin12211/orca-q	A modern, open-source database editor for PostgreSQL, MySQL, Redis, and more. Features an AI assistant,…	Contents / GUI
+pgAdmin	https://www.pgadmin.org/	PostgreSQL Administration and Management GUI.	Contents / GUI
+pgMagic🪄	https://pgmagic.app/?ref=awesomepostgres	Chat to Postgres in Natural Language (Commercial Software).	Contents / GUI
+PgManage	https://github.com/commandprompt/pgmanage	A modern multi-platform Postgres-centric database client/administration tool.	Contents / GUI
+pgModeler	https://pgmodeler.io/	pgModeler is an open-source PostgreSQL Database Modeler.	Contents / GUI
+PgStudio	https://github.com/dev-asterix/PgStudio	Open-source VS Code / Open VSX extension for PostgreSQL management with SQL notebooks, AI assistant,…	Contents / GUI
+pgweb	https://github.com/sosedoff/pgweb	Web-based PostgreSQL database browser written in Go.	Contents / GUI
+phpPgAdmin	https://github.com/phppgadmin/phppgadmin	The Premier Web Based Administration Tool for PostgreSQL.	Contents / GUI
+Postbird	https://github.com/Paxa/postbird	PostgreSQL Client for macOS.	Contents / GUI
+PostgresCompare	https://www.postgrescompare.com	Cross-platform database comparison and deployment tool (Commercial Software).	Contents / GUI
+Postico	https://eggerapps.at/postico/	Modern PostgreSQL Client for macOS (Commercial Software).	Contents / GUI
+QueryGlow	https://queryglow.com/	Self-hosted, web-based database GUI with AI SQL generation, EXPLAIN visualizer, and schema-aware autocomplete (Commercial Software).	Contents / GUI
+PSequel	http://www.psequel.com/	Clean and simple interface to perform common PostgreSQL tasks quickly (Commercial Software).	Contents / GUI
+Redash	https://github.com/getredash/redash	Connect to any data source, easily visualize and share your data.	Contents / GUI
+SQL Tabs	http://www.sqltabs.com/	Cross Platform Desktop Client for PostgreSQL written in JS.	Contents / GUI
+SQLPro for Postgres	http://macpostgresclient.com/	Simple, powerful PostgreSQL manager for macOS (Commercial Software).	Contents / GUI
+temBoard	https://github.com/dalibo/temboard	Web-based PostgreSQL GUI and monitoring.	Contents / GUI
+Teable	https://github.com/teableio/teable	A Super fast, Real-time, Professional, Developer friendly, No code database.	Contents / GUI
+TablePlus	https://tableplus.com/	Native App which let you edit database and structure. High-end security ensured (Commercial Software).	Contents / GUI
+TablePro	https://tablepro.app/	Native macOS PostgreSQL client with explain visualization, ER diagrams, and AI assistant. Free, open-source.	Contents / GUI
+Valentina Studio	https://www.valentina-db.com/en/valentina-studio-overview	Cross-platform database administration tool (Free/Commercial)	Contents / GUI
+DbGate	https://dbgate.org	The Smartest (no)SQL Database Client	Contents / GUI
+WebDB	https://webdb.app	Efficient Database IDE.	Contents / GUI
+Postgres.app	https://postgresapp.com/	The Easiest Way to Get Started with PostgreSQL on macOS.	Contents / Distributions
+Pigsty	https://github.com/Vonng/pigsty	Battery-Included Open-Source Distribution for PostgreSQL with ultimate observability & Database-as-Code toolbox for developers.	Contents / Distributions
+atlas	https://github.com/ariga/atlas	Atlas is a tool for managing and migrating database schemas using modern DevOps principles.	Contents / CLI
+pgcli	https://github.com/dbcli/pgcli	Postgres CLI with autocompletion and syntax highlighting	Contents / CLI
+pgfence	https://pgfence.com	Lints Postgres SQL migrations for lock modes and risky DDL, with safe expand/contract rewrites. CLI…	Contents / CLI
+pgxcli	https://github.com/Balaji01-4D/pgxcli	Postgres CLI with autocompletion and syntax highlighting written in Go.	Contents / CLI
+pgplan	https://github.com/JacobArthurs/pgplan	compare and analyze PostgreSQL EXPLAIN plans from the CLI	Contents / CLI
+pgschema	https://www.pgschema.com	Terraform-style declarative schema migration for Postgres	Contents / CLI
+pg-schema-diff	https://github.com/stripe/pg-schema-diff	CLI (and Golang library) for diffing Postgres schemas and generating SQL migrations with minimal locking.	Contents / CLI
+MigrationPilot	https://github.com/mickelsamuel/migrationpilot	PostgreSQL migration safety CLI that catches dangerous DDL before production — 80 rules, lock classification,…	Contents / CLI
+pgsh	https://github.com/sastraxi/pgsh	Branch your PostgreSQL Database like Git	Contents / CLI
+psql	https://www.postgresql.org/docs/current/static/app-psql.html	The built-in PostgreSQL CLI client	Contents / CLI
+psql2csv	https://github.com/fphilipe/psql2csv	Run a query in psql and output the result as CSV	Contents / CLI
+sabiql	https://github.com/riii111/sabiql	A fast, driver-less TUI to browse, query, and edit PostgreSQL databases.	Contents / CLI
+schemaspy	https://github.com/schemaspy/schemaspy	SchemaSpy is a JAVA JDBC-compliant tool for generating your database to HTML documentation, including Entity…	Contents / CLI
+pdot	https://gitlab.com/dmfay/pdot	Visualize and explore database structures in your shell, from high-context views of the foreign key…	Contents / CLI
+squix	https://github.com/eduardofuncao/squix	SQL command-line client with query management and interactive results.	Contents / CLI
+AgensGraph	https://bitnine.net/	Powerful graph database based on the PostgreSQL.	Contents / Server
+Apache Cloudberry	https://github.com/apache/cloudberry	And MPP PostgreSQL fork. Open source alternative to Greenplum Database.	Contents / Server
+FerretDB	https://www.ferretdb.io	A truly Open Source MongoDB alternative on top of PostgreSQL.	Contents / Server
+Postgres-XL	https://www.postgres-xl.org/	Scalable Open Source PostgreSQL-based Database Cluster.	Contents / Server
+YugabyteDB	https://yugabyte.com/	Open Source Distributed SQL using a fork of PostgreSQL on top of distributed storage and…	Contents / Server
+Acra	https://github.com/cossacklabs/acra	SQL database security suite: proxy for data protection with transparent "on the fly" data encryption,…	Contents / Security
+pgrls	https://github.com/pgrls/pgrls	static analyzer for row-level security policies; 36 rules across security, performance, and hygiene with 10…	Contents / Security
+check\_pgactivity	https://github.com/OPMDG/check_pgactivity	check\_pgactivity is designed to monitor PostgreSQL clusters from Nagios. It offers many options to measure…	Contents / Monitoring
+Check\_postgres	https://github.com/bucardo/check_postgres	Nagios check\_postgres plugin for checking status of PostgreSQL databases.	Contents / Monitoring
+coroot	https://github.com/coroot/coroot	Coroot is an open-source APM & Observability tool, a DataDog and NewRelic alternative. Powered by…	Contents / Monitoring
+Datadog	https://www.datadoghq.com/product/database-monitoring/	SaaS monitoring that collects and visualizes metrics, queries, and explain plans, and sends alerts when…	Contents / Monitoring
+Instrumental	https://github.com/Instrumental/instrumentald	Real-time performance monitoring, including pre-made graphs for ease of setup (Commercial Software)	Contents / Monitoring
+libzbxpgsql	https://github.com/cavaliercoder/libzbxpgsql	Comprehensive PostgreSQL monitoring module for Zabbix.	Contents / Monitoring
+myDBA	https://mydba.dev	PostgreSQL performance monitoring with 75+ automated health checks, cluster-aware index advisor, query analysis, and extension…	Contents / Monitoring
+PMM	https://github.com/percona/pmm	Percona Monitoring and Management (PMM) is a Free and Open Source platform for monitoring and…	Contents / Monitoring
+Pome	https://github.com/rach/pome	Pome stands for PostgreSQL Metrics. Pome is a PostgreSQL Metrics Dashboard to keep track of…	Contents / Monitoring
+pgmetrics	https://pgmetrics.io/	pgmetrics is an open-source, zero-dependency, single-binary tool that can collect a lot of information and…	Contents / Monitoring
+pg\_view	https://github.com/zalando/pg_view	Open-source command-line tool that shows global system stats, per-partition information, memory stats and other information.	Contents / Monitoring
+pgwatch2	https://github.com/cybertec-postgresql/pgwatch2	Flexible and easy to get started PostgreSQL metrics monitor focusing on Grafana dashboards.	Contents / Monitoring
+pgwd	https://github.com/hrodrig/pgwd	monitors PostgreSQL connection usage and stale sessions, with threshold alerts, Prometheus metrics, and multiple notification…	Contents / Monitoring
+pgbench	https://www.postgresql.org/docs/devel/static/pgbench.html	Run a benchmark test on PostgreSQL.	Contents / Monitoring
+opm.io	http://opm.io	Open PostgreSQL Monitoring is a free software suite designed to help you manage your PostgreSQL…	Contents / Monitoring
+okmeter.io	https://okmeter.io/pg	Commercial SaaS agent-based monitoring with a very detailed PostgreSQL plugin. It automatically gathers 100s of…	Contents / Monitoring
+dexter	https://github.com/ankane/dexter	The automatic indexer for Postgres. Detects slow queries and creates indexes if configured to do…	Contents / Monitoring
+pg_ash	https://github.com/NikolayS/pg_ash	Active Session History for PostgreSQL. Samples pg_stat_activity once per second via pg_cron, stores encoded snapshots,…	Contents / Monitoring
+pg_exporter	https://github.com/Vonng/pg_exporter	Fully customizable Prometheus exporter for PostgreSQL & Pgbouncer with fine-grained execution control.	Contents / Monitoring
+postgres_exporter	https://github.com/wrouesnel/postgres_exporter	Prometheus exporter for PostgreSQL server metrics.	Contents / Monitoring
+StatsMgr	https://codeberg.org/data-bene/statsmgr	An open-source PostgreSQL extension designed for efficient and organized advanced statistics management.	Contents / Monitoring
+pgvitals	https://github.com/pgvitals/pgvitals	collection of 40 read-only diagnostic queries for spotting common performance problems (slow queries, bloat, vacuum…	Contents / Monitoring
+pgxn	https://pgxn.org/	PostgreSQL Extension Network - central distribution point for many open-source PostgreSQL extensions.	Contents / Extensions
+Extensions listing by joelonsql	https://gist.github.com/joelonsql/e5aa27f8cc9bd22b8999b7de8aee9d47	1000+ PostgreSQL extensions.	Contents / Extensions
+Pigsty extensions catalogue	https://ext.pigsty.io/list/	400+ PostgreSQL extensions.	Contents / Extensions
+AGE	https://github.com/apache/age	Adds fully-functional graph database support including Cypher queries.	Contents / Extensions
+OrioleDB	https://www.orioledb.com/	The cloud-native storage engine for PostgreSQL. OrioleDB is a PostgreSQL extension that combines the advantages…	Contents / Extensions
+Citus	https://github.com/citusdata/citus	Scalable PostgreSQL cluster for real-time workloads.	Contents / Extensions
+cstore\_fdw	https://github.com/citusdata/cstore_fdw	Columnar store for analytics with PostgreSQL.	Contents / Extensions
+cyanaudit	https://pgxn.org/dist/cyanaudit/	Cyan Audit provides in-database logging of all DML activity on a column-by-column basis.	Contents / Extensions
+pg_search	https://github.com/paradedb/paradedb	pg_search is a PostgreSQL extension that enables full-text search over SQL tables using the BM25…	Contents / Extensions
+psql_bm25s	https://github.com/Intelligent-Internet/psql_bm25s	PostgreSQL extension for BM25-family lexical retrieval with a native index access method and SQL top-k…	Contents / Extensions
+pg_cron	https://github.com/citusdata/pg_cron	Run periodic jobs in PostgreSQL.	Contents / Extensions
+pglogical	https://github.com/2ndQuadrant/pglogical	Extension that provides logical streaming replication.	Contents / Extensions
+pgcat	https://github.com/kingluo/pgcat	Enhanced PostgreSQL logical replication	Contents / Extensions
+pg\_barcode	https://github.com/btouchard/pg_barcode/	PostgreSQL SVG QRcode & Datamatrix generator.	Contents / Extensions
+pg\_partman	https://github.com/pgpartman/pg_partman	Partition management extension for PostgreSQL.	Contents / Extensions
+pg\_paxos	https://github.com/citusdata/pg_paxos/	Basic implementation of Paxos and Paxos-based table replication for a cluster of PostgreSQL nodes.	Contents / Extensions
+pg\_shard	https://github.com/citusdata/pg_shard	Extension to scale out real-time reads and writes.	Contents / Extensions
+pg\_stat\_monitor	https://github.com/percona/pg_stat_monitor	Query Performance Monitoring tool for PostgreSQL.	Contents / Extensions
+pg\_squeeze	https://github.com/cybertec-postgresql/pg_squeeze	An extension for automatic bloat cleanup with minimal locking.	Contents / Extensions
+PGStrom	https://wiki.postgresql.org/wiki/PGStrom	Extension to offload CPU intensive workloads to GPU.	Contents / Extensions
+PipelineDB	https://www.confluent.io/blog/pipelinedb-team-joins-confluent/	A PostgreSQL extension that runs SQL queries continuously on streams, incrementally storing results in tables.	Contents / Extensions
+plpgsql\_check	https://github.com/okbob/plpgsql_check	Extension that allows to check plpgsql source code.	Contents / Extensions
+PostGIS	http://postgis.net/	Spatial and Geographic objects for PostgreSQL.	Contents / Extensions
+PG\_Themis	https://github.com/cossacklabs/pg_themis	Postgres binding as extension for crypto library Themis, providing various security services on PgSQL's side.	Contents / Extensions
+zomboDB	https://github.com/zombodb/zombodb	Extension that enables efficient full-text searching via the use of indexes backed by Elasticsearch.	Contents / Extensions
+pgMemento	https://github.com/pgMemento/pgMemento	Provides an audit trail for your data inside a PostgreSQL database using triggers and server-side…	Contents / Extensions
+TimescaleDB	https://www.timescale.com/	Open-source time-series database fully compatible with Postgres, distributed as extension	Contents / Extensions
+pgTAP	https://pgtap.org/	Database testing framework for Postgres	Contents / Extensions
+HypoPG	https://github.com/HypoPG/hypopg	HypoPG provides hypothetical/virtual indexes feature.	Contents / Extensions
+pgRouting	https://github.com/pgRouting/pgrouting	pgRouting extends the PostGIS/PostgreSQL geospatial database to provide geospatial routing and other network analysis functionality.	Contents / Extensions
+PGroonga	https://pgroonga.github.io/	PGroonga provides a new index access method that uses Groonga allowing super fast full text…	Contents / Extensions
+PGAudit	https://www.pgaudit.org/	The PostgreSQL Audit Extension (or pgaudit) provides detailed session and/or object audit logging via the…	Contents / Extensions
+PostgresML	https://postgresml.org/	Machine learning and AI inside your database, including vectors, LLMs, and classic ML. Train, predict…	Contents / Extensions
+ParadeDB	https://github.com/paradedb/paradedb	Postgres for Search and Analytics	Contents / Extensions
+PostgreSQL Anonymizer	https://postgresql-anonymizer.readthedocs.io/en/stable/	An extension to mask or replace personally identifiable information (PII) or commercially sensitive data from…	Contents / Extensions
+Atlas4D	https://github.com/crisbez/atlas4d-base	Open-source 4D spatiotemporal platform combining PostGIS, TimescaleDB, pgvector, and H3 for unified geospatial and time-series…	Contents / Platforms
+neond	https://github.com/matisiekpl/neond	DX-focused control plane for Postgres with branching, PITR, and S3 durability. Ships as a single…	Contents / Platforms
+BeanQueue	https://github.com/LaunchPlatform/bq	A Python work queue framework based on SKIP LOCKED, LISTEN and NOTIFY	Contents / Work Queues
+pgmq	https://github.com/pgmq/pgmq	A lightweight message queue. Like AWS SQS and RSMQ but on Postgres.	Contents / Work Queues
+river	https://github.com/riverqueue/river	A high-performance job processing system for Go and Postgres.	Contents / Work Queues
+pgBoss	https://github.com/timgit/pg-boss	Queueing jobs in Postgres from Node.js like a boss.	Contents / Work Queues
+dbos	https://www.dbos.dev/	Durable workflows in Typescript and Python	Contents / Work Queues
+Graphile Worker	https://worker.graphile.org	A high performance job queue for PostgreSQL, written in Node.js	Contents / Work Queues
+@andyrmitchell/pg-queue	https://www.npmjs.com/package/@andyrmitchell/pg-queue	The 'No Maintenance' Postgres Queue for Node.js	Contents / Work Queues
+EverSQL	https://www.eversql.com/	Automated query optimization tool, monitoring and analysis tool, indexing recommendation tool. (Commercial Software)	Contents / Optimization
+PEV2	https://github.com/dalibo/pev2	Online Postgres Explain Visualizer.	Contents / Optimization
+pg_flame	https://github.com/mgartner/pg_flame	A flamegraph generator for query plans.	Contents / Optimization
+PgHero	https://github.com/ankane/pghero	PostgreSQL insights made easy.	Contents / Optimization
+pgMustard	https://www.pgmustard.com/	A modern user interface	Contents / Optimization
+pgtune	https://github.com/gregs1104/pgtune/	PostgreSQL configuration wizard.	Contents / Optimization
+pgtune	https://github.com/le0pard/pgtune	Online version of PostgreSQL configuration wizard.	Contents / Optimization
+pgconfig.org	https://github.com/sebastianwebber/pgconfig	PostgreSQL Online Configuration Tool (also based on pgtune).	Contents / Optimization
+PoWA	https://powa.readthedocs.io/en/latest/	PostgreSQL Workload Analyzer gathers performance stats and provides real-time charts and graphs to help monitor…	Contents / Optimization
+pg_web_stats	https://github.com/kirs/pg_web_stats	Web UI to view pg_stat_statements.	Contents / Optimization
+TimescaleDB Tune	https://github.com/timescale/timescaledb-tune	a program for tuning a TimescaleDB database to perform its best based on the host's…	Contents / Optimization
+Metis	https://www.metisdata.io/product/troubleshooting	Metis provides observability and performance tuning for SQL databases including PostgreSQL. (Commercial Software)	Contents / Optimization
+aqo	https://github.com/postgrespro/aqo	Adaptive query optimization for PostgreSQL.	Contents / Optimization
+pgassistant	https://github.com/beh74/pgassistant-community	A PostgreSQL tool for developers to help understand, optimize database with LLM and pgTune integration.	Contents / Optimization
+apgdiff	https://www.apgdiff.com/	Compares two database dump files and creates output with DDL statements that can be used…	Contents / Utilities
+bemi	https://github.com/BemiHQ/bemi	Automatic data change tracking for PostgreSQL	Contents / Utilities
+ERAlchemy	https://github.com/Alexis-benoist/eralchemy	ERAlchemy generates Entity Relation (ER) diagram from databases.	Contents / Utilities
+flyway	https://flywaydb.org/	Schema migration tool for Postgres and others.	Contents / Utilities
+GatewayD	https://github.com/gatewayd-io/gatewayd	Cloud-native database gateway and framework for building data-driven applications. Like API gateways, for databases.	Contents / Utilities
+Greenmask	https://github.com/GreenmaskIO/greenmask	Database anonymization and synthetic data generation tool for MySQL and PostgreSQL.	Contents / Utilities
+Hasura GraphQL Engine	https://github.com/hasura/graphql-engine	Blazing fast, instant realtime GraphQL APIs on Postgres with fine grained access control, also trigger…	Contents / Utilities
+ldap2pg	https://github.com/dalibo/ldap2pg	Synchronize roles and privileges from YML and LDAP.	Contents / Utilities
+migra	https://github.com/djrobstep/migra	Like diff but for Postgres schemas.	Contents / Utilities
+mysql-postgresql-converter	https://github.com/lanyrd/mysql-postgresql-converter	Lanyrd's MySQL to PostgreSQL conversion script.	Contents / Utilities
+NServiceBus.Transport.PostgreSql	https://github.com/Particular/NServiceBus.SqlServer	The NServiceBus.Transport.PostgreSql library allows .NET developers to use a PostgreSQL database as a message broker.…	Contents / Utilities
+ora2pg	http://ora2pg.darold.net	Perl module to export an Oracle database schema to a PostgreSQL compatible schema.	Contents / Utilities
+pg\_activity	https://github.com/dalibo/pg_activity	top like application for PostgreSQL server activity monitoring.	Contents / Utilities
+pg-formatter	https://github.com/gajus/pg-formatter	A PostgreSQL SQL syntax beautifier (Node.js).	Contents / Utilities
+pg-safe-migrate	https://github.com/defnotwig/pg-safe-migrate	Safety-first Node.js migration engine with advisory locks, SHA-256 drift detection, and 10 built-in lint rules…	Contents / Utilities
+pganalyze	https://pganalyze.com	PostgreSQL Performance Monitoring (Commercial Software).	Contents / Utilities
+pgbadger	https://github.com/darold/pgbadger	Fast PostgreSQL Log Analyzer.	Contents / Utilities
+PgBouncer	http://www.pgbouncer.org/	Lightweight connection pooler for PostgreSQL.	Contents / Utilities
+pgCenter	https://github.com/lesovsky/pgcenter	Provides convenient interface to various statistics, management task, reloading services, viewing log files and canceling…	Contents / Utilities
+pg_chameleon	https://github.com/the4thdoctor/pg_chameleon	Real time replica from MySQL to PostgreSQL with optional type override migration and migration capabilities.	Contents / Utilities
+pgclimb	https://github.com/lukasmartinelli/pgclimb	Export data from PostgreSQL into different data formats.	Contents / Utilities
+pg_docs_bot	https://github.com/mchristofides/pg_docs_bot/	Browser extension to redirect PostgreSQL docs links to the current version.	Contents / Utilities
+pgfutter	https://github.com/lukasmartinelli/pgfutter	Import CSV and JSON into PostgreSQL the easy way.	Contents / Utilities
+pgFirstAid	https://github.com/randoneering/pgFirstAid	Easy-to-deploy, open source PostgreSQL function that provides a prioritized list of actions to improve database…	Contents / Utilities
+PGInsight	http://pginsight.io/	CLI tool to easily dig deep inside your PostgreSQL database.	Contents / Utilities
+pg_insights	https://github.com/lob/pg_insights	Convenient SQL for monitoring Postgres database health.	Contents / Utilities
+pgloader	https://github.com/dimitri/pgloader	Loads data into PostgreSQL using the COPY streaming protocol, and does so with separate threads…	Contents / Utilities
+pgMonitor	https://github.com/CrunchyData/pgmonitor	Postgres metrics collection and visualization that can be deployed to bare metal, virtual machines, or…	Contents / Utilities
+pgpool-II	https://www.pgpool.net/mediawiki/index.php/Main_Page	Middleware that provides connection pooling, replication, load balancing and limiting exceeding connections.	Contents / Utilities
+pgspot	https://github.com/timescale/pgspot	Spot vulnerabilities in PostgreSQL extension scripts.	Contents / Utilities
+pg-spot-operator	https://github.com/pg-spot-ops/pg-spot-operator	A daemon to run stateful Postgres on cheap AWS Spot VMs	Contents / Utilities
+pgsync	https://github.com/ankane/pgsync	Tool to sync PostgreSQL data to your local machine.	Contents / Utilities
+PGXN client	https://github.com/pgxn/pgxnclient	Command line tool to interact with the PostgreSQL Extension Network	Contents / Utilities
+postgresql-metrics	https://github.com/spotify/postgresql-metrics	Tool that extracts and provides metrics for your PostgreSQL database.	Contents / Utilities
+PostgREST	https://github.com/PostgREST/postgrest	Serves a fully RESTful API from any existing PostgreSQL database.	Contents / Utilities
+pREST	https://github.com/prest/prest	Serve a RESTful API from any PostgreSQL database (Golang)	Contents / Utilities
+PostGraphile	https://github.com/graphile/postgraphile	Instant GraphQL API or GraphQL schema for your PostgreSQL database	Contents / Utilities
+yoke	https://github.com/nanopack/yoke	PostgreSQL high-availability cluster with auto-failover and automated cluster recovery.	Contents / Utilities
+pglistend	https://github.com/kabirbaidhya/pglistend	A lightweight PostgresSQL `LISTEN`/`NOTIFY` daemon built on top of `node-postgres`.	Contents / Utilities
+ZSON	https://github.com/postgrespro/zson	PostgreSQL extension for transparent JSONB compression	Contents / Utilities
+pg_bulkload	http://ossc-db.github.io/pg_bulkload/index.html	It's a high speed data loading utility for PostgreSQL.	Contents / Utilities
+pg_migrate	https://github.com/jwdeitch/pg_migrate	Manage PostgreSQL codebases and make VCS simple.	Contents / Utilities
+pg_timetable	https://github.com/cybertec-postgresql/pg_timetable	Advanced job scheduler for PostgreSQL.	Contents / Utilities
+sqitch	https://github.com/sqitchers/sqitch	Tool for managing versioned schema deployment	Contents / Utilities
+pgmigrate	https://github.com/yandex/pgmigrate	CLI tool to evolve schema migrations, developed by Yandex.	Contents / Utilities
+pgcmp	https://github.com/cbbrowne/pgcmp	Tool to compare database schemas, with capability to accept some persistent differences	Contents / Utilities
+pg-differ	https://github.com/multum/pg-differ	Tool for easy initialization / updating of the structure of PostgreSQL tables, migration alternative (Node.js).	Contents / Utilities
+Qail	https://github.com/qail-io/qail	rust-first typed AST pipeline for PostgreSQL with compile-time query checks and built-in tenant scoping.	Contents / Utilities
+sqlcheck	https://github.com/jarulraj/sqlcheck	Automatically detects common SQL anti-patterns. Such anti-patterns often slow down queries. Addressing them will, therefore,…	Contents / Utilities
+postgres-checkup	https://gitlab.com/postgres-ai/postgres-checkup	a new-generation diagnostics tool that allows users to collect deep analysis of the health of…	Contents / Utilities
+Pyrseas	https://github.com/perseas/Pyrseas	Postgres database schema versioning.	Contents / Utilities
+ScaffoldHub.io	https://scaffoldhub.io	Generate fullstack PostgreSQL apps with Angular, Vue or React (Commercial Software).	Contents / Utilities
+planter	https://github.com/achiku/planter	Generate PlantUML ER diagram textual description from PostgreSQL tables	Contents / Utilities
+pgroll	https://github.com/xataio/pgroll	Zero-downtime, reversible, schema migrations for Postgres	Contents / Utilities
+RegreSQL	https://github.com/dimitri/regresql	Tool to build, maintain and execute a regression testing suite for SQL queries.	Contents / Utilities
+diesel-guard	https://github.com/ayarotsky/diesel-guard	Linter for dangerous Postgres migration patterns in Diesel and SQLx.	Contents / Utilities
+Aiven PostgreSQL	https://aiven.io/postgresql	PostgreSQL as a service in AWS, Azure, DigitalOcean, Google Cloud and UpCloud; plans range from…	Contents / PaaS *(PostgreSQL as a Service)*
+Amazon RDS for PostgreSQL	https://aws.amazon.com/rds/postgresql/	Amazon Relational Database Service (RDS) for PostgreSQL	Contents / PaaS *(PostgreSQL as a Service)*
+Azure Database for PostgreSQL	https://azure.microsoft.com/en-us/services/postgresql/	Azure Database for PostgreSQL provides fully managed, enterprise-ready community PostgreSQL database as a service. It…	Contents / PaaS *(PostgreSQL as a Service)*
+Crunchy Bridge	https://www.crunchydata.com/products/crunchy-bridge/	Fully managed Postgres from the Postgres experts. Available across all major cloud providers: Amazon AWS,…	Contents / PaaS *(PostgreSQL as a Service)*
+Database Labs	https://www.databaselabs.io	Get a production-ready cloud PostgreSQL server in minutes, from $20 a month Backups, monitoring, patches,…	Contents / PaaS *(PostgreSQL as a Service)*
+DigitalOcean Managed Databases	https://www.digitalocean.com/products/managed-databases/	Fully managed PostgreSQL databases. No free plan. Starting at $15/mo. Daily backups with point-in-time recovery.…	Contents / PaaS *(PostgreSQL as a Service)*
+Google Cloud SQL for PostgreSQL	https://cloud.google.com/sql/docs/postgres/	Fully-managed database service that makes it easy to set up, maintain, manage, and administer your…	Contents / PaaS *(PostgreSQL as a Service)*
+Heroku Postgres	https://elements.heroku.com/addons/heroku-postgresql	Plans from free to huge, operated by PostgreSQL experts. Does not require running your app…	Contents / PaaS *(PostgreSQL as a Service)*
+OVHcloud Cloud Databases	https://www.ovhcloud.com/en/public-cloud/databases/	Highly available, scalable, and secured PostgreSQL. Daily backups with point-in-time recovery, no lock-in, free incoming…	Contents / PaaS *(PostgreSQL as a Service)*
+Render Managed PostgreSQL	https://render.com/docs/databases	Secure, reliable, and completely hands-off managed PostgreSQL. Encryption at rest, automated backups, and expandable SSD…	Contents / PaaS *(PostgreSQL as a Service)*
+Rivestack	https://rivestack.io	Managed PostgreSQL with pgvector pre-installed and HNSW-tuned for vector search. Free tier (2 GB, no…	Contents / PaaS *(PostgreSQL as a Service)*
+ScaleGrid PostgreSQL DBaaS	https://scalegrid.io/postgresql.html	Fully managed PostgreSQL hosting with high availability, dedicated servers, and superuser control on the #1…	Contents / PaaS *(PostgreSQL as a Service)*
+Scaleway Managed Database	https://www.scaleway.com/en/database/	Fully managed PostgreSQL databases with HA, scaling, and automated backups, hosted in the EU. Starting…	Contents / PaaS *(PostgreSQL as a Service)*
+Supabase	https://www.supabase.com	Fully managed Postgres with read replicas, point-in-time-recovery, support packages, browser based GUI, and a generous…	Contents / PaaS *(PostgreSQL as a Service)*
+Neon	https://neon.tech	Fully managed serverless PostgreSQL. Neon separates storage and compute to offer modern developer features such…	Contents / PaaS *(PostgreSQL as a Service)*
+Nile	https://www.thenile.dev/	Fully managed PostgreSQL . Nile decouples storage from compute and virtualizes tenants to ship multi-tenant…	Contents / PaaS *(PostgreSQL as a Service)*
+PlanetScale	https://planetscale.com/postgres	PlanetScale for Postgres provides fully-managed, high availability PostgreSQL database clusters built on modern cloud infrastructure.	Contents / PaaS *(PostgreSQL as a Service)*
+Vela	https://vela.run	Postgres-based backend-as-a-service built for modern AI apps. Offers instant database branches and clones, production-like test…	Contents / PaaS *(PostgreSQL as a Service)*
+Thalassa Cloud DBaaS	https://thalassa.cloud/products/databases/postgresql/	Fully managed PostgreSQL database, multi-AZ, automated backups, hosted in the Netherlands.	Contents / PaaS *(PostgreSQL as a Service)*
+citusdata/citus	https://hub.docker.com/r/citusdata/citus/	Citus official images with citus extensions. Based on the official Postgres container.	Contents / Docker images
+mdillon/postgis	https://hub.docker.com/r/mdillon/postgis/	PostGIS 2.3 on Postgres 9. Based on the official Postgres container.	Contents / Docker images
+paradedb/paradedb	https://hub.docker.com/r/paradedb/paradedb/	ParadeDB is Postgres for Search and Analytics. Based on the official Postgres container with pg_search…	Contents / Docker images
+pglayers	https://github.com/pglayers/pglayers	Pre-built PostgreSQL extensions as composable Docker layers. 50+ extensions, ready-to-use combined images (full, Azure-compatible).	Contents / Docker images
+postgres	https://hub.docker.com/_/postgres/	Official postgres container (from Docker)	Contents / Docker images
+Crunchy Operator	https://github.com/CrunchyData/postgres-operator	Production PostgreSQL for Kubernetes, from high availability Postgres clusters to full-scale database-as-a-service.	Contents / Kubernetes
+Fujitsu Enterprise Postgres for Kubernetes	https://www.postgresql.fastware.com/	Enterprise-grade PostgreSQL on OpenShift Container Platform (Commercial Software).	Contents / Kubernetes
+Kubegres Operator	https://github.com/reactive-tech/kubegres	Kubegres is a Kubernetes operator allowing to deploy one or many clusters of PostgreSql instances…	Contents / Kubernetes
+StackGres Operator	https://github.com/ongres/stackgres/	Full Stack PostgreSQL on Kubernetes.	Contents / Kubernetes
+Zalando Operator	https://github.com/zalando/postgres-operator	Creates and manages PostgreSQL clusters running in Kubernetes.	Contents / Kubernetes
+CloudNativePG operator	https://github.com/cloudnative-pg/cloudnative-pg	A comprehensive platform designed to seamlessly manage PostgreSQL databases within Kubernetes environments.	Contents / Kubernetes
+KubeDB operator	https://kubedb.com/	Run Production-Grade Databases on Kubernetes (Commercial Software).	Contents / Kubernetes
+Percona PostgreSQL Operator	https://github.com/percona/percona-postgresql-operator	Percona Operator for PostgreSQL based on Crunchy Data operator.	Contents / Kubernetes
+Percona Everest Operator	https://github.com/percona/everest-operator	Everest Operator is a Kubernetes Operator responsible for managing the lifecycle of MySQL, MongoDB, and…	Contents / Kubernetes
+Backup and recover a PostgreSQL DB using wal-e	https://coderwall.com/p/cwe2_a/backup-and-recover-a-postgres-db-using-wal-e	Tutorial about setting up continuous archiving in PostgreSQL using wal-e.	Resources / Tutorials
+Operations cheat sheet	https://wiki.postgresql.org/wiki/Operations_cheat_sheet	Operations cheat sheet from PostgreSQL Wiki.	Resources / Tutorials
+PG Casts	https://www.pgcasts.com	Free weekly PostgreSQL screencasts by Hashrocket.	Resources / Tutorials
+Postgres Guide	http://postgresguide.com/	Guide designed as an aid for beginners and experienced users to find specific tips and…	Resources / Tutorials
+PostgreSQL Access Control	https://andersnasell.gumroad.com/l/postgresql-access-control	The complete mental model: roles, grants, ownership, membership, policies, and default privileges as an integrated…	Resources / Tutorials
+PostgreSQL Exercises	https://pgexercises.com/	Site  to make it easy to learn PostgreSQL by doing exercises.	Resources / Tutorials
+tutorialspoint PostgreSQL tutorial	http://www.tutorialspoint.com/postgresql/	Very extensive collection of tutorials on PostgreSQL	Resources / Tutorials
+postgresDBSamples	https://github.com/morenoh149/postgresDBSamples	A collection of sample postgres schemas	Resources / Tutorials
+PostgreSQL Primer for Busy People	https://zaiste.net/posts/postgresql-primer-for-busy-people/	A collection of the most common commands used in PostgreSQL	Resources / Tutorials
+pg-utils	https://github.com/dataegret/pg-utils	Useful DBA tools by Data Egret	Resources / Tutorials
+pagila	https://github.com/xzilla/pagila	Pagila, Postgres Sample Database	Resources / Tutorials
+SQL Syntax Cheat Sheet	https://github.com/mergisi/sql-syntax-cheat-sheet	Comprehensive SQL syntax reference covering window functions, CTEs, and PostgreSQL-specific syntax (UPSERT, JSON queries, array…	Resources / Tutorials
+Planet PostgreSQL	https://planet.postgresql.org/	Blog aggregation service for PostgreSQL.	Resources / Blogs
+Andrew Dunstan's PostgreSQL and Technical blog	http://adpgtech.blogspot.com/search/label/PostgreSQL/		Resources / Blogs
+Bruce Momjian's PostgreSQL blog	https://momjian.us/main/blogs/pgblog.html		Resources / Blogs
+Craig Kerstiens PostgreSQL posts	http://www.craigkerstiens.com/categories/postgres/	Set of posts on PostgreSQL cool features, tips and tricks.	Resources / Blogs
+Database Soup	http://www.databasesoup.com/search/label/postgresql/	Josh Berkus' blog.	Resources / Blogs
+Michael Paquier's blog	https://paquier.xyz/		Resources / Blogs
+Percona's PostgreSQL blog posts	https://www.percona.com/blog/category/postgresql/		Resources / Blogs
+Robert Haas' blog	http://rhaas.blogspot.com/search/label/postgresql/		Resources / Blogs
+select * from depesz;	https://www.depesz.com/tag/postgresql/	Hubert Lubaczewski's blog.	Resources / Blogs
+Metis Blog	https://www.metisdata.io/blog	Set of posts on PostgreSQL, SQL databases, performance, and tuning.	Resources / Blogs
+Digoal's PostgreSQL and Technical blog(Chinese Language)	https://github.com/digoal/blog/blob/master/README.md		Resources / Blogs
+Pigsty blog / PostgreSQL	https://pigsty.io/blog/pg/	Blog by the author of PIGSTY with insightful articles on PostgreSQL (as well as databases…	Resources / Blogs
+BigData Boutique Blog / PostgreSQL	https://bigdataboutique.com/blog/tagged/postgresql	Blog by the BigData Boutique team, mostly with analytics focus).	Resources / Blogs
+PostgreSQL Mistakes and How to Avoid Them	https://www.manning.com/books/postgresql-mistakes-and-how-to-avoid-them		Resources / Books
+The Internals of PostgreSQL	https://www.interdb.jp/pg/index.html	A free e-book by Hironobu Suzuki	Resources / Books
+PostgreSQL 14 Internals	https://postgrespro.com/community/books/internals	A free e-book by Egor Rogov	Resources / Books
+Lift the Elephant	https://leanpub.com/lift-the-elephant	A practical guide to scaling Postgres in production, covering tuning, connection pooling, partitioning, and high…	Resources / Books
+Wiki	https://wiki.postgresql.org/wiki/Main_Page	user documentation, how-tos, and tips 'n' tricks	Resources / Documentation
+pgPedia	https://pgpedia.info/	An encyclopedia of things related to postgreSQL.	Resources / Documentation
+create_pg_super_document	https://ryogrid.github.io/create_pg_super_document/index.html	A project that aim to generate documentation for all symbols in the PostgreSQL codebase using…	Resources / Documentation
+Postgres Weekly	https://postgresweekly.com/	Weekly newsletter that contains articles, news, and repos relevant to PostgreSQL.	Resources / Newsletters
+pgMustard newsletter	https://www.pgmustard.com/newsletter	Monthly newsletter that contains Postgres performance articles and videos.	Resources / Newsletters
+pgsql-hackers Weekly Digest	https://ryogrid.net/pgsql-hackers-digest/	Weekly digest of the pgsql-hackers mailing list that provides a list of active threads, thread…	Resources / Newsletters
+PostgresFM	https://postgres.fm/	Weekly discussions about Postgres topics.	Resources / Podcasts
+Scaling Postgres	https://www.scalingpostgres.com/	Weekly roundups of PostgreSQL related content.	Resources / Podcasts
+Path to Citus Con	https://www.citusdata.com/podcast/path-to-citus-con/	Monthly interviews with people in the Postgres world.	Resources / Podcasts
+Citus Data Youtube channel	https://www.youtube.com/channel/UC8jpoK1BqQhDh6HDGFnM_DA/videos	Citus related videos	Resources / Videos
+EnterpriseDB Youtube channel	https://www.youtube.com/channel/UCkIPoYyNr1OHgTo0KwE9HJw	EnterpriseDB related videos	Resources / Videos
+Postgres Conference Youtube channel	https://www.youtube.com/channel/UCsJkVvxwoM7R9oRbzvUhbPQ/videos	Conference videos	Resources / Videos
+Scaling Postgres	https://www.scalingpostgres.com/	Postgres video blog series by Creston Jamison	Resources / Videos
+PostgresTV Youtube channel	https://www.youtube.com/@PostgresTV	Postgres talks, hacking sessions, interviews, and podcast episodes	Resources / Videos
+Mailing lists	https://www.postgresql.org/list/	Official mailing lists for Postgres for support, outreach, and more. One of the primary channels…	Resources / Community
+Reddit	https://www.reddit.com/r/PostgreSQL/	A reddit community for PostgreSQL users with over 12000 users	Resources / Community
+Slack	https://pgtreats.info/slack-invite	Slack workspace for Postgres with over 20k members	Resources / Community
+#postgresql on Freenode	https://webchat.freenode.net/#postgresql	The most popular IRC channel about Postgres on Freenode with over 1000 users	Resources / Community
+Discord	https://discord.gg/bW2hsax8We	A Discord server for Postgres with over 6k members	Resources / Community
+PostgreSQL Roadmap	https://roadmap.sh/postgresql-dba	A roadmap providing step wise guide to PostgreSQL.	Resources / Roadmaps
+Wikipedia admin tools list	https://en.wikipedia.org/wiki/Comparison_of_database_tools	Comparison of database administration tools on Wikipedia	Resources / External lists
+PostgreSQL Wiki GUI tools list	https://wiki.postgresql.org/wiki/Community_Guide_to_PostgreSQL_GUI_Tools	Community Guide to PostgreSQL GUI Tools	Resources / External lists
+PostgreSQL Wiki Foreign Data Wrappers list	https://wiki.postgresql.org/wiki/Foreign_data_wrappers	Foreign data wrappers	Resources / External lists

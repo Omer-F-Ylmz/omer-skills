@@ -1,0 +1,672 @@
+bolum	alt_bolum	liste_adi	repo	aciklama	yildiz	son_push
+Platforms		Node.js	sindresorhus/awesome-nodejs	Async non-blocking event-driven JavaScript runtime built on Chrome's V8 JavaScript engine.	67076	2026-09-02
+Platforms	Node.js	Cross-Platform	bcoe/awesome-cross-platform-nodejs	Writing cross-platform code on Node.js.	1210	2026-09-18
+Platforms		Frontend Development	dypsilon/frontend-dev-bookmarks		47603	2024-05-21
+Platforms		iOS	vsouza/awesome-ios	Mobile operating system for Apple phones and tablets.	53584	2026-08-27
+Platforms		Android	JStumpp/awesome-android	Mobile operating system developed by Google.	12398	2025-10-27
+Platforms		IoT & Hybrid Apps	weblancaster/awesome-IoT-hybrid		616	2021-09-01
+Platforms		Electron	sindresorhus/awesome-electron	Cross-platform native desktop apps using JavaScript/HTML/CSS.	27306	2026-05-03
+Platforms		Cordova	busterc/awesome-cordova	JavaScript API for hybrid apps.	309	2019-10-25
+Platforms		React Native	jondot/awesome-react-native	JavaScript framework for writing natively rendering mobile apps for iOS and Android.	35706	2026-08-26
+Platforms	Linux	Containers	Friz-zy/awesome-linux-containers		2106	2024-04-09
+Platforms	Linux	eBPF	zoidbergwill/awesome-ebpf	Virtual machine that allows you to write more efficient and powerful tracing and monitoring for Linux systems.	5180	2026-09-14
+Platforms	Linux	Arch-based Projects	PandaFoss/Awesome-Arch	Linux distributions and projects based on Arch Linux.	594	2026-07-11
+Platforms	Linux	AppImage	AppImageCommunity/awesome-appimage	Package apps in a single file that works on various mainstream Linux distributions.	609	2025-12-07
+Platforms	Linux	Omarchy	aorumbayev/awesome-omarchy	Opinionated Arch Linux and Hyprland desktop environment from the creator of Ruby on Rails.	650	2026-10-02
+Platforms	macOS	Screensavers	agarrharr/awesome-macos-screensavers		4423	2025-10-27
+Platforms	macOS	Apps	jaywcjlove/awesome-mac		115856	2026-10-11
+Platforms	macOS	Open Source Apps	serhii-londar/open-source-mac-os-apps		50746	2026-09-10
+Platforms		watchOS	yenchenlin/awesome-watchos	Operating system for the Apple Watch.	503	2018-07-05
+Platforms		JVM	deephacks/awesome-jvm		2174	2022-08-30
+Platforms		Salesforce	mailtoharshit/awesome-salesforce		807	2023-07-20
+Platforms		Amazon Web Services	donnemartin/awesome-aws		14170	2024-03-12
+Platforms		Windows	0pandadev/awesome-windows	Consumer desktop operating system.	2969	2026-10-04
+Platforms	Windows	PowerToys Run Plugins	hlaueriksson/awesome-powertoys-run-plugins	Community plugins for the Windows quick launcher.	610	2025-09-08
+Platforms		IPFS	ipfs/awesome-ipfs	P2P hypermedia protocol.	4612	2025-11-13
+Platforms		Fuse	fuse-compound/awesome-fuse	Mobile development tools.	362	2019-02-25
+Platforms		Heroku	ianstormtaylor/awesome-heroku	Cloud platform as a service.	319	2021-07-06
+Platforms		Raspberry Pi	thibmaek/awesome-raspberry-pi	Credit card-sized computer aimed at teaching kids programming, but capable of a lot more.	16970	2026-10-02
+Platforms		WebExtensions	fregante/Awesome-WebExtensions	Cross-browser extension system.	1517	2026-09-16
+Platforms		Smart TV	vitalets/awesome-smart-tv	Create apps for different TV platforms.	1435	2026-09-22
+Platforms		GNOME	Kazhnuz/awesome-gnome	Simple and distraction-free desktop environment for Linux.	1620	2025-12-27
+Platforms		KDE	francoism90/awesome-kde	A free software community dedicated to creating an open and user-friendly computing experience.	861	2026-10-06
+Platforms		.NET	quozd/awesome-dotnet		21649	2026-03-26
+Platforms	.NET	Core	thangchung/awesome-dotnet-core		21405	2026-02-27
+Platforms	.NET	Roslyn	ironcev/awesome-roslyn	Open-source compilers and code analysis APIs for C# and VB.NET languages.	734	2024-01-16
+Platforms		DigitalOcean	jonleibowitz/awesome-digitalocean	Cloud computing platform designed for developers.	383	2021-04-30
+Platforms		Flutter	Solido/awesome-flutter	Google's mobile SDK for building native iOS and Android apps from a single codebase written in Dart.	61466	2026-09-03
+Platforms		Home Assistant	frenck/awesome-home-assistant	Open source home automation that puts local control and privacy first.	8529	2026-10-09
+Platforms		IBM Cloud	victorshinya/awesome-ibmcloud	Cloud platform for developers and companies.	109	2021-07-05
+Platforms		Firebase	jthegedus/awesome-firebase	App development platform built on Google Cloud.	794	2024-04-06
+Platforms		Adafruit IO	adafruit/awesome-adafruitio	Visualize and store data from any device.	96	2022-02-20
+Platforms		Cloudflare	irazasyed/awesome-cloudflare	CDN, DNS, DDoS protection, and security for your site.	1254	2026-01-29
+Platforms		Actions on Google	ravirupareliya/awesome-actions-on-google	Developer platform for Google Assistant.	115	2020-10-31
+Platforms		ESP	agucova/awesome-esp	Low-cost microcontrollers with WiFi and broad IoT applications.	2735	2026-05-09
+Platforms		Deno	denolib/awesome-deno	A secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust.	4411	2026-09-28
+Platforms		DOS	balintkissdev/awesome-dos	Operating system for x86-based personal computers that was popular during the 1980s and early 1990s.	638	2026-09-20
+Platforms		Nix	nix-community/awesome-nix	Package manager for Linux and other Unix systems that makes package management reliable and reproducible.	5492	2026-07-23
+Platforms		Integration	stn1slv/awesome-integration	Linking together different IT systems (components) to functionally cooperate as a whole.	565	2026-10-11
+Platforms		Node-RED	naimo84/awesome-nodered	A programming tool for wiring together hardware devices, APIs, and online services.	550	2023-02-23
+Platforms		Low Code	zenitysec/awesome-low-code	Allowing business professionals to address their needs on their own with little to no coding skills.	459	2026-04-05
+Platforms		Capacitor	riderx/awesome-capacitor	Cross-platform open source runtime for building Web Native apps.	638	2026-10-11
+Platforms		ArcGIS Developer	Esri/awesome-arcgis-developer	Mapping and location analysis platform for developers.	333	2026-04-14
+Platforms		Bluetooth Low Energy	dotintent/awesome-ble	Low-power wireless communication protocol ideal for IoT, wearables, and other battery-powered applications.	152	2026-09-11
+Platforms		Uno Platform	MartinZikmund/awesome-uno-platform	Open-source .NET UI platform for building cross-platform apps.	81	2025-05-20
+Platforms		Firebase Genkit	xavidop/awesome-firebase-genkit	An open-source framework for building AI-powered apps and features.	133	2026-07-20
+Platforms		Backstage	shano/awesome-backstage	Open-source platform for building Internal Developer Portals that unify tools and workflows.	99	2026-08-29
+Programming Languages		JavaScript	sorrycc/awesome-javascript		35029	2026-10-10
+Programming Languages	JavaScript	Promises	wbinnssmith/awesome-promises		1760	2023-12-15
+Programming Languages	JavaScript	Standard Style	standard/awesome-standard	Style guide and linter.	408	2023-09-16
+Programming Languages	JavaScript	Must Watch Talks	bolshchikov/js-must-watch		13624	2022-01-20
+Programming Languages	JavaScript	Tips	loverajoel/jstips		12415	2025-04-26
+Programming Languages	JavaScript	Network Layer	Kikobeats/awesome-network-js		585	2020-10-12
+Programming Languages	JavaScript	Micro npm Packages	parro-it/awesome-micro-npm-packages		4620	2023-12-18
+Programming Languages	JavaScript	Mad Science npm Packages	feross/awesome-mad-science	Impossible sounding projects that exist.	1218	2022-05-01
+Programming Languages	JavaScript	Maintenance Modules	maxogden/maintenance-modules	For npm packages.	359	2016-05-19
+Programming Languages	JavaScript	npm	sindresorhus/awesome-npm	Package manager.	4744	2026-04-20
+Programming Languages	JavaScript	AVA	avajs/awesome-ava	Test runner.	357	2022-09-12
+Programming Languages	JavaScript	ESLint	dustinspecker/awesome-eslint	Linter.	4765	2026-10-02
+Programming Languages	JavaScript	Functional Programming	stoeffel/awesome-fp-js		6038	2026-01-15
+Programming Languages	JavaScript	Observables	sindresorhus/awesome-observables		354	2021-10-13
+Programming Languages	JavaScript	npm scripts	RyanZim/awesome-npm-scripts	Task runner.	742	2026-07-23
+Programming Languages	JavaScript	30 Seconds of Code	30-seconds/30-seconds-of-code	Code snippets you can understand in 30 seconds.	129164	2026-10-02
+Programming Languages	JavaScript	Ponyfills	Richienb/awesome-ponyfills	Like polyfills but without overriding native APIs.	66	2020-10-21
+Programming Languages		Swift	matteocrippa/awesome-swift	Apple's compiled programming language that is secure, modern, programmer-friendly, and fast.	26318	2026-09-01
+Programming Languages	Swift	Education	hsavit1/Awesome-Swift-Education		5793	2018-07-01
+Programming Languages	Swift	Playgrounds	uraimo/Awesome-Swift-Playgrounds		4389	2026-04-02
+Programming Languages		Python	vinta/awesome-python	General-purpose programming language designed for readability.	326621	2026-10-11
+Programming Languages	Python	Asyncio	timofurrer/awesome-asyncio	Asynchronous I/O in Python 3.	5137	2025-12-01
+Programming Languages	Python	Scientific Audio	faroit/awesome-python-scientific-audio	Scientific research in audio/music.	1719	2026-09-11
+Programming Languages	Python	CircuitPython	adafruit/awesome-circuitpython	A version of Python for microcontrollers.	743	2025-07-21
+Programming Languages	Python	Data Science	krzjoa/awesome-python-data-science	Data analysis and machine learning.	3612	2026-04-13
+Programming Languages	Python	Typing	typeddjango/awesome-python-typing	Optional static typing for Python.	1987	2026-09-23
+Programming Languages	Python	MicroPython	mcauser/awesome-micropython	A lean and efficient implementation of Python 3 for microcontrollers.	1810	2026-07-20
+Programming Languages		Rust	rust-unofficial/awesome-rust		59783	2026-10-10
+Programming Languages	Rust	Pest	pest-parser/awesome-pest	Parser generator.	156	2026-08-08
+Programming Languages		Haskell	krispo/awesome-haskell		3278	2026-08-03
+Programming Languages		PureScript	passy/awesome-purescript		483	2022-11-30
+Programming Languages		Go	avelino/awesome-go		187888	2026-10-11
+Programming Languages		Scala	lauris/awesome-scala		9250	2024-09-20
+Programming Languages	Scala	Scala Native	tindzk/awesome-scala-native	Optimizing ahead-of-time compiler for Scala based on LLVM.	279	2026-09-26
+Programming Languages		Ruby	markets/awesome-ruby		14171	2026-10-05
+Programming Languages		Clojure	razum2um/awesome-clojure		2848	2026-09-15
+Programming Languages		ClojureScript	hantuzun/awesome-clojurescript		1087	2024-03-10
+Programming Languages		Elixir	h4cc/awesome-elixir		13167	2025-10-12
+Programming Languages		Elm	sporto/awesome-elm		3688	2026-07-21
+Programming Languages		Erlang	drobakowski/awesome-erlang		1710	2022-11-17
+Programming Languages		Julia	svaksha/Julia.jl	High-level dynamic programming language designed to address the needs of high-performance numerical analysis and computational science.	1517	2023-12-07
+Programming Languages		Lua	LewisJEllis/awesome-lua		4585	2024-08-11
+Programming Languages		C/C++	fffaraz/awesome-cpp	General-purpose language with a bias toward system programming and embedded, resource-constrained software.	73742	2026-10-11
+Programming Languages		R	qinwf/awesome-R	Functional programming language and environment for statistical computing and graphics.	6516	2025-09-18
+Programming Languages	R	Learning	iamericfletcher/awesome-r-learning-resources		664	2024-12-19
+Programming Languages		D	dlang-community/awesome-d		765	2026-10-04
+Programming Languages		Common Lisp	CodyReichert/awesome-cl	Powerful dynamic multiparadigm language that facilitates iterative and interactive development.	2987	2026-10-06
+Programming Languages	Common Lisp	Learning	GustavBertram/awesome-common-lisp-learning		244	2023-10-04
+Programming Languages		Perl	hachiojipm/awesome-perl		711	2024-08-07
+Programming Languages		Groovy	kdabir/awesome-groovy		742	2024-10-26
+Programming Languages		Dart	yissachar/awesome-dart		2499	2026-05-24
+Programming Languages		Java	akullpp/awesome-java	Popular secure object-oriented language designed for flexibility to "write once, run anywhere".	49225	2026-09-23
+Programming Languages	Java	RxJava	eleventigers/awesome-rxjava		306	2019-01-09
+Programming Languages	Java	J2ME	hstsethi/awesome-j2me	Java specification designed for old keypad phones and PDAs..	427	2026-07-28
+Programming Languages		Kotlin	KotlinBy/awesome-kotlin		11390	2026-10-09
+Programming Languages		OCaml	ocaml-community/awesome-ocaml		3124	2026-06-15
+Programming Languages		ColdFusion	seancoyne/awesome-coldfusion		124	2021-12-29
+Programming Languages		Fortran	rabbiabram/awesome-fortran		416	2026-07-02
+Programming Languages		PHP	ziadoz/awesome-php	Server-side scripting language.	32738	2026-09-27
+Programming Languages	PHP	Composer	jakoch/awesome-composer	Package manager.	908	2026-10-08
+Programming Languages		Pascal	Fr0sT-Brutal/awesome-pascal		2091	2026-02-27
+Programming Languages		AutoHotkey	ahkscript/awesome-AutoHotkey		3097	2026-10-03
+Programming Languages		AutoIt	J2TeaM/awesome-AutoIt		926	2022-08-21
+Programming Languages		Crystal	veelenga/awesome-crystal		3566	2026-10-08
+Programming Languages		CMake	onqtam/awesome-cmake	Build, test, and package software.	5424	2026-08-13
+Programming Languages		ActionScript 3	robinrodricks/awesome-actionscript3	Object-oriented language targeting Adobe AIR.	276	2022-11-12
+Programming Languages		Idris	joaomilho/awesome-idris	General purpose pure functional programming language with dependent types influenced by Haskell and ML.	414	2020-02-20
+Programming Languages		Ada/SPARK	ohenley/awesome-ada	Modern programming language designed for large, long-lived apps where reliability and efficiency are essential.	872	2026-10-06
+Programming Languages		Q#	ebraminio/awesome-qsharp	Domain-specific programming language used for expressing quantum algorithms.	182	2022-08-11
+Programming Languages		Imba	koolamusic/awesome-imba	Programming language inspired by Ruby and Python and compiles to performant JavaScript.	139	2021-10-18
+Programming Languages		Vala	desiderantes/awesome-vala	Programming language designed to take full advantage of the GLib and GNOME ecosystems, while preserving the speed of C code.	232	2026-08-06
+Programming Languages		Coq	coq-community/awesome-coq	Formal language and environment for programming and specification which facilitates interactive development of machine-checked proofs.	396	2026-06-05
+Programming Languages		V	vlang/awesome-v	Simple, fast, safe, compiled language for developing maintainable software.	2112	2026-10-10
+Programming Languages		Move	MystenLabs/awesome-move	Domain-specific programming language for writing safe smart contracts.	1494	2024-08-14
+Programming Languages		Esolangs	angrykoala/awesome-esolangs	Programming languages designed for experimentation or as jokes rather than actual use.	603	2026-09-29
+Programming Languages		VBA	sancarn/awesome-vba	An event-driven version of Visual Basic 6.0 built into most Microsoft Office apps for automation and scripting.	633	2026-08-30
+Programming Languages		F#	fsprojects/awesome-fsharp	A .NET-based language with focus on functional programming.	1433	2026-03-21
+Front-End Development		ES6 Tools	addyosmani/es6-tools		3975	2019-10-31
+Front-End Development		Web Performance Optimization	davidsonfellipe/awesome-wpo		9117	2026-07-28
+Front-End Development		Web Tools	lvwzhen/tools		1264	2026-07-28
+Front-End Development		CSS	awesome-css-group/awesome-css	Style sheet language that specifies how HTML elements are displayed on screen.	5639	2024-10-30
+Front-End Development	CSS	Critical-Path Tools	addyosmani/critical-path-css-tools		1164	2022-07-18
+Front-End Development	CSS	Scalability	davidtheclark/scalable-css-reading-list		1540	2024-06-21
+Front-End Development	CSS	Must-Watch Talks	AllThingsSmitty/must-watch-css		4878	2026-09-24
+Front-End Development	CSS	Protips	AllThingsSmitty/css-protips		30292	2026-09-23
+Front-End Development	CSS	Frameworks	troxler/awesome-css-frameworks		9540	2026-06-08
+Front-End Development		React	enaqx/awesome-react	JavaScript library for building user interfaces.	74854	2026-09-04
+Front-End Development	React	Relay	expede/awesome-relay	Framework for building data-driven React apps.	290	2021-10-18
+Front-End Development	React	React Hooks	glauberfc/awesome-react-hooks	Lets you use state and other React features without writing a class.	1227	2024-03-16
+Front-End Development		Web Components	web-padawan/awesome-web-components		3598	2026-10-09
+Front-End Development		Polymer	Granze/awesome-polymer	JavaScript library to develop Web Components.	401	2018-03-21
+Front-End Development		Angular	PatrickJS/awesome-angular	App framework.	10083	2026-10-11
+Front-End Development		Backbone	sadcitizen/awesome-backbone	App framework.	407	2018-03-20
+Front-End Development		HTML5	diegocard/awesome-html5	Markup language used for websites & web apps.	2810	2023-09-26
+Front-End Development		SVG	willianjusten/awesome-svg	XML-based vector image format.	4653	2026-07-16
+Front-End Development		Canvas	raphamorim/awesome-canvas		1866	2026-06-14
+Front-End Development		KnockoutJS	dnbard/awesome-knockout	JavaScript library.	109	2018-01-09
+Front-End Development		Dojo Toolkit	petk/awesome-dojo	JavaScript toolkit.	99	2020-09-25
+Front-End Development		Inspiration	NoahBuscher/Inspire		1325	2024-03-15
+Front-End Development		Ember	ember-community-russia/awesome-ember	App framework.	207	2024-07-30
+Front-End Development		Android UI	wasabeef/awesome-android-ui		57902	2026-06-05
+Front-End Development		iOS UI	cjwirth/awesome-ios-ui		11217	2018-03-08
+Front-End Development		Meteor	Urigo/awesome-meteor		1409	2022-03-31
+Front-End Development		BEM	sturobson/BEM-resources		500	2023-10-14
+Front-End Development		Flexbox	afonsopacifer/awesome-flexbox		1266	2023-09-07
+Front-End Development		Web Typography	deanhume/typography		717	2026-08-09
+Front-End Development		Web Accessibility	brunopulis/awesome-a11y		1993	2026-08-03
+Front-End Development		Material Design	sachin1092/awesome-material		658	2026-08-21
+Front-End Development		D3	wbkd/awesome-d3	Library for producing dynamic, interactive data visualizations.	5323	2023-01-13
+Front-End Development		Emails	jonathandion/awesome-emails		2757	2024-10-03
+Front-End Development		jQuery	petk/awesome-jquery	Easy to use JavaScript library for DOM manipulation.	980	2026-01-01
+Front-End Development	jQuery	Tips	AllThingsSmitty/jquery-tips-everyone-should-know		4306	2025-03-20
+Front-End Development		Web Audio	notthetup/awesome-webaudio		1399	2026-06-05
+Front-End Development		Offline-First	pazguille/offline-first		3327	2022-11-23
+Front-End Development		Static Website Services	agarrharr/awesome-static-website-services		1993	2026-04-20
+Front-End Development		Cycle.js	cyclejs-community/awesome-cyclejs	Functional and reactive JavaScript framework.	822	2026-09-28
+Front-End Development		Text Editing	dok/awesome-text-editing		302	2022-06-25
+Front-End Development		Motion UI Design	fliptheweb/motion-ui-design		938	2026-05-15
+Front-End Development		Vue.js	vuejs/awesome-vue	App framework.	73512	2026-10-01
+Front-End Development		Marionette.js	sadcitizen/awesome-marionette	App framework.	153	2017-01-04
+Front-End Development		Aurelia	aurelia-contrib/awesome-aurelia	App framework.	310	2022-08-18
+Front-End Development		Charting	zingchart/awesome-charting		2121	2024-02-18
+Front-End Development		Ionic Framework	candelibas/awesome-ionic		863	2026-10-11
+Front-End Development		Chrome DevTools	ChromeDevTools/awesome-chrome-devtools		7157	2026-10-06
+Front-End Development		PostCSS	jdrgomes/awesome-postcss	CSS tool.	437	2021-06-18
+Front-End Development		Draft.js	nikgraf/awesome-draft-js	Rich text editor framework for React.	2522	2022-05-04
+Front-End Development		Service Workers	TalAter/awesome-service-workers		1664	2019-06-07
+Front-End Development		Progressive Web Apps	TalAter/awesome-progressive-web-apps		1578	2021-01-13
+Front-End Development		choo	choojs/awesome-choo	App framework.	203	2019-12-19
+Front-End Development		Redux	brillout/awesome-redux	State container for JavaScript apps.	392	2018-12-20
+Front-End Development		Browserify	browserify/awesome-browserify	Module bundler.	99	2017-01-04
+Front-End Development		Sass	Famolus/awesome-sass	CSS preprocessor.	1901	2026-09-08
+Front-End Development		Ant Design	websemantics/awesome-ant-design	Enterprise-class UI design language.	3301	2025-07-29
+Front-End Development		Less	LucasBassetti/awesome-less	CSS preprocessor.	68	2022-08-16
+Front-End Development		WebGL	sjfricke/awesome-webgl	JavaScript API for rendering 3D graphics.	1541	2026-04-02
+Front-End Development		Preact	preactjs/awesome-preact	App framework.	1006	2026-10-08
+Front-End Development		Progressive Enhancement	jbmoelker/progressive-enhancement-resources		151	2023-02-17
+Front-End Development		Next.js	unicodeveloper/awesome-nextjs	Framework for server-rendered React apps.	11103	2026-10-10
+Front-End Development		lit	web-padawan/awesome-lit	Library for building web components with a declarative template system.	1736	2026-10-11
+Front-End Development		JAMstack	automata/awesome-jamstack	Modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt markup.	1371	2026-08-17
+Front-End Development		WordPress-Gatsby	henrikwirth/awesome-wordpress-gatsby	Web development technology stack with WordPress as a back end and Gatsby as a front end.	284	2021-05-02
+Front-End Development		Mobile Web Development	myshov/awesome-mobile-web-development	Creating a great mobile web experience.	1291	2023-12-15
+Front-End Development		Storybook	lauthieb/awesome-storybook	Development environment for UI components.	423	2026-10-09
+Front-End Development		Blazor	AdrienTorris/awesome-blazor	.NET web framework using C#/Razor and HTML that runs in the browser with WebAssembly.	9380	2026-10-01
+Front-End Development		PageSpeed Metrics	csabapalfi/awesome-pagespeed-metrics	Metrics to help understand page speed and user experience.	695	2024-02-17
+Front-End Development		Tailwind CSS	aniftyco/awesome-tailwindcss	Utility-first CSS framework for rapid UI development.	15196	2026-08-14
+Front-End Development		Seed	seed-rs/awesome-seed-rs	Rust framework for creating web apps running in WebAssembly.	231	2025-01-11
+Front-End Development		Web Performance Budget	pajaydev/awesome-web-performance-budget	Techniques to ensure certain performance metrics for a website.	131	2026-08-24
+Front-End Development		Web Animation	sergey-pimenov/awesome-web-animation	Animations in the browser with JavaScript, CSS, SVG, etc.	1588	2026-09-20
+Front-End Development		Yew	jetli/awesome-yew	Rust framework inspired by Elm and React for creating multi-threaded frontend web apps with WebAssembly.	1616	2026-02-28
+Front-End Development		Material-UI	nadunindunil/awesome-material-ui	Material Design React components for faster and easier web development.	271	2024-08-28
+Front-End Development		Building Blocks for Web Apps	componently-com/awesome-building-blocks-for-web-apps	Standalone features to be integrated into web apps.	198	2025-07-29
+Front-End Development		Svelte	TheComputerM/awesome-svelte	App framework.	2167	2026-09-07
+Front-End Development		Design systems	klaufel/awesome-design-systems	Collection of reusable components, guided by rules that ensure consistency and speed.	897	2026-09-14
+Front-End Development		Inertia.js	innocenzi/awesome-inertiajs	Make single-page apps without building an API.	256	2026-06-14
+Front-End Development		MDBootstrap	mdbootstrap/awesome-mdbootstrap	Templates, layouts, components, and widgets to rapidly build websites.	63	2024-04-11
+Front-End Development		Master CSS	master-co/awesome-master-css	A virtual CSS language with enhanced syntax.	37	2022-12-02
+Front-End Development		Hydrogen	shopify/awesome-hydrogen	Edge-first framework for building Shopify storefronts with React.	177	2023-11-13
+Front-End Development		Tiny JS	thoughtspile/awesome-tiny-js	Frontend libraries that fit into 2 kB with dependencies.	780	2024-09-24
+Front-End Development		Frontend GIS	joewdavies/awesome-frontend-gis	Geographic Information Systems (GIS) for web browsers.	871	2026-09-29
+Front-End Development		WebGPU	mikbry/awesome-webgpu	JavaScript API for rendering and compute on GPUs.	2002	2026-09-10
+Front-End Development		WebAssembly	idematos/awesome-webassembly	A portable binary format for running code efficiently across platforms.	40	2026-08-23
+Back-End Development		Flask	mjhea0/awesome-flask	Python framework.	1796	2026-05-13
+Back-End Development		Docker	veggiemonk/awesome-docker		37012	2026-10-02
+Back-End Development		Vagrant	iJackUA/awesome-vagrant	Automation virtual machine environment.	629	2020-10-08
+Back-End Development		Pyramid	uralbash/awesome-pyramid	Python framework.	572	2021-07-08
+Back-End Development		Play1 Framework	PerfectCarl/awesome-play1		44	2016-01-11
+Back-End Development		CakePHP	friendsofcake/awesome-cakephp	PHP framework.	936	2026-10-11
+Back-End Development		Symfony	sitepoint-editors/awesome-symfony	PHP framework.	1569	2023-02-22
+Back-End Development	Symfony	Education	pehapkari/awesome-symfony-education		318	2020-10-08
+Back-End Development		Laravel	chiraggude/awesome-laravel	PHP framework.	13109	2024-07-03
+Back-End Development	Laravel	Education	fukuball/Awesome-Laravel-Education		399	2022-09-03
+Back-End Development		Rails	gramantin/awesome-rails	Web app framework for Ruby.	3934	2026-10-11
+Back-End Development	Rails	Gems	hothero/awesome-rails-gem	Packages.	2806	2024-03-12
+Back-End Development		Phalcon	phalcon/awesome-phalcon	PHP framework.	611	2024-02-16
+Back-End Development		Useful `.htaccess` Snippets	phanan/htaccess		13178	2026-03-06
+Back-End Development		nginx	fcambus/nginx-resources	Web server.	3828	2026-08-04
+Back-End Development		Dropwizard	stve/awesome-dropwizard	Java framework.	104	2026-09-12
+Back-End Development		Kubernetes	ramitsurana/awesome-kubernetes	Open-source platform that automates Linux container operations.	16118	2026-09-21
+Back-End Development		Lumen	unicodeveloper/awesome-lumen	PHP micro-framework.	329	2021-04-20
+Back-End Development		Serverless Framework	pmuens/awesome-serverless	Serverless computing and serverless architectures.	2152	2022-11-23
+Back-End Development		Apache Wicket	PhantomYdn/awesome-wicket	Java web app framework.	91	2020-08-16
+Back-End Development		Vert.x	vert-x3/vertx-awesome	Toolkit for building reactive apps on the JVM.	2218	2026-06-27
+Back-End Development		Terraform	shuaibiyy/awesome-terraform	Tool for building, changing, and versioning infrastructure.	6612	2026-10-06
+Back-End Development		Vapor	vapor-community/awesome-vapor	Server-side development in Swift.	1286	2023-10-14
+Back-End Development		Dash	ucg8j/awesome-dash	Python web app framework.	2271	2024-12-30
+Back-End Development		FastAPI	mjhea0/awesome-fastapi	Python web app framework.	11709	2026-08-24
+Back-End Development		CDK	kolomied/awesome-cdk	Open-source software development framework for defining cloud infrastructure in code.	2124	2024-03-12
+Back-End Development		IAM	kdeldycke/awesome-iam	User accounts, authentication and authorization.	2302	2026-09-28
+Back-End Development		Slim	nekofar/awesome-slim	PHP framework.	48	2026-04-27
+Back-End Development		Fiber	gofiber/awesome-fiber	Web framework built on top of Fasthttp, the fastest HTTP engine for Go.	848	2026-10-11
+Back-End Development		Kustomize	DevOpsHiveHQ/awesome-kustomize	Kubernetes native declarative configuration management tool.	123	2026-04-07
+Back-End Development		OpenTofu	virtualroot/awesome-opentofu	Open-source infrastructure as code tool.	211	2026-10-07
+Back-End Development		Reflex	reflex-dev/awesome-reflex	Python web framework for building both your frontend and backend with no JavaScript.	141	2025-04-21
+Computer Science		University Courses	prakhar1989/awesome-courses		71787	2023-05-04
+Computer Science		Data Science	academic/awesome-datascience		30136	2026-10-09
+Computer Science	Data Science	Tutorials	siboehm/awesome-learn-datascience		798	2024-06-07
+Computer Science		Machine Learning	josephmisiti/awesome-machine-learning		74570	2026-10-09
+Computer Science	Machine Learning	Tutorials	ujjwalkarn/Machine-Learning-Tutorials		18262	2024-06-12
+Computer Science	Machine Learning	ML with Ruby	arbox/machine-learning-with-ruby	Learning, implementing, and applying Machine Learning using Ruby.	2229	2024-12-26
+Computer Science	Machine Learning	Core ML Models	likedan/Awesome-CoreML-Models	Models for Apple's machine learning framework.	7059	2025-06-17
+Computer Science	Machine Learning	H2O	h2oai/awesome-h2o	Open source distributed machine learning platform written in Java with APIs in R, Python, and Scala.	393	2023-05-18
+Computer Science	Machine Learning	Software Engineering for Machine Learning	SE-ML/awesome-seml	From experiment to production-level machine learning.	1373	2024-03-26
+Computer Science	Machine Learning	AI in Finance	georgezouq/awesome-ai-in-finance	Solving problems in finance with machine learning.	6653	2026-09-08
+Computer Science	Machine Learning	JAX	n2cholas/awesome-jax	Automatic differentiation and XLA compilation brought together for high-performance machine learning research.	2167	2026-01-20
+Computer Science	Machine Learning	XAI	altamiracorp/awesome-xai	Providing insight, explanations, and interpretability to machine learning methods.	198	2021-05-04
+Computer Science		Speech and Natural Language Processing	edobashira/speech-language-processing		2226	2019-04-02
+Computer Science	Speech and Natural Language Processing	Spanish	dav009/awesome-spanish-nlp		353	2024-01-09
+Computer Science	Speech and Natural Language Processing	NLP with Ruby	arbox/nlp-with-ruby		1077	2023-06-27
+Computer Science	Speech and Natural Language Processing	Question Answering	seriousran/awesome-qa	The science of asking and answering in natural language with a machine.	771	2022-01-13
+Computer Science	Speech and Natural Language Processing	Natural Language Generation	accelerated-text/awesome-nlg	Generation of text used in data-to-text, conversational agents, and narrative generation applications.	482	2026-09-22
+Computer Science		Linguistics	theimpossibleastronaut/awesome-linguistics		458	2026-02-12
+Computer Science		Cryptography	sobolevn/awesome-cryptography		7142	2026-07-15
+Computer Science	Cryptography	Papers	pFarb/awesome-crypto-papers	Theory basics for using cryptography by non-cryptographers.	2102	2024-10-17
+Computer Science		Computer Vision	jbhuang0604/awesome-computer-vision		23591	2024-05-17
+Computer Science		Deep Learning	ChristosChristofidis/awesome-deep-learning	Neural networks.	29033	2025-05-26
+Computer Science	Deep Learning	TensorFlow	jtoy/awesome-tensorflow	Library for machine intelligence.	17535	2026-02-08
+Computer Science	Deep Learning	TensorFlow.js	aaronhma/awesome-tensorflow-js	WebGL-accelerated machine learning JavaScript library for training and deploying models.	189	2026-09-26
+Computer Science	Deep Learning	TensorFlow Lite	margaretmz/awesome-tensorflow-lite	Framework that optimizes TensorFlow models for on-device machine learning.	1393	2022-03-01
+Computer Science	Deep Learning	Papers	terryum/awesome-deep-learning-papers	The most cited deep learning papers.	26196	2024-01-18
+Computer Science	Deep Learning	Education	guillaume-chevalier/awesome-deep-learning-resources		1821	2024-01-18
+Computer Science		Deep Vision	kjw0612/awesome-deep-vision		11188	2023-08-15
+Computer Science		Open Source Society University	ossu/computer-science		209887	2026-07-14
+Computer Science		Functional Programming	lucasviola/awesome-functional-programming		1012	2024-04-22
+Computer Science		Empirical Software Engineering	dspinellis/awesome-msr	Evidence-based research on software systems.	495	2026-06-01
+Computer Science		Static Analysis & Code Quality	analysis-tools-dev/static-analysis		14830	2026-10-09
+Computer Science		Information Retrieval	harpribot/awesome-information-retrieval	Learn to develop your own search engine.	1206	2023-04-20
+Computer Science		Quantum Computing	desireevl/awesome-quantum-computing	Computing that utilizes quantum mechanics and qubits on quantum computers.	3282	2024-07-24
+Computer Science		Theoretical Computer Science	mostafatouny/awesome-theoretical-computer-science	The interplay of computer science and pure mathematics, distinguished by its emphasis on mathematical rigour and technique.	1219	2026-01-30
+Computer Science		Conversational AI	jyguyomarch/awesome-conversational-ai	Build awesome chatbots and digital assistants.	318	2022-01-23
+Computer Science		Generative AI	steven2358/awesome-generative-ai	Automatically generates a wide range of unique content in text, image, and audio format.	12724	2026-10-03
+Computer Science		Position-Based Quantum Cryptography	Renaller/awesome-position-based-quantum-cryptography	Theory on quantum cryptography that utilizes special relativistic constraints to achieve quantum-security under certain conditions.	26	2025-08-25
+Big Data		Big Data	0xnr/awesome-bigdata		14669	2026-07-31
+Big Data		Public Datasets	awesomedata/awesome-public-datasets		79430	2026-10-09
+Big Data		Hadoop	youngwookim/awesome-hadoop	Framework for distributed storage and processing of very large data sets.	1117	2024-05-07
+Big Data		Data Engineering	igorbarinov/awesome-data-engineering		9163	2026-09-07
+Big Data		Streaming	manuzhang/awesome-streaming		3021	2026-10-11
+Big Data		Apache Spark	awesome-spark/awesome-spark	Unified engine for large-scale data processing.	1902	2026-02-27
+Big Data		Qlik	ambster-public/awesome-qlik	Business intelligence platform for data visualization, analytics, and reporting apps.	78	2019-11-15
+Big Data		Splunk	sduff/awesome-splunk	Platform for searching, monitoring, and analyzing structured and unstructured machine-generated big data in real time.	162	2020-09-11
+Big Data		Network Analysis	briatte/awesome-network-analysis		4123	2026-08-20
+Theory		Papers We Love	papers-we-love/papers-we-love		110446	2026-09-29
+Theory		Talks	JanVanRyswyck/awesome-talks		6201	2026-09-24
+Theory		Algorithms	tayllan/awesome-algorithms		25608	2026-10-11
+Theory	Algorithms	Education	gaerae/awesome-algorithms-education	Learning and practicing.	905	2022-11-15
+Theory		Algorithm Visualizations	enjalot/algovis		1767	2022-12-05
+Theory		Artificial Intelligence	owainlewis/awesome-artificial-intelligence		16649	2026-08-15
+Theory		Search Engine Optimization	marcobiedermann/search-engine-optimization		2790	2025-02-24
+Theory		Competitive Programming	lnishan/awesome-competitive-programming		14224	2024-12-08
+Theory		Math	rossant/awesome-math		16567	2026-08-14
+Theory		Recursion Schemes	passy/awesome-recursion-schemes	Traversing nested data structures.	1311	2024-04-25
+Theory		Audit Algorithms	erwanlemerrer/awesome-audit-algorithms	Algorithmic audits of algorithms.	122	2026-06-17
+Theory		AGI & CoCoSci	YuzheSHI/awesome-agi-cocosci	The reciprocation of Artificial General Intelligence (AGI) and Computational Cognitive Sciences (CoCoSci).	397	2026-04-04
+Theory		Complex Systems	sellisd/awesome-complexity	The scientific field studying systems with multiple interacting parts and emergent properties.	301	2025-03-20
+Theory		VLM Architectures	gokayfem/awesome-vlm-architectures	Vision Language Model architectures.	1334	2026-07-31
+Books		Free Programming Books	EbookFoundation/free-programming-books		398765	2026-10-09
+Books		Go Books	dariubs/GoBooks		19714	2026-07-13
+Books		R Books	RomanTsegelskyi/rbooks		282	2017-11-02
+Books		Mind Expanding Books	hackerkid/Mind-Expanding-Books		14372	2024-11-09
+Books		Book Authoring	TalAter/awesome-book-authoring		435	2019-12-06
+Books		Elixir Books	sger/ElixirBooks		1488	2022-08-14
+Editors		Sublime Text	dreikanter/sublime-bookmarks		1077	2024-01-15
+Editors		Vim	mhinz/vim-galore		18015	2023-12-22
+Editors		Neovim	rockerBOO/awesome-neovim	Vim-fork focused on extensibility and usability.	21481	2026-10-11
+Editors		Emacs	emacs-tw/awesome-emacs		9395	2026-09-02
+Editors		Visual Studio Code	viatsko/awesome-vscode	Cross-platform open-source text editor.	29108	2026-06-21
+Gaming		Game Development	ellisonleao/magictools		17466	2026-10-09
+Gaming		Game Talks	hzoo/awesome-gametalks		1188	2024-05-09
+Gaming		Godot	godotengine/awesome-godot	Game engine.	10865	2026-10-05
+Gaming		Open Source Games	michelpereira/awesome-open-source-games		3229	2026-10-07
+Gaming		Chess	hkirat/awesome-chess		541	2020-11-20
+Gaming		LÖVE	love2d-community/awesome-love2d	Game engine.	4516	2026-09-26
+Gaming		PICO-8	pico-8/awesome-PICO-8	Fantasy console.	3085	2026-07-28
+Gaming		Game Boy Development	gbdev/awesome-gbdev		4527	2026-10-03
+Gaming		Construct 2	ConstructCommunity/awesome-construct	Game engine.	96	2025-06-17
+Gaming		Gideros	stetso/awesome-gideros	Game engine.	37	2019-10-07
+Gaming		Minecraft	bs-community/awesome-minecraft	Sandbox video game.	652	2025-08-23
+Gaming		ComputerCraft	tomodachi94/awesome-computercraft	Minecraft mod that adds programmable computers.	320	2026-10-01
+Gaming		Game Datasets	leomaurodesenv/game-datasets	Materials and datasets for Artificial Intelligence in games.	1134	2026-10-11
+Gaming		Haxe Game Development	Dvergar/awesome-haxe-gamedev	A high-level strongly typed programming language used to produce cross-platform native code.	423	2023-11-17
+Gaming		libGDX	rafaskb/awesome-libgdx	Java game framework.	1277	2024-12-03
+Gaming		PlayCanvas	playcanvas/awesome-playcanvas	Game engine.	492	2026-09-15
+Gaming		Game Remakes	radek-sprta/awesome-game-remakes	Actively maintained open-source game remakes.	1505	2026-10-09
+Gaming		Flame	flame-engine/awesome-flame	Game engine for Flutter.	1387	2026-10-04
+Gaming		Discord Communities	mhxion/awesome-discord-communities	Chat with friends and communities.	3618	2026-04-25
+Gaming		CHIP-8	tobiasvl/awesome-chip-8	Virtual computer game machine from the 70s.	253	2022-12-26
+Gaming		Games of Coding	michelpereira/awesome-games-of-coding	Learn a programming language by making games.	2163	2026-09-23
+Gaming		Esports	strift/awesome-esports	Video games played as a sport.	108	2025-06-10
+Gaming		Learn Gamedev	notpresident35/awesome-learn-gamedev	The craft of video game creation.	3569	2026-06-01
+Gaming		Game Engine Development	stevinz/awesome-game-engine-dev	Building software to speed up game creation.	1426	2026-08-17
+Gaming		GameMaker	bytecauldron/awesome-gamemaker	Game engine.	509	2026-09-20
+Gaming		Game Production	vhladiienko/awesome-game-production	Leading the process of designing, developing, testing and distributing a video game from concept to release.	228	2026-05-04
+Gaming		Babylon.js	Symbitic/awesome-babylonjs	Game engine for cross-platform web and native game development.	359	2026-10-08
+Gaming		Roblox	awesome-roblox/awesome-roblox	Immersive platform for hosting millions of diverse experiences.	84	2026-06-23
+Development Environment		Quick Look Plugins	sindresorhus/quick-look-plugins	For macOS.	18780	2026-07-25
+Development Environment		Dev Env	jondot/awesome-devenv		3364	2024-07-29
+Development Environment		Dotfiles	webpro/awesome-dotfiles		10897	2026-10-11
+Development Environment		Shell	alebcay/awesome-shell		37761	2025-08-28
+Development Environment		Fish	jorgebucaran/awsm.fish	User-friendly shell.	5091	2026-01-25
+Development Environment		Command-Line Apps	agarrharr/awesome-cli-apps		20533	2026-10-04
+Development Environment		ZSH Plugins	unixorn/awesome-zsh-plugins		18052	2026-10-10
+Development Environment		GitHub	phillipadsmith/awesome-github	Hosting service for Git repositories.	970	2024-03-04
+Development Environment	GitHub	Browser Extensions	stefanbuck/awesome-browser-extensions-for-github		3308	2024-08-18
+Development Environment	GitHub	Cheat Sheet	tiimgreen/github-cheat-sheet		59586	2024-04-15
+Development Environment	GitHub	Pinned Gists	matchai/awesome-pinned-gists	Dynamic pinned gists for your GitHub profile.	2119	2025-08-05
+Development Environment		Git Cheat Sheet & Git Flow	arslanbilal/git-cheat-sheet		7472	2026-03-04
+Development Environment		Git Tips	git-tips/tips		21722	2026-10-03
+Development Environment		Git Add-ons	stevemao/awesome-git-addons	Enhance the `git` CLI.	2206	2024-10-15
+Development Environment		Git Hooks	compscilauren/awesome-git-hooks	Scripts for automating tasks during `git` workflows.	1190	2026-03-25
+Development Environment		SSH	moul/awesome-ssh		2857	2023-08-10
+Development Environment		FOSS for Developers	tvvocold/FOSS-for-Dev		1424	2024-04-24
+Development Environment		Hyper	bnb/awesome-hyper	Cross-platform terminal app built on web technologies.	11006	2022-09-20
+Development Environment		Terminals Are Sexy	k4m4/terminals-are-sexy		13139	2024-07-26
+Development Environment		GitHub Actions	sdras/awesome-actions	Create tasks to automate your workflow and share them with others on GitHub.	28308	2024-09-01
+Development Environment		WezTerm	michaelbrusegard/awesome-wezterm	Powerful cross-platform terminal emulator.	766	2026-09-18
+Entertainment		Science Fiction	sindresorhus/awesome-scifi	Scifi.	5085	2025-12-22
+Entertainment		Fantasy	RichardLitt/awesome-fantasy		1584	2026-10-01
+Entertainment		Podcasts	ayr-ton/awesome-geek-podcasts		643	2026-03-22
+Entertainment		Email Newsletters	zudochkin/awesome-newsletters		4498	2026-10-01
+Entertainment		IT Quotes	victorlaerte/awesome-it-quotes		634	2021-01-26
+Databases		Database	numetriclabz/awesome-db		1379	2024-03-04
+Databases		MySQL	shlomi-noach/awesome-mysql		2614	2026-10-08
+Databases		SQLAlchemy	dahlia/awesome-sqlalchemy		3066	2026-06-08
+Databases		InfluxDB	mark-rushakoff/awesome-influxdb		819	2024-05-08
+Databases		Neo4j	neueda/awesome-neo4j		565	2020-12-09
+Databases		MongoDB	ramnes/awesome-mongodb	NoSQL database.	2676	2026-10-07
+Databases		RethinkDB	d3viant0ne/awesome-rethinkdb		118	2016-05-09
+Databases		TinkerPop	mohataher/awesome-tinkerpop	Graph computing framework.	191	2021-06-29
+Databases		PostgreSQL	dhamaniasad/awesome-postgres	Object-relational database.	12110	2026-08-31
+Databases		CouchDB	quangv/awesome-couchdb	Document-oriented NoSQL database.	195	2023-05-09
+Databases		HBase	rayokota/awesome-hbase	Distributed, scalable, big data store.	180	2026-05-18
+Databases		NoSQL Guides	erictleung/awesome-nosql-guides	Help on using non-relational, distributed, open-source, and horizontally scalable databases.	302	2022-03-29
+Databases		Database Tools	mgramin/awesome-db-tools	Everything that makes working with databases easier.	5326	2026-10-03
+Databases		TypeDB	vaticle/typedb-awesome	Logical database to organize large and complex networks of data as one body of knowledge.	88	2026-08-10
+Databases		Supabase	lyqht/awesome-supabase	An open-source alternative to Firebase.	485	2026-07-19
+Databases		PocketBase	benallfree/awesome-pocketbase	An open-source, Go-based backend in one file.	1208	2026-09-29
+Databases		Neon	tyaga001/awesome-neon	An open-source alternative to AWS Aurora.	30	2024-07-29
+Media		Fonts	brabadu/awesome-fonts		2079	2026-07-26
+Media		Codeface	chrissimpkins/codeface	Text editor fonts.	6520	2020-09-19
+Media		Stock Resources	neutraltone/awesome-stock-resources		14595	2026-02-11
+Media		GIF	davisonio/awesome-gif	Image format known for animated images.	700	2026-05-17
+Media		Music	ciconia/awesome-music		2517	2026-05-27
+Media		Open Source Documents	44bits/awesome-opensource-documents		2345	2026-09-19
+Media		Audio Visualization	willianjusten/awesome-audio-visualization		5085	2026-08-13
+Media		Broadcasting	ebu/awesome-broadcasting		1788	2026-09-30
+Media		Pixel Art	Siilwyn/awesome-pixel-art	Pixel-level digital art.	1265	2026-10-01
+Media		FFmpeg	transitive-bullshit/awesome-ffmpeg	Cross-platform solution to record, convert and stream audio and video.	1193	2026-09-18
+Media		Icons	notlmn/awesome-icons	Downloadable SVG/PNG/font icon projects.	1009	2026-08-27
+Media		Audiovisual	stingalleman/awesome-audiovisual	Lighting, audio and video in professional environments.	271	2026-07-21
+Media		VLC	mfkl/awesome-vlc	Cross-platform media player software and streaming server.	305	2026-03-18
+Media		Audio Over IP	Mo-way/awesome-aoip	Reliably transmit uncompressed, low-latency audio over an IP (layer 3) network.	159	2026-10-02
+Learn		CLI Workshoppers	therebelrobot/awesome-workshopper	Interactive tutorials.	2286	2021-03-03
+Learn		Learn to Program	karlhorky/learn-to-program		4973	2026-09-14
+Learn		Speaking	matteofigus/awesome-speaking		1992	2026-09-11
+Learn		Tech Videos	lucasviola/awesome-tech-videos		846	2016-12-10
+Learn		Computer History	watson/awesome-computer-history		2967	2023-02-01
+Learn		Programming for Kids	HollyAdele/awesome-programming-for-kids		1221	2024-11-15
+Learn		STEAM	RahulBirCodes/awesome-steam	Supplements for specific science, technology, engineering, arts, and math (STEAM) courses across all grade levels.	274	2026-05-05
+Learn		Educational Games	yrgo/awesome-educational-games	Learn while playing.	1188	2024-04-08
+Learn		JavaScript Learning	micromata/awesome-javascript-learning		5863	2026-02-01
+Learn		CSS Learning	micromata/awesome-css-learning	Mainly about CSS – the language and the modules.	3862	2026-02-01
+Learn		Product Management	dend/awesome-product-management	Learn how to be a better product manager.	2406	2026-09-07
+Learn		Roadmaps	liuchong/awesome-roadmaps	Gives you a clear route to improve your knowledge and skills.	7393	2026-08-03
+Learn		YouTubers	JoseDeFreitas/awesome-youtubers	Watch video tutorials from YouTubers that teach you about technology.	7857	2026-08-05
+Learn		Hackathon	dribdat/awesome-hackathon	Running fun and productive hackathons.	308	2026-10-08
+Learn		Certificates	PanXProject/awesome-certificates	Free computer science certifications to showcase your knowledge.	5827	2026-06-30
+Security		Application Security	paragonie/awesome-appsec		7092	2025-02-22
+Security		Security	sbilly/awesome-security		14970	2026-01-11
+Security		CTF	apsdehal/awesome-ctf	Capture The Flag.	11909	2024-07-22
+Security		Cyber Security University	brootware/awesome-cyber-security-university	Free educational resources that focus on learning by doing.	3642	2026-10-04
+Security		Malware Analysis	rshipp/awesome-malware-analysis		14268	2024-06-07
+Security		Android Security	ashishb/android-security-awesome		9744	2026-10-06
+Security		Hacking	carpedm20/awesome-hacking		17241	2024-06-02
+Security		Hacking Spots	daviddias/awesome-hacking-locations		1132	2025-08-24
+Security		Honeypots	paralax/awesome-honeypots	Deception trap, designed to entice an attacker into attempting to compromise the information systems in an organization.	10593	2026-06-01
+Security		Incident Response	meirwah/awesome-incident-response		9442	2026-07-15
+Security		Vehicle Security and Car Hacking	jaredthecoder/awesome-vehicle-security		4693	2026-05-30
+Security		Web Security	qazbnm456/awesome-web-security	Security of web apps & services.	13881	2026-09-14
+Security		Lockpicking	fabacab/awesome-lockpicking	The art of unlocking a lock by manipulating its components without the key.	1942	2022-06-28
+Security		Cybersecurity Blue Team	fabacab/awesome-cybersecurity-blueteam	Groups of individuals who identify security flaws in information technology systems.	5598	2024-07-15
+Security		Fuzzing	cpuu/awesome-fuzzing	Automated software testing technique that involves feeding pseudo-randomly generated input data.	1003	2026-09-14
+Security		Embedded and IoT Security	fkie-cad/awesome-embedded-and-iot-security		2466	2023-10-17
+Security		GDPR	bakke92/awesome-gdpr	Regulation on data protection and privacy for all individuals within EU.	263	2026-10-10
+Security		DevSecOps	TaptuIT/awesome-devsecops	Integration of security practices into DevOps.	1745	2024-08-02
+Security		Executable Packing	dhondta/awesome-executable-packing	Packing and unpacking executable formats.	1627	2026-10-10
+Security		Malware Persistence	Karneades/awesome-malware-persistence	Techniques that adversaries use to keep access to systems across restarts.	312	2026-08-25
+Security		EVM Security	kareniel/awesome-evm-security	Understanding the Ethereum Virtual Machine security ecosystem.	199	2022-06-06
+Security		Password Cracking	n0kovo/awesome-password-cracking	The process of recovering passwords from data that has been stored in or transmitted by a system in scrambled form.	1112	2026-09-06
+Security		Security Card Games	Karneades/awesome-security-card-games	Train your skills and discuss various security topics.	177	2025-06-02
+Security		Suricata	satta/awesome-suricata	Intrusion detection/prevention system and network security monitoring engine.	246	2026-08-20
+Security		Prompt Injection	FonduAI/awesome-prompt-injection	A type of vulnerability that specifically targets machine learning models.	677	2026-09-11
+Security		Detection Engineering	infosecB/awesome-detection-engineering	Design, build, and operate detective cybersecurity controls.	1355	2026-10-11
+Security		Annual Security Reports	jacobdjwilson/awesome-annual-security-reports	Exploring cybersecurity trends, insights, and challenges.	1212	2026-10-10
+Security		CI/CD Attacks	TupleType/awesome-cicd-attacks	Offensive research of systems and processes related to developing and deploying code.	634	2026-06-02
+Security		OpenID Connect	cerberauth/awesome-openid-connect	Identity standard and authentication protocol built on OAuth 2.0 for user identity assertion.	131	2026-10-01
+Content Management Systems		Umbraco	umbraco-community/awesome-umbraco		222	2022-08-11
+Content Management Systems		Refinery CMS	refinerycms-contrib/awesome-refinerycms	Ruby on Rails CMS.	38	2016-04-07
+Content Management Systems		Wagtail	springload/awesome-wagtail	Django CMS focused on flexibility and user experience.	2191	2026-06-16
+Content Management Systems		Textpattern	drmonkeyninja/awesome-textpattern	Lightweight PHP-based CMS.	87	2020-10-05
+Content Management Systems		Drupal	nirgn975/awesome-drupal	Extensible PHP-based CMS.	97	2022-10-09
+Content Management Systems		Craft CMS	craftcms/awesome	Content-first CMS.	548	2023-02-01
+Content Management Systems		Sitecore	MartinMiles/Awesome-Sitecore	.NET digital marketing platform that combines CMS with tools for managing multiple websites.	84	2025-09-26
+Content Management Systems		Silverstripe CMS	wernerkrauss/awesome-silverstripe-cms	PHP MVC framework that serves as a classic or headless CMS.	57	2024-02-22
+Content Management Systems		Directus	directus-community/awesome-directus	A real-time API and app dashboard for managing SQL database content.	639	2024-11-11
+Content Management Systems		Plone	collective/awesome-plone	Open source Python CMS.	78	2026-09-20
+Content Management Systems		Payload	DanailMinchev/awesome-payload	Next.js native and open source headless CMS.	96	2026-09-28
+Hardware		Robotics	Kiloreux/awesome-robotics		7230	2024-09-22
+Hardware		Internet of Things	HQarroum/awesome-iot		4524	2026-10-06
+Hardware		Electronics	kitspace/awesome-electronics	For electronic engineers and hobbyists.	8211	2026-09-14
+Hardware		Bluetooth Beacons	rabschi/awesome-beacon		959	2019-05-03
+Hardware		Electric Guitar Specifications	gitfrage/guitarspecs	Checklist for building your own electric guitar.	290	2023-06-25
+Hardware		Plotters	beardicus/awesome-plotters	Computer-controlled drawing machines and other visual art robots.	1467	2025-12-03
+Hardware		Robotic Tooling	protontypes/awesome-robotic-tooling	Free and open tools for professional robotic development.	3901	2023-11-20
+Hardware		LIDAR	szenergy/awesome-lidar	Sensor for measuring distances by illuminating the target with laser light.	1355	2026-09-30
+Hardware		Open Hardware	delftopenhardware/awesome-open-hardware	Open-source hardware projects.	1088	2026-08-31
+Hardware		ADS-B	rickstaa/awesome-adsb	Technology broadcasting aircraft's identity, position, and data periodically.	392	2026-09-05
+Hardware		Flying FPV	Matthias84/awesome-flying-fpv	Open hardware and software related to drones / UAVs.	708	2026-03-06
+Business		Open Companies	opencompany/awesome-open-company		1284	2024-03-30
+Business		Places to Post Your Startup	mmccaff/PlacesToPostYourStartup		8005	2026-08-29
+Business		OKR Methodology	domenicosolazzo/awesome-okr	Goal setting & communication best practices.	1808	2022-08-10
+Business		Indie	mezod/awesome-indie	Independent developer businesses.	11862	2024-06-12
+Business		Tools of the Trade	cjbarber/ToolsOfTheTrade	Tools used by companies on Hacker News.	17190	2026-05-16
+Business		Clean Tech	nglgzz/awesome-clean-tech	Fighting climate change with technology.	475	2026-03-13
+Business		Wardley Maps	wardley-maps-community/awesome-wardley-maps	Provides high situational awareness to help improve strategic planning and decision making.	829	2026-03-06
+Business		Social Enterprise	RayBB/awesome-social-enterprise	Building an organization primarily focused on social impact that is at least partially self-funded.	148	2024-12-23
+Business		Engineering Team Management	kdeldycke/awesome-engineering-team-management	How to transition from software development to engineering management.	2615	2026-10-08
+Business		Developer-First Products	agamm/awesome-developer-first	Products that target developers as the user.	1844	2026-10-08
+Business		Billing	kdeldycke/awesome-billing	Payments, invoicing, pricing, accounting, marketplace, fraud, and business intelligence.	1354	2026-09-28
+Business		Engineering Strategy	aleixmorgadas/awesome-engineering-strategy	How to design and execute engineering strategies for tech leadership.	1379	2026-02-27
+Work		Slack	matiassingers/awesome-slack	Team collaboration.	893	2026-08-29
+Work	Slack	Communities	filipelinhares/awesome-slack		343	2023-05-23
+Work		Remote Jobs	lukasz-madon/awesome-remote-job		49369	2026-09-21
+Work		Productivity	jyguyomarch/awesome-productivity		3372	2024-08-14
+Work		Niche Job Boards	tramcar/awesome-job-boards		1878	2026-07-29
+Work		Code Review	joho/awesome-code-review	Reviewing code.	5155	2024-09-09
+Work		Creative Technology	j0hnm4r5/awesome-creative-technology	Businesses & groups that specialize in combining computing, design, art, and user experience.	670	2026-06-28
+Networking		PCAPTools	caesar0301/awesome-pcaptools		3431	2025-09-03
+Networking		Real-Time Communications	rtckit/awesome-rtc	Network protocols for near simultaneous exchange of media and data.	497	2026-05-18
+Networking		SNMP	eozer/awesome-snmp	A protocol for collecting, modifying, and organizing information about managed devices on IP networks.	194	2026-03-30
+Networking		Scapy	secdev/awesome-scapy	Python-based interactive packet manipulation.	368	2025-06-09
+Networking		Cilium	seifrajhi/awesome-cilium	Provides networking and security capabilities for containerized apps, microservices, and virtual machines.	105	2024-10-22
+Decentralized Systems		Bitcoin	igorbarinov/awesome-bitcoin	Services and tools for Bitcoin software developers.	1355	2026-09-29
+Decentralized Systems		Ripple	vhpoet/awesome-ripple	Open source distributed settlement network.	200	2021-07-02
+Decentralized Systems		Non-Financial Blockchain	machinomy/awesome-non-financial-blockchain	Applications of Blockchain beyond finance.	672	2020-10-12
+Decentralized Systems		Mastodon	hyperupcall/awesome-mastodon	Open source decentralized microblogging network.	63	2026-08-30
+Decentralized Systems		Ethereum	ttumiel/Awesome-Ethereum	Distributed computing platform for smart contract development.	363	2024-07-12
+Decentralized Systems		Blockchain AI	steven2358/awesome-blockchain-ai	AI and machine-learning projects built on Blockchain.	1157	2026-02-06
+Decentralized Systems		EOSIO	DanailMinchev/awesome-eosio	A decentralized operating system supporting industrial-scale apps.	86	2026-03-25
+Decentralized Systems		Corda	chainstack/awesome-corda	Open source Blockchain platform designed for business.	77	2021-08-10
+Decentralized Systems		Waves	msmolyakov/awesome-waves	Open source Blockchain platform and development toolset for Web 3.0 apps and decentralized solutions.	87	2020-10-05
+Decentralized Systems		Substrate	substrate-developer-hub/awesome-substrate	Framework for writing scalable, upgradeable blockchains in Rust.	775	2024-04-20
+Decentralized Systems		Golem	golemfactory/awesome-golem	Open source peer-to-peer marketplace for computing resources.	245	2024-01-16
+Decentralized Systems		Stacks	friedger/awesome-stacks-chain	A smart contract platform secured by Bitcoin.	124	2025-12-19
+Decentralized Systems		Algorand	aorumbayev/awesome-algorand	An open-source, proof of stake Blockchain and smart contract computing platform.	218	2026-10-04
+Decentralized Systems		ZeroNet	zolagonano/awesome-zeronet	A decentralized web-like network of peer-to-peer users.	115	2025-03-06
+Decentralized Systems		Cosmos SDK	cosmos/awesome-cosmos	Modular framework for building app-specific blockchains in Go.	602	2026-04-13
+Decentralized Systems		Tor	polycarbohydrate/awesome-tor	A free overlay network for enabling anonymous communication.	132	2026-09-12
+Decentralized Systems		ATProto	atblueprints/awesome-atproto	Open, decentralized network for building social apps.	80	2026-09-14
+Health and Social Science		Biomedical Information Extraction	caufieldjh/awesome-bioie	How to extract information from unstructured biomedical data and text.	468	2026-05-26
+Health and Social Science		Computational Neuroscience	eselkin/awesome-computational-neuroscience	A multidisciplinary science which uses computational approaches to study the nervous system.	1006	2024-08-02
+Health and Social Science		Diversity	folkswhocode/awesome-diversity	Creating a more inclusive and diverse tech community.	662	2024-04-14
+Health and Social Science		Digital History	maehr/awesome-digital-history	Computer-aided scientific investigation of history.	357	2026-10-10
+Health and Social Science		Empathy in Engineering	KimberlyMunoz/empathy-in-engineering	Building and promoting more compassionate engineering cultures.	583	2016-07-29
+Health and Social Science		Healthcare	kakoni/awesome-healthcare	Open source healthcare software for facilities, providers, developers, policy experts, and researchers.	4008	2026-05-05
+Health and Social Science		Mental Health	dreamingechoes/awesome-mental-health	Awareness and self-care in the software industry.	3661	2025-05-02
+Health and Social Science		Neuroscience	analyticalmonk/awesome-neuroscience	Study of the nervous system and brain.	1732	2026-06-24
+Health and Social Science		Digital Humanities	dh-tech/awesome-digital-humanities	Software for humanities scholars using quantitative or computational methods.	418	2026-09-09
+Health and Social Science		Lucid Dreams	IAmCoder/awesome-lucid-dreams	A dream where one becomes aware they are dreaming.	171	2026-09-27
+Health and Social Science		Neuroimaging	NPACore/awesome-neuroimaging	Software for analyzing brain data from living subjects.	51	2026-08-24
+Health and Social Science		Transgender	cvyl/awesome-transgender	Someone whose gender identity differs from their assigned birth sex.	101	2026-09-02
+Events		Creative Tech Events	danvoyce/awesome-creative-tech-events	Events around the globe for creative coding, tech, design, music, arts and cool stuff.	212	2023-02-03
+Events		Events in Italy	ildoc/awesome-italy-events	Tech-related events in Italy.	152	2022-04-14
+Events		Events in the Netherlands	awkward/awesome-netherlands-events	Tech-related events in the Netherlands.	73	2024-05-11
+Testing		Testing	TheJambo/awesome-testing	Software testing.	2387	2026-10-08
+Testing		Visual Regression Testing	mojoaxel/awesome-regression-testing	Ensures changes did not break the functionality or style.	2419	2026-10-02
+Testing		Selenium	christian-bromann/awesome-selenium	Open-source browser automation framework and ecosystem.	1133	2026-09-19
+Testing		Appium	SrinivasanTarget/awesome-appium	Test automation tool for apps.	462	2021-09-28
+Testing		TAP	sindresorhus/awesome-tap	Test Anything Protocol.	655	2025-11-11
+Testing		JMeter	aliesbelik/awesome-jmeter	Load testing and performance measurement tool.	806	2026-10-08
+Testing		k6	grafana/awesome-k6	Open-source, developer-centric performance monitoring and load testing solution.	779	2026-10-11
+Testing		Playwright	mxschmitt/awesome-playwright	Node.js library to automate Chromium, Firefox and WebKit with a single API.	1591	2026-10-02
+Testing		Quality Assurance Roadmap	fityanos/awesome-quality-assurance-roadmap	How to start & build a career in software testing.	2193	2026-06-04
+Testing		Gatling	aliesbelik/awesome-gatling	Open-source load and performance testing framework based on Scala, Akka, and Netty.	80	2026-10-06
+Testing		CodeRabbit	coderabbitai/awesome-coderabbit	AI-powered code review platform.	538	2026-09-29
+Miscellaneous		Scientific Writing	writing-resources/awesome-scientific-writing	Distraction-free scientific writing with Markdown, reStructuredText and Jupyter notebooks.	1013	2026-09-15
+Miscellaneous		JSON	burningtree/awesome-json	Text based data interchange format.	1572	2026-06-19
+Miscellaneous	JSON	GeoJSON	tmcw/awesome-geojson		2548	2026-09-23
+Miscellaneous		CSV	secretGeek/awesomeCSV	A text file format that stores tabular data and uses a comma to separate values.	953	2026-06-11
+Miscellaneous		Discounts for Student Developers	AchoArnold/discount-for-student-dev		3388	2026-09-19
+Miscellaneous		Radio	kyleterry/awesome-radio		312	2019-09-23
+Miscellaneous		Awesome	sindresorhus/awesome	Recursion illustrated.	517634	2026-09-02
+Miscellaneous		Analytics	0xnr/awesome-analytics		4323	2026-02-17
+Miscellaneous		REST	marmelab/awesome-rest		3918	2026-10-05
+Miscellaneous		Continuous Integration and Continuous Delivery	cicdops/awesome-ciandcd		2012	2026-04-14
+Miscellaneous		Services Engineering	mmcgrana/services-engineering		3697	2022-10-02
+Miscellaneous		Free for Developers	ripienaar/free-for-dev		139356	2026-10-11
+Miscellaneous		Boilerplate Projects	melvin0008/awesome-projects-boilerplates		1410	2024-08-06
+Miscellaneous		Readme	matiassingers/awesome-readme		21557	2026-09-28
+Miscellaneous		GitHub Wiki	MyHoneyBadger/awesome-github-wiki	Comprehensive documentation on GitHub beyond README.	497	2026-10-11
+Miscellaneous		Design and Development Guides	NARKOZ/guides		2430	2025-07-02
+Miscellaneous		Software Engineering Blogs	kilimchoi/engineering-blogs		38758	2024-08-21
+Miscellaneous		Self Hosted	awesome-selfhosted/awesome-selfhosted		325600	2026-10-10
+Miscellaneous		FOSS Production Apps	DataDaoDe/awesome-foss-apps		391	2024-08-07
+Miscellaneous		Gulp	alferov/awesome-gulp	Task runner.	623	2022-04-12
+Miscellaneous		AMA	sindresorhus/amas	Ask Me Anything.	1479	2024-12-01
+Miscellaneous	AMA	Answers	stoeffel/awesome-ama-answers		132	2020-03-17
+Miscellaneous		Open Source Photography	ibaaj/awesome-OpenSourcePhotography		674	2026-04-19
+Miscellaneous		OpenGL	eug/awesome-opengl	Cross-platform API for rendering 2D and 3D graphics.	2448	2026-01-09
+Miscellaneous		GraphQL	chentsulin/awesome-graphql		15134	2026-10-08
+Miscellaneous		Urban & Regional Planning	APA-Technology-Division/urban-and-regional-planning-resources	Concerning the built environment and communities.	365	2026-09-25
+Miscellaneous		Transit	MobilityData/awesome-transit	Data standards, APIs, apps, tools, datasets, and research around open source technology of public transit.	1852	2026-09-21
+Miscellaneous		Research Tools	emptymalei/awesome-research		2791	2026-05-19
+Miscellaneous		Data Visualization	javierluraschi/awesome-dataviz		4429	2026-10-08
+Miscellaneous		Microservices	mfornos/awesome-microservices		14540	2026-08-20
+Miscellaneous		Unicode	jagracey/Awesome-Unicode	Standards, quirks, packages and resources for Unicode.	986	2022-07-01
+Miscellaneous	Unicode	Code Points	Codepoints/awesome-codepoints		778	2026-09-22
+Miscellaneous		Beginner-Friendly Projects	MunGell/awesome-for-beginners		90123	2026-10-01
+Miscellaneous		Katas	gamontal/awesome-katas		3161	2026-07-16
+Miscellaneous		Tools for Activism	drewrwilson/toolsforactivism		1071	2022-10-11
+Miscellaneous		Citizen Science	dylanrees/citizen-science	For community-based and non-institutional scientists.	332	2026-04-28
+Miscellaneous		MQTT	hobbyquaker/awesome-mqtt	"Internet of Things" connectivity protocol.	2401	2026-10-11
+Miscellaneous		For Girls	cristianoliveira/awesome4girls		659	2024-05-17
+Miscellaneous		Vorpal	vorpaljs/awesome-vorpal	Node.js CLI framework.	146	2020-06-24
+Miscellaneous		Vulkan	vinjn/awesome-vulkan	Low-overhead, cross-platform 3D graphics and compute API.	3722	2026-05-11
+Miscellaneous		LaTeX	egeerardyn/awesome-LaTeX	Typesetting language.	1674	2026-08-08
+Miscellaneous		Economics	antontarasenko/awesome-economics	An economist's starter kit.	1751	2023-08-26
+Miscellaneous		Funny Markov Chains	sublimino/awesome-funny-markov		237	2022-09-15
+Miscellaneous		Bioinformatics	danielecook/Awesome-Bioinformatics		4310	2026-09-27
+Miscellaneous		Cheminformatics	hsiaoyi0504/awesome-cheminformatics	Informatics techniques applied to problems in chemistry.	888	2024-03-15
+Miscellaneous		Colorful	Siddharth11/Colorful	Choose your next color scheme.	1322	2025-03-13
+Miscellaneous		Steam	scholtzm/awesome-steam	Digital distribution platform.	572	2026-04-02
+Miscellaneous		Bots	hackerkid/bots	Building bots.	1564	2024-02-23
+Miscellaneous		Site Reliability Engineering	dastergon/awesome-sre		13717	2025-08-28
+Miscellaneous		DTrace	xen0l/awesome-dtrace	Dynamic tracing framework.	164	2017-07-21
+Miscellaneous		Userscripts	bvolpato/awesome-userscripts	Enhance your browsing experience.	3554	2026-10-11
+Miscellaneous		Pokémon	tobiasbueschel/awesome-pokemon	Resources for Pokémon and Pokémon GO.	707	2024-11-11
+Miscellaneous		ChatOps	exAspArk/awesome-chatops	Managing technical and business operations through a chat.	984	2021-10-30
+Miscellaneous		Falsehood	kdeldycke/awesome-falsehood	Falsehoods programmers believe in.	27768	2026-10-08
+Miscellaneous		Domain-Driven Design	heynickc/awesome-ddd	Software development approach for complex needs by connecting the implementation to an evolving model.	12382	2026-08-26
+Miscellaneous		Quantified Self	woop/awesome-quantified-self	Self-tracking through technology.	2787	2026-07-06
+Miscellaneous		Web Design	nicolesaidy/awesome-web-design	For digital designers.	2787	2023-10-19
+Miscellaneous		Creative Coding	terkelg/awesome-creative-coding	Programming something expressive instead of something functional.	15430	2026-07-21
+Miscellaneous		No-Login Web Apps	aviaryan/awesome-no-login-web-apps	Web apps that work without login.	3390	2026-09-25
+Miscellaneous		Free Software	johnjago/awesome-free-software	Free as in freedom.	2931	2025-04-29
+Miscellaneous		Framer	podo/awesome-framer	Prototyping interactive UI designs.	621	2026-10-06
+Miscellaneous		Markdown	BubuAnabelas/awesome-markdown	Markup language.	961	2024-08-21
+Miscellaneous		Dev Fun	mislavcimpersak/awesome-dev-fun	Funny developer projects.	660	2026-08-28
+Miscellaneous		Magento 2	DavidLambauer/awesome-magento2	Open Source eCommerce built with PHP.	1177	2026-10-05
+Miscellaneous		TikZ	xiaohanyu/awesome-tikz	Graph drawing packages for TeX/LaTeX/ConTeXt.	1811	2026-07-14
+Miscellaneous		Ad-Free	johnjago/awesome-ad-free	Alternatives without ads.	519	2022-12-12
+Miscellaneous		Prometheus	roaldnefs/awesome-prometheus	Open-source monitoring system.	90	2024-07-30
+Miscellaneous		Homematic	homematic-community/awesome-homematic	Smart home devices.	213	2026-09-26
+Miscellaneous		Ledger	sfischer13/awesome-ledger	Double-entry accounting on the command-line.	157	2022-01-21
+Miscellaneous		Web Monetization	thomasbnt/awesome-web-monetization	A free open web standard service that allows you to send money directly in your browser.	355	2026-07-23
+Miscellaneous		Uncopyright	johnjago/awesome-uncopyright	Public domain works.	640	2024-05-30
+Miscellaneous		Crypto Currency Tools & Algorithms	Zheaoli/awesome-coins	Digital currency where encryption is used to regulate the generation of units and verify transfers.	4108	2023-07-20
+Miscellaneous		Open Source Supporters	zachflower/awesome-open-source-supporters	Companies that offer their tools and services for free to open source projects.	697	2026-04-07
+Miscellaneous		Design Principles	robinstickel/awesome-design-principles	Create better and more consistent designs and experiences.	775	2021-01-11
+Miscellaneous		Theravada	johnjago/awesome-theravada	Teachings from the Theravada Buddhist tradition.	168	2023-07-13
+Miscellaneous		inspectIT	inspectit-labs/awesome-inspectit	Open source Java app performance management tool.	25	2020-12-06
+Miscellaneous		Open Source Maintainers	nayafia/awesome-maintainers	The experience of being an open source maintainer.	1173	2021-08-16
+Miscellaneous		Calculators	xxczaki/awesome-calculators	Tools for every platform.	270	2026-03-21
+Miscellaneous		Captcha	ZYSzys/awesome-captcha	A type of challenge–response test used in computing to determine whether or not the user is human.	1435	2026-09-10
+Miscellaneous		Jupyter	markusschanta/awesome-jupyter	Create and share documents that contain code, equations, visualizations and narrative text.	4678	2026-10-11
+Miscellaneous		FIRST Robotics Competition	andrewda/awesome-frc	International high school robotics championship.	126	2026-09-22
+Miscellaneous		Speakers	karlhorky/awesome-speakers	Conference and meetup speakers in the programming and design community.	776	2024-07-21
+Miscellaneous		Board Games	edm00se/awesome-board-games	Table-top gaming fun for all.	394	2026-09-03
+Miscellaneous		Software Patreons	uraimo/awesome-software-patreons	Fund individual programmers or the development of open source projects.	535	2025-12-29
+Miscellaneous		Parasite	ecohealthalliance/awesome-parasite	Parasites and host-pathogen interactions.	64	2026-05-28
+Miscellaneous		Food	jzarca01/awesome-food	Projects on GitHub related to food.	250	2026-03-17
+Miscellaneous		Bitcoin Payment Processors	alexk111/awesome-bitcoin-payment-processors	Start accepting Bitcoin.	563	2025-03-21
+Miscellaneous		Scientific Computing	nschloe/awesome-scientific-computing	Solving complex scientific problems using computers.	1596	2026-07-20
+Miscellaneous		Amazon Sellers	ScaleLeap/awesome-amazon-seller		445	2026-10-03
+Miscellaneous		Agriculture	brycejohnston/awesome-agriculture	Open source technology for farming and gardening.	1898	2026-01-05
+Miscellaneous		Product Design	ttt30ga/awesome-product-design	Design a product from the initial concept to production.	2737	2025-09-22
+Miscellaneous		Prisma	catalinmiron/awesome-prisma	Turn your database into a GraphQL API.	661	2024-05-23
+Miscellaneous		Software Architecture	simskij/awesome-software-architecture	The discipline of designing and building software.	2906	2026-04-19
+Miscellaneous		Connectivity Data and Reports	stevesong/awesome-connectivity-info	Better understand who has access to telecommunication and internet infrastructure and on what terms.	165	2025-11-25
+Miscellaneous		Stacks	stackshareio/awesome-stacks	Tech stacks for building different apps and features.	3938	2024-03-08
+Miscellaneous		Cytodata	cytodata/awesome-cytodata	Image-based profiling of biological phenotypes for computational biologists.	97	2026-10-09
+Miscellaneous		IRC	davisonio/awesome-irc	Open source messaging protocol.	1337	2026-08-11
+Miscellaneous		Advertising	cenoura/awesome-ads	Programmatic media and ad tech for websites.	164	2023-05-20
+Miscellaneous		Earth	philsturgeon/awesome-earth	Find ways to resolve the climate crisis.	1421	2026-01-30
+Miscellaneous		Naming	gruhn/awesome-naming	Guides for naming things in computer science.	1455	2026-09-17
+Miscellaneous		Web Archiving	iipc/awesome-web-archiving	An effort to preserve the Web for future generations.	2659	2026-09-18
+Miscellaneous		WP-CLI	schlessera/awesome-wp-cli	Command-line interface for WordPress.	220	2023-08-07
+Miscellaneous		Credit Modeling	mourarthur/awesome-credit-modeling	Methods for classifying credit applicants into risk classes.	176	2024-02-01
+Miscellaneous		Ansible	ansible-community/awesome-ansible	A Python-based, open-source IT configuration management and automation platform.	1956	2026-09-29
+Miscellaneous		Biological Visualizations	keller-mark/awesome-biological-visualizations	Interactive visualization of biological data on the web.	249	2026-08-07
+Miscellaneous		QR Code	make-github-pseudonymous-again/awesome-qr-code	A type of matrix barcode that can be used to store and share a small amount of information.	154	2026-02-13
+Miscellaneous		Veganism	sdassow/awesome-veganism	Making the plant-based lifestyle easy and accessible.	88	2026-02-26
+Miscellaneous		Translations	mbiesiad/awesome-translations	The transfer of the meaning of a text from one language to another.	193	2026-01-18
+Miscellaneous		Scriptable	dersvenhesse/awesome-scriptable	An iOS app for automation in JavaScript.	1635	2025-11-15
+Miscellaneous		WebXR	msub2/awesome-webxr	Enables immersive virtual reality and augmented reality content on the web.	282	2026-08-21
+Miscellaneous		Computational Geometry	atkirtland/awesome-computational-geometry	Computational approaches for problems in geometry.	135	2026-09-19
+Miscellaneous		OpenStreetMap	osmlab/awesome-openstreetmap	An open data mapping project utilized by many apps and devices.	998	2026-10-05
+Miscellaneous		Computational Biology	inoue0426/awesome-computational-biology	Computational approaches applied to problems in biology.	159	2026-10-05
+Miscellaneous		Read the Docs	readthedocs-examples/awesome-read-the-docs	Example documentation projects to inspire and help bootstrap new documentation projects.	228	2024-06-19
+Miscellaneous		Quarto	mcanouil/awesome-quarto	Scientific and technical open-source publishing system built on Pandoc.	2184	2026-09-10
+Miscellaneous		Biological Image Analysis	hallvaaw/awesome-biological-image-analysis	Interpreting biological phenomena using images.	196	2026-09-01
+Miscellaneous		ChatGPT	sindresorhus/awesome-chatgpt	Artificial intelligence chatbot developed by OpenAI.	6442	2026-02-15
+Miscellaneous		Whisper	sindresorhus/awesome-whisper	Open-source AI-powered speech recognition system developed by OpenAI.	2416	2026-09-17
+Miscellaneous		Stock Trading	shi-rudo/awesome-stock-trading	Purchase and sale of equities of publicly traded companies to generate profits.	867	2026-04-26
+Miscellaneous		Steam Deck	airscripts/awesome-steam-deck	A handheld gaming computer developed by Valve.	755	2026-10-10
+Miscellaneous		Astrophotography	lunohodov/awesome-astrophotography	Photography of astronomical objects, celestial events, or areas of the night sky.	163	2026-10-07
+Miscellaneous		HPC	dstdev/awesome-hpc	High Performance Computing.	278	2024-08-06
+Miscellaneous		Geocaching	FoxFil/awesome-geocaching	Outdoor treasure-hunting activity that uses GPS-enabled devices.	45	2026-01-27
+Miscellaneous		Regex	slevithan/awesome-regex	Specialized language for matching patterns in text.	401	2026-09-02
+Miscellaneous		Event-Driven Architecture	lutzh/awesome-event-driven-architecture	A software architecture approach where services collaborate by publishing and subscribing to events.	581	2026-10-11
+Miscellaneous		Permacomputing	idematos/awesome-permacomputing	Resilient and regenerative computing practices inspired by permaculture.	188	2025-07-25
+Miscellaneous		Standards	donBarbos/awesome-standards	Proposals and standards that define and enhance software, languages, and related technologies.	241	2026-07-18
+Miscellaneous		Claude Code	hesreallyhim/awesome-claude-code	Terminal-based AI coding assistant by Anthropic.	55441	2026-10-11
+Miscellaneous		Gemini CLI	Piebald-AI/awesome-gemini-cli	Terminal-based AI coding assistant by Google.	512	2026-10-11
+Miscellaneous		SAP Commerce	eminyagiz42/awesome-sap-commerce	An e-commerce platform built with Java, Spring MVC, and Angular.	58	2025-08-29
+Miscellaneous		Tech Ethics	sampart/awesome-tech-ethics	Mitigating and avoiding the potential negative effects of technology on society.	52	2026-05-19
+Miscellaneous		Copilot Agents	Code-and-Sorts/awesome-copilot-agents	AI pair programming assistant by GitHub that provides code suggestions and completions.	581	2026-04-29

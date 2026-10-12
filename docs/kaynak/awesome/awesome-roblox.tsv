@@ -1,0 +1,69 @@
+ad	url	aciklama	bolum
+Bloxstrap	https://github.com/bloxstraplabs/bloxstrap	An alternative bootstrapper for Roblox with a bunch of extra features.	Software
+BTRoblox	https://github.com/AntiBoomz/BTRoblox	Browser extension that enhances the Roblox website's look and functionality.	Software
+Roblox Studio Mod Manager	https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager	An open-source custom bootstrapper for Roblox Studio that allows you to override files in Roblox…	Software
+Vinegar	https://github.com/vinegarhq/vinegar	An open-source, configurable, fast bootstrapper for running Roblox Studio on Linux.	Software
+Price Point	https://github.com/Fizzyhex/price-point	A game about guessing marketplace prices.	Experiences
+Slither	https://github.com/littensy/slither	A casual game with a soothing Catppuccin color palette.	Experiences
+flipbook	https://github.com/flipbook-labs/flipbook	Storybook plugin for previewing UI components.	Plugins
+Roblox-Plugins	https://github.com/MaximumADHD/Roblox-Plugins	List of plugins developed by MaximumADHD.	Plugins
+UI Labs	https://github.com/PepeElToro41/ui-labs	A Storybook plugin for Roblox.	Plugins
+Adonis	https://github.com/Epix-Incorporated/Adonis	Server moderation and management system.	Modules / Administration
+Centurion	https://github.com/paradoxuum/centurion	A flexible and extensible command framework for roblox-ts.	Modules / Administration
+Cmdr	https://github.com/evaera/Cmdr	Extensible command console for developers.	Modules / Administration
+Conch	https://github.com/alicesaidhi/conch	Modern and scalable developer console with a shell-like turing-complete scripting language.	Modules / Administration
+Kohl's Admin	https://github.com/kohls-admin/kohls-admin	All-in-one solution for experience management.	Modules / Administration
+Nexus-Admin	https://github.com/TheNexusAvenger/Nexus-Admin	Admin system for Roblox meant for normal players.	Modules / Administration
+Neobar	https://github.com/ImAvafe/NeoHotbar	A modern, customizable hotbar for Roblox.	Modules / Backpack
+Purse	https://github.com/ryanlua/purse	CoreGui decoupled version of the Roblox default backpack.	Modules / Backpack
+Satchel	https://github.com/ryanlua/satchel	Modern alternative to Roblox's default backpack.	Modules / Backpack
+TopbarPlus	https://github.com/1ForeverHD/TopbarPlus	Construct dynamic and intuitive topbar icons.	Modules / Topbar
+Lydie	https://github.com/7kayoh/Lydie	Beautiful UI components for Fusion.	Modules / UI components
+OnyxUI	https://github.com/loneka/onyx-ui	Quick, customizable components for Fusion.	Modules / UI components
+noblox.js	https://github.com/noblox/noblox.js	A Node.js API wrapper for Roblox.	Libraries / API Wrappers
+Openblox	https://github.com/cameronpcampbell/openblox	API wrapper for Roblox, written in TypeScript. Fully typesafe, optional caching, use any http client.	Libraries / API Wrappers
+ro.py	https://github.com/ro-py/ro.py	A modern, asynchronous Python 3 wrapper for the Roblox API.	Libraries / API Wrappers
+DataKeep	https://github.com/noahrepublic/DataKeep	A Promised-base auto-saving DataStore library.	Libraries / DataStore
+DocumentService	https://github.com/anthony0br/DocumentService	A powerful, schematised Roblox datastore library.	Libraries / DataStore
+Lapis	https://github.com/nezuo/lapis	A DataStore abstraction library for Roblox.	Libraries / DataStore
+Lyra	https://github.com/paradoxum-games/lyra	Advanced player data management with a simple API.	Libraries / DataStore
+ProfileStore	https://github.com/MadStudioRoblox/ProfileStore	Periodic DataStore saving solution with session locking.	Libraries / DataStore
+ECR	https://github.com/centau/ecr	A sparse-set based ECS library for Luau.	Libraries / Entity Component System
+Jecs	https://github.com/Ukendio/jecs	A fast, portable Entity Component System for Luau.	Libraries / Entity Component System
+Matter	https://github.com/matter-ecs/matter	A modern ECS library for Roblox.	Libraries / Entity Component System
+Planck	https://github.com/YetAnotherClown/planck	An Agnostic Scheduler for ECS.	Libraries / Entity Component System
+Replecs	https://github.com/PepeElToro41/replecs	A fast, fine controlled JECS replication library.	Libraries / Entity Component System
+Flamework	https://github.com/rbxts-flamework/core	An extensible game framework for roblox-ts.	Libraries / Frameworks
+Prvd 'M Wrong	https://github.com/prvdmwrong/prvdmwrong	Roblox game framework built with modern standards delivering type-safe APIs, dependency resolution, and unparalleled DX.	Libraries / Frameworks
+Blink	https://github.com/1Axen/blink	An IDL compiler written in Luau for ROBLOX buffer networking.	Libraries / Networking
+ByteNet	https://github.com/ffrostfall/ByteNet	Advanced, modern networking library.	Libraries / Networking
+RbxNet	https://github.com/roblox-aurora/rbx-net	Advanced multi-language networking framework.	Libraries / Networking
+Red	https://github.com/red-blox/red	Simple, fast, and powerful networking library.	Libraries / Networking
+Zap	https://github.com/red-blox/zap	Lightning fast networking solution.	Libraries / Networking
+rbxcloud	https://github.com/Sleitnick/rbxcloud	CLI and library for Roblox Open Cloud API.	Libraries / Open Cloud
+ZonePlus	https://github.com/1ForeverHD/ZonePlus	Construct dynamic zones to effectively determine players and parts within their boundaries.	Libraries / Raycasts
+fluid	https://github.com/ffrostfall/fluid	A declarative UI framework for Roblox.	Libraries / UI
+Fusion	https://github.com/dphfox/Fusion	A modern reactive UI library, built specifically for Roblox and Luau.	Libraries / UI
+Iris	https://github.com/Michael-48/Iris	Immediate mode GUI Library for Roblox, Based on Dear ImGui.	Libraries / UI
+React Lua	https://github.com/jsdotlua/react-lua	A comprehensive, but not exhaustive, translation of upstream ReactJS 17.x into Lua.	Libraries / UI
+Vide	https://github.com/centau/vide	A reactive Luau library for creating UI.	Libraries / UI
+Janitor	https://github.com/howmanysmall/Janitor	Light-weight, flexible object for cleaning up connections, instances, etc.	Libraries / Utility
+Nevermore	https://github.com/Quenty/NevermoreEngine	ModuleScript loader with reusable and easy unified server-client modules for faster game development on Roblox.	Libraries / Utility
+RbxUtil	https://github.com/Sleitnick/RbxUtil	A collection of utility modules for Roblox.	Libraries / Utility
+t	https://github.com/osyrisrblx/t	A Runtime Typechecker for Roblox.	Libraries / Utility
+darklua	https://github.com/seaofvoices/darklua	Transform Lua 5.1 and Roblox Lua scripts using rules.	Tooling / Compilers
+Lune	https://github.com/lune-org/lune	A standalone Luau runtime.	Tooling / Compilers
+roblox-ts	https://github.com/roblox-ts/roblox-ts	A TypeScript-to-Luau Compiler for Roblox.	Tooling / Compilers
+Moonwave	https://github.com/evaera/moonwave	Tool for generating documentation from comments in Lua source code.	Tooling / Documentation Generators
+Luau Language Server	https://github.com/JohnnyMorganz/luau-lsp	Language Server Implementation for Luau.	Tooling / Language Servers
+Roblox Luau Language Server	https://github.com/NightrainsRbx/RobloxLsp	Language Server for Roblox based on Lua by sumneko.	Tooling / Language Servers
+selene	https://github.com/Kampfkarren/selene	A blazing-fast modern Lua linter written in Rust.	Tooling / Linters/Formatters
+StyLua	https://github.com/JohnnyMorganz/StyLua	An opinionated Lua code formatter.	Tooling / Linters/Formatters
+Mantle	https://github.com/blake-mealey/mantle	An infrastructure-as-code and deployment tool for Roblox.	Tooling / Open Cloud
+pesde	https://github.com/pesde-pkg/pesde	A package manager for the Luau programming language.	Tooling / Package Managers
+Wally	https://github.com/UpliftGames/wally	A modern package manager for Roblox projects inspired by Cargo.	Tooling / Package Managers
+Argon	https://github.com/argon-rbx/argon	Full featured tool for Roblox development.	Tooling / Syncing Tools
+Lync	https://github.com/Iron-Stag-Games/Lync	File sync tool.	Tooling / Syncing Tools
+Rojo	https://github.com/rojo-rbx/rojo	Enables Roblox developers to use professional-grade software engineering tools.	Tooling / Syncing Tools
+Foreman	https://github.com/Roblox/foreman	Toolchain manager for Roblox projects.	Tooling / Toolchain Managers
+Rokit	https://github.com/rojo-rbx/rokit	Next-generation toolchain manager for Roblox projects.	Tooling / Toolchain Managers
