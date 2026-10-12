@@ -10,3 +10,8 @@ git-cakisma-cozucu
 pln-dalga-plani
 vid-ffmpeg-donusturucu
 vrm-alt-ajan-dagitim
+ajn-claude-api-gelistirici
+git-ci-boru-hatti
+pln-fikir-olgunlastir
+dok-degisiklik-gunlugu
+bl-glb-disa-aktar

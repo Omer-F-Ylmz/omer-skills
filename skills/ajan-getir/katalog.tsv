@@ -197,6 +197,7 @@ ecc:security-reviewer	sonnet	Security vulnerability detection and remediation sp
 banana-claude:visual-architect	inherit	Freeze a visual brief and compile bounded, model-aware prompts for complex, branded, text-heavy, or ambiguous image work.	C:/Users/pc/.claude/plugins/cache/banana-claude-marketplace/banana-claude/3.0.0/agents/visual-architect.md
 banana-claude:visual-critic	inherit	Independently inspect generated or edited image files against a frozen brief.	C:/Users/pc/.claude/plugins/cache/banana-claude-marketplace/banana-claude/3.0.0/agents/visual-critic.md
 ara-arac-degerlendirme	opus	Evaluates a new tool or MCP against needs, cost, safety and alternatives.	C:/Users/pc/.claude/agents/ara-arac-degerlendirme.md
+db-analitik-sorgu	sonnet	Writes aggregations, funnels and cohort queries for product analytics.	C:/Users/pc/.claude/agents/db-analitik-sorgu.md
 Brand Guardian	inherit	Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning	C:/Users/pc/.claude/agents/design-brand-guardian.md
 Image Prompt Engineer	inherit	Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation.	C:/Users/pc/.claude/agents/design-image-prompt-engineer.md
 Inclusive Visuals Specialist	inherit	Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video.	C:/Users/pc/.claude/agents/design-inclusive-visuals-specialist.md
@@ -208,6 +209,7 @@ UX Researcher	inherit	Expert user experience researcher specializing in user beh
 Visual Storyteller	inherit	Expert visual communication specialist focused on creating compelling visual narratives, multimedia content, and brand storytelling through design.	C:/Users/pc/.claude/agents/design-visual-storyteller.md
 Whimsy Injector	inherit	Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences.	C:/Users/pc/.claude/agents/design-whimsy-injector.md
 dn-async-denetci	sonnet	Reviews C# async code for blocking calls, missing cancellation and fire and forget.	C:/Users/pc/.claude/agents/dn-async-denetci.md
+dn-blazor-bilesen	sonnet	Builds Blazor components with parameters, events and render mode choices.	C:/Users/pc/.claude/agents/dn-blazor-bilesen.md
 AI Data Remediation Engineer	inherit	Specialist in self-healing data pipelines — uses air-gapped local SLMs and semantic clustering to automatically detect, classify, and fix data anomalies at scal	C:/Users/pc/.claude/agents/engineering-ai-data-remediation-engineer.md
 AI Engineer	inherit	Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems.	C:/Users/pc/.claude/agents/engineering-ai-engineer.md
 API Platform Engineer	inherit	Expert API platform engineer for public and partner APIs — contract-first design (OpenAPI/gRPC), versioning and deprecation policy, SDK generation, API gateway 	C:/Users/pc/.claude/agents/engineering-api-platform-engineer.md
@@ -274,8 +276,10 @@ WeChat Mini Program Developer	inherit	Expert WeChat Mini Program developer speci
 WordPress Performance Engineer	inherit	Expert WordPress performance engineer specializing in Core Web Vitals, object caching (Redis/Memcached), page caching, database and WP_Query optimization, the T	C:/Users/pc/.claude/agents/engineering-wordpress-performance.md
 WordPress Shopping Cart Engineer	inherit	Expert WordPress e-commerce engineer specializing in WooCommerce for product catalog management, payment gateway integration, checkout customization, order mana	C:/Users/pc/.claude/agents/engineering-wordpress-shopping-cart.md
 fe-animasyon-tasarimci	sonnet	Designs UI motion with transform and opacity only, respecting reduced motion.	C:/Users/pc/.claude/agents/fe-animasyon-tasarimci.md
+git-cakisma-cozucu	sonnet	Resolves merge conflicts by understanding both sides and re-running tests.	C:/Users/pc/.claude/agents/git-cakisma-cozucu.md
 otm-api-entegrasyon	sonnet	Connects third party REST APIs with auth, pagination and rate limits.	C:/Users/pc/.claude/agents/otm-api-entegrasyon.md
 oyn-dusman-ai	sonnet	Designs enemy behavior with state machines, perception and cooldowns.	C:/Users/pc/.claude/agents/oyn-dusman-ai.md
+pln-dalga-plani	sonnet	Writes stepwise implementation plans with files to touch and verification per step.	C:/Users/pc/.claude/agents/pln-dalga-plani.md
 sec-api-guvenlik	sonnet	Tests REST APIs for broken object authorization, mass assignment and missing rate limits.	C:/Users/pc/.claude/agents/sec-api-guvenlik.md
 AI-Generated Code Security Auditor	inherit	Security reviewer for AI-generated and vibe-coded apps — hunts the hardcoded secrets, broken row-level security, and prompt-injection sinks that coding assistan	C:/Users/pc/.claude/agents/security-ai-generated-code-auditor.md
 Application Security Engineer	inherit	AppSec specialist who secures the software development lifecycle through threat modeling, secure code review, SAST/DAST integration, and developer security educ	C:/Users/pc/.claude/agents/security-appsec-engineer.md
@@ -289,3 +293,5 @@ Secrets & Credential Hygiene Engineer	inherit	Owns the full lifecycle of secrets
 Senior SecOps Engineer	inherit	Defensive application security specialist who scans every code submission for secrets and sensitive data exposure before anything else, then implements or audit	C:/Users/pc/.claude/agents/security-senior-secops.md
 Threat Detection Engineer	inherit	Expert detection engineer specializing in SIEM rule development, MITRE ATT&CK coverage mapping, threat hunting, alert tuning, and detection-as-code pipelines fo	C:/Users/pc/.claude/agents/security-threat-detection-engineer.md
 Threat Intelligence Analyst	inherit	Cyber threat intelligence specialist who tracks adversary groups, maps attack campaigns to MITRE ATT&CK, produces actionable intelligence reports, and builds de	C:/Users/pc/.claude/agents/security-threat-intelligence-analyst.md
+vid-ffmpeg-donusturucu	haiku	Builds ffmpeg commands to convert, trim, compress and extract frames.	C:/Users/pc/.claude/agents/vid-ffmpeg-donusturucu.md
+vrm-alt-ajan-dagitim	sonnet	Splits independent work into parallel subtasks with clear contracts and returns only summaries.	C:/Users/pc/.claude/agents/vrm-alt-ajan-dagitim.md
