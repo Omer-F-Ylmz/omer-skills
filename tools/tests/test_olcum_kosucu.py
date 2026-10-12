@@ -204,6 +204,19 @@ def test_kos_env_tarayici_acmaz(monkeypatch):
     assert gorulen["env"]["BROWSER"] == "none"
 
 
+def test_kos_mcp_hafif_bayrak_ve_strict_cagiran(monkeypatch):
+    gorulen = []
+    monkeypatch.setattr(kosucu, "calistir", lambda args, env, cwd, timeout: (gorulen.append(args), ("", 0, ""))[1])
+    monkeypatch.setattr(kosucu, "supur", lambda ad: None)
+    monkeypatch.setattr(kosucu.mcp_sec, "tanimlar", lambda yol=None: {"serena": {"command": "s"}, "blender": {}})
+    monkeypatch.delenv("OLCUM_MCP_HAFIF", raising=False)
+    kosucu.kos("mcp__blender__x")
+    monkeypatch.setenv("OLCUM_MCP_HAFIF", "1")
+    kosucu.kos("mcp__blender__x")
+    kosucu.kos("y", ek=["--strict-mcp-config"])
+    assert [a.count("--strict-mcp-config") for a in gorulen] == [0, 1, 1]
+
+
 def test_jev_doldur_kosu_sonu_toplu_ve_erisilemezse_regex_aynen(tmp_path):
     assert kosucu.BASLIK.endswith("\thata\tjev\tjev_guven")
     d = tmp_path / "2026-10-11-p"

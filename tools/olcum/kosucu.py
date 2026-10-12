@@ -181,7 +181,7 @@ def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0, mcp=()):
     # claude'un yan süreçleri (MCP/hook) klasörü bir süre tutabiliyor → temizlik hatası koşuyu düşürmez
     with tempfile.TemporaryDirectory(prefix="olcum-", ignore_cleanup_errors=True) as bos, \
             tempfile.TemporaryDirectory(prefix="mcphafif-", ignore_cleanup_errors=True) as gizli:
-        if mcp_sec.acik():
+        if mcp_sec.acik() and "--strict-mcp-config" not in ek:  # çağıran zaten strict (kalite3_hiz, ab_olc) → dokunma
             args += mcp_sec.ek(gizli, istem, *ek, *mcp)
         t = time.monotonic()
         out, rc, err = calistir(args, env, cwd or bos, timeout)
