@@ -311,6 +311,11 @@ export function cocukOrtam(arac, ayar, taban = process.env, oku = kullaniciEnv) 
   return env;
 }
 
+/** API-KREDİ (12 Eki 20:40): çocuğa elle geçirilen sır değerini redaksiyon kümesine ekler (değer yazılmaz). */
+export function sirEkle(d) {
+  if (d && String(d).length >= 4) GECIRILEN.add(String(d));
+}
+
 /** Adı KEY/TOKEN/SECRET/PAT/PASSWORD segmenti içeren değişkenlerin DEĞERLERİ. */
 function sirDegerleri() {
   const out = [...GECIRILEN];
@@ -718,9 +723,11 @@ export function gozlemGovde(oturum, aracAdi, girdi, yanit, cwd) {
  */
 export async function gozlemYaz(govde) {
   try {
+    // KÖPRÜ-HIZ-2 (12 Eki 19:15): zaman aşımı yoktu — claude-mem worker yük altında yanıt vermeyince
+    // gozle() hiç dönmüyor, seri kuyruktaki (sirala) bütün komut/oku/durum çağrıları takılıyordu.
     const y = await fetch(`${MEM_KOK}/api/sessions/observations`, {
       method: "POST", headers: { "content-type": "application/json" },
-      body: JSON.stringify(govde),
+      body: JSON.stringify(govde), signal: AbortSignal.timeout(8000),
     });
     const j = await y.json().catch(() => null);
     if (!y.ok) return `gözlem yazılamadı: worker ${y.status}${j?.reason ? " " + j.reason : ""}`;

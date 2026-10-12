@@ -13,7 +13,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, aracAdlari, ayarYukle, cacheMissSebebi, ciktiHazirla, cwdCoz, denyListesi, gozlemGovde, stdinYaz,
+import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, aracAdlari, ayarYukle, cacheMissSebebi, ciktiHazirla, cocukOrtam, cwdCoz, denyListesi, gozlemGovde, kullaniciEnv, sirEkle, stdinYaz,
          gozlemYaz, komutDenetle,
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
@@ -37,7 +37,9 @@ const HAFIF_VAR = (() => {
 if (!CLAUDE) throw new Error("claude yurutucusu bulunamadi; kopru.json claudeYolu yazin");
 const OTURUM = crypto.randomUUID();
 const IZ = izDosyasi(OTURUM);
-let ajanSayaci = 0;
+/** KÖPRÜ-HIZ (Desktop 12 Eki): şu an koşan ajan sayısı. ajanTavan artık ömür boyu değil EŞZAMANLI tavan:
+ *  eski sayaç hiç azalmıyordu → sunucu sürecinin 10. ajanından sonra her ajan sessizce RED. */
+let ajanAktif = 0;
 /** Son `ajan` çağrısının kullanım sayıları — `durum` statusline'ı bununla besler. */
 let sonAjan = null;
 
@@ -149,16 +151,18 @@ srv.registerTool("ajan", {
     ajan_adi: z.string().optional().describe("CC'de tanımlı agent adı (--agent)"),
     max_turns: z.number().int().min(1).max(60).default(20),
     devam_id: z.string().optional().describe("Önceki session_id (--resume)"),
-    timeout_sn: z.number().int().min(30).max(3600).default(900),
+    timeout_sn: z.number().int().min(30).max(10800).default(900),
     hafif: z.boolean().default(false).describe(
       "Skill/slash komut yüklemesini ve MCP sunucularını kapatır; hook'lar ve CLAUDE.md "
       + "açık kalır. Bağlam pahalı, iş basitse aç."),
   },
-}, (a) => sirala(async () => {
+}, (a) => (async () => {
+  // KÖPRÜ-HIZ: ajan tek kuyruğa (sirala) GİRMEZ — 60 dk'lık oturum durum/komut/oku ve diğer
+  // ajanları bloke ediyordu (12 Eki 13:58–14:36 gönderilen 5 ajan hiç başlamadı).
   // FIX-1: görev metni artık argv'ye girmediği için içeriğine göre elenmez — bayrak
   // adı geçen bir istem yalnızca metindir. Bayrak kaçakçılığı argv tarafında kesilir.
-  if (ajanSayaci >= (AYAR.ajanTavan ?? 10)) {
-    return hata(`RED: oturum başına ajan çağrı tavanı (${AYAR.ajanTavan ?? 10}) doldu.`);
+  if (ajanAktif >= (AYAR.ajanTavan ?? 10)) {
+    return hata(`RED: eşzamanlı ajan tavanı (${AYAR.ajanTavan ?? 10}) dolu; biri bitince yeniden dene.`);
   }
   let proje, model, ajanAdi, devamId;
   try {
@@ -168,7 +172,6 @@ srv.registerTool("ajan", {
     ajanAdi = a.ajan_adi ? ajanAlanDenetle("ajan_adi", a.ajan_adi) : null;
     devamId = a.devam_id ? ajanAlanDenetle("devam_id", a.devam_id) : null;
   } catch (e) { return hata("RED: " + e.message); }
-  ajanSayaci += 1;
 
   // --max-turns bayrağı CC CLI'da yok (11i K0-b); bütçe göreve yazılır, dönüşte doğrulanır.
   const gorev = `${a.gorev}\n\n[bütçe] En fazla ${a.max_turns} tur kullan.`;
@@ -191,8 +194,21 @@ srv.registerTool("ajan", {
     return hata("RED: argv izin atlama bayrağı taşıyor.");
   }
 
+  // denetimden buraya kadar await yok: tavan denetimi ile artış aynı senkron adımda (yarış yok)
+  ajanAktif += 1;
   const cikti = await new Promise((coz) => {
-    const p = spawn(CLAUDE, [...CLAUDE_ON, ...argv], { cwd: proje, shell: false, windowsHide: true });
+    // Ömer 12 Eki 20:06 "yapalım": ajan oturumları Jev/OpenRouter anahtarını jev aracının envGecir listesiyle alır
+    // (değer yazılmaz; cocukOrtam değerleri redaksiyon kümesine ekler). Kapalıysa eski davranış.
+    let ortam = AYAR.ajanJevAnahtari ? cocukOrtam("jev", AYAR) : process.env;
+    // API-KREDİ (Ömer 12 Eki 20:34): Max planın aylık Console API kredisi. Bayrak dosyası varsa ve Ömer'in
+    // kendi oluşturduğu ANTHROPIC_API_KEY_AJAN kullanıcı değişkeni tanımlıysa ajan oturumu (claude -p) plan limiti
+    // yerine bu anahtarla koşar. Bayrak her çağrıda okunur (silinince plana döner); değer yazılmaz, redakte edilir.
+    const bayrak = AYAR.apiKrediBayrak || "C:/Projeler/omer-skills/.kos/kopru/api-kredi.ac";
+    if (fs.existsSync(bayrak)) {
+      const anahtar = process.env.ANTHROPIC_API_KEY_AJAN || kullaniciEnv("ANTHROPIC_API_KEY_AJAN");
+      if (anahtar) { sirEkle(anahtar); ortam = { ...ortam, ANTHROPIC_API_KEY: anahtar }; }
+    }
+    const p = spawn(CLAUDE, [...CLAUDE_ON, ...argv], { cwd: proje, shell: false, windowsHide: true, env: ortam });
     stdinYaz(p, gorev);   // istem stdin'den
     const o = [];
     p.stdout.on("data", (b) => o.push(b));
@@ -200,7 +216,7 @@ srv.registerTool("ajan", {
     const zam = setTimeout(() => { try { p.kill(); } catch { /* bitti */ } }, a.timeout_sn * 1000);
     p.on("error", (e) => { clearTimeout(zam); coz(String(e)); });
     p.on("close", () => { clearTimeout(zam); coz(Buffer.concat(o).toString("utf8")); });
-  });
+  }).finally(() => { ajanAktif -= 1; });
 
   let j;
   try { j = JSON.parse(cikti); } catch { return hata("claude -p JSON dönmedi:\n" + redakte(cikti).slice(0, 2000)); }
@@ -219,7 +235,7 @@ srv.registerTool("ajan", {
   const not = await gozle("cc-kopru:ajan", { gorev: a.gorev, model, cwd: proje },
                           { result: govde, session_id: j.session_id }, proje);
   return metin(`${govde}\n\nsession_id: ${j.session_id}\n${durum}${not ? "\n" + not : ""}`);
-}));
+})());
 
 // ---------------------------------------------------------------- oturum
 srv.registerTool("oturum", {
