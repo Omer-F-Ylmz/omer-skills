@@ -11,7 +11,7 @@ spec.loader.exec_module(m)
 def test_uygula_geri_yeni(tmp_path):
     m.uygula(ev=tmp_path)
     hedef = tmp_path / ".claude" / "skills" / m.AD
-    assert (hedef / "SKILL.md").is_file() and not list(hedef.rglob("__pycache__"))
+    assert (hedef / "SKILL.md").is_file() and (hedef / "uyarla.py").is_file() and not list(hedef.rglob("__pycache__"))
     m.geri(ev=tmp_path)
     assert not hedef.exists()
 
