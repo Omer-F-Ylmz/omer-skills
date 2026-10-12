@@ -22,3 +22,12 @@ def test_bekci_asili_proxyyi_oldurur(tmp_path, monkeypatch):
     t.start()
     t.join(30)
     assert not t.is_alive()
+
+
+def test_onay_yalniz_asili_mcp_proxy_oldurulur():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "onay"))
+    import mcp_hafif_2_uygula as u
+    assert u.karar(False, "mcp-proxy.exe")
+    assert not u.karar(True, "mcp-proxy.exe")  # port açık → dokunma
+    assert not u.karar(False, "python.exe")  # pid yeniden kullanılmış → dokunma
+    assert not u.karar(False, None)
