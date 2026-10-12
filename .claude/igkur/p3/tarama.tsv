@@ -1,0 +1,9 @@
+repo	gitleaks	semgrep	skillspector	betik
+trailofbits/skills	4	1E/1	DO_NOT_INSTALL CRITICAL (tüm repo; plugin bazında aşağıda)	temiz
+morluto/rea	1	14E/29	-	not:install.sh
+microsoft/SkillOpt	15	1E/7	-	temiz
+alibaba/open-code-review	11	3E/27	-	not:package.json,install.ps1,install.sh
+trailofbits/skills:supply-chain-risk-auditor	-	-	DO_NOT_INSTALL CRITICAL H+C:6	temiz
+trailofbits/skills:differential-review	-	-	SAFE LOW H+C:0	temiz
+trailofbits/skills:static-analysis	-	-	DO_NOT_INSTALL CRITICAL H+C:13	temiz
+trailofbits/skills:insecure-defaults	-	-	CAUTION MEDIUM H+C:2	temiz
