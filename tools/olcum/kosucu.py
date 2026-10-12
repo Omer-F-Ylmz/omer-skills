@@ -103,6 +103,9 @@ def jeton(u):
 PENCERESIZ = 0x08000000 if os.name == "nt" else 0  # CREATE_NO_WINDOW: pencere açılmaz, torunlar (MCP/hook) bu gizli konsolu devralır
 
 
+JOB_TAVAN_MB = 4096  # tek claude -p ağacının bellek tavanı (FABLE-AJAN ile aynı; medyan ~0.9–1.9 GB)
+
+
 def is_olustur():
     """Windows Job Object (KILL_ON_JOB_CLOSE): kapanınca içindeki bütün torun ağacı ölür. Windows dışında None."""
     if os.name != "nt":
@@ -122,7 +125,8 @@ def is_olustur():
         _fields_ = [("Temel", Temel), ("io", ctypes.c_uint64 * 6), ("i", ctypes.c_size_t * 4)]
 
     s = Sinir()
-    s.Temel.LimitFlags = 0x2000  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+    s.Temel.LimitFlags = 0x2000 | 0x200  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE | JOB_MEMORY (15.4 GB şişmesi tekrarlanmaz)
+    s.i[1] = JOB_TAVAN_MB << 20  # JobMemoryLimit
     if not k.SetInformationJobObject(is_, 9, ctypes.byref(s), ctypes.sizeof(s)):  # JobObjectExtendedLimitInformation
         k.CloseHandle(is_)
         return None
@@ -164,7 +168,10 @@ def supur(ad):
         return
     ps = ("Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -and $_.CommandLine.Contains('%s') } "
           "| ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }" % ad.replace("'", ""))
-    subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, creationflags=PENCERESIZ, timeout=60)
+    try:  # emniyet süpürmesi: cihaz donmasında zaman aşımı koşuyu düşürmez
+        subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", ps], capture_output=True, creationflags=PENCERESIZ, timeout=60)
+    except subprocess.TimeoutExpired:
+        pass
 
 
 def kos(istem, ek=(), cwd=None, model=None, timeout=600, butce=3.0):
@@ -243,16 +250,26 @@ def jev_doldur(yol, metin_dir, en_fazla=2, tasiyici=None):
         print("jev atlandı:", type(e).__name__, flush=True)
 
 
-def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True):
+HARCANAN = [0.0]  # bu süreçte tüm profillerin toplam $'ı (--usd-tavan)
+
+
+def kos_profil(ad, p, gorevler, tarih, tekrar, jev=True, usd_tavan=None, devam=False):
     ek = profil_ek(p)
     yol = CIKTI / f"{tarih}-{ad}.tsv"
     metin_dir = CIKTI / f"{tarih}-{ad}"  # yanıt metni: LLM yargıç (jev) ile kolları karşılaştırmak için
+    biten = {tuple(s.split("\t")[:2]) for s in yol.read_text(encoding="utf-8").splitlines()[1:]} if devam and yol.exists() else set()
     for n in range(1, tekrar + 1):
         for g in gorevler:
+            if (g["id"], str(n)) in biten:
+                continue
             bekle = 0
             while bos_ram_gb() < RAM_ALT_GB and bekle < 1800:
                 time.sleep(30); bekle += 30
-            o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None)
+            if usd_tavan and HARCANAN[0] >= usd_tavan:
+                print("usd tavanı doldu:", round(HARCANAN[0], 2), flush=True)
+                break
+            o = kos(g["istem"], ek, cwd=str(KOK) if g.get("cwd") == "repo" else None, model=p.get("model"), butce=p.get("butce", 3.0))
+            HARCANAN[0] += o["usd"]
             init_yaz(CIKTI / f"{tarih}-{ad}-init.json", o["init"])
             metin_dir.mkdir(exist_ok=True)
             (metin_dir / f"{g['id']}-{n}.md").write_text(o["metin"], encoding="utf-8")
@@ -279,6 +296,8 @@ def main(argv=None):
     p.add_argument("--jevsiz", action="store_true", help="koşu sonu jev puanlamasını atla (varsayılan: tek jev_batch)")
     p.add_argument("--arka", action="store_true", help="ayrık süreçte koş, hemen dön")
     p.add_argument("--bekle-pid", type=int, help="başlamadan önce bu sürecin bitmesini bekle (sıralı kuyruk)")
+    p.add_argument("--usd-tavan", type=float, help="tüm profillerde toplam $ bu değere ulaşınca yeni çağrı başlatma")
+    p.add_argument("--devam", action="store_true", help="TSV'de olan (görev, tekrar) satırlarını atla (düşen koşuyu sürdür)")
     ns = p.parse_args(argv)
     if ns.arka:
         arg = [a for a in (argv if argv is not None else sys.argv[1:]) if a != "--arka"]
@@ -302,7 +321,7 @@ def main(argv=None):
     CIKTI.mkdir(parents=True, exist_ok=True)
     print(time.strftime("%H:%M:%S"), "başla", ns.profil, len(gorevler), "görev ×", ns.tekrar, flush=True)
     for ad in ns.profil.split(","):
-        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar, jev=not ns.jevsiz)
+        kos_profil(ad, profiller[ad], gorevler, ns.tarih, ns.tekrar, jev=not ns.jevsiz, usd_tavan=ns.usd_tavan, devam=ns.devam)
     print(time.strftime("%H:%M:%S"), "bitti", flush=True)
     return 0
 

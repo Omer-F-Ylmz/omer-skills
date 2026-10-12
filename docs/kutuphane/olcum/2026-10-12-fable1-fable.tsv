@@ -1,0 +1,7 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata	jev	jev_guven
+G02	1	2	75029	0	1322	75031	1	432.2	1.5667	1	10	2246	62		
+G06	1	2	68579	5281	2	73862	0	606.2	0.0	1	0	2246	62	Skill:anthropic-skills:departman-arastirma-ogrenme	timeout
+G12	1	2	69751	5281	4	75034	0	606.5	0.0	1	2	2246	62	Skill:anthropic-skills:departman-surec-plan	timeout
+G13	1	2	69830	5281	2	75113	0	603.6	0.0	1	10	2246	62	Bash	timeout
+G14	1	0	0	0	0	0	1	383.5	0.0	1	0	2246	62		d hook [${CLAUDE_PLUGIN_ROOT}/hooks/workflow-verification.sh] failed: Hook cancelled SessionEnd hook [node "${CLAUDE_PLUGIN_ROOT}/scripts/session-lifecycle-hook.mjs" SessionEnd] failed: Hook cancelled
+J01	1	0	0	0	0	0	1	522.3	0.0	0	5	2246	62		SessionEnd hook [node "${CLAUDE_PLUGIN_ROOT}/scripts/session-lifecycle-hook.mjs" SessionEnd] failed: Hook cancelled

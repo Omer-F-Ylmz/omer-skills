@@ -140,6 +140,7 @@ def test_rubrik_windows_yol_ayiricisi():
 
 
 # --- KOSUCU-TEMIZ: süreç sızıntısı ---
+import ctypes  # noqa: E402
 import os  # noqa: E402
 import subprocess  # noqa: E402
 import time  # noqa: E402
@@ -204,6 +205,50 @@ def test_kos_env_tarayici_acmaz(monkeypatch):
     assert gorulen["env"]["BROWSER"] == "none"
 
 
+def test_kos_profil_model_butce_ve_usd_tavani(tmp_path, monkeypatch):
+    cagri = []
+
+    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0):
+        cagri.append((model, butce))
+        return {"init": None, "metin": "", "usage": {}, "tur": 1, "sure": 0, "usd": 0.6, "araclar": [], "girdi": [], "hata": ""}
+
+    monkeypatch.setattr(kosucu, "kos", sahte)
+    monkeypatch.setattr(kosucu, "CIKTI", tmp_path)
+    monkeypatch.setattr(kosucu, "HARCANAN", [0.0])
+    monkeypatch.setattr(kosucu, "bos_ram_gb", lambda: 64.0)  # gerçek RAM kapısı 30 dk bekletir
+    g = [{"id": f"T{i}", "istem": "x", "arac": [], "rubrik": []} for i in range(3)]
+    kosucu.kos_profil("p", {"model": "m", "butce": 0.5}, g, "t", 2, jev=False, usd_tavan=1.0)
+    assert cagri == [("m", 0.5), ("m", 0.5)]  # 0.6 + 0.6 ≥ 1.0 → üçüncü çağrı yok
+
+
+def test_kos_profil_devam_biten_satirlari_atlar(tmp_path, monkeypatch):
+    # 19:04 düşen koşu: aynı komut --devam ile yalnız TSV'de olmayan (görev, tekrar) çiftlerini koşar
+    cagri = []
+
+    def sahte(istem, ek=(), cwd=None, model=None, butce=3.0):
+        cagri.append(istem)
+        return {"init": None, "metin": "", "usage": {}, "tur": 1, "sure": 0, "usd": 0.1, "araclar": [], "girdi": [], "hata": ""}
+
+    monkeypatch.setattr(kosucu, "kos", sahte)
+    monkeypatch.setattr(kosucu, "CIKTI", tmp_path)
+    monkeypatch.setattr(kosucu, "bos_ram_gb", lambda: 64.0)
+    kosucu.satir_yaz(tmp_path / "t-p.tsv", "T0\t1\t0")
+    g = [{"id": f"T{i}", "istem": f"T{i}", "arac": [], "rubrik": []} for i in range(2)]
+    kosucu.kos_profil("p", {}, g, "t", 2, jev=False, devam=True)
+    assert cagri == ["T1", "T0", "T1"]
+
+
+def test_is_olustur_bellek_tavani():
+    if os.name != "nt":
+        return
+    is_ = kosucu.is_olustur()
+    s = (ctypes.c_byte * 144)()
+    ctypes.windll.kernel32.QueryInformationJobObject(ctypes.c_void_p(is_), 9, s, 144, None)
+    assert ctypes.c_ulong.from_buffer(s, 16).value & 0x200  # JOB_OBJECT_LIMIT_JOB_MEMORY
+    assert ctypes.c_size_t.from_buffer(s, 120).value == kosucu.JOB_TAVAN_MB << 20
+    kosucu.is_kapat(is_)
+
+
 def test_jev_doldur_kosu_sonu_toplu_ve_erisilemezse_regex_aynen(tmp_path):
     assert kosucu.BASLIK.endswith("\thata\tjev\tjev_guven")
     d = tmp_path / "2026-10-11-p"
@@ -239,3 +284,12 @@ def test_karsilastir_regex_doymussa_jev_ayirir(tmp_path, monkeypatch):
     karsilastir.main(["2026-10-11", "a", "b"])
     md = (tmp_path / "2026-10-11-karsilastirma.md").read_text(encoding="utf-8")
     assert "jev ayırır: b" in md and "| G01 | 10/1/6.0 | 10/1/9.0 |" in md
+
+
+def test_supur_zaman_asimi_kosuyu_dusurmez(monkeypatch):
+    # 19:04 cihaz donması: Get-CimInstance 60 sn aştı → TimeoutExpired A/B koşusunu düşürdü
+    def asim(*a, **k):
+        raise subprocess.TimeoutExpired(a[0], 60)
+    monkeypatch.setattr(kosucu.os, "name", "nt")
+    monkeypatch.setattr(kosucu.subprocess, "run", asim)
+    kosucu.supur("olcum-x")
