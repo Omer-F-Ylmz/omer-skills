@@ -1,0 +1,11 @@
+{
+ "ajan": "inc-diff-risk-puani",
+ "model": "sonnet",
+ "istem": "My teammate opened a branch that touches the login controller, adds a database migration for the users table, tweaks two React components and updates the README, about 600 lines in total. We are three people with limited time. Help me decide where to focus attention and who should look at which part. Under 15 lines.",
+ "rubrik": [
+  {"regex": "(?i)high|medium|low", "puan": 3},
+  {"regex": "(?i)CODEOWNERS|shortlog|blame|git log", "puan": 3},
+  {"regex": "(?i)bus factor|owner", "puan": 2},
+  {"regex": "(?i)score|\\d+/\\d+", "puan": 2}
+ ]
+}

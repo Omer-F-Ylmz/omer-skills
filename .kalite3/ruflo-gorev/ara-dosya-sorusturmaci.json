@@ -1,0 +1,11 @@
+{
+ "ajan": "ara-dosya-sorusturmaci",
+ "model": "sonnet",
+ "istem": "We're about to adopt the npm package fast-json-patch for our sync engine. Before we commit, I want to know who maintains it, what it pulls in, whether any of that has had security problems, and which well-known projects rely on it. Map out what you can find and tell me where each fact came from.",
+ "rubrik": [
+  {"regex": "(?i)depth|derinlik", "puan": 3},
+  {"regex": "(?i)stop(ped)? reason|cap (reached|hit)|budget|frontier", "puan": 3},
+  {"regex": "(?i)->|→|\\bedge", "puan": 2},
+  {"regex": "(?i)conflict|unverified|could not (find|verify)|not found", "puan": 2}
+ ]
+}

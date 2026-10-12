@@ -1,0 +1,11 @@
+{
+ "ajan": "qa-sahte-uygulama-avcisi",
+ "model": "haiku",
+ "istem": "Before we ship, can you check whether anything in this service is not really implemented? src/payments/PaymentService.ts: `async charge(amount) { return { ok: true, id: 'txn_123' }; }` · src/startup.ts: `container.register('Mailer', new FakeMailer());` · src/reports/export.ts: `export function exportPdf() { throw new Error('not implemented'); }` · tests/payment.test.ts: `const mockGateway = jest.fn();` · src/config.ts: `const API_URL = 'http://localhost:3000'; // TODO real endpoint`. Short answer please.",
+ "rubrik": [
+  {"regex": "(?i)hard-?coded|always (returns|succeeds)|canned|sabit", "puan": 3},
+  {"regex": "(?i)wiring|wired|composition root|dependency injection", "puan": 2},
+  {"regex": "(?i)legit|exclud|exempt|acceptable|allowed", "puan": 2},
+  {"regex": "(?i)block|NO-SHIP|not (ready|shippable)", "puan": 3}
+ ]
+}

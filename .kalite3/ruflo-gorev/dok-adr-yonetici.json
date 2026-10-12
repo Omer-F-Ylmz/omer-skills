@@ -1,0 +1,11 @@
+{
+ "ajan": "dok-adr-yonetici",
+ "model": "sonnet",
+ "istem": "Two years ago our architecture docs settled that the web layer never talks to the database directly and that money values use our Decimal wrapper, never floats. Several of those docs have since been replaced by newer ones and nobody knows which still apply. I suspect recent code quietly breaks some of them. How would you check the repo, and what would the report look like? Under 15 lines.",
+ "rubrik": [
+  {"regex": "(?i)blame", "puan": 3},
+  {"regex": "(?i)supersed|status chain", "puan": 3},
+  {"regex": "(?i)file:line|:\\d+", "puan": 2},
+  {"regex": "(?i)accepted|legacy|violation", "puan": 2}
+ ]
+}
