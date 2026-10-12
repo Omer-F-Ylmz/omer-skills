@@ -58,6 +58,7 @@ def main(argv=None):
     i.add_argument("--ajan", required=True)
     i.add_argument("--gorev", required=True)
     a = ap.parse_args(argv)
+    sys.stdout.reconfigure(encoding="utf-8")  # cp1254 konsol ✓/İ basamıyor
     if a.komut == "istem":
         print(istem(a.ajan, a.gorev)[0])
         return
