@@ -10,7 +10,9 @@ sys.path[:0] = [str(KOK / "tools" / "jev"), str(KOK / "tools" / "olcum")]
 CACHE = Path("C:/Projeler/.video-cache")
 OB = Path(__file__).with_name("pilot-ob.jsonl")
 COMBO = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--combo=")), "cc-yedek-dis")  # d2: --combo=ucretsiz-ozet
-YOL, EK = ("ucretsiz", "") if COMBO == "cc-yedek-dis" else (COMBO, ":" + COMBO)  # varsayılan = d4 önbellek anahtarları
+EFOR = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--efor=")), "none")  # d3: düşünme bütçesi
+YOL, EK = ("ucretsiz", "") if COMBO == "cc-yedek-dis" else (COMBO + ("" if EFOR == "none" else "-" + EFOR),) * 2  # varsayılan = d4 önbellek anahtarları
+EK = EK and ":" + EK
 TSV = KOK / f"docs/kutuphane/olcum/omniroute-2-ig-ozet{EK.replace(':', '-')}.tsv"
 CLAUDE = "C:/Users/pc/.local/bin/claude.exe"
 N, OPUS_TAVAN = 20, 4
@@ -56,12 +58,15 @@ def env_oku(ad):
 
 def ucretsiz(istem):
     q = urllib.request.Request("http://127.0.0.1:20128/v1/chat/completions", method="POST",
-                               data=json.dumps({"model": COMBO, "messages": [{"role": "user", "content": istem}], "max_tokens": 600}).encode(),
+                               # d3: 600 jetonun ~570'i düşünmeye gidiyordu (finish_reason=length) → düşünme kapalı + pay
+                               data=json.dumps({"model": COMBO, "messages": [{"role": "user", "content": istem}], "max_tokens": 2000,
+                                                "reasoning_effort": EFOR}).encode(),
                                headers={"content-type": "application/json", "authorization": f"Bearer {env_oku('OMNIROUTE_KEY')}"})
     t = time.time()
     try:
         j = json.load(urllib.request.urlopen(q, timeout=120))
-        return {"yanit": j["choices"][0]["message"]["content"] or "", "model": j.get("model", "?"), "ms": int((time.time() - t) * 1000)}
+        return {"yanit": j["choices"][0]["message"]["content"] or "", "model": j.get("model", "?"), "ms": int((time.time() - t) * 1000),
+                "bitis": j["choices"][0].get("finish_reason"), "usage": j.get("usage")}
     except Exception as e:  # anahtar hata metnine girmez (yalnız tür + HTTP kodu)
         return {"yanit": "", "model": "-", "ms": int((time.time() - t) * 1000), "hata": f"{type(e).__name__} {getattr(e, 'code', '')}".strip()}
 
@@ -111,7 +116,7 @@ def main(kuru=False):
             a = f"{yol}:{ad}"
             if a not in ob or ob[a].get("hata"):
                 kayit(a, f(ISTEM + metin))
-                print(a, ob[a]["model"], ob[a]["ms"], ob[a].get("hata", ""), flush=True)
+                print(a, ob[a]["model"], ob[a]["ms"], ob[a].get("bitis", ""), ob[a].get("hata", ""), flush=True)
             if yol == "claude" and ob[a].get("hata", "").startswith("limit"):
                 sys.exit("plan limiti — dur; önbellek korunur")
             satir.append({"ad": ad, "kelime": len(metin.split()), "yol": yol, "gorev": ISTEM + metin, **ob[a]})
@@ -137,10 +142,10 @@ def main(kuru=False):
     opus = {int(k): v for k, v in ob["opus" + EK]["puan"].items()}
     TSV.parent.mkdir(parents=True, exist_ok=True)
     with TSV.open("w", encoding="utf-8", newline="") as f:
-        f.write("ornek\tkelime\tyol\tmodel\tsure_ms\tbasari\tjev\topus\tkarma\thata\n")
+        f.write("ornek\tkelime\tyol\tmodel\tsure_ms\tbasari\tjev\topus\tkarma\thata\tbitis\n")
         for i, s in enumerate(satir):
             s["karma"] = opus.get(i, jev[i])
-            f.write(f"{s['ad']}\t{s['kelime']}\t{s['yol']}\t{s['model']}\t{s['ms']}\t{s['basari']}\t{jev[i]}\t{opus.get(i, '')}\t{s['karma']}\t{s.get('hata', '')}\n")
+            f.write(f"{s['ad']}\t{s['kelime']}\t{s['yol']}\t{s['model']}\t{s['ms']}\t{s['basari']}\t{jev[i]}\t{opus.get(i, '')}\t{s['karma']}\t{s.get('hata', '')}\t{s.get('bitis', '')}\n")
     for yol in ("claude", YOL):
         k = [s for s in satir if s["yol"] == yol]
         km = [s["karma"] for s in k if s["karma"] is not None]
