@@ -32,7 +32,7 @@ YARGI = kosucu.CIKTI / "blender-faz5-yargi.json"
 DENETIM = DIZIN / "blender_denetim.py"
 TARIF = KOK / "tools" / "blender" / "lib" / "tarif.py"
 MODEL, TAVAN_USD = "sonnet", 22.0  # bütçe ≤ $30 (yargı ≤ $4 dahil): tavan aşılınca yeni koşu başlamaz
-BUTCE = {"taban": 4.0, "tarif": 1.5, "tek": 0.5, "tek0": 0.5}
+BUTCE = {"taban": 4.0, "tarif": 1.5, "tek": 0.5, "tek0": 0.5, "tekK": 0}
 IZIN = ["--allowedTools", "Bash", "Read", "Write", "Edit", "Glob", "Grep", "mcp__blender"]
 BASLIK = "gorev\tyol\ttekrar\tinput\tcache_creation\tcache_read\toutput\ttoplam\ttur\tsure_sn\tusd\tkalite\tkalan\tmcp_n\tbash_n\thata"
 
@@ -168,7 +168,17 @@ def kos_bir(g, yol, t, baz):
         ek = YOL["tarif"].format(blend=f"Başlangıç sahnesi: --blend {blend}" if blend else "")
     os.environ["BLENDER_KALITE"] = "0" if yol == "tek0" else "1"  # BLENDER-3: tek0 = eğitim varsayılanları kapalı taban
     try:
-        if yol in ("tek", "tek0"):  # BLENDER-2: araçsız tek tur, Blender'ı yalin koşar
+        if yol == "tekK":  # BLENDER-3 d2: tek0-t'nin spec'i KALITE=1 ile yeniden render (LLM yok; fark yalnız varsayılanlardan)
+            d0 = PROJE / f"{g}-tek0-{t}"
+            spec = json.loads((d0 / "sonuc.json").read_text(encoding="utf-8"))["o"].get("spec")
+            if not spec:  # tek0 önce koşmalı (yalnız --tekrar 1; t=2'de sıra ters döner) ve geçerli spec üretmiş olmalı
+                raise RuntimeError(f"{d0.name} spec yok")
+            s = json.dumps(spec, ensure_ascii=False)
+            for a, b in ((json.dumps(str(d0))[1:-1], json.dumps(str(d))[1:-1]), (d0.as_posix(), d.as_posix())):
+                s = s.replace(a, b)
+            kod, _, _ = bc.calistir(TARIF, json.loads(s), blend)
+            o = {"usage": {}, "tur": 0, "sure": 0.0, "usd": 0.0, "araclar": [], "rc": kod, "hata": "" if kod == 0 else f"exit {kod}"}
+        elif yol in ("tek", "tek0"):  # BLENDER-2: araçsız tek tur, Blender'ı yalin koşar
             o = yalin.tek(istem.format(d=d), blend, kos=lambda i, e: kosucu.kos(i, ek=e, model=MODEL, timeout=1500, butce=BUTCE[yol]))
         else:
             o = kosucu.kos(istem.format(d=d) + "\n\n" + ek, ek=IZIN if yol == "taban" else yalin.bayraklar(), model=MODEL,
@@ -178,7 +188,7 @@ def kos_bir(g, yol, t, baz):
             kapat(p)
     den = denetle(d)
     k = kontrol(g, d, den, baz["ucgen"])
-    (d / "sonuc.json").write_text(json.dumps({"o": {x: o.get(x) for x in ("metin", "araclar", "usage", "tur", "usd", "sure", "rc", "hata")},
+    (d / "sonuc.json").write_text(json.dumps({"o": {x: o.get(x) for x in ("metin", "araclar", "usage", "tur", "usd", "sure", "rc", "hata", "ilk_hata", "spec")},
                                               "denetim": den, "kontrol": k}, ensure_ascii=False, indent=1), encoding="utf-8")
     j = kosucu.jeton(o["usage"])
     return [g, yol, t, *j, sum(j), o["tur"], o["sure"], round(o["usd"], 4), round(sum(v for _, v in k) / len(k), 3),
@@ -189,7 +199,7 @@ def kos_bir(g, yol, t, baz):
 def yargi():
     sonuc = json.loads(YARGI.read_text(encoding="utf-8")) if YARGI.is_file() else {}
     for g, (_, istem) in GOREV.items():
-        aday = [f"{yol}-{t}" for yol in ("taban", "tarif", "tek", "tek0") for t in (1, 2) if (PROJE / f"{g}-{yol}-{t}" / "onizleme.png").is_file()]
+        aday = [f"{yol}-{t}" for yol in ("taban", "tarif", "tek", "tek0", "tekK") for t in (1, 2) if (PROJE / f"{g}-{yol}-{t}" / "onizleme.png").is_file()]
         if g in sonuc or len(aday) < 2:
             continue
         random.shuffle(aday)
