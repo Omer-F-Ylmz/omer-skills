@@ -56,3 +56,30 @@ def test_beklenen_tutarsa_tek_tur():
 def test_iki_hatada_durur():
     o = yalin.tek("kupa yap", kos=_kos([SPEC, SPEC], []), calistir=lambda b, a, bl: (1, {"gecti": False}, 1))
     assert o["rc"] == 1 and o["tur"] == 2 and "exit 1" in o["hata"]
+
+
+def test_bicim_kaymasi_duzeltme_turu_istemez():
+    # BLENDER-4 M1: b3b ilk_hata'ları (düzlem [1, 1], isik {"profil": ..}) normalize edilir → 2. tur yok
+    istemler, kosulan = [], []
+    s = ('{"nesneler": [{"ad": "Z", "tur": "duzlem", "boyut": [1, 1]}, {"ad": "F", "tur": "silindir", "boyut": [0.08, 0.09],'
+         ' "ekler": [{"tur": "kup", "boyut": 0.01}]}], "isik": {"profil": "metal"}}')
+    o = yalin.tek("x", kos=_kos([s], istemler), calistir=lambda b, a, bl: kosulan.append(a) or (0, {"gecti": True}, 1))
+    assert o["tur"] == 1 and len(istemler) == 1
+    n = kosulan[0]["nesneler"]
+    assert n[0]["boyut"] == [1, 1, 0] and n[1]["boyut"] == [0.08, 0.08, 0.09] and n[1]["ekler"][0]["boyut"] == [0.01] * 3
+    assert kosulan[0]["isik"] == "metal"
+
+
+def test_taban_kipi_normalize_etmez():
+    istemler = []
+    yalin.tek("x", kos=_kos(['{"nesneler": [{"ad": "Z", "tur": "duzlem", "boyut": [1, 1]}]}', SPEC], istemler),
+              calistir=lambda b, a, bl: (0, {"gecti": True}, 1), hafif=False)
+    assert len(istemler) == 2  # 1.2.0 tabanı (faz5 'tek' kolu)
+
+
+def test_tek_dusunmesiz(monkeypatch):
+    # BLENDER-4 M2: spec ~300 jeton, çıktı ~1100 → tek yolunda düşünme kapalı
+    gorulen = {}
+    monkeypatch.setattr(yalin.subprocess, "run", lambda a, **k: gorulen.update(k) or type("R", (), {"stdout": "{}", "returncode": 0})())
+    yalin._claude("x", yalin.tek_bayraklar())
+    assert gorulen["env"]["MAX_THINKING_TOKENS"] == "0"

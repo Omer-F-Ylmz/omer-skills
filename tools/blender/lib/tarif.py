@@ -80,6 +80,21 @@ def dogrula(spec):
     return h
 
 
+def duzelt(spec):
+    """BLENDER-4: anlamı açık biçim kaymalarını yerinde düzeltir (düzeltme turu = tam ikinci çağrı): boyut tek sayı → küp,
+    2 sayı → düzlem [x, y, 0] / dönel [çap, çap, h]; isik {"profil": ad} → ad."""
+    for n in spec.get("nesneler", []):
+        for p in (n, *n.get("ekler", [])):
+            b = p.get("boyut")
+            if isinstance(b, (int, float)):
+                p["boyut"] = [b] * 3
+            elif isinstance(b, list) and len(b) == 2:
+                p["boyut"] = [b[0], b[1], 0] if p.get("tur") == "duzlem" else [b[0], b[0], b[1]]
+    if isinstance(spec.get("isik"), dict):
+        spec["isik"] = spec["isik"].get("profil") or spec["isik"].get("ad")
+    return spec
+
+
 def _blender_ana():
     import bpy
     from mathutils import Vector
@@ -90,7 +105,7 @@ def _blender_ana():
     t0 = time.time()
     arg = sys.argv[sys.argv.index("--") + 1]
     spec = json.loads(Path(arg[1:]).read_text(encoding="utf-8") if arg.startswith("@") else arg)
-    hatalar = dogrula(spec)
+    hatalar = dogrula(duzelt(spec))
     if hatalar:
         print("SONUC:" + json.dumps({"gecti": False, "hatalar": hatalar}, ensure_ascii=False))
         return
