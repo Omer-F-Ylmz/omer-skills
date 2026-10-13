@@ -125,8 +125,8 @@ def mudur_denetle(yol):
 
 
 def mudurler(envanter):
-    """Müdür gereken departmanlar: ≥3 araç (diger hariç); frontend daima."""
-    return {d for d, n in Counter(x["departman"] for x in envanter).items() if n >= ESIK and d != "diger"} | {"frontend"}
+    """Müdür gereken departmanlar: ≥3 araç; frontend ve diger (ENVANTER-1 departmansız işler) daima."""
+    return {d for d, n in Counter(x["departman"] for x in envanter).items() if n >= ESIK} | {"frontend", "diger"}
 
 
 def aciklama_token(kok):

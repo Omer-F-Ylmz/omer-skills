@@ -218,7 +218,7 @@ def test_frontend_mudur_yigin_dali_ve_performans():
 
 def test_uc_arac_kurali():
     e = [{"departman": d} for d in ["frontend"] + ["guvenlik"] * 3 + ["belge"] * 2 + ["diger"] * 5]
-    assert dp.mudurler(e) == {"frontend", "guvenlik"}  # frontend daima, diger hiç, belge 2 < 3
+    assert dp.mudurler(e) == {"frontend", "guvenlik", "diger"}  # frontend ve diger daima, belge 2 < 3
 
 
 def test_uc_arac_kurali_komutta_fazla_mudur(ortam, dkok, capsys):
