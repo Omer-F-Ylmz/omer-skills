@@ -3,7 +3,7 @@
 import fs from "node:fs";
 
 export const OMNI_URL = "http://127.0.0.1:20128";
-export const OMNI_COMBO = "cc-yedek";
+export const OMNI_COMBO = "cc-yedek-dis"; // EK 06:21: Claude-dışı (openrouter gpt-6.1-sol > grok-4.7 > gemini-3.8-flash); eski cc-yedek Claude içeriyor, CLI silemiyor
 export const OMNI_BAYRAK = "C:/Projeler/omer-skills/.kos/kopru/omniroute.ac";
 export const SIRA = "C:/Projeler/omer-skills/.kos/kopru/SIRA.md";
 // DEVAM-KURALI kalite kapısı; Claude dışı model DEVAM-KURALI'nı okumadan da görsün diye isteme eklenir.
