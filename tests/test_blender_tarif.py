@@ -216,3 +216,19 @@ def test_patlat_kadraj_ve_isik_parca_degil(proje):
 def test_anim_donus_birimi_derece():
     """Faz 5 v2 g3: anim'de birim yazmıyordu → model radyan verdi (2π = 6.28°), donus_360 düştü."""
     assert "360" in next(s for s in tarif.__doc__.splitlines() if "anim" in s and "kareler" in s)
+
+
+@blender
+@pytest.mark.parametrize("acik", ["1", "0"])
+def test_egitim_varsayilanlari(proje, monkeypatch, acik):
+    """BLENDER-3: eğitim mekanizmaları (85 mm + f/4 DOF, ürün kenar pahı, doğrusal turntable; AgX kontrast look sırlı seramikte %2 yanma kapısını aştı → yok); BLENDER_KALITE=0 eskisi."""
+    monkeypatch.setenv("BLENDER_KALITE", acik)
+    s = kos({"nesneler": [{"ad": "GEO-Kutu", "tur": "kup", "boyut": [0.1, 0.1, 0.1], "konum": [0, 0, 0.05]},
+                          {"ad": "GEO-Zemin", "tur": "duzlem", "boyut": [1, 1, 0]}],
+             "kamera": "oto", "anim": [{"nesne": "GEO-Kutu", "kanal": "rotation_euler", "kareler": [[1, [0, 0, 0]], [9, [0, 0, 360]]]}],
+             "kare": [1, 8], "onizle": {"yol": str(proje / f"k{acik}.png"), "px": 64, "motor": "workbench"}})
+    k = s.get("kalite", {})
+    if acik == "1":
+        assert s["kamera"]["lens"] == 85 and k["dof"] == 4.0 and k["pah"] == ["GEO-Kutu"] and k["ara"] == "LINEAR"
+    else:
+        assert s["kamera"]["lens"] == 50 and not k
