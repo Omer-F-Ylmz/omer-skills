@@ -7,6 +7,8 @@ description: "Premium landing, portfolyo ve 3D hero isinde ac: WebGL imlec revea
 
 Kaynak: YildizDikme'nin üç reposu (fluid reveal portfolyo, 3D kamera landing, helezon galeri) 20 Eyl 2026'da kod düzeyinde incelendi. Repoların lisansı yok: **kod kopyalanmaz, birebir aynısı yapılmaz.** Burada yalnız desenler kendi sözlerimizle ve bizim iyileştirmelerimizle duruyor. Markalı varlık (ör. üretici logolu 3D model) hiçbir işte kullanılmaz.
 
+Kardeş katalog: frontend-craft `references/vitrin-teknikleri.md` (~45 vitrin sitesinin ölçülmüş yığın/easing/LCP-CLS dersleri + 11 desen: Lenis+ScrollTrigger, maskeli satır girişi, dev display tipi, klip-yol açılışı, yatay pin, View Transitions, manyetik imleç, marquee, DOM'a bağlı WebGL, Rive/Spline, preloader). Çakışan konularda (editoryal dil, gren, nav, sticky hero, §2 sahneleri, §3 kalite kapısı) bu skill geçerlidir; orada tekrarlanmaz.
+
 Kullanım sırası: DESIGN.md yazılırken §1'den dil seçilir → sahne §2'den seçilir → §3 kalite kapısı CC tarifinin kabul kriterine olduğu gibi girer. Kütüphaneler omer-kutuphaneler rafından, DESIGN.md → Hareket'e ad + sürüm + gerekçe ile yazılır.
 
 ## 1. Editoryal dil

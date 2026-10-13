@@ -9,7 +9,7 @@ SKILL.md SIRA'sının (Bölüm 11 → 7 → 8 → 2/9 → 12) her adımında ça
 | 11 üç yön | Bölüm 3a madde 3 (brief sözcüğü → font/zemin) | Stitch ekran varyantı · `taste-skill` stil skill'i (brutalist/minimalist) yalnız seçilen yön tonunda | `.screens/yon/<n>.html` + 1440 PNG |
 | 7 DESIGN.md | ÇEKİRDEK 1–7 | `create-design-md` (mevcut site/repodan) · Figma değişkenleri (tasarım dosyası varsa) · 21st `get_theme` | `font ← · zemin ←` satırı |
 | 8 iki-pass | yasak listesi + `slop.mjs` bayrakları | `impeccable` critique · `ui-ux-pro-max` palet/tip eşleşmesi | token planı |
-| kod | Bölüm 3/4 | 21st `search` → seçilen tek bileşen `get_component` · Figma kod bağlantısı · `scroll-craft`/`threejs-3d-paket` (hareket/3D yönündeyse) | index.html |
+| kod | Bölüm 3/4 · `references/vitrin-teknikleri.md` (yön → desen, yalnız seçilen bölüm) | 21st `search` → seçilen tek bileşen `get_component` · Figma kod bağlantısı · `scroll-craft`/`threejs-3d-paket` (hareket/3D yönündeyse) | index.html |
 | 2/9 döngü | puppeteer screenshot + `slop.mjs` (≤4 tur, sayıyla diff) | `baseline-ui` cila · `fixing-accessibility` | bayrak 0 |
 | 12 teslim | Bölüm 4 kabul | `design:design-critique` + `design:accessibility-review` · claude-design (Claude Design projesine aktarım istenirse) · Canva (bağlayıcı bağlıysa: aynı DESIGN.md token'larıyla sosyal/sunum varlığı) | tur raporu |
 
