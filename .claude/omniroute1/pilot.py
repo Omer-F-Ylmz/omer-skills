@@ -1,4 +1,4 @@
-"""OMNIROUTE-2 pilot: herkese açık IG transkript özeti — Claude tabanı (plan, claude -p) vs OmniRoute ücretsiz (auto/best-free).
+"""OMNIROUTE-2 pilot: herkese açık IG transkript özeti — Claude tabanı (plan, claude -p) vs OmniRoute combo cc-yedek-dis (d4: Ömer istemi; 'ucretsiz' etiketi bu yolu anar, ilk adımı OpenRouter ücretli).
   python .claude/omniroute1/pilot.py [--kuru]
 Tavan: en fazla 20 ücretsiz HTTP + 20 Claude + 4 Opus yargı çağrısı + 1 Jev batch (en_fazla=2). Ara sonuç önbellekte; yeniden koşu ödenmiş çağrıyı tekrarlamaz.
 Kayıt: docs/kutuphane/olcum/omniroute-2-ig-ozet.tsv. Anahtar değerleri basılmaz; claude çocuğuna ANTHROPIC_API_KEY verilmez (kredi kapalı)."""
@@ -54,7 +54,7 @@ def env_oku(ad):
 
 def ucretsiz(istem):
     q = urllib.request.Request("http://127.0.0.1:20128/v1/chat/completions", method="POST",
-                               data=json.dumps({"model": "auto/best-free", "messages": [{"role": "user", "content": istem}], "max_tokens": 600}).encode(),
+                               data=json.dumps({"model": "cc-yedek-dis","messages": [{"role": "user", "content": istem}], "max_tokens": 600}).encode(),
                                headers={"content-type": "application/json", "authorization": f"Bearer {env_oku('OMNIROUTE_KEY')}"})
     t = time.time()
     try:
