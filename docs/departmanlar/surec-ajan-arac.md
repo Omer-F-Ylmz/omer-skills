@@ -18,10 +18,12 @@ Müdür: `departman-surec-ajan-arac`
 | skill-ui | cli | - | - | - |
 | uv | cli | - | - | - |
 | uvx | cli | - | - | - |
+| blender | mcp | - | - | - |
 | jev | mcp | - | - | Doğrulama |
 | mcp-filesystem | mcp | - | - | - |
 | mcp-sequential-thinking | mcp | - | - | - |
 | mcp-time | mcp | - | - | - |
+| agent-browser | plugin | - | - | - |
 | agent-sdk-dev | plugin | Claude Agent SDK Development Plugin | - | Doğrulama |
 | agent-skills | plugin | Production-grade engineering skills for AI coding agents — covering the full software dev… | - | - |
 | andrej-karpathy-skills | plugin | Behavioral guidelines to reduce common LLM coding mistakes, derived from Andrej Karpathy'… | - | - |
@@ -34,6 +36,7 @@ Müdür: `departman-surec-ajan-arac`
 | example-skills | plugin | - | - | - |
 | feature-dev | plugin | Comprehensive feature development workflow with specialized agents for codebase explorati… | - | - |
 | hookify | plugin | Easily create hooks to prevent unwanted behaviors by analyzing conversation patterns | - | Skill |
+| marketing-skills | plugin | Marketing skills for AI agents — conversion optimization, copywriting, SEO, paid ads, ad … | - | - |
 | plugin-dev | plugin | Plugin development toolkit with skills for creating agents, commands, hooks, MCP integrat… | - | - |
 | ralph-wiggum | plugin | Implementation of the Ralph Wiggum technique - continuous self-referential AI loops for i… | - | - |
 | skill-creator | plugin | Create new skills, improve existing skills, and measure skill performance. | Use when users want to create a skill from scratch, update or optimize an existing skill,… | MCP |
@@ -44,7 +47,7 @@ Müdür: `departman-surec-ajan-arac`
 | agent-skills:incremental-implementation | skill | Delivers changes incrementally in thin, verifiable slices. | Use when implementing any feature or change that touches more than one file, or when pick… | - |
 | agent-skills:using-agent-skills | skill | Discovers and invokes agent skills. | Use when starting a session, or when you need to decide which skill or workflow applies t… | - |
 | anthropic-skills:config-codex-cli | skill | Step-by-step agent workflow to configure the OpenAI Codex CLI on any machine (Linux, macO… | - | - |
-| anthropic-skills:jev | skill | Jev (TypeSafe) tipli yargı: çok öğeli sınıflandırma/puanlama, kalibre olasılık, ikinci gö… | - | Doğrulama |
+| anthropic-skills:jev | skill | Jev (TypeSafe) tipli yargı. | - | Doğrulama |
 | anthropic-skills:sdp | skill | Yalniz Divisima reposunda (C:\\Users\\pc\\Desktop\\smart\\Divisima.Solution) kullanilir; … | - | - |
 | anthropic-skills:skill-ui-cli | skill | Use when an agent or desktop AI client needs to discover/list available skills, compare d… | Use when an agent or desktop AI client needs to discover/list available skills, compare d… | - |
 | anthropic-skills:skill-ui-desktop | skill | skill-ui CC'de PATH'te, Desktop'ta cc-kopru komut ile koşar; claude.ai sandbox'ında koşma… | - | - |
@@ -69,7 +72,7 @@ Müdür: `departman-surec-ajan-arac`
 | ios-sync | skill | Regenerate the iOS debug bridge against the latest upstream gstack templates. | - | - |
 | learn | skill | Manage project learnings. | - | - |
 | pair-agent | skill | Pair a remote AI agent with your browser. | - | - |
-| plan-tune | skill | Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). | - | - |
+| plan-tune | skill | Self-tuning question sensitivity and developer psychographic for gstack (v1: observationa… | - | - |
 | plugin-dev:agent-development | skill | This skill should be used when the user asks to "create an agent", "add an agent", "write… | - | - |
 | plugin-dev:command-development | skill | This skill should be used when the user asks to "create a slash command", "add a command"… | - | - |
 | plugin-dev:hook-development | skill | This skill should be used when the user asks to "create a hook", "add a PreToolUse/PostTo… | - | Skill |
@@ -147,3 +150,4 @@ Müdür: `departman-surec-ajan-arac`
 - whisper-flow/sesle-yazdirma · ALTERNATİF · video l_WQx_XUsRY
 
 ## Elle
+- Aday kaynağı (IG-41 #145): sickn33/agentic-awesome-skills (MIT). Toplu kurulmaz (bağlam patlar); eksik alanda tek tek skill seçip SkillSpector kapısından geçir.

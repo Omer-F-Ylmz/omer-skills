@@ -14,4 +14,5 @@ Kurallar:
 - MUST yalnız istenen kapsamı değiştir
 - Gönderim hızını sınırla
 - NEVER kanıtsız "bitti" deme
+- Göndermeden önce teslim edilebilirlik triyajı: SPF/DKIM/DMARC, spam tetikleyici kelime, liste temizliği; NEVER onaysız toplu gönderim (#75)
 Çıktı: Değişen dosyalar + doğrulama sonucu, ≤10 satır.

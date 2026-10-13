@@ -1,0 +1,15 @@
+23 davideast/stitch-mcp | stitch-mcp | var: resmi Stitch http MCP baðlý
+63 49 Marketing Skills | marketing-skills | kýsmen: marketing-skills@marketingskills, davila7 
+90 Blender iþ bazlý eðitim listesi | blender | kýsmen: blender-uretim, blender-oturum
+120 Blender | blender | var: Blender 5.2 kurulu + bl-* ajanlarý/skill'leri
+154 Playwright MCP | playwright | kurulu: mcp:playwright + plugin + playwright-cli-d
+167 Ponytail | ponytail | kurulu: plugin ponytail@ponytail + inc-ponytail-ko
+170 graphify | graphify | kurulu: skill graphify + graphify-desktop
+171 gstack | gstack | kurulu: gstack + gstack-upgrade + open-gstack-brow
+172 Codex plugin (codex-plugin-cc) | codex | kurulu: codex@openai-codex
+173 Cloudflare security-audit skill | cloudflare,security-audit | kýsmen: sec-* ajanlarý, trailofbits/skills
+176 ui-ux-pro-max | ui-ux-pro-max | kurulu: skill ui-ux-pro-max
+181 humanizer | humanizer | kurulu: humanizer@humanizer
+184 markitdown | markitdown | kurulu: mcp:markitdown + skill
+198 Agent Browser | agent-browser | kurulu: agent-browser@agent-browser
+envanter 887

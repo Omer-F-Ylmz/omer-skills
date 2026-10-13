@@ -18,6 +18,14 @@ def test_temiz_zip_gecer(tmp_path):
     assert zd.denetle(z) == []
 
 
+def test_gorunmez_unicode(tmp_path):
+    # IG-41 #164: sıfır genişlik / Unicode etiket karakterleriyle gizlenmiş talimat; .md dışı (ör. görsel) taranmaz
+    z = _zip(tmp_path / "g.zip", {"g/SKILL.md": "---\nname: g\ndescription: Does g. Use when g.\n---\nok​gizli\U000E0041\n",
+                                  "g/a.png": "​"})
+    s = " ".join(zd.denetle(z))
+    assert "görünmez" in s and "1 dosyada" in s
+
+
 def test_claude_ai_ret_nedenleri(tmp_path):
     # 16:40: claude.ai "description cannot contain XML tags" ile reddetti; blender-uretim zip'inde __pycache__ vardı
     z = _zip(tmp_path / "b.zip", {"b/SKILL.md": "---\nname: b\ndescription: says /b <ad|konu>.\n---\n",

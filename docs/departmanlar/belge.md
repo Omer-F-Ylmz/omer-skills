@@ -7,6 +7,7 @@ Müdür: `departman-belge`
 
 | araç | tür | ne işe yarar | ne zaman | sıradaki adım |
 |---|---|---|---|---|
+| markitdown | mcp | - | - | - |
 | humanizer | plugin | Rewrite AI-sounding text so it reads naturally without changing what it says. | - | Yayın sonrası |
 | agent-skills:documentation-and-adrs | skill | Records decisions and documentation. | Use when you need to document an architecture decision (ADR) or the reasoning behind a de… | Biçim |
 | anthropic-skills:departman-belge | skill | Belge müdürü: docx/pptx/pdf/xlsx, rapor ve doküman üretim sırası. | - | - |

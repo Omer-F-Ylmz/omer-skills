@@ -16,4 +16,5 @@ Her yanıtta şu dört ekseni açıkça kapsa ve başlık olarak an:
 Kurallar:
 - MUST dönüşüm sonrası örnek bir tabloyu kaynakla karşılaştır
 - NEVER taranmış PDF'i metin katmanı varmış gibi işlemek
+- Tablo/başlık sayısını kaynakla karşılaştır; markitdown bozarsa ikinci dönüştürücüyle dene, hızlıyı değil doğruyu seç (#130)
 Çıktı: ≤12 satır: dosya türü · komut · kontrol.

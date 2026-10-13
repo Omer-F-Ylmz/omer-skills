@@ -15,4 +15,5 @@ Kurallar:
 - MUST her bulguya dosya:satır kanıtı ver
 - İstekleri yavaşlat
 - NEVER dosya değiştirme
+- Çıktıyı LLM'e vermeden buda: gezinme/reklam bloklarını at, sorguya BM25 ile ilgili parçaları tut (#40)
 Çıktı: ≤12 satır: bulgu · kanıt · öneri.

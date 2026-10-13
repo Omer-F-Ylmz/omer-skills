@@ -558,6 +558,15 @@
   "kaynak": "jev"
  },
  {
+  "ad": "markitdown",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "0a3ee357c91c8e8e",
+  "departman": "belge",
+  "p": 0.56,
+  "kaynak": "jev"
+ },
+ {
   "ad": "humanizer",
   "tur": "plugin",
   "aciklama": "Rewrite AI-sounding text so it reads naturally without changing what it says.",
@@ -733,15 +742,6 @@
   "tur": "mcp",
   "aciklama": "",
   "hash": "40912fe90cf2f3d1",
-  "departman": "frontend",
-  "p": 1.0,
-  "kaynak": "elle"
- },
- {
-  "ad": "blender",
-  "tur": "mcp",
-  "aciklama": "Resmi Blender Lab MCP (stdio, uv): Blender 5.1+ içinde model Python'u çalıştırır; varlık, ışık, render işleri",
-  "hash": "e2d56115cb51f2df",
   "departman": "frontend",
   "p": 1.0,
   "kaynak": "elle"
@@ -1118,10 +1118,10 @@
  {
   "ad": "anthropic-skills:web-sahne-desenleri",
   "tur": "skill",
-  "aciklama": "Awwwards seviyesi site desenleri: WebGL reveal, scroll'a bağlı 3D ürün pozu, helezon galeri, editoryal tipografi ve sahne kalite kapısı. Premium landing, portfolyo ya da 3D hero işinde aç.",
-  "hash": "488ed53805faccd5",
+  "aciklama": "Premium landing, portfolyo ve 3D hero isinde ac: WebGL imlec reveal, scroll'a bagli 3D urun pozu, helezon galeri, editoryal tipografi ve sahne kalite kapisi. YildizDikme referanslarinin desen dokumu.",
+  "hash": "1489aff722fdd343",
   "departman": "frontend",
-  "p": 1.0,
+  "p": 0.99,
   "kaynak": "jev"
  },
  {
@@ -1899,6 +1899,15 @@
   "kaynak": "desen"
  },
  {
+  "ad": "blender",
+  "tur": "mcp",
+  "aciklama": "",
+  "hash": "787b467853b910b9",
+  "departman": "surec-ajan-arac",
+  "p": 0.82,
+  "kaynak": "jev"
+ },
+ {
   "ad": "jev",
   "tur": "mcp",
   "aciklama": "",
@@ -1933,6 +1942,15 @@
   "departman": "surec-ajan-arac",
   "p": 1.0,
   "kaynak": "desen"
+ },
+ {
+  "ad": "agent-browser",
+  "tur": "plugin",
+  "aciklama": "",
+  "hash": "17ac13de611b61d7",
+  "departman": "surec-ajan-arac",
+  "p": 0.95,
+  "kaynak": "jev"
  },
  {
   "ad": "agent-sdk-dev",
@@ -2043,6 +2061,15 @@
   "kaynak": "desen"
  },
  {
+  "ad": "marketing-skills",
+  "tur": "plugin",
+  "aciklama": "Marketing skills for AI agents — conversion optimization, copywriting, SEO, paid ads, ad creative, and growth",
+  "hash": "96e91ad8ae8f2864",
+  "departman": "surec-ajan-arac",
+  "p": 0.76,
+  "kaynak": "jev"
+ },
+ {
   "ad": "plugin-dev",
   "tur": "plugin",
   "aciklama": "Plugin development toolkit with skills for creating agents, commands, hooks, MCP integrations, and comprehensive plugin structure guidance",
@@ -2135,8 +2162,8 @@
  {
   "ad": "anthropic-skills:jev",
   "tur": "skill",
-  "aciklama": "Jev (TypeSafe) tipli yargı: çok öğeli sınıflandırma/puanlama, kalibre olasılık, ikinci görüş. jev_* araçları, soru yazımı, güven bantları.",
-  "hash": "80d673d80aaa375b",
+  "aciklama": "Jev (TypeSafe) tipli yargı. Kullanıcı birden çok öğeyi sınıflamak, etiketlemek ya da puanlamak istediğinde (yorum olumlu/olumsuz, commit biçimi uygun mu, yanıt 0-10), kalibre olasılık/güven, 'ikinci g",
+  "hash": "efb4488a4ab39f66",
   "departman": "surec-ajan-arac",
   "p": 1.0,
   "kaynak": "desen"
@@ -2360,8 +2387,8 @@
  {
   "ad": "plan-tune",
   "tur": "skill",
-  "aciklama": "Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack)",
-  "hash": "3442025edea610c2",
+  "aciklama": "Self-tuning question sensitivity and developer psychographic for gstack (v1: observational) (gstack). Reviews which AskUserQuestion prompts fire across gstack skills, sets per-question preferences (ne",
+  "hash": "2ef62c98e5086aac",
   "departman": "surec-ajan-arac",
   "p": 1.0,
   "kaynak": "desen"
@@ -2855,8 +2882,8 @@
  {
   "ad": "devex-review",
   "tur": "skill",
-  "aciklama": "Live developer experience audit. (gstack)",
-  "hash": "5c759c6ccb5b9a4a",
+  "aciklama": "Live developer experience audit. (gstack) Actually tests the developer experience in the Aside browser: navigates docs, tries the getting started flow, times TTHW, screenshots error messages, evaluate",
+  "hash": "875d52531424648a",
   "departman": "surec-inceleme",
   "p": 1.0,
   "kaynak": "desen"

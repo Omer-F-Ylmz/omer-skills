@@ -7,6 +7,9 @@ Müdür: `departman-frontend`
 
 | araç | tür | ne işe yarar | ne zaman | sıradaki adım |
 |---|---|---|---|---|
+| blender-dogrulama | cli | Blender doğrulama katmanı: blender_cli sözleşmesi · sayısal kapı (dogrula) · Workbench/Ee… | - | - |
+| blender-uretim | cli | Blender üretim araçları: gpu_kilit (GPU tek iş) · varlik_indir (Poly Haven + ambientCG CC… | - | - |
+| comfyui | cli | ComfyUI v0.38 (GPL-3.0, yerel, 127.0.0.1:8188): gorsel-uret skill'inin çalıştırdığı görse… | - | - |
 | 21st | mcp | - | - | - |
 | claude-design | mcp | - | - | Yığın |
 | figma | mcp | - | - | Yığın |
@@ -26,6 +29,7 @@ Müdür: `departman-frontend`
 | agent-skills:frontend-ui-engineering | skill | Builds production-quality, accessible, responsive user-facing UIs. | Use when building or modifying interfaces and pages, creating components, implementing la… | - |
 | anthropic-skills:apple-design | skill | Cross-platform UI/UX reviewer grounded in Apple HIG plus design-craft lens. | - | - |
 | anthropic-skills:baseline-ui | skill | Quickly deslop UI code by fixing spacing, hierarchy, typography, and small layout issues. | Use when the interface needs a fast cleanup or polish pass | - |
+| anthropic-skills:blender-uretim | skill | Blender üretim orkestrası: brief → ölçü → adlandırma → sahne=kod → 8 aşama + dogrula kapı… | - | - |
 | anthropic-skills:create-design-md | skill | Create or update a DESIGN.md from an existing product repository or public website. | Use when asked to document an interface's design language, reconstruct its visual system,… | Yığın |
 | anthropic-skills:creative-coding | skill | Motion design and creative coding for web: scroll animation, WebGL/canvas, GSAP, Three.js… | Use for animated heroes or immersive interactive graphics | - |
 | anthropic-skills:departman-frontend | skill | Frontend/UI müdürü: hangi tasarım aracı hangi sırayla. | - | - |
@@ -48,7 +52,7 @@ Müdür: `departman-frontend`
 | anthropic-skills:vercel-react-native-skills | skill | React Native and Expo best practices for performant mobile apps. | Use for RN components, list performance, animations, or native module work with Expo or n… | - |
 | anthropic-skills:vercel-react-view-transitions | skill | Guide for React View Transition API (ViewTransition, addTransitionType). | Use for page transitions, route/shared-element animation, list reorder, or directional na… | - |
 | anthropic-skills:web-design-guidelines | skill | Web Interface Guidelines uyumu icin UI kodunu gozden gecirir. | "arayuzumu incele", "erisilebilirlik kontrolu", "tasarim denetimi" ya da "siteyi en iyi u… | - |
-| anthropic-skills:web-sahne-desenleri | skill | Awwwards seviyesi site desenleri: WebGL reveal, scroll'a bağlı 3D ürün pozu, helezon gale… | Premium landing, portfolyo ya da 3D hero işinde aç | Screenshot döngüsü |
+| anthropic-skills:web-sahne-desenleri | skill | Premium landing, portfolyo ve 3D hero isinde ac: WebGL imlec reveal, scroll'a bagli 3D ur… | - | Screenshot döngüsü |
 | claude-mem:design-is | skill | Audit a design against Dieter Rams' ten "Good design is..." principles, then hand off a /… | Use when the user says "au | - |
 | design-consultation | skill | Design consultation: understands your product, researches the landscape, proposes a compl… | - | - |
 | design-html | skill | Design finalization: generates production-quality Pretext-native HTML/CSS. | - | - |
@@ -68,6 +72,7 @@ Müdür: `departman-frontend`
 | example-skills:web-artifacts-builder | skill | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using mod… | Use for complex artifacts requiring state manag | - |
 | frontend-craft:frontend-craft | skill | Web arayüzü (landing, vitrin, panel) tasarım-uygulama disiplini — marka kararı, referans … | HTML/CSS/Tailwind/Razor işinde önce yükle | Yığın |
 | frontend-design:frontend-design | skill | Guidance for distinctive, intentional visual design when building new UI or reshaping an … | - | - |
+| gorsel-uret | skill | Yerel ComfyUI ile ücretsiz görsel üretimi: Z-Image fp8 · FLUX.2 klein · Real-ESRGAN · rem… | - | - |
 | impeccable:impeccable | skill | Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, dis… | Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, dis… | Screenshot döngüsü |
 | nano-banana-2:generate-image | skill | Generate images using nano-banana-2 MCP tools with best-practice prompting. | Use this skill when the user asks to create, generate, or edit images | - |
 | nateherk-design:scroll-craft | skill | Build premium scroll-driven landing pages for service, product, food, and drink brands. | - | Screenshot döngüsü |
@@ -83,6 +88,7 @@ Müdür: `departman-frontend`
 | taste-skill:stitch-skill | skill | Semantic Design System Skill for Google Stitch. | - | - |
 | taste-skill:taste-skill | skill | Anti-slop frontend skill for landing pages, portfolios, and redesigns. | - | Screenshot döngüsü |
 | taste-skill:taste-skill-v1 | skill | The original v1 taste-skill, preserved for projects depending on its exact behavior. | Use this v1 insta | - |
+| threejs-awesome-graphics | skill | Three.js render tekniği paketi (24 skill): atmosfer, bulut, okyanus, SSAO, bloom, gölge, … | - | - |
 | ui-ux-pro-max | skill | UI/UX design intelligence for web, mobile, and desktop. | - | Yapım (iki-pass) |
 | threejs-spiral-gallery | uygulama | Claude Code'a (Opus 4.7) tek promptla ürettirilen, Three.js+GLSL 3D sarmal (helezon) görs… | Trigger'lı vanilla JS stüdyo landing page demosu | - |
 
@@ -314,3 +320,6 @@ Müdür: `departman-frontend`
 - Başlık metni + sağda kayan sohbet balonları (animasyonlu açıklama grafiği) · video kMk4pvFJ13s · 0:16 · kaynak: kare
 
 ## Elle
+- shadcn-ui-mcp-server (IG-41 #140): global kurulmaz; gereken projenin `.mcp.json`'ına stdio: `{"mcpServers":{"shadcn-ui":{"command":"npx","args":["-y","@jpisnice/shadcn-ui-mcp-server"]}}}`. Hesap gerekmez (GitHub token yalnız hız sınırı için, isteğe bağlı). Tarama: gitleaks 2, semgrep 0E/6, SkillSpector SC4 CRITICAL = proxy-addr 2.0.7 CVE (yalnız HTTP modunda güvenilen vekil ayarıyla anlamlı; stdio'da etkisiz).
+- stitch-skills (IG-41 #22, Apache-2.0): bağlı Stitch MCP üstünde sıra generate-design → upload-to-stitch → extract-design-md; çıkan DESIGN.md frontend-craft'a girdi.
+- MotionSites.ai (IG-41 #14): ücretli kütüphane kurulmaz; prompt kalıbı alınır: tek HTML, ekrandakini birebir üret, uydurma bölüm ekleme.
