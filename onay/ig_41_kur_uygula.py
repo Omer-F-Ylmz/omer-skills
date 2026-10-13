@@ -23,7 +23,10 @@ EK = {"animation-performance": ["performance-cheatsheet.md"]}  # repo kökü →
 INCELENDI = {"anatomy": {"AE1", "AS1", "PE3", "SC3", "P6"},
              # d3: AE1 = SKILL.md kendi forge/*.py hattını çağırır; E2/AS1/PE3 testler, .gitignore, docs; AR2 ekran görüntüsü alanı; P2 PR şablonu yorumu
              "img2threejs": {"AE1", "AR2", "AS1", "E2", "P2", "PE3"},
-             "hairline-create": {"OH1", "PE3"}}  # d3: ikisi de skills/ dışında (publish.yml .npmrc, site kopyala düğmesi)
+             # d3: OH1/PE3 skills/ dışında (publish.yml .npmrc, site kopyala düğmesi); d5 (a221785): AE1 = SKILL.md'nin
+             # kendi kernel.js/build/validate/look.mjs'i "tam incelenemedi" — elle okundu: eval/ağ/sızma yok, yalnız
+             # look.mjs ilk koşuda playwright-core@1'i %LOCALAPPDATA%\hairline-look'a npm ile kurar (loglu), Chrome headless
+             "hairline-create": {"AE1", "OH1", "PE3"}}
 # (ad, repo, etiket, varlık, sha256) — Ev/Apps/<ad> altına açılır
 ZIP = [("dbx", "t8y2/dbx", "v0.6.42", "DBX_0.6.42_x64-portable.zip",
         "4e0a917f3612843750d2595dc9eebb5dc7e3dd42ee9152029c674b586d55fc73"),
@@ -43,7 +46,20 @@ def yedek(ev):
     return ev / ".claude" / "ig41-kur-yedek"
 
 
+def git_bash():
+    """Git for Windows bash.exe; PATH'teki 'bash' WSL'in System32\\bash.exe'si olabilir, ona güvenilmez."""
+    git = shutil.which("git")
+    adaylar = ([Path(git).resolve().parents[1] / "bin" / "bash.exe"] if git else []) + [Path(r"C:\Program Files\Git\bin\bash.exe")]
+    return next((str(p) for p in adaylar if p.exists()), None)
+
+
 def kos(*a, cwd=None):
+    if a[0] == "bash":
+        b = git_bash()
+        if not b:
+            print("ATLANDI: Git bash yok", *a[1:])
+            return subprocess.CompletedProcess(a, 127, "", "Git bash yok")
+        a = (b, *a[1:])
     a = (shutil.which(a[0]) or a[0], *a[1:])  # npm Windows'ta npm.cmd
     return subprocess.run(a, capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=cwd,
                           creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
@@ -106,11 +122,23 @@ def plan(ev=EV):
             + [("uv-guncel", ad, u.get(ad, "").lstrip("v") != b.split("==")[1]) for ad, b in UV_GUNCEL.items()]
             + [("plugin-guncel", ad, not p.get(ad, [{}])[0].get("gitCommitSha", "").startswith(c))
                for ad, c in PLUGIN_GUNCEL.items()]
-            + [("gstack-guncel", str(GSTACK), not (GSTACK / ".git").exists())])
+            + [("gstack-guncel", str(GSTACK), gstack_guncel())])
+
+
+def gstack_guncel():
+    """HEAD == uzak origin/main (ls-remote: fetch'siz, yerel ref'leri değiştirmez); repo/ağ yoksa False."""
+    head = kos("git", "-C", str(GSTACK), "rev-parse", "HEAD").stdout.strip()
+    uzak = (kos("git", "-C", str(GSTACK), "ls-remote", "origin", "refs/heads/main").stdout.split() or [""])[0]
+    return bool(head) and head == uzak
 
 
 def uygula(ev=EV):
     once, eklenen = mcp_var_mi(ev), []
+    eski = json.loads(bildirim(ev).read_text(encoding="utf-8")) if bildirim(ev).exists() else []
+
+    def ekle(e):  # her eklemeden sonra yazılır: sonraki adım çökse de --geri kaydı kalır
+        eklenen.append(e)
+        bildirim(ev).write_text(json.dumps(eski + eklenen, ensure_ascii=False, indent=1), encoding="utf-8")
     var = {(t, ad) for t, ad, k in plan(ev) if k}
     y = yedek(ev)
     y.mkdir(parents=True, exist_ok=True)
@@ -119,10 +147,10 @@ def uygula(ev=EV):
             continue
         kos("claude", "plugin", "marketplace", "add", repo)
         if kos("claude", "plugin", "install", ad).returncode == 0:
-            eklenen.append(["plugin", ad])
+            ekle(["plugin", ad])
     for ad in NPM:
         if ("npm", ad) not in var and kos("npm", "install", "-g", ad).returncode == 0:
-            eklenen.append(["npm", ad])
+            ekle(["npm", ad])
     for repo, alt, ad in SKILL:
         if ("skill", ad) in var:
             continue
@@ -137,7 +165,7 @@ def uygula(ev=EV):
                 print("KURULMADI", ad, neden)
                 continue
             shutil.copytree(Path(t) / "r" / alt, ev / ".claude" / "skills" / ad, ignore=shutil.ignore_patterns(".git"))
-            eklenen.append(["skill", ad])
+            ekle(["skill", ad])
     for ad, repo, etiket, varlik, sha in ZIP:
         if ("zip", ad) in var:
             continue
@@ -147,10 +175,10 @@ def uygula(ev=EV):
                 print("KURULMADI", ad, "indirme yok ya da sha256 tutmadı")
                 continue
             zipfile.ZipFile(Path(t) / varlik).extractall(ev / "Apps" / ad)
-            eklenen.append(["zip", str(ev / "Apps" / ad)])
+            ekle(["zip", str(ev / "Apps" / ad)])
     for ad, geri_belirtec in UV_GUNCEL.items():
         if ("uv-guncel", ad) not in var and kos("uv", "tool", "upgrade", ad).returncode == 0:
-            eklenen.append(["uv-guncel", geri_belirtec])
+            ekle(["uv-guncel", geri_belirtec])
     pj = ev / ".claude" / "plugins"
     for f in ("installed_plugins.json", "known_marketplaces.json"):
         if (pj / f).exists() and not (y / f).exists():
@@ -164,14 +192,12 @@ def uygula(ev=EV):
             shutil.copytree(yol, y / "cache" / yol.name / ad)
         kos("claude", "plugin", "marketplace", "update", ad.split("@")[1])
         if kos("claude", "plugin", "update", ad).returncode == 0:
-            eklenen.append(["plugin-guncel", ad, str(yol)])
+            ekle(["plugin-guncel", ad, str(yol)])
     if ("gstack-guncel", str(GSTACK)) not in var:
         onceki = kos("git", "-C", str(GSTACK), "rev-parse", "HEAD").stdout.strip()
         if kos("git", "-C", str(GSTACK), "pull", "--ff-only", "origin", "main").returncode == 0:
+            ekle(["gstack-guncel", onceki])  # pull geri alınacak değişiklik; setup çökse de kayıtlı
             kos("bash", "./setup", cwd=str(GSTACK))
-            eklenen.append(["gstack-guncel", onceki])
-    eski = json.loads(bildirim(ev).read_text(encoding="utf-8")) if bildirim(ev).exists() else []
-    bildirim(ev).write_text(json.dumps(eski + eklenen, ensure_ascii=False, indent=1), encoding="utf-8")
     for e in eklenen:
         print("eklendi", *e[:2])
     return once == mcp_var_mi(ev)

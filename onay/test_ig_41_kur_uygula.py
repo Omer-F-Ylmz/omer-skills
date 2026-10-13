@@ -51,3 +51,57 @@ def test_geri_yalniz_eklenenleri_alir_plugin_jsonu_doner(monkeypatch, tmp_path):
     assert not (sk / "anatomy").exists() and (sk / "onceden").exists()
     assert (pj / "installed_plugins.json").read_text(encoding="utf-8") == "eski"
     assert not m.bildirim(tmp_path).exists()
+
+
+def test_git_bash_git_kurulumundan_bulunur(monkeypatch, tmp_path):
+    (tmp_path / "Git" / "cmd").mkdir(parents=True)
+    (tmp_path / "Git" / "bin").mkdir()
+    (tmp_path / "Git" / "bin" / "bash.exe").write_bytes(b"")
+    monkeypatch.setattr(m.shutil, "which", lambda ad: str(tmp_path / "Git" / "cmd" / "git.exe") if ad == "git" else None)
+    assert m.git_bash() == str(tmp_path / "Git" / "bin" / "bash.exe")
+
+
+def test_kos_bash_git_bashi_kullanir_yoksa_cokmez(monkeypatch):
+    cagri = []
+    monkeypatch.setattr(m.subprocess, "run", lambda a, **k: cagri.append(a) or subprocess.CompletedProcess(a, 0, "", ""))
+    monkeypatch.setattr(m, "git_bash", lambda: r"X:\Git\bin\bash.exe")
+    m.kos("bash", "./setup")
+    assert cagri[-1][0] == r"X:\Git\bin\bash.exe"
+    monkeypatch.setattr(m, "git_bash", lambda: None)
+    assert m.kos("bash", "./setup").returncode != 0 and len(cagri) == 1
+
+
+def _sahte_plan(monkeypatch, kos):
+    monkeypatch.setattr(m, "kos", kos)
+    monkeypatch.setattr(m, "kurulu_uv", lambda: {})
+    monkeypatch.setattr(m, "kurulu_npm", lambda: set())
+
+
+def test_gstack_guncel_head_origin_main_esitse(monkeypatch, tmp_path):
+    (tmp_path / ".git").mkdir()
+    monkeypatch.setattr(m, "GSTACK", tmp_path)
+    uzak = {"v": "abc"}
+    _sahte_plan(monkeypatch, lambda *a, cwd=None: subprocess.CompletedProcess(
+        a, 0, "abc\n" if "rev-parse" in a else uzak["v"] + "\trefs/heads/main\n" if "ls-remote" in a else "", ""))
+    gst = lambda: [k for t, _, k in m.plan(tmp_path) if t == "gstack-guncel"][0]
+    assert gst()
+    uzak["v"] = "def"
+    assert not gst()
+    _sahte_plan(monkeypatch, lambda *a, cwd=None: subprocess.CompletedProcess(a, 128, "", ""))
+    assert not gst()  # repo/ağ yoksa güncel sayılmaz
+
+
+def test_bildirim_cokuste_de_yazilir(monkeypatch, tmp_path):
+    def kos(*a, cwd=None):
+        if a[0] == "bash":
+            raise FileNotFoundError("bash")
+        return subprocess.CompletedProcess(a, 0, "onceki\n" if "rev-parse" in a else "", "")
+    monkeypatch.setattr(m, "kos", kos)
+    hepsi = ([("plugin", a) for _, a in m.PLUGIN] + [("npm", a) for a in m.NPM] + [("skill", a) for *_, a in m.SKILL]
+             + [("zip", z[0]) for z in m.ZIP] + [("uv-guncel", a) for a in m.UV_GUNCEL])
+    monkeypatch.setattr(m, "plan", lambda ev: [(t, a, True) for t, a in hepsi] + [("gstack-guncel", str(m.GSTACK), False)])
+    try:
+        m.uygula(tmp_path)
+    except FileNotFoundError:
+        pass
+    assert json.loads(m.bildirim(tmp_path).read_text(encoding="utf-8")) == [["gstack-guncel", "onceki"]]
