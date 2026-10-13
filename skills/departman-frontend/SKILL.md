@@ -8,7 +8,7 @@ description: "Frontend/UI müdürü: hangi tasarım aracı hangi sırayla. Aray�
 Ana hat `frontend-craft`. Çakışmada sıra: frontend-craft > impeccable > ui-ux-pro-max > taste-* > diğerleri; alttakinin kuralı düşer.
 Katalog: `docs/departmanlar/frontend.md` · yaşam döngüsü: `docs/departmanlar/organizasyon.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
-Katalogda bulunmayan, alan dışı ya da emin olunmayan iş: Skill `yetenek-getir` (3.3k araç, işle ilgili her şey, gruplu).
+Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>` eki geldiyse yalnız ondan seç, ek sorgu yok; gelmediyse TEK kez Skill `yetenek-getir` (iş başına ayrı sorgu yok). Rutin tek alanlı işte katalog yok.
 
 ## Adımlar
 1. **Tasarım kararı** — `DESIGN.md` yoksa önce o: mevcut ürün/site için `create-design-md`, URL'den `design-extractor` · `taste`, görselden `design-dna`. Sonra `frontend-craft` yükle (mod tespiti REF/FREE, yön keşfi → DESIGN.md → DUR). Yön keşfi görsel isterse tuval: `claude-design` · `figma` · `stitch` (DESIGN.md yine önce).
