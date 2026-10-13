@@ -1,11 +1,11 @@
 # Vitrin teknikleri — öne çıkan sitelerin mekanizma kataloğu
 
-Kaynak: TASARIM-3 (13 Eki 2026) headless ölçüm, ~45 site: awwwards SOTD, siteinspire, land-book, lapa.ninja, onepagelove, godly seçkisi, vitrinlerin kendisi (21st.dev, recent.design, designprompts.dev, mobbin, refero, godly) + tasarim-katalog'un 20 sitesi. Yalnız **mekanizma** (yığın, ölçü, zamanlama); kod, varlık, birebir düzen kopyalanmaz. Dribbble/mobbin/refero canlı site değil ekran galerisi: yalnız referans görsel kaynağı.
+Kaynak: TASARIM-3 (13 Eki 2026) headless ölçüm, 64 site (d2: + IG-41 listesinden 18 site — cash.app, igloo.inc, unicorn.studio, spline, skiper-ui, originkit…): awwwards SOTD, siteinspire, land-book, lapa.ninja, onepagelove, godly seçkisi, vitrinlerin kendisi (21st.dev, recent.design, designprompts.dev, mobbin, refero, godly) + tasarim-katalog'un 20 sitesi. Yalnız **mekanizma** (yığın, ölçü, zamanlama); kod, varlık, birebir düzen kopyalanmaz. Dribbble/mobbin/refero canlı site değil ekran galerisi: yalnız referans görsel kaynağı.
 
 **Okuma kuralı (jeton):** bu dosyanın tamamını okuma. DESIGN.md'de seçilen yönün başlığını `grep -n "^## "` ile bul, yalnız o bölümü oku. Editoryal dil (kıl çizgi, gren, `difference` nav, sticky hero, fluid reveal, scrub poz, helezon galeri) ve sahne kalite kapısı `web-sahne-desenleri`'nde — burada tekrarlanmaz; iki kaynak çakışırsa o skill geçerli.
 
 ## Ölçülen gerçekler (karar verirken dayanak)
-- Yığın sıklığı: GSAP 14 · ScrollTrigger 13 · WebGL 13 · Next/React 12 · Lenis 10 · Motion 10 · Three 10 · R3F/Astro/Barba 2'şer. Kalıp: **Lenis + GSAP/ScrollTrigger** (editoryal/ajans) ya da **Next + Motion (+R3F)** (ürün/stüdyo).
+- Yığın sıklığı (64 site, IG-41 vitrin listesi dahil): React 33 · GSAP 26 · Next 24 · Motion 22 · WebGL 21 · ScrollTrigger 21 · Lenis 18 · Three 13 · R3F/Astro/Nuxt 3'er · Barba 2. UI süreleri 0.15–0.3s baskın. Kalıp: **Lenis + GSAP/ScrollTrigger** (editoryal/ajans) ya da **Next + Motion (+R3F)** (ürün/stüdyo).
 - Easing: en sık `cubic-bezier(.19,1,.22,1)` (expo-out), `cubic-bezier(.175,.885,.32,1.275)` (back-out, yalnız küçük öğe), `cubic-bezier(.4,0,.2,1)`. Süre basamakları 0.15 / 0.2–0.3 / 0.45 / 0.6 s; giriş animasyonu 0.8–1.2 s.
 - Display tipi: ajans hero'larında h1 100–250 px (gövdenin 6–18 katı), satır yüksekliği 0.8–1.0, harf aralığı −0.01…−0.05em. Ürün sitelerinde h1 36–64 px, oran 2.5–4.
 - Performans: ağır WebGL'li sitelerde masaüstü LCP 8–11 s (resn, nickho, maxima); yalın sitelerde 0.3–1 s (cuberto 0.46 s, basement 2.6 MB JS'e rağmen 0.6 s — hero DOM metni, WebGL sonradan). CLS bozulması preloader + font değişimi + geç yüklenen görsel: 0.24–0.73 (oathbiome, okaydev mobil, heronai). Ders: **LCP öğesi DOM metni/görseli olsun, canvas değil; preloader içeriği itmesin.**
