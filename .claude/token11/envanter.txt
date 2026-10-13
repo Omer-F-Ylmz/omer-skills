@@ -1,0 +1,38 @@
+liste: 2244 satır · 74997 kr · açıklamalı 34 · override Counter({'name-only': 2416, 'off': 329, 'on': 11})
+sahiplik (n · tam açıklama kr toplamı, listede değil): {'yerel-diger': (623, 173044), 'yerel-bizim': (6, 2526), 'plugin': (1344, 331578), 'plugin-bizim': (2, 397), 'claudeai-diger': (237, 271), 'claudeai-bizim': (32, 0)} · açıklaması bulunan 1614
+tümü açıklamalı olsaydı ≈ 575859 kr
+  IGGER — read BEFORE opening the target file; don't skip because it "looks like a one-liner" — whenever · yerel-diger · - · 490 kr · B kazanç 0
+  IP only when another provider is being worked on (overrides all triggers) · yerel-diger · - · 243 kr · B kazanç 0
+  agent-skills:api-and-interface-design · plugin · name-only · 251 kr · B kazanç 0
+  agent-skills:documentation-and-adrs · plugin · name-only · 290 kr · B kazanç 0
+  agent-skills:git-workflow-and-versioning · plugin · name-only · 424 kr · B kazanç 0
+  agent-skills:security-and-hardening · plugin · name-only · 581 kr · B kazanç 0
+  animasyon-atolyesi · yerel-bizim · - · 198 kr · B kazanç 108
+  anthropic-skills:blender-oturum · claudeai-bizim · - · 179 kr · B kazanç 89
+  anthropic-skills:blender-uretim · claudeai-bizim · - · 218 kr · B kazanç 128
+  anthropic-skills:departman-arastirma-ogrenme · claudeai-bizim · - · 130 kr · B kazanç 40
+  anthropic-skills:departman-backend-dotnet · claudeai-bizim · - · 115 kr · B kazanç 25
+  anthropic-skills:departman-belge · claudeai-bizim · - · 131 kr · B kazanç 41
+  anthropic-skills:departman-frontend · claudeai-bizim · - · 125 kr · B kazanç 35
+  anthropic-skills:departman-guvenlik · claudeai-bizim · - · 126 kr · B kazanç 36
+  anthropic-skills:departman-surec-ajan-arac · claudeai-bizim · - · 115 kr · B kazanç 25
+  anthropic-skills:departman-surec-git-yayin · claudeai-bizim · - · 116 kr · B kazanç 26
+  anthropic-skills:departman-surec-plan · claudeai-bizim · - · 100 kr · B kazanç 10
+  anthropic-skills:departman-test-qa · claudeai-bizim · - · 131 kr · B kazanç 41
+  anthropic-skills:departman-veri-db · claudeai-bizim · - · 121 kr · B kazanç 31
+  anthropic-skills:departman-verimlilik · claudeai-bizim · - · 134 kr · B kazanç 44
+  anthropic-skills:jev · claudeai-bizim · - · 527 kr · B kazanç 437
+  anthropic-skills:video-izle · claudeai-bizim · - · 178 kr · B kazanç 88
+  anthropic-skills:video-tarama · claudeai-bizim · - · 181 kr · B kazanç 91
+  anthropic-skills:web-sahne-desenleri · claudeai-bizim · - · 199 kr · B kazanç 109
+  awesome-rehber · yerel-bizim · - · 900 kr · B kazanç 810
+  claude-api:claude-api · plugin · name-only · 150 kr · B kazanç 0
+  claude-hud:setup · plugin · name-only · 39 kr · B kazanç 0
+  ecc:backend-patterns · plugin · name-only · 236 kr · B kazanç 0
+  example-skills:webapp-testing · plugin · name-only · 204 kr · B kazanç 0
+  frontend-craft:frontend-craft · plugin · - · 195 kr · B kazanç 0
+  impeccable:impeccable · plugin · - · 895 kr · B kazanç 0
+  nateherk-design:scroll-craft · plugin · name-only · 856 kr · B kazanç 0
+  superpowers:brainstorming · plugin · name-only · 198 kr · B kazanç 0
+  superpowers:using-superpowers · plugin · on · 154 kr · B kazanç 0
+B (bizim açıklamalı satırlar ≤90 kr) fark: 2214 kr
