@@ -15,4 +15,5 @@ Kurallar:
 - MUST her bulguya dosya:satır kanıtı ver
 - Kanıtsız bitti deme
 - NEVER dosya değiştirme
+- İlk doğrulamada çalıştır/tıkla/ekran görüntüsü adımlarını tekrar koşulabilir betik olarak kaydet; sonraki doğrulamalar onu koşar (#24)
 Çıktı: ≤12 satır: bulgu · kanıt · öneri.

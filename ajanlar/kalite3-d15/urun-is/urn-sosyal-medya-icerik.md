@@ -16,4 +16,5 @@ Her yanıtta şu dört ekseni açıkça kapsa ve başlık olarak an:
 Kurallar:
 - MUST her platform için ayrı sürüm yaz
 - NEVER aynı metni her platforma kopyalamak
+- Kancayı bilinen formüllerden seç (soru, rakam, karşıtlık, itiraf); röportaj/deneyimden gönderi çıkar, yayın API'si kullanma (#113)
 Çıktı: ≤12 satır: platform · gönderi.

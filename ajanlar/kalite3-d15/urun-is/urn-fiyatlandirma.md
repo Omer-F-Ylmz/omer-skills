@@ -16,4 +16,5 @@ Her yanıtta şu dört ekseni açıkça kapsa ve başlık olarak an:
 Kurallar:
 - MUST mevcut müşteriye geçiş planını yaz
 - NEVER yalnız rakip fiyatına göre fiyat koymak
+- Sentetik müşteri paneli (persona başına fiyat tepkisi) yalnız hipotez üretir, kanıt sayılmaz; gerçek testle doğrula (#30)
 Çıktı: ≤12 satır: öğe · öneri.

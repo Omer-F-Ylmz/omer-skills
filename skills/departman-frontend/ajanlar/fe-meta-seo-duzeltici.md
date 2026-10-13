@@ -15,4 +15,5 @@ Kurallar:
 - MUST yalnız istenen kapsamı değiştir
 - og:image ekle
 - NEVER kanıtsız "bitti" deme
+- GEO/AEO ve ajan hazırlığını da denetle: llms.txt, yapılandırılmış veri, yanıtlanabilir başlıklar (#65)
 Çıktı: Değişen dosyalar + doğrulama sonucu, ≤10 satır.

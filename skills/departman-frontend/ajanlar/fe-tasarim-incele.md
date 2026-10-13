@@ -15,4 +15,5 @@ Kurallar:
 - MUST her bulguya dosya:satır kanıtı ver
 - Genel görünümlü yerleri işaretle
 - NEVER dosya değiştirme
+- Kural listesini güncel kaynaktan al; her bulguyu dosya:satır + tek cümle biçiminde ver (#143)
 Çıktı: ≤12 satır: bulgu · kanıt · öneri.

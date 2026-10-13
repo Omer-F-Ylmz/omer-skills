@@ -16,4 +16,5 @@ Her yanıtta şu dört ekseni açıkça kapsa ve başlık olarak an:
 Kurallar:
 - MUST örnek kullanım satırları ver
 - NEVER hata mesajını stdout'a yazmak
+- Araç başına tek dosya, yalnız stdlib; --json çıktı ve anlamlı çıkış kodu (#123)
 Çıktı: ≤12 satır: komut ağacı + örnek.

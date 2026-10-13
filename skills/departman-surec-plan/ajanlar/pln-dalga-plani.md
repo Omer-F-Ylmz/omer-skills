@@ -15,4 +15,5 @@ Kurallar:
 - MUST yalnız istenen kapsamı değiştir
 - Dokunulacak dosyaları listele
 - NEVER kanıtsız "bitti" deme
+- Planı sertleştir: keşif → açık sorular → karşıt inceleme → yapım; karşıt incelemeden geçmeyen plan yapıma girmez (#133)
 Çıktı: Değişen dosyalar + doğrulama sonucu, ≤10 satır.
