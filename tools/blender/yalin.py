@@ -49,7 +49,7 @@ CEKIRDEK = ('Blender sahnesini tek spec JSON ile kurarsın (bpy yok). Yanıt: YA
             'n: [{ad, a: fincan|tabak|cezve|sap ya da t: kup|silindir|kure|koni|duzlem|torus, b: [x,y,z] m (dönel [çap,çap,h]), '
             'm: malzeme, k: konum (yoksa zemine oturur), bitisik: {hedef: önceki ad, yon: +X|-X|+Y|-Y|+Z|-Z} (o yüze yaslanır; '
             'üstünde +Z), ust: koni üst/alt çap oranı, ekler: [{t,b,k}] gövdeye birleşir}] · isik · '
-            'onizle/render: {yol, px, motor: eevee|cycles} · kaydet · ozet: [ad,tur,boyut,konum,malzeme,ucgen,uv].\n'
+            'onizle/render: {yol, px, motor: eevee|cycles} · kaydet · ozet: alanlar ⊂ [ad,tur,boyut,konum,malzeme,ucgen,uv] (nesne adı değil).\n'
             'Ölçüsü verilen yeni nesneye "beklenen": {ad: [x,y,z]} (m, dış kutu). Sahnedekini yeniden yaratma.\n')
 MODUL = {
     ("dön", "360", "turntable"): "turntable: {nesne, son: son kare, n: 4} → Z'de 1..son 0→360° doğrusal, kare [1,son], "

@@ -30,6 +30,12 @@ def test_sablon_turntable_doldurur():
     assert s["nesneler"][0]["tur"] == "silindir"
 
 
+def test_kaydet_true_klasor_varsayilani():  # b5p g3/g4: Path(True) Blender'da çöktü
+    s = tarif.duzelt({"klasor": "C:/d", "kaydet": True, "onizle": True})
+    assert s["kaydet"] == "C:/d/sahne.blend" and s["onizle"]["yol"] == "C:/d/onizleme.png"
+    assert tarif.dogrula({"kaydet": True, "glb": True}) == ["kaydet: dosya yolu olmalı", "glb: dosya yolu olmalı"]
+
+
 def test_sablon_acik_anahtari_ezmez():
     s = tarif.duzelt({"sablon": "kahraman_metal", "klasor": "C:/d", "isik": "urun", "onizle": {"yol": "C:/d/x.png"}})
     assert s["isik"] == "urun" and s["onizle"] == {"yol": "C:/d/x.png"}
