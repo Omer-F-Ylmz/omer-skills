@@ -17,7 +17,9 @@ PLUGIN = [("Jakeschincariol/youtube-agent-skill", "youtube-agent@youtube-agent-s
           ("anthropics/claude-for-legal", "privacy-legal@claude-for-legal")]
 NPM = ["skills"]  # vercel-labs/skills: `npx skills find` kayıt defteri araması
 SKILL = [("wheresryan22/anatomy", ".", "anatomy"), ("lucasmarkes/hairline", "skills/hairline-create", "hairline-create"),
-         ("img2threejs/img2threejs", ".", "img2threejs")]
+         ("img2threejs/img2threejs", ".", "img2threejs"),
+         ("emilkowalski/skills", "skills/animation-performance", "animation-performance")]  # d4: #102, SS 0 bulgu
+EK = {"animation-performance": ["performance-cheatsheet.md"]}  # repo kökü → skill klasörü (taramadan önce)
 INCELENDI = {"anatomy": {"AE1", "AS1", "PE3", "SC3", "P6"},
              # d3: AE1 = SKILL.md kendi forge/*.py hattını çağırır; E2/AS1/PE3 testler, .gitignore, docs; AR2 ekran görüntüsü alanı; P2 PR şablonu yorumu
              "img2threejs": {"AE1", "AR2", "AS1", "E2", "P2", "PE3"},
@@ -128,6 +130,8 @@ def uygula(ev=EV):
             if kos("git", "clone", "--depth", "1", "-c", "core.hooksPath=NUL", f"https://github.com/{repo}", t + "/r").returncode:
                 print("klon başarısız", ad)
                 continue
+            for f in EK.get(ad, []):
+                shutil.copy2(Path(t) / "r" / f, Path(t) / "r" / alt / f)
             gecer, neden = ss_gecer(ad, Path(t) / "r" / alt)
             if not gecer:
                 print("KURULMADI", ad, neden)

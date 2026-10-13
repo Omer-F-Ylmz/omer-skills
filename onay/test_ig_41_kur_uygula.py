@@ -27,6 +27,10 @@ def test_ss_cikti_yoksa_kurulmaz(monkeypatch, tmp_path):
     assert m.ss_gecer("anatomy", tmp_path) == (False, "skillspector çıktısı yok")
 
 
+def test_ek_dosyalar_bilinen_skille_ait():
+    assert set(m.EK) <= {ad for _, _, ad in m.SKILL}
+
+
 def test_sha(tmp_path):
     f = tmp_path / "a.zip"
     f.write_bytes(b"x")
