@@ -27,6 +27,15 @@ test("omniroute bayrağı → BASE_URL yerel, kimlik Bearer, API anahtarı çık
   assert.equal(taban.ANTHROPIC_API_KEY, "sk-oturum-sahte");  // taban değişmez
 });
 
+test("omniroute: kullanıcı settings.json env.ANTHROPIC_BASE_URL'ini --settings ezer; abonelik OAuth env'i çocuğa geçmez", () => {
+  const r = ajanOrtami({ ...taban, CLAUDE_CODE_OAUTH_TOKEN: "oauth-sahte" }, { apiKredi: false, omni: true, oku });
+  const i = r.arg.indexOf("--settings");
+  assert.deepEqual(JSON.parse(r.arg[i + 1]), { env: { ANTHROPIC_BASE_URL: OMNI_URL } });
+  assert.equal(r.arg.join(" ").includes(SAHTE), false);  // anahtar argv'de (süreç listesinde) yok
+  assert.equal("CLAUDE_CODE_OAUTH_TOKEN" in r.env, false);
+  assert.deepEqual(ajanOrtami(taban, { apiKredi: false, omni: false, oku }).arg, []);
+});
+
 test("omniroute anahtarı yoksa env dokunulmaz, eksik adı döner (değer değil)", () => {
   const r = ajanOrtami(taban, { apiKredi: false, omni: true, oku: () => undefined });
   assert.deepEqual(r.env, taban);

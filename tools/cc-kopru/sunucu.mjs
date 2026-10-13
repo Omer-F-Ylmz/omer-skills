@@ -213,7 +213,7 @@ srv.registerTool("ajan", {
     // --model tam ad (claude-opus-*) da olabilir; ANTHROPIC_DEFAULT_* yalnız takma adları eşler → combo'ya çevir
     const av = r.env.KOPRU_OMNIROUTE ? argv.map((x, i) => (argv[i - 1] === "--model" ? OMNI_COMBO : x)) : argv;
     const ist = r.env.KOPRU_OMNIROUTE ? `${OMNI_ISTEM}\n\n${gorev}` : gorev;
-    const p = spawn(CLAUDE, [...CLAUDE_ON, ...av], { cwd: proje, shell: false, windowsHide: true, env: r.env });
+    const p = spawn(CLAUDE, [...CLAUDE_ON, ...r.arg, ...av], { cwd: proje, shell: false, windowsHide: true, env: r.env });
     stdinYaz(p, ist);   // istem stdin'den
     const o = [];
     p.stdout.on("data", (b) => o.push(b));
