@@ -46,6 +46,17 @@ def main():
     # kanca transkriptten okur; ölçüm rotasının --no-session-persistence'ı onu diske yazdırmaz (günlük kullanımda kalıcılık açık)
     kosucu.ROTA = [x for x in kosucu.ROTA if x != "--no-session-persistence"]
     kol = sys.argv[1]
+    if kol == "dersli":  # d11: kalibrasyon (kalibre.py topla) bitene dek bekle, sonra Opus'a göre uydurulmuş eşiklerle koş
+        import kalibre
+        for _ in range(240):
+            if (kalibre.YEREL / "ornek.jsonl").exists():
+                break
+            time.sleep(30)
+        else:
+            sys.exit("kalibrasyon 2 saatte bitmedi")
+        e, odul, pay, *ozet = kalibre.uydur()
+        kanca.ESIK, kanca.TEST_ODUL, kanca.PAY = e, odul, pay or 0.0
+        print(time.strftime("%H:%M:%S"), "kalibre: ESIK, TEST_ODUL, PAY =", e, odul, pay, "· dengeli/kapı içi/kapsam", ozet, flush=True)
     banka = KOK / ".kos" / "ogrenme-ab" / (f"kanca-e2e-{kol}-" + time.strftime("%Y%m%d-%H%M%S"))
     os.environ["OGRENME_DIZIN"] = str(banka)
     ayar = ayarlar(ders.dizin())
