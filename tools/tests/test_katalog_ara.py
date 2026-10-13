@@ -58,6 +58,16 @@ def test_geri_cagirma():
     assert bulunan >= 0.95 * toplam, kayip
 
 
+def test_aday_geri_cagirma():
+    """Varsayılan aday listesi (iki aşamanın 1. aşaması): 48 beklenenin ≥46'sı içinde, liste ADAY + tür tabanını aşmaz."""
+    if not katalog_ara.KATALOG.exists():
+        pytest.skip("katalog yok: python tools/katalog_yenile.py")
+    satirlar = [__import__("json").loads(s) for s in katalog_ara.KATALOG.read_text(encoding="utf8").splitlines()]
+    bulunan = sum(len(b & {o["ad"] for o in katalog_ara.aday(q, satirlar=satirlar)}) for q, b in ISLER)
+    assert bulunan >= 46, bulunan
+    assert max(len(katalog_ara.aday(q, satirlar=satirlar)) for q, _ in ISLER) <= katalog_ara.ADAY + 7 * katalog_ara.TABAN
+
+
 def test_skill_kopyasi_guncel():
     """yetenek-getir klasöründeki betik + katalog, kaynakla aynı (CC kurulumu ve claude.ai zip'i repo yoluna bağlı değil)."""
     kok = Path(__file__).resolve().parents[2]

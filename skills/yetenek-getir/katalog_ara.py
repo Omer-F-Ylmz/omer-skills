@@ -1,5 +1,7 @@
-"""ENVANTER-2: yetenek kataloğunda iş tarifiyle arama → en iyi 8 araç, tek satır/sonuç (≤1.5k kr).
-python tools/katalog_ara.py "<iş tarifi>" [--tur skill|ajan|mcp|cli|kutuphane|arac|plugin] [--n 8]
+"""ENVANTER-2: yetenek kataloğunda iş tarifiyle arama — iki aşama: geniş aday listesi (bu betik) → seçimi okuyan model yapar.
+python tools/katalog_ara.py "<iş tarifi>" [--aday N] [--tur skill|ajan|mcp|cli|kutuphane|arac|plugin]
+  varsayılan: BM25 ilk ADAY + her türden en az TABAN aday, türe göre gruplu kompakt satır (ad · ne işe yarar · nasıl çağrılır)
+  --esik [--oran 0.3] [--tam]: eski eşik listesi (tek aşama, kısa ama geri çağırması düşük)
 BM25 (ad alanı 2x, 5 harf önek) + TR/EN eş anlam sözlüğü; kapalı (override off) skill'ler sona itilir.
 """
 import json
@@ -43,6 +45,8 @@ ES = {
 }
 ORAN, GENIS, UZUN, ILK = 0.3, 0.5, 30, 5
 KAVRAM, SIRA, BAYAG = 0.5, 3, 0.05
+# d8 ızgarası (altın küme ayar 20 iş): ilk 80 + tür tabanı 10 → aşama-1 geri çağırma ayar 0.993 / sınama 1.000, ~3.8k jeton
+ADAY, TABAN, TAVAN = 80, 10, 300
 DURAK = set("ile ve veya icin bir bu su da de mi ne gibi olarak the and or with for to of in on an my is are how".split())
 GRUP = {"skill": "skill", "ajan": "ajan", "mcp": "mcp", "plugin": "plugin", "cli": "cli",
         "kutuphane": "kütüphane", "arac": "bizim betik"}
@@ -73,8 +77,8 @@ def tetik(metin, n=120):
     return " ".join(dict.fromkeys(e for e in ek if e not in t))[:n].rsplit(" ", 1)[0] if ek else ""
 
 
-def ara(q, tur=None, oran=ORAN, satirlar=None):
-    """İlgili sayılan HER kayıt: puanı en iyinin `oran` katını geçenler (sabit ilk-N değil; Ömer 21:33)."""
+def puanla(q, tur=None, satirlar=None):
+    """BM25 sıralı tüm eşleşmeler [(puan, kavram kapsama, kayıt)] + gereken kavram sayısı."""
     rows = satirlar or [json.loads(s) for s in KATALOG.read_text(encoding="utf8").splitlines()]
     if tur:
         rows = [o for o in rows if o["tur"] == tur]
@@ -100,19 +104,37 @@ def ara(q, tur=None, oran=ORAN, satirlar=None):
             ham = set(kelimeler(f"{o['ad']} {o['is']} {o['metin']}"))
             puan.append((s, sum(1 for c in kavram if ham & c), o))
     puan.sort(key=lambda x: -x[0])
+    return puan, gerek
+
+
+def ara(q, tur=None, oran=ORAN, satirlar=None):
+    """İlgili sayılan HER kayıt: puanı en iyinin `oran` katını geçenler (sabit ilk-N değil; Ömer 21:33)."""
+    puan, gerek = puanla(q, tur, satirlar)
     tepe = puan[0][0] if puan else 0
     # tek ortak kelimeyle gelen gürültü ("video", "hata") elenir: ilk SIRA kayıt ya da ham metinde kavramların ≥KAVRAM oranı
     return [o for i, (s, kap, o) in enumerate(puan) if s >= oran * tepe and (i < SIRA or kap >= gerek)]
+
+
+def aday(q, n=ADAY, tur=None, satirlar=None, taban=TABAN):
+    """Aşama-1: BM25 ilk n + ilk TAVAN içinden her türe en az `taban` kayıt (plugin/cli gibi az puanlı türler kaybolmasın)."""
+    p = [o for _, _, o in puanla(q, tur, satirlar)[0]]
+    sec, say = p[:n], Counter(o["tur"] for o in p[:n])
+    for o in p[n:TAVAN]:
+        if say[o["tur"]] < taban:
+            sec.append(o)
+            say[o["tur"]] += 1
+    return sec
 
 
 def main():
     a = sys.argv[1:]
     tur = a[a.index("--tur") + 1] if "--tur" in a else None
     oran = float(a[a.index("--oran") + 1]) if "--oran" in a else ORAN
-    q = " ".join(x for i, x in enumerate(a) if not x.startswith("--") and (i == 0 or a[i - 1] not in ("--tur", "--oran")))
-    sonuc = ara(q, tur, oran)
+    n = int(a[a.index("--aday") + 1]) if "--aday" in a else ADAY
+    q = " ".join(x for i, x in enumerate(a) if not x.startswith("--") and (i == 0 or a[i - 1] not in ("--tur", "--oran", "--aday")))
+    sonuc = ara(q, tur, oran) if "--esik" in a else aday(q, n, tur)
     gruplar = {t: [o for o in sonuc if o["tur"] == t] for t in GRUP if any(o["tur"] == t for o in sonuc)}
-    uzun = len(sonuc) > UZUN and "--tam" not in a
+    uzun = len(sonuc) > UZUN and "--esik" in a and "--tam" not in a
     print(f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items()))
     for t, v in gruplar.items():
         print(f"## {GRUP[t]} ({len(v)})")
