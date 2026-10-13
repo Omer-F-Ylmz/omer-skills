@@ -136,25 +136,28 @@ def main():
     n = int(a[a.index("--aday") + 1]) if "--aday" in a else ADAY
     q = " ".join(x for i, x in enumerate(a) if not x.startswith("--") and (i == 0 or a[i - 1] not in ("--tur", "--oran", "--aday")))
     sonuc = ara(q, tur, oran) if "--esik" in a else aday(q, n, tur)
-    gruplar = {t: [o for o in sonuc if o["tur"] == t] for t in GRUP if any(o["tur"] == t for o in sonuc)}
-    uzun = len(sonuc) > UZUN and "--esik" in a and "--tam" not in a
     # Headroom tag_protector etiketli bloğu sıkıştırmaz; ```text çiti, ERROR/DEBUG'lı açıklamalarda içeriğin
     # LOG sayılıp (etiket korumasız yol) kırpılmasını önler (karma yol önce etiketi korur)
-    print("<aday-listesi>\n```text")
-    print(f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items()))
+    print(f"<aday-listesi>\n{metin(sonuc, len(sonuc) > UZUN and '--esik' in a and '--tam' not in a)}\n</aday-listesi>")
+
+
+def metin(sonuc, uzun=False):
+    """Türe göre gruplu ```text çitli liste (katalog_kanca da kullanır)."""
+    gruplar = {t: [o for o in sonuc if o["tur"] == t] for t in GRUP if any(o["tur"] == t for o in sonuc)}
+    s = ["```text", f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items())]
     no = 0  # sıra no öneki: önceki çıktıyla aynı satır dizisi Headroom'da "[↑NL same as msg]" diye katlanmasın
     for t, v in gruplar.items():
-        print(f"## {GRUP[t]} ({len(v)})" + (f" · çağrı: {CAGRI[t].format(ad='<ad>')}" if t in CAGRI else ""))
+        s.append(f"## {GRUP[t]} ({len(v)})" + (f" · çağrı: {CAGRI[t].format(ad='<ad>')}" if t in CAGRI else ""))
         satir = {}  # aynı açıklamalı kayıtlar tek satır: tekrar satırı okuyucuda gizlenmesin
         for o in v[:ILK if uzun else None]:
             c = "" if o["cagri"] == CAGRI.get(t, "").format(ad=o["ad"]) else f" · {o['cagri'][:60]}"
             satir.setdefault(f"{(o['is'] or o['metin'])[:110]}{c}", []).append(o["ad"])
         for m, adlar in satir.items():
             no += 1
-            print(f"{no}. {', '.join(adlar)} · {m}")
+            s.append(f"{no}. {', '.join(adlar)} · {m}")
     if uzun:
-        print(f"… grup başına ilk {ILK}; hepsi için --tam")
-    print("```\n</aday-listesi>")
+        s.append(f"… grup başına ilk {ILK}; hepsi için --tam")
+    return "\n".join(s + ["```"])
 
 
 if __name__ == "__main__":
