@@ -138,8 +138,11 @@ def main():
     sonuc = ara(q, tur, oran) if "--esik" in a else aday(q, n, tur)
     gruplar = {t: [o for o in sonuc if o["tur"] == t] for t in GRUP if any(o["tur"] == t for o in sonuc)}
     uzun = len(sonuc) > UZUN and "--esik" in a and "--tam" not in a
-    print("<aday-listesi>")  # Headroom tag_protector özel etiketli bloğu sıkıştırmaz: liste tam görünür
+    # Headroom tag_protector etiketli bloğu sıkıştırmaz; ```text çiti, ERROR/DEBUG'lı açıklamalarda içeriğin
+    # LOG sayılıp (etiket korumasız yol) kırpılmasını önler (karma yol önce etiketi korur)
+    print("<aday-listesi>\n```text")
     print(f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items()))
+    no = 0  # sıra no öneki: önceki çıktıyla aynı satır dizisi Headroom'da "[↑NL same as msg]" diye katlanmasın
     for t, v in gruplar.items():
         print(f"## {GRUP[t]} ({len(v)})" + (f" · çağrı: {CAGRI[t].format(ad='<ad>')}" if t in CAGRI else ""))
         satir = {}  # aynı açıklamalı kayıtlar tek satır: tekrar satırı okuyucuda gizlenmesin
@@ -147,10 +150,11 @@ def main():
             c = "" if o["cagri"] == CAGRI.get(t, "").format(ad=o["ad"]) else f" · {o['cagri'][:60]}"
             satir.setdefault(f"{(o['is'] or o['metin'])[:110]}{c}", []).append(o["ad"])
         for m, adlar in satir.items():
-            print(f"{', '.join(adlar)} · {m}")
+            no += 1
+            print(f"{no}. {', '.join(adlar)} · {m}")
     if uzun:
         print(f"… grup başına ilk {ILK}; hepsi için --tam")
-    print("</aday-listesi>")
+    print("```\n</aday-listesi>")
 
 
 if __name__ == "__main__":
