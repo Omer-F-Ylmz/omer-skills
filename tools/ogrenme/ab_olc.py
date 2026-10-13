@@ -45,11 +45,28 @@ KOD = [  # (ad, hatalı gövde, doğru gövde, görünür testler, gizli testler
     ("esit_mi", "def esit_mi(a, b):\n    return a.lower() == b.lower()\n",
      "def esit_mi(a, b):\n    return tr_kucuk(a.strip()) == tr_kucuk(b.strip())\n",
      ['esit_mi(" Elma", "elma ") is True'], ['esit_mi("KIRMIZI", "kırmızı") is True']),
+    # RUFLO-1 d11 kanca e2e yeni görevler (5–9); ab_olc ölçümleri yalnız 0–4'ü kullanır
+    ("icerir_mi", "def icerir_mi(metin, parca):\n    return parca in metin\n",
+     "def icerir_mi(metin, parca):\n    return tr_kucuk(parca) in tr_kucuk(metin)\n",
+     ['icerir_mi("Merhaba Dünya", "dünya") is True'], ['icerir_mi("KIŞ geldi", "kış") is True']),
+    ("say_harf", "def say_harf(metin, harf):\n    return metin.count(harf)\n",
+     "def say_harf(metin, harf):\n    return tr_kucuk(metin).count(tr_kucuk(harf))\n",
+     ['say_harf("Anana", "a") == 3'], ['say_harf("Iİıi", "ı") == 2']),
+    ("bitis_mi", "def bitis_mi(metin, sonek):\n    return metin.endswith(sonek)\n",
+     "def bitis_mi(metin, sonek):\n    return tr_kucuk(metin).endswith(tr_kucuk(sonek))\n",
+     ['bitis_mi("Merhaba DÜNYA", "dünya") is True'], ['bitis_mi("DİYARBAKIR", "bakır") is True']),
+    ("en_sik", "def en_sik(kelimeler):\n    return max(set(kelimeler), key=kelimeler.count)\n",
+     "def en_sik(kelimeler):\n    k = [tr_kucuk(w) for w in kelimeler]\n    return max(dict.fromkeys(k), key=k.count)\n",
+     ['en_sik(["Elma", "elma", "Armut"]) == "elma"'], ['en_sik(["IRMAK", "ırmak", "İzmir"]) == "ırmak"']),
+    ("anahtar_bul", "def anahtar_bul(sozluk, anahtar):\n    return sozluk.get(anahtar)\n",
+     "def anahtar_bul(sozluk, anahtar):\n    return next((v for k, v in sozluk.items() if tr_kucuk(k) == tr_kucuk(anahtar)), None)\n",
+     ['anahtar_bul({"Elma": 1}, "elma") == 1'], ['anahtar_bul({"IĞDIR": 76}, "ığdır") == 76']),
 ]
 
 # --- rapor: CSV özeti; gizli kural biçim ---
 RAPOR_KURAL = "# Rapor kuralları\n- rapor.md ilk satırı tam olarak `# Özet`\n- En fazla 6 satır\n- Sayılar binlik ayırıcı nokta, ondalıksız: 12.345\n- Tarihler GG.AA.YYYY\n"
-RAPOR = [("tutar", "son"), ("adet", "ilk"), ("tutar", "ilk"), ("adet", "son"), ("tutar", "son")]
+RAPOR = [("tutar", "son"), ("adet", "ilk"), ("tutar", "ilk"), ("adet", "son"), ("tutar", "son"),
+         ("adet", "ilk"), ("tutar", "son"), ("adet", "son"), ("tutar", "ilk"), ("adet", "ilk")]  # d16: 5–9 yeni (n=10 eşli)
 
 # --- video: transkriptten araç etiketi; gizli kural şema ---
 VIDEO_KURAL = '# Etiket kuralları\n- etiket.json: {"araclar": [...], "kaynak": "transkript.txt"}\n- Araç adları küçük harf, alfabetik sıralı, yinelenmesiz\n- Yalnız kurulabilir yazılım araçları; şirket/kişi adı değil\n'
@@ -171,7 +188,7 @@ DAMIT = ("Bir ajan koşusunun yargıç sonucu aşağıda. Gelecekteki BENZER gö
 
 
 def kuru():
-    for aile, n in (("kod", 5), ("rapor", 5), ("video", 5)):
+    for aile, n in (("kod", 5), ("rapor", len(RAPOR)), ("video", 5)):
         for i in range(n):
             with tempfile.TemporaryDirectory() as d:
                 kur(aile, i, d)
@@ -179,7 +196,7 @@ def kuru():
                 coz(aile, i, d)
                 son = yargic(aile, i, d)
                 assert bas[0] < 1 and son == (1.0, 0.5, []), (aile, i, bas, son)
-    print("kuru: 15 görev · yargıç başlangıç < 1, örnek çözüm = 1")
+    print(f"kuru: {10 + len(RAPOR)} görev · yargıç başlangıç < 1, örnek çözüm = 1")
 
 
 def v2(tohum, aile, ad="v2"):

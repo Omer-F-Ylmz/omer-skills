@@ -5,7 +5,8 @@ description: Önceki koşulardan damıtılmış dersleri görev başında getiri
 
 # Ders bankası
 
-Döngü: görev başı getir (≤3 ders, ≤300 jeton) → uygula → sonuç → ders kaydet + kullanılan derse geri bildirim.
+Döngü: görev başı getir (alaka eşiğini geçen ≤2 ders, ≤120 jeton) → uygula → sonuç → ders kaydet + kullanılan derse geri bildirim.
+Claude Code'da bu döngü otomatik de koşar (yalnız yerel): `tools/ogrenme/kanca.py` kancası alt ajan başında dersi ekler, oturum sonunda yargılayıp ≤3 ders damıtır. claude.ai'de kanca yok — adımları elle izle.
 
 Banka konumu `OGRENME_DIZIN` (içinde `dersler.jsonl`):
 - Claude Code / Desktop (yerel): ayarlama, varsayılan `C:/Projeler/omer-skills/.kos/ogrenme`.
