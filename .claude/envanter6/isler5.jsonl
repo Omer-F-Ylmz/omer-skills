@@ -1,0 +1,100 @@
+{"id": "g01", "tur": "gercek", "alan": ["ajan-arac", "otomasyon"], "is": "Claude Code çağrı sayacı kancasını her oturumu ayrı sayacak şekilde yeniden düzenle. Bağlam belli bir eşiği aşınca uyarı versin; davranışı pytest testleriyle kanıtla."}
+{"id": "g03", "tur": "gercek", "alan": ["ajan-arac", "ml-ai"], "is": "Haftalık plan limiti dolunca alt ajan çağrıları OmniRoute üzerinden ücretsiz modellere geçsin. Ücretli API'ye hiç düşülmediğini testle kanıtla."}
+{"id": "g05", "tur": "gercek", "alan": ["ajan-arac"], "is": "Tüm ajan tanımlarının description alanlarını anlamı bozmadan kısa tek satıra sıkıştır. Ajan listesinin bağlamda tuttuğu jetonu önce ve sonra ölç."}
+{"id": "g06", "tur": "gercek", "alan": ["ajan-arac", "api"], "is": "MCP köprü sunucusundaki ajan aracına oturuma özel bir effort parametresi ekle: enum doğrulaması yapsın ve CLI bayrağına çevrilsin. Global ayar değişmeden çalıştığını testle göster."}
+{"id": "g07", "tur": "gercek", "alan": ["ajan-arac", "arastirma"], "is": "Kurulu her skill, ajan, MCP ve CLI için \"ne işe yarar\" kataloğu üret. Ardından bir iş tarifine en uygun araçları BM25 ve LLM seçimiyle getiren bir arama aracı yaz."}
+{"id": "g09", "tur": "gercek", "alan": ["frontend", "3d", "tasarim"], "is": "TELVE kahve sitesini (Astro, three.js, GSAP, Lenis) awwwards seviyesinde yeniden kur. Merkezde scroll'a bağlı, parçaları ayrılıp uçan 3D exploded-view kahve makinesi sahnesi ve ScrollTrigger koreografisi olsun."}
+{"id": "g10", "tur": "gercek", "alan": ["3d", "frontend"], "is": "TELVE'nin GLB varlıklarını gltf-transform ile Draco/Meshopt geometri ve KTX2 dokularla sıkıştırıp bir boyut bütçesine indir. three.js'te önce ve sonra yükleme süresini ölç."}
+{"id": "g12", "tur": "gercek", "alan": ["tasarim", "gorsel", "3d"], "is": "TELVE için birbirinden ayrı üç sanat yönü öner. Her yön için three.js ya da headless Blender ile 1920x1080 bir anahtar kare üret ve yönleri kontrast ile değer aralığı sayılarıyla karşılaştır."}
+{"id": "g13", "tur": "gercek", "alan": ["belge", "tasarim"], "is": "TELVE için seçilen sanat yönüne göre DESIGN.md v2 ve sahne sahne storyboard yaz. Her bölüm için kamera hareketi, ışık, malzeme, geçiş ve scroll uzunluğu belirtilsin."}
+{"id": "g14", "tur": "gercek", "alan": ["ses", "frontend"], "is": "TELVE sitesine scroll ilerledikçe değişen ortam sesi ekle. Ses yalnız kullanıcı etkileşimiyle başlasın, erişilebilir bir sessize alma düğmesi olsun."}
+{"id": "g15", "tur": "gercek", "alan": ["arastirma", "frontend"], "is": "awwwards'taki ciao-energy sitesini headless Playwright ile incele. Kullanılan kütüphaneleri ve sürümlerini, GLB/doku boyutlarını, scroll-sahne bağlama desenini, toplam JS boyutunu ve LCP/TBT değerlerini raporla."}
+{"id": "g18", "tur": "gercek", "alan": ["3d"], "is": "Blender'da düşük poligonlu bir Türk kahvesi makinesi modelle. Parçaları ayrı nesneler olsun, exploded-view animasyonu hazırla ve headless bpy betiğiyle web için GLB olarak dışa aktar."}
+{"id": "g19", "tur": "gercek", "alan": ["3d", "otomasyon"], "is": "Sahne kurulumu, malzeme ve üç nokta ışığını tek bir bpy betiğiyle blender -b -P üzerinden koşturan parametrik bir şablon kütüphanesi yaz. Betikler yalnız özet JSON döndürsün."}
+{"id": "g20", "tur": "gercek", "alan": ["arastirma", "3d", "ml-ai"], "is": "Tripo, Meshy, Rodin, Hunyuan3D ve TRELLIS gibi yapay zekâ ile 3D üretim platformlarını API, ücretsiz kota, lisans ve çıktı kalitesi açısından karşılaştır. Blender iş akışına en uygun olanı öner."}
+{"id": "g21", "tur": "gercek", "alan": ["3d", "video"], "is": "Blender'da bir karaktere Rigify ile rig kur, Mixamo ya da Cascadeur'dan gelen hareket verisini aktar. Klipleri NLA ile birleştirip glTF animasyonu olarak dışa aktar."}
+{"id": "g22", "tur": "gercek", "alan": ["frontend"], "is": "Web için test edilmiş bir animasyon tarif kütüphanesi hazırla: GSAP SplitText ile başlık girişi, View Transitions ile sayfa geçişi ve dotLottie ikon animasyonu. Tarifler 60 fps ve reduced-motion kurallarına uysun."}
+{"id": "g25", "tur": "gercek", "alan": ["arastirma", "tasarim"], "is": "awwwards ve godly'den son iki yılın yaklaşık 20 ödüllü sitesini incele. Tipografi, ızgara, mikro etkileşim ve performans bütçelerini çıkarıp kaynak, lisans ve neden iyi olduğu sütunlarıyla bir referans kataloğu TSV'si hazırla."}
+{"id": "g26", "tur": "gercek", "alan": ["tasarim", "frontend"], "is": "Figma'daki tasarım değişkenlerini (renk, aralık, tipografi) Tailwind tema token'larına dönüştür. 21st.dev bileşenleriyle bir portfolyo bölümü kur."}
+{"id": "g27", "tur": "gercek", "alan": ["gorsel", "frontend"], "is": "Portale sitesi için bir hero görseli üret. Görseli web için optimize et ve responsive picture öğesiyle, LCP'yi bozmadan yerleştir."}
+{"id": "g28", "tur": "gercek", "alan": ["tasarim", "frontend"], "is": "BHS için birbirinden farklı sanat yönlerinde 5 konsept ana sayfa tasarla. Ekran görüntüleriyle karşılaştırmalı olarak sun."}
+{"id": "g29", "tur": "gercek", "alan": ["frontend", "pazarlama-is"], "is": "Kişisel freelance tanıtım sitesi kur: hizmetler, portfolyo ve iletişim formu olsun. SEO meta etiketlerini ve Open Graph görsellerini ekle."}
+{"id": "g32", "tur": "gercek", "alan": ["otomasyon", "pazarlama-is"], "is": "Küçük işletmelere satılabilecek bir otomasyon kur: web formundan gelen talepleri tabloya kaydeden ve otomatik e-posta yanıtı gönderen bir iş akışı olsun."}
+{"id": "g33", "tur": "gercek", "alan": ["guvenlik", "test"], "is": "Kendi web uygulamalarımız için bir saldırı/güvenlik testi turu yap: OWASP ZAP taraması ile kimlik doğrulama ve yetkilendirme denetimi. Bulguları önem sırasına koyan bir kapanış listesi çıkar."}
+{"id": "g35", "tur": "gercek", "alan": ["dotnet", "backend", "test"], "is": "Divisima ASP.NET Core e-ticaret backend'ine sipariş iptal uç noktası ekle ve gerçek SQL veritabanına karşı entegrasyon testleri yaz. CI yeşil olmadan dalgayı mühürleme."}
+{"id": "g36", "tur": "gercek", "alan": ["dotnet", "guvenlik", "devops"], "is": ".NET çözümünün üretim projelerinde NuGet açık denetimini aç: NuGetAuditMode=all, seviye moderate, NU1901-1904 uyarıları hata sayılsın. Ayrı bir worktree'de kuru koşuyla doğrula."}
+{"id": "g37", "tur": "gercek", "alan": ["devops", "guvenlik"], "is": "GitHub Actions'ta docker ile koşan OWASP ZAP baseline ve full scan adımı düşüyor. gh run view --log ile kök nedeni bul ve iş akışını onar."}
+{"id": "g38", "tur": "gercek", "alan": ["dotnet", "backend"], "is": "Corvano erkek giyim sitesine (.NET 10 MVC, Web→Business→DataAccess katmanları, Autofac) beden, renk ve fiyata göre ürün filtreleme ekle. Katman sınırlarına uy."}
+{"id": "g39", "tur": "gercek", "alan": ["frontend", "tasarim"], "is": "Corvano'nun Razor görünümlerinde ürün detay sayfasını yeniden tasarla: görsel galerisi, beden seçici ve erişilebilir bir sepete ekle akışı olsun."}
+{"id": "g41", "tur": "gercek", "alan": ["dotnet", "guvenlik", "api"], "is": "Garajım API'sinde JWT kimlik doğrulamayı sağlamlaştır: refresh token rotasyonu ve güncel parola hash algoritması ekle. Yetkisiz erişim senaryolarını test et."}
+{"id": "g43", "tur": "gercek", "alan": ["frontend", "pazarlama-is"], "is": "HerYerde kategori ve ürün sayfalarını SEO uyumlu hâle getir: Product yapılandırılmış verisi, kanonik URL'ler ve kategori açıklama metinleri eklensin."}
+{"id": "g44", "tur": "gercek", "alan": ["veri-db", "dotnet"], "is": "Panelden dışa aktarılan CSV, Türkçe yerel ayarlı Excel'de bozuk karakterlerle ve kaymış sütunlarla açılıyor. Kodlamayı/BOM'u ve ayırıcıyı düzelt, testle doğrula."}
+{"id": "g46", "tur": "gercek", "alan": ["oyun", "3d"], "is": "Mavuika vücut modunu Lauma karakterine aktar: Blender'da mesh'i hedef iskelete uydur ve ağırlıkları aktar. 3DMigoto buffer'larını dışa aktarıp ini'yi yaz."}
+{"id": "g47", "tur": "gercek", "alan": ["oyun"], "is": "ZZZ için (XXMI) birden çok modu tuşla değiştirilebilen tek bir modda birleştir: ini birleştirme ve geçiş tuşları ekle. Yeşil doku hatasını da gider."}
+{"id": "g49", "tur": "gercek", "alan": ["oyun", "frontend", "3d"], "is": "Three.js ile tarayıcıda çalışan zombi survival oyununa dalga sistemi, oyuncuyu takip eden düşman yapay zekâsı ve çarpışma algılaması ekle."}
+{"id": "g50", "tur": "gercek", "alan": ["video", "otomasyon"], "is": "Uzun YouTube videolarını işleyen hattı hızlandır: altyazı varsa whisper atlansın, kareler sahne değişimi ve pHash ile ayıklansın, bölümler paralel taransın. İşleme süresi video süresinin 0.3 katını geçmesin."}
+{"id": "g55", "tur": "gercek", "alan": ["guvenlik", "git"], "is": "Depodaki 20 gitleaks bulgusunu, sır değerlerini asla yazdırmadan gerçek sır ya da yanlış alarm olarak sınıflandır. Gerçek olanlar için anahtar iptali ve git geçmişi temizleme planı çıkar."}
+{"id": "g56", "tur": "gercek", "alan": ["veri-db", "guvenlik"], "is": "Supabase'de kullanıcıya özel bir \"notlar\" tablosu için RLS politikalarını ve migration SQL'ini yaz. Başka kullanıcının kayıtlarına erişilemediğini testle göster."}
+{"id": "g57", "tur": "gercek", "alan": ["git", "test"], "is": "main ile özellik dalı arasındaki farkı commit öncesi kod incelemesinden geçir. Riskli değişiklikleri ve eksik testleri gerekçeleriyle listele."}
+{"id": "g59", "tur": "gercek", "alan": ["otomasyon", "ml-ai"], "is": "Gelen müşteri destek e-postalarını konuya ve aciliyete göre sınıflandırıp taslak yanıt üreten bir otomasyon kur. Taslaklar gönderilmeden önce insan onayına düşsün."}
+{"id": "g60", "tur": "gercek", "alan": ["dil", "ml-ai"], "is": "Yapay zekâ ile yazılmış Türkçe metinleri anlamı bozmadan doğal insan üslubuna çeviren bir \"humanizer\" aracı geliştir ve önce/sonra örneklerle değerlendir."}
+{"id": "s01", "tur": "sentetik", "alan": ["ajan-arac"], "is": "Claude Code için commit öncesi lint ve test koşan bir PreToolUse hook'u yaz"}
+{"id": "s03", "tur": "sentetik", "alan": ["ajan-arac"], "is": "Yerel SQLite veritabanını sorgulayan iki araçlı kendi MCP sunucumu yaz"}
+{"id": "s05", "tur": "sentetik", "alan": ["tasarim"], "is": "Mobil bankacılık uygulamasının onboarding ekranları için wireframe ve görsel tasarım yönü çıkar"}
+{"id": "s06", "tur": "sentetik", "alan": ["tasarim"], "is": "Mevcut admin panelinin tasarımını tutarsızlık ve jenerik görünüm açısından incele"}
+{"id": "s07", "tur": "sentetik", "alan": ["frontend"], "is": "React uygulamasında yavaş açılan ürün listesini sanallaştır ve gereksiz render'ları azalt"}
+{"id": "s09", "tur": "sentetik", "alan": ["frontend"], "is": "Tailwind ile responsive bir fiyatlandırma sayfası bileşeni yap"}
+{"id": "s10", "tur": "sentetik", "alan": ["pazarlama-is"], "is": "Yeni mobil uygulama için lansman e-posta serisi ve sosyal medya içerik takvimi hazırla"}
+{"id": "s12", "tur": "sentetik", "alan": ["pazarlama-is"], "is": "Google Ads arama kampanyasındaki düşük dönüşümü denetle"}
+{"id": "s13", "tur": "sentetik", "alan": ["test"], "is": "Ödeme akışı için Playwright uçtan uca testleri yaz"}
+{"id": "s14", "tur": "sentetik", "alan": ["test"], "is": "CI'da ara sıra kırılan (flaky) testlerin kök nedenini bul"}
+{"id": "s15", "tur": "sentetik", "alan": ["test"], "is": "Bir Python modülü için property-based testler ekle"}
+{"id": "s18", "tur": "sentetik", "alan": ["guvenlik"], "is": "Web uygulamasına CSP, HSTS ve güvenli çerez başlıklarını ekle"}
+{"id": "s19", "tur": "sentetik", "alan": ["devops"], "is": "Node uygulaması için Dockerfile ve GitHub Actions dağıtım hattı kur"}
+{"id": "s20", "tur": "sentetik", "alan": ["devops"], "is": "Kubernetes deployment'ında probe ve kaynak limitlerini ayarla"}
+{"id": "s21", "tur": "sentetik", "alan": ["belge"], "is": "Satış verilerinden aylık Word raporu ve grafikli Excel tablosu üret"}
+{"id": "s22", "tur": "sentetik", "alan": ["belge"], "is": "40 sayfalık PDF sözleşmeyi Markdown'a çevirip özetle"}
+{"id": "s25", "tur": "sentetik", "alan": ["backend"], "is": "Sipariş servisi için idempotent ödeme webhook alıcısı tasarla"}
+{"id": "s26", "tur": "sentetik", "alan": ["backend"], "is": "API'ye Redis tabanlı hız sınırlayıcı ekle"}
+{"id": "s27", "tur": "sentetik", "alan": ["veri-db"], "is": "Postgres'te yavaş raporlama sorgusunu EXPLAIN ile analiz edip indeks öner"}
+{"id": "s28", "tur": "sentetik", "alan": ["veri-db"], "is": "MongoDB'den Postgres'e veri taşıma planı yap ve doğrulama sayımlarını çıkar"}
+{"id": "s29", "tur": "sentetik", "alan": ["arastirma"], "is": "Vektör veritabanı seçimi için Qdrant, pgvector ve Weaviate'i karşılaştır"}
+{"id": "s32", "tur": "sentetik", "alan": ["video"], "is": "ffmpeg ile videoyu sıkıştır, dikey formata kes ve kapak karesi çıkar"}
+{"id": "s33", "tur": "sentetik", "alan": ["dotnet"], "is": "ASP.NET Core minimal API'ye JWT kimlik doğrulama ekle"}
+{"id": "s35", "tur": "sentetik", "alan": ["3d"], "is": "Blender'da ürün modeli için turntable render al ve web için GLB'ye aktar"}
+{"id": "s36", "tur": "sentetik", "alan": ["3d"], "is": "three.js sahnesinde düşük poligonlu bir 3D model yükle ve ışıklandır"}
+{"id": "s37", "tur": "sentetik", "alan": ["gorsel"], "is": "Ürün fotoğraflarının arka planını kaldırıp toplu yeniden boyutlandır"}
+{"id": "s38", "tur": "sentetik", "alan": ["gorsel"], "is": "Yapay zekâ ile blog yazısı için kapak görseli üret"}
+{"id": "s39", "tur": "sentetik", "alan": ["bulut"], "is": "AWS'de Terraform ile S3 + CloudFront statik site altyapısı kur"}
+{"id": "s41", "tur": "sentetik", "alan": ["otomasyon"], "is": "n8n ile form başvurusunu Google Sheets'e yazıp e-posta gönderen akış kur"}
+{"id": "s43", "tur": "sentetik", "alan": ["git"], "is": "Büyük bir merge çatışmasını çöz ve testleri yeniden koş"}
+{"id": "s44", "tur": "sentetik", "alan": ["git"], "is": "Regresyonu getiren commit'i git bisect ile bul"}
+{"id": "s46", "tur": "sentetik", "alan": ["mobil"], "is": "Flutter uygulamasını App Store yayını için hazırla"}
+{"id": "s47", "tur": "sentetik", "alan": ["dil"], "is": "Go servisindeki goroutine sızıntısını bul"}
+{"id": "s49", "tur": "sentetik", "alan": ["api"], "is": "REST API için OpenAPI 3 sözleşmesi yaz ve dokümante et"}
+{"id": "s50", "tur": "sentetik", "alan": ["api"], "is": "GraphQL şemasındaki N+1 sorununu dataloader ile çöz"}
+{"id": "s55", "tur": "sentetik", "alan": ["finans"], "is": "Startup için 18 aylık nakit akışı ve gelir modeli hazırla"}
+{"id": "s56", "tur": "sentetik", "alan": ["finans"], "is": "Stripe ile abonelik faturalaması ve iade akışını kur"}
+{"id": "s57", "tur": "sentetik", "alan": ["ses"], "is": "Podcast kaydının gürültüsünü temizleyip ses seviyesini normalize et"}
+{"id": "s59", "tur": "sentetik", "alan": ["egitim"], "is": "Yeni başlayanlar için Python öğrenme planı ve alıştırmalar hazırla"}
+{"id": "s60", "tur": "sentetik", "alan": ["egitim"], "is": "Ekip için Git eğitimi slaytları ve kısa bir quiz hazırla"}
+{"id": "k02", "tur": "karma", "alan": ["backend", "finans", "veri-db", "test"], "is": "E-ticaret mağazası: Stripe ödeme, sipariş veritabanı şeması ve kampanya günü için yük testi"}
+{"id": "k03", "tur": "karma", "alan": ["mobil", "video", "pazarlama-is"], "is": "Mobil uygulama için tanıtım videosu, App Store ekran görüntüleri ve lansman e-postası hazırla"}
+{"id": "k04", "tur": "karma", "alan": ["3d", "frontend", "test"], "is": "Blender'da ürün modeli yap, web sitesinde three.js ile göster ve sayfa performansını ölç"}
+{"id": "k05", "tur": "karma", "alan": ["ses", "belge", "video", "pazarlama-is"], "is": "Podcast bölümünü transkripte dök, blog yazısına çevir ve sosyal medya kliplerini çıkar"}
+{"id": "k06", "tur": "karma", "alan": ["oyun", "frontend", "otomasyon", "veri-db"], "is": "Oyun için tanıtım sitesi, Discord bot otomasyonu ve oyuncu analitiği panosu kur"}
+{"id": "k07", "tur": "karma", "alan": ["api", "guvenlik", "devops", "finans"], "is": "Fintech API'si: JWT kimlik doğrulama, OWASP denetimi, OpenAPI dokümanı ve CI hattı"}
+{"id": "k08", "tur": "karma", "alan": ["dotnet", "veri-db", "guvenlik", "test"], "is": ".NET Blazor iç yönetim paneli: EF Core şeması, rol bazlı yetki ve xUnit testleri"}
+{"id": "k10", "tur": "karma", "alan": ["ml-ai", "guvenlik", "ajan-arac"], "is": "Müşteri destek sohbet botu: RAG, kişisel veri maskeleme ve LLM maliyet izleme"}
+{"id": "k11", "tur": "karma", "alan": ["devops", "bulut", "backend"], "is": "Kubernetes'e taşınan mikroservisler için gözlemlenebilirlik, alarm ve felaket kurtarma planı"}
+{"id": "k13", "tur": "karma", "alan": ["otomasyon", "veri-db", "belge"], "is": "Veri hattı: CSV içe aktar, temizle, Postgres'e yükle ve haftalık Excel raporunu e-postayla gönder"}
+{"id": "k14", "tur": "karma", "alan": ["gorsel", "ml-ai", "otomasyon"], "is": "Yapay zekâ görsel üretimiyle ürün kataloğu hazırla, arka planları kaldır ve e-ticaret sitesine toplu yükle"}
+{"id": "k15", "tur": "karma", "alan": ["dil", "backend", "test", "devops"], "is": "Go ile yazılmış WebSocket sohbet servisi: yatay ölçekleme, yük testi ve Docker dağıtımı"}
+{"id": "k16", "tur": "karma", "alan": ["mobil", "devops", "frontend"], "is": "React Native uygulaması: çevrimdışı senkron, push bildirim, hata izleme ve CI ile mağaza yayını"}
+{"id": "k18", "tur": "karma", "alan": ["git", "devops", "belge"], "is": "Monorepo'da git dal stratejisi, CI'da yalnız etkilenen projeler ve sürüm notları otomasyonu"}
+{"id": "k19", "tur": "karma", "alan": ["finans", "arastirma", "belge", "pazarlama-is"], "is": "Startup yatırım sunumu: finansal model, pazar araştırması ve pptx slaytlar"}
+{"id": "k22", "tur": "karma", "alan": ["oyun", "guvenlik", "bulut"], "is": "Unity oyununa çok oyunculu ağ senkronu, hile koruması ve sunucu barındırma"}
+{"id": "k25", "tur": "karma", "alan": ["dil", "gorsel", "frontend"], "is": "Rust ile WebAssembly modülü yazıp tarayıcıda görüntü işle ve performansını ölç"}
+{"id": "k27", "tur": "karma", "alan": ["bulut", "otomasyon", "veri-db"], "is": "AWS maliyet panosu: fatura verisini çek, Grafana panosu kur, haftalık Slack bildirimi gönder"}
+{"id": "k29", "tur": "karma", "alan": ["3d", "oyun"], "is": "Blender'da karakter rig'i ve animasyonu yap, oyun motoruna aktar ve mod paketi olarak yayınla"}
+{"id": "k30", "tur": "karma", "alan": ["finans", "ml-ai", "veri-db", "hukuk"], "is": "Kişisel finans takip uygulaması: banka CSV içe aktarma, ML ile kategori sınıflandırma, grafikler ve KVKK"}

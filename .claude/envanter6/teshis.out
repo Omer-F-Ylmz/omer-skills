@@ -1,0 +1,66 @@
+== 582f3a97  işler='1. Yeni bir landing sayfası için hero ve' msj=2
+   kullanım(in,cc,cr,out) ilk/son: [(2, 99684, 0, 1468)] [(2, 99684, 0, 1468)]
+== ea4ecf6b  işler='1. Yeni bir landing sayfası için hero ve' msj=7
+   kullanım(in,cc,cr,out) ilk/son: [(2, 101030, 0, 794)] [(2, 16886, 101030, 1929)]
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"landing sayfası
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"yardımcı fonksi
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"aralıklı düşen 
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Supabase kullan
+== 80de4425  işler='Aşağıdaki işlerin her biri için bu ortam' msj=2
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92307, 7252, 1645)] [(2, 92307, 7252, 1645)]
+== 95a02a4d  işler='Aşağıdaki işlerin her biri için bu ortam' msj=7
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92295, 8710, 840)] [(2, 16088, 101005, 2028)]
+   - Bash:{"command": "python \"C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py\" \"ana dal ile
+   - Bash:{"command": "python \"C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py\" \"en büyük lo
+   - Bash:{"command": "python \"C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py\" \"son 300 com
+   - Bash:{"command": "python \"C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py\" \"bilgi grafi
+== 3e429112  işler='1. Hangi kancaların her turda bağlama me' msj=2
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92828, 7252, 2152)] [(2, 92828, 7252, 2152)]
+== 9032cd66  işler='1. Hangi kancaların her turda bağlama me' msj=7
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92816, 8710, 811)] [(2, 16757, 101526, 2271)]
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"ajan listesinin
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"uzun oturum dök
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"her turda bağla
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"yargıç çağrısın
+== 4a1aba96  işler='Aşağıdaki işlerin her biri için bu ortam' msj=2
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92829, 7252, 1920)] [(2, 92829, 7252, 1920)]
+== 73dbe22e  işler='Aşağıdaki işlerin her biri için bu ortam' msj=7
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92851, 8710, 783)] [(2, 17199, 101561, 2506)]
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Ön araç kancası
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Ayar (settings.
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Yirmi gerçek gö
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Ajan açıklamala
+== a87586dd  işler='Aşağıdaki işlerin her biri için bu ortam' msj=8
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92871, 7252, 857)] [(2, 481, 103566, 1561)]
+   - Grep:{"pattern": "zipfile|\\.zip", "path": "C:\\Projeler\\omer-skills-wt\\envanter2\\.claude\\envanter2-kapi\\cwd",
+   - Grep:{"pattern": "zipfile|make_archive|Compress-Archive", "path": "C:\\Projeler\\omer-skills-wt\\envanter2", "glob"
+   - Grep:{"pattern": "(?i)jaccard|aciklama_sikistir|description.*90|90.*karakter", "path": "C:\\Projeler\\omer-skills-w
+   - Grep:{"pattern": "(?i)jaccard|^def |90", "path": "C:\\Projeler\\omer-skills-wt\\envanter2\\tools\\olcum\\ajan_sikis
+== 5408d5a9  işler='Aşağıdaki işlerin her biri için bu ortam' msj=7
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92870, 8710, 805)] [(2, 17297, 101580, 2039)]
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"ajan açıklamala
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"aynı ailedeki a
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"departman skill
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"videonun sahne 
+== e57aa0ec  işler='1. Şirketin üç aylık KDV beyannamesi içi' msj=2
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92861, 7252, 1661)] [(2, 92861, 7252, 1661)]
+== 388acf83  işler='1. Şirketin üç aylık KDV beyannamesi içi' msj=7
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92849, 8710, 768)] [(2, 15383, 101559, 1986)]
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Şirketin üç ayl
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"STM32 için Rust
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"iOS uygulamasın
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"E-ticaret sites
+== 6c1375e6  işler='Aşağıdaki işlerin her biri için bu ortam' msj=2
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92902, 7252, 1843)] [(2, 92902, 7252, 1843)]
+== 527307ff  işler='Aşağıdaki işlerin her biri için bu ortam' msj=7
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92890, 8710, 744)] [(2, 15250, 101600, 2125)]
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Kubernetes serv
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"kira sözleşmesi
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"müşteri kaybı c
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"Unity 2D platfo
+== ad943d2f  işler='Aşağıdaki işlerin her biri için bu ortam' msj=2
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92821, 7252, 1433)] [(2, 92821, 7252, 1433)]
+== cdd19935  işler='Aşağıdaki işlerin her biri için bu ortam' msj=5
+   kullanım(in,cc,cr,out) ilk/son: [(2, 92809, 8710, 416)] [(2, 11236, 101519, 1493)]
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"ses kaydında ar
+   - Bash:{"command": "python C:/Projeler/omer-skills-wt/envanter2/skills/yetenek-getir/katalog_ara.py \"mobil uygulamay
