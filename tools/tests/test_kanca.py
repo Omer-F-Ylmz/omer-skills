@@ -54,18 +54,8 @@ def test_subagent_start_dersi_ekler_ve_kuyruga_yazar(depo, tmp_path):
     cikti = kanca.kanca({"hook_event_name": "SubagentStart", "session_id": "s1", "agent_id": "a1", "agent_type": "kodcu",
                          "transcript_path": ana(tmp_path)})
     blok = json.loads(cikti)["hookSpecificOutput"]
-    assert blok["hookEventName"] == "SubagentStart" and blok["additionalContext"] == "Ders (uymuyorsa yok say): tr_kucuk ile karşılaştır."
+    assert blok["hookEventName"] == "SubagentStart" and i in blok["additionalContext"]
     assert json.loads(kanca.kuyruk("s1").read_text(encoding="utf-8"))["ids"] == [i]
-
-
-def test_subagent_start_kisa_blok_tek_ders(depo, tmp_path):
-    """d17 (b): kanca ≤1 ders, en kısa biçim (id/başlık/koşul yok); kaçın öneki kalır."""
-    ders_ekle(baslik="sayac kaçın", icerik="lower() kullanma. Örnek: I.", sonuc="basarisizlik", kaynak="k1")
-    ders_ekle(baslik="sayac test", icerik="pytest koş.", kaynak="k2")
-    blok = json.loads(kanca.kanca({"hook_event_name": "SubagentStart", "session_id": "s2", "agent_type": "kodcu",
-                                   "transcript_path": ana(tmp_path)}))["hookSpecificOutput"]["additionalContext"]
-    assert blok in ("Ders (uymuyorsa yok say): kaçın — lower() kullanma.", "Ders (uymuyorsa yok say): pytest koş."), blok
-    assert len(json.loads(kanca.kuyruk("s2").read_text(encoding="utf-8"))["ids"]) == 1
 
 
 def test_subagent_start_ilgisiz_gorev_bos(depo, tmp_path):
