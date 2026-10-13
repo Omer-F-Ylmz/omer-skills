@@ -36,6 +36,8 @@ const HAFIF_VAR = (() => {
     .every((b) => h.includes(b));
 })();
 if (!CLAUDE) throw new Error("claude yurutucusu bulunamadi; kopru.json claudeYolu yazin");
+const KAPALI_ARAC = ["Artifact", "DesignSync", "SendFeedback", "EnterWorktree", "ExitWorktree", "RemoteTrigger", "CronCreate", "CronDelete", "CronList", "LSP",
+  "PushNotification", "ReportFindings", "SuggestSkills", "NotebookEdit", "WaitForMcpServers", "ListMcpResourcesTool", "ReadMcpResourceTool", "ReadMcpResourceDirTool"];
 const OTURUM = crypto.randomUUID();
 const IZ = izDosyasi(OTURUM);
 /** KÖPRÜ-HIZ (Desktop 12 Eki): şu an koşan ajan sayısı. ajanTavan artık ömür boyu değil EŞZAMANLI tavan:
@@ -156,6 +158,9 @@ srv.registerTool("ajan", {
     hafif: z.boolean().default(false).describe(
       "Skill/slash komut yüklemesini ve MCP sunucularını kapatır; hook'lar ve CLAUDE.md "
       + "açık kalır. Bağlam pahalı, iş basitse aç."),
+    tam_arac: z.boolean().default(false).describe(
+      "Kullanılmayan yerleşik araçlar (Artifact, LSP, Cron*, *Worktree, NotebookEdit vb.) varsayılan kapalı; "
+      + "görev bunlardan birini gerçekten gerektiriyorsa aç."),
   },
 }, (a) => (async () => {
   // KÖPRÜ-HIZ: ajan tek kuyruğa (sirala) GİRMEZ — 60 dk'lık oturum durum/komut/oku ve diğer
@@ -190,6 +195,8 @@ srv.registerTool("ajan", {
   }
   // TOKEN-1 ttl profili (profiller/cc-arka.json; test eşitliği korur): tur medyanı 1 → 5m cache yazma. CC_PROFIL_ZORLA=tam geri alır.
   if (process.env.CC_PROFIL_ZORLA !== "tam") argv.push("--settings", JSON.stringify({ promptCacheTtl: "5m" }));
+  // TOKEN-8 kopru profili (profiller/cc-arka.json kopru.kapat; test eşitliği korur): 7 günde 0 kullanım → önekten düşer. tam_arac açar.
+  if (process.env.CC_PROFIL_ZORLA !== "tam" && !a.tam_arac) argv.push("--disallowedTools", KAPALI_ARAC.join(","));
   // kurulan argv son kez taranır: artık her jeton ya sabit bayrak ya denetlenmiş değer
   if (argv.some((x) => /dangerously-skip-permissions|bypassPermissions|^--permission-mode/i.test(x))) {
     return hata("RED: argv izin atlama bayrağı taşıyor.");

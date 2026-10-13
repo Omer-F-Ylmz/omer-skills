@@ -46,6 +46,8 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
         ayar["enabledPlugins"] = {x: False for x in p["pluginKapat"]}
     if "ttl" in p:
         ayar["promptCacheTtl"] = p["ttl"]
+    if "kapat" in p:  # TOKEN-8: 7 günde 0 kullanımlı yerleşik araçlar önekten düşer
+        args += ["--disallowedTools", ",".join(p["kapat"])]
     if ayar:
         args += ["--settings", json.dumps(ayar)]
     return args, ({"CC_PROFIL": ad} if "pluginKapat" in p else {})

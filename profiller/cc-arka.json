@@ -3,6 +3,11 @@
  "ttl": {
   "ttl": "5m"
  },
+ "kopru": {
+  "ttl": "5m",
+  "kapat": ["Artifact", "DesignSync", "SendFeedback", "EnterWorktree", "ExitWorktree", "RemoteTrigger", "CronCreate", "CronDelete", "CronList", "LSP",
+            "PushNotification", "ReportFindings", "SuggestSkills", "NotebookEdit", "WaitForMcpServers", "ListMcpResourcesTool", "ReadMcpResourceTool", "ReadMcpResourceDirTool"]
+ },
  "blender": {
   "mcp": [
    "blender",

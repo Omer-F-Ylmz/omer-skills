@@ -80,7 +80,10 @@ for (const kotu of ["--dangerously-skip-permissions", "--permission-mode bypassP
 }
 
 // TOKEN-1: ajan ttl profiline bagli (14 gun tur medyani 1); deger profiller/cc-arka.json ile esit kalir
-const TTL = ["--settings", JSON.stringify({ promptCacheTtl: JSON.parse(fs.readFileSync(new URL("../../../profiller/cc-arka.json", import.meta.url), "utf8")).ttl.ttl })];
+const PROFIL = JSON.parse(fs.readFileSync(new URL("../../../profiller/cc-arka.json", import.meta.url), "utf8"));
+const TTL_YALIN = ["--settings", JSON.stringify({ promptCacheTtl: PROFIL.ttl.ttl })];
+// TOKEN-8: kopru.kapat listesi argv'de aynen (kullanilmayan yerlesik araclar oneke girmez)
+const TTL = [...TTL_YALIN, "--disallowedTools", PROFIL.kopru.kapat.join(",")];
 
 test("argv yalnizca sabit bayraklardan olusur", async () => {
   fs.rmSync(YAKALA, { force: true });
@@ -98,6 +101,13 @@ test("hafif=true argv'si --help'te dogrulanan bayraklari tasir", async () => {
   const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
   assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet",
     "--disable-slash-commands", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', ...TTL]);
+});
+
+test("tam_arac=true kapali arac listesini dusurur (kacis yolu)", async () => {
+  fs.rmSync(YAKALA, { force: true });
+  await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", tam_arac: true });
+  const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+  assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet", ...TTL_YALIN]);
 });
 
 test("hafif=false (varsayilan) hicbir kapatma bayragi eklemez", async () => {
