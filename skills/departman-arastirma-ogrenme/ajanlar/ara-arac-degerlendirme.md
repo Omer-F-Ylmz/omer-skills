@@ -1,6 +1,6 @@
 ---
 name: ara-arac-degerlendirme
-description: Evaluates a new tool or MCP against needs, cost, safety and alternatives
+description: Evaluates new tools, CLIs or MCPs before adoption: gain, cost, license, safety, Windows install, alternatives
 model: opus
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

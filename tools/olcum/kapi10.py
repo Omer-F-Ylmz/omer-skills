@@ -32,10 +32,17 @@ GOREV += [  # TOKEN-10 ek 10: f2b/f2c'nin az kapsadığı aileler, kardeş ajan�
     "A CSV export opens garbled in Turkish-locale Excel with shifted columns. Fix the export.",
     "Write a Claude Code PreToolUse hook that blocks rm -rf outside the repository.",
 ]
-ISTEM = (f"Aşağıdaki {len(GOREV)} görevin HİÇBİRİNİ yapma. Yalnız şunu yanıtla: her görev için bu oturumda hangi alt ajanı kullanırdın? "
+
+
+def istem(gorev):
+    return (f"Aşağıdaki {len(gorev)} görevin HİÇBİRİNİ yapma. Yalnız şunu yanıtla: her görev için bu oturumda hangi alt ajanı kullanırdın? "
          "Agent listesindeki herhangi bir ajan olabilir. Uygun uzman yoksa general-purpose. Yanıt yalnız JSON dizi: "
-         '[{"no":1,"ajan":"<ad>","gerekce":"<12 kelime"}]\n\n' + "\n".join(f"{i}. {g}" for i, g in enumerate(GOREV, 1)))
-GENEL = {"general-purpose", "Explore", "Plan", "claude"}
+         '[{"no":1,"ajan":"<ad>","gerekce":"<12 kelime"}]\n\n' + "\n".join(f"{i}. {g}" for i, g in enumerate(gorev, 1)))
+
+
+ISTEM = istem(GOREV)
+TUR_PAY = 0  # TOKEN-12 kapısı tur B ≤ A+1 ister
+GENEL ={"general-purpose", "Explore", "Plan", "claude"}
 
 
 def b_ajanlar(kok):
@@ -66,10 +73,10 @@ def secimler(k):
     return {d["no"]: d["ajan"] for d in json.loads(re.search(r"\[.*\]", j["result"], re.S).group(0))}, j.get("num_turns")
 
 
-if __name__ == "__main__":
-    is_ = sys.argv[1]
+def main(argv):
+    is_ = argv[0]
     if is_ in ("onek", "kapi"):
-        kollar = sys.argv[2:] or ["A", "B"]
+        kollar = argv[1:] or ["A", "B"]
         tmp = Path(tempfile.mkdtemp(prefix="t10_"))
         try:
             for k in kollar:
@@ -114,5 +121,9 @@ if __name__ == "__main__":
             if pu["B"] < pu["A"]:
                 kayip.append(int(i))
         t, g = a["tur"], a["genel"]
-        kabul = top["B"] >= top["A"] and t["B"] <= t["A"] and g["B"] <= g["A"]
+        kabul = top["B"] >= top["A"] and t["B"] <= t["A"] + TUR_PAY and g["B"] <= g["A"]
         print(f"puan A {top['A']} B {top['B']} · tur A {t['A']} B {t['B']} · genel A {g['A']} B {g['B']} · B kayıp görev {kayip} · {'KABUL' if kabul else 'RET'}")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
