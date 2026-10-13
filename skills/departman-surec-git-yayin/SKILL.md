@@ -18,6 +18,7 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 ## Kapılar
 - Kullanıcı istemeden push/deploy yok; default dalda önce dal aç.
 - Sır taraması temiz olmadan push yok.
+- Paralel ajan kolunda her commit `git commit --trailer "Gorev: <AD>"` taşır; birleştirmede "zaten var/özdeş" iddiası `git cherry -v main <kol>` ile (patch-id; `-` = içerikçe main'de) kanıtlanır, rapora commit → görev satırı (KAYNAK-5, Atlas).
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)

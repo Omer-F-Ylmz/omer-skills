@@ -114,6 +114,9 @@ def test_init_yaz_yalniz_ad(tmp_path):
     kosucu.init_yaz(y, {"mcp_servers": [{"name": "x", "status": "connected"}], "skills": ["a"], "model": "m",
                         "tools": ["Bash", "mcp__netlify__netlify-coding-rules"]})
     d = json.loads(y.read_text(encoding="utf-8"))
+    sha = d.pop("sha")  # KAYNAK-5 (OpenResearch): ölçüm satırı ↔ kod sürümü
+    assert len(sha) == 40 and sha == kosucu.subprocess.run(["git", "-C", str(kosucu.KOK), "rev-parse", "HEAD"],
+                                                           capture_output=True, text=True).stdout.strip()
     assert d == {"mcp_servers": ["x"], "skills": ["a"], "model": "m", "tools": {"toplam": 2, "mcp": 1}}
     assert "netlify" not in y.read_text(encoding="utf-8")
     kosucu.init_yaz(y, {"skills": ["b"]})
