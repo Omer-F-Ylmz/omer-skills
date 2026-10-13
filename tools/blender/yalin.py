@@ -60,8 +60,9 @@ def _claude(istek, ek):
             "usd": j.get("total_cost_usd") or 0.0, "rc": r.returncode}
 
 
-def tek(istek, blend=None, kos=_claude, calistir=None):
-    """Araçsız tek tur + yerel koşu; hata/eksikte (dogrula ya da Blender) en çok 1 düzeltme turu. kosucu.kos biçiminde dict döner."""
+def tek(istek, blend=None, kos=_claude, calistir=None, hafif=True):
+    """Araçsız tek tur + yerel koşu; hata/eksikte (dogrula ya da Blender) en çok 1 düzeltme turu. kosucu.kos biçiminde dict döner.
+    hafif=False: 1.2.0 tabanı (biçim düzeltmesi yok; faz5 'tek' kolu)."""
     if calistir is None:
         sys.path.insert(0, str(KOK / "tools"))
         from blender_cli import calistir
@@ -81,7 +82,8 @@ def tek(istek, blend=None, kos=_claude, calistir=None):
             bek = spec.pop("beklenen", None) or {}  # ölçü kapısı: dogrula/Blender görmez, ozet'le karşılaştırılır
             if bek:
                 spec["ozet"] = list(dict.fromkeys([*spec.get("ozet", []), "ad", "boyut"]))
-            hata = tarif.dogrula(spec)
+            t.setdefault("ilk_spec", json.loads(json.dumps(spec)))  # BLENDER-4 d2: duzelt öncesi ilk tur (faz5 tek4K)
+            hata = tarif.dogrula(tarif.duzelt(spec) if hafif else spec)
         except (AttributeError, ValueError) as e:
             spec, hata = None, [f"spec JSON ayrıştırılamadı: {e}"]
         if not hata:

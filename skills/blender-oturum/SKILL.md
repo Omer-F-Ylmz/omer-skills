@@ -11,7 +11,7 @@ Araç: `python C:\Projeler\omer-skills\tools\blender_oturum.py <komut>` (her pro
 
 ## Önce tarif (jeton: MCP turu yok, GUI açılmaz)
 İş tarif anahtarlarına sığıyorsa (ilkel nesne + ekler/ust · ölçü · malzeme · ışık · kamera · yığ/patlat · bevel/subdiv/decimate/UV · keyframe · önizleme/render · GLB · özet) oturum AÇILMAZ.
-Claude Code'da (claude CLI varsa) işi tek Bash ile yalın oturuma devret — araçsız tek tur (~3–7k jeton), spec'i yalin koşar, hatada 1 düzeltme turu; isteği kullanıcının sözleriyle, çıktı yollarıyla ver:
+Claude Code'da (claude CLI varsa) işi tek Bash ile yalın oturuma devret — araçsız tek tur (~3–5k jeton), spec'i yalin koşar (biçim kaymaları yerinde düzeltilir), hatada 1 düzeltme turu; isteği kullanıcının sözleriyle, çıktı yollarıyla ver:
 `python C:/Projeler/omer-skills/tools/blender/yalin.py "<istek + mutlak çıktı yolları>" --tek [--blend B]` → dönen `sonuc` (SONUC JSON) + jeton özetini aktar. rc 1 = iki denemede de hata (`sonuc` sebebi taşır): `--tek`'siz koş (Write+Bash, ≤4 tur).
 claude CLI yoksa (claude.ai) kendin: spec JSON'u `Desktop\<Proje>\blender\sahneler\<ad>.json`'a yaz → `blender_cli.py C:/Projeler/omer-skills/tools/blender/lib/tarif.py @<spec.json> [--blend B]`
 → tek satır özet JSON (+ `onizle` 256 px, tek Read). Anahtarlar ve sıra: `tarif.py` başlığı; hatalı spec Blender açılmadan mevcut adlarla reddedilir.

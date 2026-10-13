@@ -1,0 +1,44 @@
+{
+ "g5": {
+  "esle": {
+   "A": "tek-1",
+   "B": "tek4K-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 5
+   },
+   "B": {
+    "bicim": 7,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 5
+   }
+  },
+  "usd": 0.436964
+ },
+ "g6": {
+  "esle": {
+   "A": "tek-1",
+   "B": "tek4K-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 7
+   }
+  },
+  "usd": 0.4374068
+ }
+}
