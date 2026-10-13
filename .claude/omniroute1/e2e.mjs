@@ -9,7 +9,7 @@ const r = ajanOrtami(taban, { apiKredi: false, omni: true, oku: (ad) => process.
 if (r.eksik) { console.log("eksik:", r.eksik); process.exit(1); }
 const argv = ["-p", "--output-format", "json", "--model", OMNI_COMBO, "--disable-slash-commands",
   "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}'];
-const p = spawnSync("C:/Users/pc/.local/bin/claude.exe", argv, {
+const p = spawnSync("C:/Users/pc/.local/bin/claude.exe", [...r.arg, ...argv], {
   input: "Yalnız şu kelimeyi yaz: TAMAM", env: r.env, encoding: "utf8", timeout: 240000, windowsHide: true });
 const cikti = `${p.stdout || ""}${p.stderr || ""}`.split(r.sir).join("***");
 try {

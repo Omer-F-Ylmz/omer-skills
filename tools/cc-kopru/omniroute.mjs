@@ -56,17 +56,21 @@ export function siraEkle(satir, yol = SIRA) {
   fs.appendFileSync(yol, `- ${satir}\n`);
 }
 
-/** Ajan çocuğunun env'i. api-kredi kazanır (yalnız Ömer açar); omni yalnız tek başına uygulanır. */
+/** Ajan çocuğunun env'i + ek argv. api-kredi kazanır (yalnız Ömer açar); omni yalnız tek başına uygulanır.
+ *  d2 kök neden: ~/.claude/settings.json env.ANTHROPIC_BASE_URL (headroom vekili) süreç env'ini ezer → istek OmniRoute'a
+ *  hiç gitmiyordu ("Not logged in"). --settings kullanıcı ayarının üstündedir (CC settings belgesi); anahtar argv'ye girmez. */
 export function ajanOrtami(taban, { apiKredi, omni, oku }) {
   if (apiKredi) {
     const anahtar = oku("ANTHROPIC_API_KEY_AJAN");
-    return anahtar ? { env: { ...taban, ANTHROPIC_API_KEY: anahtar }, sir: anahtar } : { env: taban };
+    return anahtar ? { env: { ...taban, ANTHROPIC_API_KEY: anahtar }, sir: anahtar, arg: [] } : { env: taban, arg: [] };
   }
-  if (!omni) return { env: taban };
+  if (!omni) return { env: taban, arg: [] };
   const anahtar = oku("OMNIROUTE_KEY");
-  if (!anahtar) return { env: taban, eksik: "OMNIROUTE_KEY" };
-  const { ANTHROPIC_API_KEY: _at, ...env } = taban;
+  if (!anahtar) return { env: taban, eksik: "OMNIROUTE_KEY", arg: [] };
+  // EK 06:21: Claude abonelik kimliği OmniRoute'a gitmez → OAuth env'i de çıkar (AUTH_TOKEN zaten önce gelir).
+  const { ANTHROPIC_API_KEY: _at, CLAUDE_CODE_OAUTH_TOKEN: _ot, ...env } = taban;
   return {
+    arg: ["--settings", JSON.stringify({ env: { ANTHROPIC_BASE_URL: OMNI_URL } })],
     env: {
       ...env,
       ANTHROPIC_BASE_URL: OMNI_URL,
