@@ -414,3 +414,8 @@ git-bisect-rehber
 ops-disk-dolu
 ops-sertifika-yenileme
 ops-ssh-sertlestirme
+ajn-slash-komut-yazar
+oyn-seviye-tasarim
+otm-zamanlanmis-gorev
+fe-form-tasarimci
+oyn-oyun-envanter

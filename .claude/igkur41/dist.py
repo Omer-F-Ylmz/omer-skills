@@ -5,6 +5,8 @@ from pathlib import Path
 WT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(WT / "tools" / "skill-paket"))
 import paketle
+sys.path.insert(0, str(WT / "tools" / "secim"))
+from dizin_uret import dosyalar  # KAPI-25: kabulsüz ajan zip'e girmez
 
 cikti, kaynak = Path(sys.argv[1]), Path(sys.argv[2])  # kaynak: 3. taraf klonları (yalnız okunur)
 cikti.mkdir(parents=True, exist_ok=True)
@@ -12,7 +14,7 @@ for ad in ["departman-arastirma-ogrenme", "departman-frontend", "departman-surec
            "departman-surec-inceleme", "departman-surec-plan", "tasarim-katalog"]:
     d = WT / "skills" / ad
     with zipfile.ZipFile(cikti / f"{ad}.zip", "w", zipfile.ZIP_DEFLATED) as z:
-        for f in sorted(p for p in d.rglob("*") if p.is_file()):
+        for f in (dosyalar(d) if ad.startswith("departman-") else sorted(p for p in d.rglob("*") if p.is_file())):
             z.write(f, f"{ad}/{f.relative_to(d).as_posix()}")
     print(cikti / f"{ad}.zip")
 dizinler = [kaynak / "anatomy", kaynak / "hairline" / "skills" / "hairline-create", kaynak / "img2threejs",

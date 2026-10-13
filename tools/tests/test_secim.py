@@ -41,6 +41,20 @@ def test_dizin_skill_md_sonuna_gomulur_tek_kalir(tmp_path, monkeypatch):
     assert g.index("## Adımlar") < g.index(dizin_uret.BAS)  # sabit önek önce, dizin sonda
 
 
+def test_kabulsuz_ajan_zipe_girmez(tmp_path, monkeypatch):
+    import zipfile
+    for dep in ("frontend", "diger"):
+        a = tmp_path / "skills" / f"departman-{dep}" / "ajanlar"
+        a.mkdir(parents=True)
+        (a.parent / "SKILL.md").write_text("x", encoding="utf-8")
+        for ad in ("kabul", "kabulsuz"):
+            (a / f"{ad}.md").write_text("x", encoding="utf-8")
+    monkeypatch.setattr(dizin_uret, "KALITE3", {"kabul": None})
+    c = dizin_uret.zipla(tmp_path, tmp_path / "dist")
+    assert sorted(zipfile.ZipFile(c / "departman-frontend.zip").namelist()) == ["departman-frontend/SKILL.md", "departman-frontend/ajanlar/kabul.md"]
+    assert "departman-diger/ajanlar/kabulsuz.md" in zipfile.ZipFile(c / "departman-diger.zip").namelist()  # diger: müdür kendi ajanları
+
+
 def test_secim_opak_ve_anahtar():
     k = [("p:dn-efcore-migration", "x"), ("p:defuddle", "Extract markdown with Defuddle"), ("p:careful", "Use when running destructive commands"), ("p:resolve-conflict", "x"), ("p:db-sema-tasarim", "x")]
     assert [a for a, _ in dizin_uret.sec(k)] == ["p:careful", "p:resolve-conflict"]

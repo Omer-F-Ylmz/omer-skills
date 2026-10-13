@@ -186,16 +186,21 @@ def yaz(kok, web, cc):
         (d / "SKILL.md").write_bytes(f"{g}\n\n{bolum(web.get(dep), cc.get(dep))}\n".encode("utf-8"))
 
 
-def zipla(kok):
+def dosyalar(d):
+    """Departman klasörünün zip'e girecek dosyaları: ajanlar/ altında yalnız KALITE3 (kapıdan geçip kurulu) ajanlar. Tüm departman paketleyicileri bunu kullanır."""
+    return [f for f in sorted(d.rglob("*"))
+            if f.is_file() and (f.parent.name != "ajanlar" or f.stem in KALITE3 or d.name == "departman-diger")]
+
+
+def zipla(kok, cikti=None):
     """claude.ai yüklemesi (CC de bu senkron kopyayı görür): dist/skill-secim-1/departman-<x>.zip, kök klasör = skill adı."""
     import zipfile
-    cikti = kok / "dist" / "skill-secim-1" / "kendi"
+    cikti = cikti or kok / "dist" / "skill-secim-1" / "kendi"
     cikti.mkdir(parents=True, exist_ok=True)
     for d in sorted((kok / "skills").glob("departman-*")):
         with zipfile.ZipFile(cikti / f"{d.name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
-            for f in sorted(d.rglob("*")):
-                if f.is_file() and (f.parent.name != "ajanlar" or f.stem in KALITE3 or d.name == "departman-diger"):
-                    z.write(f, f"{d.name}/{f.relative_to(d).as_posix()}")
+            for f in dosyalar(d):
+                z.write(f, f"{d.name}/{f.relative_to(d).as_posix()}")
     return cikti
 
 
