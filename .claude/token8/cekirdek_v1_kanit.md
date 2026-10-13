@@ -1,0 +1,43 @@
+# cekirdek_v1 kanıt (eklenen 39)
+
+Kaynak: C:/Projeler/omer-skills/docs/kutuphane/olcum/kalite3-ajan-{hiz,pilot,hiz-parite}.tsv, yalnız kol=ajan satırları (puan/10). Transcript kullanımı: ~/.claude/projects/*/*.jsonl, son 30 gün, Agent subagent_type sayımı; eklenen 39 ajanın hepsinde 0 (kullanıcı ajanlarından yalnız çekirdekteki ajn-ajan-tanimi-yazar 22). Puanlar doymuş (520 puanlı ajanın çoğu 10); seçimde önek içi genellik ve tekrar sayısı belirleyici oldu.
+
+- ajn-ajan-orkestrasyon · kalite3-ajan-hiz.tsv:10; kalite3-ajan-pilot.tsv:10
+- ara-arac-degerlendirme · kalite3-ajan-pilot.tsv:10; kalite3-ajan-hiz-parite.tsv:10
+- be-dayaniklilik-kaliplari · kalite3-ajan-hiz.tsv:10,10
+- be-onbellek-gecersizlestirme · kalite3-ajan-hiz.tsv:10,10,10
+- bl-gorsel-ani-kontrol · kalite3-ajan-hiz.tsv:10
+- db-sema-tasarim · kalite3-ajan-hiz.tsv:10,10
+- db-sorgu-optimize · kalite3-ajan-hiz.tsv:10
+- dil-bash-betik · kalite3-ajan-hiz.tsv:10
+- dil-python-profil · kalite3-ajan-hiz.tsv:10
+- dn-msbuild-hata-cozucu · kalite3-ajan-hiz.tsv:10,10,10
+- dn-xunit-test-yazar · kalite3-ajan-hiz.tsv:10
+- dok-rapor-ozetleyici · kalite3-ajan-hiz.tsv:10,10
+- dok-adr-yazar · kalite3-ajan-hiz.tsv:10; kalite3-ajan-pilot.tsv:10
+- fe-react-bilesen-inceleme · kalite3-ajan-hiz.tsv:10,10 (zorunlu, f2b React re-render)
+- fe-bilesen-yazar · kalite3-ajan-hiz.tsv:10,10; kalite3-ajan-pilot.tsv:10
+- git-ci-boru-hatti · kalite3-ajan-pilot.tsv:10
+- git-pr-yoneticisi · kalite3-ajan-hiz.tsv:10
+- inc-hata-dedektifi · kalite3-ajan-hiz.tsv:10
+- inc-ponytail-kod · kalite3-ajan-hiz.tsv:7,10
+- ml-llm-degerlendirme · kalite3-ajan-hiz.tsv:10,10,10
+- ml-llm-saglayici-yonlendirme · kalite3-ajan-hiz.tsv:10
+- mob-rn-performans · kalite3-ajan-hiz.tsv:10
+- ops-dagitim-sorun-giderme · kalite3-ajan-hiz.tsv:10
+- ops-winget-kurulum · kalite3-ajan-hiz.tsv:10
+- otm-powershell-51 · kalite3-ajan-hiz.tsv:10
+- otm-api-entegrasyon · kalite3-ajan-pilot.tsv:10
+- oyn-mod-guvenlik-kontrol · kalite3-ajan-hiz.tsv:10
+- oyn-oyun-dokuman · kalite3-ajan-hiz.tsv:10,10
+- pln-dalga-plani · kalite3-ajan-pilot.tsv:10
+- pln-teknik-spec · kalite3-ajan-hiz.tsv:10,10
+- qa-sinir-deger-analizi · kalite3-ajan-hiz.tsv:7 (zorunlu, f2b parola doğrulama testi)
+- qa-hata-yeniden-uret · kalite3-ajan-hiz.tsv:10,10
+- sec-injection-denetci · kalite3-ajan-hiz.tsv:10 (zorunlu, f2b SQL injection)
+- sec-api-guvenlik · kalite3-ajan-pilot.tsv:10 (zorunlu, f2b profil endpoint)
+- urn-urun-yoneticisi · kalite3-ajan-hiz.tsv:10
+- vid-kare-cikarici · kalite3-ajan-hiz.tsv:10
+- vid-ytdlp-indirme · kalite3-ajan-hiz.tsv:10
+- vrm-baglam-butcesi · kalite3-ajan-hiz.tsv:10,10; kalite3-ajan-pilot.tsv:10
+- vrm-maliyet-denetci · kalite3-ajan-hiz.tsv:10,10
