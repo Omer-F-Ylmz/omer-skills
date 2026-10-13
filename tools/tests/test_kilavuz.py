@@ -26,6 +26,21 @@ def test_birlestir_dogrular_kirpar_maskeler(tmp_path, monkeypatch, capsys):
     assert "json" in capsys.readouterr().out
 
 
+def test_tur_ad_cakismasi_ve_katalog_isareti(tmp_path, monkeypatch):
+    (tmp_path / "cikti").mkdir()
+    (tmp_path / "tekil.tsv").write_text("ad\ttur\taile\tsha\ttemsilci\tbayt\tyol\na\tskill\tx\t1\ta\t5\t\na\tajan\tx\t2\ta\t5\t\n", encoding="utf8")
+    (tmp_path / "cikti" / "p001.jsonl").write_text(
+        json.dumps({"ad": "a", "tur": "ajan", **{k: "v" for k in kilavuz_derin.ALAN}}) + "\n"
+        + json.dumps({"ad": "a", "tur": "skill", "durum": "katalog"}) + "\n"
+        + json.dumps({"ad": "a", **{k: "tursuz" for k in kilavuz_derin.ALAN}}) + "\n", encoding="utf8")
+    for m in (kilavuz_derin, kilavuz_ara):
+        monkeypatch.setattr(m, "KAT", tmp_path)
+    monkeypatch.setattr(kilavuz_derin, "IS", tmp_path)
+    kilavuz_derin.birlestir()
+    derin = kilavuz_ara.derin_tablo()
+    assert derin({"ad": "a", "tur": "ajan"})["nasil"] == "v" and derin({"ad": "a", "tur": "skill"}) is None
+
+
 def test_tarif_bul_ortak_kelime(tmp_path):
     (tmp_path / "eticaret.md").write_text("# E-ticaret sitesi tarifi\n", encoding="utf8")
     (tmp_path / "oyun.md").write_text("# Oyun tarifi\n", encoding="utf8")

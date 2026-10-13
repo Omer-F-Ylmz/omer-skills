@@ -23,10 +23,13 @@ def tarif_bul(q, kok=KAT / "tarifler"):
 
 
 def derin_tablo():
-    tem = {r["ad"]: r["temsilci"] for r in csv.DictReader(open(KAT / "tekil.tsv", encoding="utf8"), delimiter="\t")}
+    R = list(csv.DictReader(open(KAT / "tekil.tsv", encoding="utf8"), delimiter="\t"))
+    tsha = {r["sha"]: f"{r['tur']}:{r['ad']}" for r in R if r["ad"] == r["temsilci"]}
+    tem = {f"{r['tur']}:{r['ad']}": tsha.get(r["sha"]) for r in R}
     yol = KAT / "derin.jsonl"
-    d = {j["ad"]: j for j in map(json.loads, open(yol, encoding="utf8"))} if yol.exists() else {}
-    return lambda ad: d.get(tem.get(ad, ad))
+    # anahtar tur:ad (aynı adlı skill/ajan çakışmaları); katalog işaretli kayıt derin sayılmaz
+    d = {f"{j['tur']}:{j['ad']}": j for j in map(json.loads, open(yol, encoding="utf8")) if j.get("durum") != "katalog"} if yol.exists() else {}
+    return lambda o: d.get(tem.get(f"{o['tur']}:{o['ad']}", f"{o['tur']}:{o['ad']}"))
 
 
 def main():
@@ -39,8 +42,8 @@ def main():
     derin = derin_tablo()
     sonuc = katalog_ara.ara(q)
     print(f"# kayıt {len(sonuc)} (ilk {min(n, len(sonuc))}, derin dolu olanlar önce)")
-    for o in sorted(sonuc, key=lambda o: derin(o["ad"]) is None)[:n]:
-        j = derin(o["ad"])
+    for o in sorted(sonuc, key=lambda o: derin(o) is None)[:n]:
+        j = derin(o)
         print(f"- {o['ad']} [{o['tur']}] · {o['cagri'][:60]}")
         if j:
             print(f"  nasıl: {j['nasil']} · ne zaman: {j['neden']} · en iyi: {j['en_iyi']} · birlikte: {j['birlikte']} · tuzak: {j['tuzak']} · maliyet: {j['maliyet']}")

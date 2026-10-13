@@ -95,9 +95,13 @@ def kart():
 
 
 def birlestir():
-    tem = {r["temsilci"] for r in csv.DictReader(open(KAT / "tekil.tsv", encoding="utf8"), delimiter="\t")}
+    R = [r for r in csv.DictReader(open(KAT / "tekil.tsv", encoding="utf8"), delimiter="\t") if r["ad"] == r["temsilci"]]
+    tem = {f"{r['tur']}:{r['ad']}" for r in R}
+    say = collections.Counter(r["ad"] for r in R)
+    tek_tur = {r["ad"]: r["tur"] for r in R if say[r["ad"]] == 1}  # tur'suz eski kayıt yalnız ad tekse eşlenir
+    anahtar = lambda j: f"{j.get('tur') or tek_tur.get(j.get('ad'))}:{j.get('ad')}"
     yol = KAT / "derin.jsonl"
-    d = {json.loads(s)["ad"]: json.loads(s) for s in open(yol, encoding="utf8")} if yol.exists() else {}
+    d = {anahtar(j): {**j, "tur": anahtar(j).split(":", 1)[0]} for j in map(json.loads, open(yol, encoding="utf8"))} if yol.exists() else {}
     hata = collections.Counter()
     for f in sorted((IS / "cikti").glob("p*.jsonl")):
         for s in open(f, encoding="utf8"):
@@ -108,21 +112,27 @@ def birlestir():
             except ValueError:
                 hata[f"{f.stem}:json"] += 1
                 continue
-            if j.get("ad") not in tem or any(not isinstance(j.get(a), str) or not j[a].strip() for a in ALAN):
+            k = anahtar(j)
+            if j.get("durum") == "katalog" and k in tem:  # sınıflandırıcı engelli aile: katalog metni kalır, derin boş
+                d[k] = {"ad": j["ad"], "tur": k.split(":", 1)[0], "durum": "katalog", **{a: "" for a in ALAN}}
+                continue
+            # uydurma diye silinen alan "?" gelir; hepsi boş/"?" ise kayıt yok sayılır
+            if k not in tem or any(not isinstance(j.get(a), str) or not j[a].strip() for a in ALAN) or all(j[a].strip() == "?" for a in ALAN):
                 hata[f"{f.stem}:alan/ad"] += 1
                 continue
-            kayit = {"ad": j["ad"], **{a: maske(" ".join(j[a].split())) for a in ALAN}}
+            kayit = {"ad": j["ad"], "tur": k.split(":", 1)[0], **{a: maske(" ".join(j[a].split())) for a in ALAN}}
             if j.get("konu"):
                 kayit["konu"] = str(j["konu"])[:40]
             for a in ALAN:
                 if len(kayit[a]) > 160:
                     hata["160 kırpıldı"] += 1
                     kayit[a] = kayit[a][:159].rsplit(" ", 1)[0] + "…"
-            d[j["ad"]] = kayit
+            d[k] = kayit
     with open(yol, "w", encoding="utf8", newline="\n") as f:
-        for ad in sorted(d):
-            f.write(json.dumps(d[ad], ensure_ascii=False) + "\n")
-    print(f"derin dolu {len(d)}/{len(tem)} · hata {dict(hata) or 0}")
+        for k in sorted(d):
+            f.write(json.dumps(d[k], ensure_ascii=False) + "\n")
+    kat = sum(j.get("durum") == "katalog" for j in d.values())
+    print(f"derin dolu {len(d) - kat}/{len(tem)} · katalog işaretli {kat} · hata {dict(hata) or 0}")
 
 
 assert boy(100) == "küçük" and maske("x sk-" + "a" * 20) == "x «gizli»"
