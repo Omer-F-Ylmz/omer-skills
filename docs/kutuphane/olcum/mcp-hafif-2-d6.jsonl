@@ -1,0 +1,10 @@
+{"etiket": "auth0-stdio", "kosu": 1, "zaman": "05:55:07", "durum": "INIT-YOK", "sure": 49.1, "arac_sayisi": 0}
+{"etiket": "auth0-stdio", "kosu": 2, "zaman": "05:55:27", "durum": "INIT-YOK", "sure": 17.5, "arac_sayisi": 0}
+{"etiket": "auth0-stdio", "kosu": 3, "zaman": "05:55:41", "durum": "INIT-YOK", "sure": 12.4, "arac_sayisi": 0}
+{"etiket": "serena-uvx", "kosu": 1, "zaman": "05:56:25", "durum": "OK", "init": 24.3, "tools": 24.3, "surec": 6, "ram_mb": 187, "arac_sayisi": 30}
+{"etiket": "serena-uvx", "kosu": 2, "zaman": "05:57:15", "durum": "OK", "init": 34.1, "tools": 34.1, "surec": 6, "ram_mb": 187, "arac_sayisi": 30}
+{"etiket": "serena-uvx", "kosu": 3, "zaman": "05:57:45", "durum": "OK", "init": 22.8, "tools": 22.8, "surec": 6, "ram_mb": 186, "arac_sayisi": 30}
+{"etiket": "serena-kurulum", "kosu": 1, "zaman": "05:58:01", "rc": 0, "sure": 16.4, "hata": "", "arac_sayisi": 0}
+{"etiket": "serena-sabit", "kosu": 1, "zaman": "05:58:40", "durum": "OK", "init": 31.3, "tools": 31.3, "surec": 4, "ram_mb": 141, "arac_sayisi": 30}
+{"etiket": "serena-sabit", "kosu": 2, "zaman": "05:58:55", "durum": "OK", "init": 9.9, "tools": 9.9, "surec": 4, "ram_mb": 134, "arac_sayisi": 30}
+{"etiket": "serena-sabit", "kosu": 3, "zaman": "05:59:07", "durum": "OK", "init": 6.7, "tools": 6.7, "surec": 4, "ram_mb": 134, "arac_sayisi": 30}
