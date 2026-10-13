@@ -217,10 +217,8 @@ def _blender_ana():
         sc.camera, kam.data.lens, kam.location = kam, lens, konum
         kam.data.clip_end = max(100, (konum - hedef).length * 10)
         kam.rotation_euler = (hedef - konum).to_track_quat("-Z", "Y").to_euler()
-        if kal:  # C xOUQUDoflxU: gerçek ölçekte küçük ürün → yakın kırpma; glz3-ZClzGc: odak üründe, f/4 fonu yumuşatır
+        if kal:  # C xOUQUDoflxU: gerçek ölçekte küçük ürün → yakın kırpma (f/4 DOF alınmadı: 8 cm üründe her şeyi bulandırdı, b3c yargı −7)
             kam.data.clip_start = 0.01
-            kam.data.dof.use_dof, kam.data.dof.focus_distance = True, (konum - hedef).length
-            kam.data.dof.aperture_fstop = kal["dof"] = 4.0
 
     tercih = bpy.context.preferences.edit
     eski_ara = tercih.keyframe_new_interpolation_type

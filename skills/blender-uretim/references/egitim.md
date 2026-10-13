@@ -3,7 +3,7 @@
 18 eğitim videosu (Blender Guru, CG Boost, Grant Abbitt, Default Cube, Ryan King Art, Vishnu Menon, CGMatter, rileyb3d, Joey Carlino, J Derinor) ve Blender 5.2 manual'ı incelendi. Burada yalnız mekanizmalar var, metin kopyası yok. Kanıt satırları (video id · zaman) wt `docs/blender-3/notlar-{A..D}.md` içinde.
 
 ## tarif.py'nin kendiliğinden uyguladıkları (`BLENDER_KALITE=0` hepsini kapatır)
-- Oto kamera 85 mm. Mesafe FOV'dan hesaplanır, kadraj doluluğu aynı kalır. `clip_start` 0.01. DOF f/4 ve odak ürün merkezindedir. Geniş açı yakın kenarı şişirir, f/4 ise ürünü keskin tutarken fonu yumuşatır.
+- Oto kamera 85 mm. Mesafe FOV'dan hesaplanır, kadraj doluluğu aynı kalır. `clip_start` 0.01. Geniş açı yakın kenarı şişirir. DOF varsayılan değildir: f/4, 8 cm üründe tüm ürünü bulandırdı (ölçüm b3c); gerekirse f/11+ elle.
 - Kenar pahı: `bevel` verilmemiş küp, silindir ve koniye en büyük boyutun %0.6'sı kadar pah, 2 segment ve `harden_normals` uygulanır. Keskin kenar ışık yakalamaz, ince pah vurgu çizgisi verir. Düzleme (zemine) uygulanmaz.
 - Anim anahtarları LINEAR'dır. Turntable sabit hızla döner, kullanıcı tercihi işlem sonunda geri yüklenir.
 - EEVEE'de raytracing açılır (5.x varsayılanı kapalıdır). RT ve Fast GI tam çözünürlüktedir: FGI 4 ışın ve 16 adım, gölge 2 ışın ve 8 adım. 384 px'de yaklaşık +0.09 sn tutar.

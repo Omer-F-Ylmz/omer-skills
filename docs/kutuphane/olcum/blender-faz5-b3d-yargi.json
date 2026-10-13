@@ -1,0 +1,128 @@
+{
+ "g1": {
+  "esle": {
+   "A": "tekK-1",
+   "B": "tek0-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 7
+   }
+  },
+  "usd": 0.4355642
+ },
+ "g2": {
+  "esle": {
+   "A": "tekK-1",
+   "B": "tek0-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 7,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   }
+  },
+  "usd": 0.43370539999999996
+ },
+ "g3": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tekK-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 4,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 4
+   },
+   "B": {
+    "bicim": 4,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 4
+   }
+  },
+  "usd": 0.43440120000000004
+ },
+ "g4": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tekK-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 8
+   }
+  },
+  "usd": 0.4335278
+ },
+ "g5": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tekK-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 7,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   }
+  },
+  "usd": 0.43623500000000004
+ },
+ "g6": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tekK-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 7
+   }
+  },
+  "usd": 0.437667
+ }
+}

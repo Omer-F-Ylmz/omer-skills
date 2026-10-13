@@ -221,7 +221,7 @@ def test_anim_donus_birimi_derece():
 @blender
 @pytest.mark.parametrize("acik", ["1", "0"])
 def test_egitim_varsayilanlari(proje, monkeypatch, acik):
-    """BLENDER-3: eğitim mekanizmaları (85 mm + f/4 DOF, ürün kenar pahı, doğrusal turntable; AgX kontrast look sırlı seramikte %2 yanma kapısını aştı → yok); BLENDER_KALITE=0 eskisi."""
+    """BLENDER-3: eğitim mekanizmaları (85 mm, DOF yok — f/4 küçük ürünü bütünüyle bulandırdı (b3c), ürün kenar pahı, doğrusal turntable; AgX kontrast look sırlı seramikte %2 yanma kapısını aştı → yok); BLENDER_KALITE=0 eskisi."""
     monkeypatch.setenv("BLENDER_KALITE", acik)
     s = kos({"nesneler": [{"ad": "GEO-Kutu", "tur": "kup", "boyut": [0.1, 0.1, 0.1], "konum": [0, 0, 0.05]},
                           {"ad": "GEO-Zemin", "tur": "duzlem", "boyut": [1, 1, 0]}],
@@ -229,6 +229,6 @@ def test_egitim_varsayilanlari(proje, monkeypatch, acik):
              "kare": [1, 8], "onizle": {"yol": str(proje / f"k{acik}.png"), "px": 64, "motor": "workbench"}})
     k = s.get("kalite", {})
     if acik == "1":
-        assert s["kamera"]["lens"] == 85 and k["dof"] == 4.0 and k["pah"] == ["GEO-Kutu"] and k["ara"] == "LINEAR"
+        assert s["kamera"]["lens"] == 85 and "dof" not in k and k["pah"] == ["GEO-Kutu"] and k["ara"] == "LINEAR"
     else:
         assert s["kamera"]["lens"] == 50 and not k
