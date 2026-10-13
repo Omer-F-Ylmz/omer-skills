@@ -3,7 +3,8 @@ görünümü → Opus etiketi (başarı 0/1, ≤1 claude -p çağrısı, plan li
 ızgara araması (dengeli doğruluk). Örnek metinleri yerelde kalır (.claude/ruflo11/); TSV'ye yalnız sayılar yazılır.
 Ortak arayüz (LAYA-1): ornek.jsonl satırı = jev_yargic state'i {"gorev","yanit"} + "opus" etiketi → başka taşıyıcı aynı kümede ölçülür.
   python kalibre.py topla [N]   örnek + Opus + Jev → .claude/ruflo11/ornek.jsonl + docs/kutuphane/olcum/ruflo-1-kalibre.tsv
-  python kalibre.py uydur       TSV → en iyi (ESIK, TEST_ODUL, PAY)"""
+  python kalibre.py yargic [haiku|sonnet]   aynı örnekler → kanca._yargic puanı (TSV model sütunu)
+  python kalibre.py uydur [jev|haiku|sonnet]   TSV → en iyi (ESIK, TEST_ODUL, PAY)"""
 import json
 import os
 import random
@@ -16,21 +17,6 @@ import kanca  # noqa: E402
 KOK = Path(__file__).resolve().parents[2]
 YEREL = KOK / ".claude" / "ruflo11"
 TSV = KOK / "docs" / "kutuphane" / "olcum" / "ruflo-1-kalibre.tsv"
-ETIKET = ("Aşağıda Claude Code alt ajan koşuları var (görev, araç/hata sayısı, son test sonucu, son araç çıktıları, son mesaj). "
-          "Her koşu için: ajan görevi GERÇEKTEN başardı mı (istenen iş yapıldı, doğrulandı ya da doğrulanamadığı dürüstçe bildirildi "
-          "ve iş yine de doğru)? basari 1/0, guven 0-1. Yalnız JSON liste: [{\"no\": n, \"basari\": 0|1, \"guven\": x}]\n\n%s")
-
-
-def _son_ciktilar(yol, n=3):
-    c = []
-    for x in kanca._satirlar(yol, 512_000):
-        for p in kanca._icerik(x):
-            if p.get("type") == "tool_result":
-                t = p.get("content")
-                c.append(t if isinstance(t, str) else " ".join(y.get("text", "") for y in t or [] if isinstance(y, dict)))
-    return [t[-300:] for t in c[-n:]]
-
-
 def topla(n=60):
     yollar = sorted(Path.home().glob(".claude/projects/*/*/subagents/*.jsonl"))
     random.Random(11).shuffle(yollar)
@@ -39,7 +25,7 @@ def topla(n=60):
         gorev, arac, hata, tur, son, test = kanca.yorunge(y)
         if arac >= kanca.EN_AZ_ARAC and son.strip() and gorev.strip():
             ornek.append({"gorev": gorev[:1500], "yanit": son[-1500:], "arac": arac, "hata": hata, "tur": tur, "test": test,
-                          "ciktilar": _son_ciktilar(y)})
+                          "ciktilar": kanca.son_ciktilar(y)})
         if len(ornek) == n:
             break
     sys.path.insert(0, str(KOK / "tools" / "olcum"))
@@ -54,7 +40,7 @@ def topla(n=60):
         metin = "\n\n".join(f"Koşu {i}: {o['arac']} araç · {o['hata']} hata · test {o['test']}\nGörev: {o['gorev'][:500]}\n"
                             f"Son çıktılar: {' | '.join(t[-200:] for t in o['ciktilar'])}\nSon mesaj: {o['yanit'][-500:]}"
                             for i, o in enumerate(ornek[b:b + 12], b + 1))
-        o = kosucu.kos(ETIKET % metin, ek=["--strict-mcp-config", "--max-turns", "1"], model="opus", butce=1.0, timeout=600)
+        o = kosucu.kos(kanca.ETIKET % metin, ek=["--strict-mcp-config", "--max-turns", "1"], model="opus", butce=1.0, timeout=600)
         usd += o["usd"]
         m = o["metin"]
         try:
@@ -64,7 +50,7 @@ def topla(n=60):
     kayit.write_text(json.dumps(etiket, ensure_ascii=False), encoding="utf-8")
     sys.path.insert(0, str(kanca.KOK / "tools" / "jev"))
     from jev.cekirdek import Tasiyici
-    jev = kanca._jev([{"gorev": x["gorev"], "yanit": x["yanit"]} for x in ornek], Tasiyici(en_fazla=5, istek_tavan=20))
+    jev = kanca._jev([{"gorev": x["gorev"], "yanit": x["yanit"]} for x in ornek], Tasiyici(en_fazla=5, istek_tavan=80))  # API arka ucu state başına 1 istek (60 → ~50) + tekrar payı
     with open(YEREL / "ornek.jsonl", "w", encoding="utf-8") as f, open(TSV, "w", encoding="utf-8", newline="\n") as t:
         t.write("no\tarac\thata\ttest\tjev\topus\topus_guven\n")
         for i, (x, j) in enumerate(zip(ornek, jev), 1):
@@ -75,16 +61,36 @@ def topla(n=60):
     print(f"topla: {len(ornek)} örnek · opus ${usd:.3f} · etiket {len(etiket)} · jev {sum(j is not None for j in jev)}")
 
 
-def _satirlar():
+def yargic(sutun="haiku"):
+    """Aynı örnekler → kanca._haiku (kancanın varsayılan yargıcı; 12'lik parti, ≤5 haiku çağrısı) → TSV'ye haiku sütunu."""
+    import csv
+    ornek = [json.loads(x) for x in open(YEREL / "ornek.jsonl", encoding="utf-8")]
+    puan = []
+    for b in range(0, len(ornek), 12):
+        try:
+            puan += kanca._yargic(ornek[b:b + 12], sutun)
+        except ValueError as h:
+            print("parti", b, "okunamadı:", h, flush=True)
+            puan += [None] * len(ornek[b:b + 12])
+    r = list(csv.DictReader(open(TSV, encoding="utf-8"), delimiter="\t"))
+    alan = [k for k in r[0] if k != sutun] + [sutun]
+    with open(TSV, "w", encoding="utf-8", newline="\n") as t:
+        t.write("\t".join(alan) + "\n")
+        for x, p in zip(r, puan):
+            t.write("\t".join([x[k] for k in alan[:-1]] + [str(p)]) + "\n")
+    print(f"{sutun}: {sum(p is not None for p in puan)}/{len(ornek)} puan")
+
+
+def _satirlar(sutun="jev"):
     import csv
     for r in csv.DictReader(open(TSV, encoding="utf-8"), delimiter="\t"):
-        if r["jev"] not in ("None", "") and r["opus"] not in ("None", ""):
-            yield (float(r["jev"]), int(r["arac"]), int(r["hata"]), None if r["test"] == "None" else int(r["test"]), int(r["opus"]))
+        if r.get(sutun) not in (None, "None", "") and r["opus"] not in ("None", ""):
+            yield (float(r[sutun]), int(r["arac"]), int(r["hata"]), None if r["test"] == "None" else int(r["test"]), int(r["opus"]))
 
 
-def uydur(satirlar=None):
+def uydur(satirlar=None, sutun="jev"):
     """→ (ESIK, TEST_ODUL, PAY, dengeli doğruluk, kapı içi doğruluk, kapsam). Eşitlikte küçük ödül (sade) kazanır."""
-    s = list(satirlar if satirlar is not None else _satirlar())
+    s = list(satirlar if satirlar is not None else _satirlar(sutun))
     en = None
     for odul in (0, 1, 2, 3, 4):
         k = [(kanca.karma(j, a, h, "x", t, odul), y) for j, a, h, t, y in s]
@@ -107,5 +113,7 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     if sys.argv[1] == "topla":
         topla(int(sys.argv[2]) if len(sys.argv) > 2 else 60)
+    elif sys.argv[1] == "yargic":
+        yargic(sys.argv[2] if len(sys.argv) > 2 else "haiku")
     else:
-        print("uydur: ESIK, TEST_ODUL, PAY, dengeli doğruluk, kapı içi doğruluk, kapsam =", uydur())
+        print("uydur: ESIK, TEST_ODUL, PAY, dengeli doğruluk, kapı içi doğruluk, kapsam =", uydur(sutun=sys.argv[2] if len(sys.argv) > 2 else "jev"))

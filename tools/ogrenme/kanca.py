@@ -17,10 +17,14 @@ import ders  # noqa: E402
 KOK = Path("C:/Projeler/omer-skills")
 ARKA = KOK / ".kos" / "kopru" / "arka.py"
 EN_FAZLA_YORUNGE, EN_AZ_ARAC = 3, 3  # damıtmaya en fazla 3 yörünge; <3 araçlık koşu öğretmez (jeton tavanı)
-ESIK, TEST_ODUL, PAY = 6.0, 0, 0.0  # d11 kalibre.py uydur (Opus etiketli gerçek alt ajan koşuları) ile ayarlanır
+ESIK, TEST_ODUL, PAY = 5.0, 0, 0.0  # d12 kalibre.py: Jev Opus etiketiyle ters (ort. 2.2 başarı / 3.6 başarısız); hiçbir yargıç Opus'un 5 başarısızını ayırmadı → orta nokta
+YARGIC_MODEL = "sonnet"  # Opus başarılılarını tanıma: sonnet 46/55, haiku 32/55 (d10 hatası: başarılı koşudan 'kaçın' dersi)
 SORU = {"kalite": {"type": "score", "criteria": ["Hiç karşılamıyor / alakasız", "Çok zayıf", "Kısmen, önemli eksik",
                                                  "Çoğunlukla, küçük eksik", "Tam karşılıyor", "Tam ve örnek nitelikte"],
                    "instructions": "`yanit`, `gorev` isteğini ne kadar doğru ve eksiksiz karşılıyor? Biçim/uzunluk değil, içerik."}}
+ETIKET = ("Aşağıda Claude Code alt ajan koşuları var (görev, araç/hata sayısı, son test sonucu, son araç çıktıları, son mesaj). "
+          "Her koşu için: ajan görevi GERÇEKTEN başardı mı (istenen iş yapıldı, doğrulandı ya da doğrulanamadığı dürüstçe bildirildi "
+          "ve iş yine de doğru)? basari 1/0, guven 0-1. Yalnız JSON liste: [{\"no\": n, \"basari\": 0|1, \"guven\": x}]\n\n%s")
 DAMIT = ("Aşağıda bir Claude Code oturumundaki alt ajan koşuları ve yargıç puanları var. Gelecekteki BENZER görevlerde işe yarayacak "
          "EN FAZLA 3 genellenebilir ders çıkar (kural/yöntem; göreve özgü sayı, dosya içeriği, yol, ad değil). BAŞARILI koşudan "
          "'işe yarayan yöntem' dersi (asla 'kaçın' değil); BAŞARISIZ koşudan 'kaçın' dersi (hatanın kaynağı + ilk turda ne yapılmalı). "
@@ -120,7 +124,8 @@ def kanca(girdi, baslat=None):
     if olay == "SubagentStop" and ajan and girdi.get("agent_transcript_path"):
         gorev, arac, hata, tur, son, test = yorunge(girdi["agent_transcript_path"])
         _ekle(oturum, {"tip": "bitti", "ajan_id": girdi.get("agent_id"), "ajan": ajan, "gorev": gorev[:2000], "arac": arac,
-                       "hata": hata, "tur": tur, "test": test, "son": (girdi.get("last_assistant_message") or son)[-3000:]})
+                       "hata": hata, "tur": tur, "test": test, "son": (girdi.get("last_assistant_message") or son)[-3000:],
+                       "ciktilar": son_ciktilar(girdi["agent_transcript_path"])})
     elif olay == "SessionEnd" and kuyruk(oturum).exists():
         (baslat or _arka)(oturum)
     return ""
@@ -154,7 +159,7 @@ def isle(oturum, yargic=None, damit=None):
     if not bitti:
         return 0
     try:
-        puan = (yargic or _jev)([{"gorev": k["gorev"], "yanit": k["son"]} for k in bitti])
+        puan = (yargic or _yargic)(bitti)
     except Exception as h:  # ağ/anahtar/tavan: sessiz geç, kuyruk atlandı olarak kalır
         print(time.strftime("%H:%M:%S"), oturum[:8], "yargı atlandı:", type(h).__name__, flush=True)
         yol.rename(yol.with_suffix(".atlandi"))
@@ -196,12 +201,37 @@ def _jev(states, tasiyici=None):
     return [None if c is None else c["kalite"]["score"] * 2 for c in cevap]
 
 
-def _damit(istem):
+def son_ciktilar(yol, n=3):
+    c = []
+    for x in _satirlar(yol, 512_000):
+        for p in _icerik(x):
+            if p.get("type") == "tool_result":
+                t = p.get("content")
+                c.append(t if isinstance(t, str) else " ".join(y.get("text", "") for y in t or [] if isinstance(y, dict)))
+    return [t[-300:] for t in c[-n:]]
+
+
+def etiket_metni(kayitlar):
+    return "\n\n".join(f"Koşu {i}: {k['arac']} araç · {k['hata']} hata · test {k.get('test')}\nGörev: {k['gorev'][:500]}\n"
+                       f"Son çıktılar: {' | '.join(t[-200:] for t in k.get('ciktilar') or [])}\n"
+                       f"Son mesaj: {(k.get('son') or k.get('yanit') or '')[-500:]}" for i, k in enumerate(kayitlar, 1))
+
+
+def _yargic(kayitlar, model=None):
+    """Varsayılan yargıç (d12): Jev puanı Opus etiketleriyle ilişkisiz çıktı (kalibre.py) → Opus etiket istemiyle haiku, ≤1 çağrı.
+    → koşu başına 0-10 = 5 ± 5·güven (başarı +, başarısızlık −); okunamayan koşu None."""
+    m = _damit(ETIKET % etiket_metni(kayitlar), model or YARGIC_MODEL)
+    e = {int(x["no"]): x for x in json.loads(m[m.index("["):m.rindex("]") + 1])}
+    return [round(5 + 5 * float(e[i].get("guven") or 0) * (1 if e[i].get("basari") else -1), 1) if i in e else None
+            for i in range(1, len(kayitlar) + 1)]
+
+
+def _damit(istem, model="haiku"):
     sys.path.insert(0, str(KOK / "tools" / "olcum"))
     os.environ.pop("ANTHROPIC_API_KEY", None)  # Ömer 12 Eki: API kredisi kapalı, plan limiti
     os.environ["OGRENME_KANCA"] = "0"  # damıtma oturumu kendi kancasını tetiklemez
     import kosucu
-    o = kosucu.kos(istem, ek=["--strict-mcp-config", "--max-turns", "1"], model="haiku", butce=0.2, timeout=180)
+    o = kosucu.kos(istem, ek=["--strict-mcp-config", "--max-turns", "1"], model=model, butce=0.2 if model == "haiku" else 0.6, timeout=180)
     return o["metin"]
 
 
