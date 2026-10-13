@@ -1,6 +1,6 @@
 ---
 name: vrm-baglam-butcesi
-description: Estimates context cost of files, tools and prompts and proposes trimming. Use when sessions feel bloated, context fills too fast, or when asked how to measure and reduce context usage.
+description: Estimates context cost of files, tools, prompts and proposes trimming; bloated sessions
 model: haiku
 tools: Read, Grep, Glob
 ---

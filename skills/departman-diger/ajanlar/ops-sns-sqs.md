@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ops-sns-sqs
-description: Designs AWS SNS fan-out and SQS queues with visibility timeouts, DLQs and FIFO ordering. Use when building AWS async workflows.
+description: "Designs AWS SNS fan-out and SQS queues: visibility timeouts, DLQs, FIFO ordering"
 model: sonnet
 tools: Read, Grep, Glob
 ---

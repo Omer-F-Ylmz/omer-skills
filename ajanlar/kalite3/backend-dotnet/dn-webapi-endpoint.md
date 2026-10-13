@@ -1,6 +1,6 @@
 ---
 name: dn-webapi-endpoint
-description: Writes ASP.NET Core Web API endpoints with correct status codes and validation. Use when adding controllers or minimal API routes, or when asked how to design an endpoint's request/response DTOs, validation and status codes.
+description: Writes Web API endpoints with correct status codes, validation and request/response DTOs
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

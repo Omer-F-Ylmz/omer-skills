@@ -1,6 +1,6 @@
 ---
 name: dil-derleyici-tasarimi
-description: Designs lexers, parsers, ASTs and evaluation or code generation for small languages and DSLs. Use when building a DSL, parser or interpreter.
+description: Designs lexers, parsers, ASTs and code generation for DSLs and small languages
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

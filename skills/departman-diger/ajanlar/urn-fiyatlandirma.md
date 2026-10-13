@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: urn-fiyatlandirma
-description: Designs pricing with value metrics, tiers, anchoring and experiments. Use when setting or changing prices.
+description: "Designs pricing: value metrics, tiers, anchoring, experiments"
 model: sonnet
 tools: Read, Grep, Glob
 ---

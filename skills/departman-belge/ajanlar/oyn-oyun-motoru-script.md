@@ -1,6 +1,6 @@
 ---
 name: oyn-oyun-motoru-script
-description: Writes gameplay scripts such as movement, health and inventory for engines like Unity or Godot. Use when implementing a mechanic.
+description: "Writes Unity/Godot gameplay scripts: movement, health, inventory mechanics"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

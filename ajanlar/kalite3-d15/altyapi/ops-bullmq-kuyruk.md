@@ -1,6 +1,6 @@
 ---
 name: ops-bullmq-kuyruk
-description: Designs BullMQ queues with retries, backoff, concurrency and idempotent workers on Redis. Use when Node background jobs fail or duplicate.
+description: "Designs BullMQ queues on Redis: retries, backoff, concurrency, idempotent workers"
 model: sonnet
 tools: Read, Grep, Glob
 ---

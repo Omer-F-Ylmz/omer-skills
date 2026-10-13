@@ -1,6 +1,6 @@
 ---
 name: fe-slayt-kurucu
-description: Builds a single-file HTML slide deck with keyboard navigation, slide transitions, and print/PDF export. Use when asked for web based presentations, or how to structure one.
+description: Builds single-file HTML slide decks with keyboard nav, transitions, print/PDF export
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

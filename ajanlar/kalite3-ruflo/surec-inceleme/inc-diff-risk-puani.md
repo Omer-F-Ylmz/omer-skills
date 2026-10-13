@@ -1,6 +1,6 @@
 ---
 name: inc-diff-risk-puani
-description: Scores each changed file in a diff for risk and suggests reviewers from git ownership. Use when deciding how carefully a branch or PR must be reviewed and by whom, including when only a described change list is given and no repo is available.
+description: Scores changed files in a diff for risk and suggests reviewers from git ownership
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

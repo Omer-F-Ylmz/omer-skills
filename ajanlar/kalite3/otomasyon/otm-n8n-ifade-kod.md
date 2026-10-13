@@ -1,6 +1,6 @@
 ---
 name: otm-n8n-ifade-kod
-description: Writes n8n expressions and Code node snippets for mapping and filtering items. Use when data needs reshaping between nodes.
+description: Writes n8n expressions and Code node snippets to map and filter items
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

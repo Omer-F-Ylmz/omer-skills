@@ -1,6 +1,6 @@
 ---
 name: sec-guvenlik-baslik
-description: Sets CSP, HSTS, CORS and cookie headers for a web app, and answers which security headers are needed and why. Use when hardening a site before launch.
+description: Sets CSP, HSTS, CORS and cookie security headers for a web app
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

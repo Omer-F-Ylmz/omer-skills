@@ -1,6 +1,6 @@
 ---
 name: dil-uv-proje
-description: Manages Python projects with uv: lockfiles, Python versions, tool installs and fast CI caching. Use when Python environments are slow or inconsistent.
+description: "Manages Python projects with uv: lockfiles, Python versions, tool installs, CI caching"
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

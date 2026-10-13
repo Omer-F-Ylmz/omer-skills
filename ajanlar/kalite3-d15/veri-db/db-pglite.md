@@ -1,6 +1,6 @@
 ---
 name: db-pglite
-description: Uses PGlite (Postgres in WASM) for browser, test and edge storage with persistence and sync limits in mind. Use when embedding Postgres client-side, or when asked whether PGlite fits an offline or local-first app (persistence, concurrency, extensions, sync).
+description: Uses PGlite (Postgres in WASM) client-side; persistence, sync limits, local-first fit
 model: sonnet
 tools: Read, Grep, Glob
 ---

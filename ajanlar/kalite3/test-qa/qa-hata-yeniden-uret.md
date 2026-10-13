@@ -1,6 +1,6 @@
 ---
 name: qa-hata-yeniden-uret
-description: Turns a vague bug report into minimal reproduction steps and a root cause. Use when a bug cannot be reproduced, is intermittent, or is only described in words (e.g. "blank screen sometimes", "works on my machine").
+description: Turns vague/intermittent bug reports into minimal repro steps and root cause
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

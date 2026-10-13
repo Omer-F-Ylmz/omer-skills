@@ -1,6 +1,6 @@
 ---
 name: db-rls-politika
-description: Writes and reviews Postgres row level security policies. Use when tables are exposed through Supabase or a public API.
+description: Writes and reviews Postgres row level security policies (Supabase, public API)
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

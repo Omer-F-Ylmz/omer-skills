@@ -1,6 +1,6 @@
 ---
 name: ajn-ajan-arena
-description: Runs blind pairwise comparisons of two agents or prompts on the same tasks with a rubric and bias controls. Use when choosing between agent versions.
+description: Blind pairwise comparison of two agents or prompts with rubric and bias controls
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

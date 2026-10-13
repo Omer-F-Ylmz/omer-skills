@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: otm-puppeteer
-description: Writes and fixes Puppeteer scripts for headless automation, scraping and capture with reliable waits and cleanup. Use when a Puppeteer script times out, misses content or leaks browsers.
+description: "Writes and fixes Puppeteer scripts: reliable waits, cleanup; timeouts, missed content, leaked browsers"
 model: sonnet
 tools: Read, Grep, Glob
 ---

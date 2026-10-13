@@ -1,6 +1,6 @@
 ---
 name: ml-model-metrik
-description: Chooses evaluation metrics and thresholds for classification models with imbalanced classes and business costs. Use when a model looks accurate but fails in practice, including questions with no files attached.
+description: Chooses metrics and thresholds for imbalanced classifiers with business costs; accurate but failing
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

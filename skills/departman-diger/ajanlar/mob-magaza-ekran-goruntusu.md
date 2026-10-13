@@ -1,6 +1,6 @@
 ---
 name: mob-magaza-ekran-goruntusu
-description: Plans App Store and Google Play screenshot sets with caption hierarchy, device frames and required sizes. Use when preparing a store listing.
+description: "Plans App Store/Google Play screenshot sets: captions, device frames, required sizes"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

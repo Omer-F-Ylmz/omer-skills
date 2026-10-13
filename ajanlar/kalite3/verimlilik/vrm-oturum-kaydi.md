@@ -1,6 +1,6 @@
 ---
 name: vrm-oturum-kaydi
-description: Saves a short session handoff with state, decisions and next steps. Use before ending or compacting a session, or when asked what a handoff note should contain.
+description: Saves a session handoff with state, decisions and next steps before ending or compacting
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

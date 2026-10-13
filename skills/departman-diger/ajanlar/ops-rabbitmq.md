@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ops-rabbitmq
-description: Designs RabbitMQ exchanges, queues, acknowledgements and dead-lettering. Use when messages are lost, duplicated or pile up.
+description: Designs RabbitMQ exchanges, queues, acks, dead-lettering for lost/duplicate messages
 model: sonnet
 tools: Read, Grep, Glob
 ---

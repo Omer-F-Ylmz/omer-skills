@@ -1,6 +1,6 @@
 ---
 name: pln-islevsel-olmayan-gereksinim
-description: Turns vague quality wishes into measurable non-functional requirements with percentiles, targets and verification methods. Use when a spec says fast, secure or scalable without numbers.
+description: Turns vague quality wishes into measurable non-functional requirements (percentiles, targets)
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: sec-istem-enjeksiyon-savunma
-description: Hardens LLM apps against prompt injection from user input, retrieved documents and tool results. Use when an app feeds untrusted text into a model.
+description: Hardens LLM apps against prompt injection from user input, documents, tool results
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

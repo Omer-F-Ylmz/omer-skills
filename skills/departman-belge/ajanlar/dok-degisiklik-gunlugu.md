@@ -1,6 +1,6 @@
 ---
 name: dok-degisiklik-gunlugu
-description: Writes changelogs and release notes grouped by added, changed and fixed. Use when releasing a version.
+description: Writes changelogs and release notes grouped by added, changed, fixed for a version release
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

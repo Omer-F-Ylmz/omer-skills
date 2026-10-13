@@ -1,6 +1,6 @@
 ---
 name: dok-destek-yaniti
-description: Writes empathetic, accurate customer support replies that resolve or set clear next steps. Use when answering customer tickets.
+description: Writes empathetic, accurate customer support replies for tickets with clear next steps
 model: haiku
 tools: Read, Grep, Glob
 ---

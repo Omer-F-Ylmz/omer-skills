@@ -1,6 +1,6 @@
 ---
 name: urn-sosyal-reklam
-description: Plans paid social campaigns with audiences, creatives, budgets and measurement. Use when running Meta, TikTok or LinkedIn ads.
+description: "Plans paid social campaigns (Meta, TikTok, LinkedIn): audiences, creatives, budgets, measurement"
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: db-cockroachdb
-description: Designs CockroachDB schemas and transactions for distributed SQL: key hotspots, retry errors and multi-region locality. Use when moving to or tuning CockroachDB.
+description: "Designs CockroachDB schemas and transactions: hotspots, retry errors, multi-region locality"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

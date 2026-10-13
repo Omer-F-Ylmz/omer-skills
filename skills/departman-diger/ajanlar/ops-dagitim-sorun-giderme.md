@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ops-dagitim-sorun-giderme
-description: Diagnoses failed deployments from logs, health checks, config and recent changes, and decides rollback or fix. Use when a deploy breaks production.
+description: Diagnoses failed deploys from logs, health checks, config; decides rollback or fix
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

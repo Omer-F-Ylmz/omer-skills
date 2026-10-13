@@ -1,6 +1,6 @@
 ---
 name: dil-go-eszamanlilik
-description: Designs and reviews Go concurrency with goroutines, channels, context cancellation and race-free sharing. Use when Go services leak goroutines or race, including when the symptom is described without code.
+description: "Designs/reviews Go concurrency: goroutine leaks, channels, context cancel, races; also symptom-only"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

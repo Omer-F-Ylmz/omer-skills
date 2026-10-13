@@ -1,6 +1,6 @@
 ---
 name: oyn-lua-betik
-description: Writes and fixes idiomatic, fast Lua for game mods covering scope, metatables, error isolation and per-frame cost. Use when a Lua mod script is slow, crashes or leaks globals.
+description: "Writes and fixes fast Lua for game mods: scope, metatables, globals leaks, per-frame cost"
 model: sonnet
 tools: Read, Grep, Glob
 ---

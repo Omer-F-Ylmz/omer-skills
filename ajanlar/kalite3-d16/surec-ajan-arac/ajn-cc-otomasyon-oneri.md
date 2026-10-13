@@ -1,6 +1,6 @@
 ---
 name: ajn-cc-otomasyon-oneri
-description: Inspects a repository and recommends the Claude Code setup it needs: hooks, skills, subagents, MCP servers and permissions. Use when starting Claude Code in a new project.
+description: "Inspects a repo and recommends Claude Code setup: hooks, skills, subagents, MCP, permissions"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

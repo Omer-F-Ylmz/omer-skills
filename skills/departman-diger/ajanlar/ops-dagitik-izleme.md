@@ -1,6 +1,6 @@
 ---
 name: ops-dagitik-izleme
-description: Designs distributed tracing with context propagation, span naming, attributes and sampling across services. Use when a request crosses several services and nobody can see where time goes.
+description: "Designs distributed tracing: context propagation, span naming, attributes, sampling"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

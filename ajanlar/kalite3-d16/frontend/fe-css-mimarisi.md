@@ -1,6 +1,6 @@
 ---
 name: fe-css-mimarisi
-description: Organizes plain CSS or Sass with a specificity strategy, naming convention, custom property tokens and cascade layers. Use when stylesheets grow into override wars.
+description: "Organizes plain CSS or Sass: specificity strategy, naming, tokens, cascade layers"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

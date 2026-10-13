@@ -1,6 +1,6 @@
 ---
 name: db-indeks-danismani
-description: Chooses indexes by access pattern (composite, partial, B-tree, GIN, covering) and weighs write and maintenance cost; finds unused or duplicate indexes. Use when deciding which columns to index or tuning read heavy tables, with or without files.
+description: Chooses indexes by access pattern (composite, partial, GIN, covering); finds unused or duplicate ones
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

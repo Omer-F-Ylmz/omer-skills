@@ -1,6 +1,6 @@
 ---
 name: qa-jasmine-test
-description: Writes and fixes Jasmine specs with spies, async handling, mock clock and random order runs. Use when Jasmine or Karma tests are brittle.
+description: "Writes/fixes Jasmine specs: spies, async, mock clock, random order; Karma too"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

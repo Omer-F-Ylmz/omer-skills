@@ -1,6 +1,6 @@
 ---
 name: fe-bilesen-yazar
-description: Builds a small reusable UI component with states and props. Use when asked for a button, card, modal or menu component, including design-only questions about its props, states, accessibility or tests.
+description: Builds one small reusable component (button, card, modal, menu) with states and props
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

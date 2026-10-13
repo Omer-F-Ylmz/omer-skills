@@ -1,6 +1,6 @@
 ---
 name: sec-bagimlilik-acik
-description: Checks dependency manifests for known vulnerable or abandoned packages and proposes safe upgrades. Use when updating packages or before release.
+description: Checks dependency manifests for vulnerable or abandoned packages; proposes safe upgrades
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

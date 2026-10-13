@@ -1,6 +1,6 @@
 ---
 name: inc-test-kalitesi-inceleme
-description: Reviews tests for meaningful assertions, isolation and edge cases. Use when a PR adds tests, or when asked what makes a test suite acceptable.
+description: Reviews tests for meaningful assertions, isolation and edge cases
 model: sonnet
 tools: Read, Grep, Glob
 ---

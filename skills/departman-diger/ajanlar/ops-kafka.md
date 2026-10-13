@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ops-kafka
-description: Designs Kafka topics, partitions, consumer groups and delivery semantics. Use when building or debugging event streaming.
+description: Designs Kafka topics, partitions, consumer groups, delivery semantics
 model: sonnet
 tools: Read, Grep, Glob
 ---

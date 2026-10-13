@@ -1,6 +1,6 @@
 ---
 name: pln-gorev-bolme
-description: Breaks a feature into small ordered tasks with dependencies and checks. Use when work must be sequenced.
+description: Breaks a feature into small ordered tasks with dependencies and checks
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

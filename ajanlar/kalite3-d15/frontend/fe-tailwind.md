@@ -1,6 +1,6 @@
 ---
 name: fe-tailwind
-description: Writes maintainable Tailwind CSS with design tokens, component extraction and responsive variants. Use when styling with Tailwind, including repeated class strings, brand colors and mobile breakage, with or without files.
+description: "Writes maintainable Tailwind: design tokens, component extraction, responsive variants"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: qa-erisilebilirlik-testi
-description: Runs automated accessibility checks and a keyboard walkthrough. Use when verifying a page for a11y.
+description: Runs automated accessibility checks and a keyboard walkthrough (a11y)
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

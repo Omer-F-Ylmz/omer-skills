@@ -1,6 +1,6 @@
 ---
 name: dok-hata-mesaji
-description: Rewrites error messages so they say what happened, why and what to do next, without leaking internals. Use when users are confused by errors or support gets the same questions, including when the raw error text is only pasted in the request.
+description: "Rewrites error messages: what happened, why, next step, no internals leaked"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

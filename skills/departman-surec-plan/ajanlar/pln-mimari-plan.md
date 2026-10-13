@@ -1,6 +1,6 @@
 ---
 name: pln-mimari-plan
-description: Proposes an architecture with components, data flow and trade offs before coding. Use when a feature touches several modules.
+description: Proposes architecture with components, data flow, trade-offs before coding
 model: opus
 tools: Read, Grep, Glob
 ---

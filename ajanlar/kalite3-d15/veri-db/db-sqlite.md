@@ -1,6 +1,6 @@
 ---
 name: db-sqlite
-description: Configures SQLite for apps with WAL, pragmas, migrations and concurrency limits. Use when an app embeds SQLite.
+description: "Configures embedded SQLite: WAL, pragmas, migrations, concurrency limits"
 model: haiku
 tools: Read, Grep, Glob
 ---

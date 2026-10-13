@@ -1,6 +1,6 @@
 ---
 name: vid-kisa-klip-secici
-description: Finds the best moments (highlights, emotional and clarity peaks) in a long video transcript or subtitle file for short clips. Use when cutting highlights, or when asked how to pick clip-worthy moments.
+description: Finds highlight and peak moments in a transcript or subtitles for short clips
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

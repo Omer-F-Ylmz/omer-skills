@@ -1,6 +1,6 @@
 ---
 name: qa-playwright
-description: Writes stable Playwright end-to-end tests with locators, fixtures, auth state and tracing. Use when browser tests are flaky or missing.
+description: "Writes stable Playwright e2e tests: locators, fixtures, auth state, tracing"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

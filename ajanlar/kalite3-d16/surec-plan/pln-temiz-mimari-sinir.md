@@ -1,6 +1,6 @@
 ---
 name: pln-temiz-mimari-sinir
-description: Enforces clean architecture boundaries with inward dependencies, ports and adapters, and use case (interactor / application service) isolation. Use when business logic leaks into controllers or ORM code, with or without files.
+description: "Enforces clean architecture boundaries: ports/adapters, use case isolation; logic in controllers"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

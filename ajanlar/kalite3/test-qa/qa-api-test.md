@@ -1,6 +1,6 @@
 ---
 name: qa-api-test
-description: Tests HTTP APIs for status codes, payload shape and error cases. Use when an API needs contract checks, or when asked which test cases/scenarios an endpoint needs.
+description: Tests HTTP APIs for status codes, payload shape, error cases; which scenarios an endpoint needs
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

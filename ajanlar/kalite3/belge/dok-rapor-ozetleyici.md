@@ -1,6 +1,6 @@
 ---
 name: dok-rapor-ozetleyici
-description: Summarizes long documents into key points, decisions and open questions. Use when a document is too long to read, or when asked how to condense a long report into a one-page summary.
+description: Summarizes long documents into key points, decisions, open questions; one-page condensing
 model: haiku
 tools: Read, Grep, Glob
 ---

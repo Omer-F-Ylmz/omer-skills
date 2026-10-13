@@ -1,6 +1,6 @@
 ---
 name: inc-kod-kokusu
-description: Detects classic code smells like long methods, god classes, feature envy and tangled conditionals, naming a refactoring for each. Use when code works but is hard to change.
+description: Detects code smells (long methods, god classes, feature envy), naming a refactoring each
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

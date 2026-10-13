@@ -1,6 +1,6 @@
 ---
 name: dok-teknik-teklif
-description: Drafts proposals and specs with scope, timeline and pricing assumptions. Use when a client facing document is needed.
+description: Drafts client-facing proposals and specs with scope, timeline, pricing assumptions
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: dn-nullable-gecis
-description: Enables nullable reference types and fixes warnings safely. Use when migrating a project to nullable, or when asked how to do that migration.
+description: Migrates a project to nullable reference types and fixes warnings safely
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

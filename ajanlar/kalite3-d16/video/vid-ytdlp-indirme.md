@@ -1,6 +1,6 @@
 ---
 name: vid-ytdlp-indirme
-description: Uses yt-dlp to fetch video, audio or subtitles with format selection, rate limits and archive files, within site terms. Use when media or captions must be downloaded for analysis.
+description: Uses yt-dlp to fetch video, audio, subtitles with format selection and rate limits
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

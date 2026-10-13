@@ -1,6 +1,6 @@
 ---
 name: otm-n8n-akis-tasarimi
-description: Designs n8n workflows with triggers, branching and clear node naming. Use when automating a repeated process.
+description: Designs n8n workflows with triggers, branching, clear node naming
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

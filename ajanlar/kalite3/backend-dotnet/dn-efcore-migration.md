@@ -1,6 +1,6 @@
 ---
 name: dn-efcore-migration
-description: Creates and reviews EF Core migrations safely, including data-preserving changes such as column or table renames, type changes, splits and new NOT NULL columns. Use when schema changes ship or when asked how to change a schema without losing data.
+description: Creates and reviews EF Core migrations, incl. data-preserving renames, type changes, new NOT NULL columns
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

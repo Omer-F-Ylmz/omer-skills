@@ -1,6 +1,6 @@
 ---
 name: db-mongoose-odm
-description: Reviews Mongoose schemas, middleware, populate use and lean reads for MongoDB apps. Use when a Node app on Mongoose is slow or saves invalid documents.
+description: Reviews Mongoose schemas, middleware, populate and lean reads in slow Node apps
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

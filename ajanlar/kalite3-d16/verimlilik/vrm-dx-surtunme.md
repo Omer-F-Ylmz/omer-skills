@@ -1,6 +1,6 @@
 ---
 name: vrm-dx-surtunme
-description: Finds developer experience friction in setup, build loops and tooling and proposes measured fixes. Use when onboarding or daily dev loops feel slow, including general questions with no files attached.
+description: Finds developer-experience friction in setup, build loops, tooling; proposes measured fixes
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: ops-terraform
-description: Writes Terraform modules with remote state, locking, variables and safe plan/apply flow. Use when managing infrastructure with Terraform.
+description: "Writes Terraform modules: remote state, locking, variables, safe plan/apply"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

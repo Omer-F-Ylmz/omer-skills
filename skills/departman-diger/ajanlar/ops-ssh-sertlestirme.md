@@ -1,6 +1,6 @@
 ---
 name: ops-ssh-sertlestirme
-description: Hardens SSH access to servers with key-only login, restricted users, brute-force protection and safe config rollout. Use when a server's SSH is exposed or logs show many failed logins; works from the symptom alone, with or without files.
+description: "Hardens SSH: key-only login, restricted users, brute-force protection; symptom-only ok"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: git-monorepo-etkilenen
-description: Speeds up monorepo CI by building and testing only affected projects, with dependency graphs, caching and per-package versioning. Use when monorepo pipelines rebuild everything, including general questions with no repo attached.
+description: Speeds monorepo CI by building/testing only affected projects; dependency graph, caching
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

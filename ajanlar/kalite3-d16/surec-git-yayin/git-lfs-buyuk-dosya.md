@@ -1,6 +1,6 @@
 ---
 name: git-lfs-buyuk-dosya
-description: Sets up Git LFS tracking, migrates existing large files out of history and keeps clones fast. Use when a repo grows huge from binaries.
+description: Sets up Git LFS, migrates large files out of history; repo bloated by binaries
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

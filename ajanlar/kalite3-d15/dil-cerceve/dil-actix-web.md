@@ -1,6 +1,6 @@
 ---
 name: dil-actix-web
-description: Reviews and fixes Actix Web (Rust) handlers, shared state, async blocking and error mapping. Use when building or debugging an Actix Web HTTP service.
+description: Reviews/fixes Actix Web (Rust) handlers, shared state, blocking calls, error mapping
 model: sonnet
 tools: Read, Grep, Glob
 ---

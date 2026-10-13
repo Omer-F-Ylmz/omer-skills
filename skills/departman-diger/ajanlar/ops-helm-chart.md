@@ -1,6 +1,6 @@
 ---
 name: ops-helm-chart
-description: Builds and reviews Helm charts with values schemas, template helpers, chart versioning and safe upgrade and rollback. Use when Kubernetes YAML is copied per environment or upgrades fail.
+description: "Builds/reviews Helm charts: values schemas, helpers, versioning, safe upgrade/rollback"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

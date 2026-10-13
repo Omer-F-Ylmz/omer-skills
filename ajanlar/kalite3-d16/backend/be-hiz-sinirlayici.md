@@ -1,6 +1,6 @@
 ---
 name: be-hiz-sinirlayici
-description: Designs API rate limiting with token bucket or sliding window, distributed counters and client-friendly responses. Use when an API needs abuse protection or fair usage.
+description: "Designs API rate limiting: token bucket, sliding window, distributed counters"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

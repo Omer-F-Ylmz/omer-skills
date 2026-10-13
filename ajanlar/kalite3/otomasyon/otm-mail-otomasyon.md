@@ -1,6 +1,6 @@
 ---
 name: otm-mail-otomasyon
-description: Builds email automations with templates, throttling and unsubscribe handling. Use when sending recurring messages.
+description: Builds email automations with templates, throttling, unsubscribe handling for recurring sends
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

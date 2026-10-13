@@ -1,6 +1,6 @@
 ---
 name: be-mesaj-guvenilirligi
-description: Designs reliable async messaging with transactional outbox, idempotent consumers, dead-letter handling and sagas. Use when events get lost or processed twice.
+description: "Reliable async messaging: outbox, idempotent consumers, dead-letter, sagas; lost or duplicate events"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

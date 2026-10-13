@@ -1,6 +1,6 @@
 ---
 name: db-sequelize
-description: Reviews Sequelize models, associations, eager loading, migrations and transactions. Use when designing schemas or fixing slow or inconsistent Sequelize queries, including questions with no files attached.
+description: Reviews Sequelize models, associations, eager loading, migrations and transactions
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: ara-trend-analizi
-description: Analyzes market or technology trends from data sources and separates signal from hype. Use when deciding whether a trend matters.
+description: Analyzes market or technology trends, separating signal from hype
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

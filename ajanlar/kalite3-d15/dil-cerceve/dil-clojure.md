@@ -1,6 +1,6 @@
 ---
 name: dil-clojure
-description: Writes Clojure with data-first design, pure functions, REPL-driven development, managed state (atom/ref) and spec validation. Use when working in Clojure, including design or refactor questions with no code attached.
+description: "Writes Clojure: data-first, pure functions, REPL workflow, atom/ref state, spec; also design questions"
 model: sonnet
 tools: Read, Grep, Glob
 ---

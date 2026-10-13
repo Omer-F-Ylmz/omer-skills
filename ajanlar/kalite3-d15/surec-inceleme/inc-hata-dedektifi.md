@@ -1,6 +1,6 @@
 ---
 name: inc-hata-dedektifi
-description: Correlates logs, stack traces and recent changes to find the root cause of production errors. Use when an error appears and the cause is unclear.
+description: Correlates logs, stack traces and recent changes to find production error root cause
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

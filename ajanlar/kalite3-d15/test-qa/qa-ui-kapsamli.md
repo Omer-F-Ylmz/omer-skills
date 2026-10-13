@@ -1,6 +1,6 @@
 ---
 name: qa-ui-kapsamli
-description: Plans end-to-end UI test coverage across flows, states, viewports and accessibility. Use when a UI must be verified before release.
+description: Plans end-to-end UI test coverage across flows, states, viewports, accessibility
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

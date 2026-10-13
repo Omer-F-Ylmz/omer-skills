@@ -1,6 +1,6 @@
 ---
 name: db-supabase-kurucu
-description: Sets up Supabase projects, tables, auth and storage with local migrations. Use when starting a Supabase backed app.
+description: Sets up Supabase projects, tables, auth and storage with local migrations
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

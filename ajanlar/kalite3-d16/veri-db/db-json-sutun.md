@@ -1,6 +1,6 @@
 ---
 name: db-json-sutun
-description: Decides when to use JSON columns versus normal columns, how to index them and how to stop schema drift inside JSON. Use when a table stores flexible attributes as JSON, including design questions with no files attached.
+description: Decides JSON vs normal columns, how to index JSON and stop schema drift in it
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

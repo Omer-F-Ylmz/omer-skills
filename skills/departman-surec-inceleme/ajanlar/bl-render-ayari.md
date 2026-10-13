@@ -1,6 +1,6 @@
 ---
 name: bl-render-ayari
-description: Chooses Cycles or Eevee settings, samples and denoising for clean renders. Use when renders are noisy or slow.
+description: Chooses Cycles/Eevee settings, samples and denoising; noisy or slow renders
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

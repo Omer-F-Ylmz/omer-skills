@@ -1,6 +1,6 @@
 ---
 name: git-canary-izleme
-description: Defines canary rollout steps, health signals and abort thresholds. Use when releasing risky changes gradually.
+description: Defines canary rollout steps, health signals and abort thresholds
 model: haiku
 tools: Read, Grep, Glob
 ---

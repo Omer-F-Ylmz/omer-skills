@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ops-felaket-kurtarma
-description: Plans disaster recovery with RTO/RPO targets, backups, failover and regular drills. Use when a system must survive a region or data loss.
+description: "Plans disaster recovery: RTO/RPO targets, backups, failover, drills"
 model: sonnet
 tools: Read, Grep, Glob
 ---

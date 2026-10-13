@@ -1,6 +1,6 @@
 ---
 name: fe-tipografi-uzmani
-description: Sets a type scale, font pairing, line-height (satır aralığı), weights and line length (measure, ch) for a UI. Use when text looks flat, crowded or inconsistent, or when asked for a font/type recommendation.
+description: Sets type scale, font pairing, line-height (satır aralığı), weights and measure
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

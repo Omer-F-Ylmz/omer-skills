@@ -1,6 +1,6 @@
 ---
 name: fe-donusum-optimize
-description: Finds conversion blockers on landing and checkout pages and proposes testable changes. Use when visitors do not sign up or buy.
+description: Finds conversion blockers on landing and checkout pages; proposes testable changes
 model: sonnet
 tools: Read, Grep, Glob
 ---

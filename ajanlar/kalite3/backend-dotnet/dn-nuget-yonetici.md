@@ -1,6 +1,6 @@
 ---
 name: dn-nuget-yonetici
-description: Manages NuGet packages with central versioning and update checks. Use when dependencies drift or need upgrading.
+description: Manages NuGet packages with central versioning and update checks; dependency drift, upgrades
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

@@ -1,6 +1,6 @@
 ---
 name: dil-python-profil
-description: Profiles Python code with cProfile, py-spy and memory tools and fixes hot spots. Use when a Python job is slow or memory hungry.
+description: Profiles Python with cProfile, py-spy, memory tools and fixes hot spots in slow jobs
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

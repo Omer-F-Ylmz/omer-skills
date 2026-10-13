@@ -1,6 +1,6 @@
 ---
 name: dn-async-denetci
-description: Reviews C# async code for blocking calls, missing cancellation and fire and forget. Use when async code hangs or deadlocks.
+description: "Reviews C# async code for blocking calls, missing cancellation, fire-and-forget; hangs, deadlocks"
 model: sonnet
 tools: Read, Grep, Glob
 ---

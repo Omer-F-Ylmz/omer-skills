@@ -1,6 +1,6 @@
 ---
 name: ajn-ogrenilen-ders
-description: Captures short reusable lessons from a finished task as rules or notes, and explains how to write good lessons. Use at task close, or when asked how to turn a mistake into a lasting rule.
+description: Captures reusable lessons from a finished task as rules or notes; turn a mistake into a rule
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

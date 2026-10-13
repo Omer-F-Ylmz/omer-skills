@@ -1,6 +1,6 @@
 ---
 name: pln-kabul-olcutleri
-description: Writes testable acceptance criteria in given when then form. Use when a story lacks done criteria.
+description: Writes testable given/when/then acceptance criteria for stories lacking done criteria
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

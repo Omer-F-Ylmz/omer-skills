@@ -1,6 +1,6 @@
 ---
 name: git-yayin-oncesi-kontrol
-description: Runs a go or no-go checklist covering tests, migrations, flags and rollback. Use before shipping.
+description: "Go/no-go checklist before shipping: tests, migrations, flags, rollback"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

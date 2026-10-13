@@ -1,6 +1,6 @@
 ---
 name: ml-deney-izleme
-description: Sets up experiment tracking for configs, metrics, artifacts and lineage so runs are comparable. Use when ML runs are hard to compare or reproduce.
+description: Sets up experiment tracking for configs, metrics, artifacts, lineage; comparable ML runs
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

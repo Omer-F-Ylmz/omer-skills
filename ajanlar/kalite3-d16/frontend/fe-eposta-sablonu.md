@@ -1,6 +1,6 @@
 ---
 name: fe-eposta-sablonu
-description: Builds responsive HTML email templates that render across Outlook, Gmail and Apple Mail with dark mode support. Use when an email layout breaks in clients, or when asked how to make a newsletter or email template work in Outlook and dark mode, with or without files.
+description: Builds responsive HTML emails for Outlook, Gmail, Apple Mail with dark mode
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma_protokolu

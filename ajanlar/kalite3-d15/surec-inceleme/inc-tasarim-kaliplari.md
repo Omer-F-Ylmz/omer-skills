@@ -1,6 +1,6 @@
 ---
 name: inc-tasarim-kaliplari
-description: Recommends design patterns only where they remove real complexity, with trade-offs. Use when code structure is hard to extend.
+description: Recommends design patterns only where they remove real complexity, with trade-offs
 model: sonnet
 tools: Read, Grep, Glob
 ---

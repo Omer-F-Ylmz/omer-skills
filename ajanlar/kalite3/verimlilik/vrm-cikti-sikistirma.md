@@ -1,6 +1,6 @@
 ---
 name: vrm-cikti-sikistirma
-description: Wraps noisy command output into short summaries with counts and failing names. Use when tool output is large.
+description: Wraps noisy command output into short summaries with counts and failing names
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

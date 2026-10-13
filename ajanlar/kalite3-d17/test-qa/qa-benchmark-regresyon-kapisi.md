@@ -1,6 +1,6 @@
 ---
 name: qa-benchmark-regresyon-kapisi
-description: Builds microbenchmarks with warmup, repeated runs and noise control, and fails CI on significant slowdowns versus a stored baseline. Use when performance regressions reach production unnoticed.
+description: Builds microbenchmarks and fails CI on significant slowdowns versus stored baseline
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

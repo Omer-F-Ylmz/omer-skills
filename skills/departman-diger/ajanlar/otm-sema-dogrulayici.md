@@ -1,6 +1,6 @@
 ---
 name: otm-sema-dogrulayici
-description: Validates data and config files against JSON Schema or typed validators with clear error messages. Use when inputs must be checked before processing.
+description: Validates data and config files against JSON Schema or typed validators with clear errors
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

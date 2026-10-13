@@ -1,6 +1,6 @@
 ---
 name: be-saga-telafi
-description: Designs sagas across services with orchestration or choreography, compensating actions and timeouts. Use when a business flow spans services without a shared transaction.
+description: Designs cross-service sagas with compensating actions and timeouts; no shared transaction
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

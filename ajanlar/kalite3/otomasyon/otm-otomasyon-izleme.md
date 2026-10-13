@@ -1,6 +1,6 @@
 ---
 name: otm-otomasyon-izleme
-description: Reviews automation runs for failures, duration and cost and proposes alerts. Use when automations need monitoring.
+description: Reviews automation runs for failures, duration, cost and proposes alerts
 model: haiku
 tools: Read, Grep, Glob
 ---

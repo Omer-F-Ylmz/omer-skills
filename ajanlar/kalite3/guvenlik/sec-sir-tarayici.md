@@ -1,6 +1,6 @@
 ---
 name: sec-sir-tarayici
-description: Scans a repo and git history for leaked keys, tokens and passwords, reporting only locations never values. Use when committing, publishing or after a suspected leak, or when asked how to scan for secrets.
+description: Scans repo and git history for leaked secrets, reporting locations never values
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

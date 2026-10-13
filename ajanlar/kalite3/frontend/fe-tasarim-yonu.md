@@ -1,6 +1,6 @@
 ---
 name: fe-tasarim-yonu
-description: Chooses a bold visual direction and writes the design brief for a page. Use when starting a landing, dashboard or redesign and the look is undecided.
+description: Chooses a bold visual direction and writes the design brief when the look is undecided
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

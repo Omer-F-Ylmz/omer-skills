@@ -1,6 +1,6 @@
 ---
 name: fe-css-konteyner-sorgusu
-description: Makes components adapt to their container with CSS container queries, container units, subgrid and fluid sizing, not viewport breakpoints. Use when one card must fit a sidebar and a main column.
+description: "Makes components adapt to their container: container queries, subgrid, fluid sizing"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

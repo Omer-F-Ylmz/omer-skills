@@ -1,6 +1,6 @@
 ---
 name: vrm-ortam-yoneticisi
-description: Sets up reproducible development environments with version managers, lock files and containers. Use when it works on one machine but not another, or when asked how to make a setup reproducible (with or without files).
+description: "Sets up reproducible dev environments: version managers, lock files, containers"
 model: haiku
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: db-liquibase
-description: Structures Liquibase changelogs, changesets, contexts and rollbacks. Use when managing schema changes with Liquibase.
+description: Structures Liquibase changelogs, changesets, contexts and rollbacks
 model: haiku
 tools: Read, Grep, Glob
 ---

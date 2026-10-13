@@ -1,6 +1,6 @@
 ---
 name: fe-ux-metin-yazar
-description: Writes short clear UI copy for buttons, errors and onboarding. Use when interface text is vague or wordy.
+description: Writes short clear UI copy for buttons, errors and onboarding
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

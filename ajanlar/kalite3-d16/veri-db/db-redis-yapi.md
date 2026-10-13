@@ -1,6 +1,6 @@
 ---
 name: db-redis-yapi
-description: Chooses Redis data structures, key design, expiry and eviction policies to control memory and latency. Use when Redis memory grows or commands get slow.
+description: Chooses Redis data structures, key design, expiry and eviction for memory and latency
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

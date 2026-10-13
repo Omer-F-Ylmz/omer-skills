@@ -1,6 +1,6 @@
 ---
 name: sec-sifreleme-denetci
-description: Reviews cryptography use such as hashing, randomness, TLS and key storage. Use when code hashes passwords or encrypts data.
+description: "Reviews cryptography use: password hashing, randomness, TLS, key storage"
 model: sonnet
 tools: Read, Grep, Glob
 ---

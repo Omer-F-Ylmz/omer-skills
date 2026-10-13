@@ -1,6 +1,6 @@
 ---
 name: bl-mod-modeli-blender
-description: Moves characters or props between Blender and game formats checking scale, bones and vertex groups. Use when preparing assets for game mods.
+description: "Moves characters/props between Blender and game formats: scale, bones, vertex groups"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

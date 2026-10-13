@@ -1,6 +1,6 @@
 ---
 name: oyn-oyun-ses-geri-bildirim
-description: Adds game feel with screen shake, hit pause, sound cues and particles. Use when actions feel weak.
+description: "Adds game feel: screen shake, hit pause, sound cues, particles"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

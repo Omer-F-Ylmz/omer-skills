@@ -1,6 +1,6 @@
 ---
 name: pln-dalga-plani
-description: Writes stepwise implementation plans with files to touch and verification per step. Use when starting a multi step change.
+description: Writes stepwise implementation plans with files to touch and verification per step
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

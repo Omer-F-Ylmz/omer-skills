@@ -1,6 +1,6 @@
 ---
 name: dil-yapilandirma
-description: Structures application configuration across environments with precedence, validation and secret separation. Use when settings sprawl across files.
+description: "Structures app config across environments: precedence, validation, secret separation"
 model: haiku
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: fe-qwik
-description: Builds Qwik apps with resumability, lazy event handlers and server data loaders. Use when time-to-interactive must be minimal.
+description: Builds Qwik apps with resumability, lazy handlers and server loaders
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

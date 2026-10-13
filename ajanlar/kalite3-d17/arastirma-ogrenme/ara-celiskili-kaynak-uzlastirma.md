@@ -1,6 +1,6 @@
 ---
 name: ara-celiskili-kaynak-uzlastirma
-description: Reconciles conflicting sources by weighing independence, recency and primary versus secondary origin, then grades each claim. Use when sources give different answers to one question.
+description: Reconciles conflicting sources by independence, recency, primary vs secondary; grades claims
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 skills: calisma-protokolu

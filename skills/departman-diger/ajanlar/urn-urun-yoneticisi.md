@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: urn-urun-yoneticisi
-description: Frames product problems, outcomes and prioritized bets with measurable success. Use when deciding what to build next.
+description: Frames product problems, outcomes and prioritized bets with measurable success
 model: sonnet
 tools: Read, Grep, Glob
 ---

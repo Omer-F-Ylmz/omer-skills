@@ -1,6 +1,6 @@
 ---
 name: fe-web-font-yukleme
-description: Speeds up web font loading with subsetting, preload, font-display and metric-matched fallbacks to avoid invisible text and layout shift. Use when fonts flash or shift the layout.
+description: "Speeds web font loading: subsetting, preload, font-display, metric-matched fallbacks"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

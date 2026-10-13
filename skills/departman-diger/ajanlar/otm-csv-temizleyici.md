@@ -1,6 +1,6 @@
 ---
 name: otm-csv-temizleyici
-description: Fixes CSV import and export problems: encodings, delimiters, regional number formats and quoting. Use when a CSV opens garbled in Excel or imports with shifted columns.
+description: "Fixes CSV import/export: encodings, delimiters, regional number formats, quoting; garbled in Excel"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 skills: calisma-protokolu

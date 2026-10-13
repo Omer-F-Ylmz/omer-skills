@@ -1,6 +1,6 @@
 ---
 name: pln-prd-yazar
-description: Writes a short product requirements doc with goals, non goals and acceptance criteria. Use when a feature needs a written spec.
+description: Writes a short PRD with goals, non-goals and acceptance criteria
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

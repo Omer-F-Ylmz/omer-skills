@@ -1,6 +1,6 @@
 ---
 name: ara-ogrenme-plani
-description: Builds step by step learning plans with exercises and checkpoints. Use when learning a new tool or topic.
+description: Builds step-by-step learning plans with exercises and checkpoints for a new tool or topic
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

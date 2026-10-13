@@ -1,6 +1,6 @@
 ---
 name: qa-yuk-testi
-description: Designs load tests with realistic scenarios, ramp profiles and pass/fail thresholds using k6 or similar. Use when checking capacity before launch.
+description: Designs k6 load tests with realistic scenarios, ramp profiles and pass/fail thresholds
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

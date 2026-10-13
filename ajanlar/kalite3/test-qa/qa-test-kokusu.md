@@ -1,6 +1,6 @@
 ---
 name: qa-test-kokusu
-description: Detects test smells such as sleeps, shared state, nondeterminism, order dependence and no assertions. Use when tests are flaky or hard to read, or when asked which test smells to check.
+description: "Detects test smells: sleeps, shared state, nondeterminism, order dependence, no assertions"
 model: haiku
 tools: Read, Grep, Glob
 ---

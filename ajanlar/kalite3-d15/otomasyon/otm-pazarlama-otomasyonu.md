@@ -1,6 +1,6 @@
 ---
 name: otm-pazarlama-otomasyonu
-description: Builds marketing automation journeys with triggers, segments, timing and exit rules. Use when nurturing leads or onboarding users by email.
+description: "Builds marketing automation journeys: triggers, segments, timing, exit rules; lead nurturing"
 model: sonnet
 tools: Read, Grep, Glob
 ---

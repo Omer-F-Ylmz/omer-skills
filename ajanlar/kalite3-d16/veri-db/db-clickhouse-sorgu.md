@@ -1,6 +1,6 @@
 ---
 name: db-clickhouse-sorgu
-description: Designs ClickHouse MergeTree tables, sort keys, partitions and materialized views for fast analytics. Use when analytic queries on ClickHouse are slow.
+description: Designs ClickHouse MergeTree tables, sort keys, partitions, materialized views for slow analytics
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: oyn-mod-paketleme
-description: Packages mods with clear folder layout, readme and version notes. Use when sharing a mod.
+description: Packages mods with folder layout, readme and version notes for sharing
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

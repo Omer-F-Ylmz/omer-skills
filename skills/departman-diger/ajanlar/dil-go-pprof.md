@@ -1,6 +1,6 @@
 ---
 name: dil-go-pprof
-description: Profiles Go programs with pprof CPU, heap, allocation and goroutine profiles, benchmarks with allocation counts and escape analysis. Use when a Go service burns CPU, allocates heavily or gets slower.
+description: Profiles Go with pprof (CPU, heap, allocs, goroutines), benchmarks, escape analysis
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

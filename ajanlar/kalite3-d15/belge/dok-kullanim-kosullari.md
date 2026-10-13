@@ -1,6 +1,6 @@
 ---
 name: dok-kullanim-kosullari
-description: Drafts plain-language terms of service and policies outlining key clauses for legal review. Use when a product needs terms or policy drafts.
+description: Drafts plain-language terms of service and policies with key clauses for legal review
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

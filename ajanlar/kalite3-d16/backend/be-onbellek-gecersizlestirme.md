@@ -1,6 +1,6 @@
 ---
 name: be-onbellek-gecersizlestirme
-description: Designs cache strategies with TTL, write-through, explicit invalidation and stampede protection. Use when users see stale data or caches collapse under load.
+description: "Designs cache strategies: TTL, write-through, invalidation, stampede protection; stale data"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

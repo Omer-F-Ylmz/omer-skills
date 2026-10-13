@@ -1,6 +1,6 @@
 ---
 name: sec-loglama-gizlilik
-description: Checks logs and error pages for leaked personal data, tokens and stack traces. Use when adding logging or error handling.
+description: Checks logs and error pages for leaked personal data, tokens, stack traces
 model: haiku
 tools: Read, Grep, Glob
 ---

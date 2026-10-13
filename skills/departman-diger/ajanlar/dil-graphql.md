@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: dil-graphql
-description: Designs GraphQL schemas and resolvers with batching, pagination, auth and query cost limits. Use when building or tuning a GraphQL API, including when the problem is only described in words with no files.
+description: "Designs GraphQL schemas/resolvers: batching, pagination, auth, cost limits; also text-only problems"
 model: sonnet
 tools: Read, Grep, Glob
 ---

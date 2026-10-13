@@ -1,6 +1,6 @@
 ---
 name: fe-tailwind-duzenleyici
-description: Cleans and consolidates Tailwind classes, extracting repeated patterns into components. Use when markup has long repeated class strings.
+description: Cleans and consolidates Tailwind classes; extracts repeated patterns into components
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

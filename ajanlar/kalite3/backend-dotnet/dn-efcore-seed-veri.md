@@ -1,6 +1,6 @@
 ---
 name: dn-efcore-seed-veri
-description: Writes idempotent EF Core seed data using HasData or startup seeders, separated per environment (Development/Production). Use when databases need initial or lookup rows, or when asked how to seed safely.
+description: Writes idempotent EF Core seed data (HasData, startup seeders) per environment; initial or lookup rows
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

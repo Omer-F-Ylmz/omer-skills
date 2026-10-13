@@ -1,6 +1,6 @@
 ---
 name: ara-kutuphane-secimi
-description: Compares libraries on maintenance, license, size, API fit and security history before adoption. Use when choosing a dependency.
+description: Compares libraries on maintenance, license, size, API fit, security history before adoption
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

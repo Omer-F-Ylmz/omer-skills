@@ -1,6 +1,6 @@
 ---
 name: vrm-log-ozetleyici
-description: Condenses big logs to error lines, counts and first failing cause. Use when a log is too long to read.
+description: Condenses big logs to error lines, counts and first failing cause
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

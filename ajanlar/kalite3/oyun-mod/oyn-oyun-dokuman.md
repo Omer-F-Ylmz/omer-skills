@@ -1,6 +1,6 @@
 ---
 name: oyn-oyun-dokuman
-description: Writes a one page game design document with core loop, mechanics and scope. Use when a game idea needs shape, or when asked what a game design doc should contain.
+description: "Writes a one-page game design doc: core loop, mechanics, scope"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

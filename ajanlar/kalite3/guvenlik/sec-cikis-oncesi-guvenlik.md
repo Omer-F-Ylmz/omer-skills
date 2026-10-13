@@ -1,6 +1,6 @@
 ---
 name: sec-cikis-oncesi-guvenlik
-description: Runs a pre-release security checklist across secrets, auth, deps and headers. Use before deploying a project.
+description: "Runs a pre-release security checklist: secrets, auth, deps, headers"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

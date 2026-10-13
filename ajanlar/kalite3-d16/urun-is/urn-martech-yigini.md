@@ -1,6 +1,6 @@
 ---
 name: urn-martech-yigini
-description: Designs marketing technology stacks connecting CRM, analytics, email and CDP with clean data flow and ownership. Use when marketing tools multiply without integration.
+description: Designs martech stacks connecting CRM, analytics, email, CDP with clean data flow
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: ajn-ajan-tanimi-yazar
-description: Writes subagent definitions with narrow tools, a cheap model and a short prompt. Use when creating a custom agent.
+description: Writes subagent definitions with narrow tools, cheap model and short prompt
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

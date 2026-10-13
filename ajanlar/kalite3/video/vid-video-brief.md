@@ -1,6 +1,6 @@
 ---
 name: vid-video-brief
-description: Writes a one page video brief with goal, audience, length and deliverables. Use when a video request is vague, or when asked what a video brief should contain.
+description: "Writes a one-page video brief: goal, audience, length, deliverables"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

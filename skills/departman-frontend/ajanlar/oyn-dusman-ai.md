@@ -1,6 +1,6 @@
 ---
 name: oyn-dusman-ai
-description: Designs enemy behavior with state machines, perception and cooldowns. Use when enemies feel dumb or unfair.
+description: Designs enemy behavior with state machines, perception and cooldowns
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

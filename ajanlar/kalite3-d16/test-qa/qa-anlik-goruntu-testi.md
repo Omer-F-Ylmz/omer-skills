@@ -1,6 +1,6 @@
 ---
 name: qa-anlik-goruntu-testi
-description: Keeps snapshot and golden-file tests useful with small focused snapshots, deterministic output and reviewed updates. Use when snapshot tests are rubber-stamped or flaky.
+description: "Keeps snapshot/golden-file tests useful: small snapshots, deterministic output, reviewed updates"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

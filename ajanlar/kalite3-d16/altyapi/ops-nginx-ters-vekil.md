@@ -1,6 +1,6 @@
 ---
 name: ops-nginx-ters-vekil
-description: Configures nginx as a reverse proxy with forwarded headers, timeouts, WebSocket upgrade, buffering and caching. Use when an app behind nginx breaks on redirects, uploads or sockets, including when no config file is given.
+description: "Configures nginx reverse proxy: forwarded headers, timeouts, WebSocket, buffering, caching"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

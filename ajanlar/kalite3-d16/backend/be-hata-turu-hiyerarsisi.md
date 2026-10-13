@@ -1,6 +1,6 @@
 ---
 name: be-hata-turu-hiyerarsisi
-description: Designs an application error hierarchy separating retryable from fatal and domain from infrastructure, mapped to status codes and user messages. Use when error handling is ad hoc.
+description: "Designs error hierarchy: retryable vs fatal, domain vs infra, mapped to status codes"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

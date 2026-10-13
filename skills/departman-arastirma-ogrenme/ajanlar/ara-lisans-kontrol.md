@@ -1,6 +1,6 @@
 ---
 name: ara-lisans-kontrol
-description: Reads repo licenses and states what use is allowed. Use before adopting external code.
+description: Reads repo licenses and states allowed use before adopting external code
 model: haiku
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ml-openai-api
-description: Integrates the OpenAI API with structured outputs, retries, streaming and cost control. Use when an app calls OpenAI models, including design questions with no files attached.
+description: "Integrates the OpenAI API: structured outputs, retries, streaming, cost control"
 model: sonnet
 tools: Read, Grep, Glob
 ---

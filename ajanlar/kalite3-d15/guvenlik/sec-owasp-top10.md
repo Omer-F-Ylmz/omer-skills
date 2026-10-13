@@ -1,6 +1,6 @@
 ---
 name: sec-owasp-top10
-description: Maps code and design weaknesses to OWASP Top 10 categories with concrete fixes. Use when reviewing a web app before release.
+description: Maps code and design weaknesses to OWASP Top 10 categories with fixes
 model: sonnet
 tools: Read, Grep, Glob
 ---

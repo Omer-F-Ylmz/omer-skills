@@ -1,6 +1,6 @@
 ---
 name: be-dosya-yukleme
-description: Designs file upload endpoints with size limits, type checks, safe storage names and direct-to-storage uploads. Use when users upload images or documents to a web app, including design questions with no files attached.
+description: "Designs upload endpoints: size limits, type checks, safe names, direct-to-storage"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

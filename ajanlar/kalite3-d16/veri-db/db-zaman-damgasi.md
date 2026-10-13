@@ -1,6 +1,6 @@
 ---
 name: db-zaman-damgasi
-description: Designs how databases store and query timestamps across time zones, daylight saving changes and reporting days. Use when times shift by hours or daily reports disagree, including design questions with no files attached.
+description: Designs timestamp storage and queries across time zones, DST and reporting days
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

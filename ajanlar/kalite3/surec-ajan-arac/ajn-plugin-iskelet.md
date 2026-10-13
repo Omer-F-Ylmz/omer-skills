@@ -1,6 +1,6 @@
 ---
 name: ajn-plugin-iskelet
-description: Scaffolds Claude Code plugins with manifest, commands, agents and hooks. Use when packaging tools as a plugin.
+description: Scaffolds Claude Code plugins with manifest, commands, agents and hooks
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

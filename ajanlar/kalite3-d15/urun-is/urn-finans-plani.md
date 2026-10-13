@@ -1,6 +1,6 @@
 ---
 name: urn-finans-plani
-description: Builds simple financial plans with revenue drivers, costs, cash runway and scenarios. Use when a small business or startup needs numbers.
+description: "Builds simple financial plans: revenue drivers, costs, cash runway, scenarios for startups"
 model: sonnet
 tools: Read, Grep, Glob
 ---

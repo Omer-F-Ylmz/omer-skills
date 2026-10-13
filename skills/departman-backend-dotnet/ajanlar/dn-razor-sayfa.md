@@ -1,6 +1,6 @@
 ---
 name: dn-razor-sayfa
-description: Builds Razor Pages and Blazor components with model binding and validation. Use when writing server rendered UI in ASP.NET Core.
+description: Builds Razor Pages and Blazor components with model binding and validation; server-rendered UI
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

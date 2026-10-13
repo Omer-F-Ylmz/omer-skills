@@ -1,6 +1,6 @@
 ---
 name: otm-n8n-hata-yonetimi
-description: Adds error workflows, retries and alerts to n8n automations. Use when a workflow fails silently.
+description: Adds error workflows, retries, alerts to n8n automations that fail silently
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

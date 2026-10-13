@@ -1,6 +1,6 @@
 ---
 name: sec-zero-trust-ag
-description: Reviews network segmentation and least privilege access for a small deployment. Use when exposing services to the internet.
+description: Reviews network segmentation and least privilege access for small deployments
 model: opus
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: urn-grafik-tasarim
-description: Gives graphic design direction on layout, hierarchy, typography and color for print and social visuals. Use when a visual needs design guidance.
+description: Gives graphic design direction on layout, hierarchy, typography, color for print and social
 model: haiku
 tools: Read, Grep, Glob
 ---

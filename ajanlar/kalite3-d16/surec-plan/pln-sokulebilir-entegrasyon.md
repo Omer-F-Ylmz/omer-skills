@@ -1,6 +1,6 @@
 ---
 name: pln-sokulebilir-entegrasyon
-description: Designs optional integrations as removable add-ons with lazy imports, capability checks and a single entry point. Use when the core must keep working without a third-party integration.
+description: "Designs optional integrations as removable add-ons: lazy imports, capability checks"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

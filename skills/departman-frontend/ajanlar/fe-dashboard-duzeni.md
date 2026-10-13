@@ -1,6 +1,6 @@
 ---
 name: fe-dashboard-duzeni
-description: Lays out dashboards with clear hierarchy, dense tables and chart placement. Use when designing admin panels or analytics screens.
+description: "Lays out dashboards: hierarchy, dense tables, chart placement for admin/analytics screens"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

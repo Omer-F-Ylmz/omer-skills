@@ -1,6 +1,6 @@
 ---
 name: vrm-worktree-paralel
-description: Organizes parallel agent or developer work with git worktrees: branch per task, shared object store, port and env conflicts, cleanup. Use when several agents work on one repo at once, or when asked how to set up, isolate, merge or clean up parallel worktrees.
+description: "Organizes parallel agent work with git worktrees: branch per task, port/env conflicts, cleanup"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

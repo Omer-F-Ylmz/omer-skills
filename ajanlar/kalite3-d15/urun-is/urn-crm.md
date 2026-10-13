@@ -1,6 +1,6 @@
 ---
 name: urn-crm
-description: Designs CRM pipelines, fields, lead scoring and hygiene rules for sales teams. Use when a CRM is messy or being set up.
+description: Designs CRM pipelines, fields, lead scoring and hygiene rules for sales teams
 model: haiku
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: vid-kare-cikarici
-description: Extracts frames and builds thumbnails or contact sheets from videos. Use when stills are needed.
+description: Extracts frames, thumbnails and contact sheets from videos
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

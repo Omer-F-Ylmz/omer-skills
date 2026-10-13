@@ -1,6 +1,6 @@
 ---
 name: oyn-oyun-envanter
-description: Designs inventory data models and UI for stacking, slots and persistence. Use when building item management, including design questions with no files attached.
+description: "Designs inventory data models and UI: stacking, slots, persistence"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

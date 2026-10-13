@@ -1,6 +1,6 @@
 ---
 name: ajn-mcp-kurulum-denetci
-description: Reviews MCP and plugin configs for excess permissions and secret exposure. Use before enabling a new MCP server.
+description: Reviews MCP and plugin configs for excess permissions and secret exposure before enabling
 model: haiku
 tools: Read, Grep, Glob
 ---

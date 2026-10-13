@@ -1,6 +1,6 @@
 ---
 name: dok-docx-uretici
-description: Generates structured Word reports with headings, tables and styles. Use when a docx deliverable is requested, or when asked how to build one (python-docx approach, heading hierarchy, table styling, templates).
+description: Generates structured Word (docx) reports with headings, tables, styles; python-docx approach
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

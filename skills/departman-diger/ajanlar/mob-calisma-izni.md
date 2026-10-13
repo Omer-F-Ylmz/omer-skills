@@ -1,6 +1,6 @@
 ---
 name: mob-calisma-izni
-description: Handles runtime permissions for camera, location, photos and notifications on iOS and Android: timing, rationale, permanent denial and manifest entries. Use when permission prompts fail or users deny.
+description: Runtime permissions for camera, location, photos, notifications on iOS/Android; denials
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

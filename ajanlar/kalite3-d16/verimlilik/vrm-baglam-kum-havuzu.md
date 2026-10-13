@@ -1,6 +1,6 @@
 ---
 name: vrm-baglam-kum-havuzu
-description: Keeps raw tool output out of the conversation by running analysis in a sandbox and indexing results for search. Use when logs, scans or API output are too big for context.
+description: Keeps raw tool output out of context via sandbox analysis and search indexing
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: dok-cevirmen-teknik
-description: Translates technical text between Turkish and English keeping terms consistent. Use when docs must be bilingual, or when asked how to keep technical translation consistent.
+description: Translates technical text between Turkish and English with consistent terms; bilingual docs
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

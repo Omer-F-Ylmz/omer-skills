@@ -1,6 +1,6 @@
 ---
 name: sec-jwt-oturum
-description: Reviews JWT and session handling for expiry, storage and revocation. Use when issuing tokens to clients, or when asked about common JWT/session mistakes.
+description: "Reviews JWT and session handling: expiry, storage, revocation"
 model: sonnet
 tools: Read, Grep, Glob
 ---

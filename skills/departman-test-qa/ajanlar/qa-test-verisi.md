@@ -1,6 +1,6 @@
 ---
 name: qa-test-verisi
-description: Builds small deterministic test data and factories without real personal data. Use when tests need fixtures.
+description: Builds small deterministic test data and factories without real personal data
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

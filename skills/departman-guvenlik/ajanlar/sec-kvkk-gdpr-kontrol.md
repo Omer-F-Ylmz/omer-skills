@@ -1,6 +1,6 @@
 ---
 name: sec-kvkk-gdpr-kontrol
-description: Maps personal data flows to KVKK or GDPR duties such as consent, retention and deletion. Use when a feature collects user data.
+description: "Maps personal data flows to KVKK/GDPR duties: consent, retention, deletion"
 model: sonnet
 tools: Read, Grep, Glob
 ---

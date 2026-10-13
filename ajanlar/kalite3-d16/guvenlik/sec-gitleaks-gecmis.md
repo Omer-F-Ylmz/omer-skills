@@ -1,6 +1,6 @@
 ---
 name: sec-gitleaks-gecmis
-description: Runs gitleaks on full git history and as a pre-commit gate, tuning allowlists and baselines without hiding real secrets. Use when setting up or cleaning secret scanning.
+description: Runs gitleaks on git history and pre-commit; tunes allowlists and baselines
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

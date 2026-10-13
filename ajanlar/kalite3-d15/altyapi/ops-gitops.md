@@ -1,6 +1,6 @@
 ---
 name: ops-gitops
-description: Sets up GitOps delivery with Argo CD or Flux, environment promotion, drift detection and secrets in git. Use when deploying Kubernetes from git, moving off manual kubectl, or when asked how to design a GitOps workflow.
+description: "Sets up GitOps with Argo CD or Flux: promotion, drift detection, secrets in git"
 model: sonnet
 tools: Read, Grep, Glob
 ---

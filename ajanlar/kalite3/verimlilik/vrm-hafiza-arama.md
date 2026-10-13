@@ -1,6 +1,6 @@
 ---
 name: vrm-hafiza-arama
-description: Searches past session notes for earlier decisions and fixes. Use when asked what was done before, or how to find an earlier decision.
+description: Searches past session notes for earlier decisions and fixes
 model: haiku
 tools: Read, Grep, Glob
 ---

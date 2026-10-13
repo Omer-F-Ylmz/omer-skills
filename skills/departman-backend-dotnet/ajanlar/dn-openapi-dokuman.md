@@ -1,6 +1,6 @@
 ---
 name: dn-openapi-dokuman
-description: Adds OpenAPI metadata, examples and response types to endpoints. Use when API docs are thin.
+description: Adds OpenAPI metadata, examples and response types to endpoints when API docs are thin
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

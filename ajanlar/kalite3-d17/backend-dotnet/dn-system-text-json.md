@@ -1,6 +1,6 @@
 ---
 name: dn-system-text-json
-description: Configures System.Text.Json serialization: naming policy, enum strings, reference cycles, custom converters and source generation. Use when JSON from a .NET API has wrong casing or fails on loops.
+description: "Configures System.Text.Json: naming, enum strings, reference cycles, converters, source generation"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

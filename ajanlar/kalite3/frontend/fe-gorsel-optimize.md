@@ -1,6 +1,6 @@
 ---
 name: fe-gorsel-optimize
-description: Optimizes images with modern formats, sizes and lazy loading. Use when images slow the page, including general questions about image formats, srcset, lazy loading or hero/LCP images with no files attached.
+description: "Optimizes images: modern formats, sizes, srcset, lazy loading, hero/LCP"
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

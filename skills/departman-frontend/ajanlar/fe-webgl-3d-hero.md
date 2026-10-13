@@ -1,6 +1,6 @@
 ---
 name: fe-webgl-3d-hero
-description: Plans and writes a three.js style 3D hero scene with a fallback for weak devices. Use when a landing needs a WebGL hero.
+description: Plans and writes a three.js style 3D hero scene with a weak-device fallback
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

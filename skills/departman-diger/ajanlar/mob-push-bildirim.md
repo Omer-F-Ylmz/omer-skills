@@ -1,6 +1,6 @@
 ---
 name: mob-push-bildirim
-description: Designs push notifications with APNs and FCM tokens, permission timing, payload types and delivery debugging. Use when push messages fail or get ignored.
+description: Designs push with APNs/FCM tokens, permission timing, payloads; failed or ignored pushes
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: vid-ses-duzeni
-description: Plans voice, music and effects levels with ducking and loudness targets. Use when audio feels uneven in a video, or when asked for target loudness and mix rules.
+description: Plans voice, music, effects levels with ducking and loudness targets
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

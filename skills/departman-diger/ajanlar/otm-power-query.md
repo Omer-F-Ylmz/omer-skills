@@ -1,6 +1,6 @@
 ---
 name: otm-power-query
-description: Builds repeatable Excel and Power BI data preparation with Power Query steps, merges, unpivot and refresh-safe types. Use when people clean the same spreadsheets by hand every week.
+description: "Builds repeatable Excel/Power BI data prep with Power Query: merges, unpivot, refresh-safe types"
 model: haiku
 tools: Read, Grep, Glob
 ---

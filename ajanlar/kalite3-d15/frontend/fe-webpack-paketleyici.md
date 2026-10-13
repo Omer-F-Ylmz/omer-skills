@@ -1,6 +1,6 @@
 ---
 name: fe-webpack-paketleyici
-description: Tunes Webpack configs for code splitting, tree-shaking, loaders and source maps. Use when a Webpack bundle is too large, slow to build or misconfigured.
+description: "Tunes Webpack configs: code splitting, tree-shaking, loaders, source maps"
 model: sonnet
 tools: Read, Grep, Glob
 ---

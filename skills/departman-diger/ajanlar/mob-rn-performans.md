@@ -1,6 +1,6 @@
 ---
 name: mob-rn-performans
-description: Fixes React Native performance with list virtualization, Hermes, re-render control and moving work off the JS thread. Use when an RN app janks or starts slowly.
+description: "Fixes React Native jank: list virtualization, Hermes, re-renders, JS thread offloading"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: be-buyuk-dosya-yukleme
-description: Designs large file uploads with presigned URLs, multipart or resumable transfer, validation and malware scanning. Use when uploads time out or overload the API.
+description: "Large uploads: presigned URLs, multipart/resumable, validation, malware scan; timeouts"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

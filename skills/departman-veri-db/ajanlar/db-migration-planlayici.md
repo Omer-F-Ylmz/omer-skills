@@ -1,6 +1,6 @@
 ---
 name: db-migration-planlayici
-description: Plans safe migrations with expand and contract steps for zero downtime. Use when changing live schemas.
+description: Plans zero-downtime live schema migrations with expand and contract steps
 model: opus
 tools: Read, Grep, Glob, Edit, Write
 ---

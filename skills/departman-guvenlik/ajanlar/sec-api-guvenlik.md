@@ -1,6 +1,6 @@
 ---
 name: sec-api-guvenlik
-description: Tests REST APIs for broken object authorization, mass assignment and missing rate limits. Use when exposing a new API.
+description: Tests REST APIs for broken object authorization, mass assignment, missing rate limits
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

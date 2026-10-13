@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ml-veri-bilimci
-description: Frames data science questions, picks methods, and validates findings with proper statistics. Use when a business question needs data analysis.
+description: Frames data science questions, picks methods, validates findings with statistics
 model: sonnet
 tools: Read, Grep, Glob
 ---

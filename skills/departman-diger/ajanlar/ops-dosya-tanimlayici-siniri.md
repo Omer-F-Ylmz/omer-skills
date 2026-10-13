@@ -1,6 +1,6 @@
 ---
 name: ops-dosya-tanimlayici-siniri
-description: Diagnoses 'too many open files' failures by finding descriptor leaks and raising limits at the right layer (ulimit, systemd, container). Use when a server starts refusing connections under load.
+description: "Fixes 'too many open files': descriptor leaks and limits (ulimit, systemd, container)"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

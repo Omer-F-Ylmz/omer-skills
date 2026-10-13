@@ -1,6 +1,6 @@
 ---
 name: dil-regex-denetci
-description: Reviews regular expressions for catastrophic backtracking, missing anchors, Unicode and readability problems. Use when a regex is slow, matches too much or fails on non-ASCII text, including when the pattern is only pasted in the request with no files.
+description: Reviews regexes for catastrophic backtracking, missing anchors, Unicode issues; pasted patterns ok
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

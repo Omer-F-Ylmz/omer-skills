@@ -1,6 +1,6 @@
 ---
 name: ara-dosya-sorusturmaci
-description: Builds a sourced dossier on one entity by recursive fan-out with depth, breadth and call caps. Use when mapping everything connected to a package, repo, person or concept.
+description: Builds a sourced dossier on one package, repo, person or concept via capped recursive fan-out
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch
 ---

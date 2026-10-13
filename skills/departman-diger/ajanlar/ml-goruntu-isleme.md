@@ -1,6 +1,6 @@
 ---
 name: ml-goruntu-isleme
-description: Plans computer vision pipelines for detection, segmentation and classification with data, augmentation and metrics. Use when building an image model.
+description: "Plans computer vision pipelines: detection, segmentation, classification, augmentation, metrics"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

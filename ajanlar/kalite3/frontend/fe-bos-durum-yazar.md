@@ -1,6 +1,6 @@
 ---
 name: fe-bos-durum-yazar
-description: Designs empty (boş), loading and error (hata) states with helpful copy and one action button (CTA, retry on error). Use when screens show blank or raw errors.
+description: Designs empty (boş), loading and error (hata) states with helpful copy and a CTA
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

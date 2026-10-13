@@ -1,6 +1,6 @@
 ---
 name: git-circleci
-description: Writes CircleCI configs with orbs, workflows, caching and test splitting. Use when tuning CircleCI pipelines.
+description: "Writes CircleCI configs: orbs, workflows, caching, test splitting"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

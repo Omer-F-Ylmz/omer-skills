@@ -1,6 +1,6 @@
 ---
 name: ops-elk-log
-description: Designs Elasticsearch, Logstash and Kibana log pipelines with parsing, mappings and retention. Use when centralizing logs with ELK.
+description: "Designs Elasticsearch/Logstash/Kibana log pipelines: parsing, mappings, retention"
 model: sonnet
 tools: Read, Grep, Glob
 ---

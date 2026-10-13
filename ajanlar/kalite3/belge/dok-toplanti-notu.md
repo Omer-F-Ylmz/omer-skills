@@ -1,6 +1,6 @@
 ---
 name: dok-toplanti-notu
-description: Turns raw meeting notes into decisions, owners and dates. Use when notes need cleaning up, or when asked how to turn a meeting note into an action list.
+description: Turns raw meeting notes into decisions, owners, dates; action lists
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

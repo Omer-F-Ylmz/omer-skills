@@ -1,6 +1,6 @@
 ---
 name: bl-malzeme-kurucu
-description: Builds Principled BSDF materials with roughness, metallic and texture inputs. Use when a Blender object needs a realistic material.
+description: "Builds Principled BSDF materials: roughness, metallic, texture inputs in Blender"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

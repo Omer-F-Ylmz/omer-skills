@@ -1,6 +1,6 @@
 ---
 name: fe-astro
-description: Builds Astro sites with islands, content collections and minimal client JavaScript. Use when building fast content-focused sites.
+description: Builds Astro sites with islands, content collections and minimal client JS
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

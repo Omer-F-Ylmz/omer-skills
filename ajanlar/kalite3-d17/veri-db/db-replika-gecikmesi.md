@@ -1,6 +1,6 @@
 ---
 name: db-replika-gecikmesi
-description: Handles read replica lag with read-your-writes routing, session stickiness and lag monitoring. Use when users do not see data they just saved because reads go to a replica.
+description: "Fixes read replica lag: read-your-writes routing, session stickiness, lag monitoring"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

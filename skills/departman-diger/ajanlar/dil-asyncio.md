@@ -1,6 +1,6 @@
 ---
 name: dil-asyncio
-description: Fixes Python asyncio code: blocking calls inside coroutines, forgotten tasks, cancellation, timeouts and bounded concurrency. Use when an async service stalls or loses background tasks.
+description: "Fixes Python asyncio: blocking calls in coroutines, forgotten tasks, cancellation, timeouts"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

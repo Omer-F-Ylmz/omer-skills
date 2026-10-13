@@ -1,6 +1,6 @@
 ---
 name: fe-css-hata-bulucu
-description: Debugs CSS issues such as overflow, stacking context, specificity and flex or grid surprises. Use when a layout looks wrong and the cause is unclear.
+description: "Debugs CSS bugs: overflow, stacking context, specificity, flex/grid surprises"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

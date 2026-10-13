@@ -1,6 +1,6 @@
 ---
 name: db-yedekleme-geri-yukleme
-description: Reviews backup, point in time recovery and restore drills for a database. Use when planning data safety.
+description: Reviews backups, point-in-time recovery and restore drills for a database
 model: sonnet
 tools: Read, Grep, Glob
 ---

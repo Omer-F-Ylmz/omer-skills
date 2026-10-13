@@ -1,6 +1,6 @@
 ---
 name: ajn-skill-test
-description: Measures whether a skill triggers and helps with paired runs and rubrics. Use after writing or changing a skill.
+description: Measures whether a skill triggers and helps, via paired runs and rubrics
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

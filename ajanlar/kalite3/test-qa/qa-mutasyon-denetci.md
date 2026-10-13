@@ -1,6 +1,6 @@
 ---
 name: qa-mutasyon-denetci
-description: Judges whether tests would catch real bugs by reviewing assertions and mutation ideas. Use when coverage is high but bugs escape.
+description: Judges whether tests catch real bugs via assertion review and mutation ideas
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: qa-sinir-deger-analizi
-description: Derives test cases with boundary value analysis and equivalence partitioning, plus null, empty and overflow inputs. Use when deciding which input values a function's tests must cover.
+description: Derives test cases by boundary value analysis and equivalence partitioning
 model: haiku
 tools: Read, Grep, Glob
 ---

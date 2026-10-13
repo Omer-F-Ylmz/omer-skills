@@ -1,6 +1,6 @@
 ---
 name: sec-injection-denetci
-description: Finds SQL, command and template injection sinks by tracing untrusted input. Use when code builds queries or shell commands from input.
+description: Finds SQL, command and template injection sinks by tracing untrusted input
 model: sonnet
 tools: Read, Grep, Glob
 ---

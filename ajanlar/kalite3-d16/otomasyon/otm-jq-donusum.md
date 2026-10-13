@@ -1,6 +1,6 @@
 ---
 name: otm-jq-donusum
-description: Writes jq filters to select, reshape, group and join JSON from APIs and logs in shell pipelines. Use when JSON output must be filtered on the command line.
+description: Writes jq filters to select, reshape, group, join JSON in shell pipelines
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

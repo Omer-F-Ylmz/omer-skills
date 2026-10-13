@@ -1,6 +1,6 @@
 ---
 name: qa-gorsel-qa
-description: Inspects a running page at several widths and reports visual defects with screenshots. Use when checking a UI before release.
+description: Inspects a running page at several widths and reports visual defects with screenshots
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

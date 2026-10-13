@@ -1,6 +1,6 @@
 ---
 name: inc-ocr-coklu-inceleme
-description: Runs the open-code-review CLI for multi-perspective AI code review on diffs, configures providers and triages its findings. Use when you want an automated second review on a PR.
+description: Runs open-code-review CLI for multi-perspective AI review of diffs; triages findings
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

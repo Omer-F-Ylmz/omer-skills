@@ -1,6 +1,6 @@
 ---
 name: ops-yapisal-log-semasi
-description: Defines a structured JSON log schema with level policy, correlation fields and stable event names across services. Use when logs are free text and hard to query or alert on.
+description: "Defines structured JSON log schema: levels, correlation fields, stable event names"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: vrm-plan-limit-izleme
-description: Tracks Claude plan session and weekly limits with usage monitors, burn rate and reset times to schedule heavy work. Use when runs hit usage limits.
+description: Tracks Claude plan session/weekly limits, burn rate and reset times; usage limit hits
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

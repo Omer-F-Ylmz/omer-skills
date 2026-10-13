@@ -1,6 +1,6 @@
 ---
 name: ops-nats
-description: Designs NATS subjects, JetStream streams and consumers for lightweight messaging. Use when choosing or tuning NATS.
+description: Designs NATS subjects, JetStream streams and consumers
 model: sonnet
 tools: Read, Grep, Glob
 ---

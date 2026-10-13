@@ -1,6 +1,6 @@
 ---
 name: sec-semgrep-kural
-description: Writes and tunes custom Semgrep rules with patterns, metavariables and test fixtures, and triages findings. Use when a code pattern must be banned or found repo-wide.
+description: Writes and tunes custom Semgrep rules with metavariables and test fixtures
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

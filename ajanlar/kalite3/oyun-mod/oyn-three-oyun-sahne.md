@@ -1,6 +1,6 @@
 ---
 name: oyn-three-oyun-sahne
-description: Builds small three.js browser games with input, loop and collision basics. Use when a playable web prototype is wanted, or when asked how to structure a three.js game loop, input, collision (hitbox, raycast) or scene.
+description: "Builds small three.js browser games: input, loop, collision, scene structure"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

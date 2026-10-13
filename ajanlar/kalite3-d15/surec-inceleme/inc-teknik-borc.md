@@ -1,6 +1,6 @@
 ---
 name: inc-teknik-borc
-description: Inventories technical debt, estimates its cost and prioritizes paydown by impact. Use when debt slows delivery.
+description: Inventories technical debt, estimates cost, prioritizes paydown by impact
 model: sonnet
 tools: Read, Grep, Glob
 ---

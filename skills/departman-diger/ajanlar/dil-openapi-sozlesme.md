@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: dil-openapi-sozlesme
-description: Writes and reviews OpenAPI 3 specs with reusable schemas, errors and versioning. Use when designing an API contract first, or when asked how to structure one.
+description: "Writes/reviews OpenAPI 3 specs: reusable schemas, errors, versioning; contract-first design"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

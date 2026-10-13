@@ -1,6 +1,6 @@
 ---
 name: dok-icerik-editoru
-description: Edits drafts for clarity, structure, concision and consistency while keeping the author's voice. Use when a text needs a professional edit.
+description: Edits drafts for clarity, structure and concision while keeping the author's voice
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: ops-serverless
-description: Designs serverless functions with cold-start, timeout, concurrency and idempotency in mind. Use when building on Lambda or Azure Functions.
+description: "Designs serverless functions (Lambda, Azure Functions): cold start, timeout, idempotency"
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: pln-bagimlilik-haritasi
-description: Maps task and module dependencies to find the critical path and parallel work. Use when sequencing a large plan, or when asked how to find the critical path or order dependent tasks.
+description: Maps task/module dependencies to find critical path and parallel work
 model: haiku
 tools: Read, Grep, Glob
 ---

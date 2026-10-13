@@ -1,6 +1,6 @@
 ---
 name: dn-di-ve-config
-description: Wires dependency injection and typed options with correct lifetimes. Use when services or settings need structuring.
+description: Wires dependency injection and typed options with correct lifetimes
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

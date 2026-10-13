@@ -1,6 +1,6 @@
 ---
 name: fe-ikon-sistemi
-description: Keeps icon usage consistent in size, stroke and naming. Use when icons look mixed or inconsistent.
+description: Keeps icon size, stroke and naming consistent across the UI
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: dok-markitdown-donusum
-description: Converts PDF, DOCX, PPTX and XLSX files to clean Markdown with markitdown for LLM ingestion, and checks tables and headings survived. Use when feeding office documents to a model.
+description: Converts PDF, DOCX, PPTX, XLSX to clean Markdown with markitdown for LLM ingestion
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

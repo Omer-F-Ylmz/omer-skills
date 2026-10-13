@@ -1,6 +1,6 @@
 ---
 name: sec-guvenlik-raporu
-description: Turns raw security findings into a prioritized report with fix steps. Use when findings must be communicated to a team, or when asked how to structure or write such a report.
+description: Turns raw security findings into a prioritized report with fix steps
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: fe-angularjs-bakim
-description: Maintains legacy AngularJS 1.x apps by cutting watcher count and digest cost and isolating directives. Use when an old AngularJS screen is slow or hard to change.
+description: "Maintains legacy AngularJS 1.x: cuts watchers and digest cost, isolates directives"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

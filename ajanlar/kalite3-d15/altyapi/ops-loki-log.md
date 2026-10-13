@@ -1,6 +1,6 @@
 ---
 name: ops-loki-log
-description: Designs Grafana Loki log collection with low-cardinality labels and LogQL queries. Use when logs live in Loki or cost too much.
+description: "Designs Grafana Loki log collection: low-cardinality labels, LogQL queries"
 model: sonnet
 tools: Read, Grep, Glob
 ---

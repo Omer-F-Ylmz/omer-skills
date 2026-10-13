@@ -1,6 +1,6 @@
 ---
 name: ops-pulumi
-description: Writes Pulumi infrastructure in TypeScript or C# with stacks, config, secrets and component resources. Use when managing cloud with Pulumi.
+description: "Writes Pulumi infra in TypeScript/C#: stacks, config, secrets, component resources"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

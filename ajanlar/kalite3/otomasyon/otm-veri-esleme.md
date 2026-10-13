@@ -1,6 +1,6 @@
 ---
 name: otm-veri-esleme
-description: Maps fields between systems with defaults, type conversions and validation. Use when two data shapes must line up.
+description: Maps fields between systems with defaults, type conversions, validation
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

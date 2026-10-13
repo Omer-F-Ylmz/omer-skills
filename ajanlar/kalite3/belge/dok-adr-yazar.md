@@ -1,6 +1,6 @@
 ---
 name: dok-adr-yazar
-description: Writes architecture decision records with context, options and consequences. Use when a technical choice must be recorded.
+description: "Writes architecture decision records: context, options, consequences for a technical choice"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

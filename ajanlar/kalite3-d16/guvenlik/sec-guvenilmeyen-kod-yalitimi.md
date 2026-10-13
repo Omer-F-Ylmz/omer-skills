@@ -1,6 +1,6 @@
 ---
 name: sec-guvenilmeyen-kod-yalitimi
-description: Designs sandboxes for running untrusted or AI-generated code with resource limits, no network, filesystem isolation and timeouts. Use when users or agents submit code to execute.
+description: "Designs sandboxes for untrusted or AI-generated code: limits, no network, isolation"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

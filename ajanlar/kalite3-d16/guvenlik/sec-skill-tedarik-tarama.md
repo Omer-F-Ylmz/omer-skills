@@ -1,6 +1,6 @@
 ---
 name: sec-skill-tedarik-tarama
-description: Scans third-party Claude skills and plugins before install for hidden instructions, scripts and exfiltration, and triages scanner findings. Use when vetting a GitHub skill before install.
+description: Scans third-party Claude skills/plugins before install for hidden instructions, exfiltration
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

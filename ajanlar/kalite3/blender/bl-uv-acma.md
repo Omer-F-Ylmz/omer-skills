@@ -1,6 +1,6 @@
 ---
 name: bl-uv-acma
-description: Unwraps UVs with seams, even texel density and no overlaps. Use when textures stretch or bake wrong.
+description: Unwraps UVs with seams, even texel density, no overlaps; stretched or bad bakes
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

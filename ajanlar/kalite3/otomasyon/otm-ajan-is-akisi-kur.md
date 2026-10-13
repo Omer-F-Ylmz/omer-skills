@@ -1,6 +1,6 @@
 ---
 name: otm-ajan-is-akisi-kur
-description: Designs LLM powered automations with prompts, tools and human approval gates. Use when AI steps run inside a workflow.
+description: Designs LLM-powered automations with prompts, tools and human approval gates
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

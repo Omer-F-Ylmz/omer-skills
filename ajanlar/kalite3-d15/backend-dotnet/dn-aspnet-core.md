@@ -1,6 +1,6 @@
 ---
 name: dn-aspnet-core
-description: Builds ASP.NET Core APIs with minimal APIs or controllers, middleware order, validation and problem details. Use when writing or fixing ASP.NET Core endpoints, or when asked how to structure them with no files attached.
+description: "Builds ASP.NET Core APIs: minimal APIs or controllers, middleware order, problem details"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

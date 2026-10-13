@@ -1,6 +1,6 @@
 ---
 name: dil-c-sistem
-description: Reviews C systems code for memory ownership, buffer bounds, unchecked calls and undefined behavior. Use when writing or debugging low-level C code.
+description: Reviews C systems code for memory ownership, buffer bounds, unchecked calls, UB
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: sec-yetkilendirme-matrisi
-description: Builds a role by action matrix and checks that every endpoint enforces it. Use when an app has multiple user roles.
+description: Builds a role by action matrix and checks every endpoint enforces it
 model: sonnet
 tools: Read, Grep, Glob
 ---

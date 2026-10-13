@@ -1,6 +1,6 @@
 ---
 name: db-vektor-veritabani
-description: Chooses and tunes vector databases with embeddings, ANN indexes and metadata filters. Use when building semantic search or RAG storage.
+description: "Chooses and tunes vector databases: embeddings, ANN indexes, metadata filters, RAG"
 model: sonnet
 tools: Read, Grep, Glob
 ---

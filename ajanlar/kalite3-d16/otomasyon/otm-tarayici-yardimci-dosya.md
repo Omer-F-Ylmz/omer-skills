@@ -1,6 +1,6 @@
 ---
 name: otm-tarayici-yardimci-dosya
-description: Turns a repeated browser automation flow into a reusable helper file with role or text locators and no secrets, reused on later runs. Use when an agent automates the same site again and again.
+description: Turns a repeated browser flow into a reusable helper file with role/text locators, no secrets
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: qa-ci-test-duzeni
-description: Splits tests into fast and slow groups with tags and caching in CI. Use when pipelines are slow.
+description: Splits CI tests into fast/slow groups with tags and caching for slow pipelines
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

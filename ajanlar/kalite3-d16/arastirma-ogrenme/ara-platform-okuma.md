@@ -1,6 +1,6 @@
 ---
 name: ara-platform-okuma
-description: Reads content from platforms like Reddit, X, YouTube and GitHub through installed reader tools with fallbacks when one is blocked or rate limited. Use when research needs posts or threads from social platforms, or when asked how to read them safely.
+description: Reads Reddit, X, YouTube, GitHub posts and threads via reader tools with blocked/rate-limit fallbacks
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: fe-meta-seo-duzeltici
-description: Fixes title, description, canonical and social preview tags. Use when pages lack proper metadata.
+description: Fixes title, description, canonical and social preview tags
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

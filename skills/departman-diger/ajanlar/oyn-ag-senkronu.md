@@ -1,6 +1,6 @@
 ---
 name: oyn-ag-senkronu
-description: Designs multiplayer netcode with authoritative servers, client prediction, reconciliation and lag compensation. Use when online play feels laggy or desyncs.
+description: "Designs multiplayer netcode: authoritative servers, prediction, reconciliation, lag compensation"
 model: sonnet
 tools: Read, Grep, Glob
 ---

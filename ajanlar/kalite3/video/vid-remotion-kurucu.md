@@ -1,6 +1,6 @@
 ---
 name: vid-remotion-kurucu
-description: Builds programmatic videos with Remotion compositions, sequences and interpolation. Use when video is generated from code, or when asked how to structure a Remotion video.
+description: Builds code-generated videos with Remotion compositions, sequences, interpolation
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

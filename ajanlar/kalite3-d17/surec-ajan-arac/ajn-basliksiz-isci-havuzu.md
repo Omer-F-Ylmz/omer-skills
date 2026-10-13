@@ -1,6 +1,6 @@
 ---
 name: ajn-basliksiz-isci-havuzu
-description: Runs headless agent CLI workers in parallel with a sandbox level per worker, result-file contract and timeouts, then collects outputs. Use when batch coding work runs in the background.
+description: Runs parallel headless agent CLI workers with sandbox levels, result files, timeouts
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

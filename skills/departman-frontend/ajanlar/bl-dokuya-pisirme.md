@@ -1,6 +1,6 @@
 ---
 name: bl-dokuya-pisirme
-description: Bakes normal, AO and color maps from high to low poly in Blender. Use when detail must move into textures.
+description: Bakes normal, AO and color maps from high to low poly in Blender
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

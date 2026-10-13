@@ -1,6 +1,6 @@
 ---
 name: ara-kutuphane-dokuman
-description: Looks up current library or framework docs and returns the exact API with version, a short code example, and any deprecation or migration notes. Use when asked about library syntax, usage, or migration.
+description: "Looks up current library/framework docs: exact API, version, example, deprecations, migration"
 model: haiku
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

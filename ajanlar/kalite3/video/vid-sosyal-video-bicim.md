@@ -1,6 +1,6 @@
 ---
 name: vid-sosyal-video-bicim
-description: Adapts a video to vertical, square and wide formats with safe areas. Use when posting to several platforms, or when asked which aspect ratios, sizes and safe areas a platform needs.
+description: Adapts video to vertical, square, wide formats with safe areas per platform
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

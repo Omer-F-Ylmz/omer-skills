@@ -1,6 +1,6 @@
 ---
 name: be-yatay-olcekleme
-description: Plans horizontal scaling: stateless app nodes, externalized sessions, read replicas, partition keys and queue-based load leveling. Use when one server can no longer carry the load.
+description: "Plans horizontal scaling: stateless nodes, external sessions, replicas, partition keys"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

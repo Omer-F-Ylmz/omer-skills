@@ -1,6 +1,6 @@
 ---
 name: pln-proje-yonetimi
-description: Plans projects with scope, milestones, risks, owners and status reporting. Use when a multi-week effort needs coordination.
+description: "Plans projects: scope, milestones, risks, owners, status reporting"
 model: sonnet
 tools: Read, Grep, Glob
 ---

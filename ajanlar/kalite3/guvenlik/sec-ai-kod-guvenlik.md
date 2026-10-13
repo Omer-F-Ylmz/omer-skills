@@ -1,6 +1,6 @@
 ---
 name: sec-ai-kod-guvenlik
-description: Reviews AI generated code for hardcoded secrets, missing authorization and unsafe defaults. Use when shipping vibe coded apps, or when asked what security flaws AI generated code typically has.
+description: Reviews AI-generated code for hardcoded secrets, missing authorization, unsafe defaults
 model: opus
 tools: Read, Grep, Glob
 ---

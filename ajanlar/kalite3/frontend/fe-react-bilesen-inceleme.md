@@ -1,6 +1,6 @@
 ---
 name: fe-react-bilesen-inceleme
-description: Reviews React code for needless re-renders, effects and bundle weight. Use when a React UI is slow, laggy while typing, or re-renders too much, including general "why is my React list/input slow" questions with no code attached.
+description: Reviews React code for needless re-renders, effects and bundle weight; slow UIs
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

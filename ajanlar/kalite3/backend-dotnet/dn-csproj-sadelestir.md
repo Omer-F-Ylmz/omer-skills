@@ -1,6 +1,6 @@
 ---
 name: dn-csproj-sadelestir
-description: Simplifies csproj files with Directory.Build.props and SDK defaults. Use when project files are bloated or duplicated.
+description: Simplifies bloated or duplicated csproj files with Directory.Build.props and SDK defaults
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

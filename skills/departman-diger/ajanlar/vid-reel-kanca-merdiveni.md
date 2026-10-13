@@ -1,6 +1,6 @@
 ---
 name: vid-reel-kanca-merdiveni
-description: Plans short vertical videos with mined hooks, a retention ladder of beats and a weekly posting plan. Use when planning Reels, Shorts or TikToks.
+description: "Plans vertical Reels/Shorts/TikToks: hooks, retention ladder, weekly posting plan"
 model: sonnet
 tools: Read, Grep, Glob
 ---

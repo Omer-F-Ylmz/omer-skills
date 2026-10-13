@@ -1,6 +1,6 @@
 ---
 name: fe-karanlik-mod
-description: Adds dark mode with semantic tokens and system preference support. Use when a site needs a dark theme.
+description: Adds dark mode with semantic tokens and system preference support
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

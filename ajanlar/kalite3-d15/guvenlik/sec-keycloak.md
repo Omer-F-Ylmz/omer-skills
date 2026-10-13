@@ -1,6 +1,6 @@
 ---
 name: sec-keycloak
-description: Designs Keycloak realms, clients, roles and flows for app login and service accounts. Use when integrating Keycloak SSO.
+description: Designs Keycloak realms, clients, roles and flows for SSO and service accounts
 model: sonnet
 tools: Read, Grep, Glob
 ---

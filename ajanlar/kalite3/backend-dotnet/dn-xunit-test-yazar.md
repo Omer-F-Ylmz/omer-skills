@@ -1,6 +1,6 @@
 ---
 name: dn-xunit-test-yazar
-description: Writes xUnit tests with arrange act assert and clear names. Use when C# code needs unit tests.
+description: "Writes xUnit tests with arrange-act-assert and clear names for C# code"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

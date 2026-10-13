@@ -1,6 +1,6 @@
 ---
 name: ops-disk-dolu
-description: Finds what fills a server disk and frees space safely, covering logs, inodes, deleted-but-open files and container leftovers. Use when a host reports no space left on device.
+description: "Finds what fills a server disk and frees space safely: logs, inodes, deleted-open files"
 model: haiku
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: dil-scala
-description: Writes Scala with immutable data, pattern matching, effect handling and type-safe errors. Use when working on Scala services, or when asked a Scala design or refactoring question with or without files.
+description: "Writes Scala: immutable data, pattern matching, effects, type-safe errors; also design questions"
 model: sonnet
 tools: Read, Grep, Glob
 ---

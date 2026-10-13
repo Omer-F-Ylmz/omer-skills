@@ -1,6 +1,6 @@
 ---
 name: ml-makale-uygulama
-description: Turns an ML paper into a faithful, testable implementation plan with ablations and reproduction checks. Use when reproducing a research result.
+description: Turns an ML paper into a testable implementation plan with ablations; reproducing research
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

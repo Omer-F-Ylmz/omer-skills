@@ -1,6 +1,6 @@
 ---
 name: fe-responsive-kontrol
-description: Checks layout at mobile, tablet and desktop widths and lists breakages. Use when a page must work on all screen sizes.
+description: Checks layout at mobile, tablet and desktop widths and lists breakages
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

@@ -1,6 +1,6 @@
 ---
 name: sec-docker-guvenlik
-description: Reviews Dockerfiles and compose files for root users, secrets and fat images. Use when containerizing an app.
+description: Reviews Dockerfiles and compose files for root users, secrets and fat images
 model: sonnet
 tools: Read, Grep, Glob
 ---

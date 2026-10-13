@@ -1,6 +1,6 @@
 ---
 name: ajn-ajan-bellek-tasarimi
-description: Designs what an agent remembers across sessions: scopes, retention, conflict handling and retrieval. Use when an agent forgets decisions or recalls stale facts.
+description: "Designs agent memory across sessions: scopes, retention, retrieval; forgotten or stale facts"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu
