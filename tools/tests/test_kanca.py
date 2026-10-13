@@ -77,8 +77,42 @@ def test_subagent_stop_yorunge_ve_session_end(depo, tmp_path):
     assert cagri == ["s2"]
 
 
+def test_yorunge_test_sinyali(tmp_path):
+    def kosu(ad, *sonuclar):  # her sonuç: (komut, is_error, çıktı)
+        s = [{"type": "user", "message": {"content": "düzelt"}}]
+        for n, (kom, err, cikti) in enumerate(sonuclar):
+            s += [{"type": "assistant", "message": {"content": [{"type": "tool_use", "id": f"t{n}", "name": "Bash", "input": {"command": kom}}]}},
+                  {"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": f"t{n}", "is_error": err, "content": cikti}]}}]
+        return kanca.yorunge(jsonl(tmp_path / ad, s))[5]
+    assert kosu("a", ("python -m pytest -q", True, "1 failed"), ("python -m pytest -q", False, "4 passed")) == 1
+    assert kosu("b", ("pytest", False, "4 passed"), ("python -m pytest", True, "FAILED test_x - AssertionError")) == 0
+    assert kosu("c", ("pytest", True, "Permission to use Bash has been denied."), ("ls", False, "x")) is None
+    assert kosu("d", ("python -m unittest", False, [{"type": "text", "text": "Ran 3 tests\n\nOK"}])) == 1
+
+
 def test_karma():
     assert kanca.karma(8, 4, 0, "tamam") == 8 and kanca.karma(8, 4, 2, "tamam") == 6 and kanca.karma(9, 3, 0, " ") == 0
+    assert kanca.karma(4, 4, 0, "tamam", 1, odul=3) == 7 and kanca.karma(4, 4, 0, "tamam", 0, odul=3) == 1
+    assert kanca.karma(9, 4, 0, "tamam", 1, odul=3) == 10 and kanca.karma(4, 4, 0, "tamam", None, odul=3) == 4
+
+
+def test_guven_kapisi_belirsiz_yargi_ders_yazmaz(depo, monkeypatch):
+    monkeypatch.setattr(kanca, "ESIK", 6.0)
+    monkeypatch.setattr(kanca, "PAY", 1.5)
+    i = ders_ekle()
+    kuyruk_kur("s5", [[i]], [5])
+    damit = lambda m: pytest.fail("belirsiz yargıda damıtma çağrılmaz")  # noqa: E731
+    assert kanca.isle("s5", yargic=lambda s: [5.5], damit=damit) == 1
+    assert ders.oku()[0]["kullanim"] == 0  # geri bildirim de yok
+
+
+def test_basarili_kosu_kacin_dersi_uretmez(depo, monkeypatch):
+    monkeypatch.setattr(kanca, "ESIK", 3.5)
+    kuyruk_kur("s6", [None], [0])
+    istem = []
+    damit = lambda m: istem.append(m) or '[{"no": 1, "baslik": "testi koş", "kosul": "islev düzeltirken", "icerik": "Testi bir kez koş."}]'  # noqa: E731
+    kanca.isle("s6", yargic=lambda s: [4.2], damit=damit)
+    assert "BAŞARILI" in istem[0] and ders.oku()[0]["tur"] == "basari"
 
 
 def kuyruk_kur(oturum, ids, karmalar):
