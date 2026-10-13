@@ -1,11 +1,13 @@
 """IG-41-KUR hesapsız KUR adayları → gh meta + Temp/igkur41'e sığ klon (hook yok, betik çalıştırma yok) + gitleaks/semgrep/skillspector → tarama.tsv."""
-import json, os, pathlib, subprocess
+import json, os, pathlib, subprocess, sys
 
 D = pathlib.Path(__file__).parent
 T = pathlib.Path(os.environ["TEMP"]) / "igkur41"
 T.mkdir(exist_ok=True)
 REPO = ["t8y2/dbx", "wheresryan22/anatomy", "h4ckf0r0day/obscura", "img2threejs/img2threejs", "lucasmarkes/hairline",
         "Jakeschincariol/youtube-agent-skill", "Jpisnice/shadcn-ui-mcp-server", "anthropics/claude-for-legal", "vercel-labs/skills"]
+REPO = sys.argv[1:] or REPO  # d2: d1'de ağ düşüşüyle klonlanamayanlar yeniden
+CIK = "tarama2.tsv" if sys.argv[1:] else "tarama.tsv"
 
 
 def kos(*a):
@@ -51,5 +53,5 @@ for repo in REPO:
     n = sum(1 for _ in d.rglob("*") if _.is_file() and ".git" not in _.parts)
     satir.append(f"{repo}\t{meta}\t{say(f'{d}.gl.json', len)}\t{say(f'{d}.sg.json', sev)}\t{say(f'{d}.ss.json', ss_ozet)}\t{n}")
     print(satir[-1], flush=True)
-(D / "tarama.tsv").write_text("\n".join(satir) + "\n", encoding="utf-8", newline="\n")
+(D / CIK).write_text("\n".join(satir) + "\n", encoding="utf-8", newline="\n")
 print("BITTI")
