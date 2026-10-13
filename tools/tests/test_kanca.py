@@ -90,6 +90,20 @@ def test_yorunge_test_sinyali(tmp_path):
     assert kosu("d", ("python -m unittest", False, [{"type": "text", "text": "Ran 3 tests\n\nOK"}])) == 1
 
 
+def test_yorunge_kural_belgesi_ve_teslim_dosyasi(tmp_path):
+    (tmp_path / "KURALLAR.md").write_text("Rapor başlığı '# Satış Özeti' olmalı.", encoding="utf-8")
+    (tmp_path / "rapor.md").write_text("# Özet\ntoplam 42", encoding="utf-8")
+    y = jsonl(tmp_path / "t.jsonl", [
+        {"type": "user", "cwd": str(tmp_path), "message": {"content": "satis.csv'den rapor.md yaz"}},
+        {"type": "assistant", "message": {"content": [{"type": "tool_use", "name": "Write", "input": {"file_path": "rapor.md"}}]}}])
+    baglam = kanca.yorunge(y)[6]
+    assert "# Satış Özeti" in baglam and "toplam 42" in baglam
+    kayit = {"arac": 1, "hata": 0, "gorev": "rapor", "son": "bitti", "baglam": baglam}
+    assert "toplam 42" in kanca.etiket_metni([kayit]) and "kural" in kanca.ETIKET.lower()
+    yarim = jsonl(tmp_path / "y.jsonl", [{"type": "user", "cwd": str(tmp_path), "message": {"content": "rapor yaz"}}])
+    assert "toplam 42" not in kanca.yorunge(yarim)[6]  # Edit/Write yoksa teslim yok
+
+
 def test_karma():
     assert kanca.karma(8, 4, 0, "tamam") == 8 and kanca.karma(8, 4, 2, "tamam") == 6 and kanca.karma(9, 3, 0, " ") == 0
     assert kanca.karma(4, 4, 0, "tamam", 1, odul=3) == 7 and kanca.karma(4, 4, 0, "tamam", 0, odul=3) == 1

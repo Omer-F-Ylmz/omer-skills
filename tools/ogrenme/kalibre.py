@@ -22,7 +22,7 @@ def topla(n=60):
     random.Random(11).shuffle(yollar)
     ornek = []
     for y in yollar:
-        gorev, arac, hata, tur, son, test = kanca.yorunge(y)
+        gorev, arac, hata, tur, son, test, _ = kanca.yorunge(y)
         if arac >= kanca.EN_AZ_ARAC and son.strip() and gorev.strip():
             ornek.append({"gorev": gorev[:1500], "yanit": son[-1500:], "arac": arac, "hata": hata, "tur": tur, "test": test,
                           "ciktilar": kanca.son_ciktilar(y)})
@@ -110,10 +110,10 @@ def uydur(satirlar=None, sutun="jev"):
 
 
 def _kayit(y, kaynak, aile, nesnel):
-    gorev, arac, hata, tur, son, test = kanca.yorunge(y)
+    gorev, arac, hata, tur, son, test, bag = kanca.yorunge(y)
     if arac and (son.strip() or kaynak == "yarim") and gorev.strip():  # isle her bitti yörüngesini yargılar (EN_AZ_ARAC yalnız damıtma); kesilen koşunun son mesajı boştur
         return {"kaynak": kaynak, "aile": aile, "gorev": gorev[:1500], "son": son[-1500:], "arac": arac, "hata": hata, "tur": tur,
-                "test": test, "ciktilar": kanca.son_ciktilar(y), "nesnel": nesnel}
+                "test": test, "ciktilar": kanca.son_ciktilar(y), "nesnel": nesnel, "baglam": bag}
 
 
 def zor_kume(en_fazla=60):

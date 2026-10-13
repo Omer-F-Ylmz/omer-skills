@@ -22,9 +22,13 @@ YARGIC_MODEL = "sonnet"  # Opus başarılılarını tanıma: sonnet 46/55, haiku
 SORU = {"kalite": {"type": "score", "criteria": ["Hiç karşılamıyor / alakasız", "Çok zayıf", "Kısmen, önemli eksik",
                                                  "Çoğunlukla, küçük eksik", "Tam karşılıyor", "Tam ve örnek nitelikte"],
                    "instructions": "`yanit`, `gorev` isteğini ne kadar doğru ve eksiksiz karşılıyor? Biçim/uzunluk değil, içerik."}}
-ETIKET = ("Aşağıda Claude Code alt ajan koşuları var (görev, araç/hata sayısı, son test sonucu, son araç çıktıları, son mesaj). "
+ETIKET = ("Aşağıda Claude Code alt ajan koşuları var (görev, araç/hata sayısı, son test sonucu, son araç çıktıları, son mesaj, "
+          "çalışma klasörünün kural belgeleri ve son teslim dosyasının şimdiki hâli). "
           "Her koşu için: ajan görevi GERÇEKTEN başardı mı (istenen iş yapıldı, doğrulandı ya da doğrulanamadığı dürüstçe bildirildi "
-          "ve iş yine de doğru)? basari 1/0, guven 0-1. Yalnız JSON liste: [{\"no\": n, \"basari\": 0|1, \"guven\": x}]\n\n%s")
+          "ve iş yine de doğru)? Kural belgesi varsa teslim dosyası her kurala (biçim, başlık, sıra, birim vb.) uymalı; bir kural "
+          "ihlali ya da teslim yokluğu başarısızlıktır — son mesajın iddiasına değil teslim dosyasına bak. "
+          "basari 1/0, guven 0-1. Yalnız JSON liste: [{\"no\": n, \"basari\": 0|1, \"guven\": x}]\n\n%s")
+KURAL_BELGE = ("KURALLAR.md", "CLAUDE.md", "AGENTS.md")
 DAMIT = ("Aşağıda bir Claude Code oturumundaki alt ajan koşuları ve yargıç puanları var. Gelecekteki BENZER görevlerde işe yarayacak "
          "EN FAZLA 3 genellenebilir ders çıkar (kural/yöntem; göreve özgü sayı, dosya içeriği, yol, ad değil). BAŞARILI koşudan "
          "'işe yarayan yöntem' dersi (asla 'kaçın' değil); BAŞARISIZ koşudan 'kaçın' dersi (hatanın kaynağı + ilk turda ne yapılmalı). "
@@ -83,15 +87,28 @@ def _test_sonucu(cikti, hata):
     return 0 if hata else None
 
 
+def baglam(cwd, teslim, sinir=1500):
+    """d14: yargıç kural belgesini görmüyordu (kalibre zor gerçek başarısızlık 0/8) → cwd kural belgeleri + son teslim dosyasının şimdiki hâli."""
+    yollar = [Path(cwd) / a for a in KURAL_BELGE] if cwd else []
+    parca = [f"--- {y.name}\n{y.read_text(encoding='utf-8', errors='replace')[:sinir]}" for y in yollar if y.is_file()]
+    t = Path(cwd or ".", teslim) if teslim else None
+    parca.append(f"--- teslim {teslim}\n{t.read_text(encoding='utf-8', errors='replace')[:sinir]}" if t and t.is_file()
+                 else "--- teslim: yok (Edit/Write yok)")
+    return "\n".join(parca)
+
+
 def yorunge(transkript):
-    """Alt ajan transkriptinden → (görev, araç sayısı, hata sayısı, tur, son metin, son test sonucu 1/0/None)."""
-    gorev, arac, hata, tur, son, test, testler = "", 0, 0, 0, "", None, set()
+    """Alt ajan transkriptinden → (görev, araç sayısı, hata sayısı, tur, son metin, son test sonucu 1/0/None, baglam)."""
+    gorev, arac, hata, tur, son, test, testler, cwd, teslim = "", 0, 0, 0, "", None, set(), None, None
     for x in _satirlar(transkript):
+        cwd = cwd or x.get("cwd")
         for p in _icerik(x):
             if x.get("type") == "user" and p.get("type") == "text" and not gorev:
                 gorev = p.get("text", "")
             elif p.get("type") == "tool_use":
                 arac += 1
+                if p.get("name") in ("Write", "Edit", "MultiEdit", "NotebookEdit"):
+                    teslim = (p.get("input") or {}).get("file_path") or (p.get("input") or {}).get("notebook_path") or teslim
                 if re.search(r"pytest|unittest|\btest", str((p.get("input") or {}).get("command", ""))):
                     testler.add(p.get("id"))
             elif p.get("type") == "tool_result":
@@ -104,7 +121,7 @@ def yorunge(transkript):
             elif x.get("type") == "assistant" and p.get("type") == "text" and p.get("text", "").strip():
                 son = p["text"]
         tur += x.get("type") == "assistant"
-    return gorev, arac, hata, tur, son, test
+    return gorev, arac, hata, tur, son, test, baglam(cwd, teslim)
 
 
 def _ekle(oturum, kayit):
@@ -122,9 +139,9 @@ def kanca(girdi, baslat=None):
         _ekle(oturum, {"tip": "getir", "ajan_id": girdi.get("agent_id"), "ajan": ajan, "ids": ids})
         return json.dumps({"hookSpecificOutput": {"hookEventName": "SubagentStart", "additionalContext": blok}}, ensure_ascii=False)
     if olay == "SubagentStop" and ajan and girdi.get("agent_transcript_path"):
-        gorev, arac, hata, tur, son, test = yorunge(girdi["agent_transcript_path"])
+        gorev, arac, hata, tur, son, test, bag = yorunge(girdi["agent_transcript_path"])
         _ekle(oturum, {"tip": "bitti", "ajan_id": girdi.get("agent_id"), "ajan": ajan, "gorev": gorev[:2000], "arac": arac,
-                       "hata": hata, "tur": tur, "test": test, "son": (girdi.get("last_assistant_message") or son)[-3000:],
+                       "hata": hata, "tur": tur, "test": test, "son": (girdi.get("last_assistant_message") or son)[-3000:], "baglam": bag,
                        "ciktilar": son_ciktilar(girdi["agent_transcript_path"])})
     elif olay == "SessionEnd" and kuyruk(oturum).exists():
         (baslat or _arka)(oturum)
@@ -214,7 +231,7 @@ def son_ciktilar(yol, n=3):
 def etiket_metni(kayitlar):
     return "\n\n".join(f"Koşu {i}: {k['arac']} araç · {k['hata']} hata · test {k.get('test')}\nGörev: {k['gorev'][:500]}\n"
                        f"Son çıktılar: {' | '.join(t[-200:] for t in k.get('ciktilar') or [])}\n"
-                       f"Son mesaj: {(k.get('son') or k.get('yanit') or '')[-500:]}" for i, k in enumerate(kayitlar, 1))
+                       f"Son mesaj: {(k.get('son') or k.get('yanit') or '')[-500:]}\n{k.get('baglam') or ''}" for i, k in enumerate(kayitlar, 1))
 
 
 def _yargic(kayitlar, model=None):
