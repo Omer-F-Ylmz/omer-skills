@@ -20,6 +20,9 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
    aynı işi yapan alternatifler ve kopyalar da ilgilidir ("başka araç zaten var" bırakma gerekçesi değildir). İki geçiş:
    a) Listeyi baştan sona oku, ilgili HER kaydı seç.
    b) Öz denetim: atlanan her adayda "bu işin bir adımında kullanılır mı?" → evetse ekle; seçilen her birinde "işle ilgisiz mi?" → evetse çıkar.
+   Sık kaçan: işe uyan `departman-*` müdür skill'i; işin dosya türü için "MANDATORY/any … task" diyen skill; adımları bu işi içeren
+   tam akış skill'i; seçtiğin genel aracın kardeşleri (bir hata ayıklama skill'i seçildiyse diğerleri de). Sık fazla: komşu ama başka iş
+   (sürüm artırma ≠ sürüm notu yazma, palet kurma ≠ tema ekleme, genel araç değerlendirme ≠ lisans okuma, işten önce yedekleme).
 3. Seçilenleri türe göre plana koy (skill · ajan · mcp · plugin · cli · kütüphane · bizim betik), her biri hangi adımda;
    `cagri` yolu: Skill adı · Agent tipi (listede yoksa Skill ajan-getir) · ToolSearch ile MCP aracı · Bash CLI.
 - claude.ai (betik çalışmazsa) aynı mantık: bu klasördeki `yetenek.tsv` içinde iş sözcüklerini (ASCII: karanlik, cakisma)
