@@ -42,7 +42,8 @@ ES = {
     "kirili": "flaky intermittent", "flaky": "flaky intermittent", "jwt": "jwt token", "dokum": "transcript", "pdf": "pdf document",
 }
 ORAN, GENIS, UZUN, ILK = 0.3, 0.5, 30, 5
-KAVRAM, MUAF, BAYAG = 2, 0.5, 0.05
+KAVRAM, SIRA, BAYAG = 0.5, 3, 0.05
+DURAK = set("ile ve veya icin bir bu su da de mi ne gibi olarak the and or with for to of in on an my is are how".split())
 GRUP = {"skill": "skill", "ajan": "ajan", "mcp": "mcp", "plugin": "plugin", "cli": "cli",
         "kutuphane": "kütüphane", "arac": "bizim betik"}
 TR = str.maketrans("çğıöşüÇĞİÖŞÜâî", "cgiosucgiosuai")
@@ -80,11 +81,11 @@ def ara(q, tur=None, oran=ORAN, satirlar=None):
     docs = [kelimeler(o["ad"]) * 2 + kelimeler(f"{o['is']} {o.get('tetik', '')} {o['metin']}") for o in rows]
     N, ort = len(docs), sum(map(len, docs)) / max(len(docs), 1)
     df = Counter(w for d in docs for w in set(d))
-    sorgu = genislet(q)
+    sorgu = {w: v for w, v in genislet(q).items() if w not in DURAK}
     # kavram = kullanıcının her kelimesi (+önek, +ES açılımı); belgelerin >%5'inde geçen kelime kavram sayılmaz
     kavram = [set(kelimeler(w) + kelimeler(" ".join(ileri([w])))) for w in kelimeler(q)
-              if not w.endswith("~") and df[w] < BAYAG * N]
-    gerek = min(KAVRAM, len(kavram))
+              if not w.endswith("~") and df[w] < BAYAG * N and w not in DURAK]
+    gerek = math.ceil(KAVRAM * len(kavram))
     puan = []
     for o, d in zip(rows, docs):
         tf, s = Counter(d), 0.0
@@ -94,11 +95,14 @@ def ara(q, tur=None, oran=ORAN, satirlar=None):
                 s += qn * idf * tf[w] * 2.2 / (tf[w] + 1.2 * (0.25 + 0.75 * len(d) / ort))
         if "kapal" in o["durum"]:
             s *= 0.5
-        puan.append((s, sum(1 for c in kavram if any(tf[w] for w in c)), o))
+        if s > 0:
+            # kapsama tetik HARİÇ sayılır: deterministik tetik ES açılımı taşır ("video" → "ffmpeg"), her kaydı kavramlı gösterir
+            ham = set(kelimeler(f"{o['ad']} {o['is']} {o['metin']}"))
+            puan.append((s, sum(1 for c in kavram if ham & c), o))
     puan.sort(key=lambda x: -x[0])
     tepe = puan[0][0] if puan else 0
-    # tek ortak kelimeyle gelen gürültü ("video", "hata") elenir: ≥KAVRAM kavram ya da tepenin MUAF katı
-    return [o for s, kap, o in puan if s > 0 and s >= oran * tepe and (kap >= gerek or s >= MUAF * tepe)]
+    # tek ortak kelimeyle gelen gürültü ("video", "hata") elenir: ilk SIRA kayıt ya da ham metinde kavramların ≥KAVRAM oranı
+    return [o for i, (s, kap, o) in enumerate(puan) if s >= oran * tepe and (i < SIRA or kap >= gerek)]
 
 
 def main():
