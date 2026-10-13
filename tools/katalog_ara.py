@@ -138,6 +138,7 @@ def main():
     sonuc = ara(q, tur, oran) if "--esik" in a else aday(q, n, tur)
     gruplar = {t: [o for o in sonuc if o["tur"] == t] for t in GRUP if any(o["tur"] == t for o in sonuc)}
     uzun = len(sonuc) > UZUN and "--esik" in a and "--tam" not in a
+    print("<aday-listesi>")  # Headroom tag_protector özel etiketli bloğu sıkıştırmaz: liste tam görünür
     print(f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items()))
     for t, v in gruplar.items():
         print(f"## {GRUP[t]} ({len(v)})" + (f" · çağrı: {CAGRI[t].format(ad='<ad>')}" if t in CAGRI else ""))
@@ -149,6 +150,7 @@ def main():
             print(f"{', '.join(adlar)} · {m}")
     if uzun:
         print(f"… grup başına ilk {ILK}; hepsi için --tam")
+    print("</aday-listesi>")
 
 
 if __name__ == "__main__":

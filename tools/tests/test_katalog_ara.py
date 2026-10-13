@@ -68,6 +68,16 @@ def test_aday_geri_cagirma():
     assert max(len(katalog_ara.aday(q, satirlar=satirlar)) for q, _ in ISLER) <= katalog_ara.ADAY + 7 * katalog_ara.TABAN
 
 
+def test_liste_ozel_etiketle_sarili(monkeypatch, capsys):
+    """Headroom tag_protector özel XML etiketli bloğu sıkıştırmaz: liste tam görünür."""
+    if not katalog_ara.KATALOG.exists():
+        pytest.skip("katalog yok: python tools/katalog_yenile.py")
+    monkeypatch.setattr(sys, "argv", ["katalog_ara.py", "kubernetes canary"])
+    katalog_ara.main()
+    satirlar = capsys.readouterr().out.strip().splitlines()
+    assert satirlar[0] == "<aday-listesi>" and satirlar[-1] == "</aday-listesi>" and len(satirlar) > 3
+
+
 def test_skill_kopyasi_guncel():
     """yetenek-getir klasöründeki betik + katalog, kaynakla aynı (CC kurulumu ve claude.ai zip'i repo yoluna bağlı değil)."""
     kok = Path(__file__).resolve().parents[2]
