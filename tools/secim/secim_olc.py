@@ -80,7 +80,7 @@ def cc(kol, tekrar, tavan, bas=1, usd=2.0):
     return yol
 
 
-SAYAC = CALISMA / "d5-usd.txt"  # kümülatif tavan sayacı (oturum başına yeni dosya; d4-usd.txt = d4 harcaması)
+SAYAC = CALISMA / f"{ETIKET.strip('-') or 'd5'}-usd.txt"  # kümülatif tavan sayacı, oturum etiketine göre (d4-usd.txt = d4 harcaması)
 TOPLU_ISTEM = ("Aşağıdaki görevlerin HİÇBİRİNİ YAPMA. Her biri için bu oturumda ilk çağıracağın, işe EN ÖZGÜ skill ya da alt ajanın adını seç. "
                "departman-* yönlendirici skill'leri ve genel ajanlar (general-purpose, Explore, Plan) cevap sayılmaz ama departman skill'ini ve "
                "gösterdiği dosyaları Skill/Read/Grep ile açıp bakabilirsin. Agent çağırma. Son yanıtın yalnız satır satır `Sxx: ad`.\n\n")
