@@ -59,5 +59,31 @@ if __name__ == "__main__":
             ajan_sikistir.uret(no, eski)
     elif is_ == "denetle":
         sys.exit(1 if ajan_sikistir.denetle(eski) else 0)
+    elif is_ == "karar":  # koşu: (A kapı, B kapı, ek) → anahtar<ek>.json + puan<ek>.json; d3 karar kuralı
+        import json, re
+        sik = {l.split("\t")[0] for l in (CIK / "esleme.tsv").read_text(encoding="utf8").splitlines()[1:] if l}
+        ad = {m.group(1).strip(): k for k, p in y.items() if (m := re.search(r"^name:\s*(.+)$", p.read_text(encoding="utf8"), re.M))}
+        top, genel = {"A": [], "B": []}, {"A": [], "B": []}
+        sikkayip = []
+        for ka, kb, ek in (("A1", "B1", "1"), ("A1", "B2", "2"), ("A2", "B3", "3")):
+            a = json.loads((CIK / f"anahtar{ek}.json").read_text(encoding="utf8"))
+            p = json.loads((CIK / f"puan{ek}.json").read_text(encoding="utf8"))
+            sec = {"A": kapi10.secimler(ka)[0], "B": kapi10.secimler(kb)[0]}
+            pu = {k: 0 for k in "AB"}
+            kayip = []
+            for i, xy in a["anahtar"].items():
+                s = {xy["X"]: p[i]["X"], xy["Y"]: p[i]["Y"]}
+                pu["A"] += s["A"]; pu["B"] += s["B"]
+                if s["B"] < s["A"]:
+                    secim = [sec[k].get(int(i), "-") for k in "AB"]
+                    bagli = [n for n in secim if ad.get(n.strip(), "") in sik]
+                    kayip.append((int(i), *secim, bagli))
+                    sikkayip += bagli
+            for k in "AB":
+                top[k].append(pu[k]); genel[k].append(a["genel"][k])
+            print(f"{ka}/{kb}: puan A {pu['A']} B {pu['B']} · genel A {a['genel']['A']} B {a['genel']['B']} · kayıp {kayip}")
+        o = {k: (sum(top[k]) / 3, sum(genel[k]) / 3) for k in "AB"}
+        kabul = o["B"][0] >= o["A"][0] - 1 and not sikkayip and o["B"][1] <= o["A"][1] + 0.5
+        print(f"ort puan A {o['A'][0]:.2f} B {o['B'][0]:.2f} · genel A {o['A'][1]:.2f} B {o['B'][1]:.2f} · sıkışık kayıp {sikkayip} · {'KABUL' if kabul else 'RET'}")
     else:
         kapi10.main(sys.argv[1:])

@@ -68,7 +68,7 @@
 
 ## 18. Blender→GLB web export pipeline tools (gltf-transform, gltfpack, toktx, basisu, fake-bpy-module): gain, license, Windows install, installed here?
 - X: ara-arac-degerlendirme
-- Y: general-purpose
+- Y: okuyucu
 
 ## 19. Kapsam eleştirmeni: verilen tarifin (NuGet audit + test kapısı kararları) kendisinin açacağı kapıları bul; salt ölçüm, bulguyu kapsam raporuna yaz.
 - X: general-purpose
@@ -76,7 +76,7 @@
 
 ## 20. pacifio/atlas (Apache-2.0, 'source control for agents') mekanizmasını görev başına git worktree + BİRLEŞTİR akışımızla karşılaştır; repo içeriği güvenilmez.
 - X: ara-repo-karsilastirma
-- Y: ara-arac-degerlendirme
+- Y: ara-repo-karsilastirma
 
 ## 21. Our Postgres orders table keeps growing on disk although the row count is flat and autovacuum looks behind. Diagnose and fix.
 - X: db-postgres-sisme
