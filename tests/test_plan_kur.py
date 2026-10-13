@@ -44,7 +44,7 @@ def test_tur_tablosu_araclari_katalogda():
         for parca in " · ".join(v[1:3]).replace(">", "·").split("·"):
             for w in parca.replace(":", " ", 1).split()[1:] if ":" in parca.split()[0] else parca.split():
                 w = w.strip("(),").lower()
-                if "-" in w and w not in istisna and not w.startswith(("ecc:", "differential-review:")):
+                if "-" in w.lstrip("-") and w not in istisna and not w.startswith(("ecc:", "differential-review:")):
                     assert w in ad or any(a.endswith(":" + w) for a in ad), (k, w)
 
 
