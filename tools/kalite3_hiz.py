@@ -32,8 +32,8 @@ ESKI_YANIT = SKILL / ".kalite3/ajan-yanit"
 TSV = KOK / "docs/kutuphane/olcum/kalite3-ajan-hiz.tsv"
 KABUL_EK = KOK / "docs/kutuphane/kalite3-ajan-kabul-ek.txt"
 IS = KOK / ".kalite3/hiz"
-CAGRI_TAVAN, ES_TAVAN, TUR_TAVAN, ARDISIK_TAVAN = 2600, 16, 2, 3  # d16 (13 Eki 02:30): +900 çağrı (d16 150 ajan; plan limiti, API kredisi kapalı)
-RAM_DUR = 95  # Ömer 13 Eki 00:36: RAM %95'e kadar; ≤%93 es artar, >%95 azalır ve yeni öğe başlamaz
+CAGRI_TAVAN, ES_TAVAN, TUR_TAVAN, ARDISIK_TAVAN = 2600, 4, 2, 3  # ES 4: Ömer 13 Eki 05:47 paralel ≤4; d16 (13 Eki 02:30): +900 çağrı (d16 150 ajan; plan limiti, API kredisi kapalı)
+RAM_DUR = 86  # Ömer 13 Eki 05:47: RAM asla >%90; kapı %86 (altında es artar, yeni öğe başlar), ≥%88 es azalır
 JEV_OB = None  # None = jev_yargic ortak önbelleği (~/.cache/jev-yargic.json); aynı (soru, yanıt) ikinci kez ücretlenmez
 STRICT = ["--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}']
 ALAN = ["aile", "ajan", "kol", "tur", "model", "puan", "usd", "jeton", "alt_model", "sure", "alt_usd", "jev", "strict"]
@@ -280,7 +280,7 @@ def sira(kokler=None):
 
 
 def es_ayarla(es, r):
-    return min(ES_TAVAN, es + 1) if r <= 93 else max(1, es - 1) if r > RAM_DUR else es
+    return min(ES_TAVAN, es + 1) if r < RAM_DUR else max(1, es - 1) if r >= 88 else es
 
 
 def ana_anahtar(ad, model):
@@ -478,7 +478,7 @@ class Kosu:
         self.devam()
         self.ek_aday()
         threading.Thread(target=self.gozcu, daemon=True).start()
-        es, ayar = 8, 0
+        es, ayar = 2, 0
         with ThreadPoolExecutor(ES_TAVAN) as havuz:
             while True:
                 with kilit:
@@ -492,7 +492,7 @@ class Kosu:
                 if time.time() - ayar > 45:
                     es = es_ayarla(es, r)
                     ayar = time.time()
-                if not bos and cal < es and r <= RAM_DUR and not DUR.exists() and time.time() >= self.bekle and cagri.n < CAGRI_TAVAN - 3 * ES_TAVAN:
+                if not bos and cal < es and r < RAM_DUR and not DUR.exists() and time.time() >= self.bekle and cagri.n < CAGRI_TAVAN - 3 * ES_TAVAN:
                     with kilit:
                         is_ = self.q.popleft()
                         self.calisan += 1

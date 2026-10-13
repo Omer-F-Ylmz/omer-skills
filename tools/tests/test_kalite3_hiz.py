@@ -27,9 +27,9 @@ def ortam(tmp_path, monkeypatch):
     return yol
 
 
-def test_es_tavani_16_ram_93te_artar_95ten_sonra_azalir():
-    assert kh.ES_TAVAN == 16 and kh.RAM_DUR == 95
-    assert kh.es_ayarla(4, 93) == 5 and kh.es_ayarla(4, 95) == 4 and kh.es_ayarla(4, 96) == 3 and kh.es_ayarla(16, 50) == 16
+def test_es_tavani_4_ram_86_altinda_artar_88den_sonra_azalir():
+    assert kh.ES_TAVAN == 4 and kh.RAM_DUR == 86
+    assert kh.es_ayarla(2, 85) == 3 and kh.es_ayarla(2, 87) == 2 and kh.es_ayarla(2, 88) == 1 and kh.es_ayarla(4, 50) == 4
 
 
 def test_jev_onbellekli_ayni_yanit_ikinci_kez_yargilanmaz(ortam, monkeypatch, tmp_path):

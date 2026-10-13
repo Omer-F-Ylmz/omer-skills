@@ -1128,3 +1128,31 @@ C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-disk-dolu	an
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-model-metrik	ajan	0	sonnet	0	0.0	0	-	107.9	0	0.1	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-zaman-damgasi	ajan	0	sonnet	0	0.0	0	-	101.7	0	0	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-istek-sinirlama	ajan	0	sonnet	0	0.0	0	-	102.7	0	0.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-kilitlenme	ajan	1	sonnet	0	0.1483	231406	claude-sonnet-5-5	600.8	0.1216	0.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-dosya-yukleme	ajan	1	sonnet	10	0.2391	397216	claude-sonnet-5-5	588.6	0.1209	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-istek-sinirlama	ajan	1	haiku	10	0.4461	410032	claude-haiku-5-5	594.5	0.0139	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-dosya-yukleme	ana	1	sonnet	7	0.3944	102258	claude-sonnet-5-5	310.9		7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-istek-sinirlama	ana	1	haiku	10	0.0969	101315	claude-haiku-5-5	268.9		9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-json-sutun	ajan	1	sonnet	10	0.3281	453292	claude-sonnet-5-5	429.8	0.1223	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-zaman-damgasi	ajan	1	sonnet	10	0.354	480081	claude-sonnet-5-5	467.7	0.1495	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ts-tip-daraltma	ajan	1	haiku	10	0.4571	420955	claude-haiku-5-5	398.7	0.0174	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-regex-denetci	ajan	1	sonnet	10	0.3497	459661	claude-sonnet-5-5	429.0	0.1398	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-json-sutun	ana	1	sonnet	7	0.3934	102156	claude-sonnet-5-5	183.3		8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-zaman-damgasi	ana	1	sonnet	10	0.4125	201079	claude-sonnet-5-5	179.0		9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ts-tip-daraltma	ana	1	haiku	7	0.1017	104384	claude-haiku-5-5	159.7		7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-regex-denetci	ana	1	sonnet	5	0.3971	102536	claude-sonnet-5-5	157.3		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-hata-mesaji	ajan	1	haiku	10	0.4614	421868	claude-haiku-5-5	292.4	0.0151	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-bisect-rehber	ajan	1	sonnet	10	0.2524	448791	claude-sonnet-5-5	276.3	0.1396	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-commit-imzalama	ajan	1	sonnet	10	0.3373	436496	claude-sonnet-5-5	253.5	0.124	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-model-metrik	ajan	1	sonnet	10	0.4588	617617	claude-sonnet-5-5	279.9	0.1517	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-hata-mesaji	ana	1	haiku	4	0.0988	103210	claude-haiku-5-5	173.8		8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-bisect-rehber	ana	1	sonnet	10	0.3922	102025	claude-sonnet-5-5	185.5		8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-commit-imzalama	ana	1	sonnet	10	0.3902	100716	claude-sonnet-5-5	185.0		8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-disk-dolu	ajan	1	haiku	10	0.4581	420879	claude-haiku-5-5	292.0	0.0123	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-saat-senkron	ajan	1	sonnet	10	0.3378	440887	claude-sonnet-5-5	300.1	0.122	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-sertifika-yenileme	ajan	1	sonnet	10	0.3358	433447	claude-sonnet-5-5	287.5	0.1259	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-disk-dolu	ana	1	haiku	10	0.0964	101108	claude-haiku-5-5	162.2		6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-saat-senkron	ana	1	sonnet	10	0.3859	100284	claude-sonnet-5-5	178.5		9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-sertifika-yenileme	ana	1	sonnet	10	0.3946	102268	claude-sonnet-5-5	185.4		8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-ssh-sertlestirme	ajan	1	sonnet	10	0.3444	437526	claude-sonnet-5-5	365.9	0.1331	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-ssh-sertlestirme	ana	1	sonnet	10	0.3917	100856	claude-sonnet-5-5	307.9		6.3	1

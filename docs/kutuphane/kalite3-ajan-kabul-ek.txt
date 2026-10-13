@@ -404,3 +404,13 @@ be-onbellek-gecersizlestirme
 ml-llm-degerlendirme
 fe-rollup-kutuphane-paketi
 ara-platform-okuma
+be-dosya-yukleme
+db-json-sutun
+db-zaman-damgasi
+dil-ts-tip-daraltma
+dil-regex-denetci
+dok-hata-mesaji
+git-bisect-rehber
+ops-disk-dolu
+ops-sertifika-yenileme
+ops-ssh-sertlestirme
