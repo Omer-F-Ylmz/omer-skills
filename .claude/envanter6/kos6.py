@@ -85,7 +85,9 @@ for p, grup in enumerate(paketler):
         kmt = ["claude", "-p", q, "--output-format", "json", "--max-turns", "30", "--session-id", sid,
                "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--allowedTools", "Bash(python:*)", "Read", "Grep", "Glob"]
         if kol == "B":
-            kmt += ["--append-system-prompt", ek(grup, p)]
+            f = D / f"ek_p{p}.txt"  # komut satırı 32k sınırı (WinError 206) → dosyadan
+            f.write_text(ek(grup, p), encoding="utf8")
+            kmt += ["--append-system-prompt-file", str(f)]
         t0 = time.time()
         r = subprocess.run(kmt, cwd=cwd, env=env, capture_output=True, text=True, encoding="utf8", timeout=900, shell=False)
         try:
