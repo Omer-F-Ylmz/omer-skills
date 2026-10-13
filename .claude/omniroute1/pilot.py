@@ -71,12 +71,16 @@ def ucretsiz(istem):
         return {"yanit": "", "model": "-", "ms": int((time.time() - t) * 1000), "hata": f"{type(e).__name__} {getattr(e, 'code', '')}".strip()}
 
 
-def claude(istem, model):
+# TOKEN-8 iş 3: yargıç yalnız metin puanlar — ayar/araç önekini yükleme (kalibre3b: eşik-7 uyumu %100); görev koşucusu tam kalır
+YARGIC = ("--setting-sources", "", "--tools", "")
+
+
+def claude(istem, model, ek=()):
     ram_bekle()
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY" and not re.match(r"CLAUDECODE|CLAUDE_CODE_(CHILD|MESSAGING|SESSION|ENTRYPOINT|EXECPATH)|CLAUDE_PID", k)}
     t = time.time()
     p = subprocess.run([CLAUDE, "-p", "--output-format", "json", "--model", model, "--disable-slash-commands", "--strict-mcp-config",
-                        "--mcp-config", '{"mcpServers":{}}'], input=istem, env=env, capture_output=True, text=True, encoding="utf-8",
+                        "--mcp-config", '{"mcpServers":{}}', *ek], input=istem, env=env, capture_output=True, text=True, encoding="utf-8",
                        timeout=300, creationflags=0x08000000)
     try:
         j = json.loads(p.stdout)
@@ -96,7 +100,7 @@ def basari(y):
 def opus_yargila(parca):
     metin = "Her öğe için özeti, kabul ölçütüne göre 0-10 puanla. Yalnız satır başına `<id> <puan>` yaz.\nKabul: " + KABUL + "\n\n"
     metin += "\n\n".join(f"### id={i}\nTRANSKRİPT: {s['gorev'][len(ISTEM):]}\nÖZET:\n{s['yanit']}" for i, s in parca)
-    r = claude(metin, "opus")
+    r = claude(metin, "opus", YARGIC)
     return {int(a): float(b) for a, b in re.findall(r"^\s*(\d+)\s+(\d+(?:\.\d+)?)", r["yanit"], re.M)}, r.get("hata")
 
 

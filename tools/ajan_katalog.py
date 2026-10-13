@@ -51,7 +51,7 @@ def uret(ev=EV):
         if yol.as_posix() not in gorulen and ad.endswith(":" + on_bilgi(yol)[0]):
             gorulen.add(yol.as_posix())
             satirlar.append((ad, *on_bilgi(yol)[1:], yol.as_posix()))
-    for yol in sorted((ev / "agents").glob("*.md")):
+    for yol in sorted([*(ev / "agents").glob("*.md"), *(ev / "agents-katalog").glob("*.md")]):  # agents-katalog: token_8_is2 listeden çıkardıkları
         ad, model, tek = on_bilgi(yol)
         satirlar.append((ad, model, tek, yol.as_posix()))
     return satirlar, eksik

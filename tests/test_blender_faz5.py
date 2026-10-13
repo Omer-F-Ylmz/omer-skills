@@ -41,3 +41,19 @@ def test_g1_eksik_malzeme_ve_bos_render(tmp_path):
     den["mesh"][1]["malzeme"] = False
     k = dict(f5.kontrol("g1", tmp_path, den))
     assert k["fincan_olcu"] and not k["malzeme_hepsi"] and not k["render_dolu"]
+
+
+def test_yargic_hafif_argv(tmp_path, monkeypatch):
+    """TOKEN-8 iş 3: kör yargı ayar önekini yüklemez, yalnız Read; görev koşusu IZIN ile tam."""
+    g = next(iter(f5.GOREV))
+    for y in ("taban", "tarif"):
+        (tmp_path / f"{g}-{y}-1").mkdir()
+        (tmp_path / f"{g}-{y}-1" / "onizleme.png").write_bytes(b"x")
+    ek = []
+    monkeypatch.setattr(f5, "PROJE", tmp_path)
+    monkeypatch.setattr(f5, "YARGI", tmp_path / "yargi.json")
+    monkeypatch.setattr(f5.kosucu, "kos", lambda *a, **k: ek.append(k["ek"]) or {"metin": "{}", "usd": 0})
+    f5.yargi5(("taban", "tarif"), (1,), (g,))
+    assert ek == [f5.YARGIC]
+    assert f5.YARGIC[:4] == ["--setting-sources", "", "--tools", "Read"]
+    assert "Bash" in f5.IZIN and "--setting-sources" not in f5.IZIN

@@ -34,6 +34,8 @@ TARIF = KOK / "tools" / "blender" / "lib" / "tarif.py"
 MODEL, TAVAN_USD = "sonnet", 22.0  # bütçe ≤ $30 (yargı ≤ $4 dahil): tavan aşılınca yeni koşu başlamaz
 BUTCE = {"taban": 4.0, "tarif": 1.5, "tek": 0.5, "tek0": 0.5, "tekK": 0, "tek4": 0.5, "tek4K": 0, "tek5": 0.5, "tek5K": 0}
 IZIN = ["--allowedTools", "Bash", "Read", "Write", "Edit", "Glob", "Grep", "mcp__blender"]
+# TOKEN-8 iş 3: yargıç yalnız görsel okur — ayar önekini yükleme, araç yalnız Read (kalibre3b); görev koşusu IZIN ile tam kalır
+YARGIC = ["--setting-sources", "", "--tools", "Read", "--allowedTools", "Read"]
 BASLIK = "gorev\tyol\ttekrar\tinput\tcache_creation\tcache_read\toutput\ttoplam\ttur\tsure_sn\tusd\tkalite\tkalan\tmcp_n\tbash_n\thata"
 
 GOREV = {
@@ -215,7 +217,7 @@ def yargi():
                 + "; ".join(f"{h}={kor / (h + '.png')}" for h in harf)
                 + "\nHer görsele 4 ölçütte 1-10 puan ver: bicim (biçim doğruluğu), isik (malzeme/ışık), kompozisyon, uyum (istek uyumu). "
                   'Yalnız tek satır JSON yaz: {"A": {"bicim": 0, "isik": 0, "kompozisyon": 0, "uyum": 0}, ...}')
-        o = kosucu.kos(soru, ek=["--allowedTools", "Read"], model="sonnet", timeout=600, butce=1.0)
+        o = kosucu.kos(soru, ek=YARGIC, model="sonnet", timeout=600, butce=1.0)
         m = re.search(r"\{.*\}", o["metin"], re.S)
         sonuc[g] = {"esle": dict(zip(harf, aday)), "puan": json.loads(m.group(0)) if m else o["metin"][-300:], "usd": o["usd"]}
         YARGI.write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -259,7 +261,7 @@ def yargi5(yollar, tekrarlar, gorevler):
             soru = (f"Kör karşılaştırma. İstek: {GOREV[g][1].format(d='<klasör>')}\nGörseller (Read ile aç): " + "; ".join(gor)
                     + "\nHer adaya 4 ölçütte 1-10 puan ver: bicim (biçim doğruluğu), isik (malzeme/ışık), kompozisyon, uyum (istek uyumu). "
                       'Yalnız tek satır JSON yaz: {"A": {"bicim": 0, "isik": 0, "kompozisyon": 0, "uyum": 0}, ...}')
-            o = kosucu.kos(soru, ek=["--allowedTools", "Read"], model="sonnet", timeout=600, butce=1.0)
+            o = kosucu.kos(soru, ek=YARGIC, model="sonnet", timeout=600, butce=1.0)
             mm = re.search(r"\{.*\}", o["metin"], re.S)
             sonuc[anahtar] = {"esle": dict(zip(harf, aday)), "puan": json.loads(mm.group(0)) if mm else o["metin"][-300:], "usd": o["usd"]}
             YARGI.write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")

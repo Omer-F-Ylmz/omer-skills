@@ -1,0 +1,16 @@
+asistan_istek 49924
+  18847526 kr   8640 adet   377 kr/istek  hook_success|SessionStart|SessionStart:startup
+  10838723 kr    829 adet   217 kr/istek  hook_additional_context|SessionStart|SessionStart
+   6049359 kr  32407 adet   121 kr/istek  hook_success|PreToolUse|PreToolUse:Bash
+   4081747 kr    766 adet    81 kr/istek  hook_system_message|SessionStart|SessionStart:startup
+   1988005 kr   8714 adet    39 kr/istek  hook_success|PostToolUse|PostToolUse:Edit
+   1720376 kr    756 adet    34 kr/istek  hook_success|PreToolUse|PreToolUse:Agent
+   1449469 kr   5837 adet    29 kr/istek  hook_success|PostToolUse|PostToolUse:Write
+   1326291 kr    208 adet    26 kr/istek  hook_success|SessionStart|SessionStart:clear
+    863995 kr  50651 adet    17 kr/istek  hook_success|PostToolUse|PostToolUse:Bash
+    722570 kr   3235 adet    14 kr/istek  hook_success|Stop|Stop
+    424074 kr     52 adet     8 kr/istek  hook_system_message|SessionStart|SessionStart:clear
+    323353 kr  19718 adet     6 kr/istek  hook_success|PostToolUse|PostToolUse:Read
+    270768 kr   3985 adet     5 kr/istek  hook_success|PreToolUse|PreToolUse:Read
+    231519 kr    337 adet     4 kr/istek  hook_additional_context|PreToolUse|PreToolUse:Bash
+    218120 kr    532 adet     4 kr/istek  hook_additional_context|PreToolUse|PreToolUse:Read
