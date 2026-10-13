@@ -26,6 +26,7 @@ Kaynak: TASARIM-3 (13 Eki 2026) headless ölçüm, ~45 site: awwwards SOTD, site
 - Ne zaman: ajans/portfolyo/etkinlik; marka adı kısa (≤10 harf).
 - Tarif: `font-size: clamp(4rem, 15vw, 16rem)`, `line-height:.85`, `letter-spacing:-.04em`, değişken font ağırlık ekseni (`font-variation-settings`) hover/scroll ile 100→800. Footer wordmark 18–22vw, `overflow:hidden` alt kenardan kırpık.
 - Performans: tek değişken font dosyası (woff2, alt küme, `font-display:swap` + `size-adjust`'lı yedek) → CLS 0.
+- Sınır (TASARIM-3 kör yargı: dev ölçeğin her yere yayılması puanı düşürdü): sayfada tek dev öğe (hero h1 ya da footer wordmark); bölüm başlıkları ve liste öğeleri ≤ `clamp(2rem, 5vw, 4.5rem)`; 1440×900 ilk ekranda h1 + değer cümlesi + CTA birlikte görünür, boş hero bandı yok.
 
 ## 4. Klip-yol / maske görsel açılışı
 - Ne zaman: görsel ağırlıklı portfolyo, ürün, galeri.

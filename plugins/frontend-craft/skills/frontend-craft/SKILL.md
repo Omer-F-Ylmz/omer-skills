@@ -120,7 +120,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
   2. **Token'lar** — 3-6 adet, her biri `ad: değer` (ör. `ölçü-birimi: 8px grid`, `satır-uzunluğu: 65ch`). İsteğe bağlı ek satır: `kadran: deneysellik N · hareket N · yoğunluk N` (1-5).
   3. **Renk** — 4-6 isimli hex. Jenerik ad yasak (`brand-500` değil, `kavrulmuş-bakır` gibi).
   4. **Tipografi** — 2 isimli font + ölçek. Inter, Roboto, Arial, Space Grotesk, Poppins kullanılmaz; en sık görülen seçimler oldukları için sayfayı jenerik gösterir.
-  5. **Hareket** — süre + easing, en fazla 3 kural. Her kural = tetikleyici (yükleme/scroll/hover) + teknik tarif (kütüphane + sürüm + hangi etkiyi neden karşıladığı) + scroll anlatısı varsa süreklilik ve geri-scroll davranışı. Desen ve sürüm `references/vitrin-teknikleri.md`'nin yön → desen tablosundan (yalnız seçilen desenin bölümü okunur).
+  5. **Hareket** — süre + easing, en fazla 3 kural. Her kural = tetikleyici (yükleme/scroll/hover) + teknik tarif (kütüphane + sürüm + hangi etkiyi neden karşıladığı) + scroll anlatısı varsa süreklilik ve geri-scroll davranışı. Desen (en çok 3, numaralar `references/vitrin-teknikleri.md` bölümleri): editoryal/ajans 1·2·3·4·7 · ürün/SaaS 2·4·8·6 · portfolyo 3·4·6·7 · etkinlik 2·3·5·8·9 · 3D ürün 9·1. Dosyanın tamamı okunmaz: yalnız seçilen desenler `grep -n -A5 "^## N\." <dosya>`; desen 3 seçildiyse Sınır satırı dahil.
   6. **YASAK LİSTESİ** — mor degrade · aşırı glow · üçlü eşit kart (özellik/fayda bölümlerinde; ürün ızgarası hariç) · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
 - DESIGN.md kalıcı hafızadır: sonraki her ekran onu miras alır, yeniden üretilmez. Değişecekse önce DESIGN.md güncellenir, sonra kod.
 
