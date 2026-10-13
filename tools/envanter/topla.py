@@ -199,7 +199,7 @@ for d in glob.glob(str(ANA / 'skills/departman-*')):
 son = {}
 sinir = time.time() - GUN * 86400
 mb = 0
-RX = [(re.compile(rb'"skill":\s*"([^"]{2,80})"'), 's'), (re.compile(rb'mcp__([A-Za-z0-9-]+(?:_[A-Za-z0-9-]+)*?)__'), 'm'),
+RX = [(re.compile(rb'"skill":\s*"([^"]{2,80})"'), 's'), (re.compile(rb'"type":"tool_use","id":"[^"]+","name":"mcp__([A-Za-z0-9-]+(?:_[A-Za-z0-9-]+)*?)__'), 'm'),
       (re.compile(rb'"subagent_type":\s*"([^"]{2,80})"'), 'a')]
 for p in glob.glob(str(CL / 'projects/*/*.jsonl')):
     st = os.stat(p)
@@ -216,10 +216,7 @@ for p in glob.glob(str(CL / 'projects/*/*.jsonl')):
             for n in {a, a.split(':')[-1]}:
                 if son.get(n, '') < gun:
                     son[n] = gun
-for p in glob.glob(str(APP / 'logs/mcp-server-*.log')):
-    n = Path(p).stem[len('mcp-server-'):].lower()
-    gun = dt.date.fromtimestamp(os.stat(p).st_mtime).isoformat()
-    son['desktop:' + n] = max(son.get('desktop:' + n, ''), gun)
+# Desktop MCP günlüğünün mtime'ı başlatmayla da değişir → kullanım sayılmaz; Desktop/claude.ai kullanımı CC'den görünmez.
 bashk = {}  # Bash günlüğü: komut başı kelimesi -> son gün (CLI kullanımı)
 for ln in (CL / 'bash-commands.log').read_text(encoding='utf-8', errors='replace').splitlines():
     m = re.match(r'^\[(\d{4}-\d\d-\d\d)T', ln)
@@ -270,9 +267,12 @@ for (tur, a), r in satir.items():
     else:
         r['nerede'] = r['nerede'] or ('yok' if tur == 'arastirilan' else '')
     deps = set(dep_env.get(a, set()) | dep_env.get(a.split(':')[-1], set()))
-    for dn, tok in dep_tok.items():
-        if a in tok or a.split(':')[-1] in tok:
-            deps.add(dn)
+    r['_denv'] = ','.join(sorted(deps))  # yalnız envanter.json kaynaklı (plugin toplamında kullanılır)
+    kisa = a.split(':')[-1]
+    if '-' in kisa or len(kisa) >= 6:  # 'seo', 'test' gibi genel kelimeler departman metninde yanlış eşleşir
+        for dn, tok in dep_tok.items():
+            if kisa in tok:
+                deps.add(dn)
     if a.startswith('departman-'):
         r['departman'] = a[len('departman-'):]
     elif tur == 'ajan' and a in ajan_dep:
@@ -301,7 +301,7 @@ for (tur, a), r in satir.items():
             pu = p['son_kullanim'] if p['son_kullanim'].startswith('kullanım:') else ''
             if r['son_kullanim'].startswith('kullanım:') and r['son_kullanim'] > pu:
                 p['son_kullanim'] = r['son_kullanim']
-            p['departman'] = ','.join(sorted(set(filter(None, (p['departman'] + ',' + r['departman']).split(',')))))
+            p['departman'] = ','.join(sorted(set(filter(None, (p['departman'] + ',' + r['_denv']).split(',')))))
 
 cikti = KOK / 'docs/envanter/envanter.tsv'
 cikti.parent.mkdir(parents=True, exist_ok=True)
@@ -310,7 +310,10 @@ srt = sorted(satir.values(), key=lambda r: (r['tur'], r['ad'].lower()))
 with open(cikti, 'w', encoding='utf-8', newline='') as fo:
     fo.write('\t'.join(SUT) + '\n')
     for r in srt:
-        fo.write('\t'.join(temiz(r[c]) for c in SUT) + '\n')
+        fo.write('\t'.join(temiz(r.get(c, '')) for c in SUT) + '\n')
+metin = cikti.read_text(encoding='utf-8')
+assert not re.search(r'sk-ant-|ghp_|github_pat_|AKIA[0-9A-Z]{16}|xox[bp]-', metin), 'TSV sır benzeri dizgi içeriyor'
+assert all(ln.count('\t') == len(SUT) - 1 for ln in metin.splitlines()), 'sütun sayısı bozuk'
 import collections as C
 print('satir', len(srt), 'transkript_mb', mb // 2**20, 'synced', len(syn))
 print('tur', dict(C.Counter(r['tur'] for r in srt)))
