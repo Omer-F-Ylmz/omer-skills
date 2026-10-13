@@ -12,11 +12,13 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 - Alan dışı iş (departman-* kapsamında yok) ya da adından anlamı belli olmayan araçlar.
 
 ## Nasıl
-1. CC (repo): `python tools/katalog_ara.py "<iş tarifi TR/EN>" [--tur skill|ajan|mcp|cli|kutuphane|arac|plugin]`
-   → en iyi 8, satır başı: `tür · ad · ne işe yarar · nasıl çağrılır`.
-   Repo dışında: `python ~/.claude/skills/yetenek-getir/katalog_ara.py "<iş>"`.
-2. claude.ai (betik çalışmazsa): `yetenek.tsv` içinde iş sözcüğünü ve İngilizce karşılığını ara
-   (`grep -i -E "deadlock|kilitlen" yetenek.tsv | head -20`); sütunlar: ad · tür · kaynak · is · tetik · cagri · durum.
+1. Betik (CC ve kod çalıştırabilen claude.ai): bu klasördeki `katalog_ara.py` (katalog yanında: `yetenek.jsonl`)
+   `python ~/.claude/skills/yetenek-getir/katalog_ara.py "<iş tarifi TR/EN>" [--tur skill|ajan|mcp|cli|kutuphane|arac|plugin] [--tam]`
+   → işle ilgili HER kayıt (sabit ilk-N yok), türe göre gruplu: `ad · ne işe yarar · nasıl çağrılır`;
+   30'u aşarsa grup başına ilk 5 + sayılar, hepsi için `--tam`.
+2. claude.ai (betik çalışmazsa): bu klasördeki `yetenek.tsv` içinde iş sözcüğünü (Türkçe karakter yerine ASCII:
+   karanlik, cakisma) ve İngilizce karşılığını ara (`grep -i -E "deadlock|kilitlen" yetenek.tsv | head -40`);
+   sütunlar: ad · tür · kaynak · is · tetik (TR+EN anahtar) · cagri · durum.
 3. En uygun 1–2 sonucu `cagri` sütunundaki yolla kullan: Skill adı · Agent tipi (listede yoksa Skill ajan-getir) ·
    ToolSearch ile MCP aracı · Bash CLI. Sonuç yoksa sorguyu İngilizce eş anlamla yeniden dene, sonra mevcut bilgiyle devam et.
 

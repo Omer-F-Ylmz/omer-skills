@@ -4,6 +4,7 @@ description: "Departmansız işler müdürü: video kurgu, Blender/3D, oyun/mod,
 ---
 
 # Departman: diğer — iş → araç sırası
+Katalogda bulunmayan, alan dışı ya da emin olunmayan iş: Skill `yetenek-getir` (3.3k araç, işle ilgili her şey, gruplu).
 
 Kaynak: `docs/envanter/is-arac.md` §2. Satırda soldan sağa: önce kurulu ve ölçülmüş olan. `ajan:` = alt ajan; claude.ai'de alt ajan yok → bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula.
 

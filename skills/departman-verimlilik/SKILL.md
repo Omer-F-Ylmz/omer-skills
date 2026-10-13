@@ -7,6 +7,7 @@ description: "Verimlilik müdürü: token/context tasarrufu, çıktı sıkışt�
 
 Katalog: `docs/departmanlar/verimlilik.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
+Katalogda bulunmayan, alan dışı ya da emin olunmayan iş: Skill `yetenek-getir` (3.3k araç, işle ilgili her şey, gruplu).
 
 ## Adımlar
 1. **Komut çıktısı** — kabuk komutları `rtk` ile yoğunlaşır; sonuç kullanışsızsa `rtk proxy`.

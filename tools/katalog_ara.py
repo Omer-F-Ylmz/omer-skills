@@ -9,7 +9,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-KATALOG = Path(__file__).resolve().parents[1] / "docs" / "katalog" / "yetenek.jsonl"
+_YAN = Path(__file__).resolve().parent / "yetenek.jsonl"  # yetenek-getir skill klasöründeki kopya
+KATALOG = _YAN if _YAN.exists() else Path(__file__).resolve().parents[1] / "docs" / "katalog" / "yetenek.jsonl"
 # TR → EN (ve tersi) eş anlamlar; sorgu genişletmesi için. Kayıp örneklerle büyür.
 ES = {
     "hata": "bug error debug hata", "guvenlik": "security vulnerability guvenlik",
@@ -40,21 +41,35 @@ ES = {
     "dogrula": "validation validate verify", "uctan": "e2e end-to-end", "orneklem": "sample size statistics experiment testing",
     "kirili": "flaky intermittent", "flaky": "flaky intermittent", "jwt": "jwt token", "dokum": "transcript", "pdf": "pdf document",
 }
-ORAN, UZUN, ILK = 0.4, 30, 5
+ORAN, GENIS, UZUN, ILK = 0.3, 0.5, 30, 5
+KAVRAM, MUAF, BAYAG = 2, 0.5, 0.05
 GRUP = {"skill": "skill", "ajan": "ajan", "mcp": "mcp", "plugin": "plugin", "cli": "cli",
         "kutuphane": "kütüphane", "arac": "bizim betik"}
 TR = str.maketrans("çğıöşüÇĞİÖŞÜâî", "cgiosucgiosuai")
 
 
 def kelimeler(s):
-    t = [w for w in re.split(r"[^a-z0-9]+", s.lower().translate(TR)) if len(w) > 1]
+    s = re.sub(r"\ba/b\b", "ab", s.lower())  # "A/B test" tek harflere bölünüp kaybolmasın
+    t = [w for w in re.split(r"[^a-z0-9]+", s.translate(TR)) if len(w) > 1]
     # 5 harf önek: TR ekleri ve EN çoğul/çekim (tablosunda/tablo, deadlocks/deadlock) için kaba kök
     return t + [w[:5] + "~" for w in t if len(w) >= 5]
 
 
+def ileri(t):
+    return [e for w in t for k, v in ES.items() if w.startswith(k) and len(w) - len(k) <= 4 for e in v.split()]
+
+
 def genislet(q):
+    """Sorgu terimi → ağırlık: kullanıcının kelimesi 1, ES açılımı GENIS (açılımlar tepe puanı şişirmesin)."""
     t = kelimeler(q)
-    return t + [e for w in t for k, v in ES.items() if w.startswith(k) and len(w) - len(k) <= 4 for e in v.split()]
+    return {w: GENIS for w in kelimeler(" ".join(ileri(t)))} | {w: 1.0 for w in t}
+
+
+def tetik(metin, n=120):
+    """Boş tetik için deterministik TR+EN anahtar: ES ileri (TR→EN) + geri (EN→TR) eşleşmeleri."""
+    t = [w for w in kelimeler(metin) if not w.endswith("~")]
+    ek = ileri(t) + [k for k, v in ES.items() if set(v.split()) & set(t)]
+    return " ".join(dict.fromkeys(e for e in ek if e not in t))[:n].rsplit(" ", 1)[0] if ek else ""
 
 
 def ara(q, tur=None, oran=ORAN, satirlar=None):
@@ -65,7 +80,11 @@ def ara(q, tur=None, oran=ORAN, satirlar=None):
     docs = [kelimeler(o["ad"]) * 2 + kelimeler(f"{o['is']} {o.get('tetik', '')} {o['metin']}") for o in rows]
     N, ort = len(docs), sum(map(len, docs)) / max(len(docs), 1)
     df = Counter(w for d in docs for w in set(d))
-    sorgu = Counter(genislet(q))
+    sorgu = genislet(q)
+    # kavram = kullanıcının her kelimesi (+önek, +ES açılımı); belgelerin >%5'inde geçen kelime kavram sayılmaz
+    kavram = [set(kelimeler(w) + kelimeler(" ".join(ileri([w])))) for w in kelimeler(q)
+              if not w.endswith("~") and df[w] < BAYAG * N]
+    gerek = min(KAVRAM, len(kavram))
     puan = []
     for o, d in zip(rows, docs):
         tf, s = Counter(d), 0.0
@@ -75,10 +94,11 @@ def ara(q, tur=None, oran=ORAN, satirlar=None):
                 s += qn * idf * tf[w] * 2.2 / (tf[w] + 1.2 * (0.25 + 0.75 * len(d) / ort))
         if "kapal" in o["durum"]:
             s *= 0.5
-        puan.append((s, o))
+        puan.append((s, sum(1 for c in kavram if any(tf[w] for w in c)), o))
     puan.sort(key=lambda x: -x[0])
     tepe = puan[0][0] if puan else 0
-    return [o for s, o in puan if s > 0 and s >= oran * tepe]
+    # tek ortak kelimeyle gelen gürültü ("video", "hata") elenir: ≥KAVRAM kavram ya da tepenin MUAF katı
+    return [o for s, kap, o in puan if s > 0 and s >= oran * tepe and (kap >= gerek or s >= MUAF * tepe)]
 
 
 def main():

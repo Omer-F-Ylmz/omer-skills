@@ -7,6 +7,7 @@ description: "Veri/DB müdürü: şema, migration, sorgu ve Supabase/Postgres/EF
 
 Katalog: `docs/departmanlar/veri-db.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
+Katalogda bulunmayan, alan dışı ya da emin olunmayan iş: Skill `yetenek-getir` (3.3k araç, işle ilgili her şey, gruplu).
 
 ## Adımlar
 1. **Kurallar** — Postgres'e dokunmadan önce `supabase-postgres-best-practices`.

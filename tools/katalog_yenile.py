@@ -13,9 +13,12 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+import katalog_ara
 
 KOK = Path(__file__).resolve().parents[1]
 EV = Path.home() / ".claude"
@@ -160,6 +163,7 @@ def uret(onceki):
             s.update(is_=eski["is"], tetik=eski.get("tetik", ""), ozet=1)
         else:
             s.update(is_=kisa(s["aciklama"]), tetik="", ozet=0)
+        s["tetik"] = s["tetik"] or katalog_ara.tetik(f"{s['ad']} {s['is_']}")
         s["imza"] = imza
         s["ozet_bekliyor"] = int(not s["ozet"])
         s["metin"] = kisa(s.pop("aciklama"), 400)
@@ -196,6 +200,9 @@ def main():
         w.writerow(sutun)
         for o in rows:
             w.writerow([o[k].replace("\t", " ") for k in sutun])
+    # yetenek-getir (CC kurulumu + claude.ai zip'i) yerel repo yoluna bağlı kalmasın
+    for f in (jl, CIKTI / "yetenek.tsv", Path(katalog_ara.__file__)):
+        shutil.copy2(f, KOK / "skills" / "yetenek-getir" / f.name)
     from collections import Counter
     print(len(rows), dict(Counter(o["tur"] for o in rows)), "ozet_bekliyor", sum(o["ozet_bekliyor"] for o in rows),
           "is_bos", sum(not o["is"] for o in rows))

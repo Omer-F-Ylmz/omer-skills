@@ -7,6 +7,7 @@ description: "Belge müdürü: docx/pptx/pdf/xlsx, rapor ve doküman üretim sı
 
 Katalog: `docs/departmanlar/belge.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
+Katalogda bulunmayan, alan dışı ya da emin olunmayan iş: Skill `yetenek-getir` (3.3k araç, işle ilgili her şey, gruplu).
 
 ## Adımlar
 1. **Tür** — proje dokümanı `document-generate` / `project-documenter`; karar kaydı `documentation-and-adrs`; ortak yazım `doc-coauthoring`.

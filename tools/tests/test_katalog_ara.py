@@ -58,6 +58,14 @@ def test_geri_cagirma():
     assert bulunan >= 0.95 * toplam, kayip
 
 
+def test_skill_kopyasi_guncel():
+    """yetenek-getir klasöründeki betik + katalog, kaynakla aynı (CC kurulumu ve claude.ai zip'i repo yoluna bağlı değil)."""
+    kok = Path(__file__).resolve().parents[2]
+    for kaynak in ("tools/katalog_ara.py", "docs/katalog/yetenek.tsv", "docs/katalog/yetenek.jsonl"):
+        k = kok / kaynak
+        assert k.read_bytes() == (kok / "skills" / "yetenek-getir" / k.name).read_bytes(), "python tools/katalog_yenile.py"
+
+
 def test_genislet_tr_en():
     assert "security" in katalog_ara.genislet("güvenlik açığı")
     assert katalog_ara.kelimeler("Çakışma-Çözücü") == ["cakisma", "cozucu", "cakis~", "cozuc~"]
