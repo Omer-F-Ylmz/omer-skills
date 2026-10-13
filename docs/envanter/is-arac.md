@@ -26,7 +26,7 @@ Kısaltma: CC = Claude Code, AI = Desktop/claude.ai, `*` = son 45 günde kullan�
 | İş türü | Sıra (önce kurulu ve ölçülmüş olan) | Taraf notu |
 |---|---|---|
 | Video kurgu, kısa klip, altyazı | `video-cli`* (video tarama/indir) → `ffmpeg`* / `whisper-cli`* → `premiere-pro` MCP (kurgu) → `hyperframes` plugin (HTML→video) → ajanlar `vid-*` | premiere-pro, hyperframes yalnız CC |
-| Blender, 3D model, render | `blender`* plugin (1.3.0 repo; CC 1.1.0) → `blender-uretim`* / `blender-oturum`* → `blender`* MCP → ajanlar `bl-*` | blender MCP ikisi; skill zip AI'de |
+| Blender, 3D model, render | `blender`* plugin (1.3.0 CC + repo) → `blender-uretim`* / `blender-oturum`* → `blender`* MCP → ajanlar `bl-*` | blender MCP ikisi; skill zip AI'de |
 | Oyun, mod | `mod-atolyesi`* → `godot` / `unity` MCP → `universal-modder` plugin → ajanlar `oyn-*` | godot/unity yalnız CC |
 | Görsel üretim, logo, ikon | `nano-banana-2`* MCP → `figma` → `logo-design` / `llm-icon-finder` plugin → `fal` MCP | fal, canva yalnız CC; ücretli çağrıda tavan şart |
 | Otomasyon, iş akışı, kazıma | `n8n-mcp` → `airtable` → `apify` MCP → ajanlar `otm-*` → `scrapling-skill` plugin | hepsi yalnız CC |

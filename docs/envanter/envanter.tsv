@@ -3125,6 +3125,7 @@ gstack-unfreeze	skill	ikisi	0.1.0	Clear the freeze boundary set by /freeze, allo
 gstack-upgrade	skill	ikisi	1.1.0	Upgrade gstack to the latest version.		surec-ajan-arac			~/.claude/skills
 guard	skill	CC	0.1.0	Full safety mode: destructive command warnings + directory-scoped edits. (gstack)		guvenlik		claude.ai	~/.claude/skills
 guvenlik-paket	skill	ikisi		1 skill'lik paket (Güvenlik: yapay zekâyla yazılmış web uygulamaları için denetim, yayın öncesi kapılar, sızıntı/ihlal müdahalesi). İlgili alt skill'in dosyasın					claude.ai senkron
+hairline-create	skill	CC			Use when someone asks for a new Hairline figure, or runs /hairline-create with an idea. Draws one isometric line figure that answers the pointer, in the style a			claude.ai	~/.claude/skills
 hareket-altyazi-3d-paket	skill	ikisi		11 skill'lik paket (Hareket ve 3D: GSAP (core, ScrollTrigger, timeline, React, plugin, performans), gömülü altyazı, WebGPU Three.js TSL). İlgili alt skill'in do					claude.ai senkron
 headroom-compress	skill	ikisi		Buyuk log, arac ciktisi ya da uzun metinli JSON'u yapiyi koruyarak sikistirir ve ozetini basar. Uzun bir dosyayi baglama sigdirmak ya da sikistirma oranini olcm					claude.ai senkron
 health	skill	CC	1.0.0	Code quality dashboard. (gstack)		surec-inceleme,verimlilik		claude.ai	~/.claude/skills
