@@ -1,0 +1,182 @@
+{
+ "ad": "14islands",
+ "url": "https://14islands.com",
+ "kat": "editoryal",
+ "d": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": true,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 1,
+  "ctx": {
+   "webgl2": 1,
+   "2d": 9,
+   "webgl": 1
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "aftenscreen",
+   "bentonsans"
+  ],
+  "fontsLoaded": [
+   "aftenscreen",
+   "bentonsans"
+  ],
+  "bodyPx": 12,
+  "bodyLh": 1.4,
+  "h1Real": true,
+  "h1Px": 16,
+  "h1Lh": 1.2,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "bentonsans",
+  "maxPx": 100,
+  "ratio": 1.33,
+  "maxRatio": 8.33,
+  "bg": "#f2f2f2",
+  "fg": "#070707",
+  "contrast": 17.99,
+  "uniqColors": 3,
+  "chromatic": 0,
+  "accents": 0,
+  "maxW": 1332,
+  "gutter": 54,
+  "gridPct": 3.93,
+  "flexPct": 13.77,
+  "scrollRatio": 11.45,
+  "trans": 217,
+  "anim": 15,
+  "elems": 725,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": true,
+  "grads": 1,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 10,
+  "lcp": 976,
+  "hoverDiff": 7,
+  "status": 200,
+  "finalUrl": "https://www.14islands.com/",
+  "loadMs": 2403,
+  "net": {
+   "total": 14257310,
+   "js": 1127899,
+   "css": 20886,
+   "img": 833109,
+   "font": 75177,
+   "media": 11072597,
+   "n": 150
+  },
+  "sig": {
+   "lenis": true,
+   "three": true,
+   "r3f": true,
+   "motion": true,
+   "rmInJs": true
+  },
+  "rmJsBundle": true
+ },
+ "m": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": true,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 1,
+  "ctx": {
+   "webgl2": 1,
+   "2d": 2
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "aftenscreen",
+   "bentonsans"
+  ],
+  "fontsLoaded": [
+   "aftenscreen",
+   "bentonsans"
+  ],
+  "bodyPx": 20,
+  "bodyLh": 1.3,
+  "h1Real": true,
+  "h1Px": 16,
+  "h1Lh": 1.2,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "bentonsans",
+  "maxPx": 60,
+  "ratio": 0.8,
+  "maxRatio": 3,
+  "bg": "#f2f2f2",
+  "fg": "#070707",
+  "contrast": 17.99,
+  "uniqColors": 3,
+  "chromatic": 0,
+  "accents": 0,
+  "maxW": 370,
+  "gutter": 15,
+  "gridPct": 4,
+  "flexPct": 14,
+  "scrollRatio": 13.51,
+  "trans": 235,
+  "anim": 15,
+  "elems": 725,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": true,
+  "grads": 1,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 10,
+  "lcp": 3516,
+  "hoverDiff": 0,
+  "status": 200,
+  "finalUrl": "https://www.14islands.com/",
+  "loadMs": 6683,
+  "net": {
+   "total": 1981344,
+   "js": 1133633,
+   "css": 20897,
+   "img": 216927,
+   "font": 75072,
+   "media": 54838,
+   "n": 126
+  },
+  "sig": {
+   "lenis": true,
+   "three": true,
+   "r3f": true,
+   "motion": true,
+   "rmInJs": true
+  },
+  "rmJsBundle": true
+ }
+}

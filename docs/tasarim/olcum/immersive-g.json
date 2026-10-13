@@ -1,0 +1,179 @@
+{
+ "ad": "immersive-g",
+ "url": "https://immersive-g.com",
+ "kat": "webgl",
+ "d": {
+  "fw": [
+   "nuxt"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 12,
+  "ctx": {
+   "2d": 14,
+   "webgl": 1,
+   "webgl2": 2
+  },
+  "rmJs": false,
+  "fontsUsed": [
+   "pstimes",
+   "helveticaneueregular"
+  ],
+  "fontsLoaded": [
+   "pstimes",
+   "helveticaneueregular"
+  ],
+  "bodyPx": 14,
+  "bodyLh": 1.1,
+  "h1Real": false,
+  "h1Px": 28,
+  "h1Lh": 1.2,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "pstimes",
+  "maxPx": 44,
+  "ratio": 2,
+  "maxRatio": 3.14,
+  "bg": "#e8e8e8",
+  "fg": "#030303",
+  "contrast": 16.83,
+  "uniqColors": 2,
+  "chromatic": 0,
+  "accents": 0,
+  "maxW": 696,
+  "gutter": 40,
+  "gridPct": 30.81,
+  "flexPct": 14.14,
+  "scrollRatio": 42.77,
+  "trans": 196,
+  "anim": 0,
+  "elems": 566,
+  "cursorCustom": true,
+  "rmCss": false,
+  "fvCss": false,
+  "focusCss": true,
+  "grads": 0,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 2,
+  "lcp": 5524,
+  "hoverDiff": 2,
+  "status": 200,
+  "finalUrl": "https://immersive-g.com/",
+  "loadMs": 740,
+  "net": {
+   "total": 36161336,
+   "js": 1008184,
+   "css": 18438,
+   "img": 4767064,
+   "font": 60534,
+   "media": 9812562,
+   "n": 170
+  },
+  "sig": {
+   "gsap": true,
+   "scrolltrigger": true,
+   "lenis": true,
+   "three": true
+  },
+  "rmJsBundle": false
+ },
+ "m": {
+  "fw": [
+   "nuxt"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 12,
+  "ctx": {
+   "2d": 14,
+   "webgl": 1,
+   "webgl2": 2
+  },
+  "rmJs": false,
+  "fontsUsed": [
+   "pstimes",
+   "helveticaneueregular"
+  ],
+  "fontsLoaded": [
+   "pstimes",
+   "helveticaneueregular"
+  ],
+  "bodyPx": 14,
+  "bodyLh": 1.1,
+  "h1Real": false,
+  "h1Px": 28,
+  "h1Lh": 1.2,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "pstimes",
+  "maxPx": 34,
+  "ratio": 2,
+  "maxRatio": 2.43,
+  "bg": "#e8e8e8",
+  "fg": "#030303",
+  "contrast": 16.83,
+  "uniqColors": 2,
+  "chromatic": 0,
+  "accents": 0,
+  "maxW": 326,
+  "gutter": 32,
+  "gridPct": 23.16,
+  "flexPct": 25.99,
+  "scrollRatio": 25.1,
+  "trans": 52,
+  "anim": 0,
+  "elems": 382,
+  "cursorCustom": true,
+  "rmCss": false,
+  "fvCss": false,
+  "focusCss": true,
+  "grads": 0,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 2,
+  "lcp": 3268,
+  "hoverDiff": 0,
+  "status": 200,
+  "finalUrl": "https://immersive-g.com/",
+  "loadMs": 492,
+  "net": {
+   "total": 26890323,
+   "js": 1014753,
+   "css": 21267,
+   "img": 4767088,
+   "font": 60530,
+   "media": 3648219,
+   "n": 149
+  },
+  "sig": {
+   "gsap": true,
+   "scrolltrigger": true,
+   "lenis": true,
+   "three": true
+  },
+  "rmJsBundle": false
+ }
+}

@@ -6,17 +6,17 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 
 ## ÇEKİRDEK (özet; compaction sonrası da bu blok geçerli, ayrıntı ilgili bölümde)
 - Adım 0 · Bağımlılık: `${CLAUDE_SKILL_DIR}/node_modules` yoksa önce `npm ci --ignore-scripts` + `node node_modules/puppeteer/lib/puppeteer/node/cli.js browsers install chrome`; hiçbir script bundan önce koşmaz.
-- Mod tespiti (tek satır rapor): `reference/` varsa REF — birebir eşleme, referans kazanır, Bölüm 3 uygulanmaz, hex'ler `olc-renk.mjs` ile ölçülür. Yoksa FREE — koddan önce marka kimliği kararı `ana #hex · nötr #hex · vurgu #hex · display font · sans font · ölçek 8px` (ana renk mor/indigo/menekşe olamaz), Bölüm 3 zorunlu. `*.csproj` + `Views/`|`Pages/` → aspnet, değilse static.
+- Mod tespiti (tek satır rapor): `reference/` varsa REF — birebir eşleme, referans kazanır, Bölüm 3 uygulanmaz, hex'ler `olc-renk.mjs` ile ölçülür. Yoksa FREE — koddan önce marka kimliği kararı `ana #hex · nötr #hex · vurgu #hex · display font · sans font · ölçek 8px` (ana renk mor/indigo/menekşe olamaz), Bölüm 3 zorunlu; karardan önce yakınsama kırıcı (Bölüm 3a). `*.csproj` + `Views/`|`Pages/` → aspnet, değilse static.
 - SIRA (yeni proje / yeni ana ekran): yön keşfi (Bölüm 11: üç yön, künye + 1440 PNG, DUR, kullanıcı seçer) → DESIGN.md (Bölüm 7: göster, DUR) → iki-pass (Bölüm 8: token planı → yasak listesine karşı eleştiri → inşa) → kod → screenshot döngüsü (Bölüm 2/9). Mevcut DESIGN.md varsa ya da REF modundaysa yön keşfi atlanır.
 - Sunucu şart, `file:///` yasak: static `node ${CLAUDE_SKILL_DIR}/scripts/serve.mjs` (:3000) · aspnet `dotnet run --project <web csproj>`.
 - Screenshot döngüsü: `node ${CLAUDE_SKILL_DIR}/scripts/screenshot.mjs <url> [etiket]` → 390/768/1440 PNG, her biri Read ile açılır. Tur = screenshot → sapma tablosu → düzelt; min 2, max 4 tur; 4. tur sonunda sapma kalırsa DUR raporu.
-- Kabul: `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` PASS (FREE'de SLOP boş); ELLE BAKILACAK kalemleri raporda ayrıca yanıtlanır; a11y/perf/etkileşim Bölüm 4.
+- Kabul: `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` PASS (FREE'de SLOP boş) + `node ${CLAUDE_SKILL_DIR}/scripts/slop.mjs <url>` TEMİZ; ELLE BAKILACAK kalemleri raporda ayrıca yanıtlanır; a11y/perf/etkileşim Bölüm 4.
 - UI incelemesinde `references/vercel-web-interface.md` kontrol listesi.
 - DESIGN.md tam olarak 6 başlık, fazlası yok:
   1. Stil adı
   2. Token'lar — 3-6 adet `ad: değer`
   3. Renk — 4-6 isimli hex, jenerik ad yok
-  4. Tipografi — 2 isimli font + ölçek; Inter, Roboto, Arial, Space Grotesk, Poppins yok
+  4. Tipografi — 2 isimli font + ölçek; Inter, Roboto, Arial, Space Grotesk, Poppins yok; font ve zemin hangi brief sözcüğünden geldi (tek satır, Bölüm 3a)
   5. Hareket — süre + easing, en fazla 3 kural (tetikleyici + kütüphane/sürüm/gerekçe)
   6. YASAK LİSTESİ
 - Yasak liste özeti (varsayılan; projeninki DESIGN.md'de, seçilen stille çelişen madde çıkar): mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · birebir "h1+p+2 buton" hero · stok illüstrasyon/3D render hissi · özellik/fayda bölümünde eşit kart tekrarı (ürün ızgarası hariç) · her bölümde aynı boşluk · aşırı glow · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
@@ -73,8 +73,16 @@ allowed-tools: Bash(node *) Bash(npm *) Bash(npx *)
 - Yasak (jenerik şablon izi bırakan kalıplar): mor/indigo→mavi gradient · emoji ikon · backdrop-filter blur kart yığını · "h1+p+2 buton" hero kalıbı birebir · stok illüstrasyon/3D render hissi · eşit boyutlu kart tekrarı (özellik/fayda bölümlerinde; ürün ızgarası hariç — orada eşit kart zorunlu, kırık simetri sayfa/başlık düzeyinde aranır) · her bölümde aynı boşluk.
 - Bu liste varsayılandır; projenin yasak listesi DESIGN.md'de yazılır ve seçilen stille çelişen maddeler oradan çıkarılır (ör. Glassmorphism seçilen projede blur maddesi geçersiz).
 
+## 3a. Yakınsama kırıcı (FREE, marka kararından önce)
+Yeni AI imzası tek sayfada değil koşular arasında görünür: aynı brief'e her seferinde aynı font, aynı krem zemin, aynı düzen (ölçüm: 4 koşunun 4'ünde Georgia ya da Iowan Old Style + açık-sıcak zemin). Karar şu sırayla verilir:
+1. `node ${CLAUDE_SKILL_DIR}/scripts/yakinsama.mjs --gecmis` → son 5 projenin font aileleri, zemin sınıfı, düzeni. Oradaki font aileleri ve zemin sınıfı bu projede kullanılmaz; düzen en az bir eksende (hero hizası / kart satırı) farklıdır. Geçmiş yoksa (claude.ai, ilk proje) yalnız 2. ve 3. madde geçerlidir.
+2. Refleks seçim yasak: Georgia, Iowan Old Style, Palatino, Fraunces, system-ui başlık; krem/bej zemin (#f0e8dc dolayı). Bunlar "zanaat / editoryal / premium" brief'ine verilen ilk cevaptır, brief'ten değil alışkanlıktan gelir. Kaçış sistem fontu değildir: iki font da yüklenen web fontudur (Google Fonts `<link>` ya da `@font-face`); Impact, Tahoma, Calibri, Candara, Bahnschrift, Trebuchet, Century Gothic, Segoe gibi işletim sistemi fontları seçilmez (kör yargıda web fontlu sayfalar 8, sistem fontlu sayfalar 5–7).
+3. Brief'ten türet: brief'teki somut bir nesne ya da malzeme (ör. öğütücünün dökme demiri, mimarın betonu) yazılır; font sınıfı (grotesk / slab / mono / geniş display / dar condensed / hümanist) ve zemin ondan seçilir. DESIGN.md Tipografi başlığında tek satır: `font ← <sözcük> · zemin ← <sözcük>`.
+Kabul kapısında koşan slop.mjs imzayı geçmişe kendisi yazar (proje klasörü başına bir satır); ayrıca yazma adımı yok.
+
 ## 4. Her iki modda kabul kriterleri
 - `node ${CLAUDE_SKILL_DIR}/scripts/audit.mjs <url> dev` → PASS; FREE modunda SLOP satırı boş.
+- `node ${CLAUDE_SKILL_DIR}/scripts/slop.mjs <url>` → TEMİZ (≤1 bayrak; çıkış 0). Hesaplanmış stilden 8 bayrak: gradyan metin · mor-mavi gradyan · ≥2 cam kart · ortalı hero + eş 3'lü kart + h1/gövde <3 · yalnız varsayılan font · ≥4 vurgu ton kümesi · ≥2 kalıp pazarlama sözcüğü (seamless, unlock, elevate…) · ≥2 emoji ikon. Eşikler 17 ödüllü sitenin ölçümünden (16'sı temiz); tek bayrak bilinçli imzaysa DESIGN.md'de gerekçelenir. Bayraklar tur raporunun audit hücresine yazılır.
 - Audit'in ELLE BAKILACAK kalemleri tur raporunda ayrıca yanıtlanır; PASS bu kalemleri kapsamaz.
 - a11y: `html[lang]`, tek `h1`, `header/main/footer` landmark, her `img` alt+width+height, fold altı `loading="lazy"`, kontrast gövde ≥4.5:1 / büyük başlık ≥3:1 (hex'ten hesapla, çiftleri raporla).
 - perf: font ≤2 aile ≤4 dosya, `font-display: swap`, tüm medya boyutlu (CLS 0).
@@ -129,6 +137,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 ## 10. Referans kaynakları
 - Yön ararken önce referans çıkar, sonra dili yaz: 21st.dev · awwwards.com · lapa.ninja · recent.design · dribbble.com · figma.com/community · designprompts.dev
 - 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz. Adım-araç eşlemesi ve kota kapıları: `references/21st-akis.md`.
+- SIRA'nın her adımında hangi skill/MCP (katalog, design-dna, Stitch, Figma, impeccable, baseline-ui…): `references/yon-hatti.md`.
 - Sabit adımlar (21st MCP kuruluysa, elle arama yok): yön/referans çıkarımı `get_inspiration` (+ kullanılan yön için `record_inspiration_feedback`) · bileşen `get_component` · tema `get_theme` · logo `search_logo`.
 - Referansı kopyalama — ritim, kontrast, boşluk mantığını çıkar, projeye uygula.
 - 3D/WebGL yönü aranırken Three.js resmi örnekleri (threejs.org/examples) referans alınır, kopyalanmaz.

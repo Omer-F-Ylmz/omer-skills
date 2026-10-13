@@ -1,0 +1,179 @@
+{
+ "ad": "stripe",
+ "url": "https://stripe.com",
+ "kat": "saas",
+ "d": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 13,
+  "ctx": {
+   "webgl": 1,
+   "webgl2": 6,
+   "2d": 9
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "sohne-var",
+   "sourcecodepro"
+  ],
+  "fontsLoaded": [
+   "sohne-var",
+   "sourcecodepro"
+  ],
+  "bodyPx": 16,
+  "bodyLh": 1.4,
+  "h1Real": true,
+  "h1Px": 48,
+  "h1Lh": 1.15,
+  "h1LsEm": -0.02,
+  "h1Weight": "300",
+  "h1Fam": "sohne-var",
+  "maxPx": 56,
+  "ratio": 3,
+  "maxRatio": 3.5,
+  "bg": "#ffffff",
+  "fg": "#50617a",
+  "contrast": 6.3,
+  "uniqColors": 16,
+  "chromatic": 8,
+  "accents": 5,
+  "maxW": 1298,
+  "gutter": 104,
+  "gridPct": 5.79,
+  "flexPct": 31.26,
+  "scrollRatio": 16.47,
+  "trans": 487,
+  "anim": 3,
+  "elems": 2700,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": false,
+  "grads": 20,
+  "pbGrads": 3,
+  "gradText": 0,
+  "glass": 3,
+  "glassCard": 3,
+  "heroCentered": true,
+  "cards3": 1,
+  "hoverN": 10,
+  "lcp": 4452,
+  "hoverDiff": 7,
+  "status": 200,
+  "finalUrl": "https://stripe.com/",
+  "loadMs": 8956,
+  "net": {
+   "total": 3610995,
+   "js": 2111071,
+   "css": 69177,
+   "img": 1147155,
+   "font": 71035,
+   "media": 0,
+   "n": 278
+  },
+  "sig": {
+   "motion": true,
+   "rmInJs": true,
+   "three": true
+  },
+  "rmJsBundle": true
+ },
+ "m": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 5,
+  "ctx": {
+   "webgl": 2,
+   "webgl2": 4,
+   "2d": 5
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "sohne-var",
+   "sourcecodepro"
+  ],
+  "fontsLoaded": [
+   "sohne-var",
+   "sourcecodepro"
+  ],
+  "bodyPx": 16,
+  "bodyLh": 1.4,
+  "h1Real": true,
+  "h1Px": 34,
+  "h1Lh": 1.03,
+  "h1LsEm": -0.01,
+  "h1Weight": "300",
+  "h1Fam": "sohne-var",
+  "maxPx": 34,
+  "ratio": 2.13,
+  "maxRatio": 2.13,
+  "bg": "#ffffff",
+  "fg": "#50617a",
+  "contrast": 6.3,
+  "uniqColors": 17,
+  "chromatic": 6,
+  "accents": 4,
+  "maxW": 374,
+  "gutter": 16,
+  "gridPct": 5.77,
+  "flexPct": 29.27,
+  "scrollRatio": 30.89,
+  "trans": 448,
+  "anim": 3,
+  "elems": 2740,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": false,
+  "grads": 13,
+  "pbGrads": 3,
+  "gradText": 0,
+  "glass": 2,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 6,
+  "lcp": 4556,
+  "hoverDiff": 0,
+  "status": 200,
+  "finalUrl": "https://stripe.com/",
+  "loadMs": 4977,
+  "net": {
+   "total": 3198903,
+   "js": 2160140,
+   "css": 71643,
+   "img": 679237,
+   "font": 71032,
+   "media": 0,
+   "n": 238
+  },
+  "sig": {
+   "motion": true,
+   "three": true,
+   "rmInJs": true
+  },
+  "rmJsBundle": true
+ }
+}

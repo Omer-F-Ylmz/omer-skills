@@ -1,0 +1,171 @@
+{
+ "ad": "lusion",
+ "url": "https://lusion.co",
+ "kat": "webgl",
+ "d": {
+  "fw": [
+   "astro"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 3,
+  "ctx": {
+   "webgl2": 1,
+   "2d": 3
+  },
+  "rmJs": false,
+  "fontsUsed": [
+   "aeonik"
+  ],
+  "fontsLoaded": [
+   "aeonik",
+   "ibmplexmono",
+   "lusionmono"
+  ],
+  "bodyPx": 12.96,
+  "bodyLh": 1.15,
+  "h1Real": true,
+  "h1Px": 36,
+  "h1Lh": 1.1,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "aeonik",
+  "maxPx": 144,
+  "ratio": 2.78,
+  "maxRatio": 11.11,
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "contrast": 21,
+  "uniqColors": 5,
+  "chromatic": 0,
+  "accents": 0,
+  "maxW": 1296,
+  "gutter": 69,
+  "gridPct": 2.12,
+  "flexPct": 45.52,
+  "scrollRatio": 57.28,
+  "trans": 69,
+  "anim": 6,
+  "elems": 1399,
+  "cursorCustom": false,
+  "rmCss": false,
+  "fvCss": false,
+  "focusCss": true,
+  "grads": 0,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 10,
+  "lcp": 980,
+  "hoverDiff": 2,
+  "status": 200,
+  "finalUrl": "https://lusion.co/",
+  "loadMs": 996,
+  "net": {
+   "total": 11134140,
+   "js": 533447,
+   "css": 14315,
+   "img": 6327542,
+   "font": 189920,
+   "media": 33200,
+   "n": 104
+  },
+  "sig": {
+   "three": true
+  },
+  "rmJsBundle": false
+ },
+ "m": {
+  "fw": [
+   "astro"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 3,
+  "ctx": {
+   "webgl2": 1,
+   "2d": 3
+  },
+  "rmJs": false,
+  "fontsUsed": [
+   "aeonik"
+  ],
+  "fontsLoaded": [
+   "aeonik",
+   "ibmplexmono",
+   "lusionmono"
+  ],
+  "bodyPx": 16,
+  "bodyLh": 1.4,
+  "h1Real": true,
+  "h1Px": 23.4,
+  "h1Lh": 1.1,
+  "h1LsEm": 0,
+  "h1Weight": "400",
+  "h1Fam": "aeonik",
+  "maxPx": 78,
+  "ratio": 1.46,
+  "maxRatio": 4.88,
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "contrast": 21,
+  "uniqColors": 3,
+  "chromatic": 0,
+  "accents": 0,
+  "maxW": 365,
+  "gutter": 13,
+  "gridPct": 2.31,
+  "flexPct": 48.84,
+  "scrollRatio": 58.53,
+  "trans": 69,
+  "anim": 6,
+  "elems": 1292,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": true,
+  "grads": 0,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 7,
+  "lcp": 816,
+  "hoverDiff": 0,
+  "status": 200,
+  "finalUrl": "https://lusion.co/",
+  "loadMs": 835,
+  "net": {
+   "total": 10071312,
+   "js": 981884,
+   "css": 39256,
+   "img": 6680912,
+   "font": 189944,
+   "media": 39771,
+   "n": 98
+  },
+  "sig": {
+   "three": true
+  },
+  "rmJsBundle": false
+ }
+}

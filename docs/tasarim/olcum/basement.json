@@ -1,0 +1,182 @@
+{
+ "ad": "basement",
+ "url": "https://basement.studio",
+ "kat": "editoryal",
+ "d": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 2,
+  "ctx": {
+   "webgl2": 2,
+   "2d": 8
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "geist"
+  ],
+  "fontsLoaded": [
+   "geist",
+   "geist fallback",
+   "geist mono",
+   "flauta"
+  ],
+  "bodyPx": 20,
+  "bodyLh": 1,
+  "h1Real": true,
+  "h1Px": 87,
+  "h1Lh": 0.9,
+  "h1LsEm": -0.04,
+  "h1Weight": "600",
+  "h1Fam": "geist",
+  "maxPx": 87,
+  "ratio": 4.35,
+  "maxRatio": 4.35,
+  "bg": "#000000",
+  "fg": "#c4c4c4",
+  "contrast": 12.04,
+  "uniqColors": 7,
+  "chromatic": 1,
+  "accents": 1,
+  "maxW": 1408,
+  "gutter": 16,
+  "gridPct": 20.62,
+  "flexPct": 21.4,
+  "scrollRatio": 7.46,
+  "trans": 104,
+  "anim": 1,
+  "elems": 505,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": true,
+  "grads": 1,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 10,
+  "lcp": 604,
+  "hoverDiff": 8,
+  "status": 200,
+  "finalUrl": "https://basement.studio/",
+  "loadMs": 729,
+  "net": {
+   "total": 22759740,
+   "js": 2678014,
+   "css": 21120,
+   "img": 3244750,
+   "font": 67003,
+   "media": 437998,
+   "n": 332
+  },
+  "sig": {
+   "rmInJs": true,
+   "motion": true,
+   "three": true,
+   "r3f": true
+  },
+  "rmJsBundle": true
+ },
+ "m": {
+  "fw": [
+   "next",
+   "react"
+  ],
+  "glob": {
+   "gsap": false,
+   "scrolltrigger": false,
+   "lenis": false,
+   "locomotive": false,
+   "three": true,
+   "pixi": false
+  },
+  "gen": "",
+  "canvas": 1,
+  "ctx": {
+   "webgl2": 2,
+   "2d": 4
+  },
+  "rmJs": true,
+  "fontsUsed": [
+   "geist",
+   "geist mono"
+  ],
+  "fontsLoaded": [
+   "geist",
+   "geist fallback",
+   "geist mono",
+   "flauta"
+  ],
+  "bodyPx": 15,
+  "bodyLh": 1.07,
+  "h1Real": true,
+  "h1Px": 46,
+  "h1Lh": 0.85,
+  "h1LsEm": -0.04,
+  "h1Weight": "600",
+  "h1Fam": "geist",
+  "maxPx": 46,
+  "ratio": 3.07,
+  "maxRatio": 3.07,
+  "bg": "#000000",
+  "fg": "#c4c4c4",
+  "contrast": 12.04,
+  "uniqColors": 6,
+  "chromatic": 1,
+  "accents": 1,
+  "maxW": 358,
+  "gutter": 16,
+  "gridPct": 32.57,
+  "flexPct": 20,
+  "scrollRatio": 7.76,
+  "trans": 57,
+  "anim": 40,
+  "elems": 388,
+  "cursorCustom": false,
+  "rmCss": true,
+  "fvCss": true,
+  "focusCss": true,
+  "grads": 1,
+  "pbGrads": 0,
+  "gradText": 0,
+  "glass": 0,
+  "glassCard": 0,
+  "heroCentered": false,
+  "cards3": 0,
+  "hoverN": 4,
+  "lcp": 360,
+  "hoverDiff": 0,
+  "status": 200,
+  "finalUrl": "https://basement.studio/",
+  "loadMs": 497,
+  "net": {
+   "total": 15861612,
+   "js": 2473402,
+   "css": 20353,
+   "img": 2981674,
+   "font": 67003,
+   "media": 687972,
+   "n": 293
+  },
+  "sig": {
+   "motion": true,
+   "rmInJs": true,
+   "three": true,
+   "r3f": true
+  },
+  "rmJsBundle": true
+ }
+}
