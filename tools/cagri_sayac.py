@@ -80,7 +80,7 @@ def main():
         # ponytail: oku-yaz kilitsiz; paralel çağrılarda sayım kaybı kabul (KÜÇÜK-2)
         sayac.write_text(str(n), encoding="utf-8")
         if n >= TAVAN or _baglam(olay.get("transcript_path")) >= BAGLAM_TAVAN:
-            mesaj = f"çağrı {n}/{TAVAN}: commit + push ve DUR"
+            mesaj = f"çağrı {n}/{TAVAN}: ara kayıt (commit, push YOK) + devir ve DUR"
         elif n == 40:
             mesaj = f"çağrı 40/{TAVAN}: yeni madde başlatma"
         elif n % 10 == 0:

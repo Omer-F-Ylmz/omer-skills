@@ -35,7 +35,7 @@ def _kos(kok, monkeypatch, capsys, olay):
 
 ARAC = {"hook_event_name": "PostToolUse", "tool_name": "Read", "session_id": "A"}
 BASLA = {"hook_event_name": "SessionStart", "source": "startup", "session_id": "A"}
-DUR = "commit + push ve DUR"
+DUR = "ara kayıt (commit, push YOK) + devir ve DUR"
 
 
 def test_basla_sifirlar(tmp_path, monkeypatch, capsys):
