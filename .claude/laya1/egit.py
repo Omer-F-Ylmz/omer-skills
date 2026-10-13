@@ -22,5 +22,6 @@ taban = str(Path(snapshot_download("convaiinnovations/laya")) / "multilingual")
 for kol, cfg in (("bas", TrainConfig(epochs=12, freeze_encoder=True, micro_batch=4, grad_accum=2, max_len=2048, calib_frac=0.2)),
                  ("tam", TrainConfig(epochs=6, encoder_lr=1e-5, micro_batch=2, grad_accum=4, max_len=2048, calib_frac=0.2,
                                      gradient_checkpointing=True))):
-    print(kol, json.dumps(finetune(str(D / "egitim.jsonl"), taban, str(D / f"ck-{kol}"), cfg), default=str)[:600], flush=True)
+    son = sys.argv[1] if len(sys.argv) > 1 else ""  # d2: ck-<kol>2, d1 checkpoint'lerinin üstüne yazmaz
+    print(kol, json.dumps(finetune(str(D / "egitim.jsonl"), taban, str(D / f"ck-{kol}{son}"), cfg), default=str)[:600], flush=True)
 print("EGIT BITTI", flush=True)

@@ -35,6 +35,11 @@ def veri():
     for i, d in enumerate(dos):
         out.append({"id": "jev1:" + d, "kaynak": "jev1", "soru": "SORU", "state": jev1[d]["state"],
                     "opus": opus[str(i)] * 2, "jev": jev1[d]["jev"]})
+    kor = D / "kor" / "sonuc.json"  # d2: etiketsiz 209 öğenin kör Opus puanı (kor.py); bölme aynı sha(id)
+    for d, p in (json.loads(kor.read_text(encoding="utf-8")) if kor.exists() else {}).items():
+        if d not in dos:
+            out.append({"id": "jev1:" + d, "kaynak": "jev1", "soru": "SORU", "state": jev1[d]["state"], "opus": p * 2,
+                        "jev": jev1[d]["jev"], "yeni": True})
     jb, ob = [json.loads(x) for x in open(J1 / "jev_b.jsonl", encoding="utf-8")], json.load(open(J1 / "opus_b.json"))
     for i, b in enumerate(jb):  # JEV-1 (b) video altın↔rapor eşleşmesi, Opus evet/hayır → 10/0, Jev noul p → 0-10
         out.append({"id": f"video:{i}", "kaynak": "video", "soru": "ESLES", "state": {"altin": b["altin"], "satir": b["satir"]},
@@ -64,12 +69,12 @@ def puanla(kol, model="multilingual"):
 
 
 def rapor(*kollar):
-    for kaynak in ("jev1", "video"):
+    for kaynak in ("jev1", "jev1-d1", "video"):  # jev1-d1 = d1'in test alt kümesi (yeni etiketsiz), kıyas için
         _rapor(kaynak, kollar)
 
 
 def _rapor(kaynak, kollar):
-    v = [k for k in yukle() if k["test"] and k["kaynak"] == kaynak]
+    v = [k for k in yukle() if k["test"] and k["kaynak"] == kaynak.split("-")[0] and not (kaynak.endswith("-d1") and k.get("yeni"))]
     o = [k["opus"] for k in v]
     dogru = lambda a: sum((x >= 5) == (y >= 5) for x, y in zip(a, o))  # noqa: E731
     mae = lambda a: round(sum(abs(x - y) for x, y in zip(a, o)) / len(o), 2)  # noqa: E731
