@@ -10,7 +10,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import kilavuz_derin as kd
 
-URL, COMBO = "http://127.0.0.1:20128/v1/chat/completions", "ucretsiz-ozet2"
+# d4: gemini-önlü combo'lar asılı kalıyor (1 kelimelik istem 90 sn zaman aşımı) → işçi başına TASLAK_COMBO ile ücretsiz model
+URL, COMBO = "http://127.0.0.1:20128/v1/chat/completions", os.environ.get("TASLAK_COMBO", "ucretsiz-ozet2")
 ENGELLI = {"mukul975", "davila7"}  # d1: Agent sınıflandırıcısına takılan güvenlik aileleri
 GRUP = 8
 JETON = kd.KAT / "derin-jeton.tsv"
