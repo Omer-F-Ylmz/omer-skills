@@ -165,6 +165,8 @@ def uret(onceki):
             s.update(is_=kisa(s["aciklama"]), tetik="", ozet=0)
         s["tetik"] = s["tetik"] or katalog_ara.tetik(f"{s['ad']} {s['is_']}")
         s["imza"] = imza
+        # okuyucu alan etiketi (d6) açıklama değişmedikçe korunur
+        s["alan"] = eski.get("alan", "") if eski and eski.get("imza") == imza else ""
         s["ozet_bekliyor"] = int(not s["ozet"])
         s["metin"] = kisa(s.pop("aciklama"), 400)
         s["is"] = s.pop("is_")

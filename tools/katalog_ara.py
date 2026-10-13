@@ -73,8 +73,8 @@ def tetik(metin, n=120):
     return " ".join(dict.fromkeys(e for e in ek if e not in t))[:n].rsplit(" ", 1)[0] if ek else ""
 
 
-def ara(q, tur=None, oran=ORAN, satirlar=None):
-    """İlgili sayılan HER kayıt: puanı en iyinin `oran` katını geçenler (sabit ilk-N değil; Ömer 21:33)."""
+def puanla(q, tur=None, satirlar=None):
+    """BM25 sıralı tüm eşleşmeler [(puan, kavram kapsama, kayıt)] + gereken kavram sayısı."""
     rows = satirlar or [json.loads(s) for s in KATALOG.read_text(encoding="utf8").splitlines()]
     if tur:
         rows = [o for o in rows if o["tur"] == tur]
@@ -100,6 +100,12 @@ def ara(q, tur=None, oran=ORAN, satirlar=None):
             ham = set(kelimeler(f"{o['ad']} {o['is']} {o['metin']}"))
             puan.append((s, sum(1 for c in kavram if ham & c), o))
     puan.sort(key=lambda x: -x[0])
+    return puan, gerek
+
+
+def ara(q, tur=None, oran=ORAN, satirlar=None):
+    """İlgili sayılan HER kayıt: puanı en iyinin `oran` katını geçenler (sabit ilk-N değil; Ömer 21:33)."""
+    puan, gerek = puanla(q, tur, satirlar)
     tepe = puan[0][0] if puan else 0
     # tek ortak kelimeyle gelen gürültü ("video", "hata") elenir: ilk SIRA kayıt ya da ham metinde kavramların ≥KAVRAM oranı
     return [o for i, (s, kap, o) in enumerate(puan) if s >= oran * tepe and (i < SIRA or kap >= gerek)]
