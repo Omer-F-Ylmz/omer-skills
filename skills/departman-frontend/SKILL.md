@@ -70,7 +70,7 @@ ajan:bl-gorsel-ani-kontrol
 ajan:bl-isik-kurulumu: a scene looks flat or harsh
 ajan:bl-malzeme-kurucu: a Blender object needs a realistic material
 ajan:bl-mod-modeli-blender
-ajan:bl-sahne-temizlik: a scene is messy before export
+ajan:bl-sahne-temizlik: a scene is messy before export or handoff
 ajan:bl-urun-turntable
 ajan:fe-animasyon-tasarimci
 ajan:fe-bilesen-yazar: asked for a button, card, modal or menu
@@ -86,22 +86,22 @@ ajan:fe-navigasyon-tasarimci
 ajan:fe-react-bilesen-inceleme
 ajan:fe-responsive-kontrol
 ajan:fe-scroll-hikayesi
-ajan:fe-slayt-kurucu: asked for web based presentations
+ajan:fe-slayt-kurucu: asked for web based presentations, or how to
 ajan:fe-tailwind-duzenleyici
 ajan:fe-tasarim-incele
 ajan:fe-tasarim-sistemi-kurucu
 ajan:fe-tasarim-yonu
-ajan:fe-tipografi-uzmani: text looks flat, crowded or inconsistent
+ajan:fe-tipografi-uzmani: text looks flat, crowded or inconsistent, or when
 ajan:fe-ux-metin-yazar
 ajan:fe-webgl-3d-hero
 ajan:fe-yazdir-stili: a page must print or export well
 ajan:otm-webhook-tasarimci
 ajan:oyn-dusman-ai: enemies feel dumb or unfair
 ajan:oyn-mod-paketleme: Packages mods with clear folder layout, readme and
-ajan:oyn-oyun-dokuman: a game idea needs shape
+ajan:oyn-oyun-dokuman: a game idea needs shape, or when asked
 ajan:oyn-three-oyun-sahne
-ajan:vid-hareket-grafigi: graphics must move cleanly
-ajan:vid-hyperframes-kompozisyon: a motion piece is authored as web code
+ajan:vid-hareket-grafigi: graphics must move cleanly, or when asked how
+ajan:vid-hyperframes-kompozisyon
 ajan:vid-video-performans-web
 banana: Generate, edit, compare, and review images with Google
 baseline-ui: kaçın: genel UI cilası → frontend-craft
@@ -109,10 +109,12 @@ img: Generate, edit, or plan images with OpenAI gpt-image-2
 improve-ui: kaçın: genel UI cilası → frontend-craft
 mod-atolyesi: 3DMigoto mod atölyesi — Genshin (standalone) · ZZZ/HSR/WuWa
 omer-kutuphaneler: ılır, pinli kurulum satırı, lisans ve context7 kimliği
+web-sahne-desenleri: 3D web sahne desenleri (scroll, kamera, ışık)
 ### yalnız Claude Code
 accessibility: WCAG 2.2 レベル AA 標準を用いてインクルーシブなデジタルプロダクトを設計・実装・監査します。Web 用のセマンティック ARIA および
 adaptive: Instructions to make or update an app's UI
 archify: the user asks to visualize system architecture, infrastructure
+benchmark: Web performance regression detection
 better-accessibility: Reviews and fixes keyboard and focus behavior, ARIA
 break: Renders a component you choose under every scenario
 browse: Drive a real browser through Aside: open a
@@ -128,22 +130,27 @@ grill-me: A relentless interview to sharpen a plan or
 handoff-protocols: Designing smooth transitions between agents and between AI
 heuristic-evaluation: you need findings without recruiting participants
 human-in-the-loop: Designing intervention points where humans review, approve, or
+ig41-ucuncu-taraf: 15 skill'lik paket (3D/anatomi/saç modelleme, three.js sahne, animasyon
+img2threejs: image-to-3D reconstruction, detail-accurate object rebuilds, stylized/likeness-maximized human characters
 impeccable: the user wants to design, redesign, shape, critique
 jakobs-law: deciding whether to innovate on a familiar pattern
 journey-map: improving an existing experience
 loading-states: content takes time to arrive
 matterjs: implementing 2D physics interactions with Matter.js, including Engine/World
+mcp:infinite-canvas: sonsuz tuval: eskiz, akış şeması, moodboard
 mentorship: Mentor designers and emerging leaders
 navigation-event: Intercept back gestures and run Predictive Back animations
 offers: wants to design, construct, or improve an offer
 opportunity-framework: there are more ideas than capacity
 pixeljury: Rendered web sayfasi icin gorsel QA - Chromium'da
+plugin:webgpu-threejs-tsl: WebGPU three.js TSL shader/node
 prioritisation-at-scale: Prioritise design investment across a portfolio of teams
 prototype: Build multiple genuinely different versions of a UI
 remotion-markup: Content, animation and effects best practices
 securing-resources: Secure headcount and budget for the design org
 taste-distillation: the user wants to capture the look of
 tastemaker: ever the user asks to build, design, style
+threejs-bloom: three.js bloom/parlama efekti, postprocessing
 troubleshooting: Uses Chrome DevTools MCP and documentation to troubleshoot
 vantajs: adding animated WebGL background effects with Vanta.js (setup
 variant: Builds multiple variants of a component you're working

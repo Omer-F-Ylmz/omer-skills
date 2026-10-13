@@ -51,7 +51,6 @@ ajan:qa-test-iskelet-dotnet
 ajan:qa-test-kokusu
 ajan:qa-test-verisi
 ### yalnız Claude Code
-benchmark: Performance regression detection
 calisma-protokolu: any coding, planning, evaluation, debugging or research task
 comparative-evaluation: A/B testing, side-by-side comparison, and preference ranking for
 constraint-driven-development: no quality bar is written down, when the
@@ -59,6 +58,7 @@ gsd-paket: GSD: planlama, yürütme ve doğrulama iş akışı: gsd
 investigate: Systematic debugging with root cause investigation
 ios-fix: Autonomous iOS bug fixer
 ios-sync: Regenerate the iOS debug bridge against the latest
+mcp:chrome-devtools: canlı tarayıcı: konsol, ağ, performans izi
 omni-webhooks: Register, list, test, and remove webhook endpoints
 orch-fix-defect: existing behavior is broken or wrong
 orch-refine-code: the structure should improve but behavior must not

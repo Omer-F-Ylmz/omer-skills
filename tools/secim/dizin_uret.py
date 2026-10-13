@@ -72,7 +72,10 @@ def ne_zaman(acik, n=80):
     return s if len(s) <= n else s[: n - 1].rstrip() + "…"
 
 
-ANAHTAR = {k: v for k, v in json.loads((Path(__file__).with_name("anahtar.json")).read_text(encoding="utf-8")).items() if k != "_not"}
+_ANAHTAR = json.loads((Path(__file__).with_name("anahtar.json")).read_text(encoding="utf-8"))
+ANAHTAR = {k: v for k, v in _ANAHTAR.items() if isinstance(v, str) and k != "_not"}
+# skill olmayan kurulu araç (mcp:/cli:/plugin:) → [departman, not]; yalnız CC bölümüne satır olarak girer (ENVANTER-1)
+ARAC = {k: v for k, v in _ANAHTAR.items() if isinstance(v, list)}
 BAS, SON = "<!-- dizin:bas -->", "<!-- dizin:son -->"
 GOVDE = ("## Dizin\nAdımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` = alt ajan, claude.ai'de bu klasördeki "
          "`ajanlar/<ad>.md` talimatını kendin uygula). departman-* cevap değil. Adı işini söyleyen skill'ler burada yok: listedeki adla çağır.")
@@ -88,6 +91,8 @@ def opak(ad, acik=""):
 
 def satir(ad, acik):
     """ad: ≤8 kelime ne zaman (anahtar.json görev ifadesi/kaçın notu önce)."""
+    if ad in ARAC:
+        return f"{ad}: {ARAC[ad][1]}"
     k = ad.split(":")[-1]
     nz = "" if not (opak(ad, acik) or k in ANAHTAR) else ANAHTAR.get(k) or " ".join(ne_zaman(acik, 400).rstrip("…").split()[:8]).rstrip(".,;:")
     k = "ajan:" + k if ad.startswith("ajan:") else k
@@ -189,7 +194,7 @@ def zipla(kok):
     for d in sorted((kok / "skills").glob("departman-*")):
         with zipfile.ZipFile(cikti / f"{d.name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
             for f in sorted(d.rglob("*")):
-                if f.is_file() and (f.parent.name != "ajanlar" or f.stem in KALITE3):
+                if f.is_file() and (f.parent.name != "ajanlar" or f.stem in KALITE3 or d.name == "departman-diger"):
                     z.write(f, f"{d.name}/{f.relative_to(d).as_posix()}")
     return cikti
 
@@ -204,6 +209,8 @@ if __name__ == "__main__":
     w = {d: [(a, x) for a, x in k if a.startswith("ajan:")] + sec([(a, x) for a, x in k if not a.startswith("ajan:")]) for d, k in w.items()}
     wad = {a.split(":")[-1] for k in w.values() for a, _ in k}
     c = {d: [(a, x) for a, x in sec(k) if a.split(":")[-1] not in wad] for d, k in dagit(tekille(cc, oturum)).items()}
+    for ad, (dep, _) in ARAC.items():
+        c[dep].append((ad, ""))
     yaz(KOK, w, c)
     print(" ".join(f"{d}={len(w[d])}+{len(c[d])}" for d in ALAN))
     print(zipla(KOK))
