@@ -4,7 +4,7 @@ Aşama 1 = ajan kolu (+ Jev). ERKEN RET (kalibre: eski veride yanlış ret 0) is
 aşama 2 = ana kolu (ajan tanımına bağlı değil: aynı model için önceki ana satırı yeniden kullanılır → onarım ölçümü tek çağrı).
 Onarım: düşen ajan için ölçüm gerekçesi → claude -p tek hedefli düzeltme (açıklama/talimat/model; iş ve ad aynı) → aşama 1'den
 yeniden; en fazla 2 tur; onarılan tanım yalnız geçerse ajanlar/kalite3/<aile>/<ad>.md yerine yazılır.
-Eşzamanlılık RAM'e göre (< %85 artır, ≥ %92 azalt, tavan 6); `tools:` alanında mcp__ yoksa boş MCP (--strict-mcp-config).
+Eşzamanlılık RAM'e göre (≤ %93 artır, > %95 azalt, tavan 16); `tools:` alanında mcp__ yoksa boş MCP (--strict-mcp-config).
   python tools/kalite3_hiz.py kalibre | parite | durum | kos
 Bütçe: claude -p ≤ CAGRI_TAVAN (cagri.log satırları, yeniden başlatmada sürer)."""
 import csv, json, re, shutil, subprocess, sys, threading, time
@@ -21,6 +21,9 @@ SKILL = Path("C:/Projeler/omer-skills-wt/skill")  # d13'ün canlı verisi (salt 
 sys.path.insert(0, str(SKILL / ".kalite3"))
 from ajan_jev import SORU, karar, ortam, Tasiyici  # noqa: E402
 
+sys.path.append("C:/Projeler/omer-skills/tools/olcum")
+from jev_yargic import Onbellekli  # noqa: E402
+
 KOPRU = Path("C:/Projeler/omer-skills/.kos/kopru")
 SIRA_MD = KOPRU / "gorev/SIRA.md"
 DUR = KOPRU / "olcum.dur"
@@ -29,12 +32,14 @@ ESKI_YANIT = SKILL / ".kalite3/ajan-yanit"
 TSV = KOK / "docs/kutuphane/olcum/kalite3-ajan-hiz.tsv"
 KABUL_EK = KOK / "docs/kutuphane/kalite3-ajan-kabul-ek.txt"
 IS = KOK / ".kalite3/hiz"
-CAGRI_TAVAN, ES_TAVAN, TUR_TAVAN, ARDISIK_TAVAN = 1700, 12, 2, 3  # d15 (13 Eki): +800 çağrı (d15 135 + ruflo ≤15 ajan), es x2
+CAGRI_TAVAN, ES_TAVAN, TUR_TAVAN, ARDISIK_TAVAN = 2600, 16, 2, 3  # d16 (13 Eki 02:30): +900 çağrı (d16 150 ajan; plan limiti, API kredisi kapalı)
+RAM_DUR = 95  # Ömer 13 Eki 00:36: RAM %95'e kadar; ≤%93 es artar, >%95 azalır ve yeni öğe başlamaz
+JEV_OB = None  # None = jev_yargic ortak önbelleği (~/.cache/jev-yargic.json); aynı (soru, yanıt) ikinci kez ücretlenmez
 STRICT = ["--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}']
 ALAN = ["aile", "ajan", "kol", "tur", "model", "puan", "usd", "jeton", "alt_model", "sure", "alt_usd", "jev", "strict"]
 R_ESIK, J_ESIK, U_PAY = 0.6, 5.0, 1.25  # kalibre(): geçenlerin min r 0.8, min Jev 5.7; $ tavanı = 1.25 × geçenlerin max $'ı
 D13_P2 = time.mktime(time.strptime("2026-10-12 09:22:09", "%Y-%m-%d %H:%M:%S"))
-EK = [KOK / "ajanlar/kalite3-d15", KOK / "ajanlar/kalite3-ruflo"]  # yeni aday kökleri (gorevler.json + <aile>/<ad>.md), d13 dilimine girmez
+EK = [KOK / "ajanlar/kalite3-d15", KOK / "ajanlar/kalite3-ruflo", KOK / "ajanlar/kalite3-d16"]  # yeni aday kökleri (gorevler.json + <aile>/<ad>.md), d13 dilimine girmez
 kilit = threading.Lock()
 gorev = {g["ajan"]: g for k in [mo.AJAN, *EK] if (k / "gorevler.json").exists()
          for g in json.loads((k / "gorevler.json").read_text(encoding="utf-8"))}
@@ -126,7 +131,7 @@ cagri = Cagri()
 def jev(ad, metin):
     g = gorev[ad]
     kabul = "Yanıt şunları kapsamalı: " + "; ".join(f"{re.sub(r'^[(][?]i[)]', '', r['regex'])} ({r['puan']} puan)" for r in g["rubrik"])
-    c = Tasiyici(env=ortam(), en_fazla=2, istek_tavan=12).yargila([{"gorev": g["istem"], "kabul": kabul, "yanit": metin}], SORU)[0]
+    c = Onbellekli(Tasiyici(env=ortam(), en_fazla=2, istek_tavan=12), JEV_OB).yargila([{"gorev": g["istem"], "kabul": kabul, "yanit": metin}], SORU)[0]
     return round(c["kalite"]["score"] * 2, 1) if c else ""
 
 
@@ -224,7 +229,12 @@ def sira(kokler=None):
 
 
 def es_ayarla(es, r):
-    return min(ES_TAVAN, es + 1) if r <= 90 else max(1, es - 1) if r >= 92 else es
+    return min(ES_TAVAN, es + 1) if r <= 93 else max(1, es - 1) if r > RAM_DUR else es
+
+
+def ana_anahtar(ad, model):
+    """Ana kolu ajan tanımına bağlı değil: aynı görev (istem) + model için tek taban koşusu yeterli."""
+    return (gorev[ad]["istem"] if ad in gorev else ad, model)
 
 
 class Kosu:
@@ -237,7 +247,7 @@ class Kosu:
         self.ele_alinan = {s["ajan"] for s in oku(TSV)}
         for s in oku(ESKI) + oku(TSV):
             if s["kol"] == "ana" and s["puan"] != "hata" and s["jev"] != "":
-                self.ana[(s["ajan"], s.get("model") or gorev[s["ajan"]]["model"])] = s
+                self.ana[ana_anahtar(s["ajan"], s.get("model") or gorev[s["ajan"]]["model"])] = s
         self.gecen = KABUL_EK.read_text(encoding="utf-8").split() if KABUL_EK.exists() else []
 
     def p2_p3(self):
@@ -294,7 +304,7 @@ class Kosu:
                 with kilit:
                     for s in oku(ESKI):
                         if s["kol"] == "ana" and s["puan"] != "hata" and s["jev"] != "":
-                            self.ana.setdefault((s["ajan"], gorev[s["ajan"]]["model"]), s)
+                            self.ana.setdefault(ana_anahtar(s["ajan"], gorev[s["ajan"]]["model"]), s)
                     self.onarim_tohumu()
                     self.p2_bitti = True
                 if "parti 2/3 sonrası durduruldu" in sira_md:  # yeniden başlatma: satır zaten yazıldı
@@ -349,9 +359,9 @@ class Kosu:
             if ad in self.gecen or ad not in aile:
                 continue
             yol = IS / "onarim" / f"{ad}.t{t}.md" if t else aile[ad] / f"{ad}.md"
-            ana = self.ana.get((ad, a["model"]))
+            ana = self.ana.get(ana_anahtar(ad, a["model"]))
             gerekce = neden(a, ana) if ana else erken_ret(a, a["model"], self.ut)
-            if ana and karar([a, ana]).get(ad):
+            if ana and karar([a, dict(ana, ajan=ad)]).get(ad):
                 continue
             if not ana and not gerekce:  # ana kolu yazılmamış → aynı tur yeniden
                 self.q.append((ad, t, yol, a["model"], aile[ad], None))
@@ -376,7 +386,7 @@ class Kosu:
             if a["puan"] == "hata" or a["jev"] == "":
                 log("HATA", ad, f"t{tur}", "ajan kolu boş/Jev yok")
                 return
-            n = self.ana.get((ad, model))
+            n = self.ana.get(ana_anahtar(ad, model))
             gerekce = "" if n else erken_ret(a, model, self.ut)
             if not n and not gerekce:
                 n, _ = olc(ad, "ana", tur, yol, model, aile)
@@ -384,10 +394,10 @@ class Kosu:
                     log("HATA", ad, f"t{tur}", "ana kolu")
                     return
                 with kilit:
-                    self.ana[(ad, model)] = n
+                    self.ana[ana_anahtar(ad, model)] = n
             with kilit:
                 self.ardisik = 0
-            ok = not gerekce and karar([a, n]).get(ad, False)
+            ok = not gerekce and karar([a, dict(n, ajan=ad)]).get(ad, False)
             gerekce = gerekce or neden(a, n)
             log("GECTI" if ok else ("ERKEN RET" if not n else "DÜŞTÜ"), ad, f"t{tur}", model, gerekce)
             if ok:
@@ -415,7 +425,7 @@ class Kosu:
         self.devam()
         self.ek_aday()
         threading.Thread(target=self.gozcu, daemon=True).start()
-        es, ayar = 4, 0
+        es, ayar = 8, 0
         with ThreadPoolExecutor(ES_TAVAN) as havuz:
             while True:
                 with kilit:
@@ -429,7 +439,7 @@ class Kosu:
                 if time.time() - ayar > 45:
                     es = es_ayarla(es, r)
                     ayar = time.time()
-                if not bos and cal < es and r < 92 and not DUR.exists() and time.time() >= self.bekle and cagri.n < CAGRI_TAVAN - 3 * ES_TAVAN:
+                if not bos and cal < es and r <= RAM_DUR and not DUR.exists() and time.time() >= self.bekle and cagri.n < CAGRI_TAVAN - 3 * ES_TAVAN:
                     with kilit:
                         is_ = self.q.popleft()
                         self.calisan += 1

@@ -27,9 +27,40 @@ def ortam(tmp_path, monkeypatch):
     return yol
 
 
-def test_es_tavani_12_ram_90da_artar():
-    assert kh.ES_TAVAN == 12
-    assert kh.es_ayarla(4, 90) == 5 and kh.es_ayarla(4, 91) == 4 and kh.es_ayarla(4, 92) == 3 and kh.es_ayarla(12, 50) == 12
+def test_es_tavani_16_ram_93te_artar_95ten_sonra_azalir():
+    assert kh.ES_TAVAN == 16 and kh.RAM_DUR == 95
+    assert kh.es_ayarla(4, 93) == 5 and kh.es_ayarla(4, 95) == 4 and kh.es_ayarla(4, 96) == 3 and kh.es_ayarla(16, 50) == 16
+
+
+def test_jev_onbellekli_ayni_yanit_ikinci_kez_yargilanmaz(ortam, monkeypatch, tmp_path):
+    n = []
+
+    class Sahte:
+        def __init__(self, **k):
+            pass
+
+        def yargila(self, states, questions):
+            n.append(len(states))
+            return [{"kalite": {"score": 3.5}} for _ in states]
+    monkeypatch.setattr(kh, "Tasiyici", Sahte)
+    monkeypatch.setattr(kh, "JEV_OB", tmp_path / "jev-ob.json")
+    assert kh.jev(AD, "x yanıt") == kh.jev(AD, "x yanıt") == 7.0 and n == [1]
+
+
+def test_ana_kolu_ayni_gorev_icin_yeniden_kullanilir(ortam, monkeypatch):
+    monkeypatch.setitem(kh.gorev, "ikiz", dict(kh.gorev[AD]))  # aynı istem + model, farklı ajan
+    olculen = []
+
+    def olc(ad, kol, tur, *a):
+        olculen.append((ad, kol))
+        return {"ajan": ad, "kol": kol, "puan": "1", "jev": "8", "usd": "0.01", "alt_usd": "", "alt_model": ""}, "x"
+    monkeypatch.setattr(kh, "olc", olc)
+    k = kh.Kosu.__new__(kh.Kosu)
+    k.q, k.calisan, k.ardisik, k.ut, k.gecen = deque(), 1, 0, {}, []
+    k.ana = {kh.ana_anahtar(AD, "sonnet"): {"ajan": AD, "kol": "ana", "puan": "1", "jev": "6", "usd": "0.01"}}
+    monkeypatch.setattr(k, "kabul", lambda *a: k.gecen.append(a[0]))
+    k.isle("ikiz", 0, ortam, "sonnet", ortam.parent, None)
+    assert olculen == [("ikiz", "ajan")] and k.gecen == ["ikiz"]
 
 
 def test_ek_kokler_sirada_ve_kuyrukta(tmp_path, monkeypatch):
@@ -131,6 +162,6 @@ def test_devam_yarim_ajani_sonraki_tura_alir(ortam, monkeypatch):
     (kh.IS / "yanit" / f"{AD}-ajan-t0.md").write_text("eski yanıt", encoding="utf-8")
     k = kh.Kosu.__new__(kh.Kosu)
     k.q, k.gecen, k.ut = deque(), [], {}
-    k.ana = {(AD, "sonnet"): dict(s, kol="ana", jev="6.0")}
+    k.ana = {kh.ana_anahtar(AD, "sonnet"): dict(s, kol="ana", jev="6.0")}
     k.devam()
     assert [(x[0], x[1], x[5][1]) for x in k.q] == [(AD, 1, "eski yanıt")] and "judge" in k.q[0][5][0]
