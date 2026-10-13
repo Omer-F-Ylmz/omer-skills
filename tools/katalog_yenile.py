@@ -243,6 +243,7 @@ def main():
     # yetenek-getir (CC kurulumu + claude.ai zip'i) yerel repo yoluna bağlı kalmasın
     for f in (jl, CIKTI / "yetenek.tsv", CIKTI / "ogrenim.jsonl", Path(katalog_ara.__file__)):
         shutil.copy2(f, KOK / "skills" / "yetenek-getir" / f.name)
+    shutil.copy2(KOK / "tools" / "plan_kur.py", KOK / "skills" / "plan-kur" / "plan_kur.py")
     from collections import Counter
     print(len(rows), dict(Counter(o["tur"] for o in rows)), "ozet_bekliyor", sum(o["ozet_bekliyor"] for o in rows),
           "is_bos", sum(not o["is"] for o in rows))
