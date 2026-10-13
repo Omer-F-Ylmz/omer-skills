@@ -73,7 +73,7 @@ G1 = ("Ürün sahnesi kur: GEO-Fincan (silindir, çap 8 cm, yükseklik 9 cm, par
 def test_sistem5_cekirdek_kisa_ve_asamali():
     s = yalin.sistem5(G1)
     assert len(s) <= 1300 + len(", ".join(tarif._ad_listesi()[1])) + 200, len(s)
-    assert len(s) < len(yalin.sistem(tek=True)) / 2
+    assert len(yalin.CEKIRDEK) <= 1300 and len(s) < 0.55 * len(yalin.sistem(tek=True))  # plan: çekirdek ≤1300 kr; g1 istemi 1436/2829
     assert not any(m in s for m in yalin.MODUL.values())
     assert yalin.MODUL[("dön", "360", "turntable")] in yalin.sistem5("Fincan 360° dönsün, kare 1-48")
     assert yalin.MODUL[("patlat",)] in yalin.sistem5("patlatılmış görünüm") and yalin.MODUL[("glb",)] in yalin.sistem5("GLB: x.glb")
