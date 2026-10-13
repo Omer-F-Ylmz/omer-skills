@@ -1,24 +1,27 @@
 """KÜÇÜK-2: çağrı sayacı hook'u (tools/cagri_sayac.py)."""
 import io
 import json
+import os
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import cagri_sayac as cs  # noqa: E402
 
 
-def _kok(tmp_path, sayac=None, dalga=None):
+def _kok(tmp_path, sayac=None, dalga=None, sid="A"):
     (tmp_path / ".claude").mkdir()
     if sayac is not None:
-        (tmp_path / ".claude" / "cagri-sayac.txt").write_text(sayac, encoding="utf-8")
+        (tmp_path / ".claude" / "cagri-sayac").mkdir()
+        (tmp_path / ".claude" / "cagri-sayac" / f"{sid}.txt").write_text(sayac, encoding="utf-8")
     if dalga is not None:
         (tmp_path / ".claude" / "dalga.md").write_bytes(dalga.encode("utf-8"))
     return tmp_path
 
 
-def _sayac(kok, ad="cagri-sayac.txt"):
-    return (kok / ".claude" / ad).read_text(encoding="utf-8")
+def _sayac(kok, ad="A.txt"):
+    return (kok / ".claude" / "cagri-sayac" / ad).read_text(encoding="utf-8")
 
 
 def _kos(kok, monkeypatch, capsys, olay):
@@ -30,15 +33,17 @@ def _kos(kok, monkeypatch, capsys, olay):
     return json.loads(out) if out else None
 
 
-ARAC = {"hook_event_name": "PostToolUse", "tool_name": "Read"}
+ARAC = {"hook_event_name": "PostToolUse", "tool_name": "Read", "session_id": "A"}
+BASLA = {"hook_event_name": "SessionStart", "source": "startup", "session_id": "A"}
+DUR = "commit + push ve DUR"
 
 
 def test_basla_sifirlar(tmp_path, monkeypatch, capsys):
     kok = _kok(tmp_path, sayac="37")
-    (kok / ".claude" / "cagri-sayac-alt.txt").write_text("8", encoding="utf-8")
-    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart"})
+    (kok / ".claude" / "cagri-sayac" / "A-alt.txt").write_text("8", encoding="utf-8")
+    _kos(kok, monkeypatch, capsys, BASLA)
     assert _sayac(kok) == "0"
-    assert _sayac(kok, "cagri-sayac-alt.txt") == "0"
+    assert _sayac(kok, "A-alt.txt") == "0"
 
 
 def test_artis(tmp_path, monkeypatch, capsys):
@@ -50,7 +55,7 @@ def test_artis(tmp_path, monkeypatch, capsys):
 
 def test_basarisiz_arac_da_sayilir(tmp_path, monkeypatch, capsys):
     kok = _kok(tmp_path, sayac="4")
-    _kos(kok, monkeypatch, capsys, {"hook_event_name": "PostToolUseFailure"})
+    _kos(kok, monkeypatch, capsys, {**ARAC, "hook_event_name": "PostToolUseFailure"})
     assert _sayac(kok) == "5"
 
 
@@ -60,14 +65,14 @@ def test_alt_ajan_cagrisi_ayri_sayilir(tmp_path, monkeypatch, capsys):
     for _ in range(2):
         assert _kos(kok, monkeypatch, capsys, {**ARAC, "agent_id": "x1"}) is None
     assert _sayac(kok) == "4"
-    assert _sayac(kok, "cagri-sayac-alt.txt") == "2"
+    assert _sayac(kok, "A-alt.txt") == "2"
 
 
 def test_bozuk_ya_da_eksik_sayac_sifirdan(tmp_path, monkeypatch, capsys):
     kok = _kok(tmp_path, sayac="abc\x00")
     _kos(kok, monkeypatch, capsys, ARAC)
     assert _sayac(kok) == "1"
-    (kok / ".claude" / "cagri-sayac.txt").unlink()
+    (kok / ".claude" / "cagri-sayac" / "A.txt").unlink()
     _kos(kok, monkeypatch, capsys, ARAC)
     assert _sayac(kok) == "1"
 
@@ -75,7 +80,7 @@ def test_bozuk_ya_da_eksik_sayac_sifirdan(tmp_path, monkeypatch, capsys):
 def test_onda_baglam_dalgaya_dokunmaz(tmp_path, monkeypatch, capsys):
     # MÜKEMMEL-2 madde 2: sayaç dalga.md'ye yazmaz; görünürlük additionalContext ile
     kok = _kok(tmp_path, sayac="9", dalga="# KARAR\r\nkabul\r\n")
-    (kok / ".claude" / "cagri-sayac-alt.txt").write_text("3", encoding="utf-8")
+    (kok / ".claude" / "cagri-sayac" / "A-alt.txt").write_text("3", encoding="utf-8")
     out = _kos(kok, monkeypatch, capsys, ARAC)
     assert out == {"hookSpecificOutput": {"hookEventName": "PostToolUse",
                    "additionalContext": "çağrı 10/45 · alt 3"}}
@@ -101,7 +106,7 @@ def test_sayac_dizini_ortamdan(tmp_path, monkeypatch, capsys):
     monkeypatch.setattr(sys, "stdin", io.StringIO(json.dumps(ARAC)))
     cs.main()
     assert _sayac(kok) == "7"
-    assert (dizin / "cagri-sayac.txt").read_text(encoding="utf-8") == "1"
+    assert (dizin / "cagri-sayac" / "A.txt").read_text(encoding="utf-8") == "1"
 
 
 def test_40_ve_45_mesaji(tmp_path, monkeypatch, capsys):
@@ -112,10 +117,10 @@ def test_40_ve_45_mesaji(tmp_path, monkeypatch, capsys):
     for n in range(41, 45):
         assert _kos(kok, monkeypatch, capsys, ARAC) is None, n
     out = _kos(kok, monkeypatch, capsys, ARAC)
-    assert out["hookSpecificOutput"]["additionalContext"] == "çağrı 45/45: commit + push ve DUR"
-    out = _kos(kok, monkeypatch, capsys, {"hook_event_name": "PostToolUseFailure"})
+    assert out["hookSpecificOutput"]["additionalContext"] == f"çağrı 45/45: {DUR}"
+    out = _kos(kok, monkeypatch, capsys, {**ARAC, "hook_event_name": "PostToolUseFailure"})
     assert out == {"hookSpecificOutput": {"hookEventName": "PostToolUseFailure",
-                   "additionalContext": "çağrı 46/45: commit + push ve DUR"}}
+                   "additionalContext": f"çağrı 46/45: {DUR}"}}
 
 
 def test_hata_sessiz_gecer(tmp_path, monkeypatch, capsys):
@@ -126,42 +131,89 @@ def test_hata_sessiz_gecer(tmp_path, monkeypatch, capsys):
     cs.main()
     monkeypatch.setattr(sys, "stdin", io.StringIO("{bozuk"))
     cs.main()
+    monkeypatch.setattr(sys, "stdin", io.StringIO("[1]"))
+    cs.main()
     assert capsys.readouterr().out == ""
-
-
-# MÜKEMMEL-2d: sayaç kendi oturumuna bağlı (session_id)
-def _oturum(kok):
-    return _sayac(kok, "cagri-sayac-oturum.txt")
-
-
-def test_yabanci_oturum_sayilmaz(tmp_path, monkeypatch, capsys):
-    kok = _kok(tmp_path, sayac="0")
-    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "startup", "session_id": "A"})
-    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
-    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B"})
-    _kos(kok, monkeypatch, capsys, ARAC)
-    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B", "agent_id": "x"})
-    assert _sayac(kok) == "1" and _sayac(kok, "cagri-sayac-alt.txt") == "0"
 
 
 def test_compact_sayaci_korur(tmp_path, monkeypatch, capsys):
     kok = _kok(tmp_path, sayac="0")
-    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "clear", "session_id": "A"})
+    _kos(kok, monkeypatch, capsys, {**BASLA, "source": "clear"})
     for _ in range(3):
-        _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
-    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "compact", "session_id": "A"})
-    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
+        _kos(kok, monkeypatch, capsys, ARAC)
+    _kos(kok, monkeypatch, capsys, {**BASLA, "source": "compact"})
+    _kos(kok, monkeypatch, capsys, ARAC)
     assert _sayac(kok) == "4"
 
 
-def test_clear_sifirlar_ve_baglar(tmp_path, monkeypatch, capsys):
-    kok = _kok(tmp_path, sayac="12")
-    _kos(kok, monkeypatch, capsys, {"hook_event_name": "SessionStart", "source": "clear", "session_id": "C"})
-    assert _sayac(kok) == "0" and _oturum(kok) == "C"
+# KANCA-SAYAÇ-1: sayaç session_id başına, bağlam eşiği, eski dosya temizliği
+def test_eszamanli_oturumlar_ayri_sayilir(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path)
+    for _ in range(3):
+        _kos(kok, monkeypatch, capsys, ARAC)
+        _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B"})
+    _kos(kok, monkeypatch, capsys, {**BASLA, "session_id": "B"})
+    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B", "agent_id": "x"})
+    assert _sayac(kok) == "3" and _sayac(kok, "B.txt") == "0" and _sayac(kok, "B-alt.txt") == "1"
 
 
-def test_kayit_yokken_ilk_olay_baglar(tmp_path, monkeypatch, capsys):
-    kok = _kok(tmp_path, sayac="5")
-    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "A"})
-    _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": "B"})
-    assert _sayac(kok) == "6" and _oturum(kok) == "A"
+def test_eski_tek_dosya_okunmaz(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path)
+    (kok / ".claude" / "cagri-sayac.txt").write_text("44", encoding="utf-8")
+    assert _kos(kok, monkeypatch, capsys, ARAC) is None
+    assert _sayac(kok) == "1"
+
+
+def test_gecersiz_session_id_sessiz(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path)
+    for sid in ("", None, "../x", "a/b", 5):
+        assert _kos(kok, monkeypatch, capsys, {**ARAC, "session_id": sid}) is None
+    assert not (kok / ".claude" / "cagri-sayac").exists() or not list((kok / ".claude" / "cagri-sayac").iterdir())
+    assert not (kok / "x.txt").exists()
+
+
+def _transcript(tmp_path, *satirlar):
+    t = tmp_path / "t.jsonl"
+    t.write_text("\n".join(json.dumps(s) for s in satirlar) + "\n", encoding="utf-8")
+    return str(t)
+
+
+def _asistan(girdi, yaz=0, oku=0, yan=False):
+    return {"type": "assistant", "isSidechain": yan, "message": {"usage": {
+        "input_tokens": girdi, "cache_creation_input_tokens": yaz, "cache_read_input_tokens": oku, "output_tokens": 9}}}
+
+
+def test_baglam_esigi_dur(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="4")
+    t = _transcript(tmp_path, _asistan(5, 1000, 100_000), {"type": "user"},
+                    _asistan(10, 4990, 135_000), _asistan(1, 0, 200_000, yan=True))
+    out = _kos(kok, monkeypatch, capsys, {**ARAC, "transcript_path": t})
+    assert out["hookSpecificOutput"]["additionalContext"] == f"çağrı 5/45: {DUR}"
+
+
+def test_baglam_esik_alti_yalniz_sayi(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="4")
+    t = _transcript(tmp_path, _asistan(10, 4989, 135_000))
+    assert _kos(kok, monkeypatch, capsys, {**ARAC, "transcript_path": t}) is None
+    assert _sayac(kok) == "5"
+
+
+def test_baglam_okunamaz_yalniz_sayi(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="4")
+    bozuk = tmp_path / "bozuk.jsonl"
+    bozuk.write_bytes(b"\xff{bozuk\n[1]\n\"x\"\n" + json.dumps({"type": "assistant", "message": 3}).encode())
+    for yol in (str(tmp_path / "yok.jsonl"), str(bozuk), None, 7):
+        assert _kos(kok, monkeypatch, capsys, {**ARAC, "transcript_path": yol}) is None, yol
+    assert _sayac(kok) == "8"
+
+
+def test_eski_sayac_dosyalari_temizlenir(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="3", sid="eski")
+    d = kok / ".claude" / "cagri-sayac"
+    (d / "yeni.txt").write_text("2", encoding="utf-8")
+    (d / "eski.md").write_text("x", encoding="utf-8")
+    gun_once = time.time() - 25 * 3600
+    for ad in ("eski.txt", "eski.md"):
+        os.utime(d / ad, (gun_once, gun_once))
+    _kos(kok, monkeypatch, capsys, BASLA)
+    assert sorted(p.name for p in d.iterdir()) == ["A-alt.txt", "A.txt", "eski.md", "yeni.txt"]
