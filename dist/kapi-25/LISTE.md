@@ -1,6 +1,7 @@
 # KAPI-25 departman zip'leri
 
 Karşılaştırma tabanı: dist/skill-secim-1/kendi (claude.ai'de yüklü sürüm). Kalan departman zip'leri birebir aynı → yeniden yüklenmez.
+d3 doğrulama (13 Eki 16:54): üç zip dosya dosya bayt karşılaştırıldı — yalnız ekleme (geçen 5 ajan), kayıp 0, değişen 0.
 
 - **departman-arastirma-ogrenme.zip** → claude.ai skill `departman-arastirma-ogrenme` (Upload and replace)
   - eklenen ajanlar: otm-zamanlanmis-gorev
