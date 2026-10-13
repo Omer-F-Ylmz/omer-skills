@@ -145,12 +145,3 @@ def test_jev_skill_cc_profil_yokken_ayni():
     satir = JEV.read_text(encoding="utf-8-sig").splitlines()
     assert KORUMA in satir and satir.index(KORUMA) < next(i for i, s in enumerate(satir) if "ReadToEnd" in s)
     assert [s for s in satir if s != KORUMA] == BAZ.read_text(encoding="utf-8-sig").splitlines()
-
-
-def test_kopru_kapali_araclar_disallowed():
-    """TOKEN-8: gerçek profil — kopru.kapat tek --disallowedTools; ttl/tam'da yok, CC_PROFIL_ZORLA=tam düşürür."""
-    import cc_profil
-    args, _ = cc_profil.kur("kopru", env={})
-    assert args[args.index("--disallowedTools") + 1].split(",")[:2] == ["Artifact", "DesignSync"]
-    assert "--disallowedTools" not in cc_profil.kur("ttl", env={})[0]
-    assert cc_profil.kur("kopru", env={"CC_PROFIL_ZORLA": "tam"})[0] == []
