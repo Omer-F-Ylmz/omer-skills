@@ -46,7 +46,7 @@ def main():
         j = derin(o)
         print(f"- {o['ad']} [{o['tur']}] · {o['cagri'][:60]}")
         if j:
-            print(f"  nasıl: {j['nasil']} · ne zaman: {j['neden']} · en iyi: {j['en_iyi']} · birlikte: {j['birlikte']} · tuzak: {j['tuzak']} · maliyet: {j['maliyet']}")
+            print(f"  {'(taslak, doğrulanmamış) ' if j.get('dogrulandi') is False else ''}nasıl: {j['nasil']} · ne zaman: {j['neden']} · en iyi: {j['en_iyi']} · birlikte: {j['birlikte']} · tuzak: {j['tuzak']} · maliyet: {j['maliyet']}")
         else:
             print(f"  {(o['is'] or o['metin'])[:140]} (derin yok)")
 

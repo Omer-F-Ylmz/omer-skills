@@ -16,14 +16,15 @@ GRUP = 8
 JETON = kd.KAT / "derin-jeton.tsv"
 ISTEM = """Aşağıda Claude Code yetenek kartları var (skill / ajan / plugin / mcp / cli). Her kart için TEK SATIR JSON yaz; başka metin, kod çiti, açıklama YAZMA:
 {"ad":"<kart başlığındaki ad, aynen>","nasil":"...","neden":"...","en_iyi":"...","birlikte":"...","tuzak":"...","maliyet":"..."}
-Alanlar Türkçe, her biri en çok 160 karakter, tek cümle:
+Alanlar Türkçe, her biri en çok 120 karakter, tek cümle:
 - nasil: nasıl çalışır — kartın başlıklarından/gövdesinden somut adımlar ya da komut ("X komutuyla çağrılır" tek başına YETMEZ)
 - neden: hangi iş/durumda seçilir
 - en_iyi: en iyi sonuç için pratik ipucu
 - birlikte: kartta adı geçen, birlikte kullanılan araç/skill/ajan; yoksa "?"
 - tuzak: kartta görülen sınır, risk ya da yaygın hata
 - maliyet: jeton/süre/bağımlılık yükü (gövde boyu, ağır komut, gereken anahtar ADI)
-KURAL: Yalnız karttaki bilgiye dayan. Kartta olmayan komut, bayrak, sürüm, sayı, araç adı UYDURMA; emin değilsen o alana "?" yaz. Anahtar/sır değeri yazma.
+KURAL: Yalnız karttaki metne dayan. Kartta olmayan komut, bayrak, sürüm, sayı, araç adı, örnek UYDURMA; kartta bilgi yoksa o alana yalnız "?" yaz.
+Genel/yuvarlak ifade YASAK ("verimliliği artırır", "en iyi uygulamaları izleyin", "dikkatli kullanın" gibi) — her alan bu karta özgü somut bilgi ya da "?". Anahtar/sır değeri yazma.
 
 """
 
