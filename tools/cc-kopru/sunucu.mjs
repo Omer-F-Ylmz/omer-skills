@@ -18,6 +18,7 @@ import { CIKTI_TAVAN, HEADROOM_KOK, MEM_KOK, ajanAlanDenetle, aracAdlari, ayarYu
          komutSatiri, kos, memGovde, redakte, sizintiKapisi, statuslineGovde,
          yenidenYazimKabul, yerelGun, yolBul } from "./kos.mjs";
 import { ARALIK_TAVAN, logKoku, oku } from "./oku.mjs";
+import { OMNI_BAYRAK, OMNI_COMBO, OMNI_ISTEM, ajanOrtami, bayrakYaz, limitTuru, omniAktif, sifirlanma, siraEkle } from "./omniroute.mjs";
 import { gozlemHooku, hookKaynaklari, hookKos, hookTanimlari, izDosyasi,
          katalogTopla } from "./hook.mjs";
 import os from "node:os";
@@ -196,27 +197,41 @@ srv.registerTool("ajan", {
 
   // denetimden buraya kadar await yok: tavan denetimi ile artış aynı senkron adımda (yarış yok)
   ajanAktif += 1;
-  const cikti = await new Promise((coz) => {
-    // Ömer 12 Eki 20:06 "yapalım": ajan oturumları Jev/OpenRouter anahtarını jev aracının envGecir listesiyle alır
-    // (değer yazılmaz; cocukOrtam değerleri redaksiyon kümesine ekler). Kapalıysa eski davranış.
-    let ortam = AYAR.ajanJevAnahtari ? cocukOrtam("jev", AYAR) : process.env;
-    // API-KREDİ (Ömer 12 Eki 20:34): Max planın aylık Console API kredisi. Bayrak dosyası varsa ve Ömer'in
-    // kendi oluşturduğu ANTHROPIC_API_KEY_AJAN kullanıcı değişkeni tanımlıysa ajan oturumu (claude -p) plan limiti
-    // yerine bu anahtarla koşar. Bayrak her çağrıda okunur (silinince plana döner); değer yazılmaz, redakte edilir.
-    const bayrak = AYAR.apiKrediBayrak || "C:/Projeler/omer-skills/.kos/kopru/api-kredi.ac";
-    if (fs.existsSync(bayrak)) {
-      const anahtar = process.env.ANTHROPIC_API_KEY_AJAN || kullaniciEnv("ANTHROPIC_API_KEY_AJAN");
-      if (anahtar) { sirEkle(anahtar); ortam = { ...ortam, ANTHROPIC_API_KEY: anahtar }; }
-    }
-    const p = spawn(CLAUDE, [...CLAUDE_ON, ...argv], { cwd: proje, shell: false, windowsHide: true, env: ortam });
-    stdinYaz(p, gorev);   // istem stdin'den
+  // Ömer 12 Eki 20:06 "yapalım": ajan oturumları Jev/OpenRouter anahtarını jev aracının envGecir listesiyle alır
+  // (değer yazılmaz; cocukOrtam değerleri redaksiyon kümesine ekler). Kapalıysa eski davranış.
+  // API-KREDİ (Ömer 12 Eki 20:34): Max planın aylık Console API kredisi. Bayrak dosyası varsa ve Ömer'in
+  // kendi oluşturduğu ANTHROPIC_API_KEY_AJAN kullanıcı değişkeni tanımlıysa ajan oturumu (claude -p) plan limiti
+  // yerine bu anahtarla koşar. Bayrak her çağrıda okunur (silinince plana döner); değer yazılmaz, redakte edilir.
+  // OMNIROUTE-1: omniroute.ac varken (api-kredi yoksa) yerel OmniRoute combo'su; haftalık limitte bayrak kendiliğinden açılır.
+  const krediBayrak = AYAR.apiKrediBayrak || "C:/Projeler/omer-skills/.kos/kopru/api-kredi.ac";
+  const omniBayrak = AYAR.omniBayrak || OMNI_BAYRAK;
+  const kos1 = (omni) => new Promise((coz) => {
+    const taban = AYAR.ajanJevAnahtari ? cocukOrtam("jev", AYAR) : process.env;
+    const envOku = (ad) => process.env[ad] || kullaniciEnv(ad);
+    const r = ajanOrtami(taban, { apiKredi: fs.existsSync(krediBayrak), omni, oku: envOku });
+    if (r.sir) sirEkle(r.sir);
+    // --model tam ad (claude-opus-*) da olabilir; ANTHROPIC_DEFAULT_* yalnız takma adları eşler → combo'ya çevir
+    const av = r.env.KOPRU_OMNIROUTE ? argv.map((x, i) => (argv[i - 1] === "--model" ? OMNI_COMBO : x)) : argv;
+    const ist = r.env.KOPRU_OMNIROUTE ? `${OMNI_ISTEM}\n\n${gorev}` : gorev;
+    const p = spawn(CLAUDE, [...CLAUDE_ON, ...av], { cwd: proje, shell: false, windowsHide: true, env: r.env });
+    stdinYaz(p, ist);   // istem stdin'den
     const o = [];
     p.stdout.on("data", (b) => o.push(b));
     p.stderr.on("data", (b) => o.push(b));
     const zam = setTimeout(() => { try { p.kill(); } catch { /* bitti */ } }, a.timeout_sn * 1000);
     p.on("error", (e) => { clearTimeout(zam); coz(String(e)); });
     p.on("close", () => { clearTimeout(zam); coz(Buffer.concat(o).toString("utf8")); });
-  }).finally(() => { ajanAktif -= 1; });
+  });
+  let cikti;
+  try {
+    const omni = omniAktif(omniBayrak);
+    cikti = await kos1(omni);
+    if (!omni && !fs.existsSync(krediBayrak) && limitTuru(cikti) === "haftalik") {
+      bayrakYaz(omniBayrak, sifirlanma(cikti));
+      siraEkle(`${new Date().toTimeString().slice(0, 5)} KÖPRÜ: haftalık plan limiti → omniroute.ac açıldı, ajan görevi OmniRoute (${OMNI_COMBO}) ile bir kez yeniden koşuyor`);
+      cikti = await kos1(true);
+    }
+  } finally { ajanAktif -= 1; }
 
   let j;
   try { j = JSON.parse(cikti); } catch { return hata("claude -p JSON dönmedi:\n" + redakte(cikti).slice(0, 2000)); }
