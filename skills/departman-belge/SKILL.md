@@ -30,7 +30,7 @@ Adımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` =
 ### claude.ai + Claude Code
 ajan:dok-adr-yazar: a technical choice must be recorded
 ajan:dok-api-dokumani
-ajan:dok-cevirmen-teknik: docs must be bilingual, or when asked how
+ajan:dok-cevirmen-teknik: docs must be bilingual
 ajan:dok-degisiklik-gunlugu: releasing a version
 ajan:dok-docx-uretici
 ajan:dok-pdf-uretici: kaçın: fatura → invoice/fatura-kutusu
@@ -39,9 +39,9 @@ ajan:dok-rapor-ozetleyici
 ajan:dok-sorun-giderme-rehberi: support questions repeat
 ajan:dok-tablo-duzenle
 ajan:dok-teknik-teklif
-ajan:dok-toplanti-notu: notes need cleaning up, or when asked how
+ajan:dok-toplanti-notu: notes need cleaning up
 ajan:dok-xlsx-tablo
-ajan:otm-bildirim-yonlendirme: notifications are noisy, or when asked how to
+ajan:otm-bildirim-yonlendirme: notifications are noisy
 ajan:otm-dosya-isleme-botu: many files need the same operation
 ajan:oyn-oyun-motoru-script: implementing a mechanic
 fatura-kutusu: fatura/invoice PDF, saat bazlı danışmanlık

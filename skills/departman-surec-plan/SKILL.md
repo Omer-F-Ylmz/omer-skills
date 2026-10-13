@@ -36,17 +36,17 @@ Adımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` =
 ### claude.ai + Claude Code
 ajan:bl-modelleme-plani
 ajan:bl-rig-iskelet: a model must pose or deform
-ajan:pln-bagimlilik-haritasi: sequencing a large plan, or when asked how
+ajan:pln-bagimlilik-haritasi: sequencing a large plan
 ajan:pln-dalga-plani
 ajan:pln-fikir-olgunlastir
 ajan:pln-gorev-bolme: work must be sequenced
 ajan:pln-kabul-olcutleri: a story lacks done criteria
-ajan:pln-kapsam-kesici: scope grows, a feature list is too long
+ajan:pln-kapsam-kesici: scope grows or a deadline is near
 ajan:pln-karar-kaydi: Records decisions with context, choice and reason in
 ajan:pln-mimari-plan
 ajan:pln-niyet-netlestirme: a task is ambiguous
 ajan:pln-prd-yazar
-ajan:pln-risk-kaydi: planning a risky change, including general questions like
+ajan:pln-risk-kaydi: planning a risky change
 ajan:pln-teknik-spec
 ajan:vid-premiere-akis
 ### yalnız Claude Code

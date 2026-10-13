@@ -31,10 +31,10 @@ Adımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` =
 ### claude.ai + Claude Code
 ajan:ara-arac-degerlendirme
 ajan:ara-dokuman-indeksle: knowledge is scattered
-ajan:ara-kutuphane-dokuman: asked about library syntax, usage, or migration
+ajan:ara-kutuphane-dokuman: asked about library syntax or migration
 ajan:ara-lisans-kontrol: Reads repo licenses and states what use is
 ajan:ara-ogrenme-plani
-ajan:ara-repo-karsilastirma: choosing between libraries, or when asked how to
+ajan:ara-repo-karsilastirma: choosing between libraries
 ajan:ara-web-kazima
 ajan:ara-yeni-arac-kurulum-arastirma
 ajan:ara-youtube-ozet
@@ -44,9 +44,9 @@ ajan:bl-uv-acma: textures stretch or bake wrong
 ajan:oyn-mod-onarim: a mod stops working after a game update
 ajan:oyn-oyun-ses-geri-bildirim: actions feel weak
 ajan:vid-kare-cikarici: stills are needed
-ajan:vid-kisa-klip-secici: cutting highlights, or when asked how to pick
+ajan:vid-kisa-klip-secici: cutting highlights
 ajan:vid-remotion-kurucu
-ajan:vid-ses-duzeni: audio feels uneven in a video, or when
+ajan:vid-ses-duzeni: audio feels uneven in a video
 ajan:vid-sosyal-video-bicim
 ajan:vid-video-brief
 ajan:vid-video-ozetle
@@ -107,7 +107,6 @@ network-interface-health: ルーター、スイッチ、Linuxホスト上のイ�
 number-details: Add decorative 01, 02, 03 numeric detail markers
 nuxt4-patterns: ハイドレーション安全性、パフォーマンス、ルートルール、遅延ロード、useFetchとuseAsyncDataを使ったSSR安全なデータフェッチングのためのNuxt 4アプリパターン。
 okr-alignment: Link program work to OKRs and measurable outcomes
-ponytail: Lazy senior dev mode for any coding task
 prepare
 prioritisation-framework: Prioritise competing program requests with a transparent, repeatable
 progressive-disclosure: Revealing AI capability gradually to match user mental
@@ -135,5 +134,4 @@ unfreeze: Clear the freeze boundary set by /freeze, allowing
 user-satisfaction-signals: Interpreting implicit and explicit feedback — edits, regenerations
 value-specification: Translating organisational values and user expectations into system
 wait-what: Stop
-yt-package: "title ideas", "what should I call this", "thumbnail
 <!-- dizin:son -->

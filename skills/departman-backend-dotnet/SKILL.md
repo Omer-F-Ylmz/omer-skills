@@ -43,7 +43,7 @@ ajan:dn-dotnet-performans
 ajan:dn-efcore-migration
 ajan:dn-efcore-modelleme
 ajan:dn-efcore-seed-veri
-ajan:dn-gozlemlenebilirlik: production behavior is invisible or when asked how
+ajan:dn-gozlemlenebilirlik: production behavior is invisible
 ajan:dn-identity-auth
 ajan:dn-minimal-api-kurucu: minimal API uç nokta (+EF Core)
 ajan:dn-msbuild-hata-cozucu
@@ -53,7 +53,7 @@ ajan:dn-nullable-gecis
 ajan:dn-openapi-dokuman
 ajan:dn-razor-sayfa
 ajan:dn-signalr-gercek-zamanli
-ajan:dn-webapi-endpoint
+ajan:dn-webapi-endpoint: adding controllers or minimal API routes
 ajan:dn-xunit-test-yazar
 ajan:otm-api-entegrasyon
 ### yalnız Claude Code

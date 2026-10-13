@@ -55,7 +55,7 @@ ajan:sec-loglama-gizlilik: adding logging or error handling
 ajan:sec-pentest-plani
 ajan:sec-sast-kosucu
 ajan:sec-sifreleme-denetci
-ajan:sec-sir-tarayici: committing, publishing or after a suspected leak, or
+ajan:sec-sir-tarayici: committing, publishing or after a suspected leak
 ajan:sec-tehdit-modelleme: designing a feature that handles sensitive data
 ajan:sec-xss-csrf-denetci
 ajan:sec-yetkilendirme-matrisi: an app has multiple user roles

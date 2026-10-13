@@ -45,7 +45,7 @@ ajan:ajn-plugin-iskelet
 ajan:ajn-prompt-denetci
 ajan:ajn-skill-test
 ajan:otm-ajan-is-akisi-kur
-ajan:otm-google-sheets-akis
+ajan:otm-google-sheets-akis: small office processes need automation
 ajan:otm-mail-otomasyon
 ajan:otm-n8n-akis-tasarimi
 ajan:otm-n8n-hata-yonetimi
@@ -53,7 +53,6 @@ ajan:otm-n8n-ifade-kod
 ajan:otm-otomasyon-izleme
 ajan:otm-tarayici-otomasyon
 ### yalnız Claude Code
-agent-reach: Reddit/X/YouTube/GitHub gönderi ve konu okuma
 agp-9-upgrade: Upgrades, or migrates, an Android project to use
 ask-matt: Ask which skill or flow fits your situation
 chief-of-staff: Pursue a long-running goal in a single session

@@ -25,12 +25,12 @@ Adımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` =
 ### claude.ai + Claude Code
 ajan:vid-ffmpeg-donusturucu
 ajan:vrm-alt-ajan-dagitim
-ajan:vrm-baglam-butcesi: sessions feel bloated, context fills too fast, or
-ajan:vrm-bilgi-tabani-hazirla: the same facts are re-explained often, or when
+ajan:vrm-baglam-butcesi: sessions feel bloated
+ajan:vrm-bilgi-tabani-hazirla: the same facts are re-explained often
 ajan:vrm-cikti-sikistirma: tool output is large
-ajan:vrm-hafiza-arama: asked what was done before, or how to
+ajan:vrm-hafiza-arama: asked what was done before
 ajan:vrm-log-ozetleyici: a log is too long to read
-ajan:vrm-maliyet-denetci: bills or limits rise, or when asked where
+ajan:vrm-maliyet-denetci: bills or limits rise
 ajan:vrm-oturum-kaydi: Saves a short session handoff with state, decisions
 ### yalnız Claude Code
 aks-gpu-inference: : setup (airunway-aks-setup), non-GPU incidents (aks-troubleshooting), standalone VM

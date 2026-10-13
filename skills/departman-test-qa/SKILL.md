@@ -51,6 +51,7 @@ ajan:qa-test-iskelet-dotnet
 ajan:qa-test-kokusu
 ajan:qa-test-verisi
 ### yalnız Claude Code
+benchmark: Performance regression detection
 calisma-protokolu: any coding, planning, evaluation, debugging or research task
 comparative-evaluation: A/B testing, side-by-side comparison, and preference ranking for
 constraint-driven-development: no quality bar is written down, when the
