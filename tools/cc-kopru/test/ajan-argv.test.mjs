@@ -121,7 +121,7 @@ test("ajan argv'si tek --settings ile ttl profilini sonda tasir", async () => {
   fs.rmSync(YAKALA, { force: true });
   await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", hafif: true });
   const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
-  assert.deepEqual(y.argv.slice(-2), TTL);
+  assert.deepEqual(y.argv.slice(-TTL.length), TTL);
   assert.equal(y.argv.filter((a) => a === "--settings").length, 1);
 });
 
