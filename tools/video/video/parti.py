@@ -769,7 +769,7 @@ def _tara_ikili(kalan, pk, hatalar, temizle, d, pdir, env, cagir, modeller):
         bs = bolum_sinir(pk[v]) if up in ("1", "2") and not pk[v].get("short") else [(0, pk[v]["sure"] + 1)]
         sh = (env or os.environ).get("VIDEO_SHORT_HIZ", "low") if pk[v].get("short") else None  # VİDEO-16: short'ta ortak önek (A) + --effort <sh>; d5 KABUL: varsayılan low, "0" kapatır
         sh = None if sh == "0" else sh
-        kv = (env or os.environ).get("VIDEO_SHORT_KOL", "ss") if pk[v].get("short") else "0"  # d7: short varsayılanı ss · "0" sonnet+haiku
+        kv = (env or os.environ).get("VIDEO_SHORT_KOL", "ssb") if pk[v].get("short") else "0"  # d9: short varsayılanı ssb · "ss" geniş ikinci kol · "0" sonnet+haiku
         mv = modeller[:1] * 2 if kv in ("ss", "ssb") else modeller  # d5: haiku kolu ~20k düşünme jetonu (efor yok sayılıyor) → ikinci sonnet
         jtv = jt + "A" if len(bs) > 1 or sh else jt  # VİDEO-14-devam-2 (c): bölüm çağrıları ortak önek (şemada id enum yok) → önbellek okunur
         if len(bs) > 1 and up == "2":  # PARALEL-2: bölüm formu urller/kurulum_komutlar'ı boş geçmesin (Z); birincil model yalnız 1. bölümde (4 çağrı)
