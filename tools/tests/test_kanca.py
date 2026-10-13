@@ -166,3 +166,13 @@ def test_cli_subagent_start_2_sn_altinda(depo, tmp_path):
                        env={**os.environ, "OGRENME_DIZIN": str(depo)}, timeout=30)
     assert time.monotonic() - t < 2 and r.returncode == 0
     assert "additionalContext" in r.stdout.decode("utf-8")
+
+
+def test_kalibre_uydur():
+    import kalibre
+    # (jev, arac, hata, test, opus): Opus başarısı yalnız test sinyaliyle ayrılıyor → ödül > 0; Jev ile ayrılan küme → ödül 0, eşik araya düşer
+    s = [(4.2, 6, 0, 1, 1)] * 5 + [(4.2, 6, 0, 0, 0)] * 5
+    e, odul, pay, bd, _, _ = kalibre.uydur(s)
+    assert odul > 0 and bd == 1.0 and pay is not None
+    e, odul, _, bd, _, _ = kalibre.uydur([(8, 5, 0, None, 1)] * 4 + [(3, 5, 0, None, 0)] * 4)
+    assert odul == 0 and 3 < e <= 8 and bd == 1.0
