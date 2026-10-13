@@ -4,13 +4,16 @@ Girdi (yeniden kullanım): docs/envanter/envanter.tsv (tools/envanter/topla.py �
 skills/ajan-getir/katalog.tsv (tools/ajan_katalog.py), SKILL.md frontmatter (yerel · plugin · claude.ai
 senkron · repo skills/), plugin manifestleri, omer-kutuphaneler tablosu, tools/*.py docstring'leri.
 Artımlı: önceki jsonl'de alt ajanın yazdığı 'is' (ozet=1) kaynak imzası aynıysa korunur; imza değişen ya da
-açıklaması olmayan satır ozet_bekliyor=1 olur (özet partisi: tools/katalog_yenile.py --bekleyen).
+açıklaması olmayan satır ozet_bekliyor=1 olur (özet partisi: tools/katalog_yenile.py --bekleyen → 'is' boş
+satırlar; alt ajan çıktısı {ad, tur, is, tetik} jsonl → --birlestir <dosya> ozet=1 yazar).
 Salt okuma; MCP/ayar dosyalarından yalnız ad okunur, sır/ortam değeri yazılmaz.
 """
 import csv
 import hashlib
 import json
+import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -41,10 +44,16 @@ def skill_aciklamalari():
     for kok in (KOK / "skills", EV / "skills"):
         for md in kok.glob("*/SKILL.md"):
             d.setdefault(md.parent.name, aciklama(md))
-    for md in (EV / "plugins" / "synced").glob("**/SKILL.md"):
-        d.setdefault(md.parent.name, aciklama(md))
+    # claude.ai senkron skill'lerin yerel kopyası skills/synced/<uuid>/<ad>/
+    for md in [*(EV / "plugins" / "synced").glob("**/SKILL.md"), *(EV / "skills" / "synced").glob("*/*/SKILL.md")]:
+        if not d.get(md.parent.name):
+            d[md.parent.name] = aciklama(md)
     ip = json.loads((EV / "plugins" / "installed_plugins.json").read_text(encoding="utf8"))
     plug = {}
+    # plugin.json'da açıklama yoksa pazar yeri marketplace.json'daki satır
+    for m in (EV / "plugins" / "marketplaces").glob("*/.claude-plugin/marketplace.json"):
+        for p in json.loads(m.read_text(encoding="utf8", errors="ignore")).get("plugins") or []:
+            plug.setdefault(f"{p.get('name')}@{m.parents[1].name}", p.get("description") or "")
     for anahtar, kayitlar in (ip.get("plugins") or {}).items():
         for k in kayitlar[:1]:
             yol = Path(k["installPath"])
@@ -52,8 +61,23 @@ def skill_aciklamalari():
                 d.setdefault(f"{anahtar.split('@')[0]}:{md.parent.name}", aciklama(md))
             man = yol / ".claude-plugin" / "plugin.json"
             if man.exists():
-                plug[anahtar] = (json.loads(man.read_text(encoding="utf8", errors="ignore")).get("description") or "")
+                plug[anahtar] = (json.loads(man.read_text(encoding="utf8", errors="ignore")).get("description") or "") or plug.get(anahtar, "")
     return d, plug
+
+
+def paket_aciklamalari():
+    """CLI paket adı → açıklama: npm -g package.json + uv tool METADATA Summary."""
+    d = {}
+    npm = Path(subprocess.run("npm root -g", shell=True, capture_output=True, text=True).stdout.strip() or ".")
+    for pj in [*npm.glob("*/package.json"), *npm.glob("@*/*/package.json")]:
+        j = json.loads(pj.read_text(encoding="utf8", errors="ignore"))
+        d[j.get("name", "")] = j.get("description") or ""
+    uv = Path(os.environ.get("APPDATA", "")) / "uv" / "tools"
+    for meta in uv.glob("*/Lib/site-packages/*.dist-info/METADATA"):
+        m = re.search(r"^Summary: (.*)$", meta.read_text(encoding="utf8", errors="ignore"), re.M)
+        if m and meta.parents[3].name.lower() == meta.parent.name.split("-")[0].lower().replace("_", "-"):
+            d[meta.parents[3].name] = m.group(1)
+    return d
 
 
 def kapali_skilller():
@@ -82,6 +106,7 @@ def repo_araclari():
 def satirlar():
     sk, plug = skill_aciklamalari()
     kapali = kapali_skilller()
+    paket = paket_aciklamalari()
     ajan = {}
     with open(KOK / "skills" / "ajan-getir" / "katalog.tsv", encoding="utf8") as f:
         for r in csv.reader(f, delimiter="\t"):
@@ -114,7 +139,7 @@ def satirlar():
             yield dict(ad=ad, tur="mcp", kaynak=kaynak, aciklama=r["is"],
                        cagri=f"ToolSearch '{ad}' → mcp__{ad}__*" if tur == "mcp" else "claude.ai bağlayıcısı", durum=nerede)
         elif tur == "cli" and ad != "-":
-            yield dict(ad=ad, tur="cli", kaynak=kaynak, aciklama=r["is"], cagri=f"Bash: {ad} --help", durum=nerede)
+            yield dict(ad=ad, tur="cli", kaynak=kaynak, aciklama=r["is"] or paket.get(ad, ""), cagri=f"Bash: {ad} --help", durum=nerede)
     for ad, aciklama_, lisans in kutuphaneler():
         yield dict(ad=ad, tur="kutuphane", kaynak="omer-kutuphaneler", aciklama=aciklama_,
                    cagri="Skill omer-kutuphaneler (pinli kurulum satırı)", durum=f"lisans {lisans}")
@@ -152,11 +177,17 @@ def main():
         for s in jl.read_text(encoding="utf8").splitlines():
             o = json.loads(s)
             onceki[(o["ad"], o["tur"])] = o
+    if "--birlestir" in sys.argv:
+        for s in Path(sys.argv[sys.argv.index("--birlestir") + 1]).read_text(encoding="utf8").splitlines():
+            y = json.loads(s) if s.strip() else None
+            if y and (y["ad"], y["tur"]) in onceki and y.get("is"):
+                onceki[(y["ad"], y["tur"])].update(ozet=1,**{"is": kisa(y["is"]), "tetik": kisa(y.get("tetik", ""), 120)})
     rows = uret(onceki)
     if "--bekleyen" in sys.argv:
+        sys.stdout.reconfigure(encoding="utf8")
         for o in rows:
-            if o["ozet_bekliyor"]:
-                print(json.dumps({k: o[k] for k in ("ad", "tur", "kaynak", "metin")}, ensure_ascii=False))
+            if not o["is"]:
+                print(json.dumps({k: o[k] for k in ("ad", "tur", "kaynak", "durum")}, ensure_ascii=False))
         return
     jl.write_bytes("".join(json.dumps(o, ensure_ascii=False) + "\n" for o in rows).encode("utf8"))
     sutun = ["ad", "tur", "kaynak", "is", "tetik", "cagri", "durum"]

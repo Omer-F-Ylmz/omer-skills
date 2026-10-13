@@ -17,7 +17,9 @@ ES = {
     "yavas": "slow performance", "performans": "performance profiling", "dagitim": "deploy deployment release",
     "gorsel": "image visual screenshot", "resim": "image", "video": "video ffmpeg", "ses": "audio voice",
     "belge": "document docx pdf", "rapor": "report", "sunum": "presentation slides pptx", "tablo": "table xlsx spreadsheet",
-    "cevir": "translate translation", "ozet": "summary summarize", "ozetle": "summarize summary",
+    "cevir": "translate translation convert", "donustur": "convert", "markdown": "markdown markitdown",
+    "karanlik": "dark theme", "hizlandir": "optimize slow index", "mesaj": "message messages",
+    "deney": "experiment ab testing","ozet": "summary summarize", "ozetle": "summarize summary",
     "arama": "search", "ara": "search find", "kazi": "scrape crawl", "tarayici": "browser playwright",
     "tasarim": "design ui", "arayuz": "ui interface frontend", "bilesen": "component", "renk": "color palette",
     "yazi": "font typography text", "animasyon": "animation motion", "oyun": "game", "mod": "mod modding",
@@ -35,16 +37,19 @@ ES = {
     "pazarlama": "marketing", "fiyat": "pricing price", "musteri": "customer", "yuk": "load",
     "erisilebilirlik": "accessibility a11y", "seo": "seo meta", "kutuphane": "library", "indir": "download",
     "altyazi": "subtitle caption transcript", "kilit": "deadlock lock", "deadlock": "kilitlenme lock",
-    "dogrula": "validation validate verify", "uctan": "e2e end-to-end", "orneklem": "sample size statistics",
+    "dogrula": "validation validate verify", "uctan": "e2e end-to-end", "orneklem": "sample size statistics experiment testing",
     "kirili": "flaky intermittent", "flaky": "flaky intermittent", "jwt": "jwt token", "dokum": "transcript", "pdf": "pdf document",
 }
+ORAN, UZUN, ILK = 0.4, 30, 5
+GRUP = {"skill": "skill", "ajan": "ajan", "mcp": "mcp", "plugin": "plugin", "cli": "cli",
+        "kutuphane": "kütüphane", "arac": "bizim betik"}
 TR = str.maketrans("çğıöşüÇĞİÖŞÜâî", "cgiosucgiosuai")
 
 
 def kelimeler(s):
     t = [w for w in re.split(r"[^a-z0-9]+", s.lower().translate(TR)) if len(w) > 1]
     # 5 harf önek: TR ekleri ve EN çoğul/çekim (tablosunda/tablo, deadlocks/deadlock) için kaba kök
-    return t + [w[:5] + "~" for w in t if len(w) > 5]
+    return t + [w[:5] + "~" for w in t if len(w) >= 5]
 
 
 def genislet(q):
@@ -52,7 +57,8 @@ def genislet(q):
     return t + [e for w in t for k, v in ES.items() if w.startswith(k) and len(w) - len(k) <= 4 for e in v.split()]
 
 
-def ara(q, tur=None, n=8, satirlar=None):
+def ara(q, tur=None, oran=ORAN, satirlar=None):
+    """İlgili sayılan HER kayıt: puanı en iyinin `oran` katını geçenler (sabit ilk-N değil; Ömer 21:33)."""
     rows = satirlar or [json.loads(s) for s in KATALOG.read_text(encoding="utf8").splitlines()]
     if tur:
         rows = [o for o in rows if o["tur"] == tur]
@@ -70,16 +76,26 @@ def ara(q, tur=None, n=8, satirlar=None):
         if "kapal" in o["durum"]:
             s *= 0.5
         puan.append((s, o))
-    return [o for s, o in sorted(puan, key=lambda x: -x[0])[:n] if s > 0]
+    puan.sort(key=lambda x: -x[0])
+    tepe = puan[0][0] if puan else 0
+    return [o for s, o in puan if s > 0 and s >= oran * tepe]
 
 
 def main():
     a = sys.argv[1:]
     tur = a[a.index("--tur") + 1] if "--tur" in a else None
-    n = int(a[a.index("--n") + 1]) if "--n" in a else 8
-    q = " ".join(x for i, x in enumerate(a) if not x.startswith("--") and (i == 0 or a[i - 1] not in ("--tur", "--n")))
-    for o in ara(q, tur, n):
-        print(f"{o['tur']} · {o['ad']} · {(o['is'] or o['metin'])[:110]} · {o['cagri'][:50]}")
+    oran = float(a[a.index("--oran") + 1]) if "--oran" in a else ORAN
+    q = " ".join(x for i, x in enumerate(a) if not x.startswith("--") and (i == 0 or a[i - 1] not in ("--tur", "--oran")))
+    sonuc = ara(q, tur, oran)
+    gruplar = {t: [o for o in sonuc if o["tur"] == t] for t in GRUP if any(o["tur"] == t for o in sonuc)}
+    uzun = len(sonuc) > UZUN and "--tam" not in a
+    print(f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items()))
+    for t, v in gruplar.items():
+        print(f"## {GRUP[t]} ({len(v)})")
+        for o in v[:ILK if uzun else None]:
+            print(f"{o['ad']} · {(o['is'] or o['metin'])[:110]} · {o['cagri'][:60]}")
+    if uzun:
+        print(f"… grup başına ilk {ILK}; hepsi için --tam")
 
 
 if __name__ == "__main__":
