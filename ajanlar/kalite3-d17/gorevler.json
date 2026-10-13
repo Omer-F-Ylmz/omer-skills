@@ -1863,6 +1863,305 @@
   ]
  },
  {
+  "ajan": "dok-obsidian-bases-gorunum",
+  "model": "sonnet",
+  "istem": "In my Obsidian vault I have book notes with status, rating and a finish-by property. I want one dashboard file that lists only books I'm reading outside the Archive folder, shows how many days remain until each finish-by value, flags overdue ones, and shows the average rating at the bottom, plus a second gallery-style view of covers. My last attempt showed an error on the remaining-days column. Write it in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)and:|or:|not:|file\\.hasTag|file\\.inFolder|filters:",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)formulas:|formula\\.|today\\(\\)|now\\(\\)|date\\(",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)\\.days|duration|süre",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)yaml|tırnak|quote|views:|type: ?(table|cards)",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-json-canvas-tuval",
+  "model": "sonnet",
+  "istem": "Generate an Obsidian canvas file for our onboarding flow: five steps as boxes left to right, arrows between them, a box pointing to our wiki page, and a colored frame around steps 2-4 labelled 'first week'. Last time the file opened blank and the step descriptions showed literal backslashes. Give me the file content in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)width|height|16.?char|hex|unique id|benzersiz kimlik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fromNode|toNode|fromSide|toSide|toEnd",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)group|z-index|array order|dizi sırası|katman",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)\\\\n|newline|satır sonu",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-obsidian-eklenti-dongusu",
+  "model": "sonnet",
+  "istem": "I'm writing a sidebar plugin for Obsidian in TypeScript. After each build I restart the app by hand, the panel sometimes renders with the wrong background in dark mode, and I suspect an exception on startup that I never see. I also need to know it works on phones. Give me a faster edit-verify loop in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)plugin:reload|reload|yeniden yükle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dev:errors|dev:console|level=error|konsol",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dev:screenshot|dev:dom|dev:css|screenshot|ekran görüntüsü",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)eval|app\\.vault|dev:mobile|mobil",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-defuddle-sayfa-cikarim",
+  "model": "haiku",
+  "istem": "Our research agent fetches 40 blog articles a day and the raw pages are full of menus, cookie banners and related-post widgets, which eats our context budget. I want only the article body plus its title and site name, saved per article so a later step can use them. Show the commands and checks in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)--md|markdown",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)-p title|-p domain|-p description|metadata|üst ?veri",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)--json|-o |content\\.md",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)npm install -g defuddle|npx|fallback|WebFetch|yedek yol",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-knap-sablon-uretim",
+  "model": "sonnet",
+  "istem": "I export 500 rows of product research from a spreadsheet to JSON and want one Obsidian note per row with a properly quoted title and tag list at the top, a reviewer line only when a reviewer exists, and the description body. Some titles contain colons and quotes, which broke my last Python script. How do I do this using Knap, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)knap render|--data|--set",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)yaml_property|frontmatter|ön ?bilgi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)knap validate|validate|stderr|exit|çıkış kodu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)knap help|help filters|help syntax|filtre",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-n8n-oz-barindirma",
+  "model": "sonnet",
+  "istem": "Our agency wants to move from n8n Cloud to our own 8 GB Linux VM with a domain we own. We run about 20 workflows today but expect a few clients with heavy webhook traffic next quarter. Last time someone tried, credentials stopped working after they rebuilt the container, and webhooks pointed at an internal address. Give a deploy plan in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)N8N_ENCRYPTION_KEY|encryption key|şifreleme anahtarı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)queue|redis|worker|postgres",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)caddy|ufw|443|5678|let'?s encrypt|reverse proxy|ters vekil",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)healthz|readiness|docker compose ps|WEBHOOK_URL",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-n8n-ikili-dosya",
+  "model": "sonnet",
+  "istem": "In n8n I download invoices over HTTP, rename fields in an Edit Fields step, then a Code step adds a total, and finally I email the PDF. The email arrives without an attachment. Separately, users upload images in our Slack chat flow and the AI agent's tool never receives them, and its generated chart never shows in Slack. Explain and fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)\\$binary|binaryPropertyName|binary\\.|ikili yuva",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)includeOtherFields|combineByPosition|merge|re-?attach|yeniden ekle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)getBinaryDataBuffer|Buffer\\.from|base64|mimeType",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)\\$fromAI|storage key|depolama anahtarı|presigned|CDN|public url",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-n8n-alt-akis-sozlesme",
+  "model": "sonnet",
+  "istem": "We have six n8n workflows that each repeat the same 12 steps to enrich a lead (company lookup, dedupe, scoring). Changing the scoring means editing six places, and when one workflow processes 200 leads at once the shared part runs very slowly and sometimes gets fields it did not expect. How should I restructure this in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)Define Below|typed (fields|inputs)|tipli alan|passthrough|Execute Workflow Trigger",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mode.{0,12}(each|all)|run once for each|her öğe için",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)waitForSubWorkflow|wait for (sub|completion)|beklemeden|fire.and.forget",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)return node|dönüş düğümü|output contract|çıktı sözleşmesi",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-gh-run-hata-ayiklama",
+  "model": "sonnet",
+  "istem": "Our CI on main went red after a merge, the run has 14 jobs and the browser page with logs is very slow to load. Only one test job seems to fail, maybe flaky. From the command line I want to find which step broke, read just the relevant output, try again only what failed with more verbose output, and grab the test report files the job uploaded. Steps in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)gh run list|--workflow|--branch|--status|run id",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)--log-failed|gh run view|--job|--log",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rerun|--failed|--debug|gh run watch",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)gh run download|artifact|yapıt|--name",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-lsp-eklenti-kurulum",
+  "model": "sonnet",
+  "istem": "When Claude Code edits our C# solution it only notices compile errors after I run the whole build, and that takes three minutes. I heard there is an official way to give it live code intelligence for C#. We work on Windows with the .NET 8 SDK. Explain how to set it up and confirm it works, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)csharp-ls|pyright|typescript-language-server|gopls|rust-analyzer|dotnet tool install",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)\\bPATH\\b|where\\.exe|Get-Command|yol değişkeni",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)\\.lsp\\.json|lspServers|extensionToLanguage|plugin install|marketplace",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)diagnostic|tanılama|go to definition|find references|tanıma git",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-skill-iz-iyilestirme",
+  "model": "sonnet",
+  "istem": "Our internal code-review skill keeps missing the same class of issue (unhandled promise rejections) in about a third of runs. I have 40 saved sessions where it ran, some good and some bad. I want to tune the skill's wording systematically instead of guessing, without making it worse on cases that already pass. Describe the loop in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)trace|transcript|iz kaydı|failure case|başarısız koşu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)minimal edit|small edit|tek değişiklik|diff|yama",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)held.?out|validation set|doğrulama kümesi|overfit|aşırı uyum",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)baseline|taban|kabul|reddet|geri al|regression",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-notebooklm-defter",
+  "model": "sonnet",
+  "istem": "Every Friday I want a script to create a fresh NotebookLM notebook, upload the week's PDFs and three web links, get answers to five standard questions with references back to the documents, and produce the podcast-style summary. It must run unattended on my PC. What should I watch out for, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)login|cookie|çerez|storage.?state|auth",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)source add|add source|kaynak ekle|processing|işlen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)citation|cited|alıntı|atıf",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)unofficial|resmi olmayan|rate.?limit|kırılgan|sürüm sabitle|pin",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-kopyala-bilesen-entegrasyonu",
+  "model": "sonnet",
+  "istem": "I pasted three animated hero and card components from an open-source gallery into our Next.js 14 app-router landing page. The build complains about a missing helper and a missing animation package, one component crashes saying hooks can't run on the server, the glowing border effect does nothing, and Lighthouse shows the page JavaScript doubled. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)framer-motion|motion/react|npm i|clsx|tailwind-merge|cn\\(",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)use client|server component|hydration|ssr",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)keyframes|tailwind\\.config|@theme|animation:",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)prefers-reduced-motion|reduced motion|bundle|dynamic import|lazy|paket boyutu",
+    "puan": 2
+   }
+  ]
+ },
+ {
   "ajan": "be-dagitik-kilit",
   "model": "sonnet",
   "istem": "Two instances of our invoice worker grab a Redis-based mutex before charging a customer. Yesterday one instance froze for 40 seconds during a stop-the-world event, the mutex timed out, the second instance took over, and then the first woke up and finished too, so the customer was billed twice. Also, when a worker finishes it simply deletes the key, which sometimes removes someone else's mutex. How do we make this safe? Answer in at most 10 lines.",
