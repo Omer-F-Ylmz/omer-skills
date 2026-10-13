@@ -147,3 +147,4 @@ Müdür: `departman-surec-ajan-arac`
 - whisper-flow/sesle-yazdirma · ALTERNATİF · video l_WQx_XUsRY
 
 ## Elle
+- Aday kaynağı (IG-41 #145): sickn33/agentic-awesome-skills (MIT). Toplu kurulmaz (bağlam patlar); eksik alanda tek tek skill seçip SkillSpector kapısından geçir.

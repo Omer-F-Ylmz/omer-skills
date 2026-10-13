@@ -255,3 +255,11 @@ GPT Image 2.5 Sunburst	2	uretici	teknik		Figma içinde görsel düzenleme modeli
 Kitbitz	2	uretici	iş akışı		2.000+ ücretsiz el çizimi illüstrasyon; Figma eklentisi ve MCP.	ig-DeT8XphH4jq
 Wix	2	uretici	teknik		Sürükle-bırak website builder. Kapsamlı ama ölçeklenebilirlik ve kontrol açısından sınırlı olduğu söyleniyor; video bunu kullanmıyor, ekrand	Bikzi6s5TfI
 GLips/Figma-Context-MCP	2	uretici	repo	https://github.com/GLips/Figma-Context-MCP		gmYYHjlOJTI
+StringTune	1	hareket/3b	repo	https://string-tune.fiddle.digital	CSS-first; HTML attribute ile kaydırma, metin bölme, imleç modülleri (MIT, npm).	DbyMYNHtEGu
+Bklit UI	1	bilesen	repo	https://github.com/bklit/bklit-ui	shadcn uyumlu açık kaynak grafik/veri görselleştirme bileşenleri (MIT).	DeYfv2rBGGu
+daisyUI	1	bilesen	repo	https://github.com/saadeghi/daisyui	Tailwind üstünde sınıf adlı hazır bileşen + tema; hızlı tema seçimi (MIT).	DcoKnHuzThn
+Kokonut UI	1	bilesen	repo	https://github.com/kokonut-labs/kokonutui	Tailwind+shadcn+Motion animasyonlu bileşen kaynağı (MIT).	DbKDYR_qKnj
+unlumen UI	1	bilesen	teknik	https://ui.unlumen.com	React bileşenleri + WebGL arka plan/shader bölümü; yalnız ücretsiz olanlar (MIT).	DbNeOBwOT4P
+Cult UI	1	bilesen	repo	https://github.com/nolly-studio/cult-ui	150+ animasyonlu shadcn bileşeni (MIT).	Dc2KI0HEqqk
+Watermelon UI	1	bilesen	teknik	https://ui.watermelon.sh	600+ animasyonlu React bileşeni, kopyala-yapıştır; MCP kurmadan llms.txt ile okunur (MIT).	DbasXSvgVE1
+Tabler Icons	1	bilesen	repo	https://github.com/tabler/tabler-icons	5000+ tutarlı çizgi ikon, SVG/React; Lucide'e alternatif (MIT).	DbasXSvgVE1

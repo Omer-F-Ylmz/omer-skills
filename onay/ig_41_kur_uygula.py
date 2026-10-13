@@ -18,7 +18,10 @@ PLUGIN = [("Jakeschincariol/youtube-agent-skill", "youtube-agent@youtube-agent-s
 NPM = ["skills"]  # vercel-labs/skills: `npx skills find` kayıt defteri araması
 SKILL = [("wheresryan22/anatomy", ".", "anatomy"), ("lucasmarkes/hairline", "skills/hairline-create", "hairline-create"),
          ("img2threejs/img2threejs", ".", "img2threejs")]
-INCELENDI = {"anatomy": {"AE1", "AS1", "PE3", "SC3", "P6"}}
+INCELENDI = {"anatomy": {"AE1", "AS1", "PE3", "SC3", "P6"},
+             # d3: AE1 = SKILL.md kendi forge/*.py hattını çağırır; E2/AS1/PE3 testler, .gitignore, docs; AR2 ekran görüntüsü alanı; P2 PR şablonu yorumu
+             "img2threejs": {"AE1", "AR2", "AS1", "E2", "P2", "PE3"},
+             "hairline-create": {"OH1", "PE3"}}  # d3: ikisi de skills/ dışında (publish.yml .npmrc, site kopyala düğmesi)
 # (ad, repo, etiket, varlık, sha256) — Ev/Apps/<ad> altına açılır
 ZIP = [("dbx", "t8y2/dbx", "v0.6.42", "DBX_0.6.42_x64-portable.zip",
         "4e0a917f3612843750d2595dc9eebb5dc7e3dd42ee9152029c674b586d55fc73"),

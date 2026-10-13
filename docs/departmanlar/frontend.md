@@ -314,3 +314,6 @@ Müdür: `departman-frontend`
 - Başlık metni + sağda kayan sohbet balonları (animasyonlu açıklama grafiği) · video kMk4pvFJ13s · 0:16 · kaynak: kare
 
 ## Elle
+- shadcn-ui-mcp-server (IG-41 #140): global kurulmaz; gereken projenin `.mcp.json`'ına stdio: `{"mcpServers":{"shadcn-ui":{"command":"npx","args":["-y","@jpisnice/shadcn-ui-mcp-server"]}}}`. Hesap gerekmez (GitHub token yalnız hız sınırı için, isteğe bağlı). Tarama: gitleaks 2, semgrep 0E/6, SkillSpector SC4 CRITICAL = proxy-addr 2.0.7 CVE (yalnız HTTP modunda güvenilen vekil ayarıyla anlamlı; stdio'da etkisiz).
+- stitch-skills (IG-41 #22, Apache-2.0): bağlı Stitch MCP üstünde sıra generate-design → upload-to-stitch → extract-design-md; çıkan DESIGN.md frontend-craft'a girdi.
+- MotionSites.ai (IG-41 #14): ücretli kütüphane kurulmaz; prompt kalıbı alınır: tek HTML, ekrandakini birebir üret, uydurma bölüm ekleme.

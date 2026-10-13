@@ -19,7 +19,7 @@ def test_ss_kapisi_incelenen_gecer_yeni_high_durdurur(monkeypatch, tmp_path):
     monkeypatch.setattr(m, "kos", sahte_ss([{"id": "AE1", "severity": "HIGH"}, {"id": "E2", "severity": "CRITICAL"}]))
     gecer, neden = m.ss_gecer("anatomy", tmp_path)
     assert not gecer and "E2" in neden
-    assert not m.ss_gecer("hairline-create", tmp_path)[0]  # incelenmemiş skill'de tek HIGH yeter
+    assert not m.ss_gecer("hairline-create", tmp_path)[0]  # anatomy'nin INCELENDI'si başka skill'e geçmez
 
 
 def test_ss_cikti_yoksa_kurulmaz(monkeypatch, tmp_path):
