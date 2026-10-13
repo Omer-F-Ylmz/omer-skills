@@ -11,26 +11,29 @@ export const OMNI_ISTEM = "[KOPRU_OMNIROUTE=1] Haftalık plan limiti: bu oturum 
   + "KABUL/kalite kararı ve ölçüm tabanı yazımı YOK — yalnız araştırma/indirme/etiketleme/taslak.";
 const AYLAR = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
-/** CC plan limiti metni → "haftalik" | "5saat" | null. 5 saatlik pencere "session limit" der; haftalık "weekly". */
+/** CC plan limiti metni → "haftalik" | "5saat" | null. Şablon (claude.exe 2.1.295): "You've hit your ${ad} · resets …";
+ *  ad: five_hour "session limit", seven_day "weekly limit", seven_day_{opus,sonnet} "Opus/Sonnet limit", overage dahil "Fable limit".
+ *  "You've used 90% of your …" uyarıdır, limit değil. Tür bilinmeyen "usage limit" 5 saatlik sayılır (geçiş yok, bekle). */
 export function limitTuru(metin) {
   const s = String(metin || "");
-  if (/hit your (weekly|opus|sonnet) limit|weekly (usage )?limit reached/i.test(s)) return "haftalik";
-  if (/hit your (session|usage) limit|5-hour limit reached|usage limit reached/i.test(s)) return "5saat";
+  if (/You've hit your (weekly|Opus|Sonnet|Fable) limit/i.test(s)) return "haftalik";
+  if (/You've hit your (session|usage) limit/i.test(s)) return "5saat";
   return null;
 }
 
-/** "resets 5am" / "resets Oct 14, 5am" / "resets Oct 14 at 5:30pm" → Date (yerel saat); bulunamazsa null. */
+/** "resets 5am" / "resets Oct 14, 5am" / "resets Jan 2, 2027, 5:30pm" → Date (yerel saat); bulunamazsa null. */
 export function sifirlanma(metin, simdi = new Date()) {
-  const m = /resets\s+(?:([A-Za-z]{3})[a-z]*\s+(\d{1,2}),?\s+(?:at\s+)?)?(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i.exec(String(metin || ""));
+  const m = /resets\s+(?:([A-Za-z]{3})[a-z]*\s+(\d{1,2})(?:,\s*(\d{4}))?,?\s+)?(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i.exec(String(metin || ""));
   if (!m) return null;
-  const saat = (Number(m[3]) % 12) + (m[5].toLowerCase() === "pm" ? 12 : 0);
+  const saat = (Number(m[4]) % 12) + (m[6].toLowerCase() === "pm" ? 12 : 0);
   const t = new Date(simdi);
-  t.setHours(saat, Number(m[4] || 0), 0, 0);
+  t.setHours(saat, Number(m[5] || 0), 0, 0);
   if (m[1]) {
     const ay = AYLAR.indexOf(m[1].toLowerCase());
     if (ay < 0) return null;
     t.setMonth(ay, Number(m[2]));
-    if (t <= simdi) t.setFullYear(t.getFullYear() + 1);
+    if (m[3]) t.setFullYear(Number(m[3]));
+    else if (t <= simdi) t.setFullYear(t.getFullYear() + 1);
   } else if (t <= simdi) t.setDate(t.getDate() + 1);
   return t;
 }

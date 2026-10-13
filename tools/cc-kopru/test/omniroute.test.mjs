@@ -40,7 +40,9 @@ const HAFTA = "You've hit your weekly limit · resets Oct 16, 5am (Europe/Istanb
 test("haftalık ile 5 saatlik limit ayrı tanınır; sıradan metin limit değil", () => {
   assert.equal(limitTuru(HAFTA), "haftalik");
   assert.equal(limitTuru(JSON.stringify({ result: HAFTA, is_error: true })), "haftalik");
+  assert.equal(limitTuru("You've hit your Opus limit · resets Oct 15, 9am (Europe/Istanbul)"), "haftalik");
   assert.equal(limitTuru(BES), "5saat");
+  assert.equal(limitTuru("You've used 90% of your weekly limit · resets Oct 16, 5am"), null);  // uyarı
   assert.equal(limitTuru("weekly rapor yazıldı; session limit konusu"), null);
   assert.equal(limitTuru(""), null);
 });
@@ -50,6 +52,7 @@ test("sıfırlanma zamanı: tarihli ve yalnız saatli", () => {
   assert.deepEqual(sifirlanma(HAFTA, simdi), new Date(2026, 9, 16, 5, 0));
   assert.deepEqual(sifirlanma(BES, simdi), new Date(2026, 9, 13, 23, 40));
   assert.deepEqual(sifirlanma("resets 5am", simdi), new Date(2026, 9, 14, 5, 0));  // geçtiyse yarın
+  assert.deepEqual(sifirlanma("· resets Jan 2, 2027, 5:30pm (Europe/Istanbul)", simdi), new Date(2027, 0, 2, 17, 30));
   assert.equal(sifirlanma("limit yok", simdi), null);
 });
 
