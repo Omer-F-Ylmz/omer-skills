@@ -483,6 +483,29 @@
   ]
  },
  {
+  "ajan": "dok-docs-sitesi",
+  "model": "sonnet",
+  "istem": "Our open-source CLI has a single 9,000-word README covering install steps, a beginner walkthrough, every flag, and design rationale all mixed together. Users of v1 and v2 get confused by instructions for the wrong release, and contributors edit a wiki nobody reviews. How should we reorganize and host the documentation, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)Diataxis|how-to|reference|explanation|nasıl yapılır|başvuru",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)docs.as.code|MkDocs|Docusaurus|Sphinx|static site|statik site",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)versioned|sürümlü|version switch|version selector|per release",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)search|arama|Algolia|sidebar|navigation|kenar çubuğu",
+    "puan": 2
+   }
+  ]
+ },
+ {
   "ajan": "sec-kms-zarf",
   "model": "sonnet",
   "istem": "Our SaaS stores customer documents in Postgres and S3, and one AES key sits in an environment variable used for everything. Auditors want per-customer keys, yearly key changes without downtime, and proof that a churned customer's files become unreadable even in old copies. How should we restructure this, in at most 10 lines?",
@@ -892,6 +915,949 @@
    },
    {
     "regex": "(?i)automountServiceAccountToken|service ?account|EncryptionConfiguration|external secrets|secret encryption",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-telemetri-anomali",
+  "model": "sonnet",
+  "istem": "We have 400 temperature and vibration readings per minute from factory machines. Right now a fixed limit of 80 fires hundreds of notifications per day, yet last week a motor failed after its sensor had reported exactly the same value for six hours and nobody noticed. Propose a better detection approach in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)baseline|taban çizgisi|rolling mean|rolling window|moving average|kayan pencere",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)z-?score|standart sapma|standard deviation|std ?dev|sigma|median absolute|\\bMAD\\b",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)spike|flatline|sıçrama|düz çizgi|drift|oscillat|stuck value",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)quarantin|karantina|severity tier|escalat|log only|kademe",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-hash-zinciri-denetimi",
+  "model": "sonnet",
+  "istem": "Our compliance team keeps an append-only table of admin actions. An auditor asked us to prove that no rows were removed or edited after the fact, and we suspect someone with database access quietly deleted entries last spring. Each row currently has only an id, timestamp, user and action. Tell us how to make tampering detectable and how to check the existing records in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)sequence number|sıra numarası|monoton|ardışık|epoch",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)previous.?hash|önceki özet|prev_hash|hash chain|zincir|sha-?256",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)signature|imza|ed25519|hmac|anchor|çapa|external witness",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)integrity score|bütünlük puanı|gap ratio|first broken|ilk kırık",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "be-is-calma-zamanlayici",
+  "model": "sonnet",
+  "istem": "Our image-processing service has 16 worker threads. Jobs are assigned round-robin when they arrive, so a thread that gets three 40-second videos is busy for two minutes while neighbours finish their small thumbnails and sit idle. Urgent customer jobs also wait behind bulk imports, and when imports flood in, memory grows until the process dies. Redesign the job assignment in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)work.?steal|iş çalma|steal from|deque|tail of",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)priority queue|öncelik kuyruğu|earliest deadline|\\bEDF\\b|son tarih",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)starvation|açlık|fair share|weighted fair|\\baging\\b|yaşlandırma",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)backpressure|geri basınç|bounded queue|sınırlı kuyruk|queue depth|kuyruk derinliği",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-kapasite-tahmini",
+  "model": "sonnet",
+  "istem": "Our database cluster CPU averaged 45 percent in January and 58 percent in March, and traffic doubles every Black Friday. Ordering new hardware takes our provider six weeks, disks are 70 percent full, and connections sometimes hit the limit at lunch. The CFO asks when we must buy more and how much. Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)utilization trend|kullanım eğilimi|growth rate|büyüme oranı|p95|peak",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)headroom|boş pay|target utili[sz]ation|hedef kullanım|safety margin|güvenlik payı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lead time|tedarik süresi|procurement|provisioning time|hazırlama süresi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)saturat|doygun|binding constraint|limiting resource|ilk tükenen",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-benchmark-regresyon-kapisi",
+  "model": "sonnet",
+  "istem": "Twice this quarter a pull request made our JSON parser about 30 percent slower and we only found out from customer complaints. We tried timing the parser once in the pipeline, but the number jumps by 20 percent between identical runs on shared cloud machines, so nobody trusts it. How should we catch such slowdowns automatically? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)warm.?up|ısınma|\\bJIT\\b|iteration count|tekrar sayısı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)variance|varyans|confidence interval|güven aralığı|coefficient of variation|dedicated runner|cpu pinning",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)baseline|taban sonuç|previous main|stored result|saklanan sonuç",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)threshold|eşik|significan|anlamlı fark|fail the build",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-coklu-repo-senkron",
+  "model": "sonnet",
+  "istem": "We maintain a logging library used by 14 services, each in its own repository. We need to rename a configuration field, which breaks every consumer. Last time we pushed such a change, six services upgraded, the rest stayed on the old version, two broke in production, and nobody knew which repos were done. Plan the rollout in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)dependency order|bağımlılık sırası|topolog|upstream first|önce kaynak",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)version align|sürüm hizala|semver|lockstep|compatible range|\\bpin(ned)?\\b",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)integration matrix|test matrisi|cross-repo test|consumer test|contract test",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|geri alma|revert|tracking issue|izleme kaydı|partial",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-is-akisi-darbogaz",
+  "model": "sonnet",
+  "istem": "Our nightly report job has eight steps: download files, unzip, validate, three enrichment API calls, build the PDF, and email it. Each step alone takes under five minutes when I run it by hand, yet the full job takes almost three hours and sometimes misses the 7 a.m. deadline. Explain how to find where the time goes and what to change in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)wait time|bekleme süresi|queue time|kuyruk süresi|idle|work time",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)serial|ardışık|parallel|paralel|critical path|kritik yol",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)overload|aşırı yük|single step|tek adım|hot spot|rate limit",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)per-step timing|adım başı süre|span|trace|instrument|zaman damgası",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-yetenek-eslestirici",
+  "model": "sonnet",
+  "istem": "We have about 60 specialised AI helpers, for example one for SQL tuning, one for CSS bugs and one for Terraform. A front router reads each user request and picks one, but it often sends database questions to the backend helper and sometimes picks a helper that clearly cannot do the job. Design a better way to choose in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)required skills|gerekli beceri|complexity|karmaşıklık|task features|görev özellikleri",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)capabilit|yetenek|match score|eşleşme puanı|tag overlap|etiket",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)confidence|güven|fallback|yedek|generalist|genel amaçlı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)success rate|başarı oranı|history|geçmiş|outcome log|feedback",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-basliksiz-isci-havuzu",
+  "model": "sonnet",
+  "istem": "I want to generate unit tests for 30 independent modules overnight using an AI coding assistant from the command line, several at once, while I sleep. Last attempt, one run waited forever for my confirmation, another rewrote files outside its module, and in the morning I could not tell which modules had finished. Describe the setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)headless|non-?interactive|başsız|print mode|exec mode",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sandbox|kum havuzu|read-?only|workspace-write|salt okunur|izin düzeyi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)result file|sonuç dosyası|json output|exit code|çıkış kodu|status file",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)timeout|zaman aşımı|kill|budget|bütçe|max turns",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-harcama-yetkisi",
+  "model": "sonnet",
+  "istem": "We are building a shopping assistant that can order office supplies for small companies on its own using a stored company card. A pilot customer is nervous: what stops it from ordering 500 chairs, buying from a random marketplace seller, or continuing to buy after an employee leaves? Tell us what controls to put on its purchasing power in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)spend(ing)? cap|harcama tavanı|per-transaction|limit per|dönem limiti|weekly cap",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)allowlist|izin listesi|allow-list|whitelist|merchant categor|blocklist",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)expir|son kullanma|revoc|iptal|time window|zaman penceresi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)human approval|insan onayı|step-?up|above threshold|eşik üstü|ikinci onay",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-otonom-dongu-siniri",
+  "model": "sonnet",
+  "istem": "I let an AI agent work through a backlog of 40 small refactoring tickets overnight with no supervision. In the morning it had burned my whole monthly quota: it repeated the same failing fix on one ticket about 200 times, and I had no idea which tickets were finished. Tell me what rules the unattended run needs in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)max(imum)? iterations|iterasyon sınırı|tur sınırı|wall.?clock|süre sınırı|time cap",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)completion check|bitiş ölçütü|completion criteria|done criteria|definition of done",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stall|takılma|no progress|ilerleme yok|same action|loop detection",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)remaining|kalan iş|unfinished|bitmemiş|summary report|handoff",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-ajan-maliyet-atfi",
+  "model": "sonnet",
+  "istem": "Our team runs a pipeline where a planner model hands work to five helper models, some cheap and some expensive. The monthly invoice tripled and the provider dashboard only shows one total per API key. Management wants to know which helper and which kind of job causes the spend and to be warned before next month's bill gets out of hand. Explain the approach in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)per.?agent|ajan başına|per task|görev başına|attribution|atıf",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)price table|fiyat tablosu|input tokens?|output tokens?|cache read|per million",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)budget|bütçe|threshold|eşik|soft limit|80 ?%",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ledger|defter|jsonl|call log|çağrı kaydı|daily rollup",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-celiskili-kaynak-uzlastirma",
+  "model": "sonnet",
+  "istem": "I am deciding whether a popular Python library still supports Python 3.8. Three blog posts say yes, a Stack Overflow answer says support was dropped, the project's README says nothing, and a forum thread quotes the maintainer both ways. I need a reliable answer and want to know how to weigh such disagreements in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)independen|bağımsız|same origin|aynı kaynak|citation chain|circular",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)recency|güncellik|supersed|newer|publication date|yayın tarihi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)primary source|birincil|official|resmi|secondary|changelog",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)evidence grade|kanıt derecesi|confidence level|güven düzeyi|high/medium/low|yüksek/orta/düşük",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-federe-ajan-guveni",
+  "model": "sonnet",
+  "istem": "Our procurement assistant will start exchanging requests with the sales assistants of three supplier companies, each run by the supplier. We worry a supplier's bot could impersonate another, leak our employees' names and phone numbers onward, or forward requests back and forth endlessly and run up costs. Describe the safeguards in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)mTLS|karşılıklı kimlik|mutual (tls|auth)|challenge-?response|signed request",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trust (score|level)|güven (puanı|düzeyi)|downgrade|reputation",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)PII|kişisel veri|redact|maskele|data minimi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)max hops|atlama sınırı|\\bhops?\\b|\\bttl\\b|loop prevention|döngü önleme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-ajan-calisma-izi",
+  "model": "sonnet",
+  "istem": "A user complained that our support chatbot took 90 seconds and cost far more than usual on one conversation. Our logs only have one line per HTTP request, so we cannot tell which of its model calls, database lookups or retries took the time, or how much each step cost. Explain what to record for each conversation in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)span|iz ağacı|parent|child|ebeveyn|trace tree",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)correlation|bağıntı|trace.?id|request id|istek kimliği|propagat",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)attribute|öznitelik|token count|token sayısı|model name|gen_ai",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sampl|örnekleme|redact|prompt content|istem içeriği|PII",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-ajan-kiyas-kosusu",
+  "model": "sonnet",
+  "istem": "We have 450 question-answer tasks for testing our research agent, and each full pass costs real money in API calls. The last pass scored 38 percent, the one before 41 percent, and we cannot tell whether the drop came from the prompt change, flaky web lookups or answers that were right but phrased differently. Tell us how to run and analyse these passes in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)cost estimate|maliyet tahmini|dry.?run|pilot subset|küçük örneklem|spend ceiling",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)failure (taxonomy|mode|categor)|hata sınıf|tool error|araç hatası|wrong format",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)run history|koşu geçmişi|previous run|önceki koşu|config diff|seed",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)judge|puanlayıcı|scorer|exact match|normaliz|grader",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-sonuc-paketi-muhru",
+  "model": "sonnet",
+  "istem": "Our lab will publish benchmark scores for our new model and reviewers must be able to confirm the numbers were not edited and came from the code we released. Right now results are a folder of CSV files on a laptop, and we are not sure which version of the code produced them. Explain how to prepare the release bundle in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)schema|şema|required field|zorunlu alan|jsonl|validat",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sha-?256|manifest|hash|özet|checksum|signature",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)git (sha|commit)|commit hash|dirty|kirli ağaç|uncommitted|seed",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)baseline|taban|leaderboard|lider tablosu|prior result|önceki sonuç",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-istem-onbellek-zamanlama",
+  "model": "sonnet",
+  "istem": "My monitoring agent wakes up every 8 minutes to check a deployment, and each wakeup resends a 40,000-token conversation. The bill shows nearly every call charged at the full input price, and I also put the current time at the top of the system message. How should I change the schedule and the message layout? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)\\bTTL\\b|önbellek ömrü|cache lifetime|5[- ]?min|five.?minute|300 ?s|270",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stable prefix|sabit önek|cache breakpoint|değişmeyen kısım|timestamp in (the )?prompt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)short (sleep|delay)|kısa bekleme|long (sleep|delay)|uzun bekleme|20 min|dead zone",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cache_read|önbellek isabet|cache hit|cache_creation|hit rate|isabet oranı",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-depo-standart-sablonu",
+  "model": "sonnet",
+  "istem": "Our company has 70 repositories created by different teams over eight years. Some have no legal usage terms, some have no owner listed for reviews, half lack a way to report vulnerabilities, and each sets up its build differently. New repos keep repeating the same omissions. Propose how to bring them in line and keep them that way in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)template repo|şablon depo|cookiecutter|copier|scaffold",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CODEOWNERS|SECURITY\\.md|LICENSE|CONTRIBUTING|issue template|\\.editorconfig",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reusable workflow|paylaşılan iş akışı|workflow template|org-level|kuruluş düzeyi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)drift|sapma|compliance report|uyum raporu|audit script|denetim betiği",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-sonuc-birlestirici",
+  "model": "sonnet",
+  "istem": "I asked four AI reviewers to examine the same pull request in parallel. I got back 37 comments in total: many say the same thing in different words, two reviewers give opposite advice about the cache layer, and nobody looked at the migration files. Show me how to turn this into one trustworthy review in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)dedup|tekilleştir|near-duplicate|aynı bulgu|cluster|merge duplicates",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)contradict|çelişki|disagree|uyuşmaz|conflict",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)attribution|köken|which agent|hangi ajan|provenance|source tag",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)coverage|kapsam|uncovered|kapsanmayan|\\bgaps?\\b|eksik alan",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ajn-takili-gorev-kurtarici",
+  "model": "sonnet",
+  "istem": "My orchestrator hands 12 research sub-tasks to helper agents at once. Usually one or two of them never return: the orchestrator just waits, and the whole job sits for an hour until I cancel it. When I raised the number of helpers to 30 to go faster, it got worse. Describe how the orchestrator should notice and recover such cases in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)heartbeat|kalp atışı|progress signal|ilerleme sinyali|last activity|son etkinlik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reassign|yeniden ata|takeover|başka ajana|hand off to another",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)split|bölme|smaller subtask|daha küçük|decompos",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)team size|ekip boyutu|concurrency limit|eşzamanlılık sınırı|cap on agents",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-oz-tutarlilik-oylama",
+  "model": "sonnet",
+  "istem": "We use a language model to extract the total amount from scanned invoices. If I send the same invoice five times I sometimes get 1,240.00, 1240, $1,240 and once 1,420. We cannot afford a human check on every invoice but wrong totals are costly. How can we make the extracted value more reliable? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)multiple samples|çoklu örnek|sample (n|several)|n samples|temperature|sıcaklık",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)normaliz|normalleştir|canonical|kanonik|strip (units|currency)",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)majority|çoğunluk|vote|oylama|plurality",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)agreement (rate|ratio)|uyuşma|confidence|escalat|\\btie\\b|tie-?break",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-uygulama-kesif-haritasi",
+  "model": "sonnet",
+  "istem": "I want to build my own version of a popular habit tracker app because I dislike its subscription. I only have its marketing site, store listing, help center and my own account. Where do I start and what should my first document contain? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)screen inventory|ekran listesi|ekran envanteri|every screen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)user flow|kullanıcı akışı|happy path|onboarding flow",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)data model|veri modeli|entit|varlık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)must.?have|nice.?to.?have|MoSCoW|feature matrix|özellik matrisi|öncelik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-ozellik-paritesi",
+  "model": "sonnet",
+  "istem": "We rebuilt our old internal invoicing tool from scratch with new branding. Product says we are 90 percent there because 45 of 50 features work, but the five that do not include recurring invoices and tax export. How should we judge readiness more honestly? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)weight|ağırlık|score|puanla|scoring",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)missing|eksik|gap|build order|yapım sırası",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)layout|yerleşim|screenshot|ekran görüntüsü|diff",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)threshold|eşik|blocker|engelleyici|release gate",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-kullanici-yorum-madenciligi",
+  "model": "sonnet",
+  "istem": "I am thinking about building an alternative to a well known note taking app. Before writing anything I want to know what its existing users are unhappy about, not my own guesses. How would you research that and present it? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)App Store|Google Play|G2|Capterra|Trustpilot|Reddit|Hacker News",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)theme|tema|cluster|küme|complaint|şikâyet",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)frequency|sıklık|recent|son .* ay|count|adet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)quote|alıntı|verbatim|link|kaynak",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-marka-adi-kontrol",
+  "model": "sonnet",
+  "istem": "We are launching a budgeting app for students in Turkey and Germany and the team loves the name Pocketly. Before we print anything, what must we verify about that name, and how would you shortlist backups? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)trademark|marka tescil|USPTO|EUIPO|TÜRKPATENT|Nice class|sınıf",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)domain|alan adı|\\.com|WHOIS|registrar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)App Store|Google Play|handle|kullanıcı adı|Instagram|X hesabı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)pronunciation|telaffuz|meaning|anlam|çağrışım|connotation",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-google-ads-arama",
+  "model": "sonnet",
+  "istem": "We run text ads for our plumbing company in one city. Monthly spend doubled to 3000 dollars after an agency set things up, but calls did not increase, and I saw clicks from people looking for plumbing jobs and DIY videos. What would you check first? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)broad match|phrase match|exact match|geniş eşleme|sıralı eşleme|tam eşleme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)negative keyword|negatif anahtar|search terms report|arama terimleri",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Quality Score|kalite puanı|ad relevance|landing page experience|expected CTR",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tCPA|target CPA|tROAS|Maximize conversions|smart bidding|akıllı teklif",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-reklam-matematigi",
+  "model": "haiku",
+  "istem": "We sell a skincare kit for 60 dollars that costs us 36 dollars to make and ship. Last month ads cost 9000 dollars and brought 250 first orders, and about 30 percent of buyers reorder twice within a year. Are the ads actually making money? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)break.?even|başabaş|margin|marj|kâr marjı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CPA|CAC|edinme maliyeti|cost per acquisition",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ROAS|MER|return on ad spend",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)LTV|CLV|lifetime value|yaşam boyu|payback|geri ödeme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-reklam-kreatif-yorgunlugu",
+  "model": "sonnet",
+  "istem": "Our best performing video for a meal kit got cheap signups for three weeks, then costs per signup climbed steadily even though the audience and budget never changed. The team wants to just raise the budget. What is likely going on and what should we do? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)frequency|frekans|fatigue|yorgunluk|yıpranma|CTR düşüş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hook|kanca|first 3 seconds|ilk 3 saniye|thumb.?stop",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)message match|mesaj uyumu|landing page|açılış sayfası|teklif tutarlılığı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)format|varyasyon|variation|concept|konsept|9:16|1:1",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-reklam-butce-dagitim",
+  "model": "sonnet",
+  "istem": "Next quarter we have 30000 dollars for ads across search, social and a newsletter sponsorship. Search looked best last quarter on average, so the boss wants to move everything there. How would you split it and roll it out? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)marginal|marjinal|diminishing|azalan getiri|incremental|artımsal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)learning phase|öğrenme aşaması|50 conversions|50 dönüşüm|sıfırlanma",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pacing|tempo|daily budget|günlük bütçe|20 percent|yüzde 20",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)holdout|test payı|deneme bütçesi|incrementality|lift",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-ozgecmis-madde",
+  "model": "sonnet",
+  "istem": "My CV says things like 'responsible for the customer support inbox' and 'helped with onboarding new hires'. I don't have exact statistics, but I handled most tickets alone for two years. Rewrite these two lines so they impress a recruiter. Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)action verb|eylem fiili|\bled\b|\bbuilt\b|\breduced\b|yönettim|kurdum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)percent|yüzde|%|kişi|users|kullanıcı|saat|hours",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)approximately|yaklaşık|about|~|tahmini|estimate",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)XYZ|STAR|CAR|accomplished .* as measured by|ölçülen",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-mulakat-star",
+  "model": "sonnet",
+  "istem": "I have a second-round interview for a project coordinator role on Friday. Last time I froze when they asked me to describe a time a project went wrong, and I rambled for five minutes. How should I prepare this time? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)STAR|situation|task|action|result|durum|görev|eylem|sonuç",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)story bank|hikâye bankası|reuse|yeniden kullan|6.?8 stories|6-8 hikâye",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)conflict|çatışma|failure|başarısızlık|leadership|liderlik|deadline",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)2 minutes|2 dakika|90 seconds|90 saniye|concise|kısa",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-is-teklifi-karsilastirma",
+  "model": "sonnet",
+  "istem": "I have two offers. One is a big bank paying 95k plus a yearly cash payout of about 10 percent. The other is a startup paying 80k plus options that the founder says will be worth a lot, lets me work from home every day, while the bank wants me in the office four days a week. How should I compare them? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)total comp|toplam ücret|bonus|prim|base|taban",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)equity|hisse|RSU|stock option|opsiyon|vesting|hakediş|cliff",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)health|sağlık|retirement|emeklilik|401k|PTO|izin",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cost of living|yaşam maliyeti|commute|ulaşım|remote|uzaktan|tax|vergi",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-maas-pazarlik",
+  "model": "sonnet",
+  "istem": "A company offered me 62000 for a data analyst job and asked me to reply by Monday. I think it is a bit low but I really want the job and I am scared they will withdraw it if I push back. What should I say? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)market rate|piyasa|percentile|yüzdelik|Levels\\.fyi|Glassdoor|range|aralık",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)anchor|çapa|walk.?away|vazgeçme|BATNA|target|hedef",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)script|metin|counter.?offer|karşı teklif|thank|teşekkür",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)signing bonus|imza primi|start date|başlama tarihi|title|unvan|review in 6 months",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-on-yazi",
+  "model": "sonnet",
+  "istem": "I'm applying to a nonprofit for a volunteer coordinator job. I organized a food drive with 40 volunteers at university and worked two years in retail. My current letter starts with 'I am writing to apply for the position' and repeats my CV. Help me redo it. Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)job description|ilan|requirement|gereksinim|posting|nitelik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)example|örnek|result|sonuç|project|proje|metric|ölçü",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)company|şirket|mission|misyon|product|ürün|recent|son haber",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)one page|tek sayfa|250|300|400 words|kelime|paragraph|paragraf",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-kariyer-gecis",
+  "model": "sonnet",
+  "istem": "I've been a high school chemistry teacher for eight years and want to move into instructional design at a software company. Recruiters ignore my applications. How do I present my background and what am I actually missing? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)transferable|aktarılabilir|overlap|örtüşen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)terminology|terim|reframe|yeniden çerçeve|stakeholder|paydaş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)gap|boşluk|certification|sertifika|course|kurs|portfolio|portföy",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)bridge role|köprü|adjacent|yakın rol|internal move|iç geçiş",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-baslik-yazimi",
+  "model": "sonnet",
+  "istem": "Our engineering blog post explains how we cut our cloud bill by moving image processing to a queue. It is titled 'Some thoughts on infrastructure' and almost nobody opens it from LinkedIn. Suggest better ones and explain your choices. Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)ICP|ideal customer|hedef okuyucu|audience|kitle|for whom|kimin için",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)specific|özgül|number|sayı|concrete|somut|timeframe|süre",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)curiosity|merak|clickbait|tık tuzağı|deliver|karşılamak|bait",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)variant|varyant|A/B|alternatif|5 options|5 seçenek",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-cli-sarmalayici",
+  "model": "sonnet",
+  "istem": "I want my coding agent to batch-edit images in GIMP: resize, add a watermark, export as WebP. Right now it can only click around the GUI with screenshots, which is slow and unreliable. How should I give it a proper command interface? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)backend|arka uç|scripting API|python API|headless|batch mode|toplu kip",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)--json|JSON output|JSON çıktı|exit code|çıkış kodu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)state|durum|session|oturum|project file|proje dosyası|undo|geri al",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)test|smoke|duman|round.?trip|output file|çıktı dosyası",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-pytest-fikstur",
+  "model": "sonnet",
+  "istem": "Our Python project has 40 test files and each one starts by creating a temporary SQLite database, inserting the same three users, and setting an environment variable for the API key. Some tests fail only when run together. How should we restructure this? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)scope=|function|module|session|yield",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)conftest|conftest\\.py|autouse",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)parametrize|@pytest\\.mark\\.parametrize|ids=",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tmp_path|monkeypatch|capsys|caplog",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-pytest-hata-triyaj",
+  "model": "haiku",
+  "istem": "Our Python test run spits out 600 lines and ends with 3 failed out of 900. Re-running everything takes eight minutes, one failure just says two dicts are not equal without showing the difference, and my debug messages never show up. How do I narrow this down fast? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)--lf|--last-failed|-k |::|-x|--maxfail",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)-vv|-rA|-ra|--tb=|traceback|assert",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)-s|--capture=no|capsys|print",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)--pdb|breakpoint\\(\\)|--trace|pdb",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-cerez-oturum-hata",
+  "model": "sonnet",
+  "istem": "Login works on my laptop at localhost, but on our staging site the frontend at app.example.dev calls the API at api.example.dev and users are logged out on every page refresh. The login response looks successful. Where do I look and what is likely wrong? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)Set-Cookie|blocked|engellendi|filtered|uyarı simgesi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)SameSite|Secure|HttpOnly|Domain=|Path=",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)third.?party|üçüncü taraf|cross.?site|credentials|withCredentials|include",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Expires|Max-Age|session cookie|oturum çerezi|clock|saat",
     "puan": 2
    }
   ]
