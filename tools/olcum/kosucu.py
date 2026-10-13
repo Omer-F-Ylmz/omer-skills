@@ -244,6 +244,8 @@ def init_yaz(yol, init):
             oz[k] = [x.get("name") if isinstance(x, dict) else x for x in v]
         else:
             oz[k] = v
+    # KAYNAK-5 (OpenResearch deney ağacı): ölçüm hangi kod sürümünden — tsv satırı ↔ commit
+    oz["sha"] = subprocess.run(["git", "-C", str(KOK), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     yol.write_text(json.dumps(oz, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
