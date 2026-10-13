@@ -45,14 +45,14 @@ def _kos(args, girdi, env, timeout):
     return r
 
 
-def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, araclar):
+def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, araclar, efor=None):
     """→ {form, usage, usd, sure, hata}; hata varsa form None."""
     env = {k: v for k, v in (os.environ if env is None else env).items() if k != "ANTHROPIC_BASE_URL"}
     icerik = [{"type": "text", "text": metin}] + [{"type": "image", "source": {"type": "base64", "media_type": mimetypes.guess_type(k)[0] or "image/jpeg",
                                                                                 "data": base64.b64encode(Path(k).read_bytes()).decode()}} for k in kareler]
     girdi = json.dumps({"type": "user", "message": {"role": "user", "content": icerik}}, ensure_ascii=False) + "\n"
     args = [shutil.which("claude") or "claude", "-p", "--model", model, "--system-prompt", sistem,
-            "--json-schema", json.dumps(sema, ensure_ascii=False), "--max-budget-usd", f"{butce:.2f}", *A1, *cc_profil.kur("ttl", env=env)[0]]
+            "--json-schema", json.dumps(sema, ensure_ascii=False), "--max-budget-usd", f"{butce:.2f}", *A1, *cc_profil.kur("ttl", env=env)[0], *(["--effort", efor] if efor else [])]  # VİDEO-16: short efor
     if araclar:  # M2b K2: araçlı mod — yalnız izinli liste; --allowedTools dışı araç -p'de reddedilir
         args[args.index("--tools") + 1] = ",".join(dict.fromkeys(a.split("(")[0] for a in araclar))
         args += ["--max-turns", "8", "--allowedTools", *araclar]
@@ -76,10 +76,10 @@ def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, aracla
             "sure": round(time.monotonic() - t, 1), "hata": hata, "model": ",".join(son.get("modelUsage") or {}) or None}  # 1b-2a KAPANIŞ: yanıttaki gerçek model kimliği
 
 
-def cagir(sistem, metin, sema, kareler=(), model=MODEL, butce=0.5, timeout=600, env=None, kos=_kos, araclar=()):
+def cagir(sistem, metin, sema, kareler=(), model=MODEL, butce=0.5, timeout=600, env=None, kos=_kos, araclar=(), efor=None):
     """→ {form, usage, usd, sure, hata}; araclar boşsa araçsız a1 (--tools ""), doluysa yalnız izinli liste + `web` (WebSearch sayısı)."""
     ham = []
-    y = _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, lambda *a: ham.append(kos(*a)) or ham[-1], araclar)
+    y = _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, lambda *a: ham.append(kos(*a)) or ham[-1], araclar, efor)
     if araclar:
         y["web"] = len(re.findall(r'"name":\s*"WebSearch"', getattr(ham[0], "stdout", "") or "")) if ham else 0
     return y

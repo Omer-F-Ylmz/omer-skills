@@ -12,7 +12,8 @@ import tempfile
 import threading
 import random
 import time
-from concurrent.futures import ThreadPoolExecutor
+from collections import deque
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
 
 from jev import cekirdek as c
@@ -452,6 +453,56 @@ def _ocr(ctx, yollar, ham=False):
     return {ad: [[x, 1.0, i] for i, x in enumerate(s)] for ad, s in r.items()} if ham else r
 
 
+HAVUZ_GB, HAVUZ_ESZ = 1.2, 2  # ayar · VİDEO-14-d4: CPU OCR işçisi tepe özel bellek (1080p, cls0: 1.17 GB ölçüldü) · işçi başı iş parçacığı (çekirdek verimi 1-2'de en iyi)
+_CPU = [None]  # havuz sürecinin CPU motoru
+
+
+def _cpu_hazirla():
+    _CPU[0] = gz.rapid_yukle("cpu", esz=HAVUZ_ESZ)
+
+
+def _cpu_oku(y):
+    return [[str(x), round(float(s), 3), int(u)] for x, s, u in _CPU[0](y)]
+
+
+HAVUZ_EX = lambda n: ProcessPoolExecutor(n, initializer=_cpu_hazirla)  # noqa: E731
+
+
+def _havuz(bos):
+    """VİDEO-14-d4: env VIDEO_OCR_HAVUZ=N → N CPU OCR işçisi; boş RAM'den (iki RAM_ESIK_GB payı) HAVUZ_GB'lik işçiye kısılır; bayraksız 0."""
+    return max(0, min(int(os.environ.get("VIDEO_OCR_HAVUZ") or 0), int((bos - 2 * RAM_ESIK_GB) // HAVUZ_GB)))
+
+
+def _ocr_havuz(ctx, yollar, n, bas):
+    """VİDEO-14-d4: iş çalma — DML (_ocr, 10'lu parti, süreçler arası kilit) ve n CPU süreci aynı kuyruktan çeker; güvenlik tavanı aşılınca
+    çekim durur. CPU işçisi çökerse kare kuyruğa geri döner (DML okur). → ([(t, ham)] yollar sırasıyla, okunmayan t'ler)."""
+    q, oku, kq = deque(yollar), {}, threading.Lock()
+
+    def al(k):
+        with kq:
+            return [] if time.monotonic() - bas > gz.OCR_GUVENLIK else [q.popleft() for _ in range(min(k, len(q)))]
+
+    def dml():
+        while p := al(10):
+            o = _ocr(ctx, [y for _, y in p], ham=True)
+            oku.update((t, o.get(y.name, [])) for t, y in p)
+
+    def cpu(ex):
+        while p := al(1):
+            try:
+                oku[p[0][0]] = ex.submit(_cpu_oku, str(p[0][1])).result()
+            except Exception:
+                with kq:
+                    q.appendleft(p[0])
+                return
+
+    with HAVUZ_EX(n) as ex, ThreadPoolExecutor(n + 1) as th:
+        for f in [th.submit(dml), *(th.submit(cpu, ex) for _ in range(n))]:
+            f.result()
+    dml()  # DML bittikten sonra çöken CPU işçisinin geri koyduğu kare
+    return [(t, oku[t]) for t, _ in yollar if t in oku], [t for t, _ in yollar if t not in oku]
+
+
 def _yorumlar(ctx, d):
     """DERİNLİK-1 R4 · 1b-1 M4: en çok 60 top yorum (kanal sahibi yanıtları dahil, indirme yok) → yorumlar.json ham {text, pinned, sahip};
     bağlantılar yalnız sabit/sahip yorumlarından. → (bağlantılar, kapsam durumu)"""
@@ -606,15 +657,21 @@ def paket(ns, ctx):
     return 0
 
 
+def indir_bicim():
+    """VİDEO-14-devam-2 (b): env VIDEO_INDIR_KENAR=<px> → kare/akış videosu uzun kenar ≤ px (sahne çözme ~2×); bayraksız 1920."""
+    k = int(os.environ.get("VIDEO_INDIR_KENAR") or 1920)
+    return f"bv*[width<={k}][height<={k}][vcodec!=none]"
+
+
 def _akis_url(ctx, d):
-    """Doğrudan akış URL'si; akis.url önbelleğinde, URL'deki expire'a 5 dk kalana dek geçerli. URL hiçbir çıktıya yazılmaz."""
-    yol = d / "akis.url"
+    """Doğrudan akış URL'si; akis.url önbelleğinde (VIDEO_INDIR_KENAR'lı: akis<px>.url), URL'deki expire'a 5 dk kalana dek geçerli. URL hiçbir çıktıya yazılmaz."""
+    yol = d / f"akis{os.environ.get('VIDEO_INDIR_KENAR') or ''}.url"
     if yol.is_file():
         url = yol.read_text(encoding="utf-8").strip()
         e = re.search(r"[?&/]expire[=/](\d+)", url)
         if e and int(e.group(1)) - 300 > time.time():
             return url
-    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]/b", yt_url(d.name)], SURE["meta"])
+    out = _kos(ctx, ["yt-dlp", "-g", "--no-warnings", "-f", indir_bicim() + "/b", yt_url(d.name)], SURE["meta"])
     url = out.decode("utf-8", "replace").strip().splitlines()[0]
     yol.write_text(url, encoding="utf-8")
     return url
@@ -798,7 +855,7 @@ def _video_indir(ctx, d):
                 tavan = max(SURE["ses"], int((json.loads(mj.read_text(encoding="utf-8")).get("duration") or 0) / 2) if mj.exists() else 0)
                 for i in (0, 1):  # DEVAM-4: 403 → 10 sn bekle, bir kez tekrar; yine 403 → künyede görünür
                     try:
-                        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", "bv*[width<=1920][height<=1920][vcodec!=none]", "-o", str(d / "goz-video.%(ext)s"),
+                        _kos(ctx, ["yt-dlp", "--no-warnings", "-f", indir_bicim(), "-o", str(d / "goz-video.%(ext)s"),
                                    yt_url(d.name)], tavan)
                         break
                     except Hata as e:
@@ -820,7 +877,9 @@ def _goz(ctx, d, sure, altyazi, isaret, n, ocr, sozluk=()):
     Güven eşiği + gürültü süzgeci okurken (eşik değişince OCR yeniden koşmaz); m*.jpg goz/kareler'de kalır, paket varyantları birbirini silmez."""
     g, f = d / "goz", gz.fps(sure)
     kd, oj = g / "kareler", g / "ocr.json"
-    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ, **({"hiz2": h} if (h := _hiz2(sure)) else {})}
+    anahtar = {"id": d.name, "fps": f, "sahne": gz.SAHNE_HAM, "tavan": gz.TAVAN_SURUM, "yogun": gz.YOGUN_SURUM, "model": gz.MODEL_DOSYA, "taban": list(gz.TABAN_SN), "cihaz": gz.OCR_CIHAZ, **({"hiz2": h} if (h := _hiz2(sure)) else {}),
+               **({"det": k} if (k := gz.ocr_det()) else {}), **({"cls": 0} if gz.ocr_cls0() else {}),
+               **({"havuz": 1} if os.environ.get("VIDEO_OCR_HAVUZ", "0") != "0" else {})}  # VİDEO-14-d4: CPU/DML kare dağılımı belirsiz → ayrı önbellek
     on = json.loads(oj.read_text(encoding="utf-8")) if oj.is_file() else {}
     if on.get("anahtar") != anahtar:
         shutil.rmtree(g, ignore_errors=True)
@@ -885,7 +944,8 @@ def _hiz2(sure):
     anahtar kare (30 dk −73%, slayt geri çağırma %62.5) · =2 melez: dhash taraması anahtar kare, seçilen kareler tam çözme (−34%, slayt %90.6;
     HIZ-4 paralel dilim −54%, slayt aynı). VİDEO-8: HIZ-7 A/B geri çağırma ≥ eski + rapor-denetle GEÇTİ → bayraksız =2; VIDEO_HIZ2=0 eski yol."""
     h = os.environ.get("VIDEO_HIZ2", "2")
-    return h if sure >= gz.ANAHTAR_SN and h in ("1", "2") else ""
+    esik = gz.ANAHTAR_UZUN_SN if os.environ.get("VIDEO_UZUN_HIZ") == "1" else gz.ANAHTAR_SN  # VİDEO-14: bayraklı, altın ölçümüne dek kapalı
+    return h if sure >= esik and h in ("1", "2") else ""
 
 
 def _kare_cikar(ctx, v, kd, sahne, f, hw=None, ak=(), parca=1, bas=None):
@@ -943,6 +1003,9 @@ def _goz_ocr_govde(ctx, d, kd, sure, f):
     _ram_kapi(ctx)
     with OCR, asama(d.name, "ocr"):
         bas, okunan, inc = time.monotonic(), [], []
+        if ctx.get("rapid") and (n := _havuz(bos_ram())):  # VİDEO-14-d4: DML + CPU havuzu iş çalma
+            okunan, kalan = _ocr_havuz(ctx, yollar, n, bas)
+            inc, yollar = [(t, "OCR güvenlik tavanı") for t in sorted(kalan)], []
         for i in range(0, len(yollar), 10):
             o = _ocr(ctx, [y for _, y in yollar[i:i + 10]], ham=True)
             okunan += [(t, o.get(y.name, [])) for t, y in yollar[i:i + 10]]
