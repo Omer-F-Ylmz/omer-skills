@@ -29,3 +29,24 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.
 - discernment-nudge (1): discernment-nudge · `C:/Users/pc/.claude/plugins/cache/anthropic-agent-skills/discernment-nudge/8a1541c4a3ff/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->
+
+<!-- dizin:bas -->
+## Dizin
+Adımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` = alt ajan, claude.ai'de bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula). departman-* cevap değil. Adı işini söyleyen skill'ler burada yok: listedeki adla çağır.
+### claude.ai + Claude Code
+ajan:bl-render-ayari: renders are noisy or slow
+ajan:inc-dogrulama-oncesi-bitis: Checks that claimed work is really done by
+ajan:inc-ponytail-kod: code feels heavier than the task
+ajan:inc-test-kalitesi-inceleme
+ajan:inc-uretim-hazirligi: Reviews production readiness across logging, failure modes, security
+ajan:oyn-oyun-denge: a game feels too easy or grindy
+ajan:vid-gecis-ve-ritim: a cut feels slow or jumpy
+sdp: ilir; baska repoda tetiklenmez
+### yalnız Claude Code
+aso: wants to audit or optimize an App Store
+autoplan: Auto-review pipeline — reads the full CEO, design
+health: Code quality dashboard
+longitudinal-measurement: Tracking AI product quality over time — drift
+ponytail: Lazy senior dev mode for any coding task
+star-history-paket: GitHub yıldız geçmişi grafiği: refactor pass
+<!-- dizin:son -->

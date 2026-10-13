@@ -1,0 +1,19 @@
+{
+  "_not": "SKILL-SECIM-1 d5: dizin satırına eklenen görev ifadesi / 'kaçın' notu (kısa ad → metin). d4 ölçümündeki yanlış seçimlerden; karıştırılan çiftin iki ucuna yazılır. Yeni yanlış seçim görülünce satır ekle.",
+  "game-recon": "oyun modlanabilir mi, motor tespiti, modcu topluluğu",
+  "game-research-websearch": "kaçın: modlama/motor tespiti → game-recon",
+  "to-questionnaire": "kararı başkasının dolduracağı soru formu/anket",
+  "grilling": "kaçın: başkasına soru formu → to-questionnaire",
+  "conflict-resolution": "kişiler/ekip arası sürtüşme, arabuluculuk görüşmesi",
+  "resolve-conflict": "yalnız git merge çakışması; insan sürtüşmesi → conflict-resolution",
+  "frontend-craft": "UI jenerik/cilasız, landing iyileştir; UI işinde İLK",
+  "improve-ui": "kaçın: genel UI cilası → frontend-craft",
+  "baseline-ui": "kaçın: genel UI cilası → frontend-craft",
+  "systematic-debugging": "aralıklı hata, kök nedeni sistematik bul",
+  "qa-hata-yeniden-uret": "belirsiz hata raporunu yeniden üret; kök neden avı → systematic-debugging",
+  "invoice": "fatura/invoice PDF, saat bazlı danışmanlık",
+  "fatura-kutusu": "fatura/invoice PDF, saat bazlı danışmanlık",
+  "dok-pdf-uretici": "kaçın: fatura → invoice/fatura-kutusu",
+  "commit-push-pr": "conventional commit + PR aç",
+  "dn-minimal-api-kurucu": "minimal API uç nokta (+EF Core)"
+}
