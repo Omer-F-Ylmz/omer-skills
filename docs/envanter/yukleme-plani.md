@@ -14,7 +14,7 @@
 - d2 seçim testi bu tek müdürde düşerse 11 iş türü 3–4 aileye bölünür (medya: video+3D+görsel · üretim: otomasyon+oyun+mobil · iş: hukuk+pazarlama · altyapı: bulut+ML).
 
 ## C. claude.ai 1000 kayıt sınırı — aile paketi
-Şu an claude.ai'de 589 skill (boş yer 411). Öneri ("kullanabilelim" önceliği: yalnız işe yarayan gider):
+Şu an claude.ai'de 591 skill (13 Eki 13:40; boş yer 409). Öneri ("kullanabilelim" önceliği: yalnız işe yarayan gider):
 
 | Paket | İçerik | Kayıt | Gerekçe |
 |---|---|---|---|
@@ -24,7 +24,7 @@
 | Plugin skill'leri (912 kopyasız) | CC'de kullanılan 5'i (`chrome-devtools`, `context-mode`, `figma`, `frontend-design`, `review`) MCP'ye bağlı | 0 | claude.ai'de MCP yok → yükleme işe yaramaz; `frontend-design` yerine `frontend-craft` zaten orada |
 | Ajan aileleri ayrı ayrı (8 × aile-*) | yalnız B'nin d2'de düşmesi halinde | +8 | yedek plan |
 
-Toplam: +4 kayıt (593/1000). 1000'e yaklaşılırsa aynı aileden ≥5 claude.ai skill'i tek "aile" skill'ine (SKILL.md dizin + `references/<ad>.md`) katlanır; aday aileler `bosluk.md` §2 öbek sayımından.
+Toplam: +4 kayıt (595/1000). 1000'e yaklaşılırsa aynı aileden ≥5 claude.ai skill'i tek "aile" skill'ine (SKILL.md dizin + `references/<ad>.md`) katlanır; aday aileler `bosluk.md` §2 öbek sayımından.
 
 ## D. Desktop MCP eşitliği
 - Yalnız CC 46 MCP; Desktop'a taşınması gereken yok sayılmaz — Desktop ihtiyacı `cc-kopru` (31 izinli CLI) üzerinden. Yalnız gerçekten kullanılan ve yerel yolu olmayanlar adaydır: `context7`, `mslearn`, `21st`, `nano-banana-2` (son 45 günde CC'de çağrıldı). Ekleme Desktop yapılandırması = canlı ayar → onay betiğiyle, Ömer kararı.
