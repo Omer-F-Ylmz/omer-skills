@@ -1,0 +1,24 @@
+(a) n=50 spearman regex~opus 0.329 · jev~opus 0.447 · MAE regex 1.3 · jev 1.19
+(a) opus≤6 (zayıf) n=6: regex<10 yakaladı 5 · jev≤7 yakaladı 5; yanlış alarm (opus≥8): regex 27 · jev 5
+(a) tüm 259: regex=10 oranı 0.86 · jev ayrık değer sayısı 48
+(b) n=39 evet=9: kosinüs eşiği doğru 25/39 · jev p≥0.5 doğru 33/39
+   site_ui n=14: kos 11 · jev 11
+   ogrenimler n=25: kos 14 · jev 22
+[jev1] test n=123 · Jev: ρ 0.571 MAE 0.93 doğru(≥5) 116
+laya0d3: ρ 0.268 MAE 2.23 doğru(≥5) 116 · karma%20 ρ 0.282 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 80.1s
+laya-bas3: ρ 0.246 MAE 2.13 doğru(≥5) 116 · karma%20 ρ 0.297 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 72.0s
+laya-tam3: ρ 0.395 MAE 0.97 doğru(≥5) 118 · karma%20 ρ 0.463 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 61.1s
+[jev1-d1] test n=24 · Jev: ρ 0.43 MAE 1.27 doğru(≥5) 24
+laya0d3: ρ 0.373 MAE 1.92 doğru(≥5) 22 · karma%20 ρ 0.345 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 80.1s
+laya-bas3: ρ 0.368 MAE 1.95 doğru(≥5) 22 · karma%20 ρ 0.369 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 72.0s
+laya-tam3: ρ 0.156 MAE 1.46 doğru(≥5) 22 · karma%20 ρ 0.339 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 61.1s
+[video] test n=23 · Jev: ρ 0.557 MAE 2.94 doğru(≥5) 19
+laya0d3: ρ 0.302 MAE 2.8 doğru(≥5) 17 · karma%20 ρ 0.509 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 80.1s
+laya-bas3: ρ 0.326 MAE 2.86 doğru(≥5) 18 · karma%20 ρ 0.461 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 72.0s
+laya-tam3: ρ 0.05 MAE 3.35 doğru(≥5) 15 · karma%20 ρ 0.478 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 61.1s
+[jev1] test n=123 · Jev: ρ 0.571 MAE 0.93 doğru(≥5) 116
+laya-tam3k: ρ 0.453 MAE 0.91 doğru(≥5) 117 · karma%20 ρ 0.432 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 73.0s
+[jev1-d1] test n=24 · Jev: ρ 0.43 MAE 1.27 doğru(≥5) 24
+laya-tam3k: ρ 0.367 MAE 1.61 doğru(≥5) 22 · karma%20 ρ 0.551 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 73.0s
+[video] test n=23 · Jev: ρ 0.557 MAE 2.94 doğru(≥5) 19
+laya-tam3k: ρ -0.044 MAE 3.02 doğru(≥5) 16 · karma%20 ρ 0.405 · jeton(tüm) 254855 (Jev ödemesi ≈ $0.0107, Laya $0) · 73.0s

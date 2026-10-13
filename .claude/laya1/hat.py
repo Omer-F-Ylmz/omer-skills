@@ -15,7 +15,7 @@ S = "3"  # dalga eki (d2 → "2"; d3 eğitimi d2'de RAM yüzünden durdu)
 
 def kos(*a):
     print(">>", *a, flush=True)
-    r = subprocess.run(list(a), cwd=D, env=env, creationflags=0x08000000)
+    r = subprocess.run(list(a), cwd=D, env=env, stdout=sys.stdout, stderr=subprocess.STDOUT, creationflags=0x08000000)
     if r.returncode:
         sys.exit(f"rc {r.returncode}: {a}")
 
@@ -29,8 +29,12 @@ if "egit" in adim:
     for kol in ("bas", "tam"):  # ayrı süreç → kol başına tepe bellek; RAM %88 üstü (çıkış 88) → toplu boyutu yarıya
         for mb in (2, 1):
             print(">>", PY, "egit.py", S, mb, kol, flush=True)
-            if subprocess.run([PY, "egit.py", S, str(mb), kol], cwd=D, env=env, creationflags=0x08000000).returncode != 88:
+            if subprocess.run([PY, "egit.py", S, str(mb), kol], cwd=D, env=env, stdout=sys.stdout,
+                              stderr=subprocess.STDOUT, creationflags=0x08000000).returncode != 88:
                 break
+if "kucuk" in adim:  # d3: düşük bellek denemesi (mb 1 + kalibrasyon toplu 1), ayrı checkpoint ck-tam<S>k
+    kos(PY, "egit.py", f"{S}k", "1", "tam")
+    kos(sys.executable, "olc.py", "puanla", f"laya-tam{S}k", str(D / f"ck-tam{S}k"))
 if "puanla" in adim:
     kos(sys.executable, "olc.py", "puanla", f"laya0d{S}")
     for k in (f"bas{S}", f"tam{S}"):
