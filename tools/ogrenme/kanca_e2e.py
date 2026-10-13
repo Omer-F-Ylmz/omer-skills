@@ -4,7 +4,9 @@ Kol dersli: SubagentStart/SubagentStop kancası + oturum sonunda kanca.isle (ger
 SessionEnd kancası burada yok: isle sürücüden eşzamanlı çağrılır (canlıda SessionEnd → arka.py; birim testte sınanır).
 d11: `python kanca_e2e.py <dersli|derssiz>` kol başına ayrı süreç (paralel), 10 görev (0–4 eski, 5–9 yeni); alt ajan testi koşabilir
 (d10'da Bash(cd/pytest) izni reddediliyordu → tüm koşular doğrulanmamış, Jev ~4.2).
-Tavan: kol başına ≤10 oturum + ≤10 damıtma, Σ$ ≤ 6. TSV: docs/kutuphane/olcum/ruflo-1-kanca-e2e-v2.tsv"""
+Tavan: kol başına ≤10 oturum + ≤10 damıtma, Σ$ ≤ 6. TSV: docs/kutuphane/olcum/ruflo-1-kanca-e2e-v2.tsv
+d13: `python kanca_e2e.py <kol> rapor` zor set — ab_olc rapor ailesi (5 görev, gizli KURALLAR.md biçimi; d8 v5 derssiz 0.625),
+alt ajan `raporcu`, TSV ruflo-1-kanca-e2e-zor.tsv."""
 import json
 import os
 import sys
@@ -20,10 +22,13 @@ import kanca  # noqa: E402
 
 TSV = KOK / "docs" / "kutuphane" / "olcum" / "ruflo-1-kanca-e2e-v2.tsv"
 USD_TAVAN = 6.0
-AJAN = {"kodcu": {"description": "Görev klasöründe Python kodunu düzelten alt ajan.", "model": "sonnet",
+AJAN = {"raporcu": {"description": "Görev klasöründeki veriden istenen dosyayı üreten alt ajan.", "model": "sonnet",
+                    "tools": ["Read", "Edit", "Write", "Glob", "Grep", "Bash"],
+                    "prompt": "Görev klasöründeki veriden istenen dosyayı üret ve doğrula. Bitince ne yaptığını 2 satırda yaz."},
+        "kodcu": {"description": "Görev klasöründe Python kodunu düzelten alt ajan.", "model": "sonnet",
                   "tools": ["Read", "Edit", "Write", "Glob", "Grep", "Bash"],
                   "prompt": "Görev klasöründeki Python kodunu istenen şekilde düzelt ve testlerle doğrula. Bitince ne yaptığını 2 satırda yaz."}}
-ISTEM = ("Bu görevi Agent aracıyla `kodcu` alt ajanına ver (görev metnini aynen aktar). Kendin dosya okuma/düzenleme yapma; "
+ISTEM = ("Bu görevi Agent aracıyla `%s` alt ajanına ver (görev metnini aynen aktar). Kendin dosya okuma/düzenleme yapma; "
          "alt ajan bitince tek satır özet yaz.\n\nGörev:\n%s")
 
 
@@ -45,25 +50,26 @@ def main():
     import kosucu
     # kanca transkriptten okur; ölçüm rotasının --no-session-persistence'ı onu diske yazdırmaz (günlük kullanımda kalıcılık açık)
     kosucu.ROTA = [x for x in kosucu.ROTA if x != "--no-session-persistence"]
-    kol = sys.argv[1]
-    banka = KOK / ".kos" / "ogrenme-ab" / (f"kanca-e2e-{kol}-" + time.strftime("%Y%m%d-%H%M%S"))
+    kol, aile = sys.argv[1], (sys.argv[2:] or ["kod"])[0]
+    tsv, ajan = (TSV, "kodcu") if aile == "kod" else (TSV.with_name("ruflo-1-kanca-e2e-zor.tsv"), "raporcu")
+    banka = KOK / ".kos" / "ogrenme-ab" / (f"kanca-e2e-{aile}-{kol}-" + time.strftime("%Y%m%d-%H%M%S"))
     os.environ["OGRENME_DIZIN"] = str(banka)
     ayar = ayarlar(ders.dizin())
-    usd, yeni = 0.0, not TSV.exists()
-    with open(TSV, "a", encoding="utf-8", newline="\n") as out:
+    usd, yeni = 0.0, not tsv.exists()
+    with open(tsv, "a", encoding="utf-8", newline="\n") as out:
         if yeni:
             out.write("zaman\tsira\tkol\tpuan\tgizli\ttur\tinput\tcache_creation\tcache_read\toutput\tusd\tsure_sn\tders_ids\tkarma\tyeni_ders\trc\n")
-        for i in range(10):
+        for i in range(len(ab_olc.KOD if aile == "kod" else ab_olc.RAPOR)):
             if usd >= USD_TAVAN or kosucu.bos_ram_gb() < 0.8:  # Ömer 13 Eki: RAM %95e kadar
                 print(time.strftime("%H:%M:%S"), f"TAVAN: ${usd:.2f} boş RAM {kosucu.bos_ram_gb():.1f} GB — durdu", flush=True)
                 return
             os.environ["OGRENME_KANCA"] = "1" if kol == "dersli" else "0"
-            d = tempfile.mkdtemp(prefix=f"ruflo-kanca-{i}-")
-            o = kosucu.kos(ISTEM % ab_olc.kur("kod", i, d), cwd=d, model="sonnet", butce=0.8,
+            d = tempfile.mkdtemp(prefix=f"ruflo-kanca-{i}-" if aile == "kod" else f"ruflo-kanca-{aile}-{i}-")
+            o = kosucu.kos(ISTEM % (ajan, ab_olc.kur(aile, i, d)), cwd=d, model="sonnet", butce=0.8,
                            ek=["--permission-mode", "acceptEdits", "--allowedTools", "Read,Edit,Write,Glob,Grep,Bash(python:*),Bash(py:*),Bash(pytest:*),Bash(cd:*),Agent,Task",
                                "--strict-mcp-config", "--max-turns", "20", "--agents", json.dumps(AJAN), "--settings", ayar])
             usd += o["usd"]
-            puan, gizli, _ = ab_olc.yargic("kod", i, d)
+            puan, gizli, _ = ab_olc.yargic(aile, i, d)
             ids, karma, onceki, dmu = [], [], len(ders.oku()), []
             for q in (banka / "kuyruk").glob("*.jsonl") if kol == "dersli" else ():
                 kayit = list(kanca._satirlar(q))
