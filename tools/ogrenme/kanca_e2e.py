@@ -41,6 +41,8 @@ def damit(istem, say):
 
 def main():
     import kosucu
+    # kanca transkriptten okur; ölçüm rotasının --no-session-persistence'ı onu diske yazdırmaz (günlük kullanımda kalıcılık açık)
+    kosucu.ROTA = [x for x in kosucu.ROTA if x != "--no-session-persistence"]
     banka = KOK / ".kos" / "ogrenme-ab" / ("kanca-e2e-" + time.strftime("%Y%m%d-%H%M%S"))
     os.environ["OGRENME_DIZIN"] = str(banka)
     ayar = ayarlar(ders.dizin())
