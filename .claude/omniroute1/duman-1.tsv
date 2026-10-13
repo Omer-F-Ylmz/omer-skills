@@ -1,0 +1,7 @@
+ornek	model	max	efor	durum	ms	yanit_model	finish	usage	uzunluk	son
+ig-C1aYS28MPyD	ucretsiz-ozet	600	-	200	14213	gemini-3.1-flash-lite	length	{"prompt_tokens": 199, "completion_tokens": 596, "total_tokens": 795, "completion_tokens_details": {"reasoning_tokens": 572}}	98	'larak başka dillere çevrilmesi'
+ig-C1aYS28MPyD	gemini/gemini-3.1-flash-lite	600	-	200	7809	gemini-3.1-flash-lite	length	{"prompt_tokens": 199, "completion_tokens": 596, "total_tokens": 795, "completion_tokens_details": {"reasoning_tokens": 573}}	93	'nlık olarak farklı dillere çev'
+ig-C1aYS28MPyD	gemini/gemini-3-flash-preview	600	-	TimeoutError 	120004
+ig-C1aYS28MPyD	gemini/gemini-3.1-flash-lite	4000	-	200	8301	gemini-3.1-flash-lite	stop	{"prompt_tokens": 199, "completion_tokens": 1044, "total_tokens": 1243, "completion_tokens_details": {"reasoning_tokens": 911}}	522	'ulaşabileceği öngörülmektedir.'
+ig-C1aYS28MPyD	gemini/gemini-3.1-flash-lite	600	none	200	3201	gemini-3.1-flash-lite	stop	{"prompt_tokens": 199, "completion_tokens": 117, "total_tokens": 316}	458	'işim kurabileceği öngörülüyor.'
+ig-C1aYS28MPyD	gemini/gemini-3-flash-preview	600	-	TimeoutError 	120004

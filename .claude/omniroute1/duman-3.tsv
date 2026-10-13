@@ -1,0 +1,4 @@
+ornek	model	max	efor	durum	ms	yanit_model	finish	usage	uzunluk	son
+ig-C1aYS28MPyD	ucretsiz-ozet2	2000	none	200	9067	gemini-3.1-flash-lite	stop	{"prompt_tokens": 199, "completion_tokens": 135, "total_tokens": 334}	482	'an duyulabileceği öngörülüyor.'
+ig-Da5-vksijqk	ucretsiz-ozet2	2000	none	200	8556	gemini-3.1-flash-lite	stop	{"prompt_tokens": 193, "completion_tokens": 147, "total_tokens": 340}	547	'b depo linki gönderilmektedir.'
+ig-Db3iw6NMPrO	ucretsiz-ozet2	2000	none	200	5272	gemini-3.1-flash-lite	stop	{"prompt_tokens": 339, "completion_tokens": 143, "total_tokens": 482}	491	'ına "Agent" yazması isteniyor.'

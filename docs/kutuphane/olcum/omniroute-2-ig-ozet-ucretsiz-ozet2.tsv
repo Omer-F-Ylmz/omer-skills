@@ -1,0 +1,41 @@
+ornek	kelime	yol	model	sure_ms	basari	jev	opus	karma	hata	bitis
+ig-C1aYS28MPyD	72	ucretsiz-ozet2	gemini-3.1-flash-lite	6620	1	6.6	6.0	6.0		stop
+ig-C1aYS28MPyD	72	claude	claude-sonnet-5-5	14955	1	8.5		8.5		
+ig-Da5-vksijqk	90	ucretsiz-ozet2	gemini-3.1-flash-lite	7908	1	7.9		7.9		stop
+ig-Da5-vksijqk	90	claude	claude-sonnet-5-5	17132	1	8.1		8.1		
+ig-Db3iw6NMPrO	135	ucretsiz-ozet2	gemini-3.1-flash-lite	7439	1	8.3		8.3		stop
+ig-Db3iw6NMPrO	135	claude	claude-sonnet-5-5	16818	1	8.9		8.9		
+ig-DbnZLJFMcSY	111	ucretsiz-ozet2	gemini-3.1-flash-lite	7130	1	8.1		8.1		stop
+ig-DbnZLJFMcSY	111	claude	claude-sonnet-5-5	15616	1	9.1		9.1		
+ig-Dc8j6eGswSc	75	ucretsiz-ozet2	gemini-3.1-flash-lite	5469	1	7.6		7.6		stop
+ig-Dc8j6eGswSc	75	claude	claude-sonnet-5-5	17266	1	7.3	9.0	9.0		
+ig-DckaJJGDG-R	215	ucretsiz-ozet2	gemini-3.1-flash-lite	4675	1	8.2		8.2		stop
+ig-DckaJJGDG-R	215	claude	claude-sonnet-5-5	19930	1	9.1		9.1		
+ig-DcvkRl6j2ux	195	ucretsiz-ozet2	gemini-3.1-flash-lite	6465	1	8.4		8.4		stop
+ig-DcvkRl6j2ux	195	claude	claude-sonnet-5-5	17509	1	8.8		8.8		
+ig-Dd4kcGsOELB	201	ucretsiz-ozet2	gemini-3.1-flash-lite	7970	1	7.0	7.0	7.0		stop
+ig-Dd4kcGsOELB	201	claude	claude-sonnet-5-5	21911	1	8.1		8.1		
+ig-DdBQrn-jV8v	204	ucretsiz-ozet2	gemini-3.1-flash-lite	5770	1	8.1		8.1		stop
+ig-DdBQrn-jV8v	204	claude	claude-sonnet-5-5	22290	1	9.2		9.2		
+ig-Ddj9-pzx3GD	110	ucretsiz-ozet2	gemini-3.1-flash-lite	4629	1	7.7		7.7		stop
+ig-Ddj9-pzx3GD	110	claude	claude-sonnet-5-5	16040	1	8.7		8.7		
+ig-DdrHopWCeag	155	ucretsiz-ozet2	gemini-3.1-flash-lite	7039	1	8.3		8.3		stop
+ig-DdrHopWCeag	155	claude	claude-sonnet-5-5	18234	1	9.0		9.0		
+ig-DdXFyD1AX3T	168	ucretsiz-ozet2	gemini-3.1-flash-lite	4822	1	8.0		8.0		stop
+ig-DdXFyD1AX3T	168	claude	claude-sonnet-5-5	19750	0	8.3		8.3		
+ig-DeCMQXjvuM3	152	ucretsiz-ozet2	nvidia/nemotron-3-super-120b-a12b:free	23130	1	9.1		9.1		stop
+ig-DeCMQXjvuM3	152	claude	claude-sonnet-5-5	15856	1	8.3		8.3		
+ig-DeKHggujqWf	212	ucretsiz-ozet2	gemini-3.1-flash-lite	6989	1	8.7		8.7		stop
+ig-DeKHggujqWf	212	claude	claude-sonnet-5-5	15405	1	8.9		8.9		
+ig-DeR_xczkbK6	153	ucretsiz-ozet2	gemini-3.1-flash-lite	6773	1	8.4		8.4		stop
+ig-DeR_xczkbK6	153	claude	claude-sonnet-5-5	16584	1	9.0		9.0		
+ig-DeYZpq3gthM	99	ucretsiz-ozet2	gemini-3.1-flash-lite	6495	1	7.3	6.0	6.0		stop
+ig-DeYZpq3gthM	99	claude	claude-sonnet-5-5	14065	1	8.4		8.4		
+ig-DJRbJA0Myhm	89	ucretsiz-ozet2	gemini-3.1-flash-lite	4385	1	8.3		8.3		stop
+ig-DJRbJA0Myhm	89	claude	claude-sonnet-5-5	16473	1	7.9		7.9		
+ig-DRzxUxOAuVF	156	ucretsiz-ozet2	gemini-3.1-flash-lite	5848	1	6.4		6.4		stop
+ig-DRzxUxOAuVF	156	claude	claude-sonnet-5-5	17889	1	5.5		5.5		
+ig-DWbY5vCjQqs	78	ucretsiz-ozet2	gemini-3.1-flash-lite	7056	1	7.5	6.0	6.0		stop
+ig-DWbY5vCjQqs	78	claude	claude-sonnet-5-5	17444	1	6.6	8.0	8.0		
+ig-DYPdzdmsaPB	107	ucretsiz-ozet2	gemini-3.1-flash-lite	5018	1	7.1	5.0	5.0		stop
+ig-DYPdzdmsaPB	107	claude	claude-sonnet-5-5	13667	1	7.3	6.0	6.0		

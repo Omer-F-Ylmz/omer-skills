@@ -1,0 +1,15 @@
+model	durum	ms	yanit_model	not
+gemini/gemini-3.1-pro-preview	400	437	-	{"error":{"message":"Model 'gemini-3.1-pro-preview' is not available in the active live catalog for provider 'gemini'.","type":"invalid_request_error","code":"bad_request"}}
+gemini/gemini-2.5-pro	400	16	-	{"error":{"message":"Model 'gemini-2.5-pro' is not available in the active live catalog for provider 'gemini'.","type":"invalid_request_error","code":"bad_request"}}
+gemini/gemini-3.7-flash	400	14	-	{"error":{"message":"Model 'gemini-3.7-flash' is not available in the active live catalog for provider 'gemini'.","type":"invalid_request_error","code":"bad_request"}}
+gemini/gemini-3-flash-preview	200	30855	gemini-3-flash-preview	'4'
+gemini/gemini-2.5-flash	404	439	-	{"error":{"message":"[gemini/gemini-2.5-flash] [404]: This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvement
+gemini/gemini-3.1-flash-lite	200	5725	gemini-3.1-flash-lite	'4'
+gemini/gemini-2.5-flash-lite	404	669	-	{"error":{"message":"[gemini/gemini-2.5-flash-lite] [404]: This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features 
+moonshot/kimi-k3	400	9	-	{"error":{"message":"Model 'kimi-k3' is not available in the active live catalog for provider 'moonshot'.","type":"invalid_request_error","code":"bad_request"}}
+moonshot/kimi-k2.7-code	429	28767	-	{"error":{"message":"[moonshot/kimi-k2.7-code] [429]: Your account <MASK> <<HESAP>> is suspended due to insufficient balance, please recharge your account or check your plan and billing details (reset aft
+moonshot/kimi-k2.6	429	23485	-	{"error":{"message":"[moonshot/kimi-k2.6] [429]: Your account <MASK> <<HESAP>> is suspended due to insufficient balance, please recharge your account or check your plan and billing details (reset after 3s
+openrouter/nvidia/nemotron-3-ultra-550b-a55b:free	200	1450	nvidia/nemotron-3-ultra-550b-a55b:free	'4'
+openrouter/google/gemma-4-31b-it:free	200	11005	google/gemma-4-31b-it:free	'4'
+openrouter/thinkingmachines/inkling:free	403	33713	-	{"error":{"message":"[openrouter/thinkingmachines/inkling:free] [403]: thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openr
+openrouter/nvidia/nemotron-3-super-120b-a12b:free	200	878	nvidia/nemotron-3-super-120b-a12b:free	'4'
