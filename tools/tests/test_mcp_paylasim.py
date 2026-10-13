@@ -31,3 +31,20 @@ def test_onay_yalniz_asili_mcp_proxy_oldurulur():
     assert not u.karar(True, "mcp-proxy.exe")  # port açık → dokunma
     assert not u.karar(False, "python.exe")  # pid yeniden kullanılmış → dokunma
     assert not u.karar(False, None)
+
+
+def test_bekci_onay_yalniz_bekci_komutunu_tanir():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "onay"))
+    import mcp_hafif_2_bekci as b
+    assert b.bizim_bekci(r'"C:\P\pythonw.exe" "C:\Projeler\omer-skills\tools\mcp_paylasim.py" "bekci" "s.json" "47800"')
+    assert not b.bizim_bekci(r'"C:\P\python.exe" "C:\x\baska.py"')  # pid yeniden kullanılmış
+    assert not b.bizim_bekci("")  # süreç yok
+
+
+def test_serena_onay_yalniz_komutu_degistirir():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "onay"))
+    import mcp_hafif_2_serena as s
+    d = {"mcpServers": {"serena": {"type": "stdio", "env": {}, **s.UVX}}}
+    yeni = s.girdi_ile(d, s.SABIT)
+    assert yeni == {"type": "stdio", "env": {}, **s.SABIT}
+    assert s.girdi_ile({"mcpServers": {"serena": yeni}}, s.UVX) == d["mcpServers"]["serena"]  # geri = önce
