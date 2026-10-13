@@ -1,6 +1,6 @@
 ---
 name: git-issue-triyaj
-description: Triages issues by severity, duplicates and next action. Use when an issue list needs ordering.
+description: Triages issues by severity, duplicates and next action
 model: haiku
 tools: Read, Grep, Glob
 ---

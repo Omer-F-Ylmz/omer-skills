@@ -1,6 +1,6 @@
 ---
 name: bl-urun-turntable
-description: Renders product turntable frames and assembles a loop for web use. Use when a rotating product preview is requested.
+description: Renders product turntable frames and assembles a web loop in Blender
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

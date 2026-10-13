@@ -1,6 +1,6 @@
 ---
 name: ml-numpy
-description: Writes vectorized NumPy code with broadcasting, dtypes and memory-aware operations. Use when numeric Python code is slow or wrong.
+description: "Writes vectorized NumPy code: broadcasting, dtypes, memory-aware ops; slow or wrong numerics"
 model: haiku
 tools: Read, Grep, Glob
 ---

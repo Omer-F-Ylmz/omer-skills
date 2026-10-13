@@ -1,6 +1,6 @@
 ---
 name: pln-hedef-planlayici
-description: Plans a path from current state to a goal state using actions with preconditions and effects, and replans on failure. Use when a goal has many prerequisites, some already met.
+description: Plans current-to-goal path with action preconditions/effects; replans on failure
 model: sonnet
 tools: Read, Grep, Glob
 ---

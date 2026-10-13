@@ -1,6 +1,6 @@
 ---
 name: vid-hyperframes-kompozisyon
-description: Builds videos from HTML and CSS timelines rendered to frames (HyperFrames, GSAP). Use when a motion piece is authored as web code, or when asked how to structure such a composition.
+description: Builds videos from HTML/CSS timelines rendered to frames (HyperFrames, GSAP)
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

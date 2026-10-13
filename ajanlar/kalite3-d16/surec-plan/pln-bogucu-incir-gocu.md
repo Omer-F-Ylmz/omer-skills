@@ -1,6 +1,6 @@
 ---
 name: pln-bogucu-incir-gocu
-description: Plans incremental legacy replacement with the strangler fig pattern, routing facade and parity checks. Use when rewriting a legacy system without a big bang.
+description: "Plans strangler fig legacy replacement: routing facade, parity checks, no big bang"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

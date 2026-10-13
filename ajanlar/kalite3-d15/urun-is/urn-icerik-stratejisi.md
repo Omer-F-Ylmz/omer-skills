@@ -1,6 +1,6 @@
 ---
 name: urn-icerik-stratejisi
-description: Plans content strategy with audience needs, topic clusters, formats and measurement. Use when content is produced without direction.
+description: "Plans content strategy: audience needs, topic clusters, formats, measurement"
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: git-yeniden-kullanilabilir-is-akisi
-description: Refactors duplicated CI YAML into reusable workflows, composite actions and job matrices with clear inputs. Use when many repos or jobs copy the same pipeline steps.
+description: Refactors duplicated CI YAML into reusable workflows, composite actions, matrices
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

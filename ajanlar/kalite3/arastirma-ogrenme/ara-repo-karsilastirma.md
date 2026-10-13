@@ -1,6 +1,6 @@
 ---
 name: ara-repo-karsilastirma
-description: Compares open source repos on activity, license, size and fit. Use when choosing between libraries, or when asked how to evaluate and compare repos.
+description: Compares open source repos on activity, license, size and fit
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

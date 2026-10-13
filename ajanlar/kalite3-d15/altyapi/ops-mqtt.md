@@ -1,6 +1,6 @@
 ---
 name: ops-mqtt
-description: Designs MQTT topics, QoS levels, retained messages and session settings for devices. Use when connecting IoT devices.
+description: Designs MQTT topics, QoS, retained messages, session settings for IoT devices
 model: haiku
 tools: Read, Grep, Glob
 ---

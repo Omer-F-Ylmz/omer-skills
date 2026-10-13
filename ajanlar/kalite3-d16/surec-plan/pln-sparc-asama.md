@@ -1,6 +1,6 @@
 ---
 name: pln-sparc-asama
-description: Runs work through Specification, Pseudocode, Architecture, Refinement and Completion phases with an exit gate for each. Use when a feature needs disciplined phased delivery.
+description: Runs work through SPARC phases (Specification to Completion) with exit gates
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

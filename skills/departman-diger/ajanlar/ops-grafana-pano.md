@@ -1,6 +1,6 @@
 ---
 name: ops-grafana-pano
-description: Designs Grafana operational dashboards with RED and USE methods, template variables, panel hierarchy and links to logs and traces. Use when dashboards are cluttered and on-call cannot find issues.
+description: "Designs Grafana ops dashboards: RED/USE, template variables, panel hierarchy, log/trace links"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

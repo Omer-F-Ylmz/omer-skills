@@ -1,6 +1,6 @@
 ---
 name: ajn-mcp-sunucu-yazar
-description: Builds MCP servers with clear tool names, schemas and error messages. Use when exposing a service to an agent, or when asked how to design a good MCP tool definition.
+description: Builds MCP servers with clear tool names, schemas and error messages
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

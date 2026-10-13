@@ -1,6 +1,6 @@
 ---
 name: dok-ste100-sade
-description: Rewrites technical text into ASD-STE100 style simplified English with short sentences, approved words and one instruction per step. Use when manuals or reports must be unambiguous.
+description: Rewrites technical text into ASD-STE100 simplified English, short sentences, one instruction per step
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

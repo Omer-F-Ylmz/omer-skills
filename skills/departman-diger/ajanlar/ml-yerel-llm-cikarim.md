@@ -1,6 +1,6 @@
 ---
 name: ml-yerel-llm-cikarim
-description: Configures local LLM inference: quantization level, VRAM budget, context length, batching and runtime choice. Use when running an open-weight model on own hardware.
+description: "Configures local LLM inference: quantization, VRAM budget, context length, batching, runtime"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

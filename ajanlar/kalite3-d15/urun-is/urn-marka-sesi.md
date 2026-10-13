@@ -1,6 +1,6 @@
 ---
 name: urn-marka-sesi
-description: Defines brand voice with tone attributes, do/don't examples and channel adjustments. Use when copy sounds inconsistent across channels.
+description: "Defines brand voice: tone attributes, do/don't examples, channel adjustments"
 model: haiku
 tools: Read, Grep, Glob
 ---

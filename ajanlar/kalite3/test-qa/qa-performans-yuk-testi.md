@@ -1,6 +1,6 @@
 ---
 name: qa-performans-yuk-testi
-description: Designs load tests with realistic traffic and clear pass thresholds. Use when checking capacity before launch.
+description: Designs load tests with realistic traffic and clear pass thresholds before launch
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

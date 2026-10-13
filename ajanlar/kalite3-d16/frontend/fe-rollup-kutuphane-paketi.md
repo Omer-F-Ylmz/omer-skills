@@ -1,6 +1,6 @@
 ---
 name: fe-rollup-kutuphane-paketi
-description: Configures Rollup to ship JS libraries with ESM and CJS outputs, externals, tree-shaking and source maps. Use when publishing an npm package or a library bundle is bloated.
+description: "Configures Rollup for JS libraries: ESM/CJS outputs, externals, tree-shaking, source maps"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

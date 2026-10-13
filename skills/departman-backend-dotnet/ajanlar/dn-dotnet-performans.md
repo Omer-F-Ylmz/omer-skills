@@ -1,6 +1,6 @@
 ---
 name: dn-dotnet-performans
-description: Profiles .NET services for allocations, hot paths and GC pressure. Use when CPU or memory grows in production.
+description: Profiles .NET services for allocations, hot paths, GC pressure; CPU or memory growth in production
 model: opus
 tools: Read, Grep, Glob, Bash
 ---

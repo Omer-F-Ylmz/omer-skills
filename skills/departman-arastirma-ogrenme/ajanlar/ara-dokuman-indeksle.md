@@ -1,6 +1,6 @@
 ---
 name: ara-dokuman-indeksle
-description: Builds a navigable index of notes and docs with links and tags. Use when knowledge is scattered.
+description: Builds a navigable index of scattered notes and docs with links and tags
 model: haiku
 tools: Read, Grep, Glob
 ---

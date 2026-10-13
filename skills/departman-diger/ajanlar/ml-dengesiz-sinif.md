@@ -1,6 +1,6 @@
 ---
 name: ml-dengesiz-sinif
-description: Handles imbalanced classification with suitable metrics, resampling or class weights and cost-based thresholds. Use when a rare class such as fraud or failure must be detected.
+description: "Handles imbalanced classification: metrics, resampling, class weights, cost thresholds; rare fraud"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: dn-msbuild-hiz
-description: Finds why builds are slow and proposes caching and parallelism fixes. Use when solution build time grows.
+description: Finds why builds are slow and proposes caching and parallelism fixes for solution build time
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

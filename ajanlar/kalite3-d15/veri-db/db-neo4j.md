@@ -1,6 +1,6 @@
 ---
 name: db-neo4j
-description: Models graph data in Neo4j with labels, relationship types, Cypher queries and indexes. Use when data is relationship-heavy.
+description: "Models Neo4j graph data: labels, relationship types, Cypher queries, indexes"
 model: sonnet
 tools: Read, Grep, Glob
 ---

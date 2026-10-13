@@ -1,6 +1,6 @@
 ---
 name: vid-ffmpeg-donusturucu
-description: Builds ffmpeg commands to convert, trim, compress and extract frames. Use when media files need processing.
+description: Builds ffmpeg commands to convert, trim, compress and extract frames
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

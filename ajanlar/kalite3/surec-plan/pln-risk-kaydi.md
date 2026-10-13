@@ -1,6 +1,6 @@
 ---
 name: pln-risk-kaydi
-description: Lists project risks with likelihood, impact and mitigation. Use when planning a risky change, including general questions like "what are the top risks of X".
+description: Lists project risks with likelihood, impact, mitigation; also top-risks questions
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

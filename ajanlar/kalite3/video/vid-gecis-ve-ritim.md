@@ -1,6 +1,6 @@
 ---
 name: vid-gecis-ve-ritim
-description: Reviews edit pacing, cuts and transitions for flow, hook and audience attention. Use when a cut feels slow or jumpy, or when asked how to critique or fix pacing.
+description: Reviews edit pacing, cuts and transitions for flow, hook and attention
 model: haiku
 tools: Read, Grep, Glob
 ---

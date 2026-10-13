@@ -1,6 +1,6 @@
 ---
 name: inc-mimari-inceleme
-description: Reviews architecture changes for coupling, boundaries, scalability and operational risk. Use when a design or large PR changes system structure.
+description: Reviews architecture changes for coupling, boundaries, scalability, operational risk
 model: sonnet
 tools: Read, Grep, Glob
 ---

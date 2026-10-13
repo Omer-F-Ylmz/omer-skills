@@ -1,6 +1,6 @@
 ---
 name: fe-bilesen-kutuphanesi
-description: Builds reusable UI component libraries with clear APIs, variants, accessibility and docs. Use when teams duplicate UI components.
+description: "Builds reusable UI component libraries: APIs, variants, accessibility, docs"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

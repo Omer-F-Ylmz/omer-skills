@@ -1,6 +1,6 @@
 ---
 name: be-bellek-sizintisi-avcisi
-description: Hunts memory leaks in long-running services: unbounded caches, lingering listeners, timers and retained closures, using heap snapshots. Use when a process's memory grows until restart.
+description: Hunts memory leaks in long-running services via heap snapshots; memory grows until restart
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

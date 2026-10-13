@@ -1,6 +1,6 @@
 ---
 name: sec-ci-guvenlik-tarama
-description: Adds security scanning steps (SAST, secret scanning) to CI pipelines with sensible fail thresholds. Use when automating security checks or when asked how to set them up in CI.
+description: Adds security scanning (SAST, secret scanning) to CI with sensible fail thresholds
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

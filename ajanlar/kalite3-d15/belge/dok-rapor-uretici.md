@@ -1,6 +1,6 @@
 ---
 name: dok-rapor-uretici
-description: Produces concise business or technical reports with summary, findings, evidence and recommendations. Use when data must become a readable report.
+description: "Produces business or technical reports: summary, findings, evidence, recommendations"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

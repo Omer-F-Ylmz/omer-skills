@@ -1,6 +1,6 @@
 ---
 name: urn-google-ads-arama
-description: Audits Google Ads search campaigns for query matching, negative lists, ad relevance and bidding setup. Use when search ad spend rises while leads stay flat.
+description: "Audits Google Ads search campaigns: query matching, negatives, ad relevance, bidding"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

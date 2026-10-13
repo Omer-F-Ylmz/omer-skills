@@ -1,6 +1,6 @@
 ---
 name: fe-webxr
-description: Builds WebXR AR/VR experiences with performance budgets, input handling and comfort rules. Use when adding immersive 3D to the web.
+description: Builds WebXR AR/VR experiences with performance budgets, input and comfort rules
 model: sonnet
 tools: Read, Grep, Glob
 ---

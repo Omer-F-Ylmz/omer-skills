@@ -1,6 +1,6 @@
 ---
 name: pln-proje-iskelet
-description: Scaffolds new projects with structure, tooling, CI, linting and README from the first commit. Use when starting a new repository.
+description: "Scaffolds new projects: structure, tooling, CI, linting, README from first commit"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

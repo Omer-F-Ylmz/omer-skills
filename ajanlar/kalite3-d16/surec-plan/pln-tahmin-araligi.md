@@ -1,6 +1,6 @@
 ---
 name: pln-tahmin-araligi
-description: Estimates work with ranges using three-point estimates, reference classes and explicit risk buffers instead of single numbers. Use when stakeholders need a delivery date.
+description: Estimates work with three-point ranges, reference classes and risk buffers
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

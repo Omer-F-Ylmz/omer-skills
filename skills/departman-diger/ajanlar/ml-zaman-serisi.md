@@ -1,6 +1,6 @@
 ---
 name: ml-zaman-serisi
-description: Builds time series forecasts with proper backtesting, seasonality, holidays and baseline comparison. Use when forecasting demand, traffic or sales.
+description: Builds time series forecasts with backtesting, seasonality, holidays, baselines; demand, sales
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

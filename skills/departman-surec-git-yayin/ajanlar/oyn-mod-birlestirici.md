@@ -1,6 +1,6 @@
 ---
 name: oyn-mod-birlestirici
-description: Merges several mods into one by remapping hashes, slots and buffers. Use when two mods conflict.
+description: Merges several mods into one by remapping hashes, slots and buffers; mod conflicts
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

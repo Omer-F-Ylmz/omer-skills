@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: urn-kullanici-davranisi
-description: Analyzes product usage with funnels, cohorts and event data to explain user behavior. Use when you need to know why users drop or convert.
+description: Analyzes product usage with funnels, cohorts, events to explain why users drop or convert
 model: sonnet
 tools: Read, Grep, Glob
 ---

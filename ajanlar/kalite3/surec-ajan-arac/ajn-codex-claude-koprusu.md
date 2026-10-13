@@ -1,6 +1,6 @@
 ---
 name: ajn-codex-claude-koprusu
-description: Maps settings and instructions between Claude Code and other agent CLIs (Codex, Gemini). Use when configuring a second agent tool or migrating CLAUDE.md, skills, hooks, MCP and permissions.
+description: Maps settings and instructions between Claude Code and Codex/Gemini CLIs
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

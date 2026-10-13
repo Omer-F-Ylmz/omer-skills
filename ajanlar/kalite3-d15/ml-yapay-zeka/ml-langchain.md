@@ -1,6 +1,6 @@
 ---
 name: ml-langchain
-description: Builds LangChain or LangGraph pipelines with retrievers, tools, memory and evaluation. Use when composing LLM apps with LangChain.
+description: Builds LangChain or LangGraph pipelines with retrievers, tools, memory, evaluation
 model: sonnet
 tools: Read, Grep, Glob
 ---

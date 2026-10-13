@@ -1,6 +1,6 @@
 ---
 name: dn-minimal-api-kurucu
-description: Scaffolds minimal API endpoint groups with typed results. Use when a small service needs routes quickly, including when asked how to write or structure minimal API endpoints.
+description: Scaffolds minimal API endpoint groups with typed results for small services
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

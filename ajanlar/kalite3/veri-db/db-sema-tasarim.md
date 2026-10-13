@@ -1,6 +1,6 @@
 ---
 name: db-sema-tasarim
-description: Designs normalized relational schemas with keys, constraints and naming. Use when adding tables or modeling new data.
+description: Designs normalized relational schemas with keys, constraints and naming for new tables
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

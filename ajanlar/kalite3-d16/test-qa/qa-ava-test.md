@@ -1,6 +1,6 @@
 ---
 name: qa-ava-test
-description: Structures and fixes AVA test suites around concurrent files, serial tests, t.plan and async assertions. Use when AVA tests are flaky or pass without asserting.
+description: "Structures/fixes AVA suites: concurrent files, serial tests, t.plan, async assertions"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

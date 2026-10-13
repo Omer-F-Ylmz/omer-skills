@@ -1,6 +1,6 @@
 ---
 name: urn-sosyal-medya-icerik
-description: Creates platform-specific social media posts with hooks, formats and posting plans. Use when a brand needs social content.
+description: Creates platform-specific social media posts with hooks, formats, posting plans
 model: haiku
 tools: Read, Grep, Glob
 ---

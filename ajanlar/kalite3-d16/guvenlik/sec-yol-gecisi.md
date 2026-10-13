@@ -1,6 +1,6 @@
 ---
 name: sec-yol-gecisi
-description: Finds and fixes path traversal and zip slip in file download, upload and archive extraction code. Use when code joins user input into file paths.
+description: Finds and fixes path traversal and zip slip in file download, upload, extraction code
 model: haiku
 tools: Read, Grep, Glob
 skills: calisma-protokolu

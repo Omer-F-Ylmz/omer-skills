@@ -1,6 +1,6 @@
 ---
 name: qa-manuel-test-plani
-description: Writes manual test checklists with steps, expected results and priorities. Use when a feature needs human verification.
+description: Writes manual test checklists with steps, expected results, priorities
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

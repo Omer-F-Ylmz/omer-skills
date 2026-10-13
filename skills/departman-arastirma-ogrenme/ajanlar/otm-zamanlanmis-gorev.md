@@ -1,6 +1,6 @@
 ---
 name: otm-zamanlanmis-gorev
-description: Sets up scheduled jobs with cron syntax, locking and logs. Use when something must run periodically, including design questions with no files attached.
+description: Sets up scheduled jobs with cron syntax, locking and logs; periodic runs
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

@@ -1,6 +1,6 @@
 ---
 name: db-bi-rapor
-description: Designs BI dashboards and data models with clear metrics, star schemas and refresh strategy. Use when building business reports.
+description: "Designs BI dashboards and data models: metrics, star schemas, refresh strategy"
 model: sonnet
 tools: Read, Grep, Glob
 ---

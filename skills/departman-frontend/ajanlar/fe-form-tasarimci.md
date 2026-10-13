@@ -1,6 +1,6 @@
 ---
 name: fe-form-tasarimci
-description: Designs forms with clear labels, inline validation and error recovery. Use when building signup, checkout or settings forms, including design-only questions with no files attached.
+description: "Designs forms: clear labels, inline validation, error recovery (signup, checkout)"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

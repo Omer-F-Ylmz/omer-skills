@@ -1,6 +1,6 @@
 ---
 name: dn-blazor-bilesen
-description: Builds Blazor components with parameters, events and render mode choices. Use when creating interactive Blazor UI.
+description: "Builds Blazor components: parameters, events, render modes for interactive UI"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

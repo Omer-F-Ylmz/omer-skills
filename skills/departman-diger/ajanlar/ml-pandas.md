@@ -1,6 +1,6 @@
 ---
 name: ml-pandas
-description: Writes efficient, correct pandas code for joins, groupby, time series and dtypes. Use when a dataframe task is slow or gives wrong results.
+description: Writes efficient pandas code for joins, groupby, time series, dtypes
 model: haiku
 tools: Read, Grep, Glob
 ---

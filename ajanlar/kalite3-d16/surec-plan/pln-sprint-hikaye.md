@@ -1,6 +1,6 @@
 ---
 name: pln-sprint-hikaye
-description: Splits epics into INVEST user stories with estimates and plans sprint capacity. Use when a backlog is too vague to plan a sprint.
+description: Splits epics into INVEST user stories with estimates; plans sprint capacity
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

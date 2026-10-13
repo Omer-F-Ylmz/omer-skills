@@ -1,6 +1,6 @@
 ---
 name: vid-video-performans-web
-description: Optimizes web video delivery with formats, poster images and lazy loading. Use when a page video is heavy.
+description: "Optimizes web video delivery: formats, poster images, lazy loading"
 model: sonnet
 tools: Read, Grep, Glob
 ---

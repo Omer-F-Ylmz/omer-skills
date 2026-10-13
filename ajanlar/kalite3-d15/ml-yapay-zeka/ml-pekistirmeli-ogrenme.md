@@ -1,6 +1,6 @@
 ---
 name: ml-pekistirmeli-ogrenme
-description: Designs reinforcement learning setups with environments, reward shaping and stable training. Use when an agent must learn by trial and error.
+description: "Designs reinforcement learning setups: environments, reward shaping, stable training"
 model: sonnet
 tools: Read, Grep, Glob
 ---

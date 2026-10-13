@@ -1,6 +1,6 @@
 ---
 name: fe-site-mimarisi
-description: Plans site structure, URL scheme, navigation depth and internal linking for content sites. Use when starting or restructuring a website.
+description: Plans site structure, URL scheme, navigation depth and internal linking
 model: sonnet
 tools: Read, Grep, Glob
 ---

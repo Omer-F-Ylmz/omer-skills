@@ -1,6 +1,6 @@
 ---
 name: otm-cli-sarmalayici
-description: Wraps a desktop application in an agent-friendly command line harness that calls the real backend with machine-readable output. Use when an agent must drive software that only has a GUI.
+description: Wraps a GUI desktop app in an agent-friendly CLI harness with machine-readable output
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 skills: calisma-protokolu

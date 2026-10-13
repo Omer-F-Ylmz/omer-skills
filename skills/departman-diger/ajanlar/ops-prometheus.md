@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ops-prometheus
-description: Designs Prometheus metrics, PromQL queries and alert rules with sane cardinality. Use when instrumenting services or tuning alerts.
+description: Designs Prometheus metrics, PromQL queries, alert rules with sane cardinality
 model: sonnet
 tools: Read, Grep, Glob
 ---

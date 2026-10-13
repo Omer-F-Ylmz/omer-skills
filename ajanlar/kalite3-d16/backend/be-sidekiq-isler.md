@@ -1,6 +1,6 @@
 ---
 name: be-sidekiq-isler
-description: Designs Sidekiq jobs and queues with idempotent workers, retry and dead set policy, queue weights and Redis memory limits. Use when Ruby background jobs duplicate or pile up.
+description: "Designs Sidekiq jobs: idempotent workers, retry/dead set, queue weights, Redis memory"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: dn-msbuild-hata-cozucu
-description: Diagnoses MSBuild and dotnet build failures using binary logs. Use when a build fails and console output is unclear, or when asked what an MSBuild/NuGet warning or error code means and how to fix it.
+description: Diagnoses MSBuild/dotnet build failures with binary logs; explains MSBuild/NuGet error codes
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

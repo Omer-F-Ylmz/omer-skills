@@ -1,6 +1,6 @@
 ---
 name: otm-dosya-isleme-botu
-description: Writes batch scripts to rename, convert and sort files with dry run mode. Use when many files need the same operation.
+description: Writes batch scripts to rename, convert, sort many files with dry run
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ml-tensorflow
-description: Builds and debugs TensorFlow/Keras training with input pipelines, callbacks and overfitting control. Use when training a TF model.
+description: "Builds and debugs TensorFlow/Keras training: input pipelines, callbacks, overfitting control"
 model: sonnet
 tools: Read, Grep, Glob
 ---

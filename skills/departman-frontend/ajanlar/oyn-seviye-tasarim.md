@@ -1,6 +1,6 @@
 ---
 name: oyn-seviye-tasarim
-description: Designs game level flow with pacing, landmarks, difficulty ramp and risk reward beats. Use when laying out maps, tutorials or encounters, including design questions with no files attached.
+description: "Designs level flow: pacing, landmarks, difficulty ramp, risk-reward; maps, tutorials, encounters"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

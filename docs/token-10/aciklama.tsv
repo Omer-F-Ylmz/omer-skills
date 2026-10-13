@@ -1,0 +1,581 @@
+ad	kr	example	kaynak_n	ayni_n	kaynak
+ajn-ajan-arena	149	0	1	1	ajanlar/kalite3-d16/surec-ajan-arac/ajn-ajan-arena.md
+ajn-ajan-bellek-tasarimi	160	0	1	1	ajanlar/kalite3-d16/surec-ajan-arac/ajn-ajan-bellek-tasarimi.md
+ajn-ajan-orkestrasyon	120	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-ajan-orkestrasyon.md;skills/departman-surec-ajan-arac/ajanlar/ajn-ajan-orkestrasyon.md
+ajn-ajan-tanimi-yazar	114	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-ajan-tanimi-yazar.md;skills/departman-surec-ajan-arac/ajanlar/ajn-ajan-tanimi-yazar.md
+ajn-basliksiz-isci-havuzu	185	0	1	1	ajanlar/kalite3-d17/surec-ajan-arac/ajn-basliksiz-isci-havuzu.md
+ajn-cc-otomasyon-oneri	171	0	1	1	ajanlar/kalite3-d16/surec-ajan-arac/ajn-cc-otomasyon-oneri.md
+ajn-claude-api-gelistirici	122	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-claude-api-gelistirici.md;skills/departman-surec-ajan-arac/ajanlar/ajn-claude-api-gelistirici.md
+ajn-codex-claude-koprusu	189	0	2	1	ajanlar/kalite3/surec-ajan-arac/ajn-codex-claude-koprusu.md
+ajn-hook-yazar	117	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-hook-yazar.md;skills/departman-surec-ajan-arac/ajanlar/ajn-hook-yazar.md
+ajn-mcp-kurulum-denetci	112	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-mcp-kurulum-denetci.md;skills/departman-surec-ajan-arac/ajanlar/ajn-mcp-kurulum-denetci.md
+ajn-mcp-sunucu-yazar	166	0	2	1	ajanlar/kalite3/surec-ajan-arac/ajn-mcp-sunucu-yazar.md
+ajn-migrasyon-model	101	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-migrasyon-model.md;skills/departman-surec-ajan-arac/ajanlar/ajn-migrasyon-model.md
+ajn-ogrenilen-ders	187	0	2	1	ajanlar/kalite3/surec-ajan-arac/ajn-ogrenilen-ders.md
+ajn-plugin-iskelet	110	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-plugin-iskelet.md;skills/departman-surec-ajan-arac/ajanlar/ajn-plugin-iskelet.md
+ajn-prompt-denetci	139	0	2	1	ajanlar/kalite3/surec-ajan-arac/ajn-prompt-denetci.md
+ajn-skill-test	112	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-skill-test.md;skills/departman-surec-ajan-arac/ajanlar/ajn-skill-test.md
+ajn-slash-komut-yazar	120	0	2	2	ajanlar/kalite3/surec-ajan-arac/ajn-slash-komut-yazar.md;skills/departman-surec-ajan-arac/ajanlar/ajn-slash-komut-yazar.md
+ara-arac-degerlendirme	123	0	2	2	ajanlar/kalite3/arastirma-ogrenme/ara-arac-degerlendirme.md;skills/departman-arastirma-ogrenme/ajanlar/ara-arac-degerlendirme.md
+ara-celiskili-kaynak-uzlastirma	182	0	1	1	ajanlar/kalite3-d17/arastirma-ogrenme/ara-celiskili-kaynak-uzlastirma.md
+ara-defuddle-sayfa-cikarim	177	0	1	1	ajanlar/kalite3-d17/arastirma-ogrenme/ara-defuddle-sayfa-cikarim.md
+ara-dokuman-indeksle	96	0	2	2	ajanlar/kalite3/arastirma-ogrenme/ara-dokuman-indeksle.md;skills/departman-arastirma-ogrenme/ajanlar/ara-dokuman-indeksle.md
+ara-dosya-sorusturmaci	171	0	1	1	ajanlar/kalite3-ruflo/arastirma-ogrenme/ara-dosya-sorusturmaci.md
+ara-graphify-sorgu	174	0	1	1	ajanlar/kalite3-d16/arastirma-ogrenme/ara-graphify-sorgu.md
+ara-kanit-toplayici	167	0	1	1	ajanlar/kalite3-ruflo/arastirma-ogrenme/ara-kanit-toplayici.md
+ara-kutuphane-dokuman	202	0	2	1	ajanlar/kalite3/arastirma-ogrenme/ara-kutuphane-dokuman.md
+ara-kutuphane-secimi	127	0	1	1	ajanlar/kalite3-d15/arastirma-ogrenme/ara-kutuphane-secimi.md
+ara-lisans-kontrol	86	0	2	2	ajanlar/kalite3/arastirma-ogrenme/ara-lisans-kontrol.md;skills/departman-arastirma-ogrenme/ajanlar/ara-lisans-kontrol.md
+ara-ogrenme-plani	105	0	2	2	ajanlar/kalite3/arastirma-ogrenme/ara-ogrenme-plani.md;skills/departman-arastirma-ogrenme/ajanlar/ara-ogrenme-plani.md
+ara-platform-okuma	249	0	1	1	ajanlar/kalite3-d16/arastirma-ogrenme/ara-platform-okuma.md
+ara-repo-karsilastirma	148	0	2	1	ajanlar/kalite3/arastirma-ogrenme/ara-repo-karsilastirma.md
+ara-teknoloji-secimi	151	0	1	1	ajanlar/kalite3-d15/arastirma-ogrenme/ara-teknoloji-secimi.md
+ara-trend-analizi	129	0	1	1	ajanlar/kalite3-d15/arastirma-ogrenme/ara-trend-analizi.md
+ara-web-kazima	119	0	2	2	ajanlar/kalite3/arastirma-ogrenme/ara-web-kazima.md;skills/departman-arastirma-ogrenme/ajanlar/ara-web-kazima.md
+ara-yeni-arac-kurulum-arastirma	112	0	2	2	ajanlar/kalite3/arastirma-ogrenme/ara-yeni-arac-kurulum-arastirma.md;skills/departman-arastirma-ogrenme/ajanlar/ara-yeni-arac-kurulum-arastirma.md
+ara-youtube-ozet	123	0	2	2	ajanlar/kalite3/arastirma-ogrenme/ara-youtube-ozet.md;skills/departman-arastirma-ogrenme/ajanlar/ara-youtube-ozet.md
+be-bellek-sizintisi-avcisi	184	0	1	1	ajanlar/kalite3-d16/backend/be-bellek-sizintisi-avcisi.md
+be-buyuk-dosya-yukleme	160	0	1	1	ajanlar/kalite3-d16/backend/be-buyuk-dosya-yukleme.md
+be-cift-kayit-defteri	189	0	1	1	ajanlar/kalite3-d17/backend/be-cift-kayit-defteri.md
+be-coklu-kiraci-veri	173	0	1	1	ajanlar/kalite3-d16/backend/be-coklu-kiraci-veri.md
+be-dayaniklilik-kaliplari	208	0	1	1	ajanlar/kalite3-d16/backend/be-dayaniklilik-kaliplari.md
+be-dosya-yukleme	217	0	1	1	ajanlar/kalite3-d16/backend/be-dosya-yukleme.md
+be-emir-eslestirme	147	0	1	1	ajanlar/kalite3-d16/backend/be-emir-eslestirme.md
+be-hata-turu-hiyerarsisi	179	0	1	1	ajanlar/kalite3-d16/backend/be-hata-turu-hiyerarsisi.md
+be-hiz-sinirlayici	168	0	1	1	ajanlar/kalite3-d16/backend/be-hiz-sinirlayici.md
+be-is-calma-zamanlayici	189	0	1	1	ajanlar/kalite3-d17/backend/be-is-calma-zamanlayici.md
+be-mesaj-guvenilirligi	158	0	1	1	ajanlar/kalite3-d16/backend/be-mesaj-guvenilirligi.md
+be-onbellek-gecersizlestirme	157	0	1	1	ajanlar/kalite3-d16/backend/be-onbellek-gecersizlestirme.md
+be-saga-telafi	170	0	1	1	ajanlar/kalite3-d16/backend/be-saga-telafi.md
+be-sidekiq-isler	174	0	1	1	ajanlar/kalite3-d16/backend/be-sidekiq-isler.md
+be-yatay-olcekleme	180	0	1	1	ajanlar/kalite3-d16/backend/be-yatay-olcekleme.md
+bl-animasyon-anahtar	99	0	2	2	ajanlar/kalite3/blender/bl-animasyon-anahtar.md;skills/departman-frontend/ajanlar/bl-animasyon-anahtar.md
+bl-dokuya-pisirme	106	0	2	2	ajanlar/kalite3/blender/bl-dokuya-pisirme.md;skills/departman-frontend/ajanlar/bl-dokuya-pisirme.md
+bl-geometri-dugumleri	129	0	2	2	ajanlar/kalite3/blender/bl-geometri-dugumleri.md;skills/departman-arastirma-ogrenme/ajanlar/bl-geometri-dugumleri.md
+bl-glb-disa-aktar	122	0	2	2	ajanlar/kalite3/blender/bl-glb-disa-aktar.md;skills/departman-frontend/ajanlar/bl-glb-disa-aktar.md
+bl-gorsel-ani-kontrol	115	0	2	2	ajanlar/kalite3/blender/bl-gorsel-ani-kontrol.md;skills/departman-frontend/ajanlar/bl-gorsel-ani-kontrol.md
+bl-isik-kurulumu	108	0	2	2	ajanlar/kalite3/blender/bl-isik-kurulumu.md;skills/departman-frontend/ajanlar/bl-isik-kurulumu.md
+bl-kamera-kompozisyon	108	0	2	2	ajanlar/kalite3/blender/bl-kamera-kompozisyon.md;skills/departman-arastirma-ogrenme/ajanlar/bl-kamera-kompozisyon.md
+bl-malzeme-kurucu	131	0	2	2	ajanlar/kalite3/blender/bl-malzeme-kurucu.md;skills/departman-frontend/ajanlar/bl-malzeme-kurucu.md
+bl-mod-modeli-blender	140	0	2	2	ajanlar/kalite3/blender/bl-mod-modeli-blender.md;skills/departman-frontend/ajanlar/bl-mod-modeli-blender.md
+bl-modelleme-plani	133	0	2	2	ajanlar/kalite3/blender/bl-modelleme-plani.md;skills/departman-surec-plan/ajanlar/bl-modelleme-plani.md
+bl-python-betik	160	0	1	1	ajanlar/kalite3-d16/blender/bl-python-betik.md
+bl-render-ayari	110	0	2	2	ajanlar/kalite3/blender/bl-render-ayari.md;skills/departman-surec-inceleme/ajanlar/bl-render-ayari.md
+bl-rig-iskelet	89	0	2	2	ajanlar/kalite3/blender/bl-rig-iskelet.md;skills/departman-surec-plan/ajanlar/bl-rig-iskelet.md
+bl-sahne-temizlik	158	0	2	1	ajanlar/kalite3/blender/bl-sahne-temizlik.md
+bl-urun-turntable	116	0	2	2	ajanlar/kalite3/blender/bl-urun-turntable.md;skills/departman-frontend/ajanlar/bl-urun-turntable.md
+bl-uv-acma	100	0	2	2	ajanlar/kalite3/blender/bl-uv-acma.md;skills/departman-arastirma-ogrenme/ajanlar/bl-uv-acma.md
+db-analitik-sorgu	119	0	2	2	ajanlar/kalite3/veri-db/db-analitik-sorgu.md;skills/departman-veri-db/ajanlar/db-analitik-sorgu.md
+db-bi-rapor	128	0	1	1	ajanlar/kalite3-d15/veri-db/db-bi-rapor.md
+db-cassandra	137	0	1	1	ajanlar/kalite3-d15/veri-db/db-cassandra.md
+db-clickhouse-sorgu	151	0	1	1	ajanlar/kalite3-d16/veri-db/db-clickhouse-sorgu.md
+db-cockroachdb	161	0	1	1	ajanlar/kalite3-d16/veri-db/db-cockroachdb.md
+db-dynamodb	118	0	1	1	ajanlar/kalite3-d15/veri-db/db-dynamodb.md
+db-efcore-sql-gecis	109	0	2	2	ajanlar/kalite3/veri-db/db-efcore-sql-gecis.md;skills/departman-veri-db/ajanlar/db-efcore-sql-gecis.md
+db-elasticsearch	128	0	1	1	ajanlar/kalite3-d15/veri-db/db-elasticsearch.md
+db-flyway	126	0	1	1	ajanlar/kalite3-d15/veri-db/db-flyway.md
+db-indeks-danismani	244	0	2	1	ajanlar/kalite3/veri-db/db-indeks-danismani.md
+db-json-sutun	219	0	1	1	ajanlar/kalite3-d16/veri-db/db-json-sutun.md
+db-kilitlenme	233	0	1	0	
+db-liquibase	117	0	1	1	ajanlar/kalite3-d15/veri-db/db-liquibase.md
+db-migration-planlayici	103	0	2	2	ajanlar/kalite3/veri-db/db-migration-planlayici.md;skills/departman-veri-db/ajanlar/db-migration-planlayici.md
+db-mongodb	184	0	1	1	ajanlar/kalite3-d15/veri-db/db-mongodb.md
+db-mongoose-odm	151	0	1	1	ajanlar/kalite3-d16/veri-db/db-mongoose-odm.md
+db-neo4j	124	0	1	1	ajanlar/kalite3-d15/veri-db/db-neo4j.md
+db-pglite	258	0	1	1	ajanlar/kalite3-d15/veri-db/db-pglite.md
+db-postgres-sisme	179	0	1	1	ajanlar/kalite3-d16/veri-db/db-postgres-sisme.md
+db-redis-yapi	152	0	1	1	ajanlar/kalite3-d16/veri-db/db-redis-yapi.md
+db-replika-gecikmesi	172	0	1	1	ajanlar/kalite3-d17/veri-db/db-replika-gecikmesi.md
+db-rls-politika	118	0	2	2	ajanlar/kalite3/veri-db/db-rls-politika.md;skills/departman-veri-db/ajanlar/db-rls-politika.md
+db-sema-tasarim	117	0	2	2	ajanlar/kalite3/veri-db/db-sema-tasarim.md;skills/departman-veri-db/ajanlar/db-sema-tasarim.md
+db-sequelize	204	0	1	1	ajanlar/kalite3-d15/veri-db/db-sequelize.md
+db-sorgu-optimize	96	0	2	2	ajanlar/kalite3/veri-db/db-sorgu-optimize.md;skills/departman-veri-db/ajanlar/db-sorgu-optimize.md
+db-sqlite	111	0	1	1	ajanlar/kalite3-d15/veri-db/db-sqlite.md
+db-supabase-kurucu	115	0	2	2	ajanlar/kalite3/veri-db/db-supabase-kurucu.md;skills/departman-veri-db/ajanlar/db-supabase-kurucu.md
+db-utf8mb4-karakter	194	0	1	1	ajanlar/kalite3-d17/veri-db/db-utf8mb4-karakter.md
+db-vektor-veritabani	135	0	1	1	ajanlar/kalite3-d15/veri-db/db-vektor-veritabani.md
+db-veri-kalitesi	116	0	2	2	ajanlar/kalite3/veri-db/db-veri-kalitesi.md;skills/departman-veri-db/ajanlar/db-veri-kalitesi.md
+db-veri-modelleme-nosql	257	0	2	1	ajanlar/kalite3/veri-db/db-veri-modelleme-nosql.md
+db-veri-tasima	112	0	2	2	ajanlar/kalite3/veri-db/db-veri-tasima.md;skills/departman-veri-db/ajanlar/db-veri-tasima.md
+db-yedekleme-geri-yukleme	104	0	2	2	ajanlar/kalite3/veri-db/db-yedekleme-geri-yukleme.md;skills/departman-veri-db/ajanlar/db-yedekleme-geri-yukleme.md
+db-zaman-damgasi	219	0	1	1	ajanlar/kalite3-d16/veri-db/db-zaman-damgasi.md
+design-brand-guardian	137	0	0	0	
+design-image-prompt-engineer	267	0	0	0	
+design-inclusive-visuals-specialist	136	0	0	0	
+design-persona-walkthrough	257	0	0	0	
+design-ui-designer	217	0	0	0	
+design-ui-finish-gate-reviewer	196	0	0	0	
+design-ux-architect	135	0	0	0	
+design-ux-researcher	216	0	0	0	
+design-visual-storyteller	284	0	0	0	
+design-whimsy-injector	211	0	0	0	
+dil-actix-web	150	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-actix-web.md;skills/departman-diger/ajanlar/dil-actix-web.md
+dil-asyncio	185	0	2	2	ajanlar/kalite3-d17/dil-cerceve/dil-asyncio.md;skills/departman-diger/ajanlar/dil-asyncio.md
+dil-bash-betik	152	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-bash-betik.md;skills/departman-diger/ajanlar/dil-bash-betik.md
+dil-c-sistem	147	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-c-sistem.md;skills/departman-diger/ajanlar/dil-c-sistem.md
+dil-cli-araci	110	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-cli-araci.md;skills/departman-diger/ajanlar/dil-cli-araci.md
+dil-clojure	216	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-clojure.md;skills/departman-diger/ajanlar/dil-clojure.md
+dil-derleyici-tasarimi	141	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-derleyici-tasarimi.md;skills/departman-diger/ajanlar/dil-derleyici-tasarimi.md
+dil-flask	161	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-flask.md;skills/departman-diger/ajanlar/dil-flask.md
+dil-go-eszamanlilik	205	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-go-eszamanlilik.md;skills/departman-diger/ajanlar/dil-go-eszamanlilik.md
+dil-go-pprof	199	0	2	2	ajanlar/kalite3-d17/dil-cerceve/dil-go-pprof.md;skills/departman-diger/ajanlar/dil-go-pprof.md
+dil-go	250	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-go.md;skills/departman-diger/ajanlar/dil-go.md
+dil-graphql	204	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-graphql.md;skills/departman-diger/ajanlar/dil-graphql.md
+dil-haskell	179	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-haskell.md;skills/departman-diger/ajanlar/dil-haskell.md
+dil-java-modern	153	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-java-modern.md;skills/departman-diger/ajanlar/dil-java-modern.md
+dil-nodejs	168	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-nodejs.md;skills/departman-diger/ajanlar/dil-nodejs.md
+dil-ocaml	162	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-ocaml.md;skills/departman-diger/ajanlar/dil-ocaml.md
+dil-openapi-sozlesme	158	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-openapi-sozlesme.md;skills/departman-diger/ajanlar/dil-openapi-sozlesme.md
+dil-python-profil	128	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-python-profil.md;skills/departman-diger/ajanlar/dil-python-profil.md
+dil-python-tip-guvenligi	146	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-python-tip-guvenligi.md;skills/departman-diger/ajanlar/dil-python-tip-guvenligi.md
+dil-regex-denetci	252	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-regex-denetci.md;skills/departman-diger/ajanlar/dil-regex-denetci.md
+dil-ruby-metaprog	220	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-ruby-metaprog.md;skills/departman-diger/ajanlar/dil-ruby-metaprog.md
+dil-scala	201	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-scala.md;skills/departman-diger/ajanlar/dil-scala.md
+dil-ts-tip-daraltma	234	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-ts-tip-daraltma.md;skills/departman-diger/ajanlar/dil-ts-tip-daraltma.md
+dil-uv-proje	150	0	2	2	ajanlar/kalite3-d16/dil-cerceve/dil-uv-proje.md;skills/departman-diger/ajanlar/dil-uv-proje.md
+dil-websocket	132	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-websocket.md;skills/departman-diger/ajanlar/dil-websocket.md
+dil-yapilandirma	146	0	2	2	ajanlar/kalite3-d15/dil-cerceve/dil-yapilandirma.md;skills/departman-diger/ajanlar/dil-yapilandirma.md
+dn-aspnet-core	219	0	1	1	ajanlar/kalite3-d15/backend-dotnet/dn-aspnet-core.md
+dn-async-denetci	123	0	2	2	ajanlar/kalite3/backend-dotnet/dn-async-denetci.md;skills/departman-backend-dotnet/ajanlar/dn-async-denetci.md
+dn-blazor-bilesen	114	0	2	2	ajanlar/kalite3/backend-dotnet/dn-blazor-bilesen.md;skills/departman-backend-dotnet/ajanlar/dn-blazor-bilesen.md
+dn-csproj-sadelestir	118	0	2	2	ajanlar/kalite3/backend-dotnet/dn-csproj-sadelestir.md;skills/departman-backend-dotnet/ajanlar/dn-csproj-sadelestir.md
+dn-di-ve-config	116	0	2	2	ajanlar/kalite3/backend-dotnet/dn-di-ve-config.md;skills/departman-backend-dotnet/ajanlar/dn-di-ve-config.md
+dn-dotnet-performans	110	0	2	2	ajanlar/kalite3/backend-dotnet/dn-dotnet-performans.md;skills/departman-backend-dotnet/ajanlar/dn-dotnet-performans.md
+dn-efcore-migration	247	0	2	1	ajanlar/kalite3/backend-dotnet/dn-efcore-migration.md
+dn-efcore-modelleme	116	0	2	2	ajanlar/kalite3/backend-dotnet/dn-efcore-modelleme.md;skills/departman-backend-dotnet/ajanlar/dn-efcore-modelleme.md
+dn-efcore-seed-veri	203	0	2	1	ajanlar/kalite3/backend-dotnet/dn-efcore-seed-veri.md
+dn-eski-kod-modernize	155	0	1	1	ajanlar/kalite3-d15/backend-dotnet/dn-eski-kod-modernize.md
+dn-gozlemlenebilirlik	191	0	2	1	ajanlar/kalite3/backend-dotnet/dn-gozlemlenebilirlik.md
+dn-identity-auth	119	0	2	2	ajanlar/kalite3/backend-dotnet/dn-identity-auth.md;skills/departman-backend-dotnet/ajanlar/dn-identity-auth.md
+dn-minimal-api-kurucu	174	0	2	1	ajanlar/kalite3/backend-dotnet/dn-minimal-api-kurucu.md
+dn-msbuild-hata-cozucu	199	0	2	1	ajanlar/kalite3/backend-dotnet/dn-msbuild-hata-cozucu.md
+dn-msbuild-hiz	105	0	2	2	ajanlar/kalite3/backend-dotnet/dn-msbuild-hiz.md;skills/departman-backend-dotnet/ajanlar/dn-msbuild-hiz.md
+dn-native-aot	164	0	1	1	ajanlar/kalite3-d16/backend-dotnet/dn-native-aot.md
+dn-nuget-yonetici	112	0	2	2	ajanlar/kalite3/backend-dotnet/dn-nuget-yonetici.md;skills/departman-backend-dotnet/ajanlar/dn-nuget-yonetici.md
+dn-nullable-gecis	141	0	2	1	ajanlar/kalite3/backend-dotnet/dn-nullable-gecis.md
+dn-openapi-dokuman	92	0	2	2	ajanlar/kalite3/backend-dotnet/dn-openapi-dokuman.md;skills/departman-backend-dotnet/ajanlar/dn-openapi-dokuman.md
+dn-razor-sayfa	128	0	2	2	ajanlar/kalite3/backend-dotnet/dn-razor-sayfa.md;skills/departman-backend-dotnet/ajanlar/dn-razor-sayfa.md
+dn-signalr-gercek-zamanli	105	0	2	2	ajanlar/kalite3/backend-dotnet/dn-signalr-gercek-zamanli.md;skills/departman-backend-dotnet/ajanlar/dn-signalr-gercek-zamanli.md
+dn-system-text-json	196	0	1	1	ajanlar/kalite3-d17/backend-dotnet/dn-system-text-json.md
+dn-webapi-endpoint	224	0	2	1	ajanlar/kalite3/backend-dotnet/dn-webapi-endpoint.md
+dn-xunit-test-yazar	94	0	2	2	ajanlar/kalite3/backend-dotnet/dn-xunit-test-yazar.md;skills/departman-backend-dotnet/ajanlar/dn-xunit-test-yazar.md
+dok-adr-yazar	122	0	2	2	ajanlar/kalite3/belge/dok-adr-yazar.md;skills/departman-belge/ajanlar/dok-adr-yazar.md
+dok-api-dokumani	176	0	2	1	ajanlar/kalite3/belge/dok-api-dokumani.md
+dok-blog-yazisi	183	0	1	1	ajanlar/kalite3-d17/belge/dok-blog-yazisi.md
+dok-cevirmen-teknik	172	0	2	1	ajanlar/kalite3/belge/dok-cevirmen-teknik.md
+dok-degisiklik-gunlugu	102	0	2	2	ajanlar/kalite3/belge/dok-degisiklik-gunlugu.md;skills/departman-belge/ajanlar/dok-degisiklik-gunlugu.md
+dok-destek-yaniti	127	0	1	1	ajanlar/kalite3-d15/belge/dok-destek-yaniti.md
+dok-docx-uretici	209	0	2	1	ajanlar/kalite3/belge/dok-docx-uretici.md
+dok-dokuman-sapmasi	183	0	1	1	ajanlar/kalite3-d16/belge/dok-dokuman-sapmasi.md
+dok-hata-mesaji	241	0	1	1	ajanlar/kalite3-d16/belge/dok-hata-mesaji.md
+dok-icerik-editoru	139	0	1	1	ajanlar/kalite3-d15/belge/dok-icerik-editoru.md
+dok-kullanim-kosullari	140	0	1	1	ajanlar/kalite3-d15/belge/dok-kullanim-kosullari.md
+dok-markitdown-donusum	179	0	1	1	ajanlar/kalite3-d16/belge/dok-markitdown-donusum.md
+dok-pdf-uretici	117	0	2	2	ajanlar/kalite3/belge/dok-pdf-uretici.md;skills/departman-belge/ajanlar/dok-pdf-uretici.md
+dok-pptx-sunum	103	0	2	2	ajanlar/kalite3/belge/dok-pptx-sunum.md;skills/departman-belge/ajanlar/dok-pptx-sunum.md
+dok-rapor-ozetleyici	182	0	2	1	ajanlar/kalite3/belge/dok-rapor-ozetleyici.md
+dok-rapor-uretici	145	0	1	1	ajanlar/kalite3-d15/belge/dok-rapor-uretici.md
+dok-runbook	132	0	1	1	ajanlar/kalite3-d15/belge/dok-runbook.md
+dok-sorun-giderme-rehberi	95	0	2	2	ajanlar/kalite3/belge/dok-sorun-giderme-rehberi.md;skills/departman-belge/ajanlar/dok-sorun-giderme-rehberi.md
+dok-sozlesme-madde	153	0	1	1	ajanlar/kalite3-d16/belge/dok-sozlesme-madde.md
+dok-ste100-sade	180	0	1	1	ajanlar/kalite3-d16/belge/dok-ste100-sade.md
+dok-tablo-duzenle	158	0	2	1	ajanlar/kalite3/belge/dok-tablo-duzenle.md
+dok-teknik-teklif	117	0	2	2	ajanlar/kalite3/belge/dok-teknik-teklif.md;skills/departman-belge/ajanlar/dok-teknik-teklif.md
+dok-toplanti-notu	152	0	2	1	ajanlar/kalite3/belge/dok-toplanti-notu.md
+dok-xlsx-tablo	177	0	2	1	ajanlar/kalite3/belge/dok-xlsx-tablo.md
+engineering-ai-data-remediation-engineer	421	0	0	0	
+engineering-ai-engineer	260	0	0	0	
+engineering-api-platform-engineer	224	0	0	0	
+engineering-ats-validator-architect	401	0	0	0	
+engineering-autonomous-optimization-architect	159	0	0	0	
+engineering-backend-architect	207	0	0	0	
+engineering-china-network-engineer	245	0	0	0	
+engineering-cms-developer	134	0	0	0	
+engineering-code-reviewer	159	0	0	0	
+engineering-codebase-onboarding-engineer	188	0	0	0	
+engineering-data-engineer	264	0	0	0	
+engineering-data-visualization-engineer	257	0	0	0	
+engineering-database-optimizer	192	0	0	0	
+engineering-database-reliability-engineer	287	0	0	0	
+engineering-desktop-app-engineer	206	0	0	0	
+engineering-developer-tooling-engineer	262	0	0	0	
+engineering-devops-automator	114	0	0	0	
+engineering-drupal-performance	309	0	0	0	
+engineering-drupal-shopping-cart	260	0	0	0	
+engineering-email-intelligence-engineer	113	0	0	0	
+engineering-embedded-firmware-engineer	154	0	0	0	
+engineering-feishu-integration-developer	358	0	0	0	
+engineering-filament-optimization-specialist	174	0	0	0	
+engineering-finops-engineer	241	0	0	0	
+engineering-frontend-developer	144	0	0	0	
+engineering-gaussdb-expert	371	0	0	0	
+engineering-git-workflow-master	169	0	0	0	
+engineering-i18n-engineer	201	0	0	0	
+engineering-identity-access-engineer	188	0	0	0	
+engineering-incident-response-commander	218	0	0	0	
+engineering-iot-fleet-engineer	249	0	0	0	
+engineering-it-service-manager	295	0	0	0	
+engineering-knowledge-graph-engineer	218	0	0	0	
+engineering-llm-post-training-engineer	162	0	0	0	
+engineering-minimal-change-engineer	238	0	0	0	
+engineering-mobile-app-builder	119	0	0	0	
+engineering-mobile-release-engineer	215	0	0	0	
+engineering-multi-agent-systems-architect	270	0	0	0	
+engineering-network-engineer	150	0	0	0	
+engineering-orgscript-engineer	113	0	0	0	
+engineering-payments-billing-engineer	209	0	0	0	
+engineering-pdf-engine-architect	233	0	0	0	
+engineering-platform-engineer	160	0	0	0	
+engineering-privacy-engineer	311	0	0	0	
+engineering-prompt-engineer	154	0	0	0	
+engineering-rag-pipeline-engineer	217	0	0	0	
+engineering-rapid-prototyper	108	0	0	0	
+engineering-realtime-collaboration-engineer	196	0	0	0	
+engineering-rust-refactoring-specialist	188	0	0	0	
+engineering-search-relevance-engineer	210	0	0	0	
+engineering-section-508-specialist	512	0	0	0	
+engineering-senior-developer	103	0	0	0	
+engineering-servicenow-developer-mentor	198	0	0	0	
+engineering-software-architect	168	0	0	0	
+engineering-solidity-smart-contract-engineer	213	0	0	0	
+engineering-sre	155	0	0	0	
+engineering-technical-writer	228	0	0	0	
+engineering-universal-document-compiler	170	0	0	0	
+engineering-uswds-developer	333	0	0	0	
+engineering-video-streaming-engineer	176	0	0	0	
+engineering-voice-ai-integration-engineer	296	0	0	0	
+engineering-webassembly-engineer	212	0	0	0	
+engineering-wechat-mini-program-developer	184	0	0	0	
+engineering-wordpress-performance	356	0	0	0	
+engineering-wordpress-shopping-cart	255	0	0	0	
+fe-angularjs-bakim	162	0	1	1	ajanlar/kalite3-d16/frontend/fe-angularjs-bakim.md
+fe-animasyon-tasarimci	131	0	2	2	ajanlar/kalite3/frontend/fe-animasyon-tasarimci.md;skills/departman-frontend/ajanlar/fe-animasyon-tasarimci.md
+fe-astro	129	0	1	1	ajanlar/kalite3-d15/frontend/fe-astro.md
+fe-bilesen-kutuphanesi	129	0	1	1	ajanlar/kalite3-d15/frontend/fe-bilesen-kutuphanesi.md
+fe-bilesen-yazar	200	0	2	1	ajanlar/kalite3/frontend/fe-bilesen-yazar.md
+fe-bos-durum-yazar	158	0	2	1	ajanlar/kalite3/frontend/fe-bos-durum-yazar.md
+fe-cerez-oturum-hata	178	0	1	1	ajanlar/kalite3-d17/frontend/fe-cerez-oturum-hata.md
+fe-css-hata-bulucu	149	0	2	2	ajanlar/kalite3/frontend/fe-css-hata-bulucu.md;skills/departman-frontend/ajanlar/fe-css-hata-bulucu.md
+fe-css-konteyner-sorgusu	194	0	1	1	ajanlar/kalite3-d17/frontend/fe-css-konteyner-sorgusu.md
+fe-css-mimarisi	164	0	1	1	ajanlar/kalite3-d16/frontend/fe-css-mimarisi.md
+fe-cursor-efekt	144	0	2	2	ajanlar/kalite3/frontend/fe-cursor-efekt.md;skills/departman-frontend/ajanlar/fe-cursor-efekt.md
+fe-dashboard-duzeni	129	0	2	2	ajanlar/kalite3/frontend/fe-dashboard-duzeni.md;skills/departman-frontend/ajanlar/fe-dashboard-duzeni.md
+fe-donusum-optimize	127	0	1	1	ajanlar/kalite3-d15/frontend/fe-donusum-optimize.md
+fe-eposta-sablonu	266	0	1	1	ajanlar/kalite3-d16/frontend/fe-eposta-sablonu.md
+fe-form-tasarimci	180	0	2	2	ajanlar/kalite3/frontend/fe-form-tasarimci.md;skills/departman-frontend/ajanlar/fe-form-tasarimci.md
+fe-gorsel-optimize	205	0	2	1	ajanlar/kalite3/frontend/fe-gorsel-optimize.md
+fe-ikon-sistemi	98	0	2	2	ajanlar/kalite3/frontend/fe-ikon-sistemi.md;skills/departman-frontend/ajanlar/fe-ikon-sistemi.md
+fe-jquery-bakim	138	0	1	1	ajanlar/kalite3-d15/frontend/fe-jquery-bakim.md
+fe-karanlik-mod	102	0	2	2	ajanlar/kalite3/frontend/fe-karanlik-mod.md;skills/departman-frontend/ajanlar/fe-karanlik-mod.md
+fe-meta-seo-duzeltici	97	0	2	2	ajanlar/kalite3/frontend/fe-meta-seo-duzeltici.md;skills/departman-frontend/ajanlar/fe-meta-seo-duzeltici.md
+fe-navigasyon-tasarimci	120	0	2	2	ajanlar/kalite3/frontend/fe-navigasyon-tasarimci.md;skills/departman-frontend/ajanlar/fe-navigasyon-tasarimci.md
+fe-pwa-cevrimdisi	179	0	1	1	ajanlar/kalite3-d16/frontend/fe-pwa-cevrimdisi.md
+fe-qwik	126	0	1	1	ajanlar/kalite3-d15/frontend/fe-qwik.md
+fe-react-bilesen-inceleme	228	0	2	1	ajanlar/kalite3/frontend/fe-react-bilesen-inceleme.md
+fe-remix	142	0	1	1	ajanlar/kalite3-d15/frontend/fe-remix.md
+fe-responsive-kontrol	118	0	2	2	ajanlar/kalite3/frontend/fe-responsive-kontrol.md;skills/departman-frontend/ajanlar/fe-responsive-kontrol.md
+fe-rollup-kutuphane-paketi	172	0	1	1	ajanlar/kalite3-d16/frontend/fe-rollup-kutuphane-paketi.md
+fe-sanal-liste	165	0	1	1	ajanlar/kalite3-d16/frontend/fe-sanal-liste.md
+fe-scroll-hikayesi	221	0	2	1	ajanlar/kalite3/frontend/fe-scroll-hikayesi.md
+fe-site-mimarisi	136	0	1	1	ajanlar/kalite3-d15/frontend/fe-site-mimarisi.md
+fe-slayt-kurucu	172	0	2	1	ajanlar/kalite3/frontend/fe-slayt-kurucu.md
+fe-tailwind-duzenleyici	136	0	2	2	ajanlar/kalite3/frontend/fe-tailwind-duzenleyici.md;skills/departman-frontend/ajanlar/fe-tailwind-duzenleyici.md
+fe-tailwind	221	0	1	1	ajanlar/kalite3-d15/frontend/fe-tailwind.md
+fe-tasarim-incele	248	0	2	1	ajanlar/kalite3/frontend/fe-tasarim-incele.md
+fe-tasarim-sistemi-kurucu	196	0	2	1	ajanlar/kalite3/frontend/fe-tasarim-sistemi-kurucu.md
+fe-tasarim-yonu	149	0	2	2	ajanlar/kalite3/frontend/fe-tasarim-yonu.md;skills/departman-frontend/ajanlar/fe-tasarim-yonu.md
+fe-tipografi-uzmani	206	0	2	1	ajanlar/kalite3/frontend/fe-tipografi-uzmani.md
+fe-ux-metin-yazar	105	0	2	2	ajanlar/kalite3/frontend/fe-ux-metin-yazar.md;skills/departman-frontend/ajanlar/fe-ux-metin-yazar.md
+fe-web-font-yukleme	178	0	1	1	ajanlar/kalite3-d16/frontend/fe-web-font-yukleme.md
+fe-webgl-3d-hero	120	0	2	2	ajanlar/kalite3/frontend/fe-webgl-3d-hero.md;skills/departman-frontend/ajanlar/fe-webgl-3d-hero.md
+fe-webpack-paketleyici	152	0	1	1	ajanlar/kalite3-d15/frontend/fe-webpack-paketleyici.md
+fe-webxr	131	0	1	1	ajanlar/kalite3-d15/frontend/fe-webxr.md
+fe-yazdir-stili	111	0	2	2	ajanlar/kalite3/frontend/fe-yazdir-stili.md;skills/departman-frontend/ajanlar/fe-yazdir-stili.md
+git-bisect-rehber	239	0	1	1	ajanlar/kalite3-d16/surec-git-yayin/git-bisect-rehber.md
+git-cakisma-cozucu	121	0	2	2	ajanlar/kalite3/surec-git-yayin/git-cakisma-cozucu.md;skills/departman-surec-git-yayin/ajanlar/git-cakisma-cozucu.md
+git-canary-izleme	110	0	2	2	ajanlar/kalite3/surec-git-yayin/git-canary-izleme.md;skills/departman-surec-git-yayin/ajanlar/git-canary-izleme.md
+git-ci-boru-hatti	117	0	2	2	ajanlar/kalite3/surec-git-yayin/git-ci-boru-hatti.md;skills/departman-surec-git-yayin/ajanlar/git-ci-boru-hatti.md
+git-circleci	109	0	1	1	ajanlar/kalite3-d15/surec-git-yayin/git-circleci.md
+git-coklu-repo-senkron	186	0	1	1	ajanlar/kalite3-d17/surec-git-yayin/git-coklu-repo-senkron.md
+git-commit-mesaji	96	0	2	2	ajanlar/kalite3/surec-git-yayin/git-commit-mesaji.md;skills/departman-surec-git-yayin/ajanlar/git-commit-mesaji.md
+git-dal-koruma-kurali	169	0	1	1	ajanlar/kalite3-d16/surec-git-yayin/git-dal-koruma-kurali.md
+git-dal-stratejisi	107	0	2	2	ajanlar/kalite3/surec-git-yayin/git-dal-stratejisi.md;skills/departman-surec-git-yayin/ajanlar/git-dal-stratejisi.md
+git-issue-triyaj	94	0	2	2	ajanlar/kalite3/surec-git-yayin/git-issue-triyaj.md;skills/departman-surec-git-yayin/ajanlar/git-issue-triyaj.md
+git-lfs-buyuk-dosya	135	0	1	1	ajanlar/kalite3-d16/surec-git-yayin/git-lfs-buyuk-dosya.md
+git-monorepo-etkilenen	228	0	1	1	ajanlar/kalite3-d16/surec-git-yayin/git-monorepo-etkilenen.md
+git-pr-yoneticisi	144	0	1	1	ajanlar/kalite3-d16/surec-git-yayin/git-pr-yoneticisi.md
+git-yayin-oncesi-kontrol	97	0	2	2	ajanlar/kalite3/surec-git-yayin/git-yayin-oncesi-kontrol.md;skills/departman-surec-git-yayin/ajanlar/git-yayin-oncesi-kontrol.md
+git-yeniden-kullanilabilir-is-akisi	165	0	1	1	ajanlar/kalite3-d16/surec-git-yayin/git-yeniden-kullanilabilir-is-akisi.md
+inc-baglasim-uyum	175	0	1	1	ajanlar/kalite3-d16/surec-inceleme/inc-baglasim-uyum.md
+inc-derin-hata-ayiklama	145	0	1	1	ajanlar/kalite3-d15/surec-inceleme/inc-derin-hata-ayiklama.md
+inc-diff-risk-puani	242	0	1	1	ajanlar/kalite3-ruflo/surec-inceleme/inc-diff-risk-puani.md
+inc-dogrulama-oncesi-bitis	115	0	2	2	ajanlar/kalite3/surec-inceleme/inc-dogrulama-oncesi-bitis.md;skills/departman-surec-inceleme/ajanlar/inc-dogrulama-oncesi-bitis.md
+inc-dongusel-bagimlilik	221	0	1	1	ajanlar/kalite3-d16/surec-inceleme/inc-dongusel-bagimlilik.md
+inc-hata-dedektifi	145	0	1	1	ajanlar/kalite3-d15/surec-inceleme/inc-hata-dedektifi.md
+inc-karmasiklik-olcum	159	0	1	1	ajanlar/kalite3-d16/surec-inceleme/inc-karmasiklik-olcum.md
+inc-kod-kokusu	172	0	1	1	ajanlar/kalite3-d16/surec-inceleme/inc-kod-kokusu.md
+inc-mimari-inceleme	144	0	1	1	ajanlar/kalite3-d15/surec-inceleme/inc-mimari-inceleme.md
+inc-ocr-coklu-inceleme	177	0	1	1	ajanlar/kalite3-d16/surec-inceleme/inc-ocr-coklu-inceleme.md
+inc-ponytail-kod	170	0	2	1	ajanlar/kalite3/surec-inceleme/inc-ponytail-kod.md
+inc-refaktor	142	0	1	1	ajanlar/kalite3-d15/surec-inceleme/inc-refaktor.md
+inc-tasarim-kaliplari	126	0	1	1	ajanlar/kalite3-d15/surec-inceleme/inc-tasarim-kaliplari.md
+inc-teknik-borc	111	0	1	1	ajanlar/kalite3-d15/surec-inceleme/inc-teknik-borc.md
+inc-test-kalitesi-inceleme	142	0	2	1	ajanlar/kalite3/surec-inceleme/inc-test-kalitesi-inceleme.md
+inc-uretim-hazirligi	187	0	2	1	ajanlar/kalite3/surec-inceleme/inc-uretim-hazirligi.md
+ml-deney-izleme	146	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-deney-izleme.md;skills/departman-diger/ajanlar/ml-deney-izleme.md
+ml-dengesiz-sinif	176	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-dengesiz-sinif.md;skills/departman-diger/ajanlar/ml-dengesiz-sinif.md
+ml-goruntu-isleme	149	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-goruntu-isleme.md;skills/departman-diger/ajanlar/ml-goruntu-isleme.md
+ml-hiperparametre-arama	164	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-hiperparametre-arama.md;skills/departman-diger/ajanlar/ml-hiperparametre-arama.md
+ml-kesifsel-analiz	140	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-kesifsel-analiz.md;skills/departman-diger/ajanlar/ml-kesifsel-analiz.md
+ml-langchain	130	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-langchain.md;skills/departman-diger/ajanlar/ml-langchain.md
+ml-llm-degerlendirme	173	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-llm-degerlendirme.md;skills/departman-diger/ajanlar/ml-llm-degerlendirme.md
+ml-llm-saglayici-yonlendirme	182	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-llm-saglayici-yonlendirme.md;skills/departman-diger/ajanlar/ml-llm-saglayici-yonlendirme.md
+ml-makale-uygulama	143	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-makale-uygulama.md;skills/departman-diger/ajanlar/ml-makale-uygulama.md
+ml-model-metrik	210	0	2	1	skills/departman-diger/ajanlar/ml-model-metrik.md
+ml-nlp	179	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-nlp.md;skills/departman-diger/ajanlar/ml-nlp.md
+ml-numpy	130	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-numpy.md;skills/departman-diger/ajanlar/ml-numpy.md
+ml-openai-api	175	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-openai-api.md;skills/departman-diger/ajanlar/ml-openai-api.md
+ml-ozellik-muhendisligi	180	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-ozellik-muhendisligi.md;skills/departman-diger/ajanlar/ml-ozellik-muhendisligi.md
+ml-pandas	139	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-pandas.md;skills/departman-diger/ajanlar/ml-pandas.md
+ml-pekistirmeli-ogrenme	141	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-pekistirmeli-ogrenme.md;skills/departman-diger/ajanlar/ml-pekistirmeli-ogrenme.md
+ml-scikit-learn	282	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-scikit-learn.md;skills/departman-diger/ajanlar/ml-scikit-learn.md
+ml-tahmin-kaymasi-izleme	170	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-tahmin-kaymasi-izleme.md;skills/departman-diger/ajanlar/ml-tahmin-kaymasi-izleme.md
+ml-tensorflow	130	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-tensorflow.md;skills/departman-diger/ajanlar/ml-tensorflow.md
+ml-veri-bilimci	142	0	2	2	ajanlar/kalite3-d15/ml-yapay-zeka/ml-veri-bilimci.md;skills/departman-diger/ajanlar/ml-veri-bilimci.md
+ml-veri-sizintisi	173	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-veri-sizintisi.md;skills/departman-diger/ajanlar/ml-veri-sizintisi.md
+ml-yerel-llm-cikarim	164	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-yerel-llm-cikarim.md;skills/departman-diger/ajanlar/ml-yerel-llm-cikarim.md
+ml-zaman-serisi	147	0	2	2	ajanlar/kalite3-d16/ml-yapay-zeka/ml-zaman-serisi.md;skills/departman-diger/ajanlar/ml-zaman-serisi.md
+mob-calisma-izni	200	0	2	2	ajanlar/kalite3-d17/mobil/mob-calisma-izni.md;skills/departman-diger/ajanlar/mob-calisma-izni.md
+mob-derin-baglanti	214	0	2	2	ajanlar/kalite3-d16/mobil/mob-derin-baglanti.md;skills/departman-diger/ajanlar/mob-derin-baglanti.md
+mob-magaza-ekran-goruntusu	141	0	2	2	ajanlar/kalite3-d16/mobil/mob-magaza-ekran-goruntusu.md;skills/departman-diger/ajanlar/mob-magaza-ekran-goruntusu.md
+mob-push-bildirim	153	0	2	2	ajanlar/kalite3-d16/mobil/mob-push-bildirim.md;skills/departman-diger/ajanlar/mob-push-bildirim.md
+mob-rn-navigasyon	157	0	2	2	ajanlar/kalite3-d16/mobil/mob-rn-navigasyon.md;skills/departman-diger/ajanlar/mob-rn-navigasyon.md
+mob-rn-performans	160	0	2	2	ajanlar/kalite3-d16/mobil/mob-rn-performans.md;skills/departman-diger/ajanlar/mob-rn-performans.md
+mob-uygulama-boyutu	159	0	2	2	ajanlar/kalite3-d16/mobil/mob-uygulama-boyutu.md;skills/departman-diger/ajanlar/mob-uygulama-boyutu.md
+mob-yerel-modul-koprusu	180	0	2	2	ajanlar/kalite3-d16/mobil/mob-yerel-modul-koprusu.md;skills/departman-diger/ajanlar/mob-yerel-modul-koprusu.md
+ops-bullmq-kuyruk	138	0	2	2	ajanlar/kalite3-d15/altyapi/ops-bullmq-kuyruk.md;skills/departman-diger/ajanlar/ops-bullmq-kuyruk.md
+ops-dagitik-izleme	187	0	2	2	ajanlar/kalite3-d16/altyapi/ops-dagitik-izleme.md;skills/departman-diger/ajanlar/ops-dagitik-izleme.md
+ops-dagitim-sorun-giderme	147	0	2	2	ajanlar/kalite3-d15/altyapi/ops-dagitim-sorun-giderme.md;skills/departman-diger/ajanlar/ops-dagitim-sorun-giderme.md
+ops-disk-dolu	174	0	2	2	ajanlar/kalite3-d16/altyapi/ops-disk-dolu.md;skills/departman-diger/ajanlar/ops-disk-dolu.md
+ops-dns-tls-sorun	252	0	2	2	ajanlar/kalite3-d16/altyapi/ops-dns-tls-sorun.md;skills/departman-diger/ajanlar/ops-dns-tls-sorun.md
+ops-dosya-tanimlayici-siniri	194	0	2	2	ajanlar/kalite3-d17/altyapi/ops-dosya-tanimlayici-siniri.md;skills/departman-diger/ajanlar/ops-dosya-tanimlayici-siniri.md
+ops-elk-log	131	0	2	2	ajanlar/kalite3-d15/altyapi/ops-elk-log.md;skills/departman-diger/ajanlar/ops-elk-log.md
+ops-felaket-kurtarma	137	0	2	2	ajanlar/kalite3-d15/altyapi/ops-felaket-kurtarma.md;skills/departman-diger/ajanlar/ops-felaket-kurtarma.md
+ops-gitops	218	0	2	2	ajanlar/kalite3-d15/altyapi/ops-gitops.md;skills/departman-diger/ajanlar/ops-gitops.md
+ops-grafana-pano	196	0	2	2	ajanlar/kalite3-d17/altyapi/ops-grafana-pano.md;skills/departman-diger/ajanlar/ops-grafana-pano.md
+ops-helm-chart	186	0	2	2	ajanlar/kalite3-d17/altyapi/ops-helm-chart.md;skills/departman-diger/ajanlar/ops-helm-chart.md
+ops-k8s-is-yuku	190	0	2	2	ajanlar/kalite3-d17/altyapi/ops-k8s-is-yuku.md;skills/departman-diger/ajanlar/ops-k8s-is-yuku.md
+ops-kafka	121	0	2	2	ajanlar/kalite3-d15/altyapi/ops-kafka.md;skills/departman-diger/ajanlar/ops-kafka.md
+ops-loki-log	127	0	2	2	ajanlar/kalite3-d15/altyapi/ops-loki-log.md;skills/departman-diger/ajanlar/ops-loki-log.md
+ops-maliyet-optimize	131	0	2	2	ajanlar/kalite3-d15/altyapi/ops-maliyet-optimize.md;skills/departman-diger/ajanlar/ops-maliyet-optimize.md
+ops-mqtt	117	0	2	2	ajanlar/kalite3-d15/altyapi/ops-mqtt.md;skills/departman-diger/ajanlar/ops-mqtt.md
+ops-nats	115	0	2	2	ajanlar/kalite3-d15/altyapi/ops-nats.md;skills/departman-diger/ajanlar/ops-nats.md
+ops-nginx-ters-vekil	221	0	2	2	ajanlar/kalite3-d16/altyapi/ops-nginx-ters-vekil.md;skills/departman-diger/ajanlar/ops-nginx-ters-vekil.md
+ops-prometheus	131	0	2	2	ajanlar/kalite3-d15/altyapi/ops-prometheus.md;skills/departman-diger/ajanlar/ops-prometheus.md
+ops-pulumi	139	0	2	2	ajanlar/kalite3-d15/altyapi/ops-pulumi.md;skills/departman-diger/ajanlar/ops-pulumi.md
+ops-rabbitmq	123	0	2	2	ajanlar/kalite3-d15/altyapi/ops-rabbitmq.md;skills/departman-diger/ajanlar/ops-rabbitmq.md
+ops-sertifika-yenileme	247	0	2	2	ajanlar/kalite3-d16/altyapi/ops-sertifika-yenileme.md;skills/departman-diger/ajanlar/ops-sertifika-yenileme.md
+ops-serverless	139	0	2	2	ajanlar/kalite3-d15/altyapi/ops-serverless.md;skills/departman-diger/ajanlar/ops-serverless.md
+ops-sns-sqs	127	0	2	2	ajanlar/kalite3-d15/altyapi/ops-sns-sqs.md;skills/departman-diger/ajanlar/ops-sns-sqs.md
+ops-ssh-sertlestirme	237	0	2	2	ajanlar/kalite3-d16/altyapi/ops-ssh-sertlestirme.md;skills/departman-diger/ajanlar/ops-ssh-sertlestirme.md
+ops-systemd-birim	241	0	2	1	skills/departman-diger/ajanlar/ops-systemd-birim.md
+ops-terraform	137	0	2	2	ajanlar/kalite3-d15/altyapi/ops-terraform.md;skills/departman-diger/ajanlar/ops-terraform.md
+ops-winget-kurulum	163	0	2	2	ajanlar/kalite3-d16/altyapi/ops-winget-kurulum.md;skills/departman-diger/ajanlar/ops-winget-kurulum.md
+ops-yapisal-log-semasi	173	0	2	2	ajanlar/kalite3-d16/altyapi/ops-yapisal-log-semasi.md;skills/departman-diger/ajanlar/ops-yapisal-log-semasi.md
+otm-ajan-is-akisi-kur	118	0	2	2	ajanlar/kalite3/otomasyon/otm-ajan-is-akisi-kur.md;skills/departman-surec-ajan-arac/ajanlar/otm-ajan-is-akisi-kur.md
+otm-api-entegrasyon	112	0	2	2	ajanlar/kalite3/otomasyon/otm-api-entegrasyon.md;skills/departman-backend-dotnet/ajanlar/otm-api-entegrasyon.md
+otm-bildirim-yonlendirme	172	0	2	1	ajanlar/kalite3/otomasyon/otm-bildirim-yonlendirme.md
+otm-cli-sarmalayici	186	0	2	2	ajanlar/kalite3-d17/otomasyon/otm-cli-sarmalayici.md;skills/departman-diger/ajanlar/otm-cli-sarmalayici.md
+otm-csv-temizleyici	168	0	2	2	ajanlar/kalite3-d16/otomasyon/otm-csv-temizleyici.md;skills/departman-diger/ajanlar/otm-csv-temizleyici.md
+otm-dosya-isleme-botu	118	0	2	2	ajanlar/kalite3/otomasyon/otm-dosya-isleme-botu.md;skills/departman-belge/ajanlar/otm-dosya-isleme-botu.md
+otm-google-sheets-akis	254	0	2	1	ajanlar/kalite3/otomasyon/otm-google-sheets-akis.md
+otm-jq-donusum	155	0	2	2	ajanlar/kalite3-d16/otomasyon/otm-jq-donusum.md;skills/departman-diger/ajanlar/otm-jq-donusum.md
+otm-mail-otomasyon	114	0	2	2	ajanlar/kalite3/otomasyon/otm-mail-otomasyon.md;skills/departman-surec-ajan-arac/ajanlar/otm-mail-otomasyon.md
+otm-n8n-akis-tasarimi	109	0	2	2	ajanlar/kalite3/otomasyon/otm-n8n-akis-tasarimi.md;skills/departman-surec-ajan-arac/ajanlar/otm-n8n-akis-tasarimi.md
+otm-n8n-hata-yonetimi	96	0	2	2	ajanlar/kalite3/otomasyon/otm-n8n-hata-yonetimi.md;skills/departman-surec-ajan-arac/ajanlar/otm-n8n-hata-yonetimi.md
+otm-n8n-ifade-kod	123	0	2	2	ajanlar/kalite3/otomasyon/otm-n8n-ifade-kod.md;skills/departman-surec-ajan-arac/ajanlar/otm-n8n-ifade-kod.md
+otm-otomasyon-izleme	114	0	2	2	ajanlar/kalite3/otomasyon/otm-otomasyon-izleme.md;skills/departman-surec-ajan-arac/ajanlar/otm-otomasyon-izleme.md
+otm-pazarlama-otomasyonu	139	0	2	2	ajanlar/kalite3-d15/otomasyon/otm-pazarlama-otomasyonu.md;skills/departman-diger/ajanlar/otm-pazarlama-otomasyonu.md
+otm-power-query	181	0	2	2	ajanlar/kalite3-d16/otomasyon/otm-power-query.md;skills/departman-diger/ajanlar/otm-power-query.md
+otm-powershell-51	186	0	2	2	ajanlar/kalite3-d16/otomasyon/otm-powershell-51.md;skills/departman-diger/ajanlar/otm-powershell-51.md
+otm-puppeteer	186	0	2	2	ajanlar/kalite3-d15/otomasyon/otm-puppeteer.md;skills/departman-diger/ajanlar/otm-puppeteer.md
+otm-sema-dogrulayici	149	0	2	2	ajanlar/kalite3-d15/otomasyon/otm-sema-dogrulayici.md;skills/departman-diger/ajanlar/otm-sema-dogrulayici.md
+otm-tarayici-otomasyon	116	0	2	2	ajanlar/kalite3/otomasyon/otm-tarayici-otomasyon.md;skills/departman-surec-ajan-arac/ajanlar/otm-tarayici-otomasyon.md
+otm-tarayici-yardimci-dosya	192	0	2	2	ajanlar/kalite3-d16/otomasyon/otm-tarayici-yardimci-dosya.md;skills/departman-diger/ajanlar/otm-tarayici-yardimci-dosya.md
+otm-veri-esleme	114	0	2	2	ajanlar/kalite3/otomasyon/otm-veri-esleme.md;skills/departman-veri-db/ajanlar/otm-veri-esleme.md
+otm-webhook-tasarimci	129	0	2	2	ajanlar/kalite3/otomasyon/otm-webhook-tasarimci.md;skills/departman-frontend/ajanlar/otm-webhook-tasarimci.md
+otm-zamanlanmis-gorev	151	0	2	2	ajanlar/kalite3/otomasyon/otm-zamanlanmis-gorev.md;skills/departman-arastirma-ogrenme/ajanlar/otm-zamanlanmis-gorev.md
+oyn-ag-senkronu	156	0	2	2	ajanlar/kalite3-d16/oyun-mod/oyn-ag-senkronu.md;skills/departman-diger/ajanlar/oyn-ag-senkronu.md
+oyn-dusman-ai	107	0	2	2	ajanlar/kalite3/oyun-mod/oyn-dusman-ai.md;skills/departman-frontend/ajanlar/oyn-dusman-ai.md
+oyn-lua-betik	175	0	2	2	ajanlar/kalite3-d15/oyun-mod/oyn-lua-betik.md;skills/departman-diger/ajanlar/oyn-lua-betik.md
+oyn-mod-birlestirici	96	0	2	2	ajanlar/kalite3/oyun-mod/oyn-mod-birlestirici.md;skills/departman-surec-git-yayin/ajanlar/oyn-mod-birlestirici.md
+oyn-mod-guvenlik-kontrol	170	0	2	1	ajanlar/kalite3/oyun-mod/oyn-mod-guvenlik-kontrol.md
+oyn-mod-onarim	134	0	2	2	ajanlar/kalite3/oyun-mod/oyn-mod-onarim.md;skills/departman-arastirma-ogrenme/ajanlar/oyn-mod-onarim.md
+oyn-mod-paketleme	89	0	2	2	ajanlar/kalite3/oyun-mod/oyn-mod-paketleme.md;skills/departman-frontend/ajanlar/oyn-mod-paketleme.md
+oyn-oyun-denge	176	0	2	1	ajanlar/kalite3/oyun-mod/oyn-oyun-denge.md
+oyn-oyun-dokuman	162	0	2	1	ajanlar/kalite3/oyun-mod/oyn-oyun-dokuman.md
+oyn-oyun-envanter	159	0	2	2	ajanlar/kalite3/oyun-mod/oyn-oyun-envanter.md;skills/departman-frontend/ajanlar/oyn-oyun-envanter.md
+oyn-oyun-motoru-script	129	0	2	2	ajanlar/kalite3/oyun-mod/oyn-oyun-motoru-script.md;skills/departman-belge/ajanlar/oyn-oyun-motoru-script.md
+oyn-oyun-ses-geri-bildirim	98	0	2	2	ajanlar/kalite3/oyun-mod/oyn-oyun-ses-geri-bildirim.md;skills/departman-arastirma-ogrenme/ajanlar/oyn-oyun-ses-geri-bildirim.md
+oyn-seviye-tasarim	188	0	2	2	ajanlar/kalite3/oyun-mod/oyn-seviye-tasarim.md;skills/departman-frontend/ajanlar/oyn-seviye-tasarim.md
+oyn-three-oyun-sahne	217	0	2	1	ajanlar/kalite3/oyun-mod/oyn-three-oyun-sahne.md
+oyn-uyarlanabilir-zorluk	196	0	2	2	ajanlar/kalite3-d17/oyun-mod/oyn-uyarlanabilir-zorluk.md;skills/departman-diger/ajanlar/oyn-uyarlanabilir-zorluk.md
+oyn-yol-bulma	200	0	2	2	ajanlar/kalite3-d17/oyun-mod/oyn-yol-bulma.md;skills/departman-diger/ajanlar/oyn-yol-bulma.md
+pln-bagimlilik-haritasi	182	0	2	1	ajanlar/kalite3/surec-plan/pln-bagimlilik-haritasi.md
+pln-bogucu-incir-gocu	157	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-bogucu-incir-gocu.md
+pln-dalga-plani	122	0	2	2	ajanlar/kalite3/surec-plan/pln-dalga-plani.md;skills/departman-surec-plan/ajanlar/pln-dalga-plani.md
+pln-fikir-olgunlastir	110	0	2	2	ajanlar/kalite3/surec-plan/pln-fikir-olgunlastir.md;skills/departman-surec-plan/ajanlar/pln-fikir-olgunlastir.md
+pln-gorev-bolme	104	0	2	2	ajanlar/kalite3/surec-plan/pln-gorev-bolme.md;skills/departman-surec-plan/ajanlar/pln-gorev-bolme.md
+pln-hedef-planlayici	175	0	1	1	ajanlar/kalite3-ruflo/surec-plan/pln-hedef-planlayici.md
+pln-islevsel-olmayan-gereksinim	185	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-islevsel-olmayan-gereksinim.md
+pln-kabul-olcutleri	98	0	2	2	ajanlar/kalite3/surec-plan/pln-kabul-olcutleri.md;skills/departman-surec-plan/ajanlar/pln-kabul-olcutleri.md
+pln-kapsam-kesici	232	0	2	1	ajanlar/kalite3/surec-plan/pln-kapsam-kesici.md
+pln-karar-kaydi	161	0	2	1	ajanlar/kalite3/surec-plan/pln-karar-kaydi.md
+pln-kullanim-senaryosu	170	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-kullanim-senaryosu.md
+pln-mimari-plan	125	0	2	2	ajanlar/kalite3/surec-plan/pln-mimari-plan.md;skills/departman-surec-plan/ajanlar/pln-mimari-plan.md
+pln-niyet-netlestirme	118	0	2	2	ajanlar/kalite3/surec-plan/pln-niyet-netlestirme.md;skills/departman-surec-plan/ajanlar/pln-niyet-netlestirme.md
+pln-ozellik-onceliklendirme	122	0	1	1	ajanlar/kalite3-d15/surec-plan/pln-ozellik-onceliklendirme.md
+pln-prd-yazar	127	0	2	2	ajanlar/kalite3/surec-plan/pln-prd-yazar.md;skills/departman-surec-plan/ajanlar/pln-prd-yazar.md
+pln-proje-iskelet	129	0	1	1	ajanlar/kalite3-d15/surec-plan/pln-proje-iskelet.md
+pln-proje-yonetimi	123	0	1	1	ajanlar/kalite3-d15/surec-plan/pln-proje-yonetimi.md
+pln-risk-kaydi	157	0	2	1	ajanlar/kalite3/surec-plan/pln-risk-kaydi.md
+pln-sistem-tasarimi	141	0	1	1	ajanlar/kalite3-d15/surec-plan/pln-sistem-tasarimi.md
+pln-sokulebilir-entegrasyon	184	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-sokulebilir-entegrasyon.md
+pln-sozde-kod-algoritma	183	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-sozde-kod-algoritma.md
+pln-sparc-asama	173	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-sparc-asama.md
+pln-sprint-hikaye	129	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-sprint-hikaye.md
+pln-tahmin-araligi	170	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-tahmin-araligi.md
+pln-teknik-spec	182	0	2	1	ajanlar/kalite3/surec-plan/pln-teknik-spec.md
+pln-temiz-mimari-sinir	226	0	1	1	ajanlar/kalite3-d16/surec-plan/pln-temiz-mimari-sinir.md
+qa-anlik-goruntu-testi	169	0	1	1	ajanlar/kalite3-d16/test-qa/qa-anlik-goruntu-testi.md
+qa-api-test	163	0	2	1	ajanlar/kalite3/test-qa/qa-api-test.md
+qa-ava-test	160	0	1	1	ajanlar/kalite3-d16/test-qa/qa-ava-test.md
+qa-benchmark-regresyon-kapisi	193	0	1	1	ajanlar/kalite3-d17/test-qa/qa-benchmark-regresyon-kapisi.md
+qa-ci-test-duzeni	96	0	2	2	ajanlar/kalite3/test-qa/qa-ci-test-duzeni.md;skills/departman-test-qa/ajanlar/qa-ci-test-duzeni.md
+qa-disaridan-tdd	171	0	1	1	ajanlar/kalite3-d16/test-qa/qa-disaridan-tdd.md
+qa-e2e-playwright	112	0	2	2	ajanlar/kalite3/test-qa/qa-e2e-playwright.md;skills/departman-test-qa/ajanlar/qa-e2e-playwright.md
+qa-entegrasyon-testi	136	0	1	1	ajanlar/kalite3-d15/test-qa/qa-entegrasyon-testi.md
+qa-erisilebilirlik-testi	99	0	2	2	ajanlar/kalite3/test-qa/qa-erisilebilirlik-testi.md;skills/departman-test-qa/ajanlar/qa-erisilebilirlik-testi.md
+qa-flaky-avci	123	0	2	2	ajanlar/kalite3/test-qa/qa-flaky-avci.md;skills/departman-test-qa/ajanlar/qa-flaky-avci.md
+qa-gorsel-qa	125	0	2	2	ajanlar/kalite3/test-qa/qa-gorsel-qa.md;skills/departman-test-qa/ajanlar/qa-gorsel-qa.md
+qa-hata-yeniden-uret	214	0	2	1	ajanlar/kalite3/test-qa/qa-hata-yeniden-uret.md
+qa-jasmine-test	137	0	1	1	ajanlar/kalite3-d16/test-qa/qa-jasmine-test.md
+qa-manuel-test-plani	119	0	2	2	ajanlar/kalite3/test-qa/qa-manuel-test-plani.md;skills/departman-test-qa/ajanlar/qa-manuel-test-plani.md
+qa-mobil-qa	109	0	2	2	ajanlar/kalite3/test-qa/qa-mobil-qa.md;skills/departman-test-qa/ajanlar/qa-mobil-qa.md
+qa-mutasyon-denetci	129	0	2	2	ajanlar/kalite3/test-qa/qa-mutasyon-denetci.md;skills/departman-test-qa/ajanlar/qa-mutasyon-denetci.md
+qa-ozellik-paritesi	189	0	1	1	ajanlar/kalite3-d17/test-qa/qa-ozellik-paritesi.md
+qa-ozellik-tabanli	254	0	1	1	ajanlar/kalite3-d16/test-qa/qa-ozellik-tabanli.md
+qa-performans-yuk-testi	110	0	2	2	ajanlar/kalite3/test-qa/qa-performans-yuk-testi.md;skills/departman-test-qa/ajanlar/qa-performans-yuk-testi.md
+qa-playwright	135	0	1	1	ajanlar/kalite3-d15/test-qa/qa-playwright.md
+qa-pytest-fikstur	175	0	1	1	ajanlar/kalite3-d17/test-qa/qa-pytest-fikstur.md
+qa-sahte-uygulama-avcisi	161	0	1	1	ajanlar/kalite3-ruflo/test-qa/qa-sahte-uygulama-avcisi.md
+qa-selenium	152	0	1	1	ajanlar/kalite3-d15/test-qa/qa-selenium.md
+qa-sinir-deger-analizi	183	0	1	1	ajanlar/kalite3-d16/test-qa/qa-sinir-deger-analizi.md
+qa-test-bosluk-analiz	160	0	2	1	ajanlar/kalite3/test-qa/qa-test-bosluk-analiz.md
+qa-test-iskelet-dotnet	103	0	2	2	ajanlar/kalite3/test-qa/qa-test-iskelet-dotnet.md;skills/departman-test-qa/ajanlar/qa-test-iskelet-dotnet.md
+qa-test-kokusu	185	0	2	1	ajanlar/kalite3/test-qa/qa-test-kokusu.md
+qa-test-stratejisi	138	0	1	1	ajanlar/kalite3-d15/test-qa/qa-test-stratejisi.md
+qa-test-verisi	108	0	2	2	ajanlar/kalite3/test-qa/qa-test-verisi.md;skills/departman-test-qa/ajanlar/qa-test-verisi.md
+qa-testcafe	160	0	1	1	ajanlar/kalite3-d15/test-qa/qa-testcafe.md
+qa-ui-kapsamli	131	0	1	1	ajanlar/kalite3-d15/test-qa/qa-ui-kapsamli.md
+qa-uzun-suit-kosucu	154	0	1	1	ajanlar/kalite3-d16/test-qa/qa-uzun-suit-kosucu.md
+qa-yuk-testi	146	0	1	1	ajanlar/kalite3-d15/test-qa/qa-yuk-testi.md
+sec-acik-yonlendirme	187	0	1	1	ajanlar/kalite3-d17/guvenlik/sec-acik-yonlendirme.md
+sec-ai-kod-guvenlik	193	0	2	1	ajanlar/kalite3/guvenlik/sec-ai-kod-guvenlik.md
+sec-alt-alan-ele-gecirme	177	0	1	1	ajanlar/kalite3-d17/guvenlik/sec-alt-alan-ele-gecirme.md
+sec-api-guvenlik	118	0	2	2	ajanlar/kalite3/guvenlik/sec-api-guvenlik.md;skills/departman-guvenlik/ajanlar/sec-api-guvenlik.md
+sec-auth0	149	0	1	1	ajanlar/kalite3-d15/guvenlik/sec-auth0.md
+sec-bagimlilik-acik	144	0	2	2	ajanlar/kalite3/guvenlik/sec-bagimlilik-acik.md;skills/departman-guvenlik/ajanlar/sec-bagimlilik-acik.md
+sec-ci-guvenlik-tarama	175	0	2	1	ajanlar/kalite3/guvenlik/sec-ci-guvenlik-tarama.md
+sec-cikis-oncesi-guvenlik	109	0	2	2	ajanlar/kalite3/guvenlik/sec-cikis-oncesi-guvenlik.md;skills/departman-guvenlik/ajanlar/sec-cikis-oncesi-guvenlik.md
+sec-docker-guvenlik	109	0	2	2	ajanlar/kalite3/guvenlik/sec-docker-guvenlik.md;skills/departman-guvenlik/ajanlar/sec-docker-guvenlik.md
+sec-gitleaks-gecmis	169	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-gitleaks-gecmis.md
+sec-guvenilmeyen-kod-yalitimi	178	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-guvenilmeyen-kod-yalitimi.md
+sec-guvenlik-baslik	150	0	2	1	ajanlar/kalite3/guvenlik/sec-guvenlik-baslik.md
+sec-guvenlik-raporu	174	0	2	1	ajanlar/kalite3/guvenlik/sec-guvenlik-raporu.md
+sec-injection-denetci	134	0	2	2	ajanlar/kalite3/guvenlik/sec-injection-denetci.md;skills/departman-guvenlik/ajanlar/sec-injection-denetci.md
+sec-istem-enjeksiyon-savunma	147	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-istem-enjeksiyon-savunma.md
+sec-jwt-denetci	129	0	1	1	ajanlar/kalite3-d15/guvenlik/sec-jwt-denetci.md
+sec-jwt-oturum	153	0	2	1	ajanlar/kalite3/guvenlik/sec-jwt-oturum.md
+sec-keycloak	120	0	1	1	ajanlar/kalite3-d15/guvenlik/sec-keycloak.md
+sec-kvkk-gdpr-kontrol	127	0	2	2	ajanlar/kalite3/guvenlik/sec-kvkk-gdpr-kontrol.md;skills/departman-guvenlik/ajanlar/sec-kvkk-gdpr-kontrol.md
+sec-llm-pii-maskeleme	177	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-llm-pii-maskeleme.md
+sec-loglama-gizlilik	121	0	2	2	ajanlar/kalite3/guvenlik/sec-loglama-gizlilik.md;skills/departman-guvenlik/ajanlar/sec-loglama-gizlilik.md
+sec-mfa-kurtarma	156	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-mfa-kurtarma.md
+sec-owasp-top10	124	0	1	1	ajanlar/kalite3-d15/guvenlik/sec-owasp-top10.md
+sec-pci-dss-kapsam	133	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-pci-dss-kapsam.md
+sec-pentest-plani	134	0	2	1	ajanlar/kalite3/guvenlik/sec-pentest-plani.md
+sec-sast-kosucu	225	0	2	1	ajanlar/kalite3/guvenlik/sec-sast-kosucu.md
+sec-semgrep-kural	166	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-semgrep-kural.md
+sec-sifreleme-denetci	123	0	2	2	ajanlar/kalite3/guvenlik/sec-sifreleme-denetci.md;skills/departman-guvenlik/ajanlar/sec-sifreleme-denetci.md
+sec-sir-tarayici	204	0	2	1	ajanlar/kalite3/guvenlik/sec-sir-tarayici.md
+sec-skill-tedarik-tarama	187	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-skill-tedarik-tarama.md
+sec-tehdit-modelleme	132	0	2	2	ajanlar/kalite3/guvenlik/sec-tehdit-modelleme.md;skills/departman-guvenlik/ajanlar/sec-tehdit-modelleme.md
+sec-xss-csrf-denetci	209	0	2	1	ajanlar/kalite3/guvenlik/sec-xss-csrf-denetci.md
+sec-yetkilendirme-matrisi	115	0	2	2	ajanlar/kalite3/guvenlik/sec-yetkilendirme-matrisi.md;skills/departman-guvenlik/ajanlar/sec-yetkilendirme-matrisi.md
+sec-yol-gecisi	145	0	1	1	ajanlar/kalite3-d16/guvenlik/sec-yol-gecisi.md
+sec-zero-trust-ag	123	0	2	2	ajanlar/kalite3/guvenlik/sec-zero-trust-ag.md;skills/departman-guvenlik/ajanlar/sec-zero-trust-ag.md
+security-ai-generated-code-auditor	254	0	0	0	
+security-appsec-engineer	201	0	0	0	
+security-architect	313	0	0	0	
+security-blockchain-security-auditor	205	0	0	0	
+security-cloud-security-architect	186	0	0	0	
+security-compliance-auditor	169	0	0	0	
+security-incident-responder	186	0	0	0	
+security-penetration-tester	182	0	0	0	
+security-secrets-credential-engineer	262	0	0	0	
+security-senior-secops	383	0	0	0	
+security-threat-detection-engineer	188	0	0	0	
+security-threat-intelligence-analyst	198	0	0	0	
+urn-ab-test-istatistik	167	0	2	2	ajanlar/kalite3-d16/urun-is/urn-ab-test-istatistik.md;skills/departman-diger/ajanlar/urn-ab-test-istatistik.md
+urn-baslik-yazimi	191	0	2	2	ajanlar/kalite3-d17/urun-is/urn-baslik-yazimi.md;skills/departman-diger/ajanlar/urn-baslik-yazimi.md
+urn-crm	119	0	2	2	ajanlar/kalite3-d15/urun-is/urn-crm.md;skills/departman-diger/ajanlar/urn-crm.md
+urn-eposta-metni	140	0	2	2	ajanlar/kalite3-d15/urun-is/urn-eposta-metni.md;skills/departman-diger/ajanlar/urn-eposta-metni.md
+urn-finans-plani	137	0	2	2	ajanlar/kalite3-d15/urun-is/urn-finans-plani.md;skills/departman-diger/ajanlar/urn-finans-plani.md
+urn-fiyatlandirma	106	0	2	2	ajanlar/kalite3-d15/urun-is/urn-fiyatlandirma.md;skills/departman-diger/ajanlar/urn-fiyatlandirma.md
+urn-google-ads-arama	156	0	2	2	ajanlar/kalite3-d17/urun-is/urn-google-ads-arama.md;skills/departman-diger/ajanlar/urn-google-ads-arama.md
+urn-grafik-tasarim	144	0	2	2	ajanlar/kalite3-d15/urun-is/urn-grafik-tasarim.md;skills/departman-diger/ajanlar/urn-grafik-tasarim.md
+urn-icerik-performans	143	0	2	2	ajanlar/kalite3-d16/urun-is/urn-icerik-performans.md;skills/departman-diger/ajanlar/urn-icerik-performans.md
+urn-icerik-stratejisi	132	0	2	2	ajanlar/kalite3-d15/urun-is/urn-icerik-stratejisi.md;skills/departman-diger/ajanlar/urn-icerik-stratejisi.md
+urn-is-analizi	129	0	2	2	ajanlar/kalite3-d15/urun-is/urn-is-analizi.md;skills/departman-diger/ajanlar/urn-is-analizi.md
+urn-kriz-iletisimi	126	0	2	2	ajanlar/kalite3-d15/urun-is/urn-kriz-iletisimi.md;skills/departman-diger/ajanlar/urn-kriz-iletisimi.md
+urn-kullanici-davranisi	138	0	2	2	ajanlar/kalite3-d15/urun-is/urn-kullanici-davranisi.md;skills/departman-diger/ajanlar/urn-kullanici-davranisi.md
+urn-marka-sesi	135	0	2	2	ajanlar/kalite3-d15/urun-is/urn-marka-sesi.md;skills/departman-diger/ajanlar/urn-marka-sesi.md
+urn-martech-yigini	167	0	2	2	ajanlar/kalite3-d16/urun-is/urn-martech-yigini.md;skills/departman-diger/ajanlar/urn-martech-yigini.md
+urn-mesaj-mimarisi	129	0	2	2	ajanlar/kalite3-d15/urun-is/urn-mesaj-mimarisi.md;skills/departman-diger/ajanlar/urn-mesaj-mimarisi.md
+urn-musteri-saglik-skoru	133	0	2	2	ajanlar/kalite3-d16/urun-is/urn-musteri-saglik-skoru.md;skills/departman-diger/ajanlar/urn-musteri-saglik-skoru.md
+urn-sosyal-medya-icerik	122	0	2	2	ajanlar/kalite3-d15/urun-is/urn-sosyal-medya-icerik.md;skills/departman-diger/ajanlar/urn-sosyal-medya-icerik.md
+urn-sosyal-reklam	126	0	2	2	ajanlar/kalite3-d15/urun-is/urn-sosyal-reklam.md;skills/departman-diger/ajanlar/urn-sosyal-reklam.md
+urn-urun-yoneticisi	117	0	2	2	ajanlar/kalite3-d15/urun-is/urn-urun-yoneticisi.md;skills/departman-diger/ajanlar/urn-urun-yoneticisi.md
+vid-ffmpeg-donusturucu	107	0	2	2	ajanlar/kalite3/video/vid-ffmpeg-donusturucu.md;skills/departman-verimlilik/ajanlar/vid-ffmpeg-donusturucu.md
+vid-gecis-ve-ritim	161	0	2	1	ajanlar/kalite3/video/vid-gecis-ve-ritim.md
+vid-hareket-grafigi	189	0	2	1	ajanlar/kalite3/video/vid-hareket-grafigi.md
+vid-hyperframes-kompozisyon	181	0	2	1	ajanlar/kalite3/video/vid-hyperframes-kompozisyon.md
+vid-kare-cikarici	96	0	2	2	ajanlar/kalite3/video/vid-kare-cikarici.md;skills/departman-arastirma-ogrenme/ajanlar/vid-kare-cikarici.md
+vid-kisa-klip-secici	201	0	2	1	ajanlar/kalite3/video/vid-kisa-klip-secici.md
+vid-podcast	129	0	2	2	ajanlar/kalite3-d15/video/vid-podcast.md;skills/departman-diger/ajanlar/vid-podcast.md
+vid-premiere-akis	95	0	2	2	ajanlar/kalite3/video/vid-premiere-akis.md;skills/departman-surec-plan/ajanlar/vid-premiere-akis.md
+vid-reel-kanca-merdiveni	144	0	2	2	ajanlar/kalite3-d16/video/vid-reel-kanca-merdiveni.md;skills/departman-diger/ajanlar/vid-reel-kanca-merdiveni.md
+vid-remotion-kurucu	171	0	2	1	ajanlar/kalite3/video/vid-remotion-kurucu.md
+vid-renk-uzayi	261	0	2	1	skills/departman-diger/ajanlar/vid-renk-uzayi.md
+vid-ses-duzeni	161	0	2	1	ajanlar/kalite3/video/vid-ses-duzeni.md
+vid-sosyal-video-bicim	181	0	2	1	ajanlar/kalite3/video/vid-sosyal-video-bicim.md
+vid-video-brief	159	0	2	1	ajanlar/kalite3/video/vid-video-brief.md
+vid-video-ozetle	179	0	2	1	ajanlar/kalite3/video/vid-video-ozetle.md
+vid-video-performans-web	106	0	2	2	ajanlar/kalite3/video/vid-video-performans-web.md;skills/departman-frontend/ajanlar/vid-video-performans-web.md
+vid-video-senaryo	104	0	2	2	ajanlar/kalite3/video/vid-video-senaryo.md;skills/departman-arastirma-ogrenme/ajanlar/vid-video-senaryo.md
+vid-ytdlp-indirme	179	0	2	2	ajanlar/kalite3-d16/video/vid-ytdlp-indirme.md;skills/departman-diger/ajanlar/vid-ytdlp-indirme.md
+vrm-alt-ajan-dagitim	139	0	2	2	ajanlar/kalite3/verimlilik/vrm-alt-ajan-dagitim.md;skills/departman-verimlilik/ajanlar/vrm-alt-ajan-dagitim.md
+vrm-baglam-butcesi	184	0	2	1	ajanlar/kalite3/verimlilik/vrm-baglam-butcesi.md
+vrm-baglam-kum-havuzu	171	0	1	1	ajanlar/kalite3-d16/verimlilik/vrm-baglam-kum-havuzu.md
+vrm-bilgi-tabani-hazirla	177	0	2	1	ajanlar/kalite3/verimlilik/vrm-bilgi-tabani-hazirla.md
+vrm-cikti-sikistirma	109	0	2	2	ajanlar/kalite3/verimlilik/vrm-cikti-sikistirma.md;skills/departman-verimlilik/ajanlar/vrm-cikti-sikistirma.md
+vrm-dx-surtunme	200	0	1	1	ajanlar/kalite3-d16/verimlilik/vrm-dx-surtunme.md
+vrm-hafiza-arama	133	0	2	1	ajanlar/kalite3/verimlilik/vrm-hafiza-arama.md
+vrm-headroom-geri-cagirma	164	0	1	1	ajanlar/kalite3-d16/verimlilik/vrm-headroom-geri-cagirma.md
+vrm-log-ozetleyici	102	0	2	2	ajanlar/kalite3/verimlilik/vrm-log-ozetleyici.md;skills/departman-verimlilik/ajanlar/vrm-log-ozetleyici.md
+vrm-maliyet-denetci	155	0	2	1	ajanlar/kalite3/verimlilik/vrm-maliyet-denetci.md
+vrm-ortam-yoneticisi	217	0	1	1	ajanlar/kalite3-d15/verimlilik/vrm-ortam-yoneticisi.md
+vrm-oturum-kaydi	160	0	2	1	ajanlar/kalite3/verimlilik/vrm-oturum-kaydi.md
+vrm-plan-limit-izleme	147	0	1	1	ajanlar/kalite3-d16/verimlilik/vrm-plan-limit-izleme.md
+vrm-worktree-paralel	259	0	1	1	ajanlar/kalite3-d16/verimlilik/vrm-worktree-paralel.md

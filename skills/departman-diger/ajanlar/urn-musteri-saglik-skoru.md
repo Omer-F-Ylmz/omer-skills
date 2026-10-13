@@ -1,6 +1,6 @@
 ---
 name: urn-musteri-saglik-skoru
-description: Builds customer health scores from usage, support and billing signals to drive retention plays. Use when churn surprises a SaaS team.
+description: Builds customer health scores from usage, support, billing signals for retention; SaaS churn
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

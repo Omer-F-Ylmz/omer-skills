@@ -1,6 +1,6 @@
 ---
 name: qa-uzun-suit-kosucu
-description: Runs long test suites with sharding, per-test timeouts, retries isolation and partial result capture. Use when a full suite takes too long or dies midway.
+description: Runs long test suites with sharding, timeouts, retry isolation, partial result capture
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

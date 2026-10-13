@@ -1,6 +1,6 @@
 ---
 name: dok-xlsx-tablo
-description: Builds spreadsheets with typed columns, formulas and charts. Use when data must be delivered as xlsx, or when asked how to structure, formula-drive or lay out an Excel workbook.
+description: Builds xlsx spreadsheets with typed columns, formulas, charts; workbook layout
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

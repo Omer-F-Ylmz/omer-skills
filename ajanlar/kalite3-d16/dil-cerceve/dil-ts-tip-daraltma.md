@@ -1,6 +1,6 @@
 ---
 name: dil-ts-tip-daraltma
-description: Fixes TypeScript type safety with narrowing, discriminated unions, unknown instead of any and exhaustive checks. Use when TypeScript code relies on any or casts and still crashes at runtime, including questions with no files attached.
+description: "Fixes TypeScript safety: narrowing, discriminated unions, unknown over any, exhaustive checks"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: urn-eposta-metni
-description: Writes marketing and lifecycle emails with strong subject lines, one goal and a clear call to action. Use when an email campaign needs copy.
+description: Writes marketing and lifecycle emails with subject lines, one goal, clear call to action
 model: haiku
 tools: Read, Grep, Glob
 ---

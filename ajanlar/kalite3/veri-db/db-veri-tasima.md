@@ -1,6 +1,6 @@
 ---
 name: db-veri-tasima
-description: Plans and runs data migrations between databases with validation counts. Use when moving or merging data stores.
+description: Plans and runs data migrations between databases with validation counts
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

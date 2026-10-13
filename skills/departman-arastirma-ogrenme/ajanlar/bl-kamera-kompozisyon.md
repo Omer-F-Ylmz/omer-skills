@@ -1,6 +1,6 @@
 ---
 name: bl-kamera-kompozisyon
-description: Sets camera focal length, framing and depth of field for product shots. Use when a render framing feels off.
+description: Sets Blender camera focal length, framing and depth of field for product shots
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

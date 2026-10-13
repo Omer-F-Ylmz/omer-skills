@@ -1,6 +1,6 @@
 ---
 name: bl-modelleme-plani
-description: Plans low-poly or hard-surface Blender models with proportions, topology and modifiers. Use when starting to model a product or prop.
+description: "Plans low-poly or hard-surface Blender models: proportions, topology, modifiers"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

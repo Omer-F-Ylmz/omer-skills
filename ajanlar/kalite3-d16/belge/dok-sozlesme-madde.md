@@ -1,6 +1,6 @@
 ---
 name: dok-sozlesme-madde
-description: Reviews SaaS and service contracts for liability, termination, data and IP clauses and flags risky terms. Use when signing or drafting a client contract.
+description: Reviews SaaS and service contracts for liability, termination, data, IP clauses; flags risks
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

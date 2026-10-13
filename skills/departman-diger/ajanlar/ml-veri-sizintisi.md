@@ -1,6 +1,6 @@
 ---
 name: ml-veri-sizintisi
-description: Finds data leakage in ML pipelines: preprocessing fit on all rows, future information, target proxies and split overlap. Use when validation scores look too good to be true.
+description: "Finds data leakage in ML pipelines: fit on all rows, future info, target proxies; too-good scores"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

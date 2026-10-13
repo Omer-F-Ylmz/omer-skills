@@ -1,6 +1,6 @@
 ---
 name: qa-test-stratejisi
-description: Defines test strategy with risk-based coverage, test pyramid levels and quality gates. Use when planning testing for a product or release.
+description: "Defines test strategy: risk-based coverage, test pyramid levels, quality gates"
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: urn-icerik-performans
-description: Measures content effectiveness with attribution, engagement depth and conversion paths. Use when deciding which content to keep, update or cut.
+description: Measures content effectiveness via attribution, engagement, conversion paths; keep, update or cut
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

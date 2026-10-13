@@ -1,6 +1,6 @@
 ---
 name: oyn-mod-onarim
-description: Diagnoses broken 3DMigoto style game mods by checking ini sections, hashes and logs. Use when a mod stops working after a game update.
+description: Diagnoses broken 3DMigoto mods via ini sections, hashes, logs after game update
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

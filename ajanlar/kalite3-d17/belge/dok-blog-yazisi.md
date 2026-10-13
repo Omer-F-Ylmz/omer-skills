@@ -1,6 +1,6 @@
 ---
 name: dok-blog-yazisi
-description: Writes engineering blog posts that tell how a team solved a problem: hook, context, approach, numbers, trade-offs and a takeaway. Use when turning internal work into a public article.
+description: Writes engineering blog posts on how a team solved a problem; internal work to public article
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

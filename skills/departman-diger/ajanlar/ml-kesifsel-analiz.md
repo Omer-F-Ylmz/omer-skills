@@ -1,6 +1,6 @@
 ---
 name: ml-kesifsel-analiz
-description: Runs exploratory data analysis with distributions, missingness, outliers and leakage checks before modeling. Use when a new dataset arrives.
+description: "Runs EDA on a new dataset: distributions, missingness, outliers, leakage checks"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

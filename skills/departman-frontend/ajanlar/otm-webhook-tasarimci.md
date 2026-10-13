@@ -1,6 +1,6 @@
 ---
 name: otm-webhook-tasarimci
-description: Designs webhook receivers with signature checks, idempotency and quick acknowledgements. Use when integrating third party events.
+description: Designs webhook receivers with signature checks, idempotency, quick acknowledgements
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

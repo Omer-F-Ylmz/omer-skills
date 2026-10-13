@@ -1,6 +1,6 @@
 ---
 name: ajn-hook-yazar
-description: Writes Claude Code hooks for validation or automation with safe exit codes. Use when an event should trigger a check.
+description: Writes Claude Code hooks for validation or automation with safe exit codes
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

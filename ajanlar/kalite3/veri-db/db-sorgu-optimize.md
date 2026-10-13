@@ -1,6 +1,6 @@
 ---
 name: db-sorgu-optimize
-description: Reads query plans and rewrites slow SQL with better indexes and joins. Use when a query is slow.
+description: Reads query plans and rewrites slow SQL with better indexes and joins
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

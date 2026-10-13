@@ -1,6 +1,6 @@
 ---
 name: bl-isik-kurulumu
-description: Sets up three point or studio lighting for product renders in Blender. Use when a scene looks flat or harsh.
+description: Sets up three-point or studio lighting for Blender product renders
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: sec-mfa-kurtarma
-description: Designs MFA enrollment, recovery codes and account recovery flows that do not become the weakest link. Use when adding 2FA or handling lost-device requests.
+description: Designs MFA enrollment, recovery codes and account recovery flows (2FA, lost device)
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

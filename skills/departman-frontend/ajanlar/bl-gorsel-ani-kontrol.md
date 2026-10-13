@@ -1,6 +1,6 @@
 ---
 name: bl-gorsel-ani-kontrol
-description: Checks a Blender scene for flipped normals, non-manifold edges and missing textures. Use when a model looks broken.
+description: Checks Blender scenes for flipped normals, non-manifold edges, missing textures
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

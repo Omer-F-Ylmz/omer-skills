@@ -1,6 +1,6 @@
 ---
 name: ara-graphify-sorgu
-description: Answers codebase questions through a graphify knowledge graph with query, path and explain before raw file reads. Use when exploring an unfamiliar repo that has graphify-out.
+description: Answers codebase questions via graphify query/path/explain before raw reads; graphify-out repos
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

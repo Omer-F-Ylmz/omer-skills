@@ -1,6 +1,6 @@
 ---
 name: vrm-bilgi-tabani-hazirla
-description: Builds a compact knowledge base from project docs for fast retrieval. Use when the same facts are re-explained often, or when asked how to set up a small project knowledge base.
+description: Builds a compact knowledge base from project docs for fast retrieval
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

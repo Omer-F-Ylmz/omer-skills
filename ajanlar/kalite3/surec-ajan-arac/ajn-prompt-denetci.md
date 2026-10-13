@@ -1,6 +1,6 @@
 ---
 name: ajn-prompt-denetci
-description: Audits prompts for ambiguity, missing output format, missing examples and injection risks. Use when an agent prompt behaves inconsistently.
+description: Audits prompts for ambiguity, missing output format, examples and injection risks
 model: sonnet
 tools: Read, Grep, Glob
 ---

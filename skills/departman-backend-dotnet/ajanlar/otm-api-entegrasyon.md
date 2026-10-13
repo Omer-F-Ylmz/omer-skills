@@ -1,6 +1,6 @@
 ---
 name: otm-api-entegrasyon
-description: Connects third party REST APIs with auth, pagination and rate limits. Use when automating data between services.
+description: Connects third-party REST APIs with auth, pagination, rate limits
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

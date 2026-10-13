@@ -1,6 +1,6 @@
 ---
 name: fe-navigasyon-tasarimci
-description: Designs navigation bars, menus and mobile drawers with clear current state. Use when structuring site or app navigation.
+description: Designs navigation bars, menus and mobile drawers with clear current state
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

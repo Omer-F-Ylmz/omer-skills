@@ -1,6 +1,6 @@
 ---
 name: pln-teknik-spec
-description: Writes technical specs with interfaces, edge cases and open questions. Use before implementing a non trivial feature, or when asked what a spec for a new API or feature must contain.
+description: "Writes technical specs: interfaces, edge cases, open questions, before implementing"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

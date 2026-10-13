@@ -1,6 +1,6 @@
 ---
 name: fe-sanal-liste
-description: Renders very long lists and tables with windowing, variable row heights, scroll restoration and accessible semantics. Use when a page with thousands of rows freezes.
+description: "Virtualizes very long lists and tables: windowing, row heights, scroll restoration"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

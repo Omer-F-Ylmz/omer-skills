@@ -1,6 +1,6 @@
 ---
 name: dn-gozlemlenebilirlik
-description: Adds structured logging (ILogger, Serilog), metrics and OpenTelemetry tracing to a .NET service. Use when production behavior is invisible or when asked how to instrument an ASP.NET Core app.
+description: Adds structured logging (ILogger, Serilog), metrics and OpenTelemetry tracing to a .NET service
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

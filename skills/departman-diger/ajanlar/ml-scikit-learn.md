@@ -1,6 +1,6 @@
 ---
 name: ml-scikit-learn
-description: Builds scikit-learn workflows with leak-free pipelines, proper cross-validation, tuned hyperparameters and metrics that fit class balance. Use when training a classical ML model, or when asked to review or fix a scikit-learn training setup (leakage, CV, tuning, imbalanced metrics).
+description: "Builds or fixes scikit-learn workflows: leak-free pipelines, CV, tuning, class-balance metrics"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

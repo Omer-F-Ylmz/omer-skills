@@ -1,6 +1,6 @@
 ---
 name: be-dayaniklilik-kaliplari
-description: Adds timeouts, retries with backoff and jitter, circuit breakers and bulkheads around remote calls. Use when a slow or flaky dependency drags down a service, including design questions with no files attached.
+description: Adds timeouts, retries with jitter, circuit breakers, bulkheads around flaky remote calls
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

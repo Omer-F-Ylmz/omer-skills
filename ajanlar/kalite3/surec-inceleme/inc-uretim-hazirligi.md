@@ -1,6 +1,6 @@
 ---
 name: inc-uretim-hazirligi
-description: Reviews production readiness across logging, failure modes, security and rollout. Use before launch of a service, or to get a production-readiness checklist/review of a service or change.
+description: "Production-readiness review: logging, failure modes, security, rollout; pre-launch checklist"
 model: opus
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: ml-ozellik-muhendisligi
-description: Prepares tabular features: missing value handling, scaling, categorical encoding and feature selection for classic ML models. Use when raw columns must become model-ready features.
+description: "Prepares tabular features: missing values, scaling, encoding, selection for classic ML"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

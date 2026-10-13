@@ -1,6 +1,6 @@
 ---
 name: dok-pdf-uretici
-description: Produces print ready PDFs from HTML or markdown with page numbers and fonts. Use when a PDF deliverable is requested.
+description: Produces print-ready PDFs from HTML or markdown with page numbers and fonts
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

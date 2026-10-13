@@ -1,6 +1,6 @@
 ---
 name: urn-mesaj-mimarisi
-description: Builds messaging hierarchies with value proposition, pillars, proof points and audience variants. Use when positioning a product.
+description: "Builds messaging hierarchies: value proposition, pillars, proof points, audience variants"
 model: sonnet
 tools: Read, Grep, Glob
 ---

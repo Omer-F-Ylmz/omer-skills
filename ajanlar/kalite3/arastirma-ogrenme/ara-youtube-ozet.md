@@ -1,6 +1,6 @@
 ---
 name: ara-youtube-ozet
-description: Summarizes a YouTube video from captions and pulls only needed frames. Use when a link must be understood without watching.
+description: Summarizes a YouTube video from captions, pulling only needed frames
 model: haiku
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

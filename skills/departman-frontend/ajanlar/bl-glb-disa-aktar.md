@@ -1,6 +1,6 @@
 ---
 name: bl-glb-disa-aktar
-description: Prepares and exports Blender models to GLB for web use with small file size. Use when a model goes to three.js or the web.
+description: Prepares and exports Blender models to small GLB for three.js and web
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

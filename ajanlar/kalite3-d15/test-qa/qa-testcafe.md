@@ -1,6 +1,6 @@
 ---
 name: qa-testcafe
-description: Writes and stabilizes TestCafe UI tests using selectors, roles, page models and smart assertions. Use when TestCafe tests are flaky, slow or need restructuring.
+description: "Writes/stabilizes TestCafe UI tests: selectors, roles, page models, smart assertions"
 model: sonnet
 tools: Read, Grep, Glob
 ---

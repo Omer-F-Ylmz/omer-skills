@@ -1,6 +1,6 @@
 ---
 name: pln-karar-kaydi
-description: Records decisions with context, choice and reason in one short entry. Use after a design choice, or when asked how to write or structure a decision record (ADR).
+description: Records decisions (ADR) with context, choice and reason in one short entry
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

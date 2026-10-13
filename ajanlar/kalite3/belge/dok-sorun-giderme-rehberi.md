@@ -1,6 +1,6 @@
 ---
 name: dok-sorun-giderme-rehberi
-description: Writes troubleshooting guides as symptom, cause, fix tables. Use when support questions repeat.
+description: Writes troubleshooting guides as symptom, cause, fix tables for repeated support questions
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

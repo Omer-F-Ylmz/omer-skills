@@ -1,6 +1,6 @@
 ---
 name: urn-baslik-yazimi
-description: Writes headlines and titles for articles, landing pages and posts that earn the click with a specific, truthful promise for a defined reader. Use when content gets impressions but few clicks.
+description: Writes headlines and titles that earn the click with a truthful promise; many impressions, few clicks
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

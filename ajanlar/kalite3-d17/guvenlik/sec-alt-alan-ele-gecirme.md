@@ -1,6 +1,6 @@
 ---
 name: sec-alt-alan-ele-gecirme
-description: Finds subdomain takeover risks from dangling DNS records pointing to deleted cloud resources and sets up record hygiene. Use when a CNAME points to a removed app, bucket or CDN.
+description: Finds subdomain takeover risks from dangling DNS records (CNAME to removed resources)
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

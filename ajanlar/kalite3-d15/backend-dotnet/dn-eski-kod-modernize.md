@@ -1,6 +1,6 @@
 ---
 name: dn-eski-kod-modernize
-description: Plans incremental migration of legacy .NET Framework apps to modern .NET with strangler steps and compatibility checks. Use when modernizing old .NET code.
+description: Plans incremental migration of legacy .NET Framework apps to modern .NET with strangler steps
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

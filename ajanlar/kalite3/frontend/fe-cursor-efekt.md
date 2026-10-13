@@ -1,6 +1,6 @@
 ---
 name: fe-cursor-efekt
-description: Adds pointer-reactive effects like magnetic buttons and reveal hovers without hurting performance. Use when asked for interactive cursor polish.
+description: Adds pointer-reactive effects (magnetic buttons, reveal hovers) without hurting performance
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

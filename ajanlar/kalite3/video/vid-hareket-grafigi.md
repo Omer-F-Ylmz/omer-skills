@@ -1,6 +1,6 @@
 ---
 name: vid-hareket-grafigi
-description: Designs motion graphics timing, easing and typography animation for titles and lower thirds. Use when graphics must move cleanly, or when asked how to time, ease or lay out animated titles.
+description: Designs motion graphics timing, easing and title/lower-third typography animation
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

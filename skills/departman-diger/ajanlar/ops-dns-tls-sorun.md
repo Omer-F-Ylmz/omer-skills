@@ -1,6 +1,6 @@
 ---
 name: ops-dns-tls-sorun
-description: Diagnoses DNS records, propagation, certificate chains and renewal failures with dig and openssl. Use when a domain does not resolve, visitors reach the old server, or HTTPS shows certificate errors; works from the symptom alone, with or without files.
+description: Diagnoses DNS, propagation, cert chains and renewal with dig/openssl; symptom-only ok
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

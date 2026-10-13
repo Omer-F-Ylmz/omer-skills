@@ -1,6 +1,6 @@
 ---
 name: ml-llm-saglayici-yonlendirme
-description: Designs routing across LLM providers with fallback chains, timeouts, capability matching and format adapters. Use when an app must survive a provider outage or pick a model per task.
+description: "Designs LLM provider routing: fallback chains, timeouts, capability matching, format adapters"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

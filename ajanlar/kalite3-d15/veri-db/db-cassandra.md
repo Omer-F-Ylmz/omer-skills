@@ -1,6 +1,6 @@
 ---
 name: db-cassandra
-description: Models Cassandra tables per query with partition sizing, clustering order and consistency levels. Use when designing or tuning Cassandra.
+description: "Models Cassandra tables per query: partition sizing, clustering order, consistency levels"
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: fe-cerez-oturum-hata
-description: Debugs browser cookies and sessions: why a cookie is not set, not sent or lost, using the network panel and attributes. Use when users get logged out or login works only locally.
+description: "Debugs browser cookies and sessions: not set, not sent, lost; unexpected logouts"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

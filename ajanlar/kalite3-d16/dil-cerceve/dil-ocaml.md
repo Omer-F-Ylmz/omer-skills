@@ -1,6 +1,6 @@
 ---
 name: dil-ocaml
-description: Writes idiomatic OCaml with exhaustive pattern matching, option and result types, modules and functors, and tail recursion. Use when working in an OCaml codebase.
+description: "Writes idiomatic OCaml: exhaustive matching, option/result, modules, functors, tail recursion"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: otm-bildirim-yonlendirme
-description: Routes alerts to chat or email with severity filters, quiet hours (schedule) and rate limits. Use when notifications are noisy, or when asked how to reduce or route alerts.
+description: Routes alerts to chat or email with severity filters, quiet hours, rate limits; noisy notifications
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

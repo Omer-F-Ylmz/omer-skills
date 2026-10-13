@@ -1,6 +1,6 @@
 ---
 name: fe-jquery-bakim
-description: Maintains and gradually modernizes legacy jQuery code with delegation, deferreds and safe DOM updates. Use when touching old jQuery pages.
+description: "Maintains and gradually modernizes legacy jQuery: delegation, deferreds, safe DOM updates"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

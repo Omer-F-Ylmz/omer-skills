@@ -1,6 +1,6 @@
 ---
 name: git-dal-koruma-kurali
-description: Configures branch protection with required checks, reviews, CODEOWNERS and push restrictions for the main branch. Use when direct pushes or unreviewed merges reach main.
+description: "Configures main branch protection: required checks, reviews, CODEOWNERS, push limits"
 model: haiku
 tools: Read, Grep, Glob
 ---

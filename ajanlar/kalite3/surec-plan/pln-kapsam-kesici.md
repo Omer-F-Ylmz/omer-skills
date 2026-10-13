@@ -1,6 +1,6 @@
 ---
 name: pln-kapsam-kesici
-description: Cuts a plan down to the smallest shippable slice (MVP, minimum viable scope) and defers the rest, ranking by user value/impact versus effort. Use when scope grows, a feature list is too long for the time left, or a deadline is near.
+description: Cuts a plan to the smallest shippable slice (MVP), ranking by value vs effort
 model: sonnet
 tools: Read, Grep, Glob
 ---

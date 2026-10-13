@@ -1,6 +1,6 @@
 ---
 name: qa-ozellik-paritesi
-description: Scores how close a rebuilt app is to the original with a weighted feature checklist and a structural screenshot comparison. Use when deciding whether a replacement product is ready to ship.
+description: Scores rebuilt app vs original with weighted feature checklist and screenshot comparison
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

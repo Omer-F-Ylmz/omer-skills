@@ -1,6 +1,6 @@
 ---
 name: sec-pci-dss-kapsam
-description: Reduces PCI DSS scope with tokenization, hosted fields and network segmentation for card payments. Use when an app handles card data.
+description: "Reduces PCI DSS scope: tokenization, hosted fields, segmentation for card data"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

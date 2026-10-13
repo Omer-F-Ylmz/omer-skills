@@ -1,6 +1,6 @@
 ---
 name: vrm-maliyet-denetci
-description: Reviews usage logs and workflows for avoidable token or API spend. Use when bills or limits rise, or when asked where AI/API spend leaks and how to cut it.
+description: Reviews usage logs and workflows for avoidable token or API spend
 model: haiku
 tools: Read, Grep, Glob
 ---

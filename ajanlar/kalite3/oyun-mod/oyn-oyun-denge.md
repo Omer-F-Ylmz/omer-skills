@@ -1,6 +1,6 @@
 ---
 name: oyn-oyun-denge
-description: Reviews game numbers such as damage, costs and progression curves for balance. Use when a game feels too easy or grindy, or when asked how to balance damage, XP or cost curves.
+description: Reviews damage, costs, XP and progression curves for game balance
 model: sonnet
 tools: Read, Grep, Glob
 ---

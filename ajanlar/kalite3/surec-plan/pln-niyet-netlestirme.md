@@ -1,6 +1,6 @@
 ---
 name: pln-niyet-netlestirme
-description: Asks the fewest questions needed to turn a vague request into clear acceptance criteria. Use when a task is ambiguous.
+description: Asks fewest questions to turn a vague request into clear acceptance criteria
 model: haiku
 tools: Read, Grep, Glob
 ---

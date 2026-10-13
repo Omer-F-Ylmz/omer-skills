@@ -1,6 +1,6 @@
 ---
 name: dok-pptx-sunum
-description: Builds slide decks with one idea per slide and consistent layout. Use when a presentation is requested.
+description: Builds slide decks (pptx) with one idea per slide and consistent layout
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

@@ -1,6 +1,6 @@
 ---
 name: dok-dokuman-sapmasi
-description: Detects documentation drift by checking code samples, signatures, CLI flags and config keys in docs against the current code. Use when docs may no longer match the code after changes.
+description: "Detects doc drift: checks code samples, signatures, CLI flags, config keys against current code"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

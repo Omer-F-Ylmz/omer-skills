@@ -1,6 +1,6 @@
 ---
 name: git-dal-stratejisi
-description: Recommends branch naming, worktree use and merge versus rebase for a team. Use when starting parallel work.
+description: Recommends branch naming, worktree use, merge vs rebase for parallel team work
 model: haiku
 tools: Read, Grep, Glob
 ---

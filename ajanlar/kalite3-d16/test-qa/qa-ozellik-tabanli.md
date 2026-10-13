@@ -1,6 +1,6 @@
 ---
 name: qa-ozellik-tabanli
-description: Writes property-based tests with generators, invariants and shrinking to find edge cases example tests miss. Use when a function has clear invariants such as round-trips or ordering, including when the functions are only described in words with no files.
+description: "Writes property-based tests: generators, invariants, shrinking; round-trips, ordering"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

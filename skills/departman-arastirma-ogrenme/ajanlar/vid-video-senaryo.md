@@ -1,6 +1,6 @@
 ---
 name: vid-video-senaryo
-description: Writes short video scripts with hook, beats and shot list. Use when planning a short promo or explainer.
+description: Writes short video scripts with hook, beats and shot list
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

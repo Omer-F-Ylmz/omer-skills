@@ -1,6 +1,6 @@
 ---
 name: pln-fikir-olgunlastir
-description: Turns a rough idea into options, trade offs and a recommended direction. Use when brainstorming a new feature.
+description: Turns a rough idea into options, trade-offs and a recommended direction
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

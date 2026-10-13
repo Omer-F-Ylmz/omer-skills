@@ -1,6 +1,6 @@
 ---
 name: qa-flaky-avci
-description: Reproduces and root causes flaky tests by looping runs and isolating order or timing. Use when a test fails intermittently.
+description: Reproduces and root-causes flaky tests by looping runs, isolating order or timing
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

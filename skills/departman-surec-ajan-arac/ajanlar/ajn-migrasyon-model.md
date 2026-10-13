@@ -1,6 +1,6 @@
 ---
 name: ajn-migrasyon-model
-description: Migrates prompts and code to newer model versions with eval comparison. Use when switching model IDs.
+description: Migrates prompts and code to newer model versions with eval comparison; model ID switch
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

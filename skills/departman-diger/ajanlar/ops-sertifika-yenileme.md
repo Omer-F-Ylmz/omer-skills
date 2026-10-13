@@ -1,6 +1,6 @@
 ---
 name: ops-sertifika-yenileme
-description: Prevents and fixes TLS certificate outages from expiry, incomplete chains, hostname mismatch and failed automatic renewal. Use when browsers or clients report certificate errors, including when the symptom is only described in words with no files.
+description: "Fixes TLS cert outages: expiry, incomplete chains, hostname mismatch, failed renewal"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

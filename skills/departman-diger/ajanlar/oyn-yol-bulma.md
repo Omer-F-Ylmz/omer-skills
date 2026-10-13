@@ -1,6 +1,6 @@
 ---
 name: oyn-yol-bulma
-description: Implements game pathfinding with A*, navigation meshes, admissible heuristics, path smoothing and dynamic obstacle avoidance. Use when units get stuck, take odd routes or pathfinding costs frame time.
+description: "Game pathfinding: A*, navmeshes, heuristics, smoothing, obstacle avoidance; stuck units"
 model: sonnet
 tools: Read, Grep, Glob
 ---

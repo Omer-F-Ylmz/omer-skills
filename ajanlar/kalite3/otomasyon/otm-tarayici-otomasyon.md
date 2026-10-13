@@ -1,6 +1,6 @@
 ---
 name: otm-tarayici-otomasyon
-description: Automates browser tasks with Playwright, handling waits, logins and downloads. Use when a web task must be scripted.
+description: "Automates browser tasks with Playwright: waits, logins, downloads"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

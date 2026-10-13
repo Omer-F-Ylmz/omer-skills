@@ -1,6 +1,6 @@
 ---
 name: pln-kullanim-senaryosu
-description: Writes use cases with actors, preconditions, main flow, alternate and exception flows, and postconditions. Use when a feature's behavior needs to be agreed before design.
+description: "Writes use cases: actors, preconditions, main/alternate/exception flows, postconditions"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: urn-ab-test-istatistik
-description: Plans and reads A/B tests with sample size, minimum detectable effect, peeking control and sample ratio checks. Use when deciding whether an experiment result is real.
+description: "Plans and reads A/B tests: sample size, MDE, peeking control, sample ratio checks"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

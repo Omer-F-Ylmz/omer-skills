@@ -1,6 +1,6 @@
 ---
 name: urn-kriz-iletisimi
-description: Plans crisis communication with holding statements, stakeholder order and update cadence. Use when an incident becomes public.
+description: "Plans crisis communication: holding statements, stakeholder order, update cadence"
 model: sonnet
 tools: Read, Grep, Glob
 ---

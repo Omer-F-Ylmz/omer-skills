@@ -1,6 +1,6 @@
 ---
 name: dn-signalr-gercek-zamanli
-description: Adds SignalR hubs for real time updates with groups and reconnect handling. Use when live push is needed.
+description: Adds SignalR hubs for real-time push with groups and reconnect handling
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

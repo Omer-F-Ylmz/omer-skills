@@ -1,6 +1,6 @@
 ---
 name: dok-runbook
-description: Writes operational runbooks with triggers, diagnosis steps, commands and rollback. Use when on-call needs repeatable incident steps.
+description: "Writes operational runbooks: triggers, diagnosis steps, commands, rollback for on-call"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

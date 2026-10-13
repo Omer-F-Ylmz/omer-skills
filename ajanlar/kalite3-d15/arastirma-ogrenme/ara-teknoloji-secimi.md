@@ -1,6 +1,6 @@
 ---
 name: ara-teknoloji-secimi
-description: Recommends a technology stack from requirements, team skills, cost and ecosystem maturity. Use when choosing frameworks or platforms for a new project.
+description: Recommends a tech stack from requirements, team skills, cost, ecosystem maturity
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

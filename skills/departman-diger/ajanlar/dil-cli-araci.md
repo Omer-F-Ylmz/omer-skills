@@ -1,6 +1,6 @@
 ---
 name: dil-cli-araci
-description: Designs command-line tools with clear subcommands, flags, exit codes and help output. Use when building a CLI.
+description: "Designs CLI tools: subcommands, flags, exit codes, help output"
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

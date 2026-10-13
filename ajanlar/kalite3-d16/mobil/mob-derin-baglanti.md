@@ -1,6 +1,6 @@
 ---
 name: mob-derin-baglanti
-description: Sets up universal links, Android App Links and deferred deep links with verification files and fallbacks. Use when links open the browser instead of the app, including marketing email links, with or without a repo.
+description: Sets up universal links, Android App Links, deferred deep links; links open browser not app
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

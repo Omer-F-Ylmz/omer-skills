@@ -1,6 +1,6 @@
 ---
 name: ops-winget-kurulum
-description: Automates Windows developer machine setup with winget install, export/import manifests and version pinning. Use when provisioning or reproducing a Windows dev box.
+description: "Automates Windows dev machine setup with winget: export/import manifests, version pinning"
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

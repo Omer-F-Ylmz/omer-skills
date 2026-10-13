@@ -1,6 +1,6 @@
 ---
 name: sec-xss-csrf-denetci
-description: Reviews front end and server code for XSS and CSRF gaps, and answers conceptual XSS/CSRF defence questions (e.g. stored XSS and CSRF in a comment form). Use when rendering user content or accepting form posts.
+description: Reviews front end and server code for XSS and CSRF gaps; conceptual defence questions
 model: sonnet
 tools: Read, Grep, Glob
 ---

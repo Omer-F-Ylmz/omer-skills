@@ -1,6 +1,6 @@
 ---
 name: fe-tasarim-sistemi-kurucu
-description: Creates design tokens, component rules and a DESIGN.md for a project. Also answers questions about what a design system needs or how to structure one. Use when a project needs consistent UI rules.
+description: Creates design tokens, component rules and a DESIGN.md; design system questions
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

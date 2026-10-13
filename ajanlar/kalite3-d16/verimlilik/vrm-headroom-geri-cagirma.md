@@ -1,6 +1,6 @@
 ---
 name: vrm-headroom-geri-cagirma
-description: Works with headroom context compression: reading compressed tool results, retrieving originals by hash and narrowing reads. Use when tool results arrive compressed.
+description: "Works with headroom compression: retrieves originals by hash, narrows reads"
 model: haiku
 tools: Read, Grep, Glob
 ---

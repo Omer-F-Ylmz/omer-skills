@@ -1,6 +1,6 @@
 ---
 name: dil-go
-description: Writes idiomatic Go with error wrapping, context cancellation, goroutine safety and small interfaces (accept interfaces, return structs). Use when writing or reviewing Go code, or when asked how to fix or design Go handlers, services and concurrency.
+description: "Writes idiomatic Go: error wrapping, context, small interfaces; handlers and services, review or design"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

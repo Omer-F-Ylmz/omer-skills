@@ -1,6 +1,6 @@
 ---
 name: ara-defuddle-sayfa-cikarim
-description: Extracts the main readable content of web pages as clean Markdown with the Defuddle CLI, dropping navigation and ads. Use when web pages must be read or saved with fewer tokens.
+description: Extracts web page main content as clean Markdown with Defuddle CLI, fewer tokens
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

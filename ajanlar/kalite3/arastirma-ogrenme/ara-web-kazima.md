@@ -1,6 +1,6 @@
 ---
 name: ara-web-kazima
-description: Plans polite scraping with robots rules, rate limits and structured output. Use when data must be collected from pages.
+description: Plans polite scraping with robots rules, rate limits and structured output
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

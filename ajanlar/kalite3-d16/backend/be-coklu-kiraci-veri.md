@@ -1,6 +1,6 @@
 ---
 name: be-coklu-kiraci-veri
-description: Chooses multi-tenant data isolation (shared schema with tenant id, schema per tenant, database per tenant) and enforces it. Use when building or hardening a SaaS data layer.
+description: "Chooses and enforces multi-tenant data isolation: shared schema, schema or DB per tenant"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

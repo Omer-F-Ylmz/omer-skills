@@ -1,6 +1,6 @@
 ---
 name: vid-podcast
-description: Plans podcast episodes with format, recording setup, audio processing and distribution. Use when starting or improving a podcast.
+description: "Plans podcast episodes: format, recording setup, audio processing, distribution"
 model: haiku
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: db-flyway
-description: Plans Flyway versioned and repeatable migrations with safe naming and CI checks. Use when managing schema changes with Flyway.
+description: Plans Flyway versioned and repeatable migrations with safe naming and CI checks
 model: haiku
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: ml-llm-degerlendirme
-description: Builds evaluation sets and judges for LLM features with golden examples, rubric graders and regression gates. Use when prompt or model changes need evidence before shipping.
+description: "Builds LLM eval sets and judges: golden examples, rubric graders, regression gates"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: mob-uygulama-boyutu
-description: Reduces iOS and Android app download size with code shrinking, asset optimization and on-demand resources. Use when the app is too big to download on cellular.
+description: "Reduces iOS/Android download size: code shrinking, asset optimization, on-demand resources"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

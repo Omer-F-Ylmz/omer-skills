@@ -1,6 +1,6 @@
 ---
 name: git-coklu-repo-senkron
-description: Coordinates one change across many repositories with dependency order, version alignment, cross-repo tests and partial rollback. Use when a shared library change must land in many repos.
+description: "Coordinates one change across many repos: dependency order, versions, cross-repo tests"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

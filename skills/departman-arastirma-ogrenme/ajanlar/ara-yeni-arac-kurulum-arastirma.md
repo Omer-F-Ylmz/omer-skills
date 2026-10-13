@@ -1,6 +1,6 @@
 ---
 name: ara-yeni-arac-kurulum-arastirma
-description: Finds official install steps, requirements and gotchas for a tool. Use when installing something new on Windows.
+description: Finds official install steps, requirements and gotchas for a new tool on Windows
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

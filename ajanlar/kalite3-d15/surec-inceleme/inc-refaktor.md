@@ -1,6 +1,6 @@
 ---
 name: inc-refaktor
-description: Refactors code in small behavior-preserving steps with tests guarding each step. Use when code must be restructured without changing behavior.
+description: Refactors in small behavior-preserving steps guarded by tests
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

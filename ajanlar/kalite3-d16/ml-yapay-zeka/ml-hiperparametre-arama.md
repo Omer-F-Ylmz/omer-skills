@@ -1,6 +1,6 @@
 ---
 name: ml-hiperparametre-arama
-description: Sets up cross-validation and hyperparameter search with sane search spaces, budgets and nested evaluation. Use when tuning a model or comparing tuned models fairly.
+description: Sets up cross-validation and hyperparameter search with budgets and nested evaluation
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

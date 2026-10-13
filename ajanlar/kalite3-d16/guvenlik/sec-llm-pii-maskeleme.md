@@ -1,6 +1,6 @@
 ---
 name: sec-llm-pii-maskeleme
-description: Detects and masks personal data before text reaches an external LLM, using patterns with checksum checks and reversible placeholders. Use when user text flows to a hosted model.
+description: Detects and masks personal data before text reaches an external LLM
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

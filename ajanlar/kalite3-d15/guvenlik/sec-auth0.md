@@ -1,6 +1,6 @@
 ---
 name: sec-auth0
-description: Reviews Auth0 integrations for correct OAuth/OIDC flows, token handling, roles and MFA. Use when setting up or auditing Auth0 login in an app or API.
+description: "Reviews Auth0 integrations: OAuth/OIDC flows, token handling, roles, MFA"
 model: sonnet
 tools: Read, Grep, Glob
 ---

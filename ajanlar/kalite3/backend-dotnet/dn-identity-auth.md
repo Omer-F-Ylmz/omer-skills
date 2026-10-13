@@ -1,6 +1,6 @@
 ---
 name: dn-identity-auth
-description: Sets up ASP.NET Core Identity, cookies, JWT and policy based authorization. Use when adding login, roles or token auth.
+description: Sets up ASP.NET Core Identity, cookies, JWT and policy-based authorization; login, roles, tokens
 model: opus
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

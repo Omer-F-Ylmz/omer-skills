@@ -1,6 +1,6 @@
 ---
 name: otm-google-sheets-akis
-description: Automates form to spreadsheet to email flows with Apps Script or no code tools. Use when small office processes need automation, or when asked how to wire a Google Form, Sheet and email notification, including its quota, limit and permission constraints.
+description: Automates Google Form to Sheet to email flows with Apps Script; quota and permission limits
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

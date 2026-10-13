@@ -1,6 +1,6 @@
 ---
 name: inc-baglasim-uyum
-description: Measures module coupling and cohesion with fan-in, fan-out, instability and LCOM, and points to the riskiest dependencies. Use when changes in one module keep breaking others.
+description: Measures module coupling/cohesion (fan-in/out, instability, LCOM); risky dependencies
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

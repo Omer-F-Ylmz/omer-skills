@@ -1,6 +1,6 @@
 ---
 name: git-commit-mesaji
-description: Drafts conventional commit messages from a diff with scope and reason. Use when about to commit.
+description: Drafts conventional commit messages from a diff with scope and reason
 model: haiku
 tools: Read, Grep, Glob
 ---

@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: dil-websocket
-description: Builds WebSocket connections with heartbeats, reconnection, backpressure and horizontal scaling. Use when an app needs live updates.
+description: "Builds WebSockets: heartbeats, reconnection, backpressure, horizontal scaling for live updates"
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: qa-selenium
-description: Stabilizes Selenium WebDriver UI tests with explicit waits, robust locators and page objects. Use when browser tests are flaky or break across browsers.
+description: "Stabilizes Selenium WebDriver tests: explicit waits, robust locators, page objects"
 model: sonnet
 tools: Read, Grep, Glob
 ---

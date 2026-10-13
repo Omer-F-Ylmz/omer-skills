@@ -1,6 +1,6 @@
 ---
 name: ops-k8s-is-yuku
-description: Tunes Kubernetes workload manifests: probes, resource requests and limits, autoscaling, disruption budgets and rollout settings. Use when pods restart, get evicted or drop traffic on deploy.
+description: "Tunes Kubernetes workloads: probes, requests/limits, autoscaling, PDBs, rollouts"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

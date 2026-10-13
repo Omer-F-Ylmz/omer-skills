@@ -1,6 +1,6 @@
 ---
 name: inc-derin-hata-ayiklama
-description: Debugs hard intermittent bugs by isolating variables, bisecting and instrumenting until the cause is proven. Use when a bug resists normal fixes.
+description: Debugs intermittent bugs by isolating variables, bisecting, instrumenting until proven
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

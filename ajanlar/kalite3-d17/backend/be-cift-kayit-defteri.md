@@ -1,6 +1,6 @@
 ---
 name: be-cift-kayit-defteri
-description: Designs double-entry ledgers for balances and money movement with integer minor units, immutable entries, idempotent transfers and reconciliation. Use when wallet or account balances drift.
+description: "Designs double-entry ledgers: integer units, immutable entries, idempotent transfers; balance drift"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

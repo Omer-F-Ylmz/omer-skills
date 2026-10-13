@@ -1,6 +1,6 @@
 ---
 name: dok-tablo-duzenle
-description: Formats data tables and chart captions for documents. Use when numbers must be presented clearly, or when asked how to present a data table or chart readably.
+description: Formats data tables and chart captions in documents so numbers read clearly
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

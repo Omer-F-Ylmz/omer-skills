@@ -1,6 +1,6 @@
 ---
 name: ops-systemd-birim
-description: Writes and fixes systemd service units: restart policies, dependencies, environment and journal logs. Use when a Linux service restarts in a loop or does not start at boot, including when the problem is only described in words with no files.
+description: "Writes/fixes systemd units: restart policy, dependencies, environment, journal; symptom-only ok"
 model: haiku
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

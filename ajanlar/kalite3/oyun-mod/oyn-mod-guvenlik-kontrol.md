@@ -1,6 +1,6 @@
 ---
 name: oyn-mod-guvenlik-kontrol
-description: Checks downloaded mod files for suspicious scripts, executables and bundled DLLs. Use when installing community mods, or when asked what to check before installing a mod.
+description: Checks downloaded mod files for suspicious scripts, executables, bundled DLLs
 model: haiku
 tools: Read, Grep, Glob
 ---

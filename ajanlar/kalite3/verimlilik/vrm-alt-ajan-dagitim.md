@@ -1,6 +1,6 @@
 ---
 name: vrm-alt-ajan-dagitim
-description: Splits independent work into parallel subtasks with clear contracts and returns only summaries. Use when tasks do not depend on each other.
+description: Splits independent work into parallel subtasks with contracts; returns only summaries
 model: sonnet
 tools: Read, Grep, Glob
 ---

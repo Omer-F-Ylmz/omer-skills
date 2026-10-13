@@ -1,6 +1,6 @@
 ---
 name: dn-native-aot
-description: Prepares .NET apps for Native AOT and trimming by fixing reflection, serialization and dynamic code warnings. Use when publishing with PublishAot or trimming fails.
+description: "Prepares .NET apps for Native AOT and trimming: fixes reflection, serialization warnings (PublishAot)"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

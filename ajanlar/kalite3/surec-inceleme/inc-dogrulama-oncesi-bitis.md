@@ -1,6 +1,6 @@
 ---
 name: inc-dogrulama-oncesi-bitis
-description: Checks that claimed work is really done by running tests and viewing outputs. Use before declaring a task finished.
+description: Verifies claimed work by running tests and viewing outputs before declaring done
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

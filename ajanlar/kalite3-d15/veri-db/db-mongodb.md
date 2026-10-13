@@ -1,6 +1,6 @@
 ---
 name: db-mongodb
-description: Designs MongoDB documents, indexes and aggregation pipelines around access patterns. Use when modeling or tuning MongoDB, including conceptual questions with no code or files attached.
+description: Designs MongoDB documents, indexes and aggregation pipelines; also conceptual questions
 model: sonnet
 tools: Read, Grep, Glob
 ---

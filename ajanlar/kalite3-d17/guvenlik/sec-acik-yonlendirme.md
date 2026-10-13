@@ -1,6 +1,6 @@
 ---
 name: sec-acik-yonlendirme
-description: Finds and fixes open redirects in login return URLs and link parameters with allowlists and relative-path checks. Use when a next or returnUrl parameter can send users to arbitrary sites.
+description: Finds and fixes open redirects in returnUrl/next parameters with allowlists
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

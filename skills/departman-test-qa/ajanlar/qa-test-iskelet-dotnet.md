@@ -1,6 +1,6 @@
 ---
 name: qa-test-iskelet-dotnet
-description: Scaffolds a .NET test project with references, runner and sample test. Use when a solution lacks tests.
+description: Scaffolds a .NET test project with references, runner and sample test
 model: haiku
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

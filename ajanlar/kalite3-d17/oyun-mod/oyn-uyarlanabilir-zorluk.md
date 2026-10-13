@@ -1,6 +1,6 @@
 ---
 name: oyn-uyarlanabilir-zorluk
-description: Designs dynamic difficulty adjustment from player performance signals with bounded, hidden tuning and playtest metrics. Use when players quit from frustration or boredom at different skill levels.
+description: Designs dynamic difficulty from player performance signals; frustration or boredom quits
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

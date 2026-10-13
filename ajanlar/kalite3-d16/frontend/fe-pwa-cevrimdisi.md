@@ -1,6 +1,6 @@
 ---
 name: fe-pwa-cevrimdisi
-description: Designs service worker caching for progressive web apps with per-route strategies, update flow and offline fallbacks. Use when a web app must work offline or shows stale versions.
+description: Designs PWA service worker caching, update flow and offline fallbacks
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

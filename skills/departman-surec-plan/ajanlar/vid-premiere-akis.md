@@ -1,6 +1,6 @@
 ---
 name: vid-premiere-akis
-description: Plans Premiere Pro edits with bins, sequences and export presets. Use when editing in Premiere.
+description: "Plans Premiere Pro edits: bins, sequences, export presets"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

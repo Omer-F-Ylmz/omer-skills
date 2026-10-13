@@ -1,6 +1,6 @@
 ---
 name: git-cakisma-cozucu
-description: Resolves merge conflicts by understanding both sides and re-running tests. Use when a merge or rebase stops on conflicts.
+description: Resolves merge/rebase conflicts by understanding both sides and re-running tests
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

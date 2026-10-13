@@ -1,6 +1,6 @@
 ---
 name: fe-scroll-hikayesi
-description: Plans scroll-driven storytelling sections with pinned scenes and reveal timing. Use when building scrollytelling pages, or when asked to draft or plan scroll scenes, scene order, pin/scrub/reveal devices or scroll timing.
+description: "Plans scrollytelling sections: pinned scenes, scene order, reveal and scrub timing"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

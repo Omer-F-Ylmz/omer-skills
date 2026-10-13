@@ -1,6 +1,6 @@
 ---
 name: dil-nodejs
-description: Diagnoses and fixes Node.js server code for event loop blocking, async errors, streams and dependency risk. Use when a Node.js service is slow, crashes or needs review.
+description: "Fixes Node.js servers: event loop blocking, async errors, streams, dependency risk"
 model: sonnet
 tools: Read, Grep, Glob
 ---

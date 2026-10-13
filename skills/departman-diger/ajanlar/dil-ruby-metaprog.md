@@ -1,6 +1,6 @@
 ---
 name: dil-ruby-metaprog
-description: Reviews Ruby metaprogramming such as define_method, method_missing, refinements and DSLs for clarity and safety. Use when Ruby magic becomes hard to debug, or when asked how to review or design it, with or without files.
+description: Reviews Ruby metaprogramming (define_method, method_missing, refinements, DSLs) for clarity
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

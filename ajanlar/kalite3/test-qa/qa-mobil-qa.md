@@ -1,6 +1,6 @@
 ---
 name: qa-mobil-qa
-description: Tests mobile flows on simulators for gestures, rotation and offline cases. Use when verifying a mobile build.
+description: "Tests mobile flows on simulators: gestures, rotation, offline cases"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

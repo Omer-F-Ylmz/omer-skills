@@ -1,6 +1,6 @@
 ---
 name: db-postgres-sisme
-description: Diagnoses Postgres table bloat, autovacuum lag and transaction ID wraparound risk and tunes maintenance. Use when Postgres tables grow without more data or queries slow over time.
+description: Diagnoses Postgres table bloat, autovacuum lag and transaction ID wraparound
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

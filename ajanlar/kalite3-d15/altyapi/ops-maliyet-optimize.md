@@ -1,6 +1,6 @@
 ---
 name: ops-maliyet-optimize
-description: Cuts cloud spend by finding idle resources, rightsizing, commitments and storage tiers. Use when the cloud bill grows unexpectedly.
+description: "Cuts cloud spend: idle resources, rightsizing, commitments, storage tiers"
 model: sonnet
 tools: Read, Grep, Glob
 ---

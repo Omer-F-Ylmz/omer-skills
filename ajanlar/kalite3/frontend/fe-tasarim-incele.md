@@ -1,6 +1,6 @@
 ---
 name: fe-tasarim-incele
-description: Reviews a built UI against its intended design and flags generic or inconsistent parts (consistency of spacing, alignment, type, color, components, states). Use when judging whether UI looks finished, or when asked what to check in a design review.
+description: Reviews a built UI against its intended design; flags generic or inconsistent parts
 model: sonnet
 tools: Read, Grep, Glob
 ---

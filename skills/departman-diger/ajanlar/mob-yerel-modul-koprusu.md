@@ -1,6 +1,6 @@
 ---
 name: mob-yerel-modul-koprusu
-description: Plans native module integration for React Native with threading, type contracts and linking on iOS and Android. Use when a feature needs a platform SDK not available in JavaScript.
+description: "Plans React Native native-module integration: threading, type contracts, linking"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: ajn-claude-api-gelistirici
-description: Builds Claude API integrations with prompt caching, tool use and streaming. Use when an app calls Claude programmatically.
+description: Builds Claude API integrations with prompt caching, tool use and streaming
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

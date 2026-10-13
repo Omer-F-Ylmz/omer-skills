@@ -1,6 +1,6 @@
 ---
 name: otm-powershell-51
-description: Writes scripts that run on stock Windows PowerShell 5.1, avoiding PowerShell 7-only syntax, encoding traps and JSON depth limits. Use when a script must run on a default Windows machine.
+description: "Writes scripts for stock Windows PowerShell 5.1: no PS7 syntax, encoding and JSON depth traps"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

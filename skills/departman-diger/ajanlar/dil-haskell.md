@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: dil-haskell
-description: Writes Haskell with precise types, purity boundaries, laziness awareness and strictness where needed. Use when working in Haskell, including code questions with no files attached.
+description: "Writes Haskell: precise types, purity boundaries, laziness and strictness; also code questions"
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: bl-sahne-temizlik
-description: Cleans Blender scenes by naming objects, fixing collection and parent hierarchy, and removing unused data. Use when a scene is messy before export or handoff.
+description: "Cleans Blender scenes: naming, collections, parent hierarchy, unused data"
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

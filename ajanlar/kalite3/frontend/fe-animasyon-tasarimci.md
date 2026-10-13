@@ -1,6 +1,6 @@
 ---
 name: fe-animasyon-tasarimci
-description: Designs UI motion with transform and opacity only, respecting reduced motion. Use when adding hover, entrance or scroll animations.
+description: Designs UI motion with transform and opacity only, respecting reduced motion
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

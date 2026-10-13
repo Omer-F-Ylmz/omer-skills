@@ -1,6 +1,6 @@
 ---
 name: inc-dongusel-bagimlilik
-description: Finds import cycles and layer violations between modules and proposes how to break them. Use when builds fail on circular imports or layers reach into each other, including when the cycle is only described in the request.
+description: Finds import cycles and layer violations between modules, proposes how to break them
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

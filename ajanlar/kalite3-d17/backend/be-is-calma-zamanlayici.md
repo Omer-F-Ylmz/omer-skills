@@ -1,6 +1,6 @@
 ---
 name: be-is-calma-zamanlayici
-description: Designs task scheduling for worker pools with per-worker queues, work stealing, priority and deadline ordering, and fairness. Use when some workers sit idle while others have long backlogs.
+description: "Designs worker-pool scheduling: work stealing, priority, deadlines, fairness; idle workers"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

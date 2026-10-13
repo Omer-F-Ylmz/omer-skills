@@ -1,6 +1,6 @@
 ---
 name: qa-test-bosluk-analiz
-description: Finds untested code paths, branches and risky areas by coverage and complexity. Use when deciding where to add tests, or when asked how to prioritize test gaps.
+description: Finds untested paths and risky areas by coverage and complexity; prioritizes test gaps
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

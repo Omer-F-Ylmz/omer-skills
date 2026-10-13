@@ -1,6 +1,6 @@
 ---
 name: db-dynamodb
-description: Designs DynamoDB single-table models from access patterns with keys and indexes. Use when modeling or tuning DynamoDB.
+description: Designs DynamoDB single-table models from access patterns, keys and indexes
 model: sonnet
 tools: Read, Grep, Glob
 ---

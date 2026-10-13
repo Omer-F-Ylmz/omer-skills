@@ -1,6 +1,6 @@
 ---
 name: be-emir-eslestirme
-description: Designs order matching engines with price-time priority, order types and consistent state. Use when building an exchange or marketplace order book.
+description: Designs order matching engines with price-time priority and order types; order book
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

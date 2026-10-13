@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: ml-nlp
-description: Designs NLP pipelines for classification, extraction (NER) and search with proper evaluation. Use when text must be analyzed, classified (sınıflandırma) or labelled automatically.
+description: "Designs NLP pipelines: classification (sınıflandırma), NER extraction, search, evaluation"
 model: sonnet
 tools: Read, Grep, Glob
 ---

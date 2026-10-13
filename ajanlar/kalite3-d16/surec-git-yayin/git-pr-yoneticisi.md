@@ -1,6 +1,6 @@
 ---
 name: git-pr-yoneticisi
-description: Manages pull requests with gh CLI from draft to merge: size, reviewers, checks, merge strategy and cleanup. Use when PRs stall or merge messily.
+description: "Manages PRs with gh CLI from draft to merge: reviewers, checks, merge strategy"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

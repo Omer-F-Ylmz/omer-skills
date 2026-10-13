@@ -1,6 +1,6 @@
 ---
 name: dil-python-tip-guvenligi
-description: Adds type hints, mypy or pyright strictness and runtime validation to Python code bases incrementally. Use when Python bugs come from wrong types.
+description: Adds Python type hints, mypy/pyright strictness and runtime validation incrementally
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

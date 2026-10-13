@@ -1,6 +1,6 @@
 ---
 name: urn-is-analizi
-description: Turns business needs into process maps, requirements and acceptance criteria. Use when a request is vague or spans several teams.
+description: Turns business needs into process maps, requirements, acceptance criteria
 model: sonnet
 tools: Read, Grep, Glob
 ---

@@ -1,6 +1,6 @@
 ---
 name: qa-entegrasyon-testi
-description: Writes integration tests against real dependencies with containers, fixtures and isolation. Use when components must be tested together.
+description: Writes integration tests against real dependencies with containers, fixtures, isolation
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

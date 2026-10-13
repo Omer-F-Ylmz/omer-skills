@@ -1,6 +1,6 @@
 ---
 name: git-ci-boru-hatti
-description: Writes CI workflows for build, test and lint with caching and clear failure output. Use when a repo needs automation.
+description: Writes CI workflows for build, test, lint with caching and clear failure output
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

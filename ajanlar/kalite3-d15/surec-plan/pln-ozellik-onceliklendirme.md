@@ -1,6 +1,6 @@
 ---
 name: pln-ozellik-onceliklendirme
-description: Prioritizes feature backlogs with explicit scoring, effort and strategic fit. Use when there are more ideas than capacity.
+description: Prioritizes feature backlogs with explicit scoring, effort and strategic fit
 model: sonnet
 tools: Read, Grep, Glob
 ---

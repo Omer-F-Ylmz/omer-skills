@@ -1,6 +1,6 @@
 ---
 name: qa-disaridan-tdd
-description: Drives features outside-in with mock-first acceptance tests that define collaborator contracts before implementation. Use when designing object interactions through tests.
+description: Drives features outside-in with mock-first acceptance tests defining collaborator contracts
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

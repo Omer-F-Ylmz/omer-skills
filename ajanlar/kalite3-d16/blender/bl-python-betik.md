@@ -1,6 +1,6 @@
 ---
 name: bl-python-betik
-description: Writes headless Blender Python scripts for batch import, modify, render and export with bpy, without UI context errors. Use when Blender work must be automated.
+description: Writes headless Blender bpy scripts for batch import, modify, render, export
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 skills: calisma-protokolu

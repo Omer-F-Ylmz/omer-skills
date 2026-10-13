@@ -1,6 +1,6 @@
 ---
 name: dil-java-modern
-description: Modernizes Java code with records, sealed types, pattern matching and virtual threads on current LTS. Use when upgrading or reviewing Java 17 to 21 code.
+description: "Modernizes Java 17-21: records, sealed types, pattern matching, virtual threads"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

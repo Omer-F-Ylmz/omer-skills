@@ -1,6 +1,6 @@
 ---
 name: inc-ponytail-kod
-description: Finds needless abstractions, unused code and over built parts in a diff. Use when code feels heavier than the task, or when asked what over-engineering signs to look for.
+description: Finds needless abstractions, unused code and over-built parts in a diff
 model: haiku
 tools: Read, Grep, Glob
 ---

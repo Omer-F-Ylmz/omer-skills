@@ -1,6 +1,6 @@
 ---
 name: sec-sast-kosucu
-description: Runs static analysis rules (Semgrep, CodeQL, Bandit, gosec etc.) over code and triages findings into real versus noise, with file:line evidence. Use when reviewing code before release, or when asked how to run or triage SAST.
+description: "Runs SAST rules (Semgrep, CodeQL, Bandit, gosec) and triages findings with file:line"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

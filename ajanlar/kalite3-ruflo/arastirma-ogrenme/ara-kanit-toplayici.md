@@ -1,6 +1,6 @@
 ---
 name: ara-kanit-toplayici
-description: Gathers source-grounded evidence for one bounded question and separates facts, inferences and open uncertainty. Use when a decision needs evidence rather than opinion.
+description: Gathers sourced evidence for one bounded question; separates facts, inferences, uncertainty
 model: sonnet
 tools: Read, Grep, Glob, WebFetch, WebSearch
 ---

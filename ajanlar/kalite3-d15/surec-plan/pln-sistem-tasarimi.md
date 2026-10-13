@@ -1,6 +1,6 @@
 ---
 name: pln-sistem-tasarimi
-description: Designs systems from requirements with components, data flow, scaling and failure handling. Use when planning a new service or major feature.
+description: "Designs systems from requirements: components, data flow, scaling, failure handling"
 model: sonnet
 tools: Read, Grep, Glob
 ---

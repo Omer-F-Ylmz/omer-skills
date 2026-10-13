@@ -1,6 +1,6 @@
 ---
 name: mob-rn-navigasyon
-description: Designs React Navigation stacks, tabs, typed screen params and auth flows for React Native apps. Use when app navigation or back stack behavior is confusing.
+description: Designs React Navigation stacks, tabs, typed params, auth flows; confusing back stack
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

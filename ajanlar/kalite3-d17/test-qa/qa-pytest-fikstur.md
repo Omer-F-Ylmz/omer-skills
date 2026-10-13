@@ -1,6 +1,6 @@
 ---
 name: qa-pytest-fikstur
-description: Structures pytest suites with fixture scopes, shared conftest files, parametrization and isolation helpers. Use when Python tests repeat setup code or leak state between runs.
+description: "Structures pytest suites: fixture scopes, conftest, parametrization, isolation"
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

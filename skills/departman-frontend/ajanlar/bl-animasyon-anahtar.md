@@ -1,6 +1,6 @@
 ---
 name: bl-animasyon-anahtar
-description: Plans keyframe animation, easing and turntables in Blender. Use when an object or camera must move.
+description: Plans Blender keyframe animation, easing and turntables for moving objects or cameras
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: pln-sozde-kod-algoritma
-description: Turns a requirement into language-neutral pseudocode with chosen data structures, complexity analysis and edge cases before coding. Use when an algorithmic feature needs design first.
+description: Turns requirements into language-neutral pseudocode with complexity analysis and edge cases
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 skills: calisma-protokolu

@@ -1,6 +1,6 @@
 ---
 name: db-elasticsearch
-description: Designs Elasticsearch mappings, analyzers, queries and shard sizing for search workloads. Use when search is slow or irrelevant.
+description: Designs Elasticsearch mappings, analyzers, queries, shard sizing; for slow or irrelevant search
 model: sonnet
 tools: Read, Grep, Glob
 ---

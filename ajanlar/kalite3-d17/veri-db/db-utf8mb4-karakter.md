@@ -1,6 +1,6 @@
 ---
 name: db-utf8mb4-karakter
-description: Fixes text encoding problems in MySQL and MariaDB: utf8mb4 conversion, collation mismatches and connection charset. Use when emoji become question marks or string comparisons fail across tables.
+description: "Fixes MySQL/MariaDB encoding: utf8mb4 conversion, collation mismatches, connection charset"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

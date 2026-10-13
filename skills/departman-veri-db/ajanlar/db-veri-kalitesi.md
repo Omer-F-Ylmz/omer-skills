@@ -1,6 +1,6 @@
 ---
 name: db-veri-kalitesi
-description: Finds duplicates, nulls and out of range values with simple SQL checks. Use when data looks wrong or before imports.
+description: Finds duplicates, nulls and out-of-range values with simple SQL checks before imports
 model: haiku
 tools: Read, Grep, Glob, Bash
 ---

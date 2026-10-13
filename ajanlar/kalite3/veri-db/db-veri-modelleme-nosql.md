@@ -1,6 +1,6 @@
 ---
 name: db-veri-modelleme-nosql
-description: Models document, key value and analytic column stores around query patterns. Use when picking or shaping a non relational store, or when asked a conceptual question such as document vs key-value vs column store, embedding vs referencing, or denormalization.
+description: Models document, key-value and column stores by query pattern; embedding vs referencing
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

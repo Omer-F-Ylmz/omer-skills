@@ -1,6 +1,6 @@
 ---
 name: ajn-slash-komut-yazar
-description: Writes slash commands with arguments, allowed tools and clear steps. Use when a repeated prompt should become a command.
+description: Writes slash commands with arguments, allowed tools and clear steps
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

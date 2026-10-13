@@ -1,6 +1,6 @@
 ---
 name: git-bisect-rehber
-description: Finds the commit that introduced a regression using git bisect with a scripted check. Use when something worked in an older version and nobody knows which change broke it, including when the request is only described in words with no repo.
+description: Finds the regression-introducing commit with git bisect and a scripted check
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu

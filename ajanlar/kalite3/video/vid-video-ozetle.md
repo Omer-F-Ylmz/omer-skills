@@ -1,6 +1,6 @@
 ---
 name: vid-video-ozetle
-description: Summarizes a video from its captions into key points with timestamps. Use when a video must be understood quickly, or when asked how to summarize a long video or talk efficiently.
+description: Summarizes a video from captions into key points with timestamps
 model: haiku
 tools: Read, Grep, Glob
 ---

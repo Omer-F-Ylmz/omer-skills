@@ -1,6 +1,6 @@
 ---
 name: bl-geometri-dugumleri
-description: Builds procedural setups with Geometry Nodes for arrays, scattering and instancing. Use when manual modeling would be repetitive.
+description: "Builds procedural Geometry Nodes setups: arrays, scattering, instancing"
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

@@ -1,6 +1,6 @@
 ---
 name: dok-api-dokumani
-description: Documents endpoints with parameters, examples and error responses. Use when an API needs reference docs, or when asked what a good endpoint doc or API reference should contain.
+description: Documents API endpoints with parameters, examples and error responses; reference docs
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

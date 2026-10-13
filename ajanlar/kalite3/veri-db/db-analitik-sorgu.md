@@ -1,6 +1,6 @@
 ---
 name: db-analitik-sorgu
-description: Writes aggregations, funnels and cohort queries for product analytics. Use when answering business questions from data.
+description: Writes aggregation, funnel and cohort queries for product analytics (business questions)
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

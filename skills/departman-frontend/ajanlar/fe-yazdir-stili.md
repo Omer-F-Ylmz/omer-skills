@@ -1,6 +1,6 @@
 ---
 name: fe-yazdir-stili
-description: Writes print stylesheets that hide chrome and keep content readable. Use when a page must print or export well.
+description: Writes print stylesheets that hide chrome and keep content readable
 model: haiku
 tools: Read, Grep, Glob, Edit, Write
 ---

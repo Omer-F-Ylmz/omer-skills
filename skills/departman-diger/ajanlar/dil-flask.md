@@ -1,7 +1,7 @@
 ---
 skills: calisma-protokolu
 name: dil-flask
-description: Structures and fixes Flask apps covering app factory, blueprints, sessions and pytest client tests. Use when building, securing or debugging a Flask application.
+description: "Structures and fixes Flask apps: app factory, blueprints, sessions, pytest client tests"
 model: sonnet
 tools: Read, Grep, Glob
 ---

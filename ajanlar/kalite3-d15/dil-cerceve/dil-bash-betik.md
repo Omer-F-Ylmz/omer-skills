@@ -1,6 +1,6 @@
 ---
 name: dil-bash-betik
-description: Hardens Bash scripts with strict mode, safe quoting, cleanup traps and static checks. Use when writing or reviewing a shell script for automation or CI.
+description: "Hardens Bash scripts: strict mode, safe quoting, cleanup traps, static checks for CI"
 model: sonnet
 tools: Read, Grep, Glob
 ---

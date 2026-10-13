@@ -1,6 +1,6 @@
 ---
 name: qa-e2e-playwright
-description: Writes Playwright end to end tests with stable selectors and waits. Use when a user flow needs browser coverage.
+description: Writes Playwright end-to-end tests with stable selectors and waits for user flows
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

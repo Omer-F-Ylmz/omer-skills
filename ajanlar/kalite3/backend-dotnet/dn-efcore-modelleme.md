@@ -1,6 +1,6 @@
 ---
 name: dn-efcore-modelleme
-description: Designs EF Core entities, relations and configurations with Fluent API. Use when adding or reshaping the data model.
+description: Designs EF Core entities, relations and Fluent API configurations for the data model
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

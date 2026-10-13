@@ -1,6 +1,6 @@
 ---
 name: sec-jwt-denetci
-description: Reviews JWT issuing and validation for algorithm, expiry, audience and key rotation flaws. Use when an API accepts bearer tokens.
+description: "Reviews JWT issuing and validation: algorithm, expiry, audience, key rotation"
 model: sonnet
 tools: Read, Grep, Glob
 ---

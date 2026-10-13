@@ -1,6 +1,6 @@
 ---
 name: sec-tehdit-modelleme
-description: Builds a STRIDE threat model with trust boundaries and ranked mitigations. Use when designing a feature that handles sensitive data.
+description: Builds a STRIDE threat model with trust boundaries and ranked mitigations
 model: sonnet
 tools: Read, Grep, Glob
 ---

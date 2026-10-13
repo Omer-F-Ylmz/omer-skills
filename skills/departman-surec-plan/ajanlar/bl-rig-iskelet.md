@@ -1,6 +1,6 @@
 ---
 name: bl-rig-iskelet
-description: Plans armature, weight painting and simple IK rigs. Use when a model must pose or deform.
+description: Plans armature, weight painting and simple IK rigs for posing or deforming
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

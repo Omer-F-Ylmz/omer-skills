@@ -1,6 +1,6 @@
 ---
 name: ml-tahmin-kaymasi-izleme
-description: Monitors deployed ML models for input drift, prediction drift and delayed-label performance decay with alert thresholds. Use when a production model may silently degrade.
+description: Monitors deployed ML models for input/prediction drift and label-delayed decay with alerts
 model: sonnet
 tools: Read, Grep, Glob
 skills: calisma-protokolu

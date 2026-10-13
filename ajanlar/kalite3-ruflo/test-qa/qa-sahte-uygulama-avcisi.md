@@ -1,6 +1,6 @@
 ---
 name: qa-sahte-uygulama-avcisi
-description: Finds mock, fake, stub, placeholder and hardcoded implementations left in production code. Use when checking that a feature is really implemented before release.
+description: Finds mock, fake, stub, placeholder and hardcoded code left in production
 model: haiku
 tools: Read, Grep, Glob
 ---

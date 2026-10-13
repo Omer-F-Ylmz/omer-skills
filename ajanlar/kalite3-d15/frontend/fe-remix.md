@@ -1,6 +1,6 @@
 ---
 name: fe-remix
-description: Builds Remix (React Router framework) routes with loaders, actions, forms and error boundaries. Use when building full-stack React with Remix.
+description: Builds Remix (React Router) routes with loaders, actions, forms, error boundaries
 model: sonnet
 tools: Read, Grep, Glob, Edit, Write
 ---

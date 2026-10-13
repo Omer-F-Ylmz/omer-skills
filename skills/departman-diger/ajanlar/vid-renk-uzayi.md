@@ -1,6 +1,6 @@
 ---
 name: vid-renk-uzayi
-description: Fixes washed-out, flat or oversaturated video exports caused by color space, transfer, range and HDR-to-SDR mismatches. Use when a video looks different after export or upload than in the editor, or when asked how to diagnose or avoid it, with or without files.
+description: "Fixes washed-out/flat/oversaturated exports: color space, range, HDR-to-SDR mismatch"
 model: sonnet
 tools: Read, Grep, Glob, Bash
 ---

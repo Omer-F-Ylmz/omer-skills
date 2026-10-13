@@ -1,6 +1,6 @@
 ---
 name: inc-karmasiklik-olcum
-description: Measures code quality with cyclomatic complexity, duplication, file churn and hotspots to prioritize refactoring. Use when deciding where refactoring pays off.
+description: Measures cyclomatic complexity, duplication, churn, hotspots to prioritize refactoring
 model: sonnet
 tools: Read, Grep, Glob, Bash
 skills: calisma-protokolu
