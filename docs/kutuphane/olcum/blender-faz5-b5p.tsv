@@ -1,0 +1,7 @@
+gorev	yol	tekrar	input	cache_creation	cache_read	output	toplam	tur	sure_sn	usd	kalite	kalan	mcp_n	bash_n	hata
+g1	tek5	1	2	1748	0	915	2665	1	8.8	0.0161	1.0	-	0	0	-
+g2	tek5	1	4	2652	965	916	4537	2	13.0	0.02	0.0	render_dolu,malzeme_hepsi,uv,subdiv	0	0	['blender_cli exit 3: null']
+g3	tek5	1	4	2665	974	1048	4691	2	16.3	0.0213	1.0	-	0	0	-
+g4	tek5	1	4	2817	966	2651	6438	2	27.9	0.038	1.0	-	0	0	-
+g5	tek5	1	2	842	895	1082	2821	1	11.9	0.0144	1.0	-	0	0	-
+g6	tek5	1	2	1927	0	971	2900	1	11.5	0.0174	1.0	-	0	0	-

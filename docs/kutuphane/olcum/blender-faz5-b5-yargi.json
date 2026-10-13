@@ -1,0 +1,464 @@
+{
+ "g1-t1-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek4-1",
+   "B": "tek-1",
+   "C": "tek5-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 6,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 6
+   },
+   "C": {
+    "bicim": 7,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 7
+   }
+  },
+  "usd": 0.43928659999999997
+ },
+ "g1-t2-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek5-2",
+   "B": "tek-2",
+   "C": "tek4-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "C": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 7,
+    "uyum": 7
+   }
+  },
+  "usd": 0.438553
+ },
+ "g2-t1-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek4-1",
+   "B": "tek-1",
+   "C": "tek5-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   },
+   "C": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 8,
+    "uyum": 8
+   }
+  },
+  "usd": 0.43613299999999994
+ },
+ "g2-t2-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek5-2",
+   "B": "tek-2",
+   "C": "tek4-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 8,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 7
+   },
+   "C": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 7
+   }
+  },
+  "usd": 0.4364978
+ },
+ "g3-t1-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek4-1",
+   "B": "tek5-1",
+   "C": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 6,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "C": {
+    "bicim": 6,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 6
+   }
+  },
+  "usd": 0.44996759999999997
+ },
+ "g3-t2-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek-2",
+   "B": "tek5-2",
+   "C": "tek4-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 6,
+    "isik": 8,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "C": {
+    "bicim": 6,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 6
+   }
+  },
+  "usd": 0.44996400000000003
+ },
+ "g4-t1-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek4-1",
+   "B": "tek5-1",
+   "C": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 8,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 4,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 4
+   },
+   "C": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   }
+  },
+  "usd": 0.4364606
+ },
+ "g4-t2-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek-2",
+   "B": "tek5-2",
+   "C": "tek4-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 8,
+    "uyum": 9
+   },
+   "B": {
+    "bicim": 5,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 5
+   },
+   "C": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 7
+   }
+  },
+  "usd": 0.43662860000000003
+ },
+ "g5-t1-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek-1",
+   "B": "tek4-1",
+   "C": "tek5-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 6,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "C": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   }
+  },
+  "usd": 0.4406742
+ },
+ "g5-t2-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek5-2",
+   "B": "tek4-2",
+   "C": "tek-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 6,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "C": {
+    "bicim": 6,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 6
+   }
+  },
+  "usd": 0.4421442
+ },
+ "g6-t1-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek4-1",
+   "B": "tek5-1",
+   "C": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "C": {
+    "bicim": 6,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 6
+   }
+  },
+  "usd": 0.45100379999999995
+ },
+ "g6-t2-tek+tek4+tek5": {
+  "esle": {
+   "A": "tek-2",
+   "B": "tek5-2",
+   "C": "tek4-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "C": {
+    "bicim": 6,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 6
+   }
+  },
+  "usd": 0.45091980000000004
+ },
+ "g1-t1-tek+tek5K": {
+  "esle": {
+   "A": "tek5K-1",
+   "B": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 7,
+    "uyum": 8
+   }
+  },
+  "usd": 0.4341216
+ },
+ "g2-t1-tek+tek5K": {
+  "esle": {
+   "A": "tek5K-1",
+   "B": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 8,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 7
+   }
+  },
+  "usd": 0.43263680000000004
+ },
+ "g3-t1-tek+tek5K": {
+  "esle": {
+   "A": "tek5K-1",
+   "B": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 8,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 5,
+    "kompozisyon": 5,
+    "uyum": 6
+   }
+  },
+  "usd": 0.442045
+ },
+ "g4-t1-tek+tek5K": {
+  "esle": {
+   "A": "tek5K-1",
+   "B": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 8,
+    "kompozisyon": 8,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 7,
+    "uyum": 8
+   }
+  },
+  "usd": 0.43308959999999996
+ },
+ "g5-t1-tek+tek5K": {
+  "esle": {
+   "A": "tek-1",
+   "B": "tek5K-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   }
+  },
+  "usd": 0.433726
+ },
+ "g6-t1-tek+tek5K": {
+  "esle": {
+   "A": "tek5K-1",
+   "B": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   },
+   "B": {
+    "bicim": 5,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 5
+   }
+  },
+  "usd": 0.4427236
+ }
+}
