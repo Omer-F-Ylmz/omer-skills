@@ -1,0 +1,11 @@
+plugin ponytail@ponytail 4.10.0 e3ba2aa6 uzak 2961b52f FARK?
+plugin codex@openai-codex 1.0.6 db52e28f uzak db52e28f GUNCEL
+plugin humanizer@humanizer 3.0.0 9862685f uzak 225a6f39 FARK?
+plugin agent-browser@agent-browser d9570915f4dd d9570915 uzak d9570915 GUNCEL
+plugin marketing-skills@marketingskills 2.11.26 1efedbc5 uzak 28e4a81a FARK?
+plugin playwright@claude-plugins-official f359d43b4060 f359d43b uzak ? FARK?
+npm-outdated {'error': (None, None)}
+uv-outdated droidasc v0.1.1.post3 [latest: 0.1.1.post5] ; - droidasc ; graphifyy v0.9.57 [latest: 0.9.88] ; - graphify ; - graphify-mcp ; headroom-ai v0.37.0 [latest: 0.40.0] ; - headroom ; jev-cli v0.1.0 [latest: 0.7.0] ; - jev ; mcp-server-fetch v2026.8.18 [latest: 2026.10.10] ; - mcp-server-fetch ; mcp-server-git v2026.8.18 [latest: 2026.10.10] ; - mcp-server-git ; mcp-server-time v2026.8.18 [latest: 2026.10.10] ; - mcp-server-time ; phone-harness v0.3.0 [latest: 0.3.2] ; - phone-harness ; semgrep v1.177.0 [latest: 1.180.0] ; - pysemgrep ; - semgrep ; video-cli v0.1.0 [latest: 1.3.3] ; - video
+skill ui-ux-pro-max True git-yok
+skill graphify True git-yok
+skill gstack True 2026-09-15

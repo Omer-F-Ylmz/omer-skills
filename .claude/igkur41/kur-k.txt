@@ -1,0 +1,25 @@
+8 DBX | repo | github.com/t8y2/dbx | -
+16 Laya | repo | github.com/NandhaKishorM/laya | laya
+33 wheresryan22/anatomy | skill | github.com/wheresryan22/anatomy | -
+47 Obscura | repo | github.com/h4ckf0r0day/obscura | -
+58 img2threejs | skill | github.com/img2threejs/img2threejs | -
+69 Paper (paper.design): kodlu  | MCP | paper.design | hesap
+80 hairline (hairline-create sk | skill | github.com/lucasmarkes/hairline | -
+139 youtube-agent-skill (11 YouT | skill | github.com/Jakeschincariol/youtube-agent-skill | -
+140 shadcn-ui-mcp-server | mcp | github.com/Jpisnice/shadcn-ui-mcp-server | -
+148 Firecrawl MCP | mcp | github.com/firecrawl/firecrawl-mcp-server | hesap
+149 Google Workspace bağlayıcıla | mcp | claude.ai/settings/connectors | hesap
+150 Higgsfield MCP (görsel/video | mcp | higgsfield.ai | hesap
+151 Zapier MCP (9000 uygulama) | mcp | zapier.com/mcp | hesap
+152 Firecrawl | MCP | github.com/firecrawl/firecrawl | hesap
+174 Higgsfield | servis | higgsfield.ai | hesap
+178 Perplexity MCP | MCP | github.com/perplexityai/modelcontextprotocol | hesap
+183 Notion MCP | MCP | github.com/makenotion/notion-mcp-server | hesap
+186 Zapier MCP | MCP | zapier.com/mcp | hesap
+187 Google Drive bağlayıcı | MCP | claude.ai (Drive bağlayıcı) | hesap
+191 HeyGen MCP | MCP | www.heygen.com | hesap
+192 Stripe MCP | MCP | github.com/stripe/ai | hesap
+194 Claude for Legal | plugin | github.com/anthropics/claude-for-legal | -
+195 Find Skills (skills CLI) | skill | github.com/vercel-labs/skills | -
+196 Granola | MCP | www.granola.ai | hesap
+197 Slack | MCP | slack.com | hesap

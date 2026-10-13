@@ -1,0 +1,25 @@
+4 StringTune (@fiddle-digita | - | CSS-first, HTML attribute ile kaydırma, metin bölme, imleç modülleri; animasyon-atolyesi kütüph
+14 MotionSites.ai | frontend-site | Ücretli kütüphane kurulmaz. Ekrandaki prompt kalıbı alınır: tek HTML, birebir üret, uydurma böl
+22 google-labs-code/stitch-sk | hesap | generate-design, upload-to-stitch, extract-design-md MCP çağrı tarifini departman-frontend stit
+24 Doğrulama döngüsü (/verify | - | İlk koşuda çalıştır/tıkla/ekran görüntüsü adımlarını .claude/skills/verify'a kaydetme kalıbını 
+30 Jakeschincariol/founder-sk | - | founder-consumer'ın 100 sentetik müşteri paneli kalıbını urn-fiyatlandirma'ya al; kalan 10 skil
+35 Bklit UI | frontend-site | shadcn uyumlu açık kaynak grafik/veri görselleştirme bileşenleri; tasarim-katalog/kaynak.tsv'ye
+40 Crawl4AI | - | Scrapling zaten çekiyor; Crawl4AI'nin iyi yanı LLM'e hazır budanmış markdown (pruning/BM25 içer
+45 daisyUI | - | Tailwind üstünde sınıf adlı hazır bileşen ve tema; tasarim-katalog kaynak.tsv'ye hızlı tema seç
+65 Claude SEO | - | Tümü ağır. İyi yanı GEO/AEO ve ajan hazırlığı (llms.txt, WebMCP) denetimi; bu kontrol listesi s
+75 CosmoBlk/email-marketing-b | - | Spam/deliverability triyajı ve onaysız gönderim yok kapısını otm-mail-otomasyon ajanına al; tam
+78 Kokonut UI | frontend-site | Tailwind+shadcn+Motion animasyonlu bileşen kaynağı olarak docs/departmanlar/frontend.md kaynak 
+91 unlumen UI | frontend-site | React bileşenleri + WebGL arka plan/shader bölümü; ücretsiz olanlar tasarim-katalog kaynak.tsv'
+96 Cult UI | frontend-site | 150+ animasyonlu shadcn bileşeni; tasarim-katalog kaynak.tsv'ye bileşen kaynağı satırı olarak e
+102 emilkowalski/skills (Emil  | - | Bizdeki kopyada animation-performance alt skill'i ve performance-cheatsheet.md eksik; ikisi emi
+103 The Base Mesh | blender | CC0, UV'li, gerçek ölçekli base mesh kaynağı; blender-uretim skill'inin varlık kaynakları liste
+113 linkedin-skills | hesap | Bizde paket var; eksik olan linkedin-interviewer (kariyer röportajından gönderi) ve hook-extrac
+123 alirezarezvani/claude-skil | - | Toplu kurulum bağlamı şişirir, çoğu bizde var; skill başına stdlib-only Python CLI deseni ve Op
+125 Watermelon UI | frontend-site | 600+ animasyonlu React bileşeni, kopyala-yapıştır; MCP kurmadan llms.txt ile frontend-craft kay
+128 Tabler Icons | frontend-site | 5000+ tutarlı çizgi ikon, SVG/React; fe-ikon-sistemi ve frontend-craft'a yaygın üçlüye alternat
+130 anydoc (Firecrawl) | - | Word/PPT/Excel/PDF→Markdown, markitdown'dan hızlı iddiası ve WASM yerel demo; markitdown skill'
+133 claudex-loop | hesap | Dört aşamalı plan sertleştirme: keşif, sorgu, Codex karşıt incelemesi, çapraz model yapım; bu a
+143 web-design-guidelines skil | - | Lisanssız: metin alınmaz. Fikir alınır: güncel kural listesini URL'den çekip bulguları kısa fil
+145 Antigravity/Agentic Awesom | - | Toplu kurulum bağlamı patlatır. Aday kaynağı olarak kullanılır: eksik alanlarda tek tek skill s
+147 NVIDIA SkillSpector | - | Kurulu. Eksik yanı: kurulum öncesi otomatik tarama. Onay betiklerinde skill/plugin kurulmadan ö
+164 Görünmez metin taraması (s | - | sec-istem-enjeksiyon-savunma'ya eklenecek: U+200B–200F, U+2060–2064, U+E0000–E007F aralıkları v

@@ -11,6 +11,7 @@ GIZLI = re.compile(rb"sk-ant-[A-Za-z0-9_-]{8}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{3
                    rb"|-----BEGIN [A-Z ]*PRIVATE KEY-----\s+[A-Za-z0-9+/=]{40}")  # PEM: gövdesi olan anahtar, tablo sözü değil
 ORNEK = re.compile(rb"EXAMPLE|XXXX|EXPOSED|FAKE|DUMMY|\.\.\.", re.I)  # belge örneği/yer tutucu (AWS: AKIAIOSFODNN7EXAMPLE)
 EN_COK_DOSYA = 200  # claude.ai: "Zip contains too many files (maximum 200)"
+GORUNMEZ = re.compile("[​-‏⁠-⁤\U000e0000-\U000e007f]")  # IG-41 #164: görünmez metinle gizlenmiş talimat
 COP = re.compile(r"(^|/)(__pycache__/|\.DS_Store$|Thumbs\.db$)|\.pyc$")
 
 
@@ -61,6 +62,10 @@ def denetle(zp):
             not ORNEK.search(b[m.start():m.end() + 24]) for b in [z.read(a)] for m in GIZLI.finditer(b))]
         if gizli:
             sorun.append(f"gizli anahtar deseni {len(gizli)} dosyada (ör. {gizli[0]})")
+        gor = [a for a in adlar if a.endswith((".md", ".txt", ".py", ".json", ".yaml", ".yml"))
+               and GORUNMEZ.search(z.read(a).decode("utf-8", "replace"))]
+        if gor:
+            sorun.append(f"görünmez Unicode (sıfır genişlik/etiket) {len(gor)} dosyada (ör. {gor[0]}; gizli talimat olabilir)")
     return [f"{Path(zp).name}: {s}" for s in sorun]
 
 
