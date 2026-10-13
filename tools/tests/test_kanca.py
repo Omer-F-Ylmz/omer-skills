@@ -129,6 +129,15 @@ def test_basarili_kosu_kacin_dersi_uretmez(depo, monkeypatch):
     assert "BAŞARILI" in istem[0] and ders.oku()[0]["tur"] == "basari"
 
 
+def test_damit_metni_baglami_tasir(depo, monkeypatch):
+    monkeypatch.setattr(kanca, "ESIK", 6.0)
+    kanca._ekle("s7", {"tip": "bitti", "ajan_id": "a0", "ajan": "kodcu", "gorev": "rapor.md yaz", "arac": 5, "hata": 0,
+                       "tur": 4, "son": "bitti", "baglam": "KURALLAR.md: başlık '# Satış Özeti' olmalı"})
+    istem = []
+    kanca.isle("s7", yargic=lambda s: [2.0], damit=lambda m: istem.append(m) or "[]")
+    assert "# Satış Özeti" in istem[0]  # ders kurala bağlanabilsin
+
+
 def kuyruk_kur(oturum, ids, karmalar):
     for n, (j, getir) in enumerate(zip(karmalar, ids)):
         if getir:

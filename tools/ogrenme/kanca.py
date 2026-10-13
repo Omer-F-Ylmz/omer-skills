@@ -193,7 +193,7 @@ def isle(oturum, yargic=None, damit=None):
     if ogretici:
         metin = "\n\n".join(f"Koşu {i}: ajan {k['ajan']} · {'BAŞARILI' if k['karma'] >= ESIK else 'BAŞARISIZ'} (puan {k['karma']}/10) · "
                             f"{k['tur']} tur · {k['arac']} araç · {k['hata']} hata · son test {k.get('test')}\n"
-                            f"Görev: {k['gorev'][:800]}\nSon mesaj: {k['son'][-800:]}" for i, k in enumerate(ogretici, 1))
+                            f"Görev: {k['gorev'][:800]}\nSon mesaj: {k['son'][-800:]}\n{k.get('baglam') or ''}" for i, k in enumerate(ogretici, 1))
         try:
             m = (damit or _damit)(DAMIT % metin)
             for x in json.loads(m[m.index("["):m.rindex("]") + 1])[:ders.EN_FAZLA_ADAY]:
