@@ -65,7 +65,8 @@ KOD = [  # (ad, hatalı gövde, doğru gövde, görünür testler, gizli testler
 
 # --- rapor: CSV özeti; gizli kural biçim ---
 RAPOR_KURAL = "# Rapor kuralları\n- rapor.md ilk satırı tam olarak `# Özet`\n- En fazla 6 satır\n- Sayılar binlik ayırıcı nokta, ondalıksız: 12.345\n- Tarihler GG.AA.YYYY\n"
-RAPOR = [("tutar", "son"), ("adet", "ilk"), ("tutar", "ilk"), ("adet", "son"), ("tutar", "son")]
+RAPOR = [("tutar", "son"), ("adet", "ilk"), ("tutar", "ilk"), ("adet", "son"), ("tutar", "son"),
+         ("adet", "ilk"), ("tutar", "son"), ("adet", "son"), ("tutar", "ilk"), ("adet", "ilk")]  # d16: 5–9 yeni (n=10 eşli)
 
 # --- video: transkriptten araç etiketi; gizli kural şema ---
 VIDEO_KURAL = '# Etiket kuralları\n- etiket.json: {"araclar": [...], "kaynak": "transkript.txt"}\n- Araç adları küçük harf, alfabetik sıralı, yinelenmesiz\n- Yalnız kurulabilir yazılım araçları; şirket/kişi adı değil\n'
@@ -187,7 +188,7 @@ DAMIT = ("Bir ajan koşusunun yargıç sonucu aşağıda. Gelecekteki BENZER gö
 
 
 def kuru():
-    for aile, n in (("kod", 5), ("rapor", 5), ("video", 5)):
+    for aile, n in (("kod", 5), ("rapor", len(RAPOR)), ("video", 5)):
         for i in range(n):
             with tempfile.TemporaryDirectory() as d:
                 kur(aile, i, d)
@@ -195,7 +196,7 @@ def kuru():
                 coz(aile, i, d)
                 son = yargic(aile, i, d)
                 assert bas[0] < 1 and son == (1.0, 0.5, []), (aile, i, bas, son)
-    print("kuru: 15 görev · yargıç başlangıç < 1, örnek çözüm = 1")
+    print(f"kuru: {10 + len(RAPOR)} görev · yargıç başlangıç < 1, örnek çözüm = 1")
 
 
 def v2(tohum, aile, ad="v2"):

@@ -6,7 +6,9 @@ d11: `python kanca_e2e.py <dersli|derssiz>` kol başına ayrı süreç (paralel)
 (d10'da Bash(cd/pytest) izni reddediliyordu → tüm koşular doğrulanmamış, Jev ~4.2).
 Tavan: kol başına ≤10 oturum + ≤10 damıtma, Σ$ ≤ 6. TSV: docs/kutuphane/olcum/ruflo-1-kanca-e2e-v2.tsv
 d13: `python kanca_e2e.py <kol> rapor` zor set — ab_olc rapor ailesi (5 görev, gizli KURALLAR.md biçimi; d8 v5 derssiz 0.625),
-alt ajan `raporcu`, TSV ruflo-1-kanca-e2e-zor.tsv."""
+alt ajan `raporcu`, TSV ruflo-1-kanca-e2e-zor.tsv.
+d16: `python kanca_e2e.py esli rapor` — 10 görev, her görevde derssiz sonra dersli aynı süreçte (eşli), TSV ruflo-1-kanca-e2e-zor10.tsv."""
+import itertools
 import json
 import os
 import sys
@@ -51,7 +53,8 @@ def main():
     # kanca transkriptten okur; ölçüm rotasının --no-session-persistence'ı onu diske yazdırmaz (günlük kullanımda kalıcılık açık)
     kosucu.ROTA = [x for x in kosucu.ROTA if x != "--no-session-persistence"]
     kol, aile = sys.argv[1], (sys.argv[2:] or ["kod"])[0]
-    tsv, ajan = (TSV, "kodcu") if aile == "kod" else (TSV.with_name("ruflo-1-kanca-e2e-zor.tsv"), "raporcu")
+    tsv, ajan = (TSV, "kodcu") if aile == "kod" else (TSV.with_name(f"ruflo-1-kanca-e2e-zor{'10' if kol == 'esli' else ''}.tsv"), "raporcu")
+    kollar, tavan = (("derssiz", "dersli"), 2 * USD_TAVAN) if kol == "esli" else ((kol,), USD_TAVAN)
     banka = KOK / ".kos" / "ogrenme-ab" / (f"kanca-e2e-{aile}-{kol}-" + time.strftime("%Y%m%d-%H%M%S"))
     os.environ["OGRENME_DIZIN"] = str(banka)
     ayar = ayarlar(ders.dizin())
@@ -59,8 +62,8 @@ def main():
     with open(tsv, "a", encoding="utf-8", newline="\n") as out:
         if yeni:
             out.write("zaman\tsira\tkol\tpuan\tgizli\ttur\tinput\tcache_creation\tcache_read\toutput\tusd\tsure_sn\tders_ids\tkarma\tyeni_ders\trc\n")
-        for i in range(len(ab_olc.KOD if aile == "kod" else ab_olc.RAPOR)):
-            if usd >= USD_TAVAN or kosucu.bos_ram_gb() < 0.8:  # Ömer 13 Eki: RAM %95e kadar
+        for i, kol in itertools.product(range(len(ab_olc.KOD if aile == "kod" else ab_olc.RAPOR)), kollar):
+            if usd >= tavan or kosucu.bos_ram_gb() < 0.8:  # Ömer 13 Eki: RAM %95e kadar
                 print(time.strftime("%H:%M:%S"), f"TAVAN: ${usd:.2f} boş RAM {kosucu.bos_ram_gb():.1f} GB — durdu", flush=True)
                 return
             os.environ["OGRENME_KANCA"] = "1" if kol == "dersli" else "0"
