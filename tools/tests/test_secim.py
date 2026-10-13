@@ -44,3 +44,9 @@ def test_dizin_skill_md_sonuna_gomulur_tek_kalir(tmp_path, monkeypatch):
 def test_secim_opak_ve_anahtar():
     k = [("p:dn-efcore-migration", "x"), ("p:defuddle", "Extract markdown with Defuddle"), ("p:careful", "Use when running destructive commands"), ("p:resolve-conflict", "x"), ("p:db-sema-tasarim", "x")]
     assert [a for a, _ in dizin_uret.sec(k)] == ["p:careful", "p:resolve-conflict"]
+
+
+def test_arac_satiri_onekli_ve_anahtar_dizesi_degil():
+    assert dizin_uret.satir("mcp:clickhouse", "") == "mcp:clickhouse: ClickHouse analitik SQL"
+    assert all(isinstance(v, str) for v in dizin_uret.ANAHTAR.values()) and dizin_uret.ARAC["mcp:clickhouse"][0] in dizin_uret.ALAN
+    assert all(v[0] in dizin_uret.ALAN for v in dizin_uret.ARAC.values())

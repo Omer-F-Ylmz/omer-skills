@@ -133,11 +133,13 @@ jakobs-law: deciding whether to innovate on a familiar pattern
 journey-map: improving an existing experience
 loading-states: content takes time to arrive
 matterjs: implementing 2D physics interactions with Matter.js, including Engine/World
+mcp:infinite-canvas: sonsuz tuval: eskiz, akış şeması, moodboard
 mentorship: Mentor designers and emerging leaders
 navigation-event: Intercept back gestures and run Predictive Back animations
 offers: wants to design, construct, or improve an offer
 opportunity-framework: there are more ideas than capacity
 pixeljury: Rendered web sayfasi icin gorsel QA - Chromium'da
+plugin:webgpu-threejs-tsl: WebGPU three.js TSL shader/node
 prioritisation-at-scale: Prioritise design investment across a portfolio of teams
 prototype: Build multiple genuinely different versions of a UI
 remotion-markup: Content, animation and effects best practices

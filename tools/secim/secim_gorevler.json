@@ -38,5 +38,16 @@
 {"id":"S37","dep":"verimlilik","istem":"Kod tabanından bilgi grafiği çıkar ve modüller arası ilişkileri göster.","beklenen":["graphify-desktop","graphify"]},
 {"id":"S38","dep":"verimlilik","istem":"Shell komut çıktılarını sıkıştırıp jeton tasarrufu sağlayan aracı kur ve kullan.","beklenen":["rtk-desktop","rtk"]},
 {"id":"S39","dep":"verimlilik","istem":"Save these meeting notes into my Obsidian vault with backlinks.","beklenen":["obsidian-paket","obsidian-markdown","obsidian","obsidian-cli"]},
-{"id":"S40","dep":"verimlilik","istem":"Keep large tool outputs out of the context window during this long debugging session.","beklenen":["context-mode-paket","context-mode"]}
+{"id":"S40","dep":"verimlilik","istem":"Keep large tool outputs out of the context window during this long debugging session.","beklenen":["context-mode-paket","context-mode"]},
+{"id":"S41","dep":"diger","istem":"Watch this Instagram reel and tell me which tool it demonstrates and how to install it: https://www.instagram.com/reel/C9xYz12AbCd/","beklenen":["video-cli","video-izle","video-tarama"]},
+{"id":"S42","dep":"diger","istem":"Render a product shot of a ceramic mug with a matte glaze in Blender, headless, 4K.","beklenen":["blender","blender-uretim","blender-oturum"]},
+{"id":"S43","dep":"diger","istem":"I want to replace a character's outfit texture in a Unity game I play; set up the mod workflow.","beklenen":["mod-atolyesi"]},
+{"id":"S44","dep":"diger","istem":"Generate an image of a cozy coffee shop interior for my blog header.","beklenen":["nano-banana-2","generate-image"]},
+{"id":"S45","dep":"diger","istem":"Build an n8n workflow that posts new RSS feed items to a Slack channel.","beklenen":["n8n-mcp","n8n-mcp-tools-expert","n8n-workflow-patterns","using-n8n-mcp-skills"]},
+{"id":"S46","dep":"diger","istem":"A vendor sent us an NDA; review it and flag risky clauses before I sign.","beklenen":["nda-review","vendor-agreement-review","saas-msa-review"]},
+{"id":"S47","dep":"diger","istem":"Audit my Meta ad account and create new ad creatives for a summer sale.","beklenen":["ads","ad-creative","ads-create"]},
+{"id":"S48","dep":"diger","istem":"Deploy this Node.js web app to Azure App Service.","beklenen":["azure-deploy","azure-prepare"]},
+{"id":"S49","dep":"diger","istem":"Set up an eval comparing two prompt versions across 30 test cases with assertions.","beklenen":["promptfoo-evaluation"]},
+{"id":"S50","dep":"diger","istem":"Ship my Expo React Native app to the App Store and Google Play.","beklenen":["expo","eas-app-stores"]},
+{"id":"S51","dep":"diger","istem":"This Go service leaks goroutines under load; find and fix the cause.","beklenen":["dil-go","dil-go-eszamanlilik"]}
 ]

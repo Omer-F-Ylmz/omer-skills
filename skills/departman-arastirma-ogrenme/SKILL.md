@@ -96,6 +96,10 @@ kdense-scientific-paket-1: Bilimsel araştırma (bölüm 1/2): 13c metabolic flu
 kdense-scientific-paket-2: Bilimsel araştırma (bölüm 2/2): nmrglue, nwb conversion, onekgpd
 leanback-to-compose-tv-migration: Provides instructions and architectural patterns for migrating Android
 managing-up: Manage up effectively to your own leadership
+mcp:apify: hazır kazıyıcı (actor) ile web verisi
+mcp:arxiv: arXiv makale arama/okuma
+mcp:context7: güncel kütüphane belgesi/API
+mcp:hfspace: Hugging Face Space modelini çağır
 mixed-initiative-flow: leads, and how to hand off control
 ml-adoption-playbook: adding a machine learning capability to a codebase
 moneyprinter-paket: Konudan otomatik kısa video üretimi: skill

@@ -62,6 +62,8 @@ ajan:sec-yetkilendirme-matrisi: an app has multiple user roles
 ajan:sec-zero-trust-ag
 ### yalnız Claude Code
 0day-scanner: ever someone asks to scan for vulnerabilities, check
+cli:ecc-agentshield: Claude Code ayar/hook/MCP güvenlik taraması
+cli:strix-agent: otonom pentest ajanı (yetkili hedef)
 cso: Security audit: supported static findings; qualified profiles add
 doubt-driven-development: you want every assumption cross-examined before proceeding, when
 one-on-one: Run effective, recurring 1:1s that build trust and

@@ -45,8 +45,10 @@ sdp: ilir; baska repoda tetiklenmez
 ### yalnız Claude Code
 aso: wants to audit or optimize an App Store
 autoplan: Auto-review pipeline — reads the full CEO, design
+cli:open-code-review: çok bakışlı otomatik PR incelemesi
 health: Code quality dashboard
 longitudinal-measurement: Tracking AI product quality over time — drift
+mcp:code-review: diff/PR kod incelemesi
 ponytail: Lazy senior dev mode for any coding task
 star-history-paket: GitHub yıldız geçmişi grafiği: refactor pass
 <!-- dizin:son -->
