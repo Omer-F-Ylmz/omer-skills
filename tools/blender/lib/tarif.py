@@ -35,6 +35,13 @@ ALANLAR = ("ad", "tur", "boyut", "konum", "malzeme", "ucgen", "uv")
 ANAHTARLAR = ("nesneler", "yigin", "duzenle", "isik", "hdri", "boyut_m", "kamera", "patlat", "anim", "kare", "kaydet", "glb",
               "onizle", "render", "ozet")
 DUZENLE = ("nesne", "bevel", "subdiv", "decimate", "uv", "malzeme")
+# BLENDER-5 (tek5 dilbilgisi; yalin.sistem5 belgeler, __doc__ 1.2.0 istemi olarak sabit kalır)
+ARKETIP = {"fincan": "silindir", "tabak": "silindir", "cezve": "koni", "sap": "kup"}  # M5a; K3 biçimi Blender'da
+YONLER = ("+X", "-X", "+Y", "-Y", "+Z", "-Z")
+TAKMA = {"n": "nesneler"}  # M5b: kısa anahtar → gerçek anahtar
+TAKMA_N = {"a": "arketip", "t": "tur", "b": "boyut", "k": "konum", "m": "malzeme"}
+SABLON = {"urun_studyo": {"isik": "urun"}, "turntable": {"isik": "urun"}, "kahraman_metal": {"isik": "metal", "motor": "cycles"},
+          "patlatilmis": {"isik": "urun", "yigin": "Z", "patlat": {"eksen": "Z", "aralik": 0.06}}}
 
 
 def _ad_listesi():
@@ -67,6 +74,15 @@ def dogrula(spec):
         malzeme(f"nesneler[{i}]", n.get("malzeme"))
         h += [f"nesneler[{i}].ekler[{j}]: tur '{e.get('tur')}' yok; mevcut {TURLER}"
               for j, e in enumerate(n.get("ekler", [])) if e.get("tur") not in TURLER]
+        if "arketip" in n and n["arketip"] not in ARKETIP:
+            h.append(f"nesneler[{i}]: arketip '{n['arketip']}' yok; mevcut {tuple(ARKETIP)}")
+        b = n.get("bitisik")
+        if b and b.get("hedef") not in [x.get("ad") for x in spec["nesneler"][:i]]:
+            h.append(f"nesneler[{i}]: bitisik hedef '{b.get('hedef')}' önceki nesnelerde yok")
+        if b and b.get("yon") not in YONLER:
+            h.append(f"nesneler[{i}]: bitisik yon '{b.get('yon')}' yok; mevcut {YONLER}")
+    if "sablon" in spec:
+        h.append(f"sablon '{spec['sablon']}' yok; mevcut {tuple(SABLON)}")
     for i, d in enumerate(spec.get("duzenle", [])):
         h += [f"duzenle[{i}]: bilinmeyen anahtar: {k}" for k in d if k not in DUZENLE]
         malzeme(f"duzenle[{i}]", d.get("malzeme"))
@@ -82,7 +98,35 @@ def dogrula(spec):
 
 def duzelt(spec):
     """BLENDER-4: anlamı açık biçim kaymalarını yerinde düzeltir (düzeltme turu = tam ikinci çağrı): boyut tek sayı → küp,
-    2 sayı → düzlem [x, y, 0] / dönel [çap, çap, h]; isik {"profil": ad} → ad."""
+    2 sayı → düzlem [x, y, 0] / dönel [çap, çap, h]; isik {"profil": ad} → ad.
+    BLENDER-5: takma adları açar; arketip → tur; sablon/klasor/turntable → açık anahtarlar (verilen anahtar ezilmez)."""
+    for k, v in TAKMA.items():
+        if k in spec:
+            spec.setdefault(v, spec.pop(k))
+    for n in spec.get("nesneler", []):
+        for k, v in TAKMA_N.items():
+            if k in n:
+                n.setdefault(v, n.pop(k))
+        if n.get("arketip") in ARKETIP:
+            n.setdefault("tur", ARKETIP[n["arketip"]])
+    s = SABLON.get(spec.get("sablon"))
+    if s is not None:
+        spec.pop("sablon")
+        for k in ("isik", "yigin", "patlat"):
+            if k in s:
+                spec.setdefault(k, s[k])
+    kl = spec.pop("klasor", None)
+    if kl:
+        spec.setdefault("kamera", "oto")
+        spec.setdefault("kaydet", f"{kl}/sahne.blend")
+        spec.setdefault("onizle", {"yol": f"{kl}/onizleme.png", "px": 384, "motor": (s or {}).get("motor", "eevee")})
+    t = spec.pop("turntable", None)
+    if t:
+        son = t.get("son", 48)
+        spec.setdefault("anim", [{"nesne": t["nesne"], "kanal": "rotation_euler", "kareler": [[1, [0, 0, 0]], [son, [0, 0, 360]]]}])
+        spec.setdefault("kare", [1, son])
+        if kl:
+            spec.setdefault("render", {"klasor": f"{kl}/kareler", "px": 256, "motor": "eevee", "adim": son // t.get("n", 4)})
     for n in spec.get("nesneler", []):
         for p in (n, *n.get("ekler", [])):
             b = p.get("boyut")
@@ -93,6 +137,21 @@ def duzelt(spec):
     if isinstance(spec.get("isik"), dict):
         spec["isik"] = spec["isik"].get("profil") or spec["isik"].get("ad")
     return spec
+
+
+def olcu_oturt(spec, bek):
+    """M5e: beklenen↔boyut ön denetimi (Blender'dan önce). Tek eksen ≤%50 sapma → boyut beklenene oturur; daha fazlası hata."""
+    h = []
+    for n in spec.get("nesneler", []):
+        b, e = n.get("boyut"), bek.get(n.get("ad"))
+        if not (e and isinstance(b, list) and len(b) == 3 and not n.get("ekler")):
+            continue
+        sap = [i for i in range(3) if abs(b[i] - e[i]) > 0.15 * e[i]]
+        if len(sap) == 1 and abs(b[sap[0]] - e[sap[0]]) <= 0.5 * e[sap[0]]:
+            n["boyut"][sap[0]] = e[sap[0]]
+        elif sap:
+            h.append(f"ölçü sapması {n['ad']}: beklenen {e}, boyut {b} (±%15)")
+    return h
 
 
 def _blender_ana():
@@ -111,6 +170,8 @@ def _blender_ana():
         return
     sc, ops = bpy.context.scene, bpy.ops
     kal = {} if os.environ.get("BLENDER_KALITE") == "0" else {"pah": []}  # BLENDER-3 eğitim varsayılanları (references/egitim.md)
+    kal5 = bool(kal) and os.environ.get("BLENDER_KALITE") != "1"  # BLENDER-5 K1–K3; "1" = 1.3.0 kolu
+    gecici = []  # yalnız render için (fon, kart): kaydet/glb/ozet dışı
     if not bpy.data.filepath:  # fabrika sahnesi: küp/ışık/kamera boşaltılır
         for o in list(bpy.data.objects):
             bpy.data.objects.remove(o)
@@ -118,6 +179,11 @@ def _blender_ana():
 
     def mat(m, ad):
         if isinstance(m, str):
+            if m not in mats and kal5 and m == "ahsap_koyu":  # K2: b4 g5 sap turuncu-bakır okunuyordu
+                mats[m] = malzemeler.kur(m)
+                for n in mats[m].node_tree.nodes:
+                    for e in getattr(getattr(n, "color_ramp", None), "elements", []):
+                        e.color = [c * 0.6 for c in e.color[:3]] + [1]
             return mats.setdefault(m, malzemeler.kur(m))
         mt = bpy.data.materials.new("MAT-" + ad.removeprefix("GEO-"))
         isik_kur.ayarla(isik_kur.principled(mt)[1], {"Base Color": (*m.get("renk", (0.8, 0.8, 0.8)), 1),
@@ -159,6 +225,19 @@ def _blender_ana():
             o.select_set(True)
             bpy.context.view_layer.objects.active = o
             ops.object.join()
+        ark = n.get("arketip") or next((a for a in ("fincan", "cezve") if kal5 and a in n["ad"].lower() and tur == ARKETIP[a]), None)
+        if kal5 and ark in ("fincan", "cezve"):  # K3: ağız oyuğu (üst kapak silinir, 3 mm içe cidar); dış kutu değişmez
+            import bmesh
+            bm = bmesh.new()
+            bm.from_mesh(o.data)
+            ust = max(v.co.z for v in bm.verts)
+            bmesh.ops.delete(bm, geom=[f for f in bm.faces if f.normal.z > 0.9 and f.calc_center_median().z > ust - 1e-5],
+                             context="FACES_ONLY")
+            bm.to_mesh(o.data)
+            bm.free()
+            s = o.modifiers.new("Cidar", "SOLIDIFY")
+            s.thickness, s.offset, s.use_even_offset = 0.003, -1, True
+            kal.setdefault("arketip", []).append(o.name)
         o.location = n.get("konum", (0, 0, 0))
         o.rotation_euler = [math.radians(d) for d in n.get("donus", (0, 0, 0))]
         if "malzeme" in n:
@@ -170,6 +249,23 @@ def _blender_ana():
             o.modifiers["Bevel"].harden_normals = True
             kal["pah"].append(o.name)
         yeni.append(o)
+
+    def dkutu(o):  # dünya dış kutusu
+        bpy.context.view_layer.update()
+        ks = [o.matrix_world @ Vector(k) for k in o.bound_box]
+        return Vector([min(k[i] for k in ks) for i in range(3)]), Vector([max(k[i] for k in ks) for i in range(3)])
+
+    for n, o in zip(spec.get("nesneler", []), yeni):  # M5a göreli yerleşim: model konum aritmetiği yapmaz
+        b = n.get("bitisik")
+        if b:
+            (tmn, tmx), (omn, omx) = dkutu(obj[b["hedef"]]), dkutu(o)
+            e, art = "XYZ".index(b["yon"][1]), b["yon"][0] == "+"
+            gom = 0 if e == 2 else 0.1 * (omx[e] - omn[e])  # yatay ek (sap) gövdeye biraz gömülür: koni/silindir yüzü kutudan içeride
+            for j in range(3):
+                o.location[j] += ((tmx[j] - gom - omn[j]) if art else (tmn[j] + gom - omx[j])) if j == e else \
+                    (tmn[j] + tmx[j] - omn[j] - omx[j]) / 2
+        elif kal5 and "konum" not in n and n["tur"] != "duzlem":  # zemine oturur (z=0)
+            o.location.z -= dkutu(o)[0].z
 
     if "yigin" in spec:
         e, imlec = "XYZ".index(spec["yigin"]), 0.0
@@ -256,6 +352,20 @@ def _blender_ana():
         ops.wm.save_as_mainfile(filepath=spec["kaydet"])
     if "glb" in spec:
         ops.export_scene.gltf(filepath=spec["glb"], export_format="GLB", export_apply=True, export_yup=True)
+    if kal5 and meshler and ("onizle" in spec or "render" in spec):  # kaydet/glb'den sonra: yalnız render görür
+        mn, mx = kutu()
+        m, d = (mn + mx) / 2, max(max(mx - mn) * 1.5, 1.0)  # d = isik_kur.kur uzaklığı
+        if not any(min(o.dimensions) <= 1e-4 for o in meshler):  # K1: b4 g2/g3 gri boşlukta gölgesiz yüzüyordu
+            derin = 2 * d + 0.6  # duvar ışıkların ardında
+            f = isik_kur.kivrimli_zemin(en=2 * derin, derin=derin, yuk=derin, r=0.4 * d)
+            yon = (sc.camera.location - m) if sc.camera else Vector((0.6, -1, 0))
+            f.name, f.location, f.rotation_euler = "_FON", (m.x, m.y, mn.z), (0, 0, math.atan2(yon.x, -yon.y))
+            gecici.append(f)
+            kal["fon"] = True
+        if spec.get("isik") == "metal" and not spec.get("hdri"):  # K2: metal yansıtacak parlak yüzey ister (b4 g5 düz sarı)
+            gecici += [isik_kur._gorunmez_duzlem(ad, 0.4 * d, 0.8 * d, isik_kur.kure(m, 0.6 * d, az, 10), m, 6.0)
+                       for ad, az in (("LGT-KartSol", -75), ("LGT-KartSag", 75))]
+            kal["softbox"] = 2
 
     def motor(ad, px, ornek=64):
         sc.render.resolution_x = sc.render.resolution_y = px
@@ -327,10 +437,10 @@ def _blender_ana():
                     "boyut": lambda: [round(x, 4) for x in o.dimensions],
                     "konum": lambda: [round(x, 4) for x in o.location],
                     "malzeme": lambda: [m.name for m in o.data.materials if m]}[a]()
-        sonuc["ozet"] = [{a: alan(o, a) for a in spec["ozet"]} for o in sc.objects if o.type == "MESH"]
+        sonuc["ozet"] = [{a: alan(o, a) for a in spec["ozet"]} for o in sc.objects if o.type == "MESH" and o not in gecici]
         diger = {}
         for o in sc.objects:
-            if o.type != "MESH":
+            if o.type != "MESH" and o not in gecici:
                 diger[o.type] = diger.get(o.type, 0) + 1
         sonuc["diger"] = diger
     if kal:
