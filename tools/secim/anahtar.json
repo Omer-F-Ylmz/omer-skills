@@ -15,5 +15,6 @@
   "fatura-kutusu": "fatura/invoice PDF, saat bazlı danışmanlık",
   "dok-pdf-uretici": "kaçın: fatura → invoice/fatura-kutusu",
   "commit-push-pr": "conventional commit + PR aç",
-  "dn-minimal-api-kurucu": "minimal API uç nokta (+EF Core)"
+  "dn-minimal-api-kurucu": "minimal API uç nokta (+EF Core)",
+  "opengrep-rule-generator": "özel statik analiz/SAST kuralı yaz (opengrep/semgrep)"
 }

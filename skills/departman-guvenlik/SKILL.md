@@ -65,5 +65,6 @@ ajan:sec-zero-trust-ag
 cso: Security audit: supported static findings; qualified profiles add
 doubt-driven-development: you want every assumption cross-examined before proceeding, when
 one-on-one: Run effective, recurring 1:1s that build trust and
+opengrep-rule-generator: özel statik analiz/SAST kuralı yaz (opengrep/semgrep)
 use-case-triage: Yeni veri işleme faaliyeti, ürün özelliği, tedarikçi, AI/model
 <!-- dizin:son -->
