@@ -26,6 +26,7 @@ for _g in GOREV:
 KARISIK = [g for k in zip_longest(*_dep.values()) for g in k if g]  # tavan/usd ile kesilen önek her departmandan örneklesin
 CIKTI = KOK / "docs" / "kutuphane" / "olcum"
 CALISMA = KOK / ".secim"  # gitignore dışı geçici: plugin + settings kopyası
+ETIKET = os.environ.get("SECIM_ETIKET", "")  # aynı gün ikinci düzenek koşusu (ör. -d5) önceki tsv'ye eklenmesin
 
 
 def kisa(a):
@@ -79,7 +80,7 @@ def cc(kol, tekrar, tavan, bas=1, usd=2.0):
     return yol
 
 
-SAYAC = CALISMA / "d4-usd.txt"  # d4 kümülatif tavan sayacı (tüm toplu çağrılar)
+SAYAC = CALISMA / "d5-usd.txt"  # kümülatif tavan sayacı (oturum başına yeni dosya; d4-usd.txt = d4 harcaması)
 TOPLU_ISTEM = ("Aşağıdaki görevlerin HİÇBİRİNİ YAPMA. Her biri için bu oturumda ilk çağıracağın, işe EN ÖZGÜ skill ya da alt ajanın adını seç. "
                "departman-* yönlendirici skill'leri ve genel ajanlar (general-purpose, Explore, Plan) cevap sayılmaz ama departman skill'ini ve "
                "gösterdiği dosyaları Skill/Read/Grep ile açıp bakabilirsin. Agent çağırma. Son yanıtın yalnız satır satır `Sxx: ad`.\n\n")
@@ -89,7 +90,7 @@ def toplu(kol, tekrar=1, tavan=10.0, cagri=3.0, gorev=GOREV, set_ad="toplu"):
     """d4 düzeneği: görevler tek çağrıda, sıralı tek süreç, boş cwd (taban wt'deki dizin.md'leri göremez).
     Sayaç + bir çağrının üst sınırı tavanı aşacaksa çağrı yapılmaz."""
     ek = (sonra_ek()[:-2] if kol == "sonra" else []) + ["--max-turns", "40", "--disallowedTools", "Bash,Write,Edit,NotebookEdit,WebFetch,WebSearch"]
-    yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-{set_ad}-{kol}.tsv"
+    yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-{set_ad}{ETIKET}-{kol}.tsv"
     if not yol.exists():
         yol.write_text("gorev\ttekrar\tdogru\tsecilen\n", encoding="utf-8")
     t0 = yol.read_text(encoding="utf-8").count("#OZET")  # tekrar no dosyadaki önceki koşulardan devam eder
@@ -119,7 +120,7 @@ def web(kol):
     adlar = [kisa(s) for s in init["skills"] if s.startswith("anthropic-skills:")]
     ins = (KOK / "dist" / "skill-secim-1" / ("claude-ai-instructions.md" if kol == "sonra" else "claude-ai-instructions-once.md")).read_text(encoding="utf-8")
     gorevler = [g for g in GOREV if g.get("web", True)]
-    dizin = (f"\nDepartman dizinleri (Grep ile ara): {KOK / 'skills'}/departman-*/dizin-web.md" if kol == "sonra" else "")
+    dizin = (f"\nDepartman skill'leri (SKILL.md sonunda Dizin bölümü; Grep/Read): {KOK / 'skills'}/departman-*/SKILL.md" if kol == "sonra" else "")  # d5: dizin gömülü
     istem = (f"Sen claude.ai'desin. Profil talimatın:\n{ins}\n\nYüklü skill'ler (yalnız ad):\n{' '.join(adlar)}{dizin}\n\n"
              "Her görev için kullanacağın TEK skill adını yaz; biçim: `Sxx: ad` satır satır, başka metin yok.\n\n"
              + "\n".join(f"{g['id']}: {g['istem']}" for g in gorevler))
@@ -133,7 +134,7 @@ def web(kol):
     o = kos(istem, ek=ek, butce=0.5)
     SAYAC.write_text(f"{harcanan + o['usd']:.4f}")
     cevap = dict(re.findall(r"(S\d\d)\s*:\s*`?([A-Za-z0-9:_-]+)", o.get("metin") or ""))
-    yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-web-{kol}.tsv"
+    yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-web{ETIKET}-{kol}.tsv"
     with yol.open("a", encoding="utf-8") as f:
         for g in gorevler:
             s = kisa(cevap.get(g["id"], ""))

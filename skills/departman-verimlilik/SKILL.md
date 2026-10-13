@@ -8,8 +8,6 @@ description: "Verimlilik müdürü: token/context tasarrufu, çıktı sıkışt�
 Katalog: `docs/departmanlar/verimlilik.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
-Skill dizini: bu klasörde `dizin.md` (Claude Code: alandaki TÜM kurulu skill'ler) ve `dizin-web.md` (claude.ai: yalnız yüklü olanlar) — ad — ne zaman. Adımdaki araç işe tam uymuyorsa ortamına uyan dizinde Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir. `ajan:` kayıtları alt ajandır: Claude Code'da Agent aracıyla (subagent_type = ad), claude.ai'de bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula.
-
 ## Adımlar
 1. **Komut çıktısı** — kabuk komutları `rtk` ile yoğunlaşır; sonuç kullanışsızsa `rtk proxy`.
 2. **Büyük içerik** — log/tarama önce `jev log|triage`; gerekirse `headroom` sıkıştırma.
@@ -20,3 +18,27 @@ Skill dizini: bu klasörde `dizin.md` (Claude Code: alandaki TÜM kurulu skill'l
 ## Kapılar
 - Env değerleri hiçbir komutla yazdırılmaz.
 - Ölçülmeden "tasarruf" iddiası yok (girdi/çıktı token sayıyla).
+
+<!-- dizin:bas -->
+## Dizin
+Adımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` = alt ajan, claude.ai'de bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula). departman-* cevap değil. Adı işini söyleyen skill'ler burada yok: listedeki adla çağır.
+### claude.ai + Claude Code
+ajan:vid-ffmpeg-donusturucu
+ajan:vrm-alt-ajan-dagitim
+ajan:vrm-baglam-butcesi: sessions feel bloated
+ajan:vrm-bilgi-tabani-hazirla: the same facts are re-explained often
+ajan:vrm-cikti-sikistirma: tool output is large
+ajan:vrm-hafiza-arama: asked what was done before
+ajan:vrm-log-ozetleyici: a log is too long to read
+ajan:vrm-maliyet-denetci: bills or limits rise
+ajan:vrm-oturum-kaydi: Saves a short session handoff with state, decisions
+### yalnız Claude Code
+aks-gpu-inference: : setup (airunway-aks-setup), non-GPU incidents (aks-troubleshooting), standalone VM
+behavioral-consistency: Ensuring the AI behaves predictably across sessions, edge
+empathy-map: sharing user understanding quickly
+freeze: Restrict file edits to a specific directory for
+hicks-law: a screen offers too many options at once
+millers-law: grouping fields, menu items, or steps
+omni-resilience: Monitor provider health, circuit-breaker states, p50/p95/p99 latency metrics
+tone-calibration: Adjusting formality, warmth, confidence, and style per context
+<!-- dizin:son -->

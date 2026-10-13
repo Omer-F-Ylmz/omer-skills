@@ -1,10 +1,11 @@
-"""SKILL-SECIM-1 (a): hiyerarşik yönlendirme — kurulu TÜM skill'leri 12 departmana dağıtıp her departman-* klasörüne
-dizin.md (ad — ne zaman, ≤80 kr) yazar; SKILL.md'ye "dizinde Grep, adla çağır" satırı eklenir. Dizin oturuma yüklenmez
-(Grep ile aranır), listeleme bütçesi değişmez. Yeni skill eklendikçe yeniden koş.
+"""SKILL-SECIM-1 (a): katmanlı tembel dizin — üst katman oturum listesi/Instructions'taki departman-* satırları; alt katman
+yalnız açılan departmanın SKILL.md sonuna gömülü "## Dizin" (d5: ayrı dosya okuma turu yok). Satır `ad: ≤8 kelime`, yalnız
+adı işini söylemeyen (opak), anahtar.json'da notu olan ya da oturum listesinde görünmeyen skill'ler; listeleme bütçesi değişmez.
+Yeni skill eklendikçe yeniden koş.
   python tools/secim/dizin_uret.py <init.json>
-    → skills/departman-*/dizin.md (CC: canlı disk ~/.claude/skills + plugin'ler, kısa ad başına tek kayıt)
-    → skills/departman-*/dizin-web.md (claude.ai: init'teki anthropic-skills: adları)
-    → dist/skill-secim-1/departman-*.zip (iki dizin birlikte; claude.ai'ye yüklenir, CC senkron kopyadan görür)"""
+    → skills/departman-*/SKILL.md dizin bölümü: "claude.ai + Claude Code" (init'teki anthropic-skills: + KALİTE-3 ajanları) ve "yalnız Claude Code"
+    → dist/skill-secim-1/kendi/departman-*.zip (claude.ai'ye yüklenir, CC senkron kopyadan görür)"""
+import json
 import re
 import sys
 from pathlib import Path
@@ -13,10 +14,6 @@ KOK = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(KOK / "tools" / "butce"))
 from envanter import on_bilgi  # noqa: E402
 
-SATIR = ("Skill dizini: bu klasörde `dizin.md` (Claude Code: alandaki TÜM kurulu skill'ler) ve `dizin-web.md` (claude.ai: yalnız yüklü olanlar) "
-         "— ad — ne zaman. Adımdaki araç işe tam uymuyorsa ortamına uyan dizinde Grep ile işin anahtar kelimesini ara (Read etme), "
-         "bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir. `ajan:` kayıtları alt ajandır: "
-         "Claude Code'da Agent aracıyla (subagent_type = ad), claude.ai'de bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula.")
 
 # ponytail: anahtar kelime puanı (ad ×3 + açıklama); yanlış dağılım görülürse kelime ekle, sınıflayıcı model gerekmez
 ALAN = {
@@ -75,10 +72,42 @@ def ne_zaman(acik, n=80):
     return s if len(s) <= n else s[: n - 1].rstrip() + "…"
 
 
-def dizin_md(dep, kayitlar):
-    sat = [f"# departman-{dep} — skill dizini ({len(kayitlar)} skill; Grep ile ara, adı Skill aracıyla çağır)", ""]
-    sat += [f"- {ad} — {nz}" if nz else f"- {ad}" for ad, nz in sorted(kayitlar)]
-    return "\n".join(sat) + "\n"
+ANAHTAR = {k: v for k, v in json.loads((Path(__file__).with_name("anahtar.json")).read_text(encoding="utf-8")).items() if k != "_not"}
+BAS, SON = "<!-- dizin:bas -->", "<!-- dizin:son -->"
+GOVDE = ("## Dizin\nAdımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` = alt ajan, claude.ai'de bu klasördeki "
+         "`ajanlar/<ad>.md` talimatını kendin uygula). departman-* cevap değil. Adı işini söyleyen skill'ler burada yok: listedeki adla çağır.")
+
+
+def opak(ad, acik=""):
+    """Adının hiçbir kelimesi departman anahtarlarına uymuyor (d3 ad-onerileri ölçütü) ve ≥4 harfli hiçbir kelimesi kendi
+    açıklamasında geçmiyor → yalnız adla seçilemez. ponytail: kelime eşleşmesi; ürün adı (defuddle) açık sayılır, d4 tabanı bunları zaten buldu."""
+    ws = kelimeler(ad.split(":")[-1])
+    aw = set(kelimeler(acik))
+    return not any(w in k or any(len(x) >= 5 and w.startswith(x) for x in k) for w in ws for k in KELIME.values())         and not any(len(w) >= 4 and w in aw for w in ws)
+
+
+def satir(ad, acik):
+    """ad: ≤8 kelime ne zaman (anahtar.json görev ifadesi/kaçın notu önce)."""
+    k = ad.split(":")[-1]
+    nz = "" if not (opak(ad, acik) or k in ANAHTAR) else ANAHTAR.get(k) or " ".join(ne_zaman(acik, 400).rstrip("…").split()[:8]).rstrip(".,;:")
+    k = "ajan:" + k if ad.startswith("ajan:") else k
+    return f"{k}: {nz}" if nz else k
+
+
+def bolum(web, cc):
+    """web/cc: [(ad, açıklama)] → SKILL.md sonuna gömülü dizin (sıralı, tarihsiz: önbellek dostu sabit metin)."""
+    s = [BAS, GOVDE]
+    if web:
+        s += ["### claude.ai + Claude Code", *sorted(satir(a, x) for a, x in web)]
+    if cc:
+        s += ["### yalnız Claude Code", *sorted(satir(a, x) for a, x in cc)]
+    return "\n".join(s + [SON])
+
+
+def sec(kayit):
+    """Dizine girenler: opak ad ya da anahtar.json'daki ad (oturum dışı üyeler SKILL.md 'Profil dışı' bölümünde adla var).
+    Ajanlar yalnız web bölümünde (CC'de Agent aracı açıklamalı listeler)."""
+    return [(a, x) for a, x in kayit if opak(a, x) or a.split(":")[-1] in ANAHTAR]
 
 
 def tekille(skiller, oturum=()):
@@ -99,7 +128,7 @@ def dagit(skiller):
             continue
         md = KALITE3.get(ad.split(":")[-1]) if ad.startswith("ajan:") else None
         dep = md.parent.name if md else ""
-        out[dep if dep in ALAN else departman(ad, acik)].append((ad, ne_zaman(acik)))
+        out[dep if dep in ALAN else departman(ad, acik)].append((ad, acik))
     return out
 
 
@@ -137,17 +166,19 @@ def claude_ai_skiller(cc, oturum):
     return {a: yerel.get(a, "") for a in adlar}
 
 
-def yaz(kok, dagilim, dosya):
-    for dep, kay in dagilim.items():
+def yaz(kok, web, cc):
+    """web/cc: {departman: [(ad, açıklama)]} (seçilmiş) → SKILL.md sonundaki dizin bölümü; d4'ün ayrı dizin dosyaları silinir (okuma turu yok)."""
+    for dep in ALAN:
         d = kok / "skills" / f"departman-{dep}"
-        (d / dosya).write_bytes(dizin_md(dep, kay).encode("utf-8"))
-        for ad, _ in kay:  # KALİTE-3 ajan tanımı skill klasörüne (claude.ai zip'i + CC senkron kopyası)
+        for ad, _ in web.get(dep, []):  # KALİTE-3 ajan tanımı skill klasörüne (claude.ai zip'i + CC senkron kopyası)
             if ad.startswith("ajan:") and ad[5:] in KALITE3:
                 (d / "ajanlar").mkdir(exist_ok=True)
                 (d / "ajanlar" / f"{ad[5:]}.md").write_bytes(KALITE3[ad[5:]].read_bytes())
-        g = re.sub(r"\nSkill dizini:[^\n]*\n\n(## Adımlar)", r"\n\1", (d / "SKILL.md").read_text(encoding="utf-8"))
-        if SATIR not in g:
-            (d / "SKILL.md").write_bytes(g.replace("\n## Adımlar", f"\n{SATIR}\n\n## Adımlar", 1).encode("utf-8"))
+        for eski in ("dizin.md", "dizin-web.md"):
+            (d / eski).unlink(missing_ok=True)
+        g = re.sub(r"\nSkill dizini:[^\n]*\n", "", (d / "SKILL.md").read_text(encoding="utf-8"))
+        g = re.sub(rf"\n*{BAS}.*?{SON}\n?", "\n", g, flags=re.S).rstrip("\n")
+        (d / "SKILL.md").write_bytes(f"{g}\n\n{bolum(web.get(dep), cc.get(dep))}\n".encode("utf-8"))
 
 
 def zipla(kok):
@@ -169,9 +200,10 @@ if __name__ == "__main__":
     init = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     oturum = set(init["skills"])
     cc = cc_skiller()
-    for dosya, sk in (("dizin.md", {**tekille(cc, oturum), **cc_ajanlar(init["agents"])}),
-                      ("dizin-web.md", {**claude_ai_skiller(cc, oturum), **claude_ai_ajanlar()})):
-        dg = dagit(sk)
-        yaz(KOK, dg, dosya)
-        print(dosya, " ".join(f"{d}={len(k)}" for d, k in dg.items()), "toplam", sum(map(len, dg.values())))
+    w = dagit({**claude_ai_skiller(cc, oturum), **claude_ai_ajanlar()})
+    w = {d: [(a, x) for a, x in k if a.startswith("ajan:")] + sec([(a, x) for a, x in k if not a.startswith("ajan:")]) for d, k in w.items()}
+    wad = {a.split(":")[-1] for k in w.values() for a, _ in k}
+    c = {d: [(a, x) for a, x in sec(k) if a.split(":")[-1] not in wad] for d, k in dagit(tekille(cc, oturum)).items()}
+    yaz(KOK, w, c)
+    print(" ".join(f"{d}={len(w[d])}+{len(c[d])}" for d in ALAN))
     print(zipla(KOK))

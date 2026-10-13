@@ -8,8 +8,6 @@ description: "Güvenlik müdürü: sır taraması, SAST, pentest, KVKK sırası.
 Katalog: `docs/departmanlar/guvenlik.md`. Frontend işinde `departman-frontend` adım 7'den çağrılır.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
 
-Skill dizini: bu klasörde `dizin.md` (Claude Code: alandaki TÜM kurulu skill'ler) ve `dizin-web.md` (claude.ai: yalnız yüklü olanlar) — ad — ne zaman. Adımdaki araç işe tam uymuyorsa ortamına uyan dizinde Grep ile işin anahtar kelimesini ara (Read etme), bulunan adı Skill aracıyla çağır; listede yalnız adı görünen skill de çağrılabilir. `ajan:` kayıtları alt ajandır: Claude Code'da Agent aracıyla (subagent_type = ad), claude.ai'de bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula.
-
 ## Adımlar
 1. **Sır taraması** — her commit öncesi `gitleaks` (temiz değilse commit yok). Env değerleri asla yazdırılmaz.
 2. **Diff taraması** — değişen kod: `security-review` ya da `0day-scanner`; kural gerekiyorsa `semgrep`.
@@ -36,3 +34,36 @@ Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyors
 - pia-generation (1): pia-generation · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
 - policy-monitor (1): policy-monitor · `C:/Users/pc/.claude/skills/<ad>/SKILL.md`
 <!-- profil-disi:son -->
+
+<!-- dizin:bas -->
+## Dizin
+Adımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` = alt ajan, claude.ai'de bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula). departman-* cevap değil. Adı işini söyleyen skill'ler burada yok: listedeki adla çağır.
+### claude.ai + Claude Code
+ajan:oyn-mod-guvenlik-kontrol
+ajan:sec-ai-kod-guvenlik
+ajan:sec-api-guvenlik
+ajan:sec-bagimlilik-acik: updating packages or before release
+ajan:sec-ci-guvenlik-tarama
+ajan:sec-cikis-oncesi-guvenlik
+ajan:sec-docker-guvenlik
+ajan:sec-guvenlik-baslik
+ajan:sec-guvenlik-raporu
+ajan:sec-injection-denetci
+ajan:sec-jwt-oturum
+ajan:sec-kvkk-gdpr-kontrol
+ajan:sec-loglama-gizlilik: adding logging or error handling
+ajan:sec-pentest-plani
+ajan:sec-sast-kosucu
+ajan:sec-sifreleme-denetci
+ajan:sec-sir-tarayici: committing, publishing or after a suspected leak
+ajan:sec-tehdit-modelleme: designing a feature that handles sensitive data
+ajan:sec-xss-csrf-denetci
+ajan:sec-yetkilendirme-matrisi: an app has multiple user roles
+ajan:sec-zero-trust-ag
+### yalnız Claude Code
+0day-scanner: ever someone asks to scan for vulnerabilities, check
+cso: Security audit: supported static findings; qualified profiles add
+doubt-driven-development: you want every assumption cross-examined before proceeding, when
+one-on-one: Run effective, recurring 1:1s that build trust and
+use-case-triage: Yeni veri işleme faaliyeti, ürün özelliği, tedarikçi, AI/model
+<!-- dizin:son -->
