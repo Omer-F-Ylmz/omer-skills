@@ -1156,3 +1156,13 @@ C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-saat-senkron
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-sertifika-yenileme	ana	1	sonnet	10	0.3946	102268	claude-sonnet-5-5	185.4		8.5	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-ssh-sertlestirme	ajan	1	sonnet	10	0.3444	437526	claude-sonnet-5-5	365.9	0.1331	9.4	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-ssh-sertlestirme	ana	1	sonnet	10	0.3917	100856	claude-sonnet-5-5	307.9		6.3	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\frontend	fe-mikro-etkilesim	ajan	0	haiku	8	0.5705	496684	claude-haiku-5-5	57.4	0.0905	8.1	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\oyun-mod	oyn-seviye-tasarim	ajan	0	sonnet	2	0.4028	503363	claude-sonnet-5-5	57.6	0.1433	9.0	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\otomasyon	otm-zamanlanmis-gorev	ajan	0	haiku	10	0.4901	414668	claude-haiku-5-5	78.8	0.0065	9.4	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\frontend	fe-mikro-etkilesim	ana	0	haiku	10	0.1043	108140	claude-haiku-5-5	27.1		9.7	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\otomasyon	otm-zamanlanmis-gorev	ana	0	haiku	8	0.1047	108284	claude-haiku-5-5	28.0		9.7	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\surec-ajan-arac	ajn-slash-komut-yazar	ajan	0	haiku	8	0.5507	732706	claude-haiku-5-5	93.9	0.0878	9.4	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\frontend	fe-form-tasarimci	ajan	0	sonnet	10	0.6	666397	claude-sonnet-5-5	79.5	0.3671	9.7	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\surec-ajan-arac	ajn-slash-komut-yazar	ana	0	haiku	6	0.1023	107321	claude-haiku-5-5	19.5		8.5	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\oyun-mod	oyn-oyun-envanter	ajan	0	sonnet	10	0.3541	456348	claude-sonnet-5-5	53.0	0.1279	9.8	1
+C:\Projeler\omer-skills-wt\kapi25\ajanlar\kalite3\surec-ajan-arac	ajn-skill-yazar	ajan	0	sonnet	10	0.3434	446822	claude-sonnet-5-5	54.6	0.1249	9.0	1

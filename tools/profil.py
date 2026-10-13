@@ -189,10 +189,12 @@ def router_kokleri(home):
 
 
 def zip_routerlar(kaynak, dist):
+    sys.path.insert(0, str(KOK / "tools" / "secim"))
+    from dizin_uret import dosyalar  # KAPI-25: kabulsüz ajan zip'e girmez
     dist.mkdir(parents=True, exist_ok=True)
     for d in sorted(kaynak.glob("departman-*")):
         with zipfile.ZipFile(dist / f"{d.name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
-            for f in sorted(x for x in d.rglob("*") if x.is_file()):
+            for f in dosyalar(d):
                 z.write(f, f"{d.name}/{f.relative_to(d).as_posix()}")
 
 
