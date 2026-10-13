@@ -141,9 +141,12 @@ def main():
     print(f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items()))
     for t, v in gruplar.items():
         print(f"## {GRUP[t]} ({len(v)})" + (f" · çağrı: {CAGRI[t].format(ad='<ad>')}" if t in CAGRI else ""))
+        satir = {}  # aynı açıklamalı kayıtlar tek satır: tekrar satırı okuyucuda gizlenmesin
         for o in v[:ILK if uzun else None]:
             c = "" if o["cagri"] == CAGRI.get(t, "").format(ad=o["ad"]) else f" · {o['cagri'][:60]}"
-            print(f"{o['ad']} · {(o['is'] or o['metin'])[:110]}{c}")
+            satir.setdefault(f"{(o['is'] or o['metin'])[:110]}{c}", []).append(o["ad"])
+        for m, adlar in satir.items():
+            print(f"{', '.join(adlar)} · {m}")
     if uzun:
         print(f"… grup başına ilk {ILK}; hepsi için --tam")
 
