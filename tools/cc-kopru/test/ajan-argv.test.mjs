@@ -22,7 +22,8 @@ import fs from "node:fs";
 let g = ""; process.stdin.setEncoding("utf8");
 process.stdin.on("data", (d) => { g += d; });
 process.stdin.on("end", () => {
-  fs.writeFileSync(${JSON.stringify(YAKALA)}, JSON.stringify({ argv: process.argv.slice(2), stdin: g }));
+  fs.writeFileSync(${JSON.stringify(YAKALA)}, JSON.stringify({ argv: process.argv.slice(2), stdin: g,
+    effortEnv: "CLAUDE_CODE_EFFORT_LEVEL" in process.env }));
   process.stdout.write(JSON.stringify({ type: "result", subtype: "success", is_error: false,
     num_turns: 1, session_id: "sahte-1", result: "OK", total_cost_usd: 0,
     usage: { input_tokens: 1, output_tokens: 1 }, modelUsage: { sonnet: {} } }));
@@ -123,4 +124,44 @@ test("CC_PROFIL_ZORLA=tam ajan argv'sinden ttl'yi kaldirir", async () => {
     const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
     assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet"]);
   } finally { delete process.env.CC_PROFIL_ZORLA; }
+});
+
+// --- KÖPRÜ-EFFORT-1: oturuma özel --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezdiği için alt süreçten çıkar ---
+
+test("effort yok: argv eskisiyle ayni, CLAUDE_CODE_EFFORT_LEVEL dokunulmaz", async () => {
+  process.env.CLAUDE_CODE_EFFORT_LEVEL = "low";
+  try {
+    fs.rmSync(YAKALA, { force: true });
+    await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet" });
+    const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+    assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet", ...TTL]);
+    assert.equal(y.effortEnv, true);
+  } finally { delete process.env.CLAUDE_CODE_EFFORT_LEVEL; }
+});
+
+test("effort=xhigh argv'ye --effort xhigh ekler, ttl sonda kalir", async () => {
+  fs.rmSync(YAKALA, { force: true });
+  await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", effort: "xhigh" });
+  const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+  assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet", "--effort", "xhigh", ...TTL]);
+});
+
+test("gecersiz effort reddedilir, claude cagrilmaz", async () => {
+  fs.rmSync(YAKALA, { force: true });
+  const r = await ajanCagir({ gorev: "merhaba", cwd: PROJE, effort: "--dangerously-skip-permissions" });
+  assert.ok(r.isError || r.code, "red beklenir: " + JSON.stringify(r));
+  assert.ok(!fs.existsSync(YAKALA), "claude cagrilmamali");
+});
+
+test("effort verilince CLAUDE_CODE_EFFORT_LEVEL alt surecten cikar (deger yazilmaz)", async () => {
+  process.env.CLAUDE_CODE_EFFORT_LEVEL = "gizli-deger-low";
+  try {
+    fs.rmSync(YAKALA, { force: true });
+    const r = await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", effort: "high" });
+    const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+    assert.equal(y.effortEnv, false);
+    const m = JSON.stringify(r);
+    assert.match(m, /CLAUDE_CODE_EFFORT_LEVEL vardı, çıkarıldı/);
+    assert.ok(!m.includes("gizli-deger-low"), "deger yazilmamali");
+  } finally { delete process.env.CLAUDE_CODE_EFFORT_LEVEL; }
 });

@@ -156,6 +156,7 @@ srv.registerTool("ajan", {
     hafif: z.boolean().default(false).describe(
       "Skill/slash komut yüklemesini ve MCP sunucularını kapatır; hook'lar ve CLAUDE.md "
       + "açık kalır. Bağlam pahalı, iş basitse aç."),
+    effort: z.enum(["low", "medium", "high", "xhigh", "max"]).optional().describe("Yalnız bu oturumun effort'u (--effort)"),
   },
 }, (a) => (async () => {
   // KÖPRÜ-HIZ: ajan tek kuyruğa (sirala) GİRMEZ — 60 dk'lık oturum durum/komut/oku ve diğer
@@ -181,6 +182,7 @@ srv.registerTool("ajan", {
   const argv = ["-p", "--output-format", "json", "--model", model];
   if (ajanAdi) argv.push("--agent", ajanAdi);
   if (devamId) argv.push("--resume", devamId);
+  if (a.effort) argv.push("--effort", a.effort);   // zod enum: serbest metin yok
   // hafif: yalnız `claude --help`te doğrulanmış bayraklar (11i devam K1). Uydurma bayrak yok.
   // --disable-slash-commands "Disable all skills" · --strict-mcp-config + boş --mcp-config
   // = hiçbir MCP sunucusu. Hook'lar ve CLAUDE.md etkilenmez.
@@ -205,11 +207,17 @@ srv.registerTool("ajan", {
   // OMNIROUTE-1: omniroute.ac varken (api-kredi yoksa) yerel OmniRoute combo'su; haftalık limitte bayrak kendiliğinden açılır.
   const krediBayrak = AYAR.apiKrediBayrak || "C:/Projeler/omer-skills/.kos/kopru/api-kredi.ac";
   const omniBayrak = AYAR.omniBayrak || OMNI_BAYRAK;
+  let effortNot = "";
   const kos1 = (omni) => new Promise((coz) => {
     const taban = AYAR.ajanJevAnahtari ? cocukOrtam("jev", AYAR) : process.env;
     const envOku = (ad) => process.env[ad] || kullaniciEnv(ad);
     const r = ajanOrtami(taban, { apiKredi: fs.existsSync(krediBayrak), omni, oku: envOku });
     if (r.sir) sirEkle(r.sir);
+    // KÖPRÜ-EFFORT-1: CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (r.env process.env olabilir: kopya)
+    if (a.effort && "CLAUDE_CODE_EFFORT_LEVEL" in r.env) {
+      r.env = { ...r.env }; delete r.env.CLAUDE_CODE_EFFORT_LEVEL;
+      effortNot = " · CLAUDE_CODE_EFFORT_LEVEL vardı, çıkarıldı";
+    }
     // --model tam ad (claude-opus-*) da olabilir; ANTHROPIC_DEFAULT_* yalnız takma adları eşler → combo'ya çevir
     const av = r.env.KOPRU_OMNIROUTE ? argv.map((x, i) => (argv[i - 1] === "--model" ? OMNI_COMBO : x)) : argv;
     const ist = r.env.KOPRU_OMNIROUTE ? `${OMNI_ISTEM}\n\n${gorev}` : gorev;
@@ -244,7 +252,7 @@ srv.registerTool("ajan", {
     `cache okuma %${girdi ? Math.round((okunan / girdi) * 100) : 0}`,
     `$${(j.total_cost_usd || 0).toFixed(4)}`,
     `${j.num_turns} tur${j.num_turns > a.max_turns ? " (bütçe aşıldı)" : ""}`,
-  ].join(" · ");
+  ].join(" · ") + (a.effort ? ` · effort ${a.effort}` : "") + effortNot;
   const govde = await ciktiHazirla(redakte(j.result || ""), AYAR.ciktiTavan ?? CIKTI_TAVAN);
   sonAjan = { model: Object.keys(j.modelUsage || {})[0] || model, girdi, okunan };
   const not = await gozle("cc-kopru:ajan", { gorev: a.gorev, model, cwd: proje },
