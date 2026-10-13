@@ -1,0 +1,19 @@
+{
+ "no": 2,
+ "kol": "A",
+ "rc": 0,
+ "araclar": [
+  "Skill:anthropic-skills:departman-test-qa",
+  "Grep",
+  "Grep",
+  "Grep",
+  "Grep",
+  "Grep",
+  "Read:C:\\Projeler\\omer-skills-wt\\token8\\tools\\secim\\dizin_uret.py"
+ ],
+ "ctx_payi": "0/6",
+ "arac_sonuc_kr": 7459,
+ "num_turns": 9,
+ "is_error": false,
+ "result": "`tools/secim/dizin_uret.py` içinde `dosyalar()` adında bir fonksiyon yok. Dosyadaki fonksiyonlar `kelimeler … yaz, zipla`. Kabulsüz ajan zip'e `zipla()` içinde, 197. satırdaki süzgeçle girmiyor:\n\n```python\nif f.is_file() and (f.parent.name != \"ajanlar\" or f.stem in KALITE3 or d.name == \"departman-diger\"):\n```\n\nBu yüzden testi `zipla()` üzerine kurdum. Kastettiğin başka bir dosya ya da dal varsa söyle, ona göre uyarlarım.\n\n**Test yaklaşımı:** `tmp_path` üzerinde birim testi yazılır. Gerçek `skills/` ağacına dokunulmaz. Kabul listesi `KALITE3`, var olan `test_dizin_skill_md_sonuna_gomulur_tek_kalir` testindeki gibi `monkeypatch` ile sabitlenir. Sonra üretilen zip'in içindeki adlar okunur ve kontrol edilir. Kod zaten var olduğu için kırmızıyı mutasyonla görürüz: süzgeçten `f.stem in KALITE3` koşulu silinince test kırmızıya düşmeli. Bu, departman-test-qa kapısının istediği şey. `departman-diger` istisnası da bilerek ayrı bir kontrolle ölçülüyor, böylece istisna yanlışlıkla genişlerse test bunu da yakalar.\n\n**Önerilen test** (`tools/tests/test_secim.py` sonuna eklenecek, yalnız öneri olarak):\n\n```python\ndef test_zip_kabulsuz_ajani_almaz_diger_istisna(tmp_path, monkeypatch):\n    for dep in (\"belge\", \"diger\"):\n        a = tmp_path / \"skills\" / f\"departman-{dep}\" / \"ajanlar\"\n        a.mkdir(parents=True)\n        (a.parent / \"SKILL.md\").write_text(\"x\", encoding=\"utf-8\")\n        (a / \"kabullu.md\").write_text(\"k\", encoding=\"utf-8\")\n        (a / \"kabulsuz.md\").write_text(\"r\", encoding=\"utf-8\")\n    monkeypatch.setattr(dizin_uret, \"KALITE3\", {\"kabullu\": tmp_path / \"kabullu.md\"})\n    cikti = dizin_uret.zipla(tmp_path)\n    with zipfile.ZipFile(cikti / \"departman-belge.zip\") as z:\n        assert set(z.namelist()) == {\"departman-belge/SKILL.md\", \"departman-belge/ajanlar/kabullu.md\"}\n    with zipfile.ZipFile(cikti / \"departman-diger.zip\") as z:\n        assert \"departman-diger/ajanlar/kabulsuz.md\" in z.namelist()  # diger bilerek hepsini taşır\n```\n\n- Dosyanın başına `import zipfile` eklenmeli.\n- `namelist()` sonucunu kümeyle karşılaştırmak, kabulsüz dosyanın yokluğunu ve fazladan bir dosya girmediğini aynı anda doğruluyor.\n\nHiçbir şey yazmadım ve koşturmadım. Mutasyonla kırmızının gerçekten göründüğü, test eklendiğinde doğrulanmalı."
+}

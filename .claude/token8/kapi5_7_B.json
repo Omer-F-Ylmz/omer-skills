@@ -1,0 +1,14 @@
+{
+ "no": 7,
+ "kol": "B",
+ "rc": 0,
+ "araclar": [
+  "Bash",
+  "Bash"
+ ],
+ "ctx_payi": "0/2",
+ "arac_sonuc_kr": 971,
+ "num_turns": 3,
+ "is_error": false,
+ "result": "Son 300 commit, konu satırının ön ekine göre gruplandı:\n\n| Aile | Commit |\n|---|---|\n| RUFLO | 44 |\n| BİRLEŞTİR | 39 |\n| FABLE | 23 |\n| BLENDER | 22 |\n| KALİTE | 19 |\n| IG | 19 |\n| MCP | 18 |\n| VİDEO | 17 |\n| TASARIM | 15 |\n| SKILL | 13 |\n| TOKEN | 12 |\n| OMNIROUTE | 11 |\n| ANİMASYON | 11 |\n| ENVANTER | 10 |\n| JEV | 9 |\n| ROUTER | 5 |\n| LAYA | 5 |\n| KÖPRÜ | 1 |\n| KAYNAK | 1 |\n| AWESOME | 1 |\n| Revert | 3 |\n| Merge / `kol/...` | 2 |\n\nToplam 300 ediyor. 3 revert'in ikisi TOKEN-8'in, biri RUFLO-1'in. Bunlar aileye katılırsa TOKEN 14, RUFLO 45 olur. Kalan iki commit `Merge branch 'main' into kol/awesome` ile `kol/birlestir3` birleştirmesi.\n\nGruplama yalnız konunun ilk büyük harfli kelimesine bakıyor. Konunun içinde adı geçen aileler sayılmadı. Örneğin BİRLEŞTİR commit'leri TOKEN, KAPI gibi başka dalları birleştiriyor ama hepsi BİRLEŞTİR'e yazıldı."
+}

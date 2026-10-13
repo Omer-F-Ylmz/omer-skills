@@ -1,0 +1,22 @@
+{
+ "no": 8,
+ "kol": "A",
+ "rc": 0,
+ "araclar": [
+  "Bash",
+  "Glob",
+  "Glob",
+  "Bash",
+  "Bash",
+  "Bash",
+  "Bash",
+  "Write:C:\\Users\\pc\\AppData\\Local\\Temp\\graf_derece.py",
+  "Bash",
+  "Bash"
+ ],
+ "ctx_payi": "0/9",
+ "arac_sonuc_kr": 6834,
+ "num_turns": 11,
+ "is_error": false,
+ "result": "`graph.json`'daki en çok bağlantılı 10 düğüm aşağıda. Bağlantı sayısı, düğüme değen kenar sayısı. Graf yönsüz; toplam ~376.741 kenar ve kenarı olan 365.276 düğüm var.\n\n1. `json` — 1417\n2. `sys` — 934\n3. `pathlib` — 736\n4. `re` — 558\n5. `argparse` — 498\n6. `subprocess` — 418\n7. `os` — 392\n8. `json()` (`mcp/jev/test/jev.test.ts`) — 336\n9. `time.md` (`.claude/b2-olcum/.claude/skills/astropy/references/time.md`) — 301\n10. `REFERANS.md` (`.claude/b2-aile/.claude/skills/davila7-development-paket-1/skills/cloudflare-deploy/REFERANS.md`) — 291\n\n- **Hangi dosya:** Worktree'de (`token8`) `graphify-out/` yok. Sayımı ana repodaki `C:/Projeler/omer-skills/graphify-out/graph.json` üzerinden yaptım (349 MB, 13 Eki 15:37). Graf bu tarihten sonra güncellenmedi, sonraki commit'ler sayıma girmedi.\n- **İlk 7 sıra:** Bunlar Python standart kütüphanesinin import düğümleri. Graf `.claude/b2-*` altındaki kopya skill klasörlerini de içeriyor, 9. ve 10. sıra oradan geliyor. Proje kodunun merkez düğümlerini görmek için stdlib ve `.claude/b2-*` dışarıda bırakılarak sayım yeniden yapılabilir.\n- **Kontrol edilmeyen:** Dosyayı `json` ile yüklemek yerine regex ile taradım, çünkü boşta 5,5 GB RAM vardı. Tırnak işareti içeren düğüm kimlikleri sayılmadı; bu yüzden sayılar yaklaşık. İlk 10 sırayı değiştirme ihtimali düşük ama doğrulamadım."
+}

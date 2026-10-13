@@ -1,0 +1,13 @@
+{
+ "no": 7,
+ "kol": "A",
+ "rc": 0,
+ "araclar": [
+  "Bash"
+ ],
+ "ctx_payi": "0/1",
+ "arac_sonuc_kr": 328,
+ "num_turns": 2,
+ "is_error": false,
+ "result": "Son 300 commit'te 23 aile var. En çok commit alan RUFLO (44), ardından BİRLEŞTİR (39) ve BLENDER (22) geliyor.\n\n| Aile | Commit |\n|---|---|\n| RUFLO | 44 |\n| BİRLEŞTİR | 39 |\n| BLENDER | 22 |\n| IG | 19 |\n| KALİTE | 19 |\n| MCP-HAFIF | 18 |\n| VİDEO | 17 |\n| TASARIM | 15 |\n| TOKEN | 12 |\n| OMNIROUTE | 11 |\n| SKILL-SECIM | 11 |\n| ANİMASYON | 11 |\n| ENVANTER | 10 |\n| FABLE-AJAN | 10 |\n| JEV | 9 |\n| FABLE | 9 |\n| LAYA | 5 |\n| ROUTER | 5 |\n| FABLE-VIDEO | 4 |\n| SKILL-BUTCE | 2 |\n| KAYNAK | 1 |\n| AWESOME | 1 |\n| (ailesiz) | 6 |\n| **Toplam** | **300** |\n\nAile, commit başlığının başındaki büyük harfli önek. \"TOKEN-8\" gibi dalga numaraları atıldı, yani TOKEN tüm TOKEN-n dalgalarını içeriyor.\n\n- **İki parçalı önekler:** FABLE-AJAN ve FABLE-VIDEO, FABLE'dan ayrı sayıldı. Birleştirilirse FABLE toplam 23 olur.\n- **Ailesiz commit'ler:** 6 commit'in başlığında aile öneki yok. İçeriklerine bakmadım.\n- **Kapsam:** Sayım `kol/token8` dalının geçmişinden yapıldı, `main` başka sayılar verebilir."
+}
