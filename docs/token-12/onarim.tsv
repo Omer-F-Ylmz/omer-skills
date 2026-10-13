@@ -1,0 +1,3 @@
+ad	eski	yeni
+ara-arac-degerlendirme	Evaluates a new tool or MCP against needs, cost, safety and alternatives	Evaluates new tools, CLIs or MCPs before adoption: gain, cost, license, safety, Windows install, alternatives
+ara-repo-karsilastirma	Compares open source repos on activity, license, size and fit	Compares open source repos, or a repo's mechanism against our own workflow: activity, license, size, fit

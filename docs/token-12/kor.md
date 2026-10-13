@@ -68,7 +68,7 @@
 
 ## 18. Blender→GLB web export pipeline tools (gltf-transform, gltfpack, toktx, basisu, fake-bpy-module): gain, license, Windows install, installed here?
 - X: ara-arac-degerlendirme
-- Y: okuyucu
+- Y: ara-arac-degerlendirme
 
 ## 19. Kapsam eleştirmeni: verilen tarifin (NuGet audit + test kapısı kararları) kendisinin açacağı kapıları bul; salt ölçüm, bulguyu kapsam raporuna yaz.
 - X: general-purpose

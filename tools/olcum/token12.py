@@ -37,6 +37,28 @@ GOREV = [  # agency-agents alanı (17)
 ajan_sikistir.CIK = kapi10.CIK = CIK
 ajan_sikistir.PARTI = [["design", "security"], ["engineering"]]
 kapi10.GOREV, kapi10.ISTEM, kapi10.TUR_PAY = GOREV, kapi10.istem(GOREV), 1
+ONARIM = {s.split("\t")[0]: s.split("\t")[2] for s in (CIK / "onarim.tsv").read_text(encoding="utf8").splitlines()[1:] if s.strip()}  # d4 (b): kendi ajanlarımız, iki kolda
+
+
+def onar(kok):
+    for ad, d in ONARIM.items():
+        p = kok / "agents" / f"{ad}.md"
+        p.write_text(kapi10.aciklama_degistir(p.read_text(encoding="utf8"), d), encoding="utf8", newline="")
+    return len(ONARIM)
+
+
+_kur, _b = kapi10.kur, kapi10.b_ajanlar
+
+
+def kur(kok, *a):  # A: agents junction → kopya + onarım (B'de b_ajanlar kopyalar)
+    _kur(kok, *a)
+    if kok.name == "A" and ONARIM:
+        kapi10.os.rmdir(kok / "agents")
+        kapi10.shutil.copytree(kapi10.EV / "agents", kok / "agents")
+        print("A onarım", onar(kok), flush=True)
+
+
+kapi10.kur, kapi10.b_ajanlar = kur, lambda kok: _b(kok) + onar(kok)
 
 
 def yabanci():
@@ -65,7 +87,8 @@ if __name__ == "__main__":
         ad = {m.group(1).strip(): k for k, p in y.items() if (m := re.search(r"^name:\s*(.+)$", p.read_text(encoding="utf8"), re.M))}
         top, genel = {"A": [], "B": []}, {"A": [], "B": []}
         sikkayip = []
-        for ka, kb, ek in (("A1", "B1", "1"), ("A1", "B2", "2"), ("A2", "B3", "3")):
+        kosu = [tuple(sys.argv[i:i + 3]) for i in range(2, len(sys.argv), 3)] or [("A1", "B1", "1"), ("A1", "B2", "2"), ("A2", "B3", "3")]
+        for ka, kb, ek in kosu:  # d4: onarım sonrası çift argümanla (karar A3 B4 4)
             a = json.loads((CIK / f"anahtar{ek}.json").read_text(encoding="utf8"))
             p = json.loads((CIK / f"puan{ek}.json").read_text(encoding="utf8"))
             sec = {"A": kapi10.secimler(ka)[0], "B": kapi10.secimler(kb)[0]}
@@ -82,7 +105,7 @@ if __name__ == "__main__":
             for k in "AB":
                 top[k].append(pu[k]); genel[k].append(a["genel"][k])
             print(f"{ka}/{kb}: puan A {pu['A']} B {pu['B']} · genel A {a['genel']['A']} B {a['genel']['B']} · kayıp {kayip}")
-        o = {k: (sum(top[k]) / 3, sum(genel[k]) / 3) for k in "AB"}
+        o = {k: (sum(top[k]) / len(kosu), sum(genel[k]) / len(kosu)) for k in "AB"}
         kabul = o["B"][0] >= o["A"][0] - 1 and not sikkayip and o["B"][1] <= o["A"][1] + 0.5
         print(f"ort puan A {o['A'][0]:.2f} B {o['B'][0]:.2f} · genel A {o['A'][1]:.2f} B {o['B'][1]:.2f} · sıkışık kayıp {sikkayip} · {'KABUL' if kabul else 'RET'}")
     else:

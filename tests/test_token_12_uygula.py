@@ -28,3 +28,4 @@ def test_uygula_kendi_yedegine_yazar_geri_bayt_bayt_doner(tmp_path):
 def test_esleme_dosyasi_87_ajan_120_kr_alti():
     es = m.t10.esleme(m.ESLEME)
     assert len(es) == 87 and all(0 < len(v) <= 120 and "\n" not in v for v in es.values())
+    assert len(on := m.t10.esleme(m.ONARIM)) == 2 and not on.keys() & es.keys() and all(len(v) <= 120 for v in on.values())
