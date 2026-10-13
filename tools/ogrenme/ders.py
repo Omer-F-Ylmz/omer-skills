@@ -95,8 +95,9 @@ def ekle(ajan, baslik, kosul, icerik, sonuc, kaynak, kanit="", gorev=""):
         return {"id": x["id"], "durum": "yeni"}
 
 
-def getir(ajan, gorev, k=K, kosu=""):
-    """→ (blok, ids). Ajan kapsamı (kendi + '*'), BM25 ≥2 ortak terim, en iyinin yarısı eşiği, güven × eskime ağırlığı."""
+def getir(ajan, gorev, k=K, kosu="", kisa=False):
+    """→ (blok, ids). Ajan kapsamı (kendi + '*'), BM25 ≥2 ortak terim, en iyinin yarısı eşiği, güven × eskime ağırlığı.
+    kisa (d17 kanca): başlık/koşul/id yok, yalnız içeriğin ilk cümlesi — ders metni cache_creation'a binmesin."""
     aday = [x for x in oku() if x["durum"] == "aktif" and x["ajan"] in (ajan, "*")]
     sorgu = set(kelimeler(gorev))
     if not aday or not sorgu:
@@ -119,11 +120,14 @@ def getir(ajan, gorev, k=K, kosu=""):
         return "", []
     # d7: v3'te "yazmadan önce doğrula" dersleri video/rapor'da +2-3 tur ekledi (jeton ≈ tur × bağlam) → tur talimatı somut
     # d8: v4'te ek turlar gizli kural belgesini okumaktı → ders kuralı somut taşır, belge aranmaz
-    satirlar = ["Dersler (uymuyorsa yok say). Dersteki proje kuralını doğrudan uygula, kural belgesi arama; girdiyi ilk turda oku, tek yazımla bitir:"]
-    pay = (JETON * 4 - len(satirlar[0])) // len(secilen) - 1
-    for x in secilen:  # kural + ne zaman + içeriğin ilk cümlesi; örnek düşer
-        s = f"- [{x['id']}·{'kaçın' if x['tur'] == 'basarisizlik' else '✓'}] {x['baslik']} — {x['kosul']}: {re.split(r'(?<=[.!?])\s', x['icerik'])[0]}"
-        satirlar.append(s[:pay])
+    ilk = [re.split(r'(?<=[.!?])\s', x['icerik'])[0] for x in secilen]
+    if kisa:
+        satirlar = ["Ders (uymuyorsa yok say): " + " ".join(("kaçın — " if x["tur"] == "basarisizlik" else "") + c for x, c in zip(secilen, ilk))]
+    else:
+        satirlar = ["Dersler (uymuyorsa yok say). Dersteki proje kuralını doğrudan uygula, kural belgesi arama; girdiyi ilk turda oku, tek yazımla bitir:"]
+        pay = (JETON * 4 - len(satirlar[0])) // len(secilen) - 1
+        for x, c in zip(secilen, ilk):  # kural + ne zaman + içeriğin ilk cümlesi; örnek düşer
+            satirlar.append(f"- [{x['id']}·{'kaçın' if x['tur'] == 'basarisizlik' else '✓'}] {x['baslik']} — {x['kosul']}: {c}"[:pay])
     ids = [x["id"] for x in secilen]
     with open(dizin() / "getirme.jsonl", "a", encoding="utf-8", newline="\n") as f:
         f.write(json.dumps({"zaman": time.strftime("%Y-%m-%dT%H:%M:%S"), "ajan": ajan, "kosu": kosu, "ids": ids}) + "\n")

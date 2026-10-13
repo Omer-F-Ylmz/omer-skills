@@ -1,5 +1,5 @@
 """RUFLO-1 d9: günlük öğrenme döngüsü — CC kancası (SubagentStart · SubagentStop · SessionEnd), ölçüm dışındaki gerçek oturumlar için.
-  SubagentStart: ana transkriptten alt ajanın istemini bulur → ders.getir (≤2, alaka eşiği) → additionalContext.
+  SubagentStart: ana transkriptten alt ajanın istemini bulur → ders.getir (≤1, kısa biçim, alaka eşiği; yalnız kod ailesi) → additionalContext.
   SubagentStop:  alt ajan yörüngesini (görev · araç/hata sayısı · son mesaj) oturum kuyruğuna yazar (ağ yok).
   SessionEnd:    kuyrukta biten alt ajan varsa `isle` arka planda (.kos/kopru/arka.py, pencere yok); kanca hemen döner.
   python kanca.py isle <oturum>: 1 Jev çağrısı (önbellekli) + karma yargı → geri_bildir → ≤1 haiku damıtma → ≤3 ders.
@@ -138,7 +138,7 @@ def kanca(girdi, baslat=None):
         istem = istem_bul(girdi["transcript_path"], ajan)
         if os.environ.get("OGRENME_KANCA") != "hepsi" and not KOD_AILESI.search(istem):
             return ""
-        blok, ids = ders.getir(ajan, istem, kosu=oturum[:8])
+        blok, ids = ders.getir(ajan, istem, k=1, kosu=oturum[:8], kisa=True)
         if not blok:
             return ""
         _ekle(oturum, {"tip": "getir", "ajan_id": girdi.get("agent_id"), "ajan": ajan, "ids": ids})
