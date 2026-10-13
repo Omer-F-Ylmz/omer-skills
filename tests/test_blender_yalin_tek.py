@@ -77,9 +77,10 @@ def test_taban_kipi_normalize_etmez():
     assert len(istemler) == 2  # 1.2.0 tabanı (faz5 'tek' kolu)
 
 
-def test_tek_dusunmesiz(monkeypatch):
-    # BLENDER-4 M2: spec ~300 jeton, çıktı ~1100 → tek yolunda düşünme kapalı
-    gorulen = {}
-    monkeypatch.setattr(yalin.subprocess, "run", lambda a, **k: gorulen.update(k) or type("R", (), {"stdout": "{}", "returncode": 0})())
-    yalin._claude("x", yalin.tek_bayraklar())
-    assert gorulen["env"]["MAX_THINKING_TOKENS"] == "0"
+def test_gecerli_spec_degismez():
+    # 1.2.0'ın kabul ettiği spec'e duzelt dokunmaz → aynı spec aynı render (kalite farkı yalnız 2. tur yerine geçen specte)
+    import copy
+    import tarif
+    s = {"nesneler": [{"ad": "Z", "tur": "duzlem", "boyut": [1, 1, 0], "ekler": [{"tur": "kup", "boyut": [0.1, 0.01, 0.01]}]}],
+         "isik": "metal", "kamera": "oto"}
+    assert tarif.duzelt(copy.deepcopy(s)) == s

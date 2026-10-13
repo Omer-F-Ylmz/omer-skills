@@ -167,9 +167,6 @@ def kos_bir(g, yol, t, baz):
     else:
         ek = YOL["tarif"].format(blend=f"Başlangıç sahnesi: --blend {blend}" if blend else "")
     os.environ["BLENDER_KALITE"] = "0" if yol == "tek0" else "1"  # BLENDER-3: tek0 = eğitim varsayılanları kapalı taban
-    os.environ.pop("MAX_THINKING_TOKENS", None)
-    if yol == "tek4":  # BLENDER-4: düşünmesiz + biçim düzeltmesi; 'tek' = 1.2.0 tabanı
-        os.environ.update(yalin.TEK_ENV)
     try:
         if yol == "tekK":  # BLENDER-3 d2: tek0-t'nin spec'i KALITE=1 ile yeniden render (LLM yok; fark yalnız varsayılanlardan)
             d0 = PROJE / f"{g}-tek0-{t}"
@@ -183,12 +180,11 @@ def kos_bir(g, yol, t, baz):
             o = {"usage": {}, "tur": 0, "sure": 0.0, "usd": 0.0, "araclar": [], "rc": kod, "hata": "" if kod == 0 else f"exit {kod}"}
         elif yol in ("tek", "tek0", "tek4"):  # BLENDER-2: araçsız tek tur, Blender'ı yalin koşar
             o = yalin.tek(istem.format(d=d), blend, kos=lambda i, e: kosucu.kos(i, ek=e, model=MODEL, timeout=1500, butce=BUTCE[yol]),
-                          hafif=yol == "tek4")
+                          hafif=yol == "tek4")  # BLENDER-4: tek4 = biçim düzeltmeli; 'tek' = 1.2.0 tabanı
         else:
             o = kosucu.kos(istem.format(d=d) + "\n\n" + ek, ek=IZIN if yol == "taban" else yalin.bayraklar(), model=MODEL,
                            timeout=1500, butce=BUTCE[yol])
     finally:
-        os.environ.pop("MAX_THINKING_TOKENS", None)  # yargı ve sonraki kollar düşünmeli
         if p:
             kapat(p)
     den = denetle(d)

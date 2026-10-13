@@ -8,7 +8,6 @@ Sistem istemi = tarif.py docstring'i + geçerli ışık/malzeme adları + 3 adı
 Çıktı: son mesaj + jeton/tur/usd özeti (JSON).
 """
 import json
-import os
 import re
 import subprocess
 import sys
@@ -53,13 +52,9 @@ def tek_bayraklar():
             "--tools", "", "--system-prompt", sistem(tek=True)]
 
 
-TEK_ENV = {"MAX_THINKING_TOKENS": "0"}  # BLENDER-4: spec ~300 jeton, düşünme ~800 → tek yolunda kapalı
-
-
 def _claude(istek, ek):
-    env = {**os.environ, **(TEK_ENV if "--tools" in ek and ek[ek.index("--tools") + 1] == "" else {})}
     r = subprocess.run(["claude", "-p", istek, "--model", "sonnet", "--output-format", "json", *ek],
-                       capture_output=True, text=True, encoding="utf-8", timeout=1500, env=env)
+                       capture_output=True, text=True, encoding="utf-8", timeout=1500)
     j = json.loads(r.stdout or "{}")
     return {"metin": j.get("result") or "", "usage": j.get("usage") or {}, "tur": j.get("num_turns") or 0,
             "usd": j.get("total_cost_usd") or 0.0, "rc": r.returncode}
