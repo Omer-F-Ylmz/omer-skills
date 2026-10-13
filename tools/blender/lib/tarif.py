@@ -81,6 +81,7 @@ def dogrula(spec):
             h.append(f"nesneler[{i}]: bitisik hedef '{b.get('hedef')}' önceki nesnelerde yok")
         if b and b.get("yon") not in YONLER:
             h.append(f"nesneler[{i}]: bitisik yon '{b.get('yon')}' yok; mevcut {YONLER}")
+    h += [f"{k}: dosya yolu olmalı" for k in ("kaydet", "glb") if k in spec and not isinstance(spec[k], str)]
     if "sablon" in spec:
         h.append(f"sablon '{spec['sablon']}' yok; mevcut {tuple(SABLON)}")
     for i, d in enumerate(spec.get("duzenle", [])):
@@ -116,6 +117,9 @@ def duzelt(spec):
             if k in s:
                 spec.setdefault(k, s[k])
     kl = spec.pop("klasor", None)
+    for k in ("kaydet", "onizle"):  # b5p g3/g4: model "kaydet": true yazdı (klasör varsayılanı kastı) → Path(True) çöktü
+        if spec.get(k) is True and kl:
+            spec.pop(k)
     if kl:
         spec.setdefault("kamera", "oto")
         spec.setdefault("kaydet", f"{kl}/sahne.blend")
