@@ -77,6 +77,15 @@ def test_taban_kipi_normalize_etmez():
     assert len(istemler) == 2  # 1.2.0 tabanı (faz5 'tek' kolu)
 
 
+def test_ilk_spec_duzeltilmeden_kaydedilir():
+    # BLENDER-4 d2: tek4K kolu ilk turun ham spec'ini (duzelt öncesi) yeniden render eder
+    ham = '{"nesneler": [{"ad": "Z", "tur": "duzlem", "boyut": [1, 1]}]}'
+    o = yalin.tek("x", kos=_kos([ham, SPEC], []), calistir=lambda b, a, bl: (0, {"gecti": True}, 1), hafif=False)
+    assert o["tur"] == 2 and o["ilk_spec"]["nesneler"][0]["boyut"] == [1, 1] and o["spec"]["nesneler"][0]["ad"] == "Kupa"
+    o = yalin.tek("x", kos=_kos([ham], []), calistir=lambda b, a, bl: (0, {"gecti": True}, 1))
+    assert o["ilk_spec"]["nesneler"][0]["boyut"] == [1, 1] and o["spec"]["nesneler"][0]["boyut"] == [1, 1, 0]
+
+
 def test_gecerli_spec_degismez():
     # 1.2.0'ın kabul ettiği spec'e duzelt dokunmaz → aynı spec aynı render (kalite farkı yalnız 2. tur yerine geçen specte)
     import copy

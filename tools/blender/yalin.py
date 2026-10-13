@@ -82,6 +82,7 @@ def tek(istek, blend=None, kos=_claude, calistir=None, hafif=True):
             bek = spec.pop("beklenen", None) or {}  # ölçü kapısı: dogrula/Blender görmez, ozet'le karşılaştırılır
             if bek:
                 spec["ozet"] = list(dict.fromkeys([*spec.get("ozet", []), "ad", "boyut"]))
+            t.setdefault("ilk_spec", json.loads(json.dumps(spec)))  # BLENDER-4 d2: duzelt öncesi ilk tur (faz5 tek4K)
             hata = tarif.dogrula(tarif.duzelt(spec) if hafif else spec)
         except (AttributeError, ValueError) as e:
             spec, hata = None, [f"spec JSON ayrıştırılamadı: {e}"]
