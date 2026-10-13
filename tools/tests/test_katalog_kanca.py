@@ -54,8 +54,14 @@ def test_acik_arac_sorusu_tetikler():
 def test_ek_bicimi_ve_tavan():
     cikti = kk.isle(olay(ZOR[0]))
     ek = json.loads(cikti)["hookSpecificOutput"]["additionalContext"]
-    assert ek.startswith("<katalog>\n```text") and "```\n</katalog>" in ek
-    assert ek.rstrip().endswith(kk.SON) and len(ek) <= kk.TAVAN
+    # talimat başta: CC 10k üstünü dosyaya yazıp yalnız 2k önizleme verir; liste B' ile aynı (katalog_ara varsayılanı)
+    assert ek.startswith(kk.SON + "\n<katalog>\n```text") and ek.rstrip().endswith("```\n</katalog>")
+    assert kk.katalog_ara.metin(kk.katalog_ara.aday(ZOR[0])) in ek and len(ek) <= kk.TAVAN
+
+
+def test_numarali_isler_ayri_sorgulanir():
+    ek = kk.ek("\n".join(f"{i}. {j}" for i, j in enumerate(ZOR[:3], 1)))
+    assert all(a["ad"] in ek for j in ZOR[:3] for a in kk.katalog_ara.aday(j)[:10])
 
 
 def test_ayni_oturumda_tekrar_yok():

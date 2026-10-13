@@ -10,6 +10,7 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 ## Ne zaman
 - İşe başlarken uygun skill/ajan/MCP/CLI'dan emin değilsen.
 - Alan dışı iş (departman-* kapsamında yok) ya da adından anlamı belli olmayan araçlar.
+- Koşullu: zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan) → istemde `<katalog>` eki geldiyse yalnız ondan seç, bu skill'i çağırma; gelmediyse TEK çağrı (tüm sorgular tek komutta, ek sorgu yok). Rutin tek alanlı işte çağırma (kazanç 0, her ek tur ~100k önbellek okuma).
 
 ## Nasıl (iki aşama: betik geniş aday listesi verir, seçimi sen yaparsın)
 1. Aday listesi: `python ~/.claude/skills/yetenek-getir/katalog_ara.py "<iş tarifi TR/EN>" [--aday N] [--tur …]`

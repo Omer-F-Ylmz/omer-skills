@@ -15,8 +15,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))  # repo: tools/ · canl
 import katalog_ara  # noqa: E402
 
 DIZIN = Path(tempfile.gettempdir()) / "katalog-kanca"  # oturum başına gösterilen iş karmaları
-SURE, TAVAN, ADAY, TABAN, KISA = 1.5, 12000, 40, 3, 40
-SON = "Bu işte uygun araçları yalnız bu listeden seç; ek katalog sorgusu yapma."
+# liste B' ile aynı (katalog_ara varsayılanı ~95 aday, ~37k): 40 aday/12k kör puanı 72→57 düşürdü (hedef araçlar listede yoktu).
+# CC 10k üstü additionalContext'i dosyaya yazıp 2k önizleme verir → talimat başta, model tam listeyi TEK Read ile okur.
+SURE, TAVAN, KISA = 1.5, 40000, 40
+SON = ("Bu işte uygun araçları yalnız aşağıdaki <katalog> listesinden seç; ek katalog sorgusu yapma. "
+       "Liste önizleme olarak kesildiyse (dosya yolu verildiyse) önce o dosyayı TEK Read ile tam oku.")
 YANIT = re.compile(r"^(devam|evet|tamam|ok|okay|olur|peki|aynen|hayir|onay|onayla|dur|bekle|yes|no|go on|continue)\b")
 SORU = re.compile(r"\bhangi (arac|skill|ajan|mcp|plugin|eklenti|kutuphane|cli)|\bwhich (tool|skill|agent|library|plugin|mcp)"
                   r"|\bne kullan(ay|ma|sa)")
@@ -65,9 +68,11 @@ def tetik(istem):
 
 
 def ek(istem):
-    sonuc = katalog_ara.aday(istem[:1000], ADAY, taban=TABAN)
+    # numaralı çok işli istem: iş başına ayrı sorgu (B' gibi); tek sorgu sonraki işlerin hedef araçlarını düşürüyordu
+    isler = [p for p in re.split(r"(?m)^\s*\d+[.)]\s+", istem) if len(p.strip()) > KISA] or [istem]
+    sonuc = [a for p in isler for a in katalog_ara.aday(p[:1000])]
     while True:  # tavanı aşarsa sondan kırp (aday sırası BM25 + tür tabanı)
-        e = f"<katalog>\n{katalog_ara.metin(sonuc)}\n</katalog>\n{SON}"
+        e = f"{SON}\n<katalog>\n{katalog_ara.metin(sonuc)}\n</katalog>"
         if len(e) <= TAVAN or len(sonuc) <= 5:
             return e
         sonuc = sonuc[:-5]
