@@ -1,0 +1,17 @@
+ilk_liste n 983 ort_kr 79446 max_kr 146173
+oturum_ici_delta n 0 toplam_kr 0 dosya 0
+ajan_kullanim toplam 487 farkli 14
+   194 general-purpose
+    77 okuyucu
+    74 suite-kosucu
+    49 raporcu
+    31 kodcu
+    17 Explore
+    11 ajn-ajan-tanimi-yazar
+     6 pr-review-toolkit:pr-test-analyzer
+     6 pr-review-toolkit:code-reviewer
+     6 feature-dev:code-reviewer
+     6 ecc:security-reviewer
+     5 aday-arastirici
+     3 video-tarayici
+     2 feature-dev:code-explorer
