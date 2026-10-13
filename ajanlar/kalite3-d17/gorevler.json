@@ -1,0 +1,1359 @@
+[
+ {
+  "ajan": "ops-helm-chart",
+  "model": "sonnet",
+  "istem": "We deploy one service to dev, staging and prod by keeping three nearly identical folders of Kubernetes YAML and editing image tags and replica counts by hand. Last week a typo in prod's copy broke a release and it took 20 minutes to get back to the previous state. How should we package this instead, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)values\\.yaml|values\\.schema|values-prod|values-dev|--values",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)_helpers|toYaml|nindent|named template|\\{\\{",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Chart\\.yaml|appVersion|chart version",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)helm upgrade|--atomic|helm rollback|helm diff|helm lint",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-opensearch-kume-sagligi",
+  "model": "sonnet",
+  "istem": "Our self-hosted search cluster of three nodes went yellow overnight and this morning writes started failing with a message that the index is blocked. We keep 400 daily log indices and never remove old ones. One node's memory graphs show constant pauses. What do I check and fix first, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)allocation/explain|allocation explain|unassigned|replica",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)watermark|flood_stage|read_only_allow_delete",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)heap|circuit.?breaker|garbage collection|JVM|shard count",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ISM|rollover|index state management|delete phase|snapshot",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-http-onbellek-basliklari",
+  "model": "sonnet",
+  "istem": "After each release of our React storefront, some customers still get the old JavaScript and see a broken page until they hard-refresh, while our CDN bill shows almost every request going to the origin. Logged-in users once saw another user's cart page served from the edge. Tell me which response headers to set for HTML, scripts, images and the API, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)Cache-Control|max-age|s-maxage|no-store|no-cache|immutable",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ETag|Last-Modified|If-None-Match|304",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)content hash|fingerprint|hash in filename|cache busting|parmak izi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Vary|stale-while-revalidate|purge|surrogate|private",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-shadcn-ui",
+  "model": "sonnet",
+  "istem": "I set up a Next.js app with Tailwind and pulled in the button, dialog and dropdown from shadcn/ui. Now designers want a destructive and a ghost style for buttons, our brand colors in light and dark mode, and when I pass extra classes they fight with the defaults. How should I structure this, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)npx shadcn|components/ui|components\\.json|shadcn add",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cva|class-variance-authority|variants|defaultVariants",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)--primary|--background|CSS variables|hsl|oklch|globals\\.css",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cn\\(|tailwind-merge|twMerge|asChild|Radix",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-tasarimdan-uygulama-spec",
+  "model": "sonnet",
+  "istem": "Our designer sent a single desktop PNG of a pricing page: three plan cards, a monthly/yearly toggle, an FAQ accordion and a footer. There is no Figma file and no style guide. Two developers will build it next week and I want them to produce the same result. Write the handoff notes they need, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)grid|column|gutter|container width|ızgara|sütun",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)token|spacing scale|8px|4px|type scale|renk paleti",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)component inventory|reusable component|variant|bileşen listesi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)hover|focus|disabled|loading|empty state|breakpoint",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-webrtc-baglanti",
+  "model": "sonnet",
+  "istem": "We built browser video calls for a tutoring app with plain peer connections. One-to-one calls work at home, but students on school or mobile networks often see a black screen that never connects. When a teacher calls six students at once, everyone's laptop fan spins and video stutters. What is missing and what should we change, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)signaling|SDP|offer/answer|negotiationneeded|sinyal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)TURN server|TURN sunucu|coturn|relay|STUN|\\bNAT\\b",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)\\bICE\\b|candidate|iceServers|trickle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)SFU|mesh|MCU|simulcast|mediasoup|LiveKit",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-css-konteyner-sorgusu",
+  "model": "sonnet",
+  "istem": "Our product card looks right in the main area of the page, but the same card dropped into a narrow sidebar and a three-up promo row overflows, and the titles, prices and buttons in neighboring cards no longer line up when titles wrap. Media queries on screen width do not help because the screen size is the same in all three places. How do I fix it in CSS, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)container-type|@container|container-name|inline-size",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cqi|cqw|cqh|container unit",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)subgrid|grid-template-rows|hizalama",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)clamp\\(|minmax|auto-fit|auto-fill",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-surum-gecis-rehberi",
+  "model": "sonnet",
+  "istem": "We maintain an open-source charting library used by about 2,000 projects. Version 4 replaces the global config object with per-chart options, drops support for the old callback API in favor of promises, and changes default colors. Users are already angry about the last major jump. Write the plan for the document that helps them move to v4, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)breaking change|kırıcı|removed|renamed|BREAKING",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)before/after|önce/sonra|side by side|yan yana|```diff",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)deprecat|uyarı süresi|sunset|grace period|warning",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)codemod|jscodeshift|migration script|ast-grep|otomatik dönüştür",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-yol-bulma",
+  "model": "sonnet",
+  "istem": "In my top-down strategy game made in Godot, soldiers walk in jagged zigzags across open fields, sometimes get stuck on the corners of buildings, and pile into each other on narrow bridges. With 200 units ordered at once the frame rate drops to 20. How should units find and follow routes, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)A\\*|Dijkstra|open list|heuristic|sezgisel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)navmesh|navigation mesh|waypoint|grid graph|NavigationAgent",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)smoothing|string pulling|funnel|line of sight|yumuşat",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)avoidance|RVO|local steering|repath|obstacle",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-uyarlanabilir-zorluk",
+  "model": "sonnet",
+  "istem": "Our 2D action platformer's reviews are split: new players say level 3 is impossible and quit, while experienced players finish the whole game in an afternoon and call it boring. We cannot afford separate difficulty modes for every level. How could the game quietly adapt to each player, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)death count|ölüm sayısı|completion time|accuracy|isabet|retry",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)spawn rate|enemy health|damage multiplier|aim assist|düşman canı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)clamp|bounds|sınır|rubber.?band|hysteresis|gradual",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)telemetry|funnel|churn point|playtest|terk noktası",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-unicode-metin",
+  "model": "sonnet",
+  "istem": "Our Node and Python services break on user names: searching for 'istanbul' does not find 'İSTANBUL', 'José' typed on a Mac does not match the same name stored from Windows, a 20-character limit cuts emoji flags in half, and the customer list sorts 'Çelik' after 'Zeki'. CSV exports open as garbage in Excel. Fix list, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)NFC|NFD|NFKC|normaliz|normalleştir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)grapheme|code point|surrogate|Intl\\.Segmenter",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)toLocaleLowerCase|toLocaleUpperCase|tr-TR|casefold|locale-aware|dotless",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)collat|Intl\\.Collator|ICU|UTF-8|BOM|encoding=",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-ruby-gem-paketleme",
+  "model": "sonnet",
+  "istem": "Three of our Rails apps copy the same billing helper module. I want to extract it into a private-then-public Ruby library. The last time someone published one, the package accidentally included the spec folder and an .env file, and an app broke because the library pinned an exact Rails release. Outline the setup and release steps, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)gemspec|spec\\.files|git ls-files|required_ruby_version",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)add_dependency|add_development_dependency|pessimistic|~>|Gemfile\\.lock",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)version\\.rb|semver|bump|CHANGELOG|anlamsal sürüm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)gem push|rake release|rubygems\\.org|MFA|trusted publish|gem build",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-go-pprof",
+  "model": "sonnet",
+  "istem": "Our Go JSON API went from 30% to 85% CPU after we added request logging and a new response builder, and memory graphs show a sawtooth with frequent garbage collection. The team keeps guessing which change caused it. How do we find and confirm the culprit and prove the fix, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)pprof|flame ?graph|top -cum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)allocs|alloc_space|inuse_space|heap profile|sync\\.Pool",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)-bench|benchstat|ReportAllocs|ns/op",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)-gcflags|escape|inline|kaçış",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-musteri-onboarding",
+  "model": "sonnet",
+  "istem": "Our HR software company signs about 15 mid-size customers a month. Most pay for annual contracts, but six months later many have only set up a few employees and never connected payroll, and then they do not renew. Sales hands over the deal with a single email. Design what the first 60 days after signature should look like, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)kickoff|stakeholder|champion|paydaş|başlangıç toplantısı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)success plan|success criteria|goals|başarı ölçütü|hedef",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)activation|milestone|first value|kilometre taşı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)time.to.value|TTV|health|risk|stall|erken uyarı",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-ic-iletisim-duyurusu",
+  "model": "sonnet",
+  "istem": "Our 400-person company is merging two product teams under one director and moving everyone to a four-day office week starting next quarter. Last year a similar change leaked on social media before staff heard it, and people were furious. Plan how we tell employees, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)what is changing|what it means for you|ne değişiyor|sana etkisi|key message",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)managers first|cascade|leaders brief|yöneticiler önce|sıralama",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)FAQ|\\bSSS\\b|sık sorulan|Q&A|soru-cevap",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)feedback|anonymous|town hall|geri bildirim|pulse",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "be-piyasa-verisi-akisi",
+  "model": "sonnet",
+  "istem": "Our retail trading app subscribes to a provider's WebSocket price stream for stocks. After a few hours the top-of-book prices drift from the provider's website, sometimes the highest buy price is above the lowest sell price, and mobile users on weak connections fall minutes behind. What is wrong in how we consume and fan out the stream, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)snapshot|incremental|delta|full refresh",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sequence number|gap|sıra numarası|replay|recovery",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)order book|price level|best bid|crossed|L2 book",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)conflation|throttle|backpressure|slow consumer|birleştir",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-ocr-hatti",
+  "model": "sonnet",
+  "istem": "We scan supplier invoices with a phone app and extract text to fill our accounting system. Totals often come out wrong (a 5 becomes S, 1 becomes l), two-column invoices get their lines mixed together, and slightly tilted photos produce garbage. Nobody notices bad values until month-end. How should the extraction pipeline work, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)deskew|binariz|denois|threshold|DPI|eğiklik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)layout|reading order|table detection|bounding box|okuma sırası",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Tesseract|PaddleOCR|docTR|--psm|Textract|Document Intelligence",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)confidence|checksum|human review|güven skoru|cross-check",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-pre-commit-kancasi",
+  "model": "sonnet",
+  "istem": "In our Python and TypeScript repo, reviewers keep commenting on formatting, trailing whitespace and a committed .env file. We have formatters configured, but people forget to run them. I want checks to run automatically on every developer's machine when they save work to git, without making each one wait a minute. Set this up in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)pre-commit|husky|lefthook|core\\.hooksPath",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lint-staged|staged|--files|değişen dosya",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)--no-verify|--all-files|server-side|bypass",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)prepare script|\"prepare\"|autoupdate|rev:|install hook",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-grafana-pano",
+  "model": "sonnet",
+  "istem": "We have 40 Grafana dashboards, one per microservice, each a copy of the others with 60 panels of CPU, GC and random business counters. During last night's outage the on-call engineer spent 25 minutes scrolling before finding that the payment service was timing out. Redesign our dashboards, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)RED method|USE method|golden signals|saturation|latency",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)template variable|\\$service|\\$env|variables|değişken",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)overview|drill.?down|stat panel|özet satırı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)data link|exemplar|Explore|Loki|Tempo|trace link",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-gercek-kullanici-izleme",
+  "model": "sonnet",
+  "istem": "Lighthouse gives our e-commerce site 95 on my laptop, yet support keeps getting complaints that product pages are sluggish and buttons respond late, mostly from customers in Brazil on budget Android phones. Our analytics only reports an average load time. What should we measure from actual visitors and how should we report it, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)web-vitals|onLCP|onINP|onCLS|PerformanceObserver|sendBeacon",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)p75|percentile|yüzdelik|p95|histogram",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)segment|device type|connection|route|cihaz|bağlantı türü",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sampling|sample rate|örnekleme|attribution|CrUX",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-dagitik-egitim",
+  "model": "sonnet",
+  "istem": "I moved my PyTorch image classifier from one GPU to a 4-GPU machine by launching four copies of the same script. Epochs are not faster, the loss curve looks identical to before, all four processes write the same model file at the end, and when the job got killed halfway I had to start over. What should I change, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)DDP|DistributedDataParallel|FSDP|ZeRO|DeepSpeed|sharding|parçala",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)DistributedSampler|set_epoch|\\brank\\b|world_size",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)effective batch|gradient accumulation|linear scaling|learning rate scal|toplam batch",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)checkpoint|resume|rank 0|rank0|barrier|state_dict",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-kms-zarf",
+  "model": "sonnet",
+  "istem": "Our SaaS stores customer documents in Postgres and S3, and one AES key sits in an environment variable used for everything. Auditors want per-customer keys, yearly key changes without downtime, and proof that a churned customer's files become unreadable even in old copies. How should we restructure this, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)envelope|data key|\\bDEK\\b|\\bKEK\\b|wrap|sarmal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)KMS|HSM|Key Vault|key policy|anahtar politikası",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rotat|döndür|re-?encrypt|key version|anahtar sürüm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)crypto.?shred|AES-GCM|AEAD|nonce|associated data",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-renovate-ayari",
+  "model": "sonnet",
+  "istem": "Since we enabled the update bot on our TypeScript monorepo, we get about forty pull requests a week, half of them bump the same eslint or aws-sdk packages separately, many fail CI on Mondays, and the team now ignores them all. Patch bumps of dev tools could go in by themselves. Give me the bot settings to fix this, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)group|packageRules|grupla|extends",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)schedule|prConcurrentLimit|prHourlyLimit|open-pull-requests-limit|takvim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)automerge|minimumReleaseAge|minimum release age|stabilityDays|cooldown|otomatik birleş",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)lockFileMaintenance|lockfile|lock file|kilit dosya|dependency dashboard",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-k8s-is-yuku",
+  "model": "sonnet",
+  "istem": "Our Java API on a managed cluster gets killed during its 90-second startup, sometimes gets terminated for using too much memory under load, returns 502s for a few seconds on every new version rollout, and once all three copies went down together during node maintenance. Which manifest fields should we set, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)readinessProbe|livenessProbe|startupProbe|readiness|liveness",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)requests|limits|OOMKilled|QoS|throttl",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)maxUnavailable|maxSurge|preStop|terminationGracePeriod|graceful",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)HPA|HorizontalPodAutoscaler|PodDisruptionBudget|\\bPDB\\b|topologySpread|anti-affinity",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-mavi-yesil-gecis",
+  "model": "sonnet",
+  "istem": "Our monthly release of a Django shop takes the site offline for 25 minutes while we stop the server, migrate the database and start the new code; if something breaks we reload last night's dump. Management wants releases during business hours with a way back within a minute. Outline the approach, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)blue|green|mavi|yeşil|idle|standby",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)load balancer|target group|DNS TTL|router|switch|swap|slot",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)backward compatible|expand|contract|geri uyumlu|both versions|iki sürüm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|switch back|geri al|smoke|warm.?up|drain",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "be-cift-kayit-defteri",
+  "model": "sonnet",
+  "istem": "Our app has a users.balance column that we update when people top up, pay each other or get refunds. Support found accounts where the balance doesn't match the transaction history, a few totals are off by 0.01, and a retried mobile request once paid a merchant twice. How should we model this properly, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)double.entry|debit|borç|alacak|sum to zero|toplamı sıfır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)minor unit|cents|kuruş|integer|bigint|decimal|float",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)append.only|immutable|reversal|ters kayıt|değiştirilemez",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)idempoten|unique key|reconcil|mutabakat",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-jvm-gc-ayari",
+  "model": "sonnet",
+  "istem": "A Spring Boot service in a 2 GB container freezes for 3-4 seconds every few minutes under load, and about once a day the orchestrator kills it for exceeding memory even though our dashboard shows the Java object space only half full. We run Java 21 with default flags. What should we check and set, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)Xmx|Xms|MaxRAMPercentage|heap|yığın",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)\\bG1|ZGC|Shenandoah|ParallelGC|MaxGCPauseMillis|pause target",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Xlog:gc|gc log|GC günlüğü|jstat|\\bJFR\\b|Flight Recorder",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)off.heap|metaspace|direct memory|MaxDirectMemorySize|native memory|\\bNMT\\b|thread stack",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-asyncio",
+  "model": "sonnet",
+  "istem": "My FastAPI endpoint calls a third-party HTTP API through an old sync client library and also fires off background notification jobs. Under 50 concurrent users every request becomes slow at once, some notifications silently never run, and when the third-party API hangs our workers hang with it forever. Opening 2000 connections at once also gets us banned. Fix plan in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)run_in_executor|to_thread|blocking|bloklay|httpx|aiohttp",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)create_task|TaskGroup|gather|strong reference|referans|fire.and.forget",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CancelledError|wait_for|asyncio\\.timeout|timeout|iptal",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Semaphore|semafor|bounded|limit concurren|\\bqueue",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-pypi-yayini",
+  "model": "sonnet",
+  "istem": "I wrote a small internal Python library as a folder with setup.py from 2016 and colleagues install it by copying the folder. I want them to run pip install with a version number, have it work on Windows and Linux, avoid storing upload passwords in CI, and stop forgetting to bump the version string. Steps in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)pyproject|build-backend|hatchling|setuptools|\\[project\\]",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)wheel|sdist|py3-none-any|manylinux|cibuildwheel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dynamic version|setuptools_scm|setuptools-scm|hatch-vcs|__version__|git tag",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)trusted publish|OIDC|twine|TestPyPI|API token",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-global-store",
+  "model": "sonnet",
+  "istem": "Our React admin app loads orders with useEffect and saves them into a big global object, then also keeps a filtered copy, the selected tab and the active filters there. After editing an order the list shows old data until reload, the back button loses the filters, and many components re-fetch the same list. Restructure plan in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)TanStack|React Query|\\bSWR\\b|staleTime|invalidat|cache|önbellek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)searchParams|useSearchParams|query string|URL state|query param",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Zustand|Redux|Jotai|createContext|selector",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)derived|türet|useMemo|single source|tek kaynak",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-birim-ekonomi",
+  "model": "sonnet",
+  "istem": "We sell a $29/month meal-planning app. Last quarter we spent $60,000 on ads and referral bonuses and got 2,400 new subscribers; about 8% cancel each month, and servers, payment fees and support cost roughly $7 per subscriber per month. Investors ask whether scaling ad spend makes sense. Work it out in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)\\bCAC\\b|acquisition cost|blended|edinme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)\\bLTV\\b|lifetime value|churn|retention|ömür",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)payback|geri ödeme|months to recover",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)contribution margin|gross margin|brüt kâr|katkı payı|COGS",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-pazar-buyuklugu",
+  "model": "sonnet",
+  "istem": "I'm launching scheduling software for independent dental practices in Germany, Austria and Switzerland at €99 per practice per month. A consultant's slide says the 'global dental software market is $3 billion', which feels useless. How big is my realistic opportunity and how should I show the reasoning, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)\\bTAM\\b|\\bSAM\\b|\\bSOM\\b|serviceable|ulaşılabilir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)bottom.up|aşağıdan yukarı|number of clinics|birim fiyat|count ×|count x",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)top.down|yukarıdan aşağı|industry report|sektör raporu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)assumption|varsayım|sensitivity|duyarlılık|triangulat",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-yatirimci-sunumu",
+  "model": "sonnet",
+  "istem": "I'm a solo founder raising €800k for a B2B invoicing tool with 40 paying customers. My current deck is 28 slides that start with my life story, include a long feature tour and screenshots, and end with 'contact us'. An investor meeting is in two weeks. Rewrite the slide outline in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)why now|neden şimdi|narrative|hikâye akışı|one claim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)traction|çekiş|\\bMRR\\b|growth rate|retention|cohort",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)the ask|use of funds|runway|fon kullanımı|milestone",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)competiti|2x2|positioning|moat|rakip",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-wireframe-taslak",
+  "model": "sonnet",
+  "istem": "We're adding a 'book a repair' feature to our appliance service website: the customer picks the device, describes the fault, chooses a slot and pays a deposit. The designer wants to jump straight to polished mockups in Figma, but the team still argues about the steps. Describe what we should sketch first, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)user flow|akış şeması|happy path|entry point|giriş noktası",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)content priority|hierarchy|hiyerarşi|above the fold|primary action|birincil eylem",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)empty state|loading|edge case|boş durum|validation",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)low.?fi|grayscale|annotat|lorem|kutu",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-restic-yedek",
+  "model": "sonnet",
+  "istem": "Our five-person office keeps all project files on one Linux file server with a RAID 1 array and a USB disk someone copies to on Fridays. After a ransomware scare we want a setup that survives the server, the building and an attacker with admin rights, without a huge cloud bill. Plan it in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)3-2-1|offsite|off-site|immutable|object lock|değiştirilemez",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)restic|borg|kopia|snapshot|deduplic",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)retention|forget|prune|keep-daily|saklama",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)restore|geri yükleme|read-data|tatbikat",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-blog-yazisi",
+  "model": "sonnet",
+  "istem": "Our team cut our CI pipeline from 40 to 9 minutes over two months by caching, splitting jobs and deleting old tests. My manager wants it published on the company engineering site, but my draft is a chronological diary of every meeting and command. Give me the outline to rewrite it, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)hook|kanca|headline|başlık önerisi|lede",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)benchmark|before and after|önce.sonra|metric|ölçüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trade.off|ödünleşim|what didn't work|alternatives considered|denenen",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)skimm|subhead|ara başlık|TL;DR|snippet",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-sikayet-temalari",
+  "model": "sonnet",
+  "istem": "We have 1,800 app store reviews, 600 support emails and an open-text survey from the last quarter, and the product team argues from whichever angry comment they read last. I have one day to turn this into something that tells us what to fix first. How should I process it, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)codebook|\\btag|etiket|theme|tema|affinity",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)frequency|severity|sıklık|şiddet|impact score",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)segment|plan tier|paying|ücretli|\\bARR\\b|revenue",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)verbatim|quote|alıntı|sample size|örneklem",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-sezgisel-degerlendirme",
+  "model": "sonnet",
+  "istem": "Before we pay for user interviews, I want a fast expert pass over our expense-report web app: submitting takes seven screens, buttons change labels between pages, deleting a receipt happens instantly with no way back, and the spinner gives no hint of progress during a 30-second upload. Review it and rank what to fix, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)Nielsen|heuristic|sezgisel|visibility of system status|recognition rather than recall",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)severity|şiddet|0-4|cosmetic|catastrophic",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)error prevention|undo|geri al|confirm|onay|recover",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)consistency|tutarlı|convention|terminology|terim",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-kubernetes-sikilastirma",
+  "model": "sonnet",
+  "istem": "Our startup's cluster has every developer using the same admin kubeconfig, all apps run as root in the default namespace, any pod can talk to the database pod, and every container gets a token that can list cluster objects. A pentest is coming next month. What should we lock down first, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)RBAC|ClusterRole|RoleBinding|least privilege|en az yetki",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)NetworkPolicy|default deny|varsayılan red|egress|ingress rule",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Pod Security|runAsNonRoot|privileged|securityContext|readOnlyRootFilesystem",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)automountServiceAccountToken|service ?account|EncryptionConfiguration|external secrets|secret encryption",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "be-dagitik-kilit",
+  "model": "sonnet",
+  "istem": "Two instances of our invoice worker grab a Redis-based mutex before charging a customer. Yesterday one instance froze for 40 seconds during a stop-the-world event, the mutex timed out, the second instance took over, and then the first woke up and finished too, so the customer was billed twice. Also, when a worker finishes it simply deletes the key, which sometimes removes someone else's mutex. How do we make this safe? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)TTL|lease|kira süresi|expiry|SET NX|NX PX",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fencing|çit belirteci|monotonic|monoton|version check|sürüm kontrol",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)compare.and.delete|check.and.delete|Lua|unique value|benzersiz değer|random value",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)GC pause|garbage collect|duraklama|pause|clock drift|saat kayması|heartbeat|renew",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "be-para-hesaplama",
+  "model": "sonnet",
+  "istem": "Our checkout stores prices as JavaScript floats in dollars. A 3-way bill split of $100.00 produces 33.33 three times and a cent disappears, adding 0.1 and 0.2 in a cart shows 0.30000000000000004, and when we added Japanese yen the totals show two digits after the point. The finance team also says our tax figures disagree with their spreadsheet. How should we represent and compute these amounts? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)decimal|BigDecimal|numeric\\(|integer cents|kuruş|minor unit|en küçük birim|tam sayı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rounding mode|HALF_EVEN|half.even|banker|yuvarlama kuralı|ROUND_HALF|half.up",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)allocat|largest remainder|kalan kuruş|paylaştır|remainder|dağıt",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ISO 4217|currency code|para birimi kodu|exponent|JPY|basamak sayısı",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "be-zarif-kapanis",
+  "model": "sonnet",
+  "istem": "Every time we roll out a new version of our Node API on Kubernetes, clients see a burst of 502s and connection resets for a few seconds, and a background job that was halfway through writing a report gets cut off mid-file. The container just exits as soon as it is told to stop. What should the app and the pod spec do so rollouts are invisible to users? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)SIGTERM|SIGINT|signal handler|sinyal|process.on",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)drain|boşalt|server.close|stop accepting|keep-alive|Connection: close",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)readiness|preStop|endpoint removal|uç nokta|load balancer|yük dengeleyici|sleep",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)terminationGracePeriod|grace period|SIGKILL|zaman aşımı|timeout|deadline",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-upsert-yarisi",
+  "model": "sonnet",
+  "istem": "Our signup endpoint first runs SELECT to see whether the email exists and, if not, does an INSERT. When a user double-clicks the button or the mobile app resends the request, we end up with two accounts for the same email. Same thing happens with our daily stats table where two workers both create today's row. How do we fix this properly in Postgres? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)unique constraint|unique index|benzersiz kısıt|benzersiz indeks|UNIQUE",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ON CONFLICT|ON DUPLICATE KEY|MERGE|upsert|INSERT IGNORE",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)check.then.insert|select.then.insert|TOCTOU|race|yarış|önce kontrol",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)23505|1062|duplicate key|unique violation|retry|yeniden dene|DO NOTHING|DO UPDATE",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-replika-gecikmesi",
+  "model": "sonnet",
+  "istem": "We added two read-only copies of our MySQL database to take load off the main server. Now users often update their profile, get redirected to the profile page, and still see the old values for a second or two; refreshing fixes it. Our ORM sends every SELECT to the copies. What should we change so users always see their own changes without sending all reads to the main server? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)read.your.writes|read.after.write|kendi yazdığını|read from primary|birincil",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sticky|yapışkan|session|oturum|LSN|GTID|timestamp token|zaman damgası",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)replication lag|replica lag|seconds_behind|pg_last_xact_replay|replay_lag|gecikme izle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)route|yönlendir|writer endpoint|reader endpoint|okuma uç noktası|causal",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-utf8mb4-karakter",
+  "model": "sonnet",
+  "istem": "Customers who type emoji in their reviews see them saved as '????' in our MySQL 5.7 database, and since a colleague changed one table, a join between two tables throws an error about not being able to compare strings. When I tried changing the column type, a VARCHAR(255) index was rejected for being too long. How do I fix this end to end? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)utf8mb4|utf8mb3|4.byte|4 bayt|dört bayt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)collation|harmanlama|utf8mb4_unicode|utf8mb4_0900|Illegal mix",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)SET NAMES|charset=|characterEncoding|connection charset|bağlantı karakter|character_set_client",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)CONVERT TO|index length|767|3072|indeks uzunluğu",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-k8s-kaynak-limiti",
+  "model": "sonnet",
+  "istem": "Our Java pods on Kubernetes keep dying a few times a day and get restarted; the container status says it was terminated by the system for using too much RAM even though the app's own metrics look fine. Response times also jump whenever traffic spikes, although the nodes show plenty of idle cores. The manifests were copied from a tutorial with 512Mi and 500m everywhere. How should we size them? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)OOMKilled|OOM|memory limit|bellek sınırı|137",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)throttl|CFS|cpu limit|CPU sınırı|kısıtlan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)requests|istek değeri|kubectl top|p95|p99|VPA|metrics-server",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)heap|Xmx|MaxRAMPercentage|GOMEMLIMIT|max-old-space|container.aware",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-dosya-tanimlayici-siniri",
+  "model": "sonnet",
+  "istem": "Our Go proxy on Ubuntu runs fine for a day and then starts logging 'accept: too many open files' and refuses new clients until we restart it. Someone raised the number in /etc/security for our user but nothing changed, probably because it runs as a service. We also suspect our outgoing HTTP calls never release their responses. How do we diagnose and fix this? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)ulimit|LimitNOFILE|limits.conf|nofile|fs.file-max",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lsof|/proc/.*/fd|sızıntı|leak",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)close\\(|kapatılmayan|not closed|defer|try-with-resources|finally|connection pool|bağlantı havuzu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)/proc/[^ ]+/limits|cat /proc|prlimit|Max open files",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-acik-yonlendirme",
+  "model": "sonnet",
+  "istem": "After login our app sends people to whatever address is in the '?next=' parameter. A tester showed that a link to our real login page can land users on a lookalike site afterwards. A developer 'fixed' it by checking that the value contains our domain name, but the tester bypassed that too with something like '?next=https://ourapp.com.attacker.net'. What is the correct fix? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)allowlist|allow list|izin listesi|whitelist|beyaz liste",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)relative path|göreli yol|starts with /|protocol.relative|//evil|scheme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)URL pars|new URL|urlparse|backslash|ters eğik|userinfo|netloc|host compar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)phishing|oltalama|token leak|OAuth|redirect_uri",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-guvensiz-serilestirme",
+  "model": "sonnet",
+  "istem": "Our Python service caches user session objects in Redis by dumping them with the standard library's object serializer and reading them back. Another team's Celery tasks accept YAML config uploaded by customers and load it with the default loader. A pentest report says both allow remote code execution. Is that realistic, and what should we change? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)pickle|yaml.load|BinaryFormatter|ObjectInputStream|unserialize|Marshal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)safe_load|SafeLoader|JSON|schema|şema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)allowlist|izin listesi|TypeNameHandling|known types|ObjectInputFilter|gadget",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)HMAC|signature|imza|integrity|bütünlük",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-alt-alan-ele-gecirme",
+  "model": "sonnet",
+  "istem": "A bug bounty hunter emailed us that they could publish their own page on promo.ourcompany.com. We had a marketing microsite there on a cloud static hosting service that we shut down last year, but nobody touched our DNS zone. We have about 300 hostnames across three providers. What exactly happened and how do we fix and prevent it? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)dangling|sarkan|CNAME|NXDOMAIN|orphan|yetim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)NoSuchBucket|fingerprint|parmak izi|azurewebsites|herokuapp|s3",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)remove the record|kaydı sil|DNS kaydını kaldır|order|sıra",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)inventory|envanter|monitor|izle|subjack|nuclei|dnsReaper|periodic scan",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-httpclient-soket",
+  "model": "sonnet",
+  "istem": "In our ASP.NET Core service each request to the payment gateway does 'using var client = new HttpClient()'. Under load we get 'Only one usage of each socket address is normally permitted' errors. A colleague changed it to one static instance, which fixed that, but now when the gateway moved to a new IP our calls kept hitting the old one for hours. One slow call also hung a request for 100 seconds. What is the right setup? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)IHttpClientFactory|AddHttpClient|typed client|named client|tipli istemci",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)PooledConnectionLifetime|SocketsHttpHandler|DNS|handler lifetime",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)TIME_WAIT|socket exhaustion|soket tükenmesi|port exhaustion|netstat",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Timeout|CancellationToken|Polly|AddStandardResilienceHandler|retry",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-system-text-json",
+  "model": "sonnet",
+  "istem": "We are moving a .NET 8 worker from Newtonsoft to the built-in serializer. Our frontend now gets property names in PascalCase instead of the lowercase-first style it used to get, status fields arrive as numbers instead of names like 'Pending', serializing an Order with its Customer that points back to its Orders throws an exception about depth, and dates must be written as 'dd.MM.yyyy'. How do we configure it? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)JsonNamingPolicy|CamelCase|PropertyNamingPolicy|JsonPropertyName",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)JsonStringEnumConverter|string enum|enum dizgesi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ReferenceHandler|IgnoreCycles|Preserve|döngü|cycle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)JsonConverter|custom converter|özel dönüştürücü|JsonSerializerContext|source generat",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-esm-cjs-modul",
+  "model": "sonnet",
+  "istem": "I upgraded node-fetch and chalk in our Node 20 command-line tool written in TypeScript, and now it crashes at startup saying require() of an ES Module is not supported. When I flipped our own package over to the newer format, the code that builds file paths relative to the current file broke, and the compiler output still uses require calls. What is the cleanest way out? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)type.{0,4}module|\\.mjs|\\.cjs|type alanı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)import\\(|dynamic import|dinamik import|createRequire",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)import\\.meta|fileURLToPath|__dirname|__filename",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)moduleResolution|NodeNext|tsconfig|verbatimModuleSyntax",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-satir-sonu",
+  "model": "sonnet",
+  "istem": "Half our team is on Windows and half on Mac. Whenever a Windows developer touches a file, the pull request shows every single line as modified even though only one changed. Our deploy shell script also fails on the Linux server with 'bad interpreter: No such file or directory' although the file is there. What should we commit to the repo so this stops for everyone, and how do we clean up the files already committed? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)\\.gitattributes|text=auto|eol=lf|eol=crlf",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)core\\.autocrlf|autocrlf|core\\.eol",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)renormalize|normaliz",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)CRLF|\\\\r|\\^M|CR LF|satır sonu|line ending",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-reflog-kurtarma",
+  "model": "sonnet",
+  "istem": "I was cleaning up my feature branch, ran 'git reset --hard origin/main' by mistake and lost three days of commits that were never pushed. Then, trying to fix it, I deleted another local branch and also ran 'git stash drop' on work in progress. Is any of it recoverable, how, and how long do I have? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)reflog|HEAD@\\{|ORIG_HEAD",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cherry-pick|checkout -b|switch -c|git branch [a-z]",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fsck|lost-found|dangling|unreachable|sarkan",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)git gc|reflogExpire|90 days|90 gün|prune",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "mob-klavye-ortusmesi",
+  "model": "sonnet",
+  "istem": "In our React Native login screen, when the user taps the password field the on-screen keyboard slides up and covers the field and the Sign in button, so they type blind. On Android it sometimes works and sometimes leaves a big empty gap at the bottom after it closes, and on iPhone the button sits under the home indicator. Tapping the button while the keyboard is open just closes the keyboard instead of submitting. How do I fix this? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)adjustResize|adjustPan|windowSoftInputMode|edge-to-edge",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)KeyboardAvoidingView|keyboard-controller|resizeToAvoidBottomInset|keyboardShouldPersistTaps",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ScrollView|scrollTo|kaydır|scroll",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)safe area|SafeArea|güvenli alan|inset",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "mob-calisma-izni",
+  "model": "sonnet",
+  "istem": "Our Expo app asks for camera, location and photo library access all at once on the first launch, and most people tap Don't Allow. After that, pressing 'Scan QR' does nothing on Android and the App Store rejected our build because of missing explanation strings. Some iPhone users only shared a few photos and the gallery screen shows empty. How should we redo this? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)Info.plist|UsageDescription|AndroidManifest|uses-permission",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)never ask again|blocked|openSettings|ayarlara yönlendir|kalıcı ret|permanently denied",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rationale|gerekçe|shouldShowRequestPermissionRationale|in context|just.in.time",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)limited|approximate|kısmi|ACCESS_COARSE|while using|precise",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-gelen-kutusu-isleme",
+  "model": "sonnet",
+  "istem": "Our suppliers send PDF invoices to invoices@ourcompany.com, and an office worker downloads each one by hand into a shared folder. I want a Python script that does this every few minutes. Our Microsoft 365 admin says basic username/password login is turned off. Last time someone tried a script, it saved the same invoices again on every run and missed PDFs forwarded inside other emails. What is the right design? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)IMAP|Gmail API|Graph API|Microsoft Graph|OAuth|app password|uygulama şifresi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)UID|Message-ID|label|etiket|processed folder|işlendi klasörü|idempot",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)MIME|multipart|attachment|ek dosya|Content-Disposition|base64",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)IDLE|push notification|webhook|watch|poll|yoklama",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-dosya-yedek-esitleme",
+  "model": "sonnet",
+  "istem": "Every night a scheduled task on our office Windows PC copies the 'Accounting' folder to our NAS with a batch file using xcopy. It takes hours because it copies everything again, it silently stopped working for two weeks and nobody noticed, and last month ransomware encrypted the PC and the encrypted files overwrote the good copies on the NAS. What should the job look like? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)robocopy|rsync|rclone|/MIR|--delete|/XO",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mirror|ayna|deletion|silme yayıl|dry.run",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)version|sürüm|snapshot|anlık görüntü|3-2-1|retention|saklama",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)/LOG|exit code|çıkış kodu|restore test|geri yükleme test|checksum|sağlama",
+    "puan": 2
+   }
+  ]
+ }
+]
