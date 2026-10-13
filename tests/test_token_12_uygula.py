@@ -11,6 +11,7 @@ def test_uygula_kendi_yedegine_yazar_geri_bayt_bayt_doner(tmp_path):
     ev = tmp_path / ".claude"
     (ev / "agents").mkdir(parents=True)
     (ev / "agents-yedek-token10").mkdir()  # TOKEN-10 yedeği varken TOKEN-12 ayrı dizine yedekler
+    (ev / "settings.json").write_text("{}", encoding="utf-8")
     p = ev / "agents" / "engineering-x.md"
     p.write_bytes("---\r\nname: X Engineer\r\ndescription: Uzun eski açıklama\r\ncolor: blue\r\n---\r\ngövde\r\n".encode("utf8"))
     once = p.read_bytes()
