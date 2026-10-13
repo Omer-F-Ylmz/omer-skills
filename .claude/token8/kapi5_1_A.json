@@ -1,0 +1,15 @@
+{
+ "no": 1,
+ "kol": "A",
+ "rc": 0,
+ "araclar": [
+  "Skill:anthropic-skills:departman-frontend",
+  "Skill:frontend-craft:frontend-craft",
+  "Bash"
+ ],
+ "ctx_payi": "0/1",
+ "arac_sonuc_kr": 1127,
+ "num_turns": 6,
+ "is_error": false,
+ "result": "Repoda `DESIGN.md`, `reference/`, `brand_assets/`, `*.csproj` ve `package.json` yok. Bu yüzden **FREE modu ve statik proje** (`index.html` + `styles.css`). `frontend-craft` bağımlılıkları da kurulu değil (`node_modules` eksik).\n\n## Araç sırası (departman-frontend + frontend-craft)\n1. **Bağımlılık:** frontend-craft için `npm ci --ignore-scripts` ve puppeteer Chrome kurulumu. Bu adımdan önce hiçbir betik çalışmaz.\n2. **Tasarım kararı:** `yakinsama.mjs --gecmis` ile son projelerde kullanılan font ve zemini dışarıda bırakırım. Ardından `ui-ux-pro-max` (`search.py --design-system`) bir aday palet ve font çifti önerir. Son olarak marka kararını tek satırda yazarım.\n3. **Referans:** `21st-ui` skill'i (`get_inspiration`). 21st MCP araç olarak yüklü değil, bu yüzden skill üzerinden gider. Referanstan yalnız ritim ve kontrast alınır, kopyalanmaz.\n4. **Yön keşfi (Bölüm 11):** 3 ayrı yön, `.screens/yon/<n>.html` dosyalarında yalnız hero ve özellik ızgarası olarak çizilir. 1440 genişlikte PNG'leri alınır, her yöne 7 satırlık bir künye yazılır. **DUR**, yönü siz seçersiniz.\n5. **DESIGN.md:** Seçilen yön için 6 başlıklı dosya yazılır. **DUR**, onayınızı beklerim.\n6. **İki aşamalı yapım:** Önce token planı çıkar ve yasak listesine karşı kontrol edilir. Özellik ızgarasında eşit kart tekrarı yasak, bu yüzden asimetrik ya da bento düzen gerekiyor. Sonra kod yazılır. Gerekirse `impeccable` kullanılır; hareket varsa önce `animasyon-atolyesi` tarifine bakılır.\n7. **Screenshot döngüsü:** 390/768/1440 genişliklerde en az 2, en fazla 4 tur.\n8. **Kabul:** `audit.mjs` PASS ve `slop.mjs` TEMİZ olmalı. Erişilebilirlik bulgusu çıkarsa `fixing-accessibility`, animasyon varsa `fixing-motion-performance` devreye girer.\n9. **Görsel QA:** `pixeljury` ve `playwright-cli`, `departman-test-qa` üzerinden. CTA bir form içeriyorsa ayrıca `departman-guvenlik` çalışır.\n10. **Kapanış:** Tur raporu. `design-critique` ve `accessibility-review` Claude Code'da kapalı olduğu için raporda \"atlandı\" diye yazılır.\n\n## İlk adımın planı (1–4, kod yok)\n- 4a: Bağımlılık kurulumu ve mod raporu (tek satır).\n- 4b: Yakınsama geçmişi, ui-ux-pro-max adayı ve `get_inspiration` referansları.\n- 4c: 3 yön (`.screens/yon/1-3.html`), her biri hero ve özellik ızgarasından oluşur. Sunucu `serve.mjs` (:3000), görüntüler `WIDTHS=1440` ile alınır.\n- Çıktı: 3 künye ve 3 PNG yolu. Ardından durup seçiminizi beklerim.\n\n## DUR: başlamadan sizden gelmesi gerekenler\n- **Hedef klasör:** Bu repo bir skill reposu, içinde web uygulaması yok. Landing nereye konacak?\n- **Marka ve ürün:** Marka adı ve ürün ya da sektör. Marka adını ben uyduramam.\n- **Hedef kitle:** Marka kararından önce gerekiyor.\n- **Özellik metinleri:** Siz vermezseniz ben yazarım ve `[ÖNERİ]` olarak işaretlerim.\n\nKontrol etmediklerim: `21st-ui` skill'inin kotası ve `ui-ux-pro-max` betiğinin bu makinede çalışıp çalışmadığı."
+}

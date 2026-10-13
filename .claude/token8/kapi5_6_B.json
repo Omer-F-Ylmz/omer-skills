@@ -1,0 +1,18 @@
+{
+ "no": 6,
+ "kol": "B",
+ "rc": 0,
+ "araclar": [
+  "Skill:anthropic-skills:departman-verimlilik",
+  "Bash",
+  "Bash",
+  "Bash",
+  "Bash",
+  "Bash"
+ ],
+ "ctx_payi": "0/5",
+ "arac_sonuc_kr": 5007,
+ "num_turns": 8,
+ "is_error": false,
+ "result": "The worktree's `.kos/kopru/` has no `.log` files, so I used the main checkout at `C:\\Projeler\\omer-skills\\.kos\\kopru\\`, which has 275. None of the three largest has 5 distinct error/warning patterns; below is every pattern found in each.\n\n**1. `kalite3-hiz.log`** (167 KB, 2,102 lines, 55 matches)\n- **40×** `ONARIM BİÇİM … AssertionError('biçim: <<<AJAN bloğu yok (N deneme)')`: the agent's reply had no `<<<AJAN` block. All 40 have this same message, so it's the main problem in this log.\n- **9×** `HATA … ajan kolu boş/Jev yok`: the agent side came back empty, so Jev had nothing to judge.\n- **5×** `ONARIM BİÇİM … AttributeError(\"'NoneType' object has no attribute 'group'\")`: a regex didn't match and the code called `.group()` without checking for None. This is most likely a parser bug.\n- **1×** `HATA … ana kolu`: an error on the main side.\n- The first, looser count also caught skill names that contain \"hata\" (e.g. `dn-msbuild-hata-cozucu`). Those are not errors and are excluded above.\n\n**2. `ig41b.log`** (54 KB, 605 lines, 2 matches)\n- **1×** batch summary: `durum yarim · paket: hata 2`.\n- **1×** `FileNotFoundError`: `meta.json` is missing in `.video-cache\\ig-DbLogAztbFN` and `ig-DeZbmooNrmp`.\n\n**3. `ig40.log`** (53 KB, 519 lines, 5 matches)\n- **3×** `[WARNING] [RapidOCR] The text detection result is empty`: no text found in some frames. Harmless.\n- **1×** batch summary: `durum yarim · paket: hata`.\n- **1×** `FileNotFoundError`: `meta.json` is missing in `.video-cache\\ig-DeWFo3LhsFV`.\n\nBoth ig logs show the same failure: a video's `meta.json` never got written to the cache, so packaging stopped with that batch half done.\n\nI didn't check `ig41a.log`. It's the 4th-largest at 52 KB, very close in size to the two ig logs. The counts come from an error/warning keyword regex, so unlabelled failure lines in these logs wouldn't be counted."
+}

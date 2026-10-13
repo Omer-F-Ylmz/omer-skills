@@ -1,0 +1,19 @@
+{
+ "no": 5,
+ "kol": "B",
+ "rc": 0,
+ "araclar": [
+  "Skill:anthropic-skills:departman-surec-inceleme",
+  "Bash",
+  "Read:C:\\Projeler\\omer-skills-wt\\token8\\.claude\\token8\\kapi5.py",
+  "Read:C:\\Projeler\\omer-skills-wt\\token8\\.claude\\token8\\kor5.py",
+  "Read:C:\\Projeler\\omer-skills-wt\\token8\\.claude\\token8\\kor5.py",
+  "Grep",
+  "Bash"
+ ],
+ "ctx_payi": "0/6",
+ "arac_sonuc_kr": 11225,
+ "num_turns": 9,
+ "is_error": false,
+ "result": "Fark iki commit'ten oluşuyor: `.claude/token8/kapi5.py` (88 satır) ve `kor5.py` (64 satır). Öteki yönde, main'de 6 merge/rapor commit'i var. Çakışma yok. `python kapi5.py sina` öz-sınaması geçti (rc=0).\n\n**Riskli değişiklikler**\n1. **Zaman aşımı tüm koşuyu düşürüyor** (`kapi5.py:56`, `:73`). `subprocess.run(timeout=1200)` hata verirse `TimeoutExpired` yakalanmıyor ve `f.result()` üzerinden ana döngüyü kırıyor. Hata `try/finally` içinde olmadığı için `shutil.rmtree(tmp)` de çalışmıyor ve geçici plugin kopyası diskte kalıyor. Kaldığı yerden sürme var ama asılı kalan görev her seferinde yeniden takılır.\n2. **B kolu doğrulanmadan A'ya dönüşebilir:**\n   - `assert is4.main(...) == 0` (`kapi5.py:68`) `python -O` ile atlanır. O durumda B, yamasız A ile aynı koşar ve kapı anlamsız biçimde KABUL verir.\n   - `--plugin-dir` ile `enabledPlugins: False` birlikte kullanılıyor. Kopyalanan plugin'ler aynı kimliği taşıyorsa ayar onları da kapatıyor olabilir. B'de SessionStart metninin gerçekten yüklendiği hiçbir yerde doğrulanmıyor.\n3. **Kapı 0'a 0 eşitlikte geçiyor** (`kor5.py:59`). Karşılaştırma `>=`; iki kol hiç ctx_* kullanmasa da KABUL çıkar. kapi4'te tam bu oldu: iki kolda da %0. `ctx_sik` sayılıyor ama kapıya hiç girmiyor.\n4. **`skill_dogru` yanlış pozitif verebilir** (`kor5.py:22`). Yolunda \"supabase\" ya da \"code-review\" geçen herhangi bir dosyanın Read'i \"doğru skill\" sayılıyor. Örneğin bir migration dosyasını okumak 4. görevi kazandırır.\n5. **Eksik koşu kör yargıyı ve sayımı çökertiyor.** RAM eşiği aşılınca `kos` dosya yazmadan dönüyor (`:53`). `kor()` ve `say()` ise eksiksiz veri varsayıyor ve `FileNotFoundError` ya da `KeyError` ile düşüyor. Eksik koşuları önceden listeleyen bir kontrol yok.\n6. **Alt süreç ortamı:** yalnız `ANTHROPIC_API_KEY*` süzülüyor; `ANTHROPIC_BASE_URL` (headroom vekili) olduğu gibi geçiyor. Hafıza notuna göre bu, alt süreçte araçları gizleyebiliyor. İki kolu eşit etkiler ama ctx_* sayımını bozabilir.\n\n**Eksik testler**\n- `kor5.py` için hiç test yok. Şunlar kapsanmalı: `skill_dogru`'nun yanlış pozitifi (Read yolu), `ctx_kullanim`'da `\"x/0\"` durumu, `say()` kapısının 0/0 eşitliği ve X/Y anahtarının geri çevrilmesi.\n- `kapi5.ayristir` yalnız `sina` öz-sınamasıyla korunuyor; pytest suite'ine (`tools/tests`) girmiyor. `num_turns`/`result` satırı olmayan çıktı ile boş stdout senaryoları sınanmıyor.\n- `kos` için zaman aşımı ve RAM'den atlama yollarını sınayan test yok.\n\n**Commit öncesi not:** kapi5'in sonuç dosyaları (`kapi5_*_?.json`), `kapi4.err` ve `.kalite3/ajan-yanit/` takip edilmiyor. Commit'e girmemeli; BİRLEŞTİR-14'te olduğu gibi merge'ü de engelleyebilirler.\n\nBakmadıklarım: B kolunda plugin'in gerçekten yüklenip yüklenmediğini ölçmedim, kapi4'ün mantığını yeniden incelemedim. Asıl risk, B'nin A'ya dönüşmesiyle 0/0 eşitliğinin birleşip kapının sahte KABUL vermesi."
+}
