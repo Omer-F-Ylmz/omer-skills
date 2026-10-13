@@ -49,7 +49,10 @@ KAVRAM, SIRA, BAYAG = 0.5, 3, 0.05
 ADAY, TABAN, TAVAN = 80, 10, 300
 DURAK = set("ile ve veya icin bir bu su da de mi ne gibi olarak the and or with for to of in on an my is are how".split())
 GRUP = {"skill": "skill", "ajan": "ajan", "mcp": "mcp", "plugin": "plugin", "cli": "cli",
-        "kutuphane": "kütüphane", "arac": "bizim betik"}
+        "kutuphane": "kütüphane", "arac": "bizim betik", "ogrenim": "öğrenim"}
+_OGR = Path(__file__).resolve().parent / "ogrenim.jsonl"
+OGRENIM = _OGR if _OGR.exists() else Path(__file__).resolve().parents[1] / "docs" / "katalog" / "ogrenim.jsonl"
+OGR_N = 8  # varsayılan çıktıda öğrenim grubu tavanı (kompakt)
 # katalog_yenile'nin standart cagri kalıbı: satırda ad tekrarı yerine grup başlığında bir kez yazılır
 CAGRI = {"skill": "Skill {ad}", "ajan": "Agent {ad} (listede yoksa Skill ajan-getir)", "mcp": "ToolSearch '{ad}' → mcp__{ad}__*",
          "cli": "Bash: {ad} --help", "arac": "python tools/{ad}.py"}
@@ -129,15 +132,35 @@ def aday(q, n=ADAY, tur=None, satirlar=None, taban=TABAN):
     return sec
 
 
+def ogrenimler():
+    """Öğrenim satırları katalog kaydı biçiminde; ayrı derlem (araç sıralamasının BM25 istatistiği değişmesin)."""
+    if not OGRENIM.exists():
+        return []
+    return [{"ad": "", "tur": "ogrenim", "is": o["is"], "metin": f"{o['ne']} {o.get('araclar', '')} {o.get('alan', '')}",
+             "cagri": o["kaynak"], "durum": "", "ne": o["ne"]}
+            for o in map(json.loads, filter(str.strip, OGRENIM.read_text(encoding="utf8").splitlines()))]
+
+
+def ogrenim_ara(q, n=OGR_N):
+    ogr = ogrenimler()
+    return ara(q, None, ORAN, ogr)[:n] if ogr else []
+
+
 def main():
     a = sys.argv[1:]
     tur = a[a.index("--tur") + 1] if "--tur" in a else None
     oran = float(a[a.index("--oran") + 1]) if "--oran" in a else ORAN
     n = int(a[a.index("--aday") + 1]) if "--aday" in a else ADAY
     q = " ".join(x for i, x in enumerate(a) if not x.startswith("--") and (i == 0 or a[i - 1] not in ("--tur", "--oran", "--aday")))
-    sonuc = ara(q, tur, oran) if "--esik" in a else aday(q, n, tur)
+    if tur == "ogrenim":
+        sonuc = ogrenim_ara(q, n if "--aday" in a else 3 * OGR_N)
+    else:
+        sonuc = (ara(q, tur, oran) if "--esik" in a else aday(q, n, tur)) + ([] if tur else ogrenim_ara(q))
+    listele(sonuc, len(sonuc) > UZUN and "--esik" in a and "--tam" not in a)
+
+
+def listele(sonuc, uzun=False):
     gruplar = {t: [o for o in sonuc if o["tur"] == t] for t in GRUP if any(o["tur"] == t for o in sonuc)}
-    uzun = len(sonuc) > UZUN and "--esik" in a and "--tam" not in a
     # Headroom tag_protector etiketli bloğu sıkıştırmaz; ```text çiti, ERROR/DEBUG'lı açıklamalarda içeriğin
     # LOG sayılıp (etiket korumasız yol) kırpılmasını önler (karma yol önce etiketi korur)
     print("<aday-listesi>\n```text")
@@ -145,6 +168,11 @@ def main():
     no = 0  # sıra no öneki: önceki çıktıyla aynı satır dizisi Headroom'da "[↑NL same as msg]" diye katlanmasın
     for t, v in gruplar.items():
         print(f"## {GRUP[t]} ({len(v)})" + (f" · çağrı: {CAGRI[t].format(ad='<ad>')}" if t in CAGRI else ""))
+        if t == "ogrenim":
+            for o in v:
+                no += 1
+                print(f"{no}. {o['ne']} · iş: {o['is']} · {o['cagri']}")
+            continue
         satir = {}  # aynı açıklamalı kayıtlar tek satır: tekrar satırı okuyucuda gizlenmesin
         for o in v[:ILK if uzun else None]:
             c = "" if o["cagri"] == CAGRI.get(t, "").format(ad=o["ad"]) else f" · {o['cagri'][:60]}"
