@@ -23,13 +23,14 @@ B = ANA / ".kos" / "fv3"
 REF = ANA / ".kos" / "fv"  # d1 taban formları
 VIDEOLAR = ("ig-DeW7JHrgsXb", "ig-DeV9nZPtSsC", "ig-DeHMM45NaFt", "ig-DdrNeEUN63i", "ig-DY_SoPGKv2A", "ig-Db_H8ScP5y-",
             "ig-DdlurQHG2Mm", "ig-Dcd3eY1iOMA", "ig-DeON0MOB5oi", "ig-DYx4OuVuJuI", "ig-DcRhD2Nto7M", "ig-DdWmIHTC322")[:9]
-KOLLAR = {"taban": None, "fable": "1", "A": "A", "B": "B", "C": "C"}
+KOLLAR = {"taban": "0", "fable": "1", "A": "A", "B": "B", "C": "C"}
 MODELLER = ["claude-sonnet-5-5"]
 JEV_TAVAN = 1500
 USD_TAVAN = 6.0
 
 
-def kos(kol, tekrar):
+def kos(kol, tekrar, yalniz=None):
+    """yalniz: virgüllü video listesi → yalnız onları koş, mevcut <kol>-<tekrar>.json'a birleştir (limitle bozulan satırlar)."""
     harcanan = sum(x["usd"] or 0 for p in B.glob("*-*.json") for x in json.loads(p.read_text(encoding="utf-8")).values())
     assert harcanan < USD_TAVAN, f"$ tavanı: {harcanan:.2f} ≥ {USD_TAVAN}"
     env = {k: v for k, v in os.environ.items() if k != "VIDEO_FABLE_PROTOKOL"}
@@ -42,8 +43,9 @@ def kos(kol, tekrar):
     assert all(p["short"] for p in pk.values()), "altın kümede short olmayan video"
     d = {"butce": .5, "tavan": {"usd": 5.0}, "videolar": {v: {"tarama": {}} for v in VIDEOLAR}}
     temizle = lambda s: cli._temizle(s, env)
-    sonuc = {}
-    for v in VIDEOLAR:
+    cikti = B / f"{kol}-{tekrar}.json"
+    sonuc = json.loads(cikti.read_text(encoding="utf-8")) if yalniz else {}
+    for v in (yalniz.split(",") if yalniz else VIDEOLAR):
         t0 = time.time()
         y = pt._tara_ikili([v], pk, {}, temizle, d, pdir, env, hafif.cagir, MODELLER)
         u = y.get("usage") or {}
@@ -53,7 +55,7 @@ def kos(kol, tekrar):
                     "eksik": int(bool(y.get("hata") or pt.dogrula(y.get("form"), pk, [v]).get(v))),  # 1. turda form reddi → tamam_eksik/2. tur adayı
                     "form": (y.get("form") or {}).get("videolar", [None])[0]}
         print(v, sonuc[v]["duvar"], "sn", sonuc[v]["usd"], "$", sonuc[v]["hata"], flush=True)
-    (B / f"{kol}-{tekrar}.json").write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
+    cikti.write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def kapsam(f, taban):
@@ -110,4 +112,4 @@ def rapor():
 
 
 if __name__ == "__main__":
-    {"kos": lambda: kos(sys.argv[2], sys.argv[3]), "rapor": rapor}[sys.argv[1]]()
+    {"kos": lambda: kos(*sys.argv[2:5]), "rapor": rapor}[sys.argv[1]]()

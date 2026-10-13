@@ -72,7 +72,7 @@ def _kos(args, girdi, env, timeout):
 def _cagir(sistem, metin, sema, kareler, model, butce, timeout, env, kos, araclar, efor=None):
     """→ {form, usage, usd, sure, hata}; hata varsa form None."""
     env = {k: v for k, v in (os.environ if env is None else env).items() if k != "ANTHROPIC_BASE_URL"}
-    fp = env.get("VIDEO_FABLE_PROTOKOL")
+    fp = env.get("VIDEO_FABLE_PROTOKOL", "C")  # FABLE-VIDEO d4 KABUL: C varsayılan açık; 0 kapatır
     if "haiku" not in model and (on := FABLE_PROTOKOL if fp == "1" else FABLE_VIDEO.get(fp)):
         sistem = on + "\n\n" + sistem
     icerik = [{"type": "text", "text": metin}] + [{"type": "image", "source": {"type": "base64", "media_type": mimetypes.guess_type(k)[0] or "image/jpeg",
