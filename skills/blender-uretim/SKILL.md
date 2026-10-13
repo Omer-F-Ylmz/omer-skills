@@ -28,6 +28,7 @@ Referanslar — v1 tesliminden önce yalnız `olculer.md` okunur; ışık `isik_
 ## Sahne = kod
 
 - Önce tarif: sahne/malzeme/ışık/kamera/anim/GLB spec JSON ile `tools/blender/lib/tarif.py` (blender-oturum "Önce tarif"); bpy kodu yalnız tarife sığmayan kısım için.
+- Tarif eğitim varsayılanlarını kendisi uygular (85 mm + DOF, ince pah, doğrusal turntable, EEVEE RT); elle seçilecek ışık/malzeme/kamera/GN/GLB kuralları ve render öncesi kontrol listesi: `references/egitim.md`.
 - Betik `C:\Users\pc\Desktop\<Proje>\blender\sahneler\<ad>.py`; göndermeden önce `tools/bpy_kontrol.py <betik.py>` temiz geçer. Turda düzenlenir, sıfırdan yazılmaz (#12).
 - Canlı oturum: betiğin **içeriği** `execute_blender_code`'a; exec/eval/importlib ile dosya çalıştırma yok (bekçi reddeder). Headless: `tools/blender_cli.py` (SONUC JSON).
 - Diskte kopya yalnız `bpy.ops.wm.save_as_mainfile(filepath=..., copy=True)`. `bpy.data.libraries.write` ile Scene yazma: Blender 5.2.1'de çöküyor, bekçi reddeder.

@@ -216,7 +216,12 @@ def main(argv=None):
     a.add_argument("--gorev", default=",".join(GOREV))
     a.add_argument("--yol", default="taban,tarif")
     a.add_argument("--yargi", action="store_true")
+    a.add_argument("--etiket", default="", help="BLENDER-3: ayrı TSV/yargı/proje (eski satırlar atlanmasın)")
     a = a.parse_args(argv)
+    if a.etiket:
+        global TSV, YARGI, PROJE
+        TSV, YARGI = TSV.with_name(f"blender-faz5-{a.etiket}.tsv"), YARGI.with_name(f"blender-faz5-{a.etiket}-yargi.json")
+        PROJE = PROJE.parents[1] / f"BlenderOlcum-{a.etiket}" / "blender"  # yol kuralı: Desktop/<Proje>/blender
     baz = hazirla()
     if not TSV.is_file():
         TSV.parent.mkdir(parents=True, exist_ok=True)
