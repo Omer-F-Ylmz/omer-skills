@@ -1,7 +1,7 @@
 """TOKEN-10 iş 1: ajan açıklama (frontmatter description) uzunluk ölçümü, çağrısız.
 Canlı ~/.claude/agents/*.md ↔ repo kaynakları (ajanlar/** , skills/departman-*/ajanlar/**) ada göre eşlenir.
   python ajan_aciklama.py [wt]   → özet stdout + docs/token-10/aciklama.tsv"""
-import re, statistics, sys
+import json, re, statistics, sys
 from collections import Counter
 from pathlib import Path
 
@@ -25,6 +25,21 @@ def aciklama(metin):
                 parca.append(t.strip())
             return " ".join(p for p in parca if p).strip().strip('"').strip("'")
     return None
+
+
+def aciklama_degistir(metin, yeni):
+    """Frontmatter'daki description (devam satırları dahil) tek satıra iner; başka bayt değişmez."""
+    son = metin.index("\n---", 3)
+    fm, govde = metin[:son], metin[son:]
+    sat = fm.split("\n")
+    i = next(i for i, s in enumerate(sat) if s.startswith("description:"))
+    j = i + 1
+    while j < len(sat) and not ANAHTAR.match(sat[j]):
+        j += 1
+    cr = "\r" if sat[i].endswith("\r") else ""
+    deger = json.dumps(yeni, ensure_ascii=False) if re.search(r"[:#]|^[-\[{'\"!&*>|%@`]", yeni) else yeni  # YAML düz skaler kırılmasın
+    sat[i:j] = [f"description: {deger}{cr}"]
+    return "\n".join(sat) + govde
 
 
 def kaynaklar(wt):

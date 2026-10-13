@@ -12,6 +12,8 @@ T8 = Path("C:/Projeler/omer-skills/.claude/token8")
 sys.path.insert(0, str(T8))
 import ajan_olc
 from ajan_olc import EV, kur, sok
+sys.path.insert(0, str(Path(__file__).parent))
+from ajan_aciklama import aciklama_degistir
 
 WT = Path(__file__).resolve().parents[2]
 CIK = WT / "docs/token-10"
@@ -50,20 +52,6 @@ def b_ajanlar(kok):
             p.write_text(y, encoding="utf8", newline="")
             n += 1
     return n
-
-
-def aciklama_degistir(metin, yeni):
-    """Frontmatter'daki description (devam satırları dahil) tek satıra iner; başka bayt değişmez."""
-    son = metin.index("\n---", 3)
-    fm, govde = metin[:son], metin[son:]
-    sat = fm.split("\n")
-    i = next(i for i, s in enumerate(sat) if s.startswith("description:"))
-    j = i + 1
-    while j < len(sat) and not re.match(r"^[A-Za-z_][\w-]*:", sat[j]):
-        j += 1
-    cr = "\r" if sat[i].endswith("\r") else ""
-    sat[i:j] = [f"description: {json.dumps(yeni, ensure_ascii=False) if re.search(r'[:#]', yeni) else yeni}{cr}"]
-    return "\n".join(sat) + govde
 
 
 def kos(kok, istem, taban):
