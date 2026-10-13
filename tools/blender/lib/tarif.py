@@ -21,6 +21,7 @@ onizle → render → ozet. --blend yoksa fabrika sahnesi boşaltılır. Hatalı
 import ast
 import json
 import math
+import os
 import sys
 import time
 from pathlib import Path
@@ -94,6 +95,7 @@ def _blender_ana():
         print("SONUC:" + json.dumps({"gecti": False, "hatalar": hatalar}, ensure_ascii=False))
         return
     sc, ops = bpy.context.scene, bpy.ops
+    kal = {} if os.environ.get("BLENDER_KALITE") == "0" else {"pah": []}  # BLENDER-3 eğitim varsayılanları (references/egitim.md)
     if not bpy.data.filepath:  # fabrika sahnesi: küp/ışık/kamera boşaltılır
         for o in list(bpy.data.objects):
             bpy.data.objects.remove(o)
@@ -148,6 +150,10 @@ def _blender_ana():
             ata(o, n["malzeme"])
         if n.get("bevel"):
             bevel(o, n["bevel"])
+        elif kal and tur in ("kup", "silindir", "koni"):  # B Ml2t8uxPAQU/A 4H5W6C_Mbck: keskin kenar ışık yakalamaz; ~%0.6 pah
+            bevel(o, round(0.006 * max(o.dimensions), 4))
+            o.modifiers["Bevel"].harden_normals = True
+            kal["pah"].append(o.name)
         yeni.append(o)
 
     if "yigin" in spec:
@@ -198,7 +204,9 @@ def _blender_ana():
     def kamera_oto():
         mn, mx = kutu()
         merkez, r = (mn + mx) / 2, max((mx - mn).length / 2, 1e-3)
-        return merkez + Vector((0.6, -1, 0.45)).normalized() * r / math.sin(math.radians(39.6) / 2) * 1.1, merkez, 50
+        lens = 85 if kal else 50  # C xxKZ1EjyjjU/A: ürün 85–100 mm; geniş açı yakın kenarı şişirir
+        fov = 2 * math.atan(18 / lens)  # 36 mm sensör
+        return merkez + Vector((0.6, -1, 0.45)).normalized() * r / math.sin(fov / 2) * 1.1, merkez, lens
 
     k = spec.get("kamera") or ("oto" if not sc.camera and ("onizle" in spec or "render" in spec) else None)
     if k:
@@ -209,12 +217,19 @@ def _blender_ana():
         sc.camera, kam.data.lens, kam.location = kam, lens, konum
         kam.data.clip_end = max(100, (konum - hedef).length * 10)
         kam.rotation_euler = (hedef - konum).to_track_quat("-Z", "Y").to_euler()
+        if kal:  # C xOUQUDoflxU: gerçek ölçekte küçük ürün → yakın kırpma (f/4 DOF alınmadı: 8 cm üründe her şeyi bulandırdı, b3c yargı −7)
+            kam.data.clip_start = 0.01
 
+    tercih = bpy.context.preferences.edit
+    eski_ara = tercih.keyframe_new_interpolation_type
+    if kal and spec.get("anim"):  # C glz3-ZClzGc: turntable sabit hızla döner; kolay giriş/çıkış döngüde duraklatır
+        tercih.keyframe_new_interpolation_type = kal["ara"] = "LINEAR"
     for a in spec.get("anim", []):
         o = obj[a["nesne"]]
         for kare, v in a["kareler"]:
             setattr(o, a["kanal"], [math.radians(x) for x in v] if a["kanal"] == "rotation_euler" else v)
             o.keyframe_insert(a["kanal"], frame=kare)
+    tercih.keyframe_new_interpolation_type = eski_ara  # kullanıcı tercihi kalıcı değişmez
     if "kare" in spec:
         sc.frame_start, sc.frame_end = spec["kare"]
 
@@ -241,6 +256,11 @@ def _blender_ana():
             except TypeError:
                 sc.render.engine = "BLENDER_EEVEE_NEXT"
             sc.eevee.taa_render_samples = ornek
+            if kal:  # D manual + CG Boost RsCNKHSRk_s: 5.x varsayılanı RT kapalı; tam çözünürlük RT + Fast GI 384 px'de +0.09 sn
+                e = sc.eevee
+                e.use_raytracing, e.ray_tracing_options.resolution_scale, e.fast_gi_resolution = True, "1", "1"
+                e.fast_gi_ray_count, e.fast_gi_step_count, e.shadow_ray_count, e.shadow_step_count = 4, 16, 2, 8
+                kal["eevee_rt"] = True
         else:
             sys.path.insert(0, str(REF.parents[2] / "tools"))
             try:
@@ -251,6 +271,10 @@ def _blender_ana():
             isik_kur.cycles_denoise(sc, ornek)
             sc.cycles.use_adaptive_sampling = True  # gürültü eşiğine (0.01) ulaşan piksel erken durur
             sc.cycles.denoising_input_passes = "RGB_ALBEDO_NORMAL"  # kenar/doku ayrıntısı korunur
+            if kal:  # D kYOsR9Kb8Ek/dLZEmfqob7k: stüdyo ürününde sekme tavanı süreyi %21 kısalttı (yerel ölçüm); clamp ateşböceği keser
+                c = sc.cycles
+                c.max_bounces, c.diffuse_bounces, c.glossy_bounces, c.sample_clamp_indirect = 6, 2, 3, 5
+                kal["cycles_sekme"] = 6
             sonuc["motor"] = {"motor": sc.render.engine, "cihaz": cihaz, "ornek": sc.cycles.samples,
                               "adaptif": sc.cycles.use_adaptive_sampling, "denoise": sc.cycles.use_denoising,
                               "gecis": sc.cycles.denoising_input_passes}
@@ -262,7 +286,7 @@ def _blender_ana():
 
     sonuc = {"gecti": True}
     if k:
-        sonuc["kamera"] = {"konum": [round(x, 3) for x in konum], "hedef": [round(x, 3) for x in hedef]}
+        sonuc["kamera"] = {"konum": [round(x, 3) for x in konum], "hedef": [round(x, 3) for x in hedef], "lens": lens}
     if "onizle" in spec:
         o = spec["onizle"]
         motor(o.get("motor", "eevee"), o.get("px", 256))
@@ -294,6 +318,8 @@ def _blender_ana():
             if o.type != "MESH":
                 diger[o.type] = diger.get(o.type, 0) + 1
         sonuc["diger"] = diger
+    if kal:
+        sonuc["kalite"] = kal
     sonuc["sure"] = round(time.time() - t0, 1)
     print("SONUC:" + json.dumps(sonuc, ensure_ascii=False))
 

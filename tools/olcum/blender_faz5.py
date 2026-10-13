@@ -8,6 +8,7 @@ Koşu başına `claude -p` (stream-json → jeton/tur/$/süre) + headless nesnel
 import argparse
 import json
 import math
+import os
 import random
 import re
 import shutil
@@ -31,7 +32,7 @@ YARGI = kosucu.CIKTI / "blender-faz5-yargi.json"
 DENETIM = DIZIN / "blender_denetim.py"
 TARIF = KOK / "tools" / "blender" / "lib" / "tarif.py"
 MODEL, TAVAN_USD = "sonnet", 22.0  # bütçe ≤ $30 (yargı ≤ $4 dahil): tavan aşılınca yeni koşu başlamaz
-BUTCE = {"taban": 4.0, "tarif": 1.5, "tek": 0.5}
+BUTCE = {"taban": 4.0, "tarif": 1.5, "tek": 0.5, "tek0": 0.5, "tekK": 0}
 IZIN = ["--allowedTools", "Bash", "Read", "Write", "Edit", "Glob", "Grep", "mcp__blender"]
 BASLIK = "gorev\tyol\ttekrar\tinput\tcache_creation\tcache_read\toutput\ttoplam\ttur\tsure_sn\tusd\tkalite\tkalan\tmcp_n\tbash_n\thata"
 
@@ -49,6 +50,14 @@ GOREV = {
                  "GEO-Kapak), Z ekseninde alttan üste dizili, parçalar arası en az 5 cm boşluk; düşük poli (toplam < 5000 üçgen); her "
                  "parçaya malzeme (gövde koyu, kapak/cezve pirinç gibi). Kaydet: {d}\\sahne.blend; GLB: {d}\\telve.glb; 384 px EEVEE "
                  "önizleme: {d}\\onizleme.png."),
+    # BLENDER-3: eğitim mekanizmaları (ışık/malzeme/kamera/turntable/GLB) ölçümü için
+    "g5": (None, "Kahraman ürün çekimi: GEO-Cezve (pirinç metal, koni gövde alt çap 7 cm, üst çap 5 cm, yükseklik 8 cm), GEO-Sap "
+                 "(küp 10×1×1 cm, koyu ahşap, gövdeye yatay bitişik), GEO-Zemin (1×1 m düzlem, koyu mat). Stüdyo ışığı; kamera ürünü "
+                 "kadraja alsın. Kaydet: {d}\\sahne.blend; 384 px Cycles render: {d}\\onizleme.png."),
+    "g6": (None, "Web ürün turntable'ı: GEO-Fincan (silindir, çap 8 cm, yükseklik 9 cm, mat kırmızı seramik), GEO-Zemin (1×1 m "
+                 "açık gri mat). Fincan kare 1'den 48'e Z ekseninde 360° dönsün, kesintisiz döngü; sahne kare aralığı 1–48. Kare 1, 13, "
+                 "25, 37 için 256 px EEVEE render → {d}\\kareler\\. GLB: {d}\\fincan.glb; kaydet: {d}\\sahne.blend; 384 px önizleme "
+                 "(kare 1): {d}\\onizleme.png."),
 }
 YOL = {
     "taban": "Blender headless açık; resmi Blender MCP sunucusu 127.0.0.1:9876'da bağlı ({sahne}). İşi yalnız blender MCP araçlarıyla "
@@ -79,10 +88,14 @@ def kontrol(g, d, den, baz_ucgen=124):
               ("nesne_3", len(m) >= 3), ("isik_3", den.get("isik", 0) >= 3), ("kamera", bool(den.get("kamera")))]
     elif g == "g2":
         k += [("uv", bool(f) and f["uv"] >= 1), ("subdiv", bool(f) and f["ucgen"] > 2 * baz_ucgen)]
-    elif g == "g3":
+    elif g in ("g3", "g6"):
         kare = list((Path(d) / "kareler").glob("*.png"))
-        k += [("kareler_4", len(kare) >= 4), ("kare_1_24", den.get("kare") == [1, 24]),
+        k += [("kareler_4", len(kare) >= 4), ("kare_aralik", den.get("kare") == [1, 24 if g == "g3" else 48]),
               ("donus_360", bool(f) and abs(abs(f["rz"][1] - f["rz"][0]) - 2 * math.pi) < 0.2)]
+        if g == "g6":
+            k.append(("glb", glb_mesh(Path(d) / "fincan.glb") >= 1))
+    elif g == "g5":
+        k += [("nesne_3", len(m) >= 3), ("isik", den.get("isik", 0) >= 1), ("kamera", bool(den.get("kamera")))]
     else:
         z = sorted(x["z"] for x in m.values())
         k += [("glb", glb_mesh(Path(d) / "telve.glb") >= 5), ("parca_5", len(m) >= 5),
@@ -153,8 +166,19 @@ def kos_bir(g, yol, t, baz):
         ek = YOL["taban"].format(sahne=f"açık dosya: {blend}" if blend else "boş sahne")
     else:
         ek = YOL["tarif"].format(blend=f"Başlangıç sahnesi: --blend {blend}" if blend else "")
+    os.environ["BLENDER_KALITE"] = "0" if yol == "tek0" else "1"  # BLENDER-3: tek0 = eğitim varsayılanları kapalı taban
     try:
-        if yol == "tek":  # BLENDER-2: araçsız tek tur, Blender'ı yalin koşar
+        if yol == "tekK":  # BLENDER-3 d2: tek0-t'nin spec'i KALITE=1 ile yeniden render (LLM yok; fark yalnız varsayılanlardan)
+            d0 = PROJE / f"{g}-tek0-{t}"
+            spec = json.loads((d0 / "sonuc.json").read_text(encoding="utf-8"))["o"].get("spec")
+            if not spec:  # tek0 önce koşmalı (yalnız --tekrar 1; t=2'de sıra ters döner) ve geçerli spec üretmiş olmalı
+                raise RuntimeError(f"{d0.name} spec yok")
+            s = json.dumps(spec, ensure_ascii=False)
+            for a, b in ((json.dumps(str(d0))[1:-1], json.dumps(str(d))[1:-1]), (d0.as_posix(), d.as_posix())):
+                s = s.replace(a, b)
+            kod, _, _ = bc.calistir(TARIF, json.loads(s), blend)
+            o = {"usage": {}, "tur": 0, "sure": 0.0, "usd": 0.0, "araclar": [], "rc": kod, "hata": "" if kod == 0 else f"exit {kod}"}
+        elif yol in ("tek", "tek0"):  # BLENDER-2: araçsız tek tur, Blender'ı yalin koşar
             o = yalin.tek(istem.format(d=d), blend, kos=lambda i, e: kosucu.kos(i, ek=e, model=MODEL, timeout=1500, butce=BUTCE[yol]))
         else:
             o = kosucu.kos(istem.format(d=d) + "\n\n" + ek, ek=IZIN if yol == "taban" else yalin.bayraklar(), model=MODEL,
@@ -164,7 +188,7 @@ def kos_bir(g, yol, t, baz):
             kapat(p)
     den = denetle(d)
     k = kontrol(g, d, den, baz["ucgen"])
-    (d / "sonuc.json").write_text(json.dumps({"o": {x: o.get(x) for x in ("metin", "araclar", "usage", "tur", "usd", "sure", "rc", "hata")},
+    (d / "sonuc.json").write_text(json.dumps({"o": {x: o.get(x) for x in ("metin", "araclar", "usage", "tur", "usd", "sure", "rc", "hata", "ilk_hata", "spec")},
                                               "denetim": den, "kontrol": k}, ensure_ascii=False, indent=1), encoding="utf-8")
     j = kosucu.jeton(o["usage"])
     return [g, yol, t, *j, sum(j), o["tur"], o["sure"], round(o["usd"], 4), round(sum(v for _, v in k) / len(k), 3),
@@ -175,7 +199,7 @@ def kos_bir(g, yol, t, baz):
 def yargi():
     sonuc = json.loads(YARGI.read_text(encoding="utf-8")) if YARGI.is_file() else {}
     for g, (_, istem) in GOREV.items():
-        aday = [f"{yol}-{t}" for yol in ("taban", "tarif", "tek") for t in (1, 2) if (PROJE / f"{g}-{yol}-{t}" / "onizleme.png").is_file()]
+        aday = [f"{yol}-{t}" for yol in ("taban", "tarif", "tek", "tek0", "tekK") for t in (1, 2) if (PROJE / f"{g}-{yol}-{t}" / "onizleme.png").is_file()]
         if g in sonuc or len(aday) < 2:
             continue
         random.shuffle(aday)
@@ -202,7 +226,12 @@ def main(argv=None):
     a.add_argument("--gorev", default=",".join(GOREV))
     a.add_argument("--yol", default="taban,tarif")
     a.add_argument("--yargi", action="store_true")
+    a.add_argument("--etiket", default="", help="BLENDER-3: ayrı TSV/yargı/proje (eski satırlar atlanmasın)")
     a = a.parse_args(argv)
+    if a.etiket:
+        global TSV, YARGI, PROJE
+        TSV, YARGI = TSV.with_name(f"blender-faz5-{a.etiket}.tsv"), YARGI.with_name(f"blender-faz5-{a.etiket}-yargi.json")
+        PROJE = PROJE.parents[1] / f"BlenderOlcum-{a.etiket}" / "blender"  # yol kuralı: Desktop/<Proje>/blender
     baz = hazirla()
     if not TSV.is_file():
         TSV.parent.mkdir(parents=True, exist_ok=True)

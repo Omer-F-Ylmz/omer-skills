@@ -1,6 +1,6 @@
 {
   "name": "blender",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Blender skills for Claude Code (local tool paths): blender-oturum session/tool routing and blender-uretim production pipeline (brief, measurements, scene as code, render checks).",
   "author": {
     "name": "Ömer Faruk Yılmaz"

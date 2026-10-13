@@ -92,9 +92,10 @@ def tek(istek, blend=None, kos=_claude, calistir=None):
                         for ad, b in bek.items()
                         if not olcu.get(ad) or any(abs(x - y) > 0.15 * y for x, y in zip(olcu[ad], b))]
                 if not hata or i:
-                    return {**t, "rc": 0, "metin": json.dumps(sonuc, ensure_ascii=False), "hata": "; ".join(hata)[-200:]}
+                    return {**t, "rc": 0, "ilk_hata": t.get("ilk_hata", ""), "spec": spec, "metin": json.dumps(sonuc, ensure_ascii=False), "hata": "; ".join(hata)[-200:]}
             else:
                 hata = [f"blender_cli exit {kod}: {json.dumps(sonuc, ensure_ascii=False)[:1500]}"]
+        t.setdefault("ilk_hata", str(hata)[-300:])  # BLENDER-3: düzeltme turunun nedeni (ölçümde ek tur KALITE'den mi?)
         istem = (f"{istek}\n\nÖnceki spec:\n{json.dumps({**(spec or {}), **({'beklenen': bek} if bek else {})}, ensure_ascii=False)}"
                  f"\nHata: {hata}\nDüzeltilmiş spec'i ver.")
     return {**t, "metin": f"HATA: {hata}", "hata": str(hata)[-200:]}

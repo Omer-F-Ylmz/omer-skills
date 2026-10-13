@@ -1,0 +1,177 @@
+{
+ "g3": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 3,
+    "isik": 5,
+    "kompozisyon": 6,
+    "uyum": 3
+   },
+   "B": {
+    "bicim": 4,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 3
+   }
+  },
+  "usd": 0.4139372
+ },
+ "g4": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 6,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 8
+   }
+  },
+  "usd": 0.4129094
+ },
+ "g1": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tek0-2",
+   "C": "tek-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 7
+   },
+   "B": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 7
+   },
+   "C": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 7
+   }
+  },
+  "usd": 0.4619416
+ },
+ "g2": {
+  "esle": {
+   "A": "tek-1",
+   "B": "tek0-2",
+   "C": "tek0-1",
+   "D": "tek-2"
+  },
+  "puan": {
+   "A": {
+    "bicim": 3,
+    "isik": 4,
+    "kompozisyon": 6,
+    "uyum": 3
+   },
+   "B": {
+    "bicim": 3,
+    "isik": 7,
+    "kompozisyon": 6,
+    "uyum": 4
+   },
+   "C": {
+    "bicim": 7,
+    "isik": 8,
+    "kompozisyon": 7,
+    "uyum": 8
+   },
+   "D": {
+    "bicim": 7,
+    "isik": 5,
+    "kompozisyon": 7,
+    "uyum": 6
+   }
+  },
+  "usd": 0.4410638
+ },
+ "g5": {
+  "esle": {
+   "A": "tek-2",
+   "B": "tek-1",
+   "C": "tek0-2",
+   "D": "tek0-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 7,
+    "isik": 6,
+    "kompozisyon": 6,
+    "uyum": 6
+   },
+   "C": {
+    "bicim": 7,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "D": {
+    "bicim": 7,
+    "isik": 7,
+    "kompozisyon": 8,
+    "uyum": 7
+   }
+  },
+  "usd": 0.45035500000000006
+ },
+ "g6": {
+  "esle": {
+   "A": "tek0-1",
+   "B": "tek-2",
+   "C": "tek0-2",
+   "D": "tek-1"
+  },
+  "puan": {
+   "A": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 5,
+    "uyum": 6
+   },
+   "B": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   },
+   "C": {
+    "bicim": 8,
+    "isik": 6,
+    "kompozisyon": 5,
+    "uyum": 6
+   },
+   "D": {
+    "bicim": 8,
+    "isik": 7,
+    "kompozisyon": 7,
+    "uyum": 7
+   }
+  },
+  "usd": 0.443115
+ }
+}
