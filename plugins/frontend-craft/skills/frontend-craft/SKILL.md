@@ -120,7 +120,7 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
   2. **Token'lar** — 3-6 adet, her biri `ad: değer` (ör. `ölçü-birimi: 8px grid`, `satır-uzunluğu: 65ch`). İsteğe bağlı ek satır: `kadran: deneysellik N · hareket N · yoğunluk N` (1-5).
   3. **Renk** — 4-6 isimli hex. Jenerik ad yasak (`brand-500` değil, `kavrulmuş-bakır` gibi).
   4. **Tipografi** — 2 isimli font + ölçek. Inter, Roboto, Arial, Space Grotesk, Poppins kullanılmaz; en sık görülen seçimler oldukları için sayfayı jenerik gösterir.
-  5. **Hareket** — süre + easing, en fazla 3 kural. Her kural = tetikleyici (yükleme/scroll/hover) + teknik tarif (kütüphane + sürüm + hangi etkiyi neden karşıladığı) + scroll anlatısı varsa süreklilik ve geri-scroll davranışı. Desen (en çok 3, numaralar `references/vitrin-teknikleri.md` bölümleri): editoryal/ajans 1·2·3·4·7 · ürün/SaaS 2·4·8·6 · portfolyo 3·4·6·7 · etkinlik 2·3·5·8·9 · 3D ürün 9·1. Dosyanın tamamı okunmaz: yalnız seçilen desenler `grep -n -A5 "^## N\." <dosya>`; desen 3 seçildiyse Sınır satırı dahil. Ölçek sınırı her yönde geçerli: sayfada tek dev öğe (hero h1 ya da footer wordmark); bölüm başlığı ve liste/kadro öğeleri ≤ `clamp(2rem, 5vw, 4.5rem)`; 1440×900 ilk ekranda h1 + değer cümlesi + CTA birlikte, üstte boş hero bandı yok.
+  5. **Hareket** — süre + easing, en fazla 3 kural. Her kural = tetikleyici (yükleme/scroll/hover) + teknik tarif (kütüphane + sürüm + hangi etkiyi neden karşıladığı) + scroll anlatısı varsa süreklilik ve geri-scroll davranışı.
   6. **YASAK LİSTESİ** — mor degrade · aşırı glow · üçlü eşit kart (özellik/fayda bölümlerinde; ürün ızgarası hariç) · her yerde ikon · merkezli tek kolon · lorem ipsum · aşırı yuvarlatma · gereksiz shadow.
 - DESIGN.md kalıcı hafızadır: sonraki her ekran onu miras alır, yeniden üretilmez. Değişecekse önce DESIGN.md güncellenir, sonra kod.
 
@@ -137,8 +137,8 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 ## 10. Referans kaynakları
 - Yön ararken önce referans çıkar, sonra dili yaz: 21st.dev · awwwards.com · lapa.ninja · recent.design · dribbble.com · figma.com/community · designprompts.dev
 - 21st MCP kuruluysa bileşen araması oradan yapılır, elle yazılmaz. Adım-araç eşlemesi ve kota kapıları: `references/21st-akis.md`.
-- Vitrin sitelerinin (awwwards, godly, siteinspire, land-book, lapa, onepagelove…) ölçülmüş mekanizmaları — yığın, easing, tip ölçeği, LCP/CLS dersleri, 11 desen tarifi: `references/vitrin-teknikleri.md`.
 - SIRA'nın her adımında hangi skill/MCP (katalog, design-dna, Stitch, Figma, impeccable, baseline-ui…): `references/yon-hatti.md`.
+- Vitrin sitelerinin ölçülmüş mekanizmaları (64 site, 11 desen): `references/vitrin-teknikleri.md` — yalnız kullanıcı açıkça isterse (ör. "vitrin/awwwards tekniklerini öğren/uygula"); varsayılan akışta okunmaz.
 - Sabit adımlar (21st MCP kuruluysa, elle arama yok): yön/referans çıkarımı `get_inspiration` (+ kullanılan yön için `record_inspiration_feedback`) · bileşen `get_component` · tema `get_theme` · logo `search_logo`.
 - Referansı kopyalama — ritim, kontrast, boşluk mantığını çıkar, projeye uygula.
 - 3D/WebGL yönü aranırken Three.js resmi örnekleri (threejs.org/examples) referans alınır, kopyalanmaz.

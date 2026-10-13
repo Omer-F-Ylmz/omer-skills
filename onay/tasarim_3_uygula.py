@@ -3,9 +3,10 @@
   python onay/tasarim_3_uygula.py --kuru   # plan (varsayılan)
   python onay/tasarim_3_uygula.py uygula   # yedek alır → yazar
   python onay/tasarim_3_uygula.py --geri   # son yedeği geri koyar
-CC: frontend-craft 1.8.0 dosyaları (SKILL.md Bölüm 7/10 işaretçileri, references/vitrin-teknikleri.md yeni, references/yon-hatti.md)
+CC: frontend-craft 1.8.0 dosyaları (SKILL.md Bölüm 10'da yalnız-açık-istek işaretçisi, references/vitrin-teknikleri.md yeni;
+d3 (b): Bölüm 7 desen yönlendirmesi ve yon-hatti bağı geri alındı — varsayılan davranış = 1.7.0)
 kurulu plugin önbelleğine (~/.claude/plugins/cache/omer-skills/frontend-craft/<kurulu sürüm>/skills/frontend-craft) yazılır.
-claude.ai: dist/tasarim-3/{frontend-craft,web-sahne-desenleri}.zip Desktop'tan elle yüklenir. Hiçbir şey silinmez; ayar dosyalarına dokunulmaz.
+claude.ai: dist/tasarim-3/frontend-craft.zip Desktop'tan elle yüklenir. Hiçbir şey silinmez; ayar dosyalarına dokunulmaz.
 """
 import shutil, sys, time
 from pathlib import Path
@@ -14,7 +15,7 @@ KOK = Path(__file__).resolve().parents[1]
 EV = Path.home() / ".claude"
 YEDEK = EV / "yedek" / "tasarim-3"
 FC = KOK / "plugins/frontend-craft/skills/frontend-craft"
-DOSYALAR = ("SKILL.md", "references/yon-hatti.md", "references/vitrin-teknikleri.md")
+DOSYALAR = ("SKILL.md", "references/vitrin-teknikleri.md")
 
 
 def hedefler(ev=EV):
@@ -59,7 +60,7 @@ def main(argv):
             print("kurulu frontend-craft yok (~/.claude/plugins/cache/omer-skills/frontend-craft) — önce plugin kur")
         for k, h in cifts:
             print(("ÜZERİNE " if h.exists() else "YENİ    ") + str(h), "<-", k.relative_to(KOK))
-        print("claude.ai: dist/tasarim-3/{frontend-craft,web-sahne-desenleri}.zip Desktop'tan yüklenir.")
+        print("claude.ai: dist/tasarim-3/frontend-craft.zip Desktop'tan yüklenir.")
     return 0
 
 
