@@ -112,3 +112,13 @@ def test_cli_ekle_dosyadan(depo, tmp_path):
     aday.write_text(json.dumps([{"baslik": "a b c", "kosul": "d", "icerik": "e f"}] * 5), encoding="utf-8")
     assert ders.main(["ekle", "--ajan", "kod", "--sonuc", "basari", "--dosya", str(aday), "--kaynak", "k"]) == 0
     assert len(ders.oku()) == 1  # ≤3 aday alınır, aynılar birleşir
+
+
+def test_cli_getir_windows_konsolunda_cokmez(depo):
+    import os
+    import subprocess
+    ekle()
+    env = {k: v for k, v in os.environ.items() if k not in ("PYTHONIOENCODING", "PYTHONUTF8")}
+    r = subprocess.run([sys.executable, str(Path(ders.__file__)), "getir", "--ajan", "kod", "--gorev", "pytest koşarken ORNEK_MOD testler"],
+                       capture_output=True, env={**env, "OGRENME_DIZIN": str(depo)}, timeout=30)
+    assert r.returncode == 0 and "✓" in r.stdout.decode("utf-8"), r.stderr.decode("utf-8", "replace")[-300:]
