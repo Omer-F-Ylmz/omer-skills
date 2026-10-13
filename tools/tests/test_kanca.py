@@ -65,6 +65,16 @@ def test_subagent_start_ilgisiz_gorev_bos(depo, tmp_path):
     assert not kanca.kuyruk("s1").exists()
 
 
+def test_subagent_start_yalniz_kod_ailesi(depo, tmp_path, monkeypatch):
+    """d17: ders yalnız kod ailesi görevine (kod/test dosyası anan istem) gelir; OGRENME_KANCA=hepsi ölçümde süzgeci açar."""
+    ders_ekle(ajan="raporcu", baslik="rapor başlığı", kosul="satis.csv raporu yazarken", gorev="satis.csv toplam rapor.md")
+    girdi = {"hook_event_name": "SubagentStart", "session_id": "s1", "agent_type": "raporcu",
+             "transcript_path": ana(tmp_path, ajan="raporcu", istem="satis.csv toplam rapor.md yaz")}
+    assert kanca.kanca(girdi) == ""
+    monkeypatch.setenv("OGRENME_KANCA", "hepsi")
+    assert "additionalContext" in kanca.kanca(girdi)
+
+
 def test_subagent_stop_yorunge_ve_session_end(depo, tmp_path):
     cagri = []
     kanca.kanca({"hook_event_name": "SessionEnd", "session_id": "s2"}, baslat=cagri.append)

@@ -29,6 +29,8 @@ ETIKET = ("Aşağıda Claude Code alt ajan koşuları var (görev, araç/hata sa
           "ihlali ya da teslim yokluğu başarısızlıktır — son mesajın iddiasına değil teslim dosyasına bak. "
           "basari 1/0, guven 0-1. Yalnız JSON liste: [{\"no\": n, \"basari\": 0|1, \"guven\": x}]\n\n%s")
 KURAL_BELGE = ("KURALLAR.md", "CLAUDE.md", "AGENTS.md")
+# d17 KABUL yalnız kod ailesinde (d13 kod seti 1.0, jeton ×0.40): istem kod/test dosyası anmıyorsa ders yok; OGRENME_KANCA=hepsi ölçüm içindir
+KOD_AILESI = re.compile(r"\.(py|js|ts|tsx|cs|go|rs|java|rb|php)\b|\btest", re.I)
 DAMIT = ("Aşağıda bir Claude Code oturumundaki alt ajan koşuları ve yargıç puanları var. Gelecekteki BENZER görevlerde işe yarayacak "
          "EN FAZLA 3 genellenebilir ders çıkar (kural/yöntem; göreve özgü sayı, dosya içeriği, yol, ad değil). BAŞARILI koşudan "
          "'işe yarayan yöntem' dersi (asla 'kaçın' değil); BAŞARISIZ koşudan 'kaçın' dersi (hatanın kaynağı + ilk turda ne yapılmalı). "
@@ -133,7 +135,10 @@ def kanca(girdi, baslat=None):
     """→ stdout'a yazılacak metin ('' = yok). baslat(oturum): arka plan isle (testte sahte)."""
     olay, oturum, ajan = girdi.get("hook_event_name"), girdi.get("session_id", ""), girdi.get("agent_type") or ""
     if olay == "SubagentStart" and ajan and girdi.get("transcript_path"):
-        blok, ids = ders.getir(ajan, istem_bul(girdi["transcript_path"], ajan), kosu=oturum[:8])
+        istem = istem_bul(girdi["transcript_path"], ajan)
+        if os.environ.get("OGRENME_KANCA") != "hepsi" and not KOD_AILESI.search(istem):
+            return ""
+        blok, ids = ders.getir(ajan, istem, kosu=oturum[:8])
         if not blok:
             return ""
         _ekle(oturum, {"tip": "getir", "ajan_id": girdi.get("agent_id"), "ajan": ajan, "ids": ids})

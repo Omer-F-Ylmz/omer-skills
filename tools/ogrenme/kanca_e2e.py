@@ -7,7 +7,8 @@ d11: `python kanca_e2e.py <dersli|derssiz>` kol başına ayrı süreç (paralel)
 Tavan: kol başına ≤10 oturum + ≤10 damıtma, Σ$ ≤ 6. TSV: docs/kutuphane/olcum/ruflo-1-kanca-e2e-v2.tsv
 d13: `python kanca_e2e.py <kol> rapor` zor set — ab_olc rapor ailesi (5 görev, gizli KURALLAR.md biçimi; d8 v5 derssiz 0.625),
 alt ajan `raporcu`, TSV ruflo-1-kanca-e2e-zor.tsv.
-d16: `python kanca_e2e.py esli rapor` — 10 görev, her görevde derssiz sonra dersli aynı süreçte (eşli), TSV ruflo-1-kanca-e2e-zor10.tsv."""
+d16: `python kanca_e2e.py esli rapor` — 10 görev, her görevde derssiz sonra dersli aynı süreçte (eşli), TSV ruflo-1-kanca-e2e-zor10.tsv.
+d17: `python kanca_e2e.py dersli rapor` — yalnız dersli kol, TSV ruflo-1-kanca-e2e-zor10-dersli.tsv (derssiz tabanı zor10.tsv)."""
 import itertools
 import json
 import os
@@ -53,7 +54,7 @@ def main():
     # kanca transkriptten okur; ölçüm rotasının --no-session-persistence'ı onu diske yazdırmaz (günlük kullanımda kalıcılık açık)
     kosucu.ROTA = [x for x in kosucu.ROTA if x != "--no-session-persistence"]
     kol, aile = sys.argv[1], (sys.argv[2:] or ["kod"])[0]
-    tsv, ajan = (TSV, "kodcu") if aile == "kod" else (TSV.with_name(f"ruflo-1-kanca-e2e-zor{'10' if kol == 'esli' else ''}.tsv"), "raporcu")
+    tsv, ajan = (TSV, "kodcu") if aile == "kod" else (TSV.with_name(f"ruflo-1-kanca-e2e-zor10{'' if kol == 'esli' else '-' + kol}.tsv"), "raporcu")
     kollar, tavan = (("derssiz", "dersli"), 2 * USD_TAVAN) if kol == "esli" else ((kol,), USD_TAVAN)
     banka = KOK / ".kos" / "ogrenme-ab" / (f"kanca-e2e-{aile}-{kol}-" + time.strftime("%Y%m%d-%H%M%S"))
     os.environ["OGRENME_DIZIN"] = str(banka)
@@ -66,7 +67,7 @@ def main():
             if usd >= tavan or kosucu.bos_ram_gb() < 0.8:  # Ömer 13 Eki: RAM %95e kadar
                 print(time.strftime("%H:%M:%S"), f"TAVAN: ${usd:.2f} boş RAM {kosucu.bos_ram_gb():.1f} GB — durdu", flush=True)
                 return
-            os.environ["OGRENME_KANCA"] = "1" if kol == "dersli" else "0"
+            os.environ["OGRENME_KANCA"] = ("1" if aile == "kod" else "hepsi") if kol == "dersli" else "0"  # d17: kanca süzgeci yalnız kod
             d = tempfile.mkdtemp(prefix=f"ruflo-kanca-{i}-" if aile == "kod" else f"ruflo-kanca-{aile}-{i}-")
             o = kosucu.kos(ISTEM % (ajan, ab_olc.kur(aile, i, d)), cwd=d, model="sonnet", butce=0.8,
                            ek=["--permission-mode", "acceptEdits", "--allowedTools", "Read,Edit,Write,Glob,Grep,Bash(python:*),Bash(py:*),Bash(pytest:*),Bash(cd:*),Agent,Task",
