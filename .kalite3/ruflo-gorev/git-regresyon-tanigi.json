@@ -1,0 +1,11 @@
+{
+ "ajan": "git-regresyon-tanigi",
+ "model": "sonnet",
+ "istem": "Last spring we fixed a checkout crash on empty carts by adding a guard that throws 'cart must not be empty'. Customers say the crash is back after this month's releases. I want to know exactly which change dropped it, and a cheap way to stop our other past fixes from vanishing silently. Under 12 lines.",
+ "rubrik": [
+  {"regex": "(?i)log -S|pickaxe", "puan": 3},
+  {"regex": "(?i)marker|fingerprint|işaret", "puan": 3},
+  {"regex": "(?i)manifest|fixes\\.json|registry", "puan": 2},
+  {"regex": "(?i)git show|\\bsha\\b|commit hash", "puan": 2}
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ajan": "inc-celisik-dogrulayici",
+ "model": "sonnet",
+ "istem": "A reviewer flagged this in our checkout service: 'orders.py:88, HIGH: apply_discount() can make the total negative because the percentage is never clamped.' The function is def apply_discount(total, pct): if not 0 <= pct <= 100: raise ValueError('pct'); return round(total * (1 - pct / 100), 2) and total always comes from cart.sum(), which never returns below zero. Is this finding real before I spend time fixing it? At most 8 lines.",
+ "rubrik": [
+  {"regex": "(?i)refut|çürüt", "puan": 3},
+  {"regex": "(?i)survives|upheld|ayakta", "puan": 2},
+  {"regex": "(?i)confidence|güven", "puan": 2},
+  {"regex": "(?i)uncertain|doubt|belirsiz", "puan": 3}
+ ]
+}

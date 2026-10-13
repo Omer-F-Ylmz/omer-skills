@@ -1,0 +1,11 @@
+{
+ "ajan": "pln-hedef-planlayici",
+ "model": "sonnet",
+ "istem": "We want our side project (a Node API on a single VPS) production-ready by next week. Already true: code is on GitHub, there is a Dockerfile, Postgres runs on the same box. Not yet: no HTTPS, no backups, secrets sit in a committed .env, no CI, no monitoring. Give me the sequence of steps to get there; I can spend about 2 hours a day. Keep it tight.",
+ "rubrik": [
+  {"regex": "(?i)precondition|prereq|ön ?koşul", "puan": 3},
+  {"regex": "(?i)effect|post-?condition|etki", "puan": 2},
+  {"regex": "(?i)replan|re-plan|if .{0,40}fails|fallback|yeniden planla", "puan": 3},
+  {"regex": "(?i)skip|already (done|satisfied|met|holds?)|satisfied", "puan": 2}
+ ]
+}

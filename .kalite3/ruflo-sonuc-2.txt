@@ -1,0 +1,5 @@
+ELENDİ ajn-ekip-koordinator ajn-ajan-orkestrasyon roller, tek kontrolcü, bütçe, onay noktalarını kapsıyor; dış-metin kuralı ajn-sinirli-insaci'da
+YAZILDI ajn-sinirli-insaci surec-ajan-arac sonnet
+YAZILDI pln-hedef-planlayici surec-plan sonnet
+ELENDİ pln-ufuk-izleyici pln-proje-yonetimi kilometre taşı+durum kapsıyor; dalga.md oturum kuralı CLAUDE.md'de
+YAZILDI qa-sahte-uygulama-avcisi test-qa haiku

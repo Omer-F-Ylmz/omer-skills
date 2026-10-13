@@ -1,0 +1,11 @@
+{
+ "ajan": "ara-kanit-toplayici",
+ "model": "sonnet",
+ "istem": "Our team is debating whether to move our Node 18 services to Node 22 before April. Our pinned dependencies are bcrypt 5.0.1, node-sass 7.0.3 and express 4.18.2. Tell me what is actually established about Node 18's end-of-life date and whether any of those pinned packages block Node 22. Nothing else, at most 12 lines.",
+ "rubrik": [
+  {"regex": "(?i)fact|olgu", "puan": 3},
+  {"regex": "(?i)inferen|çıkarım", "puan": 3},
+  {"regex": "(?i)uncertain|unknown|unverif|belirsiz", "puan": 2},
+  {"regex": "(?i)scope|not pursued|kapsam", "puan": 2}
+ ]
+}

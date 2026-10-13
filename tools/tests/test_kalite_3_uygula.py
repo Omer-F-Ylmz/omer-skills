@@ -55,6 +55,20 @@ def test_gecen_ajanlar_kurulur_ve_geri_alinir(tmp_path):
     assert not (ev / ".claude" / "agents" / "fe-x.md").exists()  # önceden yoktu → geri alınca yok
 
 
+def test_d15_yeni_aileler_ve_ruflo_kurulur(tmp_path):
+    kok, ev = tmp_path / "kok", tmp_path / "ev"
+    adlar = [("kalite3-d15", "dil-cerceve", "dil-a"), ("kalite3-d15", "altyapi", "ops-b"), ("kalite3-d15", "ml-yapay-zeka", "ml-c"),
+             ("kalite3-d15", "urun-is", "urn-d"), ("kalite3-ruflo", "surec-plan", "pln-e"), ("kalite3-d16", "mobil", "mob-f"), ("kalite3-d17", "backend", "be-g")]
+    for k, aile, ad in adlar:
+        (kok / "ajanlar" / k / aile).mkdir(parents=True)
+        (kok / "ajanlar" / k / aile / f"{ad}.md").write_text(f"---\nname: {ad}\nmodel: sonnet\n---\n{ad}\n", encoding="utf-8")
+    (kok / "docs" / "kutuphane").mkdir(parents=True)
+    (kok / "docs" / "kutuphane" / "kalite3-ajan-kabul.txt").write_text("\n".join(a for _, _, a in adlar) + "\n", encoding="utf-8")
+    assert k3u.ajan_plani(kok) == [(ad, kok / "ajanlar" / k / aile / f"{ad}.md") for k, aile, ad in adlar]
+    assert k3u.uygula(ev, kok)
+    assert all((ev / ".claude" / "agents" / f"{ad}.md").read_text(encoding="utf-8").endswith(f"{ad}\n") for _, _, ad in adlar)
+
+
 def test_ajan_getir_katalog_guncellenir_ve_geri_alinir(tmp_path):
     kok, ev = tmp_path / "kok", tmp_path / "ev"
     (kok / "skills" / "ajan-getir").mkdir(parents=True)

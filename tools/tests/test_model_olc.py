@@ -85,6 +85,31 @@ def test_pilot_departman_sirasiyla_iki_kol_tavanli_surer(tmp_path, monkeypatch):
     assert (tmp_path / "yanit" / "b1-ana.md").read_text(encoding="utf-8") == "ok"  # Jev yargıcı için
 
 
+def test_pilot_es_zamanli_kosar_ram_tavaninda_bekler_atlananlari_gecer(tmp_path, monkeypatch):
+    # devam-13 (a): parti içi ≥ 4 çift aynı anda; her başlatmadan önce RAM < %95, aşılırsa bekler; koşan başka partinin ajanları atlanır
+    import threading
+    (tmp_path / "ajan" / "a-dep").mkdir(parents=True)
+    g = []
+    for i in range(5):
+        (tmp_path / "ajan" / "a-dep" / f"a{i}.md").write_text(f"---\nname: a{i}\ndescription: d\nmodel: opus\n---\nG\n", encoding="utf-8")
+        g.append({"ajan": f"a{i}", "model": "opus", "istem": "i", "rubrik": [{"regex": "ok", "puan": 7}]})
+    (tmp_path / "ajan" / "gorevler.json").write_text(json.dumps(g), encoding="utf-8")
+    monkeypatch.setattr(mo, "AJAN", tmp_path / "ajan")
+    monkeypatch.setattr(mo, "PILOT", tmp_path / "p.tsv")
+    monkeypatch.setattr(mo, "YANIT", tmp_path / "yanit")
+    ram = iter([96] + [50] * 99)
+    olcum = []
+    monkeypatch.setattr(mo, "ram", lambda: olcum.append(1) or next(ram))
+    monkeypatch.setattr(mo.time, "sleep", lambda s: None)
+    engel = threading.Barrier(4, timeout=5)  # 4 ajan kolu aynı anda değilse BrokenBarrierError
+    sonuc = {"metin": "ok", "usd": 0.1, "sure": 1, "araclar": [], "model": {"claude-opus-5-5": {"inputTokens": 4}}}
+    monkeypatch.setattr(mo, "kos", lambda ad, t, ezme, gorev: engel.wait() is None or sonuc)
+    monkeypatch.setattr(mo, "ana", lambda gorev, model: sonuc)
+    assert mo.pilot(99, es=4, atla={"a1"}) == ["a0", "a2", "a3", "a4"]
+    assert len(olcum) == 5  # bir bekleme + dört başlatma
+    assert len((tmp_path / "p.tsv").read_text(encoding="utf-8").splitlines()) == 9
+
+
 def test_ayristir_arka_plan_ajaninda_bos_son_result_yaniti_ezmez():
     # devam-6 kök neden: Agent arka planda koşunca -p akışında 3 result olur (132 kr "arka planda" → 2186 kr yanıt → 0 kr, num_turns 0);
     # son result'ı almak karsilastir/pilot ajan kolunun ~yarısını 0 puan yaptı.

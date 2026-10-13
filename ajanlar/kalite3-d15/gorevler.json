@@ -1,0 +1,3107 @@
+[
+ {
+  "ajan": "dil-actix-web",
+  "model": "sonnet",
+  "istem": "An Actix Web handler locks a std::sync::Mutex stored in app state, runs a synchronous Diesel query while holding it, and calls .unwrap() on the result; under load requests stall and a bad row crashes the worker. Also say how to log every request and cover the handler with an integration test. Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)web::block|spawn_blocking",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ResponseError|Result<|hata tipi|error type",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)web::Data|extractor|çıkarıcı|web::Json",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)middleware|\\.wrap|ara katman|Logger",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-bash-betik",
+  "model": "sonnet",
+  "istem": "Review this deploy script and list the fixes in at most 10 lines: `#!/bin/bash; cd $DIR; for f in $(ls *.tar); do tmp=/tmp/x; tar xf $f -C $tmp; cp -r $tmp/* $DEST; done; rm -rf $tmp`. It breaks on filenames with spaces, keeps going after a failed tar, and leaves junk in /tmp when interrupted.",
+  "rubrik": [
+   {
+    "regex": "(?i)pipefail|set -e|katı mod",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)quot|tırnak|word.?split|kelime bölün",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trap|mktemp|temizl",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)shellcheck|bats|shfmt",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-c-sistem",
+  "model": "sonnet",
+  "istem": "This C function reads a line into char buf[64] with gets(), copies it with strcpy into a field of a struct obtained from malloc, returns early when parsing fails without releasing anything, and uses the FILE* from fopen without checking it. Point out the problems and fixes in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)leak|sızıntı|valgrind|asan|sanitizer",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)overflow|taşma|snprintf|fgets|sınır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)NULL|errno|dönüş değer|return value",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)-Wall|-Wextra|undefined behavio|tanımsız davranış",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-lua-betik",
+  "model": "sonnet",
+  "istem": "A game mod's Lua script runs every frame: its helpers are declared as plain top-level names, it builds a debug string with the concatenation operator inside a loop over 5000 entities, creates a fresh {x=..., y=...} per entity, every entity object carries its own copies of 12 method closures, and one failing callback freezes the game. How should it be rewritten? Answer in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)\\blocal\\b|yerel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pcall|xpcall",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)metatab|__index",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)table\\.concat|garbage|\\bGC\\b|çöp|allocat",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-fastify",
+  "model": "sonnet",
+  "istem": "A Fastify API returns full user rows including password_hash from GET /users/:id, an auth decorator added inside one register() call is undefined in sibling routes, the auth check is copy-pasted at the top of every handler, and an async handler both calls reply.send and returns the value. Fix these and say how to verify without opening a port, in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)schema|şema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fastify-plugin|encapsulat|kapsül",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)preHandler|onRequest|hook|kanca",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)inject|setErrorHandler",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-gin-web",
+  "model": "sonnet",
+  "istem": "In a Gin API, an auth handler writes 401 with c.JSON but the protected handler still runs; a handler passes c into a goroutine for audit logging; request bodies are parsed with BindJSON and missing fields slip through; every /admin route repeats the same auth call. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)c\\.Abort|Next\\(|middleware|ara katman",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ShouldBind|binding:|required",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Group\\(|router group|rota grub",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)c\\.Copy|httptest",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-flask",
+  "model": "sonnet",
+  "istem": "A Flask app is a single 900-line app.py; its signing key is the literal 'dev' in source, it runs with the debugger enabled in production, a background thread that reads per-request globals crashes with a RuntimeError about missing context, and there are no automated checks. Propose the restructure in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)blueprint|create_app|factory|fabrika",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)SECRET_KEY|HttpOnly|SameSite|CSRF",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)app_context|bağlam",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)test_client|pytest",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-nodejs",
+  "model": "sonnet",
+  "istem": "A Node.js Express endpoint reads a 2 GB log with fs.readFileSync, parses every line, and sends the result; while it runs all other requests freeze. A database call that fails occasionally kills the whole process with no stack in the logs, and npm lists 14 known vulnerabilities. Give a fix plan in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)event loop|olay döngü|worker_threads",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stream|pipeline|backpressure|akış",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)unhandled|try.?catch|yakala",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)npm audit|lockfile|kilit dosya|validat|doğrula",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-solidjs",
+  "model": "sonnet",
+  "istem": "A SolidJS Price component written by a React developer pulls fields out of its props object at the top, computes total once as amount times the current rate, starts a setInterval to refresh the rate with no teardown, renders the item list with .map and a badge with a ternary. The displayed total never updates. Fix it in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)splitProps|destructur|signal|sinyal|reaktiv",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)createMemo|createStore|türet|derived",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)onCleanup|clearInterval|temizl",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)<Show|<For|Show/For|Show ve For|Show and For|kontrol akış|control flow",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-webpack-paketleyici",
+  "model": "sonnet",
+  "istem": "A React app's production build emits a single 4.8 MB main.js, every deploy invalidates the whole browser cache, lodash and moment are shipped in full, CSS is injected at runtime by JS, and production stack traces point to unreadable code. Which config changes, in at most 10 lines?",
+  "rubrik": [
+   {
+    "regex": "(?i)splitChunks|import\\(|code.?split|kod böl",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)tree.?shak|sideEffects|ağaç sall",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)MiniCssExtract|loader|yükleyici",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)source.?map|devtool|analy[sz]er",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-trpc",
+  "model": "sonnet",
+  "istem": "In a tRPC v10 app a mutation's argument is typed as any, 20 procedures each start with a manual if (!ctx.session) check, missing records throw new Error('not found') and the client sees the raw database message, and the Next.js client imports the server router file directly. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)zod|z\\.object|\\.input\\(",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)TRPCError|NOT_FOUND|errorFormatter",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)protectedProcedure|middleware|ara katman",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)AppRouter|import type|type-only",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-typeorm",
+  "model": "sonnet",
+  "istem": "A NestJS service on TypeORM loads 500 orders and then awaits order.customer for each one in a loop; the orders list filtered by status is slow; schema changes are applied by a startup flag in production; a payment write and a stock update are two separate saves and sometimes only one sticks. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)N\\+1|leftJoinAndSelect|relations",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)transaction|QueryRunner|EntityManager",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)migration|göç|synchronize",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)@Index|index|indeks",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-sequelize",
+  "model": "sonnet",
+  "istem": "Express + Sequelize: the Comment model has a postId column but nothing links the models; the list page loads 200 posts and then queries comments for each post; checkout creates an Order and decrements Product.stock inside a managed t callback, but the decrement call never receives t; the team runs sync({ alter: true }) on boot. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)include|eager|N\\+1",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)transaction",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)migration|göç|seeder",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)hasMany|belongsTo|association|ilişki",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-knex-sorgu",
+  "model": "sonnet",
+  "istem": "Knex + Postgres: a report builds SQL by template-literal interpolation of a user-supplied email; a money transfer runs two updates directly on the knex instance and a crash between them leaves balances wrong; the latest schema change cannot be undone; under load requests fail with 'Timeout acquiring a connection'. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)binding|bağla|placeholder|parametri[sz]|parametreli",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trx|transaction",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)\\bdown\\b|rollback|geri al",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)pool|havuz|acquireConnectionTimeout",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-vitest",
+  "model": "sonnet",
+  "istem": "A Vitest suite for a fetch-based service: tests pass alone but fail when run together, an expect inside a .then never seems to fail, a debounce test waits through real 500 ms delays, the module stub factory references a top-level const and throws ReferenceError, and one test asserts call counts of a private helper. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)vi\\.hoisted|vi\\.mock|hoist",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)restoreAllMocks|clearAllMocks|resetAllMocks|isolat|yalıt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)useFakeTimers|advanceTimers|fake timer|sahte zaman",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)behavio|davranış|implementation detail|iç ayrıntı",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-mocha",
+  "model": "sonnet",
+  "istem": "A Mocha suite: one test calls an async function without returning or awaiting it and always passes; another tries to raise its per-test time limit inside a => callback and gets a TypeError; a shared DB fixture is created once and tests corrupt each other; a flaky test was set to rerun 5 times. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)\\bdone\\b|async/await|return.{0,20}promise|promise.{0,20}(return|döndür)",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)beforeEach|afterEach",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)function\\s*\\(|ok fonksiyon|arrow|this\\.timeout",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)chai|expect\\(|nyc|kapsam|coverage",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-selenium",
+  "model": "sonnet",
+  "istem": "Selenium (Python) login tests fail randomly in CI: they pause with time.sleep(3), find the submit button via /html/body/div[2]/div/form/button, mix element lookups and asserts in every test, and depend on a user created by the previous test. Describe the rewrite in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)WebDriverWait|explicit wait|expected_conditions|açık bekleme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)data-test|locator|seçici|By\\.ID|css selector",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)page object|sayfa nesne|\\bPOM\\b",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)independen|bağımsız|screenshot|ekran görüntü|isolat",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-testcafe",
+  "model": "sonnet",
+  "istem": "TestCafe tests for a dashboard: each test fills the login form first (8 s each), checks are written as const txt = await el.innerText; await t.expect(txt).eql('Saved') and fail intermittently, buttons are found with .nth(3) on .btn.btn-primary, and t.wait(2000) is sprinkled around. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)smart assert|akıllı|re-?tr|yeniden dene",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)useRole|\\bRole\\b",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)withText|data-testid|Selector\\(",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)page model|sayfa model|concurren|paralel",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-puppeteer",
+  "model": "sonnet",
+  "istem": "A Node script scrapes 300 product pages with Puppeteer: it sleeps a fixed 3 s after each goto, prices sometimes come back empty, Chrome processes pile up after crashes, and pages load slowly because of images and fonts. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)waitForSelector|waitForResponse|waitForFunction",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)finally|browser\\.close",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)intercept|abort\\(|engelle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)retr|yeniden dene|screenshot|ekran görüntü",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-auth0",
+  "model": "sonnet",
+  "istem": "A React SPA and an Express API use Auth0: the SPA uses the implicit grant and keeps the access_token in localStorage, the API only base64-decodes the token to read the user, admin checks rely on a role string sent by the browser, and admins log in with a password alone. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)PKCE|authorization code",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)JWKS|audience|\\baud\\b|signature|imza",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)RBAC|scope|permission|izin",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)\\bMFA\\b|multi.?factor|çok faktör",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-jwt-denetci",
+  "model": "sonnet",
+  "istem": "Our Express API verifies tokens with jsonwebtoken.verify(token, secret) and a 30-day token lifetime, shared secret in .env. Review this setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)alg|none|HS256|RS256",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)exp claim|nbf|clock skew|saat kayması",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)aud|iss|audience|issuer",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)kid|JWKS|rotation|döngü",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-keycloak",
+  "model": "sonnet",
+  "istem": "We have a React SPA and two .NET microservices that must call each other, and want Keycloak for login. Outline the setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)realm|client|istemci",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)PKCE|authorization code|flow|akış",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)role|mapper|rol",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)lifespan|refresh|session|oturum",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "sec-owasp-top10",
+  "model": "sonnet",
+  "istem": "Review this endpoint: GET /orders/{id} returns the order by id from SQL built as \"SELECT * FROM Orders WHERE Id=\" + id, and errors return the full stack trace. At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)access control|IDOR|yetki",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)injection|parametri|enjeksiyon",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)misconfiguration|header|yapılandırma",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)logging|monitoring|izleme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-bullmq-kuyruk",
+  "model": "sonnet",
+  "istem": "Our Node app sends invoice emails from a BullMQ worker; some customers get the same email twice and some never. Diagnose and fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)attempts|backoff|yeniden deneme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)concurrency|limiter|eşzamanlı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)idempoten|jobId|tekrar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)failed|dead|stalled|ölü",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-kafka",
+  "model": "sonnet",
+  "istem": "We stream order status changes for 2 million orders a day and consumers must process updates for one order in order. Propose the topic design in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)partition|key|bölüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)consumer group|rebalance|tüketici",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)exactly-once|at-least-once|offset|teslim",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)retention|compaction|saklama",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-rabbitmq",
+  "model": "sonnet",
+  "istem": "Our worker crashes sometimes and the messages it was handling disappear; other times one worker gets all messages while others idle. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)exchange|topic|direct|fanout",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ack|prefetch|onay",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dead letter|DLX|ölü",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)durable|persistent|quorum|kalıcı",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-nats",
+  "model": "sonnet",
+  "istem": "IoT gateways publish sensor readings every second; a billing service must never miss a reading even after restarts, a dashboard only needs live data. Design with NATS in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)subject|wildcard|konu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)JetStream|stream|kalıcı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)durable|pull|push|tüketici",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)queue group|load|yük",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-mqtt",
+  "model": "haiku",
+  "istem": "Battery powered greenhouse sensors send temperature every minute and a valve listens for open/close commands. Propose the broker setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)topic|wildcard|konu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)QoS|qos 1|teslim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)retain|last will|LWT|vasiyet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)clean session|persistent session|keepalive|oturum",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-sns-sqs",
+  "model": "sonnet",
+  "istem": "When an order is placed, three services (email, inventory, analytics) must react; inventory updates for one product must not be reordered. Design on AWS in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)fan-out|subscription|filter policy|abonelik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)visibility timeout|görünürlük",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)DLQ|redrive|maxReceiveCount",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)FIFO|MessageGroupId|deduplication|sıra",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-dynamodb",
+  "model": "sonnet",
+  "istem": "An app stores users, their orders and order items; we need: orders of a user by date, an order with its items, and all orders in status SHIPPED. Model it in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)access pattern|erişim deseni",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)partition key|sort key|PK|SK",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)GSI|LSI|indeks",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)on-demand|provisioned|RCU|kapasite",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-mssql",
+  "model": "sonnet",
+  "istem": "A stored procedure filtering Orders by CustomerId is fast for most customers but takes 40 seconds for one big customer, and reports sometimes freeze order inserts. Diagnose in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)execution plan|plan|seek|scan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)index|include|indeks",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)blocking|deadlock|isolation|kilit",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)parameter sniffing|recompile|koklama",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-sqlite",
+  "model": "haiku",
+  "istem": "Our desktop app uses SQLite; a background sync thread writes while the UI reads, and users see 'database is locked'. Fix in at most 8 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)WAL|journal|günlük",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pragma|synchronous|foreign_keys",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)busy_timeout|SQLITE_BUSY|single writer|tek yazar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)user_version|migration|sürüm",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-vektor-veritabani",
+  "model": "sonnet",
+  "istem": "We want to search 3 million support tickets by meaning, restricted to one customer's tickets, with under 100 ms latency. Recommend the storage setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)embedding|dimension|boyut",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)HNSW|IVF|ANN|indeks",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cosine|dot product|euclid|uzaklık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)metadata|filter|filtre",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-flyway",
+  "model": "haiku",
+  "istem": "A teammate edited an already-applied migration file and now the pipeline refuses to apply anything because an applied file changed; the production DB also predates Flyway. Advise in at most 8 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)versioned|V1__|sürüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)repeatable|R__|tekrarlanabilir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)validate|checksum|doğrula",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)baseline|outOfOrder|ortam",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-liquibase",
+  "model": "haiku",
+  "istem": "We need to add a non-null column with a default to a large table, seed test data only in dev, and be able to undo the release. Outline the changelog in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)changeset|author|id",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rollback|geri al",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)context|label|bağlam",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)precondition|ön koşul",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-gitlab-ci",
+  "model": "sonnet",
+  "istem": "Our Node monorepo pipeline runs install, lint, test and deploy sequentially on every branch and takes 25 minutes; releasing to production must happen from main after a person approves. Improve it in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)stage|needs|DAG|aşama",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rules|only|except|kural",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cache|artifact|önbellek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)environment|when: manual|ortam",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-jenkins",
+  "model": "sonnet",
+  "istem": "Our Jenkinsfile builds a .NET API and an Angular app one after another, echoes the registry password in a shell step, and leaves the workspace full. Fix in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)agent|label|node|ajan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)parallel|paralel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)credentials|withCredentials|kimlik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)post|always|failure|temizlik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-circleci",
+  "model": "haiku",
+  "istem": "Our CircleCI job runs 1,800 Python tests in 30 minutes on one container and reinstalls dependencies every time. Speed it up in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)workflow|requires|filters",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)save_cache|restore_cache|önbellek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)split|parallelism|bölme",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)orb|executor",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-elk-log",
+  "model": "sonnet",
+  "istem": "Ten services write plain-text logs, the cluster disk fills every two weeks, and searching by request id is slow. Propose the ELK setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)grok|ingest|parse|ayrıştır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mapping|keyword|eşleme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ILM|rollover|retention|saklama",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Kibana|dashboard|pano",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-loki-log",
+  "model": "sonnet",
+  "istem": "Our Loki bill doubled after we added user_id and request_id as indexed stream keys, and searching one request across services is still slow. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)label|cardinality|kardinalite",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)LogQL|line filter|json|sorgu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Promtail|Alloy|agent|toplayıcı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)retention|compactor|saklama",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-prometheus",
+  "model": "sonnet",
+  "istem": "We want to be paged when our checkout API gets slow or starts failing, without waking up for single spikes. Give the metrics and rules in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)counter|histogram|gauge|metrik türü",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rate|PromQL|sum by",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)alert|for:|severity|uyarı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)cardinality|label|kardinalite",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-pulumi",
+  "model": "sonnet",
+  "istem": "We copy-pasted the same Azure web app + SQL setup three times for dev, test and prod in one Pulumi program, with the DB password in plain text. Restructure in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)stack|stack config|yığın",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)secret|pulumi config set --secret|gizli",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ComponentResource|component|bileşen",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)preview|diff|önizleme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-terraform",
+  "model": "sonnet",
+  "istem": "Two engineers run Terraform from laptops, the tfstate file is committed to git, and yesterday their changes overwrote each other. Fix the workflow in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)remote state|backend|durum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)module|modül",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)plan|-out|apply",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)required_providers|version|lock file|sürüm",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-langchain",
+  "model": "sonnet",
+  "istem": "We want a support bot that answers from our 400 help-center articles and can look up an order status by id. Outline the LangChain design in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)LCEL|runnable|pipe|zincir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)retriever|chunk|getirici",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)tool|bind_tools|araç",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)eval|LangSmith|trace|değerlendir",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-numpy",
+  "model": "haiku",
+  "istem": "This loop computes pairwise distances between 20,000 points (array pts of shape (20000, 3)) and takes minutes: for i... for j... d[i,j]=sqrt(sum((pts[i]-pts[j])**2)). Rewrite it briefly.",
+  "rubrik": [
+   {
+    "regex": "(?i)vectoriz|vektör",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)broadcast|yayınla",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)dtype|float32|int64|tür",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)view|copy|in-place|bellek",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-pandas",
+  "model": "haiku",
+  "istem": "After combining orders with customers, our revenue total went up by 30% and we also get a warning when we set a discount column on a filtered frame. Explain and fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)merge|join|validate=|birleştir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)groupby|agg|transform|grupla",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)resample|datetime|tz|zaman",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)SettingWithCopy|.loc|copy|kopya",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-tensorflow",
+  "model": "sonnet",
+  "istem": "Our Keras image classifier reaches 99% training accuracy but 70% on new photos, and the GPU sits at 30% usage. What should we change? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)tf.data|prefetch|batch|girdi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)overfit|dropout|regulariz|aşırı uyum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)callback|EarlyStopping|checkpoint",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)validation|metric|doğrulama",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-openai-api",
+  "model": "sonnet",
+  "istem": "Our React app calls the OpenAI chat endpoint directly from the browser, parses the answer with a regex to get a product list, and fails during traffic peaks. Fix in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)json schema|structured output|function calling|şema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)retry|429|backoff|yeniden dene",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stream|SSE|akış",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)token|cost|maliyet",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-openapi-sozlesme",
+  "model": "sonnet",
+  "istem": "Draft the contract for GET /products (list) and GET /products/{id} for a shop API so that frontend and mobile teams can generate clients. At most 25 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)components|schema|ref|şema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)problem+json|error response|hata",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pagination|cursor|sayfala",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)codegen|generator|üret",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-jquery-bakim",
+  "model": "haiku",
+  "istem": "On our admin page, click handlers stop working on table rows loaded via AJAX, and user comments are inserted with $('#c').html(comment). We still use jQuery 1.8. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)delegat|delegasyon|event delegation",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)XSS|escape|kaçış|innerText",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)jQuery 3|migrate|sürüm",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)vanilla|fetch|querySelector|modern",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-hata-dedektifi",
+  "model": "sonnet",
+  "istem": "Since Tuesday about 2% of checkout calls return 500 with 'NullReferenceException in PriceService'; Tuesday we also upgraded a NuGet package and changed a feature flag. How do you find the cause? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)timeline|zaman çizelgesi|first seen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)correlat|korelasyon|request id",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hypothes|hipotez",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)reproduc|yeniden üret|confirm",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-entegrasyon-testi",
+  "model": "sonnet",
+  "istem": "Our order service tests mock the repository, so last release a broken SQL migration still passed CI. Propose how to test the service with its PostgreSQL database in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)Testcontainers|container|konteyner",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)isolation|transaction|rollback|yalıtım",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fixture|seed|hazırlık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)contract|boundary|sınır",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "git-monorepo",
+  "model": "sonnet",
+  "istem": "We merged 6 JavaScript apps and 4 shared libraries into one repository; every pull request now builds and tests everything for 40 minutes. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)workspace|pnpm|çalışma alanı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)affected|turbo|nx|etkilenen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)remote cache|cache|önbellek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)CODEOWNERS|owner|sahip",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-sema-dogrulayici",
+  "model": "haiku",
+  "istem": "Our tool reads a settings file with name (text), retries (0-10) and mode (fast or safe); typos like 'retires' are silently ignored. Show how to reject bad files in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)JSON Schema|zod|pydantic|şema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)required|type|enum|zorunlu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)error message|path|hata mesajı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)additionalProperties|strict|ek alan",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-serverless",
+  "model": "sonnet",
+  "istem": "Our Lambda resizes uploaded videos, sometimes runs over 15 minutes, occasionally processes the same upload twice, and floods our database during upload bursts. Redesign in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)cold start|soğuk",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timeout|zaman aşımı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)concurrency|throttl|eşzamanlılık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)idempoten|retry|tekrar",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-cli-araci",
+  "model": "haiku",
+  "istem": "Design the interface of a small tool that backs up, lists and restores project folders to a NAS; it will be used both by people and by cron scripts. At most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)subcommand|alt komut|verb",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)exit code|çıkış kodu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)--json|stdout|stderr|çıktı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)--help|usage|yardım",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-yapilandirma",
+  "model": "haiku",
+  "istem": "Our service reads settings from three JSON files, some environment variables and hard-coded defaults; nobody knows which value wins and production once started with a missing database URL. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)precedence|override|öncelik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)profile|per-environment|ortam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)secret|vault|gizli",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fail fast|startup|validate|başlangıç",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-claude-md-uyum",
+  "model": "sonnet",
+  "istem": "CLAUDE.md says: 'No new dependencies without approval; tests must accompany bug fixes; never print env var values.' The change adds axios, repairs a date bug without tests, and logs process.env.API_KEY on startup. Review in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)rule|kural",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)violation|ihlal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)evidence|kanıt|file:|alıntı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)remed|düzelt|minimal change|öneri",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-asiri-muhendislik",
+  "model": "sonnet",
+  "istem": "Review: to send one kind of welcome email we have IEmailSenderFactory, EmailSenderFactory, IEmailSender, SmtpEmailSender (only implementation), an EmailStrategy enum with one value and a 200-line config class. At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)abstraction|interface|soyutlama",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)YAGNI|speculative|genelleme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)simplif|inline|sadeleş",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)justified|necessary|gerekli",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-spec-uyum",
+  "model": "sonnet",
+  "istem": "Spec: 'Password reset link expires after 30 minutes, can be used once, and the user gets a confirmation email after reset.' Implementation: link valid 24h, reusable, sends confirmation email, also logs the user in automatically. Compare in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)missing|eksik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)extra|scope creep|fazla",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)diverg|mismatch|sapma",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)acceptance|kabul|verify",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-ui-kapsamli",
+  "model": "sonnet",
+  "istem": "We are releasing a new signup form with email, password, plan choice and a coupon field. List what the UI test pass must cover in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)user flow|happy path|akış",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)empty state|loading|edge|boş durum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)viewport|mobile|breakpoint|ekran",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)keyboard|a11y|screen reader|klavye",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-derin-hata-ayiklama",
+  "model": "sonnet",
+  "istem": "A desktop app crashes roughly once a day for some users, never on our machines; started after a release containing 140 commits. How do you find the cause? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)reproduc|yeniden üret",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)bisect|isolat|daralt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)instrument|trace|gözlem",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)root cause|kök neden",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-pglite",
+  "model": "sonnet",
+  "istem": "We want our note-taking web app to work offline with real SQL queries and similarity search, and push changes to the server later. Is Postgres-in-the-browser viable? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)IndexedDB|idb://|persist|kalıcı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)single connection|worker|eşzamanlı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)extension|pgvector|eklenti",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sync|electric|eşitle",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-eski-kod-modernize",
+  "model": "sonnet",
+  "istem": "We have an ASP.NET MVC 5 app on .NET Framework 4.6 with WCF services and Web Forms admin pages, and want to move to .NET 8 without stopping feature work. Plan in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)inventory|upgrade-assistant|envanter",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)strangler|incremental|kademeli",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)System.Web|AppDomain|Remoting|uyumsuz",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)characterization|regression|güvence",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-mimari-inceleme",
+  "model": "sonnet",
+  "istem": "Proposal: the mobile app will read and write directly to the same SQL database that the web backend uses, to skip building an API. Review in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)coupling|dependency|bağımlılık",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)boundary|bounded context|sınır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)scalab|bottleneck|ölçek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)operability|observability|deploy|işletim",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-bi-rapor",
+  "model": "sonnet",
+  "istem": "Sales and finance show different monthly revenue numbers in their spreadsheets, and management wants one shared report. Propose the model and metrics in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)metric definition|KPI|metrik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)star schema|fact|dimension|boyut",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)refresh|incremental|yenile",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)dashboard|drill|pano",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-graphql",
+  "model": "sonnet",
+  "istem": "Our GraphQL endpoint for posts { author { posts { comments } } } makes 4,000 database calls for one page and a user found they can read other users' emails through it. Fix in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)N+1|DataLoader|batch",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)connection|cursor|sayfala",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)depth limit|complexity|maliyet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)field-level|authoriz|yetki",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-grpc",
+  "model": "sonnet",
+  "istem": "We renamed and renumbered a field in our .proto and older mobile clients broke; calls also hang for minutes when the inventory service is down. Fix in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)field number|reserved|backward|uyumluluk",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)deadline|timeout|süre",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)status code|UNAVAILABLE|INVALID_ARGUMENT|durum kodu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)streaming|stream|akış",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-websocket",
+  "model": "sonnet",
+  "istem": "Our live auction page loses updates when users switch Wi-Fi, and since we added a second server half the users stop seeing bids. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)heartbeat|ping|pong|kalp",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reconnect|jitter|yeniden bağlan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pub/sub|sticky|Redis|ölçek",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)auth|token|kimlik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-is-analizi",
+  "model": "sonnet",
+  "istem": "The warehouse manager says: 'Returns take too long and customers complain; we need a system for it.' Turn this into an analysis in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)stakeholder|paydaş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)as-is|to-be|süreç",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)requirement|gereksinim",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)acceptance criteria|given|kabul",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-urun-yoneticisi",
+  "model": "sonnet",
+  "istem": "Our habit-tracking app has good signups but 80% of users stop after the first week; the team proposes social sharing, dark mode and an AI coach. What do we do? At most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)problem statement|pain|problem",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)success metric|north star|metrik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)RICE|impact|öncelik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)experiment|MVP|deney",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-site-mimarisi",
+  "model": "sonnet",
+  "istem": "A plumbing company's 60-page site has every page at the root (/page?id=12), services hidden under 'More', and they want a relaunch without losing Google rankings. Plan in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)information architecture|sitemap|hiyerarşi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)slug|URL|adres",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)internal link|breadcrumb|iç bağlantı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)301|redirect|yönlendir",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-refaktor",
+  "model": "sonnet",
+  "istem": "A 600-line CalculateInvoice method with nested ifs for country, discounts and taxes has no tests and must be changed next sprint. How do we restructure it safely? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)characterization|safety net|güvence",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)small step|incremental|küçük adım",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)smell|long method|koku",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)behavior-preserving|no behavior change|davranış",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-webxr",
+  "model": "sonnet",
+  "istem": "We want customers to place our furniture models in their room from the product page and walk around a virtual showroom on Quest headsets. Plan in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)frame budget|72|90 fps|kare",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)comfort|motion sickness|teleport|konfor",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)controller|hand tracking|input|girdi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)fallback|non-XR|yedek",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-nlp",
+  "model": "sonnet",
+  "istem": "We get 3,000 customer emails a day in Turkish and English and want to route them to billing, technical or cancellation teams automatically; cancellations are rare but costly to miss. Plan in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)classification|NER|extraction|sınıflandır",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fine-tun|zero-shot|LLM|model",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)annotation|label|etiket",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)precision|recall|F1",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-pekistirmeli-ogrenme",
+  "model": "sonnet",
+  "istem": "We want a bot that learns to drive a car around our racing game's tracks as fast as possible; the first attempt just learned to spin in circles. How should we set it up? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)environment|observation|action space|ortam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reward|ödül",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)PPO|DQN|SAC|algoritma",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)seed|stabil|variance|kararlı",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-elasticsearch",
+  "model": "sonnet",
+  "istem": "In our e-shop whose catalog is in Türkçe, searching 'ayakkabı' does not find 'ayakkabılar', filtering by brand also changes ranking, and the index has 200 tiny index partitions. Fix in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)mapping|keyword|text",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)analyzer|stemm|turkish|çözümleyici",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)bool|multi_match|filter context|sorgu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)shard|replica|parça",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-mongodb",
+  "model": "sonnet",
+  "istem": "Each product document stores all its reviews in one list field; popular products are now very slow to load, and listing a category sorted by price scans the whole collection. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)embed|reference|göm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)compound index|ESR|indeks",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)aggregation|lookup|pipeline|toplama",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)16MB|unbounded|array|büyüme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-cassandra",
+  "model": "sonnet",
+  "istem": "We store temperature readings from 50,000 sensors every 10 seconds and need the last 24 hours for one sensor quickly; one table keyed only by sensor id is now timing out. Redesign in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)query-first|denormaliz|sorgu başına",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)partition key|bucket|bölüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)clustering|order by|kümeleme",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)QUORUM|LOCAL_ONE|consistency|tutarlılık",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "db-neo4j",
+  "model": "sonnet",
+  "istem": "We want 'people you may know' suggestions: friends of friends who share at least two employers with the user, for 5 million users. Model and query in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)label|relationship type|ilişki",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)MATCH|Cypher|sorgu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)constraint|index|indeks",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)variable-length|hops|derinlik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-kod-yorumu",
+  "model": "haiku",
+  "istem": "Document this C# method for other developers: public decimal Allocate(decimal total, int parts) — splits money into parts, remainder cents go to the first parts, parts must be positive. Keep it short.",
+  "rubrik": [
+   {
+    "regex": "(?i)why|intent|neden",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)precondition|returns|throws|sözleşme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)edge case|kenar",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)redundant|gereksiz|noise",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-runbook",
+  "model": "haiku",
+  "istem": "Write the on-call procedure for 'disk on the PostgreSQL primary above 90%' for a junior engineer, in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)trigger|alert|tetik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)diagnos|check|teşhis",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)mitigat|command|müdahale",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)rollback|escalat|geri",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-astro",
+  "model": "sonnet",
+  "istem": "Our marketing blog built as a React single-page app ships 900 KB of JavaScript; only the newsletter form and a pricing toggle are interactive. Plan the move to Astro in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)island|client:visible|client:load|ada",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)content collection|frontmatter|koleksiyon",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)static|SSR|hybrid|işleme",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)astro:assets|Image|görsel",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-remix",
+  "model": "sonnet",
+  "istem": "Our contact page fetches data in useEffect, posts the message with fetch and a spinner, and shows a blank page on server errors. Rewrite the approach for Remix in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)loader|useLoaderData",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)action|Form|form",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ErrorBoundary|error boundary|hata sınırı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)nested route|Outlet|iç içe",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-qwik",
+  "model": "sonnet",
+  "istem": "We are rebuilding a product listing page that must be usable instantly on cheap phones; it has filters, an add-to-cart button and a price that must be computed before the page is sent. How would you structure it in Qwik? At most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)resumab|hydration|devam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)component|useSignal|sinyal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)routeLoader|server|sunucu",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)serializ|closure|serileştir",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-ansible",
+  "model": "sonnet",
+  "istem": "Our playbook installs nginx with 'shell: apt-get install -y nginx', copies a config with 'shell: echo ... > /etc/nginx/nginx.conf', reports changed every run, and has the DB password in group_vars. Fix in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)idempoten|changed_when|tekrar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)role|roles|rol",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ansible-vault|vault|gizli",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)--check|--diff|önizleme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-gitops",
+  "model": "sonnet",
+  "istem": "Engineers run kubectl apply from laptops; staging and production differ in ways nobody can explain, and secrets live in a shared doc. Propose a git-driven setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)source of truth|declarative|bildirimsel",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reconcil|drift|sapma",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)promotion|overlay|kustomize|terfi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)sealed secret|SOPS|external secret|gizli",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-felaket-kurtarma",
+  "model": "sonnet",
+  "istem": "Our booking platform runs in one cloud region with nightly database dumps stored in the same region; the business says an hour of downtime costs 20k euros. Plan resilience in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)RTO|RPO|hedef",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)backup|snapshot|yedek",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)failover|standby|yük devri",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)drill|restore test|tatbikat",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-marka-sesi",
+  "model": "haiku",
+  "istem": "A family-run olive oil brand's website sounds formal, its Instagram uses slang, and support emails sound robotic. Define how the company should sound in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)voice attribute|tone|ton",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)do and don't|yap|yapma",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)channel|kanal",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)before|after|önce",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-mesaj-mimarisi",
+  "model": "sonnet",
+  "istem": "We sell a scheduling tool for small dental clinics; the sales deck lists 25 features and prospects can't tell why we're different. Build the message structure in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)value proposition|değer önerisi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pillar|sütun",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)proof point|kanıt",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)persona|audience|kitle",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-kullanici-davranisi",
+  "model": "sonnet",
+  "istem": "Our food delivery app saw orders fall 15% after the new checkout design, but only on Android. How do you find out why? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)funnel|drop-off|huni",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cohort|retention|kohort",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)event|tracking plan|olay",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)session replay|interview|görüşme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-icerik-editoru",
+  "model": "haiku",
+  "istem": "Edit: 'In order to be able to utilize the new feature, users will need to first of all navigate into the Settings area, after which they should then click on Integrations which is located on the left side of the screen.'",
+  "rubrik": [
+   {
+    "regex": "(?i)structure|heading|yapı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)clarity|açıklık|jargon",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)concise|cut|kısalt",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)consisten|style guide|tutarlı",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-grafik-tasarim",
+  "model": "haiku",
+  "istem": "Our event poster has seven fonts, the date is tiny at the bottom, the logo is the largest element and the background photo makes text unreadable. Advise in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)hierarchy|focal point|hiyerarşi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)typography|typeface|yazı tipi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)color|contrast|renk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)grid|alignment|hizala",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vid-podcast",
+  "model": "haiku",
+  "istem": "Two friends want to start a weekly interview show about indie game development with a 300-euro budget; their test episode has echo and one voice is much louder. Advise in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)format|segment|bölüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)microphone|recording|kayıt",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)LUFS|loudness|noise|ses",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)RSS|distribution|dağıtım",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-icerik-stratejisi",
+  "model": "sonnet",
+  "istem": "A B2B accounting software startup posts random company news twice a month and gets almost no traffic. Propose a 3-month plan in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)audience|search intent|kitle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)topic cluster|pillar|küme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)editorial calendar|cadence|takvim",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)KPI|measure|ölçüm",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-donusum-optimize",
+  "model": "sonnet",
+  "istem": "Our SaaS pricing page gets 10k visitors a month but only 0.4% start a trial: the sign-up form has 11 inputs, prices show 'contact us' for two plans and there are no customer logos. Advise in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)friction|form field|sürtünme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trust|social proof|güven",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)value proposition|headline|başlık",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)A/B|hypothesis|test",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-eposta-metni",
+  "model": "haiku",
+  "istem": "Write a win-back message for users of our language-learning app who have not opened it for 30 days; we can offer one free month. At most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)subject line|konu satırı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)preheader|preview text|ön izleme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CTA|call to action|eylem",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)personaliz|segment|kişisel",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-eposta-teslim",
+  "model": "sonnet",
+  "istem": "Since we switched our newsletter to a new provider and sending domain, Gmail puts 60% of our messages in spam; we email 80k addresses, many collected years ago. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)SPF|DKIM|DMARC",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reputation|warm-up|itibar",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)bounce|hygiene|liste",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)unsubscribe|List-Unsubscribe|abonelik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-crm",
+  "model": "haiku",
+  "istem": "Our 6 salespeople keep deals in the CRM however they like; forecasts are guesses, contacts exist three times and nobody follows up. Fix the setup in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)pipeline stage|aşama",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lead scoring|puanlama",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)deduplicat|required field|hijyen",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)workflow|task|görev",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "otm-pazarlama-otomasyonu",
+  "model": "sonnet",
+  "istem": "New trial users of our invoicing app get the same 5 newsletters as everyone; many never create their first invoice. Design an onboarding journey in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)trigger|tetik",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)segment|kitle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)delay|wait|bekle",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)exit|goal|çıkış",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-kriz-iletisimi",
+  "model": "sonnet",
+  "istem": "Customers' order addresses from our shop were visible to other logged-in users for 3 hours this morning; it is fixed and journalists are calling. Plan our communication in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)holding statement|ilk açıklama",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)stakeholder|paydaş",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cadence|update|güncelleme",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)accountab|apolog|özür",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-sosyal-reklam",
+  "model": "sonnet",
+  "istem": "A handmade jewelry shop spent 1,500 euros on Instagram promotion boosting random posts and cannot tell what it brought. Plan the next month in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)audience|lookalike|kitle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)creative|variant|kreatif",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)budget|bid|bütçe",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ROAS|CPA|pixel|ölçüm",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-proje-yonetimi",
+  "model": "sonnet",
+  "istem": "We must move our company website to a new CMS in 8 weeks with a designer, two developers and a marketer who also has other work. Plan it in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)scope|kapsam",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)milestone|kilometre",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)risk|RAID",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)owner|RACI|sorumlu",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-yuk-testi",
+  "model": "sonnet",
+  "istem": "Black Friday is in 3 weeks; last year our shop died at about 2,000 simultaneous shoppers. How should we check we can handle 6,000? At most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)scenario|user journey|senaryo",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ramp|soak|spike",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)threshold|p95|eşik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)bottleneck|saturation|darboğaz",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-playwright",
+  "model": "sonnet",
+  "istem": "Our browser tests select elements with long CSS paths, use sleep(3000) after clicks, log in through the UI in every test and fail randomly in CI. Fix in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)getByRole|locator|konumlayıcı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)auto-wait|expect|bekle",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)storageState|auth|oturum",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)trace|izleme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "oyn-oyun-gelistirici",
+  "model": "sonnet",
+  "istem": "In our 2D platformer the character jumps higher on fast PCs, bullets spawned every frame cause stutters, and jump sometimes ignores the button press. Fix in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)game loop|delta time|döngü",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)state machine|durum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)input|girdi",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)pooling|garbage|havuz",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-bilesen-kutuphanesi",
+  "model": "sonnet",
+  "istem": "Our three product teams each built their own Button, Modal and Select; they look slightly different and two Modals can't be closed using only the Tab and Escape keys. Plan a shared set in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)props|API|arayüz",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)variant|size|varyant",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)aria|keyboard|erişilebilir",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)Storybook|docs|belge",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-tasarim-kaliplari",
+  "model": "sonnet",
+  "istem": "Our shipping price code is a switch over 9 carriers inside OrderService, and each new carrier means editing that method and its tests. What should we do? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)problem|sorun",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)strategy|observer|adapter|kalıp",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)trade-off|cost|bedel",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)simpler|alternative|alternatif",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ml-veri-bilimci",
+  "model": "sonnet",
+  "istem": "Stores that installed our new shelf layout sold 12% more last quarter than the others; the manager wants to roll it out everywhere. How do we check it really works? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)hypothesis|hipotez",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)regression|model|yöntem",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)confidence interval|significance|anlamlı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)bias|confound|yanlılık",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "vrm-ortam-yoneticisi",
+  "model": "haiku",
+  "istem": "New developers need two days to get our Node + .NET project running, and builds behave differently on each laptop. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i).nvmrc|global.json|pin|sabit",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lockfile|lock file|kilit",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)devcontainer|Docker|konteyner",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)setup script|bootstrap|kurulum",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-proje-iskelet",
+  "model": "haiku",
+  "istem": "Set up a new repository for a small TypeScript REST service that two people will work on. At most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)folder|structure|klasör",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)lint|formatter|biçim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CI|workflow|pipeline",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)README|getting started|başlarken",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "inc-teknik-borc",
+  "model": "sonnet",
+  "istem": "Every release of our app takes 2 weeks of manual testing, half the bugs come from one 4,000-line file and we still run on an unsupported framework version. Where do we start? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)inventory|envanter",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)interest|cost of delay|maliyet",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)prioriti|öncelik",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)paydown|boy scout|ödeme",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dn-aspnet-core",
+  "model": "sonnet",
+  "istem": "Our API returns 401 even with a valid token since we reordered Program.cs, invalid input causes 500s with stack traces, and a DbContext registered as singleton throws concurrency errors. Fix in at most 15 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)middleware|UseAuthentication|ara katman",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)validation|FluentValidation|doğrula",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)ProblemDetails|problem details|hata",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)scoped|AddScoped|lifetime|ömür",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-go",
+  "model": "sonnet",
+  "istem": "Our Go HTTP handler starts a goroutine per request to call a slow service, ignores the returned errors, and requests pile up when the client disconnects. Fix in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)%w|errors.Is|wrap",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)context|cancel|iptal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)goroutine leak|WaitGroup|race",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)small interface|accept interfaces|arayüz",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-scala",
+  "model": "sonnet",
+  "istem": "Our Scala order code uses var fields, returns null when a customer is missing, and throws exceptions for invalid states inside Futures. Make it idiomatic in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)immutable|case class|değişmez",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pattern match|sealed|eşleme",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)Either|Option|Try",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ZIO|cats-effect|effect system|etki",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-haskell",
+  "model": "sonnet",
+  "istem": "Our Haskell log summarizer runs out of memory on a 2 GB file using a left fold and String, and crashes on empty input because it calls head. Fix in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)newtype|ADT|tür",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)IO|pure|saf",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)space leak|foldl|tembel",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)strict|seq|BangPatterns",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-erlang",
+  "model": "sonnet",
+  "istem": "Our Erlang chat server catches every exception in each process, one slow process has 2 million messages queued, and when the DB connection dies everything stays broken. Fix in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)supervisor|one_for_one|gözetim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)gen_server|handle_call|cast",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)let it crash|crash|çök",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)mailbox|backpressure|kuyruk",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dil-clojure",
+  "model": "sonnet",
+  "istem": "Our Clojure invoice code mutates a global def with set!, mixes HTTP calls inside the calculation, and crashes deep inside when an order lacks :qty. Make it idiomatic in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)map|data-oriented|veri",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pure|side effect|saf",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)atom|ref|durum",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)spec|malli|doğrula",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-kod-arkeolog",
+  "model": "sonnet",
+  "istem": "There is a function AdjustTotal() that subtracts 0.01 from some invoices under strange conditions; nobody knows why and we want to delete it. How do we investigate first? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)git log|blame|tarihçe",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)caller|call graph|çağıran",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)implicit|business rule|kural",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)safe change|güvenli",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-tailwind",
+  "model": "sonnet",
+  "istem": "Our buttons repeat 'px-4 py-2 rounded bg-[#1d4ed8] hover:bg-[#1e40af] text-white' in 40 places with small differences, and the page breaks on phones. Clean it up in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)theme|token|tema",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)component|@apply|bileşen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)sm:|md:|responsive|duyarlı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)clsx|cva|variant",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-teknoloji-secimi",
+  "model": "sonnet",
+  "istem": "A three-person team that knows C# well needs an internal tool for 200 staff: forms, approvals, reports, Active Directory login, launching in 3 months. What should we build it with? At most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)requirement|gereksinim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)team skill|learning curve|ekip",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)cost|hosting|maliyet",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)ecosystem|maturity|olgunluk",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-finans-plani",
+  "model": "sonnet",
+  "istem": "Our two-founder app studio has 60k euros in the bank, spends 7k a month, and expects a client project paying 15k next quarter. Should we hire a developer at 4k a month? At most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)driver|gelir",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)fixed|variable|sabit",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)runway|cash|nakit",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)scenario|best|worst|senaryo",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-fiyatlandirma",
+  "model": "sonnet",
+  "istem": "Our team chat tool charges a flat 20 euros a month whether a company has 3 or 300 users; big customers love it, small ones churn. Redesign pricing in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)value metric|per seat|değer ölçüsü",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)tier|plan|kademe",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)anchor|decoy|çapa",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)experiment|willingness to pay|deney",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-kullanim-kosullari",
+  "model": "sonnet",
+  "istem": "We launch a paid photo-editing web app for users in Türkiye and the EU next month and have no terms yet. Outline what the terms must contain in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)definitions|tanım",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)limitation of liability|sorumluluk",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)termination|fesih",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)governing law|jurisdiction|hukuk",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "qa-test-stratejisi",
+  "model": "sonnet",
+  "istem": "Our mobile banking app has 30 manual testers clicking through everything before each monthly release and still ships payment bugs. Propose a strategy in at most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)risk-based|risk",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)pyramid|unit|piramit",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)quality gate|exit criteria|kapı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)automation|regression|otomasyon",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-destek-yaniti",
+  "model": "haiku",
+  "istem": "Customer: 'I was charged twice for my annual plan and nobody answered my two previous emails. This is ridiculous.' Our records show a duplicate charge; refunds take 5-7 business days. Write the reply.",
+  "rubrik": [
+   {
+    "regex": "(?i)empath|understand|anlıyorum",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)solution|steps|çözüm",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)timeline|next step|süre",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)tone|ton",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "dok-rapor-uretici",
+  "model": "haiku",
+  "istem": "Turn these notes into a short report for management: website traffic +20% QoQ, conversion fell from 3.1% to 2.4%, mobile share rose to 70%, mobile checkout takes 9 steps vs 4 on desktop.",
+  "rubrik": [
+   {
+    "regex": "(?i)executive summary|özet",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)finding|bulgu",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)evidence|data|kanıt",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)recommendation|öneri",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-dagitim-sorun-giderme",
+  "model": "sonnet",
+  "istem": "After today's release the new pods keep restarting with 'connection refused' on startup and half of the traffic gets 502; the old version worked. What do we do? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)rollback|geri al",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)health check|readiness|sağlık",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)config|env|yapılandırma",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)diff|changelog|fark",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "urn-sosyal-medya-icerik",
+  "model": "haiku",
+  "istem": "A neighborhood bakery is launching a sourdough subscription. Write posts for Instagram and LinkedIn announcing it, at most 12 lines total.",
+  "rubrik": [
+   {
+    "regex": "(?i)hook|kanca",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)platform|format|biçim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)CTA|call to action|eylem",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)calendar|schedule|takvim",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-ozellik-onceliklendirme",
+  "model": "sonnet",
+  "istem": "Next quarter we can build two of: CSV export (asked by 40 customers), SSO (needed for 2 enterprise deals worth 80k), dark mode (popular on Twitter), offline mode (very large build). Prioritize in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)RICE|ICE|scor|puan",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)impact|reach|etki",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)effort|estimate|çaba",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)strategic|goal|hedef",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-trend-analizi",
+  "model": "sonnet",
+  "istem": "Our agency's clients keep asking whether they need an AI chatbot on their website this year. How should we judge if this is worth offering? At most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)signal|sinyal",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hype|abartı",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)source|data|kaynak",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)implication|impact|etki",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ops-maliyet-optimize",
+  "model": "sonnet",
+  "istem": "Our AWS bill went from 4k to 11k dollars a month: dev environments run 24/7, all instances are xlarge, and 30 TB of old logs sit in S3 Standard. Cut it in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)idle|unused|boşta",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)rightsiz|boyut",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)reserved|savings plan|taahhüt",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)lifecycle|tier|katman",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "ara-kutuphane-secimi",
+  "model": "sonnet",
+  "istem": "We need a date-handling package for our React app; candidates are moment, date-fns and dayjs. Pick one in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)maintenance|commit|bakım",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)license|lisans",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)bundle size|size|boyut",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)CVE|vulnerab|güvenlik",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "fe-sayfa-duzeni",
+  "model": "sonnet",
+  "istem": "Our product detail page puts the price, 'Add to cart', specs, reviews and related items all at the same size in one long vertical list; on desktop the right half is empty. Redesign the arrangement in at most 10 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)grid|column|ızgara",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)hierarchy|hiyerarşi",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)spacing|whitespace|boşluk",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)reflow|stack|akış",
+    "puan": 2
+   }
+  ]
+ },
+ {
+  "ajan": "pln-sistem-tasarimi",
+  "model": "sonnet",
+  "istem": "Design a link-shortening system for a marketing team: about 1 million new links a month, 50 million redirects, click statistics per link. At most 12 lines.",
+  "rubrik": [
+   {
+    "regex": "(?i)requirement|QPS|gereksinim",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)component|service|bileşen",
+    "puan": 3
+   },
+   {
+    "regex": "(?i)data flow|veri akışı",
+    "puan": 2
+   },
+   {
+    "regex": "(?i)failure|fallback|hata",
+    "puan": 2
+   }
+  ]
+ }
+]

@@ -1,0 +1,5 @@
+YAZILDI inc-celisik-dogrulayici surec-inceleme sonnet
+ELENDİ inc-bagimsiz-dogrulayici inc-dogrulama-oncesi-bitis (kanıtla bitiş) + inc-spec-uyum (kabul kriteri) zaten karşılıyor
+ELENDİ ajn-yaprak-isci CC alt ajanı zaten Task açamaz; kısa dönüş her ajanın Çıktı satırında
+ELENDİ ara-dallanan-arastirici alt ajan dallanamaz; bölme kararı vrm-alt-ajan-dagitim'de
+YAZILDI ara-kanit-toplayici arastirma-ogrenme sonnet

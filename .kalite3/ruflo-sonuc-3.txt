@@ -1,0 +1,5 @@
+YAZILDI git-regresyon-tanigi surec-git-yayin sonnet
+YAZILDI dok-adr-yonetici belge sonnet
+ELENDİ pln-alan-modeli engineering-software-architect bağlam/aggregate/olay/ACL'yi zaten kapsıyor
+YAZILDI ara-dosya-sorusturmaci arastirma-ogrenme sonnet
+YAZILDI inc-diff-risk-puani surec-inceleme sonnet
