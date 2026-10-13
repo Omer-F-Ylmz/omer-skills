@@ -17,9 +17,12 @@ from kor import ISTEM  # noqa: E402
 
 def main(argv):
     kok = pathlib.Path(argv[0]).resolve()
+    aday = argv[argv.index("--kol") + 1] if "--kol" in argv else "vitrin"  # d3: varyant
+    if "--brief" in argv:
+        kanit3.kanit.BRIEF = {b: kanit3.kanit.BRIEF[b] for b in argv[argv.index("--brief") + 1].split(",")}
     sonuc = {}
     for brief, metin in kanit3.kanit.BRIEF.items():
-        sayfalar = [(kol, kok / f"{brief}-{kol}-{t}") for kol in ("taban", "vitrin") for t in (1, 2)]
+        sayfalar = [(kol, kok / f"{brief}-{kol}-{t}") for kol in ("taban", aday) for t in (1, 2)]
         sayfalar = [s for s in sayfalar if (s[1] / "index.html").exists()]
         random.Random(brief).shuffle(sayfalar)
         cikti = kok / "kor" / brief
@@ -46,7 +49,7 @@ def main(argv):
             print(brief, "YARGI YOK", ham[:120], flush=True)
             continue
         ort = {kol: round(sum(puan[h] for h, v in eslesme.items() if v[0] == kol) / max(1, sum(v[0] == kol for v in eslesme.values())), 2)
-               for kol in ("taban", "vitrin")}
+               for kol in ("taban", aday)}
         sonuc[brief] = {"puan": puan, "ort": ort, "usd": j.get("total_cost_usd")}
         print(brief, ort, "usd", j.get("total_cost_usd"), flush=True)
     if sonuc:

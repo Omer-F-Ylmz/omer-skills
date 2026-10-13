@@ -15,13 +15,16 @@ kanit.BRIEF = {**kanit.BRIEF,
                "saas": "Geliştiriciler için log izleme aracı 'İz' tanıtım sayfası: hero, 3 özellik, entegrasyonlar, fiyat, CTA, footer.",
                "etkinlik": "İstanbul'da 3 günlük elektronik müzik festivali 'Dalga 26' sitesi: hero, sanatçı kadrosu, program, bilet, konum."}
 TABAN = kanit.WT / ".claude/fc-taban3/plugins/frontend-craft/skills/frontend-craft"
-kanit.KOLLAR = {"taban": TABAN, "vitrin": kanit.KOLLAR["yeni"], "yeni": kanit.KOLLAR["yeni"]}  # "yeni" = ölçüm betikleri (slop/audit)
+kanit.KOLLAR = {"taban": TABAN, "vitrin": kanit.KOLLAR["yeni"], "yeni": kanit.KOLLAR["yeni"],
+                "varyant": kanit.WT / ".claude/fc-varyant3/frontend-craft"}  # d3 (a): katalog yalnız ajans/portfolyo/SaaS yönünde  # "yeni" = ölçüm betikleri (slop/audit)
 
 
 def main(argv):
     kol = argv[argv.index("--kol") + 1]
     kok = pathlib.Path(argv[0]).resolve()
-    kanit.PORT = {"taban": 3931, "vitrin": 3932}[kol]  # iki kol olcum_sira'da paralel
+    if "--brief" in argv:  # d3: yalnız saas,portfolyo
+        kanit.BRIEF = {b: kanit.BRIEF[b] for b in argv[argv.index("--brief") + 1].split(",")}
+    kanit.PORT = {"taban": 3931, "vitrin": 3932, "varyant": 3933}[kol]  # iki kol olcum_sira'da paralel
     plan = [(b, t) for t in (1, 2) for b in kanit.BRIEF if not (kok / f"{b}-{kol}-{t}" / "index.html").exists()]  # devam: üretilmiş koşu tekrarlanmaz
     if "--kuru" in argv:
         print(len(plan), "çağrı:", plan, "port", kanit.PORT, "sistem uzunluğu", len(kanit.sistem(kol)))
