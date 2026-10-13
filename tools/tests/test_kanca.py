@@ -123,7 +123,8 @@ def kuyruk_kur(oturum, ids, karmalar):
                              "arac": 5, "hata": 0, "tur": 4, "son": "bitti"})
 
 
-def test_isle_yargi_damitma_geri_bildirim(depo):
+def test_isle_yargi_damitma_geri_bildirim(depo, monkeypatch):
+    monkeypatch.setattr(kanca, "ESIK", 6.0)  # sıralama |karma−ESIK|'e bağlı: 2.0 koşusu no 1
     i = ders_ekle()
     kuyruk_kur("s3", [[i], None], [2, 9])
     istemler = []
