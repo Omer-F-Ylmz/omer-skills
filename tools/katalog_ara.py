@@ -50,6 +50,9 @@ ADAY, TABAN, TAVAN = 80, 10, 300
 DURAK = set("ile ve veya icin bir bu su da de mi ne gibi olarak the and or with for to of in on an my is are how".split())
 GRUP = {"skill": "skill", "ajan": "ajan", "mcp": "mcp", "plugin": "plugin", "cli": "cli",
         "kutuphane": "kütüphane", "arac": "bizim betik"}
+# katalog_yenile'nin standart cagri kalıbı: satırda ad tekrarı yerine grup başlığında bir kez yazılır
+CAGRI = {"skill": "Skill {ad}", "ajan": "Agent {ad} (listede yoksa Skill ajan-getir)", "mcp": "ToolSearch '{ad}' → mcp__{ad}__*",
+         "cli": "Bash: {ad} --help", "arac": "python tools/{ad}.py"}
 TR = str.maketrans("çğıöşüÇĞİÖŞÜâî", "cgiosucgiosuai")
 
 
@@ -137,9 +140,10 @@ def main():
     uzun = len(sonuc) > UZUN and "--esik" in a and "--tam" not in a
     print(f"{len(sonuc)} kayıt · " + " · ".join(f"{GRUP[t]} {len(v)}" for t, v in gruplar.items()))
     for t, v in gruplar.items():
-        print(f"## {GRUP[t]} ({len(v)})")
+        print(f"## {GRUP[t]} ({len(v)})" + (f" · çağrı: {CAGRI[t].format(ad='<ad>')}" if t in CAGRI else ""))
         for o in v[:ILK if uzun else None]:
-            print(f"{o['ad']} · {(o['is'] or o['metin'])[:110]} · {o['cagri'][:60]}")
+            c = "" if o["cagri"] == CAGRI.get(t, "").format(ad=o["ad"]) else f" · {o['cagri'][:60]}"
+            print(f"{o['ad']} · {(o['is'] or o['metin'])[:110]}{c}")
     if uzun:
         print(f"… grup başına ilk {ILK}; hepsi için --tam")
 
