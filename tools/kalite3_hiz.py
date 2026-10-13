@@ -39,7 +39,7 @@ STRICT = ["--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}']
 ALAN = ["aile", "ajan", "kol", "tur", "model", "puan", "usd", "jeton", "alt_model", "sure", "alt_usd", "jev", "strict"]
 R_ESIK, J_ESIK, U_PAY = 0.6, 5.0, 1.25  # kalibre(): geçenlerin min r 0.8, min Jev 5.7; $ tavanı = 1.25 × geçenlerin max $'ı
 D13_P2 = time.mktime(time.strptime("2026-10-12 09:22:09", "%Y-%m-%d %H:%M:%S"))
-EK = [KOK / "ajanlar/kalite3-d15", KOK / "ajanlar/kalite3-ruflo", KOK / "ajanlar/kalite3-d16"]  # yeni aday kökleri (gorevler.json + <aile>/<ad>.md), d13 dilimine girmez
+EK = [KOK / "ajanlar/kalite3-d15", KOK / "ajanlar/kalite3-ruflo", KOK / "ajanlar/kalite3-d16", KOK / "ajanlar/kalite3-d17"]  # yeni aday kökleri (gorevler.json + <aile>/<ad>.md), d13 dilimine girmez
 kilit = threading.Lock()
 gorev = {g["ajan"]: g for k in [mo.AJAN, *EK] if (k / "gorevler.json").exists()
          for g in json.loads((k / "gorevler.json").read_text(encoding="utf-8"))}
@@ -54,10 +54,11 @@ def log(*a):
 
 
 LIMIT = re.compile(r"hit your (session|usage|weekly) limit|usage limit reached", re.I)  # plan limiti yanıtı (12 Eki 21:00 sahte DÜŞTÜ)
+KREDI = re.compile(r"credit balance is too low", re.I)  # 13 Eki 04:20 Console kredisi bitti → 17 sahte ONARIM BİÇİM
 
 
 def api_hatasi(o):
-    if o["metin"].lstrip().startswith("API Error") or LIMIT.search(o["metin"][:300]):
+    if o["metin"].lstrip().startswith("API Error") or LIMIT.search(o["metin"][:300]) or KREDI.search(o["metin"][:300]):
         raise Gecici(o["metin"].strip()[:120])
     return o
 
@@ -184,26 +185,76 @@ Current definition:
 Return ONLY the complete new definition file between a line <<<AJAN and a line AJAN>>>."""
 
 
+def tanim_ayikla(metin, ad):
+    """Onarım yanıtından tanım: <<<AJAN … AJAN>>> (kapanışsız da), yoksa `name: <ad>` içeren --- ön bilgili blok (``` içinde de)."""
+    m = re.search(r"<<<AJAN[^\n]*\n(.*?)(?:\n\s*AJAN>>>|\Z)", metin, re.S)
+    if m and m.group(1).strip():
+        return re.sub(r"^```\w*\n|\n```\s*$", "", m.group(1).strip()).strip()
+    m = re.search(r"^(---\s*\nname:\s*" + re.escape(ad) + r"\s*\n.*?\n---\s*\n.*?)(?:\n```|\Z)", metin, re.S | re.M)
+    return m.group(1).strip() if m else None
+
+
 def onar(ad, tur, yol, neden, yanit):
-    """Yeni tanım yolu ya da None (biçim bozuksa onarım düşer)."""
+    """Yeni tanım yolu ya da None (biçim bozuksa onarım düşer). Yanıt onarim/<ad>.t<tur>.yanit.txt'ye yazılır (BİÇİM teşhisi)."""
     eksik = [re.sub(r"^[(][?]i[)]", "", r["regex"]) for r in gorev[ad]["rubrik"] if not re.search(r["regex"], yanit)]
     istem = ONAR.format(neden=neden, eksik="; ".join(eksik) or "-", yanit=yanit[:3000], md=yol.read_text(encoding="utf-8"))
-    o = api_hatasi(cagri.kos(f"{ad} onar t{tur}", istem, STRICT, model="sonnet", butce=1.0))
-    m = re.search(r"<<<AJAN\s*\n(.*?)\n\s*AJAN>>>", o["metin"], re.S)
-    if not m:
-        istem += f"\n\nYour previous reply had no <<<AJAN ... AJAN>>> block. Reply with nothing but:\n<<<AJAN\n---\nname: {ad}\n...\nAJAN>>>"
-        o = api_hatasi(cagri.kos(f"{ad} onar t{tur} (biçim)", istem, STRICT, model="sonnet", butce=1.0))
-        m = re.search(r"<<<AJAN\s*\n(.*?)\n\s*AJAN>>>", o["metin"], re.S)
     yeni = IS / "onarim" / f"{ad}.t{tur}.md"
     yeni.parent.mkdir(exist_ok=True)
+    o = api_hatasi(cagri.kos(f"{ad} onar t{tur}", istem, STRICT, model="sonnet", butce=1.0))
+    yeni.with_suffix(".yanit.txt").write_text(o["metin"], encoding="utf-8", newline="\n")
+    t = tanim_ayikla(o["metin"], ad)
+    if not t:
+        istem += f"\n\nYour previous reply had no <<<AJAN ... AJAN>>> block. Do not use tools or edit files. Reply with nothing but:\n<<<AJAN\n---\nname: {ad}\n...\nAJAN>>>"
+        o = api_hatasi(cagri.kos(f"{ad} onar t{tur} (biçim)", istem, STRICT, model="sonnet", butce=1.0))
+        yeni.with_suffix(".yanit.txt").write_text(o["metin"], encoding="utf-8", newline="\n")
+        t = tanim_ayikla(o["metin"], ad)
     try:
-        assert m, "biçim: <<<AJAN bloğu yok (2 deneme)"
-        yeni.write_text(m.group(1).strip() + "\n", encoding="utf-8", newline="\n")
+        assert t, "biçim: <<<AJAN bloğu yok (2 deneme)"
+        yeni.write_text(t + "\n", encoding="utf-8", newline="\n")
         assert mo.tanim(yeni, "x")[0] == ad
         return yeni
     except Exception as e:  # noqa: BLE001
         log("ONARIM BİÇİM", ad, f"t{tur}", repr(e)[:120])
         return None
+
+
+KARMA_PAY = 0.5  # |Jev ajan − Jev ana| ≤ pay → belirsiz: Jev ölçütünü Opus ikili yargısı verir (iki yönde; JEV-2 d5 karma yargı)
+KARMA = """Two answers to the same request. Score each 0-10 for how well it serves the request (correctness, coverage of what the
+request needs, actionability; length is not quality). Request:
+{istem}
+Acceptance: {kabul}
+=== ANSWER A ===
+{a}
+=== ANSWER B ===
+{b}
+Reply with only JSON: {{"A": <0-10>, "B": <0-10>}}"""
+
+
+def ana_yanit(ad):
+    y = sorted((IS / "yanit").glob(f"{ad}-ana-t*.md"), key=lambda p: p.stat().st_mtime)
+    y = y[-1] if y else ESKI_YANIT / f"{ad}-ana.md"
+    return y.read_text(encoding="utf-8", errors="replace") if y.exists() else None
+
+
+def karma(ad, a, n, metin):
+    """Belirsiz Jev farkında Opus ikili yargısı (sıra adla sabit karışık; konum yanlılığı); Jev alanları Opus puanıyla değişir."""
+    try:
+        if abs(float(a["jev"]) - float(n["jev"])) > KARMA_PAY or not (nm := ana_yanit(ad)):
+            return a, n
+    except ValueError:
+        return a, n
+    ters = sum(map(ord, ad)) % 2
+    g = gorev[ad]
+    kabul = "; ".join(re.sub(r"^[(][?]i[)]", "", r["regex"]) for r in g["rubrik"])
+    x, y = (nm, metin) if ters else (metin, nm)
+    o = api_hatasi(cagri.kos(f"{ad} karma", KARMA.format(istem=g["istem"], kabul=kabul, a=x[:6000], b=y[:6000]), STRICT, model="opus", butce=1.0))
+    m = re.search(r'"A"\s*:\s*([\d.]+)\s*,\s*"B"\s*:\s*([\d.]+)', o["metin"])
+    if not m:
+        log("KARMA BİÇİM", ad, o["metin"][:80])
+        return a, n
+    pa, pn = (m.group(2), m.group(1)) if ters else (m.group(1), m.group(2))
+    log("KARMA", ad, f"Jev {a['jev']}/{n['jev']} → Opus {pa}/{pn}")
+    return dict(a, jev=pa), dict(n, jev=pn)
 
 
 def fm_model(yol, varsayilan):
@@ -397,6 +448,8 @@ class Kosu:
                     self.ana[ana_anahtar(ad, model)] = n
             with kilit:
                 self.ardisik = 0
+            if not gerekce:
+                a, n = karma(ad, a, n, metin)
             ok = not gerekce and karar([a, dict(n, ajan=ad)]).get(ad, False)
             gerekce = gerekce or neden(a, n)
             log("GECTI" if ok else ("ERKEN RET" if not n else "DÜŞTÜ"), ad, f"t{tur}", model, gerekce)

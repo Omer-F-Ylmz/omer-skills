@@ -132,7 +132,7 @@ def test_onarilan_tanim_geri_donerse_yeniden_onarilmaz(ortam, monkeypatch):
 
 
 def test_onarim_bicim_eslesmezse_bir_kez_hatirlatir(ortam, monkeypatch):
-    yanit = iter([o("İşte tanım:\n" + MD), o(f"<<<AJAN\n{MD}AJAN>>>")])
+    yanit = iter([o("Tanımı güncelledim, açıklama kısaldı."), o(f"<<<AJAN\n{MD}AJAN>>>")])
     istemler = []
     monkeypatch.setattr(kh.cagri, "kos", lambda e, istem, *a, **k: istemler.append(istem) or next(yanit))
     y = kh.onar(AD, 1, ortam, "neden", "yanıt")
@@ -150,6 +150,32 @@ def test_onarim_api_hatasi_gecici(ortam, monkeypatch):
     monkeypatch.setattr(kh.cagri, "kos", lambda *a, **k: o("API Error: 502"))
     with pytest.raises(kh.Gecici):
         kh.onar(AD, 1, ortam, "neden", "yanıt")
+
+
+def test_onarim_kredi_bitti_gecici_bicim_sayilmaz(ortam, monkeypatch):
+    monkeypatch.setattr(kh.cagri, "kos", lambda *a, **k: o("Credit balance is too low"))
+    with pytest.raises(kh.Gecici):
+        kh.onar(AD, 1, ortam, "neden", "yanıt")
+
+
+@pytest.mark.parametrize("metin", [f"İşte:\n```markdown\n{MD}```\n", f"<<<AJAN\n```markdown\n{MD}```\nAJAN>>>", f"<<<AJAN\n{MD}"])
+def test_onarim_isaretsiz_ya_da_citli_tanim_ilk_yanitta_kabul(ortam, monkeypatch, metin):
+    istemler = []
+    monkeypatch.setattr(kh.cagri, "kos", lambda e, istem, *a, **k: istemler.append(istem) or o(metin))
+    y = kh.onar(AD, 1, ortam, "neden", "yanıt")
+    assert y and kh.mo.tanim(y, "x")[0] == AD and len(istemler) == 1 and "```" not in y.read_text(encoding="utf-8")
+    assert y.with_suffix(".yanit.txt").read_text(encoding="utf-8") == metin
+
+
+def test_karma_yalniz_belirsizde_opus_jev_alanini_verir(ortam, monkeypatch):
+    (kh.IS / "yanit").mkdir()
+    (kh.IS / "yanit" / f"{AD}-ana-t0.md").write_text("ana yanıt", encoding="utf-8")
+    ters = sum(map(ord, AD)) % 2
+    monkeypatch.setattr(kh.cagri, "kos", lambda *a, **k: o('{"A": 8, "B": 6}' if not ters else '{"A": 6, "B": 8}'))
+    a, n = kh.karma(AD, {"jev": "7.0"}, {"jev": "7.4"}, "ajan yanıt")
+    assert (a["jev"], n["jev"]) == ("8", "6")
+    monkeypatch.setattr(kh.cagri, "kos", lambda *a, **k: pytest.fail("belirsiz değil, Opus çağrılmamalı"))
+    assert kh.karma(AD, {"jev": "5.0"}, {"jev": "7.4"}, "x")[0]["jev"] == "5.0"
 
 
 def test_devam_yarim_ajani_sonraki_tura_alir(ortam, monkeypatch):

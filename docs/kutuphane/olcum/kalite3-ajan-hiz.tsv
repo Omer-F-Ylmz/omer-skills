@@ -398,3 +398,733 @@ C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\test-qa	qa-sozlesme-testi	aj
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\test-qa	qa-test-bosluk-analiz	ajan	2	sonnet	10	0.2782	324839	claude-sonnet-5-5	175.4	0.1124	9.6	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-ux-metin-yazar	ajan	2	haiku	7	0.3581	354428	claude-haiku-5-5	177.4	0.0134	6.8	1
 C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-tasarim-yonu	ajan	2	sonnet	7	0.1689	393872	claude-sonnet-5-5	181.0	0.1507	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\backend-dotnet	dn-webapi-endpoint	ajan	2	haiku	10	0.4311	364194	claude-haiku-5-5	241.2	0.0101	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\test-qa	qa-test-kapsami-raporu	ajan	2	haiku	8	0.3572	341526	claude-haiku-5-5	162.6	0.0067	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\test-qa	qa-test-ilk-yaklasim	ajan	2	sonnet	10	0.4244	832908	claude-sonnet-5-5	302.5	0.3193	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\frontend	fe-ux-metin-yazar	ana	2	haiku	5	0.1194	441551	claude-haiku-5-5	167.3		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\guvenlik	sec-tehdit-modelleme	ajan	2	sonnet	7	0.3004	351865	claude-sonnet-5-5	150.5	0.1236	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\guvenlik	sec-sast-kosucu	ajan	2	sonnet	10	0.3058	384838	claude-sonnet-5-5	157.2	0.1312	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\guvenlik	sec-xss-csrf-denetci	ajan	2	sonnet	10	0.1505	346005	claude-sonnet-5-5	141.4	0.132	9.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\guvenlik	sec-yetkilendirme-matrisi	ajan	2	sonnet	10	0.1471	344079	claude-sonnet-5-5	148.0	0.1285	9.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\video	vid-video-ozetle	ajan	2	haiku	10	0.3613	356107	claude-haiku-5-5	121.7	0.0138	6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\verimlilik	vrm-maliyet-denetci	ajan	2	haiku	10	0.3602	342103	claude-haiku-5-5	122.7	0.0067	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\verimlilik	vrm-dosya-okuma-disiplini	ajan	2	haiku	8	0.3618	357035	claude-haiku-5-5	131.2	0.0115	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\video	vid-video-ozetle	ana	2	haiku	8	0.0154	82080	claude-haiku-5-5	54.2		5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3\verimlilik	vrm-model-secimi	ajan	2	haiku	7	0.3589	355737	claude-haiku-5-5	87.8	0.0116	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-destek-yaniti	ajan	0	haiku	10	0.3607	355576	claude-haiku-5-5	89.9	0.0114	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-ansible	ajan	0	sonnet	10	0.4222	575489	claude-sonnet-5-5	182.0	0.2463	5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-actix-web	ajan	0	sonnet	10	0.3266	433720	claude-sonnet-5-5	104.7	0.1512	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-kod-arkeolog	ajan	0	sonnet	10	0.3872	484518	claude-sonnet-5-5	146.4	0.218	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-astro	ajan	0	sonnet	10	0.2994	396499	claude-sonnet-5-5	87.5	0.1263	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-destek-yaniti	ana	0	haiku	0	0.0153	81836	claude-haiku-5-5	58.4		8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-aspnet-core	ajan	0	sonnet	10	0.4148	679713	claude-sonnet-5-5	158.4	0.2371	4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-auth0	ajan	0	sonnet	10	0.2748	453238	claude-sonnet-5-5	108.1	0.169	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-ansible	ana	0	sonnet	2	0.3159	82054	claude-sonnet-5-5	65.8		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-actix-web	ana	0	sonnet	10	0.3171	82180	claude-sonnet-5-5	56.9		7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-eposta-teslim	ajan	0	sonnet	10	0.3216	446719	claude-sonnet-5-5	95.2	0.1475	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-langchain	ajan	0	sonnet	10	0.3209	431471	claude-sonnet-5-5	100.5	0.148	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-kod-arkeolog	ana	0	sonnet	6	0.3074	81185	claude-sonnet-5-5	59.0		8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-astro	ana	0	sonnet	8	0.3467	166582	claude-sonnet-5-5	83.1		6.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\oyun-mod	oyn-lua-betik	ajan	0	sonnet	10	0.2913	373188	claude-sonnet-5-5	119.4	0.1251	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-eposta-teslim	ana	0	sonnet	10	0.31	81449	claude-sonnet-5-5	78.8		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-auth0	ana	0	sonnet	10	0.3417	164028	claude-sonnet-5-5	98.9		8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-asiri-muhendislik	ajan	0	sonnet	7	0.1569	391345	claude-sonnet-5-5	105.9	0.1385	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-langchain	ana	0	sonnet	7	0.3056	79879	claude-sonnet-5-5	80.5		7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-circleci	ajan	0	haiku	10	0.3649	360574	claude-haiku-5-5	116.7	0.0138	6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-ozellik-onceliklendirme	ajan	0	sonnet	10	0.165	393141	claude-sonnet-5-5	119.2	0.1467	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-entegrasyon-testi	ajan	0	sonnet	10	0.3141	422959	claude-sonnet-5-5	139.0	0.1479	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-crm	ajan	0	haiku	10	0.3626	357490	claude-haiku-5-5	136.0	0.0122	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\oyun-mod	oyn-lua-betik	ana	0	sonnet	10	0.3078	81260	claude-sonnet-5-5	83.8		9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-bi-rapor	ajan	0	sonnet	10	0.3169	423385	claude-sonnet-5-5	149.6	0.1495	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-asiri-muhendislik	ana	0	sonnet	3	0.3006	79404	claude-sonnet-5-5	89.7		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-ozellik-onceliklendirme	ana	0	sonnet	0	0.308	81255	claude-sonnet-5-5	81.1		5.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-crm	ana	0	haiku	4	0.0151	80343	claude-haiku-5-5	80.2		6.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-entegrasyon-testi	ana	0	sonnet	8	0.3096	81404	claude-sonnet-5-5	84.3		8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\video	vid-podcast	ajan	0	haiku	10	0.3611	356451	claude-haiku-5-5	137.4	0.0124	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\verimlilik	vrm-ortam-yoneticisi	ajan	0	haiku	10	0.3601	474539	claude-haiku-5-5	215.1	0.0163	4.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-bi-rapor	ana	0	sonnet	0	0.3089	80215	claude-sonnet-5-5	96.8		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-ajan-arac	ajn-sinirli-insaci	ajan	0	sonnet	10	0.3222	508212	claude-sonnet-5-5	189.9	0.2183	3.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\belge	dok-adr-yonetici	ajan	0	sonnet	2	0.3814	481898	claude-sonnet-5-5	222.6	0.215	1.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-circleci	ana	0	haiku	2	0.1058	401727	claude-haiku-5-5	246.3		3.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-plan	pln-hedef-planlayici	ajan	0	sonnet	10	0.2374	398970	claude-sonnet-5-5	187.1	0.1317	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\video	vid-podcast	ana	0	haiku	5	0.0157	82715	claude-haiku-5-5	170.2		4.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-git-yayin	git-regresyon-tanigi	ajan	0	sonnet	10	0.3737	408610	claude-sonnet-5-5	218.3	0.2018	6.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\arastirma-ogrenme	ara-dosya-sorusturmaci	ajan	0	sonnet	8	0.3897	598463	claude-sonnet-5-5	340.1	0.2819	7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\test-qa	qa-sahte-uygulama-avcisi	ajan	0	haiku	8	0.3549	352049	claude-haiku-5-5	220.2	0.0117	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-kutuphane-secimi	ajan	0	sonnet	10	0.2969	380896	claude-sonnet-5-5	196.0	0.1245	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-inceleme	inc-celisik-dogrulayici	ajan	0	sonnet	5	0.4125	562921	claude-sonnet-5-5	325.8	0.2461	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-git-yayin	git-regresyon-tanigi	ana	0	sonnet	3	0.3114	81606	claude-sonnet-5-5	137.9		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-plan	pln-hedef-planlayici	ana	0	sonnet	2	0.3243	82915	claude-sonnet-5-5	154.2		7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-eski-kod-modernize	ajan	0	sonnet	10	0.4307	566019	claude-sonnet-5-5	288.6	0.2621	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-icerik-editoru	ajan	0	haiku	10	0.3588	355371	claude-haiku-5-5	241.1	0.0115	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-bash-betik	ajan	0	sonnet	10	0.1819	392532	claude-sonnet-5-5	251.7	0.1638	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-bilesen-kutuphanesi	ajan	0	sonnet	10	0.3418	551446	claude-sonnet-5-5	224.6	0.1598	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-jwt-denetci	ajan	0	sonnet	10	0.301	397001	claude-sonnet-5-5	182.4	0.1268	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-kutuphane-secimi	ana	0	sonnet	3	0.3039	80824	claude-sonnet-5-5	151.9		4.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\test-qa	qa-sahte-uygulama-avcisi	ana	0	haiku	6	0.1006	297657	claude-haiku-5-5	182.1		7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-bullmq-kuyruk	ajan	0	sonnet	7	0.3478	696437	claude-sonnet-5-5	466.2	0.2365	2.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-icerik-editoru	ana	0	haiku	0	0.0152	81654	claude-haiku-5-5	162.5		7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-jwt-denetci	ana	0	sonnet	7	0.3132	81766	claude-sonnet-5-5	199.6		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-eski-kod-modernize	ana	0	sonnet	10	0.3318	160662	claude-sonnet-5-5	230.2		8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-bash-betik	ana	0	sonnet	8	0.3196	82458	claude-sonnet-5-5	219.3		6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-nlp	ajan	0	sonnet	10	0.3277	450112	claude-sonnet-5-5	224.2	0.1507	6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-pazarlama-otomasyonu	ajan	0	sonnet	10	0.333	549588	claude-sonnet-5-5	211.5	0.1517	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-bilesen-kutuphanesi	ana	0	sonnet	8	0.3943	177890	claude-sonnet-5-5	259.6		5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-gitlab-ci	ajan	0	sonnet	10	0.4118	559141	claude-sonnet-5-5	245.4	0.2471	5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\oyun-mod	oyn-oyun-gelistirici	ajan	0	sonnet	2	0.4253	647216	claude-sonnet-5-5	262.2	0.2521	0.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-nlp	ana	0	sonnet	10	0.321	83889	claude-sonnet-5-5	83.7		7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-pazarlama-otomasyonu	ana	0	sonnet	8	0.3179	82455	claude-sonnet-5-5	83.5		8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\arastirma-ogrenme	ara-dosya-sorusturmaci	ana	0	sonnet	0	0.5304	772401	claude-sonnet-5-5	481.5		6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-eposta-metni	ajan	0	haiku	7	0.3615	355885	claude-haiku-5-5	137.3	0.0136	8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-proje-iskelet	ajan	0	haiku	10	0.3719	362757	claude-haiku-5-5	169.8	0.0141	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-cassandra	ajan	0	sonnet	10	0.1601	398759	claude-sonnet-5-5	142.4	0.1412	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-gitlab-ci	ana	0	sonnet	10	0.3491	165756	claude-sonnet-5-5	118.8		7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-mocha	ajan	0	sonnet	10	0.2415	464621	claude-sonnet-5-5	229.0	0.2223	3.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-claude-md-uyum	ajan	0	sonnet	10	0.2622	544180	claude-sonnet-5-5	237.4	0.2433	2.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-eposta-metni	ana	0	haiku	0	0.0156	83793	claude-haiku-5-5	75.2		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-dagitim-sorun-giderme	ajan	0	sonnet	10	0.2446	450779	claude-sonnet-5-5	135.7	0.1397	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-teknoloji-secimi	ajan	0	sonnet	10	0.3204	429990	claude-sonnet-5-5	148.0	0.1486	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-kod-yorumu	ajan	0	haiku	3	0.3681	362666	claude-haiku-5-5	136.5	0.0117	4.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-cassandra	ana	0	sonnet	2	0.3203	83832	claude-sonnet-5-5	83.2		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-inceleme	inc-diff-risk-puani	ajan	0	sonnet	10	0.3912	487459	claude-sonnet-5-5	190.0	0.224	3.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-dagitim-sorun-giderme	ana	0	sonnet	7	0.3205	83841	claude-sonnet-5-5	79.5		9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-c-sistem	ajan	0	sonnet	10	0.1642	394610	claude-sonnet-5-5	111.3	0.1457	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-teknoloji-secimi	ana	0	sonnet	0	0.3216	83952	claude-sonnet-5-5	94.6		8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-donusum-optimize	ajan	0	sonnet	10	0.3243	437878	claude-sonnet-5-5	120.6	0.1468	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-keycloak	ajan	0	sonnet	10	0.2617	455002	claude-sonnet-5-5	116.5	0.155	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-numpy	ajan	0	haiku	10	0.3746	365535	claude-haiku-5-5	137.5	0.0126	8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\arastirma-ogrenme	ara-kanit-toplayici	ajan	0	sonnet	5	0.496	758124	claude-sonnet-5-5	294.5	0.3231	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-puppeteer	ajan	0	sonnet	10	0.3767	682919	claude-sonnet-5-5	195.9	0.2697	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-c-sistem	ana	0	sonnet	10	0.3165	83456	claude-sonnet-5-5	138.5		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-donusum-optimize	ana	0	sonnet	2	0.3192	83728	claude-sonnet-5-5	132.8		7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-keycloak	ana	0	sonnet	8	0.3215	83930	claude-sonnet-5-5	155.1		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-proje-iskelet	ana	0	haiku	4	0.1269	535683	claude-haiku-5-5	386.3		6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-numpy	ana	0	haiku	3	0.0157	83803	claude-haiku-5-5	163.1		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-jenkins	ajan	0	sonnet	10	0.3508	598000	claude-sonnet-5-5	248.1	0.2443	4.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-derin-hata-ayiklama	ajan	0	sonnet	10	0.3132	428288	claude-sonnet-5-5	199.8	0.1428	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-puppeteer	ana	0	sonnet	10	0.3414	166630	claude-sonnet-5-5	155.9		6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-proje-yonetimi	ajan	0	sonnet	10	0.1707	399571	claude-sonnet-5-5	152.3	0.1518	7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-derin-hata-ayiklama	ana	0	sonnet	8	0.3162	83109	claude-sonnet-5-5	127.4		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-finans-plani	ajan	0	sonnet	10	0.3022	381924	claude-sonnet-5-5	173.2	0.1279	8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-elk-log	ajan	0	sonnet	10	0.2971	378259	claude-sonnet-5-5	161.7	0.1273	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-dynamodb	ajan	0	sonnet	10	0.3026	386888	claude-sonnet-5-5	189.8	0.126	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-playwright	ajan	0	sonnet	10	0.3994	515072	claude-sonnet-5-5	217.2	0.2223	6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-proje-yonetimi	ana	0	sonnet	5	0.3445	167733	claude-sonnet-5-5	76.4		5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-trend-analizi	ajan	0	sonnet	10	0.161	391666	claude-sonnet-5-5	162.5	0.1426	8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-finans-plani	ana	0	sonnet	5	0.3168	83175	claude-sonnet-5-5	66.9		7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-elk-log	ana	0	sonnet	10	0.3185	83337	claude-sonnet-5-5	67.7		9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-dynamodb	ana	0	sonnet	3	0.3437	167304	claude-sonnet-5-5	71.0		2.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-trend-analizi	ana	0	sonnet	0	0.3141	82893	claude-sonnet-5-5	76.2		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-playwright	ana	0	sonnet	8	0.3404	167345	claude-sonnet-5-5	84.8		4.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-cli-araci	ajan	0	haiku	10	0.3731	362573	claude-haiku-5-5	119.6	0.0143	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-kullanim-kosullari	ajan	0	sonnet	10	0.295	462002	claude-sonnet-5-5	176.3	0.1864	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-cli-araci	ana	0	haiku	7	0.016	84444	claude-haiku-5-5	107.5		6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-kullanim-kosullari	ana	0	sonnet	4	0.325	83985	claude-sonnet-5-5	89.2		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-jquery-bakim	ajan	0	haiku	10	0.3766	395019	claude-haiku-5-5	125.2	0.0159	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-owasp-top10	ajan	0	sonnet	10	0.327	437893	claude-sonnet-5-5	122.9	0.1493	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-sema-dogrulayici	ajan	0	haiku	10	0.3776	364512	claude-haiku-5-5	120.1	0.0122	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-owasp-top10	ana	0	sonnet	6	0.3182	83374	claude-sonnet-5-5	88.9		6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-openai-api	ajan	0	sonnet	10	0.4633	906339	claude-sonnet-5-5	199.3	0.27	5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-jquery-bakim	ana	0	haiku	6	0.1086	414996	claude-haiku-5-5	137.2		4.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-sema-dogrulayici	ana	0	haiku	8	0.1016	198686	claude-haiku-5-5	104.1		4.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-hata-dedektifi	ajan	0	sonnet	10	0.1643	398907	claude-sonnet-5-5	103.5	0.1453	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-sistem-tasarimi	ajan	0	sonnet	10	0.2566	452845	claude-sonnet-5-5	118.0	0.151	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-hata-dedektifi	ana	0	sonnet	0	0.3247	85143	claude-sonnet-5-5	81.6		7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-monorepo	ajan	0	sonnet	10	0.4411	606786	claude-sonnet-5-5	214.7	0.2635	5.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-selenium	ajan	0	sonnet	10	0.3037	388441	claude-sonnet-5-5	135.4	0.1257	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-plan	pln-sistem-tasarimi	ana	0	sonnet	3	0.3255	85208	claude-sonnet-5-5	66.0		7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-selenium	ana	0	sonnet	10	0.3281	85493	claude-sonnet-5-5	116.9		9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-fiyatlandirma	ajan	0	sonnet	10	0.1454	354507	claude-sonnet-5-5	148.3	0.1262	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-felaket-kurtarma	ajan	0	sonnet	10	0.1715	405817	claude-sonnet-5-5	118.4	0.1521	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-elasticsearch	ajan	0	sonnet	10	0.412	432669	claude-sonnet-5-5	174.8	0.2254	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-fiyatlandirma	ana	0	sonnet	3	0.3286	85523	claude-sonnet-5-5	62.6		7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-felaket-kurtarma	ana	0	sonnet	10	0.3285	85513	claude-sonnet-5-5	67.7		9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-rapor-uretici	ajan	0	haiku	10	0.3821	367913	claude-haiku-5-5	103.6	0.0141	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-rapor-uretici	ana	0	haiku	2	0.0159	85359	claude-haiku-5-5	53.5		6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-qwik	ajan	0	sonnet	10	0.3252	434857	claude-sonnet-5-5	112.5	0.1514	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-clojure	ajan	0	sonnet	10	0.4086	498013	claude-sonnet-5-5	160.0	0.2362	5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-elasticsearch	ana	0	sonnet	7	0.3649	255676	claude-sonnet-5-5	191.7		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-qwik	ana	0	sonnet	5	0.3208	83637	claude-sonnet-5-5	66.3		6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-pandas	ajan	0	haiku	10	0.3791	368220	claude-haiku-5-5	101.7	0.012	7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-mimari-inceleme	ajan	0	sonnet	10	0.3096	408020	claude-sonnet-5-5	117.2	0.1276	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-clojure	ana	0	sonnet	6	0.3462	170156	claude-sonnet-5-5	105.3		5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-test-stratejisi	ajan	0	sonnet	10	0.2532	451941	claude-sonnet-5-5	137.5	0.1471	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-mimari-inceleme	ana	0	sonnet	3	0.324	85059	claude-sonnet-5-5	98.1		8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-grafik-tasarim	ajan	0	haiku	7	0.3739	366206	claude-haiku-5-5	176.8	0.0114	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-gitops	ajan	0	sonnet	10	0.159	402371	claude-sonnet-5-5	155.2	0.1399	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-flyway	ajan	0	haiku	10	0.3922	379115	claude-haiku-5-5	204.5	0.0154	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-runbook	ajan	0	haiku	10	0.3737	364667	claude-haiku-5-5	148.0	0.0127	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-test-stratejisi	ana	0	sonnet	8	0.3448	167948	claude-sonnet-5-5	116.5		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-grafik-tasarim	ana	0	haiku	8	0.0158	83923	claude-haiku-5-5	137.1		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-pandas	ana	0	haiku	5	0.1212	538831	claude-haiku-5-5	311.8		4.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-gitops	ana	0	sonnet	10	0.3187	83415	claude-sonnet-5-5	145.9		9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-flyway	ana	0	haiku	4	0.0157	83818	claude-haiku-5-5	159.1		5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-runbook	ana	0	haiku	3	0.0165	86605	claude-haiku-5-5	159.6		8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-remix	ajan	0	sonnet	10	0.166	404034	claude-sonnet-5-5	185.4	0.1469	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-pekistirmeli-ogrenme	ajan	0	sonnet	10	0.334	555072	claude-sonnet-5-5	198.5	0.1509	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-refaktor	ajan	0	sonnet	10	0.1589	396746	claude-sonnet-5-5	159.7	0.1403	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-erlang	ajan	0	sonnet	8	0.2451	465523	claude-sonnet-5-5	272.3	0.2262	2.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-testcafe	ajan	0	sonnet	10	0.407	503127	claude-sonnet-5-5	166.6	0.2324	5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-icerik-stratejisi	ajan	0	sonnet	10	0.1648	403855	claude-sonnet-5-5	149.2	0.1456	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-remix	ana	0	sonnet	8	0.334	86068	claude-sonnet-5-5	88.9		5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-refaktor	ana	0	sonnet	3	0.3219	84855	claude-sonnet-5-5	77.7		8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-pekistirmeli-ogrenme	ana	0	sonnet	8	0.3269	85353	claude-sonnet-5-5	84.3		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-kafka	ajan	0	sonnet	10	0.3017	384212	claude-sonnet-5-5	166.7	0.1274	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-fastify	ajan	0	sonnet	10	0.3175	429192	claude-sonnet-5-5	164.0	0.1466	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-sayfa-duzeni	ajan	0	sonnet	10	0.46	678908	claude-sonnet-5-5	231.1	0.2782	6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-testcafe	ana	0	sonnet	8	0.3298	85683	claude-sonnet-5-5	160.0		6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-icerik-stratejisi	ana	0	sonnet	5	0.3322	85872	claude-sonnet-5-5	160.8		8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-knex-sorgu	ajan	0	sonnet	10	0.4593	797693	claude-sonnet-5-5	305.3	0.2707	6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-kafka	ana	0	sonnet	5	0.3193	83466	claude-sonnet-5-5	133.3		8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-fastify	ana	0	sonnet	10	0.3463	170215	claude-sonnet-5-5	160.7		8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-is-analizi	ajan	0	sonnet	10	0.1757	406633	claude-sonnet-5-5	204.3	0.1563	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-tensorflow	ajan	0	sonnet	10	0.3197	433375	claude-sonnet-5-5	232.0	0.1463	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-ui-kapsamli	ajan	0	sonnet	10	0.3264	441886	claude-sonnet-5-5	223.8	0.1459	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-spec-uyum	ajan	0	sonnet	10	0.4407	712922	claude-sonnet-5-5	240.8	0.2541	6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-is-analizi	ana	0	sonnet	5	0.3535	171667	claude-sonnet-5-5	117.3		7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-ui-kapsamli	ana	0	sonnet	10	0.3249	85146	claude-sonnet-5-5	103.4		9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-tensorflow	ana	0	sonnet	10	0.3241	85065	claude-sonnet-5-5	111.4		8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-liquibase	ajan	0	haiku	10	0.3856	370889	claude-haiku-5-5	174.3	0.0153	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-flask	ajan	0	sonnet	10	0.144	354808	claude-sonnet-5-5	138.8	0.1247	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-loki-log	ajan	0	sonnet	10	0.3292	436101	claude-sonnet-5-5	159.4	0.1543	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-site-mimarisi	ajan	0	sonnet	10	0.1645	404023	claude-sonnet-5-5	168.8	0.1452	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-flask	ana	0	sonnet	10	0.3268	85364	claude-sonnet-5-5	82.3		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-liquibase	ana	0	haiku	6	0.1107	314192	claude-haiku-5-5	114.9		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-loki-log	ana	0	sonnet	10	0.349	170617	claude-sonnet-5-5	100.2		6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-veri-bilimci	ajan	0	sonnet	10	0.1603	403173	claude-sonnet-5-5	133.7	0.141	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-tasarim-kaliplari	ajan	0	sonnet	10	0.1415	348221	claude-sonnet-5-5	125.5	0.1228	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-site-mimarisi	ana	0	sonnet	10	0.3315	85815	claude-sonnet-5-5	100.7		8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-veri-bilimci	ana	0	sonnet	2	0.3234	85006	claude-sonnet-5-5	71.3		8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-tasarim-kaliplari	ana	0	sonnet	0	0.3169	83234	claude-sonnet-5-5	86.5		8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-kriz-iletisimi	ajan	0	sonnet	10	0.1432	354144	claude-sonnet-5-5	130.7	0.1241	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-maliyet-optimize	ajan	0	sonnet	10	0.3353	454513	claude-sonnet-5-5	140.1	0.1569	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-mongodb	ajan	0	sonnet	10	0.4165	511866	claude-sonnet-5-5	194.3	0.2334	5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-kriz-iletisimi	ana	0	sonnet	5	0.3295	85616	claude-sonnet-5-5	80.5		7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-vitest	ajan	0	sonnet	10	0.4241	735844	claude-sonnet-5-5	227.2	0.2335	5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-teknik-borc	ajan	0	sonnet	10	0.1664	404273	claude-sonnet-5-5	140.7	0.1473	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-yuk-testi	ajan	0	sonnet	10	0.2584	458385	claude-sonnet-5-5	128.6	0.1502	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-maliyet-optimize	ana	0	sonnet	4	0.3252	85186	claude-sonnet-5-5	74.0		8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-gin-web	ajan	0	sonnet	10	0.424	585636	claude-sonnet-5-5	187.6	0.2491	4.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-solidjs	ajan	0	sonnet	10	0.4263	585539	claude-sonnet-5-5	207.0	0.2506	6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-vitest	ana	0	sonnet	10	0.342	169710	claude-sonnet-5-5	88.4		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-teknik-borc	ana	0	sonnet	0	0.3171	83259	claude-sonnet-5-5	91.1		6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-yuk-testi	ana	0	sonnet	7	0.3288	85543	claude-sonnet-5-5	83.3		8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-mongodb	ana	0	sonnet	5	0.3613	254672	claude-sonnet-5-5	129.2		7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-kullanici-davranisi	ajan	0	sonnet	10	0.3069	387934	claude-sonnet-5-5	145.5	0.1286	9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-solidjs	ana	0	sonnet	7	0.3253	85215	claude-sonnet-5-5	83.5		6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-mssql	ajan	0	sonnet	10	0.3793	613323	claude-sonnet-5-5	161.6	0.2694	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-mqtt	ajan	0	haiku	10	0.3825	369278	claude-haiku-5-5	132.5	0.0147	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-mssql	ana	0	sonnet	10	0.3182	83371	claude-sonnet-5-5	70.1		9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-kullanici-davranisi	ana	0	sonnet	3	0.3225	84905	claude-sonnet-5-5	91.9		6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-go	ajan	0	sonnet	8	0.4275	751061	claude-sonnet-5-5	202.2	0.2319	2.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-nats	ajan	0	sonnet	10	0.1611	403063	claude-sonnet-5-5	117.4	0.1419	8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-neo4j	ajan	0	sonnet	10	0.3341	439506	claude-sonnet-5-5	144.4	0.156	5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-tailwind	ajan	0	sonnet	10	0.3498	548098	claude-sonnet-5-5	218.7	0.2281	2.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-marka-sesi	ajan	0	haiku	7	0.3748	367259	claude-haiku-5-5	159.9	0.0118	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-mqtt	ana	0	haiku	8	0.0162	85860	claude-haiku-5-5	125.7		5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-nats	ana	0	sonnet	8	0.326	85261	claude-sonnet-5-5	78.5		6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-webpack-paketleyici	ajan	0	sonnet	10	0.2598	459417	claude-sonnet-5-5	120.2	0.1517	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-mesaj-mimarisi	ajan	0	sonnet	10	0.3105	408363	claude-sonnet-5-5	114.6	0.128	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-neo4j	ana	0	sonnet	0	0.3394	86597	claude-sonnet-5-5	103.3		4.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-marka-sesi	ana	0	haiku	0	0.0164	86230	claude-haiku-5-5	89.5		7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-graphql	ajan	0	sonnet	8	0.4398	718580	claude-sonnet-5-5	188.9	0.2536	2.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-prometheus	ajan	0	sonnet	10	0.3261	437301	claude-sonnet-5-5	136.0	0.1499	7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-pglite	ajan	0	sonnet	10	0.2614	459096	claude-sonnet-5-5	138.7	0.1532	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-webxr	ajan	0	sonnet	10	0.2406	409621	claude-sonnet-5-5	122.2	0.1307	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-sosyal-medya-icerik	ajan	0	haiku	10	0.3785	369197	claude-haiku-5-5	121.9	0.0126	8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-webpack-paketleyici	ana	0	sonnet	10	0.3342	86104	claude-sonnet-5-5	74.3		7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-mesaj-mimarisi	ana	0	sonnet	5	0.3236	83904	claude-sonnet-5-5	78.5		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-pglite	ana	0	sonnet	10	0.3209	83630	claude-sonnet-5-5	81.5		8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-prometheus	ana	0	sonnet	8	0.322	83736	claude-sonnet-5-5	90.0		7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-webxr	ana	0	sonnet	6	0.3549	171793	claude-sonnet-5-5	82.4		4.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-sosyal-medya-icerik	ana	0	haiku	0	0.0159	85288	claude-haiku-5-5	57.3		5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-grpc	ajan	0	sonnet	10	0.4384	723626	claude-sonnet-5-5	223.5	0.2492	5.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-sosyal-reklam	ajan	0	sonnet	10	0.163	403371	claude-sonnet-5-5	125.0	0.1439	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-nodejs	ajan	0	sonnet	10	0.2255	361560	claude-sonnet-5-5	116.7	0.1163	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-sqlite	ajan	0	haiku	10	0.3815	398721	claude-haiku-5-5	156.0	0.0167	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-sequelize	ajan	0	sonnet	10	0.4242	585754	claude-sonnet-5-5	208.5	0.2492	6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-sosyal-reklam	ana	0	sonnet	5	0.3269	85348	claude-sonnet-5-5	84.9		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-haskell	ajan	0	sonnet	10	0.4575	685234	claude-sonnet-5-5	220.4	0.2825	6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-urun-yoneticisi	ajan	0	sonnet	10	0.1606	403019	claude-sonnet-5-5	159.8	0.1414	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-rabbitmq	ajan	0	sonnet	10	0.3622	611000	claude-sonnet-5-5	200.0	0.2531	7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-vektor-veritabani	ajan	0	sonnet	10	0.1668	399342	claude-sonnet-5-5	139.1	0.1478	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-serverless	ajan	0	sonnet	10	0.3314	439316	claude-sonnet-5-5	163.9	0.154	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-pulumi	ajan	0	sonnet	10	0.3847	689010	claude-sonnet-5-5	289.9	0.2765	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-nodejs	ana	0	sonnet	10	0.3296	85646	claude-sonnet-5-5	117.3		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-sequelize	ana	0	sonnet	10	0.3282	85516	claude-sonnet-5-5	95.2		7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-openapi-sozlesme	ajan	0	sonnet	5	0.3512	444183	claude-sonnet-5-5	205.3	0.1719	7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-urun-yoneticisi	ana	0	sonnet	0	0.3248	85140	claude-sonnet-5-5	88.6		6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-typeorm	ajan	0	sonnet	10	0.4092	525507	claude-sonnet-5-5	244.1	0.228	2.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-serverless	ana	0	sonnet	7	0.3262	85291	claude-sonnet-5-5	86.6		8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-vektor-veritabani	ana	0	sonnet	10	0.3267	85324	claude-sonnet-5-5	109.3		8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-sqlite	ana	0	haiku	8	0.106	311090	claude-haiku-5-5	178.9		4.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-pulumi	ana	0	sonnet	8	0.3417	169697	claude-sonnet-5-5	99.9		5.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-sns-sqs	ajan	0	sonnet	10	0.3317	443775	claude-sonnet-5-5	172.3	0.1502	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-rabbitmq	ana	0	sonnet	6	0.3501	248696	claude-sonnet-5-5	172.2		3.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-scala	ajan	0	sonnet	10	0.4285	607145	claude-sonnet-5-5	215.8	0.2477	1.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-trpc	ajan	0	sonnet	10	0.3319	524728	claude-sonnet-5-5	142.6	0.2247	1.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-terraform	ajan	0	sonnet	10	0.2517	456908	claude-sonnet-5-5	163.2	0.1439	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-sns-sqs	ana	0	sonnet	7	0.3215	83684	claude-sonnet-5-5	109.9		8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-yapilandirma	ajan	0	haiku	10	0.385	499188	claude-haiku-5-5	177.0	0.0193	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-terraform	ana	0	sonnet	7	0.3238	85044	claude-sonnet-5-5	105.3		5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-destek-yaniti	ajan	1	haiku	0	0.3649	360710	claude-haiku-5-5	136.1	0.0112	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-kod-arkeolog	ajan	1	sonnet	10	0.3942	443114	claude-sonnet-5-5	169.6	0.2126	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-websocket	ajan	0	sonnet	10	0.307	650942	claude-sonnet-5-5	344.2	0.2875	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-yapilandirma	ana	0	haiku	3	0.1053	310714	claude-haiku-5-5	155.4		0.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-eposta-teslim	ajan	1	sonnet	10	0.4237	509264	claude-sonnet-5-5	211.7	0.2424	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-aspnet-core	ajan	1	sonnet	10	0.4324	588279	claude-sonnet-5-5	219.8	0.2547	6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-asiri-muhendislik	ajan	1	sonnet	10	0.174	407034	claude-sonnet-5-5	165.7	0.1546	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-websocket	ana	0	sonnet	5	0.3426	169914	claude-sonnet-5-5	115.2		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-auth0	ajan	1	sonnet	10	0.4446	591230	claude-sonnet-5-5	256.8	0.2644	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-ansible	ajan	1	sonnet	5	0.4711	879382	claude-sonnet-5-5	332.8	0.2834	1.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\belge	dok-adr-yonetici	ajan	1	sonnet	10	0.3478	528894	claude-sonnet-5-5	162.8	0.2374	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\verimlilik	vrm-ortam-yoneticisi	ajan	1	haiku	10	0.4076	608478	claude-haiku-5-5	303.4	0.033	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-inceleme	inc-celisik-dogrulayici	ajan	1	sonnet	10	0.3237	435489	claude-sonnet-5-5	175.0	0.1491	7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-aspnet-core	ana	1	sonnet	7	0.36	254459	claude-sonnet-5-5	173.7		4.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-ajan-arac	ajn-sinirli-insaci	ajan	1	sonnet	5	0.3741	610259	claude-sonnet-5-5	283.5	0.2663	4.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\belge	dok-adr-yonetici	ana	1	sonnet	10	0.3199	83565	claude-sonnet-5-5	96.1		6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-inceleme	inc-celisik-dogrulayici	ana	1	sonnet	0	0.3241	85133	claude-sonnet-5-5	80.7		8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-git-yayin	git-regresyon-tanigi	ajan	1	sonnet	10	0.3945	534702	claude-sonnet-5-5	162.9	0.2131	5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-bullmq-kuyruk	ajan	1	sonnet	10	0.3368	556619	claude-sonnet-5-5	164.3	0.1518	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-eski-kod-modernize	ajan	1	sonnet	10	0.3324	436382	claude-sonnet-5-5	165.6	0.157	8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\oyun-mod	oyn-oyun-gelistirici	ajan	1	sonnet	10	0.4511	613367	claude-sonnet-5-5	182.4	0.2633	7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\verimlilik	vrm-ortam-yoneticisi	ana	1	haiku	8	0.1209	539487	claude-haiku-5-5	166.9		0.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-nlp	ajan	1	sonnet	7	0.3042	388089	claude-sonnet-5-5	142.3	0.1269	7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-bullmq-kuyruk	ana	1	sonnet	7	0.3491	170727	claude-sonnet-5-5	119.9		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-gitlab-ci	ajan	1	sonnet	10	0.3871	422515	claude-sonnet-5-5	109.4	0.2102	2.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-mocha	ajan	1	sonnet	8	0.4127	511492	claude-sonnet-5-5	194.7	0.2309	3.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-inceleme	inc-diff-risk-puani	ajan	1	sonnet	10	0.1485	355661	claude-sonnet-5-5	147.0	0.1293	6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\arastirma-ogrenme	ara-kanit-toplayici	ajan	1	sonnet	8	0.4284	551654	claude-sonnet-5-5	181.9	0.2417	7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-claude-md-uyum	ajan	1	sonnet	10	0.4386	706087	claude-sonnet-5-5	188.7	0.2563	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-kod-yorumu	ajan	1	haiku	3	0.3812	369496	claude-haiku-5-5	138.7	0.0142	5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-puppeteer	ajan	1	sonnet	10	0.4159	527998	claude-sonnet-5-5	166.7	0.2323	6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-jenkins	ajan	1	sonnet	10	0.4596	695735	claude-sonnet-5-5	183.5	0.2759	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-inceleme	inc-diff-risk-puani	ana	1	sonnet	3	0.3273	85707	claude-sonnet-5-5	99.5		4.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-openai-api	ajan	1	sonnet	7	0.1518	359127	claude-sonnet-5-5	156.0	0.1319	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-playwright	ajan	1	sonnet	10	0.2514	454863	claude-sonnet-5-5	167.6	0.145	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\arastirma-ogrenme	ara-kanit-toplayici	ana	1	sonnet	0	0.418	352084	claude-sonnet-5-5	185.1		6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-monorepo	ajan	1	sonnet	10	0.4164	528445	claude-sonnet-5-5	206.5	0.2326	5.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-elasticsearch	ajan	1	sonnet	10	0.4187	528806	claude-sonnet-5-5	214.1	0.2338	7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-clojure	ajan	1	sonnet	8	0.423	530209	claude-sonnet-5-5	166.8	0.2376	3.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-openai-api	ana	1	sonnet	8	0.3606	173131	claude-sonnet-5-5	123.0		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\urun-is	urn-grafik-tasarim	ajan	1	haiku	10	0.393	379851	claude-haiku-5-5	148.3	0.0148	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-gitops	ajan	1	sonnet	10	0.3243	459524	claude-sonnet-5-5	147.7	0.1416	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-refaktor	ajan	1	sonnet	8	0.1646	406193	claude-sonnet-5-5	159.5	0.1452	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-erlang	ajan	1	sonnet	10	0.3535	644917	claude-sonnet-5-5	190.7	0.2355	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-sayfa-duzeni	ajan	1	sonnet	10	0.32	431751	claude-sonnet-5-5	175.5	0.1473	6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-testcafe	ajan	1	sonnet	10	0.3085	389517	claude-sonnet-5-5	165.6	0.1298	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-monorepo	ana	1	sonnet	8	0.349	171814	claude-sonnet-5-5	171.5		4.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-knex-sorgu	ajan	1	sonnet	10	0.4426	598806	claude-sonnet-5-5	224.5	0.2598	7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-sayfa-duzeni	ana	1	sonnet	5	0.3962	183099	claude-sonnet-5-5	159.3		8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-erlang	ana	1	sonnet	10	0.3503	171407	claude-sonnet-5-5	172.4		7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-elasticsearch	ajan	2	sonnet	10	0.3696	459704	claude-sonnet-5-5	134.3	0.1558	7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-pglite	ajan	1	sonnet	10	0.2379	408332	claude-sonnet-5-5	132.3	0.1282	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-mssql	ajan	1	sonnet	10	0.3315	437511	claude-sonnet-5-5	171.2	0.1531	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-mongodb	ajan	1	sonnet	10	0.3469	527434	claude-sonnet-5-5	204.1	0.2352	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-typeorm	ajan	1	sonnet	10	0.4181	630039	claude-sonnet-5-5	175.0	0.2292	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\arastirma-ogrenme	ara-kod-arkeolog	ajan	2	sonnet	8	0.4324	632291	claude-sonnet-5-5	223.7	0.2398	7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-sequelize	ajan	1	sonnet	10	0.3672	716861	claude-sonnet-5-5	230.2	0.2506	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-knex-sorgu	ajan	2	sonnet	10	0.4467	833816	claude-sonnet-5-5	249.3	0.2499	6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-clojure	ajan	2	sonnet	10	0.3657	604519	claude-sonnet-5-5	203.7	0.2578	5.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-ajan-arac	ajn-sinirli-insaci	ajan	2	sonnet	10	0.3803	615209	claude-sonnet-5-5	271.4	0.2687	4.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-typeorm	ana	1	sonnet	10	0.3508	171558	claude-sonnet-5-5	101.4		8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-fastify	ajan	1	sonnet	10	0.3975	810889	claude-sonnet-5-5	143.8	0.2819	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-erlang	ajan	2	sonnet	10	0.3795	614340	claude-sonnet-5-5	185.7	0.2653	6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-gin-web	ajan	1	sonnet	10	0.4201	513224	claude-sonnet-5-5	133.2	0.2347	8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-go	ajan	1	sonnet	8	0.3453	526392	claude-sonnet-5-5	116.3	0.2363	4.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-graphql	ajan	1	sonnet	10	0.266	461412	claude-sonnet-5-5	119.0	0.1552	6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-grpc	ajan	1	sonnet	10	0.3389	524437	claude-sonnet-5-5	161.4	0.2295	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-haskell	ajan	1	sonnet	10	0.333	458279	claude-sonnet-5-5	126.2	0.149	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-scala	ajan	1	sonnet	10	0.2623	459871	claude-sonnet-5-5	141.7	0.1513	7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-gin-web	ana	1	sonnet	10	0.3301	86006	claude-sonnet-5-5	99.3		8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-openapi-sozlesme	ajan	1	sonnet	10	0.3478	516675	claude-sonnet-5-5	146.0	0.1564	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\belge	dok-kod-yorumu	ajan	2	haiku	10	0.4224	388298	claude-haiku-5-5	169.2	0.0151	3.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-trpc	ajan	1	sonnet	10	0.355	529128	claude-sonnet-5-5	181.3	0.2417	6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-haskell	ana	1	sonnet	7	0.3461	170963	claude-sonnet-5-5	116.2		5.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-aspnet-core	ajan	2	sonnet	10	0.3375	439200	claude-sonnet-5-5	209.8	0.1582	4.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-sayfa-duzeni	ajan	2	sonnet	10	0.3568	672696	claude-sonnet-5-5	193.0	0.2269	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-solidjs	ajan	1	sonnet	10	0.2387	408675	claude-sonnet-5-5	154.4	0.1288	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\backend-dotnet	dn-eski-kod-modernize	ajan	2	sonnet	10	0.3467	527092	claude-sonnet-5-5	248.3	0.236	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-scala	ana	1	sonnet	8	0.3434	170694	claude-sonnet-5-5	139.0		4.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-openapi-sozlesme	ana	1	sonnet	5	0.3459	87559	claude-sonnet-5-5	139.6		5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-gitlab-ci	ajan	2	sonnet	10	0.4109	500264	claude-sonnet-5-5	205.9	0.2361	2.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-graphql	ana	1	sonnet	3	0.3603	252200	claude-sonnet-5-5	268.3		3.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-grpc	ana	1	sonnet	8	0.3671	257387	claude-sonnet-5-5	224.3		5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\belge	dok-adr-yonetici	ajan	2	sonnet	8	0.428	633700	claude-sonnet-5-5	298.0	0.236	4.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-trpc	ana	1	sonnet	10	0.3403	167474	claude-sonnet-5-5	138.6		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-tailwind	ajan	1	sonnet	10	0.3779	806259	claude-sonnet-5-5	243.7	0.2358	5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-jenkins	ajan	2	sonnet	10	0.4054	502274	claude-sonnet-5-5	221.9	0.2279	6.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-asiri-muhendislik	ajan	2	sonnet	10	0.2368	408551	claude-sonnet-5-5	185.7	0.127	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-claude-md-uyum	ajan	2	sonnet	7	0.3159	441048	claude-sonnet-5-5	201.3	0.2072	5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-spec-uyum	ajan	1	sonnet	10	0.2532	456089	claude-sonnet-5-5	188.8	0.1444	4.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-nlp	ajan	2	sonnet	10	0.3337	454347	claude-sonnet-5-5	181.5	0.1546	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-jenkins	ana	2	sonnet	7	0.3642	256567	claude-sonnet-5-5	216.7		3.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-inceleme	inc-celisik-dogrulayici	ajan	2	sonnet	7	0.443	597168	claude-sonnet-5-5	236.6	0.2602	7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-tailwind	ana	1	sonnet	10	0.421	282036	claude-sonnet-5-5	234.6		3.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-ansible	ajan	2	sonnet	10	0.4174	521768	claude-sonnet-5-5	199.6	0.2357	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-ruflo\surec-git-yayin	git-regresyon-tanigi	ajan	2	sonnet	10	0.389	423352	claude-sonnet-5-5	254.4	0.2089	5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-pulumi	ajan	1	sonnet	10	0.1499	355842	claude-sonnet-5-5	182.0	0.1302	7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\ml-yapay-zeka	ml-openai-api	ajan	2	sonnet	10	0.3681	531311	claude-sonnet-5-5	216.2	0.2534	7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-eposta-teslim	ajan	2	sonnet	10	0.3118	408128	claude-sonnet-5-5	183.7	0.1283	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-claude-md-uyum	ana	2	sonnet	3	0.3168	83548	claude-sonnet-5-5	110.0		5.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-sns-sqs	ajan	1	sonnet	10	0.3414	446580	claude-sonnet-5-5	217.2	0.1582	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\otomasyon	otm-puppeteer	ajan	2	sonnet	10	0.3435	461621	claude-sonnet-5-5	188.3	0.1574	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-git-yayin	git-monorepo	ajan	2	sonnet	6	0.351	630245	claude-sonnet-5-5	425.2	0.2372	3.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\oyun-mod	oyn-oyun-gelistirici	ajan	2	sonnet	10	0.3761	727334	claude-sonnet-5-5	314.9	0.2555	5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\arastirma-ogrenme	ara-graphify-sorgu	ajan	0	haiku	10	0.4253	387970	claude-haiku-5-5	211.2	0.015	6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-bellek-sizintisi-avcisi	ajan	0	sonnet	10	0.3226	429523	claude-sonnet-5-5	212.9	0.1507	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-dokuman-sapmasi	ajan	0	sonnet	10	0.2989	379734	claude-sonnet-5-5	198.6	0.1253	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-derleyici-tasarimi	ajan	0	sonnet	10	0.26	452412	claude-sonnet-5-5	197.0	0.1536	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-angularjs-bakim	ajan	0	sonnet	10	0.3309	456791	claude-sonnet-5-5	193.9	0.1484	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\blender	bl-python-betik	ajan	0	sonnet	10	0.3874	456692	claude-sonnet-5-5	241.4	0.2026	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-deney-izleme	ajan	0	sonnet	10	0.2514	455526	claude-sonnet-5-5	195.0	0.143	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-jq-donusum	ajan	0	haiku	10	0.393	373560	claude-haiku-5-5	198.5	0.0154	8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-mocha	ajan	2	sonnet	10	0.4167	512618	claude-sonnet-5-5	221.6	0.2324	5.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-compose-yerel	ajan	0	sonnet	10	0.3435	527968	claude-sonnet-5-5	321.8	0.2336	3.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend-dotnet	dn-arka-plan-servisi	ajan	0	sonnet	0	0.341	638845	claude-sonnet-5-5	305.7	0.2253	0.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\guvenlik	sec-auth0	ajan	2	sonnet	10	0.3688	467011	claude-sonnet-5-5	210.2	0.1811	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-dokuman-sapmasi	ana	0	sonnet	7	0.3251	85496	claude-sonnet-5-5	107.3		6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\arastirma-ogrenme	ara-graphify-sorgu	ana	0	haiku	6	0.0162	86212	claude-haiku-5-5	116.4		4.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-bellek-sizintisi-avcisi	ana	0	sonnet	10	0.3269	85682	claude-sonnet-5-5	119.5		7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-derleyici-tasarimi	ana	0	sonnet	8	0.3152	82909	claude-sonnet-5-5	112.1		7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-angularjs-bakim	ana	0	sonnet	10	0.3308	86064	claude-sonnet-5-5	112.2		8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-derin-baglanti	ajan	0	sonnet	10	0.3476	523330	claude-sonnet-5-5	278.2	0.2375	4.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-csrf-samesite	ajan	0	sonnet	10	0.3383	524074	claude-sonnet-5-5	293.1	0.2292	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\blender	bl-python-betik	ana	0	sonnet	10	0.3359	86557	claude-sonnet-5-5	120.5		7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-deney-izleme	ana	0	sonnet	5	0.3326	86225	claude-sonnet-5-5	120.4		5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-jq-donusum	ana	0	haiku	8	0.0164	86693	claude-haiku-5-5	107.5		6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-vitest	ajan	1	sonnet	10	0.4181	514612	claude-sonnet-5-5	296.3	0.2323	4.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-mocha	ana	2	sonnet	7	0.3486	171386	claude-sonnet-5-5	140.4		7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\oyun-mod	oyn-oyun-gelistirici	ana	2	sonnet	2	0.3667	256931	claude-sonnet-5-5	266.0		6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-csrf-samesite	ana	0	sonnet	7	0.3299	85961	claude-sonnet-5-5	110.1		8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\oyun-mod	oyn-ag-senkronu	ajan	0	sonnet	10	0.3459	460476	claude-sonnet-5-5	183.7	0.1612	9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-ajan-arac	ajn-ajan-arena	ajan	0	sonnet	10	0.305	385060	claude-sonnet-5-5	184.8	0.1288	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-baglasim-uyum	ajan	0	sonnet	10	0.2431	409121	claude-sonnet-5-5	186.8	0.132	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-bogucu-incir-gocu	ajan	0	sonnet	10	0.3228	450101	claude-sonnet-5-5	185.4	0.1444	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-ab-test-istatistik	ajan	0	sonnet	10	0.2338	401405	claude-sonnet-5-5	176.9	0.1272	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-actions-sertlestirme	ajan	0	sonnet	10	0.3749	611328	claude-sonnet-5-5	218.8	0.264	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-anlik-goruntu-testi	ajan	0	sonnet	10	0.2584	458008	claude-sonnet-5-5	203.2	0.1487	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\arastirma-ogrenme	ara-platform-okuma	ajan	0	sonnet	5	0.0166	87036	-	112.5	0	4.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-clickhouse-sorgu	ajan	0	sonnet	10	0.4193	507857	claude-sonnet-5-5	213.4	0.2365	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-dagitik-izleme	ajan	0	sonnet	10	0.2346	401885	claude-sonnet-5-5	174.9	0.1273	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-baglam-kum-havuzu	ajan	0	sonnet	8	0.314	432231	claude-sonnet-5-5	187.7	0.1391	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\video	vid-reel-kanca-merdiveni	ajan	0	sonnet	10	0.3216	433728	claude-sonnet-5-5	205.0	0.146	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\oyun-mod	oyn-ag-senkronu	ana	0	sonnet	10	0.333	86265	claude-sonnet-5-5	112.0		8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-ajan-arac	ajn-ajan-arena	ana	0	sonnet	6	0.3287	85836	claude-sonnet-5-5	112.0		8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-bogucu-incir-gocu	ana	0	sonnet	10	0.3298	85951	claude-sonnet-5-5	111.7		8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-baglasim-uyum	ana	0	sonnet	0	0.3308	86072	claude-sonnet-5-5	114.0		5.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-ab-test-istatistik	ana	0	sonnet	5	0.3265	85624	claude-sonnet-5-5	111.8		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend-dotnet	dn-native-aot	ajan	0	sonnet	10	0.3174	409347	claude-sonnet-5-5	168.9	0.1319	6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-actions-sertlestirme	ana	0	sonnet	10	0.327	85699	claude-sonnet-5-5	109.9		8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-buyuk-dosya-yukleme	ajan	0	sonnet	10	0.3185	433400	claude-sonnet-5-5	181.0	0.1431	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-anlik-goruntu-testi	ana	0	sonnet	4	0.3452	168062	claude-sonnet-5-5	119.3		5.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-markitdown-donusum	ajan	0	haiku	10	0.4845	408390	claude-haiku-5-5	187.3	0.015	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-clickhouse-sorgu	ana	0	sonnet	8	0.3309	86015	claude-sonnet-5-5	116.6		5.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-baglam-kum-havuzu	ana	0	sonnet	0	0.3289	85399	claude-sonnet-5-5	112.6		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-dagitik-izleme	ana	0	sonnet	10	0.3298	85921	claude-sonnet-5-5	113.4		9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\video	vid-reel-kanca-merdiveni	ana	0	sonnet	8	0.3285	85806	claude-sonnet-5-5	108.7		8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-markitdown-donusum	ana	0	haiku	10	0.0166	87033	claude-haiku-5-5	102.8		7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-buyuk-dosya-yukleme	ana	0	sonnet	10	0.328	85773	claude-sonnet-5-5	119.2		9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-css-mimarisi	ajan	0	sonnet	10	0.3342	444388	claude-sonnet-5-5	194.8	0.1518	9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-go-eszamanlilik	ajan	0	sonnet	10	0.3557	606581	claude-sonnet-5-5	268.7	0.2464	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-dal-koruma-kurali	ajan	0	haiku	10	0.38	365243	claude-haiku-5-5	177.2	0.0143	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-power-query	ajan	0	haiku	10	0.4308	393946	claude-haiku-5-5	216.0	0.0139	7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-ava-test	ajan	0	sonnet	10	0.2386	407934	claude-sonnet-5-5	155.6	0.1277	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-ajan-arac	ajn-ajan-bellek-tasarimi	ajan	0	sonnet	10	0.3417	446025	claude-sonnet-5-5	207.1	0.1573	9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-islevsel-olmayan-gereksinim	ajan	0	sonnet	10	0.3061	401650	claude-sonnet-5-5	167.5	0.127	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend-dotnet	dn-native-aot	ana	0	sonnet	10	0.3749	259688	claude-sonnet-5-5	225.7		6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-gitleaks-gecmis	ajan	0	sonnet	10	0.3448	525797	claude-sonnet-5-5	264.2	0.2337	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-icerik-performans	ajan	0	sonnet	10	0.251	450715	claude-sonnet-5-5	187.3	0.1442	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\oyun-mod	oyn-prosedurel-zindan	ajan	0	sonnet	10	0.3384	524886	claude-sonnet-5-5	275.9	0.2287	3.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-css-mimarisi	ana	0	sonnet	7	0.3336	86350	claude-sonnet-5-5	121.8		7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-go-eszamanlilik	ana	0	sonnet	8	0.3161	82995	claude-sonnet-5-5	107.5		7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-dengesiz-sinif	ajan	0	sonnet	10	0.4211	623914	claude-sonnet-5-5	320.3	0.2322	5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-ava-test	ana	0	sonnet	10	0.3324	86226	claude-sonnet-5-5	111.2		6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-islevsel-olmayan-gereksinim	ana	0	sonnet	10	0.3332	86298	claude-sonnet-5-5	109.0		9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-flutter-durum	ajan	0	sonnet	10	0.3382	524453	claude-sonnet-5-5	339.9	0.2291	4.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-ajan-arac	ajn-ajan-bellek-tasarimi	ana	0	sonnet	2	0.322	84052	claude-sonnet-5-5	121.4		5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-dongusel-bagimlilik	ajan	0	sonnet	10	0.4244	631145	claude-sonnet-5-5	291.2	0.233	5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-cockroachdb	ajan	0	sonnet	10	0.3214	425321	claude-sonnet-5-5	208.6	0.1484	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-icerik-performans	ana	0	sonnet	7	0.3283	85803	claude-sonnet-5-5	106.5		7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-gitleaks-gecmis	ana	0	sonnet	8	0.3573	173058	claude-sonnet-5-5	133.5		7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-dengesiz-sinif	ana	0	sonnet	7	0.3343	86411	claude-sonnet-5-5	109.8		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-dal-koruma-kurali	ana	0	haiku	5	0.1052	305123	claude-haiku-5-5	227.8		5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\video	vid-ytdlp-indirme	ajan	0	haiku	10	0.3989	382158	claude-haiku-5-5	184.6	0.0129	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-cockroachdb	ana	0	sonnet	8	0.3322	86226	claude-sonnet-5-5	104.3		6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-coklu-kiraci-veri	ajan	0	sonnet	10	0.3002	379861	claude-sonnet-5-5	165.7	0.1274	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-dongusel-bagimlilik	ana	0	sonnet	8	0.3403	167568	claude-sonnet-5-5	117.5		6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-sozlesme-madde	ajan	0	sonnet	10	0.3264	455203	claude-sonnet-5-5	174.1	0.1439	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-java-modern	ajan	0	sonnet	10	0.31	394006	claude-sonnet-5-5	163.6	0.1266	4.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-guvenilmeyen-kod-yalitimi	ajan	0	sonnet	10	0.3076	389329	claude-sonnet-5-5	182.6	0.1272	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-goruntu-isleme	ajan	0	sonnet	10	0.3344	548940	claude-sonnet-5-5	178.7	0.1517	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-dx-surtunme	ajan	0	sonnet	7	0.4151	575451	claude-sonnet-5-5	300.7	0.2395	5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-magaza-ekran-goruntusu	ajan	0	sonnet	10	0.2531	450930	claude-sonnet-5-5	171.0	0.1463	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\video	vid-ytdlp-indirme	ana	0	haiku	7	0.0165	86758	claude-haiku-5-5	107.0		4.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-coklu-kiraci-veri	ana	0	sonnet	5	0.325	84352	claude-sonnet-5-5	106.2		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-dns-tls-sorun	ajan	0	sonnet	10	0.4324	530598	claude-sonnet-5-5	297.7	0.2457	5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-sozlesme-madde	ana	0	sonnet	8	0.3299	85963	claude-sonnet-5-5	113.1		5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-ajan-arac	ajn-cc-otomasyon-oneri	ajan	0	sonnet	10	0.2563	456613	claude-sonnet-5-5	182.5	0.146	6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-eposta-sablonu	ajan	0	sonnet	10	0.4042	501421	claude-sonnet-5-5	267.2	0.2291	3.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-goruntu-isleme	ana	0	sonnet	7	0.3272	85682	claude-sonnet-5-5	101.1		4.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-guvenilmeyen-kod-yalitimi	ana	0	sonnet	8	0.33	85988	claude-sonnet-5-5	108.0		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-lfs-buyuk-dosya	ajan	0	haiku	10	0.4296	391573	claude-haiku-5-5	194.2	0.013	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-powershell-51	ajan	0	sonnet	10	0.3363	523929	claude-sonnet-5-5	267.7	0.2274	5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-dx-surtunme	ana	0	sonnet	8	0.3202	83872	claude-sonnet-5-5	107.8		8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-kullanim-senaryosu	ajan	0	sonnet	8	0.2963	382933	claude-sonnet-5-5	191.2	0.1226	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-magaza-ekran-goruntusu	ana	0	sonnet	7	0.3379	86752	claude-sonnet-5-5	118.1		4.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-karmasiklik-olcum	ajan	0	sonnet	10	0.3283	442765	claude-sonnet-5-5	208.3	0.1453	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-power-query	ana	0	haiku	6	0.1439	778365	claude-haiku-5-5	457.0		5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-disaridan-tdd	ajan	0	sonnet	10	0.3269	455722	claude-sonnet-5-5	184.2	0.1442	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-dns-tls-sorun	ana	0	sonnet	7	0.3302	85991	claude-sonnet-5-5	115.5		6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-ajan-arac	ajn-cc-otomasyon-oneri	ana	0	sonnet	7	0.3299	85955	claude-sonnet-5-5	116.7		6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-martech-yigini	ajan	0	sonnet	10	0.2564	457138	claude-sonnet-5-5	182.2	0.1475	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-kullanim-senaryosu	ana	0	sonnet	0	0.3248	84348	claude-sonnet-5-5	95.9		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-mongoose-odm	ajan	0	sonnet	10	0.4141	510977	claude-sonnet-5-5	194.0	0.2299	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-karmasiklik-olcum	ana	0	sonnet	4	0.3187	83718	claude-sonnet-5-5	100.0		5.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-headroom-geri-cagirma	ajan	0	haiku	10	0.4059	380207	claude-haiku-5-5	180.8	0.0115	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-disaridan-tdd	ana	0	sonnet	0	0.3212	83962	claude-sonnet-5-5	111.7		6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-ste100-sade	ajan	0	sonnet	0	0.3232	454521	claude-sonnet-5-5	180.3	0.1424	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-dayaniklilik-kaliplari	ajan	0	sonnet	10	0.3276	438567	claude-sonnet-5-5	193.7	0.1481	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-lfs-buyuk-dosya	ana	0	haiku	3	0.1006	198226	claude-haiku-5-5	196.0		3.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ocaml	ajan	0	sonnet	10	0.3273	442574	claude-sonnet-5-5	179.6	0.1444	7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-istem-enjeksiyon-savunma	ajan	0	sonnet	10	0.2343	407180	claude-sonnet-5-5	166.5	0.1246	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-martech-yigini	ana	0	sonnet	2	0.3317	86148	claude-sonnet-5-5	107.9		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-powershell-51	ana	0	sonnet	5	0.3697	258033	claude-sonnet-5-5	200.4		4.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-hiperparametre-arama	ajan	0	sonnet	10	0.2666	455197	claude-sonnet-5-5	188.7	0.158	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-mongoose-odm	ana	0	sonnet	10	0.3246	84341	claude-sonnet-5-5	121.7		8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-headroom-geri-cagirma	ana	0	haiku	4	0.0162	86251	claude-haiku-5-5	110.0		6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-dayaniklilik-kaliplari	ana	0	sonnet	10	0.3281	85802	claude-sonnet-5-5	98.1		9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-pwa-cevrimdisi	ajan	0	sonnet	8	0.3807	690295	claude-sonnet-5-5	270.1	0.2716	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ocaml	ana	0	sonnet	2	0.3279	85781	claude-sonnet-5-5	109.2		7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-tarayici-yardimci-dosya	ajan	0	sonnet	10	0.3319	450056	claude-sonnet-5-5	185.4	0.1547	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-istem-enjeksiyon-savunma	ana	0	sonnet	3	0.3222	84078	claude-sonnet-5-5	106.9		7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-kod-kokusu	ajan	0	sonnet	10	0.2525	455985	claude-sonnet-5-5	177.4	0.1443	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-push-bildirim	ajan	0	sonnet	10	0.4286	585643	claude-sonnet-5-5	271.7	0.25	4.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-hiperparametre-arama	ana	0	sonnet	7	0.3288	85884	claude-sonnet-5-5	111.8		8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sokulebilir-entegrasyon	ajan	0	sonnet	10	0.2514	455336	claude-sonnet-5-5	190.2	0.1434	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-jasmine-test	ajan	0	sonnet	10	0.3097	389146	claude-sonnet-5-5	178.4	0.1293	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-musteri-saglik-skoru	ajan	0	sonnet	10	0.2555	455990	claude-sonnet-5-5	171.8	0.1478	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-monorepo-etkilenen	ajan	0	sonnet	10	0.4189	628057	claude-sonnet-5-5	243.6	0.2302	2.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-nginx-ters-vekil	ajan	0	sonnet	10	0.4631	676617	claude-sonnet-5-5	449.2	0.2813	3.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-tarayici-yardimci-dosya	ana	0	sonnet	4	0.333	86267	claude-sonnet-5-5	119.7		6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-kod-kokusu	ana	0	sonnet	8	0.3289	85893	claude-sonnet-5-5	101.2		8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-plan-limit-izleme	ajan	0	haiku	10	0.4828	409172	claude-haiku-5-5	186.7	0.0123	7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-winget-kurulum	ajan	0	haiku	10	0.4279	388891	claude-haiku-5-5	189.4	0.013	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-emir-eslestirme	ajan	0	sonnet	10	0.3328	443942	claude-sonnet-5-5	185.3	0.1507	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-jasmine-test	ana	0	sonnet	5	0.3297	85961	claude-sonnet-5-5	105.5		6.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sokulebilir-entegrasyon	ana	0	sonnet	0	0.3315	86134	claude-sonnet-5-5	112.0		7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-python-profil	ajan	0	sonnet	10	0.2581	457850	claude-sonnet-5-5	176.9	0.1488	7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\urun-is	urn-musteri-saglik-skoru	ana	0	sonnet	10	0.3338	86350	claude-sonnet-5-5	108.7		9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-pwa-cevrimdisi	ana	0	sonnet	5	0.3667	257232	claude-sonnet-5-5	208.0		4.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-kesifsel-analiz	ajan	0	sonnet	10	0.2559	456270	claude-sonnet-5-5	160.0	0.1481	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-llm-pii-maskeleme	ajan	0	sonnet	10	0.3364	444697	claude-sonnet-5-5	177.4	0.1543	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-plan-limit-izleme	ana	0	haiku	3	0.0167	87127	claude-haiku-5-5	98.9		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-rn-navigasyon	ajan	0	sonnet	10	0.2998	383817	claude-sonnet-5-5	172.4	0.125	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-rollup-kutuphane-paketi	ajan	0	sonnet	10	0.4056	518142	claude-sonnet-5-5	248.8	0.2267	0.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-python-profil	ana	0	sonnet	0	0.3287	85832	claude-sonnet-5-5	109.3		3.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-pr-yoneticisi	ajan	0	sonnet	10	0.326	435124	claude-sonnet-5-5	180.3	0.1494	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sozde-kod-algoritma	ajan	0	sonnet	10	0.26	453179	claude-sonnet-5-5	174.7	0.1529	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-kesifsel-analiz	ana	0	sonnet	10	0.3281	85778	claude-sonnet-5-5	102.7		6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-llm-pii-maskeleme	ana	0	sonnet	6	0.333	86283	claude-sonnet-5-5	108.7		8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-n-arti-bir-avcisi	ajan	0	sonnet	10	0.3802	800912	claude-sonnet-5-5	439.1	0.2669	3.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-rn-navigasyon	ana	0	sonnet	3	0.33	85988	claude-sonnet-5-5	100.4		8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-worktree-paralel	ajan	0	sonnet	10	0.2527	455393	claude-sonnet-5-5	172.6	0.1445	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-yapisal-log-semasi	ajan	0	sonnet	10	0.2321	406827	claude-sonnet-5-5	163.9	0.1236	9.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-postgres-sisme	ajan	0	sonnet	10	0.3139	387824	claude-sonnet-5-5	191.6	0.1334	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-winget-kurulum	ana	0	haiku	2	0.1102	312445	claude-haiku-5-5	229.5		2.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-emir-eslestirme	ana	0	sonnet	6	0.3827	176264	claude-sonnet-5-5	204.6		5.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-pr-yoneticisi	ana	0	sonnet	10	0.3309	86052	claude-sonnet-5-5	111.5		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sozde-kod-algoritma	ana	0	sonnet	3	0.3279	84658	claude-sonnet-5-5	114.2		4.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-hata-turu-hiyerarsisi	ajan	0	sonnet	10	0.3437	563630	claude-sonnet-5-5	190.9	0.1545	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-worktree-paralel	ana	0	sonnet	10	0.3288	85845	claude-sonnet-5-5	105.6		8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-python-tip-guvenligi	ajan	0	sonnet	10	0.3427	439097	claude-sonnet-5-5	211.5	0.1643	8.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-postgres-sisme	ana	0	sonnet	8	0.3318	86149	claude-sonnet-5-5	110.0		6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-yapisal-log-semasi	ana	0	sonnet	10	0.3242	84301	claude-sonnet-5-5	114.0		9.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-mfa-kurtarma	ajan	0	sonnet	10	0.3374	458416	claude-sonnet-5-5	172.2	0.1534	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-ozellik-tabanli	ajan	0	sonnet	10	0.4455	809253	claude-sonnet-5-5	329.1	0.2564	5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-yeniden-kullanilabilir-is-akisi	ajan	0	sonnet	10	0.2581	457696	claude-sonnet-5-5	173.9	0.1489	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-hata-turu-hiyerarsisi	ana	0	sonnet	3	0.3304	86031	claude-sonnet-5-5	106.2		8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-sanal-liste	ajan	0	sonnet	10	0.3594	608527	claude-sonnet-5-5	257.8	0.2498	5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sparc-asama	ajan	0	sonnet	8	0.2992	346887	claude-sonnet-5-5	187.7	0.115	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-sinir-deger-analizi	ajan	0	haiku	7	0.4201	387943	claude-haiku-5-5	190.4	0.0154	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-python-tip-guvenligi	ana	0	sonnet	10	0.3355	86518	claude-sonnet-5-5	99.4		8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-redis-yapi	ajan	0	sonnet	10	0.3338	453032	claude-sonnet-5-5	160.4	0.1531	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-mfa-kurtarma	ana	0	sonnet	10	0.3269	84537	claude-sonnet-5-5	105.6		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-hiz-sinirlayici	ajan	0	sonnet	10	0.3183	432950	claude-sonnet-5-5	183.5	0.1435	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-yeniden-kullanilabilir-is-akisi	ana	0	sonnet	10	0.3281	85812	claude-sonnet-5-5	102.8		7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ruby-metaprog	ajan	0	sonnet	5	0.3985	500185	claude-sonnet-5-5	185.1	0.2239	0.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-web-font-yukleme	ajan	0	sonnet	10	0.2576	451768	claude-sonnet-5-5	168.5	0.1513	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-pci-dss-kapsam	ajan	0	sonnet	10	0.3005	384423	claude-sonnet-5-5	167.5	0.1247	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-rn-performans	ajan	0	sonnet	10	0.359	606143	claude-sonnet-5-5	300.1	0.2489	6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-sanal-liste	ana	0	sonnet	3	0.3457	171150	claude-sonnet-5-5	109.0		2.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-sinir-deger-analizi	ana	0	haiku	2	0.0164	86563	claude-haiku-5-5	99.8		5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sparc-asama	ana	0	sonnet	0	0.3264	84478	claude-sonnet-5-5	106.2		6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-llm-saglayici-yonlendirme	ajan	0	sonnet	10	0.2629	458948	claude-sonnet-5-5	164.0	0.1532	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-llm-degerlendirme	ajan	0	sonnet	10	0.3871	736725	claude-sonnet-5-5	356.1	0.2698	5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-redis-yapi	ana	0	sonnet	0	0.3528	171873	claude-sonnet-5-5	144.8		4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-hiz-sinirlayici	ana	0	sonnet	10	0.3235	84194	claude-sonnet-5-5	110.6		8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sprint-hikaye	ajan	0	sonnet	10	0.3309	456720	claude-sonnet-5-5	191.1	0.1484	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-pci-dss-kapsam	ana	0	sonnet	10	0.3208	83930	claude-sonnet-5-5	113.7		8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-rn-performans	ana	0	sonnet	6	0.3437	170723	claude-sonnet-5-5	121.1		2.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-llm-saglayici-yonlendirme	ana	0	sonnet	6	0.3344	86430	claude-sonnet-5-5	119.7		6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-web-font-yukleme	ana	0	sonnet	10	0.4214	281791	claude-sonnet-5-5	157.3		5.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-makale-uygulama	ajan	0	sonnet	10	0.2369	407573	claude-sonnet-5-5	170.4	0.1271	9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-llm-degerlendirme	ana	0	sonnet	2	0.3759	175297	claude-sonnet-5-5	142.9		7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-uv-proje	ajan	0	haiku	10	0.3937	379534	claude-haiku-5-5	196.8	0.0122	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-semgrep-kural	ajan	0	sonnet	10	0.26	453200	claude-sonnet-5-5	184.8	0.1522	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-uygulama-boyutu	ajan	0	sonnet	10	0.4125	509768	claude-sonnet-5-5	311.0	0.2303	7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-yerel-modul-koprusu	ajan	0	sonnet	10	0.3377	458754	claude-sonnet-5-5	201.2	0.154	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-sprint-hikaye	ana	0	sonnet	4	0.3526	169541	claude-sonnet-5-5	125.5		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-imlec-sayfalama	ajan	0	sonnet	10	0.343	524957	claude-sonnet-5-5	261.2	0.2333	7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-ocr-coklu-inceleme	ajan	0	sonnet	10	0.2393	403821	claude-sonnet-5-5	177.3	0.1301	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-tahmin-araligi	ajan	0	sonnet	10	0.2482	454899	claude-sonnet-5-5	187.2	0.1403	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-mesaj-guvenilirligi	ajan	0	sonnet	10	0.3041	385646	claude-sonnet-5-5	191.3	0.1268	9.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-uzun-suit-kosucu	ajan	0	sonnet	10	0.3556	642426	claude-sonnet-5-5	312.4	0.2368	6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-ozellik-muhendisligi	ajan	0	sonnet	10	0.1447	356560	claude-sonnet-5-5	161.8	0.1252	8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-makale-uygulama	ana	0	sonnet	8	0.3264	85602	claude-sonnet-5-5	105.7		7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-skill-tedarik-tarama	ajan	0	sonnet	10	0.2975	378787	claude-sonnet-5-5	178.4	0.1255	9.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-semgrep-kural	ana	0	sonnet	4	0.3227	84122	claude-sonnet-5-5	109.6		5.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-uygulama-boyutu	ana	0	sonnet	7	0.3295	85923	claude-sonnet-5-5	114.8		6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-yerel-modul-koprusu	ana	0	sonnet	8	0.3312	86112	claude-sonnet-5-5	103.2		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-tahmin-araligi	ana	0	sonnet	4	0.3253	85494	claude-sonnet-5-5	102.8		7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-onbellek-gecersizlestirme	ajan	0	sonnet	10	0.3717	610881	claude-sonnet-5-5	201.1	0.2621	6.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-mesaj-guvenilirligi	ana	0	sonnet	10	0.3218	84067	claude-sonnet-5-5	105.9		9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-imlec-sayfalama	ana	0	sonnet	10	0.3673	257162	claude-sonnet-5-5	131.3		8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-uzun-suit-kosucu	ana	0	sonnet	8	0.352	171612	claude-sonnet-5-5	117.9		6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-temiz-mimari-sinir	ajan	0	sonnet	8	0.456	782007	claude-sonnet-5-5	244.3	0.2732	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-ozellik-muhendisligi	ana	0	sonnet	8	0.337	85570	claude-sonnet-5-5	104.6		6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-skill-tedarik-tarama	ana	0	sonnet	8	0.3296	85929	claude-sonnet-5-5	99.7		7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-scikit-learn	ajan	0	sonnet	10	0.248	454560	claude-sonnet-5-5	162.6	0.1406	8.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-ocr-coklu-inceleme	ana	0	sonnet	3	0.3441	168202	claude-sonnet-5-5	179.3		3.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-ssrf-savunma	ajan	0	sonnet	10	0.377	726366	claude-sonnet-5-5	277.1	0.2587	4.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-tahmin-kaymasi-izleme	ajan	0	sonnet	8	0.235	407397	claude-sonnet-5-5	160.3	0.1259	9.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-saga-telafi	ajan	0	sonnet	10	0.2529	456046	claude-sonnet-5-5	159.4	0.144	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-onbellek-gecersizlestirme	ana	0	sonnet	7	0.3562	251279	claude-sonnet-5-5	136.8		6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-uv-proje	ana	0	haiku	0	0.1131	422471	claude-haiku-5-5	307.0		0.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-scikit-learn	ana	0	sonnet	10	0.3209	83970	claude-sonnet-5-5	106.1		8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-sidekiq-isler	ajan	0	sonnet	10	0.2335	407048	claude-sonnet-5-5	164.4	0.1249	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-veri-sizintisi	ajan	0	sonnet	10	0.3344	444004	claude-sonnet-5-5	177.6	0.1517	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-yol-gecisi	ajan	0	sonnet	10	0.4073	501802	claude-sonnet-5-5	236.2	0.2315	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-zaman-serisi	ajan	0	sonnet	10	0.2656	458462	claude-sonnet-5-5	170.4	0.1554	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-yerel-llm-cikarim	ajan	0	sonnet	10	0.3349	396597	claude-sonnet-5-5	186.7	0.151	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-yatay-olcekleme	ajan	0	sonnet	10	0.3294	443056	claude-sonnet-5-5	182.0	0.1476	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-tahmin-kaymasi-izleme	ana	0	sonnet	5	0.333	86285	claude-sonnet-5-5	105.4		8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-saga-telafi	ana	0	sonnet	8	0.333	86277	claude-sonnet-5-5	97.2		9.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-ozellik-bayragi	ajan	0	sonnet	10	0.3606	644814	claude-sonnet-5-5	322.0	0.2444	3.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-veri-sizintisi	ana	0	sonnet	7	0.3277	85767	claude-sonnet-5-5	99.8		7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-sidekiq-isler	ana	0	sonnet	6	0.3316	86158	claude-sonnet-5-5	102.9		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-yol-gecisi	ana	0	sonnet	8	0.3226	84111	claude-sonnet-5-5	98.8		8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-zaman-serisi	ana	0	sonnet	10	0.3327	86232	claude-sonnet-5-5	94.5		9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-mssql	ajan	2	sonnet	10	0.2651	455548	claude-sonnet-5-5	167.8	0.1583	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-yerel-llm-cikarim	ana	0	sonnet	8	0.3354	86523	claude-sonnet-5-5	106.1		7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-yatay-olcekleme	ana	0	sonnet	8	0.3275	85741	claude-sonnet-5-5	106.4		5.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-sequelize	ajan	2	sonnet	10	0.256	458552	claude-sonnet-5-5	164.1	0.1465	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-tarih-saat-dilimi	ajan	0	sonnet	10	0.4339	594727	claude-sonnet-5-5	311.7	0.2498	4.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\veri-db	db-typeorm	ajan	2	sonnet	10	0.4101	504316	claude-sonnet-5-5	182.1	0.2318	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-go	ajan	2	sonnet	10	0.3465	526798	claude-sonnet-5-5	170.8	0.2352	7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-gin-web	ajan	2	sonnet	10	0.333	445186	claude-sonnet-5-5	179.0	0.1487	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-fastify	ajan	2	sonnet	10	0.3805	728159	claude-sonnet-5-5	264.1	0.2601	6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\frontend	fe-solidjs	ajan	2	sonnet	10	0.4119	504175	claude-sonnet-5-5	179.0	0.2341	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-go	ana	2	sonnet	3	0.3418	167580	claude-sonnet-5-5	111.5		4.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\altyapi	ops-sns-sqs	ajan	2	sonnet	10	0.3114	408504	claude-sonnet-5-5	158.5	0.1279	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-spec-uyum	ajan	2	sonnet	8	0.4098	505691	claude-sonnet-5-5	194.8	0.2301	6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend-dotnet	dn-arka-plan-servisi	ajan	1	sonnet	10	0.3506	523266	claude-sonnet-5-5	193.0	0.2398	7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\blender	bl-python-betik	ajan	1	sonnet	10	0.3273	435358	claude-sonnet-5-5	182.4	0.1521	7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-grpc	ajan	2	sonnet	8	0.4139	618114	claude-sonnet-5-5	265.6	0.2294	5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\dil-cerceve	dil-trpc	ajan	2	sonnet	10	0.4246	515308	claude-sonnet-5-5	244.3	0.2374	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-compose-yerel	ajan	1	sonnet	10	0.4203	508213	claude-sonnet-5-5	229.8	0.2405	6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-csrf-samesite	ajan	1	sonnet	10	0.3385	447000	claude-sonnet-5-5	181.6	0.1532	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-derin-baglanti	ajan	1	sonnet	10	0.4259	527825	claude-sonnet-5-5	224.3	0.2396	7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\surec-inceleme	inc-spec-uyum	ana	2	sonnet	3	0.3256	85549	claude-sonnet-5-5	100.8		7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d15\test-qa	qa-vitest	ajan	2	sonnet	8	0.4064	699917	claude-sonnet-5-5	266.1	0.2945	6.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-actions-sertlestirme	ajan	1	sonnet	10	0.3896	692573	claude-sonnet-5-5	204.6	0.2795	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend-dotnet	dn-arka-plan-servisi	ana	1	sonnet	7	0.3554	172175	claude-sonnet-5-5	115.3		8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-clickhouse-sorgu	ajan	1	sonnet	10	0.404	445885	claude-sonnet-5-5	186.5	0.2148	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-derin-baglanti	ana	1	sonnet	6	0.3373	167145	claude-sonnet-5-5	109.4		3.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-go-eszamanlilik	ajan	1	sonnet	10	0.3116	408135	claude-sonnet-5-5	147.0	0.1273	6.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-dengesiz-sinif	ajan	1	sonnet	10	0.4529	611455	claude-sonnet-5-5	190.5	0.2694	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-compose-yerel	ana	1	sonnet	6	0.3614	251992	claude-sonnet-5-5	227.5		5.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-java-modern	ajan	1	sonnet	10	0.3489	526659	claude-sonnet-5-5	161.9	0.2364	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-inceleme	inc-dongusel-bagimlilik	ajan	1	sonnet	10	0.3503	528123	claude-sonnet-5-5	167.7	0.2384	7.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-flutter-durum	ajan	1	sonnet	10	0.4135	511037	claude-sonnet-5-5	239.6	0.2304	5.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-dx-surtunme	ajan	1	sonnet	10	0.3035	385325	claude-sonnet-5-5	153.6	0.1273	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-mongoose-odm	ajan	1	sonnet	10	0.2564	457261	claude-sonnet-5-5	145.5	0.1472	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\oyun-mod	oyn-prosedurel-zindan	ajan	1	sonnet	10	0.4424	595721	claude-sonnet-5-5	330.3	0.2588	6.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-dns-tls-sorun	ajan	1	sonnet	10	0.3297	436903	claude-sonnet-5-5	165.0	0.1518	8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-ste100-sade	ajan	1	sonnet	10	0.3226	441086	claude-sonnet-5-5	158.2	0.1424	7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-java-modern	ana	1	sonnet	10	0.3297	85953	claude-sonnet-5-5	96.6		5.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\arastirma-ogrenme	ara-platform-okuma	ajan	1	sonnet	10	0.5347	808540	claude-sonnet-5-5	517.8	0.3452	7.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-dayaniklilik-kaliplari	ajan	1	sonnet	10	0.3392	455367	claude-sonnet-5-5	161.7	0.1594	9.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-push-bildirim	ajan	1	sonnet	8	0.237	403553	claude-sonnet-5-5	153.9	0.129	8.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-eposta-sablonu	ajan	1	sonnet	10	0.3458	522655	claude-sonnet-5-5	238.2	0.2359	7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-flutter-durum	ana	1	sonnet	6	0.3526	171767	claude-sonnet-5-5	123.6		4.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-monorepo-etkilenen	ajan	1	sonnet	10	0.313	387933	claude-sonnet-5-5	170.9	0.134	7.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-ste100-sade	ana	1	sonnet	0	0.323	85274	claude-sonnet-5-5	100.0		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-nginx-ters-vekil	ajan	1	sonnet	10	0.3502	528726	claude-sonnet-5-5	241.4	0.2386	6.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\verimlilik	vrm-worktree-paralel	ajan	1	sonnet	10	0.2511	456599	claude-sonnet-5-5	161.2	0.1427	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-monorepo-etkilenen	ana	1	sonnet	5	0.3502	171552	claude-sonnet-5-5	125.4		4.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-n-arti-bir-avcisi	ajan	1	sonnet	10	0.4391	588235	claude-sonnet-5-5	208.4	0.2614	6.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-ozellik-tabanli	ajan	1	sonnet	10	0.2397	410151	claude-sonnet-5-5	165.5	0.1286	5.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-eposta-sablonu	ana	1	sonnet	10	0.3627	256259	claude-sonnet-5-5	198.0		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-push-bildirim	ana	1	sonnet	3	0.369	257674	claude-sonnet-5-5	207.0		5.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-rollup-kutuphane-paketi	ajan	1	sonnet	10	0.4474	715055	claude-sonnet-5-5	254.7	0.254	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-uygulama-boyutu	ajan	1	sonnet	10	0.3116	407768	claude-sonnet-5-5	160.9	0.1273	8.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ruby-metaprog	ajan	1	sonnet	10	0.3442	525486	claude-sonnet-5-5	180.0	0.2345	9.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-nginx-ters-vekil	ana	1	sonnet	8	0.3408	167525	claude-sonnet-5-5	119.5		5.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-temiz-mimari-sinir	ajan	1	sonnet	10	0.3891	420072	claude-sonnet-5-5	194.6	0.2117	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-ozellik-tabanli	ana	1	sonnet	3	0.3477	171414	claude-sonnet-5-5	116.9		3.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-onbellek-gecersizlestirme	ajan	1	sonnet	10	0.2864	464819	claude-sonnet-5-5	176.9	0.1738	6.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ruby-metaprog	ana	1	sonnet	3	0.3282	85789	claude-sonnet-5-5	94.6		5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-scikit-learn	ajan	1	sonnet	10	0.2561	457614	claude-sonnet-5-5	150.7	0.1476	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-imlec-sayfalama	ajan	1	sonnet	10	0.3838	727871	claude-sonnet-5-5	272.6	0.2664	8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-temiz-mimari-sinir	ana	1	sonnet	0	0.3485	171350	claude-sonnet-5-5	111.0		5.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-yol-gecisi	ajan	1	haiku	10	0.4206	387158	claude-haiku-5-5	157.2	0.015	9.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-actions-sertlestirme	ajan	2	sonnet	10	0.2569	457495	claude-sonnet-5-5	153.6	0.1486	8.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-llm-degerlendirme	ajan	1	sonnet	10	0.4895	622680	claude-sonnet-5-5	373.9	0.3014	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-csrf-samesite	ajan	2	sonnet	10	0.4283	633188	claude-sonnet-5-5	176.7	0.2368	7.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-clickhouse-sorgu	ajan	2	sonnet	10	0.3153	409266	claude-sonnet-5-5	161.1	0.1293	7.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend-dotnet	dn-arka-plan-servisi	ajan	2	sonnet	10	0.3958	734143	claude-sonnet-5-5	209.8	0.2748	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-ozellik-bayragi	ajan	1	sonnet	0	0.4059	502423	claude-sonnet-5-5	269.9	0.2296	2.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-yol-gecisi	ana	1	haiku	5	0.0164	86647	claude-haiku-5-5	95.3		6.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-ssrf-savunma	ajan	1	sonnet	10	0.4781	992694	claude-sonnet-5-5	432.9	0.3576	6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-go-eszamanlilik	ajan	2	sonnet	10	0.3099	394074	claude-sonnet-5-5	160.1	0.1266	9.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-derin-baglanti	ajan	2	sonnet	10	0.368	610294	claude-sonnet-5-5	235.7	0.2556	6.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-dengesiz-sinif	ajan	2	sonnet	10	0.3456	460747	claude-sonnet-5-5	168.1	0.1626	6.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-compose-yerel	ajan	2	sonnet	6	0.3587	643492	claude-sonnet-5-5	172.0	0.2412	4.0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\oyun-mod	oyn-prosedurel-zindan	ajan	2	sonnet	10	0.3907	615971	claude-sonnet-5-5	180.0	0.2794	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\mobil	mob-flutter-durum	ajan	2	sonnet	10	0.4261	637917	claude-sonnet-5-5	133.5	0.2336	7.8	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-tarih-saat-dilimi	ajan	1	sonnet	10	0.4952	822061	claude-sonnet-5-5	390.1	0.3014	5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-rollup-kutuphane-paketi	ajan	2	sonnet	10	0.2453	412187	claude-sonnet-5-5	122.7	0.1326	8.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\oyun-mod	oyn-prosedurel-zindan	ana	2	sonnet	5	0.321	83942	claude-sonnet-5-5	71.1		5.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-plan	pln-temiz-mimari-sinir	ajan	2	sonnet	7	0.3199	433744	claude-sonnet-5-5	120.6	0.1444	8.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-onbellek-gecersizlestirme	ajan	2	sonnet	10	0.3482	528734	claude-sonnet-5-5	145.7	0.2374	7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-imlec-sayfalama	ajan	2	sonnet	10	0.3643	532621	claude-sonnet-5-5	140.0	0.2491	7.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-n-arti-bir-avcisi	ajan	2	sonnet	10	0.4685	681477	claude-sonnet-5-5	182.4	0.2844	7.2	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-llm-degerlendirme	ajan	2	sonnet	10	0.3517	514022	claude-sonnet-5-5	110.8	0.1602	8.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\arastirma-ogrenme	ara-platform-okuma	ajan	2	sonnet	10	0.3911	732275	claude-sonnet-5-5	267.7	0.2713	5.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\frontend	fe-rollup-kutuphane-paketi	ana	2	sonnet	10	0.352	170327	claude-sonnet-5-5	66.9		7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-ozellik-bayragi	ajan	2	sonnet	10	0.4611	719728	claude-sonnet-5-5	139.1	0.2681	5.7	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\arastirma-ogrenme	ara-platform-okuma	ana	2	sonnet	6	0.356	172724	claude-sonnet-5-5	35.1		4.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-tarih-saat-dilimi	ajan	2	sonnet	10	0.4585	600823	claude-sonnet-5-5	70.5	0.2732	7.5	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\guvenlik	sec-ssrf-savunma	ajan	2	sonnet	10	0.5036	1057537	claude-sonnet-5-5	199.1	0.3908	7.4	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-csv-temizleyici	ajan	0	sonnet	10	0.3317	456948	claude-sonnet-5-5	117.4	0.1492	8.9	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-disk-dolu	ajan	0	sonnet	10	0.3115	493183	claude-sonnet-5-5	126.5	0.1298	8.3	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-ts-tip-daraltma	ajan	0	sonnet	0	0.2232	292590	claude-sonnet-5-5	130.3	0.1241	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-saat-senkron	ajan	0	sonnet	0	0.2244	292850	claude-sonnet-5-5	143.6	0.1254	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\dil-cerceve	dil-regex-denetci	ajan	0	sonnet	0	0.2453	292421	claude-sonnet-5-5	147.9	0.148	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-bisect-rehber	ajan	0	sonnet	0	0.225	293653	claude-sonnet-5-5	149.8	0.1252	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-kilitlenme	ajan	0	sonnet	0	0.3012	344854	claude-sonnet-5-5	152.7	0.1224	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-sertifika-yenileme	ajan	0	sonnet	0	0.2291	294092	claude-sonnet-5-5	153.2	0.1296	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\test-qa	qa-sahte-saat	ajan	0	sonnet	0	0.2941	303800	claude-sonnet-5-5	154.4	0.2057	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\video	vid-renk-uzayi	ajan	0	sonnet	0	0.3101	392212	claude-sonnet-5-5	154.8	0.1308	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-dosya-yukleme	ajan	0	sonnet	0	0.3	385740	claude-sonnet-5-5	154.9	0.1243	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-ssh-sertlestirme	ajan	0	sonnet	0	0.2127	266213	claude-sonnet-5-5	154.9	0.1261	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\belge	dok-hata-mesaji	ajan	0	sonnet	0	0.2219	293017	claude-sonnet-5-5	155.2	0.1224	0.6	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-json-sutun	ajan	0	sonnet	0	0.2196	246285	claude-sonnet-5-5	163.1	0.1205	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\surec-git-yayin	git-commit-imzalama	ajan	0	sonnet	0	0.2452	326110	claude-sonnet-5-5	166.9	0.1541	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-systemd-birim	ajan	0	sonnet	0	0.2082	246577	claude-sonnet-5-5	189.7	0.1073	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\otomasyon	otm-csv-temizleyici	ana	0	sonnet	0	0.0	0	-	87.2		0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\altyapi	ops-disk-dolu	ana	0	sonnet	0	0.0	0	-	105.1		0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\ml-yapay-zeka	ml-model-metrik	ajan	0	sonnet	0	0.0	0	-	107.9	0	0.1	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\veri-db	db-zaman-damgasi	ajan	0	sonnet	0	0.0	0	-	101.7	0	0	1
+C:\Projeler\omer-skills-wt\kalite3c\ajanlar\kalite3-d16\backend	be-istek-sinirlama	ajan	0	sonnet	0	0.0	0	-	102.7	0	0.0	1
