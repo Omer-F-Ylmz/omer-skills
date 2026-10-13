@@ -42,6 +42,44 @@ def sistem(tek=False):
             "ışık profili malzemeye uygun (sırlı seramik: seramik_sirli, metal: metal).")
 
 
+# BLENDER-5 M5c: aşamalı istem — çekirdek + yalnız istekte geçen modül (CLI satırı/başlık/hdr notu yok); M5b girintisiz kısa anahtar
+CEKIRDEK = ('Blender sahnesini tek spec JSON ile kurarsın (bpy yok). Yanıt: YALNIZ tek ```json bloğu, girintisiz; sistem koşar.\n'
+            'klasor: kaydet=<klasor>/sahne.blend, onizle=<klasor>/onizleme.png 384px eevee, kamera oto doldurur (farklıysa açık ver) · '
+            'sablon: urun_studyo|kahraman_metal (metal ışık, cycles)|turntable|patlatilmis · '
+            'n: [{ad, a: fincan|tabak|cezve|sap ya da t: kup|silindir|kure|koni|duzlem|torus, b: [x,y,z] m (dönel [çap,çap,h]), '
+            'm: malzeme, k: konum (yoksa zemine oturur), bitisik: {hedef: önceki ad, yon: +X|-X|+Y|-Y|+Z|-Z} (o yüze yaslanır; '
+            'üstünde +Z), ust: koni üst/alt çap oranı, ekler: [{t,b,k}] gövdeye birleşir}] · isik · '
+            'onizle/render: {yol, px, motor: eevee|cycles} · kaydet · ozet: alanlar ⊂ [ad,tur,boyut,konum,malzeme,ucgen,uv] (nesne adı değil).\n'
+            'Ölçüsü verilen yeni nesneye "beklenen": {ad: [x,y,z]} (m, dış kutu). Sahnedekini yeniden yaratma.\n')
+MODUL = {
+    ("dön", "360", "turntable"): "turntable: {nesne, son: son kare, n: 4} → Z'de 1..son 0→360° doğrusal, kare [1,son], "
+                                 "klasor varsa <klasor>/kareler'e son/n adımla 256px eevee render.\n",
+    ("patlat",): "patlatilmis: yigin Z (n sırası alttan üste) + patlat {eksen: Z, aralik: 0.06}; düşük poli için ek az.\n",
+    ("glb",): "glb: dosya yolu (.glb).\n",
+    ("bevel", "subdiv", "uv", "düzenle", "decimate"): "duzenle: [{nesne, bevel: m, subdiv: seviye, decimate: oran, "
+                                                       "uv: akilli|lightmap, malzeme}] — sahnedeki nesneyi değiştirir.\n",
+}
+
+
+def sistem5(istek):
+    profiller, tarifler = tarif._ad_listesi()
+    k = istek.lower()
+    return (CEKIRDEK + "".join(m for anah, m in MODUL.items() if any(a in k for a in anah))
+            + f"Işık: {','.join(profiller)}. Malzeme: {','.join(tarifler)} ya da {{renk:[r,g,b],metal,puruz}}.\n"
+            'Örnek: {"klasor":"C:/d","sablon":"urun_studyo","n":[{"ad":"GEO-Kutu","t":"kup","b":[0.1,0.1,0.05],"m":"ahsap_koyu"},'
+            '{"ad":"GEO-Top","t":"kure","b":[0.04,0.04,0.04],"m":"pirinc","bitisik":{"hedef":"GEO-Kutu","yon":"+Z"}}]}\n'
+            "Düşünmeyi kısa tut: konum aritmetiği yerine bitisik/zemine oturma, ayrıntı yerine sablon kullan.\n"
+            "Işık malzemeye uygun: sırlı seramik → seramik_sirli, metal → metal.")
+
+
+def fark(spec, hata):
+    """M5d: düzeltme turuna önceki spec yerine yalnız hata + sorunlu nesneler (≤300 kr)."""
+    metin = "; ".join(map(str, hata))
+    n = (spec or {}).get("nesneler") or []
+    kotu = [x for i, x in enumerate(n) if f"nesneler[{i}]" in metin or (x.get("ad") and x["ad"] in metin)]
+    return (f"Hata: {metin[:160]} Sorunlu: " + json.dumps(kotu, ensure_ascii=False, separators=(",", ":")))[:300]
+
+
 def bayraklar():
     return ["--setting-sources", "", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands",
             "--tools", "Write,Bash", "--allowedTools", "Write", "Bash", "--system-prompt", sistem()]
@@ -52,6 +90,11 @@ def tek_bayraklar():
             "--tools", "", "--system-prompt", sistem(tek=True)]
 
 
+def tek5_bayraklar(istek):
+    return ["--setting-sources", "", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands",
+            "--tools", "", "--system-prompt", sistem5(istek)]
+
+
 def _claude(istek, ek):
     r = subprocess.run(["claude", "-p", istek, "--model", "sonnet", "--output-format", "json", *ek],
                        capture_output=True, text=True, encoding="utf-8", timeout=1500)
@@ -60,16 +103,16 @@ def _claude(istek, ek):
             "usd": j.get("total_cost_usd") or 0.0, "rc": r.returncode}
 
 
-def tek(istek, blend=None, kos=_claude, calistir=None, hafif=True):
+def tek(istek, blend=None, kos=_claude, calistir=None, hafif=True, bes=False):
     """Araçsız tek tur + yerel koşu; hata/eksikte (dogrula ya da Blender) en çok 1 düzeltme turu. kosucu.kos biçiminde dict döner.
-    hafif=False: 1.2.0 tabanı (biçim düzeltmesi yok; faz5 'tek' kolu)."""
+    hafif=False: 1.2.0 tabanı (biçim düzeltmesi yok; faz5 'tek' kolu). bes: BLENDER-5 (aşamalı istem, ölçü oturtma, fark özeti)."""
     if calistir is None:
         sys.path.insert(0, str(KOK / "tools"))
         from blender_cli import calistir
     t = {"usage": {}, "tur": 0, "usd": 0.0, "sure": 0.0, "araclar": [], "rc": 1, "hata": ""}
     istem, spec, hata, bek = istek, None, [], {}
     for i in range(2):
-        o = kos(istem, tek_bayraklar())
+        o = kos(istem, tek5_bayraklar(istek) if bes else tek_bayraklar())
         for k, v in (o.get("usage") or {}).items():
             if isinstance(v, (int, float)):
                 t["usage"][k] = t["usage"].get(k, 0) + v
@@ -83,7 +126,9 @@ def tek(istek, blend=None, kos=_claude, calistir=None, hafif=True):
             if bek:
                 spec["ozet"] = list(dict.fromkeys([*spec.get("ozet", []), "ad", "boyut"]))
             t.setdefault("ilk_spec", json.loads(json.dumps(spec)))  # BLENDER-4 d2: duzelt öncesi ilk tur (faz5 tek4K)
-            hata = tarif.dogrula(tarif.duzelt(spec) if hafif else spec)
+            hata = tarif.dogrula(tarif.duzelt(spec) if hafif or bes else spec)
+            if bes and not hata:
+                hata = tarif.olcu_oturt(spec, bek)
         except (AttributeError, ValueError) as e:
             spec, hata = None, [f"spec JSON ayrıştırılamadı: {e}"]
         if not hata:
@@ -98,7 +143,7 @@ def tek(istek, blend=None, kos=_claude, calistir=None, hafif=True):
             else:
                 hata = [f"blender_cli exit {kod}: {json.dumps(sonuc, ensure_ascii=False)[:1500]}"]
         t.setdefault("ilk_hata", str(hata)[-300:])  # BLENDER-3: düzeltme turunun nedeni (ölçümde ek tur KALITE'den mi?)
-        istem = (f"{istek}\n\nÖnceki spec:\n{json.dumps({**(spec or {}), **({'beklenen': bek} if bek else {})}, ensure_ascii=False)}"
+        istem = f"{istek}\n\n{fark(spec, hata)}\nTam düzeltilmiş spec'i ver." if bes else (f"{istek}\n\nÖnceki spec:\n{json.dumps({**(spec or {}), **({'beklenen': bek} if bek else {})}, ensure_ascii=False)}"
                  f"\nHata: {hata}\nDüzeltilmiş spec'i ver.")
     return {**t, "metin": f"HATA: {hata}", "hata": str(hata)[-200:]}
 
