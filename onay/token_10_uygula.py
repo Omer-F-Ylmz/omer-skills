@@ -17,8 +17,8 @@ from ajan_aciklama import aciklama_degistir  # noqa: E402
 ESLEME = KOK / "docs" / "token-10" / "esleme.tsv"
 
 
-def esleme():
-    return {s.split("\t")[0]: s.split("\t")[2] for s in ESLEME.read_text(encoding="utf8").splitlines()[1:] if s.strip()}
+def esleme(yol=ESLEME):
+    return {s.split("\t")[0]: s.split("\t")[2] for s in yol.read_text(encoding="utf8").splitlines()[1:] if s.strip()}
 
 
 def katalog(ev):
@@ -29,9 +29,9 @@ def katalog(ev):
     return len(satirlar)
 
 
-def main(argv=None, ev=Path.home() / ".claude", es=None):
+def main(argv=None, ev=Path.home() / ".claude", es=None, yedek="agents-yedek-token10"):
     a = (argv if argv is not None else sys.argv[1:]) or ["--kuru"]
-    ag, yd = ev / "agents", ev / "agents-yedek-token10"
+    ag, yd = ev / "agents", ev / yedek
     if a[0] == "--geri":
         n = 0
         for p in sorted(yd.glob("*.md")) if yd.is_dir() else []:
