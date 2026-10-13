@@ -579,13 +579,13 @@ WeChat Mini Program Developer	ajan	agents/	Expert WeChat Mini Program developer 
 Whimsy Injector	ajan	agents/	Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences.		Agent Whimsy Injector (listede yoksa Skill ajan-getir)	CC
 WordPress Performance Engineer	ajan	agents/	Expert WordPress performance engineer specializing in Core Web Vitals, object caching (Redis/Memcached),…		Agent WordPress Performance Engineer (listede yoksa Skill ajan-getir)	CC
 WordPress Shopping Cart Engineer	ajan	agents/	Expert WordPress e-commerce engineer specializing in WooCommerce for product catalog management, payment…		Agent WordPress Shopping Cart Engineer (listede yoksa Skill ajan-getir)	CC
-21st	mcp	mcp-needs-auth-cache (yetki bekliyor)			claude.ai bağlayıcısı	claude.ai
-canva	mcp	mcp-needs-auth-cache (yetki bekliyor)			claude.ai bağlayıcısı	claude.ai
-plugin:adobe-for-creativity:Adobe for creativity	mcp	mcp-needs-auth-cache (yetki bekliyor)			claude.ai bağlayıcısı	claude.ai
-plugin:azure:azure	mcp	mcp-needs-auth-cache (yetki bekliyor)			claude.ai bağlayıcısı	claude.ai
-plugin:design:intercom	mcp	mcp-needs-auth-cache (yetki bekliyor)			claude.ai bağlayıcısı	claude.ai
-plugin:expo:expo	mcp	mcp-needs-auth-cache (yetki bekliyor)			claude.ai bağlayıcısı	claude.ai
-plugin:open-design:open-design	mcp	mcp-needs-auth-cache (yetki bekliyor)			claude.ai bağlayıcısı	claude.ai
+21st	mcp	mcp-needs-auth-cache (yetki bekliyor)	21st.dev UI bileşen ve temalarını bulup kodunu getirir; hazır React bileşeni için; görsel tasarım üretimi…	21st, ui bileşen, component, tema, react, magic	claude.ai bağlayıcısı	claude.ai
+canva	mcp	mcp-needs-auth-cache (yetki bekliyor)	Canva tasarımlarını arar, oluşturur ve dışa aktarır; sosyal medya görseli için; kod üretimi değil (tahmin)	canva, tasarım, design, afiş, sunum, social post	claude.ai bağlayıcısı	claude.ai
+plugin:adobe-for-creativity:Adobe for creativity	mcp	mcp-needs-auth-cache (yetki bekliyor)	Adobe yaratıcı servislerine (adobe-creativity.adobe.io) bağlanır; görsel düzenleme için; yerel dosya aracı…	adobe, photoshop, firefly, görsel düzenle, creative, express	claude.ai bağlayıcısı	claude.ai
+plugin:azure:azure	mcp	mcp-needs-auth-cache (yetki bekliyor)	Azure kaynaklarını @azure/mcp ile yönetir ve sorgular; bulut operasyonu için; yerel geliştirme değil	azure, bulut, cloud, kaynak, resource, subscription	claude.ai bağlayıcısı	claude.ai
+plugin:design:intercom	mcp	mcp-needs-auth-cache (yetki bekliyor)	Intercom müşteri konuşma ve destek verisine erişir; destek kaydı incelemek için; tasarım aracı değil (tahmin)	intercom, müşteri destek, support, konuşma, ticket, inbox	claude.ai bağlayıcısı	claude.ai
+plugin:expo:expo	mcp	mcp-needs-auth-cache (yetki bekliyor)	Expo hizmetine (mcp.expo.dev) bağlanır; React Native/Expo uygulama derleme ve doküman için; web app değil	expo, react native, mobil, eas, build, uygulama	claude.ai bağlayıcısı	claude.ai
+plugin:open-design:open-design	mcp	mcp-needs-auth-cache (yetki bekliyor)	Yerel Open Design daemon'una (od mcp) bağlanır; tasarım dosyası üretip düzenlemek için; bulut servis değil	open design, od, tasarım, design, mockup, prototip	claude.ai bağlayıcısı	claude.ai
 @_davideast/stitch-mcp	cli	npm -g	Stitch MCP CLI helper. Automates Google Cloud authentication. Generates MCP config for your client. Sets up…		Bash: @_davideast/stitch-mcp --help	CC
 @alibaba-group/open-code-review	cli	npm -g	OpenCodeReview CLI — AI-powered code review tool		Bash: @alibaba-group/open-code-review --help	CC
 @brave/brave-search-mcp-server	cli	npm -g	Brave Search MCP Server: web results, images, videos, rich results, AI summaries, and more.		Bash: @brave/brave-search-mcp-server --help	CC
@@ -601,29 +601,29 @@ plugin:open-design:open-design	mcp	mcp-needs-auth-cache (yetki bekliyor)			claud
 @upstash/context7-mcp	cli	npm -g	MCP server for Context7		Bash: @upstash/context7-mcp --help	CC
 agent-browser	cli	npm -g	Browser automation CLI for AI agents		Bash: agent-browser --help	CC
 agent-reach	cli	uv tool	Give your AI Agent eyes to see the entire internet. Search + Read 10+ platforms.		Bash: agent-reach --help	ikisi
-blender-dogrulama	cli	envanter.json (kurulu değil?)			Bash: blender-dogrulama --help	yok
-bun	cli	cc-kopru izinli			Bash: bun --help	ikisi
-bunx	cli	cc-kopru izinli			Bash: bunx --help	ikisi
+blender-dogrulama	cli	envanter.json (kurulu değil?)	Blender çıktısını sayısal kapı, Workbench/Eevee görünüm+IoU ve GLB hattıyla doğrular; 3B kalite için;…	blender, doğrula, 3d, glb, iou, render kontrol	Bash: blender-dogrulama --help	yok
+bun	cli	cc-kopru izinli	JS/TS çalıştırır, paket kurar, test koşar; hızlı Node alternatifi için; Python aracı değil	bun, javascript, typescript, paket kur, runtime, test	Bash: bun --help	ikisi
+bunx	cli	cc-kopru izinli	npm paketini kurmadan bun ile tek seferlik çalıştırır; geçici CLI için; kalıcı kurulum değil	bunx, tek seferlik, paket çalıştır, npx alternatif, cli, run	Bash: bunx --help	ikisi
 claude-monitor	cli	uv tool	Privacy-first Claude Code usage monitor with official limits, state exports, forecasting, and local history		Bash: claude-monitor --help	CC
 claude-real-video	cli	uv tool	Let Claude (or any LLM) actually watch a video — scene-aware, deduplicated frames + transcript, from a URL…		Bash: claude-real-video --help	CC
 claude-usage	cli	uv tool	Token, cost, and session dashboard for Claude Code usage		Bash: claude-usage --help	ikisi
 code-review-mcp	cli	uv tool	MCP Server for GitHub/GitLab code review - enables AI assistants to review pull requests and merge requests		Bash: code-review-mcp --help	CC
 codeburn	cli	npm -g	See where your AI spend goes - by task, tool, model, and project		Bash: codeburn --help	CC
-comfyui	cli	envanter.json (kurulu değil?)			Bash: comfyui --help	yok
-corepack	cli	npm -g			Bash: corepack --help	CC
-crv	cli	cc-kopru izinli			Bash: crv --help	ikisi
-dotnet	cli	cc-kopru izinli			Bash: dotnet --help	ikisi
+comfyui	cli	envanter.json (kurulu değil?)	Yerel ComfyUI görsel üretim sunucusu (127.0.0.1:8188); gorsel-uret skill'i için; bulut API değil	comfyui, görsel üret, image gen, stable diffusion, workflow, yerel	Bash: comfyui --help	yok
+corepack	cli	npm -g	Node paket yöneticisi sürümlerini (pnpm/yarn) etkinleştirir ve sabitler; proje araç sürümü için; paket…	corepack, pnpm, yarn, paket yöneticisi, sürüm, node	Bash: corepack --help	CC
+crv	cli	cc-kopru izinli	Videodan sahne/kare çıkarıp Claude'un izleyebileceği paket üretir (claude-real-video); video analizi için;…	crv, video kare, frame, sahne, izle, claude-real-video	Bash: crv --help	ikisi
+dotnet	cli	cc-kopru izinli	.NET projelerini derler, test eder, paket geri yükler; C# geliştirme için; Node aracı değil	dotnet, build, test, restore, c#, csproj	Bash: dotnet --help	ikisi
 droidasc	cli	uv tool	ASC is a super FAST python Android Decompiler for Agents/Mobile Researchers		Bash: droidasc --help	CC
 ecc-agentshield	cli	npm -g	Security auditor for AI agent configurations. Scans Claude Code setups for vulnerabilities, misconfigs, and…		Bash: ecc-agentshield --help	CC
-ffmpeg	cli	cc-kopru izinli			Bash: ffmpeg --help	ikisi
-gh	cli	cc-kopru izinli			Bash: gh --help	ikisi
-git	cli	cc-kopru izinli			Bash: git --help	ikisi
-gitleaks	cli	cc-kopru izinli			Bash: gitleaks --help	ikisi
-graphify	cli	cc-kopru izinli			Bash: graphify --help	ikisi
+ffmpeg	cli	cc-kopru izinli	Ses/video dönüştürür, keser, birleştirir, kodlar; medya işleme için; kurgu arayüzü değil	ffmpeg, video dönüştür, ses, encode, kes, convert	Bash: ffmpeg --help	ikisi
+gh	cli	cc-kopru izinli	GitHub PR, issue, CI ve API işlemlerini komut satırından yapar; GitHub iş akışı için; yerel git değil	gh, github, pr, issue, ci, actions	Bash: gh --help	ikisi
+git	cli	cc-kopru izinli	Sürüm kontrolü: commit, branch, diff, log; kod geçmişi için; GitHub API değil	git, commit, branch, diff, log, worktree	Bash: git --help	ikisi
+gitleaks	cli	cc-kopru izinli	Kodda ve git geçmişinde sızmış sırları tarar; güvenlik denetimi için; zafiyet tarayıcı değil	gitleaks, sır tara, secret scan, sızıntı, leak, güvenlik	Bash: gitleaks --help	ikisi
+graphify	cli	cc-kopru izinli	Kod/dosyalardan bilgi grafiği kurar, query/path/explain ile sorgular; kod tabanı keşfi için; grep değil	graphify, bilgi grafiği, knowledge graph, query, kod keşfi, explain	Bash: graphify --help	ikisi
 graphifyy	cli	uv tool	AI coding assistant skill (Claude Code, CodeBuddy, Codex, OpenCode, Kilo Code, Cursor, Gemini CLI, Aider,…		Bash: graphifyy --help	CC
-headroom	cli	cc-kopru izinli			Bash: headroom --help	ikisi
+headroom	cli	cc-kopru izinli	LLM bağlamını sıkıştıran vekil, bellek ve metrik yönetir; token tasarrufu için; model değil	headroom, bağlam sıkıştır, proxy, token, context, retrieve	Bash: headroom --help	ikisi
 headroom-ai	cli	uv tool	The Context Optimization Layer for LLM Applications - Cut costs by 50-90%		Bash: headroom-ai --help	CC
-jev	cli	cc-kopru izinli			Bash: jev --help	ikisi
+jev	cli	cc-kopru izinli	Bağlam dışı yargıç: log/dosyayı okuyup süzer, triage/ilgili/kanıt verir; büyük çıktı için; düzenleyici değil	jev, log, triage, ilgili, kanıt, tarama	Bash: jev --help	ikisi
 jev-cli	cli	uv tool	Jev (TypeSafe) context dışı yargıç CLI: yol ver, kompakt tablo al		Bash: jev-cli --help	CC
 markitdown	cli	uv tool	Utility tool for converting various files to Markdown		Bash: markitdown --help	CC
 markitdown-mcp	cli	uv tool	"An MCP server for the ""markitdown"" library."		Bash: markitdown-mcp --help	CC
@@ -637,96 +637,96 @@ mcp-video-analyzer	cli	npm -g	MCP server for video analysis — extracts transcr
 mcporter	cli	npm -g	TypeScript runtime and CLI for connecting to configured Model Context Protocol servers.		Bash: mcporter --help	CC
 mimic-client	cli	uv tool	Intercept any app and call it from Python like a library — AI writes the client.		Bash: mimic-client --help	CC
 netlify-cli	cli	npm -g	Netlify command line tool		Bash: netlify-cli --help	CC
-node	cli	cc-kopru izinli			Bash: node --help	ikisi
+node	cli	cc-kopru izinli	JavaScript çalışma zamanı; betik ve sunucu koşturmak için; paket yöneticisi değil	node, javascript, runtime, betik, script, npm	Bash: node --help	ikisi
 npm	cli	npm -g	a package manager for JavaScript		Bash: npm --help	ikisi
-npx	cli	cc-kopru izinli			Bash: npx --help	ikisi
+npx	cli	cc-kopru izinli	npm paketini kurmadan tek seferlik çalıştırır; MCP ve CLI başlatmak için; kalıcı kurulum değil	npx, tek seferlik, paket çalıştır, npm, cli, run	Bash: npx --help	ikisi
 omniroute	cli	npm -g	Unified AI router with 352 providers, RTK+Caveman compression, auto fallback, MCP/A2A, desktop, PWA, and…		Bash: omniroute --help	CC
 phone-harness	cli	uv tool	Let an agent drive a real phone: an iPhone through macOS iPhone Mirroring, an Android over adb, or a rented…		Bash: phone-harness --help	CC
 pixeljury	cli	npm -g	Visual QA CLI for AI-built frontends that renders pages, finds design and accessibility issues, and writes…		Bash: pixeljury --help	ikisi
-playwright-cli	cli	cc-kopru izinli			Bash: playwright-cli --help	ikisi
+playwright-cli	cli	cc-kopru izinli	Tarayıcıyı komut satırından yönetir, sayfa gezer, ekran görüntüsü alır; web otomasyon/test için; scraping…	playwright, tarayıcı, browser, ekran görüntüsü, e2e, otomasyon	Bash: playwright-cli --help	ikisi
 puppeteer-mcp-server	cli	npm -g	Experimental MCP server for browser automation using Puppeteer (inspired by…		Bash: puppeteer-mcp-server --help	CC
-python	cli	cc-kopru izinli			Bash: python --help	ikisi
+python	cli	cc-kopru izinli	Python yorumlayıcısı; betik ve veri işleme için; paket yöneticisi değil	python, betik, script, veri işle, json, py	Bash: python --help	ikisi
 rea-agents	cli	npm -g	Reverse engineer anything from your terminal or agent with one CLI and MCP server.		Bash: rea-agents --help	CC
-rtk	cli	cc-kopru izinli			Bash: rtk --help	ikisi
+rtk	cli	cc-kopru izinli	Komut çıktısını LLM bağlamına girmeden süzen/özetleyen vekil; token tasarrufu için; kabuk değil	rtk, çıktı süz, proxy, token, özet, filter	Bash: rtk --help	ikisi
 semgrep	cli	uv tool	Lightweight static analysis for many languages. Find bug variants with patterns that look like source code.		Bash: semgrep --help	ikisi
-skill-ui	cli	npm -g			Bash: skill-ui --help	ikisi
+skill-ui	cli	npm -g	Kurulu skill'leri keşfeder, listeler, karşılaştırır; skill envanteri için; skill kurucu değil	skill-ui, skill listele, keşfet, discover, karşılaştır, skills	Bash: skill-ui --help	ikisi
 skills	cli	npm -g	The open agent skills ecosystem		Bash: skills --help	CC
-skills-cli	cli	envanter.json (kurulu değil?)			Bash: skills-cli --help	yok
+skills-cli	cli	envanter.json (kurulu değil?)	GitHub/GitLab/Azure Repos'tan tek komutla Agent Skill kurar, ajanlara bağlar; skill kurulumu için; listeleme…	skills-cli, skill kur, install, agent skill, github, repo	Bash: skills-cli --help	yok
 skillspector	cli	uv tool	SkillSpector: Security scanner for AI agent skills (Claude Code, Cursor, and similar). Scans skills for…		Bash: skillspector --help	CC
 socialclaw	cli	npm -g	Social media scheduling CLI and OpenClaw skill for AI agents posting to X, LinkedIn, Instagram, Facebook…		Bash: socialclaw --help	CC
-strix	cli	cc-kopru izinli			Bash: strix --help	ikisi
+strix	cli	cc-kopru izinli	Hedef uygulamada yapay zekâ ajanlarıyla güvenlik sızma testi yapar; zafiyet bulmak için; sır tarayıcı değil	strix, pentest, sızma testi, güvenlik, zafiyet, security	Bash: strix --help	ikisi
 strix-agent	cli	uv tool	Open-source AI Hackers for your apps		Bash: strix-agent --help	CC
-summarize	cli	cc-kopru izinli			Bash: summarize --help	ikisi
+summarize	cli	cc-kopru izinli	Bağlantıyı temiz metne çevirip özetler (@steipete/summarize); web/belge özeti için; video izleyici değil	summarize, özetle, link, url, metin, özet	Bash: summarize --help	ikisi
 tdd-guard	cli	npm -g	Automated Test-Driven Development enforcement for Claude Code		Bash: tdd-guard --help	CC
 ui-to-vue-converter	cli	npm -g	UI设计图批量转Vue组件工具，支持多UI库，自动抽离公共组件		Bash: ui-to-vue-converter --help	CC
-uv	cli	cc-kopru izinli			Bash: uv --help	ikisi
-uvx	cli	cc-kopru izinli			Bash: uvx --help	ikisi
+uv	cli	cc-kopru izinli	Python paket/ortam yöneticisi; bağımlılık ve araç kurulumu için; Node aracı değil	uv, python paket, pip, venv, tool install, bağımlılık	Bash: uv --help	ikisi
+uvx	cli	cc-kopru izinli	Python aracını kurmadan tek seferlik çalıştırır; MCP/CLI başlatmak için; kalıcı kurulum değil	uvx, tek seferlik, python araç, run, mcp, cli	Bash: uvx --help	ikisi
 vercel	cli	npm -g	The command-line interface for Vercel		Bash: vercel --help	ikisi
-video	cli	cc-kopru izinli			Bash: video --help	ikisi
+video	cli	cc-kopru izinli	Videoyu kademeli izler: özet, sor, kare, whisper; video içeriği anlamak için; kurgu aracı değil	video, izle, özet, kare, altyazı, whisper	Bash: video --help	ikisi
 video-cli	cli	uv tool	Video kademeli izleme: özet, Jev süzgeci, soru, kare; ham veri diskte, ajana kompakt çıktı		Bash: video-cli --help	CC
-whisper-cli	cli	cc-kopru izinli			Bash: whisper-cli --help	ikisi
-Adobe for creativity	mcp	plugin adobe-for-creativity@claude-plugins-official			ToolSearch 'Adobe for creativity' → mcp__Adobe for creativity__*	CC
-airtable	mcp	~/.claude.json			ToolSearch 'airtable' → mcp__airtable__*	CC
-apify	mcp	~/.claude.json			ToolSearch 'apify' → mcp__apify__*	CC
-arxiv	mcp	~/.claude.json			ToolSearch 'arxiv' → mcp__arxiv__*	CC
-auth0	mcp	~/.claude.json			ToolSearch 'auth0' → mcp__auth0__*	CC
-azure	mcp	plugin azure-local-skills@azure-skills			ToolSearch 'azure' → mcp__azure__*	CC
-azure-resource-manager-mcp	mcp	plugin azure-cost@azure-skills			ToolSearch 'azure-resource-manager-mcp' → mcp__azure-resource-manager-mcp__*	CC
-banana	mcp	plugin banana-claude@banana-claude-marketplace			ToolSearch 'banana' → mcp__banana__*	CC
-binlog	mcp	plugin dotnet-msbuild@dotnet-agent-skills			ToolSearch 'binlog' → mcp__binlog__*	ikisi
-blender	mcp	~/.claude.json			ToolSearch 'blender' → mcp__blender__*	ikisi
-brave-search	mcp	~/.claude.json			ToolSearch 'brave-search' → mcp__brave-search__*	ikisi
-cc-kopru	mcp	claude_desktop_config.json			ToolSearch 'cc-kopru' → mcp__cc-kopru__*	Desktop
-chrome-devtools	mcp	plugin chrome-devtools-mcp@chrome-devtools-plugins			ToolSearch 'chrome-devtools' → mcp__chrome-devtools__*	CC
-claude-design	mcp	~/.claude.json			ToolSearch 'claude-design' → mcp__claude-design__*	ikisi
-claude-mem	mcp	claude_desktop_config.json			ToolSearch 'claude-mem' → mcp__claude-mem__*	Desktop
-clickhouse	mcp	~/.claude.json			ToolSearch 'clickhouse' → mcp__clickhouse__*	CC
-code-review	mcp	~/.claude.json			ToolSearch 'code-review' → mcp__code-review__*	ikisi
-codebase-memory-mcp	mcp	~/.claude.json			ToolSearch 'codebase-memory-mcp' → mcp__codebase-memory-mcp__*	CC
-codegraph	mcp	~/.claude.json			ToolSearch 'codegraph' → mcp__codegraph__*	CC
-context-mode	mcp	plugin context-mode@context-mode			ToolSearch 'context-mode' → mcp__context-mode__*	CC
-context7	mcp	~/.claude.json			ToolSearch 'context7' → mcp__context7__*	CC
-Definely	mcp	plugin commercial-legal@claude-for-legal			ToolSearch 'Definely' → mcp__Definely__*	CC
-DocuSign	mcp	plugin commercial-legal@claude-for-legal			ToolSearch 'DocuSign' → mcp__DocuSign__*	CC
-drizzle-docs	mcp	~/.claude.json			ToolSearch 'drizzle-docs' → mcp__drizzle-docs__*	CC
-excalidraw	mcp	~/.claude.json			ToolSearch 'excalidraw' → mcp__excalidraw__*	CC
-expo	mcp	plugin expo@expo-plugins			ToolSearch 'expo' → mcp__expo__*	CC
-fal	mcp	plugin universal-modder@universal-modder			ToolSearch 'fal' → mcp__fal__*	CC
-figma	mcp	~/.claude.json			ToolSearch 'figma' → mcp__figma__*	CC
-github	mcp	~/.claude.json			ToolSearch 'github' → mcp__github__*	CC
-godot	mcp	~/.claude.json			ToolSearch 'godot' → mcp__godot__*	CC
-Google Drive	mcp	plugin privacy-legal@claude-for-legal			ToolSearch 'Google Drive' → mcp__Google Drive__*	CC
-gsc	mcp	~/.claude.json			ToolSearch 'gsc' → mcp__gsc__*	CC
-headroom	mcp	~/.claude.json			ToolSearch 'headroom' → mcp__headroom__*	ikisi
-hfspace	mcp	~/.claude.json			ToolSearch 'hfspace' → mcp__hfspace__*	CC
-hostinger	mcp	~/.claude.json			ToolSearch 'hostinger' → mcp__hostinger__*	CC
-iManage	mcp	plugin commercial-legal@claude-for-legal			ToolSearch 'iManage' → mcp__iManage__*	CC
-infinite-canvas	mcp	~/.claude.json			ToolSearch 'infinite-canvas' → mcp__infinite-canvas__*	CC
-Ironclad	mcp	plugin commercial-legal@claude-for-legal			ToolSearch 'Ironclad' → mcp__Ironclad__*	CC
-jev	mcp	~/.claude.json			ToolSearch 'jev' → mcp__jev__*	CC
-markitdown	mcp	~/.claude.json			ToolSearch 'markitdown' → mcp__markitdown__*	CC
-mcp-fetch	mcp	~/.claude.json			ToolSearch 'mcp-fetch' → mcp__mcp-fetch__*	ikisi
-mcp-filesystem	mcp	~/.claude.json			ToolSearch 'mcp-filesystem' → mcp__mcp-filesystem__*	ikisi
-mcp-git	mcp	~/.claude.json			ToolSearch 'mcp-git' → mcp__mcp-git__*	ikisi
-mcp-memory	mcp	~/.claude.json			ToolSearch 'mcp-memory' → mcp__mcp-memory__*	ikisi
-mcp-search	mcp	plugin claude-mem@thedotmack			ToolSearch 'mcp-search' → mcp__mcp-search__*	CC
-mcp-sequential-thinking	mcp	~/.claude.json			ToolSearch 'mcp-sequential-thinking' → mcp__mcp-sequential-thinking__*	ikisi
-mcp-time	mcp	~/.claude.json			ToolSearch 'mcp-time' → mcp__mcp-time__*	ikisi
-mslearn	mcp	~/.claude.json			ToolSearch 'mslearn' → mcp__mslearn__*	CC
-n8n-mcp	mcp	~/.claude.json			ToolSearch 'n8n-mcp' → mcp__n8n-mcp__*	CC
-nano-banana-2	mcp	plugin nano-banana-2@nano-banana-2-plugins			ToolSearch 'nano-banana-2' → mcp__nano-banana-2__*	CC
-netlify	mcp	~/.claude.json			ToolSearch 'netlify' → mcp__netlify__*	CC
-obsidian	mcp	claude_desktop_config.json			ToolSearch 'obsidian' → mcp__obsidian__*	Desktop
-open-design	mcp	plugin open-design@open-design			ToolSearch 'open-design' → mcp__open-design__*	CC
-playwright	mcp	~/.claude.json			ToolSearch 'playwright' → mcp__playwright__*	ikisi
-premiere-pro	mcp	~/.claude.json			ToolSearch 'premiere-pro' → mcp__premiere-pro__*	CC
-puppeteer	mcp	~/.claude.json			ToolSearch 'puppeteer' → mcp__puppeteer__*	ikisi
-qmd	mcp	~/.claude.json			ToolSearch 'qmd' → mcp__qmd__*	CC
-serena	mcp	~/.claude.json			ToolSearch 'serena' → mcp__serena__*	CC
-Slack	mcp	plugin privacy-legal@claude-for-legal			ToolSearch 'Slack' → mcp__Slack__*	CC
-stitch	mcp	~/.claude.json			ToolSearch 'stitch' → mcp__stitch__*	ikisi
-TopCounsel	mcp	plugin commercial-legal@claude-for-legal			ToolSearch 'TopCounsel' → mcp__TopCounsel__*	CC
-unity	mcp	~/.claude.json			ToolSearch 'unity' → mcp__unity__*	CC
+whisper-cli	cli	cc-kopru izinli	Ses/videodan konuşmayı metne döker (whisper); altyazı ve transkript için; çeviri aracı değil (tahmin)	whisper, transkript, altyazı, ses metne, speech to text, stt	Bash: whisper-cli --help	ikisi
+Adobe for creativity	mcp	plugin adobe-for-creativity@claude-plugins-official	Adobe yaratıcı servislerine (adobe-creativity.adobe.io) bağlanır; görsel düzenleme için; yerel dosya aracı…	adobe, photoshop, firefly, görsel düzenle, creative, express	ToolSearch 'Adobe for creativity' → mcp__Adobe for creativity__*	CC
+airtable	mcp	~/.claude.json	Airtable tabanlarını okur ve kayıt yazar; tablo verisi için; SQL veritabanı değil (tahmin)	airtable, tablo, base, kayıt, record, veri	ToolSearch 'airtable' → mcp__airtable__*	CC
+apify	mcp	~/.claude.json	Apify aktörleriyle web kazıma ve otomasyon koşar; veri toplamak için; tarayıcı testi değil (tahmin)	apify, scrape, kazıma, crawler, actor, web veri	ToolSearch 'apify' → mcp__apify__*	CC
+arxiv	mcp	~/.claude.json	arXiv makalelerini arar ve getirir; akademik literatür için; genel web araması değil (tahmin)	arxiv, makale, paper, akademik, araştırma, literatür	ToolSearch 'arxiv' → mcp__arxiv__*	CC
+auth0	mcp	~/.claude.json	Auth0 kiracısını (uygulama, API, kullanıcı) auth0-mcp-server ile yönetir; kimlik yapılandırması için; giriş…	auth0, kimlik, auth, login, tenant, oauth	ToolSearch 'auth0' → mcp__auth0__*	CC
+azure	mcp	plugin azure-local-skills@azure-skills	Azure kaynaklarını @azure/mcp ile yönetir ve sorgular; bulut operasyonu için; yerel geliştirme değil	azure, bulut, cloud, kaynak, resource, subscription	ToolSearch 'azure' → mcp__azure__*	CC
+azure-resource-manager-mcp	mcp	plugin azure-cost@azure-skills	Azure Resource Manager'a (management.azure.com) bağlanır; maliyet ve kaynak sorgusu için; dağıtım aracı değil	azure, maliyet, cost, arm, kaynak, fatura	ToolSearch 'azure-resource-manager-mcp' → mcp__azure-resource-manager-mcp__*	CC
+banana	mcp	plugin banana-claude@banana-claude-marketplace	banana-claude eklentisinin yerel Python MCP sunucusu; görsel üretim için; düzenleme yazılımı değil (tahmin)	banana, görsel üret, image, nano banana, gemini, resim	ToolSearch 'banana' → mcp__banana__*	CC
+binlog	mcp	plugin dotnet-msbuild@dotnet-agent-skills	MSBuild binlog dosyalarını analiz eder (Microsoft.AITools.BinlogMcp); .NET derleme hatası için; derleyici…	binlog, msbuild, build log, derleme hatası, dotnet, analiz	ToolSearch 'binlog' → mcp__binlog__*	ikisi
+blender	mcp	~/.claude.json	Çalışan Blender'ı blender-mcp ile uzaktan yönetir; 3B sahne/model için; doğrulama kapısı değil	blender, 3d, model, sahne, mesh, render	ToolSearch 'blender' → mcp__blender__*	ikisi
+brave-search	mcp	~/.claude.json	Brave arama motoruyla web araması yapar; güncel bilgi için; sayfa kazıma değil (tahmin)	brave, web ara, search, arama, internet, güncel	ToolSearch 'brave-search' → mcp__brave-search__*	ikisi
+cc-kopru	mcp	claude_desktop_config.json	CC katmanını Desktop sohbetine taşır, izinli CLI'ları köprüden koşar; Desktop'ta araç için; CC içi değil	cc-kopru, köprü, desktop, bridge, komut, allowlist	ToolSearch 'cc-kopru' → mcp__cc-kopru__*	Desktop
+chrome-devtools	mcp	plugin chrome-devtools-mcp@chrome-devtools-plugins	Chrome DevTools ile tarayıcıyı denetler, ağ/konsol/performans izler; web hata ayıklama için; e2e test değil	chrome, devtools, tarayıcı, konsol, network, performans	ToolSearch 'chrome-devtools' → mcp__chrome-devtools__*	CC
+claude-design	mcp	~/.claude.json	Anthropic Claude Design hizmetine bağlanır; tasarım/prototip üretmek için; kod editörü değil (tahmin)	claude design, tasarım, prototip, mockup, ui, design	ToolSearch 'claude-design' → mcp__claude-design__*	ikisi
+claude-mem	mcp	claude_desktop_config.json	Oturumlar arası sıkıştırılmış bellek gözlemlerini arar; geçmiş bağlam için; dosya deposu değil	claude-mem, bellek, memory, geçmiş, gözlem, search	ToolSearch 'claude-mem' → mcp__claude-mem__*	Desktop
+clickhouse	mcp	~/.claude.json	ClickHouse veritabanında SQL sorgusu koşar; analitik veri için; işlem veritabanı değil (tahmin)	clickhouse, sql, analitik, sorgu, veritabanı, olap	ToolSearch 'clickhouse' → mcp__clickhouse__*	CC
+code-review	mcp	~/.claude.json	Kod değişikliklerini inceler ve sorun raporlar; PR incelemesi için; test koşucu değil (tahmin)	code review, kod inceleme, pr, review, diff, kalite	ToolSearch 'code-review' → mcp__code-review__*	ikisi
+codebase-memory-mcp	mcp	~/.claude.json	Kod tabanını indeksleyip kalıcı bellek/grafik olarak sorgular; kod keşfi için; düzenleyici değil (tahmin)	codebase memory, kod indeksi, graph, sembol, ara, keşif	ToolSearch 'codebase-memory-mcp' → mcp__codebase-memory-mcp__*	CC
+codegraph	mcp	~/.claude.json	Kod tabanından sembol grafiği kurar (@colbymchenry/codegraph); çağrı/ilişki sorgusu için; grep değil	codegraph, kod grafiği, sembol, çağıran, ilişki, keşif	ToolSearch 'codegraph' → mcp__codegraph__*	CC
+context-mode	mcp	plugin context-mode@context-mode	Komut ve dosya çıktısını sandbox'ta işleyip indeksler, yalnız sonucu döndürür; bağlam tasarrufu için; kabuk…	context-mode, sandbox, indeks, ctx, bağlam, search	ToolSearch 'context-mode' → mcp__context-mode__*	CC
+context7	mcp	~/.claude.json	Kütüphanelerin güncel dokümanını ve kod örneklerini getirir; API kullanımı için; web araması değil (tahmin)	context7, doküman, docs, kütüphane, api, library	ToolSearch 'context7' → mcp__context7__*	CC
+Definely	mcp	plugin commercial-legal@claude-for-legal	Definely hukuk hizmetine (mcp.uk.definely.com) bağlanır; sözleşme tanım/atıf analizi için; e-imza değil…	definely, sözleşme, contract, hukuk, legal, madde	ToolSearch 'Definely' → mcp__Definely__*	CC
+DocuSign	mcp	plugin commercial-legal@claude-for-legal	DocuSign'a (mcp.docusign.com) bağlanır; sözleşme e-imza süreci için; sözleşme analizi değil	docusign, e-imza, sign, sözleşme, envelope, legal	ToolSearch 'DocuSign' → mcp__DocuSign__*	CC
+drizzle-docs	mcp	~/.claude.json	Drizzle ORM dokümanını sorgular; şema ve sorgu yazımı için; veritabanı bağlantısı değil (tahmin)	drizzle, orm, docs, şema, migration, typescript	ToolSearch 'drizzle-docs' → mcp__drizzle-docs__*	CC
+excalidraw	mcp	~/.claude.json	Excalidraw çizimleri oluşturur/düzenler (mcp-excalidraw-server); diyagram ve şema için; görsel üretim değil	excalidraw, diyagram, çizim, şema, whiteboard, diagram	ToolSearch 'excalidraw' → mcp__excalidraw__*	CC
+expo	mcp	plugin expo@expo-plugins	Expo hizmetine (mcp.expo.dev) bağlanır; React Native/Expo uygulama derleme ve doküman için; web app değil	expo, react native, mobil, eas, build, uygulama	ToolSearch 'expo' → mcp__expo__*	CC
+fal	mcp	plugin universal-modder@universal-modder	fal.ai modellerini çağırır (görsel/video/ses üretimi, mcp.fal.ai); medya üretimi için; yerel model değil	fal, fal.ai, görsel üret, video üret, image gen, flux, medya	ToolSearch 'fal' → mcp__fal__*	CC
+figma	mcp	~/.claude.json	Figma uzak MCP'si (mcp.figma.com): tasarım, frame, bileşen okur; tasarımdan koda için; çizim aracı değil	figma, tasarım dosyası, frame, design to code, bileşen, component	ToolSearch 'figma' → mcp__figma__*	CC
+github	mcp	~/.claude.json	GitHub uzak MCP'si (api.githubcopilot.com): repo, issue, PR, kod arama; GitHub işleri için; yerel git değil	github, issue, pull request, PR, repo, code search, actions	ToolSearch 'github' → mcp__github__*	CC
+godot	mcp	~/.claude.json	Godot editörünü/projesini sürer (@coding-solo/godot-mcp): sahne, koşturma, hata; Godot oyunu için; Unity değil	godot, gdscript, oyun motoru, sahne, scene, game dev	ToolSearch 'godot' → mcp__godot__*	CC
+Google Drive	mcp	plugin privacy-legal@claude-for-legal	Google Drive dosyalarını arar ve okur (drivemcp.googleapis.com); hukuk belgesi bulmak için; yerel disk değil	google drive, drive, gdrive, belge ara, doküman, docs	ToolSearch 'Google Drive' → mcp__Google Drive__*	CC
+gsc	mcp	~/.claude.json	Google Search Console verisini sorgular: tıklama, sorgu, dizin; SEO analizi için; reklam paneli değil (tahmin)	search console, gsc, seo, arama sorgusu, impressions, indexing	ToolSearch 'gsc' → mcp__gsc__*	CC
+headroom	mcp	~/.claude.json	headroom-ai sıkıştırma: araç çıktısını sıkıştırır, hash ile tam metni geri getirir; token tasarrufu için;…	headroom, sıkıştır, compress, retrieve, hash, token tasarrufu	ToolSearch 'headroom' → mcp__headroom__*	ikisi
+hfspace	mcp	~/.claude.json	Hugging Face Spaces uygulamalarını araç olarak çağırır (görsel, ses, model); HF demoları için; yerel model…	hugging face, hf space, spaces, gradio, model demo, huggingface	ToolSearch 'hfspace' → mcp__hfspace__*	CC
+hostinger	mcp	~/.claude.json	Hostinger hesabını yönetir: hosting, alan adı, DNS, VPS; site yayın altyapısı için; Netlify değil (tahmin)	hostinger, hosting, domain, alan adı, dns, vps, deploy	ToolSearch 'hostinger' → mcp__hostinger__*	CC
+iManage	mcp	plugin commercial-legal@claude-for-legal	iManage Work belge yönetiminden hukuk dosyası arar/okur; hukuk bürosu belgeleri için; genel bulut disk değil	imanage, legal dms, hukuk belgesi, matter, sözleşme dosyası, document management	ToolSearch 'iManage' → mcp__iManage__*	CC
+infinite-canvas	mcp	~/.claude.json	Sonsuz tuval ajanı (@basketikun/canvas-agent): tuvale görsel/not yerleştirir; görsel pano için; Figma değil…	canvas, tuval, infinite canvas, moodboard, pano, whiteboard	ToolSearch 'infinite-canvas' → mcp__infinite-canvas__*	CC
+Ironclad	mcp	plugin commercial-legal@claude-for-legal	Ironclad sözleşme yaşam döngüsü (CLM) kayıtlarını sorgular; ticari sözleşme işleri için; e-imza aracı değil	ironclad, clm, sözleşme, contract, workflow, hukuk	ToolSearch 'Ironclad' → mcp__Ironclad__*	CC
+jev	mcp	~/.claude.json	TypeSafe Jev yerel MCP'si: kod tabanında ilgili dosya bulur, log triage yapar; bağlam daraltmak için; LLM…	jev, ilgili, triage, log, kod arama, context, typesafe	ToolSearch 'jev' → mcp__jev__*	CC
+markitdown	mcp	~/.claude.json	markitdown-mcp: PDF, DOCX, PPTX, XLSX, HTML'i Markdown'a çevirir; LLM'e belge vermek için; OCR editörü değil	markitdown, pdf to markdown, docx, dönüştür, convert, belge	ToolSearch 'markitdown' → mcp__markitdown__*	CC
+mcp-fetch	mcp	~/.claude.json	mcp-server-fetch: URL'yi çekip Markdown'a çevirir; tek sayfa okuma için; tarayıcı otomasyonu değil	fetch, url çek, web sayfası, sayfa oku, http, markdown	ToolSearch 'mcp-fetch' → mcp__mcp-fetch__*	ikisi
+mcp-filesystem	mcp	~/.claude.json	@modelcontextprotocol/server-filesystem: izinli klasörlerde dosya oku/yaz/listele; dosya erişimi için; git…	filesystem, dosya, klasör, read file, write file, dizin	ToolSearch 'mcp-filesystem' → mcp__mcp-filesystem__*	ikisi
+mcp-git	mcp	~/.claude.json	mcp-server-git: yerel repoda status, diff, log, commit, branch; git işlemleri için; GitHub API değil	git, commit, diff, log, branch, status, repo	ToolSearch 'mcp-git' → mcp__mcp-git__*	ikisi
+mcp-memory	mcp	~/.claude.json	@modelcontextprotocol/server-memory: varlık-ilişki bilgi grafiğinde kalıcı hafıza; oturumlar arası not için;…	memory, hafıza, knowledge graph, entity, relation, hatırla	ToolSearch 'mcp-memory' → mcp__mcp-memory__*	ikisi
+mcp-search	mcp	plugin claude-mem@thedotmack	claude-mem hafıza araması: geçmiş oturum gözlemlerini arar, zaman çizelgesi getirir; geçmiş karar için; web…	claude-mem, hafıza ara, mem search, geçmiş oturum, timeline, observation	ToolSearch 'mcp-search' → mcp__mcp-search__*	CC
+mcp-sequential-thinking	mcp	~/.claude.json	Adım adım düşünce zinciri aracı: düşünceyi numaralı adımlarla revize eder; karmaşık plan için; araştırma değil	sequential thinking, adım adım, düşün, reasoning, plan, problem çöz	ToolSearch 'mcp-sequential-thinking' → mcp__mcp-sequential-thinking__*	ikisi
+mcp-time	mcp	~/.claude.json	mcp-server-time: güncel saati verir, saat dilimleri arası çevirir; tarih/saat için; takvim değil	saat, time, timezone, saat dilimi, tarih, now	ToolSearch 'mcp-time' → mcp__mcp-time__*	ikisi
+mslearn	mcp	~/.claude.json	Microsoft Learn resmi belgelerini arar ve getirir (learn.microsoft.com); .NET/Azure doküman için; kod…	microsoft learn, docs, .net, azure, c#, dokümantasyon	ToolSearch 'mslearn' → mcp__mslearn__*	CC
+n8n-mcp	mcp	~/.claude.json	n8n düğüm belgesi ve iş akışı oluşturma/doğrulama; n8n otomasyonu için; n8n sunucusunun kendisi değil	n8n, workflow, otomasyon, node, iş akışı, automation	ToolSearch 'n8n-mcp' → mcp__n8n-mcp__*	CC
+nano-banana-2	mcp	plugin nano-banana-2@nano-banana-2-plugins	Gemini Nano Banana 2 ile görsel üretir/düzenler, çözünürlük ve düşünme ayarlı; görsel üretim için; video değil	nano banana, gemini image, görsel üret, image edit, resim, imagen	ToolSearch 'nano-banana-2' → mcp__nano-banana-2__*	CC
+netlify	mcp	~/.claude.json	Netlify sitelerini yönetir: deploy, site, ortam, alan adı; statik site yayını için; Hostinger değil	netlify, deploy, yayınla, site, hosting, publish	ToolSearch 'netlify' → mcp__netlify__*	CC
+obsidian	mcp	claude_desktop_config.json	Obsidian kasasındaki notları okur, arar, yazar; kişisel not tabanı için; Notion değil (tahmin)	obsidian, vault, kasa, not, markdown not, second brain	ToolSearch 'obsidian' → mcp__obsidian__*	Desktop
+open-design	mcp	plugin open-design@open-design	Open Design yerel servisine (od mcp, 127.0.0.1:7456) bağlanır; tasarım üretimi için; Figma değil (tahmin)	open design, od, tasarım, design, prototip, ui	ToolSearch 'open-design' → mcp__open-design__*	CC
+playwright	mcp	~/.claude.json	@playwright/mcp: tarayıcıyı sürer, tıklar, form doldurur, ekran görüntüsü alır; web otomasyon/test için;…	playwright, tarayıcı, browser, e2e, screenshot, tıkla	ToolSearch 'playwright' → mcp__playwright__*	ikisi
+premiere-pro	mcp	~/.claude.json	adobe-premiere-pro-mcp: Premiere Pro projesini sürer (klip, timeline, dışa aktarım); video kurgu için;…	premiere, adobe, video kurgu, timeline, edit, export	ToolSearch 'premiere-pro' → mcp__premiere-pro__*	CC
+puppeteer	mcp	~/.claude.json	Puppeteer ile Chrome sürer: gezinme, tıklama, ekran görüntüsü; tarayıcı otomasyonu için; Playwright değil	puppeteer, chrome, tarayıcı, headless, screenshot, browser	ToolSearch 'puppeteer' → mcp__puppeteer__*	ikisi
+qmd	mcp	~/.claude.json	qmd: Markdown dosyalarında yerel hibrit arama (BM25+vektör+LLM sıralama); not/doküman arama için; web…	qmd, markdown ara, yerel arama, bm25, vector search, notlar	ToolSearch 'qmd' → mcp__qmd__*	CC
+serena	mcp	~/.claude.json	Serena: LSP tabanlı sembol arama ve sembol düzeyinde kod düzenleme; büyük kod tabanı için; metin grep değil	serena, sembol, symbol, lsp, find references, refactor	ToolSearch 'serena' → mcp__serena__*	CC
+Slack	mcp	plugin privacy-legal@claude-for-legal	Slack kanal ve mesajlarını arar/okur/gönderir (mcp.slack.com); ekip yazışması için; e-posta değil	slack, kanal, channel, mesaj, message, thread	ToolSearch 'Slack' → mcp__Slack__*	CC
+stitch	mcp	~/.claude.json	Google Stitch proxy (@_davideast/stitch-mcp): UI ekranı üretir, tasarım çeker; arayüz taslağı için; Figma…	stitch, google stitch, ui üret, ekran tasarımı, mockup, design	ToolSearch 'stitch' → mcp__stitch__*	ikisi
+TopCounsel	mcp	plugin commercial-legal@claude-for-legal	TopCounsel (techgc) hukuk danışmanı/avukat verisi sorgular; dış hukuk desteği için; sözleşme CLM değil…	topcounsel, avukat, counsel, hukuk, legal, outside counsel	ToolSearch 'TopCounsel' → mcp__TopCounsel__*	CC
+unity	mcp	~/.claude.json	anklebreaker-unity-mcp: Unity editörünü sürer (sahne, GameObject, betik); Unity oyunu için; Godot değil	unity, oyun, gameobject, sahne, scene, c# script	ToolSearch 'unity' → mcp__unity__*	CC
 21st	plugin	21st@21st-dev	Find UI components and themes, retrieve their code, and use hosted 21st AI when enabled.		/plugin 21st@21st-dev (skill/ajan/MCP'leri ayrı satırlarda)	CC · 1 skill · 0 komut · 0 ajan · 1 MCP · açık — Find UI components and themes, retrieve their code, and use hosted 21st AI when enabled.
 accessibility-decisions	plugin	accessibility-decisions@designer-skills	Document, communicate, and maintain accessibility decisions across teams and time.		/plugin accessibility-decisions@designer-skills (skill/ajan/MCP'leri ayrı satırlarda)	CC · 9 skill · 0 komut · 0 ajan · 0 MCP · açık — Document, communicate, and maintain accessibility decisions across teams and time.
 accessible-content	plugin	accessible-content@designer-skills	Structure content that works for screen readers, cognitive differences, and diverse literacy levels.		/plugin accessible-content@designer-skills (skill/ajan/MCP'leri ayrı satırlarda)	CC · 10 skill · 0 komut · 0 ajan · 0 MCP · açık — Structure content that works for screen readers, cognitive differences, and diverse literacy levels.
@@ -801,7 +801,7 @@ douban-skill	plugin	douban-skill@daymade-skills	Export and sync Douban (豆瓣) 
 download-gemini-images	plugin	download-gemini-images@daymade-skills	Download, export, save, or package images from a Google Gemini conversation page — uploaded images or…		/plugin download-gemini-images@daymade-skills (skill/ajan/MCP'leri ayrı satırlarda)	CC · 0 skill · 0 komut · 0 ajan · 0 MCP · açık — 
 ecc	plugin	ecc@ecc	Harness-native ECC plugin for engineering teams - 68 agents, 293 skills, 94 legacy command shims, reusable…		/plugin ecc@ecc (skill/ajan/MCP'leri ayrı satırlarda)	CC · 293 skill · 94 komut · 68 ajan · 1 MCP · hook · açık — Harness-native ECC plugin for engineering teams - 68 agents, 293 skills, 94 legacy command shims, re
 evaluation	plugin	evaluation@designer-skills	Measure AI output quality, user satisfaction, task success, and design effectiveness.		/plugin evaluation@designer-skills (skill/ajan/MCP'leri ayrı satırlarda)	CC · 7 skill · 3 komut · 0 ajan · 0 MCP · açık — Measure AI output quality, user satisfaction, task success, and design effectiveness.
-everything-claude-code	plugin	envanter.json (kurulu değil?)			/plugin envanter.json (kurulu değil?) (skill/ajan/MCP'leri ayrı satırlarda)	CC
+everything-claude-code	plugin	envanter.json (kurulu değil?)	Hazır Claude Code yapılandırma derlemesi: ajan, skill, hook, komut, kural; kurulum fikri için; tek amaçlı…	ecc, everything claude code, agents, hooks, rules, commands	/plugin envanter.json (kurulu değil?) (skill/ajan/MCP'leri ayrı satırlarda)	CC
 example-skills	plugin	example-skills@anthropic-agent-skills	Collection of example skills demonstrating various capabilities including skill creation, MCP building,…		/plugin example-skills@anthropic-agent-skills (skill/ajan/MCP'leri ayrı satırlarda)	CC · 19 skill · 0 komut · 0 ajan · 0 MCP · açık — 
 excalidraw-use	plugin	excalidraw-use@daymade-skills	Places existing images onto an Excalidraw whiteboard, turns a slide deck into clean per-slide images, and…		/plugin excalidraw-use@daymade-skills (skill/ajan/MCP'leri ayrı satırlarda)	CC · 0 skill · 0 komut · 0 ajan · 0 MCP · açık — 
 explanatory-output-style	plugin	explanatory-output-style@claude-code-plugins	Adds educational insights about implementation choices and codebase patterns (mimics the deprecated…		/plugin explanatory-output-style@claude-code-plugins (skill/ajan/MCP'leri ayrı satırlarda)	CC · 0 skill · 0 komut · 0 ajan · 0 MCP · hook · KAPALI — Adds educational insights about implementation choices and codebase patterns (mimics the deprecated 
@@ -992,7 +992,7 @@ claude-ads:ads-x	skill	claude-ads@ai-marketing-hub-claude-ads	Use for X Ads, Twi
 claude-ads:ads-youtube	skill	claude-ads@ai-marketing-hub-claude-ads	Use for YouTube Ads, video ads, pre-roll, bumper ads, skippable in-stream, Shorts ads, Demand Gen, VAC…		Skill claude-ads:ads-youtube	CC
 ui-design:aesthetic-usability	skill	ui-design@designer-skills	Use when justifying visual polish or diagnosing why a functional design tests badly. For emotional resonance…		Skill ui-design:aesthetic-usability	CC
 design-research:affinity-diagram	skill	design-research@designer-skills	Use when synthesising across multiple sessions or sources. For a single transcript use…		Skill design-research:affinity-diagram	CC
-claude-mem:Agent Cost Report	skill	claude-mem@thedotmack			Skill claude-mem:Agent Cost Report	CC
+claude-mem:Agent Cost Report	skill	claude-mem@thedotmack	Dönemlik ajan maliyet raporu: transkript tokenlarını OpenRouter fiyatıyla tahmin eder; harcama için; fatura…	maliyet, cost report, token harcama, spend, usage, fatura	Skill claude-mem:Agent Cost Report	CC
 ecc:agent-architecture-audit	skill	ecc@ecc	Use when an agent or LLM feature misbehaves and the failing layer is unknown, or before shipping an agent…		Skill ecc:agent-architecture-audit	CC
 agent-browser:agent-browser	skill	agent-browser@agent-browser	Use when the user needs to interact with websites, including navigating pages, filling forms, clicking…		Skill agent-browser:agent-browser	CC
 plugin-dev:agent-development	skill	plugin-dev@claude-plugins-official	"This skill should be used when the user asks to ""create an agent"", ""add an agent"", ""write a subagent"",…"		Skill plugin-dev:agent-development	CC
@@ -1266,8 +1266,8 @@ design-strategy:design-strategy-doc	skill	design-strategy@designer-skills	Write 
 ecc:design-system	skill	ecc@ecc	Use when starting a design system, auditing visual consistency before a redesign, or reviewing a PR that…		Skill ecc:design-system	CC
 designer-toolkit:design-system-adoption	skill	designer-toolkit@designer-skills	Use when the system exists but teams ignore it. For contribution and versioning rules, use…		Skill designer-toolkit:design-system-adoption	CC
 design-systems:design-system-governance	skill	design-systems@designer-skills	Use when multiple teams contribute. For driving uptake use `design-system-adoption` (designer-toolkit); for…		Skill design-systems:design-system-governance	CC
-taste-skill:design-taste-frontend	skill	taste-skill@taste-skill			Skill taste-skill:design-taste-frontend	CC
-taste-skill:design-taste-frontend-v1	skill	taste-skill@taste-skill			Skill taste-skill:design-taste-frontend-v1	CC
+taste-skill:design-taste-frontend	skill	taste-skill@taste-skill	Şablon görünmeyen ön yüz kurar: brieften tasarım yönü çıkarır; landing/portföy için; backend değil	taste, landing page, frontend, anti-slop, portföy, redesign	Skill taste-skill:design-taste-frontend	CC
+taste-skill:design-taste-frontend-v1	skill	taste-skill@taste-skill	Eski v1 taste-skill, tam davranışına bağlı projeler için korunur; geriye uyum için; yeni iş için değil	taste v1, eski taste, legacy, frontend, design taste, v1	Skill taste-skill:design-taste-frontend-v1	CC
 design-systems:design-token	skill	design-systems@designer-skills	Use when establishing the token layer. For auditing existing usage use `design-token-audit`…		Skill design-systems:design-token	CC
 designer-toolkit:design-token-audit	skill	designer-toolkit@designer-skills	Use when tokens exist and you suspect they are being bypassed. For defining tokens in the first place, use…		Skill designer-toolkit:design-token-audit	CC
 design-strategy:design-vision	skill	design-strategy@designer-skills	Articulate a compelling design vision for a product or org.		Skill design-strategy:design-vision	CC
@@ -1404,7 +1404,7 @@ ecc:frontend-slides	skill	ecc@ecc	Use when the user wants to build a presentatio
 agent-skills:frontend-ui-engineering	skill	agent-skills@addy-agent-skills	Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG…		Skill agent-skills:frontend-ui-engineering	CC
 model-interaction-design:frustration-detection	skill	model-interaction-design@designer-skills	Reading user emotional state from text signals — caps, punctuation density, repetition, latency — and…		Skill model-interaction-design:frustration-detection	CC
 ecc:fsharp-testing	skill	ecc@ecc	Use when writing F# tests with xUnit, FsUnit, Unquote, or FsCheck.		Skill ecc:fsharp-testing	CC
-taste-skill:full-output-enforcement	skill	taste-skill@taste-skill			Skill taste-skill:full-output-enforcement	CC
+taste-skill:full-output-enforcement	skill	taste-skill@taste-skill	Kısaltmayı yasaklar, tam kod üretir, yer tutucu bırakmaz; uzun çıktı için; tasarım skill'i değil	tam çıktı, full output, kesme, truncation, placeholder, eksiksiz	Skill taste-skill:full-output-enforcement	CC
 universal-modder:game-automation	skill	universal-modder@universal-modder	Use when a mod must be verified in game, when navigating menus automatically, or when building a repeatable…		Skill universal-modder:game-automation	CC
 universal-modder:game-recon	skill	universal-modder@universal-modder	"Use when the user asks ""can I mod <game>?"", ""what engine is <game>"", ""how do people mod <game>"", or at the…"		Skill universal-modder:game-recon	CC
 universal-modder:game-research-websearch	skill	universal-modder@universal-modder	"Use when starting work on a game (""how did people mod X before?""), when a documented tool/link is dead, when…"		Skill universal-modder:game-research-websearch	CC
@@ -1426,7 +1426,7 @@ ecc:golang-testing	skill	ecc@ecc	Use when writing Go tests — table-driven case
 ecc:google-workspace-ops	skill	ecc@ecc	Use when the user needs to find, summarize, edit, migrate, or clean up Google Workspace assets without…		Skill ecc:google-workspace-ops	CC
 process-design:governance-model	skill	process-design@designer-skills	Define lightweight program governance.		Skill process-design:governance-model	CC
 codex:gpt-5-4-prompting	skill	codex@openai-codex	Internal guidance for composing Codex and GPT-5.4 prompts for coding, review, diagnosis, and research tasks…		Skill codex:gpt-5-4-prompting	CC
-taste-skill:gpt-taste	skill	taste-skill@taste-skill			Skill taste-skill:gpt-taste	CC
+taste-skill:gpt-taste	skill	taste-skill@taste-skill	GSAP hareketli, AIDA yapılı, editoryal tipografili sayfa kurar; animasyonlu landing için; sade UI değil	gsap, animasyon, motion, aida, bento, scrolltrigger	Skill taste-skill:gpt-taste	CC
 dotnet-test:grade-tests	skill	dotnet-test@dotnet-agent-skills	Grade specified test methods individually and produce a concise PR-ready table with each fully qualified…		Skill dotnet-test:grade-tests	CC
 ecc:growth-log	skill	ecc@ecc	Use when capturing what was learned after a complex task, debugging session, failure, or rollback, when…		Skill ecc:growth-log	CC
 people-management:growth-plan	skill	people-management@designer-skills	Co-create an individual growth plan with a designer.		Skill people-management:growth-plan	CC
@@ -1459,7 +1459,7 @@ prototyping-testing:heuristic-evaluation	skill	prototyping-testing@designer-skil
 evaluation:heuristic-evaluation-ai	skill	evaluation@designer-skills	Adapting Nielsen's heuristics and new AI-specific heuristics for AI interfaces.		Skill evaluation:heuristic-evaluation-ai	CC
 ecc:hexagonal-architecture	skill	ecc@ecc	Use when introducing or refactoring toward Ports and Adapters, or when domain logic has become entangled…		Skill ecc:hexagonal-architecture	CC
 interaction-design:hicks-law	skill	interaction-design@designer-skills	Use when a screen offers too many options at once. For how many items survive in memory afterwards, use…		Skill interaction-design:hicks-law	CC
-taste-skill:high-end-visual-design	skill	taste-skill@taste-skill			Skill taste-skill:high-end-visual-design	CC
+taste-skill:high-end-visual-design	skill	taste-skill@taste-skill	Ajans kalitesi font, boşluk, gölge, kart, animasyon kuralları; pahalı görünen site için; varsayılan UI değil	premium, lüks tasarım, high-end, agency, görsel kalite, polish	Skill taste-skill:high-end-visual-design	CC
 ecc:hipaa-compliance	skill	ecc@ecc	Use when a task is explicitly framed around HIPAA, PHI handling, covered entities, BAAs, breach posture, or…		Skill ecc:hipaa-compliance	CC
 team-building:hiring-loop	skill	team-building@designer-skills	Design a fair, signal-rich interview loop.		Skill team-building:hiring-loop	CC
 ecc:homelab-network-readiness	skill	ecc@ecc	Use when planning or reviewing home network changes — splitting a flat network into trusted, IoT, guest, or…		Skill ecc:homelab-network-readiness	CC
@@ -1485,7 +1485,7 @@ design-systems:icon-system	skill	design-systems@designer-skills	Use when standar
 agent-skills:idea-refine	skill	agent-skills@addy-agent-skills	Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or…		Skill agent-skills:idea-refine	CC
 ui-design:illustration-style	skill	ui-design@designer-skills	Use when commissioning or standardising illustration. For icons, use `icon-system` (design-systems).		Skill ui-design:illustration-style	CC
 marketing-skills:image	skill	marketing-skills@marketingskills	Use this for general-purpose marketing image creation and optimization. For paid ad image creative and…		Skill marketing-skills:image	CC
-taste-skill:image-to-code	skill	taste-skill@taste-skill			Skill taste-skill:image-to-code	CC
+taste-skill:image-to-code	skill	taste-skill@taste-skill	Önce tasarım görseli üretir, inceler, siteyi ona birebir kodlar; görselden site için; backend değil	image to code, görselden kod, mockup, screenshot to code, site, tasarım	Skill taste-skill:image-to-code	CC
 taste-skill:imagegen-frontend-mobile	skill	taste-skill@taste-skill	Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed…		Skill taste-skill:imagegen-frontend-mobile	CC
 taste-skill:imagegen-frontend-web	skill	taste-skill@taste-skill	Elite frontend image-direction skill for generating premium, conversion-aware website design references.…		Skill taste-skill:imagegen-frontend-web	CC
 img:img	skill	img@nyldn-plugins	Use when a user asks for image generation, image editing, website/marketing visuals, brand-consistent…		Skill img:img	CC
@@ -1495,7 +1495,7 @@ dotnet-msbuild:including-generated-files	skill	dotnet-msbuild@dotnet-agent-skill
 inclusive-personas:inclusive-user-stories	skill	inclusive-personas@designer-skills	Use when writing user stories, acceptance criteria, jobs to be done, or requirements. Triggers on: user…		Skill inclusive-personas:inclusive-user-stories	CC
 dotnet-msbuild:incremental-build	skill	dotnet-msbuild@dotnet-agent-skills	Guide for optimizing MSBuild incremental builds. USE FOR: builds slower than expected on subsequent runs,…		Skill dotnet-msbuild:incremental-build	CC
 agent-skills:incremental-implementation	skill	agent-skills@addy-agent-skills	Use when implementing any feature or change that touches more than one file, or when picking up the next…		Skill agent-skills:incremental-implementation	CC
-taste-skill:industrial-brutalist-ui	skill	taste-skill@taste-skill			Skill taste-skill:industrial-brutalist-ui	CC
+taste-skill:industrial-brutalist-ui	skill	taste-skill@taste-skill	İsviçre tipografisi + terminal estetiği, katı ızgara brütalist arayüz; veri paneli/portföy için; yumuşak UI…	brutalist, endüstriyel, swiss, terminal, grid, dashboard	Skill taste-skill:industrial-brutalist-ui	CC
 org-influence:influence-map	skill	org-influence@designer-skills	Map and plan influence across the organisation.		Skill org-influence:influence-map	CC
 marketing-skills:influencer-marketing	skill	marketing-skills@marketingskills	When the user wants to run influencer, creator, or ambassador partnerships to promote their product —…		Skill marketing-skills:influencer-marketing	CC
 ux-strategy:information-architecture	skill	ux-strategy@designer-skills	Use when organising what exists. For the UI that exposes it use `navigation-patterns` (interaction-design);…		Skill ux-strategy:information-architecture	CC
@@ -1611,7 +1611,7 @@ azure:microsoft-foundry	skill	azure@azure-skills	Build, deploy, evaluate, optimi
 dotnet-test:migrate-static-to-wrapper	skill	dotnet-test@dotnet-agent-skills	ALWAYS USE when asked to migrate, replace, or make testable existing C# static calls with a named wrapper or…		Skill dotnet-test:migrate-static-to-wrapper	CC
 interaction-design:millers-law	skill	interaction-design@designer-skills	Use when grouping fields, menu items, or steps. For reducing the number of choices offered, use `hicks-law`.		Skill interaction-design:millers-law	CC
 dotnet-aspnetcore:minimal-api-file-upload	skill	dotnet-aspnetcore@dotnet-agent-skills	File upload endpoints in ASP.NET minimal APIs (.NET 8+)		Skill dotnet-aspnetcore:minimal-api-file-upload	CC
-taste-skill:minimalist-ui	skill	taste-skill@taste-skill			Skill taste-skill:minimalist-ui	CC
+taste-skill:minimalist-ui	skill	taste-skill@taste-skill	Editoryal sade arayüz: sıcak monokrom, düz bento, gradyansız; minimal tasarım için; gösterişli UI değil	minimal, minimalist, sade, editorial, monokrom, bento	Skill taste-skill:minimalist-ui	CC
 model-interaction-design:mixed-initiative-flow	skill	model-interaction-design@designer-skills	When the AI leads vs. when the user leads, and how to hand off control.		Skill model-interaction-design:mixed-initiative-flow	CC
 ecc:ml-adoption-playbook	skill	ecc@ecc	Use when adding a machine learning capability to a codebase that has none, from problem framing through a…		Skill ecc:ml-adoption-playbook	CC
 ecc:mle-workflow	skill	ecc@ecc	Use when building, reviewing, or hardening ML systems beyond one-off notebooks.		Skill ecc:mle-workflow	CC
@@ -1784,7 +1784,7 @@ ui-design:readable-measure	skill	ui-design@designer-skills	Use when tuning body 
 superpowers:receiving-code-review	skill	superpowers@claude-plugins-official	Use when receiving code review feedback, before implementing suggestions, especially if feedback seems…		Skill superpowers:receiving-code-review	CC
 ecc:recsys-pipeline-architect	skill	ecc@ecc	Design composable recommendation, ranking, and feed pipelines using the six-stage…		Skill ecc:recsys-pipeline-architect	CC
 ecc:recursive-decision-ledger	skill	ecc@ecc	Use when the user asks for repeated rollouts, marked decision processes, high-dimensional search, stochastic…		Skill ecc:recursive-decision-ledger	CC
-taste-skill:redesign-existing-projects	skill	taste-skill@taste-skill			Skill taste-skill:redesign-existing-projects	CC
+taste-skill:redesign-existing-projects	skill	taste-skill@taste-skill	Var olan siteyi denetler, jenerik AI izlerini ayıklar, işlevi bozmadan yükseltir; yeniden tasarım için;…	redesign, yeniden tasarla, iyileştir, audit, upgrade, mevcut site	Skill taste-skill:redesign-existing-projects	CC
 ecc:redis-patterns	skill	ecc@ecc	Use when adding caching, a distributed lock, rate limiting, or pub/sub with Redis, or when key design needs…		Skill ecc:redis-patterns	CC
 marketing-skills:referrals	skill	marketing-skills@marketingskills	Use this whenever someone wants existing users or partners to bring in new customers. For launch-specific…		Skill marketing-skills:referrals	CC
 privacy-legal:reg-gap-analysis	skill	privacy-legal@claude-for-legal	"Use when a new reg drops, the user asks ""does [regulation] affect us"", ""gap analysis for [state privacy…"		Skill privacy-legal:reg-gap-analysis	CC
@@ -1932,7 +1932,7 @@ claude-mem:standup	skill	claude-mem@thedotmack	Facilitate a read-only standup ac
 interfaces:state-machine	skill	interfaces@interfaces	Use when a component has many interacting states that must be exhaustive. For the feel and feedback of a…		Skill interfaces:state-machine	CC
 design-agent-orchestration:state-management	skill	design-agent-orchestration@designer-skills	Managing shared context, memory, and state across multiple agents.		Skill design-agent-orchestration:state-management	CC
 stakeholder-comms:status-report	skill	stakeholder-comms@designer-skills	Write a clear program status report with RAG status, progress, risks, and asks.		Skill stakeholder-comms:status-report	CC
-taste-skill:stitch-design-taste	skill	taste-skill@taste-skill			Skill taste-skill:stitch-design-taste	CC
+taste-skill:stitch-design-taste	skill	taste-skill@taste-skill	Google Stitch için kurallı DESIGN.md üretir (tipografi, renk, hareket); Stitch tasarım sistemi için; kod değil	stitch, design.md, tasarım sistemi, design system, google stitch, ui kural	Skill taste-skill:stitch-design-taste	CC
 ecc:strategic-compact	skill	ecc@ecc	Use when a session is approaching a context limit and a task phase is a natural place to compact.		Skill ecc:strategic-compact	CC
 accessible-content:structure	skill	accessible-content@designer-skills	Use when building a new page, document, or content template and you want to get the structural accessibility…		Skill accessible-content:structure	CC
 superpowers:subagent-driven-development	skill	superpowers@claude-plugins-official	Use when executing implementation plans with independent tasks in the current session		Skill superpowers:subagent-driven-development	CC
@@ -2035,7 +2035,7 @@ process-design:workflow-design	skill	process-design@designer-skills	Design an en
 cross-functional-alignment:working-agreement	skill	cross-functional-alignment@designer-skills	Establish a cross-functional working agreement.		Skill cross-functional-alignment:working-agreement	CC
 ecc:workspace-surface-audit	skill	ecc@ecc	Use when the user wants help setting up Claude Code or understanding what capabilities are actually…		Skill ecc:workspace-surface-audit	CC
 claude-mem:wowerpoint	skill	claude-mem@thedotmack	"Use for ""wowerpoint this"", ""make a deck about <file>"", ""turn this report into slides"", or any request to…"		Skill claude-mem:wowerpoint	CC
-hookify:Writing Hookify Rules	skill	hookify@claude-code-plugins			Skill hookify:Writing Hookify Rules	CC
+hookify:Writing Hookify Rules	skill	hookify@claude-code-plugins	Hookify kural sözdizimi ve kalıplarını anlatır, kural yazdırır; hook kuralı için; settings.json hook değil	hookify, hook kuralı, hook rule, kural yaz, configure hookify, pattern	Skill hookify:Writing Hookify Rules	CC
 dotnet-test:writing-mstest-tests	skill	dotnet-test@dotnet-agent-skills	"Use for ""review"" when corrected code or edits are wanted, even for one pasted assertion or passing tests…"		Skill dotnet-test:writing-mstest-tests	CC
 superpowers:writing-plans	skill	superpowers@claude-plugins-official	Use when you have a spec or requirements for a multi-step task, before touching code		Skill superpowers:writing-plans	CC
 superpowers:writing-skills	skill	superpowers@claude-plugins-official	Use when creating new skills, editing existing skills, or verifying skills work before deployment		Skill superpowers:writing-skills	CC
@@ -2198,7 +2198,7 @@ careful	skill	~/.claude/skills	Safety guardrails for destructive commands. (gsta
 ccs-align	skill	claude.ai senkron	Run the CCS Align seat's hourly breathing cycle — prove the local claude-mem worker is healthy, pull needle…		Skill ccs-align	ikisi
 check	skill	~/.claude/skills	Confirm a change before merge. `/check verify` drives the real app to prove behavior against the spec (every…		Skill check	CC
 check-bin-obj-clash	skill	claude.ai senkron	Detects MSBuild projects with conflicting OutputPath or IntermediateOutputPath. USE FOR: builds failing with…		Skill check-bin-obj-clash	ikisi
-chinese-novelist	skill	~/.claude/skills			Skill chinese-novelist	CC
+chinese-novelist	skill	~/.claude/skills	Bölümlü Çince roman yazar (10-50 bölüm, askıda sonlar, AI izi temizliği); uzun kurgu için; Türkçe metin değil	çince roman, novel, 小说, kurgu, bölüm, hikaye yaz	Skill chinese-novelist	CC
 chrome-browser	skill	claude.ai senkron	Read this skill before the first step that uses Claude in Chrome, the browser extension whose tools are…		Skill chrome-browser	ikisi
 chrome-devtools-paket	skill	claude.ai senkron	7 skill'lik paket (Chrome DevTools: erişilebilirlik ve LCP hata ayıklama, bellek sızıntısı, çerez, DevTools…		Skill chrome-devtools-paket	ikisi
 ci-cd-and-automation	skill	claude.ai senkron	Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality…		Skill ci-cd-and-automation	ikisi
@@ -2481,7 +2481,7 @@ gemini-omni-flash-api	skill	~/.claude/skills	Use this skill for generative video
 generate-image	skill	claude.ai senkron	Generate images using nano-banana-2 MCP tools with best-practice prompting. Use this skill when the user…		Skill generate-image	ikisi
 generate-reference-inspired-brand-worlds	skill	~/.claude/skills	Use when a user provides a brand identity image, poster, editorial campaign, moodboard, or generated concept…		Skill generate-reference-inspired-brand-worlds	CC
 generate-testability-wrappers	skill	claude.ai senkron	DO NOT USE when the target already consumes an injected interface or built-in abstraction such as…		Skill generate-testability-wrappers	ikisi
-geo-optimizer-skill	skill	~/.claude/skills			Skill geo-optimizer-skill	CC
+geo-optimizer-skill	skill	~/.claude/skills	Siteyi AI arama motorlarında görünür ve alıntılanır yapar (GEO denetimi); AI SEO için; reklam değil	geo, ai seo, perplexity, chatgpt search, alıntılanma, citability	Skill geo-optimizer-skill	CC
 gh-review-requests	skill	~/.claude/skills	"Use when asked to ""find PRs I need to review"", ""show my review requests"", ""what needs my review"", ""fetch…"		Skill gh-review-requests	CC
 gha-security-review	skill	~/.claude/skills	"Use when asked to ""review GitHub Actions"", ""audit workflows"", ""check CI security"", ""GHA security"", ""workflow…"		Skill gha-security-review	CC
 git-workflow-and-versioning	skill	claude.ai senkron	Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted…		Skill git-workflow-and-versioning	ikisi
@@ -2637,15 +2637,15 @@ landing-report	skill	~/.claude/skills	Read-only queue dashboard for workspace-aw
 last30days	skill	claude.ai senkron	Use to research what people say about a topic in the last 30 days across Reddit, X, YouTube, HN, web		Skill last30days	ikisi
 learn	skill	~/.claude/skills	Manage project learnings.		Skill learn	CC
 learn-codebase	skill	claude.ai senkron	"Use when starting work on a new or unfamiliar project, or when the user asks to \""learn the codebase\"",…"		Skill learn-codebase	ikisi
-lifekernel-daily-circle	skill	~/.claude/skills			Skill lifekernel-daily-circle	CC
-lifekernel-monthly-review	skill	~/.claude/skills			Skill lifekernel-monthly-review	CC
-lifekernel-morning-plan	skill	~/.claude/skills			Skill lifekernel-morning-plan	CC
-lifekernel-onboarding	skill	~/.claude/skills			Skill lifekernel-onboarding	CC
-lifekernel-project-memory	skill	~/.claude/skills			Skill lifekernel-project-memory	CC
-lifekernel-quarterly-review	skill	~/.claude/skills			Skill lifekernel-quarterly-review	CC
-lifekernel-second-brain	skill	~/.claude/skills			Skill lifekernel-second-brain	CC
+lifekernel-daily-circle	skill	~/.claude/skills	Life Kernel kasasında günü kapatır, yakın vadeli işleri ve yarının odağını belirler; gün sonu için; sabah…	gün sonu, daily, lifekernel, yarın odak, kapanış, günlük	Skill lifekernel-daily-circle	CC
+lifekernel-monthly-review	skill	~/.claude/skills	Ayın kanıtını hedeflere göre gözden geçirir, hedef kararını ve ay çıktılarını koyar; aylık plan için;…	aylık, monthly review, lifekernel, hedef, ay değerlendirme, outcomes	Skill lifekernel-monthly-review	CC
+lifekernel-morning-plan	skill	~/.claude/skills	Beş dakikalık sabah açılışı: dünkü plan, vadeli iş ve kapasiteye göre günün odağını seçer; sabah için; gün…	sabah planı, morning plan, lifekernel, bugün odak, günlük, focus	Skill lifekernel-morning-plan	CC
+lifekernel-onboarding	skill	~/.claude/skills	Yeni kullanıcıyla görüşüp Life Kernel profili, hedef, sorumluluk ve plan yöntemini doldurur; ilk kurulum…	onboarding, lifekernel kurulum, profil, hedefler, başlangıç, setup	Skill lifekernel-onboarding	CC
+lifekernel-project-memory	skill	~/.claude/skills	Ajan oturumu sonrası proje ilerleme, karar, doğrulama ve açık soruları kaydeder; proje hafızası için; günlük…	proje hafızası, project memory, karar kaydı, lifekernel, ilerleme, oturum sonu	Skill lifekernel-project-memory	CC
+lifekernel-quarterly-review	skill	~/.claude/skills	Çeyrekte bir yön, hedef ufku ve alan dengesini denetler, sonraki çeyreği belirler; çeyreklik plan için;…	çeyreklik, quarterly review, lifekernel, yön, strateji, hedef ufku	Skill lifekernel-quarterly-review	CC
+lifekernel-second-brain	skill	~/.claude/skills	Life Kernel kasasından kaynaklı, gizlilik gözeten bağlam okur ve yönlendirmeli yazar; kişisel bilgi için;…	second brain, ikinci beyin, lifekernel, kişisel bağlam, not ara, vault	Skill lifekernel-second-brain	CC
 lifekernel-uretkenlik-paket	skill	claude.ai senkron	32 skill'lik paket (Kişisel üretkenlik ve içerik: LifeKernel plan/gözden geçirme, yazım tarzı, ses (TTS),…		Skill lifekernel-uretkenlik-paket	ikisi
-lifekernel-weekly-review	skill	~/.claude/skills			Skill lifekernel-weekly-review	CC
+lifekernel-weekly-review	skill	~/.claude/skills	Haftanın kanıtını gözden geçirip gelecek haftanın taahhütlerini gerçek kapasiteye göre ayarlar; haftalık…	haftalık, weekly review, lifekernel, hafta değerlendirme, kapasite, taahhüt	Skill lifekernel-weekly-review	CC
 light-mode-paper-technical	skill	~/.claude/skills	Create a light-mode technical design system with warm paper surfaces, dark outer framing, subtle diagonal…		Skill light-mode-paper-technical	CC
 lightning-energy-skill-vfx	skill	~/.claude/skills	Use for anime or dark-fantasy skill effects, lightning or thunder fists, plasma or energy balls, charge-ups,…		Skill lightning-energy-skill-vfx	CC
 linkedin-agent-paket	skill	claude.ai senkron	11 skill'lik paket (LinkedIn içerik ve erişim ajanı). Konu bu alandaysa önce bu dizini aç, uygun alt…		Skill linkedin-agent-paket	ikisi
