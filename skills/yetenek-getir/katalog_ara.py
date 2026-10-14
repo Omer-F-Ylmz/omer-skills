@@ -41,7 +41,6 @@ ES = {
     "erisilebilirlik": "accessibility a11y", "seo": "seo meta", "kutuphane": "library", "indir": "download",
     "altyazi": "subtitle caption transcript", "kilit": "deadlock lock", "deadlock": "kilitlenme lock",
     "dogrula": "validation validate verify", "uctan": "e2e end-to-end", "orneklem": "sample size statistics experiment testing",
-    "odeme": "payment checkout billing", "kapora": "payment deposit", "abonelik": "subscription billing",
     "kirili": "flaky intermittent", "flaky": "flaky intermittent", "jwt": "jwt token", "dokum": "transcript", "pdf": "pdf document",
 }
 ORAN, GENIS, UZUN, ILK = 0.3, 0.5, 30, 5

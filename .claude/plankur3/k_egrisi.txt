@@ -1,10 +1,10 @@
-iş 1: altın 41 · varlık ['acik', 'docker', 'kvkk', 'metni', 'sms', 'yayin'] · @20 uzman 13 düz 14
-iş 2: altın 23 · varlık ['bildirim', 'cakisma', 'cevrimdisi', 'dogrulama', 'flutter', 'mobil', 'push', 'senkronu', 'sqlite', 'yerel'] · @20 uzman 9 düz 5
-iş 3: altın 24 · varlık ['belge', 'botu', 'degerlendirme', 'kaynak', 'pdf', 'rag', 'vektor', 'veritabani', 'yerel'] · @20 uzman 8 düz 9
-iş 4: altın 0 · varlık ['dogrulama', 'graphql', 'hiz', 'sema', 'siniri', 'sozlesme', 'uyum'] · @20 uzman 0 düz 0
-iş 5: altın 0 · varlık ['analizi', 'boyutu', 'ci', 'dashboard', 'kapisi', 'lighthouse', 'liste', 'performans', 'regresyon', 'sanal', 'vue'] · @20 uzman 0 düz 0
-iş 6: altın 0 · varlık ['dusman', 'editoru', 'json', 'paketleme', 'seviye', 'testi', 'unity', 'yapi'] · @20 uzman 0 düz 0
-iş 7: altın 0 · varlık ['disa', 'fatura', 'isleme', 'pdf', 'saas', 'stripe', 'tabanli', 'webhook', 'yeniden'] · @20 uzman 0 düz 0
-altın toplam 88
-uzman  @5=0.10 @10=0.18 @15=0.31 @20=0.34 @25=0.41 @30=0.43 @40=0.45
-duz    @5=0.11 @10=0.19 @15=0.26 @20=0.32 @25=0.36 @30=0.42 @40=0.44
+iÅŸ 1: altÄ±n 39 Â· varlÄ±k ['acik', 'docker', 'kvkk', 'metni', 'sms', 'yayin'] Â· @20 uzman 14 dÃ¼z 13
+iÅŸ 2: altÄ±n 22 Â· varlÄ±k ['bildirim', 'cakisma', 'cevrimdisi', 'dogrulama', 'flutter', 'mobil', 'push', 'senkronu', 'sqlite', 'yerel'] Â· @20 uzman 9 dÃ¼z 5
+iÅŸ 3: altÄ±n 22 Â· varlÄ±k ['belge', 'botu', 'degerlendirme', 'kaynak', 'pdf', 'rag', 'vektor', 'veritabani', 'yerel'] Â· @20 uzman 7 dÃ¼z 8
+iÅŸ 4: altÄ±n 23 Â· varlÄ±k ['dogrulama', 'graphql', 'hiz', 'sema', 'siniri', 'sozlesme', 'uyum'] Â· @20 uzman 8 dÃ¼z 7
+iÅŸ 5: altÄ±n 19 Â· varlÄ±k ['analizi', 'boyutu', 'ci', 'dashboard', 'kapisi', 'lighthouse', 'liste', 'performans', 'regresyon', 'sanal', 'vue'] Â· @20 uzman 4 dÃ¼z 4
+iÅŸ 6: altÄ±n 13 Â· varlÄ±k ['dusman', 'editoru', 'json', 'paketleme', 'seviye', 'testi', 'unity', 'yapi'] Â· @20 uzman 4 dÃ¼z 4
+iÅŸ 7: altÄ±n 22 Â· varlÄ±k ['disa', 'fatura', 'isleme', 'pdf', 'saas', 'stripe', 'tabanli', 'webhook', 'yeniden'] Â· @20 uzman 3 dÃ¼z 3
+altÄ±n toplam 160
+uzman  @10=0.17(28) @20=0.31(49) @30=0.37(59) @40=0.41(65) @42=0.41(65) @43=0.42(67) @44=0.42(67) @45=0.42(68) @50=0.44(70) @999=0.47(76)
+duz    @10=0.19(31) @20=0.28(44) @30=0.36(57) @40=0.39(63) @42=0.41(65) @43=0.41(65) @44=0.41(66) @45=0.41(66) @50=0.41(66) @999=0.47(76)

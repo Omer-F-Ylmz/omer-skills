@@ -16,8 +16,7 @@ for _p in (B, B.parent / "yetenek-getir", B.parent / "tools"):  # skill kurulumu
     sys.path.insert(0, str(_p))
 import katalog_ara as ka  # noqa: E402
 
-N_ADAY = 150  # sıralı havuz; çıktıya ilk K girer
-K = 20  # aday sayısı (PLAN-KUR-3 K eğrisi, eğitim kümesi: .claude/plankur3/k_egrisi.py)
+K = 43  # aday sayısı: uzman@43 ≈ 0.9×havuz tavanı, zor işte ≤6k kr (PLAN-KUR-3 K eğrisi: .claude/plankur3/k_egrisi.py)
 VARLIK_DF = 8  # bir sözcük en çok bu kadar kaydın adında geçiyorsa alan/teknoloji adıdır
 GENEL = set("uygulama uygulamasi sunucu sunucusu tasarim tasarimi tasarla design app server sistem sistemi kur kurulum "
             "yap ekle yeni mevcut olustur gelistir site sayfa proje araci arac hizmet servis".split())
@@ -99,7 +98,7 @@ INCELE = re.compile(r"review|incele|denetci")
 KONSEY = ("Konsey: yok — adımlar geri alınabilir; yalnız geri dönüşsüz VE iki makul seçenekli (veri yok) kararda "
           "ecc:council 1 kez (~60-90k)")
 BASLIK = ("plan-kur v3: planı ≤30 satır yaz — faz · adım · araç · sayısal kapı · inceleme ajanı · konsey · faz jetonu. "
-          "Araçları aşağıdaki adaylardan işe uyanlarla SEN seç (hepsi kurulu, yığınla uyumlu, alan uzmanı önde; ilgisizi kullanma); başka araç önerme, kurulum önerme, ek katalog sorgusu yapma. "
+          "Araçları aşağıdaki adaylardan işe uyanlarla SEN seç (hepsi kurulu, yığınla uyumlu, alan uzmanı önde; ilgisizi kullanma); listede yoksa yalnız kurulu bildiğin aracı ekle; kurulmamışı/kurulumu önerme, ek sorgu yapma. "
           "Çağrı: skill → Skill <ad> · ajan → Agent <ad> · mcp → ToolSearch · cli → Bash. Ayrıntı nadiren: plan_kur.py --ac <ad>")
 
 
@@ -140,7 +139,15 @@ def adaylar(q, kal, k=K):
     return sorted(tek, key=lambda o: not (ad_sozcukleri(o["ad"]) & vr))[:k]  # sorted kararlı: grup içinde BM25 sırası
 
 
-def plan_girdisi(q, n_aday=N_ADAY, k=K):
+def havuz(q, yg):
+    """katalog_ara A listesi (ADAY + tür tabanı) + adı iş varlığıyla eşleşen kurulu kayıtlar → tür/yığın/kurulu süzgeci."""
+    p = ka.aday(q)
+    vr, var = varliklar(q), {o["ad"] for o in p}
+    p += [o for o in kayitlar() if o["ad"] not in var and ka.kurulu(o) and ad_sozcukleri(o["ad"]) & vr]
+    return ka.suz([o for o in p if o["tur"] in ("skill", "ajan", "mcp", "cli")], yg)
+
+
+def plan_girdisi(q, k=K):
     t = q.lower().translate(ka.TR)
     tr = [k for k, v in TUR.items() if re.search(v[0], t)]
     if len(tr) <= 1 and not ZOR.search(t) and len(t.split()) < 20:
@@ -148,7 +155,7 @@ def plan_girdisi(q, n_aday=N_ADAY, k=K):
         print(f"RUTİN ({tr[0] if tr else 'genel'}): plan-kur gereksiz — doğrudan uygula; kapı: {k}; kapanış raporu commit·test·sapma.")
         return
     yg = ka.yigin(q)
-    kal, elen, yok = ka.suz([o for o in ka.aday(q, n_aday, taban=5) if o["tur"] in ("skill", "ajan", "mcp", "cli")], yg)
+    kal, elen, yok = havuz(q, yg)
     secim = adaylar(q, kal, k)
     ince =["ecc:code-reviewer (her faz sonu)", "ecc:security-reviewer (faz 3)"]
     ince += [o["ad"] for o in kal if o["tur"] == "ajan" and INCELE.search(o["ad"]) and not any(o["ad"] in i for i in ince)][:1]
@@ -186,7 +193,7 @@ def main():
     print(BASLIK)
     for n, q in enumerate(isler, 1):
         print(f"\n# İŞ {n}: {q}")
-        plan_girdisi(q, N_ADAY if len(isler) < 3 else N_ADAY // 2)
+        plan_girdisi(q)
 
 
 if __name__ == "__main__":
