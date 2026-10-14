@@ -51,3 +51,8 @@ def test_izle_hepsi_503_ise_bekleyip_yeniden(tmp_path, monkeypatch):
     monkeypatch.setattr(kisa.time, "sleep", lambda s: None)
     j, iz = kisa.izle(tmp_path, env={"GEMINI_API_KEY": "x"})
     assert iz["model"] == kisa.MODELLER[0] and len(cagri) == len(kisa.MODELLER) + 1
+
+
+def test_paket_linkleri(tmp_path):
+    (tmp_path / "paket.md").write_text("açıklama: https://github.com/a/b ve x.dev/y, yine https://github.com/a/b", encoding="utf-8")
+    assert kisa.paket_linkleri(tmp_path) == ["https://github.com/a/b", "https://x.dev/y"] and kisa.paket_linkleri(tmp_path / "yok") == []

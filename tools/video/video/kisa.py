@@ -207,12 +207,18 @@ def oturum(bloklar, efor="low", env=None):
     return hafif.cagir(OTURUM_SISTEM, "\n\n".join(bloklar), OTURUM_SEMA, efor=efor, env=env, butce=1.0)
 
 
+def paket_linkleri(d):
+    """Açıklama/yorum linkleri paket.md'den regex'le (14 Eki: Gemini 21 linkten 3'ünü döndürdü; Claude'a kopyalatmak jeton yer)."""
+    p = d / "paket.md"
+    return [x["url"] for x in tr.link_topla({"paket": p.read_text(encoding="utf-8")})] if p.is_file() else []
+
+
 def calistir(ids, kok, cikti, efor="low", env=None):
     """Uçtan uca: her id için IG medyası (cikti/medya/<id>, hat indirir) → izle → katalog → bilinmeyene arastir → tek oturum → cikti/<id>.md.
     kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, oturum sonucu)."""
     from . import instagram
     kok, cikti = Path(kok), Path(cikti)
-    iz, bloklar = {}, []
+    iz, bloklar, paket_link = {}, [], {}
     for v in ids:
         t, m = time.monotonic(), kok / v
         if v.startswith("ig-"):
@@ -222,11 +228,12 @@ def calistir(ids, kok, cikti, efor="low", env=None):
                 instagram.getir(m)
         indir = round(time.monotonic() - t, 1)
         g, gi = izle(kok / v, m, env)
+        paket_link[v] = paket_linkleri(kok / v)
         kat = katalog([a["ad"] for a in g["araclar"]])
         kunye, t = {}, time.monotonic()
         for a in g["araclar"]:
             if not kat[a["ad"]]:
-                r, nasil = repo_bul(a["ad"], g["linkler"] + [a["ne_dedi"]])
+                r, nasil = repo_bul(a["ad"], g["linkler"] + paket_link[v] + [a["ne_dedi"]])
                 if r:
                     kunye[a["ad"]] = {**arastir(r), "bulunus": nasil}
         iz[v] = {"indir": indir, "gemini": gi, "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
@@ -234,6 +241,7 @@ def calistir(ids, kok, cikti, efor="low", env=None):
         print(v, iz[v], flush=True)
     y = oturum(bloklar, efor, env)
     for x in (y["form"] or {}).get("videolar", []):
+        x["linkler"] = list(dict.fromkeys(x["linkler"] + paket_link.get(x["id"], [])))
         (cikti / f"{x['id']}.md").write_text(rapor(x, f"gemini ({iz.get(x['id'], {}).get('gemini', {}).get('model', 'önbellek')}) + claude oturum"), encoding="utf-8")
     return iz, y
 
