@@ -2,6 +2,7 @@
 cd tools/video && PYTHONPATH=. .venv/Scripts/python.exe ../../.kos/kopru/video/v3.py olc|taban|kos|puan
 """
 import json
+import re
 import sys
 import time
 from collections import defaultdict
@@ -131,7 +132,7 @@ def oturum():
     y = json.loads((CIK / "kos.json").read_text(encoding="utf-8"))
     bl = []
     for v in ALTIN:
-        g = dict(y[v]["g"])
+        g = uzun.son(ONB / v, json.loads(json.dumps(y[v]["g"])))  # d4: sözlük adayı + istem yankısı süzgeci
         if isinstance(g.get("ekran_metni"), str):  # uzun.birlestir metni tek dizgeye katıyor; blok liste bekler
             g["ekran_metni"] = g["ekran_metni"].splitlines()
         g["linkler"] = list(dict.fromkeys(g["linkler"] + y[v]["paket_link"]))
@@ -147,6 +148,34 @@ def oturum():
         p = _puan(uzun.rapor_md([a["ad"] for a in x["araclar"]], ln, list(dict.fromkeys(x["linkler"] + ln)), y[x["id"]]["g"]["komutlar"]), x["id"])
         print(x["id"], p, flush=True)
     print("BITTI")
+
+
+def kacak():
+    """Kaçan sınıflama + temiz kapı (kisa 19:15/20:30 kuralı): teknik araç sayımına girmez; pakette geçmeyen altın kalemi temiz paydaya girmez
+    (listelenir); yp = altında eşi yok VE pakette geçmiyor. Kaynak: v3/oturum.json (yoksa kos.json Gemini adları)."""
+    y = json.loads((CIK / "kos.json").read_text(encoding="utf-8"))
+    o = CIK / (sys.argv[2:] or ["oturum.json"])[0]
+    form = {x["id"]: x for x in json.loads(o.read_text(encoding="utf-8"))["form"]["videolar"]} if o.is_file() else {}
+    if "son" in sys.argv[2:]:  # Claude'suz: kos.json Gemini çıktısı + uzun.son (Claude ad eklemiyor, d3)
+        form = {v: uzun.son(ONB / v, json.loads(json.dumps(y[v]["g"]))) for v in ALTIN}
+    top = [0, 0, 0, 0, 0]
+    for v in ALTIN:
+        a = json.loads((ANA / "docs" / "video-tarama" / "altin" / f"{v}.json").read_text(encoding="utf-8"))
+        adlar = [x["ad"] for x in (form.get(v) or y[v]["g"])["araclar"] if "teknik" not in (x.get("tur") or "").lower() + (x.get("ne_dedi") or "")]  # teknik ayrı alan (kisa 19:15)
+        kel = [altin.norm(w) for w in re.findall(r"\w+", (ONB / v / "paket.md").read_text(encoding="utf-8").casefold())]
+        duz, pen = "".join(kel), {"".join(kel[i:i + k]) for k in range(1, 6) for i in range(len(kel))}
+        pakette = lambda xs: any(altin.gecer(x, duz, pen) for x in xs)  # noqa: E731
+        ar = [x for x in a["adaylar"] if x["tur"] in altin.ADAY_TUR and x["tur"] != "teknik" and not x.get("belirsiz")]
+        bul = lambda x: any(altin._icerir(r, [x["ad"], *x.get("alias", [])]) for r in adlar)  # noqa: E731
+        kn = [x for x in ar if pakette([x["ad"], *x.get("alias", [])])]
+        yp = [r for r in adlar if not any(altin._icerir(r, [x["ad"], *x.get("alias", [])]) for x in a["adaylar"]) and not pakette([r])]
+        s = (sum(map(bul, ar)), len(ar), sum(map(bul, kn)), len(kn), len(yp))
+        top = [t + z for t, z in zip(top, s)]
+        print(f"{v}\taraç {s[0]}/{s[1]}\ttemiz {s[2]}/{s[3]}\typ {s[4]} {yp[:6]}")
+        for x in ar:
+            if not bul(x):
+                print(f"  {'PAKETTE' if x in kn else 'kanıtsız'}\t{x['tur']}\t{x['ad']}\t{x.get('kaynak', '')}")
+    print(f"TOPLAM araç {top[0]}/{top[1]} = {top[0] / top[1]:.3f} · temiz {top[2]}/{top[3]} = {top[2] / top[3]:.3f} · yp {top[4]}")
 
 
 KARUSEL = ("ig-DdrEmDHkouJ", "ig-DePQ2O3ElPy", "ig-Dd7WYSniFvP")  # en çok slaytlı, eski hat formu olan carousel'ler (sonuncusu slayt videolu)
@@ -181,4 +210,4 @@ def karusel():
 
 
 if __name__ == "__main__":
-    {"olc": olc, "taban": taban, "kos": kos, "puan": puan, "karusel": karusel, "oturum": oturum}[sys.argv[1]]()
+    {"olc": olc, "taban": taban, "kos": kos, "puan": puan, "karusel": karusel, "oturum": oturum, "kacak": kacak}[sys.argv[1]]()

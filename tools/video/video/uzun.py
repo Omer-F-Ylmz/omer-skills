@@ -1,6 +1,7 @@
 """VİDEO-3 V2: uzun YouTube videosu Gemini-önce — ≥PARCA sn ise zaman aralıklı istekler (videoMetadata) + birleştirme; kısa olan kisa.izle'ye gider.
 Çıktı kisa.izle ile aynı gemini.json şeması, böylece kisa.calistir (katalog → araştırma → tek Claude oturumu) önbellekten devam eder."""
 import json
+import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -114,6 +115,16 @@ def metin_gec(d, env=None, yeniden=False):
                                                      "jeton": sum(s[1]["jeton"] or 0 for s in sonuc), "pencere": len(sonuc)}}
     hedef.write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
     return j
+
+
+def son(d, g):
+    """Birleşik Gemini çıktısına son geçiş (yerinde): katalog sözlüğünün pakette bulduğu adlar doğrudan eklenir (kisa d9 deseni) ·
+    istem yankısı düşer — VİDEO-3 d4: izleme istemindeki örnek adlar (Python, pip, PyTorch…) pakette geçmeden araç olarak dönüyordu."""
+    p = (Path(d) / "paket.md").read_text(encoding="utf-8").casefold() if (Path(d) / "paket.md").is_file() else ""
+    ham, istem = tr.normal(p), tr.normal(ISTEM + METIN_ISTEM)
+    pakette = lambda a: re.search(rf"\b{re.escape(a.casefold())}\b", p) if len(tr.normal(a)) <= 4 else tr.normal(a) in ham  # noqa: E731 — "pip" ⊂ "pipeline" sayılmaz
+    g["araclar"] = [a for a in g["araclar"] + kisa.sozluk_tara(d, g) if not (tr.normal(a["ad"]) in istem and not pakette(a["ad"]))]
+    return g
 
 
 def rapor_md(adlar, aciklama_link, urller, komutlar):

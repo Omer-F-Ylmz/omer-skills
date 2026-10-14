@@ -27,3 +27,11 @@ Aday araç (6 altın) önce→sonra: taban 81/135 (0.60) · d2 Gemini 49/96 (5 v
 Claude adımı (kisa.oturum, 1 claude -p, efor low, 6 video tek oturum): ağır 169.6k = 28.3k/video; taban ort. 302.6k/video → 0.09× (kapı ≤0.30 GEÇTİ). Yakalama değişmedi (Claude ad eklemiyor).
 Süre/video: Gemini 0–19 sn + oturum 115/6 ≈ 19 sn → ~25–40 sn; taban ort. 202 sn → ~0.15× (≤0.5 GEÇTİ).
 KAPI: araç 0.66 < 0.95 KALDI. Kalan kaçanların ~yarısı pakette adı hiç geçmeyen kavram (Subagent, Claude memory, Effort ayarı…) ya da teknik; link 31/31 tam (yakalama kapısı geçer), yp denetlenmedi. claude -p 1/6.
+
+## d4 ara (14 Eki ~21:10) KABUL DEĞİL
+Katalog: kullanılan [kisa.sozluk_tara/birlestir, altin.gecer/_icerir/norm, kisa_m4 kuralları (teknik ayrı, kanıtsız paydadan çıkar), v3.py] · atlanan [plan-kur (tek alan), alt ajan (kural 0), claude -p (0 yeni; 1/6)]
+Kapı tanımı kısa hatla eşitlendi (v3.py kacak): teknik araç sayımına/yp'ye girmez; altında pakette geçmeyen kalem "temiz" paydadan çıkar ve listelenir (3: HYMD Claude Code Desktop, YDAK Bodoni Moda + Hanken Grotesk); yp = altında eşi yok VE pakette geçmiyor.
+Kök neden (yp 39): kisa.ISTEM'deki örnek adlar (Python, pip, npm, uv, GitHub, Hugging Face, PyTorch, Transformers, Apache-2.0, Qwen3.5-0.8B, Llama) FaCh ve HYMD'de aynı sırayla araç olarak dönüyor; pakette yoklar.
+Değişiklik: uzun.son (sözlük adayı doğrudan eklenir + istem yankısı düşer; ≤4 harfli adda kelime sınırı, "pip"⊄"pipeline"), oturum adımına bağlandı; test_uzun 5/5.
+Önce→sonra (6 altın, Claude'suz Gemini+son): araç 76/96 0.79 → 81/96 0.84 · temiz 76/93 0.82 → 81/93 0.87 · yp 39 → 4 (KAP×2, img, node).
+KAPI: araç 0.87 < 0.95 KALDI, yp 4 > 0 KALDI. Jeton 0.09× / süre ~0.15× d3'ten değişmedi (yeni Gemini/Claude çağrısı yok).

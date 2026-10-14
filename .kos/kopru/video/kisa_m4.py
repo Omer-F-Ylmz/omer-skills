@@ -97,7 +97,9 @@ def kos():
         for a in ("gemini.json", "gemini-metin.json"):
             if (ONB / v / a).is_file():
                 (ONB / v / a).replace(ONB / v / a.replace(".json", f"-{sys.argv[2] if sys.argv[2:] else 'eski'}.json"))
-    iz, y = kisa.calistir(ids, ONB, CIK)
+    if "claudesiz" in sys.argv[3:]:  # d12: Claude öncesi deterministik liste, medya tekrar için kalır (claude -p 0)
+        ad = ad.replace(".json", f"-{sys.argv[2]}.json")
+    iz, y = kisa.calistir(ids, ONB, CIK, claude="claudesiz" not in sys.argv[3:], sil="claudesiz" not in sys.argv[3:])
     (CIK / ad).write_text(json.dumps({"iz": iz, "sonuc": y}, ensure_ascii=False, indent=1), encoding="utf-8")
     print("claude", y["hata"], y["sure"], y["usd"], y["usage"])
 
@@ -231,7 +233,7 @@ def sinama_ref():
 
 def sinama_puan():
     """Sınama kümesi: kanıtlı referansa karşı yeni hattın araç/link yakalaması + yp (kanıtlı ref dışı ve pakette geçmeyen)."""
-    o = json.loads((CIK / "oturum-sinama.json").read_text(encoding="utf-8"))
+    o = json.loads((CIK / (sys.argv[2:] or ["oturum-sinama.json"])[0]).read_text(encoding="utf-8"))
     ref = json.loads((CIK / "sinama-ref.json").read_text(encoding="utf-8"))
     yeni, n, a = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}, len(o["iz"]), []
     for v in SINAMA:

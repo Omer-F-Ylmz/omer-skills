@@ -31,3 +31,11 @@ def test_pencereler_ortusur_ve_kuyrugu_kapsar():
     assert all(len(x) <= 2000 for x in p) and p[-1] == m[-len(p[-1]):]
     assert all(p[i][-100:] == p[i + 1][:100] for i in range(len(p) - 1))
     assert uzun.pencereler("kısa", boy=2000, ortusme=100) == ["kısa"]
+
+
+def test_son_istem_yankisini_duser_pakettekini_tutar(tmp_path, monkeypatch):
+    from video import kisa
+    monkeypatch.setattr(kisa, "sozluk_tara", lambda d, g: [{"ad": "Remotion", "ne_dedi": "(katalog sözlüğü)", "zaman": "paket"}])
+    (tmp_path / "paket.md").write_text("PyTorch ile eğitim; pipeline kuruldu.", encoding="utf-8")
+    g = {"araclar": [{"ad": a, "ne_dedi": "", "zaman": ""} for a in ("PyTorch", "pip", "Apache-2.0", "Cursor")]}
+    assert [a["ad"] for a in uzun.son(tmp_path, g)["araclar"]] == ["PyTorch", "Cursor", "Remotion"]  # pip ⊄ pipeline, Apache-2.0 yalnız istemde
