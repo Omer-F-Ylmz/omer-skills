@@ -59,6 +59,11 @@ Kaynak: `.kos/kopru/ogren/ozet-token-v2.jsonl` (32 kalem, v2 şema, Claude jeton
 **Ölçüm araçları** — `rtk gain` (rtk kazancı) · `headroom` savings_events.jsonl · `claude-usage` · `tools/token_olc.py olc --gun N` (ağırlıklı: girdi×1, cache okuma×0.1) · `cagri_sayac` hook ("çağrı N/45 · alt M" her Bash sonrası) · ctx-stats (yalnız etkileşimli CC, MCP).
 - Tuzak: `claude-usage today` `scan` sonrası da "No usage recorded today" (tarih/dizin uyumsuzluğu) → güncel ölçüm için token_olc. `token_olc`/`model_sec` alt komut ister; `model_sec --help` KeyError ile düşer.
 
+**Önbellek durması (d4 ölçüm; `.claude/ogren1/durma.py <jsonl>...`)** — ÖĞREN d1–d3 + iki komşu oturum: 191 adımda 43 durma (cw=0, girdi ≥3000), ağırlıklı ziyan 223.7k/1.94M = %11.5 (oturum başına %4.4–17.0).
+- Desen: 3–8 adımlık seriler; seri boyunca `cache_read` SABİT, önbelleksiz girdi her adım büyür (4.4k→10.1k). Kırılma noktası (breakpoint) en yeni mesaja taşınmıyor, sabit bir önekte donuyor.
+- Elenen: TTL 5m (seri içi aralık 4–41 s) · büyük araç çıktısı (önceki tool_result 90 B–5.8 KB). Aday: Headroom `normalize_message_cache_control` / kararlı sınır yerleşimi (prefix_tracker.py:632,699). TOKEN-4 A2 A/B (4 adım) iki kolda da 0 durma → kısa koşu ayırt etmiyor; kanıt için ≥10 adımlık araç döngüsü gerekir.
+- Çare (şimdilik): bağımsız araç çağrılarını tek yanıtta paralel ver (seri adım sayısı = ziyan çarpanı). A/B: `HEADROOM_STABLE_BOUNDARY_BREAKPOINT=0` ile ≥10 adımlık iş, 1 claude -p.
+
 **İstem skill'leri (koşu yok, davranış kuralı)** — strategic-compact (mantıksal sınırda /compact) · context-engineering · token-budget-advisor (derinlik seçimi, ±%15) · full-output-enforcement (yer tutucu yasak) · content-hash-cache-pattern (SHA-256 anahtarlı dosya önbelleği deseni) · cost-tracking · vrm-headroom-geri-cagirma · vrm-maliyet-denetci. Köprüde slash komut kapalı (`--disable-slash-commands`); etkileşimli CC'de geçerli.
 
 **context-mode** (ctx_batch_execute / ctx_execute_file) — sandbox'ta işle, yalnız türetilen sonuç bağlama. Köprüde YOK (strict MCP); etkileşimli CC'de ham Bash yerine. Eşdeğeri köprüde: çıktıyı dosyaya yaz → Grep -n / python özet.
