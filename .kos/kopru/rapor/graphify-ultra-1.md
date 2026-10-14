@@ -1,5 +1,5 @@
-# GRAPHIFY-ULTRA-1 — ARA (d5, 15 Eki 00:05)
-Katalog: kullanılan [graphify_sor, graphify_ultra_g1 --sor, graphify_ultra_ab --c (yeni kol), olcum_sira, arka, bekle, rtk pytest] · atlanan [plan-kur/katalog (rutin tek alan), alt ajan (kural 0), G6 paket (çağrı 40 sınırı → devir)]
+# GRAPHIFY-ULTRA-1 — ARA (d6, 15 Eki 00:20)
+Katalog: kullanılan [graphify_sor, onay betiği kalıbı (jev_1_uygula), zip_denetle, durum_ozet, pytest] · atlanan [plan-kur/katalog (rutin tek alan), alt ajan (kural 0), paketle.py (tek küçük skill, düz zip yeter), .graphifyignore --tam (RAM %76.5 ≥%70)]
 | ölçü | önce | sonra |
 |---|---|---|
 | artımlı update süre / tepe RSS | 48 sn / 829 MB | 3.8 sn / 332 MB (omer-skills, d2) · 3.1 sn / 74 MB (TELVE, d4) |
@@ -12,5 +12,7 @@ Katalog: kullanılan [graphify_sor, graphify_ultra_g1 --sor, graphify_ultra_ab -
 - d5 graphify_sor düzeltmeleri: (1) aynı ad çoklu dosyada → soruda yolu geçen önce, sonra sığ yol (TELVE `_ham` kopyaları); (2) grafta düğümü olmayan dış sembol (QueryValueEx, geturl) → git grep tanım + çağrı yeri; (3) yedek belirteç ASCII (çağırıyor → "ağırıyor" sahte belirteci). Test tests/test_graphify_sor.py 3/3 (sentetik graf + git).
 - graphify_hafif başarıyla bitince graphify_harita'yı çağırır (G3 tazelik).
 - Kalan kaçaklar: md başlık sorusu (tanımlayıcısız, 2), TELVE `_ham` kopyalarında genel ad (2), belirsiz ad sıralaması (2).
-- Yapılmadı: G6 paket (graphify skill 0.9.57→0.9.88, zip_denetle, atlas kartı), G0 izleme koşusu, BİTTİ. Devir: devir/graphify-ultra-1-devam.md
+- d6 sapma kapandı: tests/test_graphify_sor.py (G1 setinden fincan.js/_ham, QueryValueEx) 8955dd65^ kodunda 3/3 KIRMIZI, yenide 3/3 yeşil.
+- d6 G6: graphify-desktop SKILL.md'ye kompakt sorgu + keşif sırası bölümü; dist/graphify-desktop.zip (SKILL.md + scripts/graphify_sor.py) zip_denetle TEMİZ, paketli betik zip'ten açılıp koştu; atlas kart.jsonl'a graphify_sor kartı. ~/.claude/skills/graphify zaten 0.9.88; eski olan ~/.agents/skills/graphify 0.9.57 → onay: `python .kos/kopru/onay/graphify_ultra_1_uygula.py` (--kuru temiz; --geri var). claude.ai: zip'i Ömer yükler.
+- Yapılmadı: G0 izleme koşusu (d7, 15 Eki 21–23), .graphifyignore --tam doğrulaması (RAM), BİTTİ. Devir: devir/graphify-ultra-1-devam.md
 - claude -p: d5 2/2 (profil:1, telve:1), $1.15.

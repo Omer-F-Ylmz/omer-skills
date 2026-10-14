@@ -17,6 +17,15 @@ graphify explain "<kavram>"
 graphify update .
 ```
 
+## Kompakt sorgu ve kesif sirasi (GRAPHIFY-ULTRA-1)
+
+- Kesif sirasi: `graphify-out/GRAPH_REPORT.md` basliklari (harita) → kompakt sorgu → dosya yalniz kanit satiri icin dar aralikla (~20 satir).
+- Kompakt sorgu: `python graphify_sor.py "<soru>" --kok <proje>` (omer-skills'te `.kos/kopru/graphify_sor.py`; claude.ai paketinde `scripts/graphify_sor.py`).
+  Yalniz `graphify-out/graph.json` ister; cikti ≤40 satir: `sembol · dosya:satir · ozet` + cagiranlar/icerik.
+  Sorudaki ad grafta yoksa `git grep` tanimi, o da yoksa `graphify query --budget 400`'e duser.
+- Guncelleme: omer-skills'te `python .kos/kopru/graphify_hafif.py [kok]` (artimli ~4 sn, harita da yenilenir); ciplak `graphify update .` degil.
+- claude.ai sandbox'inda graphify kosmaz, ama kullanici `graph.json` yuklerse (≤30 MB) `scripts/graphify_sor.py` onunla kosar.
+
 ## Desktop'te ne yapilir
 
 1. Kullanicidan Claude Code'da yukaridaki komutu calistirip ciktiyi (ya da `graphify-out/GRAPH_REPORT.md` / `graphify-out/wiki/index.md` dosyasini) yapistirmasini iste.
