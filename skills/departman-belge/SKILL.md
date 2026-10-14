@@ -18,6 +18,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 ## Kapılar
 - Belge koddan türetilir; kodla çelişen iddia yazılmaz.
 - Talimat metni STE ölçüsüyle: cümle ≤20 kelime, etken çatı, kelime başına tek anlam, adım başına tek eylem (IG-40 DeXJQ-kGKUY).
+- Biçim/sunum/Artifact seçimi ve iş sırası: `docs/atlas/belge-sunum.md` (ATLAS kararları `docs/atlas/kart.jsonl`).
 
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)

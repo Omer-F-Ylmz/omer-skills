@@ -21,4 +21,9 @@ Görev: .kos/kopru/gorev/atlas-2.md. Yöntem atlas-1 ile aynı.
 6. dist zip (claude.ai) `.claude/atlas/dist.py` · rapor/atlas-2.md · SIRA satırı · commit.
 
 ## d1 ara 2 (20:20) — 1–5 BİTTİ (rapor/atlas-2.md), claude -p 3/3 bitti
-Kalan: (a) dist zip `.claude/atlas/dist.py` — değişen skill: departman-guvenlik, departman-test-qa, departman-arastirma-ogrenme; zip_denetle temiz; CC tarafı onay betiği. (b) K3 belge-sunum kitabı (ölçüm bütçesi yok → yalnız iş akışı belgesi). (c) atlas_iz.py VİDEO-KISA / TELVE-R2f sonrası tekrar; `video` adı gürültülü, gerekirse `video <altkomut>` deseni.
+## d2 ara (20:50) — K3 kitap + dist betiği hazır, kart arka planda
+- K3: kume.py K3 (173 öğe, 160 kartsız) → `tools/atlas.py kart --parti 16 --kume .claude/atlas2/K3.jsonl` arka plan (.claude/atlas2/kart3.log, 20:50'de 80/160). docs/atlas/belge-sunum.md yazıldı (ölçüm yok → kabul değil). departman-belge atıf satırı eklendi.
+- Kalan sıra: (1) kart3.log BITTI bekle (`python .kos/kopru/bekle.py .claude/atlas2/kart3.log "BITTI|Traceback" 540`; ölürse aynı kart komutu kaldığı yerden) → (2) `python .claude/atlas2/karar3.py` (assert eksik yoksa) → `tools/katalog_yenile` (atlas-2 d1'deki gibi) → (3) commit → (4) `python .claude/atlas2/dist.py` (HEAD'den, dist/claude-ai-25, 4 departman + kitap + kart.jsonl; zip_denetle) → commit. (5) rapor/atlas-2.md + SIRA satırı.
+- CC tarafı: departman skill'leri ~/.claude/plugins/marketplaces/omer-skills (GitHub klonu, 18704c6) üzerinden gelir; push yasak → atıf satırları CC'ye push+`/plugin marketplace update` ile ulaşır (ATLAS-1 site-3d atfı da henüz orada yok). Rapora sapma olarak yaz.
+
+Eski kalan: (a) dist zip `.claude/atlas/dist.py` — değişen skill: departman-guvenlik, departman-test-qa, departman-arastirma-ogrenme; zip_denetle temiz; CC tarafı onay betiği. (b) K3 belge-sunum kitabı (ölçüm bütçesi yok → yalnız iş akışı belgesi). (c) atlas_iz.py VİDEO-KISA / TELVE-R2f sonrası tekrar; `video` adı gürültülü, gerekirse `video <altkomut>` deseni.
