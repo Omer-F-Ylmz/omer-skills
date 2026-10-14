@@ -1,11 +1,11 @@
-# GRAPHIFY-ULTRA-1 devir (d2 bitti, çağrı ~45)
+# GRAPHIFY-ULTRA-1 devir (d3 bitti, çağrı ~42)
+d3: artımlı RAM kapısı %85 (graphify_hafif esik + is-akisi L33, arsiv L42) · keşif sırası satırı is-akisi'de · A/B n=2: 0.75×/0.87× → G5 kapısı GEÇMEDİ, global kanca --kuru hazırlanmadı.
 KALAN:
-1. G4 küresel: aynı kanca (tools/oku_yonlendir.py, köprü profilinde AKTİF) Ömer'in kendi CC'si için onay betiği --kuru (~/.claude/settings.json PreToolUse Read) — Ömer koşar. is-akisi L44 keşif sırası satırı: "harita → graphify query / oku iskelet → Read offset/limit".
-2. G5 eksik yarı: 2 TELVE görevi (graphify_ultra_ab.py GOREVLER'e ekle, cwd TELVE; claude -p d2'de 4 kullanıldı → Desktop izni gerekir). Doğruluk K8 kör puan (yanıtlar graphify-ultra-ab.tsv'de).
-3. G2 kalan: graphify_hafif RAM kapısı artımlıda %75 → %85'e gevşetilebilir (artık 332 MB; tam yol 1.5 GB'ta %75 kalır) — DEVAM-KURALI L1 satırını değiştirir, Desktop kararı. TELVE + Desktop\<Proje>: .graphifyignore → graphify_buda.py <kök> → graphify_hafif.py <kök>.
-4. G1: 20 soru isabet; kaçak #1 .kos/ grafta yok (graphify_hizli de .graphifyignore süzer) → `!.kos/kopru/*.py` istisnası ya da ayrı graf.
-5. G3: proje HARİTASI ≤800 jeton (küme etiketleri OmniRoute ücretsiz) + query kompakt kip ≤40 satır (graphify query --budget küçük ya da sarmalayıcı).
-6. G6 paket: graphify skill 0.9.57→0.9.88 (`graphify install --platform agents`), CC + claude.ai zip, zip_denetle, docs/atlas kartı.
+1. G1 kaçak: .kos/kopru/*.py grafta yok — graphify detect'in gizli dizin (.kos) süzgecini kanıtla (graphify Lib/site-packages/graphify/detect.py, dar Grep); çözüm `graphify_hizli`'ye .kos yolu istisnası ya da ayrı kök. Sonra `python .kos/kopru/graphify_hafif.py` (artımlı, RAM <%85) → oku_yonlendir/graphify_hafif query'de çıkmalı.
+2. G1 20 soru: omer-skills 12 + TELVE 8, `graphify query "<s>" --budget 400`, beklenen dosya grep ile; isabet oranı rapora.
+3. G3 harita: GRAPH_REPORT küme başlıklarından ≤800 jeton HARITA.md; etiket OmniRoute ücretsiz (KOPRU_OMNIROUTE kuralı: taslak). Kompakt query: --budget 400 yeterli (14–24 satır).
+4. G6 paket: graphify skill 0.9.57→0.9.88, CC + claude.ai zip + zip_denetle, docs/atlas kartı.
+5. TELVE: .graphifyignore yok (graf 865 KB, gerek düşük) — yalnız graphify_hafif C:/Users/pc/Desktop/TELVE.
 ARKA PLAN: yok.
-SON COMMIT: git log -1 (d2 ara)
-AÇIK KARAR: (a) kancayı Ömer'in global CC'sine almak (b) hafif artımlı RAM kapısı %85.
+SON COMMIT: git log -1 (d3 ara)
+AÇIK KARAR: oku_yonlendir kancası A/B'de anlamlı fark göstermedi (0.75–0.87×, kontrol ±%70) — köprü profilinde kalsın mı, kaldırılsın mı? Yeni A/B için claude -p izni (10/10 kullanıldı) ve kanca tetiklenmesini doğrulamak için --no-session-persistence'sız koşu gerekir.

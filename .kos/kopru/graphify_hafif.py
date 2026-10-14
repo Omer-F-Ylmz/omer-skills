@@ -1,7 +1,7 @@
 """graphify sarmalayıcısı: python graphify_hafif.py [kök] [--tam] [ek graphify update bayrağı...]
 Varsayılan ARTIMLI: grafın built_at_commit'inden bu yana git'te değişen + çalışma ağacında değişen/yeni dosyalar
 graphify'ın kendi _rebuild_code(changed_paths=...) yoluyla (git hook'unun yolu) yeniden çıkarılır. --tam → `graphify update .`.
-RAM ≥%75 ya da başka graphify koşuyorsa çalışmaz; tek örnek kilidi; tepe RSS (süreç ağacı toplamı) + süre basar.
+RAM ≥%85 (artımlı) / ≥%75 (tam) ya da başka graphify koşuyorsa çalışmaz; tek örnek kilidi; tepe RSS (süreç ağacı toplamı) + süre basar.
 Hafifliğin asıl kaynağı kökteki .graphifyignore (GRAPHIFY-RAM-1, 14 Eki: dışlanmadan önce graph.json 337 MB → ~3.5 GB RAM)."""
 import os, re, subprocess, sys, time
 import psutil
@@ -13,9 +13,6 @@ arg = [a for a in arg if a != kok]
 tam = "--tam" in arg
 arg = [a for a in arg if a != "--tam"]
 kilit = os.path.join(kok, "graphify-out", ".hafif.kilit")
-ram = psutil.virtual_memory().percent
-if ram >= 75:
-    sys.exit(f"RAM %{ram:.0f} ≥ %75, graphify başlatılmadı")
 if any("graphify" in " ".join(p.info["cmdline"] or []) and "graphify_hafif" not in " ".join(p.info["cmdline"] or [])
        for p in psutil.process_iter(["cmdline"]) if p.pid != os.getpid()):
     sys.exit("başka graphify süreci var, başlatılmadı")
@@ -35,6 +32,11 @@ def degisen():  # None → artımlı mümkün değil (graf yok / commit bilinmiy
     return sorted(set(d))
 
 
+d = None if tam else degisen()
+esik = 75 if d is None else 85  # Desktop 14 Eki 22:06: artımlı ~332 MB → %85; tam ~1.5 GB → %75
+ram = psutil.virtual_memory().percent
+if ram >= esik:
+    sys.exit(f"RAM %{ram:.0f} ≥ %{esik}, graphify başlatılmadı")
 try:
     fd = os.open(kilit, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
 except FileExistsError:
@@ -42,7 +44,6 @@ except FileExistsError:
 try:
     os.write(fd, str(os.getpid()).encode()); os.close(fd)
     bas = time.time()
-    d = None if tam else degisen()
     if d is None:
         komut, girdi = ["graphify", "update", ".", *arg], None
     else:

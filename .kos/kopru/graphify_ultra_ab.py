@@ -11,17 +11,22 @@ GOREVLER = {
               "Kısa yanıt: fonksiyon adı, dosya:satır, alan adları, yazılan yol.",
     "hafif": "Bu repoda .kos/kopru/graphify_hafif.py artımlı modda değişen dosyaları nasıl belirliyor ve hangi RAM "
              "eşiğinde çalışmayı reddediyor? graphify'ın hangi iç fonksiyonunu çağırıyor? Kısa yanıt, dosya:satır ile.",
+    # d3 (Desktop 22:06): kancanın tetiklendiği 2. görev, TELVE'de (src/sahne/fincan.js 872 satır)
+    "telve": "Bu repoda src/sahne/fincan.js'teki kahve yüzeyi dalga simülasyonunda ızgara çözünürlüğü N neye göre "
+             "seçiliyor, zaman adımı DTS hangi kararlılık koşulundan ve hangi frekans formülünden geliyor, gecis() "
+             "fonksiyonu ne yapıyor? Kısa yanıt, dosya:satır ile.",
 }
+CWD = {"telve": Path("C:/Users/pc/Desktop/TELVE")}
 BAYRAK = ["-p", "--output-format", "json", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}',
           "--disable-slash-commands", "--no-session-persistence"]
 
 
-def kos(istem, ayar):
+def kos(istem, ayar, cwd=KOK):
     with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
         json.dump(ayar, f)
     t = time.time()
     r = subprocess.run(["claude", *BAYRAK, "--settings", f.name], input=istem, capture_output=True, text=True,
-                       encoding="utf-8", cwd=KOK, timeout=900, creationflags=0x08000000)
+                       encoding="utf-8", cwd=cwd, timeout=900, creationflags=0x08000000)
     try:
         d = json.loads(r.stdout)
     except json.JSONDecodeError:
@@ -34,9 +39,11 @@ def kos(istem, ayar):
 
 if __name__ == "__main__":
     out = KOK / ".kos/kopru/graphify-ultra-ab.tsv"
-    for ad, istem in GOREVLER.items():
-        for kol, ayar in (("A", {}), ("B", {"hooks": KANCA})):
-            s = kos(istem, ayar)
+    plan = [a.split(":") for a in sys.argv[1:]] or [[ad, "1"] for ad in GOREVLER]  # örn. profil:1 telve:2
+    for ad, n in plan:
+        for _ in range(int(n)):  # A/B sırayla, tekrar başına bir çift → kayma iki kola eşit düşer
+          for kol, ayar in (("A", {}), ("B", {"hooks": KANCA})):
+            s = kos(GOREVLER[ad], ayar, CWD.get(ad, KOK))
             with out.open("a", encoding="utf-8") as f:
                 f.write(f"{ad}\t{kol}\t{json.dumps(s, ensure_ascii=False)}\n")
             print(ad, kol, {k: v for k, v in s.items() if k != "yanit"}, flush=True)
