@@ -54,7 +54,7 @@ function ajanAyarYolu(ajanAdi, ajanlar = path.join(os.homedir(), ".claude", "age
         ad(path.join(kok, f)) || path.basename(f, ".md")].join(":"));
     }
   }
-  const metin = JSON.stringify({ promptCacheTtl: p.ttl, permissions: { deny: [...new Set(adlar)].filter((a) => !tut.has(a)).map((a) => `Agent(${a})`) } });
+  const metin = JSON.stringify({ ...p.ayar, promptCacheTtl: p.ttl, permissions: { deny: [...new Set(adlar)].filter((a) => !tut.has(a)).map((a) => `Agent(${a})`) } });
   const yol = path.join(os.tmpdir(), "cc_profil", `kopru-ajan-${ajanAdi ? ajanAdi.replace(/[^\w.-]/g, "_") : "genel"}.json`);
   fs.mkdirSync(path.dirname(yol), { recursive: true });
   // içerik aynıysa dokunulmaz: eşzamanlı ajanlar aynı dosyayı yarım okumaz

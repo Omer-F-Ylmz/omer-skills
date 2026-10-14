@@ -1,4 +1,4 @@
-"""TOKEN-3 K10: ardışık N kısa `claude -p` (ajan profili) isteğini yerel kayıt vekilinden geçirip (→ Headroom 6769, zincir aynı)
+"""TOKEN-3 K10: ardışık N kısa `claude -p` (ajan profili) isteğini yerel kayıt vekilinden geçirip (→ Headroom 6767, zincir aynı)
 gövdeleri .claude/token3/istek/ altına yazar. Global ayara dokunmaz: taban URL yalnız çocuğun --settings env'inde.
   python onek_kayit.py <etiket> [N=2] [ek_ayar_json]"""
 import http.client, http.server, json, os, subprocess, sys, threading, time
@@ -9,7 +9,7 @@ sys.path.insert(0, str(KOK / "tools"))
 import cc_profil
 
 DIZ = Path(__file__).parent / "istek"
-UST = ("127.0.0.1", 6769)
+UST = ("127.0.0.1", 6767)
 sayac = [0]
 
 

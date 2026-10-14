@@ -33,6 +33,8 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
     p = {} if env.get("CC_PROFIL_ZORLA") == "tam" else tum[ad]
     gecici = Path(gecici or Path(tempfile.gettempdir()) / "cc_profil")
     args, ayar = [], dict(ek_ayar or {})
+    if "ayar" in p:  # TOKEN-3 K10: oturumdan oturuma kayan bloklar (git durumu, ECC oturum özeti) profilde kapanır
+        ayar = {**p["ayar"], **ayar, "env": {**p["ayar"].get("env", {}), **ayar.get("env", {})}}
     if "mcp" in p:
         sunucu = json.loads(Path(ana).read_text(encoding="utf-8")).get("mcpServers", {})
         if yok := [m for m in p["mcp"] if m not in sunucu]:

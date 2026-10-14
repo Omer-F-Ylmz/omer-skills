@@ -34,5 +34,6 @@
  "d-belge": {"mcp": ["markitdown", "mcp-time"]},
  "d-guvenlik": {"mcp": ["github", "mcp-git", "mcp-time"]},
  "d-3d": {"mcp": ["blender", "godot", "unity", "mcp-time"]},
- "ajan": {"ajanTut": ["ajn-ajan-tanimi-yazar", "dok-rapor-uretici"], "ttl": "5m"}
+ "ajan": {"ajanTut": ["ajn-ajan-tanimi-yazar", "dok-rapor-uretici"], "ttl": "5m",
+          "ayar": {"includeGitInstructions": false, "env": {"ECC_SESSION_START_CONTEXT": "off"}}}
 }

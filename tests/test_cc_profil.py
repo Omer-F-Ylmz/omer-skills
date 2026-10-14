@@ -166,3 +166,15 @@ def test_ajan_tut_disindakiler_deny(tmp_path):
     assert ayar == {"promptCacheTtl": "5m", "permissions": {"deny": [
         "Agent(Backend Architect)", "Agent(at-ben)", "Agent(octo:personas:debugger)"]}}
     assert env == {} and args.count("--settings") == 1
+
+
+def test_profil_ayar_ek_ayarla_birlesir(tmp_path):
+    """TOKEN-3 K10: profilin "ayar"ı --settings'e girer; env çağıranın env'iyle birleşir (çağıran kazanır)."""
+    pr = tmp_path / "profil.json"
+    pr.write_text(json.dumps({"ajan": {"ajanTut": [], "ttl": "5m", "ayar": {
+        "includeGitInstructions": False, "env": {"ECC_SESSION_START_CONTEXT": "off", "X": "p"}}}}), encoding="utf-8")
+    args, _ = cc_profil.kur("ajan", env={}, profiller=pr, gecici=tmp_path / "g", ajanlar=tmp_path / "yok",
+                            eklentiler=tmp_path / "yok.json", ek_ayar={"env": {"X": "c"}})
+    ayar = json.loads(Path(_d(args, "--settings")).read_text(encoding="utf-8"))
+    assert ayar["includeGitInstructions"] is False
+    assert ayar["env"] == {"ECC_SESSION_START_CONTEXT": "off", "X": "c"}
