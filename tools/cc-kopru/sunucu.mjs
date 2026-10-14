@@ -37,12 +37,24 @@ const HAFIF_VAR = (() => {
 })();
 if (!CLAUDE) throw new Error("claude yurutucusu bulunamadi; kopru.json claudeYolu yazin");
 /** cc_profil.kur("ajan") ile aynı biçim; --agent adı da tutulur. ~580 deny satırı argv'de WinError 206'ya yaklaşır → dosya. */
-function ajanAyarYolu(ajanAdi, ajanlar = path.join(os.homedir(), ".claude", "agents")) {
+function ajanAyarYolu(ajanAdi, ajanlar = path.join(os.homedir(), ".claude", "agents"),
+  eklentiler = path.join(os.homedir(), ".claude", "plugins", "installed_plugins.json")) {
   const p = JSON.parse(fs.readFileSync(new URL("../../profiller/cc-arka.json", import.meta.url), "utf8")).ajan;
   const tut = new Set([...p.ajanTut, ajanAdi]);
+  const ad = (f) => /^name:\s*(.+)$/m.exec(fs.readFileSync(f, "utf8"))?.[1].trim().replace(/^['"]|['"]$/g, "");
   const adlar = (fs.existsSync(ajanlar) ? fs.readdirSync(ajanlar).filter((f) => f.endsWith(".md")).sort() : [])
-    .map((f) => /^name:\s*(.+)$/m.exec(fs.readFileSync(path.join(ajanlar, f), "utf8"))?.[1].trim()).filter(Boolean);
-  const metin = JSON.stringify({ promptCacheTtl: p.ttl, permissions: { deny: adlar.filter((a) => !tut.has(a)).map((a) => `Agent(${a})`) } });
+    .map((f) => ad(path.join(ajanlar, f))).filter(Boolean);
+  // TOKEN-3 K10: plugin ajanları (eklenti:alt dizin:ad) da gizlenir — kalan listenin ~12k karakteri
+  const kurulu = fs.existsSync(eklentiler) ? JSON.parse(fs.readFileSync(eklentiler, "utf8")).plugins ?? {} : {};
+  for (const g of Object.values(kurulu).flat()) {
+    const kok = path.join(g.installPath, "agents");
+    if (!fs.existsSync(kok)) continue;
+    for (const f of fs.readdirSync(kok, { recursive: true }).filter((f) => f.endsWith(".md")).sort()) {
+      adlar.push([path.basename(path.dirname(g.installPath)), ...path.dirname(f).split(path.sep).filter((x) => x !== "."),
+        ad(path.join(kok, f)) || path.basename(f, ".md")].join(":"));
+    }
+  }
+  const metin = JSON.stringify({ promptCacheTtl: p.ttl, permissions: { deny: [...new Set(adlar)].filter((a) => !tut.has(a)).map((a) => `Agent(${a})`) } });
   const yol = path.join(os.tmpdir(), "cc_profil", `kopru-ajan-${ajanAdi ? ajanAdi.replace(/[^\w.-]/g, "_") : "genel"}.json`);
   fs.mkdirSync(path.dirname(yol), { recursive: true });
   // içerik aynıysa dokunulmaz: eşzamanlı ajanlar aynı dosyayı yarım okumaz

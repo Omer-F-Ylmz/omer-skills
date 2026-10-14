@@ -93,6 +93,8 @@ test("ajan ayar dosyasi profilin ttl'sini tasir, ajanTut ve --agent adi deny'da 
   const ayar = JSON.parse(fs.readFileSync(AYAR_ARG("dil-go")[1], "utf8"));
   assert.equal(ayar.promptCacheTtl, PROFIL_AJAN.ttl);
   for (const a of [...PROFIL_AJAN.ajanTut, "dil-go"]) assert.ok(!ayar.permissions.deny.includes(`Agent(${a})`), a);
+  // TOKEN-3 K10: plugin ajanları (eklenti:ad) da deny'da
+  assert.ok(ayar.permissions.deny.some((d) => /^Agent\([^)]+:[^)]+\)$/.test(d)), "plugin ajanı gizlenmedi");
 });
 
 test("argv yalnizca sabit bayraklardan olusur", async () => {

@@ -155,7 +155,14 @@ def test_ajan_tut_disindakiler_deny(tmp_path):
         (aj / dosya).write_text(f"---\nname: {ad}\ndescription: x\n---\ngövde", encoding="utf-8")
     pr = tmp_path / "profil.json"
     pr.write_text(json.dumps({"ajan": {"ajanTut": ["tut-ben"], "ttl": "5m"}}), encoding="utf-8")
-    args, env = cc_profil.kur("ajan", env={}, profiller=pr, gecici=tmp_path / "g", ajanlar=aj)
+    # TOKEN-3 K10: plugin ajanı eklenti:alt dizin:ad olarak gizlenir
+    ek = tmp_path / "cache" / "pazar" / "octo" / "1.0"
+    (ek / "agents" / "personas").mkdir(parents=True)
+    (ek / "agents" / "personas" / "d.md").write_text("---\nname: debugger\n---\n", encoding="utf-8")
+    kurulu = tmp_path / "installed_plugins.json"
+    kurulu.write_text(json.dumps({"plugins": {"octo@pazar": [{"installPath": str(ek)}]}}), encoding="utf-8")
+    args, env = cc_profil.kur("ajan", env={}, profiller=pr, gecici=tmp_path / "g", ajanlar=aj, eklentiler=kurulu)
     ayar = json.loads(Path(_d(args, "--settings")).read_text(encoding="utf-8"))
-    assert ayar == {"promptCacheTtl": "5m", "permissions": {"deny": ["Agent(Backend Architect)", "Agent(at-ben)"]}}
+    assert ayar == {"promptCacheTtl": "5m", "permissions": {"deny": [
+        "Agent(Backend Architect)", "Agent(at-ben)", "Agent(octo:personas:debugger)"]}}
     assert env == {} and args.count("--settings") == 1

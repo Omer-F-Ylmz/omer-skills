@@ -22,7 +22,8 @@ def _yaz(yol, metin):
 
 
 def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici=None, ek_ayar=None,
-        ajanlar=Path.home() / ".claude" / "agents"):
+        ajanlar=Path.home() / ".claude" / "agents",
+        eklentiler=Path.home() / ".claude" / "plugins" / "installed_plugins.json"):
     """→ (argv eki, env eki). env eki yalnız enjeksiyon kapatan (pluginKapat'lı) profilde CC_PROFIL=ad — jev-skill.ps1 erken çıkar.
     ek_ayar: çağıranın kendi --settings JSON'u; profilinkiyle tek --settings'te birleşir (iki --settings birbirini ezmesin)."""
     env = os.environ if env is None else env
@@ -52,7 +53,15 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
         tut = set(p["ajanTut"])
         adlar = [m.group(1).strip() for f in sorted(Path(ajanlar).glob("*.md"))
                  if (m := re.search(r"^name:\s*(.+)$", f.read_text(encoding="utf-8", errors="ignore"), re.M))]
-        ayar["permissions"] = {"deny": [f"Agent({a})" for a in adlar if a not in tut]}
+        # TOKEN-3 K10: plugin ajanları (eklenti:alt dizin:ad) da gizlenir — kalan listenin ~12k karakteri
+        kurulu = json.loads(eklentiler.read_text(encoding="utf-8")).get("plugins", {}) if eklentiler.is_file() else {}
+        for g in [x for v in kurulu.values() for x in v]:
+            kok = Path(g["installPath"]) / "agents"
+            for f in sorted(kok.rglob("*.md")):
+                m = re.search(r"^name:\s*(.+)$", f.read_text(encoding="utf-8", errors="ignore"), re.M)
+                adlar.append(":".join([Path(g["installPath"]).parent.name, *f.relative_to(kok).parent.parts,
+                                       m.group(1).strip().strip("'\"") if m else f.stem]))
+        ayar["permissions"] = {"deny": [f"Agent({a})" for a in dict.fromkeys(adlar) if a not in tut]}
         # ~580 deny satırı argv'de WinError 206 sınırına yaklaşır → dosya yolu
         args += ["--settings", str(_yaz(gecici / f"{ad}-ayar.json", json.dumps(ayar, ensure_ascii=False)))]
     elif ayar:
