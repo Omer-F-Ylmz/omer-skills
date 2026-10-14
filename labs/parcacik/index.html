@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8"><title>lab · GPGPU buhar</title>
+<link rel="stylesheet" href="/labs/ortak.css">
+<script type="importmap">{"imports":{"three":"/labs/node_modules/three/build/three.module.js","three/addons/":"/labs/node_modules/three/examples/jsm/","gsap":"/labs/node_modules/gsap/index.js","gsap/ScrollTrigger":"/labs/node_modules/gsap/ScrollTrigger.js","gsap/SplitText":"/labs/node_modules/gsap/SplitText.js","lenis":"/labs/node_modules/lenis/dist/lenis.mjs","postprocessing":"/labs/node_modules/postprocessing/build/index.js"}}</script>
+<canvas class="sahne"></canvas>
+<script type="module">
+  import { kur, dunya, lab, bekle } from '/labs/ortak.js';
+  import { parcacik } from '/tools/site-kit/sablon/src/sahne/parcacik.js';
+  import { kademe, DPR } from '/tools/site-kit/sablon/src/sahne/kademe.js';
+
+  const k = new URLSearchParams(location.search).get('kademe') || kademe();
+  const { r, kam } = kur(document.querySelector('canvas'), DPR[k]);
+  const { s } = dunya(r);
+  const buhar = parcacik(r, { n: k === 'dusuk' ? 96 : 256, kaynak: [0, 1, 0] });
+  s.add(buhar.nesne);
+  kam.position.set(0, 1.8, 5.2); kam.lookAt(0, 1.8, 0);
+  let once = 0;
+  r.setAnimationLoop((z) => {
+    buhar.adim(z / 1000, once ? (z - once) / 1000 : 0.016);
+    once = z;
+    r.render(s, kam);
+    lab.kare++;
+  });
+  lab.git = async () => bekle(1500);
+  lab.hazir = true;
+</script>

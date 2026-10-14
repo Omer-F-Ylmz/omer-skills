@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8"><title>lab · RT kompozit geçiş</title>
+<link rel="stylesheet" href="/labs/ortak.css">
+<script type="importmap">{"imports":{"three":"/labs/node_modules/three/build/three.module.js","three/addons/":"/labs/node_modules/three/examples/jsm/","gsap":"/labs/node_modules/gsap/index.js","gsap/ScrollTrigger":"/labs/node_modules/gsap/ScrollTrigger.js","gsap/SplitText":"/labs/node_modules/gsap/SplitText.js","lenis":"/labs/node_modules/lenis/dist/lenis.mjs","postprocessing":"/labs/node_modules/postprocessing/build/index.js"}}</script>
+<canvas class="sahne"></canvas>
+<div class="uzun"></div>
+<script type="module">
+  import gsap from 'gsap';
+  import { kur, dunya, kaydir, kosu, lab } from '/labs/ortak.js';
+  import { gecis } from '/tools/site-kit/sablon/src/sahne/gecis.js';
+  import { dongu } from '/tools/site-kit/sablon/src/sahne/dongu.js';
+
+  const cv = document.querySelector('canvas');
+  const { r, kam } = kur(cv);
+  const A = dunya(r);
+  const B = dunya(r, { arka: 0x0b1420, isik: 0x9ec9ff, sis: 0.08 });
+  const kamB = kam.clone();
+  kam.position.set(2.2, 1.4, 4); kam.lookAt(0, 0.5, 0);
+  kamB.position.set(-1.6, 3.2, -9.5); kamB.lookAt(0, 0, -13.5);
+  addEventListener('resize', () => { kamB.aspect = kam.aspect; kamB.updateProjectionMatrix(); });
+  const ciz = gecis(r);
+  const o = { t: 0 };
+  const iste = dongu(r, cv, () => { ciz(A.s, kam, B.s, kamB, o.t); lab.kare++; return false; });
+  addEventListener('resize', iste);
+  kaydir();
+  // geçiş kaydırmanın orta üçte birinde: önce A'da dur, sonra eşik süpürür, B'de dur
+  gsap.timeline({ onUpdate: iste, scrollTrigger: kosu() }).to(o, { t: 0, duration: 1 }).to(o, { t: 1, duration: 1, ease: 'power1.inOut' }).to(o, { t: 1, duration: 1 });
+  ciz(A.s, kam, B.s, kamB, 0);
+  lab.hazir = true;
+</script>

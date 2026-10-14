@@ -1,0 +1,41 @@
+{
+ "ref": "lusion",
+ "olcum": {
+  "varsayilan@0": {
+   "kare_1sn": 60
+  },
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "varsayilan@1": {
+   "kare_1sn": 60
+  },
+  "?kademe=dusuk@1": {
+   "kare_1sn": 61
+  },
+  "hatalar": []
+ },
+ "gemini": {
+  "ref_kareler": [
+   "A0",
+   "A7"
+  ],
+  "hareket": 7,
+  "isik_post": 8,
+  "kalite": 8,
+  "eslesme": 9,
+  "farklar": [
+   "Referans sitelerdeki derinlik hissi ve alan derinliği (DoF) geçişleri daha sinematik.",
+   "Lab demomuzda vinyet ve kromatik sapma efektleri biraz daha az belirgin.",
+   "Işık patlamaları (bloom) referansta daha kontrollü ve organik duruyor."
+  ],
+  "oneriler": [
+   "bokehDepthOfFieldPass.uniforms['focus'].value = targetObject.position.z;",
+   "bloomPass.strength = 0.45; bloomPass.radius = 0.6;",
+   "chromaticAberrationPass.uniforms['offset'].value = new THREE.Vector2(0.002, 0.002);"
+  ]
+ },
+ "iz": {
+  "model": "gemini-3.5-flash-lite",
+  "sure": 6.1,
+  "jeton": 12519
+ }
+}

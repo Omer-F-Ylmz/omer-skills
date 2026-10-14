@@ -1,0 +1,39 @@
+{
+ "ref": "activetheory",
+ "olcum": {
+  "varsayilan@0": {
+   "kare_1sn": 60
+  },
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "?kademe=dusuk@0": {
+   "kare_1sn": 60
+  },
+  "hatalar": []
+ },
+ "gemini": {
+  "ref_kareler": [
+   "A1",
+   "A2",
+   "A6"
+  ],
+  "hareket": 7,
+  "isik_post": 6,
+  "kalite": 8,
+  "eslesme": 8,
+  "farklar": [
+   "Referans sitedeki parçacık bulutu daha hacimli ve organik bir dağılıma sahip.",
+   "Demo demlemede parçacıklar dar bir girdap sütununda sıkışmış kalmış.",
+   "Derinlik solması ve sis efekti referansta daha yumuşak ve atmosferik."
+  ],
+  "oneriler": [
+   "Parçacık compute shader içinde curl noise parametrelerini artırarak daha geniş bir buhar yayılımı sağlayın.",
+   "Fragment shader üzerinde derinlik (depth attenuation) geçişini exponential sis ile güçlendirin.",
+   "Parçacık boyut varyasyonunu artırarak üst kısımlarda daha seyirli ve buhar benzeri bir erime yaratın."
+  ]
+ },
+ "iz": {
+  "model": "gemini-3.5-flash-lite",
+  "sure": 5.5,
+  "jeton": 11403
+ }
+}

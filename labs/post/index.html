@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8"><title>lab · post yığını</title>
+<link rel="stylesheet" href="/labs/ortak.css">
+<script type="importmap">{"imports":{"three":"/labs/node_modules/three/build/three.module.js","three/addons/":"/labs/node_modules/three/examples/jsm/","gsap":"/labs/node_modules/gsap/index.js","gsap/ScrollTrigger":"/labs/node_modules/gsap/ScrollTrigger.js","gsap/SplitText":"/labs/node_modules/gsap/SplitText.js","lenis":"/labs/node_modules/lenis/dist/lenis.mjs","postprocessing":"/labs/node_modules/postprocessing/build/index.js"}}</script>
+<canvas class="sahne"></canvas>
+<script type="module">
+  import * as THREE from 'three';
+  import { kur, dunya, lab, bekle } from '/labs/ortak.js';
+  import { postYigini } from '/tools/site-kit/sablon/src/sahne/post.js';
+  import { kademe, DPR } from '/tools/site-kit/sablon/src/sahne/kademe.js';
+
+  const k = new URLSearchParams(location.search).get('kademe') || kademe();
+  const { r, kam } = kur(document.querySelector('canvas'), DPR[k]);
+  const { s, cezve, fincanlar } = dunya(r);
+  const { c, dof } = postYigini(r, s, kam, k);
+  addEventListener('resize', () => c.setSize(innerWidth, innerHeight));
+  kam.position.set(1.8, 1.2, 3.4);
+  kam.lookAt(-0.3, 0.6, -2.5);
+  // p: odak cezveden (0) arkadaki fincana (1) kayar — rack focus
+  const a = new THREE.Vector3(0, 0.6, 0), b = fincanlar[0].position.clone();
+  let p = 0;
+  if (dof) dof.target = new THREE.Vector3();
+  r.setAnimationLoop((z) => {
+    if (dof) dof.target.lerpVectors(a, b, p);
+    cezve.rotation.y = z * 0.0002;
+    c.render();
+    lab.kare++;
+  });
+  lab.git = async (x) => { p = x; await bekle(600); };
+  lab.hazir = true;
+</script>

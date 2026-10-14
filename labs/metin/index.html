@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8"><title>lab · SplitText + dev tip katmanı</title>
+<link rel="stylesheet" href="/labs/ortak.css">
+<style>
+  .dev { position: fixed; inset: 0; display: grid; place-items: center; margin: 0; font: 900 25vw/0.8 system-ui, sans-serif; letter-spacing: -0.05em; color: #d9c3a5; }
+  canvas.sahne { z-index: 1; pointer-events: none; }
+  .on { position: fixed; left: 5vw; bottom: 8vh; z-index: 2; margin: 0; font: 500 1.1rem/1.4 system-ui; mix-blend-mode: difference; color: #fff; max-width: 22ch; }
+  section { position: relative; z-index: 2; height: 100vh; display: flex; align-items: center; padding: 0 8vw; }
+  section p { font: 700 clamp(2rem, 5.5vw, 6rem)/1 system-ui; letter-spacing: -0.03em; max-width: 14ch; margin: 0; }
+</style>
+<script type="importmap">{"imports":{"three":"/labs/node_modules/three/build/three.module.js","three/addons/":"/labs/node_modules/three/examples/jsm/","gsap":"/labs/node_modules/gsap/index.js","gsap/ScrollTrigger":"/labs/node_modules/gsap/ScrollTrigger.js","gsap/SplitText":"/labs/node_modules/gsap/SplitText.js","lenis":"/labs/node_modules/lenis/dist/lenis.mjs","postprocessing":"/labs/node_modules/postprocessing/build/index.js"}}</script>
+<h1 class="dev">KÖPÜK</h1>
+<canvas class="sahne"></canvas>
+<p class="on">Cezve közde üç kez kabarır; köpük fincana kaşıkla taşınır.</p>
+<section style="height:120vh"></section>
+<section><p>Telve fincanın dibinde bir harita bırakır.</p></section>
+<section style="justify-content:flex-end"><p>Kırk yıl hatırı, tek fincanda.</p></section>
+<script type="module">
+  import gsap from 'gsap';
+  import { kur, dunya, kaydir, kosu, lab } from '/labs/ortak.js';
+  import { metinGir } from '/tools/site-kit/sablon/src/sahne/metin.js';
+  import { dongu } from '/tools/site-kit/sablon/src/sahne/dongu.js';
+
+  const cv = document.querySelector('canvas');
+  const { r, kam } = kur(cv);
+  const { s, cezve } = dunya(r, { arka: null });
+  kam.position.set(0, 0.9, 4.2); kam.lookAt(0, 0.55, 0);
+  const o = { a: 0 };
+  const iste = dongu(r, cv, () => { cezve.rotation.y = o.a; cezve.position.y = -o.a * 0.15; r.render(s, kam); lab.kare++; return false; });
+  kaydir();
+  gsap.to(o, { a: Math.PI * 1.5, ease: 'none', onUpdate: iste, scrollTrigger: kosu() });
+  // dev tip cezvenin arkasında, kaydırmada ters yönde kayar (paralaks katmanı)
+  gsap.to('.dev', { yPercent: -35, ease: 'none', scrollTrigger: kosu() });
+  metinGir(document.querySelector('.dev'));
+  document.querySelectorAll('section p').forEach((p) => metinGir(p));
+  r.render(s, kam);
+  lab.hazir = true;
+</script>

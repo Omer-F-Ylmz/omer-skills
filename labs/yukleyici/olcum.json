@@ -1,0 +1,45 @@
+{
+ "ref": "lando",
+ "olcum": {
+  "varsayilan@0.1": {
+   "kare_1sn": 60
+  },
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "varsayilan@0.45": {
+   "kare_1sn": 60
+  },
+  "varsayilan@0.7": {
+   "kare_1sn": 60
+  },
+  "varsayilan@1": {
+   "kare_1sn": 61
+  },
+  "hatalar": []
+ },
+ "gemini": {
+  "ref_kareler": [
+   "A0",
+   "A1",
+   "A7"
+  ],
+  "hareket": 7,
+  "isik_post": 6,
+  "kalite": 8,
+  "eslesme": 7,
+  "farklar": [
+   "Referans sitede kamera dolly ve derinlik geçişleri daha akışkan",
+   "Demo sahnelerinde yükleme sayacından sahneye geçişte perde açılma efekti eksik",
+   "Başlık harf animasyonu referansta daha dinamik bir koreografiye sahip"
+  ],
+  "oneriler": [
+   "gsap.to(camera.position, { z: targetZ, ease: \"power2.inOut\" }) ile dolly hızını optimize edin",
+   "Yükleme tamamlandığında CSS clip-path ile yumuşak bir perde açılış efekti ekleyin",
+   "Başlık girişlerinde stagger gecikmesini 0.05s seviyesine düşürerek akıcılığı artırın"
+  ]
+ },
+ "iz": {
+  "model": "gemini-3.5-flash-lite",
+  "sure": 5.6,
+  "jeton": 13612
+ }
+}

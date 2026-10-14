@@ -1,0 +1,42 @@
+<!doctype html>
+<meta charset="utf-8"><title>lab · yükleyici + giriş koreografisi</title>
+<link rel="stylesheet" href="/labs/ortak.css">
+<style>
+  #yuk { position: fixed; inset: 0; z-index: 3; background: #e8d9c2; color: #1a120c; display: flex; align-items: flex-end; justify-content: space-between; padding: 4vw; box-sizing: border-box; }
+  #yuk b { font: 900 18vw/0.8 system-ui; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+  #yuk span { font: 600 1rem system-ui; letter-spacing: 0.2em; }
+  h1 { position: fixed; left: 6vw; top: 12vh; z-index: 2; margin: 0; font: 900 11vw/0.85 system-ui; letter-spacing: -0.04em; }
+</style>
+<script type="importmap">{"imports":{"three":"/labs/node_modules/three/build/three.module.js","three/addons/":"/labs/node_modules/three/examples/jsm/","gsap":"/labs/node_modules/gsap/index.js","gsap/ScrollTrigger":"/labs/node_modules/gsap/ScrollTrigger.js","gsap/SplitText":"/labs/node_modules/gsap/SplitText.js","lenis":"/labs/node_modules/lenis/dist/lenis.mjs","postprocessing":"/labs/node_modules/postprocessing/build/index.js"}}</script>
+<div id="yuk"><span>YÜKLENİYOR</span><b>000</b></div>
+<canvas class="sahne"></canvas>
+<h1>Telve<br>Evi</h1>
+<script type="module">
+  import * as THREE from 'three';
+  import gsap from 'gsap';
+  import { SplitText } from 'gsap/SplitText';
+  import { kur, dunya, lab } from '/labs/ortak.js';
+  import { yukleyici } from '/tools/site-kit/sablon/src/sahne/yukleyici.js';
+
+  gsap.registerPlugin(SplitText);
+  const t0 = performance.now();
+  const { r, kam } = kur(document.querySelector('canvas'));
+  const { s } = dunya(r);
+  kam.position.set(0, 6, 16); kam.lookAt(0, 0.5, 0);
+  const baslik = SplitText.create('h1', { type: 'chars', mask: 'lines' });
+  gsap.set(baslik.chars, { yPercent: 110 });
+  const giris = () => gsap.timeline()
+    .to('#yuk b, #yuk span', { yPercent: -40, autoAlpha: 0, duration: 0.5, ease: 'power2.in' })
+    .to('#yuk', { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'expo.inOut' }, '<0.2')
+    .to(kam.position, { y: 1.4, z: 4.2, duration: 2.2, ease: 'power3.out', onUpdate: () => kam.lookAt(0, 0.5, 0) }, '<0.3')
+    .to(baslik.chars, { yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.035 }, '<0.6');
+  const m = yukleyici(document.querySelector('#yuk b'), giris);
+  // gerçek baytlar: kendi kitaplık dosyalarımız (varlık yerine)
+  const fl = new THREE.FileLoader(m);
+  ['three/build/three.module.js', 'postprocessing/build/index.js', 'gsap/gsap-core.js', 'gsap/ScrollTrigger.js', 'lenis/dist/lenis.mjs']
+    .forEach((f, i) => setTimeout(() => fl.load('/labs/node_modules/' + f), i * 250));
+  r.setAnimationLoop(() => { r.render(s, kam); lab.kare++; });
+  // p ölçeği: 0..1 → açılıştan sonra 0..5 sn
+  lab.git = (p) => new Promise((ok) => setTimeout(ok, Math.max(0, t0 + p * 5000 - performance.now())));
+  lab.hazir = true;
+</script>

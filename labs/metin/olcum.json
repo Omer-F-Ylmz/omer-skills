@@ -1,0 +1,42 @@
+{
+ "ref": "lando",
+ "olcum": {
+  "varsayilan@0": {
+   "kare_1sn": 0
+  },
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "varsayilan@0.45": {
+   "kare_1sn": 0
+  },
+  "varsayilan@0.8": {
+   "kare_1sn": 0
+  },
+  "hatalar": []
+ },
+ "gemini": {
+  "ref_kareler": [
+   "A0",
+   "A1",
+   "A4"
+  ],
+  "hareket": 8,
+  "isik_post": 7,
+  "kalite": 8,
+  "eslesme": 9,
+  "farklar": [
+   "Tipografi nesnenin tam arkasında başarılı bir derinlik katmanlaması oluşturuyor.",
+   "SplitText maskeleme geçişleri referans siteyle uyumlu ve akıcı.",
+   "3B nesne metalik yüzey yansımaları referanstaki kadar dinamik değil."
+  ],
+  "oneriler": [
+   "roughnessMap ve metalnessMap ekleyerek 3B cezve üzerindeki ışık kırılmalarını artırın.",
+   "GSAP ScrollTrigger ile metin maskesi animasyonlarında stagger süresini optimize edin.",
+   "KameraFOV değerini hafifçe daraltarak perspektif bozulmalarını azaltın."
+  ]
+ },
+ "iz": {
+  "model": "gemini-3.5-flash-lite",
+  "sure": 4.8,
+  "jeton": 12504
+ }
+}

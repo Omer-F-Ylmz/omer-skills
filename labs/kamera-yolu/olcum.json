@@ -1,0 +1,45 @@
+{
+ "ref": "igloo",
+ "olcum": {
+  "varsayilan@0": {
+   "kare_1sn": 0
+  },
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "varsayilan@0.3": {
+   "kare_1sn": 0
+  },
+  "varsayilan@0.6": {
+   "kare_1sn": 0
+  },
+  "varsayilan@0.95": {
+   "kare_1sn": 0
+  },
+  "hatalar": []
+ },
+ "gemini": {
+  "ref_kareler": [
+   "A2",
+   "A3",
+   "A5"
+  ],
+  "hareket": 7,
+  "isik_post": 6,
+  "kalite": 7,
+  "eslesme": 8,
+  "farklar": [
+   "Referans sitedeki derinlik hissi ve atmosferik sis (fog) geçişleri lab demosunda daha sade bırakılmış.",
+   "Nesneler arası geçişlerde referanstaki gibi karmaşık parçalanma ve holografik wireframe efektleri eksik.",
+   "Aydınlatma ve post-processing (bloom, chromatic aberration) referansta çok daha sinematik."
+  ],
+  "oneriler": [
+   "scene.fog = new THREE.FogExp2(0x1a120b, 0.05); ile sahneye derinlik sisi ekleyin.",
+   "Geçiş karelerinde kamera path boyunca motion blur ve post-processing için EffectComposer kullanın.",
+   "Nesne yüzeylerine PBR materyaller ve hafif rim light vererek metal/seramik dokusunu öne çıkarın."
+  ]
+ },
+ "iz": {
+  "model": "gemini-3.5-flash-lite",
+  "sure": 6.3,
+  "jeton": 13633
+ }
+}

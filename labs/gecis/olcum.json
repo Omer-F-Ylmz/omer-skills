@@ -1,0 +1,44 @@
+{
+ "ref": "activetheory",
+ "olcum": {
+  "varsayilan@0.2": {
+   "kare_1sn": 0
+  },
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "varsayilan@0.45": {
+   "kare_1sn": 0
+  },
+  "varsayilan@0.55": {
+   "kare_1sn": 0
+  },
+  "varsayilan@0.85": {
+   "kare_1sn": 0
+  },
+  "hatalar": []
+ },
+ "gemini": {
+  "ref_kareler": [
+   "A2",
+   "A4"
+  ],
+  "hareket": 6,
+  "isik_post": 5,
+  "kalite": 6,
+  "eslesme": 7,
+  "farklar": [
+   "Geçiş sırasında gürültü maskesi kenarlarında eksik ışıma (edge glow)",
+   "Render-target kompozitinde derinlik ve renk derinliği referans seviyesinin altında",
+   "Sahne geçişlerinde yumuşama ve motion blur eksikliği"
+  ],
+  "oneriler": [
+   "gl_FragColor kompozit shader'ına smoothstep tabanlı bir kenar parıltısı (edge glow) ekleyin",
+   "Post-processing pipeline'a hafif bir bloom ve chromatic aberration katmanı ekleyin",
+   "Geçiş maskesi için FBM (Fractal Brownian Motion) gürültü ölçeğini artırarak detay kazandırın"
+  ]
+ },
+ "iz": {
+  "model": "gemini-3.5-flash-lite",
+  "sure": 6.3,
+  "jeton": 13599
+ }
+}
