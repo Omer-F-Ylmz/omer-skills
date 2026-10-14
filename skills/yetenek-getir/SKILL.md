@@ -33,3 +33,5 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 ## Kurallar
 - `durum` "kapalı(override off)" olanı önermeden önce kullanıcıya söyle; kurulu olmayanı kurma.
 - Arama başına tek komut; aday listesini kullanıcıya yapıştırma, yalnız seçilenleri adıyla an.
+- Ön-enjeksiyon kancası (UserPromptSubmit additionalContext) <10k kalmalı: 10k üstü dosyaya düşer + ek Read turu (KATALOG-KANCA-1: jeton +%20.7).
+- Kelime tetiği aynı kümeye bakarak ayarlanırsa bekletilmiş kümede çöker (1/30 · 0/22 → 4/10 · 3/10): her tetik bekletilmiş kümeyle ölçülür.
