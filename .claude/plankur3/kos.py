@@ -86,14 +86,14 @@ anahtar, kor = {}, []
 # görev madde 4: yalnız katalogdaki TAM araç adları (kurulu olmayan, kurulu bir adla aynı olmayan); tek sözcüklü ≤4 harf ad gürültü
 kur = {o["ad"].lower() for o in pk.kayitlar() if ka.kurulu(o)}
 yasak = {o["ad"].lower() for o in pk.kayitlar() if not ka.kurulu(o) and (len(o["ad"]) > 4 or "-" in o["ad"] or ":" in o["ad"])} - kur
-kd = {"A": 0, "B": 0}  # plan metninde kurulu olmayan araç adı (kanıt: B'de 0 beklenir)
+kd = {"A": set(), "B": set()}  # plan metninde kurulu olmayan araç adı (Ömer sert kapısı: B'de 0)
 for p, grup in enumerate(PAKET):
+    for k in "AB":  # tüm plan metni: iş bölümü ayrıştırması kaçırsa da sayılır
+        kd[k] |= {w for w in yasak if re.search(rf"(?<![\w:-]){re.escape(w)}(?![\w-])", kayit[(k, p)]["metin"].lower())}
     for n in grup:
         # B0 '## N' başlığı kullandı; yalnız '###' arayınca 1. işin metni 2-3. işe düşüyordu
         parca = {k: (re.search(rf"^#{{2,4}}\s*{n + 1}\b(.*?)(?=^#{{2,4}}\s*\d+\b|\Z)", kayit[(k, p)]["metin"], re.S | re.M)
                      or [None, kayit[(k, p)]["metin"][:4000]])[1].strip() for k in "AB"}
-        for k in "AB":
-            kd[k] += sum(1 for w in yasak if re.search(rf"(?<![\w:-]){re.escape(w)}(?![\w-])", parca[k].lower()))
         x = random.choice("AB")
         anahtar[n + 1] = {"X": x, "Y": "B" if x == "A" else "A"}
         kor.append(f"## {n + 1}. {IS[n]}\n### X\n{parca[x][:5000]}\n### Y\n{parca[anahtar[n + 1]["Y"]][:5000]}\n")
@@ -115,6 +115,6 @@ tur = lambda k, ps: sum(kayit[(k, p)]["tur"] or 0 for p in ps)  # noqa: E731
 ozet = (f"kalite A {puan['A']} / B {puan['B']} (fark {puan['B'] - puan['A']:+})\n"
         f"zor jeton A {top('A', [0, 1, 2])} / B {top('B', [0, 1, 2])} · tur A {tur('A', [0, 1, 2])} / B {tur('B', [0, 1, 2])}\n"
         f"paket jeton A/B {[(top('A', [p]), top('B', [p])) for p in range(4)]}\n"
-        f"rutin jeton A {top('A', [3])} / B {top('B', [3])}\nkurulu-olmayan araç adı A {kd['A']} / B {kd['B']}")
+        f"rutin jeton A {top('A', [3])} / B {top('B', [3])}\nkurulu-olmayan araç adı A {len(kd['A'])} / B {len(kd['B'])} {sorted(kd['B'])}")
 (D / "ozet.txt").write_text(ozet, encoding="utf8")
 print(ozet, flush=True)

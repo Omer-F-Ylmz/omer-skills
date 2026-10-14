@@ -1,0 +1,5 @@
+kalite A 79 / B 77 (fark -2)
+zor jeton A 738164 / B 499692 · tur A 10 / B 7
+paket jeton A/B [(300884, 151612), (148512, 206183), (288768, 141897), (67454, 68123)]
+rutin jeton A 67454 / B 68123
+kurulu-olmayan araç adı A 5 / B 1 ['remotion']
