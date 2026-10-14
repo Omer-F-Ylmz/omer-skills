@@ -151,7 +151,7 @@ def test_ajan_tut_disindakiler_deny(tmp_path):
     """TOKEN-2 K2: ajanTut dışındaki kullanıcı ajanları Agent(ad) deny; uzun ayar argv yerine dosya yolu."""
     aj = tmp_path / "agents"
     aj.mkdir()
-    for dosya, ad in (("a.md", "tut-ben"), ("b.md", "Backend Architect"), ("c.md", "at-ben")):
+    for dosya, ad in (("a.md", "tut-ben"), ("b.md", "Backend Architect"), ("c.md", '"at-ben"')):  # TOKEN-3 K12: tırnak JS'teki gibi soyulur
         (aj / dosya).write_text(f"---\nname: {ad}\ndescription: x\n---\ngövde", encoding="utf-8")
     pr = tmp_path / "profil.json"
     pr.write_text(json.dumps({"ajan": {"ajanTut": ["tut-ben"], "ttl": "5m"}}), encoding="utf-8")

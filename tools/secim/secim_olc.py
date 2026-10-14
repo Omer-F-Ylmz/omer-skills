@@ -97,6 +97,9 @@ def toplu(kol, tekrar=1, tavan=10.0, cagri=3.0, gorev=GOREV, set_ad="toplu"):
     CALISMA.mkdir(exist_ok=True)
     s.write_text(json.dumps(ayar, ensure_ascii=False), encoding="utf-8")
     ek += [] if "--settings" in ek else ["--settings", str(s)]
+    # TOKEN-3 K13: kos()'un rastgele olcum-* cwd'si system ortam bloğunu kaydırıyordu (ilk_cr 3.3k) → repo dışı sabit boş cwd
+    bos = Path(os.environ.get("TEMP", "/tmp")) / "secim-toplu-bos"
+    bos.mkdir(exist_ok=True)
     yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-{set_ad}{ETIKET}-{kol}.tsv"
     if not yol.exists():
         yol.write_text("gorev\ttekrar\tdogru\tsecilen\n", encoding="utf-8")
@@ -106,7 +109,7 @@ def toplu(kol, tekrar=1, tavan=10.0, cagri=3.0, gorev=GOREV, set_ad="toplu"):
         if harcanan + cagri > tavan:
             print(f"DUR tavan: {harcanan:.2f}+{cagri} > {tavan}")
             return yol
-        o = kos(TOPLU_ISTEM + "\n".join(f"{g['id']}: {g['istem']}" for g in gorev), ek=ek, butce=cagri, timeout=1500)
+        o = kos(TOPLU_ISTEM + "\n".join(f"{g['id']}: {g['istem']}" for g in gorev), ek=ek, cwd=str(bos), butce=cagri, timeout=1500)
         SAYAC.write_text(f"{harcanan + o['usd']:.4f}")
         cevap = dict(re.findall(r"(S\d\d)\s*:\s*`?([A-Za-z0-9:_-]+)", o.get("metin") or ""))
         u0, u = o.get("usage_ilk") or {}, o["usage"]

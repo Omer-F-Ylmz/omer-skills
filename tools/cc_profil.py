@@ -53,7 +53,7 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
         ayar["promptCacheTtl"] = p["ttl"]
     if "ajanTut" in p:  # TOKEN-2 K2: ajan listesi sabit tabanın %47'si; ajanTut dışındaki kullanıcı ajanları oturumda gizlenir
         tut = set(p["ajanTut"])
-        adlar = [m.group(1).strip() for f in sorted(Path(ajanlar).glob("*.md"))
+        adlar = [m.group(1).strip().strip("'\"") for f in sorted(Path(ajanlar).glob("*.md"))
                  if (m := re.search(r"^name:\s*(.+)$", f.read_text(encoding="utf-8", errors="ignore"), re.M))]
         # TOKEN-3 K10: plugin ajanları (eklenti:alt dizin:ad) da gizlenir — kalan listenin ~12k karakteri
         kurulu = json.loads(eklentiler.read_text(encoding="utf-8")).get("plugins", {}) if eklentiler.is_file() else {}

@@ -41,3 +41,45 @@ S58	2	1	operator-approval-loop
 S59	2	1	autoclip-paket
 S60	2	0	resolve-conflict
 #OZET	2	18/20	ilk_girdi=91419 ilk_cr=3270 son_girdi=472935 cikti=2692 tur=5 usd=0.8753 rc=0 araclar=Grep,Grep,Read,Grep
+S41	3	1	convert-to-cpm
+S42	3	1	careful
+S43	3	1	matterjs
+S44	3	1	uncloud
+S45	3	1	frustration-detection
+S46	3	1	staggered-word-reveal
+S47	3	1	popups
+S48	3	1	contract-first
+S49	3	0	sec-semgrep-kural
+S50	3	1	defuddle
+S51	3	1	card-sort-analysis
+S52	3	1	investor-outreach
+S53	3	1	game-recon
+S54	3	1	including-generated-files
+S55	3	1	binlog-generation
+S56	3	1	to-questionnaire
+S57	3	1	mtp-hot-reload
+S58	3	1	operator-approval-loop
+S59	3	1	autoclip-paket
+S60	3	1	conflict-resolution
+#OZET	3	19/20	ilk_girdi=91409 ilk_cr=3270 son_girdi=577452 cikti=2649 tur=6 usd=0.9104 rc=0 araclar=Grep,Grep,Grep,Grep,Grep
+S41	4	1	convert-to-cpm
+S42	4	1	careful
+S43	4	1	matterjs
+S44	4	1	uncloud
+S45	4	1	frustration-detection
+S46	4	1	staggered-word-reveal
+S47	4	1	popups
+S48	4	1	contract-first
+S49	4	1	opengrep-rule-generator
+S50	4	1	defuddle
+S51	4	1	card-sort-analysis
+S52	4	1	investor-outreach
+S53	4	1	game-recon
+S54	4	1	including-generated-files
+S55	4	1	binlog-generation
+S56	4	1	to-questionnaire
+S57	4	1	mtp-hot-reload
+S58	4	1	operator-approval-loop
+S59	4	1	autoclip-paket
+S60	4	1	conflict-resolution
+#OZET	4	20/20	ilk_girdi=91409 ilk_cr=91407 son_girdi=680521 cikti=3685 tur=7 usd=0.2868 rc=0 araclar=Grep,Grep,Grep,Grep,Grep,Grep
