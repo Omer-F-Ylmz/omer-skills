@@ -92,6 +92,11 @@ def aile_dokum():
         print(k, len(blok), sum(len(b) for b in blok))
 
 
+def dosya_adi(aile):
+    # claude.ai zip'te tek SKILL.md ister, adı büyük/küçük harf duyarsız eşler
+    return f"{aile}-aile.md" if aile.lower() == "skill" else f"{aile}.md"
+
+
 def isle(yol):
     g = uyeler()
     hedef = KAT / "kilavuz"
@@ -107,7 +112,7 @@ def isle(yol):
               "## En güçlü parçalar"] + [f"- `{x['ad']}` — {x['neden']}" for x in guclu] + \
              ["", "## Birlikte kullanım"] + [f"- {x}" for x in j["birlikte"]] + ["", "## Tuzaklar"] + [f"- {x}" for x in j["tuzak"]] + \
              ["", "## Üyeler"] + [f"- {t} ({len(a)}): " + ", ".join(sorted(a)[:40]) + (" …" if len(a) > 40 else "") for t, a in tur.items()]
-        (hedef / f"{j['aile']}.md").write_text("\n".join(md) + "\n", encoding="utf8")
+        (hedef / dosya_adi(j["aile"])).write_text("\n".join(md) + "\n", encoding="utf8")
         print(j["aile"], len(guclu), "/", len(j["guclu"]))
     kucuk = sorted(a for a in g if len(g[a]) < 4)
     (hedef / "kucuk-aileler.md").write_text("# Küçük aileler (<4 kayıt) — katalog metniyle\n\n" + "\n".join(

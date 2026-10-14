@@ -34,9 +34,13 @@ def denetle(zp):
     sorun = []
     with zipfile.ZipFile(zp) as z:
         adlar = z.namelist()
-        skill = [a for a in adlar if a.split("/")[-1] == "SKILL.md"]
+        skill = [a for a in adlar if a.split("/")[-1].lower() == "skill.md"]  # claude.ai büyük/küçük harf duyarsız sayar
         if not skill:
             return [f"{Path(zp).name}: SKILL.md yok"]
+        if len(skill) > 1:
+            sorun.append(f"SKILL.md tam 1 olmalı, {len(skill)} var (harf duyarsız): {', '.join(skill[:5])}")
+        elif skill[0].split("/")[-1] != "SKILL.md" or skill[0].count("/") > 1:
+            sorun.append(f"SKILL.md kökte olmalı: {skill[0]}")
         on = _on_bilgi(z.read(min(skill, key=len)).decode("utf-8", "replace"))
         acik = on.get("description", "")
         if not on.get("name"):

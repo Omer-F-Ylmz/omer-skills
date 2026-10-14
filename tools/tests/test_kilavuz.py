@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import kilavuz_aday  # noqa: E402
 import kilavuz_ara  # noqa: E402
 import kilavuz_derin  # noqa: E402
 import kilavuz_ornek  # noqa: E402
@@ -11,6 +12,10 @@ import kilavuz_tekil  # noqa: E402
 
 def test_govde_onek_ve_bosluk_atilir():
     assert kilavuz_tekil.govde("---\nname: a\ndescription: b\n---\n# X\n\n y ") == "# X y"
+
+
+def test_skill_ailesi_skill_md_ile_cakismaz():
+    assert [kilavuz_aday.dosya_adi(a) for a in ("skill", "Skill", "ajan")] == ["skill-aile.md", "Skill-aile.md", "ajan.md"]
 
 
 def test_birlestir_dogrular_kirpar_maskeler(tmp_path, monkeypatch, capsys):

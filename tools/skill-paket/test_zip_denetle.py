@@ -77,3 +77,12 @@ def test_eksik_ve_uzun(tmp_path):
     assert any("1024" in x for x in zd.denetle(uzun))
     adsiz = _zip(tmp_path / "e.zip", {"e/SKILL.md": "---\ndescription: x\n---\n"})
     assert any("name" in x for x in zd.denetle(adsiz))
+
+
+def test_skill_md_harf_duyarsiz_tek(tmp_path):
+    bas = {"p/SKILL.md": "---\nname: p\ndescription: Use when p.\n---\n"}
+    iki = _zip(tmp_path / "p.zip", {**bas, "p/kilavuz/skill.md": "x"})  # claude.ai red örneği: "Currently there are 2"
+    assert any("tam 1" in x and "2 var" in x for x in zd.denetle(iki))
+    assert zd.denetle(_zip(tmp_path / "q.zip", {**bas, "p/kilavuz/skill-aile.md": "x"})) == []
+    derin = _zip(tmp_path / "r.zip", {"r/alt/SKILL.md": "---\nname: r\ndescription: Use when r.\n---\n"})
+    assert any("kökte" in x for x in zd.denetle(derin))
