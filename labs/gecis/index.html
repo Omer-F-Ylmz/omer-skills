@@ -23,8 +23,12 @@
   const iste = dongu(r, cv, () => { ciz(A.s, kam, B.s, kamB, o.t); lab.kare++; return false; });
   addEventListener('resize', iste);
   kaydir();
-  // geçiş kaydırmanın orta üçte birinde: önce A'da dur, sonra eşik süpürür, B'de dur
-  gsap.timeline({ onUpdate: iste, scrollTrigger: kosu() }).to(o, { t: 0, duration: 1 }).to(o, { t: 1, duration: 1, ease: 'power1.inOut' }).to(o, { t: 1, duration: 1 });
+  // portal: kısa A duruşu, kaydırmanın %70'inde halka merkezden açılır; A'ya dalış, B'de geri çekilerek oturma; sonda B duruşu
+  gsap.timeline({ onUpdate: iste, scrollTrigger: kosu() }).to(o, { t: 0, duration: .5 })
+    .to(o, { t: 1, duration: 2.8, ease: 'none' }, 'portal')
+    .fromTo(kam.position, { x: 2.2, y: 1.4, z: 4 }, { x: 0.25, y: 0.75, z: 1.2, duration: 2.8, ease: 'power2.in', onUpdate: () => kam.lookAt(0, 0.5, 0) }, 'portal')
+    .fromTo(kamB.position, { x: -0.6, y: 0.8, z: -12 }, { x: -1.2, y: 1.1, z: -10.2, duration: 2.8, ease: 'power2.out', onUpdate: () => kamB.lookAt(0.3, 0.5, -13.5) }, 'portal')
+    .to(o, { t: 1, duration: .7 });
   ciz(A.s, kam, B.s, kamB, 0);
   lab.hazir = true;
 </script>

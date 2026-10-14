@@ -1,15 +1,16 @@
 """SİTE-OKULU-2 lab kıyası: labs/<teknik> headless kareleri + fps/boşta kare ölçümü → Gemini ETKİ eşleşme puanı (referans site kareleriyle) → dist/site-okulu/<teknik>-kiyas.jpg + labs/<teknik>/olcum.json.
 Kullanım: python labs/kare.py <teknik>... (Gemini çağrısı teknik başı 1, koşu başı en fazla TAVAN)."""
-import asyncio, base64, functools, http.server, io, json, sys, threading, time
+import asyncio, base64, functools, http.server, io, json, statistics, sys, threading, time
 from pathlib import Path
 from PIL import Image
 from playwright.async_api import async_playwright
 
 KOK = Path(__file__).resolve().parents[1]
-sys.path[:0] = [str(KOK / "tools" / "video"), str(KOK / "tools" / "jev")]
+sys.path[:0] = [str(KOK / "tools" / "video"), str(KOK / "tools" / "jev"), str(KOK / "tools")]
 from video import kisa  # noqa: E402
+import ucuz_alt  # noqa: E402
 
-TAVAN = 8
+TAVAN = 12  # Gemini çağrısı / koşu (teknik başı KOSU)
 REF = KOK / ".kos" / "site-okulu"
 CIKTI = KOK / "dist" / "site-okulu"
 # teknik: (referans site, konu, [(sorgu, p)])
@@ -23,7 +24,10 @@ LAB = {
 }
 ISTEM = """Sen bir WebGL/yaratıcı geliştirme jürisisin. A0..A7 = ödüllü referans sitenin kaydırma kareleri; B0.. = bizim lab demomuzun kareleri (sırayla zaman/kaydırma ilerler).
 Teknik: {konu}. İçerik, marka, metin, renk paleti eşleşmesi ARANMAZ (kendi varlıklarımız); yalnız tekniğin ETKİSİ ve kalite çıtası karşılaştırılır.
-Yalnız JSON dön: {{"ref_kareler":[tekniği en iyi gösteren ≤3 A indeksi], "hareket":0-10, "isik_post":0-10, "kalite":0-10, "eslesme":0-10, "farklar":[≤3 kısa madde], "oneriler":[≤3 somut kod/ayar önerisi]}}"""
+İki ayrı puan ver: "mekanizma" = tekniğin kendisi (hareket, ışık/post, zamanlama, geçiş eğrisi) referans çıtasında mı; "icerik" = referansın kendi 3B/parçacık/sahne içeriğinin zenginliği bizde ne kadar (içerik kopyalanmaz; mekanizma puanını ETKİLEMEZ).
+Yalnız JSON dön: {{"ref_kareler":[tekniği en iyi gösteren ≤3 A indeksi], "hareket":0-10, "isik_post":0-10, "kalite":0-10, "mekanizma":0-10, "icerik":0-10, "eslesme":0-10, "farklar":[≤3 kısa madde], "oneriler":[≤3 somut kod/ayar önerisi]}}"""
+KOSU = 3  # d3: tek Gemini koşusu ±3 oynuyordu → temp 0, 3 koşu medyanı
+IKINCI = ("openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free", "openrouter/google/gemma-4-31b-it:free", "openrouter/google/gemma-4-26b-a4b-it:free")  # Gemini dışı ücretsiz görsel; cfp/* çift jeton döndürüyor
 
 
 def sunucu():
@@ -74,9 +78,36 @@ def puanla(ref, konu, bizim, key):
     for ad, ims in (("A", refs), ("B", bizim)):
         for i, im in enumerate(ims):
             parca += [{"text": f"{ad}{i}:"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(jpg(im)).decode()}}]
-    govde = {"contents": [{"parts": parca}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2}}
-    j, iz = kisa._uret(govde, key, time.monotonic())
+    govde = {"contents": [{"parts": parca}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0}}
+    kosular = [kisa._uret(govde, key, time.monotonic()) for _ in range(KOSU)]
+    j, iz = kosular[0]
+    for alan in ("hareket", "isik_post", "kalite", "mekanizma", "icerik", "eslesme"):
+        v = [k[0].get(alan) for k in kosular if isinstance(k[0].get(alan), (int, float))]
+        j[alan] = statistics.median(v) if v else None
+        j[alan + "_kosular"] = v
     return j, iz, refs
+
+
+def izgara(ims, w=360):
+    h = int(900 * w / 1440)
+    t = Image.new("RGB", (4 * w, -(-len(ims) // 4) * h))
+    for i, im in enumerate(ims):
+        t.paste(im.convert("RGB").resize((w, h)), (i % 4 * w, i // 4 * h))
+    return "data:image/jpeg;base64," + base64.b64encode(jpg(t, 1440)).decode()
+
+
+def ikinci(refs, konu, bizim):
+    """Bağımsız yargıç: aynı istem, A ve B ızgarası iki görsel; ilk yanıt veren model."""
+    icerik = [{"type": "text", "text": ISTEM.format(konu=konu) + "\nGörsel 1 = A ızgarası (soldan sağa, yukarıdan aşağı A0..), görsel 2 = B ızgarası."},
+              {"type": "image_url", "image_url": {"url": izgara(refs)}}, {"type": "image_url", "image_url": {"url": izgara(bizim)}}]
+    for m in IKINCI:
+        try:
+            j = ucuz_alt.iste({"model": m, "max_tokens": 4000, "temperature": 0, "messages": [{"role": "user", "content": icerik}]}, 180)
+            metin = j["choices"][0]["message"]["content"] or ""
+            return {"model": m, **json.loads(metin[metin.index("{"):metin.rindex("}") + 1])}
+        except Exception as e:
+            hata = f"{m}: {str(e)[:120]}"
+    return {"hata": hata}
 
 
 def kiyas(refs, secim, bizim, yol, w=480):
@@ -93,7 +124,7 @@ def kiyas(refs, secim, bizim, yol, w=480):
 
 async def main(adlar):
     assert all(a in LAB for a in adlar), f"bilinmeyen teknik; seçenekler: {list(LAB)}"
-    assert len(adlar) <= TAVAN, f"koşu başı en fazla {TAVAN} Gemini çağrısı"
+    assert len(adlar) * KOSU <= TAVAN, f"koşu başı en fazla {TAVAN} Gemini çağrısı"
     key = kisa.anahtar()
     port = sunucu()
     CIKTI.mkdir(parents=True, exist_ok=True)
@@ -107,8 +138,9 @@ async def main(adlar):
             except RuntimeError as e:
                 j, iz, refs = {"hata": str(e)[:300]}, {}, [Image.open(REF / ref / f"d-{i}.jpg") for i in range(8)]
             kiyas(refs, j.get("ref_kareler"), bizim, CIKTI / f"{ad}-kiyas.jpg")
-            (KOK / "labs" / ad / "olcum.json").write_text(json.dumps({"ref": ref, "olcum": olcum, "gemini": j, "iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
-            print(ad, json.dumps({"eslesme": j.get("eslesme"), "kalite": j.get("kalite"), "hareket": j.get("hareket"), "isik_post": j.get("isik_post"), "olcum": olcum}, ensure_ascii=False))
+            j2 = ikinci(refs, konu, bizim) if bizim else {}
+            (KOK / "labs" / ad / "olcum.json").write_text(json.dumps({"ref": ref, "olcum": olcum, "gemini": j, "ikinci": j2, "iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(ad, json.dumps({"gemini": {a: j.get(a + "_kosular") for a in ("mekanizma", "icerik", "eslesme")}, "ikinci": {a: j2.get(a) for a in ("model", "mekanizma", "icerik", "eslesme", "hata")}, "farklar": j.get("farklar"), "olcum": olcum}, ensure_ascii=False))
         await br.close()
 
 
