@@ -1,0 +1,6 @@
+kalite A 78 / B 80 (fark +2)
+zor jeton A 518430 / B 571594 · tur A 7 / B 8
+paket jeton A/B [(157773, 219894), (212695, 208345), (147962, 143355), (68543, 68518)]
+rutin jeton A 68543 / B 68518
+kurulu-olmayan araç adı A 0 / B 0 []
+C=B' v3: kalite 80 · zor jeton 432364 · tur 6 · rutin jeton 67787 · paket jeton [146776, 143117, 142471, 67787] · kurulu-olmayan 0 []
