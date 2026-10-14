@@ -136,5 +136,5 @@ if __name__ == "__main__":
                  cekismeli=not ortak, sn=round(time.time() - t))
         with CIKTI.open("a", encoding="utf-8") as f:
             f.write(json.dumps(a, ensure_ascii=False) + "\n")
-        print(ad, ma, mb, "ok", a["mekanizma"], "ÇEKİŞMELİ" if a["cekismeli"] else "", flush=True)
+        print(ad, ma, m1, m2, "ok", a["mekanizma"], "ÇEKİŞMELİ" if a["cekismeli"] else "", flush=True)
     print("BITTI cagri", CAGRI, flush=True)
