@@ -376,16 +376,67 @@ def ornek(rows, n=40, tohum=15):
     return random.Random(tohum).sample(t, n)
 
 
+# ---------- hibrit (d3): :free oybirliği alt kümesi %95.6 < %98 → tüm tekiller Claude alt ajanlarına ----------
+PARTI_DIZIN = BURASI / "claude-parti"  # pNN.txt girdi, pNN.out.jsonl {id, ana, ikincil, gerekce}; kapi-<tohum> kör kapı örneği
+
+
+def satir(k):
+    a = (ilk_satirlar(k) if aciklamasiz(k) else "") or k["aciklama"][:300] or "(açıklama yok)"
+    return " | ".join([k["id"], k["tur"], k["ad"], "/".join(Path(k["yol"]).parts[-4:-1]), a]).replace("\n", " ")
+
+
+def partile(rows, n=200):
+    tekil = {}
+    for k in rows:
+        if oylanacak(k):
+            tekil.setdefault(anahtar(k), k)
+    t = list(tekil.values())
+    PARTI_DIZIN.mkdir(exist_ok=True)
+    for j, i in enumerate(range(0, len(t), n)):
+        (PARTI_DIZIN / f"p{j:02d}.txt").write_bytes(("\n".join(satir(k) for k in t[i:i + n]) + "\n").encode("utf-8"))
+    print("tekil", len(t), "parti", -(-len(t) // n))
+
+
+def etiketler(desen="p*.out.jsonl"):
+    e = {}
+    for p in sorted(PARTI_DIZIN.glob(desen)):
+        for s in p.read_text(encoding="utf-8").splitlines():
+            if s.strip():
+                d = json.loads(s)
+                e[d["id"]] = d
+    return e
+
+
+def dengeli(rows, n=100, tohum=18):
+    """Kör kapı örneği: tohumlu karıştır, kategori_son başına sırayla birer kalem (küçük kategoriler de temsil edilir)."""
+    t = sorted(tekil_kurulu(rows).values(), key=lambda k: k["id"])
+    random.Random(tohum).shuffle(t)
+    gr = defaultdict(list)
+    for k in t:
+        gr[k["kategori_son"]].append(k)
+    sec = []
+    while len(sec) < min(n, len(t)):
+        for c in KATLAR:
+            if gr[c] and len(sec) < n:
+                sec.append(gr[c].pop())
+    return sorted(sec, key=lambda k: k["id"])
+
+
 def son():
     rows = [json.loads(s) for s in (BURASI / "katalog.jsonl").read_text(encoding="utf-8").splitlines()]
     oy = onbellek()
+    byid = {k["id"]: k for k in rows}
+    cl = {anahtar(byid[i]): d for i, d in etiketler().items() if d.get("ana") in KATLAR}
     sayim = json.loads((BURASI / "kullanim-30g.json").read_text(encoding="utf-8"))["sayim"]
     kull = kullanim_esle(rows, sayim)
     kat = katmanla(rows, kull, a_metni())
     kan, fark = kanonikle(rows)
     bekleyen = 0
     for k in rows:
-        if oylanacak(k):
+        if anahtar(k) in cl and oylanacak(k):
+            c, g = cl[anahtar(k)]["ana"], "claude"
+            k["kategori_ikincil"] = cl[anahtar(k)].get("ikincil") if cl[anahtar(k)].get("ikincil") in KATLAR else ""
+        elif oylanacak(k):
             o = {x: oy[anahtar(k)].get(x) for x in ("oy1", "oy2", "oy3") if oy[anahtar(k)].get(x)}
             c, g = karar(o, k["kategori_tahmin"])
             if c is None:
@@ -406,6 +457,8 @@ def son():
         p = BURASI / f"{ad}.json"
         if p.exists():
             uyumlar[ad] = [(i, c, byid[i]["kategori_son"]) for i, c in json.loads(p.read_text(encoding="utf-8")).items()]
+    for p in sorted(PARTI_DIZIN.glob("kapi-*.out.jsonl")):  # kör kapı: sınıflamayı yapmamış alt ajan, ANA kategoride
+        uyumlar[p.name[:-10]] = [(i, d["ana"], byid[i]["kategori_son"]) for i, d in etiketler(p.name).items()]
     (BURASI / "ozet-0b.md").write_bytes(ozet0b(rows, uyumlar, nm, bekleyen, sayim).encode("utf-8"))
     print("yazıldı · bekleyen", bekleyen)
 
@@ -450,6 +503,19 @@ if __name__ == "__main__":
     if adim == "sinifla":
         yeniden = "--yeniden" in sys.argv  # katalog-son.jsonl'deki kategori_son ile seçer
         sinifla([json.loads(s) for s in (BURASI / ("katalog-son.jsonl" if yeniden else "katalog.jsonl")).read_text(encoding="utf-8").splitlines()], yeniden)
+    elif adim == "partile":
+        partile([json.loads(s) for s in (BURASI / "katalog.jsonl").read_text(encoding="utf-8").splitlines()])
+    elif adim == "denetle":  # denetle pNN: girdideki her id çıktıda geçerli ana kategoriyle var mı
+        sat = [s.split(" | ") for s in (PARTI_DIZIN / f"{sys.argv[2]}.txt").read_text(encoding="utf-8").splitlines() if s]
+        ids = [p[0] for p in sat]
+        e = etiketler(f"{sys.argv[2]}.out.jsonl")
+        # çıktıda "ad" varsa girdidekiyle aynı olmalı (sıkışık okumada id kayması yakalanır)
+        eksik = [p[0] for p in sat if e.get(p[0], {}).get("ana") not in KATLAR or e[p[0]].get("ad", p[2]) != p[2]]
+        print(f"{len(ids) - len(eksik)}/{len(ids)} tamam", "eksik/geçersiz:", " ".join(eksik[:40]) or "yok")
+    elif adim == "kapi":  # kapi <tohum>: katalog-son.jsonl'den kör örnek (etiketsiz) yazar
+        t = int(sys.argv[2])
+        sec = dengeli([json.loads(s) for s in (BURASI / "katalog-son.jsonl").read_text(encoding="utf-8").splitlines()], tohum=t)
+        (PARTI_DIZIN / f"kapi-{t}.txt").write_bytes(("\n".join(satir(k) for k in sec) + "\n").encode("utf-8"))
     elif adim == "kullanim":
         kullanim()
     elif adim == "ornek":

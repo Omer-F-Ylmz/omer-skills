@@ -85,3 +85,14 @@ def test_onbellek_v2_v1in_yerine_gecer(tmp_path):
     v2.write_text('{"k": "a", "kol": "oy1", "c": "veri-db"}\n', encoding="utf-8")
     oy = s.onbellek((v1, v2))
     assert oy["a"] == {"oy1": "veri-db"} and oy["b"] == {"oy1": "3d"}
+
+
+def test_dengeli_ve_etiketler(tmp_path, monkeypatch):
+    rows = [dict(_k(f"k{i:03d}", f"a{i}"), kategori_son="3d" if i < 50 else "bilim") for i in range(60)]
+    sec = s.dengeli(rows, n=20, tohum=18)
+    assert len(sec) == 20 and sum(k["kategori_son"] == "bilim" for k in sec) == 10  # azınlık kategori yarıyı alır
+    assert sec == s.dengeli(rows, n=20, tohum=18) and sec != s.dengeli(rows, n=20, tohum=19)
+    assert s.satir(rows[0]).startswith("k000 | skill | a0 | ") and s.satir(rows[0]).endswith("(açıklama yok)")
+    monkeypatch.setattr(s, "PARTI_DIZIN", tmp_path)
+    (tmp_path / "p00.out.jsonl").write_text('{"id": "k001", "ana": "3d", "ikincil": ""}\n\n', encoding="utf-8")
+    assert s.etiketler() == {"k001": {"id": "k001", "ana": "3d", "ikincil": ""}}
