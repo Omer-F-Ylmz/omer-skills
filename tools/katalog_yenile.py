@@ -188,6 +188,9 @@ def satirlar():
 
 def uret(onceki):
     cikti, gor = [], set()
+    kart = KOK / "docs" / "atlas" / "kart.jsonl"  # ATLAS-1: Opus kararı (karar + aşama) satıra; ayrıntı kart dosyasında
+    atlas = {(k["ad"], k["tur"]): dict(karar=k["karar"], asama=k["asama"]) for k in
+             map(json.loads, kart.read_text(encoding="utf8").splitlines()) if k.get("karar")} if kart.exists() else {}
     for s in satirlar():
         anahtar = (s["ad"], s["tur"])
         if anahtar in gor:
@@ -203,6 +206,7 @@ def uret(onceki):
         s["imza"] = imza
         # okuyucu alan etiketi (d6) açıklama değişmedikçe korunur
         s["alan"] = (eski.get("alan", "") if eski and eski.get("imza") == imza else "") or s.get("alan", "")
+        s.update(atlas.get(anahtar, {}))
         s["ozet_bekliyor"] = int(not s["ozet"])
         s["metin"] = kisa(s.pop("aciklama"), 400)
         s["is"] = s.pop("is_")
