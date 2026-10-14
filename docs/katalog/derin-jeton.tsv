@@ -124,3 +124,6 @@ p035	24	29163	37096	43	0	2	721	nvidia/nemotron-3-ultra-550b-a55b:free	-
 p036	14	21962	20043	45	0	0	560	nvidia/nemotron-3-ultra-550b-a55b:free	-
 g3b-ana-oturum-yargi	1	11000	1500	0	0	0	0	opus	ana-oturum-yargi 48-51 yaklaşık jeton (20 örnek, 0.908)
 g4-ana-oturum-yargi-kismi	1	26000	1800	0	0	0	0	opus	ana-oturum-yargi 52-60 örnek 1-39/46 yaklaşık jeton (uygulanmadı)
+p037	9	19774	19622	45	0	0	492	nvidia/nemotron-3-ultra-550b-a55b:free	-
+g4-ana-oturum-yargi	1	9000	900	0	0	0	0	opus	ana-oturum-yargi 52-60 örnek 40-46/46 + uygula (0.942, 16/276)
+g4b-ana-oturum-yargi	1	30000	2500	0	0	0	0	opus	ana-oturum-yargi 61-69 örnek 42/42 + 6 kaynak grep + uygula
