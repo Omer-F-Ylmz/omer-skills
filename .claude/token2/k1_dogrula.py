@@ -3,6 +3,8 @@ Her kol: test vekili 6769 (k1_vekil.py, yer değiştirme izi) → claude -p (opu
 import glob, json, os, socket, subprocess, sys, time
 from pathlib import Path
 
+import psutil
+
 KOK = Path(r"C:\Projeler\omer-skills"); D = KOK / ".claude" / "token2"
 PY = Path.home() / "AppData/Local/Headroom/headroom/runtime/venv/Scripts/python.exe"
 PORT = 6769
@@ -29,7 +31,7 @@ def stats():
     except Exception as e:
         return {"hata": type(e).__name__}
 
-def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=()):
+def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=(), sure=2400):
     iz = D / f"k1_iz_{ad}.tsv"; iz.unlink(missing_ok=True)
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
     env.update(env_ek, K1_IZ=str(iz), HEADROOM_PORT=str(PORT))
@@ -42,10 +44,30 @@ def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=()):
     ayar = json.dumps({"env": {"ANTHROPIC_BASE_URL": f"http://127.0.0.1:{PORT}"}})
     cenv = {k: v for k, v in env.items() if not k.startswith("HEADROOM_") and k != "K1_IZ"}
     cenv["ANTHROPIC_BASE_URL"] = f"http://127.0.0.1:{PORT}"
-    p = subprocess.run(["claude", "-p", "--model", "opus", "--effort", "high", "--output-format", "json", "--max-turns", str(tur),
-                        "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands", "--settings", ayar, *ek],
-                       input=istem, capture_output=True, text=True, encoding="utf-8", env=cenv, cwd=str(cwd), timeout=2400,
-                       creationflags=subprocess.CREATE_NO_WINDOW, shell=True)
+    # d2b: istem-r0e-B ajanı `python -m http.server` başlatıyor; torun boruyu tuttuğu için run(capture_output) zaman aşımından
+    # sonra da communicate()'te asılıyordu (d1b, 50 dk log boş). → çıktı dosyaya, torunlar izlenir, bitişte/süre dolunca öldürülür.
+    cikti = D / f"k1_cikti_{ad}.json"
+    with open(cikti, "w", encoding="utf-8") as fo:
+        p = subprocess.Popen(["claude", "-p", "--model", "opus", "--effort", "high", "--output-format", "json", "--max-turns", str(tur),
+                              "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands", "--settings", ayar, *ek],
+                             stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT, text=True, encoding="utf-8", env=cenv,
+                             cwd=str(cwd), creationflags=subprocess.CREATE_NO_WINDOW, shell=True)
+        p.stdin.write(istem); p.stdin.close()
+        torun = set()
+        while p.poll() is None and time.time() - t0 < sure:
+            try:
+                torun |= set(psutil.Process(p.pid).children(recursive=True))
+            except psutil.Error:
+                pass
+            time.sleep(5)
+        zaman_asimi = p.poll() is None
+        for c in [psutil.Process(p.pid)] * zaman_asimi + list(torun):
+            try:
+                c.kill()
+            except psutil.Error:
+                pass
+        p.wait(30)
+    p.stdout = cikti.read_text(encoding="utf-8", errors="replace"); p.stderr = "zaman aşımı" if zaman_asimi else ""
     hr = stats()
     vekil.kill(); bekle_port(False, 10)
     try:

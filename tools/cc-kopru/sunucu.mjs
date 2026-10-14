@@ -36,6 +36,19 @@ const HAFIF_VAR = (() => {
     .every((b) => h.includes(b));
 })();
 if (!CLAUDE) throw new Error("claude yurutucusu bulunamadi; kopru.json claudeYolu yazin");
+/** cc_profil.kur("ajan") ile aynı biçim; --agent adı da tutulur. ~580 deny satırı argv'de WinError 206'ya yaklaşır → dosya. */
+function ajanAyarYolu(ajanAdi, ajanlar = path.join(os.homedir(), ".claude", "agents")) {
+  const p = JSON.parse(fs.readFileSync(new URL("../../profiller/cc-arka.json", import.meta.url), "utf8")).ajan;
+  const tut = new Set([...p.ajanTut, ajanAdi]);
+  const adlar = (fs.existsSync(ajanlar) ? fs.readdirSync(ajanlar).filter((f) => f.endsWith(".md")).sort() : [])
+    .map((f) => /^name:\s*(.+)$/m.exec(fs.readFileSync(path.join(ajanlar, f), "utf8"))?.[1].trim()).filter(Boolean);
+  const metin = JSON.stringify({ promptCacheTtl: p.ttl, permissions: { deny: adlar.filter((a) => !tut.has(a)).map((a) => `Agent(${a})`) } });
+  const yol = path.join(os.tmpdir(), "cc_profil", `kopru-ajan-${ajanAdi ? ajanAdi.replace(/[^\w.-]/g, "_") : "genel"}.json`);
+  fs.mkdirSync(path.dirname(yol), { recursive: true });
+  // içerik aynıysa dokunulmaz: eşzamanlı ajanlar aynı dosyayı yarım okumaz
+  if (!fs.existsSync(yol) || fs.readFileSync(yol, "utf8") !== metin) fs.writeFileSync(yol, metin);
+  return yol;
+}
 const OTURUM = crypto.randomUUID();
 const IZ = izDosyasi(OTURUM);
 /** KÖPRÜ-HIZ (Desktop 12 Eki): şu an koşan ajan sayısı. ajanTavan artık ömür boyu değil EŞZAMANLI tavan:
@@ -190,8 +203,9 @@ srv.registerTool("ajan", {
     if (!HAFIF_VAR) return hata("RED: hafif mod bayrakları bu claude sürümünde yok.");
     argv.push("--disable-slash-commands", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}');
   }
-  // TOKEN-1 ttl profili (profiller/cc-arka.json; test eşitliği korur): tur medyanı 1 → 5m cache yazma. CC_PROFIL_ZORLA=tam geri alır.
-  if (process.env.CC_PROFIL_ZORLA !== "tam") argv.push("--settings", JSON.stringify({ promptCacheTtl: "5m" }));
+  // TOKEN-1 ttl + TOKEN-2 K2 ajan profili (profiller/cc-arka.json "ajan"; Ömer 14 Eki 13:41 onayı): 5m cache yazma +
+  // ajanTut dışındaki ~/.claude/agents ajanları Agent(ad) deny → ilk istek 65.0k→28.7k. CC_PROFIL_ZORLA=tam geri alır.
+  if (process.env.CC_PROFIL_ZORLA !== "tam") argv.push("--settings", ajanAyarYolu(ajanAdi));
   // kurulan argv son kez taranır: artık her jeton ya sabit bayrak ya denetlenmiş değer
   if (argv.some((x) => /dangerously-skip-permissions|bypassPermissions|^--permission-mode/i.test(x))) {
     return hata("RED: argv izin atlama bayrağı taşıyor.");

@@ -80,15 +80,27 @@ for (const kotu of ["--dangerously-skip-permissions", "--permission-mode bypassP
   });
 }
 
-// TOKEN-1: ajan ttl profiline bagli (14 gun tur medyani 1); deger profiller/cc-arka.json ile esit kalir
-const TTL = ["--settings", JSON.stringify({ promptCacheTtl: JSON.parse(fs.readFileSync(new URL("../../../profiller/cc-arka.json", import.meta.url), "utf8")).ttl.ttl })];
+// TOKEN-1/TOKEN-2 K2: ajan profili (ttl + ajanTut) tek --settings dosyasinda; deger profiller/cc-arka.json ile esit kalir
+const PROFIL_AJAN = JSON.parse(fs.readFileSync(new URL("../../../profiller/cc-arka.json", import.meta.url), "utf8")).ajan;
+const AYAR_ARG = (ad = "genel") => ["--settings", path.join(os.tmpdir(), "cc_profil", `kopru-ajan-${ad}.json`)];
+const TTL = AYAR_ARG();
+
+test("ajan ayar dosyasi profilin ttl'sini tasir, ajanTut ve --agent adi deny'da yok", async () => {
+  fs.rmSync(YAKALA, { force: true });
+  await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", ajan_adi: "dil-go" });
+  const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
+  assert.deepEqual(y.argv.slice(-2), AYAR_ARG("dil-go"));
+  const ayar = JSON.parse(fs.readFileSync(AYAR_ARG("dil-go")[1], "utf8"));
+  assert.equal(ayar.promptCacheTtl, PROFIL_AJAN.ttl);
+  for (const a of [...PROFIL_AJAN.ajanTut, "dil-go"]) assert.ok(!ayar.permissions.deny.includes(`Agent(${a})`), a);
+});
 
 test("argv yalnizca sabit bayraklardan olusur", async () => {
   fs.rmSync(YAKALA, { force: true });
   await ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", ajan_adi: "Explore" });
   const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
   assert.deepEqual(y.argv,
-    ["-p", "--output-format", "json", "--model", "sonnet", "--agent", "Explore", ...TTL]);
+    ["-p", "--output-format", "json", "--model", "sonnet", "--agent", "Explore", ...AYAR_ARG("Explore")]);
 });
 
 // --- hafif mod: skill/slash + MCP kapatilir, hook ve CLAUDE.md acik kalir ---
