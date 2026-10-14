@@ -13,7 +13,8 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 - Koşullu: zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan) → istemde `<katalog>` eki geldiyse yalnız ondan seç, bu skill'i çağırma; gelmediyse TEK çağrı (tüm sorgular tek komutta, ek sorgu yok). Rutin tek alanlı işte çağırma (kazanç 0, her ek tur ~100k önbellek okuma).
 
 ## Nasıl (iki aşama: betik geniş aday listesi verir, seçimi sen yaparsın)
-1. Aday listesi: `python ~/.claude/skills/yetenek-getir/katalog_ara.py "<iş tarifi TR/EN>" [--aday N] [--tur …]`
+1. Aday listesi: `python <bu skill klasörü>/katalog_ara.py "<iş tarifi TR/EN>" [--aday N] [--tur …]`
+   (klasör — CC: `~/.claude/skills/yetenek-getir`, claude.ai: `/mnt/skills/user/yetenek-getir`)
    (katalog yanında: `yetenek.jsonl`) → ~80–95 aday, türe göre gruplu, satır başına `ad · ne işe yarar` (+ `nasıl çağrılır` yalnız grup başlığındaki kalıptan farklıysa).
    `a, b · …` satırı aynı açıklamalı kopyalardır (ilgiliyse hepsi seçilir). Varsayılan N=80 + her türden en az 10; dar iş için `--aday 40`. Eski kısa eşik listesi: `--esik` (geri çağırması düşük).
    Çıktıda kısaltma notu (`compressed … hash=…`, `lines omitted`) varsa önce `headroom_retrieve` ile tam listeyi al; kısaltılmış listeden seçme.
@@ -35,3 +36,4 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 - Arama başına tek komut; aday listesini kullanıcıya yapıştırma, yalnız seçilenleri adıyla an.
 - Ön-enjeksiyon kancası (UserPromptSubmit additionalContext) <10k kalmalı: 10k üstü dosyaya düşer + ek Read turu (KATALOG-KANCA-1: jeton +%20.7).
 - Kelime tetiği aynı kümeye bakarak ayarlanırsa bekletilmiş kümede çöker (1/30 · 0/22 → 4/10 · 3/10): her tetik bekletilmiş kümeyle ölçülür.
+- "(taslak, doğrulanmamış)" etiketli kılavuz kartını kullanmadan önce kaynağı (aracın SKILL.md'si) oku.

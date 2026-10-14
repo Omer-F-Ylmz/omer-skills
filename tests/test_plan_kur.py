@@ -25,8 +25,11 @@ def test_rutin_tek_satir():
 
 def test_zor_tum_bolumler_ve_tavan():
     o = kos("Pazarlama sitesi yap: KVKK uyumlu iletişim formu, SEO, güvenlik testi ve yayın")
-    for s in ("kapılar:", "inceleme ajanları:", "Konsey", "Kapanış (6)", "<aday-listesi>", "semgrep", "gitleaks"):
+    for s in ("Konsey", "Kapanış (6)", "<aday-listesi>", "semgrep", "gitleaks"):
         assert s in o, s
+    # tarif varsa (ENVANTER-4) bölümler tarif başlığıyla gelir
+    assert "kapılar:" in o or "## Güvenlik ve kalite kapıları" in o
+    assert "inceleme ajanları:" in o or "## İnceleme ajanları" in o
     assert len(o) < 20000  # ~≤5k jeton (Desktop notu 1)
 
 

@@ -1,0 +1,15 @@
+1	zor	k02	E-ticaret mağazası: Stripe ödeme, sipariş veritabanı şeması ve kampanya günü için yük testi
+2	zor	k03	Mobil uygulama için tanıtım videosu, App Store ekran görüntüleri ve lansman e-postası hazırla
+3	zor	k04	Blender'da ürün modeli yap, web sitesinde three.js ile göster ve sayfa performansını ölç
+4	zor	k05	Podcast bölümünü transkripte dök, blog yazısına çevir ve sosyal medya kliplerini çıkar
+5	zor	k06	Oyun için tanıtım sitesi, Discord bot otomasyonu ve oyuncu analitiği panosu kur
+6	zor	k07	Fintech API'si: JWT kimlik doğrulama, OWASP denetimi, OpenAPI dokümanı ve CI hattı
+7	zor	k08	.NET Blazor iç yönetim paneli: EF Core şeması, rol bazlı yetki ve xUnit testleri
+8	zor	k10	Müşteri destek sohbet botu: RAG, kişisel veri maskeleme ve LLM maliyet izleme
+9	zor	k11	Kubernetes'e taşınan mikroservisler için gözlemlenebilirlik, alarm ve felaket kurtarma planı
+10	zor	k13	Veri hattı: CSV içe aktar, temizle, Postgres'e yükle ve haftalık Excel raporunu e-postayla gönder
+11	rutin	g05	Tüm ajan tanımlarının description alanlarını anlamı bozmadan kısa tek satıra sıkıştır. Ajan listesinin bağlamda tuttuğu jetonu önce ve sonra ölç.
+12	rutin	g18	Blender'da düşük poligonlu bir Türk kahvesi makinesi modelle. Parçaları ayrı nesneler olsun, exploded-view animasyonu hazırla ve headless bpy betiğiyle web için GLB olarak dışa aktar.
+13	rutin	g22	Web için test edilmiş bir animasyon tarif kütüphanesi hazırla: GSAP SplitText ile başlık girişi, View Transitions ile sayfa geçişi ve dotLottie ikon animasyonu. Tarifler 60 fps ve reduced-motion kurallarına uysun.
+14	rutin	g47	ZZZ için (XXMI) birden çok modu tuşla değiştirilebilen tek bir modda birleştir: ini birleştirme ve geçiş tuşları ekle. Yeşil doku hatasını da gider.
+15	rutin	s05	Mobil bankacılık uygulamasının onboarding ekranları için wireframe ve görsel tasarım yönü çıkar

@@ -1,0 +1,273 @@
+{
+ "yargic": "ana oturum (okuyucu alt ajanı sınıflandırıcı reddi; anahtar puan bitene kadar kapalı)",
+ "olcut": "0-2 × kapsam,saglamlik,arac,uygulanabilirlik",
+ "puan": [
+  {
+   "is": 1,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "X yük tavanı+PCI; Y DB inceleme döngüsü"
+  },
+  {
+   "is": 2,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "X ffmpeg mağaza biçimi; Y frontend-craft+boyutlar"
+  },
+  {
+   "is": 3,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "X önce/sonra ölçüm; Y AO pişirme+geri döngü"
+  },
+  {
+   "is": 4,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "not": "Y paket adları belirsiz; X LUFS normalizasyonu"
+  },
+  {
+   "is": 5,
+   "X": [
+    2,
+    1,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "Y Ed25519 imza, hız sınırı, n8n sunucu notu"
+  },
+  {
+   "is": 6,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "eşit; Y RS256+refresh rotasyonu"
+  },
+  {
+   "is": 7,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "eşit; Y sunucu tarafı yetki vurgusu"
+  },
+  {
+   "is": 8,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "X PIA+eval tavanı 50; Y indeks öncesi maskeleme"
+  },
+  {
+   "is": 9,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "not": "Y log hattı yok; runbook var"
+  },
+  {
+   "is": 10,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "eşit; Y red oranı eşiği+tek transaction"
+  },
+  {
+   "is": 11,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "eşit; X çağrı tavanı, Y diff yalnız description"
+  },
+  {
+   "is": 12,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "X bpy statik kontrol; Y kurulu değil yedeği"
+  },
+  {
+   "is": 13,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "eşit; Y fonts.ready"
+  },
+  {
+   "is": 14,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "eşit; Y d3dx.log+3 deneme DUR"
+  },
+  {
+   "is": 15,
+   "X": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "Y": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "not": "X pixeljury; Y BDDK görüntülü görüşme"
+  }
+ ],
+ "sonuc": {
+  "toplam": {
+   "A": 118,
+   "B": 119
+  },
+  "paket": [
+   {
+    "A": 38,
+    "B": 40
+   },
+   {
+    "A": 40,
+    "B": 39
+   },
+   {
+    "A": 40,
+    "B": 40
+   }
+  ],
+  "fark": 1,
+  "jeton_fark_yuzde": [
+   6.8,
+   1.4,
+   5.1
+  ],
+  "kapi": "RET (B-A=+1<4; rutin jeton +%5.1>%3)"
+ }
+}
