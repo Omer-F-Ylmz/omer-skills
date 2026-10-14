@@ -1,0 +1,17 @@
+gorev	tekrar	dogru	secilen
+S01	1	0	animasyon-atolyesi
+S02	1	1	frontend-craft
+S03	1	1	blender-oturum
+S04	1	1	apple-design
+S43	1	1	matterjs
+S46	1	1	staggered-word-reveal
+S50	1	1	defuddle
+#OZET	1	6/7	ilk_girdi=90420 son_girdi=187169 cikti=702 tur=3 usd=0.8061 rc=0 araclar=Skill:secim:departman-frontend
+S01	2	0	animasyon-atolyesi
+S02	2	1	frontend-craft
+S03	2	1	blender-uretim
+S04	2	1	apple-design
+S43	2	1	matterjs
+S46	2	1	staggered-word-reveal
+S50	2	1	defuddle
+#OZET	2	6/7	ilk_girdi=90420 son_girdi=187171 cikti=933 tur=3 usd=0.7852 rc=0 araclar=Skill:secim:departman-frontend
