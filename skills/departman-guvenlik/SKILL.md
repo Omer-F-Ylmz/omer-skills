@@ -16,6 +16,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 4. **Uygulama testi** — çalışan uygulama: `strix` (`web-app-penetration-testing`, API için `api-security-testing`); OWASP kapsamı `owasp-top-10-testing`; bulgu düzeltme `fix-security-vulnerabilities-with-strix`.
 5. **Bağımlılık** — lisans (MIT/Apache dışı → koşul rapora) ve açık denetimi; `security-and-hardening`.
 6. **KVKK** — yeni veri işleme: `use-case-triage` → gerekirse `pia-generation`; metin uyumu `policy-monitor`.
+- Site kapanış güvenlik taraması sırası/kapıları: `docs/atlas/guvenlik-test.md` (ATLAS kararları `docs/atlas/kart.jsonl`).
 
 ## Kapılar
 - gitleaks temiz olmadan push yok.

@@ -15,6 +15,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 3. **Video** — tek video `video-izle`; toplu tarama `video-tarama`; uygulama `video-uygula` (yeni araç katman adımında departmana dosyalanır).
 4. **Kod tabanı** — `graphify` (query → path → explain).
 5. **Kayıt** — öğrenilen ders bilgi kartına; kural adayı yalnız onayla.
+- Video izle/tara/uygula/üret ayrımı ve hat sırası: `docs/atlas/video-icerik.md` (ATLAS kararları `docs/atlas/kart.jsonl`).
 
 ## Kapılar
 - Dış repo kodu/kuralı almadan önce lisans (MIT/Apache değilse koşul rapora).

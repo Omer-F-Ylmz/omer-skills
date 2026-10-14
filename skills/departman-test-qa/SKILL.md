@@ -16,6 +16,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 4. **Uygulamayı deneme** — gerçek uygulamada uçtan uca: `webapp-testing` ya da `playwright-cli`; oturum gerekiyorsa `browse` / `setup-browser-cookies`; akış QA `qa` (yalnız rapor `qa-only`).
 5. **Görsel QA** — `pixeljury` görsel regresyon; screenshot 390/768/1440. Performans gerekirse `benchmark`.
 6. **Doğrulama** — `verification-before-completion`: kanıtsız "bitti" yok; test sayısı ve çıktı rapora.
+- Site kapanış test sırası (Lighthouse, axe, Playwright): `docs/atlas/guvenlik-test.md` (ATLAS kararları `docs/atlas/kart.jsonl`).
 
 ## Kapılar
 - Kırmızı görülmeden yeşil kod yok; mutasyonla en az bir test kırmızıya düşmeli.

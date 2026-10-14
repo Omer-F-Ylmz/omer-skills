@@ -439,3 +439,4 @@ DISK-1 d2 HAZIR 13:40 — Ömer koşar (repo kökünden): `python .kos/kopru/dis
 - 14 Eki 19:40 VİDEO-KISA-TOKEN-1 ara: d9 teknik ayrı (altın araç 1.0, link temiz 1.0, yp 0) · gh arama önbellek+oran kilidi · sınama 6 paket hazır, koşu RAM %87 nedeniyle devirde (devir/video-kisa-token-1-devam.md)
 - 14 Eki 19:10 TELVE-R3a A hazır: kıyas panosu dist/telve-r1/r3a/kiyas.png (igloo·lando·lusion·activetheory·TELVE × açılış/orta/final, 1440+390, mekanizma satırlı); B/C sürüyor
 - 14 Eki 19:25 TELVE-R3a BİTTİ: 3 yön hazır — docs/r1/r3a-yon.md (475683e) · dist/telve-r1/r3a/kiyas.png + yon-1/2/3.png · öneri Yön 1 (Tek Fincan, Tek Dünya) + Yön 2 ışık dili; Ömer seçer → DESIGN.md v3 → R3b
+- 14 Eki 20:20 ATLAS-2 d1 ara kayıt: kart +385 (V17·G350·K18), docs/atlas/video-icerik.md + guvenlik-test.md, 3 departman atıfı, seçim kitaplı 18/18 (K1/K2 10/11→11/11, site/3D 7/7), atlas_iz.py; kalan dist zip + K3; rapor/atlas-2.md
