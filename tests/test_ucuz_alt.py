@@ -1,4 +1,5 @@
-"""TOKEN-2 K8: tools/ucuz_alt.py — Claude-dışı combo, bağlam birleştirme, anahtar sızmaz, kesik yanıt ≠ 0."""
+"""TOKEN-2 K8 + OMNİ-AYIR: tools/ucuz_alt.py — yalnız ücretsiz zincir, alıntı kilidi, kesik → sonraki, ücretli red, önbellek, anahtar sızmaz."""
+import json
 import sys
 from pathlib import Path
 
@@ -7,25 +8,77 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import ucuz_alt  # noqa: E402
 
+UYE = ["openrouter/nvidia/nemotron-3-super-120b-a12b:free", "openrouter/google/gemma-4-31b-it:free"]
 
-def test_govde_combo_ve_dosyalar(tmp_path):
+
+@pytest.fixture
+def ortam(tmp_path, monkeypatch):
+    monkeypatch.setenv("OMNIROUTE_KEY", "GIZLI-ANAHTAR")
+    monkeypatch.setattr(ucuz_alt, "DIZIN", tmp_path / "onb")
+    monkeypatch.setattr(ucuz_alt, "combo_uyeleri", lambda: UYE)
+    (tmp_path / "b.txt").write_text("Copyright 2024 X. Permission is hereby granted, free of charge — MIT License", encoding="utf-8")
+    return tmp_path
+
+
+def yanit(icerik, model=UYE[0], bitis="stop"):
+    return {"model": model, "choices": [{"message": {"content": icerik}, "finish_reason": bitis}], "usage": {"prompt_tokens": 5}}
+
+
+def test_govde_ve_izin_listesi(tmp_path, monkeypatch):
     d = tmp_path / "a.txt"
     d.write_text("MIT License", encoding="utf-8")
     g = ucuz_alt.govde("lisans?", [d])
-    assert g["model"] == "cc-yedek-dis" and "claude" not in g["model"]
-    assert g["reasoning_effort"] != "none"  # combo modelleri düşünmesiz 400 döner (TOKEN-2 d3)
+    assert g["model"] == "cc-ucuz-free" and g["reasoning_effort"] != "none"  # combo modelleri düşünmesiz 400 (TOKEN-2 d3)
     assert "MIT License" in g["messages"][0]["content"] and g["messages"][0]["content"].startswith("lisans?")
     with pytest.raises(ValueError):
         ucuz_alt.govde("x" * (ucuz_alt.TAVAN + 1), [])
+    monkeypatch.setattr(ucuz_alt, "combo_uyeleri", lambda: UYE + ["openai/gpt-6.1-sol"])
+    assert not ucuz_alt.ucretsiz("omni", "cc-ucuz-free") and not ucuz_alt.ucretsiz("omni", "x-ai/grok-4.7")
+    assert ucuz_alt.ucretsiz("omni", UYE[0]) and ucuz_alt.ucretsiz("ollama", "qwen3.5:4b")
+    assert all(ucuz_alt.ucretsiz(k, m) or m == "cc-ucuz-free" for z in ucuz_alt.ZINCIR.values() for k, m in z)
+    with pytest.raises(PermissionError):
+        ucuz_alt.iste(ucuz_alt.govde("x", []))
 
 
-@pytest.mark.parametrize("bitis,kod", [("stop", 0), ("length", 2)])
-def test_main_yazar_anahtar_basmaz(tmp_path, monkeypatch, capsys, bitis, kod):
-    monkeypatch.setenv("OMNIROUTE_KEY", "GIZLI-ANAHTAR")
-    yakala = {}
-    monkeypatch.setattr(ucuz_alt, "iste", lambda g: yakala.setdefault("g", g) and {
-        "model": "gemini-x", "choices": [{"message": {"content": "yanıt"}, "finish_reason": bitis}], "usage": {"prompt_tokens": 5}})
-    (tmp_path / "i.md").write_text("soru", encoding="utf-8")
-    assert ucuz_alt.main([str(tmp_path / "i.md"), str(tmp_path / "c.md")]) == kod
-    assert (tmp_path / "c.md").read_text(encoding="utf-8") == "yanıt"
+def test_lisans_dogrulanir_onbellek_anahtar_basmaz(ortam, monkeypatch, capsys):
+    cagri = []
+    monkeypatch.setattr(ucuz_alt, "iste", lambda g: cagri.append(g["model"]) or yanit(
+        '{"lisans": "MIT", "alinti": "Permission is hereby granted, free of charge — MIT License"}'))
+    arg = ["--tur", "lisans", "lisansı bul", str(ortam / "c.json"), str(ortam / "b.txt")]
+    assert ucuz_alt.main(arg) == 0 and json.loads((ortam / "c.json").read_text(encoding="utf-8"))["lisans"] == "MIT"
+    assert ucuz_alt.main(arg) == 0 and len(cagri) == 1  # ikinci koşu önbellekten
     assert "GIZLI-ANAHTAR" not in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("ilk", [
+    yanit('{"lisans": "Apache-2.0", "alinti": "Licensed under the Apache License"}'),  # uydurma alıntı
+    yanit('{"lisans": "MIT", "alinti": "Permission is hereby gr', bitis="length"),  # rtk-desktop kesiği
+    yanit("düz metin, JSON yok"),
+    yanit('{"lisans": "belirsiz", "alinti": ""}'),
+    yanit('{"lisans": "MIT", "alinti": "MIT License"}', model="openai/gpt-6.1-sol"),  # ücretli modelden gelen yanıt
+])
+def test_ret_sonraki_modele_gecer(ortam, monkeypatch, ilk):
+    sira = [ilk, yanit('{"lisans": "MIT", "alinti": "free of charge — MIT License"}', model=UYE[1])]
+    monkeypatch.setattr(ucuz_alt, "iste", lambda g: sira.pop(0))
+    monkeypatch.setattr(ucuz_alt, "ZINCIR", {"lisans": [("omni", UYE[0]), ("omni", UYE[1])]})
+    o, model, deneme, _, _ = ucuz_alt.coz("lisans", "lisans?", [ortam / "b.txt"])
+    assert o["lisans"] == "MIT" and model == UYE[1] and deneme == 2
+
+
+def test_hepsi_gecmezse_cekismeli_ucretliye_yukselmez(ortam, monkeypatch, capsys):
+    modeller = []
+    monkeypatch.setattr(ucuz_alt, "iste", lambda g: modeller.append(g["model"]) or yanit('{"ozet": "x", "alinti": ["uydurma alıntı metni"]}'))
+    monkeypatch.setattr(ucuz_alt, "sor", lambda k, m, g: (modeller.append(m), ('{"ozet": "x", "alinti": ["yok böyle bir şey"]}', "stop", m, {}))[1])
+    assert ucuz_alt.main(["özetle", str(ortam / "c.md"), str(ortam / "b.txt")]) == 3
+    assert not (ortam / "c.md").exists() and "ÇEKİŞMELİ" in capsys.readouterr().out
+    assert modeller == [m for _, m in ucuz_alt.ZINCIR["ozet"]] and not any("gpt-6" in m or "grok" in m for m in modeller)
+
+
+def test_429_soguma_paralel_atlar(ortam, monkeypatch):
+    import urllib.error
+    def hata(g):
+        raise urllib.error.HTTPError("u", 429, "çok", {"retry-after": "30"}, None)
+    monkeypatch.setattr(ucuz_alt, "iste", hata)
+    monkeypatch.setattr(ucuz_alt, "ZINCIR", {"lisans": [("omni", UYE[0])]})
+    assert ucuz_alt.coz("lisans", "a", [ortam / "b.txt"])[2] == 1
+    assert ucuz_alt.soguma(UYE[0]) and ucuz_alt.coz("lisans", "b", [ortam / "b.txt"])[2] == 0
