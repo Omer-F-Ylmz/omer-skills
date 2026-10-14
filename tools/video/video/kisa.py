@@ -337,6 +337,9 @@ PLATFORM = {"GitHub": r"\bGitHub\b", "Claude": r"\bClaude\b", "Go": r"\b(Go|Gola
             "Rust": r"\bRust\b", "Python": r"\bPython\b", "Docker": r"\bDocker\b", "LinkedIn": r"\bLinkedIn\b", "Hugging Face": r"\bHugging ?Face\b", ".TECH": r"\.TECH\b"}
 # shortcut: sabit sözlük (M7a, TOKEN-2 kaçakları), 180 linkte yeni sık platform kaçarsa buraya eklenir
 ALAN = re.compile(r"(?<![@\w/.-])([a-z0-9][a-z0-9-]{1,40}\.(?:dev|io|ai|app|tech|sh|so|com|org|net|co))\b", re.I)
+DOSYA_ADI = re.compile(r"(?<![\w/.-])(?:docker-)?compose\.([a-z][\w-]{1,30})\.ya?ml\b|(?<![\w/.-])\.?([a-z][\w-]{1,30})\.config\.(?:[cm]?[jt]s|json|ya?ml|toml)\b"
+                       r"|(?<![\w/.-])\.([a-z][\w-]{1,30})rc(?:\.\w+)?\b", re.I)  # dosya/yol adındaki araç: compose servisi, <ad>.config.*, .<ad>rc
+GENEL_DOSYA = {"env", "override", "dev", "prod", "local", "test", "base", "bash", "zsh", "profile", "input"}
 SOSYAL = ("instagram.", "youtube.", "youtu.be", "linkedin.", "tiktok.", "twitter.", "x.com", "facebook.", "github.com", "bit.ly", "linktr.ee", "gmail.")
 
 
@@ -353,6 +356,14 @@ def ek_adlar(d, araclar):
     for al in dict.fromkeys(m.lower() for m in ALAN.findall(acik)):
         if tr.normal(al) not in var and not any(x in al for x in SOSYAL):
             out.append({"ad": al, "ne_dedi": "(açıklamada alan adı)", "zaman": "paket", "link": f"https://{al}"})
+    ocr = (re.search(r"^## Ekran metni \(OCR\)\n(.*?)(?=^## |\Z)", s, re.M | re.S) or [None, ""])[1]
+    for m in DOSYA_ADI.finditer(ocr):  # d5: RustFS yalnız docker-compose.rustfs.yml'de ekrandaydı; Gemini de tam-Claude da kaçırdı
+        ad = next(g for g in m.groups() if g).lower()
+        if ad in GENEL_DOSYA or tr.normal(ad) in var:
+            continue
+        if m[1] or len(re.findall(rf"(?<![\w.]){re.escape(ad)}(?![\w.])", s, re.I)):  # config/rc: dosya adı dışında ikinci geçiş (vila.config.ts = vite OCR bozuğu)
+            var.add(tr.normal(ad))
+            out.append({"ad": ad, "ne_dedi": f"(OCR dosya adı: {m[0]})", "zaman": "paket"})
     return out
 
 

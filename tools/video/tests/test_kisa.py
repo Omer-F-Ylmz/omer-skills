@@ -11,6 +11,14 @@ def test_ek_adlar_platform_ve_aciklama_alani(tmp_path):
     assert e["S3"]["tur"] == "platform" and e["agenthubstack.dev"]["link"] == "https://agenthubstack.dev"
 
 
+def test_ek_adlar_ocr_dosya_adi(tmp_path):
+    (tmp_path / "paket.md").write_text("## Ekran metni (OCR)\n[0:25] FILE=docker-compose.yml:docker-compose.rustfs.yml\n[0:22] TS vila.config.ts\n"
+                                       "[0:30] cat .lefthookrc · tailwind.config.js · .envrc\n[0:31] Lefthook ve Tailwind\n## Açıklama\nyok\n", encoding="utf-8")
+    e = {a["ad"]: a for a in kisa.ek_adlar(tmp_path, [{"ad": "Tailwind"}])}
+    assert set(e) == {"rustfs", "lefthook"}  # compose servis adı tek başına yeter · config/rc ikinci geçiş ister (vila OCR bozuğu) · Tailwind zaten var · env genel
+    assert e["rustfs"]["ne_dedi"] == "(OCR dosya adı: docker-compose.rustfs.yml)"
+
+
 def test_rapor_sablon_alanlari_platform_ayri():
     v = {"id": "ig-1", "ozet": "ö", "linkler": ["github.com/a/b"], "iddialar": ["i"], "araclar": [
         {"ad": "A", "tur": "", "link": "", "not": "n", "katalog": "bilinmeyen", "karar": ("KUR", "MIT")},

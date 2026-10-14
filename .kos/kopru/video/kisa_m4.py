@@ -212,12 +212,13 @@ REF_SEMA = {"type": "object", "required": ["videolar"], "properties": {"videolar
 
 def sinama_ref():
     """Geçerlilik (b): referans = yeni hat ∪ bağımsız Claude paket okuması (1 claude -p); her kalem pakette kanıtlanır, kanıtsızlar ayrı (silinmez)."""
-    o = json.loads((CIK / "oturum-sinama.json").read_text(encoding="utf-8"))
+    ids, oturum, rf = (EK, "oturum-t2a-d5.json", "ek-ref.json") if "ek" in sys.argv[2:] else (SINAMA, "oturum-sinama.json", "sinama-ref.json")  # TOKEN-2 d5: EK 5 altın referansı aynı desenle
+    o = json.loads((CIK / oturum).read_text(encoding="utf-8"))
     hat = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}
-    y = kisa.hafif.cagir(REF_SISTEM, "\n\n".join(f"VIDEO {v}\n{(ONB / v / 'paket.md').read_text(encoding='utf-8')}" for v in SINAMA), REF_SEMA, efor="medium", butce=1.0)
+    y = kisa.hafif.cagir(REF_SISTEM, "\n\n".join(f"VIDEO {v}\n{(ONB / v / 'paket.md').read_text(encoding='utf-8')}" for v in ids), REF_SEMA, efor="medium", butce=1.0)
     cl = {x["id"]: x for x in (y["form"] or {}).get("videolar", [])}
     out = {"_claude": {k: y.get(k) for k in ("sure", "usd", "usage", "hata")}}
-    for v in SINAMA:
+    for v in ids:
         sat = (ONB / v / "paket.md").read_text(encoding="utf-8").splitlines()
         h, c = hat.get(v, {"araclar": [], "linkler": []}), cl.get(v, {"araclar": [], "teknikler": [], "linkler": []})
         ar = {a["ad"]: "hat" for a in h["araclar"] if (a.get("tur") or "").lower() != "teknik"}
@@ -230,16 +231,17 @@ def sinama_ref():
                   "link": {u: [k, next((s[:90] for s in sat if u in s.lower()), None) or (u.split("/")[-1] in ham and "pakette ad")] for u, k in ln.items() if u and v[3:].lower() not in u},
                   "teknik": c["teknikler"] + [a["ad"] for a in h["araclar"] if (a.get("tur") or "").lower() == "teknik"]}
         print(v, "araç", sum(1 for x in out[v]["arac"].values() if x[1]), "/", len(out[v]["arac"]), "link", sum(1 for x in out[v]["link"].values() if x[1]), "/", len(out[v]["link"]))
-    (CIK / "sinama-ref.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    (CIK / rf).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print("claude", out["_claude"])
 
 
 def sinama_puan():
     """Sınama kümesi: kanıtlı referansa karşı yeni hattın araç/link yakalaması + yp (kanıtlı ref dışı ve pakette geçmeyen)."""
     o = json.loads((CIK / (sys.argv[2:] or ["oturum-sinama.json"])[0]).read_text(encoding="utf-8"))
-    ref = json.loads((CIK / "sinama-ref.json").read_text(encoding="utf-8"))
+    ids, rf = (EK, "ek-ref.json") if "ek" in sys.argv[3:] else (SINAMA, "sinama-ref.json")
+    ref = json.loads((CIK / rf).read_text(encoding="utf-8"))
     yeni, n, a = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}, len(o["iz"]), []
-    for v in SINAMA:
+    for v in ids:
         f = yeni[v]
         ad = {x["ad"] for x in f["araclar"] if (x.get("tur") or "").lower() != "teknik"}
         ln = {_url(x) for x in f["linkler"] + [x["link"] for x in f["araclar"] if x["link"]]}
