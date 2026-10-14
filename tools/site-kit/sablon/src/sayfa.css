@@ -1,0 +1,30 @@
+:root { --zemin: #ECE9E3; --yazi: #1B1A17; --kul: #6B675F; --egri: cubic-bezier(.2, .7, .2, 1); color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--yazi); font: 18px/1.5 system-ui, sans-serif; }
+:focus-visible { outline: 2px solid var(--yazi); outline-offset: 3px; }
+
+/* bölüm: scroll alanı (storyboard boyu), içinde ekrana yapışan sahne */
+.bolum { position: relative; height: var(--boy); }
+.sahne { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+
+/* poster AVIF ilk kare, canlı kanvas hazır olunca 0.6 s çapraz geçiş */
+.poster, .sahne canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.poster { object-fit: cover; }
+.sahne canvas { opacity: 0; transition: opacity .6s var(--egri); }
+.sahne canvas.hazir { opacity: 1; }
+
+.metin { position: absolute; z-index: 1; left: 8vw; bottom: 16vh; max-width: 620px; }
+.etiket { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--kul); text-decoration: none; }
+h1, h2 { margin: 16px 0 0; font-weight: 400; line-height: 1; letter-spacing: -.03em; }
+h1 { font-size: clamp(3rem, 6vw, 7rem); }
+h2 { font-size: clamp(2rem, 5vw, 4.5rem); }
+
+/* ilerleme: alt dilimler, --p bölüm ilerlemesi (sayfa.ts) */
+.ilerleme { position: fixed; z-index: 2; inset: auto 0 0; }
+.ilerleme ol { display: flex; gap: 8px; margin: 0; padding: 0 8vw 8px; list-style: none; }
+.ilerleme li { flex: 1; }
+.ilerleme a { display: block; min-height: 44px; padding-top: 12px; }
+.ilerleme a[aria-current] { color: var(--yazi); }
+.ilerleme i { display: block; height: 2px; margin-bottom: 8px; background: linear-gradient(90deg, var(--yazi) calc(var(--p, 0) * 100%), #0002 0); }
+
+@media (prefers-reduced-motion: reduce) { .sahne canvas { transition: none; } }

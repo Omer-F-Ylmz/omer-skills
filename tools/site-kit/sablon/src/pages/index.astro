@@ -1,0 +1,50 @@
+---
+import '../sayfa.css';
+
+// storyboard (DESIGN.md §2): id = src/sahne/bolum/<id>.ts sahnesi (yoksa yalnız poster), boy = scroll uzunluğu (vh)
+const bolumler = [
+  { id: 'giris', ad: 'Giriş', boy: 200, baslik: '__AD__' },
+  { id: 'ornek', ad: 'Örnek', boy: 240, baslik: 'Scroll ile ilerleyen sahne' },
+];
+const no = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>__AD__</title>
+    <meta name="theme-color" content="#ECE9E3" />
+    <link rel="icon" href="data:," />
+    <link rel="preload" as="image" href={`/poster-${bolumler[0].id}.avif`} media="(min-width: 761px) and (orientation: landscape)" />
+  </head>
+  <body>
+    <main>
+      {bolumler.map((b, i) => (
+        <section id={b.id} class="bolum" style={`--boy:${b.boy}vh`} aria-labelledby={`b-${b.id}`}>
+          <div class="sahne">
+            <picture>
+              <source srcset={`/poster-${b.id}-m.avif`} media="(max-width: 760px), (orientation: portrait)" />
+              <img class="poster" src={`/poster-${b.id}.avif`} alt="" fetchpriority={i ? 'auto' : 'high'} loading={i ? 'lazy' : 'eager'} />
+            </picture>
+            <canvas data-sahne={b.id} aria-hidden="true"></canvas>
+            <div class="metin">
+              <span class="etiket">{no(i)} · {b.ad}</span>
+              {i ? <h2 id={`b-${b.id}`}>{b.baslik}</h2> : <h1 id={`b-${b.id}`}>{b.baslik}</h1>}
+            </div>
+          </div>
+        </section>
+      ))}
+    </main>
+    <nav class="ilerleme" aria-label="Bölümler">
+      <ol>
+        {bolumler.map((b, i) => (
+          <li><a class="etiket" href={`#${b.id}`} data-dilim={b.id}><i></i>{no(i)} {b.ad}</a></li>
+        ))}
+      </ol>
+    </nav>
+    <script>
+      import '../sahne/sayfa.ts';
+    </script>
+  </body>
+</html>
