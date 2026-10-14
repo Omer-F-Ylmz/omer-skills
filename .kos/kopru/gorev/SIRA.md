@@ -433,3 +433,4 @@ DISK-1 d2 HAZIR 13:40 — Ömer koşar (repo kökünden): `python .kos/kopru/dis
 - 14 Eki 17:40 TOKEN-2 BİTTİ: K7 site kiti (kapı 4/4) + katalog site_kit · blender eklentisi 1.5.0 (onay/blender_6_uygula.py, push sonrası) · dist/claude-ai-23 animasyon-atolyesi + web-sahne-desenleri TEMİZ · CC animasyon: onay/animasyon_1_uygula.py uygula
 - 14 18:00 VİDEO-KISA-TOKEN-1 ara: d5 araç 0.861 (≥taban 0.850), yp 0, tk 0.04×, sn 0.25×; link 0.449 < 0.584 açık (devir/video-kisa-token-1-devam.md)
 - 14 Eki 18:05 TOKEN-3 d1 ARA: K10 blok farkı (git durumu + claude-mem damgası; istem msg1'den önce → farklı istemde ortak önek = araç+system) · plugin ajan deny cc_profil+köprü (pytest 18/18, node 12/12) · devam: devir/token-3-devam.md (d2: gerçek ölçüm, K11–K13)
+- 14 Eki 19:00 TOKEN-3 d3 ARA: K12 alt ajan dökümü (TELVE general-purpose %54, okuyucu önerisi) · K13 toplu tekrar önbellek önerisi · K14 bölme 150k eşiği hesabı · devam: devir/token-3-devam.md (d4: kapılar onayı, K15–K17)
