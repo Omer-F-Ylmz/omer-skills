@@ -8,6 +8,7 @@ Rutin tek alanlı işte tek satır: ENVANTER-6'da rutin işte katalog kazancı 0
 import json
 import re
 from collections import Counter
+from functools import cache
 import sys
 from pathlib import Path
 
@@ -48,7 +49,7 @@ TUR = {
               "teknik: vid-ffmpeg-donusturucu · renk: vid-renk-uzayi · ses: vid-ses-duzeni (loudness) · kare kanıtı: vid-kare-cikarici · "
               "telif/lisans kontrolü · platform biçimi: vid-sosyal-video-bicim",
               "ritim: vid-gecis-ve-ritim · otomasyon kodu: ecc:code-reviewer",
-              "araç seçimi (Remotion/HyperFrames/ffmpeg)", "brief 5k · üretim 30k · kontrol 8k · kapanış 3k"),
+              "araç seçimi (kurulu video skill'leri / ffmpeg)","brief 5k · üretim 30k · kontrol 8k · kapanış 3k"),
     "otomasyon": (r"otomasyon|automation|n8n|zamanla|cron|webhook|bot|entegrasyon|pipeline|hatt|toplu|batch|playwright",
                   "kuru koşu (--kuru) + idempotent · hata yolu: otm-n8n-hata-yonetimi / be-dayaniklilik-kaliplari · sır: sec-sir-tarayici · gitleaks · "
                   "zamanlama: otm-zamanlanmis-gorev (kilit + log) · ücretli çağrıya sayısal tavan",
@@ -98,7 +99,7 @@ INCELE = re.compile(r"review|incele|denetci")
 KONSEY = ("Konsey: yok — adımlar geri alınabilir; yalnız geri dönüşsüz VE iki makul seçenekli (veri yok) kararda "
           "ecc:council 1 kez (~60-90k)")
 BASLIK = ("plan-kur v3: planı ≤30 satır yaz — faz · adım · araç · sayısal kapı · inceleme ajanı · konsey · faz jetonu. "
-          "Araçları aşağıdaki adaylardan işe uyanlarla SEN seç (hepsi kurulu, yığınla uyumlu, alan uzmanı önde; ilgisizi kullanma); listede yoksa yalnız kurulu bildiğin aracı ekle; kurulmamışı/kurulumu önerme, ek sorgu yapma. "
+          "Araçları aşağıdaki adaylardan işe uyanlarla SEN seç (hepsi kurulu, yığınla uyumlu, alan uzmanı önde; ilgisizi kullanma); listede yoksa yalnız kurulu bildiğin aracı ekle; kurulmamışı/kurulumu önerme, ek sorgu yapma; kurulmamış kayıtla aynı adlı çerçeveyi araç diye yazma, kurulu sarmalayıcıyı yaz. "
           "Çağrı: skill → Skill <ad> · ajan → Agent <ad> · mcp → ToolSearch · cli → Bash. Ayrıntı nadiren: plan_kur.py --ac <ad>")
 
 
@@ -113,8 +114,18 @@ def kurulu_disi_adlar():
     return {w for o in rows if not ka.kurulu(o) for w in re.findall(r"[a-z0-9][a-z0-9.+-]{4,}", o["ad"].lower())} - var
 
 
+@cache
+def tam_ad_re():
+    """Kurulu olmayan TAM katalog adları (kurulu adla çakışmayan; tek sözcüklü ≤4 harf gürültü): PLAN-KUR-3 sert kapısıyla aynı tanım."""
+    rows = kayitlar()
+    kur = {o["ad"].lower() for o in rows if ka.kurulu(o)}
+    yok = {o["ad"].lower() for o in rows if not ka.kurulu(o) and (len(o["ad"]) > 4 or "-" in o["ad"] or ":" in o["ad"])} - kur
+    return re.compile(r"(?<![\w:-])(" + "|".join(map(re.escape, sorted(yok, key=len, reverse=True))) + r")(?![\w-])", re.I)
+
+
 def kisa(o, n=60):
-    m = " ".join((o["is"] or o["metin"]).split())
+    # kurulu aday açıklamasındaki kurulmamış kayıt adı (ör. "Export a <çerçeve> video") modele araç adı olarak sızmasın
+    m = " ".join(tam_ad_re().sub("", o["is"] or o["metin"]).split())
     return m if len(m) <= n else m[:n].rsplit(" ", 1)[0] + "…"
 
 
@@ -165,6 +176,9 @@ def plan_girdisi(q, k=K):
     yasak = kurulu_disi_adlar()
     ogr = [o for o in ka.ogrenim_ara(q) if not any(re.search(rf"\b{re.escape(w)}\b", o["ne"].lower()) for w in yasak)][:3]
     print(f"yığın: {', '.join(yg) or 'bilinmiyor'} · elendi: {elen} (yığın) · {len(yok)} kurulu değil (gösterilmez)")
+    if adlar := sorted({m.lower() for m in tam_ad_re().findall(q)}):  # iş metni kurulmamış kaydı adlandırıyor: sarmalayıcıyı göster
+        print(f"kurulu değil (iş metninde): {', '.join(adlar)} → planda bu adı tek başına yazma; kurulu sarmalayıcı: "
+              + (" · ".join(o["ad"] for o in secim if any(w in o["ad"].lower() for w in adlar)) or "—"))
     print("<aday-listesi>\n```text")
     for o in secim:
         print(f"{o['ad']} · {o['tur']} · {kisa(o)}")

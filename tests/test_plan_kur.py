@@ -1,6 +1,7 @@
 """ENVANTER-3: plan_kur.py tek çağrı çıktısı + katalog_ara öğrenim grubu."""
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -20,7 +21,7 @@ def kos(*a):
 
 def test_rutin_tek_satir():
     o = kos("README'deki yazım hatasını düzelt.")
-    assert "RUTİN" in o and "<aday-listesi>" not in o and len(o) < 600
+    assert "RUTİN" in o and "<aday-listesi>" not in o and len(o) < 700  # PLAN-KUR-3 d4: BASLIK sarmalayıcı kuralı +82 kr
 
 
 def test_zor_tum_bolumler_ve_tavan():
@@ -156,6 +157,17 @@ def test_v3_unity_isinde_gorsel_uret_yok():  # (b)
 def test_v3_aday_sayisi_en_fazla_k():  # (c)
     o = kos(ZOR_IS)
     assert 0 < len(aday_adlari(o)) <= pk.K and len(o) <= 6000
+
+
+def test_v3_kurulu_olmayan_tam_ad_yok():  # PLAN-KUR-3 d4 sert kapı; tanım .claude/plankur3/kos.py sayacıyla aynı
+    rows = pk.kayitlar()
+    kur = {o["ad"].lower() for o in rows if ka.kurulu(o)}
+    yasak = {o["ad"].lower() for o in rows if not ka.kurulu(o) and (len(o["ad"]) > 4 or "-" in o["ad"] or ":" in o["ad"])} - kur
+    for q in ("Instagram reels için ürün tanıtım videosu hazırla: kurgu, dikey kırpma, altyazı, müzik ve başlık animasyonu.",
+              "Godot 4 ile çok oyunculu kart oyunu yap: yetkili sunucu, WebSocket senkronu, eşleştirme kuyruğu ve hile önleme.",
+              "Blender ile ürün modelini web için GLB'ye aktar, turntable render al ve three.js sahnesine yerleştir."):
+        o = kos(q).lower()
+        assert not [w for w in yasak if re.search(rf"(?<![\w:-]){re.escape(w)}(?![\w-])", o)], q
 
 
 def test_v3_genel_sozcuk_varlik_sayilmaz():  # (d)
