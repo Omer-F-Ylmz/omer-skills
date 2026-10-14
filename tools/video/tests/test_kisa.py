@@ -36,3 +36,18 @@ def test_izle_zaman_asiminda_siradaki_model(tmp_path, monkeypatch):
     monkeypatch.setattr(kisa, "parcalar", lambda d, m, k: [])
     j, iz = kisa.izle(tmp_path, env={"GEMINI_API_KEY": "x"})
     assert j == {"araclar": []} and iz["model"] == kisa.MODELLER[1]
+
+
+def test_izle_hepsi_503_ise_bekleyip_yeniden(tmp_path, monkeypatch):
+    import io, urllib.error
+    cagri = []
+    def iste(url, key, govde, zaman):
+        cagri.append(url)
+        if len(cagri) <= len(kisa.MODELLER):
+            raise urllib.error.HTTPError(url, 503, "high demand", {}, io.BytesIO(b""))
+        return {"candidates": [{"content": {"parts": [{"text": "{}"}]}}]}
+    monkeypatch.setattr(kisa, "_iste", iste)
+    monkeypatch.setattr(kisa, "parcalar", lambda d, m, k: [])
+    monkeypatch.setattr(kisa.time, "sleep", lambda s: None)
+    j, iz = kisa.izle(tmp_path, env={"GEMINI_API_KEY": "x"})
+    assert iz["model"] == kisa.MODELLER[0] and len(cagri) == len(kisa.MODELLER) + 1

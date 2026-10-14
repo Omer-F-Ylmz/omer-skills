@@ -22,6 +22,7 @@ from . import tarama as tr
 API = "https://generativelanguage.googleapis.com"
 MODELLER = ("gemini-3.8-flash", "gemini-3.5-flash")  # ücretsiz katman; ilki 429/404/5xx/zaman aşımı verirse sıradaki (3.5 yoğunlukta 503/asılı — Desktop 14 Eki)
 IZLE_ZAMAN = 90  # generateContent sn; asılı yanıtta sıradaki modele geç
+IZLE_TUR, IZLE_BEKLE = 4, 30  # tüm modeller düşerse tur arası 30·tur sn
 KOK = Path(__file__).resolve().parents[3]
 KARAR = KOK / "docs" / "kurulumlar" / "ig-41" / "karar-birlesik.tsv"
 ARASTIRMA = KOK / ".kos" / "kopru" / "video" / "kisa" / "arastirma"
@@ -106,21 +107,24 @@ def izle(d, medya=None, env=None, yeniden=False):
     govde = {"contents": [{"parts": parcalar(d, Path(medya or d), key)}],
              "generationConfig": {"responseMimeType": "application/json", "responseSchema": SEMA, "temperature": 0.2}}
     son = []
-    for m in MODELLER:
-        try:
-            y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde, zaman=IZLE_ZAMAN)
-            j = json.loads(y["candidates"][0]["content"]["parts"][0]["text"])
-            iz = {"model": m, "sure": round(time.monotonic() - t, 1), "jeton": (y.get("usageMetadata") or {}).get("totalTokenCount")}
-            hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
-            return j, iz
-        except urllib.error.HTTPError as e:
-            son.append(f"{m}: HTTP {e.code} {e.read()[:200]!r}")
-            if e.code not in (404, 429, 500, 503):
-                break
-        except (TimeoutError, urllib.error.URLError) as e:
-            son.append(f"{m}: bağlantı/zaman aşımı ({type(e).__name__})")
-        except (KeyError, IndexError, ValueError) as e:
-            son.append(f"{m}: yanıt ayrıştırılamadı ({type(e).__name__})")
+    for tur in range(IZLE_TUR):  # iki model birden 503 "high demand" verebiliyor (14 Eki) → bekle, baştan dene
+        if tur:
+            time.sleep(IZLE_BEKLE * tur)
+        for m in MODELLER:
+            try:
+                y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde, zaman=IZLE_ZAMAN)
+                j = json.loads(y["candidates"][0]["content"]["parts"][0]["text"])
+                iz = {"model": m, "sure": round(time.monotonic() - t, 1), "jeton": (y.get("usageMetadata") or {}).get("totalTokenCount")}
+                hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
+                return j, iz
+            except urllib.error.HTTPError as e:
+                son.append(f"{m}: HTTP {e.code} {e.read()[:200]!r}")
+                if e.code not in (404, 429, 500, 503):
+                    raise RuntimeError(f"gemini: {' | '.join(son)}")
+            except (TimeoutError, urllib.error.URLError) as e:
+                son.append(f"{m}: bağlantı/zaman aşımı ({type(e).__name__})")
+            except (KeyError, IndexError, ValueError) as e:
+                son.append(f"{m}: yanıt ayrıştırılamadı ({type(e).__name__})")
     raise RuntimeError(f"gemini: {' | '.join(son)}")
 
 
