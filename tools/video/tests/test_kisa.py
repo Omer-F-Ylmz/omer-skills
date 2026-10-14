@@ -69,6 +69,20 @@ def test_paket_linkleri(tmp_path):
     assert kisa.paket_linkleri(tmp_path) == ["https://github.com/a/b", "https://x.dev/y"] and kisa.paket_linkleri(tmp_path / "yok") == []
 
 
+def test_paket_linkleri_ocr_github_basligi_dogrulanir(tmp_path, monkeypatch):
+    (tmp_path / "paket.md").write_text("[0:13] logan-markewich /jeff\n[0:20] uydu / yok\n[0:40] src/jeff\n[0:41] bir cümle / iki kelime\n", encoding="utf-8")
+    monkeypatch.setattr(kisa, "_repo_var", lambda r: r != "uydu/yok")
+    assert kisa.paket_linkleri(tmp_path) == ["https://github.com/logan-markewich/jeff"]
+
+
+def test_izle_teknik_ve_kurulum_komutu_araca_katilir(tmp_path, monkeypatch):
+    y = '{"araclar": [{"ad": "AirLLM", "ne_dedi": "", "zaman": "0:01"}], "teknikler": ["katmanlı yükleme"], "komutlar": ["pip install airllm", "strix --target ."]}'
+    monkeypatch.setattr(kisa, "_iste", lambda url, key, govde, zaman: {"candidates": [{"content": {"parts": [{"text": y}]}}]})
+    monkeypatch.setattr(kisa, "parcalar", lambda d, m, k: [])
+    j, _ = kisa.izle(tmp_path, env={"GEMINI_API_KEY": "x"})
+    assert [a["ad"] for a in j["araclar"]] == ["AirLLM", "katmanlı yükleme", "pip install airllm"] and "teknikler" not in j
+
+
 def test_sozluk_tara_kendi_raporu_ve_sik_ad_disarida(tmp_path, monkeypatch):
     env = tmp_path / "envanter.jsonl"
     env.write_text("\n".join(json.dumps(x) for x in [{"ad": "GliFormer", "kaynak": "docs/x-ig-Baska.md"}, {"ad": "AirLLM", "kaynak": "docs/x-ig-Bu.md"},

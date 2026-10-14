@@ -75,6 +75,10 @@ def m0():
 def kos():
     """IG medyası hat tarafından CIK/medya'ya yeniden indirilir (önbellekte mp4 silinmiş); video-cache'e dokunulmaz."""
     CIK.mkdir(parents=True, exist_ok=True)
+    for v in ALTIN + EK:  # süre ölçümü taze izlemeyle: Gemini önbelleği yedeğe (araştırma önbelleği M2 gereği kalır)
+        for a in ("gemini.json", "gemini-metin.json"):
+            if (ONB / v / a).is_file():
+                (ONB / v / a).replace(ONB / v / a.replace(".json", f"-{sys.argv[2] if sys.argv[2:] else 'eski'}.json"))
     iz, y = kisa.calistir(ALTIN + EK, ONB, CIK)
     (CIK / "oturum.json").write_text(json.dumps({"iz": iz, "sonuc": y}, ensure_ascii=False, indent=1), encoding="utf-8")
     print("claude", y["hata"], y["sure"], y["usd"], y["usage"])
@@ -102,6 +106,7 @@ def puan():
                 g = o["iz"][v]
                 gs = g["gemini"].get("sure") or json.loads((ONB / v / "gemini.json").read_text(encoding="utf-8"))["_iz"]["sure"]  # önbellek dönüşünde süre kayıtta
                 sure = max(gs, (g.get("metin") or {}).get("sure", 0)) + g["arastir"] + o["sonuc"]["sure"] / n  # metin geçişi izlemeye paralel
+                sure = o["sonuc"].get("duvar", sure * n) / n  # d7+: videolar paralel → toplu duvar saati / video
                 ag = y_agir
             else:
                 ad, ln = ogeler(_kol(k)[v]["form"], v)
@@ -117,7 +122,7 @@ def puan():
 
 def kacak():
     """Kaçak analizi: altın videolarda yeni hattın kaçırdığı referans araçları + paket metninde (transkript+OCR+açıklama) geçip geçmediği."""
-    o = json.loads((CIK / "oturum.json").read_text(encoding="utf-8"))
+    o = json.loads((CIK / (sys.argv[2:] or ["oturum.json"])[0]).read_text(encoding="utf-8"))
     yeni = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}
     for v in ALTIN:
         rad = set().union(*(ogeler(_kol(r)[v]["form"], v)[0] for r in REF))

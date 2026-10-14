@@ -22,14 +22,16 @@ from . import tarama as tr
 
 API = "https://generativelanguage.googleapis.com"
 MODELLER = ("gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite")  # ücretsiz katman; ilki 429/404/5xx/zaman aşımı verirse sıradaki (14 Eki: iki flash birden 503, lite ayakta)
+VIDEO_PARALEL = 4  # ücretsiz katman dakika sınırı: video başı 2 Gemini çağrısı
 IZLE_ZAMAN = 90  # generateContent sn; asılı yanıtta sıradaki modele geç
 IZLE_TUR, IZLE_BEKLE = 4, 30  # tüm modeller düşerse tur arası 30·tur sn
 KOK = Path(__file__).resolve().parents[3]
 KARAR = KOK / "docs" / "kurulumlar" / "ig-41" / "karar-birlesik.tsv"
 ARASTIRMA = KOK / ".kos" / "kopru" / "video" / "kisa" / "arastirma"
 PAKET_TAVAN = 12_000  # paket.md karakteri (Gemini'ye bağlam; ücretsiz)
-SEMA = {"type": "OBJECT", "required": ["konusma_ozet", "ekran_metni", "araclar", "adlar", "linkler", "komutlar", "iddialar"], "properties": {
+SEMA = {"type": "OBJECT", "required": ["konusma_ozet", "ekran_metni", "araclar", "adlar", "teknikler", "linkler", "komutlar", "iddialar"], "properties": {
     "adlar": {"type": "ARRAY", "items": {"type": "STRING"}},
+    "teknikler": {"type": "ARRAY", "items": {"type": "STRING"}},
     "konusma_ozet": {"type": "STRING"},
     "ekran_metni": {"type": "ARRAY", "items": {"type": "STRING"}},
     "araclar": {"type": "ARRAY", "items": {"type": "OBJECT", "required": ["ad", "ne_dedi", "zaman"], "properties": {
@@ -43,10 +45,11 @@ ISTEM = ("Bu kısa videoyu (ya da carousel slaytlarını) baştan sona izle; kon
          "- araclar: anılan ya da ekranda görünen HER araç, repo, kütüphane, model, skill, MCP, CLI, servis, site; adı ekrandaki yazımıyla "
          "(owner/repo görünüyorsa öyle). ne_dedi: videonun onun hakkında söylediği/gösterdiği (≤25 kelime). zaman: m:ss ya da 'açıklama'/'yorum'. "
          "Altyapıyı da ayrı satır yaz: dil (Python), paket yöneticisi (pip, npm, uv), platform (GitHub, Hugging Face), çerçeve (PyTorch, Transformers), "
-         "lisans (Apache-2.0); anılan her model sürümünü ayrı (ör. Qwen3.5-0.8B, Llama); videonun adını koyduğu teknik/özellik (ör. 'katman katman yükleme'). "
+         "lisans (Apache-2.0); anılan her model sürümünü ayrı (ör. Qwen3.5-0.8B, Llama). "
          "Eksik yazmaktansa fazla yaz, ama yalnız videoda/pakette gerçekten geçeni.\n"
          "- adlar: paket.md'de ve ekranda geçen HER özel adın tam listesi (araç, repo, model ve sürümü, kütüphane, platform, paket yöneticisi, lisans, "
          "adlandırılmış teknik); satır satır tara, tekrarsız.\n"
+         "- teknikler: videonun anlattığı ya da adını koyduğu yöntem/teknikler (1–4 adet, 2–5 kelimelik Türkçe ad; ör. 'kuantizasyonla küçültme').\n"
          "- linkler: ekranda, konuşmada, açıklamada ya da yorumlarda geçen her URL/alan adı/GitHub yolu (aynen).\n"
          "- komutlar: ekranda görünen kurulum/terminal komutları aynen. ekran_metni: ekrandaki anlamlı yazılar (başlık, kod, istem) kısa.\n"
          "- iddialar: sayısal/karşılaştırmalı/özellik iddiaları, zamanıyla. Uydurma; göremediğini yazma.")
@@ -97,7 +100,7 @@ def parcalar(d, medya, key):
     else:
         for ad in ["goz-video.mp4", *(meta.get("slayt_video") or [])]:
             if (medya / ad).is_file():
-                p.append(yukle(medya / ad, key))
+                p.append({**yukle(medya / ad, key), "videoMetadata": {"fps": 0.5}})
         gorsel = [medya / ad for ad in meta.get("gorseller") or [] if (medya / ad).is_file()]
         if not p and not gorsel:  # embed video vermediyse önbellek kareleri ekranın yerini tutar (video elenmez)
             gorsel = sorted((d / "kareler").glob("*.jpg"))[:12]
@@ -115,16 +118,22 @@ def izle(d, medya=None, env=None, yeniden=False):
         return json.loads(hedef.read_text(encoding="utf-8")), {"onbellek": True}
     key, t = anahtar(env), time.monotonic()
     govde = {"contents": [{"parts": parcalar(d, Path(medya or d), key)}],
-             "generationConfig": {"responseMimeType": "application/json", "responseSchema": SEMA, "temperature": 0.2}}
+             "generationConfig": {"responseMimeType": "application/json", "responseSchema": SEMA, "temperature": 0.2,
+                                  "mediaResolution": "MEDIA_RESOLUTION_LOW"}}  # ekran yazısı paket.md OCR'ında; düşük çözünürlük izlemeyi kısaltır
     j, iz = _uret(govde, key, t)
     var = {a["ad"].casefold() for a in j["araclar"]}  # lite araclar'da adları atlıyor; ayrı tam liste alanı yakalamayı artırır
-    j["araclar"] += [{"ad": a, "ne_dedi": "(yalnız adı geçiyor)", "zaman": "paket"} for a in dict.fromkeys(j.pop("adlar", []))
-                     if a.casefold() not in var and not KOD.search(a)]
+    ek = [(a, "(yalnız adı geçiyor)") for a in j.pop("adlar", [])] + [(a, "(teknik)") for a in j.pop("teknikler", [])]
+    ek += [(k, "(kurulum komutu)") for k in j.get("komutlar", []) if KURULUM.match(k)]
+    for a, ne in ek:
+        if a.casefold() not in var and not KOD.search(a):
+            var.add(a.casefold())
+            j["araclar"].append({"ad": a, "ne_dedi": ne, "zaman": "paket"})
     hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
     return j, iz
 
 
 KOD = re.compile(r"[<>{}=;]")  # kod parçası ad değil
+KURULUM = re.compile(r"\s*(pip3?|pipx|uv|npm|pnpm|yarn|bun|brew|cargo|go|gem|winget)\s.*\b(install|add)\b")
 METIN_ISTEM = ("Aşağıda bir kısa videonun paketi var (başlık, açıklama, konuşma metni, ekran OCR'ı, linkler). Videoda adı geçen TÜM araç, repo, uygulama, "
                "servis, model (sürümüyle), kütüphane, paket yöneticisi (pip, npm, uv…), programlama dili, platform ve lisans adlarını çıkar; yalnız bir kez "
                "ya da yalnız ekranda geçenler dahil. OCR bozuk yazımlarını tek doğru ada indir. Genel terimleri (API, JSON, HTTP, CSS), slash komutlarını, "
@@ -339,7 +348,20 @@ def link_tamamla(x, kunye_link):
 def paket_linkleri(d):
     """Açıklama/yorum linkleri paket.md'den regex'le (14 Eki: Gemini 21 linkten 3'ünü döndürdü; Claude'a kopyalatmak jeton yer)."""
     p = d / "paket.md"
-    return [x["url"] for x in tr.link_topla({"paket": p.read_text(encoding="utf-8")})] if p.is_file() else []
+    if not p.is_file():
+        return []
+    s = p.read_text(encoding="utf-8")
+    gh = [f"https://github.com/{o}/{r}" for o, r in dict.fromkeys(GH_BASLIK.findall(s)) if _repo_var(f"{o}/{r}")][:8]
+    return list(dict.fromkeys([x["url"] for x in tr.link_topla({"paket": s})] + gh))
+
+
+GH_BASLIK = re.compile(r"^\[[\d:]+\]\s*([A-Za-z0-9][\w-]{0,38})(?:\s+/\s*|\s*/\s+)([\w.-]{2,100})\s*$", re.M)  # OCR'da GitHub repo başlığı "sahip / repo"
+
+
+def _repo_var(r):
+    """gh api ile repo gerçekten var mı (OCR tahmini doğrulanmadan link yazılmaz)."""
+    y = subprocess.run(["gh", "api", f"repos/{r}", "--jq", ".full_name"], capture_output=True, text=True, encoding="utf-8", timeout=30)
+    return y.returncode == 0 and y.stdout.strip().lower() == r.lower()
 
 
 def calistir(ids, kok, cikti, efor="low", env=None):
@@ -347,15 +369,9 @@ def calistir(ids, kok, cikti, efor="low", env=None):
     kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, oturum sonucu)."""
     from . import instagram
     kok, cikti = Path(kok), Path(cikti)
-    iz, bloklar, paket_link, kunye_link = {}, [], {}, {}
-    for v in ids:
-        t, m = time.monotonic(), kok / v
-        if v.startswith("ig-"):
-            m = cikti / "medya" / v
-            if not (m / "meta.json").is_file():
-                m.mkdir(parents=True, exist_ok=True)
-                instagram.getir(m)
-        indir = round(time.monotonic() - t, 1)
+    iz, bloklar, paket_link, kunye_link = {}, {}, {}, {}
+
+    def isle(v, m, indir):
         with ThreadPoolExecutor(2) as ex:  # metin geçişi video izlemeyi beklemez
             fg, fm = ex.submit(izle, kok / v, m, env), ex.submit(metin_gec, kok / v, env)
             (g, gi), mg = fg.result(), fm.result()
@@ -370,9 +386,24 @@ def calistir(ids, kok, cikti, efor="low", env=None):
             kunye = {ad: k for ad, k in ex.map(kun, [a for a in g["araclar"] if not kat[a["ad"]]]) if k}
         kunye_link[v] = {ad: f"https://github.com/{k['repo']}" for ad, k in kunye.items() if k["bulunus"] == "link"}  # gh arama ilk sonucu doğrulanmadı → link yazılmaz
         iz[v] = {"indir": indir, "gemini": gi, "metin": mg["_iz"], "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
-        bloklar.append(blok(v, g, kat, kunye))
+        bloklar[v] = blok(v, g, kat, kunye)
         print(v, iz[v], flush=True)
-    y = oturum(bloklar, efor, env)
+
+    t0, isler = time.monotonic(), []
+    with ThreadPoolExecutor(VIDEO_PARALEL) as ex:  # indirme seri (aynı anda tek); Gemini yükleme/izleme sıradaki indirmeyle üst üste biner
+        for v in ids:
+            t, m = time.monotonic(), kok / v
+            if v.startswith("ig-"):
+                m = cikti / "medya" / v
+                if not (m / "meta.json").is_file():
+                    m.mkdir(parents=True, exist_ok=True)
+                    instagram.getir(m)
+            isler.append(ex.submit(isle, v, m, round(time.monotonic() - t, 1)))
+        for f in isler:
+            f.result()
+    hazir = round(time.monotonic() - t0, 1)
+    y = oturum([bloklar[v] for v in ids if v in bloklar], efor, env)
+    y["hazir_sure"], y["duvar"] = hazir, round(time.monotonic() - t0, 1)
     for x in (y["form"] or {}).get("videolar", []):
         x["linkler"] = list(dict.fromkeys(x["linkler"] + paket_link.get(x["id"], [])))
         link_tamamla(x, kunye_link.get(x["id"], {}))
