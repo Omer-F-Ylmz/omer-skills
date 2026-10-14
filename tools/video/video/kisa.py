@@ -3,7 +3,7 @@
 izle: video + paket.md → ücretsiz Gemini → <cache>/<id>/gemini.json (şema SEMA). Claude bu adımda yok.
 katalog: araç adı → kurulu sözlük (tarama.sozluk_kur) ya da ig-41 karar-birlesik.tsv; bilinen araç yalnız fark notu alır.
 arastir: bilinmeyen GitHub reposu → gh api künye + README özeti (tools/ucuz_alt.py, Claude-dışı); repo başına önbellek.
-oturum: ≥8 videonun gemini.json'u tek claude -p çağrısında (hafif.cagir, efor low) → kısa rapor (araç başı ≤4 satır).
+karar (TOKEN-2): araç/link listesi deterministik; Claude yalnız bilinmeyen araçlara KUR|DENE|ATLA TSV (karar.py, önbellekli); rapor şablondan.
 """
 import json
 import mimetypes
@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from . import hafif
+from . import karar as kr
 from . import tarama as tr
 
 API = "https://generativelanguage.googleapis.com"
@@ -332,32 +333,27 @@ def repo_bul(ad, metinler):
 _ARA_KILIT, _ARA_SON = threading.Lock(), [0.0]
 
 
-OTURUM_SISTEM = ("Kısa video değerlendiricisisin. Her VIDEO bloğu Gemini'nin videoyu izleyip çıkardığı JSON'dur (konuşma + ekran + açıklama/yorum linkleri) "
-                 "ve her aracın katalog durumudur. Hiçbir video ve hiçbir araç elenmez. Her araç için: tur (skill·plugin·MCP·CLI·kütüphane·uygulama·servis·model·teknik·ipucu), "
-                 "link (JSON'da varsa, yoksa boş), not ≤2 kısa cümle. Katalog 'kurulu'/'karar' diyorsa not yalnız FARK (yeni sürüm/özellik/iddia) ya da 'fark yok'; "
-                 "'bilinmeyen' ise not = ne işe yarar + bizde ne işe yarar, arastirma künyesi varsa lisans/hesap şartını ekle. "
-                 "ne_dedi '(metin geçişi…)' / '(yalnız adı geçiyor)' olan adlardan araç/ürün/model/dil/platform/lisans adı OLMAYANLARI (arayüz düğme/menü yazısı, "
-                 "sıradan kelime, kişi adı, OCR bozuğu) yazma; gerçek araçların hepsi kalır. "
-                 "linkler: videonun tüm linkleri aynen. Uydurma ekleme, JSON'da olmayan aracı yazma.")
-OTURUM_SEMA = {"type": "object", "required": ["videolar"], "properties": {"videolar": {"type": "array", "items": {
-    "type": "object", "required": ["id", "ozet", "araclar", "linkler"], "properties": {
-        "id": {"type": "string"}, "ozet": {"type": "string"}, "linkler": {"type": "array", "items": {"type": "string"}},
-        "araclar": {"type": "array", "items": {"type": "object", "required": ["ad", "tur", "link", "not"], "properties": {
-            "ad": {"type": "string"}, "tur": {"type": "string"}, "link": {"type": "string"}, "not": {"type": "string"}}}}}}}}}
+PLATFORM = {"GitHub": r"\bGitHub\b", "Claude": r"\bClaude\b", "Go": r"\b(Go|Golang)\b(?!\s+(to|ahead|back|for|and|with)\b)", "S3": r"\b(Amazon |AWS )?S3\b",
+            "Rust": r"\bRust\b", "Python": r"\bPython\b", "Docker": r"\bDocker\b", "LinkedIn": r"\bLinkedIn\b", "Hugging Face": r"\bHugging ?Face\b", ".TECH": r"\.TECH\b"}
+# shortcut: sabit sözlük (M7a, TOKEN-2 kaçakları), 180 linkte yeni sık platform kaçarsa buraya eklenir
+ALAN = re.compile(r"(?<![@\w/.-])([a-z0-9][a-z0-9-]{1,40}\.(?:dev|io|ai|app|tech|sh|so|com|org|net|co))\b", re.I)
+SOSYAL = ("instagram.", "youtube.", "youtu.be", "linkedin.", "tiktok.", "twitter.", "x.com", "facebook.", "github.com", "bit.ly", "linktr.ee", "gmail.")
 
 
-def blok(vid, g, kat, kunye):
-    """Claude'a giden tek video bloğu: ham paket değil, Gemini JSON'u (ekran_metni kısaltılmış) + katalog + araştırma künyesi."""
-    g = {k: v for k, v in g.items() if k != "_iz"}
-    g["ekran_metni"] = [s[:160] for s in g.get("ekran_metni", [])[:12]]
-    g["araclar"] = [{**a, "katalog": kat.get(a["ad"]) or "bilinmeyen", **({"arastirma": kunye[a["ad"]]} if a["ad"] in kunye else {})}
-                    for a in g.get("araclar", [])]
-    return f"VIDEO {vid}\n{json.dumps(g, ensure_ascii=False, separators=(',', ':'))}"
-
-
-def oturum(bloklar, efor="low", env=None):
-    """Tek claude -p (≥8 video önerilir; sabit sistem metni önbellekte) → hafif.cagir sonucu."""
-    return hafif.cagir(OTURUM_SISTEM, "\n\n".join(bloklar), OTURUM_SEMA, efor=efor, env=env, butce=1.0)
+def ek_adlar(d, araclar):
+    """Paketten deterministik ek adlar (LLM'siz, Claude'a sorulmaz): sık platform adları (tur platform; kanıt = pakette aynen geçmesi)
+    + yalnız ## Açıklama bölümündeki çıplak alan adları (OCR gürültüsü dışarıda). Mevcut araçla aynı ad eklenmez."""
+    p = d / "paket.md"
+    s = p.read_text(encoding="utf-8").split("## Sözlük eşleşmeleri")[0] if p.is_file() else ""  # sözlük bölümü bizim eşleşmemiz, kanıt değil
+    acik = (re.search(r"^## Açıklama\n(.*?)(?=^## |\Z)", s, re.M | re.S) or [None, ""])[1]
+    var, out = {tr.normal(a["ad"]) for a in araclar}, []
+    for ad, kal in PLATFORM.items():
+        if tr.normal(ad) not in var and re.search(kal, s):
+            out.append({"ad": ad, "ne_dedi": "(platform: pakette adı geçiyor)", "zaman": "paket", "tur": "platform"})
+    for al in dict.fromkeys(m.lower() for m in ALAN.findall(acik)):
+        if tr.normal(al) not in var and not any(x in al for x in SOSYAL):
+            out.append({"ad": al, "ne_dedi": "(açıklamada alan adı)", "zaman": "paket", "link": f"https://{al}"})
+    return out
 
 
 def link_tamamla(x, kunye_link):
@@ -395,12 +391,12 @@ def _repo_var(r):
 
 
 def calistir(ids, kok, cikti, efor="low", env=None, claude=True, sil=True):
-    """Uçtan uca: her id için IG medyası (cikti/medya/<id>, hat indirir) → izle → katalog → bilinmeyene arastir → tek oturum → cikti/<id>.md.
-    kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, oturum sonucu).
-    claude=False: oturum yok, Claude öncesi deterministik liste (ölçüm; rapor yazılmaz) · sil=False: medya tekrar ölçüm için kalır."""
+    """Uçtan uca: her id için IG medyası (cikti/medya/<id>, hat indirir) → izle → katalog → bilinmeyene arastir → karar (yalnız bilinmeyen, TSV) → cikti/<id>.md.
+    kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, sonuç {form, usage, sure, hata, ...}).
+    Araç/link listesi Claude'dan bağımsızdır (TOKEN-2 M1). claude=False: karar yok, rapor yazılmaz (ölçüm) · sil=False: medya tekrar ölçüm için kalır."""
     from . import instagram
     kok, cikti = Path(kok), Path(cikti)
-    iz, bloklar, paket_link, kunye_link, gem = {}, {}, {}, {}, {}
+    iz, istek, paket_link, kunye_link, gem, katv, kunv = {}, {}, {}, {}, {}, {}, {}
 
     def isle(v, m, indir):
         with ThreadPoolExecutor(2) as ex:  # metin geçişi video izlemeyi beklemez
@@ -409,17 +405,20 @@ def calistir(ids, kok, cikti, efor="low", env=None, claude=True, sil=True):
         if sil:
             (m / "goz-video.mp4").unlink(missing_ok=True)  # 1b-1 M2: video izlendikten sonra silinir
         gem[v] = birlestir(g, mg)
+        g["araclar"] += ek_adlar(kok / v, g["araclar"])
         paket_link[v] = paket_linkleri(kok / v)
-        kat = katalog([a["ad"] for a in g["araclar"]], kok=kok, vid=v)
+        kat = katv[v] = katalog([a["ad"] for a in g["araclar"]], kok=kok, vid=v)
         def kun(a):
             r, nasil = repo_bul(a["ad"], g["linkler"] + paket_link[v] + [a["ne_dedi"]])
             return a["ad"], ({**arastir(r), "bulunus": nasil} if r else None)
         t = time.monotonic()
+        aday = [a for a in g["araclar"] if a.get("tur") != "platform" and a["ne_dedi"] not in ARANMAZ]
         with ThreadPoolExecutor(6) as ex:  # gh + README özeti ağ bekler; seri DeHMM 30 araçta 43 sn
-            kunye = {ad: k for ad, k in ex.map(kun, [a for a in g["araclar"] if not kat[a["ad"]] and a["ne_dedi"] not in ARANMAZ]) if k}
+            kunye = kunv[v] = {ad: k for ad, k in ex.map(kun, [a for a in aday if not kat[a["ad"]]]) if k}
         kunye_link[v] = {ad: f"https://github.com/{k['repo']}" for ad, k in kunye.items() if k["bulunus"] == "link"}  # gh arama ilk sonucu doğrulanmadı → link yazılmaz
-        iz[v] = {"indir": indir, "gemini": gi, "metin": mg["_iz"], "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
-        bloklar[v] = blok(v, g, kat, kunye)
+        istek[v] = {a["ad"]: (kr.satir(a, kunye.get(a["ad"])), kunye.get(a["ad"])) for a in aday if kr.sorulacak(a, kat[a["ad"]])}
+        iz[v] = {"indir": indir, "gemini": gi, "metin": mg["_iz"], "arastir": round(time.monotonic() - t, 1), "arac": len(kat),
+                 "bilinen": sum(1 for x in kat.values() if x), "sorulan": len(istek[v])}
         print(v, iz[v], flush=True)
 
     t0, isler = time.monotonic(), []
@@ -437,21 +436,39 @@ def calistir(ids, kok, cikti, efor="low", env=None, claude=True, sil=True):
         for f in isler:
             f.result()
     hazir = round(time.monotonic() - t0, 1)
-    y = oturum([bloklar[v] for v in ids if v in bloklar], efor, env) if claude else {"hata": None, "sure": 0, "usd": 0, "usage": {}, "form": {"videolar": [
-        {"id": v, "linkler": list(gem[v].get("linkler", [])), "araclar": [{"ad": a["ad"], "tur": "teknik" if a["ne_dedi"] == "(teknik)" else "", "link": ""} for a in gem[v]["araclar"]]}
-        for v in ids if v in gem]}}
+    tum = {ad: x for v in ids if v in istek for ad, x in istek[v].items()}  # aynı ad videolar arası tek satır
+    kararlar, cagrilar = kr.ver(tum, env, efor, tarih=time.strftime("%Y-%m-%d")) if claude and tum else ({}, [])
+    usage = {}
+    for c in cagrilar:
+        for k, n in (c.get("usage") or {}).items():
+            if isinstance(n, (int, float)):
+                usage[k] = usage.get(k, 0) + n
+    y = {"hata": next((c["hata"] for c in cagrilar if c.get("hata")), None), "sure": round(sum(c.get("sure", 0) for c in cagrilar), 1),
+         "usd": round(sum(c.get("usd", 0) for c in cagrilar), 4), "usage": usage, "cagri": len(cagrilar), "sorulan": len(tum), "kararli": len(kararlar),
+         "form": {"videolar": [{"id": v, "ozet": gem[v].get("konusma_ozet", ""), "linkler": list(gem[v].get("linkler", [])), "iddialar": gem[v].get("iddialar", []),
+                                "araclar": [{"ad": a["ad"], "tur": "teknik" if a["ne_dedi"] == "(teknik)" else a.get("tur", ""), "link": a.get("link", ""),
+                                             "not": (kunv[v].get(a["ad"]) or {}).get("aciklama") or a["ne_dedi"], "katalog": katv[v][a["ad"]] or "bilinmeyen",
+                                             "fark": bool(katv[v][a["ad"]] and kr.SURUM.search(a["ne_dedi"] or "")), "karar": kararlar.get(a["ad"])}
+                                            for a in gem[v]["araclar"]]} for v in ids if v in gem]}}
     y["hazir_sure"], y["duvar"] = hazir, round(time.monotonic() - t0, 1)
-    for x in (y["form"] or {}).get("videolar", []):
+    for x in y["form"]["videolar"]:
         x["linkler"] = list(dict.fromkeys(x["linkler"] + paket_link.get(x["id"], [])))
         link_tamamla(x, kunye_link.get(x["id"], {}))
         if claude:
-            (cikti / f"{x['id']}.md").write_text(rapor(x, f"gemini ({iz.get(x['id'], {}).get('gemini', {}).get('model', 'önbellek')}) + claude oturum"), encoding="utf-8")
+            (cikti / f"{x['id']}.md").write_text(rapor(x, f"gemini ({(iz.get(x['id'], {}).get('gemini') or {}).get('model', 'önbellek')}) + katalog + karar.tsv"), encoding="utf-8")
     return iz, y
 
 
 def rapor(v, kaynak):
-    """Araç başı ≤4 satır markdown."""
+    """Şablon rapor (Claude yazmaz): araç başı 2 satır — ad · tür · link / ne işe yarar · katalog durumu · karar."""
     s = [f"# {v['id']} — kısa video", f"kaynak: {kaynak}", "", v["ozet"], "", "## Araçlar"]
     for a in v["araclar"]:
-        s += [f"- **{a['ad']}** · {a['tur']}" + (f" · {a['link']}" if a["link"] else ""), f"  {a['not']}"]
+        if a["tur"] == "platform":
+            continue
+        kat = f"katalogda: {a['katalog']} · {'fark var' if a.get('fark') else 'fark yok'}" if a["katalog"] != "bilinmeyen" else "katalogda yok"
+        k = a.get("karar")
+        s += [f"- **{a['ad']}** · {a['tur'] or 'araç'}" + (f" · {a['link']}" if a["link"] else ""),
+              f"  {a['not']} · {kat}" + (f" · karar: {k[0]} — {k[1]}" if k else "")]
+    pl = [a["ad"] for a in v["araclar"] if a["tur"] == "platform"]
+    s += (["", "## Platformlar", ", ".join(pl)] if pl else []) + (["", "## İddialar", *[f"- {i}" for i in v.get("iddialar", [])]] if v.get("iddialar") else [])
     return "\n".join(s + ["", "## Linkler", *[f"- {u}" for u in v["linkler"]], ""])

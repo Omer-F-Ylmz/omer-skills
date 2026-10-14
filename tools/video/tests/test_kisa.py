@@ -3,20 +3,23 @@ import json
 from video import kisa
 
 
-def test_blok_katalog_ve_iz(tmp_path):
-    g = {"konusma_ozet": "x", "ekran_metni": ["a" * 300], "araclar": [{"ad": "AirLLM", "ne_dedi": "y", "zaman": "0:03"}, {"ad": "Claude", "ne_dedi": "z", "zaman": "0:05"}],
-         "linkler": [], "komutlar": [], "iddialar": [], "_iz": {"model": "m"}}
-    b = json.loads(kisa.blok("ig-1", g, {"Claude": "kurulu:yerlesik"}, {"AirLLM": {"lisans": "MIT"}}).split("\n", 1)[1])
-    assert "_iz" not in b and len(b["ekran_metni"][0]) == 160
-    assert b["araclar"][0]["katalog"] == "bilinmeyen" and b["araclar"][0]["arastirma"] == {"lisans": "MIT"}
-    assert b["araclar"][1]["katalog"] == "kurulu:yerlesik" and "arastirma" not in b["araclar"][1]
+def test_ek_adlar_platform_ve_aciklama_alani(tmp_path):
+    (tmp_path / "paket.md").write_text("## Açıklama\nRepo: agenthubstack.dev · @x.dev · instagram.com/a\n## Ekran metni (OCR)\n[0:01] GitHub Go to page, S3 bucket\n"
+                                       "## Sözlük eşleşmeleri\nClaude\n", encoding="utf-8")
+    e = {a["ad"]: a for a in kisa.ek_adlar(tmp_path, [{"ad": "github"}])}
+    assert set(e) == {"S3", "agenthubstack.dev"}  # GitHub zaten var · "Go to" fiil · Claude yalnız sözlük bölümünde · @x.dev tutamak
+    assert e["S3"]["tur"] == "platform" and e["agenthubstack.dev"]["link"] == "https://agenthubstack.dev"
 
 
-def test_rapor_arac_basi_en_cok_4_satir():
-    v = {"id": "ig-1", "ozet": "ö", "linkler": ["github.com/a/b"], "araclar": [{"ad": "A", "tur": "CLI", "link": "", "not": "n"}, {"ad": "B", "tur": "skill", "link": "l", "not": "m"}]}
+def test_rapor_sablon_alanlari_platform_ayri():
+    v = {"id": "ig-1", "ozet": "ö", "linkler": ["github.com/a/b"], "iddialar": ["i"], "araclar": [
+        {"ad": "A", "tur": "", "link": "", "not": "n", "katalog": "bilinmeyen", "karar": ("KUR", "MIT")},
+        {"ad": "B", "tur": "skill", "link": "l", "not": "m", "katalog": "kurulu:x", "fark": False, "karar": None},
+        {"ad": "Go", "tur": "platform", "link": "", "not": "", "katalog": "bilinmeyen"}]}
     s = kisa.rapor(v, "gemini").splitlines()
     i = s.index("## Araçlar")
-    assert s[i + 1].startswith("- **A** · CLI") and s[i + 3] == "- **B** · skill · l" and len(s[i + 1:s.index("## Linkler") - 1]) <= 4 * 2
+    assert s[i + 1:i + 5] == ["- **A** · araç", "  n · katalogda yok · karar: KUR — MIT", "- **B** · skill · l", "  m · katalogda: kurulu:x · fark yok"]
+    assert s[s.index("## Platformlar") + 1] == "Go" and "- i" in s
 
 
 def test_katalog_karar_onceligi(tmp_path, monkeypatch):
@@ -129,11 +132,10 @@ def test_calistir_paketin_reel_mp4unu_kullanir_ig_istegi_yok(tmp_path, monkeypat
     monkeypatch.setattr(instagram, "getir", lambda m: (_ for _ in ()).throw(AssertionError("IG'ye ikinci istek")))
     monkeypatch.setattr(kisa, "izle", lambda k, m, env: (gor.append((m, (m / "goz-video.mp4").is_file())) or ({"araclar": [], "linkler": []}, {})))
     monkeypatch.setattr(kisa, "metin_gec", lambda k, env: {"_iz": {}})
-    monkeypatch.setattr(kisa, "birlestir", lambda g, mg: None)
+    monkeypatch.setattr(kisa, "birlestir", lambda g, mg: g)
     monkeypatch.setattr(kisa, "paket_linkleri", lambda k: [])
     monkeypatch.setattr(kisa, "katalog", lambda adlar, kok, vid: {})
-    monkeypatch.setattr(kisa, "blok", lambda *a: "")
-    monkeypatch.setattr(kisa, "oturum", lambda b, efor, env: {"form": None})
+    monkeypatch.setattr(kisa.kr, "ver", lambda *a, **k: ({}, []))
     kisa.calistir(["ig-X"], tmp_path / "kok", tmp_path / "cik")
     assert gor == [(d, True)] and not (d / "goz-video.mp4").exists()
 
@@ -148,7 +150,7 @@ def test_calistir_claudesiz_deterministik_liste(tmp_path, monkeypatch):
     monkeypatch.setattr(kisa, "metin_gec", lambda k, env: {"_iz": {}})
     monkeypatch.setattr(kisa, "paket_linkleri", lambda k: ["https://b.dev"])
     monkeypatch.setattr(kisa, "katalog", lambda adlar, kok, vid: {a: "kurulu" for a in adlar})
-    monkeypatch.setattr(kisa, "oturum", lambda *a: (_ for _ in ()).throw(AssertionError("claude -p")))
+    monkeypatch.setattr(kisa.kr, "ver", lambda *a, **k: (_ for _ in ()).throw(AssertionError("claude -p")))
     _, y = kisa.calistir(["ig-X"], tmp_path / "kok", tmp_path / "cik", claude=False, sil=False)
     x = y["form"]["videolar"][0]
     assert [(a["ad"], a["tur"]) for a in x["araclar"]] == [("Bytebase", ""), ("veri göçü", "teknik")]
