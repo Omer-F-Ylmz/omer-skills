@@ -1,10 +1,11 @@
-# TOKEN-4 devam (d2 → d3) — 14 Eki ~23:15
-Görev: .kos/kopru/gorev/token-4.md (VEKİL KAZASI geçerli). claude -p 3/6 harcandı. Ayrıntı: rapor/token-4.md d2.
-SON COMMIT: d2 ara (hr_ab.py tek vekil + RAM bekçisi, mem_kiyas.py doğrudan Gemini + cc-yedek-dis yargıç).
+# TOKEN-4 devam (d3 → d4) — 14 Eki ~23:55
+Görev: .kos/kopru/gorev/token-4.md (VEKİL KAZASI geçerli). claude -p 3/6. Ayrıntı: rapor/token-4.md d3.
+SON COMMIT: d3 ara (A3 modelsiz yol yok — yoğunlaştırıcı tek seferlik, ortak önek 510 kar.; A1 kök git show/status passthrough → is-akisi L44).
 KALAN (öncelik):
-1. A2: hr_ab.py ISTEM'i ≥20 içerik bloklu mesaj üretecek şekilde değiştir (ör. 3 turda 8'er paralel Read) — d2'de iki kolda durma 0 çıktı, karşılaştırma boş. Koşu: `python .kos/kopru/arka.py .claude/token4/hr_ab3.log .claude/token4/hr_ab.py ABAB` (≤3 claude -p kaldı), RAM <%75. Bitince vekil_dene 401.
-2. A3: Gemini API 429 (kota). Alternatif yalnız kota çakışmasız bir yol bulunursa (CLAUDE_MEM_OPENROUTER_BASE_URL → OmniRoute?) `python .claude/token4/mem_kiyas.py 20`; yoksa A3 kapalı.
-3. A1 kaçak kaynağı: rtk rewrite çalışıyor, cc_profil kancaları koruyor → hangi oturum türü kancasız (Desktop? alt ajan?) belirle.
-4. A4 öz hattı, A5 qmd, 4 iş kapısı, onay/token_4_uygula.py --kuru (yalnız geçen öneri), zip (paketle.py → dist/claude-ai-27 + zip_denetle).
-5. Bitince gorev/SIRA.md "TOKEN-4 BİTTİ".
+1. A1 sonrası ölçüm: yarın `rtk gain --daily` oranı + history.db `git show %:%` token (L44 etkisi). rtk filters.toml'a git show filtresi YOK (kesme kalite riski).
+2. A4 öz hattı (TOKEN-3 K16 ile birleşik), A5 qmd belge araması.
+3. A3 Groq kolu: yalnız kör yargıçta kalite ≥ haiku ise aday (yoğunlaştırma istemi örnekleri observer-sessions'tan); değilse A3 kapanır.
+4. A2 yalnız `python .kos/kopru/ajan_say.py` ≤1 başka claude -p VE RAM <%75 (hr_ab.py ≥20 bloklu istem).
+5. 4 iş kapısı, onay/token_4_uygula.py --kuru (yalnız geçen öneri), zip (paketle.py + zip_denetle) — is-akisi değişti, zip gerekli.
+6. Bitince gorev/SIRA.md "TOKEN-4 BİTTİ". Commit yalnız kendi yolların (`-- <yollar>`).
 ARKA PLAN: yok.

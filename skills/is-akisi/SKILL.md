@@ -46,7 +46,8 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 ### Token araç sırası
 Ölçüm: `python .claude/token4/a0.py` → docs/kutuphane/olcum/token-4-arac.tsv (14 Eki). Keşif sırası (GRAPHIFY-ULTRA-1): graphify-out/GRAPH_REPORT.md başlıkları (harita) → `graphify query`/cc-kopru `oku` iskelet-sembol → dosya yalnız kanıt satırı için Read offset/limit (~20 satır); >300 satırlık dosyanın aralıksız Read'i köprü ajanlarında `tools/oku_yonlendir.py` ile iskelete döner.
 - Konum: sembol/ilişki → graphify query/oku; içerik konumu → Grep (files_with_matches/-n). `rtk grep` en kalabalık, en düşük oranlı kalem (8372 komut, %25.6).
-- Bash'te `ls -la`, `grep -n`, `wc -l`, `tail -c`, `git add` rtk'sız geçiyor (1 günde 1013 komut ≈189k token) → Glob/Grep/Read aracı ya da başına `rtk`.
+- `rtk discover` kaçakları transkriptten sayar; kanca yeniden yazımı transkripte düşmez → çoğu yanlış pozitif (14 Eki: rtk 4764 komut koştu, transkriptte `rtk` önekli 2651). Gerçek kaçak ölçümü: rtk history.db `hook_decisions`.
+- YASAK: `git show <ref>:<yol>` ile dosya dökmek (rtk passthrough, 14 Eki tek günde 1.56M token, %0 tasarruf) → `git diff <ref> -- <yol>` ya da geçici dosya + dar Read. `git status --short` de passthrough (ort. 780 token) → yol ver: `git status --short -- <yollar>`. L44
 - YASAK: ev dizini, AppData ve `..` üstünde `ls` (-la/-t/-A): komut başı 28–114 sn, girdi 0.9–2.8M token (rtk süzmese bağlamı doldurur). Dar Glob deseni kullan. L41
 
 ## 4. Kalite kapısı
