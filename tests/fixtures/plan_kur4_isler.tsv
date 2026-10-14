@@ -1,0 +1,11 @@
+no	tur	is
+h1	zor	Next.js uygulamasına gerçek zamanlı ortak düzenleme ekle: Yjs CRDT, WebSocket sunucusu, çevrimdışı birleştirme, imleç varlığı ve yük altında gecikme ölçümü.
+h2	zor	Kotlin Android bankacılık uygulamasına biyometrik giriş ve sertifika sabitleme ekle; Play Store aşamalı yayın, çökme izleme ve KVKK aydınlatma metni.
+h3	zor	Kafka tabanlı sipariş olay akışını kur: outbox deseni, tam bir kez işleme, ölü mektup kuyruğu, şema kayıt defteri ve tüketici gecikmesi alarmı.
+h4	zor	Go ile yazılmış CLI aracını Homebrew, Scoop ve winget üzerinden dağıt: çapraz derleme, imzalı ikililer, otomatik sürüm notu ve kendini güncelleme.
+h5	zor	PyTorch görüntü sınıflandırma modelini üretime al: ONNX dışa aktarma, FastAPI çıkarım servisi, GPU toplu işleme, kayma izleme ve A/B karşılaştırma.
+h6	zor	Shopify mağazası için özel tema ve uygulama geliştir: ürün yapılandırıcı, Liquid bölümleri, ödeme sonrası yukarı satış, Core Web Vitals bütçesi ve erişilebilirlik denetimi.
+h7	zor	Terraform ile AWS'de üç ortamlı altyapı kur: VPC, EKS kümesi, RDS çoklu AZ, gizli anahtar yönetimi, maliyet etiketleri ve felaket kurtarma tatbikatı.
+r1	rutin	TypeScript projesinde ESLint uyarılarını düzelt ve kullanılmayan importları kaldır.
+r2	rutin	Dockerfile'daki Node temel imajını 18'den 20'ye yükselt ve derlemenin geçtiğini doğrula.
+r3	rutin	Jest test paketinde zaman aşımına uğrayan tek bir asenkron testi düzelt.
