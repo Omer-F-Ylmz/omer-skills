@@ -18,28 +18,84 @@
  },
  "gemini": {
   "ref_kareler": [
-   "A1",
    "A2",
-   "A4"
+   "A4",
+   "A6"
   ],
-  "hareket": 6,
-  "isik_post": 5,
-  "kalite": 6,
-  "eslesme": 7,
+  "hareket": 7,
+  "isik_post": 6,
+  "kalite": 7,
+  "mekanizma": 7,
+  "icerik": 5,
+  "eslesme": 6,
   "farklar": [
-   "Referans sahnede organik partikül yoğunluğu ve derinlik hissi çok daha yüksek.",
-   "Bizim demo geçişlerinde gürültü maskesi kenar ışımaları (edge glow) yetersiz kalmış.",
-   "Sahne geçişlerindeki 3B model detay ve materyal zenginliği referansın gerisinde."
+   "Referans sahnede zengin parçacık dağılımı ve hacimsel sis var, demoda ise arka plan düz kalıyor.",
+   "Geçiş maskesinin kenar ışığı (edge glow) demoda biraz sert ve tekdüze kalmış.",
+   "Demo sahnesindeki modeller (cezve ve kaplar) referanstaki organik yapılara göre çok basit."
   ],
   "oneriler": [
-   "Geçiş shader'ına smoothstep tabanlı bir kenar ışığı (rim lighting) ekleyin.",
-   "Simplex noise geçiş eşiğine chromatic aberration (renk sapması) efekti entegre edin.",
-   "Partikül sistemine additive blending ve bloom post-processing uygulayarak parlaklığı artırın."
+   "vec3 edgeColor = mix(baseColor, glowColor, smoothstep(threshold - 0.05, threshold, noiseValue));",
+   "renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.2;",
+   "const particleGeo = new THREE.BufferAttribute(new Float32Array(count * 3), 3); // instanced particles ekleyin"
+  ],
+  "hareket_kosular": [
+   7,
+   7,
+   7
+  ],
+  "isik_post_kosular": [
+   6,
+   6,
+   6
+  ],
+  "kalite_kosular": [
+   7,
+   7,
+   7
+  ],
+  "mekanizma_kosular": [
+   8,
+   7,
+   7
+  ],
+  "icerik_kosular": [
+   5,
+   5,
+   5
+  ],
+  "eslesme_kosular": [
+   6,
+   6,
+   6
+  ]
+ },
+ "ikinci": {
+  "model": "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+  "ref_kareler": [
+   "A3",
+   "A4",
+   "A5"
+  ],
+  "hareket": 6,
+  "isik_post": 8,
+  "kalite": 7,
+  "mekanizma": 8,
+  "icerik": 5,
+  "eslesme": 6,
+  "farklar": [
+   "Referans, metin ve renk paleti açısından daha zengin içerik barındırıyor.",
+   "Demo sadece tek bir kopya (kupa) gösteriyor, referans daha çok ekran ve metin içerikli.",
+   "Referansta kenar ışımları daha net ve yayılı, demo’da daha kademeli ve sade."
+  ],
+  "oneriler": [
+   "Görüntü kaydırma süresi ve zamanlama curve'ını referansla senkronize et.",
+   "Gürültü maskesini artırarak kenar ışımlarını daha net ve yayılı hale getir.",
+   "Render‑target kompozit işlemini GPU‑optimize etmek için ek bir pass kullan."
   ]
  },
  "iz": {
   "model": "gemini-3.5-flash-lite",
-  "sure": 4.9,
-  "jeton": 13601
+  "sure": 4.8,
+  "jeton": 13766
  }
 }

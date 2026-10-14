@@ -19,7 +19,7 @@ LAB = {
     "post": ("lusion", "post-processing yığını: bloom, alan derinliği (rack focus), kromatik sapma, film greni, vinyet; mobil kademe düşüşü", [("", 0), ("", 1), ("?kademe=dusuk", 1)]),
     "gecis": ("activetheory", "iki 3B sahne arasında render-target kompozit gürültü maskeli geçiş (kenar ışımalı)", [("", .2), ("", .45), ("", .55), ("", .85)]),
     "metin": ("lando", "dev tipografi + 3B nesne katmanlama (tip nesnenin arkasında) + SplitText maskeli satır girişleri", [("", 0), ("", .45), ("", .8)]),
-    "yukleyici": ("lando", "yükleme yüzde sayacı (000-100) + perde açılışı + kamera dolly + başlık harf girişi koreografisi", [("", .1), ("", .45), ("", .7), ("", 1)]),
+    "yukleyici": ("lando", "yükleme yüzde sayacı (000-100) + perde açılışı + kamera dolly + başlık harf girişi koreografisi", [("", .1), ("", .38), ("", .6), ("", 1)]),
     "parcacik": ("activetheory", "GPGPU parçacık bulutu (buhar), derinlik solması ve sis", [("", 0), ("?kademe=dusuk", 0)]),
 }
 ISTEM = """Sen bir WebGL/yaratıcı geliştirme jürisisin. A0..A7 = ödüllü referans sitenin kaydırma kareleri; B0.. = bizim lab demomuzun kareleri (sırayla zaman/kaydırma ilerler).

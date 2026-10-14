@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        "createdAt": "2026-10-10T10:12:47.596Z",
+        "reason": "assistant: gen.js is a research note recording an easing measured on 60fps.design, not our own design; user did not confirm"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "labs/yukleyici/index.html"
+        ],
+        "createdAt": "2026-10-14T20:33:15.985Z",
+        "reason": "Claude: #f2ebe1 sits on body #1a120c from external labs/ortak.css + dark WebGL scene; scanner assumed #ffffff"
+      }
+    ]
+  }
+}

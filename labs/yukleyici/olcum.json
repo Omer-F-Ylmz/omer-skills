@@ -5,40 +5,43 @@
    "kare_1sn": 61
   },
   "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4070 Ti (0x00002782) Direct3D11 vs_5_0 ps_5_0, D3D11)",
-  "varsayilan@0.45": {
+  "varsayilan@0.38": {
    "kare_1sn": 61
   },
-  "varsayilan@0.7": {
-   "kare_1sn": 61
+  "varsayilan@0.6": {
+   "kare_1sn": 60
   },
   "varsayilan@1": {
-   "kare_1sn": 61
+   "kare_1sn": 60
   },
   "hatalar": []
  },
  "gemini": {
+  "hata": "gemini: gemini-3.8-flash: HTTP 429 b'{\\n  \"error\": {\\n    \"code\": 429,\\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a' | gemini-3.5-flash: HTTP 429 b'{\\n  \"error\": {\\n    \"code\""
+ },
+ "ikinci": {
+  "model": "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
   "ref_kareler": [
    "A0",
-   "A1"
+   "A1",
+   "A2"
   ],
-  "hareket": 7,
-  "isik_post": 6,
+  "hareket": 8,
+  "isik_post": 8,
   "kalite": 8,
-  "eslesme": 7,
+  "mekanizma": 9,
+  "icerik": 5,
+  "eslesme": 6,
   "farklar": [
-   "Referans sitedeki dinamik maskeleme ve parça ayrışması demo serisinde eksik.",
-   "Kamera dolly geçişleri referansa göre daha düz ve basık kalmış.",
-   "Başlık girişi koreografisinde harf bazlı gecikmeler (stagger) yetersiz."
+   "Yüklenme sayacı sadece statik bir sayı gösteriyor",
+   "Karpma efekti basit bir yüzey değişikliği, gerçek bir dolaylı geçiş yok",
+   "Kamera dolu hareket minim limited, sadece hafif yakınlaştırma"
   ],
   "oneriler": [
-   "gsap.from('.title-char', {y: 50, opacity: 0, stagger: 0.04, ease: 'power3.out'})",
-   "camera.position.lerp(targetPos, 0.05) ile daha akışkan bir dolly efekti ekleyin.",
-   "Perde açılışında clip-path animasyonu kullanarak referanstaki derinlik hissini yakalayın."
+   "GSAP veya Lottie ile yüklenme sayacısını sıcaklıkta artırın",
+   "CSS clip-path ve @keyframes kullanarak karpu açılışını oluşturun",
+   "Three.js veya CSS 3D dönüşümleriyle dolaylı kamera hareketini uygulayın"
   ]
  },
- "iz": {
-  "model": "gemini-3.5-flash-lite",
-  "sure": 5.3,
-  "jeton": 13622
- }
+ "iz": {}
 }

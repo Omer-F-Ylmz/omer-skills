@@ -1,6 +1,6 @@
-# lab · RT kompozit gürültü geçişi (ref activetheory · eşleşme 7, 4 tur tavanı)
+# lab · RT kompozit gürültü geçişi (ref activetheory · mekanizma Gemini med 7 / nemotron 8, 4 tur kapalı)
 Demo `labs/gecis/` · modül `tools/site-kit/sablon/src/sahne/gecis.js`.
-- Mekanizma: A ve B sahneleri ayrı WebGLRenderTarget'a; tam ekran dörtgen `mix(A, B, smoothstep(eşik))`. Eşik = çapraz cephe (%55) + fbm yırtığı (%45).
+- Mekanizma: A ve B sahneleri ayrı WebGLRenderTarget'a; tam ekran dörtgen `mix(A, B, smoothstep(eşik))`. Eşik = merkezden açılan portal (en-boy düzeltmeli yarıçap + fbm kenar); lab'da portal %70 + A'ya dalış / B'de geri çekilme dolly (d3).
 - Kenar: ince sıcak çekirdek + fbm'li hale + hash kıvılcımları; hale bölgesinde UV kayması ve R/B kromatik ayrışma.
 - Parametre: `t` 0→1 kaydırmanın orta üçte biri; t=0/1'de tek sahne çizilir (iki RT maliyeti yalnız geçişte).
 - Bütçe: talep üzerine render → boşta 0 kare/sn; geçişte 2 sahne + 1 dörtgen.
