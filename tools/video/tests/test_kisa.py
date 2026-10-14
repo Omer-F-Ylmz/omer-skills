@@ -45,12 +45,13 @@ def test_izle_hepsi_503_ise_bekleyip_yeniden(tmp_path, monkeypatch):
         cagri.append(url)
         if len(cagri) <= len(kisa.MODELLER):
             raise urllib.error.HTTPError(url, 503, "high demand", {}, io.BytesIO(b""))
-        return {"candidates": [{"content": {"parts": [{"text": "{}"}]}}]}
+        return {"candidates": [{"content": {"parts": [{"text": '{"araclar": [{"ad": "pip", "ne_dedi": "", "zaman": "0:01"}], "adlar": ["PIP", "uv", "uv", "<script src=\\"a.js\\"></script>"]}'}]}}]}
     monkeypatch.setattr(kisa, "_iste", iste)
     monkeypatch.setattr(kisa, "parcalar", lambda d, m, k: [])
     monkeypatch.setattr(kisa.time, "sleep", lambda s: None)
     j, iz = kisa.izle(tmp_path, env={"GEMINI_API_KEY": "x"})
     assert iz["model"] == kisa.MODELLER[0] and len(cagri) == len(kisa.MODELLER) + 1
+    assert [a["ad"] for a in j["araclar"]] == ["pip", "uv"] and "adlar" not in j  # adlar araclar'a tekrarsız katılır
 
 
 def test_paket_linkleri(tmp_path):

@@ -14,6 +14,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from . import hafif
@@ -27,7 +28,8 @@ KOK = Path(__file__).resolve().parents[3]
 KARAR = KOK / "docs" / "kurulumlar" / "ig-41" / "karar-birlesik.tsv"
 ARASTIRMA = KOK / ".kos" / "kopru" / "video" / "kisa" / "arastirma"
 PAKET_TAVAN = 12_000  # paket.md karakteri (Gemini'ye bağlam; ücretsiz)
-SEMA = {"type": "OBJECT", "required": ["konusma_ozet", "ekran_metni", "araclar", "linkler", "komutlar", "iddialar"], "properties": {
+SEMA = {"type": "OBJECT", "required": ["konusma_ozet", "ekran_metni", "araclar", "adlar", "linkler", "komutlar", "iddialar"], "properties": {
+    "adlar": {"type": "ARRAY", "items": {"type": "STRING"}},
     "konusma_ozet": {"type": "STRING"},
     "ekran_metni": {"type": "ARRAY", "items": {"type": "STRING"}},
     "araclar": {"type": "ARRAY", "items": {"type": "OBJECT", "required": ["ad", "ne_dedi", "zaman"], "properties": {
@@ -36,9 +38,15 @@ SEMA = {"type": "OBJECT", "required": ["konusma_ozet", "ekran_metni", "araclar",
     "komutlar": {"type": "ARRAY", "items": {"type": "STRING"}},
     "iddialar": {"type": "ARRAY", "items": {"type": "STRING"}}}}
 ISTEM = ("Bu kısa videoyu (ya da carousel slaytlarını) baştan sona izle; konuşmayı VE ekrandaki her yazıyı oku. Ekte paket.md var: açıklama, "
-         "açıklama/yorum bağlantıları, otomatik transkript ve OCR (yazım için kullan, eksiklerini videodan tamamla). Türkçe yaz.\n"
+         "açıklama/yorum bağlantıları, otomatik transkript ve OCR; paket.md'yi baştan sona tara, orada geçen araçlar da listeye girer (yazımı oradan al, "
+         "eksiklerini videodan tamamla). Türkçe yaz.\n"
          "- araclar: anılan ya da ekranda görünen HER araç, repo, kütüphane, model, skill, MCP, CLI, servis, site; adı ekrandaki yazımıyla "
-         "(owner/repo görünüyorsa öyle). ne_dedi: videonun onun hakkında söylediği/gösterdiği (≤25 kelime). zaman: m:ss ya da 'açıklama'/'yorum'.\n"
+         "(owner/repo görünüyorsa öyle). ne_dedi: videonun onun hakkında söylediği/gösterdiği (≤25 kelime). zaman: m:ss ya da 'açıklama'/'yorum'. "
+         "Altyapıyı da ayrı satır yaz: dil (Python), paket yöneticisi (pip, npm, uv), platform (GitHub, Hugging Face), çerçeve (PyTorch, Transformers), "
+         "lisans (Apache-2.0); anılan her model sürümünü ayrı (ör. Qwen3.5-0.8B, Llama); videonun adını koyduğu teknik/özellik (ör. 'katman katman yükleme'). "
+         "Eksik yazmaktansa fazla yaz, ama yalnız videoda/pakette gerçekten geçeni.\n"
+         "- adlar: paket.md'de ve ekranda geçen HER özel adın tam listesi (araç, repo, model ve sürümü, kütüphane, platform, paket yöneticisi, lisans, "
+         "adlandırılmış teknik); satır satır tara, tekrarsız.\n"
          "- linkler: ekranda, konuşmada, açıklamada ya da yorumlarda geçen her URL/alan adı/GitHub yolu (aynen).\n"
          "- komutlar: ekranda görünen kurulum/terminal komutları aynen. ekran_metni: ekrandaki anlamlı yazılar (başlık, kod, istem) kısa.\n"
          "- iddialar: sayısal/karşılaştırmalı/özellik iddiaları, zamanıyla. Uydurma; göremediğini yazma.")
@@ -90,9 +98,11 @@ def parcalar(d, medya, key):
         for ad in ["goz-video.mp4", *(meta.get("slayt_video") or [])]:
             if (medya / ad).is_file():
                 p.append(yukle(medya / ad, key))
-        for ad in meta.get("gorseller") or []:
-            if (medya / ad).is_file():
-                p.append({"inlineData": {"mimeType": "image/jpeg", "data": __import__("base64").b64encode((medya / ad).read_bytes()).decode()}})
+        gorsel = [medya / ad for ad in meta.get("gorseller") or [] if (medya / ad).is_file()]
+        if not p and not gorsel:  # embed video vermediyse önbellek kareleri ekranın yerini tutar (video elenmez)
+            gorsel = sorted((d / "kareler").glob("*.jpg"))[:12]
+        for y in gorsel:
+            p.append({"inlineData": {"mimeType": "image/jpeg", "data": __import__("base64").b64encode(y.read_bytes()).decode()}})
     paket = (d / "paket.md").read_text(encoding="utf-8")[:PAKET_TAVAN] if (d / "paket.md").is_file() else meta.get("description") or ""
     return p + [{"text": f"paket.md:\n{paket}\n\n{ISTEM}"}]
 
@@ -114,6 +124,9 @@ def izle(d, medya=None, env=None, yeniden=False):
             try:
                 y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde, zaman=IZLE_ZAMAN)
                 j = json.loads(y["candidates"][0]["content"]["parts"][0]["text"])
+                var = {a["ad"].casefold() for a in j["araclar"]}  # lite araclar'da adları atlıyor; ayrı tam liste alanı yakalamayı artırır
+                j["araclar"] += [{"ad": a, "ne_dedi": "(yalnız adı geçiyor)", "zaman": "paket"} for a in dict.fromkeys(j.pop("adlar", []))
+                                 if a.casefold() not in var and not re.search(r"[<>{}=;]", a)]  # kod parçası ad değil
                 iz = {"model": m, "sure": round(time.monotonic() - t, 1), "jeton": (y.get("usageMetadata") or {}).get("totalTokenCount")}
                 hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
                 return j, iz
@@ -176,8 +189,12 @@ def repo_bul(ad, metinler):
         m = re.search(r"github\.com/([\w.-]+/[\w.-]+)", u)
         if m and tr.normal(ad.split("/")[-1]) in tr.normal(m.group(1)):
             return m.group(1).removesuffix(".git"), "link"
-    r = subprocess.run(["gh", "api", "-X", "GET", "search/repositories", "-f", f"q={ad} in:name", "-f", "per_page=1", "--jq", ".items[0].full_name"],
-                       capture_output=True, text=True, encoding="utf-8", timeout=60)
+    for _ in range(4):  # arama 30/dk; araç patlamasında (DeHMM 25) sessiz kayıp yerine sıfırlanmayı bekle
+        r = subprocess.run(["gh", "api", "-X", "GET", "search/repositories", "-f", f"q={ad} in:name", "-f", "per_page=1", "--jq", ".items[0].full_name"],
+                           capture_output=True, text=True, encoding="utf-8", timeout=60)
+        if r.returncode == 0 or "rate limit" not in (r.stderr or "").lower():
+            break
+        time.sleep(20)
     return (r.stdout.strip(), "gh arama, doğrulanmadı") if r.returncode == 0 and r.stdout.strip() else (None, None)
 
 
@@ -230,12 +247,12 @@ def calistir(ids, kok, cikti, efor="low", env=None):
         g, gi = izle(kok / v, m, env)
         paket_link[v] = paket_linkleri(kok / v)
         kat = katalog([a["ad"] for a in g["araclar"]])
-        kunye, t = {}, time.monotonic()
-        for a in g["araclar"]:
-            if not kat[a["ad"]]:
-                r, nasil = repo_bul(a["ad"], g["linkler"] + paket_link[v] + [a["ne_dedi"]])
-                if r:
-                    kunye[a["ad"]] = {**arastir(r), "bulunus": nasil}
+        def kun(a):
+            r, nasil = repo_bul(a["ad"], g["linkler"] + paket_link[v] + [a["ne_dedi"]])
+            return a["ad"], ({**arastir(r), "bulunus": nasil} if r else None)
+        t = time.monotonic()
+        with ThreadPoolExecutor(6) as ex:  # gh + README özeti ağ bekler; seri DeHMM 30 araçta 43 sn
+            kunye = {ad: k for ad, k in ex.map(kun, [a for a in g["araclar"] if not kat[a["ad"]]]) if k}
         iz[v] = {"indir": indir, "gemini": gi, "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
         bloklar.append(blok(v, g, kat, kunye))
         print(v, iz[v], flush=True)
