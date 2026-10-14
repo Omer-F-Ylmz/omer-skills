@@ -1,0 +1,33 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Projeler\omer-skills
+plugins: anyio-4.15.1, platformdirs-4.13.0
+collecting ... collected 24 items
+
+tests/test_ajan_sira.py::test_dorduncu_sutun_efor PASSED                 [  4%]
+tests/test_ajan_sira.py::test_gecersiz_efor_reddedilir PASSED            [  8%]
+tests/test_ajan_sira.py::test_baslat_argv_env PASSED                     [ 12%]
+tests/test_ajan_sira.py::test_is_kaydi PASSED                            [ 16%]
+tests/test_cc_profil.py::test_tam_ek_arguman_uretmez PASSED              [ 20%]
+tests/test_cc_profil.py::test_araclar_yerlesik_izin_listesi PASSED       [ 25%]
+tests/test_cc_profil.py::test_strict_ve_yalniz_listelenen_mcp PASSED     [ 29%]
+tests/test_cc_profil.py::test_var_referansi_acilmaz PASSED               [ 33%]
+tests/test_cc_profil.py::test_disable_slash_commands_yalniz_skill_profilinde PASSED [ 37%]
+tests/test_cc_profil.py::test_settings_hook_kapatmaz PASSED              [ 41%]
+tests/test_cc_profil.py::test_enabledplugins_yalniz_listedekiler PASSED  [ 45%]
+tests/test_cc_profil.py::test_ttl_5m PASSED                              [ 50%]
+tests/test_cc_profil.py::test_bilinmeyen_profil_hata PASSED              [ 54%]
+tests/test_cc_profil.py::test_bilinmeyen_mcp_hata PASSED                 [ 58%]
+tests/test_cc_profil.py::test_eksik_skill_dosyasi_hata PASSED            [ 62%]
+tests/test_cc_profil.py::test_zorla_tam_geri_alir PASSED                 [ 66%]
+tests/test_cc_profil.py::test_skill_dosyalari_tek_dosyada_ve_sabit PASSED [ 70%]
+tests/test_cc_profil.py::test_ttl_deney_kosulunu_degistirmez PASSED      [ 75%]
+tests/test_cc_profil.py::test_ek_ayar_tek_settings_icinde PASSED         [ 79%]
+tests/test_cc_profil.py::test_gercek_profiller_gecerli PASSED            [ 83%]
+tests/test_cc_profil.py::test_jev_skill_cc_profil_varken_bos PASSED      [ 87%]
+tests/test_cc_profil.py::test_jev_skill_cc_profil_yokken_ayni PASSED     [ 91%]
+tests/test_cc_profil.py::test_ajan_tut_disindakiler_deny PASSED          [ 95%]
+tests/test_cc_profil.py::test_profil_ayar_ek_ayarla_birlesir PASSED      [100%]
+
+============================= 24 passed in 1.05s ==============================

@@ -1,0 +1,19 @@
+QMD Status
+
+Index: C:/Users/pc/.cache/qmd/index.sqlite
+Size:  120.0 KB
+
+Documents
+  Total:    0 files indexed
+  Vectors:  0 embedded
+
+AST Chunking
+  Status:   active
+  Languages: typescript, tsx, javascript, python, go, rust
+
+No collections. Run 'qmd collection add .' to index markdown files.
+
+Models
+  Embedding:   https://huggingface.co/ggml-org/embeddinggemma-300M-GGUF
+  Reranking:   https://huggingface.co/ggml-org/Qwen3-Reranker-0.6B-Q8_0-GGUF
+  Generation:  https://huggingface.co/tobil/qmd-query-expansion-1.7B-gguf

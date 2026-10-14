@@ -1,0 +1,446 @@
+commit ccdf3e3df1419f38968a6d6f7621b656d2a1650e
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:47:31 2026 +0300
+
+    VİDEO-3 d10 ara: STT kaynakta (Groq+sözlük) etkisiz ölçüldü; OR :free kolu asıldı, sonuç yok
+
+ .kos/kopru/devir/video-3-devam.md | 4 ++++
+ .kos/kopru/gorev/SIRA.md          | 3 +++
+ .kos/kopru/rapor/video-3.md       | 4 ++++
+ 3 files changed, 11 insertions(+)
+
+commit b0ec84078b4380790c08595a9ef1d978e71a4336
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:43:54 2026 +0300
+
+    ÖĞREN-0: mekanik katalog betiği + fikstür testi + özet
+
+ .kos/kopru/ogren/katalog.py      | 488 +++++++++++++++++++++++++++++++++++++++
+ .kos/kopru/ogren/ozet.md         |  57 +++++
+ .kos/kopru/ogren/test_katalog.py |  55 +++++
+ 3 files changed, 600 insertions(+)
+
+commit d8c308945decad5e2c35b91e4c2ca1292c298237
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:31:16 2026 +0300
+
+    ENVANTER-KULLAN-1 ara: kullan-haritasi + envanter-oneri + yerel OCR/VLM kanıtı
+
+ .kos/kopru/devir/envanter-kullan-1-devam.md |   5 +
+ .kos/kopru/devir/envanter-oneri.md          |  24 ++++
+ .kos/kopru/envanter/deneme_gorsel.py        |  41 ++++++
+ .kos/kopru/envanter/deneme_gorsel.txt       |  31 +++++
+ .kos/kopru/envanter/deneme_groq.py          |  35 +++++
+ .kos/kopru/envanter/deneme_groq.txt         |   4 +
+ .kos/kopru/envanter/kacak.json              | 199 ++++++++++++++++++++++++++++
+ .kos/kopru/envanter/probe.py                |  49 +++++++
+ .kos/kopru/envanter/probe.tsv               |  67 ++++++++++
+ .kos/kopru/envanter/yerel_kanit.txt         |  35 +++++
+ .kos/kopru/gorev/SIRA.md                    |   1 +
+ docs/kullan-haritasi.md                     |  46 +++++++
+ 12 files changed, 537 insertions(+)
+
+commit d815e3da61eac54b06d38f7f96f42d1724c197a3
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:23:24 2026 +0300
+
+    SİTE-OKULU-2 d5 ara: ses (Web Audio, kullanıcı açar, öz-denetim 4/4) + tek renderer çok sahne (scissor, talep üzerine, öz-denetim ✓) + gecis tur 5 kodu (sis bandı/köz/organik ivme, yargı 10:00 sonrası)
+
+ devir/site-okulu-2-devam.md                  | 12 ++++-
+ docs/site-okulu/lab-cok-sahne.md             |  9 ++++
+ docs/site-okulu/lab-gecis.md                 |  1 +
+ docs/site-okulu/lab-ses.md                   |  9 ++++
+ labs/cok-sahne/index.html                    | 75 ++++++++++++++++++++++++++++
+ labs/kare.py                                 |  3 +-
+ labs/ses/index.html                          | 58 +++++++++++++++++++++
+ tools/site-kit/sablon/src/sahne/cok-sahne.js | 25 ++++++++++
+ tools/site-kit/sablon/src/sahne/gecis.js     | 16 +++++-
+ tools/site-kit/sablon/src/sahne/ses.js       | 72 ++++++++++++++++++++++++++
+ 10 files changed, 275 insertions(+), 5 deletions(-)
+
+commit 0cb936b86746411124dfab77ce088e4177ab2f69
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:21:31 2026 +0300
+
+    TOKEN-4 d4 ara: A6 sabit bağlam 53.6k (araç tanımları %68); --tools izin listesi 33.5k (−%37.6), permissions.deny düşürmüyor; cc_profil araclar + onay/token_4_uygula.py (onaya bağlı)
+
+ .claude/token4/a6.py                      | 96 +++++++++++++++++++++++++++++++
+ .kos/kopru/devir/token-4-devam.md         | 19 +++---
+ .kos/kopru/rapor/token-4.md               |  5 ++
+ docs/kutuphane/olcum/token-4-a6-deny.tsv  | 46 +++++++++++++++
+ docs/kutuphane/olcum/token-4-a6-tools.tsv | 33 +++++++++++
+ docs/kutuphane/olcum/token-4-a6.tsv       | 46 +++++++++++++++
+ onay/test_token_4_uygula.py               | 22 +++++++
+ onay/token_4_uygula.py                    | 58 +++++++++++++++++++
+ tests/test_cc_profil.py                   |  7 +++
+ tools/cc_profil.py                        |  2 +
+ 10 files changed, 325 insertions(+), 9 deletions(-)
+
+commit 0f6022e4ae6c6fcbdfc4fbf0a0e136bcaf929f42
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:17:11 2026 +0300
+
+    GRAPHIFY-ULTRA-1 d6 ara: sapma kapandı (test_graphify_sor eski kodda 3/3 kırmızı), G6 paket: graphify-desktop kompakt sorgu bölümü + zip + atlas kartı + onay betiği
+
+ .kos/kopru/devir/graphify-ultra-1-devam.md | 17 +++++-----
+ .kos/kopru/onay/graphify_ultra_1_uygula.py | 53 ++++++++++++++++++++++++++++++
+ .kos/kopru/rapor/graphify-ultra-1.md       |  8 +++--
+ docs/atlas/kart.jsonl                      |  1 +
+ skills/graphify-desktop/SKILL.md           |  9 +++++
+ 5 files changed, 77 insertions(+), 11 deletions(-)
+
+commit 72f162a4d7cf47c3f22ee2272fcf3199d9201933
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:12:34 2026 +0300
+
+    VİDEO-KISA-TOKEN-2 d5 ara: ek_adlar OCR dosya-adı sınıfı (RustFS kökü) + test; sınama araç 0.98 link 1.0 yp 0; kisa_m4 sinama_ref/puan ek (EK 5 ref hazır)
+
+ .kos/kopru/gorev/SIRA.md       |  1 +
+ .kos/kopru/video/kisa_m4.py    | 14 ++++++++------
+ tools/video/tests/test_kisa.py |  8 ++++++++
+ tools/video/video/kisa.py      | 11 +++++++++++
+ 4 files changed, 28 insertions(+), 6 deletions(-)
+
+commit 2d999cdd519d8f0dc27c1e3cad8b0980da9366a3
+Author: Your Name <your@email.com>
+Date:   Thu Oct 15 00:00:39 2026 +0300
+
+    VİDEO-3 d9 ara: uzun.ekler genel mekanizma (sürüm/varyant, plan, özellik/mod, yazı tipi) + test; temiz 0.871→0.914, yp 0
+
+ .kos/kopru/devir/video-3-devam.md | 28 ++++++++++++-------------
+ .kos/kopru/gorev/SIRA.md          |  1 +
+ .kos/kopru/rapor/video-3.md       |  9 ++++++++
+ tools/video/tests/test_uzun.py    | 18 ++++++++++++++++
+ tools/video/video/uzun.py         | 44 +++++++++++++++++++++++++++++++++++++--
+ 5 files changed, 84 insertions(+), 16 deletions(-)
+
+commit 8955dd655d010f2c340b7ef630e277525d6f88f1
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:57:11 2026 +0300
+
+    GRAPHIFY-ULTRA-1 d5 ara: G5 C kolu (kanca+keşif istemi) 1.00x/0.74x → kapı geçmedi; graphify_sor sıralama + dış sembol git grep + ASCII belirteç (d5 seti 11→14/20), test 3/3; hafif→harita zinciri
+
+ .kos/kopru/devir/graphify-ultra-1-devam.md     | 17 ++++++------
+ .kos/kopru/gorev/SIRA.md                       |  1 +
+ .kos/kopru/graphify-ultra-ab.tsv               |  2 ++
+ .kos/kopru/graphify_hafif.py                   |  2 ++
+ .kos/kopru/graphify_sor.py                     | 13 ++++++----
+ .kos/kopru/graphify_ultra_ab.py                | 19 ++++++++++----
+ .kos/kopru/rapor/graphify-ultra-1.md           | 23 ++++++++--------
+ docs/kutuphane/olcum/graphify-ultra-g1-sor.tsv | 36 +++++++++++++-------------
+ tests/test_graphify_sor.py                     | 36 ++++++++++++++++++++++++++
+ 9 files changed, 101 insertions(+), 48 deletions(-)
+
+commit 89f970eba5d284a6c95c896ea720e24020a62bfa
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:47:45 2026 +0300
+
+    VİDEO-KISA-TOKEN-2 d4 ara: repo_esi (GLM/DeepSeek yanlış repo özü kökü) + esit üretici öneki (Sales Navigator) + RustFS kökü
+
+ .kos/kopru/gorev/SIRA.md        | 1 +
+ .kos/kopru/video/kisa_m4.py     | 6 ++++--
+ tools/video/tests/test_karar.py | 7 +++++++
+ tools/video/tests/test_kisa.py  | 6 +++---
+ tools/video/video/karar.py      | 7 ++++++-
+ tools/video/video/kisa.py       | 4 ++--
+ 6 files changed, 23 insertions(+), 8 deletions(-)
+
+commit 6de21c5e14e210315d9d54d4e2d26197e1379bd3
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:47:27 2026 +0300
+
+    SİTE-OKULU-2 d4 ara: yukleyici tur 2 (kayan basamak sayacı + SVG sıvı perde, #yuk span seçici kök nedeni) mekanizma 9 nemotron×2+kendi bakış (Gemini 429), lab-sivi.md (mevcut sivi-glsl), lab notları güncel
+
+ .impeccable/config.json                      | 23 ++++++++
+ devir/site-okulu-2-devam.md                  | 10 +++-
+ docs/site-okulu/lab-gecis.md                 |  4 +-
+ docs/site-okulu/lab-sivi.md                  |  9 +++
+ docs/site-okulu/lab-yukleyici.md             |  8 ++-
+ labs/gecis/olcum.json                        | 84 +++++++++++++++++++++++-----
+ labs/kare.py                                 |  2 +-
+ labs/yukleyici/index.html                    | 23 ++++++--
+ labs/yukleyici/olcum.json                    | 41 +++++++-------
+ tools/site-kit/sablon/src/sahne/yukleyici.js | 10 +++-
+ 10 files changed, 166 insertions(+), 48 deletions(-)
+
+commit 95a630a08f8774c2fd40abba2bf30b21e3bb4c18
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:47:02 2026 +0300
+
+    TOKEN-4 d3 ara: A3 modelsiz yol yok (yoğunlaştırıcı tek seferlik, ortak önek 510 kar.), A1 kök git show/status passthrough + discover yanlış pozitif → is-akisi L44
+
+ .kos/kopru/devir/token-4-devam.md | 17 +++++++++--------
+ .kos/kopru/gorev/SIRA.md          |  1 +
+ .kos/kopru/rapor/token-4.md       |  5 +++++
+ skills/is-akisi/SKILL.md          |  3 ++-
+ skills/is-akisi/arsiv.md          |  2 ++
+ 5 files changed, 19 insertions(+), 9 deletions(-)
+
+commit a197b014cff13abc97aacd0a43fd23c837374e02
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:39:41 2026 +0300
+
+    VİDEO-3 d8 ara: V5 kota.py (günlük Gemini defteri, PerDay 429 dur + kaldığı yerden, gun_bol) + test 8/8; madde 2 kaçan teşhisi (kanıtsız 0, DF_TAVAN 4, ayrıntı düzeyi 3)
+
+ .kos/kopru/devir/video-3-devam.md |   9 ++-
+ .kos/kopru/rapor/video-3.md       |   6 ++
+ tools/video/tests/test_kota.py    |  91 ++++++++++++++++++++++++++
+ tools/video/video/kota.py         | 132 ++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 235 insertions(+), 3 deletions(-)
+
+commit 19672ca06a6ca0fb4f40b49776e29d0d96315fc7
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:37:52 2026 +0300
+
+    GRAPHIFY-ULTRA-1 d4 ara: .kos betikleri grafta (.graphifyignore negation), graphify_sor 18/20 (query 15/20), proje haritası ≤600 jeton
+
+ .graphifyignore                                | 12 ++++
+ .kos/kopru/devir/graphify-ultra-1-devam.md     | 17 +++---
+ .kos/kopru/gorev/SIRA.md                       |  1 +
+ .kos/kopru/graphify_harita.py                  | 37 ++++++++++++
+ .kos/kopru/graphify_sor.py                     | 57 ++++++++++++++++++
+ .kos/kopru/graphify_ultra_g1.py                | 81 ++++++++++++++++++++++++++
+ .kos/kopru/harita/TELVE.md                     | 32 ++++++++++
+ .kos/kopru/harita/omer-skills.md               | 32 ++++++++++
+ .kos/kopru/rapor/graphify-ultra-1.md           | 28 +++++----
+ docs/kutuphane/olcum/graphify-ultra-g1-sor.tsv | 21 +++++++
+ docs/kutuphane/olcum/graphify-ultra-g1.tsv     | 21 +++++++
+ 11 files changed, 315 insertions(+), 24 deletions(-)
+
+commit 67c41816a3ca100eb560ed0a04373d6c445972d3
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:27:18 2026 +0300
+
+    TOKEN-3 d8 BİTTİ: K16 3/3 EŞİT (rtk pytest + ucuz_alt), is-akisi §3 büyük çıktı satırı, is-akisi.zip TEMİZ; onay Ömer'de
+
+ .claude/token3/k16.py             |  2 +-
+ .kos/kopru/devir/token-3-devam.md | 17 +++++++----------
+ .kos/kopru/gorev/SIRA.md          |  1 +
+ .kos/kopru/rapor/token-3.md       |  7 +++++++
+ skills/is-akisi/SKILL.md          |  1 +
+ 5 files changed, 17 insertions(+), 11 deletions(-)
+
+commit 20d44e21a13090f493d0c37be630d4ffb024ea2d
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:21:00 2026 +0300
+
+    VİDEO-KISA-TOKEN-2 d3 ara: karar uyumu 18/27=0.667 ✗ (GLM/DeepSeek Flash yanlış repo özü), alan denetimi, sınama kaçak kökleri; kisa_t2_uyum.py
+
+ .kos/kopru/gorev/SIRA.md         |  1 +
+ .kos/kopru/video/kisa_t2_uyum.py | 59 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 60 insertions(+)
+
+commit acdb94db0bbfbba2b835150bf77f38e34e77315b
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:11:32 2026 +0300
+
+    TOKEN-4 d2 ara: A2 A/B tek vekil + RAM bekçisi (durma 0/0, karar yok), A3 Gemini 429 → provider=gemini reddedildi, mem_kiyas doğrudan Gemini + cc-yedek-dis yargıç
+
+ .claude/token4/hr_ab.py           | 78 ++++++++++++++++++++++++++++++++++++
+ .claude/token4/mem_kiyas.py       | 84 +++++++++++++++++++++++++++++++++++++++
+ .kos/kopru/devir/token-4-devam.md | 16 ++++----
+ .kos/kopru/rapor/token-4.md       |  6 +++
+ 4 files changed, 176 insertions(+), 8 deletions(-)
+
+commit 847a1c64a532b068139e84ee3b34b934c77ffdb6
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 23:11:17 2026 +0300
+
+    VİDEO-3 d6 ara kayıt: Gemini 3 model günlük kota (PerDay) → yaygin_aday ölçümü ~03:00'e; V4 kuru plan hat_plan.py (180 link: kisa 153 · karusel 27 · yeni 149 · ≈696 Gemini isteği); v3.py kos yeniden bayrağı
+
+ .kos/kopru/devir/video-3-devam.md   |  19 ++--
+ .kos/kopru/gorev/SIRA.md            |   3 +
+ .kos/kopru/rapor/video-3.md         |   6 ++
+ .kos/kopru/video/hat-plan-14eki.tsv | 181 ++++++++++++++++++++++++++++++++++++
+ .kos/kopru/video/hat_plan.py        |  42 +++++++++
+ .kos/kopru/video/v3.py              |   2 +-
+ 6 files changed, 243 insertions(+), 10 deletions(-)
+
+commit 38ccb7857defc9e7e0e7237c4e73800090650388
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 22:30:37 2026 +0300
+
+    VİDEO-KISA-TOKEN-2 d2: kisa_t2 ölçüm betiği
+
+ .kos/kopru/video/kisa_t2.py | 37 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+
+commit ed8899920608bd765c5e17b0e8d45f4c35531f0c
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 22:30:16 2026 +0300
+
+    VİDEO-KISA-TOKEN-2 d2 ara: calistir cikti dizini, kisa_m4 M7d/e, kisa_t2 ölçümü (sınama 0.966/1.0/0, 873→489 tk/video)
+
+ .kos/kopru/video/kisa_m4.py | 3 ++-
+ tools/video/video/kisa.py   | 1 +
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 0f5d8ccecdcab04d57989c271e480da01799d94c
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 22:13:28 2026 +0300
+
+    GRAPHIFY-ULTRA-1 d3 ara: artımlı RAM kapısı %85 (tam %75), A/B n=2 0.75x/0.87x → G5 kapısı geçmedi; is-akisi satırları TOKEN-3 commit'inde
+
+ .kos/kopru/devir/graphify-ultra-1-devam.md | 18 +++++++++---------
+ .kos/kopru/gorev/SIRA.md                   |  2 ++
+ .kos/kopru/graphify-ultra-ab.tsv           |  6 ++++++
+ .kos/kopru/graphify_hafif.py               | 11 ++++++-----
+ .kos/kopru/graphify_ultra_ab.py            | 17 ++++++++++++-----
+ .kos/kopru/rapor/graphify-ultra-1.md       | 26 +++++++++++++++-----------
+ 6 files changed, 50 insertions(+), 30 deletions(-)
+
+commit 510c38564f4814a486b8be0c931f9d55606821ad
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 22:08:54 2026 +0300
+
+    TOKEN-3 d7 ara: K15 kapısı geçti (16/17 = önce 16/17), DEVAM-KURALI → is-akisi işaretçisi; k15_puan.py; K16 kayıp kontrolü betiği
+
+ .claude/token3/k15_puan.py       | 33 ++++++++++++++++++++++++++++++
+ .claude/token3/k16.py            | 44 ++++++++++++++++++++++++++++++++++++++++
+ .claude/token3/kapi-k15b-d6.json |  1 +
+ .claude/token3/kapi-k15b.json    |  1 +
+ .claude/token3/kapi.py           |  7 +++++++
+ .kos/kopru/gorev/DEVAM-KURALI.md | 42 +-------------------------------------
+ .kos/kopru/rapor/token-3.md      |  5 +++++
+ skills/is-akisi/SKILL.md         | 12 ++++++-----
+ skills/is-akisi/arsiv.md         |  2 ++
+ 9 files changed, 101 insertions(+), 46 deletions(-)
+
+commit 2164526ad6e68143779893f1d04ea4c45f8c95dc
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:59:28 2026 +0300
+
+    VİDEO-3 d5 ara kayıt: yp 4→0 (uzun.kisa_ad: kısa ad URL/etiket parçası değil), metin geçişine örnek birleşimi (temiz araç 0.871 değişmedi), yaygin_aday (DF üstü bilinen adlar Gemini adayı) — Gemini 429, ölçüm d6
+
+ .kos/kopru/devir/video-3-devam.md | 18 ++++++++--------
+ .kos/kopru/rapor/video-3.md       |  6 ++++++
+ .kos/kopru/video/v3_teshis.py     | 37 ++++++++++++++++++++++++++++++++
+ tools/video/tests/test_uzun.py    |  8 +++++++
+ tools/video/video/uzun.py         | 44 ++++++++++++++++++++++++++++++++-------
+ 5 files changed, 96 insertions(+), 17 deletions(-)
+
+commit 5b4f57903e29fa1f39e11efe6830d38ee48a1319
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:56:49 2026 +0300
+
+    GRAPHIFY-ULTRA-1 d2 ara: graphify_hizli artımlı 48→3.8 sn/332 MB, oku_yonlendir Read iskelet kancası köprü ajan profilinde, A/B n=1 kararsız
+
+ .kos/kopru/devir/graphify-ultra-1-devam.md | 18 +++----
+ .kos/kopru/gorev/SIRA.md                   |  1 +
+ .kos/kopru/graphify-ultra-ab.log           |  5 ++
+ .kos/kopru/graphify-ultra-ab.tsv           |  4 ++
+ .kos/kopru/graphify_hafif.py               |  8 +---
+ .kos/kopru/graphify_hizli.py               | 43 +++++++++++++++++
+ .kos/kopru/graphify_ultra_ab.py            | 43 +++++++++++++++++
+ .kos/kopru/rapor/graphify-ultra-1.md       | 29 +++++-------
+ profiller/cc-arka.json                     |  3 +-
+ tools/oku_yonlendir.py                     | 76 ++++++++++++++++++++++++++++++
+ 10 files changed, 198 insertions(+), 32 deletions(-)
+
+commit 6a13df40b8ba79bb1a7d186b79f35b258b8eadd5
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:55:45 2026 +0300
+
+    VİDEO-KISA-TOKEN-2 d1: karar.py (yalnız bilinmeyen araç TSV kararı + önbellek), deterministik liste, şablon rapor, platform/alan adı ekleri
+
+ .kos/kopru/gorev/SIRA.md        |   1 +
+ tools/video/tests/test_karar.py |  33 +++++++++++++
+ tools/video/tests/test_kisa.py  |  30 ++++++------
+ tools/video/video/karar.py      | 100 ++++++++++++++++++++++++++++++++++++++++
+ tools/video/video/kisa.py       |  97 ++++++++++++++++++++++----------------
+ 5 files changed, 207 insertions(+), 54 deletions(-)
+
+commit ffbc5c868c387ec67ae206e91c95ed523addf4a1
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:52:30 2026 +0300
+
+    TOKEN-4 d1 ara: A0 araç tablosu betiği, durma kökü (claude-mem gözlemcisi + Headroom kararlı sınır), is-akisi token araç sırası; devir
+
+ .claude/token4/a0.py                  | 124 ++++++++++++++++++++++++++++++++++
+ .claude/token4/durma.py               |  29 ++++++++
+ .kos/kopru/devir/token-4-devam.md     |  10 +++
+ .kos/kopru/gorev/DEVAM-KURALI.md      |  41 +++++++++++
+ .kos/kopru/gorev/SIRA.md              |   3 +
+ .kos/kopru/rapor/token-4.md           |  14 ++++
+ docs/kutuphane/olcum/token-4-arac.tsv |  17 +++++
+ skills/is-akisi/SKILL.md              |   5 +-
+ 8 files changed, 242 insertions(+), 1 deletion(-)
+
+commit 09b6ba6248ed012232d39700e50f03e571aceb62
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:42:35 2026 +0300
+
+    VİDEO-KISA-TOKEN-1 d13 ara: sınama araç 0.944 < 0.95 (altın 8 ✓ 12 sn/video); DF 1.0 ve alan adı kuralı reddedildi; rapor + devir
+
+ .kos/kopru/devir/video-kisa-token-1-devam.md |  5 +++++
+ .kos/kopru/gorev/SIRA.md                     |  1 +
+ .kos/kopru/rapor/video-kisa-token-1.md       |  9 +++++++++
+ .kos/kopru/video/kisa_alan13.py              | 28 ++++++++++++++++++++++++++++
+ .kos/kopru/video/kisa_df13.py                | 23 +++++++++++++++++++++++
+ .kos/kopru/video/kisa_kacak13.py             | 21 +++++++++++++++++++++
+ 6 files changed, 87 insertions(+)
+
+commit 3cf56e3f478ac17db335e23bbc5c0fd343e027fe
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:39:36 2026 +0300
+
+    TOKEN-3 d6 ara: K15 is-akisi skill adayı (kapı 14/17<15/17 → DEVAM-KURALI geri), K14 sayaç bağlam eşiği, onay/token_3_uygula.py
+
+ .kos/kopru/devir/token-3-devam.md | 16 ++++----
+ .kos/kopru/rapor/token-3.md       |  8 ++++
+ onay/test_token_3_uygula.py       | 17 +++++++++
+ onay/token_3_uygula.py            | 80 +++++++++++++++++++++++++++++++++++++++
+ skills/is-akisi/arsiv.md          | 40 ++++++++++++++++++++
+ tests/test_is_akisi.py            | 13 +++++++
+ tools/cagri_sayac.py              |  8 ++--
+ tools/tests/test_cagri_sayac.py   | 13 ++++++-
+ 8 files changed, 183 insertions(+), 12 deletions(-)
+
+commit 6034af97f01ce5dfcc6abefb07554cefde1003cc
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:37:28 2026 +0300
+
+    GRAPHIFY-RAM-1 BİTTİ + GRAPHIFY-ULTRA-1 d1 ara: graph.json 337→28 MB akışlı budama, graphify_hafif artımlı (829 MB/48 sn), G0 keşif tabanı
+
+ .graphifyignore                                  | 22 ++++++
+ .kos/kopru/devir/graphify-ram-1-devam.md         | 15 ++++
+ .kos/kopru/devir/graphify-ultra-1-devam.md       | 11 +++
+ .kos/kopru/gorev/SIRA.md                         |  3 +
+ .kos/kopru/graphify_buda.py                      | 49 +++++++++++++
+ .kos/kopru/graphify_hafif.py                     | 70 ++++++++++++++++++
+ .kos/kopru/graphify_kapi.py                      | 40 +++++++++++
+ .kos/kopru/graphify_ultra_g0.py                  | 65 +++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1.md               | 12 ++++
+ .kos/kopru/rapor/graphify-ram-1/once/oku0.txt    |  1 +
+ .kos/kopru/rapor/graphify-ram-1/once/oku1.txt    |  1 +
+ .kos/kopru/rapor/graphify-ram-1/once/oku2.txt    |  1 +
+ .kos/kopru/rapor/graphify-ram-1/once/oku3.txt    |  1 +
+ .kos/kopru/rapor/graphify-ram-1/once/sorgu0.txt  | 64 +++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/once/sorgu1.txt  | 67 +++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/once/sorgu2.txt  | 79 ++++++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/once/sorgu3.txt  | 72 +++++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/once/sorgu4.txt  | 91 ++++++++++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/sonra/oku0.txt   |  1 +
+ .kos/kopru/rapor/graphify-ram-1/sonra/oku1.txt   |  1 +
+ .kos/kopru/rapor/graphify-ram-1/sonra/oku2.txt   |  1 +
+ .kos/kopru/rapor/graphify-ram-1/sonra/oku3.txt   |  1 +
+ .kos/kopru/rapor/graphify-ram-1/sonra/sorgu0.txt | 64 +++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/sonra/sorgu1.txt | 67 +++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/sonra/sorgu2.txt | 79 ++++++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/sonra/sorgu3.txt | 72 +++++++++++++++++++
+ .kos/kopru/rapor/graphify-ram-1/sonra/sorgu4.txt | 89 +++++++++++++++++++++++
+ .kos/kopru/rapor/graphify-ultra-1.md             | 16 +++++
+ .kos/kopru/rapor/graphify-ultra-1/g0-pahali.tsv  | 21 ++++++
+ skills/is-akisi/SKILL.md                         | 57 +++++++++++++++
+ 30 files changed, 1133 insertions(+)
+
+commit d576a614096d25cec7823c601b48a0d3b8181fff
+Author: Your Name <your@email.com>
+Date:   Wed Oct 14 21:27:29 2026 +0300
+
+    ATLAS-2 BİTTİ: rapor d3 kapanış (K3 karar, dist/claude-ai-25 TEMİZ, CC onay betiği), devir + SIRA satırı
+
+ .kos/kopru/devir/atlas-2-devam.md | 2 ++
+ .kos/kopru/gorev/SIRA.md          | 1 +
+ .kos/kopru/rapor/atlas-2.md       | 8 ++++++++
+ 3 files changed, 11 insertions(+)

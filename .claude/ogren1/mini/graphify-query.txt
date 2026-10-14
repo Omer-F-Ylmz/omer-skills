@@ -1,0 +1,162 @@
+Graph: graphify-out/graph.json (48921 nodes) | Traversal: BFS depth=2 | Start: ['Araçlar', 'profil()', 'cc()'] | 56 nodes found
+
+[i] Complete answer over budget: all 56 nodes and 102 edges shown (~5270 tokens vs the requested ~2000-token budget). Edges are never dropped once every node fits, so this is already the full answer — raising --budget further will not shrink it. Narrow with context_filter=['call'] or use get_node for a specific symbol to reduce size instead.
+
+NODE Araçlar [src=bilgi/blender-uretim-araclari.md loc=L9 community=Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026)]
+NODE profil() [src=tools/kontur_profil.py loc=L39 community=profil]
+NODE cc() [src=tools/secim/secim_olc.py loc=L62 community=time]
+NODE time [src= loc= community=time]
+NODE secim_olc.py [src=tools/secim/secim_olc.py loc=L1 community=time]
+NODE kontur_profil.py [src=tools/kontur_profil.py loc=L1 community=argparse]
+NODE main() [src=tools/kontur_profil.py loc=L133 community=argparse]
+NODE sonra_ek() [src=tools/secim/secim_olc.py loc=L47 community=time]
+NODE Plan: `kosucu.py --json` [src=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md loc=L3 community=profil]
+NODE Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026) [src=bilgi/blender-uretim-araclari.md loc=L1 community=Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026)]
+NODE Görevler [src=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md loc=L11 community=profil]
+NODE ilk_secim() [src=tools/secim/secim_olc.py loc=L39 community=time]
+NODE 2026-10-11-hook3c-r1-catal/P2-1.md [src=docs/kutuphane/olcum/2026-10-11-hook3c-r1-catal/P2-1.md loc=L1 community=profil]
+NODE Varsayımlar (kabul kriterlerine yazılacak) [src=docs/kutuphane/olcum/2026-10-11-hook3b-r3-catal/P2-1.md loc=L9 community=profil]
+NODE Varsayım (kabul kriteri) [src=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md loc=L3 community=profil]
+NODE Varsayım (kabul kriteri verilmediği için) [src=docs/kutuphane/olcum/2026-10-11-hook3c-r2-taban/P2-1.md loc=L3 community=profil]
+NODE usd: bu sürecin ölçüm tavanı (plan limiti; 4 paralel süreç × 2.0 + web ≤ $10) —… [src=tools/secim/secim_olc.py loc=L63 community=time]
+NODE json [src= loc= community=json]
+NODE sys [src= loc= community=sys]
+NODE pathlib [src= loc= community=pathlib]
+NODE re [src= loc= community=re]
+NODE subprocess [src= loc= community=sys]
+NODE shutil [src= loc= community=shutil]
+NODE os [src= loc= community=sys]
+NODE argparse [src= loc= community=argparse]
+NODE math [src= loc= community=argparse]
+NODE kos() [src=tools/olcum/kosucu.py loc=L182 community=random]
+NODE blender_oturum.py [src=tools/blender_oturum.py loc=L1 community=argparse]
+NODE kosucu [src= loc= community=mcp_hafif_2_paylas.py]
+NODE blender_cli.py [src=tools/blender_cli.py loc=L1 community=argparse]
+NODE bpy [src= loc= community=argparse]
+NODE calistir() [src=tools/blender_cli.py loc=L26 community=argparse]
+NODE o() [src=tools/tests/test_kalite3_hiz.py loc=L14 community=test_kalite3_hiz.py]
+NODE toplu() [src=tools/secim/secim_olc.py loc=L89 community=time]
+NODE `kosucu.py --json` uygulama planı [src=docs/kutuphane/olcum/2026-10-11-hook3b-r3-catal/P2-1.md loc=L1 community=profil]
+NODE web() [src=tools/secim/secim_olc.py loc=L127 community=time]
+NODE yol_gecerli() [src=tools/blender_oturum.py loc=L46 community=argparse]
+NODE referans() [src=tools/kontur_profil.py loc=L89 community=argparse]
+NODE kisa() [src=tools/secim/secim_olc.py loc=L32 community=time]
+NODE 2026-10-11-hook3b-r3-tam/P2-1.md [src=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md loc=L1 community=profil]
+NODE 2026-10-11-hook3c-r2-taban/P2-1.md [src=docs/kutuphane/olcum/2026-10-11-hook3c-r2-taban/P2-1.md loc=L1 community=profil]
+NODE itertools [src= loc= community=kanca.py]
+NODE _blender_ana() [src=tools/kontur_profil.py loc=L103 community=argparse]
+NODE Dört ölçüt (araç değerlendirme) [src=bilgi/blender-uretim-araclari.md loc=L18 community=Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026)]
+NODE Görevler [src=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md loc=L10 community=profil]
+NODE blender-uretim-araclari.md [src=bilgi/blender-uretim-araclari.md loc=L1 community=Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026)]
+NODE Ayrıntılar [src=bilgi/blender-uretim-araclari.md loc=L25 community=Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026)]
+NODE 2026-10-11-hook3b-r1-catal/P2-1.md [src=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md loc=L1 community=profil]
+NODE Araç sırası [src=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md loc=L43 community=profil]
+NODE Geri alma [src=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md loc=L38 community=profil]
+NODE Rollback [src=docs/kutuphane/olcum/2026-10-11-hook3c-r1-catal/P2-1.md loc=L42 community=profil]
+NODE Tasks [src=docs/kutuphane/olcum/2026-10-11-hook3c-r1-catal/P2-1.md loc=L10 community=profil]
+NODE BLENDER-ARAC-2 K4: silüetten dönel model (7-blender.md Q4). uv run… [src=tools/kontur_profil.py loc=L5 community=argparse]
+NODE SKILL-SECIM-1 ölçüm: 40 görevlik seçim seti (secim_gorevler.json) → doğru ilk… [src=tools/secim/secim_olc.py loc=L1 community=time]
+NODE (ilk departman-dışı skill ya da uzman alt ajan kısa adı, o çağrıya kadar araç… [src=tools/secim/secim_olc.py loc=L40 community=time]
+NODE Dizinli departman-*'ı plugin olarak verir, senkron eski kopyaları bu süreçte… [src=tools/secim/secim_olc.py loc=L48 community=time]
+EDGE main() --calls [EXTRACTED context=call]--> profil() at=tools/kontur_profil.py:L144
+EDGE kontur_profil.py --contains [EXTRACTED]--> profil() at=tools/kontur_profil.py:L39
+EDGE Plan: `kosucu.py --json` --references [INFERRED context=profil]--> profil() at=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md:L6
+EDGE Varsayımlar (kabul kriterlerine yazılacak) --references [INFERRED context=profil]--> profil() at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-catal/P2-1.md:L11
+EDGE Görevler --references [INFERRED context=profil]--> profil() at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md:L18
+EDGE Varsayım (kabul kriteri) --references [INFERRED context=profil]--> profil() at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md:L5
+EDGE 2026-10-11-hook3c-r1-catal/P2-1.md --references [INFERRED context=profil]--> profil() at=docs/kutuphane/olcum/2026-10-11-hook3c-r1-catal/P2-1.md:L3
+EDGE Varsayım (kabul kriteri verilmediği için) --references [INFERRED context=profil]--> profil() at=docs/kutuphane/olcum/2026-10-11-hook3c-r2-taban/P2-1.md:L4
+EDGE Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026) --contains [EXTRACTED]--> Araçlar at=bilgi/blender-uretim-araclari.md:L9
+EDGE cc() --calls [EXTRACTED context=call]--> sonra_ek() at=tools/secim/secim_olc.py:L64
+EDGE cc() --calls [EXTRACTED context=call]--> time at=tools/secim/secim_olc.py:L65
+EDGE cc() --calls [EXTRACTED context=call]--> ilk_secim() at=tools/secim/secim_olc.py:L74
+EDGE secim_olc.py --contains [EXTRACTED]--> cc() at=tools/secim/secim_olc.py:L62
+EDGE usd: bu sürecin ölçüm tavanı (plan limiti; 4 paralel süreç × 2.0 + web ≤ $10) —… --rationale_for [EXTRACTED]--> cc() at=tools/secim/secim_olc.py:L63
+EDGE `kosucu.py --json` uygulama planı --contains [EXTRACTED]--> Varsayımlar (kabul kriterlerine yazılacak) at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-catal/P2-1.md:L9
+EDGE 2026-10-11-hook3c-r2-taban/P2-1.md --contains [EXTRACTED]--> Varsayım (kabul kriteri verilmediği için) at=docs/kutuphane/olcum/2026-10-11-hook3c-r2-taban/P2-1.md:L3
+EDGE sonra_ek() --calls [EXTRACTED context=call]--> os at=tools/secim/secim_olc.py:L49
+EDGE sonra_ek() --calls [EXTRACTED context=call]--> shutil at=tools/secim/secim_olc.py:L50
+EDGE sonra_ek() --calls [EXTRACTED context=call]--> json at=tools/secim/secim_olc.py:L55
+EDGE toplu() --calls [EXTRACTED context=call]--> sonra_ek() at=tools/secim/secim_olc.py:L92
+EDGE Dizinli departman-*'ı plugin olarak verir, senkron eski kopyaları bu süreçte… --rationale_for [EXTRACTED]--> sonra_ek() at=tools/secim/secim_olc.py:L48
+EDGE 2026-10-11-hook3b-r3-tam/P2-1.md --contains [EXTRACTED]--> Varsayım (kabul kriteri) at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md:L3
+EDGE 2026-10-11-hook3b-r1-catal/P2-1.md --contains [EXTRACTED]--> Plan: `kosucu.py --json` at=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md:L3
+EDGE Plan: `kosucu.py --json` --contains [EXTRACTED]--> Görevler at=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md:L10
+EDGE Plan: `kosucu.py --json` --contains [EXTRACTED]--> Geri alma at=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md:L38
+EDGE Plan: `kosucu.py --json` --contains [EXTRACTED]--> Araç sırası at=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md:L43
+EDGE secim_olc.py --imports [EXTRACTED context=import]--> re at=tools/secim/secim_olc.py:L10
+EDGE secim_olc.py --imports [EXTRACTED context=import]--> shutil at=tools/secim/secim_olc.py:L11
+EDGE secim_olc.py --imports [EXTRACTED context=import]--> sys at=tools/secim/secim_olc.py:L12
+EDGE secim_olc.py --imports [EXTRACTED context=import]--> json at=tools/secim/secim_olc.py:L8
+EDGE secim_olc.py --imports [EXTRACTED context=import]--> os at=tools/secim/secim_olc.py:L9
+EDGE secim_olc.py --imports_from [EXTRACTED context=import]--> itertools at=tools/secim/secim_olc.py:L14
+EDGE secim_olc.py --imports_from [EXTRACTED context=import]--> pathlib at=tools/secim/secim_olc.py:L15
+EDGE secim_olc.py --imports_from [EXTRACTED context=import]--> kosucu at=tools/secim/secim_olc.py:L20
+EDGE secim_olc.py --contains [EXTRACTED]--> web() at=tools/secim/secim_olc.py:L127
+EDGE secim_olc.py --contains [EXTRACTED]--> kisa() at=tools/secim/secim_olc.py:L32
+EDGE secim_olc.py --contains [EXTRACTED]--> toplu() at=tools/secim/secim_olc.py:L89
+EDGE SKILL-SECIM-1 ölçüm: 40 görevlik seçim seti (secim_gorevler.json) → doğru ilk… --rationale_for [EXTRACTED]--> secim_olc.py at=tools/secim/secim_olc.py:L1
+EDGE main() --calls [EXTRACTED context=call]--> argparse at=tools/kontur_profil.py:L134
+EDGE main() --calls [EXTRACTED context=call]--> yol_gecerli() at=tools/kontur_profil.py:L141
+EDGE main() --calls [EXTRACTED context=call]--> json at=tools/kontur_profil.py:L150
+EDGE main() --calls [EXTRACTED context=call]--> calistir() at=tools/kontur_profil.py:L155
+EDGE main() --calls [EXTRACTED context=call]--> referans() at=tools/kontur_profil.py:L160
+EDGE main() --calls [EXTRACTED context=call]--> subprocess at=tools/kontur_profil.py:L161
+EDGE 2026-10-11-hook3c-r1-catal/P2-1.md --contains [EXTRACTED]--> Tasks at=docs/kutuphane/olcum/2026-10-11-hook3c-r1-catal/P2-1.md:L10
+EDGE 2026-10-11-hook3c-r1-catal/P2-1.md --contains [EXTRACTED]--> Rollback at=docs/kutuphane/olcum/2026-10-11-hook3c-r1-catal/P2-1.md:L42
+EDGE blender-uretim-araclari.md --contains [EXTRACTED]--> Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026) at=bilgi/blender-uretim-araclari.md:L1
+EDGE Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026) --contains [EXTRACTED]--> Dört ölçüt (araç değerlendirme) at=bilgi/blender-uretim-araclari.md:L18
+EDGE Blender üretim araçları (BLENDER-ARAC-2 · 1 Eki 2026) --contains [EXTRACTED]--> Ayrıntılar at=bilgi/blender-uretim-araclari.md:L25
+EDGE ilk_secim() --calls [EXTRACTED context=call]--> kisa() at=tools/secim/secim_olc.py:L42
+EDGE (ilk departman-dışı skill ya da uzman alt ajan kısa adı, o çağrıya kadar araç… --rationale_for [EXTRACTED]--> ilk_secim() at=tools/secim/secim_olc.py:L40
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> argparse at=tools/kontur_profil.py:L18
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> json at=tools/kontur_profil.py:L19
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> math at=tools/kontur_profil.py:L20
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> subprocess at=tools/kontur_profil.py:L21
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> sys at=tools/kontur_profil.py:L22
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> bpy at=tools/kontur_profil.py:L26
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> blender_cli.py at=tools/kontur_profil.py:L31
+EDGE kontur_profil.py --imports [EXTRACTED context=import]--> blender_oturum.py at=tools/kontur_profil.py:L32
+EDGE kontur_profil.py --imports_from [EXTRACTED context=import]--> pathlib at=tools/kontur_profil.py:L23
+EDGE kontur_profil.py --contains [EXTRACTED]--> _blender_ana() at=tools/kontur_profil.py:L103
+EDGE kontur_profil.py --contains [EXTRACTED]--> referans() at=tools/kontur_profil.py:L89
+EDGE BLENDER-ARAC-2 K4: silüetten dönel model (7-blender.md Q4). uv run… --rationale_for [EXTRACTED]--> kontur_profil.py at=tools/kontur_profil.py:L5
+EDGE 2026-10-11-hook3b-r3-tam/P2-1.md --contains [EXTRACTED]--> Görevler at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md:L11
+EDGE Görevler --references [INFERRED context=kosucu.kos]--> kos() at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md:L15
+EDGE Görevler --references [INFERRED context=o]--> o() at=docs/kutuphane/olcum/2026-10-11-hook3b-r3-tam/P2-1.md:L15
+EDGE blender_cli.py --imports [EXTRACTED context=import]--> argparse at=tools/blender_cli.py:L9
+EDGE blender_oturum.py --imports [EXTRACTED context=import]--> argparse at=tools/blender_oturum.py:L6
+EDGE Görevler --references [INFERRED context=o]--> o() at=docs/kutuphane/olcum/2026-10-11-hook3b-r1-catal/P2-1.md:L14
+EDGE calistir() --calls [EXTRACTED context=call]--> json at=tools/blender_cli.py:L39
+EDGE _blender_ana() --calls [EXTRACTED context=call]--> json at=tools/kontur_profil.py:L104
+EDGE toplu() --calls [EXTRACTED context=call]--> json at=tools/secim/secim_olc.py:L95
+EDGE web() --calls [EXTRACTED context=call]--> json at=tools/secim/secim_olc.py:L129
+EDGE blender_cli.py --imports [EXTRACTED context=import]--> json at=tools/blender_cli.py:L10
+EDGE blender_oturum.py --imports [EXTRACTED context=import]--> json at=tools/blender_oturum.py:L7
+EDGE _blender_ana() --calls [EXTRACTED context=call]--> math at=tools/kontur_profil.py:L108
+EDGE referans() --calls [EXTRACTED context=call]--> math at=tools/kontur_profil.py:L94
+EDGE toplu() --calls [EXTRACTED context=call]--> os at=tools/secim/secim_olc.py:L94
+EDGE blender_cli.py --imports [EXTRACTED context=import]--> os at=tools/blender_cli.py:L11
+EDGE blender_cli.py --imports_from [EXTRACTED context=import]--> pathlib at=tools/blender_cli.py:L14
+EDGE blender_oturum.py --imports_from [EXTRACTED context=import]--> pathlib at=tools/blender_oturum.py:L12
+EDGE toplu() --calls [EXTRACTED context=call]--> re at=tools/secim/secim_olc.py:L114
+EDGE web() --calls [EXTRACTED context=call]--> re at=tools/secim/secim_olc.py:L146
+EDGE calistir() --calls [EXTRACTED context=call]--> subprocess at=tools/blender_cli.py:L40
+EDGE blender_cli.py --imports [EXTRACTED context=import]--> subprocess at=tools/blender_cli.py:L12
+EDGE blender_oturum.py --imports [EXTRACTED context=import]--> subprocess at=tools/blender_oturum.py:L8
+EDGE blender_cli.py --imports [EXTRACTED context=import]--> sys at=tools/blender_cli.py:L13
+EDGE blender_oturum.py --imports [EXTRACTED context=import]--> sys at=tools/blender_oturum.py:L9
+EDGE kos() --calls [EXTRACTED context=call]--> time at=tools/olcum/kosucu.py:L198
+EDGE toplu() --calls [EXTRACTED context=call]--> time at=tools/secim/secim_olc.py:L103
+EDGE web() --calls [EXTRACTED context=call]--> time at=tools/secim/secim_olc.py:L147
+EDGE blender_oturum.py --imports [EXTRACTED context=import]--> time at=tools/blender_oturum.py:L11
+EDGE secim_olc.py --imports [EXTRACTED context=import]--> time at=tools/secim/secim_olc.py:L13
+EDGE blender_cli.py --imports [EXTRACTED context=import]--> blender_oturum.py at=tools/blender_cli.py:L16
+EDGE blender_cli.py --contains [EXTRACTED]--> calistir() at=tools/blender_cli.py:L26
+EDGE calistir() --calls [EXTRACTED context=call]--> yol_gecerli() at=tools/blender_cli.py:L35
+EDGE blender_oturum.py --contains [EXTRACTED]--> yol_gecerli() at=tools/blender_oturum.py:L46
+EDGE kontur_profil.py --contains [EXTRACTED]--> main() at=tools/kontur_profil.py:L133
+EDGE secim_olc.py --contains [EXTRACTED]--> ilk_secim() at=tools/secim/secim_olc.py:L39
+EDGE secim_olc.py --contains [EXTRACTED]--> sonra_ek() at=tools/secim/secim_olc.py:L47
+EDGE toplu() --calls [EXTRACTED context=call]--> kisa() at=tools/secim/secim_olc.py:L119
+EDGE web() --calls [EXTRACTED context=call]--> kisa() at=tools/secim/secim_olc.py:L130
