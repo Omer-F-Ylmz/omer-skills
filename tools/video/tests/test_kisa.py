@@ -138,10 +138,43 @@ def test_calistir_paketin_reel_mp4unu_kullanir_ig_istegi_yok(tmp_path, monkeypat
     assert gor == [(d, True)] and not (d / "goz-video.mp4").exists()
 
 
+def test_calistir_claudesiz_deterministik_liste(tmp_path, monkeypatch):
+    d = tmp_path / "kok" / "ig-X"
+    d.mkdir(parents=True)
+    (d / "meta.json").write_text(json.dumps({"video": "u"}), encoding="utf-8")
+    (d / "goz-video.mp4").write_bytes(b"v")
+    g = {"araclar": [{"ad": "Bytebase", "ne_dedi": "x"}, {"ad": "veri göçü", "ne_dedi": "(teknik)"}], "linkler": ["https://a.dev"]}
+    monkeypatch.setattr(kisa, "izle", lambda k, m, env: (g, {}))
+    monkeypatch.setattr(kisa, "metin_gec", lambda k, env: {"_iz": {}})
+    monkeypatch.setattr(kisa, "paket_linkleri", lambda k: ["https://b.dev"])
+    monkeypatch.setattr(kisa, "katalog", lambda adlar, kok, vid: {a: "kurulu" for a in adlar})
+    monkeypatch.setattr(kisa, "oturum", lambda *a: (_ for _ in ()).throw(AssertionError("claude -p")))
+    _, y = kisa.calistir(["ig-X"], tmp_path / "kok", tmp_path / "cik", claude=False, sil=False)
+    x = y["form"]["videolar"][0]
+    assert [(a["ad"], a["tur"]) for a in x["araclar"]] == [("Bytebase", ""), ("veri göçü", "teknik")]
+    assert x["linkler"] == ["https://a.dev", "https://b.dev"] and (d / "goz-video.mp4").exists()
+
+
 def test_metin_gec_ek_ornek_yalniz_pakette_gecen(tmp_path, monkeypatch):
     (tmp_path / "paket.md").write_text("Bytebase ile Slack botu", encoding="utf-8")
     monkeypatch.setattr(kisa, "anahtar", lambda env=None: "k")
     monkeypatch.setattr(kisa, "sozluk_tara", lambda d, g: [])
     yanit = {0: ["Slack"], 1: ["Bytebase", "Uydurma"]}
-    monkeypatch.setattr(kisa, "_uret", lambda g, k, t: ({"adlar": yanit[g["generationConfig"]["temperature"]]}, {"model": "m"}))
+    monkeypatch.setattr(kisa, "_uret", lambda g, k, t, **kw: ({"adlar": yanit[g["generationConfig"]["temperature"]]}, {"model": "m"}))
     assert kisa.metin_gec(tmp_path)["adlar"] == ["Slack", "Bytebase"]
+
+
+def test_metin_gec_ek_ornek_asilirsa_atlanir(tmp_path, monkeypatch):
+    (tmp_path / "paket.md").write_text("Bytebase ile Slack botu", encoding="utf-8")
+    monkeypatch.setattr(kisa, "anahtar", lambda env=None: "k")
+    monkeypatch.setattr(kisa, "sozluk_tara", lambda d, g: [])
+    gelen = []
+
+    def uret(g, k, t, **kw):
+        gelen.append(kw.get("zaman", kisa.IZLE_ZAMAN))
+        if kw:
+            raise RuntimeError("gemini: zaman aşımı")
+        return {"adlar": ["Slack"]}, {"model": "m"}
+    monkeypatch.setattr(kisa, "_uret", uret)
+    assert kisa.metin_gec(tmp_path)["adlar"] == ["Slack"]
+    assert sorted(gelen) == [kisa.EK_ZAMAN, kisa.EK_ZAMAN, kisa.IZLE_ZAMAN]

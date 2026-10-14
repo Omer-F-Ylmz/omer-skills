@@ -26,6 +26,8 @@ MODELLER = ("gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite")  # 
 VIDEO_PARALEL = 4  # ücretsiz katman dakika sınırı: video başı 2 Gemini çağrısı
 IZLE_ZAMAN = 90  # generateContent sn; asılı yanıtta sıradaki modele geç
 IZLE_TUR, IZLE_BEKLE = 4, 30  # tüm modeller düşerse tur arası 30·tur sn
+EK_ZAMAN = 25  # d12: ek metin örneği isteğe bağlı → kısa zaman aşımı, asılırsa atlanır (d11: 16 eşzamanlı çağrıda 3'ü 90 sn asıldı)
+GEMINI_TAVAN = threading.BoundedSemaphore(6)  # d12: süreç geneli eşzamanlı generateContent
 KOK = Path(__file__).resolve().parents[3]
 KARAR = KOK / "docs" / "kurulumlar" / "ig-41" / "karar-birlesik.tsv"
 ARASTIRMA = KOK / ".kos" / "kopru" / "video" / "kisa" / "arastirma"
@@ -157,8 +159,14 @@ def metin_gec(d, env=None, yeniden=False):
     govde = lambda ayar: {"contents": [{"parts": [{"text": f"{METIN_ISTEM}\n\nADAYLAR: {', '.join(aday) or 'yok'}\n\n{metin}"}]}],
                           "generationConfig": {"responseMimeType": "application/json", **ayar,
                                                "responseSchema": {"type": "OBJECT", "required": ["adlar"], "properties": {"adlar": {"type": "ARRAY", "items": {"type": "STRING"}}}}}}
+    def ek_ornek(a):
+        try:
+            return _uret(govde(a), key, t, zaman=EK_ZAMAN, tur=1, modeller=MODELLER[-1:])
+        except RuntimeError:
+            return {"adlar": []}, None
     with ThreadPoolExecutor(len(ORNEK) + 1) as ex:
-        (j, iz), *ekler = ex.map(lambda a: _uret(govde(a), key, t), [SABIT, *ORNEK])
+        fj, fe = ex.submit(_uret, govde(SABIT), key, t), list(ex.map(ek_ornek, ORNEK))
+        (j, iz), ekler = fj.result(), fe
     ham = tr.normal(metin)
     ek = [a for e, _ in ekler for a in e["adlar"] if tr.normal(a) and tr.normal(a) in ham]  # ek örnek yalnız pakette aynen geçen adı katar (yp koruması)
     j = {"adlar": [a for a in dict.fromkeys(j["adlar"] + ek) if a.strip() and not KOD.search(a)], "aday": len(aday), "_iz": iz}
@@ -177,15 +185,16 @@ def birlestir(g, m):
     return g
 
 
-def _uret(govde, key, t):
+def _uret(govde, key, t, zaman=IZLE_ZAMAN, tur=IZLE_TUR, modeller=MODELLER):
     """MODELLER sırasıyla generateContent → (JSON, iz)."""
     son = []
-    for tur in range(IZLE_TUR):  # iki model birden 503 "high demand" verebiliyor (14 Eki) → bekle, baştan dene
+    for tur in range(tur):  # iki model birden 503 "high demand" verebiliyor (14 Eki) → bekle, baştan dene
         if tur:
             time.sleep(IZLE_BEKLE * tur)
-        for m in MODELLER:
+        for m in modeller:
             try:
-                y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde, zaman=IZLE_ZAMAN)
+                with GEMINI_TAVAN:
+                    y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde, zaman=zaman)
                 j = json.loads(y["candidates"][0]["content"]["parts"][0]["text"])
                 return j, {"model": m, "sure": round(time.monotonic() - t, 1), "jeton": (y.get("usageMetadata") or {}).get("totalTokenCount")}
             except urllib.error.HTTPError as e:
@@ -385,19 +394,21 @@ def _repo_var(r):
     return y.returncode == 0 and y.stdout.strip().lower() == r.lower()
 
 
-def calistir(ids, kok, cikti, efor="low", env=None):
+def calistir(ids, kok, cikti, efor="low", env=None, claude=True, sil=True):
     """Uçtan uca: her id için IG medyası (cikti/medya/<id>, hat indirir) → izle → katalog → bilinmeyene arastir → tek oturum → cikti/<id>.md.
-    kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, oturum sonucu)."""
+    kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, oturum sonucu).
+    claude=False: oturum yok, Claude öncesi deterministik liste (ölçüm; rapor yazılmaz) · sil=False: medya tekrar ölçüm için kalır."""
     from . import instagram
     kok, cikti = Path(kok), Path(cikti)
-    iz, bloklar, paket_link, kunye_link = {}, {}, {}, {}
+    iz, bloklar, paket_link, kunye_link, gem = {}, {}, {}, {}, {}
 
     def isle(v, m, indir):
         with ThreadPoolExecutor(2) as ex:  # metin geçişi video izlemeyi beklemez
             fg, fm = ex.submit(izle, kok / v, m, env), ex.submit(metin_gec, kok / v, env)
             (g, gi), mg = fg.result(), fm.result()
-        (m / "goz-video.mp4").unlink(missing_ok=True)  # 1b-1 M2: video izlendikten sonra silinir
-        birlestir(g, mg)
+        if sil:
+            (m / "goz-video.mp4").unlink(missing_ok=True)  # 1b-1 M2: video izlendikten sonra silinir
+        gem[v] = birlestir(g, mg)
         paket_link[v] = paket_linkleri(kok / v)
         kat = katalog([a["ad"] for a in g["araclar"]], kok=kok, vid=v)
         def kun(a):
@@ -426,12 +437,15 @@ def calistir(ids, kok, cikti, efor="low", env=None):
         for f in isler:
             f.result()
     hazir = round(time.monotonic() - t0, 1)
-    y = oturum([bloklar[v] for v in ids if v in bloklar], efor, env)
+    y = oturum([bloklar[v] for v in ids if v in bloklar], efor, env) if claude else {"hata": None, "sure": 0, "usd": 0, "usage": {}, "form": {"videolar": [
+        {"id": v, "linkler": list(gem[v].get("linkler", [])), "araclar": [{"ad": a["ad"], "tur": "teknik" if a["ne_dedi"] == "(teknik)" else "", "link": ""} for a in gem[v]["araclar"]]}
+        for v in ids if v in gem]}}
     y["hazir_sure"], y["duvar"] = hazir, round(time.monotonic() - t0, 1)
     for x in (y["form"] or {}).get("videolar", []):
         x["linkler"] = list(dict.fromkeys(x["linkler"] + paket_link.get(x["id"], [])))
         link_tamamla(x, kunye_link.get(x["id"], {}))
-        (cikti / f"{x['id']}.md").write_text(rapor(x, f"gemini ({iz.get(x['id'], {}).get('gemini', {}).get('model', 'önbellek')}) + claude oturum"), encoding="utf-8")
+        if claude:
+            (cikti / f"{x['id']}.md").write_text(rapor(x, f"gemini ({iz.get(x['id'], {}).get('gemini', {}).get('model', 'önbellek')}) + claude oturum"), encoding="utf-8")
     return iz, y
 
 
