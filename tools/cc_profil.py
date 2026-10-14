@@ -4,6 +4,7 @@ skill gövdeleri tek geçici dosyaya (--append-system-prompt-file), plugin kapat
 Hook kapatılmaz (disableAllHooks · --bare · --safe-mode yok). CC_PROFIL_ZORLA=tam → profil ek argüman üretmez."""
 import json
 import os
+import re
 import tempfile
 from pathlib import Path
 
@@ -20,7 +21,8 @@ def _yaz(yol, metin):
     return yol
 
 
-def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici=None, ek_ayar=None):
+def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici=None, ek_ayar=None,
+        ajanlar=Path.home() / ".claude" / "agents"):
     """→ (argv eki, env eki). env eki yalnız enjeksiyon kapatan (pluginKapat'lı) profilde CC_PROFIL=ad — jev-skill.ps1 erken çıkar.
     ek_ayar: çağıranın kendi --settings JSON'u; profilinkiyle tek --settings'te birleşir (iki --settings birbirini ezmesin)."""
     env = os.environ if env is None else env
@@ -46,7 +48,14 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
         ayar["enabledPlugins"] = {x: False for x in p["pluginKapat"]}
     if "ttl" in p:
         ayar["promptCacheTtl"] = p["ttl"]
-    if ayar:
+    if "ajanTut" in p:  # TOKEN-2 K2: ajan listesi sabit tabanın %47'si; ajanTut dışındaki kullanıcı ajanları oturumda gizlenir
+        tut = set(p["ajanTut"])
+        adlar = [m.group(1).strip() for f in sorted(Path(ajanlar).glob("*.md"))
+                 if (m := re.search(r"^name:\s*(.+)$", f.read_text(encoding="utf-8", errors="ignore"), re.M))]
+        ayar["permissions"] = {"deny": [f"Agent({a})" for a in adlar if a not in tut]}
+        # ~580 deny satırı argv'de WinError 206 sınırına yaklaşır → dosya yolu
+        args += ["--settings", str(_yaz(gecici / f"{ad}-ayar.json", json.dumps(ayar, ensure_ascii=False)))]
+    elif ayar:
         args += ["--settings", json.dumps(ayar)]
     return args, ({"CC_PROFIL": ad} if "pluginKapat" in p else {})
 

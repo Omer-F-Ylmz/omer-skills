@@ -33,5 +33,6 @@
  "d-verimlilik": {"mcp": ["headroom", "jev", "mcp-time"]},
  "d-belge": {"mcp": ["markitdown", "mcp-time"]},
  "d-guvenlik": {"mcp": ["github", "mcp-git", "mcp-time"]},
- "d-3d": {"mcp": ["blender", "godot", "unity", "mcp-time"]}
+ "d-3d": {"mcp": ["blender", "godot", "unity", "mcp-time"]},
+ "ajan": {"ajanTut": ["ajn-ajan-tanimi-yazar", "dok-rapor-uretici"], "ttl": "5m"}
 }

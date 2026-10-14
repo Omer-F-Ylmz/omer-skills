@@ -44,3 +44,15 @@ Sabit taban bileşenleri (context-profil-tam-75k, /context): Custom agents 29.2k
 
 ## d1b — K1b doğal tetik
 (arka planda: .kos/kopru/token-2-k1b.log → .claude/token2/k1b.jsonl; sonuç aşağıya)
+
+## d2 (ara kayıt, 14 Eki 13:45) — K2 + K5 + K8 tasarımı; K1b ve K8 kör karşılaştırma devirde
+K2: 14 günlük 3841 transkriptte 851 Agent çağrısı, 16 farklı ajan; ~/.claude/agents'taki 580 kullanıcı ajanından yalnız 2'si kullanıldı (ajn-ajan-tanimi-yazar 21, dok-rapor-uretici 2). `tools/cc_profil.py` yeni `ajanTut` anahtarı: dışındaki kullanıcı ajanları oturuma özel `permissions.deny Agent(ad)` (--settings dosyası; global ayar yok). Profil `ajan` (profiller/cc-arka.json). Yerleşik, proje ve plugin ajanları etkilenmez.
+| kol (ajan_sira bayrakları, haiku, 1 adım boş görev) | ilk istek girdisi |
+|---|---|
+| önce (TTL 5m) | 64 999 |
+| sonra (`ajan` profili) | 28 735 (−%56; hedef ≤30k ✓) |
+Köprüye bağlama AÇIK KARAR (devir): katalog ajanları gizlenir; plan-kur önerirse CC_PROFIL_ZORLA=tam.
+K5: DEVAM-KURALI'na tek satır (ölçüm yöntemi).
+K8: `tools/ucuz_alt.py`: istem + bağlam dosyaları → OmniRoute cc-yedek-dis (Claude-dışı), yanıt dosyaya, stdout'a yalnız yol/model/jeton; düşünme kapalı, UA başlığı, kesik yanıt → çıkış 2. Kör karşılaştırma koşulmadı (oturum çağrı tavanı 40/45) → devir 2. adım.
+Not: mod'daki headroom_retrieve 0.44M israfı (sıkışan Read'in geri çağrısı) K2/K4'te ele alınacak.
+claude -p: 2/2 (k2_olc.py). Test: test_cc_profil + test_token1 21 ✓, test_ucuz_alt 3 ✓.

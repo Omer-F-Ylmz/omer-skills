@@ -145,3 +145,17 @@ def test_jev_skill_cc_profil_yokken_ayni():
     satir = JEV.read_text(encoding="utf-8-sig").splitlines()
     assert KORUMA in satir and satir.index(KORUMA) < next(i for i, s in enumerate(satir) if "ReadToEnd" in s)
     assert [s for s in satir if s != KORUMA] == BAZ.read_text(encoding="utf-8-sig").splitlines()
+
+
+def test_ajan_tut_disindakiler_deny(tmp_path):
+    """TOKEN-2 K2: ajanTut dışındaki kullanıcı ajanları Agent(ad) deny; uzun ayar argv yerine dosya yolu."""
+    aj = tmp_path / "agents"
+    aj.mkdir()
+    for dosya, ad in (("a.md", "tut-ben"), ("b.md", "Backend Architect"), ("c.md", "at-ben")):
+        (aj / dosya).write_text(f"---\nname: {ad}\ndescription: x\n---\ngövde", encoding="utf-8")
+    pr = tmp_path / "profil.json"
+    pr.write_text(json.dumps({"ajan": {"ajanTut": ["tut-ben"], "ttl": "5m"}}), encoding="utf-8")
+    args, env = cc_profil.kur("ajan", env={}, profiller=pr, gecici=tmp_path / "g", ajanlar=aj)
+    ayar = json.loads(Path(_d(args, "--settings")).read_text(encoding="utf-8"))
+    assert ayar == {"promptCacheTtl": "5m", "permissions": {"deny": ["Agent(Backend Architect)", "Agent(at-ben)"]}}
+    assert env == {} and args.count("--settings") == 1
