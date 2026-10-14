@@ -125,5 +125,36 @@ def puan():
             print(v, "yeni", *(p[k] for k in ("yakalama", "isabet", "urller", "komutlar", "link")), 0, y[v]["sure"], sep="\t")
 
 
+KARUSEL = ("ig-DdrEmDHkouJ", "ig-DePQ2O3ElPy", "ig-Dd7WYSniFvP")  # en çok slaytlı, eski hat formu olan carousel'ler (sonuncusu slayt videolu)
+
+
+def karusel():
+    """V3: referans = eski hat formu, yalnız paket.md'de (açıklama/OCR) kanıtlı kalemler · yeni kol = kisa.izle (slayt görselleri) + metin geçişi."""
+    import kisa_m4 as m  # aynı dizin; yalnız okunur (VİDEO-KISA-TOKEN-1 dosyası)
+    out = json.loads((CIK / "karusel.json").read_text(encoding="utf-8")) if (CIK / "karusel.json").is_file() else {}
+    print("video\tref_araç\tref_link\taraç_yak\tlink_yak\typ\ttaban_ağır\ttaban_sn\tyeni_sn")
+    for v in KARUSEL:
+        d = ONB / v
+        f, _, ag, sn = _son_form(v)
+        sat = (d / "paket.md").read_text(encoding="utf-8").splitlines()
+        rad, rln = m.ogeler(f, v)
+        rad = {a for a in rad if m._kanit(a, sat)}  # kanıtsız referans paydaya girmez (aşırı uyumsuz kapı)
+        rln = {u for u in rln if u in "\n".join(sat).lower()}
+        if v not in out:
+            t = time.monotonic()
+            with ThreadPoolExecutor(2) as ex:
+                fg, fm = ex.submit(kisa.izle, d), ex.submit(kisa.metin_gec, d)
+                (g, gi), mg = fg.result(), fm.result()
+            kisa.birlestir(g, mg)
+            out[v] = {"g": g, "iz": gi, "sure": round(time.monotonic() - t, 1), "paket_link": kisa.paket_linkleri(d)}
+            (CIK / "karusel.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+        g = out[v]["g"]
+        ad = {a["ad"] for a in g["araclar"]}
+        ln = {m._url(u) for u in g["linkler"] + out[v]["paket_link"]}
+        ya, yl, yp, _ = m.olc(ad, ln, rad, rln, m.tr.normal("\n".join(sat)))
+        print(v, len(rad), len(rln), round(ya, 3), yl if yl is None else round(yl, 3), yp, round(ag), round(sn), out[v]["sure"], sep="\t")
+    print("BITTI")
+
+
 if __name__ == "__main__":
-    {"olc": olc, "taban": taban, "kos": kos, "puan": puan}[sys.argv[1]]()
+    {"olc": olc, "taban": taban, "kos": kos, "puan": puan, "karusel": karusel}[sys.argv[1]]()
