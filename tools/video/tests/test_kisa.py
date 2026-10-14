@@ -37,6 +37,12 @@ def test_link_tamamla_karar_ve_kunye(tmp_path, monkeypatch):
     assert x["linkler"] == ["a.com", "https://github.com/N/laya", "https://github.com/o/z", "q.com"]
 
 
+def test_link_tamamla_kod_parcasi_arac_degil():
+    x = {"linkler": [], "araclar": [{"ad": "agent = new PageAgent()", "link": ""}, {"ad": '<script src="a.js"></script>', "link": ""}, {"ad": "Page Agent", "link": ""}]}
+    kisa.link_tamamla(x, {})
+    assert [a["ad"] for a in x["araclar"]] == ["Page Agent"]
+
+
 def test_izle_zaman_asiminda_siradaki_model(tmp_path, monkeypatch):
     def iste(url, key, govde, zaman):
         if kisa.MODELLER[0] in url:

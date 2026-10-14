@@ -339,6 +339,7 @@ def link_tamamla(x, kunye_link):
         satir = [s.split("\t") for s in KARAR.read_text(encoding="utf-8").splitlines()]
         bas = satir[0]
         kl = {tr.normal(s[bas.index("kalem")]): s[bas.index("link")] for s in satir[1:] if len(s) == len(bas) and s[bas.index("link")].startswith("http")}
+    x["araclar"] = [a for a in x["araclar"] if not KOD.search(a["ad"])]  # 14 Eki d8: oturum komut satırını 'ipucu' aracı yaptı (DeV9 `agent = new PageAgent()`)
     for a in x["araclar"]:
         if not a["link"]:
             a["link"] = kl.get(tr.normal(a["ad"])) or kunye_link.get(a["ad"], "")

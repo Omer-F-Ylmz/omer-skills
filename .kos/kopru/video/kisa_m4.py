@@ -49,10 +49,10 @@ def esit(a, havuz):
 def olc(ad, ln, rad, rln, metin):
     """→ (araç yakalama, link yakalama, yanlış pozitif); YP = referansta yok VE paket metninde (transkript+OCR+açıklama) geçmiyor."""
     ya = sum(esit(r, ad) for r in rad) / max(len(rad), 1)
-    yl = len(rln & ln) / max(len(rln), 1)
-    yp = sum(1 for a in ad if not esit(a, rad) and tr.normal(a) not in metin)
+    yl = len(rln & ln) / len(rln) if rln else None  # referansta link yoksa (DeW7) 0/0 ortalamaya girmez
+    yp = sum(1 for a in ad if not esit(a, rad) and not any(tr.normal(b) in metin for b in re.split(r"[()]", a) if tr.normal(b)))  # "OpenAI Luna (GPT-6 Luna)": parçalardan biri metinde yeter
     tem = {u for u in rln if not re.search(r"\(|…|\.\.\.", u)}  # referansın kendisinin "ocr bozuk/kırpık" dediği adresler link değil (tüm kollara eşit)
-    return ya, yl, yp, len(tem & ln) / max(len(tem), 1)
+    return ya, yl, yp, len(tem & ln) / len(tem) if tem else None
 
 
 def m0():
@@ -99,6 +99,9 @@ def puan():
                 x, y = ogeler(_kol(r)[v]["form"], v)
                 rad |= x
                 rln |= y
+            if "temiz" in sys.argv[3:]:  # yalnız denetimde kanıtlı kalemler (Desktop onayı bekleyen liste)
+                d = json.loads((CIK / "altin-denetim.json").read_text(encoding="utf-8"))[v]
+                rad, rln = {a for a in rad if d["arac"].get(a)}, {u for u in rln if d["link"].get(u)}
             metin = tr.normal((ONB / v / "paket.md").read_text(encoding="utf-8"))
             if k == "yeni":
                 f = yeni[v]
@@ -113,8 +116,8 @@ def puan():
                 s = next(z for z in t0[k] if z["v"] == v)
                 sure, ag = s["sure"], s["agir"]
             a.append((*olc(ad, ln, rad, rln, metin), ag, sure))
-            print(k, v, *[round(x, 3) for x in a[-1][:4]], sep="\t", file=sys.stderr)
-        sat.append((k, *[round(sum(z[i] for z in a) / len(a), 3) for i in range(6)]))
+            print(k, v, *[x if x is None else round(x, 3) for x in a[-1][:4]], sep="\t", file=sys.stderr)
+        sat.append((k, *[round(sum(z[i] for z in a if z[i] is not None) / max(sum(1 for z in a if z[i] is not None), 1), 3) for i in range(6)]))
     print("kol\taraç_yak\tlink_yak\typ/video\tlink_temiz\tağır_tk/video\tsn/video")
     for s in sat:
         print(*s, sep="\t")
@@ -140,5 +143,41 @@ def kacak():
             print(f"  {'PAKETTE' if r in ham else 'yok    '}\t{r}")
 
 
+def _kanit(ad, satirlar):
+    """Paket.md'de (açıklama/transkript/OCR) adın geçtiği ilk yer: 'bölüm [zaman] …kesit…' ya da None."""
+    adlar = {tr.normal(b) for b in (ad, re.split(r"\s*[(,]|\s+powered by\s+", ad)[0], ad.split("/")[-1]) if len(tr.normal(b)) >= 2}
+    bol = ""
+    for s in satirlar:
+        if s.startswith("## "):
+            bol = s[3:].strip()
+            continue
+        if any(a in tr.normal(s) for a in adlar):
+            z = re.findall(r"\[[\d:.]+\]", s)
+            return f"{bol} {z[0] if z else ''} {s[:90].strip()}"
+    return None
+
+
+def denetle():
+    """Geçerlilik (a): altın referansın her kalemi pakette kanıtlanır; kanıtsızlar ayrı listede (silinmez, Desktop onaylar) → kisa/altin-denetim.json."""
+    out = {}
+    for v in ALTIN:
+        sat = (ONB / v / "paket.md").read_text(encoding="utf-8").splitlines()
+        rad = set().union(*(ogeler(_kol(r)[v]["form"], v)[0] for r in REF))
+        rln = set().union(*(ogeler(_kol(r)[v]["form"], v)[1] for r in REF))
+        ar = {a: _kanit(a, sat) for a in sorted(rad)}
+        ln = {}
+        for u in sorted(rln):
+            k = next((f"pakette: {s[:90].strip()}" for s in sat if u in s.lower()), None)
+            gh = re.match(r"github\.com/([\w.-]+/[\w.-]+)$", u)
+            ln[u] = k or (f"araştırma: gh repos/{gh[1]} var" if gh and kisa._repo_var(gh[1]) else None)
+        out[v] = {"arac": ar, "link": ln}
+        print(f"{v}\taraç {sum(1 for x in ar.values() if x)}/{len(ar)} kanıtlı\tlink {sum(1 for x in ln.values() if x)}/{len(ln)} kanıtlı")
+        for k, d in (("araç", ar), ("link", ln)):
+            for a, x in d.items():
+                if not x:
+                    print(f"  KANITSIZ {k}\t{a}")
+    (CIK / "altin-denetim.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 if __name__ == "__main__":
-    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan, "kacak": kacak}[sys.argv[1]]()
+    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan, "kacak": kacak, "denetle": denetle}[sys.argv[1]]()

@@ -434,3 +434,5 @@ DISK-1 d2 HAZIR 13:40 — Ömer koşar (repo kökünden): `python .kos/kopru/dis
 - 14 18:00 VİDEO-KISA-TOKEN-1 ara: d5 araç 0.861 (≥taban 0.850), yp 0, tk 0.04×, sn 0.25×; link 0.449 < 0.584 açık (devir/video-kisa-token-1-devam.md)
 - 14 Eki 18:05 TOKEN-3 d1 ARA: K10 blok farkı (git durumu + claude-mem damgası; istem msg1'den önce → farklı istemde ortak önek = araç+system) · plugin ajan deny cc_profil+köprü (pytest 18/18, node 12/12) · devam: devir/token-3-devam.md (d2: gerçek ölçüm, K11–K13)
 - 14 Eki 19:00 TOKEN-3 d3 ARA: K12 alt ajan dökümü (TELVE general-purpose %54, okuyucu önerisi) · K13 toplu tekrar önbellek önerisi · K14 bölme 150k eşiği hesabı · devam: devir/token-3-devam.md (d4: kapılar onayı, K15–K17)
+- VİDEO-3 d1 (14 Eki 18:50) ARA KAYIT b458f1df: V1 ölçüldü, V2 uzun.py + taban; Gemini 4/6 (kota 429) → d2: devir/video-3-devam.md
+- 14 Eki 19:20 VİDEO-KISA-TOKEN-1 ara: d8 altın denetim (araç 35/38, link 27/34 kanıtlı) · temiz araç 1.0 link 1.0 · yp 3.0 (hepsi teknik başlık) · sn/video 23.5 > 10 · sınama kümesi yok (devir/video-kisa-token-1-devam.md)
