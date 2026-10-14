@@ -1,0 +1,58 @@
+<!doctype html>
+<meta charset="utf-8"><title>lab · ses</title>
+<link rel="stylesheet" href="/labs/ortak.css">
+<style>#ses { position: fixed; top: 24px; right: 24px; z-index: 2; padding: 10px 16px; border-radius: 999px; border: 1px solid #efe4d466; background: #1a120ccc; color: inherit; font: 14px system-ui; cursor: pointer; }
+#ses[aria-pressed="true"] { background: #efe4d4; color: #1a120c; }</style>
+<script type="importmap">{"imports":{"three":"/labs/node_modules/three/build/three.module.js","three/addons/":"/labs/node_modules/three/examples/jsm/","gsap":"/labs/node_modules/gsap/index.js","gsap/ScrollTrigger":"/labs/node_modules/gsap/ScrollTrigger.js","lenis":"/labs/node_modules/lenis/dist/lenis.mjs"}}</script>
+<canvas class="sahne"></canvas>
+<button id="ses"></button>
+<div class="uzun"></div>
+<script type="module">
+  import gsap from 'gsap';
+  import { kur, dunya, kaydir, kosu, lab, bekle } from '/labs/ortak.js';
+  import { kameraYolu } from '/tools/site-kit/sablon/src/sahne/kamera-yolu.js';
+  import { dongu } from '/tools/site-kit/sablon/src/sahne/dongu.js';
+  import { ses } from '/tools/site-kit/sablon/src/sahne/ses.js';
+
+  const cv = document.querySelector('canvas');
+  const { r, kam } = kur(cv);
+  const { s } = dunya(r);
+  const git = kameraYolu(kam,
+    [[0, 4, 13], [2.6, 1.6, 6], [1.2, 0.9, 2.2], [-0.4, 1.1, -2], [0.3, 1.5, -8], [0, 4.2, -12.2]],
+    [[0, 0.5, 0], [0, 0.5, 0], [0, 0.6, -1], [0, 0.8, -6], [0, 0.4, -12], [0, 0, -13.5]]);
+  const dugme = document.querySelector('#ses');
+  const sx = ses(dugme);
+  const o = { t: 0 };
+  const iste = dongu(r, cv, () => { git(o.t); r.render(s, kam); lab.kare++; return false; });
+  addEventListener('resize', iste);
+  kaydir();
+  gsap.to(o, { t: 1, ease: 'none', onUpdate() { iste(); sx.ayarla(o.t); }, scrollTrigger: kosu() });
+  git(0); r.render(s, kam);
+
+  // öz-denetim: kapalıyken bağlam yok; açınca RMS > 0, kaydırma sonunda spektral ağırlık merkezi yükselir
+  lab.olc = async () => {
+    const once = !sx.dugum();
+    dugme.click();
+    await bekle(1500);
+    const a = sx.dugum().context.createAnalyser();
+    a.fftSize = 2048;
+    sx.dugum().connect(a);
+    const olc = async () => {
+      await bekle(600);
+      const f = new Float32Array(a.fftSize), sp = new Uint8Array(a.frequencyBinCount);
+      a.getFloatTimeDomainData(f); a.getByteFrequencyData(sp);
+      const rms = Math.sqrt(f.reduce((t, x) => t + x * x, 0) / f.length);
+      const hz = a.context.sampleRate / a.fftSize, top = sp.reduce((t, x) => t + x, 0);
+      return { rms: +rms.toFixed(4), merkez_hz: Math.round(sp.reduce((t, x, i) => t + x * i * hz, 0) / (top || 1)) };
+    };
+    const bas = await olc();
+    await lab.git(1);
+    const son = await olc();
+    dugme.click();
+    await bekle(1800);
+    const sonuc = { once_baglam_yok: once, bas, son, kapaninca: a.context.state, aria: dugme.getAttribute('aria-pressed') };
+    console.assert(once && bas.rms > 0 && son.merkez_hz > bas.merkez_hz && sonuc.kapaninca === 'suspended', 'ses öz-denetim', sonuc);
+    return sonuc;
+  };
+  lab.hazir = true;
+</script>

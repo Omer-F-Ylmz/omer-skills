@@ -11,8 +11,9 @@ vec3 al(sampler2D s, vec2 p, vec2 d){ return vec3(texture2D(s, p + d).r, texture
 void main(){
   // merkezden açılan portal: en-boy düzeltmeli yarıçap + fbm yırtığı; adacık değil tek tutarlı yanan halka
   vec2 q = (v - .5) * vec2(oran, 1.);
-  float g = length(q) * .78 + fbm(v * vec2(6., 4.)) * .38;
-  float e = mix(-.12, 1.12, t);
+  // d5 organik ivme: yırtık t ile kayan çarpık fbm (yalnız büyüyen sabit desen değil) + yavaş açılım, ortada atılım, sonda yerleşme
+  float g = length(q) * .78 + fbm(v * vec2(6., 4.) + fbm(v * 3. + t) * .8 + vec2(0., t * 1.2)) * .38;
+  float e = mix(-.12, 1.12, mix(t, t * t * (3. - 2. * t), .65));
   float m = smoothstep(g - .015, g + .015, e);
   float d = e - g;
   float cekirdek = smoothstep(.012, 0., abs(d));
@@ -23,6 +24,17 @@ void main(){
   vec2 kay = normalize(q + 1e-4) * .045 * kirilma * sign(d);
   vec2 kr = normalize(q + 1e-4) * .018 * kirilma;
   vec3 col = mix(al(a, v + kay, kr), al(b, v - kay, kr), m) + kor * (hale * .45 + kivilcim * 2.5) + mix(kor, vec3(1.), .6) * cekirdek * 1.6;
+  // d5 sis: halka çevresinde dışa sürüklenen duman bandı (A tarafında geniş), halkadan aydınlanır
+  float r = length(q);
+  vec2 yon = q / (r + 1e-4);
+  float sis = smoothstep(mix(.1, .3, step(d, 0.)), 0., abs(d)) * smoothstep(.35, .75, fbm(q * 5. - yon * t * 2.5));
+  col = mix(col, col * .5 + kor * .18, sis * .6) + kor * sis * smoothstep(.1, 0., abs(d)) * .3;
+  // d5 parçacık: kutupsal hücrelerde halkadan dışa uçan köz tanecikleri; uzaklaştıkça söner
+  vec2 hc = vec2(atan(q.y, q.x) * 9.55, r * 34. - t * 20.);
+  vec2 hi = floor(hc);
+  float tane = step(.88, h(hi));
+  float nokta = smoothstep(.16, .04, length(fract(hc) - .5 - (vec2(h(hi + 7.), h(hi + 3.)) - .5) * .5));
+  col += mix(kor, vec3(1., .9, .7), .4) * tane * nokta * smoothstep(.32, 0., -d) * step(d, .02) * 2.2;
   gl_FragColor = vec4(col, 1.);
   #include <tonemapping_fragment>
   #include <colorspace_fragment>

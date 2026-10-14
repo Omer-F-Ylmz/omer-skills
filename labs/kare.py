@@ -21,7 +21,8 @@ LAB = {
     "metin": ("lando", "dev tipografi + 3B nesne katmanlama (tip nesnenin arkasında) + SplitText maskeli satır girişleri", [("", 0), ("", .45), ("", .8)]),
     "yukleyici": ("lando", "yükleme yüzde sayacı (000-100) + perde açılışı + kamera dolly + başlık harf girişi koreografisi", [("", .1), ("", .38), ("", .6), ("", 1)]),
     "parcacik": ("activetheory", "GPGPU parçacık bulutu (buhar), derinlik solması ve sis", [("", 0), ("?kademe=dusuk", 0)]),
-}
+    "cok-sahne": ("shopify", "tek WebGL renderer ile çok sahne: DOM kartlarına scissor/viewport ile ayrı 3B sahneler (raf ızgarası), talep üzerine render", [("", 0), ("", .5)]),
+}  # ses görsel değil: labs/ses lab.olc() öz-denetimi (RMS, spektral merkez, suspend) kabul ölçüsü
 ISTEM = """Sen bir WebGL/yaratıcı geliştirme jürisisin. A0..A7 = ödüllü referans sitenin kaydırma kareleri; B0.. = bizim lab demomuzun kareleri (sırayla zaman/kaydırma ilerler).
 Teknik: {konu}. İçerik, marka, metin, renk paleti eşleşmesi ARANMAZ (kendi varlıklarımız); yalnız tekniğin ETKİSİ ve kalite çıtası karşılaştırılır.
 İki ayrı puan ver: "mekanizma" = tekniğin kendisi (hareket, ışık/post, zamanlama, geçiş eğrisi) referans çıtasında mı; "icerik" = referansın kendi 3B/parçacık/sahne içeriğinin zenginliği bizde ne kadar (içerik kopyalanmaz; mekanizma puanını ETKİLEMEZ).

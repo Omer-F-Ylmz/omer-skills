@@ -6,4 +6,5 @@ Demo `labs/gecis/` · modül `tools/site-kit/sablon/src/sahne/gecis.js`.
 - Bütçe: talep üzerine render → boşta 0 kare/sn; geçişte 2 sahne + 1 dörtgen.
 - Tuzak: saf fbm eşiği "adacık" lekeler üretir (tur 1) → yönlü cephe ekle. B kamerasını aynı nesneye çevirmek puanı 7→4 düşürdü: geçiş farklı yer göstermeli.
 - Kalan fark: referansın parçacık yoğunluğu/3B içerik zenginliği — mekanizma değil sahne içeriği; R3b'de parcacik modülüyle birleşince ölç.
+- d5 tur 5: parçacık/sis geçişin parçası sayıldı → shader'a halka çevresi duman bandı (dışa sürüklenen fbm), kutupsal hücrelerde dışa uçan közler, t'de kayan çarpık yırtık + ivme eğrisi (mix(t, smoothstep, .65)); ek RT/çağrı yok. Yargı 15 Eki 10:00 sonrası.
 - Mobil düşüş (önerilen, uygulanmadı): RT yarım çözünürlük.

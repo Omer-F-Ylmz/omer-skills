@@ -1,0 +1,75 @@
+<!doctype html>
+<meta charset="utf-8"><title>lab · tek renderer çok sahne</title>
+<link rel="stylesheet" href="/labs/ortak.css">
+<style>
+  html, body { background: #e9e4dc; color: #2a1c12; }
+  canvas.sahne { pointer-events: none; z-index: 1; }
+  main { padding: 18vh 9vw 0; }
+  .raf { display: flex; justify-content: center; gap: 1.6vw; padding-bottom: 2.2vw; margin-bottom: 7vh; border-bottom: 10px solid #fbf8f3; box-shadow: 0 24px 40px -30px #0006; }
+  .kart { width: 13.5vw; aspect-ratio: 1; border-radius: 4px; box-shadow: 0 18px 30px -18px #0008; }
+  .kart p { margin: 0; transform: translateY(calc(13.5vw + 3vw)); font: 13px/1.3 system-ui; }
+  .uzun { height: 160vh; }
+</style>
+<script type="importmap">{"imports":{"three":"/labs/node_modules/three/build/three.module.js","three/addons/":"/labs/node_modules/three/examples/jsm/","gsap":"/labs/node_modules/gsap/index.js","gsap/ScrollTrigger":"/labs/node_modules/gsap/ScrollTrigger.js","lenis":"/labs/node_modules/lenis/dist/lenis.mjs"}}</script>
+<canvas class="sahne"></canvas>
+<main><div class="raf"></div><div class="raf"></div></main>
+<div class="uzun"></div>
+<script type="module">
+  import * as THREE from 'three';
+  import { kur, dunya, kaydir, lab, bekle } from '/labs/ortak.js';
+  import { dongu } from '/tools/site-kit/sablon/src/sahne/dongu.js';
+  import { cokSahne } from '/tools/site-kit/sablon/src/sahne/cok-sahne.js';
+
+  const cv = document.querySelector('canvas');
+  const { r } = kur(cv);
+  const raflar = document.querySelectorAll('.raf');
+  // 9 kart: ışık rengi + arka degrade + açı kartın "baskısı"; kendi cezve/fincan varlıklarımız
+  const baski = [[0xffb070, '#3a2416,#7a4a2a'], [0xff8a5c, '#2b1b2e,#8a4a5a'], [0xffd6a0, '#1f2a2e,#4a6a70'], [0xffa040, '#14100c,#5a3a1a'],
+    [0xff7040, '#2e1a10,#b0602a'], [0xffe0c0, '#d8c8b0,#f4ece0'], [0xc08060, '#101418,#30404a'], [0xffc080, '#4a2a10,#e0a050'], [0xff9070, '#20101a,#6a2a3a']];
+  let uzerinde = null;
+  const gorunumler = baski.map(([isik, d], i) => {
+    const el = document.createElement('div');
+    el.className = 'kart';
+    el.style.background = `linear-gradient(160deg,${d})`;
+    el.innerHTML = `<p>Baskı ${String(i + 1).padStart(2, '0')}<br>${['Kavrulmuş', 'Köz', 'Telve', 'Cezve'][i % 4]}</p>`;
+    raflar[i < 4 ? 0 : 1].append(el);
+    const { s, cezve, fincanlar } = dunya(r, { arka: null, isik });
+    const kam = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
+    const hedef = i % 2 ? fincanlar[0].position : cezve.position.clone().setY(0.5);
+    const a = i * 0.7;
+    kam.position.set(hedef.x + Math.sin(a) * 3.2, hedef.y + 1 + (i % 3) * 0.5, hedef.z + Math.cos(a) * 3.2);
+    kam.lookAt(hedef);
+    el.addEventListener('pointerenter', () => { uzerinde = i; iste(); });
+    el.addEventListener('pointerleave', () => (uzerinde = null));
+    return { el, s, kam, nesne: i % 2 ? fincanlar[0] : cezve };
+  });
+  const ciz = cokSahne(r, gorunumler);
+  let cizilen = 0;
+  // talep üzerine: kaydırma/boyut/üzerine gelme dışında kare yok; üzerindeki kartın nesnesi döndükçe döngü sürer
+  const iste = dongu(r, cv, () => {
+    if (uzerinde !== null) gorunumler[uzerinde].nesne.rotation.y += 0.02;
+    cizilen = ciz();
+    lab.kare++;
+    return uzerinde !== null;
+  });
+  addEventListener('resize', iste);
+  kaydir().on('scroll', iste);
+  cizilen = ciz();
+
+  lab.olc = async () => {
+    const k = async () => { const k0 = lab.kare; await bekle(1000); return lab.kare - k0; };
+    const bos = await k();
+    gorunumler[2].el.dispatchEvent(new PointerEvent('pointerenter'));
+    const uzerinde_1sn = await k();
+    gorunumler[2].el.dispatchEvent(new PointerEvent('pointerleave'));
+    await bekle(100);
+    const birakinca_1sn = await k();
+    const ust = cizilen;
+    await lab.git(1);
+    const sonuc = { tuval: document.querySelectorAll('canvas').length, bos_1sn: bos, uzerinde_1sn, birakinca_1sn, cizilen_ust: ust, cizilen_alt: cizilen };
+    // headless yazılım GPU'sunda 9 sahne ~15 kare/sn; eşik hız değil döngünün açılıp kapanması
+    console.assert(sonuc.tuval === 1 && bos === 0 && uzerinde_1sn > 5 && birakinca_1sn === 0 && ust === 9 && cizilen < 9, 'çok sahne öz-denetim', sonuc);
+    return sonuc;
+  };
+  lab.hazir = true;
+</script>
