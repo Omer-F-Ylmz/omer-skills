@@ -91,18 +91,30 @@ def metin_gec(d, env=None, yeniden=False):
     İstem kisa'nınkine ek olarak adlandırılmış teknikleri de ister; önbellek gemini-metin-uzun.json."""
     d = Path(d)
     metin = (d / "paket.md").read_text(encoding="utf-8") if (d / "paket.md").is_file() else ""
-    hedef = d / "gemini-metin-uzun.json"
+    hedef = d / "gemini-metin-uzun2.json"  # d5: örnek birleşimi (eski tek örnek: gemini-metin-uzun.json)
     if hedef.is_file() and not yeniden:
         return json.loads(hedef.read_text(encoding="utf-8"))
     key, t = kisa.anahtar(env), time.monotonic()
-    aday = [a["ad"] for a in kisa.sozluk_tara(d, {})]
+    aday = [a["ad"] for a in kisa.sozluk_tara(d, {}) if kisa_ad(a["ad"], metin)] + yaygin_aday(d, metin)
 
-    def bir(p):  # pencerede geçen adayları ver: istem kısa kalır
+    def bir(p):  # pencerede geçen adayları ver: istem kısa kalır; kisa d11 deseni: SABIT + ORNEK örneklerinin birleşimi
         ad = [a for a in aday if a.casefold() in p.casefold()]
-        govde = {"contents": [{"parts": [{"text": f"{METIN_ISTEM}\n\nADAYLAR: {', '.join(ad) or 'yok'}\n\n{p}"}]}],
-                 "generationConfig": {"responseMimeType": "application/json", "temperature": 0.1,
-                                      "responseSchema": {"type": "OBJECT", "required": ["adlar"], "properties": {"adlar": {"type": "ARRAY", "items": {"type": "STRING"}}}}}}
-        return kisa._uret(govde, key, time.monotonic())
+        govde = lambda ayar: {"contents": [{"parts": [{"text": f"{METIN_ISTEM}\n\nADAYLAR: {', '.join(ad) or 'yok'}\n\n{p}"}]}],  # noqa: E731
+                              "generationConfig": {"responseMimeType": "application/json", **ayar,
+                                                   "responseSchema": {"type": "OBJECT", "required": ["adlar"], "properties": {"adlar": {"type": "ARRAY", "items": {"type": "STRING"}}}}}}
+
+        def ek_ornek(a):
+            try:
+                return kisa._uret(govde(a), key, time.monotonic(), zaman=kisa.EK_ZAMAN, tur=1, modeller=kisa.MODELLER[-1:])
+            except RuntimeError:
+                return {"adlar": []}, {"jeton": 0, "model": "-"}
+        with ThreadPoolExecutor(len(kisa.ORNEK)) as ex2:
+            fe = list(ex2.map(ek_ornek, kisa.ORNEK))
+        j, iz = kisa._uret(govde(kisa.SABIT), key, time.monotonic())
+        ham = tr.normal(p)  # ek örnek yalnız pencerede aynen geçen adı katar (yp koruması, kisa ile aynı)
+        j["adlar"] += [a for e, _ in fe for a in e["adlar"] if tr.normal(a) and tr.normal(a) in ham]
+        iz["jeton"] = (iz["jeton"] or 0) + sum(i["jeton"] or 0 for _, i in fe)
+        return j, iz
 
     with ThreadPoolExecutor(ESZAMAN) as ex:
         sonuc = list(ex.map(bir, pencereler(metin)))
@@ -123,8 +135,24 @@ def son(d, g):
     p = (Path(d) / "paket.md").read_text(encoding="utf-8").casefold() if (Path(d) / "paket.md").is_file() else ""
     ham, istem = tr.normal(p), tr.normal(ISTEM + METIN_ISTEM)
     pakette = lambda a: re.search(rf"\b{re.escape(a.casefold())}\b", p) if len(tr.normal(a)) <= 4 else tr.normal(a) in ham  # noqa: E731 — "pip" ⊂ "pipeline" sayılmaz
-    g["araclar"] = [a for a in g["araclar"] + kisa.sozluk_tara(d, g) if not (tr.normal(a["ad"]) in istem and not pakette(a["ad"]))]
+    ham_p = (Path(d) / "paket.md").read_text(encoding="utf-8") if p else ""
+    g["araclar"] = [a for a in g["araclar"] + kisa.sozluk_tara(d, g) if not (tr.normal(a["ad"]) in istem and not pakette(a["ad"]))
+                    and (a.get("zaman") != "paket" or kisa_ad(a["ad"], ham_p))]
     return g
+
+
+def yaygin_aday(d, metin):
+    """d5: sözlük DF_TAVAN'ı aşan bilinen adlar (TypeScript, Vite, Framer Motion, Claude Code) doğrudan eklenmez ama Gemini'ye aday olur —
+    altın kaçanlarının çoğu bunlardı; onayı Gemini verir (genel kelime ise almaz). Sızıntı kuralı sozluk_tara ile aynı."""
+    t, vid = kisa._tarama(Path(d).parent), Path(d).name
+    return [t["ad"][k][0] for k in sorted(kisa._ngram(metin) & t["ad"].keys())
+            if t["df"].get(k, 0) / t["n"] > kisa.DF_TAVAN and not t["ad"][k][0].startswith("/") and not all(vid[3:] in x for x in t["ad"][k][1]) and kisa_ad(t["ad"][k][0], metin)]
+
+
+def kisa_ad(ad, paket):
+    """d5: pakete dayanan ≤4 harfli ad (sözlük/metin geçişi) pakette aynı yazımla, URL/yol/etiket parçası olmadan geçmeli —
+    altında yp KAP ('kap' kelimesi), img ('<img', '/img/'), node ('node_modules') sözlük ngram'ından geliyordu."""
+    return len(tr.normal(ad)) > 4 or bool(re.search(rf"(?<![\w/<.\-]){re.escape(ad)}(?![\w/.\-])", paket))
 
 
 def rapor_md(adlar, aciklama_link, urller, komutlar):

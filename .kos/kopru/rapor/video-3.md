@@ -35,3 +35,9 @@ Kök neden (yp 39): kisa.ISTEM'deki örnek adlar (Python, pip, npm, uv, GitHub, 
 Değişiklik: uzun.son (sözlük adayı doğrudan eklenir + istem yankısı düşer; ≤4 harfli adda kelime sınırı, "pip"⊄"pipeline"), oturum adımına bağlandı; test_uzun 5/5.
 Önce→sonra (6 altın, Claude'suz Gemini+son): araç 76/96 0.79 → 81/96 0.84 · temiz 76/93 0.82 → 81/93 0.87 · yp 39 → 4 (KAP×2, img, node).
 KAPI: araç 0.87 < 0.95 KALDI, yp 4 > 0 KALDI. Jeton 0.09× / süre ~0.15× d3'ten değişmedi (yeni Gemini/Claude çağrısı yok).
+
+## d5 (14 Eki ~22:00) — kalem başı önce → sonra (Claude'suz ölçü, `v3.py kacak yok.json son`)
+- yp: 4 (KAP, img, node) → 0 · kök: sözlük ngram'ı ≤4 harfli adı URL/etiket/kelime parçasından (/img/, node_modules, "kap") alıyordu → uzun.kisa_ad.
+- temiz araç: 81/93 = 0.871 → 0.871 · metin geçişine kisa d11 örnek birleşimi taşındı; yakalama değişmedi (oynama ±1).
+- 12 kaçan teşhisi (v3_teshis.py): 6'sı DF_TAVAN üstü bilinen ad (TypeScript, Vite, Framer Motion, Claude Code) → uzun.yaygin_aday ile Gemini'ye aday; ÖLÇÜLMEDİ (Gemini 3 model 429 kota). Kalan: envanterde yok (3), sızıntı (2), OCR yazımı farklı (2).
+- Katalog: kullanılan [ATLAS envanteri (sözlük), kisa.py ortak fonksiyonlar] · atlanan [video-uygula, plan-kur — d5 tek alanlı ölçüm düzeltmesi]. claude -p 0 (toplam 1/6), alt ajan 0.

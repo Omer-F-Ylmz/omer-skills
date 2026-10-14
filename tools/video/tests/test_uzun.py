@@ -39,3 +39,11 @@ def test_son_istem_yankisini_duser_pakettekini_tutar(tmp_path, monkeypatch):
     (tmp_path / "paket.md").write_text("PyTorch ile eğitim; pipeline kuruldu.", encoding="utf-8")
     g = {"araclar": [{"ad": a, "ne_dedi": "", "zaman": ""} for a in ("PyTorch", "pip", "Apache-2.0", "Cursor")]}
     assert [a["ad"] for a in uzun.son(tmp_path, g)["araclar"]] == ["PyTorch", "Cursor", "Remotion"]  # pip ⊄ pipeline, Apache-2.0 yalnız istemde
+
+
+def test_kisa_ad_url_etiket_parcasini_saymaz():
+    assert not uzun.kisa_ad("img", 'bak <img src="/img/a.png">')
+    assert not uzun.kisa_ad("node", "npm ci; ls node_modules")
+    assert not uzun.kisa_ad("KAP", "kapağı kap")  # yazım aynı olmalı
+    assert uzun.kisa_ad("Git", "Git ile commit")
+    assert uzun.kisa_ad("Framer Motion", "")  # >4 harf: denetim sözlük/örnek tarafında

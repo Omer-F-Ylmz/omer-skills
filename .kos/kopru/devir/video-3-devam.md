@@ -1,10 +1,10 @@
 DESKTOP 20:30 (d5): altında kanıtsız öğe → kanıtlanabiliyorsa düzelt, yoksa "temiz" puandan çıkar ve listele. Kısa hattın kanıtlı mekanizmalarını uzun yola ortak fonksiyonla taşı. Kapı ayarlanmamış 3–4 uzun videoda da geçmeli. RAM: ağır python TEK. DESKTOP 20:50: tools/video/video/karar.py (VİDEO-KISA-TOKEN-2) hazır olunca uzun hatta bağla; o zamana kadar kisa.py/karar.py'ye dokunma.
-# VİDEO-3 devam (d4 → d5), 14 Eki ~21:10
-DURUM: temiz araç 0.87 (kapı 0.95), yp 4 (kapı 0), jeton 0.09× ve süre ~0.15× geçti, link tam. claude -p 1/6. Ayrıntı rapor/video-3.md d4. Ölçü: `v3.py kacak yok.json son` (Claude'suz) ya da `v3.py kacak` (oturum.json).
-SIRADAKİ (d5):
-1. Kalan 12 temiz kaçan hepsi PAKETTE (çoğu ekran OCR: Framer Motion, TypeScript, Built-in browser, Neue Montreal, Inter Tight, Tripo v3.1, Arial, OpenAI Pro paketi; Claude Code yorumda). Bak: metin pencereleri OCR/yorum bölümünü kapsıyor mu, sözlükte neden yoklar (DF_TAVAN?). Düzeltme genel olmalı.
-2. yp 4 (KAP, img, node): kaynağı (Gemini mi sözlük mü) bul; KOD süzgeci img/node'u kapsamalı mı bak.
-3. Ayarlanmamış ayrı sınama kümesi (uzun 3–4 video) — kapı geçerliliği; carousel yp (20/4/5) aynı kacak kuralıyla yeniden.
-4. V4 `video hat`, V5 açık.
-KISA HATTA NOT (VİDEO-KISA-TOKEN-1'e, dokunulmadı): kisa.py:50-51 istem örnekleri aynı yankıyı kısa videoda da üretebilir; uzun.son'daki süzgeç ortak karar modülüne taşınabilir.
-DOSYALAR: tools/video/video/uzun.py (son, metin_gec, pencereler), .kos/kopru/video/v3.py (kacak, oturum), v3/{kos,oturum,karusel,taban}.json.
+# VİDEO-3 devam (d5 → d6), 14 Eki ~22:00
+DURUM: temiz araç 0.871 (kapı 0.95) · yp 4→0 ✓ · jeton 0.09× / süre ~0.15× (d3) geçti · link tam. claude -p 1/6. Ayrıntı rapor/video-3.md d5.
+d5 YAPILAN (uzun.py, kisa.py'ye dokunulmadı): (1) metin_gec pencere başına kisa d11 örnek birleşimi (SABIT + ORNEK, ek örnek yalnız pencerede aynen geçeni katar) → önbellek gemini-metin-uzun2.json; ölçüldü: yakalama değişmedi (Vite −1, TypeScript +1, oynama). (2) kisa_ad: ≤4 harfli pakete dayanan ad URL/yol/etiket parçası olmamalı → yp KAP/img/node düştü (ölçüldü, test 6/6). (3) yaygin_aday: DF_TAVAN üstü bilinen adlar (TypeScript, Vite, Framer Motion, Claude Code — 12 kaçanın 6'sı) Gemini'ye ADAY olarak gider, onay Gemini'de. ÖLÇÜLMEDİ: 21:51 üç Gemini modeli de 429 (kota; kısa hat oturumuyla ortak).
+SIRADAKİ (d6):
+1. Kota açılınca: `cd tools/video && uv run python -c "...uzun.metin_gec(ONB/v, yeniden=True)..."` 6 altın (ESZAMAN 2), sonra `v3.py kos` + `v3.py kacak yok.json son`. Beklenen: temiz kaçan 12 → ≤6. Aday listesinde genel kelimeler var (just, check, Make, Motion) → isabeti de kontrol et (v3.py puan).
+2. Kalan kaçanlar sözlükte YOK ya da sızıntı: Neue Montreal, Araştırma masası modu, OpenAI Pro paketi (envanter yok), Hafıza modu / Buluttaki Claude Code (yalnız bu videonun raporundan → sızıntı, doğru dışlanıyor), Built-in browser / Tripo v3.1 (pakette OCR yazımı farklı). Bunlar Gemini metin geçişinin işi; pencere 24k → 12k (kisa PAKET_TAVAN) denenebilir.
+3. Ayarlanmamış sınama kümesi (uzun 3–4 video) + carousel yp aynı kuralla. 4. V4 `video hat`, V5.
+TEŞHİS: .kos/kopru/video/v3_teshis.py (kaçan başına konum/envanter/DF/sızıntı/Gemini çıktısı). Yedek: v3/kos-d4.json (d4 kos.json).
+DOSYALAR: tools/video/video/uzun.py (metin_gec, son, yaygin_aday, kisa_ad), tests/test_uzun.py, .kos/kopru/video/v3.py.
