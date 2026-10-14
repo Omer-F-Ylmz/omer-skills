@@ -1,0 +1,4 @@
+kalite A 78 / B 59 (fark -19)
+zor jeton A 597861 / B 411819 · tur A 10 / B 6
+rutin jeton A 66865 / B 68477
+kurulu-olmayan araç adı A 20 / B 23

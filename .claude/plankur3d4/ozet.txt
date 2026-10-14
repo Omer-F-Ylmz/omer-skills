@@ -1,0 +1,5 @@
+kalite A 76 / B 77 (fark +1)
+zor jeton A 667281 / B 497226 · tur A 12 / B 7
+paket jeton A/B [(230586, 144438), (215866, 208742), (220829, 144046), (68186, 68264)]
+rutin jeton A 68186 / B 68264
+kurulu-olmayan araç adı A 3 / B 1 ['plan_kur']

@@ -1,0 +1,11 @@
+no	tur	is
+h1	zor	Godot 4 ile çevrim içi çok oyunculu kart oyunu yap: yetkili sunucu, WebSocket durum senkronu, eşleştirme kuyruğu, hile önleme ve itch.io'ya dağıtım.
+h2	zor	Rust Actix Web mikroservisine gözlemlenebilirlik ekle: OpenTelemetry izleme, Prometheus metrikleri, Grafana panosu ve k6 yük testiyle CI'da SLO kapısı.
+h3	zor	Laravel e-ticaret sitesini çok kiracılı SaaS'a dönüştür: kiracı başına veri yalıtımı, Postgres RLS, Paddle abonelik faturası, alt alan adı yönlendirme ve sıfır kesintili migration.
+h4	zor	Electron masaüstü not uygulamasını Tauri'ye taşı: güvenli IPC, kod imzalama, otomatik güncelleme, yerel SQLite şifreleme ve erişilebilirlik denetimi.
+h5	zor	ESP32 sıcaklık sensörlerinden MQTT ile veri topla: TimescaleDB'ye yaz, anomali tespiti, Grafana uyarıları ve aşamalı OTA firmware güncellemesi.
+h6	zor	YouTube kanalı için otomatik kısa video hattı kur: uzun videonun transkriptinden öne çıkan anları seç, ffmpeg ile dikey kırp, altyazı göm, Remotion ile başlık animasyonu ekle.
+h7	zor	Astro ile iki dilli (TR/EN) teknik dokümantasyon sitesi kur: içerik koleksiyonları, Pagefind arama, SEO meta etiketleri, erişilebilirlik testi ve GitHub Actions ile yayın.
+r1	rutin	Yavaş çalışan bir Python betiğini cProfile ile profille ve en sıcak noktayı düzelt.
+r2	rutin	Postgres'te yavaş bir raporlama sorgusunun EXPLAIN ANALYZE çıktısını oku ve uygun indeksi öner.
+r3	rutin	Bir React bileşenindeki gereksiz yeniden render'ları bul ve düzelt.

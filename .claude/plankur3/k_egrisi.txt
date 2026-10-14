@@ -1,0 +1,10 @@
+iş 1: altın 39 · varlık ['acik', 'docker', 'kvkk', 'metni', 'sms', 'yayin'] · @20 uzman 14 düz 13
+iş 2: altın 22 · varlık ['bildirim', 'cakisma', 'cevrimdisi', 'dogrulama', 'flutter', 'mobil', 'push', 'senkronu', 'sqlite', 'yerel'] · @20 uzman 9 düz 5
+iş 3: altın 22 · varlık ['belge', 'botu', 'degerlendirme', 'kaynak', 'pdf', 'rag', 'vektor', 'veritabani', 'yerel'] · @20 uzman 7 düz 8
+iş 4: altın 23 · varlık ['dogrulama', 'graphql', 'hiz', 'sema', 'siniri', 'sozlesme', 'uyum'] · @20 uzman 8 düz 7
+iş 5: altın 19 · varlık ['analizi', 'boyutu', 'ci', 'dashboard', 'kapisi', 'lighthouse', 'liste', 'performans', 'regresyon', 'sanal', 'vue'] · @20 uzman 4 düz 4
+iş 6: altın 13 · varlık ['dusman', 'editoru', 'json', 'paketleme', 'seviye', 'testi', 'unity', 'yapi'] · @20 uzman 4 düz 4
+iş 7: altın 22 · varlık ['disa', 'fatura', 'isleme', 'pdf', 'saas', 'stripe', 'tabanli', 'webhook', 'yeniden'] · @20 uzman 3 düz 3
+altın toplam 160
+uzman  @10=0.17(28) @20=0.31(49) @30=0.37(59) @40=0.41(65) @42=0.41(65) @43=0.42(67) @44=0.42(67) @45=0.42(68) @50=0.44(70) @999=0.47(76)
+duz    @10=0.19(31) @20=0.28(44) @30=0.36(57) @40=0.39(63) @42=0.41(65) @43=0.41(65) @44=0.41(66) @45=0.41(66) @50=0.41(66) @999=0.47(76)

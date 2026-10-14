@@ -1,9 +1,9 @@
 ---
 name: plan-kur
-description: Builds a robust plan for hard or multi-domain work in ONE catalog call - work-type gates (test, security, a11y/SEO, KVKK), review agents, council point, phase token budget, catalog tools and learnings. Use when the task spans 2+ domains, is out of domain, or the right tools are unknown. Not for routine single-domain tasks (zero gain, extra cost).
+description: Use ONLY when the task spans 2+ domains, is out of domain, or the right tools are unknown - builds a robust plan in ONE catalog call (work-type gates for test, security, a11y/SEO, KVKK; review agents, council point, phase token budget, installed catalog tools and learnings). Not for routine single-domain tasks (zero gain, extra cost).
 ---
 
-> DENEYSEL — kapı RET (rapor/envanter-3.md), kurulmaz. Otomatik kurulum/zip dışında; onay/envanter_3_uygula.py koşulmaz.
+> KOŞULLU — PLAN-KUR-3 KABUL (rapor/plan-kur-3.md, d4): yalnız zor/çok alanlı işte çağrılır; rutin işte çağrılmaz.
 
 # plan-kur — zor işte sağlam plan (tek çağrı)
 

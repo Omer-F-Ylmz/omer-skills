@@ -57,6 +57,22 @@ OGR_N = 8  # varsayılan çıktıda öğrenim grubu tavanı (kompakt)
 CAGRI = {"skill": "Skill {ad}", "ajan": "Agent {ad} (listede yoksa Skill ajan-getir)", "mcp": "ToolSearch '{ad}' → mcp__{ad}__*",
          "cli": "Bash: {ad} --help", "arac": "python tools/{ad}.py"}
 TR = str.maketrans("çğıöşüÇĞİÖŞÜâî", "cgiosucgiosuai")
+# PLAN-KUR-2 yığın süzgeci: ad → (aile, desen). Aynı ailede projenin yığınında olmayan teknolojiye bağlı araç elenir
+# (ENVANTER-3: Astro işine React gerektiren araç önerildi); ailesiz (three) yalnız tanınır.
+YIGIN = {
+    "react": ("fe", r"\breact\b|next\.?js|\bjsx\b|\bremix\b"), "vue": ("fe", r"\bvue|\bnuxt"), "svelte": ("fe", r"svelte"),
+    "angular": ("fe", r"\bangular"), "astro": ("fe", r"\bastro\b"), "solid": ("fe", r"solid\.?js"), "qwik": ("fe", r"\bqwik"),
+    "django": ("be", r"django"), "flask": ("be", r"\bflask"), "fastapi": ("be", r"fastapi"),
+    "node": ("be", r"\bexpress\b|express\.js|node\.?js|nestjs|next\.?js"),
+    "aspnet": ("be", r"asp\.?net|\.net\b|dotnet|\bc#|blazor|ef ?core|^dn-|\bdn-"), "rails": ("be", r"\brails\b"),
+    "laravel": ("be", r"laravel"), "spring": ("be", r"spring ?boot"),
+    "flutter": ("mobil", r"flutter|\bdart\b"), "rn": ("mobil", r"react native"), "ios": ("mobil", r"swiftui|\bswift\b"),
+    "android": ("mobil", r"kotlin|jetpack compose"),
+    "unity": ("motor", r"\bunity\b"), "godot": ("motor", r"godot"), "unreal": ("motor", r"unreal"), "roblox": ("motor", r"roblox|luau"),
+    "three": ("", r"three\.?js|\bthree\b"),
+}
+YIGIN_IZ = (("astro.config.*", "astro"), ("*.csproj", "asp.net"), ("pubspec.yaml", "flutter"), ("project.godot", "godot"),
+            ("ProjectSettings", "unity"))
 
 
 def kelimeler(s):
@@ -132,6 +148,50 @@ def aday(q, n=ADAY, tur=None, satirlar=None, taban=TABAN):
     return sec
 
 
+def yigin(q, cwd="."):
+    """İş metni + cwd proje dosyalarından (package.json bağımlılıkları, işaret dosyaları) yığın adları."""
+    d, t = Path(cwd), q.lower()
+    try:
+        p = json.loads((d / "package.json").read_text(encoding="utf8"))
+        t += " " + " ".join({**p.get("dependencies", {}), **p.get("devDependencies", {})})
+    except (OSError, ValueError):
+        pass
+    t += "".join(f" {ad}" for desen, ad in YIGIN_IZ if any(d.glob(desen)))
+    for f in ("pyproject.toml", "requirements.txt", "Gemfile", "composer.json"):
+        try:
+            t += " " + (d / f).read_text(encoding="utf8", errors="ignore").lower()
+        except OSError:
+            pass
+    return [k for k, (_, r) in YIGIN.items() if re.search(r, t)]
+
+
+def kurulu(o):
+    """Bu makinede çağrılabilir: CC/ikisi/kurulu (kapalı değil) ya da cwd'de dosyası olan bizim betik."""
+    d = o["durum"]
+    if d == "repo":
+        return Path("tools", f"{o['ad']}.py").exists()
+    return "kapal" not in d and (d.startswith(("CC", "ikisi")) or d == "kurulu")
+
+
+def suz(rows, yg):
+    """(kalan, yığınla elenen sayısı, kurulu olmayanlar). Yığın bilinmiyorsa yığın elemesi yok."""
+    aile = {YIGIN[k][0] for k in yg} - {""}
+    kal, elen, yok = [], 0, []
+    for o in rows:
+        if not kurulu(o):
+            yok.append(o)
+            continue
+        m, ad = f"{o['ad']} {o['is']}".lower(), o["ad"].lower()
+        # adında yığın dışı teknoloji (ecc:fastapi-reviewer) ya da açıklamasında aynı aileden yabancı teknoloji
+        yab = any(k not in yg and re.search(r, ad) for k, (_, r) in YIGIN.items()) if yg else False
+        if (yab or any(f == a and k not in yg and re.search(r, m) for a in aile for k, (f, r) in YIGIN.items())) and \
+                not any(re.search(YIGIN[k][1], m) for k in yg):
+            elen += 1
+            continue
+        kal.append(o)
+    return kal, elen, yok
+
+
 def ogrenimler():
     """Öğrenim satırları katalog kaydı biçiminde; ayrı derlem (araç sıralamasının BM25 istatistiği değişmesin)."""
     if not OGRENIM.exists():
@@ -155,14 +215,17 @@ def main():
     if tur == "ogrenim":
         sonuc = ogrenim_ara(q, n if "--aday" in a else 3 * OGR_N)
     else:
-        sonuc = (ara(q, tur, oran) if "--esik" in a else aday(q, n, tur)) + ([] if tur else ogrenim_ara(q))
-    listele(sonuc, len(sonuc) > UZUN and "--esik" in a and "--tam" not in a)
+        # PLAN-KUR-2 (Ömer 14 Eki 06:38): kurulu olmayan araç listelenmez; yığınla uyumsuz araç elenir
+        sonuc, elen, yok = suz(ara(q, tur, oran) if "--esik" in a else aday(q, n, tur), yigin(q))
+        bas = f"elendi: {elen} (yığın) · {len(yok)} kurulu değil\n"
+        sonuc += [] if tur else ogrenim_ara(q)
+    listele(sonuc, len(sonuc) > UZUN and "--esik" in a and "--tam" not in a, bas if tur != "ogrenim" else "")
 
 
-def listele(sonuc, uzun=False):
+def listele(sonuc, uzun=False, bas=""):
     # Headroom tag_protector etiketli bloğu sıkıştırmaz; ```text çiti, ERROR/DEBUG'lı açıklamalarda içeriğin
     # LOG sayılıp (etiket korumasız yol) kırpılmasını önler (karma yol önce etiketi korur)
-    print(f"<aday-listesi>\n{metin(sonuc, uzun)}\n</aday-listesi>")
+    print(f"<aday-listesi>\n{bas}{metin(sonuc, uzun)}\n</aday-listesi>")
 
 
 def metin(sonuc, uzun=False):
