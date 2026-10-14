@@ -25,3 +25,14 @@ def test_katalog_karar_onceligi(tmp_path, monkeypatch):
     monkeypatch.setattr(kisa, "KARAR", t)
     monkeypatch.setattr(kisa.tr, "sozluk_kur", lambda ev, k: [("graphify", "skill")])
     assert kisa.katalog(["mirofish", "graphify", "YokBöyle"]) == {"mirofish": "ÖĞREN (ig-41)", "graphify": "kurulu:skill", "YokBöyle": None}
+
+
+def test_izle_zaman_asiminda_siradaki_model(tmp_path, monkeypatch):
+    def iste(url, key, govde, zaman):
+        if kisa.MODELLER[0] in url:
+            raise TimeoutError
+        return {"candidates": [{"content": {"parts": [{"text": '{"araclar": []}'}]}}]}
+    monkeypatch.setattr(kisa, "_iste", iste)
+    monkeypatch.setattr(kisa, "parcalar", lambda d, m, k: [])
+    j, iz = kisa.izle(tmp_path, env={"GEMINI_API_KEY": "x"})
+    assert j == {"araclar": []} and iz["model"] == kisa.MODELLER[1]

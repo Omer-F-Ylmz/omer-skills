@@ -20,7 +20,8 @@ from . import hafif
 from . import tarama as tr
 
 API = "https://generativelanguage.googleapis.com"
-MODELLER = ("gemini-3.5-flash", "gemini-3.8-flash")  # ücretsiz katman; ilki 429/404/5xx verirse sıradaki
+MODELLER = ("gemini-3.8-flash", "gemini-3.5-flash")  # ücretsiz katman; ilki 429/404/5xx/zaman aşımı verirse sıradaki (3.5 yoğunlukta 503/asılı — Desktop 14 Eki)
+IZLE_ZAMAN = 90  # generateContent sn; asılı yanıtta sıradaki modele geç
 KOK = Path(__file__).resolve().parents[3]
 KARAR = KOK / "docs" / "kurulumlar" / "ig-41" / "karar-birlesik.tsv"
 ARASTIRMA = KOK / ".kos" / "kopru" / "video" / "kisa" / "arastirma"
@@ -107,7 +108,7 @@ def izle(d, medya=None, env=None, yeniden=False):
     son = []
     for m in MODELLER:
         try:
-            y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde)
+            y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde, zaman=IZLE_ZAMAN)
             j = json.loads(y["candidates"][0]["content"]["parts"][0]["text"])
             iz = {"model": m, "sure": round(time.monotonic() - t, 1), "jeton": (y.get("usageMetadata") or {}).get("totalTokenCount")}
             hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -116,6 +117,8 @@ def izle(d, medya=None, env=None, yeniden=False):
             son.append(f"{m}: HTTP {e.code} {e.read()[:200]!r}")
             if e.code not in (404, 429, 500, 503):
                 break
+        except (TimeoutError, urllib.error.URLError) as e:
+            son.append(f"{m}: bağlantı/zaman aşımı ({type(e).__name__})")
         except (KeyError, IndexError, ValueError) as e:
             son.append(f"{m}: yanıt ayrıştırılamadı ({type(e).__name__})")
     raise RuntimeError(f"gemini: {' | '.join(son)}")
