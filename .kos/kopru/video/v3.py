@@ -99,7 +99,7 @@ def kos():
         d, t = ONB / v, time.monotonic()
         try:
             with ThreadPoolExecutor(2) as ex:
-                fg, fm = ex.submit(uzun.izle, d), ex.submit(uzun.metin_gec, d)
+                fg, fm = ex.submit(uzun.izle, d), ex.submit(uzun.metin_gec, d, None, "yeniden" in sys.argv)  # d6: metin geçişini önbelleksiz yinele
                 (g, gi), mg = fg.result(), fm.result()
         except RuntimeError as e:  # ücretsiz kota 429: video atlanmaz, sonraki koşuda önbellekten devam
             print(v, "HATA", str(e)[:160], flush=True)

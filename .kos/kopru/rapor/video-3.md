@@ -41,3 +41,9 @@ KAPI: araç 0.87 < 0.95 KALDI, yp 4 > 0 KALDI. Jeton 0.09× / süre ~0.15× d3't
 - temiz araç: 81/93 = 0.871 → 0.871 · metin geçişine kisa d11 örnek birleşimi taşındı; yakalama değişmedi (oynama ±1).
 - 12 kaçan teşhisi (v3_teshis.py): 6'sı DF_TAVAN üstü bilinen ad (TypeScript, Vite, Framer Motion, Claude Code) → uzun.yaygin_aday ile Gemini'ye aday; ÖLÇÜLMEDİ (Gemini 3 model 429 kota). Kalan: envanterde yok (3), sızıntı (2), OCR yazımı farklı (2).
 - Katalog: kullanılan [ATLAS envanteri (sözlük), kisa.py ortak fonksiyonlar] · atlanan [video-uygula, plan-kur — d5 tek alanlı ölçüm düzeltmesi]. claude -p 0 (toplam 1/6), alt ajan 0.
+
+## d6 (14 Eki ~23:10) — KABUL DEĞİL (ölçüm Gemini günlük kotasında bekliyor)
+Katalog: kullanılan [kisa.MODELLER/_iste/ORNEK, cli.m.vid/KOK, arka.py, bekle.py] · atlanan [plan-kur/katalog_ara (tek alan, hattın kendi araçları), video-uygula (karar.py VİDEO-KISA-TOKEN-2'de, dokunma kuralı), alt ajan (kural 0), claude -p (0; toplam 1/6)]
+- d5 yaygin_aday ölçümü: `v3.py kos yeniden` (metin geçişi önbelleksiz; v3.py'ye bayrak) → 6 videoda yine 429. Yoklama: 3 modelin üçü de `GenerateRequestsPerDayPerProjectPerModel` (günlük), retryDelay 13940 sn → ~03:00. Süreç kapatıldı; temiz araç 0.871 değişmedi (ölçülmedi). kos.json yedeği kos-d5.json.
+- V4 kuru koşu (işleme yok, ağ yok): `.kos/kopru/video/hat_plan.py` → hat-plan-14eki.tsv. 180 link = kisa 153 (149 reel + 4 short) · karusel 27 (/p) · uzun 0. Durum: rapor 6 · paket hazır 25 · yeni 149 (önce `video paket`). Gemini ≈696 istek (video başı 4: izle + SABIT + 2 ORNEK).
+- Bulgu (V5'e girdi): günlük kota tükenince _uret her isteği 3 model × deneme olarak yakıyor; toplu modda ilk PerDay 429'da durup "kaldığı yerden" bırakmak gerekir. 696 istek tek günde 3 modelin kotasına sığmayabilir → 180 link ≥2 güne bölünmeli (VİDEO-KISA-2 planı).

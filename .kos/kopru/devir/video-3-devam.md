@@ -1,10 +1,11 @@
 DESKTOP 20:30 (d5): altında kanıtsız öğe → kanıtlanabiliyorsa düzelt, yoksa "temiz" puandan çıkar ve listele. Kısa hattın kanıtlı mekanizmalarını uzun yola ortak fonksiyonla taşı. Kapı ayarlanmamış 3–4 uzun videoda da geçmeli. RAM: ağır python TEK. DESKTOP 20:50: tools/video/video/karar.py (VİDEO-KISA-TOKEN-2) hazır olunca uzun hatta bağla; o zamana kadar kisa.py/karar.py'ye dokunma.
-# VİDEO-3 devam (d5 → d6), 14 Eki ~22:00
-DURUM: temiz araç 0.871 (kapı 0.95) · yp 4→0 ✓ · jeton 0.09× / süre ~0.15× (d3) geçti · link tam. claude -p 1/6. Ayrıntı rapor/video-3.md d5.
-d5 YAPILAN (uzun.py, kisa.py'ye dokunulmadı): (1) metin_gec pencere başına kisa d11 örnek birleşimi (SABIT + ORNEK, ek örnek yalnız pencerede aynen geçeni katar) → önbellek gemini-metin-uzun2.json; ölçüldü: yakalama değişmedi (Vite −1, TypeScript +1, oynama). (2) kisa_ad: ≤4 harfli pakete dayanan ad URL/yol/etiket parçası olmamalı → yp KAP/img/node düştü (ölçüldü, test 6/6). (3) yaygin_aday: DF_TAVAN üstü bilinen adlar (TypeScript, Vite, Framer Motion, Claude Code — 12 kaçanın 6'sı) Gemini'ye ADAY olarak gider, onay Gemini'de. ÖLÇÜLMEDİ: 21:51 üç Gemini modeli de 429 (kota; kısa hat oturumuyla ortak).
-SIRADAKİ (d6):
-1. Kota açılınca: `cd tools/video && uv run python -c "...uzun.metin_gec(ONB/v, yeniden=True)..."` 6 altın (ESZAMAN 2), sonra `v3.py kos` + `v3.py kacak yok.json son`. Beklenen: temiz kaçan 12 → ≤6. Aday listesinde genel kelimeler var (just, check, Make, Motion) → isabeti de kontrol et (v3.py puan).
-2. Kalan kaçanlar sözlükte YOK ya da sızıntı: Neue Montreal, Araştırma masası modu, OpenAI Pro paketi (envanter yok), Hafıza modu / Buluttaki Claude Code (yalnız bu videonun raporundan → sızıntı, doğru dışlanıyor), Built-in browser / Tripo v3.1 (pakette OCR yazımı farklı). Bunlar Gemini metin geçişinin işi; pencere 24k → 12k (kisa PAKET_TAVAN) denenebilir.
-3. Ayarlanmamış sınama kümesi (uzun 3–4 video) + carousel yp aynı kuralla. 4. V4 `video hat`, V5.
-TEŞHİS: .kos/kopru/video/v3_teshis.py (kaçan başına konum/envanter/DF/sızıntı/Gemini çıktısı). Yedek: v3/kos-d4.json (d4 kos.json).
-DOSYALAR: tools/video/video/uzun.py (metin_gec, son, yaygin_aday, kisa_ad), tests/test_uzun.py, .kos/kopru/video/v3.py.
+# VİDEO-3 devam (d6 → d7), 14 Eki ~23:10
+DURUM: temiz araç 0.871 (kapı 0.95) · yp 0 ✓ · jeton 0.09× / süre ~0.15× (d3) ✓ · link tam. claude -p 1/6. Ayrıntı rapor/video-3.md d6.
+ENGEL: Gemini 3 modelin üçü günlük kota (PerDay, sıfırlama ~15 Eki 03:00). 03:00'ten önce Gemini isteği atma.
+SIRADAKİ (sırayla):
+1. d5 yaygin_aday ölçümü: tools/video'dan `PYTHONPATH=. .venv/Scripts/python.exe ../../.kos/kopru/arka.py --cwd tools/video .kos/kopru/video/v3/kos-d7.log ../../.kos/kopru/video/v3.py kos yeniden` (arka.py günlük yolu repo köküne göreli!) → bekle.py → `v3.py kacak yok.json son` ile temiz araç. Önce kos.json'u kos-d6.json'a kopyala.
+2. Kalan kaçan: envanterde yok 3 · sızıntı 2 · OCR yazımı 2 (v3_teshis.py). Genel mekanizma yoksa kanıtsız öğe puandan çıkar + listele (Desktop 20:30).
+3. Ayarlanmamış 3–4 uzun videoda sınama (Desktop 20:30).
+4. V5: toplu modda PerDay 429 → dur + kaldığı yer (yeni modül; kisa._uret'e dokunma). V4 tek komut `video hat`: karar.py bitince (VİDEO-KISA-TOKEN-2) bağla; kuru plan hazır: .kos/kopru/video/hat_plan.py (180 link: kisa 153 · karusel 27 · yeni 149 · ≈696 Gemini isteği → ≥2 güne böl).
+5. V3 carousel kapısı (karusel.json: DdrE 1.0, DePQ araç 1.0 link 0.95, Dd7W 0.667/0.6) → Dd7W slayt videolu, teşhis gerek.
+DOSYALAR: tools/video/video/uzun.py + tests/test_uzun.py, .kos/kopru/video/v3.py (kos `yeniden` bayrağı d6), hat_plan.py, hat-plan-14eki.tsv.
