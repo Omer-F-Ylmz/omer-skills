@@ -36,7 +36,8 @@ def ozet(n):
 cikti = []
 belirtec = [t for t in dict.fromkeys(re.findall(r"[A-Za-z_][\w.\-]{3,}", soru)) if t in ada]
 for t in belirtec:
-    for n in ada[t][:3]:
+    # soruda yolu geçen dosya önce, sonra sığ yol (TELVE: aynı ad docs/r1/_ham kopyalarında 10+ kez)
+    for n in sorted(ada[t], key=lambda n: ((n.get("source_file") or "") not in soru, (n.get("source_file") or "").count("/")))[:3]:
         cikti.append(f"{n['label']} · {yer(n)} · {ozet(n)}".rstrip(" ·"))
         cag = sorted({f"{e.get('source_file')}:{e.get('source_location', '')}" for e in gelen[n["id"]]
                       if e["relation"] in ("calls", "indirect_call", "imports", "imports_from", "references")})
@@ -46,10 +47,12 @@ for t in belirtec:
         if ic:
             cikti.append(f"  içerir ({len(ic)}): " + " ".join(ic[:12]))
 if not cikti:
-    for t in dict.fromkeys(re.findall(r"[A-Za-z_]\w{3,}", soru)):
-        r = subprocess.run(["git", "grep", "-n", "-I", "-E", rf"(def|class|function|const|let|var)\s+{t}\b"],
-                           cwd=kok, capture_output=True, text=True, encoding="utf-8", errors="replace").stdout
-        cikti += [f"grep: {s[:150]}" for s in r.splitlines()[:5]]
+    for t in dict.fromkeys(re.findall(r"\b[A-Za-z_]\w{3,}\b", soru, re.ASCII)):  # ASCII: "çağırıyor" → "ağırıyor" olmasın
+        # tanım + çağrı yerleri: dış/stdlib sembolü (QueryValueEx, geturl) grafta düğüm değil
+        for desen, n in ((rf"(def|class|function|const|let|var)\s+{t}\b", 3), (rf"[^\w]{t}\s*\(", 5)):
+            r = subprocess.run(["git", "grep", "-n", "-I", "-E", desen], cwd=kok, capture_output=True,
+                               text=True, encoding="utf-8", errors="replace").stdout
+            cikti += [f"grep: {s[:150]}" for s in r.splitlines() if not re.search(rf"def\s+{t}\b", s) or n == 3][:n]
 if not cikti:
     r = subprocess.run(["graphify", "query", soru, "--budget", "400"], cwd=kok, capture_output=True,
                        text=True, encoding="utf-8", errors="replace").stdout

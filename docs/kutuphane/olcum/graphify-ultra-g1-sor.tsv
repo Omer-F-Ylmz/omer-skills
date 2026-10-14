@@ -1,21 +1,21 @@
 kok	tip	soru	isabet	sinif	satir	kelime	beklenen
-omer-skills	tanim	tara_v10 nerede tanımlı	1		2	24	tools/video/video/yonlendir.py
-omer-skills	tanim	uyarlama nerede tanımlı	1		2	11	tools/video/tests/test_kalite.py
-omer-skills	tanim	kaynak_ayristir nerede tanımlı	1		2	19	tools/video/video/tarama.py
-omer-skills	tanim	kontroller nerede tanımlı	1		3	9	tools/blender_dogrula.py
-omer-skills	cagiran	hookKaynaklari fonksiyonunu kim çağırıyor	1		2	13	tools/cc-kopru/araclar/hook-envanter.mjs;tools/cc-kopru/gecit.mjs;tools/cc-kopru/sunucu.mjs;tools/cc-kopru/test/hook-ortam.test.mjs;tools/cc-kopru/test/hook.test.mjs
-omer-skills	cagiran	gozlemHooku fonksiyonunu kim çağırıyor	1		2	8	tools/cc-kopru/gecit.mjs;tools/cc-kopru/sunucu.mjs
-omer-skills	cagiran	kacan_dusuk fonksiyonunu kim çağırıyor	1		2	21	tools/video/tests/test_d2_ayirt.py;tools/video/tests/test_d2_kanca.py;tools/video/tests/test_d2_sikilastir.py
-omer-skills	cagiran	_benzerlik fonksiyonunu kim çağırıyor	1		2	17	tools/video/tests/test_f3_kare.py;tools/video/tests/test_f3_v5.py
-omer-skills	modul	olcum_m5 modülü ne yapar	1		2	24	tools/video/olcum_m5.py
-omer-skills	modul	olcum_m3b modülü ne yapar	1		3	37	tools/video/olcum_m3b.py
-omer-skills	md	skill-ui — bu arac Claude Code'da kosar, Desktop'ta kosmaz skill'i	1		9	43	skills/skill-ui-desktop/SKILL.md
-omer-skills	md	İş akışı (bağlayıcı) skill'i	0	siralama	6	27	skills/is-akisi/SKILL.md
-TELVE	tanim	katman nerede tanımlı	1		1	24	docs/r1/_ham/yon/yon.js
+omer-skills	tanim	kisa_ad nerede tanımlı	1		2	21	tools/video/video/uzun.py
+omer-skills	tanim	tarama nerede tanımlı	1		5	45	tools/jev/jev/cli.py
+omer-skills	tanim	toplu_isaret nerede tanımlı	1		2	20	tools/video/video/uygula.py
+omer-skills	tanim	site_mi nerede tanımlı	1		2	22	tools/video/video/uygula.py
+omer-skills	cagiran	sec_temsilci fonksiyonunu kim çağırıyor	0	siralama	2	17	tools/tests/test_fable_ajan_olc.py
+omer-skills	cagiran	yorunge fonksiyonunu kim çağırıyor	1		2	21	tools/ogrenme/kalibre.py;tools/tests/test_kanca.py
+omer-skills	cagiran	QueryValueEx fonksiyonunu kim çağırıyor	1		6	38	.claude/omniroute1/pilot.py;.claude/omniroute1/prob.py;.claude/token4/mem_kiyas.py;.kalite3/ajan_jev.py;.kos/kopru/graphify_sor.py;tools/kilavuz_taslak.py;tools/mcp_kurutest.py;tools/ucuz_alt.py;tools
+omer-skills	cagiran	geturl fonksiyonunu kim çağırıyor	1		2	11	.kos/kopru/graphify_sor.py;tools/video/video/instagram.py
+omer-skills	modul	gstack_ai modülü ne yapar	1		2	25	tools/gstack_ai.py
+omer-skills	modul	envanter modülü ne yapar	0	siralama	5	15	tools/skill-paket/envanter.py
+omer-skills	md	Animasyon atölyesi skill'i	0	siralama	8	33	skills/animasyon-atolyesi/SKILL.md
+omer-skills	md	ÇEKİRDEK (özet; compaction sonrası da bu blok geçerli, ayrıntı ilgili bölümde) skill'i	0	siralama	8	33	plugins/frontend-craft/skills/frontend-craft/SKILL.md
 TELVE	tanim	izgara nerede tanımlı	1		1	3	docs/r1/_ham/r2g/komp.mjs
-TELVE	tanim	plakaGit nerede tanımlı	1		2	6	src/dunya/dunya.ts
-TELVE	cagiran	dokumSes fonksiyonunu kim çağırıyor	1		2	6	src/sahne/cezve.ts
+TELVE	tanim	bolumler nerede tanımlı	1		3	9	src/sahne/sayfa.ts
+TELVE	tanim	porselenYap nerede tanımlı	1		2	8	src/sahne/malzeme.js
+TELVE	cagiran	katman fonksiyonunu kim çağırıyor	0	sembol-yok	3	54	docs/r1/_ham/hazir/cam/cam.js;docs/r1/_ham/hazir/hdr-brown_photostudio_02/fincan.js;docs/r1/_ham/hazir/hdr-comfy_cafe/fincan.js;docs/r1/_ham/r0c/fincan/fincan.js;docs/r1/_ham/r0c/onceki/fincan.js;docs
+TELVE	cagiran	fincan fonksiyonunu kim çağırıyor	1		6	25	astro.config.mjs;docs/r1/_ham/hazir/cek-hazir.mjs;docs/r1/_ham/hazir/hdr-brown_photostudio_02/fincan.js;docs/r1/_ham/hazir/hdr-comfy_cafe/fincan.js;docs/r1/_ham/hazir/ortak.js;docs/r1/_ham/r0c/cek.mjs
 TELVE	cagiran	etiket fonksiyonunu kim çağırıyor	0	siralama	1	3	docs/r1/_ham/hazir/hdr-brown_photostudio_02/fincan.js;docs/r1/_ham/hazir/hdr-comfy_cafe/fincan.js;docs/r1/_ham/r0c/fincan/fincan.js;docs/r1/_ham/r0c/onceki/fincan.js;docs/r1/_ham/r0f/cek-r0f.mjs;docs/
-TELVE	cagiran	sesKur fonksiyonunu kim çağırıyor	1		3	9	src/sahne/sayfa.ts
-TELVE	modul	kesit modülü ne yapar	1		3	11	src/sahne/kesit.ts
-TELVE	modul	kiyas modülü ne yapar	1		2	12	docs/r1/_ham/r3a/kiyas.mjs
+TELVE	modul	hacim.test modülü ne yapar	1		1	3	src/sahne/hacim.test.ts
+TELVE	modul	malzeme modülü ne yapar	1		4	15	src/sahne/malzeme.js

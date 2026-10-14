@@ -62,6 +62,8 @@ try:
         time.sleep(0.3)
     kip = "tam" if d is None else f"artımlı {len(d)} dosya"
     print(f"graphify_hafif: {kip} · rc {p.returncode} · tepe RSS {tepe / 1e6:.0f} MB · {time.time() - bas:.1f} sn")
+    if p.returncode == 0:  # G3: graf değişti → harita tazelenir
+        subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "graphify_harita.py"), kok])
     sys.exit(p.returncode)
 finally:
     os.remove(kilit)
