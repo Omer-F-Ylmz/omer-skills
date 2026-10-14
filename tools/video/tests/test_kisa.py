@@ -57,3 +57,24 @@ def test_izle_hepsi_503_ise_bekleyip_yeniden(tmp_path, monkeypatch):
 def test_paket_linkleri(tmp_path):
     (tmp_path / "paket.md").write_text("açıklama: https://github.com/a/b ve x.dev/y, yine https://github.com/a/b", encoding="utf-8")
     assert kisa.paket_linkleri(tmp_path) == ["https://github.com/a/b", "https://x.dev/y"] and kisa.paket_linkleri(tmp_path / "yok") == []
+
+
+def test_sozluk_tara_kendi_raporu_ve_sik_ad_disarida(tmp_path, monkeypatch):
+    env = tmp_path / "envanter.jsonl"
+    env.write_text("\n".join(json.dumps(x) for x in [{"ad": "GliFormer", "kaynak": "docs/x-ig-Baska.md"}, {"ad": "AirLLM", "kaynak": "docs/x-ig-Bu.md"},
+                                                     {"ad": "Agent", "kaynak": "a"}]), encoding="utf-8")
+    monkeypatch.setattr(kisa, "ENVANTER", env)
+    monkeypatch.setattr(kisa, "_TARAMA", {})
+    for i in range(4):
+        (tmp_path / f"ig-D{i}").mkdir()
+        (tmp_path / f"ig-D{i}" / "paket.md").write_text("an agent", encoding="utf-8")
+    d = tmp_path / "ig-Bu"
+    d.mkdir()
+    (d / "paket.md").write_text("AirLLM ile GliFormer ve agent", encoding="utf-8")
+    assert [a["ad"] for a in kisa.sozluk_tara(d, {"araclar": []})] == ["GliFormer"]  # AirLLM kendi raporundan, Agent sık
+    assert kisa.sozluk_tara(d, {"araclar": [{"ad": "gliformer"}]}) == []
+
+
+def test_birlestir_tekrarsiz():
+    g = kisa.birlestir({"araclar": [{"ad": "Browser Use"}]}, {"adlar": ["browser-use", "pip", "pip"]})
+    assert [a["ad"] for a in g["araclar"]] == ["Browser Use", "pip"]

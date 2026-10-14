@@ -41,7 +41,9 @@ def ogeler(form, vid):
 
 
 def esit(a, havuz):
-    return tr.eslestir(a, [(h, "") for h in havuz]) is not None
+    """Ad normalleştirme (tüm kollara eşit): "jev (GliFormer)" / "jev, powered by GliFormer" → çekirdek ad "jev" da denenir."""
+    h = [(x, "") for x in havuz] + [(re.split(r"\s*[(,]|\s+powered by\s+", x)[0], "") for x in havuz]
+    return any(tr.eslestir(b, h) is not None for b in {a, re.split(r"\s*[(,]|\s+powered by\s+", a)[0]} if b)
 
 
 def olc(ad, ln, rad, rln, metin):
@@ -98,7 +100,7 @@ def puan():
                 ad, ln = {x["ad"] for x in f["araclar"]}, {_url(x) for x in f["linkler"] + [x["link"] for x in f["araclar"] if x["link"]]}
                 g = o["iz"][v]
                 gs = g["gemini"].get("sure") or json.loads((ONB / v / "gemini.json").read_text(encoding="utf-8"))["_iz"]["sure"]  # önbellek dönüşünde süre kayıtta
-                sure = gs + g["arastir"] + o["sonuc"]["sure"] / n
+                sure = max(gs, (g.get("metin") or {}).get("sure", 0)) + g["arastir"] + o["sonuc"]["sure"] / n  # metin geçişi izlemeye paralel
                 ag = y_agir
             else:
                 ad, ln = ogeler(_kol(k)[v]["form"], v)
@@ -111,5 +113,19 @@ def puan():
         print(*s, sep="\t")
 
 
+def kacak():
+    """Kaçak analizi: altın videolarda yeni hattın kaçırdığı referans araçları + paket metninde (transkript+OCR+açıklama) geçip geçmediği."""
+    o = json.loads((CIK / "oturum.json").read_text(encoding="utf-8"))
+    yeni = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}
+    for v in ALTIN:
+        rad = set().union(*(ogeler(_kol(r)[v]["form"], v)[0] for r in REF))
+        ad = {x["ad"] for x in yeni[v]["araclar"]}
+        metin = tr.normal((ONB / v / "paket.md").read_text(encoding="utf-8"))
+        kac = sorted(r for r in rad if not esit(r, ad))
+        print(f"{v}\tref {len(rad)}\tkaçan {len(kac)}")
+        for r in kac:
+            print(f"  {'METİNDE' if tr.normal(r) in metin else 'yok    '}\t{r}")
+
+
 if __name__ == "__main__":
-    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan}[sys.argv[1]]()
+    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan, "kacak": kacak}[sys.argv[1]]()

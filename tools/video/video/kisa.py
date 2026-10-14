@@ -116,6 +116,53 @@ def izle(d, medya=None, env=None, yeniden=False):
     key, t = anahtar(env), time.monotonic()
     govde = {"contents": [{"parts": parcalar(d, Path(medya or d), key)}],
              "generationConfig": {"responseMimeType": "application/json", "responseSchema": SEMA, "temperature": 0.2}}
+    j, iz = _uret(govde, key, t)
+    var = {a["ad"].casefold() for a in j["araclar"]}  # lite araclar'da adları atlıyor; ayrı tam liste alanı yakalamayı artırır
+    j["araclar"] += [{"ad": a, "ne_dedi": "(yalnız adı geçiyor)", "zaman": "paket"} for a in dict.fromkeys(j.pop("adlar", []))
+                     if a.casefold() not in var and not KOD.search(a)]
+    hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
+    return j, iz
+
+
+KOD = re.compile(r"[<>{}=;]")  # kod parçası ad değil
+METIN_ISTEM = ("Aşağıda bir kısa videonun paketi var (başlık, açıklama, konuşma metni, ekran OCR'ı, linkler). Videoda adı geçen TÜM araç, repo, uygulama, "
+               "servis, model (sürümüyle), kütüphane, paket yöneticisi (pip, npm, uv…), programlama dili, platform ve lisans adlarını çıkar; yalnız bir kez "
+               "ya da yalnız ekranda geçenler dahil. OCR bozuk yazımlarını tek doğru ada indir. Genel terimleri (API, JSON, HTTP, CSS), slash komutlarını, "
+               "kişi adlarını, arayüz düğme/menü yazılarını ve sıradan kelimeleri alma. ADAYLAR katalogdan gelir ve pakette geçer: yalnız videoda gerçekten "
+               "araç/ürün adı olarak kullanılanları al.")
+
+
+def metin_gec(d, env=None, yeniden=False):
+    """İkinci, yalnız-metin Gemini geçişi (recall): paket.md + katalog sözlüğü adayları → {adlar}; önbellek gemini-metin.json. Video izlemeye paralel koşabilir."""
+    d = Path(d)
+    hedef = d / "gemini-metin.json"
+    if hedef.is_file() and not yeniden:
+        return json.loads(hedef.read_text(encoding="utf-8"))
+    key, t = anahtar(env), time.monotonic()
+    aday = [a["ad"] for a in sozluk_tara(d, {})]
+    metin = (d / "paket.md").read_text(encoding="utf-8")[:PAKET_TAVAN * 2]
+    govde = {"contents": [{"parts": [{"text": f"{METIN_ISTEM}\n\nADAYLAR: {', '.join(aday) or 'yok'}\n\n{metin}"}]}],
+             "generationConfig": {"responseMimeType": "application/json", "temperature": 0.1,
+                                  "responseSchema": {"type": "OBJECT", "required": ["adlar"], "properties": {"adlar": {"type": "ARRAY", "items": {"type": "STRING"}}}}}}
+    j, iz = _uret(govde, key, t)
+    j = {"adlar": [a for a in dict.fromkeys(j["adlar"]) if a.strip() and not KOD.search(a)], "aday": len(aday), "_iz": iz}
+    hedef.write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
+    return j
+
+
+def birlestir(g, m):
+    """Metin geçişinin adlarını Gemini araçlarına tekrarsız ekler (yerinde)."""
+    g["araclar"] = [a for a in g["araclar"] if not KOD.search(a["ad"])]  # eski önbellekteki kod parçaları da (DeV9 <script src=…>)
+    var = {tr.normal(a["ad"]) for a in g["araclar"]}
+    for a in m.get("adlar", []):
+        if tr.normal(a) not in var:
+            var.add(tr.normal(a))
+            g["araclar"].append({"ad": a, "ne_dedi": "(metin geçişi: pakette adı geçiyor)", "zaman": "paket"})
+    return g
+
+
+def _uret(govde, key, t):
+    """MODELLER sırasıyla generateContent → (JSON, iz)."""
     son = []
     for tur in range(IZLE_TUR):  # iki model birden 503 "high demand" verebiliyor (14 Eki) → bekle, baştan dene
         if tur:
@@ -124,12 +171,7 @@ def izle(d, medya=None, env=None, yeniden=False):
             try:
                 y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde, zaman=IZLE_ZAMAN)
                 j = json.loads(y["candidates"][0]["content"]["parts"][0]["text"])
-                var = {a["ad"].casefold() for a in j["araclar"]}  # lite araclar'da adları atlıyor; ayrı tam liste alanı yakalamayı artırır
-                j["araclar"] += [{"ad": a, "ne_dedi": "(yalnız adı geçiyor)", "zaman": "paket"} for a in dict.fromkeys(j.pop("adlar", []))
-                                 if a.casefold() not in var and not re.search(r"[<>{}=;]", a)]  # kod parçası ad değil
-                iz = {"model": m, "sure": round(time.monotonic() - t, 1), "jeton": (y.get("usageMetadata") or {}).get("totalTokenCount")}
-                hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
-                return j, iz
+                return j, {"model": m, "sure": round(time.monotonic() - t, 1), "jeton": (y.get("usageMetadata") or {}).get("totalTokenCount")}
             except urllib.error.HTTPError as e:
                 son.append(f"{m}: HTTP {e.code} {e.read()[:200]!r}")
                 if e.code not in (404, 429, 500, 503):
@@ -149,14 +191,68 @@ def _kararlar():
     return {tr.normal(s[bas.index("kalem")]): f"{s[bas.index('karar')]} (ig-41)" for s in satir[1:] if len(s) == len(bas)}
 
 
-def katalog(adlar, ev=None):
-    """{ad: 'kurulu:<kaynak>' | '<karar> (ig-41)' | None}; None = bilinmeyen → tam araştırma."""
+def katalog(adlar, ev=None, kok=None, vid=""):
+    """{ad: 'kurulu:<kaynak>' | '<karar> (ig-41)' | 'atlas:<kaynak>' | None}; None = bilinmeyen → tam araştırma.
+    ATLAS envanterinde videonun kendi raporundan gelen satır sayılmaz."""
     sozluk, karar = tr.sozluk_kur(Path(ev or Path.home()), []), _kararlar()
+    atlas = _tarama(kok)["ad"] if kok else {}
     out = {}
     for a in adlar:
         k = karar.get(tr.normal(a))
         e = None if k else tr.eslestir(a, sozluk)
-        out[a] = k or (f"kurulu:{e[1]}" if e else None)
+        x = atlas.get(" ".join(_sozcuk(a)), [a, []])[1]
+        x = [y for y in x if not (vid and vid[3:] in y)]
+        out[a] = k or (f"kurulu:{e[1]}" if e else (f"atlas:{x[0]}" if x else None))
+    return out
+
+
+ENVANTER = KOK / ".claude" / "atlas" / "envanter.jsonl"
+DF_TAVAN = 0.2  # ad, paketlerin bu oranından fazlasında geçiyorsa genel kelime (agent %48, claude %72); ≤%1 denemesinde lite aday dışı adları da (pip, npm, Llama) bıraktı
+_sozcuk = lambda s: re.findall(r"[a-z0-9]+", s.casefold())
+
+
+def _ngram(s):
+    t = _sozcuk(s)
+    return {" ".join(t[i:i + n]) for n in (1, 2, 3) for i in range(len(t) - n + 1)}
+
+
+_TARAMA = {}
+
+
+def _tarama(kok):
+    """{ngram: [envanter adı, kaynak]} + belge sıklığı; süreç başına bir kez (1.9k paket.md ~birkaç sn)."""
+    if "ad" not in _TARAMA:
+        ad = {}
+        if ENVANTER.is_file():
+            for s in ENVANTER.read_text(encoding="utf-8").splitlines():
+                j = json.loads(s)
+                k = " ".join(_sozcuk(j.get("ad", "")))
+                if k and k.count(" ") < 3 and (" " in k or len(k) >= 3) and not k.isdigit():
+                    ad.setdefault(k, [j["ad"], []])[1].append(j.get("kaynak", ""))
+        df = {}
+        paketler = list(Path(kok).glob("*/paket.md"))
+        for p in paketler:
+            for g in _ngram(p.read_text(encoding="utf-8", errors="ignore")) & ad.keys():
+                df[g] = df.get(g, 0) + 1
+        _TARAMA.update(ad=ad, df=df, n=max(len(paketler), 1))
+    return _TARAMA
+
+
+def sozluk_tara(d, g):
+    """Claude'suz recall: paket.md (konuşma+OCR+açıklama+linkler) içinde ATLAS envanterinin bildiği adlar → Gemini'nin atladıkları.
+    Videonun kendi raporundan gelen envanter satırı sayılmaz (sızıntı); genel kelimeler belge sıklığıyla elenir."""
+    p, vid = Path(d) / "paket.md", Path(d).name
+    t = _tarama(Path(d).parent)
+    if not p.is_file():
+        return []
+    var = {tr.normal(a["ad"]) for a in g.get("araclar", [])}
+    out = []
+    for k in sorted(_ngram(p.read_text(encoding="utf-8", errors="ignore")) & t["ad"].keys()):
+        ad, kaynak = t["ad"][k]
+        if all(vid[3:] in x for x in kaynak) or t["df"].get(k, 0) / t["n"] > DF_TAVAN or tr.normal(ad) in var:
+            continue
+        var.add(tr.normal(ad))
+        out.append({"ad": ad, "ne_dedi": "(katalog sözlüğü: pakette adı geçiyor)", "zaman": "paket"})
     return out
 
 
@@ -202,6 +298,8 @@ OTURUM_SISTEM = ("Kısa video değerlendiricisisin. Her VIDEO bloğu Gemini'nin 
                  "ve her aracın katalog durumudur. Hiçbir video ve hiçbir araç elenmez. Her araç için: tur (skill·plugin·MCP·CLI·kütüphane·uygulama·servis·model·teknik·ipucu), "
                  "link (JSON'da varsa, yoksa boş), not ≤2 kısa cümle. Katalog 'kurulu'/'karar' diyorsa not yalnız FARK (yeni sürüm/özellik/iddia) ya da 'fark yok'; "
                  "'bilinmeyen' ise not = ne işe yarar + bizde ne işe yarar, arastirma künyesi varsa lisans/hesap şartını ekle. "
+                 "ne_dedi '(metin geçişi…)' / '(yalnız adı geçiyor)' olan adlardan araç/ürün/model/dil/platform/lisans adı OLMAYANLARI (arayüz düğme/menü yazısı, "
+                 "sıradan kelime, kişi adı, OCR bozuğu) yazma; gerçek araçların hepsi kalır. "
                  "linkler: videonun tüm linkleri aynen. Uydurma ekleme, JSON'da olmayan aracı yazma.")
 OTURUM_SEMA = {"type": "object", "required": ["videolar"], "properties": {"videolar": {"type": "array", "items": {
     "type": "object", "required": ["id", "ozet", "araclar", "linkler"], "properties": {
@@ -244,16 +342,19 @@ def calistir(ids, kok, cikti, efor="low", env=None):
                 m.mkdir(parents=True, exist_ok=True)
                 instagram.getir(m)
         indir = round(time.monotonic() - t, 1)
-        g, gi = izle(kok / v, m, env)
+        with ThreadPoolExecutor(2) as ex:  # metin geçişi video izlemeyi beklemez
+            fg, fm = ex.submit(izle, kok / v, m, env), ex.submit(metin_gec, kok / v, env)
+            (g, gi), mg = fg.result(), fm.result()
+        birlestir(g, mg)
         paket_link[v] = paket_linkleri(kok / v)
-        kat = katalog([a["ad"] for a in g["araclar"]])
+        kat = katalog([a["ad"] for a in g["araclar"]], kok=kok, vid=v)
         def kun(a):
             r, nasil = repo_bul(a["ad"], g["linkler"] + paket_link[v] + [a["ne_dedi"]])
             return a["ad"], ({**arastir(r), "bulunus": nasil} if r else None)
         t = time.monotonic()
         with ThreadPoolExecutor(6) as ex:  # gh + README özeti ağ bekler; seri DeHMM 30 araçta 43 sn
             kunye = {ad: k for ad, k in ex.map(kun, [a for a in g["araclar"] if not kat[a["ad"]]]) if k}
-        iz[v] = {"indir": indir, "gemini": gi, "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
+        iz[v] = {"indir": indir, "gemini": gi, "metin": mg["_iz"], "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
         bloklar.append(blok(v, g, kat, kunye))
         print(v, iz[v], flush=True)
     y = oturum(bloklar, efor, env)

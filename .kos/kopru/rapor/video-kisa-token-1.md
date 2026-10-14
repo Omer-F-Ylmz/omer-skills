@@ -9,3 +9,17 @@ Katalog: kullanılan [video CLI (hafif.cagir, tarama.sozluk_kur/eslestir, instag
 - Test: tests/test_kisa.py 3/3 yeşil.
 - Kalan: M4 puan (kapı), M5 skill + zip → devir/video-kisa-token-1-devam.md.
 - d2 (16:45): fallback 2.5-flash emekli (404 'no longer available to new users') → 3.8-flash; hata gövdesi günlükte; kisa.calistir + `video kisa` + SKILL.md bölümü + zip TEMİZ. kos 3. videoda 3.5-flash zaman aşımıyla düştü → devir.
+
+## d5 (14 Eki 18:00): recall artışı, ATLAS sözlüğü + paralel Gemini metin geçişi
+- Kaçak analizi (kisa_m4.py kacak): d4 kaçaklarının çoğu pakette yazılı (pip, npm, Browser Use, Featherless, GliFormer, Llama); kalanı kavram ("Katman katman yükleme") ya da ad varyantı ("jev (GliFormer)").
+- kisa.sozluk_tara: paket.md n-gram ∩ ATLAS envanter adları; videonun kendi raporundan gelen satır sayılmaz (sızıntı), belge sıklığı %20'yi aşan ad genel kelime sayılır. kisa.metin_gec: yalnız metin üzerinde çalışan Gemini (lite, ~2–7 sn, ücretsiz) adayları süzer, birlestir ile eklenir; izle ile paralel koşar. katalog() ATLAS'ı da tanır (bilinen 153/181).
+- DF ≤%1 denemesi geri alındı: lite aday dışındaki sık adları (pip, npm, Llama) bıraktı.
+- Ölçüm normalleştiricisi: "X (Y)" / "X, powered by Y" biçiminde çekirdek ad da eşleşir (tüm kollara eşit).
+
+| kol | araç_yak | link_yak | yp/video | ağır_tk/video | sn/video |
+|---|---|---|---|---|---|
+| taban (1+2 ort.) | 0.850 | 0.584 | 0 | 236 348 | 131.5 |
+| low-ssb (1+2 ort.) | 0.641 | 0.179 | 0 | 43 279 | 64.2 |
+| yeni d5 | 0.861 | 0.449 | 0 | 10 020 (0.04×) | 32.7 (0.25×) |
+
+- Kapı: araç ✓ · yp ✓ · token ✓ · süre ✓ · link ✗ (0.449 < 0.584). claude -p bu dilimde 1 (57 sn, 0.16 $).

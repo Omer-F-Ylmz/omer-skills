@@ -1,4 +1,24 @@
-d3 SONU (14 Eki ~17:05, CC) — ÖNCE BUNU OKU; altındaki DESKTOP 16:45 notu ve 1. madde KAPANDI.
+ÖMER 14 Eki 17:38 — KABUL KAPISI DEĞİŞTİ: "Kısa video hattı araç yakalamayı 80'e çıkartalım." Yeni kapı (8 videonun hepsinde, video başı tablo): araç ≥0.80 · link ≥ low-ssb · yp ≤ low-ssb (0) · ağır_tk/video ≤0.30× low-ssb · sn/video ≤0.5× low-ssb. claude -p bütçesi 4 → 6.
+Yol (ucuzdan pahalıya; her adımdan sonra puan, hedefe varınca dur):
+ 1. Kaçak analizi önce: her videoda kaçan referans kalemleri türüne göre say (genel altyapı / model sürümü / kavram / yazım eşleşmesi / gerçek kaçırma). Altın kümeyi DEĞİŞTİRME; bir kalem videoda gerçekten yoksa kanıtla (zaman/kare) ayrı listele, Desktop karar verir. Metriği oynamak yok.
+ 2. Ad normalleştirme (browser-use ↔ Browser Use, owner/repo ↔ repo adı, sürüm ekleri) — hat içinde; puan'da aynı normalleştirici tüm kollara eşit uygulanır.
+ 3. Katalog sözlük taraması (Claude'suz): ATLAS envanteri (.claude/atlas/envanter.jsonl, 15 940 öğe) + kurulu sözlük ile transkript + OCR + paket.md metninde bilinen adları tara → adlar'a ekle. yp koruması: tam eşleşme ya da ≥2 kaynakta geçme; genel kelime adları (ör. "code", "agent") dur-listesi.
+ 4. Model: iki flash ayaktaysa onlar; lite yalnız son yedek. İkisi de yanıt veriyorsa iki modelin birleşimi (ücretsiz).
+ 5. İkinci Gemini geçişi yalnız metin (transkript + OCR + paket.md) üzerinde, recall odaklı "tüm araç/repo/model/kütüphane adları" çıkarımı → birleşim.
+ 6. Transkript yoksa yerel whisper-cli.
+Aşırı uyum yasak: videoya özel kural yok, mekanizmalar genel; rapora video başı sonuç + hangi mekanizmanın ne kadar katkı verdiği. Hedefe varılırsa d4 Kalan (1)(2)(3) ile kapat; varılamazsa en iyi sayı + engel + sonraki öneri, SIRA'ya yaz.
+d4 SONU (14 Eki ~17:40, CC) — ÖNCE BUNU OKU; altındaki d3 "Kalan" 1–2 KAPANDI. Commit 971320e2. claude -p 3/4 kullanıldı (kalan 1).
+- Yapılan: ISTEM paket.md'yi "yalnız yazım" yerine baştan tarar + şemada `adlar` (tam ad listesi, araclar'a tekrarsız katılır; kod parçası elenir) ·
+  video yoksa önbellek kareleri (≤12) Gemini'ye (DcGy07ZMh5D: embed video yok → 3 site yakalandı) · araştırma ThreadPool(6) · gh arama 30/dk → rate limit'te 20 sn bekle ×4. test_kisa 6/6.
+- Tüm 8 video yeni istemle yeniden izlendi (eski: <id>/gemini-d3.json; hepsi 3.5-flash-lite, iki flash 503). Araştırma önbelleği yedeği: kisa/arastirma-d4 (yeni: kisa/arastirma).
+- Son puan (kos 3, arastirma boş önbellekle): yeni araç 0.666 · link 0.449 · yp 0.333 · ağır_tk/video 5 806 · sn/video 31.4.
+  Taban (low-ssb-1/2): araç 0.631/0.617 · link 0.14/0.217 · yp 0 · 47 445/39 113 tk · 67.4/61.1 sn → token 0.12× ✓, süre 0.47× ✓, araç/link ✓, yp ✗.
+- yp kaynağı: DeV9 gemini.json'daki `<script src=...>` adı (adlar birleşmesi) → filtre eklendi AMA önbellekte duruyor.
+  Kalan: (1) DeV9'u `kisa.izle(ONB/v, CIK/'medya'/v, yeniden=True)` ile yeniden izle (ya da araclar'dan o satırı sil) ·
+  (2) kos 3'te gh arama oran sınırı sessiz kayıp yaptı (59 bilinmeyen → 29 künye) — bekleme eklendi; süre kapısını yeniden ölç: kisa/arastirma'yı boşalt (arastirma-d5'e taşı), kos (claude -p 4/4), puan. Süre 33.7'yi aşarsa rapora dürüstçe yaz (bekleme gerçek maliyet).
+  (3) rapor/video-kisa-token-1.md + M5 (eski madde 4) + SIRA BİTTİ.
+
+d3 SONU (14 Eki ~17:05, CC) — 1. madde KAPANDI.
 - Commitler: 599f11b (zaman aşımı → sıradaki model + test) · 503 iki model → 4 tur bekle-yeniden + test · 94c7e51'in yerine kisa.py-only commit (son yedek gemini-3.5-flash-lite; iki flash 503'te, 3.8-flash-lite 404) · paket_linkleri (paket.md linkleri regex'le, Claude'suz) + test. test_kisa 6/6.
 - kos BİTTİ (claude -p 1/4 kullanıldı: 22.6 sn, $0.056, 8 video, hata yok). oturum.json'a paket linkleri eklendi (linksiz kopya: oturum-linksiz.json).
 - puan (yeni): araç 0.409 · link 0.372 · yp 0 · ağır_tk/video 3 505 · sn/video 96.7. Taban-1: 0.923/0.542/0/244 078/130.5 · low-ssb-1: 0.631/0.14/0/47 445/67.4.
@@ -17,3 +37,9 @@ KALAN (d2 sonu, 14 Eki ~16:45):
 5. rapor son hali + commit + SIRA "VİDEO-KISA-TOKEN-1 BİTTİ".
 SON COMMIT: (bu ara kayıt d2)
 AÇIK KARAR: yok
+
+## d5 sonu (14 Eki 18:00) — kalan tek açık: link yakalama
+- Araç 0.861 ≥ taban 0.850, yp 0, token 0.04×, süre 0.25× GEÇTİ; link 0.449 < taban 0.584 KALDI (rapor d5 tablosu).
+- Sonraki adım: kisa_m4.py'ye link kaçak dökümü ekle (kacak gibi; taban linklerinden yeni kolun kaçırdıkları + pakette geçiyor mu). Muhtemel kök: taban linkleri Claude'un web araştırmasıyla bulduğu repo/site URL'leri → repo_bul/arastir çıktısındaki URL'ler oturum linklerine eklenmeli (Claude'suz).
+- Önbellek: .video-cache/*/gemini-metin.json (DF %20) güncel; gemini-metin-df01.json eski deneme. kisa/oturum-d4.json = d4 oturumu; kisa_kos-5.log d4 günlüğü.
+- Sonra: M5 paket (video-tarama skill kısa video yolu + zip_denetle), rapor kapanış, SIRA BİTTİ.

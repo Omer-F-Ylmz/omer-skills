@@ -427,4 +427,8 @@ DISK-1 d2 HAZIR 13:40 — Ömer koşar (repo kökünden): `python .kos/kopru/dis
 14 Oct 12:56 TOKEN-2 d1 ARA KAYIT 2: K1 doğrulama DOĞRULANAMADI (A/B durma 0, yer değiştirme 0; claude -p 2/2); K0 devirde
 14 Oct 14:37 TOKEN-2 d3 ara: K9 MAX_THINKING Opus 5.5'te etkisiz (ölçüldü), effort medium −%16 n=1; K1b farkı 6769'da HEADROOM_* ortamı yok; ucuz_alt 400 düzeltildi, K8 iki kol koştu; kalan K8 puan + K3/K7 → devir
 - 14 Eki 16:15 VİDEO-KISA-TOKEN-1 ara: kisa.py (Gemini izle + katalog + tek claude -p oturum) + kisa_m4.py ölçüm; kos koşusu bitti, puan/M5 devirde (devir/video-kisa-token-1-devam.md)
+- 14 Eki 16:55 TOKEN-2 K1c: A durma %0 (0/13) · B koşulmadı (ekleme akışında yapı gereği A ile aynı) · ağırlıklı A 346.3k · sıkıştırma 188k/1.95M (%9.6) · UYGULAMA (koşul A≥%30 sağlanmadı; tetikleyici ≥20 bloklu kuyruk yeniden yazımı; d7e3b75, devir/token-2-devam.md)
+- 14 Eki 17:05 ATLAS-1 d1 BİTTİ: kart 207 (V30·G172·K5), uydurma 0/10, docs/atlas/site-3d.md, seçim site/3D alt küme 12/14 = taban, dist/claude-ai-22 (frontend + blender-uretim, TEMİZ, yükleme Ömer'de); rapor/atlas-1.md
+- 14 Eki 17:40 VİDEO-KISA-TOKEN-1 ara: d4 971320e2 — araç yak. 0.666 (≥low-ssb 0.631), link 0.449, token 0.12×, süre 0.47×; yp 1 (DeV9 kod parçası, filtre eklendi) → yeniden ölçüm (claude -p 4/4) + rapor + M5 devirde
 - 14 Eki 17:40 TOKEN-2 BİTTİ: K7 site kiti (kapı 4/4) + katalog site_kit · blender eklentisi 1.5.0 (onay/blender_6_uygula.py, push sonrası) · dist/claude-ai-23 animasyon-atolyesi + web-sahne-desenleri TEMİZ · CC animasyon: onay/animasyon_1_uygula.py uygula
+- 14 18:00 VİDEO-KISA-TOKEN-1 ara: d5 araç 0.861 (≥taban 0.850), yp 0, tk 0.04×, sn 0.25×; link 0.449 < 0.584 açık (devir/video-kisa-token-1-devam.md)
