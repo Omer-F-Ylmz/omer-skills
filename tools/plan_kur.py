@@ -63,8 +63,9 @@ TUR = {
                  "bulgu triyajı: ecc:security-reviewer · differential-review:adversarial-modeler (yüksek risk)",
                  "risk önceliği / kapsam", "plan 6k · tarama 15k · triyaj 12k · rapor 5k"),
 }
-ZOR = re.compile(r"guvenlik|odeme|auth|kimlik|giris|kvkk|gdpr|yayin|deploy|canli|production|multiplayer|cok oyunculu|awwwards|"
-                 r"migration|gecis|olcek|entegrasyon|bastan|yeniden yap|sifirdan|uctan uca")
+ZOR = re.compile(r"guvenli|odeme|auth|kimlik|giris|kvkk|gdpr|yayin|deploy|canli|production|multiplayer|cok oyunculu|awwwards|"
+                 r"migration|gecis|olcek|entegrasyon|bastan|yeniden yap|sifirdan|uctan uca|"
+                 r"slo\b|gozlemlenebilir|kiraci|tenant|sifrele|imza|gercek zamanli|anomali|\bota\b")  # kalite özelliği
 # araç → faz (ad + iş metninde ilk eşleşen; hiçbiri değilse uygulama). Sıra: test önce (tasarım kelimesi taşıyan test araçları)
 FAZ_AD = {1: "faz 1 tasarım", 2: "faz 2 uygulama", 3: "faz 3 test+güvenlik", 4: "faz 4 yayın+kapanış"}
 # sayısal kapılar: (iş deseni, faz, kapı). ENVANTER-3 kör yargıç: sayısal kapı yoksa sağlamlık en çok 1
@@ -158,10 +159,17 @@ def havuz(q, yg):
     return ka.suz([o for o in p if o["tur"] in ("skill", "ajan", "mcp", "cli")], yg)
 
 
+def rutin_mu(q):
+    """PLAN-KUR-4 eğitim (20 etiketli iş): zor işte ≥4 varlık ve ≥18 sözcük, rutinde ≤2 varlık ve ≤13 sözcük."""
+    t = q.lower().translate(ka.TR)
+    return (sum(bool(re.search(v[0], t)) for v in TUR.values()) <= 1 and len(varliklar(q)) < 4
+            and not ZOR.search(t) and len(t.split()) < 16)
+
+
 def plan_girdisi(q, k=K):
     t = q.lower().translate(ka.TR)
     tr = [k for k, v in TUR.items() if re.search(v[0], t)]
-    if len(tr) <= 1 and not ZOR.search(t) and len(t.split()) < 20:
+    if rutin_mu(q):
         k = TUR[tr[0]][1].split(" · ")[0] if tr else "test yeşil"
         print(f"RUTİN ({tr[0] if tr else 'genel'}): plan-kur gereksiz — doğrudan uygula; kapı: {k}; kapanış raporu commit·test·sapma.")
         return

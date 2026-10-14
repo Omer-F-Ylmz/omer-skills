@@ -173,3 +173,17 @@ def test_v3_kurulu_olmayan_tam_ad_yok():  # PLAN-KUR-3 d4 sert kapı; tanım .cl
 def test_v3_genel_sozcuk_varlik_sayilmaz():  # (d)
     assert pk.varliklar("Uygulama sunucusu tasarımı yap, yeni sistem kur") == set()
     assert {"graphql", "jwt"} <= pk.varliklar("GraphQL API'ye JWT ekle")
+
+
+def test_v4_siniflandirici_egitim_hatasi_0():  # PLAN-KUR-4: PLAN-KUR-2 + 3 = 20 etiketli iş
+    for f in ("plan_kur2_isler.tsv", "plan_kur3_isler.tsv"):
+        for s in (KOK / "tests" / "fixtures" / f).read_text(encoding="utf8").splitlines()[1:]:
+            no, tur, q = s.split("\t")
+            assert pk.rutin_mu(q) == (tur == "rutin"), (f, no)
+    for q in ("Go servisine SLO ve gözlemlenebilirlik ekle: izleme, metrik, pano.",  # iş 2 benzeri
+              "WPF uygulamasını Avalonia'ya taşı: güvenli dosya erişimi ve imzalama.",  # iş 4 benzeri
+              "Zigbee sensör verisini InfluxDB'ye yaz, anomali uyarısı kur."):  # iş 5 benzeri
+        assert not pk.rutin_mu(q), q
+    for q in ("README'deki yazım hatasını düzelt.", "Bir fonksiyona tip ipucu ekle.",
+              "requirements.txt'te requests sürümünü sabitle."):
+        assert pk.rutin_mu(q), q
