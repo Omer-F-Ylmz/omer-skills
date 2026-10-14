@@ -1,0 +1,1 @@
+{"hooks": {"UserPromptSubmit": [{"hooks": [{"type": "command", "command": "python \"C:/Projeler/omer-skills-wt/katalogkanca/tools/katalog_kanca.py\"", "timeout": 5}]}]}}

@@ -1,0 +1,12 @@
+1	k14	Yapay zekâ görsel üretimiyle ürün kataloğu hazırla, arka planları kaldır ve e-ticaret sitesine toplu yükle	
+2	k15	Go ile yazılmış WebSocket sohbet servisi: yatay ölçekleme, yük testi ve Docker dağıtımı	
+3	k16	React Native uygulaması: çevrimdışı senkron, push bildirim, hata izleme ve CI ile mağaza yayını	
+4	k18	Monorepo'da git dal stratejisi, CI'da yalnız etkilenen projeler ve sürüm notları otomasyonu	
+5	k19	Startup yatırım sunumu: finansal model, pazar araştırması ve pptx slaytlar	
+6	k22	Unity oyununa çok oyunculu ağ senkronu, hile koruması ve sunucu barındırma	
+7	k27	AWS maliyet panosu: fatura verisini çek, Grafana panosu kur, haftalık Slack bildirimi gönder	
+8	k30	Kişisel finans takip uygulaması: banka CSV içe aktarma, ML ile kategori sınıflandırma, grafikler ve KVKK	
+9	o1	Bir Android APK dosyasını kaynak koda çevirip istediği izinleri ve gömülü API anahtarlarını raporla.	droidasc
+10	o2	Hostinger'daki alan adının DNS kayıtlarını güncelle ve sitenin VPS'e yayınını doğrula.	hostinger
+11	o3	3D ürün modelinin GLB dosyasını web için sıkıştır, doku boyutlarını küçült ve mesh sayısını raporla.	@gltf-transform/cli
+12	o4	Bu repodaki bütün skill filosunun API'siz statik kalite denetimini çıkar ve sorunlu skill'leri listele.	skill_filo_denetim

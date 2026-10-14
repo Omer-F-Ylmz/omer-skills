@@ -1,0 +1,5 @@
+iş	ekle	gerekçe (yalnız ekleme, küçültme yok; altin.jsonl'e uygulanmadı — ENVANTER-5 hakemliğine)
+1	skill:ecc:mysql-patterns	simetri: ecc:postgres-patterns altında; yavaş sorgu/plan okuma işi DB'ye bağlı değil, MySQL/MariaDB index-plan kardeşi aynı ölçütle ilgili
+15	skill:convex-crons	platforma özel alternatif tutarlılığı: iş 19 altını platforma özel build-game-changelog'u içeriyor; cron kurma işinde Convex cron eşdeğeri
+15	skill:ecc:django-celery	aynı gerekçe: Django'da zamanlanmış görev (celery beat) eşdeğeri
+17	ajan:engineering-git-workflow-master	kopya adı: altındaki "Git Workflow Master" aday listesine düşmüyor (aday-yok); aynı ajanın katalogdaki kopyası (conventional commits) seçilince fazla sayılıyor

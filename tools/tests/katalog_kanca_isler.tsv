@@ -1,0 +1,52 @@
+rutin	r1	Yeni bir landing sayfası için hero ve özellik ızgarası bölümünü tasarla, araç sırasını belirle.
+rutin	r2	Bir yardımcı fonksiyonun hatalı girdiyi dışladığını doğrulayan yeni test senaryosu öner.
+rutin	r3	Aralıklı düşen bir testin kök nedenini bul, hipotezlerini olasılığa göre sırala.
+rutin	r4	Supabase'de kullanıcıya özel notlar tablosu için RLS politikası ve migration SQL'i yaz.
+rutin	r5	Ana dal ile özellik dalı arasındaki farkı incele, riskli değişiklikleri ve eksik testleri listele.
+rutin	r6	En büyük üç log dosyasını bul, her birinde en sık beş hata kalıbını özetle.
+rutin	r7	Son 300 commit'i tara, görev ailelerine göre commit sayısını tablo yap.
+rutin	r8	Bilgi grafiği JSON dosyasından en çok bağlantılı on düğümü çıkar.
+rutin	r9	Ajan listesinin istek önekinde kaç jeton tuttuğunu A/B karşılaştırmasıyla ölç.
+rutin	r10	Uzun bir oturum dökümünde araç listesi değişim eklerini say ve maliyetini hesapla.
+rutin	r11	Hangi kancaların her turda bağlama metin enjekte ettiğini bul, istek başına maliyetini çıkar.
+rutin	r12	Yargıç çağrısına hafif bayraklar ekle, görev koşucusu yolunu değiştirmeden argv testi yaz.
+rutin	r13	Ön araç kancasının ipucu metnini oturumda yalnız bir kez gösterecek şekilde kısalt.
+rutin	r14	Ayar değişikliği için kuru koşu, uygula ve geri al modlu yedekli bir onay betiği yaz.
+rutin	r15	Yirmi gerçek görevle ajan seçim doğruluğunu kör değerlendirmeyle iki kol arasında karşılaştır.
+rutin	r16	Ajan açıklamalarının uzunluk dağılımını çıkar, en çok jeton harcayanları sırala.
+rutin	r17	Ajan açıklamalarını ayırt edici tetik sözcüklerini koruyarak tek satıra, 90 karaktere sıkıştır.
+rutin	r18	Aynı ailedeki ajan açıklamalarında Jaccard benzerliği yüksek çiftleri bul ve ayrıştır.
+rutin	r19	Departman skill zip paketlerini yeniden üret, dosya kaybı olmadığını denetle.
+rutin	r20	Bir videonun sahne geçişlerini tespit edip kısa bir özet kurgusu çıkar.
+rutin	r21	Şirketin üç aylık KDV beyannamesi için gelir gider kayıtlarını mutabakatla.
+rutin	r22	STM32 için Rust ile no_std UART sürücüsü yaz, kesme tabanlı alım ekle.
+rutin	r23	iOS uygulamasında APNs ile zamanlanmış yerel ve uzak bildirim desteği ekle.
+rutin	r24	E-ticaret sitesinin ürün sayfaları için teknik SEO denetimi yap, schema işaretlemesi öner.
+rutin	r25	Kubernetes'te bir servise yatay otomatik ölçekleme ve hazır olma probu tanımla.
+rutin	r26	Kira sözleşmesindeki fesih ve depozito maddelerini kiracı aleyhine riskler açısından incele.
+rutin	r27	Müşteri kaybı verisinde lojistik regresyon modeli kur, özellik önemlerini yorumla.
+rutin	r28	Unity'de 2D platform oyunu için çift zıplama ve duvar kayması mekaniği yaz.
+rutin	r29	Ses kaydındaki arka plan gürültüsünü spektral çıkarma ile temizle, sonucu karşılaştır.
+rutin	r30	Mobil uygulamaya Apple Pay ve Google Pay ile uygulama içi ödeme entegre et.
+zor	k14	Yapay zekâ görsel üretimiyle ürün kataloğu hazırla, arka planları kaldır ve e-ticaret sitesine toplu yükle
+zor	k15	Go ile yazılmış WebSocket sohbet servisi: yatay ölçekleme, yük testi ve Docker dağıtımı
+zor	k16	React Native uygulaması: çevrimdışı senkron, push bildirim, hata izleme ve CI ile mağaza yayını
+zor	k18	Monorepo'da git dal stratejisi, CI'da yalnız etkilenen projeler ve sürüm notları otomasyonu
+zor	k19	Startup yatırım sunumu: finansal model, pazar araştırması ve pptx slaytlar
+zor	k22	Unity oyununa çok oyunculu ağ senkronu, hile koruması ve sunucu barındırma
+zor	k27	AWS maliyet panosu: fatura verisini çek, Grafana panosu kur, haftalık Slack bildirimi gönder
+zor	k30	Kişisel finans takip uygulaması: banka CSV içe aktarma, ML ile kategori sınıflandırma, grafikler ve KVKK
+zor	o1	Bir Android APK dosyasını kaynak koda çevirip istediği izinleri ve gömülü API anahtarlarını raporla.
+zor	o2	Hostinger'daki alan adının DNS kayıtlarını güncelle ve sitenin VPS'e yayınını doğrula.
+zor	o3	3D ürün modelinin GLB dosyasını web için sıkıştır, doku boyutlarını küçült ve mesh sayısını raporla.
+zor	o4	Bu repodaki bütün skill filosunun API'siz statik kalite denetimini çıkar ve sorunlu skill'leri listele.
+zor	k02	E-ticaret mağazası: Stripe ödeme, sipariş veritabanı şeması ve kampanya günü için yük testi
+zor	k03	Mobil uygulama için tanıtım videosu, App Store ekran görüntüleri ve lansman e-postası hazırla
+zor	k04	Blender'da ürün modeli yap, web sitesinde three.js ile göster ve sayfa performansını ölç
+zor	k05	Podcast bölümünü transkripte dök, blog yazısına çevir ve sosyal medya kliplerini çıkar
+zor	k06	Oyun için tanıtım sitesi, Discord bot otomasyonu ve oyuncu analitiği panosu kur
+zor	k07	Fintech API'si: JWT kimlik doğrulama, OWASP denetimi, OpenAPI dokümanı ve CI hattı
+zor	k08	.NET Blazor iç yönetim paneli: EF Core şeması, rol bazlı yetki ve xUnit testleri
+zor	k10	Müşteri destek sohbet botu: RAG, kişisel veri maskeleme ve LLM maliyet izleme
+zor	k11	Kubernetes'e taşınan mikroservisler için gözlemlenebilirlik, alarm ve felaket kurtarma planı
+zor	k13	Veri hattı: CSV içe aktar, temizle, Postgres'e yükle ve haftalık Excel raporunu e-postayla gönder

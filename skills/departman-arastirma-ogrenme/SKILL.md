@@ -7,6 +7,7 @@ description: "Araştırma müdürü: doküman, web, video ve kaynak tarama sıra
 
 Katalog: `docs/departmanlar/arastirma-ogrenme.md`.
 Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki adım) — adımdaki araç yoksa ya da emin değilsen Read; oturuma yüklenmez.
+Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>` eki geldiyse yalnız ondan seç, ek sorgu yok; gelmediyse TEK kez Skill `yetenek-getir` (iş başına ayrı sorgu yok). Rutin tek alanlı işte katalog yok.
 
 ## Adımlar
 1. **Doküman** — kütüphane/framework: `context7` (`find-docs`); Microsoft: `mslearn`.

@@ -1,0 +1,20 @@
+rutin	b1	React'te ürün listesi bileşenine sayfalama ekle, sayfa başına 20 kayıt göster.
+rutin	b2	PostgreSQL'de siparişler tablosundaki yavaş tarih aralığı sorgusuna uygun indeks öner.
+rutin	b3	Bu C# servisindeki NullReferenceException hatasının nedenini bul ve düzelt.
+rutin	b4	Ana sayfadaki hero başlığının mobilde taşmasını CSS ile düzelt.
+rutin	b5	pytest ile fatura hesaplama fonksiyonuna sınır değer testleri yaz.
+rutin	b6	Blender'da ürün modelinin UV'lerini aç, dokular gerilmesin.
+rutin	b7	GitHub Actions iş akışına npm önbelleği ekle, derleme süresi kısalsın.
+rutin	b8	README dosyasına kurulum ve kullanım bölümü yaz.
+rutin	b9	nginx yapılandırmasında /api yolunu 5000 portundaki servise yönlendir.
+rutin	b10	Mevcut Excel raporundaki satış sütunlarını aylık toplamlarla özetleyen pivot tablo hazırla.
+zor	z1	Mağaza için Stripe ödeme entegrasyonu kur, webhook'ları imza doğrulamalı yaz, KVKK'ya uygun kart verisi saklamadan çalıştır ve uçtan uca test et.
+zor	z2	Elimdeki 300 sayfalık PDF sözleşme arşivini aranabilir hale getir, maddeleri çıkar ve bir web panelinde filtrelenebilir göster.
+zor	z3	Kedi maması markası için TikTok reels dizisi planla, videoları otomatik altyazıla ve performansı haftalık raporla.
+zor	z4	Raspberry Pi'deki sıcaklık sensöründen MQTT ile veri topla, Grafana panosunda göster ve eşik aşılınca Telegram'a uyarı gönder.
+zor	z5	Eski PHP 5 ile yazılmış muhasebe uygulamasını .NET 8'e taşı, veritabanını PostgreSQL'e geçir ve geçişte veri kaybını doğrula.
+zor	z6	Bir podcast bölümünün sesini temizle, konuşmacıları ayır, transkriptten blog yazısı ve sosyal medya gönderileri üret.
+zor	z7	Ekip için şirket içi doküman arama botu kur: Confluence sayfalarını indeksle, RAG ile soru yanıtla, Slack'e bağla.
+zor	z8	Mobil uygulamamın App Store reddini incele, gizlilik bildirimlerini düzelt ve yeniden gönderim için ekran görüntülerini hazırla.
+zor	z9	Laptopumdaki fotoğraf arşivinde yinelenenleri bul, yüzlere göre grupla ve yedeğini buluta şifreli al.
+zor	z10	3D yazıcı için parametrik bir telefon standı tasarla, STL dışa aktar ve baskı ayarlarını öner.
