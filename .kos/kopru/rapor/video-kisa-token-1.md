@@ -25,4 +25,13 @@ Katalog: kullanılan [video CLI (hafif.cagir, tarama.sozluk_kur/eslestir, instag
 
 - d6: link kaçakları — DeV9'da 4/4 referansın kendi "ocr bozuk" dediği adresler, DeHMM'de 3 kırpık HF + 3 Claude web aramasıyla bulunmuş repo. Kök: karar dosyasında "KUR" olan Laya bilinen sayılıp araştırılmadığı için repo linki rapora girmiyordu → kisa.link_tamamla (ig-41 link sütunu + videonun kendi linkinden bulunan repo; gh arama tahmini yazılmaz). "link_temiz" = referansın bozuk/kırpık işaretlediği adresler hariç, tüm kollara eşit. Önizleme yeni claude -p'siz (son işlem Claude çıktısına deterministik).
 - Ömer 17:38 kapısı (low-ssb'ye göre): araç 0.861 ≥0.80 ✓ · link 0.475 ≥0.179 ✓ · yp 0 ✓ · token 0.23× ✓ · süre 0.51× ✗ (sınır 32.1 sn, aşım 0.6 sn/video; low-ssb-1'e göre 0.485×, low-ssb-2'ye göre 0.535×). Süre kökü: önbellekteki Gemini izleme süresi 17–32 sn (iki flash 503 → lite düşüşü dahil). Eski taban (sonnet+haiku) linkine göre 0.475 < 0.584 — Desktop kararı.
+## d12–d13 (14 Eki 21:45, claude -p 0): Claude'suz çıkarım kapısı (Desktop 20:58) — sınama araç 0.944 < 0.95, KAPI GEÇMEDİ (ara)
+| kol | altın araç | altın link | sınama araç | sınama link | yp | Claude tk/video | sn/video (8'li) |
+|---|---|---|---|---|---|---|---|
+| low-ssb (1/2) | 0.5 / 0.333 | 0.268 / 0.418 | – | – | 0 | 47 445 / 39 113 | 67.4 / 61.1 |
+| yeni d12a / d12b | 1.0 / 1.0 | 0.85 / 0.85 | 0.944 / 0.944 | 1.0 / 1.0 | 0 | 0 (Claude adımı TOKEN-2'de) | 11.95 / 12.58 |
+- Tekrarlar arası oynama yok (temp0+seed+tavan); d13a (DF 0.2 metin geçişi yeniden) yine 0.944. Sınama 6'lıda sn/video 17–20 (8'li partide ≤15 ✓). Flash modelleri günlük kotada (429) → hepsi lite; lite tek başına 1–2 sn, koşudaki ~31 sn metin süresi tavan kuyruğu + 429 sekmeleri.
+- 9 kaçak: platform/dil (GitHub, Claude, Go, S3, .TECH — sözlük DF>%20 ile aday dışı) · gerçek (Sales Navigator, agenthubstack.dev — açıklamada; RustFS — OCR'da compose dosya adı) · ref gürültüsü (Bytebase — star-history sayfasının sponsor linki).
+- Denenip REDDEDİLEN (kodda yok): (1) DF_TAVAN 1.0 → aday 2× → lite gerçek adları bıraktı, sınama 0.796 · (2) tüm link alan adları → araç: 0.950'ye çıkardı ama OCR bozuk licdn/logo şirketi gürültüsü (DYKS +18, DeV9 +13); yp metriği pakette geçen adı saymadığından metrik oyunu.
+- Öneri (TOKEN-2'ye): DF'si yüksek ama ürün olan adlar için ayrı kısa "platform listesi" (GitHub, Claude, Go, S3…) metin geçişine aday değil ayrı satır olarak; açıklama bölümündeki alan adları (yalnız ## Açıklama) araç adayı.
 - d7 (18:50): Ömer 18:25 kapısı (araç ≥0.90, link ≥0.584, yp 0, tk ≤0.04×, toplu ≤10 sn/video) için kod hazır (teknikler alanı, kurulum komutu, OCR GitHub başlığı + gh doğrulama, düşük çözünürlük/fps, videolar arası paralel); ölçüm RAM %93 yüzünden koşulmadı → devir d7.

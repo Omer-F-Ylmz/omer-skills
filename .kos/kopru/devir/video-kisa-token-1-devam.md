@@ -1,3 +1,8 @@
+## d13 SONU (14 Eki ~21:45, CC) — ÖNCE BUNU OKU; claude -p 0/4, kisa.py DEĞİŞMEDİ
+- Kapı (Desktop 20:58): altın 8 araç 1.0 · yp 0 · 11.95/12.58 sn/video ✓ — sınama araç 0.944 (iki tekrar + d13a) < 0.95 ✗. Rapor d12–d13 bölümü: kaçak sınıfları + reddedilen iki deneme (DF 1.0 → 0.796; tüm alan adları → gürültü).
+- Araçlar: .kos/kopru/video/kisa_kacak13.py (kaçak nerede kayboldu) · kisa_df13.py <et> <df> (yalnız metin geçişi yeniden; önbellek yedeği <id>/gemini-metin-d12.json, d13 sonunda geri yüklendi) · kisa_alan13.py (alan adı kuralı çevrimdışı).
+- Karar Desktop'ta: (a) 0.944'ü kabul (low-ssb'ye göre M4 geçiyor) → zip_denetle + BİTTİ, ya da (b) rapordaki öneri (ayrı platform listesi + yalnız ## Açıklama alan adları) TOKEN-2 M1'e devredilir.
+
 ## d12 SONU (14 Eki ~21:20, CC) — ÖNCE BUNU OKU; claude -p 0/4
 - YAPILDI (eb3791d3, test_kisa 17/17): kisa.py GEMINI_TAVAN=BoundedSemaphore(6) (tüm generateContent) · ek metin örnekleri EK_ZAMAN=25 sn, tek tur, son model, asılırsa {"adlar": []} ile atlanır · calistir(claude=False, sil=False): oturum yok, Claude öncesi deterministik liste (teknik → tur "teknik"), medya silinmez.
 - kisa_m4.py (commitli dosya, değişiklik eb3791d3'te YOK — commitle): `kos <et> [sinama] claudesiz` → oturum[-sinama]-<et>.json · `sinama_puan <dosya>`.
