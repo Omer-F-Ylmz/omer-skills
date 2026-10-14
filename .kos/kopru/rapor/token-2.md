@@ -90,3 +90,10 @@ Katalog: kullanılan [k1_dogrula.kol (+effort parametresi), k1c klon env + globa
 - KARAR: UYGULAMA — koşul (A durma ≥%30) sağlanmadı. Not: TELVE türü durmada B açıkça daha ucuz (kuyruk 1×/adım yerine 1.25× bir kez + 0.1×), B'nin en kötü durumu yeniden yazılan kuyrukta +%25 cw; ama tetikleyici yeniden üretilmeden ayar değişmez. Sonraki adım (Desktop kararı): 6767'de prefix_tracker debug günlüğü ya da k1_vekil izi ile gerçek bir Desktop oturumunda "anchored" olayını yakalamak.
 - d4 kalanı: web-sahne-desenleri §4 tablosuna varlik_getir satırı (yalnız bu hunk commit'te; TELVE-R0d 2d bölümüne dokunulmadı). frontend-craft plugin-only (skills/ altında yok) → satır eklenemedi. Not: tools/varlik_indir.py (eski, Poly Haven/ambientCG CC0) skills/blender-uretim/varlik_getir.py ile örtüşüyor; eski silinmedi.
 - Kapanış: 6769 kapalı (yalnız TIME_WAIT), vekil_dene 6767/6768/doğrudan 401; settings.json/cc-switch-upstream.json bayt koruması geri yazma gerektirmedi.
+
+## d6 — kapanış (14 Eki ~17:40)
+- K7 site kiti (b11252a5): `tools/site_kit.py` + `tools/site-kit/sablon`; geçici kurulumda kapı 4/4 (hata 0 · p95 4.3 ms · ilk JS 48.9 KB gz · toplam 175.9 KB gz). katalog_yenile → arac 92→93 (site_kit satırı).
+- blender-uretim plugin kopyası senkron (SKILL.md satırı + varlik_getir.py + duzenle_b.py), blender eklentisi 1.4.0→1.5.0; CC: push sonrası `python onay/blender_6_uygula.py uygula` (Ömer; --kuru şimdi "origin/main 1.4.0 ≠ 1.5.0"). claude.ai blender-uretim zip'i dist/claude-ai-22'de zaten güncel.
+- dist/claude-ai-23: animasyon-atolyesi (9 dosya) + web-sahne-desenleri (1 dosya), zip_denetle TEMİZ. web-sahne zip'i çalışma ağacındaki TELVE §2d satırlarını da içerir (commit edilmemiş, bu oturumun değil). CC animasyon-atolyesi: `python onay/animasyon_1_uygula.py uygula` (yedekli; --kuru 9 dosya).
+- frontend-craft: Desktop kararı (a) — satır eklenmez. varlik_indir.py ↔ varlik_getir.py örtüşmesi raporlandı, silinmedi.
+- TOKEN-2 BİTTİ. claude -p toplam bu d'de 0.

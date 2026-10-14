@@ -427,3 +427,4 @@ DISK-1 d2 HAZIR 13:40 — Ömer koşar (repo kökünden): `python .kos/kopru/dis
 14 Oct 12:56 TOKEN-2 d1 ARA KAYIT 2: K1 doğrulama DOĞRULANAMADI (A/B durma 0, yer değiştirme 0; claude -p 2/2); K0 devirde
 14 Oct 14:37 TOKEN-2 d3 ara: K9 MAX_THINKING Opus 5.5'te etkisiz (ölçüldü), effort medium −%16 n=1; K1b farkı 6769'da HEADROOM_* ortamı yok; ucuz_alt 400 düzeltildi, K8 iki kol koştu; kalan K8 puan + K3/K7 → devir
 - 14 Eki 16:15 VİDEO-KISA-TOKEN-1 ara: kisa.py (Gemini izle + katalog + tek claude -p oturum) + kisa_m4.py ölçüm; kos koşusu bitti, puan/M5 devirde (devir/video-kisa-token-1-devam.md)
+- 14 Eki 17:40 TOKEN-2 BİTTİ: K7 site kiti (kapı 4/4) + katalog site_kit · blender eklentisi 1.5.0 (onay/blender_6_uygula.py, push sonrası) · dist/claude-ai-23 animasyon-atolyesi + web-sahne-desenleri TEMİZ · CC animasyon: onay/animasyon_1_uygula.py uygula

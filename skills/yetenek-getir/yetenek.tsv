@@ -3586,6 +3586,7 @@ aciklama_yaz	arac	omer-skills tools/	KALİTE-3 (b): tetiksiz/kısa açıklamalar
 ajan_getir_zip	arac	omer-skills tools/	İKİ TARAF: /ajan-getir claude.ai paketi. Katalogdaki yerel `yol` istemleri zip içine gömülür (claude.ai'de…	agent subagent	python tools/ajan_getir_zip.py	repo
 ajan_katalog	arac	omer-skills tools/	KALİTE-1 (4b): gizli ajan kataloğu → skills/ajan-getir/katalog.tsv (ad · model · tek satır · yol).	agent subagent mod modding 3d	python tools/ajan_katalog.py	repo
 ajan_uret	arac	omer-skills tools/	matris.json -> ajanlar/kalite3/<departman>/<ad>.md + gorevler.json + katalog-ek.tsv.	agent	python tools/ajan_uret.py	repo
+atlas	arac	omer-skills tools/	ATLAS-1: araç kullanım atlası — katalogun (docs/katalog/yetenek.jsonl) veri kaynağı genişlemesi, ikinci…	search	python tools/atlas.py	repo
 awesome_katalog	arac	omer-skills tools/	AWESOME-1: sindresorhus/awesome (CC0) → docs/kaynak/awesome/katalog.tsv + bizim alanların alt liste…		python tools/awesome_katalog.py	repo
 awesome_rehber_zip	arac	omer-skills tools/	İKİ TARAF: /awesome-rehber claude.ai paketi. docs/kaynak/awesome/*.tsv zip içine references/ olarak gömülür…	package	python tools/awesome_rehber_zip.py	repo
 blender_bekci	arac	omer-skills tools/	BLENDER-ARAC-1 K5: Blender kod bekçisi — PreToolUse hook (mcp__blender__execute_blender_code[_for_cli]).	search find	python tools/blender_bekci.py	repo
@@ -3626,14 +3627,16 @@ kontur_profil	arac	omer-skills tools/	Kulpsuz gövde maskesini gorunum ön kamer
 model_olc	arac	omer-skills tools/	KALİTE-3 MODEL KURALI: alt ajan modeli ölçümü. Canlı ~/.claude/settings.json'daki CLAUDE_CODE_SUBAGENT_MODEL…	mod modding 3d mesh agent yapilandirma	python tools/model_olc.py	repo
 model_sec	arac	omer-skills tools/	ROUTER-1: `claude -p` adımı için kural tabanlı yönlendirme — model DÜŞÜRÜLMEZ (Ömer 12 Eki: tasarruf yolu…	mod modding 3d	python tools/model_sec.py	repo
 node_yolu_uyari	arac	omer-skills tools/	Global SessionStart (startup) erken uyarisi: ~/.claude.json'daki bir MCP komutu var olmayan node.exe'ye…		python tools/node_yolu_uyari.py	repo
-plan_kur	arac	omer-skills tools/	ENVANTER-3 plan-kur: iş tarifinden TEK koşuda plan girdisi — iş türü kapıları + inceleme ajanları + konsey…	review audit agent	python tools/plan_kur.py	repo
+plan_kur	arac	omer-skills tools/	PLAN-KUR-3 plan-kur v3: iş tarifinden TEK koşuda kompakt plan girdisi (zor işte ≤6k karakter, katalog_ara…	search	python tools/plan_kur.py	repo
 profil	arac	omer-skills tools/	"TOKEN-3b proje profili: skillOverrides/enabledPlugins proje .claude/settings.json'a, router'lara ""Profil…"	yapilandirma maliyet jeton	python tools/profil.py	repo
 rtk_onisle	arac	omer-skills tools/	PreToolUse(Bash|PowerShell) ön-işleyici (TOKEN-7a 2b): rtk hook claude'un yeniden yazmadığı aileleri `rtk…	kanca maliyet jeton	python tools/rtk_onisle.py	repo
+site_kit	arac	omer-skills tools/	Scroll-anlatı site kiti (TELVE'den): Astro + GSAP/Lenis + bölüm şablonu + sahne yükleyici + poster AVIF +…	website	python tools/site_kit.py	repo
 skill_denetim	arac	omer-skills tools/	claude.ai skill zip denetimi.	audit	python tools/skill_denetim.py	repo
 skill_filo_denetim	arac	omer-skills tools/	KALİTE-3 Faz 1: bütün skill filosunun statik denetimi (API'siz, salt okuma).	audit	python tools/skill_filo_denetim.py	repo
 skill_iyilestir	arac	omer-skills tools/	KALİTE-3 Faz 2: skill klasörü → iyileştirilmiş kopya (orijinal dokunulmaz).	beceri	python tools/skill_iyilestir.py	repo
 tetik_olc	arac	omer-skills tools/	TOKEN-3a tetik ölçümü: istem setini `claude -p` (stream-json, max-turns 2, plan modu) ile istemin kendi…	mod modding maliyet jeton	python tools/tetik_olc.py	repo
 token_olc	arac	omer-skills tools/	TOKEN-0 K1: Claude Code oturum jsonl'lerinden ağırlıklı token ölçümü.	session maliyet jeton kod	python tools/token_olc.py	repo
+ucuz_alt	arac	omer-skills tools/	TOKEN-2 K8: ucuz alt adım — araştırma/lisans/katalog özetini Claude-dışı modele (OmniRoute combo) yaptırır.…	license summary summarize mod modding model 3d mesh maliyet jeton	python tools/ucuz_alt.py	repo
 varlik_indir	arac	omer-skills tools/	BLENDER-ARAC-2 K2: CC0 varlık indirici — Poly Haven (hdri · doku · model) + ambientCG (doku).	download search find mod modding 3d	python tools/varlik_indir.py	repo
 yukle10	arac	omer-skills tools/	KURULUM-10 C: claude.ai paketleri -> dist/yukle-10/{yeni,replace}.	load install setup	python tools/yukle10.py	repo
 yukle12b	arac	omer-skills tools/	YUKLE-12b: dist/yukle-12 aciklamalarini <=110'a indirir, cift skill'leri _cift'e ayirir, partileri 20'serli…	load download	python tools/yukle12b.py	repo
