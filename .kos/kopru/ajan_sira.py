@@ -5,12 +5,12 @@ Efor: mekanik iş (ölçüm koşusu, paketleme, birleştirme, kapı tekrarı) me
 Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlatma arası >= ARA sn. Durdurma: .kos/kopru/ajan-sira.dur
 Çıktı: .kos/kopru/ajan-sira/<ad>.json · günlük .kos/kopru/ajan-sira.log (arka.py ile koşar).
   python arka.py .kos/kopru/ajan-sira.log .kos/kopru/ajan_sira.py"""
-import ctypes, os, subprocess, sys, time
+import ctypes, json, os, re, subprocess, sys, time
 from pathlib import Path
 
 KOK = Path(r"C:\Projeler\omer-skills")
 K = KOK / ".kos/kopru"
-KUYRUK, DUR, CIKTI = K / "ajan-sira.tsv", K / "ajan-sira.dur", K / "ajan-sira"
+KUYRUK, DUR, CIKTI, ISKAYDI = K / "ajan-sira.tsv", K / "ajan-sira.dur", K / "ajan-sira", K / "is-kaydi.tsv"
 CLAUDE = r"C:\Users\pc\.local\bin\claude.exe"
 ESIK, TAVAN, ARA, SURE = 88, 9, 90, 10800
 sys.path.insert(0, str(KOK / "tools"))
@@ -54,6 +54,27 @@ def baslat_argv(efor):
     return [*ARGV, "--effort", efor], {k: v for k, v in os.environ.items() if k != "CLAUDE_CODE_EFFORT_LEVEL"}
 
 
+def is_kaydi(ad, rc, dk, efor):
+    """TOKEN-3 K17: biten işin claude -p JSON'u → is-kaydi.tsv tek satır (ağırlıklı = g + 1.25·cw + 0.1·cr + 5·ç; kalite = sonuçtaki ilk 'kalite' satırı)."""
+    j = {}
+    for s in reversed((CIKTI / f"{ad}.json").read_text(encoding="utf-8", errors="replace").splitlines()):
+        if s.startswith("{"):
+            try:
+                j = json.loads(s)
+            except ValueError:
+                pass
+            break
+    u = j.get("usage") or {}
+    agir = (u.get("input_tokens", 0) + 1.25 * u.get("cache_creation_input_tokens", 0) + 0.1 * u.get("cache_read_input_tokens", 0)
+            + 5 * u.get("output_tokens", 0))
+    kalite = re.search(r"(?im)^[^\n]*kalite[^\n]*", j.get("result") or "")
+    if not ISKAYDI.exists():
+        ISKAYDI.write_text("zaman\tis\tefor\tdk\tadim\tagirlikli\tusd\tsonuc\tkalite\n", encoding="utf-8")
+    with ISKAYDI.open("a", encoding="utf-8") as f:
+        f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{efor or '-'}\t{dk:.0f}\t{j.get('num_turns', 0)}\t{agir:.0f}\t"
+                f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
+
+
 def kosul_tamam(k):
     if not k:
         return True
@@ -70,13 +91,14 @@ def main():
         baslayan.add(f.stem)
     log(f"başladı · tavan {TAVAN} · RAM eşiği %{ESIK} · önceden başlamış {sorted(baslayan)}")
     while True:
-        for ad, (p, t0, fo) in list(calisan.items()):
+        for ad, (p, t0, fo, ef) in list(calisan.items()):
             if p.poll() is not None or time.time() - t0 > SURE:
                 if p.poll() is None:
                     subprocess.run(["taskkill", "/T", "/F", "/PID", str(p.pid)], capture_output=True, creationflags=0x08000000)
                     log("SÜRE DOLDU", ad)
                 fo.close()
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
+                is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef)
                 del calisan[ad]
         bekleyen = [x for x in kuyruk() if x[0] not in baslayan]
         if not bekleyen and not calisan:
@@ -94,7 +116,7 @@ def main():
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
                 p.stdin.close()
-                calisan[ad] = (p, time.time(), fo)
+                calisan[ad] = (p, time.time(), fo, efor)
                 baslayan.add(ad)
                 (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S"), encoding="utf-8")
                 son = time.time()

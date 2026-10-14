@@ -30,3 +30,18 @@ def test_baslat_argv_env(monkeypatch):
     assert argv[-2:] == ["--effort", "medium"] and "CLAUDE_CODE_EFFORT_LEVEL" not in env
     argv, env = ajan_sira.baslat_argv("")
     assert argv == ajan_sira.ARGV and env is None
+
+
+def test_is_kaydi(tmp_path, monkeypatch):
+    """TOKEN-3 K17: biten işin JSON'u → is-kaydi.tsv tek satır; bozuk JSON da satır yazar (rc ile)."""
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "ISKAYDI", tmp_path / "is.tsv")
+    (tmp_path / "a.json").write_text('uyarı satırı\n{"subtype":"success","num_turns":7,"total_cost_usd":1.5,"result":"tamam\\nKalite: kör puan 3/3 geçti",'
+                                     '"usage":{"input_tokens":100,"cache_creation_input_tokens":1000,"cache_read_input_tokens":10000,"output_tokens":20}}\n', encoding="utf-8")
+    (tmp_path / "b.json").write_text("Traceback", encoding="utf-8")
+    ajan_sira.is_kaydi("a", 0, 12.4, "medium")
+    ajan_sira.is_kaydi("b", 1, 0.2, "")
+    s = (tmp_path / "is.tsv").read_text(encoding="utf-8").splitlines()
+    assert s[0].startswith("zaman\tis\t")
+    assert s[1].split("\t")[1:] == ["a", "medium", "12", "7", "2450", "1.50", "success", "Kalite: kör puan 3/3 geçti"]
+    assert s[2].split("\t")[1:] == ["b", "-", "0", "0", "0", "0.00", "rc1", "-"]

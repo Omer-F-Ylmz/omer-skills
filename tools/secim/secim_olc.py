@@ -90,6 +90,13 @@ def toplu(kol, tekrar=1, tavan=10.0, cagri=3.0, gorev=GOREV, set_ad="toplu"):
     """d4 düzeneği: görevler tek çağrıda, sıralı tek süreç, boş cwd (taban wt'deki dizin.md'leri göremez).
     Sayaç + bir çağrının üst sınırı tavanı aşacaksa çağrı yapılmaz."""
     ek = (sonra_ek()[:-2] if kol == "sonra" else []) + ["--max-turns", "40", "--disallowedTools", "Bash,Write,Edit,NotebookEdit,WebFetch,WebSearch"]
+    # TOKEN-3 K13: git durumu + ECC özeti tekrardan tekrara kayıyordu → tekrar≥2 1. isteği önbellekten okusun (plugin ajan deny YOK: aday listesi değişmez)
+    s = Path(ek[ek.index("--settings") + 1]) if "--settings" in ek else CALISMA / f"settings-toplu-{os.getpid()}.json"
+    ayar = json.loads(s.read_text(encoding="utf-8")) if s.exists() else {}
+    ayar.update({"includeGitInstructions": False, "env": {"ECC_SESSION_START_CONTEXT": "off"}})
+    CALISMA.mkdir(exist_ok=True)
+    s.write_text(json.dumps(ayar, ensure_ascii=False), encoding="utf-8")
+    ek += [] if "--settings" in ek else ["--settings", str(s)]
     yol = CIKTI / f"{time.strftime('%Y-%m-%d')}-secim-{set_ad}{ETIKET}-{kol}.tsv"
     if not yol.exists():
         yol.write_text("gorev\ttekrar\tdogru\tsecilen\n", encoding="utf-8")
@@ -109,7 +116,7 @@ def toplu(kol, tekrar=1, tavan=10.0, cagri=3.0, gorev=GOREV, set_ad="toplu"):
                 s = kisa(cevap.get(g["id"], ""))
                 f.write(f"{g['id']}\t{t + 1}\t{int(s in g['beklenen'])}\t{s}\n")
             f.write(f"#OZET\t{t + 1}\t{sum(kisa(cevap.get(g['id'], '')) in g['beklenen'] for g in gorev)}/{len(gorev)}\t"
-                    f"ilk_girdi={jet(u0)} son_girdi={jet(u)} cikti={u.get('output_tokens', 0)} tur={o['tur']} usd={o['usd']:.4f} rc={o['rc']} "
+                    f"ilk_girdi={jet(u0)} ilk_cr={u0.get('cache_read_input_tokens', 0)} son_girdi={jet(u)} cikti={u.get('output_tokens', 0)} tur={o['tur']} usd={o['usd']:.4f} rc={o['rc']} "
                     f"araclar={','.join(o['araclar'])[:400]}\n")
     return yol
 
