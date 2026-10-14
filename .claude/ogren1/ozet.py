@@ -1,19 +1,36 @@
 """ÖĞREN-1 adım 1: token araçlarının özgün metni → ücretsiz model (OmniRoute openrouter :free, düşerse ollama yerel) sabit şemalı özet
-→ .kos/kopru/ogren/ozet-token.jsonl. Tavan: en fazla 90 model çağrısı (kalem başına ≤2 kol). Claude bu metinleri okumaz.
+→ .kos/kopru/ogren/ozet-token-v2.jsonl (v1: ozet-token.jsonl). Tavan: en fazla 90 model çağrısı (kalem başına ≤3 kol). Claude bu metinleri okumaz.
   python -X utf8 .claude/ogren1/ozet.py"""
-import json, subprocess, sys, time, urllib.request, zipfile
+import json, re, subprocess, sys, time, urllib.request, zipfile
 from pathlib import Path
 
 KOK = Path(r"C:\Projeler\omer-skills")
 sys.path.insert(0, str(KOK / ".claude/omniroute1"))
 from pilot import env_oku  # noqa: E402
 
-CIKTI = KOK / ".kos/kopru/ogren/ozet-token.jsonl"
+CIKTI = KOK / ".kos/kopru/ogren/ozet-token-v2.jsonl"
 TAVAN, CAGRI = 90, 0
 KOLLAR = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"), ("ollama", "gpt-oss:20b-cloud"), ("ollama", "qwen3.5:4b")]
+# v2 (d3): v1'de hatanın tamamı serbest `mekanizma` alanındaydı → kapalı liste + gerekçe + belgeden birebir alıntı (aşağıda makineyle doğrulanır)
+MEKANIZMA = ["sıkıştırma", "önbellek", "bağlam dışı depolama", "delegasyon", "özetleme", "tur azaltma", "yönlendirme", "ölçüm"]
 SEMA = ("Aşağıdaki araç belgesini oku ve YALNIZ şu JSON nesnesini döndür (Türkçe, alan başına ≤2 cümle, uydurma yok; belgede yoksa \"belirsiz\"): "
-        '{"ad":"","ne_yapar":"","mekanizma":"sıkıştırma|önbellek|bağlam dışı depolama|delegasyon|özetleme|tur azaltma|ölçüm|diğer + 1 cümle",'
-        '"ne_zaman":"","komut":"en tipik 1-2 komut/çağrı","girdi_cikti":"","sinirlar":"","cakistigi_arac":"belgede adı geçen benzer/çakışan araçlar"}')
+        '{"ad":"","ne_yapar":"",'
+        f'"mekanizma":["1-2 değer, YALNIZ şu listeden: {" | ".join(MEKANIZMA)}"],'
+        '"mekanizma_gerekce":"bu aracın token/bağlam tasarrufunu NASIL yaptığını anlatan 1 cümle",'
+        '"kanit":"belgeden gerekçeyi destekleyen BİREBİR kopyalanmış alıntı (≤200 karakter, çevirme, özgün dilde)",'
+        '"ne_zaman":"","komut":"en tipik 1-2 komut/çağrı","girdi_cikti":"","sinirlar":"","cakistigi_arac":"belgede adı geçen benzer/çakışan araçlar"}\n'
+        "Tanımlar: sıkıştırma=aynı içeriği daha az baytla verir; önbellek=önceki sonucu/öneki yeniden kullanır; "
+        "bağlam dışı depolama=veriyi bağlam dışında tutar, yalnız sorgu sonucu girer; delegasyon=işi başka süreç/model/ajan yapar; "
+        "özetleme=uzun metni kısa özete indirir; tur azaltma=daha az araç çağrısı/tur; yönlendirme=işi daha ucuz araca/modele seçer; "
+        "ölçüm=yalnız tüketimi ölçer/raporlar, kendisi tasarruf etmez.")
+
+
+def gecerli(o, m):
+    """kapalı liste + kanıt belgede birebir (boşluk, tırnak ve markdown işareti normalize) — değilse sonraki kola geç"""
+    n = lambda s: " ".join(re.sub(r"[\"'`*_‘’“”]", "", str(s)).split()).lower()
+    mek = o.get("mekanizma")
+    return (isinstance(mek, list) and 1 <= len(mek) <= 2 and all(x in MEKANIZMA for x in mek)
+            and len(n(o.get("kanit", ""))) >= 15 and n(o["kanit"]) in n(m))
 D = {k: str(v) for k, v in [(l.split("\t")[0], l.split("\t")[2]) for l in (KOK / ".claude/ogren1/yollar.tsv").read_text(encoding="utf-8").splitlines()] if v != "-"}
 Z = "C:/Projeler/omer-skills/dist/"
 D.update({
@@ -70,6 +87,9 @@ for ad, kaynak in D.items():
             sys.exit("TAVAN")
         except Exception as e:
             print(ad, model, "HATA", type(e).__name__, str(e)[:80], flush=True)
+            continue
+        if not gecerli(o, m):
+            print(ad, model, "GECERSIZ", o.get("mekanizma"), str(o.get("kanit"))[:60], flush=True)
             continue
         o.update(ad=ad, kaynak=kaynak, model=model, sn=round(time.time() - t))
         with CIKTI.open("a", encoding="utf-8") as f:

@@ -1,7 +1,10 @@
-# ÖĞREN-1 — Token araçları ustalık + kombin kartları (d2, 15 Eki)
+# ÖĞREN-1 — Token araçları ustalık + kombin kartları (d3, 15 Eki)
 
-Kaynak: `.kos/kopru/ogren/ozet-token.jsonl` (32 kalem, nemotron-3-super :free, Claude jetonu 0) + gerçek mini koşular `.claude/ogren1/mini/` (d1 + `d2.tsv`).
-Özet doğruluğu (5 kalem: rtk · headroom · qmd · jev · mem-search, 4 alan = 20 alan): model hatası 3/20 = %15, üçü de `mekanizma` alanında (headroom/qmd/jev "önbellek" denmiş; gerçekte sıkıştırma · dizin · delegasyon). Ayrıca mem-search kaynak eşlemesi yanlış (claude-mem-cowork bulut sürümü; kurulu olan yerel claude-mem 13.31) → özet sadık ama yanlış belgeye. Kural: `komut`/`sinirlar` güvenilir, `mekanizma` her zaman ölçümden yazılır.
+Kaynak: `.kos/kopru/ogren/ozet-token-v2.jsonl` (32 kalem, v2 şema, Claude jetonu 0; v1: ozet-token.jsonl) + gerçek mini koşular `.claude/ogren1/mini/` (d1 + `d2.tsv`).
+Özet doğruluğu (5 kalem: rtk · headroom · qmd · jev · mem-search, 4 alan = 20 alan): model hatası 3/20 = %15, üçü de `mekanizma` alanında (headroom/qmd/jev "önbellek" denmiş; gerçekte sıkıştırma · dizin · delegasyon). Ayrıca mem-search kaynak eşlemesi yanlış (claude-mem-cowork bulut sürümü; kurulu olan yerel claude-mem 13.31) → özet sadık ama yanlış belgeye (d3'te yollar.tsv düzeltildi).
+
+**Özet hattı v2 (d3; tüm ÖĞREN kategorilerinin ortak hattı)** — `python -X utf8 .claude/ogren1/ozet.py` → `.kos/kopru/ogren/ozet-token-v2.jsonl` (kaynak listesi `.claude/ogren1/yollar.tsv`: ad · tür · yol; çıktı varsa kalem atlanır → kaldığı yerden sürer). Kollar: OmniRoute `openrouter/nvidia/nemotron-3-super-120b-a12b:free` → ollama `gpt-oss:20b-cloud` → `qwen3.5:4b`; tavan 90 çağrı (32 kalem = 40 çağrı).
+Şema: `{ad, ne_yapar, mekanizma: [1-2 değer], mekanizma_gerekce, kanit, ne_zaman, komut, girdi_cikti, sinirlar, cakistigi_arac}`; `mekanizma` kapalı liste: sıkıştırma · önbellek · bağlam dışı depolama · delegasyon · özetleme · tur azaltma · yönlendirme · ölçüm (istemde tek cümlelik tanımlarıyla). `kanit` = belgeden birebir alıntı; `gecerli()` liste dışı değeri ve belgede bulunmayan alıntıyı (boşluk/tırnak/markdown normalize) reddeder → sonraki kol. Başka kategori için: `yollar.tsv` + `CIKTI` adı değişir, şema aynı kalır.
 
 ## Ustalık kartları (ölçülmüş)
 
@@ -41,7 +44,7 @@ Kaynak: `.kos/kopru/ogren/ozet-token.jsonl` (32 kalem, nemotron-3-super :free, C
 - Tuzak: `yollar` dizin değil dosya ister (dizinde PermissionError).
 
 **ucuz_alt.py** (`tools/ucuz_alt.py istem.md cikti.md [bağlam…]`) — Claude-dışı combo `cc-yedek-dis`; stdout'a yalnız yol+jeton (126 B). Mini: 1400 girdi → 74 çıktı, 3 s.
-- Tuzak: combo bugün `gpt-6.1-sol`a gidiyor (OpenRouter :free DEĞİL) — ücretsiz kural isteyen işte `ozet.py` kolları (nemotron :free → ollama).
+- Tuzak: combo :free değil, kredi yiyebilir (bugün `gpt-6.1-sol`). Combo DEĞİŞMEZ (OmniRoute ayarı Ömer'in; limit yedeği). ÖĞREN-* ve :free kurallı işte ucuz_alt KULLANILMAZ → yalnız `ozet.py` / açık `:free` model adı (Desktop 15 Eki 01:27).
 
 **OmniRoute ücretsiz kolları** — `ucretsiz-groq` (gpt-oss-120b) · `openrouter/...:free` · ollama yerel.
 - Groq kök neden (d2, kanıt `mini/groq-kok.txt`): KIRIK DEĞİL. Python-urllib UA → Cloudflare 1010 → 403 (combo'da 502). `user-agent: curl/8.4` ile `ucretsiz-groq` ve `groq/openai/gpt-oss-120b` 200. Llama 3.3/4-scout 400 = OmniRoute `/v1/models` statik katalog eski (Groq canlı katalogda yok).
@@ -76,6 +79,6 @@ Kaynak: `.kos/kopru/ogren/ozet-token.jsonl` (32 kalem, nemotron-3-super :free, C
 4. Dosya yapısı (düzenleme değil) → `rtk read -l aggressive`.
 5. Geçmiş karar/oturum → claude-mem (CC: mem-search MCP · köprü: HTTP `/api/search`) → `get_observations([id])`.
 6. Çok dosyalı keşif, test/log → alt ajan (okuyucu); köprüde alt ajan yoksa jev log|triage.
-7. Toplu metin özeti → `ozet.py` (:free → ollama) ; ücret kuralı yoksa ucuz_alt.
+7. Toplu metin özeti → `ozet.py` (:free → ollama); ucuz_alt yalnız ücret kuralı OLMAYAN işte (ÖĞREN-* değil).
 8. Görsel → nemotron-nano-omni :free, curl UA, max_tokens ≥3000.
 9. Ölçüm → rtk gain · headroom savings · token_olc (claude-usage değil).
