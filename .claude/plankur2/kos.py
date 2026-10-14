@@ -55,10 +55,11 @@ def transkript_jeton(sid):
 def claude(q, sid, araclar=True):
     while ram() >= 85:
         time.sleep(30)
-    kmt = ["claude", "-p", q, "--output-format", "json", "--model", "opus", "--max-turns", "30", "--session-id", sid,
+    kmt = ["claude", "-p", "--output-format", "json", "--model", "opus", "--max-turns", "30", "--session-id", sid,
            "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands"]
     kmt += ["--allowedTools", "Bash(python:*)", "Read", "Grep", "Glob"] if araclar else ["--tools", ""]
-    r = subprocess.run(kmt, cwd=cwd, env=env, capture_output=True, text=True, encoding="utf8", timeout=1200, shell=False)
+    # istem stdin'den: argv'de kor.md (61k) WinError 206 verir
+    r = subprocess.run(kmt, input=q, cwd=cwd, env=env, capture_output=True, text=True, encoding="utf8", timeout=1200, shell=False)
     try:
         return json.loads(r.stdout)
     except ValueError:
@@ -85,13 +86,14 @@ yasak = pk.kurulu_disi_adlar()
 kd = {"A": 0, "B": 0}  # plan metninde kurulu olmayan araç adı (kanıt: B'de 0 beklenir)
 for p, grup in enumerate(PAKET):
     for n in grup:
-        parca = {k: (re.search(rf"###\s*{n + 1}\b(.*?)(?=###\s*\d+\b|\Z)", kayit[(k, p)]["metin"], re.S)
+        # B0 '## N' başlığı kullandı; yalnız '###' arayınca 1. işin metni 2-3. işe düşüyordu
+        parca = {k: (re.search(rf"^#{{2,4}}\s*{n + 1}\b(.*?)(?=^#{{2,4}}\s*\d+\b|\Z)", kayit[(k, p)]["metin"], re.S | re.M)
                      or [None, kayit[(k, p)]["metin"][:4000]])[1].strip() for k in "AB"}
         for k in "AB":
             kd[k] += sum(1 for w in yasak if re.search(rf"\b{re.escape(w)}\b", parca[k].lower()))
         x = random.choice("AB")
         anahtar[n + 1] = {"X": x, "Y": "B" if x == "A" else "A"}
-        kor.append(f"## {n + 1}. {IS[n]}\n### X\n{parca[x][:4000]}\n### Y\n{parca[anahtar[n + 1]['Y']][:4000]}\n")
+        kor.append(f"## {n + 1}. {IS[n]}\n### X\n{parca[x][:5000]}\n### Y\n{parca[anahtar[n + 1]["Y"]][:5000]}\n")
 (D / "kor.md").write_text("\n".join(kor), encoding="utf8")
 (D / "anahtar.json").write_text(json.dumps(anahtar), encoding="utf8")
 y = D / "yargic.json"
