@@ -45,6 +45,7 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 
 ### Token araç sırası
 Ölçüm: `python .claude/token4/a0.py` → docs/kutuphane/olcum/token-4-arac.tsv (14 Eki). Keşif sırası (GRAPHIFY-ULTRA-1): graphify-out/GRAPH_REPORT.md başlıkları (harita) → `graphify query`/cc-kopru `oku` iskelet-sembol → dosya yalnız kanıt satırı için Read offset/limit (~20 satır); >300 satırlık dosyanın aralıksız Read'i köprü ajanlarında `tools/oku_yonlendir.py` ile iskelete döner.
+- Kartlar + karar ağacı: docs/ogren/token.md (ÖĞREN-1, ölçülmüş). Sembol adı biliniyorsa önce `python .kos/kopru/graphify_sor.py "<sembol>"` (260 B ↔ query 25 KB); belge metni `qmd search`; köprüde MCP yok → claude-mem `curl -s "127.0.0.1:37777/api/search?query=<q>&limit=5"`; Claude-dışı model çağrısında `user-agent: curl/8.4` (Python-urllib UA Groq'ta Cloudflare 1010).
 - Konum: sembol/ilişki → graphify query/oku; içerik konumu → Grep (files_with_matches/-n). `rtk grep` en kalabalık, en düşük oranlı kalem (8372 komut, %25.6).
 - `rtk discover` kaçakları transkriptten sayar; kanca yeniden yazımı transkripte düşmez → çoğu yanlış pozitif (14 Eki: rtk 4764 komut koştu, transkriptte `rtk` önekli 2651). Gerçek kaçak ölçümü: rtk history.db `hook_decisions`.
 - YASAK: `git show <ref>:<yol>` ile dosya dökmek (rtk passthrough, 14 Eki tek günde 1.56M token, %0 tasarruf) → `git diff <ref> -- <yol>` ya da geçici dosya + dar Read. `git status --short` de passthrough (ort. 780 token) → yol ver: `git status --short -- <yollar>`. L44
@@ -61,4 +62,5 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 - Durma: her ara kayıtta durum_ozet son satırı `-- durma: … (%X)`; %X ≥30 → ara kayıt + DUR (Desktop yeni oturum açar). /compact yok; köprü ayarı değişmez. L39
 - Bölünme (M5, sabit 45 değil): yeni oturum ~100–155k tek sefer, sürdürmek adım başı ~0.1·C → C ≥200k ve ≥8 adım kaldıysa (C=150k'da ≥13) ara kayıt + DUR. L39 L6
 - Hat çıkarımı: iş sonunda tekrar kullanılabilir öğrenim (mekanizma, araç sırası, kalıp) ilgili/yeni skill'e — CC + claude.ai zip birlikte. L24
+- Kurulum kapanışı (KURULUM-*, video-uygula, kaynak-tarama; Ömer 15 Eki): ustalık kartı (≤12 satır: ne · ne zaman · komut · birleşim · tuzak · ölçülmüş kazanç) + en küçük gerçek koşu (kanıt satırı) + ilgili kombin kartına ekleme (docs/ogren/<kategori>.md) + departman-* müdür güncellemesi (CC + claude.ai zip). Biri yoksa kurulum BİTTİ sayılmaz.
 - Bitti: son rapor + SIRA'ya `<GÖREV> BİTTİ` + devire `BİTTİ`. L36

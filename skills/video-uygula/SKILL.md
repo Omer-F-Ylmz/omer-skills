@@ -26,6 +26,7 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
    alan `karar: KUR|DENE|ÖĞREN|ZATEN VAR|ALTERNATİF|RED`. Teknik iddia: resmi doküman (context7/mslearn/WebFetch, video başına ≤3); bulunamazsa `dogrulama: doğrulanamadı`, guven ≤ orta.
 5. video katman docs/kurulumlar/adaylar/<ad>.md... [--yeniden] [--istek-tavan M]
 6. Sohbete katman çıktısı (≤20 satır) + seçim gerekçeleri.
+7. Kurulum kapanışı (KUR/DENE sonrası, zorunlu): ustalık kartı + mini gerçek koşu + kombin kartı (docs/ogren/<kategori>.md) + departman-* müdür güncellemesi (CC + claude.ai zip) — is-akisi §5; biri yoksa kurulum BİTTİ değil.
 ```
 
 ## Kararlar (15)

@@ -10,11 +10,13 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>` eki geldiyse yalnız ondan seç, ek sorgu yok; gelmediyse TEK kez Skill `yetenek-getir` (iş başına ayrı sorgu yok). Rutin tek alanlı işte katalog yok.
 
 ## Adımlar
-1. **Komut çıktısı** — kabuk komutları `rtk` ile yoğunlaşır; sonuç kullanışsızsa `rtk proxy`.
-2. **Büyük içerik** — log/tarama önce `jev log|triage`; gerekirse `headroom` sıkıştırma.
-3. **Keşif** — kod sorusu önce `graphify` query; yapısal arama `smart-explore`.
-4. **Hafıza** — geçmiş iş `mem-search`; oturum devri `context-save` / `context-restore`.
-5. **Context** — mantıksal aralarda `strategic-compact`; dalga başında /clear; alt ajana test/log/araştırma.
+Ölçülmüş kartlar, kombin zincirleri ve karar ağacı: `docs/ogren/token.md` (ÖĞREN-1).
+1. **Komut çıktısı** — kabuk komutları `rtk` ile yoğunlaşır; sonuç kullanışsızsa `rtk proxy`. Dosya yapısı (düzenleme değil): `rtk read -l aggressive` (−%86).
+2. **Büyük içerik** — log/tarama önce `jev log|triage`; gerekirse `headroom` sıkıştırma; Desktop'a yapıştırmadan önce `headroom-compress` (JSON −%54).
+3. **Keşif** — `.kos/kopru/harita` → sembol adıyla `graphify_sor.py` (−%99 ↔ query) → `graphify explain|path`; belge metni `qmd search`; yapısal arama `smart-explore`.
+4. **Hafıza** — geçmiş iş `mem-search` (köprüde MCP yok: worker HTTP `/api/search`); oturum devri `context-save` / `context-restore`.
+5. **Context** — mantıksal aralarda `strategic-compact`; dalga başında /clear; alt ajana test/log/araştırma; toplu metin özeti Claude-dışı :free model (`.claude/ogren1/ozet.py` kalıbı, curl UA).
+6. **Ölçüm** — `rtk gain` · headroom savings · `tools/token_olc.py` (`claude-usage today` bugünü göstermiyor).
 
 ## Kapılar
 - Env değerleri hiçbir komutla yazdırılmaz.
