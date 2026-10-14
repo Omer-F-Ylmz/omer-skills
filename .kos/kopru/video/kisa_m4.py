@@ -3,7 +3,9 @@ python .kos/kopru/video/kisa_m4.py m0|kos|puan    (tools/video/.venv python'u; P
 """
 import json
 import re
+import subprocess
 import sys
+import time
 from pathlib import Path
 
 from video import kisa
@@ -16,7 +18,8 @@ CIK = ANA / ".kos" / "kopru" / "video" / "kisa"
 ALTIN = ("ig-DeW7JHrgsXb", "ig-DeV9nZPtSsC", "ig-DeHMM45NaFt")  # VİDEO-16 short altın kümesi (aynı videolar)
 EK = ("ig-DeZdb5pNQSB", "ig-DeZdAxovI1G", "ig-DdupQchgt8X", "ig-DcGy07ZMh5D", "ig-DeRC-BJoA5H")  # oturumu 8'e tamamlar; sonuncusu carousel
 REF, TABAN = ("taban-1", "taban-2"), ("low-ssb-1", "low-ssb-2")  # referans = eski varsayılan (sonnet+haiku) ×2 · taban = güncel varsayılan ssb
-SADE = ("ipucu", "iş akışı", "is akisi", "prompt")
+SINAMA = ("ig-DYKSh1iv8nP", "ig-DbG_xa3y_d6", "ig-DeXK9x7jQfb", "ig-Ddx-cbVNEva", "ig-Ddg8Mqnv0R5", "ig-DcDfnzsM2wL")  # 14 Eki d9: linkler-14eki.txt'teki ilk 6 önbelleksiz reel (seçimde ayar yok)
+SADE = ("ipucu", "iş akışı", "is akisi", "prompt", "teknik")  # 14 Eki 19:15 Desktop: teknik ayrı alan, araç sayımına/yp'ye girmez
 
 
 def agir(g, oy, oz, c):
@@ -72,15 +75,29 @@ def m0():
     return out
 
 
+def hazirla():
+    """Sınama kümesi paketleri (hat indirir: meta + Groq konuşma + OCR); ağır iş, seri."""
+    for v in SINAMA:
+        if not (ONB / v / "paket.md").is_file():
+            t = time.monotonic()
+            for adim in ("ozet", "paket"):
+                r = subprocess.run([str(Path(sys.executable).parent / "video.exe"), adim, v], capture_output=True, text=True, encoding="utf-8", errors="replace")
+                print(v, adim, r.returncode, round(time.monotonic() - t, 1), (r.stdout + r.stderr)[-300:].replace("\n", " | "), flush=True)
+                if r.returncode:
+                    break
+    print("BITTI")
+
+
 def kos():
     """IG medyası hat tarafından CIK/medya'ya yeniden indirilir (önbellekte mp4 silinmiş); video-cache'e dokunulmaz."""
     CIK.mkdir(parents=True, exist_ok=True)
-    for v in ALTIN + EK:  # süre ölçümü taze izlemeyle: Gemini önbelleği yedeğe (araştırma önbelleği M2 gereği kalır)
+    ids, ad = (SINAMA, "oturum-sinama.json") if "sinama" in sys.argv[3:] else (ALTIN + EK, "oturum.json")
+    for v in ids:  # süre ölçümü taze izlemeyle: Gemini önbelleği yedeğe (araştırma önbelleği M2 gereği kalır)
         for a in ("gemini.json", "gemini-metin.json"):
             if (ONB / v / a).is_file():
                 (ONB / v / a).replace(ONB / v / a.replace(".json", f"-{sys.argv[2] if sys.argv[2:] else 'eski'}.json"))
-    iz, y = kisa.calistir(ALTIN + EK, ONB, CIK)
-    (CIK / "oturum.json").write_text(json.dumps({"iz": iz, "sonuc": y}, ensure_ascii=False, indent=1), encoding="utf-8")
+    iz, y = kisa.calistir(ids, ONB, CIK)
+    (CIK / ad).write_text(json.dumps({"iz": iz, "sonuc": y}, ensure_ascii=False, indent=1), encoding="utf-8")
     print("claude", y["hata"], y["sure"], y["usd"], y["usage"])
 
 
@@ -105,7 +122,7 @@ def puan():
             metin = tr.normal((ONB / v / "paket.md").read_text(encoding="utf-8"))
             if k == "yeni":
                 f = yeni[v]
-                ad, ln = {x["ad"] for x in f["araclar"]}, {_url(x) for x in f["linkler"] + [x["link"] for x in f["araclar"] if x["link"]]}
+                ad, ln = {x["ad"] for x in f["araclar"] if (x.get("tur") or "").lower() != "teknik"}, {_url(x) for x in f["linkler"] + [x["link"] for x in f["araclar"] if x["link"]]}
                 g = o["iz"][v]
                 gs = g["gemini"].get("sure") or json.loads((ONB / v / "gemini.json").read_text(encoding="utf-8"))["_iz"]["sure"]  # önbellek dönüşünde süre kayıtta
                 sure = max(gs, (g.get("metin") or {}).get("sure", 0)) + g["arastir"] + o["sonuc"]["sure"] / n  # metin geçişi izlemeye paralel
@@ -179,5 +196,59 @@ def denetle():
     (CIK / "altin-denetim.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
+REF_SISTEM = ("Kısa video paket metinlerinden (açıklama, konuşma dökümü, ekran OCR'ı, linkler) referans listesi çıkarıyorsun. Her VIDEO için: "
+              "araclar = metinde ADI GEÇEN her araç/repo/model/kütüphane/servis/site/uygulama/dil/platform (eksiksiz; kişi adı, arayüz düğmesi, sıradan kelime değil); "
+              "teknikler = adı konmuş yöntem/kavramlar; linkler = metinde geçen her URL ve github sahip/repo (aynen). Uydurma yok, metinde olmayanı yazma.")
+REF_SEMA = {"type": "object", "required": ["videolar"], "properties": {"videolar": {"type": "array", "items": {"type": "object", "required": ["id", "araclar", "teknikler", "linkler"],
+            "properties": {"id": {"type": "string"}, "araclar": {"type": "array", "items": {"type": "string"}},
+                           "teknikler": {"type": "array", "items": {"type": "string"}}, "linkler": {"type": "array", "items": {"type": "string"}}}}}}}
+
+
+def sinama_ref():
+    """Geçerlilik (b): referans = yeni hat ∪ bağımsız Claude paket okuması (1 claude -p); her kalem pakette kanıtlanır, kanıtsızlar ayrı (silinmez)."""
+    o = json.loads((CIK / "oturum-sinama.json").read_text(encoding="utf-8"))
+    hat = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}
+    y = kisa.hafif.cagir(REF_SISTEM, "\n\n".join(f"VIDEO {v}\n{(ONB / v / 'paket.md').read_text(encoding='utf-8')}" for v in SINAMA), REF_SEMA, efor="medium", butce=1.0)
+    cl = {x["id"]: x for x in (y["form"] or {}).get("videolar", [])}
+    out = {"_claude": {k: y.get(k) for k in ("sure", "usd", "usage", "hata")}}
+    for v in SINAMA:
+        sat = (ONB / v / "paket.md").read_text(encoding="utf-8").splitlines()
+        h, c = hat.get(v, {"araclar": [], "linkler": []}), cl.get(v, {"araclar": [], "teknikler": [], "linkler": []})
+        ar = {a["ad"]: "hat" for a in h["araclar"] if (a.get("tur") or "").lower() != "teknik"}
+        for a in c["araclar"]:
+            if not esit(a, ar):
+                ar[a] = "claude"
+        ln = {_url(u): "hat" for u in h["linkler"]} | {_url(u): "claude" for u in c["linkler"] if _url(u) not in {_url(x) for x in h["linkler"]}}
+        ham = "\n".join(sat).lower()
+        out[v] = {"arac": {a: [k, _kanit(a, sat)] for a, k in ar.items()},
+                  "link": {u: [k, next((s[:90] for s in sat if u in s.lower()), None) or (u.split("/")[-1] in ham and "pakette ad")] for u, k in ln.items() if u and v[3:].lower() not in u},
+                  "teknik": c["teknikler"] + [a["ad"] for a in h["araclar"] if (a.get("tur") or "").lower() == "teknik"]}
+        print(v, "araç", sum(1 for x in out[v]["arac"].values() if x[1]), "/", len(out[v]["arac"]), "link", sum(1 for x in out[v]["link"].values() if x[1]), "/", len(out[v]["link"]))
+    (CIK / "sinama-ref.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("claude", out["_claude"])
+
+
+def sinama_puan():
+    """Sınama kümesi: kanıtlı referansa karşı yeni hattın araç/link yakalaması + yp (kanıtlı ref dışı ve pakette geçmeyen)."""
+    o = json.loads((CIK / "oturum-sinama.json").read_text(encoding="utf-8"))
+    ref = json.loads((CIK / "sinama-ref.json").read_text(encoding="utf-8"))
+    yeni, n, a = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}, len(o["iz"]), []
+    for v in SINAMA:
+        f = yeni[v]
+        ad = {x["ad"] for x in f["araclar"] if (x.get("tur") or "").lower() != "teknik"}
+        ln = {_url(x) for x in f["linkler"] + [x["link"] for x in f["araclar"] if x["link"]]}
+        rad = {k for k, x in ref[v]["arac"].items() if x[1]}
+        rln = {k for k, x in ref[v]["link"].items() if x[1]}
+        ya, yl, yp, _ = olc(ad, ln, rad, rln, tr.normal((ONB / v / "paket.md").read_text(encoding="utf-8")))
+        a.append((ya, yl, yp))
+        print(v, len(rad), len(rln), round(ya, 3), yl if yl is None else round(yl, 3), yp, sep="\t")
+        for r in sorted(r for r in rad if not esit(r, ad)) + sorted(rln - ln):
+            print("  kaçan", r)
+    s = o["sonuc"]
+    print("ort araç", round(sum(x[0] for x in a) / len(a), 3), "link", round(sum(x[1] for x in a if x[1] is not None) / max(sum(1 for x in a if x[1] is not None), 1), 3),
+          "yp/video", round(sum(x[2] for x in a) / len(a), 2), "| sn/video", round(s["duvar"] / n, 1), "hazır", round(s["hazir_sure"] / n, 1), "claude", s["sure"],
+          "| ağır_tk/video", round(agir(s["usage"].get("input_tokens", 0), s["usage"].get("cache_read_input_tokens", 0), s["usage"].get("cache_creation_input_tokens", 0), s["usage"].get("output_tokens", 0)) / n))
+
+
 if __name__ == "__main__":
-    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan, "kacak": kacak, "denetle": denetle}[sys.argv[1]]()
+    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan, "kacak": kacak, "denetle": denetle, "hazirla": hazirla, "sinama_ref": sinama_ref, "sinama_puan": sinama_puan}[sys.argv[1]]()

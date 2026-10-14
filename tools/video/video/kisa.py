@@ -11,6 +11,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -133,6 +134,7 @@ def izle(d, medya=None, env=None, yeniden=False):
 
 
 KOD = re.compile(r"[<>{}=;]")  # kod parçası ad değil
+ARANMAZ = ("(teknik)", "(kurulum komutu)")  # 14 Eki d9: ad değil → gh arama yok (arama 30/dk)
 KURULUM = re.compile(r"\s*(pip3?|pipx|uv|npm|pnpm|yarn|bun|brew|cargo|go|gem|winget)\s.*\b(install|add)\b")
 METIN_ISTEM = ("Aşağıda bir kısa videonun paketi var (başlık, açıklama, konuşma metni, ekran OCR'ı, linkler). Videoda adı geçen TÜM araç, repo, uygulama, "
                "servis, model (sürümüyle), kütüphane, paket yöneticisi (pip, npm, uv…), programlama dili, platform ve lisans adlarını çıkar; yalnız bir kez "
@@ -294,13 +296,26 @@ def repo_bul(ad, metinler):
         m = re.search(r"github\.com/([\w.-]+/[\w.-]+)", u)
         if m and tr.normal(ad.split("/")[-1]) in tr.normal(m.group(1)):
             return m.group(1).removesuffix(".git"), "link"
+    ARASTIRMA.mkdir(parents=True, exist_ok=True)
+    onb = ARASTIRMA / f"ara-{re.sub(r'[^a-z0-9]+', '_', tr.normal(ad))[:60]}.txt"  # 14 Eki d9: aynı ad ikinci videoda aranmaz
+    if onb.is_file():
+        r = onb.read_text(encoding="utf-8")
+        return (r, "gh arama, doğrulanmadı") if r else (None, None)
     for _ in range(4):  # arama 30/dk; araç patlamasında (DeHMM 25) sessiz kayıp yerine sıfırlanmayı bekle
+        with _ARA_KILIT:  # süreç geneli ≥2 sn aralık = 30/dk; paralel iş parçacıkları oran sınırına çarpıp 20 sn beklemez
+            time.sleep(max(0.0, _ARA_SON[0] + 2.0 - time.monotonic()))
+            _ARA_SON[0] = time.monotonic()
         r = subprocess.run(["gh", "api", "-X", "GET", "search/repositories", "-f", f"q={ad} in:name", "-f", "per_page=1", "--jq", ".items[0].full_name"],
                            capture_output=True, text=True, encoding="utf-8", timeout=60)
         if r.returncode == 0 or "rate limit" not in (r.stderr or "").lower():
             break
         time.sleep(20)
+    if r.returncode == 0:
+        onb.write_text(r.stdout.strip(), encoding="utf-8")
     return (r.stdout.strip(), "gh arama, doğrulanmadı") if r.returncode == 0 and r.stdout.strip() else (None, None)
+
+
+_ARA_KILIT, _ARA_SON = threading.Lock(), [0.0]
 
 
 OTURUM_SISTEM = ("Kısa video değerlendiricisisin. Her VIDEO bloğu Gemini'nin videoyu izleyip çıkardığı JSON'dur (konuşma + ekran + açıklama/yorum linkleri) "
@@ -384,7 +399,7 @@ def calistir(ids, kok, cikti, efor="low", env=None):
             return a["ad"], ({**arastir(r), "bulunus": nasil} if r else None)
         t = time.monotonic()
         with ThreadPoolExecutor(6) as ex:  # gh + README özeti ağ bekler; seri DeHMM 30 araçta 43 sn
-            kunye = {ad: k for ad, k in ex.map(kun, [a for a in g["araclar"] if not kat[a["ad"]]]) if k}
+            kunye = {ad: k for ad, k in ex.map(kun, [a for a in g["araclar"] if not kat[a["ad"]] and a["ne_dedi"] not in ARANMAZ]) if k}
         kunye_link[v] = {ad: f"https://github.com/{k['repo']}" for ad, k in kunye.items() if k["bulunus"] == "link"}  # gh arama ilk sonucu doğrulanmadı → link yazılmaz
         iz[v] = {"indir": indir, "gemini": gi, "metin": mg["_iz"], "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
         bloklar[v] = blok(v, g, kat, kunye)

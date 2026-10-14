@@ -108,3 +108,12 @@ def test_sozluk_tara_kendi_raporu_ve_sik_ad_disarida(tmp_path, monkeypatch):
 def test_birlestir_tekrarsiz():
     g = kisa.birlestir({"araclar": [{"ad": "Browser Use"}]}, {"adlar": ["browser-use", "pip", "pip"]})
     assert [a["ad"] for a in g["araclar"]] == ["Browser Use", "pip"]
+
+
+def test_repo_bul_arama_onbellekte(tmp_path, monkeypatch):
+    monkeypatch.setattr(kisa, "ARASTIRMA", tmp_path)
+    cagri = []
+    monkeypatch.setattr(kisa.subprocess, "run", lambda a, **k: cagri.append(a) or type("R", (), {"returncode": 0, "stdout": "o/hermes\n", "stderr": ""})())
+    assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes", "gh arama, doğrulanmadı")
+    assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes", "gh arama, doğrulanmadı")
+    assert len(cagri) == 1

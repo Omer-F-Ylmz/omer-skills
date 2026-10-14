@@ -436,3 +436,6 @@ DISK-1 d2 HAZIR 13:40 — Ömer koşar (repo kökünden): `python .kos/kopru/dis
 - 14 Eki 19:00 TOKEN-3 d3 ARA: K12 alt ajan dökümü (TELVE general-purpose %54, okuyucu önerisi) · K13 toplu tekrar önbellek önerisi · K14 bölme 150k eşiği hesabı · devam: devir/token-3-devam.md (d4: kapılar onayı, K15–K17)
 - VİDEO-3 d1 (14 Eki 18:50) ARA KAYIT b458f1df: V1 ölçüldü, V2 uzun.py + taban; Gemini 4/6 (kota 429) → d2: devir/video-3-devam.md
 - 14 Eki 19:20 VİDEO-KISA-TOKEN-1 ara: d8 altın denetim (araç 35/38, link 27/34 kanıtlı) · temiz araç 1.0 link 1.0 · yp 3.0 (hepsi teknik başlık) · sn/video 23.5 > 10 · sınama kümesi yok (devir/video-kisa-token-1-devam.md)
+- 14 Eki 19:40 VİDEO-KISA-TOKEN-1 ara: d9 teknik ayrı (altın araç 1.0, link temiz 1.0, yp 0) · gh arama önbellek+oran kilidi · sınama 6 paket hazır, koşu RAM %87 nedeniyle devirde (devir/video-kisa-token-1-devam.md)
+- 14 Eki 19:10 TELVE-R3a A hazır: kıyas panosu dist/telve-r1/r3a/kiyas.png (igloo·lando·lusion·activetheory·TELVE × açılış/orta/final, 1440+390, mekanizma satırlı); B/C sürüyor
+- 14 Eki 19:25 TELVE-R3a BİTTİ: 3 yön hazır — docs/r1/r3a-yon.md (475683e) · dist/telve-r1/r3a/kiyas.png + yon-1/2/3.png · öneri Yön 1 (Tek Fincan, Tek Dünya) + Yön 2 ışık dili; Ömer seçer → DESIGN.md v3 → R3b

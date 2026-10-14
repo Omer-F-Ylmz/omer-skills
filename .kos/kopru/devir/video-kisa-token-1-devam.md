@@ -1,4 +1,15 @@
+## d9 SONU (14 Eki ~19:40, CC) — ÖNCE BUNU OKU
+- AÇIK 1 YAPILDI: kisa_m4 SADE'ye "teknik"; puan/sinama yeni tarafta yalnız tur=teknik düşer (ipucu düşmez: ref "pip install airllm"=CLI). Altın d8 yeniden: araç 1.0 · link ham 0.789 / temiz 1.0 · yp 0 · 11 686 tk/video (0.05×) · 23.5 sn/video.
+- AÇIK 2 kısmi: kisa.repo_bul gh arama önbelleği (arastirma/ara-<ad>.txt) + süreç geneli 2 sn aralık kilidi (oran sınırı 20 sn beklemesi yok) + (teknik)/(kurulum komutu) adları aranmaz. test_kisa 13/13. Süre etkisi ÖLÇÜLMEDİ (d8: arastir 42–63 sn son 4 videoda).
+- AÇIK 3: sınama 6 reel SINAMA sabiti (linkler-14eki ilk 6 önbelleksiz reel); `kisa_m4.py hazirla` ile ozet+paket 6/6 hazır (DbG, Ddx karesiz/konuşmasız). KOŞULMADI (RAM %87, çağrı 41/45).
+- Sıradaki (RAM <%85): `cd tools/video && PYTHONPATH=. .venv/Scripts/python.exe ../../.kos/kopru/arka.py --cwd C:/Projeler/omer-skills/tools/video .kos/kopru/video/kisa_kos.log ../../.kos/kopru/video/kisa_m4.py kos d9 sinama` (claude -p 1) → `kisa_m4.py sinama_ref` (claude -p 1, bağımsız paket okuması + kanıt; kanıtsızlar ayrı, Desktop onayı) → `sinama_puan` → rapor/video-kisa-token-1.md → M5 → SIRA BİTTİ. -p bu oturum 0.
+
 DESKTOP 18:45 RAM: ağır python işi (whisper/OCR/toplu Gemini) aynı anda en fazla 1, başlamadan RAM <%80, bitince süreç kapatılır; paralellik ThreadPool ile. (18:45'te iki python 2.9+1.5 GB → RAM %93 görüldü.)
+## DESKTOP KARARLARI (14 Eki 19:15) — d8 AÇIK 1/2 + kanıtsız kalemler
+- AÇIK 1 (teknikler): teknikler raporda AYRI alan ("teknikler"), araç sayımına ve yp'ye GİRMEZ; ref'teki teknik/kavram kalemleri de ("Katman katman yükleme/çıkarım", "Script etiketi gömme") teknik listesine taşınır. Araç = adlı araç/repo/model/kütüphane/servis/site.
+- Kanıtsız linkler: OCR-bozuk/kırpık ref adresinin doğrusu videodan/paketten kanıtlanabiliyorsa düzeltilmiş haliyle kalır, kanıtlanamazsa "temiz" kümeden çıkar (ayrı listede durur). Ham ve temiz puan ikisi de raporlanır.
+- AÇIK 2 (süre): Claude toplu özet adımı parti başı sabit maliyet — ayrı ölçülür. Kapı: izleme (Gemini) ≤10 sn/video amortize; toplam 8'li partide ≤15 sn/video, 16'lı partide ≤10 sn/video. Araştırma: önce katalog/ATLAS + araştırma önbelleği, gh araması yalnız bilinmeyene ve oran sınırına uygun paralel.
+- Sıradaki: (b) ayrı sınama kümesi (6 yeni video) — 95/95 yalnız iki kümede de geçerse KABUL.
 ## d8 SONU (14 Eki ~19:20, CC) — ÖNCE BUNU OKU
 - kos d6 koşuldu (claude -p 5/9; iki flash yine 503 → hepsi 3.5-flash-lite; eski önbellek gemini-d6.json). Sonuç kisa/oturum.json → Claude'suz son işlemle kisa/oturum-d8.json.
 - (a) Altın denetim YAPILDI: `kisa_m4.py denetle` → kisa/altin-denetim.json. Araç 35/38, link 27/34 kanıtlı. KANITSIZ (Desktop onayı): araç "Katman katman yükleme/çıkarım" (DeW7), "Script etiketi gömme" (DeV9); link DeV9 4 OCR-bozuk cdn/npm adresi, DeHMM 3 kırpık huggingface adresi.
