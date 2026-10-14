@@ -1,0 +1,1 @@
+"onay/blender_5_uygula.py · 90 satır · 7 sembol\nL1\tblender_5_uygula.py\nL1\tBLENDER-5 onay betiği — Desktop/Ömer koşar (main'de, kol/blender5 birleşip…\nL26\tonkosul\nL27\tEksik önkoşulların listesi (boşsa uygulanabilir).\nL41\tkurulu_surum\nL48\tzipler\nL53\tmain"

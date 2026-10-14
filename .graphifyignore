@@ -1,0 +1,22 @@
+# GRAPHIFY-RAM-1 (14 Eki): untracked ölçüm/önbellek çıktıları — graph.json'ın ~%85'i (754k düğümün 641k'sı) buradaydı
+.claude/t7f2-birlesik/
+.claude/b2-aile/
+.claude/b2-olcum/
+.claude/v13/
+.claude/v13b/
+.claude/v9/
+.claude/b20_gl/
+.claude/cagri-sayac/
+.secim/
+.playwright-cli/
+.gstack/
+.impeccable/
+.codex/
+.rtk/
+.ruff_cache/
+.pytest_cache/
+*.log
+*.jsonl
+*.jpg
+*.png
+*.pdf
