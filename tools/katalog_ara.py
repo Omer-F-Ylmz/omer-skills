@@ -218,15 +218,15 @@ def main():
     else:
         # PLAN-KUR-2 (Ömer 14 Eki 06:38): kurulu olmayan araç listelenmez; yığınla uyumsuz araç elenir
         sonuc, elen, yok = suz(ara(q, tur, oran) if "--esik" in a else aday(q, n, tur), yigin(q))
-        print(f"elendi: {elen} (yığın) · {len(yok)} kurulu değil")
+        bas = f"elendi: {elen} (yığın) · {len(yok)} kurulu değil\n"
         sonuc += [] if tur else ogrenim_ara(q)
-    listele(sonuc, len(sonuc) > UZUN and "--esik" in a and "--tam" not in a)
+    listele(sonuc, len(sonuc) > UZUN and "--esik" in a and "--tam" not in a, bas if tur != "ogrenim" else "")
 
 
-def listele(sonuc, uzun=False):
+def listele(sonuc, uzun=False, bas=""):
     # Headroom tag_protector etiketli bloğu sıkıştırmaz; ```text çiti, ERROR/DEBUG'lı açıklamalarda içeriğin
     # LOG sayılıp (etiket korumasız yol) kırpılmasını önler (karma yol önce etiketi korur)
-    print(f"<aday-listesi>\n{metin(sonuc, uzun)}\n</aday-listesi>")
+    print(f"<aday-listesi>\n{bas}{metin(sonuc, uzun)}\n</aday-listesi>")
 
 
 def metin(sonuc, uzun=False):
