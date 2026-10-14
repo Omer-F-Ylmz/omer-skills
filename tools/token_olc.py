@@ -8,6 +8,7 @@ TOKEN-4a: --arac-dokum araç sonucu dökümü (Read/Bash/headroom_retrieve/tur/a
 
 Kullanım: python tools/token_olc.py olc [--gun 14] [--kok <projects>] [--motor olcum/motor-usage.jsonl] [--cikti olcum/token-0.json]
           python tools/token_olc.py olc --arac-dokum [--gun 14] [--kok <projects>] [--arsiv .claude/dalga-arsiv] [--cikti olcum/token-4a.json]
+          python tools/token_olc.py olc --durma [--gun 14] [--esik 3] [--kok <projects>]   # önbellek durması alarmı, çıkış 1 = ALARM
 """
 import base64
 import heapq
@@ -803,6 +804,61 @@ def tablo_ttl(r):
     return "\n".join(s)
 
 
+def durma(kok, gun=14, simdi=None, esik=3, girdi=3000):
+    """TELVE-TOKEN-1 (a): önbellek durması alarmı. Durma isteği = cache yazma 0 ve önbelleksiz girdi ≥ girdi
+    (okuma sabit kalır, kuyruk önbelleğe girmez); ≥ esik art arda = koşu. kirilma = koşudan sonraki ilk
+    istekte okuma düştüyse yeniden yazılan jeton. TTL ile ilgisi yok: R0f'de aralar < 100 sn."""
+    sinir, kok = (simdi or time.time()) - gun * 86400, Path(kok)
+    r = {"pencere_gun": gun, "oturum": 0, "istek": 0, "durma_istek": 0, "kosular": []}
+    for yol in sorted(kok.rglob("*.jsonl")) if kok.is_dir() else []:
+        if yol.stat().st_mtime < sinir:
+            continue
+        istekler, gorulen = [], set()
+        with yol.open(encoding="utf-8", errors="replace") as f:
+            for s in f:
+                try:
+                    o = json.loads(s)
+                except ValueError:
+                    continue
+                m = o.get("message") if isinstance(o, dict) and isinstance(o.get("message"), dict) else {}
+                ts = zaman(o.get("timestamp")) if m else None
+                if (o.get("type") != "assistant" or not isinstance(m.get("usage"), dict) or m.get("id") in gorulen
+                        or (ts is not None and ts < sinir) or kaynak(o, yol) == "observer"):
+                    continue
+                gorulen.add(m.get("id"))
+                p = parcala(m["usage"])
+                istekler.append((p["girdi"], p["cache_okuma"], p["cache_5m"] + p["cache_1h"]))
+        if not istekler:
+            continue
+        r["oturum"] += 1
+        r["istek"] += len(istekler)
+        kosu = []
+        for i, (g, ok, yz) in enumerate(istekler + [(0, 0, 0)]):  # son eleman: açık koşuyu kapatan bekçi
+            if i < len(istekler) and yz == 0 and g >= girdi:
+                r["durma_istek"] += 1
+                kosu.append(i)
+                continue
+            if len(kosu) >= esik:
+                son = istekler[kosu[-1]][1]
+                r["kosular"].append({"oturum": yol.stem, "bas": kosu[0] + 1, "uzunluk": len(kosu),
+                                     "onbelleksiz": sum(istekler[j][0] for j in kosu),
+                                     "kirilma": yz if i < len(istekler) and ok < son else 0})
+            kosu = []
+    r["kosular"].sort(key=lambda k: -k["onbelleksiz"])
+    r["alarm"] = bool(r["kosular"])
+    return r
+
+
+def tablo_durma(r):
+    s = [f"{r['pencere_gun']} gün · {r['oturum']} oturum · {r['istek']} istek · durma isteği {r['durma_istek']}"
+         f" (%{100 * r['durma_istek'] / (r['istek'] or 1):.1f}) · koşu {len(r['kosular'])}"
+         f" · önbelleksiz {sum(k['onbelleksiz'] for k in r['kosular']) / 1e6:.2f} M"
+         + (" · ALARM" if r["alarm"] else ""), "", "oturum | baş | uzunluk | önbelleksiz k | kırılma k"]
+    s += [f"{k['oturum'][:8]} | {k['bas']} | {k['uzunluk']} | {k['onbelleksiz'] / 1e3:.0f} | {k['kirilma'] / 1e3:.0f}"
+          for k in r["kosular"][:20]]
+    return "\n".join(s)
+
+
 def main(a):
     if not a or a[0] != "olc":
         print(__doc__)
@@ -820,6 +876,8 @@ def main(a):
         yazi = tablo_karsilastir
     elif "--ttl-sim" in a:
         r, yazi = ttl_sim(kok, gun), tablo_ttl
+    elif "--durma" in a:
+        r, yazi = durma(kok, gun, esik=int(deger("--esik", 3))), tablo_durma
     else:
         r, yazi = tara(kok, gun, motor=deger("--motor", repo / "olcum" / "motor-usage.jsonl")), tablo
     cikti = deger("--cikti", None)
@@ -828,7 +886,7 @@ def main(a):
         Path(cikti).write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
     sys.stdout.reconfigure(encoding="utf-8")
     print(yazi(r))
-    return 0
+    return 1 if r.get("alarm") else 0
 
 
 if __name__ == "__main__":
