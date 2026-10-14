@@ -60,3 +60,10 @@ KULLANMA (neden):
 
 ## Token notu
 Kartların 191/207'sinde token etkisi "bilinmiyor" (kaynak metin söylemiyor). Bu kitabın etkisi TELVE-R2e'de ölçülür: keşif turu (katalog/SKILL.md açma) ve toplam ağırlıklı token, R2d ile karşılaştırılır.
+
+## C. K7 kiti eksik modülleri (SİTE-OKULU-1 kurulum tarifi; TELVE'ye uygulama R3b)
+Kit: `python tools/site_kit.py <ad>` → `tools/site-kit/sablon`. Eksik modüller (öncelik `docs/site-okulu/eksikler.md`):
+- `npm i postprocessing@^6 detect-gpu@^5` · `npm i -D @gltf-transform/cli` · GSAP SplitText zaten gsap 3.15 paketinde (`gsap/SplitText`).
+- package.json betiği: `"varlik:optimize": "gltf-transform optimize public/ham.glb public/sahne.glb --texture-compress ktx2 --compress meshopt"`.
+- İskelet dosyalar `src/sahne/`: `post.ts` (EffectComposer+EffectPass) · `kamera-yolu.ts` (CatmullRomCurve3 + ST scrub) · `metin.ts` (SplitText) · `dongu.ts` (IntersectionObserver → setAnimationLoop) · `yukleyici.ts` (LoadingManager.onProgress) · `gecis.ts` (2 RT + mask) · `kademe.ts` (detect-gpu → DPR/post).
+- Lisans: postprocessing Zlib, detect-gpu MIT, gltf-transform MIT, KTX-Software Apache-2.0, GSAP Standard License.

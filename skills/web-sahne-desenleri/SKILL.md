@@ -74,7 +74,24 @@ Bizim farkımız: kaydırma hiç kilitlenmez; giriş sürerken kullanıcı kayd�
 
 Bizim farkımız: tek paylaşılan materyal + doku atlası ya da InstancedMesh (karo başına materyal yok) · karo en-boy oranına göre cover-UV, fotoğraf esnemez · arka yüz `gl_FrontFacing` ile koyulaşır · reduced-motion'da taban dönüş ve itki 0 · sürekli dönüş için duraklat düğmesi · hero içerik altında kalınca render durur · Lenis 1.x'te `syncTouch` (eski `smoothTouch` yok), tek rAF (Lenis `autoRaf` ya da tempus).
 
+### 2d. Kapta gerçek zamanlı sıvı (TELVE-R0d dersleri)
+
+1. Yüzey = GPU yükseklik alanı: dairesel 128² (mobil 64²) ızgarada dalga denklemi + sönüm + kısa dalga viskozitesi, CFL < 1/√2, sabit dt alt adımları. Kabın ivmesi kaynak terimi değil **duvar koşulu**: daire dışı hayalet hücre `h = h_merkez − dx·(a·n)/g` → duvar akış geçirmez, eğrilik ve duvarda tepe kendiliğinden çıkar. Dalga hızı ilk çalkalanma kipinden (Neumann j′11 = 1.841) istenen Hz'e ayarlanır.
+2. Çizim: sıvı kapalı katı ağ; yüzeyin üstü `discard`, arka yüz = kapak (görüş ışını yükseklik alanıyla 2–3 sabit nokta yinelemesinde kesilir). Kenar: Beer-Lambert, analitik silindir kirişi. Dalga okunurluğu: normal eğimi yalnız gölgelemede ×1.5–2 + yansıyan "pencere" dikdörtgeni (Fresnel'li, ağız gölgesinde kısılır) → hareket eden speküler; pencereyi ışık tarafına koy.
+3. Desen (latte art/crema): rengi değil **kaynak-uv** advekte et (kimlikten başlar), deseni her karede kaynak-uv'den yeniden çiz; MacCormack tek geçiş (geri izleme hatasını yarıla, kaynak 4 texele sıkıştır).
+4. Örtük şekil (kalp vb.) kenarı `f`'de değil `f/|∇f|`'de eşiklenir + `min(fwidth, tavan)`: sivri uç/girintide ∇f→0, sabit eşik oradan dışarı kama sızdırır, dönüş kayması kamayı ışına çeker.
+5. Açıdan desen: `atan` × tam sayı olmayan katsayı ±π'de dikiş çizer → birim çemberde 3B gürültü ya da `sin(k·θ)` (k tam sayı). Kapalı ağın üst diskinde duvar deseni çizilmez (`fwidth(y) > 0` = duvar).
+6. Tuzak: meshopt nicemlemesi ham konumu düğüm matrisine taşır → ağdan yarıçap ölçerken konumu `matrix` ile kap uzayına çevir.
+7. Döküm akışı: süreklilik `r ∝ √(v0/v)`, `v = √(v0² + 2gd)` (ağızda kalın, aşağıda ~⅓), yatay ilk hızla parabol, zayıf debide alttan damlaya kopma; çarpmada yükseklik alanına Gauss darbe + dişli taç halkası.
+8. Doğrulama: başsız Chrome'da sabit adımlı `__T.adim`, 3 Hz kipini sağ/sol vuruşla pompala, halka/kenar ara-ton sayısı ile regresyon; Mantaflow ön-render sızdı ve ağır (80–99 MB/3 sn) → sitede gerçek zamanlı.
+9. Taşma (R0f F1): hızlı ardışık vuruşta duvar tepesi ağın üst diskini aşar → disk ön yüzü hacim rengiyle düz kirişte kama çizer. Yüksekliği disk − 4 mm'de yumuşak min (k ≈ .016) ile doyur; görünen her sıvı parçası kapak gibi boyanır. Testte tek vuruş değil 10 toplu vuruş kullan.
+10. Kalp SDF (R0d→R0f üç turda bulundu, yeniden türetme): iki daire lob ∪ uçtan loba **teğet** V (65°, hafif dışa bombe). iq kalbi 90° kare uçlu; V'yi `x/(1+k sin)` ile bükmek dalı lobun dışına taşırıp dikey basamak bırakır.
+11. Döküm ipi (R0e→R0f): salınım tek düzlemde (sin/cos çifti sarmal = "burgulu ip"); eksenel bant yok, kenar Fresnel parlaması, süt ipi alfa yerine alpha-to-coverage (saydam liste cam iletim geçişinde kaybolur), espresso opak; kalınlık süreklilikle incelir (madde 7).
+12. Katman sınırı ve dantel (R0e): sınır gürültüsünün eğimi < 1 tut (fbm 2 oktav, düşük genlik) — aşınca kendi üstüne katlanan "yırtık kâğıt" kenar; lacing yarı saydam ve kapakta yok; crema geniş degrade + benek genliği ≈ .015–.02 (yüksek değer "leopar" okunur).
+13. Ölçüm tuzağı: döküm benzetimi sayfalar arasında belirlenimci değil (aynı kod benek 4.46/3.85) → maske farkı ölçümü için sabit tohum + sabit adım sayısı, iki çekimin ortalaması.
+
 ## 3. Sahne kalite kapısı
+- Anahtar karede metin kontrastı (TELVE-R1): metni gizleyip aynı kareyi yeniden çek, başlık/gövde kutusundaki zeminin metne en yakın %5 lümenine karşı WCAG oranı ölç (medyan yetmez: K3'te medyan 16:1, en kötü %5 4.7:1 → parçacık şeridi metnin altındaydı). Betik: TELVE docs/r1/_ham/r1/kare/cek-r1.mjs.
 
 Her WebGL/scroll sahnesinin CC tarifine kabul kriteri olarak girer:
 
@@ -126,3 +143,12 @@ Blender'dan gelen 3D ürün (ayrıntı: blender-uretim `references/web-aktarim.m
 Hareket: web-sahne-desenleri 2b (poz tablosu, scrub 1.2); raf: lenis x.y, number-flow x.y — gerekçe: ...
 Kabul: web-sahne-desenleri §3 kapısının tamamı; ek: mobil Lighthouse perf ≥ 85
 ```
+
+## 6. Ödüllü site teknikleri (SİTE-OKULU-1)
+10 ödüllü/öne çıkan site ölçüldü (igloo, lusion, activetheory, lando, oryzo, ciao, shopify, bruno, abeto, apple). Tam katalog + lisanslı hazır kaynak: omer-skills `docs/site-okulu/teknikler.md`; eksik matrisi `eksikler.md`.
+- En sık ve en ucuz: dither (8/10 site; koyu gradyanda bantlaşmayı kırar) → `dithering:true` + düşük opaklık gren.
+- Post tek geçişte: pmndrs `postprocessing` EffectPass (Bloom mipmapBlur + DoF + Noise + Vignette + SMAA); mobilde yalnız Bloom+Vignette.
+- Kamera: bölüm başına poz (ciao) ya da sürekli yol (igloo, CatmullRomCurve3 + ScrollTrigger scrub); çok nesne animasyonu → glTF anim + `AnimationMixer.setTime(t)`.
+- Tipografi: GSAP SplitText (ücretsiz, GSAP Standard License — MIT değil) maskeli satır stagger.
+- Varlık: `@gltf-transform/cli optimize --texture-compress ktx2 --compress meshopt`; görünmezken render durdur (IntersectionObserver).
+- Yasak kaynak: Shadertoy kodu (varsayılan CC BY-NC-SA), lygia (ticari Patron), ölçülen sitelerin varlıkları.
