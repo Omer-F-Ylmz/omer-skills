@@ -12,7 +12,11 @@ PARCA = 1200  # sn; 20 dk aralık, düşük çözünürlükte ~120k jeton (ücre
 ESZAMAN = 2  # aynı anda aralık isteği; TPM sınırı yüzünden 2
 ISTEM = kisa.ISTEM.replace("Bu kısa videoyu (ya da carousel slaytlarını) baştan sona izle",
                            "Bu uzun videonun YALNIZ verilen zaman aralığını izle (zamanları videonun başından say)")
-LISTE = ("araclar", "adlar", "linkler", "komutlar", "iddialar")
+LISTE = ("araclar", "adlar", "teknikler", "linkler", "komutlar", "iddialar")
+PENCERE = kisa.PAKET_TAVAN * 2  # metin geçişi pencere boyu (kisa.metin_gec'in tek seferde okuduğu kadar)
+ORTUSME = 1000  # pencere sınırında bölünen adı kaçırmamak için
+METIN_ISTEM = kisa.METIN_ISTEM + (" Videonun adını koyarak anlattığı teknik, desen ve özellik adlarını da (render/animasyon/mimari tekniği, "
+                                  "ürün özelliği ya da modu) videodaki yazımıyla al.")  # VİDEO-3 d3: altın kaçanlarının çoğu adlandırılmış teknik
 
 
 def araliklar(sure, parca=PARCA):
@@ -67,12 +71,49 @@ def izle(d, env=None, yeniden=False):
         sonuc = list(ex.map(bir, araliklar(sure)))
     j = birlestir([s[0] for s in sonuc])
     var = {tr.normal(a["ad"]) for a in j["araclar"]}  # kisa.izle ile aynı: adlar listesi araçlara tekrarsız katılır
-    j["araclar"] += [{"ad": a, "ne_dedi": "(yalnız adı geçiyor)", "zaman": "paket"} for a in j.pop("adlar")
-                     if tr.normal(a) not in var and not kisa.KOD.search(a)]
+    for a, nd in [(a, "(yalnız adı geçiyor)") for a in j.pop("adlar")] + [(a, "(teknik)") for a in j.pop("teknikler")]:
+        if tr.normal(a) not in var and not kisa.KOD.search(a):
+            var.add(tr.normal(a))
+            j["araclar"].append({"ad": a, "ne_dedi": nd, "zaman": "paket"})
     iz = {"model": sorted({s[1]["model"] for s in sonuc}), "sure": round(time.monotonic() - t, 1),
           "jeton": sum(s[1]["jeton"] or 0 for s in sonuc), "aralik": len(sonuc)}
     hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
     return j, iz
+
+
+def pencereler(metin, boy=PENCERE, ortusme=ORTUSME):
+    return [metin[i:i + boy] for i in range(0, max(len(metin) - ortusme, 1), boy - ortusme)]
+
+
+def metin_gec(d, env=None, yeniden=False):
+    """kisa.metin_gec PENCERE'de kesiyor (uzun videoda paket.md 25–180k): paket pencerelere bölünür, her pencereye aynı istem, adlar birleşir.
+    İstem kisa'nınkine ek olarak adlandırılmış teknikleri de ister; önbellek gemini-metin-uzun.json."""
+    d = Path(d)
+    metin = (d / "paket.md").read_text(encoding="utf-8") if (d / "paket.md").is_file() else ""
+    hedef = d / "gemini-metin-uzun.json"
+    if hedef.is_file() and not yeniden:
+        return json.loads(hedef.read_text(encoding="utf-8"))
+    key, t = kisa.anahtar(env), time.monotonic()
+    aday = [a["ad"] for a in kisa.sozluk_tara(d, {})]
+
+    def bir(p):  # pencerede geçen adayları ver: istem kısa kalır
+        ad = [a for a in aday if a.casefold() in p.casefold()]
+        govde = {"contents": [{"parts": [{"text": f"{METIN_ISTEM}\n\nADAYLAR: {', '.join(ad) or 'yok'}\n\n{p}"}]}],
+                 "generationConfig": {"responseMimeType": "application/json", "temperature": 0.1,
+                                      "responseSchema": {"type": "OBJECT", "required": ["adlar"], "properties": {"adlar": {"type": "ARRAY", "items": {"type": "STRING"}}}}}}
+        return kisa._uret(govde, key, time.monotonic())
+
+    with ThreadPoolExecutor(ESZAMAN) as ex:
+        sonuc = list(ex.map(bir, pencereler(metin)))
+    gor, adlar = set(), []
+    for a in (a for s in sonuc for a in s[0]["adlar"]):
+        if a.strip() and not kisa.KOD.search(a) and tr.normal(a) not in gor:
+            gor.add(tr.normal(a))
+            adlar.append(a)
+    j = {"adlar": adlar, "aday": len(aday), "_iz": {"model": sorted({s[1]["model"] for s in sonuc}), "sure": round(time.monotonic() - t, 1),
+                                                     "jeton": sum(s[1]["jeton"] or 0 for s in sonuc), "pencere": len(sonuc)}}
+    hedef.write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
+    return j
 
 
 def rapor_md(adlar, aciklama_link, urller, komutlar):

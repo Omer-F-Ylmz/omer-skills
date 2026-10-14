@@ -23,3 +23,11 @@ def test_rapor_md_altin_puan_okur():
     p = altin.puan(md, {"adaylar": [{"ad": "Cursor", "tur": "uygulama"}], "linkler": [{"url": "https://x.dev"}], "urller": [{"url": "https://y.dev"}],
                         "komutlar": [{"komut": "uv sync"}]})
     assert p["yakalama"] == (1, 1) and p["link_aciklama"]["yakalama"] == (1, 1) and p["urller"] == (1, 1) and p["komutlar"] == (1, 1)
+
+
+def test_pencereler_ortusur_ve_kuyrugu_kapsar():
+    m = "".join(chr(97 + i % 26) for i in range(5000))
+    p = uzun.pencereler(m, boy=2000, ortusme=100)
+    assert all(len(x) <= 2000 for x in p) and p[-1] == m[-len(p[-1]):]
+    assert all(p[i][-100:] == p[i + 1][:100] for i in range(len(p) - 1))
+    assert uzun.pencereler("kısa", boy=2000, ortusme=100) == ["kısa"]

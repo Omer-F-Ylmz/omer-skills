@@ -98,7 +98,7 @@ def kos():
         d, t = ONB / v, time.monotonic()
         try:
             with ThreadPoolExecutor(2) as ex:
-                fg, fm = ex.submit(uzun.izle, d), ex.submit(kisa.metin_gec, d)
+                fg, fm = ex.submit(uzun.izle, d), ex.submit(uzun.metin_gec, d)
                 (g, gi), mg = fg.result(), fm.result()
         except RuntimeError as e:  # ücretsiz kota 429: video atlanmaz, sonraki koşuda önbellekten devam
             print(v, "HATA", str(e)[:160], flush=True)
@@ -123,6 +123,30 @@ def puan():
             md = uzun.rapor_md([a["ad"] for a in g["araclar"]], ln, list(dict.fromkeys(g["linkler"] + ln)), g["komutlar"])
             p = _puan(md, v)
             print(v, "yeni", *(p[k] for k in ("yakalama", "isabet", "urller", "komutlar", "link")), 0, y[v]["sure"], sep="\t")
+
+
+def oturum():
+    """Claude adımı: kos.json Gemini çıktıları → kisa.blok (katalog durumu) → tek claude -p (kisa.oturum) → v3/oturum.json + puan.
+    shortcut: araştırma künyesi (gh) yok — yalnız not kalitesini etkiler, yakalama/isabeti değil; uçtan uca hatta kisa.calistir'daki gibi eklenir."""
+    y = json.loads((CIK / "kos.json").read_text(encoding="utf-8"))
+    bl = []
+    for v in ALTIN:
+        g = dict(y[v]["g"])
+        if isinstance(g.get("ekran_metni"), str):  # uzun.birlestir metni tek dizgeye katıyor; blok liste bekler
+            g["ekran_metni"] = g["ekran_metni"].splitlines()
+        g["linkler"] = list(dict.fromkeys(g["linkler"] + y[v]["paket_link"]))
+        bl.append(kisa.blok(v, g, kisa.katalog([a["ad"] for a in g["araclar"]], kok=ONB, vid=v), {}))
+    r = kisa.oturum(bl, "low")
+    u = r.get("usage") or {}
+    r["agir"] = round(agir({"girdi": u.get("input_tokens", 0), "onb_okuma": u.get("cache_read_input_tokens", 0),
+                            "onb_yazma": u.get("cache_creation_input_tokens", 0), "cikti": u.get("output_tokens", 0)}))
+    (CIK / "oturum.json").write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("ağır", r["agir"], "video başı", r["agir"] // len(ALTIN), "sn", r.get("sure"), "hata", r.get("hata"))
+    for x in (r["form"] or {}).get("videolar", []):
+        ln = y[x["id"]]["paket_link"]
+        p = _puan(uzun.rapor_md([a["ad"] for a in x["araclar"]], ln, list(dict.fromkeys(x["linkler"] + ln)), y[x["id"]]["g"]["komutlar"]), x["id"])
+        print(x["id"], p, flush=True)
+    print("BITTI")
 
 
 KARUSEL = ("ig-DdrEmDHkouJ", "ig-DePQ2O3ElPy", "ig-Dd7WYSniFvP")  # en çok slaytlı, eski hat formu olan carousel'ler (sonuncusu slayt videolu)
@@ -157,4 +181,4 @@ def karusel():
 
 
 if __name__ == "__main__":
-    {"olc": olc, "taban": taban, "kos": kos, "puan": puan, "karusel": karusel}[sys.argv[1]]()
+    {"olc": olc, "taban": taban, "kos": kos, "puan": puan, "karusel": karusel, "oturum": oturum}[sys.argv[1]]()

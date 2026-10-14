@@ -18,3 +18,12 @@ V2 uzun, yalnız Gemini kolu (Claude adımı yok) · aday araç önce→sonra: 1
 Süre: YDAK 33→110 sn (ÖTEKİ YÖNDE; aralıklı istekler sıralı) · diğer 4'ü 8–17 sn (taban 68–280). Ağır Claude jetonu: yeni kolda 0 (Claude adımı yok), taban 60k–635k.
 V3 carousel (yeni: v3.py karusel; referans = eski hat formu ∩ paket.md kanıtı): DdrE araç 98/98=1.0 · DePQ araç 10/10, link 19/20 · Dd7W (slayt videolu) araç 0.667, link 0.6. Süre 267→21 / 178→11 / 201→73 sn. Ağır jeton taban 297k–344k → Claude 0.
 "yp" 20/4/5 = referansta olmayan ad; gerçek yanlış pozitif mi, eski formun kaçağı mı DENETLENMEDİ → yp 0 kapısı bilinmiyor.
+
+## d3 ara (14 Eki ~20:20) KABUL DEĞİL
+Katalog: kullanılan [kisa.metin_gec/_uret/sozluk_tara/katalog/blok/oturum, altin.puan, arka.py, bekle.py] · atlanan [plan-kur (tek alan), alt ajan (kural 0)]
+Kök neden (kaçan analizi): kaçanların çoğu paket.md'de var, Gemini'de yok. (1) kisa.metin_gec paketi 24k'da kesiyor; 1nGx/YDAK/HYMD kaçanları 32k–177k'da. (2) uzun.izle aralık yolunda `teknikler` düşüyordu.
+Değişiklik (uzun.py): pencereli metin geçişi (24k pencere, 1k örtüşme, 2 eşzamanlı) + aralık yolunda teknikler araçlara katılır; test 4/4.
+Aday araç (6 altın) önce→sonra: taban 81/135 (0.60) · d2 Gemini 49/96 (5 video) → d3 89/135 (0.66): 1nGx 15/18 · aZe5 12/22 · d_UE 6/13 · FaCh 10/16 · HYMD 30/39 · YDAK 16/27. Teknik istem cümlesi: etkisiz (89→89), isabet hafif arttı; kaldı.
+Claude adımı (kisa.oturum, 1 claude -p, efor low, 6 video tek oturum): ağır 169.6k = 28.3k/video; taban ort. 302.6k/video → 0.09× (kapı ≤0.30 GEÇTİ). Yakalama değişmedi (Claude ad eklemiyor).
+Süre/video: Gemini 0–19 sn + oturum 115/6 ≈ 19 sn → ~25–40 sn; taban ort. 202 sn → ~0.15× (≤0.5 GEÇTİ).
+KAPI: araç 0.66 < 0.95 KALDI. Kalan kaçanların ~yarısı pakette adı hiç geçmeyen kavram (Subagent, Claude memory, Effort ayarı…) ya da teknik; link 31/31 tam (yakalama kapısı geçer), yp denetlenmedi. claude -p 1/6.
