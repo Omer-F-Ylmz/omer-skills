@@ -1,7 +1,8 @@
 """KATALOG-KANCA-1 madde 3b: uçtan uca — gerçek kanca (--settings ile UserPromptSubmit) ENVANTER-6 düzeninde; claude -p ≤ 10 (+2 yedek).
 Zor: 4 paket × K kolu (A ve B' ENVANTER-6 sonuc6.jsonl'dan). Rutin: 3 tek iş × A/K. İstem yönergesi --append-system-prompt'ta
 (kos6'da kullanıcı isteminin başındaydı; içindeki "test/güvenlik/KVKK/skill/MCP" sözcükleri her rutin işte kancayı tetiklerdi).
-  python kos_kanca.py         → sonuc.jsonl (+ kanca ekinin transkriptte görülüp görülmediği), kor.md, anahtar.json"""
+  python kos_kanca.py         → sonuc.jsonl (+ kanca ekinin transkriptte görülüp görülmediği), kor.md, anahtar.json
+  python kos_kanca.py 2       → d3 yeniden ölçüm: yalnız zor paket 0-1 K kolu → sonuc2.jsonl, kor2.md, anahtar2.json (6 iş)"""
 import json, os, random, re, subprocess, sys, time, uuid
 from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
@@ -20,6 +21,9 @@ ZOR = [l.split("\t")[2] for l in (E6 / "isler6.tsv").read_text(encoding="utf8").
 RUTIN = {i: j for s, i, j in (l.split("\t") for l in (WT / "tools/tests/katalog_kanca_isler.tsv").read_text(encoding="utf8").splitlines())
          if s == "rutin" and i in ("r1", "r4", "r28")}  # frontend · veri · alan-dışı tek alan
 ISLER = [("zor", p, ZOR[p * 3:p * 3 + 3]) for p in range(4)] + [("rutin", i, [j]) for i, j in RUTIN.items()]
+EK = "2" if sys.argv[1:] == ["2"] else ""
+if EK:  # d2 eki B' ile eşitlendikten sonra 2 claude -p hakkı
+    ISLER = [x for x in ISLER if x[0] == "zor" and x[1] < 2]
 assert sum(1 if s == "zor" else 2 for s, _, _ in ISLER) <= 10
 
 AYAR = D / "kanca_ayar.json"
@@ -29,7 +33,7 @@ env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "AN
 cwd = E6 / "cwd"
 cwd.mkdir(exist_ok=True)
 PROJ = Path.home() / ".claude" / "projects" / re.sub(r"[^A-Za-z0-9]", "-", str(cwd))
-cikti = D / "sonuc.jsonl"
+cikti = D / f"sonuc{EK}.jsonl"
 bitti = {(r["kol"], str(r["paket"])) for r in map(json.loads, cikti.read_text(encoding="utf8").splitlines())} if cikti.exists() else set()
 
 
@@ -76,13 +80,13 @@ k = {r["paket"]: r["metin"] for r in map(json.loads, cikti.read_text(encoding="u
 b = {r["paket"]: r["metin"] for r in map(json.loads, (E6 / "sonuc6.jsonl").read_text(encoding="utf8").splitlines()) if r["kol"] == "B"}
 random.seed(61)
 anahtar, kor = {}, []
-for n, j in enumerate(ZOR, 1):
+for n, j in enumerate(ZOR[:6] if EK else ZOR, 1):
     p = (n - 1) // 3
     parca = {kol: (re.search(rf"###\s*{n}\b(.*?)(?=###\s*\d+\b|\Z)", m.get(p, ""), re.S) or [None, m.get(p, "")[:2500]])[1].strip()
              for kol, m in (("K", k), ("B", b))}
     x = random.choice("KB")
     anahtar[n] = {"X": x, "Y": "B" if x == "K" else "K"}
     kor.append(f"## {n}. {j}\n### X\n{parca[x][:2500]}\n### Y\n{parca[anahtar[n]['Y']][:2500]}\n")
-(D / "kor.md").write_text("\n".join(kor), encoding="utf8")
-(D / "anahtar.json").write_text(json.dumps(anahtar), encoding="utf8")
+(D / f"kor{EK}.md").write_text("\n".join(kor), encoding="utf8")
+(D / f"anahtar{EK}.json").write_text(json.dumps(anahtar), encoding="utf8")
 print("bitti")
