@@ -40,7 +40,10 @@ def ornek(grup, aralik):
     print(f"{grup}: örnek {say} → {(ORN / f'{grup}.md').as_posix()}")
 
 
-def uygula(grup, karar_yol):
+def uygula(grup, karar_yol, olc=""):
+    """olc="--olc": yalnız parti doğruluğunu dogruluk.json'a yazar, taslağa dokunmaz (önceden uygulanmış gruplar)"""
+    dyol = ORN / "dogruluk.json"
+    dogs = json.loads(dyol.read_text(encoding="utf8")) if dyol.exists() else {}
     karar = {}
     for s in open(karar_yol, encoding="utf8"):
         if s.strip():
@@ -59,6 +62,9 @@ def uygula(grup, karar_yol):
         pdog = 1 - hata / (len(orn) * len(kd.ALAN))
         if pdog < 0.95:
             yeniden.append(f"{no}:{pdog:.2f}")
+        dogs[str(no)] = round(pdog, 3)
+        if olc:
+            continue
         yol = kd.IS / "cikti" / f"p{no:03d}-t.jsonl"
         satir = [json.loads(s) for s in open(yol, encoding="utf8")]
         for j in satir:
@@ -71,6 +77,7 @@ def uygula(grup, karar_yol):
                 j["dogrulandi"] = False
         with open(yol, "w", encoding="utf8", newline="\n") as f:
             f.writelines(json.dumps(j, ensure_ascii=False) + "\n" for j in satir)
+    dyol.write_text(json.dumps(dogs, sort_keys=True), encoding="utf8")
     dog = 1 - top_hata / top_alan if top_alan else 0
     print(f"{grup}: doğruluk {dog:.3f} ({top_hata}/{top_alan} alan hatalı) · uydurma silinen {sil} · <%95 parti: {yeniden or '-'}")
 

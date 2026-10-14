@@ -63,3 +63,19 @@ def test_uygula_duzeltir_ve_dogrulanmadi_isaretler(tmp_path, monkeypatch, capsys
     j = json.loads(open(tmp_path / "cikti" / "p001-t.jsonl", encoding="utf8").read())
     assert (j["nasil"], j["tuzak"], j["dogrulandi"]) == ("dogru", "?", False)
     assert f"1:{1 - 2 / len(kilavuz_derin.ALAN):.2f}" in capsys.readouterr().out
+    assert json.loads((tmp_path / "ornek" / "dogruluk.json").read_text(encoding="utf8")) == {"1": round(1 - 2 / len(kilavuz_derin.ALAN), 3)}
+
+
+def test_birlestir_dusuk_ve_orneklemsiz_taslagi_disla(tmp_path, monkeypatch, capsys):
+    (tmp_path / "cikti").mkdir()
+    (tmp_path / "ornek").mkdir()
+    (tmp_path / "tekil.tsv").write_text("ad\ttur\taile\tsha\ttemsilci\tbayt\tyol\n"
+                                        + "".join(f"{a}\tskill\tx\t1\t{a}\t5\t\n" for a in "abc"), encoding="utf8")
+    for no, ad in ((1, "a"), (2, "b"), (3, "c")):
+        (tmp_path / "cikti" / f"p00{no}-t.jsonl").write_text(json.dumps({"ad": ad, "tur": "skill", **{k: "v" for k in kilavuz_derin.ALAN}}) + "\n", encoding="utf8")
+    (tmp_path / "ornek" / "dogruluk.json").write_text(json.dumps({"1": 0.9, "2": 0.84}), encoding="utf8")
+    monkeypatch.setattr(kilavuz_derin, "KAT", tmp_path)
+    monkeypatch.setattr(kilavuz_derin, "IS", tmp_path)
+    kilavuz_derin.birlestir()
+    assert [json.loads(s)["ad"] for s in open(tmp_path / "derin.jsonl", encoding="utf8")] == ["a"]
+    assert "dışlanan parti 2" in capsys.readouterr().out

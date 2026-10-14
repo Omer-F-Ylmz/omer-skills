@@ -103,7 +103,12 @@ def birlestir():
     yol = KAT / "derin.jsonl"
     d = {anahtar(j): {**j, "tur": anahtar(j).split(":", 1)[0]} for j in map(json.loads, open(yol, encoding="utf8"))} if yol.exists() else {}
     hata = collections.Counter()
+    dyol = IS / "ornek" / "dogruluk.json"
+    dog, dis = json.loads(dyol.read_text(encoding="utf8")) if dyol.exists() else {}, set()
     for f in sorted((IS / "cikti").glob("p*.jsonl")):
+        if f.stem.endswith("-t") and dog.get(str(int(f.stem[1:4])), 0) < 0.85:  # Desktop 14 Eki: <%85 ya da örneklemsiz taslak derin'e girmez
+            dis.add(f.stem)
+            continue
         for s in open(f, encoding="utf8"):
             if not s.strip():
                 continue
@@ -134,7 +139,7 @@ def birlestir():
         for k in sorted(d):
             f.write(json.dumps(d[k], ensure_ascii=False) + "\n")
     kat = sum(j.get("durum") == "katalog" for j in d.values())
-    print(f"derin dolu {len(d) - kat}/{len(tem)} · katalog işaretli {kat} · hata {dict(hata) or 0}")
+    print(f"derin dolu {len(d) - kat}/{len(tem)} · katalog işaretli {kat} · hata {dict(hata) or 0} · dışlanan parti {len(dis)}")
 
 
 assert boy(100) == "küçük" and maske("x sk-" + "a" * 20) == "x «gizli»"

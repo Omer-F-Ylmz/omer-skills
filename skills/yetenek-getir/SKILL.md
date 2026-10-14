@@ -13,7 +13,8 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 
 ## Nasıl
 1. Betik (CC ve kod çalıştırabilen claude.ai): bu klasördeki `katalog_ara.py` (katalog yanında: `yetenek.jsonl`)
-   `python ~/.claude/skills/yetenek-getir/katalog_ara.py "<iş tarifi TR/EN>" [--tur skill|ajan|mcp|cli|kutuphane|arac|plugin] [--tam]`
+   `python <bu skill klasörü>/katalog_ara.py "<iş tarifi TR/EN>" [--tur skill|ajan|mcp|cli|kutuphane|arac|plugin] [--tam]`
+   (klasör — CC: `~/.claude/skills/yetenek-getir`, claude.ai: `/mnt/skills/user/yetenek-getir`)
    → işle ilgili HER kayıt (sabit ilk-N yok), türe göre gruplu: `ad · ne işe yarar · nasıl çağrılır`;
    30'u aşarsa grup başına ilk 5 + sayılar, hepsi için `--tam`.
 2. claude.ai (betik çalışmazsa): bu klasördeki `yetenek.tsv` içinde iş sözcüğünü (Türkçe karakter yerine ASCII:

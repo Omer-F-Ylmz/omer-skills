@@ -69,3 +69,9 @@ def test_skill_kopyasi_guncel():
 def test_genislet_tr_en():
     assert "security" in katalog_ara.genislet("güvenlik açığı")
     assert katalog_ara.kelimeler("Çakışma-Çözücü") == ["cakisma", "cozucu", "cakis~", "cozuc~"]
+
+
+def test_skill_komut_yolu_klasore_goreli():
+    md = (Path(__file__).resolve().parents[2] / "skills" / "yetenek-getir" / "SKILL.md").read_text(encoding="utf8")
+    assert "python ~/.claude/skills/yetenek-getir/katalog_ara.py" not in md  # claude.ai'de bu yol yok
+    assert "~/.claude/skills/yetenek-getir" in md and "/mnt/skills/user/yetenek-getir" in md
