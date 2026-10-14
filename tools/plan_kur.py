@@ -16,7 +16,8 @@ import katalog_ara as ka  # noqa: E402
 TARIF = next((d for d in (B / "tarifler", B.parent / "docs" / "katalog" / "tarifler") if d.is_dir()), None)
 N_ADAY, N_TABAN = 50, 5  # ~3k jeton: ENVANTER-6 B' ekinin (80+10) kısası; toplam ≤5k
 # ENVANTER-3 3d incelemesi: skill-debate / council-multi-model codex·agy CLI ister (kurulu değil) → önerilmez
-KONSEY = ("Konsey (yalnız kritik/belirsiz kararda, en çok 1): ecc:council (Skeptic·Pragmatist·Critic alt ajanları + sentez, "
+KONSEY = ("Konsey VARSAYILAN YOK — yalnız geri dönüşü zor VE belirsiz (iki makul seçenek, veri yok) kararda en çok 1; "
+          "değilse planda tek satır 'konsey: yok — <gerekçe>' (kör kapı: gereksiz konsey uygulanabilirlikten düşer). Seçenekler: ecc:council (Skeptic·Pragmatist·Critic alt ajanları + sentez, "
           "Claude personaları, ücretli API 0, ~60-90k); hafif karar: consciousness-council (tek model, ~10-20k); ücretsiz harici görüş: "
           "octo:skill-council --providers claude,openai-compatible --depth quick --max-cost (OmniRoute Gemini; önce --dry-run) — "
           "Claude aboneliği OmniRoute'tan geçmez.")
@@ -27,7 +28,8 @@ TUR = {
     "web": (r"\bsite|landing|web|sayfa|frontend|arayuz|\bui\b|seo|awwwards|e-?ticaret|magaza",
             "tasarım: frontend-craft > impeccable > ui-ux-pro-max · test: qa-e2e-playwright (Chrome) · a11y: qa-erisilebilirlik-testi · "
             "SEO: fe-meta-seo-duzeltici · güvenlik: semgrep · gitleaks · strix · ZAP · sec-owasp-top10 · sec-guvenlik-baslik · "
-            "KVKK (form/çerez): sec-kvkk-gdpr-kontrol",
+            "KVKK (form/çerez): sec-kvkk-gdpr-kontrol · performans: Lighthouse/CWV sayısal bütçe (LCP, JS KB tavanı) · "
+            "yayın: önizleme + geri alma adımı",
             "tasarım sonrası: fe-tasarim-incele · UI Finish-Gate Reviewer · kod: ecc:code-reviewer · güvenlik: ecc:security-reviewer",
             "tasarım yönü / yığın seçimi", "araştırma 15k · tasarım+uygulama 50k · test+güvenlik 12k · kapanış 3k"),
     "dotnet": (r"\.net|dotnet|asp\.?net|c#|csharp|ef ?core|blazor|minimal api|\bapi\b|endpoint|backend",
@@ -40,7 +42,7 @@ TUR = {
              "ağ: oyn-ag-senkronu (çok oyunculuysa) · güvenlik: semgrep · gitleaks",
              "kod: ecc:code-reviewer · tasarım: oyn-oyun-dokuman ile kapsam kontrolü",
              "mekanik / ağ modeli", "tasarım 8k · uygulama 40k · test+denge 12k · kapanış 3k"),
-    "blender": (r"blender|3d|glb|gltf|render|mesh|model(leme)?\b|sahne|turntable|doku",
+    "blender": (r"blender|3d|glb|gltf|render|mesh|model(leme)?\b|sahne|turntable|doku\b",
                 "headless (-b) · doğrulama: tools/blender/lib dogrula · bl-gorsel-ani-kontrol (normal, manifold, doku) · "
                 "web ise: bl-glb-disa-aktar + GLB boyut/mesh ölçümü · görsel kanıt: render karesi",
                 "sahne: bl-sahne-temizlik · web entegrasyonu: fe-webgl-3d-hero",
@@ -57,7 +59,9 @@ TUR = {
                   "tetik / kuyruk mimarisi", "tasarım 6k · uygulama 25k · kuru koşu+test 10k · kapanış 3k"),
     "guvenlik": (r"guvenlik|pentest|saldiri|zafiyet|owasp|xss|csrf|injection|sizma|security",
                  "SAST: semgrep (sec-sast-kosucu) · sır: gitleaks (sec-gitleaks-gecmis) · DAST: ZAP · ajan pentest: strix · "
-                 "bağımlılık: sec-bagimlilik-acik · rapor: sec-guvenlik-raporu · yetkili kapsam: sec-pentest-plani",
+                 "bağımlılık: sec-bagimlilik-acik · rapor: sec-guvenlik-raporu · yetkili kapsam: sec-pentest-plani · "
+                 "tehdit modeli: sec-tehdit-modelleme · ödeme: sec-pci-dss-kapsam · yetki: sec-yetkilendirme-matrisi · "
+                 "yayındaki sitede DAST yalnız yazılı izin + staging ya da hız tavanı",
                  "bulgu triyajı: ecc:security-reviewer · differential-review:adversarial-modeler (yüksek risk)",
                  "risk önceliği / kapsam", "plan 6k · tarama 15k · triyaj 12k · rapor 5k"),
 }
@@ -79,7 +83,7 @@ def tarifler(q):
     return [o["yol"] for s, _, o in p[:2] if s >= 0.6 * p[0][0]]
 
 
-def plan_girdisi(q):
+def plan_girdisi(q, n_aday=N_ADAY):
     t = q.lower().translate(ka.TR)
     tr = turler(t)
     if len(tr) <= 1 and not ZOR.search(t) and len(t.split()) < 20:
@@ -92,18 +96,20 @@ def plan_girdisi(q):
     if not tf:
         for k in tr or ["web"]:
             _, kapi, ajan, karar, butce = TUR[k]
-            print(f"## {k}\nkapılar: {kapi}\ninceleme ajanları: {ajan}\nkonsey kararı: {karar}\njeton (tahmini): {butce}")
+            print(f"## {k}\nkapılar: {kapi}\ninceleme ajanları: {ajan}\nkonsey adayı (yalnız belirsizse): {karar}\njeton (tahmini): {butce}")
     print(KONSEY + "\n" + KAPANIS)
-    ka.listele(ka.aday(q, N_ADAY, taban=N_TABAN) + ka.ogrenim_ara(q))
+    ka.listele(ka.aday(q, n_aday, taban=N_TABAN) + ka.ogrenim_ara(q))
 
 
 def main():
     isler = [a for a in sys.argv[1:] if not a.startswith("--")]
     print("plan-kur: planı ≤40 satır yaz — faz · adım · araç · kapı · inceleme ajanı · konsey noktası · faz jetonu; "
           "listede ilgili olup kullanılmayan araca tek satır gerekçe. Ek katalog sorgusu yapma.")
+    # CC 30k karakteri aşan Bash çıktısını dosyaya yazar → parça parça Read, her tur ~66k önbellek (ENVANTER-3 B 0: +2 tur)
+    n_aday = max(20, N_ADAY * 2 // max(2, len(isler)))
     for n, q in enumerate(isler, 1):
         print(f"\n# İŞ {n}: {q}")
-        plan_girdisi(q)
+        plan_girdisi(q, n_aday)
 
 
 if __name__ == "__main__":

@@ -41,7 +41,8 @@ env["PYTHONIOENCODING"] = "utf-8"
 cwd = D / "cwd"
 cwd.mkdir(exist_ok=True)
 PROJ = Path.home() / ".claude" / "projects" / re.sub(r"[^A-Za-z0-9]", "-", str(cwd))
-cikti = D / "sonuc3.jsonl"
+EK = sys.argv[1] if len(sys.argv) > 1 else ""  # yeniden koşu: python kos3.py b → sonuc3b/kor3b/anahtar3b (eski A kayıtları kopyalanır)
+cikti = D / f"sonuc3{EK}.jsonl"
 bitti = {(r["kol"], r["paket"]) for r in map(json.loads, cikti.read_text(encoding="utf8").splitlines())} if cikti.exists() else set()
 
 
@@ -86,7 +87,7 @@ for p, grup in enumerate(PAKET):
         print(time.strftime("%H:%M:%S"), kol, p, rec["tur"], rec["jeton"], rec["hata"], flush=True)
 
 kayit = {(r["kol"], r["paket"]): r["metin"] for r in map(json.loads, cikti.read_text(encoding="utf8").splitlines())}
-random.seed(3)
+random.seed(3 + len(EK))
 anahtar, kor = {}, []
 for p, grup in enumerate(PAKET):
     for n in grup:
@@ -95,6 +96,6 @@ for p, grup in enumerate(PAKET):
         x = random.choice("AB")
         anahtar[n + 1] = {"X": x, "Y": "B" if x == "A" else "A"}
         kor.append(f"## {n + 1}. {IS[n][1]}\n### X\n{parca[x][:4000]}\n### Y\n{parca[anahtar[n + 1]['Y']][:4000]}\n")
-(D / "kor3.md").write_text("\n".join(kor), encoding="utf8")
-(D / "anahtar3.json").write_text(json.dumps(anahtar), encoding="utf8")
+(D / f"kor3{EK}.md").write_text("\n".join(kor), encoding="utf8")
+(D / f"anahtar3{EK}.json").write_text(json.dumps(anahtar), encoding="utf8")
 print("bitti", len(kayit), "çağrı")

@@ -22,6 +22,6 @@ yetenek-getir'in üstünde. Rutin tek alanlı işte ÇAĞIRMA (ENVANTER-6: kazan
 
 ## Kurallar
 - Kurulu olmayan (`durum` aday) aracı kurma; planda "aday" diye an. `kapalı(override off)` olanı kullanıcıya söyle.
-- Konsey yalnız kritik/belirsiz kararda; ücretli API 0 — harici model yalnız ücretsizse (OmniRoute), Claude aboneliği OmniRoute'tan geçmez.
+- Konsey varsayılan YOK: yalnız geri dönüşü zor ve belirsiz kararda (yoksa planda "konsey: yok — gerekçe"; gereksiz konsey ~70k ve kör kapıda puan kaybı); ücretli API 0 — harici model yalnız ücretsizse (OmniRoute), Claude aboneliği OmniRoute'tan geçmez.
 - claude.ai (betik çalışmazsa): `yetenek-getir/yetenek.tsv` ve `yetenek-getir/ogrenim.jsonl` içinde iş sözcüklerini (TR+EN) geniş grep'le,
   kapıları şu sırayla yaz: test → güvenlik (semgrep · gitleaks · OWASP paketleri) → a11y/SEO → KVKK → kapanış listesi.
