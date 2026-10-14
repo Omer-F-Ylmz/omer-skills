@@ -45,7 +45,8 @@ def envanter():
             if k not in out:
                 out[k] = dict(ad=a, tur="video-aday", kaynak=f"docs/video-tarama/{r['rapor']}", alan=r.get("konu", ""),
                               cc=False, claude_ai=False, aciklama="", ele=a in (r.get("ele") or []))
-    for p in sorted((KOK / ".kos/kopru").glob("site-incele-*.md")):
+    incele = [*(KOK / ".kos/kopru").glob("site-incele-*.md"), *(KOK / "docs/site-inceleme").glob("*.md")]
+    for p in sorted(p for p in incele if p.name != "README.md"):
         out[(p.stem, "site-inceleme")] = dict(ad=p.stem, tur="site-inceleme", kaynak=p.relative_to(KOK).as_posix(), alan="site",
                                               cc=False, claude_ai=False, aciklama=p.read_text(encoding="utf-8")[:300])
     ENV.parent.mkdir(parents=True, exist_ok=True)

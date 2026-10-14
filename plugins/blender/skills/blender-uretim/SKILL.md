@@ -57,6 +57,7 @@ Teslim = kahraman render (brief çözünürlüğü, Cycles + denoise) + GLB + `t
 
 ## Kurallar
 
+- Varlık işinin adım/komut/kapı sırası: `docs/atlas/site-3d.md` Bölüm B.
 - `get_objects_summary` yalnız ≤10 nesneli sahnede; üstünde hedefli bpy sorgusu (ad · boyut · malzeme).
 - Araç argümanı için kod aranmaz; blender-oturum'daki komut kartına bakılır.
 - Varlık yalnız CC0 ve kaynak kaydıyla: `tools/varlik_indir.py` (Poly Haven / ambientCG) (#6).

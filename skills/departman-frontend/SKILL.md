@@ -43,6 +43,7 @@ Site/UI'ı başka bir ajana (ya da alt ajana) yaptırırken prompt bu satırlar�
 - sahne: video üretim promptunda sahne sahne kamera hareketi, ışık ve atmosfer ayrı cümlelerle tarif edilir.
 
 ## Kurulu araç notları
+- Site + 3D işinin adım/araç/kapı sırası: `docs/atlas/site-3d.md` (ATLAS kararları `docs/atlas/kart.jsonl`).
 - `scroll-craft`: görsel üretimi ücretli kie.ai API'sini çağırır; yalnız Ömer onayı ve çağrı tavanıyla ("en fazla N").
 - `design-dna`: "varlığı kaynak URL'den al" adımı referans sitelerde uygulanmaz; referanstan yalnız stil/teknik alınır, görsel/font/3D model/video izinsiz kullanılmaz (lisanslı ya da müşteri varlığı).
 

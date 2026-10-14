@@ -57,6 +57,7 @@ Teslim = kahraman render (brief çözünürlüğü, Cycles + denoise) + GLB + `t
 
 ## Kurallar
 
+- Varlık işinin adım/komut/kapı sırası: `docs/atlas/site-3d.md` Bölüm B.
 - `get_objects_summary` yalnız ≤10 nesneli sahnede; üstünde hedefli bpy sorgusu (ad · boyut · malzeme).
 - Araç argümanı için kod aranmaz; blender-oturum'daki komut kartına bakılır.
 - Sıfırdan modelleme yok; hazır varlık merdiveni: yerel → Objaverse (Sketchfab uid) → Poly Haven / ambientCG → görüntü→3D → en son sade bpy. `python varlik_getir.py ara|indir …` (hesapsız; `atif.json`'a lisans + yazar; CC-BY ise atıf kolofona). Blender'da yalnız küçük düzenleme: `blender -b -P duzenle_b.py -- gir.glb cik.glb --yukseklik … --ucgen …` (önce `--bak`). Örnek: TELVE-R2d cezve, uid 3b5bb5d4…, 2496 üçgen, 57 KB GLB (#6).
