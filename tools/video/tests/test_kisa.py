@@ -116,9 +116,9 @@ def test_birlestir_tekrarsiz():
 def test_repo_bul_arama_onbellekte(tmp_path, monkeypatch):
     monkeypatch.setattr(kisa, "ARASTIRMA", tmp_path)
     cagri = []
-    monkeypatch.setattr(kisa.subprocess, "run", lambda a, **k: cagri.append(a) or type("R", (), {"returncode": 0, "stdout": "o/hermes\n", "stderr": ""})())
-    assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes", "gh arama, doğrulanmadı")
-    assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes", "gh arama, doğrulanmadı")
+    monkeypatch.setattr(kisa.subprocess, "run", lambda a, **k: cagri.append(a) or type("R", (), {"returncode": 0, "stdout": "o/hermes-agent\n", "stderr": ""})())
+    assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes-agent", "gh arama, doğrulanmadı")
+    assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes-agent", "gh arama, doğrulanmadı")
     assert len(cagri) == 1
 
 

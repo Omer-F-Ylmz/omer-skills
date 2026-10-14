@@ -34,10 +34,15 @@ def _kisa(s, n):
     return " ".join(str(s or "").split()[:n])
 
 
+def repo_esi(ad, repo):
+    """gh arama sonucu yalnız repo ya da sahip adı araç adına birebir eşitse kabul (d3: GLM 5.3 Flash ↔ …-EXL3-2x-DGX-Sparks)."""
+    return tr.normal(ad) in {tr.normal(p) for p in repo.split("/")}
+
+
 def satir(a, kunye=None):
     """Gemini aracı + araştırma künyesi → tek TSV girdi satırı (kanıt ≤20, özet ≤40 kelime)."""
     k = kunye or {}
-    ozet = _kisa(f"{k.get('aciklama', '')} {k.get('readme', '')}", 40)
+    ozet = _kisa(f"{k.get('aciklama', '')} {k.get('readme', '')}", 40) or "repo bulunamadı"
     return "\t".join([a["ad"].replace("\t", " "), _kisa(a.get("ne_dedi"), 20), ozet, k.get("lisans", ""),
                       f"{k['yildiz']}·{k.get('push', '')}" if k.get("yildiz") is not None else ""])
 

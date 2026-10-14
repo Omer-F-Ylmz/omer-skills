@@ -315,7 +315,7 @@ def repo_bul(ad, metinler):
     onb = ARASTIRMA / f"ara-{re.sub(r'[^a-z0-9]+', '_', tr.normal(ad))[:60]}.txt"  # 14 Eki d9: aynı ad ikinci videoda aranmaz
     if onb.is_file():
         r = onb.read_text(encoding="utf-8")
-        return (r, "gh arama, doğrulanmadı") if r else (None, None)
+        return (r, "gh arama, doğrulanmadı") if r and kr.repo_esi(ad, r) else (None, None)
     for _ in range(4):  # arama 30/dk; araç patlamasında (DeHMM 25) sessiz kayıp yerine sıfırlanmayı bekle
         with _ARA_KILIT:  # süreç geneli ≥2 sn aralık = 30/dk; paralel iş parçacıkları oran sınırına çarpıp 20 sn beklemez
             time.sleep(max(0.0, _ARA_SON[0] + 2.0 - time.monotonic()))
@@ -327,7 +327,7 @@ def repo_bul(ad, metinler):
         time.sleep(20)
     if r.returncode == 0:
         onb.write_text(r.stdout.strip(), encoding="utf-8")
-    return (r.stdout.strip(), "gh arama, doğrulanmadı") if r.returncode == 0 and r.stdout.strip() else (None, None)
+    return (r.stdout.strip(), "gh arama, doğrulanmadı") if r.returncode == 0 and r.stdout.strip() and kr.repo_esi(ad, r.stdout.strip()) else (None, None)
 
 
 _ARA_KILIT, _ARA_SON = threading.Lock(), [0.0]

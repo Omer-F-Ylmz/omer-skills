@@ -46,8 +46,10 @@ def ogeler(form, vid):
 
 def esit(a, havuz):
     """Ad normalleştirme (tüm kollara eşit): "jev (GliFormer)" / "jev, powered by GliFormer" → çekirdek ad "jev" da denenir."""
-    h = [(x, "") for x in havuz] + [(re.split(r"\s*[(,]|\s+powered by\s+", x)[0], "") for x in havuz]
-    return any(tr.eslestir(b, h) is not None for b in {a, re.split(r"\s*[(,]|\s+powered by\s+", a)[0]} if b)
+    def cek(x):  # d4: "LinkedIn Sales Navigator" ↔ "Sales Navigator" — üretici öneki çekirdek ada eklenmez
+        return re.sub(r"^(LinkedIn|Google|Microsoft|AWS|Amazon|GitHub|Apple|Meta)\s+", "", re.split(r"\s*[(,]|\s+powered by\s+", x)[0], flags=re.I)
+    h = [(x, "") for x in havuz] + [(cek(x), "") for x in havuz]
+    return any(tr.eslestir(b, h) is not None for b in {a, cek(a)} if b)
 
 
 def olc(ad, ln, rad, rln, metin):

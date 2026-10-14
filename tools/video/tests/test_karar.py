@@ -6,6 +6,13 @@ def test_satir_kisaltir_ve_kunye():
     assert len(s) == 5 and len(s[1].split()) == 20 and len(s[2].split()) == 40 and s[3:] == ["MIT", "5·2026-10-01"]
 
 
+def test_repo_esi_zayif_eslesme_reddedilir_ozet_repo_bulunamadi():
+    assert karar.repo_esi("RustFS", "rustfs/rustfs") and karar.repo_esi("Page Agent", "alibaba/page-agent") and karar.repo_esi("uv", "astral-sh/uv")
+    assert not karar.repo_esi("GLM 5.3 Flash", "MiaAI-Lab/GLM-5.3-Flash-EXL3-2x-DGX-Sparks")  # d3: barındırılan model ↔ üçüncü taraf dağıtım reposu
+    assert not karar.repo_esi("Sales Navigator", "padmanabhan-s/scraping-linkedin-salesNavigator")
+    assert karar.satir({"ad": "GLM 5.3 Flash", "ne_dedi": "x"}).split("\t")[2] == "repo bulunamadı"
+
+
 def test_sorulacak_bilinmeyen_ya_da_surum_farki():
     assert karar.sorulacak({"ne_dedi": "x"}, None)
     assert not karar.sorulacak({"ne_dedi": "aynı"}, "kurulu:a")
