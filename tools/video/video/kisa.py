@@ -20,7 +20,7 @@ from . import hafif
 from . import tarama as tr
 
 API = "https://generativelanguage.googleapis.com"
-MODELLER = ("gemini-3.8-flash", "gemini-3.5-flash")  # ücretsiz katman; ilki 429/404/5xx/zaman aşımı verirse sıradaki (3.5 yoğunlukta 503/asılı — Desktop 14 Eki)
+MODELLER = ("gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite")  # ücretsiz katman; ilki 429/404/5xx/zaman aşımı verirse sıradaki (14 Eki: iki flash birden 503, lite ayakta)
 IZLE_ZAMAN = 90  # generateContent sn; asılı yanıtta sıradaki modele geç
 IZLE_TUR, IZLE_BEKLE = 4, 30  # tüm modeller düşerse tur arası 30·tur sn
 KOK = Path(__file__).resolve().parents[3]
