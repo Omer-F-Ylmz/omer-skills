@@ -84,3 +84,6 @@ p051	13	26247	30175	45	0	0	696	nvidia/nemotron-3-ultra-550b-a55b:free	-
 p026	6	9348	13898	45	0	0	289	nvidia/nemotron-3-ultra-550b-a55b:free	-
 g2-okuyucu	1	48344	0	0	0	0	0	sonnet	dogrulama 18-21 toplam jeton (alt ajan)
 p065	11	26894	17142	44	0	1	483	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p027	11	14446	14006	44	0	1	375	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p052	7	22020	17505	45	0	0	421	nvidia/nemotron-3-ultra-550b-a55b:free	-
+g3-okuyucu	1	91614	0	0	0	0	130	sonnet	dogrulama 41-47 toplam jeton (alt ajan)
