@@ -1,0 +1,11 @@
+no	tur	is
+h1	zor	Django + HTMX ile kuaför salonu online randevu sistemi kur: SMS hatırlatma, iyzico ile kapora ödemesi, KVKK aydınlatma metni ve açık rıza, Docker ile VPS'e yayın.
+h2	zor	Flutter mobil uygulamasına çevrimdışı çalışan not senkronu ekle: SQLite yerel depo, çakışma çözümü, Firebase kimlik doğrulama, push bildirim ve uçtan uca test.
+h3	zor	Şirket içi PDF sözleşmeleri için RAG soru-cevap botu kur: belge ayrıştırma, parçalama, vektör veritabanı, yerel LLM ile yanıt, kaynak gösterme ve kalite değerlendirme seti.
+h4	zor	Mevcut Express.js REST API'sini GraphQL'e kademeli taşı: şema tasarımı, N+1 önleme, kimlik doğrulama, hız sınırı, sözleşme testleri ve geriye dönük uyum.
+h5	zor	Vue 3 yönetim panelinde yavaş yüklenen dashboard'u hızlandır: paket boyutu analizi, sanal liste, API önbellekleme, Lighthouse ölçümü ve performans regresyon kapısı CI'da.
+h6	zor	Unity ile 2D platform oyunu için seviye editörü yap: tilemap, kaydet/yükle JSON, oynanış testi, düşman yapay zekası ve Steam için yapı paketleme.
+h7	zor	Abonelik tabanlı SaaS için Stripe faturalandırma ekle: plan yükseltme/düşürme, webhook işleme, başarısız ödeme yeniden deneme, fatura PDF'i ve muhasebe dışa aktarımı.
+r1	rutin	package.json'daki lodash sürümünü 4.17.21'e yükselt.
+r2	rutin	Bir PNG logoyu 512x512 WebP'ye dönüştür.
+r3	rutin	Python betiğindeki print çağrılarını logging.info ile değiştir.
