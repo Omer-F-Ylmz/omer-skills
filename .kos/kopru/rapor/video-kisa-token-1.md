@@ -21,5 +21,7 @@ Katalog: kullanılan [video CLI (hafif.cagir, tarama.sozluk_kur/eslestir, instag
 | taban (1+2 ort.) | 0.850 | 0.584 | 0 | 236 348 | 131.5 |
 | low-ssb (1+2 ort.) | 0.641 | 0.179 | 0 | 43 279 | 64.2 |
 | yeni d5 | 0.861 | 0.449 | 0 | 10 020 (0.04×) | 32.7 (0.25×) |
+| yeni d6 (link_tamamla) | 0.861 | 0.475 (temiz 0.600) | 0 | 10 020 (0.23× low-ssb) | 32.7 (0.51× low-ssb) |
 
-- Kapı: araç ✓ · yp ✓ · token ✓ · süre ✓ · link ✗ (0.449 < 0.584). claude -p bu dilimde 1 (57 sn, 0.16 $).
+- d6: link kaçakları — DeV9'da 4/4 referansın kendi "ocr bozuk" dediği adresler, DeHMM'de 3 kırpık HF + 3 Claude web aramasıyla bulunmuş repo. Kök: karar dosyasında "KUR" olan Laya bilinen sayılıp araştırılmadığı için repo linki rapora girmiyordu → kisa.link_tamamla (ig-41 link sütunu + videonun kendi linkinden bulunan repo; gh arama tahmini yazılmaz). "link_temiz" = referansın bozuk/kırpık işaretlediği adresler hariç, tüm kollara eşit. Önizleme yeni claude -p'siz (son işlem Claude çıktısına deterministik).
+- Ömer 17:38 kapısı (low-ssb'ye göre): araç 0.861 ≥0.80 ✓ · link 0.475 ≥0.179 ✓ · yp 0 ✓ · token 0.23× ✓ · süre 0.51× ✗ (sınır 32.1 sn, aşım 0.6 sn/video; low-ssb-1'e göre 0.485×, low-ssb-2'ye göre 0.535×). Süre kökü: önbellekteki Gemini izleme süresi 17–32 sn (iki flash 503 → lite düşüşü dahil). Eski taban (sonnet+haiku) linkine göre 0.475 < 0.584 — Desktop kararı.

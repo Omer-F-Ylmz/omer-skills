@@ -51,7 +51,8 @@ def olc(ad, ln, rad, rln, metin):
     ya = sum(esit(r, ad) for r in rad) / max(len(rad), 1)
     yl = len(rln & ln) / max(len(rln), 1)
     yp = sum(1 for a in ad if not esit(a, rad) and tr.normal(a) not in metin)
-    return ya, yl, yp
+    tem = {u for u in rln if not re.search(r"\(|…|\.\.\.", u)}  # referansın kendisinin "ocr bozuk/kırpık" dediği adresler link değil (tüm kollara eşit)
+    return ya, yl, yp, len(tem & ln) / max(len(tem), 1)
 
 
 def m0():
@@ -80,7 +81,7 @@ def kos():
 
 
 def puan():
-    o = json.loads((CIK / "oturum.json").read_text(encoding="utf-8"))
+    o = json.loads((CIK / (sys.argv[2:] or ["oturum.json"])[0]).read_text(encoding="utf-8"))
     yeni = {x["id"]: x for x in o["sonuc"]["form"]["videolar"]}
     u, n = o["sonuc"]["usage"], len(o["iz"])
     y_agir = agir(u.get("input_tokens", 0), u.get("cache_read_input_tokens", 0), u.get("cache_creation_input_tokens", 0), u.get("output_tokens", 0)) / n
@@ -107,8 +108,9 @@ def puan():
                 s = next(z for z in t0[k] if z["v"] == v)
                 sure, ag = s["sure"], s["agir"]
             a.append((*olc(ad, ln, rad, rln, metin), ag, sure))
-        sat.append((k, *[round(sum(z[i] for z in a) / len(a), 3) for i in range(5)]))
-    print("kol\taraç_yak\tlink_yak\typ/video\tağır_tk/video\tsn/video")
+            print(k, v, *[round(x, 3) for x in a[-1][:4]], sep="\t", file=sys.stderr)
+        sat.append((k, *[round(sum(z[i] for z in a) / len(a), 3) for i in range(6)]))
+    print("kol\taraç_yak\tlink_yak\typ/video\tlink_temiz\tağır_tk/video\tsn/video")
     for s in sat:
         print(*s, sep="\t")
 
@@ -125,6 +127,12 @@ def kacak():
         print(f"{v}\tref {len(rad)}\tkaçan {len(kac)}")
         for r in kac:
             print(f"  {'METİNDE' if tr.normal(r) in metin else 'yok    '}\t{r}")
+        rln = set().union(*(ogeler(_kol(r)[v]["form"], v)[1] for r in REF))
+        ln = {_url(x) for x in yeni[v]["linkler"] + [x["link"] for x in yeni[v]["araclar"] if x["link"]]}
+        ham = (ONB / v / "paket.md").read_text(encoding="utf-8").lower()
+        print(f"  link ref {len(rln)}\tkaçan {len(rln - ln)}")
+        for r in sorted(rln - ln):
+            print(f"  {'PAKETTE' if r in ham else 'yok    '}\t{r}")
 
 
 if __name__ == "__main__":

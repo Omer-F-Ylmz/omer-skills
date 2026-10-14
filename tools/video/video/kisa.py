@@ -322,6 +322,20 @@ def oturum(bloklar, efor="low", env=None):
     return hafif.cagir(OTURUM_SISTEM, "\n\n".join(bloklar), OTURUM_SEMA, efor=efor, env=env, butce=1.0)
 
 
+def link_tamamla(x, kunye_link):
+    """Linksiz araca karar dosyasındaki (ig-41, doğrulanmış) ya da videonun kendi linkinden bulunan repo adresi; Claude'suz.
+    14 Eki d6: Laya 'KUR' bilinen sayıldığı için araştırılmadı → repo linki rapora hiç girmedi."""
+    kl = {}
+    if KARAR.is_file():
+        satir = [s.split("\t") for s in KARAR.read_text(encoding="utf-8").splitlines()]
+        bas = satir[0]
+        kl = {tr.normal(s[bas.index("kalem")]): s[bas.index("link")] for s in satir[1:] if len(s) == len(bas) and s[bas.index("link")].startswith("http")}
+    for a in x["araclar"]:
+        if not a["link"]:
+            a["link"] = kl.get(tr.normal(a["ad"])) or kunye_link.get(a["ad"], "")
+    x["linkler"] = list(dict.fromkeys(x["linkler"] + [a["link"] for a in x["araclar"] if a["link"]]))
+
+
 def paket_linkleri(d):
     """Açıklama/yorum linkleri paket.md'den regex'le (14 Eki: Gemini 21 linkten 3'ünü döndürdü; Claude'a kopyalatmak jeton yer)."""
     p = d / "paket.md"
@@ -333,7 +347,7 @@ def calistir(ids, kok, cikti, efor="low", env=None):
     kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, oturum sonucu)."""
     from . import instagram
     kok, cikti = Path(kok), Path(cikti)
-    iz, bloklar, paket_link = {}, [], {}
+    iz, bloklar, paket_link, kunye_link = {}, [], {}, {}
     for v in ids:
         t, m = time.monotonic(), kok / v
         if v.startswith("ig-"):
@@ -354,12 +368,14 @@ def calistir(ids, kok, cikti, efor="low", env=None):
         t = time.monotonic()
         with ThreadPoolExecutor(6) as ex:  # gh + README özeti ağ bekler; seri DeHMM 30 araçta 43 sn
             kunye = {ad: k for ad, k in ex.map(kun, [a for a in g["araclar"] if not kat[a["ad"]]]) if k}
+        kunye_link[v] = {ad: f"https://github.com/{k['repo']}" for ad, k in kunye.items() if k["bulunus"] == "link"}  # gh arama ilk sonucu doğrulanmadı → link yazılmaz
         iz[v] = {"indir": indir, "gemini": gi, "metin": mg["_iz"], "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
         bloklar.append(blok(v, g, kat, kunye))
         print(v, iz[v], flush=True)
     y = oturum(bloklar, efor, env)
     for x in (y["form"] or {}).get("videolar", []):
         x["linkler"] = list(dict.fromkeys(x["linkler"] + paket_link.get(x["id"], [])))
+        link_tamamla(x, kunye_link.get(x["id"], {}))
         (cikti / f"{x['id']}.md").write_text(rapor(x, f"gemini ({iz.get(x['id'], {}).get('gemini', {}).get('model', 'önbellek')}) + claude oturum"), encoding="utf-8")
     return iz, y
 

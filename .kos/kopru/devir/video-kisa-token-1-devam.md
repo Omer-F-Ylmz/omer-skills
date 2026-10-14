@@ -43,3 +43,8 @@ AÇIK KARAR: yok
 - Sonraki adım: kisa_m4.py'ye link kaçak dökümü ekle (kacak gibi; taban linklerinden yeni kolun kaçırdıkları + pakette geçiyor mu). Muhtemel kök: taban linkleri Claude'un web araştırmasıyla bulduğu repo/site URL'leri → repo_bul/arastir çıktısındaki URL'ler oturum linklerine eklenmeli (Claude'suz).
 - Önbellek: .video-cache/*/gemini-metin.json (DF %20) güncel; gemini-metin-df01.json eski deneme. kisa/oturum-d4.json = d4 oturumu; kisa_kos-5.log d4 günlüğü.
 - Sonra: M5 paket (video-tarama skill kısa video yolu + zip_denetle), rapor kapanış, SIRA BİTTİ.
+
+## d6 sonu (14 Eki ~18:30) — KAPI KARARI DESKTOP'TA
+- kisa.link_tamamla (test_kisa 9/9); kisa_m4 kacak link dökümü + puan link_temiz sütunu + `puan <oturum dosyası>`. Önizleme kisa/oturum-d6-onizleme.json (yeni claude -p yok; claude -p 5/6 değil, hâlâ d5 sayısı).
+- low-ssb kapısında tek açık: süre 0.51× (32.7 > 32.1). d5 notundaki "link ✗" eski sonnet+haiku tabanına göreydi.
+- Seçenek (Desktop): (a) süre için iki flash ayaktayken altın 3 videoyu izle(yeniden=True) ile yeniden ölç (Gemini ücretsiz, claude -p yok); (b) kabul. Sonra SIRA BİTTİ + M5 (zip yalnız SKILL.md, kisa.py değişikliği zip'i etkilemez).

@@ -27,6 +27,16 @@ def test_katalog_karar_onceligi(tmp_path, monkeypatch):
     assert kisa.katalog(["mirofish", "graphify", "YokBöyle"]) == {"mirofish": "ÖĞREN (ig-41)", "graphify": "kurulu:skill", "YokBöyle": None}
 
 
+def test_link_tamamla_karar_ve_kunye(tmp_path, monkeypatch):
+    t = tmp_path / "k.tsv"
+    t.write_text("sira\tkalem\tlink\tkarar\n1\tLaya\thttps://github.com/N/laya\tKUR\n2\tCCXT\t-\tÖĞREN\n", encoding="utf-8")
+    monkeypatch.setattr(kisa, "KARAR", t)
+    x = {"linkler": ["a.com"], "araclar": [{"ad": "laya", "link": ""}, {"ad": "CCXT", "link": ""}, {"ad": "Z", "link": ""}, {"ad": "Q", "link": "q.com"}]}
+    kisa.link_tamamla(x, {"Z": "https://github.com/o/z"})
+    assert [a["link"] for a in x["araclar"]] == ["https://github.com/N/laya", "", "https://github.com/o/z", "q.com"]
+    assert x["linkler"] == ["a.com", "https://github.com/N/laya", "https://github.com/o/z", "q.com"]
+
+
 def test_izle_zaman_asiminda_siradaki_model(tmp_path, monkeypatch):
     def iste(url, key, govde, zaman):
         if kisa.MODELLER[0] in url:
