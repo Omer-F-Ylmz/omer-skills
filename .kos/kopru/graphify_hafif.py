@@ -46,12 +46,8 @@ try:
     if d is None:
         komut, girdi = ["graphify", "update", ".", *arg], None
     else:
-        # untracked ölçüm klasörleri -o'ya düşer; .graphifyignore süzgeci olmadan 19k "değişen" dosya oluyordu
-        komut = [GPY, "-c", "import sys;from pathlib import Path;from graphify.watch import _rebuild_code;"
-                 "from graphify.detect import _is_ignored as i,_load_graphifyignore as l;"
-                 "r=Path(sys.argv[1]).resolve();d=l(r);c=[r/s for s in sys.stdin.read().splitlines() if not i(r/s,r,d)];"
-                 "print(f'graphify_hafif: {len(c)} değişen dosya',flush=True);_rebuild_code(r,changed_paths=c,"
-                 "force='--force' in sys.argv,no_cluster='--no-cluster' in sys.argv)", kok, *arg]
+        # GRAPHIFY-ULTRA-1 G2: _rebuild_code (48 sn/829 MB) yerine graphify_hizli (3.8 sn/332 MB); süzgeç orada
+        komut = [GPY, os.path.join(os.path.dirname(os.path.abspath(__file__)), "graphify_hizli.py"), kok]
         girdi = subprocess.PIPE
     p = subprocess.Popen(komut, cwd=kok, stdin=girdi or subprocess.DEVNULL, creationflags=0x08000000)  # CREATE_NO_WINDOW
     if girdi:

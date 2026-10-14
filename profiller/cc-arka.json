@@ -35,5 +35,6 @@
  "d-guvenlik": {"mcp": ["github", "mcp-git", "mcp-time"]},
  "d-3d": {"mcp": ["blender", "godot", "unity", "mcp-time"]},
  "ajan": {"ajanTut": ["ajn-ajan-tanimi-yazar", "dok-rapor-uretici"], "ttl": "5m",
-          "ayar": {"includeGitInstructions": false, "env": {"ECC_SESSION_START_CONTEXT": "off"}}}
+          "ayar": {"includeGitInstructions": false, "env": {"ECC_SESSION_START_CONTEXT": "off"},
+                   "hooks": {"PreToolUse": [{"matcher": "Read", "hooks": [{"type": "command", "command": "python C:/Projeler/omer-skills/tools/oku_yonlendir.py", "timeout": 10}]}]}}}
 }

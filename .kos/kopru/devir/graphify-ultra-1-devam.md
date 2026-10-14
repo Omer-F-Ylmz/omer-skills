@@ -1,11 +1,11 @@
-# GRAPHIFY-ULTRA-1 devir (d1 bitti, çağrı ~44)
+# GRAPHIFY-ULTRA-1 devir (d2 bitti, çağrı ~45)
 KALAN:
-1. G2 hız: artımlı 48 sn nereye gidiyor ölç (detect tam ağaç taraması + 28 MB yükleme + 2× json.load?). Yol: changed boşsa hiç başlatma; `_rebuild_code(no_cluster=True)` + html atla dene; hedef ≤10 sn / ≤500 MB. Sonra TELVE + Desktop\<Proje> için `graphify_buda.py <kök>` (önce .graphifyignore yaz) + `graphify_hafif.py <kök>`.
-   Not: hafif'in "artımlı N dosya" sayısı süzgeç ÖNCESİ; içteki "N değişen dosya" satırı asıl sayı.
-2. G1: 20 standart soru (omer-skills + TELVE; py/ts/js/mjs/cs/md) grep altına karşı isabet → kaçak sınıfına göre düzelt. Dikkat: .kos/ .gitignore'da → .kos/kopru betikleri grafta YOK (kaçak adayı #1; .graphifyignore'a `!` ile geri alınabilir mi bak).
-3. G3: query/oku çıktısı ≤40 satır kompakt kip + proje HARİTASI ≤800 jeton (etiketler OmniRoute/Gemini; 4 698 topluluk etiketi "renamed by hub" — `graphify label` ücretsiz backend ile).
-4. G4: is-akisi SKILL.md L44 boş yuvaya keşif sırası (G5 kapısı geçince) + PreToolUse kanca önerisi (Read >300 satır, offset/limit yok → iskelet) onay betiği --kuru. G0 en büyük kaldıraç bu (%34 tam Read).
-5. G5 A/B (claude -p ≤4) · G6 paket (graphify skill 0.9.57→0.9.88 uyarısı da var; CC + claude.ai zip, zip_denetle) · docs/atlas kartı.
+1. G4 küresel: aynı kanca (tools/oku_yonlendir.py, köprü profilinde AKTİF) Ömer'in kendi CC'si için onay betiği --kuru (~/.claude/settings.json PreToolUse Read) — Ömer koşar. is-akisi L44 keşif sırası satırı: "harita → graphify query / oku iskelet → Read offset/limit".
+2. G5 eksik yarı: 2 TELVE görevi (graphify_ultra_ab.py GOREVLER'e ekle, cwd TELVE; claude -p d2'de 4 kullanıldı → Desktop izni gerekir). Doğruluk K8 kör puan (yanıtlar graphify-ultra-ab.tsv'de).
+3. G2 kalan: graphify_hafif RAM kapısı artımlıda %75 → %85'e gevşetilebilir (artık 332 MB; tam yol 1.5 GB'ta %75 kalır) — DEVAM-KURALI L1 satırını değiştirir, Desktop kararı. TELVE + Desktop\<Proje>: .graphifyignore → graphify_buda.py <kök> → graphify_hafif.py <kök>.
+4. G1: 20 soru isabet; kaçak #1 .kos/ grafta yok (graphify_hizli de .graphifyignore süzer) → `!.kos/kopru/*.py` istisnası ya da ayrı graf.
+5. G3: proje HARİTASI ≤800 jeton (küme etiketleri OmniRoute ücretsiz) + query kompakt kip ≤40 satır (graphify query --budget küçük ya da sarmalayıcı).
+6. G6 paket: graphify skill 0.9.57→0.9.88 (`graphify install --platform agents`), CC + claude.ai zip, zip_denetle, docs/atlas kartı.
 ARKA PLAN: yok.
-SON COMMIT: (bu oturumun commit'i — git log -1)
-AÇIK KARAR: yok.
+SON COMMIT: git log -1 (d2 ara)
+AÇIK KARAR: (a) kancayı Ömer'in global CC'sine almak (b) hafif artımlı RAM kapısı %85.

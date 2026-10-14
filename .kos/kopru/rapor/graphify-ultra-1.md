@@ -1,16 +1,13 @@
-# GRAPHIFY-ULTRA-1 — Ara rapor 1 (d1, çağrı 42)
-Katalog: kullanılan [graphify CLI/iç API, rtk] · atlanan [katalog_ara (tek alanlı araç işi), alt ajan (kural 0)]
-- Önkoşul GRAPHIFY-RAM-1 bu oturumda bitirildi (rapor/graphify-ram-1.md): graf 337→28 MB, artımlı update 829 MB.
-- G0 taban (`graphify_ultra_g0.py`, 14 Eki, 733 transkript, görsel hariç, sonuç jetonu ≈ karakter/4, headroom sonrası):
-  keşif 4 874 çağrı · 2.89M jeton. read-tam 718 çağrı 984k (%34) · read-aralık 844/951k · rtk-grep 1 735/460k ·
-  rtk-read 983/321k · Grep 478/141k · oku 44/14k · graphify 11/8k · Glob 61/5k.
-  "Graf yanıtlardı" ≈ 347k (%12) — neredeyse tamamı >3k jetonluk dosyanın tam Read'i; sembol-desenli Grep yalnız 5k.
-  Ders: kaldıraç sembol aramasında değil, büyük dosyanın tam okunmasında → G4 kancası (iskelet önce) en büyük kalem.
-  En pahalı 20: rapor/graphify-ultra-1/g0-pahali.tsv (çoğu TELVE fincan.js, Temp/*.txt, transkript .jsonl tam okuması).
-- G2 kısmi: artımlı yol çalışıyor (değişmeyen topolojide "outputs left untouched"), ama 48 sn — hedef ≤10 sn değil.
-| ölçü | önce | şimdi | hedef |
-|---|---|---|---|
-| update tepe RSS | ~3.5 GB | 829 MB (artımlı) | ≤500 MB |
-| update süre | ? (öldürüldü) | 48 sn | ≤10 sn |
-| graph.json | 337 MB | 28 MB | — |
-Kalan: G1–G6 (devir/graphify-ultra-1-devam.md).
+# GRAPHIFY-ULTRA-1 — ARA (d2, 14 Eki)
+Katalog: kullanılan [graphify extract/_is_ignored, cc-kopru ajan profili, rtk] · atlanan [plan-kur/katalog (rutin tek alan), alt ajan (kural 0)]
+| ölçü | önce | sonra |
+|---|---|---|
+| artımlı update süre / tepe RSS | 48 sn / 829 MB | 3.8 sn / 332 MB (graphify_hizli, 3 dosya) |
+| büyük dosya tam Read (sunucu.mjs 28 KB) | ~7k jeton | 1.4 KB iskelet (24 satır) + aralık |
+| A/B profil (kanca tetiklenir) girdi · tur · sn | 334k · 5 · 57 | 199k · 3 · 46 (0.60×), yanıt ikisinde doğru |
+| A/B hafif (kontrol, kanca tetiklenmez) | 198k · 3 · 47 | 334k · 5 · 56 → n=1 gürültüsü ±%70 |
+- G4: tools/oku_yonlendir.py — Read PreToolUse; >300 satır + offset/limit yok → ilk istek red + gerekçede regex iskelet (py/js/ts/mjs/cs/md), aynı oturumda 2. istek geçer. Köprü ajan profiline (profiller/cc-arka.json ajan.ayar.hooks) bağlandı → tüm köprü ajanlarında aktif; global CC değil. Öz-sınama 5/5, ajan-argv 12/12.
+- G2: .kos/kopru/graphify_hizli.py — graphify'ın extract()'ı yalnız değişen dosyalara, graf tek yükleme; graphify_hafif artımlı dalı buna bağlandı. Yeni semboller query'de çıkıyor; kapı oku AYNI, sorgu farkı yalnız eklenen düğümler.
+- G5 kapısı (≤0.5×) KARAR VERİLEMEDİ: tetiklenen görevde 0.60×, ama kontrol görevi aynı gürültüyü gösterdi; n=1 ile kanıt yok. TELVE görevleri ve tekrar için claude -p izni gerekli (d2: 4/4 kullanıldı).
+- Yapılmadı: G1 20 soru, G3 harita/kompakt, G6 paket, TELVE/Desktop grafları. Devir: devir/graphify-ultra-1-devam.md
+- graphify update koşmadı: RAM %78 ≥ %75 kapısı (hafif reddetti).
