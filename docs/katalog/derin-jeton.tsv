@@ -52,3 +52,5 @@ p064	8	21693	18066	44	0	1	1411	-/gemini-3.1-flash-lite/nvidia/nemotron-3-ultra-5
 p016	11	12018	12367	40	0	5	5656	-/gemini-3.1-flash-lite/nvidia/nemotron-3-ultra-550b-a55b:free	TimeoutError
 p002	2	7011	1543	10	0	0	4	openai/gpt-oss-120b	-
 p009	10	25133	7280	45	0	0	118	openai/gpt-oss-120b/openai/gpt-oss-20b	-
+p010	11	27311	7817	42	0	3	120	openai/gpt-oss-120b/openai/gpt-oss-20b	-
+p012	25	38083	9888	41	0	4	190	openai/gpt-oss-120b/openai/gpt-oss-20b	-
