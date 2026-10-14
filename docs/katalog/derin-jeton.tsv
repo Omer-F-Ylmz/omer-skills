@@ -75,3 +75,12 @@ p022	4	11101	8743	22	0	0	464	nvidia/nemotron-3-ultra-550b-a55b:free	-
 p068	8	23991	17597	45	0	0	604	nvidia/nemotron-3-ultra-550b-a55b:free	-
 p049	13	28220	25019	45	0	0	736	nvidia/nemotron-3-ultra-550b-a55b:free	-
 p023	6	18923	20742	45	0	0	508	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p067	9	24333	23177	45	0	0	579	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p050	14	24765	26114	45	0	0	661	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p024	8	18279	20250	44	0	1	559	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p025	6	13912	16044	45	0	0	425	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p066	8	23698	17873	44	0	1	741	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p051	13	26247	30175	45	0	0	696	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p026	6	9348	13898	45	0	0	289	nvidia/nemotron-3-ultra-550b-a55b:free	-
+g2-okuyucu	1	48344	0	0	0	0	0	sonnet	dogrulama 18-21 toplam jeton (alt ajan)
+p065	11	26894	17142	44	0	1	483	nvidia/nemotron-3-ultra-550b-a55b:free	-

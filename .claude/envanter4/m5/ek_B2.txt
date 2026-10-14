@@ -1,0 +1,747 @@
+Bu ortamın araç kataloğundan (skill · ajan · plugin · MCP · CLI · kütüphane · bizim betik) her iş için önceden çekilmiş aday listesi aşağıda. Ek katalog sorgusu yapma; adayları kendi bildiğin araçlarla birlikte değerlendir, ilgili olanları planda adım adım kullan.
+
+### 11. Tüm ajan tanımlarının description alanlarını anlamı bozmadan kısa tek satıra sıkıştır. Ajan listesinin bağlamda tuttuğu jetonu önce ve sonra ölç.
+<aday-listesi>
+```text
+106 kayıt · skill 34 · ajan 17 · mcp 10 · plugin 10 · cli 10 · kütüphane 3 · bizim betik 19 · öğrenim 3
+## skill (34) · çağrı: Skill <ad>
+1. STE Skill · kontrollü dil mekanizması (tek anlam, kısa cümle, etken çatı) → kapanış raporu yazım kuralına tek satır; ra... · kurulu değil: skill · karar UYARLA · danyuchn/asd-ste100-ski
+2. ecc-ajan-paket · 34 skill'lik paket (Ajan/LLM mühendisliği: ajan tasarımı, değerlendirme, hata ayıklama, bağlam/jeton/maliyet…
+3. Antigravity/Agentic Awesome Skills (978+ skill) · Toplu kurulum bağlamı patlatır. Aday kaynağı olarak kullanılır: eksik alanlarda tek tek skill seçip SkillSp... · kurulu değil: skill · karar UYARLA · https://github.com/sick
+4. context-mode-paket · 8 skill'lik paket (context-mode bağlam sıkıştırma araçları). Konu bu alandaysa önce bu dizini aç, uygun alt…
+5. departman-verimlilik · Verimlilik müdürü: token/context tasarrufu, çıktı sıkıştırma, oturum hafızası sırası. Uzun oturum, büyük log…
+6. agent-development · This skill should be used when the user asks to \"create an agent\", \"add an agent\", \"write a subagent\",…
+7. plugin-dev:agent-development · This skill should be used when the user asks to "create an agent", "add an agent", "write a subagent",…
+8. youtube-agent:yt-seo · Use for "write my description", "tags", "SEO", "help this video get found", "nobody is finding this".
+9. model-interaction-design:context-window-design · Designing around token limits, memory, and conversation persistence.
+10. octo-paket · 56 skill'lik paket (Octo ajan iş akışları). Konu bu alandaysa önce bu dizini aç, uygun alt skill'in…
+11. context-mode:ctx-stats · Show how much context window context-mode saved this session. Displays token consumption, context savings…
+12. taste-skill:redesign-existing-projects · Var olan siteyi denetler, jenerik AI izlerini ayıklar, işlevi bozmadan yükseltir; yeniden tasarım için;…
+13. linkedin-agent-paket · 11 skill'lik paket (LinkedIn içerik ve erişim ajanı). Konu bu alandaysa önce bu dizini aç, uygun alt…
+14. design-agent-orchestration:state-management · Managing shared context, memory, and state across multiple agents.
+15. claude-mem:Agent Cost Report · Dönemlik ajan maliyet raporu: transkript tokenlarını OpenRouter fiyatıyla tahmin eder; harcama için; fatura…
+16. ecc:unified-memory · Use when an agent must save work state, transfer context, resume another agent's task, or search shared…
+17. plugin-dev-skill-reviewer · Use this agent when the user has created or modified a skill and needs quality review, asks to \"review my…
+18. designer-toolkit:design-token-audit · Use when tokens exist and you suspect they are being bypassed. For defining tokens in the first place, use…
+19. diagram, gstack-diagram · Turn an English description (or mermaid source) into a diagram triplet: the source, an editable .excalidraw…
+20. ecc:iterative-retrieval · Use when a subagent lacks the context it needs and retrieval must be refined across passes.
+21. design-systems:naming-convention · Use when names are inconsistent or being set. For what the tokens actually contain, use `design-token`.
+22. loopy-paket · Ajan döngüleri: loop library, loopy
+23. octo:skill-agent-topology · Audit whether a multi-agent setup earns its coordination cost — use before adding an agent, or when a…
+24. agentshield-paket · Ajan yapılandırması güvenlik denetimi: agentshield
+25. omni-auth · Manage API key authentication and session tokens. Start here to authenticate requests via Bearer token,…
+26. ajan-getir · Use when a task fits a specialist agent that is not in the Agent tool's list (284 installed agents: hidden +…
+27. cli-cost-usage · View cost breakdowns, token usage, and call logs from the CLI. Filter by provider, model, or date range.…
+28. headroom-compress · Buyuk log, arac ciktisi ya da uzun metinli JSON'u yapiyi koruyarak sikistirir ve ozetini basar. Uzun bir…
+29. skill-ui-cli · Use when an agent or desktop AI client needs to discover/list available skills, compare descriptions to the…
+30. plugin-dev-agent-creator · Use this agent when the user asks to \"create an agent\", \"generate an agent\", \"build a new agent\",…
+31. omni-budget · Configure spending limits, token quotas, and rate-limit policies per API key or globally. Inspect current…
+32. LLM Council skill · 5 danışman alt ajan + anonim çapraz inceleme + başkan kararı veren skill. · kurulu değil: skill · karar KUR · https://github.com/tenfold
+33. context-save · Save working context. (gstack)
+## ajan (17) · çağrı: Agent <ad> (listede yoksa Skill ajan-getir)
+34. ajn-ajan-tanimi-yazar · Writes subagent definitions with narrow tools, cheap model and short prompt
+35. video-tarayici-haiku · TOKEN-DENEME-2a haiku kolu (deneme; varsayılan değil). video-tarama skill'inin link başına alt ajanı.…
+36. aday-arastirici · video-uygula skill'inin aday başına alt ajanı. Prompt'taki tek satırla (ad · tür · video · ipucu/link) repo…
+37. video-tarayici · video-tarama skill'inin link başına alt ajanı. Prompt'taki tek satırla (id · paket · kareler · rapor)…
+38. engineering-knowledge-graph-engineer · Structures knowledge into entity nodes and relationship edges for context navigation, fewer tokens and…
+39. ops-dosya-tanimlayici-siniri · Fixes 'too many open files': descriptor leaks and limits (ulimit, systemd, container)
+40. fe-meta-seo-duzeltici · Fixes title, description, canonical and social preview tags
+41. claude-ads:skill-reviewer · Fresh-context reviewer for Claude Ads skill and agent routing, progressive disclosure, prompt contracts,… · Agent claude-ads:skill-reviewer
+42. plugin-dev:skill-reviewer · Use this agent when the user has created or modified a skill and needs quality review, asks to "review my… · Agent plugin-dev:skill-reviewer
+43. vrm-baglam-butcesi · Estimates context cost of files, tools, prompts and proposes trimming; bloated sessions
+44. vrm-maliyet-denetci · Reviews usage logs and workflows for avoidable token or API spend
+45. ara-defuddle-sayfa-cikarim · Extracts web page main content as clean Markdown with Defuddle CLI, fewer tokens
+46. plugin-dev:agent-creator · Use this agent when the user asks to "create an agent", "generate an agent", "build a new agent", "make me… · Agent plugin-dev:agent-creator
+47. ajn-ajan-orkestrasyon · Designs multi-agent flows with roles, handoffs, state and human approval points
+48. ajn-ajan-bellek-tasarimi · Designs agent memory across sessions: scopes, retention, retrieval; forgotten or stale facts
+49. vrm-alt-ajan-dagitim · Splits independent work into parallel subtasks with contracts; returns only summaries
+50. engineering-multi-agent-systems-architect · Multi-agent AI pipeline architect: topology, context management, inter-agent trust, failure recovery, human…
+## mcp (10) · çağrı: ToolSearch '<ad>' → mcp__<ad>__*
+51. headroom · headroom-ai sıkıştırma: araç çıktısını sıkıştırır, hash ile tam metni geri getirir; token tasarrufu için;…
+52. MCP sunucu listesi ile kullanılmayanları kapatma · Ayrı bir araç değil, bir iş akışı tekniği: Claude Code'da bağlı tüm MCP sunucularını/araçlarını listeleyip ... · kurulu değil: mcp · karar ADAY
+53. Definely · Definely hukuk hizmetine (mcp.uk.definely.com) bağlanır; sözleşme tanım/atıf analizi için; e-imza değil…
+54. claude-mem · Oturumlar arası sıkıştırılmış bellek gözlemlerini arar; geçmiş bağlam için; dosya deposu değil
+55. context-mode · Komut ve dosya çıktısını sandbox'ta işleyip indeksler, yalnız sonucu döndürür; bağlam tasarrufu için; kabuk…
+56. Notion MCP · Notion'a canlı okuma/yazma sağlar. Ömer Notion kullanıyorsa token ile kurulur. · kurulu değil: mcp · karar KUR · https://github.com/makenotio
+57. jev · TypeSafe Jev yerel MCP'si: kod tabanında ilgili dosya bulur, log triage yapar; bağlam daraltmak için; LLM…
+58. Google Drive bağlayıcı · Drive'daki dosyaları okur ve yazar. claude.ai bağlayıcısı olarak Ömer'in hesabıyla açılır. · kurulu değil: mcp · karar KUR · https://claude.ai (Drive bağ
+59. Tiger Data MCP · Tiger Cloud (Timescale, şimdiki adıyla Tiger Data) için Go ile yazılmış komut satırı aracı. İçinde MCP sunu... · kurulu değil: mcp · karar ADAY · https://github.com/timescal
+60. azure-resource-manager-mcp · Azure Resource Manager'a (management.azure.com) bağlanır; maliyet ve kaynak sorgusu için; dağıtım aracı değil
+## plugin (10)
+61. anthropics/financial-services (market-researcher, model-builder, earnings-reviewer) · Finans işi gündemde yok, bağlayıcılar ücretli. Ajan deseni alınır: slash komut + otomatik tetik, listeye ya... · kurulu değil: plugin · karar KUR · https://github.com/anthro
+62. claude-hud · Real-time statusline HUD for Claude Code - context health, tool activity, agent tracking, and todo progress · /plugin claude-hud@claude-hud (skill/ajan/MCP'leri ayrı satı
+63. Ruflo (videoda 'Rufflow') · Claude Code ve Codex için "ajan meta-harness": 100+ uzman ajan, koordineli sürüler (swarm), kendi kendine ö... · kurulu değil: plugin · karar ADAY · https://github.com/ruvne
+64. Claude Security · Ajan ekibiyle güvenlik açığı arayıp doğrulanmış bulguya yama öneren resmi plugin. · kurulu değil: plugin · karar KUR · https://github.com/anthro
+65. you-should-know · Claude Code v2.1.287 (2026-10-01) yerleşik "mod": uzun görevlerde yan ajan Claude çıktısını izler, kaçırıla... · kurulu değil: plugin · karar ADAY:ÖĞREN (yerleşik, Kur
+66. design-systems · Build, document, and maintain scalable design systems — from tokens and components to accessibility and… · /plugin design-systems@designer-skills (skill/ajan/MCP'leri 
+67. everything-claude-code · Hazır Claude Code yapılandırma derlemesi: ajan, skill, hook, komut, kural; kurulum fikri için; tek amaçlı… · /plugin envanter.json (kurulu değil?) (skill/ajan/MCP'leri a
+68. phoenix-prd-pipeline · Security-first specification pipeline. prd-generator writes a full PRD with a threat model from a… · /plugin phoenix-prd-pipeline@phoenix-security (skill/ajan/MC
+69. flightdeck · Flightdeck: a live agent dashboard for Claude Code. Main model vitals, an on-call architect, every… · /plugin flightdeck@claude-flightdeck (skill/ajan/MCP'leri ay
+70. capability-eklentileri-excel-figma-mocku · Göreve özel önceden tanımlı yetenek modülleri ekleme · kurulu değil: plugin · karar ADAY
+## cli (10) · çağrı: Bash: <ad> --help
+71. headroom · LLM bağlamını sıkıştıran vekil, bellek ve metrik yönetir; token tasarrufu için; model değil
+72. Agent view · Claude Code'un yerleşik özelliği: tüm Claude Code oturumlarını tek terminal ekranında listeleyip yöneten pa... · kurulu değil: cli · karar ADAY
+73. skills-cli · GitHub/GitLab/Azure Repos'tan tek komutla Agent Skill kurar, ajanlara bağlar; skill kurulumu için; listeleme…
+74. claude-usage · Token, cost, and session dashboard for Claude Code usage
+75. BigQuery bq CLI ile SQL'siz analiz · Google Cloud SDK ile gelen bq komut satırı aracını Claude Code'a bağlayıp BigQuery verisini doğal dille sor... · kurulu değil: cli · karar ADAY
+76. Cursor · Cursor, VS Code tabanlı yapay zekâ kodlama editörüdür (Anysphere). Ajan, sekme tamamlama ve sohbet özellikl... · kurulu değil: cli · karar ADAY
+77. rtk · Komut çıktısını LLM bağlamına girmeden süzen/özetleyen vekil; token tasarrufu için; kabuk değil
+78. SemDecide · Unix boru hattı ve CI için Jev'le tipli anlamsal kararlar (çıkış kodu) · kurulu değil: cli · karar UYARLA · https://github.com/sharzi
+79. claude-code-templates (aitmpl) · Claude Code bileşenlerini (ajan, komut, MCP) kuran ve oturumu izleyen npx CLI; aitmpl.com kataloğu · kurulu değil: cli · karar UYARLA · https://github.com/davila
+80. headroom-ai · The Context Optimization Layer for LLM Applications - Cut costs by 50-90%
+## kütüphane (3)
+81. @capsizecss/core · font metriğiyle öngörülebilir satır yüksekliği/boşluk; tipografi hassas tasarım sistemleri için · Skill omer-kutuphaneler (pinli kurulum satırı)
+82. Kokonut UI · Tailwind+shadcn+Motion animasyonlu bileşen kaynağı olarak docs/departmanlar/frontend.md kaynak listesine ekle. · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+83. Watermelon UI · 600+ animasyonlu React bileşeni, kopyala-yapıştır; MCP kurmadan llms.txt ile frontend-craft kaynak listesin... · kurulu değil: kutuphane · karar UYARLA · https://ui.watermel
+## bizim betik (19) · çağrı: python tools/<ad>.py
+84. model_olc · KALİTE-3 MODEL KURALI: alt ajan modeli ölçümü. Canlı ~/.claude/settings.json'daki CLAUDE_CODE_SUBAGENT_MODEL…
+85. plan_kur · ENVANTER-3 plan-kur: iş tarifinden TEK koşuda plan girdisi — iş türü kapıları + inceleme ajanları + konsey…
+86. ajan_katalog · KALİTE-1 (4b): gizli ajan kataloğu → skills/ajan-getir/katalog.tsv (ad · model · tek satır · yol).
+87. glb_hat · BLENDER-ARAC-1 K4: GLB hattı — optimize (meshopt + webp) → validate → inspect özeti → önce/sonra KB.
+88. godmode_onsoz · GODMODE önsöz enjeksiyonu: tek kaynak metni ajan .md'lerine frontmatter'dan hemen sonra işaretli blok olarak…
+89. token_olc · TOKEN-0 K1: Claude Code oturum jsonl'lerinden ağırlıklı token ölçümü.
+90. ajan_getir_zip · İKİ TARAF: /ajan-getir claude.ai paketi. Katalogdaki yerel `yol` istemleri zip içine gömülür (claude.ai'de…
+91. Claude Code Club motion system rehberi · Referans videodan yazılı hareket tasarım sistemi çıkarıp sonra o sistemle üretmeyi öğretir · kurulu değil: arac · karar UYARLA · https://www.claudecodecl
+92. tetik_olc · TOKEN-3a tetik ölçümü: istem setini `claude -p` (stream-json, max-turns 2, plan modu) ile istemin kendi…
+93. LLM Apps · awesome liste → docs/kaynak/awesome kaynak satırı (awesome-rehber taraması) · kurulu değil: arac · karar UYARLA · Shubhamsaboo/awesome-llm
+94. kalite3_hiz · KALİTE-3-HIZ: iki aşamalı ajan ölçümü + otomatik onarım. Karar d13 ile AYNI (skill/.kalite3/ajan_jev.karar:…
+95. awesome_katalog · AWESOME-1: sindresorhus/awesome (CC0) → docs/kaynak/awesome/katalog.tsv + bizim alanların alt liste…
+96. h2_sinif · TOKEN-6cR-H2: 6c-R recap testi (ttl_sim kırılma mantığı, k6cr yöntemi) + h2a_kayit ile kırılma sınıflaması.…
+97. headroom_yama · TOKEN-6f: Headroom 0.39.0 yaması — sıcak önbellekte frozen_message_count 0'a düşmesin. Kök (docs/token-6f.md…
+98. cmem_yama · TOKEN-2: claude-mem worker yaması — tek atımlık compress çağrısı (runStandaloneObserverPrompt, maxTurns:1)…
+99. cc_profil · TOKEN-1: `claude -p` arka plan profili — profiller/cc-arka.json'dan yalnız başlatma argümanı + env eki…
+100. katalog_ara · ENVANTER-2: yetenek kataloğunda iş tarifiyle arama — iki aşama: geniş aday listesi (bu betik) → seçimi…
+101. Claude Token Monitor · d4 onayında KUR; çift kurulmaz · kurulu değil: arac · karar KURULU · Maciek-roboblog/Claude-C
+102. fable_ajan_hook · FABLE-AJAN SubagentStart hook'u: dosyası değiştirilemeyen (plugin/skill) alt ajanlara protokolü…
+## öğrenim (3)
+103. Agent description her oturum Agent listesine girer; uzun description (3.8k kr) sürekli context maliyetidir · iş: ajan tanımı · docs/kaynak-tarama/99-sentez.md:31
+104. claude.ai zip'inde katlamalı (çok satırlı) SKILL description tek satıra indirilir · iş: skill paketleme · .kos/kopru/rapor/ig-40-kur.md:17
+105. Token kazancı claude -p --output-format json gerçek girdi token'ıyla önce/sonra ölçülür; /context yerel tahmine düşebilir · iş: token ölçümü · docs/kaynak-tarama/99-sentez.md:23
+```
+</aday-listesi>
+
+### 12. Blender'da düşük poligonlu bir Türk kahvesi makinesi modelle. Parçaları ayrı nesneler olsun, exploded-view animasyonu hazırla ve headless bpy betiğiyle web için GLB olarak dışa aktar.
+<aday-listesi>
+```text
+103 kayıt · skill 36 · ajan 13 · mcp 10 · plugin 10 · cli 10 · kütüphane 9 · bizim betik 12 · öğrenim 3
+## skill (36) · çağrı: Skill <ad>
+1. blender-uretim, blender:blender-uretim · Blender'da 3D ürün üretimi ve bpy (Blender Python) betiği/kodu: obje ekle, fincan/cezve modelle, ışıkla,…
+2. animasyon-atolyesi · Hazır, ölçülmüş animasyon tarifleri — web giriş/scroll, sayfa geçişi, Three.js parçacık, Blender patlatılmış…
+3. ecc:blender-motion-state-inspection · Use this skill when inspecting Blender characters, rigs, poses, animation retargeting, ground contact,…
+4. blender:blender-oturum, blender-oturum · Blender, 3D model/varlık/sahne işinde önce yükle: Blender oturumunu (aç · MCP sunucusu · kaydet · kapat) CC…
+5. azure-uygulama-ai-paket · 18 skill'lik paket (Azure uygulama ve AI: Foundry, model dağıtımı, fine-tuning, AI gateway, onboarding,…
+6. animation-systems · Use when designing or implementing product-grade web motion like Stripe, Linear, Apple, and Vercel. Covers…
+7. cli-eval · Create and run evaluation suites, watch live benchmark progress, view scorecards, compare model performance,…
+8. mod-atolyesi · 3DMigoto mod atölyesi — Genshin (standalone) · ZZZ/HSR/WuWa (XXMI): bozuk mod onarımı, ini/tuş/merge,…
+9. ig41-ucuncu-taraf · 15 skill'lik paket (3D/anatomi/saç modelleme, three.js sahne, animasyon performansı ve YouTube kanal…
+10. cli-cost-usage · View cost breakdowns, token usage, and call logs from the CLI. Filter by provider, model, or date range.…
+11. technical-wireframe-info-layout · Create a monochrome technical wireframe design system with exploded 3D structure, connector annotations,…
+12. phoenix-security-review:tm-security-review · Use for "tm security review", a deep exploit-focused review with a threat model, or any agentic/LLM/MCP…
+13. netlify-agent-runner · Use when the user wants to run an AI agent on their site, get a second opinion from another model, or…
+14. animasyon-scroll-paket · 29 skill'lik paket (Web animasyon ve scroll: GSAP, Lenis, sinematik scroll anlatımı, kelime/maske açılışı,…
+15. vercel-react-view-transitions · Use for page transitions, route/shared-element animation, list reorder, or directional nav animation in…
+16. use-case-triage · Yeni veri işleme faaliyeti, ürün özelliği, tedarikçi, AI/model eğitimi, çalışan izleme, pazarlama veya…
+17. add-mouse-driven-orbit · Use for passive cinematic 3D heroes, pointer-responsive scenes, organic model parallax, and interactive…
+18. tm-security-review · The COMPREHENSIVE tier. Build (or ingest) a full STRIDE threat model as input, then run a sophisticated…
+19. hyperframes:motion-graphics · A short, design-led motion graphic where motion is the message — kinetic typography, stat count-up,…
+20. process-design:governance-model · Define lightweight program governance.
+21. setup-browser-cookies, gstack-setup-browser-cookies · Import cookies from your real Chromium browser into the headless browse session. (gstack)
+22. design-systems:motion-system · Use when standardising motion across a system. For crafting one specific animation, use…
+23. pia-generation · Yeni veri işleme faaliyeti için Türk KVKK pratiğine uygun VKED/PIA taslağı üretir. Amaç, veri kategorisi,…
+24. ecc:motion-foundations · Use when setting up motion tokens, spring presets, reduced-motion handling, or SSR-safe animation in React…
+25. interfaces:explain-interface · Explains how a website, a visual effect or an animation was built, from a live URL or a screenshot.
+26. model-interaction-design:progressive-disclosure · Revealing AI capability gradually to match user mental models.
+27. ecc:motion-advanced · Use when building drag and drop, gestures, text or SVG animation, or imperative animation sequences in React…
+28. moli-cdp-server · Use to run a headless-browser CDP endpoint, replace a Chromium process, attach over CDP, enable real layout…
+29. cli-models · Query available AI models, list model aliases, and browse the full model catalog from the CLI. Filter by…
+30. fixing-motion-performance · Use when animations stutter, transitions jank, or reviewing CSS/JS animation performance.
+31. hyperframes:hyperframes-animation · Use for any motion or animation task: pick 2-4 rules and compose, or load a blueprint, or look up…
+32. omni-models · Query available AI models across all configured providers. List models, resolve model aliases, and browse…
+33. add-new-model · Use when the user wants to add/port a new model architecture.
+## ajan (13) · çağrı: Agent <ad> (listede yoksa Skill ajan-getir)
+34. bl-glb-disa-aktar · Prepares and exports Blender models to small GLB for three.js and web
+35. bl-python-betik · Writes headless Blender bpy scripts for batch import, modify, render, export
+36. bl-mod-modeli-blender · Moves characters/props between Blender and game formats: scale, bones, vertex groups
+37. bl-animasyon-anahtar · Plans Blender keyframe animation, easing and turntables for moving objects or cameras
+38. bl-modelleme-plani · Plans low-poly or hard-surface Blender models: proportions, topology, modifiers
+39. bl-urun-turntable · Renders product turntable frames and assembles a web loop in Blender
+40. differential-review:adversarial-modeler · Models attacker perspectives and builds exploit scenarios for HIGH RISK code changes. Use when differential… · Agent differential-review:adversarial-modeler
+41. vrm-bilgi-tabani-hazirla · Builds a compact knowledge base from project docs for fast retrieval
+42. ajn-basliksiz-isci-havuzu · Runs parallel headless agent CLI workers with sandbox levels, result files, timeouts
+43. ajn-migrasyon-model · Migrates prompts and code to newer model versions with eval comparison; model ID switch
+44. db-sequelize · Reviews Sequelize models, associations, eager loading, migrations and transactions
+45. oyn-oyun-envanter · Designs inventory data models and UI: stacking, slots, persistence
+46. fe-animasyon-tasarimci · Designs UI motion with transform and opacity only, respecting reduced motion
+## mcp (10) · çağrı: ToolSearch '<ad>' → mcp__<ad>__*
+47. blender · Çalışan Blender'ı blender-mcp ile uzaktan yönetir; 3B sahne/model için; doğrulama kapısı değil
+48. Stitch MCP dışa aktarımı · Google Stitch (yapay zekâ ile UI tasarımı üreten servis) tasarımlarını MCP üzerinden Claude Code gibi kodla... · kurulu değil: mcp · karar ADAY
+49. blender-lab-mcp · mcp adayı; kaynak kararı KURULDU · kurulu değil: mcp · karar KURULDU (KUR kararı var, FS-de bul
+50. canva · Canva tasarımlarını arar, oluşturur ve dışa aktarır; sosyal medya görseli için; kod üretimi değil (tahmin) · claude.ai bağlayıcısı
+51. premiere-pro · adobe-premiere-pro-mcp: Premiere Pro projesini sürer (klip, timeline, dışa aktarım); video kurgu için;…
+52. hfspace · Hugging Face Spaces uygulamalarını araç olarak çağırır (görsel, ses, model); HF demoları için; yerel model…
+53. puppeteer · Puppeteer ile Chrome sürer: gezinme, tıklama, ekran görüntüsü; tarayıcı otomasyonu için; Playwright değil
+54. Paper (paper.design): kodlu tuval + Claude MCP + snapshot + shader · Sponsorlu ama gerçek araç; canlı siteyi düzenlenebilir katman olarak alıp Claude'a MCP ile düzenletmek bizd... · kurulu değil: mcp · karar KUR · https://paper.design (KUR ka
+55. MCP sunucu listesi ile kullanılmayanları kapatma · Ayrı bir araç değil, bir iş akışı tekniği: Claude Code'da bağlı tüm MCP sunucularını/araçlarını listeleyip ... · kurulu değil: mcp · karar ADAY
+56. Google Drive bağlayıcı · Drive'daki dosyaları okur ve yazar. claude.ai bağlayıcısı olarak Ömer'in hesabıyla açılır. · kurulu değil: mcp · karar KUR · https://claude.ai (Drive bağ
+## plugin (10)
+57. Cell Fracture eklentisi · Blender'da seçili bir mesh nesnesini Voronoi (hücre) tabanlı çok sayıda parçaya bölen eklenti. Video, Solid... · kurulu değil: plugin · karar ADAY
+58. BlenderKit eklentisi · Blender içinden BlenderKit çevrimiçi kütüphanesindeki modelleri, materyalleri, sahneleri, HDRI'ları ve fırç... · kurulu değil: plugin · karar ADAY · https://github.com/Blend
+59. llm-icon-finder · Find and access AI/LLM model brand icons from lobe-icons library in SVG/PNG/WEBP formats · /plugin llm-icon-finder@daymade-skills (skill/ajan/MCP'leri 
+60. blender · Blender skills for Claude Code (local tool paths): blender-oturum session/tool routing and blender-uretim… · /plugin blender@omer-skills (skill/ajan/MCP'leri ayrı satırl
+61. daymade-codex · OpenAI Codex operations and design exploration suite bundling model-aware long-context workstation setup,… · /plugin daymade-codex@daymade-skills (skill/ajan/MCP'leri ay
+62. model-interaction-design · Design how humans and AI models communicate — conversation patterns, turn-taking, mixed-initiative flows,… · /plugin model-interaction-design@designer-skills (skill/ajan
+63. octo · v11.13.1 — Safer model configuration, reliable provider history and an MCP dependency security update. Run… · /plugin octo@nyldn-plugins (skill/ajan/MCP'leri ayrı satırla
+64. Blotato generate skill · Claude'dan çok modelli görsel/video üretir; en ucuz modeli seçer, prompt'la birlikte yerel kaydeder · kurulu değil: plugin · karar UYARLA · https://github.com/Blo
+65. product-analysis · Multi-path parallel product analysis with cross-model test-time compute scaling. Spawns parallel agents… · /plugin product-analysis@daymade-skills (skill/ajan/MCP'leri
+66. openclaw-model-switch · Switch or repair the model configuration of an OpenClaw instance (e.g., Kimi k2p6 → k3): change the default… · /plugin openclaw-model-switch@daymade-skills (skill/ajan/MCP
+## cli (10) · çağrı: Bash: <ad> --help
+67. blender-dogrulama · Blender çıktısını sayısal kapı, Workbench/Eevee görünüm+IoU ve GLB hattıyla doğrular; 3B kalite için;…
+68. mcp-server-fetch · A Model Context Protocol server providing tools to fetch and convert web content for usage by LLMs
+69. @modelcontextprotocol/inspector · The Model Context Protocol Inspector
+70. codeburn · See where your AI spend goes - by task, tool, model, and project
+71. mcporter · TypeScript runtime and CLI for connecting to configured Model Context Protocol servers.
+72. model-effort-claude-code · Oturumda kullanılacak modeli (Fable 5/Opus 4.8) ve düşünme seviyesini (low/medium/high) ayarlama · kurulu değil: cli · karar ADAY
+73. mcp-server-time · A Model Context Protocol server providing tools for time queries and timezone conversions for LLMs
+74. mcp-server-git · A Model Context Protocol server providing tools to read, search, and manipulate Git repositories…
+75. mcp-remote · Remote proxy for Model Context Protocol, allowing local-only clients to connect to remote servers using oAuth
+76. Nvidia NIM · NVIDIA'nın build.nvidia.com üzerinden sunduğu barındırılan model kataloğu (NIM = NVIDIA Inference Microserv... · kurulu değil: cli · karar ADAY
+## kütüphane (9)
+77. swup · çok sayfalı sitede AJAX sayfa geçiş animasyonu; klasik MPA vitrin siteleri için · Skill omer-kutuphaneler (pinli kurulum satırı)
+78. Kokonut UI · Tailwind+shadcn+Motion animasyonlu bileşen kaynağı olarak docs/departmanlar/frontend.md kaynak listesine ekle. · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+79. daisyUI · Tailwind üstünde sınıf adlı hazır bileşen ve tema; tasarim-katalog kaynak.tsv'ye hızlı tema seçeneği olarak... · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+80. Vengeance UI · Açılış sayfası için kopyala-yapıştır animasyonlu bileşenler. · kurulu değil: kutuphane · karar KUR · https://github.com/Ash
+81. @number-flow/react · animasyonlu sayı/sayaç bileşeni; istatistik/fiyat sayacı olan arayüzler için · Skill omer-kutuphaneler (pinli kurulum satırı)
+82. Watermelon UI · 600+ animasyonlu React bileşeni, kopyala-yapıştır; MCP kurmadan llms.txt ile frontend-craft kaynak listesin... · kurulu değil: kutuphane · karar UYARLA · https://ui.watermel
+83. StringTune (@fiddle-digital/string-tune) · CSS-first, HTML attribute ile kaydırma, metin bölme, imleç modülleri; animasyon-atolyesi kütüphane seçenekl... · kurulu değil: kutuphane · karar UYARLA · https://string-tune
+84. tempus · requestAnimationFrame döngüsü yöneticisi (öncelik, özel kare hızı); scroll/animasyon ağırlıklı landing için · Skill omer-kutuphaneler (pinli kurulum satırı)
+85. Tabler Icons · 5000+ tutarlı çizgi ikon, SVG/React; fe-ikon-sistemi ve frontend-craft'a yaygın üçlüye alternatif set olara... · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+## bizim betik (12) · çağrı: python tools/<ad>.py
+86. blender_cli · BLENDER-ARAC-1 K1: headless Blender betik sözleşmesi — sonraki Blender araçları bunun üstünde.
+87. blender_pisir · BLENDER-ARAC-2 K3: headless ışık/AO pişirme (UV2 lightmap + Cycles bake + denoise).
+88. glb_hat · BLENDER-ARAC-1 K4: GLB hattı — optimize (meshopt + webp) → validate → inspect özeti → önce/sonra KB.
+89. bpy_kontrol · BLENDER-ARAC-1 K6: bpy statik kontrol — var olmayan bpy özniteliği/operatörü listeler.
+90. varlik_indir · BLENDER-ARAC-2 K2: CC0 varlık indirici — Poly Haven (hdri · doku · model) + ambientCG (doku).
+91. Texel Density Checker · Nesneler arasında texel yoğunluğunu ölçüp eşitliyor · kurulu değil: arac · karar UYARLA · https://github.com/mrven
+92. Cult UI · 150+ animasyonlu shadcn bileşeni; tasarim-katalog kaynak.tsv'ye bileşen kaynağı satırı olarak eklenir. · kurulu değil: arac · karar UYARLA · https://github.com/nolly
+93. model_olc · KALİTE-3 MODEL KURALI: alt ajan modeli ölçümü. Canlı ~/.claude/settings.json'daki CLAUDE_CODE_SUBAGENT_MODEL…
+94. blender_bekci · BLENDER-ARAC-1 K5: Blender kod bekçisi — PreToolUse hook (mcp__blender__execute_blender_code[_for_cli]).
+95. blender_oturum · Blender oturumu: ac <.blend> [--yeni] · kapat · durum (BLENDER-OTURUM).
+96. blender_gorunum · BLENDER-ARAC-1 K3: görünüm kanıtı — 4 Workbench (ön · yan · üst · 3/4) + 1 Eevee kahraman + tek sayfa +…
+97. blender_dogrula · BLENDER-ARAC-1 K2: sayısal kapı — görüntü ölçeği, pivotu ve topolojiyi kanıtlamaz; önce bu.
+## öğrenim (3)
+98. Web hareket seçimi: reveal CSS scroll-driven, MPA View Transitions, pin/scrub GSAP, yay fiziği Motion, durum makinesi Rive · iş: web animasyon seçimi · docs/kaynak-tarama/8b-animasyon-arastirma3.md:59
+99. Web'de 3D model düşük detaylı, küçük GLB olmalı (ör. ~2 MB) · iş: Web 3D performansı · docs/video-tarama/iYwCzKy6W40.md:20
+100. AI ile üretilen 3D mesh rig/animasyon öncesi ~50k yüze düşürülür; yüksek poligon yavaşlatır, AccuRIG yüklemez · iş: AI 3D model → rig hattı · docs/video-tarama/2026-10-09-gm0yUeS0z5Y.md:68
+```
+</aday-listesi>
+
+Birleşim tarifi (bu iş türü için faz faz önerilen araçlar; uymayan kısmı atla):
+# Blender 3D varlık — birleşim tarifi
+Ne zaman: Blender'da ürün modeli, malzeme, render ya da web için GLB üretimi.
+
+## Fazlar
+1. Oturum: `blender:blender-oturum` — Blender oturumunu (aç, MCP sunucusu, kaydet, kapat) CC yönetir; yalnız Claude Code'da · birlikte: `blender` (MCP) çalışan Blender'ı uzaktan yönetir.
+2. Brief ve plan: `blender:blender-uretim` — brief, ölçüler, kod olarak sahne, render kontrolleri hattı.
+3. Modelleme: `bl-python-betik` — headless bpy ile toplu içe aktarma, değiştirme, render, dışa aktarma · birlikte: `blender` (MCP) sahneyi canlı düzenler.
+4. Render: `bl-render-ayari` — Cycles/Eevee, örnek sayısı, gürültü azaltma · birlikte: ürün dönüşü için `bl-urun-turntable`; hareket için `bl-animasyon-anahtar`.
+5. Dışa aktarma: `bl-glb-disa-aktar` — three.js ve web için küçük GLB hazırlar.
+6. Doğrulama: katalogda kurulu özel doğrulama kapısı yok — genel: `blender:blender-uretim` render kontrolleri; `blender` (MCP) doğrulama kapısı değildir.
+7. Kapanış: `superpowers:verification-before-completion`.
+
+## İnceleme ajanları
+- `bl-render-ayari`: gürültülü ya da yavaş render teşhisi.
+- `ecc:blender-motion-state-inspection`: rig, poz, yer teması; ekran görüntüsünün yetmediği durumlar.
+
+## Güvenlik ve kalite kapıları
+- Render kontrolü kanıtlı (görüntü dosyası), "oldu" sözü yetmez.
+- GLB boyutu web için küçük; three.js'de açılıyor.
+- Oyun formatına taşımada ölçek ve kemik: `bl-mod-modeli-blender`.
+
+## Tartışma konseyi
+- Karar: prosedürel model mi içe aktarılan mesh mi, poligon bütçesi.
+- `ecc:council` — varsayılan Claude personaları: 3D sanatçı, web performans, ürün sahibi.
+
+## Jeton bütçesi
+- Oturum: küçük (~3k, tahmini). Plan: küçük (~6k). Modelleme: büyük (~40k). Render: orta (~10k). Dışa aktarma: küçük (~5k). Doğrulama: orta (~10k). Hepsi tahmini.
+- Uzun bpy log okuması `okuyucu` alt ajanına.
+
+## Kaçınılacaklar
+- `blender-uretim` ile `blender:blender-uretim` kopyasını birlikte yüklemek; birini seç.
+- `blender` (MCP) çıktısını doğrulama kanıtı saymak.
+- Oturumu açık bırakmak; kapat adımını atlamak.
+
+## Aday (kurulu değil)
+- `blender_cli`: headless Blender betik sözleşmesi.
+- `blender_oturum`: aç/kapat/durum aracı.
+- `blender_bekci`: Blender kod bekçisi PreToolUse hook'u.
+- `bpy_kontrol`: var olmayan bpy özniteliği/operatörünü listeler.
+- `blender_dogrula`: sayısal kapı.
+- `blender_gorunum`: 4 Workbench + 1 Eevee görünüm kanıtı.
+- `blender_pisir`: headless ışık/AO pişirme.
+- `blender-dogrulama`: sayısal kapı, görünüm+IoU ve GLB hattı doğrulaması.
+
+### 13. Web için test edilmiş bir animasyon tarif kütüphanesi hazırla: GSAP SplitText ile başlık girişi, View Transitions ile sayfa geçişi ve dotLottie ikon animasyonu. Tarifler 60 fps ve reduced-motion kurallarına uysun.
+<aday-listesi>
+```text
+114 kayıt · skill 53 · ajan 12 · mcp 10 · plugin 10 · cli 6 · kütüphane 10 · bizim betik 10 · öğrenim 3
+## skill (53) · çağrı: Skill <ad>
+1. animasyon-atolyesi · Hazır, ölçülmüş animasyon tarifleri — web giriş/scroll, sayfa geçişi, Three.js parçacık, Blender patlatılmış…
+2. gsap-skills:gsap-core · Use when the user asks for a JavaScript animation library, animation in React/Vue/vanilla, GSAP tweens,…
+3. ecc:motion-foundations · Use when setting up motion tokens, spring presets, reduced-motion handling, or SSR-safe animation in React…
+4. taste-skill:gpt-taste · GSAP hareketli, AIDA yapılı, editoryal tipografili sayfa kurar; animasyonlu landing için; sade UI değil
+5. vercel-react-view-transitions · Use for page transitions, route/shared-element animation, list reorder, or directional nav animation in…
+6. gsap-skills:gsap-performance · Use when optimizing GSAP animations, reducing jank, or when the user asks about animation performance, FPS,…
+7. animasyon-scroll-paket · 29 skill'lik paket (Web animasyon ve scroll: GSAP, Lenis, sinematik scroll anlatımı, kelime/maske açılışı,…
+8. fixing-motion-performance · Use when animations stutter, transitions jank, or reviewing CSS/JS animation performance.
+9. expo:expo-animation, animate-expo · Use when animating anything in an Expo app, adding gestures, sheets, screen transitions, press feedback or…
+10. inclusive-interaction:motion-sensitivity · Use when designing animations, transitions, parallax scrolling, video backgrounds, carousels, or any moving…
+11. animation-systems · Use when designing or implementing product-grade web motion like Stripe, Linear, Apple, and Vercel. Covers…
+12. hyperframes:hyperframes-animation · Use for any motion or animation task: pick 2-4 rules and compose, or load a blueprint, or look up…
+13. cinematic-gsap-lenis-motion-system · Use for luxury editorial websites, creative studio portfolios, Awwwards-style interactions, smooth scroll…
+14. Remotion · React koduyla video üreten çatı. Ajanlarla (Claude Code vb.) sohbet ederek animasyon/motion tasarım videosu... · kurulu değil: skill · karar ADAY · https://github.com/remoti
+15. adaptive-interfaces:user-preference-respect · Use when implementing dark mode, reduced motion, high contrast, text scaling, or any user preference that…
+16. web-stil-sayfa-paket-1 · 34 skill'lik paket (Web stil ve sayfa şablonları: koyu/cam/kağıt/teknik temalar, grid ve kapsayıcı…
+17. web-stil-sayfa-paket-2 · 36 skill'lik paket (Web stil ve sayfa şablonları: koyu/cam/kağıt/teknik temalar, grid ve kapsayıcı…
+18. gsap · Use when you need to add or debug professional web animations with GSAP (timelines, ScrollTrigger, stagger,…
+19. review-animations · Reviews animation and motion code against a high craft bar derived from Emil Kowalski's design engineering…
+20. ecc:blender-motion-state-inspection · Use this skill when inspecting Blender characters, rigs, poses, animation retargeting, ground contact,…
+21. interaction-design:animation-principles · Use when tuning how an animation feels. For product-wide duration and easing tokens use `motion-system`…
+22. improve-animations · Use when the user asks to "improve the animations", "audit the motion", "make this app feel better", or…
+23. animate · Use when asked to animate something, add motion, make a component feel alive, or build a transition. For…
+24. animation-vocabulary · Use when the user asks "what's it called when…", or describes a motion effect without knowing its name and…
+25. gsap-skills:gsap-timeline · Use when sequencing animations, choreographing keyframes, or when the user asks about animation sequencing,…
+26. hyperframes-paket · 7 skill'lik paket (HyperFrames video/animasyon: core, registry, animasyon, yaratıcı efektler, medya…
+27. design-systems:motion-system · Use when standardising motion across a system. For crafting one specific animation, use…
+28. gsap-scrolltrigger-storytelling · Build cinematic sticky product storytelling with GSAP ScrollTrigger, progressive UI reveals, scroll-synced…
+29. gsap-skills:gsap-react · Use when the user wants animation in React or Next.js, or asks about GSAP with React, useGSAP, or cleanup on…
+30. gsap-skills:gsap-frameworks · Use when the user wants animation in Vue, Nuxt, Svelte, SvelteKit, or asks about GSAP with Vue/Svelte,…
+31. Promptslove Motion Graphics PRO · Sohbetle storyboard onaylatıp beat-senkron müzikli 1080p motion grafik video üreten skill · kurulu değil: skill · karar UYARLA · https://promptslove.com
+32. gsap-skills:gsap-scrolltrigger · Use when building or recommending scroll-based animation, parallax, pinned sections, or when the user asks…
+33. ecc:motion-advanced · Use when building drag and drop, gestures, text or SVG animation, or imperative animation sequences in React…
+34. departman-arastirma-ogrenme · Araştırma müdürü: doküman, web, video ve kaynak tarama sırası. Kütüphane sorusu, YouTube linki ya da yeni…
+35. motionmaxxing · Ajana motion tasarım playbook'u verip HTML'den marka uyumlu tanıtım videosu render eden skill. · kurulu değil: skill · karar UYARLA · https://github.com/Teja
+36. interfaces:explain-interface · Explains how a website, a visual effect or an animation was built, from a live URL or a screenshot.
+37. threejs-procedural-animation · Use for launch kinematics, gravity turns, staging, spin docking, target-frame decomposition, spring-follow…
+38. ig41-ucuncu-taraf · 15 skill'lik paket (3D/anatomi/saç modelleme, three.js sahne, animasyon performansı ve YouTube kanal…
+39. motion-studio · Build a short film in code, either as pure motion graphics (no footage) or as a motion layer on a generated…
+40. expo-mobil-paket · 24 skill'lik paket (Expo/React Native: router, UI, animasyon, EAS build/submit/update, yükseltme, native…
+41. motion-os · Use when the user asks for a motion graphic, launch video, explainer, product video or animated ad, says…
+42. hyperframes:motion-graphics · A short, design-led motion graphic where motion is the message — kinetic typography, stat count-up,…
+43. create-game-vfx · Use for attacks, impacts, damage feedback, status effects, spell trails, particles, shaders, telegraphs,…
+44. ecc:motion-patterns · Use when animating a specific UI element in React or Next.js — button, modal, toast, stagger, page…
+45. tasarim-sistem-prototip-paket · 36 skill'lik paket (Tasarım sistemi ve prototip: token, bileşen spec, kalıp kütüphanesi, A/B ve…
+46. build-awwwards-quality-sites · Use when a user asks for an Awwwards-quality, premium, cinematic, interactive, high-concept, or motion-led…
+47. interaction-design:micro-interaction-spec · Use when handing a single interaction to engineering. For motion craft alone use `animation-principles`; for…
+48. gpt-taste · Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance,…
+49. ecc-frontend-paket · 24 skill'lik paket (Frontend: React/Next/Vue/Nuxt/Angular/Vite/RN, motion, erişilebilirlik, tasarım yönü,…
+50. ecc:remotion-video-creation · Use when building video in React with Remotion — animations, audio, captions, charts, or transitions.
+51. remotion-maps · Remotion Map animation knowledge
+52. interfaces:better-ui · Polishes the surfaces, icons and motion in your project with exact values for border radius, optical…
+## ajan (12) · çağrı: Agent <ad> (listede yoksa Skill ajan-getir)
+53. fe-animasyon-tasarimci · Designs UI motion with transform and opacity only, respecting reduced motion
+54. sec-guvenlik-baslik · Sets CSP, HSTS, CORS and cookie security headers for a web app
+55. fe-bilesen-kutuphanesi · Builds reusable UI component libraries: APIs, variants, accessibility, docs
+56. bl-animasyon-anahtar · Plans Blender keyframe animation, easing and turntables for moving objects or cameras
+57. vid-gecis-ve-ritim · Reviews edit pacing, cuts and transitions for flow, hook and attention
+58. ara-defuddle-sayfa-cikarim · Extracts web page main content as clean Markdown with Defuddle CLI, fewer tokens
+59. sec-yol-gecisi · Finds and fixes path traversal and zip slip in file download, upload, extraction code
+60. vid-hareket-grafigi · Designs motion graphics timing, easing and title/lower-third typography animation
+61. urn-baslik-yazimi · Writes headlines and titles that earn the click with a truthful promise; many impressions, few clicks
+62. vrm-bilgi-tabani-hazirla · Builds a compact knowledge base from project docs for fast retrieval
+63. ara-kutuphane-dokuman · Looks up current library/framework docs: exact API, version, example, deprecations, migration
+64. dn-identity-auth · Sets up ASP.NET Core Identity, cookies, JWT and policy-based authorization; login, roles, tokens
+## mcp (10) · çağrı: ToolSearch '<ad>' → mcp__<ad>__*
+65. mcp-fetch · mcp-server-fetch: URL'yi çekip Markdown'a çevirir; tek sayfa okuma için; tarayıcı otomasyonu değil
+66. context7 · Kütüphanelerin güncel dokümanını ve kod örneklerini getirir; API kullanımı için; web araması değil (tahmin)
+67. brave-search · Brave arama motoruyla web araması yapar; güncel bilgi için; sayfa kazıma değil (tahmin)
+68. firecrawl-mcp-server · Web sayfasından yalnız gereken içeriği ve marka varlıklarını çeken MCP. · kurulu değil: mcp · karar KUR · https://github.com/firecrawl
+69. auth0 · Auth0 kiracısını (uygulama, API, kullanıcı) auth0-mcp-server ile yönetir; kimlik yapılandırması için; giriş…
+70. mcp-server-configuration · ChatLLM hesap ayarlarında MCP sunucu bağlantısı yapılandırma sayfası · kurulu değil: mcp · karar ADAY
+71. Composio MCP · Yapay zekâ ajanlarına 1000+ uygulamaya (Gmail vb.) önceden kimlik doğrulanmış erişim veren platform. Hesapl... · kurulu değil: mcp · karar ADAY · https://github.com/Composio
+72. playwright · @playwright/mcp: tarayıcıyı sürer, tıklar, form doldurur, ekran görüntüsü alır; web otomasyon/test için;…
+73. Perplexity MCP · Canlı web üzerinden kaynaklı yanıt verir. Anahtar ücretli; kurulum anahtar gelince yapılır. · kurulu değil: mcp · karar KUR · https://github.com/perplexit
+74. chrome-devtools · Chrome DevTools ile tarayıcıyı denetler, ağ/konsol/performans izler; web hata ayıklama için; e2e test değil
+## plugin (10)
+75. nateherk-design · Design and build skills from Nate Herk. Ships scroll-craft: premium scroll-driven interactive landing pages,… · /plugin nateherk-design@nateherk (skill/ajan/MCP'leri ayrı s
+76. hyperframes · HyperFrames by HeyGen. Write HTML, render video. Compositions, GSAP and runtime adapter animations,… · /plugin hyperframes@hyperframes (skill/ajan/MCP'leri ayrı sa
+77. core-skills · HyperFrames by HeyGen. Write HTML, render video. Compositions, GSAP and runtime adapter animations,… · /plugin core-skills@hyperframes (skill/ajan/MCP'leri ayrı sa
+78. gsap-skills · Official GSAP skills for Claude, Cursor, and other AI agents — animations, timelines, ScrollTrigger,… · /plugin gsap-skills@gsap-skills (skill/ajan/MCP'leri ayrı sa
+79. everything-claude-code · Hazır Claude Code yapılandırma derlemesi: ajan, skill, hook, komut, kural; kurulum fikri için; tek amaçlı… · /plugin envanter.json (kurulu değil?) (skill/ajan/MCP'leri a
+80. llm-icon-finder · Find and access AI/LLM model brand icons from lobe-icons library in SVG/PNG/WEBP formats · /plugin llm-icon-finder@daymade-skills (skill/ajan/MCP'leri 
+81. bilibili-source · Fetches real, citable Bilibili (B站) video data — stats, metadata, tags, and full danmaku text — via… · /plugin bilibili-source@daymade-skills (skill/ajan/MCP'leri 
+82. report-with-html · Produces the reader-facing HTML artifact — report, dashboard, architecture view, data browser, or review… · /plugin report-with-html@daymade-skills (skill/ajan/MCP'leri
+83. BlenderKit eklentisi · Blender içinden BlenderKit çevrimiçi kütüphanesindeki modelleri, materyalleri, sahneleri, HDRI'ları ve fırç... · kurulu değil: plugin · karar ADAY · https://github.com/Blend
+84. web-design-skills · Skills for high-quality visual / front-end design work. · /plugin web-design-skills@garden-skills (skill/ajan/MCP'leri
+## cli (6) · çağrı: Bash: <ad> --help
+85. playwright-cli · Tarayıcıyı komut satırından yönetir, sayfa gezer, ekran görüntüsü alır; web otomasyon/test için; scraping…
+86. Firecrawl CLI · Firecrawl'ın web verisi API'sini (arama, kazıma, sayfayla etkileşim, tarama, URL haritalama) terminalden ve... · kurulu değil: cli · karar ADAY · https://github.com/firecraw
+87. mimic-client · Intercept any app and call it from Python like a library — AI writes the client.
+88. Agent view · Claude Code'un yerleşik özelliği: tüm Claude Code oturumlarını tek terminal ekranında listeleyip yöneten pa... · kurulu değil: cli · karar ADAY
+89. markitdown-mcp · An MCP server for the "markitdown" library.
+90. @brave/brave-search-mcp-server · Brave Search MCP Server: web results, images, videos, rich results, AI summaries, and more.
+## kütüphane (10)
+91. swup · çok sayfalı sitede AJAX sayfa geçiş animasyonu; klasik MPA vitrin siteleri için · Skill omer-kutuphaneler (pinli kurulum satırı)
+92. StringTune (@fiddle-digital/string-tune) · CSS-first, HTML attribute ile kaydırma, metin bölme, imleç modülleri; animasyon-atolyesi kütüphane seçenekl... · kurulu değil: kutuphane · karar UYARLA · https://string-tune
+93. Vengeance UI · Açılış sayfası için kopyala-yapıştır animasyonlu bileşenler. · kurulu değil: kutuphane · karar KUR · https://github.com/Ash
+94. Kokonut UI · Tailwind+shadcn+Motion animasyonlu bileşen kaynağı olarak docs/departmanlar/frontend.md kaynak listesine ekle. · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+95. @number-flow/react · animasyonlu sayı/sayaç bileşeni; istatistik/fiyat sayacı olan arayüzler için · Skill omer-kutuphaneler (pinli kurulum satırı)
+96. Watermelon UI · 600+ animasyonlu React bileşeni, kopyala-yapıştır; MCP kurmadan llms.txt ile frontend-craft kaynak listesin... · kurulu değil: kutuphane · karar UYARLA · https://ui.watermel
+97. tempus · requestAnimationFrame döngüsü yöneticisi (öncelik, özel kare hızı); scroll/animasyon ağırlıklı landing için · Skill omer-kutuphaneler (pinli kurulum satırı)
+98. Tabler Icons · 5000+ tutarlı çizgi ikon, SVG/React; fe-ikon-sistemi ve frontend-craft'a yaygın üçlüye alternatif set olara... · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+99. daisyUI · Tailwind üstünde sınıf adlı hazır bileşen ve tema; tasarim-katalog kaynak.tsv'ye hızlı tema seçeneği olarak... · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+100. @builder.io/partytown · 3. parti scriptleri web worker'a taşır; analytics/reklam yükü olan perf kritik siteler için · Skill omer-kutuphaneler (pinli kurulum satırı)
+## bizim betik (10) · çağrı: python tools/<ad>.py
+101. Claude Code Club motion system rehberi · Referans videodan yazılı hareket tasarım sistemi çıkarıp sonra o sistemle üretmeyi öğretir · kurulu değil: arac · karar UYARLA · https://www.claudecodecl
+102. blender_gorunum · BLENDER-ARAC-1 K3: görünüm kanıtı — 4 Workbench (ön · yan · üst · 3/4) + 1 Eevee kahraman + tek sayfa +…
+103. Cult UI · 150+ animasyonlu shadcn bileşeni; tasarim-katalog kaynak.tsv'ye bileşen kaynağı satırı olarak eklenir. · kurulu değil: arac · karar UYARLA · https://github.com/nolly
+104. gstack_ai · Frontmatter adini duzelt, yollari $GS'e cevir, uyarlama basligini ekle.
+105. katalog_ara · ENVANTER-2: yetenek kataloğunda iş tarifiyle arama — iki aşama: geniş aday listesi (bu betik) → seçimi…
+106. ThreeUI · 160+ three.js 3D hero/ikon/hareket bileşeni · kurulu değil: arac · karar KUR · https://github.com/MengTo/t
+107. Anti-Slop · departman-frontend Kapılar: TS lint oxlint + anti-slop kural seti, proje devDependency, sürüm sabit · kurulu değil: arac · karar UYARLA · dmmulroy/anti-slop
+108. Crawl4AI · Scrapling zaten çekiyor; Crawl4AI'nin iyi yanı LLM'e hazır budanmış markdown (pruning/BM25 içerik filtresi)... · kurulu değil: arac · karar UYARLA · https://github.com/uncle
+109. OpenCut · Açık kaynak CapCut alternatifi video editörü (web/yerel). · kurulu değil: arac · karar KUR · https://github.com/OpenCut-
+110. jev-ultrafast · Jev ile her adımda numaralı eleman tablosundan işlem+hedef seçen hızlı web ajanı · kurulu değil: arac · karar UYARLA · https://github.com/brows
+## öğrenim (3)
+111. Web hareket seçimi: reveal CSS scroll-driven, MPA View Transitions, pin/scrub GSAP, yay fiziği Motion, durum makinesi Rive · iş: web animasyon seçimi · docs/kaynak-tarama/8b-animasyon-arastirma3.md:59
+112. Giriş sürerken kullanıcı kaydırırsa giriş anında biter, scrub devralır; reduced-motion’da giriş yok · iş: scroll sahnesi · skills/web-sahne-desenleri/SKILL.md:64
+113. prefers-reduced-motion: scrub kamera yerine statik kare/kısa geçiş; paralaks ve otomatik oynatma kapalı · iş: erişilebilir animasyon · docs/kaynak-tarama/8b-animasyon-arastirma3.md:67
+```
+</aday-listesi>
+
+Birleşim tarifi (bu iş türü için faz faz önerilen araçlar; uymayan kısmı atla):
+# Belge ve sunum — birleşim tarifi
+Ne zaman: Rapor, Word/PDF belgesi, sunum, tablo ya da proje dokümantasyonu üretimi.
+
+## Fazlar
+1. Girdi: `departman-belge` — docx/pptx/pdf/xlsx üretim sırası · birlikte: `markitdown` (MCP) PDF, DOCX, PPTX, XLSX'i Markdown'a çevirir.
+2. Plan: `docs` — paylaşılan, yorumlanan belge türleri için varsayılan · birlikte: mimari karar varsa `documentation-and-adrs`.
+3. Üretim: Word için `example-skills:docx`, sunum için `example-skills:pptx`, tablo için `example-skills:xlsx`. Tek belgeden anlatı slaytı için `claude-mem:wowerpoint`.
+4. Dil: `sepia:sepia` — AI tadını temizler · birlikte: `writing-guidelines` yazım el kitabına göre denetler.
+5. Erişilebilirlik: `accessible-content:readable-content` — geniş kitleye okunur metin · birlikte: `accessible-content:table-accessibility` tablolar için.
+6. Kapanış: `superpowers:verification-before-completion` — dosya açılıp kontrol edildi kanıtı.
+
+## İnceleme ajanları
+- `Technical Writer`: geliştirici dokümanı, API başvurusu, README.
+- `dok-pptx-sunum`: slayt başına tek fikir, tutarlı yerleşim.
+
+## Güvenlik ve kalite kapıları
+- Üretilen dosya gerçekten açılıyor; sayfa/slayt sayısı beklenen.
+- Belgede sır ya da kişisel veri yok; varsa KVKK: `sec-kvkk-gdpr-kontrol`.
+- Tablolar erişilebilir başlıklı.
+
+## Tartışma konseyi
+- Karar: belgenin ana mesajı ve hedef okur.
+- `ecc:council` — varsayılan Claude personaları: yönetici okur, teknik okur, editör.
+
+## Jeton bütçesi
+- Girdi: orta (~15k, tahmini); uzun kaynak `okuyucu` alt ajanına.
+- Plan: küçük (~5k). Üretim: orta (~20k). Dil: küçük (~6k). Erişilebilirlik: küçük (~4k). Kapanış: küçük (~3k). Hepsi tahmini.
+
+## Kaçınılacaklar
+- `xlsx` (kapalı) yerine kurulu `example-skills:xlsx` kullan.
+- `gstack-document-generate` git push çalıştırır; dal ve izin kontrolsüz kullanma.
+- Aynı sunum için birden çok deck skill'i (`octo:skill-deck`, `baoyu-slide-deck`, `presentation-creator`) denemek; birini seç.
+
+## Aday (kurulu değil)
+yok
+
+### 14. ZZZ için (XXMI) birden çok modu tuşla değiştirilebilen tek bir modda birleştir: ini birleştirme ve geçiş tuşları ekle. Yeşil doku hatasını da gider.
+<aday-listesi>
+```text
+99 kayıt · skill 38 · ajan 22 · mcp 3 · plugin 10 · cli 10 · kütüphane 3 · bizim betik 10 · öğrenim 3
+## skill (38) · çağrı: Skill <ad>
+1. mod-atolyesi · 3DMigoto mod atölyesi — Genshin (standalone) · ZZZ/HSR/WuWa (XXMI): bozuk mod onarımı, ini/tuş/merge,…
+2. jev · Jev (TypeSafe) tipli yargı. Kullanıcı birden çok öğeyi sınıflamak, etiketlemek ya da puanlamak istediğinde…
+3. octo:skill-finish-branch · Wrap up a branch — run tests, create PR, merge or discard — use when implementation is done
+4. chrome-devtools-paket · 7 skill'lik paket (Chrome DevTools: erişilebilirlik ve LCP hata ayıklama, bellek sızıntısı, çerez, DevTools…
+5. ecc:laravel-verification · Use when verifying a Laravel project before merge or deploy — lint, static analysis, tests, coverage,…
+6. ecc:production-audit · Use when auditing production readiness before launch, after a merge, or when asked what breaks in prod.
+7. ship, gstack-ship · Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION, update CHANGELOG, commit,…
+8. adobe-for-creativity:adobe-create-pdfs-from-data · Perform a full InDesign data merge from a CSV/TSV and an .indd template (or a PDF that gets converted to…
+9. phoenix-security-review:tm-quick-security-assessment · Use for "quick security assessment on this branch", pre-merge review of a worktree/diff, or a fast posture…
+10. sentry-debug-issue · Use when working a known error or hunting one down to fix.
+11. sync · Run /sync as the last step after a change is complete, around merge, to keep durable knowledge current.…
+12. check · Confirm a change before merge. `/check verify` drives the real app to prove behavior against the spec (every…
+13. gooey-blob-system · Create a gooey blob system using SVG filters where multiple shapes merge into a single fluid form. Use…
+14. convex-self-heal · Production error → triaged, root-caused, repaired, and certified (tsc + rehearsal + reproduce-then-gone) fix…
+15. adobe-for-creativity:adobe-anypdf · MANDATORY: any PDF task (.pdf file, 'PDF', compress/shrink/reduce size, merge, split,…
+16. blender-uretim, blender:blender-uretim · Blender'da 3D ürün üretimi ve bpy (Blender Python) betiği/kodu: obje ekle, fincan/cezve modelle, ışıkla,…
+17. sentry-paket · 34 skill'lik paket (Sentry: hata izleme kurulumu, SDK'lar, performans, uyarılar, sorun ayıklama). İlgili alt…
+18. debug · Run /debug to find and fix a bug's root cause: a test failing for an unclear reason, /check verify finding a…
+19. gelistirme-arac-paket-1 · 64 skill'lik paket (Geliştirme araçları: ECC/Octo/Mattpocock ekleri, hata ayıklama, test, mimari, güvenlik,…
+20. gelistirme-arac-paket-2 · 72 skill'lik paket (Geliştirme araçları: ECC/Octo/Mattpocock ekleri, hata ayıklama, test, mimari, güvenlik,…
+21. ecc-ajan-paket · 34 skill'lik paket (Ajan/LLM mühendisliği: ajan tasarımı, değerlendirme, hata ayıklama, bağlam/jeton/maliyet…
+22. ai-etkilesim-tasarim-paket · 24 skill'lik paket (AI ürün etkileşimi: konuşma kalıpları, ses tonu/persona, ajan rolleri, hata kişiliği,…
+23. gelistirme-is-akisi-paket · 26 skill'lik paket (Geliştirme iş akışı: commit, PR yineleme, hata bulma, skill tarama, güvenlik incelemesi,…
+24. sentry-fix-issues · Use when asked to fix Sentry errors, debug production issues, investigate exceptions, or resolve bugs…
+25. octo:skill-debug · Debug a reproducible symptom with a bounded feedback loop and original-scenario verification
+26. debugging-and-error-recovery, agent-skills:debugging-and-error-recovery · Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match…
+27. ios-clean, gstack-ios-clean · Remove the DebugBridge SPM package and all #if DEBUG wiring from an iOS app. (gstack)
+28. ios-sync, gstack-ios-sync · Regenerate the iOS debug bridge against the latest upstream gstack templates. (gstack)
+29. STE Skill · kontrollü dil mekanizması (tek anlam, kısa cümle, etken çatı) → kapanış raporu yazım kuralına tek satır; ra... · kurulu değil: skill · karar UYARLA · danyuchn/asd-ste100-ski
+30. systematic-debugging, superpowers:systematic-debugging · Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+31. agents-sdk · Build, debug, or review Cloudflare Agents SDK applications using the agents package.
+32. durable-objects · Build, debug, or review Cloudflare Durable Objects code for persistent state and coordination.
+## ajan (22) · çağrı: Agent <ad> (listede yoksa Skill ajan-getir)
+33. git-pr-yoneticisi · Manages PRs with gh CLI from draft to merge: reviewers, checks, merge strategy
+34. vid-gecis-ve-ritim · Reviews edit pacing, cuts and transitions for flow, hook and attention
+35. dn-nullable-gecis · Migrates a project to nullable reference types and fixes warnings safely
+36. db-efcore-sql-gecis · Inspects SQL generated by EF Core queries and fixes bad LINQ translations
+37. git-dal-stratejisi · Recommends branch naming, worktree use, merge vs rebase for parallel team work
+38. git-cakisma-cozucu · Resolves merge/rebase conflicts by understanding both sides and re-running tests
+39. oyn-mod-birlestirici · Merges several mods into one by remapping hashes, slots and buffers; mod conflicts
+40. dok-hata-mesaji · Rewrites error messages: what happened, why, next step, no internals leaked
+41. otm-n8n-hata-yonetimi · Adds error workflows, retries, alerts to n8n automations that fail silently
+42. fe-css-hata-bulucu · Debugs CSS bugs: overflow, stacking context, specificity, flex/grid surprises
+43. inc-hata-dedektifi · Correlates logs, stack traces and recent changes to find production error root cause
+44. inc-derin-hata-ayiklama · Debugs intermittent bugs by isolating variables, bisecting, instrumenting until proven
+45. oyn-mod-onarim · Diagnoses broken 3DMigoto mods via ini sections, hashes, logs after game update
+46. qa-hata-yeniden-uret · Turns vague/intermittent bug reports into minimal repro steps and root cause
+47. fe-cerez-oturum-hata · Debugs browser cookies and sessions: not set, not sent, lost; unexpected logouts
+48. dn-msbuild-hata-cozucu · Diagnoses MSBuild/dotnet build failures with binary logs; explains MSBuild/NuGet error codes
+49. fe-bos-durum-yazar · Designs empty (boş), loading and error (hata) states with helpful copy and a CTA
+50. be-hata-turu-hiyerarsisi · Designs error hierarchy: retryable vs fatal, domain vs infra, mapped to status codes
+51. dok-sorun-giderme-rehberi · Writes troubleshooting guides as symptom, cause, fix tables for repeated support questions
+52. ops-dagitim-sorun-giderme · Diagnoses failed deploys from logs, health checks, config; decides rollback or fix
+53. sec-yol-gecisi · Finds and fixes path traversal and zip slip in file download, upload, extraction code
+54. dok-degisiklik-gunlugu · Writes changelogs and release notes grouped by added, changed, fixed for a version release
+## mcp (3) · çağrı: ToolSearch '<ad>' → mcp__<ad>__*
+55. binlog · MSBuild binlog dosyalarını analiz eder (Microsoft.AITools.BinlogMcp); .NET derleme hatası için; derleyici…
+56. code-review · Kod değişikliklerini inceler ve sorun raporlar; PR incelemesi için; test koşucu değil (tahmin)
+57. mcp-fetch · mcp-server-fetch: URL'yi çekip Markdown'a çevirir; tek sayfa okuma için; tarayıcı otomasyonu değil
+## plugin (10)
+58. serai-hub · Farklı AI modellerini tek panelde birleştirip ortak hafıza/skill/onay katmanı sağlayan özel altyapı · kurulu değil: plugin · karar ADAY
+59. github-review-pr · Reviews PRs against the live base with immutable objects and three-way merges. Use for PR review/merge… · /plugin github-review-pr@daymade-skills (skill/ajan/MCP'leri
+60. Blotato generate skill · Claude'dan çok modelli görsel/video üretir; en ucuz modeli seçer, prompt'la birlikte yerel kaydeder · kurulu değil: plugin · karar UYARLA · https://github.com/Blo
+61. Cell Fracture eklentisi · Blender'da seçili bir mesh nesnesini Voronoi (hücre) tabanlı çok sayıda parçaya bölen eklenti. Video, Solid... · kurulu değil: plugin · karar ADAY
+62. fast-jev-compaction · Sıkıştırma özetini Jev kararlarıyla değiştirir: bayat araç sonuçlarını atar/keser, kalanı birebir tutar · kurulu değil: plugin · karar KUR · https://github.com/tamara
+63. interaction-design · Design meaningful interactions with micro-animations, state machines, gestures, error handling, and feedback… · /plugin interaction-design@designer-skills (skill/ajan/MCP'l
+64. pr-review-toolkit · Comprehensive PR review agents specializing in comments, tests, error handling, type design, code quality,… · /plugin pr-review-toolkit@claude-code-plugins (skill/ajan/MC
+65. cognitive-accessibility · Design for how people actually think: cognitive load, plain language, wayfinding, focus, memory, and error… · /plugin cognitive-accessibility@designer-skills (skill/ajan/
+66. daymade-audio · Audio processing suite covering the full speech pipeline: ASR transcription (Qwen3, StepFun) with batch-mode… · /plugin daymade-audio@daymade-skills (skill/ajan/MCP'leri ay
+67. everything-claude-code · Hazır Claude Code yapılandırma derlemesi: ajan, skill, hook, komut, kural; kurulum fikri için; tek amaçlı… · /plugin envanter.json (kurulu değil?) (skill/ajan/MCP'leri a
+## cli (10) · çağrı: Bash: <ad> --help
+68. code-review-mcp · MCP Server for GitHub/GitLab code review - enables AI assistants to review pull requests and merge requests
+69. Groq · Groq, açık ağırlıklı modelleri (Llama, GPT-OSS, Kimi, DeepSeek) kendi LPU çiplerinde çok hızlı çıkarım yapa... · kurulu değil: cli · karar ADAY
+70. OpenRouter · OpenRouter, yüzlerce yapay zeka modeline tek API anahtarı ve OpenAI uyumlu tek uç noktadan erişim sağlayan ... · kurulu değil: cli · karar ADAY
+71. uvx · Python aracını kurmadan tek seferlik çalıştırır; MCP/CLI başlatmak için; kalıcı kurulum değil
+72. npx · npm paketini kurmadan tek seferlik çalıştırır; MCP ve CLI başlatmak için; kalıcı kurulum değil
+73. bunx · npm paketini kurmadan bun ile tek seferlik çalıştırır; geçici CLI için; kalıcı kurulum değil
+74. Agent view · Claude Code'un yerleşik özelliği: tüm Claude Code oturumlarını tek terminal ekranında listeleyip yöneten pa... · kurulu değil: cli · karar ADAY
+75. ffmpeg · Ses/video dönüştürür, keser, birleştirir, kodlar; medya işleme için; kurgu arayüzü değil
+76. skills-cli · GitHub/GitLab/Azure Repos'tan tek komutla Agent Skill kurar, ajanlara bağlar; skill kurulumu için; listeleme…
+77. @modelcontextprotocol/inspector · The Model Context Protocol Inspector
+## kütüphane (3)
+78. swup · çok sayfalı sitede AJAX sayfa geçiş animasyonu; klasik MPA vitrin siteleri için · Skill omer-kutuphaneler (pinli kurulum satırı)
+79. size-limit · JS bundle boyut bütçesi, CI'da aşımda hata; frontend perf bütçesi (Next.js/Vite) için · Skill omer-kutuphaneler (pinli kurulum satırı)
+80. Kokonut UI · Tailwind+shadcn+Motion animasyonlu bileşen kaynağı olarak docs/departmanlar/frontend.md kaynak listesine ekle. · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+## bizim betik (10) · çağrı: python tools/<ad>.py
+81. plan_kur · ENVANTER-3 plan-kur: iş tarifinden TEK koşuda plan girdisi — iş türü kapıları + inceleme ajanları + konsey…
+82. tetik_olc · TOKEN-3a tetik ölçümü: istem setini `claude -p` (stream-json, max-turns 2, plan modu) ile istemin kendi…
+83. varlik_indir · BLENDER-ARAC-2 K2: CC0 varlık indirici — Poly Haven (hdri · doku · model) + ambientCG (doku).
+84. ajan_getir_zip · İKİ TARAF: /ajan-getir claude.ai paketi. Katalogdaki yerel `yol` istemleri zip içine gömülür (claude.ai'de…
+85. godmode_onsoz · GODMODE önsöz enjeksiyonu: tek kaynak metni ajan .md'lerine frontmatter'dan hemen sonra işaretli blok olarak…
+86. ajan_katalog · KALİTE-1 (4b): gizli ajan kataloğu → skills/ajan-getir/katalog.tsv (ad · model · tek satır · yol).
+87. gstack_ai · Frontmatter adini duzelt, yollari $GS'e cevir, uyarlama basligini ekle.
+88. duman_claudeai · claude.ai sandbox duman testi: yukle-N zip'ini acip SKILL.md bash bloklarini kosar.
+89. katalog_altin · ENVANTER-2 d5: havuzlanmış altın küme + kesinlik/geri çağırma ölçüsü (20 ayar / 10 sınama iş). python…
+90. ArtCraft Launcher · Craft uygulama ailesini (Rust) tek yerden kurup güncelleyen başlatıcı; Windows msi/portable var. · kurulu değil: arac · karar KUR · https://github.com/storytol
+## öğrenim (3)
+91. Kol birleştirme git merge --no-ff --no-autostash; push yok, birleştirme ayrı kayıt · iş: dal birleştirme · .kos/kopru/rapor/birlestir-8.md:3
+92. Çok kaynaklı birleştirme: aynı GitHub linki ya da normalize ad tek satıra iner, ayrışan kararlar karar_fark sütununda kalır · iş: karar tablosu birleştirme · .kos/kopru/rapor/ig-41c.md:13
+93. Güvenlik denetimi promptu birden çok kez, temiz oturumlarda koşturulur · iş: LLM ile güvenlik denetimi · docs/video-tarama/2026-10-10-BMMcmmnjrM8.md:154
+```
+</aday-listesi>
+
+Birleşim tarifi (bu iş türü için faz faz önerilen araçlar; uymayan kısmı atla):
+# Belge ve sunum — birleşim tarifi
+Ne zaman: Rapor, Word/PDF belgesi, sunum, tablo ya da proje dokümantasyonu üretimi.
+
+## Fazlar
+1. Girdi: `departman-belge` — docx/pptx/pdf/xlsx üretim sırası · birlikte: `markitdown` (MCP) PDF, DOCX, PPTX, XLSX'i Markdown'a çevirir.
+2. Plan: `docs` — paylaşılan, yorumlanan belge türleri için varsayılan · birlikte: mimari karar varsa `documentation-and-adrs`.
+3. Üretim: Word için `example-skills:docx`, sunum için `example-skills:pptx`, tablo için `example-skills:xlsx`. Tek belgeden anlatı slaytı için `claude-mem:wowerpoint`.
+4. Dil: `sepia:sepia` — AI tadını temizler · birlikte: `writing-guidelines` yazım el kitabına göre denetler.
+5. Erişilebilirlik: `accessible-content:readable-content` — geniş kitleye okunur metin · birlikte: `accessible-content:table-accessibility` tablolar için.
+6. Kapanış: `superpowers:verification-before-completion` — dosya açılıp kontrol edildi kanıtı.
+
+## İnceleme ajanları
+- `Technical Writer`: geliştirici dokümanı, API başvurusu, README.
+- `dok-pptx-sunum`: slayt başına tek fikir, tutarlı yerleşim.
+
+## Güvenlik ve kalite kapıları
+- Üretilen dosya gerçekten açılıyor; sayfa/slayt sayısı beklenen.
+- Belgede sır ya da kişisel veri yok; varsa KVKK: `sec-kvkk-gdpr-kontrol`.
+- Tablolar erişilebilir başlıklı.
+
+## Tartışma konseyi
+- Karar: belgenin ana mesajı ve hedef okur.
+- `ecc:council` — varsayılan Claude personaları: yönetici okur, teknik okur, editör.
+
+## Jeton bütçesi
+- Girdi: orta (~15k, tahmini); uzun kaynak `okuyucu` alt ajanına.
+- Plan: küçük (~5k). Üretim: orta (~20k). Dil: küçük (~6k). Erişilebilirlik: küçük (~4k). Kapanış: küçük (~3k). Hepsi tahmini.
+
+## Kaçınılacaklar
+- `xlsx` (kapalı) yerine kurulu `example-skills:xlsx` kullan.
+- `gstack-document-generate` git push çalıştırır; dal ve izin kontrolsüz kullanma.
+- Aynı sunum için birden çok deck skill'i (`octo:skill-deck`, `baoyu-slide-deck`, `presentation-creator`) denemek; birini seç.
+
+## Aday (kurulu değil)
+yok
+
+### 15. Mobil bankacılık uygulamasının onboarding ekranları için wireframe ve görsel tasarım yönü çıkar
+<aday-listesi>
+```text
+106 kayıt · skill 53 · ajan 16 · mcp 10 · plugin 10 · cli 6 · kütüphane 3 · bizim betik 5 · öğrenim 3
+## skill (53) · çağrı: Skill <ad>
+1. pixeljury · Rendered web sayfasi icin gorsel QA - Chromium'da acar; kontrast, 390px mobil tasma, dokunma hedefi ve…
+2. prototyping-testing:wireframe-spec · Use when defining structure before visual design. For grid mechanics, use `layout-grid` (ui-design).
+3. imagegen-frontend-mobile, taste-skill:imagegen-frontend-mobile · Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed…
+4. expo-mobil-paket · 24 skill'lik paket (Expo/React Native: router, UI, animasyon, EAS build/submit/update, yükseltme, native…
+5. mobile-android-design · Use when designing Android interfaces, implementing Compose UI, or following Google's Material Design…
+6. technical-wireframe-info-layout · Create a monochrome technical wireframe design system with exploded 3D structure, connector annotations,…
+7. octo:skill-visual-feedback · Process screenshot-based UI/UX feedback to fix visual issues — use when users share screenshots of bugs
+8. ui-design:visual-hierarchy · Use when composing new work. For judging an existing screen, use `critique-visual-hierarchy`…
+9. ios-design-review, gstack-ios-design-review · Visual design audit for iOS apps on real hardware. (gstack)
+10. departman-test-qa · Test/QA müdürü: test yazma, koşma, uygulamayı tarayıcıda deneme ve görsel QA sırası. Test, e2e, QA ya da…
+11. ux-designer · Use for user flows, wireframes, IA, usability, onboarding, conversion, friction, error handling on any…
+12. design-dna · Extract design DNA (tokens, style, visual effects like WebGL/3D/particles) from images/screenshots/URLs into…
+13. visual-critique:critique-typography · Use when reviewing type on a screen. For defining the scale itself, use `typography-scale` (ui-design).
+14. accessible-content:alt-text-design · Use when creating or reviewing alt text, image descriptions, chart summaries, or any visual content that…
+15. build-wireframe-scan-reveal · Use for wireframe scanning, radial mesh reveals, survey pulses, holographic assembly, topology intros, and…
+16. taste-skill:image-to-code · Önce tasarım görseli üretir, inceler, siteyi ona birebir kodlar; görselden site için; backend değil
+17. baoyu-paket · 14 skill'lik paket (baoyu: illüstrasyon, çizgi roman, kapak, diyagram, infografik, slayt, görsel üretim,…
+18. inclusive-interaction:touch-target-design · Use when designing buttons, links, form controls, mobile interfaces, or any clickable/tappable elements.…
+19. gorsel-uret · Görsel üretme, düzenleme, büyütme, arka plan silme işinde önce yükle: yerel ComfyUI oturumunu CC yönetir;…
+20. infinite-canvas-paket · Sonsuz tuval: yapay zeka görsel/video üretimi ve tuval düzenleme: can…
+21. test-playable-web-games · Use for gameplay QA, regression testing, controls, accessibility, responsive/mobile testing, save flows,…
+22. tasarim-katalog · Use when picking a visual direction, reference site, UI library, font or design prompt source for a web page…
+23. visual-critique:critique-color · Use when reviewing one screen. For a product-wide WCAG audit use `accessibility-audit` (design-systems); for…
+24. taste-skill:high-end-visual-design · Ajans kalitesi font, boşluk, gölge, kart, animasyon kuralları; pahalı görünen site için; varsayılan UI değil
+25. interfaces:build-design · Builds UI from a Figma file or a design image so it matches the design, using your project's existing tokens…
+26. interaction-design:onboarding-design · Use for a user's very first session. For the mechanics of the signup form itself, use `form-design`.
+27. ecc-frontend-paket · 24 skill'lik paket (Frontend: React/Next/Vue/Nuxt/Angular/Vite/RN, motion, erişilebilirlik, tasarım yönü,…
+28. taste-skill:design-taste-frontend · Şablon görünmeyen ön yüz kurar: brieften tasarım yönü çıkarır; landing/portföy için; backend değil
+29. ui-ux-pro-max · Use when a UI task involves layout structure, visual design decisions, interaction patterns, or UX quality…
+30. ui-designer · Expert visual design craft, UI systems, and pixel-perfect implementation. Activates when building, styling,…
+31. ui-design:aesthetic-usability · Use when justifying visual polish or diagnosing why a functional design tests badly. For emotional resonance…
+32. app-store-screenshots · Use when building App Store or Google Play screenshot pages, generating exportable marketing screenshots for…
+33. infographic-builder skill · Claude Code skill'i: Nano Banana (Google Gemini görsel modeli, "Key AI" API üzerinden) ile markaya uygun 1:... · kurulu değil: skill · karar ADAY
+34. frontend-design:frontend-design · Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps…
+35. ui-design:law-of-closure · Use when reducing visual weight by dropping borders or letting negative space suggest structure. For…
+36. ecc:frontend-design-direction · Use when building or improving websites, dashboards, applications, components, landing pages, visual tools,…
+37. cognitive-accessibility:contextual-help-design · Use when designing help content, tooltips, onboarding, FAQs, support flows, documentation, or any context…
+38. model-interaction-design:multimodal-orchestration · Coordinating text, image, voice, and tool-use modalities in a single interaction.
+39. design-extractor · Extract a visual design system from a website URL and generate DESIGN.md, a Tailwind v4 theme, and an…
+40. no-ai-design-slop · Prevent and remove generic AI-generated design defaults, incoherent visual choices, and established UI…
+41. design-review, gstack-design-review · Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and…
+42. mukul975-mobile-security-paket · Siber güvenlik (mukul975/Anthropic-Cybersecurity-Skills…
+43. brand-guidelines · Use when writing UI text, error messages, empty states, onboarding flows, 404 pages, documentation,…
+44. interaction-design:gesture-patterns · Use when input is gestural. For OS-standard gestures on iOS and Android, use `platform-conventions`…
+45. web-design-engineer · Build or redesign browser visual artifacts in HTML/CSS/JS/React: pages, dashboards, decks, mockups, QA
+46. create-design-md · Use when asked to document an interface's design language, reconstruct its visual system, extract design…
+47. tasarim-sistem-prototip-paket · 36 skill'lik paket (Tasarım sistemi ve prototip: token, bileşen spec, kalıp kütüphanesi, A/B ve…
+48. interfaces:explain-interface · Explains how a website, a visual effect or an animation was built, from a live URL or a screenshot.
+49. imagegen-frontend-web · Elite frontend image-direction skill for generating premium, conversion-aware website design references.…
+50. cognitive-accessibility:plain-language-design · Use when writing interface copy, error messages, instructions, onboarding text, help content, legal or…
+## ajan (16) · çağrı: Agent <ad> (listede yoksa Skill ajan-getir)
+51. engineering-mobile-app-builder · Mobile developer for native iOS/Android and cross-platform apps
+52. Mobile App Builder · Specialized mobile application developer with expertise in native iOS/Android development and cross-platform…
+53. mob-uygulama-boyutu · Reduces iOS/Android download size: code shrinking, asset optimization, on-demand resources
+54. fe-tasarim-yonu · Chooses a bold visual direction and writes the design brief when the look is undecided
+55. fe-navigasyon-tasarimci · Designs navigation bars, menus and mobile drawers with clear current state
+56. design-ui-designer · Visual design systems, component libraries, pixel-perfect accessible UI
+57. fe-gorsel-optimize · Optimizes images: modern formats, sizes, srcset, lazy loading, hero/LCP
+58. qa-mobil-qa · Tests mobile flows on simulators: gestures, rotation, offline cases
+59. mob-magaza-ekran-goruntusu · Plans App Store/Google Play screenshot sets: captions, device frames, required sizes
+60. qa-gorsel-qa · Inspects a running page at several widths and reports visual defects with screenshots
+61. UI Designer · Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface…
+62. mob-calisma-izni · Runtime permissions for camera, location, photos, notifications on iOS/Android; denials
+63. fe-ux-metin-yazar · Writes short clear UI copy for buttons, errors and onboarding
+64. Mobile Release Engineer · Expert mobile release and distribution engineer for iOS and Android — code signing, provisioning, fastlane…
+65. engineering-mobile-release-engineer · iOS/Android release engineer: code signing, fastlane, App Store/Play submission, phased rollouts
+66. fe-responsive-kontrol · Checks layout at mobile, tablet and desktop widths and lists breakages
+## mcp (10) · çağrı: ToolSearch '<ad>' → mcp__<ad>__*
+67. Higgsfield MCP (görsel/video üretimi) · Görsel/video üretimi bizde yok; ücretli hesap gerekir → hesap kuyruğu, tavan konmadan açılmaz. · kurulu değil: mcp · karar KUR · https://higgsfield.ai (KUR k
+68. stitch · Google Stitch proxy (@_davideast/stitch-mcp): UI ekranı üretir, tasarım çeker; arayüz taslağı için; Figma…
+69. expo · Expo hizmetine (mcp.expo.dev) bağlanır; React Native/Expo uygulama derleme ve doküman için; web app değil
+70. plugin:expo:expo · Expo hizmetine (mcp.expo.dev) bağlanır; React Native/Expo uygulama derleme ve doküman için; web app değil · claude.ai bağlayıcısı
+71. nano-banana-2 · Gemini Nano Banana 2 ile görsel üretir/düzenler, çözünürlük ve düşünme ayarlı; görsel üretim için; video değil
+72. 21st · 21st.dev UI bileşen ve temalarını bulup kodunu getirir; hazır React bileşeni için; görsel tasarım üretimi… · claude.ai bağlayıcısı
+73. banana · banana-claude eklentisinin yerel Python MCP sunucusu; görsel üretim için; düzenleme yazılımı değil (tahmin)
+74. fal · fal.ai modellerini çağırır (görsel/video/ses üretimi, mcp.fal.ai); medya üretimi için; yerel model değil
+75. Google Stitch · Google'ın yapay zekâ destekli arayüz tasarım servisi (stitch.withgoogle.com). Metin isteminden site/uygulam... · kurulu değil: mcp · karar ADAY
+76. playwright · @playwright/mcp: tarayıcıyı sürer, tıklar, form doldurur, ekran görüntüsü alır; web otomasyon/test için;…
+## plugin (10)
+77. web-design-skills · Skills for high-quality visual / front-end design work. · /plugin web-design-skills@garden-skills (skill/ajan/MCP'leri
+78. Blotato generate skill · Claude'dan çok modelli görsel/video üretir; en ucuz modeli seçer, prompt'la birlikte yerel kaydeder · kurulu değil: plugin · karar UYARLA · https://github.com/Blo
+79. frontend-craft · Web UI design and implementation discipline: brand-identity decision, reference matching, a screenshot loop… · /plugin frontend-craft@omer-skills (skill/ajan/MCP'leri ayrı
+80. frontend-visual-qa · Audits already-rendered UI and Markdown/Obsidian image layout — web app, deck/slide, dashboard,… · /plugin frontend-visual-qa@daymade-skills (skill/ajan/MCP'le
+81. interface-design · Design engineering for Claude Code. Build production-grade interfaces with strong visual hierarchy, review… · /plugin interface-design@interface-design (skill/ajan/MCP'le
+82. banana-claude · Brief-led image generation, editing, visual review, and bounded multi-model orchestration with current… · /plugin banana-claude@banana-claude-marketplace (skill/ajan/
+83. ui-designer · Extract design systems from reference UI images and generate implementation-ready UI design prompts. Use… · /plugin ui-designer@daymade-skills (skill/ajan/MCP'leri ayrı
+84. nano-banana-2 · Image generation with Google Gemini Nano Banana 2 via MCP · /plugin nano-banana-2@nano-banana-2-plugins (skill/ajan/MCP'
+85. img · Generate and edit images with OpenAI GPT Image 2 and Gemini 3.1 Flash Image Preview. No provider fallback. · /plugin img@nyldn-plugins (skill/ajan/MCP'leri ayrı satırlar
+86. visual-critique · Visual critique skills for designers: analyse hierarchy, brand consistency, composition, typography, colour,… · /plugin visual-critique@designer-skills (skill/ajan/MCP'leri
+## cli (6) · çağrı: Bash: <ad> --help
+87. droidasc · ASC is a super FAST python Android Decompiler for Agents/Mobile Researchers
+88. pixeljury · Visual QA CLI for AI-built frontends that renders pages, finds design and accessibility issues, and writes…
+89. comfyui · Yerel ComfyUI görsel üretim sunucusu (127.0.0.1:8188); gorsel-uret skill'i için; bulut API değil
+90. playwright-cli · Tarayıcıyı komut satırından yönetir, sayfa gezer, ekran görüntüsü alır; web otomasyon/test için; scraping…
+91. ui-to-vue-converter · UI设计图批量转Vue组件工具，支持多UI库，自动抽离公共组件
+92. Agent view · Claude Code'un yerleşik özelliği: tüm Claude Code oturumlarını tek terminal ekranında listeleyip yöneten pa... · kurulu değil: cli · karar ADAY
+## kütüphane (3)
+93. Bklit UI · shadcn uyumlu açık kaynak grafik/veri görselleştirme bileşenleri; tasarim-katalog/kaynak.tsv'ye dashboard g... · kurulu değil: kutuphane · karar UYARLA · https://github.com/
+94. @capsizecss/core · font metriğiyle öngörülebilir satır yüksekliği/boşluk; tipografi hassas tasarım sistemleri için · Skill omer-kutuphaneler (pinli kurulum satırı)
+95. @react-three/a11y · R3F sahnelerine odak/klavye/ekran okuyucu katmanı; erişilebilir Three.js/R3F sahnesi için · Skill omer-kutuphaneler (pinli kurulum satırı)
+## bizim betik (5) · çağrı: python tools/<ad>.py
+96. gorsel_uret · Yerel görsel üretimi: ac · uret · buyut · arkaplan · kapat · durum (KURULUM-GÖRSEL).
+97. gstack_browse · Yanit satirini dondurur; sunucu olmusse None (zaman asimi yukari cikar).
+98. Claude Code Club motion system rehberi · Referans videodan yazılı hareket tasarım sistemi çıkarıp sonra o sistemle üretmeyi öğretir · kurulu değil: arac · karar UYARLA · https://www.claudecodecl
+99. awesome-design-md · Popüler markaların tasarım sistemlerini DESIGN.md dosyaları olarak toplayan repo. · kurulu değil: arac · karar KUR · https://github.com/VoltAgen
+100. Cult UI · 150+ animasyonlu shadcn bileşeni; tasarim-katalog kaynak.tsv'ye bileşen kaynağı satırı olarak eklenir. · kurulu değil: arac · karar UYARLA · https://github.com/nolly
+## öğrenim (3)
+101. AI görsel/videoda yüz ve hayvan yakın planları kaba çıkar; insanlar için gerçek görüntü kullanılır · iş: AI görsel üretim sınırı · docs/video-tarama/2026-10-09-ig-DeHGj-mG-5V.md:56
+102. UI işinde önce DESIGN.md sonra kod; screenshot döngüsü en fazla 4 tur, farklar sayıyla · iş: UI geliştirme · ../omer-kurallar.md:16
+103. Hareketli referansta ekran kaydından kare dizisi + davranış dökümü (giriş, geçiş, hover, mobil) verilir · iş: Animasyonlu referans aktarımı · docs/video-tarama/1TI4Fd89fuw.md:19
+```
+</aday-listesi>
+
+Birleşim tarifi (bu iş türü için faz faz önerilen araçlar; uymayan kısmı atla):
+# Mobil uygulama — birleşim tarifi
+Ne zaman: React Native/Expo ile iOS/Android uygulaması geliştirme ve mağaza yayını.
+
+## Fazlar
+1. Keşif ve plan: `ecc:react-native-patterns` — RN/Expo ekran, bileşen, gezinme, veri katmanı · birlikte: `expo` (MCP) Expo derleme ve dokümanına bağlanır.
+2. Arayüz: `expo:expo-native-ui` — Apple HIG, yerel kontroller, duyarlı yerleşim · birlikte: `expo:expo-router` dosya tabanlı rota ve gezinme.
+3. Veri ve izinler: `expo:expo-data-fetching` — ağ isteği, önbellek, çevrimdışı · birlikte: `mob-calisma-izni` kamera/konum/bildirim izinleri; push için `mob-push-bildirim` (APNs/FCM).
+4. Test ve dahili dağıtım: `expo:expo-dev-client` — geliştirme istemcisini yerelde ya da TestFlight ile dağıtır · birlikte: takılma için `mob-rn-performans`.
+5. İzleme: `sentry-react-native-sdk` — hata izleme, tracing, oturum.
+6. Yayın: `expo:eas-app-stores` — eas.json, imzalama, sürüm, mağaza gönderimi · birlikte: `engineering-mobile-release-engineer` kademeli yayın; mağaza görselleri `app-store-screenshots`.
+
+## İnceleme ajanları
+- `mob-rn-performans`: liste sanallaştırma, Hermes, yeniden çizim.
+- `mob-uygulama-boyutu`: indirme boyutunu küçültür.
+- `superpowers:requesting-code-review`: birleştirme öncesi.
+
+## Güvenlik ve kalite kapıları
+- İzin reddi yolları test edildi (`mob-calisma-izni`).
+- Derin bağlantılar uygulamayı açıyor: `mob-derin-baglanti`.
+- API anahtarı depoda değil: `gitleaks`; statik analiz `semgrep`.
+- Kişisel veri: `sec-kvkk-gdpr-kontrol`.
+
+## Tartışma konseyi
+- Karar: Expo yönetilen akış mı native modül mü, yayın kanalı.
+- `ecc:council` — varsayılan Claude personaları: mobil geliştirici, ürün, yayın mühendisi.
+
+## Jeton bütçesi
+- Plan: küçük (~8k, tahmini). Arayüz: büyük (~35k). Veri/izin: orta (~15k). Test: orta (~12k); derleme logu `okuyucu` alt ajanına. İzleme: küçük (~5k). Yayın: orta (~10k). Hepsi tahmini.
+
+## Kaçınılacaklar
+- `gstack-ios-clean` ve diğer gstack iOS skill'leri macOS ve xcrun ister; Windows'ta koşmaz.
+- `expo:eas-hosting`'i yerel derleme için kullanmak; web/API içindir.
+- `expo-mobil-paket` ile tekil expo skill'lerini aynı anda yüklemek.
+
+## Aday (kurulu değil)
+yok

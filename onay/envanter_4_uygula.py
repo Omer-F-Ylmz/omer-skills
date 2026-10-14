@@ -4,6 +4,7 @@ CC: docs/katalog/tarifler/ + kilavuz/ + derin.tsv (derin.jsonl'den) ~/.claude/sk
 kurulur; SKILL.md ve katalog dosyaları değişmez. Varsa eski tarifler/kilavuz/derin.tsv
 ~/.claude/skills-yedek-envanter4/'e yedeklenir.
 claude.ai: dist/envanter-4/yetenek-getir.zip (skills/yetenek-getir + aynı üç ek; zip_denetle'den geçer) + LISTE.md.
+Tarifler/kılavuzlar İSTEĞE BAĞLI BAŞVURU: m5 kör kapı RET (B−A +1 <4, rutin jeton +%5,1 >%3) → otomatik ekleme yok.
 
   python onay/envanter_4_uygula.py --kuru   # plan (varsayılan): hiçbir şey yazmaz
   python onay/envanter_4_uygula.py uygula   # yedekle + kur + zip'le + kayıp denetimi
@@ -77,7 +78,8 @@ def main(argv=None, ev=Path.home() / ".claude", dist=KOK / "dist" / "envanter-4"
     assert not sorun, f"{zp.name}: {sorun}"
     assert len(zipfile.ZipFile(zp).namelist()) == len(dosyalar), f"{zp.name}: zip kaybı"
     (dist / "LISTE.md").write_text(f"# ENVANTER-4 claude.ai zip (yetenek-getir'in yerine yüklenir)\n\n"
-                                   f"- {zp.name} · {len(dosyalar)} dosya · {zp.stat().st_size // 1024} KB\n", encoding="utf-8")
+                                   f"- {zp.name} · {len(dosyalar)} dosya · {zp.stat().st_size // 1024} KB\n"
+                                   "- tarifler/kilavuz isteğe bağlı başvuru; isteme otomatik eklenmez (m5 kapı RET)\n", encoding="utf-8")
     print("uygulandı:", hedef, f"(tarifler {n['tarifler']} · kilavuz {n['kilavuz']} · derin.tsv, kayıp 0)",
           "· zip", len(dosyalar), "dosya →", dist, "· geri: --geri"); return 0
 
