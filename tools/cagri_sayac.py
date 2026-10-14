@@ -8,7 +8,7 @@ verilirse sayaç dosyaları orada (test ortamı). Her hata sessizce geçer.
 MÜKEMMEL-2d: startup/clear sıfırlar, compact/resume korur.
 KANCA-SAYAÇ-1: sayaç session_id başına (eşzamanlı oturumlar ayrı); session_id yoksa
 sayılmaz; SessionStart 24 saatten eski *.txt sayaçlarını siler; transcript'teki son ana
-istek bağlamı ≥140k jeton ise de ≥45 ile aynı DUR iletisi (okunamazsa yalnız sayı).
+istek bağlamı ≥150k jeton ise DUR; ≥45'te yalnız bağlam ≥120k ise (okunamazsa yalnız sayı).
 """
 import json
 import os
@@ -18,7 +18,8 @@ import time
 from pathlib import Path
 
 TAVAN = 45
-BAGLAM_TAVAN = 140_000
+BAGLAM_TAVAN = 150_000
+BAGLAM_45 = 120_000  # K14 (TOKEN-3): 45 çağrıda bağlam bunun altındaysa bölmek sürdürmekten pahalı
 GUN = 24 * 3600
 
 
@@ -79,7 +80,8 @@ def main():
         n = _oku(sayac) + 1
         # ponytail: oku-yaz kilitsiz; paralel çağrılarda sayım kaybı kabul (KÜÇÜK-2)
         sayac.write_text(str(n), encoding="utf-8")
-        if n >= TAVAN or _baglam(olay.get("transcript_path")) >= BAGLAM_TAVAN:
+        c = _baglam(olay.get("transcript_path"))
+        if c >= BAGLAM_TAVAN or (n >= TAVAN and (c == 0 or c >= BAGLAM_45)):  # c 0 = okunamadı → yalnız sayı
             mesaj = f"çağrı {n}/{TAVAN}: ara kayıt (commit, push YOK) + devir ve DUR"
         elif n == 40:
             mesaj = f"çağrı 40/{TAVAN}: yeni madde başlatma"

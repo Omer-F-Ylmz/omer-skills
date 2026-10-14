@@ -186,16 +186,25 @@ def _asistan(girdi, yaz=0, oku=0, yan=False):
 def test_baglam_esigi_dur(tmp_path, monkeypatch, capsys):
     kok = _kok(tmp_path, sayac="4")
     t = _transcript(tmp_path, _asistan(5, 1000, 100_000), {"type": "user"},
-                    _asistan(10, 4990, 135_000), _asistan(1, 0, 200_000, yan=True))
+                    _asistan(10, 4990, 145_000), _asistan(1, 0, 200_000, yan=True))
     out = _kos(kok, monkeypatch, capsys, {**ARAC, "transcript_path": t})
     assert out["hookSpecificOutput"]["additionalContext"] == f"çağrı 5/45: {DUR}"
 
 
 def test_baglam_esik_alti_yalniz_sayi(tmp_path, monkeypatch, capsys):
     kok = _kok(tmp_path, sayac="4")
-    t = _transcript(tmp_path, _asistan(10, 4989, 135_000))
+    t = _transcript(tmp_path, _asistan(10, 4989, 145_000))
     assert _kos(kok, monkeypatch, capsys, {**ARAC, "transcript_path": t}) is None
     assert _sayac(kok) == "5"
+
+
+def test_45te_kucuk_baglam_bolmez(tmp_path, monkeypatch, capsys):
+    # K14 (TOKEN-3): 45 çağrıda bağlam <120k ise yeni oturum (~100k) sürdürmekten pahalı
+    kok = _kok(tmp_path, sayac="44")
+    t = _transcript(tmp_path, _asistan(10, 0, 119_000))
+    assert _kos(kok, monkeypatch, capsys, {**ARAC, "transcript_path": t}) is None
+    t = _transcript(tmp_path, _asistan(10, 0, 120_000))
+    assert DUR in _kos(kok, monkeypatch, capsys, {**ARAC, "transcript_path": t})["hookSpecificOutput"]["additionalContext"]
 
 
 def test_baglam_okunamaz_yalniz_sayi(tmp_path, monkeypatch, capsys):

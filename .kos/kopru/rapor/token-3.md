@@ -54,3 +54,11 @@
   - 196 görevlik seçim kıyası tahmini: toplu çağrısı başı soğuk ~$0.9 → tekrar≥2'de ~$0.3; koşu ardışık ve 5 dk TTL içinde kalmalı (çağrı ~2–3 dk, kalıyor). Tek koşu dosyası yok → mutlak bugünkü maliyet hâlâ ölçülemedi.
 - K15 ölçüm (yerel, tahmin): köprü oturumunun okuduğu DEVAM-KURALI.md 14.4 kB/40 satır + görev 6.2 kB + devam 1.4 kB ≈ 22 kB ≈ ~6.5k token; oturum başına ≈ 6.5k × (1.25 + 17 × 0.1) ≈ ~19k ağırlıklı. Skill yazımı başlanmadı.
 - K16 başlanmadı; K12/K14 onay betiği --kuru yazılmadı (çağrı tavanı).
+
+## d6 ara (14 Eki ~21:35) — claude -p +2 (14/14)
+- K15: skills/is-akisi/SKILL.md (8.9 kB, 32 kural Lnn etiketli; gerekçe/tarihçe skills/is-akisi/arsiv.md = eski DEVAM-KURALI 14.4 kB). Kural sayısı eşit: tests/test_is_akisi.py (arsiv'in her kural satırı etiketli; etiket silinince kırmızı görüldü). Boş "Token araç sırası" bölümü TOKEN-4 için. dist/claude-ai-26/is-akisi.zip zip_denetle TEMİZ.
+- Okuma önce/sonra: kural metni 14.4 kB → 9.2 kB (işaretçi + skill), ≈ −1.6k token/oturum okuma (≈ −4.5k ağırlıklı).
+- Kalite kapısı (kapi.py k15a/k15b, aynı hayali görev, 17 maddelik regex listesi): önce 15/17 · sonra 14/17 (eksik strict-mcp, "Katalog: kullanılan" satırı; önce kolu bekle.py'yi atladı); devir şeması ikisinde tam. 1. oturum ağırlıklı 62k → 47k (−%24), $0.24 → $0.18. **Kalite ≥ önce TUTMADI → DEVAM-KURALI.md geri alındı**; skill aday.
+- K14 UYGULANDI (repo): tools/cagri_sayac.py bağlam ≥150k → DUR (140k'dan); 45 çağrıda yalnız bağlam ≥120k ise DUR (okunamazsa eski sayı kuralı). d3 hesabı: <120k'da bölme ~−27k zarar. Test 19/19 (yeni test kırmızı→yeşil).
+- K12 öneri onay betiğinde: global CLAUDE.md "subagent (model: sonnet)" → okuyucu varsayılan, general-purpose yalnız yazma/MCP, tek yargıç, öz dönüş. onay/token_3_uygula.py --kuru: 3 hedef de bulundu; test 1/1.
+- K16 başlanmadı (çağrı tavanı).
