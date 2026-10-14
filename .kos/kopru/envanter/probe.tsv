@@ -1,0 +1,67 @@
+graphify	allow	C:\Users\pc\.local\bin\graphify.EXE	rc=0 graphify 0.9.88 | warning: skill at C:\Users\pc\.agents\skills\graphify is from graphify 0.9.57, package is 0.9.88. Run 'graphify install --platform agents' to 
+rtk	allow	C:\Users\pc\.local\bin\rtk.EXE	rc=0 rtk 0.49.0
+semgrep	allow	C:\Users\pc\.local\bin\semgrep.EXE	rc=0 1.177.0 | A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+gitleaks	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\gitleaks.EXE	rc=0 8.30.1
+playwright-cli	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\playwright-cli.CMD	rc=0 playwright-cli - run playwright mcp commands from terminal | Agent skill: ..\..\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Win
+skill-ui	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\skill-ui.CMD	rc=1 node:internal/modules/cjs/loader:1520 | throw err;
+agent-reach	allow	C:\Users\pc\.local\bin\agent-reach.EXE	rc=0 usage: agent-reach [-h] [-v] [--version] | {setup,install,configure,doctor,uninstall,skill,format,transcribe,check-update,watch,version}
+headroom	allow	C:\Users\pc\.local\bin\headroom.EXE	rc=0 Usage: headroom.EXE [OPTIONS] COMMAND [ARGS]... | Headroom - The Context Optimization Layer for LLM Applications.
+pixeljury	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\pixeljury.CMD	rc=0 PixelJury — make your AI-built site stop looking AI-built. | Usage
+dotnet	allow	C:\Program Files\dotnet\dotnet.EXE	rc=0 10.0.400
+git	allow	C:\Program Files\Git\mingw64\bin\git.EXE	rc=0 git version 2.49.0.windows.1
+strix	allow	C:\Users\pc\.local\bin\strix.EXE	rc=0 usage: strix.EXE [-h] [-v] [--update] [-t TARGET] [--target-list PATH] | [--instruction INSTRUCTION]
+gh	allow	C:\Program Files\GitHub CLI\gh.EXE	rc=0 gh version 2.100.0 (2026-09-03) | https://github.com/cli/cli/releases/tag/v2.100.0
+vercel	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\vercel.CMD	rc=0 59.23.2 | Vercel CLI 59.23.2
+npm	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\npm.CMD	rc=0 11.17.0
+npx	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\npx.CMD	rc=0 11.17.0
+bun	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\bun.EXE	rc=0 1.4.2
+bunx	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\bunx.EXE	rc=0 1.4.2
+uv	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\uv.EXE	rc=0 uv 0.12.12 (c4be69153 2026-09-09 x86_64-pc-windows-msvc)
+uvx	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\uvx.EXE	rc=0 uvx 0.12.12 (c4be69153 2026-09-09 x86_64-pc-windows-msvc)
+node	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\node.EXE	rc=0 v24.19.0
+python	allow	C:\Users\pc\AppData\Local\Programs\Python\Python312\python.EXE	rc=0 Python 3.12.10
+ffmpeg	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\ffmpeg.EXE	rc=0 ffmpeg version 9.0.1-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers | built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+jev	allow	C:\Users\pc\.local\bin\jev.EXE	rc=0 usage: jev [-h] | {log,ilgili,kanit,triage,tarama,kalibre,skill,skill-olc,hook-durum,hook} ...
+video	allow	C:\Users\pc\.local\bin\video.EXE	rc=0 usage: video [-h] | {ozet,suz,paket,izle,sor,kare,whisper,oku,kayit,adlar,rapor-denetle,toplu,kurallar,katman,bizde,kural-onay,yeniden,getir,repo,kaynak,kuyruk,
+crv	allow	C:\Users\pc\.local\bin\crv.EXE	rc=0 usage: claude-real-video [-h] [-o OUT] [--overwrite] [--scene SCENE] | [--fps-floor FPS_FLOOR] [--max-frames MAX_FRAMES]
+summarize	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\summarize.CMD	rc=-1 TimeoutExpired: Command '['C:\\Users\\pc\\AppData\\Local\\Microsoft\\WinGet\\Packages\\OpenJS.No
+mcp-video-analyzer	allow	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\mcp-video-analyzer.CMD	rc=0 mcp-video-analyzer 0.10.1 | Usage:
+whisper-cli	allow	YOK	-
+claude-usage	allow	C:\Users\pc\.local\bin\claude-usage.EXE	rc=0 Claude Code Usage Dashboard | Usage:
+ollama	ekstra	C:\Users\pc\AppData\Local\Programs\Ollama\ollama.EXE	rc=0 NAME                         ID              SIZE      MODIFIED | qwen3.5:4b                   d8b0f5e9760c    3.3 GB    4 days ago
+lms	ekstra	C:\Users\pc\.lmstudio\bin\lms.EXE	rc=1 Error: LM Studio daemon is not running and no valid installation could be found or installed. | Error: Failed to start or connect to local LM Studio API server.
+yt-dlp	ekstra	C:\Users\pc\.local\bin\yt-dlp.EXE	rc=0 2026.08.19
+tesseract	ekstra	YOK	-
+blender	ekstra	YOK	-
+comfy	ekstra	YOK	-
+magick	ekstra	YOK	-
+ffprobe	ekstra	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\ffprobe.EXE	rc=0 ffprobe version 9.0.1-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers | built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+whisper	ekstra	YOK	-
+llama-cli	ekstra	YOK	-
+llama-server	ekstra	YOK	-
+docker	ekstra	YOK	-
+nvidia-smi	ekstra	C:\WINDOWS\system32\nvidia-smi.EXE	rc=0 NVIDIA GeForce RTX 4070 Ti, 12282 MiB, 1318 MiB, 13 %
+pwsh	ekstra	YOK	-
+deno	ekstra	YOK	-
+pnpm	ekstra	YOK	-
+cargo	ekstra	YOK	-
+go	ekstra	YOK	-
+java	ekstra	C:\Program Files\Common Files\Oracle\Java\javapath\java.EXE	rc=0 java version "17.0.8" 2023-07-18 LTS | Java(TM) SE Runtime Environment (build 17.0.8+9-LTS-211)
+rg	ekstra	YOK	-
+jq	ekstra	C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\jq.EXE	rc=0 jq-1.8.2
+qmd	ekstra	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\qmd.CMD	rc=0 qmd 2.8.3 (facd35e)
+context-mode	ekstra	YOK	-
+claude	ekstra	C:\Users\pc\.local\bin\claude.EXE	rc=0 2.1.295 (Claude Code)
+codex	ekstra	YOK	-
+gemini	ekstra	YOK	-
+lighthouse	ekstra	YOK	-
+omniroute	ekstra	C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\omniroute.CMD	rc=0 3.8.50
+aria2c	ekstra	YOK	-
+exiftool	ekstra	YOK	-
+pandoc	ekstra	YOK	-
+sqlite3	ekstra	YOK	-
+duckdb	ekstra	YOK	-
+ruff	ekstra	YOK	-
+pytest	ekstra	C:\Users\pc\AppData\Local\Programs\Python\Python312\Scripts\pytest.EXE	rc=0 pytest 9.1.1
+markitdown	ekstra	C:\Users\pc\.local\bin\markitdown.EXE	rc=0 markitdown 0.1.8
+docling	ekstra	YOK	-

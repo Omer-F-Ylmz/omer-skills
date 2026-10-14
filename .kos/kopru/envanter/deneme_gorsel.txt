@@ -1,0 +1,31 @@
+kare: C:\Projeler\.tmp-video\altin\1nGx7WR8YLE\kareler\k00088.png
+## tesseract tur+eng (0.8s)
+E R E | N The philosophy The residence The details Private viewing ZA
+
+PRIVATE RESIDENCES
+
+THE ARC RESIDENCE v KUL! tösyonamne fim
+## rapidocr (venv, onnx) (6.3s)
+SEREIN
+The philosophy
+The residence
+The details
+Private viewing
+PRIVATE RESIDENCES
+EXCEPTIONAL HOMES.INDIVIDUAL LIVES
+world
+our own.
+Architecture for a life less ordinary.
+THE ARC RESIDENCE
+Arrival
+Living
+Gathering
+Light
+Retreat
+Ritual
+Beyond the film
+4
+## ollama qwen3.5:4b (yerel VLM, keep_alive=0) (6.2s)
+Serein
+Private viewing
+[eval_count=6 load=4.1s]

@@ -1,0 +1,4 @@
+## groq llama-3.3-70b (metin, OCR üstü) (0.1s)
+HATA 400: {"error":{"message":"Model 'llama-3.3-70b-versatile' is not available in the active live catalog for provider 'groq'.","type":"invalid_request_error","code":"bad_request"}}
+## groq llama-4-scout (görsel) (4.4s)
+HATA 400: {"error":{"message":"Model 'meta-llama/llama-4-scout-17b-16e-instruct' is not available in the active live catalog for provider 'groq'.","type":"invalid_request_error","code":"bad_request"}}
