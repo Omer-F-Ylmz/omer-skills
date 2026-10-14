@@ -87,3 +87,36 @@ p065	11	26894	17142	44	0	1	483	nvidia/nemotron-3-ultra-550b-a55b:free	-
 p027	11	14446	14006	44	0	1	375	nvidia/nemotron-3-ultra-550b-a55b:free	-
 p052	7	22020	17505	45	0	0	421	nvidia/nemotron-3-ultra-550b-a55b:free	-
 g3-okuyucu	1	91614	0	0	0	0	130	sonnet	dogrulama 41-47 toplam jeton (alt ajan)
+p064	9	24000	16784	45	0	0	466	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p028	8	18735	16146	45	0	0	485	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p029	6	6603	5357	45	0	0	114	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p063	7	22005	17560	45	0	0	510	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p053	9	22255	18955	44	0	1	805	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p030	12	20192	16849	45	0	0	523	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p054	7	20837	20559	45	0	0	526	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p062	15	28929	20371	43	0	2	685	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p031	12	26043	18274	45	0	0	507	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p055	9	23062	17941	45	0	0	522	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p061	10	23994	16166	44	0	1	599	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p056	9	25888	24918	45	0	0	611	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p032	21	28226	32306	43	0	2	858	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p060	8	21859	21485	45	0	0	540	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p057	7	18617	17519	45	0	0	418	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p033	9	19766	20857	44	0	1	558	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p059	15	26940	26114	45	0	0	796	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p058	8	20238	19538	45	0	0	677	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p059	0	0	0	0	0	0	0		-
+p060	0	0	0	0	0	0	0		-
+p061	1	740	720	0	0	1	14	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p062	2	1690	1153	1	0	1	32	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p063	0	0	0	0	0	0	0		-
+p064	0	0	0	0	0	0	0		-
+p058	6	7101	7001	7	0	0	201	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p057	0	0	0	0	0	0	0		-
+p056	0	0	0	0	0	0	0		-
+p065	1	1086	659	0	0	1	28	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p066	1	820	617	0	0	1	38	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p067	0	0	0	0	0	0	0		-
+p068	0	0	0	0	0	0	0		-
+p069	0	0	0	0	0	0	0		-
+p034	15	25289	29605	45	0	0	770	nvidia/nemotron-3-ultra-550b-a55b:free	-
