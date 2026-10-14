@@ -20,7 +20,7 @@ from . import hafif
 from . import tarama as tr
 
 API = "https://generativelanguage.googleapis.com"
-MODELLER = ("gemini-3.5-flash", "gemini-2.5-flash")  # ücretsiz katman; ilki 429/404/5xx verirse sıradaki
+MODELLER = ("gemini-3.5-flash", "gemini-3.8-flash")  # ücretsiz katman; ilki 429/404/5xx verirse sıradaki
 KOK = Path(__file__).resolve().parents[3]
 KARAR = KOK / "docs" / "kurulumlar" / "ig-41" / "karar-birlesik.tsv"
 ARASTIRMA = KOK / ".kos" / "kopru" / "video" / "kisa" / "arastirma"
@@ -104,7 +104,7 @@ def izle(d, medya=None, env=None, yeniden=False):
     key, t = anahtar(env), time.monotonic()
     govde = {"contents": [{"parts": parcalar(d, Path(medya or d), key)}],
              "generationConfig": {"responseMimeType": "application/json", "responseSchema": SEMA, "temperature": 0.2}}
-    son = None
+    son = []
     for m in MODELLER:
         try:
             y = _iste(f"{API}/v1beta/models/{m}:generateContent", key, govde)
@@ -113,12 +113,12 @@ def izle(d, medya=None, env=None, yeniden=False):
             hedef.write_text(json.dumps({**j, "_iz": iz}, ensure_ascii=False, indent=1), encoding="utf-8")
             return j, iz
         except urllib.error.HTTPError as e:
-            son = f"{m}: HTTP {e.code}"
+            son.append(f"{m}: HTTP {e.code} {e.read()[:200]!r}")
             if e.code not in (404, 429, 500, 503):
                 break
         except (KeyError, IndexError, ValueError) as e:
-            son = f"{m}: yanıt ayrıştırılamadı ({type(e).__name__})"
-    raise RuntimeError(f"gemini: {son}")
+            son.append(f"{m}: yanıt ayrıştırılamadı ({type(e).__name__})")
+    raise RuntimeError(f"gemini: {' | '.join(son)}")
 
 
 def _kararlar():
@@ -198,6 +198,37 @@ def blok(vid, g, kat, kunye):
 def oturum(bloklar, efor="low", env=None):
     """Tek claude -p (≥8 video önerilir; sabit sistem metni önbellekte) → hafif.cagir sonucu."""
     return hafif.cagir(OTURUM_SISTEM, "\n\n".join(bloklar), OTURUM_SEMA, efor=efor, env=env, butce=1.0)
+
+
+def calistir(ids, kok, cikti, efor="low", env=None):
+    """Uçtan uca: her id için IG medyası (cikti/medya/<id>, hat indirir) → izle → katalog → bilinmeyene arastir → tek oturum → cikti/<id>.md.
+    kok/<id>/meta.json (+ paket.md) önceden `video paket` ile hazır olmalı. → (iz, oturum sonucu)."""
+    from . import instagram
+    kok, cikti = Path(kok), Path(cikti)
+    iz, bloklar = {}, []
+    for v in ids:
+        t, m = time.monotonic(), kok / v
+        if v.startswith("ig-"):
+            m = cikti / "medya" / v
+            if not (m / "meta.json").is_file():
+                m.mkdir(parents=True, exist_ok=True)
+                instagram.getir(m)
+        indir = round(time.monotonic() - t, 1)
+        g, gi = izle(kok / v, m, env)
+        kat = katalog([a["ad"] for a in g["araclar"]])
+        kunye, t = {}, time.monotonic()
+        for a in g["araclar"]:
+            if not kat[a["ad"]]:
+                r, nasil = repo_bul(a["ad"], g["linkler"] + [a["ne_dedi"]])
+                if r:
+                    kunye[a["ad"]] = {**arastir(r), "bulunus": nasil}
+        iz[v] = {"indir": indir, "gemini": gi, "arastir": round(time.monotonic() - t, 1), "arac": len(kat), "bilinen": sum(1 for x in kat.values() if x)}
+        bloklar.append(blok(v, g, kat, kunye))
+        print(v, iz[v], flush=True)
+    y = oturum(bloklar, efor, env)
+    for x in (y["form"] or {}).get("videolar", []):
+        (cikti / f"{x['id']}.md").write_text(rapor(x, f"gemini ({iz.get(x['id'], {}).get('gemini', {}).get('model', 'önbellek')}) + claude oturum"), encoding="utf-8")
+    return iz, y
 
 
 def rapor(v, kaynak):

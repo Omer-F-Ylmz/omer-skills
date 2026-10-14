@@ -1463,6 +1463,16 @@ def _yeniden_duzelt(vids, kal, onceki, t, ns, d, kok, bugun):
     return 0
 
 
+def kisa_(ns, ctx):
+    from . import kisa  # kisa anahtarı cli._kullanici_env'den alır; döngüsel içe aktarma olmasın
+    cikti = Path(ns.cikti)
+    cikti.mkdir(parents=True, exist_ok=True)
+    iz, y = kisa.calistir(ns.ids, ctx["kok"], cikti, ns.efor, ctx["env"])
+    (cikti / "oturum.json").write_text(json.dumps({"iz": iz, "sonuc": y}, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"kisa: {len((y['form'] or {}).get('videolar', []))}/{len(ns.ids)} rapor · claude {y['sure']} sn ${y['usd']}" + (f" · hata {y['hata']}" if y["hata"] else ""))
+    return 0 if y["form"] else 1
+
+
 def getir_(ns, ctx):
     print(gt.getir(ns.url, ns.n, ctx["kok"] / "getir"), end="")
     return 0
@@ -1872,6 +1882,10 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
     x.add_argument("--tavan", type=int, default=100, help="coz: en fazla yt-dlp isteği")
     x.add_argument("dosya", nargs="?")
     x.add_argument("--kanal", help="envanter: yalnız bu channel_id")
+    x = alt.add_parser("kisa", help="VİDEO-KISA-TOKEN-1: kısa video (reel/short/carousel) → Gemini izler + katalog önbelleği + tek claude -p oturum (≤8 id önerilir)")
+    x.add_argument("ids", nargs="+")
+    x.add_argument("--cikti", default=str(TARAMA_DIZIN.parents[1] / ".kos" / "kopru" / "video" / "kisa"))
+    x.add_argument("--efor", default="low")
     x = alt.add_parser("panel", help="MOTOR-M2b: panel.md Ömer sütunu (AL/RED/ERTELE) → video karar; boş satır dokunulmaz")
     x.add_argument("eylem", choices=["uygula"])
     x.add_argument("panel")
@@ -1886,7 +1900,7 @@ def main(argv=None, env=None, kos=kos, gonder=None, uyku=time.sleep, al=None, oc
                 "rapor-denetle": rapor_denetle, "altin": altin, "tara": tara, "toplu": toplu, "kaynak": kaynak, "kuyruk": kuyruk, "kurallar": kurallar, "katman": uy.katman, "projeler": uy.projeler,
                 "bizde": uy.bizde, "kural-onay": uy.kural_onay, "onay": kur.onay, "koru": kur.koru, "geri-al": kur.geri_al, "dene": kur.dene, "uret": kur.uret, "karar": kur.karar_isle, "takas-geri": kur.takas_geri, "durum": og.durum, "bilgi": og.bilgi, "brief": uy.brief, "departman": dp.departman,
                 "ajan-denetle": uy.ajan_denetle, "kural-regresyon": kural_regresyon, "t0-regresyon": t0_regresyon, "departman-geri": uy.departman_geri, "teknik": uy.teknik,
-                "getir": getir_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti, "panel": pt.panel, "kanal": kn.kanal}[ns.komut](ns, ctx)
+                "getir": getir_, "kisa": kisa_, "repo": repo_, "on": on_, "yeniden": yeniden, "parti": pt.parti, "panel": pt.panel, "kanal": kn.kanal}[ns.komut](ns, ctx)
     except HizHata as e:
         print(f"hata: {e}")
         return 4

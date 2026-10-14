@@ -50,3 +50,9 @@ Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dö
 - `video parti baslat <kuyruk.md> [--short|--uzun] [--cagri-tavan N --usd-tavan X]` → paket + hafif `claude -p` tarayıcı formu + rapor + kayıt; `video parti devam <pid> [--form-red-yeniden] [--cagri-ek N --usd-ek X]` kesintiden sürer (tamamlanan çağrı tekrarlanmaz); `video parti durum <pid>`.
 - Short tek tanım: süre <120 sn (kuyruk.md ile aynı); short'lar kuyruk sırasından bağımsız ≤8 / ≤40k jeton gruplanır. Kare gönderildiyse Site/UI ve kare kaynaklı her bulguda `karede_gorulen` zorunlu, boşsa form reddi.
 - Tarama bitince aday işi: `video parti akil <pid>` (video-uygula § Motor).
+
+## Kısa video yolu (VİDEO-KISA-TOKEN-1)
+- Reel · YT short · carousel (/p/) için: `video kisa <id…> [--cikti DİZİN]` (≤8 id/oturum). Ön koşul `<cache>/<id>/meta.json` (+ paket.md); IG medyası hat tarafından indirilir.
+- İzleme ücretsiz Gemini'de (konuşma + ekran metni + açıklama/yorum linkleri → `gemini.json`, önbellekli); Claude ham paket/kare okumaz, yalnız JSON'u tek `claude -p` oturumunda (efor low) değerlendirir.
+- Katalog önce: ig-41 kararı ya da kurulu sözlükte olan araç yalnız fark notu alır; bilinmeyen → repo bulunur, `gh api` künye + README özeti `tools/ucuz_alt.py` (Claude-dışı), repo başı önbellek.
+- Hiçbir video/araç elenmez; rapor araç başı ≤2 satır → `<cikti>/<id>.md` + `oturum.json` (iz: süre, jeton).
