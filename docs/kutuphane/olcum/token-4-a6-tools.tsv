@@ -1,0 +1,33 @@
+kalem	token	karakter
+TOPLAM	33478	152290
+mesaj[1.0]:'# [omer-skills] recent context, 2026-10-15 12:16am'	4764	11675
+araç:PowerShell	3745	9667
+araç:Monitor	2919	7623
+araç:SendMessage	1991	5720
+mesaj[0.0]:'Contents of C:\\Users\\pc\\.claude\\projects\\C--Projel'	1938	3883
+sistem[2]:'\nYou are an interactive agent that helps'	1911	5839
+araç:ScheduleWakeup	1820	4922
+mesaj[1.0]:'<context_window_protection>\n  <priority_instructio'	1762	4603
+mesaj[0.0]:"Contents of C:\\Users\\pc\\.claude\\CLAUDE.md (user's "	1377	3726
+mesaj[1.0]:'<EXTREMELY_IMPORTANT>\nYou have superpowers.\n\n**Bel'	1294	3406
+araç:Grep	1276	3316
+mesaj[1.0]:'Codebase map (what already exists; reuse it, read '	1156	2102
+araç:Agent	1061	3215
+araç:Bash	1052	2887
+mesaj[1.0]:'SessionStart:startup hook success: PONYTAIL MODE A'	937	2896
+mesaj[0.0]:'Contents of C:\\Projeler\\omer-skills\\CLAUDE.md (pro'	887	1912
+araç:Read	608	1629
+araç:WebFetch	410	1115
+araç:Edit	348	1001
+araç:WebSearch	315	897
+araç:TaskStop	294	810
+araç:Glob	277	754
+mesaj[1.0]:'# Work state: your to-do lists and working state\nU'	273	808
+araç:Write	236	663
+mesaj[0.0]:"Contents of C:\\Users\\pc\\.claude\\RTK.md (user's pri"	180	555
+mesaj[0.1]:"<system-reminder>\nAs you answer the user's questio"	170	562
+mesaj[0.0]:'<system-reminder>\nCodebase and user instructions a'	75	213
+sistem[0]:'x-anthropic-billing-header: cc_version=2'	42	74
+sistem[1]:'You are a Claude agent, built on Anthrop'	26	62
+mesaj[0.2]:"Yalnız 'tamam' yaz, araç kullanma."	21	34
+mesaj[1.0]:'SessionStart hook additional context: \n<context_wi'	13	39

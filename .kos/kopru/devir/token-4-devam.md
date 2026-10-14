@@ -1,11 +1,12 @@
-# TOKEN-4 devam (d3 → d4) — 14 Eki ~23:55
-Görev: .kos/kopru/gorev/token-4.md (VEKİL KAZASI geçerli). claude -p 3/6. Ayrıntı: rapor/token-4.md d3.
-SON COMMIT: d3 ara (A3 modelsiz yol yok — yoğunlaştırıcı tek seferlik, ortak önek 510 kar.; A1 kök git show/status passthrough → is-akisi L44).
+# TOKEN-4 devam (d4 → d5) — 15 Eki ~00:25
+Görev: .kos/kopru/gorev/token-4.md (VEKİL KAZASI geçerli). claude -p 6/6 DOLDU (yeni bütçe Ömer/Desktop). Ayrıntı: rapor/token-4.md d4.
+SON COMMIT: d4 ara (A6: sabit bağlam 53.6k, araç tanımları %68; `--tools` ile 33.5k −%37.6; cc_profil araclar + onay/token_4_uygula.py).
+ÖMER ONAYI: `python onay/token_4_uygula.py --kuru` → uygula (ajan profiline araclar; yalnız köprü oturumları; --geri var).
 KALAN (öncelik):
-1. A1 sonrası ölçüm: yarın `rtk gain --daily` oranı + history.db `git show %:%` token (L44 etkisi). rtk filters.toml'a git show filtresi YOK (kesme kalite riski).
-2. A4 öz hattı (TOKEN-3 K16 ile birleşik), A5 qmd belge araması.
-3. A3 Groq kolu: yalnız kör yargıçta kalite ≥ haiku ise aday (yoğunlaştırma istemi örnekleri observer-sessions'tan); değilse A3 kapanır.
-4. A2 yalnız `python .kos/kopru/ajan_say.py` ≤1 başka claude -p VE RAM <%75 (hr_ab.py ≥20 bloklu istem).
-5. 4 iş kapısı, onay/token_4_uygula.py --kuru (yalnız geçen öneri), zip (paketle.py + zip_denetle) — is-akisi değişti, zip gerekli.
-6. Bitince gorev/SIRA.md "TOKEN-4 BİTTİ". Commit yalnız kendi yolların (`-- <yollar>`).
+1. Onaydan sonra kalite kapısı: 1 köprü işi (ör. .claude/token3/kapi.py) araclar'lı ↔ araclar'sız, aynı karar + Workflow/ListAgents çağrısı yok.
+2. A6 kalan kalemler (ölçüldü, öneri yok): claude-mem bağlamı 4.8k, MEMORY.md 1.9k, context-mode 1.8k — kısma kalite riski ölçülmeden yazılmaz.
+3. A4 öz hattı (TOKEN-3 K16 ile birleşik), A5 qmd belge araması.
+4. A1 sonrası ölçüm: `rtk gain --daily` + history.db `git show %:%` (L44 etkisi).
+5. A3 Groq kolu (kör yargıç, kalite ≥ haiku), A2 (≤1 başka claude -p, RAM <%75; d4'te %78).
+6. 4 iş kapısı, zip (paketle.py + zip_denetle), gorev/SIRA.md "TOKEN-4 BİTTİ". Commit yalnız kendi yolların.
 ARKA PLAN: yok.

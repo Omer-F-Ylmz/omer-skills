@@ -36,6 +36,7 @@ def kur(tmp_path, monkeypatch):
         "is": {"mcp": ["blender", "headroom"], "skills": [str(s) for s in sk], "pluginKapat": ["claude-mem@x", "ponytail@y"], "ttl": "5m"},
         "mcpyok": {"mcp": ["yok"], "ttl": "5m"},
         "skillyok": {"skills": [str(tmp_path / "yok" / "SKILL.md")], "ttl": "5m"},
+        "arac": {"araclar": ["Bash", "Read"]},
     }), encoding="utf-8")
     return lambda ad, env=None, **k: cc_profil.kur(ad, env=env or {}, ana=ana, profiller=pr, gecici=tmp_path / "gecici", **k)
 
@@ -51,6 +52,12 @@ def _ayar(args):
 
 def test_tam_ek_arguman_uretmez(kur):
     assert kur("tam") == ([], {})
+
+
+def test_araclar_yerlesik_izin_listesi(kur):
+    # TOKEN-4 A6: permissions.deny tanımı istekten düşürmüyor, --tools düşürüyor
+    assert _d(kur("arac")[0], "--tools") == "Bash,Read"
+    assert "--tools" not in kur("ttl")[0]
 
 
 def test_strict_ve_yalniz_listelenen_mcp(kur):

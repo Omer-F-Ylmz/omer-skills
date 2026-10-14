@@ -47,6 +47,8 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
             raise FileNotFoundError(f"skill dosyası yok: {', '.join(yok)}")
         govde = "\n\n".join(f'<skill yol="{y.as_posix()}">\n{y.read_text(encoding="utf-8")}\n</skill>' for y in yollar)
         args += ["--disable-slash-commands", "--append-system-prompt-file", str(_yaz(gecici / f"{ad}-skill.md", govde))]
+    if "araclar" in p:  # TOKEN-4 A6: araç tanımları sabit bağlamın %68'i; permissions.deny tanımı düşürmez, --tools düşürür
+        args += ["--tools", ",".join(p["araclar"])]
     if "pluginKapat" in p:
         ayar["enabledPlugins"] = {x: False for x in p["pluginKapat"]}
     if "ttl" in p:
