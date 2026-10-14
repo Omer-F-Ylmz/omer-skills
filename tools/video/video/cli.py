@@ -643,7 +643,8 @@ def paket(ns, ctx):
     yol = d / "paket.md"
     yol.write_text("\n".join(md) + "\n", encoding="utf-8")
     for v in d.glob("goz-video.*"):  # 1b-1 M2: video dosyası paket sonunda silinir, kareler kalır
-        v.unlink()
+        if not d.name.startswith("ig-"):  # VİDEO-KISA-TOKEN-1: ig reel'i `video kisa` izleyip siler (ikinci IG isteği + ARA beklemesi olmasın)
+            v.unlink()
     if ocr.get("gurultu_satir"):  # O11 (4): atılan gürültü satırları denetim için
         (d / "ocr-gurultu.txt").write_text("".join(f"{m.ss(t)} · {x}\n" for t, x in sorted(ocr["gurultu_satir"], key=lambda g: g[0])), encoding="utf-8")
     sj = json.loads((d / "sahne.json").read_text(encoding="utf-8")) if (d / "sahne.json").is_file() else {"durum": "sahne ?"}

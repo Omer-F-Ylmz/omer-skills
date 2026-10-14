@@ -117,3 +117,22 @@ def test_repo_bul_arama_onbellekte(tmp_path, monkeypatch):
     assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes", "gh arama, doğrulanmadı")
     assert kisa.repo_bul("Hermes Agent", []) == ("o/hermes", "gh arama, doğrulanmadı")
     assert len(cagri) == 1
+
+
+def test_calistir_paketin_reel_mp4unu_kullanir_ig_istegi_yok(tmp_path, monkeypatch):
+    from video import instagram
+    d = tmp_path / "kok" / "ig-X"
+    d.mkdir(parents=True)
+    (d / "meta.json").write_text(json.dumps({"slayt_video": [], "gorseller": []}), encoding="utf-8")
+    (d / "goz-video.mp4").write_bytes(b"v")
+    gor = []
+    monkeypatch.setattr(instagram, "getir", lambda m: (_ for _ in ()).throw(AssertionError("IG'ye ikinci istek")))
+    monkeypatch.setattr(kisa, "izle", lambda k, m, env: (gor.append((m, (m / "goz-video.mp4").is_file())) or ({"araclar": [], "linkler": []}, {})))
+    monkeypatch.setattr(kisa, "metin_gec", lambda k, env: {"_iz": {}})
+    monkeypatch.setattr(kisa, "birlestir", lambda g, mg: None)
+    monkeypatch.setattr(kisa, "paket_linkleri", lambda k: [])
+    monkeypatch.setattr(kisa, "katalog", lambda adlar, kok, vid: {})
+    monkeypatch.setattr(kisa, "blok", lambda *a: "")
+    monkeypatch.setattr(kisa, "oturum", lambda b, efor, env: {"form": None})
+    kisa.calistir(["ig-X"], tmp_path / "kok", tmp_path / "cik")
+    assert gor == [(d, True)] and not (d / "goz-video.mp4").exists()

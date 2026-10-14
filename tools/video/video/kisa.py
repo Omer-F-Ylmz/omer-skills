@@ -391,6 +391,7 @@ def calistir(ids, kok, cikti, efor="low", env=None):
         with ThreadPoolExecutor(2) as ex:  # metin geçişi video izlemeyi beklemez
             fg, fm = ex.submit(izle, kok / v, m, env), ex.submit(metin_gec, kok / v, env)
             (g, gi), mg = fg.result(), fm.result()
+        (m / "goz-video.mp4").unlink(missing_ok=True)  # 1b-1 M2: video izlendikten sonra silinir
         birlestir(g, mg)
         paket_link[v] = paket_linkleri(kok / v)
         kat = katalog([a["ad"] for a in g["araclar"]], kok=kok, vid=v)
@@ -409,9 +410,11 @@ def calistir(ids, kok, cikti, efor="low", env=None):
     with ThreadPoolExecutor(VIDEO_PARALEL) as ex:  # indirme seri (aynı anda tek); Gemini yükleme/izleme sıradaki indirmeyle üst üste biner
         for v in ids:
             t, m = time.monotonic(), kok / v
-            if v.startswith("ig-"):
-                m = cikti / "medya" / v
-                if not (m / "meta.json").is_file():
+            meta = json.loads((m / "meta.json").read_text(encoding="utf-8"))
+            var = lambda d: any((d / a).is_file() for a in ["goz-video.mp4", *(meta.get("slayt_video") or []), *(meta.get("gorseller") or [])])
+            if v.startswith("ig-") and not var(m):
+                m = cikti / "medya" / v  # paket medyayı bırakmadıysa (eski önbellek) hat yeniden indirir
+                if not var(m):
                     m.mkdir(parents=True, exist_ok=True)
                     instagram.getir(m)
             isler.append(ex.submit(isle, v, m, round(time.monotonic() - t, 1)))

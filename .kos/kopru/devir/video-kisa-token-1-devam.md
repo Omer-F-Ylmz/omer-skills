@@ -1,3 +1,9 @@
+## d10 SONU (14 Eki ~20:20, CC) — ÖNCE BUNU OKU (claude -p 3/4 kullanıldı, çağrı tavanı doldu)
+- Sınama (6 reel, `kos d9 sinama` + `sinama_ref` + `sinama_puan`): araç 0.95 · link 1.0 · yp 0 · 10 581 tk/video · 26.9 sn/video (hazır 19.2). Kaçan: LinkedIn Sales Navigator, Bytebase, S3, agenthubstack.dev (+ ref gürültüsü "CLI", "Skills", "Mac"). → 95/95 sınamada GEÇTİ (araç sınırda).
+- Süre kökü: kisa her reel'i IG'den 2. kez çekiyordu (paket mp4'ü silmiş) → instagram ARA 10–20 sn seri bekleme = 84/115 sn. Düzeltme (commitli): cli paket ig-* goz-video.mp4'ü silmez; kisa.calistir önbellekteki medyayı kullanır, izledikten sonra siler; test_kisa +1 (45/45 ilgili test).
+- d10 yeniden ölçüm (mp4'ler önbelleğe taşındı, kisa_kos-d10.log): 14.0 sn/video (hazır 7.0, claude 42.1) · 9 714 tk/video · AMA araç 0.858 · yp 0.17 (Gemini lite taze izleme değişkenliği; kod kaliteye dokunmadı). Önceki koşunun gemini.json'u <id>/gemini-d10.json.
+- AÇIK: (1) DbG/Ddx'te embed video yok → meta'da medya yok → kisa yine getir çağırıyor (indir 16 sn). Düzelt: `var()` yerine "meta.video/gorseller beklenip yoksa" indir. (2) Araç 0.95→0.858 düşüşü: `sinama_puan` kaçak dökümü + d9/d10 gemini.json farkı; çözülmezse iki izlemenin birleşimi (ücretsiz). (3) Sonra rapor/video-kisa-token-1.md + M5 (SKILL.md 55. satır "IG medyası paketten; yoksa hat indirir") + zip_denetle + SIRA BİTTİ.
+
 ## d9 SONU (14 Eki ~19:40, CC) — ÖNCE BUNU OKU
 - AÇIK 1 YAPILDI: kisa_m4 SADE'ye "teknik"; puan/sinama yeni tarafta yalnız tur=teknik düşer (ipucu düşmez: ref "pip install airllm"=CLI). Altın d8 yeniden: araç 1.0 · link ham 0.789 / temiz 1.0 · yp 0 · 11 686 tk/video (0.05×) · 23.5 sn/video.
 - AÇIK 2 kısmi: kisa.repo_bul gh arama önbelleği (arastirma/ara-<ad>.txt) + süreç geneli 2 sn aralık kilidi (oran sınırı 20 sn beklemesi yok) + (teknik)/(kurulum komutu) adları aranmaz. test_kisa 13/13. Süre etkisi ÖLÇÜLMEDİ (d8: arastir 42–63 sn son 4 videoda).
