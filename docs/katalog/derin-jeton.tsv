@@ -54,3 +54,10 @@ p002	2	7011	1543	10	0	0	4	openai/gpt-oss-120b	-
 p009	10	25133	7280	45	0	0	118	openai/gpt-oss-120b/openai/gpt-oss-20b	-
 p010	11	27311	7817	42	0	3	120	openai/gpt-oss-120b/openai/gpt-oss-20b	-
 p012	25	38083	9888	41	0	4	190	openai/gpt-oss-120b/openai/gpt-oss-20b	-
+p014	9	25633	6236	44	0	1	96	openai/gpt-oss-120b/openai/gpt-oss-20b	-
+p041	11	26699	25042	45	0	0	569	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p015	9	16835	5874	45	0	0	134	openai/gpt-oss-120b/openai/gpt-oss-20b	-
+p016	15	22088	7255	44	0	1	100	openai/gpt-oss-120b/openai/gpt-oss-20b	-
+p017	28	43003	10876	23	0	22	216	openai/gpt-oss-120b/openai/gpt-oss-20b	-
+p042	6	21286	17004	45	0	0	532	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p018	16	34529	8299	44	0	1	164	openai/gpt-oss-120b/openai/gpt-oss-20b	-
