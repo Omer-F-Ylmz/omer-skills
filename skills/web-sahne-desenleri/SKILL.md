@@ -118,6 +118,7 @@ Blender'dan gelen 3D ürün (ayrıntı: blender-uretim `references/web-aktarim.m
 | Tek ürün lansmanı, ürün hikâyesi | 2b | number-flow, @react-three/a11y |
 | Galeri, stüdyo, mimari portfolyo, scroll anlatısı (Portale gibi) | 2c | lenis, @14islands/r3f-scroll-rig |
 | Hepsi | §1 dil + §3 kapı | size-limit, @capsizecss/core |
+| 3D model / doku / HDR gereken sahne | — | blender-uretim `varlik_getir.py ara\|indir` (hazır varlık merdiveni; CC-BY ise kolofonda atıf) |
 
 ## 5. CC tarifine yazım
 

@@ -31,11 +31,11 @@ def stats():
     except Exception as e:
         return {"hata": type(e).__name__}
 
-def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=(), sure=2400):
+def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=(), sure=2400, vekil_ek=(), effort="high"):
     iz = D / f"k1_iz_{ad}.tsv"; iz.unlink(missing_ok=True)
     env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
     env.update(env_ek, K1_IZ=str(iz), HEADROOM_PORT=str(PORT))
-    vekil = subprocess.Popen([str(PY), str(D / "k1_vekil.py"), "proxy", "--port", str(PORT), "--no-http2", "--no-rate-limit"],
+    vekil = subprocess.Popen([str(PY), str(D / "k1_vekil.py"), "proxy", "--port", str(PORT), "--no-http2", "--no-rate-limit", *vekil_ek],
                              env=env, stdout=open(D / f"k1_vekil_{ad}.log", "w"), stderr=subprocess.STDOUT,
                              creationflags=subprocess.CREATE_NO_WINDOW)
     if not bekle_port(True):
@@ -48,7 +48,7 @@ def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=(), sure=2400):
     # sonra da communicate()'te asılıyordu (d1b, 50 dk log boş). → çıktı dosyaya, torunlar izlenir, bitişte/süre dolunca öldürülür.
     cikti = D / f"k1_cikti_{ad}.json"
     with open(cikti, "w", encoding="utf-8") as fo:
-        p = subprocess.Popen(["claude", "-p", "--model", "opus", "--effort", "high", "--output-format", "json", "--max-turns", str(tur),
+        p = subprocess.Popen(["claude", "-p", "--model", "opus", "--effort", effort, "--output-format", "json", "--max-turns", str(tur),
                               "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--disable-slash-commands", "--settings", ayar, *ek],
                              stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT, text=True, encoding="utf-8", env=cenv,
                              cwd=str(cwd), creationflags=subprocess.CREATE_NO_WINDOW, shell=True)
