@@ -14,10 +14,12 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 - Fatura: `.kos/kopru/api-kredi.ac` varsa alt süreç ANTHROPIC_API_KEY'i devralabilir; yoksa (api-kredi.kapali) hiçbir alt sürece verme ('Credit balance is too low'). Aç/kapa yalnız Ömer. L8 L9
 
 ## 1. İş başı (sırayla)
+**Raporun ilk satırı her işte (rutin dahil): `Katalog: kullanılan [araç/betik adları] · atlanan [..] (neden)` — kullanılanlar boş bırakılmaz.** L3
+**Her ayrı `claude -p`: `--strict-mcp-config --mcp-config "{\"mcpServers\":{}}" --disable-slash-commands`, olcum_sira ile, aynı anda ≤1.** L23
 1. Kilit `.kos/kopru/gorev/<görev>-dN.kilit`; varsa ÇIK. L31
 2. Durum TEK komut: `python C:/Projeler/omer-skills/.kos/kopru/durum_ozet.py <görev> [wt]` (git/son commit/devir/rapor/SIRA/kilit/durma); ek okuma yalnız eksik için; Desktop devir özetini gömdüyse yalnız `git log -3`. Yapılanı tekrarlama, yarımı tamamla. L32 L15
 3. Katalog: rutin tek alanlı işte ÇAĞIRMA. Zor işte (≥2 alan, alan dışı, araç adı bilinmiyor) TEK çağrı/tek Bash: departman-* müdür dizini + plan-kur + katalog_ara (≤3 sorgu, ≤40 satır; yetenek-getir yoksa `python C:/Projeler/omer-skills-wt/envanter2/tools/katalog_ara.py "<iş>" --tam`) + docs/atlas oyun kitabı; ek sorgu yok; `<katalog>` eki geldiyse yalnız ondan seç. İlgili her kayıt (skill · plugin · MCP · CLI · kütüphane · betik) planda adımıyla; gerekçesiz dışarıda kalan yok. L3 L20 L21
-4. HAZIR-ÖNCE: hazır kod/varlık/şablonu al, değiştirip premium yap; sıfırdan yalnız hazır yoksa ya da ölçülerek kötüyse. Raporun ilk satırı: "Katalog: kullanılan [..] · atlanan [..] (neden)". L3
+4. HAZIR-ÖNCE: hazır kod/varlık/şablonu al, değiştirip premium yap; sıfırdan yalnız hazır yoksa ya da ölçülerek kötüyse. L3
 5. Araştırma üç kol (uygun olanlar): alanın en iyi örnekleri · açık kaynak repo/kod · yapılış anlatan yazı/video (docs/video-tarama/ dahil, salt okuma). Mekanizma alınır, birebir klon yok; lisansı uygun hazır alınıp geliştirilebilir. L22
 6. Site/UI REFERANS-ÖNCE: Playwright ile referans ekran görüntüsü + DOM/CSS/hareket (design-extractor/design-dna, image-to-code; sayı önce: renk, font, ızgara, boşluk, geçiş, kütüphane) → mekanizma tablosu → 2–3 referansın iyisini birleştirip özgün premium. Başkasının görseli/metni/logosu yok; görüntü yalnız gerekli karede. L4
 7. 3D/VARLIK: sıfırdan modelleme yok. Merdiven: (1) yerel (2) Objaverse (HF, hesapsız; Sketchfab uid; lisans+yazar annotations) (3) Poly Haven API / ambientCG (CC0) (4) Sketchfab API yalnız Ömer'in token'ı ortamdaysa (5) ücretsiz görüntü→3D (HF Spaces Hunyuan3D/TRELLIS, kalite kapılı) (6) en son sade bpy. Blender yalnız küçük düzenleme (ölçek/yön, decimate, malzeme, UV, GLB) `-b` + betik + kompakt JSON. Hesap/anahtar yok; CC-BY → kolofonda atıf. L5
@@ -25,10 +27,10 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 
 ## 2. Süreç ve kaynak
 - Uzun iş (ölçüm, toplu üretim, indirme, kurulum testi, büyük tarama) arka plana: ölçüm `olcum_sira.py`, diğeri `arka.py`; günlük `.kos/kopru/<görev>-*.log`; bitince yapılacak devire. L33
-- Ayrı claude -p yalnız gerekirse: `--strict-mcp-config --mcp-config "{\"mcpServers\":{}}" --disable-slash-commands`, olcum_sira ile, aynı anda ≤1 (düz claude -p ~4 GB). L23
+- Ayrı claude -p yalnız gerekirse, bayraklar §1 başındaki gibi (düz claude -p ~4 GB). L23
 - RAM asla %90'ı geçmez: olcum_sira ilk yuva <%88, ek yuva <%86; kendi koşucuların kapısı %86, paralel ≤4; >1 GB yükleyen iş (OCR, torch) aynı anda 1. RAM ≥%88: yeni süreç açma, bekle. L7
 - Bekleme: oturum 3 sa / 60 tur, 40. dakikada bırakma. Arka plan ölçümünü bekliyor ve paralel iş yoksa ~5 dk aralıkla tek kısa komut (`python .kos/kopru/bekle.py <günlük> "BITTI|Traceback" 540`); bitince karar + onay betiği aynı oturumda. RAM ≥%90 ve yalnız bekliyorsan (kalan >15 dk): devire `BEKLE: <günlük> BITTI olunca → <adımlar>`, SIRA satırı, ÇIK. L7 L12 L13
-- graphify update yalnız `python .kos/kopru/graphify_hafif.py [kök]` ile (artımlı, ~1 GB; çıplak `graphify update .` değil): oturum sonunda arka planda BAŞLATMA; yalnız iş başında, RAM <%75 ve başka graphify/ağır python yokken. Keşif önce cc-kopru oku (iskelet/sembol). L1
+- graphify update yalnız `python .kos/kopru/graphify_hafif.py [kök]` ile (artımlı ~4 sn/332 MB; çıplak `graphify update .` değil): oturum sonunda arka planda BAŞLATMA; yalnız iş başında, başka graphify/ağır python yokken; RAM kapısı artımlı <%85, tam (--tam ya da ilk kurulum, ~1.5 GB) <%75. Keşif önce cc-kopru oku (iskelet/sembol). L1 L42
 - Test/inceleme tarayıcısı Chrome (Playwright Chrome kanalı ya da Claude in Chrome), Opera değil; pencere öne çıkmaz. L25
 
 ## 3. Token (kalite düşmeden)
@@ -41,10 +43,10 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 - Rapor/devir kısa; övgü/tekrar yok. L6
 
 ### Token araç sırası
-Ölçüm: `python .claude/token4/a0.py` → docs/kutuphane/olcum/token-4-arac.tsv (14 Eki). graphify keşif sırası GRAPHIFY-ULTRA-1'den.
+Ölçüm: `python .claude/token4/a0.py` → docs/kutuphane/olcum/token-4-arac.tsv (14 Eki). Keşif sırası (GRAPHIFY-ULTRA-1): graphify-out/GRAPH_REPORT.md başlıkları (harita) → `graphify query`/cc-kopru `oku` iskelet-sembol → dosya yalnız kanıt satırı için Read offset/limit (~20 satır); >300 satırlık dosyanın aralıksız Read'i köprü ajanlarında `tools/oku_yonlendir.py` ile iskelete döner.
 - Konum: sembol/ilişki → graphify query/oku; içerik konumu → Grep (files_with_matches/-n). `rtk grep` en kalabalık, en düşük oranlı kalem (8372 komut, %25.6).
 - Bash'te `ls -la`, `grep -n`, `wc -l`, `tail -c`, `git add` rtk'sız geçiyor (1 günde 1013 komut ≈189k token) → Glob/Grep/Read aracı ya da başına `rtk`.
-- YASAK: ev dizini, AppData ve `..` üstünde `ls` (-la/-t/-A): komut başı 28–114 sn, girdi 0.9–2.8M token (rtk süzmese bağlamı doldurur). Dar Glob deseni kullan.
+- YASAK: ev dizini, AppData ve `..` üstünde `ls` (-la/-t/-A): komut başı 28–114 sn, girdi 0.9–2.8M token (rtk süzmese bağlamı doldurur). Dar Glob deseni kullan. L41
 
 ## 4. Kalite kapısı
 - Sayı önce (kapi.mjs/JSON); kare/görüntü yalnız eşik aşılınca, adım başı ≤2 görüntü. L6

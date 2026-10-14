@@ -62,3 +62,8 @@
 - K14 UYGULANDI (repo): tools/cagri_sayac.py bağlam ≥150k → DUR (140k'dan); 45 çağrıda yalnız bağlam ≥120k ise DUR (okunamazsa eski sayı kuralı). d3 hesabı: <120k'da bölme ~−27k zarar. Test 19/19 (yeni test kırmızı→yeşil).
 - K12 öneri onay betiğinde: global CLAUDE.md "subagent (model: sonnet)" → okuyucu varsayılan, general-purpose yalnız yazma/MCP, tek yargıç, öz dönüş. onay/token_3_uygula.py --kuru: 3 hedef de bulundu; test 1/1.
 - K16 başlanmadı (çağrı tavanı).
+
+## d7 (14 Eki ~22:10) — K15 kapısı yeniden
+- Düzeltme: is-akisi SKILL.md §1 başına iki kalın satır (rapor ilk satırı "Katalog: kullanılan [..]" her işte; her claude -p strict-mcp bayrakları), §1.4/§2'deki kopyalar işarete indi. TOKEN-4'ün DEVAM-KURALI'na eklediği KOMUT YASAĞI satırı arsiv.md L41 + SKILL.md etiketi (test_is_akisi 1 passed). DEVAM-KURALI.md = 1 satır işaretçi (yedek .bak-token3-k15b).
+- Puanlayıcı kalıcılaştı: .claude/token3/k15_puan.py (17 regex; d6 listesi kayıptı). Aynı listeyle: önce (arsiv) 16/17 · d6 sonra 15/17 · d7 sonra 16/17 (eksik: durma ≥%30 eşiği). "üst sınır 6" regex yanlış negatifiydi, düzeltilip üçü yeniden puanlandı.
+- **Kalite ≥ önce TUTTU → işaretçi kalır.** 1. oturum: 3 tur, $0.19, ağırlıklı ≈51k (önce 62k, −%18). claude -p 15/16.

@@ -19,6 +19,13 @@ ISTEM = {
             "Dosya yazma. ≤12 satır, her iddiaya dosya:satır.\n---\nİki yanıt gelince her birini HARFİYEN dosyaya yaz: okuyucu → "
             ".claude/token3/k12-okuyucu.md, general-purpose → .claude/token3/k12-gp.md. Sonra yalnız `bitti` yaz."),
 }
+K15 = ("Kural dosyası: {} — Read ile oku, gösterdiği dosya varsa onu da. Sonra şu hayali görev için köprü oturumu d1 planını yaz "
+       "(dosya yazma ve komut çalıştırma YOK; yalnız Read). Görev OLCUM-Z: secim_olc.py ile zor seti tekrar 2 ölç (~25 dk sürer), "
+       "sonuca göre tools/ altında küçük bir betik düzeltmesi yap, düzeltilen skill'i claude.ai'ye de teslim et. Yanıt: (1) sırayla ilk 6 adım, "
+       "her biri komut/dosya yoluyla (2) ölçüm sürerken RAM %89'a çıkarsa ne yaparsın (3) 40. dakikada ne yaparsın (4) devir notu taslağı "
+       "(5) iş bitince son adımlar. ≤40 satır.")
+ISTEM["k15a"] = ("high", K15.format("C:/Projeler/omer-skills/skills/is-akisi/arsiv.md"))
+ISTEM["k15b"] = ("high", K15.format("C:/Projeler/omer-skills/.kos/kopru/gorev/DEVAM-KURALI.md"))
 
 for ad in sys.argv[1:]:
     efor, istem = ISTEM[ad]
