@@ -1,0 +1,458 @@
+ne	is	kaynak	alan	araclar
+Plan/mimari/ilk iskelet güçlü modelde; araştırma, tekrarlı üretim, test/review ucuz model ya da alt-ajanda; effort işe göre, max değil	Ajan oturumunda maliyet/kalite dengesi	docs/video-tarama/99-sentez.md:40	ajan-arac,ml-ai	
+Aktif MCP/skill setini işe göre sınırla: kullanılmayanı /mcp ile kapat, etkisini /context ile ölç	Claude Code context şişmesini azaltma	docs/video-tarama/99-sentez.md:41	ajan-arac	Claude Code
+Site promptu iskeleti: rol + 'sıfırdan, orijinal <tür> sitesi, premium' + referans sınırı ('ilham al, kopyalama' ya da REF'te 'değiştirme')	AI ile landing/site üretim promptu	docs/video-tarama/99-sentez.md:61	tasarim,frontend	
+Promptta stack+sürüm (GSAP/Lenis, Three.js/R3F, Next.js), dosya yapısı ve config parametreleri (görsel sayısı, hız, boşluk) dikte edilir	Site üretim promptunu belirsizlikten arındırma	docs/video-tarama/99-sentez.md:62	frontend	GSAP,Lenis,three.js,Next.js
+Kilitli kararlar promptta 'dışına çıkma' ile verilir (renk/font/px); 'masaüstünde sinematik, mobilde sadeleştir' davranış kuralı	Ajanın marka kararlarını bozmasını önleme	docs/video-tarama/99-sentez.md:63	tasarim,frontend,mobil	
+Düzeltme turunda 'yalnız X'i değiştir, diğer kısımlara dokunma'; kapanışta responsive + görseller public/'ten + port belirtilir	Yinelemeli UI düzeltme turları	docs/video-tarama/99-sentez.md:64	frontend,ajan-arac	
+Promptun başında kullanılacak tasarım skill'lerini adıyla an (skill-önce kalıbı; kanıt zayıf)	Skill tetiklenmesini garantileme	docs/video-tarama/99-sentez.md:66	ajan-arac,tasarim	
+Ekran kaydını önce ayrı bir modele analiz ettirip davranış kurallarına çevir, sonra kodlama promptuna ver	Animasyonlu referans siteyi yeniden üretme	docs/video-tarama/99-sentez.md:67	tasarim,frontend,video	
+Brief sırası: marka → hedef kitle → tasarım dili → sayfa deneyimi → teknik beklenti	Tasarım brief'i yazma	docs/video-tarama/99-sentez.md:68	tasarim,pazarlama-is	
+Medya-önce: ilk/son kare verip AI videosu üret, hero'da scroll-scrub'a bağla; görselleri marka maskotundan türet	Premium hero bölümü üretimi	docs/video-tarama/99-sentez.md:69	video,frontend,gorsel	
+Uzun teknik prompt ile kısa brief + iyi skill/context çelişir; 'her detayı sen seç' marka kararını kullanıcıdan alır, kaçın	Prompt uzunluğu kararını verme	docs/video-tarama/99-sentez.md:71	tasarim,ajan-arac	
+Bulut E2E test aracı yerel uygulamayı tünelle dışa açar, screenshot+DOM buluta gider; gizli veri olan projede önce tart	Bulut test aracı seçimi	docs/video-tarama/99-sentez.md:33	guvenlik,test	TestSprite
+Renk ölçen araç yoksa 'exact hex' isteyen skill değer uydurur; referanstan renk için k-means/ΔE ölçümü gerekir	Referans görselden renk çıkarma	docs/video-tarama/99-sentez.md:34	tasarim,ajan-arac	design-dna
+Plugin kurmadan önce hook kayıtlarına bak: SessionStart/Stop hook'u her oturumda betik koşturur, review-gate limiti hızla tüketir	Claude Code plugin değerlendirme	docs/video-tarama/99-sentez.md:36	ajan-arac,guvenlik	codex-plugin-cc
+Remotion lisansı 3 çalışanı aşan kâr amaçlı şirkette ücretli; kod ile video hattı seçerken lisans koşulu kontrol edilir	Programatik video aracı seçimi	docs/video-tarama/99-sentez.md:37	video,hukuk	Remotion
+/security-review bekleyen diff'i inceler; ayakta uygulamaya saldırı simülasyonu için ZAP baseline Docker'da koşulur	Yayın öncesi dinamik güvenlik taraması	docs/video-tarama/99-sentez.md:38	guvenlik,test,devops	OWASP ZAP,Docker
+Tarayıcı doğrulama döngüsüne tur tavanı konur (ör. en çok 4 tur + DUR); tavansız döngü önerisi reddedilir	Ajan doğrulama döngüsü tasarımı	docs/video-tarama/99-sentez.md:75	test,ajan-arac	
+Hareketli referansta ekran kaydından kare dizisi + davranış dökümü (giriş, geçiş, hover, mobil) verilir	Animasyonlu referans aktarımı	docs/video-tarama/1TI4Fd89fuw.md:19	tasarim,frontend	
+Animasyon akıcılığı (kasma yok, mobil dahil) ayrı kabul satırı olarak yazılır	UI kabul kriterleri	docs/video-tarama/1TI4Fd89fuw.md:20	frontend,test	
+Kodu yazan ajan kendi işini doğrulamaz; doğrulama ayrı bağlamda, canlı uygulamada uçtan uca, kök neden + kanıtla	Ajan çıktısını kabul etme	docs/video-tarama/2WIUAp4Z8EA.md:18	test,ajan-arac	
+Test kapsamı mutlu yolda bitmez: geçersiz girdi, yoğun istek ve düzeltme sonrası eski özellik regresyonu	Test planı hazırlama	docs/video-tarama/2WIUAp4Z8EA.md:19	test	
+Skill/context değişikliği tek skaler skorla kabul edilir: başarı − ağırlıklı token maliyeti; iyileşmezse geri al	Skill/prompt değişikliği ölçümü	docs/video-tarama/2n84xa99FRY.md:20	ajan-arac,test	skill-creator
+Commit'ler alan bazında gruplanır (frontend/backend ayrı), gerekçe yazılır; yarım iş backlog'a kaydedilip sonra kapatılır	Ajanla çok alanlı geliştirme	docs/video-tarama/2n84xa99FRY.md:21	git	
+Tasarım kadranları (deneysellik/hareket/yoğunluk, 1-10) DESIGN.md'de açık token olarak yazılır	Tasarım yönünü sayısallaştırma	docs/video-tarama/39IlNR-P3-Q.md:20	tasarim	taste-skill
+Yoğun renkli/dinamik bölümden nötr zemine geçiş bilinçli karar olarak yazılır	Sayfa ritmi/arka plan kararı	docs/video-tarama/39IlNR-P3-Q.md:21	tasarim	
+Scroll'a bağlı hero videosu (ileri/geri scroll ile sarma) transform/opacity kuralı dışında ayrıca yazılmalı	Scroll-scrub video kuralı	docs/video-tarama/4cE9t4rE0-0.md:20	frontend,video	
+Scrub videosu için ilk kare + son kare ve arada tek kesintisiz kamera hareketi üretilir	AI video ile scroll hero	docs/video-tarama/4cE9t4rE0-0.md:21	video,ml-ai	
+Alt-ajan tarifine en az bir iyi çıktı örneği + kural listesi + kontrol adımı konur	Alt-ajan delegasyonu	docs/video-tarama/4z3zqABuLxY.md:20	ajan-arac	
+Scroll'a bağlı arka plan videosunun durma noktası (hangi bölümde durur) hareket kuralı olarak yazılır	Scroll video davranışı	docs/video-tarama/EezLdmm8l1c.md:17	frontend,video	
+Arka plan videosu mobil ve desktop için ayrı dosya olarak verilir	Video ağırlıklı sayfa performansı	docs/video-tarama/EezLdmm8l1c.md:18	frontend,video,mobil	
+Tüm butonlar tek bileşen/partial'dan gelir; hover/focus-visible/active orada bir kez tanımlanır	Tutarlı etkileşim durumları	docs/video-tarama/EezLdmm8l1c.md:19	frontend	
+Gece/loop koşusu: plan.md'de ölçülebilir hedef + stop koşulu, her iterasyon önce plan.md okunur, sonda doğrulama	Uzun otonom ajan döngüsü	docs/video-tarama/HOHPUFauSWY.md:18	ajan-arac,otomasyon	
+::selection rengi marka renginden türetilir	Marka detay cilası	docs/video-tarama/JfmAm3sxCSc.md:20	frontend,tasarim	
+Her hareket kuralına tetikleyici yazılır: yükleme / scroll'da görünme / hover	Hareket şartnamesi	docs/video-tarama/JfmAm3sxCSc.md:21	tasarim,frontend	
+Tam proje review'u bir kez ayrı ajanda; bulgular kalıcı dosyaya, düzeltme oturumu yalnız o maddeleri çözer, yeniden taramaz	Büyük kod tabanı review/düzeltme	docs/video-tarama/LbBC5Wew4qs.md:18	ajan-arac,test	
+3D/derinlik efektinde perspektif değeri açık token olarak yazılır	3D CSS/WebGL tasarım şartnamesi	docs/video-tarama/NyNScAc2u_o.md:20	3d,tasarim	
+Etkileşim durum ve cihaz başına tarif edilir; hover/mouse efektine dokunmatikte kendiliğinden hareket eden karşılık	Mobil uyumlu etkileşim	docs/video-tarama/NyNScAc2u_o.md:21	frontend,mobil	
+Mevcut sayfaya dış prompt eklerken önce salt-okuma analiz + dokunulmaz alan listesi; prompttan yalnız ilgili bölüm alınır	Var olan projeye ekleme yapma	docs/video-tarama/QGyKyFcqyDE.md:18	frontend,ajan-arac	
+Etkileşim kabulü davranış cümlesiyle yazılır ('tıklayınca alt öğeler görünür'), gerçek tarayıcıda tıklanarak doğrulanır	Etkileşimli bileşen testi	docs/video-tarama/R6kSRi77G4I.md:19	test,frontend	Playwright
+Hareketli referans screenshot'ına 'statik değil' notu + davranış tarifi (parçacık, imleç etkileşimi) eklenir	Görsel referans verme	docs/video-tarama/Yunu27g7sLw.md:19	tasarim,frontend	
+Hareket, aynı öğenin farklı durumlarını gösteren çoklu screenshot ile verilir (ör. 3 kare)	Animasyon referansı	docs/video-tarama/Yunu27g7sLw.md:20	tasarim	
+Yeni/değişen sayfada iç+dış tüm linkler denetlenir; kabul: kırık link 0	Site teslim kontrolü	docs/video-tarama/ZQgwjrM1wsc.md:18	test,frontend	
+Doğrulama döngüsü olan işi ucuz modelle de koştur; sonuç eşitse ucuz modeli kullan	Model seçimi deneyi	docs/video-tarama/ZQgwjrM1wsc.md:19	ml-ai,ajan-arac	
+WebGL/canvas efekt ayarları (süre, genişlik, gölge, akışkanlık) tek config dosyasında toplanır	Efekt ince ayarı	docs/video-tarama/_X_Seo1u9LM.md:20	frontend,3d	
+3D/oyunlaştırılmış sahnede ışık tonu (ör. sıcak sarı) ve kontrol şeması (tuşlar, kapalı hareketler) token olarak yazılır	Web 3D/oyun sahnesi şartnamesi	docs/video-tarama/as1W0ijkCqA.md:20	3d,oyun,tasarim	
+Yön künyesine anlatı konsepti: ürün yerine hikâye, her sahne/öğe fikre bağlanır	Creative marka sitesi	docs/video-tarama/b-LZ_Y9wor8.md:19	tasarim,pazarlama-is	
+Ağır 3D/görsel varlıkta yükleme ekranı; site hazır olunca açılır	3D ağırlıklı sayfa perf	docs/video-tarama/b-LZ_Y9wor8.md:20	frontend,3d	
+Hareket/scroll sahnesi sıfatla değil teknik tarifle yazılır (kütüphane+sürüm, ör. GSAP/Lenis)	Hareket şartnamesi	docs/video-tarama/b-LZ_Y9wor8.md:21	tasarim,frontend	GSAP,Lenis
+Her güncelleme sonrası canlı linkte tüm sayfaları gezen E2E regresyon; geçmeden 'bitti' sayılmaz	Sürekli teslim kalite kapısı	docs/video-tarama/eck2ihs56Xs.md:17	test,devops	
+Scroll anlatısı: bölümler arası taşınan süreklilik çizgisi; scroll geçişi geri scroll'da tersine döner	Scroll hikâye tasarımı	docs/video-tarama/fCc97Rv-60w.md:19	tasarim,frontend	
+Uzun scroll/dinamik anlatım creative/uluslararası markaya uygun, e-ticarette değil	Site yönü seçimi	docs/video-tarama/fCc97Rv-60w.md:20	tasarim,pazarlama-is	
+En pahalı model yalnız ilk ana tasarım ve çözülemeyen bug'a ayrılır	Model maliyeti kontrolü	docs/video-tarama/fCc97Rv-60w.md:21	ml-ai,ajan-arac	
+Kalıcı hafıza dosyasına üst sınır; yeni not eklemeden eskiyi sil ya da birleştir	Ajan hafızası bakımı	docs/video-tarama/hAYPvExWmCw.md:20	ajan-arac	
+Web'de 3D model düşük detaylı, küçük GLB olmalı (ör. ~2 MB)	Web 3D performansı	docs/video-tarama/iYwCzKy6W40.md:20	3d,frontend	three.js
+WebGL yön ararken Three.js resmi örnek galerisi referans alınır, kopyalanmaz	3D web ilham kaynağı	docs/video-tarama/iYwCzKy6W40.md:21	3d,frontend	three.js
+Dış tasarım aracından inen proje görsel optimizasyonu + video yükleme durumu + audit'ten geçmeden teslim edilmez	Tasarım aracı çıktısını teslim	docs/video-tarama/jGJ09wdTGDI.md:19	frontend,test	Claude Design,Lighthouse
+Ücretli üretim/API çağrısı yaptıran prompta sayısal tavan ('en fazla N görsel') + çıktı filtresi	Kredi harcayan otomasyon	docs/video-tarama/oGI1YmC2L00.md:20	ml-ai,finans,otomasyon	
+Yayın öncesi npm/pnpm audit (Paths ile dolaylı paket) + DevTools ile istemci doğrulamasını atlatıp SQLi/XSS testi	Yayın öncesi güvenlik	docs/video-tarama/oPIhoyYzDFE.md:19	guvenlik,test	npm
+Prod teslim: footer'da KVKK/gizlilik/çerez onayı/hesabımı sil + sayfa başına title/description/favicon + robots/sitemap	Site prod teslim listesi	docs/video-tarama/oPIhoyYzDFE.md:20	frontend,hukuk	
+Hedef kitle tanımı marka kimliği kararından önce girdi olarak alınır	Marka/tasarım başlangıcı	docs/video-tarama/p9pPveeSOCQ.md:19	tasarim,pazarlama-is	
+Sayfa deneyimi planı (bölüm sırası + medya yerleşimi, ör. hero'da video) kodlamadan önce yazılır	Site içerik planı	docs/video-tarama/p9pPveeSOCQ.md:20	tasarim	
+Oturum işin kendi klasöründe açılır; karışık büyük klasör taramayı/token'ı artırır (ölçümsüz iddia)	Ajan oturumu düzeni	docs/video-tarama/u_cw1mIzvpY.md:19	ajan-arac	
+Dış repo kodu/kuralı almadan lisans okunur; MIT ticari kullanıma izin verir ama lisans bildirimi korunur	Açık kaynak benimseme	docs/video-tarama/wnkbxFJjiUk.md:20	hukuk,git	
+Kıyafetli karakterde Delete Hidden Faces: gövde mesh'inin kıyafetin altından dışarı taşmasını önler	3D karakter giydirme	docs/video-tarama/2026-10-09-OhAjOVCSSt8.md:47	3d,oyun	
+Rigid body çarpışma gövdeleri mesh içinde gevşek kalmalı; tam eşleşme şart değil	3D fizik/rig kurulumu	docs/video-tarama/2026-10-09-TEQrASGGBJs.md:51	3d	Blender
+Rig bir kez kurulup sahne kaydedilirse her animasyonda yeniden kurulmaz	3D animasyon iş akışı	docs/video-tarama/2026-10-09-TEQrASGGBJs.md:52	3d	Blender
+AI ile üretilen 3D mesh rig/animasyon öncesi ~50k yüze düşürülür; yüksek poligon yavaşlatır, AccuRIG yüklemez	AI 3D model → rig hattı	docs/video-tarama/2026-10-09-gm0yUeS0z5Y.md:68	3d,ml-ai	Hunyuan3D,AccuRIG,Blender
+Test render'ları düşük çözünürlükte tutulur, her sürüm yeni dosya olarak kaydedilir	3D/video render iş akışı	docs/video-tarama/2026-10-10-ACal_vkrc9Q.md:58	3d,video	Blender
+Görselden 3D'de tek 3/4 görünüm arka tarafı uydurur; çoklu görünüm verilir	Görselden 3D model üretimi	docs/video-tarama/2026-10-10-HRe7LxuyHy4.md:68	3d,ml-ai	
+Web 3D sahnede mobilde 3D modeli kapatmak geçerli perf seçeneği	Mobil web 3D performansı	docs/video-tarama/2026-10-10-TnduiS4kyg8.md:118	3d,frontend,mobil	three.js
+Subdivision seviyesi 1: kalite ile performansı dengeler	3D modelleme ayarı	docs/video-tarama/2026-10-09-zreDqBeYqtE.md:48	3d	Blender
+Video mocap için telefon kaydı yeter: 30/60 fps ve iyi ışık şart	Ucuz hareket yakalama	docs/video-tarama/2026-10-09-LZLFvwGo_wU.md:31	3d,video	
+Videodan hareket yakalamada girdi en az 720p; dışa aktarılan hareket 30 FPS'e çevrilir	Video mocap girdisi	docs/video-tarama/2026-10-09-QWk0TQ3IfR8.md:41	3d,video	
+AI görsel/videoda yüz ve hayvan yakın planları kaba çıkar; insanlar için gerçek görüntü kullanılır	AI görsel üretim sınırı	docs/video-tarama/2026-10-09-ig-DeHGj-mG-5V.md:56	gorsel,video,ml-ai	
+Uzay sahneleri aşırı pozlanmaya eğilimli; promptta gerçek renkler istenir	AI görsel prompt ayarı	docs/video-tarama/2026-10-09-ig-DeHGj-mG-5V.md:57	gorsel,ml-ai	
+Animasyon için referans görsel uygun başlangıç pozunda olmalı; koşu pozundan yürüme döngüsü zor	Karakter animasyonu üretimi	docs/video-tarama/2026-10-11-j2bE9gq914U.md:71	3d,oyun,ml-ai	
+Ürün render'ında backlight üründen geniş olmalı ki kenarı kesmesin, ama difüz olmayacak kadar dar	Ürün çekimi/render ışığı	docs/video-tarama/2026-10-01-wySOWP-MevI.md:38	3d,gorsel	Blender
+Fotoğraftan nesne ayırmada arka plan düz renk olmalı; gradyan/görselli fon ayırmayı zorlaştırır	Fotoğraftan 3D/kesme	docs/video-tarama/2026-10-09-x3SZvxoOmi0.md:62	gorsel,3d	
+AI 3D (Hunyuan) UV'si zayıf; Blender Smart UV ile yeniden açmak çok daha iyi sonuç verir	AI mesh doku hazırlığı	docs/video-tarama/2026-10-11-1vw39QCcQjg.md:52	3d,ml-ai	Blender,Hunyuan3D
+Unreal'de bake etmeden önce Live Link kapatılır, yoksa motor çöker	Unreal animasyon bake	docs/video-tarama/2026-10-09-c134z16J6Oc.md:70	oyun,3d	Unreal Engine
+Reklam tarzı ürün videosu için tek renk beyaz fon + iki ışık yeter	Düşük bütçe ürün videosu	docs/video-tarama/2026-10-09-ig-DD2KaRtoGhr.md:20	video,pazarlama-is	
+Scroll-scrub hero videosu ideal 5-7 sn; uzunsa çok kaydırma gerekir	Scroll video süresi	docs/video-tarama/2026-09-30-BdLrWHzdYt4.md:50	video,frontend	
+Video üretmeden önce referansı LLM'e analiz ettir; hata ve kredi kaybı azalır	AI video kredi tasarrufu	docs/video-tarama/2026-10-07-1nGx7WR8YLE.md:46	video,ml-ai	
+Ajan otomasyonuna bütçe kuralı + ücretli video üretiminden önce onay adımı konur	Ücretli medya otomasyonu	docs/video-tarama/2026-10-09-9C4TRbucmhQ.md:104	video,otomasyon,finans	
+Hareket aktarımında üretim süresi referans videodan 1-2 sn uzun ayarlanır	AI hareket aktarımı	docs/video-tarama/2026-10-09-ig-Dd7ByT7tnZw.md:39	video,ml-ai	
+Claude video dinleyemez; video analiz/düzenlemede zaman damgalı transkript verilir	Ajanla video kurgu	docs/video-tarama/2026-10-09-pX-7WMwPCrw.md:43	video,ajan-arac	
+Kurgu düzeltmesinde notlar sahne başına yazılıp toplu uygulanır; tek tek düzeltmekten verimli	Video revizyon turu	docs/video-tarama/2026-10-10-6yWPy5aVHb8.md:99	video	
+Planlamadan önce video modelinin maksimum klip uzunluğu kontrol edilir	AI video sahne planı	docs/video-tarama/2026-10-10-ACal_vkrc9Q.md:59	video,ml-ai	
+Rakip reklam analizinde yalnız 1, en fazla 2 dk'lık reklamlar seçilir	Reklam araştırması	docs/video-tarama/2026-10-10-hxQshcD3e1Y.md:67	pazarlama-is,video,arastirma	
+Animasyon çıktısı video, PNG dizisi (Bodymovin ile JSON) ya da Three.js ile web'e taşınabilir	Animasyonu web'e aktarma	docs/video-tarama/2026-10-09-VrxXx1GxDnc.md:52	video,frontend	Bodymovin,three.js
+Seedance/Kling klipleri 60-180 sn'de hazır olur; toplu üretim süresinde hesaba katılır	AI video üretim planlaması	docs/video-tarama/2026-10-10-toAE8NfqzzY.md:126	video,ml-ai	Seedance,Kling
+Uzun videoda ilk taslağı ajana yaptırmak elle katman kurmaktan iyi	Hareketli grafik taslağı	docs/video-tarama/2026-10-10-Fuo1i_-9Frc.md:91	video,ajan-arac	EffectCraft
+Hizmet fiyatı saate değil sonuca bağlanır: kurulum + aylık retainer + risk tersine çevirme	AI ajans/freelance fiyatlama	docs/video-tarama/2026-10-10-8yE6G1Lup1s.md:219	pazarlama-is,finans	
+Anahtar kelimeli CTA ('yorumla X') + otomatik DM izleyiciyi yorumcu ve takipçiye çevirir	Sosyal medya büyütme	docs/video-tarama/2026-10-09-ig-DeQQMMTIbr5.md:41	pazarlama-is,otomasyon	
+Reels bölümü boş hashtag'leri bul; videoyu o etiketle paylaşan konumu alabilir	Instagram keşfet	docs/video-tarama/2026-10-09-ig-CKMMlreqpzp.md:33	pazarlama-is	
+Tasarım referansı seçerken beğeni sayısına bak; çok beğenilen tasarım müşteriye de hitap eder	Müşteri işi referans seçimi	docs/video-tarama/2026-10-09-Pw2x2yXTIUE.md:81	tasarim,pazarlama-is	
+AI müşteri simülasyonu tahmindir; gerçek kullanıcı testinin yerine geçmez	Ürün/pazar doğrulama	docs/video-tarama/2026-10-09-ig-Dd9z3yFvDkH.md:37	pazarlama-is,arastirma,ml-ai	
+Kurumsalın pahalı ödediği küçük planlama/not/takvim araçları tek seferlik yerel uygulamayla ikame edilebilir	AI ile ürün fikri bulma	docs/video-tarama/2026-10-10-38_48YQ6iOs.md:85	pazarlama-is	
+Freelance teslimde önce fatura gönderilir, ödeme alınınca yönetici şifresi değiştirtilir	Müşteri teslim güvenliği	docs/video-tarama/2026-10-11-88zWBJ8L4y8.md:76	pazarlama-is,guvenlik,finans	
+Otomasyon adayı bulmak için haftalık tekrarlanan görevler kaydedilir (PDF→tablo, pazartesi raporu)	Otomasyon fırsatı keşfi	docs/video-tarama/2026-10-09-ig-DbdHeZNjDXA.md:44	otomasyon	
+Bekleme ekranında 10 sn sonrası döngüsel animasyon zarar verir; ilerleme çubuğu/stepper kullanılır	Yükleme/bekleme UX	docs/video-tarama/2026-10-09-ig-DcwUpluxnaL.md:41	frontend,tasarim	
+Referans siteyi değil kararlarını kopyala: boşluk, yazı boyutu, tek vurgu rengi	Referanstan tasarım öğrenme	docs/video-tarama/2026-10-10-ig-Ddqj0svm6yq.md:44	tasarim	
+Varsayılan fontu bırakmak vibe-coded tasarımı ele veren en hızlı işarettir	AI üretimi tasarım cilası	docs/video-tarama/2026-10-09-_SVU3oC4JX8.md:130	tasarim,frontend	
+Parallax en kolay prompt'lanan animasyon; mobilde neredeyse her zaman kapatılır	Mobil animasyon kararı	docs/video-tarama/2026-10-10-QunIbbJ6ZgI.md:69	frontend,mobil	
+Bileşenleri ajana tek seferde değil üç gruba bölerek vermek atlanan boşlukları önler	Büyük UI üretim görevi	docs/video-tarama/2026-10-10-VezxOhvoXqU.md:67	frontend,ajan-arac	
+LLM'e yalnız URL yerine ayrıntılı tasarım sistemi dökümü verilir; daha iyi okunur	Tasarım referansı aktarma	docs/video-tarama/2026-10-10-xno-O4vAx7Q.md:97	tasarim,ml-ai	Refero
+Çok markalı yapıda (house of brands) markalar ayrı tasarım dosyalarına bölünür	Marka sistemi yönetimi	docs/video-tarama/2026-10-10-EyeO-yWSkYE.md:70	tasarim,pazarlama-is	
+Görsel genişletmede Figma Expand iyi sonuç verir; 16:9 önerilir	Görsel outpaint	docs/video-tarama/2026-10-10-WEUlsIqoKFQ.md:75	gorsel	Figma
+Oyun üretiminde 'oyun yap ve PixelLab kullan' yerine belirli istekler yazılır	AI ile 2D oyun üretimi	docs/video-tarama/2026-10-11-fvPmuk-usgw.md:107	oyun,ml-ai	PixelLab
+Önce kendi okuma/koruma modlarını kullan; yabancı modu repo incelenene dek kurma; sert engel izin kurallarında	Claude Code eklenti güvenliği	docs/video-tarama/2026-10-09-tTe7GOJuc0E.md:77	guvenlik,ajan-arac	Claude Code
+Plugin/mod kurmadan önce incele ve 'claude plugin validate' koş; görülen her modu kurma	Plugin kurulum güvenliği	docs/video-tarama/2026-10-09-U6xZX4YWFkU.md:79	guvenlik,ajan-arac	Claude Code
+Güvenlik denetimi promptu birden çok kez, temiz oturumlarda koşturulur	LLM ile güvenlik denetimi	docs/video-tarama/2026-10-10-BMMcmmnjrM8.md:154	guvenlik,ajan-arac	
+AI değişiklikleri önce staging'de test edilir; veritabanı ve API anahtarları ortamlar arasında ayrı	Ajanla prod'a çıkış	docs/video-tarama/2026-10-10-ig-Dd85OwXN4Gl.md:33	guvenlik,devops,veri-db	
+Parolayı kendi tablonda tutma; hazır auth servisi (Supabase Auth) kullan	Kimlik doğrulama tasarımı	docs/video-tarama/2026-10-10-ig-DeFKAw1xM1b.md:44	guvenlik,backend	Supabase
+Dış skill kurulmadan önce içeriği bir LLM'e güvenlik kontrolü yaptırılır	Skill kurulum güvenliği	docs/video-tarama/2026-10-10-ig-DePtyBoAOPd.md:51	guvenlik,ajan-arac	
+Ücretsiz LLM katmanı hız sınırlı ve değişken: yedek sağlayıcı tut, müşteri işini ücretsiz anahtara bağlama	LLM sağlayıcı seçimi	docs/video-tarama/2026-10-10-ig-DeR_xczkbK6.md:40	ml-ai,bulut,api	
+n8n Google Sheets credential'ı Sheets'in bulunduğu hesabın Client ID/Secret'iyle kurulur	n8n entegrasyonu	docs/video-tarama/2026-10-10-lWevKkUhGfI.md:79	otomasyon,api	n8n,Google Sheets
+n8n Header Auth: ad 'Authorization', değer 'Key <API key>' biçiminde, Key'in K'si büyük	n8n HTTP kimlik doğrulama	docs/video-tarama/2026-10-10-lWevKkUhGfI.md:80	otomasyon,api	n8n
+Stripe entegrasyonunda önce kısıtlı (restricted) anahtar oluşturulur	Ödeme API güvenliği	docs/video-tarama/2026-10-09-ig-DYqolQdgY3k.md:50	guvenlik,api,finans	Stripe
+Ekran kaydından skill üretirken DM ve parola yöneticisi kapatılır; skill paylaşılmadan önce okunur	Kayıttan skill üretme	docs/video-tarama/2026-10-09-ig-DbdHeZNjDXA.md:43	guvenlik,ajan-arac	
+Saldırı/pentest ajanı yalnız kendi sistemlerinde ve izin verilen hedeflerde kullanılır	Ajanla pentest	docs/video-tarama/2026-10-09-ig-Ddqym0VAqzU.md:52	guvenlik,hukuk	Strix
+Vibe-coded site yayından önce 20 maddelik güvenlik kontrol listesiyle Claude'a denetletilir	Yayın öncesi güvenlik	docs/video-tarama/2026-10-10-ig-DcNc-EszHJF.md:24	guvenlik	
+Prompt cache ~60 dk sonra düşer; yeniden yazım tüm metni tekrar ücretlendirir	Oturum maliyeti/ara verme kararı	docs/video-tarama/2026-10-09-9hetShMMp2s.md:100	ajan-arac,ml-ai	Claude Code
+Paralel oturum çakışma koruması: Edit/Write öncesi dosyaya son 30 dk'da dokunuldu mu bakılır	Çoklu oturumda dosya çakışması	docs/video-tarama/2026-10-09-9hetShMMp2s.md:101	ajan-arac	Collision Guard
+CLAUDE.md, skill ve hook'lar periyodik (ör. 6 ayda bir) silinip yeniden kurulur (Boris Cherny önerisi)	Ajan yapılandırma bakımı	docs/video-tarama/2026-10-10-oz2CwrPV2Rg.md:84	ajan-arac	Claude Code
+Ajan sistemi kurmadan sor: iş her gün tekrar ediyor mu, her seferinde baştan mı anlatıyorsun? Hayırsa CLAUDE.md+skill yeter	Ajan mimarisi ihtiyaç kararı	docs/video-tarama/2026-10-09-OhnKe-L5-lU.md:114	ajan-arac	
+Test yazdırma kuralı plana taşınır; Opus planlar, ucuz modeller uygular	Model kademeli geliştirme	docs/video-tarama/2026-10-10-dDx6E6FYKM4.md:124	ajan-arac,test,ml-ai	
+Acı yoksa yeni mimari kurma; en düşük uygun karmaşıklık seviyesini seç	Ajan/sistem mimarisi seçimi	docs/video-tarama/2026-10-09-DTCyvo6cC54.md:71	genel,ajan-arac	
+Zamanlanmış ajan görevinde prompta boş durum yazılır (yeni veri yoksa ne olacak)	Zamanlanmış ajan görevleri	docs/video-tarama/2026-10-09-ig-Dc_Z3BEgsJN.md:58	otomasyon,ajan-arac	
+Yeterli bilgi varsa ara onay sorma; uzun işi sonuna dek götür	uzun, gözetimsiz iş	../omer-kurallar.md:3	genel	
+İş kabul kriterleriyle tanımlanır; "bitti" yalnız kanıtla söylenir (commit, test sayısı, çıktı)	her iş kapanışı	../omer-kurallar.md:4	genel,test	
+Kırmızı-önce: yeni davranışın testi önce kırmızı görülür ve ayrı commit'lenir	özellik/bug geliştirme	../omer-kurallar.md:5	test,git	
+Zorunlu mutasyon: kritik koruma kaldırılınca en az bir test kırmızıya düşmeli, sonra geri alınır	koruma testinin gerçekliğini sınama	../omer-kurallar.md:6	test,guvenlik	
+Tam suit yeşil olmadan kapanış yok; doğrulama değişiklik boyutuyla orantılı (≤10 satır → yalnız test koşusu)	kapanış doğrulaması	../omer-kurallar.md:7	test	
+Yapılmayacaklar tarifte TAVİZ YOK bölümünde açıkça yazılır	tarif/plan yazımı	../omer-kurallar.md:8	belge,genel	
+Kurallar her tarifte yeniden yazılmaz; CLAUDE.md, skill ve belleğe gömülür; global CLAUDE.md 1.3k token tavanlı	talimat altyapısı	../omer-kurallar.md:9	ajan-arac	
+Talimat kısa ve token-verimli: tekrar yok, bilinen kural yinelenmez, detay kabul kriterinde yoğunlaşır	istem/tarif yazımı	../omer-kurallar.md:10	ajan-arac,dil	
+Kapanış raporu ≤15 satır: commit · test · CI · sapmalar; övgü, tablo, tur dökümü yok	iş raporu	../omer-kurallar.md:11	belge	
+Tarifte "en fazla N tur" + "dalga bitince /clear"; döngüde her iterasyon önce dalga.md'yi okur, ölçülebilir durma koşulu orada	gözetimsiz döngü, uzun dalga	../omer-kurallar.md:12	ajan-arac,otomasyon	
+Keşifte önce graphify query; dosya yalnız kanıt satırı için açılır; verbose iş sonnet alt ajana	context disiplini	../omer-kurallar.md:13	ajan-arac	graphify
+Ücretli API/üretim çağrısı yapan her yolda sayısal tavan ("en fazla N")	maliyetli çağrı içeren iş	../omer-kurallar.md:14	api,finans	
+Efor zorluğa göre (varsayılan high, zor dalga xhigh); effort/plugin/MCP değişikliği yalnız oturum başında	oturum ayarı	../omer-kurallar.md:15	ajan-arac	
+UI işinde önce DESIGN.md sonra kod; screenshot döngüsü en fazla 4 tur, farklar sayıyla	UI geliştirme	../omer-kurallar.md:16	frontend,tasarim	
+Proje kapanışında 6 madde: fonksiyon · güvenlik · bağımlılık · ZAP · KVKK · SEO/A11y; her projede graphify kurulu	proje kapanışı	../omer-kurallar.md:17	guvenlik,frontend,hukuk	graphify,ZAP
+Yeni araç 4 ölçütle: bakım · CC'de çift mi · izin kapsamı · context maliyeti; tarama takvimle değil tetikleyiciyle	araç/aday değerlendirme	../omer-kurallar.md:18	ajan-arac,arastirma	
+Anahtar ve sır değerleri asla yazdırılmaz; varlık yalnız evet/hayır raporlanır	env/secret içeren iş	../omer-kurallar.md:19	guvenlik	
+Belirti örtülmez, kök neden düzeltilir	hata ayıklama	../omer-kurallar.md:20	test,genel	
+İstem geri bildirimi gerekçeli: KABUL/DUR ve sapma başına karar	rapor değerlendirme	../omer-kurallar.md:21	genel	
+İstekte amaç ve kime/ne için yazılır; KARAR satırı tek yan cümleyle gerekçelenir ("…, çünkü …")	istem/tarif yazımı	../omer-kurallar.md:22	dil,ajan-arac	
+Kalite takası: düşüş gürültü bandında her tasarruf AL; düşüş ≤%10 + tasarruf ≥%25 AL; ≤%15 + ≥%30 AL	token tasarrufu kararı	../omer-kurallar.md:23	ajan-arac,ml-ai	
+Düşüş %15–20: tasarruf ≥%75 AL, %50–75 SOR, <%50 RED; >%20: ≥%50 SOR; düşüş = puan/başarı göreli düşüşün büyüğü	token tasarrufu kararı	../omer-kurallar.md:23	ajan-arac,ml-ai	
+Kurulu araç kaldırılmaz: çalışmıyorsa nedeni bulunup ayarı düzeltilir; soru "kapatalım mı" değil "nasıl düzeltiriz"	olumsuz ölçülen araç	../omer-kurallar.md:24	ajan-arac	
+Aracın iyi yanı mekanizmasıyla alınır: neden/nasıl çalıştığı kaynaktan çıkarılır, fikir uyarlanır, kod kopyalanmaz	araçtan öğrenme	../omer-kurallar.md:25	ajan-arac,arastirma	
+Tasarruf mekanizması kalite kararından bağımsız kaydedilir; RED/SOR'da yalnız tasarruf kısmı alınıp onarılır, yeniden ölçülür	token özelliği değerlendirme	../omer-kurallar.md:26	ajan-arac	
+Site promptunda kullanılacak kütüphaneler ve dosya yapısı (hangi dosya neyi taşır) açıkça yazılır	site/UI yaptırma	../omer-kurallar.md:27	frontend	
+3D/animasyonlu sahnede ayarlanabilir parametreler (görsel sayısı, hız, boşluk) tek CONFIG nesnesinde toplanır	3D web sahnesi	../omer-kurallar.md:28	3d,frontend	
+Canlı linkli sitede her yayından sonra tüm sayfaları gezen E2E regresyon koşulur; geçmeden kapanış yok	yayın sonrası doğrulama	../omer-kurallar.md:29	test,frontend,devops	playwright
+Çok alanlı işte commit'ler alan bazında ayrılır (frontend/backend), mesajda gerekçe; yarım iş backlog'a	çok katmanlı iş	../omer-kurallar.md:30	git	
+"Zaten var" son değil: kurulu adayda kaynaktaki kullanım bizdekiyle kıyaslanır, iyi yanlar UYARLA/ÖĞREN	aday değerlendirme	../omer-kurallar.md:31	arastirma,ajan-arac	
+Referans inceleme serbest: DevTools ile kod/yapı/prompt incelenir; birebir klon ve izinsiz varlık kullanımı yok	site/UI öğrenme	../omer-kurallar.md:32	frontend,hukuk	DevTools
+Önceki görevin kararı repo/anahtar + bulanık ad eşleşmesiyle aynen devralınır (DEVİR); çakışan satır çift kurulmaz	çok partili aday işleme	.kos/kopru/rapor/ig-18-kur.md:4	arastirma,otomasyon	
+Site iç API'sini tersine mühendislik yapan araç hizmet şartı riski taşır → yalnız REF	aday değerlendirme	.kos/kopru/rapor/ig-18-kur.md:8	hukuk,guvenlik	
+Onay betiği deseni: --kuru → uygula (idempotent) → --geri; test kuru→uygula→uygula→geri bayt eşitliği, MCP önce=sonra	kurulum/ayar betiği	.kos/kopru/rapor/ig-18-kur.md:10	otomasyon,test	
+İki taraf teslim: CC'ye onay betiği + marketplace update, claude.ai'ye zip_denetle temiz zip Replace	skill teslimi	.kos/kopru/rapor/ig-18-kur.md:13	ajan-arac,devops	zip_denetle
+Browser Harness kalıbı: tekrar eden akışta eksik yardımcıyı ajan yazar (.playwright-yardimci/<alan>.md), sonra kullanır	tarayıcı otomasyonu	.kos/kopru/rapor/ig-40-kur.md:8	otomasyon,ajan-arac	playwright-cli
+Synced skill kopyası zip yüklenene dek eski sürümü gösterir; repo değişikliği tek başına claude.ai'ye geçmez	skill teslimi	.kos/kopru/rapor/ig-40-kur.md:10	ajan-arac	
+gitleaks bulgularının çoğu kamuya açık telemetri anahtarı/belge örneği; SkillSpector HIGH'ları elle incelenir	güvenlik taraması yorumu	.kos/kopru/rapor/ig-40-kur.md:11	guvenlik	gitleaks,semgrep,SkillSpector
+claude.ai zip'inde katlamalı (çok satırlı) SKILL description tek satıra indirilir	skill paketleme	.kos/kopru/rapor/ig-40-kur.md:17	ajan-arac	
+TSV'ye yazma denemesi dosyayı boşaltabilir; git checkout ile geri al, yazımı doğrula	veri dosyası düzenleme	.kos/kopru/rapor/ig-40-kur.md:18	git,veri-db	
+Gitignore'daki üretim çıktısını arayan fikstür worktree'de ERROR verir; önce üretici betik koşulur	worktree'de test	.kos/kopru/rapor/ig-40-kur.md:20	test,git	
+Yapan denetlemez: denetim taze bağlamlı ayrı denetçiyle yapılır	kod/iş inceleme	.kos/kopru/rapor/ig-40-kur-p2.md:8	test,ajan-arac	
+Skill description 3. tekil kişi + ne zaman kullanılır; gövde ≤500 satır	skill yazımı	.kos/kopru/rapor/ig-40-kur-p2.md:9	ajan-arac	
+STE ölçüsü: kısa cümle, etken çatı, tek anlam	belge/rapor yazımı	.kos/kopru/rapor/ig-40-kur-p2.md:10	belge,dil	
+Auto mode tüm araçlı özdeş alt ajan çoğaltmasını yetki atlatma sayar; salt-okuma tanımlı ajan + paralellik ≤2 kullan	paralel alt ajan	.kos/kopru/rapor/ig-40-kur-p2.md:23	ajan-arac	okuyucu
+Ardışık retlerden sonra auto mode soruya düşer; köprü/gözetimsiz oturumda onaylayan yoksa iş takılır	gözetimsiz oturum	.kos/kopru/rapor/ig-40-kur-p2.md:22	ajan-arac,otomasyon	
+Güvenlik aracı repoları taramada CRITICAL çıkar; yalnız SAFE alt skill kurulur, kalanı elle bakılana dek İNCELE	güvenlik skill kurulumu	.kos/kopru/rapor/ig-40-kur-p3.md:6	guvenlik	SkillSpector
+CC-BY-SA-4.0 içeriği paketlerken zip'e LICENSE eklenir, atıf korunur	lisanslı paketleme	.kos/kopru/rapor/ig-40-kur-p3.md:6	hukuk	
+Reel planlama: hook madenciliği · tutma merdiveni denetimi · haftalık plan	kısa video içerik	.kos/kopru/rapor/ig-40-kur-p3.md:7	pazarlama-is,video	reel-plan
+Dış repo tarama: klon %TEMP% altında, hook kapalı, hiçbir betik çalışmaz; gh meta + gitleaks + semgrep + SkillSpector --no-llm	dış repo güvenliği	.kos/kopru/rapor/ig-41-kur.md:5	guvenlik	gh,gitleaks,semgrep,SkillSpector
+Plugin bayatlığı: cache commit'i uzak HEAD ile, uv araçları --outdated ile kıyaslanır	sürüm denetimi	.kos/kopru/rapor/ig-41-kur.md:7	devops	uv
+Görünmez Unicode taraması: U+200B–200F, U+2060–2064, etiket U+E0000–E007F; yalnız metin dosyalarında	istem enjeksiyonu taraması	.kos/kopru/rapor/ig-41-kur.md:10	guvenlik	zip_denetle
+Güncelleme geri alması: önceki sürüm sabitlenir, plugin json + eski cache yedeklenir, git pull --ff-only + önceki commit	araç güncelleme	.kos/kopru/rapor/ig-41-kur.md:16	devops,otomasyon	uv,gstack
+Taşınabilir zip sha256 sabitli indirilip ~/Apps'e açılır	ikili araç kurulumu	.kos/kopru/rapor/ig-41-kur.md:16	guvenlik,devops	
+Çok plugin'li paketten yalnız gereken plugin kurulur (bağlam maliyeti); proje kapsamlı MCP global kurulmaz	plugin/MCP seçimi	.kos/kopru/rapor/ig-41-kur.md:17	ajan-arac	
+Ajan dosyasında yalnız gövdeye kural eklemek description'ı değiştirmez → yönlendirme değişmez, yönlendirme ölçümü gerekmez	ajan düzenleme	.kos/kopru/rapor/ig-41-kur.md:20	ajan-arac	
+SkillSpector HIGH'ları elle sınıflanır: AE1 kendi betiğini çağırma, PE3 publish.yml .npmrc, P2 şablon yorumu çoğu yanlış pozitif	tarama sonucu yorumlama	.kos/kopru/rapor/ig-41-kur.md:25	guvenlik	SkillSpector
+Bağımlılık CVE'si yalnız HTTP modunda anlamlıysa MCP stdio tarifiyle kullanılır (shadcn proxy-addr)	MCP güvenliği	.kos/kopru/rapor/ig-41-kur.md:25	guvenlik	shadcn-ui-mcp-server
+Tam yenileme tavanı aşıyorsa (1691 istek / 10) dar, yalnız ekleyen yenileme yapılır; ön denetim 0 istekle durdurur	tavanlı toplu yenileme	.kos/kopru/rapor/ig-41-kur.md:33	otomasyon,api	jev
+Envanterde aktif görünmeyen satır düşürülmez: çoğu ad değişikliği (ecc:, yerel ad) ya da PATH'te görünmeyen elle CLI	envanter bakımı	.kos/kopru/rapor/ig-41-kur.md:33	ajan-arac	
+Video paketleme modelsiz: indir · whisper · sahne kare · OCR; ANTHROPIC_API_KEY alt sürece verilmez	video toplu analiz	.kos/kopru/rapor/ig-41a.md:5	video,otomasyon	video,RapidOCR
+İkili alt ajan başlatma reddedilince tekli başlatma geçer; ikinci retten sonra parça ana oturumda yazılır	alt ajan reddi	.kos/kopru/rapor/ig-41a.md:11	ajan-arac	
+Kol dalı yokken main'de başkasının commitsiz dosyaları varsa commit atılmaz	paylaşılan çalışma ağacı	.kos/kopru/rapor/ig-41a.md:19	git	
+IG "embed verisi yok" hatasında tek kez video ozet + video paket paketi oluşturur; olmazsa Desktop Chrome okuması	IG gönderi paketleme	.kos/kopru/rapor/ig-41a.md:33	video	video
+Konuşmasız kısa reel'de paket kare çıkarmaz → video kare süre %20/50/85 noktalarında	sessiz reel analizi	.kos/kopru/rapor/ig-41b.md:4	video	video
+Lisanssız repo UYARLA olamaz → ÖĞREN; alt ajan kararları örneklemeyle denetlenir	aday kararı	.kos/kopru/rapor/ig-41b.md:5	hukuk,arastirma	
+Paralel partilerde RAM %90+ çıkar; başlatıcı RAM kapısında bekler (%95/%86 eşik)	arka plan toplu iş	.kos/kopru/rapor/ig-41c.md:3	devops	arka.py
+Çok kaynaklı birleştirme: aynı GitHub linki ya da normalize ad tek satıra iner, ayrışan kararlar karar_fark sütununda kalır	karar tablosu birleştirme	.kos/kopru/rapor/ig-41c.md:13	veri-db	
+Denetim bulguları file:line biçiminde verilir (web-design-guidelines fikri)	UI denetim çıktısı	.kos/kopru/rapor/ig-41c.md:11	frontend,belge	
+IG CDN imzalı URL sızıntı denetimi: oe=/oh=/fbcdn/_nc_ çıktıda 0 olmalı	IG verisi yayınlama	.kos/kopru/rapor/ig-41d.md:15	guvenlik,video	
+Önceki "KURULU" kararı diskte doğrulanır; eski karar kurulu olmayan aracı gösterebilir	envanter doğrulama	.kos/kopru/rapor/ig-41d.md:9	ajan-arac	
+Kurulum kaydı her kalemi türü (skill/zip/uv-guncel/plugin-guncel) ve eski sürüm/yoluyla tutar; --geri bundan çalışır	geri alınabilir kurulum	~/.claude/ig41-kur-eklenen.json:1	otomasyon,devops	
+Marketplace grubu 12 skill birden getirir; tekil skill kopyası context'i daha az şişirir	skill kurulumu	docs/kaynak-tarama/2.md:2	ajan-arac	skills
+Agresif emir dili (CRITICAL/YOU MUST/NEVER) güncel modelde aşırı tetikler; koşul sakin, doğrudan, gerekçeli yazılır	skill/ajan/CLAUDE.md yazımı	docs/kaynak-tarama/99-sentez.md:8	ajan-arac,dil	
+skillOverrides yalnız listeleme satırını gizler; plugin SessionStart hook enjeksiyonu yalnız plugin disable ile kalkar	skill budama	docs/kaynak-tarama/6.md:24	ajan-arac	
+Kullanım ölçüm penceresi gerçek transkript geçmişidir; 0 çağrılı skill'e TUT kanıtsızdır	skill budama	docs/kaynak-tarama/99-sentez.md:12	ajan-arac	
+Bug'da kök neden kanıtlanmadan düzeltme yok; üç düzeltme denemesi başarısızsa mimariyi sorgulayan DUR raporu	hata ayıklama	docs/kaynak-tarama/99-sentez.md:15	test	
+Token kazancı claude -p --output-format json gerçek girdi token'ıyla önce/sonra ölçülür; /context yerel tahmine düşebilir	token ölçümü	docs/kaynak-tarama/99-sentez.md:23	ajan-arac	claude -p,skill-doctor
+Etkileşim kabulü: yükleme/networkidle bekle → screenshot/DOM keşfi → selector → aksiyon → console/pageerror kaydı	tarayıcı testi	docs/kaynak-tarama/99-sentez.md:9	test,frontend	claude-in-chrome,puppeteer
+claude plugin validate --json + claude plugin eval puanlı raporu skill sürüm kabulünü kırmızı-önce'ye bağlar	plugin geliştirme	docs/kaynak-tarama/99-sentez.md:10	ajan-arac,test	
+Abonelikte prompt cache TTL 1 saat; 5 dk yalnız API anahtarı/bulut; /cost prompt-cache satırı warm/cold gösterir	oturum ritmi	docs/kaynak-tarama/99-sentez.md:21	ajan-arac	
+CLAUDE_CODE_SUBAGENT_MODEL varsayılan; agent tanımı/çağrı başı model öncelikli, fork ana modeli alır; /tasks ile doğrula	alt ajan modeli	docs/kaynak-tarama/99-sentez.md:22	ajan-arac	
+Claude Code sandbox native Windows'ta yok → allowed_domains kullanılamaz, settings'e sandbox yazılmaz	Windows izin ayarı	docs/kaynak-tarama/99-sentez.md:19	guvenlik,ajan-arac	
+Aday aktif iş kanıtıyla sınanır: projelerde uzantı/bağımlılık ve history.jsonl'da anahtar kelime 0 ise ele	aday değerlendirme	docs/kaynak-tarama/99-sentez.md:27	arastirma	
+npx skills add -g ~/.agents'ı yeniden oluşturup ~/.claude/skills'e symlink kurar	skill kurulumu	docs/kaynak-tarama/99-sentez.md:29	ajan-arac	skills
+Agent description her oturum Agent listesine girer; uzun description (3.8k kr) sürekli context maliyetidir	ajan tanımı	docs/kaynak-tarama/99-sentez.md:31	ajan-arac	
+SkillSpector her taramada --no-llm: LLM varsayılan açık, dosyayı sağlayıcıya yollar; SC4 bağımlılık adlarını OSV.dev'e gönderir	skill güvenlik taraması	docs/kaynak-tarama/99-sentez.md:6	guvenlik	SkillSpector
+SkillSpector Windows 8.3 kısa yolda execution_successful:false verir; kabul bu alanın true olması	SkillSpector koşusu	docs/kaynak-tarama/99-sentez.md:6	guvenlik	SkillSpector
+claude.ai skill description 200 karakter sınırı: zip'te kısaltılır, gövde ve LICENSE aynen kalır	claude.ai paketleme	docs/kaynak-tarama/jev.md:12	ajan-arac	
+SDK debug seviyesinde istek gövdesini loglar; logLevel "off" koddan verilir (kod ayarı env'den önce gelir)	API istemcisi	docs/kaynak-tarama/jev.md:15	api,guvenlik	
+İstemci retry tarifi: 408/429/5xx, en fazla 2 deneme, retry-after başlığına uy	API istemcisi	docs/kaynak-tarama/jev.md:15	api,backend	
+Stateless StreamableHTTPServerTransport (JSON yanıt) stdio için gereken SDK ile HTTP MCP'yi de verir; ek handler gerekmez	MCP sunucusu yazımı	docs/kaynak-tarama/jev.md:16	backend,api	MCP SDK
+Token sayımı kaba (UTF-8 bayt/4); kesin bağlam sınırını sunucunun 422 yanıtı belirler	bağlam sınırı yönetimi	docs/kaynak-tarama/jev.md:18	api,ml-ai	
+API hata gövdesinden yalnız message + error_type alınır; girdi yankısı atılır	API hata işleme	docs/kaynak-tarama/jev.md:19	api,guvenlik	
+Topluluk MCP sunucusu kurulmaz: resmi SDK aynı yüzeyi kapsıyorsa resmi olmayan host kullanılmaz	MCP seçimi	docs/kaynak-tarama/jev.md:34	guvenlik,ajan-arac	
+Canlı siteden tasarım token'ı: getComputedStyle ile DOM ölçümü, statik PNG k-means'ten kesin (doğrulanmadı)	tasarım token çıkarımı	docs/kaynak-tarama/tasarim-5arac.md:5	frontend,tasarim	puppeteer
+Sürümsüz @latest paket ve agent-config dosyalarına (CLAUDE.md/.cursor) yazma SkillSpector'da HIGH/CRITICAL sebebidir	skill güvenliği	docs/kaynak-tarama/tasarim-5arac.md:6	guvenlik	SkillSpector
+Skill lisanssız ama kural kaynağı MIT ise kurallar uyarlanır, skill kurulmaz	lisans kararı	docs/kaynak-tarama/tasarim-5arac.md:17	hukuk,ajan-arac	
+Sık atlanan UI kuralları: URL-as-state, yapıştırma engellememe, autocomplete, kaydedilmemiş değişiklik uyarısı, optik hizalama	UI denetimi	docs/kaynak-tarama/tasarim-5arac.md:18	frontend,tasarim	
+Mobil <input> font-size ≥16px (iOS zoom); viewport'ta maximum-scale=1 / user-scalable=no yok	mobil form kabulü	docs/kaynak-tarama/tasarim-5arac.md:20	frontend,mobil	
+Dokunma hedefi ≥24px, mobilde ≥44px; submit istek sürerken disabled (çift gönderim yok)	form/etkileşim kabulü	docs/kaynak-tarama/tasarim-5arac.md:23	frontend,test	puppeteer
+3D doğrulama sırası: sayısal kapı → biçim → görünüş; görüntü ölçek/pivot/topolojiyi kanıtlamaz	Blender model doğrulama	docs/kaynak-tarama/7-blender.md:30	3d,test	blender
+Sayısal kapı: bbox ±0.001 m, non-manifold 0 + is_closed, uygulanmamış ölçek yok, pivot bbox içinde, glTF geri okuma mesh>0	Blender export kabulü	docs/kaynak-tarama/7-blender.md:31	3d,test	blender
+Eleştiri görünümü 4 sabit (ön·yan·üst·3/4), kamera uzaklığı bbox'tan; biçim turu Workbench, Eevee son tur, Cycles teslim	3D görsel kontrol	docs/kaynak-tarama/7-blender.md:32	3d,gorsel	blender
+Referans varsa görünüm başına silüet IoU ≥0.90 + bbox oranı ±%3 (öneri); yoksa VLM madde listesi + evet/hayır doğrulayıcı	3D referans eşleme	docs/kaynak-tarama/7-blender.md:34	3d,ml-ai	
+3D eleştiri döngüsü en fazla 3 tur (öneri); iki tur IoU artışı <0.02 ise DUR; betik düzenlenir, sıfırdan yazılmaz	ajanlı 3D döngü	docs/kaynak-tarama/7-blender.md:35	3d,ajan-arac	
+Ürün ışığı anahtar:dolgu:kenar 5:1:1.5, 5000K; cam 3:1:1.2; ahşap 4:1:1.5 3000K; ışık uzaklığı max(boyut×1.5, 1 m)	ürün render	docs/kaynak-tarama/7-blender.md:38	3d,gorsel	
+Metal/cam: önce neyin yansıdığını kur — kameraya görünmez softbox/emisyon düzlemleri; test mat gri + krom küre	yansıtıcı malzeme ışığı	docs/kaynak-tarama/7-blender.md:40	3d,gorsel	
+Web'e taşıma: görüşten bağımsız olan pişer (diffuse/AO → UV2 lightMap/aoMap), görüşe bağlı olan HDRI ortamında kalır	Blender→three.js	docs/kaynak-tarama/7-blender.md:44	3d,frontend	three.js
+Scroll'da dönen üründe yön bağımlı ışık pişirilmez; yalnız AO + HDRI; pişmiş PNG [0,1] kırpar → yoğunluk <1	3D scroll sahnesi	docs/kaynak-tarama/7-blender.md:46	3d,frontend	three.js,n8ao
+AgX eşleme: Blender AgX/Look None/Exposure 0; three.js NoToneMapping + HalfFloat + ToneMappingEffect(AGX) sonda; eşleşene dek LUT yok	renk/ton eşleme	docs/kaynak-tarama/7-blender.md:48	3d,gorsel	postprocessing
+Dönel nesne: ön silüetten sağ yarı dış+iç profil → piksel→mm → Screw 360° Z (32/64 adım, Merge) → Subdivision + crease	silüetten 3D model	docs/kaynak-tarama/7-blender.md:52	3d	blender
+Malzeme kütüphanesi: UI'da bir kez kur → NodeToPython Script → .py tarif → kod çalıştırma aracıyla çağır	prosedürel malzeme	docs/kaynak-tarama/7-blender.md:57	3d	NodeToPython
+Soket adları sürümle değişir (Specular → Specular IOR Level); düğüm yazmadan önce canlı node.inputs sorgusu	bpy betiği	docs/kaynak-tarama/7-blender.md:59	3d	blender
+Headless betik sözleşmesi: blender -b --python, assert + başarısızlıkta sıfır-dışı çıkış + zaman aşımı + JSON çıktı	Blender otomasyonu	docs/kaynak-tarama/7-blender.md:69	3d,otomasyon	blender
+Export kuralı: transform_apply → glTF +Y; glTF bütçesi 500k üçgen tavanı	glTF export	docs/kaynak-tarama/7-blender.md:79	3d	blender
+MCP araç sayısı = context maliyeti (556 araç ≈ 9.5k şema token); küçük araç yüzeyi seçilir	MCP seçimi	docs/kaynak-tarama/7-blender.md:16	ajan-arac	
+Web 3D teslim: GLTF Draco/KTX2/meshopt, dispose, InstancedMesh/merge/LOD, koşullu render, pixelRatio	three.js performans	docs/kaynak-tarama/7-blender.md:12	3d,frontend	three.js
+Yürüme 24 fps: adım 12, döngü 24 kare; temas·aşağı·geçiş·yukarı eşit aralık; son kare (25=1) dışa aktarımda tekrar edilmez	yürüme döngüsü	docs/kaynak-tarama/8a-animasyon-desktop.md:9	3d,oyun	
+Blender 5.0'da action.fcurves/groups silindi: action_ensure_channelbag_for_slot → channelbag.fcurves kullanılır	bpy animasyon kodu	docs/kaynak-tarama/8a-animasyon-desktop.md:15	3d	blender
+Her MCP kod çağrısı yeni namespace: nesnelere kalıcı adla eriş (ARM-/ACT-/CAM-/CTL- önekleri)	Blender MCP oturumu	docs/kaynak-tarama/8a-animasyon-desktop.md:20	3d,ajan-arac	blender
+three.js: nesne başına AnimationMixer, geçiş crossFadeTo, additive makeClipAdditive; scroll'da action duraklat + mixer.setTime()	web 3D animasyon	docs/kaynak-tarama/8a-animasyon-desktop.md:49	frontend,3d	three.js,GSAP
+Ayak kayması: temasta (<5 cm) karede >2.5 cm kayan kare yüzdesi; öneri kapı ≤%8	animasyon kalite kapısı	docs/kaynak-tarama/8a-animasyon-desktop.md:58	3d,test	
+Döngü dikişi: son kare = ilk kare; öneri eşik kemik başına <0.5°, kök <1 mm	animasyon kalite kapısı	docs/kaynak-tarama/8a-animasyon-desktop.md:60	3d,test	
+GPL eklentiler iç kullanımda serbest, kodları ürüne gömülmez; araç lisansı ≠ çıktı lisansı	ticari 3D iş lisansı	docs/kaynak-tarama/8a-animasyon-desktop.md:67	hukuk,3d	
+AMASS/HumanML3D/SMPL ile eğitilmiş metinden-hareket çıktısı müşteri işine girmez; yalnız fikir/blocking	ticari animasyon lisansı	docs/kaynak-tarama/8b-animasyon-arastirma3.md:6	hukuk,ml-ai	
+Motion matching: özellik = 20/40/60 kare sonrası kök konum+yön, ayak konum+hız, kalça hızı; arama ~0.1 s; inertialization	oyun lokomosyonu	docs/kaynak-tarama/8b-animasyon-arastirma3.md:21	oyun,3d	
+glTF animasyon sıkıştırma: resample → quantize → meshopt (Draco animasyonu sıkıştırmaz); önce/sonra boyut loglanır	glTF optimizasyonu	docs/kaynak-tarama/8b-animasyon-arastirma3.md:27	3d,frontend	gltf-transform,gltfpack
+Üretimden sonra ayrı doğrulama alt ajanı; araç çağrıları eksiksiz olsa da zamansal tutarlılık garanti değil	ajan çıktısı doğrulama	docs/kaynak-tarama/8b-animasyon-arastirma3.md:38	ajan-arac,test	
+Roblox animasyon kapısı: R15, CurveAnimation, ≤10 s, Jump hariç döngülü, parça ≤1.5 stud taşınır	Roblox animasyon	docs/kaynak-tarama/8b-animasyon-arastirma3.md:48	oyun	
+Spine runtime gömmek ücretli editör lisansı ister → kullanılmaz; DragonBonesJS ve Rive runtime MIT	2D animasyon seçimi	docs/kaynak-tarama/8b-animasyon-arastirma3.md:51	hukuk,oyun	
+Web hareket seçimi: reveal CSS scroll-driven, MPA View Transitions, pin/scrub GSAP, yay fiziği Motion, durum makinesi Rive	web animasyon seçimi	docs/kaynak-tarama/8b-animasyon-arastirma3.md:59	frontend	GSAP,Motion,Rive,Lottie
+prefers-reduced-motion: scrub kamera yerine statik kare/kısa geçiş; paralaks ve otomatik oynatma kapalı	erişilebilir animasyon	docs/kaynak-tarama/8b-animasyon-arastirma3.md:67	frontend	
+12 GB VRAM'de aynı anda tek ağır süreç (üretken 3D YA DA Cycles YA DA rig), GPU kilidi + RAM bekçisi	yerel GPU işi	docs/kaynak-tarama/9-blender-pro-arastirma.md:43	ml-ai,devops	
+Prosedürel düğümler glTF'e taşınmaz → export öncesi pişir; export MCP'den değil headless'tan (zaman aşımı)	Blender export	docs/kaynak-tarama/9-blender-pro-arastirma.md:28	3d	blender
+CLI > MCP; yerel MCP'ler stdio tutulur (HTTP MCP'ler ertelenmiyor, hata #40314)	MCP bağlam maliyeti	docs/kaynak-tarama/9-blender-pro-arastirma.md:42	ajan-arac	
+Model ağırlığı MIT olsa da HF gated bölge bayrağı ve bileşen lisansı ayrıca okunur; müşteri tesliminde hukuki kontrol	ML model lisansı	docs/kaynak-tarama/9-blender-pro-arastirma.md:15	hukuk,ml-ai	
+Uzaktan betiği boruyla çalıştıran kurulum (iwr-iex) olan aday RED	aday güvenliği	docs/kaynak-tarama/9-blender-pro-arastirma.md:39	guvenlik	
+CLAUDE_CODE_SUBAGENT_MODEL_FORCE agent tanımındaki model:'i de sessizce ezer; kullanılmaz	alt ajan modeli	docs/kaynak-tarama/uzun-oturum/anthropic.md:15	ajan-arac	
+CLAUDE_AUTOCOMPACT_PCT_OVERRIDE (1-100) yalnız compaction eşiğini düşürür, yükseltemez; ana oturum + subagent	compaction ayarı	docs/kaynak-tarama/uzun-oturum/99-sentez.md:16	ajan-arac	
+Plugin öncesi hooks.json okunur: SessionStart clear/compact her /clear'da, SubagentStart her alt ajanda, Pre/PostToolUse * her araçta ödenir	plugin maliyet değerlendirme	docs/kaynak-tarama/uzun-oturum/99-sentez.md:17	ajan-arac	
+Web/alt ajan çıktısı dalga.md/MEMORY.md'ye aynen kopyalanmaz: kalıcı dosyaya giren enjeksiyon her compaction'da geri gelir	hafıza güvenliği	docs/kaynak-tarama/uzun-oturum/99-sentez.md:18	guvenlik,ajan-arac	
+GitHub yıldız zaman damgası kapalı → ölçüt "60 günde ≥N★" değil "açılış ≥ tarih + ★"	repo trend taraması	docs/kaynak-tarama/uzun-oturum/99-sentez.md:23	arastirma	gh
+reddit.com/x.com cookie'siz 403, Exa tarih/domain filtresi almıyor → erişim yolu tarifte önceden kararlaştırılır	sosyal medya taraması	docs/kaynak-tarama/uzun-oturum/99-sentez.md:22	arastirma	Exa,Jina
+gh search repos çok kelimeli metinde 0 döner; topic + created/pushed + stars filtresi kullanılır	repo arama	docs/kaynak-tarama/uzun-oturum/github.md:2	arastirma	gh
+Açık issue sayısı GraphQL'den alınır; REST sayımı PR'ları da katar (274 → 95)	repo bakım ölçümü	docs/kaynak-tarama/uzun-oturum/99-sentez.md:31	arastirma	gh
+Jina domain-geneli AbuseAlleviationError kilidi oturumdan bağımsız; tekrar denemek çözmez, blok süresi beklenir	web erişim hatası	docs/kaynak-tarama/uzun-oturum/x.md:2	arastirma	Jina
+Doğrulanmış veri üretilemezse tahminle sıralama yapılmaz → DUR raporu ve ilerleme seçenekleri	araştırma raporu	docs/kaynak-tarama/uzun-oturum/reddit.md:2	arastirma,genel	
+YouTube 429 sonrası "altyazı yok" gerçek yokluk değil hız sınırıdır; bekleyip yeniden dene	altyazı toplama	docs/kaynak-tarama/uzun-oturum/youtube.md:2	video	yt-dlp
+Alt ajan ADAY'ları ana oturumda hook/plugin dosyası okunarak doğrulanır; üç aday bu denetimde düştü	alt ajan çıktısı doğrulama	docs/kaynak-tarama/uzun-oturum/99-sentez.md:2	ajan-arac,arastirma	
+RET: animasyon-atolyesi ilk tarif jeton Σ×1.26; kök neden tur sayısı → uyarla.py tek komutta üret+ölç	animasyon tarifi ölçümü	.kos/kopru/rapor/animasyon-1.md:5	frontend,ajan-arac	animasyon-atolyesi,uyarla.py,olc.py
+Tuzak: ajan CSS süresini birimsiz verdi (“sure”: 600) → animasyon yok; tarif girdisinde birimli değer doğrula	CSS/animasyon parametre üretimi	.kos/kopru/rapor/animasyon-1.md:7	frontend,test	animasyon-atolyesi
+Katı ölçüt görev başına: toplam jeton −%29 ve kalite 1.0 olsa da w1 geçmediği için KABUL değil, karar sahibe	kabul kapısı yorumlama	.kos/kopru/rapor/animasyon-1.md:11	test,genel	
+KABUL: blender “beklenen” kapılı tek yol ×10: 10/10 kontrol, tarife göre −%88 jeton, kör yargı 25.3 ≥ 25.0	Blender üretim hattı	.kos/kopru/rapor/blender-2.md:18	3d,ajan-arac	blender,yalin.py
+Tuzak: ekler gövdeye birleşince dış kutu büyüyor (fincan ölçü kaçağı); “beklenen” boyut kapısı yakalar	Blender ölçü doğrulama	.kos/kopru/rapor/blender-2.md:17	3d,test	blender
+KABUL blender 1.2.0: KALITE=1 tek yolunda eşli kör yargı 165 vs 162; KALITE=0 kaliteyi düşürüyor	Blender kalite bayrağı	.kos/kopru/rapor/blender-3.md:29	3d	blender
+Kapı: jeton −%37, süre −%27 olsa da ham kör yargı geçmeyince 1.3.0 KABUL edilmedi, zip/uygula yapılmadı	sürüm kabulü	.kos/kopru/rapor/blender-4.md:22	3d,test	blender,zip_denetle
+KABUL blender 1.3.0 eşli yargıyla: jeton −%37, süre −%27, kalite =, kontrol =, zip_denetle TEMİZ	Blender sürüm teslimi	.kos/kopru/rapor/blender-4.md:30	3d	blender,zip_denetle
+Tuzak: model “kaydet”: true yazdı → Path(True) Blender’da çöktü; JSON alanlarında bool/str tip denetimi şart	LLM JSON çıktısı işleme	.kos/kopru/rapor/blender-5.md:13	3d,ajan-arac	blender
+Bulgu: claude -p girdi tabanı ~1800 jeton sistem isteminden; CLAUDE_CODE_DISABLE_* ve düşünme 0 ölçülebilir etki yok	claude -p jeton azaltma	.kos/kopru/rapor/blender-6.md:17	ajan-arac,ml-ai	claude -p
+0.42× tavanı için sistem istemi ~1600 → ≤800 kr kısalmalı; kapsam dışı dal ayrı karar olarak raporlanır	sistem istemi bütçesi	.kos/kopru/rapor/blender-6.md:18	ajan-arac	claude -p
+Tuzak: tarif.duzelt “kamera”: true/{lens} → KeyError konum; kısmi nesne girdisi varsayılanla birleştirilmeli	LLM şema düzeltici	.kos/kopru/rapor/blender-7.md:7	3d,test	blender
+Disk: en büyük kalem DXCache 101 GB; .video-cache 32, Laya 13.2, hiberfil 12.7 GB sahibin kararına bırakılır	disk temizliği	.kos/kopru/rapor/disk-1.md:35	devops,genel	
+Bulgu: CC’de blender 1.1.0 / repo 1.3.0, frontend-craft 1.5.7 / 1.9.0 — onay betikleri koşmamış; sürüm farkı denetle	kurulum envanteri	.kos/kopru/rapor/envanter-1.md:6	ajan-arac,devops	blender,frontend-craft
+Tuzak: dizin_uret.zipla ajanlar/ filtresi yalnız KALITE3 → departman-diger/ajanlar zip’e girmiyordu	zip paketleme	.kos/kopru/rapor/envanter-1.md:22	ajan-arac,test	dizin_uret.py
+anahtar.json yalnız skill adlarını etkiler; MCP/CLI adı eklemek Dizin’e satır getirmez	skill dizini üretimi	.kos/kopru/rapor/envanter-1.md:23	ajan-arac	dizin_uret.py
+Departmansız işler tek departman-diger skill’inde; claude.ai’ye toplu yükleme önerilmez (595/1000 kayıt)	skill organizasyonu	.kos/kopru/rapor/envanter-1.md:14	ajan-arac	departman-diger
+Bulgu: skillOverrides’ta 1557 ölü plugin anahtarı; temizlik üst sınır ≈ −13k jeton/istek, plugin kapatma sahip kararı	CC ayar temizliği	.kos/kopru/rapor/envanter-2.md:14	ajan-arac	settings.json
+Tuzak: güvenlik skill’i içerik yazımı (davila7/mukul975) sınıflandırıcıda durdu; “katalog” işaretiyle modele gönderme	toplu skill özetleme	.kos/kopru/rapor/envanter-4.md:12	guvenlik,ajan-arac	
+KARAR: ücretsiz model yargıç uyumu Dice 0.364 < .90, az işaretliyor, hız limiti → yargıç 2 = sonnet	LLM yargıç seçimi	.kos/kopru/rapor/envanter-5.md:11	ml-ai,test	OmniRoute
+Yargıçlar yalnız 1’leri yazar, 0’lar örtük → jeton ~÷5, karar bilgisi aynı	LLM etiketleme maliyeti	.kos/kopru/rapor/envanter-5.md:13	ml-ai	
+Tuzak: yargıç alt ajanları sınıflandırıcıda engellendi → ana oturum yargılamak zorunda kaldı	alt ajan ile yargı	.kos/kopru/rapor/envanter-5.md:14	ajan-arac	
+Maliyet iş başına ek araç turundan: tek Bash +1 tur ≈ +100k cache okuma; ≤A×1.15 yalnız sıfır ek turla	ajan jeton optimizasyonu	.kos/kopru/rapor/envanter-6.md:9	ajan-arac,ml-ai	claude -p
+Tuzak: WinError 206 — ~37k ek komut satırı 32k sınırını aştı → --append-system-prompt-file kullan	Windows’ta claude -p	.kos/kopru/rapor/envanter-6.md:15	ajan-arac,devops	claude -p
+KABUL: kısa çalışma protokolü Sonnet’te kalite 9.62→10, çıktı −%15, $ −%8, tur 3.2→1.9	ajan sistem istemi	.kos/kopru/rapor/fable-1.md:7	ajan-arac	calisma-protokolu
+RET: aynı protokol Haiku’da $ +%12 → Haiku’ya uygulanmaz (ATLA_MODEL haiku)	model bazlı istem	.kos/kopru/rapor/fable-1.md:8	ajan-arac	calisma-protokolu
+Regex rubrik 10’da doyuyor → kalite kazancı zayıf kanıt; karar çıktı/$ üstünden verilir	rubrik ölçümü	.kos/kopru/rapor/fable-1.md:9	test,ml-ai	
+RET: tam (uzun) protokol çıktı +%4, $ +%10; kısa sürüm tercih	istem uzunluğu	.kos/kopru/rapor/fable-1.md:3	ajan-arac	calisma-protokolu
+Tuzak: “kötü” ölçüm satırları plan oturum limiti (out 0, $0) — yeniden koş, RET sayma	claude -p ölçüm döngüsü	.kos/kopru/rapor/fable-ajan.md:15	test,ajan-arac	claude -p
+Kök: Sonnet qa ajanı csproj’u elle yazıp 3 kez test koşuyor → istemde “şablon > elle proje dosyası”	.NET test ajanı istemi	.kos/kopru/rapor/fable-ajan.md:32	ajan-arac,dotnet	
+KABUL sonnet-v3: dok jev 8.85→9.40, vid 7.70→9.25; qa RET:kalite (n2, gürültü düzeyi)	ajan istem varyantı	.kos/kopru/rapor/fable-ajan.md:33	ajan-arac	jev
+RET haiku-v2: Haiku fe yazdığı dosyayı yanıta yapıştırıyor; yasak satırı da çıktıyı düzeltmedi	Haiku ajan istemi	.kos/kopru/rapor/fable-ajan.md:34	ajan-arac	
+Protokol aile×model hücresi bazında uygulanır: 16 KABUL hücre, 76 ajan; diğerleri taban kalır	seçici istem dağıtımı	.kos/kopru/rapor/fable-ajan.md:35	ajan-arac	fable_ajan_uygula.py
+RET: genel kısa protokol video hattında jeton/süre/kalite kaybettirdi → bayrak KAPALI	video hattı istemi	.kos/kopru/rapor/fable-video.md:1	video,ajan-arac	VIDEO_FABLE_PROTOKOL
+KABUL: video için özel varyant C — dayanır +0.15, maliyet −%10 (n=9) → varsayılan C, “0” kapatır	video hattı istemi	.kos/kopru/rapor/fable-video.md:25	video,ajan-arac	hafif.py
+DUR: headroom v0.40.0 BREAKING (HEADROOM_LICENSE, telemetri opt-in) → güncelleme yazılmadı, 0.39.1 sabitle önerisi	araç sürüm yükseltme	.kos/kopru/rapor/headroom-1.md:2	devops,ajan-arac	headroom,uv
+Tuzak: uv tool upgrade headroom proxy’yi güncellemez; proxy ayrı masaüstü güncelleyicisiyle gelir	headroom bakımı	.kos/kopru/rapor/headroom-1.md:8	devops	headroom,uv
+RET: gsd tam paket bağlam +%9, $ +%10, süre +%20 (n=1) → KABUL değil	plugin değerlendirme	.kos/kopru/rapor/hook3.md:3	ajan-arac	gsd
+Bulgu: gsd 36 koşuda hiç çağrılmadı; CLAUDE.md “önce departman-*” kuralı departman-surec-plan’ı seçtiriyor	skill tetik çakışması	.kos/kopru/rapor/hook3.md:38	ajan-arac	gsd,departman-surec-plan
+Kabul şartı ölçülemez olunca (araç seçilmiyor) DUR; yeni ölçüme para harcanmaz	ölçüm planı	.kos/kopru/rapor/hook3.md:39	test,genel	
+Yargıç SORU varyantları n=50: mevcut v0 Spearman 0.442 en iyi; kabul listesi/somut seviye eklemek iyileştirmedi	LLM yargıç istemi	.kos/kopru/rapor/jev-1.md:22	ml-ai,test	jev
+Kosucu: jev erişilemezse TSV bayt-bayt aynı kalır (geriye uyum testi); --jevsiz kapatır	ölçüm TSV’si	.kos/kopru/rapor/jev-1.md:21	test,ml-ai	jev,kosucu.py
+Anlamsal eşleme: eşik ±0.1 bandındakini Jev toplu yargılar, bant dışı kosinüs; ağ hatasında kosinüse düş	metin eşleme	.kos/kopru/rapor/jev-1.md:29	ml-ai	jev
+Tuzak: 2242 skill’de yalnız adlar ~68k kr; SLASH_COMMAND_TOOL_CHAR_BUDGET 75000 taşınca liste kırpılır	skill listeleme bütçesi	.kos/kopru/rapor/jev-1.md:44	ajan-arac	
+KABUL (koşullu): jev önbelleği sıcak koşu 0 istek $0; soğuk ρ tabandan −0.015 gürültü düzeyi	yargı önbelleği	.kos/kopru/rapor/jev-2.md:10	ml-ai,test	jev
+Tuzak: HKCU anahtar okumasını ortak modüle yaymak sınıflandırıcıya (Credential Exploration) takıldı	anahtar okuma deseni	.kos/kopru/rapor/jev-2.md:14	guvenlik,ajan-arac	
+Tuzak: 1979 aktif skill → canlı skill hook’u her istemde hata verdi (95/95)	skill hook’u	.kos/kopru/rapor/jev-2.md:20	ajan-arac	JEV_SKILL_HOOK
+Bulgu: azure eklentisi track-telemetry.sh her PostToolUse’ta (14 g 40 542 çalışma); opt-out AZURE_MCP_COLLECT_TELEMETRY=false	hook gecikmesi	.kos/kopru/rapor/kalite-2.md:3	ajan-arac,bulut	azure
+KRİTİK: settings yazımı powershell hook args alanını düşürdü → betik hiç koşmuyor, yalnız JSON yankısı	hook yapılandırması	.kos/kopru/rapor/kalite-2.md:4	ajan-arac,devops	settings.json,powershell
+Settings yazıcısı bilmediği alanları (args) korumalı; şemayı bilmeyen araç veri siler	yapılandırma yazımı	.kos/kopru/rapor/kalite-2.md:9	ajan-arac,devops	settings.json
+Tuzak: ağ kopukken 45 yanıt API Error 502 → Gecici say, ölçüme yazma, öğeyi kuyruğun başına al	ölçüm döngüsü	.kos/kopru/rapor/kalite-3-hiz.md:5	test,ajan-arac	kalite3_hiz.py
+Kök: kural adı references’a taşınınca çekirdekte isabet düştü (ui-ux reduced-motion 3→1)	skill gövdesini kısaltma	.kos/kopru/rapor/kalite-3.md:8	ajan-arac,frontend	ui-ux-pro-max
+Tuzak: CLAUDE_CODE_SUBAGENT_MODEL tanımlıysa tüm alt ajanların frontmatter model’ini ezer	alt ajan model seçimi	.kos/kopru/rapor/kalite-3.md:15	ajan-arac	
+Tuzak: Agent arka planda koşunca claude -p’de 3 result olayı; sonuncusu boş → “boş yanıt” ölçüm hatası	claude -p akış ayrıştırma	.kos/kopru/rapor/kalite-3.md:47	ajan-arac,test	claude -p
+KABUL: devex-review 9.0→9.3 $−%16, plan-tune 8.7→9.7 $−%6, ui-ux-pro-max 10=10 $−%13 (n=3)	skill kalite iyileştirme	.kos/kopru/rapor/kalite-3.md:61	ajan-arac	devex-review,plan-tune,ui-ux-pro-max
+RET: fe-a11y-denetci kalite3 sürümü 9.5→8.4 → kurulmaz, eski kalır	ajan sürüm kabulü	.kos/kopru/rapor/zip-birlesik.md:10	ajan-arac,frontend	fe-a11y-denetci
+Kanca DUR iletisi: araç n≥45 ya da son istek bağlamı ≥140k (transcript son 512 KB); okunamazsa yalnız sayı	oturum bağlam bekçisi	.kos/kopru/rapor/kanca-sayac-1.md:4	ajan-arac	kanca-sayac
+Tuzak: transcript_path int gelirse open(int) bir fd’yi kapatıyordu → yalnız str yol kabul et	hook girdisi doğrulama	.kos/kopru/rapor/kanca-sayac-1.md:5	ajan-arac,test	
+Tuzak: kanca sayaç dosyası proje başına tek; eşzamanlı oturumda araç−kanca farkı medyan 7, en çok 65	kanca sayacı	.kos/kopru/rapor/token-9.md:20	ajan-arac	kanca-sayac
+Devir notu sabit şeması: KALAN (sıralı) · ARKA PLAN günlük+bitiş · SON COMMIT · AÇIK KARAR	oturum devri	.kos/kopru/rapor/token-9.md:26	genel,ajan-arac	
+RET: ajn-skill-yazar taban $×1.1 aşıldı ve t1 jev 7.8 < 8 → düştü; eşik gevşetilmez	ajan kalite kapısı	.kos/kopru/rapor/kapi-25.md:14	ajan-arac,test	jev
+Kapı ölçümü: claude -p tavanı 600→1500 sn, t0 + 2 onarım turu, yargıç Jev + karma Opus, ölçüt aynı	ajan onarım döngüsü	.kos/kopru/rapor/kapi-25.md:3	ajan-arac,test	jev,kalite3_hiz.py
+Dış repo taraması: gitleaks bulguları test fikstürü/mock ise yanlış alarm; skillspector --no-llm 0 bulgu	dış repo güvenlik	.kos/kopru/rapor/kaynak-5.md:17	guvenlik,arastirma	gitleaks,skillspector
+Repo kararı sınıfları ÖĞREN / UYARLA / KUR; 5 repo incelendi, KUR yok	dış repo değerlendirme	.kos/kopru/rapor/kaynak-5.md:24	arastirma	
+Köprü effort: verilmezse argv bayt bayt aynı; CLAUDE_CODE_EFFORT_LEVEL alt süreç kopyasından çıkarılır, değer basılmaz	MCP köprü parametresi	.kos/kopru/rapor/kopru-effort-1.md:4	ajan-arac,api	cc-kopru
+Ölçüm alt süreçleri KILL_ON_JOB_CLOSE iş nesnesinde + BROWSER=none → torun süreç/pencere sızmaz	arka plan ölçüm	.kos/kopru/rapor/kosucu-temiz.md:2	otomasyon,devops	kosucu.py
+RET: Laya ρ hiçbir kolda Jev’i geçmedi (0.453 < 0.571) → karma yargıya eklenmedi	yargıç model seçimi	.kos/kopru/rapor/laya-1.md:36	ml-ai	laya,jev
+Kabul ölçütü sonuçtan önce yazılır: |Δ kol ort.| ≤ gürültü + karar uyuşması ≥10/12	A/B ölçüm tasarımı	.kos/kopru/rapor/mcp-hafif-1.md:6	test,ajan-arac	mcp_hafif_kabul.py
+Paylaşılan tek Serena örneği önerilmiyor; bayrak yalnız KABUL sonrası varsayılan açılır	MCP paylaşımı	.kos/kopru/rapor/mcp-hafif-1.md:10	ajan-arac	serena
+Tuzak: ppid ağacı gezgini görülen kümesi olmadan döngüye girdi, yığın sınırsız; görülen + kendi PID hariç	süreç ağacı tarama	.kos/kopru/rapor/mcp-hafif-2.md:3	otomasyon,test	
+OmniRoute /v1/messages Bearer ve x-api-key kabul eder; CC için ANTHROPIC_AUTH_TOKEN yeter	yerel LLM yönlendirici	.kos/kopru/rapor/omniroute-1.md:5	ajan-arac,api	OmniRoute
+Tuzak: settings.json env.ANTHROPIC_BASE_URL çocuk süreç env’ini ezer → --settings ile BASE_URL ver	alt süreç CC çağrısı	.kos/kopru/rapor/omniroute-1.md:21	ajan-arac	OmniRoute,headroom
+RET (TAŞINMAZ): ücretsiz model ailesi kalite < taban → yol tablosu yazılmadı, ücretli model varsayılan olmadı	model yönlendirme	.kos/kopru/rapor/omniroute-1.md:88	ajan-arac,ml-ai	OmniRoute
+Tuzak: flash-lite düşünme jetonu ~570 → max_tokens 600’ü yiyor, yanıt boş kalır	düşünen model bütçesi	.kos/kopru/rapor/omniroute-1.md:85	ml-ai	OmniRoute
+KABUL: model_sec — model sabit, yalın bağlam (--safe-mode, --tools boş, --strict-mcp-config) → bağlam −%96, USD −%97	claude -p maliyet	.kos/kopru/rapor/router-1.md:5	ajan-arac	model-sec
+Kalite effort’tan: mekanik low · özet medium · yargı high · ajan medium	effort seçimi	.kos/kopru/rapor/router-1.md:4	ajan-arac,ml-ai	model-sec
+Kök: jeton +%5 ders yuvasından değil (≤120 jeton), büyüyen sistem isteminden (cache_creation 62→80k)	jeton artışı ayıklama	.kos/kopru/rapor/ruflo-1.md:38	ajan-arac	ruflo
+Onay kapısı aile başına + önek filtresi: yalnız kod ailesi (jeton −%15.3) uygulandı	seçici kurulum	.kos/kopru/rapor/ruflo-1.md:57	ajan-arac	ruflo
+Ek tur gizli kural belgesini okumaktı → kural derse gömülür, damıtıcı somut tek ders yazar	ders damıtma	.kos/kopru/rapor/ruflo-1.md:58	ajan-arac	ruflo
+Tuzak: Jev nesnel puanı 1.0 olan koşulara ~4.2/10 veriyor → 15 dersin 15’i “kaçın”; karma ölçüt bozuk	otomatik ders üretimi	.kos/kopru/rapor/ruflo-1.md:75	ml-ai,test	jev
+Lisansı olmayan repo (license null, README “MIT” bağlantısı boş) → kod alınmaz, teknik yeniden yazılır	dış kod kullanımı	.kos/kopru/rapor/site-telve.md:6	hukuk,frontend	
+Alt ajan çıktısı örneklemeyle doğrulanır (package.json sürümleri, yol düzeltmesi)	alt ajan doğrulama	.kos/kopru/rapor/site-telve.md:9	ajan-arac,genel	
+178 kök ad grubunda 192 fazla kopya; 119’u ~/.claude/skills + claude.ai senkronu aynı ad	skill yinelenmesi	.kos/kopru/rapor/skill-butce-1.md:4	ajan-arac	
+KABUL YOK: skill dizini fark yaratmadı — doğruluk −1, jeton +%27; taban zaten ~%95	skill seçim dizini	.kos/kopru/rapor/skill-secim-1.md:26	ajan-arac	
+Ölçüm tavanı dolunca karar verilmez; kredi + tek süreç sıralı (sıcak önbellek) ya da küçük set önerilir	ölçüm bütçesi	.kos/kopru/rapor/skill-secim-1.md:13	test,ajan-arac	
+claude.ai tarafı net +4 vaka → yalnız web zip + Instructions eki; CC’de kaçın notları işe yaramıyor	iki taraf skill teslimi	.kos/kopru/rapor/skill-secim-1.md:43	ajan-arac	
+KABUL YOK: vitrin kolu kör yargı 6.75 < taban 7.0 → tasarım kalite kapısı düştü	tasarım katalog ölçümü	.kos/kopru/rapor/tasarim-3.md:13	tasarim,frontend	
+Kök: vitrin desenleri (dev display, boş hero) landing/etkinlik briflerine sızıyor → yalnız ajans/portfolyo yönünde yükle	tasarım deseni kapsamı	.kos/kopru/rapor/tasarim-3.md:28	tasarim,frontend	web-sahne-desenleri
+3 düzeltme denemesi sonrası kabul yoksa DUR raporu	iteratif düzeltme	.kos/kopru/rapor/tasarim-3.md:25	genel	
+İlk koşu RET’in tek farkı değişmemiş okuyucu açıklamasıydı; izinli tek yeniden ölçümde 53=53 → KABUL	ajan açıklama sıkıştırma	.kos/kopru/rapor/token-10.md:8	ajan-arac	
+KABUL: 87 agency ajan açıklaması sıkıştı; A’=B’=59, 30 görevin 30’unda aynı ajan seçildi	ajan açıklama sıkıştırma	.kos/kopru/rapor/token-12.md:3	ajan-arac	
+Asıl kaldıraç liste bütçesi (skillListingBudgetFraction / SLASH_COMMAND_TOOL_CHAR_BUDGET) ya da name-only off	skill listesi jetonu	.kos/kopru/rapor/token-11.md:9	ajan-arac	
+CC listesi 2244 skill · 74 997 kr; yalnız 34’ü açıklamalı, 2210’u yalnız ad	skill listesi envanteri	.kos/kopru/rapor/token-11.md:3	ajan-arac	
+Video claude -p çağrıları zaten --tools boş, --setting-sources boş, --strict-mcp-config, --safe-mode ile yalın	video hattı jetonu	.kos/kopru/rapor/token-7c.md:17	video,ajan-arac	hafif.py
+gitleaks maskele: json rapor geçici dosyada, Secret → [gizlendi], rapor silinir, yeniden tara; temiz değilse DUR	sır maskeleme	.kos/kopru/rapor/token-7c.md:31	guvenlik	gitleaks
+RET: İngilizce rubrikli yalın yargı eşik-7 uyumu %87.5 < %95, |Δ| 0.75	yargıç kalibrasyonu	.kos/kopru/rapor/token-8-f2a.md:21	ml-ai,test	
+KABUL: Türkçe özgün opus_yargila istemi + yalnız --setting-sources/--tools boş → uyum %100, |Δ| 0.125	yargıç kalibrasyonu	.kos/kopru/rapor/token-8-f2b.md:14	ml-ai,test	claude -p
+RET: 20 çekirdek ajan + ajan-getir katalogu → kör yargı B 17/20 < A 19/20 (tam liste)	ajan listesi kırpma	.kos/kopru/rapor/token-8-f2b.md:12	ajan-arac	ajan-getir
+Yan bulgu: ctx_ araçları iki kolda hiç çağrılmadı; SessionStart metni araç seçimini yönlendirmiyor	context-mode değerlendirme	.kos/kopru/rapor/token-8-f2d.md:14	ajan-arac	context-mode
+SkillSpector CRITICAL/HIGH bulgulu zip’ler (agent-browser, MoneyPrinterTurbo) _inceleme’ye ayrılır, kurulmaz	skill kurulum güvenliği	.kos/kopru/rapor/tur-6c-b1.md:8	guvenlik,ajan-arac	skillspector
+Kurulum kabulü: skill_denetim + duman_claudeai 98 zip 0 hata; yanlış alarm için kural eklenir	toplu skill kurulum	.kos/kopru/rapor/tur-6c-b1-devam.md:9	ajan-arac,test	skill_denetim,duman_claudeai
+Kurulmayan sınıflar: CC dışı ürün/IDE/sunucu (kiro, uptime-kuma, warp), arşivli repo MCP	aday araç eleme	.kos/kopru/rapor/tur-6d.md:13	ajan-arac,arastirma	
+Kök: test gerçek %TEMP%/video-ocr.kilit’i kullanıyordu → koşan OCR kilidi tutunca TimeoutError; testte özel TEMP	test yalıtımı	.kos/kopru/rapor/video-14.md:3	test,video	
+Kök: kaçan url’ler bayt bayt aynı paket.md’de var → kayıp model tarafında, indirme/OCR değil	video özet kaybı	.kos/kopru/rapor/video-14.md:20	video,ml-ai	
+KABUL DEĞİL: ≤45 sn/video tutmadı (model duvarı 84 sn + CPU ~25); $ ≤ taban sağlandı	video hız hedefi	.kos/kopru/rapor/video-16.md:22	video	VIDEO_SHORT_HIZ
+Bulgu: 7/26 gönderi sure=0 görsel karuseli → short yoluna girmiyor; karusel ayrı ele alınmalı	IG/short tarama	.kos/kopru/rapor/video-16.md:17	video	
+Varsayılan açma KABUL sonrası AYRI commit; push yok	bayrak yönetimi	.kos/kopru/rapor/video-16.md:13	git	
+Kök: kare_sec taban karesi round(t·f) ile sonraki sahne ızgarasına düşüyordu (2+5=7 sn → 8.0 sn)	video kare seçimi	.kos/kopru/rapor/video-hiz.md:41	video,test	ffmpeg
+Kök: kare çıkarma RAM’i dal başı mjpeg kodlayıcı iş parçacığı tamponlarından	ffmpeg bellek	.kos/kopru/rapor/video-hiz.md:111	video	ffmpeg
+Ölçüt GEÇMEDİ → bayrak kapalı kalır, geçiş satırı yazılmaz	deneysel bayrak	.kos/kopru/rapor/video-hiz.md:22	video,test	
+Birleştirme: push yok, sahibin commitsiz dosyalarına dokunulmaz, stash/reset yok	dal birleştirme	.kos/kopru/rapor/birlestir-2.md:1	git	git
+Kol birleştirme git merge --no-ff --no-autostash; push yok, birleştirme ayrı kayıt	dal birleştirme	.kos/kopru/rapor/birlestir-8.md:3	git	git
+Tuzak: jev’de iki yanıtı karşılaştıran alt komut yok → karar rubrik + isabet ile verildi	A/B yargı	.kos/kopru/rapor/token-7b.md:12	ml-ai,test	jev
+Lisanssız referans repo: kod kopyalanmaz, birebir aynısı yapılmaz; markalı varlık hiçbir işte kullanılmaz	referans siteden sahne	skills/web-sahne-desenleri/SKILL.md:8	frontend,hukuk	web-sahne-desenleri
+Sıra: DESIGN.md’de §1 dil → §2 sahne → §3 kalite kapısı tarifin kabul kriterine olduğu gibi girer	premium landing	skills/web-sahne-desenleri/SKILL.md:10	frontend,tasarim	web-sahne-desenleri
+Editoryal palet: 1 zemin + 1 mürekkep + 2 ara ton + en fazla 1 aksan	renk sistemi	skills/web-sahne-desenleri/SKILL.md:16	tasarim	web-sahne-desenleri
+Mono etiket sesi her yerde aynı: BÜYÜK HARF, 10.5–12 px, harf aralığı 0.16–0.34em	tipografi	skills/web-sahne-desenleri/SKILL.md:17	tasarim	web-sahne-desenleri
+Hücreli ızgara: kapsayıcıya çizgi rengi arka plan + gap:1px → kenarlık hesabı olmadan iç çizgi	CSS ızgara	skills/web-sahne-desenleri/SKILL.md:19	frontend	
+Tek hareket eğrisi (ör. cubic-bezier(.2,.8,.2,1)), süreler 0.3/0.4/0.6/1.0 s; iki eğri karışmaz	animasyon tutarlılığı	skills/web-sahne-desenleri/SKILL.md:21	frontend,tasarim	
+Loader kaydırmayı kilitlemez; 1.2 s’yi aşarsa içerik arkada hazır olur	yükleme ekranı	skills/web-sahne-desenleri/SKILL.md:28	frontend	
+3D model yüklenince merkeze alınır, en büyük boyut 1’e normalize → pozlar modelden bağımsız	three.js ürün hero	skills/web-sahne-desenleri/SKILL.md:55	3d,frontend	three.js
+Tek GSAP timeline scrub 1–1.5, segment ease none; yumuşatmayı scrub yapar, eğri üst üste binmez	scroll’a bağlı 3D	skills/web-sahne-desenleri/SKILL.md:57	frontend,3d	gsap
+Mobil GPU kademesi: DPR [0.85,1.1], antialias kapalı, low-power, HDR yerine RoomEnvironment+PMREM	mobil WebGL	skills/web-sahne-desenleri/SKILL.md:61	3d,frontend,mobil	three.js
+GLB derleme öncesi düzeltilir: gltf-transform spec-gloss→metal-rough, meshopt/Draco	3D varlık hattı	skills/web-sahne-desenleri/SKILL.md:64	3d	gltf-transform
+Giriş sürerken kullanıcı kaydırırsa giriş anında biter, scrub devralır; reduced-motion’da giriş yok	scroll sahnesi	skills/web-sahne-desenleri/SKILL.md:64	frontend	gsap
+WebGL requestIdleCallback ile LCP’den sonra başlar; Lenis → ScrollTrigger.update senkronu	WebGL performans	skills/web-sahne-desenleri/SKILL.md:72	frontend	lenis,gsap
+Helezon galeri: tek paylaşılan materyal + atlas/InstancedMesh, cover-UV; Lenis 1.x’te syncTouch, tek rAF	WebGL galeri	skills/web-sahne-desenleri/SKILL.md:75	3d,frontend	three.js,lenis
+Kapı: prefers-reduced-motion hem CSS’te hem JS/WebGL döngüsünde uygulanır	erişilebilir animasyon	skills/web-sahne-desenleri/SKILL.md:81	frontend	
+Kapı: sahne görünmezken (IntersectionObserver + visibilitychange) render durur; 5 s+ harekete durdurma	WebGL kaynak kullanımı	skills/web-sahne-desenleri/SKILL.md:82	frontend	
+Kapı: mobil Lighthouse ≥ 85, LCP < 2.5 s; LCP öğesi metin ya da poster, WebGL sonra	web performans	skills/web-sahne-desenleri/SKILL.md:85	frontend	lighthouse
+Kapı: çizim çağrısı ≤ 50, mobilde doku ≤ 2048 px; size-limit JS bütçesi CI’da	WebGL bütçe	skills/web-sahne-desenleri/SKILL.md:87	frontend,3d	size-limit
+Kapı: WebGL yoksa/context kaybında statik poster; dekoratif canvas aria-hidden	WebGL dayanıklılık	skills/web-sahne-desenleri/SKILL.md:89	frontend	
+Pişirme: diffuse/AO UV2 lightMap/aoMap’e, yansıma PMREM HDRI’de; dönen ürün yalnız AO + HDRI	Blender→web aktarım	skills/web-sahne-desenleri/SKILL.md:108	3d	blender,three.js
+Lightmap 8 bit PNG’de yoğunluk < 1; >2 ise EXR/16 bit (bantlanma); dokuda flipY = false	lightmap aktarımı	skills/web-sahne-desenleri/SKILL.md:109	3d	three.js
+AgX eşleme: Blender AgX/Look None → three.js AgXToneMapping; gri kart + krom küreyle exposure taraması, LUT yok	renk eşleme	skills/web-sahne-desenleri/SKILL.md:110	3d,gorsel	blender,three.js
+Frontend çakışma sırası: frontend-craft > impeccable > ui-ux-pro-max > taste-*; alttakinin kuralı düşer	UI işi	skills/departman-frontend/SKILL.md:8	frontend	frontend-craft,impeccable,ui-ux-pro-max,taste-skill
+DESIGN.md olmadan kod yok; yoksa önce create-design-md / design-extractor / design-dna	UI işi başlangıcı	skills/departman-frontend/SKILL.md:26	frontend,tasarim	create-design-md,design-extractor,design-dna
+Animasyon önce animasyon-atolyesi tarifi (kopyala-uyarla + olc.py), yetmezse GSAP/Theatre.js/Remotion	web animasyon	skills/departman-frontend/SKILL.md:17	frontend	animasyon-atolyesi,gsap,remotion
+Screenshot döngüsü 390/768/1440: min 2, en fazla 4 tur; 4. turda sapma sürerse DUR	görsel düzeltme döngüsü	skills/departman-frontend/SKILL.md:18	frontend,test	frontend-craft
+a11y 0 hata ve performans sayısı olmadan görsel QA yok; görsel QA geçmeden kapanış yok	UI kapanış kapısı	skills/departman-frontend/SKILL.md:28	frontend,test	pixeljury
+TS lint: oxlint + anti-slop (MIT) proje devDependency, sürüm sabit, global kurulmaz	TS projesi lint	skills/departman-frontend/SKILL.md:29	frontend	oxlint
+Yapım promptu: kütüphane+sürüm, dosya başı tek sorumluluk, sahne parametreleri tek CONFIG’te	UI’ı ajana yaptırma	skills/departman-frontend/SKILL.md:33	frontend,ajan-arac	
+3D model ~2 MB sıkıştırılmış GLB tercih; 6 MB detay yalnız gerekçeyle	web 3D varlık	skills/departman-frontend/SKILL.md:37	3d,frontend	
+Araştırma sırası: doküman context7/mslearn → web brave-search/agent-reach → video → graphify	araştırma işi	skills/departman-arastirma-ogrenme/SKILL.md:13	arastirma	context7,mslearn,brave-search,agent-reach,graphify
+Web/alt ajan çıktısı birebir kopyalanmaz, damıtılır; dış repo kodundan önce lisans	araştırma kaydı	skills/departman-arastirma-ogrenme/SKILL.md:21	arastirma,hukuk	
+Katalogda olmayan ya da emin olunmayan iş: yetenek-getir (3.3k araç, gruplu)	araç bulma	skills/departman-arastirma-ogrenme/SKILL.md:10	ajan-arac	yetenek-getir
+dotnet test/restore/format her zaman rtk dotnet ile; --nologo yok (DOTNET_NOLOGO)	.NET komutları	skills/departman-backend-dotnet/SKILL.md:21	dotnet	rtk,dotnet
+Derleme hatası binlog-generation → binlog-failure-analysis; yavaşlık build-perf-baseline → diagnostics	.NET derleme	skills/departman-backend-dotnet/SKILL.md:17	dotnet	binlog-generation,binlog-failure-analysis
+Proje dosyası değişikliğinde msbuild-antipatterns kontrolü	csproj düzenleme	skills/departman-backend-dotnet/SKILL.md:22	dotnet	msbuild-antipatterns
+API/sürüm sorusu önce mslearn; CLI önce (dotnet, gh)	.NET doküman	skills/departman-backend-dotnet/SKILL.md:13	dotnet,arastirma	mslearn
+Belge koddan türetilir, kodla çelişen iddia yazılmaz; talimat STE: cümle ≤20 kelime, adım başına tek eylem	doküman yazımı	skills/departman-belge/SKILL.md:19	belge	humanizer
+Her commit öncesi gitleaks; temiz değilse commit/push yok; env değeri yazdırılmaz	commit güvenliği	skills/departman-guvenlik/SKILL.md:13	guvenlik,git	gitleaks
+Diff taraması: security-review > 0day-scanner > tm-quick-security-assessment	kod güvenlik incelemesi	skills/departman-guvenlik/SKILL.md:26	guvenlik	security-review,0day-scanner
+Tam denetim (security-assessment, cso) yalnız yayın öncesi; her değişiklikte diff taraması yeter	güvenlik denetim sıklığı	skills/departman-guvenlik/SKILL.md:23	guvenlik	security-assessment
+Yeni veri işleme: use-case-triage → gerekirse pia-generation (KVKK)	KVKK değerlendirme	skills/departman-guvenlik/SKILL.md:18	guvenlik,hukuk	use-case-triage,pia-generation
+Pentest yerel strix > managed (ücretli, tavan sayıyla); yalnız yetkili hedef	uygulama pentest	skills/departman-guvenlik/SKILL.md:27	guvenlik	strix
+Tür seçimi skill/hook/MCP: plugin-structure; otomatik davranış hook ister (hookify)	ajan aracı tasarımı	skills/departman-surec-ajan-arac/SKILL.md:13	ajan-arac	plugin-structure,hookify
+Skill description ≤200 kr, 3. tekil (ne + ne zaman); gövde ≤500 satır, fazlası references/	skill yazımı	skills/departman-surec-ajan-arac/SKILL.md:22	ajan-arac	skill-creator
+Paralel kolda commit --trailer “Gorev: <AD>”; “zaten var” iddiası git cherry -v main <kol> ile kanıtlanır	paralel ajan birleştirme	skills/departman-surec-git-yayin/SKILL.md:22	git	git
+Kırmızı ve yeşil ayrı commit; kırmızı CI’da yayın yok	commit/CI akışı	skills/departman-surec-git-yayin/SKILL.md:14	git,test	commit-commands
+Kullanıcı istemeden push/deploy yok; default dalda önce dal aç	git yayın	skills/departman-surec-git-yayin/SKILL.md:20	git	
+Yapan denetlemez: kabul denetimi taze bağlamlı ayrı alt ajanla, yalnız diff + kabul ölçütü	kabul denetimi	skills/departman-surec-inceleme/SKILL.md:23	test,ajan-arac	
+Üç başarısız denemeden sonra DUR raporu; kanıtsız “bitti” yok	hata ayıklama	skills/departman-surec-inceleme/SKILL.md:21	genel,test	verification-before-completion
+Büyüyen tek dosya (god-file) fark edilince parçalama önerilir; uygulama ayrı karar	kod incelemesi	skills/departman-surec-inceleme/SKILL.md:22	genel	
+Kabul kriteri yazılmadan yapım yok; belirsizlikte soru değil DUR raporu	planlama	skills/departman-surec-plan/SKILL.md:20	genel	writing-plans
+Ücretli API/production çağrısı tavansız plana girmez	maliyetli plan	skills/departman-surec-plan/SKILL.md:21	genel,api	
+Plan skill’i tek: writing-plans > make-plan > autoplan	planlama aracı	skills/departman-surec-plan/SKILL.md:24	genel	writing-plans
+Kırmızı görülmeden yeşil kod yok; mutasyonla en az bir test kırmızıya düşmeli	TDD	skills/departman-test-qa/SKILL.md:21	test	test-driven-development
+Tarayıcı aracı playwright-cli > webapp-testing > puppeteer; aynı işte ikisi birden yok	e2e test	skills/departman-test-qa/SKILL.md:26	test,frontend	playwright-cli,webapp-testing
+omer-skills tam suit suite-kosucu ajanına (6 sabit komut, ≤6 satır dönüş); büyük log alt ajana	test koşusu	skills/departman-test-qa/SKILL.md:15	test,ajan-arac	suite-kosucu
+Geri alma adımı olmayan migration yok; üretime yalnız yerelde denendikten sonra ve onayla	veritabanı migration	skills/departman-veri-db/SKILL.md:20	veri-db	supabase
+Postgres’e dokunmadan önce supabase-postgres-best-practices	Postgres işi	skills/departman-veri-db/SKILL.md:13	veri-db	supabase-postgres-best-practices
+Ölçülmeden “tasarruf” iddiası yok (girdi/çıktı token sayıyla)	verimlilik iddiası	skills/departman-verimlilik/SKILL.md:21	ajan-arac,genel	
+Büyük log/tarama önce jev log|triage, gerekirse headroom; komut çıktısı rtk	log okuma	skills/departman-verimlilik/SKILL.md:14	ajan-arac	jev,headroom,rtk
+Araç sırası soldan sağa: önce kurulu ve ölçülmüş olan; claude.ai’de alt ajan yerine ajanlar/<ad>.md uygula	departmansız iş	skills/departman-diger/SKILL.md:9	ajan-arac	departman-diger
+Görsel üretim: nano-banana-2 → figma → logo-design → fal; ücretli çağrıda tavan şart	görsel/logo üretimi	skills/departman-diger/SKILL.md:17	gorsel	nano-banana-2,figma,fal
+Video kurgu: video-cli → ffmpeg/whisper-cli → premiere-pro MCP → hyperframes → ajan vid-*	video kurgu	skills/departman-diger/SKILL.md:14	video	ffmpeg,whisper-cli,premiere-pro,hyperframes
+Blender: blender plugin → blender-uretim/oturum → blender MCP → ajan bl-*	3D üretim	skills/departman-diger/SKILL.md:15	3d	blender

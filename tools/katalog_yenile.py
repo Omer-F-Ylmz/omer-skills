@@ -106,6 +106,34 @@ def repo_araclari():
             yield py.stem, " ".join(m.group(1).split()), f"python tools/{py.name}"
 
 
+def plugin_ajanlari():
+    """Kurulu plugin'lerin agents/**/*.md'si → 'eklenti:alt:ad' (Agent listesindeki ad biçimi)."""
+    kurulu = EV / "plugins" / "installed_plugins.json"
+    if not kurulu.exists():
+        return
+    acik = json.loads((EV / "settings.json").read_text(encoding="utf8")).get("enabledPlugins", {})
+    for anahtar, kurulumlar in json.loads(kurulu.read_text(encoding="utf8"))["plugins"].items():
+        for k in kurulumlar:
+            kok = Path(k["installPath"]) / "agents"
+            for md in sorted(kok.glob("**/*.md")) if kok.is_dir() else []:
+                ad = ":".join([anahtar.split("@")[0], *md.relative_to(kok).with_suffix("").parts])
+                yield dict(ad=ad, tur="ajan", kaynak=anahtar, aciklama=aciklama(md), cagri=f"Agent {ad}",
+                           durum="CC" if acik.get(anahtar) else "CC · plugin kapalı")
+
+
+def ogrenim_bekleyen():
+    """ogrenim.jsonl'dan sonra gelen, henüz kaynak gösterilmemiş tarama/rapor dosyaları (artımlı öğrenim partisi girdisi)."""
+    og = CIKTI / "ogrenim.jsonl"
+    if not og.exists():
+        return
+    var = {re.sub(r":\d+(-\d+)?$", "", json.loads(s)["kaynak"]) for s in og.read_text(encoding="utf8").splitlines() if s.strip()}
+    esik = og.stat().st_mtime
+    for desen in ("docs/video-tarama/*.md", "docs/kaynak-tarama/*.md", ".kos/kopru/rapor/ig-*.md"):
+        for p in sorted(KOK.glob(desen)):
+            if p.stat().st_mtime > esik and p.relative_to(KOK).as_posix() not in var:
+                yield p.relative_to(KOK).as_posix()
+
+
 def satirlar():
     sk, plug = skill_aciklamalari()
     kapali = kapali_skilller()
@@ -143,6 +171,14 @@ def satirlar():
                        cagri=f"ToolSearch '{ad}' → mcp__{ad}__*" if tur == "mcp" else "claude.ai bağlayıcısı", durum=nerede)
         elif tur == "cli" and ad != "-":
             yield dict(ad=ad, tur="cli", kaynak=kaynak, aciklama=r["is"] or paket.get(ad, ""), cagri=f"Bash: {ad} --help", durum=nerede)
+    yield from plugin_ajanlari()
+    # ENVANTER-3: IG/video taramalarında kurulan ya da ADAY denen ama envanterde olmayanlar (durum kurulu/aday)
+    ek = CIKTI / "ek.jsonl"
+    for s in ek.read_text(encoding="utf8").splitlines() if ek.exists() else []:
+        if s.strip():
+            o = json.loads(s)
+            yield dict(ad=o["ad"], tur=o["tur"], kaynak=o["kaynak"], aciklama=o["metin"], cagri=o["cagri"],
+                       durum=o["durum"], alan=o.get("alan", ""))
     for ad, aciklama_, lisans in kutuphaneler():
         yield dict(ad=ad, tur="kutuphane", kaynak="omer-kutuphaneler", aciklama=aciklama_,
                    cagri="Skill omer-kutuphaneler (pinli kurulum satırı)", durum=f"lisans {lisans}")
@@ -166,7 +202,7 @@ def uret(onceki):
         s["tetik"] = s["tetik"] or katalog_ara.tetik(f"{s['ad']} {s['is_']}")
         s["imza"] = imza
         # okuyucu alan etiketi (d6) açıklama değişmedikçe korunur
-        s["alan"] = eski.get("alan", "") if eski and eski.get("imza") == imza else ""
+        s["alan"] = (eski.get("alan", "") if eski and eski.get("imza") == imza else "") or s.get("alan", "")
         s["ozet_bekliyor"] = int(not s["ozet"])
         s["metin"] = kisa(s.pop("aciklama"), 400)
         s["is"] = s.pop("is_")
@@ -194,6 +230,8 @@ def main():
         for o in rows:
             if not o["is"]:
                 print(json.dumps({k: o[k] for k in ("ad", "tur", "kaynak", "durum")}, ensure_ascii=False))
+        for yol in ogrenim_bekleyen():
+            print(json.dumps({"ogrenim_kaynak": yol}, ensure_ascii=False))
         return
     jl.write_bytes("".join(json.dumps(o, ensure_ascii=False) + "\n" for o in rows).encode("utf8"))
     sutun = ["ad", "tur", "kaynak", "is", "tetik", "cagri", "durum"]
@@ -203,8 +241,9 @@ def main():
         for o in rows:
             w.writerow([o[k].replace("\t", " ") for k in sutun])
     # yetenek-getir (CC kurulumu + claude.ai zip'i) yerel repo yoluna bağlı kalmasın
-    for f in (jl, CIKTI / "yetenek.tsv", Path(katalog_ara.__file__)):
+    for f in (jl, CIKTI / "yetenek.tsv", CIKTI / "ogrenim.jsonl", Path(katalog_ara.__file__)):
         shutil.copy2(f, KOK / "skills" / "yetenek-getir" / f.name)
+    shutil.copy2(KOK / "tools" / "plan_kur.py", KOK / "skills" / "plan-kur" / "plan_kur.py")
     from collections import Counter
     print(len(rows), dict(Counter(o["tur"] for o in rows)), "ozet_bekliyor", sum(o["ozet_bekliyor"] for o in rows),
           "is_bos", sum(not o["is"] for o in rows))
