@@ -3614,7 +3614,14 @@ kalite3_hiz	arac	omer-skills tools/	KALİTE-3-HIZ: iki aşamalı ajan ölçümü
 kalite3_zip	arac	omer-skills tools/	KALİTE-3 İKİ TARAF: kabul edilen skill'lerin claude.ai zip'i — CC onay betiğinin yazacağıyla aynı içerik…	beceri	python tools/kalite3_zip.py	repo
 katalog_altin	arac	omer-skills tools/	ENVANTER-2 d5: havuzlanmış altın küme + kesinlik/geri çağırma ölçüsü (20 ayar / 10 sınama iş). python…		python tools/katalog_altin.py	repo
 katalog_ara	arac	omer-skills tools/	ENVANTER-2: yetenek kataloğunda iş tarifiyle arama — iki aşama: geniş aday listesi (bu betik) → seçimi…	search	python tools/katalog_ara.py	repo
+katalog_kanca	arac	omer-skills tools/	"KATALOG-KANCA-1: UserPromptSubmit kancası — zor işte (≥2 alan, alan dışı ya da ""hangi araç"" sorusu) katalog…"	hook hooks search	python tools/katalog_kanca.py	repo
 katalog_yenile	arac	omer-skills tools/	ENVANTER-2: yetenek kataloğu → docs/katalog/yetenek.jsonl + yetenek.tsv.		python tools/katalog_yenile.py	repo
+kilavuz_aday	arac	omer-skills tools/	ENVANTER-4 d3: tarif/aile kılavuzu için aday dökümü + aile JSON → md + ad denetimi.	transcript	python tools/kilavuz_aday.py	repo
+kilavuz_ara	arac	omer-skills tools/	ENVANTER-4 m4: iş → ilgili birleşim tarifi + katalog kayıtlarının derin alanları (kompakt).	search	python tools/kilavuz_ara.py	repo
+kilavuz_derin	arac	omer-skills tools/	ENVANTER-4 m2: derin kılavuz partileri.		python tools/kilavuz_derin.py	repo
+kilavuz_ornek	arac	omer-skills tools/	ENVANTER-4 d2 m2b: ücretsiz model taslağının %10 Claude okuyucu doğrulaması.	mod modding 3d mesh validation validate	python tools/kilavuz_ornek.py	repo
+kilavuz_taslak	arac	omer-skills tools/	ENVANTER-4 d2 m2a: deterministik kartlardan (kilavuz_derin kart) OmniRoute ücretsiz combo ile derin alan…		python tools/kilavuz_taslak.py	repo
+kilavuz_tekil	arac	omer-skills tools/	ENVANTER-4 m1: katalog kayıtlarını gövde sha'sıyla tekilleştirir, aileye bağlar → docs/katalog/tekil.tsv.		python tools/kilavuz_tekil.py	repo
 kontur_profil	arac	omer-skills tools/	Kulpsuz gövde maskesini gorunum ön kamerasının çerçevesine (bbox merkezi, ortho 2r·1.05, BOY²) yerleştirir.		python tools/kontur_profil.py	repo
 model_olc	arac	omer-skills tools/	KALİTE-3 MODEL KURALI: alt ajan modeli ölçümü. Canlı ~/.claude/settings.json'daki CLAUDE_CODE_SUBAGENT_MODEL…	mod modding 3d mesh agent yapilandirma	python tools/model_olc.py	repo
 model_sec	arac	omer-skills tools/	ROUTER-1: `claude -p` adımı için kural tabanlı yönlendirme — model DÜŞÜRÜLMEZ (Ömer 12 Eki: tasarruf yolu…	mod modding 3d	python tools/model_sec.py	repo
