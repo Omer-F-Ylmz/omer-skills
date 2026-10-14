@@ -127,3 +127,7 @@ g4-ana-oturum-yargi-kismi	1	26000	1800	0	0	0	0	opus	ana-oturum-yargi 52-60 örne
 p037	9	19774	19622	45	0	0	492	nvidia/nemotron-3-ultra-550b-a55b:free	-
 g4-ana-oturum-yargi	1	9000	900	0	0	0	0	opus	ana-oturum-yargi 52-60 örnek 40-46/46 + uygula (0.942, 16/276)
 g4b-ana-oturum-yargi	1	30000	2500	0	0	0	0	opus	ana-oturum-yargi 61-69 örnek 42/42 + 6 kaynak grep + uygula
+p038	7	21482	16382	45	0	0	447	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p039	8	22876	17579	45	0	0	490	nvidia/nemotron-3-ultra-550b-a55b:free	-
+p040	14	30397	21348	45	0	0	585	nvidia/nemotron-3-ultra-550b-a55b:free	-
+g2b-ana-oturum-yargi	1	60000	4000	0	0	0	0	opus	ana-oturum-yargi 22-40 örnek 95/95 + 4 kaynak grep + uygula (0.956)
