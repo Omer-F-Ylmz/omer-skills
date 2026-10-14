@@ -13,6 +13,7 @@ def test_govde_combo_ve_dosyalar(tmp_path):
     d.write_text("MIT License", encoding="utf-8")
     g = ucuz_alt.govde("lisans?", [d])
     assert g["model"] == "cc-yedek-dis" and "claude" not in g["model"]
+    assert g["reasoning_effort"] != "none"  # combo modelleri düşünmesiz 400 döner (TOKEN-2 d3)
     assert "MIT License" in g["messages"][0]["content"] and g["messages"][0]["content"].startswith("lisans?")
     with pytest.raises(ValueError):
         ucuz_alt.govde("x" * (ucuz_alt.TAVAN + 1), [])

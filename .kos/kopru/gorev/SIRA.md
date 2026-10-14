@@ -425,3 +425,4 @@ DISK-1 d2 HAZIR 13:40 — Ömer koşar (repo kökünden): `python .kos/kopru/dis
 - 14 09:25 PLAN-KUR-3 d4 BİTTİ KABUL (aynı küme, genel düzeltme): SERT B 0 (sayaç cwd=WT, d3 ile aynı; cwd hatası plan_kur'u sayıyordu), KABUL-1 77/76 (+1), zor ×0.745 / hariç ×0.808, rutin +%0.11; KABUL-2 ✗; dist/plan-kur-3 zip 2 + --kuru rc 0, uygula KOŞULMADI → rapor/plan-kur-3.md
 14 Oct 12:53 TOKEN-2 d1 ARA KAYIT (BİTMEDİ): K1 kök neden adayı = headroom stable-boundary işaret kaydırması (son mesaj yeniden yazıldığında Opus durma %45.4 vs %0.7); doğrulama arka planda (.kos/kopru/token-2-k1.log, 2 claude -p); K0 yapılmadı → devir/token-2-devam.md
 14 Oct 12:56 TOKEN-2 d1 ARA KAYIT 2: K1 doğrulama DOĞRULANAMADI (A/B durma 0, yer değiştirme 0; claude -p 2/2); K0 devirde
+14 Oct 14:37 TOKEN-2 d3 ara: K9 MAX_THINKING Opus 5.5'te etkisiz (ölçüldü), effort medium −%16 n=1; K1b farkı 6769'da HEADROOM_* ortamı yok; ucuz_alt 400 düzeltildi, K8 iki kol koştu; kalan K8 puan + K3/K7 → devir

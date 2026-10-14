@@ -61,19 +61,28 @@ def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=(), sure=2400):
                 pass
             time.sleep(5)
         zaman_asimi = p.poll() is None
-        for c in [psutil.Process(p.pid)] * zaman_asimi + list(torun):
+        hedef = list(torun)
+        if zaman_asimi:  # d3: psutil.Process(p.pid) yalnız süreç yaşıyorken kurulur (bitmişse NoSuchProcess → k1b A kolu çöktü)
+            try:
+                hedef.insert(0, psutil.Process(p.pid))
+            except psutil.Error:
+                pass
+        for c in hedef:
             try:
                 c.kill()
             except psutil.Error:
                 pass
         p.wait(30)
-    p.stdout = cikti.read_text(encoding="utf-8", errors="replace"); p.stderr = "zaman aşımı" if zaman_asimi else ""
+    metin = cikti.read_text(encoding="utf-8", errors="replace")
     hr = stats()
     vekil.kill(); bekle_port(False, 10)
+    return ozet(ad, metin, iz, hr, time.time() - t0, p.returncode, "zaman aşımı" if zaman_asimi else "")
+
+def ozet(ad, metin, iz, hr, sure, rc=None, hata=""):
     try:
-        j = json.loads(p.stdout); sid = j.get("session_id")
+        j = json.loads(metin); sid = j.get("session_id")
     except Exception:
-        return {"kol": ad, "hata": "json yok", "rc": p.returncode, "cikti": (p.stdout or p.stderr)[-300:]}
+        return {"kol": ad, "hata": "json yok", "rc": rc, "cikti": (metin or hata)[-300:]}
     tr = next((Path.home() / ".claude/projects").glob(f"*/{sid}.jsonl"))
     goruldu, istek = set(), []
     for l in open(tr, encoding="utf-8"):
@@ -88,7 +97,7 @@ def kol(ad, env_ek, istem=ISTEM, cwd=KOK, tur=40, ek=(), sure=2400):
     return {"kol": ad, "sid": sid, "sonuc": str(j.get("result", ""))[:80], "istek": len(istek), "durma": len(durma),
             "durma_idx": durma, "onbelleksiz": sum(x[0] for x in istek), "okuma": sum(x[1] for x in istek),
             "yazma": sum(x[2] for x in istek), "yer_cagri": len(yer), "yer_degisti": sum(int(x[4]) for x in yer),
-            "yer_degisti_satir": [x for x in yer if x[4] == "1"][:10], "sure_sn": round(time.time() - t0), "headroom": hr, "tur": j.get("num_turns"), "usd": j.get("total_cost_usd")}
+            "yer_degisti_satir": [x for x in yer if x[4] == "1"][:10], "sure_sn": round(sure), "headroom": hr, "tur": j.get("num_turns"), "usd": j.get("total_cost_usd")}
 
 if __name__ == "__main__":
     out = D / "k1_dogrula.jsonl"

@@ -27,8 +27,8 @@ def govde(istem, dosyalar):
                  for d in dosyalar)
     if len(istem) + len(ek) > TAVAN:
         raise ValueError(f"bağlam {len(istem) + len(ek)} karakter > {TAVAN}; dosyaları böl")
-    # düşünme kapalı: flash düşünme jetonu max_tokens'u yiyordu (OMNIROUTE d3)
-    return {"model": COMBO, "messages": [{"role": "user", "content": istem + ek}], "max_tokens": 4000, "reasoning_effort": "none"}
+    # düşünme en az: "none" combo'da 400 (düşünme zorunlu, TOKEN-2 d3); flash düşünmesi max_tokens'u yemesin diye 8000
+    return {"model": COMBO, "messages": [{"role": "user", "content": istem + ek}], "max_tokens": 8000, "reasoning_effort": "low"}
 
 
 def iste(g, zaman=300):

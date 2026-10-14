@@ -1,0 +1,15 @@
+- context-mode: Elastic-2.0 (ELv2)
+  - ticari kullanım / kendi projemizde kullanma: izinli; "use, copy, distribute, make available" hakkı veriliyor, aşağıdaki sınırlara bağlı. Ticari kullanım metinde ayrıca adıyla geçmiyor.
+  - değiştirip yeniden dağıtma: izinli ("prepare derivative works", "distribute"); koşul: alan herkese lisans metni verilir, değiştirilen kopyalara "değiştirildi" notu açıkça konur.
+  - yasaklar / dikkat: barındırılan ya da yönetilen hizmet olarak sunulamaz; lisans anahtarı işlevi değiştirilemez, kapatılamaz ya da atlatılamaz; lisans ve telif notları kaldırılamaz; marka kullanımı yasaya tabidir; patent davası açılırsa patent lisansı biter.
+  - karar: KOŞULLU AL; yerel kullanım ve notları koruyarak gömme serbest, ama SaaS/yönetilen hizmet yasağı ve lisans metni ile değişiklik notu zorunluluğu var.
+- claude-code-plugins: özel ("© Anthropic PBC. All rights reserved.")
+  - ticari kullanım / kendi projemizde kullanma: Anthropic Commercial Terms of Service'e bağlı; o şartların içeriği metinde yok.
+  - değiştirip yeniden dağıtma: metinde yok. "All rights reserved" yazıyor ve açık bir izin verilmiyor.
+  - yasaklar / dikkat: tüm haklar saklı; kullanım Commercial Terms'e bağlı; README'ye göre Claude Code kullanım ve konuşma verisi topluyor.
+  - karar: ALMA; fork etme ve kendi paketimize gömme izni metinde yok, yalnız Anthropic'in sunduğu biçimde kullanılabilir.
+- impeccable: Apache-2.0 (Copyright 2025 Paul Bakaus)
+  - ticari kullanım / kendi projemizde kullanma: izinli; lisansa uyulması yeterli, ücret yok.
+  - değiştirip yeniden dağıtma: izinli (Bölüm 4); koşul: lisans kopyası verilir, değiştirilen dosyalara değişiklik notu konur, telif ve atıf notları korunur, NOTICE dosyası varsa içeriği aktarılır.
+  - yasaklar / dikkat: marka ve ticari ad kullanımına izin verilmiyor (Bölüm 6); garanti yok; patent davası açılırsa patent lisansı biter; repoda NOTICE dosyası olup olmadığı metinde yok.
+  - karar: AL; Apache-2.0 izin verici bir lisans, yalnız atıf, lisans kopyası ve değişiklik notu şartı var.

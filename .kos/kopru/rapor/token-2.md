@@ -56,3 +56,18 @@ K5: DEVAM-KURALI'na tek satır (ölçüm yöntemi).
 K8: `tools/ucuz_alt.py`: istem + bağlam dosyaları → OmniRoute cc-yedek-dis (Claude-dışı), yanıt dosyaya, stdout'a yalnız yol/model/jeton; düşünme kapalı, UA başlığı, kesik yanıt → çıkış 2. Kör karşılaştırma koşulmadı (oturum çağrı tavanı 40/45) → devir 2. adım.
 Not: mod'daki headroom_retrieve 0.44M israfı (sıkışan Read'in geri çağrısı) K2/K4'te ele alınacak.
 claude -p: 2/2 (k2_olc.py). Test: test_cc_profil + test_token1 21 ✓, test_ucuz_alt 3 ✓.
+
+## d3 ara (14 Eki ~14:45) — K9 · K1b farkı · K8
+- K9 düşünme: CC 2.1.295 kodu Opus 4.7+/5.5'e her zaman `thinking:{type:"adaptive"}` yollar; MAX_THINKING_TOKENS>0 yalnız eski modellerde budget_tokens olur → köprü işçilerinde ETKİSİZ (k7b-think10k "≈taban" sonucunun nedeni). Ölçüm: MAX_THINKING_TOKENS=2000 ile tek istekte çıktı 5112 (görünür ~200) → tavan yok sayıldı; cevap doğru. Kaldıraç effort: aynı görev --effort medium çıktı 4314 (−%16), cevap doğru (n=1).
+- Tavanın keseceği pay (k9_dusunme.py, dökümler; düşünme ≈ çıktı − görünür/4):
+
+| proje | istek | düşünme/çıktı | 10k üstü istek | 10k kesimi (çıktı) | 4k kesimi |
+|---|---|---|---|---|---|
+| TELVE | 1383 | %82 | %2.2 | %11.5 | %24.2 |
+| Blender | 928 | %82 | %2.5 | %7.4 | %22.1 |
+| omer-skills | 30992 | %75 | %0.4 | %2.0 | %8.3 |
+
+- Öneri: ajan profiline MAX_THINKING_TOKENS EKLENMEZ; mekanik adımlara --effort medium, gerçek işte kalite kapılı A/B sonrası (Desktop kararı).
+- K1b farkı: 6769 test vekili ve 6768 aynı headroom 0.39.0 çalışma zamanı; fark 6768'de headroom-desktop'un verdiği ~40 HEADROOM_* değişkeni (MODE, SAVINGS_PROFILE, COLD_RECOMPACT, READ_MATURATION, COMPRESS_USER_MESSAGES, BACKGROUND_COMPRESSION…) + --log-messages; k1_dogrula bunları geçirmiyor → 6769 neredeyse sıkıştırmasız (%1.5) koştu, durma 0 bu yüzden karşılaştırılamaz. Sonraki: 6768 ortamının kopyasıyla A kolu, durursa bayrakları ikiye bölerek ara (≤2 claude -p, izinle).
+- K8: ucuz_alt.py combo'da 400 veriyordu (3 model de düşünmeyi zorunlu tutuyor, reasoning_effort "none" reddediliyor) → "low" + max_tokens 8000, test 3/3. Lisans görevi iki kolda koştu: OmniRoute gpt-6.1-sol 34.7k girdi/656 çıktı/15 sn (Claude 0) ↔ okuyucu sonnet 20.8k. Kör puan d4'te.
+- claude -p: 2/2 kullanıldı. Kalan: K8 puan · K3/K7 · rapor sonu.
