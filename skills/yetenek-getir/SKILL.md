@@ -25,3 +25,4 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 ## Kurallar
 - `durum` "kapalı(override off)" olanı önermeden önce kullanıcıya söyle; kurulu olmayanı kurma.
 - Arama başına tek komut; çıktıyı bağlama yapıştırma, yalnız seçilen aracı adıyla an.
+- "(taslak, doğrulanmamış)" etiketli kılavuz kartını kullanmadan önce kaynağı (aracın SKILL.md'si) oku.

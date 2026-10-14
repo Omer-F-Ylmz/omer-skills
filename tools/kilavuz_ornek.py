@@ -1,8 +1,9 @@
 """ENVANTER-4 d2 m2b: ücretsiz model taslağının %10 Claude okuyucu doğrulaması.
 
 python tools/kilavuz_ornek.py ornek g1 2-4,7,9-17   → .kos/kopru/envanter4/ornek/g1.md (kart + taslak çiftleri)
-python tools/kilavuz_ornek.py uygula g1 karar.jsonl → uydurma alanı "?" yapar, parti/grup doğruluğu, <%95 partileri yazar
-karar.jsonl satırı: {"ad","tur","yanlis":[alan],"uydurma":[alan]} — yalnız hatalı kayıtlar; örneklemdeki öteki kayıtlar doğru sayılır.
+python tools/kilavuz_ornek.py uygula g1 karar.jsonl → hatalı alanı düzeltmeyle ya da "?" ile değiştirir, parti/grup doğruluğu,
+  <%95 partileri doğrulukla yazar ve kayıtlarına "dogrulandi": false koyar
+karar.jsonl satırı: {"ad","tur","yanlis":[alan],"uydurma":[alan],"duzelt":{alan: metin}?} — yalnız hatalı kayıtlar; örneklemdeki öteki kayıtlar doğru sayılır.
 """
 import json, math, sys
 from pathlib import Path
@@ -55,14 +56,19 @@ def uygula(grup, karar_yol):
                    for j in orn)
         top_alan += len(orn) * len(kd.ALAN)
         top_hata += hata
-        if 1 - hata / (len(orn) * len(kd.ALAN)) < 0.95:
-            yeniden.append(no)
+        pdog = 1 - hata / (len(orn) * len(kd.ALAN))
+        if pdog < 0.95:
+            yeniden.append(f"{no}:{pdog:.2f}")
         yol = kd.IS / "cikti" / f"p{no:03d}-t.jsonl"
         satir = [json.loads(s) for s in open(yol, encoding="utf8")]
         for j in satir:
-            for a in karar.get(f"{j.get('tur')}:{j['ad']}", {}).get("uydurma", []):
-                if a in kd.ALAN and j.get(a) != "?":
-                    j[a], sil = "?", sil + 1
+            k = karar.get(f"{j.get('tur')}:{j['ad']}", {})
+            for a in set(k.get("uydurma", [])) | set(k.get("yanlis", [])):  # Desktop 14 Eki: okuyucu düzeltmesi yazılır, yoksa alan silinir
+                yeni = k.get("duzelt", {}).get(a) or "?"
+                if a in kd.ALAN and j.get(a) != yeni:
+                    j[a], sil = yeni, sil + 1
+            if pdog < 0.95 and j.get("durum") != "katalog":
+                j["dogrulandi"] = False
         with open(yol, "w", encoding="utf8", newline="\n") as f:
             f.writelines(json.dumps(j, ensure_ascii=False) + "\n" for j in satir)
     dog = 1 - top_hata / top_alan if top_alan else 0

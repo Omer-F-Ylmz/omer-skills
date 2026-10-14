@@ -5,6 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import kilavuz_ara  # noqa: E402
 import kilavuz_derin  # noqa: E402
+import kilavuz_ornek  # noqa: E402
 import kilavuz_tekil  # noqa: E402
 
 
@@ -46,3 +47,19 @@ def test_tarif_bul_ortak_kelime(tmp_path):
     (tmp_path / "oyun.md").write_text("# Oyun tarifi\n", encoding="utf8")
     assert kilavuz_ara.tarif_bul("oyun yap", tmp_path).name == "oyun.md"
     assert kilavuz_ara.tarif_bul("zzz", tmp_path) is None
+
+
+def test_uygula_duzeltir_ve_dogrulanmadi_isaretler(tmp_path, monkeypatch, capsys):
+    (tmp_path / "cikti").mkdir()
+    (tmp_path / "ornek").mkdir()
+    alan = {a: "x" for a in kilavuz_derin.ALAN}
+    (tmp_path / "cikti" / "p001-t.jsonl").write_text(json.dumps({"ad": "a", "tur": "skill", **alan}) + "\n", encoding="utf8")
+    (tmp_path / "ornek" / "g.aralik").write_text("1", encoding="utf8")
+    karar = tmp_path / "k.jsonl"
+    karar.write_text(json.dumps({"ad": "a", "tur": "skill", "yanlis": ["nasil"], "uydurma": ["tuzak"], "duzelt": {"nasil": "dogru"}}), encoding="utf8")
+    monkeypatch.setattr(kilavuz_derin, "IS", tmp_path)
+    monkeypatch.setattr(kilavuz_ornek, "ORN", tmp_path / "ornek")
+    kilavuz_ornek.uygula("g", karar)
+    j = json.loads(open(tmp_path / "cikti" / "p001-t.jsonl", encoding="utf8").read())
+    assert (j["nasil"], j["tuzak"], j["dogrulandi"]) == ("dogru", "?", False)
+    assert f"1:{1 - 2 / len(kilavuz_derin.ALAN):.2f}" in capsys.readouterr().out

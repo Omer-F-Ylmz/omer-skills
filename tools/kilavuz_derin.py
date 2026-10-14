@@ -123,6 +123,8 @@ def birlestir():
             kayit = {"ad": j["ad"], "tur": k.split(":", 1)[0], **{a: maske(" ".join(j[a].split())) for a in ALAN}}
             if j.get("konu"):
                 kayit["konu"] = str(j["konu"])[:40]
+            if j.get("dogrulandi") is False:
+                kayit["dogrulandi"] = False
             for a in ALAN:
                 if len(kayit[a]) > 160:
                     hata["160 kırpıldı"] += 1
