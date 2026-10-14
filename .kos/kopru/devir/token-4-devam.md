@@ -1,10 +1,10 @@
-# TOKEN-4 devam (d1 → d2) — 14 Eki ~21:55
-Görev: .kos/kopru/gorev/token-4.md (VEKİL KAZASI geçerli). claude -p 0/6 harcandı.
-SON COMMIT: d1 ara (A0 tablo betiği, A2 kök, is-akisi araç sırası 3 satır); ayrıntı rapor/token-4.md d1.
-KALAN (öncelik sırası, kazanç büyüklüğüne göre):
-1. A2 kapı: ikinci headroom vekili ayrı portta, `HEADROOM_STABLE_BOUNDARY_BREAKPOINT=0` yalnız o süreçte (arka.py); claude -p'ye taban URL yalnız --settings env'iyle (.claude/token3/onek_kayit.py kalıbı). ≥20 bloklu mesaj üreten (paralel araç) çok adımlı görev, ≤2 claude -p; cw/cr/durma karşılaştır. Önce TOKEN-2 K1b notuna bak (mem 24157: o vekil sıkıştırmasız koşmuştu, karşılaştırılamaz). Bitince `python .kos/kopru/vekil_dene.py` 401.
-2. Gözlemci 5.6M/gün önbelleksiz: CLAUDE_MEM_PROVIDER=gemini önerisi için 10 gözlem kalite kıyası (haiku ↔ gemini, 0 Anthropic çağrısı).
-3. Geçen öneriler → onay/token_4_uygula.py --kuru (token_3_uygula.py kalıbı); rtk config.toml ignore_dirs + graphify-out adayı (etkisi ölçülmedi).
-4. A4 öz hattı, A5 qmd (bugün 1 kullanım), kapı 4 iş; is-akisi zip: tools/skill-paket/paketle.py argv sırası (docstring) → dist/claude-ai-27 + zip_denetle.
+# TOKEN-4 devam (d2 → d3) — 14 Eki ~23:15
+Görev: .kos/kopru/gorev/token-4.md (VEKİL KAZASI geçerli). claude -p 3/6 harcandı. Ayrıntı: rapor/token-4.md d2.
+SON COMMIT: d2 ara (hr_ab.py tek vekil + RAM bekçisi, mem_kiyas.py doğrudan Gemini + cc-yedek-dis yargıç).
+KALAN (öncelik):
+1. A2: hr_ab.py ISTEM'i ≥20 içerik bloklu mesaj üretecek şekilde değiştir (ör. 3 turda 8'er paralel Read) — d2'de iki kolda durma 0 çıktı, karşılaştırma boş. Koşu: `python .kos/kopru/arka.py .claude/token4/hr_ab3.log .claude/token4/hr_ab.py ABAB` (≤3 claude -p kaldı), RAM <%75. Bitince vekil_dene 401.
+2. A3: Gemini API 429 (kota). Alternatif yalnız kota çakışmasız bir yol bulunursa (CLAUDE_MEM_OPENROUTER_BASE_URL → OmniRoute?) `python .claude/token4/mem_kiyas.py 20`; yoksa A3 kapalı.
+3. A1 kaçak kaynağı: rtk rewrite çalışıyor, cc_profil kancaları koruyor → hangi oturum türü kancasız (Desktop? alt ajan?) belirle.
+4. A4 öz hattı, A5 qmd, 4 iş kapısı, onay/token_4_uygula.py --kuru (yalnız geçen öneri), zip (paketle.py → dist/claude-ai-27 + zip_denetle).
 5. Bitince gorev/SIRA.md "TOKEN-4 BİTTİ".
 ARKA PLAN: yok.
