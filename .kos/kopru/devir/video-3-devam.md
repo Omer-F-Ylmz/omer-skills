@@ -1,14 +1,14 @@
-DESKTOP 23:28 (d8) — ÖNCE BUNU UYGULA: Gemini günlük kota sıfırlaması PT gece yarısı = 15 Eki 10:00 TR (03:00 değil) → 10:00'dan önce Gemini isteği YOK; sonrasında önce tek minik istekle yokla. d8 Gemini'siz iş: (a) V5 = YENİ modül tools/video/video/kota.py + test: ortak günlük Gemini defteri (model başına istek sayısı, .kos/kopru/video/kota-<tarih>.json), PerDay 429 görünce diğer modelleri DENEMEDEN dur + kaldığı yerden sür; kisa.py/karar.py/_uret/yedek.py'ye dokunma (bağlama V4 hat'ta). (b) madde 2 kaçan teşhisi + madde 5 Dd7W teşhisi mevcut çıktılarla, ağsız. (c) Ölçüm (madde 1, 3) yalnız 10:00 TR sonrası — önceyse ara kayıt + dur. Kota paylaşımı (çapraz yok): Gemini = video birincil · OpenRouter :free görsel = video yedeği (M7f, VİDEO-KISA-TOKEN-2) · Groq = claude-mem adayı. 180 link (≈696 istek) kota.py ile ≥2 güne bölünür. Commit yalnız kendi yolların (`git commit -m … -- <yollar>`), git add -A yok. Ağır python TEK.
-DESKTOP 20:30 (d5): altında kanıtsız öğe → kanıtlanabiliyorsa düzelt, yoksa "temiz" puandan çıkar ve listele. Kısa hattın kanıtlı mekanizmalarını uzun yola ortak fonksiyonla taşı. Kapı ayarlanmamış 3–4 uzun videoda da geçmeli. RAM: ağır python TEK. DESKTOP 20:50: tools/video/video/karar.py (VİDEO-KISA-TOKEN-2) hazır olunca uzun hatta bağla; o zamana kadar kisa.py/karar.py'ye dokunma.
-# VİDEO-3 devam (d8 → d9), 14 Eki ~23:45
-d8 YAPILDI: (a) kota.py + tests/test_kota.py 8/8 (defter, sayan, yokla, toplu dur/sür, gun_bol; bağlama V4 hat'ta) · (b) madde 2 teşhisi rapor d8'de (kanıtsız öğe yok; 4 DF_TAVAN bekliyor, 3 ayrıntı düzeyi → karar: puanlama gevşetilsin mi, aşırı uyum riski). Madde 5 Dd7W teşhisi YAPILMADI.
-d9 İLK İŞ (10:00 TR sonrası): `kota.yokla` ile tek minik istek → gerçek 429/200 gövdesiyle kota.cozumle doğrula; sonra madde 1.
-DURUM: temiz araç 0.871 (kapı 0.95) · yp 0 ✓ · jeton 0.09× / süre ~0.15× (d3) ✓ · link tam. claude -p 1/6. Ayrıntı rapor/video-3.md d8.
-ENGEL: Gemini günlük kota; sıfırlama 15 Eki 10:00 TR (satır 1).
-SIRADAKİ (sırayla):
-1. d5 yaygin_aday ölçümü: tools/video'dan `PYTHONPATH=. .venv/Scripts/python.exe ../../.kos/kopru/arka.py --cwd tools/video .kos/kopru/video/v3/kos-d7.log ../../.kos/kopru/video/v3.py kos yeniden` (arka.py günlük yolu repo köküne göreli!) → bekle.py → `v3.py kacak yok.json son` ile temiz araç. Önce kos.json'u kos-d6.json'a kopyala.
-2. Kalan kaçan: envanterde yok 3 · sızıntı 2 · OCR yazımı 2 (v3_teshis.py). Genel mekanizma yoksa kanıtsız öğe puandan çıkar + listele (Desktop 20:30).
-3. Ayarlanmamış 3–4 uzun videoda sınama (Desktop 20:30).
-4. V5: toplu modda PerDay 429 → dur + kaldığı yer (yeni modül; kisa._uret'e dokunma). V4 tek komut `video hat`: karar.py bitince (VİDEO-KISA-TOKEN-2) bağla; kuru plan hazır: .kos/kopru/video/hat_plan.py (180 link: kisa 153 · karusel 27 · yeni 149 · ≈696 Gemini isteği → ≥2 güne böl).
-5. V3 carousel kapısı (karusel.json: DdrE 1.0, DePQ araç 1.0 link 0.95, Dd7W 0.667/0.6) → Dd7W slayt videolu, teşhis gerek.
-DOSYALAR: tools/video/video/uzun.py + tests/test_uzun.py, .kos/kopru/video/v3.py (kos `yeniden` bayrağı d6), hat_plan.py, hat-plan-14eki.tsv.
+# VİDEO-3 devam (d9 → d10), 15 Eki ~00:00
+d9 YAPILDI: Desktop 23:55 madde 1–4 → uzun.ekler (sürüm/varyant + plan · özellik/mod + üst ürün · yazı tipi sınıfı) + rapor_md Özellikler bölümü; test_uzun 8/8. Temiz araç 0.871 → 0.914, yp 0 (Claude'suz, ağsız). Ayrıntı rapor/video-3.md d9.
+DURUM: temiz 0.914 (kapı 0.95) · yp 0 ✓ · jeton 0.09× / süre ~0.15× (d3) ✓ · link tam. claude -p 1/6. Gemini 0 istek.
+ENGEL: Gemini günlük kota; sıfırlama 15 Eki 10:00 TR. Öncesinde Gemini isteği YOK.
+KALAN (sırayla):
+1. 10:00 TR sonrası: `kota.yokla` tek minik istek → kota.cozumle gerçek gövdeyle doğrula.
+2. yaygin_aday ölçümü (DF_TAVAN 4 kaçan): kos.json → kos-d6.json kopyala; tools/video'dan `PYTHONPATH=. .venv/Scripts/python.exe ../../.kos/kopru/arka.py --cwd tools/video .kos/kopru/video/v3/kos-d10.log ../../.kos/kopru/video/v3.py kos yeniden` → bekle.py → `v3.py kacak yok.json son`.
+3. Kalan genel kaçanlar: Tripo v3.1 (OCR'da çıplak sürüm; zaman hizalı ürüne bağlama olabilir), Built-in browser, Git, Buluttaki Claude Code — genel mekanizma yoksa listede kalır, puan ayarı YOK.
+4. Üst ürün sezgisini yakın bağlama geçir (HYMD "Hermes" verdi; puanı etkilemez).
+5. Ayarlanmamış 3–4 uzun videoda sınama (Desktop 20:30) · Dd7W carousel teşhisi · V4 `video hat` (karar.py bitince).
+ARKA PLAN: yok.
+SON COMMIT: (bu ara kaydın commit'i, git log -1)
+AÇIK KARAR: yok.
+DOSYALAR: tools/video/video/uzun.py (ekler), tests/test_uzun.py, .kos/kopru/video/v3.py, v3_d9.py (teşhis), v3/kacak-d9b.txt.

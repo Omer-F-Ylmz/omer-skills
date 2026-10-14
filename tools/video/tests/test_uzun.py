@@ -47,3 +47,21 @@ def test_kisa_ad_url_etiket_parcasini_saymaz():
     assert not uzun.kisa_ad("KAP", "kapağı kap")  # yazım aynı olmalı
     assert uzun.kisa_ad("Git", "Git ile commit")
     assert uzun.kisa_ad("Framer Motion", "")  # >4 harf: denetim sözlük/örnek tarafında
+
+
+def test_ekler_surum_plan_ozellik_font():
+    """d9 (Desktop 23:55): sürüm/varyant tam adı + kısa ad eş-ad · plan katmanı · 'üst ürün + özellik' · yazı tipi sınıfı."""
+    p = ("Claude Code v2.1.237 açıldı. Claude Code ile çalışıyoruz, Claude Code. Bu Pro paketi iyi. mesela hafıza modu olacak; bakın hafıza modu. "
+         "Araştırma masası 1:18. araştırma masası modu açık. o modu kapatın. Neue Montreal typography and Consistent typography. wiki haflza modu. claude.com claude.com claude.com claude.com")
+    a = uzun.ekler(p, [{"ad": "Claude Code", "ne_dedi": "", "zaman": "1:00"}, {"ad": "Tripo AI", "ne_dedi": "", "zaman": ""}, {"ad": "claude.com", "ne_dedi": "", "zaman": ""}])
+    by = {x["ad"]: x for x in a}
+    assert by["Claude Code v2.1.237"]["alias"] == ["Claude Code"] and "Claude Code" not in by and "Tripo AI" in by
+    assert by["Pro paket"]["tur"] == "plan"
+    assert by["Hafıza modu"]["ust"] == "Claude Code" and by["Araştırma masası modu"]["tur"] == "özellik"
+    assert by["Neue Montreal"]["tur"] == "font" and "Consistent" not in by and not any(k.lower().startswith("o mod") for k in by)
+    assert len(a) == len(by) and "Haflza modu" not in by  # tekrar yok (OCR yazım ikizi dahil); üst ürün alan adı değil
+
+
+def test_rapor_md_ozellik_ayri_bolum():
+    md = uzun.rapor_md(["Hafıza modu"], [], [], [], ozellikler=[("Claude Code", "Hafıza modu")])
+    assert "## Özellikler" in md and "| Claude Code | Hafıza modu |" in md

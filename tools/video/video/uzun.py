@@ -1,5 +1,6 @@
 """VİDEO-3 V2: uzun YouTube videosu Gemini-önce — ≥PARCA sn ise zaman aralıklı istekler (videoMetadata) + birleştirme; kısa olan kisa.izle'ye gider.
 Çıktı kisa.izle ile aynı gemini.json şeması, böylece kisa.calistir (katalog → araştırma → tek Claude oturumu) önbellekten devam eder."""
+import difflib
 import json
 import re
 import time
@@ -138,6 +139,7 @@ def son(d, g):
     ham_p = (Path(d) / "paket.md").read_text(encoding="utf-8") if p else ""
     g["araclar"] = [a for a in g["araclar"] + kisa.sozluk_tara(d, g) if not (tr.normal(a["ad"]) in istem and not pakette(a["ad"]))
                     and (a.get("zaman") != "paket" or kisa_ad(a["ad"], ham_p))]
+    g["araclar"] = ekler(ham_p, g["araclar"])  # d9
     return g
 
 
@@ -149,16 +151,54 @@ def yaygin_aday(d, metin):
             if t["df"].get(k, 0) / t["n"] > kisa.DF_TAVAN and not t["ad"][k][0].startswith("/") and not all(vid[3:] in x for x in t["ad"][k][1]) and kisa_ad(t["ad"][k][0], metin)]
 
 
+VARYANT = r"(?:v\d+(?:\.\d+)*|Pro|Max|Flash|Ultra|Plus|Mini|Lite)"
+PLAN = r"\b(Pro|Max|Plus|Ultra|Team|Business|Premium)\s+(paket|plan|abonelik|subscription)"
+MOD = r"\b(\w+)\s+(\w+)\s+(modu|mode)\b"
+FONT = (r"\b[A-Z][a-z]+ (?:Sans|Serif|Grotesk|Mono|Display)\b", r"\b([A-Z]\w+(?: [A-Z]\w+){1,2}) (?:typography|typeface|font|yazı tipi)")  # ilki bekci.FONT
+DOLGU = {"o", "bu", "şu", "bir", "her", "ben", "sen", "biz", "da", "de", "ve", "ile", "için", "gibi", "mesela", "bakın", "böyle", "sonra", "zaman",
+         "hangi", "yani", "the", "a", "an", "this", "that", "in", "of", "to", "and"}
+
+
+def ekler(paket, araclar):
+    """d9 (Desktop 23:55, genel mekanizma — altına göre puan ayarı değil): (1) pakette 'Ad vN(.N)' / 'Ad Pro|Max…' → tam ad, kısa ad eş-ad;
+    bare katman + paket/plan ('Pro paketi') → plan satırı · (2) '<ad> modu/mode' → özellik satırı, üst ürün = pakette en çok geçen hat adı ·
+    (3) yazı tipi sınıfı (bekci.FONT + '<Ad Ad> typography'). Eklenenler pakette aynen geçer (zaman='paket')."""
+    out = []
+    for a in araclar:
+        m = re.search(rf"\b{re.escape(a['ad'])} ({VARYANT})\b", paket)
+        out.append(a | {"ad": f"{a['ad']} {m[1]}", "alias": [a["ad"]]} if m else a)
+    var = {tr.normal(x["ad"]) for x in out} | {tr.normal(s) for x in out for s in x.get("alias", [])}
+    yeni = lambda ad: not difflib.get_close_matches(tr.normal(ad), var, 1, 0.9) and not var.add(tr.normal(ad))  # noqa: E731 — ekleyip sınar; OCR yazım ikizi (haflza) da tekrar
+    say = lambda ad: paket.casefold().count(ad.casefold())  # noqa: E731
+    # shortcut: üst ürün = pakette en çok geçen hat adı (alan adı/yol değil); videoda birden çok ürünün modu anlatılıyorsa yakın bağlamdaki ada geç
+    ust = max((x["ad"] for x in araclar if len(x["ad"]) > 4 and not re.search(r"[./]", x["ad"])), key=say, default="")
+    ek = lambda ad, tur, **k: out.append({"ad": ad, "ne_dedi": f"({tur}, paket)", "zaman": "paket", "tur": tur, **k}) if yeni(ad) else None  # noqa: E731
+    for m in re.finditer(PLAN, paket, re.I):
+        ek(f"{m[1].capitalize()} {m[2].lower()}", "plan")
+    for m in re.finditer(MOD, paket, re.I):
+        w0, w1 = m[1].lower(), m[2].lower()
+        if w1 in DOLGU or len(w1) < 4 or not w1.isalpha():
+            continue
+        iki = w0 not in DOLGU and w0.isalpha() and say(f"{w0} {w1}") >= 2  # iki kelimelik ad pakette modsuz da geçmeli (bölüm başlığı)
+        ek(f"{(f'{w0} {w1}' if iki else w1).capitalize()} {m[3].lower()}", "özellik", ust=ust)
+    for r in FONT:
+        for m in re.finditer(r, paket):
+            ek(m[1] if m.groups() else m[0], "font")
+    return out
+
+
 def kisa_ad(ad, paket):
     """d5: pakete dayanan ≤4 harfli ad (sözlük/metin geçişi) pakette aynı yazımla, URL/yol/etiket parçası olmadan geçmeli —
     altında yp KAP ('kap' kelimesi), img ('<img', '/img/'), node ('node_modules') sözlük ngram'ından geliyordu."""
     return len(tr.normal(ad)) > 4 or bool(re.search(rf"(?<![\w/<.\-]){re.escape(ad)}(?![\w/.\-])", paket))
 
 
-def rapor_md(adlar, aciklama_link, urller, komutlar):
-    """altin.puan'ın okuduğu en küçük rapor (Adaylar · Açıklama bağlantıları · URL'ler · Kurulum/komutlar); iki kola eşit uygulanır."""
+def rapor_md(adlar, aciklama_link, urller, komutlar, ozellikler=()):
+    """altin.puan'ın okuduğu en küçük rapor (Adaylar · Açıklama bağlantıları · URL'ler · Kurulum/komutlar); iki kola eşit uygulanır.
+    d9: özellik/mod satırları ayrıca '## Özellikler' (üst ürün + özellik) bölümüne yazılır."""
     h = lambda s: str(s).replace("|", "/").replace("\n", " ")  # noqa: E731
     return "\n".join(["## Adaylar", "| ad | tür |", "|---|---|", *[f"| {h(a)} | araç |" for a in adlar],
+                      *(["## Özellikler", "| üst ürün | özellik |", "|---|---|", *[f"| {h(u)} | {h(o)} |" for u, o in ozellikler]] if ozellikler else []),
                       "## Açıklama bağlantıları", *[f"- {u}" for u in aciklama_link],
                       "## URL'ler", "| url |", "|---|", *[f"| {h(u)} |" for u in urller],
                       "## Kurulum/komutlar", "| komut |", "|---|", *[f"| {h(k)} |" for k in komutlar], ""])
