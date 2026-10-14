@@ -41,7 +41,10 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 - Rapor/devir kısa; övgü/tekrar yok. L6
 
 ### Token araç sırası
-(Boş — TOKEN-4 ölçümlü doldurur: gorev/token-4.md; graphify keşif sırası GRAPHIFY-ULTRA-1'den.)
+Ölçüm: `python .claude/token4/a0.py` → docs/kutuphane/olcum/token-4-arac.tsv (14 Eki). graphify keşif sırası GRAPHIFY-ULTRA-1'den.
+- Konum: sembol/ilişki → graphify query/oku; içerik konumu → Grep (files_with_matches/-n). `rtk grep` en kalabalık, en düşük oranlı kalem (8372 komut, %25.6).
+- Bash'te `ls -la`, `grep -n`, `wc -l`, `tail -c`, `git add` rtk'sız geçiyor (1 günde 1013 komut ≈189k token) → Glob/Grep/Read aracı ya da başına `rtk`.
+- YASAK: ev dizini, AppData ve `..` üstünde `ls` (-la/-t/-A): komut başı 28–114 sn, girdi 0.9–2.8M token (rtk süzmese bağlamı doldurur). Dar Glob deseni kullan.
 
 ## 4. Kalite kapısı
 - Sayı önce (kapi.mjs/JSON); kare/görüntü yalnız eşik aşılınca, adım başı ≤2 görüntü. L6

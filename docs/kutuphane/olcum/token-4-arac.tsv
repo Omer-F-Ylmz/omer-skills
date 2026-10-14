@@ -1,0 +1,17 @@
+# TOKEN-4 A0 2026-10-14 — araç	tasarruf_token	kullanım	kalite	süre	zayıf_nokta
+RTK	43446769 (tüm zaman)	2651/10489 Bash (1 gün)	kayıpsız filtre	ort 2476 ms	kaçak 1013 komut ≈188556 token; grep/read en düşük oran
+Headroom	305566712 (31.1%)	10216 istek	sıkıştırma; retrieve ile geri	-	durma 1098/5321 adım (20.6%) önbelleksiz 12280274 token
+claude-mem	-	657 enjeksiyon	oturum başı bağlam	-	blok medyan 6314 kar.; dakika damgası msg1'de (istem sonrası)
+context-mode	-	59 çağrı	-	-	dönüş 170163 kar.
+cc-kopru oku	-	2 çağrı	-	-	dönüş 0 kar.
+bekle.py	-	43 çağrı	-	-	dönüş 36125 kar.
+ucuz_alt/Gemini	-	182 çağrı	-	-	dönüş 121494 kar.
+Agent Reach	-	1 çağrı	-	-	dönüş 167 kar.
+qmd	-	1 çağrı	-	-	dönüş 1157 kar.
+smart-explore	-	0 çağrı	-	-	dönüş 0 kar.
+mem-search	-	1 çağrı	-	-	dönüş 0 kar.
+headroom retrieve	-	1 çağrı	-	-	dönüş 81 kar.
+headroom-compress	-	0 çağrı	-	-	dönüş 0 kar.
+strategic-compact	-	1 çağrı	-	-	dönüş 0 kar.
+graphify	-	103 çağrı	-	-	dönüş 131746 kar.
+cc_profil	-	88 çağrı	-	-	dönüş 91063 kar.
