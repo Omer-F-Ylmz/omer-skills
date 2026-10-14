@@ -1,11 +1,10 @@
-# GRAPHIFY-ULTRA-1 devir (d3 bitti, çağrı ~42)
-d3: artımlı RAM kapısı %85 (graphify_hafif esik + is-akisi L33, arsiv L42) · keşif sırası satırı is-akisi'de · A/B n=2: 0.75×/0.87× → G5 kapısı GEÇMEDİ, global kanca --kuru hazırlanmadı.
+# GRAPHIFY-ULTRA-1 devir (d4 ara, çağrı 42)
+d4: G1 .kos kaçağı kapandı (.graphifyignore negation) · graphify_sor.py 18/20 (query 15/20), 2.6 satır/yanıt · harita .kos/kopru/harita/{omer-skills,TELVE}.md ≤600 jeton. Ayrıntı rapor/graphify-ultra-1.md.
 KALAN:
-1. G1 kaçak: .kos/kopru/*.py grafta yok — graphify detect'in gizli dizin (.kos) süzgecini kanıtla (graphify Lib/site-packages/graphify/detect.py, dar Grep); çözüm `graphify_hizli`'ye .kos yolu istisnası ya da ayrı kök. Sonra `python .kos/kopru/graphify_hafif.py` (artımlı, RAM <%85) → oku_yonlendir/graphify_hafif query'de çıkmalı.
-2. G1 20 soru: omer-skills 12 + TELVE 8, `graphify query "<s>" --budget 400`, beklenen dosya grep ile; isabet oranı rapora.
-3. G3 harita: GRAPH_REPORT küme başlıklarından ≤800 jeton HARITA.md; etiket OmniRoute ücretsiz (KOPRU_OMNIROUTE kuralı: taslak). Kompakt query: --budget 400 yeterli (14–24 satır).
-4. G6 paket: graphify skill 0.9.57→0.9.88, CC + claude.ai zip + zip_denetle, docs/atlas kartı.
-5. TELVE: .graphifyignore yok (graf 865 KB, gerek düşük) — yalnız graphify_hafif C:/Users/pc/Desktop/TELVE.
+1. G4: skills/is-akisi/SKILL.md "Token araç sırası" keşif satırı (L47) → `.kos/kopru/harita/<proje>.md` → `python .kos/kopru/graphify_sor.py "<sembol>"` → Read aralık; `rtk pytest tests/test_is_akisi.py`. graphify_hafif sonunda graphify_harita.py çağrısı (tek satır) ekle.
+2. G6 paket: `graphify install --platform agents` (skill 0.9.57→0.9.88) + graphify-desktop skill'ine graphify_sor/harita satırı; CC onay betiği --kuru + claude.ai zip, tools/skill-paket/zip_denetle.py temiz; docs/atlas kartı.
+3. İzleme: G0 betiği (graphify_ultra_g0.py) yarın 21–23 arası yeniden → tam Read payı %34 → ? rapora satır.
+4. Rapor son hali + SIRA "GRAPHIFY-ULTRA-1 BİTTİ" (G5 kapısı GEÇMEDİ notuyla).
 ARKA PLAN: yok.
-SON COMMIT: git log -1 (d3 ara)
-AÇIK KARAR: oku_yonlendir kancası A/B'de anlamlı fark göstermedi (0.75–0.87×, kontrol ±%70) — köprü profilinde kalsın mı, kaldırılsın mı? Yeni A/B için claude -p izni (10/10 kullanıldı) ve kanca tetiklenmesini doğrulamak için --no-session-persistence'sız koşu gerekir.
+SON COMMIT: git log -1 (d4 ara)
+AÇIK KARAR: G5 kapısı (≤0.5×) d3 A/B'de geçmedi ve yeni claude -p izni yok — graphify_sor ile yeni A/B (≤2 claude -p) izni verilsin mi, yoksa kapı "geçmedi" olarak kapansın mı?

@@ -1,17 +1,15 @@
-# GRAPHIFY-ULTRA-1 — ARA (d3, 14 Eki 22:13)
-Katalog: kullanılan [graphify query --budget, graphify_hafif/hizli, oku_yonlendir, olcum_sira, arka.py, bekle.py] · atlanan [plan-kur/katalog (rutin tek alan), alt ajan (kural 0)]
+# GRAPHIFY-ULTRA-1 — ARA (d4, 14 Eki 23:45)
+Katalog: kullanılan [graphify query --budget, graphify_hafif/hizli, graphify_sor (yeni), graphify_harita (yeni), graphify_ultra_g1 (yeni)] · atlanan [plan-kur/katalog (rutin tek alan), alt ajan (kural 0), claude -p (izin 10/10 bitti), OmniRoute etiket (dizin etiketi yetti)]
 | ölçü | önce | sonra |
 |---|---|---|
-| artımlı update süre / tepe RSS | 48 sn / 829 MB | 3.8 sn / 332 MB (d2) |
-| artımlı RAM kapısı | %75 | %85 (tam %75 kalır; graphify_hafif esik, is-akisi L33/L42) |
-| query yanıtı (--budget 400, 5 soru) | ~2000 jeton | 14–24 satır, ~200 kelime (G3 ≤40 satır ✓) |
-| A/B profil (omer-skills, n=2) girdi medyan A→B | 265k (334k·197k) | 198k (199k·197k) → 0.75× |
-| A/B telve (TELVE fincan.js 872 sat., n=2) | 259k (259k·259k) | 226k (258k·194k) → 0.87× |
-| A/B kontrol hafif (d2, n=1) | 198k | 334k → yayılım ±%70 |
-| tur · süre (medyan) | profil 3·52 sn, telve 4·54 sn | profil 3·45 sn, telve 4·52 sn |
-- G5 KAPISI GEÇMEDİ: keşif jetonu 0.75–0.87× (hedef ≤0.5×), maliyet usd A≈B (0.52–0.57). Kanca farkı gürültü bandında (kontrol ±%70) → Desktop kararı (1) gereği global CC kancası için onay --kuru HAZIRLANMADI (kanıt yok).
-- Doğruluk: yanıtlar graphify-ultra-ab.tsv'de; K8 kör puan yapılmadı. Kancanın gerçekten tetiklenip tetiklenmediği --no-session-persistence yüzünden transkriptten doğrulanamadı.
-- G1 örneklem (5 soru, --budget 400): 3/5 isabet; kaçak: yeni dosya (oku_yonlendir, graf bayat) + .kos/ grafta yok (git-ignore değil, takipli → graphify gizli dizin süzgeci şüphesi, kanıtlanmadı).
-- G4: is-akisi "Token araç sırası"na keşif sırası satırı (harita → query/oku → Read aralık). test_is_akisi 1/1.
-- claude -p: d3'te 6 (toplam 10/10). graphify update bu oturumda koşmadı.
-- Yapılmadı: G1 20 soru, G3 harita (OmniRoute etiket), G6 paket, TELVE .graphifyignore. Devir: devir/graphify-ultra-1-devam.md
+| artımlı update süre / tepe RSS | 48 sn / 829 MB | 3.8 sn / 332 MB (omer-skills, d2) · 3.1 sn / 74 MB (TELVE, d4) |
+| G1 isabet (20 soru, grep alt doğruluk) | 15/20 (query --budget 400) | 18/20 (graphify_sor) |
+| G1 yanıt boyu (ortalama) | 19.6 satır / 188 kelime | 2.6 satır / 16 kelime (≤40 satır ✓) |
+| .kos/kopru betikleri grafta | yok (.gitignore /.kos/) | 52 betik, +884 düğüm |
+| proje haritası | yok | omer-skills ~568 · TELVE ~596 jeton (≤800 ✓) |
+| A/B keşif jetonu (d3, n=2) | 1× | 0.75× / 0.87× — G5 kapısı GEÇMEDİ |
+- G1 kök neden: graphify .gitignore'u uyguluyor; `/.kos/` köprü kodunu da gizliyordu (takipli dosyalar dahil). `.graphifyignore` negation zinciri yalnız `.kos/kopru{,/onay,/video}/*.py`'yi geri alır (günlük/devir dışarıda, _is_ignored ile 10 yol doğrulandı).
+- G1 kaçak sınıfı 'siralama' (4/5): Türkçe soru kelimeleri query'yi dağıtıyordu → `graphify_sor.py`: tanımlayıcıyı etikette birebir arar (sembol · dosya:satır · docstring özeti + çağıran/içerik), yoksa git grep tanımı, yoksa query. Kalan 2 kaçak: md başlık sorusu (tanımlayıcısız), TELVE'de 10+ kopya dosyada aynı ad.
+- G3 harita `.kos/kopru/harita/<proje>.md` (graphify-out/ Read izninde kapalı). Küme etiketi = kümenin en sık dizini (shortcut; ücretsiz model etiketi gerekmedi).
+- Tablo, G1: docs/kutuphane/olcum/graphify-ultra-g1{,-sor}.tsv. Desktop 23:00 kararı: oku_yonlendir köprü profilinde kalır, global kanca önerisi yok.
+- Yapılmadı: is-akisi keşif satırını graphify_sor + harita'ya çevirmek, G6 paket (graphify skill 0.9.57→0.9.88, zip_denetle, atlas kartı), G0 izleme koşusu (yarın aynı saat), BİTTİ. Devir: devir/graphify-ultra-1-devam.md

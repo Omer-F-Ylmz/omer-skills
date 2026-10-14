@@ -1,0 +1,21 @@
+kok	tip	soru	isabet	sinif	satir	kelime	beklenen
+omer-skills	tanim	tara_v10 nerede tanımlı	1		2	24	tools/video/video/yonlendir.py
+omer-skills	tanim	uyarlama nerede tanımlı	1		2	11	tools/video/tests/test_kalite.py
+omer-skills	tanim	kaynak_ayristir nerede tanımlı	1		2	19	tools/video/video/tarama.py
+omer-skills	tanim	kontroller nerede tanımlı	1		3	9	tools/blender_dogrula.py
+omer-skills	cagiran	hookKaynaklari fonksiyonunu kim çağırıyor	1		2	13	tools/cc-kopru/araclar/hook-envanter.mjs;tools/cc-kopru/gecit.mjs;tools/cc-kopru/sunucu.mjs;tools/cc-kopru/test/hook-ortam.test.mjs;tools/cc-kopru/test/hook.test.mjs
+omer-skills	cagiran	gozlemHooku fonksiyonunu kim çağırıyor	1		2	8	tools/cc-kopru/gecit.mjs;tools/cc-kopru/sunucu.mjs
+omer-skills	cagiran	kacan_dusuk fonksiyonunu kim çağırıyor	1		2	21	tools/video/tests/test_d2_ayirt.py;tools/video/tests/test_d2_kanca.py;tools/video/tests/test_d2_sikilastir.py
+omer-skills	cagiran	_benzerlik fonksiyonunu kim çağırıyor	1		2	17	tools/video/tests/test_f3_kare.py;tools/video/tests/test_f3_v5.py
+omer-skills	modul	olcum_m5 modülü ne yapar	1		2	24	tools/video/olcum_m5.py
+omer-skills	modul	olcum_m3b modülü ne yapar	1		3	37	tools/video/olcum_m3b.py
+omer-skills	md	skill-ui — bu arac Claude Code'da kosar, Desktop'ta kosmaz skill'i	1		9	43	skills/skill-ui-desktop/SKILL.md
+omer-skills	md	İş akışı (bağlayıcı) skill'i	0	siralama	6	27	skills/is-akisi/SKILL.md
+TELVE	tanim	katman nerede tanımlı	1		1	24	docs/r1/_ham/yon/yon.js
+TELVE	tanim	izgara nerede tanımlı	1		1	3	docs/r1/_ham/r2g/komp.mjs
+TELVE	tanim	plakaGit nerede tanımlı	1		2	6	src/dunya/dunya.ts
+TELVE	cagiran	dokumSes fonksiyonunu kim çağırıyor	1		2	6	src/sahne/cezve.ts
+TELVE	cagiran	etiket fonksiyonunu kim çağırıyor	0	siralama	1	3	docs/r1/_ham/hazir/hdr-brown_photostudio_02/fincan.js;docs/r1/_ham/hazir/hdr-comfy_cafe/fincan.js;docs/r1/_ham/r0c/fincan/fincan.js;docs/r1/_ham/r0c/onceki/fincan.js;docs/r1/_ham/r0f/cek-r0f.mjs;docs/
+TELVE	cagiran	sesKur fonksiyonunu kim çağırıyor	1		3	9	src/sahne/sayfa.ts
+TELVE	modul	kesit modülü ne yapar	1		3	11	src/sahne/kesit.ts
+TELVE	modul	kiyas modülü ne yapar	1		2	12	docs/r1/_ham/r3a/kiyas.mjs
