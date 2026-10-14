@@ -110,7 +110,7 @@ def test_kurulu_suzgeci():
     o = kos(ZOR_IS)
     assert "kurulum önerisi" not in o and "firecrawl" not in o.lower()
     kat = {r["ad"]: r for r in map(json.loads, (KOK / "docs" / "katalog" / "yetenek.jsonl").read_text(encoding="utf8").splitlines())}
-    adlar = [p.split(" (")[0] for s in o.splitlines() if s.startswith("faz ") for p in s.split(": ", 1)[1].split(" | ")]
+    adlar = aday_adlari(o)  # v3: fazsız tek satır/aday
     assert adlar and all(ka.kurulu(kat[a]) for a in adlar), adlar
     assert not any(ka.kurulu(r) for a, r in kat.items() if "firecrawl" in a.lower())  # katalog durumu doğru: aday
 
@@ -137,3 +137,27 @@ def test_katalog_ara_suzgec_satiri():
     o = subprocess.run([sys.executable, str(KOK / "tools" / "katalog_ara.py"), ZOR_IS], capture_output=True, text=True,
                        encoding="utf8", env=ENV).stdout
     assert "elendi:" in o and "<aday-listesi>" in o
+
+
+def aday_adlari(o):
+    return [s.split(" · ")[0] for s in o.split("<aday-listesi>\n```text\n")[1].split("\n```")[0].splitlines()]
+
+
+def test_v3_alan_uzmani_listede():  # (a) PLAN-KUR-2 iş 4 kaybı
+    a = aday_adlari(kos("Express.js REST API'sini GraphQL'e kademeli taşı: şema tasarımı, N+1 önleme, JWT kimlik doğrulama, hız sınırı ve geriye uyumluluk."))
+    assert "dil-graphql" in a and any(x.startswith("sec-jwt") for x in a), a
+
+
+def test_v3_unity_isinde_gorsel_uret_yok():  # (b)
+    a = aday_adlari(kos("Unity ile 2D platform oyunu ve seviye editörü geliştir: tilemap tabanlı bölüm tasarımı, JSON ile kayıt ve yükleme, oynanış testi, düşman yapay zekası ve Steam için paketleme yap."))
+    assert a and not any("gorsel-uret" in x for x in a), a
+
+
+def test_v3_aday_sayisi_en_fazla_k():  # (c)
+    o = kos(ZOR_IS)
+    assert 0 < len(aday_adlari(o)) <= pk.K and len(o) <= 6000
+
+
+def test_v3_genel_sozcuk_varlik_sayilmaz():  # (d)
+    assert pk.varliklar("Uygulama sunucusu tasarımı yap, yeni sistem kur") == set()
+    assert {"graphql", "jwt"} <= pk.varliklar("GraphQL API'ye JWT ekle")

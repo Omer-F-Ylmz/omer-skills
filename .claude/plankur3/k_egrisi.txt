@@ -1,0 +1,10 @@
+iþ 1: altýn 41 · varlýk ['acik', 'docker', 'kvkk', 'metni', 'sms', 'yayin'] · @20 uzman 13 düz 14
+iþ 2: altýn 23 · varlýk ['bildirim', 'cakisma', 'cevrimdisi', 'dogrulama', 'flutter', 'mobil', 'push', 'senkronu', 'sqlite', 'yerel'] · @20 uzman 9 düz 5
+iþ 3: altýn 24 · varlýk ['belge', 'botu', 'degerlendirme', 'kaynak', 'pdf', 'rag', 'vektor', 'veritabani', 'yerel'] · @20 uzman 8 düz 9
+iþ 4: altýn 0 · varlýk ['dogrulama', 'graphql', 'hiz', 'sema', 'siniri', 'sozlesme', 'uyum'] · @20 uzman 0 düz 0
+iþ 5: altýn 0 · varlýk ['analizi', 'boyutu', 'ci', 'dashboard', 'kapisi', 'lighthouse', 'liste', 'performans', 'regresyon', 'sanal', 'vue'] · @20 uzman 0 düz 0
+iþ 6: altýn 0 · varlýk ['dusman', 'editoru', 'json', 'paketleme', 'seviye', 'testi', 'unity', 'yapi'] · @20 uzman 0 düz 0
+iþ 7: altýn 0 · varlýk ['disa', 'fatura', 'isleme', 'pdf', 'saas', 'stripe', 'tabanli', 'webhook', 'yeniden'] · @20 uzman 0 düz 0
+altýn toplam 88
+uzman  @5=0.10 @10=0.18 @15=0.31 @20=0.34 @25=0.41 @30=0.43 @40=0.45
+duz    @5=0.11 @10=0.19 @15=0.26 @20=0.32 @25=0.36 @30=0.42 @40=0.44

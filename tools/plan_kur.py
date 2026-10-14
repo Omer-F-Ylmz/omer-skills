@@ -1,5 +1,5 @@
-"""PLAN-KUR-2 plan-kur v2: iş tarifinden TEK koşuda kompakt plan girdisi (zor işte ≤6k karakter, katalog_ara listesinin YERİNE).
-Faz başına en çok 3 KURULU ve yığınla uyumlu araç · faz başına sayısal kapı · inceleme ajanı · konsey (varsayılan yok) · ≤3 öğrenim.
+"""PLAN-KUR-3 plan-kur v3: iş tarifinden TEK koşuda kompakt plan girdisi (zor işte ≤6k karakter, katalog_ara listesinin YERİNE).
+katalog_ara sırasıyla ilk K KURULU ve yığınla uyumlu aday (alan uzmanı önde, fazsız; seçimi model yapar) · faz başına sayısal kapı · inceleme ajanı · konsey (varsayılan yok) · ≤3 öğrenim.
 python tools/plan_kur.py "<iş 1>" ["<iş 2>" ...]   (birden çok iş tek komutta)
 python tools/plan_kur.py --ac <ad>                 (tek aracın ayrıntısı; çoğu işte gerekmez)
 Rutin tek alanlı işte tek satır: ENVANTER-6'da rutin işte katalog kazancı 0, maliyeti var.
@@ -7,6 +7,7 @@ Rutin tek alanlı işte tek satır: ENVANTER-6'da rutin işte katalog kazancı 0
 """
 import json
 import re
+from collections import Counter
 import sys
 from pathlib import Path
 
@@ -15,7 +16,11 @@ for _p in (B, B.parent / "yetenek-getir", B.parent / "tools"):  # skill kurulumu
     sys.path.insert(0, str(_p))
 import katalog_ara as ka  # noqa: E402
 
-N_ADAY = 150  # faz sınıflaması için havuz; çıktıya faz başına 3 girer
+N_ADAY = 150  # sıralı havuz; çıktıya ilk K girer
+K = 20  # aday sayısı (PLAN-KUR-3 K eğrisi, eğitim kümesi: .claude/plankur3/k_egrisi.py)
+VARLIK_DF = 8  # bir sözcük en çok bu kadar kaydın adında geçiyorsa alan/teknoloji adıdır
+GENEL = set("uygulama uygulamasi sunucu sunucusu tasarim tasarimi tasarla design app server sistem sistemi kur kurulum "
+            "yap ekle yeni mevcut olustur gelistir site sayfa proje araci arac hizmet servis".split())
 # tür: (tanıma deseni [TR→ASCII küçük harf], kapılar, inceleme ajanları aşama:ajan, konsey kararı, faz jeton bütçesi)
 TUR = {
     "web": (r"\bsite|landing|web|sayfa|frontend|arayuz|\bui\b|seo|awwwards|e-?ticaret|magaza",
@@ -61,10 +66,6 @@ TUR = {
 ZOR = re.compile(r"guvenlik|odeme|auth|kimlik|giris|kvkk|gdpr|yayin|deploy|canli|production|multiplayer|cok oyunculu|awwwards|"
                  r"migration|gecis|olcek|entegrasyon|bastan|yeniden yap|sifirdan|uctan uca")
 # araç → faz (ad + iş metninde ilk eşleşen; hiçbiri değilse uygulama). Sıra: test önce (tasarım kelimesi taşıyan test araçları)
-FAZ = ((3, r"test|\bqa-|\bsec-|secur|guvenlik|audit|denet|vulnerab|a11y|erisilebil|pentest|owasp|semgrep|gitleaks|strix"),
-       (4, r"deploy|release|\bci\b|ci/cd|docker|yayin|dagitim|rollout|helm|terraform|canary|github action"),
-       (1, r"design|tasarim|\bplan|architect|mimari|schema|sema\b|spec\b|research|arastir|brief"),
-       (2, r""))
 FAZ_AD = {1: "faz 1 tasarım", 2: "faz 2 uygulama", 3: "faz 3 test+güvenlik", 4: "faz 4 yayın+kapanış"}
 # sayısal kapılar: (iş deseni, faz, kapı). ENVANTER-3 kör yargıç: sayısal kapı yoksa sağlamlık en çok 1
 KAPI = (
@@ -97,8 +98,8 @@ SABIT = {3: "test yeşil · semgrep 0 yüksek · gitleaks 0 bulgu", 4: "Kapanı�
 INCELE = re.compile(r"review|incele|denetci")
 KONSEY = ("Konsey: yok — adımlar geri alınabilir; yalnız geri dönüşsüz VE iki makul seçenekli (veri yok) kararda "
           "ecc:council 1 kez (~60-90k)")
-BASLIK = ("plan-kur v2: planı ≤30 satır yaz — faz · adım · araç · sayısal kapı · inceleme ajanı · konsey · faz jetonu. "
-          "YALNIZ aşağıdaki araçlar (hepsi kurulu, yığınla uyumlu); başka araç önerme, kurulum önerme, ek katalog sorgusu yapma. "
+BASLIK = ("plan-kur v3: planı ≤30 satır yaz — faz · adım · araç · sayısal kapı · inceleme ajanı · konsey · faz jetonu. "
+          "Araçları aşağıdaki adaylardan işe uyanlarla SEN seç (hepsi kurulu, yığınla uyumlu, alan uzmanı önde; ilgisizi kullanma); başka araç önerme, kurulum önerme, ek katalog sorgusu yapma. "
           "Çağrı: skill → Skill <ad> · ajan → Agent <ad> · mcp → ToolSearch · cli → Bash. Ayrıntı nadiren: plan_kur.py --ac <ad>")
 
 
@@ -118,7 +119,28 @@ def kisa(o, n=60):
     return m if len(m) <= n else m[:n].rsplit(" ", 1)[0] + "…"
 
 
-def plan_girdisi(q, n_aday=N_ADAY):
+def ad_sozcukleri(ad):
+    return set(re.split(r"[^a-z0-9]+", ad.lower()))
+
+
+def varliklar(q):
+    """İş metnindeki teknoloji/alan adları: katalogda az kaydın ADINDA geçen, genel olmayan sözcük (graphql, jwt, unity)."""
+    df = Counter(w for o in kayitlar() for w in ad_sozcukleri(o["ad"]))
+    return {w for w in re.findall(r"[a-z0-9]{2,}", q.lower().translate(ka.TR))
+            if w not in GENEL and w not in ka.DURAK and 0 < df[w] <= VARLIK_DF}
+
+
+def adaylar(q, kal, k=K):
+    """katalog_ara sırası (A ile aynı BM25 + tür tabanı) → alan uzmanı (ad varlık eşleşmesi) öne → ilk k, fazsız; seçimi model yapar."""
+    vr, gor, tek = varliklar(q), set(), []
+    for o in kal:
+        if not o["ad"].endswith("-paket") and kisa(o) not in gor:  # şemsiye paketler ve aynı açıklamalı kopyalar dışarıda
+            gor.add(kisa(o))
+            tek.append(o)
+    return sorted(tek, key=lambda o: not (ad_sozcukleri(o["ad"]) & vr))[:k]  # sorted kararlı: grup içinde BM25 sırası
+
+
+def plan_girdisi(q, n_aday=N_ADAY, k=K):
     t = q.lower().translate(ka.TR)
     tr = [k for k, v in TUR.items() if re.search(v[0], t)]
     if len(tr) <= 1 and not ZOR.search(t) and len(t.split()) < 20:
@@ -126,41 +148,22 @@ def plan_girdisi(q, n_aday=N_ADAY):
         print(f"RUTİN ({tr[0] if tr else 'genel'}): plan-kur gereksiz — doğrudan uygula; kapı: {k}; kapanış raporu commit·test·sapma.")
         return
     yg = ka.yigin(q)
-    aday = [o for o in ka.aday(q, n_aday, taban=5) if o["tur"] in ("skill", "ajan", "mcp", "cli")]
-    kal, elen, yok = ka.suz(aday, yg)
-    kav = [set(ka.kelimeler(w) + ka.kelimeler(" ".join(ka.ileri([w])))) for w in ka.kelimeler(q)
-           if not w.endswith("~") and w not in ka.DURAK]
-    havuz, gor = {1: [], 2: [], 3: [], 4: []}, set()
-    for o in kal:
-        m = f"{o['ad']} {o['is']}".lower().translate(ka.TR)
-        if not o["ad"].endswith("-paket") and kisa(o) not in gor:  # şemsiye paketler ve aynı açıklamalı kopyalar dışarıda
-            gor.add(kisa(o))
-            w = set(ka.kelimeler(m))
-            havuz[next(n for n, d in FAZ if re.search(d, m))].append((o, {i for i, c in enumerate(kav) if c & w}))
-    faz = {n: [] for n in havuz}
-    for n, v in havuz.items():  # faz içinde en çok YENİ iş kavramı kapsayan (eşitlikte BM25 sırası): ödeme aracı 3D'ye yenilmesin
-        # yalnız fazın BM25 ilk 8'i ve en az bir iş kavramı kapsayanlar (yoksa ilk 3): ilgisiz kayıt girmesin
-        ort, v = set(), [x for x in v[:8] if x[1]] or v[:3]
-        while v and len(faz[n]) < 3:
-            o, k = max(v, key=lambda x: len(x[1] - ort))
-            v.remove((o, k))
-            ort |= k
-            faz[n].append(o)
-    ince = ["ecc:code-reviewer (her faz sonu)", "ecc:security-reviewer (faz 3)"]
+    kal, elen, yok = ka.suz([o for o in ka.aday(q, n_aday, taban=5) if o["tur"] in ("skill", "ajan", "mcp", "cli")], yg)
+    secim = adaylar(q, kal, k)
+    ince =["ecc:code-reviewer (her faz sonu)", "ecc:security-reviewer (faz 3)"]
     ince += [o["ad"] for o in kal if o["tur"] == "ajan" and INCELE.search(o["ad"]) and not any(o["ad"] in i for i in ince)][:1]
-    kapi = {n: [k for d, f, k in KAPI if f == n and re.search(d, t)] for n in faz}
+    kapi = {n: [k for d, f, k in KAPI if f == n and re.search(d, t)] for n in FAZ_AD}
     for n, k in SABIT.items():
         kapi[n].append(k)
     yasak = kurulu_disi_adlar()
     ogr = [o for o in ka.ogrenim_ara(q) if not any(re.search(rf"\b{re.escape(w)}\b", o["ne"].lower()) for w in yasak)][:3]
     print(f"yığın: {', '.join(yg) or 'bilinmiyor'} · elendi: {elen} (yığın) · {len(yok)} kurulu değil (gösterilmez)")
     print("<aday-listesi>\n```text")
-    for n, v in faz.items():
-        print(f"{FAZ_AD[n]}: " + " | ".join(f"{o['ad']} ({ka.GRUP[o['tur']]}) — {kisa(o)}" for o in v))
+    for o in secim:
+        print(f"{o['ad']} · {o['tur']} · {kisa(o)}")
     print("```\n</aday-listesi>\nkapılar:")
     for n, v in kapi.items():
-        if v:
-            print(f"  {FAZ_AD[n].split()[1]}: " + " ; ".join(v))
+        print(f"  {FAZ_AD[n]}: " + (" ; ".join(v) or "—"))
     print("inceleme ajanları: " + " · ".join(ince))
     print(KONSEY)
     for o in ogr:
