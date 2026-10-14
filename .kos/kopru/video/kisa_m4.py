@@ -3,6 +3,7 @@ python .kos/kopru/video/kisa_m4.py m0|kos|puan    (tools/video/.venv python'u; P
 """
 import json
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -237,7 +238,7 @@ def sinama_puan():
         f = yeni[v]
         ad = {x["ad"] for x in f["araclar"] if (x.get("tur") or "").lower() != "teknik"}
         ln = {_url(x) for x in f["linkler"] + [x["link"] for x in f["araclar"] if x["link"]]}
-        rad = {k for k, x in ref[v]["arac"].items() if x[1]}
+        rad = {k for k, x in ref[v]["arac"].items() if x[1] and k not in GURULTU}
         rln = {k for k, x in ref[v]["link"].items() if x[1]}
         ya, yl, yp, _ = olc(ad, ln, rad, rln, tr.normal((ONB / v / "paket.md").read_text(encoding="utf-8")))
         a.append((ya, yl, yp))
@@ -250,5 +251,31 @@ def sinama_puan():
           "| ağır_tk/video", round(agir(s["usage"].get("input_tokens", 0), s["usage"].get("cache_read_input_tokens", 0), s["usage"].get("cache_creation_input_tokens", 0), s["usage"].get("output_tokens", 0)) / n))
 
 
+GURULTU = ("CLI", "Skills", "Mac")  # 14 Eki 20:30 Desktop: ref'teki genel kelimeler araç değil → referanstan çıkar, raporda ayrı satır
+
+
+def gemini_puan():
+    """Claude'suz kararlılık (claude -p 0): SINAMA taze Gemini (izle + metin geçişi) → birleşik araç listesinin (Claude öncesi) kanıtlı ref yakalaması.
+    Medya kisa/medya'da kalır (tekrar koşu yeniden indirmez); çıktılar <id>/gemini-<etiket>.json."""
+    from video import instagram
+    ref, et, a = json.loads((CIK / "sinama-ref.json").read_text(encoding="utf-8")), sys.argv[2], []
+    for v in SINAMA:
+        d, m = ONB / v, CIK / "medya" / v
+        video = json.loads((d / "meta.json").read_text(encoding="utf-8")).get("video")
+        if video and not (m / "goz-video.mp4").is_file():
+            instagram.getir(m)
+        g, gi = kisa.izle(d, m if video else None, yeniden=True)
+        mg = kisa.metin_gec(d, yeniden=True)
+        for f in ("gemini.json", "gemini-metin.json"):
+            shutil.copy(d / f, d / f.replace(".json", f"-{et}.json"))
+        ad = {x["ad"] for x in kisa.birlestir(g, mg)["araclar"]}
+        rad = {k for k, x in ref[v]["arac"].items() if x[1] and k not in GURULTU}
+        kac = sorted(r for r in rad if not esit(r, ad))
+        a.append(1 - len(kac) / max(len(rad), 1))
+        print(v, gi.get("model"), gi.get("sure"), len(rad), round(a[-1], 3), "kaçan:", kac, flush=True)
+    print(et, "ort araç (Claude öncesi)", round(sum(a) / len(a), 3))
+
+
 if __name__ == "__main__":
-    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan, "kacak": kacak, "denetle": denetle, "hazirla": hazirla, "sinama_ref": sinama_ref, "sinama_puan": sinama_puan}[sys.argv[1]]()
+    {"m0": lambda: print(json.dumps(m0(), ensure_ascii=False, indent=0)), "kos": kos, "puan": puan, "kacak": kacak, "denetle": denetle, "hazirla": hazirla, "sinama_ref": sinama_ref, "sinama_puan": sinama_puan,
+     "gemini_puan": gemini_puan}[sys.argv[1]]()

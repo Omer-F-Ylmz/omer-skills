@@ -136,3 +136,12 @@ def test_calistir_paketin_reel_mp4unu_kullanir_ig_istegi_yok(tmp_path, monkeypat
     monkeypatch.setattr(kisa, "oturum", lambda b, efor, env: {"form": None})
     kisa.calistir(["ig-X"], tmp_path / "kok", tmp_path / "cik")
     assert gor == [(d, True)] and not (d / "goz-video.mp4").exists()
+
+
+def test_metin_gec_ek_ornek_yalniz_pakette_gecen(tmp_path, monkeypatch):
+    (tmp_path / "paket.md").write_text("Bytebase ile Slack botu", encoding="utf-8")
+    monkeypatch.setattr(kisa, "anahtar", lambda env=None: "k")
+    monkeypatch.setattr(kisa, "sozluk_tara", lambda d, g: [])
+    yanit = {0: ["Slack"], 1: ["Bytebase", "Uydurma"]}
+    monkeypatch.setattr(kisa, "_uret", lambda g, k, t: ({"adlar": yanit[g["generationConfig"]["temperature"]]}, {"model": "m"}))
+    assert kisa.metin_gec(tmp_path)["adlar"] == ["Slack", "Bytebase"]

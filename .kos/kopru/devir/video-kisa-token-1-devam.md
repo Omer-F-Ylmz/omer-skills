@@ -1,3 +1,19 @@
+## d11 SONU (14 Eki ~20:55, CC) — ÖNCE BUNU OKU (claude -p 4/4 kullanıldı; Desktop +2 izni kaldı)
+- Kök kanıtlandı: d9↔d10 aynı model (3.5-flash-lite), 7 kaçak yalnız örnekleme değişkenliği. Yapılan (kisa.py): SABIT temp 0 + seed 7 (izle + metin) · metin geçişine ORNEK 2 ek örnek (temp 1, seed 8/9) birleşimi, ek ad yalnız paket.md'de aynen geçiyorsa (test_kisa 15/15) · embed medya yoksa (meta video/gorseller/slayt_video boş) indirme yok. Ref gürültüsü GURULTU=("CLI","Skills","Mac") puandan çıkar (kisa_m4).
+- Yeni ölçüm aracı `kisa_m4.py gemini_puan <etiket>` (claude -p 0, Claude öncesi yakalama; medya kisa/medya'da kalır). d11a (yalnız temp 0): 0.85 · d11b (temp0 + birleşim): 0.952.
+- kos d11 sinama (oturum-sinama.json; d10 → oturum-sinama-d10.json): araç 0.94 · link 1.0 · yp 0 · 11 805 tk/video (d10 9 714 → ARTTI) · 28.8 sn/video (hazır 19.8). KAPI GEÇMEDİ.
+- Süre kökü: 4 video × (1 izle + 3 metin) = 16 eşzamanlı Gemini → 3 çağrı IZLE_ZAMAN 90 sn'de asıldı (Ddx/Ddg/DcDf). Düzeltme önerisi: ek örnekler ana metin çağrısından sonra değil VIDEO_PARALEL 2 ya da ek örneklere ayrı kısa zaman aşımı (≤25 sn; asılırsa atla, ek örnek isteğe bağlı).
+- Token kökü: birleşim ad sayısını artırdı (blok büyüdü; output 9 657). Öneri: ek örnek adlarını blokta kısa biçimde (ne_dedi yok) ver.
+- Kalan kaçaklar: Bytebase, Go, RustFS, S3 (DeXK) · Claude, GitHub, agenthubstack.dev (DcDf) + Claude oturumu "ByteByteGoHq/system-design-101", "System Design Primer"ı düşürdü (Gemini'de var mı bakılmadı) · Sales Navigator (DYKS, d11b).
+- Sıradaki: süre/token düzeltmesi → `gemini_puan d12a`, `d12b` (kararlılık, claude -p 0) → `kos d12 sinama` (claude -p 5) → sinama_puan → altın 8 gerileme (`kos d12`, claude -p 6) → rapor + zip_denetle + SIRA BİTTİ. SKILL.md 55–56 güncellendi (paket mp4 / temp0 / metin geçişi).
+
+## DESKTOP 20:30 KARARLARI (d11 için, d10 notundan ÖNCE uygula)
+- Araç düşüşü: önce d9↔d10 gemini.json farkını ve `sinama_puan` kaçak dökümünü çıkar. Kök Gemini değişkenliğiyse: (a) generationConfig temperature 0 (+ varsa seed) dene; (b) yetmezse iki izlemenin BİRLEŞİMİ — her ek öğe `_kanit` denetiminden geçmeden araca girmez (yp 0 korunur). İkisi de ücretsiz, Claude token'ı artmaz.
+- Ref gürültüsü ("CLI", "Skills", "Mac" gibi genel kelimeler) araç değil → altından çıkar, raporda ayrı satırda listele (19:15 kanıtsız kuralı).
+- KAPI GEÇERLİLİĞİ: son kod + son Gemini ayarıyla 6'lık sınamada araç ≥0.95 · link ≥0.95 · yp 0 · token artmıyor · ≤15 sn/video; AYRICA aynı ayarla 2. tekrar koşusunda da araç ≥0.95 (kararlılık; Gemini ücretsiz, tekrar için claude -p gerekmez — önbellekten puan) ve 8'lik altın kümede gerileme yok.
+- claude -p: 4/4'ün 1'i kaldı; kapı için gerekirse +2 (Desktop onayı, toplam ≤6).
+- Bitince: rapor + M5 (SKILL.md + zip_denetle) + SIRA "VİDEO-KISA-TOKEN-1 BİTTİ" (dosya: .kos/kopru/gorev/SIRA.md — kuyruk bu satırı orada bekliyor; kapı geçmeden BİTTİ yazma). Sıradaki iş gorev/video-kisa-2.md (180 link) kuyrukta, BİTTİ satırını bekliyor.
+
 ## d10 SONU (14 Eki ~20:20, CC) — ÖNCE BUNU OKU (claude -p 3/4 kullanıldı, çağrı tavanı doldu)
 - Sınama (6 reel, `kos d9 sinama` + `sinama_ref` + `sinama_puan`): araç 0.95 · link 1.0 · yp 0 · 10 581 tk/video · 26.9 sn/video (hazır 19.2). Kaçan: LinkedIn Sales Navigator, Bytebase, S3, agenthubstack.dev (+ ref gürültüsü "CLI", "Skills", "Mac"). → 95/95 sınamada GEÇTİ (araç sınırda).
 - Süre kökü: kisa her reel'i IG'den 2. kez çekiyordu (paket mp4'ü silmiş) → instagram ARA 10–20 sn seri bekleme = 84/115 sn. Düzeltme (commitli): cli paket ig-* goz-video.mp4'ü silmez; kisa.calistir önbellekteki medyayı kullanır, izledikten sonra siler; test_kisa +1 (45/45 ilgili test).

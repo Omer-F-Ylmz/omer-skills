@@ -30,6 +30,8 @@ KOK = Path(__file__).resolve().parents[3]
 KARAR = KOK / "docs" / "kurulumlar" / "ig-41" / "karar-birlesik.tsv"
 ARASTIRMA = KOK / ".kos" / "kopru" / "video" / "kisa" / "arastirma"
 PAKET_TAVAN = 12_000  # paket.md karakteri (Gemini'ye bağlam; ücretsiz)
+SABIT = {"temperature": 0, "seed": 7}  # 14 Eki d11: aynı model (lite) iki izlemede 7 farklı araç kaçırdı (temp 0.2/0.1 örnekleme değişkenliği)
+ORNEK = ({"temperature": 1, "seed": 8}, {"temperature": 1, "seed": 9})  # d11: temp 0 tek başına 0.85; metin geçişine çeşitli örneklerin birleşimi (ücretsiz, paralel)
 SEMA = {"type": "OBJECT", "required": ["konusma_ozet", "ekran_metni", "araclar", "adlar", "teknikler", "linkler", "komutlar", "iddialar"], "properties": {
     "adlar": {"type": "ARRAY", "items": {"type": "STRING"}},
     "teknikler": {"type": "ARRAY", "items": {"type": "STRING"}},
@@ -119,7 +121,7 @@ def izle(d, medya=None, env=None, yeniden=False):
         return json.loads(hedef.read_text(encoding="utf-8")), {"onbellek": True}
     key, t = anahtar(env), time.monotonic()
     govde = {"contents": [{"parts": parcalar(d, Path(medya or d), key)}],
-             "generationConfig": {"responseMimeType": "application/json", "responseSchema": SEMA, "temperature": 0.2,
+             "generationConfig": {"responseMimeType": "application/json", "responseSchema": SEMA, **SABIT,
                                   "mediaResolution": "MEDIA_RESOLUTION_LOW"}}  # ekran yazısı paket.md OCR'ında; düşük çözünürlük izlemeyi kısaltır
     j, iz = _uret(govde, key, t)
     var = {a["ad"].casefold() for a in j["araclar"]}  # lite araclar'da adları atlıyor; ayrı tam liste alanı yakalamayı artırır
@@ -152,11 +154,14 @@ def metin_gec(d, env=None, yeniden=False):
     key, t = anahtar(env), time.monotonic()
     aday = [a["ad"] for a in sozluk_tara(d, {})]
     metin = (d / "paket.md").read_text(encoding="utf-8")[:PAKET_TAVAN * 2]
-    govde = {"contents": [{"parts": [{"text": f"{METIN_ISTEM}\n\nADAYLAR: {', '.join(aday) or 'yok'}\n\n{metin}"}]}],
-             "generationConfig": {"responseMimeType": "application/json", "temperature": 0.1,
-                                  "responseSchema": {"type": "OBJECT", "required": ["adlar"], "properties": {"adlar": {"type": "ARRAY", "items": {"type": "STRING"}}}}}}
-    j, iz = _uret(govde, key, t)
-    j = {"adlar": [a for a in dict.fromkeys(j["adlar"]) if a.strip() and not KOD.search(a)], "aday": len(aday), "_iz": iz}
+    govde = lambda ayar: {"contents": [{"parts": [{"text": f"{METIN_ISTEM}\n\nADAYLAR: {', '.join(aday) or 'yok'}\n\n{metin}"}]}],
+                          "generationConfig": {"responseMimeType": "application/json", **ayar,
+                                               "responseSchema": {"type": "OBJECT", "required": ["adlar"], "properties": {"adlar": {"type": "ARRAY", "items": {"type": "STRING"}}}}}}
+    with ThreadPoolExecutor(len(ORNEK) + 1) as ex:
+        (j, iz), *ekler = ex.map(lambda a: _uret(govde(a), key, t), [SABIT, *ORNEK])
+    ham = tr.normal(metin)
+    ek = [a for e, _ in ekler for a in e["adlar"] if tr.normal(a) and tr.normal(a) in ham]  # ek örnek yalnız pakette aynen geçen adı katar (yp koruması)
+    j = {"adlar": [a for a in dict.fromkeys(j["adlar"] + ek) if a.strip() and not KOD.search(a)], "aday": len(aday), "_iz": iz}
     hedef.write_text(json.dumps(j, ensure_ascii=False, indent=1), encoding="utf-8")
     return j
 
@@ -412,7 +417,7 @@ def calistir(ids, kok, cikti, efor="low", env=None):
             t, m = time.monotonic(), kok / v
             meta = json.loads((m / "meta.json").read_text(encoding="utf-8"))
             var = lambda d: any((d / a).is_file() for a in ["goz-video.mp4", *(meta.get("slayt_video") or []), *(meta.get("gorseller") or [])])
-            if v.startswith("ig-") and not var(m):
+            if v.startswith("ig-") and (meta.get("video") or meta.get("gorseller") or meta.get("slayt_video")) and not var(m):  # embed medya yoksa (DbG, Ddx) indirme boşa 16 sn
                 m = cikti / "medya" / v  # paket medyayı bırakmadıysa (eski önbellek) hat yeniden indirir
                 if not var(m):
                     m.mkdir(parents=True, exist_ok=True)
