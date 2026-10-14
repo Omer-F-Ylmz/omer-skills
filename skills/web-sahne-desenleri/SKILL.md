@@ -152,3 +152,4 @@ Kabul: web-sahne-desenleri §3 kapısının tamamı; ek: mobil Lighthouse perf �
 - Tipografi: GSAP SplitText (ücretsiz, GSAP Standard License — MIT değil) maskeli satır stagger.
 - Varlık: `@gltf-transform/cli optimize --texture-compress ktx2 --compress meshopt`; görünmezken render durdur (IntersectionObserver).
 - Yasak kaynak: Shadertoy kodu (varsayılan CC BY-NC-SA), lygia (ticari Patron), ölçülen sitelerin varlıkları.
+- Hazır modüller (SİTE-OKULU-2, K7 `tools/site-kit/sablon/src/sahne/`): kamera-yolu · dongu (talep üzerine render, boşta 0 kare/sn) · post (`'dusuk'` kademe) · gecis (RT kompozit, kenar ışımalı) · metin · yukleyici · parcacik (GPGPU). Notlar + tuzaklar: omer-skills `docs/site-okulu/lab-<teknik>.md`. Tuzak: DoF + kromatik aynı EffectPass'e girmez; RT'de ton eşleme için ToneMappingEffect.

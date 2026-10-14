@@ -1,4 +1,4 @@
-// RT kompozit sahne geçişi: A ve B ayrı RT'ye, tam ekran dörtgen mix(A, B, gürültü eşiği); eşik kenarında ışıma + hafif UV kırılması. t=0/1'de tek sahne.
+// RT kompozit sahne geçişi: A ve B ayrı RT'ye, tam ekran dörtgen mix(A, B, gürültü eşiği); eşik kenarında sıcak çekirdek + hale + kıvılcım, UV kırılması ve kromatik ayrışma. t=0/1'de tek sahne.
 import * as T from 'three';
 
 const VERT = 'varying vec2 v; void main(){ v = uv; gl_Position = vec4(position.xy, 0., 1.); }';
@@ -7,13 +7,19 @@ float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 float n(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f);
   return mix(mix(h(i), h(i + vec2(1, 0)), f.x), mix(h(i + vec2(0, 1)), h(i + 1.), f.x), f.y); }
 float fbm(vec2 p){ float s = 0., k = .5; for (int i = 0; i < 5; i++){ s += k * n(p); p *= 2.; k *= .5; } return s; }
+vec3 al(sampler2D s, vec2 p, vec2 d){ return vec3(texture2D(s, p + d).r, texture2D(s, p).g, texture2D(s, p - d).b); }
 void main(){
-  float g = fbm(v * vec2(5., 3.)) * .8 + v.y * .2;
-  float e = mix(-.08, 1.08, t);
-  float m = smoothstep(g - .02, g + .02, e);
-  float kenar = smoothstep(.06, 0., abs(e - g));
-  vec2 kay = vec2(0., (g - .5) * .04 * kenar);
-  vec3 col = mix(texture2D(a, v + kay).rgb, texture2D(b, v - kay).rgb, m) + kor * kenar * 2.;
+  // çapraz süpüren cephe + fbm yırtığı: adacık değil tek tutarlı yanma cephesi
+  float g = (v.x * .35 + (1. - v.y) * .65) * .55 + fbm(v * vec2(6., 4.)) * .45;
+  float e = mix(-.12, 1.12, t);
+  float m = smoothstep(g - .015, g + .015, e);
+  float d = e - g;
+  float cekirdek = smoothstep(.012, 0., abs(d));
+  float hale = smoothstep(.12, 0., abs(d)) * (.6 + .4 * fbm(v * 40. + t * 3.));
+  float kivilcim = step(.985, h(floor(v * vec2(160., 90.)))) * smoothstep(.2, 0., abs(d - .06));
+  vec2 kay = vec2(.012, (g - .5) * .08) * hale;
+  vec2 kr = vec2(.006 * hale, 0.);
+  vec3 col = mix(al(a, v + kay, kr), al(b, v - kay, kr), m) + kor * (hale * 1.2 + kivilcim * 4.) + mix(kor, vec3(1.), .6) * cekirdek * 3.;
   gl_FragColor = vec4(col, 1.);
   #include <tonemapping_fragment>
   #include <colorspace_fragment>

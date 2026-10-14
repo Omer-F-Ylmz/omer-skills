@@ -15,28 +15,27 @@
  },
  "gemini": {
   "ref_kareler": [
-   "A0",
-   "A1",
-   "A4"
+   1,
+   7
   ],
   "hareket": 8,
   "isik_post": 7,
   "kalite": 8,
   "eslesme": 9,
   "farklar": [
-   "Tipografi nesnenin tam arkasında başarılı bir derinlik katmanlaması oluşturuyor.",
-   "SplitText maskeleme geçişleri referans siteyle uyumlu ve akıcı.",
-   "3B nesne metalik yüzey yansımaları referanstaki kadar dinamik değil."
+   "Referansta tipografi ekrandaki 3B objelerin hem önünde hem arkasında derinlik katmanı oluşturuyor.",
+   "Lab demomuzda nesne konumlandırma ve ışıklandırma referansın dinamik hissiyatına yakın ancak maskeleme ve SplitText geçişleri daha düz.",
+   "Tipografinin animasyonlu maske girişleri referanstaki kadar keskin ve akıcı değil."
   ],
   "oneriler": [
-   "roughnessMap ve metalnessMap ekleyerek 3B cezve üzerindeki ışık kırılmalarını artırın.",
-   "GSAP ScrollTrigger ile metin maskesi animasyonlarında stagger süresini optimize edin.",
-   "KameraFOV değerini hafifçe daraltarak perspektif bozulmalarını azaltın."
+   "gsap.from(split.lines, { yPercent: 100, stagger: 0.05, ease: 'power4.out' })",
+   "renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.2;",
+   "Z-index ve depth buffer yönetimi ile 3B nesneleri tipografi katmanlarının arasına hassas şekilde yerleştirin."
   ]
  },
  "iz": {
   "model": "gemini-3.5-flash-lite",
-  "sure": 4.8,
-  "jeton": 12504
+  "sure": 6.7,
+  "jeton": 12539
  }
 }
