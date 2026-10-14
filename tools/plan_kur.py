@@ -1,9 +1,11 @@
-"""ENVANTER-3 plan-kur: iş tarifinden TEK koşuda plan girdisi — iş türü kapıları + inceleme ajanları + konsey noktası
-+ faz jeton bütçesi + katalog adayları + öğrenimler (~≤5k jeton). Model bunu okuyup ≤40 satır planı yazar; ek sorgu yok.
+"""PLAN-KUR-2 plan-kur v2: iş tarifinden TEK koşuda kompakt plan girdisi (zor işte ≤6k karakter, katalog_ara listesinin YERİNE).
+Faz başına en çok 3 KURULU ve yığınla uyumlu araç · faz başına sayısal kapı · inceleme ajanı · konsey (varsayılan yok) · ≤3 öğrenim.
 python tools/plan_kur.py "<iş 1>" ["<iş 2>" ...]   (birden çok iş tek komutta)
-Rutin tek alanlı işte kısa çıktı: ENVANTER-6'da rutin işte katalog kazancı 0, maliyeti var.
-ENVANTER-4 tarifleri (tarifler/*.md) varsa iş türü bölümü tariften gelir, yoksa aşağıdaki TUR tablosundan.
+python tools/plan_kur.py --ac <ad>                 (tek aracın ayrıntısı; çoğu işte gerekmez)
+Rutin tek alanlı işte tek satır: ENVANTER-6'da rutin işte katalog kazancı 0, maliyeti var.
+Çıktı deterministik (aynı iş → bayt bayt aynı), sabit başlık en üstte: önbellek dostu.
 """
+import json
 import re
 import sys
 from pathlib import Path
@@ -13,16 +15,7 @@ for _p in (B, B.parent / "yetenek-getir", B.parent / "tools"):  # skill kurulumu
     sys.path.insert(0, str(_p))
 import katalog_ara as ka  # noqa: E402
 
-TARIF = next((d for d in (B / "tarifler", B.parent / "docs" / "katalog" / "tarifler") if d.is_dir()), None)
-N_ADAY, N_TABAN = 50, 5  # ~3k jeton: ENVANTER-6 B' ekinin (80+10) kısası; toplam ≤5k
-# ENVANTER-3 3d incelemesi: skill-debate / council-multi-model codex·agy CLI ister (kurulu değil) → önerilmez
-KONSEY = ("Konsey VARSAYILAN YOK — yalnız geri dönüşü zor VE belirsiz (iki makul seçenek, veri yok) kararda en çok 1; "
-          "değilse planda tek satır 'konsey: yok — <gerekçe>' (kör kapı: gereksiz konsey uygulanabilirlikten düşer). Seçenekler: ecc:council (Skeptic·Pragmatist·Critic alt ajanları + sentez, "
-          "Claude personaları, ücretli API 0, ~60-90k); hafif karar: consciousness-council (tek model, ~10-20k); ücretsiz harici görüş: "
-          "octo:skill-council --providers claude,openai-compatible --depth quick --max-cost (OmniRoute Gemini; önce --dry-run) — "
-          "Claude aboneliği OmniRoute'tan geçmez.")
-KAPANIS = ("Kapanış (6): test yeşil · semgrep · gitleaks · a11y (UI: axe-core) · kanıt (UI: 3 genişlik ekran görüntüsü; "
-           "diğer: çıktı/log) · rapor commit·test·CI·sapma (docs/kapanis-araclar.md)")
+N_ADAY = 150  # faz sınıflaması için havuz; çıktıya faz başına 3 girer
 # tür: (tanıma deseni [TR→ASCII küçük harf], kapılar, inceleme ajanları aşama:ajan, konsey kararı, faz jeton bütçesi)
 TUR = {
     "web": (r"\bsite|landing|web|sayfa|frontend|arayuz|\bui\b|seo|awwwards|e-?ticaret|magaza",
@@ -67,49 +60,130 @@ TUR = {
 }
 ZOR = re.compile(r"guvenlik|odeme|auth|kimlik|giris|kvkk|gdpr|yayin|deploy|canli|production|multiplayer|cok oyunculu|awwwards|"
                  r"migration|gecis|olcek|entegrasyon|bastan|yeniden yap|sifirdan|uctan uca")
+# araç → faz (ad + iş metninde ilk eşleşen; hiçbiri değilse uygulama). Sıra: test önce (tasarım kelimesi taşıyan test araçları)
+FAZ = ((3, r"test|\bqa-|\bsec-|secur|guvenlik|audit|denet|vulnerab|a11y|erisilebil|pentest|owasp|semgrep|gitleaks|strix"),
+       (4, r"deploy|release|\bci\b|ci/cd|docker|yayin|dagitim|rollout|helm|terraform|canary|github action"),
+       (1, r"design|tasarim|\bplan|architect|mimari|schema|sema\b|spec\b|research|arastir|brief"),
+       (2, r""))
+FAZ_AD = {1: "faz 1 tasarım", 2: "faz 2 uygulama", 3: "faz 3 test+güvenlik", 4: "faz 4 yayın+kapanış"}
+# sayısal kapılar: (iş deseni, faz, kapı). ENVANTER-3 kör yargıç: sayısal kapı yoksa sağlamlık en çok 1
+KAPI = (
+    (r"tasi|gecis|migration|kademeli|geriye donuk", 1,
+     "geçiş: her adım geri alınabilir · eski/yeni paralel, parite testi %100 · sözleşme testi kırmızıysa yayın yok"),
+    (r"odeme|payment|stripe|iyzico|kapora|fatura|abonelik|checkout|billing", 2,
+     "ödeme: idempotency anahtarı her ödeme/iade isteğinde · 3DS/SCA · PCI SAQ-A (kart verisi sunucuya değmez, barındırılan alan) · "
+     "webhook imza doğrulama + olay kimliğiyle tekil işleme · yeniden deneme tavanı 3, üstel bekleme"),
+    (r"kvkk|gdpr|riza|kisisel veri|aydinlatma", 2,
+     "KVKK: aydınlatma metni + ayrı, önceden işaretsiz açık rıza kutusu · saklama süresi yazılı · silme talebi ≤30 gün"),
+    (r"auth|kimlik|giris|login|jwt|oturum|firebase", 2,
+     "auth: erişim jetonu ≤15 dk + yenileme jetonu döndürme · giriş hız sınırı 5 deneme/dk · sırlar ortam değişkeninde"),
+    (r"graphql|\brest\b|\bapi\b|endpoint", 2,
+     "API: p95 ≤300 ms · hız sınırı 100 istek/dk/anahtar · GraphQL derinlik ≤7 + karmaşıklık tavanı · istek başına DB sorgusu sabit (N+1 yok)"),
+    (r"sms|e-?posta|email|bildirim|push|hatirlatma", 2,
+     "ücretli gönderim: günlük tavan (sayı yaz) + tekrar önleme anahtarı · gönderim günlüğü"),
+    (r"site|web|sayfa|frontend|dashboard|panel|landing|vue|react|astro|svelte|htmx|lighthouse", 3,
+     "web: LCP ≤2.5 s · CLS ≤0.1 · INP ≤200 ms · ilk yük JS ≤170 KB gz · qa-erisilebilirlik-testi 0 ciddi ihlal"),
+    (r"flutter|mobil|android|\bios\b|cevrimdisi|offline|senkron", 3,
+     "mobil: çevrimdışı→çevrimiçi çakışma testi (2 cihaz eşzamanlı yazım) · soğuk açılış ≤2 s · izin reddinde zarif düşüş"),
+    (r"\brag\b|llm|vektor|embedding|soru-cevap|chatbot|\bbot\b", 3,
+     "LLM: değerlendirme seti ≥50 soru · kaynak gösterim doğruluğu ≥%90 · yanıt p95 ≤5 s · bağlam/VRAM tavanı yazılı"),
+    (r"oyun|game|unity|godot|unreal", 3,
+     "oyun: 60 fps (kare ≤16.7 ms) · kaydet→yükle tur testi aynı durum · hedef platform yapısı uyarısız derlenir"),
+    (r"regresyon|\bci\b|kapisi", 4, "CI kapısı: bütçe aşımı kırmızı (paket +%5, LCP +%10)"),
+    (r"yayin|deploy|vps|docker|canli|production|steam|magaza|\bstore", 4,
+     "yayın: staging/önizleme önce · sağlık kontrolü · geri alma ≤5 dk ve adımı yazılı"),
+)
+SABIT = {3: "test yeşil · semgrep 0 yüksek · gitleaks 0 bulgu", 4: "Kapanış (6): test · semgrep · gitleaks · a11y · kanıt · rapor commit·test·CI·sapma"}
+INCELE = re.compile(r"review|incele|denetci")
+KONSEY = ("Konsey: yok — adımlar geri alınabilir; yalnız geri dönüşsüz VE iki makul seçenekli (veri yok) kararda "
+          "ecc:council 1 kez (~60-90k)")
+BASLIK = ("plan-kur v2: planı ≤30 satır yaz — faz · adım · araç · sayısal kapı · inceleme ajanı · konsey · faz jetonu. "
+          "YALNIZ aşağıdaki araçlar (hepsi kurulu, yığınla uyumlu); başka araç önerme, kurulum önerme, ek katalog sorgusu yapma. "
+          "Çağrı: skill → Skill <ad> · ajan → Agent <ad> · mcp → ToolSearch · cli → Bash. Ayrıntı nadiren: plan_kur.py --ac <ad>")
 
 
-def turler(t):
-    return [k for k, v in TUR.items() if re.search(v[0], t)]
+def kayitlar():
+    return [json.loads(s) for s in ka.KATALOG.read_text(encoding="utf8").splitlines()]
 
 
-def tarifler(q):
-    """En uygun 1–2 ENVANTER-4 tarifi (ikincisi tepe puanın %60'ını geçerse; çok alanlı iş)."""
-    if not TARIF:
-        return []
-    rows = [{"ad": f.stem, "tur": "tarif", "is": f.read_text(encoding="utf8").split("\n", 2)[1], "tetik": "", "durum": "",
-             "metin": f.read_text(encoding="utf8"), "yol": f} for f in sorted(TARIF.glob("*.md"))]
-    p = ka.puanla(q, None, rows)[0]
-    return [o["yol"] for s, _, o in p[:2] if s >= 0.6 * p[0][0]]
+def kurulu_disi_adlar():
+    """Kurulu olmayan kayıtların (kurulu bir adla çakışmayan) ad sözcükleri: öğrenim metninde geçerse öğrenim gösterilmez."""
+    rows = kayitlar()
+    var = {w for o in rows if ka.kurulu(o) for w in re.findall(r"[a-z0-9][a-z0-9.+-]{3,}", o["ad"].lower())}
+    return {w for o in rows if not ka.kurulu(o) for w in re.findall(r"[a-z0-9][a-z0-9.+-]{4,}", o["ad"].lower())} - var
+
+
+def kisa(o, n=60):
+    m = " ".join((o["is"] or o["metin"]).split())
+    return m if len(m) <= n else m[:n].rsplit(" ", 1)[0] + "…"
 
 
 def plan_girdisi(q, n_aday=N_ADAY):
     t = q.lower().translate(ka.TR)
-    tr = turler(t)
+    tr = [k for k, v in TUR.items() if re.search(v[0], t)]
     if len(tr) <= 1 and not ZOR.search(t) and len(t.split()) < 20:
         k = TUR[tr[0]][1].split(" · ")[0] if tr else "test yeşil"
         print(f"RUTİN ({tr[0] if tr else 'genel'}): plan-kur gereksiz — doğrudan uygula; kapı: {k}; kapanış raporu commit·test·sapma.")
         return
-    tf = tarifler(q)
-    for f in tf:  # tarif varsa iş türü bölümü ondan (ENVANTER-4)
-        print(f"<tarif {f.stem}>\n" + f.read_text(encoding="utf8").split("\n", 1)[1].strip() + "\n</tarif>")
-    if not tf:
-        for k in tr or ["web"]:
-            _, kapi, ajan, karar, butce = TUR[k]
-            print(f"## {k}\nkapılar: {kapi}\ninceleme ajanları: {ajan}\nkonsey adayı (yalnız belirsizse): {karar}\njeton (tahmini): {butce}")
-    print(KONSEY + "\n" + KAPANIS)
-    ka.listele(ka.aday(q, n_aday, taban=N_TABAN) + ka.ogrenim_ara(q))
+    yg = ka.yigin(q)
+    aday = [o for o in ka.aday(q, n_aday, taban=5) if o["tur"] in ("skill", "ajan", "mcp", "cli")]
+    kal, elen, yok = ka.suz(aday, yg)
+    kav = [set(ka.kelimeler(w) + ka.kelimeler(" ".join(ka.ileri([w])))) for w in ka.kelimeler(q)
+           if not w.endswith("~") and w not in ka.DURAK]
+    havuz, gor = {1: [], 2: [], 3: [], 4: []}, set()
+    for o in kal:
+        m = f"{o['ad']} {o['is']}".lower().translate(ka.TR)
+        if not o["ad"].endswith("-paket") and kisa(o) not in gor:  # şemsiye paketler ve aynı açıklamalı kopyalar dışarıda
+            gor.add(kisa(o))
+            w = set(ka.kelimeler(m))
+            havuz[next(n for n, d in FAZ if re.search(d, m))].append((o, {i for i, c in enumerate(kav) if c & w}))
+    faz = {n: [] for n in havuz}
+    for n, v in havuz.items():  # faz içinde en çok YENİ iş kavramı kapsayan (eşitlikte BM25 sırası): ödeme aracı 3D'ye yenilmesin
+        # yalnız fazın BM25 ilk 8'i ve en az bir iş kavramı kapsayanlar (yoksa ilk 3): ilgisiz kayıt girmesin
+        ort, v = set(), [x for x in v[:8] if x[1]] or v[:3]
+        while v and len(faz[n]) < 3:
+            o, k = max(v, key=lambda x: len(x[1] - ort))
+            v.remove((o, k))
+            ort |= k
+            faz[n].append(o)
+    ince = ["ecc:code-reviewer (her faz sonu)", "ecc:security-reviewer (faz 3)"]
+    ince += [o["ad"] for o in kal if o["tur"] == "ajan" and INCELE.search(o["ad"]) and not any(o["ad"] in i for i in ince)][:1]
+    kapi = {n: [k for d, f, k in KAPI if f == n and re.search(d, t)] for n in faz}
+    for n, k in SABIT.items():
+        kapi[n].append(k)
+    yasak = kurulu_disi_adlar()
+    ogr = [o for o in ka.ogrenim_ara(q) if not any(re.search(rf"\b{re.escape(w)}\b", o["ne"].lower()) for w in yasak)][:3]
+    print(f"yığın: {', '.join(yg) or 'bilinmiyor'} · elendi: {elen} (yığın) · {len(yok)} kurulu değil (gösterilmez)")
+    print("<aday-listesi>\n```text")
+    for n, v in faz.items():
+        print(f"{FAZ_AD[n]}: " + " | ".join(f"{o['ad']} ({ka.GRUP[o['tur']]}) — {kisa(o)}" for o in v))
+    print("```\n</aday-listesi>\nkapılar:")
+    for n, v in kapi.items():
+        if v:
+            print(f"  {FAZ_AD[n].split()[1]}: " + " ; ".join(v))
+    print("inceleme ajanları: " + " · ".join(ince))
+    print(KONSEY)
+    for o in ogr:
+        print(f"öğrenim: {o['ne'][:160]} ({o['cagri']})")
+    print(f"jeton (tahmini): {TUR[tr[0]][4] if tr else 'tasarım 8k · uygulama 35k · test+güvenlik 12k · kapanış 3k'}")
+
+
+def ac(ad):
+    r = [o for o in kayitlar() if ka.kurulu(o) and ad.lower() in o["ad"].lower()][:3]
+    for o in r:
+        print(f"{o['ad']} ({ka.GRUP[o['tur']]}) · {o['durum'][:40]} · çağrı: {o['cagri']}\n  {o['is']}\n  {o['metin'][:600]}")
+    if not r:
+        print(f"kurulu kayıt yok: {ad}")
 
 
 def main():
+    if "--ac" in sys.argv:
+        return ac(sys.argv[sys.argv.index("--ac") + 1])
     isler = [a for a in sys.argv[1:] if not a.startswith("--")]
-    print("plan-kur: planı ≤40 satır yaz — faz · adım · araç · kapı · inceleme ajanı · konsey noktası · faz jetonu; "
-          "listede ilgili olup kullanılmayan araca tek satır gerekçe. Ek katalog sorgusu yapma.")
-    # CC 30k karakteri aşan Bash çıktısını dosyaya yazar → parça parça Read, her tur ~66k önbellek (ENVANTER-3 B 0: +2 tur)
-    n_aday = max(20, N_ADAY * 2 // max(2, len(isler)))
+    print(BASLIK)
     for n, q in enumerate(isler, 1):
         print(f"\n# İŞ {n}: {q}")
-        plan_girdisi(q, n_aday)
+        plan_girdisi(q, N_ADAY if len(isler) < 3 else N_ADAY // 2)
 
 
 if __name__ == "__main__":

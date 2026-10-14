@@ -55,3 +55,82 @@ def test_ogrenim_ayri_grup(tmp_path, monkeypatch):
     monkeypatch.setattr(ka, "OGRENIM", f)
     r = ka.ogrenim_ara("3D web sitesi hero GLB boyutu")
     assert len(r) == 1 and r[0]["tur"] == "ogrenim" and r[0]["cagri"] == "x.md:3"
+
+
+# PLAN-KUR-2: v2 çıktısı (≤6k), yığın + kurulu süzgeci, determinizm
+ZOR_IS = "Astro + three.js ile ürün sitesi yap: iyzico ödeme, KVKK formu, SEO, güvenlik testi ve yayın"
+
+
+def _k(ad, durum="CC", is_=""):
+    return {"ad": ad, "tur": "skill", "durum": durum, "is": is_, "metin": "", "tetik": "", "cagri": f"Skill {ad}"}
+
+
+def test_v2_zor_tavan_ve_sayisal_kapi():
+    o = kos(ZOR_IS)
+    assert len(o) <= 6000, len(o)
+    for s in ("faz 1", "faz 4", "inceleme ajanları:", "Konsey: yok", "elendi:", "LCP ≤2.5 s", "idempotency", "3DS", "SAQ-A"):
+        assert s in o, s
+    assert o.count("öğrenim:") <= 3
+
+
+def test_v2_faz_basina_en_fazla_3_arac():
+    o = kos(ZOR_IS)
+    for s in o.splitlines():
+        if s.startswith("faz "):
+            assert s.count(" | ") <= 2, s
+
+
+def test_yigin_metinden_ve_cwd(tmp_path):
+    assert {"astro", "three"} <= set(ka.yigin(ZOR_IS, tmp_path))
+    (tmp_path / "astro.config.mjs").write_text("", encoding="utf8")
+    (tmp_path / "package.json").write_text('{"dependencies": {"astro": "4", "gsap": "3"}}', encoding="utf8")
+    assert "astro" in ka.yigin("siteyi hızlandır", tmp_path) and "react" not in ka.yigin("siteyi hızlandır", tmp_path)
+    (tmp_path / "package.json").write_text('{"dependencies": {"react": "18"}}', encoding="utf8")
+    assert "react" in ka.yigin("siteyi hızlandır", tmp_path)
+
+
+def test_yigin_suzgeci():
+    rows = [_k("react-x", is_="React components only"), _k("cok", is_="React, Vue, Astro islands"),
+            _k("notr", is_="Web performance audit"), _k("dn", is_="ASP.NET Core APIs")]
+    kal, elen, _ = ka.suz(rows, ["astro"])
+    assert [o["ad"] for o in kal] == ["cok", "notr", "dn"] and elen == 1
+    kal, elen, _ = ka.suz(rows, ["astro", "django"])
+    assert [o["ad"] for o in kal] == ["cok", "notr"] and elen == 2
+    assert len(ka.suz(rows, [])[0]) == 4  # yığın bilinmiyorsa eleme yok
+
+
+def test_kurulu_suzgeci():
+    rows = [_k("a"), _k("b", "aday"), _k("c", "ikisi · kapalı(override off)"), _k("d", "repo"), _k("e", "ikisi")]
+    kal, _, yok = ka.suz(rows, [])
+    assert [o["ad"] for o in kal] == ["a", "e"] and [o["ad"] for o in yok] == ["b", "c", "d"]  # kapalı da çağrılamaz
+    # Ömer 06:38: kurulu olmayan araç çıktıda HİÇ yok (kurulum önerisi satırı da yok)
+    o = kos(ZOR_IS)
+    assert "kurulum önerisi" not in o and "firecrawl" not in o.lower()
+    kat = {r["ad"]: r for r in map(json.loads, (KOK / "docs" / "katalog" / "yetenek.jsonl").read_text(encoding="utf8").splitlines())}
+    adlar = [p.split(" (")[0] for s in o.splitlines() if s.startswith("faz ") for p in s.split(": ", 1)[1].split(" | ")]
+    assert adlar and all(ka.kurulu(kat[a]) for a in adlar), adlar
+    assert not any(ka.kurulu(r) for a, r in kat.items() if "firecrawl" in a.lower())  # katalog durumu doğru: aday
+
+
+def test_yigin_uctan_uca():
+    assert "fe-react" not in kos(ZOR_IS)  # Astro işinde React-yalnız araç önerilmez
+
+
+def test_v2_deterministik():
+    assert kos(ZOR_IS) == kos(ZOR_IS)
+
+
+def test_rutin_bir_satir():
+    o = kos("Bir JPEG fotoğrafı PNG'ye dönüştür.")  # bekletilmiş küme (r2) dışında
+    assert sum(1 for s in o.splitlines() if s.startswith("RUTİN")) == 1 and "faz 1" not in o
+
+
+def test_ac_ayrinti():
+    o = kos("--ac", "semgrep")
+    assert "semgrep" in o.lower() and "çağrı:" in o and "RUTİN" not in o and len(o) < 3000
+
+
+def test_katalog_ara_suzgec_satiri():
+    o = subprocess.run([sys.executable, str(KOK / "tools" / "katalog_ara.py"), ZOR_IS], capture_output=True, text=True,
+                       encoding="utf8", env=ENV).stdout
+    assert "elendi:" in o and "<aday-listesi>" in o
