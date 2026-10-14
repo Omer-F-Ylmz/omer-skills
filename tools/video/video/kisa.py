@@ -451,6 +451,7 @@ def calistir(ids, kok, cikti, efor="low", env=None, claude=True, sil=True):
                                              "fark": bool(katv[v][a["ad"]] and kr.SURUM.search(a["ne_dedi"] or "")), "karar": kararlar.get(a["ad"])}
                                             for a in gem[v]["araclar"]]} for v in ids if v in gem]}}
     y["hazir_sure"], y["duvar"] = hazir, round(time.monotonic() - t0, 1)
+    cikti.mkdir(parents=True, exist_ok=True)
     for x in y["form"]["videolar"]:
         x["linkler"] = list(dict.fromkeys(x["linkler"] + paket_link.get(x["id"], [])))
         link_tamamla(x, kunye_link.get(x["id"], {}))

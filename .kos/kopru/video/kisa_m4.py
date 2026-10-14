@@ -119,6 +119,7 @@ def puan():
                 x, y = ogeler(_kol(r)[v]["form"], v)
                 rad |= x
                 rln |= y
+            rln -= {u for u in rln if any(w.startswith(u + "…") for w in rln)}  # TOKEN-2 M7d: ref'in kendisi "u… kırpık" diyorsa u OCR kırpığı (DeHMM altın link 0.85'in kökü), tüm kollara eşit
             if "temiz" in sys.argv[3:]:  # yalnız denetimde kanıtlı kalemler (Desktop onayı bekleyen liste)
                 d = json.loads((CIK / "altin-denetim.json").read_text(encoding="utf-8"))[v]
                 rad, rln = {a for a in rad if d["arac"].get(a)}, {u for u in rln if d["link"].get(u)}
@@ -253,7 +254,7 @@ def sinama_puan():
           "| ağır_tk/video", round(agir(s["usage"].get("input_tokens", 0), s["usage"].get("cache_read_input_tokens", 0), s["usage"].get("cache_creation_input_tokens", 0), s["usage"].get("output_tokens", 0)) / n))
 
 
-GURULTU = ("CLI", "Skills", "Mac")  # 14 Eki 20:30 Desktop: ref'teki genel kelimeler araç değil → referanstan çıkar, raporda ayrı satır
+GURULTU = ("CLI", "Skills", "Mac", "Bytebase")  # 14 Eki 20:30 Desktop: ref'teki genel kelimeler araç değil → referanstan çıkar, raporda ayrı satır · TOKEN-2 M7e: Bytebase = star-history sponsor linki
 
 
 def gemini_puan():
