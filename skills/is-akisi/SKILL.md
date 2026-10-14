@@ -40,6 +40,7 @@ description: Ömer'in her işte bağlayıcı tek çalışma biçimi — iş baş
 - Okuma: graphify/oku sembol-aralık, dosyayı bütün açma; Write yerine Edit; aynı dosyayı iki kez okuma; skill gerekiyorsa yalnız ilgili SKILL.md bölümü Read ile. L6 L3
 - Ölçüm/analiz birden çok küçük komut yerine tek betik; çıktı sayıya/özete iner, ham döküm bağlama girmez. L15
 - Token ve kalite birlikte ölçülür: kalite düşüren tasarruf kabul edilmez (onar, yeniden ölç); token'ı gereksiz artıran kalite artışının ucuz yolu aranır. Faz/iş başına jeton kaydı rapora (ajan_sira işleri is-kaydi.tsv'ye kendiliğinden yazılır). L27 L23
+- Büyük çıktı ham dosyada kalır, bağlama yalnız öz: test koşusu `rtk pytest`/`rtk dotnet test` (`jev log` anahtarsız ortamda boş döner), tarama JSON `jev triage`, diğer >20 kB günlük `python tools/ucuz_alt.py <istem.md> <öz.md> <günlük>` (Claude-dışı). TOKEN-3 K16: 3 örnekte özden karar = hamdan karar.
 - Rapor/devir kısa; övgü/tekrar yok. L6
 
 ### Token araç sırası

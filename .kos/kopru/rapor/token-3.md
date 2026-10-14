@@ -67,3 +67,10 @@
 - Düzeltme: is-akisi SKILL.md §1 başına iki kalın satır (rapor ilk satırı "Katalog: kullanılan [..]" her işte; her claude -p strict-mcp bayrakları), §1.4/§2'deki kopyalar işarete indi. TOKEN-4'ün DEVAM-KURALI'na eklediği KOMUT YASAĞI satırı arsiv.md L41 + SKILL.md etiketi (test_is_akisi 1 passed). DEVAM-KURALI.md = 1 satır işaretçi (yedek .bak-token3-k15b).
 - Puanlayıcı kalıcılaştı: .claude/token3/k15_puan.py (17 regex; d6 listesi kayıptı). Aynı listeyle: önce (arsiv) 16/17 · d6 sonra 15/17 · d7 sonra 16/17 (eksik: durma ≥%30 eşiği). "üst sınır 6" regex yanlış negatifiydi, düzeltilip üçü yeniden puanlandı.
 - **Kalite ≥ önce TUTTU → işaretçi kalır.** 1. oturum: 3 tur, $0.19, ağırlıklı ≈51k (önce 62k, −%18). claude -p 15/16.
+
+## d8 kapanış (14 Eki ~23:30) — claude -p 15/16 (bu dilimde 0)
+- K16 kapı GEÇTİ 3/3 (`.claude/token3/k16.py` → k16.log): pytest 2783 kar → `rtk pytest` öz 425 kar, kırmızı kalem özde var (1 failed/1411 passed); kalite3-hiz.log 154.7 kB → ucuz_alt öz 752 kar ve ig41b.log 51.3 kB → 444 kar (gpt-6.1-sol, 0 Claude), ham/öz kararı (Traceback · BITTI) EŞİT. d7 koşusunda `jev log` 0 kar döndü: kök neden ortamda TYPESAFE/OPENROUTER/JEV anahtarı yok → kural rtk'ya çevrildi. Lighthouse JSON örneği diskte yok, ölçülmedi.
+- is-akisi SKILL.md §3'e büyük çıktı satırı (rtk pytest/dotnet · jev triage · ucuz_alt); test_is_akisi 1 passed. dist/claude-ai-26/is-akisi.zip yeniden (düz is-akisi/SKILL.md + arsiv.md), zip_denetle TEMİZ.
+- K17 kontrol: `is_ozet.py` → "53 iş · 17.3M ağırlıklı · video 19×0.42M · token 17×0.30M · atlas 11×0.16M · graphify 4×0.38M · site 2×0.51M".
+- Uygulanmayı bekleyen (Ömer onayı): `python onay/token_3_uygula.py` (--kuru temiz: is-akisi CC skill yeni · global CLAUDE.md K12 okuyucu satırı · K14 cagri_sayac.py); claude.ai'ye is-akisi.zip yüklemesi.
+- Not: tam suitte 1 kırmızı test_departman::test_repodaki_mudur_skilleri_sinirda (departman SKILL.md > 60 satır) — TOKEN-3 değişikliği değil, çalışma ağacındaki başka işin.
