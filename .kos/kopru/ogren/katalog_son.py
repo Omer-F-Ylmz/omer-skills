@@ -17,6 +17,9 @@ from katalog import KATEGORI, KAT_RE, norm  # noqa: E402
 
 KATLAR = [k for k, _ in KATEGORI] + ["diğer"]
 ONBELLEK = BURASI / "sinif-onbellek.jsonl"
+ONBELLEK2 = BURASI / "sinif-onbellek-2.jsonl"  # TANIM v2 yeniden oylaması; anahtarda varsa v1'in yerine geçer
+# v1 elle örneğinde ıskalayan (elle ya da model tarafı) kategoriler: yalnız bunlar + açıklamasızlar yeniden oylanır
+ISKA = {"diğer", "backend-dotnet", "ajan-orkestrasyon", "veri-db", "pazarlama", "bilim", "video-medya", "test-qa"}
 TAVAN = 320  # en fazla 320 model çağrısı (tüm kollar toplamı)
 PARTI = 40
 OY1 = "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
@@ -27,21 +30,22 @@ TOKEN_IPUCU = re.compile(r"compress|cache|context|summar|\bcost|routing|router|m
                          r"önbellek|bağlam|token|jeton|budget|bütçe", re.I)
 TANIM = """token: LLM jeton/maliyet azaltma — sıkıştırma, önbellek, bağlam penceresi yönetimi, bağlamı küçülten özetleme, kullanım/maliyet ölçümü, model yönlendirme (router), bağlam tasarrufu için hafıza
 frontend-tasarım: UI/UX, web arayüzü, CSS, React, animasyon, tipografi, web sitesi
-video-medya: video, ses, müzik, görsel/resim üretme-düzenleme, ffmpeg, transkripsiyon
+video-medya: video, ses, müzik, görsel/resim üretme-düzenleme, ffmpeg, transkripsiyon (içerik stratejisi/izleyici planı değil -> pazarlama)
 3d: Blender, three.js, 3B model, mesh, shader
-test-qa: test, QA, kod inceleme (code review), lint, doğrulama, hata ayıklama
-güvenlik: güvenlik açığı, pentest, gizli anahtar taraması, saldırı/savunma
-backend-dotnet: backend, API, sunucu, .NET/C#, deploy, CI/CD, git, devops, bulut, altyapı
-veri-db: veritabanı, SQL, veri analizi, ETL, tablo verisi
-ajan-orkestrasyon: AI ajanları, subagent, MCP, Claude Code skill/plugin/hook yönetimi, çoklu ajan, iş akışı, prompt mühendisliği, LLM entegrasyonu
+test-qa: test, QA, kod inceleme (code review), lint, uygulama kodunun doğrulanması, hata ayıklama
+güvenlik: güvenlik açığı, pentest, gizli anahtar taraması, saldırı/savunma, tehlikeli komut engelleme
+backend-dotnet: backend, API sunucusu, .NET/C#, deploy, CI/CD, git, devops, bulut, altyapı, eski sistem göçü/mimari
+veri-db: veritabanı, SQL, veri analizi, ETL, tablo verisi, makine öğrenmesi (ML deney izleme, model eğitimi, hiperparametre)
+ajan-orkestrasyon: AI ajanları, subagent, Claude Code'un kendisi (hook, telemetri, skill/plugin yazma-doğrulama), çoklu ajan, iş akışı, prompt mühendisliği, LLM/Claude API SDK entegrasyonu
 belge: doküman, PDF/Office, rapor, yazı, sunum, not alma, dokümantasyon
 araştırma: web arama, scraping, tarayıcı otomasyonu, bilgi toplama
 oyun-mod: oyun, oyun modu, Minecraft, Unity, Godot
-pazarlama: pazarlama, satış, SEO, sosyal medya, marka, e-posta, iş stratejisi, ürün yönetimi
-bilim: bilim, matematik, biyoloji, kimya, istatistik, akademik makale
-diğer: hiçbiri"""
+pazarlama: pazarlama, satış, SEO, sosyal medya ve kısa video içerik stratejisi (hook, izleyici tutma, yayın takvimi), marka, e-posta, iş stratejisi, ürün yönetimi
+bilim: akademik bilim — fizik, matematik, biyoloji, kimya, akademik makale (ML -> veri-db)
+diğer: hiçbiri; genel geliştirici CLI'ları/paket yöneticileri (uv, npm, node), kişisel gelişim, işi anlaşılamayan kurulum betikleri"""
 ISTEM = ("Her yazılım aracını (Claude Code skill/agent/komut/plugin/hook/mcp/cli/repo) TAM OLARAK bir kategoriye ata. Kategoriler:\n"
          + TANIM + "\nAracın ASIL işine bak; yalnız 'Claude' ya da 'agent' sözcüğü geçiyor diye ajan-orkestrasyon seçme. "
+         "Bir servisin MCP'si/plugin'i o servisin alanına gider (Supabase -> veri-db, Convex/sunucu logları -> backend-dotnet, Figma -> frontend-tasarım). "
          "YALNIZ JSON nesnesi döndür, açıklama yazma: {\"<no>\": \"<kategori>\", ...} — her no için bir kategori, kategori adı listedekiyle birebir.\n\nAraçlar:\n")
 
 
@@ -56,6 +60,26 @@ def kural_guven(k):
 
 def anahtar(k):
     return f"{k['tur']}|{norm(k['ad'])}|{k['aciklama'][:150]}"
+
+
+def aciklamasiz(k):
+    a = k["aciklama"].strip()  # boş, shebang, yalnız dosya adı ya da sürüm dizgesi
+    return (not a or a.startswith(("!", "#!")) or bool(re.fullmatch(r"\S+\.(sh|py|js|mjs|ps1|cmd|bat)", a))
+            or bool(re.match(re.escape(k["ad"]) + r" v?\d", a)))
+
+
+def ilk_satirlar(k, n=30):
+    """Açıklamasız kalem: SKILL.md/README (dizin değilse dosyanın kendisi) ilk 30 satırı, en çok 600 karakter."""
+    p = Path(k["yol"])
+    if p.is_dir():
+        p = next((p / a for a in ("SKILL.md", "README.md", "readme.md") if (p / a).is_file()), p)
+    if not p.is_file() or p.suffix.lower() not in ("", ".md", ".sh", ".py", ".js", ".mjs", ".cjs", ".ts", ".ps1", ".cmd", ".bat"):
+        return ""
+    try:
+        with open(p, encoding="utf-8", errors="replace") as f:
+            return " ".join(s.strip() for _, s in zip(range(n), f) if s.strip())[:600]
+    except OSError:
+        return ""
 
 
 def oylanacak(k):
@@ -105,7 +129,8 @@ def sor(model, istem):
 
 
 def parti_sor(modeller, parti):
-    istem = ISTEM + "\n".join(f"{i}. [{k['tur']}] {k['ad']} — {k['aciklama'][:200] or '(açıklama yok)'}" for i, k in enumerate(parti, 1))
+    istem = ISTEM + "\n".join(f"{i}. [{k['tur']}] {k['ad']} — {(ilk_satirlar(k) if aciklamasiz(k) else '') or k['aciklama'][:200] or '(açıklama yok)'}"
+                              for i, k in enumerate(parti, 1))
     for model in [m for m in modeller if m not in OLU]:
         for deneme in range(1 if model.endswith(":free") else 2):  # :free 429'da beklemeden yedeğe geç
             try:
@@ -121,12 +146,15 @@ def parti_sor(modeller, parti):
     return None, {}
 
 
-def onbellek():
+def onbellek(yollar=None):
     oy = defaultdict(dict)  # anahtar -> {kol: kategori}
-    if ONBELLEK.exists():
-        for s in ONBELLEK.read_text(encoding="utf-8").splitlines():
-            d = json.loads(s)
-            oy[d["k"]][d["kol"]] = d["c"]
+    for yol in yollar or (ONBELLEK, ONBELLEK2):
+        yeni = defaultdict(dict)
+        if yol.exists():
+            for s in yol.read_text(encoding="utf-8").splitlines():
+                d = json.loads(s)
+                yeni[d["k"]][d["kol"]] = d["c"]
+        oy.update(yeni)  # v2'de oylanan anahtarın v1 oyları tümden düşer
     return oy
 
 
@@ -145,19 +173,20 @@ def kol_isle(kol, modeller, kalemler, f, isci=3):
         list(ex.map(bir, [kalemler[i:i + PARTI] for i in range(0, len(kalemler), PARTI)]))
 
 
-def sinifla(rows):
+def sinifla(rows, yeniden=False):
     tekil = {}
     for k in rows:
-        if oylanacak(k):
+        if oylanacak(k) and (not yeniden or k["kategori_son"] in ISKA or aciklamasiz(k)):
             tekil.setdefault(anahtar(k), k)
-    oy = onbellek()
+    yol = ONBELLEK2 if yeniden else ONBELLEK
+    oy = onbellek((yol,))
     print("oylanacak tekil", len(tekil), "önbellekte", sum(1 for a in tekil if a in oy), flush=True)
-    with open(ONBELLEK, "a", encoding="utf-8", newline="\n") as f:
+    with open(yol, "a", encoding="utf-8", newline="\n") as f:
         eksik1 = [k for a, k in tekil.items() if oy[a].get("oy1") not in KATLAR]
         eksik2 = [k for a, k in tekil.items() if oy[a].get("oy2") not in KATLAR]
         with ThreadPoolExecutor(2) as ex:  # iki kol paralel; her kol içinde sıralı
             list(ex.map(lambda x: kol_isle(*x, f), [("oy1", [OY1], eksik1), ("oy2", list(OY2), eksik2)]))
-        oy = onbellek()
+        oy = onbellek((yol,))
         hakem = [k for a, k in tekil.items() if karar({x: oy[a].get(x) for x in ("oy1", "oy2")}, k["kategori_tahmin"])[1] == "bekliyor"
                  and oy[a].get("oy3") not in KATLAR]
         print("hakeme giden", len(hakem), flush=True)
@@ -371,27 +400,31 @@ def son():
         for k in rows:
             f.write(json.dumps(k, ensure_ascii=False) + "\n")
     nm = modeller_tsv(REPO / ".kos/kopru/envanter/omni_models_api.json", BURASI / "modeller.tsv")
-    elle_p = BURASI / "elle-40.json"
-    elle = json.loads(elle_p.read_text(encoding="utf-8")) if elle_p.exists() else {}
     byid = {k["id"]: k for k in rows}
-    uyum = [(i, c, byid[i]["kategori_son"]) for i, c in elle.items()]
-    (BURASI / "ozet-0b.md").write_bytes(ozet0b(rows, uyum, nm, bekleyen, sayim).encode("utf-8"))
+    uyumlar = {}  # elle-40: TANIM v2 ayarı bu örnekle yapıldı; elle-40-t16 taze doğrulama örneği
+    for ad in ("elle-40", "elle-40-t16"):
+        p = BURASI / f"{ad}.json"
+        if p.exists():
+            uyumlar[ad] = [(i, c, byid[i]["kategori_son"]) for i, c in json.loads(p.read_text(encoding="utf-8")).items()]
+    (BURASI / "ozet-0b.md").write_bytes(ozet0b(rows, uyumlar, nm, bekleyen, sayim).encode("utf-8"))
     print("yazıldı · bekleyen", bekleyen)
 
 
-def ozet0b(rows, uyum, nm, bekleyen, sayim):
+def ozet0b(rows, uyumlar, nm, bekleyen, sayim):
     kur = [k for k in rows if kurulu(k)]
     tek = tekil_kurulu(rows)
     tk = Counter((k["kategori_son"], k["katman"]) for k in tek.values())
     eski = Counter(k["kategori_tahmin"] for k in tek.values())
     yeni = Counter(k["kategori_son"] for k in tek.values())
-    dogru = sum(a == b for _, a, b in uyum)
-    L = ["# ÖĞREN-0b katalog son hali (Claude okuma tokenı 0; sınıflama ücretsiz modellerle)", "",
+    L =["# ÖĞREN-0b katalog son hali (Claude okuma tokenı 0; sınıflama ücretsiz modellerle)", "",
          f"Kurulu {len(kur)} satır · tekil {len(tek)} · kategori_son+katman dolu: {sum(bool(k.get('kategori_son')) and k['katman'] in 'ABC' for k in kur)}/{len(kur)}"
          f" · hakemsiz kalan {bekleyen}",
          "Güven: " + ", ".join(f"{g} {n}" for g, n in Counter(k["kategori_guven"] for k in kur).most_common()),
-         f"Elle uyum (rastgele {len(uyum)} tekil, tohum 15): {dogru}/{len(uyum)} = %{100 * dogru / max(1, len(uyum)):.0f}"
-         + (" · ıska: " + "; ".join([f"{i} elle={a} model={b}" for i, a, b in uyum if a != b][:8]) if dogru < len(uyum) else ""),
+         *[f"Elle uyum {ad} ({len(u)} tekil): {sum(a == b for _, a, b in u)}/{len(u)} = %{100 * sum(a == b for _, a, b in u) / max(1, len(u)):.0f}"
+           + "".join(f"; {i} elle={a} model={b}" for i, a, b in u if a != b)[:400] for ad, u in uyumlar.items()],
+         "v1 %70 (kısmi oyda %55) kök neden, 12 ıska: ~8 tanım çakışması (ML tanımsız -> bilim; servis MCP/plugin'i -> ajan-orkestrasyon "
+         "çekimi; reels planı video/pazarlama; plugin doğrulayıcı test-qa), 3 açıklamasız (boş/shebang/dosya adı), 1 model. "
+         "Düzeltme: TANIM v2 + açıklamasıza SKILL.md/README/betik ilk 30 satırı; ıskalayan 8 kategori + açıklamasızlar yeniden oylandı.",
          f"Token kategorisi yeniden: {eski['token']} → {yeni['token']} tekil · diğer {eski['diğer']} → {yeni['diğer']}",
          f"Modeller: {nm} satır → ogren/modeller.tsv · kanonik: {sum(k['kanonik'] == k['id'] for k in kur if k['kopya_grubu'])} kanonik, "
          f"{sum(k['kanonik'] != k['id'] for k in kur)} alias, içerik farkı {sum(bool(k.get('icerik_farki')) for k in kur)} satır",
@@ -415,7 +448,8 @@ def ozet0b(rows, uyum, nm, bekleyen, sayim):
 if __name__ == "__main__":
     adim = sys.argv[1] if len(sys.argv) > 1 else "son"
     if adim == "sinifla":
-        sinifla([json.loads(s) for s in (BURASI / "katalog.jsonl").read_text(encoding="utf-8").splitlines()])
+        yeniden = "--yeniden" in sys.argv  # katalog-son.jsonl'deki kategori_son ile seçer
+        sinifla([json.loads(s) for s in (BURASI / ("katalog-son.jsonl" if yeniden else "katalog.jsonl")).read_text(encoding="utf-8").splitlines()], yeniden)
     elif adim == "kullanim":
         kullanim()
     elif adim == "ornek":

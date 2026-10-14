@@ -64,3 +64,24 @@ def test_modeller_tsv(tmp_path):
     L = (tmp_path / "m.tsv").read_text(encoding="utf-8").splitlines()
     assert L[1] == "openrouter/a/coder:free\topenrouter\ttrue\t1\t1\t0\t1\t9"
     assert L[2].split("\t")[4:6] == ["0", "1"]  # görsel 0, ses 1
+
+
+def test_aciklamasiz_ilk_satirlar(tmp_path):
+    assert s.aciklamasiz(_k("a", "x")) and s.aciklamasiz(_k("a", "x", aciklama="!/usr/bin/env bash"))
+    assert s.aciklamasiz(_k("a", "uvx", aciklama="uvx 0.12.12 (c4be)")) and s.aciklamasiz(_k("a", "h", aciklama="tel.sh"))
+    assert not s.aciklamasiz(_k("a", "x", aciklama="Builds Remix routes"))
+    (tmp_path / "SKILL.md").write_text("\n".join(f"satır {i}" for i in range(40)), encoding="utf-8")
+    k = _k("a", "x")
+    k["yol"] = str(tmp_path)
+    assert s.ilk_satirlar(k).endswith("satır 29")
+    k["yol"] = str(tmp_path / "liste.json")
+    (tmp_path / "liste.json").write_text("{}", encoding="utf-8")
+    assert s.ilk_satirlar(k) == ""
+
+
+def test_onbellek_v2_v1in_yerine_gecer(tmp_path):
+    v1, v2 = tmp_path / "1.jsonl", tmp_path / "2.jsonl"
+    v1.write_text('{"k": "a", "kol": "oy1", "c": "bilim"}\n{"k": "a", "kol": "oy3", "c": "diğer"}\n{"k": "b", "kol": "oy1", "c": "3d"}\n', encoding="utf-8")
+    v2.write_text('{"k": "a", "kol": "oy1", "c": "veri-db"}\n', encoding="utf-8")
+    oy = s.onbellek((v1, v2))
+    assert oy["a"] == {"oy1": "veri-db"} and oy["b"] == {"oy1": "3d"}
