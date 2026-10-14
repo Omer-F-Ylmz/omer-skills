@@ -1,0 +1,7 @@
+claude-opus-5-5 son_degisti 320/705
+claude-opus-5-5 son_ayni 11/1537
+claude-sonnet-5-5 son_degisti 8/38
+claude-sonnet-5-5 son_ayni 3/212
+son_degisti dönüþüm [n,durma]: [('anthropic:tool_schema_compaction', [702, 328]), ('router:excluded', [654, 319]), ('router:protected', [587, 321]), ('router:tool_result', [277, 186]), ('read_lifecycle:stale:C', [78, 67]), ('router:cross_turn_dedup', [52, 36]), ('router:noop', [50, 6]), ('read_maturation:1', [9, 2])]
+son_ayni durmalarda önceki istek: {'onceki son_ayni': 7, 'onceki son_ayni+durma': 4, 'onceki son_degisti+durma': 3}
+aralik 2026-10-03T17:21 2026-10-05T01:21 2492
