@@ -88,9 +88,10 @@ Toplam kart ≤120 kelime. Türkçe yaz.
 """
 
 
-def kart(parti=8):
+def kart(parti=8, kume=None):
     hazir = {json.loads(s)["ad"] for s in KART.read_text(encoding="utf-8").splitlines()} if KART.exists() else set()
-    rs = [r for r in map(json.loads, ENV.read_text(encoding="utf-8").splitlines()) if oncelik(r) and r["ad"] not in hazir]
+    kaynak = Path(kume) if kume else ENV  # ATLAS-2: küme dosyası (envanter satırları) verilirse öncelik süzgeci yerine o
+    rs = [r for r in map(json.loads, kaynak.read_text(encoding="utf-8").splitlines()) if (kume or oncelik(r)) and r["ad"] not in hazir]
     dz, cagri, basarisiz = kaynak_dizini(), 0, []
     KART.parent.mkdir(parents=True, exist_ok=True)
     for i in range(0, len(rs), parti):
@@ -129,6 +130,6 @@ if __name__ == "__main__":
     if a and a[0] == "envanter":
         envanter()
     elif a and a[0] == "kart":
-        kart(int(a[a.index("--parti") + 1]) if "--parti" in a else 8)
+        kart(int(a[a.index("--parti") + 1]) if "--parti" in a else 8, a[a.index("--kume") + 1] if "--kume" in a else None)
     else:
         print(__doc__)

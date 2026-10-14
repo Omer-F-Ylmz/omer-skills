@@ -1,0 +1,13 @@
+gorev	tekrar	dogru	secilen
+S21	1	1	video-izle
+S24	1	1	video-uygula
+S41	1	0	video-uygula
+S59	1	1	autoclip-paket
+S08	1	1	owasp-top-10-testing
+S09	1	1	ci-security-scanning-with-strix
+S10	1	1	find-security-vulnerabilities-in-code
+S11	1	1	playwright-cli
+S36	1	1	agentshield-paket
+S42	1	1	careful
+S49	1	1	opengrep-rule-generator
+#OZET	1	10/11	ilk_girdi=90619 son_girdi=707013 cikti=2554 tur=13 usd=0.9915 rc=0 araclar=Skill:secim:departman-guvenlik,Skill:secim:departman-arastirma-ogrenme,Grep,Grep,Glob,Glob,Read,Read,Read,Grep
