@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Projeler\omer-skills\.claude\token2\k1c.py", line 38, in <module>
+    w = ab_r0e.kur("B")
+        ^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Desktop\TELVE-wt\token1\docs\r1\_ham\token1\ab_r0e.py", line 63, in kur
+    assert not w.exists(), f"{w} var — sonuçları korumak için elle kaldır"
+           ^^^^^^^^^^^^^^
+AssertionError: C:\Users\pc\Desktop\TELVE-wt\ab-r0e\B var — sonuçları korumak için elle kaldır
+{"kol": "c_A_klon", "sid": "4596391c-5e2c-413d-b326-3d63fee20dfa", "sonuc": "API Error: Connection refused — a firewall or proxy may be blocking it (ECONNREF", "istek": 1, "durma": 0, "durma_idx": [], "onbelleksiz": 0, "okuma": 0, "yazma": 0, "yer_cagri": 263, "yer_degisti": 0, "yer_degisti_satir": [], "sure_sn": 804, "headroom": {"hata": "URLError"}, "tur": 1, "usd": 0, "agirlikli_giris": 0, "kopya_ad": 42}
+BITTI

@@ -71,3 +71,12 @@ claude -p: 2/2 (k2_olc.py). Test: test_cc_profil + test_token1 21 ✓, test_ucuz
 - K1b farkı: 6769 test vekili ve 6768 aynı headroom 0.39.0 çalışma zamanı; fark 6768'de headroom-desktop'un verdiği ~40 HEADROOM_* değişkeni (MODE, SAVINGS_PROFILE, COLD_RECOMPACT, READ_MATURATION, COMPRESS_USER_MESSAGES, BACKGROUND_COMPRESSION…) + --log-messages; k1_dogrula bunları geçirmiyor → 6769 neredeyse sıkıştırmasız (%1.5) koştu, durma 0 bu yüzden karşılaştırılamaz. Sonraki: 6768 ortamının kopyasıyla A kolu, durursa bayrakları ikiye bölerek ara (≤2 claude -p, izinle).
 - K8: ucuz_alt.py combo'da 400 veriyordu (3 model de düşünmeyi zorunlu tutuyor, reasoning_effort "none" reddediliyor) → "low" + max_tokens 8000, test 3/3. Lisans görevi iki kolda koştu: OmniRoute gpt-6.1-sol 34.7k girdi/656 çıktı/15 sn (Claude 0) ↔ okuyucu sonnet 20.8k. Kör puan d4'te.
 - claude -p: 2/2 kullanıldı. Kalan: K8 puan · K3/K7 · rapor sonu.
+
+## Ara rapor d4 (14 Eki ~16:10)
+Katalog: kullanılan [blender-uretim, animasyon-atolyesi, mevcut k1_dogrula/ab_r0e, ucuz_alt] · atlanan [katalog_ara (rutin, araç adları biliniyor), frontend-craft (plugin-only, d5)]
+- VEKİL KAZASI kök nedeni: önceki d4 HEADROOM_CC_SWITCH_* (RECONCILE, PROXY_URL, CAPTURE_PATH, PIN_UPSTREAM) kopyaladı → 6769 uzlaştırıcıyı kendi koşup ~/.claude/settings.json'u kendine çevirdi. k1c.py artık CC_SWITCH_* hariç tutar + settings.json/cc-switch-upstream.json bayt koruması (değişirse geri yazar; bu koşuda değişmedi). vekil_dene: 6767/6768/doğrudan 401.
+- K1b env-klon (38 HEADROOM_* ad, değer yazdırılmadı): 12 istek, durma 0, yer değişimi 0, ağırlıklı girdi 207.6k, 1.19 USD, 202 sn → 6768 ayarları durmayı üretmiyor; bölme gerekmedi. Ayar değişikliği önerisi yok.
+- K9b effort medium gerçek mekanik adım (pytest 2 dosya + varlik_getir ara): cevap doğru (passed=6 sonuc=3), 3 tur, çıktı 485 (düşünme 26), 44 sn. d3 aynı-görev A/B −%16 ile birlikte → mekanik adımlarda medium AL (DEVAM-KURALI K9).
+- K8 kör (X=claude sonnet alt ajan 20.8k Claude jetonu, Y=gpt-6.1-sol OmniRoute 0 Claude jetonu): ikisi 3/3 doğru karar, uydurma 0; X ELv2 alt-lisans yasağını atladı, Y Apache marka istisnasında daha kesin → Y ≥ X. Lisans taraması ucuz_alt'a gider.
+- K3: skills/blender-uretim/varlik_getir.py (+ duzenle_b.py) API yol kaçışı koruması, tests/test_varlik_getir.py 3/3; canlı ara 3 kaynakta sonuç döndü. blender-uretim + animasyon-atolyesi SKILL.md güncellendi.
+- claude -p: 2/2. Kalan: devir/token-2-devam.md (K7 site kiti, frontend-craft/web-sahne-desenleri, plugin kopyası + dist zip).

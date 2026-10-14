@@ -59,7 +59,7 @@ Teslim = kahraman render (brief çözünürlüğü, Cycles + denoise) + GLB + `t
 
 - `get_objects_summary` yalnız ≤10 nesneli sahnede; üstünde hedefli bpy sorgusu (ad · boyut · malzeme).
 - Araç argümanı için kod aranmaz; blender-oturum'daki komut kartına bakılır.
-- Varlık yalnız CC0 ve kaynak kaydıyla: `tools/varlik_indir.py` (Poly Haven / ambientCG) (#6).
+- Sıfırdan modelleme yok; hazır varlık merdiveni: yerel → Objaverse (Sketchfab uid) → Poly Haven / ambientCG → görüntü→3D → en son sade bpy. `python varlik_getir.py ara|indir …` (hesapsız; `atif.json`'a lisans + yazar; CC-BY ise atıf kolofona). Blender'da yalnız küçük düzenleme: `blender -b -P duzenle_b.py -- gir.glb cik.glb --yukseklik … --ucgen …` (önce `--bak`). Örnek: TELVE-R2d cezve, uid 3b5bb5d4…, 2496 üçgen, 57 KB GLB (#6).
 - GPU'yu kullanan iki iş aynı anda koşmaz (gpu_kilit; blender_pisir ve gorsel_uret alır).
 - Işık profili belirsizse `urun` + HDRI dolgu 0.3 (#1).
 - Yansıma pişmez, HDRI'de kalır; dönen üründe yalnız AO pişer (web-aktarim.md).
