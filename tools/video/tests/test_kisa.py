@@ -1,0 +1,27 @@
+import json
+
+from video import kisa
+
+
+def test_blok_katalog_ve_iz(tmp_path):
+    g = {"konusma_ozet": "x", "ekran_metni": ["a" * 300], "araclar": [{"ad": "AirLLM", "ne_dedi": "y", "zaman": "0:03"}, {"ad": "Claude", "ne_dedi": "z", "zaman": "0:05"}],
+         "linkler": [], "komutlar": [], "iddialar": [], "_iz": {"model": "m"}}
+    b = json.loads(kisa.blok("ig-1", g, {"Claude": "kurulu:yerlesik"}, {"AirLLM": {"lisans": "MIT"}}).split("\n", 1)[1])
+    assert "_iz" not in b and len(b["ekran_metni"][0]) == 160
+    assert b["araclar"][0]["katalog"] == "bilinmeyen" and b["araclar"][0]["arastirma"] == {"lisans": "MIT"}
+    assert b["araclar"][1]["katalog"] == "kurulu:yerlesik" and "arastirma" not in b["araclar"][1]
+
+
+def test_rapor_arac_basi_en_cok_4_satir():
+    v = {"id": "ig-1", "ozet": "ö", "linkler": ["github.com/a/b"], "araclar": [{"ad": "A", "tur": "CLI", "link": "", "not": "n"}, {"ad": "B", "tur": "skill", "link": "l", "not": "m"}]}
+    s = kisa.rapor(v, "gemini").splitlines()
+    i = s.index("## Araçlar")
+    assert s[i + 1].startswith("- **A** · CLI") and s[i + 3] == "- **B** · skill · l" and len(s[i + 1:s.index("## Linkler") - 1]) <= 4 * 2
+
+
+def test_katalog_karar_onceligi(tmp_path, monkeypatch):
+    t = tmp_path / "k.tsv"
+    t.write_text("sira\tkalem\tkarar\n1\tMiroFish\tÖĞREN\n", encoding="utf-8")
+    monkeypatch.setattr(kisa, "KARAR", t)
+    monkeypatch.setattr(kisa.tr, "sozluk_kur", lambda ev, k: [("graphify", "skill")])
+    assert kisa.katalog(["mirofish", "graphify", "YokBöyle"]) == {"mirofish": "ÖĞREN (ig-41)", "graphify": "kurulu:skill", "YokBöyle": None}
