@@ -16,6 +16,7 @@ Ham: `.kos/site-okulu/lando/` (yerel). Gemini gemini-3.5-flash-lite, 4791 jeton;
 - **Ses:** görünür ses düğmesi veya ses durumu tespiti yok (tahmin: arayüz ses efektleri mevcut olabilir)
 - **Etkileşim:** imleç takibi; hover efektleri; yatay/dikey sürükleme; tık kapısı
 - **Mobil:** mobil karelerde 3B vizör efekti korunmuş, karmaşık grid yapılar dikey akış için sadeleştirilmiş
+- **Kod çapraz:** bloom ✓ · DoF/blur ✓ · kromatik ✓ · gren/dither ✓ · maske geçiş ✓ · scroll uniform ✓ · SplitText ✓ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: three-composer, gsap, scrolltrigger, splittext, lenis, ktx2, draco, meshopt, webgpu, rive · gsap 3.13.0

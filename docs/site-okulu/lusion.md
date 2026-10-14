@@ -16,6 +16,7 @@ Ham: `.kos/site-okulu/lusion/` (yerel). Gemini gemini-3.5-flash-lite, 4807 jeton
 - **Ses:** görünür ses düğmesi vb.: Arayüzde özel bir ses düğmesi görünmüyor, minimalist üst menü kullanılmış
 - **Etkileşim:** imleç takibi; hover; sürükleme; tık kapısı
 - **Mobil:** mobil karelerde 3B var mı, sadeleşme nasıl: Mobil karelerde 3B nesneler korunmuş ancak performans için optimize edilmiş dikey yerleşim kullanılmış (tahmin)
+- **Kod çapraz:** bloom ✓ · DoF/blur ✓ · kromatik ✓ · gren/dither ✓ · maske geçiş ✓ · scroll uniform ✗ · SplitText ✗ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: three=158

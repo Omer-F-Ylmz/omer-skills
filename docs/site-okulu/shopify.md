@@ -15,6 +15,7 @@ Ham: `.kos/site-okulu/shopify/` (yerel). Gemini gemini-3.5-flash-lite, 4437 jeto
 - **Ses:** görünür ses düğmesi mevcut (mobil karelerde)
 - **Etkileşim:** imleç takibi; hover; sürükleme tahmini
 - **Mobil:** mobil karelerde 3B var, yatay raflar yerine dikey üst üste binen kart yığını olarak sadeleşmiş
+- **Kod çapraz:** bloom ✗ · DoF/blur ✓ · kromatik ✓ · gren/dither ✓ · maske geçiş ✓ · scroll uniform ✗ · SplitText ✗ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: r3f, lenis, barba, ktx2, draco, meshopt, react, splat

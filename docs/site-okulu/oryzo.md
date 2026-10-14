@@ -16,6 +16,7 @@ Ham: `.kos/site-okulu/oryzo/` (yerel). Gemini gemini-3.5-flash-lite, 6204 jeton;
 - **Ses:** tahmin: Görünür özel bir ses düğmesi bulunmuyor, arayüzde sesli geri bildirimler yer alıyor
 - **Etkileşim:** imleç takibi; hover; sürükleme; tık kapısı
 - **Mobil:** mobil karelerde 3B var mı, sadeleşme nasıl: tahmin: 3B modeller korunmuş, dikey düzene uygun olarak arayüz elemanları ve metin blokları sadeleştirilmiş, tek sütunlu yapıya geçilmiş
+- **Kod çapraz:** bloom ✓ · DoF/blur ✓ · kromatik ✓ · gren/dither ✓ · maske geçiş ✓ · scroll uniform ✗ · SplitText ✓ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: three=178, gsap, splittext, rive, splat · gsap 3.47.0

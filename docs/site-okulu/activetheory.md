@@ -14,6 +14,7 @@ Ham: `.kos/site-okulu/activetheory/` (yerel). Gemini gemini-3.5-flash-lite, 4531
 - **Ses:** Görünür ses düğmesi videoda yer almıyor (tahmin: arka plan sesleri web sitesinde mevcut olabilir)
 - **Etkileşim:** imleç takibi; hover; sürükleme; tık kapısı
 - **Mobil:** mobil karelerde 3B var mı, sadeleşme nasıl: Mobil ekranlarda aynı 3B cam/metalik halka objesi korunuyor, dikey düzene uyarlanmış sadeleşmiş arayüz ve dokunmatik kaydırma
+- **Kod çapraz:** bloom ✓ · DoF/blur ✓ · kromatik ✗ · gren/dither ✗ · maske geçiş ✓ · scroll uniform ✓ · SplitText ✗ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: three-composer, theatre, ktx2, draco, splat

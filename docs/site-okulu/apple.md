@@ -16,6 +16,7 @@ Ham: `.kos/site-okulu/apple/` (yerel). Gemini gemini-3.5-flash-lite, 5245 jeton;
 - **Ses:** Sağ üst köşede video/animasyon oynatımını durdurup/başlatan oynat/durdur (pause/play) kontrol düğmesi.
 - **Etkileşim:** imleç takibi; hover; yatay/dikey sürükleme (slider); tık kapısı
 - **Mobil:** Mobil karelerde 3B modeller korunuyor; alt alta dikey akışa uygun sadeleşmiş kart yapıları ve dokunmatik optimizasyonlar kullanılıyor.
+- **Kod çapraz:** bloom ✗ · DoF/blur ✗ · kromatik ✗ · gren/dither ✗ · maske geçiş ✗ · scroll uniform ✗ · SplitText ✗ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: —

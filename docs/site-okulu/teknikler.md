@@ -50,4 +50,4 @@ Poly Haven HDR/doku/model CC0 (lando `studio_small_08`) · ambientCG CC0 · Sket
 ## Ölçüm sınırları
 - `performance` transferSize çapraz kökende (TAO yok) 0 → lusion/lando/ciao baytı düşük çıktı; bütçe için TELVE r1 ağ ölçümü (`_ham/siteler.md`) geçerli.
 - `image-seq` ve `splat` imza desenleri geniş (her pakette eşleşti); yalnız oryzo .sog ve apple bayt profili kanıt sayılır.
-- Gemini yalnız ~25 sn kayıt görür; kamera/geçiş alanlarındaki "tahmin" etiketleri doğrulanmadı. Başsız swiftshader: FPS yok.
+- Gemini yalnız ~25 sn kayıt görür; kamera/geçiş alanlarındaki "tahmin" etiketleri görüntüyle doğrulanmadı; kartlardaki "Kod çapraz" satırı GLSL/imzayla karşılaştırır (apple'ın bloom/DoF/kromatik tahmini kodla desteklenmiyor: 0 shader, image-seq). Başsız swiftshader: FPS yok.

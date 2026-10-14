@@ -91,6 +91,11 @@ def kart(slug):
     satir += [f"- {t['t']} {t['tanim']}" for t in g.get("sahneler", [])[:6]]
     for e, a in (("Kamera", "kamera"), ("Geçiş", "gecisler"), ("Post", "post_efektler"), ("Tipografi", "tipografi"), ("Yükleyici", "yukleyici"), ("Ses", "ses"), ("Etkileşim", "etkilesimler"), ("Mobil", "mobil")):
         satir.append(f"- **{e}:** {j(g.get(a, '—'))[:220]}")
+    # Gemini 'tahmin'lerinin kodla çaprazı; ✗ = imza/GLSL eşleşmesi yok (çalışma anında derlenen shader'ı göremez, yokluk kanıtı değil)
+    cap = {"bloom": "bloom" in k["glsl"], "DoF/blur": "blur" in k["glsl"], "kromatik": "kromatik/dispersiyon" in k["glsl"],
+           "gren/dither": "dither" in k["glsl"], "maske geçiş": "gecis/maske" in k["glsl"], "scroll uniform": "kaydirma-uniform" in k["glsl"] or "scrolltrigger" in k["imza"],
+           "SplitText": "splittext" in k["imza"], "ses kütüphanesi": bool({"howler", "tone"} & set(k["imza"]))}
+    satir.append("- **Kod çapraz:** " + " · ".join(f"{a} {'✓' if v else '✗'}" for a, v in cap.items()))
     satir += ["", "## Nasıl yapılmış (kod kanıtı)", f"- İmza: {', '.join(imza) or '—'}" + (f" · gsap {', '.join(k['gsap'])}" if k["gsap"] else ""),
               f"- Shader: {k['shaderSayisi']} `void main` penceresi; sınıf: {', '.join(f'{a} {b}' for a, b in list(k['glsl'].items())[:8]) or '—'}",
               f"- JS {k['jsKB']} KB · sayfa docH {k['sayfa']['docH']} · canvas {', '.join(k['sayfa']['canv'][:2]) or 'yok/iframe'} · yük {k['yukMs']} ms",

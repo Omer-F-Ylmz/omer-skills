@@ -16,6 +16,7 @@ Ham: `.kos/site-okulu/abeto/` (yerel). Gemini gemini-3.5-flash-lite, 4443 jeton;
 - **Ses:** görünür ses düğmesi yok
 - **Etkileşim:** hover; tık edilebilir 'BEGIN' butonu
 - **Mobil:** mobil karelerde 3B ada modeli korunmuş, dikey düzene uyarlanmış
+- **Kod çapraz:** bloom ✓ · DoF/blur ✓ · kromatik ✓ · gren/dither ✓ · maske geçiş ✗ · scroll uniform ✗ · SplitText ✗ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: three=180, pmndrs-post, three-composer, ktx2, draco, meshopt, webgpu, svelte

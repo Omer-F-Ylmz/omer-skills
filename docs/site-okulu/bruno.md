@@ -15,6 +15,7 @@ Ham: `.kos/site-okulu/bruno/` (yerel). Gemini gemini-3.5-flash-lite, 4438 jeton;
 - **Ses:** görünür ses açma/kapama ikonu sağ tarafta yer alıyor
 - **Etkileşim:** tık kapısı (Click to start); tahmin: imleç ile etkileşimli 3B diorama kontrolü
 - **Mobil:** mobil karelerde 3B model aynen korunuyor, dikey orana uyarlanmış grid yapısı kullanılıyor
+- **Kod çapraz:** bloom ✗ · DoF/blur ✗ · kromatik ✗ · gren/dither ✗ · maske geçiş ✗ · scroll uniform ✓ · SplitText ✗ · ses kütüphanesi ✓
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: three=183, three-composer, gsap, scrolltrigger, howler, ktx2, draco, meshopt, webgpu, tsl, rapier

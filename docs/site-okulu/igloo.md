@@ -16,6 +16,7 @@ Ham: `.kos/site-okulu/igloo/` (yerel). Gemini gemini-3.5-flash-lite, 4708 jeton;
 - **Ses:** Sol alt köşede 'Sound: Off' / ses düğmesi göstergesi mevcut.
 - **Etkileşim:** imleç takibi; hover ile blok numaralandırmaları; scroll tabanlı 3B sahne ilerlemesi; tık kapısı (click to explore)
 - **Mobil:** Mobil karelerde tam 3B sahne korunmuş, tahmin: shader optimizasyonları ve düşük poligonlu modellerle performans için sadeleşmeye gidilmiş, arayüz dikey ekrana uyarlanmış.
+- **Kod çapraz:** bloom ✓ · DoF/blur ✓ · kromatik ✓ · gren/dither ✓ · maske geçiş ✓ · scroll uniform ✓ · SplitText ✗ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: pmndrs-post, three-composer, gsap, scrolltrigger, ktx2, draco, meshopt, webgpu, svelte, splat

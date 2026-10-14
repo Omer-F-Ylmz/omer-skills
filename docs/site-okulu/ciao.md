@@ -16,6 +16,7 @@ Ham: `.kos/site-okulu/ciao/` (yerel). Gemini gemini-3.5-flash-lite, 4691 jeton; 
 - **Ses:** Sol üst köşede görünür ON/OFF ses düğmesi
 - **Etkileşim:** imleç takibi; hover; scroll tabanlı 3B nesne kontrolü; sağ tarafta bölüm atlama ikonları
 - **Mobil:** Mobil karelerde 3B aktif, dikey tasarıma uyarlanmış sadeleşmiş arayüz ve dokunmatik kaydırma
+- **Kod çapraz:** bloom ✓ · DoF/blur ✓ · kromatik ✗ · gren/dither ✓ · maske geçiş ✗ · scroll uniform ✓ · SplitText ✓ · ses kütüphanesi ✗
 
 ## Nasıl yapılmış (kod kanıtı)
 - İmza: three=161, three-composer, gsap, scrolltrigger, splittext, lenis, ktx2, draco, meshopt, lottie
