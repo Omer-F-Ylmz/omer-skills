@@ -47,6 +47,26 @@ def test_komut_olay_adi_ya_da_yonerge_ret():
     assert komut_mu("/compact", m)
 
 
+def test_sinirlar_kucuk_harf_ve_kosullu_uyari_belirsiz_ret():
+    # d8: headroom-statusline "do not edit" · ctx-doctor "only if MCP tool call fails" — iki hakem de Y
+    from ozet3 import gecerli_a
+    o = {"ne_yapar": "durum satırı", "komut": "belirsiz", "girdi_cikti": "belirsiz", "sinirlar": "belirsiz",
+         "alinti": {"ne_yapar": "Headroom statusline"}}
+    for m in ("# Headroom statusline (managed - do not edit).\n", "# Headroom statusline\n3. Fallback (only if MCP tool call fails)\n"):
+        assert gecerli_a(o, m) == "sinirlar boş, belgede ilgili bölüm var"
+
+
+def test_komut_baska_aracin_komutu_ret():
+    # d8: how-it-works komut=/learn-codebase · budget-mode komut=/octo:model-config — belgede anılan BAŞKA komut
+    from ozet3 import gecerli_a
+    m = "# How it works\nExplain how claude-mem works.\nRun `/learn-codebase` if you want front-loading.\n"
+    o = {"ne_yapar": "açıklar", "komut": "/learn-codebase", "girdi_cikti": "belirsiz", "sinirlar": "belirsiz",
+         "alinti": {"ne_yapar": "Explain how claude-mem works.", "komut": "Run `/learn-codebase` if you want"}}
+    assert gecerli_a(o, m, {"how-it-works"}) == "komut aracın kendi adını içermiyor"
+    assert gecerli_a(dict(o, komut="/how-it-works"), m + "`/how-it-works`\n", {"how-it-works"}) is None
+    assert gecerli_a(dict(o, komut="python tools/rtk_onisle.py --sina"), m + "    python tools/rtk_onisle.py --sina\n", {"rtk_onisle"}) is None
+
+
 def test_qmd_kaynagi_readme_paylasilan():
     # d7: README geçersiz kılması yalnız ozet3 __main__'deydi → son.py kaynak=`qmd --help` yazdı, hakem yanlış belgeye baktı
     import ozet_kaynak

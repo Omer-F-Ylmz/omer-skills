@@ -1,0 +1,28 @@
+{"ad":"rtk_onisle","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"h2a_kayit","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"9router-paket","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","not":{"mekanizma":"Tasarruf tek girişte toplayıp alt skill dosyasını gerektiğinde okutmaktan gelir (alt talimatlar bağlam dışında tutulur); tur azaltma tanıma uymaz, hatta ek Read adımı gerekir. Kanıt: 'Bu paket 9 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula.'"}}
+{"ad":"headroom-statusline.sh","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","not":{"sinirlar":"'belirsiz' yazılmış ama kaynakta açık bir yasak var. Kanıt: '# Headroom statusline (managed by Headroom Desktop - do not edit).'"}}
+{"ad":"budget-mode","ne_yapar":"D","komut":"Y","sinirlar":"Y","mekanizma":"D","not":{"komut":"'/octo:model-config (cost-mode budget)' bu komutun çağrısı değil; başka bir komutla uydurma argüman biçimini karıştırıyor. Gerçek çağrı komutun adı ya da yardımcı satırı. Kanıt: 'command: budget-mode' ve '\"$helper\" cost-mode budget &&'","sinirlar":"'kullanıcı ayarlarını elle değiştirmemek' kaynakta yok; kaynaktaki tek yasak shell profili. Kanıt: 'The selection persists in `~/.claude-octopus/config/providers.json`; do not edit the user's shell profile.'"}}
+{"ad":"profil","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"headroom-claude-guard.py","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"ctx-purge","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"ccs-align","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"premium-mode","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"oku_yonlendir","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"how-it-works","ne_yapar":"Y","komut":"Y","sinirlar":"D","mekanizma":"D","not":{"ne_yapar":"Skill claude-mem'in nasıl çalıştığını AÇIKLAR; özet ise kaydetme/enjeksiyonu bu skill yapıyormuş gibi anlatıyor (claude-mem'in kendisini anlatıyor). Kanıt: 'description: Explain how claude-mem captures observations, when memory injection kicks in, and where data lives. Use when the user asks \"how does claude-mem work?\"'","komut":"/learn-codebase başka bir komut (repoyu hafızaya yükler), bu skill'in çağrısı değil. Kanıt: 'Run `/learn-codebase` if you want to front-load the entire repo into memory in a single pass (~5 minutes, optional).'"}}
+{"ad":"ctx-doctor","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","not":{"sinirlar":"'belirsiz' yazılmış ama kaynakta koşul ve gereksinim var. Kanıt: '**Fallback** (only if MCP tool call fails)' ve 'Display the results verbatim'"}}
+{"ad":"vrm-plan-limit-izleme","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"cmem_yama","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"Y","not":{"sinirlar":"Kaynak çapa sayısı 0 ya da 1'den fazlaysa DURur (yalnız tam 1 çapa uygulanır); özet ise '0 veya 1 dışında ise' diyerek 0 çapayı kabul edilir gösteriyor, bu kaynakla çelişiyor. Kanıt: 'Idempotent: yamasız → yedek + uygular + node --check (kırıksa geri alır, DUR) | yamalı → dokunmaz | çapa 0/>1 → DUR.'","mekanizma":"Yama içeriği sıkıştırmaz; tasarruf, okunmayan 2× önbellek yazımını kapatmaktan gelir (önbellek mekanizmasıyla ilgili). Sıkıştırma tanıma göre yanlış. Kanıt: 'abonelikte CLI varsayılanı 1h yazma (2×) hiç okunmuyor ... DISABLE_PROMPT_CACHING ile girdi 1×.'"}}
+{"ad":"kredi-token-ayrimini-takip-etme","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"sub-agent-ile-token-tasarrufu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"standard-mode","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"knowledge-agent","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"ctx-insight","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"resume-session","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"max-thinking-tokens-ayari","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"mem-setup","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"ctx-upgrade","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","not":{"sinirlar":"'belirsiz' yazılmış ama kaynakta koşul ve gereksinim var. Kanıt: '4. Tell the user to **restart their session** to pick up the new version.' ve '**Fallback** (only if MCP tool call fails)'"}}
+{"ad":"model_sec","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","not":{"mekanizma":"Araç veri depolamaz; kural tabanlı yönlendirme bayrakları üretir ve tasarruf yalın oturumdan gelir. Bağlam dışı depolama tanıma uymuyor. Kanıt: 'ROUTER-1: `claude -p` adımı için kural tabanlı yönlendirme — model DÜŞÜRÜLMEZ ... Tasarruf bağlamdan gelir (CLAUDE.md/skill/hook/MCP yükü olmayan yalın oturum)'"}}
+{"ad":"Knowledge Graph Engineer","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","not":{"komut":"Verilen satır ajanın çağrısı değil; eklenmiş ders bankası aracının (ders.py) çağrısı ve bir yönerge cümlesiyle birleşmiş. Kanıt: '- Başta: `python C:/Projeler/omer-skills/tools/ogrenme/ders.py getir --ajan engineering-knowledge-graph-engineer --gorev \"<görevin tek satırı>\"`; çıkan dersleri (≤3) uygula, göreve uymuyorsa yok say.'"}}
+{"ad":"mode-creator","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}
+{"ad":"model-route","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","not":{}}

@@ -37,7 +37,8 @@ ONEMLI = re.compile(r"requirement|prereq|limit|caveat|known issue|usage|option|c
 BASLIK = re.compile(r"(?m)^(?=#{1,6} |[A-Z][A-Za-z /-]{2,30}:\s*$)")
 ILGILI = {"sinirlar": re.compile(r"requirement|prereq|limit|caveat|known issue|gereksinim|sınır|uyarı|tuzak", re.I),
           "komut": re.compile(r"usage|option|command|kullanım|komut", re.I)}
-UYARI = re.compile(r"\bNEVER\b|\bMUST NOT\b|\bDO NOT\b|\bASLA\b|\bYASAK\b")  # d7: başlıksız sınır satırları (vrm-headroom-geri-cagirma)
+# d7: başlıksız sınır satırları (vrm-headroom-geri-cagirma) · d8: küçük harf "do not edit" + koşullu "only if" (headroom-statusline, ctx-doctor)
+UYARI = re.compile(r"\b(never|must not|do not|don't|only (if|when)|asla|yasak)\b", re.I)
 
 
 def bolumlu(m, tavan=12000):
@@ -57,8 +58,21 @@ def bos(v):
     return not str(v).strip() or n(v).startswith("belirsiz")
 
 
-def gecerli_a(o, m):
-    """alan başına: boş/belirsiz → ilgili başlık belgede varsa ret; dolu → alıntısı belgede birebir olmalı. Dönüş: ret nedeni ya da None"""
+def ad_k(s):
+    return re.sub(r"[\s_-]", "", re.sub(r"\.(py|sh|js|ps1|md|exe)$", "", str(s).lower()))
+
+
+def adlari(ad, kaynak):
+    """aracın adı + dosya adı (SKILL.md/README.md ise klasör adı) — agent dosyası engineering-knowledge-graph-engineer.md gibi"""
+    p = Path(str(kaynak).replace("cmd:", ""))
+    return {ad, p.parent.name if p.stem.upper() in ("SKILL", "README") else p.stem}
+
+
+def gecerli_a(o, m, adlar=None):
+    """alan başına: boş/belirsiz → ilgili başlık belgede varsa ret; dolu → alıntısı belgede birebir olmalı. Dönüş: ret nedeni ya da None
+    d8: adlar verilirse komut aracın kendi adını içermeli (how-it-works'e /learn-codebase, budget-mode'a /octo:model-config yazılmıştı)"""
+    if adlar and not bos(o.get("komut", "")) and not any(len(ad_k(a)) >= 3 and ad_k(a) in ad_k(o["komut"]) for a in adlar):
+        return "komut aracın kendi adını içermiyor"
     al = o.get("alinti") if isinstance(o.get("alinti"), dict) else {}
     basliklar = [p.split("\n", 1)[0] for p in BASLIK.split(m)[1:]]
     for a in CIKARIM:
@@ -173,7 +187,7 @@ if __name__ == "__main__":
             a = eski[ad]
             ma, (m1, m2), kollar = a["model"], a["model_b"][:2], a["mekanizma_kollar"][:2]
         else:
-            a, ma = kos(KOL_A, SEMA_A, ad, m, g, gecerli_a)
+            a, ma = kos(KOL_A, SEMA_A, ad, m, g, lambda o, m: gecerli_a(o, m, adlari(ad, ozet_kaynak.D[ad])))
             if not a:
                 continue
             b1, m1 = kos(KOL_B1, SEMA_B, ad, m, g, gb)
