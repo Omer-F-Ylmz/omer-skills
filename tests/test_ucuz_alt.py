@@ -101,3 +101,8 @@ def test_429_soguma_paralel_atlar(ortam, monkeypatch):
     monkeypatch.setattr(ucuz_alt, "ZINCIR", {"lisans": [("omni", UYE[0])]})
     assert ucuz_alt.coz("lisans", "a", [ortam / "b.txt"])[2] == 1
     assert ucuz_alt.soguma(UYE[0]) and ucuz_alt.coz("lisans", "b", [ortam / "b.txt"])[2] == 0
+
+
+def test_bozuk_json_ret_zinciri_kesmez():
+    # O12: parantezli ama geçersiz JSON (sondaki virgül) JSONDecodeError fırlatıp ölçümü kesiyordu
+    assert ucuz_alt.json_al('{"lisans": "MIT",}') is None

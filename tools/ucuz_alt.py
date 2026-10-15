@@ -108,7 +108,10 @@ def bos(v):
 
 def json_al(y):
     i, j = y.find("{"), y.rfind("}")
-    return json.loads(y[i:j + 1]) if 0 <= i < j else None  # "substring not found" yerine None → ret
+    try:
+        return json.loads(y[i:j + 1]) if 0 <= i < j else None  # "substring not found" yerine None → ret
+    except ValueError:  # parantezli ama bozuk JSON da ret → sonraki model (O12)
+        return None
 
 
 def dogrula(tur, o, baglam, secenek):
