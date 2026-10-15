@@ -1,0 +1,28 @@
+{"ad":"h2_sinif","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-bilgi-tabani-hazirla","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"cost-aware-llm-pipeline","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"costs","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"token-kullanim-takibi-balance-api-usage","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-baglam-butcesi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionStart:startup|clear|compact","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"skill-cost-projections","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"'/skill-cost-projections' belgede birebir geçmiyor; ad yalnız frontmatter'da (satır 2: name: skill-cost-projections), slash çağrısı yok."}}
+{"ad":"usage","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ctx-search","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"claude-mem","ne_yapar":"D","komut":"Y","sinirlar":"Y","mekanizma":"Y","gerekce":{"komut":"Eklenti dizininde kendi komutu var: hooks.json 'worker-service.cjs\" hook claude-code context' ve skills/cloud-sync/SKILL.md:48 'npx claude-mem install'; belirsiz yanlış.","sinirlar":"Aktarılanlar alt skill agent-cost-report'un sınırları (SKILL.md:22, :203); claude-mem'in kendi gereksinimi (hooks.json: node + bun-runner/worker-service, bulunamazsa exit 0) değil.","mekanizma":"Asıl iş 'Memory compression system ... persist context across sessions' (.claude-plugin/plugin.json:4); 'ölçüm' yalnız alt skill ACR'nin işi, asıl tasarruf yolu değil."}}
+{"ad":"domain-baglama-abacus-subdomain-ile-yayi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Kaynak yalnız tek tıkla domain/subdomain yayınlama (satır 8); araç çağrısı/tur azaltan bir token tasarrufu yolu yok."}}
+{"ad":"tibo-reset-codex","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ucuz-ajan","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:WebFetch","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Çağrılan betikte koşul var: MCP sunucusu hazır değilse yönlendirme yapılmaz, WebFetch geçer (core/routing.mjs:22-30 mcpRedirect, :877); belirsiz yanlış."}}
+{"ad":"headroom-claude-guard.py.bakHD2","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Betik yalnız ANTHROPIC_BASE_URL ve 127.0.0.1:6767 erişimini denetleyip stderr/exit 2 verir (satır 100-114); daha ucuz araç/model seçmez, kendisi tasarruf etmez."}}
+{"ad":"SessionStart:","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:mcp__plugin_context-mode_context-mode__ctx_execute_file","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"Y","gerekce":{"sinirlar":"Betikte uyarı var: güvenlik modülü yüklenemezse deny desenleri uygulanmaz/fail-open (core/routing.mjs:407, :435, :475-476) ve kod yalnız language==='shell' ise denetlenir (:959); belirsiz yanlış.","mekanizma":"ctx_execute_file dalı yalnız güvenlik deny/ask denetimi yapar, aksi halde null döner (core/routing.mjs:945-972); başka araca yönlendirme ya da tasarruf yok."}}
+{"ad":"cloud-sync","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"Y","gerekce":{"komut":"curl başka aracın komutu; belgede aracın kendi paket komutu var: 'npx claude-mem install' (SKILL.md:48).","mekanizma":"Skill bellek veritabanını cmem.ai'ye yedekleme/eşitleme durumunu denetler (SKILL.md:3); bağlama yalnız sorgu sonucu sokan bir tasarruf yolu değil."}}
+{"ad":"vrm-baglam-kum-havuzu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"Graphify-Labs__graphify","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"codegraph","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreCompact:","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Çağrılan betikte sınır var: anlık görüntü '<2KB XML' (precompact.mjs:6-7), hata olursa sessiz geri dönüş (:94); belirsiz yanlış."}}
+{"ad":"SessionStart:startup|resume","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Kanca yalnız 'ensure the local Headroom runtime is available' (hooks.json:2); daha ucuz araç/model seçmez, Headroom'un asıl yolu sıkıştırma."}}
+{"ad":"Setup:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"version-check.js bağımlılık ağacını denetleyip bun install yapar (version-check.js:11, :233); token tüketimini ölçmez, 'ölçüm' asıl işi değil."}}
+{"ad":"context-budget","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SubagentStop:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:Task|Agent","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

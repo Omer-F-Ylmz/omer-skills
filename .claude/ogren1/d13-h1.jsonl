@@ -1,0 +1,28 @@
+{"ad":"h2_sinif","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-bilgi-tabani-hazirla","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"cost-aware-llm-pipeline","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"costs","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"token-kullanim-takibi-balance-api-usage","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-baglam-butcesi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionStart:startup|clear|compact","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"skill-cost-projections","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"usage","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ctx-search","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"claude-mem","ne_yapar":"D","komut":"Y","sinirlar":"Y","mekanizma":"Y","gerekce":{"komut":"Kaynak dizin claude-mem'in kendi komutunu içeriyor (hooks/hooks.json: worker-service.cjs \" hook claude-code context; skills/cloud-sync: npx claude-mem install), belirsiz yanlış.","sinirlar":"Aktarılan Python 3.9+/salt-okunur DB sınırları yalnız alt skill agent-cost-report/SKILL.md:22,203'e ait; eklentinin kendi sınırları (hooks.json: betik yoksa exit 0, zaman aşımları) yok.","mekanizma":"'ölçüm' alt skill Agent Cost Report'un işi; eklentinin asıl yolu package.json 'Memory compression system ... persist context across sessions' (bağlam dışı depolama)."}}
+{"ad":"domain-baglama-abacus-subdomain-ile-yayi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Kaynak:8 yalnız domain/subdomain ile tek tıkla yayınlama; token/tur tasarrufu işi yok, 'tur azaltma' asıl işi değil."}}
+{"ad":"tibo-reset-codex","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ucuz-ajan","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:WebFetch","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Çağrılan betikte koşul var: routing.mjs:28-29 mcpRedirect MCP araçları yoksa null döner (WebFetch geçer), :879 geçici DNS hatasında yeniden dene; 'belirsiz' yanlış."}}
+{"ad":"headroom-claude-guard.py.bakHD2","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Betik yalnız ANTHROPIC_BASE_URL ve 127.0.0.1:6767 erişimini denetler (main:100-114); daha ucuz araç/model seçmez, Headroom'un asıl yolu sıkıştırma; 'yönlendirme' asıl işi kaçırıyor."}}
+{"ad":"SessionStart:","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:mcp__plugin_context-mode_context-mode__ctx_execute_file","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"Y","gerekce":{"sinirlar":"routing.mjs:947-967 denetim yalnız güvenlik politikası varsa ve kod yalnız language=shell ise Bash desenlerine bakılır; 'belirsiz' yanlış.","mekanizma":"Bu dal (routing.mjs:945-968) yalnız güvenlik deny/ask kontrolü; ucuz araca yönlendirme yapmaz, 'yönlendirme' asıl işi değil."}}
+{"ad":"cloud-sync","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"curl genel araç, aracın kendi komutu değil (SKILL.md:29); belgede kendi paket komutu 'npx claude-mem install' (SKILL.md:48) var."}}
+{"ad":"vrm-baglam-kum-havuzu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"Graphify-Labs__graphify","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"codegraph","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreCompact:","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Çağrılan precompact.mjs:7 anlık görüntü '<2KB XML', :47 yalnız olay varsa kurar, :86 PreCompact'i asla engellemez; 'belirsiz' yanlış."}}
+{"ad":"SessionStart:startup|resume","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Kanca yalnız Headroom çalışma zamanını hazırlar (hooks.json:2,10); ucuz araç/model seçimi yok, Headroom'un asıl yolu sıkıştırma; 'yönlendirme' asıl işi kaçırıyor."}}
+{"ad":"Setup:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"version-check.js bağımlılık/sürüm denetimi ve bun install yapar (:233,:381); tüketim ölçmez, 'ölçüm' asıl işi değil."}}
+{"ad":"context-budget","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SubagentStop:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:Task|Agent","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
