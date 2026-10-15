@@ -21,6 +21,7 @@ from pathlib import Path
 URL = "http://127.0.0.1:20128/v1/chat/completions"
 OLLAMA = "http://127.0.0.1:11434/api/chat"
 COMBO = "cc-ucuz-free"  # yalnız :free üyeler; güçlü limit yedeği cc-yedek-dis'e (cc-kopru/omniroute.mjs) dokunulmaz
+SURUM = "v2"  # istem/şema değişince artır: hem yerel hem OmniRoute önbelleği eski yanıtı döndürmez
 TAVAN = 400_000  # bağlam karakteri; combo'daki en küçük pencereye sığsın
 DB = os.path.expanduser("~/.omniroute/storage.sqlite")
 DIZIN = Path(__file__).resolve().parents[1] / ".kos/kopru/ucuz-onbellek"
@@ -143,6 +144,11 @@ def soguma(model, sure=None):
     f.write_text(json.dumps(d), encoding="utf-8")
 
 
+def anahtar_ozet(tur, secenek, g):
+    return hashlib.sha256(json.dumps([SURUM, tur, list(secenek), g["messages"], g["max_tokens"], g["reasoning_effort"], ZINCIR[tur]],
+                                     ensure_ascii=False).encode()).hexdigest()[:24]
+
+
 def coz(tur, istem, dosyalar, secenek=(), gorsel=None):
     """(sonuç dict | None, model, deneme sayısı, usage, ücretli_red). Önbellek: tür+istem+bağlam+zincir özeti."""
     baglam = istem + "".join(Path(d).read_text(encoding="utf-8", errors="ignore") for d in dosyalar)
@@ -150,13 +156,13 @@ def coz(tur, istem, dosyalar, secenek=(), gorsel=None):
     if secenek:
         tam += f"\nSeçenekler: {' | '.join(secenek)}"
     g = govde(tam, dosyalar)
+    # OmniRoute yanıt önbelleği max_tokens/reasoning'i anahtara katmaz: ayar değişince eski (kesik) yanıt dönmesin diye istemde etiket
+    g["messages"][0]["content"] = f"[ucuz_alt {SURUM} mt{g['max_tokens']} {g['reasoning_effort']}]\n" + g["messages"][0]["content"]
     if gorsel:
         g["messages"][0]["content"] = [{"type": "text", "text": g["messages"][0]["content"]}, {"type": "image_url", "image_url": {
             "url": "data:image/png;base64," + base64.b64encode(Path(gorsel).read_bytes()).decode()}}]
-        g["max_tokens"] = 8000  # nano-omni düşünmesi ≥3000 yer (token.md)
     DIZIN.mkdir(parents=True, exist_ok=True)
-    anah = hashlib.sha256(json.dumps([tur, list(secenek), g["messages"], ZINCIR[tur]], ensure_ascii=False).encode()).hexdigest()[:24]
-    onb = DIZIN / f"{anah}.json"
+    onb = DIZIN / f"{anahtar_ozet(tur, secenek, g)}.json"
     if onb.is_file():
         k = json.loads(onb.read_text(encoding="utf-8"))
         return k["sonuc"], k["model"] + " (önbellek)", 0, {}, False

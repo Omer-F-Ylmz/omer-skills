@@ -50,6 +50,25 @@ def test_lisans_dogrulanir_onbellek_anahtar_basmaz(ortam, monkeypatch, capsys):
     assert "GIZLI-ANAHTAR" not in capsys.readouterr().out
 
 
+def test_onbellek_anahtari_ayar_ve_surum_icerir_kesik_yazilmaz(ortam, monkeypatch):
+    cagri = []
+    def iste(g):
+        cagri.append(g)
+        return yanit('{"lisans": "MIT", "alinti": "Permission is hereby gr', bitis="length")
+    monkeypatch.setattr(ucuz_alt, "iste", iste)
+    monkeypatch.setattr(ucuz_alt, "ZINCIR", {**ucuz_alt.ZINCIR, "lisans": [("omni", UYE[0])]})
+    assert ucuz_alt.coz("lisans", "lisansı bul", [ortam / "b.txt"])[0] is None
+    assert ucuz_alt.coz("lisans", "lisansı bul", [ortam / "b.txt"])[0] is None and len(cagri) == 2  # kesik önbelleğe girmedi
+    assert not list((ortam / "onb").glob("*.json"))
+    # OmniRoute yanıt önbelleği max_tokens'u anahtara katmaz → istemde sürüm + ayar etiketi
+    assert f"[ucuz_alt {ucuz_alt.SURUM} mt{cagri[0]['max_tokens']} {cagri[0]['reasoning_effort']}]" in cagri[0]["messages"][0]["content"]
+    a = ucuz_alt.anahtar_ozet("lisans", (), cagri[0])
+    assert a != ucuz_alt.anahtar_ozet("lisans", (), {**cagri[0], "max_tokens": 16000})
+    assert a != ucuz_alt.anahtar_ozet("lisans", (), {**cagri[0], "reasoning_effort": "high"})
+    monkeypatch.setattr(ucuz_alt, "SURUM", "v-test")
+    assert a != ucuz_alt.anahtar_ozet("lisans", (), cagri[0])
+
+
 @pytest.mark.parametrize("ilk", [
     yanit('{"lisans": "Apache-2.0", "alinti": "Licensed under the Apache License"}'),  # uydurma alıntı
     yanit('{"lisans": "MIT", "alinti": "Permission is hereby gr', bitis="length"),  # rtk-desktop kesiği
