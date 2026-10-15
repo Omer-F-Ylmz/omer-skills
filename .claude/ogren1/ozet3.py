@@ -17,8 +17,7 @@ ETIKET = f"v3c-{int(time.time())}"  # d6: OmniRoute önbellek anahtarına güven
 KOL_A = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"), ("ollama", "gpt-oss:20b-cloud"), ("ollama", "qwen3.5:4b")]
 KOL_B1 = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free")]
 KOL_B2 = [("groq", "openai/gpt-oss-120b")]
-KOL_B3 = [("omni", "openrouter/google/gemma-4-31b-it:free"), ("omni", "openrouter/google/gemma-4-26b-a4b-it:free"),
-          ("ollama", "qwen3.5:4b")]  # d6: üçüncü aile, yalnız iki oy kesişmezse; gemma :free 429 verirse yerel qwen
+KOL_B3 = [("omni", "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free"), ("ollama", "qwen3.5:4b")]  # d7: gemma :free kalıcı 429 (d6 29×)
 MEKANIZMA = ["sıkıştırma", "önbellek", "bağlam dışı depolama", "delegasyon", "özetleme", "tur azaltma", "yönlendirme", "ölçüm"]
 TANIM = ("Tanımlar: sıkıştırma=aynı içeriği daha az baytla verir; önbellek=önceki sonucu/öneki yeniden kullanır; "
          "bağlam dışı depolama=veriyi bağlam dışında tutar, yalnız sorgu sonucu girer; delegasyon=işi başka süreç/model/ajan yapar; "
@@ -38,6 +37,7 @@ ONEMLI = re.compile(r"requirement|prereq|limit|caveat|known issue|usage|option|c
 BASLIK = re.compile(r"(?m)^(?=#{1,6} |[A-Z][A-Za-z /-]{2,30}:\s*$)")
 ILGILI = {"sinirlar": re.compile(r"requirement|prereq|limit|caveat|known issue|gereksinim|sınır|uyarı|tuzak", re.I),
           "komut": re.compile(r"usage|option|command|kullanım|komut", re.I)}
+UYARI = re.compile(r"\bNEVER\b|\bMUST NOT\b|\bDO NOT\b|\bASLA\b|\bYASAK\b")  # d7: başlıksız sınır satırları (vrm-headroom-geri-cagirma)
 
 
 def bolumlu(m, tavan=12000):
@@ -63,11 +63,25 @@ def gecerli_a(o, m):
     basliklar = [p.split("\n", 1)[0] for p in BASLIK.split(m)[1:]]
     for a in CIKARIM:
         if bos(o.get(a, "")):
-            if a == "ne_yapar" or (a in ILGILI and any(ILGILI[a].search(b) for b in basliklar)):
+            if a == "ne_yapar" or (a in ILGILI and any(ILGILI[a].search(b) for b in basliklar)) or (a == "sinirlar" and UYARI.search(m)):
                 return f"{a} boş, belgede ilgili bölüm var"
         elif len(n(al.get(a, ""))) < 10 or n(al[a]) not in n(m):
             return f"{a} alıntısı belgede yok"
+        elif a == "komut" and not komut_mu(o[a], m):
+            return "komut olay adı/yönerge, komut değil"
     return None
+
+
+def komut_mu(k, m):
+    """d7: komut = /slash · --bayrak · çağrı( · betik yolu ya da belgede bir kod biriminin (`…`, ``` satırı, girintili satır,
+    usage:) BAŞINDA geçen küçük harfli belirteç; olay adı (SessionStart) / yönerge (Use when…) değil"""
+    t = re.findall(r"[^\s`'\",;:]+", str(k))
+    if any(re.match(r"-{1,2}[a-z]|/[a-z]|\w+\(|\S+\.(py|exe|js|sh|ps1)$", x) for x in t):
+        return True
+    birim = re.findall(r"`([^`\n]+)`", m) + re.findall(r"(?mi)usage:\s*(.+)$", m) + re.findall(r"(?m)^(?: {2,}|\t)\s*(.+)$", m) + \
+        [s for b in re.findall(r"```[^\n]*\n(.*?)```", m, re.S) for s in b.splitlines()]
+    bas = {re.sub(r"^[$>\s]+", "", b).split(maxsplit=1)[0] for b in birim if b.strip(" $>")}
+    return any(re.fullmatch(r"[a-z][\w.-]{1,}", x) and x in bas for x in t)
 
 
 def gecerli_b(o, m):
@@ -133,9 +147,9 @@ def kos(kollar, sema, ad, m, girdi, dogrula):
 
 if __name__ == "__main__":
     import ozet_kaynak  # yollar.tsv + v2 ek kaynakları (ozet.py import'ta koştuğu için ayrı)
-    # d4 kanıtı: v2 qmd girdisi `qmd --help` (5.6 KB, kırpılmamış) — sınırlar README'de (Requirements); hakem README'ye baktı
-    ozet_kaynak.D["qmd"] = str(Path(env_oku("APPDATA")).parent / "Local/Microsoft/WinGet/Packages"
-                               / "OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe/node-v24.19.0-win-x64/node_modules/@tobilu/qmd/README.md")
+    if sys.argv[1:2] == ["--d7"]:  # d7: görülmemiş örneklem (d7-ornek.tsv) ayrı çıktıya, eski satır yok
+        ozet_kaynak.D = dict(s.split("\t")[::3] for s in (KOK / ".claude/ogren1/d7-ornek.tsv").read_text(encoding="utf-8").splitlines())
+        CIKTI, ESKI, TAVAN, sys.argv[1:] = KOK / ".kos/kopru/ogren/ozet-token-d7.jsonl", KOK / ".kos/kopru/ogren/yok.jsonl", 180, sys.argv[2:]
     if sys.argv[1:] == ["--sina"]:
         g = bolumlu(ozet_kaynak.metin(ozet_kaynak.D["qmd"]))
         assert "Requirements" in g, "qmd Requirements bölümü girdiye girmedi"
@@ -143,7 +157,7 @@ if __name__ == "__main__":
         sys.exit()
     # çekişmeli satır yeniden denenir (yeni etiket); dosyaya eklenir, okuyan son satırı alır (silme yok)
     bitti = {r["ad"] for r in map(json.loads, CIKTI.read_text(encoding="utf-8").splitlines()) if not r["cekismeli"]} if CIKTI.exists() else set()
-    eski = {r["ad"]: r for r in map(json.loads, ESKI.read_text(encoding="utf-8").splitlines())}
+    eski = {r["ad"]: r for r in map(json.loads, ESKI.read_text(encoding="utf-8").splitlines())} if ESKI.exists() else {}
     for ad in sys.argv[1:] or list(ozet_kaynak.D):
         if ad in bitti:
             continue

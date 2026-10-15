@@ -5,9 +5,11 @@ import json, sys
 from pathlib import Path
 
 import ozet_kaynak
+from ozet3 import n
 
 O = Path(r"C:\Projeler\omer-skills\.kos\kopru\ogren")
 V3C, CLAUDE, SON = O / "ozet-token-v3c.jsonl", O / "ozet-token-v3c-claude.jsonl", O / "ozet-token-son.jsonl"
+DUZELT = O / "ozet-token-duzelt.jsonl"
 AYNI = ["rtk-desktop", "rtk", "headroom", "qmd", "jev", "mem-search", "graphify", "smart-explore", "strategic-compact",
         "context-mode", "cagri_sayac"]  # d3 hakeminin 10'u (+rtk-desktop, d5)
 ALAN = ["ne_yapar", "komut", "sinirlar", "mekanizma"]
@@ -38,6 +40,9 @@ if __name__ == "__main__":
             r.update({k: c[ad][k] for k in (ALAN + ["girdi_cikti", "ne_zaman", "cakistigi_arac"] if isler[ad] == "tum" else ["mekanizma"])
                       if k in c[ad]}, claude=isler[ad], cekismeli=False)
         son[ad] = r
+    for ad, d in oku(DUZELT).items():  # d7: kör hakemin kaynakla doğrulanmış hataları; kanıt alıntısı kaynakta birebir olmalı
+        assert n(d.pop("kanit_d7")) in n(ozet_kaynak.metin(ozet_kaynak.D[ad])), f"düzeltme kanıtı kaynakta yok: {ad}"
+        son[ad].update(d, duzelt=sorted(set(d) - {"ad"}))
     SON.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in son.values()), encoding="utf-8")
     for ad_dosya, adlar in (("hakem-ayni.jsonl", AYNI), ("hakem-yeni.jsonl", [a for a in son if a not in AYNI])):
         (O / ad_dosya).write_text("".join(json.dumps({k: son[a][k] for k in ["ad", "kaynak"] + ALAN}, ensure_ascii=False) + "\n"
