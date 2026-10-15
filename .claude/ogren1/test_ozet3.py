@@ -72,3 +72,37 @@ def test_qmd_kaynagi_readme_paylasilan():
     import ozet_kaynak
     from pathlib import Path
     assert Path(ozet_kaynak.D["qmd"]).as_posix().endswith("@tobilu/qmd/README.md")
+
+
+def test_ollama_ram_korumasi(monkeypatch):  # ★ 05:48: RAM ≥%80 → ollama yok; num_ctx 8192 · keep_alive 0
+    import io, json, types, urllib.request
+    import ozet3
+    giden = []
+    monkeypatch.setattr(urllib.request, "urlopen", lambda q, timeout: giden.append(json.loads(q.data)) or io.BytesIO(
+        b'{"message": {"content": "{\\"a\\": 1}"}, "done_reason": "stop"}'))
+    monkeypatch.setattr(ozet3.psutil, "virtual_memory", lambda: types.SimpleNamespace(percent=86))
+    with pytest.raises(RuntimeError, match="atlandi-ram"):
+        ozet3.sor("ollama", "qwen3.5:4b", "x")
+    assert giden == []
+    monkeypatch.setattr(ozet3.psutil, "virtual_memory", lambda: types.SimpleNamespace(percent=50))
+    assert ozet3.sor("ollama", "qwen3.5:4b", "x") == {"a": 1}
+    assert giden[0]["options"]["num_ctx"] == 8192 and giden[0]["keep_alive"] == 0
+
+
+def test_komut_belirsiz_baslikli_uyari_kendi_ifadesi_asla():  # d10: uydurma baskısı (knowledge-agent·komut)
+    from ozet3 import gecerli_a
+    m = "# Knowledge Agent\nBuilds a corpus of observations.\n\n## Filter options\nUse `build_corpus name=\"x\" limit=500` to start.\n"
+    al = {"ne_yapar": "Builds a corpus of observations"}
+    o = {"ne_yapar": "Gözlem korpusu kurar.", "girdi_cikti": "", "sinirlar": "", "alinti": al}
+    kendi = dict(o, komut='knowledge-agent iş akışı: build_corpus name="x" ... → query', alinti=dict(al, komut='build_corpus name="x" limit=500'))
+    assert gecerli_a(kendi, m) == "komut belgede birebir değil (kendi ifadesi)"
+    birebir = dict(kendi, komut='build_corpus name="x" limit=500')
+    assert gecerli_a(birebir, m) is None
+    belirsiz = dict(o, komut="belirsiz — belge yalnız filtre seçeneklerini anlatıyor, tam çağrı yok", alinti=dict(al, komut="## Filter options"))
+    assert gecerli_a(belirsiz, m) == "komut boş, belgede ilgili bölüm var"  # :free yolu (uyari listesi yok) değişmez
+    u = []
+    assert gecerli_a(belirsiz, m, uyari=u) is None and u and u[0].startswith("komut belirsiz")
+    gerekcesiz = dict(belirsiz, komut="belirsiz")
+    assert gecerli_a(gerekcesiz, m, uyari=[]) == "komut boş, belgede ilgili bölüm var"
+    baska_baslik = dict(belirsiz, alinti=dict(al, komut="Filter options for search"))
+    assert gecerli_a(baska_baslik, m, uyari=[]) == "komut boş, belgede ilgili bölüm var"

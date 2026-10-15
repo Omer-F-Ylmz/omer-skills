@@ -18,6 +18,8 @@ import time
 import urllib.request
 from pathlib import Path
 
+import psutil
+
 URL = "http://127.0.0.1:20128/v1/chat/completions"
 OLLAMA = "http://127.0.0.1:11434/api/chat"
 COMBO = "cc-ucuz-free"  # yalnız :free üyeler; güçlü limit yedeği cc-yedek-dis'e (cc-kopru/omniroute.mjs) dokunulmaz
@@ -90,8 +92,10 @@ def sor(kol, model, g):
         j = iste({**g, "model": model})
         c = j["choices"][0]
         return c["message"].get("content") or "", c.get("finish_reason"), j.get("model") or "", j.get("usage") or {}
+    if psutil.virtual_memory().percent >= 80:  # ÖĞREN-1 ★ 05:48: RAM ≥%80 → ollama yok, sonraki kol
+        raise RuntimeError("atlandi-ram")
     q = urllib.request.Request(OLLAMA, method="POST", headers={"content-type": "application/json"}, data=json.dumps(
-        {"model": model, "think": False, "stream": False, "options": {"num_ctx": 32768, "temperature": 0},
+        {"model": model, "think": False, "stream": False, "keep_alive": 0, "options": {"num_ctx": 8192, "temperature": 0},
          "messages": g["messages"]}).encode())
     j = json.load(urllib.request.urlopen(q, timeout=300))
     return j["message"].get("content") or "", j.get("done_reason"), model, {
@@ -186,6 +190,9 @@ def coz(tur, istem, dosyalar, secenek=(), gorsel=None):
             continue
         except (OSError, ValueError, KeyError) as e:  # zaman aşımı, bağlantı, bozuk gövde → sonraki model
             print(f"  {model} {type(e).__name__}", file=sys.stderr)
+            continue
+        except RuntimeError as e:  # atlandi-ram → sonraki model
+            print(f"  {model} {e}", file=sys.stderr)
             continue
         # OpenRouter yanıt modelinde :free son eki düşebilir; ad istenen/combo :free üyesiyle eşleşmeli
         if kol == "omni" and ymodel.split("/")[-1].removesuffix(":free") not in {

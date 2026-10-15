@@ -106,3 +106,17 @@ def test_429_soguma_paralel_atlar(ortam, monkeypatch):
 def test_bozuk_json_ret_zinciri_kesmez():
     # O12: parantezli ama geçersiz JSON (sondaki virgül) JSONDecodeError fırlatıp ölçümü kesiyordu
     assert ucuz_alt.json_al('{"lisans": "MIT",}') is None
+
+
+def test_ollama_ram_korumasi(monkeypatch):  # ★ 05:48: RAM ≥%80 → ollama yok; num_ctx 8192 · keep_alive 0
+    import io, types
+    giden = []
+    monkeypatch.setattr(ucuz_alt.urllib.request, "urlopen", lambda q, timeout: giden.append(json.loads(q.data)) or io.BytesIO(
+        b'{"message": {"content": "ok"}, "done_reason": "stop"}'))
+    monkeypatch.setattr(ucuz_alt.psutil, "virtual_memory", lambda: types.SimpleNamespace(percent=80))
+    with pytest.raises(RuntimeError, match="atlandi-ram"):
+        ucuz_alt.sor("ollama", "qwen3.5:4b", {"messages": []})
+    assert giden == []
+    monkeypatch.setattr(ucuz_alt.psutil, "virtual_memory", lambda: types.SimpleNamespace(percent=50))
+    assert ucuz_alt.sor("ollama", "qwen3.5:4b", {"messages": []})[0] == "ok"
+    assert giden[0]["options"]["num_ctx"] == 8192 and giden[0]["keep_alive"] == 0

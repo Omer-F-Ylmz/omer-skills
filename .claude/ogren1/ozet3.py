@@ -4,6 +4,7 @@ Yorum alanı `mekanizma`: kol B (başka aile, Groq gpt-oss-120b) BAĞIMSIZ seçe
 metin(): uzun belgede Requirements/Limits/Usage/Options/Caveats bölümleri kırpılmadan girdiye alınır. Tavan en fazla 100 çağrı.
   python -X utf8 .claude/ogren1/ozet3.py [ad ...]   ·   python -X utf8 .claude/ogren1/ozet3.py --sina  (qmd bölüm kanıtı)"""
 import json, re, sys, time, urllib.request
+import psutil
 from pathlib import Path
 
 KOK = Path(r"C:\Projeler\omer-skills")
@@ -68,21 +69,27 @@ def adlari(ad, kaynak):
     return {ad, p.parent.name if p.stem.upper() in ("SKILL", "README") else p.stem}
 
 
-def gecerli_a(o, m, adlar=None):
+def gecerli_a(o, m, adlar=None, uyari=None):
     """alan başına: boş/belirsiz → ilgili başlık belgede varsa ret; dolu → alıntısı belgede birebir olmalı. Dönüş: ret nedeni ya da None
-    d8: adlar verilirse komut aracın kendi adını içermeli (how-it-works'e /learn-codebase, budget-mode'a /octo:model-config yazılmıştı)"""
+    d8: adlar verilirse komut aracın kendi adını içermeli (how-it-works'e /learn-codebase, budget-mode'a /octo:model-config yazılmıştı)
+    d10: komut belgede birebir olmalı (ya da /ad); uyari listesi verilirse "belirsiz + gerekçe" + alıntı = birebir başlık satırı → ret yerine uyarı"""
     if adlar and not bos(o.get("komut", "")) and not any(len(ad_k(a)) >= 3 and ad_k(a) in ad_k(o["komut"]) for a in adlar):
         return "komut aracın kendi adını içermiyor"
     al = o.get("alinti") if isinstance(o.get("alinti"), dict) else {}
     basliklar = [p.split("\n", 1)[0] for p in BASLIK.split(m)[1:]]
     for a in CIKARIM:
         if bos(o.get(a, "")):
-            if a == "ne_yapar" or (a in ILGILI and any(ILGILI[a].search(b) for b in basliklar)) or (a == "sinirlar" and UYARI.search(m)):
+            if (a == "komut" and uyari is not None and len(n(o[a])) > 20
+                    and n(al.get(a, "")).lstrip("# ") in {n(b).lstrip("# ") for b in basliklar}):
+                uyari.append(f"komut belirsiz: {o[a]} [{al[a]}]")  # d9 RİSK: RET doğrulayıcıyı kendi ifadesiyle komut yazmaya itiyordu
+            elif a == "ne_yapar" or (a in ILGILI and any(ILGILI[a].search(b) for b in basliklar)) or (a == "sinirlar" and UYARI.search(m)):
                 return f"{a} boş, belgede ilgili bölüm var"
         elif len(n(al.get(a, ""))) < 10 or n(al[a]) not in n(m):
             return f"{a} alıntısı belgede yok"
         elif a == "komut" and not komut_mu(o[a], m):
             return "komut olay adı/yönerge, komut değil"
+        elif a == "komut" and n(o[a]) not in n(m) and o[a].strip() not in {p + x for x in adlar or [] for p in ("", "/")}:
+            return "komut belgede birebir değil (kendi ifadesi)"
     return None
 
 
@@ -122,6 +129,8 @@ def icerik(h):
 
 def sor(kol, model, istem):
     global CAGRI
+    if kol == "ollama" and psutil.virtual_memory().percent >= 80:  # ★ 05:48: llama-server RAM %86'da 3.3 GB yükledi
+        raise RuntimeError("atlandi-ram")
     assert CAGRI < TAVAN, "çağrı tavanı"
     CAGRI += 1
     url, h = {"omni": ("http://127.0.0.1:20128/v1/chat/completions", {"authorization": f"Bearer {env_oku('OMNIROUTE_KEY')}"}),
@@ -129,7 +138,7 @@ def sor(kol, model, istem):
               "ollama": ("http://127.0.0.1:11434/api/chat", {})}[kol]
     govde = {"model": model, "max_tokens": 16000, "temperature": 0, "messages": [{"role": "user", "content": istem}]}
     if kol == "ollama":  # d6: /v1 4096 bağlam + düşünme içeriği yiyordu; think:false + num_ctx ile ~6 sn
-        govde = {"model": model, "think": False, "stream": False, "options": {"num_ctx": 16384, "temperature": 0},
+        govde = {"model": model, "think": False, "stream": False, "keep_alive": 0, "options": {"num_ctx": 8192, "temperature": 0},
                  "messages": govde["messages"]}
     q = urllib.request.Request(url, method="POST", headers={"content-type": "application/json", "user-agent": "curl/8.4", **h},
                                data=json.dumps(govde).encode())
@@ -148,7 +157,7 @@ def kos(kollar, sema, ad, m, girdi, dogrula):
         except Exception as e:
             print(ad, model, "HATA", type(e).__name__, str(e)[:80], flush=True)
             if HAM:  # d5: rtk-desktop teşhisi — ham yanıt gövdesi
-                (KOK / f".claude/ogren1/ham-{ad}-{model.split('/')[-1].replace(':', '_')}-{ETIKET}.json").write_text(  # kanıt: üzerine yazılmaz
+                (KOK / f".claude/ogren1/ham-{re.sub(r'[^\w.-]', '_', ad)}-{model.split('/')[-1].replace(':', '_')}-{ETIKET}.json").write_text(  # kanıt: üzerine yazılmaz
                     json.dumps(HAM, ensure_ascii=False, indent=1), encoding="utf-8")
             continue
         neden = dogrula(o, m)
@@ -161,9 +170,12 @@ def kos(kollar, sema, ad, m, girdi, dogrula):
 
 if __name__ == "__main__":
     import ozet_kaynak  # yollar.tsv + v2 ek kaynakları (ozet.py import'ta koştuğu için ayrı)
-    if sys.argv[1:2] == ["--d7"]:  # d7: görülmemiş örneklem (d7-ornek.tsv) ayrı çıktıya, eski satır yok
-        ozet_kaynak.D = dict(s.split("\t")[::3] for s in (KOK / ".claude/ogren1/d7-ornek.tsv").read_text(encoding="utf-8").splitlines())
-        CIKTI, ESKI, TAVAN, sys.argv[1:] = KOK / ".kos/kopru/ogren/ozet-token-d7.jsonl", KOK / ".kos/kopru/ogren/yok.jsonl", 180, sys.argv[2:]
+    if sys.argv[1:2] in (["--d7"], ["--d9"]):  # d7/d9: görülmemiş örneklem (dN-ornek.tsv) ayrı çıktıya, eski satır yok
+        o = sys.argv[1][2:]
+        ozet_kaynak.D = dict(s.split("\t")[::3] for s in (KOK / f".claude/ogren1/{o}-ornek.tsv").read_text(encoding="utf-8").splitlines())
+        CIKTI, ESKI, TAVAN, sys.argv[1:] = KOK / f".kos/kopru/ogren/ozet-token-{o}.jsonl", KOK / ".kos/kopru/ogren/yok.jsonl", 180, sys.argv[2:]
+        if o == "d9":  # d9: mekanizma her kalemde Claude yazar (d8: :free uzlaşı ≈%83) → B kolları sorulmaz
+            KOL_B1 = KOL_B2 = KOL_B3 = []
     if sys.argv[1:] == ["--sina"]:
         g = bolumlu(ozet_kaynak.metin(ozet_kaynak.D["qmd"]))
         assert "Requirements" in g, "qmd Requirements bölümü girdiye girmedi"

@@ -2,6 +2,7 @@
 → .kos/kopru/ogren/ozet-token-v2.jsonl (v1: ozet-token.jsonl). Tavan: en fazla 90 model çağrısı (kalem başına ≤3 kol). Claude bu metinleri okumaz.
   python -X utf8 .claude/ogren1/ozet.py"""
 import json, re, subprocess, sys, time, urllib.request, zipfile
+import psutil
 from pathlib import Path
 
 KOK = Path(r"C:\Projeler\omer-skills")
@@ -62,6 +63,8 @@ def sor(kol, model, istem):
     if kol == "omni":
         url, h = "http://127.0.0.1:20128/v1/chat/completions", {"authorization": f"Bearer {env_oku('OMNIROUTE_KEY')}", "user-agent": "curl/8.4"}
     else:
+        if psutil.virtual_memory().percent >= 80:  # ★ 05:48: RAM ≥%80 → ollama yok, sonraki kol
+            raise RuntimeError("atlandi-ram")
         url, h = "http://127.0.0.1:11434/v1/chat/completions", {}
     q = urllib.request.Request(url, method="POST", headers={"content-type": "application/json", **h},
                                data=json.dumps({"model": model, "max_tokens": 4000, "temperature": 0,
