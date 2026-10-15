@@ -72,7 +72,8 @@ def pencere(r, m):
     for x in L:  # n(m) == satır satır n()'lerin " " ile birleşimi → ofset → satır no
         bas.append(len(tum))
         tum += n(x) + " " if n(x) else ""
-    sec = {i for i, x in enumerate(L) if UYARI.search(x)}
+    # shortcut: UYARI satırları 120 ile sınırlı (repo kaynakları binlerce satır); doğrulayıcı kalan uyarıları kaynakta Grep'ler
+    sec = set([i for i, x in enumerate(L) if UYARI.search(x)][:120])
     anahtar = set()
     for a in A:
         al = n((r.get("alinti") or {}).get(a, ""))
@@ -93,13 +94,16 @@ def pencere(r, m):
     return cikti
 
 
-def paket(o):
+def paket(o, sec=None):
     d, t = D(o), oku(TASLAK[o])
+    if sec:  # d12: yalnız yeniden doğrulanacak kalemler (ad listesi dosyası)
+        d = {ad: k for ad, k in d.items() if ad in (B / sec).read_text(encoding="utf-8").splitlines()}
     parca = []
     for ad, kaynak in d.items():
         m, r = ozet_kaynak.metin(kaynak), t.get(ad, {})
         al = r.get("alinti") or {}
-        parca += [f"## {ad}", f"kaynak: {kaynak} · araç adları: {' · '.join(sorted(adlari(ad, kaynak)))} · {len(m.splitlines())} satır",
+        an = sorted(adlari(ad, kaynak))  # repo kaynağında kendi dizinindeki tüm dosyalar ad sayılır → ilk 30 + sayı
+        parca += [f"## {ad}", f"kaynak: {kaynak} · araç adları ({len(an)}; kendi dizinindeki her dosya da sayılır): {' · '.join(an[:30])} · {len(m.splitlines())} satır",
                   "TASLAK YOK — tüm alanları kaynaktan sen yaz (kaynağı parçalı Read ile oku)" if ad not in t else "İDDİALAR:"]
         parca += [f"- {a}: {r[a]}\n  alıntı: {al.get(a, '')}" for a in A if ad in t]
         parca += ["BAŞLIKLAR: " + " · ".join(p.split("\n", 1)[0].strip()[:60] for p in BASLIK.split(m)[1:]), "SATIRLAR:"] + pencere(r, m) + [""]
@@ -211,5 +215,5 @@ if __name__ == "__main__":
         doldur()
     else:
         ozet_kaynak.D = D(k[0])
-        {"paket": lambda: paket(k[0]), "birlestir": lambda: birlestir(k[0]), "golge": lambda: golge(k[0]),
+        {"paket": lambda: paket(k[0], *k[2:3]), "birlestir": lambda: birlestir(k[0]), "golge": lambda: golge(k[0]),
          "kontrol": kontrol, "puan": lambda: puan(*k[2:4])}[k[1]]()

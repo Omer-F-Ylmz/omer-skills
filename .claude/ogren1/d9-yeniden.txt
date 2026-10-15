@@ -1,0 +1,16 @@
+dotnet-test-filter.ps1
+PreCompact:.*
+SessionStart:startup|resume|clear|compact
+PreToolUse:Agent
+headroomlabs-ai__headroom
+safishamsi__graphify
+cost-report
+graphify-desktop
+save-session
+Agent Cost Report
+ml-llm-saglayici-yonlendirme
+CullinanCloud__omniroute
+thedotmack__claude-mem
+vrm-hafiza-arama
+vrm-log-ozetleyici
+claude-mem-cowork

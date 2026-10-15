@@ -1,0 +1,28 @@
+{"ad":"graphify-desktop","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Belgede aracın adının biçimi olan komut birebir geçiyor: SKILL.md:14 `graphify query \"<soru>\"` (ayrıca :23 graphify_sor.py), belirsiz demek yanlış."}}
+{"ad":"save-session","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:Bash","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PostToolUse:*","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Kanca girdisinin kendi komutu var (hooks.json:33 `node \"${CLAUDE_PLUGIN_ROOT}/scripts/cmem-hook.mjs\" observation`); kanca komutu satırın birebir parçası sayılır, belirsiz yanlış."}}
+{"ad":"Agent Cost Report","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ml-llm-saglayici-yonlendirme","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"Y","gerekce":{"komut":"ders.py getir (satır 10) ders bankası aracının komutu, ajanın kendi adı/dizini/ikilisi değil.","mekanizma":"Ajan sonnet alt ajanı olarak işi devralır (delegasyon); yönlendirme yalnız tasarladığı konudur, kendi tasarruf yolu değil."}}
+{"ad":"Stop:","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"CullinanCloud__omniroute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"rtk-onisle.py","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"UserPromptSubmit:","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"thedotmack__claude-mem","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-hafiza-arama","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"update-codemaps","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionEnd:*","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Kanca girdisinin kendi komutu var (hooks.json:81 `node \"${CLAUDE_PLUGIN_ROOT}/scripts/cmem-hook.mjs\" session-end`), belirsiz yanlış."}}
+{"ad":"codebase-memory-mcp","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreCompact:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"Stop:*","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Kanca girdisinin kendi komutu var (hooks.json:69 `node \"${CLAUDE_PLUGIN_ROOT}/scripts/cmem-hook.mjs\" summarize`), belirsiz yanlış."}}
+{"ad":"ctx-index","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Kaynak koşulu daraltıyor: SKILL.md:46 \"For broad repos, ask the user before raising maxFiles above 500\"; özet 'geniş repo' koşulunu düşürüp genel kural yapmış."}}
+{"ad":"vrm-log-ozetleyici","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"claude-mem-cowork","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"UserPromptSubmit:*","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Kanca girdisinin kendi komutu var (hooks.json:21 `node \"${CLAUDE_PLUGIN_ROOT}/scripts/cmem-hook.mjs\" session-init`), belirsiz yanlış."}}
+{"ad":"dotnet-test-filter.ps1","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreCompact:.*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionStart:startup|resume|clear|compact","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"Y","gerekce":{"komut":"Kanca girdisinin kendi komut satırı var (settings.json:3035 Headroom venv python.exe + headroom-claude-guard.py); kanca kaleminde bu satır kendi komutudur, belirsiz yanlış.","mekanizma":"Betik yalnız ANTHROPIC_BASE_URL'nin Headroom'a gittiğini doğrulayan bekçi (guard.py:2, :95-112); ucuz araç/model seçmez, asıl tasarruf yolu yok."}}
+{"ad":"PreToolUse:Agent","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"headroomlabs-ai__headroom","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"safishamsi__graphify","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"cost-report","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
