@@ -1,6 +1,7 @@
 """ÖĞREN-1 d9 (Desktop 05:08): A alanları :free taslak + CLAUDE DOĞRULAYICI (pencereli bağlam) · mekanizma her kalemde Claude ·
 :free gölge doğrulayıcı (kapıda rolü yok) · d7 geliştirme kontrolü · seed 9 görülmemiş örneklem kapısı.
   python -X utf8 .claude/ogren1/d9.py ornek            → d9-ornek.tsv (d7-aday − önceki tüm örnekler, seed 9, 28 kalem)
+  python -X utf8 .claude/ogren1/d9.py doldur           → d11: kaynaksız kalemler çıkar, seed-9 dizisinin sıradaki kaynaklıları (d9-yeni.txt)
   python -X utf8 .claude/ogren1/d9.py d9 paket         → d9-paket.md (doğrulayıcı girdisi: iddia + alıntı ±25 satır + UYARI + başlıklar + anahtar satırlar)
   python -X utf8 .claude/ogren1/d9.py d9 birlestir     → d9-dogrulayici.jsonl gecerli_a/gecerli_b'den geçer → ozet-token-d9-dogrulanmis.jsonl + hakem-d9.jsonl
   python -X utf8 .claude/ogren1/d9.py d9 golge         → Groq gpt-oss-120b aynı paketle doğrular → d9-golge.jsonl + Claude'la uyum
@@ -29,6 +30,28 @@ def ornek():
     sec = random.Random(9).sample(aday, 28)
     (B / "d9-ornek.tsv").write_text("".join(s + "\n" for s in sec), encoding="utf-8")
     print(f"aday {len(aday)} (görülen {len(gorulen)} hariç) → d9-ornek.tsv 28")
+
+
+def doldur():
+    """d11 (c): kaynaksız (yalnız aday satırı) kalemler örneklemden çıkar → aynı seed-9 dizisinin sıradaki kaynaklı kalemleri.
+    d9 çekimi anındaki görülen kümesi: sonradan yazılan d9 / d7-dogrulanmis dosyaları hariç; ilk 28 d9-ornek-ilk.tsv ile aynı olmalı"""
+    ilk = (B / "d9-ornek-ilk.tsv").read_text(encoding="utf-8").splitlines()
+    gorulen = {s.split("\t")[0] for s in (B / "d7-ornek.tsv").read_text(encoding="utf-8").splitlines()}
+    for p in O.glob("ozet-token*.jsonl"):
+        if not p.name.startswith(("ozet-token-d9", "ozet-token-d7-dogrulanmis")):
+            gorulen |= set(oku(p))
+    aday = [s for s in (B / "d7-aday.tsv").read_text(encoding="utf-8").splitlines() if s.split("\t")[0] not in gorulen and "backup" not in s.split("\t")[0]]
+    aday = [s for s in aday if acilir(s.split("\t")[3])]
+    dizi = random.Random(9).sample(aday, len(aday))  # pool yöntemi: sample(aday, 28) bu dizinin ilk 28'i
+    assert dizi[:28] == ilk, "seed-9 dizisi d9 çekimini üretmiyor"
+    def ks(s):
+        ad, k = s.split("\t")[0], s.split("\t")[3]
+        return ozet3.kaynaksiz(adlari(ad, k), ozet_kaynak.metin(k))
+    yeni = [s for s in dizi[28:] if not ks(s)][:sum(map(ks, ilk))]
+    son = [s for s in ilk if not ks(s)] + yeni
+    (B / "d9-ornek.tsv").write_text("".join(s + "\n" for s in son), encoding="utf-8")
+    (B / "d9-yeni.txt").write_text("".join(s.split("\t")[0] + "\n" for s in yeni), encoding="utf-8")
+    print(f"aday {len(aday)} · çıkan {sum(map(ks, ilk))} · eklenen {len(yeni)}: {' · '.join(s.split(chr(9))[0] for s in yeni)}")
 
 
 def acilir(k):
@@ -100,7 +123,8 @@ def birlestir(o):
                 r[a], r["alinti"][a] = c[ad][a]["deger"], c[ad][a].get("alinti", "")
                 duz.append((ad, a))
         r.update(mekanizma=c[ad]["mekanizma"], kanit=c[ad]["kanit"], cekismeli=False, dogrulandi="claude", uyari=[])
-        neden = gecerli_a(r, m, adlari(ad, kaynak), r["uyari"]) or (None if gecerli_b(r, m) else "mekanizma/kanıt geçersiz")
+        neden = gecerli_a(r, m, adlari(ad, kaynak), r["uyari"]) or (None if ozet3.kaynaksiz(adlari(ad, kaynak), m) or gecerli_b(r, m)
+                                                                    else "mekanizma/kanıt geçersiz")
         if neden:
             ret[ad] = neden
         son[ad] = r
@@ -183,6 +207,8 @@ if __name__ == "__main__":
     k = sys.argv[1:]
     if k == ["ornek"]:
         ornek()
+    elif k == ["doldur"]:
+        doldur()
     else:
         ozet_kaynak.D = D(k[0])
         {"paket": lambda: paket(k[0]), "birlestir": lambda: birlestir(k[0]), "golge": lambda: golge(k[0]),

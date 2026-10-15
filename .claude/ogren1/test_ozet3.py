@@ -106,3 +106,52 @@ def test_komut_belirsiz_baslikli_uyari_kendi_ifadesi_asla():  # d10: uydurma bas
     assert gecerli_a(gerekcesiz, m, uyari=[]) == "komut boş, belgede ilgili bölüm var"
     baska_baslik = dict(belirsiz, alinti=dict(al, komut="Filter options for search"))
     assert gecerli_a(baska_baslik, m, uyari=[]) == "komut boş, belgede ilgili bölüm var"
+
+
+def test_komut_sahipligi_ilke(tmp_path):  # d11 (a): ad biçimi · kendi dizinindeki dosya · kendi manifest adı; başka aracın komutu RET
+    from ozet3 import adlari, gecerli_a
+    o = {"ne_yapar": "x", "girdi_cikti": "", "sinirlar": "", "alinti": {"ne_yapar": "kurulum ve kullanım anlatılır"}}
+    def g(ad, k, komut, m):
+        return gecerli_a(dict(o, komut=komut, alinti=dict(o["alinti"], komut=komut)), "# Araç\nkurulum ve kullanım anlatılır\n`" + komut + "`\n" + m, adlari(ad, k))
+    repo = tmp_path / "CullinanCloud__omniroute"
+    repo.mkdir()
+    assert g("CullinanCloud__omniroute", repo, "npm install -g omniroute", "") is None
+    assert g("Agent Cost Report", tmp_path / "acr-yok" / "SKILL.md", "python3 x/acr.py collect", "") is None
+    assert g("context-mode-paket", tmp_path / "SKILL.md", "context-mode doctor", "") is None
+    eklenti = tmp_path / "cowork"
+    (eklenti / "hooks").mkdir(parents=True)
+    (eklenti / "scripts").mkdir()
+    (eklenti / "scripts" / "cmem-hook.mjs").write_text("")
+    (eklenti / ".claude-plugin").mkdir()
+    (eklenti / ".claude-plugin" / "plugin.json").write_text('{"name": "claude-mem-cowork"}')
+    assert g("PostToolUse:*", eklenti / "hooks" / "hooks.json", 'node "${CLAUDE_PLUGIN_ROOT}/scripts/cmem-hook.mjs" status', "") is None
+    assert "hooks" not in adlari("PostToolUse:*", eklenti / "hooks" / "hooks.json")  # klasör adı sahiplik değil
+    paket = tmp_path / "thedotmack__mem"
+    paket.mkdir()
+    (paket / "package.json").write_text('{"name": "claude-mem", "bin": {"cmem": "x.js"}}')
+    assert g("thedotmack__mem", paket, "npx claude-mem install", "") is None and g("thedotmack__mem", paket, "cmem status", "") is None
+    ajanlar = tmp_path / "agents"
+    ajanlar.mkdir()
+    (ajanlar / "ders.py").write_text("")
+    assert g("ml-llm-saglayici-yonlendirme", ajanlar / "ml-llm-saglayici-yonlendirme.md", "python ders.py ekle", "") == "komut aracın kendi adını içermiyor"
+
+
+def test_kanca_komutu_satir_parcasi():  # d11 (b): satırın birebir parçası (≥8 kr) yeter
+    from ozet3 import gecerli_a
+    m = 'Ne yapar: context-mode kancaları.\n{"command": "node \\"${CLAUDE_PLUGIN_ROOT}/hooks/pretooluse.mjs\\""}\n'
+    o = {"ne_yapar": "x", "girdi_cikti": "", "sinirlar": "", "alinti": {"ne_yapar": "context-mode kancaları"}}
+    def g(k):
+        return gecerli_a(dict(o, komut=k, alinti=dict(o["alinti"], komut='{"command": "node')), m)
+    assert g("/hooks/pretooluse.mjs") is None
+    assert g("/hooks") == "komut parçası 8 karakterden kısa"
+
+
+def test_kaynaksiz_kalem_tahmin_yok():  # d11 (c): kaynağı yalnız aday satırı → her alan "kaynak yetersiz"
+    from ozet3 import gecerli_a, kaynaksiz
+    m = "parti\tvideo\tkaynak\tterim\tkarar\tsebep\nk1\tv\tpaket\thttps://docs.stripe.com/x\taday\tkurulum adayı\nk2\tv\tpaket\tbaska\tkur\tx\n"
+    assert kaynaksiz({"https://docs.stripe.com/x"}, m) and kaynaksiz({"a"}, "tek\nsatır\n")
+    assert not kaynaksiz({"baska"}, m + "baska ayrıca açıklanır\n")
+    yetersiz = {a: "kaynak yetersiz" for a in ["ne_yapar", "komut", "girdi_cikti", "sinirlar", "mekanizma"]}
+    assert gecerli_a(yetersiz, m, {"https://docs.stripe.com/x"}) is None
+    assert gecerli_a(dict(yetersiz, mekanizma=["ölçüm"]), m, {"https://docs.stripe.com/x"}) == "kaynaksız kalemde tahmin"
+    assert gecerli_a(dict(yetersiz, ne_yapar="Stripe hesap token API'si."), m, {"https://docs.stripe.com/x"}) == "kaynaksız kalemde tahmin"

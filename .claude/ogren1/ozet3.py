@@ -3,7 +3,7 @@
 Yorum alanı `mekanizma`: kol B (başka aile, Groq gpt-oss-120b) BAĞIMSIZ seçer; kesişim varsa kabul, yoksa cekismeli=true → Claude özgünü açar.
 metin(): uzun belgede Requirements/Limits/Usage/Options/Caveats bölümleri kırpılmadan girdiye alınır. Tavan en fazla 100 çağrı.
   python -X utf8 .claude/ogren1/ozet3.py [ad ...]   ·   python -X utf8 .claude/ogren1/ozet3.py --sina  (qmd bölüm kanıtı)"""
-import json, re, sys, time, urllib.request
+import json, os, re, sys, time, tomllib, urllib.request
 import psutil
 from pathlib import Path
 
@@ -25,6 +25,8 @@ TANIM = ("Tanımlar: sıkıştırma=aynı içeriği daha az baytla verir; önbel
          "özetleme=uzun metni kısa özete indirir; tur azaltma=daha az araç çağrısı/tur; yönlendirme=işi daha ucuz araca/modele seçer; "
          "ölçüm=yalnız tüketimi ölçer/raporlar, kendisi tasarruf etmez.")
 CIKARIM = ["ne_yapar", "komut", "girdi_cikti", "sinirlar"]
+YETERSIZ = "kaynak yetersiz"
+BETIK = {".py", ".js", ".mjs", ".cjs", ".ts", ".sh", ".ps1"}
 SEMA_A = ("Aşağıdaki araç belgesini oku ve YALNIZ şu JSON nesnesini döndür (Türkçe, alan başına ≤2 cümle, uydurma yok; belgede gerçekten "
           'yoksa "belirsiz"): {"ne_yapar":"","komut":"en tipik 1-2 komut/çağrı","girdi_cikti":"","sinirlar":"gereksinim, sınır, uyarı",'
           '"ne_zaman":"","cakistigi_arac":"belgede adı geçen benzer/çakışan araçlar",'
@@ -64,15 +66,47 @@ def ad_k(s):
 
 
 def adlari(ad, kaynak):
-    """aracın adı + dosya adı (SKILL.md/README.md ise klasör adı) — agent dosyası engineering-knowledge-graph-engineer.md gibi"""
+    """aracın adı + dosya adı (SKILL.md/README.md ise klasör adı) — agent dosyası engineering-knowledge-graph-engineer.md gibi
+    d11 komut sahipliği: (i) adın biçimleri (owner__ad → ad, -mcp/-paket/-skill/-cli eksiz, boşluklu adın baş harfleri: Agent Cost Report → acr)
+    (ii) kendi dizinindeki betiklerin göreli yolu (SKILL/README → klasörü, hooks.json → eklenti kökü, dizin → kendisi; tek dosya kalemde dizin yok:
+    agents/ klasörü başka ajanların dosyalarını da taşır) (iii) kendi manifest adı (package.json name/bin, pyproject name/scripts, plugin.json name)"""
     p = Path(str(kaynak).replace("cmd:", ""))
-    return {ad, p.parent.name if p.stem.upper() in ("SKILL", "README") else p.stem}
+    son = ad.split("__")[-1]
+    s = {ad, son, re.sub(r"-(mcp|paket|skill|cli)$", "", son)}
+    if len(ad.split()) > 1:
+        s.add("".join(w[0] for w in ad.split()).lower())
+    belge = p.stem.upper() in ("SKILL", "README")
+    if p.name != "hooks.json":  # klasör adı "hooks" sahiplik değil
+        s.add(p.parent.name if belge else p.stem)
+    kok = p if p.is_dir() else p.parent if belge else p.parent.parent if p.name == "hooks.json" else None
+    if kok and kok.is_dir():
+        for kd, dl, fl in os.walk(kok):
+            dl[:] = [d for d in dl if d not in ("node_modules", ".git")]
+            s |= {Path(kd, f).relative_to(kok).as_posix() for f in fl if Path(f).suffix in BETIK}
+        if (kok / "package.json").is_file():
+            j = json.loads((kok / "package.json").read_text(encoding="utf-8"))
+            s |= {j.get("name") or ""} | (set(j["bin"]) if isinstance(j.get("bin"), dict) else set())
+        if (kok / ".claude-plugin" / "plugin.json").is_file():
+            s.add(json.loads((kok / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8")).get("name") or "")
+        if (kok / "pyproject.toml").is_file():
+            pr = tomllib.loads((kok / "pyproject.toml").read_text(encoding="utf-8")).get("project", {})
+            s |= {pr.get("name") or ""} | set(pr.get("scripts") or {})
+    return s - {""}
+
+
+def kaynaksiz(adlar, m):
+    """d11 (c): anlamlı satırı < 3 ya da adın geçtiği her satır bir aday satırı (kacan-karar.tsv) → kaynak yok, alan tahmini yasak"""
+    L = [x for x in m.splitlines() if x.strip()]
+    ilgili = [x for x in L if any(a in x for a in adlar)]
+    return len(L) < 3 or bool(ilgili) and all("\taday\t" in x for x in ilgili)
 
 
 def gecerli_a(o, m, adlar=None, uyari=None):
     """alan başına: boş/belirsiz → ilgili başlık belgede varsa ret; dolu → alıntısı belgede birebir olmalı. Dönüş: ret nedeni ya da None
     d8: adlar verilirse komut aracın kendi adını içermeli (how-it-works'e /learn-codebase, budget-mode'a /octo:model-config yazılmıştı)
     d10: komut belgede birebir olmalı (ya da /ad); uyari listesi verilirse "belirsiz + gerekçe" + alıntı = birebir başlık satırı → ret yerine uyarı"""
+    if adlar and kaynaksiz(adlar, m):  # stripe/amazon'a ada bakılarak "ölçüm" yazılmıştı
+        return None if all(n(o.get(a, YETERSIZ)) == YETERSIZ for a in CIKARIM + ["mekanizma"]) else "kaynaksız kalemde tahmin"
     if adlar and not bos(o.get("komut", "")) and not any(len(ad_k(a)) >= 3 and ad_k(a) in ad_k(o["komut"]) for a in adlar):
         return "komut aracın kendi adını içermiyor"
     al = o.get("alinti") if isinstance(o.get("alinti"), dict) else {}
@@ -90,6 +124,9 @@ def gecerli_a(o, m, adlar=None, uyari=None):
             return "komut olay adı/yönerge, komut değil"
         elif a == "komut" and n(o[a]) not in n(m) and o[a].strip() not in {p + x for x in adlar or [] for p in ("", "/")}:
             return "komut belgede birebir değil (kendi ifadesi)"
+        elif a == "komut" and len(n(o[a])) < 8 and o[a].strip() not in {p + x for x in adlar or [] for p in ("", "/")} \
+                and n(o[a]) not in {n(x) for x in m.splitlines()}:
+            return "komut parçası 8 karakterden kısa"  # d11 (b): kanca satırının parçası kabul, ama yol/komut belirteci kadar
     return None
 
 
