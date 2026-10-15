@@ -43,8 +43,9 @@ Kaynak: `.kos/kopru/ogren/ozet-token-v2.jsonl` (32 kalem, v2 şema, Claude jeton
 **jev ilgili / log / triage** — delegasyon (ucuz model dosya/satır seçer). Yeşil log `jev log` 74 B, 0 model çağrısı.
 - Tuzak: `yollar` dizin değil dosya ister (dizinde PermissionError).
 
-**ucuz_alt.py** (`tools/ucuz_alt.py istem.md cikti.md [bağlam…]`) — Claude-dışı combo `cc-yedek-dis`; stdout'a yalnız yol+jeton (126 B). Mini: 1400 girdi → 74 çıktı, 3 s.
-- Tuzak: combo :free değil, kredi yiyebilir (bugün `gpt-6.1-sol`). Combo DEĞİŞMEZ (OmniRoute ayarı Ömer'in; limit yedeği). ÖĞREN-* ve :free kurallı işte ucuz_alt KULLANILMAZ → yalnız `ozet.py` / açık `:free` model adı (Desktop 15 Eki 01:27).
+**ucuz_alt.py — Ücretsiz yol** (`tools/ucuz_alt.py [--tur ozet|lisans|etiket|gorsel] istem cikti.md [bağlam…]`) — YALNIZ :free zincir (nemotron-3-super → ollama gpt-oss:20b-cloud → gemma-4-31b → combo `cc-ucuz-free`); stdout'a yalnız yol+model+jeton. Kombin: küçük iş → zincir → doğrulama (JSON şema · birebir alıntı · boş/belirsiz ret) → geçmezse sonraki model → hepsi geçmezse çıkış 3 → çağıran Claude. Ücretliye ASLA yükselmez (combo üyeleri + yanıt modeli :free denetimi, çıkış 4). Güçlü limit yedeği `cc-yedek-dis` (omniroute.mjs) ayrı, dokunulmaz. Desktop: cc-kopru komut `python tools/ucuz_alt.py --tur lisans …`.
+- Kapı (OMNİ-AYIR d2, kör hakem): **lisans 43/43 doğru, uydurma 0** (7/50 çekişmeli → Claude; medyan 1.5 s) → çıkış 0. **özet 78/84 alan (%92.9), uydurma 0** → %98 altı, TASLAK (çıkış 3); hata deseni: gereksinim/lisans maddesinde bilgi varken "README'de yok". etiket/görsel ölçülmedi → TASLAK. Maliyet: call_logs'ta cc-ucuz-free ücretli ihlal 0, gpt-6.1-sol yalnız cc-yedek-dis.
+- Tuzak: OmniRoute yanıt önbelleği anahtarı max_tokens/reasoning içermez → kesik yanıt aynen döner; istemde `[ucuz_alt SURUM mt.. effort]` etiketi + yerel önbellek anahtarında SURUM/max_tokens/reasoning; kesik (finish=length) önbelleğe yazılmaz. İstem/şema değişince `SURUM` artır. gemma-4-31b :free sık 429 (ölçümde 52×).
 
 **OmniRoute ücretsiz kolları** — `ucretsiz-groq` (gpt-oss-120b) · `openrouter/...:free` · ollama yerel.
 - Groq kök neden (d2, kanıt `mini/groq-kok.txt`): KIRIK DEĞİL. Python-urllib UA → Cloudflare 1010 → 403 (combo'da 502). `user-agent: curl/8.4` ile `ucretsiz-groq` ve `groq/openai/gpt-oss-120b` 200. Llama 3.3/4-scout 400 = OmniRoute `/v1/models` statik katalog eski (Groq canlı katalogda yok).
@@ -75,7 +76,7 @@ Kaynak: `.kos/kopru/ogren/ozet-token-v2.jsonl` (32 kalem, v2 şema, Claude jeton
 4. **Video/medya, toplu metin**: kaynak metin hiç Claude'a girmez → `ozet.py` sabit şema (:free, kalem ~15 s) → Claude yalnız özet; `mekanizma` alanını ölçümle düzelt; 5 kalemde özgün kontrol.
 5. **Görsel yargı**: PNG → nemotron-nano-omni :free (289 jeton, 27 s, curl UA) → Claude yalnız hüküm satırı; şüpheli karede Read ile görüntü.
 6. **Desktop köprü kontrol döngüsü**: `durum_ozet.py <görev>` (3.9 KB) → devir dosyası dar Read → claude-mem search → Desktop'ın kendi araçları (cc-kopru oku iskelet/sembol/aralık · headroom_retrieve · rtk-desktop `rtk read -l aggressive` · graphify-desktop graphify_sor). Büyük yapıştırma öncesi headroom-compress.
-Çakışma matrisi: rtk↔headroom çift sıkıştırma (zararsız) · A6↔headroom şema (yedek katman) · graphify query↔graphify_sor (sembolde sor) · qmd↔graphify (belge↔kod) · ucuz_alt↔ozet.py (:free kural varsa ozet.py) · claude-mem MCP↔HTTP (köprüde HTTP).
+Çakışma matrisi: rtk↔headroom çift sıkıştırma (zararsız) · A6↔headroom şema (yedek katman) · graphify query↔graphify_sor (sembolde sor) · qmd↔graphify (belge↔kod) · ucuz_alt↔ozet.py (ikisi de :free; toplu özet ozet.py, tek küçük iş ucuz_alt) · claude-mem MCP↔HTTP (köprüde HTTP).
 
 ## Karar ağacı
 1. Kod/sembol → `harita` → `graphify_sor` → (yoksa) `graphify explain|path` → dar Read.
@@ -84,6 +85,6 @@ Kaynak: `.kos/kopru/ogren/ozet-token-v2.jsonl` (32 kalem, v2 şema, Claude jeton
 4. Dosya yapısı (düzenleme değil) → `rtk read -l aggressive`.
 5. Geçmiş karar/oturum → claude-mem (CC: mem-search MCP · köprü: HTTP `/api/search`) → `get_observations([id])`.
 6. Çok dosyalı keşif, test/log → alt ajan (okuyucu); köprüde alt ajan yoksa jev log|triage.
-7. Toplu metin özeti → `ozet.py` (:free → ollama); ucuz_alt yalnız ücret kuralı OLMAYAN işte (ÖĞREN-* değil).
+7. Toplu metin özeti → `ozet.py` (:free → ollama); küçük yan iş → `ucuz_alt.py --tur` (yalnız :free; lisans doğrulanmış, özet/etiket/görsel çıkış 3 → Claude doğrular).
 8. Görsel → nemotron-nano-omni :free, curl UA, max_tokens ≥3000.
 9. Ölçüm → rtk gain · headroom savings · token_olc (claude-usage değil).

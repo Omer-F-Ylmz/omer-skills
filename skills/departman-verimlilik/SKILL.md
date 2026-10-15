@@ -15,7 +15,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 2. **Büyük içerik** — log/tarama önce `jev log|triage`; gerekirse `headroom` sıkıştırma; Desktop'a yapıştırmadan önce `headroom-compress` (JSON −%54).
 3. **Keşif** — `.kos/kopru/harita` → sembol adıyla `graphify_sor.py` (−%99 ↔ query) → `graphify explain|path`; belge metni `qmd search`; yapısal arama `smart-explore`.
 4. **Hafıza** — geçmiş iş `mem-search` (köprüde MCP yok: worker HTTP `/api/search`); oturum devri `context-save` / `context-restore`.
-5. **Context** — mantıksal aralarda `strategic-compact`; dalga başında /clear; alt ajana test/log/araştırma; toplu metin özeti Claude-dışı :free model (`.claude/ogren1/ozet.py` kalıbı, curl UA).
+5. **Context** — mantıksal aralarda `strategic-compact`; dalga başında /clear; alt ajana test/log/araştırma; toplu metin özeti Claude-dışı :free model (`.claude/ogren1/ozet.py` kalıbı, curl UA); küçük yan iş (lisans/özet) → `tools/ucuz_alt.py --tur` (yalnız :free zincir `cc-ucuz-free`, doğrulanmazsa çıkış 3 → Claude doğrular; ücretliye kendiliğinden yükselmez).
 6. **Ölçüm** — `rtk gain` · headroom savings · `tools/token_olc.py` (`claude-usage today` bugünü göstermiyor).
 
 ## Kapılar

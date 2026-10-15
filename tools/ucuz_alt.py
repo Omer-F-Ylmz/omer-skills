@@ -31,7 +31,7 @@ ZINCIR = {"ozet": [("omni", NEMO), ("ollama", "gpt-oss:20b-cloud"), ("omni", GEM
           "lisans": [("omni", NEMO), ("ollama", "gpt-oss:20b-cloud"), ("omni", GEMMA), ("omni", COMBO)],
           "etiket": [("omni", NEMO), ("omni", GEMMA), ("ollama", "gpt-oss:20b-cloud"), ("omni", COMBO)],
           "gorsel": [("omni", "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free")]}
-TASLAK = {"etiket", "gorsel"}  # kapı ≥%98'e ulaşmayan türler: çıktı yazılır ama çıkış 3 (Claude doğrular)
+TASLAK = {"etiket", "gorsel", "ozet"}  # kapı ≥%98'e ulaşmayan türler: çıktı yazılır ama çıkış 3 (Claude doğrular); ozet kör hakem 78/84
 SEMA = {"ozet": '{"ozet": "<istenen özet>", "alinti": ["özeti destekleyen, bağlamdan BİREBİR 1-3 alıntı, her biri ≤200 karakter"]}',
         "lisans": '{"lisans": "SPDX kimliği (MIT, Apache-2.0, GPL-3.0 …) ya da yok", "alinti": "lisansı gösteren BİREBİR alıntı ≤200 karakter"}',
         "etiket": '{"etiket": "<seçeneklerden biri>", "alinti": "etiketi destekleyen BİREBİR alıntı ≤200 karakter"}',
