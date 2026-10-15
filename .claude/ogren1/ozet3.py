@@ -10,11 +10,15 @@ KOK = Path(r"C:\Projeler\omer-skills")
 sys.path.insert(0, str(KOK / ".claude/omniroute1"))
 from pilot import env_oku  # noqa: E402
 
-CIKTI = KOK / ".kos/kopru/ogren/ozet-token-v3.jsonl"
-TAVAN, CAGRI = 100, 0
+ESKI = KOK / ".kos/kopru/ogren/ozet-token-v3b.jsonl"  # d6: A alanları + doğrulanmış B oyları buradan yeniden kullanılır
+CIKTI = KOK / ".kos/kopru/ogren/ozet-token-v3c.jsonl"  # d6: v3/v3b kalır, yeniden koşu yeni dosyaya
+TAVAN, CAGRI, HAM = 100, 0, None
+ETIKET = f"v3c-{int(time.time())}"  # d6: OmniRoute önbellek anahtarına güvenme — etiket kalıcı, her koşuda (yeniden denemede) değişir
 KOL_A = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"), ("ollama", "gpt-oss:20b-cloud"), ("ollama", "qwen3.5:4b")]
-KOL_B1 = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free")]  # iki aile; yedek yok — biri düşerse çekişmeli
+KOL_B1 = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free")]
 KOL_B2 = [("groq", "openai/gpt-oss-120b")]
+KOL_B3 = [("omni", "openrouter/google/gemma-4-31b-it:free"), ("omni", "openrouter/google/gemma-4-26b-a4b-it:free"),
+          ("ollama", "qwen3.5:4b")]  # d6: üçüncü aile, yalnız iki oy kesişmezse; gemma :free 429 verirse yerel qwen
 MEKANIZMA = ["sıkıştırma", "önbellek", "bağlam dışı depolama", "delegasyon", "özetleme", "tur azaltma", "yönlendirme", "ölçüm"]
 TANIM = ("Tanımlar: sıkıştırma=aynı içeriği daha az baytla verir; önbellek=önceki sonucu/öneki yeniden kullanır; "
          "bağlam dışı depolama=veriyi bağlam dışında tutar, yalnız sorgu sonucu girer; delegasyon=işi başka süreç/model/ajan yapar; "
@@ -72,28 +76,52 @@ def gecerli_b(o, m):
             and len(n(o.get("kanit", ""))) >= 15 and n(o["kanit"]) in n(m))
 
 
+def oyla(oylar):
+    """d6: tek-kol null ≠ çekişme — herhangi iki geçerli oy kesişirse kesişim kabul, yoksa [] (Claude'a)"""
+    g = [o for o in oylar if o]
+    return next(([v for v in x if v in y] for i, x in enumerate(g) for y in g[i + 1:] if set(x) & set(y)), [])
+
+
+def icerik(h):
+    """d6: kesik yanıt (finish=length; ollama done_reason=length) her kolda RET"""
+    bitis, y = (h.get("done_reason"), h["message"].get("content")) if "message" in h else \
+        (h["choices"][0].get("finish_reason"), h["choices"][0]["message"].get("content"))
+    if bitis == "length":
+        raise ValueError("kesik yanıt (finish=length)")
+    y = y or ""
+    return json.loads(y[y.index("{"):y.rindex("}") + 1])
+
+
 def sor(kol, model, istem):
     global CAGRI
     assert CAGRI < TAVAN, "çağrı tavanı"
     CAGRI += 1
     url, h = {"omni": ("http://127.0.0.1:20128/v1/chat/completions", {"authorization": f"Bearer {env_oku('OMNIROUTE_KEY')}"}),
               "groq": ("https://api.groq.com/openai/v1/chat/completions", {"authorization": f"Bearer {env_oku('GROQ_API_KEY')}"}),
-              "ollama": ("http://127.0.0.1:11434/v1/chat/completions", {})}[kol]
+              "ollama": ("http://127.0.0.1:11434/api/chat", {})}[kol]
+    govde = {"model": model, "max_tokens": 16000, "temperature": 0, "messages": [{"role": "user", "content": istem}]}
+    if kol == "ollama":  # d6: /v1 4096 bağlam + düşünme içeriği yiyordu; think:false + num_ctx ile ~6 sn
+        govde = {"model": model, "think": False, "stream": False, "options": {"num_ctx": 16384, "temperature": 0},
+                 "messages": govde["messages"]}
     q = urllib.request.Request(url, method="POST", headers={"content-type": "application/json", "user-agent": "curl/8.4", **h},
-                               data=json.dumps({"model": model, "max_tokens": 4000, "temperature": 0,
-                                                "messages": [{"role": "user", "content": istem}]}).encode())
-    y = json.load(urllib.request.urlopen(q, timeout=240))["choices"][0]["message"].get("content") or ""
-    return json.loads(y[y.index("{"):y.rindex("}") + 1])
+                               data=json.dumps(govde).encode())
+    global HAM
+    HAM = json.load(urllib.request.urlopen(q, timeout=240))
+    return icerik(HAM)
 
 
 def kos(kollar, sema, ad, m, girdi, dogrula):
     for kol, model in kollar:
         try:
-            o = sor(kol, model, f"{sema}\n\nAraç adı: {ad}\n---\n{girdi}")
+            # etiket: OmniRoute önbellek anahtarı max_tokens'u içermiyor → d4'ün kesik (finish=length) yanıtları dönüyordu
+            o = sor(kol, model, f"{sema}\n\nAraç adı: {ad} [{ETIKET}]\n---\n{girdi}")
         except AssertionError:
             sys.exit("TAVAN")
         except Exception as e:
             print(ad, model, "HATA", type(e).__name__, str(e)[:80], flush=True)
+            if HAM:  # d5: rtk-desktop teşhisi — ham yanıt gövdesi
+                (KOK / f".claude/ogren1/ham-{ad}-{model.split('/')[-1].replace(':', '_')}-{ETIKET}.json").write_text(  # kanıt: üzerine yazılmaz
+                    json.dumps(HAM, ensure_ascii=False, indent=1), encoding="utf-8")
             continue
         neden = dogrula(o, m)
         if neden:
@@ -113,7 +141,9 @@ if __name__ == "__main__":
         assert "Requirements" in g, "qmd Requirements bölümü girdiye girmedi"
         print("qmd: Requirements girdide ✓", len(g))
         sys.exit()
-    bitti = {json.loads(s)["ad"] for s in CIKTI.read_text(encoding="utf-8").splitlines()} if CIKTI.exists() else set()
+    # çekişmeli satır yeniden denenir (yeni etiket); dosyaya eklenir, okuyan son satırı alır (silme yok)
+    bitti = {r["ad"] for r in map(json.loads, CIKTI.read_text(encoding="utf-8").splitlines()) if not r["cekismeli"]} if CIKTI.exists() else set()
+    eski = {r["ad"]: r for r in map(json.loads, ESKI.read_text(encoding="utf-8").splitlines())}
     for ad in sys.argv[1:] or list(ozet_kaynak.D):
         if ad in bitti:
             continue
@@ -123,17 +153,25 @@ if __name__ == "__main__":
             print(ad, "KAYNAK-YOK", type(e).__name__, flush=True)
             continue
         t, g = time.time(), bolumlu(m)
-        a, ma = kos(KOL_A, SEMA_A, ad, m, g, gecerli_a)
-        if not a:
-            continue
         gb = lambda o, m: None if gecerli_b(o, m) else "mekanizma/kanıt geçersiz"
-        b1, m1 = kos(KOL_B1, SEMA_B, ad, m, g, gb)
-        b2, m2 = kos(KOL_B2, SEMA_B, ad, m, g, gb)
-        ortak = [x for x in (b1 or {}).get("mekanizma", []) if x in (b2 or {}).get("mekanizma", [])]
-        a.update(ad=ad, kaynak=ozet_kaynak.D[ad], model=ma, model_b=[m1, m2], mekanizma=ortak,
-                 mekanizma_kollar=[(b1 or {}).get("mekanizma"), (b2 or {}).get("mekanizma")],
-                 mekanizma_gerekce=(b1 or {}).get("mekanizma_gerekce", ""), kanit=(b1 or b2 or {}).get("kanit", ""),
-                 cekismeli=not ortak, sn=round(time.time() - t))
+        b1 = b2 = b3 = m3 = None
+        if ad in eski:  # d6: v3b satırı — A alanları ve B oyları zaten doğrulanmış, yalnız eksik oy sorulur
+            a = eski[ad]
+            ma, (m1, m2), kollar = a["model"], a["model_b"][:2], a["mekanizma_kollar"][:2]
+        else:
+            a, ma = kos(KOL_A, SEMA_A, ad, m, g, gecerli_a)
+            if not a:
+                continue
+            b1, m1 = kos(KOL_B1, SEMA_B, ad, m, g, gb)
+            b2, m2 = kos(KOL_B2, SEMA_B, ad, m, g, gb)
+            kollar = [(b1 or {}).get("mekanizma"), (b2 or {}).get("mekanizma")]
+        if not oyla(kollar):
+            b3, m3 = kos(KOL_B3, SEMA_B, ad, m, g, gb)
+            kollar.append((b3 or {}).get("mekanizma"))
+        ortak, o = oyla(kollar), b1 or b2 or b3 or {}
+        a.update(ad=ad, kaynak=ozet_kaynak.D[ad], model=ma, model_b=[m1, m2, m3], mekanizma=ortak, mekanizma_kollar=kollar,
+                 mekanizma_gerekce=a.get("mekanizma_gerekce") or o.get("mekanizma_gerekce", ""),
+                 kanit=a.get("kanit") or o.get("kanit", ""), cekismeli=not ortak, etiket=ETIKET, sn=round(time.time() - t))
         with CIKTI.open("a", encoding="utf-8") as f:
             f.write(json.dumps(a, ensure_ascii=False) + "\n")
         print(ad, ma, m1, m2, "ok", a["mekanizma"], "ÇEKİŞMELİ" if a["cekismeli"] else "", flush=True)
