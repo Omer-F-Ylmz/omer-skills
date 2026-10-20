@@ -82,4 +82,4 @@ def test_baslat_argv_slash_dar(tmp_path, monkeypatch):
     assert "--plugin-dir" not in ajan_sira.baslat_argv("")[0]
     bayrak.write_text("acik dar=cekirdek")
     a, _ = ajan_sira.baslat_argv("")
-    assert a[a.index("--setting-sources") + 1] == "" and a[a.index("--plugin-dir") + 1].endswith("slash-dar\cekirdek")
+    assert "--setting-sources" not in a and a[a.index("--settings") + 1].endswith("birlesik-ayar.json") and a[a.index("--plugin-dir") + 1].endswith("slash-dar\cekirdek")
