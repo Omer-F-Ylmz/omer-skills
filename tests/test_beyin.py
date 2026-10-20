@@ -27,6 +27,25 @@ def test_bol_uzun_bolum_bos_satirda_kesilir():
     assert [len(x) for _, x in p] == [180, 180, 41]
 
 
+def test_cumleler_sinir_yol_ve_kod_bolunmez():
+    s = "Toplam 37 tur. Sonra `a. B yolu` bakıldı. Dosya tools/beyin.py. Ardından 1. madde • iki"
+    assert beyin_al.cumleler(s) == ["Toplam 37 tur.", "Sonra `a. B yolu` bakıldı.", "Dosya tools/beyin.py.",
+                                    "Ardından 1. madde", "• iki"]
+
+
+def test_ince_bol_baslik_baglami_ve_onek():
+    uzun = " ".join(f"Cümle {i} burada." for i in range(60))
+    p = beyin_al.ince_bol(["# ajan x", "## sonuç", uzun, "SIRA.md:7: Bir karar. İkinci cümle."])
+    assert len(p) > 2 and all(g[:2] == ["# ajan x", "## sonuç"] for _, g in p)
+    assert all(len(" ".join(g)) < 600 for _, g in p)
+    assert "SIRA.md:7: İkinci cümle." in p[-1][1] or "SIRA.md:7: İkinci cümle." in " ".join(p[-1][1])
+
+
+def test_pencere_cumle_sinirina_genisler():
+    satir = "x" * 300 + ". Önemli olgu 4242 burada yazıyor. " + "y" * 300 + ". Son cümle."
+    assert "Önemli olgu 4242 burada yazıyor." in beyin.pencere(satir, ["4242"])
+
+
 def test_diyet_gecerli_ve_gecmis():
     m = ("# G\n★ D 10:00 — d15\n(d1 için GEÇERLİ) ★ D 09:50\n(d14 için, UYGULANDI) ★ D 09:10\n"
          "(d14 için ★ 09:10 ile GEÇERLİ) ★ D 09:00\ngövde ★ içte\n")

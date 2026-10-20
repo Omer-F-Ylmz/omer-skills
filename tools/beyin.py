@@ -18,6 +18,8 @@ ya da de bir bu şu o olan olarak neden nerede nereye kim ise gibi daha en çok 
 the a an of to is what which how""".split())
 TR = str.maketrans("ıİçÇğĞöÖşŞüÜâÂîÎ", "iiccggoossuuaaii")
 PENCERE = 400  # uzun satırda gösterilen karakter
+KAYNAK_TAVAN = 2  # ilk k parçada aynı kaynaktan en çok bu kadar
+SNAP = 120  # pencerenin cümle sınırına genişleyebileceği en çok karakter
 KAR_JETON = 3  # shortcut: Türkçe için ~3 karakter/jeton varsayımı, ölçüm sapıtırsa değiştir
 KOMSU = 3 # arama sonucuna eklenen en fazla wikilink komşusu
 # TR↔EN eş anlam (katlanmış kök → karşılık); kaynakların bir kısmı İngilizce (bellek, global CLAUDE.md)
@@ -101,7 +103,13 @@ def pencere(satir, ts):
     # terimlerin en yoğun olduğu yeri merkez al
     m = max(konum, key=lambda p: sum(abs(q - p) < PENCERE // 2 for q in konum))
     b = max(0, m - PENCERE // 2)
-    return ("… " if b else "") + satir[b:b + PENCERE] + (" …" if b + PENCERE < len(satir) else "")
+    e = b + PENCERE
+    # pencere cümleyi ortadan kesmesin: başı önceki cümle başına, sonu cümle sonuna ≤SNAP karakter genişler
+    if b and (c := list(re.finditer(r"[.!?]\s+(?=[A-ZÇĞİÖŞÜ\d(`\"'*-])", satir[max(0, b - SNAP):b]))):
+        b = max(0, b - SNAP) + c[-1].end()
+    if e < len(satir) and (c := re.search(r"[.!?](?=\s)", satir[e:e + SNAP])):
+        e += c.end()
+    return ("… " if b else "") + satir[b:e] + (" …" if e < len(satir) else "")
 
 
 def esle(x, ks):
@@ -203,8 +211,15 @@ def ara(soru, k=5, koleksiyon="beyin", indeks=INDEKS):
         tarih = int(re.sub(r"\D", "", n[0].get("guncellenme", "")) or 0)
         degerli.append(((-n[4], -max(puan), -tarih, pos), yol, n, puan))
     degerli.sort(key=lambda x: x[0])
-    sonuc, secilen = [], []
-    for _, yol, n, puan in degerli[:k]:
+    sonuc, secilen, sayac = [], [], {}
+    # aynı kaynaktan en çok KAYNAK_TAVAN parça: parçalanmış tek uzun kaynak ilk k'yı doldurup ikinci kaynağı (çok-notlu soru) dışarıda bırakmasın
+    sec = []
+    for x in degerli:
+        s = x[2][0].get("kaynak", x[1])
+        if len(sec) < k and sayac.get(s, 0) < KAYNAK_TAVAN:
+            sayac[s] = sayac.get(s, 0) + 1
+            sec.append(x)
+    for _, yol, n, puan in sec + [x for x in degerli if x not in sec][:max(0, k - len(sec))]:
         sonuc += pencereler(yol, n, puan)
         secilen.append(Path(kok[0], yol))
     # 1 adım wikilink komşusu: seçilen notların "Bağlar:" hedefleri, soruyla ≥1 kavram eşleşirse

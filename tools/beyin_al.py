@@ -38,6 +38,9 @@ KAYNAKLAR = [
     ("50-dersler", "ders", "ders", str(BELLEK / "*.md")),
 ]
 PARCA_TAVAN = 150  # satır; bundan uzun bölüm sonraki boş satırda (en geç +30'da) kesilir; arama bölüm içinde satır penceresi + başlık verir
+INCE_TUR = {"ajan", "karar"}  # tek satırı çok uzun sonuç kaynakları: cümle sınırında parçalanır (ince_bol)
+PARCA_KAR = 450  # karakter; ince kaynakta parça başına cümle grubu tavanı
+CUMLE_SINIR = re.compile(r"(?<=[.!?])(?<!\b\d\.)\s+(?=[A-ZÇĞİÖŞÜ\d(\"'`*-])|\s+(?=[•▪]\s)")
 TAKMA_TUR = {"gorev", "kurulum", "ders", "ogren", "ajan"}  # dosya kökü bağ hedefi olan türler
 BAG_TAVAN = 5
 GIZLI = re.compile(r"sk-[\w-]{20,}|gh[ps]_\w{20,}|github_pat_\w{20,}|AIza[\w-]{30,}|xox[abp]-[\w-]{10,}"
@@ -66,6 +69,49 @@ def bol(satirlar):
     if cur:
         parcalar.append((bas, cur))
     return [(b, p) for b, p in parcalar if any(x.strip() for x in p)]
+
+
+def cumleler(satir):
+    """Satırı cümle/madde sınırında böler (". " + büyük harf/rakam, "• "); backtick aralığı bölünmez, "1." liste numarası cümle sayılmaz."""
+    yasak = [m.span() for m in re.finditer(r"`[^`\n]*`", satir)]
+    out, b = [], 0
+    for m in CUMLE_SINIR.finditer(satir):
+        if not any(x < m.start() < y for x, y in yasak):
+            out.append(satir[b:m.start()])
+            b = m.end()
+    return out + [satir[b:]]
+
+
+def ince_bol(satirlar):
+    """bol'un ince kaynak (ajan-sira, SIRA kararları) sürümü: cümleler PARCA_KAR'a kadar gruplanır, her parça başlık bağlamını
+    (son #/## satırları) taşır; kod bloğu satırı bölünmez, `SIRA.md:N:` önekli satırın devam parçaları öneki yineler."""
+    parcalar, cur, baslik, kod, bas = [], [], {}, False, 1
+
+    def baglam():
+        return [baslik[k] for k in sorted(baslik)]
+
+    cur_boyut = 0
+    for i, s in enumerate(satirlar, 1):
+        if s.startswith("```"):
+            kod = not kod
+        if s.startswith("#"):
+            if cur:
+                parcalar.append((bas, cur))
+            seviye = len(s) - len(s.lstrip("#"))
+            baslik = {k: v for k, v in baslik.items() if k < seviye} | {seviye: s}
+            bas, cur, cur_boyut = i, baglam(), 0
+            continue
+        onek = re.match(r"\S+:\d+: ", s)
+        for j, g in enumerate([s] if kod or s.startswith("```") else cumleler(s)):
+            g = onek.group() + g if j and onek else g
+            if cur_boyut and cur_boyut + len(g) > PARCA_KAR:
+                parcalar.append((bas, cur))
+                bas, cur, cur_boyut = i, baglam(), 0
+            cur.append(g)
+            cur_boyut += len(g)
+    if cur:
+        parcalar.append((bas, cur))
+    return [(b, p) for b, p in parcalar if any(x.strip() and not x.startswith("#") for x in p)]
 
 
 def ad_yap(onek, yol):
@@ -119,7 +165,7 @@ def kaynak_al(kasa, klasor, ad, kaynak, metin, tarih, tur, eski_sayi, guven="kay
     if tur == "ders":  # bellek notları [[slug]] ile bağlanır; kasada not adı ders-<slug>--1
         metin = re.sub(r"\[\[([^\]|#]+)\]\]", r"[[ders-\1--1|\1]]", metin)
     satirlar = metin.replace("\r\n", "\n").split("\n")
-    parcalar = bol(satirlar)
+    parcalar = (ince_bol if tur in INCE_TUR else bol)(satirlar)
     adlar = [f"{ad}--{i}" for i in range(1, len(parcalar) + 1)]
     tadlar = tadlar or {}
     takma = next((t for t, a in tadlar.items() if a == ad), None)
