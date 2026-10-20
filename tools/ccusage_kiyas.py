@@ -2,7 +2,9 @@
   npx -y ccusage@latest daily --json --offline --since YYYYMMDD > ccu.json
   python tools/token_olc.py olc --gun N --cikti olc.json
   python tools/ccusage_kiyas.py ccu.json olc.json
-Fark% = (token_olc - ccusage) / ccusage. Çıktıda yalnız sayı bulunur."""
+Fark% = (token_olc - ccusage) / ccusage. Çıktıda yalnız sayı bulunur.
+Ölçülen fark (19-21 Eki): cikti -%8,7 = token_olc aynı message.id için İLK akış kaydını tutuyor (ilk-kayıt 5.986.494 = olc); SON/en büyük kayıt 6.558.153, ccusage 6.556.851 (+%0,02).
+Düşünme jetonu ayrı sayılmıyor (output_tokens'a dahil). usd +%6,9 = fiyat tablosu: girdi/cache ±%0,0 ve çıktı eksikken usd yüksek, token farkı açıklamaz."""
 import json
 import sys
 

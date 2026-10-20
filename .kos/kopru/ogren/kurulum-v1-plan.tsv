@@ -5,10 +5,10 @@ Graphify	repo	UYARLA						TOKEN-REA	kod haritası		-	-	-
 HyperFrames	arac	UYARLA							kodla video		-	-	-
 Replica	skill	UYARLA							uygulama klonlama		-	-	-
 TradingView MCP	mcp	YENI	tradesdontlie/tradingview-mcp	other	6887	2026-07-28	4		trading entegrasyonu		-	-	-
-MoneyPrinterTurbo	repo	YENI	harry0703/MoneyPrinterTurbo	mit	133397	2026-10-20	7		kısa video üretimi		-	-	-
+MoneyPrinterTurbo	repo	YENI	harry0703/MoneyPrinterTurbo	mit	133397	2026-10-20	7		kısa video üretimi		SS CRITICAL=ttf font (yanlis pozitif), HIGH 23/gl 0	ELE: skill degil, 200MB Docker uygulamasi + ucretli API akisi	-
 Paperclip	repo	YENI	paperclipai/paperclip	mit	105171	2026-10-20	5		ajan orkestrasyonu		-	-	-
-Brag	skill	YENI	latent-spaces/brag	mit	17146	2026-10-13	8		tanıtım videosu		-	-	-
-PentAGI	repo	YENI	vxcontrol/pentagi	mit	31522	2026-10-17	7		güvenlik testi		-	-	-
+Brag	skill	YENI	latent-spaces/brag	mit	17146	2026-10-13	8		tanıtım videosu		SS CRITICAL=uv.lock certifi (yanlis pozitif), HIGH=dokuman/ornek html/gl 0	ELE: Hyperframes+uv+ffmpeg bagimliligi kurulu degil, lansman videosu akisi yok (kazanci dusuk); geri acilabilir	-
+PentAGI	repo	YENI	vxcontrol/pentagi	mit	31522	2026-10-17	7		güvenlik testi		SS DO_NOT_INSTALL CRITICAL 4 (pentest sablonlari)/HIGH 163	ELE: otonom saldiri ajani, izin kapsami genis, kazanc yok	-
 Context Mode	arac	UYARLA						TOKEN-REA	bağlam tasarrufu		-	-	-
 Grill Me	skill	YENI	RobMitt/grill-me-skill		1018	2026-04-11	4		prompt netleştirme		-	-	-
 Hypit	repo	YENI	hypit-ai/hypit	other	24262	2026-10-19	5		video klonlama		-	-	-
@@ -93,7 +93,7 @@ OpenQodex	arac	YENI	openqodex/openqodex	apache-2.0	776	2026-10-15	6		kod incelem
 Voicebox	arac	YENI	jamiepine/voicebox	mit	58091	2026-10-07	6		ses klonlama TTS		-	-	-
 FreeToken	repo	YENI	FlashML-org/FreeToken	apache-2.0	14647	2026-10-20	7	TOKEN-REA	yerel LLM motoru	ILK10	SS 39/217 (launch.py dış betik çekme + env okuma) · gl 1 (test fixture) · sg 22	ELE (GPU çekirdek önbelleği; yerelde kazanç yok, install.sh dış betik indirir)	-
 Open WebUI	repo	YENI	open-webui/open-webui	other	156281	2026-10-20	7		ekip AI arayüzü		-	-	-
-/hiring-panel	skill	YENI	alexyc9381/hiring-panel-skill	mit	41	2026-10-11	8		CV optimizasyonu		-	-	-
+/hiring-panel	skill	YENI	alexyc9381/hiring-panel-skill	mit	41	2026-10-11	8		CV optimizasyonu		SS SAFE/gl 0	KURULDU: npx skills add alexyc9381/hiring-panel-skill -g -a claude-code -y; dist/kurulum-v1/hiring-panel.zip TEMIZ (description tek satira cevrildi: >- zip_denetle'yi tetikliyor)	-
 Claude Commercial	skill	YENI	opaiiva/claude-commercial-ops-skills		0	2026-07-30	7		AI reklam		-	-	-
 Fallow	arac	YENI	fallow-rs/fallow	mit	5199	2026-10-20	7		kod kalitesi		-	-	-
 Colibri	repo	YENI	JustVugg/colibri	apache-2.0	43040	2026-10-20	7		yerel LLM		-	-	-
@@ -114,7 +114,7 @@ Superset	arac	YENI	apache/superset	apache-2.0	75232	2026-10-20	6		ajan orkestras
 Dray	arac	OLU?	CenturyLinkLabs/dray	apache-2.0	385	2020-01-24		TOKEN-REA	bağlam aktarımı		-	-	-
 Auto Harness	skill	YENI	aiming-lab/AutoHarness	mit	452	2026-04-02	5	TOKEN-REA	öğrenen skill		-	-	-
 Vendeo Instagram skill paketi	skill	YENI-kaynaksiz					6		Instagram içerik		-	-	-
-Answer Me with HTML	skill	YENI	QingYunA/answer-me-with-html	mit	4098	2026-10-20	8		HTML yanıt		-	-	-
+Answer Me with HTML	skill	YENI	QingYunA/answer-me-with-html	mit	4098	2026-10-20	8		HTML yanıt		SS HIGH 36 (CI sudo, .npmrc, 9k satir paketli am.mjs)/gl 2 aws-test fixture	ELE: 'proaktif ve cömertçe' tetik = her yanita sayfa uretimi (token+davranis), bizde html skill var	-
 Task-CoEvolve	repo	YENI	Agent4Science-UTokyo/Task-CoEvolve		22	2026-08-28	6		ajan optimizasyonu	ILK10	SS 0/1 · gl 0 · sg 0 · LİSANS YOK	ELE (lisans kapısı: lisanssız repo kurulmaz)	-
 Harness²	repo	UYARLA							ajan optimizasyonu		-	-	-
 Açık kaynak ElevenLabs alternatifi (adı belirtilmemiş)	arac	YENI-kaynaksiz					6		ses/TTS		-	-	-
