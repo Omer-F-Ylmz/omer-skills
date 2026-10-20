@@ -9,8 +9,8 @@ import winreg
 
 URL = "http://127.0.0.1:20128"
 COMBO = "mem-yedek"
-# Sıra: Groq ücretsiz > OpenRouter YALNIZ :free > yerel ollama. Gemini claude-mem'de ayrı (hız sınırlı) birincil.
-ZINCIR = ["groq/openai/gpt-oss-20b", "openrouter/nvidia/nemotron-3.5-lightning:free", "ollama/qwen3.5:4b"]  # MEM-FIX-2: ollama-local bağlantısı (providerSpecificData.baseUrl) eklendi
+# Sıra (MEM-FIX-3): OpenRouter YALNIZ :free > yerel ollama > Groq EN SON (TPM 8000 → 413, combo 413'te sonraki halkaya düşmüyor; TPD 200k). Gemini claude-mem'de ayrı (hız sınırlı) birincil.
+ZINCIR = ["openrouter/nvidia/nemotron-3.5-lightning:free", "ollama/qwen3.5:4b", "groq/openai/gpt-oss-20b"]
 
 
 def serbest_mi(model):

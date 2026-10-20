@@ -11,3 +11,7 @@ def test_ucretli_openrouter_reddedilir():
 
 def test_zincir_temiz():
     assert all(serbest_mi(m) for m in ZINCIR)
+
+
+def test_groq_en_son():
+    assert ZINCIR[-1].startswith("groq/") and ZINCIR[0].startswith("openrouter/")

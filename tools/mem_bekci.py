@@ -108,9 +108,13 @@ def saglik():
     except (OSError, ValueError, KeyError):
         kyas = None
     s = sebepler(aktif, yas, kyas)
-    if not s:
-        return
     log = os.path.join(KOK, ".kos", "kopru", "mem-saglik.log")
+    if not s:
+        # düzelme: son satır sorunsa bir kez "sağlıklı" yaz
+        if os.path.exists(log) and "sağlıklı" not in open(log, encoding="utf-8").read().splitlines()[-1]:
+            with open(log, "a", encoding="utf-8") as f:
+                f.write(time.strftime("%Y-%m-%d %H:%M:%S ") + "sağlıklı\n")
+        return
     if os.path.exists(log) and simdi - os.path.getmtime(log) < 1800:
         return
     satir = time.strftime("%Y-%m-%d %H:%M:%S ") + "; ".join(s)
