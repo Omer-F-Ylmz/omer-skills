@@ -9,7 +9,7 @@ def test_sinif_kademe():
     assert ordu.sinif("dosyaları listele")["kademe"] == "T1"
     assert ordu.sinif("dosyaları listele")["capraz"] is False
     assert ordu.sinif("özet çıkar")["capraz"] is True
-    assert ordu.sinif("küçük bug düzelt")["kademe"] == "T3"
+    assert ordu.sinif("küçük bug düzelt")["kademe"] == "T2"
     assert ordu.sinif("çok dosyalı mimari")["kademe"] == "T4"
     assert ordu.sinif("bilinmeyen iş")["sinif"] == "zor"
 
@@ -31,3 +31,33 @@ def test_kapi():
 
 def test_heldout_etiketleri_gecerli():
     assert len(ordu.HELDOUT) == 20 and all(e in ordu.SINIF for _, e in ordu.HELDOUT)
+
+
+def test_merdiven_omer_sirasi():
+    assert [b["ad"] for b in ordu.MERDIVEN] == ["ucretsiz", "haiku-medium", "haiku-high", "sonnet-medium", "sonnet-high",
+                                                "opus-medium", "opus-high"]
+    assert [(b["model"].split("-")[1] if "-" in b["model"] else b["model"], b["effort"]) for b in ordu.MERDIVEN[1:]] == [
+        ("haiku", "medium"), ("haiku", "high"), ("sonnet", "medium"), ("sonnet", "high"), ("opus", "medium"), ("opus", "high")]
+    assert [ordu.BASLA[s] for s in ordu.SINIF] == [0, 0, 3, 5]
+
+
+def _kayit(tmp_path, monkeypatch):
+    monkeypatch.setattr(ordu.yonlendir, "KAYIT", tmp_path / "kayit.jsonl")
+    monkeypatch.setattr(ordu.yonlendir, "SIRA", tmp_path / "SIRA.md")
+
+
+def test_merdiven_kos_kaskad_ve_ogrenme(tmp_path, monkeypatch):
+    _kayit(tmp_path, monkeypatch)
+    gidilen = []
+    cikti, i = ordu.merdiven_kos("etiket", "orta", lambda b: (gidilen.append(b["ad"]) or b["ad"], {}), lambda c, b: b["ad"] == "haiku-high")
+    assert (cikti, i) == ("haiku-high", 2) and gidilen == ["ucretsiz", "haiku-medium", "haiku-high"]
+    ordu.merdiven_kos("etiket", "orta", lambda b: (b["ad"], {}), lambda c, b: b["ad"] == "haiku-high")  # ikinci kayıt → öğrenme açılır
+    assert ordu.basla("etiket", "orta") == 2
+    assert ordu.basla("baska-tur", "orta") == 0  # kayıt yok → sınıf başlangıcı
+
+
+def test_merdiven_tukenince_sira_satiri(tmp_path, monkeypatch):
+    _kayit(tmp_path, monkeypatch)
+    assert ordu.merdiven_kos("x", "zor", lambda b: ("", {}), lambda c, b: False, "is1") == (None, 6)
+    assert "ORDU-1 MERDİVEN TÜKENDİ: is1" in (tmp_path / "SIRA.md").read_text(encoding="utf-8")
+    assert (tmp_path / "SIRA.md").read_text(encoding="utf-8").endswith("bakmalı\n")

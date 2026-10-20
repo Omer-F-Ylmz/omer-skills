@@ -83,3 +83,15 @@ def test_baslat_argv_slash_dar(tmp_path, monkeypatch):
     bayrak.write_text("acik dar=cekirdek")
     a, _ = ajan_sira.baslat_argv("")
     assert "--setting-sources" not in a and a[a.index("--settings") + 1].endswith("birlesik-ayar.json") and a[a.index("--plugin-dir") + 1].endswith("slash-dar\cekirdek")
+
+
+def test_ordu_ve_slash_dar_birlikte(tmp_path, monkeypatch):
+    """ORDU-1 d2: ordu önsözü (istem) ile SLASH dar küme (argv) ayrı katmanlar; iki bayrak açıkken ikisi de çalışır, kapalıyken ordu önsözü boş."""
+    ordu, slash = tmp_path / "ordu", tmp_path / "slash.bayrak"
+    monkeypatch.setattr(ajan_sira, "ORDU_DOSYA", ordu)
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", slash)
+    assert ajan_sira.ordu_onek() == ""
+    ordu.write_text("1")
+    slash.write_text("acik dar=cekirdek")
+    a, _ = ajan_sira.baslat_argv("")
+    assert ajan_sira.ordu_onek().startswith("ORDU-1 derleyici") and a[a.index("--plugin-dir") + 1].endswith("slash-dar\cekirdek")

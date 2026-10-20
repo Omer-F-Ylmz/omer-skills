@@ -142,6 +142,10 @@ def kos(kd, calistir, denetle, ad=""):
     return None, kd
 
 
+def satirlar():
+    return [json.loads(s) for s in KAYIT.read_text(encoding="utf-8").splitlines() if s.strip()] if KAYIT.is_file() else []
+
+
 def ozet(gun=7, yaz=False):
     """Haftalık: tür başı koşu/başarı/ortalama yükseltme. ≥3 koşuda yükseltme oranı ≥%50 → başlangıç +1 (--yaz uygular);
     ≥5 koşu sıfır yükseltme → '-1 ölç' önerisi (yalnız rapor; aşağı inmek ölçümle)."""
