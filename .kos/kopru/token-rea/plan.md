@@ -110,3 +110,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. Onay sonrası gerçek ölçüm: ≥3 gün sonra `taban.py profiller` pencereyi yalnız onay sonrası oturumlara (mtime > 2026-10-20 19:21) kısıtlayarak çalıştır → ölçülen tasarruf; sapma varsa bunu çöz.
 2. En büyük kaldıraç tur sayısı × bağlam boyu (cache_okuma ort. 79k/istek): ölçülmüş otomatik sıkıştırma/erken /clear eşiği (ör. bağlam >120k'da dalga.md devri) + uzun (≥15 tur) köprü görevinde şablon A/B.
 3. `token_rea_baglam.py` onayı (Ömer) ve kalite etkisi ölçümü (claude-mem 6 vs 15 ile aynı görev).
+
+## d8 SONUÇ (20 Eki 2026; Claude -p 0/15, havuz ≈85/80 — tavan hafif aşıldı: ilk iki üretim koşusu ayrıştırma hatasıyla boşa gitti)
+1. **Yöntem skill'i**: `skills/token-rea-yontem/SKILL.md` (7 adım + dört eksen tablosu) + `dist/token-rea-9/token-rea-yontem.zip` (zip_denetle TEMİZ). SkillSpector --no-llm: tek MEDIUM "Session Persistence" (güven 0.6), üç yeniden ifadeye rağmen duruyor → sezgisel yanlış pozitif; Ömer yüklemeden önce bilsin.
+2. **Bağlam onayı kalitesi — "onaya hazır" DEĞİL**: `baglam_kalite.py` (betik üretimli, kilitli, 24 soru = tohum 2010202+2010203). Havuz yanıtlayıcı gürültülü (aynı bilgiyi gören rütbe 1-6'da 15 kolu 0.6, 6 kolu 0.2) → ayrıca havuzsuz kapsam ölçüsü (`kapsam`): anahtar bağlamda var mı. Hepsi: 15 gözlem 0.42 · 6 gözlem 0.33 · 6 + tek mem-search 0.38. Rütbe 1-6 eşit (0.58); rütbe 7-15: 0.25 vs 0.08 (arama ile 0.17). Token: başlık bağlamı ~300 → ~120 (−%60; oturum başı ≈ −2k). Hüküm: 6, eski gözlemlerde kalite kaybeder; 15 kalsın ya da ara değer (8-10) ayrıca ölçülsün.
+3. **Headroom**: BAŞLANMADI (tur tavanı). taban_headroom.json d2c'den var; kalite seti + mekanizma d9.
+4. **Tur × bağlam**: yapılmadı.
+
+## ★ d9 TASLAK
+1. Headroom 1. adım: kalite seti (≥10 madde + held-out, `heldout_uret.py` türü) + 4 eksen taban + kaynak okuma mekanizması + plan.
+2. Bağlam gözlem sayısı: 8/10 ara değer için `baglam_kalite.py kapsam` (havuzsuz, 0 çağrı) — kapsam ≥ 15'in %95'i ve token < 15 ise `token_rea_baglam.py` hedef değerini güncelle.
+3. Tur × bağlam kolu ölçümü (erken /clear önerisi, /autocompact değişmez).
