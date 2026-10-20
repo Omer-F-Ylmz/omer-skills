@@ -183,5 +183,10 @@ if __name__ == "__main__":
         saglik()
     except Exception as e:
         yaz("saglik hata:", repr(e)[:200])
-    if ram() < 88:
+    try:  # yetim süreç temizliği (≥30 dk); günlük .kos/kopru/yetim.log
+        subprocess.run([sys.executable, os.path.join(KOK, ".kos", "kopru", "yetim.py"), "durdur", "--yas", "30"],
+                       capture_output=True, timeout=120, creationflags=0x08000000)
+    except Exception as e:
+        yaz("yetim hata:", repr(e)[:200])
+    if ram() < 95:
         beyin()
