@@ -18,6 +18,7 @@ HAIKU_TAVAN = 30
 TEKRAR = (1, 2)
 YARGIC = ("meta", "openai", "mistral", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
 KULLANILAN = {}
+DUSEN = set()  # hata veren hakem aileleri (koşu boyunca atlanır)
 SKILL = (KOK / "skills/tersine/SKILL.md").read_text(encoding="utf-8")
 
 
@@ -46,6 +47,7 @@ def onbellekli(tur, anahtar, uret):  # önbellek + tür başına çağrı sayac�
     sy.write_text(json.dumps({"n": n + 1}))
     y = uret()
     if y: o.write_text(json.dumps({"y": y}, ensure_ascii=False), encoding="utf-8")
+    elif tur == "hakem": sy.write_text(json.dumps({"n": n}))  # hata dönen hakem çağrısı tavana sayılmaz
     return y
 
 
@@ -68,7 +70,7 @@ def yazar(istem): return onbellekli("yazar", istem, lambda: sonnet(istem))
 def yargic(aile, istem):  # aile "anthropic" → yalnız Haiku (üçüncü hakem)
     def uret():
         y, k, log = HAVUZ.cagir("hakem", istem, max_tokens=4000, aile=aile, haiku_tavan=HAIKU_TAVAN if aile == "anthropic" else 0, etiket="tersine-kapi")
-        if not y: print("hakem hata", aile, ",".join(log), flush=True)
+        if not y: DUSEN.add(aile); print("hakem hata", aile, ",".join(log), flush=True)  # bu koşuda soğumaya alınır
         return y or ""
     return onbellekli("hakem", aile + istem, uret)
 
@@ -144,6 +146,7 @@ def hakem(h, notlar, rng):
     oylar = []
     for aile in YARGIC:
         if len(oylar) == 2: break
+        if aile in DUSEN: continue
         if o := oy(aile): oylar.append(o); KULLANILAN[aile] = KULLANILAN.get(aile, 0) + 1
     if len(oylar) < 2 or oylar[0] != oylar[1]:  # hakemler ayrıştı ya da biri yanıtsız → Haiku üçüncü
         if o3 := oy("anthropic"): oylar.append(o3)
