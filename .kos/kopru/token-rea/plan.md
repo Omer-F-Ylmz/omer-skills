@@ -205,3 +205,13 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. mem_para.py: worker A=0.0 nedenini bul (yanıt biçimi/ayrıştırma; tek elle /api/search sorgusu) — düzelmeden mem2↔worker anlamsal kıyas geçersiz.
 2. mem2'ye havuzla sorgu genişletme (önbellekli); kapı paraphrase ≥0.5 VE anahtar sözcük ≥0.93, yeni tohum.
 3. Onay: kapı geçerse `--genis` benzeri bayrak mem2'de, kural satırında tek ek ibare (net token ≤0).
+
+## d17 sonuç (21 Eki)
+- Worker A=0.0 ARIZA DEĞİL, ayrıştırma da değil: elle /api/search yanıtı geçerli tablo ("| #ID | ... |"), `#(\d+) ` regex'i doğru kimlik çıkarıyor. Worker'a gözlemin kendi başlığı sorulunca bile isabet 2–3/12 (anahtar sözcük mem_ab A=0.10); çıktı yakın tarihli (#30xxx) kayıtlara kayıyor. Chroma onarımından sonra yeni tohumda A=0.053 (n=76). Yani worker anlamsal yolu bu veride zayıf; kıyas geçerli: paraphrase mem2 0.276 > worker 0.053.
+- mem2 sorgu genişletme (`genislet()` + `--genis`, havuz, önbellek mem2_genis.json, Claude 0): paraphrase (tohum 21100301, n=76) B 0.276 → G 0.395 (kapı ≥0.5 ✗); anahtar sözcük (tohum 21100302, n=79) B 0.873 → G 0.835 (kapı ≥0.93 ✗; B bile 0.93'ün altında bu tohumda, başlık sorularında 0.77). KAPI GEÇMEDİ → kural satırı DEĞİŞMEDİ, `--genis` varsayılan kapalı (yalnız opt-in).
+- Not: anahtar sözcükte genişletme başlık sorgularını bozuyor (0.769→0.692), anlatı eşit (0.975); paraphrase'te +0.12 kazanç.
+
+## ★ d18 TASLAK
+1. Genişletme ağırlığı: özgün sözcükler tam, ek sözcükler düşük ağırlık (iki aşamalı: önce özgün OR; ilk 5'te hiç ek sözcük çakışması yoksa ek sözcükleri birleştir) — kapı aynı (paraphrase ≥0.5 VE anahtar ≥0.93), yeni tohum.
+2. Kapı geçmezse genişletme fikri KAPANIR; mem2 paraphrase tavanı ~0.28–0.4 olarak belgelenir, kural satırına "anlamsal soruda sonuç zayıfsa mem-search" ibaresi eklenmez (worker 0.05, yedek değil).
+3. context-mode tabanı etkileşimli CC oturumunda; NotebookLM / mcp-memory (★ 19:30 sırası).

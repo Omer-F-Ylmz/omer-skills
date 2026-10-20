@@ -55,18 +55,22 @@ for k in range(0, len(secim), 10):
         atlanan += len(parca)
         continue
     kaynaklar.add(kay)
-    for (i, _, _, grup), q in zip(parca, sor):
+    ekler = mem2.genislet(sor)
+    for (i, _, _, grup), q, ek in zip(parca, sor, ekler):
         t = time.time()
         b = [r[0] for r in mem2.ara(q, 5)]
         sb = time.time() - t
+        g = [r[0] for r in mem2.ara(q, 5, ek=ek)]
         a, ta, sa = worker(q)
-        S.append({"grup": grup, "A": int(i in a), "B": int(i in b), "C": int(i in (b if b else a)), "U": int(i in a or i in b),
+        if os.environ.get("MEM_PARA_DEBUG"):  # tanı: soru + worker/mem2 kimlikleri (soru metni yalnız dosyaya)
+            open(os.path.join(AD, "_para_debug.jsonl"), "a", encoding="utf-8").write(json.dumps({"i": i, "q": q, "a": a, "b": b}, ensure_ascii=False) + "\n")
+        S.append({"grup": grup, "A": int(i in a), "B": int(i in b), "C": int(i in (b if b else a)), "G": int(i in g), "U": int(i in a or i in b),
                   "tokA": ta, "tokB": len(mem2.bicim(mem2.ara(q, 5))) // 4, "sA": sa, "sB": sb, "bos_B": int(not b)})
 
 
 def ozet(L):
     m = max(1, len(L))
-    return {"n": len(L), **{x: round(sum(s[x] for s in L) / m, 3) for x in ("A", "B", "C", "U", "bos_B")},
+    return {"n": len(L), **{x: round(sum(s[x] for s in L) / m, 3) for x in ("A", "B", "G", "C", "U", "bos_B")},
             "tokA": round(sum(s["tokA"] for s in L) / m), "tokB": round(sum(s["tokB"] for s in L) / m),
             "sA": round(sum(s["sA"] for s in L) / m, 3), "sB": round(sum(s["sB"] for s in L) / m, 3)}
 

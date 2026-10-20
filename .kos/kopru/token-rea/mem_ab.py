@@ -49,9 +49,24 @@ def b_kol(q):
     return [int(x) for x in re.findall(r"^#(\d+) ", p.stdout, re.M)], len(p.stdout), time.time() - t, int(p.returncode != 0)
 
 
-S = {"A": [], "B": []}
+sys.path.insert(0, AD)
+import mem2  # noqa: E402
+
+EK = {}
+for k in range(0, len(sorular), 10):
+    ps = sorular[k:k + 10]
+    EK.update(zip([q for _, _, q in ps], mem2.genislet([q for _, _, q in ps])))
+
+
+def g_kol(q):
+    t = time.time()
+    ids = [r[0] for r in mem2.ara(q, 5, ek=EK.get(q, ()))]
+    return ids, len(mem2.bicim(mem2.ara(q, 5, ek=EK.get(q, ())))), time.time() - t, 0
+
+
+S = {"A": [], "B": [], "G": []}
 for i, tur, q in sorular:
-    for kol, f in (("A", worker), ("B", b_kol)):
+    for kol, f in (("A", worker), ("B", b_kol), ("G", g_kol)):
         ids, ch, s, h = f(q)
         S[kol].append({"tur": tur, "isabet": int(i in ids[:5]), "tok": ch // 4, "s": s, "hata": h})
 
@@ -65,6 +80,6 @@ def ozet(L):
     return o
 
 
-R = {"tohum": tohum, "A_worker": ozet(S["A"]), "B_mem2": ozet(S["B"])}
+R = {"tohum": tohum, "A_worker": ozet(S["A"]), "B_mem2": ozet(S["B"]), "G_mem2_genis": ozet(S["G"])}
 print(json.dumps(R, ensure_ascii=False, indent=1))
 json.dump(R, open(os.path.join(AD, "mem_ab_%d.json" % tohum), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

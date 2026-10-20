@@ -1,0 +1,33 @@
+{
+ "tohum": 21100302,
+ "A_worker": {
+  "n": 79,
+  "isabet": 0.101,
+  "tok": 318,
+  "s_ort": 0.175,
+  "s_max": 0.214,
+  "hata": 0,
+  "isabet_baslik": 0.154,
+  "isabet_anlati": 0.05
+ },
+ "B_mem2": {
+  "n": 79,
+  "isabet": 0.873,
+  "tok": 134,
+  "s_ort": 0.056,
+  "s_max": 0.078,
+  "hata": 0,
+  "isabet_baslik": 0.769,
+  "isabet_anlati": 0.975
+ },
+ "G_mem2_genis": {
+  "n": 79,
+  "isabet": 0.835,
+  "tok": 133,
+  "s_ort": 0.084,
+  "s_max": 0.218,
+  "hata": 0,
+  "isabet_baslik": 0.692,
+  "isabet_anlati": 0.975
+ }
+}
