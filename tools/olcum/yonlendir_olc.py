@@ -1,7 +1,8 @@
-"""ROUTER-1 (20 Eki) ölçüm kapısı: 12 görev (3 T0 · 3 kolay · 3 orta · 3 zor), (A) hepsi Sonnet high ↔ (B) tools/yonlendir.py.
-A: tek toplu claude -p (12 görev). B: T0 betik · T1 ucuz_alt (ücretsiz) · T2 tek toplu (medium) · T3 tek toplu (high) ·
-kalanlar için ≤1 yükseltme çağrısı (+1 kademe; T1 kalanı T2 topluna katılır). claude -p ≤4, ücretsiz ≤60.
-Koşu 2 (kararlılık): B'nin T0+T1 kısmı + sınıflayıcı yok; Sonnet kısmının ikinci koşusu claude -p tavanına sığmaz.
+"""ROUTER-1 d2 (20 Eki) ölçüm kapısı: 12 görev (3 T0 · 3 kolay · 3 orta · 3 zor), (A) Sonnet high ↔ (B) tools/yonlendir.py.
+İki kol AYNI çağrı yapısı: T0 betik · T1 toplu · T2 toplu · T3 toplu, kart her toplu istemde. A'da T1–T3 Sonnet high; B'de T1
+yonlendir.t1 zinciri (Groq → nemotron :free → ollama → Haiku), T2 Sonnet medium, T3 Sonnet high. T1 kalanı B'nin T2 topluna
+katılır; T2 kalanı tek yükseltme çağrısıyla T3'e. claude -p ≤6 → T3 toplusu iki kolda birebir aynı çağrı (bir kez koşar, iki
+kola yazılır) ve A bir kez koşar; B iki koşu. Kapı (her B koşusu): başarı ≥ A ve USD eşdeğeri ≥%30 az. Ücretsiz ≤60.
 Kabul her görevde yerel ve mekanik (test/şema/eşitlik) — denetçi modeli yok. Ham yanıtlar <çıktı>/ altında.
   python .kos/kopru/arka.py <günlük> .kos/kopru/olcum_sira.py tools/olcum/yonlendir_olc.py <çıktı_dizini> [--yeniden]"""
 import json
@@ -17,7 +18,7 @@ import model_sec  # noqa: E402
 import ucuz_alt  # noqa: E402
 import yonlendir  # noqa: E402
 
-CAGRI_TAVAN, USD_TAVAN, UCRETSIZ_TAVAN = 4, 0.6, 60
+CAGRI_TAVAN, USD_TAVAN, UCRETSIZ_TAVAN = 6, 0.6, 60
 KART = (KOK / "skills/is-akisi/references/calisma-karti.md").read_text(encoding="utf-8")
 oku = lambda p, n=None: (KOK / p).read_text(encoding="utf-8")[:n]
 
@@ -118,9 +119,10 @@ def _regex_ok(y):
     return all(r.fullmatch(s) for s in REGEX_POZ) and not any(r.fullmatch(s) for s in REGEX_NEG)
 
 
-def toplu_istem(adlar, kart):
+def toplu_istem(adlar, kosu):
+    """iki kolda aynı metin; koşu etiketi OmniRoute önbelleğini deler (koşu 2 gerçek çağrı olsun)"""
     g = "\n\n".join(f"## {a}\n{GOREV[a][2]}" for a in adlar)
-    return ((KART + "\n\n") if kart else "") + (
+    return f"{KART}\n[ROUTER-1 ölçüm koşu {kosu}]\n" + (
         f"Aşağıda {len(adlar)} bağımsız görev var. Araç kullanma. YALNIZ tek JSON nesnesi döndür; anahtarlar {', '.join(adlar)}, "
         f"değer her görevin istediği yanıt (kod yanıtları JSON dizgesi).\n\n{g}")
 
@@ -155,25 +157,18 @@ def claude(istem, kd, ham, yeniden):
     return json_ilk(d.get("result", "")) or {}, jeton, d.get("total_cost_usd") or 0
 
 
-def ucuz(ad, kosu, cikti):
-    """T1: ucuz_alt.coz; istem başı koşu etiketi önbelleği deler (kararlılık koşusu gerçek çağrı olsun)."""
-    tur, _, istem, *_ = GOREV[ad]
-    secenek = ETIKET if tur == "etiket" else ()
-    dosya = []
-    if tur == "lisans":
-        (f := cikti / f"{ad}-lisans.txt").write_text(oku(LIS[ad], 1500), encoding="utf-8")
-        istem, dosya = "Bu lisans metninin SPDX kimliği nedir?", [str(f)]
-    o, model, deneme, u, _ = ucuz_alt.coz(tur, f"[ROUTER-1 ölçüm koşu {kosu}] {istem}", dosya, secenek)
-    Sayac.ucretsiz += deneme
-    # shortcut: yalnız başarılı denemenin usage'ı sayılır (coz başarısızları döndürmez); çok denemede jeton eksik kalır
-    return (o or {}).get("lisans" if tur == "lisans" else "etiket"), (u.get("prompt_tokens") or 0) + (u.get("completion_tokens") or 0), model
+def _sor(kol, model, g):
+    if Sayac.ucretsiz >= UCRETSIZ_TAVAN:
+        raise RuntimeError("ücretsiz tavanı")
+    Sayac.ucretsiz += 1
+    return ucuz_alt.sor(kol, model, g)
 
 
-def kol_a(cikti, yeniden):
-    adlar = list(GOREV)
-    y, jeton, usd = claude(toplu_istem(adlar, False), yonlendir.sec("kod-yaz"), cikti / "A-1.json", yeniden)
-    return [{"kol": "A", "kosu": 1, "ad": a, "kademe": "T3", "gecti": bool(_guvenli(GOREV[a][3], y.get(a))),
-             "jeton": jeton / len(adlar), "usd": usd / len(adlar)} for a in adlar]
+def _haiku(istem, mt):
+    if Sayac.claude >= CAGRI_TAVAN:
+        raise RuntimeError("claude -p tavanı")
+    Sayac.claude += 1
+    return yonlendir._haiku(istem, mt)
 
 
 def _guvenli(f, y):
@@ -183,49 +178,60 @@ def _guvenli(f, y):
         return False
 
 
-def kol_b(cikti, kosu, yeniden, sonnet=True):
-    sat, bekle = [], {}
-    for a, (tur, sev, _, kabul, betik) in GOREV.items():
-        kd = yonlendir.sec(tur)
-        assert kd["kademe"] == sev, (a, kd["kademe"])
-        if sev == "T0":
-            ok = _guvenli(kabul, betik())
-            sat.append({"kol": "B", "kosu": kosu, "ad": a, "kademe": "T0", "gecti": ok, "jeton": 0, "usd": 0})
-            yonlendir.kaydet(kd, "gecti" if ok else "kaldi", {}, 0, {"ad": f"olcum-{a}"})
-        elif sev == "T1":
-            y, jeton, model = ucuz(a, kosu, cikti)
-            ok = _guvenli(kabul, y)
-            sat.append({"kol": "B", "kosu": kosu, "ad": a, "kademe": "T1", "gecti": ok, "jeton": jeton, "usd": 0, "model": model})
-            yonlendir.kaydet({**kd, "model": model or kd["model"]}, "gecti" if ok else "kaldi", {"giris": jeton}, 0, {"ad": f"olcum-{a}"})
-            if not ok:
-                bekle.setdefault("T2", []).append(a)
-        else:
-            bekle.setdefault(sev, []).append(a)
-    if not sonnet:
-        return sat
-    kalan = {}
-    for kad in ("T2", "T3"):
-        if bekle.get(kad):
-            sat += _toplu(bekle[kad], kad, cikti / f"B-{kosu}-{kad}.json", kosu, yeniden, kalan)
-    if kalan:  # tek yükseltme çağrısı: en yüksek gereken kademede hepsi birlikte (shortcut: T2 kalanı T4'e çıkabilir)
-        kad = max(kalan.values())
-        sat += _toplu(list(kalan), kad, cikti / f"B-{kosu}-{kad}-yuk.json", kosu, yeniden, {}, yukseltme=1)
-    return sat
+def sev(s):
+    return [a for a, g in GOREV.items() if g[1] == s]
 
 
-def _toplu(adlar, kad, ham, kosu, yeniden, kalan, yukseltme=0):
-    kd = {**yonlendir.kurallar()["kademe"][kad], "kademe": kad}
-    y, jeton, usd = claude(toplu_istem(adlar, True), kd, ham, yeniden)
+def satirlar(kol, kosu, adlar, kad, y, jeton, usd, yukseltme=0, ek=None):
+    """toplu çağrının jetonu/USD'si görevlere eşit bölünür (shortcut: görev başı gerçek pay bilinmez); kayıt yalnız B'de"""
     sat = []
     for a in adlar:
         ok = bool(_guvenli(GOREV[a][3], y.get(a)))
-        sat.append({"kol": "B", "kosu": kosu, "ad": a, "kademe": kad, "gecti": ok, "jeton": jeton / len(adlar), "usd": usd / len(adlar),
-                    "yukseltme": yukseltme})
-        # shortcut: toplu çağrının jetonu görevlere eşit bölünür; görev başı gerçek pay bilinmez
-        yonlendir.kaydet({**yonlendir.sec(GOREV[a][0]), **kd}, "gecti" if ok else "kaldi",
-                         {"giris": round(jeton / len(adlar))}, yukseltme, {"ad": f"olcum-{a}"})
-        if not ok and kad != "T4":
-            kalan[a] = yonlendir.SIRALI[yonlendir.SIRALI.index(kad) + 1]
+        sat.append({"kol": kol, "kosu": kosu, "ad": a, "kademe": kad, "gecti": ok, "jeton": jeton / len(adlar),
+                    "usd": usd / len(adlar), "yukseltme": yukseltme, **(ek or {})})
+        if kol == "B":
+            yonlendir.kaydet({**yonlendir.sec(GOREV[a][0]), **yonlendir.kurallar()["kademe"][kad], "kademe": kad,
+                              **({"model": ek["model"]} if ek and ek.get("model") else {})}, "gecti" if ok else "kaldi",
+                             {"giris": round(jeton / len(adlar))}, yukseltme,
+                             {"ad": f"olcum-{a}", **({"yukseltme_sebep": "kota"} if ek and ek.get("kota") else {})})
+    return sat
+
+
+def sonnet(kol, kosu, adlar, kad, ham, yeniden, effort_kad=None, yukseltme=0):
+    kd = {**yonlendir.kurallar()["kademe"][effort_kad or kad], "kademe": effort_kad or kad}
+    y, jeton, usd = claude(toplu_istem(adlar, kosu), kd, ham, yeniden)
+    return satirlar(kol, kosu, adlar, kad, y, jeton, usd, yukseltme)
+
+
+def t0(kol, kosu):
+    return [{"kol": kol, "kosu": kosu, "ad": a, "kademe": "T0", "gecti": bool(_guvenli(GOREV[a][3], GOREV[a][4]())), "jeton": 0,
+             "usd": 0} for a in sev("T0")]
+
+
+def kol_a(cikti, yeniden):
+    """T1 ve T2 toplusu Sonnet high (T3 kademesinin bayrakları); T3 toplusu ortak"""
+    return t0("A", 1) + sum((sonnet("A", 1, sev(k), k, cikti / f"A-1-{k}.json", yeniden, "T3") for k in ("T1", "T2")), [])
+
+
+def kol_b(cikti, kosu, yeniden):
+    sat = t0("B", kosu)
+    ham = cikti / f"B-{kosu}-T1.json"
+    if yeniden and ham.exists():
+        r = json.loads(ham.read_text(encoding="utf-8"))
+    else:
+        r = yonlendir.t1(toplu_istem(sev("T1"), kosu), sor=_sor, haiku=_haiku)
+        ham.write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8")
+    u = r["usage"]
+    sat += satirlar("B", kosu, sev("T1"), "T1", json_ilk(r["yanit"] or "") or {}, u["giris"] + u["cikis"], r["usd"],
+                    ek={"model": r["model"], "kota": r["kota"], "sebep": ";".join(r["sebep"])})
+    t2 = sev("T2") + [s["ad"] for s in sat if s["kademe"] == "T1" and not s["gecti"]]
+    sat += sonnet("B", kosu, t2, "T2", cikti / f"B-{kosu}-T2.json", yeniden, yukseltme=0)
+    kalan = [s["ad"] for s in sat if s["kademe"] == "T2" and not s["gecti"]]
+    if kalan:  # tek yükseltme çağrısı (+1 → T3); tavan dolarsa görev kalır
+        try:
+            sat += sonnet("B", kosu, kalan, "T3", cikti / f"B-{kosu}-T3-yuk.json", yeniden, yukseltme=1)
+        except RuntimeError:
+            pass
     return sat
 
 
@@ -233,10 +239,9 @@ def sinif_dogruluk():
     """Yan ölçü: tür etiketi verilmeseydi sınıflayıcı (tek ücretsiz çağrı) doğru kademeyi bulur muydu? Jetonu B'ye eklenir."""
     dogru, jeton = 0, 0
     for a, (_, sev, istem, *_) in GOREV.items():
-        r = yonlendir.sinifla(istem.split("\n")[0])
-        Sayac.ucretsiz += 1
+        r = yonlendir.sinifla(istem.split("\n")[0], sor=_sor, haiku=_haiku)
         dogru += r["kademe"] == sev
-        jeton += sum((r.get("usage") or {}).get(k) or 0 for k in ("prompt_tokens", "completion_tokens"))
+        jeton += sum((r.get("usage") or {}).get(k) or 0 for k in ("giris", "cikis"))
     return dogru, jeton
 
 
@@ -244,24 +249,28 @@ def main(cikti, yeniden=False):
     sys.stdout.reconfigure(encoding="utf-8")
     cikti = Path(cikti)
     cikti.mkdir(parents=True, exist_ok=True)
-    sat = kol_a(cikti, yeniden) + kol_b(cikti, 1, yeniden) + kol_b(cikti, 2, yeniden, sonnet=False)
+    ortak = sonnet("A", 1, sev("T3"), "T3", cikti / "AB-1-T3.json", yeniden)  # iki kolda birebir aynı çağrı
+    a = kol_a(cikti, yeniden) + ortak
+    sat = list(a)
+    for kosu in (1, 2):
+        sat += kol_b(cikti, kosu, yeniden) + [{**s, "kol": "B", "kosu": kosu, "ortak": 1} for s in ortak]
     sd, sj = (0, 0) if yeniden else sinif_dogruluk()
-    alanlar = ["kol", "kosu", "ad", "kademe", "gecti", "jeton", "usd", "yukseltme", "model"]
+    alanlar = ["kol", "kosu", "ad", "kademe", "gecti", "jeton", "usd", "yukseltme", "model", "sebep", "ortak"]
     (cikti / "olcum.tsv").write_text("\n".join(["\t".join(alanlar)] + ["\t".join(str(s.get(k, "")) for k in alanlar) for s in sat]) + "\n",
                                      encoding="utf-8")
-    a = [s for s in sat if s["kol"] == "A"]
-    b = [s for s in sat if s["kol"] == "B" and s["kosu"] == 1]
-    b_son = {s["ad"]: s["gecti"] for s in b}  # yükseltme sonrası son durum
-    b1_ilk = {s["ad"]: s["gecti"] for s in b if s["kademe"] in ("T0", "T1")}  # kararlılık: ilk deneme ↔ koşu 2
-    b2 = {s["ad"]: s["gecti"] for s in sat if s["kol"] == "B" and s["kosu"] == 2}
-    oz = {"A_basari": sum(s["gecti"] for s in a), "B_basari": sum(b_son.values()),
-          "A_jeton": round(sum(s["jeton"] for s in a)), "B_jeton": round(sum(s["jeton"] for s in b)) + sj,
-          "A_usd": round(sum(s["usd"] for s in a), 4), "B_usd": round(sum(s["usd"] for s in b), 4),
-          "B2_T0T1_ayni": b1_ilk == b2, "sinif_dogru": sd, "sinif_jeton": sj,
-          "claude_p": Sayac.claude, "ucretsiz": Sayac.ucretsiz, "kalan_A": [s["ad"] for s in a if not s["gecti"]],
-          "kalan_B": [k for k, v in b_son.items() if not v]}
-    oz["jeton_azalma"] = round(1 - oz["B_jeton"] / oz["A_jeton"], 3) if oz["A_jeton"] else None
-    oz["KAPI"] = oz["B_basari"] >= oz["A_basari"] and (oz["jeton_azalma"] or 0) >= 0.30 and oz["B2_T0T1_ayni"]
+    oz = {"A_basari": sum(s["gecti"] for s in a), "A_jeton": round(sum(s["jeton"] for s in a)),
+          "A_usd": round(sum(s["usd"] for s in a), 4), "kalan_A": [s["ad"] for s in a if not s["gecti"]]}
+    for kosu in (1, 2):
+        b = [s for s in sat if s["kol"] == "B" and s["kosu"] == kosu]
+        son = {s["ad"]: s["gecti"] for s in b}  # yükseltme sonrası son durum (satır sırası)
+        k = {"basari": sum(son.values()), "jeton": round(sum(s["jeton"] for s in b)), "usd": round(sum(s["usd"] for s in b), 4),
+             "kalan": [x for x, v in son.items() if not v], "t1_model": next((s.get("model") for s in b if s["kademe"] == "T1"), None)}
+        k["usd_azalma"] = round(1 - k["usd"] / oz["A_usd"], 3) if oz["A_usd"] else None
+        k["jeton_azalma"] = round(1 - k["jeton"] / oz["A_jeton"], 3) if oz["A_jeton"] else None
+        k["gecti"] = k["basari"] >= oz["A_basari"] and (k["usd_azalma"] or 0) >= 0.30
+        oz[f"B{kosu}"] = k
+    oz.update({"sinif_dogru": sd, "sinif_jeton": sj, "claude_p": Sayac.claude, "ucretsiz": Sayac.ucretsiz,
+               "kart_karakter": len(KART), "KAPI": oz["B1"]["gecti"] and oz["B2"]["gecti"]})
     (cikti / "ozet.json").write_text(json.dumps(oz, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(oz, ensure_ascii=False))
 

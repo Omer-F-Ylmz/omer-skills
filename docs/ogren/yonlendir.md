@@ -4,7 +4,31 @@ Yönlendirici `tools/yonlendir.py` + `tools/yonlendir-kurallar.json` (20 tür, T
 kart `skills/is-akisi/references/calisma-karti.md` (FABLE-1 protokolü + Opus/Fable tarzı), ölçüm `tools/olcum/yonlendir_olc.py`,
 ham çıktı `docs/ogren/yonlendir-olcum/`. Önceki iş: ROUTER-1 d3 (12 Eki) `model_sec` (yalın oturum + effort sınıfı) — bayraklar ondan.
 
-## Ölçüm (12 görev: 3 T0 · 3 kolay · 3 orta · 3 zor; kabul yerel ve mekanik)
+## d2 (20 Eki 11:10) — adil ölçüm: iki kol aynı çağrı yapısı, kapı = USD eşdeğeri
+Yapı: T0 betik · T1 toplu · T2 toplu · T3 toplu, kart (461 karakter, ~165 jeton kestirimi: d1 kartı 1 963 kr ≈ 700 jeton) her
+istemde. A: T1–T3 Sonnet high. B: T1 `yonlendir.t1` zinciri (Groq gpt-oss-120b → nemotron :free → ollama qwen3.5:4b → Haiku 5.5),
+T2 Sonnet medium, T3 Sonnet high. claude -p ≤6 için T3 toplusu iki kolda birebir aynı çağrı (bir kez koştu, iki kola yazıldı),
+A bir kez koştu, B iki koşu. Ham: `docs/ogren/yonlendir-olcum-d2/`. claude -p 5 · ücretsiz 14 · ücretli 0.
+
+| çağrı | A (USD) | B koşu 1 | B koşu 2 |
+|---|---|---|---|
+| T1 toplu | 0.0181 (Sonnet high) | 0 (Groq, 1 061 jeton) | 0 (Groq) |
+| T2 toplu | 0.0358 (high, düşünme 1 369) | 0.0140 (medium, A'nın önbelleğini okudu) | 0.0305 (medium, düşünme 825) |
+| T3 toplu (ortak) | 0.0947 | 0.0947 | 0.0947 |
+| toplam / başarı | 0.1486 · 12/12 | 0.1087 (−%27) · 12/12 | 0.1252 (−%16) · 12/12 |
+
+Ham jeton: A 26 843 · B1 21 600 (−%20) · B2 21 572 (−%20). Sınıflayıcı yan ölçü (zincir, tür etiketsiz): 4/12, 4 419 jeton.
+
+**KAPI GEÇMEDİ** (başarı eşit, USD −%27 / −%16 < %30). Iska sınıfı: **kademe** — (1) T3 toplusu A maliyetinin %64'ü ve iki
+kolda aynı; T1+T2 bedava olsa bile tavan −%36. (2) Sonnet medium high'dan yalnız −%15 ucuz: her claude -p ~4.4k jeton 1 saatlik
+önbellek yazımı (≈$0.016) sabit yükü düşünme farkını yutuyor. Kota ıskası yok (Groq ilk denemede, `sebep` boş); doğrulama ıskası
+yok (yükseltme 0); kart etkisi ihmal edilebilir (~165 jeton/çağrı). B1'in −%27'si A-T2 önbelleğini okumasından; adil olan B2.
+
+d3 önerisi: (a) T2 türlerini (kod-oku, regex, alan-cikar — kabulü mekanik) T1 zincirine indir, kalan +1 T2'ye; ölçümde T2 Sonnet
+çağrısı kalkar → kestirim B ≈ 0.095 (−%36). (b) Sabit yük: claude -p yalın oturumun önbellek yazımını ölç/kıs (5 dk önbellek ya da
+tek oturumda kademe başına --resume). (c) Görev karışımı gerçek iş dağılımına göre (zor iş kütlesi kapıyı belirliyor).
+
+## d1 ölçüm (12 görev: 3 T0 · 3 kolay · 3 orta · 3 zor; kabul yerel ve mekanik)
 | | başarı | jeton (girdi+önbellek+çıktı) | USD eşdeğeri | claude -p |
 |---|---|---|---|---|
 | A: hepsi Sonnet high, tek toplu çağrı | 12/12 | 17 748 (girdi 10 606 · çıktı 7 142) | 0.1138 | 1 |

@@ -33,7 +33,26 @@ def test_sinifla_alinti_tutarsa_tur_tutmazsa_t3():
 
     def patla(*a):
         raise OSError("ağ yok")
-    assert yonlendir.sinifla(tanim, sor=patla)["kademe"] == "T3"
+    assert yonlendir.sinifla(tanim, sor=patla, haiku=patla)["kademe"] == "T3"
+
+
+def test_t1_zinciri_kotada_siradakine_gecer_son_care_haiku():
+    import urllib.error
+    cagri = []
+
+    def sor(kol, m, g):
+        cagri.append(m)
+        if m.startswith("groq/"):
+            raise urllib.error.HTTPError("u", 429, "kota", {}, None)
+        if kol == "ollama":
+            raise RuntimeError("atlandi-ram")
+        return "", "length", m, {}  # nemotron kesik
+    haiku = lambda istem, mt: ("tamam", "stop", yonlendir.HAIKU, {"prompt_tokens": 5, "completion_tokens": 2}, 0.001)
+    r = yonlendir.t1("x", sor=sor, haiku=haiku)
+    assert (r["yanit"], r["model"], r["usd"], r["kota"]) == ("tamam", yonlendir.HAIKU, 0.001, True)
+    assert len(cagri) == 3 and r["usage"] == {"giris": 5, "cikis": 2}
+    assert [s.split(":")[-1] for s in r["sebep"]] == ["kota", "kesik", "RuntimeError"]
+    assert yonlendir.t1("x", sor=sor, haiku=None)["yanit"] is None
 
 
 def test_argv_yalin_oturum():

@@ -19,6 +19,10 @@ KAYIT = KOK / ".kos/kopru/yonlendir-kayit.jsonl"
 SIRA = KOK / ".kos/kopru/gorev/SIRA.md"
 SIRALI = ["T0", "T1", "T2", "T3", "T4"]
 YUKSELTME = 2  # en fazla 2 kez +1, sonra Desktop'a SIRA satırı
+# Groq ücretsiz katman (OmniRoute UA'yı iletir; ucuz_alt.iste urllib dışı UA yollar) → OpenRouter :free → ollama yerel (en küçük)
+T1_ZINCIR = [("omni", "groq/openai/gpt-oss-120b"), ("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"),
+             ("ollama", "qwen3.5:4b")]
+HAIKU = "claude-haiku-5-5"
 
 
 def kurallar():
@@ -43,23 +47,57 @@ def sec(tur, boyut="kucuk", risk=(), k=None):
     return karar(SIRALI[i], "full" if risk else t["dogrulama"], tur, "kural", k)
 
 
-def sinifla(tanim, sor=None, k=None):
-    """Tek ücretsiz çağrı: tür etiketi + tanımdan birebir alıntı (ucuz_alt.dogrula). Olmazsa T3/full."""
+def _haiku(istem, max_tokens=None):
+    """Zincirin son çaresi: Haiku 5.5 yalın claude -p (OmniRoute değil). (yanıt, bitiş, model, usage, usd)"""
+    import subprocess
+    r = subprocess.run(["claude", "-p", "--output-format", "json", "--model", HAIKU, *model_sec.YALIN, "--safe-mode", "--tools", ""],
+                       input=istem, capture_output=True, text=True, encoding="utf-8", timeout=600, creationflags=0x08000000)
+    d = json.loads(r.stdout)
+    u = d.get("usage", {})
+    giris = sum(u.get(x) or 0 for x in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens"))
+    return d.get("result", ""), "stop", HAIKU, {"prompt_tokens": giris, "completion_tokens": u.get("output_tokens") or 0}, \
+        d.get("total_cost_usd") or 0
+
+
+def t1(istem, max_tokens=2000, sor=None, haiku=_haiku):
+    """T1 zinciri: Groq → nemotron :free → ollama yerel (RAM <%80) → Haiku 5.5. Kota/hata/kesik → sıradaki; görev düşmez.
+    Döner {yanit, model, usage{giris,cikis}, usd, sebep[], kota}; haiku=None → son çare yok (yanit None)."""
+    import urllib.error
+    import ucuz_alt
+    g = {**ucuz_alt.govde(istem, []), "max_tokens": max_tokens}
+    sebep = []
+    for kol, model in T1_ZINCIR + ([("haiku", HAIKU)] if haiku else []):
+        try:
+            y, bitis, m, u, *usd = haiku(istem, max_tokens) if kol == "haiku" else (sor or ucuz_alt.sor)(kol, model, g)
+        except urllib.error.HTTPError as e:
+            sebep.append(f"{model}:{'kota' if e.code == 429 else e.code}")
+            continue
+        except Exception as e:  # ağ, RAM ≥%80 (atlandi-ram), bozuk yanıt
+            sebep.append(f"{model}:{type(e).__name__}")
+            continue
+        if not y.strip() or bitis == "length":
+            sebep.append(f"{model}:{'kesik' if bitis == 'length' else 'bos'}")
+            continue
+        return {"yanit": y, "model": m or model, "usd": usd[0] if usd else 0, "sebep": sebep,
+                "kota": any(s.endswith(":kota") for s in sebep),
+                "usage": {"giris": u.get("prompt_tokens") or 0, "cikis": u.get("completion_tokens") or 0}}
+    return {"yanit": None, "model": None, "usd": 0, "sebep": sebep, "kota": any(s.endswith(":kota") for s in sebep),
+            "usage": {"giris": 0, "cikis": 0}}
+
+
+def sinifla(tanim, sor=None, k=None, haiku=_haiku):
+    """Tek T1 zincir çağrısı (≤300 jeton): tür etiketi + tanımdan birebir alıntı (ucuz_alt.dogrula). Olmazsa T3/full."""
     import ucuz_alt
     k = k or kurallar()
     secenek = list(k["tur"])
     istem = (f"Görev tanımı:\n{tanim}\n\nBu görevin iş türünü seçeneklerden seç. YALNIZ JSON:\n{ucuz_alt.SEMA['etiket']}"
              f"\nSeçenekler: {' | '.join(secenek)}")
-    g = {**ucuz_alt.govde(istem, []), "max_tokens": 300, "reasoning_effort": "low"}
-    try:  # GEMMA düşünmez: 300 jetonu düşünme yemez (NEMO yerdi, ÖĞREN-1 d4)
-        y, _, model, u = (sor or ucuz_alt.sor)("omni", ucuz_alt.GEMMA, g)
-        o = ucuz_alt.json_al(y)
-        neden = ucuz_alt.dogrula("etiket", o, tanim, secenek)
-    except Exception as e:  # ağ/kota/bozuk yanıt → güvenli varsayılan
-        neden, u = f"{type(e).__name__}", {}
+    r = t1(istem, 300, sor, haiku)
+    o = ucuz_alt.json_al(r["yanit"]) if r["yanit"] else None
+    neden = ucuz_alt.dogrula("etiket", o, tanim, secenek) if o else f"yanit yok ({', '.join(r['sebep'])})"
     if neden:
-        return {**karar("T3", "full", None, f"varsayilan ({neden})", k), "usage": u}
-    return {**sec(o["etiket"], k=k), "kaynak": "t1-sinif", "usage": u}
+        return {**karar("T3", "full", None, f"varsayilan ({neden})", k), "usage": r["usage"], "t1": r}
+    return {**sec(o["etiket"], k=k), "kaynak": "t1-sinif", "usage": r["usage"], "t1": r}
 
 
 def yukselt(kd):
