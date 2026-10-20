@@ -85,6 +85,13 @@ Kaynak: `.kos/kopru/ogren/ozet-token-v2.jsonl` (32 kalem, v2 şema, Claude jeton
 4. Dosya yapısı (düzenleme değil) → `rtk read -l aggressive`.
 5. Geçmiş karar/oturum → claude-mem (CC: mem-search MCP · köprü: HTTP `/api/search`) → `get_observations([id])`.
 6. Çok dosyalı keşif, test/log → alt ajan (okuyucu); köprüde alt ajan yoksa jev log|triage.
-7. Toplu metin özeti → `ozet.py` (:free → ollama); küçük yan iş → `ucuz_alt.py --tur` (yalnız :free; lisans doğrulanmış, özet/etiket/görsel çıkış 3 → Claude doğrular).
+7. Kapı kalitesi gereken toplu özet (ÖĞREN-2..14 hattı) → `.claude/ogren1/d14.py` yolu: kaynak çözümü (kanca → kayıt + betik; repo → kök README/manifest; `.claude.json` → yalnız kendi girdisi, gizli maskeli) → sonnet yazar alt ajanı (~7 kalem/ajan, tam kaynak) → sert denetim betiği → 2 kör sonnet hakem. :free taslak/doğrulayıcı kapı yolunda değil (d13: ≈ aynı token, yeni hata türü). Küçük yan iş → `ucuz_alt.py --tur` (yalnız :free; lisans doğrulanmış, özet/etiket/görsel çıkış 3 → Claude doğrular).
 8. Görsel → nemotron-nano-omni :free, curl UA, max_tokens ≥3000.
 9. Ölçüm → rtk gain · headroom savings · token_olc (claude-usage değil).
+
+## İş türü → model (d14b, 20 Eki; kapı tohum 11 %97.2 · tohum 12 %96.3, eşik %92)
+- Kaynaktan özet yazımı → sonnet: 11–25k token/kalem (ort. ≈16.7k; büyük kanca betikleri pahalı uç).
+- Kör hakem → sonnet: 6–14k token/kalem/hakem; iki hakem 152 alanın 151'inde uyuştu.
+- Hakem ayrışması → kaynak satırıyla ana oturum karar verir (d14b'de 1 alan); opus yalnız birden çok ayrışma kaynakla çözülemezse.
+- Biçim/sayım/birleştirme/alıntı birebirliği → yalnız betik (`d14.py birlestir|puan`), model yok; haiku gerekmedi.
+- Tuzak: settings.json `CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1` Agent model alanını ezebilir — gerçek model doğrulanmadı.

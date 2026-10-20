@@ -200,7 +200,7 @@ def kontrol():
 def puan(h1p, h2p):
     from d8 import karar
     h1, h2 = karar(h1p), karar(h2p)
-    assert h1.keys() == h2.keys() and len(h1) == 28 * 4, f"alan sayısı: {len(h1)} / {len(h2)}"
+    assert h1.keys() == h2.keys() and len(h1) == len(ozet_kaynak.D) * 4, f"alan sayısı: {len(h1)} / {len(h2)}"
     ayri = sorted(k for k in h1 if h1[k] != h2[k])
     print(f"alan {len(h1)} · hakem1 Y {sum(x == 'Y' for x in h1.values())} · hakem2 Y {sum(x == 'Y' for x in h2.values())} · ayrışan {len(ayri)}")
     for ad, a in ayri:

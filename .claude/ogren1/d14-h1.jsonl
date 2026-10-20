@@ -1,0 +1,18 @@
+{"ad":"gglucass__headroom-desktop","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"OmniRoute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"deepseek-harness","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:mcp__plugin_context-mode_context-mode__ctx_execute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"headroom_yama","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:mcp__plugin_context-mode_context-mode__ctx_batch_execute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PostToolUseFailure:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:Bash|PowerShell","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: kalem iki kancayı kapsıyor; ikincisi rtk-onisle.py (kaynak satır 18: \"python -S ...rtk-onisle.py\", 65-69: rtk_onisle.main()) RTK'ya hizmet eder (sıkıştırma), yalnız [token-dışı] bu kancanın mekanizmasını kaçırıyor."}}
+{"ad":"9router","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:Grep","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:mcp__","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-cikti-sikistirma","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PostCompact:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"cc_profil","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:mcp__headroom__headroom_retrieve|mcp__plugin_claude-mem_mcp-search__search","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PostToolUse:Bash|Read|Write|Edit|NotebookEdit|Glob|Grep|TodoWrite|TaskCreate|TaskUpdate|EnterPlanMode|ExitPlanMode|Skill|Agent|AskUserQuestion|EnterWorktree|mcp__","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"PreToolUse:Read","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-search","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: \"command\": \"node\" (kaynak satır 5) genel Node.js çalışma zamanıdır, başka aracın ikilisi; aracın kendi giriş noktası belgede geçen scripts/mcp-server.cjs'tir (satır 8)."}}

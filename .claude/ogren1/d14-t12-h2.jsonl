@@ -1,0 +1,20 @@
+{"ad":"setup-gbrain","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"knowledge-base-skills","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"lifekernel-second-brain","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: context_bundle/vault_search skill'in kendi komutu değil, Life Kernel vault MCP araç adları (ad biçimi/kendi dosyası/paket adı değil); kaynak s.13 '2. `context_bundle` for baseline context, then `vault_search` for the specific topic'."}}
+{"ad":"vrm-oturum-kaydi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-manager","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"skill-copilot-provider","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qmd-paket","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"skill-resume","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-window-design","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-restore","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"lifekernel-project-memory","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionStart:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ajn-ajan-bellek-tasarimi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-alt-ajan-dagitim","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionStart:compact","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"serena","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-save","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"sync-gbrain","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"sessions","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-memory","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

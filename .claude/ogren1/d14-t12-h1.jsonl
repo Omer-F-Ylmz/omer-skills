@@ -1,0 +1,20 @@
+{"ad":"setup-gbrain","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"knowledge-base-skills","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"lifekernel-second-brain","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"context_bundle/vault_search Life Kernel vault MCP araçları; skill'in kendi komutu (adının biçimi) değil (satır 13: '`context_bundle` for baseline context, then `vault_search`...')."}}
+{"ad":"vrm-oturum-kaydi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-manager","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"skill-copilot-provider","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qmd-paket","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Belgede paketin kendi bileşenlerine ait komut/dosya birebir geçiyor, 'belirsiz' yanlış (satır 15: 'Use when user says \"/release\"' ve kendi dizinindeki `skills/qmd/TALIMAT.md`)."}}
+{"ad":"skill-resume","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-window-design","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-restore","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"lifekernel-project-memory","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionStart:*","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ajn-ajan-bellek-tasarimi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"vrm-alt-ajan-dagitim","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"SessionStart:compact","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"serena","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context-save","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"sync-gbrain","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"sessions","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-memory","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

@@ -19,7 +19,7 @@ KOL_A = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"), ("ollama
 KOL_B1 = [("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free")]
 KOL_B2 = [("groq", "openai/gpt-oss-120b")]
 KOL_B3 = [("omni", "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free"), ("ollama", "qwen3.5:4b")]  # d7: gemma :free kalıcı 429 (d6 29×)
-MEKANIZMA = ["sıkıştırma", "önbellek", "bağlam dışı depolama", "delegasyon", "özetleme", "tur azaltma", "yönlendirme", "ölçüm"]
+MEKANIZMA = ["sıkıştırma", "önbellek", "bağlam dışı depolama", "delegasyon", "özetleme", "tur azaltma", "yönlendirme", "ölçüm", "token-dışı"]
 TANIM = ("Tanımlar: sıkıştırma=aynı içeriği daha az baytla verir; önbellek=önceki sonucu/öneki yeniden kullanır; "
          "bağlam dışı depolama=veriyi bağlam dışında tutar, yalnız sorgu sonucu girer; delegasyon=işi başka süreç/model/ajan yapar; "
          "özetleme=uzun metni kısa özete indirir; tur azaltma=daha az araç çağrısı/tur; yönlendirme=işi daha ucuz araca/modele seçer; "
