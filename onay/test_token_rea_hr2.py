@@ -25,3 +25,10 @@ def test_cokert_igne_kalir_ve_geri_alinir():
     i = o.rsplit("ac ", 1)[1].strip()
     assert subprocess.run([sys.executable, "-I", "-S", str(HR2), "ac", i], capture_output=True).stdout.decode() == m
     assert subprocess.run([sys.executable, "-I", "-S", str(HR2)], input=b"kisa", capture_output=True).stdout == b"kisa"
+
+
+def test_sinyal_satiri_sayiyla_ayrisan_igne_korunur():
+    # d12 sertleştirme: yalnız sayıyla ayrışan sinyal satırları (exit 1 / 3 failed) çökmez
+    m = "\n".join(f"derleme adim {j} tamam" for j in range(120)) + "\n" + "\n".join(f"exit code {j}" for j in range(1, 7)) + "\n3 failed, 97 passed\n"
+    o = subprocess.run([sys.executable, "-I", "-S", str(HR2)], input=m.encode(), capture_output=True).stdout.decode()
+    assert all(f"exit code {j}" in o for j in range(1, 7)) and "3 failed, 97 passed" in o and "benzer satır" in o

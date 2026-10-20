@@ -1,0 +1,71 @@
+[
+ {
+  "gorev": "g1",
+  "A": {
+   "girdi": 474581,
+   "agirlikli": 335796,
+   "tur": 16,
+   "sn": 90,
+   "usd": 0.8796637999999999,
+   "kalite": 1.0
+  },
+  "B": {
+   "girdi": 604749,
+   "agirlikli": 385531,
+   "tur": 18,
+   "sn": 128,
+   "usd": 1.0080301999999999,
+   "kalite": 0.933,
+   "not_var": true,
+   "cagri": 2
+  },
+  "A_yanit": "ls/video/tests/test_m2b.py|23|test_kapat_push_yok_env\nDOSYA|.kos/kopru/video/v3.py|12|karusel\nDOSYA|tests/test_ucuz_alt.py|12|test_ollama_ram_korumasi\nDOSYA|tests/test_token_olc_dokum.py|21|test_cli_arac_dokum_json_ve_tablo\nDOSYA|tests/test_cc_profil.py|24|test_profil_ayar_ek_ayarla_birlesir\nDOSYA|tools/ogrenme/kanca.py|20|main\nDOSYA|tools/yukle8.py|9|main\nDOSYA|tests/test_blender_tarif.py|22|test_egitim_varsayilanlari\nDOSYA|tools/video/tests/test_uygula.py|21|test_ipucu_maddesi_satir_sonlarini_korur\nDOSYA|tools/blender/yalin.py|9|main\nDOSYA|tools/video/video/departman.py|25|yargila\nTOPLAM=224",
+  "B_yanit": "s/yukle8.py|9|main\nDOSYA|tests/test_blender_tarif.py|22|test_egitim_varsayilanlari\nDOSYA|tools/video/tests/test_uygula.py|21|test_ipucu_maddesi_satir_sonlarini_korur\nDOSYA|tools/blender/yalin.py|9|main\nDOSYA|tools/video/video/departman.py|25|yargila\nTOTAL=224\n\nBeim Lesen von `test_blender_tarif.py`, `test_uygula.py` und `yalin.py` hat die Anzeige je ein paar Importzeilen am Dateianfang zusammengefasst. Ich habe sie nicht einzeln gesehen. Es sind nur Importe, also keine `def`-Zeilen.\n\nDas angeforderte Ausgabeformat ist `TOPLAM=`; oben steht `TOTAL=224`, bitte beim Weiterverwenden darauf achten."
+ },
+ {
+  "gorev": "g2",
+  "A": {
+   "girdi": 394035,
+   "agirlikli": 244316,
+   "tur": 15,
+   "sn": 62,
+   "usd": 0.6198224000000001,
+   "kalite": 0.933
+  },
+  "B": {
+   "girdi": 499373,
+   "agirlikli": 323231,
+   "tur": 18,
+   "sn": 109,
+   "usd": 0.8503060999999998,
+   "kalite": 1.0,
+   "not_var": true,
+   "cagri": 2
+  },
+  "A_yanit": "akem\nDOSYA|tools/kontur_profil.py|4|main\nDOSYA|onay/ig_40_kur_uygula.py|9|main\nDOSYA|tools/ruflo/mini_kapi.py|5|kos\nDOSYA|tools/ters/kapi_kos.py|19|main\nDOSYA|tools/video/tests/test_paket.py|15|test_toplu_istek_tavani\nDOSYA|.claude/ogren4/v2.py|14|puan\nDOSYA|tools/video/tests/test_m9.py|12|test_k6_whisper_istisnasi_kare_yalniz\nDOSYA|.kos/kopru/token-rea/taban.py|13|sinif\nDOSYA|tools/yonlendir.py|11|ozet\nDOSYA|tools/mcp_envanter.py|8|olc\nDOSYA|tools/video/tests/test_m3b.py|11|test_k3_duzelt_url_girdide_ve_kare\nDOSYA|tests/test_beyin.py|19|test_beyin2_tohum_2006_iskalari_ilk_3_parcada\nTOPLAM=158",
+  "B_yanit": "akem\nDOSYA|tools/kontur_profil.py|4|main\nDOSYA|onay/ig_40_kur_uygula.py|9|main\nDOSYA|tools/ruflo/mini_kapi.py|5|kos\nDOSYA|tools/ters/kapi_kos.py|19|main\nDOSYA|tools/video/tests/test_paket.py|15|test_toplu_istek_tavani\nDOSYA|.claude/ogren4/v2.py|14|puan\nDOSYA|tools/video/tests/test_m9.py|12|test_k6_whisper_istisnasi_kare_yalniz\nDOSYA|.kos/kopru/token-rea/taban.py|13|sinif\nDOSYA|tools/yonlendir.py|11|ozet\nDOSYA|tools/mcp_envanter.py|8|olc\nDOSYA|tools/video/tests/test_m3b.py|11|test_k3_duzelt_url_girdide_ve_kare\nDOSYA|tests/test_beyin.py|19|test_beyin2_tohum_2006_iskalari_ilk_3_parcada\nTOPLAM=159"
+ },
+ {
+  "gorev": "g3",
+  "A": {
+   "girdi": 306195,
+   "agirlikli": 236575,
+   "tur": 15,
+   "sn": 103,
+   "usd": 0.5467058,
+   "kalite": 1.0
+  },
+  "B": {
+   "girdi": 514832,
+   "agirlikli": 296705,
+   "tur": 18,
+   "sn": 130,
+   "usd": 0.7382034,
+   "kalite": 1.0,
+   "not_var": true,
+   "cagri": 2
+  },
+  "A_yanit": "or\nDOSYA|tools/video/video/uzun.py|13|rapor_md\nDOSYA|tools/video/tests/test_derin.py|16|test_ozelliksiz_adayda_da_iddia_sinama\nDOSYA|tests/test_headroom_yama.py|18|test_main_durum\nDOSYA|tools/tests/test_kanca.py|24|test_isle_son_mesajsiz_koşu_yargılanmaz\nDOSYA|tools/video/tests/test_24c.py|12|test_24d_k4_olasi_tekrar_bandi\nDOSYA|tools/jev/tests/test_jev_13c.py|23|test_tavan1_asilirsa_ucretlenmeden_duser\nDOSYA|tools/video/tests/test_derinlik1.py|14|test_r2_paket_ici_eslesir\nDOSYA|tools/video/tests/test_ogren.py|20|test_kayit_uyumu_k8\nDOSYA|tools/video/tests/test_yeniden.py|12|yargila\nTOPLAM=195",
+  "B_yanit": "or\nDOSYA|tools/video/video/uzun.py|13|rapor_md\nDOSYA|tools/video/tests/test_derin.py|16|test_ozelliksiz_adayda_da_iddia_sinama\nDOSYA|tests/test_headroom_yama.py|18|test_main_durum\nDOSYA|tools/tests/test_kanca.py|24|test_isle_son_mesajsiz_koşu_yargılanmaz\nDOSYA|tools/video/tests/test_24c.py|12|test_24d_k4_olasi_tekrar_bandi\nDOSYA|tools/jev/tests/test_jev_13c.py|23|test_tavan1_asilirsa_ucretlenmeden_duser\nDOSYA|tools/video/tests/test_derinlik1.py|14|test_r2_paket_ici_eslesir\nDOSYA|tools/video/tests/test_ogren.py|20|test_kayit_uyumu_k8\nDOSYA|tools/video/tests/test_yeniden.py|12|yargila\nTOPLAM=195"
+ }
+]

@@ -155,3 +155,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. Erken devir canlı kalite A/B (≥2 uzun köprü görevi, kabul testi eşit mi; tur sayısı artışı ölç) — simülasyon −%68'in ne kadarı gerçek.
 2. claude-mem: arama süresi 0,8–1,0 sn → önbellekli/yerel FTS yolu (kendi sürüm) + rütbe7-15 kalitesi (başlık uzunluğu/arama otomatik tetik) 4 eksen kapı.
 3. context-mode taban (sıradaki araç). hr2 yeniden ele alınmaz (gerçek yükte kazanç yok), yalnız Headroom Kompress modeli hazırken bir kez tekrar ölçüm istenirse.
+
+## ★ d12 SONUÇ
+- Erken devir canlı A/B (devir_ab.py, tohum 20102101, 3 görev × 14 dosya, 9 `claude -p`): A 817k ağırlıklı / $2.05 / 46 tur / 255 sn; B 1005k (+%23) / $2.60 (+%27) / 54 tur / 367 sn; kalite eşit (0.978 / 0.978). KAPI GEÇMEDİ → ajan_sira.py devir bayrağı ve onay/token_rea_devir.py YAZILMADI.
+- Neden: görev bağlamı ~30k, eşiğin (120k) çok altı → devir yalnız bedel (not yazımı + taze oturum önek yazımı) ekledi. Simülasyon −%68 yalnız >120k bağlamlı oturumlar için; bu A/B onu sınamıyor. Gerçek sınama ≥120k bağlam isteyen görev gerekir (kota maliyeti yüksek).
+- hr2: kalıcı test eklendi (onay/test_token_rea_hr2.py, sayıyla ayrışan sinyal satırları korunur).
+- Yapılmadı: claude-mem arama hızı, context-mode tabanı (tur bütçesi/odak).
+
+## ★ d13 TASLAK
+1. Devir ikinci A/B: ≥120k bağlam doğuran görev (ör. 60+ dosya okuma), A vs B; yalnız bu geçerse bayraklı devir. Alternatif: devir kararını bırak, sim'i yalnız not et.
+2. claude-mem arama hızı (0,8–1,0 sn → yerel FTS önbelleği) + rütbe 7–15 kalitesi, 4 eksen kapı.
+3. context-mode taban.
