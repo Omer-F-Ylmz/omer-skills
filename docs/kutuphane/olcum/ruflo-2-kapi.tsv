@@ -1,0 +1,8 @@
+zaman	aile	kol	blok_ids	puan	tur	jeton_in_cc_out	usd	sure_sn	not
+21:36:32	kod	derssiz		1.0	8	(12, 89629, 475459, 1135)	0.417	49.5	
+21:37:07	kod	bizim	a74a98,7e6f34	1.0	7	(8, 89428, 286778, 800)	0.394	34.1	
+21:37:52	kod	ruflo	75b274,8e6799	1.0	7	(10, 89877, 382098, 1014)	0.408	45.8	
+21:38:32	kod	kombo	a74a98	1.0	6	(8, 89684, 286727, 1041)	0.398	39.6	
+21:39:15	rapor	derssiz		0.625	4	(8, 88668, 285186, 553)	0.389	43.1	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: sayı binlik ayırıcı noktayla yazılmadı (ör. 2.964) | giz
+21:40:04	rapor	bizim	c583d0,f8e5a9	0.875	4	(8, 89260, 286839, 879)	0.395	49.2	gizli ölçüt: tarih GG.AA.YYYY değil
+21:40:40	rapor	ruflo	24fc62,b4ed20	0.625	3	(6, 88731, 192422, 482)	0.379	35.8	gizli ölçüt: ilk satır tam olarak '# Özet' değil | gizli ölçüt: sayı binlik ayırıcı noktayla yazılmadı (ör. 2.964) | giz
