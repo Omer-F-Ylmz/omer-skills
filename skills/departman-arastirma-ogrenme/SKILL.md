@@ -14,6 +14,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 2. **Web** — arama `brave-search`, sayfa okuma `agent-reach` ya da `mcp-fetch`.
 3. **Video** — tek video `video-izle`; toplu tarama `video-tarama`; uygulama `video-uygula` (yeni araç katman adımında departmana dosyalanır).
 4. **Kod tabanı** — `graphify` (query → path → explain).
+4b. **"X nasıl yapılmış"** (site animasyonu, WebGL, JS/Electron aracı, .NET ikilisi) — `tersine` (mekanizma notu; kopya yok).
 5. **Kayıt** — öğrenilen ders bilgi kartına; kural adayı yalnız onayla.
 - Video izle/tara/uygula/üret ayrımı ve hat sırası: `docs/atlas/video-icerik.md` (ATLAS kararları `docs/atlas/kart.jsonl`).
 

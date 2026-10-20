@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg: #0e0e10; --fg: #f2efe9; --accent: #e8a33d; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--fg); font: 1.125rem/1.6 system-ui, sans-serif; }
+  .progress { position: fixed; inset: 0 0 auto; height: 3px; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+  .hero { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 2rem; }
+  .hero h1 { font-size: clamp(2.5rem, 8vw, 6rem); line-height: 1; }
+  .stage { height: 300vh; }
+  .pin { position: sticky; top: 0; height: 100vh; display: grid; place-items: center; perspective: 1200px; }
+  .product { width: min(60vw, 420px); aspect-ratio: 1; border-radius: 2rem; background: radial-gradient(circle at 30% 30%, #ffd08a, var(--accent) 45%, #6b3d07); }
+  .features { max-width: 40rem; margin: 0 auto; padding: 20vh 1.5rem; display: grid; gap: 40vh; }
+  .features h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+</style></head>
+<body>
+  <div class="progress"></div>
+  <header class="hero"><h1>Ürün Adı</h1></header>
+  <section class="stage"><div class="pin"><div class="product"></div></div></section>
+  <main class="features">
+    <article><h2>Özellik bir</h2><p>Kısa açıklama.</p></article>
+    <article><h2>Özellik iki</h2><p>Kısa açıklama.</p></article>
+    <article><h2>Özellik üç</h2><p>Kısa açıklama.</p></article>
+  </main>
+<script>
+  // Aynı mekanizma, scroll olayı + JS ile: animation-timeline yerine kaydırma oranından ilerleme hesabı
+  const c = (x) => Math.min(1, Math.max(0, x)), L = (a, b, p) => a + (b - a) * p;
+  const bar = document.querySelector('.progress'), prod = document.querySelector('.product'), stage = document.querySelector('.stage');
+  const arts = [...document.querySelectorAll('.features article')];
+  function guncelle() {
+    const vh = innerHeight, y = scrollY, max = document.documentElement.scrollHeight - vh;
+    bar.style.transform = `scaleX(${max ? y / max : 0})`;
+    const top = stage.offsetTop, p = c((y - top) / (stage.offsetHeight - 0));  // contain aralığı ≈ sahnenin kendi yüksekliği boyunca
+    prod.style.transform = `rotateX(${L(12, 0, p)}deg) rotateY(${L(-40, 320, p)}deg) scale(${L(.6, 1.1, p)})`;
+    for (const a of arts) {
+      const r = a.getBoundingClientRect(), q = c((vh - r.top) / (.35 * (vh + r.height))), e = 1 - (1 - q) * (1 - q);
+      a.style.opacity = e; a.style.transform = `translateY(${(1 - e) * 4}rem)`;
+    }
+  }
+  addEventListener('scroll', guncelle, { passive: true }); guncelle();
+</script>
+</body></html>

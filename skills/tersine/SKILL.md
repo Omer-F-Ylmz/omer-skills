@@ -1,6 +1,6 @@
 ---
 name: tersine
-description: "Tersine mühendislik: 'X nasıl yapılmış' sorusunu mekanizma notuna çevirir (site animasyonu, WebGL sahnesi, araç/repo, ikili). Kod/varlık kopyalamaz. Taslak (TERS-1 d1), REA kurulu değilse REA adımı atlanır."
+description: "Tersine mühendislik: 'X nasıl yapılmış' sorusunu mekanizma notuna çevirir (site animasyonu, WebGL sahnesi, araç/repo, ikili). Kod/varlık kopyalamaz. REA (kurulu `rea` CLI) ikili/JS/.NET için; kapı sonucu docs/ters/kapi/sonuc.md."
 ---
 
 # tersine — "X nasıl yapılmış" → mekanizma notu
@@ -20,7 +20,8 @@ Mekanizma ve teknik çıkarılır. Birebir klon yok; izinsiz görsel, font, mode
 7. `graphify update .` ile çıkan kodun haritası; desen notu `web-sahne-desenleri` ile bağlanır.
 
 ## Adımlar (araç/repo/ikili hedefi)
-REA (yapı/mantık; MCP ile ikili, Electron/JS, .NET) → graphify → küçük yeniden-yazım testi (mekanizmayı doğru anladık mı → testle kanıt). REA yalnız tarama temizse ve onay betiğiyle kurulduysa.
+REA (yapı/mantık; MCP ile ikili, Electron/JS, .NET) → graphify → küçük yeniden-yazım testi (mekanizmayı doğru anladık mı → testle kanıt). REA kurulu (rea-agents 6.7.0 sabit); tarama sınıflaması `docs/ters/rea-tarama.md`.
+REA kullanım sınırı: yalnız kurulu `rea` CLI / sabitli MCP, `npx …@latest` yok; yalnız salt-okuma analiz (`analyze-javascript-application`, `inspect-managed-members` gibi); DMG mount ve ağ/yazma araçları kullanılmaz.
 
 ## Ek kombinler (öneri)
 - **HAR + source map diff**: iki sürümün HAR'ı ve map'i farklanır → "ne değişti, hangi sürümde" sorusu ağdan cevaplanır. Gerekçe: video/ekran görüntüsü olmadan, sayıyla, ucuz.
