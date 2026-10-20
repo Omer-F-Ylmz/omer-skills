@@ -75,3 +75,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. Önce `graphify update .` (arka planda) + sor2'ye bayatlık denetimi (graph mtime < `git log -1 %ct` ya da izlenmeyen .py varsa uyarı+arka plan güncelleme); yeni kilitli held-out 10 soru; kaçanlar için ucretsiz_havuz ile tek kısa sorgu genişletme (önbellekli).
 2. rtk2: hook'a `tur()` ile rota (onay betiği, yedekli); `find` ve `git branch -a` için rtk kalite kaybını kapat (rtk2'de hızlı süzgeç ya da rtk-sonrası ucuz ek — süre kapısını bozmadan); YENİ kilitli held-out (≥12, süzgeçli/süzgeçsiz karışık) ile uçtan uca kapı.
 3. Bağlam diyeti (ertelenmiş yükleme) + iş deseni kolu (2 köprü görevi A/B) + BEYİN-4 ~43k fark açıklaması — d4'ten devir.
+
+## d5 SONUÇ (20 Eki 2026; Claude -p 0, havuz çağrısı ~25)
+0. `heldout_uret.py rtk2|sor2 <tohum>` yazıldı (komutlar repo geçmişinden, sorular docstring satırının havuzla yeniden ifadesi; anahtar = dosya adı); skor betikleri `rtk2_e2e.py heldout <t>` / `sor2.py heldout <t>` kaçan adları basmaz ("egit…" tohumu hariç). Kapı tohumları: rtk2 20101802, sor2 20101801 (tek sefer).
+1. **rtk2 kapı GEÇMEDİ (sıkı "her komutta")**: toplam token rtk 85 338 → rtk2 69 045 (−%19), süre toplam 1.36 → 1.13 sn, sinyal 14/15 (rtk 13/15); ama komut başına süre ≤ rtk yalnız 11/15 ve token ≤ rtk 12/15. Yeni rotalar: `find` (tek geçiş scandir + ortak önek ağacı; yalnız -maxdepth/-type/-name *.uz), `git branch *` → "ham" (hook rtk'sız bırakır; 46 vs 72 ms). Eğitimde (egit1) büyük `find dist -type f` rtk 846 tok (sinyal kaybı) vs rtk2 45 460 → sinyal tam + token<rtk birbirine ters; çözüm adayı: büyük çıktıda ağaç özeti (dizin başına sayı + ilk N ad) ve bunun sinyal ölçüsü. `onay/token_rea_rtk2.py` HAZIRLANMADI.
+2. **sor2 kapı GEÇTİ**: sor2 heldout 20101801: genişletmesiz **10/10**, genişletmeli **10/10** (graphify 6/10); 628 tok/sorgu (graphify 3 647); süreç içi 0.32 sn, soğuk süreç ~0.55 sn (hedef <0.5 sn: 0.05 sn kaldı; graph.json 40 MB okuma + scandir). Bayatlık denetimi KODA girdi (graph'tan yeni/değişen .py → düz metin dizini + `graphify update .` arka.py ile, 10 dk'da bir). Genişletme kolu havuz çağrısı (ilk sorguda ~saniyeler) hariç. Egitim tohumu egit1: 9/10 → genişletmeli 10/10.
+3. Bağlam diyeti + iş deseni kolu + BEYİN-4 43k: YAPILMADI (tur tavanı).
+
+## ★ d6 TASLAK
+1. rtk2: komut başına süre/token için çıktı-boyutu tavanı (find/ls-files büyük çıktıda dizin başına özet), sinyal ölçüsünü "ad kaybı yok" yerine "dizin+sayı+ilk N" olarak tanımla (Ömer onayı); yeni tohum, kapı geçerse `onay/token_rea_rtk2.py` + hook rotası.
+2. sor2: soğuk süreç <0.5 sn (graph.json'dan ayrıştırılmış küçük dizin önbelleği: label/dosya/yer, pickle) ve kapıyı yeni tohumda tekrarla; geçerse `onay/token_rea_sor2.py`.
+3. Bağlam diyeti (ertelenmiş yükleme) + iş deseni kolu + BEYİN-4 ~43k farkı — d4/d5'ten devir.

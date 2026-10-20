@@ -85,13 +85,43 @@ def diff_kompakt(ham, kap=20):
     return "\n".join(cik)
 
 
+def bul_ayristir(argv):
+    """find DİZİN [-maxdepth N] [-type f|d] [-name *.uz|ad] → (dizin, derinlik, tip, uzanti|ad); başka her şey None (rtk'ya kalır)."""
+    d, a, i = argv[1] if len(argv) > 1 else ".", {"-maxdepth": 99, "-type": "", "-name": ""}, 2
+    while i < len(argv):
+        if argv[i] not in a or i + 1 >= len(argv): return None
+        a[argv[i]] = argv[i + 1]; i += 2
+    p = a["-name"]
+    if p and (any(c in p for c in "?[") or ("*" in p and not (p.startswith("*.") and "*" not in p[1:]))): return None
+    return d, int(a["-maxdepth"]), a["-type"], p
+
+
+def bul(d, md, ty, p):
+    """Tek geçiş scandir (regex yok): yolları dizine göre gruplanmış verir; ad/yol kaybı yok."""
+    cik, yig = [], [(d, 1)]
+    while yig:
+        yol, k = yig.pop()
+        try: girdi = list(os.scandir(yol))
+        except OSError: continue
+        for e in girdi:
+            dz = e.is_dir(follow_symlinks=False)
+            if dz and k < md: yig.append((e.path, k + 1))
+            if (ty != "f" or not dz) and (ty != "d" or dz) and (not p or (e.name.endswith(p[1:]) if p[0] == "*" else e.name == p)):
+                cik.append(yol.replace("\\", "/") + "/" + e.name)
+    return agac(cik)
+
+
 def tur(argv):
     """Süzgeç türü; None → rtk2 uçtan uca rtk'dan hızlı değil, hook komutu doğrudan rtk'ya yollar (rtk2 hiç açılmaz).
     Ölçüm (egitim+held4): ls/diff/durum rtk'dan hızlı; find, ls-files, log/diff/show --stat Python açılışı (~40 ms) yüzünden eşit/yavaş."""
     if argv[0] == "ls":
         return "ls"
+    if argv[0] == "find" and bul_ayristir(argv):
+        return "find"
     if argv[0] != "git" or len(argv) < 2:
         return None
+    if argv[1] == "branch":
+        return "ham"  # rtk branch -a/-vv ad kaybeder, ham git rtk'dan da hızlı (46 vs 72 ms): hook komutu rtk'sız bırakır
     if "diff" in argv[1:3] and not NOSTAT & set(argv):
         return "diff"
     if argv[1] == "status" and not {"--porcelain", "--short", "-s", "-sb"} & set(argv):
@@ -112,6 +142,10 @@ def rtk2(argv):
         return calis(["rtk", *argv])[0]
     if k == "ls":
         return ls_kompakt(argv[1:])
+    if k == "find":
+        return bul(*bul_ayristir(argv))
+    if k == "ham":
+        return calis(argv)[0]
     if k == "diff" and not any(a.startswith(("-U", "--unified")) for a in argv):
         argv = [*argv[:argv.index("diff") + 1], "-U0", *argv[argv.index("diff") + 1:]]  # bağlam satırları zaten atılıyor: git'ten hiç çekme
     ham, r0 = calis(["git", "status", "--porcelain", "-b"] if k == "durum" else argv)
