@@ -1,0 +1,20 @@
+{
+ "A_taban": {
+  "toplam": 30080,
+  "tools": 14072,
+  "system": 1896,
+  "mesajlar_hook_enjeksiyon": 14101,
+  "gorev_yanit": "kur",
+  "gorev_dogru": 1,
+  "gorev_usd": 0.0817386
+ },
+ "B_diyet": {
+  "toplam": 25335,
+  "tools": 14072,
+  "system": 1896,
+  "mesajlar_hook_enjeksiyon": 9356,
+  "gorev_yanit": "kur",
+  "gorev_dogru": 1,
+  "gorev_usd": 0.037655
+ }
+}

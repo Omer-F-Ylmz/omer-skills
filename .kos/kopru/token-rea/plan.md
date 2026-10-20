@@ -31,3 +31,20 @@ Sonuç: ağırlıklı maliyetin %75'i bağlam büyüklüğü + önbellek kırıl
 3. #8 taban ölçümleri (bekleyen 6 araç) → durum `taban`.
 4. #5, #6.
 Mühür: held-out adları taban.json'da; kapıda tek seferlik.
+
+## d2 SONUÇ (20 Eki 2026; Claude -p çağrısı 8/15, count_tokens ~100)
+**d2a bağlam-diyeti** (`d2a_bolum.py`, `d2a_ab.py`, ajan profili, geçici --settings; kurulu ayar değişmedi):
+- Blok dökümü (token): CLAUDE.md+hafıza dizini 4743 · ortam/ajan listesi 2374 · context-mode 1760 · claude-mem 1408+271 · superpowers 1292 · ponytail 934 + kod haritası 1159 · diğer 170. Hook toplamı ≈6.8k; kalan 7.3k hook değil.
+- A (taban) 30 080 → B (superpowers/ponytail/context-mode kapalı + claude-mem gözlem 5) **25 335 (−4 745, −%15.8)**; görev testi iki kolda da doğru ('kur'); görev maliyeti 0.082→0.038 $ (tek ölçüm, gürültülü). **Kapı ≤22k KARŞILANMADI** (−3.3k eksik): kalan kaldıraç CLAUDE.md+MEMORY.md dizini (4.7k, kısaltma Ömer kararı) ve ortam/ajan listesi (2.4k).
+- Ağırlıklı tahmin (hepsine uygulanırsa): 24 329 istek×4.7k×0.1 + 1262 oturum×4.7k×1.25 ≈ −19M ≈ %3.8 (plan varsayımı 19M ile tutarlı, 8k yerine 4.7k ile).
+- **Önbellek disiplini**: `token_olc --ttl-sim` (66 oturum, 1691 istek): "baştan" yazma %31.8; sebep: ara>TTL yalnız %11.4, "diğer" %85.6 (oturum başı/ön ek değişimi). TTL tek başına hibrit −%4.1, 5m +%6.4 (1h'e göre). **Plandaki "cache yazma −%20" varsayımı DESTEKLENMİYOR**: TTL kolu ≈ −%4 × 53M ≈ −2M ağırlıklı (≈%0.4). Asıl kaldıraç ön ek sabitliği + oturum sayısı.
+**d2b rtk2** (`rtk2.py`, `rtk2_set.py` kilit `rtk2_set.lock`, `rtk2_ab.py`): rtk çıktısı ham'daki dosya adı/hash belirtecini kaybederse eksikler sona eklenir; `ls` ad+boyut ile yerel üretilir.
+- Eğitim 20 komut: ham 318 630 → rtk 163 022 (−%48.8) → **rtk2 179 386 (−%43.7)**; sıkı sinyal (her ham ad çıktıda) rtk 13/20 → **rtk2 20/20**. Held-out 4 (tek sefer): ham 20 890 → rtk 14 039 → rtk2 14 116 (−%32.4); sıkı **rtk 3/4 → rtk2 4/4**; tohum anahtar 3/4 (ikisinde de) — kaçan `git diff` anahtarı otomatik seçilen `a/tools/beyin.py` ön eki; dosya adı çıktıda var → anahtar yapaylığı, kalite kaybı değil. Maliyet: rtk2 süresi rtk'ye göre ~+%50 (iki süreç).
+- Dürüstlük: 'ls' kompakt çıktısı büyük dizinde (`.kos/kopru` 40k→13.5k, rtk 590 ama ad kaybı) rtk'den çok daha uzun; kazanç −%43.7 < rtk −%48.8, bedeli kalite. Kapı "kalite 10/10 → RTK kazancı": sağlandı (20/20, 4/4). Varsayılan geçiş Ömer onayı.
+- **sor2 (graphify hibrit) YAPILMADI** (tur tavanı); d3'e.
+
+## ★ d3 TASLAK
+1. sor2 (graphify hibrit) + held-out 5 soru metni yazıp kilitle; isabet ≥9/10, ≤1.5k token, <0.5 sn.
+2. İş deseni kolu ölç: köprü şablonunda tur/okuma tavanı · ucuz alt ajan delegasyonu (ucretsiz_havuz+Haiku) · erken /clear · sabit ön ek; plan.md'de iki kolun toplamıyla %50-60 yolu sayıyla (şu an: araç ≈%4 + rtk2 + diyet ≈%3.8 + çıktı ≈%3 → ≈%10-12; kalan ≈%40 yalnız tur×bağlam azaltımından gelebilir).
+3. Bağlam-diyeti ikinci adım: MEMORY.md dizin kısaltma + ortam/ajan listesi ile ≤22k (Ömer onayı) ve ham kalite setleri 20 madde/anlam hakemi.
+4. d2c: bekleyen 6 aracın tabanı, hr2, çıktı-diyeti.

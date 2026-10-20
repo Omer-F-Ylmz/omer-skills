@@ -1,0 +1,62 @@
+[
+ {
+  "etiket": "<system-reminder> Codebase and user instructions are shown below. Be s",
+  "karakter": 10830,
+  "token": 4743
+ },
+ {
+  "etiket": "<system-reminder> As you answer the user's questions, you can use the ",
+  "karakter": 562,
+  "token": 170
+ },
+ {
+  "etiket": "Yalnız 'tamam' yaz, araç kullanma.",
+  "karakter": 34,
+  "token": 21
+ },
+ {
+  "etiket": "SessionStart:startup hook success: PONYTAIL MODE ACTIVE — level: full ",
+  "karakter": 70,
+  "token": 31
+ },
+ {
+  "etiket": " # Ponytail You are a lazy senior developer. The best code is the cod",
+  "karakter": 2826,
+  "token": 903
+ },
+ {
+  "etiket": "Codebase map (what already exists; reuse it, read a file only when you",
+  "karakter": 2098,
+  "token": 1159
+ },
+ {
+  "etiket": "SessionStart hook additional context: ",
+  "karakter": 38,
+  "token": 10
+ },
+ {
+  "etiket": "<EXTREMELY_IMPORTANT> You have superpowers. **Below is the full conte",
+  "karakter": 3407,
+  "token": 1292
+ },
+ {
+  "etiket": "<context_window_protection> <priority_instructions> Every byte a",
+  "karakter": 4603,
+  "token": 1760
+ },
+ {
+  "etiket": "# Work state: your to-do lists and working state Use claude-mem's work",
+  "karakter": 808,
+  "token": 271
+ },
+ {
+  "etiket": "# [omer-skills] recent context, 2026-10-20 5:25pm GMT+3 Mode: Code Dev",
+  "karakter": 2905,
+  "token": 1408
+ },
+ {
+  "etiket": " # Environment You have been invoked in the following environment: -",
+  "karakter": 6239,
+  "token": 2374
+ }
+]
