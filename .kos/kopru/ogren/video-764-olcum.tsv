@@ -1,0 +1,3 @@
+parti	video/dk	usd	AL/UYARLA/OGREN/ELE	hata	not
+kontrol-1 (10)	0.91	0	-	1	paket ile OCR dahil; pilot ~0.55/dk
+kontrol-2 (10)	0.47	0	-	8	Gemini PerDay kotası bitti (retryDelay ~65000 sn); hatalar ozet-only, tekrar denenecek

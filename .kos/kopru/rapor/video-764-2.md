@@ -1,0 +1,9 @@
+# VIDEO-764-2 — hız fazı (B koşulmadı)
+- KABUL A GEÇMEDİ → Faz B (754 koşu) başlatılmadı. İşlenen 0 / kalan 754 (kontrol özetleri `C:\Projeler\.video764\*.ozet.txt`'de önbellekte, karar yazılmadı).
+- Neden: Gemini ücretsiz `GenerateRequestsPerDayPerProject` kotası kontrol-2'de bitti (retryDelay ≈65 000 sn ≈ 18 sa, claude-mem aynı anahtarı paylaşıyor). Zincirin kalanı yetmedi: Groq gpt-oss-120b 2/10 "uydurma link" ret, OpenRouter gemma-4-31b:free 429. 8/10 özet düştü.
+- Hız: pilot ≈0.55 video/dk (100-127 sn/video seri) → kontrol-1 0.91/dk (3 paralel, 9/10 ok); hedef ≥1.1 değil. Ölçülen darboğaz: `video paket --kare 0` OCR'ı yine koşturuyor (~14 sn); yerine `video764_asr.py` (yalnız ses→Groq, 23→11 sn) yazıldı, kontrol-2'de devrede ama kota yüzünden hız ölçülemedi.
+- Yapılan: `.kos/kopru/video764_kos.py` (N≤3, RAM ≥%85→N=1 / ≥%88 bekle, zaman aşımı+2 deneme, hata→`video-764-hata.tsv`, canlı model listesi, özet doğrulama ≥3 cümle/uydurma link/konu, 429 geri çekilme, kaldığı yerden devam), `video764_asr.py`.
+- Madde 4: `tools/video/video` içinde 404 model adı YOK (kisa.py gemini-3.8/3.5 zaten güncel); eski adlar `tools/yonlendir.py:23` (gemini-2.5-flash) + kos_sleep.py'de — dokunulmadı. Madde 5: `ucuz_alt.py` zaten 429→`soguma.json` + sıradaki halka; değişiklik yok.
+- Claude $: 0 (karar adımı hiç çalışmadı). Karar değişmezliği (3 pilot video) sınanamadı (Gemini yok). Ücretli çağrı 0, ollama kapalı, pencere yok (CREATE_NO_WINDOW).
+- Sapma: tur ~45'te kota duvarı; kalan tur Faz B'yi anlamsız kılar.
+SIRA: Gemini kotası sıfırlanınca (≈21 Eki 09:00 TR) `python .kos/kopru/arka.py .kos/kopru/ogren/.v764.log .kos/kopru/video764_kos.py kos 50` ile kontrol-2'yi yeniden ölç (≥1.1 video/dk + 3 pilot kararı), geçerse parti döngüsü; ya da Gemini'siz yol için Groq "uydurma link" doğrulayıcısını gevşetip OpenRouter ikinci :free model ekle — Ömer seçer.
