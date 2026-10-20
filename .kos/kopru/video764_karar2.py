@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).parent)); import video764_kos as V  # noqa
 
 H = V.HAVUZ; OG = V.R / ".kos/kopru/ogren"
 ALTIN = OG / "video-764-altin.json"; V2 = OG / "video-764-v2.tsv"; SAYAC = OG / "video-764-4-sayac.json"; TAHMIN = OG / "video-764-4-tahmin.json"
-TAVAN = {"claude": 120, "havuz": 300}
+TAVAN = {"claude": 220, "havuz": 300, "tek": 60}  # tek: melez kipte tek-tek yeniden karar (claude içinde sayılır)
 SINIF = ("AL", "UYARLA", "ÖĞREN", "ELE")
 TANIM = ("AL: metinde bir aracın/reponun ADI ve repo/linki açık, açık kaynak, doğrudan kurulur (çok nadir).\n"
          "UYARLA: metinde tek somut araç/repo/skill/MCP adı var; kurmadan önce lisans+kurulum raporu ya da uyarlama gerekir. AL'dan şüphe edersen UYARLA.\n"
@@ -29,8 +29,8 @@ KUL = {"usd": 0.0, "tok": 0}  # bu süreçteki claude -p toplamı
 
 
 def sayac(k):
-    d = json.loads(SAYAC.read_text()) if SAYAC.exists() else {"claude": 0, "havuz": 0}
-    d[k] += 1; SAYAC.write_text(json.dumps(d))
+    d = json.loads(SAYAC.read_text()) if SAYAC.exists() else {}
+    d[k] = d.get(k, 0) + 1; SAYAC.write_text(json.dumps(d))
     if d[k] > TAVAN[k]:
         raise SystemExit(f"{k} tavanı aşıldı")
 
@@ -164,20 +164,39 @@ def kapi(n=15):
     print([(i, g[i]["karar"], a.get(i, {}).get("karar"), b.get(i, {}).get("karar")) for i in g if not g[i]["karar"] == a.get(i, {}).get("karar") == b.get(i, {}).get("karar")])
 
 
-def yeniden(n=15, cagri=None, ids=None):
-    """karar-v2'si olmayan her videoyu (Haiku ön-karar etiketli ya da yeni/ek-50) Sonnet toplu kipte karara bağlar; eski karar satırı korunur, V2'ye eklenir."""
+def yeniden(n=15, cagri=None, ids=None, melez=False):
+    """karar-v2'si olmayan her videoyu (Haiku ön-karar etiketli ya da yeni/ek-50) Sonnet toplu kipte karara bağlar; eski karar satırı korunur, V2'ye eklenir.
+    melez: toplu istem `guven` da ister; guven=dusuk ve ELE kararlılar tek-tek (ALTIN_A, n=1) yeniden karara bağlanır, tek-tek tavanı TAVAN['tek']."""
     cagri = cagri or (lambda s: claude("claude-sonnet-5-5", s))
+    istem = ALTIN_A.replace('"kanit":"özetten birebir tek cümle"}', '"kanit":"özetten birebir tek cümle", "guven":"yuksek|dusuk"}') if melez else ALTIN_A
     yapilan = {ln.split("\t")[0] for ln in V2.read_text(encoding="utf-8").splitlines()} if V2.exists() else set()
     bekle = [x for x in veri().values() if x["id"] not in yapilan and (not ids or x["id"] in ids)]
     duz = lambda s: str(s).replace("\t", " ").replace("\n", " ")  # noqa: E731
     for i in range(0, len(bekle), n):
-        b = bekle[i:i + n]; p = {o["id"]: o for o in json_oku(cagri(ALTIN_A + metin(b)))}
-        sat = [] if V2.exists() else ["id\tlink\tbaşlık\teski karar\tkarar-v2\tgerekçe\tkanıt\tetiket"]
+        b = bekle[i:i + n]; p = {o["id"]: o for o in json_oku(cagri(istem + metin(b)))}
+        sat = [] if V2.exists() else ["id\tlink\tbaşlık\teski karar\tkarar-v2\tgerekçe\tkanıt\tetiket\työntem"]
+        norm = lambda o: o and o.get("karar", "").upper().replace("OGREN", "ÖĞREN")  # noqa: E731
+        yontem = {x["id"]: "toplu" for x in b}
+        if melez:  # düşük güven ya da ELE → tek-tek; tavan dolunca toplu karar kalır, "toplu-tavan" etiketlenir
+            dusuk = lambda x: str(p[x["id"]].get("guven", "")).lower().startswith("d")  # noqa: E731 (dusuk/düşük)
+            sec = [x for x in b if p.get(x["id"]) and norm(p[x["id"]]) in SINIF and (dusuk(x) or norm(p[x["id"]]) == "ELE")]
+            say = lambda: json.loads(SAYAC.read_text()).get("tek", 0) if SAYAC.exists() else 0  # noqa: E731
+            kota = -(-(TAVAN["tek"] - say()) // -(-(len(bekle) - i) // n))  # kalan tavan kalan partilere yayılır (ilk partiler tavanı tüketmesin)
+            for j, x in enumerate(sorted(sec, key=lambda x: not dusuk(x))):
+                if j >= kota or say() >= TAVAN["tek"]:
+                    yontem[x["id"]] = "toplu-tavan"; continue
+                sayac("tek")
+                try:
+                    t = {o["id"]: o for o in json_oku(cagri(ALTIN_A + metin([x])))}.get(x["id"])
+                except Exception as e:  # tek-tek düşerse toplu karar kalır
+                    print("tek-tek hata", x["id"], str(e)[:80]); continue
+                if norm(t) in SINIF:
+                    p[x["id"]] = t; yontem[x["id"]] = "tek"
         for x in b:
             o = p.get(x["id"])  # yanıtta eksik video yazılmaz → sonraki koşuda yeniden denenir
-            k = o and o.get("karar", "").upper().replace("OGREN", "ÖĞREN")
+            k = norm(o)
             if k in SINIF:
-                sat.append("\t".join((x["id"], x["url"], duz(x["baslik"]), x["eski"][3] if x["eski"] else "", k, duz(o.get("gerekce", "")), duz(o.get("kanit", "")), "[karar-v2]")))
+                sat.append("\t".join((x["id"], x["url"], duz(x["baslik"]), x["eski"][3] if x["eski"] else "", k, duz(o.get("gerekce", "")), duz(o.get("kanit", "")), "[karar-v2]", yontem[x["id"]])))
         if sat:
             with V2.open("a", encoding="utf-8", newline="\n") as f:
                 f.write("\n".join(sat) + "\n")
@@ -198,6 +217,6 @@ def olc(v, ad, n=5, ilk=0):
 
 if __name__ == "__main__":
     a = sys.argv[1:]
-    if a[:1] == ["ver"] and "--verici" in a:  # ver --verici sonnet --toplu N
-        assert a[a.index("--verici") + 1] == "sonnet"; sys.exit(yeniden(int(a[a.index("--toplu") + 1]) if "--toplu" in a else 15))
+    if a[:1] == ["ver"] and "--verici" in a:  # ver --verici sonnet [--melez] [--toplu N]
+        assert a[a.index("--verici") + 1] == "sonnet"; sys.exit(yeniden(int(a[a.index("--toplu") + 1]) if "--toplu" in a else 15, melez="--melez" in a))
     {"altin": altin, "ver": lambda: ver(a[1]), "tutar": tutar, "kapi": kapi, "olc": lambda: olc(a[1], a[2], ilk=int(a[3]) if len(a) > 3 else 0)}[a[0]]()
