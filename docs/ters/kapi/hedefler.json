@@ -552,6 +552,166 @@
         }
       ],
       "derlenmis": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/bin/Debug/net10.0/Fiyat.Tests.dll"
+    },
+    {
+      "id": 11,
+      "ad": "ses",
+      "tur": "site",
+      "yol": "C:/Projeler/omer-skills/labs/ses/index.html",
+      "sayfa": "/ses/index.html",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/ses/index.html",
+        "C:/Projeler/omer-skills/labs/ortak.js"
+      ],
+      "sorular": "Ses laboratuvari sayfasinda kaydirmayla ilerleyen kamera ve ses dugmesi nasil kurulmus?",
+      "maddeler": [
+        {
+          "madde": "Sayfa tek canvas uzerinde Three.js sahnesi cizer; renderer ve kamera ortak kur() ile, sahne dunya() ile kurulur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ses/index.html",
+            "satir": 18,
+            "alinti": "const { r, kam } = kur(cv);"
+          }
+        },
+        {
+          "madde": "Kamera, konum ve hedef noktalari dizisinden kameraYolu ile 0..1 ilerleme degerine gore yol boyunca gezer.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ses/index.html",
+            "satir": 20,
+            "alinti": "const git = kameraYolu(kam,"
+          }
+        },
+        {
+          "madde": "Kaydirma Lenis ile yumusatilir; ScrollTrigger ile gsap.to(o, {t:1}) ilerlemeyi scrub eder ve her guncellemede sahne yeniden cizilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ses/index.html",
+            "satir": 29,
+            "alinti": "gsap.to(o, { t: 1, ease: 'none', onUpdate() { iste(); sx.ayarla(o.t); }, scrollTrigger: kosu() });"
+          }
+        },
+        {
+          "madde": "Sag ustteki #ses dugmesi aria-pressed ile ses acma/kapamayi taşir; ses motoru kaydirma ilerlemesini sx.ayarla(o.t) ile alir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ses/index.html",
+            "satir": 24,
+            "alinti": "const sx = ses(dugme);"
+          }
+        },
+        {
+          "madde": "Sahne kahve temali: tornalanmis bakir cezve, seramik fincanlar, koz halkasi ve isik/sis ortak.js dunya() icinde uretilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ortak.js",
+            "satir": 37,
+            "alinti": "const cezve = new THREE.Mesh(new THREE.LatheGeometry("
+          }
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "ad": "ortak-js",
+      "tur": "js",
+      "yol": "C:/Projeler/omer-skills/labs/ortak.js",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/ortak.js"
+      ],
+      "sorular": "ortak.js laboratuvar yardimci kutuphanesi neler sagliyor ve nasil calisiyor?",
+      "maddeler": [
+        {
+          "madde": "window.lab sozlesmesi kare sayaci, hazir bayragi ve git() ile disaridaki kare.py'nin sayfayi okumasini saglar.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ortak.js",
+            "satir": 9,
+            "alinti": "export const lab = (window.lab = { kare: 0, hazir: false, git: async () => {} });"
+          }
+        },
+        {
+          "madde": "kur() WebGLRenderer'i ACES ton esleme ve en cok dpr piksel orani ile kurar, resize'da boyutu ve kamera en-boy oranini gunceller.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ortak.js",
+            "satir": 13,
+            "alinti": "const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true, powerPreference: 'high-performance' });"
+          }
+        },
+        {
+          "madde": "dunya() sahneyi RoomEnvironment'tan PMREM ortam haritasi ile aydinlatir; cezve, fincanlar ve koz halkasi LatheGeometry/Torus ile uretilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ortak.js",
+            "satir": 32,
+            "alinti": "s.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), 0.04).texture;"
+          }
+        },
+        {
+          "madde": "arka null verilirse sahne saydam olur: arka plan, sis ve zemin eklenmez, yalniz arka verildiginde FogExp2 ve zemin plani konur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ortak.js",
+            "satir": 64,
+            "alinti": "if (arka !== null) {"
+          }
+        },
+        {
+          "madde": "kaydir() Lenis'i ScrollTrigger ile tek saatte birlestirir (gsap.ticker) ve lab.git(p) sayfayi anlik p oranina atlatip scrub yetissin diye 1800 ms bekler.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ortak.js",
+            "satir": 75,
+            "alinti": "export function kaydir() {"
+          }
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "ad": "Halka",
+      "tur": "dotnet",
+      "yol": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka",
+      "derlenmis": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/bin/Debug/net10.0/Halka.dll",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/Class1.cs",
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/bin/Debug/net10.0/Halka.dll"
+      ],
+      "sorular": "Halka kutuphanesindeki HalkaTampon nasil calisiyor?",
+      "maddeler": [
+        {
+          "madde": "Halka ad alaninda genel tipli mühürlü HalkaTampon<T> sinifi var.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/Class1.cs",
+            "satir": 3,
+            "alinti": "public sealed class HalkaTampon<T>"
+          }
+        },
+        {
+          "madde": "Kapasite kurucuda sabit bir dizi olarak ayrilir; sifir ya da negatif kapasite ArgumentOutOfRangeException firlatir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/Class1.cs",
+            "satir": 11,
+            "alinti": "if (kapasite <= 0) throw new ArgumentOutOfRangeException(nameof(kapasite));"
+          }
+        },
+        {
+          "madde": "Ekle() ogeyi (_bas + _sayi) % uzunluk konumuna yazar; modulo ile dizi basa sarar.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/Class1.cs",
+            "satir": 19,
+            "alinti": "_ogeler[(_bas + _sayi) % _ogeler.Length] = oge;"
+          }
+        },
+        {
+          "madde": "Tampon doluyken Ekle en eski ogenin ustune yazar: _bas ileri alinir, Sayi artmaz.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/Class1.cs",
+            "satir": 20,
+            "alinti": "if (_sayi == _ogeler.Length) _bas = (_bas + 1) % _ogeler.Length;"
+          }
+        },
+        {
+          "madde": "TryAl() en eskiyi (FIFO) dondurur ve boskeyken false verip default dondurur; basarida _bas ilerler, _sayi azalir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Halka/Class1.cs",
+            "satir": 26,
+            "alinti": "if (_sayi == 0) { oge = default!; return false; }"
+          }
+        }
+      ]
     }
   ]
 }

@@ -16,7 +16,7 @@ CIKTI = Path(os.environ["TEMP"]) / "ters-kapi"
 TAVAN = {"yazar": 60, "hakem": 70}  # hakem: 40 ücretsiz + en çok 30 Haiku
 HAIKU_TAVAN = 30
 TEKRAR = (1, 2)
-YARGIC = ("meta", "openai", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
+YARGIC = ("meta", "openai", "mistral", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
 KULLANILAN = {}
 SKILL = (KOK / "skills/tersine/SKILL.md").read_text(encoding="utf-8")
 
@@ -26,11 +26,14 @@ def ram():
     return psutil.virtual_memory().percent
 
 
-def ram_bekle():  # DEVAM-KURALI: RAM ≥%88 iken tarayıcı adımı yok
-    for _ in range(60):
+class RamYok(Exception): pass
+
+
+def ram_bekle():  # DEVAM-KURALI: RAM ≥%88 iken tarayıcı adımı yok; 10 dk × en çok 3 bekle, sonra koşu yarım kalır
+    for _ in range(3):
         if ram() < 88: return
-        time.sleep(30)
-    raise SystemExit("RAM %88 üstünde kaldı")
+        time.sleep(600)
+    if ram() >= 88: raise RamYok("RAM %88 üstünde kaldı")
 
 
 def onbellekli(tur, anahtar, uret):  # önbellek + tür başına çağrı sayacı (tavan aşılırsa koşu durur)
@@ -196,8 +199,11 @@ def main():
     H = json.loads((DIZ / "hedefler.json").read_text(encoding="utf-8"))["hedefler"]
     if "--dene" in sys.argv: H = H[:1]
     port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []; atlanan = []; hatalar = []
-    for h in H:
+    H.sort(key=lambda h: h["tur"] == "site")  # tarayıcısız hedefler önce (sıralama kararlı)
+    for i, h in enumerate(H):
         try: hedef_kos(h, port, sat, atlanan)
+        except RamYok as e:  # yarım bırak: bu ve kalan site hedefleri atlanmış sayılır, önbellek kalır
+            atlanan += [x["ad"] for x in H[i:] if x["tur"] == "site"]; print("RAM", e, flush=True); break
         except Exception as e:  # bir hedefin hatası koşuyu çökertmez; o hedef hata satırı olur
             hatalar.append({"ad": h["ad"], "hata": f"{type(e).__name__}: {e}"}); atlanan.append(h["ad"]); print("hata", h["ad"], type(e).__name__, e, flush=True)
     o = ozet(sat); ort = o["ort"]
