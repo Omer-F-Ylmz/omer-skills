@@ -113,7 +113,7 @@ def sebepler(aktif,gozlem_yas_dk, kota_yas_dk):
     """Sağlık kararı (saf): aktif oturumda gözlem 30 dk'dan eski ya da son 30 dk'da kota/429 işareti."""
     s = []
     if aktif and (gozlem_yas_dk is None or gozlem_yas_dk > 30):
-        s.append("son gozlem %s dk" % ("yok" if gozlem_yas_dk is None else int(gozlem_yas_dk)))
+        s.append("gozlem sayisi 30 dk sabit (son gozlem %s dk)" % ("yok" if gozlem_yas_dk is None else int(gozlem_yas_dk)))
     if kota_yas_dk is not None and kota_yas_dk <= 30:
         s.append("kota/429 %d dk once" % kota_yas_dk)
     return s
