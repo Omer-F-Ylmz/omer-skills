@@ -2,9 +2,9 @@
   python tools/ters/kapi_kos.py          → docs/ters/kapi/sonuc.md + sonuc.json; --dene → yalnız 1 hedef (kuru deneme)
 Kollar: skill (SKILL.md + prob/REA kanıtı + ham kaynak) vs zemin (yalnız ham kaynak), aynı yazar model. Hakem: iki aile ücretsiz bulut, ikisi onaylamazsa madde 0.
 Bulut çağrı tavanı yazar 80 / hakem 130 (sayaç + önbellek CIKTI altında); anahtar değerleri basılmaz."""
-import functools, hashlib, http.server, json, os, random, re, subprocess, sys, threading, time, urllib.request
+import functools, hashlib, http.server, json, os, random, re, shutil, subprocess, sys, threading, time, urllib.request
 from pathlib import Path
-from PIL import Image, ImageChops
+from PIL import Image, ImageChops, ImageStat
 
 KOK = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(KOK / "tools" / "ters"))
@@ -18,6 +18,9 @@ HAIKU_TAVAN = 0  # üçüncü hakem (Haiku) kapalı
 TEKRAR = (1, 2)
 YARGIC = ("meta", "openai", "mistral", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
 KULLANILAN = {}
+SABIT_OY = set()  # hepsi-aynı oy veren aile: ayrıştırmıyor, koşu boyunca düşer
+BOS_REF = []  # referans karesi düz (sapma ~0) olan site hedefleri: yeniden kurulum puanı yok
+DUZ_STD = 2.0
 DUSEN = {}  # hata veren hakem ailesi → soğuma bitişi (SOGUMA sn atlanır; geçici hata aileyi koşu boyunca düşürmesin)
 SOGUMA = 150
 SKILL = (KOK / "skills/tersine/SKILL.md").read_text(encoding="utf-8")
@@ -82,6 +85,18 @@ def fark(a, b):
     return d.histogram()[255] / (A.size[0] * A.size[1])
 
 
+def duz(png): return max(ImageStat.Stat(Image.open(png).convert("L")).stddev) < DUZ_STD
+
+
+def gecerli_kareler(orj, kareler=(0, 50, 100)): return [n for n in kareler if not duz(Path(orj) / f"kare-{n}.png")]
+
+
+def yeniden_puan(orj, yeni, kareler=(0, 50, 100)):  # yalnız düz olmayan referans kareleri; hepsi düzse None (puana girmez)
+    gec = gecerli_kareler(orj, kareler)
+    if not gec: return None
+    return 1 - min(1, sum(fark(Path(orj) / f"kare-{n}.png", Path(yeni) / f"kare-{n}.png") for n in gec) / len(gec))
+
+
 def nor(s): return re.sub(r"\s+", " ", s).strip()
 
 
@@ -93,14 +108,31 @@ def ham(h, sinir=9000):
     return "\n".join(f"### {k}\n{Path(k).read_text(encoding='utf-8', errors='ignore')}" for k in h["kaynaklar"])[:sinir]
 
 
-def rea_kanit(h):
-    if h["tur"] == "dotnet": komut = ["rea", "inspect-managed-members", h["derlenmis"], "--json"]
-    else: komut = ["rea", "analyze-javascript-application", h["yol"], "--json"]
+class ReaYok(Exception): pass
+
+
+def rea_yol():  # Windows'ta rea yalnız rea.cmd (npm shim): PATH → node yanı → %APPDATA%/npm
+    for ad in ("rea.cmd", "rea"):
+        if y := shutil.which(ad): return y
+    adaylar = []
+    if node := shutil.which("node"): adaylar.append(Path(node).parent / "rea.cmd")
+    adaylar.append(Path(os.environ.get("APPDATA", "")) / "npm" / "rea.cmd")
+    for a in adaylar:
+        if a.is_file(): return str(a)
+    raise ReaYok("rea.cmd bulunamadı")
+
+
+def rea_kanit(h):  # REA çalışmazsa koşu durur: hata satırıyla skill kolu koşmaz
+    yol = rea_yol()
+    if h["tur"] == "dotnet": komut = [yol, "inspect-managed-members", h["derlenmis"], "--json"]
+    else: komut = [yol, "analyze-javascript-application", h["yol"], "--json"]
     try:
         c = subprocess.run(komut, capture_output=True, text=True, timeout=180, creationflags=0x08000000, encoding="utf-8")
-        return c.stdout[:6000]
     except Exception as e:
-        return f"REA hata: {type(e).__name__}"
+        raise ReaYok(f"REA hata: {type(e).__name__}")
+    if not (c.stdout or "").strip(): raise ReaYok("REA boş çıktı")
+    if re.match(r'\s*\{\s*"error"', c.stdout): raise ReaYok("REA hata JSON: " + c.stdout[:200])  # ör. unsupported_target (js için dizin/.asar gerekir)
+    return c.stdout[:6000]
 
 
 def sunucu():
@@ -130,6 +162,9 @@ def oyla(oylar):  # oylar: her biri 2×5 (A,B) 0/1; çoğunluk, eşitlikte 0
     return [[int(sum(o[l][i] == 1 for o in oylar) * 2 > len(oylar)) for i in range(5)] for l in range(2)]
 
 
+def oy_gecerli(o): return len({x for k in o for x in k}) > 1  # 2×5 oyun hepsi aynıysa (hepsi-1/hepsi-0) geçersiz
+
+
 def hakem(h, notlar, rng):
     sira = ["skill", "zemin"]; rng.shuffle(sira)  # kör: A/B rastgele
     gt = "\n".join(f"{i + 1}. {m['madde']}" for i, m in enumerate(h["maddeler"]))
@@ -144,12 +179,16 @@ def hakem(h, notlar, rng):
             return [(list(j[k]) + [0] * 5)[:5] for k in "AB"]
         except Exception: return None
 
+    def sabit(aile, o):  # tüm maddelere aynı oy → ayrıştırmıyor; oy geçersiz, aile düşer
+        if oy_gecerli(o): return False
+        SABIT_OY.add(aile); print("hakem ayrıştırmıyor", aile, flush=True); return True
+
     oylar, KULLANILAN_BU = [], set()
     for _ in range(3):  # yetmezse en yakın soğuma bitince yeniden dene
         for aile in YARGIC:
             if len(oylar) == 2: break
-            if aile in KULLANILAN_BU or DUSEN.get(aile, 0) > time.monotonic(): continue
-            if o := oy(aile): oylar.append(o); KULLANILAN_BU.add(aile); KULLANILAN[aile] = KULLANILAN.get(aile, 0) + 1
+            if aile in KULLANILAN_BU or aile in SABIT_OY or DUSEN.get(aile, 0) > time.monotonic(): continue
+            if (o := oy(aile)) and not sabit(aile, o): oylar.append(o); KULLANILAN_BU.add(aile); KULLANILAN[aile] = KULLANILAN.get(aile, 0) + 1
         bek = [t - time.monotonic() for t in DUSEN.values() if t > time.monotonic()]
         if len(oylar) == 2 or not bek: break
         time.sleep(min(bek) + 1)
@@ -166,6 +205,8 @@ def hedef_kos(h, port, sat, atlanan):
     if h["tur"] == "site":
         ram_bekle()
         kanit = json.dumps(probe(f"http://127.0.0.1:{port}/labs{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
+        gecerli = gecerli_kareler(d / "orijinal")
+        if not gecerli: BOS_REF.append(h["ad"]); print("referans düz (yeniden kurulum puanı yok)", h["ad"], flush=True)
     else: kanit = rea_kanit(h)
     veri = {"zemin": ham(h), "skill": ham(h) + "\n\n### Kanıt (prob/REA)\n" + kanit}
     for r in TEKRAR:  # tekrar: yazar örneklemesi + A/B sırası farklı tohum
@@ -179,14 +220,14 @@ def hedef_kos(h, port, sat, atlanan):
             c3 = None
             if h["tur"] == "site":
                 f = d / f"{kol}{r}"; f.mkdir(exist_ok=True)
-                if html[kol]:
+                if html[kol] and gecerli:
                     ram_bekle(); (f / "yeniden.html").write_text(html[kol], encoding="utf-8")
                     try:
                         probe((f / "yeniden.html").as_uri(), f / "p")
-                        c3 = 1 - min(1, sum(fark(d / "orijinal" / f"kare-{n}.png", f / "p" / f"kare-{n}.png") for n in (0, 50, 100)) / 3)
+                        c3 = yeniden_puan(d / "orijinal", f / "p")
                     except Exception as e: print("yeniden hata", h["ad"], kol, type(e).__name__, flush=True)
-                if c3 is None: c3 = 0.0
-                bil.append(c3)
+                if c3 is None and gecerli: c3 = 0.0
+                if c3 is not None: bil.append(c3)
             sat.append({"id": h["id"], "ad": h["ad"], "tur": h["tur"], "kol": kol, "tekrar": r, "c1": c1[kol], "c2": c2, "c3": c3, "puan": sum(bil) / len(bil), "iddia": len(notlar[kol])})
             print(sat[-1], flush=True)
 
@@ -206,22 +247,25 @@ def ozet(sat):  # hedef başına tekrar ortalaması → kol ortalaması + eşli 
 def main():
     H = json.loads((DIZ / "hedefler.json").read_text(encoding="utf-8"))["hedefler"]
     if "--dene" in sys.argv: H = H[:1]
+    if any(h["tur"] != "site" for h in H): rea_yol()  # REA yoksa hiçbir çağrı yapılmadan dur
     port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []; atlanan = []; hatalar = []
     H.sort(key=lambda h: h["tur"] == "site")  # tarayıcısız hedefler önce (sıralama kararlı)
     for i, h in enumerate(H):
         try: hedef_kos(h, port, sat, atlanan)
         except RamYok as e:  # yarım bırak: bu ve kalan site hedefleri atlanmış sayılır, önbellek kalır
             atlanan += [x["ad"] for x in H[i:] if x["tur"] == "site"]; print("RAM", e, flush=True); break
+        except ReaYok as e:  # REA kanıtsız kod hedefi koşmaz: koşu durur, kalan kod hedefleri atlanmış sayılır
+            atlanan += [x["ad"] for x in H[i:] if x["tur"] != "site"]; print("REA", e, flush=True); break
         except Exception as e:  # bir hedefin hatası koşuyu çökertmez; o hedef hata satırı olur
             hatalar.append({"ad": h["ad"], "hata": f"{type(e).__name__}: {e}"}); atlanan.append(h["ad"]); print("hata", h["ad"], type(e).__name__, e, flush=True)
     o = ozet(sat); ort = o["ort"]
     gec = not atlanan and ort["skill"] >= 0.92 and o["ga"][0] > 0
     cagri = {p.stem[6:]: json.loads(p.read_text())["n"] for p in CIKTI.glob("sayac-*.json")}
-    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, **o, "gecti": gec, "atlanan": atlanan, "hatalar": hatalar, "cagri": cagri, "hakem_aileleri": KULLANILAN}, ensure_ascii=False, indent=1), encoding="utf-8")
+    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, **o, "gecti": gec, "atlanan": atlanan, "hatalar": hatalar, "cagri": cagri, "hakem_aileleri": KULLANILAN, "hakem_sabit_oy": sorted(SABIT_OY), "bos_referans": BOS_REF}, ensure_ascii=False, indent=1), encoding="utf-8")
     t = ["# TERS kapısı sonucu (Sonnet yazar, 2 tekrar)", "", "| hedef | tür | kol | tekrar | mekanizma | kanıt | yeniden | puan |", "|---|---|---|---|---|---|---|---|"]
     t += [f"| {s['ad']} | {s['tur']} | {s['kol']} | {s['tekrar']} | {s['c1']:.2f} | {s['c2']:.2f} | {'-' if s['c3'] is None else format(s['c3'], '.2f')} | {s['puan']:.2f} |" for s in sat]
     t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · fark {o['fark']:+.3f} GA95 [{o['ga'][0]:+.3f}, {o['ga'][1]:+.3f}] · tekrar sapması {o['tekrar_sapma']:.3f} · "
-          f"atlanan {len(atlanan)} {atlanan} · hata {hatalar} · çağrı {cagri} · hakem aileleri {KULLANILAN} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
+          f"atlanan {len(atlanan)} {atlanan} · hata {hatalar} · çağrı {cagri} · hakem aileleri {KULLANILAN} · ayrıştırmayan {sorted(SABIT_OY)} · düz referans {BOS_REF} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
     (DIZ / "sonuc.md").write_text("\n".join(t) + "\n", encoding="utf-8")
     print("ORT", ort, "fark", o["fark"], o["ga"], "gecti", gec)
 
