@@ -1,0 +1,17 @@
+{
+ "A_basari": 12,
+ "B_basari": 12,
+ "A_jeton": 17748,
+ "B_jeton": 21368,
+ "A_usd": 0.1138,
+ "B_usd": 0.1008,
+ "B2_T0T1_ayni": false,
+ "sinif_dogru": 3,
+ "sinif_jeton": 0,
+ "claude_p": 3,
+ "ucretsiz": 21,
+ "kalan_A": [],
+ "kalan_B": [],
+ "jeton_azalma": -0.204,
+ "KAPI": false
+}

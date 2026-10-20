@@ -1,0 +1,34 @@
+{
+  "_aciklama": "ROUTER-1 (20 Eki): iş türü → başlangıç kademesi. T0 betik · T1 ücretsiz (ucuz_alt) · T2 Sonnet medium · T3 Sonnet high · T4 Opus medium. dogrulama: light = mekanik (test/şema/birebir alıntı), full = bir üst kademeden tek denetçi. ucuz_tur: T1'de ucuz_alt --tur.",
+  "kademe": {
+    "T0": {"model": null, "effort": null},
+    "T1": {"model": "ucuz_alt", "effort": "low"},
+    "T2": {"model": "claude-sonnet-5-5", "effort": "medium"},
+    "T3": {"model": "claude-sonnet-5-5", "effort": "high"},
+    "T4": {"model": "claude-opus-5-5", "effort": "medium"}
+  },
+  "tur": {
+    "sayim": {"kademe": "T0", "dogrulama": "light", "not": "satır/alan sayımı, toplam"},
+    "bicim": {"kademe": "T0", "dogrulama": "light", "not": "TSV/JSON/MD dönüşümü"},
+    "birlestir": {"kademe": "T0", "dogrulama": "light", "not": "liste birleştirme, tekilleştirme, sıralama"},
+    "dosya-tasi": {"kademe": "T0", "dogrulama": "light", "not": "taşıma, yeniden adlandırma, arşiv"},
+    "lisans": {"kademe": "T1", "dogrulama": "light", "ucuz_tur": "lisans", "not": "OMNİ-AYIR kapısı 43/43"},
+    "etiket": {"kademe": "T1", "dogrulama": "light", "ucuz_tur": "etiket", "not": "sınıflama ön-elemesi"},
+    "ozet-taslak": {"kademe": "T1", "dogrulama": "light", "ucuz_tur": "ozet", "not": "özet taslağı; kör hakem 78/84 → taslak"},
+    "ceviri": {"kademe": "T1", "dogrulama": "light", "ucuz_tur": "ozet"},
+    "gorsel-metin": {"kademe": "T1", "dogrulama": "light", "ucuz_tur": "gorsel", "not": "kare OCR/hüküm"},
+    "alan-cikar": {"kademe": "T2", "dogrulama": "light", "not": "belgeden yapılandırılmış alan; şema denetimi"},
+    "kod-oku": {"kademe": "T2", "dogrulama": "light", "not": "kod davranışını söyle, çıktı tahmini; koşarak doğrulanır"},
+    "regex": {"kademe": "T2", "dogrulama": "light", "not": "örnek dizgelerle sınanır"},
+    "video-rapor": {"kademe": "T2", "dogrulama": "full", "not": "video-tarama raporu; Sonnet KABUL (VİDEO-16)"},
+    "ozet-son": {"kademe": "T2", "dogrulama": "full", "not": "taslağın son hali; kullanıcıya gider"},
+    "kod-yaz": {"kademe": "T3", "dogrulama": "light", "not": "fonksiyon + test; test koşar"},
+    "hata-duzelt": {"kademe": "T3", "dogrulama": "light", "not": "kök neden + düzeltme; kırmızı→yeşil test"},
+    "yargi": {"kademe": "T3", "dogrulama": "full", "not": "rubrik puanı, karşılaştırma, kör hakem"},
+    "skill-yaz": {"kademe": "T3", "dogrulama": "full", "not": "skill/ajan tanımı; KALİTE-3 kapısı"},
+    "mimari": {"kademe": "T4", "dogrulama": "full", "not": "çok dosyalı tasarım kararı; nadir"},
+    "inatci-hata": {"kademe": "T4", "dogrulama": "full", "not": "iki T3 başarısızlığından sonra"}
+  },
+  "boyut": {"kucuk": 0, "orta": 0, "buyuk": 1},
+  "risk": {"geri-donulmez": 1, "kullaniciya-gider": 0, "guvenlik": 1}
+}
