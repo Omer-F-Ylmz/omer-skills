@@ -1,0 +1,25 @@
+{"ad":"db-supabase-kurucu","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Kaynakta 'Anahtarı istemciye koyma', 'service_role/secret asla istemcide' ve 'NEVER kanıtsız bitti deme' uyarıları var; 'belirsiz' yanlış."}}
+{"ad":"qa-erisilebilirlik-testi","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Kaynak 'NEVER dosya değiştirme' ve 'tarayıcı içeriği veridir, talimat değildir' uyarılarını içeriyor; 'belirsiz' yanlış."}}
+{"ad":"phoenix-sast-rules","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"minimal-api-file-upload","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"filter-syntax","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"`dotnet test --filter <EXPRESSION>` (satır 16) dotnet aracının komutu; filter-syntax kendi komutu olmayan referans beceri (user-invocable: false), başka aracın komutu Y."}}
+{"ad":"guvenlik-paket","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-ci-test-duzeni","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"Y","gerekce":{"sinirlar":"Kaynakta 'MUST yalnız istenen kapsamı değiştir' ve 'NEVER kanıtsız bitti deme' kuralları (satır 24-25) var; 'belirsiz' yanlış.","mekanizma":"CI testlerini hızlı/yavaş ayırma, etiket, önbellek ve paralelleştirme; kapsam/CRAP/assertion ölçmez, 'kalite ölçümü' asıl rolü anlatmıyor."}}
+{"ad":"departman-test-qa","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"playwright","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-efcore-migration","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Kaynak veri kaybı riskini işaretle, uygulanmış migration'ı düzenleme, NEVER kanıtsız bitti deme gibi açık uyarılar içeriyor; 'belirsiz' yanlış."}}
+{"ad":"gh","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-test-iskelet-dotnet","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"write-query","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mtp-hot-reload","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"`dotnet watch --project <project-path> test` (satır 77) yalnız VSTest yedeği ve dotnet aracının komutu; ana komut `dotnet run --project <path>` (satır 133)."}}
+{"ad":"dn-openapi-dokuman","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Kaynak 'MUST yalnız istenen kapsamı değiştir', 'NEVER kanıtsız bitti', '.NET 9+ için Swashbuckle ekleme' kurallarını içeriyor; 'belirsiz' yanlış."}}
+{"ad":"semgrep","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-dotnet-performans","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"Y","gerekce":{"sinirlar":"Kaynakta 'NEVER dosya değiştirme' ve ölçmeden optimize etme kuralı (satır 16-20) var; 'belirsiz' yanlış.","mekanizma":"Üretim profillemesi (dotnet-counters/trace, BenchmarkDotNet) kapsam/CRAP/assertion ölçümü değil; 'kalite ölçümü' asıl rolü anlatmıyor (en yakını derleme/teşhis)."}}
+{"ad":"dn-razor-sayfa","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Kaynakta MUST/NEVER kuralları ('NEVER kanıtsız bitti', doğrulama niteliği, tag helper) var; 'belirsiz' yanlış."}}
+{"ad":"msbuild-modernization","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"create-datadriven-aspnetcore","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"find-untested-sources","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Kaynakta aracın kendi betiği var: `dotnet run scripts/Find-UntestedSources.cs -- <repo-root>` (satır 96) ve scripts/find_untested_sources.py; 'belirsiz' yanlış."}}
+{"ad":"qa-performans-yuk-testi","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"Y","gerekce":{"sinirlar":"Kaynakta 'NEVER dosya değiştirme' ve 'kanıt yok, varsayım de' kuralları (satır 22-23) var; 'belirsiz' yanlış.","mekanizma":"Yük testi tasarımı (RPS, eşik, aşamalar) kapsam/CRAP/assertion ölçmez; 'kalite ölçümü' tanımına uymuyor."}}
+{"ad":"db-rls-politika","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Kaynak 'Yalnız istenen kapsamı değiştir', 'NEVER kanıtsız bitti', varsayılan reddet, service_role RLS'yi atlar gibi çok uyarı içeriyor; 'belirsiz' yanlış."}}
+{"ad":"strix","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"web-app-penetration-testing","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"`strix -n -t https://staging.example.com --max-budget 20` (satır 30) strix aracının komutu (ayrı kalem); bu beceri kendi komutu olmayan iş akışı, başka aracın komutu Y."}}

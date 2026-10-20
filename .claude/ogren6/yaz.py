@@ -18,7 +18,7 @@ def al(m, n):
     x = m[n - 1].strip()
     if len(x) < 15:
         raise SystemExit(f"satır {n} çok kısa: {x!r}")
-    return x[:190]
+    return x[:700]
 
 
 def yaz(p):
