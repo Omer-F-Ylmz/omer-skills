@@ -4,3 +4,5 @@
 - Zincir (arka plan): kapi → `_zincir.py` kapı ≥29/30 + tutarlılık ≥28/30 ise yeniden kararı başlatır; loglar /tmp/kapi.txt, /tmp/zincir.txt (Git Bash). Geçmezse "KAPI GEÇMEDİ" → toplu 5 ile `kapi 5` bir kez daha.
 - Haiku ön-karar etiketli: 741 video (UYARLA 321 · ÖĞREN 271 · ELE 146 · AL 3) → toplu 15 ≈ 50 çağrı. Sayaç: claude ~60 → ~110/120 (kendi payım 86/90).
 - Kalan: adım 3 aday listesi (ogren/video-764-aday.tsv + Obsidian 30-video/aday-listesi + video-764-ogren.md; UYARLA/AL v2 kararlıları, kurulum yok, SkillSpector --no-llm planı yalnız listede), v2 dağılım + değişen sayısı + $ raporu, commit (.kos git add -f).
+- KAPI SONUCU (20 Eki): toplu15 uyum 27/30 · 27/30, tutarlılık 30/30 (3 sabit fark: ELE↔ÖĞREN/UYARLA); toplu5 uyum 26/30 · 26/30, tutarlılık 26/30. Eşik (≥29/30, ≥%93) iki kez geçmedi → DURDU (adım 2-3 yapılmadı, yeniden karar koşmadı). Sınır: ELE↔ÖĞREN (alan-içi/içeriksiz ayrımı) — tek-tek bile 20→ toplu'da sapıyor; tanım ELE kuralı daha da netleşmeli ya da karar tek-tek (≈741 çağrı, plan kotasına sığmaz) / ELE adayları yalnız tek-tek.
+- Claude sayacı ≈72/120. Zincir betiği silindi.
