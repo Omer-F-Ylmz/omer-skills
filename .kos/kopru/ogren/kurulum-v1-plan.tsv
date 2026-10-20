@@ -1,0 +1,175 @@
+ad	tür	grup	repo	lisans	yıldız	son_push	ölçüt_puanı(0-8)	token/hafıza	ÖĞREN_grubu	ilk10	tarama	karar	kurulum_komutu
+Agency Agents	repo	YENI	msitarzewski/agency-agents	mit	162215	2026-10-19	4		uzman ajan koleksiyonu		-	-	-
+Harvey	repo	YENI	ethanplusai/harvey	mit	1808	2026-10-20	6		satış otomasyonu		-	-	-
+Graphify	repo	UYARLA						TOKEN-REA	kod haritası		-	-	-
+HyperFrames	arac	UYARLA							kodla video		-	-	-
+Replica	skill	UYARLA							uygulama klonlama		-	-	-
+TradingView MCP	mcp	YENI	tradesdontlie/tradingview-mcp	other	6887	2026-07-28	4		trading entegrasyonu		-	-	-
+MoneyPrinterTurbo	repo	YENI	harry0703/MoneyPrinterTurbo	mit	133397	2026-10-20	7		kısa video üretimi		-	-	-
+Paperclip	repo	YENI	paperclipai/paperclip	mit	105171	2026-10-20	5		ajan orkestrasyonu		-	-	-
+Brag	skill	YENI	latent-spaces/brag	mit	17146	2026-10-13	8		tanıtım videosu		-	-	-
+PentAGI	repo	YENI	vxcontrol/pentagi	mit	31522	2026-10-17	7		güvenlik testi		-	-	-
+Context Mode	arac	UYARLA						TOKEN-REA	bağlam tasarrufu		-	-	-
+Grill Me	skill	YENI	RobMitt/grill-me-skill		1018	2026-04-11	4		prompt netleştirme		-	-	-
+Hypit	repo	YENI	hypit-ai/hypit	other	24262	2026-10-19	5		video klonlama		-	-	-
+gstack	repo	UYARLA							yazılım ekibi		-	-	-
+prompts.chat	mcp	YENI	f/prompts.chat	other	173678	2026-10-20	5		prompt kütüphanesi		-	-	-
+Postiz	repo	YENI	gitroomhq/postiz-app	agpl-3.0	37466	2026-10-20	7		sosyal medya		-	-	-
+Academic Research Skills	repo	UYARLA							akademik araştırma		-	-	-
+Prime Agent	arac	YENI	PrimeIntellect-ai/prime-agent	other	22206	2026-10-20	6		otonom ajan		-	-	-
+ScrapeGraphAI	repo	UYARLA							lead toplama		-	-	-
+Munder Difflin	repo	YENI	HarnessMD/munder-difflin	mit	8936	2026-10-19	7		çoklu ajan ofisi		-	-	-
+MotionSites.ai	arac	YENI-kaynaksiz					6		web site promptları		-	-	-
+Generate	skill	UYARLA							görsel video üretimi		-	-	-
+VibeWise	skill	OLU?	vibewisehq/vibewise		2	2025-07-05			öğretici kodlama		-	-	-
+Ponytail	repo	UYARLA						TOKEN-REA	gereksiz kodu önleme		-	-	-
+Google Maps Scraper Kit	repo	UYARLA							veri kazıma		-	-	-
+Founder	skill	UYARLA							iş fikri doğrulama		-	-	-
+Xtool	repo	YENI	xtool-org/xtool	mit	13084	2026-10-20	7		iOS geliştirme		-	-	-
+AirLLM	repo	YENI	lyogavin/airllm	apache-2.0	39832	2026-10-20	7		yerel LLM		-	-	-
+Video Use	skill	UYARLA							video düzenleme		-	-	-
+/linkedin-roast	skill	OLU?	yogibagus/linkedin-roaster		13	2024-08-23			LinkedIn profil iyileştirme		-	-	-
+CareerOps	repo	YENI	TelivityAI/careerops	apache-2.0	54	2026-09-22	6		iş başvuru otomasyonu		-	-	-
+Security Audit (Cloudflare)	skill	UYARLA							güvenlik denetimi		-	-	-
+SkillSpector	arac	UYARLA							skill güvenliği		-	-	-
+CLI-Anything	repo	UYARLA							uygulama otomasyonu		-	-	-
+RE Walkthrough Pro	skill	YENI	charlesdove977/re-walkthrough-pro	mit	168	2026-07-23	6		emlak video		-	-	-
+build-ai-agents-free	repo	YENI	Moh4696/build-ai-agents-free	mit	369	2026-07-08	5		ajan iskeleti		-	-	-
+9Router	arac	UYARLA							model yönlendirme		-	-	-
+V3Code	mcp	YENI-kaynaksiz					3	TOKEN-REA	kod hafızası		-	-	-
+Hermes Agent	arac	UYARLA							ajan orkestrasyonu		-	-	-
+Strix	arac	UYARLA							güvenlik testi		-	-	-
+Pinchtab	arac	YENI	pinchtab/pinchtab	mit	10407	2026-10-16	6	TOKEN-REA	tarayıcı kontrolü	ILK10	SS 56/383 · gl 37/37 docs+tests+_test.go fixture (doğrulandı) · sg 155	UYARLA (ikili kurulmaz; erişilebilirlik-ağacı anlık görüntüsü mekanizması, d3)	-
+Gropector	repo	YENI	erendevelops/gropector	mit	18	2026-08-08	6		potansiyel müşteri		-	-	-
+Age of Reach	repo	YENI-kaynaksiz					4		internet erişimi		-	-	-
+OpenSandbox	repo	YENI	opensandbox-group/OpenSandbox	apache-2.0	15998	2026-10-20	6		ajan sandbox		-	-	-
+TRADER	repo	YENI	timercrack/trader	apache-2.0	8467	2026-02-28	5		paper trading		-	-	-
+GODMODE	arac	UYARLA							model karşılaştırma		-	-	-
+Claude Watch	skill	UYARLA							video analizi		-	-	-
+mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	390	2026-09-26	7		3D animasyon		-	-	-
+Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	3357	2026-10-18	7		video düzenleme		-	-	-
+Flick	skill	OLU?	metafizzy/flickity		7561	2024-05-29			video üretimi		-	-	-
+DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	6373	2026-10-20	7		dizi üretimi		-	-	-
+social agents (meta agent pipeline)	repo	YENI-kaynaksiz					5		reklam otomasyonu		-	-	-
+TradingAgents	repo	YENI	TauricResearch/TradingAgents	apache-2.0	112309	2026-10-16	7		finans ajanları		-	-	-
+security-audit	skill	CIFT->Security Audit (Cloudflare)							güvenlik denetimi		-	-	-
+Ollaya	repo	UYARLA							yerel modeller		-	-	-
+ARES	arac	OLU?	sweetsoftware/Ares		1633	2023-03-02			OSINT keşif		-	-	-
+VoiceStudio	arac	UYARLA							ses klonlama		-	-	-
+Company Brain	repo	YENI	supermemoryai/company-brain	apache-2.0	1028	2026-10-02	5	TOKEN-REA	kalıcı hafıza	ILK10	SS 69/208 (64 kod: kimlik bilgisi erişimi) · gl 0 · sg 43	ELE (Slack botu + ücretli supermemory API)	-
+Mantis	repo	YENI	mantisbt/mantisbt		1809	2026-10-20	5		güvenlik inceleme		-	-	-
+CROWD (isimsiz simülasyon aracı)	arac	YENI-kaynaksiz					6		pazar simülasyonu		-	-	-
+Sullivan	arac	YENI-kaynaksiz					6		otonom ajan		-	-	-
+MarkItDown MCP	mcp	UYARLA						TOKEN-REA	belge dönüştürme		-	-	-
+UnoRouter	arac	YENI	unorouter/unorouter	agpl-3.0	21	2026-10-20	7		model yönlendirme		-	-	-
+PYNK	skill	YENI	ralbuque/Pynkaro		62	2026-07-25	7		animasyonlu metin		-	-	-
+HTML Anything	repo	YENI	nexu-io/html-anything	apache-2.0	9187	2026-10-13	6		belge HTML		-	-	-
+apple-design	skill	UYARLA							UI tasarım		-	-	-
+fancy components	repo	YENI	danielpetho/fancy	mit	3258	2026-03-14	5		UI animasyon		-	-	-
+SceneAI	arac	YENI-kaynaksiz					6		prompt kütüphanesi		-	-	-
+Interactive Assets Skill	skill	YENI-kaynaksiz					7		etkileşimli varlık		-	-	-
+TrueForge	repo	YENI	truefoundry/trueforge	mit	6315	2026-10-20	5		paylaşımlı ajan altyapısı		-	-	-
+Reicon	arac	YENI-kaynaksiz					6		SVG ikon kütüphanesi		-	-	-
+CTA Strategist	skill	YENI-kaynaksiz					7		CTA analizi		-	-	-
+OpenMontage	repo	UYARLA							video prodüksiyon		-	-	-
+Orca	repo	YENI	stablyai/orca	mit	99554	2026-10-20	5		yerel ajan framework		-	-	-
+marketing-skills	skill	UYARLA							pazarlama skill'leri		-	-	-
+Magpie	arac	YENI	yetone/magpie	mit	17927	2026-10-20	7		model değiştirme		-	-	-
+Open Design	repo	UYARLA							tasarım aracı		-	-	-
+ROASTROOM	skill	YENI	vedangdhuri/RoastRoom		2	2026-05-08	5		fikir değerlendirme		-	-	-
+logo-design-skill	skill	UYARLA							logo tasarımı		-	-	-
+MarkItDown	repo	UYARLA						TOKEN-REA	belge dönüştürme		-	-	-
+Apple Design Skill	skill	CIFT->apple-design							UI tasarım ilkeleri		-	-	-
+Effortless	skill	YENI	HeyCubit/effortless	mit	252	2026-10-16	7	TOKEN-REA	effort optimizasyonu	ILK10	SS 9/32 (~/.claude/settings.json'a yazar: tasarım gereği) · gl 4 · sg 46	UYARLANDI: onay/kurulum_v1_effortless.py d098b550 (modelSettings.claude-sonnet-5-5.effortLevel=high; kuru varsayılan, --kuru/--geri Desktop'ta). Eklenti kurulmadı	-  (d2: onay/kurulum_v1_effortless.py --kuru/--geri)
+yt-dlp	repo	UYARLA							medya indirme		-	-	-
+Ootto	mcp	UYARLA							sosyal medya otomasyonu		-	-	-
+GSAP ScrollTrigger	repo	UYARLA							web animasyon		-	-	-
+CCBaga	arac	YENI	liseami/CCBaga	mit	2776	2026-10-19	7		ortam yapılandırma		-	-	-
+humanizer	skill	UYARLA							yazım düzeltme		-	-	-
+skillopt	repo	UYARLA						TOKEN-REA	skill optimizasyonu		-	-	-
+matpococ/skills	repo	CIFT->Matt Pocock Skills							mühendislik skill seti		-	-	-
+3D Asset Server	mcp	YENI-kaynaksiz					4		3D varlık arama		-	-	-
+OpenQodex	arac	YENI	openqodex/openqodex	apache-2.0	776	2026-10-15	6		kod inceleme		-	-	-
+Voicebox	arac	YENI	jamiepine/voicebox	mit	58091	2026-10-07	6		ses klonlama TTS		-	-	-
+FreeToken	repo	YENI	FlashML-org/FreeToken	apache-2.0	14647	2026-10-20	7	TOKEN-REA	yerel LLM motoru	ILK10	SS 39/217 (launch.py dış betik çekme + env okuma) · gl 1 (test fixture) · sg 22	ELE (GPU çekirdek önbelleği; yerelde kazanç yok, install.sh dış betik indirir)	-
+Open WebUI	repo	YENI	open-webui/open-webui	other	156281	2026-10-20	7		ekip AI arayüzü		-	-	-
+/hiring-panel	skill	YENI	alexyc9381/hiring-panel-skill	mit	41	2026-10-11	8		CV optimizasyonu		-	-	-
+Claude Commercial	skill	YENI	opaiiva/claude-commercial-ops-skills		0	2026-07-30	7		AI reklam		-	-	-
+Fallow	arac	YENI	fallow-rs/fallow	mit	5199	2026-10-20	7		kod kalitesi		-	-	-
+Colibri	repo	YENI	JustVugg/colibri	apache-2.0	43040	2026-10-20	7		yerel LLM		-	-	-
+Everything Claude Code	repo	UYARLA							skill paketi		-	-	-
+AI Stupid Meter	repo	YENI	StudioPlatforms/aistupidmeter-web	mit	111	2026-10-20	7		model izleme		-	-	-
+REA	mcp	YENI	morluto/rea	mit	346709	2026-10-20	5		özellik tersine mühendislik		-	-	-
+Dock	arac	UYARLA							ajan ekibi		-	-	-
+The Premium UI Kit	arac	YENI-kaynaksiz					6		UI bileşenleri		-	-	-
+Hindsight	arac	YENI	vectorize-io/hindsight	mit	51989	2026-10-20	5	TOKEN-REA	ortak hafıza	ILK10	SS 332/857 · gl 48 · sg 1626 · 255 MB sunucu	ELE (ağır servis; hafıza mekanizması UYARLA notu: retain/recall/reflect ayrımı)	-
+Agentation	mcp	YENI	benjitaylor/agentation	other	5017	2026-09-22	6		görsel geri bildirim		-	-	-
+I Have ADHD	skill	YENI	ayghri/i-have-adhd	mit	57998	2026-10-19	7		çıktı stili		-	-	-
+Cloudroom	arac	YENI	davidondrej/cloudroom-core	apache-2.0	934	2026-10-20	6		paralel bulut ajanları		-	-	-
+AutoAgent	repo	OLU?	HKUDS/AutoAgent	mit	9822	2025-10-16			ajan çerçevesi		-	-	-
+Claude at Director	skill	YENI-kaynaksiz					7		AI reklam		-	-	-
+LinkedIn Agent	skill	UYARLA							LinkedIn otomasyonu		-	-	-
+Improve System (Build Partner)	skill	YENI-kaynaksiz					6		skill üretimi		-	-	-
+Superset	arac	YENI	apache/superset	apache-2.0	75232	2026-10-20	6		ajan orkestrasyonu		-	-	-
+Dray	arac	OLU?	CenturyLinkLabs/dray	apache-2.0	385	2020-01-24		TOKEN-REA	bağlam aktarımı		-	-	-
+Auto Harness	skill	YENI	aiming-lab/AutoHarness	mit	452	2026-04-02	5	TOKEN-REA	öğrenen skill		-	-	-
+Vendeo Instagram skill paketi	skill	YENI-kaynaksiz					6		Instagram içerik		-	-	-
+Answer Me with HTML	skill	YENI	QingYunA/answer-me-with-html	mit	4098	2026-10-20	8		HTML yanıt		-	-	-
+Task-CoEvolve	repo	YENI	Agent4Science-UTokyo/Task-CoEvolve		22	2026-08-28	6		ajan optimizasyonu	ILK10	SS 0/1 · gl 0 · sg 0 · LİSANS YOK	ELE (lisans kapısı: lisanssız repo kurulmaz)	-
+Harness²	repo	UYARLA							ajan optimizasyonu		-	-	-
+Açık kaynak ElevenLabs alternatifi (adı belirtilmemiş)	arac	YENI-kaynaksiz					6		ses/TTS		-	-	-
+OpenCut	repo	UYARLA							video editörü		-	-	-
+MCPTune (mcptoon)	arac	YENI-kaynaksiz					5	TOKEN-REA	bağlam azaltma		-	-	-
+ReelMimic	repo	YENI	edenfunf/reelmimic	mit	2127	2026-10-20	6		video üretimi		-	-	-
+LLM Wiki skill	skill	YENI	sdyckjq-lab/llm-wiki-skill		2556	2026-07-27	6	TOKEN-REA	kalıcı hafıza		-	-	-
+Slop Monster	skill	YENI	ItsssssJack/SlopMonster	mit	1146	2026-09-26	7		metin temizleme		-	-	-
+MiroFish	repo	YENI	666ghj/MiroFish	agpl-3.0	80836	2026-10-16	7		sosyal simülasyon		-	-	-
+Dioramas	repo	YENI-kaynaksiz					6		3D web		-	-	-
+auto-handoff	repo	YENI	alexknowshtml/claude-auto-handoff	mit	98	2026-10-04	6	TOKEN-REA	oturum devri		-	-	-
+Auto Content Skills	skill	UYARLA							sosyal medya içeriği		-	-	-
+replica-skill	skill	CIFT->Replica							uygulama klonlama		-	-	-
+BuildPartner	skill	CIFT->Improve System (Build Partner)							iş akışı iyileştirme		-	-	-
+Google Maps lead scraper	repo	CIFT->Google Maps Scraper Kit							lead toplama		-	-	-
+Anthropic KnowledgeWork plugins	repo	YENI-kaynaksiz					2		mesleki eklentiler		-	-	-
+agent-skills	repo	UYARLA							geliştirme skill'leri		-	-	-
+MotionSites	arac	CIFT->MotionSites.ai							web tasarım prompt		-	-	-
+PhotoCraft	mcp	UYARLA							görsel düzenleme		-	-	-
+iFix AI	repo	YENI	abirmusa92-code/https-github.com-ifixai-ai-iFixAi		354	2026-08-17	6		ajan denetimi		-	-	-
+AllWords	skill	YENI-kaynaksiz					6		web tasarım skill		-	-	-
+HEIST	repo	OLU?	snapframework/heist	bsd-3-clause	92	2024-07-04			güvenlik testi		-	-	-
+Blender MCP	mcp	UYARLA							3D sahne üretimi		-	-	-
+claude-motion	repo	YENI	whaleyxbt/claude-motion	mit	548	2026-10-09	6		motion video		-	-	-
+OriginKit	mcp	YENI	vellum-ai/originkit	mit	27	2026-07-31	3		UI bileşen kütüphanesi		-	-	-
+Understand Anything	skill	YENI	Egonex-AI/Understand-Anything	mit	87224	2026-10-12	6	TOKEN-REA	kod bilgi grafiği	ILK10	SS 116/347 · gl 0 · sg 24 · 32 MB	UYARLA: d3'te graphify eksik-özellik listesi (diff etki analizi, onboarding rehberi, iş-alanı akışları, post-commit güncelleme, ekip paylaşımı; README başlıklarından, graphify'da varlığı doğrulanmadı)	-
+tcl-lsp	repo	YENI	bitwisecook/tcl-lsp	agpl-3.0	71	2026-10-20	6		Tcl LSP		-	-	-
+Find Skills	skill	UYARLA							skill keşfi		-	-	-
+hairline	skill	UYARLA							animasyonlu web		-	-	-
+YouTube Agent Skill	skill	UYARLA							YouTube içerik		-	-	-
+Pit Crew / Fuel Saver / Dashboard	arac	YENI-kaynaksiz					4	TOKEN-REA	Claude modları		-	-	-
+LINEAR (hairline)	skill	CIFT->hairline							illüstrasyon skill		-	-	-
+leanrea	repo	YENI	aicodeking/leanrea	mit	1162	2026-10-19	5	TOKEN-REA	ajan hafızası	ILK10	SS 2/24 (1 gerçek: SKILL.md'de belgeli `rm -rf $TMPDIR`) · gl 0 · sg 0	KURULDU: CC user scope + dist/kurulum-v1/leanrea.zip (SKILL.md tek dosya). Not: tersine-mühendislik skill'i (macOS araçları), hafıza değil; held-out kıyas ÖĞREN 2. tur	npx skills add aicodeking/leanrea -g -a claude-code -y
+Knowledge Work Plugins	repo	CIFT->Anthropic KnowledgeWork plugins							iş rolü plugin		-	-	-
+Anthropic Sales Skills	repo	CIFT->Anthropic KnowledgeWork plugins							satış skill		-	-	-
+Magic UI	repo	YENI-kaynaksiz					5		animasyon bileşenleri		-	-	-
+Ruflo	repo	UYARLA						TOKEN-REA	çoklu ajan orkestrasyonu		-	-	-
+Mortiflix	arac	YENI	GTKottman/mortiflix-oss	agpl-3.0	648	2026-10-08	6		video motion design		-	-	-
+Reverse Engineering Skill Router Pack	skill	YENI-kaynaksiz					6		güvenlik araştırması		-	-	-
+self-improve system (Build Partner plugin)	skill	CIFT->Improve System (Build Partner)						TOKEN-REA	kendini geliştirme		-	-	-
+Cloudflare güvenlik denetim skill'i	skill	CIFT->Security Audit (Cloudflare)							güvenlik denetimi		-	-	-
+FreeLLMAPI	arac	YENI	tashfeenahmed/freellmapi	mit	38226	2026-10-20	7	TOKEN-REA	ücretsiz model yönlendirme		-	-	-
+Free Claude Code	repo	YENI	Alishahryar1/free-claude-code	other	62141	2026-10-18	7	TOKEN-REA	ücretsiz model proxy		-	-	-
+ChatDev 2.0	repo	YENI	OpenBMB/ChatDev	apache-2.0	34559	2026-10-16	7		çoklu ajan platformu		-	-	-
+LinkedIn roast skill	skill	CIFT->/linkedin-roast							LinkedIn profil		-	-	-
+Apify MCP Server	mcp	UYARLA							web veri kazıma		-	-	-
+Jcode	arac	UYARLA						TOKEN-REA	kodlama ajanı		-	-	-
+LTX 2.3	arac	YENI-kaynaksiz					6		yerel video üretimi		-	-	-
+claude-video (watch skill)	skill	UYARLA							video analizi		-	-	-
+map3d	repo	YENI	cartesiancs/map3d	mit	2618	2026-05-13	5		3B şehir üretimi		-	-	-
+Matt Pocock Skills	skill	UYARLA							mühendislik iş akışı		-	-	-
+Everything Claude Code (ECC)	repo	CIFT->Everything Claude Code							Claude Code paketi		-	-	-
+TurboVec	repo	YENI	RyanCodrai/turbovec	mit	17408	2026-10-07	7	TOKEN-REA	vektör indeksi	ILK10	SS 55/116 (dev betik/PR şablonu, gerekçeli yanlış pozitif) · gl 0 · sg 2	UYARLA: yalnız ölçüm önerisi (d3: sor2 held-out'ta vektör dizini vs mevcut, 4 eksen); kurulmadı	uv pip install turbovec  (d2: sor2 held-out ölçümüyle)
+Magic MCP Server	mcp	YENI-kaynaksiz					4		UI bileşen		-	-	-
+Gbrain	repo	UYARLA						TOKEN-REA	hafıza sistemi		-	-	-
+Everything (Everything Claude Code)	repo	CIFT->Everything Claude Code						TOKEN-REA	agent skill paketi		-	-	-
+CC Usage	arac	YENI	ccusage/ccusage	other	19094	2026-10-20	7	TOKEN-REA	token takibi	ILK10	SS 32/98 (.gitignore/test gürültüsü) · gl 0 · sg 4	UYARLANDI: tools/ccusage_kiyas.py f099788f. 2 gün: girdi/cache okuma/yazma ±0.0%, çıktı -8.9%, $ +6.7% (token_olc); neden doğrulanmadı	npx ccusage@latest  (kurulumsuz; salt okur)
+Meta resmi MCP	mcp	YENI-kaynaksiz					4		reklam yönetimi		-	-	-
