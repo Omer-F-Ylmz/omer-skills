@@ -77,6 +77,21 @@ def test_aciklamasiz_ilk_satirlar(tmp_path):
     k["yol"] = str(tmp_path / "liste.json")
     (tmp_path / "liste.json").write_text("{}", encoding="utf-8")
     assert s.ilk_satirlar(k) == ""
+    ic = tmp_path / "pkt" / "pkt"  # paket zip açılımı X/X/SKILL.md
+    ic.mkdir(parents=True)
+    (ic / "SKILL.md").write_text("description: iç içe", encoding="utf-8")
+    k["yol"] = str(tmp_path / "pkt")
+    assert s.ilk_satirlar(k) == "description: iç içe"
+
+
+def test_claudeai_kaydi_synced_kopyadan(tmp_path, monkeypatch):
+    d = tmp_path / ".claude" / "skills" / "synced" / "u1" / "kb"
+    d.mkdir(parents=True)
+    (d / "README.md").write_text("# KB arama", encoding="utf-8")
+    monkeypatch.setattr(s.Path, "home", lambda: tmp_path)
+    k = _k("a", "kb")
+    k["yol"] = ".kos/kopru/claudeai_adlar.json"
+    assert s.ilk_satirlar(k) == "# KB arama"
 
 
 def test_onbellek_v2_v1in_yerine_gecer(tmp_path):
@@ -92,7 +107,80 @@ def test_dengeli_ve_etiketler(tmp_path, monkeypatch):
     sec = s.dengeli(rows, n=20, tohum=18)
     assert len(sec) == 20 and sum(k["kategori_son"] == "bilim" for k in sec) == 10  # azınlık kategori yarıyı alır
     assert sec == s.dengeli(rows, n=20, tohum=18) and sec != s.dengeli(rows, n=20, tohum=19)
+    assert not {k["id"] for k in sec} & {k["id"] for k in s.dengeli(rows, n=20, tohum=18, haric={k["id"] for k in sec})}
     assert s.satir(rows[0]).startswith("k000 | skill | a0 | ") and s.satir(rows[0]).endswith("(açıklama yok)")
     monkeypatch.setattr(s, "PARTI_DIZIN", tmp_path)
     (tmp_path / "p00.out.jsonl").write_text('{"id": "k001", "ana": "3d", "ikincil": ""}\n\n', encoding="utf-8")
     assert s.etiketler() == {"k001": {"id": "k001", "ana": "3d", "ikincil": ""}}
+
+
+def test_etiketler_v5_oncelik(tmp_path, monkeypatch):
+    monkeypatch.setattr(s, "PARTI_DIZIN", tmp_path)
+    for ad, c in (("pzv00", "token"), ("pz00", "3d"), ("py00", "bilim"), ("p00", "belge")):
+        (tmp_path / f"{ad}.out.jsonl").write_text(json.dumps({"id": "k1", "ana": c}) + "\n", encoding="utf-8")
+    monkeypatch.setattr(s.Path, "glob", lambda self, d: [tmp_path / f"{a}.out.jsonl" for a in ("pzv00", "pz00", "py00", "p00")])
+    assert s.etiketler()["k1"]["ana"] == "token"  # glob sırası ters gelse de pzv (tanim-v5) kazanır
+    (tmp_path / "pzw00.out.jsonl").write_text(json.dumps({"id": "k1", "ana": "araştırma"}) + "\n", encoding="utf-8")
+    monkeypatch.setattr(s.Path, "glob", lambda self, d: [tmp_path / f"{a}.out.jsonl" for a in ("pzw00", "pzv00", "p00")])
+    assert s.etiketler()["k1"]["ana"] == "araştırma"  # pzw (tanim-v6) pzv'yi ezer
+
+
+def test_capa(tmp_path):
+    import capa
+    for d, m in (("test-qa", "## Adımlar\n1. `survey-kit` x `run-tests`\n## Kapılar\n`gecen-soz`\n"),
+                 ("arastirma-ogrenme", "`giris-sozu`\n## Dizin\najan:ara-web-kazima\ncli:survey-kit: y\none-on-one: torba\n"),
+                 ("diger", "## Sıra\n| Blender, 3D | `blender` → ajan `bl-*` |\n| Mobil | `expo` |\n"), ("frontend", "## Çakışma\nbl-uv-acma: z\n")):
+        (tmp_path / f"departman-{d}").mkdir()
+        (tmp_path / f"departman-{d}" / "SKILL.md").write_text(m, encoding="utf-8")
+    c = capa.capalar(tmp_path, s.norm)
+    assert capa.capa("ara-web-kazima", c, s.norm) == {"araştırma"}
+    assert capa.capa("run-tests", c, s.norm) == {"test-qa"}
+    assert capa.capa("survey-kit", c, s.norm) == {"test-qa", "araştırma"}  # çok müdür → etiketçi seçer
+    assert capa.capa("bl-uv-acma", c, s.norm) == {"3d", "frontend-tasarım"}  # joker + tam ad birleşir
+    assert capa.capa("expo", c, s.norm) == {"diğer"} and capa.capa("blender", c, s.norm) == {"3d"}
+    assert capa.capa("departman-frontend", c, s.norm) == {"frontend-tasarım"} and not capa.capa("yok", c, s.norm)
+    # yalnız elle yazılmış liste: Dizin'in anahtar sözcükle yerleşen öneksiz satırı, giriş ve Kapılar çapa değil
+    assert not any(capa.capa(a, c, s.norm) for a in ("one-on-one", "gecen-soz", "giris-sozu"))
+
+
+def test_ad_esitle():
+    rows = [dict(_k("a", "audit"), kategori_son="belge", kullanim_30g=0), dict(_k("b", "audit", tur="komut"), kategori_son="belge", kullanim_30g=0),
+            dict(_k("c", "Audit", aciklama="x"), kategori_son="3d", kullanim_30g=5),
+            dict(_k("d", "doc"), kategori_son="belge", kullanim_30g=0), dict(_k("e", "doc", aciklama="y"), kategori_son="bilim", kullanim_30g=2),
+            dict(_k("h1", "Stop", tur="hook"), kategori_son="token", kullanim_30g=0), dict(_k("h2", "Stop", tur="hook", aciklama="z"), kategori_son="3d", kullanim_30g=0)]
+    assert s.ad_esitle(rows) == 2
+    assert [k["kategori_son"] for k in rows] == ["belge", "belge", "belge", "bilim", "bilim", "token", "3d"]  # çoğunluk; eşitlikte çok kullanılan; hook hariç
+
+
+def test_hook_mcp_baglami(monkeypatch):
+    rows = [_k("p", "chrome-devtools-mcp", tur="plugin", aciklama="Chrome DevTools ile canlı tarayıcı hata ayıklama"),
+            _k("q", "octo", tur="plugin", aciklama="Çoklu ajan orkestrasyonu")]
+    monkeypatch.setattr(s, "_ad_aciklamalari", lambda: s.ad_sozlugu(rows))
+    h = _k("h", "PreCompact:*", tur="hook", kaynak="plugin:octo@nyldn", aciklama="pre-compact.sh")
+    m = _k("m", "chrome-devtools", tur="mcp", kaynak="cc-user-mcp", aciklama="npx")
+    assert "olay PreCompact:*" in s.satir(h) and "pre-compact.sh" in s.satir(h) and "Çoklu ajan" in s.satir(h)
+    assert "komut npx" in s.satir(m) and "canlı tarayıcı" in s.satir(m)
+
+
+def test_mcp_araclari(tmp_path, monkeypatch):
+    (tmp_path / "kullanim-30g.json").write_text(json.dumps({"sayim": {
+        "mcp-arac\tmcp__plugin_cd_chrome-devtools__take_screenshot": 3,
+        "mcp-arac\tmcp__headroom__headroom_retrieve": 1, "cli\tmcp": 2}}), encoding="utf-8")
+    monkeypatch.setattr(s, "BURASI", tmp_path)
+    monkeypatch.setattr(s, "_ARACLAR", [], raising=False)
+    monkeypatch.setattr(s, "_ad_aciklamalari", lambda: {})
+    assert s.mcp_araclari()["chrome-devtools"] == ["take_screenshot"]
+    assert "araçlar headroom_retrieve" in s.satir(_k("m", "headroom", tur="mcp", kaynak="cc-user-mcp", aciklama="uvx"))
+
+
+def test_uzlas():
+    byid = {i: _k(i, i) for i in "abc"}
+    cl = {s.anahtar(byid[i]): {"id": i, "ana": "belge"} for i in "abc"}
+    y = {"a": {"ana": "belge"}, "b": {"ana": "3d"}, "c": {"ana": "3d"}}
+    s.uzlas(cl, y, {"c": {"id": "c", "ana": "bilim"}}, byid)
+    assert [(cl[s.anahtar(byid[i])]["ana"], cl[s.anahtar(byid[i])]["guven"]) for i in "abc"] == \
+        [("belge", "uyuştu"), ("belge", "ayrışık"), ("bilim", "hakem")]
+
+
+def test_etiketler_pzx_oncelik():
+    assert s._oncelik(Path("pzx00.out.jsonl")) > s._oncelik(Path("pzw06.out.jsonl")) > s._oncelik(Path("pzv18.out.jsonl"))
