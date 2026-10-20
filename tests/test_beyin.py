@@ -1,6 +1,10 @@
+import json
+import re
 import sqlite3
 import sys
 from pathlib import Path
+
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 import beyin  # noqa: E402
@@ -80,7 +84,7 @@ def test_ara_uctan_uca(tmp_path):
     c.commit()
     c.close()
     sonuc = beyin.ara("kapı eşiği kaç?", indeks=db)
-    assert sonuc == [("kaynak.md", 3, ["boş satır", "Kapı eşiği %92 kararlı", "son"])]
+    assert sonuc == [("kaynak.md", 3, ["# Başlık", "boş satır", "Kapı eşiği %92 kararlı", "son"])]  # pencere başta değil: başlık öne
 
 
 def test_bag_ve_komsu(tmp_path):
@@ -108,3 +112,67 @@ def test_bag_ve_komsu(tmp_path):
     sonuc = beyin.ara("kapı eşiği kaç?", indeks=db)
     assert [s[0] for s in sonuc] == ["x.md", "g/beyin-2.md"]  # ikincisi FTS'de yok, bağ komşusu
     assert beyin.varyantlar("kapı")[-1] == ["kapı"]
+
+
+def kasa_kur(tmp_path, notlar):
+    """notlar: {klasör/ad--n.md: gövde}; qmd şemasının küçük kopyası. BEYIN-3 ıska sınıfları bunun üstünde sınanır."""
+    db = tmp_path / "i.sqlite"
+    c = sqlite3.connect(db)
+    c.executescript("""create table store_collections(name, path);
+        create table documents(id integer primary key, collection, path, active);
+        create virtual table documents_fts using fts5(filepath, title, body, tokenize='porter unicode61');""")
+    c.execute("insert into store_collections values ('beyin', ?)", (str(tmp_path),))
+    for i, (yol, govde) in enumerate(notlar.items(), 1):
+        (tmp_path / yol).parent.mkdir(exist_ok=True)
+        metin = f"---\nkaynak: {yol}.src\nsatir: 1\nguncellenme: 2026-10-1{i % 10}\n---\n{govde}"
+        (tmp_path / yol).write_text(metin, encoding="utf-8")
+        c.execute("insert into documents values (?, 'beyin', ?, 1)", (i, yol))
+        c.execute("insert into documents_fts(rowid, filepath, title, body) values (?, ?, '', ?)",
+                  (i, Path(yol).stem, metin))
+    c.commit()
+    c.close()
+    return db
+
+
+def test_gorev_adi_nottaki_sonuc_parcasini_one_alir(tmp_path):
+    # ıska 121/122: cevap ajan-atlas-1-d1e--2 "## sonuç" gövdesinde (İngilizce); alakasız notlar BM25'te önde
+    dolgu = {f"60-ajanlar/ajan-video-{i}--1.md": "# v\nenvanter kaç öğe birleştirme kopya " * 3 for i in range(5)}
+    db = kasa_kur(tmp_path, {**dolgu, "60-ajanlar/ajan-atlas-1-d1e--2.md":
+                             "## sonuç\nIt holds 15,940 items after merging duplicates.\nbaşka satır"})
+    sonuc = beyin.ara("ATLAS-1 d1'de kopyalar birleştirildikten sonra envanter kaç öğe?", 3, indeks=db)
+    assert "15,940" in "\n".join(sonuc[0][2])
+
+
+def test_nadir_kavram_satiri_baslik_satirini_yener(tmp_path):
+    # ıska 104/126: görev adı her satırda; cevap satırını nadir kavram ("artımlı") ayırır, başlık satırı değil
+    db = kasa_kur(tmp_path, {"10-kararlar/gorev-x-1--3.md": "# X-1 görev\n" + "x-1 genel satır\n" * 6 +
+                             "x-1 artımlı güncelleme ≤10 sn ve ≤500 MB\nson"})
+    sonuc = beyin.ara("X-1 artımlı güncelleme hedefi kaç sn?", 3, indeks=db)
+    assert any("≤500 MB" in s for s in sonuc[0][2])
+
+
+def test_sayi_tam_eslesir(tmp_path):
+    # "11 görev" sorusunda 2011 geçen satır değil, 11 geçen satır öne gelir
+    (tmp_path / "n.md").write_text("---\nkaynak: n.md\nsatir: 1\n---\ngörev 2011 yılında\nx\nx\nx\n11 görev seçildi",
+                                   encoding="utf-8")
+    n = beyin.incele(tmp_path / "n.md", "11 görev kaç?")
+    p = beyin.puanla(n, [1.0] * len(n[3]))
+    assert p[4] > p[0]
+
+
+def test_butce_parcayi_kesmez_sayiyi_azaltir():
+    p = [("a", 1, ["x" * 100]), ("b", 2, ["y" * 4000]), ("c", 3, ["z" * 100])]
+    out = beyin.sigdir(p, 200)  # 600 karakter
+    assert [m[3] for m in out] == ["a", "c"]
+    assert len(beyin.sigdir([("b", 2, ["y" * 4000])], 10)[0]) > 4000  # ilk parça bütçeyi aşsa da bütün
+
+
+@pytest.mark.skipif(not (beyin.INDEKS.exists() and (SORULAR := Path(__file__).parent.parent / ".claude/beyin2/sorular.jsonl").exists()),
+                    reason="yerel kasa/qmd indeksi ve tohum soruları yok")
+@pytest.mark.parametrize("no", [108, 115, 121, 122, 126, 128, 133, 134])
+def test_beyin2_tohum_2006_iskalari_ilk_3_parcada(no):
+    # BEYIN-2'nin kaçırdığı tohum-2006 soruları: cevaptaki sayılar ilk 3 parçada olmalı
+    q = next(j for j in map(json.loads, filter(str.strip, SORULAR.read_text(encoding="utf-8").splitlines()))
+             if j["id"] == no)
+    metin = "\n".join("\n".join(p[2]) for p in beyin.ara(q["soru"], 3)[:3])
+    assert [a for a in re.findall(r"\d[\d.,]*\d|\d", q["cevap"]) if a not in metin] == []

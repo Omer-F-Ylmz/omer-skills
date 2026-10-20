@@ -5,6 +5,7 @@ sorusu boş döner; burada terimler OR + önek (Türkçe ek için) ile BM25 sır
 """
 import argparse
 import itertools
+import math
 import os
 import re
 import sqlite3
@@ -18,7 +19,6 @@ the a an of to is what which how""".split())
 TR = str.maketrans("ıİçÇğĞöÖşŞüÜâÂîÎ", "iiccggoossuuaaii")
 PENCERE = 400  # uzun satırda gösterilen karakter
 KAR_JETON = 3  # shortcut: Türkçe için ~3 karakter/jeton varsayımı, ölçüm sapıtırsa değiştir
-PARCA_TAVAN = 600  # parça başı karakter (~200 jeton)
 KOMSU = 3 # arama sonucuna eklenen en fazla wikilink komşusu
 # TR↔EN eş anlam (katlanmış kök → karşılık); kaynakların bir kısmı İngilizce (bellek, global CLAUDE.md)
 # shortcut: elle küçük liste, yeni ıska sınıfı çıktıkça genişlet
@@ -28,7 +28,19 @@ ES = [("afis", "banner"), ("bayra", "flag"), ("esik", "threshold"), ("esig", "th
       ("sira", "order"), ("hata", "error"), ("onbel", "cache"), ("belle", "memory"),
       ("arali", "break"), ("degis", "change"), ("silme", "delete"), ("cakis", "conflict"),
       ("ozet", "summary"), ("yanit", "response"), ("arac", "tool"), ("okuma", "read"),
-      ("arada", "break"), ("uzun", "long"), ("yeni", "new"), ("sonra", "after")]
+      ("arada", "break"), ("uzun", "long"), ("yeni", "new"), ("sonra", "after"),
+      # ajan-sira sonuçları çoğunlukla İngilizce
+      ("artim", "increment"), ("gunce", "update"), ("filtr", "filter"), ("acikl", "descript"),
+      ("kopya", "duplic"), ("birle", "merg"), ("envan", "inventor"), ("kart", "card"),
+      ("sonuc", "result"), ("maliy", "cost"), ("sure", "time"), ("sure", "duration"),
+      ("olcum", "measur"), ("olcul", "measur"), ("kabul", "accept"), ("tohum", "seed"),
+      ("kapi", "gate"), ("hakem", "judge"), ("soru", "question"), ("dogru", "correct"),
+      ("yanli", "wrong"), ("hedef", "target"), ("tepe", "peak"), ("daral", "narrow"),
+      ("alan", "area"), ("ilk", "first"), ("karar", "decision"), ("girdi", "input"),
+      ("cikti", "output"), ("istek", "request"), ("surum", "version"), ("toplam", "total"),
+      ("varsa", "default"), ("hasat", "harvest"), ("gorev", "task"), ("genis", "wide"), ("havuz", "pool"),
+      ("secen", "option"), ("aday", "candidate"), ("secil", "pick"), ("secil", "select"), ("zinci", "chain"),
+      ("ucret", "free"), ("dosya", "file"), ("satir", "line"), ("boyut", "size")]
 SATIR_ES = [("fazla", "≤"), ("tavan", "≤")]  # yalnız satır puanında; FTS'de simge yok
 
 
@@ -63,6 +75,22 @@ def terimler(soru):
     return out
 
 
+def kimlikler(soru):
+    """Sorudaki görev adı (ATLAS-1, ogren-4-d2) ve aşama (d1, g5, k13); katlanmış."""
+    k = katla(soru)
+    return list(dict.fromkeys(re.findall(r"\w+(?:-\w+)+", k) + re.findall(r"\b[dgk]\d+[a-z]?\b", k)))
+
+
+def kimlik_puan(slug, ks, ids):
+    """Not adında tam eşleşme 2, önek (d1→d1e) 1; gövdede birebir geçiş 1."""
+    p = 0
+    for i in ids:
+        e = re.escape(i)
+        p += 2 if re.search(rf"(?:^|-){e}(?:-|$)", slug) else 1 if re.search(rf"(?:^|-){e}", slug) else 0
+        p += bool(re.search(rf"(?<![\w-]){e}(?![\w-])", ks))
+    return p
+
+
 def pencere(satir, ts):
     if len(satir) <= PENCERE:
         return satir
@@ -76,11 +104,15 @@ def pencere(satir, ts):
     return ("… " if b else "") + satir[b:b + PENCERE] + (" …" if b + PENCERE < len(satir) else "")
 
 
-def parca(yol, soru, esik=0):
-    """Notta en iyi pencereler: en yüksek puanlı satır ±, puanı ≥ en iyi−1 olan en fazla 2 ek satır."""
+def esle(x, ks):
+    """Sayı terimi tam sayı olarak (2011 içinde 11 sayılmaz), diğerleri alt dize."""
+    return bool(re.search(rf"(?<!\d){x}(?!\d)", ks)) if x.isdigit() else x in ks
+
+
+def incele(yol, soru, ids=()):
+    """Not → (frontmatter, gövde, katlanmış gövde, kavramlar, kimlik puanı, "kaç" mı) ya da None (geçersiz/MOC/boş)."""
     ts = terimler(soru)
     kav = [[t] + es(t) + [b for a, b in SATIR_ES if t.startswith(a)] for t in ts]
-    sayisal = re.search(r"\bka[çc]", soru.lower()) is not None
     metin = Path(yol).read_text(encoding="utf-8", errors="replace").split("\n")
     if metin[0] != "---":
         return None
@@ -93,9 +125,33 @@ def parca(yol, soru, esik=0):
         govde.pop()
     if not govde:
         return None
-    # satır puanı = eşleşen kavram sayısı; "kaç" sorusunda rakamlı satıra yarım puan
-    puan = [sum(any(x in katla(s) for x in k) for k in kav) + (sayisal and bool(re.search(r"\d", s))) / 2
-            for s in govde]
+    kg = [katla(s) for s in govde]
+    slug = re.sub(r"--\d+$", "", katla(Path(yol).stem))
+    return fm, govde, kg, kav, kimlik_puan(slug, "\n".join(kg), ids), re.search(r"\bka[çc]", soru.lower()) is not None
+
+
+def agirlik(notlar):
+    """Kavram ağırlığı = ln(1 + N/df): adayların hepsinde geçen kavram (görev adı) az, nadir kavram çok sayılır."""
+    n = len(notlar)
+    return [math.log(1 + n / max(1, sum(any(esle(x, s) for s in d[2] for x in k) for d in notlar)))
+            for k in (notlar[0][3] if notlar else [])]
+
+
+def puanla(n, w):
+    """Satır puanı = eşleşen kavramların ağırlık toplamı; "kaç" sorusunda rakamlı satıra yarım puan."""
+    _, govde, kg, kav, _, sayisal = n
+    return [sum(wi for wi, k in zip(w, kav) if any(esle(x, s) for x in k)) + (sayisal and bool(re.search(r"\d", g))) / 2
+            for s, g in zip(kg, govde)]
+
+
+def parca(yol, soru, esik=0, ids=()):
+    """Notta en iyi pencereler: en yüksek puanlı satır ±, puanı ≥ en iyi−1 olan en fazla 2 ek satır; bölüm başlığı öne."""
+    n = incele(yol, soru, ids)
+    return n and pencereler(yol, n, puanla(n, [1.0] * len(n[3])), esik)
+
+
+def pencereler(yol, n, puan, esik=0):
+    fm, govde, _, kav, *_ = n
     sira = sorted(range(len(govde)), key=lambda j: (-puan[j], j))
     if puan[sira[0]] < esik:
         return None
@@ -112,14 +168,17 @@ def parca(yol, soru, esik=0):
             birlesik.append([b, e, i])
     ilk = int(fm.get("satir", 1))
     hepsi = [x for k in kav for x in k]
-    return [(fm.get("kaynak", yol), ilk + i, [pencere(s, hepsi) for s in govde[b:e]])
-            for b, e, i in birlesik]
+    out = [(fm.get("kaynak", yol), ilk + i, [pencere(s, hepsi) for s in govde[b:e]]) for b, e, i in birlesik]
+    if birlesik[0][0] and govde[0].startswith("#"):  # pencere bölümün başında değil: başlığı öne ekle
+        out[0][2].insert(0, govde[0])
+    return out
 
 
 def ara(soru, k=5, koleksiyon="beyin", indeks=INDEKS):
     vs = [v for v in varyantlar(soru) if v]
     if not vs:
         return []
+    ids = kimlikler(soru)
     c = sqlite3.connect(f"file:{indeks}?mode=ro", uri=True)
     kok = c.execute("select path from store_collections where name=?", (koleksiyon,)).fetchone()
     if not kok:
@@ -127,18 +186,27 @@ def ara(soru, k=5, koleksiyon="beyin", indeks=INDEKS):
     listeler = [[y for (y,) in c.execute(
         "select d.path from documents_fts f join documents d on d.id=f.rowid "
         "where documents_fts match ? and d.collection=? and d.active=1 "
-        "order by bm25(documents_fts, 1.0, 2.0, 1.0) limit ?",
-        (" OR ".join(f'"{t}"*' for t in v), koleksiyon, k * 3))] for v in vs]
+        "order by bm25(documents_fts, 3.0, 2.0, 1.0) limit ?",
+        (" OR ".join(f'"{t}"*' for t in v), koleksiyon, k * 8))] for v in vs]
     # sırayla birleştirme (RRF değil): azınlık varyantın (EN) birincisi de ilk k'ya girer
     sira = dict.fromkeys(y for grup in itertools.zip_longest(*listeler) for y in grup if y)
+    # görev adı not adında geçiyorsa (atlas-1 → ajan-atlas-1-d1e--2) FTS'e bakmadan aday
+    for i in (i for i in ids if "-" in i):
+        for (y,) in c.execute("select path from documents where collection=? and active=1 and path like ? limit 60",
+                              (koleksiyon, f"%{i}%")):
+            sira.setdefault(y, len(sira))
+    havuz = [(yol, n) for yol in sira if (n := incele(os.path.join(kok[0], yol), soru, ids))]
+    w = agirlik([n for _, n in havuz])
+    degerli = []
+    for pos, (yol, n) in enumerate(havuz):
+        puan = puanla(n, w)
+        tarih = int(re.sub(r"\D", "", n[0].get("guncellenme", "")) or 0)
+        degerli.append(((-n[4], -max(puan), -tarih, pos), yol, n, puan))
+    degerli.sort(key=lambda x: x[0])
     sonuc, secilen = [], []
-    for yol in sira:
-        p = parca(os.path.join(kok[0], yol), soru)
-        if p:
-            sonuc += p
-            secilen.append(Path(kok[0], yol))
-        if len(secilen) == k:
-            break
+    for _, yol, n, puan in degerli[:k]:
+        sonuc += pencereler(yol, n, puan)
+        secilen.append(Path(kok[0], yol))
     # 1 adım wikilink komşusu: seçilen notların "Bağlar:" hedefleri, soruyla ≥1 kavram eşleşirse
     adlar = {p.stem.lower(): p for p in Path(kok[0]).rglob("*.md")}
     gorulen = {str(p).lower() for p in secilen}
@@ -163,6 +231,18 @@ def baglar(yol):
     return []
 
 
+def sigdir(sonuc, jeton):
+    """Bütçe parçayı kesmez, parça sayısını sınırlar: ilk parça her zaman tam, sonrakiler yalnız bütünüyle sığarsa."""
+    kalan, out = jeton * KAR_JETON, []
+    for kaynak, no, satirlar in sonuc:
+        metin = f"## {kaynak}:{no}\n" + "\n".join(satirlar)
+        if out and len(metin) > kalan:
+            continue
+        out.append(metin)
+        kalan -= len(metin)
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="beyin")
     alt = ap.add_subparsers(dest="komut", required=True)
@@ -176,13 +256,7 @@ def main(argv=None):
     sonuc = ara(ns.soru, ns.k, ns.koleksiyon)
     if not sonuc:
         print("sonuç yok")
-    kalan = (ns.butce or 200 * ns.k) * KAR_JETON
-    for kaynak, no, satirlar in sonuc:
-        if kalan <= 0:
-            break
-        metin = f"## {kaynak}:{no}\n" + "\n".join(satirlar)
-        metin = metin[:min(kalan, PARCA_TAVAN)]
-        kalan -= len(metin)
+    for metin in sigdir(sonuc, ns.butce or 200 * ns.k):
         print(metin + "\n")
 
 
