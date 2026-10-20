@@ -1,9 +1,8 @@
-tohum 2011 A hakem openrouter: 20/20 (çok 8/8) yanlış []
-tohum 2011 A hakem groq-haiku: 19/20 (çok 8/8) yanlış [201107]
-tohum 2011: token A 158811 B 377365 = %42 tur A 31 B 45 ihlal A 0
-tohum 2012 A hakem betik: 17/20 (çok 6/8) yanlış [201209, 201216, 201217]
-tohum 2012 B hakem betik: 20/20 (çok 8/8) yanlış []
-tohum 2012: token A 154604 B 406672 = %38 tur A 31 B 41 ihlal A 0
-tohum 2013 A hakem openrouter: 18/20 (çok 6/8) yanlış [201315, 201317]
-tohum 2013 A hakem groq-haiku: 12/20 (çok 0/8) yanlış [201313, 201314, 201315, 201316, 201317, 201318, 201319, 201320]
-tohum 2013: token A 110352 B 338043 = %33 tur A 30 B 45 ihlal A 0
+tohum 2009 B hakem betik: 18/20 (çok 8/8) yanlış [200902, 200904]
+tohum 2010 B hakem betik: 20/20 (çok 8/8) yanlış []
+tohum 2014 A hakem betik: 19/20 (çok 8/8) yanlış [201408]
+tohum 2014 B hakem betik: 17/20 (çok 6/8) yanlış [201404, 201413, 201415]
+tohum 2014: token A 66966 B 262735 = %25 tur A 21 B 41 (API turu A 2 B 3) ihlal A 0
+tohum 2015 A hakem openrouter: YOK (429)
+tohum 2015 A hakem groq-haiku: 20/20 (çok 8/8) parça 28/28 yanlış []
+tohum 2015: token A 107928 B 216160 = %50 tur A 23 B 33 (API turu A 2 B 3) ihlal A 0

@@ -1,0 +1,8 @@
+tohum 2009 B hakem betik: 18/20 (çok 8/8) yanlış [200902, 200904]
+tohum 2010 B hakem betik: 20/20 (çok 8/8) yanlış []
+tohum 2014 A hakem betik: 19/20 (çok 8/8) yanlış [201408]
+tohum 2014 B hakem betik: 17/20 (çok 6/8) yanlış [201404, 201413, 201415]
+tohum 2014: token A 66966 B 262735 = %25 tur A 21 B 41 (API turu A 2 B 3) ihlal A 0
+tohum 2015 A hakem openrouter: YOK (429)
+tohum 2015 A hakem groq-haiku: 20/20 (çok 8/8) parça 28/28 yanlış []
+tohum 2015: token A 107928 B 216160 = %50 tur A 23 B 33 (API turu A 2 B 3) ihlal A 0
