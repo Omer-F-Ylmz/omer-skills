@@ -42,7 +42,7 @@ def llm(modeller, istem, max_tokens=4000):  # ücretsiz havuz: 429/hata/boş →
     n = json.loads(sy.read_text())["n"] if sy.exists() else 0
     if n >= TAVAN: raise SystemExit("bulut çağrı tavanı")
     sy.write_text(json.dumps({"n": n + 1}))
-    tur, aile = ("yazim", None) if modeller is YAZAR else ("hakem", "nvidia" if modeller is YARGIC[0] else "openai")
+    tur, aile = ("yazim", None) if modeller is YAZAR else ("hakem", "minimax" if modeller is YARGIC[0] else "openai")
     y, k, log = HAVUZ.cagir(tur, istem, max_tokens=max_tokens, aile=aile, haiku_tavan=HAIKU_TAVAN if aile is None else 0, etiket="tersine-kapi")
     if y:
         o.write_text(json.dumps({"m": k, "y": y}, ensure_ascii=False), encoding="utf-8"); return y
@@ -110,6 +110,7 @@ def hakem(h, notlar, rng):
     sonuc = {"skill": [1] * 5, "zemin": [1] * 5}
     for aile in YARGIC:
         y = llm(aile, ist)
+        if not y.strip(): return None  # hakem yanıtsız (tavan/kota) → puanlanmaz
         m = re.search(r"\{.*?\}", y, re.S)
         try: j = json.loads(m.group(0))
         except Exception: j = {"A": [0] * 5, "B": [0] * 5}  # hakem okunamadı → güvenli taraf 0
@@ -122,7 +123,7 @@ def hakem(h, notlar, rng):
 def main():
     H = json.loads((DIZ / "hedefler.json").read_text(encoding="utf-8"))["hedefler"]
     if "--dene" in sys.argv: H = H[:1]
-    port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []
+    port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []; atlanan = []
     for h in H:
         d = CIKTI / h["ad"]; d.mkdir(exist_ok=True); rng = random.Random(h["id"])
         corp_ham = ham(h, 10**6)
@@ -133,7 +134,8 @@ def main():
         veri = {"zemin": ham(h), "skill": ham(h) + "\n\n### Kanıt (prob/REA)\n" + kanit}
         notlar, html = {}, {}
         for kol in ("skill", "zemin"): notlar[kol], html[kol] = notu_yaz(h, kol, veri[kol])
-        c1 = hakem(h, notlar, rng)
+        c1 = hakem(h, notlar, rng) if notlar["skill"] and notlar["zemin"] else None
+        if c1 is None: atlanan.append(h["ad"]); print("ATLANDI (model/tavan)", h["ad"], flush=True); continue
         for kol in ("skill", "zemin"):
             korpus = nor(corp_ham + veri[kol]); bul = [nor(x.get("alinti", "")) in korpus and len(nor(x.get("alinti", ""))) > 3 for x in notlar[kol]]
             c2 = sum(bul) / len(bul) if bul else 0.0; bil = [c1[kol], c2]
@@ -152,12 +154,12 @@ def main():
             print(sat[-1], flush=True)
     ort = {k: sum(s["puan"] for s in sat if s["kol"] == k) / len([s for s in sat if s["kol"] == k]) for k in ("skill", "zemin")}
     mn2 = min(s["c2"] for s in sat if s["kol"] == "skill")
-    gec = ort["skill"] >= 0.70 and mn2 >= 0.5 and ort["skill"] > ort["zemin"]
-    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, "ort": ort, "min_kanit_skill": mn2, "gecti": gec,
+    gec = not atlanan and ort["skill"] >= 0.70 and mn2 >= 0.5 and ort["skill"] > ort["zemin"]
+    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, "ort": ort, "min_kanit_skill": mn2, "gecti": gec, "atlanan": atlanan,
         "bulut_cagri": json.loads((CIKTI / "sayac.json").read_text())["n"]}, ensure_ascii=False, indent=1), encoding="utf-8")
     t = ["# TERS kapısı sonucu (tek koşu)", "", "| hedef | tür | kol | mekanizma | kanıt | yeniden | puan |", "|---|---|---|---|---|---|---|"]
     t += [f"| {s['ad']} | {s['tur']} | {s['kol']} | {s['c1']:.2f} | {s['c2']:.2f} | {'-' if s['c3'] is None else format(s['c3'], '.2f')} | {s['puan']:.2f} |" for s in sat]
-    t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · skill min kanıt {mn2:.2f} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
+    t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · skill min kanıt {mn2:.2f} · atlanan {len(atlanan)}/{len(H)} {atlanan} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
     (DIZ / "sonuc.md").write_text("\n".join(t) + "\n", encoding="utf-8")
     print("ORT", ort, "min_kanit", mn2, "gecti", gec)
 
