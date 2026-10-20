@@ -13,12 +13,13 @@ sys.path.insert(0, str(KOK / "tools")); import ucretsiz_havuz as HAVUZ  # noqa: 
 
 DIZ = KOK / "docs/ters/kapi"
 CIKTI = Path(os.environ["TEMP"]) / "ters-kapi"
-TAVAN = {"yazar": 60, "hakem": 70}  # hakem: 40 ücretsiz + en çok 30 Haiku
-HAIKU_TAVAN = 30
+TAVAN = {"yazar": 60, "hakem": 130}  # hakem: yalnız ücretsiz aileler
+HAIKU_TAVAN = 0  # üçüncü hakem (Haiku) kapalı
 TEKRAR = (1, 2)
 YARGIC = ("meta", "openai", "mistral", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
 KULLANILAN = {}
-DUSEN = set()  # hata veren hakem aileleri (koşu boyunca atlanır)
+DUSEN = {}  # hata veren hakem ailesi → soğuma bitişi (SOGUMA sn atlanır; geçici hata aileyi koşu boyunca düşürmesin)
+SOGUMA = 150
 SKILL = (KOK / "skills/tersine/SKILL.md").read_text(encoding="utf-8")
 
 
@@ -70,7 +71,7 @@ def yazar(istem): return onbellekli("yazar", istem, lambda: sonnet(istem))
 def yargic(aile, istem):  # aile "anthropic" → yalnız Haiku (üçüncü hakem)
     def uret():
         y, k, log = HAVUZ.cagir("hakem", istem, max_tokens=4000, aile=aile, haiku_tavan=HAIKU_TAVAN if aile == "anthropic" else 0, etiket="tersine-kapi")
-        if not y: DUSEN.add(aile); print("hakem hata", aile, ",".join(log), flush=True)  # bu koşuda soğumaya alınır
+        if not y: DUSEN[aile] = time.monotonic() + SOGUMA; print("hakem hata", aile, ",".join(log), flush=True)  # bu koşuda soğumaya alınır
         return y or ""
     return onbellekli("hakem", aile + istem, uret)
 
@@ -143,12 +144,16 @@ def hakem(h, notlar, rng):
             return [(list(j[k]) + [0] * 5)[:5] for k in "AB"]
         except Exception: return None
 
-    oylar = []
-    for aile in YARGIC:
-        if len(oylar) == 2: break
-        if aile in DUSEN: continue
-        if o := oy(aile): oylar.append(o); KULLANILAN[aile] = KULLANILAN.get(aile, 0) + 1
-    if len(oylar) < 2 or oylar[0] != oylar[1]:  # hakemler ayrıştı ya da biri yanıtsız → Haiku üçüncü
+    oylar, KULLANILAN_BU = [], set()
+    for _ in range(3):  # yetmezse en yakın soğuma bitince yeniden dene
+        for aile in YARGIC:
+            if len(oylar) == 2: break
+            if aile in KULLANILAN_BU or DUSEN.get(aile, 0) > time.monotonic(): continue
+            if o := oy(aile): oylar.append(o); KULLANILAN_BU.add(aile); KULLANILAN[aile] = KULLANILAN.get(aile, 0) + 1
+        bek = [t - time.monotonic() for t in DUSEN.values() if t > time.monotonic()]
+        if len(oylar) == 2 or not bek: break
+        time.sleep(min(bek) + 1)
+    if HAIKU_TAVAN and (len(oylar) < 2 or oylar[0] != oylar[1]):  # hakemler ayrıştı ya da biri yanıtsız → Haiku üçüncü
         if o3 := oy("anthropic"): oylar.append(o3)
     if len(oylar) < 2: return None
     a, b = oyla(oylar)

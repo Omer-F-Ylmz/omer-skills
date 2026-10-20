@@ -33,6 +33,26 @@ def test_oyla_cogunluk_ve_esitlikte_sifir():
     assert K.oyla([[[1] * 5, [0] * 5], [[0] * 5, [0] * 5], [[1, 1, 0, 0, 0], [1] * 5]])[0] == [1, 1, 0, 0, 0]
 
 
+def test_hata_donen_hakem_cagrisi_sayilmaz(tmp_path, monkeypatch):
+    monkeypatch.setattr(K, "CIKTI", tmp_path)
+    assert K.onbellekli("hakem", "a", lambda: "") == "" and K.onbellekli("hakem", "b", lambda: "ok") == "ok"
+    assert json.loads((tmp_path / "sayac-hakem.json").read_text())["n"] == 1
+
+
+def test_dusen_aile_atlanir_siradaki_aile_kullanilir(tmp_path, monkeypatch):
+    monkeypatch.setattr(K, "CIKTI", tmp_path); monkeypatch.setattr(K, "DUSEN", {}); monkeypatch.setattr(K, "KULLANILAN", {})
+    cevap = '{"A":[1,1,1,1,1],"B":[0,0,0,0,0]}'
+    cagrilan = []
+
+    def sahte(tur, istem, aile=None, **kw):
+        cagrilan.append(aile)
+        return (None, None, ["429"]) if aile == "meta" else (cevap, aile, [])
+    monkeypatch.setattr(K.HAVUZ, "cagir", sahte)
+    h = {"ad": "x", "maddeler": [{"madde": str(i)} for i in range(5)]}
+    r = K.hakem(h, {"skill": [{"madde": "s"}], "zemin": [{"madde": "z"}]}, K.random.Random(0))
+    assert sorted(r.values()) == [0.0, 1.0] and set(K.DUSEN) == {"meta"} and K.KULLANILAN == {"openai": 1, "mistral": 1} and "anthropic" not in cagrilan
+
+
 def test_ozet_fark_ve_ga():
     sat = [{"ad": a, "kol": k, "puan": p} for a in "xyz" for k, p in (("skill", 0.9), ("skill", 0.8), ("zemin", 0.5), ("zemin", 0.5))]
     o = K.ozet(sat)
