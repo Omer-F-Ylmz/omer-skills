@@ -20,7 +20,7 @@ SIRA = KOK / ".kos/kopru/gorev/SIRA.md"
 SIRALI = ["T0", "T1", "T2", "T3", "T4"]
 YUKSELTME = 2  # en fazla 2 kez +1, sonra Desktop'a SIRA satırı
 # BULUT-1: yerel model yok (RAM 0). Gemini → OpenRouter :free → Groq EN SON (TPM küçük; OmniRoute UA'yı iletir, ucuz_alt.iste urllib dışı UA yollar)
-T1_ZINCIR = [("omni", "gemini/gemini-2.5-flash"), ("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"),
+T1_ZINCIR = [("omni", "gemini/gemini-3.1-flash-lite"), ("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"),
              ("omni", "groq/openai/gpt-oss-120b")]
 HAIKU = "claude-haiku-5-5"
 

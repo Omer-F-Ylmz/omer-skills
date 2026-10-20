@@ -4,7 +4,8 @@ kolay=T1 (tek ücretsiz aile) · orta=T1 + iki aile çapraz (ucretsiz_havuz.iki_
 Kaskad (Ömer 21 Eki, kesin): ücretsiz → Haiku medium/high → Sonnet medium/high → Opus medium/high; başarılı basamak türe kaydedilir (basla).
   python tools/ordu.py sinif "<iş>" [--boyut kucuk|orta|buyuk] [--risk a,b]   → karar (JSON)
   python tools/ordu.py heldout                                                 → 20 işlik kapı kümesi: dağılım + sınıf doğruluğu
-  python tools/ordu.py kapi A.json B.json                                      → A/B kapısı ({claude_token, kalite, basarisiz})"""
+  python tools/ordu.py kapi A.json B.json                                      → A/B kapısı ({claude_token, kalite, basarisiz})
+d3 kapısı kapi3: {claude_is, agirlikli_token, kalite}"""
 import json
 import sys
 import time
@@ -90,6 +91,14 @@ def merdiven_kos(tur, sinif_, calistir, denetle, ad=""):
 def kapi(a, b):
     """B (ordu) Claude token ≤ A'nın %50'si VE kalite ≥ A VE başarısızlık ≤ A."""
     return b["claude_token"] <= a["claude_token"] * 0.5 and b["kalite"] >= a["kalite"] and b["basarisiz"] <= a["basarisiz"]
+
+
+AGIRLIK = {"haiku": 1 / 3, "sonnet": 1.0, "opus": 5 / 3}  # plan kotası ağırlığı: liste fiyat oranı varsayımı (Sonnet=1)
+
+
+def kapi3(a, b):
+    """d3 kapısı: Claude'a giden alt iş ≤%50 VE Claude ağırlıklı token ≤%60 VE kalite ≥ A."""
+    return b["claude_is"] <= a["claude_is"] * 0.5 and b["agirlikli_token"] <= a["agirlikli_token"] * 0.6 and b["kalite"] >= a["kalite"]
 
 
 if __name__ == "__main__":

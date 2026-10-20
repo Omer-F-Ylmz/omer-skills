@@ -145,9 +145,10 @@ Z6 = ("`log-ozetle` adlı bir SKILL.md yaz (günlük dosyasını özetleyen skil
 # ---- imkansiz
 SINIRLI = ("import time\n\nclass Sinirli:\n    def __init__(self, sinir):\n        self.sinir = sinir\n        self.n = 0\n\n    def al(self):\n"
            "        if self.n < self.sinir:\n            time.sleep(0)\n            self.n += 1\n            return True\n        return False\n")
-SINIRLI_TEST = ("import threading\ns = Sinirli(100)\nok = []\n\ndef is_():\n    for _ in range(200):\n        ok.append(s.al())\n"
-                "ts = [threading.Thread(target=is_) for _ in range(16)]\n[t.start() for t in ts]\n[t.join() for t in ts]\n"
-                "assert sum(ok) == 100 and s.n == 100, (sum(ok), s.n)\n")
+SINIRLI_TEST = ("import sys\nimport threading\nsys.setswitchinterval(1e-6)\n"
+                "for _tur in range(30):\n    s = Sinirli(100)\n    ok = []\n\n    def is_():\n        for _ in range(200):\n            ok.append(s.al())\n"
+                "    ts = [threading.Thread(target=is_) for _ in range(16)]\n    [t.start() for t in ts]\n    [t.join() for t in ts]\n"
+                "    assert sum(ok) == 100 and s.n == 100, (sum(ok), s.n)\n")
 I1 = ("Bu sınıf çok iş parçacığında sınırı aşıyor (tam sinir kadar True dönmeli, `n` hiç sinir'i geçmemeli; arayüz ve `time.sleep(0)` satırı kalsın). "
       "Yarış durumunu çöz; TAM sınıfı ver (import dahil). Yanıt: Python kodu (dizge).\n" + SINIRLI, lambda y: _kod(str(y), SINIRLI_TEST) and "time.sleep(0)" in str(y))
 GECIKME_REF = ("def ref(isler):\n    n = len(isler)\n    IN = 10 ** 18\n    dp = [IN] * (1 << n)\n    sure = [0] * (1 << n)\n    dp[0] = 0\n"
@@ -186,13 +187,13 @@ def istem(adlar):
             f"değer her görevin istediği yanıt (kod yanıtları JSON dizgesi).\n\n{g}")
 
 
-def claude(adlar, kd, ham):
-    """(yanıt nesnesi, Claude jetonu, usd); ham yanıt önbellekte varsa çağrı yapılmaz."""
+def claude(adlar, kd, ham, metin=None):
+    """(yanıt nesnesi, Claude jetonu, usd); ham yanıt önbellekte varsa çağrı yapılmaz. metin: istem(adlar) yerine verilen istem."""
     if not ham.exists():
         if Sayac.claude >= CAGRI_TAVAN:
             raise RuntimeError("claude -p tavanı")
         Sayac.claude += 1
-        r = subprocess.run(["claude", "-p", "--output-format", "json", "--max-budget-usd", str(USD_TAVAN), *yonlendir.argv(kd)], input=istem(adlar),
+        r = subprocess.run(["claude", "-p", "--output-format", "json", "--max-budget-usd", str(USD_TAVAN), *yonlendir.argv(kd)], input=metin or istem(adlar),
                            capture_output=True, text=True, encoding="utf-8", timeout=1500, creationflags=0x08000000,
                            env={**os.environ, "FORCE_PROMPT_CACHING_5M": "1"})
         ham.write_text(r.stdout, encoding="utf-8")
@@ -212,10 +213,10 @@ def _sor(kol, model, g):
     return ucuz_alt.sor(kol, model, g)
 
 
-def ucretsiz(a, ham):
+def ucretsiz(a, ham, mt=1500):
     """(yanıt, ücretsiz jeton); önbellekteki ham yanıt yeniden çağırmaz"""
     if not ham.exists():
-        r = yonlendir.t1(istem([a]), 1500, sor=_sor, haiku=None)
+        r = yonlendir.t1(istem([a]), mt, sor=_sor, haiku=None)
         ham.write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8")
     r = json.loads(ham.read_text(encoding="utf-8"))
     return (json_ilk(r["yanit"] or "") or {}).get(a), r["usage"]["giris"] + r["usage"]["cikis"]

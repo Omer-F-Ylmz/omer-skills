@@ -61,3 +61,15 @@ def test_merdiven_tukenince_sira_satiri(tmp_path, monkeypatch):
     assert ordu.merdiven_kos("x", "zor", lambda b: ("", {}), lambda c, b: False, "is1") == (None, 6)
     assert "ORDU-1 MERDİVEN TÜKENDİ: is1" in (tmp_path / "SIRA.md").read_text(encoding="utf-8")
     assert (tmp_path / "SIRA.md").read_text(encoding="utf-8").endswith("bakmalı\n")
+
+
+def test_kapi3_uc_olcut_birlikte():
+    a = {"claude_is": 20, "agirlikli_token": 1000, "kalite": 1.0}
+    assert ordu.kapi3(a, {"claude_is": 10, "agirlikli_token": 600, "kalite": 1.0})
+    assert not ordu.kapi3(a, {"claude_is": 11, "agirlikli_token": 600, "kalite": 1.0})
+    assert not ordu.kapi3(a, {"claude_is": 10, "agirlikli_token": 601, "kalite": 1.0})
+    assert not ordu.kapi3(a, {"claude_is": 10, "agirlikli_token": 600, "kalite": 0.95})
+
+
+def test_agirlik_model_sirasi():
+    assert ordu.AGIRLIK["haiku"] < ordu.AGIRLIK["sonnet"] == 1 < ordu.AGIRLIK["opus"]
