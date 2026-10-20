@@ -2,101 +2,101 @@
  "satir": [
   {
    "ad": "token_olc ağırlıklı ölçüm",
-   "tok": 322,
-   "sn": 0.6,
+   "tok": 441,
+   "sn": 0.69,
    "hit": 1,
    "g_tok": 3598,
-   "g_sn": 3.17,
+   "g_sn": 2.69,
    "g_hit": 1
   },
   {
    "ad": "cc_profil kur",
-   "tok": 277,
-   "sn": 0.04,
+   "tok": 387,
+   "sn": 0.05,
    "hit": 1,
    "g_tok": 3127,
-   "g_sn": 2.85,
+   "g_sn": 2.93,
    "g_hit": 0
   },
   {
    "ad": "onek_kayit vekil",
-   "tok": 523,
+   "tok": 471,
    "sn": 0.05,
    "hit": 1,
    "g_tok": 3426,
-   "g_sn": 2.49,
+   "g_sn": 2.58,
    "g_hit": 0
   },
   {
    "ad": "ucuz_alt free zincir",
-   "tok": 585,
-   "sn": 0.05,
+   "tok": 708,
+   "sn": 0.07,
    "hit": 1,
    "g_tok": 3409,
-   "g_sn": 2.98,
+   "g_sn": 2.8,
    "g_hit": 1
   },
   {
    "ad": "beyin kapı doğru",
-   "tok": 470,
-   "sn": 0.1,
+   "tok": 621,
+   "sn": 0.05,
    "hit": 1,
    "g_tok": 3549,
-   "g_sn": 8.74,
+   "g_sn": 2.6,
    "g_hit": 1
   },
   {
    "ad": "mem_bekci sağlık",
-   "tok": 450,
-   "sn": 0.1,
+   "tok": 415,
+   "sn": 0.09,
    "hit": 1,
    "g_tok": 9413,
-   "g_sn": 4.99,
+   "g_sn": 2.55,
    "g_hit": 1
   },
   {
    "ad": "graphify_sor etiket",
-   "tok": 594,
-   "sn": 0.04,
+   "tok": 557,
+   "sn": 0.06,
    "hit": 1,
    "g_tok": 3570,
-   "g_sn": 2.45,
+   "g_sn": 2.51,
    "g_hit": 0
   },
   {
    "ad": "nblm paket",
-   "tok": 289,
+   "tok": 366,
    "sn": 0.03,
    "hit": 1,
    "g_tok": 3195,
-   "g_sn": 2.63,
+   "g_sn": 2.91,
    "g_hit": 1
   },
   {
    "ad": "zip_denetle",
-   "tok": 532,
+   "tok": 515,
    "sn": 0.04,
    "hit": 1,
    "g_tok": 3381,
-   "g_sn": 4.77,
+   "g_sn": 2.59,
    "g_hit": 1
   },
   {
    "ad": "kapi_kos ters",
-   "tok": 674,
-   "sn": 0.05,
+   "tok": 511,
+   "sn": 0.06,
    "hit": 1,
    "g_tok": 3581,
-   "g_sn": 2.51,
+   "g_sn": 3.09,
    "g_hit": 1
   }
  ],
  "toplam": {
-  "tok": 4716,
-  "sn": 1.1,
+  "tok": 4992,
+  "sn": 1.19,
   "hit": 10,
   "g_tok": 40249,
-  "g_sn": 37.58,
+  "g_sn": 27.25,
   "g_hit": 7
  }
 }

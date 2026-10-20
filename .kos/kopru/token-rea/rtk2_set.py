@@ -37,3 +37,17 @@ HELD3 = [  # d3 kapısı, tek seferlik (kilit: rtk2_set3.lock); d3 süzgeçleri 
     ("H3 git ls-files kos", ["git", "ls-files", ".kos/kopru"], None),
     ("H3 ls -la .claude/beyin4", ["ls", "-la", ".claude/beyin4"], None),
 ]
+HELD4 = [  # d4 kapısı, tek seferlik (kilit: rtk2_set4.lock); süzgeç/rota yazıldıktan sonra ama sonuç görülmeden seçildi
+    ("H4 git status", ["git", "status"], "BR"),
+    ("H4 git diff 8 --stat", ["git", "diff", "HEAD~8", "--stat"], None),
+    ("H4 git ls-files olcum", ["git", "ls-files", "tools/olcum"], None),
+    ("H4 find beyin3", ["find", ".claude/beyin3", "-type", "f"], None),
+    ("H4 git diff 9 onay", ["git", "diff", "HEAD~9", "--", "onay"], None),
+    ("H4 ls -la cc-kopru", ["ls", "-la", "tools/cc-kopru"], None),
+    ("H4 ls -la onay", ["ls", "-la", "onay"], None),
+    ("H4 git log -12 --stat", ["git", "log", "-12", "--stat"], "KONU"),
+    ("H4 git log -20 oneline", ["git", "log", "-20", "--oneline"], "KONU"),
+    ("H4 git branch -vv", ["git", "branch", "-vv"], "BR"),
+    ("H4 git show 4 --stat", ["git", "show", "HEAD~4", "--stat"], None),
+    ("H4 git diff 5 tools", ["git", "diff", "HEAD~5", "--", "tools"], None),
+]

@@ -1,12 +1,13 @@
 """rtk2: RTK sinyal-koruma sarmalayıcı (kurulu rtk'ya dokunmaz). Kullanım: python rtk2.py git diff HEAD~2 | ls -la tools | ...
 Kural: rtk çıktısı ham çıktının sinyal belirteçlerini (dosya adı, hash) kaybettiyse eksikler sona eklenir; sonuç ham'dan uzunsa ham döner.
 `ls`: perm/sahip/tarih gürültüsü atılır, tüm ad+boyut korunur (rtk ls ad düşürüyordu)."""
-import os, re, subprocess, sys
+import os, subprocess, sys
 
 NW = 0x08000000
-PATH = re.compile(r"(?<![\w./-])[\w.-]+(?:/[\w.-]+)+")
-HASH = re.compile(r"\b[0-9a-f]{7,40}\b")
-STAT = re.compile(r"^\s*(\S+)\s+\|", re.M)
+PATH = r"(?<![\w./-])[\w.-]+(?:/[\w.-]+)+"  # re yalnız eksik()/stat_say() çağrılınca yüklenir (açılış süresi)
+HASH = r"\b[0-9a-f]{7,40}\b"
+STAT = r"^\s*(\S+)\s+\|"
+NOSTAT = {"--stat", "--name-only", "--numstat", "--shortstat"}
 
 
 GNU = "C:/Program Files/Git/usr/bin/find.exe"  # Windows'ta çıplak `find` find.exe'ye düşer; Git Bash'teki GNU find gerçek kullanım
@@ -21,11 +22,12 @@ def calis(argv):
 
 def sinyaller(argv, ham):
     """→ [(tam belirteç, aranacak ad)]; diff gövdesi (kod satırları) sayılmaz, yalnız `diff --git` başlıkları."""
-    if argv[0] == "git" and "diff" in argv and not {"--stat", "--name-only", "--numstat", "--shortstat"} & set(argv):
+    import re
+    if argv[0] == "git" and "diff" in argv and not NOSTAT & set(argv):
         ham = "\n".join(l for l in ham.splitlines() if l.startswith("diff --git"))
-    s = [(m, m.rsplit("/", 1)[-1]) for m in PATH.findall(ham)] + [(m, m) for m in STAT.findall(ham)]
+    s = [(m, m.rsplit("/", 1)[-1]) for m in re.findall(PATH, ham)] + [(m, m) for m in re.findall(STAT, ham, re.M)]
     if argv[0] == "git" and argv[1] in ("blame", "log", "show", "branch", "status"):
-        s += [(m, m) for m in HASH.findall(ham)]
+        s += [(m, m) for m in re.findall(HASH, ham)]
     return list(dict.fromkeys(s))
 
 
@@ -58,13 +60,6 @@ def agac(yollar):
     return "\n".join((d + "/: " if d else "") + " ".join(a) for d, a in g.items())
 
 
-STATSAT = re.compile(r"^ (.+?)\s+\|\s+(\d+)\s[+-]*$", re.M)
-
-
-def stat_say(m):  # histogram çubuğu atılır, ad+sayı kalır
-    return f" {m.group(1)} {m.group(2)}"
-
-
 def diff_kompakt(ham, kap=20):
     """Başlık→'## yol', index/---/+++/bağlam satırı atılır; dosya başına en çok `kap` değişen satır."""
     cik, n, atla = [], 0, False
@@ -90,38 +85,40 @@ def diff_kompakt(ham, kap=20):
     return "\n".join(cik)
 
 
-def tek_gecis(argv, ham):
-    """rtk'ya gitmeden, ham çıktıyı bir kez süzer; süzgeç yoksa None."""
-    if argv[0] == "find" or argv[:2] == ["git", "ls-files"]:
-        return agac([l.removeprefix("./") for l in ham.splitlines()])
-    if argv[0] == "git" and "diff" in argv[1:2] + argv[2:3] and not {"--stat", "--name-only", "--numstat", "--shortstat"} & set(argv):
-        return diff_kompakt(ham)
-    if argv[:2] == ["git", "status"] and not {"--porcelain", "--short", "-s", "-sb"} & set(argv):
-        p, _ = calis(["git", "status", "--porcelain", "-b"])
-        ls = p.splitlines()
-        g = {}
-        for l in ls[1:]:
-            g.setdefault(l[:2].strip() or "?", []).append(l[3:].strip('"').rstrip("/") + ("/" if l.endswith("/") else ""))
-        return "\n".join([ls[0]] + [f"{k}\n{agac(v)}" for k, v in g.items()]) if ls else "temiz"
-    if argv[0] == "git" and argv[1] in ("log", "show", "diff") and "--stat" in argv:
-        return STATSAT.sub(stat_say, ham)
-    return None
+def tur(argv):
+    """Süzgeç türü; None → rtk2 uçtan uca rtk'dan hızlı değil, hook komutu doğrudan rtk'ya yollar (rtk2 hiç açılmaz).
+    Ölçüm (egitim+held4): ls/diff/durum rtk'dan hızlı; find, ls-files, log/diff/show --stat Python açılışı (~40 ms) yüzünden eşit/yavaş."""
+    if argv[0] == "ls":
+        return "ls"
+    if argv[0] != "git" or len(argv) < 2:
+        return None
+    if "diff" in argv[1:3] and not NOSTAT & set(argv):
+        return "diff"
+    if argv[1] == "status" and not {"--porcelain", "--short", "-s", "-sb"} & set(argv):
+        return "durum"
+
+
+def durum_gecis(ham):  # ham: `status --porcelain -b`
+    ls = ham.splitlines()
+    g = {}
+    for l in ls[1:]:
+        g.setdefault(l[:2].strip() or "?", []).append(l[3:].strip('"').rstrip("/") + ("/" if l.endswith("/") else ""))
+    return "\n".join([ls[0]] + [f"{k}\n{agac(v)}" for k, v in g.items()]) if ls else "temiz"
 
 
 def rtk2(argv):
-    if argv[0] == "ls":
+    k = tur(argv)
+    if k is None:
+        return calis(["rtk", *argv])[0]
+    if k == "ls":
         return ls_kompakt(argv[1:])
-    ham, r0 = calis(argv)
+    if k == "diff" and not any(a.startswith(("-U", "--unified")) for a in argv):
+        argv = [*argv[:argv.index("diff") + 1], "-U0", *argv[argv.index("diff") + 1:]]  # bağlam satırları zaten atılıyor: git'ten hiç çekme
+    ham, r0 = calis(["git", "status", "--porcelain", "-b"] if k == "durum" else argv)
     if r0 != 0:
         return ham
-    if (o := tek_gecis(argv, ham)) is not None and not eksik(argv, ham, o):
-        return o if len(o) < len(ham) else ham
-    out, r1 = calis(["rtk", *argv])
-    if r1 != 0 or not out.strip():
-        return ham
-    if m := eksik(argv, ham, out):
-        out += "\n[rtk2 eksik]\n" + "\n".join(m)
-    return out if len(out) < len(ham) else ham
+    o = diff_kompakt(ham) if k == "diff" else durum_gecis(ham)  # ad/hash kurgu gereği korunur; kayıp denetimi (eksik) yalnız ölçümde
+    return o if len(o) < len(ham) else ham
 
 
 if __name__ == "__main__":
