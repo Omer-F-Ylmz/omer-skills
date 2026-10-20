@@ -288,7 +288,7 @@ def tekrar():
         if not s.strip():
             continue
         i = json.loads(s)
-        if i["hazir"] <= time.time():
+        if i["hazir"] <= time.time() and not i["id"].startswith("makara:"):  # makara kayıtlarını gece betiği alır
             y, k, _ = cagir(i["tur"], i["istem"], **{a: i[a] for a in ("max_tokens", "aile", "haric_aile", "haiku_tavan", "etiket", "zaman")})
             if y:
                 with SONUC.open("a", encoding="utf-8") as f:

@@ -23,6 +23,7 @@ KASA = makara_ders.KASA
 AD = "omer-makara-gece"
 TAVAN = 120  # gece başına havuz çağrısı üst sınırı (yeniden denemeler dahil)
 RAM_ES, BOSTA, T = 80, 600, 3  # %, sn, held-out görev sayısı/öneri
+OZET, HAFTA = KOK / ".kos/kopru/uyku-ozet.txt", KOK / ".kos/kopru/makara-hafta-ozet.txt"  # Desktop sabah yalnız bunları okur
 GOREV = KOK / ".kos/sleep/lanes/omer-skills/tasks-v2.json"
 HOME = Path.home()
 SERITLER = [  # (ad, glob'lar, gece başına hedef)
@@ -36,16 +37,36 @@ GIZLI = re.compile(r"sk-[\w-]{20,}|gh[ps]_\w{20,}|AIza[\w-]{30,}|Bearer\s+[\w.-]
 SONUC = re.compile(r"SONUC:\s*(A|B|EQ)\b")
 
 
-class Say:  # çağrı sayacı: tavan aşılınca None döner
-    n = 0
+class Say:  # çağrı sayacı: tavan aşılınca None döner; claude = Haiku/Claude'dan gelen yanıt sayısı (kanıt: hep 0)
+    n = claude = ert = 0
+    bos = False  # son çağrı havuzdan yanıt alamadı (tükenme) → öneri atılmaz, ertelenir
+    kaz = {}
 
 
 def cagri(tur, istem, **kw):
     if Say.n >= TAVAN:
+        Say.bos = True
         return None
-    y, k, log = H.cagir(tur, istem, haiku_tavan=0, **kw)
+    y, k, log = H.cagir(tur, istem, haiku_tavan=0, **kw)  # SABİT 0: kw ile açılamaz (çift anahtar TypeError); Claude/Haiku halkası kapalı
     Say.n += 1 + len(log)
+    Say.claude += (k or "").startswith("haiku")
+    Say.bos = Say.bos or y is None
     return y
+
+
+def ertele(h):
+    """Havuz tükendi: hedef atılmaz, ertelenen.jsonl'e 'makara:' kimlikle yazılır; sonraki gece ertelenenler() alır (H.tekrar bu kimlikleri çalıştırmaz)."""
+    H._ertele("makara:" + h, dict(tur="yazim", istem=h, max_tokens=0, aile=None, haric_aile=None, haiku_tavan=0, etiket="makara", zaman=90))
+    Say.ert += 1
+
+
+def ertelenenler():
+    # shortcut: dosya kilidi yok; aynı anda serve yazarsa bir satır kaybolabilir, sık paralel süreçte H.KILIT kullan
+    if not H.ERT.exists():
+        return []
+    ent = [json.loads(s) for s in H.ERT.read_text(encoding="utf-8").splitlines() if s.strip()]
+    H.ERT.write_bytes("".join(json.dumps(i, ensure_ascii=False) + "\n" for i in ent if not i["id"].startswith("makara:")).encode("utf-8"))
+    return [i["id"][7:] for i in ent if i["id"].startswith("makara:") and Path(i["id"][7:]).exists()]
 
 
 def ram():
@@ -171,18 +192,32 @@ def gece(serit, n, kuru=False):
     gor = sorted(gor, key=lambda g: g["split"] != "val")[:T]  # val önce; öneri üretiminde görevler görülmez
     taban = {g["id"]: cagri("yazim", g["intent"][:2500], max_tokens=1200) for g in gor}
     kayit = []
-    for h in hedefler(serit, n, durum.setdefault("imlec", {})):
+    Say.claude = Say.ert = 0; Say.kaz = {}
+    devir = [] if kuru else ertelenenler()  # önceki gecenin ertelenenleri önce
+    for p in devir[n:]:
+        ertele(p)
+    liste = devir[:n] + hedefler(serit, n - len(devir[:n]), durum.setdefault("imlec", {}))
+    for j, h in enumerate(liste):
         if (ram() >= RAM_ES and not kuru) or Say.n >= TAVAN:  # kuru koşu RAM'i yalnız raporlar, gerçek koşu durur
-            kayit.append((h, None, "durdu (RAM/tavan)")); break
+            for r in liste[j:]:
+                ertele(r)
+            kayit.append((h, None, "ertelendi: durdu (RAM/tavan)")); break
         metin = Path(h).read_text(encoding="utf-8", errors="replace")
+        Say.bos = False
         kural = oner(h, metin, dersler)
         if not kural:
-            kayit.append((h, None, "öneri üretilemedi")); continue
+            if Say.bos:
+                ertele(h)
+            kayit.append((h, None, "ertelendi: havuz tükendi" if Say.bos else "öneri üretilemedi")); continue
         oy, me, mn, fam = degerlendir(kural, gor, taban)
         ok, neden = karar(oy, me, mn)
+        if not ok and neden in ("tek hakem ailesi", "hakem yanıtı eksik"):  # hakem havuzu tükendi: öneri atılmaz
+            ertele(h)
+            kayit.append((h, kural, "ertelendi: " + neden)); continue
         kid = "m" + hashlib.sha1((h + kural).encode()).hexdigest()[:6]
         olcum = {"mekanik_eski": me, "mekanik_yeni": mn, "oy": oy, "aileler": fam}
         if ok:
+            Say.kaz[kid] = sum(1 for vs in oy.values() for v in vs if v == "B") - sum(1 for vs in oy.values() for v in vs if v == "A")
             (M / "kum" / f"{kid}.json").write_text(json.dumps(dict(id=kid, gun=bugun, serit=serit, hedef=h, kural=kural, olcum=olcum, durum="bekliyor"), ensure_ascii=False), encoding="utf-8")
         kayit.append((h, kural, f"{'KABUL ' + kid if ok else 'ret'}: {neden}"))
     if kuru:
@@ -200,11 +235,30 @@ def rapor(bugun, serit, kayit, sn, kuru):
     y = KASA / "90-log" / f"uyku-{bugun}{'-kuru' if kuru else ''}.md"
     y.parent.mkdir(parents=True, exist_ok=True)
     y.write_bytes((f"---\ntur: uyku\nguncellenme: {bugun}\netiket: [uyku, makara]\n---\n# uyku {bugun}{' (kuru)' if kuru else ''}\n"
-                   f"- şerit: {serit} · öneri: {len(kayit)} · kabul: {kabul} · ret: {len(kayit) - kabul}\n"
+                   f"- şerit: {serit} · öneri: {len(kayit)} · kabul: {kabul} · ret: {len(kayit) - kabul - sum(1 for _, _, s in kayit if s.startswith('ertelendi'))} · ertelenen {Say.ert}\n"
                    f"- ölçüm: havuz çağrısı {Say.n}/{TAVAN} · {sn:.0f} sn · RAM %{ram()} · Claude token 0 · Haiku 0 · pencere 0\n"
                    "- hakem: iki farklı aile (görev başına açık ilk iki farklı: google · mistral · meta · nvidia · minimax · alibaba; ikisi de net yeni-lehine değilse ret); mekanik: rubrikteki sayısal tavanlar\n## Öneriler\n" + "\n".join(sat) + "\n").encode("utf-8"))
+    ozet(bugun, serit, kayit, kuru)
     onay_listesi()
     return kabul, len(kayit), str(y)
+
+
+def ozet(bugun, serit, kayit, kuru):
+    """≤12 satır sabit biçim; betik yazar (model yok). Desktop sabah yalnız bunu okur."""
+    kab = [(s.split()[1].rstrip(":"), h) for h, _, s in kayit if s.startswith("KABUL")]
+    ert = sum(1 for _, _, s in kayit if s.startswith("ertelendi"))
+    sat = [f"uyku {bugun}{' (kuru)' if kuru else ''} · şerit {serit}",
+           f"öneri {len(kayit)} · kabul {len(kab)} · ret {len(kayit) - len(kab) - ert} · ertelenen {Say.ert}"]
+    sat += [f"{k} · {Path(h).name} · +{Say.kaz.get(k, 0)}" for k, h in kab[:7]]
+    if len(kab) > 7:
+        sat.append(f"+{len(kab) - 7} kabul daha")
+    if any("durdu" in s for _, _, s in kayit):
+        sat.append("hata: durdu (RAM/tavan)")
+    sat.append(f"Claude çağrısı={Say.claude} (haiku_tavan=0)")
+    m = ("\n".join(x[:120] for x in sat) + "\n").encode("utf-8")
+    if not kuru:
+        OZET.parent.mkdir(parents=True, exist_ok=True); OZET.write_bytes(m)
+    (KASA / "90-log" / f"uyku-ozet-{bugun}{'-kuru' if kuru else ''}.md").write_bytes(m)
 
 
 def onay_listesi():
@@ -213,6 +267,11 @@ def onay_listesi():
     y = KASA / "90-log" / f"onay-listesi-{time.strftime('%G-W%V')}.md"
     y.write_bytes(("---\ntur: onay\netiket: [onay, makara]\n---\n# Makara onay listesi\nKabul: `python onay/makara_onay.py <id>` (yedekli) · geri: `--geri`\n"
                    + "\n".join(f"- **{r['id']}** [{r['serit']}] `{Path(r['hedef']).name}`: {r['kural']} (oy {r['olcum']['oy']})" for r in bek) + ("" if bek else "bekleyen yok") + "\n").encode("utf-8"))
+    sat = [f"onay bekleyen {len(bek)} · hafta {time.strftime('%G-W%V')}"] + [f"{r['id']} · {r['serit']} · {Path(r['hedef']).name} · {r['kural']}"[:140] for r in bek[:11]]
+    if len(bek) > 11:
+        sat.append(f"+{len(bek) - 11} daha (tam liste Obsidian onay-listesi)")
+    sat.append("kabul: python onay/makara_onay.py <id> · geri: --geri")
+    HAFTA.parent.mkdir(parents=True, exist_ok=True); HAFTA.write_bytes(("\n".join(sat) + "\n").encode("utf-8"))
 
 
 def kur(sil=False):
