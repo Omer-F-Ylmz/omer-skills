@@ -120,7 +120,12 @@ def baslat_argv(efor, model="opus"):
         argv = [("Skill," + a if argv[i - 1] == "--tools" else a) for i, a in enumerate(argv) if a != "--disable-slash-commands"]
         dar = re.search(r"dar=(\w+)", SLASH_DOSYA.read_text(encoding="utf-8"))  # d2: tam skill listesi ≈ +35k token; dar=<küme> → yalnız slash-dar/<küme> eklentisi
         if dar:
-            argv += ["--setting-sources", "", "--plugin-dir", str(K / "slash-dar" / dar.group(1))]
+            kume = K / "slash-dar" / dar.group(1)  # d3: --setting-sources "" kullanıcı ayarlarını düşürüyordu → profil --settings'ine küme ayarı birleştirilir (ikinci --settings öncekini ezer)
+            i = argv.index("--settings") + 1
+            birlesik = {**json.loads(Path(argv[i]).read_text(encoding="utf-8")), **json.loads((kume / "ayar.json").read_text(encoding="utf-8"))}
+            (kume / "birlesik-ayar.json").write_text(json.dumps(birlesik), encoding="utf-8")
+            argv[i] = str(kume / "birlesik-ayar.json")
+            argv += ["--plugin-dir", str(kume)]
     env = taze_env()
     if not efor:
         return argv, env
