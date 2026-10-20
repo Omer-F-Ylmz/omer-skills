@@ -194,3 +194,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. Chroma/compactor arızasını teşhis (claude-mem worker logu) — worker anlamsal yolu çalışmadan mem2↔worker anlamsal kıyas geçersiz; sonra mem_para.py'yi aynı tohumla yeniden koş.
 2. mem2'ye anlamsal zayıflığa karşı çare: sorgu genişletme (havuz, önbellekli) ya da AND→OR sıralaması; kapı: paraphrase ≥0.5, anahtar-sözcük 0.93 korunur.
 3. Onay (Ömer): net-sıfır birleşik satır → `onay/token_rea_mem2.py` hedef revizyonu. context-mode tabanı etkileşimli CC oturumunda (ctx_stats, ctx_execute süresi).
+
+## d16 sonuç (21 Eki 00:3x)
+- Kural satırı: global sor2 satırı çıktı, repo CLAUDE.md'de sor2+mem2 tek satır (`onay/token_rea_mem2.py`, yedek ev/yedek-token-rea-mem2, --geri). count_tokens: global 1458→1336 (−122), repo 966→1021 (+55), omer-skills'te net −67 tok. Canlı `claude -p` girdi toplamı 106 652→107 386 (+734) = oturum başı enjeksiyon gürültüsü (claude-mem bağlamı değişti), CLAUDE.md farkı tek çağrıda ayırt edilemez; kanıt count_tokens (d16_md_tok.py).
+- Chroma arızası KÖK NEDEN: chroma.sqlite3 (635 MB) sayfa 152552'de dizin bozulması (`quick_check: Multiple uses for byte 732`), compactor "Failed to apply logs to the metadata segment" → 16:12'den beri 3712 toplu ekleme hatası, kuyruk 2084 satır birikti. Onarım: yedek ~/.claude/yedek-chroma-onar/chroma.sqlite3.once + `REINDEX` (18 sn; tablolar sağlamdı) → quick_check ok, kuyruk 2084→50, embeddings 160 064→162 196, yeni hata yok.
+- mem_para.py 20102501 yeniden (n=68): worker A 0.0→0.0 (tokA 116→318), mem2 B 0.176→0.221; 8–15 penceresi B 0.125→0.5. Worker A=0.0 şüpheli (onarıma rağmen): mem_para worker yanıtını yanlış ayrıştırıyor olabilir.
+- YAPILMADI: mem2 sorgu genişletme (tur tavanı).
+
+## ★ d17 TASLAK
+1. mem_para.py: worker A=0.0 nedenini bul (yanıt biçimi/ayrıştırma; tek elle /api/search sorgusu) — düzelmeden mem2↔worker anlamsal kıyas geçersiz.
+2. mem2'ye havuzla sorgu genişletme (önbellekli); kapı paraphrase ≥0.5 VE anahtar sözcük ≥0.93, yeni tohum.
+3. Onay: kapı geçerse `--genis` benzeri bayrak mem2'de, kural satırında tek ek ibare (net token ≤0).

@@ -8,15 +8,18 @@ import token_rea_mem2 as t  # noqa: E402
 def test_kuru_uygula_geri(tmp_path):
     ev, kok = tmp_path / "ev", tmp_path / "kok"
     ev.mkdir(); kok.mkdir()
-    (ev / "CLAUDE.md").write_bytes(b"# a\n")
-    (kok / "CLAUDE.md").write_bytes(b"# b")
-    assert t.main(["--kuru"], ev, kok) == 0 and (ev / "CLAUDE.md").read_bytes() == b"# a\n"
+    o = t.SOR2.encode("utf-8")
+    (ev / "CLAUDE.md").write_bytes(b"# a\n" + o + b"\n- x\n")
+    (kok / "CLAUDE.md").write_bytes(b"# b\n" + o + b"\n- y\n")
+    assert t.main(["--kuru"], ev, kok) == 0 and o in (ev / "CLAUDE.md").read_bytes()
     t.main(["uygula"], ev, kok); t.main(["uygula"], ev, kok)
-    for md in (ev / "CLAUDE.md", kok / "CLAUDE.md"):
-        assert md.read_bytes().count(t.SATIR.encode("utf-8")) == 1 and b"\r" not in md.read_bytes()
+    assert (ev / "CLAUDE.md").read_bytes() == b"# a\n- x\n"  # global'e mem2 girmez, sor2 çıkar
+    assert (kok / "CLAUDE.md").read_bytes() == b"# b\n" + t.SATIR.encode("utf-8") + b"\n- y\n"
+    assert b"\r" not in (kok / "CLAUDE.md").read_bytes()
     (ev / "CLAUDE.md").write_bytes((ev / "CLAUDE.md").read_bytes() + b"- sonradan\n")  # geri başkasının satırını silmez
-    t.main(["--geri"], ev, kok)
-    assert (ev / "CLAUDE.md").read_bytes() == b"# a\n- sonradan\n" and (kok / "CLAUDE.md").read_bytes() == b"# b\n"
+    t.main(["--geri"], ev, kok); t.main(["--geri"], ev, kok)
+    assert (ev / "CLAUDE.md").read_bytes() == b"# a\n- x\n- sonradan\n" + o + b"\n"
+    assert (kok / "CLAUDE.md").read_bytes() == b"# b\n" + o + b"\n- y\n"
 
 
 def test_mem2_arama_biçimi(tmp_path, monkeypatch):
