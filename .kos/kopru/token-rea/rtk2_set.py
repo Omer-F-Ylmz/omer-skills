@@ -27,3 +27,13 @@ HELD = [  # d2b kapısında tek seferlik
     ("H ls -la .claude/agents", ["ls", "-la", ".claude/agents"], None),
     ("H git diff 3..1 tools", ["git", "diff", "HEAD~3", "HEAD~1", "--", "tools"], None),
 ]
+HELD3 = [  # d3 kapısı, tek seferlik (kilit: rtk2_set3.lock); d3 süzgeçleri yazılırken seçildi, sonuç görülmeden
+    ("H3 git status -s", ["git", "status", "-s"], "BR"),
+    ("H3 git log -8 --stat", ["git", "log", "-8", "--stat"], "KONU"),
+    ("H3 git diff 6 --stat", ["git", "diff", "HEAD~6", "--stat"], None),
+    ("H3 ls -la mcp", ["ls", "-la", "mcp"], None),
+    ("H3 find tools/olcum", ["find", "tools/olcum", "-type", "f"], None),
+    ("H3 git diff 6 ogrenme", ["git", "diff", "HEAD~6", "--", "tools/ogrenme"], None),
+    ("H3 git ls-files kos", ["git", "ls-files", ".kos/kopru"], None),
+    ("H3 ls -la .claude/beyin4", ["ls", "-la", ".claude/beyin4"], None),
+]

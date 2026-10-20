@@ -1,0 +1,68 @@
+{
+ "satir": [
+  {
+   "ad": "H git blame",
+   "ham": 1698,
+   "rtk": 1698,
+   "rtk2": 1698,
+   "tohum_rtk": 1,
+   "tohum_rtk2": 1,
+   "tohum_ham": 1,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.1,
+   "sn_rtk2": 0.14
+  },
+  {
+   "ad": "H find token-rea",
+   "ham": 577,
+   "rtk": 221,
+   "rtk2": 334,
+   "tohum_rtk": 1,
+   "tohum_rtk2": 1,
+   "tohum_ham": 1,
+   "sikı_rtk": 0,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.07,
+   "sn_rtk2": 0.09
+  },
+  {
+   "ad": "H ls -la .claude/agents",
+   "ham": 489,
+   "rtk": 204,
+   "rtk2": 168,
+   "tohum_rtk": 1,
+   "tohum_rtk2": 1,
+   "tohum_ham": 1,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.08,
+   "sn_rtk2": 0.0
+  },
+  {
+   "ad": "H git diff 3..1 tools",
+   "ham": 18126,
+   "rtk": 11916,
+   "rtk2": 11916,
+   "tohum_rtk": 0,
+   "tohum_rtk2": 0,
+   "tohum_ham": 1,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.14,
+   "sn_rtk2": 0.19
+  }
+ ],
+ "toplam": {
+  "ham": 20890,
+  "rtk": 14039,
+  "rtk2": 14116,
+  "tohum_rtk": 3,
+  "tohum_rtk2": 3,
+  "tohum_ham": 4,
+  "sikı_rtk": 3,
+  "sikı_rtk2": 4,
+  "sn_rtk": 0.39,
+  "sn_rtk2": 0.42000000000000004
+ }
+}

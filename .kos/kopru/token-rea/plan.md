@@ -48,3 +48,18 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 2. İş deseni kolu ölç: köprü şablonunda tur/okuma tavanı · ucuz alt ajan delegasyonu (ucretsiz_havuz+Haiku) · erken /clear · sabit ön ek; plan.md'de iki kolun toplamıyla %50-60 yolu sayıyla (şu an: araç ≈%4 + rtk2 + diyet ≈%3.8 + çıktı ≈%3 → ≈%10-12; kalan ≈%40 yalnız tur×bağlam azaltımından gelebilir).
 3. Bağlam-diyeti ikinci adım: MEMORY.md dizin kısaltma + ortam/ajan listesi ile ≤22k (Ömer onayı) ve ham kalite setleri 20 madde/anlam hakemi.
 4. d2c: bekleyen 6 aracın tabanı, hr2, çıktı-diyeti.
+
+## d3 SONUÇ (20 Eki 2026; Claude -p çağrısı 0, count_tokens ~85)
+0. Güvenlik: d2a_govde.json `Authorization` → `[GİZLİ]` (1 yer); dosya git geçmişinde yok; gitleaks token-rea/ temiz.
+**Ölçüm düzeltmesi:** `taban.tok` 150k karakterde kesiyordu → büyük `git diff` ham'ı eksik sayılıyordu (d2'deki rtk −%48.8 / rtk2 −%43.7 yanlış). `rtk2_ab.py` artık parça parça toplar. Gerçek: 20 komut ham 1 361 010 → rtk 194 367 (−%85.7) → **rtk2 168 326 (−%87.6)**.
+1. **rtk2 tek geçiş** (`rtk2.py`: find/ls-files/status → dizin-gruplu ad listesi, diff → `## yol` + değişen satırlar (dosya başı 20, satır 160 kr), `--stat` çubuğu atılır, `ls` yalnız adlar; süzgeçsiz komut eski yol): eğitim sıkı sinyal **20/20** (rtk 13/20), token **rtk2 < rtk (−%13.4)**. Held-out 3 (8 komut, kilit `rtk2_set3.lock`, tek sefer): ham 29 574 → rtk 27 579 → **rtk2 25 175**; sıkı **8/8** (rtk 7/8); tohum anahtar 3/4 (rtk 4/4) — kaçan `git ls-files` anahtarı otomatik seçilen tam yol, dizin-grup biçiminde tek dizge değil (ad çıktıda var; yapaylık).
+   Süre: süreç içi rtk2 3.5 sn < rtk 5.4 sn (20 komut) AMA uçtan uca `python rtk2.py` rtk'dan yavaş (git log 0.26 vs 0.06 sn, süzgeçsiz komutta ham+rtk çift koşu + Python açılışı). **DÖRT EKSEN: token ✓ kalite ✓ kullanışlılık ✓ süre ✗ → kapıdan GEÇMEDİ**; `onay/token_rea_rtk2.py` hazırlanmadı. Çözüm: süzgeçsiz komutta rtk'yı tek koşu (ham yalnız doğrulama için değil) / TOML filtre ya da PyInstaller ikili.
+2. **sor2** (`sor2.py`; graph.json süreç içi, kök eşleşmesi + idf + alt çizgili ad ağırlığı, ≤4.5k kr): eğitim 10/10 (graphify 7/10), **472 tok/sorgu** (graphify 4 025), **0.11 sn** (graphify 3.8 sn). Held-out 5 doğal-dil sorusu (kilit `sor2_held.lock`, tek sefer): **2/5** (graphify 1/5) → **isabet ≥9/10 ✗**: Türkçe betimleme sembol adıyla sözcük örtüşmüyor; sözcük tabanlı araç kapatmaz, anlamsal katman (gömme/LLM) gerekir. Ayrıca graf bayattı (`kapi_kos.py` yoktu) → `graphify update .` 87 sn; sor2 öncesi bayatlık denetimi şart. Kapıdan GEÇMEDİ.
+3. **Bağlam diyeti ertelenmiş yükleme** — YAPILMADI (tur tavanı). d2a ölçümü: kapatma −4 745 tok (−%15.8); kalan kaldıraç CLAUDE.md+MEMORY dizini 4.7k + ortam/ajan listesi 2.4k. Öneri: SessionStart enjeksiyonunu tetikleyici-başı yap (skill adı geçince tam metin), geçmiş/gerekçe satırlarını BEYİN kasasına taşı; kapı ≤22k + her araç için kullanım testi.
+4. **İş deseni kolu** — YAPILMADI (ölçüm + 2 köprü A/B tur tavanına sığmadı). Eldeki sayı: ağırlıklı taban %75 cache; yeniden yazmanın %85.6'sı oturum başı/ön ek değişimi (ttl-sim). %50-60 yolu hâlâ sayısal olarak kanıtsız: araç sıkıştırma ≈%10-12 + iş deseni (≈%40) varsayım.
+
+## ★ d4 TASLAK
+1. rtk2 süre kapısı: süzgeçsiz komutta çift koşuyu kaldır; uçtan uca (subprocess) süre ölçümü kapıya girsin.
+2. sor2 anlamsal katman: held-out doğal-dil ≥9/10 için etiket zenginleştirme (docstring/ilk satır dizinlenir) ya da ucretsiz_havuz ile sorgu genişletme; bayatlık denetimi.
+3. Bağlam diyeti (ertelenmiş yükleme) + iş deseni kolu (2 gerçek köprü görevinde A/B) — d3'ün 3. ve 4. maddeleri.
+4. Held-out setleri tükendi (held, held3, sor2 held): yenileri d4'te yazılıp kilitlenmeli.

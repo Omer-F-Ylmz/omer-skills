@@ -1,0 +1,57 @@
+{
+ "satir": [
+  {
+   "ad": "günün dalga ilerlemesini gösteren durum özeti",
+   "tok": 485,
+   "sn": 0.3,
+   "hit": 0,
+   "g_tok": 7532,
+   "g_sn": 8.61,
+   "g_hit": 0
+  },
+  {
+   "ad": "headroom vekilinin claude isteklerini koruyan bekçi",
+   "tok": 471,
+   "sn": 0.15,
+   "hit": 0,
+   "g_tok": 3356,
+   "g_sn": 3.47,
+   "g_hit": 0
+  },
+  {
+   "ad": "rtk için komut öncesi ön işleme",
+   "tok": 670,
+   "sn": 0.06,
+   "hit": 1,
+   "g_tok": 3381,
+   "g_sn": 2.98,
+   "g_hit": 1
+  },
+  {
+   "ad": "ajanları sıraya dizen çizelge",
+   "tok": 743,
+   "sn": 0.05,
+   "hit": 0,
+   "g_tok": 3626,
+   "g_sn": 2.91,
+   "g_hit": 0
+  },
+  {
+   "ad": "model hızını ve maliyetini ölçen betik",
+   "tok": 523,
+   "sn": 0.06,
+   "hit": 1,
+   "g_tok": 6543,
+   "g_sn": 5.23,
+   "g_hit": 0
+  }
+ ],
+ "toplam": {
+  "tok": 2892,
+  "sn": 0.62,
+  "hit": 2,
+  "g_tok": 24438,
+  "g_sn": 23.2,
+  "g_hit": 1
+ }
+}

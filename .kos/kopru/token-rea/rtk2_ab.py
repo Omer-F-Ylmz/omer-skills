@@ -18,12 +18,12 @@ def sikı(argv, ham, cikti):
     return int(not rtk2.eksik(argv, ham, cikti))
 
 
-tk = lambda x: t.tok(x) if x.strip() else 0
+tk = lambda x: sum(t.tok(x[i:i + 150000]) for i in range(0, len(x), 150000)) if x.strip() else 0  # tok() 150k karakterde keser; parça parça topla
 mod = sys.argv[1]
-if mod == "held":
-    lock = (t.BU / "rtk2_set.lock").read_text().strip()
-    assert hashlib.sha256(json.dumps(S.HELD).encode()).hexdigest() == lock, "held-out değişmiş"
-liste = S.EGITIM if mod == "egitim" else S.HELD
+if mod in ("held", "held3"):
+    lock = (t.BU / ("rtk2_set.lock" if mod == "held" else "rtk2_set3.lock")).read_text().strip()
+    assert hashlib.sha256(json.dumps(S.HELD if mod == "held" else S.HELD3).encode()).hexdigest() == lock, "held-out değişmiş"
+liste = {"egitim": S.EGITIM, "held": S.HELD, "held3": S.HELD3}[mod]
 os.chdir(t.KOK)
 t.GOVDE, t.BASLIK = t.kur_baslik()
 br = t.kos(["git", "branch", "--show-current"])[0].strip(); konu = t.kos(["git", "log", "-1", "--format=%s"])[0].strip()[:25]

@@ -45,8 +45,67 @@ def ls_kompakt(args):
         if e.name.startswith(".") and "a" not in bayrak and "A" not in bayrak:
             continue
         d = e.is_dir()
-        satir.append(e.name + ("/" if d else "") + (f" {e.stat().st_size}" if "l" in bayrak and not d else ""))
-    return "\n".join(satir)
+        satir.append(e.name + ("/" if d else ""))
+    return " ".join(satir)
+
+
+def agac(yollar):
+    """Yolları dizine göre grupla: 'dizin/: ad ad ad' (ortak önek bir kez; tüm adlar korunur)."""
+    g = {}
+    for y in yollar:
+        d, _, a = y.rpartition("/")
+        g.setdefault(d, []).append(a)
+    return "\n".join((d + "/: " if d else "") + " ".join(a) for d, a in g.items())
+
+
+STATSAT = re.compile(r"^ (.+?)\s+\|\s+(\d+)\s[+-]*$", re.M)
+
+
+def stat_say(m):  # histogram çubuğu atılır, ad+sayı kalır
+    return f" {m.group(1)} {m.group(2)}"
+
+
+def diff_kompakt(ham, kap=20):
+    """Başlık→'## yol', index/---/+++/bağlam satırı atılır; dosya başına en çok `kap` değişen satır."""
+    cik, n, atla = [], 0, False
+    for l in ham.splitlines():
+        if l.startswith("diff --git"):
+            if atla:
+                cik.append(f"… +{n - kap} satır")
+            a, _, b = l[11:].partition(" b/")
+            cik.append("## " + (b if a[2:] == b else f"{a[2:]} → {b}"))
+            n, atla = 0, False
+        elif l.startswith("@@"):
+            cik.append(l.split(" @@")[0])
+        elif l[:1] in "+-" and not l.startswith(("+++ ", "--- ")):
+            n += 1
+            if n <= kap:
+                cik.append(l if len(l) <= 160 else l[:160] + f"…(+{len(l) - 160} kr)")
+            else:
+                atla = True
+        elif l.startswith(("new file", "deleted file", "rename", "Binary")):
+            cik.append(l)
+    if atla:
+        cik.append(f"… +{n - kap} satır")
+    return "\n".join(cik)
+
+
+def tek_gecis(argv, ham):
+    """rtk'ya gitmeden, ham çıktıyı bir kez süzer; süzgeç yoksa None."""
+    if argv[0] == "find" or argv[:2] == ["git", "ls-files"]:
+        return agac([l.removeprefix("./") for l in ham.splitlines()])
+    if argv[0] == "git" and "diff" in argv[1:2] + argv[2:3] and not {"--stat", "--name-only", "--numstat", "--shortstat"} & set(argv):
+        return diff_kompakt(ham)
+    if argv[:2] == ["git", "status"] and not {"--porcelain", "--short", "-s", "-sb"} & set(argv):
+        p, _ = calis(["git", "status", "--porcelain", "-b"])
+        ls = p.splitlines()
+        g = {}
+        for l in ls[1:]:
+            g.setdefault(l[:2].strip() or "?", []).append(l[3:].strip('"').rstrip("/") + ("/" if l.endswith("/") else ""))
+        return "\n".join([ls[0]] + [f"{k}\n{agac(v)}" for k, v in g.items()]) if ls else "temiz"
+    if argv[0] == "git" and argv[1] in ("log", "show", "diff") and "--stat" in argv:
+        return STATSAT.sub(stat_say, ham)
+    return None
 
 
 def rtk2(argv):
@@ -55,6 +114,8 @@ def rtk2(argv):
     ham, r0 = calis(argv)
     if r0 != 0:
         return ham
+    if (o := tek_gecis(argv, ham)) is not None and not eksik(argv, ham, o):
+        return o if len(o) < len(ham) else ham
     out, r1 = calis(["rtk", *argv])
     if r1 != 0 or not out.strip():
         return ham

@@ -1,0 +1,120 @@
+{
+ "satir": [
+  {
+   "ad": "H3 git status -s",
+   "ham": 16944,
+   "rtk": 16944,
+   "rtk2": 16944,
+   "tohum_rtk": 0,
+   "tohum_rtk2": 0,
+   "tohum_ham": 0,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.11,
+   "sn_rtk2": 0.2
+  },
+  {
+   "ad": "H3 git log -8 --stat",
+   "ham": 3810,
+   "rtk": 3810,
+   "rtk2": 3147,
+   "tohum_rtk": 1,
+   "tohum_rtk2": 1,
+   "tohum_ham": 1,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.09,
+   "sn_rtk2": 0.06
+  },
+  {
+   "ad": "H3 git diff 6 --stat",
+   "ham": 2927,
+   "rtk": 2491,
+   "rtk2": 2469,
+   "tohum_rtk": 1,
+   "tohum_rtk2": 1,
+   "tohum_ham": 1,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.28,
+   "sn_rtk2": 0.16
+  },
+  {
+   "ad": "H3 ls -la mcp",
+   "ham": 100,
+   "rtk": 4,
+   "rtk2": 2,
+   "tohum_rtk": 0,
+   "tohum_rtk2": 0,
+   "tohum_ham": 0,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.15,
+   "sn_rtk2": 0.0
+  },
+  {
+   "ad": "H3 find tools/olcum",
+   "ham": 1418,
+   "rtk": 392,
+   "rtk2": 804,
+   "tohum_rtk": 0,
+   "tohum_rtk2": 0,
+   "tohum_ham": 1,
+   "sikı_rtk": 0,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.56,
+   "sn_rtk2": 0.29
+  },
+  {
+   "ad": "H3 git diff 6 ogrenme",
+   "ham": 0,
+   "rtk": 0,
+   "rtk2": 0,
+   "tohum_rtk": 0,
+   "tohum_rtk2": 0,
+   "tohum_ham": 0,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.5,
+   "sn_rtk2": 0.49
+  },
+  {
+   "ad": "H3 git ls-files kos",
+   "ham": 3716,
+   "rtk": 3716,
+   "rtk2": 1690,
+   "tohum_rtk": 1,
+   "tohum_rtk2": 0,
+   "tohum_ham": 1,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.33,
+   "sn_rtk2": 0.11
+  },
+  {
+   "ad": "H3 ls -la .claude/beyin4",
+   "ham": 659,
+   "rtk": 222,
+   "rtk2": 119,
+   "tohum_rtk": 1,
+   "tohum_rtk2": 1,
+   "tohum_ham": 1,
+   "sikı_rtk": 1,
+   "sikı_rtk2": 1,
+   "sn_rtk": 0.09,
+   "sn_rtk2": 0.0
+  }
+ ],
+ "toplam": {
+  "ham": 29574,
+  "rtk": 27579,
+  "rtk2": 25175,
+  "tohum_rtk": 4,
+  "tohum_rtk2": 3,
+  "tohum_ham": 5,
+  "sikı_rtk": 7,
+  "sikı_rtk2": 8,
+  "sn_rtk": 2.11,
+  "sn_rtk2": 1.31
+ }
+}
