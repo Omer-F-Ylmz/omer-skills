@@ -1,0 +1,23 @@
+{
+ "tohum": 20102403,
+ "A_worker": {
+  "n": 100,
+  "isabet": 0.91,
+  "tok": 204,
+  "s_ort": 0.228,
+  "s_max": 0.351,
+  "hata": 0,
+  "isabet_baslik": 0.84,
+  "isabet_anlati": 0.98
+ },
+ "B_mem2": {
+  "n": 100,
+  "isabet": 0.93,
+  "tok": 140,
+  "s_ort": 0.056,
+  "s_max": 0.119,
+  "hata": 0,
+  "isabet_baslik": 0.88,
+  "isabet_anlati": 0.98
+ }
+}

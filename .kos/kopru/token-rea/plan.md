@@ -172,3 +172,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 - Neden: B'de devir notu + taze oturum önek yeniden kurulumu + dosyaların ikinci kez okunması ağırlıklı toplamı ikiye katladı; A modeli dosyaları toplu/seçici okuyup bağlamı hiç 120k'ya taşımadı (girdi 659-758k / 26-36 tur ≈ 22k/tur). Kalite farkı (0.39 vs 0.88) B'nin ikinci oturumda eksik dosyaları yeniden okumasından; token kazancı değil, maliyet.
 - Çıkarım: devir simülasyonu (−%68) gerçek ajan davranışında tutmuyor; devir kararı kapalı, sim yalnız not.
 - Yapılmadı: d13 madde 2-3 (claude-mem arama hızı, context-mode tabanı) — tur kalırsa d14.
+
+## ★ d14 SONUÇ
+- claude-mem arama (mem2.py: worker'sız salt-okur FTS5, bm25 ağırlık (5,2,5,0,3,3) eğitim tohumu 20102402'den; önbellek gerekmedi — doğrudan DB taze). Held-out tohum 20102403 (mem_ab.py, 100 sorgu, Claude çağrısı 0): worker A isabet@5 0.91 / 204 tok / 0.228 sn (max 0.351) → mem2 B 0.93 / 140 tok (−%31) / 0.056 sn (−%75; hedef ≤0.2 ✓) / hata 0. İlk tohum 20102401 (ağırlık ayarından önce): 0.912 = 0.912, 0.063 sn. KAPI GEÇTİ (4 eksen: token, kalite, süre, kullanışlılık = worker'a bağımlılık yok, tek adım).
+- Not: worker taban süresi artık 0.2–0.35 sn (d11'deki 0.8–1.0 sn sıcak değil). Sınır: anlamsal (eş anlamlı) sorgu denenmedi, worker/Chroma orada üstün olabilir → kural satırı "boş/yetersizse mem-search". RAM: ek süreç yok (worker kalır, yakalama için gerekli).
+- `onay/token_rea_mem2.py` (kuru/uygula/--geri; geri yalnız kendi satırını çıkarır) + test; UYGULANMADI (Ömer onayı).
+- Yapılmadı: 7–15 gözlem ayrı ölçüm (arama yolu mem2 ile 0.93 erişim; ayrı koşu yok), context-mode tabanı.
+
+## ★ d15 TASLAK
+1. `onay/token_rea_mem2.py uygula` (Ömer onayı sonrası) + uçtan uca doğrula; anlamsal paraphrase sorgu seti (havuzla yeniden ifade) ile mem2 vs worker, gerekirse mem2→worker otomatik yedek.
+2. context-mode taban (4 eksen) + mekanizma.
+3. Sonra NotebookLM / mcp-memory (★ 19:30 sırası).
