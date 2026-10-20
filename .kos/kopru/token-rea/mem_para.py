@@ -60,7 +60,7 @@ for k in range(0, len(secim), 10):
         t = time.time()
         b = [r[0] for r in mem2.ara(q, 5)]
         sb = time.time() - t
-        g = [r[0] for r in mem2.ara(q, 5, ek=ek)]
+        g = [r[0] for r in mem2.ara2(q, 5, ek=ek)]
         a, ta, sa = worker(q)
         if os.environ.get("MEM_PARA_DEBUG"):  # tanı: soru + worker/mem2 kimlikleri (soru metni yalnız dosyaya)
             open(os.path.join(AD, "_para_debug.jsonl"), "a", encoding="utf-8").write(json.dumps({"i": i, "q": q, "a": a, "b": b}, ensure_ascii=False) + "\n")

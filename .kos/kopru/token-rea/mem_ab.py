@@ -60,8 +60,8 @@ for k in range(0, len(sorular), 10):
 
 def g_kol(q):
     t = time.time()
-    ids = [r[0] for r in mem2.ara(q, 5, ek=EK.get(q, ()))]
-    return ids, len(mem2.bicim(mem2.ara(q, 5, ek=EK.get(q, ())))), time.time() - t, 0
+    rows = mem2.ara2(q, 5, ek=EK.get(q, ()))
+    return [r[0] for r in rows], len(mem2.bicim(rows)), time.time() - t, 0
 
 
 S = {"A": [], "B": [], "G": []}

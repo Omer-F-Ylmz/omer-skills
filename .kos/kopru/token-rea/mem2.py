@@ -60,6 +60,20 @@ def ara(soru, k=5, proje=None, ag=AGIRLIK, ek=()):
     return c.execute(sql, (q, *([proje] if proje else []), k)).fetchall()
 
 
+def ara2(soru, k=5, proje=None, ek=()):
+    """İki aşamalı: önce özgün OR; ilk k'da ek sözcük çakışması yoksa ek sözcükleri birleştir."""
+    ilk = ara(soru, k, proje)
+    ekler = [x for x in ek if x not in kelimeler(soru)]
+    if not ekler or not ilk:
+        return ilk or ara(soru, k, proje, ek=ek)
+    c = sqlite3.connect("file:" + DB + "?mode=ro", uri=True, timeout=5)
+    for i, *_ in ilk:
+        m = " ".join(x or "" for x in c.execute("SELECT title, narrative FROM observations WHERE id=?", (i,)).fetchone()).lower()
+        if any(x in m for x in ekler):
+            return ilk
+    return ara(soru, k, proje, ek=ek)
+
+
 def bicim(rows):
     return "\n".join("#%d %s %s %s ~%d" % (i, d[5:16].replace("T", " "), SEMBOL.get(t, "?"), (b or "").strip("* ")[:110], n or 0)
                      for i, d, t, b, n in rows)
@@ -71,4 +85,4 @@ if __name__ == "__main__":
     p = a[a.index("--proje") + 1] if "--proje" in a else None
     sys.stdout.reconfigure(encoding="utf-8")
     ek = genislet([a[0]])[0] if "--genis" in a else ()
-    print(bicim(ara(a[0], k, p, ek=ek)) or "sonuç yok")
+    print(bicim(ara2(a[0], k, p, ek=ek) if ek else ara(a[0], k, p)) or "sonuç yok")

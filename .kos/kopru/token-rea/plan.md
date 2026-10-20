@@ -215,3 +215,12 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. Genişletme ağırlığı: özgün sözcükler tam, ek sözcükler düşük ağırlık (iki aşamalı: önce özgün OR; ilk 5'te hiç ek sözcük çakışması yoksa ek sözcükleri birleştir) — kapı aynı (paraphrase ≥0.5 VE anahtar ≥0.93), yeni tohum.
 2. Kapı geçmezse genişletme fikri KAPANIR; mem2 paraphrase tavanı ~0.28–0.4 olarak belgelenir, kural satırına "anlamsal soruda sonuç zayıfsa mem-search" ibaresi eklenmez (worker 0.05, yedek değil).
 3. context-mode tabanı etkileşimli CC oturumunda; NotebookLM / mcp-memory (★ 19:30 sırası).
+
+## d18 sonuç (21 Eki)
+- İki aşamalı genişletme (`mem2.ara2`: önce özgün OR; ilk 5'te ek sözcük çakışması yoksa ek sözcükleri birleştir), Claude 0, yeni tohumlar: paraphrase 21100401 (n=84) B 0.226 → G 0.274 (kapı ≥0.5 ✗); anahtar sözcük 21100402 (n=80) B 0.887 → G 0.762 (kapı ≥0.93 ✗; başlık 0.775→0.6). Worker A 0.0 / 0.075.
+- KAPI GEÇMEDİ → genişletme fikri KAPANDI. mem2 paraphrase tavanı ~0.23–0.40 (d17 0.276, d18 0.226; genişletme en iyi +0.05–0.12), anahtar sözcük ~0.87–0.89. `--genis` varsayılan kapalı (opt-in; artık `ara2` kullanır), kural satırı DEĞİŞMEDİ.
+- Kalıntılar (_probe*, _wprobe*, _para_*, _ab_run.out) `.kos/kopru/cop/token-rea/` altına taşındı (rm yok).
+
+## ★ d19 TASLAK
+1. Yalnız context-mode tabanı (etkileşimli CC oturumunda ctx_stats, ctx_execute süresi) ve NotebookLM / mcp-memory tabanı (★ 19:30 sırası); mem2 anlamsal iyileştirme yok.
+2. Paraphrase kaybı için tek ucuz yol kaldı: gözlem yazılırken (kaydetme anında) başlığa TR/EN anahtar sözcük eklemek — claude-mem kaynağına dokunur, Ömer onayı gerekir; kodlama yok.
