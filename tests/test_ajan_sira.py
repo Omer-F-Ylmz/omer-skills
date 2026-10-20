@@ -1,5 +1,6 @@
 """TOKEN-3 K11: ajan-sira.tsv isteğe bağlı 4. sütun efor=medium|high → --effort; yoksa eski davranış."""
 import importlib.util
+import sys
 from pathlib import Path
 
 import pytest
@@ -7,6 +8,21 @@ import pytest
 _s = importlib.util.spec_from_file_location("ajan_sira", Path(__file__).resolve().parents[1] / ".kos/kopru/ajan_sira.py")
 ajan_sira = importlib.util.module_from_spec(_s)
 _s.loader.exec_module(ajan_sira)
+
+
+def test_ders_onek_bayrakli(tmp_path, monkeypatch):
+    monkeypatch.setenv("OGRENME_DIZIN", str(tmp_path))
+    bayrak = tmp_path / "ders.bayrak"
+    monkeypatch.setattr(ajan_sira, "DERS_DOSYA", bayrak)
+    gorev = "rapor dosyasını yazmadan önce teslim koşullarını doğrula"
+    assert ajan_sira.ders_onek(gorev) == ""  # bayrak kapalı
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools/ogrenme"))
+    import ders
+    ders.ekle("general-purpose", "Rapor teslim koşulu", "rapor yazmadan önce", "Teslim koşullarını doğrula.", "basari", "t", gorev=gorev)
+    assert ajan_sira.ders_onek(gorev) == ""  # ders var ama bayrak kapalı
+    bayrak.write_text("1")
+    assert "Rapor teslim koşulu" in ajan_sira.ders_onek(gorev)
+    assert ajan_sira.ders_onek("alakasız zeytin hasadı") == ""  # ilgisiz görev → boş blok, 0 jeton
 
 
 def test_dorduncu_sutun_efor(tmp_path, monkeypatch):

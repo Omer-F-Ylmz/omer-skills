@@ -19,6 +19,19 @@ import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTu
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
 MODELLER = ("opus", "sonnet", "haiku")
+DERS_DOSYA = K / "ajan-sira.ders"  # RUFLO-2 d3: ders önsözü açma bayrağı (dosya varsa ya da `--ders`); varsayılan kapalı
+
+
+def ders_onek(metin):
+    """Ana oturum istemine ilgili ders bloğu (≤120 jeton); bayrak kapalı, ders yok ya da hata → '' (0 jeton)."""
+    if "--ders" not in sys.argv and not DERS_DOSYA.exists():
+        return ""
+    try:
+        sys.path.insert(0, str(KOK / "tools/ogrenme")); import ders
+        blok = ders.getir("general-purpose", metin[:600])[0]
+    except Exception:
+        return ""
+    return blok + "\n\n" if blok else ""
 
 
 ESIK_DOSYA = K / "ajan-sira.esik"  # Desktop 20 Eki 13:02 (Ömer: RAM %88-90'a kadar çıkabilir): eşik dosyadan, varsayılan 88
@@ -176,6 +189,7 @@ def main():
                 if not kosul_tamam(kosul):
                     continue
                 metin = (KOK / istem).read_text(encoding="utf-8")
+                metin = ders_onek(metin) + metin
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:
