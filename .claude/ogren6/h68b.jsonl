@@ -1,0 +1,25 @@
+{"ad":"strix","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"playwright","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"phoenix-security-review","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: aktarilan 'No redundancy... Don't merge them' bir tasarim notu ve cumle ortasinda kesik; gercek uyarilar (package guard bash 4+ ister, hook'lar opt-in, MCP yoksa yedek yol) aktarilmamis (README satir 69, 194)."}}
+{"ad":"opengrep-rule-generator-research","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: CRITICAL/ERROR-WARNING/MEDIUM yalniz Step 5'teki siddet olcegi, kural ureticinin siniri degil; gercek gereksinimler (docs/ai/RULES_SYNTAX.md yukle, en az 2 TP + 2 TN) yok (satir 58-62, 270)."}}
+{"ad":"crap-score","ne_yapar":"D","komut":"Y","sinirlar":"Y","mekanizma":"D","gerekce":{"komut":"Y: aktarilan satir Step 5'teki sonuc tablosu basligi, komut degil; aracin kendi komutu 'name: crap-score' (satir 177, 2).","sinirlar":"Y: 'within that named target, including which tests to prioritize. DO NOT USE' description'dan kesik, anlamsiz parca; gercek sinir 'kapsam tahmin edilmez, Cobertura gerekir' (satir 78-80)."}}
+{"ad":"threat-modeling","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"test-gap-analysis","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"find-untested-sources","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa","ne_yapar":"Y","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"ne_yapar":"Y: yalniz 'QA testi' diyor; skill Test->Fix->Verify, bulunan hatalari duzeltip atomik commit atar (satir 26, 434, 622-690).","komut":"Y: gstack-skill-start tum gstack skill'lerinin ortak on-betigi, qa'nin kendi komutu degil; kendi adi 'name: qa' (satir 38)."}}
+{"ad":"coverage-analysis","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"fix-security-vulnerabilities-with-strix","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-guvenlik","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-performans-yuk-testi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"gitleaks","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"generate-testability-wrappers","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"opengrep-rule-generator","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ayni siddet olcegi (Step 5), aracin siniri/uyarisi degil; gercek gereksinimler (RULES_SYNTAX.md yukle, en az 2 TP + 2 TN) aktarilmamis (satir 58-62, 270)."}}
+{"ad":"systematic-debugging","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"policy-monitor","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"grade-tests","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"chrome-devtools","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"pr-test-analyzer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-gorsel-qa","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"minimal-api-file-upload","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-async-denetci","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dotnet","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

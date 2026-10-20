@@ -27,6 +27,9 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 - Tarayıcı aracı: `playwright-cli` > `webapp-testing` > puppeteer; aynı işte ikisini birden kullanma.
 - Test kalitesi denetimi (`test-anti-patterns`, `assertion-quality`) yalnız istendiğinde.
 
+## Ders (ÖĞREN-6, kör kapı t67 %95/%96 · t68 %94/%93)
+- Araç kartında komut/sınır kaynaktan birebir alınır: `careful` komutu `/careful` ya da `check-careful.sh` (telemetri echo'su değil); kaynakta uyarı varken "belirsiz" yazma.
+
 <!-- profil-disi:bas -->
 ## Profil dışı üyeler (yalnız CC)
 Proje profili bu üyeleri listeden çıkarır. Skill aracıyla çağrılamıyorsa `<ad>` yerine üye adını koyup SKILL.md'yi Read ile aç; references dosyalarını SKILL.md'nin klasörüne göre, görev gerektirdiğinde oku. claude.ai/Desktop'ta bu Windows yolları geçersiz; bölümü yok say.

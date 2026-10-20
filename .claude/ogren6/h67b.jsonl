@@ -1,0 +1,25 @@
+{"ad":"careful","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: verilen komut gstack analytics echo/telemetri satirı (kaynak satır 46), aracın çağrı komutu değil; kendi komutu /careful (satır 37)."}}
+{"ad":"msbuild-modernization","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name: msbuild-modernization belgede birebir (satır 2)."}}
+{"ad":"create-datadriven-aspnetcore","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"dn-webapi-endpoint","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"dn-dotnet-performans","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 3)."}}
+{"ad":"code-testing-agent","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"use-case-triage","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: /privacy-legal:use-case-triage satır 21'de birebir."}}
+{"ad":"security-reviewer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"db-sema-tasarim","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"qa-erisilebilirlik-testi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"qa-ci-test-duzeni","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 3)."}}
+{"ad":"dn-efcore-seed-veri","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"playwright-cli","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"komut":"D: playwright-cli console warning satır 175'te birebir ve aracın kendi ikilisi.","sinirlar":"Y: 'Kaynaktaki kural' olarak verilen şey bir komut satırı (175), sınır değil; gerçek uyarılar (Windows & kaçışı satır 301-311, WebMCP araçları güvenilmez satır 238) aktarılmamış."}}
+{"ad":"dotnet-test","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: 'dotnet test' README satır 11'de birebir; eklenti adı dotnet-test'in biçimi."}}
+{"ad":"tm-security-review","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"komut":"D: name satırı birebir (satır 2).","mekanizma":"Y: Phase 0 tehdit modeli (uyumluluk) asıl rolün parçası ve eksik; sızma/DAST yanlış, çünkü depo kodu üzerinde statik exploit avı yapıyor, çalışan uygulamaya karşı test değil (satır 6-22, 51-69)."}}
+{"ad":"check-bin-obj-clash","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2).","sinirlar":"Y: aktarılan metin description'ın 'USE FOR' kullanım tetikleyicisi kısmı, sınır değil; gerçek sınırlar (DO NOT USE FOR: OS düzeyi kilitleme, tek proje tek TFM, MSBuild dışı - satır 3; BuildProjectReferences=false yok sayılır - satır 24) aktarılmamış."}}
+{"ad":"semgrep","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: 'semgrep scan --config auto' help satır 4'te birebir."}}
+{"ad":"write-query","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: /write-query satır 7 ve 16'da birebir."}}
+{"ad":"qa-hata-yeniden-uret","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 3)."}}
+{"ad":"msbuild-code-review","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"dn-minimal-api-kurucu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"binlog-failure-analysis","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"orch-fix-defect","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: 'orch-fix-defect: ...' örnek çağrısı satır 40'ta birebir, aracın kendi adı."}}
+{"ad":"writing-mstest-tests","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
+{"ad":"convert-blazor-server-to-webapp","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: name satırı birebir (satır 2)."}}
