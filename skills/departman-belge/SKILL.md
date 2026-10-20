@@ -14,6 +14,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 2. **Biçim** — markdown → PDF `make-pdf`; diyagram `diagram`; sunum `wowerpoint`.
 3. **Dil** — AI izi temizliği `humanizer`, yazım kılavuzu `writing-guidelines`.
 4. **Yayın sonrası** — `document-release`.
+5. **Girdi dönüşümü** — PDF/docx/pptx/xlsx'ten metin gerekiyorsa `markitdown <dosya> -o <dosya>.md`; süreç yetkisiyle okur, güvenilmeyen dosyayı temizlemeden verme. Yazım denetimi `writing-guidelines`: kuralları her seferinde kaynak URL'den çeker (WebFetch), dosya verilmezse hangi dosyaların bakılacağını sorar. Kaynak: `docs/ogren/g3.md`.
 
 ## Kapılar
 - Belge koddan türetilir; kodla çelişen iddia yazılmaz.

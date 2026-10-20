@@ -491,3 +491,5 @@ TOKEN-3 d6 ara: K15 skill adayı (kapı 14/17 < 15/17, DEVAM-KURALI geri), K14 s
 - ÖĞREN-4 d3 KAPI GEÇTİ: t41 %95 · t42 %99 · 149 kart RET 0 · kaynak_yetersiz 7 · kart.jsonl +478; müdür skill+zip borç
 - ÖĞREN-6 KAPI <%92 — Desktop kararı: 5 hakem dosyası (t61a 84 · t62a 80 · t63a 84 · t64a 81 · t64b 82); Y: sınırlar 47 · komut 21 · mekanizma 21; 148 kart RET 0; borç ogren/ogren-6-borc.tsv
 - ÖĞREN-3 BİTTİ: kapı t23 %92.0 · t24 %95.0 (tohum başı 2 kör sonnet hakem, tam okuma); 149 kart RET 0; komut alanı betikle (komut.py, 51/54 dolu, 3 cli kaynakta komutsuz); kart.jsonl +149 A; docs/ogren/ajan-orkestrasyon.md; müdür skill + dist/claude-ai-27 zip TEMİZ; borç: Desktop MCP yapılandırma doğrulaması, bilim/araştırma kombin koşusu yok, t23 eşikte (%92.0)
+- BEYIN-2 KAPI <%92 — Desktop kararı: 2005 16-19/20, 2006 8-13/20, token %31 (bütçeli) / %76 (bütçesiz) ✗; kanca+kapi.py tamam (rapor/beyin-2-d2.md)
+- 20 Eki ÖĞREN-4 BİTTİ (kapanış): departman-diger video satırı + departman-belge adım 5; dist/ogren4-kapanis 2 zip TEMİZ; rapor/ogren-4-kapanis.md

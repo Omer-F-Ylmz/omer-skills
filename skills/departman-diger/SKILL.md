@@ -12,6 +12,7 @@ Kaynak: `docs/envanter/is-arac.md` §2. Satırda soldan sağa: önce kurulu ve �
 | İş türü | Sıra | Taraf notu |
 |---|---|---|
 | Video kurgu, kısa klip, altyazı | `video-cli` (tarama/indir) → `ffmpeg` / `whisper-cli` → `premiere-pro` MCP → `hyperframes` plugin (HTML→video) → ajan `vid-*` | premiere-pro, hyperframes yalnız CC |
+| Video linki → bilgi (uzun/kısa) | `video ozet <url>` (önbellekte 1 sn, ≤6 satır) → `video paket <id>` (~79 sn, yerel) → `video kare <id> --t …` → altyazı yoksa/Gemini kotası bittiyse `ffmpeg -ss … -t 30 -ar 16000 -ac 1` + `whisper-cli -m ggml-large-v3-turbo.bin --prompt "<sözlük>"` (CUDA; sözlük garanti değil, özel adı ekran metniyle karşılaştır). Kare metni: RapidOCR (CPU ~30 sn/kare, ikon gürültüsü var) → boşsa VLM `qwen3.5:4b` (RAM <%80 ise). Dikey klip hazırlığı: `ffmpeg -vf "crop=ih*9/16:ih,scale=540:960"`. Desktop: köprü `komut` ile `video ozet`, ayrıntı için köprü `ajan` → `video-tarayici`; Desktop'a yalnız rapor yolu + ≤5 satır döner. Ayrıntı ve ölçüler: `docs/ogren/g3.md` | Desktop kendi indirmez; Remotion/hyperframes render ve VLM kolu bu turda denenmedi |
 | Blender, 3D model, render | `blender` plugin → `blender-uretim` / `blender-oturum` → `blender` MCP → ajan `bl-*` | blender MCP ikisi |
 | Oyun, mod | `mod-atolyesi` → `godot` / `unity` MCP → `universal-modder` plugin → ajan `oyn-*` | godot/unity yalnız CC |
 | Görsel üretim, logo, ikon | `nano-banana-2` MCP → `figma` → `logo-design` / `llm-icon-finder` → `fal` MCP | fal yalnız CC; ücretli çağrıda tavan şart |
