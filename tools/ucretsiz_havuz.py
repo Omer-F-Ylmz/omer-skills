@@ -38,7 +38,7 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("github", "openai/gpt-4.1-mini", "openai", None, 10, 7000, 120, 5500, ()),  # KAPALI: models.github.ai her yola 200 + gövde "OK" (20 Eki); düzelince türleri aç
        E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U))]
 ad = lambda e: f"{e.prov}/{e.model}"  # noqa: E731
-SERT = re.compile(r"per[ -]?day|tokens per day|\btpd\b|daily|günlük", re.I)
+SERT = re.compile(r"per ?day|tokens per day|\btpd\b|daily|günlük", re.I)
 
 
 class Hata(Exception):
@@ -100,7 +100,7 @@ def _say(d, k, bugun):
     return v[1] if v and v[0] == bugun else 0
 
 
-def _sec(tur, tahmin, aile, haric, denenen):
+def _sec(tur, tahmin, aile, haric, denenen, rezerv=None):
     """Uygun halkaların en az yüklüsünü seçer ve kotasını hemen rezerve eder (paralel iş parçacıkları aşmasın)."""
     with KILIT:
         d = _durum(); now = time.time(); bugun = time.strftime("%Y-%m-%d", time.gmtime())
@@ -114,7 +114,7 @@ def _sec(tur, tahmin, aile, haric, denenen):
                 continue
             kova = e.kova or ad(e)
             dk = [x for x in d["dk"].get(kova, []) if x[0] > now - 60]; d["dk"][kova] = dk
-            if len(dk) >= e.rpm or sum(x[1] for x in dk) + tahmin > e.tpm or _say(d, kova, bugun) >= e.rpd:
+            if len(dk) >= e.rpm or sum(x[1] for x in dk) + (rezerv or tahmin) > e.tpm or _say(d, kova, bugun) >= e.rpd:  # çıktı tavanı tam dolmaz: dakika kovası yarım max_tokens sayar
                 continue
             if not _anahtar(SAG[e.prov][1]) or (e.prov == "omniroute" and not _omni_serbest()):
                 continue
@@ -122,7 +122,7 @@ def _sec(tur, tahmin, aile, haric, denenen):
         if not uygun:
             return None
         e = min(uygun, key=lambda x: x[:3])[3]
-        d["dk"][e.kova or ad(e)].append([now, tahmin]); d["son"][ad(e)] = now
+        d["dk"][e.kova or ad(e)].append([now, rezerv or tahmin]); d["son"][ad(e)] = now
         for k in {ad(e), e.kova or ad(e), "p:" + e.prov}:
             d["say"][k] = [bugun, _say(d, k, bugun) + 1]
         _yaz(d)
@@ -138,9 +138,7 @@ def _dus(e, h):
         n = d["ardisik"][ad(e)] = d["ardisik"].get(ad(e), 0) + 1
         if h.kod == 429:
             gunluk = SERT.search(h.mesaj) or (h.bekle or 0) > 900
-            sure = 14400 if gunluk else min(h.bekle or 60, 900)
-            if gunluk and e.kova:  # hesap ortak kota: kardeş modeller de dolu
-                d["soguma"]["p:" + e.prov] = now + sure
+            sure = 14400 if gunluk else min(h.bekle or 60, 900) * min(n, 4)  # OpenRouter "per-day" 429'u model başına geçici (20 Eki ölçüm): 4 saat değil
         elif h.kod in (401, 402, 403):
             d["soguma"]["p:" + e.prov] = now + 3600; _yaz(d); return  # anahtar/izin sorunu: sağlayıcının hepsi
         elif h.kod in (400, 404):
@@ -201,7 +199,7 @@ def _haiku(istem):
 def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90):
     """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok)."""
     tahmin, log, denenen = len(istem) // 3 + max_tokens, [], set()
-    while (e := _sec(tur, tahmin, aile, haric_aile, denenen)):
+    while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2)):
         denenen.add(ad(e))
         try:
             y = _istek(e, istem, max_tokens, zaman)

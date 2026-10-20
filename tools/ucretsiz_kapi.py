@@ -9,7 +9,7 @@ KOK = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(KOK / "tools"))
 import ucretsiz_havuz as H  # noqa: E402
 
-DIS_TAVAN = 105
+DIS_TAVAN = int(next((a[8:] for a in sys.argv if a.startswith("--tavan=")), 105))
 SAY = Counter()  # kol -> dış çağrı
 
 
@@ -72,7 +72,8 @@ def yaz_gecerli(kavram):
 
 def koş():
     O = Path(r"C:\Projeler\.video764")
-    n_o, n_h, n_y = (list(map(int, sys.argv[1:4])) + [20, 10, 10][len(sys.argv) - 1:])[:3] if len(sys.argv) > 1 else (20, 10, 10)
+    a = [x for x in sys.argv[1:] if not x.startswith("--")]
+    n_o, n_h, n_y = (list(map(int, a)) + [20, 10, 10][len(a):])[:3]
     girdiler = [g.read_text(encoding="utf-8") for g in sorted(O.glob("*.girdi.txt"))][:n_o]
     sor = [json.loads(s) for s in (KOK / ".claude/beyin4/sorular-2011.jsonl").read_text(encoding="utf-8").splitlines() if s.strip()][:n_h]
     kav = ["token önbelleği", "rate limit", "round-robin", "regresyon testi", "idempotent işlem", "dairesel bağımlılık", "cache invalidation",
@@ -84,7 +85,7 @@ def koş():
     hk = lambda q, i: (f"Soru: {q['soru']}\nReferans: {q['cevap']}\nAday: {(q if i % 2 == 0 else sor[(i + 1) % len(sor)])['cevap']}\n"
                       "Aday, referanstaki olguyu doğru veriyor mu? Yalnız tek rakam yaz: 1 (evet) ya da 0 (hayır).")
     sonuc = {}
-    for kol in ("eski", "havuz"):
+    for kol in (("havuz",) if "--havuz" in sys.argv else ("eski", "havuz")):
         KOL[0] = kol; r = {"ozet": [], "hakem": [], "yazim": [], "kaynak": Counter(), "gecikme": []}
         for g in girdiler:
             t = time.time()
@@ -127,7 +128,10 @@ def ozetle(sonuc):
                       "dis_cagri": SAY[kol], "kaynak": dict(r["kaynak"]), "en_buyuk_pay_yuzde": round(100 * max(kay.values()) / sum(kay.values()), 1) if kay else 0,
                       "haiku_yuzde": round(100 * kay.get("haiku", 0) / n, 1), "hakem_dogruluk": f"{sum(dogru)}/{len(dogru)}",
                       "hakem_aile_uyumu": f"{sum(uyum)}/{len(uyum)}"}
-    (H.DIZIN / "kapi.json").write_text(json.dumps(cikti, ensure_ascii=False, indent=1), encoding="utf-8")
+    f = H.DIZIN / "kapi.json"
+    if "--havuz" in sys.argv and f.is_file():  # eski kol önceki koşudan
+        cikti = {**json.loads(f.read_text(encoding="utf-8")), **cikti}
+    f.write_text(json.dumps(cikti, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(cikti, ensure_ascii=False, indent=1))
 
 

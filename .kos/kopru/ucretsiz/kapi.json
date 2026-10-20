@@ -1,0 +1,32 @@
+{
+ "eski": {
+  "basari": "39/40",
+  "basari_yuzde": 97.5,
+  "ort_gecikme_sn": 3.8,
+  "dis_cagri": 45,
+  "kaynak": {
+   "openrouter": 29,
+   "groq": 10,
+   "yok": 1
+  },
+  "en_buyuk_pay_yuzde": 74.4,
+  "haiku_yuzde": 0.0,
+  "hakem_dogruluk": "14/20",
+  "hakem_aile_uyumu": "4/9"
+ },
+ "havuz": {
+  "basari": "20/36",
+  "basari_yuzde": 55.6,
+  "ort_gecikme_sn": 2.3,
+  "dis_cagri": 28,
+  "kaynak": {
+   "openrouter": 10,
+   "groq": 10,
+   "yok": 9
+  },
+  "en_buyuk_pay_yuzde": 50.0,
+  "haiku_yuzde": 0.0,
+  "hakem_dogruluk": "6/16",
+  "hakem_aile_uyumu": "1/1"
+ }
+}
