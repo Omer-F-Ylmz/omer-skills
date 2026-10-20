@@ -1,0 +1,13 @@
+# kombin-6 — oyun-mod (ÖĞREN-2 d2, G1)
+- İş türü: (a) mod onarımı (3DMigoto/XXMI .ini) · (b) canvas oyun döngüsü + test · (c) Roblox iskeleti. Dosyalar: lab\frontend\kombin\k6\
+- Zincir (a): Desktop\Kendi oyun modlarim\cikti\test\Lauma_MavuikaGovde YALNIZ okuma (ls) → .ini lab'a kopya (kopya.ini) → bölüm/başvuru ayrıştırma betiği → eksik dosya denetimi. (b): tek HTML requestAnimationFrame → playwright headless → kare sayısı assert. (c): rojo kontrolü.
+- Devir noktaları: ini ham metni bağlama basılmaz; betik yalnız bölüm sayısı + eksik listesi döner; oyun içi görsel doğrulama (mod oyunda doğru mu) Ömer/Desktop gözü, otomatiğe devredilmez.
+- Token-verimli sürüm: ini 138 satırı Read ile açılmadı; regex ile `filename=` başvuruları ↔ dizin karşılaştırması (14 başvuru, tek çıktı satırı). Canvas testi tek evaluate sayısı.
+- Desktop/CC: mod klasörü yerel PC dosyaları → CC (veya Desktop köprü `oku`/cc-kopru ile iskelet); karar/yargı Desktop. Tarayıcıda canvas görsel kontrolü gerekirse Desktop playwright/Claude_Browser, ama kare sayısı testi CC'de ucuz.
+- KOŞU KANITI:
+  - `ls` mod klasörü (salt okuma): 644 öğe/12+ dosya, Lauma_MavuikaGovde.ini 138 satır, 25 bölüm (14 Resource, 8 TextureOverride).
+  - kopya.ini regex denetimi: "filename ref 14 eksik []" (14 başvurunun hepsi mevcut) · <1 sn
+  - `python -I t.py` (playwright headless, oyun.html): "kare 32" (500 ms'de), assert kare>0 geçti · 32,6 sn duvar süresi (tarayıcı başlatma dahil)
+  - `rojo --version`: denenmedi — rojo yok (bash: command not found; ~/.aftman, ~/.cargo/bin'de de yok). `rojo init` çalışmadı.
+- Ölçülmüş kazanç: ini denetimi okuma yerine betik: 138 satır yerine 1 çıktı satırı; rakamsal token ölçümü yapılmadı ("ölçülmedi"). Kare testi 500 ms'de 32 kare (~64 fps, headless).
+- Çakışma bulgusu: (a) Mod klasöründe .ini var ama oyun hash/override doğruluğu dosya varlık denetimiyle kanıtlanmaz (yalnız yapısal onarım; oyun içi test gerekir). (b) wait_for_timeout testi zamana bağlı; kare sayısı eşiği makineye göre değişir, bu yüzden >0 assert'i kullanıldı. (c) Roblox iskeleti rojo kurulana dek kanıtsız; kurulum global araç değişikliği olduğundan yapılmadı.

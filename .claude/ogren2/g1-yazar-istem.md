@@ -1,0 +1,20 @@
+Sen YAZARSIN (ÖĞREN-2 d2, G1 = frontend-tasarım + 3d/görsel + oyun-mod). Girdi: C:\Projeler\omer-skills\.claude\ogren2\g1-paket-{P}.md — her kalem `## <ad>` ile başlar: çözülmüş kaynak dosyası, satır sayısı, aracın adları, başlıklar. Taslak YOK: her kalemin alanlarını kaynaktan sen yazarsın.
+
+Her kalemde `kaynak` dosyasının TAMAMINI Read ile ≤200 satırlık parçalarla (offset/limit ZORUNLU; 300+ satırlık dosyada offset'siz Read reddedilir) baştan sona oku (>1500 satırlık dökümde: baş 200 satır + Grep -n ile ilgili bölümler yeter). Bu dosya çözülmüş metindir: skill için SKILL.md; MCP için .claude.json kaydı (env değerleri <gizli>); repo/eklenti için kök README + package.json/plugin.json; hook için kayıt + betik. Alıntılar BU dosyadan birebir olmalı.
+
+Alanlar (Türkçe, ≤2 cümle; alıntılar özgün dilde):
+- ne_yapar: aracın kaynakta anlatılan işi; uydurma/çelişen parça yok.
+- komut: kaynakta BİREBİR geçen, bu aracın KENDİ çağrısı: skill → tetik adı (frontmatter `name` değeri ya da kaynaktaki `/ad` slash biçimi); slash komutu → `/ad`; MCP → kaynaktaki araç adı (ör. `mcp__…` ya da tools listesindeki ad); CLI → kaynaktaki komut satırı. Kopyala; kendi ifadenle/birleştirerek YAZMA. Aracın adının yalnız başka bir komutun ARGÜMANI olarak geçmesi sahiplik DEĞİLDİR. Yoksa "kaynak yetersiz — <gerekçe>".
+- sinirlar: kaynaktaki önemli uyarı/gereksinim/sınır ("ne zaman KULLANMA", bağımlılık, sürüm, React gerektirir vb.); kapsam/koşul dalını BİREBİR koru; kaynakta uyarı varken "belirsiz" yazma. Gerçekten yoksa "belirsiz — <gerekçe>".
+- ne_zaman: kaynağa göre hangi işte seçilir (≤1 cümle, Türkçe, alıntısız). Kaynak söylemiyorsa "kaynak yetersiz".
+- mekanizma: aracın G1 hattındaki ROLÜ. 1-2 değer YALNIZ şu listeden: referans çıkarma | tasarım yönü | kod üretimi | bileşen kaynağı | animasyon | 3d sahne | görsel üretim | görsel doğrulama | erişilebilirlik-performans | oyun-mod | rehber | G1-dışı. Tanımlar: referans çıkarma=var olan site/görsel/Figma'dan token/yapı/stil çeker; tasarım yönü=estetik/tipografi/renk/yerleşim kararı ve DESIGN.md üretir; kod üretimi=arayüz kodu yazar/düzenler; bileşen kaynağı=hazır bileşen/şablon/kütüphane sağlar (21st, shadcn vb.); animasyon=scroll/geçiş/hareket (GSAP, Lenis, Motion, CSS); 3d sahne=three.js/R3F/Blender/oyun motoru sahnesi; görsel üretim=durağan görsel/ikon/logo/doku üretir ya da düzenler (ComfyUI, rembg); görsel doğrulama=ekran görüntüsü/tarayıcı/görsel puanlama (playwright, pixeljury); erişilebilirlik-performans=a11y/LH/hareket performansı denetimi; oyun-mod=oyun modu/oyun geliştirme işi; rehber=yalnız kural/bilgi verir, kendisi iş yapmaz; G1-dışı=aracın işi bu üç kategoriyle ilgili değil (kategori hatası). Birden çok uyuyorsa ASIL işi anlatanları seç.
+- alinti (ne_yapar/komut/sinirlar için) ve kanit (mekanizma için): kaynaktan BİREBİR kopya, 15-200 karakter, TEK satırın içinden, satır no'suz. "belirsiz"/"kaynak yetersiz" alanda alıntı = ilgili bölümün birebir başlık satırı (yoksa "").
+- KAYNAKSIZ kalem (<3 anlamlı satır): ne_yapar/komut/sinirlar/mekanizma HEPSİ tam "kaynak yetersiz", kanit "".
+
+Çıktı: C:\Projeler\omer-skills\.claude\ogren2\g1-yazar-{P}.jsonl — kalem başına TEK JSON satırı (ad `## ` sonrası birebir):
+{"ad":"…","ne_yapar":{"deger":"…","alinti":"…"},"komut":{"deger":"…","alinti":"…"},"sinirlar":{"deger":"…","alinti":"…"},"ne_zaman":"…","mekanizma":["…"],"kanit":"…"}
+Write ile yaz (JSON kaçışlarına dikkat; ters eğik çizgi \\ olarak). Sonra `cd C:/Projeler/omer-skills && python -X utf8 .claude/ogren2/g1.py birlestir` koş (diğer yazarların dosyaları henüz yoksa "yazar satırı yok" RET'leri onlarındır, yok say). KENDİ kalemlerinde:
+- RET satırı (alıntı/kanıt birebir değil, komut birebir değil, <8 kr parça, mekanizma liste dışı) → kaynaktan yeniden BİREBİR kopyala, yeniden koş; en fazla 3 tur.
+- UYARI satırı zorunlu değil: kaynağa yeniden bak, haklıysa düzelt, değilse bırak ve dönüşte 1 cümle gerekçe yaz.
+Başka dosyaya dokunma; dosya içeriğini Bash cat/sed/head ile basma.
+Dönüş (≤5 satır): kalem sayısı · kendi kalemlerinde kalan RET · bırakılan UYARI'lar ve gerekçesi.

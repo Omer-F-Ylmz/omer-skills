@@ -1,0 +1,15 @@
+# kombin-5 — 3d/görsel (ÖĞREN-2 d2, G1)
+- İş türü: Blender plakası → web katmanı + three.js sahne varlığı (glb). Dosyalar: lab\frontend\kombin\k5\
+- Zincir: (1) Blender -b Cycles 1 örnek 64x64 PNG + aynı betikte glb dışa aktarma → (2) PIL LANCZOS 4x ölçekleme → (3) rembg dekupaj → (4) katman.html (iki img üst üste) → (5) playwright headless yükleme → (6) three GLTFLoader.parse ile glb doğrulama.
+- Devir noktaları: Blender çıktısı PNG/GLB dosyası (bağlam yok, yalnız yol); ölçüm betiği tek satır sayı döner; görsel yargı yalnız Desktop'ta gerekirse.
+- Token-verimli sürüm: tek bl.py hem render hem glb; keskinlik Laplace varyansı (sayı), PNG'yi Read ile açmadan; rembg çıktısı yalnız alfa oranı.
+- Desktop/CC: Blender -b, rembg, ölçüm, playwright = CC (yerel PC, Desktop köprüsü aynı komutu çalıştırabilir ama ek tur maliyeti). Desktop: plaka estetik yargısı (ekran görüntüsü bakışı), karar; ComfyUI/Blender MCP canlı oturum Desktop'tan ama pencere kuralı gereği kullanılmadı.
+- KOŞU KANITI:
+  - `blender.exe -b --python bl.py -- <out>` -> cube.png 3751 B, cube.glb 1856 B, "DONE" · 24,6 sn (Blender 5.2.1)
+  - olc.py: Laplace varyansı 64px orijinal 1265,4; NEAREST 256px 329,3; LANCZOS 256px 9,3 (yumuşama: bu ölçü ölçeklemeyle keskinliğin düştüğünü gösterir; piksel sanatı için NEAREST)
+  - rembg 2.0.85 (C:\AI\rembg\.venv, birefnet-general, CPU) -> cut.png, alfa>128 oranı 0,18 · 106 sn (CPU'da 927 MB model; 64px'lik küp için fazla)
+  - katman.html playwright headless: naturalWidth [256,256] · 4,8 sn
+  - glb: 1 mesh, 1 node, 1 prim, 24 köşe (python JSON-chunk okuma); three r186 GLTFLoader.parse (node, labs\node_modules\three) -> "mesh 1 vert 24" · 0,26 sn
+  - ComfyUI: denenmedi — RAM (kural).
+- Ölçülmüş kazanç: glb üretimi + doğrulama toplam <30 sn, sıfır görüntü okuma; Laplace sayısı ile LANCZOS/NEAREST farkı 35 kat (9,3 vs 329,3) görsel bakmadan ayırt edildi. rembg'in token kazancı ölçülmedi; süre maliyeti 106 sn.
+- Çakışma bulgusu: (a) Blender Cycles 1 örnek gürültülü, Laplace varyansı gürültü + kenar karışımı; keskinlik ölçüsü yalnız aynı kaynakta karşılaştırmalıdır. (b) Düz küp için rembg gereksiz: Blender `film_transparent=True` doğrudan alfa verir (denenmedi, bilinen ayar); rembg yalnız yerel üretim görseli (ComfyUI) için. (c) three ES modül file:// üzerinde tarayıcıda CORS ile açılmaz (tarayıcıda denenmedi; node'da ayrıştırma çalıştı).
