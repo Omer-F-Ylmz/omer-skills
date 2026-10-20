@@ -1,6 +1,6 @@
 """UCRETSIZ-HAVUZ-1 kapısı: eski zincir (video764_kos'un eski sabit sırası) vs ücretsiz havuz; 3 iş profili (özet · hakem · yazım).
 python tools/ucretsiz_kapi.py [N_OZET=20 N_HAKEM=10 N_YAZIM=10]  → .kos/kopru/ucretsiz/kapi.json + özet satırları.
-Kabul: başarı ≥%98 · sağlayıcı payı ≤%50 · Haiku ≤%5 · hakem doğruluğu eski zincirden düşük değil. Dış çağrı tavanı DIS_TAVAN (aşılırsa durur)."""
+Kabul (havuz-2): başarı ≥%98 (sonuçsuz 0; ertelenen ayrı sayılır) · sağlayıcı payı ≤%50 · Haiku ≤%10 · hakem doğruluğu eski zincirden düşük değil. Dış çağrı tavanı DIS_TAVAN (aşılırsa durur)."""
 import json, re, sys, time
 from collections import Counter
 from pathlib import Path
@@ -32,13 +32,17 @@ E.post = lambda *a, **k: (tavan(), SAY.update([KOL[0]]), _post(*a, **k))[2]
 E.haiku = lambda i: (SAY.update([KOL[0]]), _haiku(i))[1]
 _istek = H._istek
 H._istek = lambda *a, **k: (tavan(), SAY.update([KOL[0]]), _istek(*a, **k))[2]
+_hh = H._haiku
+H._haiku = lambda i: (tavan(), SAY.update([KOL[0]]), _hh(i))[2]  # havuzun Haiku halkası da dış çağrı
+ET, HT = f"kapi-{int(time.time())}", 4  # koşuya özel Haiku sayacı; 40 işin %10'u
+KAPALI = {}  # eski kolun 30 dk kapalı halkaları
 E.HAIKU_TAVAN = 3
 
 
 def eski_zincir(zincir, istem, dogrula):
     """Eski sıra: sabit sırayla dene, hata alan halka 30 dk kapalı, son halka Haiku. (metin|None, kaynak)"""
     for ad, m in zincir:
-        if E.KAPALI.get((ad, m), 0) > time.time():
+        if KAPALI.get((ad, m), 0) > time.time():
             continue
         try:
             if ad == "gemini":
@@ -58,7 +62,7 @@ def eski_zincir(zincir, istem, dogrula):
             raise
         except Exception:
             if ad != "haiku":
-                E.KAPALI[(ad, m)] = time.time() + 1800
+                KAPALI[(ad, m)] = time.time() + 1800
     return None, None
 
 
@@ -87,12 +91,12 @@ def koş():
     sonuc = {}
     for kol in (("havuz",) if "--havuz" in sys.argv else ("eski", "havuz")):
         KOL[0] = kol; r = {"ozet": [], "hakem": [], "yazim": [], "kaynak": Counter(), "gecikme": []}
-        for g in girdiler:
+        for n, g in enumerate(girdiler):
             t = time.time()
             if kol == "eski":
                 y, k = eski_zincir(zincir, ozet_ist(g), lambda o: E.gecerli(o, g, baslik(g)))
             else:
-                y, k, _ = H.cagir("ozet", ozet_ist(g), max_tokens=1500, haiku_tavan=2, etiket="kapi", dogrula=lambda o: E.gecerli(o, g, baslik(g)))
+                y, k, _ = H.cagir("ozet", ozet_ist(g), max_tokens=1500, haiku_tavan=HT, etiket=ET, ertele=f"{ET}-ozet{n}", dogrula=lambda o: E.gecerli(o, g, baslik(g)))
             r["ozet"].append(bool(y)); r["kaynak"][(k or "yok").split("/")[0]] += 1; r["gecikme"].append(time.time() - t)
         for i, q in enumerate(sor):
             t = time.time(); dogru = 1 if i % 2 == 0 else 0; oy = []
@@ -101,7 +105,7 @@ def koş():
                     y, k = eski_zincir(aile, hk(q, i), sec01)
                     oy.append(int(re.search(r"[01]", y).group()) if y else None); r["kaynak"][(k or "yok").split("/")[0]] += 1
             else:
-                for y, k, _ in H.iki_aile("hakem", hk(q, i), max_tokens=300, dogrula=sec01, haiku_tavan=0):
+                for y, k, _ in H.iki_aile("hakem", hk(q, i), max_tokens=300, dogrula=sec01, haiku_tavan=HT, etiket=ET, ertele=f"{ET}-hakem{i}"):
                     oy.append(int(re.search(r"[01]", y).group())); r["kaynak"][k.split("/")[0]] += 1
                 oy += [None] * (2 - len(oy))
             r["hakem"].append({"oy": oy, "dogru": dogru}); r["gecikme"].append(time.time() - t)
@@ -110,7 +114,7 @@ def koş():
             if kol == "eski":
                 y, k = eski_zincir(zincir, ist, yaz_gecerli(kv))
             else:
-                y, k, _ = H.cagir("yazim", ist, max_tokens=1000, haiku_tavan=2, etiket="kapi", dogrula=yaz_gecerli(kv))
+                y, k, _ = H.cagir("yazim", ist, max_tokens=1000, haiku_tavan=HT, etiket=ET, ertele=f"{ET}-yazim{kv}", dogrula=yaz_gecerli(kv))
             r["yazim"].append(bool(y)); r["kaynak"][(k or "yok").split("/")[0]] += 1; r["gecikme"].append(time.time() - t)
         sonuc[kol] = r
     ozetle(sonuc)
@@ -127,7 +131,8 @@ def ozetle(sonuc):
         cikti[kol] = {"basari": f"{basari}/{n}", "basari_yuzde": round(100 * basari / n, 1), "ort_gecikme_sn": round(sum(r["gecikme"]) / len(r["gecikme"]), 1),
                       "dis_cagri": SAY[kol], "kaynak": dict(r["kaynak"]), "en_buyuk_pay_yuzde": round(100 * max(kay.values()) / sum(kay.values()), 1) if kay else 0,
                       "haiku_yuzde": round(100 * kay.get("haiku", 0) / n, 1), "hakem_dogruluk": f"{sum(dogru)}/{len(dogru)}",
-                      "hakem_aile_uyumu": f"{sum(uyum)}/{len(uyum)}"}
+                      "hakem_aile_uyumu": f"{sum(uyum)}/{len(uyum)}",
+                      "ertelenen": sum(ET in l for l in H.ERT.read_text(encoding="utf-8").splitlines()) if H.ERT.is_file() and kol == "havuz" else 0}
     f = H.DIZIN / "kapi.json"
     if "--havuz" in sys.argv and f.is_file():  # eski kol önceki koşudan
         cikti = {**json.loads(f.read_text(encoding="utf-8")), **cikti}

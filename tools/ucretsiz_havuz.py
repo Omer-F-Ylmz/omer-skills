@@ -1,6 +1,6 @@
 """UCRETSIZ-HAVUZ-1: bütün ücretsiz model kaynakları tek havuzda. OmniRoute yalnız bir halka; tek kapı değil.
 Kullanım (kütüphane): cagir(tur, istem, aile=, haric_aile=, dogrula=, haiku_tavan=, etiket=) -> (metin|None, kaynak, log)
-CLI: envanter | durum | serve [port]   (serve: OpenAI uyumlu yerel uç, claude-mem mem-yedek için)
+CLI: envanter | durum | tekrar | serve [port]   (serve: OpenAI uyumlu yerel uç, claude-mem mem-yedek için; ertelenen işleri de 30 sn'de bir dener)
 Kurallar: 429/5xx/zaman aşımı → BEKLEME YOK, sıradaki sağlayıcı; düşen halka soğuma sonra tek deneme (ardışık hatada süre katlanır);
 yük dağıtımı = kullanım/ağırlık en düşük sağlayıcı önce; son halka Haiku yalnız çağıranın haiku_tavan'ı kadar. Anahtar değeri hiçbir yere yazılmaz."""
 import json, os, re, subprocess, sys, threading, time, urllib.error, urllib.request
@@ -19,7 +19,14 @@ SAG = {"gemini": ("https://generativelanguage.googleapis.com/v1beta/openai/chat/
        "groq": ("https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", 2),
        "openrouter": ("https://openrouter.ai/api/v1/chat/completions", "OPENROUTER_API_KEY", 2),
        "github": ("https://models.github.ai/inference/chat/completions", "gh", 1.5),
-       "omniroute": ("http://127.0.0.1:20128/v1/chat/completions", "omni", 0.5)}
+       "omniroute": ("http://127.0.0.1:20128/v1/chat/completions", "omni", 0.5),
+       # UCRETSIZ-HAVUZ-2: anahtar kullanıcı ortamında yoksa halka sessizce atlanır (bekliyor); {AD} uçtaki ortam değişkeniyle dolar
+       "mistral": ("https://api.mistral.ai/v1/chat/completions", "MISTRAL_API_KEY", 1.5),
+       "cloudflare": ("https://api.cloudflare.com/client/v4/accounts/{CLOUDFLARE_ACCOUNT_ID}/ai/v1/chat/completions", "CLOUDFLARE_API_KEY", 1),
+       "nvidia": ("https://integrate.api.nvidia.com/v1/chat/completions", "NVIDIA_API_KEY", 1),
+       "sambanova": ("https://api.sambanova.ai/v1/chat/completions", "SAMBANOVA_API_KEY", 0.5),
+       "ollama": ("https://ollama.com/v1/chat/completions", "OLLAMA_API_KEY", 0.5)}
+DUSUNME = {"gemini", "groq", "openrouter", "omniroute", "ollama"}  # reasoning_effort bilen uçlar; diğerleri bilinmeyen alanı 400/422 yapabilir
 E = namedtuple("E", "prov model aile kova rpm tpm rpd baglam turler")
 Z, H, Y, U = "ozet", "hakem", "yazim", "uzun"
 # Sınırlar muhafazakâr belge/ölçüm değerleri (envanter.tsv); gerçek 429 gelirse soğuma devreye girer. baglam = jeton.
@@ -36,9 +43,16 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("openrouter", "minimax/minimax-m3.1-flash:free", "minimax", "openrouter", 18, 10**6, 900, 100_000, (Z, H, Y)),
        E("openrouter", "nvidia/nemotron-3-ultra-550b-a55b:free", "nvidia", "openrouter", 18, 10**6, 900, 100_000, (H, Y)),
        E("github", "openai/gpt-4.1-mini", "openai", None, 10, 7000, 120, 5500, ()),  # KAPALI: models.github.ai her yola 200 + gövde "OK" (20 Eki); düzelince türleri aç
-       E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U))]
+       E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U)),
+       # 20 Eki canlı: mistral 429 (hız sınırı, kendini toparlarsa açılır) · cloudflare 200 · ollama "Free usage limit" 429; sınırlar acilabilir.md'deki belge değerlerinin muhafazakârı; ilk 429'da soğuma devreye girer
+       E("mistral", "mistral-small-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, U)),
+       E("cloudflare", "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "meta", None, 60, 20_000, 150, 20_000, (Z, H, Y)),
+       E("nvidia", "google/gemma-4-31b-it", "google", None, 30, 100_000, 1000, 100_000, ()),  # KAPALI: llama-3.3 410, mistral-large/nemotron-70b 404, gemma/deepseek 60 sn zaman aşımı (20 Eki)
+       E("sambanova", "gpt-oss-120b", "openai", None, 20, 20_000, 20, 60_000, ()),  # KAPALI: 402 PAYMENT_METHOD_REQUIRED (ücretsiz bakiye yok, 20 Eki); Llama-3.3 yoğunluktan 429
+       E("ollama", "gpt-oss:120b", "openai", None, 6, 100_000, 100, 100_000, (Z, H, Y))]
 ad = lambda e: f"{e.prov}/{e.model}"  # noqa: E731
-SERT = re.compile(r"per ?day|tokens per day|\btpd\b|daily|günlük", re.I)
+ERT, SONUC = DIZIN / "ertelenen.jsonl", DIZIN / "ertelenen-sonuc.jsonl"
+SERT = re.compile(r"free usage limit|per ?day|tokens per day|\btpd\b|daily|günlük", re.I)
 
 
 class Hata(Exception):
@@ -69,6 +83,16 @@ def _anahtar(kaynak):
                 pass
     _ANAHTAR[kaynak] = v or None
     return _ANAHTAR[kaynak]
+
+
+def _url(prov):
+    """Uç adresi; {ORTAM_DEĞİŞKENİ} dolar, değişken yoksa None (halka atlanır)."""
+    u = SAG[prov][0]
+    for n in re.findall(r"\{(\w+)\}", u):
+        if not _anahtar(n):
+            return None
+        u = u.replace("{" + n + "}", _anahtar(n))
+    return u
 
 
 def _gizle(s):
@@ -116,12 +140,16 @@ def _sec(tur, tahmin, aile, haric, denenen, rezerv=None):
             dk = [x for x in d["dk"].get(kova, []) if x[0] > now - 60]; d["dk"][kova] = dk
             if len(dk) >= e.rpm or sum(x[1] for x in dk) + (rezerv or tahmin) > e.tpm or _say(d, kova, bugun) >= e.rpd:  # çıktı tavanı tam dolmaz: dakika kovası yarım max_tokens sayar
                 continue
-            if not _anahtar(SAG[e.prov][1]) or (e.prov == "omniroute" and not _omni_serbest()):
+            if not _anahtar(SAG[e.prov][1]) or not _url(e.prov) or (e.prov == "omniroute" and not _omni_serbest()):
                 continue
             uygun.append((_say(d, "p:" + e.prov, bugun) / SAG[e.prov][2], _say(d, ad(e), bugun), d["son"].get(ad(e), 0), e))
         if not uygun:
             return None
+        son = d.get("sec", [])[-20:]  # son 20 seçimde yarıyı aşan sağlayıcı, alternatif varken atlanır (kapı: hiçbir sağlayıcı >%50)
+        if len({u[3].prov for u in uygun}) > 1:
+            uygun = [u for u in uygun if son.count(u[3].prov) * 2 < len(son)] or uygun
         e = min(uygun, key=lambda x: x[:3])[3]
+        d["sec"] = son + [e.prov]
         d["dk"][e.kova or ad(e)].append([now, rezerv or tahmin]); d["son"][ad(e)] = now
         for k in {ad(e), e.kova or ad(e), "p:" + e.prov}:
             d["say"][k] = [bugun, _say(d, k, bugun) + 1]
@@ -158,9 +186,9 @@ def _basari(e):
 
 
 def _istek(e, istem, max_tokens, zaman):
-    url, kaynak, _ = SAG[e.prov]
+    url, kaynak = _url(e.prov), SAG[e.prov][1]
     g = {"model": e.model, "messages": [{"role": "user", "content": istem}], "max_tokens": max_tokens}
-    if e.prov != "github" and "gemma" not in e.model:
+    if e.prov in DUSUNME and "gemma" not in e.model:
         g["reasoning_effort"] = "low"  # düşünme jetonu çıktıyı yemesin
     q = urllib.request.Request(url, json.dumps(g).encode(), {"Content-Type": "application/json", "User-Agent": "curl/8",
                                                             "Authorization": "Bearer " + _anahtar(kaynak)})
@@ -193,11 +221,14 @@ def _haiku(istem):
     j = json.loads(p.stdout)
     if j.get("is_error") or not (j.get("result") or "").strip():
         raise Hata(0, "haiku " + str(j.get("result"))[:80])
+    if len(j["result"]) < 200 and re.search(r"(?i)usage limit|limit reached|resets? (at|in)", j["result"]):  # plan limiti düz metin gelir, yanıt sayılmasın
+        raise Hata(429, "haiku plan limiti")
     return j["result"].strip()
 
 
-def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90):
-    """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok)."""
+def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None):
+    """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok).
+    ertele=<iş kimliği>: hiçbir halka (Haiku dahil) yanıtlamazsa iş ertelenen.jsonl'e yazılır, log'a 'ertelendi' düşer."""
     tahmin, log, denenen = len(istem) // 3 + max_tokens, [], set()
     while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2)):
         denenen.add(ad(e))
@@ -213,10 +244,10 @@ def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=No
         _basari(e)
         return y, ad(e), log
     if haiku_tavan > 0 and aile in (None, "anthropic") and haric_aile != "anthropic":
-        with KILIT:
-            d = _durum(); k = etiket or tur; n = d.setdefault("haiku", {}).get(k, 0)
+        with KILIT:  # sayaç etiket başına ve GÜNLÜK sıfırlanır (havuz-1: kalıcı sayaç ilk koşuda dolup sonra Haiku'yu hep kapattı)
+            d = _durum(); k = etiket or tur; bugun = time.strftime("%Y-%m-%d", time.gmtime()); v = d.setdefault("haiku", {}).get(k); n = v[1] if isinstance(v, list) and v[0] == bugun else 0
             if n < haiku_tavan:
-                d["haiku"][k] = n + 1; _yaz(d)
+                d["haiku"][k] = [bugun, n + 1]; _yaz(d)
             else:
                 n = None
         if n is not None:
@@ -228,7 +259,46 @@ def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=No
                 log.append(f"haiku:{neden}")
             except (Hata, OSError, ValueError, subprocess.SubprocessError) as x:
                 log.append(f"haiku:{type(x).__name__}")
+    if ertele:
+        _ertele(ertele, dict(tur=tur, istem=istem, max_tokens=max_tokens, aile=aile, haric_aile=haric_aile, haiku_tavan=haiku_tavan, etiket=etiket, zaman=zaman))
+        log.append("ertelendi")
     return None, None, log
+
+
+def _ertele(ad, is_):
+    """Sonuçsuz iş hata değil: ertelenen.jsonl'e yazılır, en yakın soğuma bitiminde tekrar() dener."""
+    now = time.time(); t = [v for v in _durum().get("soguma", {}).values() if v > now]
+    DIZIN.mkdir(parents=True, exist_ok=True)
+    with KILIT, ERT.open("a", encoding="utf-8") as f:
+        f.write(json.dumps({"id": ad, "hazir": min(t) if t else now + 60, **is_}, ensure_ascii=False) + "\n")
+
+
+def tekrar():
+    """Zamanı gelen ertelenen işleri dener → ertelenen-sonuc.jsonl; olmayanlar yeni zamanla kuyrukta kalır. (biten, kalan)
+    shortcut: dogrula (çağrı fonksiyonu) kuyruğa yazılamaz, tekrar doğrulamasız; sonucu tüketen kendi doğrulamasını yapar."""
+    ara = ERT.with_suffix(".isleniyor")
+    try:
+        os.replace(ERT, ara)  # atomik devral: bu sırada gelen yeni satırlar yeni ERT'ye yazılır
+    except OSError:
+        return 0, 0
+    biten, kalan = 0, []
+    for s in ara.read_text(encoding="utf-8").splitlines():
+        if not s.strip():
+            continue
+        i = json.loads(s)
+        if i["hazir"] <= time.time():
+            y, k, _ = cagir(i["tur"], i["istem"], **{a: i[a] for a in ("max_tokens", "aile", "haric_aile", "haiku_tavan", "etiket", "zaman")})
+            if y:
+                with SONUC.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps({"id": i["id"], "metin": y, "kaynak": k}, ensure_ascii=False) + "\n")
+                biten += 1; continue
+            i["hazir"] = min([v for v in _durum().get("soguma", {}).values() if v > time.time()] or [time.time() + 60])
+        kalan.append(i)
+    ara.unlink()
+    if kalan:
+        with ERT.open("a", encoding="utf-8") as f:
+            f.write("".join(json.dumps(i, ensure_ascii=False) + "\n" for i in kalan))
+    return biten, len(kalan)
 
 
 def iki_aile(tur, istem, **kw):
@@ -245,10 +315,10 @@ def envanter():
     """Her halka için 1 canlı Türkçe çağrı + model listesi sayısı → envanter.tsv (anahtar değeri yok)."""
     satir = ["saglayici\tmodel\taile\tanahtar\thttp\tgecikme_sn\tmodel_sayisi\trpm\ttpm\trpd\tturkce\tnot"]
     sayi = {}
-    for p, (url, kaynak, _) in SAG.items():
-        a = _anahtar(kaynak)
+    for p, (_, kaynak, _) in SAG.items():
+        a, url = _anahtar(kaynak), _url(p)
         try:
-            if not a:
+            if not a or not url:
                 raise Hata(-1, "anahtar yok")
             r = urllib.request.Request(url.rsplit("/chat/completions", 1)[0] + "/models", headers={"Authorization": "Bearer " + a, "User-Agent": "curl/8"})
             sayi[p] = len(json.load(urllib.request.urlopen(r, timeout=30)).get("data", []))
@@ -257,7 +327,7 @@ def envanter():
     for e in ENT:
         t0 = time.time(); kod, tr, nt = 200, "-", ""
         try:
-            if not _anahtar(SAG[e.prov][1]):
+            if not _anahtar(SAG[e.prov][1]) or not _url(e.prov):
                 raise Hata(-1, "anahtar yok")
             y = _istek(e, "Türkiye'nin başkenti neresidir? Tek cümleyle, Türkçe karakterlerle (ş, ğ, ı) yanıtla.", 400, 60)
             tr = "iyi" if "Ankara" in y and re.search(r"[şğıçöü]", y) else "zayıf"; nt = y[:60].replace("\t", " ").replace("\n", " ")
@@ -290,6 +360,14 @@ def serve(port):
 
         def log_message(self, *a):
             pass
+    def dongu():  # ertelenen işleri soğuma bitince yeniden dene
+        while True:
+            time.sleep(30)
+            try:
+                tekrar()
+            except Exception:
+                pass
+    threading.Thread(target=dongu, daemon=True).start()
     ThreadingHTTPServer(("127.0.0.1", port), Is).serve_forever()
 
 
@@ -297,6 +375,8 @@ if __name__ == "__main__":
     c = sys.argv[1] if len(sys.argv) > 1 else "durum"
     if c == "envanter":
         envanter()
+    elif c == "tekrar":
+        print(tekrar())
     elif c == "serve":
         serve(int(sys.argv[2]) if len(sys.argv) > 2 else 20190)
     else:

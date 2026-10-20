@@ -87,8 +87,12 @@ def gecerli(o, girdi, baslik):
 
 
 HAIKU_TAVAN = 800  # koşu başına en fazla çağrı
-KAPALI = {}  # (halka, model) -> yeniden deneme zamanı; kota/zaman aşımı alan halka 30 dk devre dışı, BEKLEME YOK
-SAY = {}; HK = {"cagri": 0, "usd": 0.0}; SL = threading.Lock()
+HK = {"cagri": 0, "usd": 0.0}; SL = threading.Lock()
+
+
+def SAY():
+    """Halka dağılımı: havuzun bugünkü sağlayıcı sayaçları (eski yerel sayaç hiç artmıyordu)."""
+    return {k[2:]: v[1] for k, v in HAVUZ._durum().get("say", {}).items() if k.startswith("p:")}
 
 
 def haiku(istem):
@@ -229,9 +233,9 @@ def tum(n):
         PARTI.write_text("parti\tvideo/dk\thalka dağılımı\tHaiku çağrı\tHaiku $\tkarar\n", encoding="utf-8")
     no = len(PARTI.read_text(encoding="utf-8").splitlines())
     while sirada() and HK["cagri"] < HAIKU_TAVAN:
-        s0 = dict(SAY); c0 = HK["cagri"]; u0 = HK["usd"]
+        s0 = SAY(); c0 = HK["cagri"]; u0 = HK["usd"]
         ok, hata, dk = kos(n)
-        dag = {k: SAY[k] - s0.get(k, 0) for k in SAY if SAY[k] - s0.get(k, 0)}
+        dag = {k: v - s0.get(k, 0) for k, v in SAY().items() if v - s0.get(k, 0)}
         kd = kararla()
         with PARTI.open("a", encoding="utf-8") as f:
             f.write(f"{no}\t{ok / dk:.2f} ({ok} ok/{hata} hata)\t{dag}\t{HK['cagri'] - c0}\t{HK['usd'] - u0:.3f}\t{kd}\n"); no += 1
@@ -253,7 +257,7 @@ def kos(n, ids=None):
                 ok += 1
             print(r["id"], r.get("model"), r.get("sn"), r.get("hata", ""), flush=True)
     dk = (time.time() - t0) / 60
-    print(f"BITTI ok {ok} hata {hata} {dk:.1f} dk · {ok / dk:.2f} video/dk · halka {SAY} · haiku {HK}", flush=True)
+    print(f"BITTI ok {ok} hata {hata} {dk:.1f} dk · {ok / dk:.2f} video/dk · halka {SAY()} · haiku {HK}", flush=True)
     return ok, hata, dk
 
 
@@ -273,7 +277,7 @@ def kapi():
     for u, vid, _, _ in parca:
         k = d.get(u, ("?",))[0]; ayni += k == pilot[u]
         print(vid, "yeni", k, "pilot", pilot[u], "OK" if k == pilot[u] else "FARK", flush=True)
-    print(f"KAPI {ayni}/{len(pilot)} özet {len(parca)} halka {SAY} haiku {HK}", flush=True)
+    print(f"KAPI {ayni}/{len(pilot)} özet {len(parca)} halka {SAY()} haiku {HK}", flush=True)
 
 
 def parti(n):

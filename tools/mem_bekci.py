@@ -4,6 +4,7 @@ import ctypes
 import os
 import socket
 import subprocess
+import sys
 import time
 
 H = os.path.expanduser("~")
@@ -47,7 +48,27 @@ def betikler():
     return os.path.join(k, surumler[-1], "scripts")
 
 
+def havuz_serve():
+    """Ücretsiz havuzun yerel ucu (claude-mem yedeği, 20190) kapalıysa pencere açmadan başlatır."""
+    s = socket.socket()
+    s.settimeout(1)
+    try:
+        if s.connect_ex(("127.0.0.1", 20190)) == 0 or ram() >= 88:
+            return
+    finally:
+        s.close()
+    arg = [sys.executable, os.path.join(KOK, "tools", "ucretsiz_havuz.py"), "serve", "20190"]
+    kw = dict(stdout=open(os.path.join(KOK, ".kos", "kopru", "ucretsiz", "serve.log"), "a", encoding="utf-8"), stderr=subprocess.STDOUT,
+              stdin=subprocess.DEVNULL, cwd=KOK, close_fds=True)
+    try:
+        subprocess.Popen(arg, creationflags=0x08000000 | 0x00000200 | 0x01000000, **kw)
+    except OSError:
+        subprocess.Popen(arg, creationflags=0x08000000 | 0x00000200, **kw)
+    yaz("havuz serve kapaliydi -> baslatildi")
+
+
 def main():
+    havuz_serve()
     if acik():
         return
     r = ram()

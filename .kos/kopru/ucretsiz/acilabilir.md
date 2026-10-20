@@ -17,4 +17,5 @@ Kalıcı ücretsiz DEĞİL / kapalı (hesap açmaya değmez):
 - GitHub Models: 30 Tem 2026'dan beri "fully retired" (docs.github.com). Ölçüm uyumlu: models.github.ai her yola 200 + gövde "OK" döndürüyor → havuzda KAPALI (ENT'te türler boş).
 
 Zaten bağlı ve canlı (20 Eki ölçüm, bkz. envanter.tsv): Groq (gpt-oss-120b/20b, qwen3.8-27b) · OpenRouter :free (hesapta kredi var; model başına günlük tavan ağır) · Gemini (3.1-flash-lite çalışıyor; diğer flash modelleri bugün kota dolu, 2.5 serisi 404) · OmniRoute cc-ucuz-free (OpenRouter'a bağlı, onunla birlikte düşer).
-Anahtarsız uç: Pollinations vb. denenmedi (dış çağrı tavanı doldu); havuza alınmadı.
+HAVUZ-2 canlı durum (20 Eki 18:00): Cloudflare 200 (havuzda, Türkçe iyi) · Mistral 429 hız sınırı (havuzda, soğumayla yeniden dener) · Ollama anahtar var ama "Free usage limit" 429 (havuzda, 4 sa soğuma) · NVIDIA anahtar var, katalog bayat: llama-3.3 410, mistral-large/nemotron-70b 404, gemma-4/deepseek zaman aşımı (KAPALI) · SambaNova 402 PAYMENT_METHOD_REQUIRED, ücretsiz bakiye yok (KAPALI).
+Anahtarsız uç: Pollinations alınmadı — kullanım koşulu sayfası (pollinations.ai/terms) betikle okunamadı (JS), koşul doğrulanmadan eklenmez; ayrıca istemler üçüncü tarafta açık kalabilir, mem-yedek oturum içeriği taşır → eklenmez.

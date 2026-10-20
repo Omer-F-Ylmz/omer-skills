@@ -10,6 +10,7 @@ import ucretsiz_havuz as H  # noqa: E402
 @pytest.fixture(autouse=True)
 def izole(tmp_path, monkeypatch):
     monkeypatch.setattr(H, "DIZIN", tmp_path); monkeypatch.setattr(H, "DURUM", tmp_path / "durum.json")
+    monkeypatch.setattr(H, "ERT", tmp_path / "ertelenen.jsonl"); monkeypatch.setattr(H, "SONUC", tmp_path / "ertelenen-sonuc.jsonl")
     monkeypatch.setattr(H, "_anahtar", lambda k: "x" * 12)
     monkeypatch.setattr(H, "_omni_serbest", lambda: True)
 
@@ -96,6 +97,50 @@ def test_haiku_yalniz_tavanla(monkeypatch):
     assert H.cagir("ozet", "x")[0] is None  # tavan 0 → Haiku yok
     assert H.cagir("ozet", "x", haiku_tavan=1, etiket="t")[1] == "haiku/claude-haiku-5-5"
     assert H.cagir("ozet", "x", haiku_tavan=1, etiket="t")[0] is None  # tavan doldu
+
+
+def test_anahtarsiz_yeni_saglayici_atlanir(monkeypatch):
+    monkeypatch.setattr(H, "_anahtar", lambda k: None if k in ("MISTRAL_API_KEY", "CLOUDFLARE_ACCOUNT_ID") else "x" * 12)
+    c = sahte(monkeypatch, lambda e: "ok")
+    for _ in range(60): H.cagir("ozet", "x")
+    assert not any(a.startswith(("mistral", "cloudflare")) for a in c) and any(a.startswith("ollama") for a in c)
+
+
+def test_dakika_jeton_kovasi_yarim_max_tokens_sayar(monkeypatch):
+    """Groq qwen tpm 6000: istem 1000 + max_tokens 2000 → rezerv 2000; 3 iş sığar (tam sayılsa 2), dördüncüsü bekler, 60 sn sonra yine sığar."""
+    c = sahte(monkeypatch, lambda e: "ok")
+    r = [H.cagir("ozet", "x" * 3000, max_tokens=2000, aile="alibaba")[0] for _ in range(4)]
+    assert r == ["ok", "ok", "ok", None]
+    gercek = time.time
+    monkeypatch.setattr(H.time, "time", lambda: gercek() + 61)
+    assert H.cagir("ozet", "x" * 3000, max_tokens=2000, aile="alibaba")[0] == "ok"
+
+
+def test_hicbir_saglayici_yariyi_asmaz(monkeypatch):
+    c = sahte(monkeypatch, lambda e: "ok")
+    for _ in range(40): H.cagir("ozet", "x")
+    pay = {p: sum(a.startswith(p + "/") for a in c) / len(c) for p in {a.split("/")[0] for a in c}}
+    assert len(pay) > 2 and max(pay.values()) <= 0.5, pay
+
+
+def test_haiku_sayaci_gunluk_sifirlanir_eski_bicim_okunur(monkeypatch):
+    sahte(monkeypatch, lambda e: (_ for _ in ()).throw(H.Hata(503, "x")))
+    monkeypatch.setattr(H, "_haiku", lambda i: "h")
+    H._yaz({"haiku": {"t": 5, "u": ["2020-01-01", 5]}})  # havuz-1 kalıcı int sayacı / dünün sayacı
+    assert H.cagir("ozet", "x", haiku_tavan=1, etiket="t")[0] == "h" and H.cagir("ozet", "x", haiku_tavan=1, etiket="u")[0] == "h"
+
+
+def test_sonucsuz_is_ertelenir_ve_soguma_bitince_tekrar_denenir(monkeypatch):
+    durum = {"ok": False}
+    sahte(monkeypatch, lambda e: "geldi" if durum["ok"] else (_ for _ in ()).throw(H.Hata(503, "x")))
+    y, k, log = H.cagir("ozet", "x", ertele="is1")
+    assert y is None and "ertelendi" in log and len(H.ERT.read_text(encoding="utf-8").splitlines()) == 1
+    durum["ok"] = True
+    assert H.tekrar() == (0, 1)  # soğuma sürüyor: kuyrukta kalır, hata değil
+    gercek = time.time
+    monkeypatch.setattr(H.time, "time", lambda: gercek() + 1000)
+    assert H.tekrar() == (1, 0)
+    assert '"id": "is1"' in H.SONUC.read_text(encoding="utf-8") and not H.ERT.exists()
 
 
 def test_anahtar_sizmaz(monkeypatch):
