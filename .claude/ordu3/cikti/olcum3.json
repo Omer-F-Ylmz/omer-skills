@@ -1,0 +1,82 @@
+{
+ "gecti": true,
+ "A": {
+  "claude_is": 20,
+  "agirlikli_token": 89529,
+  "claude_token": 89529,
+  "kalite": 1.0,
+  "kalan": [],
+  "basamaklar": {}
+ },
+ "B": {
+  "claude_is": 5,
+  "agirlikli_token": 8991,
+  "claude_token": 26973,
+  "kalite": 1.0,
+  "kalan": [],
+  "basamaklar": {
+   "O1": 1,
+   "O3": 1,
+   "O4": 1,
+   "O5": 1,
+   "O6": 1
+  }
+ },
+ "sabit_yuk": 4013,
+ "claude_cagri": 6,
+ "ucretsiz_cagri": 20,
+ "capraz": {
+  "O1": {
+   "ayni": false,
+   "dogru": true,
+   "aile": [
+    "alibaba",
+    "openai"
+   ]
+  },
+  "O2": {
+   "ayni": true,
+   "dogru": true,
+   "aile": [
+    "alibaba",
+    "openai"
+   ]
+  },
+  "O3": {
+   "ayni": false,
+   "dogru": false,
+   "aile": [
+    "alibaba",
+    "openai"
+   ]
+  },
+  "O4": {
+   "ayni": false,
+   "dogru": false,
+   "aile": [
+    "alibaba",
+    "openai"
+   ]
+  },
+  "O5": {
+   "ayni": false,
+   "dogru": true,
+   "aile": [
+    "openai",
+    "mistral"
+   ]
+  },
+  "O6": {
+   "ayni": false,
+   "dogru": false,
+   "aile": [
+    "mistral",
+    "openai"
+   ]
+  }
+ },
+ "oran": {
+  "is": 0.25,
+  "agirlikli_token": 0.1
+ }
+}
