@@ -1,0 +1,55 @@
+## graphify
+id: k00274 · tür: skill · katman: A · kategori: araştırma · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k00274_graphify.txt (özgün: C:\Users\pc\.claude\skills\graphify\SKILL.md) · 785 satır · araç adları (1): graphify
+BAŞLIKLAR: # /graphify · ## Usage · ## What graphify is for · ## What You Must Do When Invoked · ### Step 0 - GitHub repos and multi-path merge (only if a UR · ### Step 1 - Ensure graphify is installed · # Detect Python with graphify — uv/pipx-aware (fixes #831) · # Try to find the right Python (uv → pipx → active env) · # Not found — install then re-detect · # Save interpreter path — all subsequent steps read this. · # `Out-File -Encoding utf8` always writes a BOM on Windows P · # only exists from PowerShell 6), and that BOM rides into th · # rebuild fails with WinError 123 (#3028). WriteAllText with · # encoding writes the bytes POSIX writes, and adds no traili · # Save scan root so `graphify update` (no args) knows where  · # INPUT_PATH is captured through a single-quoted (literal) h · # substituted directly into the command line: an unquoted ba · # substituted here would let a malicious path (a stray `;`,  · # execute as script code the moment this line runs. · ### Step 2 - Detect files · # Write the sidecar from Python, not a shell redirect, so th · # on PowerShell hosts without console-encoding drift (#2528) · Then act on it: · ### Step 2.5 - Video and audio (only if video files detected · ### Step 3 - Extract entities and relationships · #### Part A - Structural extraction for code files · #### Part B - Semantic extraction (parallel subagents) · # Only content files go to semantic extraction. Code is alre · # by the AST pass (Part A); flattening every category here m · # every so
+
+## last30days
+id: k02599 · tür: plugin · katman: A · kategori: araştırma · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02599_last30days.txt (özgün: C:\Users\pc\.claude\plugins\cache\last30days-skill\last30days\3.27.1) · 514 satır · araç adları (407): .github/scripts/prepare_release.py · .github/scripts/read_manifest_version.py · 3.27 · last30days · last30days-skill · mcp/scripts/sync-engine.sh · skills/last30days/scripts/box_chrome_login.py · skills/last30days/scripts/briefing.py · skills/last30days/scripts/build-skill.sh · skills/last30days/scripts/compare.sh · skills/last30days/scripts/evaluate_search_quality.py · skills/last30days/scripts/last30days.py · skills/last30days/scripts/lib/__init__.py · skills/last30days/scripts/lib/agentcookie.py · skills/last30days/scripts/lib/amazon.py · skills/last30days/scripts/lib/arxiv.py · skills/last30days/scripts/lib/backends.py · skills/last30days/scripts/lib/bird_x.py · skills/last30days/scripts/lib/bluesky.py · skills/last30days/scripts/lib/bounded_get.py · skills/last30days/scripts/lib/brightdata.py · skills/last30days/scripts/lib/categories.py · skills/last30days/scripts/lib/chrome_cdp.py · skills/last30days/scripts/lib/chrome_cookies.py · skills/last30days/scripts/lib/cjk.py · skills/last30days/scripts/lib/cluster.py · skills/last30days/scripts/lib/competitors.py · skills/last30days/scripts/lib/cookie_extract.py · skills/last30days/scripts/lib/cookie_paths.py · skills/last30days/scripts/lib/corpus.py
+BAŞLIKLAR: # /last30days · ## Why this exists · ## Sources, scored by the people · ## What people actually use it for · ## What's new · ### First-class on OpenAI Codex · ### arXiv, Techmeme, and Digg - free, no API keys · ### Free Reddit grew real scores and top comments · ### The best comments in every brief · ### One doctor command · ### X search, rebuilt · ### More sources joined · ### Hardened by the community · ### Reaches further · ### Still in the box from v3 · ## Install · ### Claude Code (recommended) · ### Quick Try-Link · ### Grok (xAI Build CLI) · ### Codex, Cursor, Copilot, Gemini CLI, and other Agent Skil · Update later with: · ### claude.ai (web) · ### Claude Desktop · ### OpenClaw · ### Manual (developer) · ## Bring your own keys · ### macOS Keychain (optional) · # Interactive setup — prompts for each known key, skip with  · # Or store a single key by hand · # Inspect / clean up · ## Configuration · ## Showcase: community research feeds · ## How it works · ## What people are saying · ## Open source · ## Star History · # Coverage gate (issue #254). Floor intended to rise over ti · # Baseline measured 2026-09-23 on the full suite with script · # (tests/ excluded): TOTAL 82.28%. The previous 84 floor was · # source = scripts + tests, where well-tested test code infl · # excluding tests/ lowers the honest baseline, which is why  · # 84 -> 81. Pinned at 81 (not 82) for ~1.3pp headroom agains · # 82.28; raise back toward 82+ as coverage grows. · # Do not lower without document
+
+## claude
+id: k04240 · tür: cli · katman: A · kategori: ajan-orkestrasyon · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k04240_claude.txt (özgün: C:\Users\pc\.local\bin\claude.EXE) · 312 satır · araç adları (1): claude
+BAŞLIKLAR: Arguments: · Options: · Commands:
+
+## uvx
+id: k04272 · tür: cli · katman: A · kategori: diğer · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k04272_uvx.txt (özgün: C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\uvx.EXE) · 197 satır · araç adları (1): uvx
+BAŞLIKLAR: Options: · Index options: · Resolver options: · Installer options: · Build options: · Cache options: · Python options: · Global options:
+
+## tetik_olc
+id: k03487 · tür: cli · katman: A · kategori: ajan-orkestrasyon · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k03487_tetik_olc.txt (özgün: C:\Projeler\omer-skills\tools\tetik_olc.py) · 144 satır · araç adları (1): tetik_olc
+BAŞLIKLAR: 
+
+## docker
+id: k04244 · tür: cli · katman: A · kategori: diğer · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k04244_docker.txt (özgün: ) · 110 satır · araç adları (17208): .claude/atlas/denetim.py · .claude/atlas/dist.py · .claude/atlas/karar.py · .claude/atlas2/dist.py · .claude/atlas2/karar.py · .claude/atlas2/karar3.py · .claude/atlas2/kume.py · .claude/atlas2/olc.py · .claude/b12/kos_coz.py · .claude/b12/kos_main.py · .claude/b14-izsiz-yedek/ajan_olc.py · .claude/b14-izsiz-yedek/ajan_tara.py · .claude/b14-izsiz-yedek/kalibre3b.py · .claude/b14-izsiz-yedek/kanca_tara.py · .claude/b14-izsiz-yedek/kapi2.py · .claude/b14-izsiz-yedek/kapi2b.py · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/brand-analyzer/index.js · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/business-analytics-reporter/index.js · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/business-analytics-reporter/scripts/analyze_business_data.py · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/business-document-generator/index.js · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/business-document-generator/scripts/generate_document.py · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/cicd-pipeline-generator/index.js · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/codebase-documenter/index.js · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/csv-data-visualizer/index.js · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/csv-data-visualizer/scripts/create_dashboard.py · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/csv-data-visualizer/scripts/data_profile.py · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/csv-data-visualizer/scripts/visualize_csv.py · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/data-analyst/index.js · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/data-analyst/scripts/analyze_missing_values.py · .claude/b2-aile/.claude/skills/ai-labs-paket/skills/data-analyst/scripts/create_dashboard.py
+BAŞLIKLAR: # omer-skills · ## Kurulum · ## Yeni makinede · ## Yeni plugin kurmadan önce · ## Tarama · ## frontend-craft ne yapar · ## Proje tipine göre ne kurulur · ## Sürüm kabulü · ## Kaynaklar ve atıflar · ## Lisans
+
+## kurulum-turu-6
+id: k03452 · tür: cli · katman: A · kategori: ajan-orkestrasyon · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k03452_kurulum-turu-6.txt (özgün: C:\Projeler\omer-skills\tools\kurulum-turu-6.sh) · 98 satır · araç adları (1): kurulum-turu-6
+BAŞLIKLAR: # Kurulum turu 6 — Swift skill depoları (AvdLee x2, twostraw · # Kullanım: bash tools/kurulum-turu-6.sh [--kuru]   (--kuru: · # Her adım: kuruluysa atla → kur → doğrula → hata ise yalnız · # klonla repo sha → KD (pinli SHA'da klon) · # uzaktan betik çeken/çalıştıran dosya (md hariç) varsa şüph · # S|repo|sha|alt-yol|atlanacak-adlar   → alt-yol altındaki S · # P|repo|sha|market   → marketplace'teki TÜM plugin'ler (pin
+
+## uv
+id: k04271 · tür: cli · katman: A · kategori: diğer · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k04271_uv.txt (özgün: C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\uv.EXE) · 71 satır · araç adları (1): uv
+BAŞLIKLAR: Commands: · Cache options: · Python options: · Global options:
+
+## context7-cli
+id: k00128 · tür: skill · katman: A · kategori: araştırma · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k00128_context7-cli.txt (özgün: C:\Users\pc\.claude\skills\context7-cli\SKILL.md) · 60 satır · araç adları (2): context7 · context7-cli
+BAŞLIKLAR: # ctx7 CLI · ## What this skill covers · ## Quick Reference · # Documentation · # Setup · ## Authentication · ## Common Mistakes
+
+## kdense-scientific-paket-1
+id: k00324 · tür: skill · katman: A · kategori: bilim · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k00324_kdense-scientific-paket-1.txt (özgün: C:\Users\pc\.claude\skills\kdense-scientific-paket-1\SKILL.md) · 51 satır · araç adları (1): kdense-scientific-paket-1
+BAŞLIKLAR: # kdense-scientific-paket-1
+
+## yetenek-getir
+id: k03559 · tür: skill · katman: A · kategori: araştırma · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k03559_yetenek-getir.txt (özgün: C:\Projeler\omer-skills\dist\envanter-3\yetenek-getir.zip!yetenek-getir/SKILL.md) · 34 satır · araç adları (2): yetenek-getir · yetenek-getir.zip!yetenek-getir
+BAŞLIKLAR: # yetenek-getir — işe uygun aracı katalogdan bul · ## Ne zaman · ## Nasıl (iki aşama: betik geniş aday listesi verir, seçimi  · ## Kurallar
+
+## departman-diger
+id: k03603 · tür: skill · katman: A · kategori: diğer · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k03603_departman-diger.txt (özgün: C:\Projeler\omer-skills\dist\token-10\departman-diger.zip!departman-diger/SKILL.md) · 28 satır · araç adları (2): departman-diger · departman-diger.zip!departman-diger
+BAŞLIKLAR: # Departman: diğer — iş → araç sırası · ## Sıra · ## Kapılar
+
+## summarize
+id: k04269 · tür: cli · katman: A · kategori: araştırma · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k04269_summarize.txt (özgün: C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\summarize.CMD) · 17 satır · araç adları (1): summarize
+BAŞLIKLAR: 
+
+## jev
+id: k03316 · tür: mcp · katman: A · kategori: ajan-orkestrasyon · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k03316_jev.txt (özgün: C:\Users\pc\.claude.json) · 5 satır · araç adları (2): .claude · jev
+BAŞLIKLAR: 

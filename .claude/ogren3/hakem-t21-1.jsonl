@@ -1,0 +1,25 @@
+{"ad": "context7", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "hook-development", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "agp-9-upgrade", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "atlas", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "arxiv", "ne_yapar": "D", "komut": "Y", "sinirlar": "D", "mekanizma": "D", "gerekce": {"komut": "Y: kayıttaki url bir komut değil (kaynak satır 4 url); doğru cevap 'belirsiz' olmalı, context7 kartıyla tutarsız."}}
+{"ad": "feature-dev", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "ajan-getir", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "dispatching-parallel-agents", "ne_yapar": "D", "komut": "Y", "sinirlar": "D", "mekanizma": "D", "gerekce": {"komut": "Y: 'Subagent (general-purpose): Fix ...' örnek alt ajan istemi (kaynak satır 71), skill'in kendi çağrı komutu değil."}}
+{"ad": "ajn-ajan-tanimi-yazar", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "deep-research", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "is-akisi", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "code-reviewer", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "ecc", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "brainstorming", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "departman-surec-inceleme", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "kilavuz_ara", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "mcp-git", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "npx", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "mcp-filesystem", "ne_yapar": "D", "komut": "Y", "sinirlar": "D", "mekanizma": "D", "gerekce": {"komut": "Y: kayıtta command (node.exe) ve args (server-filesystem index.js) var (kaynak satır 4-6); 'belirsiz' yanlış."}}
+{"ad": "deep-research", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "andrej-karpathy-skills", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "kurulum-turu-6", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "gstack", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "kalite3_zip", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}
+{"ad": "loop", "ne_yapar": "D", "komut": "D", "sinirlar": "D", "mekanizma": "D"}

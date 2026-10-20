@@ -1,0 +1,25 @@
+{"ad":"claude","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-surec-plan","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: kaynakta frontmatter 'name: departman-surec-plan' birebir geçiyor (adın biçimi = kendi komutu), 'belirsiz' yanlış (satır 2)."}}
+{"ad":"plugin-dev","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: asıl iş 8 aşamalı uçtan uca create-plugin akışı (orkestrasyon) ve ajan/hook/MCP/skill geliştirme rehberi; 'orkestrasyon-dışı' bunu kaçırıyor (README satır 20-53, 155-174)."}}
+{"ad":"mcp-launch","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"brave-search","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: kayıtta kendi uç noktası 'http://127.0.0.1:47800/servers/brave-search/mcp' birebir var (jev kartında aynı biçim komut sayılmış), 'belirsiz' yanlış (satır 4)."}}
+{"ad":"python","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"jev","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"oh-my-issues","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: 'gh issue close' GitHub CLI'nın komutu, bu skill'in değil; skill adı 'oh-my-issues' kaynakta (satır 2, 6) (başka aracın komutu)."}}
+{"ad":"mcp-filesystem","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: kayıtta kendi command (node.exe) ve args (server-filesystem dist/index.js) birebir var, 'belirsiz' yanlış (satır 4-6)."}}
+{"ad":"departman-diger","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: frontmatter 'name: departman-diger' birebir geçiyor, 'kaynakta yok' yanlış (satır 2)."}}
+{"ad":"domain-voice","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: frontmatter 'name: domain-voice' birebir geçiyor (adın biçimi), 'belirsiz' yanlış (satır 2)."}}
+{"ad":"mcp-time","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: kayıtta kendi uç noktası 'http://127.0.0.1:47800/servers/mcp-time/mcp' birebir var, 'belirsiz' yanlış (satır 4)."}}
+{"ad":"ollama","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"kilavuz_derin","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"kdense-scientific-paket-2","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: frontmatter 'name: kdense-scientific-paket-2' ve başlık birebir geçiyor, 'belirsiz' yanlış (satır 2, 6)."}}
+{"ad":"deploy-to-vercel","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: 'vercel deploy' Vercel CLI'nın komutu (başka araç); skill'in kendisi 'deploy-to-vercel' adı ve resources/deploy.sh ile geçiyor (satır 2, 166)."}}
+{"ad":"superpowers","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"katalog_ara","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"hook-development","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"pr-review-toolkit","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: kaynakta paket adı 'pr-review-toolkit' (manifest name, README başlık/kurulum 'Find \"pr-review-toolkit\"') birebir var, 'belirsiz' yanlış (satır 188, 318)."}}
+{"ad":"ajn-ajan-tanimi-yazar","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: frontmatter 'name: ajn-ajan-tanimi-yazar' birebir geçiyor (adın biçimi), 'belirsiz' yanlış (satır 3)."}}
+{"ad":"setup-deploy","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-surec-git-yayin","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ecc-ml-bilim-saglik-paket","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: frontmatter 'name: ecc-ml-bilim-saglik-paket' ve başlık birebir geçiyor, 'belirsiz' yanlış (satır 3, 7)."}}
+{"ad":"yukle12b","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

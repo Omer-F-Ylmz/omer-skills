@@ -2,7 +2,7 @@
 kapalı liste: token "mekanizma" yerine orkestrasyon "rol" (ozet3.MEKANIZMA yerinde değiştirilir → gecerli_b aynı kodla denetler).
   python -X utf8 .claude/ogren3/o3.py hazirla     → kaynak çöz (o3-kaynak/), o3-kalem.tsv, o3-paket-NN.md (~15 kalem)
   python -X utf8 .claude/ogren3/o3.py birlestir   → ozet-ajan-o3.jsonl + hakem-o3.jsonl, RET/UYARI listesi"""
-import collections, json, re, subprocess, sys
+import collections, json, random, re, subprocess, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "ogren1"))
@@ -71,6 +71,67 @@ def hazirla():
     print(f"kalem {len(satir)} · parti {len(partiler)} (A {sum(p[0][3] == 'A' for p in partiler)}) · satır toplam {sum(int(s[5]) for s in satir)} · boş {sum(s[5] == '0' for s in satir)} · {dict(say)}")
 
 
+G2 = ("ajan-orkestrasyon", "araştırma", "bilim", "diğer")
+ODAK = set("""cc-kopru OmniRoute superpowers gstack subagent-driven-development dispatching-parallel-agents plan-kur is-akisi ajan-getir
+brave-search context7 context7-cli context7-mcp mcp-fetch agent-reach deep-research find-docs awesome-rehber yetenek-getir video-tarama graphify
+ecc ecc-ml-bilim-saglik-paket davila7-scientific-paket-1 davila7-scientific-paket-2 kdense-scientific-paket-1 kdense-scientific-paket-2
+mslearn arxiv last30days claude-mem""".split())
+MUDUR = ("departman-surec-ajan-arac", "departman-surec-plan", "departman-arastirma-ogrenme")
+
+
+def a2():
+    """d2 (★ 11:27 C): G2 A ≤150 = d1'de yazılmış 30 + kullanım sırası + Odak + müdür skill'de anılan; geri kalan kanonik → B betik kartı"""
+    t = [json.loads(x) for x in (O / "katalog-son.jsonl").read_text(encoding="utf-8").splitlines()]
+    k = [r for r in t if r["kategori_son"] in G2 and r["tur"] != "aday" and r["kanonik"] == r["id"] and r["yol"]]  # yol "" = PATH'te yok, kurulu değil
+    yazili = {i for p in ("01", "02") for i in re.findall(r"^id: (\S+)", (B / f"o3-paket-{p}.md").read_text(encoding="utf-8"), re.M)}
+    mudur = "\n".join((Path("skills") / d / "SKILL.md").read_text(encoding="utf-8") for d in MUDUR)
+    anilan = lambda ad: len(ad) >= 4 and re.search(rf"(?<![\w-]){re.escape(ad)}(?![\w-])", mudur)
+    aday = [r for r in k if r["tur"] != "model" and (r["id"] in yazili or r["kullanim_30g"] > 0 or r["ad"] in ODAK or r["ad"].startswith("phoenix-") or anilan(r["ad"]))]
+    aday.sort(key=lambda r: (r["id"] not in yazili, -r["kullanim_30g"], r["ad"] not in ODAK, r["ad"]))
+    a = aday[:150]
+    sec = {r["id"] for r in a}
+    kb = [r for r in k if r["id"] not in sec]
+    # docs/atlas/kart.jsonl B şeması (G1 ile aynı): komut = çağrı adı, kanit = özgün yol; uydurma alan yok
+    (O / "kart-b-g2.jsonl").write_text("".join(json.dumps({"ad": r["ad"], "ne": r["aciklama"], "komut": r["ad"], "kanit": r["yol"], "kategori": r["kategori_son"],
+                                                          "tur": r["tur"], "katman": "B"}, ensure_ascii=False) + "\n" for r in kb), encoding="utf-8")
+    satir = []
+    for r in a:
+        p = dosya(r)
+        cmd = r["yol"].lower().endswith((".exe", ".cmd"))  # .CMD npm kabuğu da ikili gibi: kaynak = --help
+        if not p.exists() or cmd and not p.read_text(encoding="utf-8").startswith("==="):  # d1 hazirla yalnız ajan-orkestrasyon'u çözdü
+            try:
+                if cmd:
+                    h = subprocess.run([r["yol"], "--help"], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30,
+                                       creationflags=subprocess.CREATE_NO_WINDOW)
+                    p.write_text(f"=== {r['yol']} --help ===\n{h.stdout}{h.stderr}", encoding="utf-8")
+                else:
+                    p.write_text(metin(r["ad"], r["yol"]), encoding="utf-8")
+            except (OSError, subprocess.SubprocessError):  # yolu kaybolan kaynak → kaynaksız
+                p.write_text("", encoding="utf-8")
+        satir.append([r["id"], r["ad"], r["tur"], "A", r["yol"], str(len(p.read_text(encoding="utf-8").splitlines())), r["kategori_son"], str(r["kullanim_30g"])])
+    (B / "o3-kalem.tsv").write_text("".join("\t".join(s) + "\n" for s in satir), encoding="utf-8")
+    # 6 büyük kaynak d1'de parçalı tam okunmadı → yeniden yazılır (o3-yazar-aNN, birlestir'de 01/02'nin üstüne yazar)
+    buyuk = {"ecc", "office-hours", "claude-api", "plan-ceo-review", "OmniRoute", "setup-deploy"}
+    yeni = sorted((s for s in satir if s[0] not in yazili or s[1] in buyuk), key=lambda s: -int(s[5]))
+    var = sorted(B.glob("o3-paket-a*.md"))
+    if var:  # yazım başladıysa paketler değişmez; yeni giren + kaynağı --help'e dönen kalemler ek partiye
+        once = {i for p in var for i in re.findall(r"^id: (\S+)", p.read_text(encoding="utf-8"), re.M)}
+        yeni = [s for s in yeni if s[0] not in once or s[4].lower().endswith(".cmd")]
+    n, i0 = -(-len(yeni) // PARTI), len(var)
+    for i in range(i0, i0 + n):
+        parca = []
+        for s in yeni[i - i0::n]:
+            p, m = dosya({"id": s[0], "ad": s[1]}), dosya({"id": s[0], "ad": s[1]}).read_text(encoding="utf-8")
+            an = sorted(adlari(s[1], s[4]))
+            parca += [f"## {s[1]}", f"id: {s[0]} · tür: {s[2]} · katman: A · kategori: {s[6]} · kaynak: {p} (özgün: {s[4]}) · {s[5]} satır · araç adları ({len(an)}): {' · '.join(an[:30])}",
+                      "BAŞLIKLAR: " + " · ".join(x.split("\n", 1)[0].strip()[:60] for x in BASLIK.split(m)[1:])[:1500], ""]
+        (B / f"o3-paket-a{i + 1:02d}.md").write_text("\n".join(parca), encoding="utf-8")
+    js = [s for s in satir if s[4].lower().endswith(".json") and Path(s[4]).name not in ("hooks.json", "settings.json", ".claude.json")]
+    print(f"G2 kanonik {len(k)} · A aday {len(aday)} → A {len(a)} ({collections.Counter(s[6] for s in satir)}) · B {len(kb)} "
+          f"(model {sum(r['tur'] == 'model' for r in kb)}) · kopya dışı {sum(r['kategori_son'] in G2 and r['tur'] != 'aday' and r['kanonik'] != r['id'] for r in t)}"
+          f" · yeni yazım {len(yeni)} → parti {n} · boş {sum(s[5] == '0' for s in satir)} · .json kaynak {[(s[1], Path(s[4]).name) for s in js]}")
+
+
 def birlestir():
     c = {}
     for p in sorted(B.glob("o3-yazar-*.jsonl")):  # aynı ad farklı kopya gruplarında geçer → yazar satırı kendi partisinin id'sine bağlanır
@@ -101,5 +162,36 @@ def birlestir():
           f" · rol {collections.Counter(x for r in son.values() for x in r['mekanizma']).most_common()}")
 
 
+def kapi(tohum):
+    """iki yeni tohum (★ 11:27): yalnız A'dan, sert denetimden geçmiş kalemlerden 25 kalem × 4 alan = 100 alan"""
+    h = [json.loads(x) for x in (O / "hakem-o3.jsonl").read_text(encoding="utf-8").splitlines()]
+    sec = random.Random(int(tohum)).sample(h, 25)
+    (O / f"hakem-o3-t{tohum}.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in sec), encoding="utf-8")
+    print(tohum, [r["ad"] for r in sec])
+
+
+def puan(tohum):
+    """iki kör hakem: ikisi D → D, ikisi Y → Y, ayrışan → AYRI (Claude kaynağa bakıp karar verir, karar.tsv: ad<TAB>alan<TAB>D|Y)"""
+    alan = A + ["mekanizma"]
+    hs = [{r["ad"]: r for r in map(json.loads, (B / f"hakem-t{tohum}-{n}.jsonl").read_text(encoding="utf-8").splitlines())} for n in (1, 2)
+          if (B / f"hakem-t{tohum}-{n}.jsonl").exists()]
+    hs += hs[:1] * (2 - len(hs))  # tohum başı tek hakem: Y'ler karar-t<tohum>.tsv'de Claude kaynağa bakıp onaylar/reddeder
+    assert hs, "hakem dosyası yok"
+    adlar = [json.loads(x)["ad"] for x in (O / f"hakem-o3-t{tohum}.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert all(h.keys() == set(adlar) for h in hs), "hakem satırı eksik"
+    kp = B / f"karar-t{tohum}.tsv"
+    kr = {(a, b): c for a, b, c in (s.split("\t") for s in kp.read_text(encoding="utf-8").splitlines())} if kp.exists() else {}
+    y = []
+    for ad in adlar:
+        for a in alan:
+            k = {hs[0][ad][a], hs[1][ad][a]}
+            v = k.pop() if len(k) == 1 else kr.get((ad, a), "AYRI")
+            if v != "D":
+                y.append((ad, a, v))
+                print(v, ad, a, hs[0][ad].get("gerekce", {}).get(a, ""), hs[1][ad].get("gerekce", {}).get(a, ""), sep="\t")
+    n = len(adlar) * len(alan)
+    print(f"tohum {tohum} · alan {n} · Y {sum(v == 'Y' for *_, v in y)} · AYRI {sum(v == 'AYRI' for *_, v in y)} · doğru %{100 * (n - len(y)) / n:.1f}")
+
+
 if __name__ == "__main__":
-    {"hazirla": hazirla, "birlestir": birlestir}[sys.argv[1]]()
+    {"hazirla": hazirla, "a2": a2, "birlestir": birlestir, "kapi": lambda: kapi(sys.argv[2]), "puan": lambda: puan(sys.argv[2])}[sys.argv[1]]()

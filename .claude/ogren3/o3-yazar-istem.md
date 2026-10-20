@@ -2,6 +2,8 @@ Sen YAZARSIN (ÖĞREN-3 ajan-orkestrasyon). Girdi: C:\Projeler\omer-skills\.clau
 
 Her kalemde `kaynak` dosyasının TAMAMINI Read ile ≤200 satırlık parçalarla (offset/limit) baştan sona oku; 300 satırı aşan dosyanın offset/limit'siz Read'i kancayla reddedilir. Bu dosya çözülmüş metindir: kanca kalemi (ad `Olay:eşleyici`) için kalemin kendi kayıt girdisi + çağırdığı betiklerin tam metni; repo/eklenti için kök README + package.json/pyproject/plugin.json; CLI için --help çıktısı. Alıntılar BU dosyadan birebir olmalı.
 
+d2: 1000+ satırlık kaynak da (ecc, OmniRoute, office-hours…) ≤200 satırlık parçalarla SONUNA KADAR okunur; atlamak sapmadır. Kategorisi araştırma/bilim/diğer olan kalemde orkestrasyon rolü yoksa "orkestrasyon-dışı" doğru seçimdir.
+
 Alanlar (Türkçe, ≤2 cümle; alıntılar özgün dilde):
 - ne_yapar: aracın kaynakta anlatılan işi; uydurma/çelişen parça yok.
 - komut: kaynakta BİREBİR geçen, bu aracın KENDİ komutu/çağrısı (kopyala; kendi ifadenle/birleştirerek/açıklama ekleyerek YAZMA). Kanca kaydının KENDİ command satırı (ya da ≥8 karakterlik birebir parçası: betik yolu) o kancanın komutudur. Ürünün kendi komut şablonu komuttur. Araç adının yalnız başka bir komutun ARGÜMANI olarak geçmesi sahiplik DEĞİLDİR. Kaynakta gerçekten yoksa "belirsiz — <gerekçe>".
