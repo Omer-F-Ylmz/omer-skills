@@ -12,11 +12,51 @@ KOK = Path(r"C:\Projeler\omer-skills")
 K = KOK / ".kos/kopru"
 KUYRUK, DUR, CIKTI, ISKAYDI = K / "ajan-sira.tsv", K / "ajan-sira.dur", K / "ajan-sira", K / "is-kaydi.tsv"
 CLAUDE = r"C:\Users\pc\.local\bin\claude.exe"
-ESIK, TAVAN, ARA, SURE = 88, 9, 90, 10800
+ESIK, TAVAN, ARA, SURE = 82, 3, 90, 10800
+TAVAN_DOSYA = K / "ajan-sira.tavan"  # Desktop 20 Eki 12:15 (Ömer: haftalık %7, token düşsün): tavan dosyadan, varsayılan 3  # Desktop 14 Eki 19:45: 88'de başlatılan işle RAM %89'a çıktı (sınır %90, yeni iş ≥%85 yok)
 sys.path.insert(0, str(KOK / "tools"))
 import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTut deny); CC_PROFIL_ZORLA=tam geri alır
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
+MODELLER = ("opus", "sonnet", "haiku")
+
+
+ESIK_DOSYA = K / "ajan-sira.esik"  # Desktop 20 Eki 13:02 (Ömer: RAM %88-90'a kadar çıkabilir): eşik dosyadan, varsayılan 88
+
+
+def esik():
+    try:
+        return min(89, max(60, int(ESIK_DOSYA.read_text(encoding="utf-8").split()[0])))
+    except (OSError, ValueError, IndexError):
+        return 88
+
+
+def tavan():
+    try:
+        return max(1, int(TAVAN_DOSYA.read_text(encoding="utf-8").split()[0]))
+    except (OSError, ValueError, IndexError):
+        return TAVAN
+
+
+def pid_canli(pid):
+    h = ctypes.windll.kernel32.OpenProcess(0x1000, False, int(pid))
+    if not h:
+        return False
+    kod = ctypes.c_ulong()
+    ok = ctypes.windll.kernel32.GetExitCodeProcess(h, ctypes.byref(kod))
+    ctypes.windll.kernel32.CloseHandle(h)
+    return bool(ok) and kod.value == 259
+
+
+def dis_calisan(bilinen):
+    n = 0
+    for f in CIKTI.glob("*.basladi"):
+        if f.stem in bilinen:
+            continue
+        p = f.read_text(encoding="utf-8", errors="replace").split()
+        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]):
+            n += 1
+    return n
 
 
 class MEM(ctypes.Structure):
@@ -40,18 +80,43 @@ def kuyruk():
     for satir in KUYRUK.read_text(encoding="utf-8").splitlines():
         p = satir.split("\t")
         if len(p) >= 2 and not satir.startswith("#"):
-            efor = p[3].strip().removeprefix("efor=") if len(p) > 3 else ""
-            if efor not in ("", "medium", "high"):
-                raise ValueError(f"geçersiz efor: {satir!r}")
-            s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor))
+            ek = dict(x.strip().split("=", 1) for x in p[3:] if "=" in x)
+            efor, model = ek.get("efor", ""), ek.get("model", "opus")
+            if efor not in ("", "medium", "high") or model not in MODELLER:
+                raise ValueError(f"geçersiz efor/model: {satir!r}")
+            s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor, model))
     return s
 
 
-def baslat_argv(efor):
-    """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1)."""
+def baslat_argv(efor, model="opus"):
+    """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
+    20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus."""
+    argv = [model if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
+    env = taze_env()
     if not efor:
-        return ARGV, None
-    return [*ARGV, "--effort", efor], {k: v for k, v in os.environ.items() if k != "CLAUDE_CODE_EFFORT_LEVEL"}
+        return argv, env
+    env.pop("CLAUDE_CODE_EFFORT_LEVEL", None)
+    return [*argv, "--effort", efor], env
+
+
+def taze_env():
+    """Desktop 20 Eki 13:48: kullanıcı ortam değişkenleri (anahtar yenileme vb.) her başlatmada kayıt defterinden tazelenir; PATH/TEMP dokunulmaz."""
+    import winreg
+    env = dict(os.environ)
+    try:
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as k:
+            i = 0
+            while True:
+                try:
+                    ad, deger, tur = winreg.EnumValue(k, i)
+                except OSError:
+                    break
+                i += 1
+                if ad.upper() not in ("PATH", "TEMP", "TMP") and isinstance(deger, str):
+                    env[ad] = os.path.expandvars(deger) if tur == winreg.REG_EXPAND_SZ else deger
+    except OSError:
+        pass
+    return env
 
 
 def is_kaydi(ad, rc, dk, efor):
@@ -89,7 +154,7 @@ def main():
     calisan, baslayan, son = {}, set(), 0.0
     for f in CIKTI.glob("*.basladi"):
         baslayan.add(f.stem)
-    log(f"başladı · tavan {TAVAN} · RAM eşiği %{ESIK} · önceden başlamış {sorted(baslayan)}")
+    log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     while True:
         for ad, (p, t0, fo, ef) in list(calisan.items()):
             if p.poll() is not None or time.time() - t0 > SURE:
@@ -101,26 +166,32 @@ def main():
                 is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef)
                 del calisan[ad]
         bekleyen = [x for x in kuyruk() if x[0] not in baslayan]
-        if not bekleyen and not calisan:
+        dis = dis_calisan(set(calisan))
+        if not bekleyen and not calisan and not dis:
             log("kuyruk boş, çıkış")
             return
         r = ram()
-        if not DUR.exists() and len(calisan) < TAVAN and r < ESIK and time.time() - son >= ARA:
-            for ad, istem, kosul, efor in bekleyen:
+        if not DUR.exists() and len(calisan) + dis < tavan() and r < esik() and time.time() - son >= ARA:
+            for ad, istem, kosul, efor, model in bekleyen:
                 if not kosul_tamam(kosul):
                     continue
-                metin = (KOK / istem).read_text(encoding="utf-8") + "\n\n[bütçe] En fazla 60 tur kullan."
+                metin = (KOK / istem).read_text(encoding="utf-8")
+                try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
+                    sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
+                except Exception:
+                    pass
+                metin += "\n\n[bütçe] En fazla 60 tur kullan."
                 fo = open(CIKTI / f"{ad}.json", "w", encoding="utf-8")
-                argv, env = baslat_argv(efor)
+                argv, env = baslat_argv(efor, model)
                 p = subprocess.Popen(argv, cwd=str(KOK), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
                 p.stdin.close()
                 calisan[ad] = (p, time.time(), fo, efor)
                 baslayan.add(ad)
-                (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S"), encoding="utf-8")
+                (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S") + f" pid {p.pid}", encoding="utf-8")
                 son = time.time()
-                log("BAŞLAT", ad, "pid", p.pid, f"RAM %{r}", "çalışan", len(calisan))
+                log("BAŞLAT", ad, model, efor or "-", "pid", p.pid, f"RAM %{r}", "çalışan", len(calisan) + dis)
                 break
         time.sleep(30)
 

@@ -9,6 +9,7 @@ import math
 import os
 import re
 import sqlite3
+import time
 import sys
 from pathlib import Path
 
@@ -277,6 +278,13 @@ def main(argv=None):
             gorulen.add((x[0], x[1]))
             sonuc.append(x)
     ns.butce = (ns.butce or 200 * ns.k) * len(parcalar)
+    try:  # MAKARA ölçüsü: kasadan cevaplanan soru oranı (ts<TAB>sonuç sayısı)
+        g = Path(__file__).resolve().parents[1] / ".kos/makara/ara.log"
+        g.parent.mkdir(parents=True, exist_ok=True)
+        with g.open("a", encoding="utf-8") as f:
+            f.write(f"{time.time()}\t{len(sonuc)}\n")
+    except OSError:
+        pass
     if not sonuc:
         print("sonuç yok")
     for metin in sigdir(sonuc, ns.butce or 200 * ns.k):
