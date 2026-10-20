@@ -25,3 +25,11 @@ SIRA: TERS-1 d2 (kapı bekliyor)
 - Bulut çağrı 39/60, Haiku 12/30. Skill zip/departman/SIRA kapanışı YAPILMADI (kapı geçmedi/bitmedi).
 - Öneri: hedefler.json dotnet kayıtlarına `derlenmis` ekle, kota sıfırlanınca (OpenRouter 00:00 UTC) tam koşu; skill kolu şu an zemini geçmiyor → SKILL.md kanıt bölümü gözden geçirilmeli.
 SIRA: TERS-1 d3 (kapı geçmedi/bitmedi)
+
+## d4 (20 Eki, kapanış denemesi)
+- Düzeltme: `hedefler.json` dotnet kayıtlarına `derlenmis` eklendi; `kapi_kos.py` döngü gövdesi `hedef_kos()`'a alındı, hedef hatası koşuyu çökertmez (`hatalar` + atlanan) · test `tools/tests/test_ters_kapi_kos.py` 2/2. Zincir `ucretsiz_havuz` (1 hedef kuru deneme çalıştı). SKILL.md'ye "Kanıt satırı kuralı" (birebir alıntı) eklendi.
+- KAPI GEÇMEDİ (tam koşu, 43/60 bulut çağrı, Haiku 0): skill 0.534 · zemin 0.527 (eşik ≥0.92). 2/10 hedef ATLANDI (gecis, Fiyat.Tests: model/tavan).
+- Ölçülen kayıp sınıfları: (1) yazar fiilen ministral-8b (19/21 not; nvidia gpt-oss-20b 2) — zayıf yazar; (2) kanıt (alıntı birebir bulunur): skill 0.47 < zemin 0.70, yani kanıt eki alıntı tutarlılığını artırmadı; (3) mekanizma: skill 0.48, zemin 0.35; dotnet Fiyat skill 0.0/0.0; kamera-yolu skill 0.40/0.00; (4) atlanan hedef kuralı: 2 atlama tek başına kapıyı geçirmez.
+- Neden kanıtı yok: yazar/hakem model gücü ile skill etkisi ayrışmıyor (fark skill−zemin +0.007, tek koşu). Kapanış (zip/departman/SIRA kapanışı) YAPILMADI.
+- Öneri: yazar zincirinde ministral-8b yerine daha güçlü model (kota açılınca openrouter nemotron/gemma-4 ya da Haiku tavanı) ve atlanan 2 hedefi yeniden koşmak; eşik 0.92 bu zincirle ulaşılabilir görünmüyor — Ömer kararı.
+SIRA: TERS-1 d4 (kapı geçmedi)

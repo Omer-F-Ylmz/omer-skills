@@ -1,0 +1,557 @@
+{
+  "hedefler": [
+    {
+      "id": 1,
+      "ad": "parcacik",
+      "tur": "site",
+      "yol": "C:/Projeler/omer-skills/labs/parcacik/index.html",
+      "sayfa": "/parcacik/index.html",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/parcacik/index.html",
+        "C:/Projeler/omer-skills/labs/ortak.js",
+        "C:/Projeler/omer-skills/labs/ortak.css",
+        "C:/Projeler/omer-skills/labs/package.json",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/parcacik.js",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/kademe.js"
+      ],
+      "sorular": "GPGPU buhar parcacik sahnesi nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Sahne three.js 0.186.1 ile kurulu (node_modules surumu).",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/node_modules/three/package.json",
+            "satir": 3,
+            "alinti": "\"version\": \"0.186.1\","
+          }
+        },
+        {
+          "madde": "Parcacik konumlari n x n konum dokusunda tutulur ve three/addons GPUComputationRenderer ile GPU'da hesaplanir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/parcacik.js",
+            "satir": 31,
+            "alinti": "const g = new GPUComputationRenderer(n, n, r);"
+          }
+        },
+        {
+          "madde": "Omru dolan parcacik (p.w > omur) kaynak noktasi cevresinde rastgele yeniden dogar, p.w sifirlanir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/parcacik.js",
+            "satir": 16,
+            "alinti": "if (p.w > omur(uv)) p = vec4(kaynak + vec3(h(uv + t) - .5, 0., h(uv - t) - .5) * .45, 0.);"
+          }
+        },
+        {
+          "madde": "Cizim Points ile, depthWrite kapali ve additive blending ile yapilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/parcacik.js",
+            "satir": 52,
+            "alinti": "depthWrite: false, blending: T.AdditiveBlending,"
+          }
+        },
+        {
+          "madde": "Adim suresi dt en fazla 0.05 sn ile sinirlanir (sekme donmasinda patlama olmasin).",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/parcacik.js",
+            "satir": 60,
+            "alinti": "v.material.uniforms.dt.value = Math.min(dt, 0.05);"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ad": "kamera-yolu",
+      "tur": "site",
+      "yol": "C:/Projeler/omer-skills/labs/kamera-yolu/index.html",
+      "sayfa": "/kamera-yolu/index.html",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/kamera-yolu/index.html",
+        "C:/Projeler/omer-skills/labs/ortak.js",
+        "C:/Projeler/omer-skills/labs/package.json",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/kamera-yolu.js",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/dongu.js"
+      ],
+      "sorular": "Scroll ile surulen kamera yolu nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Konum ve bakis hedefi icin ikiser CatmullRomCurve3 egrisi, 'centripetal' tipinde, acik uclu kurulur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/kamera-yolu.js",
+            "satir": 5,
+            "alinti": "new CatmullRomCurve3(d.map((v) => new Vector3(...v)), false, 'centripetal')"
+          }
+        },
+        {
+          "madde": "t (0..1) egrinin yay uzunluguna gore sabit hizli getPointAt ile kamera konumuna yazilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/kamera-yolu.js",
+            "satir": 10,
+            "alinti": "yol.getPointAt(t, kam.position);"
+          }
+        },
+        {
+          "madde": "Sayfa kaydirmasi, o.t'yi 0'dan 1'e ease 'none' ile suren bir GSAP tween'ine ScrollTrigger ile baglanir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/kamera-yolu/index.html",
+            "satir": 24,
+            "alinti": "gsap.to(o, { t: 1, ease: 'none', onUpdate: iste, scrollTrigger: kosu() });"
+          }
+        },
+        {
+          "madde": "ScrollTrigger tum sayfa boyunca (top top - bottom bottom) calisir ve scrub: 1 ile 1 sn yumusatilir (gsap 3.15.0).",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/ortak.js",
+            "satir": 87,
+            "alinti": "start: 'top top', end: 'bottom bottom', scrub: 1"
+          }
+        },
+        {
+          "madde": "Kaydirma Lenis 1.3.26 ile yumusatilir; Lenis ve ScrollTrigger tek GSAP ticker saatiyle surulur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/node_modules/lenis/package.json",
+            "satir": 3,
+            "alinti": "\"version\": \"1.3.26\","
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "ad": "post",
+      "tur": "site",
+      "yol": "C:/Projeler/omer-skills/labs/post/index.html",
+      "sayfa": "/post/index.html",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/post/index.html",
+        "C:/Projeler/omer-skills/labs/ortak.js",
+        "C:/Projeler/omer-skills/labs/package.json",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/post.js"
+      ],
+      "sorular": "Post-processing yigini (DoF, bloom, kromatik, gren) nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Efektler pmndrs postprocessing 6.39.5 kutuphanesiyle kurulur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/node_modules/postprocessing/package.json",
+            "satir": 3,
+            "alinti": "\"version\": \"6.39.5\","
+          }
+        },
+        {
+          "madde": "Ilk EffectPass DoF + bloom'u, ikinci EffectPass kromatik, gren, vinyet ve tonlamayi birlestirir (iki konvolusyon tek gecise sigmaz).",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/post.js",
+            "satir": 24,
+            "alinti": "c.addPass(new EffectPass(kam, kromatik, gren, vinyet, ton));"
+          }
+        },
+        {
+          "madde": "Bloom: intensity 1.4, luminanceThreshold 0.7, luminanceSmoothing 0.2, mipmapBlur acik.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/post.js",
+            "satir": 12,
+            "alinti": "intensity: 1.4, luminanceThreshold: 0.7, luminanceSmoothing: 0.2, mipmapBlur: true"
+          }
+        },
+        {
+          "madde": "DepthOfFieldEffect: worldFocusRange 2.5, bokehScale 4, resolutionScale 0.5.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/post.js",
+            "satir": 19,
+            "alinti": "worldFocusRange: 2.5, bokehScale: 4, resolutionScale: 0.5"
+          }
+        },
+        {
+          "madde": "Rack focus: dof.target her karede cezve noktasindan fincan konumuna p ile lerpVectors yapilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/post/index.html",
+            "satir": 24,
+            "alinti": "if (dof) dof.target.lerpVectors(a, b, p);"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "ad": "gecis",
+      "tur": "site",
+      "yol": "C:/Projeler/omer-skills/labs/gecis/index.html",
+      "sayfa": "/gecis/index.html",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/gecis/index.html",
+        "C:/Projeler/omer-skills/labs/ortak.js",
+        "C:/Projeler/omer-skills/labs/package.json",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/gecis.js"
+      ],
+      "sorular": "Iki sahne arasindaki portal gecisi nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Sahne A ve B, HalfFloatType render target'lara ayri ayri cizilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/gecis.js",
+            "satir": 44,
+            "alinti": "const ra = new T.WebGLRenderTarget(1, 1, { type: T.HalfFloatType });"
+          }
+        },
+        {
+          "madde": "Yirtik kenar icin 5 oktavli fbm gurultusu kullanilir (her oktavda frekans 2x, genlik yarim).",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/gecis.js",
+            "satir": 9,
+            "alinti": "for (int i = 0; i < 5; i++){ s += k * n(p); p *= 2.; k *= .5; }"
+          }
+        },
+        {
+          "madde": "A/B karisimi, gurultulu mesafe g ile esik e arasinda smoothstep maskesi m ile yapilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/gecis.js",
+            "satir": 17,
+            "alinti": "float m = smoothstep(g - .015, g + .015, e);"
+          }
+        },
+        {
+          "madde": "t<=0 veya t>=1'de RT kullanilmaz, dogrudan tek sahne cizilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/gecis.js",
+            "satir": 55,
+            "alinti": "if (t <= 0 || t >= 1) return bas(t <= 0 ? sA : sB, t <= 0 ? kA : kB, null);"
+          }
+        },
+        {
+          "madde": "Gecis GSAP timeline'inda 'portal' etiketinde 2.8 sn, t lineer (ease 'none'), A kamerasi power2.in ile ilerler.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/gecis/index.html",
+            "satir": 28,
+            "alinti": ".to(o, { t: 1, duration: 2.8, ease: 'none' }, 'portal')"
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "ad": "metin",
+      "tur": "site",
+      "yol": "C:/Projeler/omer-skills/labs/metin/index.html",
+      "sayfa": "/metin/index.html",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/metin/index.html",
+        "C:/Projeler/omer-skills/labs/ortak.js",
+        "C:/Projeler/omer-skills/labs/package.json",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/metin.js"
+      ],
+      "sorular": "SplitText maskeli metin girisi ve dev tip paralaksi nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Metin animasyonu GSAP 3.15.0 ve onun SplitText eklentisiyle yapilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/node_modules/gsap/package.json",
+            "satir": 3,
+            "alinti": "\"version\": \"3.15.0\","
+          }
+        },
+        {
+          "madde": "SplitText satirlari maskeler (mask: 'lines'); harfler satir maskesinin altindan yukselir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/metin.js",
+            "satir": 11,
+            "alinti": "mask: 'lines',"
+          }
+        },
+        {
+          "madde": "autoSplit acik: font/boyut degisince metin yeniden bolunur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/metin.js",
+            "satir": 12,
+            "alinti": "autoSplit: true,"
+          }
+        },
+        {
+          "madde": "Harfler yPercent 110'dan, 1.1 sn, expo.out easing ve 0.012 sn stagger ile girer.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/metin.js",
+            "satir": 15,
+            "alinti": "yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: 0.012,"
+          }
+        },
+        {
+          "madde": "Dev 'KOPUK' tipi kaydirmada yPercent -35 ile ters yonde kayarak paralaks katmani olur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/metin/index.html",
+            "satir": 33,
+            "alinti": "gsap.to('.dev', { yPercent: -35, ease: 'none', scrollTrigger: kosu() });"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "ad": "yukleyici",
+      "tur": "site",
+      "yol": "C:/Projeler/omer-skills/labs/yukleyici/index.html",
+      "sayfa": "/yukleyici/index.html",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/labs/yukleyici/index.html",
+        "C:/Projeler/omer-skills/labs/ortak.js",
+        "C:/Projeler/omer-skills/labs/package.json",
+        "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/yukleyici.js"
+      ],
+      "sorular": "Yukleme sayaci ve perde giris koreografisi nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Sayac ilerlemesi three LoadingManager.onProgress'ten (n/top)*99 olarak beslenir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/yukleyici.js",
+            "satir": 23,
+            "alinti": "m.onProgress = (_, n, top) => ilerle((n / top) * 99);"
+          }
+        },
+        {
+          "madde": "onLoad'da sayac 100'e en az 0.5 sn, varsayilan enAz=2 sn toplam sureyle tamamlanir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/tools/site-kit/sablon/src/sahne/yukleyici.js",
+            "satir": 24,
+            "alinti": "m.onLoad = () => ilerle(100, Math.max(0.5, enAz - (performance.now() - t0) / 1000));"
+          }
+        },
+        {
+          "madde": "Giris koreografisi GSAP 3.15.0 timeline'i ve SplitText ile kurulur.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/node_modules/gsap/package.json",
+            "satir": 3,
+            "alinti": "\"version\": \"3.15.0\","
+          }
+        },
+        {
+          "madde": "SVG perde yolu 1.5 sn, expo.inOut easing ile acilir; her karede perdeCiz sinus dalgasi cizer.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/yukleyici/index.html",
+            "satir": 49,
+            "alinti": ".to(pd, { k: 1, duration: 1.5, ease: 'expo.inOut', onUpdate: perdeCiz }, '<0.2')"
+          }
+        },
+        {
+          "madde": "Gercek baytlar THREE.FileLoader'a yoneticinin verilmesiyle sayilir (kendi kutuphane dosyalari yuklenir).",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/labs/yukleyici/index.html",
+            "satir": 56,
+            "alinti": "const fl = new THREE.FileLoader(m);"
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "ad": "ink-puppet",
+      "tur": "js",
+      "yol": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-puppet.js",
+      "kaynaklar": [
+        "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-puppet.js"
+      ],
+      "sorular": "Ink Puppet cubuk adam mocap oynatici nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Figur SVG ile, createElementNS kullanilan SVG isim alaninda uzuv path'leri ve bas circle'i olarak cizilir.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-puppet.js",
+            "satir": 21,
+            "alinti": "var NS = \"http://www.w3.org/2000/svg\";"
+          }
+        },
+        {
+          "madde": "Varsayilan durus STAND sabit eklem koordinatlari tablosudur (hips, chest, neck, head ... ).",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-puppet.js",
+            "satir": 27,
+            "alinti": "hips: [0, 0], chest: [0, -88], neck: [0, -150], head: [0, -182],"
+          }
+        },
+        {
+          "madde": "drawIn her parcayi strokeDashoffset'i uzunluktan 0'a GSAP power1.inOut ile (varsayilan each 0.55 sn) kaydirarak cizer.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-puppet.js",
+            "satir": 63,
+            "alinti": "tl.to(e, { strokeDashoffset: 0, duration: each, ease: \"power1.inOut\" }, t0 + i * each * 0.6);"
+          }
+        },
+        {
+          "madde": "Klipler window.INK_CLIPS'ten (clips.js) okunur; bilinmeyen klip adi uyari verip sureyi bekler.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-puppet.js",
+            "satir": 79,
+            "alinti": "var CLIPS = root.INK_CLIPS || {};"
+          }
+        },
+        {
+          "madde": "Kare indeksi yerel zaman x fps'ten bulunur; loop kapali degilse kare sayisina gore mod alinarak klip dongulenir.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-puppet.js",
+            "satir": 92,
+            "alinti": "idx = seg.loop === false ? Math.min(idx, clip.frames.length - 1) : idx % clip.frames.length;"
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "ad": "markdown-table",
+      "tur": "js",
+      "yol": "C:/Projeler/uygulamalar/colibri/web/src/lib/markdown-table.ts",
+      "kaynaklar": [
+        "C:/Projeler/uygulamalar/colibri/web/src/lib/markdown-table.ts"
+      ],
+      "sorular": "GFM pipe tablosu ayristirici nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "splitRow bastaki ve sondaki dis boru karakterini bolmeden once soyar.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/markdown-table.ts",
+            "satir": 24,
+            "alinti": "if (text.startsWith(\"|\")) text = text.slice(1)"
+          }
+        },
+        {
+          "madde": "Ters egik cizgiyle kacirilmis boru hucre icerigi sayilir; karakter karakter taramada '|' olarak eklenir.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/markdown-table.ts",
+            "satir": 30,
+            "alinti": "{ cell += \"|\"; at++; continue }"
+          }
+        },
+        {
+          "madde": "Ayirici satir, her hucrenin tire dizisi (iki uca iki nokta ust uste olabilir) olmasini regex ile dogrular.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/markdown-table.ts",
+            "satir": 48,
+            "alinti": "const match = /^(:?)-+(:?)$/.exec(part)"
+          }
+        },
+        {
+          "madde": "Hizalama iki ucta iki nokta ise center, sagda right, solda left, yoksa null olur.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/markdown-table.ts",
+            "satir": 52,
+            "alinti": "out.push(left && right ? \"center\" : right ? \"right\" : left ? \"left\" : null)"
+          }
+        },
+        {
+          "madde": "Kisa satirlar baslik genisligine bos hucreyle tamamlanir; uzun satirlar fazla hucrelerini korur.",
+          "kanit": {
+            "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/markdown-table.ts",
+            "satir": 79,
+            "alinti": "while (row.length < head.length) row.push(\"\")"
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "ad": "Fiyat",
+      "tur": "dotnet",
+      "yol": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/Class1.cs",
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/bin/Debug/net10.0/Fiyat.dll"
+      ],
+      "sorular": "Fiyat kutuphanesi (Hesap) nasil calisiyor?",
+      "maddeler": [
+        {
+          "madde": "Fiyat ad alaninda statik Hesap sinifi var.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/Class1.cs",
+            "satir": 3,
+            "alinti": "public static class Hesap"
+          }
+        },
+        {
+          "madde": "Toplam(decimal tutar) negatif tutarda 'negatif' mesajli ArgumentException (parametre adi tutar) firlatir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/Class1.cs",
+            "satir": 7,
+            "alinti": "if (tutar < 0) throw new ArgumentException(\"negatif\", nameof(tutar));"
+          }
+        },
+        {
+          "madde": "Tutar 100'den buyukse (esit degil) %10 indirim (x0.9) uygulanir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/Class1.cs",
+            "satir": 8,
+            "alinti": "var indirimli = tutar > 100 ? tutar * 0.9m : tutar;"
+          }
+        },
+        {
+          "madde": "Indirimli tutar %20 KDV ile (x1.2) carpilip decimal olarak doner.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/Class1.cs",
+            "satir": 9,
+            "alinti": "return indirimli * 1.2m;"
+          }
+        },
+        {
+          "madde": "KargoUcretsiz(decimal) tutar 50'den buyukse (esit degil) true doner.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/Class1.cs",
+            "satir": 12,
+            "alinti": "public static bool KargoUcretsiz(decimal tutar) => tutar > 50;"
+          }
+        }
+      ],
+      "derlenmis": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat/bin/Debug/net10.0/Fiyat.dll"
+    },
+    {
+      "id": 10,
+      "ad": "Fiyat.Tests",
+      "tur": "dotnet",
+      "yol": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests",
+      "kaynaklar": [
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/Test1.cs",
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/MSTestSettings.cs",
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/Fiyat.Tests.csproj",
+        "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/bin/Debug/net10.0/Fiyat.Tests.dll"
+      ],
+      "sorular": "Fiyat.Tests test projesi nasil yapilmis?",
+      "maddeler": [
+        {
+          "madde": "Testler MSTest [TestClass] isaretli muhurlu (sealed) HesapTests sinifinda toplanir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/Test1.cs",
+            "satir": 5,
+            "alinti": "public sealed class HesapTests"
+          }
+        },
+        {
+          "madde": "Test cercevesi MSTest 4.0.2 paketidir.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/Fiyat.Tests.csproj",
+            "satir": 11,
+            "alinti": "<PackageReference Include=\"MSTest\" Version=\"4.0.2\" />"
+          }
+        },
+        {
+          "madde": "Assembly duzeyinde testler yontem seviyesinde paralel kosar.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/MSTestSettings.cs",
+            "satir": 1,
+            "alinti": "[assembly: Parallelize(Scope = ExecutionScope.MethodLevel)]"
+          }
+        },
+        {
+          "madde": "Negatif tutar testi Assert.ThrowsExactly<ArgumentException> ile tam tip eslesmesi arar.",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/Test1.cs",
+            "satir": 9,
+            "alinti": "Assert.ThrowsExactly<ArgumentException>(() => Hesap.Toplam(-1m))"
+          }
+        },
+        {
+          "madde": "Indirim+KDV testi 110 icin 118.8m bekler (110*0.9*1.2).",
+          "kanit": {
+            "dosya": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/Test1.cs",
+            "satir": 7,
+            "alinti": "Assert.AreEqual(118.8m, Hesap.Toplam(110m))"
+          }
+        }
+      ],
+      "derlenmis": "C:/Projeler/omer-skills/.kos/kopru/ogren/lab/test-qa/dn/Fiyat.Tests/bin/Debug/net10.0/Fiyat.Tests.dll"
+    }
+  ]
+}

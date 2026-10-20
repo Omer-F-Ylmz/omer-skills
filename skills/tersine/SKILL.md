@@ -28,5 +28,10 @@ REA kullanım sınırı: yalnız kurulu `rea` CLI / sabitli MCP, `npx …@latest
 - **Trace → tablo**: performans izinden frame-süre/long-task tablosu çıkarıp sadece tabloyu modele ver. Gerekçe: ham iz yüzbinlerce satır; tablo token'ı düşürür, eğri sayıya döner.
 - **Mutasyon testi**: bulunan mekanizmanın bir parametresini (süre, easing) değiştirip kendi örneğinde farkı ölç. Gerekçe: "anladım" iddiası ölçümle sınanır.
 
+## Kanıt satırı kuralı
+- Her mekanizma maddesi: tek olgu (ne yapılıyor · hangi değer/formül/sürüm) + dosya adı + kaynaktan birebir alıntı. Çıkarım ve öneri madde sayılmaz.
+- Alıntı kaynak metinden karakter karakter kopyalanır (yalnız boşluk farkı olabilir): backtick, ek tırnak, `...` kısaltması, yeniden biçimleme yok; uzunsa tek satır seç. Kaynakta (ham kod ya da prob/REA çıktısı) birebir bulunamayan alıntı kanıt değildir, madde yazılmaz.
+- Kütüphane/teknik adı yalnız veride geçiyorsa yazılır; veride olmayanı varsayma.
+
 ## Kapanış
 Not + kanıt satırları + fark sayısı; ≤15 satır rapor. Kapı: `docs/ters/kapi-tasarim.md`.

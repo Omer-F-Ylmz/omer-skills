@@ -1,0 +1,192 @@
+{
+ "satirlar": [
+  {
+   "id": 1,
+   "ad": "parcacik",
+   "tur": "site",
+   "kol": "skill",
+   "c1": 0.6,
+   "c2": 0.4,
+   "c3": 1.0,
+   "puan": 0.6666666666666666,
+   "iddia": 5
+  },
+  {
+   "id": 1,
+   "ad": "parcacik",
+   "tur": "site",
+   "kol": "zemin",
+   "c1": 0.4,
+   "c2": 1.0,
+   "c3": 1.0,
+   "puan": 0.7999999999999999,
+   "iddia": 5
+  },
+  {
+   "id": 2,
+   "ad": "kamera-yolu",
+   "tur": "site",
+   "kol": "skill",
+   "c1": 0.4,
+   "c2": 0.0,
+   "c3": 0,
+   "puan": 0.13333333333333333,
+   "iddia": 5
+  },
+  {
+   "id": 2,
+   "ad": "kamera-yolu",
+   "tur": "site",
+   "kol": "zemin",
+   "c1": 0.2,
+   "c2": 1.0,
+   "c3": 0,
+   "puan": 0.39999999999999997,
+   "iddia": 4
+  },
+  {
+   "id": 3,
+   "ad": "post",
+   "tur": "site",
+   "kol": "skill",
+   "c1": 0.4,
+   "c2": 0.6,
+   "c3": 1.0,
+   "puan": 0.6666666666666666,
+   "iddia": 5
+  },
+  {
+   "id": 3,
+   "ad": "post",
+   "tur": "site",
+   "kol": "zemin",
+   "c1": 0.0,
+   "c2": 0.8,
+   "c3": 0,
+   "puan": 0.26666666666666666,
+   "iddia": 5
+  },
+  {
+   "id": 5,
+   "ad": "metin",
+   "tur": "site",
+   "kol": "skill",
+   "c1": 0.8,
+   "c2": 0.0,
+   "c3": 0.6275466579861111,
+   "puan": 0.4758488859953704,
+   "iddia": 5
+  },
+  {
+   "id": 5,
+   "ad": "metin",
+   "tur": "site",
+   "kol": "zemin",
+   "c1": 0.2,
+   "c2": 1.0,
+   "c3": 0.5429524739583333,
+   "puan": 0.5809841579861111,
+   "iddia": 5
+  },
+  {
+   "id": 6,
+   "ad": "yukleyici",
+   "tur": "site",
+   "kol": "skill",
+   "c1": 0.4,
+   "c2": 0.8,
+   "c3": 1.0,
+   "puan": 0.7333333333333334,
+   "iddia": 5
+  },
+  {
+   "id": 6,
+   "ad": "yukleyici",
+   "tur": "site",
+   "kol": "zemin",
+   "c1": 0.2,
+   "c2": 0.2,
+   "c3": 1.0,
+   "puan": 0.4666666666666666,
+   "iddia": 5
+  },
+  {
+   "id": 7,
+   "ad": "ink-puppet",
+   "tur": "js",
+   "kol": "skill",
+   "c1": 0.4,
+   "c2": 1.0,
+   "c3": null,
+   "puan": 0.7,
+   "iddia": 3
+  },
+  {
+   "id": 7,
+   "ad": "ink-puppet",
+   "tur": "js",
+   "kol": "zemin",
+   "c1": 0.8,
+   "c2": 0.6,
+   "c3": null,
+   "puan": 0.7,
+   "iddia": 5
+  },
+  {
+   "id": 8,
+   "ad": "markdown-table",
+   "tur": "js",
+   "kol": "skill",
+   "c1": 0.8,
+   "c2": 1.0,
+   "c3": null,
+   "puan": 0.9,
+   "iddia": 4
+  },
+  {
+   "id": 8,
+   "ad": "markdown-table",
+   "tur": "js",
+   "kol": "zemin",
+   "c1": 1.0,
+   "c2": 0.0,
+   "c3": null,
+   "puan": 0.5,
+   "iddia": 5
+  },
+  {
+   "id": 9,
+   "ad": "Fiyat",
+   "tur": "dotnet",
+   "kol": "skill",
+   "c1": 0.0,
+   "c2": 0.0,
+   "c3": null,
+   "puan": 0.0,
+   "iddia": 5
+  },
+  {
+   "id": 9,
+   "ad": "Fiyat",
+   "tur": "dotnet",
+   "kol": "zemin",
+   "c1": 0.0,
+   "c2": 1.0,
+   "c3": null,
+   "puan": 0.5,
+   "iddia": 5
+  }
+ ],
+ "ort": {
+  "skill": 0.5344811107494213,
+  "zemin": 0.5267896864149305
+ },
+ "min_kanit_skill": 0.0,
+ "gecti": false,
+ "atlanan": [
+  "gecis",
+  "Fiyat.Tests"
+ ],
+ "hatalar": [],
+ "bulut_cagri": 43
+}

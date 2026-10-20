@@ -120,46 +120,52 @@ def hakem(h, notlar, rng):
     return {k: sum(v) / 5 for k, v in sonuc.items()}
 
 
+def hedef_kos(h, port, sat, atlanan):
+    d = CIKTI / h["ad"]; d.mkdir(exist_ok=True); rng = random.Random(h["id"])
+    corp_ham = ham(h, 10**6)
+    if h["tur"] == "site":
+        ram_bekle()
+        kanit = json.dumps(probe(f"http://127.0.0.1:{port}/labs{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
+    else: kanit = rea_kanit(h)
+    veri = {"zemin": ham(h), "skill": ham(h) + "\n\n### Kanıt (prob/REA)\n" + kanit}
+    notlar, html = {}, {}
+    for kol in ("skill", "zemin"): notlar[kol], html[kol] = notu_yaz(h, kol, veri[kol])
+    c1 = hakem(h, notlar, rng) if notlar["skill"] and notlar["zemin"] else None
+    if c1 is None: atlanan.append(h["ad"]); print("ATLANDI (model/tavan)", h["ad"], flush=True); return
+    for kol in ("skill", "zemin"):
+        korpus = nor(corp_ham + veri[kol]); bul = [nor(x.get("alinti", "")) in korpus and len(nor(x.get("alinti", ""))) > 3 for x in notlar[kol]]
+        c2 = sum(bul) / len(bul) if bul else 0.0; bil = [c1[kol], c2]
+        c3 = None
+        if h["tur"] == "site":
+            f = d / kol; f.mkdir(exist_ok=True)
+            if html[kol]:
+                ram_bekle(); (f / "yeniden.html").write_text(html[kol], encoding="utf-8")
+                try:
+                    probe((f / "yeniden.html").as_uri(), f / "p")
+                    c3 = 1 - min(1, sum(fark(d / "orijinal" / f"kare-{n}.png", f / "p" / f"kare-{n}.png") for n in (0, 50, 100)) / 3)
+                except Exception as e: print("yeniden hata", h["ad"], kol, type(e).__name__, flush=True)
+            if c3 is None: c3 = 0.0
+            bil.append(c3)
+        sat.append({"id": h["id"], "ad": h["ad"], "tur": h["tur"], "kol": kol, "c1": c1[kol], "c2": c2, "c3": c3, "puan": sum(bil) / len(bil), "iddia": len(notlar[kol])})
+        print(sat[-1], flush=True)
+
+
 def main():
     H = json.loads((DIZ / "hedefler.json").read_text(encoding="utf-8"))["hedefler"]
     if "--dene" in sys.argv: H = H[:1]
-    port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []; atlanan = []
+    port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []; atlanan = []; hatalar = []
     for h in H:
-        d = CIKTI / h["ad"]; d.mkdir(exist_ok=True); rng = random.Random(h["id"])
-        corp_ham = ham(h, 10**6)
-        if h["tur"] == "site":
-            ram_bekle()
-            kanit = json.dumps(probe(f"http://127.0.0.1:{port}/labs{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
-        else: kanit = rea_kanit(h)
-        veri = {"zemin": ham(h), "skill": ham(h) + "\n\n### Kanıt (prob/REA)\n" + kanit}
-        notlar, html = {}, {}
-        for kol in ("skill", "zemin"): notlar[kol], html[kol] = notu_yaz(h, kol, veri[kol])
-        c1 = hakem(h, notlar, rng) if notlar["skill"] and notlar["zemin"] else None
-        if c1 is None: atlanan.append(h["ad"]); print("ATLANDI (model/tavan)", h["ad"], flush=True); continue
-        for kol in ("skill", "zemin"):
-            korpus = nor(corp_ham + veri[kol]); bul = [nor(x.get("alinti", "")) in korpus and len(nor(x.get("alinti", ""))) > 3 for x in notlar[kol]]
-            c2 = sum(bul) / len(bul) if bul else 0.0; bil = [c1[kol], c2]
-            c3 = None
-            if h["tur"] == "site":
-                f = d / kol; f.mkdir(exist_ok=True)
-                if html[kol]:
-                    ram_bekle(); (f / "yeniden.html").write_text(html[kol], encoding="utf-8")
-                    try:
-                        probe((f / "yeniden.html").as_uri(), f / "p")
-                        c3 = 1 - min(1, sum(fark(d / "orijinal" / f"kare-{n}.png", f / "p" / f"kare-{n}.png") for n in (0, 50, 100)) / 3)
-                    except Exception as e: print("yeniden hata", h["ad"], kol, type(e).__name__, flush=True)
-                if c3 is None: c3 = 0.0
-                bil.append(c3)
-            sat.append({"id": h["id"], "ad": h["ad"], "tur": h["tur"], "kol": kol, "c1": c1[kol], "c2": c2, "c3": c3, "puan": sum(bil) / len(bil), "iddia": len(notlar[kol])})
-            print(sat[-1], flush=True)
+        try: hedef_kos(h, port, sat, atlanan)
+        except Exception as e:  # bir hedefin hatası koşuyu çökertmez; o hedef hata satırı olur
+            hatalar.append({"ad": h["ad"], "hata": f"{type(e).__name__}: {e}"}); atlanan.append(h["ad"]); print("hata", h["ad"], type(e).__name__, e, flush=True)
     ort = {k: sum(s["puan"] for s in sat if s["kol"] == k) / len([s for s in sat if s["kol"] == k]) for k in ("skill", "zemin")}
     mn2 = min(s["c2"] for s in sat if s["kol"] == "skill")
     gec = not atlanan and ort["skill"] >= 0.70 and mn2 >= 0.5 and ort["skill"] > ort["zemin"]
-    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, "ort": ort, "min_kanit_skill": mn2, "gecti": gec, "atlanan": atlanan,
+    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, "ort": ort, "min_kanit_skill": mn2, "gecti": gec, "atlanan": atlanan, "hatalar": hatalar,
         "bulut_cagri": json.loads((CIKTI / "sayac.json").read_text())["n"]}, ensure_ascii=False, indent=1), encoding="utf-8")
     t = ["# TERS kapısı sonucu (tek koşu)", "", "| hedef | tür | kol | mekanizma | kanıt | yeniden | puan |", "|---|---|---|---|---|---|---|"]
     t += [f"| {s['ad']} | {s['tur']} | {s['kol']} | {s['c1']:.2f} | {s['c2']:.2f} | {'-' if s['c3'] is None else format(s['c3'], '.2f')} | {s['puan']:.2f} |" for s in sat]
-    t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · skill min kanıt {mn2:.2f} · atlanan {len(atlanan)}/{len(H)} {atlanan} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
+    t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · skill min kanıt {mn2:.2f} · atlanan {len(atlanan)}/{len(H)} {atlanan} · hata {hatalar} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
     (DIZ / "sonuc.md").write_text("\n".join(t) + "\n", encoding="utf-8")
     print("ORT", ort, "min_kanit", mn2, "gecti", gec)
 
