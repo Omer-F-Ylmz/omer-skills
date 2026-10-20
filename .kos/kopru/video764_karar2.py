@@ -7,8 +7,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent)); import video764_kos as V  # noqa: E402
 
 H = V.HAVUZ; OG = V.R / ".kos/kopru/ogren"
-ALTIN = OG / "video-764-altin.json"; SAYAC = OG / "video-764-4-sayac.json"; TAHMIN = OG / "video-764-4-tahmin.json"
-TAVAN = {"claude": 120, "havuz": 200}
+ALTIN = OG / "video-764-altin.json"; V2 = OG / "video-764-v2.tsv"; SAYAC = OG / "video-764-4-sayac.json"; TAHMIN = OG / "video-764-4-tahmin.json"
+TAVAN = {"claude": 120, "havuz": 300}
 SINIF = ("AL", "UYARLA", "ÖĞREN", "ELE")
 TANIM = ("AL: metinde bir aracın/reponun ADI ve repo/linki açık, açık kaynak, doğrudan kurulur (çok nadir).\n"
          "UYARLA: metinde tek somut araç/repo/skill/MCP adı var; kurmadan önce lisans+kurulum raporu ya da uyarlama gerekir. AL'dan şüphe edersen UYARLA.\n"
@@ -23,6 +23,9 @@ ALTIN_B = ("Aşağıdaki videoları sırayla şu sorularla karara bağla (ilk 'e
            "Çıktı: YALNIZ JSON dizisi, öğe: {\"id\":..., \"karar\":\"AL|UYARLA|ÖĞREN|ELE\", \"gerekce\":\"≤150 karakter\", \"kanit\":\"özetten birebir tek cümle\"}.\n\n")
 UCUZ = ("Bir Claude Code + skill deposu sahibi için video özetlerini sınıflandır. Sınıflar:\n" + TANIM +
         "\n\nHer video için TEK satır, sekmeyle ayrılmış: id<TAB>KARAR<TAB>güven (yüksek|düşük)<TAB>neden (≤100 karakter). Başka metin yazma.\n\n")
+
+
+KUL = {"usd": 0.0, "tok": 0}  # bu süreçteki claude -p toplamı
 
 
 def sayac(k):
@@ -54,6 +57,8 @@ def claude(model, istem):
     p = subprocess.run(["claude", "-p", "--model", model, "--output-format", "json", "--max-turns", "1", "--tools", "", "--setting-sources", ""],
                        input=istem, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=300, creationflags=V.NW, cwd=V.O, env=env)
     j = json.loads(p.stdout); r = j.get("result") or ""
+    u = j.get("usage") or {}; KUL["usd"] += j.get("total_cost_usd") or 0
+    KUL["tok"] += sum(u.get(k) or 0 for k in ("input_tokens", "output_tokens", "cache_creation_input_tokens", "cache_read_input_tokens"))
     if j.get("is_error") or not r or (len(r) < 200 and re.search(r"(?i)usage limit|limit reached|resets? (at|in)", r)):
         raise RuntimeError("claude " + r[:100])
     return r
@@ -72,7 +77,12 @@ def havuz(prov, model, istem):
 
 VERICI = {"cf": lambda s: havuz("cloudflare", "@cf/meta/llama-3.3-70b-instruct-fp8-fast", s),
           "groq": lambda s: havuz("groq", "openai/gpt-oss-120b", s),
-          "haiku": lambda s: claude("haiku", s)}
+          "haiku": lambda s: claude("haiku", s),
+          "or-super": lambda s: havuz("openrouter", "nvidia/nemotron-3-super-120b-a12b:free", s),
+          "or-ultra": lambda s: havuz("openrouter", "nvidia/nemotron-3-ultra-550b-a55b:free", s),
+          "or-gemma": lambda s: havuz("openrouter", "google/gemma-4-31b-it:free", s),
+          "or-minimax": lambda s: havuz("openrouter", "minimax/minimax-m3.1-flash:free", s)}
+BEKLE = {"haiku": 0, "groq": 20, "or-super": 4, "or-ultra": 4, "or-gemma": 4, "or-minimax": 4}  # groq 7k TPM
 
 
 def json_oku(o):
@@ -146,11 +156,41 @@ def tutar():
     print("tutarlılık", 10 - len(fark), "/10", fark)
 
 
-def olc(v, ad, n=5):
+def kapi(n=15):
+    """held-out 30: tek-tek (altın kriter) + toplu iki koşu → uyum ≥29/30, tutarlılık ≥%93"""
+    ver("heldout", n=1, anahtar="sonnet/heldout"); ver("heldout", n=n, anahtar="sonnet-toplu1/heldout"); ver("heldout", n=n, anahtar="sonnet-toplu2/heldout")
+    t = tahmin_al(); g, a, b = (t[k] for k in ("sonnet/heldout", "sonnet-toplu1/heldout", "sonnet-toplu2/heldout"))
+    print("uyum", sum(g[i]["karar"] == a[i]["karar"] for i in g if i in a), "/30 ikinci", sum(g[i]["karar"] == b[i]["karar"] for i in g if i in b), "tutarlılık", sum(a[i]["karar"] == b[i]["karar"] for i in a if i in b), "/30")
+    print([(i, g[i]["karar"], a.get(i, {}).get("karar"), b.get(i, {}).get("karar")) for i in g if not g[i]["karar"] == a.get(i, {}).get("karar") == b.get(i, {}).get("karar")])
+
+
+def yeniden(n=15, cagri=None, ids=None):
+    """karar-v2'si olmayan her videoyu (Haiku ön-karar etiketli ya da yeni/ek-50) Sonnet toplu kipte karara bağlar; eski karar satırı korunur, V2'ye eklenir."""
+    cagri = cagri or (lambda s: claude("claude-sonnet-5-5", s))
+    yapilan = {ln.split("\t")[0] for ln in V2.read_text(encoding="utf-8").splitlines()} if V2.exists() else set()
+    bekle = [x for x in veri().values() if x["id"] not in yapilan and (not ids or x["id"] in ids)]
+    duz = lambda s: str(s).replace("\t", " ").replace("\n", " ")  # noqa: E731
+    for i in range(0, len(bekle), n):
+        b = bekle[i:i + n]; p = {o["id"]: o for o in json_oku(cagri(ALTIN_A + metin(b)))}
+        sat = [] if V2.exists() else ["id\tlink\tbaşlık\teski karar\tkarar-v2\tgerekçe\tkanıt\tetiket"]
+        for x in b:
+            o = p.get(x["id"])  # yanıtta eksik video yazılmaz → sonraki koşuda yeniden denenir
+            k = o and o.get("karar", "").upper().replace("OGREN", "ÖĞREN")
+            if k in SINIF:
+                sat.append("\t".join((x["id"], x["url"], duz(x["baslik"]), x["eski"][3] if x["eski"] else "", k, duz(o.get("gerekce", "")), duz(o.get("kanit", "")), "[karar-v2]")))
+        if sat:
+            with V2.open("a", encoding="utf-8", newline="\n") as f:
+                f.write("\n".join(sat) + "\n")
+        print("parti", i // n + 1, len(p), "/", len(b), f"$ {KUL['usd']:.2f} tok {KUL['tok']}", flush=True)
+
+
+def olc(v, ad, n=5, ilk=0):
     s = set_(ad); gold = tahmin_al()[f"sonnet/{ad}"]; p = {}
+    if ilk:
+        s = random.Random(5).sample(s, ilk)  # altın sette sınıf karışık rastgele alt küme
     for i in range(0, len(s), n):
-        p.update(tsv_oku(VERICI[v](UCUZ + metin(s[i:i + n])))); time.sleep(8 if v != "haiku" else 0)  # groq 7k TPM
-    tahmin_yaz(f"{v}/{ad}", p)
+        p.update(tsv_oku(VERICI[v](UCUZ + metin(s[i:i + n])))); time.sleep(BEKLE.get(v, 8))
+    tahmin_yaz(f"{v}/{ad}" + (f"-ilk{ilk}" if ilk else ""), p)
     ok = sum(1 for x in s if p.get(x["id"], {}).get("karar") == gold[x["id"]]["karar"])
     fark = [(x["id"], gold[x["id"]]["karar"], p.get(x["id"], {}).get("karar")) for x in s if p.get(x["id"], {}).get("karar") != gold[x["id"]]["karar"]]
     print(v, ad, f"{ok}/{len(s)}", "farklar", Counter((g, c) for _, g, c in fark))
@@ -158,4 +198,6 @@ def olc(v, ad, n=5):
 
 if __name__ == "__main__":
     a = sys.argv[1:]
-    {"altin": altin, "ver": lambda: ver(a[1]), "tutar": tutar, "olc": lambda: olc(a[1], a[2])}[a[0]]()
+    if a[:1] == ["ver"] and "--verici" in a:  # ver --verici sonnet --toplu N
+        assert a[a.index("--verici") + 1] == "sonnet"; sys.exit(yeniden(int(a[a.index("--toplu") + 1]) if "--toplu" in a else 15))
+    {"altin": altin, "ver": lambda: ver(a[1]), "tutar": tutar, "kapi": kapi, "olc": lambda: olc(a[1], a[2], ilk=int(a[3]) if len(a) > 3 else 0)}[a[0]]()
