@@ -101,6 +101,47 @@ def kapi3(a, b):
     return b["claude_is"] <= a["claude_is"] * 0.5 and b["agirlikli_token"] <= a["agirlikli_token"] * 0.6 and b["kalite"] >= a["kalite"]
 
 
+KABUL_BAYRAK = Path(__file__).resolve().parents[1] / ".kos/kopru/ajan-sira.ordu-kabul"  # onay/ordu_1.py kabul · --geri
+
+
+def norm(y):
+    """JSON dizgesi/çitli blok → nesne; dizge → boşluk daraltılmış, küçük harf, sondaki noktalama atılmış."""
+    if isinstance(y, str):
+        s = y.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        if s[:1] in "{[":
+            try:
+                return norm(json.loads(s))
+            except ValueError:
+                pass
+        return " ".join(s.lower().split()).rstrip(".")
+    if isinstance(y, dict):
+        return {str(k): norm(v) for k, v in y.items()}
+    return [norm(v) for v in y] if isinstance(y, list) else y
+
+
+def hakem(istem, a, b, aileler):
+    """Üçüncü ücretsiz aile: iki yanıt anlamca aynı mı (sayı/ad/tarih farkı → AYRI). Yanıt veren üçüncü aile yoksa None (ret sayılır)."""
+    import ucretsiz_havuz as h
+    for uc in sorted({e.aile for e in h.ENT} - set(aileler) - {"karma", "anthropic"}):
+        y, _, _ = h.cagir("ozet", f"İş:\n{istem}\n\nYanıt 1:\n{a}\n\nYanıt 2:\n{b}\n\nİki yanıt anlamca aynı mı (aynı sayılar, adlar, tarihler, karar)? Yalnız AYNI ya da AYRI yaz.", max_tokens=1500, aile=uc)
+        if y:
+            return y.strip().upper().startswith("AYNI")
+    return None
+
+
+def kabul(yanitlar, test=None, hakem_=None, gevsek=None):
+    """Orta işte iki aile yanıtı → kabul edilen (normalize) yanıt | None. Bayrak kapalı: birebir aynı. Açık: mekanik test varsa testi geçen;
+    yoksa normalize eşitlik, o da yoksa hakem_(a, b) (üçüncü aile) 'aynı' derse birinci yanıt."""
+    if not (KABUL_BAYRAK.exists() if gevsek is None else gevsek):
+        return yanitlar[0] if len(yanitlar) == 2 and yanitlar[0] is not None and yanitlar[0] == yanitlar[1] else None
+    ys = [norm(y) for y in yanitlar if y is not None]
+    if test:
+        return next((y for y in ys if test(y)), None)
+    if len(ys) == 2 and (ys[0] == ys[1] or (hakem_ and hakem_(*ys))):
+        return ys[0]
+    return None
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     al = lambda b, v: a[a.index(b) + 1] if b in a else v

@@ -73,3 +73,26 @@ def test_kapi3_uc_olcut_birlikte():
 
 def test_agirlik_model_sirasi():
     assert ordu.AGIRLIK["haiku"] < ordu.AGIRLIK["sonnet"] == 1 < ordu.AGIRLIK["opus"]
+
+
+def test_norm_json_dizgesi_ve_bicim():
+    assert ordu.norm('```json\n{"a": " X  y."}\n```') == {"a": "x y"}
+    assert ordu.norm('{"1":"a"}') == ordu.norm({"1": "a"})
+
+
+def test_kabul_bayrak_kapali_birebir_ayni():
+    assert ordu.kabul(["a", "a"], gevsek=False) == "a"
+    assert ordu.kabul(['{"1":"a"}', {"1": "a"}], hakem_=lambda a, b: True, gevsek=False) is None
+
+
+def test_kabul_gevsek_normalize_ve_hakem():
+    assert ordu.kabul(['{"1":"a"}', {"1": "a"}], gevsek=True) == {"1": "a"}
+    assert ordu.kabul(["bir şey.", "farklı"], gevsek=True) is None
+    assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: True, gevsek=True) == "bir şey"
+    assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: None, gevsek=True) is None
+    assert ordu.kabul(["x", None], hakem_=lambda a, b: True, gevsek=True) is None  # tek yanıt kabul olmaz
+
+
+def test_kabul_gevsek_test_varsa_testi_gecen():
+    assert ordu.kabul([{"1": "a"}, {"1": "b"}], test=lambda y: y == {"1": "b"}, gevsek=True) == {"1": "b"}
+    assert ordu.kabul([{"1": "a"}, {"1": "a"}], test=lambda y: False, gevsek=True) is None
