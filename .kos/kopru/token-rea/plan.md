@@ -183,3 +183,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. `onay/token_rea_mem2.py uygula` (Ömer onayı sonrası) + uçtan uca doğrula; anlamsal paraphrase sorgu seti (havuzla yeniden ifade) ile mem2 vs worker, gerekirse mem2→worker otomatik yedek.
 2. context-mode taban (4 eksen) + mekanizma.
 3. Sonra NotebookLM / mcp-memory (★ 19:30 sırası).
+
+## ★ d15 SONUÇ
+- (1) onay_mem2 net-sıfır önerisi (UYGULANMADI): sor2 ve mem2 yolları göreli (`.kos/...`) → yalnız omer-skills'te işe yarar; global CLAUDE.md'deki sor2 satırı (218 kr) repo CLAUDE.md ile ikilenmiş, omer-skills'te iki kez yükleniyor. Öneri: global'den sor2 satırını çıkar, mem2'yi global'e EKLEME, repo CLAUDE.md'de ikisini tek satırda birleştir (287 kr). Kr/3 ≈ jeton: bugün 436 kr (~145 tok) → 287 kr (~95 tok), −50; global −73 tok (tavan 1.3k korunur). `onay_mem2` olduğu gibi uygulanırsa 862 kr (+142 tok) → uygulanmamalı; betik hedefini yalnız repo dosyasına çevirip birleşik satırı yazacak, global sor2 satırı onay_sor2 geri alma yolundan çıkarılacak (sabah Ömer onayı).
+- (2) Paraphrase held-out (mem_para.py, tohum 20102501, 68 soru, havuz 7 çağrı, Claude 0): worker 0.00 (!), mem2 0.176, mem2→worker 0.176. Worker 0.00 sürüm farkı değil ARIZA: /api/search "Semantic search failed: chroma-mcp ... compactor backfill" hatası döndürüyor (kısa 1–2 sözcüklü sorgu anahtar yoluna düşüp çalışıyor, ≥3 sözcük Chroma'ya gidip düşüyor). Yani anlamsal yol şu an çalışmıyor; mem2 sözcüksel olarak anlamsal sorguda zayıf (0.18 vs anahtar-sözcük 0.93). Kural satırındaki "boş/yetersizse mem-search" tetikleyicisi boşa: mem2 OR sorgusu hiç boş dönmedi (bos_B 0.0). Yedek ancak Chroma onarılınca anlamlı.
+- (3) 7–15 aralığı: 15→7 ile düşen 8. –15. gözlemler için paraphrase isabeti mem2 0.125 (n=8, güvenilmez), anahtar-sözcükte 0.93 (d14). Yeni kanıt yok; 7'de kalmak ancak arama anahtar sözcükle yapılırsa güvenli.
+- (4) context-mode taban (Claude 0, eski MCP araçları bu oturumda çağrılamadı → performans/kalite ölçülemedi): SessionStart yönlendirme bloğu 4 603 kr ≈ 1.2–1.5k tok/oturum (hook enjeksiyonu 14.6k'nın bir parçası); her Read/Grep/Bash çağrısına PreToolUse ipucu (~60–130 tok) → 30 çağrılık oturumda ≈ 2–3k tok. Kazanç kolu (ctx_execute ile ham çıktıyı kum havuzunda tutma) yalnız etkileşimli CC'de ölçülebilir.
+
+## ★ d16 TASLAK
+1. Chroma/compactor arızasını teşhis (claude-mem worker logu) — worker anlamsal yolu çalışmadan mem2↔worker anlamsal kıyas geçersiz; sonra mem_para.py'yi aynı tohumla yeniden koş.
+2. mem2'ye anlamsal zayıflığa karşı çare: sorgu genişletme (havuz, önbellekli) ya da AND→OR sıralaması; kapı: paraphrase ≥0.5, anahtar-sözcük 0.93 korunur.
+3. Onay (Ömer): net-sıfır birleşik satır → `onay/token_rea_mem2.py` hedef revizyonu. context-mode tabanı etkileşimli CC oturumunda (ctx_stats, ctx_execute süresi).
