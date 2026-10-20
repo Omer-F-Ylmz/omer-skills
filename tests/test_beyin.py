@@ -81,3 +81,30 @@ def test_ara_uctan_uca(tmp_path):
     c.close()
     sonuc = beyin.ara("kapı eşiği kaç?", indeks=db)
     assert sonuc == [("kaynak.md", 3, ["boş satır", "Kapı eşiği %92 kararlı", "son"])]
+
+
+def test_bag_ve_komsu(tmp_path):
+    g = [("10-kararlar", "gorev-beyin-2", "g/beyin-2.md", "gorev", "# BEYIN-2\nKapi esigi %92 iki tohum".encode(), "d", "k")]
+    g += [("20-ogren", f"ogren-{i}", f"o/n{i}.md", "ogren", b"genel-ad", "d", "k") for i in range(4)]
+    g += [("20-ogren", "ogren-genel-ad", "o/genel-ad.md", "ogren", b"x", "d", "k")]
+    t = beyin_al.takma_adlar(g)
+    assert t == {"beyin-2": "gorev-beyin-2"}  # kısa (n0) ve genel (4 kaynakta geçen) elenir
+    kasa = tmp_path / "kasa"
+    beyin_al.kaynak_al(kasa, "10-kararlar", "gorev-beyin-2", "g/beyin-2.md", g[0][4].decode(), "d", "gorev", 0, tadlar=t)
+    beyin_al.kaynak_al(kasa, "20-ogren", "ogren-x", "x.md", "Kapı kararı beyin-2 ile verildi", "d", "ogren", 0, tadlar=t)
+    assert "Bağlar: [[gorev-beyin-2--1|beyin-2]]" in (kasa / "20-ogren/ogren-x--1.md").read_text(encoding="utf-8")
+    assert 'aliases: ["beyin-2"]' in (kasa / "10-kararlar/gorev-beyin-2--1.md").read_text(encoding="utf-8")
+    db = tmp_path / "i.sqlite"
+    c = sqlite3.connect(db)
+    c.executescript("""create table store_collections(name, path);
+        create table documents(id integer primary key, collection, path, active);
+        create virtual table documents_fts using fts5(filepath, title, body, tokenize='porter unicode61');""")
+    c.execute("insert into store_collections values ('beyin', ?)", (str(kasa),))
+    c.execute("insert into documents values (1, 'beyin', '20-ogren/ogren-x--1.md', 1)")
+    c.execute("insert into documents_fts(rowid, filepath, title, body) values (1, 'ogren-x--1', '', ?)",
+              ((kasa / "20-ogren/ogren-x--1.md").read_text(encoding="utf-8"),))
+    c.commit()
+    c.close()
+    sonuc = beyin.ara("kapı eşiği kaç?", indeks=db)
+    assert [s[0] for s in sonuc] == ["x.md", "g/beyin-2.md"]  # ikincisi FTS'de yok, bağ komşusu
+    assert beyin.varyantlar("kapı")[-1] == ["kapı"]

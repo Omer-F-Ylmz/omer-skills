@@ -17,6 +17,7 @@ ya da de bir bu şu o olan olarak neden nerede nereye kim ise gibi daha en çok 
 the a an of to is what which how""".split())
 TR = str.maketrans("ıİçÇğĞöÖşŞüÜâÂîÎ", "iiccggoossuuaaii")
 PENCERE = 400  # uzun satırda gösterilen karakter
+KOMSU = 3  # arama sonucuna eklenen en fazla wikilink komşusu
 # TR↔EN eş anlam (katlanmış kök → karşılık); kaynakların bir kısmı İngilizce (bellek, global CLAUDE.md)
 # shortcut: elle küçük liste, yeni ıska sınıfı çıktıkça genişlet
 ES = [("afis", "banner"), ("bayra", "flag"), ("esik", "threshold"), ("esig", "threshold"),
@@ -43,7 +44,9 @@ def varyantlar(soru):
     kok = list(dict.fromkeys(t[:4] if len(t) > 4 and t.isalpha() else t for t in ts))
     # 4.: eş anlamı olan TR terim yerine EN karşılığı (İngilizce kaynak BM25'te TR terimlerle boğulmasın)
     en = list(dict.fromkeys(e for t in ts for e in es(t)))
-    return [ts, kok, list(dict.fromkeys(ts + [e for t in ts for e in es(t)])), en]
+    # FTS unicode61 'ı'yı katlamaz (ş/ç/ğ katlanır): 'ı'lı soruda katlanmamış terimler de sorulur
+    ham = [w[:5] for w in re.findall(r"\w+", soru.lower()) if "ı" in w and w not in DUR]
+    return [ts, kok, list(dict.fromkeys(ts + [e for t in ts for e in es(t)])), en] + ([ham] if ham else [])
 
 
 def terimler(soru):
@@ -71,7 +74,7 @@ def pencere(satir, ts):
     return ("… " if b else "") + satir[b:b + PENCERE] + (" …" if b + PENCERE < len(satir) else "")
 
 
-def parca(yol, soru):
+def parca(yol, soru, esik=0):
     """Notta en iyi pencereler: en yüksek puanlı satır ±, puanı ≥ en iyi−1 olan en fazla 2 ek satır."""
     ts = terimler(soru)
     kav = [[t] + es(t) + [b for a, b in SATIR_ES if t.startswith(a)] for t in ts]
@@ -81,10 +84,10 @@ def parca(yol, soru):
         return None
     son = metin.index("---", 1)
     fm = dict(s.split(": ", 1) for s in metin[1:son] if ": " in s)
-    if fm.get("gecersiz") == "true":
+    if fm.get("gecersiz") == "true" or fm.get("tur") == "moc":
         return None
     govde = metin[son + 1:]
-    while govde and (not govde[-1].strip() or govde[-1].startswith("[[")):
+    while govde and (not govde[-1].strip() or govde[-1].startswith(("[[", "Bağlar:"))):
         govde.pop()
     if not govde:
         return None
@@ -92,6 +95,8 @@ def parca(yol, soru):
     puan = [sum(any(x in katla(s) for x in k) for k in kav) + (sayisal and bool(re.search(r"\d", s))) / 2
             for s in govde]
     sira = sorted(range(len(govde)), key=lambda j: (-puan[j], j))
+    if puan[sira[0]] < esik:
+        return None
     secim = [sira[0]] + [j for j in sira[1:3] if puan[j] > 0 and puan[j] >= puan[sira[0]] - 1]
     # ilk pencere i-1..i+2, ekler i..i+1; çakışan/bitişik birleşir; numara = en iyi isabet satırı
     araliklar = sorted([max(0, i - (n == 0)), min(len(govde), i + (3 if n == 0 else 2)), i]
@@ -124,15 +129,36 @@ def ara(soru, k=5, koleksiyon="beyin", indeks=INDEKS):
         (" OR ".join(f'"{t}"*' for t in v), koleksiyon, k * 3))] for v in vs]
     # sırayla birleştirme (RRF değil): azınlık varyantın (EN) birincisi de ilk k'ya girer
     sira = dict.fromkeys(y for grup in itertools.zip_longest(*listeler) for y in grup if y)
-    sonuc, n = [], 0
+    sonuc, secilen = [], []
     for yol in sira:
         p = parca(os.path.join(kok[0], yol), soru)
         if p:
             sonuc += p
-            n += 1
-        if n == k:
+            secilen.append(Path(kok[0], yol))
+        if len(secilen) == k:
             break
+    # 1 adım wikilink komşusu: seçilen notların "Bağlar:" hedefleri, soruyla ≥1 kavram eşleşirse
+    adlar = {p.stem.lower(): p for p in Path(kok[0]).rglob("*.md")}
+    gorulen = {str(p).lower() for p in secilen}
+    n = 0
+    for yol in secilen:
+        for ad in baglar(yol):
+            p = adlar.get(ad.lower())
+            if n == KOMSU or not p or str(p).lower() in gorulen:
+                continue
+            gorulen.add(str(p).lower())
+            r = parca(p, soru, esik=1)
+            if r:
+                sonuc += r
+                n += 1
     return sonuc
+
+
+def baglar(yol):
+    for s in reversed(Path(yol).read_text(encoding="utf-8", errors="replace").split("\n")):
+        if s.startswith("Bağlar:"):
+            return re.findall(r"\[\[([^\]|#]+)", s)
+    return []
 
 
 def main(argv=None):

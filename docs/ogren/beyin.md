@@ -35,5 +35,12 @@ Iska sınıfı (6): içe alma 2 (39 skill öncelik sırası, 40 cache TTL: globa
 - CC: skill `beyin` (onay/beyin_1_uygula.py ile ~/.claude/skills'e) → "bilgi gerekince önce `beyin ara`, dosyayı yalnız kanıt satırı için aç".
 - Desktop: cc-kopru allowlist'inde `python` (dosyaGerek, -c yasak) açık → aynı komut değişiksiz geçer.
 
-## d2 önerisi
+## BEYIN-2 (20 Eki) — Obsidian merkezli
+- Kasa yapısı: frontmatter `kaynak · satir · guncellenme · tur · guven (kaynak-birebir|betik-ozet|model-ozet) · etiket` + ilk parçada `aliases`; `Bağlar:` satırı = gövdede birebir geçen takma adlar (kaynak dosya kökü ≥5 harf, kaynakların >%5'inde geçen elenir; ≤5 bağ) → `[[ad--1|takma]]`; her klasörde MOC `index-<klasör>` (index.md bunlara bağlanır); günlük not şablonu `_sablon/gunluk.md` + çekirdek Daily notes/Templates ayarı (90-log, YYYY-MM-DD).
+- Akışlar (`beyin_al`, model yok, sha+bağ kümesi idempotent): `60-ajanlar/ajan-*` (ajan-sira sonuç + maliyet + model dağılımı), `alt-<oturum>` (alt ajan transkriptinden görev · sonuç · ders · token; mtime önbelleği `.beyin/alt.json`), `yonlendir-kayit`; `20-ogren/kart-<aşama>` (kart.jsonl); `50-dersler/mem-<gün>` (claude-mem worker /api/observations, yoksa atlanır); `10-kararlar/sira-kararlar`. SLEEP export-obsidian çıktısı yok (d3 planı) → atlandı. Gizli desenler `[GİZLİ]`; gitleaks notlarda 0 (2 bulgu eklenti main.js'te).
+- Arama: BM25 ilk k ≤5 + seçilen notların `Bağlar:` hedeflerinden soruyla ≥1 kavram eşleşen ≤3 komşu; 'ı'lı soruya katlanmamış varyant (FTS unicode61 'ı'yı katlamaz).
+- Araçlar: qmd (arama çekirdeği, `qmd search … -c beyin` ✓) · Desktop obsidian MCP (eklenti claude-code-mcp kasada kurulu; uygulama kapalıydı, pencere kuralı gereği açılmadı → koşu yok) · obsidian-paket / obsidian-skills / obsidian-cli-skill (0b kataloğunda belge, CC'de kurulu değil; `obsidian` CLI PATH'te yok) · doğrudan dosya yazımı (beyin_al) asıl yol.
+- Karşılaştırma: OpenViking (pypi 0.5.1, Apache 2.0 çekirdek; entegrasyonlar AGPLv3) `viking://` sanal dosya sistemi + L0 özet / L1 genel bakış / L2 tam içerik katmanı; L0/L1'i VLM + embedding modeli üretir → bizde model yok. Alınacak: klasör MOC'una kaynak başına 1 satır mekanik L0 (ilk başlık) → borç. Video 'Agent Memory' (DdD0FdkmTvh): repo adı belirsiz; "görevler arası kalıcı ajan belleği" = bizde 60-ajanlar akışı.
+
+## d2 önerisi (BEYIN-1)
 1. İçe alma: global + proje CLAUDE.md ve RTK.md kaynak olsun. 2. Arama: sorgu başına 2 varyant (önek 4/5) birleşik sıralama + başlık/★ satırına ağırlık; aynı dosyada terim yoğunluğu en yüksek 2 pencere. 3. Kapı yeniden: yeni tohumlar 2003/2004, aynı 40 soru setine 40 yeni soru eklenerek (ezber önleme). 4. Görev diyeti `--uygula` Desktop onayıyla.

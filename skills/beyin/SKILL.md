@@ -5,7 +5,9 @@ description: "İkinci beyin: geçmiş karar, eşik, yasak, komut, ders ya da pro
 
 # beyin — önce sor, sonra (gerekirse) aç
 
-Kasa: Obsidian `C:\Users\pc\Desktop\Obsidian` (00-cekirdek · 10-kararlar · 20-ogren · 30-video · 40-projeler · 50-dersler · 90-log · index.md). Kaynak dosyaların bölüm bölüm birebir kopyası; her not frontmatter'ında `kaynak` + `satir`.
+Kasa: Obsidian `C:\Users\pc\Desktop\Obsidian` (00-cekirdek · 10-kararlar · 20-ogren · 30-video · 40-projeler · 50-dersler · 60-ajanlar · 90-log · index.md → klasör MOC'u `index-<klasör>`). Kaynak dosyaların bölüm bölüm birebir kopyası; her not frontmatter'ında `kaynak` + `satir` + `guven` (kaynak-birebir · betik-ozet · model-ozet). 60-ajanlar: köprü oturum sonuçları (maliyet, model), alt ajan özetleri, yönlendirici kaydı; 20-ogren/kart-*: ÖĞREN kartları; 50-dersler/mem-*: claude-mem gözlemleri. Notun sonundaki `Bağlar:` satırı ad eşleşmeli wikilink'tir; `beyin ara` bunlardan en fazla 3 komşuyu da getirir.
+
+0. Göreve başlarken: önce `beyin ara`, dosyayı yalnız kanıt satırı için aç (ÖĞREN/köprü görev şablonundaki satır).
 
 1. Bilgi gerekince: `python tools/beyin.py ara "<soru>" --k 5` (CLI kuruluysa `beyin ara`). Çıktı: `## <kaynak>:<satır>` + birebir satırlar; özet yok.
 2. Sorgu anahtar kelimeyle: görev adı, araç adı, eşik/kural kelimesi ("ÖĞREN-0b kapı", "headroom PID"). Boşsa eşanlamlıyla bir kez daha dene.
