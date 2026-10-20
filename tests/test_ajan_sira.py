@@ -40,7 +40,8 @@ def test_gecersiz_efor_reddedilir(tmp_path, monkeypatch):
         ajan_sira.kuyruk()
 
 
-def test_baslat_argv_env(monkeypatch):
+def test_baslat_argv_env(tmp_path, monkeypatch):
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")  # canlı bayraktan bağımsız
     monkeypatch.setenv("CLAUDE_CODE_EFFORT_LEVEL", "high")
     argv, env = ajan_sira.baslat_argv("medium")
     assert argv[-2:] == ["--effort", "medium"] and "CLAUDE_CODE_EFFORT_LEVEL" not in env

@@ -25,10 +25,14 @@ def kur(kume="cekirdek"):
     yol = {r["ad"]: Path(r["yol"]) for r in satirlar}
     kullanici = {Path(r["yol"]).parent.name for r in satirlar if r["kaynak"] == "kullanıcı" and r["tur"] == "skill"}
     secili = {yol[ad].parent.name for ad in KUMELER[kume] if yol[ad].name == "SKILL.md"}
+    # d4: sızıntı — envanterde olmayan yeni skill (leanrea) + içinde .claude-plugin olan dizinler (swiftui-pro, swift-concurrency-pro) `ad@skills-dir` eklentisi olur, enabledPlugins'te yoksa açık gelir
+    diskte = {p.parent.name for p in (Path.home() / ".claude" / "skills").glob("*/SKILL.md")}
+    eklenti = {p.parent.parent.name for p in (Path.home() / ".claude" / "skills").glob("*/.claude-plugin/plugin.json")}
+    kapat = sorted((kullanici | diskte) - secili)
     # d3: eklentiler kapalı + kümede olmayan kullanıcı skill'leri off (skillOverrides eklenti skill'ine işlemez); hook/CLAUDE.md/izin kullanıcıdan gelir
     eklentiler = json.loads((Path.home() / ".claude" / "settings.json").read_text(encoding="utf-8")).get("enabledPlugins", {})
-    (hedef / "ayar.json").write_text(json.dumps({"enabledPlugins": {k: False for k in eklentiler}, "syncClaudeAiSkills": False,
-                                                 "skillOverrides": {**{k: "off" for k in sorted(kullanici - secili)}, **{k: "on" for k in sorted(secili)}}}), encoding="utf-8")  # "on": proje ayarı graphify'ı off yapmış
+    (hedef / "ayar.json").write_text(json.dumps({"enabledPlugins": {**{k: False for k in eklentiler}, **{f"{a}@skills-dir": False for a in eklenti}}, "syncClaudeAiSkills": False,
+                                                 "skillOverrides": {**{k: "off" for k in kapat}, **{k: "on" for k in sorted(secili)}}}), encoding="utf-8")  # "on": proje ayarı graphify'ı off yapmış
     for ad in KUMELER[kume]:
         src = yol[ad]  # KeyError = envanterde yok → yenile (tools/ogrenme/slash_envanter.py)
         if src.parent.name in kullanici:
