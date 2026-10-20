@@ -13,11 +13,11 @@ sys.path.insert(0, str(KOK / "tools")); import ucretsiz_havuz as HAVUZ  # noqa: 
 
 DIZ = KOK / "docs/ters/kapi"
 CIKTI = Path(os.environ["TEMP"]) / "ters-kapi"
-TAVAN = 60
+TAVAN = {"yazar": 60, "hakem": 70}  # hakem: 40 ücretsiz + en çok 30 Haiku
 HAIKU_TAVAN = 30
-YAZAR = ["openrouter/google/gemma-4-31b-it:free", "openrouter/nvidia/nemotron-3-super-120b-a12b:free", "groq/openai/gpt-oss-120b", "haiku"]
-YARGIC = [["openrouter/nvidia/nemotron-3-ultra-550b-a55b:free", "openrouter/nvidia/nemotron-3-super-120b-a12b:free", "haiku"],
-          ["groq/openai/gpt-oss-120b", "gemini/gemini-2.5-flash", "haiku"]]
+TEKRAR = (1, 2)
+YARGIC = ("meta", "openai", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
+KULLANILAN = {}
 SKILL = (KOK / "skills/tersine/SKILL.md").read_text(encoding="utf-8")
 
 
@@ -33,21 +33,41 @@ def ram_bekle():  # DEVAM-KURALI: RAM ≥%88 iken tarayıcı adımı yok
     raise SystemExit("RAM %88 üstünde kaldı")
 
 
-def llm(modeller, istem, max_tokens=4000):  # ücretsiz havuz: 429/hata/boş → başka sağlayıcı, bekleme yok; modeller yalnız tür/aileyi seçer
+def onbellekli(tur, anahtar, uret):  # önbellek + tür başına çağrı sayacı (tavan aşılırsa koşu durur)
     (CIKTI / "onbellek").mkdir(parents=True, exist_ok=True)
-    h = hashlib.sha1((modeller[0] + istem).encode()).hexdigest()
-    o = CIKTI / "onbellek" / (h + ".json")
+    o = CIKTI / "onbellek" / (hashlib.sha1((tur + anahtar).encode()).hexdigest() + ".json")
     if o.exists(): return json.loads(o.read_text(encoding="utf-8"))["y"]
-    sy = CIKTI / "sayac.json"
+    sy = CIKTI / f"sayac-{tur}.json"
     n = json.loads(sy.read_text())["n"] if sy.exists() else 0
-    if n >= TAVAN: raise SystemExit("bulut çağrı tavanı")
+    if n >= TAVAN[tur]: raise SystemExit(f"{tur} çağrı tavanı")
     sy.write_text(json.dumps({"n": n + 1}))
-    tur, aile = ("yazim", None) if modeller is YAZAR else ("hakem", "minimax" if modeller is YARGIC[0] else "openai")
-    y, k, log = HAVUZ.cagir(tur, istem, max_tokens=max_tokens, aile=aile, haiku_tavan=HAIKU_TAVAN if aile is None else 0, etiket="tersine-kapi")
-    if y:
-        o.write_text(json.dumps({"m": k, "y": y}, ensure_ascii=False), encoding="utf-8"); return y
-    print("llm hata", ",".join(log), flush=True)
-    return ""
+    y = uret()
+    if y: o.write_text(json.dumps({"y": y}, ensure_ascii=False), encoding="utf-8")
+    return y
+
+
+def sonnet(istem):  # yazar: plan kotası, araçsız tek tur; hata/boş → "" (hedef atlanır)
+    env = {k: v for k, v in os.environ.items() if not k.startswith("ANTHROPIC_API_KEY")}
+    try:
+        p = subprocess.run(["claude", "-p", "--model", "claude-sonnet-5-5", "--output-format", "json", "--max-turns", "1", "--tools", "", "--setting-sources", ""],
+                           input=istem, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=400, creationflags=0x08000000, cwd=CIKTI, env=env)
+        j = json.loads(p.stdout); y = (j.get("result") or "").strip()
+    except Exception as e:
+        print("sonnet hata", type(e).__name__, flush=True); return ""
+    if j.get("is_error") or (len(y) < 200 and re.search(r"(?i)usage limit|limit reached|resets? (at|in)", y)):
+        print("sonnet hata", y[:80], flush=True); return ""
+    return y
+
+
+def yazar(istem): return onbellekli("yazar", istem, lambda: sonnet(istem))
+
+
+def yargic(aile, istem):  # aile "anthropic" → yalnız Haiku (üçüncü hakem)
+    def uret():
+        y, k, log = HAVUZ.cagir("hakem", istem, max_tokens=4000, aile=aile, haiku_tavan=HAIKU_TAVAN if aile == "anthropic" else 0, etiket="tersine-kapi")
+        if not y: print("hakem hata", aile, ",".join(log), flush=True)
+        return y or ""
+    return onbellekli("hakem", aile + istem, uret)
 
 
 def fark(a, b):
@@ -84,12 +104,12 @@ def sunucu():
     return s.server_address[1]
 
 
-def notu_yaz(h, kol, veri):
+def notu_yaz(h, kol, veri, r):
     site = h["tur"] == "site"
     ist = (f"{SKILL}\n\n" if kol == "skill" else "") + f"Hedef: {h['ad']} ({h['tur']}). Soru: {h['sorular']}\n\nVeri:\n{veri}\n\n" \
           "Görev: tam 5 mekanizma maddesi yaz. Her madde ayrı satırda JSON: {\"madde\":\"...\",\"dosya\":\"...\",\"alinti\":\"veride birebir geçen en çok 120 karakter\"}. " \
-          "Önce yalnız bu 5 JSON satırı." + (" Sonra '### HTML' başlığı ve altında ```html bloğu: ekranda aynı görünümü veren tek dosyalık saf HTML/CSS/JS (harici kütüphane ve ağ yok)." if site else "")
-    y = llm(YAZAR, ist)
+          f"[tekrar {r}] Önce yalnız bu 5 JSON satırı." + (" Sonra '### HTML' başlığı ve altında ```html bloğu: ekranda aynı görünümü veren tek dosyalık saf HTML/CSS/JS (harici kütüphane ve ağ yok)." if site else "")
+    y = yazar(ist)
     mad = []
     for s in y.splitlines():
         s = s.strip().rstrip(",")
@@ -100,6 +120,10 @@ def notu_yaz(h, kol, veri):
     return mad[:5], (m.group(1) if m else "")
 
 
+def oyla(oylar):  # oylar: her biri 2×5 (A,B) 0/1; çoğunluk, eşitlikte 0
+    return [[int(sum(o[l][i] == 1 for o in oylar) * 2 > len(oylar)) for i in range(5)] for l in range(2)]
+
+
 def hakem(h, notlar, rng):
     sira = ["skill", "zemin"]; rng.shuffle(sira)  # kör: A/B rastgele
     gt = "\n".join(f"{i + 1}. {m['madde']}" for i, m in enumerate(h["maddeler"]))
@@ -107,47 +131,65 @@ def hakem(h, notlar, rng):
     ist = (f"Referans mekanizma maddeleri ({h['ad']}):\n{gt}\n\nNot A:\n{nt(sira[0])}\n\nNot B:\n{nt(sira[1])}\n\n"
            "Her not için 5 referans maddesinin her birinin notta (aynı olgu, doğru) verilip verilmediğini 1/0 işaretle. "
            "Yalnız JSON: {\"A\":[5 sayı],\"B\":[5 sayı]}")
-    sonuc = {"skill": [1] * 5, "zemin": [1] * 5}
+
+    def oy(aile):
+        try:
+            j = json.loads(re.search(r"\{.*?\}", yargic(aile, ist), re.S).group(0))
+            return [(list(j[k]) + [0] * 5)[:5] for k in "AB"]
+        except Exception: return None
+
+    oylar = []
     for aile in YARGIC:
-        y = llm(aile, ist)
-        if not y.strip(): return None  # hakem yanıtsız (tavan/kota) → puanlanmaz
-        m = re.search(r"\{.*?\}", y, re.S)
-        try: j = json.loads(m.group(0))
-        except Exception: j = {"A": [0] * 5, "B": [0] * 5}  # hakem okunamadı → güvenli taraf 0
-        for harf, kol in (("A", sira[0]), ("B", sira[1])):
-            v = (list(j.get(harf, [])) + [0] * 5)[:5]
-            sonuc[kol] = [a & int(b == 1) for a, b in zip(sonuc[kol], v)]
-    return {k: sum(v) / 5 for k, v in sonuc.items()}
+        if len(oylar) == 2: break
+        if o := oy(aile): oylar.append(o); KULLANILAN[aile] = KULLANILAN.get(aile, 0) + 1
+    if len(oylar) < 2 or oylar[0] != oylar[1]:  # hakemler ayrıştı ya da biri yanıtsız → Haiku üçüncü
+        if o3 := oy("anthropic"): oylar.append(o3)
+    if len(oylar) < 2: return None
+    a, b = oyla(oylar)
+    return {sira[0]: sum(a) / 5, sira[1]: sum(b) / 5}
 
 
 def hedef_kos(h, port, sat, atlanan):
-    d = CIKTI / h["ad"]; d.mkdir(exist_ok=True); rng = random.Random(h["id"])
+    d = CIKTI / h["ad"]; d.mkdir(exist_ok=True)
     corp_ham = ham(h, 10**6)
     if h["tur"] == "site":
         ram_bekle()
         kanit = json.dumps(probe(f"http://127.0.0.1:{port}/labs{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
     else: kanit = rea_kanit(h)
     veri = {"zemin": ham(h), "skill": ham(h) + "\n\n### Kanıt (prob/REA)\n" + kanit}
-    notlar, html = {}, {}
-    for kol in ("skill", "zemin"): notlar[kol], html[kol] = notu_yaz(h, kol, veri[kol])
-    c1 = hakem(h, notlar, rng) if notlar["skill"] and notlar["zemin"] else None
-    if c1 is None: atlanan.append(h["ad"]); print("ATLANDI (model/tavan)", h["ad"], flush=True); return
-    for kol in ("skill", "zemin"):
-        korpus = nor(corp_ham + veri[kol]); bul = [nor(x.get("alinti", "")) in korpus and len(nor(x.get("alinti", ""))) > 3 for x in notlar[kol]]
-        c2 = sum(bul) / len(bul) if bul else 0.0; bil = [c1[kol], c2]
-        c3 = None
-        if h["tur"] == "site":
-            f = d / kol; f.mkdir(exist_ok=True)
-            if html[kol]:
-                ram_bekle(); (f / "yeniden.html").write_text(html[kol], encoding="utf-8")
-                try:
-                    probe((f / "yeniden.html").as_uri(), f / "p")
-                    c3 = 1 - min(1, sum(fark(d / "orijinal" / f"kare-{n}.png", f / "p" / f"kare-{n}.png") for n in (0, 50, 100)) / 3)
-                except Exception as e: print("yeniden hata", h["ad"], kol, type(e).__name__, flush=True)
-            if c3 is None: c3 = 0.0
-            bil.append(c3)
-        sat.append({"id": h["id"], "ad": h["ad"], "tur": h["tur"], "kol": kol, "c1": c1[kol], "c2": c2, "c3": c3, "puan": sum(bil) / len(bil), "iddia": len(notlar[kol])})
-        print(sat[-1], flush=True)
+    for r in TEKRAR:  # tekrar: yazar örneklemesi + A/B sırası farklı tohum
+        rng = random.Random(h["id"] * 10 + r); notlar, html = {}, {}
+        for kol in ("skill", "zemin"): notlar[kol], html[kol] = notu_yaz(h, kol, veri[kol], r)
+        c1 = hakem(h, notlar, rng) if notlar["skill"] and notlar["zemin"] else None
+        if c1 is None: atlanan.append(f"{h['ad']}#{r}"); print("ATLANDI (model/tavan)", h["ad"], r, flush=True); continue
+        for kol in ("skill", "zemin"):
+            korpus = nor(corp_ham + veri[kol]); bul = [nor(x.get("alinti", "")) in korpus and len(nor(x.get("alinti", ""))) > 3 for x in notlar[kol]]
+            c2 = sum(bul) / len(bul) if bul else 0.0; bil = [c1[kol], c2]
+            c3 = None
+            if h["tur"] == "site":
+                f = d / f"{kol}{r}"; f.mkdir(exist_ok=True)
+                if html[kol]:
+                    ram_bekle(); (f / "yeniden.html").write_text(html[kol], encoding="utf-8")
+                    try:
+                        probe((f / "yeniden.html").as_uri(), f / "p")
+                        c3 = 1 - min(1, sum(fark(d / "orijinal" / f"kare-{n}.png", f / "p" / f"kare-{n}.png") for n in (0, 50, 100)) / 3)
+                    except Exception as e: print("yeniden hata", h["ad"], kol, type(e).__name__, flush=True)
+                if c3 is None: c3 = 0.0
+                bil.append(c3)
+            sat.append({"id": h["id"], "ad": h["ad"], "tur": h["tur"], "kol": kol, "tekrar": r, "c1": c1[kol], "c2": c2, "c3": c3, "puan": sum(bil) / len(bil), "iddia": len(notlar[kol])})
+            print(sat[-1], flush=True)
+
+
+def ozet(sat):  # hedef başına tekrar ortalaması → kol ortalaması + eşli fark (skill−zemin) bootstrap %95 GA (hedefler üzerinden)
+    ort = lambda v: sum(v) / len(v)
+    pt = {(s["ad"], s["kol"]): [x["puan"] for x in sat if x["ad"] == s["ad"] and x["kol"] == s["kol"]] for s in sat}
+    ad = sorted({a for a, k in pt if (a, "skill") in pt and (a, "zemin") in pt})
+    if not ad: return {"ort": {"skill": 0.0, "zemin": 0.0}, "fark": 0.0, "ga": [0.0, 0.0], "tekrar_sapma": 0.0}
+    sk, ze = [ort(pt[a, "skill"]) for a in ad], [ort(pt[a, "zemin"]) for a in ad]
+    d = [x - y for x, y in zip(sk, ze)]; rng = random.Random(0)
+    b = sorted(ort([rng.choice(d) for _ in d]) for _ in range(5000))
+    ts = [abs(v[0] - v[1]) for v in pt.values() if len(v) > 1]  # aynı hedef+kol iki tekrar arası |fark| (gürültü)
+    return {"ort": {"skill": ort(sk), "zemin": ort(ze)}, "fark": ort(d), "ga": [b[125], b[4874]], "tekrar_sapma": ort(ts) if ts else 0.0}
 
 
 def main():
@@ -158,16 +200,16 @@ def main():
         try: hedef_kos(h, port, sat, atlanan)
         except Exception as e:  # bir hedefin hatası koşuyu çökertmez; o hedef hata satırı olur
             hatalar.append({"ad": h["ad"], "hata": f"{type(e).__name__}: {e}"}); atlanan.append(h["ad"]); print("hata", h["ad"], type(e).__name__, e, flush=True)
-    ort = {k: sum(s["puan"] for s in sat if s["kol"] == k) / len([s for s in sat if s["kol"] == k]) for k in ("skill", "zemin")}
-    mn2 = min(s["c2"] for s in sat if s["kol"] == "skill")
-    gec = not atlanan and ort["skill"] >= 0.70 and mn2 >= 0.5 and ort["skill"] > ort["zemin"]
-    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, "ort": ort, "min_kanit_skill": mn2, "gecti": gec, "atlanan": atlanan, "hatalar": hatalar,
-        "bulut_cagri": json.loads((CIKTI / "sayac.json").read_text())["n"]}, ensure_ascii=False, indent=1), encoding="utf-8")
-    t = ["# TERS kapısı sonucu (tek koşu)", "", "| hedef | tür | kol | mekanizma | kanıt | yeniden | puan |", "|---|---|---|---|---|---|---|"]
-    t += [f"| {s['ad']} | {s['tur']} | {s['kol']} | {s['c1']:.2f} | {s['c2']:.2f} | {'-' if s['c3'] is None else format(s['c3'], '.2f')} | {s['puan']:.2f} |" for s in sat]
-    t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · skill min kanıt {mn2:.2f} · atlanan {len(atlanan)}/{len(H)} {atlanan} · hata {hatalar} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
+    o = ozet(sat); ort = o["ort"]
+    gec = not atlanan and ort["skill"] >= 0.92 and o["ga"][0] > 0
+    cagri = {p.stem[6:]: json.loads(p.read_text())["n"] for p in CIKTI.glob("sayac-*.json")}
+    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, **o, "gecti": gec, "atlanan": atlanan, "hatalar": hatalar, "cagri": cagri, "hakem_aileleri": KULLANILAN}, ensure_ascii=False, indent=1), encoding="utf-8")
+    t = ["# TERS kapısı sonucu (Sonnet yazar, 2 tekrar)", "", "| hedef | tür | kol | tekrar | mekanizma | kanıt | yeniden | puan |", "|---|---|---|---|---|---|---|---|"]
+    t += [f"| {s['ad']} | {s['tur']} | {s['kol']} | {s['tekrar']} | {s['c1']:.2f} | {s['c2']:.2f} | {'-' if s['c3'] is None else format(s['c3'], '.2f')} | {s['puan']:.2f} |" for s in sat]
+    t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · fark {o['fark']:+.3f} GA95 [{o['ga'][0]:+.3f}, {o['ga'][1]:+.3f}] · tekrar sapması {o['tekrar_sapma']:.3f} · "
+          f"atlanan {len(atlanan)} {atlanan} · hata {hatalar} · çağrı {cagri} · hakem aileleri {KULLANILAN} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
     (DIZ / "sonuc.md").write_text("\n".join(t) + "\n", encoding="utf-8")
-    print("ORT", ort, "min_kanit", mn2, "gecti", gec)
+    print("ORT", ort, "fark", o["fark"], o["ga"], "gecti", gec)
 
 
 if __name__ == "__main__":

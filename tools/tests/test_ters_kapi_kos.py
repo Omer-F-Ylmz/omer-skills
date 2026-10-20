@@ -21,8 +21,19 @@ def test_bir_hedefin_hatasi_kosuyu_cokertmez(tmp_path, monkeypatch):
 
     def sahte(h, port, sat, atlanan):
         if h["ad"] == "bozuk": raise KeyError("derlenmis")
-        for kol in ("skill", "zemin"): sat.append({"id": 2, "ad": "iyi", "tur": "js", "kol": kol, "c1": 1, "c2": 1, "c3": None, "puan": 1, "iddia": 5})
+        for kol in ("skill", "zemin"): sat.append({"id": 2, "ad": "iyi", "tur": "js", "kol": kol, "tekrar": 1, "c1": 1, "c2": 1, "c3": None, "puan": 1, "iddia": 5})
     monkeypatch.setattr(K, "hedef_kos", sahte)
     K.main()
     r = json.loads((tmp_path / "sonuc.json").read_text(encoding="utf-8"))
     assert r["hatalar"][0]["ad"] == "bozuk" and r["atlanan"] == ["bozuk"] and not r["gecti"] and len(r["satirlar"]) == 2
+
+
+def test_oyla_cogunluk_ve_esitlikte_sifir():
+    assert K.oyla([[[1, 1, 0, 0, 1], [0] * 5], [[1, 0, 0, 1, 1], [0] * 5]]) == [[1, 0, 0, 0, 1], [0] * 5]
+    assert K.oyla([[[1] * 5, [0] * 5], [[0] * 5, [0] * 5], [[1, 1, 0, 0, 0], [1] * 5]])[0] == [1, 1, 0, 0, 0]
+
+
+def test_ozet_fark_ve_ga():
+    sat = [{"ad": a, "kol": k, "puan": p} for a in "xyz" for k, p in (("skill", 0.9), ("skill", 0.8), ("zemin", 0.5), ("zemin", 0.5))]
+    o = K.ozet(sat)
+    assert abs(o["fark"] - 0.35) < 1e-9 and o["ga"][0] > 0 and abs(o["tekrar_sapma"] - 0.05) < 1e-9
