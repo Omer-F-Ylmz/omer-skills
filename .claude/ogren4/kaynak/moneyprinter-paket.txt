@@ -1,0 +1,14 @@
+---
+name: moneyprinter-paket
+description: "Konudan otomatik kısa video üretimi: skill"
+---
+
+# moneyprinter-paket
+
+Bu paket 1 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| moneyprinterturbo-video | Use this skill whenever the user wants to create a finished video from a topic, title, idea, prompt, or script with MoneyPrinterTurbo. This includes short-form, | `skills/skill/TALIMAT.md` |

@@ -1,0 +1,197 @@
+=== markitdown kaynak: C:\Users\pc\AppData\Roaming\uv\tools\markitdown\Lib\site-packages\markitdown-0.1.8.dist-info\METADATA ===
+Metadata-Version: 2.5
+Name: markitdown
+Version: 0.1.8
+Summary: Utility tool for converting various files to Markdown
+Project-URL: Documentation, https://github.com/microsoft/markitdown#readme
+Project-URL: Issues, https://github.com/microsoft/markitdown/issues
+Project-URL: Source, https://github.com/microsoft/markitdown
+Author-email: Adam Fourney <adamfo@microsoft.com>
+License-Expression: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: <3.15,>=3.10
+Requires-Dist: beautifulsoup4
+Requires-Dist: charset-normalizer
+Requires-Dist: defusedxml
+Requires-Dist: magika~=0.6.1
+Requires-Dist: markdownify
+Requires-Dist: requests
+Provides-Extra: all
+Requires-Dist: azure-ai-contentunderstanding>=1.2.0b1; extra == 'all'
+Requires-Dist: azure-ai-documentintelligence; extra == 'all'
+Requires-Dist: azure-identity; extra == 'all'
+Requires-Dist: lxml; extra == 'all'
+Requires-Dist: mammoth~=1.11.0; extra == 'all'
+Requires-Dist: olefile; extra == 'all'
+Requires-Dist: openpyxl; extra == 'all'
+Requires-Dist: pandas; extra == 'all'
+Requires-Dist: pdfminer-six>=20251230; extra == 'all'
+Requires-Dist: pdfplumber>=0.11.9; extra == 'all'
+Requires-Dist: pydub; extra == 'all'
+Requires-Dist: python-pptx; extra == 'all'
+Requires-Dist: speechrecognition; extra == 'all'
+Requires-Dist: xlrd; extra == 'all'
+Requires-Dist: youtube-transcript-api~=1.2.3; extra == 'all'
+Provides-Extra: audio-transcription
+Requires-Dist: pydub; extra == 'audio-transcription'
+Requires-Dist: speechrecognition; extra == 'audio-transcription'
+Provides-Extra: az-content-understanding
+Requires-Dist: azure-ai-contentunderstanding>=1.2.0b1; extra == 'az-content-understanding'
+Requires-Dist: azure-identity; extra == 'az-content-understanding'
+Provides-Extra: az-doc-intel
+Requires-Dist: azure-ai-documentintelligence; extra == 'az-doc-intel'
+Requires-Dist: azure-identity; extra == 'az-doc-intel'
+Provides-Extra: docx
+Requires-Dist: lxml; extra == 'docx'
+Requires-Dist: mammoth~=1.11.0; extra == 'docx'
+Provides-Extra: outlook
+Requires-Dist: olefile; extra == 'outlook'
+Provides-Extra: pdf
+Requires-Dist: pdfminer-six>=20251230; extra == 'pdf'
+Requires-Dist: pdfplumber>=0.11.9; extra == 'pdf'
+Provides-Extra: pptx
+Requires-Dist: python-pptx; extra == 'pptx'
+Provides-Extra: xls
+Requires-Dist: pandas; extra == 'xls'
+Requires-Dist: xlrd; extra == 'xls'
+Provides-Extra: xlsx
+Requires-Dist: openpyxl; extra == 'xlsx'
+Requires-Dist: pandas; extra == 'xlsx'
+Provides-Extra: youtube-transcription
+Requires-Dist: youtube-transcript-api~=1.2.3; extra == 'youtube-transcription'
+Description-Content-Type: text/markdown
+
+# MarkItDown
+
+> [!TIP]
+> MarkItDown is a Python package and command-line utility for converting various files to Markdown (e.g., for indexing, text analysis, etc).
+>
+> For more information, and full documentation, see the project [README.md](https://github.com/microsoft/markitdown) on GitHub.
+
+> [!IMPORTANT]
+> MarkItDown performs I/O with the privileges of the current process. Like open() or requests.get(), it will access resources that the process itself can access. Sanitize your inputs in untrusted environments, and call the narrowest `convert_*` function needed for your use case (e.g., `convert_stream()`, or `convert_local()`). See the [Security Considerations](https://github.com/microsoft/markitdown#security-considerations) section of the documentation for more information.
+
+## Installation
+
+From PyPI:
+
+```bash
+pip install 'markitdown[all]'
+```
+
+From source:
+
+```bash
+git clone git@github.com:microsoft/markitdown.git
+cd markitdown
+pip install -e 'packages/markitdown[all]'
+```
+
+## Usage
+
+### Command-Line
+
+```bash
+markitdown path-to-file.pdf > document.md
+```
+
+### Python API
+
+```python
+from markitdown import MarkItDown
+
+md = MarkItDown()
+result = md.convert("test.xlsx")
+print(result.markdown)
+```
+
+### More Information
+
+For more information, and full documentation, see the project [README.md](https://github.com/microsoft/markitdown) on GitHub.
+
+## Trademarks
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos is subject to and must follow
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
+Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+=== markitdown --help ===
+usage: SYNTAX:
+
+    markitdown <OPTIONAL: FILENAME>
+    If FILENAME is empty, markitdown reads from stdin.
+
+EXAMPLE:
+
+    markitdown example.pdf
+
+    OR
+
+    cat example.pdf | markitdown
+
+    OR
+
+    markitdown < example.pdf
+
+    OR to save to a file use
+
+    markitdown example.pdf -o example.md
+
+    OR
+
+    markitdown example.pdf > example.md
+
+Convert various file formats to markdown.
+
+positional arguments:
+  filename
+
+options:
+  -h, --help            show this help message and exit
+  -v, --version         show the version number and exit
+  -o, --output OUTPUT   Output file name. If not provided, output is written
+                        to stdout.
+  -x, --extension EXTENSION
+                        Provide a hint about the file extension (e.g., when
+                        reading from stdin).
+  -m, --mime-type MIME_TYPE
+                        Provide a hint about the file's MIME type.
+  -c, --charset CHARSET
+                        Provide a hint about the file's charset (e.g., UTF-8).
+  -d, --use-docintel    Use Document Intelligence to extract text instead of
+                        offline conversion. Requires a valid Document
+                        Intelligence Endpoint.
+  --use-cu, --use-content-understanding
+                        Use Azure Content Understanding to extract text.
+                        Requires --cu-endpoint.
+  -e, --endpoint ENDPOINT
+                        Document Intelligence Endpoint. Required if using
+                        Document Intelligence. Defaults to the
+                        MARKITDOWN_DOCINTEL_ENDPOINT environment variable.
+  --cu-endpoint CU_ENDPOINT
+                        Content Understanding Endpoint. Required if using
+                        --use-cu. Defaults to the MARKITDOWN_CU_ENDPOINT
+                        environment variable.
+  --cu-analyzer CU_ANALYZER
+                        Content Understanding analyzer ID. If not specified,
+                        auto-selects by file type.
+  --cu-file-types CU_FILE_TYPES
+                        Comma-separated list of file types to route to Content
+                        Understanding (e.g., pdf,jpeg,mp4). If omitted, all
+                        supported types are routed.
+  -p, --use-plugins     Use 3rd-party plugins to convert files. Use --list-
+                        plugins to see installed plugins.
+  --list-plugins        List installed 3rd-party plugins. Plugins are loaded
+                        when using the -p or --use-plugins option.
+  --keep-data-uris      Keep data URIs (like base64-encoded images) in the
+                        output. By default, data URIs are truncated.

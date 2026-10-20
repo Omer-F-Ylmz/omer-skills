@@ -1,0 +1,14 @@
+---
+name: resemble-detect-paket
+description: "Deepfake ses tespiti: detect skill"
+---
+
+# resemble-detect-paket
+
+Bu paket 1 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| resemble-detect | Deepfake detection and media safety — detect AI-generated audio, images, video, and text, trace synthesis sources, analyze media intelligence, and tell people f | `skills/detect-skill/TALIMAT.md` |

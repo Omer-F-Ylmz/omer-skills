@@ -1,0 +1,17 @@
+---
+name: davila7-video-paket
+description: "Claude Code şablonları (davila7/claude-code-templates…"
+---
+
+# davila7-video-paket
+
+Bu paket 4 skill'i tek girişte toplar. Kullanım: aşağıdan işe uyan alt skill'i seç, `TALIMAT.md` dosyasını oku ve uygula; gerekirse aynı klasördeki REFERANS/KAYNAK dosyalarına bak.
+
+> Not: claude.ai paket başına tek SKILL.md ve en çok 200 dosya kabul ediyor. Bu yüzden her alt skill en çok üç tür dosyaya sıkıştırıldı: `TALIMAT.md` (orijinal SKILL.md), `REFERANS.md` (tüm ek .md dosyaları `## [yol]` başlıklarıyla) ve `KAYNAK-n.md` (betik, json, css gibi diğer metin dosyaları `### yol` başlığı + kod bloğu olarak). Bir dosya gerekirse ilgili başlıktan aynen çıkarılıp yazılabilir. Resim/font gibi ikili (ya da 1 MB üstü) dosyalar alınmadı; listesi REFERANS.md sonunda, asılları Claude Code kurulumunda duruyor.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| manim | Comprehensive guide for Manim Community - Python framework for creating mathematical animations and educational videos with programmatic control | `skills/manim/TALIMAT.md` |
+| motion-canvas | Complete production-ready guide for Motion Canvas with ESM/CommonJS workarounds, full setup templates, and troubleshooting for programmatic video creation using | `skills/motion-canvas/TALIMAT.md` |
+| remotion | Best practices and comprehensive guide for Remotion - programmatic video creation in React with animations, compositions, and media handling | `skills/remotion/TALIMAT.md` |
+| sora | Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via OpenAI\u2019s video API using the bundled CLI (`scripts/sora.py`), in | `skills/sora/TALIMAT.md` |

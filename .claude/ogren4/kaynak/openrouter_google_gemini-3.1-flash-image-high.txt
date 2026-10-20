@@ -1,0 +1,29 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · openrouter/google/gemini-3.1-flash-image-high ===
+{
+  "id": "openrouter/google/gemini-3.1-flash-image-high",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "openrouter",
+  "permission": [],
+  "root": "google/gemini-3.1-flash-image-high",
+  "parent": null,
+  "context_length": 131072,
+  "max_output_tokens": 32768,
+  "capabilities": {
+    "vision": true,
+    "effort_tiers": [
+      "high",
+      "minimal"
+    ],
+    "tool_calling": true,
+    "reasoning": true
+  },
+  "input_modalities": [
+    "text",
+    "image"
+  ],
+  "output_modalities": [
+    "text"
+  ],
+  "name": "google/gemini-3.1-flash-image-high"
+}

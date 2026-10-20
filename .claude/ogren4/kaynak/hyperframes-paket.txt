@@ -1,0 +1,22 @@
+---
+name: hyperframes-paket
+description: "7 skill'lik paket (HyperFrames video/animasyon: core, registry, animasyon, yaratıcı efektler, medya kullanımı, konuşan kafa kurgusu, Figma). İlgili alt skill'in dosyasını oku ve uygula."
+---
+
+# hyperframes-paket
+
+Bu paket 7 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+> Not 2: alt skill'lerin ek .md dosyaları (references/ vb.) skill klasöründeki `REFERANS.md`'de `## [yol]` başlıklarıyla birleşiktir (claude.ai paket başına 200 dosya sınırı); betik/yaml/json dosyaları olduğu gibi duruyor.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| hyperframes-core | HyperFrames composition contract: data-* timing, clips, tracks, sub-compositions, validation; read first | `skills/hyperframes-core/TALIMAT.md` |
+| hyperframes-registry | Search and install HyperFrames registry blocks before hand-building any named effect (glitch, CRT, grain) | `skills/hyperframes-registry/TALIMAT.md` |
+| hyperframes-animation | Use for HyperFrames motion task: motion rules, scene blueprints, transitions, GSAP/Lottie/Three.js adapters | `skills/hyperframes-animation/TALIMAT.md` |
+| hyperframes-creative | HyperFrames creative direction: design spec, palettes, typography, narration, beat planning, brand style | `skills/hyperframes-creative/TALIMAT.md` |
+| talking-head-recut | Add timed graphic overlay cards (titles, lower-thirds, callouts, PiP) to a talking-head or podcast video | `skills/talking-head-recut/TALIMAT.md` |
+| figma | Import Figma content into a HyperFrames composition; use when given a figma.com link, frame, or brand | `skills/figma/TALIMAT.md` |
+| media-use | Resolve BGM, SFX, image, icon, logo, voice, or LUT for HyperFrames; TTS, captions, background removal | `skills/media-use/TALIMAT.md` |

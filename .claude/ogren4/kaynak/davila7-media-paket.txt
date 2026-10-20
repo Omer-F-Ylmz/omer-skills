@@ -1,0 +1,18 @@
+---
+name: davila7-media-paket
+description: "Claude Code şablonları (davila7/claude-code-templates…"
+---
+
+# davila7-media-paket
+
+Bu paket 5 skill'i tek girişte toplar. Kullanım: aşağıdan işe uyan alt skill'i seç, `TALIMAT.md` dosyasını oku ve uygula; gerekirse aynı klasördeki REFERANS/KAYNAK dosyalarına bak.
+
+> Not: claude.ai paket başına tek SKILL.md ve en çok 200 dosya kabul ediyor. Bu yüzden her alt skill en çok üç tür dosyaya sıkıştırıldı: `TALIMAT.md` (orijinal SKILL.md), `REFERANS.md` (tüm ek .md dosyaları `## [yol]` başlıklarıyla) ve `KAYNAK-n.md` (betik, json, css gibi diğer metin dosyaları `### yol` başlığı + kod bloğu olarak). Bir dosya gerekirse ilgili başlıktan aynen çıkarılıp yazılabilir. Resim/font gibi ikili (ya da 1 MB üstü) dosyalar alınmadı; listesi REFERANS.md sonunda, asılları Claude Code kurulumunda duruyor.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| image-enhancer | Improves the quality of images, especially screenshots, by enhancing resolution, sharpness, and clarity. Perfect for preparing images for presentations, documen | `skills/image-enhancer/TALIMAT.md` |
+| screenshot | Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture cap | `skills/screenshot/TALIMAT.md` |
+| speech | Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation. OpenAI remains the default; At | `skills/speech/TALIMAT.md` |
+| transcribe | Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from  | `skills/transcribe/TALIMAT.md` |
+| video-downloader | Downloads videos from YouTube and other platforms for offline viewing, editing, or archival. Handles various formats and quality options. | `skills/video-downloader/TALIMAT.md` |

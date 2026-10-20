@@ -1,0 +1,27 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · aihorde/Z-Image-Turbo ===
+{
+  "id": "aihorde/Z-Image-Turbo",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "aihorde",
+  "type": "image",
+  "supported_sizes": [
+    "512x512",
+    "768x768",
+    "1024x1024",
+    "1024x768",
+    "768x1024"
+  ],
+  "input_modalities": [
+    "text",
+    "image"
+  ],
+  "output_modalities": [
+    "image"
+  ],
+  "capabilities": {
+    "tool_calling": false,
+    "reasoning": true
+  },
+  "name": "Z-Image-Turbo"
+}

@@ -1,0 +1,25 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · gemini/gemini-3.1-flash-tts-preview ===
+{
+  "id": "gemini/gemini-3.1-flash-tts-preview",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "gemini",
+  "permission": [],
+  "root": "gemini-3.1-flash-tts-preview",
+  "parent": null,
+  "capabilities": {
+    "vision": true,
+    "tool_calling": true,
+    "reasoning": true
+  },
+  "input_modalities": [
+    "text",
+    "image"
+  ],
+  "output_modalities": [
+    "text"
+  ],
+  "context_length": 8192,
+  "max_input_tokens": 8192,
+  "name": "Gemini 3.1 Flash TTS"
+}

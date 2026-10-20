@@ -1,0 +1,14 @@
+---
+name: freeflow-paket
+description: "FreeFlow sesle yazma akışı: freeflow release"
+---
+
+# freeflow-paket
+
+Bu paket 1 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| freeflow-release | Prepare and publish FreeFlow app releases. Use when the user asks to release FreeFlow, prepare a new version, bump the FreeFlow version, write or update FreeFlo | `skills/freeflow-release/TALIMAT.md` |

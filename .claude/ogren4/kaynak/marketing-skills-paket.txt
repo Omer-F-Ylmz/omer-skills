@@ -1,0 +1,64 @@
+---
+name: marketing-skills-paket
+description: "49 skill'lik paket (pazarlama: SEO, reklam, metin, büyüme, CRO). Konu bu alandaysa önce bu dizini aç, uygun alt skill'in dosyasını oku ve uygula."
+---
+
+# marketing-skills-paket
+
+Bu paket 49 skill'i tek girişte toplar (claude.ai 1000 skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+> Not 2: alt skill'lerin ek .md dosyaları (references/ vb.) skill klasöründeki `REFERANS.md`'de `## [yol]` başlıklarıyla birleşiktir (claude.ai paket başına 200 dosya sınırı); betik/yaml/json dosyaları olduğu gibi duruyor.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| ab-testing | Plan and design A/B tests, split tests, experiments, hypotheses, significance, and growth experiment programs | `skills/ab-testing/TALIMAT.md` |
+| ad-creative | Generate and iterate ad creative: headlines, descriptions, primary text, RSA variations, bulk ad copy | `skills/ad-creative/TALIMAT.md` |
+| ads | Plan paid ad campaigns on Google, Meta, LinkedIn, X: PPC, ROAS, CPA, retargeting, targeting, ad budget | `skills/ads/TALIMAT.md` |
+| ai-seo | Optimize content for AI search: AEO, GEO, LLM citations, AI Overviews, ChatGPT and Perplexity visibility | `skills/ai-seo/TALIMAT.md` |
+| analytics | Set up or audit analytics tracking: GA4, GTM, UTM, conversion and event tracking, tracking plans | `skills/analytics/TALIMAT.md` |
+| aso | Audit and optimize App Store and Google Play listings: ASO, app keywords, ranking, conversion, competitors | `skills/aso/TALIMAT.md` |
+| churn-prevention | Reduce churn: cancel flows, save offers, dunning, failed payment recovery, win-back, retention | `skills/churn-prevention/TALIMAT.md` |
+| co-marketing | Find co-marketing partners and plan joint campaigns, cross-promotion, integration marketing, co-branding | `skills/co-marketing/TALIMAT.md` |
+| cold-email | Write B2B cold emails, follow-ups, and outbound cadences; sending setup, deliverability, reply handling | `skills/cold-email/TALIMAT.md` |
+| community-marketing | Build online communities: Discord, Slack, forums, subreddits; community-led growth and brand advocates | `skills/community-marketing/TALIMAT.md` |
+| competitor-profiling | Research and profile competitors from their URLs: competitor analysis, dossiers, competitive intelligence | `skills/competitor-profiling/TALIMAT.md` |
+| competitors | Create competitor comparison, vs, and alternative pages for SEO; audit existing comparison pages | `skills/competitors/TALIMAT.md` |
+| content-strategy | Plan content strategy: topics, content ideas, topic clusters, pillars, editorial calendar, blog roadmap | `skills/content-strategy/TALIMAT.md` |
+| copy-editing | Edit, proofread, and tighten existing marketing copy; refresh outdated content and sharpen messaging | `skills/copy-editing/TALIMAT.md` |
+| copywriting | Write or rewrite marketing copy for homepage, landing, pricing, and product pages; headlines, CTAs, taglines | `skills/copywriting/TALIMAT.md` |
+| cro | Optimize conversion rates on pages and forms: landing, pricing, signup, lead capture, form abandonment | `skills/cro/TALIMAT.md` |
+| customer-research | Conduct and synthesize customer research: interviews, transcripts, surveys, VOC, personas, JTBD, ICP | `skills/customer-research/TALIMAT.md` |
+| directory-submissions | Submit a product to startup, SaaS, AI, and review directories for backlinks and discovery; Product Hunt, G2 | `skills/directory-submissions/TALIMAT.md` |
+| emails | Create email sequences: drip, nurture, onboarding, welcome, re-engagement, lifecycle, and automation flows | `skills/emails/TALIMAT.md` |
+| events | Plan and run events for pipeline: webinars, conferences, trade shows, sponsorships, event ROI | `skills/events/TALIMAT.md` |
+| free-tools | Plan and build free marketing tools: calculators, generators, graders for lead gen, SEO, and awareness | `skills/free-tools/TALIMAT.md` |
+| image | Create and edit marketing images with AI: blog heroes, social graphics, mockups, banners, brand assets | `skills/image/TALIMAT.md` |
+| influencer-marketing | Run influencer and creator partnerships: vet partners, structure deals, brief creators, disclosure, ROI | `skills/influencer-marketing/TALIMAT.md` |
+| launch | Plan product launches, feature announcements, Product Hunt, go-to-market, waitlists, release notes | `skills/launch/TALIMAT.md` |
+| lead-magnets | Create lead magnets for email capture: ebooks, checklists, templates, gated content, content upgrades | `skills/lead-magnets/TALIMAT.md` |
+| marketing-council | Get multiple expert views on a marketing question from a simulated board of legendary marketers | `skills/marketing-council/TALIMAT.md` |
+| marketing-ideas | Brainstorm marketing ideas, growth tactics, and promotion strategies for a SaaS or software product | `skills/marketing-ideas/TALIMAT.md` |
+| marketing-loops | Set up recurring self-running marketing workflows an agent runs on a cadence: weekly reviews, alerts | `skills/marketing-loops/TALIMAT.md` |
+| marketing-plan | Build a comprehensive marketing plan: GTM, growth, 90-day roadmap, fractional CMO, market sizing, TAM | `skills/marketing-plan/TALIMAT.md` |
+| marketing-psychology | Apply psychology and behavioral science to marketing: mental models, biases, persuasion, social proof | `skills/marketing-psychology/TALIMAT.md` |
+| offers | Design or improve an offer: value stack, bonuses, guarantees, scarcity, urgency, naming, payment terms | `skills/offers/TALIMAT.md` |
+| onboarding | Optimize post-signup onboarding: activation rate, first-run experience, checklists, empty states, aha moment | `skills/onboarding/TALIMAT.md` |
+| paywalls | Create or optimize in-app paywalls, upgrade screens, upsell modals, feature gates, and freemium conversion | `skills/paywalls/TALIMAT.md` |
+| popups | Create or optimize popups, modals, slide-ins, exit intent, and banners for email capture and conversion | `skills/popups/TALIMAT.md` |
+| pricing | Decide pricing, tiers, packaging, freemium, trials, price increases, value metrics, and monetization | `skills/pricing/TALIMAT.md` |
+| product-marketing | Create or update the product marketing context doc: positioning, ICP, audience; run before other marketing | `skills/product-marketing/TALIMAT.md` |
+| programmatic-seo | Create SEO pages at scale from templates and data: pSEO, location, comparison, and integration pages | `skills/programmatic-seo/TALIMAT.md` |
+| prospecting | Find and qualify prospects and build lead lists for B2B, SaaS, or local business outbound | `skills/prospecting/TALIMAT.md` |
+| public-relations | Plan PR and earned media: press releases, journalist pitches, media lists, press kits, newsjacking, HARO | `skills/public-relations/TALIMAT.md` |
+| referrals | Create or analyze referral, affiliate, and word-of-mouth programs; refer-a-friend incentives, review campaigns | `skills/referrals/TALIMAT.md` |
+| revops | Set up revenue operations: lead scoring, routing, MQL and SQL, pipeline stages, CRM, sales handoff | `skills/revops/TALIMAT.md` |
+| sales-enablement | Create sales collateral: pitch decks, one-pagers, battle cards, objection handling, demo scripts, playbooks | `skills/sales-enablement/TALIMAT.md` |
+| schema | Add, fix, or optimize schema markup and structured data: JSON-LD, rich snippets, FAQ and product schema | `skills/schema/TALIMAT.md` |
+| seo-audit | Audit SEO issues: technical SEO, on-page, meta tags, ranking or traffic drops, indexing, core web vitals | `skills/seo-audit/TALIMAT.md` |
+| signup | Optimize signup, registration, account creation, and trial activation flows; reduce signup dropoff | `skills/signup/TALIMAT.md` |
+| site-architecture | Plan site structure: sitemap, page hierarchy, navigation, URL structure, internal linking, IA | `skills/site-architecture/TALIMAT.md` |
+| sms | Plan SMS, MMS, and WhatsApp marketing: welcome, abandoned cart, win-back flows; Klaviyo, Twilio, A2P 10DLC | `skills/sms/TALIMAT.md` |
+| social | Create and schedule social content for LinkedIn, X, Instagram, TikTok, Facebook; social listening, engagement | `skills/social/TALIMAT.md` |
+| video | Produce video with AI tools or code: Remotion, HeyGen, Veo, Sora, Runway, AI avatars, programmatic video | `skills/video/TALIMAT.md` |

@@ -1,0 +1,16 @@
+---
+name: infinite-canvas-paket
+description: "Sonsuz tuval: yapay zeka görsel/video üretimi ve tuval düzenleme: can…"
+---
+
+# infinite-canvas-paket
+
+Bu paket 3 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| frontend-design | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts,  | `skills/frontend-design/TALIMAT.md` |
+| canvas | 操作 Infinite Canvas 当前网页画布，读取节点、选区、创建文本节点、创建生成流程、连接节点或触发生成。 | `skills/canvas/TALIMAT.md` |
+| open-canvas | 打开 Infinite Canvas 在线或本地画布，并自动连接本地 Canvas Agent。用户要求打开、启动、进入或使用 Infinite Canvas 画布时使用。 | `skills/open-canvas/TALIMAT.md` |

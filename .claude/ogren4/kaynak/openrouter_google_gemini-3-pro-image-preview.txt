@@ -1,0 +1,27 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · openrouter/google/gemini-3-pro-image-preview ===
+{
+  "id": "openrouter/google/gemini-3-pro-image-preview",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "openrouter",
+  "type": "image",
+  "supported_sizes": [
+    "1024x1024",
+    "1024x1792",
+    "1792x1024"
+  ],
+  "input_modalities": [
+    "text"
+  ],
+  "output_modalities": [
+    "image"
+  ],
+  "capabilities": {
+    "vision": true,
+    "tool_calling": true,
+    "reasoning": true
+  },
+  "context_length": 65536,
+  "max_input_tokens": 65536,
+  "name": "google/gemini-3-pro-image-preview"
+}

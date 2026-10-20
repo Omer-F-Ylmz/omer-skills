@@ -1,0 +1,19 @@
+---
+name: obsidian-paket
+description: "6 skill'lik paket (Obsidian: bases, CLI, markdown, JSON canvas, defuddle web özütleme, knap). İlgili alt skill'in dosyasını oku ve uygula."
+---
+
+# obsidian-paket
+
+Bu paket 6 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| obsidian-bases | Use when creating or editing .base files; Obsidian Bases views, filters, formulas, summaries | `skills/obsidian-bases/TALIMAT.md` |
+| obsidian-cli | Use when operating an Obsidian vault via CLI; read, create, search notes, plugin/theme development | `skills/obsidian-cli/TALIMAT.md` |
+| obsidian-markdown | Use when writing Obsidian notes; wikilinks, embeds, callouts, properties, frontmatter, tags | `skills/obsidian-markdown/TALIMAT.md` |
+| defuddle | Extract clean Markdown from HTML pages with the Defuddle CLI. | `skills/defuddle/TALIMAT.md` |
+| json-canvas | Use when creating or editing .canvas files; JSON Canvas nodes, edges, groups, Obsidian canvases | `skills/json-canvas/TALIMAT.md` |
+| knap | Use when applying a Knap template; render Markdown notes from JSON or CSV data, batch-generate files | `skills/knap/TALIMAT.md` |

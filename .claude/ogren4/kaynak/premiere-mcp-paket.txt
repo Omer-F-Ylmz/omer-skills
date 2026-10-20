@@ -1,0 +1,15 @@
+---
+name: premiere-mcp-paket
+description: "Adobe Premiere Pro MCP ile video düzenleme: edit premiere project…"
+---
+
+# premiere-mcp-paket
+
+Bu paket 2 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| edit-premiere-project | Inspect, edit, verify, and export an open Adobe Premiere Pro project through the local Premiere MCP Bridge. | `skills/edit-premiere-project/TALIMAT.md` |
+| premiere-pro-mcp | Install, verify, troubleshoot, and operate the Adobe Premiere Pro MCP server. Use when a user wants an agent to set up Premiere MCP, connect Claude Code/Codex/C | `skills/premiere-pro-mcp/TALIMAT.md` |

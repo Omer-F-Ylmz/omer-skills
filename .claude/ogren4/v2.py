@@ -31,8 +31,20 @@ def adlar_zip(z):
 
 def kaynak_ret(yol):
     """★ 11:58 (v): kaynak yalnız ad listesi / .mcp.json / katalog satırı → mekanizma addan tahmin edilir → RET"""
-    n = Path(str(yol)).name
-    return "kaynak yalnız ad listesi/.mcp.json/katalog" if n in ("claudeai_adlar.json", ".mcp.json") or n.startswith("katalog") else None
+    p = Path(str(yol))
+    return "kaynak yalnız ad listesi/.mcp.json/katalog" if p.suffix.lower() in (".json", ".jsonl") or p.name.startswith("katalog") else None
+
+
+KISMI = {"ffprobe"}  # d3: 2611 satırlık --help yazarda araç sıkıştırması yüzünden tam okunamadı (yazar itirafı) → kart geçersiz, addan tahmin yok
+
+
+def yetersiz_kart(ad, kaynak):
+    """d3 (★ 12:58 ii): kayıt JSON'u/katalog satırı kaynağı RET değil `kaynak_yetersiz` kartı; kanıt = o dosyanın yolu"""
+    if not kaynak_ret(kaynak) and ad not in KISMI:
+        return None
+    y = "kaynak yetersiz"
+    return {"ad": ad, "kaynak": "", "ozgun": kaynak, "ne_yapar": y, "komut": y, "sinirlar": y, "alinti": {}, "mekanizma": y, "kanit": str(kaynak),
+            "dogrulandi": "kaynak_yetersiz", "uyari": []}
 
 
 def coz(ad):
@@ -113,12 +125,12 @@ def hazirla():
 def birlestir():
     ozet_kaynak.D = D()
     c = yazilmis()
-    for p in sorted(B.glob("v2-yazar-*.jsonl")):
+    for p in sorted(B.glob("v[23]-yazar-*.jsonl")):  # v3 (d3 yeniden yazım) v2'yi ezer
         c.update(oku(p))
     son, ret = {}, {}
     for ad, kaynak in D().items():
-        if kaynak_ret(kaynak):
-            ret[ad] = kaynak_ret(kaynak)
+        if kaynak_ret(kaynak) or ad in KISMI:
+            son[ad] = yetersiz_kart(ad, kaynak)
             continue
         if ad not in c:
             ret[ad] = "yazar satırı yok"
@@ -138,15 +150,69 @@ def birlestir():
     (O / "ozet-g3-v2.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in son.values()), encoding="utf-8")
     (O / "hakem-g3-v2.jsonl").write_text("".join(json.dumps({k: r[k] for k in ["ad", "kaynak", "ozgun"] + A + ["mekanizma"]}, ensure_ascii=False) + "\n"
                                                 for r in son.values()), encoding="utf-8")
-    disi = [r for r in son.values() if "video-dışı" in r["mekanizma"]]  # ÖĞREN-0b'ye kategori hatası geri bildirimi
+    disi = [r for r in son.values() if "video-dışı" in r["mekanizma"]]
+    print("kaynak_yetersiz:", " ".join(a for a, r in son.items() if r["dogrulandi"] == "kaynak_yetersiz"))  # ÖĞREN-0b'ye kategori hatası geri bildirimi
     (O / "g3-disi-geri.tsv").write_text("".join(f"{r['ad']}\t{r['ozgun']}\t{r['ne_yapar']}\t{r['kanit']}\n" for r in disi), encoding="utf-8")
     print(f"son {len(son)} · RET {len(ret)} (yazılmamış {sum(h == 'yazar satırı yok' for h in ret.values())}) · UYARI {sum(len(r['uyari']) for r in son.values())} · dışı {len(disi)}")
+
+
+NODE = Path(r"C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\node_modules")
+GERCEK = {  # d3 (2): kayıt/başlatıcı kaynaklı üç kalem → paketin kendi README/METADATA'sı
+    "premiere-pro": Path(r"C:\AI\mcp\premiere-pro\node_modules\adobe-premiere-pro-mcp\README.md"),
+    "mcp-video-analyzer": NODE / "mcp-video-analyzer/README.md",
+    "markitdown": Path.home() / "AppData/Roaming/uv/tools/markitdown/Lib/site-packages/markitdown-0.1.8.dist-info/METADATA",
+}
+V3 = [["beautiful-article"], ["ffprobe", "yt-dlp", "writing-guidelines", "markitdown"], ["marketing-psychology", "premiere-pro", "mcp-video-analyzer"]]
+
+
+def duzelt():
+    """d3 (2): GERCEK kaynaklarını v2-ornek.tsv + kaynak/<ad>.txt'e yaz; kısmen okunan 4 + writing-guidelines + 3 → v3-paket-1..3 (yazar tam okur)"""
+    satir = [s.split("\t") for s in (B / "v2-ornek.tsv").read_text(encoding="utf-8").splitlines()]
+    for r in satir:
+        if r[0] in GERCEK:
+            r[3] = str(GERCEK[r[0]])
+            m = GERCEK[r[0]].read_text(encoding="utf-8", errors="replace")
+            if r[0] == "markitdown":
+                m += "\n=== markitdown --help ===\n" + v1.subprocess.run(["markitdown", "--help"], capture_output=True, text=True, encoding="utf-8", errors="replace").stdout
+            dosya(r[0]).write_text(f"=== {r[0]} kaynak: {r[3]} ===\n{m}", encoding="utf-8")
+    (B / "v2-ornek.tsv").write_text("".join("\t".join(r) + "\n" for r in satir), encoding="utf-8")
+    kay = {r[0]: r[3] for r in satir}
+    for i, grup in enumerate(V3, 1):
+        parca = []
+        for ad in grup:
+            m, an = dosya(ad).read_text(encoding="utf-8"), sorted(adlari(ad, kay[ad]))
+            parca += [f"## {ad}", f"kaynak: {dosya(ad)} (çözülmüş; özgün: {kay[ad]}) · {len(m.splitlines())} satır · araç adları ({len(an)}): {' · '.join(an[:30])}",
+                      "BAŞLIKLAR: " + " · ".join(p.split("\n", 1)[0].strip()[:60] for p in v1.BASLIK.split(m)[1:])[:1500], ""]
+        (B / f"v3-paket-{i}.md").write_text("\n".join(parca), encoding="utf-8")
+        print(f"v3-paket-{i}: {grup}")
+
+
+def kart():
+    """d3 (3): kart-b-g3.jsonl (B) + ozet-g3-v2.jsonl (A, yetersizler dahil) → docs/atlas/kart.jsonl. Aynı adlı katmansız (A-benzeri) satır korunur,
+    eski B satırı A ile değişir; yeniden koşulabilir (kendi A/B satırlarını önce atar)."""
+    yol = Path("docs/atlas/kart.jsonl")
+    ham = yol.read_bytes()
+    eol = "\r\n" if b"\r\n" in ham else "\n"
+    mevcut = [json.loads(s) for s in ham.decode("utf-8").splitlines() if s.strip()]
+    a = list(oku(O / "ozet-g3-v2.jsonl").values())
+    b = [json.loads(s) for s in (O / "kart-b-g3.jsonl").read_text(encoding="utf-8").splitlines()]
+    adlar = {r["ad"] for r in a}
+    kal = [x for x in mevcut if not (x.get("katman") == "A" and x["ad"] in adlar) and not (x.get("katman") == "B" and x.get("kategori") in ("video-medya", "belge", "pazarlama"))]
+    var = {x["ad"] for x in kal}
+    kat = {k["ad"]: k for k in (json.loads(s) for s in (O / "katalog-son.jsonl").read_text(encoding="utf-8").splitlines())}
+    yeni = [{"ad": r["ad"], "ne": r["ne_yapar"], "ne_zaman": r["sinirlar"], "nasil": r["komut"], "kosul": "; ".join(r["mekanizma"]) if isinstance(r["mekanizma"], list) else r["mekanizma"],
+             "kanit": r["kanit"] if r["dogrulandi"] == "kaynak_yetersiz" else r["ozgun"], "tur": kat.get(r["ad"], {}).get("tur", ""), "kategori": kat.get(r["ad"], {}).get("kategori_son", ""),
+             "katman": "A"} for r in a if r["ad"] not in var]
+    var |= {r["ad"] for r in yeni}
+    yeni += [{"ad": r["ad"], "ne": r["ne"], "komut": r["nasil"], "kanit": r["yol"], "kategori": r["kategori"], "tur": r["tur"], "katman": "B"} for r in b if r["ad"] not in var]
+    yol.write_bytes(eol.join(json.dumps(x, ensure_ascii=False) for x in kal + yeni).encode("utf-8") + eol.encode())
+    print(f"kart.jsonl: +{len(yeni)} (A {sum(x['katman'] == 'A' for x in yeni)} · B {sum(x['katman'] == 'B' for x in yeni)}) · atlanan B {len(b) - sum(x['katman'] == 'B' for x in yeni)}")
 
 
 def tohum(t):
     """kapı örneklemi: ozet-g3-v2'den (RET'siz son kartlar) tohum t ile 25 kalem → hakem-g3-t<t>.jsonl + v2-t<t>-ornek.tsv"""
     import random
-    son = list(oku(O / "ozet-g3-v2.jsonl").values())
+    son = [r for r in oku(O / "ozet-g3-v2.jsonl").values() if r["dogrulandi"] != "kaynak_yetersiz"]
     sec = random.Random(int(t)).sample(son, 25)
     (O / f"hakem-g3-t{t}.jsonl").write_text("".join(json.dumps({k: r[k] for k in ["ad", "kaynak", "ozgun"] + A + ["mekanizma"]}, ensure_ascii=False) + "\n"
                                                     for r in sec), encoding="utf-8")
@@ -162,4 +228,4 @@ def puan(t, h1, h2):
 
 if __name__ == "__main__":
     k = sys.argv[1:]
-    {"hazirla": hazirla, "birlestir": birlestir, "tohum": lambda: tohum(k[1]), "puan": lambda: puan(*k[1:4])}[k[0]]()
+    {"hazirla": hazirla, "duzelt": duzelt, "kart": kart, "birlestir": birlestir, "tohum": lambda: tohum(k[1]), "puan": lambda: puan(*k[1:4])}[k[0]]()

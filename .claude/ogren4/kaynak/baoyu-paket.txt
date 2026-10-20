@@ -1,0 +1,27 @@
+---
+name: baoyu-paket
+description: "14 skill'lik paket (baoyu: illüstrasyon, çizgi roman, kapak, diyagram, infografik, slayt, görsel üretim, markdown, çeviri, URL/YouTube metni). İlgili alt skill'in dosyasını oku ve uygula."
+---
+
+# baoyu-paket
+
+Bu paket 14 skill'i tek girişte toplar. Kullanım: aşağıdan işe uyan alt skill'i seç, `TALIMAT.md` dosyasını oku ve uygula; gerekirse aynı klasördeki REFERANS/KAYNAK dosyalarına bak.
+
+> Not: claude.ai paket başına tek SKILL.md ve en çok 200 dosya kabul ediyor. Bu yüzden her alt skill en çok üç tür dosyaya sıkıştırıldı: `TALIMAT.md` (orijinal SKILL.md), `REFERANS.md` (tüm ek .md dosyaları `## [yol]` başlıklarıyla) ve `KAYNAK-n.md` (betik, json, css gibi diğer metin dosyaları `### yol` başlığı + kod bloğu olarak). Bir dosya gerekirse ilgili başlıktan aynen çıkarılıp yazılabilir. Resim/font gibi ikili (ya da 1 MB üstü) dosyalar alınmadı; listesi REFERANS.md sonunda, asılları Claude Code kurulumunda duruyor.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| baoyu-article-illustrator | Analyzes article structure, identifies positions requiring visual aids, generates illustrations with Type × Style × Palette three-dimension approach. Use when u | `skills/baoyu-article-illustrator/TALIMAT.md` |
+| baoyu-comic | Knowledge comic creator supporting multiple art styles and tones. Creates original educational comics with detailed panel layouts and batch-capable image genera | `skills/baoyu-comic/TALIMAT.md` |
+| baoyu-compress-image | Compresses images to WebP (default) or PNG with automatic tool selection. Use when user asks to "compress image", "optimize image", "convert to webp", or reduce | `skills/baoyu-compress-image/TALIMAT.md` |
+| baoyu-cover-image | Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combining 11 color palettes and 7 rendering styles. Supports cinematic ( | `skills/baoyu-cover-image/TALIMAT.md` |
+| baoyu-diagram | Create professional, dark-themed SVG diagrams of any type — architecture diagrams, flowcharts, sequence diagrams, structural diagrams, mind maps, timelines, ill | `skills/baoyu-diagram/TALIMAT.md` |
+| baoyu-format-markdown | Formats plain text or markdown files with frontmatter, titles, summaries, headings, bold, lists, and code blocks. Use when user asks to "format markdown", "beau | `skills/baoyu-format-markdown/TALIMAT.md` |
+| baoyu-image-gen | AI image generation with OpenAI GPT Image 2.5, Azure OpenAI, Google, OpenRouter, DashScope, Z.AI GLM-Image, MiniMax, Jimeng, Seedream, Replicate and Agnes APIs. | `skills/baoyu-image-gen/TALIMAT.md` |
+| baoyu-infographic | Generate professional infographics with 21 layout types and 22 visual styles. Analyzes content, recommends layout×style combinations, and generates publication- | `skills/baoyu-infographic/TALIMAT.md` |
+| baoyu-markdown-to-html | Converts Markdown to styled HTML with WeChat-compatible themes. Supports code highlighting, math, Mermaid (rendered to PNG via headless Chrome), PlantUML, footn | `skills/baoyu-markdown-to-html/TALIMAT.md` |
+| baoyu-slide-deck | Generates professional slide deck images from content. Creates outlines with style instructions, then generates individual slide images. Use when user asks to " | `skills/baoyu-slide-deck/TALIMAT.md` |
+| baoyu-translate | >- | `skills/baoyu-translate/TALIMAT.md` |
+| baoyu-url-to-markdown | Fetch any URL and convert to markdown using baoyu-fetch CLI (Chrome CDP with site-specific adapters). Built-in adapters for X/Twitter, YouTube transcripts, Hack | `skills/baoyu-url-to-markdown/TALIMAT.md` |
+| baoyu-xhs-images | Generates infographic image card series with 12 visual styles, 8 layouts, and 3 color palettes. Breaks content into 1-10 cartoon-style image cards optimized for | `skills/baoyu-xhs-images/TALIMAT.md` |
+| baoyu-youtube-transcript | Downloads YouTube video transcripts/subtitles and cover images by URL or video ID. Supports multiple languages, translation, chapters, and speaker identificatio | `skills/baoyu-youtube-transcript/TALIMAT.md` |

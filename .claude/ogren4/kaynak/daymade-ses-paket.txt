@@ -1,0 +1,18 @@
+---
+name: daymade-ses-paket
+description: "5 skill'lik paket (Ses ve konuşma: ASR yazıya dökme, StepFun TTS/ASR, ses yönlendirme, transkript düzeltme). İlgili alt skill'in dosyasını oku ve uygula."
+---
+
+# daymade-ses-paket
+
+Bu paket 5 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| asr-transcribe-to-text | Transcribe audio/video to speaker-labeled text via MLX or remote; 转录, 说话人分离, 降采样, 字幕. | `skills/asr-transcribe-to-text/TALIMAT.md` |
+| audio-router | Route audio tasks: StepFun ASR/TTS, 妙记 to meeting minutes, merge/review minutes. | `skills/audio-router/TALIMAT.md` |
+| stepfun-asr | Transcribe Chinese/English audio with StepFun stepaudio-3-asr-max SSE; 阶跃 ASR, 语音识别, model not supported. | `skills/stepfun-asr/TALIMAT.md` |
+| stepfun-tts | Generate Chinese/Japanese speech with StepFun TTS: prosody, batch lines, cloned voices; 阶跃 TTS, 配音. | `skills/stepfun-tts/TALIMAT.md` |
+| transcript-fixer | Fix ASR/STT transcript errors: homophones, names, mixed Chinese/English; clean meeting notes. | `skills/transcript-fixer/TALIMAT.md` |

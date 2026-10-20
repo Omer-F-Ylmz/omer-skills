@@ -1,0 +1,60 @@
+---
+name: remotion-video-paket
+description: "47 skill'lik paket (Video üretimi: Remotion (render, altyazı, harita, studio), HyperFrames video şablonları, web video sunum, video araçları). İlgili alt skill'in dosyasını oku ve uygula."
+---
+
+# remotion-video-paket
+
+Bu paket 47 skill'i tek girişte toplar. Kullanım: aşağıdan işe uyan alt skill'i seç, `TALIMAT.md` dosyasını oku ve uygula; gerekirse aynı klasördeki REFERANS/KAYNAK dosyalarına bak.
+
+> Not: claude.ai paket başına tek SKILL.md ve en çok 200 dosya kabul ediyor. Bu yüzden her alt skill en çok üç tür dosyaya sıkıştırıldı: `TALIMAT.md` (orijinal SKILL.md), `REFERANS.md` (tüm ek .md dosyaları `## [yol]` başlıklarıyla) ve `KAYNAK-n.md` (betik, json, css gibi diğer metin dosyaları `### yol` başlığı + kod bloğu olarak). Bir dosya gerekirse ilgili başlıktan aynen çıkarılıp yazılabilir. Resim/font gibi ikili dosyalar alınmadı; listesi REFERANS.md sonunda, asılları Claude Code kurulumunda ve PC arşivinde duruyor.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| browser-video-recording | Create polished 60 fps 4:3 4K browser screen-recording style videos from Codex in-app browser captures, with browser-only crop, natural macOS cursor s | `skills/browser-video-recording/TALIMAT.md` |
+| canopy-part-title | Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables. | `skills/canopy-part-title/TALIMAT.md` |
+| captions-overlay | Overlay doctrine for the embedded-captions workflow — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on  | `skills/captions-overlay/TALIMAT.md` |
+| changelog-video | Turn a weekly changelog .md into a finished branded changelog video (square 1080, ~45-60s, Annie VO, animated brand background, mock-UI visualizations | `skills/changelog-video/TALIMAT.md` |
+| cli-demo-generator | - | `skills/cli-demo-generator/TALIMAT.md` |
+| code-slice-hero | A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables. | `skills/code-slice-hero/TALIMAT.md` |
+| cuboid-carousel | A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1920×1080, 6.666666666666667s, 40 variables. | `skills/cuboid-carousel/TALIMAT.md` |
+| cut-the-curve | The technique catalog: five velocity-matched SEAMS (zoom-through, INVERSE zoom-through, cut-the-curve, waterfall cut, rack-focus blur-cut) plus the tw | `skills/cut-the-curve/TALIMAT.md` |
+| faceless-explainer | Turn arbitrary text — an article, notes, a topic, a brief — into a faceless explainer video: there is no site or footage to capture, so the visuals ar | `skills/faceless-explainer/TALIMAT.md` |
+| frost-sequence-camera-orbit | An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variable | `skills/frost-sequence-camera-orbit/TALIMAT.md` |
+| general-video | > | `skills/general-video/TALIMAT.md` |
+| glass-shard-title | Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables. | `skills/glass-shard-title/TALIMAT.md` |
+| hyperframes | > | `skills/hyperframes/TALIMAT.md` |
+| hyperframes-audio | > | `skills/hyperframes-audio/TALIMAT.md` |
+| hyperframes-cli | > | `skills/hyperframes-cli/TALIMAT.md` |
+| hyperframes-keyframes | > | `skills/hyperframes-keyframes/TALIMAT.md` |
+| hyperframes-studio | > | `skills/hyperframes-studio/TALIMAT.md` |
+| meme-creator | - | `skills/meme-creator/TALIMAT.md` |
+| motion-doctrine | GATEWAY — load FIRST before composing any HyperFrames animation or video. The high-level motion law that makes a multi-scene video feel like ONE conti | `skills/motion-doctrine/TALIMAT.md` |
+| motion-graphics | > | `skills/motion-graphics/TALIMAT.md` |
+| music-to-video | Turn a music track (an audio file, a video to pull audio from, or a track generated from a mood brief) into a beat-synced video — lyric video, slidesh | `skills/music-to-video/TALIMAT.md` |
+| orbit-card | A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables. | `skills/orbit-card/TALIMAT.md` |
+| oversized-cursor | House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a scene involves cursors or a pointer-led action, when kicki | `skills/oversized-cursor/TALIMAT.md` |
+| pr-to-video | Turn a GitHub pull request (a PR URL, owner/repo#N, or 'this PR' in a checked-out repo) into a code-change explainer video — changelog, feature reveal | `skills/pr-to-video/TALIMAT.md` |
+| product-launch-video | Turn a product or marketing URL, pasted script, or brief into a product launch / promo video — SaaS promos, feature reveals, product demos, app and co | `skills/product-launch-video/TALIMAT.md` |
+| remotion-best-practices | Router for all Remotion skills | `skills/remotion-best-practices/TALIMAT.md` |
+| remotion-captions | Transcribing, displaying and animating captions | `skills/remotion-captions/TALIMAT.md` |
+| remotion-create | Create a new Remotion video | `skills/remotion-create/TALIMAT.md` |
+| remotion-docs | Search Remotion documentation | `skills/remotion-docs/TALIMAT.md` |
+| remotion-interactivity | Structure Remotion markup for interactivity | `skills/remotion-interactivity/TALIMAT.md` |
+| remotion-maps | Remotion Map animation knowledge | `skills/remotion-maps/TALIMAT.md` |
+| remotion-markup | Content, animation and effects best practices | `skills/remotion-markup/TALIMAT.md` |
+| remotion-multimedia | Interacting with Mediabunny | `skills/remotion-multimedia/TALIMAT.md` |
+| remotion-render | Export a Remotion video | `skills/remotion-render/TALIMAT.md` |
+| remotion-saas | Build an app with Remotion | `skills/remotion-saas/TALIMAT.md` |
+| remotion-studio | Preview a Remotion video | `skills/remotion-studio/TALIMAT.md` |
+| remotion-to-hyperframes | Port an existing Remotion (React) composition''s source to HyperFrames HTML. Use ONLY on an explicit ask to port/convert/migrate/translate a Remotion  | `skills/remotion-to-hyperframes/TALIMAT.md` |
+| remotion-upgrade | Upgrade Remotion, and related packages | `skills/remotion-upgrade/TALIMAT.md` |
+| seam-craft | Render-correctness doctrine for scene-to-scene seams in HyperFrames launch videos — the prerequisites that make transitions composite correctly on the | `skills/seam-craft/TALIMAT.md` |
+| slideshow | > | `skills/slideshow/TALIMAT.md` |
+| video-comparer | This skill should be used when comparing two videos to analyze compression results or quality differences. Generates interactive HTML reports with qua | `skills/video-comparer/TALIMAT.md` |
+| video-to-superprompt | Turn a reference video into a super detailed recreation or inspiration prompt. Use when the user provides, mentions, uploads, links, or points to a vi | `skills/video-to-superprompt/TALIMAT.md` |
+| video-to-website | Biến 1 video thành website cuộn-động (scroll-driven) cao cấp bằng GSAP + canvas render từng frame + Lenis smooth scroll. Dùng khi user muốn biến một v | `skills/video-to-website/TALIMAT.md` |
+| web-video-presentation | 把一篇文章或口播稿，做成"看起来像视频"的点击驱动 16:9 网页演示，可选合成口播音频。流程：原始文章 → **一次产出**口播稿 + outline 开发计划 → 用户**一次对齐** 5 件事（稿子 / outline / 主题 / 素材 / 开发模式）→ 网页开发（逐章 / 顺序 / 并行） | `skills/web-video-presentation/TALIMAT.md` |
+| wireframe-portal-title | A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase. HyperFrames block, 1920×1080, 8s, 9 variables. | `skills/wireframe-portal-title/TALIMAT.md` |
+| youtube-downloader | Download YouTube videos and HLS streams (m3u8) from platforms like Mux, Vimeo, etc. using yt-dlp and ffmpeg. Use this skill when users request downloa | `skills/youtube-downloader/TALIMAT.md` |
+| motion-os | Build motion graphics and launch videos in code, then open them in Motion OS, a local scene-by-scene review player where the user edits copy, pins notes on the  | `skills/motion-os/TALIMAT.md` |

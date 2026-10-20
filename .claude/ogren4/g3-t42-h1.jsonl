@@ -1,0 +1,25 @@
+{"ad":"dok-cevirmen-teknik","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: kaynakta ajanın kendi çağrı komutu yok, yalnız genel ders.py yuvası (satır 9-10)."}}
+{"ad":"baoyu-paket","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: kaynak yalnız alt skill TALIMAT.md okuma yönergesi veriyor (satır 8), paketin kendi komutu yok."}}
+{"ad":"li-dm","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: kaynakta li-dm çağrı şablonu yok, yalnız başka araç /li-human anılıyor (satır 82)."}}
+{"ad":"hyperframes-studio","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `node scripts/reencode.mjs <klip>.mp4` satır 62'de birebir, kendi scripts dizini."}}
+{"ad":"hyperframes-core","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `npx hyperframes check` satır 97'de birebir, aracın kendi ikilisi."}}
+{"ad":"dok-sorun-giderme-rehberi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: kaynakta ajanı çağıran komut yok, yalnız ders.py yuvası (satır 9-10)."}}
+{"ad":"dok-adr-yazar","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: kaynakta aracın kendi çağrı komutu yok, yalnız ders.py yuvası (satır 9-10)."}}
+{"ad":"document-generate","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `/document-generate` satır 404'te birebir."}}
+{"ad":"remotion-docs","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: Algolia POST çağrısı satır 15'te birebir, skill'in kendi arama adımı."}}
+{"ad":"benchmark-methodology","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: kaynak yalnız skill yönergesi, çağrı komutu/şablonu yok."}}
+{"ad":"beautiful-article","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `bash <path-to-beautiful-article>/scripts/scaffold.sh ./my-article --theme=<id>` satır 3085'te birebir."}}
+{"ad":"document-release","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `/document-release` satır 402'de birebir."}}
+{"ad":"hyperframes-audio","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"komut":"D: `node <SKILL_DIR>/scripts/carve.mjs --comp index.html` satır 398'de birebir.","sinirlar":"Y: 'carve bir ses kanalına konmaz' belirsiz/yanlış okunur; kaynak (satır 232) yalnız 'Never put a carve on a voice track' der, carve müzik yatağı ses kanalına konur."}}
+{"ad":"hyperframes-keyframes","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `npx hyperframes keyframes .` satır 215'te birebir."}}
+{"ad":"xlsx","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `python scripts/recalc.py output.xlsx [timeout_seconds]` satır 37'de birebir."}}
+{"ad":"linkedin-agent","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `/plugin install linkedin-agent` README satır 40'ta birebir, manifest adı."}}
+{"ad":"docx","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `python scripts/office/validate.py out.docx --original doc.docx` satır 57'de birebir."}}
+{"ad":"nano-banana-2","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `generate_image` aracın kendi MCP araç adı, README satır 77."}}
+{"ad":"marketing-skills","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `npx skills add coreyhaines31/marketingskills` README satır 136'da birebir, kendi repo adı."}}
+{"ad":"motion-os","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `node \"$SKILL_DIR/player/serve.mjs\" \"<project>\"` satır 94'te birebir, kendi player dizini."}}
+{"ad":"impeccable-asset-producer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `${CLAUDE_PLUGIN_ROOT}/skills/impeccable/scripts/impeccable comp-spec --crop <id>` satır 33'te birebir."}}
+{"ad":"hyperframes","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `npx hyperframes skills update <workflow-name>` satır 95'te birebir."}}
+{"ad":"yt-dlp","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `yt-dlp.EXE [OPTIONS] URL [URL...]` satır 2 Usage'da birebir."}}
+{"ad":"writing-beats","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: kaynakta çağrı komutu yok, yalnız yazım akışı."}}
+{"ad":"manim-video","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"D: `manim -ql assets/network_graph_scene.py NetworkGraphExplainer` satır 73'te birebir."}}

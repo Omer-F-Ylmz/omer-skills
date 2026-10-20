@@ -1,0 +1,14 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · openrouter/microsoft/mai-transcribe-1.5 ===
+{
+  "id": "openrouter/microsoft/mai-transcribe-1.5",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "openrouter",
+  "type": "audio",
+  "subtype": "transcription",
+  "capabilities": {
+    "tool_calling": true,
+    "reasoning": true
+  },
+  "name": "microsoft/mai-transcribe-1.5"
+}

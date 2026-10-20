@@ -1,0 +1,15 @@
+---
+name: autoclip-paket
+description: "Uzun videoyu otomatik kısa kliplere kesme: autoclip, product board"
+---
+
+# autoclip-paket
+
+Bu paket 2 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| autoclip | >- | `skills/autoclip/TALIMAT.md` |
+| product-board | >- | `skills/product-board/TALIMAT.md` |

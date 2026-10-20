@@ -1,0 +1,18 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · openrouter/openai/gpt-audio-mini ===
+{
+  "id": "openrouter/openai/gpt-audio-mini",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "openrouter",
+  "permission": [],
+  "root": "openai/gpt-audio-mini",
+  "parent": null,
+  "context_length": 128000,
+  "max_output_tokens": 16384,
+  "capabilities": {
+    "tool_calling": true,
+    "reasoning": true
+  },
+  "max_input_tokens": 128000,
+  "name": "openai/gpt-audio-mini"
+}

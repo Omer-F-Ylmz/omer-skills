@@ -1,0 +1,3964 @@
+=== beautiful-article/README.md ===
+# Beautiful Article Skill — Turn any source into a beautiful article
+
+> A skill for AI agents to **edit and design** any source material (URL / PDF / DOCX / Markdown / plain text / screenshots / pasted notes) into a **beautiful, share-ready article** that is easier to read, archive, and pass around than the original.
+
+[中文文档](./README.zh-CN.md) · [Back to collection root](../../README.md)
+
+![Beautiful Article Skill](https://cdn.jsdelivr.net/gh/ConardLi/assets@main/imgs/article/banner.webp)
+
+---
+
+### Powered by [ReActicle](https://github.com/ConardLi/reacticle)
+
+`beautiful-article` is the editorial **harness** (methodology, checkpoints, theme picker, sub-agent reviewers); [`reacticle`](https://github.com/ConardLi/reacticle) is the underlying **runtime component protocol** the skill writes against — prose-first React components plus a token-based `Raw` escape hatch, all wired into the same theme system.
+
+```
+beautiful-article  (this skill · methodology + harness)
+        │  composes
+        ▼
+reacticle          (npm package · components / themes / Raw / export)
+```
+
+| Layer | What it owns | Where it lives |
+|---|---|---|
+| `beautiful-article` (this skill) | **How** the agent plans, writes, reviews and delivers an article from any source — six numbered phases, three hard checkpoints, theme picker, sub-agent reviewers | This directory |
+| `reacticle` | The component vocabulary + 11 authoring themes the skill compiles into — `Article` / `Hero` / `Lead` / `Section` / `Quote` / `Image` / `Formula` / `CodeBlock` / `Raw` …, each theme a `.css` token bundle + `.md` authoring profile | [`ConardLi/reacticle`](https://github.com/ConardLi/reacticle) · [npm `reacticle`](https://www.npmjs.com/package/reacticle) · [docs](https://rearticle.mmh1.top/) |
+
+The two pair very well but are independently useful: the skill works because it has ReActicle to target, and ReActicle is a perfectly usable React library on its own.
+
+---
+
+### [Showcase](https://mmh1.top/#/ai-article) — articles built with `beautiful-article` + ReActicle
+
+Real long-form articles, each authored end-to-end by an AI agent running this skill against the [`reacticle`](https://www.npmjs.com/package/reacticle) component protocol. Click any cover to open the live, single-file HTML article.
+
+<table>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/tools">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/tools.webp" alt="Agent Tools 设计的最佳实践" width="320">
+<br><b>Agent Tools 设计的最佳实践</b>
+</a>
+<br><sub>Theme · Freddie · 长文 · 21 min</sub>
+<br><sup>Anthropic 工程团队关于 Tools 的五条原则，与一套评测驱动的方法。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/skill">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/skill.webp" alt="Agent Skill 是如何进化的？" width="320">
+<br><b>Agent Skill 是如何进化的？</b>
+</a>
+<br><sub>Theme · Freddie · 解释文 · 8 min</sub>
+<br><sup>把 Skill 文档当成被训练的对象，而不是被复制粘贴的 prompt。</sup>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/harness">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/harness.webp" alt="Agent Harness 的解剖图" width="320">
+<br><b>Agent Harness 的解剖图</b>
+</a>
+<br><sub>Theme · Vignelli · 长文 · 12 min</sub>
+<br><sup>智能在模型里；让智能变得有用的，是它周围的那套系统。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/prompt-cache">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/prompt-cache.webp" alt="提示词缓存对 Agent 有多重要？" width="320">
+<br><b>提示词缓存对 Agent 有多重要？</b>
+</a>
+<br><sub>Theme · Bayer · 长文 · 15 min</sub>
+<br><sup>缓存命中率是 Agent 的 SLO，Claude Code 团队的反直觉经验。</sup>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/context">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/context.webp" alt="面向 Agent 的高效上下文工程" width="320">
+<br><b>面向 Agent 的高效上下文工程</b>
+</a>
+<br><sub>Theme · Tufte · 长文 · 16 min</sub>
+<br><sup>本文探讨如何高效地筛选与管理驱动 AI Agent 运转的上下文。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/transformer">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/transformer.webp" alt="Attention Is All You Need" width="320">
+<br><b>Attention Is All You Need</b>
+</a>
+<br><sub>Theme · Tufte · 长文 · 30 min</sub>
+<br><sup>一篇重塑现代 AI 的论文，逐层拆给你看。</sup>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/agent-eval">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/agent-eval.webp" alt="把 AI Agent 的评测讲清楚" width="320">
+<br><b>把 AI Agent 的评测讲清楚</b>
+</a>
+<br><sub>Theme · Tufte · 长文 · 25 min</sub>
+<br><sup>让 Agent 有用的那些能力，恰恰让它难以评测 — 来自 Anthropic 的指南。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/agent-loop-codex">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/agent-loop-codex.webp" alt="Codex 的 Agent Loop 是怎么做的？" width="320">
+<br><b>Codex 的 Agent Loop 是怎么做的？</b>
+</a>
+<br><sub>Theme · Sottsass · 长文 · 18 min</sub>
+<br><sup>OpenAI 官方分享：在 Responses API 之上，一条对话是如何被反复"展开"的。</sup>
+</td>
+</tr>
+</table>
+
+---
+
+### [Theme Gallery](https://rearticle.mmh1.top/#/gallery) — one specimen article per theme
+
+> 11 themes shipped. Full theme contracts (`.css` token bundle + `.md` authoring profile, anti-patterns, code/media style) are documented at [Theming](https://rearticle.mmh1.top/#/theming).
+
+Every theme ships with a long-form **specimen article** that lives the theme end-to-end — typography, photography, code, formulas, Raw blocks, the works. Click any cover to read the live article; click the theme name to jump to that theme's section in the docs.
+
+<table>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/caffeine-half-life">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-tufte.webp" alt="Tufte · Data-Ink" width="260">
+<br><b>Tufte</b> · Data-Ink
+</a>
+<br><sub>咖啡因与睡眠 · 数据笔记</sub>
+<br><sup>Edward Tufte 数据墨水，证据优先，发丝级图表与最朴素的版式。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/movable-type">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-press.webp" alt="Press · 书卷" width="260">
+<br><b>Press</b> · 书卷
+</a>
+<br><sub>活字之后 · 随笔</sub>
+<br><sup>Stripe Press 式书卷长读物：会落定的标题、氧化血红首字母、纯正文之美。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/pool-exhaustion">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-shannon.webp" alt="Shannon · 工程暗色" width="260">
+<br><b>Shannon</b> · 工程暗色
+</a>
+<br><sub>连接池耗尽 · 故障复盘</sub>
+<br><sup>贝尔实验室技术论文血统，暗底黄金信号、回压依赖、夜间作战气质。</sup>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/orbit-spec">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-vignelli.webp" alt="Vignelli · 瑞士" width="260">
+<br><b>Vignelli</b> · 瑞士网格
+</a>
+<br><sub>Orbit 设计系统规格 · 规格</sub>
+<br><sup>Massimo Vignelli 网格至上、grotesque 字族、瑞士红只承载结构。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/linear-attention">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/knuth.png" alt="Knuth · 学术" width="260">
+<br><b>Knuth</b> · 学术
+</a>
+<br><sub>线性化自注意力 · 预印本</sub>
+<br><sup>Donald Knuth / Computer Modern，编号小节、命题与证明、arXiv 草稿气质。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/first-newsletter">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-freddie.webp" alt="Freddie · 暖黄" width="260">
+<br><b>Freddie</b> · 暖黄
+</a>
+<br><sub>第一封 Newsletter · 上手指南</sub>
+<br><sup>Mailchimp Freddie 黑字荧光，亲和插画 + 不端着的产品上手语气。</sup>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/slow-breathing">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-andy.webp" alt="Andy · 静谧" width="260">
+<br><b>Andy</b> · 静谧
+</a>
+<br><sub>把呼吸放慢 · 练习</sub>
+<br><sup>柔软圆润、呼吸-神经跷跷板，让人慢下来的练习气质。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/front-page">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-bodoni.webp" alt="Bodoni · 报刊" width="260">
+<br><b>Bodoni</b> · 报刊
+</a>
+<br><sub>头版的消亡 · 特稿</sub>
+<br><sup>高对比 Didone 报刊气质，黑白大报、对折线之上的分量。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/geometry-of-meaning">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-bayer.webp" alt="Bayer · 包豪斯" width="260">
+<br><b>Bayer</b> · 包豪斯
+</a>
+<br><sub>形、色、网格 · 教学</sub>
+<br><sup>Herbert Bayer 包豪斯三原色几何，形有性格、色有重量。</sup>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/rate-limiter-spec">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-fuller.webp" alt="Fuller · 蓝图" width="260">
+<br><b>Fuller</b> · 蓝图
+</a>
+<br><sub>限流器设计规格 · 系统设计</sub>
+<br><sup>Buckminster Fuller 工程蓝图，方格纸拓扑、令牌桶模拟，可照着实现。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/color-clash">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-sottsass.webp" alt="Sottsass · 孟菲斯" width="260">
+<br><b>Sottsass</b> · 孟菲斯
+</a>
+<br><sub>撞色不翻车 · 设计随笔</sub>
+<br><sup>Memphis 80s 撞色，黑描边、硬投影、轻微旋转的不正经语法。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+&nbsp;
+</td>
+</tr>
+</table>
+
+> Browse all specimens with theme switching, search and filters at the live gallery: <https://rearticle.mmh1.top/#/gallery>.
+
+---
+
+## What it does
+
+`beautiful-article` turns dry, linear, hard-to-digest source material into a polished, visually clear, share-ready article. It is **not** a web-app builder — the focus is always the *article*: better reading, better pacing, better aesthetics. The article is delivered as a self-contained file that opens offline (with optional companion PDF), but that's a delivery detail, not the goal.
+
+It is designed for:
+
+- Repackaging long URLs / PDFs / DOCX / Markdown into a beautiful HTML long-form
+- Producing briefings, explainers, tutorials, post-mortems, design / proposal reviews
+- Visual essays, dialogue / interview transcripts, interactive learning explainers
+- Any time you want a **better reading medium** than raw Markdown — with tables, SVG, code, formulas, copy / export buttons baked in
+
+The skill is primarily a **methodology + collaboration harness**. It ships a Vite + React + TypeScript scaffold built around the [`reacticle`](https://www.npmjs.com/package/reacticle) component protocol — the agent does not hand-write naked HTML / CSS, it composes prose-first semantic components plus a theme-constrained `Raw` free layer.
+
+---
+
+## Core ideas
+
+- **Article first, not app** — the focus is the article. Raw layers, SVGs, mini-tools must serve reading / explanation / pacing / aesthetics, not stand on their own.
+- **Source → Plan → Build → Review harness** — every project flows through six numbered phases with three hard checkpoints in between.
+- **Component protocol via `reacticle`** — semantic prose components (Hero, Lead, Section, Quote, Callout, Image, Formula, CodeBlock, Table, …) plus a `Raw` escape hatch that must use theme tokens (`--ra-*`).
+- **Theme-driven design** — pick from a registry of authoring profiles (`tufte`, `press`, `bayer`, `bodoni`, `vignelli`, `sottsass`, `freddie`, `andy`, `fuller`, `knuth`, `shannon`) — each profile is a Markdown contract for the agent, not a CSS file.
+- **100% information retention by default** — the article type carries a recommended retention ratio (longform `~100%`, briefing `~50%`, visual-essay `~40%`, …) which the user can override.
+- **Hard collaboration checkpoints** — the agent pauses for the plan, the first-spread proof, and the final delivery decision; **every decision must be confirmed item-by-item, never silently bundled**.
+- **Cover by default** — a 3:4 book-style cover sits above the TOC, locked container, theme-token only, no remote images.
+- **Optional PDF export** — the main deliverable is a self-contained HTML file; PDF is opt-in via a zero-npm `html-to-pdf.sh` headless-browser script.
+
+---
+
+## Workflow
+
+```text
+Phase 0  Intake
+   │
+Phase 1  Source → Markdown      (URL / PDF / DOCX / MD / text → source.md)
+   │
+Phase 2  Editorial Planning     (one plan.md: Brief / Outline / Theme / Assets)
+   │
+★ Checkpoint 1  Plan            (5 independent decisions confirmed)
+   │
+Phase 4  First Spread           (cover + hero + first section + one signature visual)
+   │
+★ Checkpoint 2  First Spread    (acceptance + dev mode A/B)
+   │
+Phase 5  Full Article Build     (single-agent sequential or multi-agent parallel)
+   │
+Phase 6  Final Review           (Editorial / Visual / Technical)
+   │
+Phase 7  Repair                 (minimal-slice fixes only)
+   │
+★ Checkpoint 3  Delivery        (HTML, or HTML + PDF, or pause to revise)
+   │
+Phase 8  Delivery               (article.html, optional article.pdf)
+```
+
+The agent owns a per-project workspace directory that is its **long-term memory**:
+
+```text
+<workspace>/
+  source/   original.*   source.md   source.<lang>.md (if translated)   extraction-notes.md
+  plan/     plan.md
+  article/  Cover.tsx   Article.tsx   sections/   raw-blocks/   assets/   article.html (output)
+  review/   first-spread-review.md   final-review.md
+            (source-review.md only on complex sources, repair-log.md only when there are repairs)
+  index.html  package.json  vite.config.ts  tsconfig*.json  (build harness)
+```
+
+---
+
+## Skill structure
+
+```text
+skills/beautiful-article/
+├── SKILL.md                            Main skill (frontmatter name: beautiful-article)
+├── manifest.json                       Release manifest
+├── README.md  /  README.zh-CN.md       This document
+├── references/
+│   ├── article-types.md                Article-type router
+│   ├── article-types/                  briefing / dialogue / essay / explainer / full-report
+│   │                                    interactive-explainer / longform / review / tutorial / visual-essay
+│   ├── information-density.md          Retention ratios vs. component / visual mix
+│   ├── plan-template.md                Single plan.md template (Brief / Outline / Theme / Assets)
+│   ├── theme-selection.md              Theme picker, density / theme decoupling rules
+│   ├── layout.md                       Width modes, TOC defaults
+│   ├── cover.md                        3:4 book-style cover guide (5 self-checks, 5 layouts)
+│   ├── asset-policy.md                 Image strategy (none / user-assets / placeholders / ai-generated)
+│   ├── component-policy.md             Reacticle component contract, prose-first
+│   ├── raw-policy.md                   Raw allow / deny list, token-driven, self-checks
+│   ├── section-build.md                One-section-one-file rule, sub-agent prompt templates
+│   ├── source-to-markdown.md           Per-format extraction rules + 5-item self-check
+│   ├── scaffold.md                     Scaffold script behaviour, workspace layout
+│   ├── html-output.md                  dev / build / single-file commands
+│   ├── pdf-output.md                   html-to-pdf.sh usage + print CSS overrides
+│   ├── review-checklist.md             Per-phase reviewer checklists & sub-agent prompts
+│   ├── repair-policy.md                Minimal-slice repair table
+│   └── harness.md                      Skill-as-harness perspective
+├── theme-profiles/
+│   ├── index.json                      Theme registry
+│   └── andy / bayer / bodoni / freddie / fuller / knuth / press / shannon / sottsass / tufte / vignelli
+├── scripts/
+│   ├── scaffold.sh                     One-shot workspace bootstrap
+│   ├── html-to-pdf.sh                  Optional HTML → PDF (headless browser, zero npm deps)
+│   ├── pdf-print-overrides.css         @media print overrides injected into the HTML
+│   ├── source-to-markdown-markitdown.py  Main extraction path (PDF / DOCX / HTML)
+│   └── source-to-markdown.py           Lightweight fallback (Markdown / TXT / simple HTML)
+└── assets/
+    └── scaffold-template/              Vite + React + TS template the scaffold script copies
+```
+
+---
+
+## How it works (highlights)
+
+### 1. Quality protocol per node
+
+Different phases use different quality-checking approaches — over-using sub-agents and over-writing review files is the #1 perf trap, so the skill makes the rules explicit:
+
+| Node | How it's checked | Artifact |
+|---|---|---|
+| Phase 1 Source (default) | Main agent inline 5-item checklist | none |
+| Phase 1 Source (complex / low-confidence only) | Source Reviewer SubAgent (diff against `original.*`) | `review/source-review.md` |
+| Phase 2 Plan / before Checkpoint 1 | **Main agent inline self-check (no SubAgent, no file)** | none |
+| Phase 4 First Spread / before Checkpoint 2 | First Spread Reviewer SubAgent | `review/first-spread-review.md` |
+| Phase 5 Per Section | Section Reviewer SubAgent — returns pass/fail by message | none (no per-section files) |
+| Phase 6 Final / before Checkpoint 3 | Editorial + Visual + Technical Reviewer SubAgents | `review/final-review.md` |
+
+### 2. No silent default decisions
+
+At every checkpoint each decision is asked **independently** — the agent may recommend, but never sneak through "I went ahead with X, tell me if it's wrong". Five independent decisions on Plan Checkpoint: article type (with recommended retention), theme, width, image mode, cover on/off.
+
+### 3. Article type → retention bundles
+
+The 10 article types all carry a recommended retention ratio: `longform · ~100%`, `tutorial · ~90%`, `full-report · ~80%`, `explainer · ~80%`, `dialogue · ~80%`, `review · ~70%`, `essay · ~70%`, `briefing · ~50%`, `visual-essay · ~40%`, `interactive-explainer · ~25% excerpt + 75% AI-rebuild`. Users can override with a single sentence.
+
+### 4. One-section-one-file rule
+
+Every Section is its own component file in `article/sections/NN-*.tsx`. `Article.tsx` is just the assembler — owned by the main agent, who imports & orders sections, runs typecheck / build, and resolves theme drift. This is the precondition for sub-agent parallelism in dev-mode B.
+
+### 5. Theme tokens everywhere
+
+`Raw` blocks must consume `--ra-*` theme tokens — no wild colors / fonts. Switching theme rewires every Raw block in one place. Each theme ships a Markdown authoring profile telling the agent how to write & style content under that theme.
+
+---
+
+## Setting up a project
+
+This skill **does not pre-create** a workspace — every project gets its own. From the SKILL's Phase 4:
+
+```bash
+# Default: cover on
+bash <path-to-skill>/scripts/scaffold.sh ./my-article --theme=tufte
+
+# Cover off
+bash <path-to-skill>/scripts/scaffold.sh ./my-article --theme=press --no-cover
+
+# List available themes
+bash <path-to-skill>/scripts/scaffold.sh --list-themes
+```
+
+The scaffold spins up a Vite + React + TS workspace, installs the latest published `reacticle` from npm, and seeds `source/ plan/ review/` plus `article/Article.tsx`, `article/Cover.tsx`, and `article/sections/01-opening.tsx` so the agent has a known starting shape.
+
+After Phase 5 the agent runs the build to produce a single inlined HTML:
+
+```bash
+npm run build           # → article/article.html (CSS + JS inlined)
+```
+
+Optional PDF export (only if Checkpoint 3 selects HTML + PDF):
+
+```bash
+bash <path-to-skill>/scripts/html-to-pdf.sh
+```
+
+---
+
+## Best practices
+
+### Recommended
+
+1. **Pick the article type before anything else** — its retention ratio anchors the whole plan.
+2. **Trust the harness phases** — don't skip Plan checkpoint just because you can guess the answer.
+3. **Use theme tokens for every Raw block** — `--ra-*` only. No raw hex / font names.
+4. **One section per file** — even if a section is small, isolate it. It pays off in review and repair.
+5. **Cover should reflect theme + article gist** — not just a placeholder gradient.
+
+### Avoid
+
+1. ❌ Treating the skill as "make me an HTML page" — the deliverable is an *article*.
+2. ❌ Bundling multiple checkpoint decisions into one yes/no.
+3. ❌ Letting Raw blocks bring their own colors / typography (theme drift).
+4. ❌ Writing all sections inside `Article.tsx` (kills sub-agent parallelism).
+5. ❌ Removing the colophon / cover container (they are part of the contract).
+
+---
+
+## FAQ
+
+**Q1: When should I *not* use this skill?**
+When the user actually wants a web app, dashboard, form, prototype, or generic landing page — those go to `web-design-engineer`, not here. If in doubt, the skill stops and asks rather than silently producing the wrong artifact.
+
+**Q2: Does it always produce 100% information retention?**
+No — that is just the `longform` default. The article type sets the ratio, and the user can override at Checkpoint 1.
+
+**Q3: Can the article be in a different language than the source?**
+Yes. If the user specifies a target language different from the source, Phase 1 produces an idiomatic translation `source/source.<lang>.md` first, and Phase 2+ writes from that file.
+
+**Q4: What if my agent runtime has no SubAgent / Task tool?**
+The skill notes this case explicitly: the main agent backfills the SubAgent's job and writes "no SubAgent environment, main-agent fallback" at the top of the resulting review file.
+
+**Q5: Why React + Vite + reacticle instead of plain HTML?**
+Because the agent needs a stable, prose-first component contract that survives multi-section parallel work, theme switching, and Raw escape hatches. The `npm run build` step always inlines everything back into a single HTML for delivery.
+
+---
+
+## Tool requirements
+
+The skill assumes the agent runtime can:
+
+- Spawn shell commands (for `scaffold.sh`, `html-to-pdf.sh`, `npm` builds)
+- Read / write files in a project workspace
+- (Optionally) launch sub-agents for First Spread / Section / Final review nodes
+- (Optionally) run `MarkItDown` (Python) for high-fidelity PDF / DOCX / HTML extraction; otherwise the lightweight fallback script handles Markdown / TXT / simple HTML
+
+---
+
+## License
+
+MIT
+
+=== beautiful-article/README.zh-CN.md ===
+# Beautiful Article Skill —— 把任意素材编辑成一篇精美的文章
+
+> 一个面向 AI Agent 的 Skill：把任意素材（URL / PDF / DOCX / Markdown / 纯文本 / 截图 / 粘贴材料）**编辑、设计**成一篇**比原文更易读、更便于分享和归档的精美文章**。
+
+[English](./README.md) · [返回集合首页](../../README.zh-CN.md)
+
+![Beautiful Article Skill](https://cdn.jsdelivr.net/gh/ConardLi/assets@main/imgs/article/banner.webp)
+
+---
+
+### 由 [ReActicle](https://github.com/ConardLi/reacticle) 驱动
+
+`beautiful-article` 是编辑型 **harness**（方法论、checkpoint、主题选型、sub-agent reviewer）；[`reacticle`](https://github.com/ConardLi/reacticle) 是 Skill 在运行时调用的**底层组件协议** —— prose-first 的 React 语义组件 + 基于主题 token 的 `Raw` 自由层，统一接到同一套主题系统上。
+
+```
+beautiful-article  （本 Skill · 方法论 + harness）
+        │  调用
+        ▼
+reacticle          （npm 包 · 组件 / 主题 / Raw / 导出）
+```
+
+| 层级 | 负责什么 | 仓库 / 文档 |
+|---|---|---|
+| `beautiful-article`（本 Skill） | **怎么** 让 Agent 从任意素材出发，规划、撰写、审阅、交付一篇文章 —— 6 阶段流程、3 个硬 checkpoint、主题选型、sub-agent reviewer | 当前目录 |
+| `reacticle` | Skill 实际拼装出的组件词表 + 11 套 authoring 主题 —— `Article` / `Hero` / `Lead` / `Section` / `Quote` / `Image` / `Formula` / `CodeBlock` / `Raw` …，每套主题 = 一份 `.css` token 包 + 一份 `.md` authoring profile | [`ConardLi/reacticle`](https://github.com/ConardLi/reacticle) · [npm `reacticle`](https://www.npmjs.com/package/reacticle) · [文档站](https://rearticle.mmh1.top/) |
+
+二者搭配最佳但相互独立：Skill 因为有 ReActicle 这个稳定目标层才能跑通；ReActicle 单独作为 React 组件库使用也完全立得住。
+
+---
+
+### [文章实例](https://mmh1.top/#/ai-article) —— 用 `beautiful-article` + ReActicle 写出来的真实文章
+
+每一篇都是 AI Agent 用本 Skill 调用 [`reacticle`](https://www.npmjs.com/package/reacticle) 组件协议端到端写完的真实长文。点封面即可在线打开单文件 HTML 版本。
+
+<table>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/tools">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/tools.webp" alt="Agent Tools 设计的最佳实践" width="320">
+<br><b>Agent Tools 设计的最佳实践</b>
+</a>
+<br><sub>Theme · Freddie · 长文 · 21 min</sub>
+<br><sup>Anthropic 工程团队关于 Tools 的五条原则，与一套评测驱动的方法。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/skill">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/skill.webp" alt="Agent Skill 是如何进化的？" width="320">
+<br><b>Agent Skill 是如何进化的？</b>
+</a>
+<br><sub>Theme · Freddie · 解释文 · 8 min</sub>
+<br><sup>把 Skill 文档当成被训练的对象，而不是被复制粘贴的 prompt。</sup>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/harness">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/harness.webp" alt="Agent Harness 的解剖图" width="320">
+<br><b>Agent Harness 的解剖图</b>
+</a>
+<br><sub>Theme · Vignelli · 长文 · 12 min</sub>
+<br><sup>智能在模型里；让智能变得有用的，是它周围的那套系统。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/prompt-cache">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/prompt-cache.webp" alt="提示词缓存对 Agent 有多重要？" width="320">
+<br><b>提示词缓存对 Agent 有多重要？</b>
+</a>
+<br><sub>Theme · Bayer · 长文 · 15 min</sub>
+<br><sup>缓存命中率是 Agent 的 SLO，Claude Code 团队的反直觉经验。</sup>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/context">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/context.webp" alt="面向 Agent 的高效上下文工程" width="320">
+<br><b>面向 Agent 的高效上下文工程</b>
+</a>
+<br><sub>Theme · Tufte · 长文 · 16 min</sub>
+<br><sup>本文探讨如何高效地筛选与管理驱动 AI Agent 运转的上下文。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/transformer">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/transformer.webp" alt="Attention Is All You Need" width="320">
+<br><b>Attention Is All You Need</b>
+</a>
+<br><sub>Theme · Tufte · 长文 · 30 min</sub>
+<br><sup>一篇重塑现代 AI 的论文，逐层拆给你看。</sup>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/agent-eval">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/agent-eval.webp" alt="把 AI Agent 的评测讲清楚" width="320">
+<br><b>把 AI Agent 的评测讲清楚</b>
+</a>
+<br><sub>Theme · Tufte · 长文 · 25 min</sub>
+<br><sup>让 Agent 有用的那些能力，恰恰让它难以评测 —— 来自 Anthropic 的指南。</sup>
+</td>
+<td width="50%" valign="top" align="center">
+<a href="https://mmh1.top/#/ai-article/agent-loop-codex">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/agent-loop-codex.webp" alt="Codex 的 Agent Loop 是怎么做的？" width="320">
+<br><b>Codex 的 Agent Loop 是怎么做的？</b>
+</a>
+<br><sub>Theme · Sottsass · 长文 · 18 min</sub>
+<br><sup>OpenAI 官方分享：在 Responses API 之上，一条对话是如何被反复"展开"的。</sup>
+</td>
+</tr>
+</table>
+
+---
+
+### [主题概览](https://rearticle.mmh1.top/#/gallery) —— 每套主题一篇样品文章
+
+> 11 套主题已上架。每套主题的完整契约（`.css` token 包 + `.md` authoring profile、anti-patterns、code/media style）见 [Theming](https://rearticle.mmh1.top/#/theming)。
+
+每套主题都附一篇**样品长文**，从字体到摄影、代码、公式、Raw 块通通走一遍。点封面在线阅读，点主题名跳到该主题在文档站的章节。
+
+<table>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/caffeine-half-life">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-tufte.webp" alt="Tufte · Data-Ink" width="260">
+<br><b>Tufte</b> · Data-Ink
+</a>
+<br><sub>咖啡因与睡眠 · 数据笔记</sub>
+<br><sup>Edward Tufte 数据墨水，证据优先，发丝级图表与最朴素的版式。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/movable-type">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-press.webp" alt="Press · 书卷" width="260">
+<br><b>Press</b> · 书卷
+</a>
+<br><sub>活字之后 · 随笔</sub>
+<br><sup>Stripe Press 式书卷长读物：会落定的标题、氧化血红首字母、纯正文之美。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/pool-exhaustion">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-shannon.webp" alt="Shannon · 工程暗色" width="260">
+<br><b>Shannon</b> · 工程暗色
+</a>
+<br><sub>连接池耗尽 · 故障复盘</sub>
+<br><sup>贝尔实验室技术论文血统，暗底黄金信号、回压依赖、夜间作战气质。</sup>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/orbit-spec">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-vignelli.webp" alt="Vignelli · 瑞士" width="260">
+<br><b>Vignelli</b> · 瑞士网格
+</a>
+<br><sub>Orbit 设计系统规格 · 规格</sub>
+<br><sup>Massimo Vignelli 网格至上、grotesque 字族、瑞士红只承载结构。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/linear-attention">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/knuth.png" alt="Knuth · 学术" width="260">
+<br><b>Knuth</b> · 学术
+</a>
+<br><sub>线性化自注意力 · 预印本</sub>
+<br><sup>Donald Knuth / Computer Modern，编号小节、命题与证明、arXiv 草稿气质。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/first-newsletter">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-freddie.webp" alt="Freddie · 暖黄" width="260">
+<br><b>Freddie</b> · 暖黄
+</a>
+<br><sub>第一封 Newsletter · 上手指南</sub>
+<br><sup>Mailchimp Freddie 黑字荧光，亲和插画 + 不端着的产品上手语气。</sup>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/slow-breathing">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-andy.webp" alt="Andy · 静谧" width="260">
+<br><b>Andy</b> · 静谧
+</a>
+<br><sub>把呼吸放慢 · 练习</sub>
+<br><sup>柔软圆润、呼吸-神经跷跷板，让人慢下来的练习气质。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/front-page">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-bodoni.webp" alt="Bodoni · 报刊" width="260">
+<br><b>Bodoni</b> · 报刊
+</a>
+<br><sub>头版的消亡 · 特稿</sub>
+<br><sup>高对比 Didone 报刊气质，黑白大报、对折线之上的分量。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/geometry-of-meaning">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-bayer.webp" alt="Bayer · 包豪斯" width="260">
+<br><b>Bayer</b> · 包豪斯
+</a>
+<br><sub>形、色、网格 · 教学</sub>
+<br><sup>Herbert Bayer 包豪斯三原色几何，形有性格、色有重量。</sup>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/rate-limiter-spec">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-fuller.webp" alt="Fuller · 蓝图" width="260">
+<br><b>Fuller</b> · 蓝图
+</a>
+<br><sub>限流器设计规格 · 系统设计</sub>
+<br><sup>Buckminster Fuller 工程蓝图，方格纸拓扑、令牌桶模拟，可照着实现。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+<a href="https://rearticle.mmh1.top/#/gallery/color-clash">
+<img src="https://raw.githubusercontent.com/ConardLi/assets/main/imgs/article/theam-sottsass.webp" alt="Sottsass · 孟菲斯" width="260">
+<br><b>Sottsass</b> · 孟菲斯
+</a>
+<br><sub>撞色不翻车 · 设计随笔</sub>
+<br><sup>Memphis 80s 撞色，黑描边、硬投影、轻微旋转的不正经语法。</sup>
+</td>
+<td width="33%" valign="top" align="center">
+&nbsp;
+</td>
+</tr>
+</table>
+
+> 完整的 11 套主题样品（含主题切换、搜索与筛选）在线 gallery：<https://rearticle.mmh1.top/#/gallery>。
+
+---
+
+## 这个 Skill 干什么
+
+`beautiful-article` 把原本枯燥、线性、难以消化的文字材料变成视觉体验更漂亮、阅读节奏更清晰、也更便于审阅和分享的**文章**。它**不是**网页应用生成器 —— 注意力永远在"文章"本身：更好的阅读、更好的节奏、更好的美学。最终交付物是一份自包含、可离线打开的文件（可选随附 PDF），但那是交付细节、不是目标。
+
+适合的场景：
+
+- 把一篇长 URL / PDF / DOCX / Markdown 编辑成一篇**网页长文**
+- 决策摘要 briefing、概念解释 explainer、教学步骤 tutorial、复盘 review、方案分析
+- 视觉随笔 visual essay、对话 / 访谈 / 播客转写、交互式学习解释器
+- 任何时候你希望**比 Markdown 更好的阅读载体** —— 表格、SVG、代码、公式、复制 / 导出按钮一条龙
+
+Skill 本质上是一个**方法论 + 协作 harness**。它附带一个 Vite + React + TypeScript 脚手架，基于 [`reacticle`](https://www.npmjs.com/package/reacticle) 组件协议 —— Agent 不手写裸 HTML / CSS，而是用 prose-first 的语义组件 + 主题约束的 `Raw` 自由层来组合。
+
+---
+
+## 核心思想
+
+- **首先是一篇文章，不是应用** —— 注意力永远在文章。Raw 自由层、SVG、小工具必须服务阅读 / 解释 / 节奏 / 审美，不能喧宾夺主。
+- **Source → Plan → Build → Review 小型 harness** —— 每个项目走 6 个有编号的 phase，中间有 3 个硬 checkpoint。
+- **`reacticle` 组件协议** —— 语义化的 prose 组件（Hero / Lead / Section / Quote / Callout / Image / Formula / CodeBlock / Table …）+ 一个必须用主题 token（`--ra-*`）的 `Raw` 自由层。
+- **主题驱动设计** —— 内置 11 套 authoring profile（`tufte` / `press` / `bayer` / `bodoni` / `vignelli` / `sottsass` / `freddie` / `andy` / `fuller` / `knuth` / `shannon`），每套是给 Agent 看的 Markdown 契约，不是 CSS 文件。
+- **默认 100% 信息保留** —— 文章类型自带推荐保留比例（longform `~100%` / briefing `~50%` / visual-essay `~40%` …），用户可一句话覆盖。
+- **硬协作 checkpoint** —— Plan、首屏样张、最终交付前 Agent 必须停下来；**每个决策必须逐项独立确认，不允许打包一个"全部 OK 吗"**。
+- **默认带封面** —— 一个 3:4 书封式题图位于 TOC 之上，外壳锁死、只能用主题 token、不允许远程图片。
+- **PDF 导出可选** —— 主交付物是一份自包含的 HTML 文件；PDF 只在用户在 Checkpoint 3 主动选择时通过零依赖的 `html-to-pdf.sh` 生成。
+
+---
+
+## 工作流
+
+```text
+Phase 0  Intake
+   │
+Phase 1  Source → Markdown      （URL / PDF / DOCX / MD / 文本 → source.md）
+   │
+Phase 2  Editorial Planning     （一份 plan.md：Brief / Outline / Theme / Assets）
+   │
+★ Checkpoint 1  Plan            （5 个独立决策逐项确认）
+   │
+Phase 4  First Spread           （封面 + Hero + 第一节 + 一个代表性视觉块）
+   │
+★ Checkpoint 2  First Spread    （验收 + 后续开发模式 A/B）
+   │
+Phase 5  Full Article Build     （单 Agent 顺序 / 多 Agent 并行）
+   │
+Phase 6  Final Review           （Editorial / Visual / Technical 三视角）
+   │
+Phase 7  Repair                 （只允许最小切片修复）
+   │
+★ Checkpoint 3  Delivery        （HTML，或 HTML + PDF，或暂停修订）
+   │
+Phase 8  Delivery               （article.html，可选 article.pdf）
+```
+
+每个项目都有自己的工作区目录，作为 Agent 的**长期记忆**：
+
+```text
+<workspace>/
+  source/   original.*   source.md   source.<lang>.md（需翻译时）   extraction-notes.md
+  plan/     plan.md
+  article/  Cover.tsx   Article.tsx   sections/   raw-blocks/   assets/   article.html（产物）
+  review/   first-spread-review.md   final-review.md
+            （source-review.md 仅复杂源；repair-log.md 仅有修复时）
+  index.html  package.json  vite.config.ts  tsconfig*.json   （构建工装）
+```
+
+---
+
+## Skill 目录结构
+
+```text
+skills/beautiful-article/
+├── SKILL.md                            主 Skill 文件（frontmatter name: beautiful-article）
+├── manifest.json                       发布清单
+├── README.md  /  README.zh-CN.md       本文档
+├── references/
+│   ├── article-types.md                文章类型路由
+│   ├── article-types/                  briefing / dialogue / essay / explainer / full-report
+│   │                                    interactive-explainer / longform / review / tutorial / visual-essay
+│   ├── information-density.md          保留比例与组件 / 视觉比例的关系
+│   ├── plan-template.md                单一 plan.md 模板（Brief / Outline / Theme / Assets）
+│   ├── theme-selection.md              主题选择，density 与 theme 解耦
+│   ├── layout.md                       版式宽度、TOC 默认值
+│   ├── cover.md                        3:4 书封封面指南（5 条自检 + 5 个构图模板）
+│   ├── asset-policy.md                 配图策略（none / user-assets / placeholders / ai-generated）
+│   ├── component-policy.md             Reacticle 组件契约、prose-first
+│   ├── raw-policy.md                   Raw 允许 / 禁止表、token 驱动、自检
+│   ├── section-build.md                一节一文件铁律、subagent prompt 模板
+│   ├── source-to-markdown.md           各类输入抽取规则 + 5 条自检
+│   ├── scaffold.md                     脚手架行为、工作区结构
+│   ├── html-output.md                  dev / build / 单文件 HTML 命令
+│   ├── pdf-output.md                   html-to-pdf.sh 用法 + print CSS 覆盖
+│   ├── review-checklist.md             各阶段 reviewer 清单与 sub-agent prompt
+│   ├── repair-policy.md                最小切片修复对照表
+│   └── harness.md                      Skill-as-harness 视角
+├── theme-profiles/
+│   ├── index.json                      主题注册表
+│   └── andy / bayer / bodoni / freddie / fuller / knuth / press / shannon / sottsass / tufte / vignelli
+├── scripts/
+│   ├── scaffold.sh                     一键创建工作区
+│   ├── html-to-pdf.sh                  可选 HTML → PDF（headless 浏览器，零 npm 依赖）
+│   ├── pdf-print-overrides.css         注入 HTML 的 @media print 覆盖
+│   ├── source-to-markdown-markitdown.py  主路径抽取（PDF / DOCX / HTML）
+│   └── source-to-markdown.py           轻量 fallback（Markdown / TXT / 简单 HTML）
+└── assets/
+    └── scaffold-template/              脚手架脚本拷贝的 Vite + React + TS 模板
+```
+
+---
+
+## 它是怎么工作的（要点）
+
+### 1. 各节点的质检协议
+
+不同 phase 用不同的质检方式 —— 滥开 SubAgent、滥写 review 文件是首要性能问题，所以 Skill 把规则写明：
+
+| 节点 | 怎么检 | 产物 |
+|---|---|---|
+| Phase 1 Source（默认） | 主 Agent 内联 5 条 checklist | 无文件 |
+| Phase 1 Source（仅复杂 / 低置信源） | Source Reviewer SubAgent（对照 `original.*` diff） | `review/source-review.md` |
+| Phase 2 Plan / Checkpoint 1 前 | **主 Agent 内联自查（禁开 SubAgent、禁写文件）** | 无文件 |
+| Phase 4 First Spread / Checkpoint 2 前 | First Spread Reviewer SubAgent | `review/first-spread-review.md` |
+| Phase 5 每个 Section | Section Reviewer SubAgent —— 以消息返回 pass/fail | 无（不写每节文件） |
+| Phase 6 终审 / Checkpoint 3 前 | Editorial + Visual + Technical Reviewer SubAgent | `review/final-review.md` |
+
+### 2. 禁止静默替用户选择
+
+每个 Checkpoint 的每一项决策必须**独立**问 —— Agent 可以推荐，但不能"我已经替你定了 X，不对再说"。Plan Checkpoint 5 项独立决策：文章类型（含推荐保留比例）/ 主题 / 版式宽度 / 配图模式 / 封面开关。
+
+### 3. 文章类型 → 保留比例打包
+
+10 种文章类型都自带推荐保留比例：`longform · ~100%` / `tutorial · ~90%` / `full-report · ~80%` / `explainer · ~80%` / `dialogue · ~80%` / `review · ~70%` / `essay · ~70%` / `briefing · ~50%` / `visual-essay · ~40%` / `interactive-explainer · ~25% 摘录 + 75% AI 重构`。用户可一句话覆盖。
+
+### 4. 一节一文件铁律
+
+每个 Section 都是 `article/sections/NN-*.tsx` 单文件组件。`Article.tsx` 只是 assembler —— 由主 Agent 拥有，负责 import 与排序、跑 typecheck / build、解决主题漂移。这是后续多 Agent 并行的前提。
+
+### 5. 全程主题 token
+
+`Raw` 块必须只用 `--ra-*` 主题 token —— 不允许野生颜色 / 字体。换主题时所有 Raw 块一处生效。每个主题都有一份 Markdown authoring profile，告诉 Agent 在该主题下怎么写、怎么排版。
+
+---
+
+## 创建一个项目
+
+Skill 不预先创建工作区 —— 每个项目自己开。来自 Phase 4 的命令：
+
+```bash
+# 默认开封面
+bash <path-to-skill>/scripts/scaffold.sh ./my-article --theme=tufte
+
+# 关闭封面
+bash <path-to-skill>/scripts/scaffold.sh ./my-article --theme=press --no-cover
+
+# 查看可用主题
+bash <path-to-skill>/scripts/scaffold.sh --list-themes
+```
+
+脚手架会拉起 Vite + React + TS 工作区，从 npm 装最新 `reacticle`，并放好 `source/ plan/ review/` 三个目录 + `article/Article.tsx` / `article/Cover.tsx` / `article/sections/01-opening.tsx` 三份起点文件。
+
+Phase 5 完成后 Agent 跑构建产出单文件 HTML：
+
+```bash
+npm run build           # → article/article.html（CSS + JS 全内联）
+```
+
+可选 PDF 导出（仅当 Checkpoint 3 用户选了 HTML + PDF）：
+
+```bash
+bash <path-to-skill>/scripts/html-to-pdf.sh
+```
+
+---
+
+## 最佳实践
+
+### 推荐
+
+1. **先定文章类型** —— 它的保留比例锚定整个 plan。
+2. **信任 harness 的 phase** —— 不要因为"答案显而易见"就跳过 Plan checkpoint。
+3. **Raw 块只用主题 token** —— `--ra-*`，禁止裸颜色 / 字体名。
+4. **一节一文件** —— 哪怕这一节很短，也要隔离。review 与修复阶段会回报这点投入。
+5. **封面要呼应主题 + 文章主旨** —— 不是一个占位渐变。
+
+### 避免
+
+1. ❌ 把 Skill 当成"帮我做个 HTML 页面" —— 交付物是**文章**。
+2. ❌ 把多个 Checkpoint 决策打包成一个 yes/no。
+3. ❌ Raw 块自带颜色 / 字体（主题漂移）。
+4. ❌ 把所有 Section 都写进 `Article.tsx`（杀死 sub-agent 并行）。
+5. ❌ 删除 colophon / 封面外壳（这些是契约的一部分）。
+
+---
+
+## 常见问题
+
+**Q1：什么时候不应该用这个 Skill？**
+当用户其实想要的是网页应用 / dashboard / 表单 / 原型 / 通用 landing page —— 这些去找 `web-design-engineer`，不是这里。不确定时 Skill 会停下来澄清，而不是默默生成错的产物。
+
+**Q2：是不是总是 100% 信息保留？**
+不是 —— 那只是 `longform` 类型的默认值。文章类型决定推荐比例，用户可以在 Checkpoint 1 覆盖。
+
+**Q3：文章语言可以与源材料不同吗？**
+可以。如果用户指定的目标语言与源不一致，Phase 1 会先产出地道翻译版 `source/source.<lang>.md`，Phase 2+ 据此编写。
+
+**Q4：如果 Agent 运行时没有 SubAgent / Task 工具怎么办？**
+Skill 显式照顾了这种情况：主 Agent 兜底承担 SubAgent 的工作，并在 review 文件首注明"无 SubAgent 环境，主 Agent 兜底"。
+
+**Q5：为什么用 React + Vite + reacticle 而不是裸 HTML？**
+因为 Agent 需要一个稳定的、prose-first 的组件契约 —— 它要扛住多 Section 并行写作、主题切换、Raw 自由层这些场景。`npm run build` 时所有依赖会全部内联回单文件 HTML 交付。
+
+---
+
+## 工具要求
+
+Skill 假设 Agent 运行时可以：
+
+- 启动 shell 命令（用于 `scaffold.sh` / `html-to-pdf.sh` / `npm` 构建）
+- 在工作区读写文件
+- （可选）开启 sub-agent 来跑 First Spread / Section / Final review
+- （可选）调用 `MarkItDown`（Python）做高保真 PDF / DOCX / HTML 抽取；不可用时由轻量 fallback 脚本处理 Markdown / TXT / 简单 HTML
+
+---
+
+## 许可证
+
+MIT
+
+=== beautiful-article/references/article-types/briefing.md ===
+# Article Type · briefing
+
+给忙人（决策者 / 同事 / 投资人）**快速判断**用。读者**不会读完全文**，所以每段都得帮决策。
+
+- **推荐信息保留**：40-60%（只留重点结论、关键证据、关键取舍、下一步；删一切铺垫 / 推导 /
+  背景 / 历史）。
+- **典型结构**：`Hero`（标题 = 一句话结论）→ `Summary`（**结论先行 + 3-5 个关键事实**，最重要
+  的一块）→ `Section`：关键证据 → 取舍 / 风险 → 下一步 / 行动项。**短而紧凑，整体阅读时间
+  控制在 3-5 分钟**。不必有 `Conclusion`（`Summary` 已经把结论说了）。
+- **组件选择**：仍 **prose-first**，正文短句直给（每段最好不超过 3 句）。`Summary` 是核心 ——
+  这是 briefing 的灵魂。其余按需：
+  - `Table`：确需 N 项并排对比时。
+  - `Decision` / `Tradeoff`：确有"X vs Y"取舍要展示时。
+  - `ActionList`：确有下一步要列时（谁做 / 何时做）。
+  - **不要因为是 briefing 就堆组件** —— briefing 贵在精简，组件多了反而显冗。
+- **Raw 边界**：少量但有力 —— 一个**关键对比图** / 趋势 / 选项矩阵 / 决策树；不堆视觉。
+  一篇 briefing 通常 0-2 块 Raw。
+- **配图倾向**：`none` 或**单张关键图**（数据图 / 关键截图）；偏 `tufte` 证据感或 `press`
+  简洁编辑感。
+- **主题倾向**：`tufte`（数据型 briefing）、`vignelli`（中性规格）、`press`（编辑节奏）。
+- **自检**：
+  - 30 秒内（只读 Hero + Summary）能抓到结论吗？
+  - 每段是否都在**帮决策**（这段删掉决策会受影响吗）？
+  - 有没有冗余展开 / 解释来由 / 历史背景 / "之所以这样"段落？
+  - 行动项是否可执行（谁做 / 何时做 / 怎么验收）？
+  - 整体阅读时间是否真的在 3-5 分钟？超过就不是 briefing 了。
+
+> **何时不要用 briefing**：
+>
+> - 要让读者**完整理解**而非快速判断 → `longform` / `full-report` / `explainer`。
+> - 评审某个具体产物 → `review`。
+> - 给读者**学懂**一个概念 → `explainer` / `interactive-explainer`。
+
+=== beautiful-article/references/article-types/dialogue.md ===
+# Article Type · dialogue
+
+对话 / Q&A / 访谈 / 播客转录 / AMA / 圆桌。任何"多个声音轮流说话"的内容形式。
+
+- **推荐信息保留**：80%（删冗余口语 / 重复 / 寒暄，保留实质内容；不删观点也不改语气）。
+- **典型结构**：`Hero`（话题 + 嘉宾 + 主持 + 日期 / 来源）→ `Lead`（背景 / 为什么聊这个）→
+  多个 `Section`，每节一个话题或问题，正文用 **发言者明示 + 大量 `Quote`** 体现对话节奏 →
+  可选 `Summary` 放"关键观点摘要"在文章开头或结尾 → `Conclusion`（要点 / 延伸阅读）。
+- **组件选择**：
+  - 正文中**每段开头明示发言者**（如 `**A**：…` / `**主持**：…`），避免读者搞混；
+  - `Quote` 大量使用 —— 嘉宾的金句、原话、关键定义都用 Quote 抬出来；
+  - `Aside tone="principle"` 标定义 / 数据 / 概念解释；
+  - `Summary` 在开头放"3-5 个关键观点"，让快速读者也能拿到精华；
+  - 少用 `Table` / `CodeBlock`（对话很少有结构化技术内容；有时一律按嘉宾原话放代码段）；
+  - `Detail` 折叠可选的延伸 / 注释。
+- **Raw 边界**：可用 Raw 做**话题地图**（章节导航 / 时间线）、**关键概念可视化**（嘉宾解释了
+  什么机制就配一张 Raw 图解）、**金句卡片**；不要装饰性弹幕 / 动画头像。
+- **配图倾向**：`user-assets`（嘉宾头像 / 现场照片 / 提到的截图）或 `none`（纯文本对话）；
+  少用 `ai-generated` 氛围图。
+- **主题倾向**：`press`（出版编辑感，适合长对话 / 访谈）、`bodoni`（杂志感专访）、`freddie`
+  （活泼播客感）。
+- **自检**：
+  - 发言者归属清晰，不会让读者搞错"是谁说的"？
+  - 对话节奏保留？没有把它压成"单声音综述"？
+  - 关键观点能在 30 秒内从 Summary 抓到？
+  - 删减后嘉宾原意没有被改写 / 误传？
+  - 移动端发言者标记仍然清晰？
+
+> **未来扩展**：若 reacticle 组件库新增 `Dialogue` / `Speaker` 等专用对话组件，本类型应优先使用。
+> 当前实现用 `Quote` + 正文显式标注即可。
+
+=== beautiful-article/references/article-types/essay.md ===
+# Article Type · essay
+
+观点、评论、叙事、评测（产品 / 书 / 论文 / 电影）、随笔、专栏、宣言。**观点驱动**的非
+虚构写作。
+
+- **推荐信息保留**：60-80%（保留论证链与最有力的例证；删旁枝、删冗长引用、删重复的换句话）。
+- **典型结构**：`Hero`（标题气质强）→ `Lead`（**抛出张力 / 矛盾 / 反直觉问题**，钩住读者）
+  → `Section`：开场 → 论点 → 例证 → 转折 → 收束。结构**服务叙事节奏，不必规整对称** ——
+  一篇好 essay 可以是 3 节也可以是 7 节，看节奏。
+- **组件选择**：正文是**绝对主体**；`Quote` 引名言 / 原话 / 反方观点；`Aside tone="aside"`
+  放旁注 / 个人评论 / 反方立场；**少用** `Table` / `RiskList` 等数据组件（会破坏叙事感）；
+  `Summary` 仅在长 essay 时用。
+- **Raw 边界**：偶尔一个有表现力的视觉停顿（节奏图 / 概念对比 / 情绪曲线），服务叙事而非
+  解释机制；密度低 —— 一篇 essay 通常 1-3 块 Raw 就够了。
+- **配图倾向**：`press` 暖色编辑摄影 / 插图 / 手稿；服务气氛但**不喧宾夺主**。评测型 essay
+  可用 `user-assets`（产品 / 书 / 电影截图）。
+- **主题倾向**：`press`（出版编辑型）、`bodoni`（专栏 / feature）、`andy`（柔软叙事）、
+  `sottsass`（活泼文化评论）。
+- **自检**：
+  - 是否有**一条清晰的论证 / 叙事线**？读者能否一句话复述这篇的核心观点？
+  - 例证是否有力？是否最少 2 个具体例子（而不是空泛论断）？
+  - 语气是否一致、像**人写的**（不是 AI 味、不是套路化展开）？
+  - Lead 是否真的"抛出张力"，而不是温吞地铺垫背景？
+  - 收束是否给读者留下点什么（不一定结论，可以是新问题 / 新视角）？
+
+> **何时不要用 essay**：
+>
+> - 评审**工程产物**（PR / 方案 / 事故）→ `review`。
+> - 给读者做决策 → `briefing`。
+> - 要把一个机制讲清楚 → `explainer`。
+> - 是对话 / 访谈整理 → `dialogue`。
+
+=== beautiful-article/references/article-types/explainer.md ===
+# Article Type · explainer
+
+解释一个机制 / 系统 / 概念 / 算法 / 协议。读者读完**真懂**这个东西怎么回事、为什么这样、
+何时用 / 不用。
+
+- **推荐信息保留**：80%（保留主要机制和关键细节，删重复 / 旁枝 / 历史背景；保留所有"关键
+  直觉"和"易错点"）。
+- **典型结构**：`Hero` → `Lead`（为什么要懂这个 / 不懂的代价）→ `Section`：问题 → 机制 →
+  图解 → 示例 → 常见误区 → 何时用 / 不用 → `Conclusion`。
+- **组件选择**：正文讲机制（**正文仍是主体**，不要拆成卡片堆）；`Aside tone="principle"`
+  点出"关键直觉 / 一句话本质 / 易错点"；`CodeBlock` 给具体示例；`Table` 对比方案 / 对比变种；
+  `Detail` / `Tabs` 折叠次要细节和深入推导；`Quote` 引原论文 / 规范原文。
+- **Raw 边界**：**鼓励多用解释性视觉** —— 机制流程、状态变化、数据流向、概念关系可用 Raw
+  自由层（HTML 布局 / 轻交互 / 动效 / 按需 SVG），让抽象概念可视、可对照；每块**服务一个
+  具体机制点**。Raw 是辅助而非主体 —— 如果你发现 Raw 承载了主要信息、正文变成了图注，那应
+  该考虑 `interactive-explainer`。
+- **配图倾向**：解释性视觉优先（Raw —— 交互 / 布局 / 动效 / SVG 均可）；需要真实界面 / 系统
+  截图时用 `user-assets`；少用氛围图。
+- **主题倾向**：`tufte`（技术 / 数据型）、`shannon`（系统 / 工程型）、`knuth`（学术型）、
+  `freddie` / `bayer`（面向新手的活泼型）、`fuller`（系统设计 / 协议型）。
+- **自检**：
+  - 读者读完是否**真懂**这个机制（不只是"知道有这个东西"）？
+  - 图解是否服务理解还是装饰？删掉是否影响理解？
+  - 常见误区是否覆盖（最容易踩的 2-3 个坑）？
+  - "何时用 / 不用"是否清楚？这是 explainer 与 longform 的关键差别。
+  - 长技术文章如果可以删 20% 仍能讲清，优先用 explainer；要原文归档用 `longform`。
+
+> **何时不要用 explainer**：
+>
+> - 要让读者**操作着学懂**（Raw 是主载体）→ `interactive-explainer`。
+> - 要让读者**跟着做出来一个东西** → `tutorial`。
+> - 源材料是论文 / 报告级别的完整论证 → `longform` / `full-report`。
+
+=== beautiful-article/references/article-types/full-report.md ===
+# Article Type · full-report
+
+研究报告、正式分析、技术评估、年度回顾、调研报告。源材料具备"执行摘要 + 关键发现 +
+数据 + 风险 + 建议"骨架，或可以被重组成这个骨架。
+
+- **推荐信息保留**：80%（消化原始材料后的报告化呈现；删冗余推导、扩展阅读、附录细节，
+  保留**执行摘要 / 关键发现 / 数据 / 风险 / 建议**四件套不动）。若用户的源材料就是报告原文
+  且要 100% 归档，覆盖为 100% 并按"非标配组合"在 `plan/plan.md` Brief 段记下。
+- **典型结构**：`Hero`（标题 + 报告期 / 范围 / 作者 / 单位）→ `Summary`（**执行摘要 / 关键
+  结论先行，必备**）→ `Section`：背景与方法 → 关键发现 → 数据与证据 → 风险与限制 → 建议与
+  下一步 → `Conclusion`（核心结论复述 + 决策建议）。**`TOC` 必开**。
+- **组件选择**：`Summary` 放"关键结论 + 关键数据"（让快读者 30 秒能拿到核心）；`Table` 承载
+  数据 / 对比；`RiskList` / `Decision` / `Tradeoff` 承载风险与取舍；`CodeBlock` / `Formula`
+  承载技术证据；`ActionList` 承载建议清单；正文承载论证过程。
+- **Raw 边界**：数据图、趋势、对比矩阵、风险热度图、依赖关系等用 Raw 自由层（HTML / CSS
+  图表与矩阵、轻交互、按需 SVG / canvas）；**保持证据感、低装饰**——避免动效抢戏，避免氛围
+  渐变色。
+- **配图倾向**：`none` 或真实数据图 / 报告截图（`tufte` 风）；**避免氛围图 / 配图打断阅读**。
+  如有产品截图，要服务一个具体结论。
+- **主题倾向**：`tufte`（数据型）、`knuth`（学术型）、`vignelli`（中性规格 / 标准化报告）、
+  `fuller`（系统设计 / RFC 风格）。
+- **自检**：
+  - 结论是否在文章开头 30 秒内能抓到？
+  - 数据 / 风险 / 建议是否齐全且有据可循（每条建议指向哪些发现）？
+  - 是否像一份**正式报告**而非营销页或长文随笔？
+  - `Table` / `RiskList` / `Decision` 等是因为内容是这样才用，还是为了"显得专业"硬塞？
+
+> **何时不要用 full-report**：
+>
+> - 源材料是连贯论证 / 叙事长文 → `longform`。
+> - 用户要的是"给老板看"的决策摘要而非完整报告 → `briefing`。
+> - 评审某个具体 PR / 方案 / 事故 → `review`。
+
+=== beautiful-article/references/article-types/interactive-explainer.md ===
+# Article Type · interactive-explainer
+
+把一篇长技术文章 / 论文 / 系统设计稿，**重构为以交互动画为主载体的"会用了再走"式学习页**。
+参考路径：3blue1brown 视觉化、distill.pub 的可调参数式机器学习解释、Bartosz Ciechanowski
+（ciechanow.ski）的"硬件原理可玩页"。
+
+> **与 explainer 的关键区别**：
+>
+> - `explainer`：**正文是主体**，Raw 是辅助插图。读者读完"知道了"。
+> - `interactive-explainer`：**Raw 是主体**，正文是简短引导和定义。读者**操作完**"会用了"。
+
+- **推荐信息保留**：~25%（**注意：这里的百分比不是"原文删了 75%"，而是"成品里直接来自
+  原文的句子 / 段落只占约 25%"**。本类型的本质是**内容重构** —— 从原文里**只摘**核心知识
+  点的关键定义、公式、数据、约束、易错点；其余 75% 由 AI 围绕这些知识点**全新创作**：引导
+  文字、直觉解释、交互演示、自己试、验证理解。原文的叙事铺垫、历史背景、案例展开、扩展
+  讨论**全部舍弃**，由交互替代。**不要把它当"删 50% 的 explainer"做**，那样既学不透也失去
+  本类型存在的意义。
+- **典型结构**：
+  - `Hero`（一句话定位：这页让你学懂什么 / 玩什么）
+  - `Lead`（前置：1-2 句话提示你需要哪些基础，玩完能做到什么）
+  - 可选 `Summary`（列出 N 个核心知识点作为路线图）
+  - 多个 **Concept Section**，每个一个核心知识点，节内三段式：
+    1. **定义 / 直觉**：1-3 段正文 + 一个 `Aside tone="principle"` 抬出一句话直觉。
+    2. **交互演示**（Raw 主体）：动画 / 滑块 / 拖拽 / 状态切换 / 参数变化的实时可视化。
+    3. **自己试 / 验证理解**（Raw 交互）：让读者动手试一个边界 / 反例 / 应用场景；可选一个
+       "答案揭晓"的折叠。
+  - `Conclusion`（知识点串联回顾 + 何时用 / 不用 + 延伸阅读）。
+- **组件选择**：
+  - 正文**短**：每节正文加起来通常不超过 200-400 字；
+  - `Aside tone="principle"` 标定义、关键直觉、易错点；
+  - `Detail` / `Tabs` 折叠次要细节、答案、推导；
+  - `Quote` 引原文 / 论文金句；
+  - 少用 `Table` / `CodeBlock`（如有，必须服务一个具体交互演示，不放整页代码）；
+  - `Raw` 是主角。
+- **Raw 边界（核心 · 必读）**：
+  - **每个 Raw 必须服务一个具体知识点**，不允许装饰性炫技。
+  - **操作性优先**：滑块 / 拖拽 / 切换 / 输入框 / 步进按钮；让用户**改变某个量**并**实时看到
+    结果**。比"看一段动画"更深。
+  - **状态可见**：当前参数、当前数值、当前阶段都要显式可见，不要藏在动画里。
+  - **可重置**：每个交互配"reset"或"恢复初值"，鼓励反复试。
+  - **样式走 token**：颜色 / 字体 / 间距用 `--ra-*`，不写野生 CSS。
+  - **错误示例同样有价值**：让用户拖到"会出错"的位置，配一行说明"为什么这里崩"。
+- **配图倾向**：`none` 优先（交互比图片更有信息量）；少量 `placeholders`（理论图 / 截图）；
+  避免 `ai-generated`（氛围图打断学习节奏）。
+- **主题倾向**：`tufte`（克制 + 数据感，适合 ML / 算法可视化）、`shannon`（暗底工程感，
+  适合系统 / 硬件交互演示）、`knuth`（学术克制，适合论文重构）；避免 `freddie` / `sottsass`
+  这类活泼配色（会让交互显得像游戏而非学习）。
+- **自检**：
+  - 读者玩完是否**真正会用**这个概念，而不只是"听过 / 看过"？
+  - 每个交互是否服务一个具体知识点？有没有炫技但学不到东西的 Raw？
+  - 没有交互的章节，是真的不需要交互，还是偷懒了？（这是判断本类型是否走样的关键问题）
+  - 移动端能不能操作？很多滑块 / 拖拽 / 复杂 SVG 在 mobile 上不能用 —— 必须在 Plan 阶段就
+    决定"是否放弃 mobile 交互" 还是"提供 mobile 替代展示"。
+  - 删掉所有 Raw 后，剩下的正文是不是太薄？太薄说明 Raw 没把信息装进去 —— 应该在 Raw 内或
+    紧邻位置补足。
+  - 成品里"直接来自原文的句子 / 段落"比例**确实在 ~25% 这个量级**吗？太高（>40%）说明你
+    在"删 explainer"而不是重构；太低（<10%）说明核心知识点没说清。
+  - **核心知识点筛选有据**：能否一句话说出"这页保留的 N 个知识点为什么是这 N 个"？随便挑
+    几个是这个类型走样的开端。
+
+> **何时不要用 interactive-explainer**：
+>
+> - 源材料是叙事 / 观点 / 评论（→ essay）。
+> - 源材料是步骤型操作（→ tutorial，步骤之间有先后依赖，不是知识点的并列）。
+> - 源材料是数据报告（→ full-report，结论比交互重要）。
+> - 你不打算写真正可操作的 Raw（→ explainer 即可，别假装 interactive）。
+
+=== beautiful-article/references/article-types/longform.md ===
+# Article Type · longform
+
+完整长文、归档、深度阅读。这是**默认类型**。源材料是连贯论证 / 叙事 / 综述，且用户要原
+文级保留。
+
+- **推荐信息保留**：100%（原文关键内容不丢；只允许删除明显的重复段落和无信息的过场句）。
+- **典型结构**：`Hero` → `Lead`（导语，框定主题）→ 可选 `Summary`（TL;DR / 结论先行）→
+  多个 `Section`（必要时 `Subsection`）→ 关键概念处 `Raw` 增强 → `Conclusion`。长文（>10
+  小节或预估阅读 >15 分钟）开启 `TOC`。
+- **组件选择**：正文段落为**绝对主体**，应占文章绝大部分篇幅；`Aside` 点出关键直觉 /
+  历史注 / 反方观点；`Quote` 引用名言或原话；`Table` 承载二维数据；技术内容用 `CodeBlock` /
+  `Formula`。**不要把连贯段落拆成卡片堆** —— 卡片堆是 longform 最常见的走样形态。
+- **Raw 边界**：在关键概念、数据趋势、机制处插入 Raw 自由层（轻交互 / 自定义排版 / 动效 /
+  按需 SVG），给长文节奏与呼吸；每块服务具体段落，用 `--ra-*` token。Raw **是增强而非主体**
+  —— 如果开始让 Raw 承载主要信息，说明你应该考虑 `explainer` 或 `interactive-explainer`。
+- **配图倾向**：`none` / `placeholders` 优先；技术 / 证据型可用真实数据图（`tufte` 风）；
+  叙事型可加少量 `press` 风氛围图。
+- **主题倾向**：`tufte`（技术 / 证据型）、`knuth`（学术 / 论文）、`press`（叙事 / 综述）、
+  `bodoni`（专栏 / feature）。
+- **自检**：
+  - 正文是否仍是绝对主体？没有把段落拆成卡片堆？
+  - 章节衔接是否自然？读者读完一节会自然想读下一节？
+  - Raw 是点亮关键概念还是打断阅读节奏？
+  - 100% 信息是否读起来像被精修过的长文（而非原文搬运）？
+  - 长文有没有 `TOC` + `Summary` 帮助读者定位？
+
+> **何时不要用 longform**：
+>
+> - 源材料是消化后的报告（执行摘要 + 风险 + 建议四件套）→ `full-report`。
+> - 源材料是要解释一个机制 / 概念，可以删 20% → `explainer`。
+> - 源材料是论文 / 长文但你想做成交互学习页 → `interactive-explainer`。
+> - 给忙人看 / 要决策 → `briefing`。
+
+=== beautiful-article/references/article-types/review.md ===
+# Article Type · review
+
+**工程审阅**：PR / 方案设计 / 事故复盘 / 架构 / API / 安全审计。起点是审阅一份**具体产物**
+并产出意见与行动。
+
+- **推荐信息保留**：60-80%（保留关键发现 + 证据 + 行动；省略无关细节 / 上下文铺垫）。
+- **典型结构**：`Hero`（被评对象 + 评审范围 + 评审日期 / 评审人）→ `Summary`（**结论 /
+  评审意见先行**）→ `Section`：背景与目标 → 发现（逐条） → 影响评估 → 建议 → 行动项 →
+  `Conclusion`（核心判断 + 通过 / 待修 / 否决）。
+- **组件选择**：仍 **prose-first** —— 结论与发现先用正文 + `Summary` 讲清楚。下面是**领域
+  特例组件**，**只在内容确实是该结构时**按需取用，不要因为是 review 就全堆上：
+  - `RiskList`：确有一组需要分级的风险时。
+  - `DiffReview`：确有代码改动要逐行评时；代码一律用 `CodeBlock`。
+  - `Decision` / `Tradeoff`：确有"X vs Y"的取舍要展示时。
+  - `Incident`：事故复盘时的时间线。
+  - `ActionList` / `Checkpoint`：行动项 / 验收点确需结构化时。
+- **Raw 边界**：影响范围图、依赖关系、风险热度矩阵、调用链、监控曲线等用 Raw 自由层
+  （HTML / CSS 矩阵 + 热度、轻交互、按需 SVG）；**克制、证据优先、不抢正文**。
+- **配图倾向**：`user-assets` 真实截图 / diff / 监控图 / dashboard 截图（`tufte` 风）。
+- **主题倾向**：`tufte`（证据型 review）、`shannon`（暗底工程 / 事故复盘）、`fuller`（系统设计
+  / RFC review）、`vignelli`（中性规格型）。
+- **自检**：
+  - 评审意见是否在文章开头先行清楚（通过 / 待修 / 否决）？
+  - 每条发现是否有**证据支撑**（代码片段 / 截图 / 数据 / 日志），不是凭感觉？
+  - 建议与行动项是否**可执行**（谁做 / 何时做 / 怎么验收）？
+  - 起点是审阅一份**具体产物**？如果起点是"读者要做决策"，应该用 `briefing`。
+
+> **何时不要用 review**：
+>
+> - 评测**产品 / 书 / 论文 / 电影**（观点驱动，没有"通过 / 否决"二元判断）→ `essay`。
+> - 给老板做一份"该不该做 X"的决策摘要 → `briefing`。
+> - 完整的事后调研报告 → `full-report`。
+
+=== beautiful-article/references/article-types/tutorial.md ===
+# Article Type · tutorial
+
+教学、步骤、上手指南、安装配置、迁移手册。读者**跟着做**就能跑通的内容。
+
+- **推荐信息保留**：80-100%（**步骤不能丢**，否则跟不下来；可删的只有冗长背景、可选的深入
+  扩展、不影响跑通的"为什么"段落）。
+- **典型结构**：`Hero` → `Lead`（学完能做什么 / 前置条件 / 预计用时）→ 可选 `Summary`
+  （整体路径鸟瞰）→ `Section`：每个阶段一节，节内 = 目标 → 步骤（逐步）→ 示例 → 验收点 →
+  常见坑 → 可选 `Section`：练习 / 扩展 → `Conclusion`（总结 + 下一步学什么）。
+- **组件选择**：`CodeBlock` 给每一步代码（**保真，可复制运行**）；`ActionList` /
+  `Checkpoint` 列步骤与验收点；`Aside tone="warning"` 标坑 / 注意事项；`Detail` 折叠可选的
+  深入解释 / 替代方案；`Table` 列参数 / 选项 / 配置项；`Tabs` 给多平台 / 多语言并列示例。
+- **Raw 边界**：流程图、状态变化（before / after）、UI 步骤示意、命令前后对照用 Raw 自由层
+  （HTML 步骤布局 / 轻交互 / 按需 SVG）；让步骤可视、可对照。**不必为每步都加 Raw** ——
+  代码 + 截图能讲清楚的就不加。
+- **配图倾向**：`user-assets` 优先（**真实截图**每个关键步骤）；纯命令行类教程可用 `none`。
+- **主题倾向**：`vignelli`（中性规格 / 文档感）、`freddie`（活泼上手）、`fuller`（系统配置 /
+  RFC 风格）、`tufte`（密度高的技术教程）。
+- **自检**：
+  - 照着做能否**真的跑通**？没有跳步 / 没有"省略号 …"假装代码？
+  - 步骤是否完整有序？每步都有验收点（怎么知道这步成了）？
+  - 代码是否可**直接复制运行**？不缺 import / 不缺环境说明？
+  - 常见坑是否标注（版本不匹配 / 权限不够 / 平台差异）？
+  - 移动端代码块能横滚不溢出？
+
+> **何时不要用 tutorial**：
+>
+> - 源材料是讲机制不是讲操作 → `explainer`。
+> - 想让读者**玩懂**而不是**做出来** → `interactive-explainer`。
+> - 源材料是 API 文档 / 完整规格 → 用 `longform` + 强 TOC，tutorial 不适合做参考手册。
+
+=== beautiful-article/references/article-types/visual-essay.md ===
+# Article Type · visual-essay
+
+展示、传播、图文主导、品牌叙事、年终回顾、文化评论。**视觉是主角**，文字短而精，节奏强。
+
+- **推荐信息保留**：20-60%（只留核心观点和最有力量的材料；大量删减叙事 / 推导 / 数据细节，
+  把保留下来的内容用视觉重新组织）。
+- **典型结构**：`Hero`（强气质 / 满版视觉 / 大字标题）→ 短 `Section` 串联，每节 = 少文字 +
+  大视觉 + 一句金句 → 节与节之间有**强节奏对比**（疏 / 密 / 明 / 暗）→ `Conclusion`（留白
+  收束 / 一句话点题）。**章节短** —— 每节阅读时间 30 秒到 1 分钟。
+- **组件选择**：正文用**短句、断行**；`Quote` 做金句停顿（不引名言，而是把文章里的"狠话"抬
+  出来当节标记）；`Image` / `Raw` 是主角；**少用密集数据组件**（`Table` / `RiskList` 会破
+  坏视觉节奏）。
+- **Raw 边界**：**视觉块占比最高** —— 大尺度版面、节奏图、概念可视化、动效、轻交互（HTML
+  / CSS / React，按需用 SVG / canvas）；可以做**满版背景**、**滚动触发动效**、**多列错位
+  排版**等。但**仍必须是文章形态** —— 不是 landing page、不是产品 dashboard。
+- **配图倾向**：`ai-generated` / `user-assets` **大图**；构图 / 留白 / 排版本身就是表达；
+  避免 stock photo 和"商务握手"类俗图。
+- **主题倾向**：`bodoni`（黑白大刊）、`press`（暖色编辑）、`sottsass`（活泼彩色）、`bayer`
+  （现代主义 / 海报感）、`andy`（柔软叙事）。气质强的主题在这个类型里效果最好。
+- **自检**：
+  - 是否仍是一篇**文章**而非海报 / landing page / dashboard？（删掉所有视觉后，剩下的文字
+    能否串成一个观点？能 = 文章；不能 = landing page）
+  - 视觉是否服务**核心观点**而非纯装饰 / 炫技？
+  - 节奏是否有呼吸（疏密对比 / 明暗对比 / 大小对比）？
+  - 删减后是否仍像"被编辑过的文章"而非"缩水的摘要"？
+  - 移动端是否仍能传达核心观点（很多大版面在 mobile 上会塌）？
+
+> **何时不要用 visual-essay**：
+>
+> - 给读者做决策 → `briefing`。
+> - 让读者完整理解 → `longform` / `explainer`。
+> - 让读者**操作着学懂** → `interactive-explainer`（也是视觉主导，但读者要动手）。
+> - 要传达完整论证 / 数据 → `essay` / `full-report`。
+
+=== beautiful-article/references/article-types.md ===
+# 文章类型路由
+
+文章类型是**结构决策**，主题是**审美决策**（见 `theme-selection.md`）—— 两者完全解耦。
+
+**文章类型与信息保留比例的关系**（重要）：理论上"内容保留是独立决策"，**但实践中两者
+绑定很紧**。每个类型都自带一个标配保留比例（见下表"推荐信息保留"列）。`longform + 20%` /
+`tutorial + 20%` / `briefing + 100%` 这类组合是**伪选项**：要么类型变形（briefing+100%≈full-report），
+要么内容空洞（longform 写出 8 章每章 2 段）。所以 Plan Checkpoint 1 把"保留比例"打包进"文章
+类型"的语义化选项里（见 SKILL.md Phase 3），**只在用户明确想精修**（如"longform 但只要 60%"
+= 一篇被深度编辑的长文）才作为非标配组合记入 plan.md。
+
+Phase 2 选定类型后，读对应 `article-types/<type>.md` 拿结构 / 组件 / Raw 边界 / 配图倾向 /
+自检。**非标配组合**要在 `plan/plan.md` Brief 段同时记下"标配 X% → 用户覆盖 Y%"，并让主 Agent
+在写每节时手动调整正文/视觉比例（不能照搬 article-types/<type>.md 的默认建议）。
+
+| 类型 | 推荐信息保留 | 用途 | 典型结构 | 详情 |
+|---|---|---|---|---|
+| `longform` | 100% | 完整长文、归档、深度阅读 | Hero / Lead / Summary / 多 Section / Raw 增强 / Conclusion | `article-types/longform.md` |
+| `full-report` | 80% | 研究报告、正式分析 | 执行摘要 / 背景 / 证据 / 数据 / 风险 / 结论 | `article-types/full-report.md` |
+| `tutorial` | 80-100% | 教学、步骤、上手 | 目标 / 步骤 / 示例 / 练习 / 总结 | `article-types/tutorial.md` |
+| `explainer` | 80% | 解释技术、系统、概念 | 问题 / 机制 / 图解 / 示例 / 常见误区 | `article-types/explainer.md` |
+| `dialogue` | 80% | 对话 / Q&A / 访谈 / 播客 / AMA | Hero / 嘉宾 / 多话题 Section / 关键观点摘要 | `article-types/dialogue.md` |
+| `review` | 60-80% | PR / 方案 / 事故 / 设计审阅 | 背景 / 发现 / 影响 / 建议 / 行动 | `article-types/review.md` |
+| `essay` | 60-80% | 观点、评论、叙事 | 开场 / 论点 / 例证 / 转折 / 收束 | `article-types/essay.md` |
+| `briefing` | 40-60% | 给忙人快速判断 | 结论先行 / 关键证据 / 取舍 / 下一步 | `article-types/briefing.md` |
+| `interactive-explainer` | ~25%（原文摘录占比，**非删 75%**） | **Raw 交互为主载体的"会用了再走"式学习页**（参考 3blue1brown / distill.pub / ciechanow.ski）。本质是**内容重构**：只摘核心知识点，其余 AI 围绕它们全新创作 | 每知识点：定义 / 交互演示 / 自己试 / 验证理解 | `article-types/interactive-explainer.md` |
+| `visual-essay` | 20-60% | 展示、传播、图文主导 | 少文字 / 大视觉 / 强节奏 / 章节短 | `article-types/visual-essay.md` |
+
+## 选型提示
+
+- 源材料信息密度高、要完整归档 → `longform`。
+- 源材料是消化后的报告 / 正式分析（执行摘要 + 数据 + 风险 + 建议四件套）→ `full-report`。
+- 要把一个机制 / 概念讲清楚（正文为主）→ `explainer`。
+- **要让读者"玩明白"一个概念**（Raw 交互为主，正文为辅，每知识点配交互演示）→ `interactive-explainer`。
+- 对话 / Q&A / 访谈 / 播客转录 / AMA → `dialogue`。
+- 评审某个 **工程** PR / 方案 / 事故 / 设计 → `review`。
+- 给决策者快速判断 → `briefing`。
+- 观点输出 / 评论 / 产品 / 书 / 论文评测 → `essay`。
+- 教别人上手做事（步骤 + 跑通）→ `tutorial`。
+- 传播 / 展示、图文主导 → `visual-essay`。
+
+类型只定**结构倾向**，不锁死信息密度和主题；用户可在 Plan Checkpoint 覆盖。
+
+=== beautiful-article/references/asset-policy.md ===
+# 配图与素材策略
+
+配图必须服务文章，不是装饰。Phase 2 把配图策略与逐图计划写进 `plan/plan.md` 的
+**Assets** 段（见 `plan-template.md`），**不再产出独立的 `asset-plan.md` 文件**。
+
+## 与 Raw 正交：配图策略只管 Image，不管 Raw（铁律）
+
+**配图策略 = 是否使用外部 `Image`，以及用哪种来源。它与 `Raw` 完全正交，不是二选一：**
+
+- **`Raw` 始终存在**，是每篇文章默认的表现力层（任意 HTML / CSS / JS / React：交互、
+  自定义布局排版、动效、小工具，以及按需的 SVG / canvas 图解），不受配图策略影响，也永远
+  不需要用户"开启"。
+- **`Image` 是独立的可选叠加层**，由配图策略决定是否使用、用哪种来源。
+- 选 `none` **不等于**"用 Raw 替代 Image" —— 它只表示"不使用外部图片"，`Raw` 照常使用。
+
+> 别把它框成 "Image vs Raw"。正确心智是："Raw 一定有；Image 要不要、用哪种来源，由用户在
+> Plan Checkpoint 明确选定。"
+
+## 四种来源模式（只针对 Image）
+
+| 模式 | 说明 | 适合情况 |
+|---|---|---|
+| `user-assets` | 用户提供截图 / 照片 / 图表 / 素材目录 | 产品文章、代码审阅、真实报告 |
+| `placeholders` | 先用占位图或图片位说明 | 用户稍后补素材 |
+| `ai-generated` | AI 按文章和主题生成图片提示词 | 视觉文章、概念解释、封面图 |
+| `none` | 不使用外部图片（`Raw` 自由层 / 表格不受影响，照常使用） | tufte 风、技术分析、证据型文章 |
+
+**不主动生成 AI 图片**：`ai-generated` 必须用户显式选择。但即便选 `none`，也不影响 `Raw`。
+
+## Asset Checkpoint 必问（Plan Checkpoint 内 · 必须让用户选，不能默认通过）
+
+配图模式是**必选项**，不允许用一个默认值一笔带过。先一句话说明"Raw 照常使用"，再让用户
+从四种 **Image** 来源里明确选一种：
+
+```text
+配图模式（这一项只决定是否使用外部 Image；Raw 自由层 —— 交互 / 布局 / 动效 / 图解 —— 不受影响，照常使用）。
+请从以下四种里选一种：
+- none：不使用外部图片，靠正文 + Raw + 表格表达（推荐给技术 / 证据型文章）。
+- user-assets：你提供素材目录或截图，我据此排版。
+- placeholders：先放占位图，我在 plan.md 的 Assets 段标注每张图应替换成什么。
+- ai-generated：我先生成配图提示词，等你确认后再生成图片。
+我的推荐：<策略>，原因：<一句话>。你确认或改成别的？
+```
+
+## ai-generated 提示词原则
+
+选 `ai-generated` 时**不直接随意生成图片**，先在 `plan/plan.md` 的 Assets 段列出每张图：
+位置 · 服务的段落 / 论点 · 目的 · 主题风格 · 构图 · 禁止项 · 提示词 · 备选提示词。
+
+示例：
+
+```text
+Image 01
+位置：Hero 背景
+目的：建立"技术出版物"气质，不解释具体机制
+主题：press
+风格：warm editorial still life, paper texture, low saturation
+禁止：3D icon, neon gradient, SaaS stock photo, smiling office people
+Prompt: Warm editorial photograph of a desk with annotated technical notes,
+printed code snippets, a graphite pencil, soft morning light, low saturation,
+refined book-publishing mood, no screens, no logos.
+```
+
+## 图片自检（每张图）
+
+- 是否服务文章中的具体位置？是否符合选定主题 `theme-profiles/<id>.md` 的媒体风格？
+- 是否不是纯装饰？是否不会抢正文？是否没有和 Raw 表达重复？
+- 是否有 caption / source / alt 文本？
+
+配图自查并入 Plan 自查（5 条之一："Raw / 图片有目的"）—— 由主 Agent 内联完成，
+**不再单独开 Asset Reviewer SubAgent**。详见 `review-checklist.md` 的 Plan 自查段。
+
+=== beautiful-article/references/component-policy.md ===
+# 组件使用政策（reacticle 协议）
+
+文章用 `reacticle` 组件协议写：**不手写裸 `div` / `className` / 行内 `style` / CSS**。
+结构走语义组件，正文走段落，自定义视觉走 `Raw`。从包入口导入：
+
+```tsx
+import { ThemeProvider, Article, Hero, Lead, Section, Aside, Table, Raw } from "reacticle";
+```
+
+## 核心规则（始终适用）
+
+1. **Prose-first，组件按需，Raw 自由。**
+   - **正文是主体**：普通段落写成 `Section` 的 children，应占文章绝大部分。
+   - **语义组件是点睛，只在内容确实"是"那个结构时才用**：`Summary` / `Aside` /
+     `Quote` / `Table` / `RiskList` / `Decision` 等。不要堆叠当装饰 —— 堆卡片会让
+     文章显得做作、零碎。litmus test：若一句话 / 一个列表 / 一张表 / 一块 Raw 读起来
+     更好，就用那个。
+   - **Raw 相反：鼓励多用。** 交互、动画、自定义可视化、新颖排版 —— Markdown 做不到的
+     东西，才是把文章从"能读"变成"值得读"的关键。Raw 不打断阅读，它给密集文本节奏与
+     呼吸。
+2. **表达语义，不表达布局。** 说"这是 insight / risk / decision"，别说"蓝卡片、24px 边距"。
+3. **Props 即协议。** 填齐必填字段；确实没有就留空 —— 组件会渲染显式的 `⚠ 未指定xxx`
+   标记，让缺口可见。**绝不为掩盖缺口而编造。**
+4. **主题，不写样式。** 作者只通过 `ThemeProvider` 选一个主题，从不写组件样式。
+5. **始终用 `<ThemeProvider theme="...">` 包住 `<Article>`。**
+6. **版式与主题解耦。** `Article` 的 `width`（`narrow` / `regular` / `wide` / `full`，默认
+   `regular`）决定阅读列宽，`toc`（默认在本 Skill 开启）决定是否有左侧目录 —— 都按内容选、
+   经 Plan Checkpoint 确认，**不由主题决定**。详见 `references/layout.md`。
+7. **一个 Section = 一个文件。** 每个 Section 必须是独立组件（`article/sections/NN-*.tsx`），
+   **坚决不允许**把多个 Section 写进一个组件；`Article.tsx` 只做组装（assembler）。这是
+   多 Agent 并行开发的前提，详见 `references/section-build.md`。
+
+## 组件分两层：默认核心 + 领域特例
+
+**默认核心组件（绝大多数文章只用这些 + 正文 + Raw）：**
+
+- 结构：`Article`、`Hero`、`Lead`、`Section`、`Subsection`、`Conclusion`、`TOC`
+- 观点：`Summary`、`Aside`、`Quote`
+- 数据：`Table`
+- 技术：`CodeBlock`（写代码**只用它**）、`Formula`
+- 媒体：`Image`
+- 自由层：`Raw`
+
+**领域特例组件（仅当内容"确实是"该结构时按需取用，不要因为属于某类文章就全用上）：**
+
+- 决策 / 审阅：`RiskList`、`Decision`、`ActionList`、`Checkpoint`、`Tradeoff`、`Incident`
+- 代码评审：`DiffReview`
+- 交互壳：`Detail`、`Tabs`
+- 富媒体：`Video`、`Audio`
+
+> **不要暴露给作者**：`HighlightedCode` 是 `CodeBlock` 的内部底层，写代码一律用
+> `CodeBlock`，不直接使用 `HighlightedCode`。
+
+选组件前先过 litmus test（规则 1）：若正文 / 列表 / 表格 / Raw 读起来更好，就不要为了
+用组件而用组件。领域特例组件每多用一个，都要能回答"这块内容本质上就是它"。
+
+完整组件 API（属性、用法）见组件库本身的 reference：
+`skill/references/{structure,insight,structured,decision,technical}.md`（reacticle-authoring
+skill），按需读取，不要一次全读。
+
+## 使用原则
+
+- 正文是主体。组件是语义，不是装饰。
+- Raw 是文章表现力，不是应用开发入口（边界见 `raw-policy.md`）。
+- `Table` 负责二维信息；`Image` 负责真实或生成配图；`Raw` 是自由的 Web 层 —— 任意
+  HTML / CSS / JS / React：交互、自定义布局排版、动效、嵌入小工具，以及按需的图解（SVG /
+  canvas），SVG 只是其中一种手段，不是默认。
+- **`Raw` 与 `Image` 正交，不是二选一**：`Raw` 始终默认存在、照常使用；`Image` 是否使用、
+  用哪种来源由 Plan Checkpoint 的配图策略决定（见 `references/asset-policy.md`）。选配图
+  `none` 只表示不用外部图片，`Raw` 不受影响。
+
+## 信息密度与组件比例
+
+见 `information-density.md`：100% 时长文优先、Raw 点亮关键概念；密度越低，视觉块比例
+越高，但**仍必须保持文章形态**。
+
+## 最小骨架（注意比例：大量正文 + 一个点睛组件 + 一块 Raw）
+
+```tsx
+import { ThemeProvider, Article, Hero, Lead, Section, Aside, Raw } from "reacticle";
+
+export function Article_() {
+  return (
+    <ThemeProvider theme="tufte">
+      <Article>
+        <Hero title="标题" subtitle="副标题" meta={[{ label: "日期", value: "2026-06-08" }]} />
+        <Lead>导语，框定主题。</Lead>
+        <Section index="01" title="第一节">
+          <p>正文段落用 children —— 这应是文章主体，尽量多写正文。</p>
+          <p>再写一段，把背景、推理、结论用文字讲清楚。</p>
+          <Aside tone="principle" label="核心判断">一句话的核心判断。</Aside>
+          <Raw title="为本段现写的内联 SVG">
+            <svg viewBox="0 0 240 60" width="100%">
+              <polyline points="0,50 40,42 80,46 120,20 160,28 200,8 240,14"
+                fill="none" stroke="var(--ra-color-accent)" strokeWidth="2" />
+            </svg>
+          </Raw>
+        </Section>
+      </Article>
+    </ThemeProvider>
+  );
+}
+```
+
+=== beautiful-article/references/cover.md ===
+# 文章封面（Cover）—— 设计指南
+
+## 这是什么
+
+每篇 Beautiful Article 在 TOC + 正文之上有一块**像书的封面**的题图，独占顶部。
+它是 HTML 文章"出版物感"的开篇 —— 类似书封 / 杂志封面 / 唱片封套：
+一眼传达 "**这篇讲什么 + 长什么气质**"，决定读者会不会往下看。
+
+封面**不**是 Hero：
+
+| 角色 | Hero | Cover |
+|---|---|---|
+| 位置 | `<Article>` 内、TOC 旁 | `<Article>` **之外**、TOC **之上** |
+| 形态 | 标题 + 副题 + meta（文字栏） | 3:4 图文构图（图 + 字） |
+| 职责 | 框定主题 + 读者收获 | 视觉钩子 + 风格定调 |
+| 信息 | 文字为主 | **图主字辅** |
+
+两者**互补**：封面引人，Hero 锚定。**不要把它们做成同一件事**。
+
+---
+
+## 尺寸 · 屏幕 3:4 一屏看全 / PDF 独占首页
+
+- **屏幕**：`aspect-ratio: 3 / 4`，宽度同时受**两条上限**约束（取较小者），保证
+  3:4 完整封面**一屏看全、不用下拉**：
+    1. `48rem`（768px）—— 硬上限，再大就像广告牌而不是书封；
+    2. `calc((100vh - 8rem) * 3 / 4)` —— 从视口高度反推的宽度，给顶栏 / 容器
+       边距 / 上下呼吸留 8rem (128px)。
+
+  也就是 `max-width: min(100%, 48rem, calc((100vh - 8rem) * 3 / 4))`。在矮屏幕上
+  封面自动缩小（仍是 3:4），在 1024px 以上的高屏幕上保持 768×1024。
+- **PDF**：`@media print` 默认保持屏幕版 3:4 构图，并在封面之后分页，让封面独占
+  PDF 首页。不要依赖通用 `height: 100vh` 把封面强行拉成整页；Chromium print 对
+  复杂封面内部布局的裁切行为不够稳定。
+
+为什么是 3:4 而不是 A4 比例（1:√2 ≈ 0.707）：
+
+| 比例 | 数值 | 感觉 |
+|---|---|---|
+| 16:9 | 1.78 | 太宽，像横幅 / banner |
+| A4 (1:√2) | 0.707 | 偏瘦，像报告内页 |
+| **3:4** | **0.75** | **像书封 · A4 和 Letter 的中间值** |
+| 2:3 | 0.667 | 像小说封面 · 偏窄 |
+
+3:4 在 A4 PDF 上下方有约 4% 白边；在 Letter PDF 上下方约 3% 白边。默认保留这
+些比例差异，换取 PDF 输出稳定。
+
+**给设计者的影响**：默认 PDF 不会改变封面比例，但内部布局仍应自适应：用百分比 /
+`aspect-ratio` / `inset: 0` / `grid` / `flex` 撑起元素，**不要把任何元素的位置写死
+成绝对像素**，否则不同视口和打印缩放下仍可能错位。
+
+---
+
+## 硬约束（5 条 · 不可妥协）
+
+1. **3:4 屏幕 + PDF 独占首页（外壳不要动）**。`Cover.tsx` 的 `aspectRatio: "3 / 4"` 和
+   max-width / margin / border 不要改 —— `pdf-print-overrides.css` C 段只负责让封面
+   之后分页。**内部元素一律用百分比 / 相对单位**，不要写绝对 px 高度。
+2. **图文并茂**。**禁止纯文字封面**。必须同时具备：
+   - **视觉主体**（什么技术都行，见下）；
+   - **文字层**：至少一个标题，可加一行副题、一个小标签（type / date / kicker）。
+3. **主题忠实 · 只能用 `--ra-*` token**。颜色 / 字号 / 字重 / 边框 / 圆角 / 间距全部通过
+   `var(--ra-color-fg)` `var(--ra-color-accent)` `var(--ra-text-3xl)` 等取值。
+   **禁止**：写死 hex 颜色、写死字体名、写死像素字号 —— 切主题封面就废。
+4. **内容忠实**。封面的视觉主体要呼应**正文主旨**（不是泛泛装饰）。读完封面，
+   读者要能猜出文章在讲哪个领域 / 哪种判断。比如：
+   - 文章讲"提示词缓存就是一切" → 封面可以是**缓存命中率曲线 / 重复 token 的高亮带**；
+   - 文章讲"Codex 智能体循环" → 封面可以是**带箭头的循环图（USER → MODEL → TOOL）**；
+   - 文章讲"色彩冲撞" → 封面可以是**两个互补色块的几何拼贴**。
+5. **offline-first**。**唯一被硬禁的事**：远程图片（`<img src="https://...">`、
+   Google Fonts 动态加载、跨域 CSS background-url 等）—— 离线打不开。
+   **base64 raster** 仅当 Plan Checkpoint "配图模式" 是 `user-assets` / `ai-generated`
+   才允许，且必须内联。
+
+---
+
+## 视觉技术 · 模型自己选，效果好就行
+
+封面的视觉主体**用什么技术由你（模型）决定** —— SVG / CSS / Canvas / WebGL / 字体 / 表情符号
+/ 复杂 React 组件 / mask / clip-path / filter / 多层合成 / 任意混搭。**没有"首选"**，只
+有"对这篇文章 + 这个主题，哪种最对味"。
+
+可选技术（不全，能想到的都可用）：
+
+- **内联 SVG**：网格 / 曲线 / 节点-边图 / 流程箭头 / 矢量插画 / pattern fill / mask；
+  优势是任意尺寸清晰、`currentColor` 自动跟主题。
+- **CSS 几何 / gradient / clip-path / backdrop-filter**：分屏色块、玻璃感、光感、
+  抽象排版；适合海报感 / 平面设计感的封面。
+- **`<canvas>` + JS**：粒子 / 流体 / 噪声 / 程序化纹理 / 字符 ASCII art；
+  适合数据 / 科技 / 生成艺术气质。注意：Canvas 在 PDF 里只会渲染**初始帧**，所以
+  动画类要保证"第一帧本身就是好看的最终态"。
+- **复杂 React 组件**：完全自定义的布局，比如用 grid + 条件渲染做一面"目录式封面"、
+  用 React 重排标题字符做字体艺术。
+- **字体 / 排版本身就是图**：超大字号、字距 / 行距实验、字符叠加、emoji 拼贴、
+  Unicode 几何字符 (`◐ ▲ ◆ ╳`)、引号 / 章节号放大到布满整页。
+- **多层合成**：背景层（gradient） + 中层（SVG） + 前景层（文字） + 装饰层（图标 / 标签）。
+- **混搭**：上面任意几种叠在一起。封面是单次创作，没必要拘泥单一技术栈。
+
+**唯一不允许**：远程图片（见硬约束 5）。其它**全开放**。
+
+**判定标准**：眯眼看 3 秒（图 OK 吗？气质对吗？切主题不会废吗？打印不会错位吗？）。
+通过这 4 关，技术怎么实现都行。
+
+---
+
+## 构图模板（按主题感选一个起手）
+
+| 模板 | 视觉布局 | 适合主题感 |
+|---|---|---|
+| **A · 上字下图** | 标题区在上 1/3，视觉主体占下 2/3（书封最经典的"片名 + 主画面"） | 教学 / 报告 / 多数场景 |
+| **B · 大字盖图** | 视觉铺满整个 3:4，超大字标题压在中段或下段 | bodoni / press · 印刷 / 叙事 |
+| **C · 上下分屏** | 上半色块（含标题） + 下半视觉主体；中间一条分割 | tufte / shannon · 数据 / 严谨 |
+| **D · 满屏拼贴** | 视觉是若干色块 / 形状 / 图层拼接铺满整页，文字嵌在某个块里 | sottsass / bayer · 当代 / 视觉感 |
+| **E · 极简框** | 大留白、细线框、标题居中、一个极小的视觉锚点（一个圆 / 一个图标 / 一段曲线） | 极简主题 / 严肃报告 / 哲思 |
+
+**不要混搭** —— 一篇文章一个模板。模板只是"起手"，具体怎么实现（用 SVG / CSS /
+Canvas / React 还是别的）由你定。
+
+---
+
+## 主题倾向（速查）
+
+读 `theme-profiles/<id>.md` 获得权威风格指南；下面是"封面起手"提示（**视觉手法只是
+启发，不是规定** —— 你可以用任何技术做出对的气质）：
+
+| 主题 | 封面感觉 | 推荐模板 | 视觉手法举例 |
+|---|---|---|---|
+| tufte | 学术 / 克制 / 数据 | C 或 E | 极细线网格 + 一个小型 sparkline / 数据点；颜色低饱和 |
+| press | 报刊 / 叙事 / 凝重 | B 或 E | 大字标题 + 横分割线 + 印章式 kicker；可加铜版画感纹理 |
+| shannon | 信息论 / 工程 / 蓝调 | A 或 C | 节点-边图 / 香农式信道图 / 概率分布 |
+| bodoni | 古典 / 优雅 / 印刷 | B | 高对比 serif 大标题 + 极细 hairline 装饰 + 留白 |
+| bayer | 包豪斯 / 几何 / 排版 | D | 三原色块拼贴 + 圆 / 方 / 三角组合 |
+| sottsass | 后现代 / 玩味 / 明亮 | D | 撞色色块 + 装饰图案 + 大胆字体 |
+| fuller | 测地 / 科技 / 结构 | A 或 D | 三角网格 / 等距投影 / 工程图样 |
+
+没列到的主题 → 读它的 `theme-profiles/*.md` 决定模板。
+
+---
+
+## 反面案例（**禁止**）
+
+- **纯文字封面**（只有标题居中，没有视觉主体）。
+- **使用远程图片**（`<img src="https://...">`、`background-image: url(https://…)`）—— 离线打不开。
+- **写死颜色 / 字体 / 像素值**（`color: #ff0066` / `font: 24px Helvetica`）—— 切主题废。
+- **位置写死成 3:4 时的绝对像素**（`top: 384px`）—— 换视口或打印缩放就错位。
+- **复制 Hero 内容到封面**（标题、副题、日期、作者全堆封面里）—— 与 Hero 重复。
+- **塞过多元素**（封面里同时塞下：标题 + 副题 + 三个小标签 + meta + Lead + TOC 预览 +
+  大插画 + 二维码）—— 信息密度爆炸，不像封面像 dashboard。
+- **内部元素溢出容器**（让 absolute 子元素跑出 3:4 边界）—— PDF 会被裁切。
+- **封面承担正文**（把第一段干货塞封面里）—— 封面是钩子不是内容。
+- **Canvas 动画依赖时间才出现内容**（PDF 只截第一帧，黑屏）—— 保证第一帧自身就好看。
+
+---
+
+## 自检（**必过 5 条**）
+
+写完封面，对照下面 5 项；任何一项 fail → 改完再交付：
+
+1. **图文并茂**：截掉文字层后还剩视觉主体？截掉视觉层后还剩文字？两者都要有。
+2. **主题忠实**：切到 `theme-profiles/index.json` 里另一个主题（改 `main.tsx` 一行），
+   封面**自动跟随**变色 / 变字、不破相？如果有写死值就不算过。
+3. **内容忠实**：盯着封面看 5 秒钟，能不能猜出文章在讲什么？如果只能看到"一个漂亮
+   图形"但跟正文关系不大，不算过。
+4. **比例自适应**：把容器从 3:4（屏幕）拉成 ~3:4.2（A4）/ ~3:3.9（Letter），内部元素
+   没溢出 / 没错位 / 没出现大块空白？（用 `position:absolute; inset:0` + `grid`
+   / `flex` 撑起元素，而不是写死像素位置，就自动通过）。
+5. **不与 Hero 重复**：封面文字 ≠ Hero 文字（一个是钩子，一个是锚点）。
+
+---
+
+## PDF 表现
+
+`scripts/pdf-print-overrides.css` 的 C 段会把封面：
+
+- **保持封面的 3:4 外壳不变** —— 避免 Chromium print 在强拉伸时裁切内部布局；
+- **`break-after: always`** —— TOC 从第二页开始。
+
+效果：PDF 第一页 = 3:4 封面独占首页；第二页起 = TOC + 正文。
+
+> **想做满页封面**：可以在单篇文章里为 `.ra-cover` 加专门的 print 适配，但必须导出
+> PDF 目检。不要把满页拉伸作为通用默认值。
+
+---
+
+## 何时关闭封面（`--no-cover`）
+
+99% 的场景都该开。少数关闭的情况：
+
+- **briefing**（决策摘要 / 给忙人看）：用户希望"打开就是干货"，封面反而是阻力。
+- **dialogue**（对话 / 访谈）：内容是对话流，封面价值不大；可关。
+- **用户明确要关**：尊重用户。
+
+关闭方法：
+- 脚手架阶段：`bash scripts/scaffold.sh <dir> --theme=<id> --no-cover`。
+- 已脚手架：删 `article/main.tsx` 里 `<Cover />` 引入和渲染，可顺手删 `Cover.tsx`。
+
+---
+
+## 写作流程（在 Skill 里的位置）
+
+| 阶段 | 跟封面相关的事 |
+|---|---|
+| Phase 2 Plan | `plan/plan.md` Brief 段里加一行"封面：开/关 + 一句构图想法 + 主题模板（A/B/C/D/E）" |
+| Phase 3 Checkpoint 1 | 第 5 项独立确认"封面 · 开 / 关"，AI 推荐通常是"开" |
+| Phase 4 First Spread | **替换 `article/Cover.tsx` 里的 `<CoverPlaceholder />`** 为本文专属设计；首屏验收必看封面 |
+| Phase 4 First Spread Review | Reviewer 用本文档自检 5 条核对 |
+| Phase 6 Final Review | Visual Reviewer 复查封面与主题一致性 |
+| Phase 8 Delivery | PDF 导出时封面自动独占首页（不需要额外操作） |
+
+=== beautiful-article/references/harness.md ===
+# Harness 视角
+
+本 Skill 的重点不是"提示词"，而是一个小型 harness。它要回答六个问题：
+
+| Harness 部分 | 本 Skill 解决的问题 | 设计手段 |
+|---|---|---|
+| 上下文管理 | 模型到底看到了什么 | 原始源统一转 `source.md`，阶段化读取 reference |
+| 工具系统 | 能处理什么输入 / 输出 | URL / PDF / DOCX / Markdown / 截图 / 图片素材 / 本地构建 / 浏览器检查 |
+| 执行编排 | 下一步该做什么 | 分 Phase、检查点、首屏样张、完整生成、验收修复 |
+| 状态与记忆 | 决策如何跨步骤保持 | `source.md`、`plan/plan.md`（Brief/Outline/Theme/Assets 四段合一）、`review/first-spread-review.md`、`review/final-review.md` |
+| 评估与观测 | 怎么知道文章好不好 | Plan 主 Agent 内联自查；First Spread / Final 用 SubAgent + 写文件；Section 用 SubAgent + 消息返回 |
+| 约束与恢复 | 跑偏后怎么修 | 最小切片修复，禁止整篇无脑重写 |
+
+## 状态文件是长期记忆
+
+Agent **不应依赖聊天上下文记住关键决策**。跨阶段决策落盘到下列文件 —— 比原先精简了 ~5 份：
+
+```text
+source/source.md             # 统一后的源材料（原始语言，事实底座）
+source/source.<lang>.md      # 仅当需翻译：地道翻译版，作为后续编写的事实底座
+source/extraction-notes.md   # 抽取风险 / 丢失 / 待补充 / 语言与翻译说明
+plan/plan.md                 # 唯一规划文件：Brief / Outline / Theme / Assets 四段合一
+review/first-spread-review.md  # First Spread SubAgent 结论（首屏验收依据）
+review/final-review.md         # 终审三视角结论（交付物的一部分）
+review/source-review.md        # 仅复杂/低置信源时
+review/repair-log.md           # 仅有修复时
+```
+
+
+长会话中如果不确定某个已确认的决策，**回读这些文件**，不要凭记忆重新发明。
+
+## 一句话定位
+
+> Beautiful Article 把素材编辑、设计成一篇美丽的网页文章；它首先是一篇**文章**，
+> 不是网页应用。交互、Raw、配图都服务阅读。
+
+=== beautiful-article/references/html-output.md ===
+# HTML 输出与构建
+
+工作区是一个 Vite + React + TS 项目，从 npm 消费 `reacticle`（最新发布版）。文章源在
+`article/Article.tsx`（由 `article/main.tsx` 挂载，主题在此固定）。
+
+## 命令（在工作区根目录）
+
+| 命令 | 作用 |
+|---|---|
+| `npm run dev` | 启动预览（Phase 4 / 5 边写边看）。 |
+| `npm run build` | `tsc --noEmit` 类型检查 **+** 构建自包含单页 HTML 到 `dist/index.html`（CSS + JS 内联）。TS 报错会让构建失败，避免错误漏进交付物。 |
+| `npm run html` | 复用 `npm run build`（含类型检查），再把单页 HTML 复制到 `article/article.html`（**交付物**）。 |
+| `npm run typecheck` | 仅类型检查。 |
+
+单文件由 `vite-plugin-singlefile` 产出：CSS + JS 全部内联，**断网可打开、可分享**。
+
+## 切换主题
+
+主题在 `article/main.tsx` 的 `<ThemeProvider theme="...">` 改一个字即可（必须是组件库
+已注册的 runtime theme id：`tufte` / `press`）。
+
+## PDF（可选 · 由 Checkpoint 3 触发）
+
+详见 `references/pdf-output.md`。一句话用法：
+
+```bash
+npm run html                                                   # 先有 article/article.html
+bash <path-to-beautiful-article>/scripts/html-to-pdf.sh        # → article/article.pdf
+```
+
+脚本会自动探测系统的 chromium-family 浏览器，在 HTML 头部注入 `@media print` 覆盖（把
+TOC 从左右栅格塌成上下排布，TOC 独占首页），再 headless 打印为 PDF。无 npm 依赖、无 Node。
+
+> Raw 交互在 PDF 里只能渲染为初始态。`interactive-explainer` 类型 PDF 价值有限，用户可在
+> Checkpoint 3 自行决定要不要导。
+
+如需"复制为提示词 / 行动项"按钮，可在文章里挂 `ExportBar`（与 PDF 无关）。
+
+## 交付自检
+
+- `npm run html` 成功，`article/article.html` 能在浏览器离线打开。
+- 控制台无报错；桌面与移动端都可读，无文字溢出 / 遮挡 / 空白异常。
+
+=== beautiful-article/references/information-density.md ===
+# 信息密度
+
+信息密度（信息保留比例）决定**正文与视觉块的配比、内容取舍的尺度、章节深度**。
+
+**与文章类型的关系**：理论上两者独立，实践中绑定很紧 —— 每个文章类型都自带一个标配保留
+比例（见下表）。Plan Checkpoint 1 把"保留比例"打包进"文章类型"的语义化选项里收集，避免
+`longform + 20%` 这种伪组合（详见 `article-types.md` 顶部说明）。**只在用户明确精修**（如
+"longform 但只要 60%"）时作为非标配组合记入 `plan/plan.md` Brief 段。
+
+默认值：**100% 信息保留**（跟随默认类型 `longform`）。
+
+## 信息密度等级
+
+| 信息保留 | 推荐文章类型 | 适合场景 | 表达特征 |
+|---|---|---|---|
+| 100% | longform | 完整归档、原文级深度阅读 | 长文为主，Raw 增强，完整章节和细节 |
+| 80-90% | tutorial / full-report / explainer / dialogue | 教学步骤 / 消化后的报告 / 概念解释 / 对话整理 | 删冗余但保留主要论证、步骤、对话 |
+| 60-70% | review / essay | 工程审阅 / 观点评论 | 留核心证据、论证、关键发现 |
+| ~50% | briefing | 给决策者看 | 留结论 + 关键证据 + 行动；视觉比例升高 |
+| 40% | visual-essay | 分享、传播、图文展示 | 视觉块占比最高，文字更短，强调节奏 |
+| **~25%（原文摘录）** | interactive-explainer | 玩懂一个概念（Raw 交互为主载体） | **特例：百分比含义不同** —— 不是"删 75%"，而是"成品里直接来自原文的句子 / 段落约占 25%"；其余 75% 是 AI 围绕核心知识点全新创作的引导文字 + 交互演示 + 自己试 + 验证理解 |
+| 20% | one-page teaser / 封面式表达 | 引导阅读、封面 | 只留核心观点和最有力量的材料（任何注册类型 + 20% 都属"非标配组合"，要在 plan.md 标注） |
+
+## 信息密度与组件 / 视觉比例
+
+| 信息保留 | 正文比例 | Raw / 图片比例 | 组件策略 |
+|---|---|---|---|
+| 100% | 高 | 中低 | 长文优先，Raw 点亮关键概念 |
+| 80% | 中高 | 中 | 每节可有一个视觉增强 |
+| 60% | 中 | 中高 | 重点结构化，视觉辅助理解 |
+| 40% | 中低 | 高 | 图文节奏更强，但仍是文章 |
+| 20% | 低 | 高 | 接近视觉文章，不保留细节 |
+
+## 三个维度的关系
+
+```text
+文章类型 = 结构决策
+信息密度 = 内容保留决策   ← 与类型实际绑定（每类有标配比例），仅在用户精修时解耦
+主题     = 审美气质决策   ← 与前两者完全解耦
+```
+
+- 主题与类型 / 密度**完全解耦**：任意主题都能在任意类型 + 密度下成立（表现策略不同而已）。
+- 类型与密度**实践绑定**：见 SKILL.md Phase 3 的合并问题；只有"non-standard"组合时才显式解耦。
+
+## Plan Checkpoint 必问
+
+1. 文章类型（含标配信息保留比例）—— 见 SKILL.md Phase 3，4 个必问题之一。
+2. 是否允许编辑删减、重组、改写语气？—— 默认允许，开场说明里明示。
+3. 哪些信息必须 100% 保留？—— 写进 Brief 段"必须保留的信息"列表。
+4. 哪些内容可以压缩或移除？—— 写进 Brief 段"可删减的信息"列表。
+
+=== beautiful-article/references/layout.md ===
+# 版式：宽度模式与 TOC
+
+版式是**与主题解耦的独立决策**（主题只管审美气质，宽度/目录管阅读版式），就像信息密度
+与主题解耦一样。在 Plan Checkpoint（Phase 3）由用户确认，落盘到 `plan/plan.md` 的 Brief 段。
+
+## 宽度模式（`Article` 的 `width`，需 reacticle ≥ 0.2.0）
+
+宽度由 `<Article width="...">` 控制，**不再由主题决定**。四种常见模式：
+
+| 模式 | 阅读列宽 | 适合 |
+|---|---|---|
+| `narrow` | ~34rem | 聚焦短文、`essay`、`briefing`、金句节奏强的文章 |
+| `regular`（默认） | ~46rem | `longform` / `explainer` 等常规长文阅读 |
+| `wide` | ~58rem | 表格 / 代码 / 数据密集（`full-report`、`review`、`tutorial`） |
+| `full` | ~78rem | 图文主导、宽幅媒体（`visual-essay`） |
+
+任意主题都能配任意宽度（解耦）。例：`tufte + wide` 适合大量数据表；`press + narrow`
+适合从容随笔。
+
+## TOC（`Article` 的 `toc`）
+
+`<Article toc>` 渲染左侧目录（从 `Section` / `Subsection` 自动派生，最多三级，带滚动高亮）。
+
+- **本 Skill 默认开启 TOC**（长文有导航更易读），但**必须在 Plan Checkpoint 让用户确认**。
+- 很短的文章（`briefing` / 短 `visual-essay`）可以关掉，避免目录比正文还显眼。
+- TOC 开启会变成"左目录 + 正文"两栏；窄视口（<1000px）自动回落为单栏。
+
+## 用法
+
+```tsx
+// 默认：常规宽度 + 开 TOC
+<Article toc width="regular"> ... </Article>
+
+// 数据密集报告：更宽 + TOC
+<Article toc width="wide"> ... </Article>
+
+// 短随笔：窄列、不要目录
+<Article width="narrow"> ... </Article>
+```
+
+## 自检
+
+- 宽度是否匹配内容？（表格 / 代码多 → 至少 `wide`；纯叙事 → `regular` / `narrow`）
+- 宽度是按内容选的，而不是被主题决定的？
+- TOC 的开关是否经用户确认？短文是否误开了喧宾夺主的目录？
+- 移动端两栏是否正常回落为单栏？
+
+=== beautiful-article/references/pdf-output.md ===
+# PDF 输出（可选）
+
+把交付的单页 HTML（`article/article.html`）转成 PDF。**这是 Phase 8 Delivery 里的可选步骤**，
+由 Checkpoint 3 用户选 "通过 · 同时导出 HTML + PDF" 时触发；不选则不动。
+
+> HTML 仍然是主交付物：它能离线打开、可分享、可在浏览器里完整体验 Raw 交互。PDF 是给"需要
+> 归档 / 打印 / 邮件附件 / 不联网阅读"场景的补充，**Raw 交互在 PDF 里只能渲染为初始态**。
+
+---
+
+## 快速用法
+
+```bash
+# 工作区根目录
+npm run html                                                    # 先确保有 article/article.html
+bash <path-to-beautiful-article>/scripts/html-to-pdf.sh         # 默认 article/article.html → article/article.pdf
+bash <path-to-beautiful-article>/scripts/html-to-pdf.sh in.html out.pdf  # 自定义路径
+```
+
+也可以把这个 bash 调用放到工作区 `package.json` 的 scripts 里，让用户 `npm run pdf` 就跑
+（路径是用户机器上 Skill 的绝对路径，**不在脚手架模板里固化**，避免硬编码）。
+
+---
+
+## 前提条件
+
+本机已装 chromium-family 浏览器之一（脚本会自动探测，按下列顺序）：
+
+```text
+chromium / chromium-browser / google-chrome / google-chrome-stable / chrome
+brave-browser / microsoft-edge
+/Applications/Google Chrome.app/...
+/Applications/Chromium.app/...
+/Applications/Microsoft Edge.app/...
+/Applications/Brave Browser.app/...
+/Applications/Arc.app/...
+/usr/bin/chromium / /snap/bin/chromium
+```
+
+**找不到任何浏览器** → 脚本不会爆，会给出回退指引：注入了打印 CSS 的临时 HTML 路径会被
+打印出来，用户可以用任意浏览器手动 `Cmd+P` / `Ctrl+P` → "另存为 PDF"。
+
+不依赖 Node / npm 包 / puppeteer / playwright / weasyprint —— 故意只用系统已装的浏览器，
+零环境配置。
+
+---
+
+## 设计原理（重要 · 调样式前先读）
+
+### 1. 为什么要注入 print CSS（不是改 reacticle）
+
+reacticle 的 TOC 在桌面是**左右栅格**（`.ra-article-layout--with-toc` 是 `display: grid`，
+两列：TOC | 文章），在 mobile（≤999px）才塌成单列 `display: block`。
+
+PDF 阅读习惯是**上下排布**（TOC 先 / 正文后），跟 mobile 体验对齐。最干净的实现：在 PDF
+生成时**注入一段 `@media print` CSS**，强制 `display: block`，等价于复用 mobile 分支。
+这样：
+
+- **不动 reacticle**：任何版本的 reacticle 都能用这个脚本生成合理 PDF。
+- **不动用户的 Article.tsx**：用户的源码完全不受影响。
+- **CSS 只在打印生效**：浏览器里看 HTML 还是左右栅格。
+
+### 2. 注入了哪几条规则
+
+CSS 抽到了独立文件 **`scripts/pdf-print-overrides.css`**（与脚本同目录），分三组：
+
+```text
+A · TOC 排版（让 TOC 上 / 正文下）
+  A1) .ra-article-layout--with-toc { display: block }   → 塌成单列
+  A2) .ra-toc { position: static; page-break-after: always } → 解 sticky + 独占首页
+  A3) .ra-toc__list { column-count: 2 }                 → 长 TOC 双列省纸
+  A4) .ra-toc__item { break-inside: avoid }             → TOC 项不被列间撕开
+  A5) .ra-article-layout--with-toc > .ra-article        → 正文在 TOC 后自然流
+  A6) .ra-toc a / .ra-article a { text-decoration: none } → 关闭打印链接下划线
+
+B · 分页行为（修长文章的大块空白页）
+  B1) .ra-section / .ra-subsection { break-inside: auto !important }
+        → 撤销 reacticle print.css 里的 break-inside: avoid-page。
+          对长 Section 来说，那条规则会把整节推到下一页、留前一页大半空白。
+  B2) h1-h4 + .ra-section__head + .ra-subsection__head { break-after: avoid }
+        → 标题不被孤儿化（不会孤零零卡在页底，下面是空白）
+  B3) .ra-hero / .ra-lead / .ra-conclusion { break-inside: avoid }
+        → 短的开场 / 收束块原子化，不撕开
+  B4) p / li / blockquote { orphans: 3; widows: 3 }
+        → 段落不留 1-2 行寡行
+  B5) figure / .ra-table / .ra-codeblock / .ra-formula / .ra-image / .ra-raw
+        { break-inside: avoid }
+        → 图表、表格、代码块、Raw 块尽量整块；过高时浏览器仍会自动 fallback 分页
+
+C · 封面（若文章有 3:4 封面，让它独占 PDF 首页）
+  C1) .ra-cover { break-after: always; break-inside: avoid }
+        → 屏幕和 PDF 都保持 3:4 书封；打印时 TOC 从第二页开始
+        → 详见 references/cover.md
+```
+
+完整带注释的 CSS 直接看 `scripts/pdf-print-overrides.css`。要调样式（比如换页面 break 策略
+/ 改双列阈值 / 加打印水印），**直接改这个文件就行**，不用动 bash 脚本。
+
+> **为什么 CSS 是独立文件**：macOS 自带 BSD awk 对 `-v inject="$INLINE_CSS"` 这种多行字符串
+> 报 `newline in string` 错（GNU awk 没事）。把 CSS 抽成文件，awk 用 `getline < file` 读取，
+> 两个 awk 都吃得下。顺带也让 CSS 变成可独立编辑 / lint / diff 的真正资源。
+
+reacticle 自带的 `print.css` 仍然生效（白底黑字 / 隐藏 export bar / `break-inside: avoid`
+等），本脚本只补 TOC 排版那一块。
+
+### 3. 渲染流程
+
+```
+article.html  ──── awk 注入 print CSS ────  /tmp/article-print.html
+                                                  │
+                                                  ▼
+                  探测的浏览器 --headless --print-to-pdf
+                                                  │
+                                                  ▼
+                                          article.pdf
+```
+
+Chrome 标志：
+
+- `--headless=new`（旧版 fallback 到 `--headless`）：无窗口模式。
+- `--no-pdf-header-footer` / `--print-to-pdf-no-header`：去掉浏览器自带的 URL / 日期 / 页码
+  （颠倒了 colophon 的角色）。
+- `--virtual-time-budget=5000`：给页面 JS 5 秒初始化时间，让 Raw 组件、KaTeX、Prism 等
+  渲染完再截屏。
+- `--hide-scrollbars` / `--disable-gpu` / `--no-sandbox`：清洁渲染。
+
+### 4. Raw 交互在 PDF 里会怎样？
+
+PDF 是**静态文档**，所有 Raw 交互（滑块、按钮、动画、canvas、视频）只能渲染**初始状态**。
+设计建议：
+
+- **interactive-explainer 类型**：PDF 价值有限（核心是"操作"），用户可在 Plan 阶段不开
+  PDF 导出。
+- **其它类型**：Raw 通常是辅助图解（流程图 / SVG / 趋势图），初始态已经够看，PDF 没问题。
+- **Raw 内的内容若依赖 hover / click 才显示**：在写 Raw 时考虑"是否打印友好"，如默认露出
+  关键内容、用 `print:` 风格让 hover 状态在打印时强制展开。
+
+---
+
+## 故障排除
+
+### 找不到浏览器
+
+脚本会打印临时 HTML 路径（已经注入打印 CSS），手动 Cmd+P 即可。
+
+### PDF 里 TOC 没分页 / 跟正文挤在一起
+
+某些 Chromium 旧版本对 `page-break-after: always` 的支持有差异。可以：
+
+- 升级 Chrome 到当前主版本。
+- 或手动 Cmd+P 时在打印对话框选"两面 / 缩放 / 自定义边距"。
+
+### PDF 分页奇怪 / 出现大块空白页 / 标题孤零零卡在页底
+
+通常是某些"原子块"被强制不分页导致整块被推到下一页。检查 `pdf-print-overrides.css`：
+
+- **B1** 是否生效（看 DevTools Print Preview 里 `.ra-section` 的 `break-inside` 值）。
+  reacticle `print.css` 那条没 `!important`，理论上我们的 `!important` 一定能赢。
+- 自己写的 **Raw 块**里有没有 inline `style={{ breakInside: 'avoid' }}` 或类似 CSS —— 删掉。
+- 如果还想"标题永远不卡页底"，把 B2 里 `break-after: avoid` 改成
+  `break-before: avoid; break-after: avoid`（更激进，但偶尔会牺牲一些纸面利用率）。
+
+### PDF 里 Raw 没渲染完整 / 图表是空白
+
+- 增加 `--virtual-time-budget`（编辑脚本，从 5000 改到 10000+）。
+- 检查 Raw 的 JS 是否在 DOMContentLoaded 内同步渲染（异步加载的远程图片 / 数据可能没等到
+  截屏就开拍）。
+- 改造 Raw：用 SSR-friendly 的初始态 + 客户端 hydrate 增强，不要"完全靠 JS 后才能看"。
+
+### PDF 字体跟浏览器看不一样
+
+主题用了 `@font-face` 远程字体？headless Chrome 默认不等远程字体加载完。可以：
+
+- 用 system font fallback（推荐，多数主题已经做了）。
+- 或在 HTML 里把字体 `data:` 内联（vite-plugin-singlefile 已经处理静态资源，但 woff 字体
+  要看主题怎么写的）。
+
+### 想自定义页面留白 / 纸张大小
+
+Chromium 的 `--print-to-pdf` 不支持命令行页面尺寸 / 边距参数。当前 CSS 用
+`@page { margin: 0 }` 让主题纸色铺满整页，再用 `.ra-root { padding: 0.45in }`
+提供内容留白。如果需要改留白，优先调整 `scripts/pdf-print-overrides.css` 里的
+`.ra-root` print padding。
+
+如果用户真的要自定义，建议：
+
+1. 用浏览器 GUI 打印（Cmd+P）—— 那里有边距 / 纸张 / 缩放选项。
+2. 或者派生一个 `html-to-pdf-puppeteer.sh` 脚本，单独支持自定义。当前脚本默认按 Chrome
+   默认页面尺寸（Letter 美区 / A4 其它区）输出。
+
+---
+
+## 与 Skill 流程的关系
+
+| 阶段 | 触发 | 动作 |
+|---|---|---|
+| Phase 8 Delivery | 用户在 Checkpoint 3 选 "通过 · 同时导出 HTML + PDF" | 跑 `npm run html` → 跑 `bash <skill>/scripts/html-to-pdf.sh` → 交付 `article.html` + `article.pdf` |
+| Checkpoint 3 其它选项 | 用户选 "通过 · 导出 HTML 交付" | 不跑 PDF |
+| 用户事后想补 PDF | 任何时刻 | 在工作区根目录手动跑 `bash <skill>/scripts/html-to-pdf.sh` |
+
+---
+
+## 不做的事
+
+- ❌ 不在脚手架强行装任何 PDF 相关 npm 包（保持脚手架轻量）。
+- ❌ 不在 Checkpoint 3 默认勾选 "导出 PDF"（PDF 不是主交付物）。
+- ❌ 不替用户判断"要不要 PDF" —— 这是 Checkpoint 3 用户独立选择项。
+- ❌ 不改 reacticle 来支持 PDF（CSS 注入更轻量、跟 reacticle 版本解耦）。
+
+=== beautiful-article/references/plan-template.md ===
+# plan.md 模板（单一规划文件）
+
+Phase 2 **只产出一份** `plan/plan.md`，四段：**Brief / Outline / Theme / Assets**。
+**不直接写 HTML**。写完后由主 Agent 内联跑 5 条自查（见 `review-checklist.md` 的 "Plan
+自查"），按结论改 `plan/plan.md` 本身，**不开 SubAgent、不写任何 review 文件**，然后进入
+Checkpoint 1。
+
+> 为什么合并：原先四份文件（editorial-brief / outline / theme-decision / asset-plan）真正
+> 跨阶段被读取的只有"信息保留比例 / 目标语言 / 章节锚点 / 主题 id"。合并成一份后，主 Agent
+> 维护更省心，Section subagent 只需打开 plan.md 找到"Outline"段里自己的章节即可。
+
+---
+
+## `plan/plan.md` 完整模板
+
+```markdown
+# Plan
+
+## Brief
+
+- 目标读者：<谁会读，带着什么问题>
+- 目标语言：<跟随源语言（默认） / 指定语言>。若指定且与源不一致：源语言 <X> → 目标 <Y>，
+  事实底座用翻译版 `source/source.<lang>.md`（地道、去翻译腔）
+- 文章类型：<longform / full-report / tutorial / explainer / dialogue / review / essay / interactive-explainer / briefing / visual-essay>
+- 信息保留比例：<X%>（默认走类型标配：longform=100% · tutorial=90% · full-report=80% ·
+  explainer=80% · dialogue=80% · review=70% · essay=70% · briefing=50% · visual-essay=40% ·
+  **interactive-explainer=~25%（特例 · 见下）**；用户偏离标配则写实际值并加一行"非标配组合
+  · 注意事项"，提醒主 Agent 在写每节时手动调整正文/视觉比例）
+- **interactive-explainer 特例说明**：这个比例的含义和其它类型不同 —— 不是"原文删了 75%"，而是
+  "成品里直接来自原文的句子 / 段落约占 25%"；其余 75% 是 AI 围绕核心知识点全新创作的引导文字
+  + 交互演示 + 自己试 + 验证理解。本质是**内容重构**而非内容压缩。
+- 必须保留的信息：<章节 / 表格 / 代码 / 数据 / 引用，逐条列；指向 source.md 的具体位置>
+- 可删减的信息：<重复 / 旁枝 / 过时内容；每条带理由>
+- 语气：<克制分析 / 出版叙事 / 决策汇报 / 教学>
+- 主要观点：<这篇要让读者记住的 1-3 个判断>
+- 阅读目标：<读完能做什么 / 知道什么>
+- 版式宽度：<narrow / regular / wide / full>（默认 regular，见 layout.md）
+- TOC：<开 / 关>（默认开）
+- 配图策略：<none / user-assets / placeholders / ai-generated>
+- 封面：<开（默认） / 关>。若开，写一句构图想法 + 选定的封面模板（A 左字右图 / B 大字盖图 /
+  C 上字下图 / D 几何拼贴 / E 极简框）+ 主视觉用什么（如"SVG 缓存命中率曲线"/"包豪斯三色块"）。
+  详见 `references/cover.md`。Brief 阶段一句话即可，正式视觉在 Phase 4 First Spread 替换
+  `article/Cover.tsx` 时落定。
+
+## Outline
+
+- Hero：<标题气质 / 副标题 / meta：日期·来源·作者>
+- Lead：<导语，框定主题，1-2 句>
+- Summary：<是否需要；放结论先行 / TL;DR>
+
+### Sections
+
+1. <编号 NN> <标题>
+   - 保留信息：<从 source.md 哪几段，要保留到什么程度>
+   - 需要的组件：<Section 正文 + 是否 Aside/Quote/Table/CodeBlock/Formula/Image>
+   - 是否需要 Raw：<是/否；若是，服务哪个论点、表达目的>
+2. ...
+
+- 结尾方式：<Conclusion / 行动项 / 留白收束>
+
+## Theme
+
+- 选定主题：<tufte / press / ...>
+- 理由：<为什么是它，结合源材料类型 / 语气 / 配图策略>
+- 与源材料的冲突：<若有，如何处理；若无，写"无">
+- 当前信息密度下的表现建议：<正文 / Raw / 图片比例如何调整；可引用 theme-profiles/<id>.md>
+
+## Assets
+
+> 这一段配合"Brief / 配图策略"使用。`none` 模式下写一句话即可。
+
+- 策略：<none / user-assets / placeholders / ai-generated>
+- 一句话说明：<为什么是这个策略；Raw 始终存在、不在本段讨论>
+
+### 逐图计划（仅 user-assets / placeholders / ai-generated 模式需要）
+
+每张图列：
+
+- 位置：<Hero 背景 / Section 02 之后 / ...>
+- 服务的段落或论点：<...>
+- 目的：<建立气质 / 解释机制 / 提供证据 / ...>
+- 主题：<选定主题>
+- 风格 / 构图：<...>
+- 禁止项：<3D icon / neon gradient / SaaS stock photo / 笑脸办公室人 / ...>
+- 来源：<user-assets 文件路径 / placeholders 描述 / ai-generated 提示词>
+- 备选提示词（ai-generated 模式）：<...>
+```
+
+---
+
+## 模板使用要点
+
+- **Outline 是章节锚点**：Section subagent（开发模式 B 下）会读这一段找到自己负责的章节。
+  每节用 `<编号 NN> <标题>` 起头，编号要和最终 `article/sections/NN-*.tsx` 一致。
+- **必须保留 / 可删减**列出来不是装饰，**Section Reviewer 会核对**信息保留比例是否兑现。
+- **Theme 段不必长**：通常 3-5 句话足够。冲突的处理才是这段的真正价值。
+- **Assets 段在 `none` 模式下极短**：一句话说明"不使用外部图片，靠正文 + Raw + 表格表达"
+  即可，不需要逐图计划。
+
+## 与其它 reference 的关系
+
+- 文章类型选择：见 `article-types.md` → `article-types/<type>.md`。
+- 信息保留比例：见 `information-density.md`。
+- 主题选择：见 `theme-selection.md`，结论落到本模板的 **Theme** 段。
+- 版式宽度 / TOC：见 `layout.md`，结论落到本模板的 **Brief** 段。
+- 配图四种来源 / ai-generated 提示词原则：见 `asset-policy.md`，结论落到 **Assets** 段。
+- 封面（书封式题图：屏幕 3:4 / PDF 独占首页）：见 `cover.md`，结论落到 **Brief** 段的
+  "封面"一行；正式视觉在 Phase 4 First Spread 写 `article/Cover.tsx` 时定稿。
+- 自查清单：见 `review-checklist.md` 的"Plan 自查（5 条）"。
+
+=== beautiful-article/references/raw-policy.md ===
+# Raw 政策
+
+Raw 是 Beautiful Article 的关键表现力，但必须受**主题**和**文章性**约束。写 Raw 前先读
+选定主题的 `theme-profiles/<id>.md` 的 Raw 风格。
+
+## Raw 是完整的 Web 平台，不是"画 SVG"
+
+**Raw 里可以写任意 HTML / CSS / JS / React 组件 —— 整个 Web 平台都在你手里。** SVG 只是
+**其中一种**手段，绝不是默认或唯一。别把 Raw 想成"内联画图"，那会严重限制网页的想象力。
+按"哪种媒介最能讲清这一段"自由选择，例如：
+
+- **交互**：拖动条 / 切换 / 折叠 / 步进器 / 计算器 / 小型可调模型 / 假设演算。
+- **布局排版**：并排对比、时间线、卡片网格、分栏、引文大字、特殊标题节奏（用 HTML + CSS）。
+- **动效**：CSS transition / `@keyframes` / 滚动揭示 / 状态切换的动画。
+- **数据可视**：HTML/CSS 条形与热度、`<canvas>`、需要时才用 `<svg>` 折线 / slopegraph。
+- **嵌入与组合**：表格 + 控件 + 文本拼成的一次性小工具、可复制片段、对照面板。
+
+判断只问一句：**哪种实现最能服务这一段的理解 / 论证 / 节奏？** 用那个，而不是反射性地画 SVG。
+
+## 核心心法
+
+- **为 THIS 篇文章手写，不是 widget 库。** 每块 Raw 都应为它旁边的段落即时发明：写 token
+  成本？现写一个小拖动条；写两套方案？拼一个并排对照面板；写体积趋势？才考虑一条内联折线。
+  **绝不**把 Raw 做成一套固定小组件在文章间复用（同一条 pipeline / 同一套配色到处出现）——
+  那等于把自由层退化成又一组受限组件。
+- **自由但一致：用 token。** Raw 内部随便写 —— 任意 HTML / React 组件、`<style>` 与
+  `@keyframes`、行内样式、`<canvas>`、按需的 `<svg>`、一次性小交互 —— 但颜色 / 字体 / 间距
+  必须取自主题变量（`var(--ra-color-accent)`、`var(--ra-font-body)`、`var(--ra-space-4)` …），
+  这样每块都独一无二却又随主题切换。
+
+## 允许
+
+- 任意服务段落的 HTML / CSS / JS / React：轻量交互解释、可调小工具、自定义布局与排版、
+  并排对比、概念动效、阅读节奏中的视觉停顿，以及按需的 SVG / canvas 图解 —— 都是
+  为当前段落定制的一次性实现。
+
+## 禁止
+
+- 复杂表单、拖拽工作台、完整 dashboard、产品原型、和文章无关的动画、独立于主题的配色、
+  复用固定小组件冒充自由表达。
+
+## Raw by example（每次现写，别复用固定 widget）
+
+> 下面只是几种常见手段（SVG / CSS 动画 / React 交互），**不是穷举也不是优先级**。布局、
+> 排版、对照面板、`<canvas>`、嵌入式小工具同样都行 —— 按"最能讲清这一段"来选。
+
+```tsx
+// 1) 需要曲线时，才为这个数据点手画一条内联 SVG（不是默认手段）
+<Raw title="构建体积走势">
+  <svg viewBox="0 0 300 80" width="100%">
+    <polyline points={pts} fill="none" stroke="var(--ra-color-accent)" strokeWidth="2" />
+  </svg>
+</Raw>
+
+// 2) 带一次性 CSS / @keyframes 的 HTML 字符串（内联进产物）
+<Raw html={`
+  <style>@keyframes ra-rise{from{height:0}to{height:var(--h)}}</style>
+  <div style="display:flex;gap:8px;align-items:flex-end;height:80px">
+    <i style="--h:60%;flex:1;background:var(--ra-color-accent);animation:ra-rise .6s ease"></i>
+    <i style="--h:90%;flex:1;background:var(--ra-color-accent);animation:ra-rise .8s ease"></i>
+  </div>
+`} />
+
+// 3) 只为这篇文章定义的一个小交互组件
+function TokenScale() {
+  const [n, setN] = useState(50);
+  return (
+    <div>
+      <input type="range" value={n} onChange={(e) => setN(+e.target.value)} />
+      <span style={{ color: "var(--ra-color-accent)" }}>{n}%</span>
+    </div>
+  );
+}
+<Raw title="拖动感受差距"><TokenScale /></Raw>
+```
+
+整篇文章里变化这些 —— 不同媒介、不同布局、不同交互 —— 让没有两块 Raw 看起来一样。变化是好的，违反
+主题气质不行：`tufte` 的 Raw 不该变成发亮营销 dashboard，`press` 的 Raw 不该变成冷霓虹终端
+（除非主题 md 明确允许）。
+
+## Raw 自检
+
+- 这块 Raw 删掉后，文章理解是否会变差？
+- 它服务哪一个段落 / 论点？
+- 它是否使用 `--ra-*` token？是否符合主题 md？
+- 它是否让文章更像应用？（如果是，砍掉或收敛成服务阅读的解释性视觉 / 排版）
+
+=== beautiful-article/references/repair-policy.md ===
+# 修复政策（最小切片）
+
+按最小单位修复。**有修复才写** `review/repair-log.md`（一次过 / 无修复则不写）。
+
+## 禁止
+
+- 用户只反馈一处问题就**重写整篇**。
+- 为了修视觉而改动**已确认的文章结构**。
+- 为了压缩信息而删除用户**指定必须保留**的内容。
+
+## 最小切片对照
+
+| 问题 | 最小修复单位 |
+|---|---|
+| 信息缺失 | 对应 Section / Table / CodeBlock |
+| 信息太密 | 对应 Section 的段落和局部 Raw |
+| 主题不对 | `plan/plan.md` 的 Theme 段 + 局部 token / Raw |
+| 图片不对 | 对应图片和 `plan/plan.md` 的 Assets 段 |
+| 首屏不对 | Hero / Lead / Summary |
+| Raw 跑偏 | 单个 Raw block |
+| 移动端问题 | 对应 CSS / 组件布局 |
+| 构建错误 | 具体文件和行 |
+
+## repair-log.md 格式
+
+```markdown
+## <日期> <谁反馈 / 哪个 Reviewer>
+- 问题：<一句话>
+- 定位层：<节奏 / 视觉 / 内容 / 构建>
+- 最小修复单位：<Section 03 / raw-blocks/02 / main.tsx 主题 ...>
+- 改动：<改了什么>
+- 验证：<dev 预览 / npm run html 通过 / 控制台无错>
+```
+
+先定位是哪一层（内容 / 结构 / 视觉 / 构建），再改最小切片，**不要重做整篇**。
+
+=== beautiful-article/references/review-checklist.md ===
+# 评审清单与 Reviewer
+
+> 本文件的核心目的：**让每个节点用对的方式做对的事**，不要错开 SubAgent、不要错写文件。
+> 误开 SubAgent / 错写 review 文件是首要性能问题。完整规则见 SKILL.md「硬性质检协议」段。
+
+## 各阶段质检方式（铁律）
+
+| 阶段 | 质检方式 | 产物 |
+|---|---|---|
+| **Phase 1 Source（默认）** | 主 Agent 内联 5 条 checklist（见 `source-to-markdown.md`） | 无文件 |
+| Phase 1 Source（仅复杂/低置信源） | Source Reviewer SubAgent（对照 `original.*` diff） | `review/source-review.md` |
+| **Phase 2 Plan / Checkpoint 1 前** | **主 Agent 内联自查（禁开 SubAgent）** | **无文件** |
+| **Phase 4 First Spread / Checkpoint 2 前** | First Spread Reviewer SubAgent | `review/first-spread-review.md` |
+| **Phase 5 每个 Section** | Section Reviewer SubAgent | **以消息返回 pass/fail + 修复点，不写文件** |
+| **Phase 6 终审 / Checkpoint 3 前** | Editorial + Visual + Technical Reviewer SubAgent | `review/final-review.md` |
+
+拿到结论后**先按 fail 项把产出改完，再向用户汇报**。直接拿结论汇报但不修复 = 违规。
+
+---
+
+## Plan 自查（Phase 2 → Checkpoint 1 · 主 Agent 内联 · 5 条）
+
+写完 `plan/plan.md` 后**就地**核查这 5 条，按结论改 `plan/plan.md` 本身（不要写新文件）：
+
+1. **Brief / Outline 自洽**：信息保留比例与每节"保留信息"加起来对得上；Outline 没有偷偷
+   塞 Brief 没承诺的内容，也没有遗漏 Brief 必须保留的内容。
+2. **信息取舍有据**：每个"可删减"项都给出了理由（重复 / 旁枝 / 过时）；每个"必须保留"项
+   都指向 source.md 的具体段落 / 表格 / 代码。
+3. **没有过度组件化**：每节的"需要组件"不是把所有内容都框成 Aside / Quote / Table；正文仍
+   是主体（prose-first，见 `component-policy.md`）。
+4. **Raw / 图片有目的**：Outline 里每个标注"需要 Raw"或"需要 Image"的位置，都能用一句话
+   说出它服务的论点 / 表达目的，不是装饰。
+5. **章节序号合理**：Outline 章节连续单调（01 / 02 / 03 …），子节序号前缀对齐父章节（第 08
+   章下只能是 8.1 / 8.2，不要出现 5.1）。
+
+> 这一步**绝不开 SubAgent**：内容量小、上下文是热的，SubAgent 冷启动反而慢。
+
+---
+
+## First Spread 自检清单（Phase 4 → Checkpoint 2 前 · SubAgent）
+
+SubAgent 读 `article/Article.tsx`、`article/sections/01-*.tsx`、`article/Cover.tsx`（若有）、
+`plan/plan.md`、选定主题 `theme-profiles/<id>.md`，按清单核查，写 `review/first-spread-review.md`：
+
+- **封面**（若开 · 见 `cover.md` 5 条自检）：图文并茂、主题忠实（只用 `--ra-*` token）、
+  内容忠实（封面视觉跟正文主旨对得上）、比例自适应（屏幕 3:4 + PDF 独占首页都不错位）、
+  不与 Hero 重复内容？
+- 首屏像文章，不像 landing page？读者是否立刻知道文章要解决什么？
+- 第一节有阅读节奏？Raw 服务理解？图片服务表达？移动端能读？
+- 主题气质对不对？版式宽度合适吗？
+- 代码可构建（`npm run dev` 无报错），浏览器控制台无红字？
+
+prompt 模板：
+
+```text
+请作为 First Spread Reviewer。读取 article/Cover.tsx（若有）、article/Article.tsx、
+article/sections/01-*.tsx、plan/plan.md、theme-profiles/<id>.md、references/cover.md
+（若有封面），对照 First Spread 自检清单逐项核查。把结论写进
+review/first-spread-review.md（pass / fail + 证据 + 必须修复项 + 改写建议）。
+不要替我改文件，也不要泛泛夸奖。
+```
+
+主 Agent 收到结论后**先按 fail 项改完**，再进 Checkpoint 2。
+
+---
+
+## Section 自检清单（Phase 5 每个 Section · SubAgent · 消息返回）
+
+SubAgent 读对应 `sections/<NN>-*.tsx`、`plan/plan.md` 的本节段落、`source/source.md` 本节
+对应内容，按清单核查，**以消息形式返回结论**：
+
+- 完成本节 outline 任务？
+- 符合 Brief 的信息保留比例？必须保留的信息没丢？
+- 与前后节衔接？没有重复或矛盾？
+- 没有过度组件化？正文充足？
+- Raw 与配图有明确目的？
+- **本节序号自洽**：`Section index` 等于主 Agent 指定的 `<NN>`；每个 `Subsection` 序号
+  前缀等于 `<NN>`（如 `<NN>=08` 则小节是 8.1 / 8.2，**不要**写成 5.1）。
+
+prompt 模板：
+
+```text
+请作为 Section Reviewer。读取 article/sections/<NN>-*.tsx、plan/plan.md 本节段落、
+source/source.md 本节对应内容、theme-profiles/<id>.md。
+对照 Section 自检清单逐项核查，**直接以消息形式返回**：
+- 第一行：pass / fail
+- 若 fail：列出修复点（带行号 / 代码片段证据）
+不要写任何 review 文件。不要替我改文件。不要泛泛夸奖。
+```
+
+主 Agent 收到 fail 项后**直接修对应 section 文件**，再汇报本节交付。
+
+---
+
+## Phase 6 终审三视角（SubAgent · 写 `review/final-review.md`）
+
+**Editorial Reviewer**（文章性、信息取舍、结构）
+
+- 它仍然是一篇文章，不是网页应用。
+- 信息保留比例符合 Brief；必须保留的信息没有丢。
+- 语言符合 Brief：全文统一为目标语言，地道、无翻译腔、无残留源语言片段（图注 / 引用 / 术语也算）。
+- 没有空泛标题、堆卡片、过度总结。
+
+**Visual Reviewer**（主题、Raw、图片、移动端）
+
+- 主题气质统一；Raw 没有野生样式（都用 `--ra-*` token）。
+- 图片符合主题和上下文，不抢正文，不与 Raw 重复。
+- 没有明显 AI 味：装饰性视觉、紫粉渐变、圆角彩卡、假插画、emoji 装饰。
+- 桌面和移动端都可读，无文字溢出 / 遮挡 / 空白异常。
+
+**Technical Reviewer**（构建、控制台、代码 / 公式、可访问性、序号）
+
+- `npm run html` 可构建，`article/article.html` 可打开、可分享。
+- 浏览器控制台无报错；代码 / 公式高亮和主题一致。
+- 图片有 alt，链接可用，标题层级合理。
+- **章节序号全篇自洽**（`index` 是手写字符串，组件不自动编号也不校验）：
+  - `Section` 序号连续单调：`01 / 02 / 03 …`，无跳号、无重复、无错序。
+  - 每个 `Subsection` 序号前缀等于其父 `Section` 编号：第 08 章下是 `8.1 / 8.2`，**绝不**出现 `5.1`。
+  - 序号与左侧 TOC、`plan/plan.md` Outline 章节顺序三者一致。
+  - 逐个 `Section` / `Subsection` 把渲染出来（或 TOC 里）的序号抄下来比对，**不要只看代码顺序** ——
+    并行模式（开发模式 B）下 subagent 看不到自己在全篇的位置，最容易在这里写错。
+
+prompt 模板：
+
+```text
+请作为 <Editorial / Visual / Technical> Reviewer。读取 plan/plan.md、source/source.md、
+article/Article.tsx 和所有 article/sections/*.tsx、theme-profiles/<id>.md。
+对照本视角的终审清单逐项核查，把结论追加到 review/final-review.md 的
+"<视角>"段（pass / fail + 证据 + 必须修复项 + 改写建议）。
+不要替我改文件，不要泛泛夸奖。
+```
+
+三个视角可并行起 SubAgent，主 Agent 收齐后按 fail 项最小切片修复（见 `repair-policy.md`）。
+
+=== beautiful-article/references/scaffold.md ===
+# 脚手架
+
+脚手架在 Phase 4 创建文章工作区，**不把工程代码塞进 SKILL.md**。工程模板是 Skill
+assets（`assets/scaffold-template/`），由 `scripts/scaffold.sh` 复制并接线。
+
+## 用法
+
+```bash
+bash <path-to-beautiful-article>/scripts/scaffold.sh ./my-article --theme=tufte
+bash <path-to-beautiful-article>/scripts/scaffold.sh ./brief --theme=press --no-cover
+bash <path-to-beautiful-article>/scripts/scaffold.sh --list-themes
+```
+
+`--theme` 必须是 `theme-profiles/index.json` 里的 id（当前 `tufte` / `press` / …）。工作区可建在
+**任意目录**，不需要在 reacticle 仓库内。
+
+`--no-cover` 禁用书封式文章封面（默认开 · 屏幕 3:4 / PDF 独占首页）。Checkpoint 1 用户
+选了"封面 · 关"时传这个。详见 `references/cover.md`。
+
+## 脚手架做什么
+
+- 创建工作区目录 + 复制 Vite / React / TS 模板。
+- **从 npm 安装最新发布版的 `reacticle`**：`package.json` 里 `reacticle: "latest"`，脚手架
+  装完依赖后再 `npm install reacticle@latest` 强制刷新到当下最新，并打印实际版本。
+- 在 `article/main.tsx` 写入所选 runtime theme id，并 `import "reacticle/styles.css"`。
+- 创建默认 `article/Article.tsx` + `article/sections/`、`article/raw-blocks/`、
+  `article/assets/`。`Article.tsx` 末尾自带 **colophon Raw 块**（`Made with
+  [beautiful-article](github 仓库) · <主题> theme`），样式低对比小字、走 `--ra-*` token，
+  **不可删除**（见 SKILL.md「默认策略」）。
+- 默认创建 **`article/Cover.tsx`**（书封式封面外壳 + 占位：屏幕 3:4 / PDF 独占首页）并在
+  `main.tsx` 里渲染 `<Cover />` 在 `<ArticleDoc />` 之上。`--no-cover` 时跳过这一步：
+  不复制 Cover.tsx，并从 `main.tsx` 剥掉 `__COVER_IMPORT_*__` / `__COVER_RENDER_*__`
+  标记包裹的两段。封面设计见 `references/cover.md`。
+- 创建工作记忆目录 `source/`、`plan/`、`review/`。
+- `katex` / `prismjs` 作为 `reacticle` 的依赖会被自动带下来，无需在工作区单独声明。
+
+## 升级组件库
+
+工作区随时可升级到最新组件库：
+
+```bash
+npm install reacticle@latest
+```
+
+## 工作区结构
+
+```text
+my-article/
+  package.json  vite.config.ts  tsconfig.json  tsconfig.node.json  index.html
+  source/   plan/   review/
+  article/
+    main.tsx        # 入口：<ThemeProvider theme="..."> + <Cover/> + <ArticleDoc/>
+    Cover.tsx       # 书封式文章封面：屏幕 3:4 / PDF 独占首页（默认；--no-cover 时不生成）
+    Article.tsx     # assembler（主 Agent 拥有）：import + 排序各 Section，不写 Section 正文
+    sections/       # 一节一文件（铁律）：NN-*.tsx，每个导出一个 Section 组件
+      01-opening.tsx
+    raw-blocks/     # 大型 Raw 隔离：NN-*.tsx
+    assets/         # 配图素材
+  .theme            # 记录起步主题
+```
+
+> **一个 Section = 一个文件**（`sections/NN-*.tsx`），坚决不允许把多个 Section 写进
+> `Article.tsx`。`Article.tsx` 只做组装。这是多 Agent 并行（开发模式由 Checkpoint 2 选定）
+> 的前提，详见 `references/section-build.md`。
+
+## 切主题
+
+改两处（脚手架默认会把主题名注入到这两个位置）：
+
+1. `article/main.tsx` 里 `<ThemeProvider theme="...">`（控制运行时主题）。
+2. `article/Article.tsx` 末尾的 colophon `· <主题> theme`（控制印记里显示的主题名）。
+
+两处保持一致。详见 `html-output.md`。
+
+## 构建 / 预览
+
+见 `references/html-output.md`（`npm run dev` / `build` / `html`）。
+
+=== beautiful-article/references/section-build.md ===
+# Section 构建与多 Agent 并行
+
+## 铁律：一个 Section = 一个组件文件
+
+每个 Section **必须**是独立组件文件，**坚决不允许**把多个 Section 直接写进一个组件。
+
+```text
+article/
+  Article.tsx          # assembler（主 Agent 拥有）：import + 排序各 Section
+  sections/
+    01-opening.tsx     # export function SectionOpening() { return <Section .../> }
+    02-context.tsx
+    03-mechanism.tsx
+  raw-blocks/
+    01-token-flow.tsx  # 大型 / 复用的 Raw 隔离到这里，被对应 section import
+```
+
+- 每个 `sections/NN-*.tsx` 导出一个组件，内部用 `<Section index="NN" title="...">…</Section>`。
+- `Article.tsx` 只做组装：
+  ```tsx
+  import { Article, Hero, Lead, Conclusion } from "reacticle";
+  import { SectionOpening } from "./sections/01-opening";
+  import { SectionContext } from "./sections/02-context";
+  export function ArticleDoc() {
+    return (
+      <Article toc width="regular">
+        <Hero ... /><Lead>…</Lead>
+        <SectionOpening />
+        <SectionContext />
+        <Conclusion>…</Conclusion>
+      </Article>
+    );
+  }
+  ```
+- 文件级隔离 + reacticle 无裸 CSS（样式全走主题 token）→ 多个 Agent 改不同 section 文件
+  **不会互相破坏**。
+
+## 章节序号由主 Agent 统一编（避免序号错乱）
+
+`Section` / `Subsection` 的 `index` 是**手写字符串**，组件既不自动编号、也不校验——它只会原样显示。
+所以一旦哪个 section 文件写错了序号（典型：并行模式里 subagent 看不到自己在全篇的位置，凭空写出
+"第 8 章下挂一个 5.1"），就会一路漏到成品里。规则：
+
+- **全局序号归主 Agent（assembler）所有。** 在 `Article.tsx` 排定最终顺序后，主 Agent 据此把每个
+  `Section` 的 `index` 校准成 `01 / 02 / 03 …`，并把每个 `Subsection` 的序号前缀对齐到所属
+  `Section`（第 08 章下只能是 `8.1 / 8.2 …`）。
+- **subagent 不自编全局序号。** 主 Agent 在派活时直接告诉它"你是第 `<NN>` 章"，subagent 用这个
+  `<NN>` 写 `Section index` 和本节 `Subsection` 的前缀；拿不准就留 outline 给的占位，最终由主
+  Agent 统一过一遍。
+- **组装后必校验**：对照 TOC 显示与 `outline.md` 顺序，确认序号连续单调、子节前缀正确（并入终审
+  Technical Reviewer 的"章节序号全篇自洽"清单）。
+
+## 两种开发模式（Checkpoint 2 由用户选定）
+
+第一个 Section 无论哪种模式都先由**主 Agent 完成并验收**（风格锚点）。差异在第 2 个 Section 起：
+
+### A · 单 Agent 顺序（默认，最稳）
+
+主 Agent 顺序写 `02 → 03 → …`，风格最统一，随时验收。
+
+### B · 多 Agent 并行（最快）
+
+subagent 各**拥有一个** `sections/NN-*.tsx` 并行开发。**主 Agent 负责合并与稳定性**：
+
+- 维护 `Article.tsx` 的 import 与 Section 顺序（唯一组装点，避免冲突），并据最终顺序**统一校准每个
+  Section 的 `index` 与各 Subsection 的序号前缀**（见上节"章节序号由主 Agent 统一编"）。
+- 每轮并行结束跑 `npm run typecheck` + `npm run build`，修构建错误。
+- 兜底主题与风格一致（颜色 / 字体 / 间距走 token，气质不跑偏）。
+- 解决重复 / 衔接问题（相邻 section 论点是否承接）。
+
+风格在并行下会有轻微差异（这是预期，主题 token 兜底视觉统一）。
+
+### 并行 subagent 的 prompt 必须包含
+
+```text
+你负责文件 article/sections/<NN>-<id>.tsx，只改这一个文件，导出一个 Section 组件。
+你是全篇第 <NN> 章（这个编号由主 Agent 指定，你看不到自己在全篇的位置，不要自己另编）。
+读取：plan/plan.md 的 Outline 段本节段落 + Brief 段（信息保留比例）+
+      source/source.md 本节对应内容 + 选定主题 theme-profiles/<id>.md +
+      references/component-policy.md + references/raw-policy.md +
+      第一个 section 文件作为“代码风格”参考（不是抄袭对象）。
+硬规则：
+- 一个文件 = 一个 Section 组件；不要碰 Article.tsx 或别的 section 文件。
+- 正文为主体，组件按需（默认核心组件优先），Raw 用 --ra-* token 现写。
+- 符合本节 outline 任务与信息保留比例；与前后节衔接。
+- 序号：<Section index="<NN>">；本节所有 <Subsection> 的序号前缀必须等于 <NN>
+  （如 <NN>=08 则小节是 8.1 / 8.2 …），不要从别的章节复制序号。
+- 完工自检对照 references/review-checklist.md 的 Section 清单。
+不要修改 Article.tsx（主 Agent 统一组装与序号校准），不要改主题。
+```
+
+## 每个 Section 完工（必走质检 · SubAgent · 消息返回）
+
+按硬性质检协议创建 **Section Reviewer** SubAgent，对照清单核查：完成 outline 任务 / 符合
+信息保留比例 / 与前后衔接 / 不过度组件化 / 正文充足 / Raw 与配图有明确目的 / **本节序号
+自洽**（`Section index` 等于 `<NN>`，各 `Subsection` 序号前缀等于 `<NN>`）。
+
+**SubAgent 以消息形式返回 pass/fail + 修复点**（pass 一行 OK，fail 列出修复点），**不要写
+`review/section-NN-review.md` 文件**。主 Agent 收到 fail 项后直接修对应 section 文件，再
+汇报本节交付。完整 prompt 模板见 `references/review-checklist.md` 的 Section 段。
+
+=== beautiful-article/references/source-to-markdown.md ===
+# Source → Markdown
+
+无论输入是什么，Phase 1 都先转成统一的 `source/source.md`，并把风险写进
+`source/extraction-notes.md`。
+
+## 产物
+
+`source.md` 要包含：标题 · 来源 · 作者 / 时间 / 链接（若可得）· 正文 · 表格 ·
+图片占位 · 代码块 · 引用 · 附录 / 脚注。
+
+`extraction-notes.md` 要记录：输入类型 · 提取方式 · 可能丢失的信息 · PDF/DOCX 中
+无法可靠还原的版式 · 图片 / 表格 / 脚注 / 代码是否完整 · 需要用户补充的素材或上下文 ·
+**源语言、是否需要翻译、目标语言、翻译版文件名与翻译说明**。
+
+## 语言与翻译
+
+抽取后判断 `source.md` 的语言，并按 Phase 0 记录的目标语言决定：
+
+- 未指定目标语言，或目标语言与源一致 → **不翻译**，最终文章语言 = 源语言。
+- 指定了目标语言且与源不一致 → 产出 `source/source.<lang>.md`（如 `source.zh.md` / `source.en.md`），
+  作为 Phase 2+ 的**事实底座**；原 `source.md` 保留备查。
+  - 翻译要求：**地道、去翻译腔** —— 按目标语言的表达习惯重组句子，不逐字直译，不留生硬外语语序 /
+    被动堆叠 / 异国标点；术语 / 数字 / 代码 / 公式 / 引用保持准确；标题层级、结构、信息保留比例不变。
+  - 翻译只在源文层做一次；后续编辑、改写语气、组件化都基于翻译版进行。
+
+## 不同输入的处理原则
+
+| 输入 | 处理方式 | 自检重点 |
+|---|---|---|
+| URL | 抓网页正文，清理导航 / 广告 / 推荐 | 是否抓到主体，链接和图片是否保留 |
+| PDF | 提取文本 / 章节 / 表格 / 图片占位 | 断行错乱、页眉页脚混入、表格丢失 |
+| DOCX | 提取标题层级 / 段落 / 表格 / 图片占位 | 样式不重要，结构和内容完整性重要 |
+| Markdown | 保持原有标题 / 代码块 / 表格 | 不要过度改写源文 |
+| 纯文本 | 识别结构并标注不确定处 | 不要擅自编造层级 |
+| 截图 / 图片 | 转成图片占位 + 说明，记录用途 | 记录到 extraction-notes，等用户确认 |
+
+## 抽取脚本选择
+
+Skill 提供两条抽取路径：MarkItDown 主路径 + 轻量 fallback。Agent 应在 Phase 1 先判断
+输入类型、信息保留要求和本机环境，再选择脚本。
+
+### 1. MarkItDown 主路径
+
+对 PDF / DOCX / PPTX / HTML / 复杂文档，尤其是用户要求 80-100% 信息保留时，优先使用
+`scripts/source-to-markdown-markitdown.py`：
+
+```bash
+python3.10 <path-to-beautiful-article>/scripts/source-to-markdown-markitdown.py <input> -o source/source.md
+```
+
+MarkItDown 需要 Python 3.10+。它是可选增强依赖，不随组件库或脚手架强制安装。
+若未安装，按需提示用户安装：
+
+```bash
+python3.10 -m pip install "markitdown[pdf,docx]"
+```
+
+如果本机没有 `python3.10` 命令但有 `uv`，可临时拉起带 MarkItDown 的环境：
+
+```bash
+uv run --python 3.12 --with "markitdown[pdf,docx]" python \
+  <path-to-beautiful-article>/scripts/source-to-markdown-markitdown.py <input> -o source/source.md
+```
+
+不要默认安装 `markitdown[all]`，除非用户明确需要 PPTX / XLSX / 音频 / YouTube / Azure 等
+额外格式。全量安装更重，也更容易引入环境问题。
+
+### 2. 轻量 fallback
+
+如果 MarkItDown 不可用、Python 版本不足、转换失败，或输入只是 Markdown / TXT / 简单 HTML，
+使用 `scripts/source-to-markdown.py`：
+
+```bash
+python3 <path-to-beautiful-article>/scripts/source-to-markdown.py <input> -o source/source.md
+```
+
+脚本会探测可用的解析库（pdfminer / pdfplumber / python-docx / BeautifulSoup），缺库时
+打印安装建议并优雅降级。脚本只做**机械抽取**；正文清理、占位标注、风险记录仍由 agent 完成。
+URL 也可直接用 agent 的网页抓取能力获取正文，再清理。
+
+### 3. Agent 决策规则
+
+- PDF / DOCX / PPTX / 复杂 HTML：先尝试 MarkItDown。
+- Markdown / TXT：直接用 fallback，保持原文结构，不要过度处理。
+- URL：可先用 Agent 的网页抓取能力获取正文；若已保存为 HTML 文件，再按复杂度选择
+  MarkItDown 或 fallback。
+- 100% 信息保留：抽取后必须更严格自检，必要时同时跑 MarkItDown 与 fallback，对比是否
+  有表格、代码、脚注、图片占位遗漏。
+- 任一脚本产物都只是 `source.md` 草稿；Agent 必须继续清理噪音、补图片占位，并写
+  `source/extraction-notes.md`。
+
+## Source Phase 自检（主 Agent 内联 · 5 条 checklist）
+
+源材料质检**不是硬性 SubAgent 质检点**。主 Agent 进 Phase 2 前反正要通读 `source.md`，
+就地按这 5 条核查、按结论修复即可（无需单独的 review 文件）：
+
+1. **完整性**：是否被截断？体量是否和原文相称（长 PDF / 长文没有只抽到一半 / 只抓到首屏）？
+2. **结构**：标题层级是否保留？还是被压平成一片正文（后面没法分章）？
+3. **关键载体**：表格 / 代码 / 公式 / 引用 / 脚注是否保留且没损坏（表格没挤成一行、代码缩进还在、
+   公式没变乱字符）？
+4. **噪声**：是否误把导航 / 广告 / Cookie 横幅 / 推荐阅读 / 页眉页脚页码写进正文？编码有没有伤
+   （乱码、连字 `ﬁ`、软连字符断词、两栏 PDF 阅读顺序错乱）？
+5. **不确定项**：图片是否以占位标注？拿不准的都写进 `extraction-notes.md` 了吗？
+
+> ⚠️ 上面 1/4 能孤读 markdown 抓到，但 **2/3 里"静默丢失"的表/段**（被悄悄删掉、吞掉）
+> 光看 markdown 看不出来——必须对照 `original.*`。
+
+## 升级为独立 Source Reviewer（仅限复杂/低置信源）
+
+**只有**当 `extraction-notes.md` 标记了"低置信 / 复杂 PDF/DOCX / 转换吃不准 / 要求 100% 保留的关键源"
+时，才升级为独立 SubAgent，并**强制对照原件做 diff 式核查**，写 `review/source-review.md`：
+
+```text
+请作为 Source Reviewer。同时读取 source/original.*（原件）和 source/source.md（转换产物）。
+逐项做 diff 式核查：对照原件，source.md 是否漏掉了表格 / 段落 / 脚注 / 代码 / 图，
+是否混入噪音，是否有结构塌陷或编码损坏。
+只输出"按出现顺序的差异清单 + 必须修复项"，不评价文章好不好看，不要替我改文件。
+```
+
+=== beautiful-article/references/theme-selection.md ===
+# 主题选择
+
+主题负责**审美气质、排版语言、图片风格、Raw 风格、代码 / 公式风格**。它不是 CSS 皮肤，
+也不是信息密度规则。
+
+> CSS 给浏览器读，theme profile 给 AI 读。
+
+- **组件库拥有运行时主题**：CSS token、`ThemeProvider` 注册、实际渲染。
+  注册的 runtime theme id 见 `src/theme/ThemeProvider.tsx`（当前：`tufte`、`press`）。
+- **Skill 拥有主题 authoring profile**：`theme-profiles/index.json` + `<id>.md`，
+  指导 AI 如何选择和使用主题。
+
+## 选择流程
+
+1. 读 `theme-profiles/index.json`，拿每个主题的 `bestFor` / `mood`。
+2. 按 `source.md` 的内容类型 / 语气，从 `bestFor` 命中里挑 1-2 个推荐：
+   - 技术 / 证据 / 数据型 → `tufte`。
+   - 叙事 / 评论 / 出版 / 产品手记 → `press`。
+3. 读选定主题的 `theme-profiles/<id>.md`（写作 / 配图 / Raw / 代码前的权威）。
+4. 把选择 + 理由写进 `plan/plan.md` 的 **Theme** 段（见 `plan-template.md`）。
+
+## Density 与 Theme 解耦
+
+theme profile 里可以写"不同信息密度下的表现建议"，但**不能写成限制**。例：
+
+- `tufte + 100% longform`：克制长文、数据证据、Raw 点亮关键概念。
+- `tufte + 40% visual-essay`：仍成立，Raw 偏图解 / 证据、低装饰。
+- `press + 100% longform`：可做深度出版文章。
+- `press + 40% briefing`：更强编辑节奏与图文留白。
+
+## 主题选择自检
+
+- 主题是否匹配文章类型？
+- 当前信息密度下，正文 / Raw / 图片比例该如何调整？
+- Raw 是否能在该主题下自然发生？配图策略是否符合主题？
+- 是否存在主题与源材料冲突？（冲突要在 `plan/plan.md` 的 Theme 段解释）
+- runtime theme id 是否真实存在于组件库？Skill profile 是否存在？
+
+## 新增主题的约束
+
+新增主题必须**同时**满足：
+
+1. 组件库有 runtime theme CSS 与 `ThemeProvider` 注册（`src/theme/themes/<id>/`）。
+2. Skill 有对应 `theme-profiles/<id>.md`。
+3. `theme-profiles/index.json` 绑定到正确 runtime theme id。
+
+- 只有 Skill profile、没有组件库 runtime theme → 只能作候选，不能用于正式生成。
+- 只有组件库 runtime theme、没有 Skill profile → Agent 不能主动推荐。
+
+=== beautiful-article/SKILL.md ===
+---
+name: beautiful-article
+description: "把网页/PDF/DOCX/Markdown/文本素材做成可分享的单文件HTML网页文章（reacticle），触发：做成网页文章/长文"
+---
+
+Tam açıklama: 把用户提供的素材（网页 URL / PDF / DOCX / Markdown / 纯文本 / 截图 / 粘贴材料）编辑、设计成一篇美丽的、可离线打开和分享的**单文件 HTML 网页文章**。基于 reacticle 组件协议：不手写裸 HTML/CSS，而用语义组件 + 受主题约束的 Raw 自由层；按 source→规划→双确认→生成→终审→修复的小型 harness 流程推进，默认 100% 信息保留的长文。触发场景：把 URL/PDF/DOCX/文章做成网页文章 / 长文 / briefing / 解释文 / 视觉文章 / 教程 / 审阅复盘 / 方案分析，'render this as a beautiful web article / 把这篇做成网页文章 / 生成一篇可分享的 HTML 长文 / reacticle 文章'。只生成文章，不生成后台、表单、dashboard、产品原型或通用 Web App。
+
+# Beautiful Article
+
+## 背景原则
+
+AI 生成内容越复杂，输出媒介越重要。HTML 的价值在于同时提升信息密度、视觉清晰度、分享便利性和交互能力：表格、SVG、CSS、代码片段、可调控件、复制与导出按钮，可以让读者不只是“看完”，而是能比较、定位、调整、复查和继续使用。Beautiful Article 的目的，是把原本枯燥、线性、难以消化的文字材料，转换成视觉体验更漂亮、阅读节奏更清晰、也更容易审阅和分享的单文件网页文章。
+
+
+## 边界（先判断要不要进这个 Skill）
+
+- 最终主产物是 **single HTML 文章**，不是网页应用。
+- 文章可以有 `Raw` 自由层（任意 HTML / CSS / JS / React：交互、布局排版、动效、小工具、
+  按需的 SVG / canvas 图解），但**必须服务阅读、解释、论证、节奏或审美**。
+- **不**生成：后台、表单、拖拽工作台、完整 dashboard、产品原型、通用 Web App。
+- 信息密度由用户确认；**默认保留 100% 信息**，生成长文式网页文章。
+
+如果用户要的是应用而不是文章，停下来澄清，不要进入本 Skill。
+
+---
+
+## 工作流总览
+
+```
+Phase 0  Intake            判断是否进入本 Skill + 初步文章类型
+   ▼
+Phase 1  Source → Markdown URL/PDF/DOCX/MD/文本 → source.md + extraction-notes.md
+         └ 主 Agent 内联 5 条 checklist 自查（仅复杂/低置信源升级 SubAgent）
+   ▼
+Phase 2  Editorial Planning 一份 plan.md（Brief / Outline / Theme / Assets 四段）
+         └ 主 Agent 内联自查（无 SubAgent、无 review 文件）
+   ▼
+Phase 3  Plan Checkpoint   ★Checkpoint 1 必须停。逐项确认 5 件事：文章类型（含标配保留比例）/ 主题 / 版式 / 配图模式 / 封面
+   ▼
+Phase 4  First Spread      首屏 + 第一节 + 一个代表性视觉块（脚手架在此创建）
+         └ First Spread Reviewer SubAgent（写 review/first-spread-review.md）
+         └ ★Checkpoint 2 必须停。逐项确认 2 件事：验收结论 / 开发模式 A/B
+   ▼
+Phase 5  Full Article Build 生成完整网页文章（默认单 Agent，超长可按 Section 隔离）
+         └ Section Reviewer SubAgent（以消息返回 pass/fail，无须写 review 文件）
+   ▼
+Phase 6  Final Review      Editorial / Visual / Technical 三视角终审（写 review/final-review.md）
+   ▼
+Phase 7  Repair            最小切片修复，有修复才写 repair-log.md
+   ▼
+Phase 8  Delivery          ★Checkpoint 3 必须停。逐项确认交付决策 → 交付 article.html + 简短编辑说明
+```
+
+工作区结构（脚手架创建；这些文件是 Skill 的长期记忆，**不要只依赖聊天上下文记决策**）：
+
+```text
+<workspace>/
+  source/   original.*  source.md  source.<lang>.md(需翻译时)  extraction-notes.md
+  plan/     plan.md                                    # 单一规划文件：Brief / Outline / Theme / Assets 四段
+  article/  Cover.tsx(默认)  Article.tsx  sections/  raw-blocks/  assets/  article.html(产物)
+  review/   first-spread-review.md  final-review.md   # 仅这两份是常规产物
+            source-review.md(仅复杂源)  repair-log.md(仅有修复时)
+  index.html  package.json  vite.config.ts  tsconfig*.json   (构建工装)
+```
+
+---
+
+## 硬性质检协议（贯穿整个 Skill）
+
+**质检方式按节点区分 —— 不是所有质检都要开 SubAgent，也不是所有质检都要写文件。**
+误开 SubAgent / 误写文件是首要性能问题，按下表严格执行：
+
+| 节点 | 质检方式 | 产物 | 为什么 |
+|---|---|---|---|
+| **Phase 1 Source（默认）** | 主 Agent 内联 5 条 checklist | 无文件 | 主 Agent 反正要通读 source.md |
+| Phase 1 Source（仅复杂/低置信源） | Source Reviewer SubAgent（对照 `original.*` diff） | `review/source-review.md` | 静默丢失只能 diff 抓到 |
+| **Phase 2 Plan / Checkpoint 1 前** | **主 Agent 内联自查（禁止开 SubAgent）** | **无文件** | plan 是文字决策且 200-400 行，上下文是热的，SubAgent 冷启反而更慢 |
+| **Phase 4 First Spread / Checkpoint 2 前** | First Spread Reviewer SubAgent | `review/first-spread-review.md` | 首屏定调，多一道独立眼睛更稳 |
+| **Phase 5 每个 Section** | Section Reviewer SubAgent | **以消息返回 pass/fail + 修复点（不写文件）** | 一篇可能 5-15 节，N 份 review 文件无人再读 |
+| **Phase 6 终审 / Checkpoint 3 前** | Editorial + Visual + Technical Reviewer SubAgent | `review/final-review.md` | 交付物的一部分，留档有价值 |
+
+**铁律：**
+
+1. **Plan Checkpoint（Phase 2 → Checkpoint 1）严禁开 SubAgent 做质检**。主 Agent 写完 plan.md
+   后**就地**对照 5 条清单（见 `references/review-checklist.md` 的 Plan 自查段）核查、按结论
+   改完 `plan/plan.md`，**不要写任何 review 文件**，然后进入 Checkpoint 1。
+2. First Spread / Final 必须用 SubAgent（这两个节点 SubAgent 价值 > 开销）；只有探测不到
+   SubAgent 环境才由主 Agent 兜底，并在文件首注明"无 SubAgent 环境，主 Agent 兜底"。
+3. Section Reviewer 用 SubAgent，但**返回值是消息**（pass / fail + 修复点）；fail 项主 Agent
+   收到后直接修，**不要让 SubAgent 写 `review/section-NN-review.md` 文件**。
+4. 拿到任何质检结论 —— **先按 fail 项把产出改完，再汇报"做完了 + 自检结论 + 改了什么"**。
+   直接拿原始结论汇报但不修复 = 违规。
+5. **决策收集铁律 · 禁止静默替用户选择**：在每个 Checkpoint（1 / 2 / 3），所有需要用户确认的
+   决策项**必须每项独立列出 + 等用户答复**。Agent **可以推荐**（"我推荐 X，因为 …"），但
+   **不能"已经替你定了 X，如果不对再说"** —— 这等于剥夺选择机会。
+   - **优先**：如果环境有 `AskQuestion` 工具，每个决策项作为一个独立 question（一次调用可
+     传多个 question），用户能用选择卡逐项确认。
+   - **否则**：停下来在消息里把所有问题**编号列出**（每个问题独占一段、写清推荐项 + 理由 +
+     备选项），明确说"我等你逐项答复后再继续"，**不要继续做任何后续工作**。
+   - **绝不**：把多项决策打包成一个"全选我推荐的 / 全部 OK 吗？"yes/no 问题；也不要在
+     "推荐一句话"后默认直接进下一步。
+
+各节点的 checklist 与 SubAgent prompt 模板见 `references/review-checklist.md`。
+
+---
+
+## 各阶段文件读取指南（渐进加载，别一次全读）
+
+| 阶段 | 必读 | 按需查 |
+|---|---|---|
+| Phase 0 Intake | `references/harness.md` | —— |
+| Phase 1 Source→MD | `references/source-to-markdown.md` | `scripts/source-to-markdown-markitdown.py` · `scripts/source-to-markdown.py` |
+| Phase 2 Planning | `references/article-types.md` · `references/information-density.md` · `references/plan-template.md` · `references/theme-selection.md` · `references/layout.md` · `references/asset-policy.md` · `references/cover.md`（封面构图想法） | `references/article-types/<type>.md` · `theme-profiles/*.md` |
+| Phase 4 First Spread / Phase 5 Build（每节回看） | `references/section-build.md` · `references/component-policy.md` · `references/raw-policy.md` · 选定主题 `theme-profiles/<id>.md` · **封面：`references/cover.md`** | `references/scaffold.md`（建项目时一次）· `references/html-output.md` |
+| Phase 6/7 Review & Repair | `references/review-checklist.md` · `references/repair-policy.md` | —— |
+| Phase 8 Delivery | `references/html-output.md` | `references/pdf-output.md`（仅当用户选 PDF 导出） |
+
+> **长会话里 agent 容易遗忘原则** —— Phase 5 会重复实现 N 个 Section，**每次开工
+> 前回看** `component-policy.md` + `raw-policy.md` + 当前主题 `theme-profiles/<id>.md`。
+
+---
+
+## Phase 0 —— Intake
+
+判断是否进入本 Skill，给出初步文章类型与输出模式（默认 single HTML）。
+
+| 用户给的东西 | 该做的 |
+|---|---|
+| 一个或多个素材（URL/PDF/DOCX/MD/文本/截图） | 进入 Phase 1 |
+| 只说"帮我做篇 X 文章"但没素材 | **反问**：先要素材或大纲。Skill 不替用户凭空构思内容 |
+| 明显要的是应用 / 工具 / dashboard | 停下来澄清，不进入本 Skill |
+
+**捕获目标语言**：开场就记录用户**期望的最终文章语言**（如用户提到"用中文/做成英文版"等）。
+
+- **用户指定了语言** → 记进 `plan/plan.md` Brief 段的"目标语言"。若与源材料语言不一致，Phase 1
+  需先产出一份**地道翻译版**源文，后续基于翻译版编写（见 Phase 1）。
+- **用户未指定** → 默认**最终文章语言跟随源材料语言**，不做翻译。
+
+自检：用户要的是**文章**还是**网页应用**？是否需要完整信息？是否要先索取更多素材？
+**用户有没有指定最终语言？与源语言是否一致？**
+
+---
+
+## Phase 1 —— Source → Markdown
+
+把任意输入统一成 `source/source.md`，把不确定项写进 `source/extraction-notes.md`。
+规则与各类输入处理见 `references/source-to-markdown.md`；可借助
+MarkItDown 主路径或轻量 fallback 脚本做 PDF/DOCX/HTML 抽取。
+
+落盘后由**主 Agent 内联自查**（`references/source-to-markdown.md` 的 5 条 checklist），按结论修复
+再进入 Phase 2；**仅当 `extraction-notes.md` 标记低置信 / 复杂源**时，才升级为独立 Source Reviewer
+SubAgent 并对照 `original.*` 做 diff 式核查（写 `review/source-review.md`）。
+
+**语言处理（紧接抽取之后）**：判断 `source.md` 的语言。
+
+- 用户**未指定**目标语言，或目标语言**与源一致** → 不翻译，后续直接基于 `source.md` 编写，
+  最终文章语言 = 源语言。
+- 用户**指定**了目标语言且**与源不一致** → 先产出**地道翻译版** `source/source.<lang>.md`
+  （如 `source.zh.md` / `source.en.md`），作为后续 Phase 2+ 的**事实底座**；原文 `source.md` 保留
+  备查。翻译要求：**用地道的目标语言、去除翻译腔**（按目标语言的表达习惯重组句子，不逐字直译，
+  不留生硬的外语语序 / 被动堆叠 / 异国标点），术语 / 数字 / 代码 / 公式 / 引用保持准确，结构与
+  信息保留比例不变。翻译说明写进 `extraction-notes.md`。
+
+---
+
+## Phase 2 —— Editorial Planning
+
+形成编辑方案，**不直接写 HTML**。**只产出一份 `plan/plan.md`**（四段：Brief / Outline /
+Theme / Assets），模板见 `references/plan-template.md`：
+
+- **Brief**：目标读者 / 文章类型 / 信息保留比例 / 必须保留 / 可删减 / 语气 / 主要观点 /
+  阅读目标 / 目标语言 / 版式宽度 / TOC / 配图策略。
+- **Outline**：Hero / Lead / Summary / Section 列表 / 每节保留哪些信息 / 每节是否需要
+  Raw·Table·CodeBlock·Formula·Image / 结尾方式。
+- **Theme**：选定主题 + 理由 + 冲突说明（见 `references/theme-selection.md`）。
+- **Assets**：配图策略与逐图计划（见 `references/asset-policy.md`；`none` 模式下本段
+  写一句话即可）。
+
+文章类型路由见 `references/article-types.md`；信息密度与组件比例见
+`references/information-density.md`。
+
+**自检方式 · 强约束**：写完 `plan/plan.md` 后由**主 Agent 内联**对照 5 条 Plan 自查清单核查
+（见 `references/review-checklist.md` 的 Plan 自查段），按结论改完 `plan/plan.md`，**直接进入
+Checkpoint 1，禁止开 SubAgent，禁止写 `review/plan-review.md`**。
+
+---
+
+## Phase 3 —— Plan Checkpoint（★硬节点 · Checkpoint 1，必须停）
+
+**铁律：禁止静默替用户选择。每个决策项必须独立列出、独立等用户答复。**
+
+可以推荐（"我推荐 X，因为 …"），**不能**说"已经替你定了 X，如果不对告诉我"——后者等于把
+默认值偷渡过去、剥夺选择机会。
+
+**收集方式（按环境二选一）：**
+
+- **优先 `AskQuestion` 工具**：每项作为一个独立 question 传入（一次调用可传多个 question），
+  用户用选择卡逐项确认。
+- **无 `AskQuestion` 工具**：停下来在消息里把每个问题**编号列出 + 独占一段 + 写清推荐项 + 理由
+  + 备选项**，明确说"我等你逐项答复后再继续"，**不要继续做任何后续工作**。
+
+无论哪种方式：每个**独立决策**对应**一个独立问题**，**不要打包成"全部 OK 吗？" yes/no**。
+
+**必须独立确认的 5 项**（缺一不可）：
+
+| # | 决策项 | 选项（语义化标签 · 含标配信息保留比例） | 备注 |
+|---|---|---|---|
+| 1 | **文章类型**（信息保留比例打包在内） | 完整长文 / 归档 `longform · ~100%` ／ 研究报告 / 正式分析 `full-report · ~80%` ／ 教学步骤 / 上手指南 `tutorial · ~90%` ／ 概念 / 系统解释 `explainer · ~80%` ／ 对话 / 访谈 / 播客 `dialogue · ~80%` ／ PR / 方案 / 事故审阅 `review · ~70%` ／ 观点 / 评论 / 叙事 `essay · ~70%` ／ 交互式学习 / 玩明白一个概念 `interactive-explainer · ~25% 原文摘录 + 75% AI 重构` ／ 决策摘要 / 给忙人看 `briefing · ~50%` ／ 图文为主 / 传播展示 `visual-essay · ~40%` | AI 推荐一个并写一句理由。**比例已绑进类型选项**，不再单独成题（否则会出现 `longform + 20%` 这种伪组合）。用户想偏离标配，用自由文本一句话覆盖（"我要 longform + 60%"），见下方"如何偏离标配" |
+| 2 | **主题** | tufte / press / 其它已注册主题（读 `theme-profiles/index.json`） | AI 推荐一个并写一句理由 |
+| 3 | **版式宽度** | narrow / regular / wide / full | AI 推荐一个；默认 `regular` |
+| 4 | **配图模式**（必选 · 不允许"默认通过"） | none / user-assets / placeholders / ai-generated | 一句话"只决定是否使用外部 `Image`；`Raw` 不受影响" |
+| 5 | **封面**（3:4 书封式题图，位于 TOC + 正文之上） | 开（默认） / 关 | AI 推荐"开"，并给一句构图想法（哪种主视觉 + 选哪个封面模板 A/B/C/D/E）。`briefing` / `dialogue` 可推荐"关"。详见 `references/cover.md` |
+
+**TOC 默认开**：因为它只有一个开关 + 几乎所有文章都该开，可以在 Plan Checkpoint 开场说明
+里以"默认 TOC 开，要关告诉我"一句话带过，**不必单独成题**。
+
+**已经走默认值、不必单独问的事项**（仍然要在开场说明里明示"如要改请告诉我"，给用户机会
+反悔，不能完全藏起来）：
+
+- 最终文章语言：跟随源语言（除非用户已经在前文指定 / 已经翻译完成）。
+- 是否允许编辑删减、重组、改写语气：默认允许（按上面的信息保留比例执行）。
+- 是否要先看首屏样张：默认会先做（这就是 Phase 4）。
+- TOC：默认开。
+
+主题用户说"你定" → 取你推荐的第一个，**在选项里仍要把它和其它候选并列**，标"默认 · AI
+推荐"，留反悔余地，不能直接跳过主题问题。
+
+**如何偏离信息保留比例的"标配"**：每个文章类型都自带一个推荐保留比例（见上表）。绝大
+多数情况走标配即可。如果用户想精修（比如 "longform 但只要 60%" → 一篇被深度编辑过的长文），
+让用户**在开场说明后的自由文本里写一句**"我要 <类型> + <X%>" 覆盖。AI 收到覆盖后要在
+`plan/plan.md` 的 Brief 段同时记下"类型 / 标配保留 / 用户覆盖到 X%"，并提醒用户这是"非标配
+组合"——这类组合需要主 Agent 在写每节时手动调整正文/视觉比例。
+
+**Plan Checkpoint 开场消息模板（在收集决策之前先发一条简短说明）：**
+
+```
+plan/plan.md 已经写好（自检通过）。我会逐项跟你确认 5 件事：文章类型 / 主题 / 版式宽度 /
+配图模式 / 封面。
+
+我的推荐先放在这里供参考（不会替你选）：
+- 类型：<X>（含标配信息保留 <Y%>。理由：…）
+- 主题：<theme>（理由：…）
+- 版式宽度：<width>（理由：…）
+- 配图模式：<策略>（理由：…）
+- 封面：开 / 关（理由：…；若开，构图想法：…）
+
+默认走但你可以推翻：语言跟随源语言；允许编辑删减重组；TOC 开；接下来会先做首屏样张。
+信息保留比例如要偏离类型标配，下面回答完直接告诉我具体百分比（如 "longform 但只要 60%"）。
+
+下面逐项请你确认。
+```
+
+发完上面这条说明后，**立刻**用 AskQuestion 传 5 个 question（或在无工具环境下编号列出 5
+个问题、停下等答复）。**5 项全部收齐答复才能进 Phase 4**；若用户在自由文本里给了"非标配保留
+比例"，先确认 AI 已经记进 `plan/plan.md` 再进 Phase 4。
+
+---
+
+## Phase 4 —— First Spread（文章版"第一章验收"）
+
+先做"封面（若开） + 首屏 + 第一节 + 一个代表性视觉块"。**脚手架在这里创建工作区**：
+
+```bash
+# 默认开封面
+bash <path-to-beautiful-article>/scripts/scaffold.sh ./my-article --theme=<id>
+# Checkpoint 1 用户选了"封面 · 关"
+bash <path-to-beautiful-article>/scripts/scaffold.sh ./my-article --theme=<id> --no-cover
+bash <path-to-beautiful-article>/scripts/scaffold.sh --list-themes
+```
+
+它创建 Vite + React + TS 工作区（从 npm 安装 `reacticle` 最新发布版）+ `source/ plan/
+review/` 记忆目录 + assembler `article/Article.tsx` + 一个示例 section 组件
+（+ 默认 `article/Cover.tsx`，除非 `--no-cover`）。详见 `references/scaffold.md`。
+
+首屏（Hero / Lead）写进 assembler `article/Article.tsx`；**第一个 Section 必须写成独立组件**
+`article/sections/01-*.tsx`（这是后续并行的代码锚点，见 `references/section-build.md`）。
+**封面**（若开）替换 `article/Cover.tsx` 里的 `<CoverPlaceholder />` 为按主题 + 文章主旨
+定制的图文构图，**外壳（3:4 容器 + 打印分页）不要动**。封面设计指南见 `references/cover.md`。
+`npm run dev` 预览。它决定标题气质 / 字号 / 内容密度 / Raw 风格 / 配图方式 / 主题是否合适。
+
+**第一个 Section 完成后，按硬性质检协议创建 First Spread Reviewer SubAgent**，写
+`review/first-spread-review.md`（**含封面 5 条自检**，见 `references/cover.md`），改完
+再进 Checkpoint 2。
+
+---
+
+## Checkpoint 2 · First Spread（★硬节点，必须停）
+
+让用户验收首屏 + 第一个 Section，**并选定后续开发模式**。同样适用 Checkpoint 1 的决策收
+集铁律：**两项独立确认，禁止打包；优先 AskQuestion，无工具则编号列出、停下等答复**。
+
+先发一条简短消息：
+
+```
+首屏 + 第一个 Section 做好了，npm run dev 在 localhost 预览。
+质检结论见 review/first-spread-review.md（已按 fail 项改完，列出修了哪些）。
+下面两件事请你独立确认：1) 验收结论 2) 后续开发模式。
+```
+
+然后用 AskQuestion 传**两个独立 question**（或编号列出两个问题，停下等答复）：
+
+1. **验收结论** —— 选项：`通过 · 进入完整生成` / `局部修改 · 我会另起一条说改哪里` /
+   `主题或版式不合适 · 回到 Checkpoint 1`。
+2. **后续开发模式** —— 选项：`A · 单 Agent 顺序（默认 · 最稳 · 风格最统一）` /
+   `B · 多 Agent 并行（最快 · 风格轻微差异）`。
+
+**不要把这两件事打包成"通过 + A，OK 吗？"** —— 用户可能"通过验收但想用 B"或反之。
+两题都收齐答复后进入 Phase 5。
+
+---
+
+## Phase 5 —— Full Article Build
+
+按 Checkpoint 2 选定的开发模式生成完整文章。详见 `references/section-build.md` +
+`references/component-policy.md` + `references/raw-policy.md`。
+
+**铁律 · 每个 Section 必须是独立组件文件**（`article/sections/NN-*.tsx`），**坚决不允许把
+多个 Section 直接写进一个组件**。`article/Article.tsx` 只是 **assembler**：import 并排序各
+Section，由**主 Agent 拥有**。大型 Raw 同样隔离到 `article/raw-blocks/NN-*.tsx`。文件级隔离
+是多 Agent 并行的前提。
+
+开发模式（Checkpoint 2 选定）：
+
+- **A · 单 Agent 顺序（默认）**：主 Agent 顺序写每个 `sections/NN-*.tsx`，最稳、风格最统一。
+- **B · 多 Agent 并行**：subagent 各**拥有一个** `sections/NN-*.tsx` 文件并行开发；**主 Agent
+  负责合并与稳定性** —— 维护 `Article.tsx` 的 import 与顺序、跑 `npm run typecheck` / `build`、
+  兜底主题与风格一致、解决冲突。subagent prompt 模板见 `references/section-build.md`。
+
+其余原则：正文是主体；所有 Raw 用 `--ra-*` 主题 token，禁止野生样式；100% 信息保留以长文
+结构为主、Raw / 配图做增强；低信息密度可提高视觉块比例，但仍必须是**文章形态**。
+
+每个 Section 完成后**必须**按硬性质检协议走 **Section Reviewer SubAgent**：是否完成 outline
+任务 / 是否符合信息保留比例 / 是否与前后衔接 / 是否过度组件化 / 是否有足够正文 / Raw 与
+配图是否有明确目的 / 本节序号自洽。
+
+**SubAgent 以消息返回 pass/fail + 修复点**（pass 则一行 OK；fail 则列出修复点），**不要写
+`review/section-NN-review.md` 文件**。主 Agent 收到 fail 项后**直接修对应 section 文件**，
+然后再汇报本节交付。
+
+---
+
+## Phase 6 —— Final Review（三视角终审）
+
+从读者 / 主题 / 技术三个视角验收，产出 `review/final-review.md` + 修复列表。
+完整硬性清单见 `references/review-checklist.md`。推荐三个 Reviewer（无 Teams 时至少
+一个独立 SubAgent）：
+
+1. **Editorial Reviewer**：文章性、信息取舍、结构。
+2. **Visual Reviewer**：主题、Raw、配图、移动端。
+3. **Technical Reviewer**：构建、控制台、代码 / 公式、可访问性。
+
+核心红线：它仍是一篇文章（不是应用）· 信息保留比例符合 Plan · 必须保留的信息没丢 ·
+主题气质统一 · Raw 无野生样式 · 没有明显 AI 味 · 桌面 + 移动端可读 · HTML 可构建可打开可分享。
+
+---
+
+## Phase 7 —— Repair（最小切片）
+
+按最小单位修复，规则见 `references/repair-policy.md`。**禁止**：只反馈一处就重写整篇 /
+为修视觉改动已确认的文章结构 / 为压缩信息删掉用户指定必须保留的内容。**有修复才写**
+`review/repair-log.md`（无修复 / 一次过则不写）。
+
+---
+
+## Checkpoint 3 · Final（★交付确认）
+
+终审改完后，**停下来**让用户独立确认交付决策（不要"我打算导出 HTML 了，没问题就这样"
+直接跳过）。优先 AskQuestion，无工具则在消息里编号列出问题、停下等答复。
+
+- **交付决策** —— 选项：`通过 · 导出 HTML 交付` / `通过 · 同时导出 HTML + PDF` /
+  `还有局部修复 · 我会列出具体修哪里` / `先停一停 · 我要再看看`。
+
+只有这一项决策，但**仍要主动停下来问**，不要静默走默认导出 HTML。
+
+---
+
+## Phase 8 —— Delivery
+
+构建并交付（命令见 `references/html-output.md`）：
+
+- `article/article.html`（自包含单页，CSS + JS 内联，断网可打开）—— **主交付物**。
+- **可选** `article/article.pdf`：仅当 Checkpoint 3 用户选了"通过 · 同时导出 HTML + PDF"
+  时才生成。命令：
+  ```bash
+  bash <path-to-beautiful-article>/scripts/html-to-pdf.sh
+  ```
+  脚本探测系统已装的 chromium-family 浏览器，注入 `@media print` 覆盖（TOC 从左右栅格塌
+  成上下排布、TOC 独占首页），headless 打印。零 npm 依赖。详细原理 / 故障排除见
+  `references/pdf-output.md`。
+- 简短编辑说明：文章类型 / 信息保留比例 / 主题 / 配图策略 / 主要编辑取舍。
+
+---
+
+## 默认策略
+
+- 输出 single HTML；文章类型 `longform`；信息保留 100%。
+- 语言：用户**未指定**则**跟随源材料语言**；**指定且与源不一致**则先产出地道翻译版
+  `source/source.<lang>.md` 再据此编写（去翻译腔，见 Phase 1）。
+- 主题：技术 / 证据优先 `tufte`，叙事 / 评论优先 `press`（按源材料推荐）。
+- 版式：宽度默认 `regular`、**TOC 默认开**（与主题解耦，见 `references/layout.md`，均在 Checkpoint 确认）。
+- 配图：**配图模式是 Checkpoint 1 必选项**（`none` / `user-assets` / `placeholders` /
+  `ai-generated`），只决定是否使用外部 `Image`，**不主动生成 AI 图片**。
+- Raw：**与配图正交、始终默认存在**，鼓励多用，但必须服务具体段落、用主题 token。选 `none`
+  不影响 Raw。
+- 自检：**Plan 内联自查（无 SubAgent、无文件）**；**First Spread 与 Final 用 SubAgent + 写文件**；
+  **Section 用 SubAgent + 消息返回（不写文件）**。详见"硬性质检协议"段。
+- 决策收集：Checkpoint 1 / 2 / 3 **每项独立确认 · 禁止静默替用户选择**。可推荐，不能跳过。
+  优先 `AskQuestion` 工具（每项一个独立 question）；无工具则停下、编号列出问题等用户答复。
+- 修复：最小切片，有修复才写 `review/repair-log.md`。
+- **Colophon · 不可移除**：scaffold 在 `article/Article.tsx` 末尾自带 colophon Raw 块
+  （`Made with [beautiful-article](github 仓库) · <主题> theme`，低对比小字、theme token 自适应）。
+  **每篇文章必须保留**，禁止删除、禁止移到 Hero 旁边或浮动到角落。切换主题时同步更新 colophon
+  里的主题名 + `main.tsx` 的 `<ThemeProvider theme="...">` 两处。
+- **封面 · 默认开 · 必须图文并茂**：scaffold 默认在 `article/Cover.tsx` 创建**屏幕 3:4 +
+  PDF 独占首页**的书封式题图外壳 + 占位（`--no-cover` 关闭）。封面位于 TOC + Hero + 正文之上，
+  独立存在。Phase 4 First Spread 时主 Agent 把 `<CoverPlaceholder />` 替换为按 **主题 +
+  文章主旨** 定制的图 + 字构图。**硬约束**：外壳比例 / 打印分页不可动、必须有视觉元素
+  + 文字、只用 `--ra-*` token、不要远程图片、不要重复 Hero 内容。**视觉技术全开放**：
+  SVG / CSS / Canvas / 复杂 React 组件 / 任意混搭由 Agent 自选，效果好就行。详见
+  `references/cover.md`（含 5 条自检 + 5 个构图模板 + 各主题封面起手）。PDF 导出会自动让
+  封面独占首页、TOC 从第二页开始。
+- **PDF 导出 · 可选**：主交付物始终是 `article/article.html`。**仅当** Checkpoint 3 用户选了
+  "通过 · 同时导出 HTML + PDF"，才跑 `bash <skill>/scripts/html-to-pdf.sh` 生成
+  `article/article.pdf`；不选则不动。不要替用户默认导。详见 `references/pdf-output.md`。
+
+---
+
+## 成功标准
+
+- 它**首先是一篇文章**。
+- 最终文章语言符合用户意图（未指定=跟随源语言；指定=全文统一为目标语言，地道、无翻译腔、
+  无残留源语言片段）。
+- 用户确认的信息密度被尊重；源材料关键内容没有意外丢失。
+- 主题气质统一；配图和 Raw 都服务阅读。
+- 页面比 Markdown 更值得读；HTML 可直接打开和分享。
+- 40% 信息时读起来像被编辑过的文章，而非缩水摘要；100% 信息时像被精修过的长文，
+  而非原文搬运。
+
+---
+
+## 相关资源（按"何时读"标注）
+
+| 文件 | 何时读 | 内容 |
+|---|---|---|
+| `references/harness.md` | Phase 0 | Skill 的 harness 视角、六问、状态文件约定 |
+| `references/source-to-markdown.md` | Phase 1 | 各类输入 → source.md 规则、抽取自检、脚本用法 |
+| `references/article-types.md` | Phase 2 | 文章类型路由总览（含逐类型链接） |
+| `references/article-types/<type>.md` | Phase 2 选定类型后 | 单类型结构 / 组件 / Raw 边界 / 配图倾向 / 自检 |
+| `references/information-density.md` | Phase 2 | 信息密度等级、与组件 / 视觉比例的关系 |
+| `references/plan-template.md` | Phase 2 | 单一 `plan/plan.md` 模板（Brief / Outline / Theme / Assets 四段）与写法 |
+| `references/theme-selection.md` | Phase 2 | 主题选择、density 与 theme 解耦、新增主题约束 |
+| `references/layout.md` | Phase 2 / Checkpoint | 版式：宽度模式（与主题解耦）+ TOC，确认与用法 |
+| `references/asset-policy.md` | Phase 2 | 配图四种来源、AI 配图提示词原则、图片自检 |
+| `references/cover.md` | Phase 2 / Phase 4 写封面时 | 书封式封面设计指南（屏幕 3:4 / PDF 独占首页）：硬约束、视觉技术全开放、构图模板、各主题封面起手、5 条自检 |
+| `references/section-build.md` | Phase 4/5 | 一节一文件铁律、单/多 Agent 模式、并行 subagent prompt、主 Agent 合并 |
+| `references/component-policy.md` | Phase 4/5 每节 | reacticle 组件协议、prose-first、信息密度与组件比例 |
+| `references/raw-policy.md` | Phase 4/5 每节 | Raw 允许 / 禁止、token 驱动、Raw 自检 |
+| `references/html-output.md` | 构建 / 交付时 | dev / build / 单文件 HTML 命令与产物 |
+| `references/pdf-output.md` | Phase 8 Delivery 当用户选 PDF 导出时 | `html-to-pdf.sh` 用法、TOC 排版原理、Raw 在 PDF 的表现、故障排除 |
+| `references/review-checklist.md` | Phase 6 | 各阶段 Reviewer 清单与 prompt 模板 |
+| `references/repair-policy.md` | Phase 7 | 最小切片修复对照表 |
+| `references/scaffold.md` | Phase 4 建项目时 | 脚手架做什么、用法、工作区结构、切主题 |
+| `theme-profiles/index.json` + `*.md` | Phase 2 选主题 / Phase 5 写作 | 主题 authoring profile（给 AI 读，非 CSS） |
+| `scripts/scaffold.sh` | Phase 4 跑一次 | 一键创建文章工作区 |
+| `scripts/html-to-pdf.sh` | Phase 8 Delivery 仅当用户选 PDF | HTML → PDF（headless 浏览器 + 注入 print CSS，零 npm 依赖） |
+| `scripts/pdf-print-overrides.css` | 改 PDF 样式时 | `html-to-pdf.sh` 注入到 `<head>` 的 `@media print` 覆盖：A) TOC 塌成上下排布；B) 分页行为（撤销 `.ra-section` 原子化、标题不孤儿、寡行控制等）；C) 封面独占首页 |
+| `scripts/source-to-markdown-markitdown.py` | Phase 1 | MarkItDown 主路径，适合复杂 PDF / DOCX / HTML |
+| `scripts/source-to-markdown.py` | Phase 1 | 轻量 fallback，适合 Markdown / TXT / 简单 HTML 或 MarkItDown 不可用时 |
+
+=== beautiful-article/theme-profiles/andy.md ===
+# Theme Profile · andy（Headspace 静谧 / 温柔）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="andy"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/andy/andy.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`andy`（`<ThemeProvider theme="andy">`）
+- **气质**：温暖人文派（Headspace）。暖奶油纸、友好南瓜橙、暖灰墨（非纯黑）、通体
+  圆体无衬线（Quicksand + Nunito）。**七套里唯一同时用大圆角 + 柔和暖阴影**的主题。
+  柔软、平静、治愈，重在让人安心。完整继承语义化组件契约。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：健康 / 心理 / 生活方式、引导式 `tutorial`、温柔的上手与安抚、产品价值观叙事、
+  需要"柔软 UI"质感与亲和力的 `explainer`。面向普通人、降低压力感。
+- **不适合**：学术论文（`knuth`）；冷调规格（`vignelli`）；暗底工程（`shannon`）；
+  密集数据报告（`tufte`）；俏皮黄黑（`freddie`）；需要锋利严肃感的内容；幻灯片。
+
+## 排版气质
+
+- 标题 / 标签用 Quicksand（几何圆体），正文用 Nunito（人文圆体）；呼应 Headspace 微笑曲线。
+- 正文 ~17px，行距 1.7（舒展）；标题 `display: 700`，圆体偏粗最 friendly。强调不用斜体（协议级禁用）。
+- **亮橙作填充、加深橙作文字**：圆圈章节号 / pill 用亮南瓜橙；链接 / 结构用加深烧橙保证可读。
+
+## Raw 风格
+
+像一页柔软、圆润、令人放松的插图。
+
+- 约束的是**气质**（暖橙系、大圆角、柔阴影、大留白、平静），不是**媒介**。
+- 典型：圆角步骤卡、柔和进度 / 呼吸动画、圆形数据图、温柔问答、blob / imperfect-circle 装饰。
+- 构图：大留白、大圆角、柔阴影；颜色只用 `--ra-*`（橙用 `--hs-orange`）。
+- 动效：平缓顺滑、可有舒缓循环（如呼吸引导），但不喧闹。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：圆润吉祥物 / blob 插画、暖色生活摄影、暖橙柔和渐变背景、友好圆角图标。
+- 构图留白充足、圆角裁切、主体平静；caption 温柔；必须配 alt。
+- 色彩暖橙为主，辅柔蓝 / 柔绿情绪色，低饱和柔和。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像友好 App 文档里的代码卡片：暖桃 surface + 大圆角 + 可有极轻阴影，不用暗色终端。
+- Prism token：标签 / 函数用加深橙 accent（克制），关键字用 risk 红，字符串用绿，其余走暖墨 / muted。
+- `Formula` 像温柔标注：克制、对齐，可有圆角 surface。
+
+## 禁止项
+
+- 纯黑墨、硬直角、冷色——立刻破坏"柔软治愈"识别。
+- 亮南瓜橙作正文 / 小字（对比不足，用加深 accent）。
+- 柔阴影 + 大圆角滥用成浮夸卡片堆叠；紫粉霓虹、Tailwind 默认味；用斜体强调。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% explainer / tutorial`：柔软长文 + 圆角步骤卡 + 枕头 callout，正文为主体。
+- `60-80% 引导内容`：保留关键步骤 + 温柔插画，圆圈章节号点睛。
+- `40% briefing`：Raw 偏柔和图解 / 呼吸动画，文字更短，仍是治愈形态。
+
+=== beautiful-article/theme-profiles/bayer.md ===
+# Theme Profile · bayer（包豪斯 / 三原色几何）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="bayer"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/bayer/bayer.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`bayer`（`<ThemeProvider theme="bayer">`）
+- **气质**：包豪斯 / 构成主义。暖纸、近黑墨，三原色（红 / 蓝 / 黄）当**结构色**而非装饰。
+  识别度来自几何：蓝色实心圆里的章节数字、红黄蓝三色刊头条、小写无衬线导语、硬边方块。
+  几何无衬线（Josefin / Poppins）。响亮但有纪律。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：教学 / 科普解释、产品介绍、宣言、品牌叙事；"专业但有性格、彩色但不浮夸"，
+  适合配几何信息图 / 流程图 / 构成式插画。
+- **不适合**：学术论文（`knuth`）、黑白大刊（`bodoni`）、暗底工程（`shannon` / `fuller`）、
+  柔软治愈（`andy`）、极致中性规格（`vignelli`）、幻灯片。
+
+## 排版气质
+
+- 标题 / 标签用 Josefin Sans（几何），正文用 Poppins（几何人文）。
+- 正文 ~17px，行距 1.65；display 字重 700；强调不用斜体（协议级禁用）。
+- **蓝是结构、红是风险、黄是填充**：链接 / 章节圆用蓝，警示用红，黄只作色块（绝不作文字色）。
+- 导语 / kicker 走小写（Bauhaus 单一字母表；仅作用于拉丁字母）。
+
+## Raw 风格
+
+像一页构成主义信息图。
+
+- 约束的是**气质**（红蓝黄三色、强网格、硬边、圆形点睛），不是**媒介**。
+- 典型：几何流程图、圆 / 方 / 三角构成、原色柱状 / 比例图、网格示意、带蓝圆编号的步骤。
+- 构图：强网格、硬边、三色 + 黑白；无圆角矩形卡。
+- 动效：干脆位移 / 显隐，无回弹、无循环装饰。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：几何构成插画、原色海报、强对比黑白 / 原色摄影、网格 / 圆方三角示意。
+- 构图强网格、果断留白、原色块面；caption 简洁；必配 alt。
+- 色彩红 / 蓝 / 黄 + 黑白；不引入紫粉冷渐变。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像构成主义文档的代码块：暖浅 surface + 发丝线，无圆角、无暗窗。
+- Prism token：标签 / 函数走蓝 accent，关键字走红 risk，字符串走绿；**黄不作语法色**。
+- `Formula` 居中克制，可有极淡 surface。
+
+## 禁止项
+
+- 把包豪斯黄当文字 / 链接 / 语法色（对比不足）。
+- 圆角矩形卡 + 投影堆叠；紫粉渐变、霓虹、Tailwind 默认味、emoji 当装饰。用斜体强调（协议级禁用）。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% explainer / 教学`：长文 + 蓝圆编号 + 几何信息图 + 黄底原则块，正文为主体。
+- `60-80% 内容`：保留关键步骤 + 构成示意，三色条点睛。
+- `40% briefing`：Raw 偏几何图解 / 比例图，文字更短，仍是构成形态。
+
+=== beautiful-article/theme-profiles/bodoni.md ===
+# Theme Profile · bodoni（报刊 / Didone 高反差）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="bodoni"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/bodoni/bodoni.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`bodoni`（`<ThemeProvider theme="bodoni">`）
+- **气质**：印刷殿堂派（Didone broadsheet / 时装刊头）。纯白纸、真黑墨、发丝栏线，
+  极端粗细对比的 Playfair Display 刊头大字压在从容老式衬线正文上。识别度来自印刷惯例
+  ——刊头粗细双线、首字下沉、小型大写导语、栏线分节——颜色几乎只留给风险。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：宣言、深度特稿、有分量的随笔与长评、文化 / 时政 / 时装报道；需要权威、
+  戏剧、仪式感的开篇与封面式长文。
+- **不适合**：暖调亲和（`press` / `freddie`）、柔软治愈（`andy`）、冷调规格（`vignelli`）、
+  暗底工程（`shannon` / `fuller`）、学术论文（`knuth`）、彩色活泼（`bayer` / `sottsass`）、幻灯片。
+
+## 排版气质
+
+- 标题 / 刊头用 Playfair Display（Didone 高反差），正文用 Source Serif 4 / Newsreader（可读老式衬线）。
+- 正文 ~17px，行距 1.62；display 字重 900、字号巨大，与发丝正文形成大报落差。
+- 导语 / 表头 / TOC 标题 / 结语标签统一走**小型大写 + 字距**；强调不用斜体（协议级禁用）。
+- **层级靠字号 / 字重 / 发丝线，不靠颜色**；整篇近黑白，红只在真正风险处出现。
+
+## Raw 风格
+
+像大报版面里亲手排的图版或抽言。
+
+- 约束的是**气质**（黑白、发丝线、Didone 大字、印刷克制），不是**媒介**。
+- 典型：黑白数据 / 折线图、版式抽言、时间线、对照栏、刊头式标题块、首字下沉开篇。
+- 构图：发丝线 + 黑白 + 大字标题；填色极少，红点睛；无圆角、无阴影。
+- 动效：克制、近静态；避免循环装饰与回弹。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：黑白 / 低饱和摄影、高质感人像 / 静物、纪实照片、单色信息图、版画质感。
+- 构图果断留白、可满版 / 裁切；caption 小型大写或衬线小字；必配 alt。
+- 色彩以黑白灰为主，慎用一抹编辑红点睛。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像书页里克制的代码清单：暖浅 surface + 发丝线，无圆角、无暗窗。
+- Prism token：墨色 / 暖编辑红 / 低饱和绿；不彩虹。
+- `Formula` 居中克制、衬线数字。
+
+## 禁止项
+
+- 引入除编辑红以外的颜色作装饰；圆角 / 阴影 / 卡片化 / 渐变 / 霓虹。
+- 把 Didone 当正文长段（正文用老式衬线）。用斜体强调（协议级禁用）。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% longform / 特稿`：首字下沉开篇 + 栏线分节 + 居中铅字抽言，正文为主体。
+- `60-80% 评论`：保留关键抽言与小型大写导语，黑白图版点睛。
+- `40% briefing`：Raw 偏黑白数据图 / 时间线，文字更短，仍是大报形态。
+
+=== beautiful-article/theme-profiles/freddie.md ===
+# Theme Profile · freddie（Mailchimp 暖黄 / 友善）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="freddie"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/freddie/freddie.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`freddie`（`<ThemeProvider theme="freddie">`）
+- **气质**：温暖人文派（Mailchimp）。纯白纸、近黑 Peppercorn 墨、Cavendish 明黄
+  只作**荧光笔 / 色块**（绝不作文字色）。俏皮柔和的衬线标题（Fraunces）压在干净
+  grotesque 正文（Hanken）之上。机灵、亲切、有人味，但仍专业。完整继承结构纪律。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：产品介绍、`tutorial` / 上手指南、changelog 叙事、功能 `explainer`、FAQ、
+  亲和力强的营销味长文。面向普通用户、需要温度与幽默的内容。
+- **不适合**：学术论文（`knuth`）；冷调系统规格（`vignelli`）；暗底工程现场（`shannon`）；
+  极密集数据报告（`tufte`）；柔软治愈向（`andy`）；幻灯片。
+
+## 排版气质
+
+- 标题用 Fraunces（仿 Cooper / Means 的柔软俏皮），正文 / 标签用 Hanken Grotesk（仿 Graphik）。
+- 正文 ~17px，行距 1.65；标题靠 `display: 600` + 柔轴，不靠超粗。强调不用斜体（协议级禁用）。
+- **黄是荧光不是墨**：链接 = 黑字 + 黄 highlight（hover 填满）；章节号 = 黑字 + 黄贴纸（略旋转）。
+
+## Raw 风格
+
+像一页友好、带手作感的产品说明插图。
+
+- 约束的是**气质**（黑 / 白 / 黄、适度圆角、舒展留白、一点人情味），不是**媒介**。
+- 典型：步骤 / 流程图、对比示意、带黄色 highlight 的标注、友好小数据图、可点开 FAQ。
+- 构图：留白舒展、黄只作强调、适度圆角；颜色只用 `--ra-*`（黄用 `--mc-yellow`）。
+- 动效：允许短促、带一丝回弹的过渡；避免无限循环装饰。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：精修产品截图、温暖摄影、scruffy / 手绘风插画、流程示意、带人物的友好配图。
+- 构图留白舒展、主体清楚、可有一点不规整的人味；caption 简洁；必须配 alt。
+- 色彩贴近黑 / 白 / 黄，强调用黄色块承载，不引入紫粉冷渐变。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像友好的代码片段：暖浅 surface + 发丝线 + 适度圆角，不用暗色编辑器窗口。
+- Prism token：标签 / 函数走墨色或暖红，关键字用 risk 红，字符串用绿；**黄不作语法色**。
+- `Formula` 像正文里的友好标注：克制、对齐，可有极淡圆角 surface。
+
+## 禁止项
+
+- 把 Cavendish 黄当文字 / 链接 / 语法色（不可读，破坏识别）。
+- 紫粉渐变、霓虹、Tailwind 默认味、把 emoji / 图标当装饰。
+- 大圆角 + 大投影的卡片堆叠（那是 `andy` 的柔软领域）；用斜体强调。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% explainer / tutorial`：友好长文 + 步骤图 + 黄色 callout，正文为主体。
+- `60-80% 产品介绍`：保留关键步骤 + 截图，黄色强调点睛。
+- `40% briefing`：Raw 偏友好图解，文字更短，仍是亲切产品形态。
+
+=== beautiful-article/theme-profiles/fuller.md ===
+# Theme Profile · fuller(蓝图 / 工程制图)
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="fuller"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/fuller/fuller.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`fuller`（`<ThemeProvider theme="fuller">`）
+- **气质**：工程制图 / 蓝图。深蓝图底 + 青白墨 + 一束制图青，外加淡方格网。识别度来自
+  绘图板：方格纸上的标题块 Hero、等宽尺寸标注、虚线标注分节、青色发丝线。是 `shannon`
+  （暖琥珀终端）的冷色对位——同为暗底，气质是制图桌而非命令行。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：技术规格、系统 / 架构设计、协议 / 接口文档、RFC、硬件 / 机械说明；需要精密、
+  冷静、工程质感的暗底长文，配示意 / 标注 / 拓扑图。
+- **不适合**：需打印的文档（暗底费墨）、温暖叙事（`press` / `freddie`）、柔软治愈（`andy`）、
+  彩色活泼（`bayer` / `sottsass`）、学术论文（`knuth`）、黑白大刊（`bodoni`）、幻灯片。
+
+## 排版气质
+
+- 正文 / 标题用 IBM Plex Sans，标签 / 尺寸 / 章节号 / 元数据用 IBM Plex Mono（等宽承载标注）。
+- 正文 ~17px，行距 1.62；display 字重 600（工程克制）；强调不用斜体（协议级禁用）。
+- **青是唯一结构色，风险用暖橙**以便在满屏青中辨识；暗底，所有 soft 是深色面板。
+
+## Raw 风格
+
+像图纸上亲手画的标注示意。
+
+- 约束的是**气质**（青发丝线、等宽标注、方格网、暗面板、无发光），不是**媒介**。
+- 典型：线框 / 拓扑 / 时序图、带尺寸线的标注、方格纸坐标、等宽数据表、结构剖面。
+- 构图：青色发丝线 + 等宽标注 + 可叠方格；无圆角、无发光。
+- 动效：克制位移 / 描边动画；无霓虹循环。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：线框 / 结构 / 拓扑图、尺寸标注图、蓝晒图、CAD / 示意截图、暗底数据可视化。
+- 构图以线为主、青色描边、可叠网格；caption 等宽冷静；必配 alt。
+- 色彩蓝青为主，风险用暖橙点睛；低饱和。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 是暗底第一公民但仍是工程文档：暗面板 + 暗青发丝线 + 退后 mono 行号，无圆角、无发光。
+- Prism token 从青 accent / 风险橙 / 薄荷绿派生；克制不彩虹。
+- `Formula` 像规格里的公式：等宽标注、对齐、克制。
+
+## 禁止项
+
+- 把暗底当"赛博朋克霓虹"——本主题是冷静蓝图，无发光、无故障风。
+- 圆角 / 阴影 / 亮底卡片 / 暖色生活化插画；风险用青色（风险固定暖橙）。用斜体强调（协议级禁用）。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% spec / 系统设计`：标题块 Hero + 虚线分节 + 规格表 + 拓扑示意，文字与图并重。
+- `60-80% 文档`：保留关键标注图，等宽元数据点睛。
+- `40% briefing`：Raw 偏线框 / 时序图，文字更短，仍是蓝图形态。
+
+=== beautiful-article/theme-profiles/knuth.md ===
+# Theme Profile · knuth（学术预印本）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="knuth"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/knuth/knuth.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`knuth`（`<ThemeProvider theme="knuth">`）
+- **气质**：学术 / 科学排版。给报告穿上期刊 / arXiv 预印本的外衣：Computer Modern
+  衬线、编号小节、图 / 表 / 公式编号、两端对齐正文、引用密集、公式优先。完整继承
+  data-ink 纪律。与 `tufte` 的随笔式边注分明：`knuth` 是"读一篇正式论文"。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：`paper` / `preprint`、`research` / 科研调研、`literature-review` / 文献综述、
+  技术白皮书、形式化分析、公式 / 定理 / 引用密集的 `explainer` / `full-report`。
+- **不适合**：温暖叙事（`press`）；中性产品文档（`vignelli`）；暗底工程现场（`shannon`）；幻灯片。
+
+## 排版气质
+
+- 正文与标题用 Computer Modern / Latin Modern 衬线（→ Source Serif 4 / Georgia / 宋体回退）。
+- 标签 / 图注 / 表头用 CMU Sans 一脉小字号；数学用 KaTeX（`Formula`）。
+- 正文 ~16.5px，行距 1.58；标题用粗衬线（weight 700）取论文标题分量。强调不用斜体（协议级禁用）。
+- **倾向两端对齐**（justify），营造印刷论文的整齐块面。
+
+## Raw 风格
+
+像论文中作者亲手排的一张 Figure。
+
+- 约束的是**气质**（正式、克制、公式 / 编号优先、可核查），不是**媒介**。
+- 典型：内联 SVG 图表、坐标轴 / 函数曲线 / 推导示意、可交互参数演示、定理 / 证明结构图、
+  带 "Figure N." 题注的图版。
+- 构图：克制留白、清晰坐标与标注、学术蓝作结构线索；每条线有含义。颜色只用 `--ra-*`。
+- 动效：默认无；必须交互只用即时响应轻过渡，不用循环装饰。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：数据图 / 实验结果图、示意图 / 流程图 / 架构图、论文截图、表格、低饱和摄影、手稿 / 推导。
+- 每张图配 "Figure N." 式 caption / source / alt；构图留白充足、主体清楚。
+- 色彩低饱和贴近纸墨，强调只用学术蓝或警示红承载信息。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像专著里的代码清单：浅纸 surface + 发丝线，不用暗色编辑器窗口。行号退后、从容。
+- Prism token 从主题派生：标签 / 函数用学术蓝 accent，关键字 / 风险用 risk 红，字符串用绿，
+  注释用 muted。
+- `Formula` 是本主题主角：块级公式从容上下留白、编号靠右（(1)(2)(3)），行内与正文无缝。
+
+## 禁止项
+
+- 卡片、面板、填色块、投影、圆角；比 `#C7C6BB` 更深的网格线。
+- 把学术蓝当装饰；第二个红色用于"警示"以外；emoji / 图标当装饰。
+- 库存 hero 图、3D 插画、渐变背景、装饰光斑、霓虹、高对比终端黑底代码。
+- Raw / 媒体变成营销素材或 SaaS 首页，而非论文图版。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% paper / full-report`：正式长文 + 编号小节 + 公式 / 图表编号，引用密集。
+- `60-80% research / review`：保留核心推导 + 关键图表，正文为主体。
+- `40% explainer`：Raw 偏公式 / 函数图解，文字更短，仍保持论文气质。
+
+=== beautiful-article/theme-profiles/press.md ===
+# Theme Profile · press(书卷 / 编辑)
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="press"`）。详尽版本见组件库 canonical md：
+> `src/theme/themes/press/press.md`（写代码 / 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`press`（`<ThemeProvider theme="press">`）
+- **气质**：出版物级长读物（参照 Stripe Press）。与 tufte 同宗、共享 Data-Ink 的
+  结构纪律（以线代框、内联注、去垃圾表格，绝不用卡片与投影），但人格更外放：把报告
+  当成一本被认真设计过的书来排。tufte 让你"凑近读"，press 请你"从一臂之外读一本书"。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：`essay`、`briefing`、`visual-essay`、`longform`（叙事 / 出版型）、
+  `explainer`（偏人文）。需要从容阅读的长文、随笔、白皮书、产品手记。
+- **不适合**：极度密集、需大量边注的数据型报告（那是 tufte 主场）；演示幻灯片。
+
+## 排版气质
+
+- 正文与标题用当代过渡式衬线（Newsreader → Source Serif 4 / Spectral / Georgia / 宋体），
+  气质比 tufte 更现代、更"成书"。
+- 正文偏大（~17px），行距 1.7；标题字号拉开（h1≈3rem），靠体量而非黑体取得分量。
+- 一个浓郁主色（氧化血红）串起全篇：章节号、强调线、Hero、目录高亮。禁用斜体。
+
+## Raw 风格
+
+可以比 tufte 更有版式感，但仍像为文章专门设计的一页内插图。
+
+- 首选：出版物式分栏示意、暖色信息图、小型交互标尺、章节间节奏图、带精细 caption 的
+  SVG、可轻微展开 / 切换的解释控件。
+- 构图：更大留白、更强标题层级，氧化血红作识别线索；填色可比 tufte 多一点但克制。
+- 动效：允许短促、柔和、一次性过渡；避免无限循环装饰动画。
+- 自定义 CSS / SVG / React 仍必须用 `--ra-*` token，不引入新品牌色或冷色渐变。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：暖色真实摄影、书籍 / 纸张 / 工作台细节、产品界面截图、低饱和 editorial 插图、
+  精修信息图、手稿 / 笔记 / 版面草图。
+- 构图主体清楚、留白充足、色温偏暖；可比 tufte 更完整保留产品上下文，但要裁掉噪声。
+- 图注像出版物 caption，简洁说明来源与上下文，不写营销口号。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像一本技术书里的代码页：温暖、清晰、有精修感，但不变成 IDE 截图。
+  奶油纸上的浅 code surface + 线边界，行号比 tufte 更从容。
+- Prism token 色从 press token 派生：标签 / 函数用氧化血红 accent，字符串用低饱和绿，
+  关键字 / 风险用更热的 risk。
+- `Formula` 像书页里的排版公式，块级公式允许更从容留白，caption 像出版物题注。
+
+## 禁止项
+
+- 卡片、面板、填色块、投影、圆角。
+- 把主色当装饰滥用（它只承载结构与品牌识别）；第二个红色用于"警示"以外的用途。
+- emoji / 图标当装饰。
+- 图片或 Raw 变成营销落地页 / SaaS 首页 / 仪表盘大屏，而非出版物里的图版。
+- 冷蓝紫 SaaS stock 图、3D 渲染图标、廉价渐变背景、无信息量 hero 氛围图。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% longform`：深度出版文章，体量即层级，Raw 作精修插图。
+- `40-60% briefing / visual-essay`：更强编辑节奏与图文留白，视觉块占比更高，仍是文章。
+
+=== beautiful-article/theme-profiles/shannon.md ===
+# Theme Profile · shannon（暗色工程证据）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="shannon"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/shannon/shannon.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`shannon`（`<ThemeProvider theme="shannon">`）
+- **气质**：`tufte` 的"夜间工程版"。温暖石墨暗底、暖白墨、唯一一束琥珀信号色。
+  完整继承 data-ink 纪律（以线代框、内联注、去垃圾表格、色彩承载含义），只是把
+  场景搬到暗底的工程现场。**非纯黑、非 #0D1117 赛博暗、无霓虹、无发光。**
+
+## 适合 / 不适合的文章类型
+
+- **适合**：`postmortem` / 故障复盘、`system-design` / 架构决策、`benchmark` / 性能分析、
+  技术 / AI / 算法 `explainer`、`review`、`tutorial`。`CodeBlock` `DiffReview`
+  `Incident` `RiskList` `Decision` 密集的内容尤其契合。
+- **不适合**：需打印的正式文档（暗底费墨，打印会被强制白底）；温暖叙事 / 出版随笔
+  （`press` / `knuth`）；10 米外观看的幻灯片。
+
+## 排版气质
+
+- 正文与标题用技术人文 sans（IBM Plex Sans → Söhne → system-ui），字重 400，靠字号取分量。
+- **等宽体被刻意抬升**（IBM Plex Mono / Berkeley Mono）：章节号、时间戳、指标、键值
+  一律 mono，营造工程日志感。
+- 正文 ~16px，行距 1.6；强调靠字重 / 颜色 / 间距，不用斜体（协议级禁用），不用厚黑体。
+
+## Raw 风格
+
+像作者在暗底为当前段落手绘的一张仪表小图。
+
+- 约束的是**气质**（暗底、线条化、信号克制、工程证据），不是**媒介**。
+- 典型：暗底内联 SVG、细线折线 / 散点 / 火焰图 / 时序图、可拖动阈值线、mono 标注、
+  微型 sparkline、终端式状态条。
+- 构图：少填充、多线条；每条线都有含义。颜色只用 `--ra-*`，强调用琥珀 accent 或警示红。
+- 动效：默认无；必须交互只用即时响应或极轻过渡（≤120ms），不用循环装饰。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：真实监控图 / 火焰图 / trace、终端截图、架构 / 时序 / 拓扑细线图、暗底数据可视化、
+  低饱和产品界面局部。
+- 构图暗底留白充足、主体清楚；必须配清晰 caption / source / alt；截图裁掉无关 chrome。
+- 色彩贴近暗纸，强调只用琥珀或警示红承载信息。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 是暗底第一公民但仍是工程证据：暗纸轻 surface + 暗发丝线，不用发光边框 /
+  彩色标题栏 / 玻璃拟态。行号可见但退后。
+- Prism token 从主题派生：结构 / 标签 / 函数用琥珀 accent，关键字 / 风险用 risk 红橙，
+  字符串 / 成功路径用低饱和绿。
+- `Formula` 像仪表标注，块级只用发丝线与留白承载。
+
+## 禁止项
+
+- 卡片、面板、填色块、投影、圆角、发光边框；比 `#45423A` 更亮的网格线。
+- 纯黑 / `#0D1117` 赛博暗、霓虹高亮、彩虹语法、过饱和科技蓝紫。
+- 把琥珀信号色当装饰；第二个红色用于"警示"以外；emoji / 图标当装饰。
+- 媒体 / Raw 变成赛博朋克氛围视觉而非工程证据（仪表盘大屏拟物、粒子背景、玻璃拟态）。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% longform / postmortem`：克制长文 + 工程证据，Raw 点亮关键信号 / 时序。
+- `60-80% system-design / explainer`：保留核心架构图 + 代码证据，正文仍是主体。
+- `40% briefing`：Raw 偏暗底图解 / 指标，文字更短，仍是文章形态。
+
+=== beautiful-article/theme-profiles/sottsass.md ===
+# Theme Profile · sottsass（孟菲斯 / 80s 撞色）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="sottsass"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/sottsass/sottsass.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`sottsass`（`<ThemeProvider theme="sottsass">`）
+- **气质**：后现代 / 孟菲斯（米兰 1981）。暖奶油纸、黑墨，故意撞色的孟菲斯粉彩
+  （艳粉 / 青绿 / 阳光黄 / 钴蓝）。识别度来自 80s 游戏感：无模糊硬投影、轻微旋转、
+  圆角彩色药丸、波浪下划线、几何彩屑。响亮欢快但仍可读。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：好玩的科普 / 解释、设计 / 文化 / 潮流写作、发布与活动稿、轻松上手；
+  "个性大于精致"、敢撞色不端着的内容。
+- **不适合**：学术（`knuth`）、黑白大刊（`bodoni`）、冷调规格（`vignelli`）、
+  暗底工程（`shannon` / `fuller`）、严肃克制内容、安静治愈（`andy` 更柔）、幻灯片。
+
+## 排版气质
+
+- 标题 / 标签用 Space Grotesk（顽皮几何），正文用 Hanken Grotesk（干净 grotesque）。
+- 正文 ~17px，行距 1.65；display 字重 700；强调不用斜体（协议级禁用），用色块 / 高亮。
+- **撞色是表达、钴蓝是结构**：链接 / 序号固定钴蓝（可读）；粉 / 青 / 黄只作大胆填充，绝不作小字。
+
+## Raw 风格
+
+像一页孟菲斯海报式的图解。
+
+- 约束的是**气质**（撞色块、无模糊硬投影、混合圆角、轻旋转、彩屑 / 波纹），不是**媒介**。
+- 典型：硬投影卡片、撞色几何图、彩屑 / 波纹装饰、旋转标签、明快的比例 / 步骤图。
+- 构图：黑描边 + 偏移硬投影 + 撞色 + 混合圆角；可轻微旋转。
+- 动效：带回弹的弹入 / 位移；避免无限霓虹循环。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：几何彩屑插画、撞色海报、波纹 / 水磨石纹理、硬投影拼贴、明快人物 / 静物。
+- 构图大胆撞色、可旋转 / 不对称、黑描边 + 硬投影；caption 简洁俏皮；必配 alt。
+- 色彩粉 / 青 / 黄 / 蓝撞色 + 黑白；不用柔光渐变与霓虹。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像潮流杂志的代码卡片：暖浅 surface + 黑边 + 适度圆角，可有硬投影；不用暗终端。
+- Prism token：标签 / 函数走钴蓝，关键字走红玫 risk，字符串走青 success；撞色在边框 / 高亮，不在语法色彩虹。
+- `Formula` 可有圆角 surface 与一抹色，克制对齐。
+
+## 禁止项
+
+- 把粉 / 青 / 黄当正文 / 小字 / 链接色（可读结构固定钴蓝）。
+- 柔光模糊阴影（本主题用无模糊硬投影）、廉价渐变、霓虹。
+- "撞色 + 硬投影"用力过猛到读不下去（仍要保证正文从容可读）。用斜体强调（协议级禁用）。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% 好玩 explainer`：撞色长文 + 旋转章节块 + 硬投影 callout + 彩屑点缀，正文为主体。
+- `60-80% 内容`：保留关键硬投影卡 + 撞色图解，波浪下划线点睛。
+- `40% briefing`：Raw 偏撞色比例 / 步骤图，文字更短，仍是孟菲斯形态。
+
+=== beautiful-article/theme-profiles/tufte.md ===
+# Theme Profile · tufte（Data-Ink）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="tufte"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/tufte/tufte.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`tufte`（`<ThemeProvider theme="tufte">`）
+- **气质**：Edward Tufte 数据墨水比。页面上每一滴墨水都承载信息。去除卡片、
+  填色、阴影、圆角、装饰色。留下文字、发丝级参考线、充裕页边、由排版承载的含义。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：`longform`、`full-report`、`explainer`、`review`（技术 / 数据型）、
+  `tutorial`。以论点与证据为主角的长文阅读。
+- **不适合**：需要 10 米外观看的幻灯片（正文字号刻意偏小）；移动端优先且需要大量
+  边注的场景。
+
+## 排版气质
+
+- 正文与标题用老式（old-style）衬线（et-book → Palatino / Georgia / 宋体），字重 400。
+- 标签 / 注释 / 表头用人文 sans，小字号。
+- 正文刻意偏小（~16px），行距 1.6；标题层级克制（h1≈2.5rem，h2≈1.7rem）。
+- 强调靠字重 / 颜色 / 间距，不靠斜体（协议级禁用斜体），不靠厚黑体。
+
+## Raw 风格
+
+像作者为当前段落手画的一张小图，不是营销组件。
+
+- 约束的是**气质**（克制、线条化、数据密集、低装饰），不是**媒介** —— 可用任意
+  HTML / CSS / React，按需才用 SVG / canvas。
+- 典型：细线折线 / 散点 / slopegraph、小坐标轴、可拖动阈值线、局部高亮、文本旁注、
+  微型 sparkline、轻量可调参数控件、紧凑对照排版。
+- 构图：少填充、多线条；信息密度可以高，但每条线 / 每个元素都要有含义。
+- 动效：默认无；必须交互时只用即时响应或极轻过渡，不用弹跳 / 漂浮 / 循环装饰。
+- 颜色 / 字体 / 间距必须取自 `--ra-*`，不自造 palette。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：真实数据图、论文 / 报告截图、表格截屏、产品界面局部、低饱和摄影、黑白或
+  暖纸感线稿、地图 / 时间轴 / 细线示意图。
+- 构图留白充足、主体清楚、边缘干净；必须配清晰 caption / source / alt。
+- 截图优先裁掉浏览器 chrome。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像正文里的精密标本：纸面轻 surface + 发丝线，不用深色编辑器壳 / 发光边框 /
+  彩色标题栏。行号可见但退后。
+- Prism token 色从主题派生：结构 / 标签用青灰 accent，关键字 / 警示用暖红 risk，
+  字符串用低饱和绿。
+- `Formula` 像正文里的数学标注，块级公式只用发丝线与留白承载。
+
+## 禁止项
+
+- 卡片、面板、填色块、投影、圆角；比 `#D8D2C2` 更深的网格线。
+- emoji / 图标当装饰；色彩用于"承载含义"以外的任何用途。
+- 库存感 hero 图、3D 插画、渐变背景、装饰光斑、强饱和科技蓝紫、卡通人物。
+- 在 Raw 里写出与 Data-Ink 相反的装饰性组件（仪表盘大屏、粒子背景、玻璃拟态）。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% longform / full-report`：克制长文为主，Raw 点亮关键概念，数据证据优先。
+- `60-80% explainer / review`：保留核心证据 + 图解，正文仍是主体。
+- `40% visual-essay`：仍成立，但 Raw 应偏图解 / 证据、低装饰，文字更短。
+
+=== beautiful-article/theme-profiles/vignelli.md ===
+# Theme Profile · vignelli（瑞士国际主义文档）
+
+> 这是给 **AI 写作时读** 的 authoring profile，不是 CSS。CSS token 由组件库
+> 运行时主题持有（`data-theme="vignelli"`）。本文件是"如何选择和使用这个主题"。
+> 详尽版本见组件库 canonical md：`src/theme/themes/vignelli/vignelli.md`（写代码 /
+> 公式 / 媒体 / Raw 前请读它）。
+
+- **runtime theme id**：`vignelli`（`<ThemeProvider theme="vignelli">`）
+- **气质**：瑞士国际主义排版。ReActicle **唯一的 sans 正文 + 冷中性**主题。冷中性纸、
+  一个 grotesque 字族在不同字号上建立层级、发丝网格线、一抹瑞士红、等宽体承载元数据。
+  完整继承结构纪律（以线代框、去垃圾表格、色彩承载含义）。
+
+## 适合 / 不适合的文章类型
+
+- **适合**：`docs` / 产品文档、`spec` / 技术规格、`changelog` / release notes、
+  `reference` / SDK·API 参考、AI 工具 / 平台文档、`explainer`、`tutorial`。
+  需要强结构、可扫读的中性内容。
+- **不适合**：温暖叙事（`press`）；正式学术论文（`knuth`）；暗底工程现场（`shannon`）；幻灯片。
+
+## 排版气质
+
+- 正文与标题用单一 grotesque 字族（Söhne → Aktiv Grotesk → Helvetica Neue → Arial），
+  **靠字号与留白、而非堆字重**建立层级。
+- 标签 / 表头用同一字族小字号；元数据 / 代码用等宽体作 metadata "chip"（以线与字重呈现，
+  绝不做成彩色胶囊或卡片）。
+- 正文 ~17px，行距 1.6；大标题带负字距保持紧致。强调不用斜体（协议级禁用）。
+
+## Raw 风格
+
+像一页严格按网格设计的系统文档插图。
+
+- 约束的是**气质**（冷中性、强网格、系统化、可扫读），不是**媒介**。
+- 典型：网格示意、流程 / 状态图、规格对照表、键盘 / 快捷键图、可切换参数说明、
+  带 mono 标注的 SVG。
+- 构图：强网格对齐、清晰层级、瑞士红作识别线索；填色克制、服务理解。颜色只用 `--ra-*`。
+- 动效：允许短促干脆的一次性过渡（~120ms）；避免无限循环装饰。
+
+## 媒体（图片 / 视频 / 音频）风格
+
+- 适合：界面截图（裁净 chrome）、信息图 / 流程图 / 网格示意、图标系统说明、线框 / 规格图、
+  低饱和中性摄影。
+- 构图强网格对齐、留白克制、主体清楚；caption 简洁说明来源；必须配 alt。
+- 色彩贴近冷中性体系，强调只用瑞士红承载信息。
+
+## 代码 / 公式风格
+
+- `CodeBlock` 像排版严谨的技术规格：冷纸浅 surface + 发丝线，不用暗色编辑器窗口。行号克制。
+- Prism token 从主题派生：标签 / 函数用瑞士红 accent（克制），关键字 / 风险用 risk 深红，
+  字符串用绿，其余走墨色 / muted。
+- `Formula` 像规格里的公式：克制、对齐、发丝线与留白承载。
+
+## 禁止项
+
+- 卡片、面板、填色块、投影、圆角、**彩色左边框强调卡**（被点名的 slop）。
+- 把瑞士红当装饰；第二个红色用于"警示"以外；用堆字重代替字号层级。
+- 紫粉渐变 SaaS hero、霓虹、Tailwind 默认味、emoji / 图标当装饰、3D 渲染图标。
+- Raw / 媒体变成营销落地页或仪表盘大屏。
+
+## 不同信息密度下的表现建议（建议，非限制）
+
+- `100% docs / reference`：系统化长文 + 规格表 + 网格图，正文为主体。
+- `60-80% spec / changelog`：保留关键规格 + 流程图，mono 元数据带扫读友好。
+- `40% briefing`：Raw 偏网格图解，文字更短，仍是文档形态。
+

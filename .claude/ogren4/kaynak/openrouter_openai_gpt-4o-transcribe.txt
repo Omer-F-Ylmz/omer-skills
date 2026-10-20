@@ -1,0 +1,22 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · openrouter/openai/gpt-4o-transcribe ===
+{
+  "id": "openrouter/openai/gpt-4o-transcribe",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "openrouter",
+  "type": "audio",
+  "subtype": "transcription",
+  "capabilities": {
+    "vision": true,
+    "tool_calling": true,
+    "reasoning": true
+  },
+  "input_modalities": [
+    "text",
+    "image"
+  ],
+  "output_modalities": [
+    "text"
+  ],
+  "name": "openai/gpt-4o-transcribe"
+}

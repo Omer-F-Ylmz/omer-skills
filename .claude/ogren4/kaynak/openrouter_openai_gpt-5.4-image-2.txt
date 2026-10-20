@@ -1,0 +1,27 @@
+=== model kaydı: C:\Projeler\omer-skills\.kos\kopru\envanter\omni_models_api.json · openrouter/openai/gpt-5.4-image-2 ===
+{
+  "id": "openrouter/openai/gpt-5.4-image-2",
+  "object": "model",
+  "created": 1792013206,
+  "owned_by": "openrouter",
+  "type": "image",
+  "supported_sizes": [
+    "1024x1024",
+    "1024x1792",
+    "1792x1024"
+  ],
+  "input_modalities": [
+    "text"
+  ],
+  "output_modalities": [
+    "image"
+  ],
+  "capabilities": {
+    "vision": true,
+    "tool_calling": true,
+    "reasoning": true
+  },
+  "context_length": 272000,
+  "max_input_tokens": 272000,
+  "name": "openai/gpt-5.4-image-2"
+}

@@ -1,0 +1,25 @@
+{"ad":"obsidian-yama","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: araç Obsidian eklentisinin main.js dosyasına güvenlik yaması uygular (Origin reddi, CORS, 127.0.0.1); not kasası/dizin/arama işi yapmaz, asıl rolü video-dışı yama; 'bilgi tabanı' asıl işi yansıtmıyor (satır 1-21 başlık yorumu)."}}
+{"ad":"marketing-strategist","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"hyperframes-keyframes","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"embedded-captions","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"openmontage","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"llm-icon-finder","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: verilen komut genel sistem aracı curl'dür (satır 68 'curl -o openai.svg ...'), bu aracın kendi komutu değil; belgede kendi CLI/dosya komutu yok, doğru değer 'belirsiz'."}}
+{"ad":"li-dm","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"writing-beats","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"Video Streaming Engineer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"i18n-sync","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"aura-asset-images","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: araç görsel üretmez/düzenlemez, aura.build/assets'te etiketle mevcut stok görsel arayıp URL döndürür (satır 11-14, 'return direct image URLs'); 'görsel üretim' asıl işi yanlış tanımlıyor."}}
+{"ad":"remotion-multimedia","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dok-xlsx-tablo","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dok-toplanti-notu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"marketing-plan","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"docs","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: belgede aracın kendi komutu var, frontmatter 'command: docs' (satır 2); 'çağrı şablonu yok' denmesi yanlış."}}
+{"ad":"dok-pptx-sunum","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"marketing-skills","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"motion-graphics","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"marketing-ideas","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"make-pdf","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"beautiful-article","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"crosspost","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"phoenix-docs-research","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: 'document this project' doğal dil tetik ifadesi, komut değil (README 'Say: document this project'); belgede aracın kendi komutu '/plugin install phoenix-docs-research@phoenix-security' var."}}
+{"ad":"manim-video","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
