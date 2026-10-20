@@ -1,0 +1,14 @@
+---
+name: guvenlik-paket
+description: "1 skill'lik paket (Güvenlik: yapay zekâyla yazılmış web uygulamaları için denetim, yayın öncesi kapılar, sızıntı/ihlal müdahalesi). İlgili alt skill'in dosyasını oku ve uygula."
+---
+
+# guvenlik-paket
+
+Bu paket 1 skill'i tek girişte toplar (claude.ai skill sınırı ve jeton tasarrufu). Kullanım: aşağıdan işe uyan alt skill'i seç, dosyasını oku, talimatını uygula. Birden çok alt skill gerekebilir.
+
+> Not: claude.ai bir pakette yalnız tek SKILL.md kabul ettiği için alt skill'lerin talimat dosyası `skills/<ad>/TALIMAT.md` adını taşır (içerik orijinal SKILL.md ile aynı). Alt skill içinde "SKILL.md" geçen yerler kendi TALIMAT.md'sini kasteder.
+
+| skill | ne zaman | dosya |
+|---|---|---|
+| never-get-hacked | End-to-end web app security for AI-built ("vibe-coded") apps, from no-code-yet through deployment and maintenance. Use when the user asks whether their app is s | `skills/never-get-hacked/TALIMAT.md` |

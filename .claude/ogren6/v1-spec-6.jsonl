@@ -1,0 +1,9 @@
+{"ad":"benchmark","ne":[5,"Web performans regresyonu tespiti (gstack)."],"k":null,"s":null,"m":["kalite ölçümü"],"kn":5}
+{"ad":"configuring-opentelemetry-dotnet","ne":[3,"ASP.NET Core/.NET uygulamalarında OpenTelemetry yapılandırır."],"k":null,"s":null,"m":["backend/API"],"kn":3}
+{"ad":"detect-static-dependencies","ne":[4,"C# kaynak dosyalarında test edilmesi zor statik bağımlılıkları (DateTime.Now/UtcNow vb.) tarar."],"k":null,"s":[10,"Sarmalayıcı üretmek için KULLANILMAZ (generate-testability-wrappers kullanılır)."],"m":["kalite ölçümü"],"kn":4}
+{"ad":"dn-msbuild-hiz","ne":[4,"Derlemelerin neden yavaş olduğunu bulur; önbellekleme ve paralellik düzeltmeleri önerir."],"k":null,"s":null,"m":["derleme/teşhis"],"kn":4}
+{"ad":"drizzle-docs","ne":[4,"Drizzle dokümanları MCP sunucusu; yerel köprü üzerinden HTTP ile erişilir (127.0.0.1:47800)."],"k":null,"s":null,"m":["veri/şema"],"kn":4}
+{"ad":"managed-pentesting-with-strix","ne":[5,"app.strix.ai üzerinden yönetilen Strix pentest'i çalıştırır (strix cloud CLI/API): kaynak yükler, tarar, bulguları sınıflar."],"k":[61,"strix cloud scans start --data"],"s":[99,"Kullanıcı oturum açmayı onaylar; yetki `--scopes` (ve `--workspace`) ile verilir."],"m":["sızma/DAST"],"kn":5}
+{"ad":"owasp-top-10-testing","ne":[3,"OWASP Top 10 kategorilerine göre Strix ile uygulama güvenlik testi yapar."],"k":null,"s":null,"m":["sızma/DAST"],"kn":3}
+{"ad":"qa-test-bosluk-analiz","ne":[4,"Kapsam ve karmaşıklığa göre test edilmemiş riskli yolları bulur; test boşluklarını önceliklendirir."],"k":null,"s":null,"m":["kalite ölçümü"],"kn":4}
+{"ad":"systematic-debugging","ne":[3,"Hata, test başarısızlığı ya da beklenmedik davranışla karşılaşıldığında, düzeltme önermeden önce kullanılır."],"k":null,"s":[46,"Bir sonraki aşamaya geçmeden önce her aşama tamamlanmalıdır."],"m":["rehber"],"kn":3}

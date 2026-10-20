@@ -1,0 +1,43 @@
+## benchmark
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\benchmark.txt (çözülmüş; özgün: C:\Users\pc\.claude\skills\benchmark\SKILL.md) · 464 satır · araç adları (1): benchmark
+BAŞLIKLAR: ## When to invoke this skill · ## Preamble (run first) · ## Plan Mode Safe Operations · ## Skill Invocation During Plan Mode · ## Artifacts Sync (skill start) · ## Model-Specific Behavioral Patch (claude) · ## Voice · ## Completion Status Protocol · ## Operational Self-Improvement · ## Telemetry (run last) · ## Plan Status Footer · ## BROWSER SETUP (Aside — run this check BEFORE any browser  · ### Rules for driving a real browser · ## Browser fallback: gstack's own headless browser · ### Find the `$B` binary · ### Translate the Aside scripts step by step · ### What changes without Aside · # /benchmark — Performance Regression Detection · ## User-invocable · ## Arguments · ## Instructions · ### Phase 1: Setup · ### Phase 2: Page Discovery · ### Phase 3: Performance Data Collection · ### Phase 4: Baseline Capture (--baseline mode) · Save metrics to baseline file: · ### Phase 5: Comparison · ### Phase 6: Slowest Resources · #   Resource                  Type      Size      Duration · RECOMMENDATIONS: · ### Phase 7: Performance Budget · Check against industry budgets: · ### Phase 8: Trend Analysis (--trend mode) · ### Phase 9: Save Report · ## Important Rules
+
+## configuring-opentelemetry-dotnet
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\configuring-opentelemetry-dotnet.txt (çözülmüş; özgün: C:\Users\pc\.claude\plugins\cache\dotnet-agent-skills\dotnet-aspnetcore\0.1.1\skills\configuring-opentelemetry-dotnet\SKILL.md) · 289 satır · araç adları (1): configuring-opentelemetry-dotnet
+BAŞLIKLAR: # Configuring OpenTelemetry in .NET · ## When to Use · ## When Not to Use · ## Inputs · ## Workflow · ### Step 1: Install the correct packages · # Core SDK + ASP.NET Core instrumentation + logging integrat · # Exporter · # Optional — dev/local debugging only (do NOT include in pro · # dotnet add package OpenTelemetry.Exporter.Console · #### Optional: additional auto-instrumentation packages · ### Step 2: Configure all signals in Program.cs · ### Step 3: Understanding log–trace correlation · ### Step 4: Create custom spans (Activities) for business op · ### Step 5: Create custom metrics · ### Step 6: Configure context propagation for distributed sc · ## Validation · ## Common Pitfalls
+
+## db-rls-politika
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\db-rls-politika.txt (çözülmüş; özgün: C:\Users\pc\.claude\agents\db-rls-politika.md) · 32 satır · araç adları (1): db-rls-politika
+BAŞLIKLAR: ## Ders bankası · # Work protocol · Kurallar:
+
+## detect-static-dependencies
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\detect-static-dependencies.txt (çözülmüş; özgün: C:\Users\pc\.claude\plugins\cache\dotnet-agent-skills\dotnet-test\0.2.19\skills\detect-static-dependencies\SKILL.md) · 204 satır · araç adları (1): detect-static-dependencies
+BAŞLIKLAR: # Detect Static Dependencies · ## When to Use · ## Response Guidelines · ## When Not to Use · ## Inputs · ## Workflow · ### Step 1: Determine scan scope · ### Step 2: Search for static dependency patterns · ### Step 3: Aggregate and rank results · Produce a summary with: · ### Step 4: Present the report · ## Static Dependency Report · ### Category Summary · ### Top 10 Patterns · ### Most Affected Files · ### Migration Priority · ### Step 5: Suggest next steps · ## Validation · ## Common Pitfalls
+
+## dn-msbuild-hiz
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\dn-msbuild-hiz.txt (çözülmüş; özgün: C:\Users\pc\.claude\agents\dn-msbuild-hiz.md) · 24 satır · araç adları (1): dn-msbuild-hiz
+BAŞLIKLAR: ## Ders bankası · Kurallar:
+
+## drizzle-docs
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\drizzle-docs.txt (çözülmüş; özgün: C:\Users\pc\.claude.json) · 5 satır · araç adları (2): .claude · drizzle-docs
+BAŞLIKLAR: 
+
+## managed-pentesting-with-strix
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\managed-pentesting-with-strix.txt (çözülmüş; özgün: C:\Projeler\omer-skills\dist\yukle-7\strix-managed-pentesting-with-strix.zip!managed-pentesting-with-strix/SKILL.md) · 640 satır · araç adları (2): managed-pentesting-with-strix · strix-managed-pentesting-with-strix.zip!managed-pentesting-with-strix
+BAŞLIKLAR: # Strix Cloud (managed, no local infra) · ## Setup: sign in · # Non-interactive least-privilege example: · # Or use a stable named profile: · ## 0. Credits & top-ups · ### Workspaces and account setup · ### Handoffs a person must finish · ### Organization knowledge · ## 1. Register the target as an asset · # Domain (black-box / live target). Requires domain verifica · # --asset-type must be one of: web_app | api | attack_surfac · # Repository (white-box / code review). `full_name` is "owne · ## 2. Launch a scan · ### Scan a local workspace in the cloud · # After reviewing the output, capture its source.archive_sha · # Repeat every source-selection flag unchanged; a source-onl · ## 3. Wait for completion · ## 4. Read findings · ## 5. Export & report · # SARIF 2.1.0 for GitHub code scanning / ASPM ingestion · # Report. Formats: technical (default) | retest | attestatio · # Types: pdf (default) | docx · # Any report download requires the Enterprise plan. Formats  · # DOCX, and white-label branding are Enterprise-only too. Sc · ## 6. PR reviews · ## 7. Continuous testing (schedules & webhooks) · ## Safety
+
+## owasp-top-10-testing
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\owasp-top-10-testing.txt (çözülmüş; özgün: C:\Users\pc\.claude\skills\synced\924f0f64-fcbf-4e91-8e2f-e62bad8245c0_5bf6859c-713e-459a-9126-5fb1dcc493b6\owasp-top-10-testing\SKILL.md) · 64 satır · araç adları (1): owasp-top-10-testing
+BAŞLIKLAR: # Test against the OWASP Top 10 · ## What is and is not testable by an agent · ## Run it · ## Report honestly · ## Then fix and re-test
+
+## qa
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\qa.txt (çözülmüş; özgün: C:\Users\pc\.claude\skills\qa\SKILL.md) · 792 satır · araç adları (1): qa
+BAŞLIKLAR: ## When to invoke this skill · ## Preamble (run first) · ## Plan Mode Safe Operations · ## Skill Invocation During Plan Mode · ## AskUserQuestion Format · ### Tool resolution (read first) · ### When AskUserQuestion is unavailable or a call fails · Tell these apart: · ### Format · Pros / cons: · ### Handling 5+ options — split, never drop · ### Self-check before emitting · ## Artifacts Sync (skill start) · ## Model-Specific Behavioral Patch (claude) · ## Voice · ## Context Recovery · ## Writing Style (skip entirely if `EXPLAIN_LEVEL: terse` ap · ## Completeness Principle — Boil the Ocean · ## Confusion Protocol · ## Claims Need Evidence · ## Context Health (soft directive) · ## Question Tuning (skip entirely if `QUESTION_TUNING: false · ## Repo Ownership — See Something, Say Something · ## Search Before Building · ## Completion Status Protocol · ## Operational Self-Improvement · ## Telemetry (run last) · ## Plan Status Footer · ## Step 0: Detect platform and base branch · # /qa: Test → Fix → Verify · ## Section index — Read each section when its situation appl · ## Setup · ## Prior Learnings · Options: · ## Test Plan Context · ## Phases 1-6: QA Baseline · ## Output Structure · ## Phase 7: Triage · ### Refresh learnings for the component/page where the bug l · ## Phase 8: Fix Loop · ### 8a. Diagnose and reproduce · ### 8a.5. Regression test before repair · ### 8b. Fix · ### 8c. Re-test · For browser defects only: · ### 8d. Commit verified work · ### 8e. Classify · ### 8e.5. Reg
+
+## qa-test-bosluk-analiz
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\qa-test-bosluk-analiz.txt (çözülmüş; özgün: C:\Users\pc\.claude\agents\qa-test-bosluk-analiz.md) · 24 satır · araç adları (1): qa-test-bosluk-analiz
+BAŞLIKLAR: ## Ders bankası · Kurallar:
+
+## systematic-debugging
+kaynak: C:\Projeler\omer-skills\.claude\ogren6\kaynak\systematic-debugging.txt (çözülmüş; özgün: C:\Users\pc\.claude\plugins\cache\claude-plugins-official\superpowers\6.4.1\skills\systematic-debugging\SKILL.md) · 283 satır · araç adları (3): condition-based-waiting-example.ts · find-polluter.sh · systematic-debugging
+BAŞLIKLAR: # Systematic Debugging · ## Overview · ## The Iron Law · ## When to Use · Use for ANY technical issue: · ## The Four Phases · ### Phase 1: Root Cause Investigation · ### Phase 2: Pattern Analysis · ### Phase 3: Hypothesis and Testing · ### Phase 4: Implementation · ## Red Flags - STOP and Follow Process · If you catch yourself thinking: · ## your human partner's Signals You're Doing It Wrong · ## Common Rationalizations · ## Quick Reference · ## When Process Reveals "No Root Cause" · ## Supporting Techniques

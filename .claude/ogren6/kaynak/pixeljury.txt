@@ -1,0 +1,43 @@
+---
+name: pixeljury
+description: "Rendered web sayfasi icin gorsel QA - Chromium'da acar; kontrast, 390px mobil tasma, dokunma hedefi ve AI-slop desenlerini bulur, ajana verilebilir fix-prompt yazar. Yerel dosya ya da localhost..."
+---
+
+# PixelJury (claude.ai paketi)
+
+Sayfayi gercekten Chromium'da acip inceler; kaynak koddan tahmin etmez.
+Cikti: `critique.md`, `fix-prompt.md`, `score.json`, ekran goruntuleri.
+
+## Sinirlar (claude.ai sandbox)
+
+- Playwright bu pakette **yok**; sandbox'in global kurulumu kullanilir. ESM `import()`
+  `NODE_PATH`'i yok sayar, bu yuzden asagidaki blok global playwright'i calisma
+  kopyasinin `node_modules/` dizinine baglar.
+- `/mnt/skills` salt okunur; skill once `/tmp/pixeljury-run` altina kopyalanir.
+- Yalniz `--provider mock` calisir: ag erisimi ve API anahtari yok. `anthropic`, `openai`,
+  `claude-code`, `codex` saglayicilari sandbox'ta denenmemeli.
+- Deterministik kontroller (kontrast, mobil tasma, dokunma hedefi, kucuk metin,
+  slop desenleri) mock ile tam calisir; yalniz gorsel puanlama modele baglidir.
+
+## Calistirma
+
+Bash bloklari arasinda kabuk durumu korunmaz: asagisi **tek blok** olarak calistirilir.
+
+```bash
+SKILL=$(ls -d /mnt/skills/*/pixeljury | head -1)
+URL=${URL:-file:///mnt/user-data/uploads/index.html}   # ya da http://localhost:3000
+OUT=${OUT:-/mnt/user-data/outputs/pixeljury}
+mkdir -p /tmp/pixeljury-run && cp -rf "$SKILL/." /tmp/pixeljury-run/
+ln -sfn "$(npm root -g)/playwright" /tmp/pixeljury-run/node_modules/playwright
+export PIXELJURY_RUBRIC=/tmp/pixeljury-run/references/rubric.md
+node /tmp/pixeljury-run/bin/pixeljury.js review "$URL" --provider mock --out "$OUT"
+```
+
+Baska bir sayfa icin yalniz `URL` degisir: yerel dosya `file:///mnt/user-data/uploads/x.html`,
+calisan sunucu `http://localhost:3000`. `--out` dizini yoksa olusturulur.
+
+## Puanlama olcutu
+
+Tam rubric: `references/rubric.md` (blokta `PIXELJURY_RUBRIC` ile gosterilir; rubric-loader
+onu kendiliginden bulmaz). Sert hatalar (hard fail) puani tavanlar; problemler puan dusurur.
+Once `fix-prompt.md` uygulanir, sonra tekrar calistirilir.

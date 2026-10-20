@@ -1,0 +1,4 @@
+{"ad":"ios-fix","ne":[5,"Otonom iOS hata düzeltici (gstack)."],"k":null,"s":null,"m":["G4-dışı"],"kn":5}
+{"ad":"otm-veri-esleme","ne":[3,"Sistemler arasında alanları varsayılanlar, tür dönüşümleri ve doğrulamayla eşler."],"k":null,"s":null,"m":["veri/şema"],"kn":3}
+{"ad":"db-rls-politika","ne":[3,"Postgres satır düzeyi güvenlik (RLS) politikalarını yazar ve gözden geçirir (Supabase, genel API)."],"k":null,"s":null,"m":["veri/şema"],"kn":3}
+{"ad":"qa","ne":[5,"Tarayıcı/API/CLI/iş/worker/webhook için QA testi (gstack)."],"k":null,"s":[31,"Yalnız rapor kipi için /qa-only kullanılır."],"m":["e2e/tarayıcı"],"kn":5}

@@ -1,0 +1,8 @@
+{"ad":"check-bin-obj-clash","ne":[3,"MSBuild OutputPath/IntermediateOutputPath çakışmalarını kontrol eder."],"k":null,"s":null,"m":["derleme/teşhis"],"kn":3}
+{"ad":"db-yedekleme-geri-yukleme","ne":[3,"Noktaya-zamanlı geri yükleme dahil yedekleme ve geri yükleme planlar."],"k":null,"s":null,"m":["veri/şema"],"kn":3}
+{"ad":"dn-efcore-modelleme","ne":[4,"EF Core varlıklarını, ilişkilerini ve Fluent API yapılandırmalarını veri modelinden tasarlar."],"k":null,"s":null,"m":["veri/şema"],"kn":4}
+{"ad":"dn-xunit-test-yazar","ne":[4,"C# kodu için arrange-act-assert düzeninde ve açık adlarla xUnit testleri yazar."],"k":null,"s":null,"m":["birim test"],"kn":4}
+{"ad":"mtp-hot-reload","ne":[4,"MTP hot reload'u uzun ömürlü düzenle/yeniden koş döngüsü için kurar ya da kurtarır."],"k":[77,"dotnet watch --project <project-path> test"],"s":[8,"VSTest hot reload'a asla dokunulmaz."],"m":["birim test"],"kn":4}
+{"ad":"platform-detection","ne":[4,".NET projesinin test platformunu, çatısını ve komut kipini belirler."],"k":null,"s":[5,"Yalnız SDK stili MSTest/xUnit/NUnit/TUnit projelerinde kullanılır."],"m":["derleme/teşhis"],"kn":4}
+{"ad":"qa-hata-yeniden-uret","ne":[4,"Belirsiz ya da aralıklı hataları yeniden üretir."],"k":null,"s":null,"m":["birim test"],"kn":4}
+{"ad":"tm-security-review","ne":[3,"Kapsamlı STRIDE tabanlı tehdit modeli güvenlik incelemesi yapar."],"k":null,"s":null,"m":["uyumluluk"],"kn":3}

@@ -1,0 +1,58 @@
+Kullanım: dotnet [runtime-options] [path-to-application] [arguments]
+
+.NET uygulaması yürütün.
+
+runtime-options:
+  --additionalprobingpath <path>   Yoklama ilkesini ve yoklanacak bütünleştirilmiş kodları içeren yol.
+  --additional-deps <path>         Ek deps.json dosyasının yolu.
+  --depsfile                       <application>.deps.json dosyasının yolu.
+  --fx-version <version>           Uygulamayı çalıştırmak için kullanılacak olan yüklü Paylaşılan Çerçevenin sürümü
+  --roll-forward <setting>         Şu framework sürümüne ileri sarın: (LatestPatch, İkincil, LatestMinor, Ana, LatestMajor, Devre dışı).
+  --runtimeconfig                  <application>.runtimeconfig.json dosyasının yolu.
+
+path-to-application:
+  Çalıştırılacak uygulama .dll dosyasının yolu.
+
+Kullanım: dotnet [sdk-options] [command] [command-options] [arguments]
+
+.NET SDK komutu yürütün.
+
+sdk-options:
+  -d|--diagnostics  Tanılama çıkışını etkinleştirir.
+  -h|--help         Komut satırı yardımını gösterir.
+  --info            .NET bilgilerini görüntüleyin.
+  --list-runtimes   Yüklü çalışma zamanlarını görüntüleyin.
+  --list-sdks       Yüklü SDK’ları görüntüleyin.
+  --version         Kullanımdaki .NET SDK sürümünü görüntüleyin.
+
+SDK komutları:
+  build             Bir .NET projesi derler.
+  build-server      Bir derleme tarafından başlatılan sunucularla etkileşimde bulunun.
+  clean             Bir .NET projesinin derleme çıktılarını temizler.
+  format            Stil tercihlerini bir projeye veya çözüme uygulayın.
+  help              Başvuru sayfasını belirtilen komut için bir tarayıcıda açar.
+  msbuild           Microsoft Build Engine (MSBuild) komutlarını çalıştırır.
+  new               Yeni bir .NET projesi veya dosyası oluşturur.
+  nuget             Ek NuGet komutları sağlar.
+  pack              Bir NuGet paketi oluşturur.
+  package           .NET projesi için PackageReferences arayın, ekleyin, kaldırın veya listeleyin.
+  publish           Bir .NET projesini dağıtım için yayımlar.
+  reference         Bir .NET projesi için ProjectReferences ekleyin, kaldırın veya listeleyin.
+  restore           Bir .NET projesinde belirtilen bağımlılıkları geri yükler.
+  run               Bir .NET projesi çıktısı derler ve çalıştırır.
+  sdk               .NET SDK yüklemesini yönetin.
+  solution          Visual Studio çözüm dosyalarını değiştirir.
+  store             Belirtilen bütünleştirilmiş kodları çalışma zamanı paket deposunda depolar.
+  test              .NET projesinde belirtilen test çalıştırıcısını kullanarak birim testleri çalıştırır.
+  tool              .NET deneyimini genişleten araçları yükler veya yönetir.
+  vstest            Microsoft Test Engine (VSTest) komutlarını çalıştırır.
+  workload          İsteğe bağlı iş yüklerini yönetin.
+
+Paket grubu oluşturulmuş araçlardaki ek komutlar:
+  dev-certs         Geliştirme sertifikaları oluşturun ve yönetin.
+  fsi               F# Etkileşimli'yi başlatın / F# betiklerini yürütün.
+  user-jwts         Geliştirme aşamasındaki JSON Web Belirteçlerini yönetme.
+  user-secrets      Kullanıcı gizli dizilerini yönetin.
+  watch             Dosyalar değiştiğinde bir komut çalıştıran bir dosya izleyici başlatın.
+
+Bir komut hakkında daha fazla bilgi için 'dotnet [komut] --help' komutunu çalıştırın.

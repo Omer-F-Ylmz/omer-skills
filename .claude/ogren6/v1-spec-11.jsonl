@@ -1,0 +1,10 @@
+{"ad":"build-perf-diagnostics","ne":[3,"MSBuild derleme performansı darboğazlarını ikili günlük (binlog) analiziyle teşhis eder."],"k":[17,"dotnet msbuild build.binlog -noconlog"],"s":null,"m":["derleme/teşhis"],"kn":3}
+{"ad":"crap-score","ne":[4,".NET için CRAP (karmaşıklık + kapsam riski) skorunu hesaplar."],"k":null,"s":null,"m":["kalite ölçümü"],"kn":4}
+{"ad":"dn-dotnet-performans","ne":[4,"Üretimde CPU ya da bellek büyümesi için .NET servislerini profiller: ayırmalar, sıcak yollar, GC baskısı."],"k":null,"s":null,"m":["kalite ölçümü"],"kn":4}
+{"ad":"dn-signalr-gercek-zamanli","ne":[4,"SignalR hub'ları, gerçek zamanlı gönderim, gruplar ve yeniden bağlanma yönetimi ekler."],"k":null,"s":null,"m":["backend/API"],"kn":4}
+{"ad":"generate-testability-wrappers","ne":[6,"Test edilebilirlik için C# statik çağrılarını saran sarmalayıcılar üretir; hedef zaten enjekte arayüz kullanıyorsa gerekmez."],"k":null,"s":[4,"Hedef zaten enjekte edilmiş arayüz ya da yerleşik soyutlamayı tüketiyorsa KULLANILMAZ."],"m":["birim test"],"kn":4}
+{"ad":"msbuild-code-review","ne":[3,"MSBuild proje dosyalarını anti-desenler, modernleştirme fırsatları ve en iyi uygulamalar için inceler (ajan)."],"k":null,"s":null,"m":["statik analiz"],"kn":3}
+{"ad":"pia-generation","ne":[4,"Yeni özellik/ürün için kurum formatında Gizlilik Etki Değerlendirmesi (PIA) üretir."],"k":[22,""],"s":[50,"Değerlendirme, yapılandırmada belirtilen yargı alanı kapsamını varsayar."],"m":["uyumluluk"],"kn":4}
+{"ad":"qa-flaky-avci","ne":[4,"Döngüyle koşturup sıra ya da zamanlamayı yalıtarak kararsız (flaky) testleri yeniden üretir ve kök nedenini bulur."],"k":null,"s":null,"m":["kalite ölçümü"],"kn":4}
+{"ad":"security-review","ne":[3,"Güvenlik açıkları için kod incelemesi; 'security review' istendiğinde kullanılır."],"k":null,"s":null,"m":["statik analiz"],"kn":3}
+{"ad":"test-smell-detection","ne":[4,"Araştırma destekli (formal) test kokusu denetimi yapar."],"k":null,"s":[24,"Yalnız aşamalı (staged) ya da adı verilen testleri denetler."],"m":["kalite ölçümü"],"kn":4}

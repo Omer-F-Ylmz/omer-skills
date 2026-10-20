@@ -51,6 +51,10 @@ def hazirla():
     t = [json.loads(x) for x in (O / "katalog-son.jsonl").read_text(encoding="utf-8").splitlines()]
     k = {r["ad"]: r for r in reversed(t) if r["kategori_son"] in KAT and r["tur"] != "aday" and r["kanonik"] == r["id"]}  # aynı adlı kopya: ilk kalır
     ka, kb = katman(k)
+    for r in ka:  # yolu yalnız claude.ai ad listesi olan skill → senkron kopyanın gerçek SKILL.md'si
+        if r["yol"].endswith("claudeai_adlar.json"):
+            s = next(iter(sorted((Path.home() / ".claude/skills/synced").glob(f"*/{r['ad']}/SKILL.md"))), None)
+            r["yol"] = str(s) if s else r["yol"]
     (O / "kart-b-g4.jsonl").write_text("".join(json.dumps({"ad": r["ad"], "katman": "B", "ne": r["aciklama"], "nasil": "", "tur": r["tur"], "yol": r["yol"],
                                                           "kategori": r["kategori_son"]}, ensure_ascii=False) + "\n" for r in kb), encoding="utf-8")
     K.mkdir(exist_ok=True)
