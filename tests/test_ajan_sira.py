@@ -72,3 +72,14 @@ def test_baslat_argv_slash_bayragi(tmp_path, monkeypatch):
     bayrak.write_text("1")
     acik, _ = ajan_sira.baslat_argv("")
     assert "--disable-slash-commands" not in acik and "Skill" in acik[acik.index("--tools") + 1].split(",")
+
+
+def test_baslat_argv_slash_dar(tmp_path, monkeypatch):
+    """SLASH-ÖĞREN d2: bayrakta dar=<küme> varsa yalnız slash-dar/<küme> eklentisi yüklenir (--setting-sources ''); düz bayrakta eklenmez."""
+    bayrak = tmp_path / "slash.bayrak"
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", bayrak)
+    bayrak.write_text("1")
+    assert "--plugin-dir" not in ajan_sira.baslat_argv("")[0]
+    bayrak.write_text("acik dar=cekirdek")
+    a, _ = ajan_sira.baslat_argv("")
+    assert a[a.index("--setting-sources") + 1] == "" and a[a.index("--plugin-dir") + 1].endswith("slash-dar\cekirdek")
