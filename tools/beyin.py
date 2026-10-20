@@ -85,12 +85,12 @@ def kimlikler(soru):
 
 def kimlik_puan(slug, ks, ids):
     """Not adında tam eşleşme 2, önek (d1→d1e) 1; gövdede birebir geçiş 1."""
-    p = 0
+    p = g = 0
     for i in ids:
         e = re.escape(i)
         p += 2 if re.search(rf"(?:^|-){e}(?:-|$)", slug) else 1 if re.search(rf"(?:^|-){e}", slug) else 0
-        p += bool(re.search(rf"(?<![\w-]){e}(?![\w-])", ks))
-    return p
+        g += bool(re.search(rf"(?<![\w-]){e}(?![\w-])", ks))
+    return p, g  # gövde geçişi içerik puanından sonra: aynı kaynağın başlık satırı kimlik geçen parçası içerik eşleşen parçayı ezmesin
 
 
 def pencere(satir, ts):
@@ -209,7 +209,7 @@ def ara(soru, k=5, koleksiyon="beyin", indeks=INDEKS):
     for pos, (yol, n) in enumerate(havuz):
         puan = puanla(n, w)
         tarih = int(re.sub(r"\D", "", n[0].get("guncellenme", "")) or 0)
-        degerli.append(((-n[4], -max(puan), -tarih, pos), yol, n, puan))
+        degerli.append(((-n[4][0], -max(puan), -n[4][1], -tarih, pos), yol, n, puan))
     degerli.sort(key=lambda x: x[0])
     sonuc, secilen, sayac = [], [], {}
     # aynı kaynaktan en çok KAYNAK_TAVAN parça: parçalanmış tek uzun kaynak ilk k'yı doldurup ikinci kaynağı (çok-notlu soru) dışarıda bırakmasın
@@ -268,7 +268,15 @@ def main(argv=None):
     a.add_argument("-c", "--koleksiyon", default="beyin")
     ns = ap.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
-    sonuc = ara(ns.soru, ns.k, ns.koleksiyon)
+    # "(1) … (2) …" çok parçalı soru: her parça ayrı aranır, sonuçlar sırayla birleşir (tek sorgu ikinci kaynağı dışarıda bırakır)
+    parcalar = [p for p in re.split(r"\(\d+\)\s*", ns.soru) if p.strip()] if re.search(r"\(1\).*\(2\)", ns.soru, re.S) else [ns.soru]
+    listeler = [ara(p, ns.k, ns.koleksiyon) for p in parcalar]
+    gorulen, sonuc = set(), []
+    for x in (x for grup in itertools.zip_longest(*listeler) for x in grup if x):
+        if (x[0], x[1]) not in gorulen:
+            gorulen.add((x[0], x[1]))
+            sonuc.append(x)
+    ns.butce = (ns.butce or 200 * ns.k) * len(parcalar)
     if not sonuc:
         print("sonuç yok")
     for metin in sigdir(sonuc, ns.butce or 200 * ns.k):

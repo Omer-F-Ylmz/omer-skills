@@ -1,0 +1,29 @@
+hakem nvidia 2011 deneme 0: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 1: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 2: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 3: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 4: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 5: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 6: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 7: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 8: HTTP Error 429: Too Many Requests
+hakem nvidia 2011 deneme 9: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 0: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 1: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 2: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 3: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 4: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 5: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 6: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 7: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 8: HTTP Error 429: Too Many Requests
+hakem google 2011 deneme 9: HTTP Error 429: Too Many Requests
+tohum 2009 A hakem betik: 16/20 (çok 7/8) yanlış [200902, 200904, 200906, 200919]
+tohum 2009 B hakem betik: 1/20 (çok 0/8) yanlış [200901, 200902, 200903, 200904, 200905, 200906, 200907, 200908, 200909, 200910, 200912, 200913, 200914, 200915, 200916, 200917, 200918, 200919, 200920]
+tohum 2009: token A 174017 B 221005 = %79 tur A 35 B 22 ihlal A 0
+tohum 2010 A hakem betik: 19/20 (çok 7/8) yanlış [201020]
+tohum 2010 B hakem betik: 19/20 (çok 7/8) yanlış [201020]
+tohum 2010: token A 280207 B 586840 = %48 tur A 33 B 36 ihlal A 0
+tohum 2011 A hakem nvidia: 0/20 (çok 0/8) yanlış [201101, 201102, 201103, 201104, 201105, 201106, 201107, 201108, 201109, 201110, 201111, 201112, 201113, 201114, 201115, 201116, 201117, 201118, 201119, 201120]
+tohum 2011 A hakem google: 0/20 (çok 0/8) yanlış [201101, 201102, 201103, 201104, 201105, 201106, 201107, 201108, 201109, 201110, 201111, 201112, 201113, 201114, 201115, 201116, 201117, 201118, 201119, 201120]
+tohum 2011: token A 158811 B 377365 = %42 tur A 31 B 45 ihlal A 0

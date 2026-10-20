@@ -1,0 +1,9 @@
+tek/diðer A-aramada-yok 1
+tek/diðer B-parça-içi 1
+tek/diðer doðru 6
+tek/sira A-aramada-yok 2
+tek/sira C-model 3
+tek/sira doðru 9
+çok/sira B-parça-içi 4
+çok/sira C-model 2
+çok/sira doðru 12

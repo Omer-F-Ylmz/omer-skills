@@ -33,19 +33,27 @@ def tani(q, out, dogru):
     return "C-model" if cevapta else ("B-parça-içi" if kaynak else "A-aramada-yok")
 
 
+def parcalar(q):
+    return [p.strip() for p in re.split(r";|ve", q["cevap"]) if p.strip()] if q.get("cok") else [q["cevap"]]
+
+
 def main():
-    sayac = Counter()
-    for t in [int(x) for x in sys.argv[1:]] or (2007, 2008):
-        qs = [json.loads(s) for s in (D.parent / f"beyin3/sorular-{t}.jsonl").read_text(encoding="utf-8").splitlines() if s.strip()]
-        yol = D.parent / f"beyin3/kosu/hakem{t}-1.json"
-        d = {p.get("id"): p.get("d", 0) for p in kapi.satirlar(json.loads(yol.read_text(encoding="utf-8")))}
+    sayac, ilk = Counter(), Counter()
+    for t in [int(x) for x in sys.argv[1:]] or (2009, 2010, 2011):
+        qs = [json.loads(s) for s in (D / f"sorular-{t}.jsonl").read_text(encoding="utf-8").splitlines() if s.strip()]
+        cev = {c.get("id"): str(c.get("cevap")) for c in kapi.satirlar(json.loads((D / f"kosu/A{t}.json").read_text(encoding="utf-8")))}
         for q in qs:
             out = subprocess.run([sys.executable, "tools/beyin.py", "ara", q["soru"]], capture_output=True, text=True,
                                  encoding="utf-8", cwd=KOK).stdout.lower().replace("\\", "/")
             tur = ("çok" if q.get("cok") else "tek") + "/" + ("sira" if re.search(r"ajan-sira|SIRA\.md", q["kaynak"]) else "diğer")
-            sayac[(tur, tani(q, out, d.get(q["id"])))] += 1
+            dogru = all(cevap_var(p, cev.get(q["id"], "").lower()) for p in parcalar(q))
+            sayac[(tur, tani(q, out, dogru))] += 1
+            ilk[(tur, all(cevap_var(p, out) for p in parcalar(q)))] += 1
+            if not dogru:
+                print("yanlış", q["id"], tani(q, out, dogru), "|", q["cevap"], "|", cev.get(q["id"], "")[:60])
     for k, v in sorted(sayac.items()):
         print(*k, v)
+    print("ilk arama cevabı içeriyor (tür, evet/hayır):", *sorted(ilk.items()))
 
 
 if __name__ == "__main__":

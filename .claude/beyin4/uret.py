@@ -13,7 +13,7 @@ KOK = D.parent.parent
 sys.path.insert(0, str(KOK / "tools"))
 import beyin_al  # noqa: E402
 
-SAYI = re.compile(r"(?<![\w.,/-])\d+(?:[.,]\d+)?(?![\w/-])")
+SAYI = re.compile(r"(?<![\w.,/-])\d+(?:[.,]\d+)?(?![\w/-]|\.\d)")  # 127.0.0.1 / 1.2.3 gibi noktalı dizinin parçası sayı değil
 SIRA = KOK / ".kos/kopru/gorev/SIRA.md"
 DIGER = [KOK / ".kos/kopru/gorev", KOK / ".kos/kopru/gorev-gecmis", KOK / ".kos/kopru/devir", KOK / "docs/ogren", KOK / "docs/kurulumlar"]
 
