@@ -25,7 +25,7 @@ video temizle [--gun 14]              # eski önbellek klasörlerini siler
 Karar sırası:
 
 0. Tek bir soru varsa (özellikle Desktop'ta) `izle` yeter: ozet satırları, ilgili segmentler ve gerekiyorsa tek kare yolu tek çıktıda.
-1. Kademeli gidilecekse `ozet` ile başla. Altyazı yoksa çıktı `video --whisper <id>` önerir (yalnız CC, CPU, dakika tavanlı).
+1. Kademeli gidilecekse `ozet` ile başla. Altyazı yoksa (çıkış 3, IG reel dahil) `video paket <id> --asr groq` (Groq whisper-large-v3-turbo, ücretsiz, köprüde izinli; ≤12 çağrı/parti) → ses metni paket.md'de; CPU `video --whisper <id>` yalnız CC, dakika tavanlı, Groq olmazsa. Kanıt: IG DelsVQJR6ZE `izle` 0 segment → `paket --asr groq` 9 satır Türkçe konuşma, asr 5,7 sn, istek 0.
 2. Belirli bir soru varsa `sor`; genel tarama gerekiyorsa `suz`. İkisi de Jev ister (TYPESAFE_API_KEY).
 3. `sor` "görüntü gerekli" derse ya da `suz` ekran adayı listelerse, yalnız o zamanlar için `kare`.
 4. Kareleri `Read` ile aç (görsel başına ~442 token, 768 px genişlik tavanı).

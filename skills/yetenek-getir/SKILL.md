@@ -38,4 +38,4 @@ ajan-getir'in kardeşi. Skill listesinin çoğu yalnız ad gösterir; doğru ara
 - Kelime tetiği aynı kümeye bakarak ayarlanırsa bekletilmiş kümede çöker (1/30 · 0/22 → 4/10 · 3/10): her tetik bekletilmiş kümeyle ölçülür.
 - "(taslak, doğrulanmamış)" etiketli kılavuz kartını kullanmadan önce kaynağı (aracın SKILL.md'si) oku.
 
-Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez. Kullanım: satırı bul → `Skill <ad>` ile çağır (alt ajanda tanımında `Skill` araçta olmalı); "ölçülen kazanç" boşsa/denenmedi ise kazanç iddia etme.
