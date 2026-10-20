@@ -12,7 +12,13 @@ import ajan_sira, cc_profil  # noqa: E402
 D = Path(__file__).parent
 ISTEM = ("Mekanik iş, yorum yok. 1) `python -m pytest tests/test_ajan_sira.py tests/test_cc_profil.py -q` koş. "
          "2) .kos/kopru/ajan-sira.tsv boş olmayan satır sayısını say. Yanıt tam 2 satır: `pytest: <passed sayısı> passed, <failed> failed` ve `tsv: <n>`.")
-TABAN = ajan_sira.ARGV[:ajan_sira.ARGV.index('{"mcpServers":{}}') + 1]
+# d15: kalan 2 köprü işi farklı araç yolları (Grep/Glob, git); `kapi_a6.py araclar k12` — yer gerçeği betik dışında sayılır
+ISTEMLER = {"k11": ISTEM,
+            "k12": "Mekanik iş, yorum yok. Grep aracıyla skills/departman-verimlilik/SKILL.md içinde `rtk` geçen satır sayısını, "
+                   "Glob aracıyla .claude/ogren1/*.py dosya sayısını bul. Yanıt tam 2 satır: `grep: <n>` ve `glob: <n>`.",
+            "k13": "Mekanik iş, yorum yok. `git log -1 --format=%h -- docs/ogren/token.md` koş; docs/ogren/token.md satır sayısını say. "
+                   "Yanıt tam 2 satır: `commit: <hash>` ve `satir: <n>`."}
+TABAN =ajan_sira.ARGV[:ajan_sira.ARGV.index('{"mcpServers":{}}') + 1]
 yedek = cc_profil.kur("ajan", profiller=KOK / "profiller/cc-arka.json.token4-yedek",
                       gecici=Path(tempfile.gettempdir()) / "cc_profil_yedek")[0]
 KOLLAR = {"araclar": ajan_sira.ARGV, "yedek": [*TABAN, *yedek]}
@@ -34,11 +40,12 @@ def transkript(sid):
     return ilk, araclar, hata
 
 
-for ad in sys.argv[1:] or KOLLAR:
+is_ = sys.argv[2] if len(sys.argv) > 2 else "k11"
+for ad in sys.argv[1:2] or KOLLAR:
     t = time.time()
-    p = subprocess.run(KOLLAR[ad], input=ISTEM, capture_output=True, text=True, encoding="utf-8", cwd=KOK,
+    p = subprocess.run(KOLLAR[ad], input=ISTEMLER[is_], capture_output=True, text=True, encoding="utf-8", cwd=KOK,
                        env={k: v for k, v in __import__("os").environ.items() if k != "CLAUDE_CODE_EFFORT_LEVEL"}, timeout=1200)
-    (D / f"kapi-{ad}.json").write_text(p.stdout or p.stderr, encoding="utf-8")
+    (D / f"kapi-{ad}{'' if is_ == 'k11' else '-' + is_}.json").write_text(p.stdout or p.stderr, encoding="utf-8")
     j = json.loads(p.stdout) if p.stdout.strip().startswith("{") else {}
     ilk, araclar, hata = transkript(j.get("session_id", "-"))
     print(ad, "rc", p.returncode, f"{time.time() - t:.0f}s", "ilk_girdi", ilk, "tur", j.get("num_turns"),

@@ -350,3 +350,9 @@ yt-chapters	video-medya	claude
 yt-dlp	video-medya	claude
 yt-edit	video-medya	claude
 yt-shorts	video-medya	claude
+context-manager	token-dışı	ogren1-geri
+context-window-design	token-dışı	ogren1-geri
+ajn-ajan-bellek-tasarimi	token-dışı	ogren1-geri
+sessions	token-dışı	ogren1-geri
+deepseek-harness	token-dışı	ogren1-geri
+PreToolUse:Bash|PowerShell	token-dışı	ogren1-geri
