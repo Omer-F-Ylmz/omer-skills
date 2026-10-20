@@ -35,7 +35,17 @@ def ders_onek(metin):
     return blok + "\n\n" if blok else ""
 
 
-ESIK_DOSYA = K / "ajan-sira.esik"  # Desktop 20 Eki 13:02 (Ömer: RAM %88-90'a kadar çıkabilir): eşik dosyadan, varsayılan 88
+ORDU_DOSYA = K / "ajan-sira.ordu"  # ORDU-1: derleyici önsözü bayrağı (onay/ordu_1.py); varsayılan kapalı
+ORDU_ONEK = ("ORDU-1 derleyici: işi böl; keşif/okuma/özet/test koşusunu alt ajana ver. Kademe: "
+             "`python tools/ordu.py sinif \"<iş>\"` (kolay=ücretsiz, orta=iki ücretsiz aile/Haiku, zor=Sonnet, imkansiz=Opus). "
+             "Sen yalnız derle, doğrula, iyileştir.\n\n")
+
+
+def ordu_onek():
+    return ORDU_ONEK if ORDU_DOSYA.exists() else ""
+
+
+ESIK_DOSYA = K / "ajan-sira.esik" # Desktop 20 Eki 13:02 (Ömer: RAM %88-90'a kadar çıkabilir): eşik dosyadan, varsayılan 88
 
 
 def esik():
@@ -195,7 +205,7 @@ def main():
                 if not kosul_tamam(kosul):
                     continue
                 metin = (KOK / istem).read_text(encoding="utf-8")
-                metin = ders_onek(metin) + metin
+                metin = ders_onek(metin) + ordu_onek() + metin
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:
