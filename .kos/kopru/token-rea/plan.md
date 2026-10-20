@@ -121,3 +121,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. Headroom 1. adım: kalite seti (≥10 madde + held-out, `heldout_uret.py` türü) + 4 eksen taban + kaynak okuma mekanizması + plan.
 2. Bağlam gözlem sayısı: 8/10 ara değer için `baglam_kalite.py kapsam` (havuzsuz, 0 çağrı) — kapsam ≥ 15'in %95'i ve token < 15 ise `token_rea_baglam.py` hedef değerini güncelle.
 3. Tur × bağlam kolu ölçümü (erken /clear önerisi, /autocompact değişmez).
+
+## d9 SONUÇ (20 Eki 2026; Claude -p 0/15, havuz 0/80)
+1. **Headroom 1. adım** (`hr_kalite.py`, betik üretimli 10 yük = json3/log3/arama2/fark2, tohum 2010204 held-out; iğne bilgi sıkıştırılmış çıktıda duruyor ya da CCR hash ile geri alınabilir). Taban: kalite 10/10 doğrudan · token −%41.1 (json −59.6 · log −47.1 · arama −6.0 · **fark 0.0, ikisi PASSTHROUGH**) · süre ort 0.92 sn (log 2.1 sn; ilk soğuk çağrıda ML modeli hazır değil → 20 sn aşımı PASSTHROUGH görüldü) · RAM: satırda ram_mb · üretim 14 gün −%28.8 (taban.md). Mekanizma d1 `mekanizma.md` (ContentRouter + SmartCrusher + CCR). Zayıf yer: arama/fark (tekrar eden bağlam satırı) ve soğuk-yol 20 sn aşımı.
+   **hr2 tasarımı** (yanında kurulur, Headroom kaldırılmaz): ML'siz tek geçiş "şablon-satır çökertici" — art arda aynı şablona uyan satırları (sayı/yol maskeli) `[×N şablon, ilk..son]` yap, şablondan sapan satırlar (iğne) olduğu gibi kalır, tam metin hash ile saklanır + tek satır geri alma komutu (rtk2 `ac` biçimi). Kapı (dört eksen): token ≥ −%41.1 ve fark/arama türlerinde >0, kalite 10/10 + yeni tohum held-out, süre ≤ 0.92 sn, 0 PASSTHROUGH. Uygulama d10.
+2. **Bağlam gözlem sayısı** (`baglam_kalite.py kapsam`, N ortam değişkeni, 0 çağrı, 24 soru): rütbe 7-15 kapsamı 15'te 0.25 · N=6 0.17 (arama dahil) · **N=7 0.25 (arama dahil)** · N=8 0.25 · N=10 0.25 (aramasız). Hepsi: 15=0.42, 7+arama=0.42. Token: N=7+arama ≈188 vs 15 ≈342 (−%45). Kural gereği en küçük eşit sayı **7** (aramasız yolda 10) → `onay/token_rea_baglam.py` hedefi 15→7, test geçti; UYGULANMADI (Ömer onayı). Sınır: 7-15. gözlemler yalnız `mem-search` ile erişilir.
+3. **Tur × bağlam** (`tur_baglam.py`, yalnız ölçüm, /autocompact DEĞİŞMEZ; ≥5 istekli 846 ana oturum, 55 224 istek, cache okuma 17.3G): bağlamı >120k olan istek payı %59, cache okumanın %91'i bunlarda (d7'deki 79k ortalama yalnız kısa kod dalgası profiliydi). Karşı-olgusal "bağlam >E olunca 30k tabana dön" üst sınırı: E=80k %84 · 120k %78 · 160k %73 cache okuma azalır (devir kaybı, yeniden yazma maliyeti, kalite etkisi HARİÇ → gerçek kazanç bunun altında). Kalite A/B yok → öneri değil, yön: asıl kaldıraç tur×bağlam.
+
+## ★ d10 TASLAK
+1. hr2 çökertici (yukarıdaki tasarım) + yeni tohum held-out kapı → geçerse `onay/token_rea_hr2.py`.
+2. Erken devir A/B: ≥2 uzun köprü görevinde "bağlam >120k'da dalga.md devri + /clear" vs sürekli bağlam, kalite eşit mi; devir yeniden yazma maliyeti ölçülür.
+3. Sıradaki tabanlı araçlar (claude-mem arama, context-mode).

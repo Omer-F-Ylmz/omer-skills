@@ -3,7 +3,7 @@ Soru seti BETİKLE üretilir (tohumlu; geliştiren oturum içeriği okumaz, yaln
 soru hedefi hedef rütbeden (1-6: iki kolda da bağlamda · 7-15: yalnız 15 kolunda). Yanıtlayıcı ücretsiz havuz, anahtar eşleşmesi betikle.
   python baglam_kalite.py uret <tohum> → heldout/baglam_<tohum>.json + .lock
   python baglam_kalite.py skor <tohum> → baglam_kalite_<tohum>.json (çağrı ≈ 1 + 3×soru)"""
-import hashlib, json, random, re, sqlite3, sys
+import hashlib, json, os, random, re, sqlite3, sys
 from pathlib import Path
 
 BU = Path(__file__).parent
@@ -102,7 +102,7 @@ def kapsam(*tohumlar):  # havuzsuz, gürültüsüz üst sınır: anahtar sözcü
         for h in json.loads((HO / f"baglam_{t}.json").read_text(encoding="utf-8")):
             a = kelimeler(h["anahtar"]) or {h["anahtar"].lower()}
             var = lambda c: int(len(a & kelimeler(c)) >= max(1, round(0.6 * len(a))))
-            c6 = baglam(g, h["kesme"], 6)
+            c6 = baglam(g, h["kesme"], int(os.environ.get("N", 6)))  # N: aday gözlem sayısı
             c6s = c6 + "\n" + ara(g, h["kesme"], h.get("soru") or h["anahtar"])
             satir.append((h["rutbe"] > 6, var(baglam(g, h["kesme"], 15)), var(c6), var(c6s), jeton(c6) if var(c6) else jeton(c6s)))
     for ad, f in (("hepsi", lambda r: True), ("rutbe1-6", lambda r: not r[0]), ("rutbe7-15", lambda r: r[0])):

@@ -11,6 +11,6 @@ def test_kuru_uygula_geri(tmp_path):
     mem.write_bytes(ilk)
     assert t.main(["--kuru"], ev, mem) == 0 and mem.read_bytes() == ilk
     t.main(["uygula"], ev, mem); t.main(["uygula"], ev, mem)
-    assert mem.read_bytes() == ilk.replace(b'"15"', b'"6"')
+    assert mem.read_bytes() == ilk.replace(b'"15"', b'"7"')
     t.main(["--geri"], ev, mem)
     assert mem.read_bytes() == ilk
