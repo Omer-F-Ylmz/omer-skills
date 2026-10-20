@@ -46,7 +46,9 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U)),
        # 20 Eki canlı: mistral 429 (hız sınırı, kendini toparlarsa açılır) · cloudflare 200 · ollama "Free usage limit" 429; sınırlar acilabilir.md'deki belge değerlerinin muhafazakârı; ilk 429'da soğuma devreye girer
        E("mistral", "mistral-small-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, U)),
+       E("mistral", "ministral-8b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y)),  # HAVUZ-3: mistral-small/medium 429 (1300), large 403 tier; ministral 200
        E("cloudflare", "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "meta", None, 60, 20_000, 150, 20_000, (Z, H, Y)),
+       E("nvidia", "openai/gpt-oss-20b", "openai", None, 30, 100_000, 1000, 100_000, (Z, H, Y)),  # HAVUZ-3: 200 (2 sn); llama-3.3 410, nemotron-nano 404, deepseek-v4.1-flash/gemma-4 zaman aşımı
        E("nvidia", "google/gemma-4-31b-it", "google", None, 30, 100_000, 1000, 100_000, ()),  # KAPALI: llama-3.3 410, mistral-large/nemotron-70b 404, gemma/deepseek 60 sn zaman aşımı (20 Eki)
        E("sambanova", "gpt-oss-120b", "openai", None, 20, 20_000, 20, 60_000, ()),  # KAPALI: 402 PAYMENT_METHOD_REQUIRED (ücretsiz bakiye yok, 20 Eki); Llama-3.3 yoğunluktan 429
        E("ollama", "gpt-oss:120b", "openai", None, 6, 100_000, 100, 100_000, (Z, H, Y))]
