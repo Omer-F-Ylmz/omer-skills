@@ -188,5 +188,10 @@ if __name__ == "__main__":
                        capture_output=True, timeout=120, creationflags=0x08000000)
     except Exception as e:
         yaz("yetim hata:", repr(e)[:200])
+    try:  # RAM büyüme alarmı (log + uyku-ozet satırı; öldürmez)
+        subprocess.run([sys.executable, os.path.join(KOK, "tools", "ram", "buyume.py")],
+                       capture_output=True, timeout=120, creationflags=0x08000000)
+    except Exception as e:
+        yaz("buyume hata:", repr(e)[:200])
     if ram() < 95:
         beyin()
