@@ -1,0 +1,11 @@
+# BEYIN-1 d1b — KAPI GEÇMEDİ (2001 %95 ✓ · 2002 %75 ✗)
+- d1 yarımı sağlam devralındı (beyin.py/beyin_al/beyin_bakim/skill/test; kasa C:\Users\pc\Desktop\Obsidian 1261 not). Kasa commit dc9f631 + 1bae616 (00-cekirdek ~550 token).
+- Yeni: tools/beyin_diyet.py (geçmiş ★ → .kos/kopru/gorev-gecmis/, kuru: ogren-1 19747→7186 B), beyin_al gorev-gecmis kaynağı, SKILL NotebookLM geniş katman satırı, onay/beyin_1_uygula.py (skill → ~/.claude; Desktop allowlist değişikliği gerekmez: `python` açık). Test 4/4.
+- Kapı: 40 soru (okuyucu üretti), tohum 2001/2002 × 20; cevaplayıcı yalnız `beyin ara`, ayrı kör hakemler: 19/20, 15/20.
+- Token: B 346 915 ↔ A 2 163 339 girdi token (= %16, hedef ≤%40 ✓).
+- Çekirdek: köprü ilk tur ogren-1 118 253 → 114 913 (−%2.8); ~108k sistem+araç tanımı baskın.
+- NotebookLM 10 soru: 1/10 kullanılır; 5 saatlik limit katmanı + bayat cevap okuma (nblm betiği d2'de).
+- Iskalar (6): içe alma 2 (global CLAUDE.md kaynak değil: 39, 40) · arama 4 (19, 24, 12 yanlış ★, 29 yanlış satır) · soru 0 · hakem 0.
+- Sayım: claude -p 2/3 · ücretsiz model 0/60 · alt ajan 6 (bitti 6, killed 0) · RAM %83–84 → vektör kapalı.
+- d2: CLAUDE.md/RTK.md içe alma · sorgu varyantı + ★/başlık ağırlığı · yeni tohum 2003/2004 + 40 ek soru · görev diyeti `--uygula` Desktop onayıyla · nblm limit/bayat cevap düzeltmesi.
+- Ayrıntı: docs/ogren/beyin.md · ölçüm dosyaları .claude/beyin1/.
