@@ -4,6 +4,30 @@ Yönlendirici `tools/yonlendir.py` + `tools/yonlendir-kurallar.json` (20 tür, T
 kart `skills/is-akisi/references/calisma-karti.md` (FABLE-1 protokolü + Opus/Fable tarzı), ölçüm `tools/olcum/yonlendir_olc.py`,
 ham çıktı `docs/ogren/yonlendir-olcum/`. Önceki iş: ROUTER-1 d3 (12 Eki) `model_sec` (yalın oturum + effort sınıfı) — bayraklar ondan.
 
+## d3 (20 Eki 11:55) — KAPI GEÇTİ
+(a) kod-oku/regex/alan-cikar T1'e (kural tablosu; T1 zinciri son çare Haiku 5.5). (b) Sabit yük: d2 kullanımından çözülen
+fiyat (Sonnet 5.5 girdi $2/M, yazım 1h $4/M, okuma $0.1/M, çıktı $10/M) → tek atımlık çağrıda en ucuz `FORCE_PROMPT_CACHING_5M=1`
+(yazım $2.5/M); `--resume` YALIN'daki `--no-session-persistence` ile çakışır, seçilmedi. Koşuda 5m yazımı doğrulandı (iki kol).
+(c) Karışım = son 7 gün köprü iş kaydı (112 iş: ogren 34 · video 26 · token 21 · atlas 11 · graphify+diğer 20; yonlendir-kayit
+yalnız ölçüm satırı içeriyor) → ogren 4 (G01 sayim, G05 lisans, G06 etiket, G09 alan-cikar) · video 3 (G13 etiket, G14 alan-cikar,
+G15 video-rapor) · token 2 (G07 kod-oku, G10 kod-yaz) · atlas 1 (G03 birlestir) · graphify+diğer 2 (G08 regex, G11 hata-duzelt).
+Kademe: T0 2 · T1 7 · T2 1 · T3 2. Varsayım: iş ailesi → tür eşlemesi oturum düzeyinde, alt görev dağılımı ölçülmedi.
+
+| çağrı | A (USD) | B koşu 1 | B koşu 2 |
+|---|---|---|---|
+| T1 toplu (7) | 0.0445 (Sonnet high) | 0 (Groq) | 0.0018 (Haiku; Groq kota, nemotron 404, ollama hata) |
+| T2 toplu | 0.0254 (high) | 0.0045 (medium, A önbelleğini okudu) | 0.0323 (medium) |
+| T3 toplu (ortak) | 0.0476 | 0.0476 | 0.0476 |
+| toplam / başarı | 0.1175 · 12/12 | 0.0521 (−%56) · 12/12 | 0.0818 (−%30.4) · 12/12 |
+
+Ham jeton: A 32 712 · B1 23 655 (−%28) · B2 33 949 (+%4, Haiku'nun 14k girdisi). claude -p 6 · ücretsiz 16 · sınıflayıcı 3/12.
+Adil olan B2 (B1 d2'deki gibi A önbelleğinden yararlandı); B2 eşiği ancak geçiyor: ücretsiz kota düşünce kazanç ~%30'a iner.
+Ham: `docs/ogren/yonlendir-olcum-d3/`.
+
+ogren-ortak.md satır taslağı (Desktop yazar): "Alt görev kademesi: `python tools/yonlendir.py sec <tür>` → T0 betik · T1
+`yonlendir.t1` (Groq→nemotron→ollama→Haiku) · T2 Sonnet medium · T3 Sonnet high; kabul mekanikse doğrulama light, başarısızlıkta
++1 kademe (≤2); claude -p çağrılarında `FORCE_PROMPT_CACHING_5M=1`; her koşu `yonlendir.kaydet` ile kayda."
+
 ## d2 (20 Eki 11:10) — adil ölçüm: iki kol aynı çağrı yapısı, kapı = USD eşdeğeri
 Yapı: T0 betik · T1 toplu · T2 toplu · T3 toplu, kart (461 karakter, ~165 jeton kestirimi: d1 kartı 1 963 kr ≈ 700 jeton) her
 istemde. A: T1–T3 Sonnet high. B: T1 `yonlendir.t1` zinciri (Groq gpt-oss-120b → nemotron :free → ollama qwen3.5:4b → Haiku 5.5),

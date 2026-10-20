@@ -1,4 +1,6 @@
-"""ROUTER-1 d2 (20 Eki) ölçüm kapısı: 12 görev (3 T0 · 3 kolay · 3 orta · 3 zor), (A) Sonnet high ↔ (B) tools/yonlendir.py.
+"""ROUTER-1 d3 (20 Eki): d2 yapısı aynı; görev kademesi kural tablosundan (kod-oku/regex/alan-cikar T1), karışım son 7 gün köprü
+iş kaydına göre (ogren 4 · video 3 · token 2 · atlas 1 · graphify+diğer 2), claude -p FORCE_PROMPT_CACHING_5M=1 (iki kolda).
+ROUTER-1 d2 (20 Eki) ölçüm kapısı: 12 görev (3 T0 · 3 kolay · 3 orta · 3 zor), (A) Sonnet high ↔ (B) tools/yonlendir.py.
 İki kol AYNI çağrı yapısı: T0 betik · T1 toplu · T2 toplu · T3 toplu, kart her toplu istemde. A'da T1–T3 Sonnet high; B'de T1
 yonlendir.t1 zinciri (Groq → nemotron :free → ollama → Haiku), T2 Sonnet medium, T3 Sonnet high. T1 kalanı B'nin T2 topluna
 katılır; T2 kalanı tek yükseltme çağrısıyla T3'e. claude -p ≤6 → T3 toplusu iki kolda birebir aynı çağrı (bir kez koşar, iki
@@ -6,6 +8,7 @@ kola yazılır) ve A bir kez koşar; B iki koşu. Kapı (her B koşusu): başar�
 Kabul her görevde yerel ve mekanik (test/şema/eşitlik) — denetçi modeli yok. Ham yanıtlar <çıktı>/ altında.
   python .kos/kopru/arka.py <günlük> .kos/kopru/olcum_sira.py tools/olcum/yonlendir_olc.py <çıktı_dizini> [--yeniden]"""
 import json
+import os
 import re
 import subprocess
 import sys
@@ -40,6 +43,14 @@ BUGLI = oku("tools/model_sec.py").split("if __name__")[0].replace("if i >= len(E
 assert BUGLI.count("if i > len(EFFORT):") == 1
 REGEX_POZ = ["openrouter/nvidia/nemotron-3-super-120b-a12b:free", "openrouter/google/gemma-4-31b-it:free", "groq/llama-4:free"]
 REGEX_NEG = ["cc-ucuz-free", "openrouter/x/y", "openrouter//y:free", "a/b:free:x", "openrouter/a b/c:free", ":free", "x:free"]
+VRAPOR = oku("docs/video-tarama/2026-10-12-ig-DeV2n53gLgf.md")
+KONU = ["model/llm", "site/frontend", "otomasyon/iş", "token", "3d/blender", "güvenlik", "oyun"]
+VADAY = ["rea", "claude code", "codex", "notion", "electron", "skool"]
+
+
+def _ozet3(y):
+    s = str(y).strip().splitlines()
+    return len(s) == 3 and all(x.startswith("- ") and len(x) <= 160 for x in s) and all(k in str(y) for k in ("REA", "Notion"))
 
 
 def _kod_test(kod, test):
@@ -78,26 +89,21 @@ HATA_TEST = f"import sys\nsys.path.insert(0, {str(KOK / 'tools')!r})\nimport mod
 GOREV = {
     "G01": ("sayim", "T0", "Bu TSV'de kol sütunu 'A' olan satırların cikti sütunu toplamı (boşlar 0). Yanıt: tamsayı.\n"
             + oku("docs/router-1/olcum.tsv"), lambda y: str(y).strip() == str(_tsv_toplam()), _tsv_toplam),
-    "G02": ("bicim", "T0", "Ajan tanımlarının frontmatter'ından {dosya adı (uzantısız): model} JSON nesnesi çıkar.\n" + "\n".join(
-        f"--- {p.name}\n" + "\n".join(p.read_text(encoding="utf-8").splitlines()[:6]) for p in sorted((KOK / ".claude/agents").glob("*.md"))),
-        lambda y: y == AJAN, lambda: AJAN),
     "G03": ("birlestir", "T0", f"İki listenin birleşimi: tekil, Python sorted() sırasıyla JSON dizi.\nL1: {json.dumps(SKILL)}\n"
             f"L2: {json.dumps(sorted(AJAN))}", lambda y: y == BIRLESIM, lambda: BIRLESIM),
-    "G04": ("lisans", "T1", "Bu lisans metninin SPDX kimliği nedir? Yanıt: SPDX dizgesi.\n" + oku(LIS["G04"], 1500),
-            lambda y: bool(re.fullmatch(r"apache[- ]?(license[- ])?2\.0", str(y).strip().lower())), None),
     "G05": ("lisans", "T1", "Bu lisans metninin SPDX kimliği nedir? Yanıt: SPDX dizgesi.\n" + oku(LIS["G05"], 1500),
             lambda y: str(y).strip().lower() == "mit", None),
     "G06": ("etiket", "T1", f"Bu commit iletisinin iş türü hangisi? Seçenekler: {' | '.join(ETIKET)}. Yanıt: seçeneklerden biri.\n{COMMIT}",
             lambda y: str(y).strip() == "hata-duzelt", None),
-    "G07": ("kod-oku", "T2", "Aşağıdaki modülde bayraklar('yargi', kademe=2) dönüşündeki --model ve --effort değerleri? "
+    "G07": ("kod-oku", "T1", "Aşağıdaki modülde bayraklar('yargi', kademe=2) dönüşündeki --model ve --effort değerleri? "
             "Yanıt: {\"model\": ..., \"effort\": ...}\n" + oku("tools/model_sec.py"),
             lambda y: isinstance(y, dict) and (y.get("model"), y.get("effort")) == tuple(
                 model_sec.bayraklar("yargi", kademe=2)[i] for i in (1, 3)), None),
-    "G08": ("regex", "T2", "OmniRoute ücretsiz model kimliğini re.fullmatch ile tanıyan Python regex yaz: '/' ile ayrılmış en az iki boş "
+    "G08": ("regex", "T1", "OmniRoute ücretsiz model kimliğini re.fullmatch ile tanıyan Python regex yaz: '/' ile ayrılmış en az iki boş "
             "olmayan parça (sağlayıcı/…/model), boşluk yok, kimlik ':free' ile biter ve ':free' yalnız sonda; combo adları "
             "(cc-ucuz-free gibi) eşleşmez. Örnek: openrouter/google/gemma-4-31b-it:free ✓, openrouter/x/y ✗. Yanıt: regex dizgesi.",
             lambda y: _regex_ok(y), None),
-    "G09": ("alan-cikar", "T2", "Bu betik belgesindeki çıkış kodlarını {\"kod\": \"anlam\"} JSON nesnesi olarak çıkar.\n"
+    "G09": ("alan-cikar", "T1", "Bu betik belgesindeki çıkış kodlarını {\"kod\": \"anlam\"} JSON nesnesi olarak çıkar.\n"
             + "\n".join(oku("tools/ucuz_alt.py").splitlines()[:9]), lambda y: isinstance(y, dict) and set(y) == {"0", "1", "3", "4"}, None),
     "G10": ("kod-yaz", "T3", "Yalnız stdlib ile `def json_al(y: str) -> dict | None` yaz: model yanıtındaki İLK GEÇERLİ JSON NESNESİNİ "
             "döndür; ```json çiti, önde/arkada düzyazı, dizgi içinde { } ve önce bozuk {…} parçası olabilir; dizi nesne sayılmaz; "
@@ -105,10 +111,14 @@ GOREV = {
     "G11": ("hata-duzelt", "T3", "Bu modülde bayraklar('yargi', kademe=2) IndexError veriyor. Kök nedeni bul; düzeltilmiş TAM modülü "
             "(import'lar dahil, __main__ bloğu olmadan) ver. Yanıt: Python kodu (dizge).\n" + BUGLI,
             lambda y: _kod_test(str(y), HATA_TEST), None),
-    "G12": ("kod-yaz", "T3", "Yalnız stdlib ile `def sure_sn(s: str) -> float` yaz: '1:02:03'→3723, '02:03'→123, '1h2m3s'→3723, "
-            "'45s'→45, '1.5m'→90, '2h'→7200, baş/son boşluk yok sayılır; geçersiz girdi ('', 'abc', '1:2:3:4', '5x') ValueError. "
-            "Yanıt: tam Python kodu (dizge).", lambda y: _kod_test(str(y), SURE_TEST), None),
+    "G13": ("etiket", "T1", f"Bu video raporunun konu etiketleri? Seçenekler: {' | '.join(KONU)}. Yanıt: 1–3 seçenekten JSON dizi.\n"
+            + VRAPOR, lambda y: isinstance(y, list) and 1 <= len(y) <= 3 and "model/llm" in y and set(y) <= set(KONU), None),
+    "G14": ("alan-cikar", "T1", "Bu video raporundaki aday araç/ürün adlarını JSON dizi olarak çıkar (yalnız özel adlar).\n" + VRAPOR,
+            lambda y: isinstance(y, list) and sum(any(k == str(x).strip().lower() for x in y) for k in VADAY) >= 5, None),
+    "G15": ("video-rapor", "T2", "Bu video raporunun Türkçe özeti: tam 3 satır, her satır '- ' ile başlar, ≤160 karakter, REA ve Notion "
+            "adları geçer. Yanıt: 3 satırlık dizge.\n" + VRAPOR, _ozet3, None),
 }
+assert all(g[1] == yonlendir.sec(g[0])["kademe"] for g in GOREV.values())  # kademe kural tablosundan
 
 
 def _regex_ok(y):
@@ -146,7 +156,8 @@ def claude(istem, kd, ham, yeniden):
             raise RuntimeError("claude -p tavanı")
         Sayac.claude += 1
         r = subprocess.run(["claude", "-p", "--output-format", "json", "--max-budget-usd", str(USD_TAVAN), *yonlendir.argv(kd)],
-                           input=istem, capture_output=True, text=True, encoding="utf-8", timeout=900, creationflags=0x08000000)
+                           input=istem, capture_output=True, text=True, encoding="utf-8", timeout=900, creationflags=0x08000000,
+                           env={**os.environ, "FORCE_PROMPT_CACHING_5M": "1"})  # d3: tek atımlık çağrıda 1h yazımı ($4/M) yerine 5m ($2.5/M)
         ham.write_text(r.stdout, encoding="utf-8")
     try:
         d = json.JSONDecoder().raw_decode(ham.read_text(encoding="utf-8").lstrip())[0]

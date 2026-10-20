@@ -18,7 +18,10 @@ def test_sec_boyut_risk_ve_t0_sabit():
     assert yonlendir.sec("kod-yaz", "buyuk")["kademe"] == "T4"
     assert yonlendir.sec("sayim", "buyuk", ["guvenlik"])["kademe"] == "T0"
     r = yonlendir.sec("regex", risk=["kullaniciya-gider"])
-    assert (r["kademe"], r["dogrulama"], r["effort"]) == ("T2", "full", "medium")
+    assert (r["kademe"], r["dogrulama"], r["effort"]) == ("T1", "full", "low")  # d3: kabulü mekanik T2 türleri T1'e
+    assert {yonlendir.sec(t)["kademe"] for t in ("kod-oku", "alan-cikar")} == {"T1"}
+    r = yonlendir.sec("video-rapor")
+    assert (r["kademe"], r["effort"]) == ("T2", "medium")
     assert yonlendir.sec("mimari", "buyuk", ["guvenlik"])["kademe"] == "T4"
     assert yonlendir.sec("yok-boyle") is None
 
@@ -63,13 +66,13 @@ def test_argv_yalin_oturum():
 def test_kos_yukseltir_kaydeder_tukenince_sira(tmp_path, monkeypatch):
     monkeypatch.setattr(yonlendir, "KAYIT", tmp_path / "k.jsonl")
     monkeypatch.setattr(yonlendir, "SIRA", tmp_path / "SIRA.md")
-    cikti, kd = yonlendir.kos(yonlendir.sec("regex"), lambda kd: (kd["kademe"], {"giris": 5, "cikis": 1}),
+    cikti, kd = yonlendir.kos(yonlendir.sec("video-rapor"), lambda kd: (kd["kademe"], {"giris": 5, "cikis": 1}),
                               lambda c, kd: c == "T3", ad="g1")
     assert (cikti, kd["kademe"]) == ("T3", "T3")
     s = [json.loads(x) for x in (tmp_path / "k.jsonl").read_text(encoding="utf-8").splitlines()]
     assert [(x["kademe"], x["sonuc"], x["yukseltme"]) for x in s] == [("T2", "kaldi", 0), ("T3", "gecti", 1)]
     assert not (tmp_path / "SIRA.md").exists()
-    cikti, kd = yonlendir.kos(yonlendir.sec("regex"), lambda kd: (None, {}), lambda c, kd: False, ad="g2")
+    cikti, kd = yonlendir.kos(yonlendir.sec("video-rapor"), lambda kd: (None, {}), lambda c, kd: False, ad="g2")
     assert cikti is None and kd["kademe"] == "T4"  # T2 → T3 → T4, iki yükseltme
     assert "YÜKSELTME TÜKENDİ: g2" in (tmp_path / "SIRA.md").read_text(encoding="utf-8")
 
@@ -80,8 +83,8 @@ def test_ozet_yukari_oneri_ve_yaz(tmp_path, monkeypatch):
     monkeypatch.setattr(yonlendir, "KURAL", kural)
     monkeypatch.setattr(yonlendir, "KAYIT", tmp_path / "k.jsonl")
     monkeypatch.setattr(yonlendir, "SIRA", tmp_path / "SIRA.md")
-    kd = yonlendir.sec("regex")
+    kd = yonlendir.sec("video-rapor")
     for sonuc in ("kaldi", "kaldi", "gecti"):
         yonlendir.kaydet(kd, sonuc, {}, 0)
     o = yonlendir.ozet(yaz=True)
-    assert o["oneri"] == {"regex": "T3"} and yonlendir.kurallar()["tur"]["regex"]["kademe"] == "T3"
+    assert o["oneri"] == {"video-rapor": "T3"} and yonlendir.kurallar()["tur"]["video-rapor"]["kademe"] == "T3"

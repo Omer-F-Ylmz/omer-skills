@@ -1,0 +1,32 @@
+{
+ "A_basari": 12,
+ "A_jeton": 32712,
+ "A_usd": 0.1175,
+ "kalan_A": [],
+ "B1": {
+  "basari": 12,
+  "jeton": 23655,
+  "usd": 0.0521,
+  "kalan": [],
+  "t1_model": "openai/gpt-oss-120b",
+  "usd_azalma": 0.557,
+  "jeton_azalma": 0.277,
+  "gecti": true
+ },
+ "B2": {
+  "basari": 12,
+  "jeton": 33949,
+  "usd": 0.0818,
+  "kalan": [],
+  "t1_model": "claude-haiku-5-5",
+  "usd_azalma": 0.304,
+  "jeton_azalma": -0.038,
+  "gecti": true
+ },
+ "sinif_dogru": 3,
+ "sinif_jeton": 4412,
+ "claude_p": 6,
+ "ucretsiz": 16,
+ "kart_karakter": 461,
+ "KAPI": true
+}
