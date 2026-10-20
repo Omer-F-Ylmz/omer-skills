@@ -498,3 +498,5 @@ TOKEN-3 d6 ara: K15 skill adayı (kapı 14/17 < 15/17, DEVAM-KURALI geri), K14 s
 - ÖĞREN-2 BİTTİ (G1 d3): kapı t11 %99/%100 · t12 %99/%99 (25 kart×4 alan, 2 hakem/tohum) · A 146 kart + B 585 · kombin-1..6 (4 Desktop DENENMEDİ) · departman-frontend +ogren.md, zip TEMİZ
 - ÖĞREN-6 KAPI KISMİ (d4, 20 Eki): düzeltmeden sonra t67 %95 · t68 %94 (tek hakem, Y 5/6 / 100 alan); ikinci hakemler RAM %96 yüzünden koşmadı; öncesi t65/t66 ≈%85 (ders-yuvasi regex hatası giderildi). 148 kart RET 0, komut belirsiz 117→0, sınırlar 18→7, mekanizma 19 yeniden; borç ogren/ogren-6-borc.tsv — Desktop kararı (BİTTİ DEĞİL)
 - ÖĞREN-6 BİTTİ: kapı t67 %95/%96 · t68 %94/%93 (iki kör hakem); müdür skill ders + dist/ogren6-kapanis zip TEMİZ + docs/ogren/test-qa.md; borç ogren-6-borc.tsv
+
+TERS-1 d1 — REA=morluto/rea (MIT, aktif); tarama: SkillSpector toplam DO_NOT_INSTALL (16 MEDIUM, 0 HIGH madde) → kurulmadı; tersine taslağı + kapı tasarımı yazıldı; mini deneme d2. Rapor: .kos/kopru/rapor/ters-1.md
