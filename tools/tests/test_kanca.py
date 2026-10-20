@@ -210,3 +210,13 @@ def test_kalibre_uydur():
     assert odul > 0 and bd == 1.0 and pay is not None
     e, odul, _, bd, _, _ = kalibre.uydur([(8, 5, 0, None, 1)] * 4 + [(3, 5, 0, None, 0)] * 4)
     assert odul == 0 and 3 < e <= 8 and bd == 1.0
+
+
+def test_isle_son_mesajsiz_koşu_yargılanmaz(depo):
+    # RUFLO-2 d2: transkript tool_use ile bitmiş (yürütme dışı) koşu karma 0.0 üretip dersi haksız düşürüyordu (181 yargıda 125)
+    i = ders_ekle()
+    kanca._ekle("s8", {"tip": "getir", "ajan_id": "a0", "ajan": "kodcu", "ids": [i]})
+    kanca._ekle("s8", {"tip": "bitti", "ajan_id": "a0", "ajan": "kodcu", "gorev": "islev.py düzelt", "arac": 5, "hata": 0, "tur": 4, "son": ""})
+    yargic = lambda s: pytest.fail("son mesajsız koşu yargıca gitmez")  # noqa: E731
+    assert kanca.isle("s8", yargic=yargic, damit=lambda m: pytest.fail("damıtma yok")) == 0
+    assert ders.oku()[0]["kullanim"] == 0

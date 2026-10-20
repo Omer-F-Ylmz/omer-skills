@@ -177,7 +177,8 @@ def isle(oturum, yargic=None, damit=None):
     """Oturum başı ≤1 yargı çağrısı + ≤1 damıtma çağrısı. → işlenen yörünge sayısı (atlandıysa 0)."""
     yol = kuyruk(oturum)
     kayit = list(_satirlar(yol)) if yol.exists() else []
-    bitti = [k for k in kayit if k["tip"] == "bitti"][-5:]
+    # RUFLO-2 d2: son mesajı olmayan koşu (transkript tool_use ile bitti) yürütme dışı → karma 0.0 yazıp dersi haksız düşürüyordu
+    bitti = [k for k in kayit if k["tip"] == "bitti" and (k.get("son") or "").strip()][-5:]
     if not bitti:
         return 0
     try:
