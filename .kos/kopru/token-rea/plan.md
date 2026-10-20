@@ -166,3 +166,9 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. Devir ikinci A/B: ≥120k bağlam doğuran görev (ör. 60+ dosya okuma), A vs B; yalnız bu geçerse bayraklı devir. Alternatif: devir kararını bırak, sim'i yalnız not et.
 2. claude-mem arama hızı (0,8–1,0 sn → yerel FTS önbelleği) + rütbe 7–15 kalitesi, 4 eksen kapı.
 3. context-mode taban.
+
+## ★ d13 SONUÇ
+- Uzun bağlam devir A/B (devir_ab2.py, tohum 20102303, 2 görev × 53-55 dosya ≈150k tahmini jeton, 6 `claude -p`, ~$7.28): A 1019k ağırlıklı / $2.29 / 62 tur / 393 sn / kalite 0.391; B 2161k (x2.12) / $4.99 / 133 tur / 683 sn / kalite 0.875. KAPI GEÇMEDİ (B ≤ %70 A şartı) → devir fikri KAPANDI; ajan_sira.py bayrağı ve onay/token_rea_devir.py YAZILMADI.
+- Neden: B'de devir notu + taze oturum önek yeniden kurulumu + dosyaların ikinci kez okunması ağırlıklı toplamı ikiye katladı; A modeli dosyaları toplu/seçici okuyup bağlamı hiç 120k'ya taşımadı (girdi 659-758k / 26-36 tur ≈ 22k/tur). Kalite farkı (0.39 vs 0.88) B'nin ikinci oturumda eksik dosyaları yeniden okumasından; token kazancı değil, maliyet.
+- Çıkarım: devir simülasyonu (−%68) gerçek ajan davranışında tutmuyor; devir kararı kapalı, sim yalnız not.
+- Yapılmadı: d13 madde 2-3 (claude-mem arama hızı, context-mode tabanı) — tur kalırsa d14.

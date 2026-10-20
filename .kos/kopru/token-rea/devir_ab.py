@@ -8,7 +8,7 @@ from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[3]
 NOT_DIZIN = Path(__file__).with_name("devir_notlar")
-CAGRI_TAVAN, GOREV, DOSYA_N = 10, 3, 14
+CAGRI_TAVAN, GOREV, DOSYA_N, MAKS_TUR = 10, 3, 14, "40"
 IZIN = ["--permission-mode", "acceptEdits", "--allowedTools", "Read", "Write", "Glob"]  # Bash/Grep kapalı: sayım yalnız Read ile
 GOREV_METNI = ("GÖREV: Aşağıdaki dosyaları SIRAYLA, her birini Read aracıyla baştan sona oku (Grep/Bash kullanma, alt ajan çağırma). "
                "Her dosya için: satır başında (girintili olabilir) `def` ya da `async def` ile başlayan satır sayısı ve dosyadaki SON bu tür tanımın adı. "
@@ -62,7 +62,7 @@ def kos(istem):
     sayac += 1
     assert sayac <= CAGRI_TAVAN, "claude -p tavanı"
     t = time.time()
-    p = subprocess.run(["claude", "-p", "--output-format", "json", "--model", "sonnet", "--max-turns", "40", "--disable-slash-commands",
+    p = subprocess.run(["claude", "-p", "--output-format", "json", "--model", "sonnet", "--max-turns", MAKS_TUR, "--disable-slash-commands",
                         "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', *IZIN], input=istem, capture_output=True, text=True,
                        encoding="utf-8", cwd=KOK, timeout=1200, creationflags=0x08000000)
     j = json.loads(p.stdout)

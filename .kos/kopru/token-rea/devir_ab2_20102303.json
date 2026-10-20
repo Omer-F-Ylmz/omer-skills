@@ -1,0 +1,54 @@
+[
+ {
+  "gorev": "g1",
+  "dosya": 55,
+  "devir_k": 42,
+  "tahmin": 153787,
+  "A": {
+   "girdi": 758376,
+   "agirlikli": 582739,
+   "tur": 36,
+   "sn": 243,
+   "usd": 1.2801996999999998,
+   "kalite": 0.393
+  },
+  "B": {
+   "girdi": 2158859,
+   "agirlikli": 1064833,
+   "tur": 62,
+   "sn": 330,
+   "usd": 2.5296944000000003,
+   "kalite": 0.75,
+   "not_var": true,
+   "cagri": 2
+  },
+  "A_yanit": "?\nDOSYA|tools/video/olcum_fv.py|?|?\nDOSYA|tools/video/tests/test_altin.py|?|?\nDOSYA|tools/blender/yalin.py|?|?\nDOSYA|tests/test_jev_yargic.py|?|?\nDOSYA|.claude/igkur/p2/karar.py|?|?\nDOSYA|.claude/ogren1/d14.py|?|?\nDOSYA|tools/skill-paket/tek-sefer/ecc_paket.py|?|?\nDOSYA|tools/jev/jev/ayristir.py|?|?\nDOSYA|tools/ogrenme/ders.py|?|?\nDOSYA|labs/kare.py|?|?\nDOSYA|tools/tests/test_kanca.py|?|?\nTOPLAM=?",
+  "B_yanit": "sim.py|8|bekci\nDOSYA|tools/video/video/hafif.py|4|cagir\nDOSYA|tools/tests/test_parti_gece.py|24|test_devam_normal_hata_kodu_cokme_sayilmaz\nDOSYA|tools/video/tests/test_m3a.py|12|test_kapanis2_devam_yeniden_tek_video_sayaci_sifirlar\nDOSYA|tools/olcum/kapi10.py|5|main\nDOSYA|tests/test_beyin.py|19|test_beyin2_tohum_2006_iskalari_ilk_3_parcada\nDOSYA|tools/kontur_profil.py|4|main\nTOPLAM=500\nDEVIR-HAZIR"
+ },
+ {
+  "gorev": "g2",
+  "dosya": 53,
+  "devir_k": 45,
+  "tahmin": 150236,
+  "A": {
+   "girdi": 659593,
+   "agirlikli": 436607,
+   "tur": 26,
+   "sn": 150,
+   "usd": 1.0134535,
+   "kalite": 0.389
+  },
+  "B": {
+   "girdi": 2720702,
+   "agirlikli": 1096216,
+   "tur": 71,
+   "sn": 353,
+   "usd": 2.460112,
+   "kalite": 1.0,
+   "not_var": true,
+   "cagri": 2
+  },
+  "A_yanit": "im/references/malzemeler.py|13|_kanit\nDOSYA|tools/skill_filo_denetim.py|15|main\nDOSYA|.claude/beyin4/uret.py|5|uret\nDOSYA|tools/video/video/karar.py|8|ver\nDOSYA|tools/video/altin_mozaik.py|6|kare\nDOSYA|tools/kilavuz_tekil.py|5|main\nDOSYA|tools/olcum/token12.py|3|yabanci\nDOSYA|.kos/kopru/token-rea/rtk2.py|11|rtk2\nDOSYA|onay/mcp_hafif_2_paylas.py|8|geri\nDOSYA|tools/blender_bekci.py|8|main\nTOPLAM=237",
+  "B_yanit": "OSYA|tools/video/video/uzun.py|13|rapor_md\nDOSYA|tools/video/tests/test_derinlik2.py|29|test_s6b_dogrulanmayan_lisans_isaretlenir\nDOSYA|tools/ters/kapi_kos.py|19|main\nDOSYA|tools/yukle8.py|9|main\nDOSYA|tools/headroom_yama.py|9|main\nDOSYA|tools/katalog_ara.py|15|metin\nTOPLAM=601\n\nAtladığım şey: 1-45 değerlerini nottan aynen aldım, yeniden doğrulamadım. Ara toplamını (466) yeniden topladım ve tuttu."
+ }
+]
