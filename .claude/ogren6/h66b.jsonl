@@ -1,0 +1,25 @@
+{"ad":"db-analitik-sorgu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"api-security-testing","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-nuget-yonetici","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: '<!-- ders-yuvasi:basla -->' bir HTML yorum işaretçisi, kural değil; gerçek sınırlar 'MUST yalnız istenen kapsamı değiştir' ve 'NEVER kanıtsız bitti deme' (satır 23-25)."}}
+{"ad":"dn-efcore-modelleme","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' yorum işaretçisi kural değil; gerçek kurallar 'MUST yalnız istenen kapsamı değiştir', 'NEVER kanıtsız bitti deme' (satır 27-28)."}}
+{"ad":"debug","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-gozlemlenebilirlik","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' işaretçisi kural değil; gerçek kurallar: sır/kişisel veriyi loglama, kanıtsız bitti deme (satır 22-24)."}}
+{"ad":"db-veri-modelleme-nosql","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' işaretçisi kural değil; gerçek kurallar 'MUST yalnız istenen kapsamı değiştir', 'NEVER kanıtsız bitti deme' (satır 35-36)."}}
+{"ad":"departman-veri-db","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"security-review","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: '## Security Review: [File/Component Name]' rapor şablonu başlığı, komut değil; kaynak 'name: security-review' (satır 2) varken bu seçilmiş."}}
+{"ad":"browse","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: gstack-skill-start tüm gstack skill'lerinin ortak ön-hazırlık ikilisi (satır 30), browse'un kendi komutu değil; kendi sürücüsü 'aside repl' / $B."}}
+{"ad":"tdd","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"investigate","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: gstack-skill-start ortak gstack ön-hazırlık ikilisi (satır 78), investigate'in kendi komutu değil."}}
+{"ad":"dn-msbuild-hiz","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' işaretçisi kural değil; gerçek kural: önce taban süreyi ölç, paralellik/artımlı yapıyı kontrol et, dosya değiştirme."}}
+{"ad":"qa-e2e-playwright","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' işaretçisi kural değil; gerçek kurallar: CSS/XPath yok, sabit bekleme (waitForTimeout, networkidle) yok, test verisi env'den (satır 17-19)."}}
+{"ad":"sql-queries","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"platform-detection","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: kaynak classic (packages.config, non-SDK) projeleri de kapsıyor (satır 5, 104-111); 'Yalnız SDK stili' sınırı uydurma; gerçek sınır: test koşma/filtre/komut için kullanılmaz (run-tests)."}}
+{"ad":"owasp-top-10-testing","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"msbuild-antipatterns","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'başka makinelerde/CI'da bozulur' yalnız tek bir anti-desenin nedeni (satır 81, sabit mutlak yol); skill'in sınırı değil. Gerçek sınır: MSBuild dışı sistemlerde (npm, Maven, CMake) ve SDK-style'a göçte kullanılmaz (satır 3)."}}
+{"ad":"db-yedekleme-geri-yukleme","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' işaretçisi kural değil; gerçek kurallar: geri yüklemeyi gerçekten dene, RPO ve RTO yaz, dosya değiştirme."}}
+{"ad":"pixeljury","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: 'LLM değerlendirme' LLM çıktısını puanlamayı anlatır; pixeljury render edilmiş sayfayı Chromium'da deterministik kontrollerle denetler (satır 19-20), LLM yalnız görsel puanlamada; asıl rol değil."}}
+{"ad":"test-smell-detection","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-di-ve-config","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' işaretçisi kural değil; gerçek kurallar: kavramsal soruda dosya okuma/skill yükleme/derleme yapma, MUST yalnız istenen kapsamı değiştir (satır 21, 29-30)."}}
+{"ad":"dotnet-data","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"drizzle-docs","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-identity-auth","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'ders-yuvasi:basla' işaretçisi kural değil; gerçek kurallar: politika tabanlı yetkilendirme kullan, NEVER kanıtsız bitti deme (satır 22-23)."}}

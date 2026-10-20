@@ -1,0 +1,25 @@
+{"ad":"qa-test-kokusu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-mobil-qa","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: '<!-- ders-yuvasi:basla -->' bir sınır/uyarı değil, işaretleyici yorum (satır 8); gerçek kurallar 'MUST her bulguya dosya:satır kanıtı', 'NEVER dosya değiştirme' (satır 21-23)."}}
+{"ad":"phoenix-cti-search","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"Y","gerekce":{"sinirlar":"Y: notebooklm-connector yalnız isteğe bağlı --notebooklm itmesi için gerekir (satır 119-124); asıl gereksinimler CLI/MCP için Node 18+ ve arama API anahtarı (satır 7-12), skill hiçbir şey gerektirmez.","mekanizma":"Y: 'sır/bağımlılık taraması' yanlış; araç tehdit istihbaratı arama eklentisi (CVE/aktör/zararlı araması, satır 4-5), sır ya da bağımlılık zafiyeti taramaz."}}
+{"ad":"benchmark","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: 'kalite ölçümü' tanımı test kalitesi (kapsam/CRAP/boşluk/smell); araç web sayfa performansı/Core Web Vitals/bundle boyutu regresyonunu ölçer (satır 21-28, 248+)."}}
+{"ad":"dn-xunit-test-yazar","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil (satır 8); gerçek kurallar 'MUST yalnız istenen kapsamı değiştir', 'NEVER kanıtsız bitti deme' (satır 21-23)."}}
+{"ad":"webapp-testing","ne_yapar":"Y","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"ne_yapar":"Y: 'webapp-testing `--help`' aracın ne yaptığını anlatmıyor; kaynak Playwright ile yerel web uygulamalarını test eden araç takımı (satır 3, 9)."}}
+{"ad":"dn-nullable-gecis","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil; kaynakta 'MUST yalnız istenen kapsamı değiştir', 'Ünlem işaretini son çare yap', 'NEVER kanıtsız bitti deme' var (satır 39-41)."}}
+{"ad":"api-and-interface-design","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"db-indeks-danismani","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"run-tests","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"csharp-lsp","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"oyn-mod-guvenlik-kontrol","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil; kaynakta 'MUST dosya incelendiyse her bulguya dosya:satır kanıtı', 'kanıt uydurma', 'NEVER dosya değiştirme' kuralları var (satır 28-30)."}}
+{"ad":"db-migration-planlayici","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil (satır 8); gerçek kural 'Büyük tabloda toplu işleme böl' ve 'NEVER kanıtsız bitti deme' (satır 22)."}}
+{"ad":"db-veri-tasima","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-test-bosluk-analiz","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil (satır 9-12); kaynakta 'NEVER dosya değiştirme' ve 'her bulguya dosya:satır kanıtı' kuralları var (satır 21-22)."}}
+{"ad":"cti-domain-research","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: 'sır/bağımlılık taraması' yanlış; skill tehdit istihbaratı/CVE web araştırması yapar (satır 3-12), sır ya da bağımlılık taramaz."}}
+{"ad":"dn-csproj-sadelestir","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil; kaynakta 'yalnız istenen kapsamı değiştir', 'kanıtsız bitti deme', genel soruda araç KULLANMA (satır 21-24)."}}
+{"ad":"test-driven-development","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"db-veri-kalitesi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-only","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-signalr-gercek-zamanli","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil (satır 9-12); gerçek kural 'MUST yalnız istenen kapsamı değiştir' (satır 22)."}}
+{"ad":"qa-api-test","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: ders-yuvasi işaretleyicisi sınır değil (satır 9-12); gerçek kural 'MUST yalnız istenen kapsamı değiştir' (satır 26)."}}
+{"ad":"tdd-guard","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: '\"url\": \"git+https://github.com/nizos/tdd-guard.git\"' package.json repo URL'si, komut değil; belgedeki gerçek komutlar '/plugin install tdd-guard@tdd-guard', '/tdd-guard:setup' (satır 44-46)."}}
+{"ad":"code-testing-extensions","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"binlog-generation","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

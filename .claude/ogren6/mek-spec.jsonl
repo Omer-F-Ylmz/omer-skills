@@ -1,0 +1,19 @@
+{"ad": "agentshield", "simdi": ["sır/bağımlılık taraması"], "hakem": "Y: asıl iş Claude Code yapılandırmasının (izin, hook, MCP, ajan istem enjeksiyonu, sır) güvenlik denetimi; 'sır/bağımlılık taraması' tek başına izin/hook/MCP/ajan kural ailelerini (268 kuraldan sırlar"}
+{"ad": "clickhouse", "simdi": ["sorgu/analiz"], "hakem": "Kaynak yalnız {type:http,url:...} kayıt JSON'u (satır 2-5); sorgu/analiz rolü yalnız addan çıkarılmış."}
+{"ad": "clickhouse-io", "simdi": ["rehber"], "hakem": "Belge salt kalıp/en iyi uygulama kataloğu (satır 8-10, 416 Best Practices); sorgu yazan/koşan araç değil, rehber olmalı."}
+{"ad": "convex", "simdi": ["veri/şema"], "hakem": "Y: asil rol tum-TypeScript backend/kalicilik platformu (backend/API); yalniz veri/sema dar kaliyor (satir 3, 14)."}
+{"ad": "db-efcore-sql-gecis", "simdi": ["sorgu/analiz"], "hakem": "Asıl rol EF Core sorgu çevirisini/SQL'ini inceleyip düzeltmek (satır 23-25), şema/migrasyon değil; sorgu/analiz olmalı."}
+{"ad": "detect-static-dependencies", "simdi": ["kalite ölçümü"], "hakem": "Y: kaynak 'static analysis for testability' - kodu calistirmadan C# kaynagini tarar (statik analiz); yalniz 'kalite olcumu' asil rolu kacirir (kaynak satir 8-9, Step 2)."}
+{"ad": "dn-dotnet-performans", "simdi": ["derleme/teşhis"], "hakem": "Üretim profillemesi (dotnet-counters/trace, BenchmarkDotNet) kapsam/CRAP/assertion ölçümü değil; 'kalite ölçümü' asıl rolü anlatmıyor (en yakını derleme/teşhis)."}
+{"ad": "dotnet-nuget", "simdi": ["derleme/teşhis"], "hakem": "Kaynak yalnız plugin.json: 'NuGet and .NET package management skills: dependency management' (satır 5); build/MSBuild/binlog teşhisi kanıtı yok, rol addan/uydurmayla çıkarılmış."}
+{"ad": "dotnet-test", "simdi": ["birim test"], "hakem": "Y: eklenti yalniz test kosmaz; test uretimi, kalite analizi (anti-pattern, smell, assertion, gap), kapsam ve CRAP de var (satir 8-15, 38-58); birim test tek basina kalite olcumunu kacirir."}
+{"ad": "drizzle-docs", "simdi": ["veri/şema"], "hakem": "Y: kaynak yalniz mcpServers kayit JSON-u (5 satir, tur/url); veri/sema rolu addan cikarilmis, kaynak yetersiz yazilmaliydi."}
+{"ad": "duman_claudeai", "simdi": ["G4-dışı"], "hakem": "Betik yukle-N zip'inin SKILL.md bash bloklarını sandbox taklidinde koşar (satır 1, 134-188); tarayıcı/uygulama e2e testi yok (playwright yalnız taklit edilen modül), G4-dışı olmalı."}
+{"ad": "optimizing-ef-core-queries", "simdi": ["sorgu/analiz"], "hakem": "Skill yavaş EF Core sorgularını SQL/log'dan teşhis edip optimize ediyor (satır 7-9); sorgu/analiz olmalı, veri/şema değil (indeks yalnız bir alt adım)."}
+{"ad": "orch-fix-defect", "simdi": ["G4-dışı"], "hakem": "Asıl rol hata düzeltme akışını ECC ajanlarına orkestre etmek (satır 8-11, 31-35); birim test yazma/koşma aracı değil, G4-dışı olmalı."}
+{"ad": "otm-veri-esleme", "simdi": ["G4-dışı"], "hakem": "Alan eşleme/dönüşüm (satır 3, 15); şema/migrasyon/veritabanı değil, rol veri/şema ile örtüşmüyor (G4-dışı)."}
+{"ad": "qa-ci-test-duzeni", "simdi": ["rehber"], "hakem": "CI testlerini hızlı/yavaş ayırma, etiket, önbellek ve paralelleştirme; kapsam/CRAP/assertion ölçmez, 'kalite ölçümü' asıl rolü anlatmıyor."}
+{"ad": "qa-hata-yeniden-uret", "simdi": ["birim test"], "hakem": "Y: ajan birim test yazmaz/kosmaz; hata yeniden uretme adimlari ve kok neden hipotezi verir (satir 15-19), bu rehber/tani isi."}
+{"ad": "qa-performans-yuk-testi", "simdi": ["rehber"], "hakem": "Yük testi tasarımı (RPS, eşik, aşamalar) kapsam/CRAP/assertion ölçmez; 'kalite ölçümü' tanımına uymuyor."}
+{"ad": "supabase-postgres-best-practices", "simdi": ["rehber"], "hakem": "Skill yalnız kural/rehber sunuyor ('Reference these guidelines', 'Read individual rule files', satır 19, 42); şema/migrasyon aracı değil, rehber olmalı."}
+{"ad": "tm-security-review", "simdi": ["uyumluluk"], "hakem": "Y: Faz 1-3 tum depoda sifir-gun istismar avi ve PoC (0day-scanner, deep), yani statik analiz; yalniz uyumluluk bu asil isi kacirir (satir 14-21)."}

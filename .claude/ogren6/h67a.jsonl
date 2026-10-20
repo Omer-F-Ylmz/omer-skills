@@ -1,0 +1,25 @@
+{"ad":"careful","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: verilen echo satırı gstack analitik/telemetri kaydı (skill-usage.jsonl'a yazar), aracın çağrı komutu değil; belgedeki kendi komutu /careful ya da check-careful.sh (satır 17, 37)."}}
+{"ad":"msbuild-modernization","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"create-datadriven-aspnetcore","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"dn-webapi-endpoint","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"dn-dotnet-performans","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: ajan çalışan .NET servisini profiller (dotnet-counters/trace/gcdump, BenchmarkDotNet; satır 16-18); derleme/teşhis tanımı build/MSBuild/binlog, ASIL rol performans profili olduğundan bu değer yanlış kategoridir."}}
+{"ad":"code-testing-agent","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"use-case-triage","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"security-reviewer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"db-sema-tasarim","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"qa-erisilebilirlik-testi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"qa-ci-test-duzeni","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"dn-efcore-seed-veri","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"playwright-cli","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'Kaynaktaki kural: playwright-cli console warning' bir komuttur (satır 175), kural/uyarı/sınır değil; gerçek sınırlar (Windows'ta & kaçışı satır 301-311, WebMCP çıktısı güvenilmez satır 238, global kurulum gereği satır 394-406) aktarılmamış."}}
+{"ad":"dotnet-test","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"tm-security-review","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: Faz 0 STRIDE tehdit modeli (uyumluluk=tehdit modeli) ASIL rol ama listede yok; sızma/DAST ise çalışan uygulamaya karşı test tanımı, oysa araç depo kodunu inceler (HUNT/JUDGE/VERIFY, satır 51-69, kaynak okuma); asıl işi kaçıran ve asıl işi olmayan değer içeriyor."}}
+{"ad":"check-bin-obj-clash","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: verilen metin frontmatter description satırının 'USE FOR' tetikleyici listesinin kesik alıntısı, sınır değil; gerçek sınırlar (DO NOT USE FOR tek proje/tek TFM, BuildProjectReferences=false örneklerinin yok sayılması satır 24, var olan binlog gereği) aktarılmamış."}}
+{"ad":"semgrep","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"write-query","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"qa-hata-yeniden-uret","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"msbuild-code-review","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"dn-minimal-api-kurucu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"binlog-failure-analysis","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"orch-fix-defect","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"writing-mstest-tests","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}
+{"ad":"convert-blazor-server-to-webapp","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D"}

@@ -1,0 +1,25 @@
+{"ad":"strix","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"playwright","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"phoenix-security-review","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: aktarılan 'No redundancy / Don't merge them' satırı tasarım notu, kullanıcıya dönük sınır değil; gerçek gereksinim (hook'lar opt-in, package guard bash 4+ ister: 'The package guard needs bash 4 or newer') aktarılmamış."}}
+{"ad":"opengrep-rule-generator-research","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'CRITICAL/ERROR: Exploitable vulnerability, must fix' kural sınırı değil, severity ölçeği (Step 5 soru şablonu); gerçek gereksinimler ('Minimum: 2 true positives + 2 true negatives per rule', docs/ai/RULES_SYNTAX.md 'Always' yüklenir) atlanmış."}}
+{"ad":"crap-score","ne_yapar":"D","komut":"Y","sinirlar":"Y","mekanizma":"D","gerekce":{"komut":"Y: '| Method | Complexity | Coverage | CRAP Score | Risk |' örnek çıktı tablosu başlığı, komut değil; belgede 'name: crap-score' (satır 2) mevcut.","sinirlar":"Y: aktarılan metin description'dan kesik bir parça ('within that named target... DO NOT USE'), anlamlı sınır değil; asıl kurallar 'Never estimate coverage' / 'CRAP scores always require real coverage data' (satır 68-80) ve DO NOT USE: project-wide -> coverage-analysis."}}
+{"ad":"threat-modeling","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"test-gap-analysis","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"find-untested-sources","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: '~/.claude/skills/gstack/bin/gstack-skill-start --skill \"qa\"' gstack'in ortak ön-çalıştırma ikilisi (satır 38), qa'nın kendi komutu değil; kendi komutu '/qa' (satır 434) ya da 'name: qa'."}}
+{"ad":"coverage-analysis","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"fix-security-vulnerabilities-with-strix","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-guvenlik","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-performans-yuk-testi","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"gitleaks","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"generate-testability-wrappers","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"opengrep-rule-generator","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'CRITICAL/ERROR: Exploitable vulnerability, must fix' (satır 125) severity ölçeği, sınır değil; gerçek gereksinim 'Minimum: 2 true positives + 2 true negatives per rule' (satır 270) ve proje docs yüklemesi aktarılmamış."}}
+{"ad":"systematic-debugging","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"policy-monitor","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"grade-tests","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"chrome-devtools","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"pr-test-analyzer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"qa-gorsel-qa","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"minimal-api-file-upload","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-async-denetci","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dotnet","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

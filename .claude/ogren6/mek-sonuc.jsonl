@@ -1,0 +1,19 @@
+{"ad":"agentshield","m":["statik analiz","sır/bağımlılık taraması"],"kanit_satir":10}
+{"ad":"clickhouse","m":["sorgu/analiz"],"kanit_satir":4}
+{"ad":"clickhouse-io","m":["rehber"],"kanit_satir":10}
+{"ad":"convex","m":["backend/API"],"kanit_satir":3}
+{"ad":"db-efcore-sql-gecis","m":["sorgu/analiz"],"kanit_satir":3}
+{"ad":"detect-static-dependencies","m":["statik analiz"],"kanit_satir":18}
+{"ad":"dn-dotnet-performans","m":["derleme/teşhis"],"kanit_satir":16}
+{"ad":"dotnet-nuget","m":["derleme/teşhis"],"kanit_satir":5}
+{"ad":"dotnet-test","m":["birim test","kalite ölçümü"],"kanit_satir":4}
+{"ad":"drizzle-docs","m":["rehber"],"kanit_satir":4}
+{"ad":"duman_claudeai","m":["G4-dışı"],"kanit_satir":1}
+{"ad":"optimizing-ef-core-queries","m":["sorgu/analiz"],"kanit_satir":9}
+{"ad":"orch-fix-defect","m":["G4-dışı"],"kanit_satir":3}
+{"ad":"otm-veri-esleme","m":["G4-dışı"],"kanit_satir":15}
+{"ad":"qa-ci-test-duzeni","m":["rehber"],"kanit_satir":17}
+{"ad":"qa-hata-yeniden-uret","m":["rehber"],"kanit_satir":16}
+{"ad":"qa-performans-yuk-testi","m":["rehber"],"kanit_satir":16}
+{"ad":"supabase-postgres-best-practices","m":["rehber"],"kanit_satir":15}
+{"ad":"tm-security-review","m":["statik analiz","sızma/DAST"],"kanit_satir":53}

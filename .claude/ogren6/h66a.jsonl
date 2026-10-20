@@ -1,0 +1,25 @@
+{"ad":"db-analitik-sorgu","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"api-security-testing","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-nuget-yonetici","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı yalnız ders-yuvasi işaret satırı (kaynak satır 7), sınır değil; gerçek sınırlar 'MUST yalnız istenen kapsamı değiştir' ve 'NEVER kanıtsız bitti deme' (satır 23-25)."}}
+{"ad":"dn-efcore-modelleme","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı, sınır değil; gerçek sınır 'MUST yalnız istenen kapsamı değiştir' / 'NEVER kanıtsız bitti deme' (satır 27-28)."}}
+{"ad":"debug","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-gozlemlenebilirlik","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı, sınır değil; gerçek sınırlar 'Sır ve kişisel veriyi loglama' ve 'yalnız istenen kapsamı değiştir' (satır 22-23)."}}
+{"ad":"db-veri-modelleme-nosql","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı, sınır değil; gerçek sınır 'MUST yalnız istenen kapsamı değiştir' / 'NEVER kanıtsız bitti deme' (satır 35-36)."}}
+{"ad":"departman-veri-db","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"security-review","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: '## Security Review: [File/Component Name]' çıktı şablonu başlığıdır (kaynak satır 246), çalıştırılan komut değil; belgede aracın başka komutu yok ama bu da komut sayılmaz."}}
+{"ad":"browse","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"tdd","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"investigate","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-msbuild-hiz","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı (satır 7-12), sınır değil; kaynakta gerçek kural satırları ('NEVER dosya değiştirme') var."}}
+{"ad":"qa-e2e-playwright","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı, sınır değil; gerçek sınırlar 'CSS/XPath yok', 'Sabit bekleme yok', 'NEVER kanıtsız bitti deme' (satır 17-22)."}}
+{"ad":"sql-queries","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"platform-detection","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: 'yalnız SDK stili' uydurma; kaynak klasik (non-SDK, packages.config) projeleri de ele alır (satır 100-112); gerçek sınır: yalnız platform/çatı sorusu için, test çalıştırma/komut için run-tests (satır 3-13)."}}
+{"ad":"owasp-top-10-testing","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"msbuild-antipatterns","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı yalnız AP-03 (sabit mutlak yol) gerekçesi (satır 81); aracın sınırı değil. Gerçek sınır: 'DO NOT USE FOR non-MSBuild build systems; SDK-style göçü için msbuild-modernization' (satır 3)."}}
+{"ad":"db-yedekleme-geri-yukleme","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı, sınır değil; gerçek kural 'RPO ve RTO yaz' ve 'NEVER dosya değiştirme' (satır 32-33)."}}
+{"ad":"pixeljury","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: 'SKILL=$(ls -d /mnt/skills/*/pixeljury | head -1)' yalnız dizin bulan genel ls/head satırı (kaynak satır 27); aracın kendi komutu 'node .../bin/pixeljury.js review' (satır 33)."}}
+{"ad":"test-smell-detection","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"dn-di-ve-config","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı, sınır değil; gerçek sınır 'MUST yalnız istenen kapsamı değiştir' / 'NEVER kanıtsız bitti deme' (satır 29-30)."}}
+{"ad":"dotnet-data","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"drizzle-docs","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: kaynak yalnız kayıt JSON (type http, url; satır 1-5), rol addan çıkarılmış; kayıt-JSON kuralı gereği addan çıkarılmış rol Y."}}
+{"ad":"dn-identity-auth","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: alıntı ders-yuvasi işaret satırı, sınır değil; gerçek kural 'Politika tabanlı yetkilendirme kullan' ve 'NEVER kanıtsız bitti deme' (satır 22-23)."}}

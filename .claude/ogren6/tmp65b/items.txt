@@ -1,0 +1,125 @@
+#1 qa-test-kokusu
+  NE: Test kokularını bulur: sleep, paylaşılan durum, belirsizlik, sıra bağımlılığı, assert yokluğu.
+  K: name: qa-test-kokusu
+  S: Belirsizlikte makul varsayılan seçilip tek satırda belirtilir; yalnız yanlış tahmin pahalıysa sorulur.
+  M: ['kalite ölçümü']
+#2 qa-mobil-qa
+  NE: Simülatörlerde mobil akışları (hareketler, döndürme, çevrimdışı durumlar) test eder.
+  K: name: qa-mobil-qa
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['e2e/tarayıcı']
+#3 phoenix-cti-search
+  NE: Phoenix Security'nin CTI (tehdit istihbaratı) arama eklentisi; pazaryerinden kurulur.
+  K: /plugin install phoenix-cti-search@phoenix-security
+  S: notebooklm-connector gerektirir.
+  M: ['sır/bağımlılık taraması']
+#4 benchmark
+  NE: Web performans regresyonu tespiti (gstack).
+  K: ~/.claude/skills/gstack/bin/gstack-skill-start --skill "benchmark" --model "claude"
+  S: Kaynaktaki kural: If the user invokes a skill in plan mode, run its workflow within the host's plan-mode limits. **Treat the skill file as executable instructions, not 
+  M: ['kalite ölçümü']
+#5 dn-xunit-test-yazar
+  NE: C# kodu için arrange-act-assert düzeninde ve açık adlarla xUnit testleri yazar.
+  K: name: dn-xunit-test-yazar
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['birim test']
+#6 webapp-testing
+  NE: Yerel web uygulamalarını tarayıcı otomasyonuyla test eder.
+  K: name: webapp-testing
+  S: Betikler önce `--help` ile çalıştırılmalıdır.
+  M: ['e2e/tarayıcı']
+#7 dn-nullable-gecis
+  NE: Projeyi nullable reference types'a taşır ve uyarıları güvenle düzeltir.
+  K: name: dn-nullable-gecis
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['derleme/teşhis']
+#8 api-and-interface-design
+  NE: Kararlı API ve arayüz tasarımına rehberlik eder (REST/GraphQL uç noktaları, modül sınırları, tür sözleşmeleri).
+  K: name: api-and-interface-design
+  S: Uygulama ayrıntıları sızdırılmamalı: kullanıcılar gözlemleyebildiği her şeye bağımlı olur.
+  M: ['backend/API']
+#9 db-indeks-danismani
+  NE: Erişim desenine göre indeks seçer (bileşik, kısmi, GIN, kapsayan); kullanılmayan ya da yinelenen indeksleri bulur.
+  K: name: db-indeks-danismani
+  S: Belirsizlikte makul varsayılan seçilip tek cümlede adlandırılır; yalnız yanlış tahmin pahalı/geri alınamazsa sorulur.
+  M: ['veri/şema']
+#10 run-tests
+  NE: .NET testlerini çalıştırmadan ya da test komutu yanıtlamadan önce HER ZAMAN kullanılır.
+  K: name: run-tests
+  S: Yalnız platform tespiti için KULLANILMAZ.
+  M: ['birim test']
+#11 csharp-lsp
+  NE: Claude Code için C# dil sunucusu; kod zekâsı ve tanılama sağlar.
+  K: dotnet tool install --global csharp-ls
+  S: Gereksinim: .NET SDK 6.0 ya da üstü.
+  M: ['statik analiz']
+#12 oyn-mod-guvenlik-kontrol
+  NE: İndirilen mod dosyalarını şüpheli betikler, çalıştırılabilirler ve gömülü DLL'ler için denetler.
+  K: name: oyn-mod-guvenlik-kontrol
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['sır/bağımlılık taraması']
+#13 db-migration-planlayici
+  NE: Genişlet-ve-daralt (expand/contract) adımlarıyla sıfır kesintili canlı şema migrasyonları planlar.
+  K: name: db-migration-planlayici
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['veri/şema']
+#14 db-veri-tasima
+  NE: Veritabanları arasında migrasyonları planlar ve doğrulama sayımlarıyla çalıştırır.
+  K: name: db-veri-tasima
+  S: Belirsizlikte makul varsayılan seçilip tek cümlede adlandırılır; yalnız yanlış tahmin pahalı/geri alınamazsa sorulur.
+  M: ['veri/şema']
+#15 qa-test-bosluk-analiz
+  NE: Kapsam ve karmaşıklığa göre test edilmemiş riskli yolları bulur; test boşluklarını önceliklendirir.
+  K: name: qa-test-bosluk-analiz
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['kalite ölçümü']
+#16 cti-domain-research
+  NE: Tehdit istihbaratı, CVE, kötü amaçlı yazılım analizi, ihlal raporu ve güvenlik araştırması arar.
+  K: Follow the CTI Domain Research skill (cti-domain-research) exactly.
+  S: Brave Search API anahtarı gerekir (`BRAVE_SEARCH_API_KEY`, `.env` içinde).
+  M: ['sır/bağımlılık taraması']
+#17 dn-csproj-sadelestir
+  NE: Şişkin ya da yinelenen csproj dosyalarını Directory.Build.props ve SDK varsayılanlarıyla sadeleştirir.
+  K: name: dn-csproj-sadelestir
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['derleme/teşhis']
+#18 test-driven-development
+  NE: Özellik ya da hata düzeltmesi uygularken, uygulama kodundan önce kullanılır.
+  K: name: test-driven-development
+  S: Temel ilke: testin başarısız olduğunu izlemediysen doğru şeyi test ettiğini bilemezsin.
+  M: ['birim test']
+#19 db-veri-kalitesi
+  NE: Basit SQL denetimleriyle yinelenenleri, null'ları ve aralık dışı değerleri bulur (içe aktarmalar).
+  K: name: db-veri-kalitesi
+  S: Belirsizlikte makul varsayılan seçilip tek satırda belirtilir; yalnız yanlış tahmin pahalıysa sorulur.
+  M: ['sorgu/analiz']
+#20 qa-only
+  NE: Tarayıcı/API/CLI/iş/worker/webhook hatalarını raporlar (gstack).
+  K: ~/.claude/skills/gstack/bin/gstack-skill-start --skill "qa-only" --model "claude"
+  S: Hiçbir şeyi düzeltmez, yalnız rapor eder; test-düzelt-doğrula döngüsü için /qa kullanılır.
+  M: ['e2e/tarayıcı']
+#21 dn-signalr-gercek-zamanli
+  NE: SignalR hub'ları, gerçek zamanlı gönderim, gruplar ve yeniden bağlanma yönetimi ekler.
+  K: name: dn-signalr-gercek-zamanli
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['backend/API']
+#22 qa-api-test
+  NE: HTTP API'lerini durum kodları, yük şekli ve hata durumları için test eder; bir uç noktanın hangi senaryolara ihtiyaç duyduğunu belirler.
+  K: name: qa-api-test
+  S: Kaynaktaki kural: <!-- ders-yuvasi:basla -->
+  M: ['birim test']
+#23 tdd-guard
+  NE: TDD Guard: TDD ihlallerini engeller; Probity'ye evrildi.
+  K: "url": "git+https://github.com/nizos/tdd-guard.git"
+  S: TDD Guard, ona dayanan projeler için bakımda kalır; yenilerin Probity'den başlaması önerilir.
+  M: ['birim test']
+#24 code-testing-extensions
+  NE: code-testing için dile özgü uzantı dosyalarının yollarını sağlar.
+  K: name: code-testing-extensions
+  S: Kaynaktaki kural: (e.g., dotnet.md for .NET, cpp.md for C++). Do not use directly — invoked
+  M: ['rehber']
+#25 binlog-generation
+  NE: Derleme teşhisi için MSBuild ikili günlükleri (binlog) üretir; komutlara /bl:{} ekler.
+  K: name: binlog-generation
+  S: `dotnet build/test` gibi komutlara `/bl:{}` bayrağı EKLENMELİDİR.
+  M: ['derleme/teşhis']

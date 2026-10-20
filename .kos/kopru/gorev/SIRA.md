@@ -496,3 +496,4 @@ TOKEN-3 d6 ara: K15 skill adayı (kapı 14/17 < 15/17, DEVAM-KURALI geri), K14 s
 
 - BEYIN-3 d1 ARA: sıralama/bütçe/ağırlık yenilendi, yoklama 18→30/40 (geliştirme kümesi), testler 22/22; kapı (2007/2008) koşulmadı → d2 (rapor/beyin-3-d1.md)
 - ÖĞREN-2 BİTTİ (G1 d3): kapı t11 %99/%100 · t12 %99/%99 (25 kart×4 alan, 2 hakem/tohum) · A 146 kart + B 585 · kombin-1..6 (4 Desktop DENENMEDİ) · departman-frontend +ogren.md, zip TEMİZ
+- ÖĞREN-6 KAPI KISMİ (d4, 20 Eki): düzeltmeden sonra t67 %95 · t68 %94 (tek hakem, Y 5/6 / 100 alan); ikinci hakemler RAM %96 yüzünden koşmadı; öncesi t65/t66 ≈%85 (ders-yuvasi regex hatası giderildi). 148 kart RET 0, komut belirsiz 117→0, sınırlar 18→7, mekanizma 19 yeniden; borç ogren/ogren-6-borc.tsv — Desktop kararı (BİTTİ DEĞİL)
