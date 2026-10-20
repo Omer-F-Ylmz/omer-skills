@@ -8,6 +8,7 @@ import time
 
 H = os.path.expanduser("~")
 LOG = os.path.join(H, ".claude-mem", "logs", "mem-bekci.log")
+KOK = r"C:\Projeler\omer-skills"
 NODE_ADAY = [
     r"C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\node.exe",
     r"C:\Program Files\nodejs\node.exe",
@@ -81,7 +82,50 @@ def beyin():
         yaz("beyin_kanca hata:", repr(e)[:200])
 
 
+def sebepler(aktif, gozlem_yas_dk, kota_yas_dk):
+    """Sağlık kararı (saf): aktif oturumda gözlem 30 dk'dan eski ya da son 30 dk'da kota/429 işareti."""
+    s = []
+    if aktif and (gozlem_yas_dk is None or gozlem_yas_dk > 30):
+        s.append("son gozlem %s dk" % ("yok" if gozlem_yas_dk is None else int(gozlem_yas_dk)))
+    if kota_yas_dk is not None and kota_yas_dk <= 30:
+        s.append("kota/429 %d dk once" % kota_yas_dk)
+    return s
+
+
+def saglik():
+    """Model çağırmaz, pencere açmaz. Sorun varsa .kos/kopru/mem-saglik.log + kasa 90-log notu (30 dk'da en çok bir kez)."""
+    import json
+    import sqlite3
+    simdi = time.time()
+    proj = os.path.join(H, ".claude", "projects")
+    aktif = any(simdi - e.stat().st_mtime < 600 for d in os.scandir(proj) if d.is_dir() for e in os.scandir(d.path) if e.name.endswith(".jsonl"))
+    db = sqlite3.connect("file:" + os.path.join(H, ".claude-mem", "claude-mem.db").replace("\\", "/") + "?mode=ro", uri=True)
+    ep = db.execute("select max(created_at_epoch) from observations").fetchone()[0]
+    yas = None if ep is None else (simdi - ep / (1000 if ep > 1e11 else 1)) / 60
+    try:
+        kota = json.load(open(os.path.join(H, ".claude-mem", "quota-cooldown.json"), encoding="utf-8"))
+        kyas = min((simdi - k["armedAtMs"] / 1000) / 60 for k in kota)
+    except (OSError, ValueError, KeyError):
+        kyas = None
+    s = sebepler(aktif, yas, kyas)
+    if not s:
+        return
+    log = os.path.join(KOK, ".kos", "kopru", "mem-saglik.log")
+    if os.path.exists(log) and simdi - os.path.getmtime(log) < 1800:
+        return
+    satir = time.strftime("%Y-%m-%d %H:%M:%S ") + "; ".join(s)
+    with open(log, "a", encoding="utf-8") as f:
+        f.write(satir + "\n")
+    nota = os.path.join(r"C:\Users\pc\Desktop\Obsidian", "90-log", "mem-saglik-" + time.strftime("%Y-%m-%d") + ".md")
+    with open(nota, "a", encoding="utf-8") as f:
+        f.write("- " + satir + "\n")
+
+
 if __name__ == "__main__":
     main()
+    try:
+        saglik()
+    except Exception as e:
+        yaz("saglik hata:", repr(e)[:200])
     if ram() < 88:
         beyin()

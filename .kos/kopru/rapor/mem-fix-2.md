@@ -1,0 +1,8 @@
+# MEM-FIX-2 — KISMEN (DUR: madde 1a-b, 4)
+1. Ollama halkası TAMAM: MEM-FIX-1'in "ollama sağlayıcı değil" tespiti yanlıştı; katalogda `ollama-local` var. Bağlantı providerSpecificData.baseUrl=http://127.0.0.1:11434 + sahte kimlik "ollama" ile eklendi (kimliksiz 401). `ollama/qwen3.5:4b` canlı "ok"; RAM 83-84 (<85). `mem-yedek` = groq gpt-oss-20b → openrouter nemotron :free → ollama qwen3.5:4b; combo canlı "ok" (ilk halka yanıtladı).
+2. Bekçi TAMAM: tools/mem_bekci.py `saglik()` (5 dk görevde, model/pencere yok): aktif oturum + son gözlem >30 dk ya da son 30 dk'da quota-cooldown.json işareti → `.kos/kopru/mem-saglik.log` + kasa `90-log/mem-saglik-<gün>.md` (30 dk'da en çok 1). Elle koşuldu, satır yazıldı. tests/test_mem_bekci_saglik.py + test_mem_fix_omni.py: 5 geçti. `ayar_goster()` (`ayarbak`) anahtar adı + var/yok basar.
+3. DUR 1a: gözlem sayısı 29306'da durdu (son 10:42Z); gözlemci openai-compatible kota beklemesinde (Groq gpt-oss-20b TPM 8000 → 429; claude-mem bunu "status 200" gövdesinde gördü). mcp search sınanmadı.
+4. DUR 1b: Gemini'yi yalnız test sürecinde geçersiz kılmak canlı worker'da mümkün değil; yeniden başlatma, bekleme geri çekilmesini sıfırlayacağı için yapılmadı. Yedek zincirin kendisi doğrudan sınandı; claude-mem içinden devreye girdiği henüz doğrulanmadı. Not: Groq TPM 8000 birincil halka için dar; combo 429'da sonraki halkaya düşmeli, gövde-200 hatası ayrıca incelenmeli.
+5. DUR 4: claude-mem'de transkript içe alma yolu yok (backfill.json yalnız telemetri); bosluk.tsv'deki 20 oturum işlenmedi. Ücretli çağrı 0.
+6. Sapma: MEM-FIX-1 de commit edildi (silinen/yeniden kurulan combo yalnız kendi `mem-yedek`'im).
+SIRA: MEM-FIX-2 kısmen · sonraki: kota bitince 1a/1b gözlemi (bekçi log + gözlem sayısı), 429 gövde-200 incelemesi
