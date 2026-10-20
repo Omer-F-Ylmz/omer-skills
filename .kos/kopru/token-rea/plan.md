@@ -132,3 +132,15 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. hr2 çökertici (yukarıdaki tasarım) + yeni tohum held-out kapı → geçerse `onay/token_rea_hr2.py`.
 2. Erken devir A/B: ≥2 uzun köprü görevinde "bağlam >120k'da dalga.md devri + /clear" vs sürekli bağlam, kalite eşit mi; devir yeniden yazma maliyeti ölçülür.
 3. Sıradaki tabanlı araçlar (claude-mem arama, context-mode).
+
+## d10 SONUÇ (20 Eki 2026; Claude -p 0/15, havuz 0/80)
+0. **claude-mem 15→7 doğrulama**: yeni oturum başlığı "7 obs" gösteriyor (uygulama etkin); mem-search ayrıca sınanmadı.
+1. **hr2** (`hr2.py` stdlib, `hr_kalite2.py`; Headroom ile aynı yük + aynı sayaç tiktoken cl100k; yeni tohum 2010206, tasarım tohum görülmeden sabit): token Headroom −42.6 → **hr2 −97.0** (json 97.7 · log 96.9 · arama 96.5 · fark 91.4; Headroom arama −5.7, fark 0.0) · kalite **10/10 doğrudan** (+ `ac <id>` tam metni geri verir) · süre uçtan uca ort 0.10 sn (maks 0.14) vs Headroom ort 2.41 sn, soğuk 20 sn aşımı yok · RAM 16 MB vs vekil ~2 GB · PASSTHROUGH 0 vs 2. İlk koşu 2010205: aynı sonuç (−96.5). Dört eksen geçti → `onay/token_rea_hr2.py` (CLAUDE.md satırı, yedekli, `--geri`; test 2/2, kuru koşu temiz). Headroom kaldırılmadı.
+   **SINIR (dürüst)**: held-out sentetik, aşırı tekrarlı yük (Headroom tabanıyla aynı üretici). Gerçek çıktıda kazanç yok denecek kadar: `git log --stat` 0%, `git log --format` 0%, `git ls-files` −6%. hr2 yalnız ≥100 benzer satırlık log/json/arama çıktısında anlamlı; sayıca farklı iğne (ör. exit 1 vs 0) şablon maskesinde çökebilir (tam metinde durur). Gerçek-dünya kazancı için üretim çıktı kümesi (Headroom vekil günlükleri) üstünde ölçüm d11.
+   Düzeltilen: stdout CRLF (+%2 şişme) → `newline="\n"`.
+2. **Erken devir A/B** yalnız tasarım: iki uzun köprü görevi, kol A sürekli bağlam, kol B bağlam >120k'da dalga.md devri + /clear; ölçüt kalite eşit (kabul testi), toplam girdi tokenı, devir yeniden yazma maliyeti. Henüz koşulmadı; /autocompact DEĞİŞMEZ. claude-mem taban/mekanizma yapılmadı (tur tavanı).
+
+## ★ d11 TASLAK
+1. hr2 gerçek-dünya ölçümü: son 14 gün Bash/araç çıktıları (transkript) üstünde hr2 kazancı, ≥100 satırlık alt kümede; sayıca farklı iğne için maske sertleştirme (ör. sayıyı yalnız yüzde/id bağlamında maskele).
+2. claude-mem 4 eksen taban (arama süresi, RAM, kalite = baglam_kalite, token) + mekanizma ≤15 satır.
+3. Erken devir A/B'yi koş (≥2 uzun köprü görevi).
