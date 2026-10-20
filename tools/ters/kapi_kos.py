@@ -1,5 +1,5 @@
 """TERS kapısı koşucusu (docs/ters/kapi-tasarim.md). Hedefler: docs/ters/kapi/hedefler.json (elle ground truth).
-  python tools/ters/kapi_kos.py          → docs/ters/kapi/sonuc.md + sonuc.json
+  python tools/ters/kapi_kos.py          → docs/ters/kapi/sonuc.md + sonuc.json; --dene → yalnız 1 hedef (kuru deneme)
 Kollar: skill (SKILL.md + prob/REA kanıtı + ham kaynak) vs zemin (yalnız ham kaynak), aynı yazar model. Hakem: iki aile ücretsiz bulut, ikisi onaylamazsa madde 0.
 Bulut çağrı tavanı 60 (sayaç + önbellek CIKTI altında); anahtar değerleri basılmaz."""
 import functools, hashlib, http.server, json, os, random, re, subprocess, sys, threading, time, urllib.request
@@ -9,13 +9,15 @@ from PIL import Image, ImageChops
 KOK = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(KOK / "tools" / "ters"))
 from probe import probe  # noqa: E402
+sys.path.insert(0, str(KOK / "tools")); import ucretsiz_havuz as HAVUZ  # noqa: E402
 
 DIZ = KOK / "docs/ters/kapi"
 CIKTI = Path(os.environ["TEMP"]) / "ters-kapi"
 TAVAN = 60
-YAZAR = ["openrouter/google/gemma-4-31b-it:free"]
-YARGIC = [["openrouter/nvidia/nemotron-3-ultra-550b-a55b:free", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"],
-          ["groq/llama-3.3-70b-versatile", "gemini/gemini-2.5-flash"]]
+HAIKU_TAVAN = 30
+YAZAR = ["openrouter/google/gemma-4-31b-it:free", "openrouter/nvidia/nemotron-3-super-120b-a12b:free", "groq/openai/gpt-oss-120b", "haiku"]
+YARGIC = [["openrouter/nvidia/nemotron-3-ultra-550b-a55b:free", "openrouter/nvidia/nemotron-3-super-120b-a12b:free", "haiku"],
+          ["groq/openai/gpt-oss-120b", "gemini/gemini-2.5-flash", "haiku"]]
 SKILL = (KOK / "skills/tersine/SKILL.md").read_text(encoding="utf-8")
 
 
@@ -31,34 +33,20 @@ def ram_bekle():  # DEVAM-KURALI: RAM ≥%88 iken tarayıcı adımı yok
     raise SystemExit("RAM %88 üstünde kaldı")
 
 
-def anahtar():
-    if os.environ.get("OMNIROUTE_KEY"): return os.environ["OMNIROUTE_KEY"]
-    import winreg
-    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as k:
-        return winreg.QueryValueEx(k, "OMNIROUTE_KEY")[0]
-
-
-def llm(modeller, istem, max_tokens=4000):
+def llm(modeller, istem, max_tokens=4000):  # ücretsiz havuz: 429/hata/boş → başka sağlayıcı, bekleme yok; modeller yalnız tür/aileyi seçer
     (CIKTI / "onbellek").mkdir(parents=True, exist_ok=True)
     h = hashlib.sha1((modeller[0] + istem).encode()).hexdigest()
     o = CIKTI / "onbellek" / (h + ".json")
     if o.exists(): return json.loads(o.read_text(encoding="utf-8"))["y"]
     sy = CIKTI / "sayac.json"
-    for m in modeller:
-        for deneme in range(2):
-            n = json.loads(sy.read_text())["n"] if sy.exists() else 0
-            if n >= TAVAN: raise SystemExit("bulut çağrı tavanı")
-            sy.write_text(json.dumps({"n": n + 1}))
-            q = urllib.request.Request("http://127.0.0.1:20128/v1/chat/completions", method="POST",
-                data=json.dumps({"model": m, "messages": [{"role": "user", "content": istem}], "max_tokens": max_tokens,
-                                 "reasoning_effort": "none"}).encode(),
-                headers={"content-type": "application/json", "authorization": "Bearer " + anahtar(), "user-agent": "curl/8"})
-            try:
-                y = json.load(urllib.request.urlopen(q, timeout=240))["choices"][0]["message"]["content"] or ""
-                if y.strip():
-                    o.write_text(json.dumps({"m": m, "y": y}, ensure_ascii=False), encoding="utf-8"); return y
-            except Exception as e:
-                print("llm hata", m, type(e).__name__, getattr(e, "code", ""), flush=True); time.sleep(5)
+    n = json.loads(sy.read_text())["n"] if sy.exists() else 0
+    if n >= TAVAN: raise SystemExit("bulut çağrı tavanı")
+    sy.write_text(json.dumps({"n": n + 1}))
+    tur, aile = ("yazim", None) if modeller is YAZAR else ("hakem", "nvidia" if modeller is YARGIC[0] else "openai")
+    y, k, log = HAVUZ.cagir(tur, istem, max_tokens=max_tokens, aile=aile, haiku_tavan=HAIKU_TAVAN if aile is None else 0, etiket="tersine-kapi")
+    if y:
+        o.write_text(json.dumps({"m": k, "y": y}, ensure_ascii=False), encoding="utf-8"); return y
+    print("llm hata", ",".join(log), flush=True)
     return ""
 
 
@@ -90,7 +78,7 @@ def rea_kanit(h):
 
 
 def sunucu():
-    s = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(KOK / "labs")))
+    s = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(KOK)))
     s.RequestHandlerClass.log_message = lambda *a: None
     threading.Thread(target=s.serve_forever, daemon=True).start()
     return s.server_address[1]
@@ -133,13 +121,14 @@ def hakem(h, notlar, rng):
 
 def main():
     H = json.loads((DIZ / "hedefler.json").read_text(encoding="utf-8"))["hedefler"]
+    if "--dene" in sys.argv: H = H[:1]
     port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []
     for h in H:
         d = CIKTI / h["ad"]; d.mkdir(exist_ok=True); rng = random.Random(h["id"])
         corp_ham = ham(h, 10**6)
         if h["tur"] == "site":
             ram_bekle()
-            kanit = json.dumps(probe(f"http://127.0.0.1:{port}{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
+            kanit = json.dumps(probe(f"http://127.0.0.1:{port}/labs{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
         else: kanit = rea_kanit(h)
         veri = {"zemin": ham(h), "skill": ham(h) + "\n\n### Kanıt (prob/REA)\n" + kanit}
         notlar, html = {}, {}

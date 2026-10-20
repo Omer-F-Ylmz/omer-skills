@@ -27,11 +27,10 @@ SURUM = "v2"  # istem/şema değişince artır: hem yerel hem OmniRoute önbelle
 TAVAN = 400_000  # bağlam karakteri; combo'daki en küçük pencereye sığsın
 DB = os.path.expanduser("~/.omniroute/storage.sqlite")
 DIZIN = Path(__file__).resolve().parents[1] / ".kos/kopru/ucuz-onbellek"
-NEMO, GEMMA = "openrouter/nvidia/nemotron-3-super-120b-a12b:free", "openrouter/google/gemma-4-31b-it:free"
 # OMNİ-AYIR ölçümü (docs/ogren/token.md "Ücretsiz yol"); Groq gpt-oss üç ailede red (OMNIROUTE-2) → zincirde yok
-ZINCIR = {"ozet": [("omni", NEMO), ("ollama", "gpt-oss:20b-cloud"), ("omni", GEMMA), ("omni", COMBO)],
-          "lisans": [("omni", NEMO), ("ollama", "gpt-oss:20b-cloud"), ("omni", GEMMA), ("omni", COMBO)],
-          "etiket": [("omni", NEMO), ("omni", GEMMA), ("ollama", "gpt-oss:20b-cloud"), ("omni", COMBO)],
+# UCRETSIZ-HAVUZ-1: ("havuz", tür) = tools/ucretsiz_havuz (tüm sağlayıcılar, yük dağıtımlı); art arda üç halka = ret'te başka sağlayıcıya geçiş
+HAVUZ = [("havuz", "ozet"), ("havuz", "hakem"), ("havuz", "yazim"), ("omni", COMBO)]
+ZINCIR = {"ozet": HAVUZ, "lisans": HAVUZ, "etiket": HAVUZ,
           "gorsel": [("omni", "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free")]}
 TASLAK = {"etiket", "gorsel", "ozet"}  # kapı ≥%98'e ulaşmayan türler: çıktı yazılır ama çıkış 3 (Claude doğrular); ozet kör hakem 78/84
 SEMA = {"ozet": '{"ozet": "<istenen özet>", "alinti": ["özeti destekleyen, bağlamdan BİREBİR 1-3 alıntı, her biri ≤200 karakter"]}',
@@ -59,7 +58,7 @@ def combo_uyeleri():
 
 def ucretsiz(kol, model):
     """izin listesi: ollama yerel ya da :free; combo yalnız bütün üyeleri :free ise (katalog değişse bile ücretliye düşemez)"""
-    if kol == "ollama":
+    if kol in ("ollama", "havuz"):
         return True
     if model == COMBO:
         u = combo_uyeleri()
@@ -88,6 +87,12 @@ def iste(g, zaman=300):
 
 def sor(kol, model, g):
     """(içerik, bitiş, yanıt modeli, usage); ollama /api/chat think:false (ÖĞREN-1 d6: /v1 düşünmeyle 4096'yı yiyordu)"""
+    if kol == "havuz":
+        sys.path.insert(0, str(Path(__file__).parent)); import ucretsiz_havuz
+        y, k, log = ucretsiz_havuz.cagir(model, g["messages"][0]["content"], max_tokens=min(g["max_tokens"], 4000))
+        if y is None:
+            raise RuntimeError("havuz boş " + ",".join(log)[:120])
+        return y, "stop", k, {}
     if kol == "omni":
         j = iste({**g, "model": model})
         c = j["choices"][0]

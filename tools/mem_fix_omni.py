@@ -63,6 +63,15 @@ if __name__ == "__main__":
         e = dict(os.environ, OMNIROUTE_API_KEY=anahtar())
         print(subprocess.run(["omniroute", "combo", "create", COMBO, "--strategy", "priority", "--models", ",".join(ZINCIR)],
                              env=e, capture_output=True, text=True, shell=True).stdout[-300:])
+    if sys.argv[1] == "havuz":
+        # claude-mem yedeği ücretsiz havuza: `ucretsiz_havuz.py serve` yerel ucu (arka.py ile başlatılır), anahtar gerekmez
+        yol = os.path.expanduser("~/.claude-mem/settings.json")
+        a = json.load(open(yol, encoding="utf-8"))
+        a.update({"CLAUDE_MEM_QUOTA_FALLBACK_PROVIDER": "openai-compatible", "CLAUDE_MEM_OPENAI_COMPAT_BASE_URL": "http://127.0.0.1:20190/v1",
+                  "CLAUDE_MEM_OPENAI_COMPAT_MODEL": "havuz", "CLAUDE_MEM_OPENAI_COMPAT_API_KEY": "havuz"})
+        with open(yol, "w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(a, indent=2, ensure_ascii=False) + "\n")
+        print("ayar yazıldı: yedek = ücretsiz havuz")
     if sys.argv[1] == "ayar":
         # kalıcı claude-mem ayarı: Gemini birincil kalır, kota dolunca OmniRoute combo'su
         yol = os.path.expanduser("~/.claude-mem/settings.json")

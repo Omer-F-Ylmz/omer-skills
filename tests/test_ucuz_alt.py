@@ -16,6 +16,8 @@ def ortam(tmp_path, monkeypatch):
     monkeypatch.setenv("OMNIROUTE_KEY", "GIZLI-ANAHTAR")
     monkeypatch.setattr(ucuz_alt, "DIZIN", tmp_path / "onb")
     monkeypatch.setattr(ucuz_alt, "combo_uyeleri", lambda: UYE)
+    omni = [("omni", UYE[0]), ("omni", UYE[1]), ("omni", ucuz_alt.COMBO)]  # havuz halkası ağa gider; bu testler yalnız omni zincirini sınar
+    monkeypatch.setattr(ucuz_alt, "ZINCIR", {**ucuz_alt.ZINCIR, "ozet": omni, "lisans": omni, "etiket": omni})
     (tmp_path / "b.txt").write_text("Copyright 2024 X. Permission is hereby granted, free of charge — MIT License", encoding="utf-8")
     return tmp_path
 

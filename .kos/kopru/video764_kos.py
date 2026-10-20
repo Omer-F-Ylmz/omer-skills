@@ -11,6 +11,7 @@ LISTE = R / ".kos/kopru/devir/video-linkleri-20eki.txt"
 URL = {"w": "https://www.youtube.com/watch?v=%s", "yt": "https://youtu.be/%s", "y": "https://www.youtube.com/shorts/%s",
        "r": "https://www.instagram.com/reel/%s/", "p": "https://www.instagram.com/p/%s/"}
 NW = 0x08000000
+sys.path.insert(0, str(R / "tools")); import ucretsiz_havuz as HAVUZ  # noqa: E402
 KILIT = threading.Lock(); TEK = threading.Lock()
 ISTEM = ("Aşağıdaki video metni (altyazı/ses çevirisi + açıklama). TÜRKÇE, EN FAZLA 900 karakterlik, EN AZ 3 cümlelik özet yaz: "
          "1) video ne anlatıyor/gösteriyor 2) anılan araç/skill/MCP/repo adları ve linkleri 3) bir Claude Code + skill deposu "
@@ -64,10 +65,11 @@ def modeller():
     except Exception:
         pass
     try:
-        o = [m["id"] for m in get("https://openrouter.ai/api/v1/models")["data"] if m["id"].endswith(":free") and re.search(r"gpt-oss-120b|nemotron-3-super|gemma-4-31b", m["id"])][:1]
+        ids = [m["id"] for m in get("https://openrouter.ai/api/v1/models")["data"] if m["id"].endswith(":free")]
+        o = [i for p in ("nemotron-3-super", "gemma-4-31b", "minimax-m3") for i in ids if p in i][:3]  # ≥2 farklı model
     except Exception:
         pass
-    return [("gemini", m) for m in g] + [("groq", m) for m in q] + [("openrouter", m) for m in o]
+    return [("gemini", m) for m in g] + [("openrouter", m) for m in o] + [("groq", m) for m in q] + [("haiku", "haiku")]
 
 
 def gecerli(o, girdi, baslik):
@@ -84,35 +86,53 @@ def gecerli(o, girdi, baslik):
     return None
 
 
+HAIKU_TAVAN = 800  # koşu başına en fazla çağrı
+KAPALI = {}  # (halka, model) -> yeniden deneme zamanı; kota/zaman aşımı alan halka 30 dk devre dışı, BEKLEME YOK
+SAY = {}; HK = {"cagri": 0, "usd": 0.0}; SL = threading.Lock()
+
+
+def haiku(istem):
+    """Plan kotasından `claude -p --model haiku` (API anahtarı yok). (metin, usd)"""
+    with SL:
+        if HK["cagri"] >= HAIKU_TAVAN:
+            raise RuntimeError("haiku tavan")
+        HK["cagri"] += 1
+    env = {k: v for k, v in os.environ.items() if not k.startswith("ANTHROPIC_API_KEY")}
+    p = subprocess.run(["claude", "-p", "--model", "haiku", "--output-format", "json", "--max-turns", "1", "--tools", "", "--setting-sources", ""],
+                       input=istem, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=150, creationflags=NW, cwd=O, env=env)
+    j = json.loads(p.stdout)
+    with SL:
+        HK["usd"] += j.get("total_cost_usd") or 0
+    if j.get("is_error") or not j.get("result"):
+        raise RuntimeError("haiku " + str(j.get("result"))[:80])
+    return j["result"], j.get("total_cost_usd") or 0
+
+
 def ozet(girdi, baslik, zincir, r):
-    log = []
-    for ad, m in zincir:
-        for deneme in range(2):
-            try:
-                if ad == "gemini":
-                    j = post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key=" + os.environ["GEMINI_API_KEY"],
-                             {"contents": [{"parts": [{"text": ISTEM + "\n\n" + girdi}]}], "generationConfig": {"maxOutputTokens": 1500}}, {})
-                    o = j["candidates"][0]["content"]["parts"][0]["text"]
-                else:
-                    url, key = (("https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY") if ad == "groq" else
-                                ("https://openrouter.ai/api/v1/chat/completions", "OPENROUTER_API_KEY"))
-                    j = post(url, {"model": m, "max_tokens": 1500, "reasoning_effort": "low", "messages": [{"role": "user", "content": ISTEM + "\n\n" + girdi}]},
-                             {"Authorization": "Bearer " + os.environ[key]})
-                    o = j["choices"][0]["message"]["content"]
-                o = (o or "").strip()
-                neden = gecerli(o, girdi, baslik) if o else "boş"
-                if not neden:
-                    r["model"] = f"{ad}/{m}"; return o
-                log.append(f"{m}:{neden}"); break
-            except Exception as e:
-                c = getattr(e, "code", "")
-                log.append(f"{m}:{type(e).__name__}{c}")
-                if c in (429, 503):
-                    time.sleep(4 * (deneme + 1))  # geri çekilme, sonra aynı model bir kez daha
-                    continue
-                break
+    """Ücretsiz havuz (tüm sağlayıcılar, yük dağıtımlı, 429'da bekleme yok); `zincir` eski imza için kalır, kullanılmaz."""
+    y, k, log = HAVUZ.cagir("ozet", ISTEM + "\n\n" + girdi, max_tokens=1500, haiku_tavan=HAIKU_TAVAN, etiket="video764",
+                            dogrula=lambda o: gecerli(o, girdi, baslik))
+    if y:
+        r["model"] = k; return y
     r["ozet_log"] = log
     return None
+
+
+KRITER = ("Bir Claude Code + skill deposu sahibi için aşağıdaki video özetlerini karara bağla. Karar: AL (çok nadir: metinde adı VE repo/linki açık, açık kaynak, doğrudan kurulur) · "
+          "UYARLA (tek somut araç/repo adı var, lisans+kurulum raporu ya da uyarlama gerekir; AL'dan şüphe edersen UYARLA) · ÖĞREN (fikir/pratik/araç listesi/zaten kurulu bir şeyin tanıtımı, "
+          "ya da adlar eksik ama konu Claude Code/ajan: mevcut kural/skill ile karşılaştırılır; şüphede ELE değil ÖĞREN) · "
+          "ELE (yalnız: konu dışı, tamamen içeriksiz ya da ücretli SaaS/hizmet reklamı). Her video için TEK satır, sekmeyle ayrılmış: URL<TAB>KARAR<TAB>neden (≤150 karakter)<TAB>önerilen iş (≤80 karakter, yoksa -). Başka metin yazma.\n\n")
+
+
+def karar(parca):
+    """parca: [(url, baslik, sure, ozet)] → {url: (karar, neden, is)} Haiku ile."""
+    o, _ = haiku(KRITER + "\n\n".join(f"## {u} · {b}\n{z[:900]}" for u, b, s, z in parca))
+    d = {}
+    for ln in o.splitlines():
+        c = ln.strip().lstrip("#").strip().split("\t")
+        if len(c) >= 3 and c[1].strip().upper() in ("AL", "UYARLA", "ÖĞREN", "OGREN", "ELE"):
+            d[c[0].strip()] = (c[1].strip().upper().replace("OGREN", "ÖĞREN"), c[2].strip(), c[3].strip() if len(c) > 3 else "-")
+    return d
 
 
 def video(satir, zincir):
@@ -179,6 +199,45 @@ def sirada():
             and not any(i in p.name for p in O.glob(f"*{i}*.ozet.txt"))]
 
 
+PARTI = R / ".kos/kopru/ogren/video-764-parti.tsv"
+
+
+def kararla():
+    """Özeti hazır, kararı yok videoları 10'arlı Haiku'ya karar verdirip video-764.tsv'ye ekler; {karar: sayı}."""
+    t = islenen(); bek = []
+    for f in sorted(O.glob("*.meta.json")):
+        m = json.loads(f.read_text(encoding="utf-8"))
+        if m["url"] not in t:
+            bek.append((m["url"], m["baslik"], m["sure"], (O / (f.name[:-10] + ".ozet.txt")).read_text(encoding="utf-8")))
+    say = {}
+    for a in range(0, len(bek), 10):
+        pr = bek[a:a + 10]
+        try:
+            d = karar(pr)
+        except Exception as e:
+            HATA.open("a", encoding="utf-8").write(f"karar\t{pr[0][0]}\t{type(e).__name__} {str(e)[:100]}\n"); continue
+        with TSV.open("a", encoding="utf-8") as f:
+            for u, b, s, _ in pr:
+                if u in d:
+                    f.write(f"{u}\t{b}\t{s}\t{d[u][0]}\t[Haiku ön-karar] {d[u][1]}\t{d[u][2]}\n"); say[d[u][0]] = say.get(d[u][0], 0) + 1
+    return say
+
+
+def tum(n):
+    """kos n: 754 bitene (ya da Haiku tavanına) dek n'lik partiler; her parti sonu video-764-parti.tsv satırı."""
+    if not PARTI.is_file():
+        PARTI.write_text("parti\tvideo/dk\thalka dağılımı\tHaiku çağrı\tHaiku $\tkarar\n", encoding="utf-8")
+    no = len(PARTI.read_text(encoding="utf-8").splitlines())
+    while sirada() and HK["cagri"] < HAIKU_TAVAN:
+        s0 = dict(SAY); c0 = HK["cagri"]; u0 = HK["usd"]
+        ok, hata, dk = kos(n)
+        dag = {k: SAY[k] - s0.get(k, 0) for k in SAY if SAY[k] - s0.get(k, 0)}
+        kd = kararla()
+        with PARTI.open("a", encoding="utf-8") as f:
+            f.write(f"{no}\t{ok / dk:.2f} ({ok} ok/{hata} hata)\t{dag}\t{HK['cagri'] - c0}\t{HK['usd'] - u0:.3f}\t{kd}\n"); no += 1
+    print("TUM BITTI kalan", len(sirada()), "haiku", HK, flush=True)
+
+
 def kos(n, ids=None):
     sat = [(k, i) for k, i in liste() if ids and i in ids] if ids else sirada()[:n]
     zincir = modeller(); print("zincir", zincir, flush=True)
@@ -194,7 +253,27 @@ def kos(n, ids=None):
                 ok += 1
             print(r["id"], r.get("model"), r.get("sn"), r.get("hata", ""), flush=True)
     dk = (time.time() - t0) / 60
-    print(f"BITTI ok {ok} hata {hata} {dk:.1f} dk · {ok / dk:.2f} video/dk", flush=True)
+    print(f"BITTI ok {ok} hata {hata} {dk:.1f} dk · {ok / dk:.2f} video/dk · halka {SAY} · haiku {HK}", flush=True)
+    return ok, hata, dk
+
+
+def kapi():
+    """Kalite kapısı: pilot 10 videonun kayıtlı girdisi yeni zincirle yeniden özetlenir, Haiku karar verir; pilot kararıyla kıyas."""
+    zincir = modeller(); print("zincir", zincir, flush=True)
+    pilot = {ln.split("\t")[0]: ln.split("\t")[3] for ln in TSV.read_text(encoding="utf-8").splitlines()[1:]}
+    parca, ayni = [], 0
+    for g in sorted(O.glob("*.girdi.txt")):
+        girdi = g.read_text(encoding="utf-8"); vid = g.name[:-10]
+        u = next((u for u in pilot if vid.replace("ig-", "") in u), None)
+        r = {}; o = ozet(girdi, re.search(r"BAŞLIK: (.*)", girdi).group(1) if "BAŞLIK:" in girdi else "", zincir, r)
+        print(vid, r.get("model"), r.get("ozet_log", ""), flush=True)
+        if o and u:
+            (O / "kapi").mkdir(exist_ok=True); (O / "kapi" / f"{vid}.ozet.txt").write_text(o, encoding="utf-8"); parca.append((u, vid, "", o))
+    d = karar(parca)
+    for u, vid, _, _ in parca:
+        k = d.get(u, ("?",))[0]; ayni += k == pilot[u]
+        print(vid, "yeni", k, "pilot", pilot[u], "OK" if k == pilot[u] else "FARK", flush=True)
+    print(f"KAPI {ayni}/{len(pilot)} özet {len(parca)} halka {SAY} haiku {HK}", flush=True)
 
 
 def parti(n):
@@ -215,7 +294,9 @@ def parti(n):
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a[0] == "kos":
-        kos(int(a[1]), a[a.index("--ids") + 1].split(",") if "--ids" in a else None)
+        kos(int(a[1]), a[a.index("--ids") + 1].split(",")) if "--ids" in a else tum(int(a[1]))
+    elif a[0] == "kapi":
+        kapi()
     elif a[0] == "parti":
         parti(int(a[1]))
     else:
