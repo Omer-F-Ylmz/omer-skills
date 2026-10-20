@@ -17,7 +17,9 @@ ya da de bir bu şu o olan olarak neden nerede nereye kim ise gibi daha en çok 
 the a an of to is what which how""".split())
 TR = str.maketrans("ıİçÇğĞöÖşŞüÜâÂîÎ", "iiccggoossuuaaii")
 PENCERE = 400  # uzun satırda gösterilen karakter
-KOMSU = 3  # arama sonucuna eklenen en fazla wikilink komşusu
+KAR_JETON = 3  # shortcut: Türkçe için ~3 karakter/jeton varsayımı, ölçüm sapıtırsa değiştir
+PARCA_TAVAN = 600  # parça başı karakter (~200 jeton)
+KOMSU = 3 # arama sonucuna eklenen en fazla wikilink komşusu
 # TR↔EN eş anlam (katlanmış kök → karşılık); kaynakların bir kısmı İngilizce (bellek, global CLAUDE.md)
 # shortcut: elle küçük liste, yeni ıska sınıfı çıktıkça genişlet
 ES = [("afis", "banner"), ("bayra", "flag"), ("esik", "threshold"), ("esig", "threshold"),
@@ -166,17 +168,22 @@ def main(argv=None):
     alt = ap.add_subparsers(dest="komut", required=True)
     a = alt.add_parser("ara")
     a.add_argument("soru")
-    a.add_argument("--k", type=int, default=5)
+    a.add_argument("--k", type=int, default=3)
+    a.add_argument("--butce", type=int, help="çıktı jeton tavanı (varsayılan 200×k)")
     a.add_argument("-c", "--koleksiyon", default="beyin")
     ns = ap.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
     sonuc = ara(ns.soru, ns.k, ns.koleksiyon)
     if not sonuc:
         print("sonuç yok")
+    kalan = (ns.butce or 200 * ns.k) * KAR_JETON
     for kaynak, no, satirlar in sonuc:
-        print(f"## {kaynak}:{no}")
-        print("\n".join(satirlar))
-        print()
+        if kalan <= 0:
+            break
+        metin = f"## {kaynak}:{no}\n" + "\n".join(satirlar)
+        metin = metin[:min(kalan, PARCA_TAVAN)]
+        kalan -= len(metin)
+        print(metin + "\n")
 
 
 if __name__ == "__main__":
