@@ -1,6 +1,6 @@
 """sor2: graphify hibrit sorgu. graph.json'u süreç içinde okur (CLI/ağır başlangıç yok), dosya yolu+etiket eşleşmesiyle ≤1.5k token verir.
   python sor2.py "soru"     |  python sor2.py egitim|held  → sor2_ab_<mod>.json (held tek sefer; kilit sor2_held.lock)"""
-import hashlib, json, math, os, re, subprocess, sys, time
+import hashlib, json, math, os, pickle, re, subprocess, sys, time
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[3]
@@ -22,23 +22,29 @@ _G = {}
 
 def yukle():
     if not _G:
-        g = json.load((KOK / "graphify-out/graph.json").open(encoding="utf-8"))
-        m = (KOK / "graphify-out/graph.json").stat().st_mtime
-        ön = KOK / "graphify-out/sor2_belge.json"  # dosya başı docstring/yorum (ilk 600 kr), graph mtime'a bağlı önbellek
-        if ön.exists() and (c := json.load(ön.open(encoding="utf-8")))["m"] == m:
-            _G["b"] = c["d"]
-        else:
-            _G["b"] = {}
+        gj = KOK / "graphify-out/graph.json"
+        m = gj.stat().st_mtime
+        pk = KOK / "graphify-out/sor2_dizin.pkl"  # ayrıştırılmış dizin (etiket/dosya/yer + docstring + bayat dosya metni), graph mtime'a bağlı; 40 MB json okumayı atlar
+        try:
+            with pk.open("rb") as f: c = pickle.load(f)
+            if c["m"] != m: raise ValueError
+        except (OSError, ValueError, KeyError, pickle.UnpicklingError, EOFError):
+            g = json.load(gj.open(encoding="utf-8"))
+            c = {"m": m, "b": {}, "s": {}, "n": [(n.get("norm_label") or n["label"].lower(), n.get("source_file", "").lower(), n["label"], n.get("source_location", "")) for n in g["nodes"]]}
             for f in {n.get("source_file", "").lower() for n in g["nodes"]}:
-                try: _G["b"][f] = (KOK / f).read_text(encoding="utf-8", errors="ignore")[:600].lower()
+                try: c["b"][f] = (KOK / f).read_text(encoding="utf-8", errors="ignore")[:600].lower()
                 except OSError: pass
-            json.dump({"m": m, "d": _G["b"]}, ön.open("w", encoding="utf-8"), ensure_ascii=False)
-        _G["n"] = [(n.get("norm_label") or n["label"].lower(), n.get("source_file", "").lower(), n["label"], n.get("source_location", "")) for n in g["nodes"]]
-        bayat_ekle(m)
+            c["kirli"] = True
+        _G["n"], _G["b"] = list(c["n"]), dict(c["b"])
+        bayat_ekle(m, c)
+        if c.pop("kirli", False):
+            tmp = pk.with_suffix(".tmp")
+            with tmp.open("wb") as f: pickle.dump(c, f, protocol=pickle.HIGHEST_PROTOCOL)
+            os.replace(tmp, pk)
     return _G["n"]
 
 
-def bayat_ekle(m):
+def bayat_ekle(m, c):
     """Bayatlık denetimi: graph.json'dan yeni/izlenmeyen ya da sonradan değişen .py dosyaları düz metin dizinine girer (o sorguda yedek arama);
     bayat varsa `graphify update .` arka.py ile (CREATE_NO_WINDOW) başlatılır, 10 dk'da bir."""
     bilinen = {f for _, f, *_ in _G["n"]}
@@ -50,13 +56,15 @@ def bayat_ekle(m):
             if e.is_dir(follow_symlinks=False):
                 if e.name not in atla and derin < 4: gez(e.path, derin + 1)
             elif e.name.endswith(".py") and ((f := os.path.relpath(e.path, KOK).replace("\\", "/")).lower() not in bilinen or e.stat().st_mtime > m):
-                bayat.append(f)
+                bayat.append((f, e.stat().st_mtime))
     for k in kokler:
         if (KOK / k).is_dir(): gez(KOK / k)
-    for f in bayat:
+    for f, mt in bayat:
         fl = f.lower()
-        try: _G["b"][fl] = (KOK / f).read_text(encoding="utf-8", errors="ignore")[:600].lower()
-        except OSError: continue
+        if fl not in c["s"] or c["s"][fl][0] != mt:  # bayat dosya metni (mtime, metin) önbellekte; yalnız değişen yeniden okunur
+            try: c["s"][fl] = (mt, (KOK / f).read_text(encoding="utf-8", errors="ignore")[:600].lower()); c["kirli"] = True
+            except OSError: continue
+        _G["b"][fl] = c["s"][fl][1]
         if fl not in bilinen:
             _G["n"].append((Path(f).stem.lower(), fl, Path(f).stem, ""))
     isaret = KOK / "graphify-out/.sor2_guncelleme"

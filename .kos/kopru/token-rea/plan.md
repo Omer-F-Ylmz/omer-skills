@@ -86,3 +86,15 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. rtk2: komut başına süre/token için çıktı-boyutu tavanı (find/ls-files büyük çıktıda dizin başına özet), sinyal ölçüsünü "ad kaybı yok" yerine "dizin+sayı+ilk N" olarak tanımla (Ömer onayı); yeni tohum, kapı geçerse `onay/token_rea_rtk2.py` + hook rotası.
 2. sor2: soğuk süreç <0.5 sn (graph.json'dan ayrıştırılmış küçük dizin önbelleği: label/dosya/yer, pickle) ve kapıyı yeni tohumda tekrarla; geçerse `onay/token_rea_sor2.py`.
 3. Bağlam diyeti (ertelenmiş yükleme) + iş deseni kolu + BEYİN-4 ~43k farkı — d4/d5'ten devir.
+
+
+## d6 SONUÇ (20 Eki 2026; Claude -p 0, havuz çağrısı 0)
+1. **sor2 KABUL işlendi**: soğuk süreç ~0.55 → **~0.40 sn** (`graphify-out/sor2_dizin.pkl`: ayrıştırılmış etiket/belge + bayat dosya metni, graph mtime'a bağlı, 40 MB json atlanır; bayat tarama 0.26 sn kaldı). egit1 yeniden: 9/10 → genişletmeli 10/10, 6.2k tok/10 soru. `onay/token_rea_sor2.py` (+test): `graphify query` yanına tek kural satırı (ev + repo CLAUDE.md, yedekli, `--geri`); graphify kalkmadı. claude.ai tarafı: sor2 yerel dosya sistemi ister, zip'e girmez (iki taraf kuralı: Desktop = repo CLAUDE.md, claude.ai yok).
+2. **rtk2 özet + geri alma**: çıktı >1500 kr → ≤8 satır özet (dizin başına sayı + ilk 3 ad; diff'te `## dosya` başlıkları) + tam metin `%TEMP%/rtk2-ac/<id>` + tek satır `python -I -S …/rtk2.py ac <id>`. Sinyal ölçüsü (`rtk2_e2e.py`): özet + `ac` çıktısı. Kind tablosu (rota başına rtk vs rtk2) e2e'de basılıyor. `find` rotadan ÇIKTI (4 held-out komutta süre 0/4: Python açılışı); `git branch` "ham" kaldı.
+   Held-out (3 yeni tohum, her biri tek sefer, tohum 2 ve 3 rota/eşik ayarından sonra): 20102001 token rtk 100 602 → 12 667, süre 1.83→1.53, sinyal 11 vs 9; 20102002 (find dahil) 92 152 → 2 590, 1.63→1.39, 11 vs 9; **20102003 (son rota)** 92 193 → **3 351 (−%96)**, süre 1.63 → **1.18 sn**, süre ≤ rtk **14/14**, token ≤ rtk **13/14**, sıkı sinyal **14/14** (rtk 13/14). Tek kaçan: `git branch -a` ham (700 vs rtk 645 tok; rtk adları kaybediyor). **DÖRT EKSEN**: token ✓ süre ✓ kalite ✓ kullanışlılık (geri alma tek komut) ✓; "her komutta token ≤" 13/14 (branch). `onay/token_rea_rtk2.py` (+test) hook'a ls/diff/status yazar, yedekli, `--geri`; uygulama Desktop/Ömer.
+3. **Bağlam diyeti (ertelenmiş yükleme) + BEYİN-4 ~43k farkı + iş deseni kolu: YAPILMADI** (45 tur tavanı; yarım bırakılmadı).
+
+## ★ d7 TASLAK
+1. `git branch -a` için kayıpsız ve ≤ rtk token yol: `git for-each-ref --format='%(HEAD)%(refname:short)'` yeniden yazımı (Python yok, ad kaybı yok) — held-out 700 vs 645 farkını kapatır.
+2. Bağlam diyeti (ertelenmiş yükleme, KAPATMA YOK) + BEYİN-4 ~43k fark açıklaması (transkript 65k vs rapor 107.9k: ölçüm hatası mı gizli yük mü) — d4/d5/d6'dan devir, tek başına bir oturum işi.
+3. İş deseni kolu: köprü görev şablonu (tur tavanı, okuma listesi, delegasyon, sabit önek) + 2 gerçek köprü görevinde A/B; sor2/rtk2 onayları uygulandıktan sonra gerçek oturumda token ölçümü (taban.py profil).

@@ -85,39 +85,11 @@ def diff_kompakt(ham, kap=20):
     return "\n".join(cik)
 
 
-def bul_ayristir(argv):
-    """find DİZİN [-maxdepth N] [-type f|d] [-name *.uz|ad] → (dizin, derinlik, tip, uzanti|ad); başka her şey None (rtk'ya kalır)."""
-    d, a, i = argv[1] if len(argv) > 1 else ".", {"-maxdepth": 99, "-type": "", "-name": ""}, 2
-    while i < len(argv):
-        if argv[i] not in a or i + 1 >= len(argv): return None
-        a[argv[i]] = argv[i + 1]; i += 2
-    p = a["-name"]
-    if p and (any(c in p for c in "?[") or ("*" in p and not (p.startswith("*.") and "*" not in p[1:]))): return None
-    return d, int(a["-maxdepth"]), a["-type"], p
-
-
-def bul(d, md, ty, p):
-    """Tek geçiş scandir (regex yok): yolları dizine göre gruplanmış verir; ad/yol kaybı yok."""
-    cik, yig = [], [(d, 1)]
-    while yig:
-        yol, k = yig.pop()
-        try: girdi = list(os.scandir(yol))
-        except OSError: continue
-        for e in girdi:
-            dz = e.is_dir(follow_symlinks=False)
-            if dz and k < md: yig.append((e.path, k + 1))
-            if (ty != "f" or not dz) and (ty != "d" or dz) and (not p or (e.name.endswith(p[1:]) if p[0] == "*" else e.name == p)):
-                cik.append(yol.replace("\\", "/") + "/" + e.name)
-    return agac(cik)
-
-
 def tur(argv):
     """Süzgeç türü; None → rtk2 uçtan uca rtk'dan hızlı değil, hook komutu doğrudan rtk'ya yollar (rtk2 hiç açılmaz).
-    Ölçüm (egitim+held4): ls/diff/durum rtk'dan hızlı; find, ls-files, log/diff/show --stat Python açılışı (~40 ms) yüzünden eşit/yavaş."""
+    Ölçüm (egitim+held4+d6 iki tohum): ls/diff/durum rtk'dan hızlı; find (0/4 süre), ls-files, log/diff/show --stat Python açılışı (~40 ms) yüzünden eşit/yavaş → rtk."""
     if argv[0] == "ls":
         return "ls"
-    if argv[0] == "find" and bul_ayristir(argv):
-        return "find"
     if argv[0] != "git" or len(argv) < 2:
         return None
     if argv[1] == "branch":
@@ -136,14 +108,44 @@ def durum_gecis(ham):  # ham: `status --porcelain -b`
     return "\n".join([ls[0]] + [f"{k}\n{agac(v)}" for k, v in g.items()]) if ls else "temiz"
 
 
+TAVAN = 1500  # kr; altı tam döner. Üstü özet + tam metin sakla (rtk bu boyutta ad kaybediyor/şişiyor)
+AC = os.path.join(os.environ.get("TEMP") or "/tmp", "rtk2-ac")
+
+
+def sar(o, k):
+    """Büyük çıktı → özet (dizin başına sayı + ilk 3 ad / dosya başlıkları) + tam metin AC dizinine; tek satır geri alma komutu: `rtk2.py ac <id>`."""
+    if len(o) <= TAVAN:
+        return o
+    from zlib import crc32
+    i = "%08x" % crc32(o.encode())
+    os.makedirs(AC, exist_ok=True)
+    with open(os.path.join(AC, i), "w", encoding="utf-8") as f: f.write(o)
+    ls, e, etiket = o.splitlines(), [], ""
+    if k == "diff":
+        e = [l for l in ls if l.startswith("## ")]
+    elif len(ls) == 1:  # ls: tek satır
+        w = ls[0].split(" "); e = [" ".join(w[:40]) + (f" +{len(w) - 40} ad" if len(w) > 40 else "")]
+    else:
+        for l in ls:
+            d, ayrac, a = l.partition(": ")
+            if not ayrac: etiket = l + " "; continue
+            w = a.split(" "); e.append((len(w), etiket + f"{d} ({len(w)}): " + " ".join(w[:3]) + (f" +{len(w) - 3}" if len(w) > 3 else "")))
+        e = [x for _, x in sorted(e, key=lambda t: -t[0])]
+    e = [x if len(x) <= 90 else x[:89] + "…" for x in e]
+    ek = len(e) - 8
+    return "\n".join(e[:8] + ([f"+{ek} dizin/dosya daha"] if ek > 0 else []) + [f"tam çıktı ({len(ls)} satır, {len(o)} kr): python -I -S {os.path.abspath(__file__)} ac {i}"])
+
+
+def ac(i):
+    with open(os.path.join(AC, i), encoding="utf-8") as f: return f.read()
+
+
 def rtk2(argv):
     k = tur(argv)
     if k is None:
         return calis(["rtk", *argv])[0]
     if k == "ls":
-        return ls_kompakt(argv[1:])
-    if k == "find":
-        return bul(*bul_ayristir(argv))
+        return sar(ls_kompakt(argv[1:]), k)
     if k == "ham":
         return calis(argv)[0]
     if k == "diff" and not any(a.startswith(("-U", "--unified")) for a in argv):
@@ -152,8 +154,8 @@ def rtk2(argv):
     if r0 != 0:
         return ham
     o = diff_kompakt(ham) if k == "diff" else durum_gecis(ham)  # ad/hash kurgu gereği korunur; kayıp denetimi (eksik) yalnız ölçümde
-    return o if len(o) < len(ham) else ham
+    return sar(o, k) if len(o) < len(ham) else sar(ham, "ham")
 
 
 if __name__ == "__main__":
-    sys.stdout.buffer.write(rtk2(sys.argv[1:]).encode("utf-8"))
+    sys.stdout.buffer.write((ac(sys.argv[2]) if sys.argv[1] == "ac" else rtk2(sys.argv[1:])).encode("utf-8"))

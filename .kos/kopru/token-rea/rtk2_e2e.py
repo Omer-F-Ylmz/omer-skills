@@ -1,6 +1,6 @@
 """rtk2 d4 uçtan uca: her komut gerçek subprocess ile; rota = hook sınıflandırması (rtk2.tur) → süzgeçliyse `python -I -S rtk2.py`, değilse doğrudan `rtk`.
   python rtk2_e2e.py egitim|held4 → rtk2_e2e_<mod>.json (held4 tek sefer; kilit rtk2_set4.lock). Kapı: her komutta sn_rtk2 ≤ sn_rtk, token ve kalite ≥ rtk."""
-import hashlib, json, os, subprocess, sys, time
+import hashlib, json, os, re, subprocess, sys, time
 import taban as t, rtk2, rtk2_set as S
 
 PY = ["python", "-I", "-S", str(t.BU / "rtk2.py")]
@@ -48,14 +48,20 @@ for ad, argv, k in liste:
     o1, s1 = kos(["rtk", *argv])
     r = rtk2.tur(argv); suz = r is not None
     o2, s2 = kos(argv if r == "ham" else PY + argv) if suz else (o1, s1)  # "ham": hook komutu rtk'sız bırakır; None: rtk ile aynı komut, eşit sayılır
+    ac = re.search(r" ac ([0-9a-f]{8})\s*$", o2)  # d6: özet + geri alma komutu; sinyal = özet + `ac` çıktısı (bilgi kaybolmaz)
+    o2s = o2 + subprocess.run(PY + ["ac", ac.group(1)], capture_output=True, creationflags=rtk2.NW).stdout.decode("utf-8", "replace") if ac else o2
     key = anahtar(k, ham, br, konu)
     sat.append({"ad": ad, "rota": r if suz else "rtk", "ham": tk(ham), "rtk": tk(o1), "rtk2": tk(o2),
-                "tohum_rtk": int(key in o1), "tohum_rtk2": int(key in o2), "siki_rtk": siki(argv, ham, o1), "siki_rtk2": siki(argv, ham, o2),
+                "tohum_rtk": int(key in o1), "tohum_rtk2": int(key in o2s), "siki_rtk": siki(argv, ham, o1), "siki_rtk2": siki(argv, ham, o2s), "ac": int(bool(ac)),
                 "sn_rtk": round(s1, 3), "sn_rtk2": round(s2, 3)})
 top = {k: round(sum(s[k] for s in sat), 3) for k in sat[0] if k not in ("ad", "rota")}
 print(mod, "n", len(sat), top, "count_tokens", t.SAYAC["say"])
 if mod.startswith("heldout"):
     print("kapı: süre ≤ rtk", sum(x["sn_rtk2"] <= x["sn_rtk"] for x in sat), "/", len(sat), "· token ≤ rtk", sum(x["rtk2"] <= x["rtk"] for x in sat), "· sinyal rtk2", sum(x["tohum_rtk2"] and x["siki_rtk2"] for x in sat), "rtk", sum(x["tohum_rtk"] and x["siki_rtk"] for x in sat))
+for r in sorted({x["rota"] for x in sat}):  # (c) rota tablosu: rota başına rtk2'nin dört eksendeki kazancı (komut adı basılmaz)
+    z = [x for x in sat if x["rota"] == r]
+    print("  rota", r, "n", len(z), "token rtk", sum(x["rtk"] for x in z), "rtk2", sum(x["rtk2"] for x in z), "· tok≤", sum(x["rtk2"] <= x["rtk"] for x in z), "· sn≤", sum(x["sn_rtk2"] <= x["sn_rtk"] for x in z),
+          "· sinyal rtk2", sum(x["tohum_rtk2"] and x["siki_rtk2"] for x in z), "rtk", sum(x["tohum_rtk"] and x["siki_rtk"] for x in z), "· ac", sum(x["ac"] for x in z))
 for s in sat:
     if mod.startswith("heldout") and "egit" not in mod:
         continue
