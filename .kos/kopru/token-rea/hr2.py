@@ -18,9 +18,13 @@ def satirlar(m):
     return [json.dumps(e, ensure_ascii=False) for e in j] if isinstance(j, list) else m.splitlines()
 
 
+SIG = re.compile(r"error|fail|exception|traceback|fatal|panic|denied|warn|exit code|passed", re.I)
+
+
 def cokert(ls):
     o = []
-    for _, g in groupby(ls, key=lambda l: re.sub(r"\d+", "#", l)):
+    # sinyal satırında sayı maskelenmez: exit 1 / 3 failed gibi yalnız sayıyla ayrışan iğne çökmez
+    for _, g in groupby(ls, key=lambda l: l if SIG.search(l) else re.sub(r"\d+", "#", l)):
         g = list(g)
         o += g if len(g) < RUN else [g[0], f"[×{len(g) - 2} benzer satır]", g[-1]]
     return o

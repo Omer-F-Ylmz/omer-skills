@@ -144,3 +144,14 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 1. hr2 gerçek-dünya ölçümü: son 14 gün Bash/araç çıktıları (transkript) üstünde hr2 kazancı, ≥100 satırlık alt kümede; sayıca farklı iğne için maske sertleştirme (ör. sayıyı yalnız yüzde/id bağlamında maskele).
 2. claude-mem 4 eksen taban (arama süresi, RAM, kalite = baglam_kalite, token) + mekanizma ≤15 satır.
 3. Erken devir A/B'yi koş (≥2 uzun köprü görevi).
+
+## d11 SONUÇ (20 Eki 2026; Claude -p 0/10, havuz 0/80)
+1. **hr2 gerçek yük** (`hr2_gercek.py`; son 14 gün transkript, ≥1500 kr çıktı, 244 örnek: test/log/build/grep/git/ls 40'ar, json 4; tiktoken cl100k): hr2 ilk sürüm ağırlıksız −%2,8 ama iğne kaybı 93/679 (log 67/115, git 124/160: yalnız sayıyla ayrışan sinyal satırları maskede çöküyordu). Sertleştirme: sinyal satırında (hata/fail/exit code/warn/passed…) sayı maskelenmez. Yeni tohum held1: **−%1,3 (nüfus-ağırlıklı −%0,66)**, iğne **742/742**, değişen çıktı 14/244; egit1 üstünde −%0,9, 679/679. Headroom aynı kümede −%1,6, iğne 646/679 (Kompress modeli bu süreçte hazır değil → Headroom ML kolu çalışmadı, alt sınır). 100+ satırlık alt küme yalnız 11/244 (hr2 −%6,4–7). hr2 uçtan uca ort 0,08 sn.
+   **Karar: ≥%15 ek tasarruf YOK → onay_hr2 güncellenmedi, rota yok** (grep nüfusun %65'i ama −%0,0; hiçbir türde kazanç yok). Sentetik −%97, gerçek yükte ~−%1: önceki d10 sonucu yalnız sentetik kabul.
+2. **claude-mem taban (7 gözlem)**: kalite `kapsam` 30 soru: kap7 0,43 → +arama 0,53 = kap15 0,53 (rütbe7-15: 0,25 → 0,44 = 15); bağlam ~1,9k jeton, arama ort ~184 jeton; arama HTTP 0,76–1,05 sn (sıcak /health 0,01 sn); RAM worker (bun) ~151 MB + chroma-mcp ~5 MB. Mekanizma: SessionStart'ta son N başlık enjekte, derin bilgi mem-search ile; kayıp yeri: başlıklar kısa, aramasız 7-15. soru kaybı.
+3. **Erken devir** (`devir_sim.py`, YALNIZ token simülasyonu): 370 uzun (>120k) oturum, 891 devir; ağırlıklı maliyet A 2029M → B 644M (**−%68, üst sınır**: devir sonrası aynı tur sayısı ve kalite eşit varsayımı; yeniden okuma turları/kalite kaybı modellenmedi). Canlı kalite A/B koşulmadı.
+
+## ★ d12 TASLAK
+1. Erken devir canlı kalite A/B (≥2 uzun köprü görevi, kabul testi eşit mi; tur sayısı artışı ölç) — simülasyon −%68'in ne kadarı gerçek.
+2. claude-mem: arama süresi 0,8–1,0 sn → önbellekli/yerel FTS yolu (kendi sürüm) + rütbe7-15 kalitesi (başlık uzunluğu/arama otomatik tetik) 4 eksen kapı.
+3. context-mode taban (sıradaki araç). hr2 yeniden ele alınmaz (gerçek yükte kazanç yok), yalnız Headroom Kompress modeli hazırken bir kez tekrar ölçüm istenirse.
