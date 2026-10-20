@@ -493,3 +493,6 @@ TOKEN-3 d6 ara: K15 skill adayı (kapı 14/17 < 15/17, DEVAM-KURALI geri), K14 s
 - ÖĞREN-3 BİTTİ: kapı t23 %92.0 · t24 %95.0 (tohum başı 2 kör sonnet hakem, tam okuma); 149 kart RET 0; komut alanı betikle (komut.py, 51/54 dolu, 3 cli kaynakta komutsuz); kart.jsonl +149 A; docs/ogren/ajan-orkestrasyon.md; müdür skill + dist/claude-ai-27 zip TEMİZ; borç: Desktop MCP yapılandırma doğrulaması, bilim/araştırma kombin koşusu yok, t23 eşikte (%92.0)
 - BEYIN-2 KAPI <%92 — Desktop kararı: 2005 16-19/20, 2006 8-13/20, token %31 (bütçeli) / %76 (bütçesiz) ✗; kanca+kapi.py tamam (rapor/beyin-2-d2.md)
 - 20 Eki ÖĞREN-4 BİTTİ (kapanış): departman-diger video satırı + departman-belge adım 5; dist/ogren4-kapanis 2 zip TEMİZ; rapor/ogren-4-kapanis.md
+
+- BEYIN-3 d1 ARA: sıralama/bütçe/ağırlık yenilendi, yoklama 18→30/40 (geliştirme kümesi), testler 22/22; kapı (2007/2008) koşulmadı → d2 (rapor/beyin-3-d1.md)
+- ÖĞREN-2 BİTTİ (G1 d3): kapı t11 %99/%100 · t12 %99/%99 (25 kart×4 alan, 2 hakem/tohum) · A 146 kart + B 585 · kombin-1..6 (4 Desktop DENENMEDİ) · departman-frontend +ogren.md, zip TEMİZ

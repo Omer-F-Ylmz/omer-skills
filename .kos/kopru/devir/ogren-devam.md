@@ -186,3 +186,13 @@ d1 (20 Eki ~11:45, CC) — ARA. Hat: `.claude/ogren6/v1.py` (ÖĞREN-4 v1 kopyas
 ## ÖĞREN-3 d3 (20 Eki ~14:00, CC) — BİTTİ
 - Kapı: t23 %92.0 (Y 8; ayrışan 4 alan kaynağa bakıp Y) · t24 %95.0 (Y 4 + AYRI 1 hata sayıldı). Hakemler: tohum başı 2 sonnet, parçalı tam okuma; t24 hakemleri ilk denemede sınıflandırıcı reddi, aynı istemle yeniden denenince geçti.
 - Çıktılar: komut.py/test_komut.py/kart_ekle.py (.claude/ogren3), kart.jsonl +149 A, docs/ogren/ajan-orkestrasyon.md, müdür skill adım 6, dist/claude-ai-27/departman-surec-ajan-arac.zip (TEMİZ). Borç: Desktop tarafı kabulü (zip yükleme, MCP yapılandırma) Desktop'ta; skill adım 6'daki docs yolu claude.ai'de yok (metin kendi kendine yeter); bilim/araştırma kombin koşusu denenmedi.
+
+ÖĞREN-6 d4 ARA (20 Eki, Sonnet, ~42. çağrı): (1) `duzelt2.py` (+test_duzelt2.py 4 yeşil, kırmızı→yeşil görüldü; komut = ogren3 komut.py `doldur`, sınırlar = SIKI→GEVSEK kalıp + 5 elle iğne): komut belirsiz 117→0, sınırlar 18→7 (dotnet · playwright · clickhouse · dotnet-data · dotnet-nuget · drizzle-docs · supabase-postgres-best-practices: kaynakta uyarı satırı yok). (2) mekanizma 19 kalem kaynaktan yeniden (2 okuyucu sonnet → `mek-sonuc.jsonl` → `mek_uygula.py`, kanıt kaynak satırından birebir). birlestir RET 0. (3) KAPI tohum 65/66 (`hakem-g4-t65|66.jsonl`, 25'er, 2 tekrar) — hakem a'lar çalışıyor (h65a/h66a), b'ler RAM %83 yüzünden bekliyor. Yedek: `_eski/d4/`.
+
+## ÖĞREN-2 d3 (20 Eki ~14:00, CC) — ARA (yazım/düzeltme tamam; kapı koşuluyor)
+- (0) kombin: kombin-1..4.md yazıldı, k1-k3 yeniden koşuldu (k1 diff 7,51→0 %; k2 three r186 WebGL2, reduced-motion'da Lenis yok; k3 AXE 0/0, LayoutCount 180→0, LH 1/1, TBT 20→0 ms). k4 Desktop kombin DENENMEDİ (Desktop bağlayıcıları CC'den çağrılamaz). pixeljury/qwen yargı adımı k1'de denenmedi.
+- (1) `.claude/ogren2/duzelt.py` (+test_duzelt.py, kırmızı görüldü → 3 yeşil): ÖĞREN-3 komut.KALIP + ÖĞREN-6 SINIR yöntemi; sinirlar 2, komut 5 dolduruldu. Kalan "belirsiz": komut 1, sinirlar 6 (kaynakta uyarı/komut satırı yok). 
+- (2) godot/blender/claude-design/21st: yerel README/şema `kaynak/<ad>.txt`e eklendi (mcp_kaynak.py); 4 kart yeniden yazıldı, kaynak yetersiz 0.
+- (3) 5 büyük kaynak (design-taste-frontend, motion-advanced, gsap-frameworks, cinematic-gsap-lenis-motion-system, performance-optimization) 4 sonnet ajanıyla parçalı TAM okundu, kartlar g1-yazar-d3-1..4.jsonl; birlestir RET 0, UYARI 119 (komut=frontmatter name).
+- A kartları `docs/atlas/kart.jsonl`e +146 (kart_ekle.py; önceden G1 A kartı yoktu).
+- (4) kapı: hakem-g1-t11/t12.jsonl (25'er kart; 5 büyük kaynak ikisinde de) × 2 kör hakem = 4 sonnet ajanı.
