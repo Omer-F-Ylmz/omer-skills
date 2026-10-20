@@ -1,0 +1,18 @@
+# TOKEN-REA d1 — mekanizma çıkarma (ilk 3 araç)
+
+Seçim ölçütü: üretimde en çok token kazandıran (Headroom 1.78G) · en çok çağrılan (RTK 39 554 komut, 44.8M) · keşif yolunun sabit maliyeti (graphify). Yöntem: açık kaynak okuma (okuyucu alt ajanlar, Sonnet); native ikili analizi gerekmedi (Ghidra yok, kaynak var). Kod kopyalanmadı. Lisans: üçü de Apache-2.0 (RTK'da engine/proxy BUSL-1.1 iddiası alt ajandan, kaynak URL'li; kod alınmayacağı için etkisiz).
+
+## Headroom 0.37.0
+- **Ne yapıyor:** kazancın büyük kısmı araç şeması erteleme (`inject_tool_search_deferral` → `defer_loading`, proxy/handlers/anthropic.py:2943-2967); mesaj sıkıştırma ContentRouter ile içerik türüne göre (SmartCrusher JSON, LOG, SEARCH, DIFF, KOMPRESS ML; content_router.py:1368-1382); CCR: `[N items compressed… hash=…]` + `headroom_retrieve` (en çok 3 tur, ccr/response_handler.py:72); önbellek önekini dondurur (cache/prefix_tracker.py:6-8).
+- **Nerede kaybediyor:** saved'in opus-5-5'te %78'i, sonnet-5-5'te %92'si şema ertelemesi; erteleme dışı mesaj sıkıştırma yalnız ≈%4.8 / %2.6 (bizim kütüphane ölçümü −%0.8 ile aynı düzey). Kompress ML hazır değilken sıkıştırmaz, 20 sn sınırında kuyruğu aynen bırakır (kompress_compressor.py:1106, 1525); kod bilerek PASSTHROUGH (content_router.py:2420-2430); sonnet-5 (tiresiz) olayların %91'inde saved=0.
+- **Daha iyi:** (1) CC kendi `ENABLE_TOOL_SEARCH` ile aynı şemayı erteliyor mu — çift sayım/çakışma ölçülür (A6: iki kol 22 319 ↔ 22 319, yani üst üste kazanç yok); (2) soğuk başlangıçta ML'siz kural yolu + ısıtma, ilk 5 çağrıda tasarruf yüzdesi; (3) retrieve oranı telemetrisi ve işarette anahtar satır özeti.
+
+## RTK 0.49.0
+- **Ne yapıyor:** komut başına süzgeç — Rust modülleri `src/cmds/*` (ls.rs, git_cmd.rs, read.rs) + 62 TOML süzgeç `src/filters/*.toml`; dört strateji: filtre · gruplama · kırpma · tekilleştirme; PreToolUse hook'u Bash komutunu `rtk …`'e yeniden yazar (yalnız Bash); jeton tahmini bayt/4.
+- **Nerede kaybediyor:** `ls`: `CAP_INVENTORY = 50` satır, fazlası atılır + gürültü dizinleri daraltılır (ls.rs:8, 366-383, 531-585) → bizdeki `token_olc.py` kaybı (çıkarım); `git diff`: `compact_diff` hunk başına satır sınırı (git_cmd.rs:1283-1291; dosya adı düşmesinin nedeni doğrulanmadı); `git status`/`log --stat`/`read` 0 kazanç (neden incelenmedi). Sinyal kaybı için kapı yok.
+- **Daha iyi:** (1) sinyal-koruma kapısı: ham↔süzülmüş çıktıda dosya yolu/hash/sayı/`error|fail` belirteci eksikse ham çıktıya dön (ölçüt: 10 komutluk sette kayıp belirteç 0); (2) sabit tavan yerine ad kısaltma + tüm adlar; diff'te dosya başlıkları asla düşmez; (3) `git status` untracked dizin başına sayım (`?? tools/ (12)`), `log --stat` toplam satır → 0 kazançtan ≥%20.
+
+## graphify 0.9.88
+- **Ne yapıyor:** tree-sitter AST (extract.py) → Leiden topluluk (cluster.py:106-175; yalnız etiket) → sorguda terim puanı (IDF+trigram, serve.py:603-613), ≤3 tohum (serve.py:780-848), BFS derinlik 3 (hub düğümlerden geçilmez, serve.py:1054-1082), düğüm+kenar satırları; `--budget 2000` × 3 karakter (serve.py:1118).
+- **Nerede kaybediyor:** çıktı soru ne olursa ≈3.4k token (tohum bloğu kesilmez, kenarlar asla düşmez; serve.py:1244-1278); tohum yalnız etiket/ad puanıyla, tür filtresi yok → kirli video/haber düğümü tohum olabilir (6/10 isabetin olası nedeni); her sorguda 48.9k düğümlü graph.json yeniden okunur (cli.py:1447-1475) → 3.5 sn.
+- **Daha iyi:** (1) token olarak uyarlı bütçe (hedef ≤1.5k, isabet ≥6/10 korunur); (2) etiket-önce hibrit: `graphify_sor` eşleşirse mini alt graf, yoksa `git grep` dosyaları `--seed` (hedef isabet ≥9/10, token ≤ grep'in %80'i); (3) kod-dışı düğümleri ayır + kalıcı yükleme (hedef <0.5 sn).

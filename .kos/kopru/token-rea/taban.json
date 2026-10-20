@@ -1,0 +1,558 @@
+{
+ "ts": "2026-10-20 17:02",
+ "ram_basta": 77.4,
+ "capture_ok": true,
+ "rtk": {
+  "ozet": {
+   "arac": "rtk",
+   "n": 10,
+   "a_tok": 173588,
+   "b_tok": 121517,
+   "kazanc_pct": 30.0,
+   "a_sn": 1.73,
+   "b_sn": 2.23,
+   "kalite_a": "10/10",
+   "kalite_b": "8/10",
+   "hata": 0
+  },
+  "satirlar": [
+   {
+    "ad": "git log -10",
+    "a_tok": 560,
+    "b_tok": 560,
+    "a_s": 0.03846335411071777,
+    "b_s": 0.07366633415222168,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "git status",
+    "a_tok": 16418,
+    "b_tok": 16418,
+    "a_s": 0.08350157737731934,
+    "b_s": 0.16425442695617676,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "ls -la tools",
+    "a_tok": 4726,
+    "b_tok": 683,
+    "a_s": 0.05403757095336914,
+    "b_s": 0.11551737785339355,
+    "hit_a": 1,
+    "hit_b": 0,
+    "hata": 0
+   },
+   {
+    "ad": "grep AGIRLIK",
+    "a_tok": 426,
+    "b_tok": 342,
+    "a_s": 0.1266036033630371,
+    "b_s": 0.06409454345703125,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "git diff --stat",
+    "a_tok": 1684,
+    "b_tok": 1348,
+    "a_s": 0.14568138122558594,
+    "b_s": 0.18001866340637207,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "git log -30 --stat",
+    "a_tok": 33781,
+    "b_tok": 33781,
+    "a_s": 0.921952486038208,
+    "b_s": 0.9577085971832275,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "read token_olc",
+    "a_tok": 23333,
+    "b_tok": 23333,
+    "a_s": 0.11153697967529297,
+    "b_s": 0.21801996231079102,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "read -l aggressive token.md",
+    "a_tok": 7006,
+    "b_tok": 7006,
+    "a_s": 0.05751919746398926,
+    "b_s": 0.05114293098449707,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "ls -la kök",
+    "a_tok": 2170,
+    "b_tok": 573,
+    "a_s": 0.03150749206542969,
+    "b_s": 0.0835120677947998,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "git diff HEAD~2",
+    "a_tok": 83484,
+    "b_tok": 37473,
+    "a_s": 0.15779781341552734,
+    "b_s": 0.3250553607940674,
+    "hit_a": 1,
+    "hit_b": 0,
+    "hata": 0
+   }
+  ],
+  "held_out_muhurlu": [
+   "rtk pytest --co",
+   "rtk find",
+   "rtk git blame",
+   "rtk tree"
+  ]
+ },
+ "headroom": {
+  "ozet": {
+   "arac": "headroom-compress-api",
+   "n": 6,
+   "a_tok": 76909,
+   "b_tok": 76283,
+   "kazanc_pct": 0.8,
+   "a_sn": 0.0,
+   "b_sn": 29.92,
+   "kalite_a": "6/6",
+   "kalite_b": "6.0/6",
+   "hata": 0
+  },
+  "satirlar": [
+   {
+    "ad": "token.md",
+    "a_tok": 7006,
+    "b_tok": 7006,
+    "a_s": 0.0,
+    "b_s": 21.210203647613525,
+    "hit_a": 1,
+    "hit_b": 1.0,
+    "hata": 0
+   },
+   {
+    "ad": "token_olc.py",
+    "a_tok": 23333,
+    "b_tok": 23333,
+    "a_s": 0.0,
+    "b_s": 0.31343889236450195,
+    "hit_a": 1,
+    "hit_b": 1.0,
+    "hata": 0
+   },
+   {
+    "ad": "SIRA.md",
+    "a_tok": 36446,
+    "b_tok": 36382,
+    "a_s": 0.0,
+    "b_s": 0.7437353134155273,
+    "hit_a": 1,
+    "hit_b": 1.0,
+    "hata": 0
+   },
+   {
+    "ad": "cli-combo-list.json",
+    "a_tok": 2886,
+    "b_tok": 2324,
+    "a_s": 0.0,
+    "b_s": 1.4176287651062012,
+    "hit_a": 1,
+    "hit_b": 1.0,
+    "hata": 0
+   },
+   {
+    "ad": "rea-tarama.md",
+    "a_tok": 1004,
+    "b_tok": 1004,
+    "a_s": 0.0,
+    "b_s": 5.53712272644043,
+    "hit_a": 1,
+    "hit_b": 1.0,
+    "hata": 0
+   },
+   {
+    "ad": "ucuz_alt.py",
+    "a_tok": 6234,
+    "b_tok": 6234,
+    "a_s": 0.0,
+    "b_s": 0.6970925331115723,
+    "hit_a": 1,
+    "hit_b": 1.0,
+    "hata": 0
+   }
+  ],
+  "held_out_muhurlu": []
+ },
+ "graphify": {
+  "ozet": {
+   "arac": "graphify-query",
+   "n": 10,
+   "a_tok": 52535,
+   "b_tok": 41693,
+   "kazanc_pct": 20.6,
+   "a_sn": 1.32,
+   "b_sn": 34.64,
+   "kalite_a": "9/10",
+   "kalite_b": "6/10",
+   "hata": 0
+  },
+  "satirlar": [
+   {
+    "ad": "token_olc ağırlıklı ölçüm",
+    "a_tok": 9077,
+    "b_tok": 3610,
+    "a_s": 0.11599898338317871,
+    "b_s": 3.9609317779541016,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "cc_profil kur",
+    "a_tok": 6280,
+    "b_tok": 3100,
+    "a_s": 0.09656357765197754,
+    "b_s": 4.317866563796997,
+    "hit_a": 1,
+    "hit_b": 0,
+    "hata": 0
+   },
+   {
+    "ad": "onek_kayit vekil",
+    "a_tok": 154,
+    "b_tok": 3404,
+    "a_s": 0.09433341026306152,
+    "b_s": 3.428537607192993,
+    "hit_a": 1,
+    "hit_b": 0,
+    "hata": 0
+   },
+   {
+    "ad": "ucuz_alt free zincir",
+    "a_tok": 3695,
+    "b_tok": 3444,
+    "a_s": 0.09010720252990723,
+    "b_s": 2.703197717666626,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "beyin kapı doğru",
+    "a_tok": 21173,
+    "b_tok": 3521,
+    "a_s": 0.08733940124511719,
+    "b_s": 2.6789345741271973,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "mem_bekci sağlık",
+    "a_tok": 169,
+    "b_tok": 8225,
+    "a_s": 0.09565234184265137,
+    "b_s": 2.6768789291381836,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "graphify_sor etiket",
+    "a_tok": 4145,
+    "b_tok": 3540,
+    "a_s": 0.1270143985748291,
+    "b_s": 2.9990689754486084,
+    "hit_a": 1,
+    "hit_b": 0,
+    "hata": 0
+   },
+   {
+    "ad": "nblm paket",
+    "a_tok": 0,
+    "b_tok": 3224,
+    "a_s": 0.18068861961364746,
+    "b_s": 4.376821756362915,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "zip_denetle",
+    "a_tok": 7785,
+    "b_tok": 3378,
+    "a_s": 0.09400320053100586,
+    "b_s": 3.704451084136963,
+    "hit_a": 1,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "kapi_kos ters",
+    "a_tok": 57,
+    "b_tok": 6247,
+    "a_s": 0.3373079299926758,
+    "b_s": 3.7928147315979004,
+    "hit_a": 1,
+    "hit_b": 0,
+    "hata": 0
+   }
+  ],
+  "held_out_muhurlu": [
+   "dalga_durum",
+   "headroom_claude_guard",
+   "rtk_onisle",
+   "ajan_sira",
+   "model_olc"
+  ]
+ },
+ "claudemem": {
+  "ozet": {
+   "arac": "claude-mem-search",
+   "n": 10,
+   "a_tok": 0,
+   "b_tok": 5176,
+   "kazanc_pct": null,
+   "a_sn": 0.0,
+   "b_sn": 6.19,
+   "kalite_a": "0/10",
+   "kalite_b": "9/10",
+   "hata": 0
+  },
+  "satirlar": [
+   {
+    "ad": "MEM-FIX-3",
+    "a_tok": 0,
+    "b_tok": 534,
+    "a_s": 0.0,
+    "b_s": 1.3725755214691162,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "RAM monitoring",
+    "a_tok": 0,
+    "b_tok": 604,
+    "a_s": 0.0,
+    "b_s": 0.5762572288513184,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "Bulut-1",
+    "a_tok": 0,
+    "b_tok": 357,
+    "a_s": 0.0,
+    "b_s": 0.5402343273162842,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "ollama_log",
+    "a_tok": 0,
+    "b_tok": 202,
+    "a_s": 0.0,
+    "b_s": 0.5514447689056396,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "PermissionError",
+    "a_tok": 0,
+    "b_tok": 753,
+    "a_s": 0.0,
+    "b_s": 0.6220247745513916,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "ÖĞREN-2 d3",
+    "a_tok": 0,
+    "b_tok": 474,
+    "a_s": 0.0,
+    "b_s": 0.5007107257843018,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "closure criteria",
+    "a_tok": 0,
+    "b_tok": 540,
+    "a_s": 0.0,
+    "b_s": 0.49393606185913086,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "model policy cloud",
+    "a_tok": 0,
+    "b_tok": 591,
+    "a_s": 0.0,
+    "b_s": 0.5099897384643555,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   },
+   {
+    "ad": "pilot script",
+    "a_tok": 0,
+    "b_tok": 557,
+    "a_s": 0.0,
+    "b_s": 0.4759500026702881,
+    "hit_a": 0,
+    "hit_b": 0,
+    "hata": 0
+   },
+   {
+    "ad": "ajan-sira.log",
+    "a_tok": 0,
+    "b_tok": 564,
+    "a_s": 0.0,
+    "b_s": 0.549978494644165,
+    "hit_a": 0,
+    "hit_b": 1,
+    "hata": 0
+   }
+  ],
+  "held_out_muhurlu": [
+   "TELVE-TOKEN-1",
+   "A6 köprü",
+   "OMNİ-AYIR d2",
+   "headroom retrieve",
+   "karar tohumu"
+  ]
+ },
+ "profiller": {
+  "kod dalgası": {
+   "oturum": 1000,
+   "girdi": 31184161,
+   "cache_okuma": 1802657103,
+   "cache_yazma": 129247066,
+   "cikti": 16354423,
+   "istek": 22395,
+   "girdi_artı_cikti_ham": 1979442753,
+   "agirlikli": 454780819,
+   "medyan_oturum_ham": 1532580,
+   "medyan_istek": 38
+  },
+  "araştırma": {
+   "oturum": 78,
+   "girdi": 450128,
+   "cache_okuma": 13198885,
+   "cache_yazma": 1241544,
+   "cikti": 280140,
+   "istek": 304,
+   "girdi_artı_cikti_ham": 15170697,
+   "agirlikli": 4722646,
+   "medyan_oturum_ham": 8619,
+   "medyan_istek": 1
+  },
+  "köprü kontrolü": {
+   "oturum": 184,
+   "girdi": 2124584,
+   "cache_okuma": 109059300,
+   "cache_yazma": 11900478,
+   "cikti": 2045307,
+   "istek": 1630,
+   "girdi_artı_cikti_ham": 125129669,
+   "agirlikli": 38132646,
+   "medyan_oturum_ham": 221769,
+   "medyan_istek": 2
+  }
+ },
+ "count_tokens_cagri": 47,
+ "ram_sonda": 78.5,
+ "profil": {
+  "toplam": 30591,
+  "tools": 14072,
+  "system": 1896,
+  "mesajlar_hook_enjeksiyon": 14612
+ },
+ "headroom_uretim_14g": {
+  "claude-opus-5-5": {
+   "istek": 29339,
+   "before": 3495199954,
+   "saved": 981333057,
+   "pct": 28.1
+  },
+  "claude-sonnet-5": {
+   "istek": 24739,
+   "before": 199758562,
+   "saved": 305995,
+   "pct": 0.2
+  },
+  "claude-sonnet-5-5": {
+   "istek": 13905,
+   "before": 1812618102,
+   "saved": 592707573,
+   "pct": 32.7
+  },
+  "claude-opus-4-7": {
+   "istek": 463,
+   "before": 8714233,
+   "saved": 0,
+   "pct": 0.0
+  },
+  "unknown": {
+   "istek": 496,
+   "before": 14587888,
+   "saved": 7769542,
+   "pct": 53.3
+  },
+  "claude-haiku-5-5": {
+   "istek": 3688,
+   "before": 663192458,
+   "saved": 199143137,
+   "pct": 30.0
+  },
+  "claude-haiku-4-5-20251001": {
+   "istek": 2,
+   "before": 4464,
+   "saved": 0,
+   "pct": 0.0
+  },
+  "claude-sonnet-4-6": {
+   "istek": 2,
+   "before": 13154,
+   "saved": 520,
+   "pct": 4.0
+  },
+  "claude-fable-5-1": {
+   "istek": 8,
+   "before": 4546087,
+   "saved": 2155843,
+   "pct": 47.4
+  },
+  "claude-opus-4-8": {
+   "istek": 4,
+   "before": 347657,
+   "saved": 80228,
+   "pct": 23.1
+  }
+ }
+}

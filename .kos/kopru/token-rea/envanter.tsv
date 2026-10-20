@@ -1,0 +1,15 @@
+arac	surum	kaynak	dil	kullanim_noktasi	olcum_betigi	kaynak_turu	durum
+RTK	0.49.0	~/.local/bin/rtk (açık kaynak rtk-ai/rtk)	Rust	Bash önişleme hook'u; rtk git/ls/grep/read/gain/proxy	taban.py rtk (10 komut, count_tokens)	kurulu	taban
+Headroom	0.37.0	uv tool headroom-ai (site-packages/headroom, _core.pyd native)	Python+Rust	ANTHROPIC_BASE_URL vekili, headroom_retrieve MCP, headroom-compress	taban.py headroom + ~/.headroom/savings_events.jsonl	kurulu	taban
+graphify	0.9.88	uv tool graphifyy	Python	graphify query/explain/path, graphify_sor.py, graphify-out/	taban.py graphify (10 tohumlu soru)	kurulu	taban
+context-mode	1.0.169	~/.claude/plugins/cache/context-mode (JS, src/*.ts; REA ile analiz edildi)	TypeScript/JS	ctx_execute/ctx_search MCP, SessionStart enjeksiyonu, curl/Read yönlendirme kancaları	yok (stats.json 8 satır; MCP yalnız etkileşimli CC'de)	kurulu	bekliyor
+OmniRoute (ROUTER)	3.8.50	npm global omniroute	Node	ücretsiz zincir cc-ucuz-free, ucuz_alt.py, cc-yedek-dis, omni-cache/compression	tools/model_olc.py, tools/ucuz_alt.py kapıları (OMNİ-AYIR)	kurulu	bekliyor
+CC ayarları	2.1.302	~/.claude/settings.json (promptCacheTtl, ENABLE_TOOL_SEARCH, statusLine)	JSON	önbellek TTL, araç araması, durum satırı	tools/token_olc.py olc --durma/--ttl-sim; taban.py profil	kurulu	taban
+jev	jev-cli (uv tool)	uv tool jev-cli, MCP jev	Python	jev ilgili/log/triage; ucuz model dosya seçimi	yok (token.md kartında elle)	kurulu	bekliyor
+qmd	2.8.3	qmd CLI + MCP qmd	TypeScript	yerel markdown BM25 arama	yok	kurulu	bekliyor
+claude-mem	13.31.0	~/.claude/plugins/cache/thedotmack/claude-mem; worker 127.0.0.1:37777	TypeScript	SessionStart enjeksiyonu, /api/search, mem-search	taban.py claudemem (10 tohumlu sorgu)	kurulu	taban
+BEYİN / Obsidian	-	tools/beyin.py (+beyin_al/bakim/diyet/kanca)	Python	BM25 hafıza arama, kancalı enjeksiyon	.claude/beyin4/kapi.py (kapi.log: A/B token + hakem)	kurulu	taban (mevcut kapı verisi)
+NotebookLM (nblm.py)	-	.kos/kopru/nblm.py, nblm_paket.py	Python	kaynak paketi → NotebookLM sorgusu	yok; Google oturumu gerekir, d2'de	kurulu	bekliyor
+mcp-memory	-	~/.claude.json mcpServers.mcp-memory	Node	bilgi grafı belleği (MCP)	yok; tools/list şema token'ı d2	kurulu	bekliyor
+CLAUDE.md / dalga.md / SessionStart	-	~/.claude/CLAUDE.md, proje CLAUDE.md, .claude/dalga.md, hooks/dalga-durum.ps1	md/PS	sabit bağlam, dalga durumu	taban.py profil (hook enjeksiyonu 14.6k token)	kurulu	taban
+REA	6.7.0	npm global rea (rea-agents)	TypeScript	tersine skill; native için Ghidra yok	envanter dışı (analiz aracı)	kurulu	-
