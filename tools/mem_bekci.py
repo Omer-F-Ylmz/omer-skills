@@ -82,7 +82,34 @@ def beyin():
         yaz("beyin_kanca hata:", repr(e)[:200])
 
 
-def sebepler(aktif, gozlem_yas_dk, kota_yas_dk):
+def ollama_bosalt():
+    """BULUT-1: yerel modeller RAM yemesin. Yüklü model varsa boşaltır; 11434'e bağlı süreçleri (çağıran) .kos/kopru/ram-olay.log'a yazar."""
+    import json
+    import urllib.request
+    import psutil
+
+    def istek(yol, veri=None):
+        r = urllib.request.Request("http://127.0.0.1:11434" + yol, data=None if veri is None else json.dumps(veri).encode(),
+                                   headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(r, timeout=10) as f:
+            return json.loads(f.read() or b"{}")
+
+    try:
+        modeller = istek("/api/ps").get("models", [])
+    except OSError:  # ollama kapalı
+        return
+    if not modeller:
+        return
+    caglar = sorted({psutil.Process(c.pid).name() + ":" + str(c.pid) for c in psutil.net_connections("tcp")
+                     if c.raddr and c.raddr.port == 11434 and c.pid})
+    for m in modeller:
+        ad = m.get("name") or m.get("model")
+        istek("/api/generate", {"model": ad, "keep_alive": 0})
+        with open(os.path.join(KOK, ".kos", "kopru", "ram-olay.log"), "a", encoding="utf-8") as f:
+            f.write(time.strftime("%Y-%m-%d %H:%M:%S ") + "ollama bosaltildi %s %.1fGB cagiran=%s\n" % (ad, m.get("size", 0) / 1e9, ",".join(caglar) or "?"))
+
+
+def sebepler(aktif,gozlem_yas_dk, kota_yas_dk):
     """Sağlık kararı (saf): aktif oturumda gözlem 30 dk'dan eski ya da son 30 dk'da kota/429 işareti."""
     s = []
     if aktif and (gozlem_yas_dk is None or gozlem_yas_dk > 30):
@@ -126,6 +153,10 @@ def saglik():
 
 
 if __name__ == "__main__":
+    try:
+        ollama_bosalt()
+    except Exception as e:
+        yaz("ollama_bosalt hata:", repr(e)[:200])
     main()
     try:
         saglik()

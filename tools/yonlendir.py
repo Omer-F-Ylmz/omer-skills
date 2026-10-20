@@ -19,9 +19,9 @@ KAYIT = KOK / ".kos/kopru/yonlendir-kayit.jsonl"
 SIRA = KOK / ".kos/kopru/gorev/SIRA.md"
 SIRALI = ["T0", "T1", "T2", "T3", "T4"]
 YUKSELTME = 2  # en fazla 2 kez +1, sonra Desktop'a SIRA satırı
-# Groq ücretsiz katman (OmniRoute UA'yı iletir; ucuz_alt.iste urllib dışı UA yollar) → OpenRouter :free → ollama yerel (en küçük)
-T1_ZINCIR = [("omni", "groq/openai/gpt-oss-120b"), ("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"),
-             ("ollama", "qwen3.5:4b")]
+# BULUT-1: yerel model yok (RAM 0). Gemini → OpenRouter :free → Groq EN SON (TPM küçük; OmniRoute UA'yı iletir, ucuz_alt.iste urllib dışı UA yollar)
+T1_ZINCIR = [("omni", "gemini/gemini-2.5-flash"), ("omni", "openrouter/nvidia/nemotron-3-super-120b-a12b:free"),
+             ("omni", "groq/openai/gpt-oss-120b")]
 HAIKU = "claude-haiku-5-5"
 
 
@@ -60,7 +60,7 @@ def _haiku(istem, max_tokens=None):
 
 
 def t1(istem, max_tokens=2000, sor=None, haiku=_haiku):
-    """T1 zinciri: Groq → nemotron :free → ollama yerel (RAM <%80) → Haiku 5.5. Kota/hata/kesik → sıradaki; görev düşmez.
+    """T1 zinciri: Gemini → nemotron :free → Groq → Haiku 5.5. Kota/hata/kesik → sıradaki; görev düşmez.
     Döner {yanit, model, usage{giris,cikis}, usd, sebep[], kota}; haiku=None → son çare yok (yanit None)."""
     import urllib.error
     import ucuz_alt

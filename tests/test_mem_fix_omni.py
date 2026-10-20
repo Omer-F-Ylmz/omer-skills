@@ -13,5 +13,9 @@ def test_zincir_temiz():
     assert all(serbest_mi(m) for m in ZINCIR)
 
 
+def test_yerel_model_yok():
+    assert not any(m.startswith("ollama") for m in ZINCIR)
+
+
 def test_groq_en_son():
     assert ZINCIR[-1].startswith("groq/") and ZINCIR[0].startswith("openrouter/")

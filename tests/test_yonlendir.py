@@ -45,10 +45,10 @@ def test_t1_zinciri_kotada_siradakine_gecer_son_care_haiku():
 
     def sor(kol, m, g):
         cagri.append(m)
-        if m.startswith("groq/"):
+        if m.startswith("gemini/"):
             raise urllib.error.HTTPError("u", 429, "kota", {}, None)
-        if kol == "ollama":
-            raise RuntimeError("atlandi-ram")
+        if m.startswith("groq/"):
+            raise RuntimeError("ag")
         return "", "length", m, {}  # nemotron kesik
     haiku = lambda istem, mt: ("tamam", "stop", yonlendir.HAIKU, {"prompt_tokens": 5, "completion_tokens": 2}, 0.001)
     r = yonlendir.t1("x", sor=sor, haiku=haiku)

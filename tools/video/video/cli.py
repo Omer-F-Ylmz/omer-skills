@@ -1601,6 +1601,16 @@ def _groq_istek(ctx, yol, dil, prompt):
     return json.loads(ctx["http"](GROQ_URL, govde, {"Authorization": f"Bearer {anahtar}", "Content-Type": f"multipart/form-data; boundary={sinir}"}))["segments"]
 
 
+def _ram_yuzde():
+    import ctypes
+
+    class Bellek(ctypes.Structure):
+        _fields_ = [("boy", ctypes.c_ulong), ("yuk", ctypes.c_ulong), *((x, ctypes.c_ulonglong) for x in ("top", "bos", "a", "b", "c", "d", "e"))]
+    b = Bellek(boy=ctypes.sizeof(Bellek))
+    ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(b))
+    return b.yuk
+
+
 def _asr(ctx, d, sure, dil, prompt):
     """1b-1 M3: groq.txt önbellek → Groq (16 kHz mono FLAC, ≤24 MB parça, offset birleştirme) → hata/kota/anahtar yok: whisper.cpp GPU
     (WMODEL'de ggml-large-v3-turbo*.bin varsa) → yoksa (None, "faster-whisper"): `video whisper` CPU yolu, sebep ctx["asr_not"]."""
@@ -1625,6 +1635,9 @@ def _asr(ctx, d, sure, dil, prompt):
     except (Hata, OSError, ValueError, KeyError) as e:
         neden = " ".join(str(e).split())[:80]
     model = next(WMODEL.glob("ggml-large-v3-turbo*.bin"), None) if WMODEL.is_dir() else None
+    if _ram_yuzde() >= 70:  # BULUT-1: yerel whisper yalnız Groq dolunca VE RAM <%70
+        ctx["asr_not"] = f"groq: {neden}; RAM ≥%70 → yerel whisper atlandı"
+        return None, "faster-whisper"
     if not (model and WCPP.is_file()):
         ctx["asr_not"] = f"groq: {neden}; whisper.cpp modeli yok → faster-whisper (video whisper)"
         return None, "faster-whisper"
