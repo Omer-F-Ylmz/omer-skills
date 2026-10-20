@@ -1,7 +1,7 @@
 """TERS kapısı koşucusu (docs/ters/kapi-tasarim.md). Hedefler: docs/ters/kapi/hedefler.json (elle ground truth).
   python tools/ters/kapi_kos.py          → docs/ters/kapi/sonuc.md + sonuc.json; --dene → yalnız 1 hedef (kuru deneme)
 Kollar: skill (SKILL.md + prob/REA kanıtı + ham kaynak) vs zemin (yalnız ham kaynak), aynı yazar model. Hakem: iki aile ücretsiz bulut, ikisi onaylamazsa madde 0.
-Bulut çağrı tavanı 60 (sayaç + önbellek CIKTI altında); anahtar değerleri basılmaz."""
+Bulut çağrı tavanı yazar 80 / hakem 130 (sayaç + önbellek CIKTI altında); anahtar değerleri basılmaz."""
 import functools, hashlib, http.server, json, os, random, re, subprocess, sys, threading, time, urllib.request
 from pathlib import Path
 from PIL import Image, ImageChops
@@ -13,7 +13,7 @@ sys.path.insert(0, str(KOK / "tools")); import ucretsiz_havuz as HAVUZ  # noqa: 
 
 DIZ = KOK / "docs/ters/kapi"
 CIKTI = Path(os.environ["TEMP"]) / "ters-kapi"
-TAVAN = {"yazar": 60, "hakem": 130}  # hakem: yalnız ücretsiz aileler
+TAVAN = {"yazar": 80, "hakem": 130}  # hakem: yalnız ücretsiz aileler
 HAIKU_TAVAN = 0  # üçüncü hakem (Haiku) kapalı
 TEKRAR = (1, 2)
 YARGIC = ("meta", "openai", "mistral", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
