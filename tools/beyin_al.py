@@ -37,7 +37,7 @@ KAYNAKLAR = [
     ("40-projeler", "devir", "devir", str(KOK / ".kos/kopru/devir/*.md")),
     ("50-dersler", "ders", "ders", str(BELLEK / "*.md")),
 ]
-PARCA_TAVAN = 30  # satır; başlıksız uzun bölüm bu boyda kesilir
+PARCA_TAVAN = 150  # satır; bundan uzun bölüm sonraki boş satırda (en geç +30'da) kesilir; arama bölüm içinde satır penceresi + başlık verir
 TAKMA_TUR = {"gorev", "kurulum", "ders", "ogren", "ajan"}  # dosya kökü bağ hedefi olan türler
 BAG_TAVAN = 5
 GIZLI = re.compile(r"sk-[\w-]{20,}|gh[ps]_\w{20,}|github_pat_\w{20,}|AIza[\w-]{30,}|xox[abp]-[\w-]{10,}"
@@ -58,7 +58,8 @@ def bol(satirlar):
     """[(baslangic_satir_1tabanli, [satirlar])] — başlıkta ya da PARCA_TAVAN'da böler."""
     parcalar, bas, cur = [], 1, []
     for i, s in enumerate(satirlar, 1):
-        if cur and (s.startswith("#") or len(cur) >= PARCA_TAVAN):
+        # bölüm başlığında bölünür; yalnız çok uzun bölüm tavanda, tercihen boş satırda (paragraf ortasında değil) kesilir
+        if cur and (s.startswith("#") or (len(cur) >= PARCA_TAVAN and (not s.strip() or len(cur) >= PARCA_TAVAN + 30))):
             parcalar.append((bas, cur))
             bas, cur = i, []
         cur.append(s)

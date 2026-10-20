@@ -15,8 +15,16 @@ import beyin_diyet  # noqa: E402
 def test_bol_baslik_ve_tavan():
     satir = ["# A", "x", "## B"] + [f"s{i}" for i in range(35)]
     p = beyin_al.bol(satir)
-    assert [b for b, _ in p] == [1, 3, 33]
-    assert p[1][1][0] == "## B"
+    assert [b for b, _ in p] == [1, 3]  # 35 satırlık bölüm kesilmez
+    assert p[1][1][0] == "## B" and len(p[1][1]) == 36
+
+
+def test_bol_uzun_bolum_bos_satirda_kesilir():
+    govde = [f"s{i}" for i in range(150)] + ["", "p1", "p2"] + [f"t{i}" for i in range(20)]
+    p = beyin_al.bol(["## B"] + govde)
+    assert [b for b, _ in p] == [1, 152] and p[1][1][1] == "p1"
+    p = beyin_al.bol(["## B"] + [f"s{i}" for i in range(400)])  # boş satır yok: +30'da sert kesim
+    assert [len(x) for _, x in p] == [180, 180, 41]
 
 
 def test_diyet_gecerli_ve_gecmis():
