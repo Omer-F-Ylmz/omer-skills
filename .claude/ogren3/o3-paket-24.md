@@ -1,0 +1,59 @@
+## Stop:.*
+id: k02368 · tür: hook · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02368_Stop_._.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\hooks\hooks.json) · 1780 satır · araç adları (1013): .claude/workflows/ecc-pro-security-roadmap.js · .codebuddy/install.js · .codebuddy/install.sh · .codebuddy/uninstall.js · .codebuddy/uninstall.sh · .cursor/hooks/adapter.js · .cursor/hooks/after-file-edit.js · .cursor/hooks/after-mcp-execution.js · .cursor/hooks/after-shell-execution.js · .cursor/hooks/after-tab-file-edit.js · .cursor/hooks/before-mcp-execution.js · .cursor/hooks/before-read-file.js · .cursor/hooks/before-shell-execution-block-no-verify.js · .cursor/hooks/before-shell-execution.js · .cursor/hooks/before-submit-prompt.js · .cursor/hooks/before-tab-file-read.js · .cursor/hooks/pre-compact.js · .cursor/hooks/session-end.js · .cursor/hooks/session-start.js · .cursor/hooks/stop.js · .cursor/hooks/subagent-start.js · .cursor/hooks/subagent-stop.js · .kiro/install.sh · .kiro/scripts/format.sh · .kiro/scripts/quality-gate.sh · .opencode/index.ts · .opencode/plugins/ecc-hooks.ts · .opencode/plugins/index.ts · .opencode/plugins/lib/changed-files-store.ts · .opencode/tools/changed-files.ts
+BAŞLIKLAR: 
+
+## PreToolUse:.*
+id: k02352 · tür: hook · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02352_PreToolUse_._.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\hooks\hooks.json) · 846 satır · araç adları (1013): .claude/workflows/ecc-pro-security-roadmap.js · .codebuddy/install.js · .codebuddy/install.sh · .codebuddy/uninstall.js · .codebuddy/uninstall.sh · .cursor/hooks/adapter.js · .cursor/hooks/after-file-edit.js · .cursor/hooks/after-mcp-execution.js · .cursor/hooks/after-shell-execution.js · .cursor/hooks/after-tab-file-edit.js · .cursor/hooks/before-mcp-execution.js · .cursor/hooks/before-read-file.js · .cursor/hooks/before-shell-execution-block-no-verify.js · .cursor/hooks/before-shell-execution.js · .cursor/hooks/before-submit-prompt.js · .cursor/hooks/before-tab-file-read.js · .cursor/hooks/pre-compact.js · .cursor/hooks/session-end.js · .cursor/hooks/session-start.js · .cursor/hooks/stop.js · .cursor/hooks/subagent-start.js · .cursor/hooks/subagent-stop.js · .kiro/install.sh · .kiro/scripts/format.sh · .kiro/scripts/quality-gate.sh · .opencode/index.ts · .opencode/plugins/ecc-hooks.ts · .opencode/plugins/index.ts · .opencode/plugins/lib/changed-files-store.ts · .opencode/tools/changed-files.ts
+BAŞLIKLAR: 
+
+## prp-plan
+id: k02254 · tür: komut · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02254_prp-plan.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\commands\prp-plan.md) · 502 satır · araç adları (1): prp-plan
+BAŞLIKLAR: # PRP Plan · ## Phase 0 — DETECT · ### PRD Parsing (when input is a PRD) · ## Phase 1 — PARSE · ### Feature Understanding · ### User Story · Format as: · ### Complexity Assessment · ### Ambiguity Gate · ## Phase 2 — EXPLORE · ### Codebase Search (8 Categories) · ### Codebase Analysis (5 Traces) · Read relevant files to trace: · ### Unified Discovery Table · ## Phase 3 — RESEARCH · Format each finding as: · ## Phase 4 — DESIGN · ### UX Transformation (if applicable) · ### Interaction Changes · ## Phase 5 — ARCHITECT · ### Strategic Design · ## Phase 6 — GENERATE · ### Plan Template · # Plan: [Feature Name] · ## Summary · ## User Story · ## Problem → Solution · ## Metadata · ## UX Design · ### Before · ### After · ### Interaction Changes · ## Mandatory Reading · ## External Documentation · ## Patterns to Mirror · ### NAMING_CONVENTION · ### ERROR_HANDLING · ### LOGGING_PATTERN · ### REPOSITORY_PATTERN · ### SERVICE_PATTERN · ### TEST_STRUCTURE · ## Files to Change · ## NOT Building · ## Step-by-Step Tasks · ### Task 1: [Name] · ### Task 2: [Name] · ## Testing Strategy · ### Unit Tests · ### Edge Cases Checklist · ## Validation Commands · ### Static Analysis · # Run type checker · ### Unit Tests · # Run tests for affected area · ### Full Test Suite · # Run complete test suite · ### Database Validation (if applicable) · # Verify schema/migrations · ### Browser Validation (if applicable) · # Start dev server and verify · ### Manual Validation · ## Acceptance Criteria · ## Completi
+
+## skill-staged-review
+id: k02770 · tür: skill · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02770_skill-staged-review.txt (özgün: C:\Users\pc\.claude\plugins\cache\nyldn-plugins\octo\11.13.1\skills\skill-staged-review\SKILL.md) · 334 satır · araç adları (1): skill-staged-review
+BAŞLIKLAR: ## Execution Contract (MANDATORY - CANNOT SKIP) · # Two-Stage Review Pipeline · ## Stage 1: Spec Compliance · ### Step 1: Load Intent Contract · ### Step 2: Validate Success Criteria · Present results: · ## Stage 1: Spec Compliance · ### Success Criteria Check · #### Good Enough Criteria · #### Exceptional Criteria · ### Step 3: Validate Boundaries · ### Boundary Check · ### Step 4: Stage 1 Gate · ## Stage 2: Code Quality · ### Step 1: Stub Detection · # Get changed files · # Filter source files · ### Step 2: Multi-LLM Quality Review (RECOMMENDED) · # Get the diff for review · DIFF: · ### Step 3: Present Stage 2 Results · ## Stage 2: Code Quality · ### Stub Detection · ### Quality Review · ### Blocking Issues · ### Recommendations · ## Combined Report · ## Staged Review — Complete · ### Stage 1: Spec Compliance · ### Stage 2: Code Quality · ### Overall Verdict: [PASS/FAIL] · ## When to Use Each Review Type · ## Error Handling · ## The Bottom Line · ## Post Results to PR (v8.44.0) · # Detect open PR on current branch
+
+## multi
+id: k02809 · tür: komut · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02809_multi.txt (özgün: C:\Users\pc\.claude\plugins\cache\nyldn-plugins\octo\11.13.1\commands\multi.md) · 242 satır · araç adları (1): multi
+BAŞLIKLAR: # Multi - Multi-Provider Override · ## 🤖 INSTRUCTIONS FOR CLAUDE · ### EXECUTION MECHANISM — NON-NEGOTIABLE · ### Step 1: Cost Awareness & Intent Confirmation · ### Step 2: Check Provider Availability & Execute · ### Step 3: Adversarial Synthesis (MANDATORY — do NOT skip) · ## Multi-Provider Synthesis · ### Consensus · ### Divergence · ### Resolution · ### Minority Opinions · ## Quick Usage · Just use natural language: · Or use explicit commands: · ## How It Works · ## What This Does · ## When to Use · Use forced parallel mode when: · ## Cost Awareness · ## Natural Language Alternatives · ## Examples · ## What You'll See · Providers: · ## See Also
+
+## java-reviewer
+id: k02314 · tür: agent · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02314_java-reviewer.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\agents\java-reviewer.md) · 190 satır · araç adları (1): java-reviewer
+BAŞLIKLAR: ## Prompt Defense Baseline · ## Framework Detection (run first) · # Read the build file · Then proceed: · ## Review Priorities · ### CRITICAL -- Security · ### CRITICAL -- Error Handling · ### HIGH -- Architecture · ### HIGH -- JPA / Relational Database · ### HIGH -- Panache MongoDB [QUARKUS only] · ### MEDIUM -- NoSQL General · ### MEDIUM -- Concurrency and State · ### MEDIUM -- Java Idioms and Performance · ### MEDIUM -- Testing · ### MEDIUM -- Workflow and State Machine (payment / event-dr · ## Diagnostic Commands · # Common · # Build & verify · # Static analysis · # Framework detection greps · ## Approval Criteria
+
+## aside
+id: k02186 · tür: komut · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02186_aside.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\commands\aside.md) · 164 satır · araç adları (1): aside
+BAŞLIKLAR: # Aside Command · ## When to Use · ## Usage · ## Process · ### Step 1: Freeze the current task state · ### Step 2: Answer the question directly · Format the response as: · ### Step 3: Resume the main task · ## Edge Cases · Respond: · Flag it clearly before resuming: · Do you want to: · ## Example Output · ## Notes
+
+## skill-work-slicing
+id: k02778 · tür: skill · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02778_skill-work-slicing.txt (özgün: C:\Users\pc\.claude\plugins\cache\nyldn-plugins\octo\11.13.1\skills\skill-work-slicing\SKILL.md) · 140 satır · araç adları (1): skill-work-slicing
+BAŞLIKLAR: # Work Slicing · ## When To Use · ## When Not To Use · ## Inputs · ## Workflow · ### 1. Slice vertically · ### 2. Declare what blocks what · ### 3. File them · ### 4. When bd will not accept writes · ## Provider Or Data Priority · ## Stop Or Checkpoint Rules · ## Output Contract · ## Verification
+
+## project-flow-ops
+id: k02108 · tür: skill · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02108_project-flow-ops.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\skills\project-flow-ops\SKILL.md) · 112 satır · araç adları (1): project-flow-ops
+BAŞLIKLAR: # Project Flow Ops · ## When to Use · ## Operating Model · ## Core Workflow · ### 1. Read the public surface first · Gather: · ### 2. Classify the work · ### 3. Decide whether Linear is warranted · Create or update Linear only if: · ### 4. Keep the two systems consistent · When work is active: · When work ships or is rejected: · ## Review Rules · ## Output Format · Return: · ## Good Use Cases
+
+## skill-prd
+id: k02762 · tür: skill · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02762_skill-prd.txt (özgün: C:\Users\pc\.claude\plugins\cache\nyldn-plugins\octo\11.13.1\skills\skill-prd\SKILL.md) · 91 satır · araç adları (1): skill-prd
+BAŞLIKLAR: # STOP - SKILL ALREADY LOADED · ## PHASE 0: CLARIFICATION (MANDATORY) · ## PHASE 1: QUICK RESEARCH (Max 2 searches) · ## PHASE 2: WRITE PRD · Structure: · ## PHASE 2.5: ADVERSARIAL PRD REVIEW (RECOMMENDED) · ## PHASE 3: SELF-SCORE · ## PHASE 4: SAVE
+
+## mcp-server-patterns
+id: k02065 · tür: skill · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02065_mcp-server-patterns.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\skills\mcp-server-patterns\SKILL.md) · 70 satır · araç adları (1): mcp-server-patterns
+BAŞLIKLAR: # MCP Server Patterns · ## When to Use · ## How It Works · ### Core concepts · ### Connecting with stdio · ### Remote (Streamable HTTP) · ## Examples · ### Install and server setup · ## Best Practices · ## Official SDKs and Docs
+
+## kilavuz_ara
+id: k03440 · tür: cli · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k03440_kilavuz_ara.txt (özgün: C:\Projeler\omer-skills\tools\kilavuz_ara.py) · 56 satır · araç adları (1): kilavuz_ara
+BAŞLIKLAR: 
+
+## overrides-uygula
+id: k03468 · tür: cli · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k03468_overrides-uygula.txt (özgün: C:\Projeler\omer-skills\tools\overrides-uygula.ps1) · 47 satır · araç adları (1): overrides-uygula
+BAŞLIKLAR: # skillOverrides + env bloklarını ~/.claude/settings.json'a  · #   .\tools\overrides-uygula.ps1          # yedek al + birle · #   .\tools\overrides-uygula.ps1 -Geri    # yedekten döner · # Windows PowerShell 5.1: ConvertTo-Json -Depth 100 şart (va · #   .\tools\overrides-uygula.ps1 -Blok overrides-ek.json   # · # Başsız ajanı durduran/gereksiz bağlam ekleyen hook bayrakl
+
+## review-pr
+id: k02265 · tür: komut · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02265_review-pr.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\commands\review-pr.md) · 37 satır · araç adları (1): review-pr
+BAŞLIKLAR: ## Usage · ## Steps · ## Confidence Rule
+
+## epic-unblock
+id: k02201 · tür: komut · katman: B · kaynak: C:\Projeler\omer-skills\.claude\ogren3\o3-kaynak\k02201_epic-unblock.txt (özgün: C:\Users\pc\.claude\plugins\cache\ecc\ecc\2.2.3\commands\epic-unblock.md) · 22 satır · araç adları (1): epic-unblock
+BAŞLIKLAR: # /epic-unblock · What this does: · Compatibility aliases:
