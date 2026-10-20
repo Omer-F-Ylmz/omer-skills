@@ -53,3 +53,5 @@ millers-law: grouping fields, menu items, or steps
 omni-resilience: Monitor provider health, circuit-breaker states, p50/p95/p99 latency metrics
 tone-calibration: Adjusting formality, warmth, confidence, and style per context
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

@@ -72,3 +72,5 @@ scenario-map: planning test coverage, identifying accessibility gaps, or underst
 systematic-debugging: aralıklı hata, kök nedeni sistematik bul
 testability-obstacle: C#/.NET deterministic tests that require the smallest production
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

@@ -53,3 +53,5 @@ mcp:code-review: diff/PR kod incelemesi
 ponytail: Lazy senior dev mode for any coding task
 star-history-paket: GitHub yıldız geçmişi grafiği: refactor pass
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

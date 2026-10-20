@@ -138,3 +138,5 @@ user-satisfaction-signals: Interpreting implicit and explicit feedback — edits
 value-specification: Translating organisational values and user expectations into system
 wait-what: Stop
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

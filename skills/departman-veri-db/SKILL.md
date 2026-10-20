@@ -52,3 +52,5 @@ observability-and-instrumentation: adding logging, metrics, tracing, or alerting
 pia-generation: Yeni veri işleme faaliyeti için Türk KVKK pratiğine
 qual-quant-triangulation: behavioural data and research findings point different ways
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

@@ -68,3 +68,5 @@ sepia: asked to humanize, de-AI, unslop, or strip AI
 sms: wants to plan, build, or optimize SMS, MMS
 stop-slop: drafting, editing, or reviewing text to eliminate predictable
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

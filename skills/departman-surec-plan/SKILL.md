@@ -59,3 +59,5 @@ loop-me: Grill me about specs for the workflows I
 pathfinder: asked to "find the ideal path," unify duplicated
 wayfinder: Plan a huge chunk of work (more than
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

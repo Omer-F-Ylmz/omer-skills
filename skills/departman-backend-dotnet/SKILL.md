@@ -69,3 +69,5 @@ mcp:mslearn: Microsoft Learn resmi .NET/Azure belgesi
 nodejs-keccak256: JavaScriptとTypeScriptにおけるEthereumハッシュバグを防ぐ。NodeのSHA3-256はNIST SHA3であり、Ethereum Keccak-256ではなく、セレクター、署名、ストレージスロット、アドレス導出を静かに破壊する。
 omni-providers: Manage provider connections, API keys, OAuth flows, and
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

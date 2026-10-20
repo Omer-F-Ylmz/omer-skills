@@ -19,6 +19,7 @@ import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTu
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
 MODELLER = ("opus", "sonnet", "haiku")
+SLASH_DOSYA = K / "ajan-sira.slash"  # SLASH-ÖĞREN d1: dosya varsa köprü oturumlarında Skill aracı açık (onay/slash_ac.py)
 DERS_DOSYA = K / "ajan-sira.ders"  # RUFLO-2 d3: ders önsözü açma bayrağı (dosya varsa ya da `--ders`); varsayılan kapalı
 
 
@@ -105,6 +106,8 @@ def baslat_argv(efor, model="opus"):
     """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
     20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus."""
     argv = [model if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
+    if SLASH_DOSYA.exists():  # SLASH-ÖĞREN d1: oturum + alt ajanları Skill aracıyla skill/komut çağırabilir (varsayılan kapalı)
+        argv = [("Skill," + a if argv[i - 1] == "--tools" else a) for i, a in enumerate(argv) if a != "--disable-slash-commands"]
     env = taze_env()
     if not efor:
         return argv, env

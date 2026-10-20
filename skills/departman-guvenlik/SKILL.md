@@ -72,3 +72,5 @@ one-on-one: Run effective, recurring 1:1s that build trust and
 opengrep-rule-generator: özel statik analiz/SAST kuralı yaz (opengrep/semgrep)
 use-case-triage: Yeni veri işleme faaliyeti, ürün özelliği, tedarikçi, AI/model
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

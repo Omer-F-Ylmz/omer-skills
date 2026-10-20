@@ -153,3 +153,5 @@ troubleshooting: Uses Chrome DevTools MCP and documentation to troubleshoot
 vantajs: adding animated WebGL background effects with Vanta.js (setup
 variant: Builds multiple variants of a component you're working
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

@@ -28,3 +28,5 @@ Kaynak: `docs/envanter/is-arac.md` §2. Satırda soldan sağa: önce kurulu ve �
 - İş türü bir departman-* müdürüne uyuyorsa (arayüz, test, güvenlik, veri, .NET, belge, araştırma, plan, inceleme, git) o müdür kazanır; burası yalnız onların dışı.
 - Araç bu tarafta yoksa (taraf notu) sıradaki araca geç; atlamayı raporda tek satırla yaz.
 - Ücretli API/üretim çağrısında sayısal tavan ("en fazla N") olmadan başlama.
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

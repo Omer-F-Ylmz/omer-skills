@@ -72,3 +72,5 @@ superpowers-using-superpowers: starting any conversation - establishes how to fi
 task-decomposition: Breaking complex user goals into subtasks that agents
 using-superpowers: starting any conversation - establishes how to find
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.

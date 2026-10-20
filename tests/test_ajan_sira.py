@@ -61,3 +61,14 @@ def test_is_kaydi(tmp_path, monkeypatch):
     assert s[0].startswith("zaman\tis\t")
     assert s[1].split("\t")[1:] == ["a", "medium", "12", "7", "2450", "1.50", "success", "Kalite: kör puan 3/3 geçti"]
     assert s[2].split("\t")[1:] == ["b", "-", "0", "0", "0", "0.00", "rc1", "-"]
+
+
+def test_baslat_argv_slash_bayragi(tmp_path, monkeypatch):
+    """SLASH-ÖĞREN d1: bayrak varsa köprü oturumu Skill aracını alır, --disable-slash-commands düşer; yoksa değişmez."""
+    bayrak = tmp_path / "slash.bayrak"
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", bayrak)
+    kapali, _ = ajan_sira.baslat_argv("")
+    assert "--disable-slash-commands" in kapali and "Skill" not in kapali[kapali.index("--tools") + 1].split(",")
+    bayrak.write_text("1")
+    acik, _ = ajan_sira.baslat_argv("")
+    assert "--disable-slash-commands" not in acik and "Skill" in acik[acik.index("--tools") + 1].split(",")

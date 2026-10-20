@@ -54,3 +54,5 @@ qmd-paket: qmd: dokümanlar ve bilgi tabanı için yerel arama
 terminal-ops: ECCのための証拠優先のリポジトリ実行ワークフロー。ユーザーがコマンドの実行、リポジトリの確認、CIの失敗のデバッグ、正確な実行と検証の証明を伴う狭い修正のプッシュを必要とする場合に使用する。
 unified-notifications-ops: GitHub、Linear、デスクトップアラート、フック、接続された通信インターフェースを網羅する、統合されたECCネイティブワークフローとして通知を運用する。真の問題がアラートルーティング、重複排除、エスカレーション、またはインボックス崩壊である場合に使用する。
 <!-- dizin:son -->
+
+Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
