@@ -24,6 +24,8 @@ KAYNAKLAR = [
     ("10-kararlar", "gorev", "gorev", str(KOK / ".kos/kopru/gorev/*.md")),
     ("10-kararlar", "gecmis", "gorev", str(KOK / ".kos/kopru/gorev-gecmis/*.md")),
     ("10-kararlar", "kural", "kural", r"C:\Projeler\omer-kurallar.md"),
+    ("10-kararlar", "global", "kural", str(Path.home() / ".claude/CLAUDE.md")),  # yalnız okunur
+    ("10-kararlar", "global", "kural", str(Path.home() / ".claude/RTK.md")),
     ("20-ogren", "ogren", "ogren", str(KOK / "docs/ogren/*.md")),
     ("20-ogren", "kogren", "ogren", str(KOK / ".kos/kopru/ogren/*.md")),
     ("30-video", "kurulum", "kurulum", str(KOK / "docs/kurulumlar/*.md")),

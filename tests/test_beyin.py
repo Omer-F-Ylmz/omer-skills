@@ -29,6 +29,38 @@ def test_terimler_durak_ve_onek():
     assert beyin.terimler("Headroom PID'ine dokunulur mu?") == ["headr", "pid", "ine", "dokun"]
 
 
+def test_varyant_es_anlam_ve_kok():
+    v = beyin.varyantlar("açılış afişini kapatan bayrak")
+    assert "banner" in v[2] and "flag" in v[2]  # TR→EN eş anlam (ıska 29)
+    assert "sayi" in beyin.varyantlar("sayımdan sayısı")[1]  # 4 harf kök
+
+
+def test_parca_ayni_puanda_ikinci_pencere(tmp_path):
+    # ıska 19: aynı puanlı iki satırdan ilki seçiliyordu; cevap satırı ikinci pencerede gelmeli
+    govde = ["kategori yeniden tekil kalem 351"] + [f"dolgu {i}" for i in range(12)] + \
+            ["Token kategorisi yeniden: 71 → 159 tekil"]
+    (tmp_path / "n.md").write_text("---\nkaynak: o.md\nsatir: 10\n---\n" + "\n".join(govde),
+                                   encoding="utf-8")
+    p = beyin.parca(tmp_path / "n.md", "token kategorisi yeniden tekil kalem kaçtan kaça?")
+    assert [no for _, no, _ in p] == [10, 23]
+    assert "159" in p[1][2][0]
+
+
+def test_en_varyanti_ve_simge_es(tmp_path):
+    # ıska 40: İngilizce kaynak için TR terim EN karşılığıyla değişir; ıska 12: "en fazla" = "≤"
+    assert {"long", "break", "new", "session"} <= set(beyin.varyantlar("uzun aradan yeni oturum")[3])
+    govde = ["ölçüm claude router1 olcum.tsv 19:31", "x", "Ölçüm claude -p ≤30"]
+    (tmp_path / "n.md").write_text("---\nkaynak: r.md\nsatir: 5\n---\n" + "\n".join(govde),
+                                   encoding="utf-8")
+    assert beyin.parca(tmp_path / "n.md", "ölçüm en fazla kaç claude çağrısı?")[0][1] == 7
+
+
+def test_global_kaynaklar():
+    desenler = [d for *_, d in beyin_al.KAYNAKLAR]
+    assert any(d.endswith(str(Path(".claude/CLAUDE.md"))) for d in desenler)
+    assert any(d.endswith(str(Path(".claude/RTK.md"))) for d in desenler)
+
+
 def test_ara_uctan_uca(tmp_path):
     kasa = tmp_path / "kasa"
     beyin_al.kaynak_al(kasa, "20-ogren", "ogren-x", "kaynak.md",

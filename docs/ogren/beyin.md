@@ -3,7 +3,8 @@
 ## Mimari
 - Kasa: Obsidian `C:\Users\pc\Desktop\Obsidian` (ayrı git, push Ömer'in). 00-cekirdek (harfiyen kurallar, ~550 token) · 10-kararlar · 20-ogren · 30-video · 40-projeler · 50-dersler · 90-log · index.md. Her not: frontmatter `kaynak/satir/tarih/tur/guven/etiket` + birebir bölüm + `[[önceki · sonraki · index]]`.
 - İçe alma: `python tools/beyin_al.py` (model yok; sha aynıysa atlar; kısalan kaynağın artık parçası `gecersiz: true`, silinmez). Kaynaklar: görev, gorev-gecmis, omer-kurallar, docs/ogren, .kos/kopru/ogren, docs/kurulumlar, devir, bellek, `video projeler`.
-- Arama: `python tools/beyin.py ara "<soru>" --k 5` → `## kaynak:satır` + birebir satırlar. qmd FTS5 indeksini salt-okur; terimler OR + 5 harf önek (Türkçe ek), BM25. Vektör/rerank kapalı (RAM %83–84 ≥ %75).
+- Arama: `python tools/beyin.py ara "<soru>" --k 5` → `## kaynak:satır` + birebir satırlar. qmd FTS5 indeksini salt-okur; terimler OR + 5 harf önek (Türkçe ek), BM25. Vektör/rerank kapalı (RAM %83–84 ≥ %75). d2: 4 varyant (özgün · 4 harf kök · +TR→EN eş anlam · yalnız EN) sırayla birleşir; not başına en iyi pencere + ≤2 ek isabet satırı. Global CLAUDE.md + RTK.md de kaynak.
+- d2 ölçümü (kapı değil): eski 40 soruda satır±2 14→20/40, dosya 24→23/40; kapı 2003/2004 koşulmadı → `.kos/kopru/ogren/beyin-borc.tsv`.
 - Geniş katman: NotebookLM ("Ömer İkinci Beyin", `python .kos/kopru/nblm.py ask_question.py --question "…"`), sentez/özet soruları için; birebir kural/eşik kanıtı yalnız `beyin ara`.
 - Çekirdek diyeti: `python tools/beyin_diyet.py <gorev.md> [--cikti Y] [--uygula]` geçmiş ★ satırlarını `.kos/kopru/gorev-gecmis/`'e ekler, görevde ilk ★ + GEÇERLİ + işaretçi kalır.
 - Arşivci: `python tools/beyin_bakim.py` → çift/kırık/bayat raporu 90-log'a, ROUTER-1 sayımı 50-dersler'e (elle koşu; zamanlama SLEEP-2 ile).

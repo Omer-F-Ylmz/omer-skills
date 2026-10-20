@@ -4,6 +4,7 @@ qmd'nin FTS5 indeksini salt-okur sorgular: qmd search katı AND olduğundan doğ
 sorusu boş döner; burada terimler OR + önek (Türkçe ek için) ile BM25 sıralanır.
 """
 import argparse
+import itertools
 import os
 import re
 import sqlite3
@@ -16,10 +17,33 @@ ya da de bir bu şu o olan olarak neden nerede nereye kim ise gibi daha en çok 
 the a an of to is what which how""".split())
 TR = str.maketrans("ıİçÇğĞöÖşŞüÜâÂîÎ", "iiccggoossuuaaii")
 PENCERE = 400  # uzun satırda gösterilen karakter
+# TR↔EN eş anlam (katlanmış kök → karşılık); kaynakların bir kısmı İngilizce (bellek, global CLAUDE.md)
+# shortcut: elle küçük liste, yeni ıska sınıfı çıktıkça genişlet
+ES = [("afis", "banner"), ("bayra", "flag"), ("esik", "threshold"), ("esig", "threshold"),
+      ("kural", "rule"), ("oturu", "session"), ("kurul", "install"), ("komut", "command"),
+      ("sinir", "limit"), ("tavan", "ceiling"), ("yasak", "never"), ("oncel", "priority"),
+      ("sira", "order"), ("hata", "error"), ("onbel", "cache"), ("belle", "memory"),
+      ("arali", "break"), ("degis", "change"), ("silme", "delete"), ("cakis", "conflict"),
+      ("ozet", "summary"), ("yanit", "response"), ("arac", "tool"), ("okuma", "read"),
+      ("arada", "break"), ("uzun", "long"), ("yeni", "new"), ("sonra", "after")]
+SATIR_ES = [("fazla", "≤"), ("tavan", "≤")]  # yalnız satır puanında; FTS'de simge yok
 
 
 def katla(s):
     return s.translate(TR).lower()
+
+
+def es(t):
+    return [b for a, b in ES if t.startswith(a)] + [a for a, b in ES if t.startswith(b)]
+
+
+def varyantlar(soru):
+    """[özgün terimler, 4 harf kökler, terimler + eş anlamlar] — her biri ayrı FTS sorgusu."""
+    ts = terimler(soru)
+    kok = list(dict.fromkeys(t[:4] if len(t) > 4 and t.isalpha() else t for t in ts))
+    # 4.: eş anlamı olan TR terim yerine EN karşılığı (İngilizce kaynak BM25'te TR terimlerle boğulmasın)
+    en = list(dict.fromkeys(e for t in ts for e in es(t)))
+    return [ts, kok, list(dict.fromkeys(ts + [e for t in ts for e in es(t)])), en]
 
 
 def terimler(soru):
@@ -47,7 +71,11 @@ def pencere(satir, ts):
     return ("… " if b else "") + satir[b:b + PENCERE] + (" …" if b + PENCERE < len(satir) else "")
 
 
-def parca(yol, ts):
+def parca(yol, soru):
+    """Notta en iyi pencereler: en yüksek puanlı satır ±, puanı ≥ en iyi−1 olan en fazla 2 ek satır."""
+    ts = terimler(soru)
+    kav = [[t] + es(t) + [b for a, b in SATIR_ES if t.startswith(a)] for t in ts]
+    sayisal = re.search(r"\bka[çc]", soru.lower()) is not None
     metin = Path(yol).read_text(encoding="utf-8", errors="replace").split("\n")
     if metin[0] != "---":
         return None
@@ -60,32 +88,49 @@ def parca(yol, ts):
         govde.pop()
     if not govde:
         return None
-    puan = [sum(t in katla(s) for t in ts) for s in govde]
-    i = max(range(len(govde)), key=lambda j: puan[j])
-    bas, bit = max(0, i - 1), min(len(govde), i + 3)
-    no = int(fm.get("satir", 1)) + i
-    return fm.get("kaynak", yol), no, [pencere(s, ts) for s in govde[bas:bit]]
+    # satır puanı = eşleşen kavram sayısı; "kaç" sorusunda rakamlı satıra yarım puan
+    puan = [sum(any(x in katla(s) for x in k) for k in kav) + (sayisal and bool(re.search(r"\d", s))) / 2
+            for s in govde]
+    sira = sorted(range(len(govde)), key=lambda j: (-puan[j], j))
+    secim = [sira[0]] + [j for j in sira[1:3] if puan[j] > 0 and puan[j] >= puan[sira[0]] - 1]
+    # ilk pencere i-1..i+2, ekler i..i+1; çakışan/bitişik birleşir; numara = en iyi isabet satırı
+    araliklar = sorted([max(0, i - (n == 0)), min(len(govde), i + (3 if n == 0 else 2)), i]
+                       for n, i in enumerate(secim))
+    birlesik = [araliklar[0]]
+    for b, e, i in araliklar[1:]:
+        if b <= birlesik[-1][1]:
+            birlesik[-1][1] = max(birlesik[-1][1], e)
+            birlesik[-1][2] = min(birlesik[-1][2], i, key=lambda j: (-puan[j], j))
+        else:
+            birlesik.append([b, e, i])
+    ilk = int(fm.get("satir", 1))
+    hepsi = [x for k in kav for x in k]
+    return [(fm.get("kaynak", yol), ilk + i, [pencere(s, hepsi) for s in govde[b:e]])
+            for b, e, i in birlesik]
 
 
 def ara(soru, k=5, koleksiyon="beyin", indeks=INDEKS):
-    ts = terimler(soru)
-    if not ts:
+    vs = [v for v in varyantlar(soru) if v]
+    if not vs:
         return []
-    sorgu = " OR ".join(f'"{t}"*' for t in ts)
     c = sqlite3.connect(f"file:{indeks}?mode=ro", uri=True)
     kok = c.execute("select path from store_collections where name=?", (koleksiyon,)).fetchone()
     if not kok:
         sys.exit(f"qmd koleksiyonu yok: {koleksiyon} (önce python tools/beyin_al.py)")
-    satirlar = c.execute(
+    listeler = [[y for (y,) in c.execute(
         "select d.path from documents_fts f join documents d on d.id=f.rowid "
         "where documents_fts match ? and d.collection=? and d.active=1 "
-        "order by bm25(documents_fts, 1.0, 2.0, 1.0) limit ?", (sorgu, koleksiyon, k * 3)).fetchall()
-    sonuc = []
-    for (yol,) in satirlar:
-        p = parca(os.path.join(kok[0], yol), ts)
+        "order by bm25(documents_fts, 1.0, 2.0, 1.0) limit ?",
+        (" OR ".join(f'"{t}"*' for t in v), koleksiyon, k * 3))] for v in vs]
+    # sırayla birleştirme (RRF değil): azınlık varyantın (EN) birincisi de ilk k'ya girer
+    sira = dict.fromkeys(y for grup in itertools.zip_longest(*listeler) for y in grup if y)
+    sonuc, n = [], 0
+    for yol in sira:
+        p = parca(os.path.join(kok[0], yol), soru)
         if p:
-            sonuc.append(p)
-        if len(sonuc) == k:
+            sonuc += p
+            n += 1
+        if n == k:
             break
     return sonuc
 
