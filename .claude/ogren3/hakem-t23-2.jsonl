@@ -1,0 +1,25 @@
+{"ad":"departman-surec-git-yayin","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"plan-ceo-review","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-surec-inceleme","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: skill review/dogrulama adimlarini araclara yonlendiren mudur;  ciktiyi kendisi denetlemiyor, asil isi yonlendirme (kaynak satir 11-22), 'inceleme' degeri asil isi olmayan deger."}}
+{"ad":"mcp-fetch","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"kalite3_hiz","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"gstack_browse","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"is-akisi","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"Y","gerekce":{"komut":"Y: durum_ozet.py skill dizininde degil .kos/kopru altinda baska bir betik (kaynak satir 20); aracin kendi komutu 'name: is-akisi' olurdu.","mekanizma":"Y: 'koruma' kanca/guard ile engelleme demek, is-akisi kanca olmayan metin kurallari (Yasaklar/Kalite kapisi) iceren calisma bicimi; asil rol orkestrasyon."}}
+{"ad":"aciklama_yaz","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"uv","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-surec-ajan-arac","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-diger","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-builder","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"brainstorming","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"envanter","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"privacy-legal","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"plugin-dev","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"puppeteer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"agp-9-upgrade","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"davila7-scientific-paket-1","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"hook-development","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: skill hook YAZMA rehberi (kaynak satir 7-20, 698-712); kendisi eylem engellemiyor/denetlemiyor, asil rol orkestrasyon-disi rehber; 'koruma' asil isi degil."}}
+{"ad":"deploy-to-vercel","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: 'vercel deploy [path] -y --no-wait' (satir 88) Vercel CLI'nin komutu, skill'in kendi adi/dizin dosyasi (resources/deploy.sh) degil."}}
+{"ad":"kilavuz_derin","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: satir 149 sozluk-gonderim ifadesi, calistirilabilir komut degil; kullanim 'kilavuz_derin.py kart|birlestir' belgede bu bicimde gecmiyor (docstring satir 3-4 yalniz alt komut adlari)."}}
+{"ad":"ollama","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"kalite3_zip","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"OmniRoute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

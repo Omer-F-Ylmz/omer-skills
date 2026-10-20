@@ -489,3 +489,5 @@ TOKEN-3 d6 ara: K15 skill adayı (kapı 14/17 < 15/17, DEVAM-KURALI geri), K14 s
 - ÖĞREN-3 d2 ARA: A 149/150 RET 0 · B 3369 · kapı t21 %97 t22 %87 GEÇMEDİ (komut belirsiz 45) → d3 düzeltme + tohum 23/24 + kapanış
 - BEYIN-2 d1 ARA: kapı 2005 20/20, 2006 düzenek hatası (puanlanamadı), token %104 ✗; kasa bağ/MOC/akışlar tamam; d2 kapı yeniden (rapor/beyin-2-d1.md)
 - ÖĞREN-4 d3 KAPI GEÇTİ: t41 %95 · t42 %99 · 149 kart RET 0 · kaynak_yetersiz 7 · kart.jsonl +478; müdür skill+zip borç
+- ÖĞREN-6 KAPI <%92 — Desktop kararı: 5 hakem dosyası (t61a 84 · t62a 80 · t63a 84 · t64a 81 · t64b 82); Y: sınırlar 47 · komut 21 · mekanizma 21; 148 kart RET 0; borç ogren/ogren-6-borc.tsv
+- ÖĞREN-3 BİTTİ: kapı t23 %92.0 · t24 %95.0 (tohum başı 2 kör sonnet hakem, tam okuma); 149 kart RET 0; komut alanı betikle (komut.py, 51/54 dolu, 3 cli kaynakta komutsuz); kart.jsonl +149 A; docs/ogren/ajan-orkestrasyon.md; müdür skill + dist/claude-ai-27 zip TEMİZ; borç: Desktop MCP yapılandırma doğrulaması, bilim/araştırma kombin koşusu yok, t23 eşikte (%92.0)

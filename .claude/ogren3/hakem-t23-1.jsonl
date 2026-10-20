@@ -1,0 +1,25 @@
+{"ad":"departman-surec-git-yayin","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"plan-ceo-review","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: gstack-skill-start gstack/bin altindaki ortak onhazirlik betigi (--skill arguman olarak gecer), skill'in kendi dizini/komutu degil; kendi komutu frontmatter 'name: plan-ceo-review' (kaynak satir 2, 67)."}}
+{"ad":"departman-surec-inceleme","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-fetch","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"kalite3_hiz","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"gstack_browse","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"is-akisi","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"Y","gerekce":{"komut":"Y: durum_ozet.py .kos/kopru altinda baska bir aracin betigi (kaynak satir 20); skill'in kendi komutu 'name: is-akisi' (satir 2).","mekanizma":"Y: 'koruma' kanca/guard ile engelleme demek; kaynak bir kanca/guard degil, calisma bicimi metni (yasaklar/kalite kapisi kural listesi); asil is orkestrasyon (is basi, devir, bolunme)."}}
+{"ad":"aciklama_yaz","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"uv","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-surec-ajan-arac","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-diger","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-builder","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"brainstorming","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"envanter","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: arac envanteri ve son 45 gun kullanim/bosluk raporu uretir (bosluk.py kullanilmayan araclari sayar); bu arac yonetimiyle ilgili oldugundan 'orkestrasyon-disi' yanlis, asil is izleme (kaynak satir 1-3, 31-39)."}}
+{"ad":"privacy-legal","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"plugin-dev","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"puppeteer","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"agp-9-upgrade","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"davila7-scientific-paket-1","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"hook-development","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"deploy-to-vercel","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: 'vercel deploy [path] -y --no-wait' Vercel CLI'nin komutu (baska arac); skill'in kendi komutu 'name: deploy-to-vercel' (satir 2) ya da resources/deploy.sh (satir 166)."}}
+{"ad":"kilavuz_derin","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: sozluk-dagitim kod satiri (satir 149) bir komut degil; belgede 'python tools/kilavuz_derin.py kart|birlestir' biciminde birebir cagri gecmiyor (docstring satir 3-4 yalniz kart/birlestir adlarini sayar)."}}
+{"ad":"ollama","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"kalite3_zip","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"OmniRoute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}

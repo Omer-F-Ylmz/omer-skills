@@ -16,6 +16,8 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 4. **Claude API / ajan** — `claude-api` (model, önbellek, araç kullanımı); SDK uygulaması `agent-sdk-dev`; tipli yargı `jev`.
 5. **Doğrulama** — plugin `plugin-dev` doğrulayıcısı; sonra `departman-surec-inceleme`.
 
+6. **Ajan topluluğu / çoklu ajan** — çok adımlı akış `subagent-driven-development` (implementer'lar paralel değil), bağımsız ≥3 iş `dispatching-parallel-agents`; denetim ayrı kör alt ajan (tohum başı 2 hakem, kartı yazmayan). Ücretsiz alt adım OmniRoute :free (2 FARKLI aile; 429/404'te model değiştirme yok, tek yeniden deneme); Claude aboneliği OmniRoute'tan geçmez. Reddedilen Agent çağrısı istem değişmeden bir kez yeniden denenir. Model merdiveni: betik/ücretsiz → Haiku → Sonnet → Opus (yalnız ayrışma kararı). Ayrıntı: `docs/ogren/ajan-orkestrasyon.md` (yalnız CC).
+
 ## Kapılar
 - Dış repo kodu/kuralı almadan önce lisans; MIT/Apache değilse koşul rapora.
 - Skill description ≤200 karakter; gövde kısa, ayrıntı referans dosyada.

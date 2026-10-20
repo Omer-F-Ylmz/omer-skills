@@ -11,5 +11,7 @@ Her kalemde 4 alanı (ne_yapar, komut, sinirlar, mekanizma) kaynağa göre puanl
 
 Çıktı: C:\Projeler\omer-skills\.claude\ogren3\hakem-t{T}-{N}.jsonl — kalem başına TEK JSON satırı, ad girdidekiyle birebir:
 {"ad":"…","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y kararının 1 cümlelik gerekçesi + kaynak satırı"}}
-25 satırın hepsi olmalı. Write ile yaz (JSON kaçışlarına dikkat). Başka dosyaya dokunma. Dosya içeriğini Bash cat/sed/head ile basma.
-Dönüş (≤3 satır): satır sayısı · alan bazında Y sayısı · Y verilen (ad, alan) listesi.
+25 satırın hepsi olmalı. Write ile yaz (JSON kaçışlarına dikkat). Başka dosyaya dokunma. SİLME YASAK (★ 11:58 iv): rm/del/Remove-Item hiçbir dosyada kullanma. Dosya içeriğini Bash cat/sed/head ile basma.
+Komut ek kuralı: skill/ajan kaynağında frontmatter `name: <ad>` satırı, MCP kaydında `command`/`url` satırı, CLI'da `--help` kullanım satırı o aracın kendi komutudur (belgede birebir geçiyorsa D).
+Tam okuma: her kaynağı baştan sona oku (parçalı); grep tek başına yetmez. Büyük kaynakta (>600 satır) her parçayı oku.
+Dönüş (≤4 satır): satır sayısı · alan bazında Y sayısı · Y verilen (ad, alan) listesi · >300 satırlık kaynaklar için okuduğun parça sayısı.

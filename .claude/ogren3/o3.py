@@ -11,6 +11,7 @@ from d13 import A, O, sert  # noqa: E402
 from d14 import metin  # noqa: E402
 from ozet3 import BASLIK, adlari  # noqa: E402
 from son import oku  # noqa: E402
+from komut import doldur  # noqa: E402
 
 ROL = ["orkestrasyon", "delegasyon", "paralel dağıtım", "planlama", "zamanlama", "izleme", "bellek", "yönlendirme",
        "koruma", "model sağlayıcı", "ajan tanımı", "inceleme", "orkestrasyon-dışı"]
@@ -138,8 +139,13 @@ def birlestir():
         ids = dict(re.findall(r"^## (.+)\nid: (\S+)", (B / p.name.replace("yazar", "paket").replace(".jsonl", ".md")).read_text(encoding="utf-8"), re.M))
         c.update({ids[ad]: y for ad, y in oku(p).items() if ad in ids})
     son, ret = {}, {}
-    for s in (x.split("\t") for x in (B / "o3-kalem.tsv").read_text(encoding="utf-8").splitlines()):
+    satirlar = [x.split("\t") for x in (B / "o3-kalem.tsv").read_text(encoding="utf-8").splitlines()]
+    yazili_ad = {s[1] for s in satirlar if s[0] in c}
+    for s in satirlar:
         i, ad, tur, katman, yol = s[:5]
+        if i not in c and ad in yazili_ad:  # d3: aynı adlı zip sürüm kopyası → kanonik tek kart (kopya sayılır, RET değil)
+            print("KOPYA", i, ad, yol[-50:], sep="\t")
+            continue
         if i not in c:
             ret[i] = "yazar satırı yok"
             continue
@@ -148,6 +154,7 @@ def birlestir():
         r = {"ad": ad, "id": i, "tur": tur, "katman": katman, "kaynak": str(p), "ozgun": yol, **{a: y[a]["deger"] for a in A},
              "alinti": {a: y[a].get("alinti", "") for a in A}, "ne_zaman": y.get("ne_zaman", ""), "mekanizma": y["rol"], "kanit": y.get("kanit", ""),
              "dogrulandi": "claude-yazar"}
+        r = doldur(r, m)  # d3: komut belirsiz → kaynaktaki birebir satır (betik)
         neden, r["uyari"] = sert(r, m, adlari(ad, yol))
         if neden:
             ret[i] = neden
@@ -159,7 +166,7 @@ def birlestir():
     (O / "hakem-o3.jsonl").write_text("".join(json.dumps({k: r[k] for k in ["ad", "kaynak", "ozgun"] + A + ["mekanizma"]}, ensure_ascii=False) + "\n"
                                              for i, r in son.items() if i not in ret), encoding="utf-8")
     print(f"son {len(son)} · RET {len(ret)} (yazar yok {sum(v == 'yazar satırı yok' for v in ret.values())}) · UYARI {sum(len(r['uyari']) for r in son.values())}"
-          f" · rol {collections.Counter(x for r in son.values() for x in r['mekanizma']).most_common()}")
+          f" · rol {collections.Counter(x for r in son.values() for x in ([r['mekanizma']] if isinstance(r['mekanizma'], str) else r['mekanizma'])).most_common()}")
 
 
 def kapi(tohum):

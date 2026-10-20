@@ -1,0 +1,25 @@
+{"ad":"kalite3_zip","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ajn-ajan-tanimi-yazar","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"feature-dev","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context7","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-surec-ajan-arac","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"olcum","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"pln-mimari-plan","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-arastirma-ogrenme","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"atlas","ne_yapar":"D","komut":"D","sinirlar":"Y","mekanizma":"D","gerekce":{"sinirlar":"Y: kart komutu yalnız öncelik kümesi için denmiş ama kodda --kume ile verilen herhangi bir küme dosyası öncelik süzgecinin yerine geçiyor (satır 93 ve 133: ATLAS-2 küme dosyası), koşul dalı eksik."}}
+{"ad":"brainstorming","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"loop","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"writing-skills","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"verification-loop","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: npm run build satır 26 npm'in (proje derlemesi) komutu, aracın kendisi değil; aracın kendi komutu frontmatter name: verification-loop (satır 2) ya da /verify (satır 123)."}}
+{"ad":"OmniRoute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ecc-ml-bilim-saglik-paket","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"yetenek-getir","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context7-cli","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-builder","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"summarize","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"davila7-scientific-paket-1","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"plan-ceo-review","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: gstack-skill-start gstack'in ortak ön hazırlık betiği (gstack/bin, satır 67), plan-ceo-review'un kendi dizinindeki dosya ya da kendi komutu değil; kendi komutu name: plan-ceo-review (satır 2)."}}
+{"ad":"cc-kopru","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: yönlendirme (işi hangi ajan/model/skill yapar seçer) aracın işi değil; köprü Desktop sohbetinden CC katmanına (CLI, hook, CC oturumu) iş verir = delegasyon, allowlist ile denetler = koruma (package.json description, kopru.json _not)."}}
+{"ad":"hook-development","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-fetch","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"oh-my-issues","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: gh issue close satır 141 GitHub CLI'nin komutu, oh-my-issues'in değil; kendi komutu name: oh-my-issues (satır 2)."}}

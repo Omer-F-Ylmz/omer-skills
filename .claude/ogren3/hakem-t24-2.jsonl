@@ -1,0 +1,25 @@
+{"ad":"kalite3_zip","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ajn-ajan-tanimi-yazar","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"feature-dev","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context7","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-surec-ajan-arac","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"olcum","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"pln-mimari-plan","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"departman-arastirma-ogrenme","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"atlas","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"brainstorming","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"loop","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"writing-skills","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"verification-loop","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: `npm run build 2>&1 | tail -20` npm'in komutu, skill'in kendi adı/dosyası/manifest ikilisi değil (kaynak satır 26); kendi komutu `name: verification-loop` olurdu."}}
+{"ad":"OmniRoute","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"ecc-ml-bilim-saglik-paket","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"yetenek-getir","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"context7-cli","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-builder","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"summarize","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"kaynak":"Kaynak dosya 0 bayt; 'kaynak yetersiz' dört alanda doğru."}}
+{"ad":"davila7-scientific-paket-1","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"plan-ceo-review","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: `~/.claude/skills/gstack/bin/gstack-skill-start ...` gstack paketinin ortak önsöz betiği (gstack/bin), bu skill'in kendi dizininde/adında değil; kendi komutu `name: plan-ceo-review` ya da plan-ceo-review/bin/mode-handoff-hook (kaynak satır 18, 67)."}}
+{"ad":"cc-kopru","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"Y","gerekce":{"mekanizma":"Y: köprü allowlist/yasak ile koruma yapar ama kaynakta işi hangi ajan/model/skill'in yapacağını seçen bir mantık yok (yalnız CLI allowlist, hook runner, CC oturumu açar); 'yönlendirme' asıl işi anlatmıyor (package.json satır 7, kopru.json)."}}
+{"ad":"hook-development","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{}}
+{"ad":"mcp-fetch","ne_yapar":"D","komut":"D","sinirlar":"D","mekanizma":"D","gerekce":{"kaynak":"Kayıt yalnız type ve url (2 anlamlı satır, <3); 'kaynak yetersiz' doğru."}}
+{"ad":"oh-my-issues","ne_yapar":"D","komut":"Y","sinirlar":"D","mekanizma":"D","gerekce":{"komut":"Y: `gh issue close <CHILD> --reason \"not planned\"` gh CLI'nin komutu, skill'in kendi komutu değil (kaynak satır 141); kendi komutu `name: oh-my-issues`."}}
