@@ -1,0 +1,51 @@
+{
+ "ts": "2026-10-20 19:24",
+ "ram_basta": 86.9,
+ "capture_ok": true,
+ "profil": {
+  "toplam": 30389,
+  "tools": 14072,
+  "system": 1896,
+  "mesajlar_hook_enjeksiyon": 14410
+ },
+ "profiller": {
+  "kod dalgası": {
+   "oturum": 1072,
+   "girdi": 33549056,
+   "cache_okuma": 1816363206,
+   "cache_yazma": 130725263,
+   "cikti": 16862697,
+   "istek": 22903,
+   "girdi_artı_cikti_ham": 1997500222,
+   "agirlikli": 462905440,
+   "medyan_oturum_ham": 1337870,
+   "medyan_istek": 16
+  },
+  "araştırma": {
+   "oturum": 214,
+   "girdi": 780341,
+   "cache_okuma": 13636649,
+   "cache_yazma": 1313252,
+   "cikti": 598143,
+   "istek": 440,
+   "girdi_artı_cikti_ham": 16328385,
+   "agirlikli": 6776286,
+   "medyan_oturum_ham": 7966,
+   "medyan_istek": 1
+  },
+  "köprü kontrolü": {
+   "oturum": 201,
+   "girdi": 2281611,
+   "cache_okuma": 109110404,
+   "cache_yazma": 11910631,
+   "cikti": 2240677,
+   "istek": 1647,
+   "girdi_artı_cikti_ham": 125543323,
+   "agirlikli": 39284325,
+   "medyan_oturum_ham": 214353,
+   "medyan_istek": 7
+  }
+ },
+ "count_tokens_cagri": 0,
+ "ram_sonda": 88.3
+}

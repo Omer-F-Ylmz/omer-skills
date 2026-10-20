@@ -1,0 +1,98 @@
+[
+ {
+  "girdi": 323358,
+  "agirlikli": 160675,
+  "tur": 3,
+  "sn": 39,
+  "usd": 0.9271578,
+  "yanit": "`TAVAN = 1500` karakter (`.kos/kopru/token-rea/rtk2.py:111`). 1500 karakter ve altındaki çıktı olduğu gibi döner.\n\nEşiği aşan çıktının tam metni `%TEMP%\\rtk2-ac\\<id>` dosyasına yazılır; `TEMP` tanımlı değilse yol `/tmp/rtk2-ac/<id>` olur (`rtk2.py:112`). `<id>`, metnin CRC32 değerinin 8 haneli hex h",
+  "gorev": "tavan",
+  "kol": "A",
+  "tekrar": 0,
+  "dogru": true
+ },
+ {
+  "girdi": 333318,
+  "agirlikli": 158570,
+  "tur": 3,
+  "sn": 39,
+  "usd": 0.908008,
+  "yanit": "`TAVAN = 1500` karakter (`rtk2.py:111`). Bu uzunluktaki ya da daha kısa çıktı olduğu gibi döner (`rtk2.py:117`).\nDaha uzun çıktının tam metni `%TEMP%\\rtk2-ac\\<id>` dosyasına UTF-8 olarak yazılır. `TEMP` tanımlı değilse yol `/tmp/rtk2-ac/<id>` olur (`rtk2.py:112`, `rtk2.py:122`). `<id>` çıktının 8 ha",
+  "gorev": "tavan",
+  "kol": "B",
+  "tekrar": 0,
+  "dogru": true
+ },
+ {
+  "girdi": 332849,
+  "agirlikli": 157473,
+  "tur": 3,
+  "sn": 39,
+  "usd": 0.9021556,
+  "yanit": "`tur()` returns `\"ham\"` for `git branch` (`.kos/kopru/token-rea/rtk2.py:95-96`).\n\nThe comment there gives the reason. `rtk` drops branch names with `-a` and `-vv`, and plain `git` is also faster than `rtk` (46 ms vs 72 ms). So the hook command runs it without `rtk`.\n\nI only checked `tur()`. I didn't",
+  "gorev": "branch",
+  "kol": "A",
+  "tekrar": 0,
+  "dogru": true
+ },
+ {
+  "girdi": 220306,
+  "agirlikli": 144841,
+  "tur": 2,
+  "sn": 29,
+  "usd": 0.871726,
+  "yanit": "`tur()` returns `\"ham\"` (raw) for `git branch`, at `.kos/kopru/token-rea/rtk2.py:95-96`.\n\nThe reason is that `rtk branch -a/-vv` drops branch names, and plain git is faster than rtk (46 ms vs 72 ms). So the hook passes the command through without rtk.\n\nI only ran Grep and skipped the Read call, beca",
+  "gorev": "branch",
+  "kol": "B",
+  "tekrar": 0,
+  "dogru": true
+ },
+ {
+  "girdi": 220628,
+  "agirlikli": 138181,
+  "tur": 2,
+  "sn": 33,
+  "usd": 0.8231832,
+  "yanit": "`TAVAN = 1500` karakter (`.kos/kopru/token-rea/rtk2.py:111`). Çıktı bu sınırı aşmazsa olduğu gibi döner. Aşarsa yalnız özeti döner, tam metin `%TEMP%\\rtk2-ac\\<id>` dosyasına yazılır (`rtk2.py:112`, `:122`). `TEMP` tanımlı değilse yer `/tmp/rtk2-ac` olur. Saklanan tam metin `python rtk2.py ac <id>` i",
+  "gorev": "tavan",
+  "kol": "A",
+  "tekrar": 1,
+  "dogru": true
+ },
+ {
+  "girdi": 220960,
+  "agirlikli": 137430,
+  "tur": 2,
+  "sn": 35,
+  "usd": 0.8202304,
+  "yanit": "`TAVAN = 1500` karakter (`rtk2.py:111`). Bu sınırı aşan çıktı özetleniyor. Tam metin `%TEMP%\\rtk2-ac\\<id>` dosyasına yazılıyor; TEMP tanımlı değilse `/tmp/rtk2-ac` kullanılıyor (`rtk2.py:112`, `:121-122`). Saklanan metin `rtk2.py ac <id>` ile geri alınıyor.\nGrep satırları soruyu tam yanıtladığı için",
+  "gorev": "tavan",
+  "kol": "B",
+  "tekrar": 1,
+  "dogru": true
+ },
+ {
+  "girdi": 334205,
+  "agirlikli": 149993,
+  "tur": 3,
+  "sn": 40,
+  "usd": 0.8501162,
+  "yanit": "For `git branch`, `tur()` returns `\"ham\"` (raw), at `.kos/kopru/token-rea/rtk2.py:95-96`. That makes the hook run the command as plain git, without rtk. The code comment gives two reasons: rtk drops branch names with `-a`/`-vv`, and plain git is faster (46 ms vs 72 ms).\n\nI only checked `tur()` itsel",
+  "gorev": "branch",
+  "kol": "A",
+  "tekrar": 1,
+  "dogru": true
+ },
+ {
+  "girdi": 220420,
+  "agirlikli": 136129,
+  "tur": 2,
+  "sn": 30,
+  "usd": 0.813444,
+  "yanit": "`tur()` returns `\"ham\"` (raw) for `git branch`, at `.kos/kopru/token-rea/rtk2.py:95-96`.\nThe comment gives the reason: `rtk branch -a/-vv` drops branch names, and plain git is also faster than rtk (46 vs 72 ms), so the hook leaves the command without rtk.\nI didn't use Read because the Grep output al",
+  "gorev": "branch",
+  "kol": "B",
+  "tekrar": 1,
+  "dogru": true
+ }
+]
