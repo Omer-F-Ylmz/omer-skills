@@ -5,7 +5,11 @@ import ctypes
 import json
 import re
 import sys
+import threading
+import time
 from pathlib import Path
+
+import maliyet_defter  # günlük toplam + Haiku-zayıf türler (son satır)
 
 K = Path(__file__).resolve().parent
 sys.path.insert(0, str(K.parents[1] / "tools"))
@@ -97,6 +101,20 @@ def ozet(ad):
     return ["(ham) " + ham(res)[0]] + ham(res)[1:] if ham(res) else ["(ham) yok"]
 
 
+def ozetle(adlar, sure=7):
+    """Biten işlerin özetleri tek daemon iş parçacığında; toplam ≤ sure sn (≤10 sn hedefi). Yetişmeyen → zaman aşımı satırı."""
+    sonuc = {}
+
+    def calis():
+        for ad in adlar:
+            sonuc[ad] = ozet(ad)
+
+    t = threading.Thread(target=calis, daemon=True)
+    t.start()
+    t.join(sure)
+    return [sonuc.get(ad, ["(özet zaman aşımı) python sonuc_kisa.py --kisa " + ad]) for ad in adlar]
+
+
 def kuyruk():
     """(runner'ın kendi canlı oturumları, dış canlı oturumlar, bekleyen). Dış = son 'başladı' satırındaki 'önceden başlamış' listesi."""
     bas = {f.stem for f in SIRA.glob("*.basladi")}
@@ -128,16 +146,21 @@ def main():
     cikti = [f"RAM %{ram()} · çalışan {cal} (+{dis} dış) · bekleyen {bek} · yeni: {len(basl)} başladı, {len(biten)} bitti (ofset {son})"]
     if basl:
         cikti.append("başladı: " + ", ".join(basl))
-    kalan = SATIR - len(cikti)
+    kalan = SATIR - len(cikti) - 2  # 1: "+ …" satırı, 1: defter satırı
     gosterilen = biten[: max(kalan // 4, 0)] if len(biten) * 4 > kalan else biten
-    for ad in gosterilen:
-        o = ozet(ad)[:4]
+    for ad, o in zip(gosterilen, ozetle(gosterilen)):
+        o = o[:4]
         cikti.append(f"[{ad}] {o[0]}")
         cikti += o[1:]
     if len(gosterilen) < len(biten):
         cikti.append("+ " + ", ".join(biten[len(gosterilen):]) + " (python sonuc_kisa.py --kisa <ad>)")
-    print("\n".join(cikti[:SATIR]))
+    top, en_pahali = maliyet_defter.gunluk(maliyet_defter.oku(), time.strftime("%Y-%m-%d"))
+    zayif = ", ".join(sorted(maliyet_defter.haiku_zayif(maliyet_defter.oku()))) or "yok"
+    cikti.append(f"bugün ${top:.2f} · en pahalı: " + ", ".join(f"{r['ad']} ${r['usd']:.2f}" for r in en_pahali)
+                 + f" · Haiku-zayıf (7g): {zayif}")
+    print("\n".join(cikti[:SATIR]), file=sys.__stdout__)  # özet stdout'ta; ozet() havuz gürültüsünü stderr'e yönlendirir
     SON.write_text(str(son), encoding="utf-8")
 
 
-main()
+if __name__ == "__main__":
+    main()

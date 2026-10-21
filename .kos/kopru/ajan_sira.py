@@ -8,6 +8,8 @@ Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlat
 import ctypes, json, os, re, subprocess, sys, time
 from pathlib import Path
 
+import maliyet_defter  # maliyet.tsv: biten her iş + haftalık Haiku-zayıf türler (merdiven başlangıcı)
+
 KOK = Path(r"C:\Projeler\omer-skills")
 K = KOK / ".kos/kopru"
 KUYRUK, DUR, CIKTI, ISKAYDI = K / "ajan-sira.tsv", K / "ajan-sira.dur", K / "ajan-sira", K / "is-kaydi.tsv"
@@ -19,6 +21,7 @@ import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTu
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
 MODELLER = ("opus", "sonnet", "haiku")
+MERDIVEN = [("haiku", "medium"), ("haiku", "high"), ("sonnet", "medium"), ("sonnet", "high")]  # tsv'de model yok → 0. basamak; başarısız → bir üst (en fazla 1 kez)
 SLASH_DOSYA = K / "ajan-sira.slash"  # SLASH-ÖĞREN d1: dosya varsa köprü oturumlarında Skill aracı açık (onay/slash_ac.py)
 DERS_DOSYA = K / "ajan-sira.ders"  # RUFLO-2 d3: ders önsözü açma bayrağı (dosya varsa ya da `--ders`); varsayılan kapalı
 
@@ -107,11 +110,18 @@ def kuyruk():
         p = satir.split("\t")
         if len(p) >= 2 and not satir.startswith("#"):
             ek = dict(x.strip().split("=", 1) for x in p[3:] if "=" in x)
-            efor, model = ek.get("efor", ""), ek.get("model", "opus")
-            if efor not in ("", "medium", "high") or model not in MODELLER:
+            efor, model = ek.get("efor", ""), ek.get("model")  # model yok → MERDIVEN (haiku medium'dan)
+            if efor not in ("", "medium", "high") or (model is not None and model not in MODELLER):
                 raise ValueError(f"geçersiz efor/model: {satir!r}")
             s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor, model))
     return s
+
+
+def basamak_sec(ad, bas):
+    """Merdiven başlangıcı: yeniden deneme (bas verili) aynen; yoksa son 7 günde Haiku'da başarısız tür → sonnet medium (2), diğer → haiku medium (0)."""
+    if bas is not None:
+        return bas
+    return 2 if maliyet_defter.tur(ad) in maliyet_defter.haiku_zayif(maliyet_defter.oku()) else 0
 
 
 def baslat_argv(efor, model="opus"):
@@ -155,8 +165,9 @@ def taze_env():
     return env
 
 
-def is_kaydi(ad, rc, dk, efor):
-    """TOKEN-3 K17: biten işin claude -p JSON'u → is-kaydi.tsv tek satır (ağırlıklı = g + 1.25·cw + 0.1·cr + 5·ç; kalite = sonuçtaki ilk 'kalite' satırı)."""
+def is_kaydi(ad, rc, dk, efor, model):
+    """TOKEN-3 K17: biten işin claude -p JSON'u → is-kaydi.tsv tek satır (ağırlıklı = g + 1.25·cw + 0.1·cr + 5·ç; kalite = sonuçtaki ilk 'kalite' satırı).
+    Dönüş: kabul (rc 0 ve subtype success); aynı anda maliyet.tsv'ye yazılır."""
     j = {}
     for s in reversed((CIKTI / f"{ad}.json").read_text(encoding="utf-8", errors="replace").splitlines()):
         if s.startswith("{"):
@@ -174,6 +185,9 @@ def is_kaydi(ad, rc, dk, efor):
     with ISKAYDI.open("a", encoding="utf-8") as f:
         f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{efor or '-'}\t{dk:.0f}\t{j.get('num_turns', 0)}\t{agir:.0f}\t"
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
+    ok = rc == 0 and j.get("subtype") == "success"
+    maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, j.get("total_cost_usd", 0), ok)
+    return ok
 
 
 def kosul_tamam(k):
@@ -188,30 +202,38 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     CIKTI.mkdir(exist_ok=True)
     calisan, baslayan, son = {}, set(), 0.0
+    yeniden, tekrar = [], set()  # merdiven: başarısız işin bir üst basamakta tek yeniden denemesi
     for f in CIKTI.glob("*.basladi"):
         baslayan.add(f.stem)
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     while True:
-        for ad, (p, t0, fo, ef) in list(calisan.items()):
+        for ad, (p, t0, fo, ef, mdl, bas, istem, kosul) in list(calisan.items()):
             if p.poll() is not None or time.time() - t0 > SURE:
                 if p.poll() is None:
                     subprocess.run(["taskkill", "/T", "/F", "/PID", str(p.pid)], capture_output=True, creationflags=0x08000000)
                     log("SÜRE DOLDU", ad)
                 fo.close()
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
-                is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef)
+                ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl)
+                if bas is not None and not ok and ad not in tekrar and bas + 1 < len(MERDIVEN):
+                    yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1))
+                    tekrar.add(ad + "-r")
+                    log("YENİDEN", ad, "→ bir üst basamak", MERDIVEN[bas + 1])
                 subprocess.Popen([sys.executable, str(KOK / "tools" / "beyin_kayit.py"), ad], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)  # BEYIN-KAYIT-1: ikinci beyne yaz (arka plan, beklemez)
                 del calisan[ad]
-        bekleyen = [x for x in kuyruk() if x[0] not in baslayan]
+        bekleyen = yeniden + [(*x, None) for x in kuyruk() if x[0] not in baslayan]
         dis = dis_calisan(set(calisan))
         if not bekleyen and not calisan and not dis:
             log("kuyruk boş, çıkış")
             return
         r = ram()
         if not DUR.exists() and len(calisan) + dis < tavan() and r < esik() and time.time() - son >= ARA:
-            for ad, istem, kosul, efor, model in bekleyen:
+            for ad, istem, kosul, efor, model, bas in bekleyen:
                 if not kosul_tamam(kosul):
                     continue
+                if model is None:
+                    bas = basamak_sec(ad, bas)
+                    model, efor = MERDIVEN[bas]
                 metin = (KOK / istem).read_text(encoding="utf-8")
                 metin = ders_onek(metin) + ordu_onek() + metin
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
@@ -225,8 +247,9 @@ def main():
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
                 p.stdin.close()
-                calisan[ad] = (p, time.time(), fo, efor)
+                calisan[ad] = (p, time.time(), fo, efor, model, bas, istem, kosul)
                 baslayan.add(ad)
+                yeniden = [y for y in yeniden if y[0] != ad]
                 (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S") + f" pid {p.pid}", encoding="utf-8")
                 son = time.time()
                 log("BAŞLAT", ad, model, efor or "-", "pid", p.pid, f"RAM %{r}", "çalışan", len(calisan) + dis)
