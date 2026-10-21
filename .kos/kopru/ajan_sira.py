@@ -200,6 +200,7 @@ def main():
                 fo.close()
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
                 is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef)
+                subprocess.Popen([sys.executable, str(KOK / "tools" / "beyin_kayit.py"), ad], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)  # BEYIN-KAYIT-1: ikinci beyne yaz (arka plan, beklemez)
                 del calisan[ad]
         bekleyen = [x for x in kuyruk() if x[0] not in baslayan]
         dis = dis_calisan(set(calisan))
