@@ -24,6 +24,8 @@ BICIM = """Bu görseli değerlendir. Soru: {soru}
 Yalnız tek satır JSON ver: {{"puan": 0-10 tam sayı, "sivi_mi": true/false, "plastik_gorunen": true/false}}"""
 BICIM_LOGO = """Bu bir kişisel logo (monogram). Soru: {soru}
 Yalnız tek satır JSON ver: {{"ozgunluk": 1-10, "akilda_kalicilik": 1-10, "kucuk_okunurluk": 1-10, "havali": 1-10}}"""
+BICIM_KIYAS = """İlk görsel REFERANS, ikinci görsel ADAY. Soru: {soru}
+Yalnız tek satır JSON ver: {{"kalite_farki": 1-10 tam sayı (10 = aday referansla aynı/üstün kalitede, 1 = çok geride)}}"""
 LOGO = ("ozgunluk", "akilda_kalicilik", "kucuk_okunurluk", "havali")  # --sema logo; sıvı/plastik alanları yok
 FARK = 2  # puan farkı bu eşiğe ulaşırsa ya da bool'lar ayrışırsa AYRIŞTI
 
@@ -36,18 +38,22 @@ def veri_url(yol):
     return "data:image/jpeg;base64," + base64.b64encode(b.getvalue()).decode()
 
 
-def ayikla(y, logo=False):
+def ayikla(y, logo=False, kiyas=False):
     m = re.search(r"\{.*?\}", y, re.S)
     if not m:
         raise ValueError("JSON yok")
     j = json.loads(m.group(0))
+    if kiyas:
+        return {"kalite_farki": int(j["kalite_farki"])}
     if logo:
         return {k: int(j[k]) for k in LOGO}
     return {"puan": int(j["puan"]), "sivi_mi": bool(j["sivi_mi"]), "plastik_gorunen": bool(j["plastik_gorunen"])}
 
 
-def sor(png, soru, logo=False):
-    icerik = [{"type": "text", "text": (BICIM_LOGO if logo else BICIM).format(soru=soru)}, {"type": "image_url", "image_url": {"url": veri_url(png)}}]
+def sor(png, soru, logo=False, ref=None):
+    bicim = BICIM_KIYAS if ref else BICIM_LOGO if logo else BICIM
+    icerik = [{"type": "text", "text": bicim.format(soru=soru)}]
+    icerik += [{"type": "image_url", "image_url": {"url": veri_url(p)}} for p in ([ref] if ref else []) + [png]]
     sonuc = {}
     for _ in range(2):  # geçici 503/zaman aşımı için ikinci tur (yalnız eksik aileler)
         for aile, adaylar in ADAY.items():
@@ -55,7 +61,7 @@ def sor(png, soru, logo=False):
                 break
             for e in [] if aile in sonuc else adaylar:
                 try:
-                    sonuc[aile] = {"model": h.ad(e), **ayikla(h._istek(e, icerik, 400, 60), logo)}
+                    sonuc[aile] = {"model": h.ad(e), **ayikla(h._istek(e, icerik, 4000 if ref else 400, 120 if ref else 60), logo, bool(ref))}
                     break
                 except (h.Hata, OSError, ValueError, KeyError, TypeError):
                     continue
@@ -69,6 +75,13 @@ def main():
         i = a.index("--soru")
         soru = a[i + 1]
         del a[i:i + 2]
+    ref = None
+    if "--ref" in a:  # kıyas: --ref <referans.png>; PNG'ler aday, çıktı kalite_farki 1-10
+        i = a.index("--ref")
+        ref = a[i + 1]
+        del a[i:i + 2]
+        if "--soru" not in sys.argv:
+            soru = "Aday, referansın görsel kalitesine (malzeme, ışık, derinlik, atmosfer) kıyasla kaç puan?"
     logo = "--sema" in a and a[a.index("--sema") + 1] == "logo"
     if logo:
         i = a.index("--sema")
@@ -76,13 +89,16 @@ def main():
         if "--soru" not in sys.argv:
             soru = "Bu logo özgünlük, akılda kalıcılık, 64px'te okunurluk ve 'havalı' olma açısından kaç puan?"
     for png in a:
-        s = sor(png, soru, logo)
+        s = sor(png, soru, logo, ref)
         if not s:
             print(f"{Path(png).name} HAKEM YOK (görü uçlarının hiçbiri yanıtlamadı)")
             continue
         v = list(s.values())
         if len(v) < 2:
             durum = "TEK-AİLE"
+        elif ref:
+            durum = "AYRIŞTI" if abs(v[0]["kalite_farki"] - v[1]["kalite_farki"]) >= FARK else "UZLAŞTI"
+            durum += f" ORT={sum(x['kalite_farki'] for x in v) / len(v):.1f}"
         elif logo:
             durum = "AYRIŞTI" if any(abs(v[0][k] - v[1][k]) >= FARK for k in LOGO) else "UZLAŞTI"
         elif abs(v[0]["puan"] - v[1]["puan"]) >= FARK or any(v[0][k] != v[1][k] for k in ("sivi_mi", "plastik_gorunen")):
