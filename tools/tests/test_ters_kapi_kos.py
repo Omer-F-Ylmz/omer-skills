@@ -57,3 +57,17 @@ def test_ozet_fark_ve_ga():
     sat = [{"ad": a, "kol": k, "puan": p} for a in "xyz" for k, p in (("skill", 0.9), ("skill", 0.8), ("zemin", 0.5), ("zemin", 0.5))]
     o = K.ozet(sat)
     assert abs(o["fark"] - 0.35) < 1e-9 and o["ga"][0] > 0 and abs(o["tekrar_sapma"] - 0.05) < 1e-9
+
+
+def test_sunucu_kok_verilince_o_dizinden_sunar():
+    import urllib.request
+    port = K.sunucu("skills/tersine")
+    assert b"tersine" in urllib.request.urlopen(f"http://127.0.0.1:{port}/SKILL.md").read().lower()
+
+
+def test_kapi_kotu_degil_kurali():
+    o = lambda f, s, ga: {"fark": f, "tekrar_sapma": s, "ga": ga}
+    assert K.kapi({"skill": 0.95, "zemin": 0.80}, o(0.15, 0.02, [0.05, 0.2]), [])  # eski eşik
+    assert K.kapi({"skill": 0.80, "zemin": 0.82}, o(-0.02, 0.05, [-0.1, 0.05]), [])  # fark gürültü içinde
+    assert not K.kapi({"skill": 0.70, "zemin": 0.82}, o(-0.12, 0.05, [-0.2, -0.04]), [])  # belirgin kötü
+    assert not K.kapi({"skill": 0.95, "zemin": 0.80}, o(0.15, 0.02, [0.05, 0.2]), ["x"])  # atlanan varsa geçmez

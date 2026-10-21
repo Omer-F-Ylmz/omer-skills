@@ -23,6 +23,7 @@ BOS_REF = []  # referans karesi düz (sapma ~0) olan site hedefleri: yeniden kur
 DUZ_STD = 2.0
 DUSEN = {}  # hata veren hakem ailesi → soğuma bitişi (SOGUMA sn atlanır; geçici hata aileyi koşu boyunca düşürmesin)
 SOGUMA = 150
+ONEK = "/labs"  # sayfa URL öneki; --kok verilirse boş (sunucu o dizini kök alır)
 SKILL = (KOK / "skills/tersine/SKILL.md").read_text(encoding="utf-8")
 
 
@@ -125,7 +126,7 @@ def rea_yol():  # Windows'ta rea yalnız rea.cmd (npm shim): PATH → node yanı
 def rea_kanit(h):  # REA çalışmazsa koşu durur: hata satırıyla skill kolu koşmaz
     yol = rea_yol()
     if h["tur"] == "dotnet": komut = [yol, "inspect-managed-members", h["derlenmis"], "--json"]
-    else: komut = [yol, "analyze-javascript-application", h["yol"], "--json"]
+    else: komut = [yol, "analyze-javascript-application", h.get("rea_yol", h["yol"]), "--json"]  # rea_yol: tek dosyalık js için dizin
     try:
         c = subprocess.run(komut, capture_output=True, text=True, timeout=180, creationflags=0x08000000, encoding="utf-8")
     except Exception as e:
@@ -135,8 +136,8 @@ def rea_kanit(h):  # REA çalışmazsa koşu durur: hata satırıyla skill kolu 
     return c.stdout[:6000]
 
 
-def sunucu():
-    s = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(KOK)))
+def sunucu(kok=""):
+    s = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(KOK / kok)))
     s.RequestHandlerClass.log_message = lambda *a: None
     threading.Thread(target=s.serve_forever, daemon=True).start()
     return s.server_address[1]
@@ -204,7 +205,7 @@ def hedef_kos(h, port, sat, atlanan):
     corp_ham = ham(h, 10**6)
     if h["tur"] == "site":
         ram_bekle()
-        kanit = json.dumps(probe(f"http://127.0.0.1:{port}/labs{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
+        kanit = json.dumps(probe(f"http://127.0.0.1:{port}{ONEK}{h['sayfa']}", d / "orijinal"), ensure_ascii=False)[:6000]
         gecerli = gecerli_kareler(d / "orijinal")
         if not gecerli: BOS_REF.append(h["ad"]); print("referans düz (yeniden kurulum puanı yok)", h["ad"], flush=True)
     else: kanit = rea_kanit(h)
@@ -244,11 +245,25 @@ def ozet(sat):  # hedef başına tekrar ortalaması → kol ortalaması + eşli 
     return {"ort": {"skill": ort(sk), "zemin": ort(ze)}, "fark": ort(d), "ga": [b[125], b[4874]], "tekrar_sapma": ort(ts) if ts else 0.0}
 
 
+def kapi(ort, o, atlanan):  # eski eşik (skill ≥0.92 ve GA alt sınırı >0) ya da fark gürültü içinde ve skill zeminden sapma kadar bile kötü değil
+    if atlanan: return False
+    return (ort["skill"] >= 0.92 and o["ga"][0] > 0) or (abs(o["fark"]) <= o["tekrar_sapma"] and ort["skill"] >= ort["zemin"] - o["tekrar_sapma"])
+
+
+def arg(ad):
+    return sys.argv[sys.argv.index(ad) + 1] if ad in sys.argv else None
+
+
 def main():
-    H = json.loads((DIZ / "hedefler.json").read_text(encoding="utf-8"))["hedefler"]
+    global ONEK
+    hf = Path(arg("--hedef")) if arg("--hedef") else DIZ / "hedefler.json"
+    sonuc = DIZ / "sonuc" if not arg("--hedef") else hf.with_name("sonuc-" + hf.stem.removeprefix("hedef-"))
+    H = json.loads(hf.read_text(encoding="utf-8"))["hedefler"]
     if "--dene" in sys.argv: H = H[:1]
     if any(h["tur"] != "site" for h in H): rea_yol()  # REA yoksa hiçbir çağrı yapılmadan dur
-    port = sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []; atlanan = []; hatalar = []
+    kok = arg("--kok") or ""
+    if kok: ONEK = ""
+    port = sunucu(kok) if kok else sunucu(); CIKTI.mkdir(parents=True, exist_ok=True); sat = []; atlanan = []; hatalar = []
     H.sort(key=lambda h: h["tur"] == "site")  # tarayıcısız hedefler önce (sıralama kararlı)
     for i, h in enumerate(H):
         try: hedef_kos(h, port, sat, atlanan)
@@ -259,14 +274,14 @@ def main():
         except Exception as e:  # bir hedefin hatası koşuyu çökertmez; o hedef hata satırı olur
             hatalar.append({"ad": h["ad"], "hata": f"{type(e).__name__}: {e}"}); atlanan.append(h["ad"]); print("hata", h["ad"], type(e).__name__, e, flush=True)
     o = ozet(sat); ort = o["ort"]
-    gec = not atlanan and ort["skill"] >= 0.92 and o["ga"][0] > 0
+    gec = kapi(ort, o, atlanan)
     cagri = {p.stem[6:]: json.loads(p.read_text())["n"] for p in CIKTI.glob("sayac-*.json")}
-    (DIZ / "sonuc.json").write_text(json.dumps({"satirlar": sat, **o, "gecti": gec, "atlanan": atlanan, "hatalar": hatalar, "cagri": cagri, "hakem_aileleri": KULLANILAN, "hakem_sabit_oy": sorted(SABIT_OY), "bos_referans": BOS_REF}, ensure_ascii=False, indent=1), encoding="utf-8")
+    sonuc.with_suffix(".json").write_text(json.dumps({"satirlar": sat, **o, "gecti": gec, "atlanan": atlanan, "hatalar": hatalar, "cagri": cagri, "hakem_aileleri": KULLANILAN, "hakem_sabit_oy": sorted(SABIT_OY), "bos_referans": BOS_REF}, ensure_ascii=False, indent=1), encoding="utf-8")
     t = ["# TERS kapısı sonucu (Sonnet yazar, 2 tekrar)", "", "| hedef | tür | kol | tekrar | mekanizma | kanıt | yeniden | puan |", "|---|---|---|---|---|---|---|---|"]
     t += [f"| {s['ad']} | {s['tur']} | {s['kol']} | {s['tekrar']} | {s['c1']:.2f} | {s['c2']:.2f} | {'-' if s['c3'] is None else format(s['c3'], '.2f')} | {s['puan']:.2f} |" for s in sat]
     t += ["", f"Ortalama skill {ort['skill']:.3f} · zemin {ort['zemin']:.3f} · fark {o['fark']:+.3f} GA95 [{o['ga'][0]:+.3f}, {o['ga'][1]:+.3f}] · tekrar sapması {o['tekrar_sapma']:.3f} · "
           f"atlanan {len(atlanan)} {atlanan} · hata {hatalar} · çağrı {cagri} · hakem aileleri {KULLANILAN} · ayrıştırmayan {sorted(SABIT_OY)} · düz referans {BOS_REF} · KAPI {'GEÇTİ' if gec else 'GEÇMEDİ'}"]
-    (DIZ / "sonuc.md").write_text("\n".join(t) + "\n", encoding="utf-8")
+    sonuc.with_suffix(".md").write_text("\n".join(t) + "\n", encoding="utf-8")
     print("ORT", ort, "fark", o["fark"], o["ga"], "gecti", gec)
 
 
