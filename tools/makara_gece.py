@@ -1,7 +1,7 @@
 """MAKARA döngü 2 (boşta, PC açık): gece şerit rotasyonu. Ücretsiz havuz kural önerisi üretir → held-out görevlerde mekanik + İKİ FARKLI AİLE hakem
 (ayrışırsa ya da biri yoksa at) → kabul yalnız KUM HAVUZUNA (.kos/makara/kum), gerçek dosyaya yalnız onay/makara_onay.py. Claude token 0, Haiku yok.
-Zamanlanmış görev: conhost --headless python.exe makara_gece.py (pencere yok); şart: RAM <%80, GetLastInputInfo ≥10 dk, günde 1 koşu.
-  python tools/makara_gece.py [--kuru --serit skill --n 3] | kur | kaldir"""
+Zamanlanmış görev (30 dk'da bir): conhost --headless python.exe makara_gece.py (pencere yok); şart: RAM <%80, GetLastInputInfo ≥10 dk (her öneride yeniden), günde 1 gece (5 şerit × en fazla 3 öneri, çağrı tavanı 150).
+  python tools/makara_gece.py [--kuru --serit skill --n 3] [--zorla] | kur | kaldir"""
 import argparse
 import ctypes
 import glob
@@ -21,8 +21,11 @@ KOK = Path(__file__).resolve().parents[1]
 M = KOK / ".kos/makara"
 KASA = makara_ders.KASA
 AD = "omer-makara-gece"
-TAVAN = 120  # gece başına havuz çağrısı üst sınırı (yeniden denemeler dahil)
-RAM_ES, BOSTA, T = 80, 600, 3  # %, sn, held-out görev sayısı/öneri
+TAVAN = 150  # gece başına havuz çağrısı üst sınırı (yeniden denemeler dahil, gün içi tick'ler toplamı)
+RAM_ES, BOSTA, T, N_SERIT = 80, 600, 3, 3  # %, sn, held-out görev sayısı/öneri, şerit başı en fazla öneri
+HAKEM_AILE = ("mistral", "alibaba", "openai", "minimax", "google", "nvidia", "meta")  # hızlı yanıt verenler önce; görev başına ilk İKİ YANIT VEREN alınır (21 Eki canlı: meta yanıtsız)
+HAKEM_MT = {"nvidia": 8000}  # nemotron düşünme jetonu 1500'ü yer, boş yanıt döner
+TABAN = {}  # görev kimliği → eski (kuralsız) yanıt; şeritler arası paylaşılır
 OZET, HAFTA = KOK / ".kos/kopru/uyku-ozet.txt", KOK / ".kos/kopru/makara-hafta-ozet.txt"  # Desktop sabah yalnız bunları okur
 GOREV = KOK / ".kos/sleep/lanes/omer-skills/tasks-v2.json"
 HOME = Path.home()
@@ -39,6 +42,8 @@ SONUC = re.compile(r"SONUC:\s*(A|B|EQ)\b")
 
 class Say:  # çağrı sayacı: tavan aşılınca None döner; claude = Haiku/Claude'dan gelen yanıt sayısı (kanıt: hep 0)
     n = claude = ert = 0
+    olu = set()  # bu gece yanıt vermeyen hakem aileleri (tekrar çağrılmaz)
+    durdu = False  # RAM/boşta/tavan yüzünden şerit yarıda kaldı
     bos = False  # son çağrı havuzdan yanıt alamadı (tükenme) → öneri atılmaz, ertelenir
     kaz = {}
 
@@ -85,14 +90,14 @@ def bosta_sn():
     return (ctypes.windll.kernel32.GetTickCount() - li.t) / 1000
 
 
-def sartlar(durum, bugun):
-    if durum.get("son_gun") == bugun:
+def sartlar(durum, bugun, zorla=False):  # zorla: günde-1-koşu ve boşta şartı atlanır, RAM/çakışma kalır
+    if durum.get("son_gun") == bugun and not zorla:
         return "bugün koşuldu"
     if time.time() - durum.get("calisiyor", 0) < 7200:
         return "başka koşu sürüyor"
     if ram() >= RAM_ES:
         return f"RAM %{ram()}"
-    if bosta_sn() < BOSTA:
+    if bosta_sn() < BOSTA and not zorla:
         return "kullanıcı boşta değil"
 
 
@@ -115,8 +120,12 @@ def hakem(aile, gorev, a, b):
     x, y = (b, a) if ters else (a, b)
     ist = (f"Ölçüt: {gorev['reference']}\n\nGörev: {gorev['intent'][:1500]}\n\n=== Yanıt A ===\n{x[:1500]}\n\n=== Yanıt B ===\n{y[:1500]}\n\n"
            "Ölçüte hangi yanıt daha iyi uyuyor? Son satır tam olarak `SONUC: A`, `SONUC: B` ya da `SONUC: EQ` olsun.")
-    r = cagri("hakem", ist, max_tokens=1500, aile=aile, dogrula=lambda t: None if SONUC.search(t) else "sonuç satırı yok")
+    if aile in Say.olu:
+        return None
+    r = cagri("hakem", ist, max_tokens=HAKEM_MT.get(aile, 1500), aile=aile, dogrula=lambda t: None if SONUC.search(t) else "sonuç satırı yok")
     if not r:
+        if Say.n < TAVAN:  # tavan yüzünden değil, aile gerçekten yanıt vermedi
+            Say.olu.add(aile)
         return None
     v = SONUC.findall(r)[-1]
     return v if v == "EQ" else ("A" if (v == "B") == bool(ters) else "B")  # A=eski(a), B=yeni(b) uzayına çevir
@@ -154,8 +163,8 @@ def degerlendir(kural, gorevler, taban):
             oy.setdefault("eksik", []).append(None); continue
         for a, c in mec_pairs(g, eski, yeni):
             mec.append((a, c))
-        bulunan = []  # görev başına açık ilk iki FARKLI aile (gemini günlük kotası düşebilir)
-        for aile in ("google", "mistral", "meta", "nvidia", "minimax", "alibaba"):
+        bulunan = []  # görev başına yanıt veren ilk iki FARKLI aile (kota/soğuma düşebilir)
+        for aile in HAKEM_AILE:
             if len(bulunan) < 2 and (v := hakem(aile, g, eski, yeni)):
                 bulunan.append(aile); oy.setdefault(f"h{len(bulunan)}", []).append(v); fam.setdefault(f"h{len(bulunan)}", []).append(aile)
         for i in range(len(bulunan) + 1, 3):
@@ -179,7 +188,7 @@ def hedefler(serit, n, imleç):
     return [yollar[(i + j) % len(yollar)] for j in range(min(n, len(yollar)))]
 
 
-def gece(serit, n, kuru=False):
+def gece(serit, n, kuru=False, devam=False, zorla=False):
     t0, durum = time.time(), json.loads((M / "durum.json").read_text(encoding="utf-8")) if (M / "durum.json").exists() else {}
     bugun = time.strftime("%Y-%m-%d")
     durum["calisiyor"] = t0
@@ -190,18 +199,24 @@ def gece(serit, n, kuru=False):
     dersler = [e["metin"] for e in sorted(d["dersler"].values(), key=lambda e: -e["sayac"])[:5]] or ["(henüz ders yok)"]
     gor = [g for g in json.loads(GOREV.read_text(encoding="utf-8"))["tasks"] if len(g["intent"]) < 900 and g["reference"]]
     gor = sorted(gor, key=lambda g: g["split"] != "val")[:T]  # val önce; öneri üretiminde görevler görülmez
-    taban = {g["id"]: cagri("yazim", g["intent"][:2500], max_tokens=1200) for g in gor}
+    for g in gor:
+        if not TABAN.get(g["id"]):
+            TABAN[g["id"]] = cagri("yazim", g["intent"][:2500], max_tokens=1200)
+    taban = {g["id"]: TABAN[g["id"]] for g in gor}
     kayit = []
-    Say.claude = Say.ert = 0; Say.kaz = {}
+    Say.durdu = False
+    if not devam:
+        Say.claude = Say.ert = 0; Say.kaz = {}
     devir = [] if kuru else ertelenenler()  # önceki gecenin ertelenenleri önce
     for p in devir[n:]:
         ertele(p)
     liste = devir[:n] + hedefler(serit, n - len(devir[:n]), durum.setdefault("imlec", {}))
     for j, h in enumerate(liste):
-        if (ram() >= RAM_ES and not kuru) or Say.n >= TAVAN:  # kuru koşu RAM'i yalnız raporlar, gerçek koşu durur
+        if (not kuru and (ram() >= RAM_ES or (bosta_sn() < BOSTA and not zorla))) or Say.n >= TAVAN:  # kuru koşu yalnız raporlar; gerçek koşu her öneride RAM/boşta/tavanı yeniden sınar
             for r in liste[j:]:
                 ertele(r)
-            kayit.append((h, None, "ertelendi: durdu (RAM/tavan)")); break
+            Say.durdu = True
+            kayit.append((h, None, "ertelendi: durdu (RAM/boşta/tavan)")); break
         metin = Path(h).read_text(encoding="utf-8", errors="replace")
         Say.bos = False
         kural = oner(h, metin, dersler)
@@ -222,11 +237,27 @@ def gece(serit, n, kuru=False):
         kayit.append((h, kural, f"{'KABUL ' + kid if ok else 'ret'}: {neden}"))
     if kuru:
         durum["imlec"] = imlec0  # kuru koşu rotasyonu ilerletmez
-    else:
-        durum["son_gun"] = bugun
     durum["calisiyor"] = 0
     (M / "durum.json").write_text(json.dumps(durum), encoding="utf-8")
-    return rapor(bugun, serit, kayit, time.time() - t0, kuru)
+    if not kuru:
+        serit, kayit, sn = gun_birlestir(bugun, serit, kayit, time.time() - t0)
+    else:
+        sn = time.time() - t0
+    return rapor(bugun, serit, kayit, sn, kuru)
+
+
+def gun_birlestir(bugun, serit, kayit, sn):
+    """Aynı günün şerit koşuları tek uyku notunda toplanır (gun.json); aynı hedef yeniden işlenirse eski satırı düşer. (şerit etiketi, birleşik kayıt, toplam sn)."""
+    y = M / "gun.json"
+    g = json.loads(y.read_text(encoding="utf-8")) if y.exists() else {}
+    if g.get("gun") != bugun:
+        g = {"gun": bugun, "serit": {}, "kaz": {}, "ert": 0, "sn": 0}
+    yeni = {h for h, _, _ in kayit}
+    g["serit"][serit] = [k for k in g["serit"].get(serit, []) if k[0] not in yeni] + [list(k) for k in kayit]
+    g["kaz"].update(Say.kaz); g["ert"] += Say.ert; g["sn"] += sn
+    y.write_text(json.dumps(g, ensure_ascii=False), encoding="utf-8")
+    Say.kaz, Say.ert = dict(g["kaz"]), g["ert"]
+    return "+".join(g["serit"]), [tuple(k) for v in g["serit"].values() for k in v], g["sn"]
 
 
 def rapor(bugun, serit, kayit, sn, kuru):
@@ -237,7 +268,7 @@ def rapor(bugun, serit, kayit, sn, kuru):
     y.write_bytes((f"---\ntur: uyku\nguncellenme: {bugun}\netiket: [uyku, makara]\n---\n# uyku {bugun}{' (kuru)' if kuru else ''}\n"
                    f"- şerit: {serit} · öneri: {len(kayit)} · kabul: {kabul} · ret: {len(kayit) - kabul - sum(1 for _, _, s in kayit if s.startswith('ertelendi'))} · ertelenen {Say.ert}\n"
                    f"- ölçüm: havuz çağrısı {Say.n}/{TAVAN} · {sn:.0f} sn · RAM %{ram()} · Claude token 0 · Haiku 0 · pencere 0\n"
-                   "- hakem: iki farklı aile (görev başına açık ilk iki farklı: google · mistral · meta · nvidia · minimax · alibaba; ikisi de net yeni-lehine değilse ret); mekanik: rubrikteki sayısal tavanlar\n## Öneriler\n" + "\n".join(sat) + "\n").encode("utf-8"))
+                   "- hakem: iki farklı aile (görev başına yanıt veren ilk iki farklı: mistral · alibaba · openai · minimax · google · nvidia · meta; ikisi de net yeni-lehine değilse ret); mekanik: rubrikteki sayısal tavanlar\n## Öneriler\n" + "\n".join(sat) + "\n").encode("utf-8"))
     ozet(bugun, serit, kayit, kuru)
     onay_listesi()
     return kabul, len(kayit), str(y)
@@ -274,6 +305,31 @@ def onay_listesi():
     HAFTA.parent.mkdir(parents=True, exist_ok=True); HAFTA.write_bytes(("\n".join(sat) + "\n").encode("utf-8"))
 
 
+def hepsi(bugun, zorla=False):
+    """Boş pencerede bugünün şerit sırasıyla her şeritte en fazla N_SERIT öneri; tavan/boşta/RAM dolunca durur, bitmeyen şerit sonraki tick'te sürer."""
+    durum = json.loads((M / "durum.json").read_text(encoding="utf-8")) if (M / "durum.json").exists() else {}
+    devam = durum.get("bitenler_gun") == bugun and not zorla
+    bit = list(durum.get("bitenler", [])) if devam else []
+    Say.n = durum["cagri"][1] if devam and durum.get("cagri", [None])[0] == bugun else 0
+    Say.olu = set()
+    i0 = time.localtime().tm_yday % len(SERITLER)
+    sira = [s[0] for s in SERITLER[i0:] + SERITLER[:i0]]
+    for s in sira:
+        if s in bit:
+            continue
+        gece(s, N_SERIT, devam=True, zorla=zorla)
+        if Say.durdu or Say.n >= TAVAN:
+            break
+        bit.append(s)
+    durum = json.loads((M / "durum.json").read_text(encoding="utf-8"))
+    durum.update(bitenler=[s[0] for s in SERITLER if s[0] in bit], bitenler_gun=bugun, cagri=[bugun, Say.n])
+    durum.pop("son_gun", None)  # yarım kalan gece sonraki tick'te sürer (zorla koşu eski bir son_gun'u da açar)
+    if len(bit) == len(SERITLER) or Say.n >= TAVAN:
+        durum["son_gun"] = bugun
+    (M / "durum.json").write_text(json.dumps(durum), encoding="utf-8")
+    return bit
+
+
 def kur(sil=False):
     if sil:
         return subprocess.run(["schtasks", "/Delete", "/TN", AD, "/F"], capture_output=True, text=True).returncode
@@ -286,18 +342,20 @@ def kur(sil=False):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("komut", nargs="?", choices=["kur", "kaldir"])
-    ap.add_argument("--kuru", action="store_true"); ap.add_argument("--serit", choices=[s[0] for s in SERITLER]); ap.add_argument("--n", type=int)
+    ap.add_argument("--kuru", action="store_true"); ap.add_argument("--serit", choices=[s[0] for s in SERITLER]); ap.add_argument("--n", type=int); ap.add_argument("--zorla", action="store_true")
     a = ap.parse_args(argv)
     if a.komut:
         return kur(a.komut == "kaldir")
     durum = json.loads((M / "durum.json").read_text(encoding="utf-8")) if (M / "durum.json").exists() else {}
     bugun = time.strftime("%Y-%m-%d")
-    if not a.kuru and (neden := sartlar(durum, bugun)):
+    if not a.kuru and (neden := sartlar(durum, bugun, a.zorla)):
         return print("atlandı:", neden)
     makara_ders.main()
+    if not (a.kuru or a.serit):
+        return print("tamam:", hepsi(bugun, a.zorla))
     sirada = a.serit or SERITLER[time.localtime().tm_yday % len(SERITLER)][0]
     n = a.n or next(s[2] for s in SERITLER if s[0] == sirada)
-    print("tamam:", gece(sirada, min(n, 3), a.kuru))
+    print("tamam:", gece(sirada, min(n, 3), a.kuru, zorla=a.zorla))
 
 
 if __name__ == "__main__":

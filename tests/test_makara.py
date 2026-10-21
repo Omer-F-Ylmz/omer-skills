@@ -78,9 +78,12 @@ def _gece_ortam(mp, tmp_path, havuz):
     mp.setattr(g, "OZET", tmp_path / "uyku-ozet.txt")
     mp.setattr(g, "HAFTA", tmp_path / "makara-hafta-ozet.txt")
     mp.setattr(g, "ram", lambda: 10)
+    mp.setattr(g, "bosta_sn", lambda: 99999)
+    mp.setattr(g, "TABAN", {})
     mp.setattr(g.makara_ders, "yukle", lambda: {"dersler": {}})
     mp.setattr(g, "hedefler", lambda serit, n, imlec: [str(hedef)][:n])
     g.Say.n = 0
+    g.Say.olu = set()
     return hedef, cagrilar
 
 
@@ -127,3 +130,54 @@ def test_havuz_tukenirse_oneri_atilmaz_ertelenir_ve_ertesi_gece_alinir(tmp_path)
         g.Say.n = 0
         assert g.gece("router", 1)[0] == 1  # ertesi gece aynı hedef işlenir
         assert not g.H.ERT.read_text(encoding="utf-8").strip()
+
+
+def _gorev():
+    return {"id": "t1", "intent": "görev", "reference": "ölçüt"}
+
+
+def test_hakem_yanit_vermeyen_aile_geceyi_atlanir_ve_nvidia_uzun_jeton(tmp_path):
+    with pytest.MonkeyPatch.context() as mp:
+        _, cagrilar = _gece_ortam(mp, tmp_path, lambda tur, istem: None)
+        mp.setattr(g.H, "cagir", lambda tur, istem, **kw: (cagrilar.append(kw), (None, None, []) if kw["aile"] == "google" else ("SONUC: B", "f/x", []))[1])
+        assert g.hakem("google", _gorev(), "a", "b") is None and g.hakem("google", _gorev(), "a", "b") is None
+        assert [k["aile"] for k in cagrilar].count("google") == 1  # ikinci görevde ölü aile çağrılmaz
+        g.hakem("nvidia", _gorev(), "a", "b"); g.hakem("mistral", _gorev(), "a", "b")
+        mt = {k["aile"]: k["max_tokens"] for k in cagrilar}
+        assert mt["nvidia"] >= 8000 and mt["mistral"] == 1500
+
+
+def test_degerlendir_ilk_iki_yanit_veren_aileyi_alir(tmp_path):
+    with pytest.MonkeyPatch.context() as mp:
+        _, cagrilar = _gece_ortam(mp, tmp_path, lambda tur, istem: None)
+
+        def sahte(tur, istem, **kw):
+            cagrilar.append(kw)
+            ok = tur != "hakem" or kw["aile"] not in ("mistral", "alibaba")  # ilk iki aile yanıt vermiyor
+            return ("YENI" if tur == "yazim" else "SONUC: B", "f/x", []) if ok else (None, None, [])
+        mp.setattr(g.H, "cagir", sahte)
+        oy, _, _, fam = g.degerlendir("k", [_gorev()], {"t1": "eski"})
+        assert fam == {"h1": ["openai"], "h2": ["minimax"]}  # sahte hakem konumdan habersiz: oy yönü burada sınanmaz
+
+
+def test_gece_tum_seritler_idle_ve_tavan(tmp_path):
+    with pytest.MonkeyPatch.context() as mp:
+        _gece_ortam(mp, tmp_path, _saglam)
+        bugun = time.strftime("%Y-%m-%d")
+        g.hepsi(bugun)
+        durum = json.loads((tmp_path / "makara/durum.json").read_text(encoding="utf-8"))
+        assert durum["bitenler"] == [s[0] for s in g.SERITLER] and durum["son_gun"] == bugun
+        assert "öneri 5" in (tmp_path / "uyku-ozet.txt").read_text(encoding="utf-8").splitlines()[1]
+        assert g.sartlar(durum, bugun) == "bugün koşuldu" and g.sartlar(durum, bugun, zorla=True) is None
+        mp.setattr(g, "bosta_sn", lambda: 0)  # kullanıcı döndü: öneri yarıda durur, gün kapanmaz
+        mp.setattr(g, "M", tmp_path / "makara2")
+        g.Say.n = 0
+        g.hepsi(bugun)
+        d2 = json.loads((tmp_path / "makara2/durum.json").read_text(encoding="utf-8"))
+        assert d2["bitenler"] == [] and "son_gun" not in d2
+        mp.setattr(g, "bosta_sn", lambda: 99999)
+        mp.setattr(g, "TAVAN", 1)  # çağrı tavanı dolunca gün kapanır
+        mp.setattr(g, "M", tmp_path / "makara3")
+        g.Say.n = 0
+        g.hepsi(bugun)
+        assert json.loads((tmp_path / "makara3/durum.json").read_text(encoding="utf-8"))["son_gun"] == bugun
