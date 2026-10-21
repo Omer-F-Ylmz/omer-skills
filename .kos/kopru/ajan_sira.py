@@ -50,6 +50,13 @@ def ordu_onek():
     return ORDU_ONEK if ORDU_DOSYA.exists() else ""
 
 
+ON_SOZ = K / "on-soz.md"  # ARAÇ-DENETİM-1: her göreve ortak ön söz; yoksa boş
+
+
+def arac_onek():
+    return ON_SOZ.read_text(encoding="utf-8") + "\n" if ON_SOZ.exists() else ""
+
+
 ON_DOSYA = K / "ajan-sira.ordu-on"  # ORDU-1 d12: mekanik ön-özet bayrağı; varsayılan kapalı
 
 
@@ -261,7 +268,7 @@ def main():
                     bas = basamak_sec(ad, bas)
                     model, efor = MERDIVEN[bas]
                 metin = (KOK / istem).read_text(encoding="utf-8")
-                metin = ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin
+                metin = arac_onek() + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:

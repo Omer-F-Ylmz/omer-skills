@@ -1,0 +1,1 @@
+Alt görev kademesi: `python tools/yonlendir.py sec <tür>` → T0 betik · T1 `yonlendir.t1` (Groq→nemotron→ollama→Haiku) · T2 Sonnet medium · T3 Sonnet high; kabul mekanikse doğrulama light, başarısızlıkta +1 kademe (≤2); claude -p çağrılarında `FORCE_PROMPT_CACHING_5M=1`; her koşu `yonlendir.kaydet` ile kayda.

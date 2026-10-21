@@ -159,3 +159,17 @@ def test_ordu_on_ozet_bayrakli(tmp_path, monkeypatch):
     assert ajan_sira.ordu_on_ozet("t", "yalniz a.py b.py") == "" and not cagri
     monkeypatch.setattr(ajan_sira.subprocess, "run", lambda *a, **k: (_ for _ in ()).throw(OSError()))
     assert ajan_sira.ordu_on_ozet("t", metin) == ""
+
+
+def test_arac_onek_on_soz_gorevi_korur(tmp_path, monkeypatch):
+    soz = tmp_path / "on-soz.md"
+    soz.write_text("ÖN SÖZ test\n", encoding="utf-8")
+    monkeypatch.setattr(ajan_sira, "ON_SOZ", soz)
+    gorev = "Görev: a.py dosyasını düzelt"
+    istem = ajan_sira.arac_onek() + gorev
+    assert istem.startswith("ÖN SÖZ test") and istem.endswith(gorev)
+
+
+def test_arac_onek_yoksa_bos(tmp_path, monkeypatch):
+    monkeypatch.setattr(ajan_sira, "ON_SOZ", tmp_path / "yok.md")
+    assert ajan_sira.arac_onek() == ""
