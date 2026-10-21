@@ -35,16 +35,35 @@ def kol_a(cikti, yuk):
     return sat
 
 
+def hakem_onb(a, aileler, cikti):
+    """ordu.hakem sonucu B5-hakem-<iş>.json önbelleğinde; yanıt veren üçüncü aile yoksa None (yazılmaz)"""
+    onb = cikti / f"B5-hakem-{a}.json"
+
+    def hakem(x, y):
+        if not onb.exists():
+            if o.Sayac.ucretsiz >= o.UCRETSIZ_TAVAN:
+                raise RuntimeError("ücretsiz tavanı")
+            o.Sayac.ucretsiz += 1
+            v = ordu.hakem(o.GOREV[a][0], x, y, aileler)
+            if v is None:
+                return None
+            onb.write_text(json.dumps(v), encoding="utf-8")
+        return json.loads(onb.read_text(encoding="utf-8"))
+    return hakem
+
+
 def capraz(a, cikti):
-    """orta iş: iki aileden birer yanıt → (birinci yanıt, aynı mı, aileler); ham yanıt önbellekte"""
+    """orta iş: iki aileden birer yanıt → (kabul edilen yanıt | ham birinci yanıt, kabul mü, aileler); ordu.kabul (bayraklı ölçüt, hakem üçüncü aile); ham yanıt önbellekte"""
     ham = cikti / f"B3-capraz-{a}.json"
     if not ham.exists():
         if o.Sayac.ucretsiz + 2 > o.UCRETSIZ_TAVAN:
             raise RuntimeError("ücretsiz tavanı")
         o.Sayac.ucretsiz += 2
         ham.write_text(json.dumps(ucretsiz_havuz.iki_aile("ozet", o.istem([a]), max_tokens=1500), ensure_ascii=False), encoding="utf-8")
-    ys = [(o.json_ilk(t) or {}).get(a) for t, _, _ in json.loads(ham.read_text(encoding="utf-8"))]
-    return (ys[0] if ys else None), len(ys) == 2 and ys[0] is not None and ys[0] == ys[1], [f for _, _, f in json.loads(ham.read_text(encoding="utf-8"))]
+    kayit = json.loads(ham.read_text(encoding="utf-8"))
+    ys, aileler = [(o.json_ilk(t) or {}).get(a) for t, _, _ in kayit], [f for _, _, f in kayit]
+    kabul = ordu.kabul(ys, hakem_=hakem_onb(a, aileler, cikti))
+    return (kabul if kabul is not None else (ys[0] if ys else None)), kabul is not None, aileler
 
 
 def kol_b(cikti):

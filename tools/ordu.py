@@ -123,7 +123,7 @@ def hakem(istem, a, b, aileler):
     """Üçüncü ücretsiz aile: iki yanıt anlamca aynı mı (sayı/ad/tarih farkı → AYRI). Yanıt veren üçüncü aile yoksa None (ret sayılır)."""
     import ucretsiz_havuz as h
     for uc in sorted({e.aile for e in h.ENT} - set(aileler) - {"karma", "anthropic"}):
-        y, _, _ = h.cagir("ozet", f"İş:\n{istem}\n\nYanıt 1:\n{a}\n\nYanıt 2:\n{b}\n\nİki yanıt anlamca aynı mı (aynı sayılar, adlar, tarihler, karar)? Yalnız AYNI ya da AYRI yaz.", max_tokens=1500, aile=uc)
+        y, _, _ = h.cagir("hakem", f"İş:\n{istem}\n\nYanıt 1:\n{a}\n\nYanıt 2:\n{b}\n\nİki yanıt anlamca aynı mı (aynı sayılar, adlar, tarihler, karar)? Yalnız AYNI ya da AYRI yaz.", max_tokens=1500, aile=uc)
         if y:
             return y.strip().upper().startswith("AYNI")
     return None
