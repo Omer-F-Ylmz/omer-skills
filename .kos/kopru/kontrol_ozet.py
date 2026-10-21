@@ -1,5 +1,6 @@
 """Desktop kontrol özeti: son kontrolden beri BAŞLAT/BİTTİ + biten işlerin ücretsiz modelle 4 satırlık özeti + RAM + kuyruk. ≤15 satır.
 python kontrol_ozet.py [--sifirla-yok]   (varsayılan: kontrol-son.txt'yi şimdiye ilerletir)"""
+import contextlib
 import ctypes
 import json
 import re
@@ -43,18 +44,31 @@ def canli(pid):
     return bool(ok) and kod.value == 259
 
 
+def _saat(s):
+    return int(s[0:2]) * 3600 + int(s[3:5]) * 60 + int(s[6:8])
+
+
 def yeni_satirlar():
-    satir = [s for s in LOG.read_text(encoding="utf-8", errors="replace").splitlines() if re.match(r"\d\d:\d\d:\d\d ", s)]
-    son = SON.read_text(encoding="utf-8").strip() if SON.exists() else ""
-    if not satir:
-        return [], son
-    if not son:
-        return satir[-10:], satir[-1][:8]  # ilk koşu: son 10 olay
-    d = 0  # gün dönümü: damga log sonundan büyükse son geriye sarımdan beri
-    if son > satir[-1][:8]:
-        d = max((i for i in range(1, len(satir)) if satir[i][:8] < satir[i - 1][:8]), default=0)
-        return satir[d:], satir[-1][:8]
-    return [s for s in satir if s[:8] > son], satir[-1][:8]
+    """kontrol-son.txt = log BAYT ofseti; yalnız o ofsetten sonrası okunur (saat damgası gün sınırını bilmez).
+    Dosya yok / ofset geçersiz / log küçülmüş: son 2 saat (geriye giderken saat artarsa gün sınırı)."""
+    ham_b = LOG.read_bytes()
+    boy = len(ham_b)
+    try:
+        ofs = int(SON.read_text(encoding="utf-8").strip())
+    except (OSError, ValueError):
+        ofs = -1
+    sat = lambda b: [s for s in b.decode("utf-8", errors="replace").splitlines() if re.match(r"\d\d:\d\d:\d\d ", s)]
+    if 0 <= ofs <= boy:
+        return sat(ham_b[ofs:]), boy
+    satir = sat(ham_b)
+    secilen = []
+    for s in reversed(satir):
+        if secilen and _saat(s) > _saat(secilen[0]):
+            break  # gün sınırı
+        if (_saat(satir[-1]) - _saat(s)) % 86400 > 7200:
+            break
+        secilen.insert(0, s)
+    return secilen, boy
 
 
 def ham(res):
@@ -72,7 +86,8 @@ def ozet(ad):
         return ["sonuç boş"]
     try:
         import ucretsiz_havuz as h
-        y, _, _ = h.cagir("ozet", ISTEM + res[:6000], max_tokens=600, etiket="kontrol_ozet")
+        with contextlib.redirect_stdout(sys.stderr):  # havuz/claude-mem gürültüsü stderr'e, özet stdout temiz
+            y, _, _ = h.cagir("ozet", ISTEM + res[:6000], max_tokens=600, etiket="kontrol_ozet")
     except Exception:
         y = None
     if y:
@@ -83,21 +98,34 @@ def ozet(ad):
 
 
 def kuyruk():
+    """(runner'ın kendi canlı oturumları, dış canlı oturumlar, bekleyen). Dış = son 'başladı' satırındaki 'önceden başlamış' listesi."""
     bas = {f.stem for f in SIRA.glob("*.basladi")}
-    cal = 0
+    onceki = set()
+    for s in reversed(LOG.read_text(encoding="utf-8", errors="replace").splitlines()):
+        if "başladı · tavan" in s:
+            onceki = set(re.findall(r"'([^']+)'", s.split("önceden başlamış", 1)[-1].split("]")[0]))
+            break
+    cal = dis = 0
     for f in SIRA.glob("*.basladi"):
         p = f.read_text(encoding="utf-8", errors="replace").split()
-        cal += len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and canli(p[2])
-    bek = sum(1 for s in TSV.read_text(encoding="utf-8").splitlines() if s.strip() and not s.startswith("#") and s.split("\t")[0] not in bas)
-    return cal, bek
+        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and canli(p[2]):
+            if f.stem in onceki:
+                dis += 1
+            else:
+                cal += 1
+    bek = sum(1 for s in TSV.read_text(encoding="utf-8").splitlines() if s.strip() and not s.startswith("#") and s.split("	")[0] not in bas)
+    return cal, dis, bek
 
 
 def main():
+    if not LOG.exists():
+        print("log yok")
+        return
     yeni, son = yeni_satirlar()
     biten = [s.split()[2] for s in yeni if s[9:14] == "BİTTİ"]
     basl = [s.split()[2] for s in yeni if s[9:15] == "BAŞLAT"]
-    cal, bek = kuyruk()
-    cikti = [f"RAM %{ram()} · çalışan {cal} · bekleyen {bek} · yeni: {len(basl)} başladı, {len(biten)} bitti (son {son or '-'})"]
+    cal, dis, bek = kuyruk()
+    cikti = [f"RAM %{ram()} · çalışan {cal} (+{dis} dış) · bekleyen {bek} · yeni: {len(basl)} başladı, {len(biten)} bitti (ofset {son})"]
     if basl:
         cikti.append("başladı: " + ", ".join(basl))
     kalan = SATIR - len(cikti)
@@ -109,8 +137,7 @@ def main():
     if len(gosterilen) < len(biten):
         cikti.append("+ " + ", ".join(biten[len(gosterilen):]) + " (python sonuc_kisa.py --kisa <ad>)")
     print("\n".join(cikti[:SATIR]))
-    if son:
-        SON.write_text(son, encoding="utf-8")
+    SON.write_text(str(son), encoding="utf-8")
 
 
 main()
