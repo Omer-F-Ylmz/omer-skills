@@ -39,3 +39,73 @@ def test_ref_iki_gorsel_gonderir_ve_kiyas_bicimi_kullanir(hakem, monkeypatch):
     urller = [c["image_url"]["url"] for c in gorulen["icerik"] if c["type"] == "image_url"]
     assert urller == ["data:ref.png", "data:aday.png"]
     assert "REFERANS" in gorulen["icerik"][0]["text"]
+
+
+def aileye_gore_yanit(hakem, monkeypatch, yanit, zamanlar=None):  # yanit: aile → metin | istisna
+    def sahte(e, icerik, max_tokens, zaman):
+        if zamanlar is not None:
+            zamanlar.append(zaman)
+        aile = next(a for a, adaylar in hakem.ADAY.items() if e in adaylar)
+        if isinstance(yanit[aile], Exception):
+            raise yanit[aile]
+        return yanit[aile]
+
+    def haiku_kapali(icerik):
+        raise OSError("test: gerçek Haiku çağrısı yok")
+
+    monkeypatch.setattr(hakem, "veri_url", lambda p: f"data:image/jpeg;base64,{p}")
+    monkeypatch.setattr(hakem.h, "_istek", sahte)
+    monkeypatch.setattr(hakem, "haiku_gorsel", haiku_kapali)
+
+
+GECERLI = '{"puan": 7, "sivi_mi": true, "plastik_gorunen": false}'
+
+
+def test_ayrisma_hatasi_kararsiz_sayilir_puan_yazilmaz(hakem, monkeypatch):
+    aileye_gore_yanit(hakem, monkeypatch, {"google": "yanıt yok", "meta": GECERLI, "nvidia": GECERLI})
+    s = hakem.sor("aday.png", "soru")
+    assert s["google"]["durum"] == "kararsiz" and "puan" not in s["google"]
+    assert s["meta"]["durum"] == s["nvidia"]["durum"] == "gecerli"
+
+
+def test_tek_aile_hata_verince_yedek_aile_devreye_girer(hakem, monkeypatch):
+    aileye_gore_yanit(hakem, monkeypatch, {"google": hakem.h.Hata(503, "geçici"), "meta": GECERLI, "nvidia": GECERLI})
+    s = hakem.sor("aday.png", "soru")
+    assert s["google"]["durum"] == "kararsiz" and "503" in s["google"]["sebep"]
+    assert sum(v["durum"] == "gecerli" for v in s.values()) == hakem.CIFT
+
+
+def test_iki_aile_yoksa_haiku_tek_oy_verir(hakem, monkeypatch):
+    aileye_gore_yanit(hakem, monkeypatch, {"google": TimeoutError(), "meta": TimeoutError(), "nvidia": GECERLI})
+    monkeypatch.setattr(hakem, "haiku_gorsel", lambda icerik: GECERLI)
+    s = hakem.sor("aday.png", "soru")
+    assert s["haiku"]["durum"] == "gecerli" and s["haiku"]["model"].startswith("haiku/")
+    assert sum(v["durum"] == "gecerli" for v in s.values()) == 1  # 4 deneme (google×2, meta×2) bitti; nvidia denenmedi
+
+
+def test_sayi_disi_puan_reddedilir(hakem):
+    for bozuk in ('{"puan": "7", "sivi_mi": true, "plastik_gorunen": false}',
+                  '{"puan": 7.5, "sivi_mi": true, "plastik_gorunen": false}',
+                  '{"puan": true, "sivi_mi": true, "plastik_gorunen": false}'):
+        with pytest.raises(ValueError):
+            hakem.ayikla(bozuk)
+
+
+def test_buyuk_gorsel_1024e_kucultulur(hakem, tmp_path):
+    import base64
+    import io
+
+    from PIL import Image
+
+    yol = tmp_path / "buyuk.png"
+    Image.new("RGB", (3000, 2000), "white").save(yol)
+    veri = hakem.veri_url(yol)
+    im = Image.open(io.BytesIO(base64.b64decode(veri.split(",", 1)[1])))
+    assert max(im.size) == 1024
+
+
+def test_istek_basi_zaman_asimi_60_sn(hakem, monkeypatch):
+    zamanlar = []
+    aileye_gore_yanit(hakem, monkeypatch, {"google": GECERLI, "meta": GECERLI, "nvidia": GECERLI}, zamanlar)
+    hakem.sor("aday.png", "soru")
+    assert zamanlar and set(zamanlar) == {60}

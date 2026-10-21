@@ -3,7 +3,9 @@ python gorsel_hakem.py <png...> --soru "<metin>"   (çıktı: PNG başına 1 sat
 import base64
 import io
 import json
+import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -28,6 +30,7 @@ BICIM_KIYAS = """İlk görsel REFERANS, ikinci görsel ADAY. Soru: {soru}
 Yalnız tek satır JSON ver: {{"kalite_farki": 1-10 tam sayı (10 = aday referansla aynı/üstün kalitede, 1 = çok geride)}}"""
 LOGO = ("ozgunluk", "akilda_kalicilik", "kucuk_okunurluk", "havali")  # --sema logo; sıvı/plastik alanları yok
 FARK = 2  # puan farkı bu eşiğe ulaşırsa ya da bool'lar ayrışırsa AYRIŞTI
+ZAMAN = 60  # istek başı sn
 
 
 def veri_url(yol):
@@ -38,33 +41,70 @@ def veri_url(yol):
     return "data:image/jpeg;base64," + base64.b64encode(b.getvalue()).decode()
 
 
+def tam(v):  # sayı dışı puan (metin, bool, ondalık) yanıt sayılmaz
+    if type(v) is not int:
+        raise ValueError(f"sayı değil: {v!r}")
+    return v
+
+
 def ayikla(y, logo=False, kiyas=False):
     m = re.search(r"\{.*?\}", y, re.S)
     if not m:
         raise ValueError("JSON yok")
     j = json.loads(m.group(0))
     if kiyas:
-        return {"kalite_farki": int(j["kalite_farki"])}
+        return {"kalite_farki": tam(j["kalite_farki"])}
     if logo:
-        return {k: int(j[k]) for k in LOGO}
-    return {"puan": int(j["puan"]), "sivi_mi": bool(j["sivi_mi"]), "plastik_gorunen": bool(j["plastik_gorunen"])}
+        return {k: tam(j[k]) for k in LOGO}
+    return {"puan": tam(j["puan"]), "sivi_mi": bool(j["sivi_mi"]), "plastik_gorunen": bool(j["plastik_gorunen"])}
+
+
+def aile_dene(aile, icerik, ref, logo):  # ilk çalışan aday kazanır; hiçbiri olmazsa kararsız (puan yok)
+    for e in ADAY[aile]:
+        try:
+            return {"durum": "gecerli", "model": h.ad(e), **ayikla(h._istek(e, icerik, 4000 if ref else 400, ZAMAN), logo, bool(ref))}
+        except (h.Hata, OSError, ValueError, KeyError, TypeError) as x:
+            son = {"durum": "kararsiz", "model": h.ad(e), "sebep": f"{type(x).__name__}: {str(x)[:80]}"}
+    return son
+
+
+def haiku_gorsel(icerik):  # claude -p (abonelik), görüntü blokları stream-json ile; ANTHROPIC_API_KEY yok sayılır (ucretsiz_havuz._haiku ile aynı)
+    blok = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": c["image_url"]["url"].split(",", 1)[1]}}
+            if c["type"] == "image_url" else {"type": "text", "text": c["text"]} for c in icerik]
+    msg = json.dumps({"type": "user", "message": {"role": "user", "content": blok}}, ensure_ascii=False)
+    env = {k: v for k, v in os.environ.items() if not k.startswith("ANTHROPIC_API_KEY")}
+    h.DIZIN.mkdir(parents=True, exist_ok=True)
+    p = subprocess.run(["claude", "-p", "--model", "claude-haiku-5-5", "--input-format", "stream-json", "--output-format", "stream-json", "--verbose",
+                        "--max-turns", "1", "--tools", "", "--setting-sources", ""], input=msg, capture_output=True, text=True,
+                       encoding="utf-8", errors="replace", timeout=ZAMAN, creationflags=h.NW, cwd=h.DIZIN, env=env)
+    j = next((x for x in map(json.loads, p.stdout.splitlines()) if x.get("type") == "result"), {"is_error": True, "result": p.stderr})
+    if j.get("is_error") or not (j.get("result") or "").strip():
+        raise h.Hata(0, "haiku " + str(j.get("result"))[:80])
+    return j["result"].strip()
+
+
+def gecerli_say(sonuc):
+    return sum(v["durum"] == "gecerli" for v in sonuc.values())
 
 
 def sor(png, soru, logo=False, ref=None):
     bicim = BICIM_KIYAS if ref else BICIM_LOGO if logo else BICIM
     icerik = [{"type": "text", "text": bicim.format(soru=soru)}]
     icerik += [{"type": "image_url", "image_url": {"url": veri_url(p)}} for p in ([ref] if ref else []) + [png]]
-    sonuc = {}
-    for _ in range(2):  # geçici 503/zaman aşımı için ikinci tur (yalnız eksik aileler)
-        for aile, adaylar in ADAY.items():
-            if len(sonuc) >= CIFT:
+    sonuc, deneme = {}, 0
+    for aile in ADAY:
+        for _ in range(2):  # kararsız aile bir kez yeniden denenir, sonra sıradaki aileye geçilir
+            if deneme == 4 or gecerli_say(sonuc) >= CIFT:  # en fazla 4 deneme
                 break
-            for e in [] if aile in sonuc else adaylar:
-                try:
-                    sonuc[aile] = {"model": h.ad(e), **ayikla(h._istek(e, icerik, 4000 if ref else 400, 120 if ref else 60), logo, bool(ref))}
-                    break
-                except (h.Hata, OSError, ValueError, KeyError, TypeError):
-                    continue
+            deneme += 1
+            sonuc[aile] = aile_dene(aile, icerik, ref, logo)
+            if sonuc[aile]["durum"] == "gecerli":
+                break
+    if gecerli_say(sonuc) < CIFT:  # iki aile toplanamadıysa Haiku görü tek oy
+        try:
+            sonuc["haiku"] = {"durum": "gecerli", "model": "haiku/claude-haiku-5-5", **ayikla(haiku_gorsel(icerik), logo, bool(ref))}
+        except (h.Hata, OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as x:
+            sonuc["haiku"] = {"durum": "kararsiz", "model": "haiku/claude-haiku-5-5", "sebep": f"{type(x).__name__}: {str(x)[:80]}"}
     return sonuc
 
 
@@ -90,10 +130,10 @@ def main():
             soru = "Bu logo özgünlük, akılda kalıcılık, 64px'te okunurluk ve 'havalı' olma açısından kaç puan?"
     for png in a:
         s = sor(png, soru, logo, ref)
-        if not s:
+        v = [d for d in s.values() if d["durum"] == "gecerli"]
+        if not v:
             print(f"{Path(png).name} HAKEM YOK (görü uçlarının hiçbiri yanıtlamadı)")
             continue
-        v = list(s.values())
         if len(v) < 2:
             durum = "TEK-AİLE"
         elif ref:
