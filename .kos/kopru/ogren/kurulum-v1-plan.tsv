@@ -47,11 +47,11 @@ TRADER	repo	YENI	timercrack/trader	apache-2.0	8467	2026-02-28	5		paper trading		
 GODMODE	arac	UYARLA							model karşılaştırma		-	-	-
 Claude Watch	skill	UYARLA							video analizi		-	-	-
 mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	390	2026-09-26	7		3D animasyon		-	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); 3D animasyon, kazanç yok; SS HIGH 5, gl 0	-
-Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	3357	2026-10-18	7		video düzenleme		-	-	-
+Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	3357	2026-10-18	7		video düzenleme		-	ELE: video editörü kütüphanesi, kazanç yok; SkillSpector ZAMAN AŞIMI (tarama eksik), semgrep 28	-
 Flick	skill	OLU?	metafizzy/flickity		7561	2024-05-29			video üretimi		-	-	-
-DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	6373	2026-10-20	7		dizi üretimi		-	-	-
+DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	6373	2026-10-20	7		dizi üretimi		-	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); dizi üretimi, kazanç yok; semgrep 123, gl 0	-
 social agents (meta agent pipeline)	repo	YENI-kaynaksiz					5		reklam otomasyonu		-	-	-
-TradingAgents	repo	YENI	TauricResearch/TradingAgents	apache-2.0	112309	2026-10-16	7		finans ajanları		-	-	-
+TradingAgents	repo	YENI	TauricResearch/TradingAgents	apache-2.0	112309	2026-10-16	7		finans ajanları		-	ELE: finans alanı dışı, ücretli LLM API akışı; SS HIGH 45, gl 2, semgrep 12; bizde karşılığı gereksiz	-
 security-audit	skill	CIFT->Security Audit (Cloudflare)							güvenlik denetimi		-	-	-
 Ollaya	repo	UYARLA							yerel modeller		-	-	-
 ARES	arac	OLU?	sweetsoftware/Ares		1633	2023-03-02			OSINT keşif		-	-	-
@@ -61,8 +61,8 @@ Mantis	repo	YENI	mantisbt/mantisbt		1809	2026-10-20	5		güvenlik inceleme		-	-	-
 CROWD (isimsiz simülasyon aracı)	arac	YENI-kaynaksiz					6		pazar simülasyonu		-	-	-
 Sullivan	arac	YENI-kaynaksiz					6		otonom ajan		-	-	-
 MarkItDown MCP	mcp	UYARLA						TOKEN-REA	belge dönüştürme		-	-	-
-UnoRouter	arac	YENI	unorouter/unorouter	agpl-3.0	21	2026-10-20	7		model yönlendirme		-	-	-
-PYNK	skill	YENI	ralbuque/Pynkaro		62	2026-07-25	7		animasyonlu metin		-	-	-
+UnoRouter	arac	YENI	unorouter/unorouter	agpl-3.0	21	2026-10-20	7		model yönlendirme		-	ELE: AGPL-3.0 + OmniRoute zaten var; tarama ZAMAN AŞIMI (eksik)	-
+PYNK	skill	YENI	ralbuque/Pynkaro		62	2026-07-25	7		animasyonlu metin		-	ELE: lisans yok (license-gate: kurulmaz); animasyonlu metin, kazanç yok; tarama ZAMAN AŞIMI (eksik)	-
 HTML Anything	repo	YENI	nexu-io/html-anything	apache-2.0	9187	2026-10-13	6		belge HTML		-	-	-
 apple-design	skill	UYARLA							UI tasarım		-	-	-
 fancy components	repo	YENI	danielpetho/fancy	mit	3258	2026-03-14	5		UI animasyon		-	-	-
