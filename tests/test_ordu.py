@@ -1,3 +1,4 @@
+import json
 import sys
 from pathlib import Path
 
@@ -91,6 +92,25 @@ def test_kabul_gevsek_normalize_ve_hakem():
     assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: True, gevsek=True, tur="metin") == "bir şey"
     assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: None, gevsek=True, tur="metin") is None
     assert ordu.kabul(["x", None], hakem_=lambda a, b: True, gevsek=True, tur="metin") is None  # tek yanıt kabul olmaz
+
+
+def test_kabul_json_tip_ve_buyuk_harf_korunur():
+    # d9: json dalı True==1 ve küçük harfe indirmeyle iki farklı yanıtı birleştirebiliyordu; yalnız anahtar sırası/boşluk/çit/iç içe dizge/1.0≡1 yutulur.
+    assert ordu.kabul(['{"a": true}', '{"a": 1}'], gevsek=True, tur="json") is None
+    assert ordu.kabul(['{"a": "Ömer"}', '{"a": "ömer"}'], gevsek=True, tur="json") is None
+    assert ordu.kabul(['{"a": "x."}', '{"a": "x"}'], gevsek=True, tur="json") is None
+    assert ordu.kabul(['{"a": 1.0, "b": "Y"}', '```json\n{ "b": "Y",\n "a": 1 }\n```'], gevsek=True, tur="json") == {"a": 1, "b": "Y"}
+    assert ordu.kabul([json.dumps({"1": "a"}), {"1": "a"}], gevsek=True, tur="json") == {"1": "a"}
+    assert ordu.kabul(['{"1": "a"}', json.dumps(json.dumps({"1": "a"}))], gevsek=True, tur="json") == {"1": "a"}  # çift kodlanmış (d8 O3/O4/O6)
+
+
+def test_kabul_test_ve_donus_ozgun_metin():
+    # d9: test varken norm kodu küçük harfe indirip girintiyi daraltıyordu; test ve dönen yanıt özgün (kenar boşluğu atılmış) metin.
+    kod = "def F(x):\n    return x + 1"
+    gorulen = []
+    assert ordu.kabul([" " + kod + "\n", "yanlış"], test=lambda y: gorulen.append(y) or y == kod, gevsek=True) == kod
+    assert gorulen[0] == kod
+    assert ordu.kabul(["Bir Şey.", "bir şey"], hakem_=lambda a, b: False, gevsek=True, tur="metin") == "Bir Şey."
 
 
 def test_kabul_kesin_regex_hakem_yok():

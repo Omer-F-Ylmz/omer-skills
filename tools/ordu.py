@@ -119,6 +119,23 @@ def norm(y):
     return [norm(v) for v in y] if isinstance(y, list) else y
 
 
+def norm_json(y):
+    """JSON yanıtı → nesne: çit, iç içe (çift kodlanmış) JSON dizgesi, boşluk, anahtar sırası ve 1.0≡1 yutulur; harf, noktalama ve bool≠sayı korunur."""
+    if isinstance(y, str):
+        s = y.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        if s[:1] in ("{", "[", '"'):
+            try:
+                return norm_json(json.loads(s))
+            except ValueError:
+                pass
+        return s
+    if isinstance(y, dict):
+        return {str(k): norm_json(v) for k, v in y.items()}
+    if isinstance(y, float) and y.is_integer():
+        return int(y)
+    return [norm_json(v) for v in y] if isinstance(y, list) else y
+
+
 def hakem(istem, a, b, aileler):
     """Üçüncü ücretsiz aile: iki yanıt anlamca aynı mı (sayı/ad/tarih farkı → AYRI). Yanıt veren üçüncü aile yoksa None (ret sayılır)."""
     import ucretsiz_havuz as h
@@ -132,16 +149,22 @@ def hakem(istem, a, b, aileler):
 def kabul(yanitlar, test=None, hakem_=None, gevsek=None, tur="kesin"):
     """Orta işte iki aile yanıtı → kabul edilen yanıt | None. Bayrak kapalı: birebir aynı. Açık: mekanik test varsa testi geçen; yoksa
     tur='kesin' (regex/sayı/kod, varsayılan): kenar boşluğu dışında birebir eşitlik, hakem yok (LLM hakem iki farklı regex'e AYNI dedi, d8);
-    tur='json': JSON/biçim farkını yutan normalize eşitlik; tur='metin': normalize eşitlik, o da yoksa hakem_(a, b) (üçüncü aile) 'aynı' derse birinci yanıt."""
+    tur='json': JSON/biçim farkını yutan (norm_json: harf ve tip korunur) eşitlik; tur='metin': normalize eşitlik, o da yoksa hakem_(a, b) (üçüncü aile) 'aynı' derse birinci yanıt."""
     if not (KABUL_BAYRAK.exists() if gevsek is None else gevsek):
         return yanitlar[0] if len(yanitlar) == 2 and yanitlar[0] is not None and yanitlar[0] == yanitlar[1] else None
     if tur == "kesin" and not test:
         ys = [y.strip() if isinstance(y, str) else y for y in yanitlar]
         return ys[0] if len(ys) == 2 and ys[0] is not None and ys[0] == ys[1] else None
-    ys = [norm(y) for y in yanitlar if y is not None]
+    ts = [y for y in yanitlar if y is not None]
+    if tur == "json":
+        ys = [norm_json(y) for y in ts]
+        if test:
+            return next((y for y in ys if test(y)), None)
+        return ys[0] if len(ys) == 2 and json.dumps(ys[0], sort_keys=True) == json.dumps(ys[1], sort_keys=True) else None
+    ys = [y.strip() if isinstance(y, str) else y for y in ts]  # test ve dönüş özgün metin üzerinde (norm küçük harf/girinti bozar)
     if test:
         return next((y for y in ys if test(y)), None)
-    if len(ys) == 2 and (ys[0] == ys[1] or (tur == "metin" and hakem_ and hakem_(*ys))):
+    if len(ys) == 2 and (norm(ys[0]) == norm(ys[1]) or (tur == "metin" and hakem_ and hakem_(norm(ys[0]), norm(ys[1])))):
         return ys[0]
     return None
 
