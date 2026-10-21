@@ -6,7 +6,8 @@ description: "Görsel üretme, düzenleme, büyütme, arka plan silme işinde ö
 # gorsel-uret — yerel, ücretsiz görsel üretimi
 
 Araç: `python C:\Projeler\omer-skills\tools\gorsel_uret.py <komut>` (mutlak yolla).
-ComfyUI yolu: çalışan kurulum `C:\AI\ComfyUI` (kod sabiti). Yerel portable kurulum `C:\Users\pc\Desktop\araclar\ComfyUI` henüz açılmadı (indirme sürüyor, `Desktop\araclar\indir`); hazır olunca `COMFY` sabiti buraya çevrilecek.
+ComfyUI yolu: çalışan kurulum `C:\AI\ComfyUI` (kod sabiti; tek kurulum, `Desktop\araclar\ComfyUI` yok).
+VIDEO HATTI KURALI (Ömer 21 Eki): üretim (görüntü/video/ses/kurgu) tamamen yerel ve ücretsiz (ComfyUI+FLUX/Wan, Chatterbox/edge-tts, Remotion, ffmpeg); Claude yalnız senaryo + sahne listesi yazar; hedef reklam filmi başına Claude maliyeti ≤$0.10.
 
 ## Akış (sıra değişmez)
 1. `ac` — ComfyUI 127.0.0.1:8188'de açılır (Blender açıksa 9876 dolu → 2; ikisi birlikte koşmaz).

@@ -41,10 +41,13 @@ Kısaltma: CC = Claude Code, AI = Desktop/claude.ai, `*` = son 45 günde kullan�
 - edge-tts 7.3.1 · kurulu (tr.mp3/en.mp3, `Desktop\kids-shorts-test`)
 - Remotion 4.0.537 · kurulu; şablon 1080x1920 30fps 5 sn render ✓ (`Desktop\kids-shorts-sablon\out\test.mp4`, ffprobe 1080x1920 / 5.000 sn)
 - Chatterbox-TTS 0.1.7 · MIT · torch 2.6.0+cu124 CUDA ✓ (`Desktop\araclar\chatterbox\venv`); TR/EN wav 3.84 sn / 4.32 sn; VRAM pik 3.37 GB (`olcum.py`)
-- ComfyUI v0.42.1 nvidia portable · indirme (PID 39524) → `Desktop\araclar\indir`; kurulum yolu `Desktop\araclar\ComfyUI` (henüz açılmadı; yukarıdaki `C:\AI\ComfyUI` yanlış)
-- FLUX.1-schnell fp8 · indirme sürüyor (PID 61584, 6.1 GB indi) → `Desktop\araclar\indir`; Apache-2.0
-- Wan 2.2 TI2V-5B Q5_K_M GGUF (QuantStack, Apache-2.0) · indirme tamam (3.6 GB, `Desktop\araclar\indir`); fp16 + VAE + umt5 `C:\AI\ComfyUI\models` altında indiriliyor (PID 28456, fp16 8.0 GB diskte)
-- Log: `.kos\kopru\indir\{comfyui,flux,wan}.log`; bitince ComfyUI headless 1f testi
+- ComfyUI 0.38.0 · çalışan kurulum `C:\AI\ComfyUI` (.venv torch 2.14.1+cu130 CUDA ✓); headless `arka.py` ile 127.0.0.1:8188; `Desktop\araclar\ComfyUI` yok (çift kurulum yok)
+- FLUX.1-schnell fp8 all-in-one checkpoint (17.2 GB, içinde text encoder + VAE) · `C:\AI\ComfyUI\models\checkpoints`; Apache-2.0
+- ComfyUI-GGUF node (city96, Apache-2.0) · `C:\AI\ComfyUI\custom_nodes\ComfyUI-GGUF`; `gguf` 0.19.0 venv'e kuruldu
+- Wan 2.2 TI2V-5B Q5_K_M GGUF (3.6 GB) · `C:\AI\ComfyUI\models\unet`; umt5_xxl fp8 + wan2.2_vae `C:\AI\ComfyUI\models` altında
+- 1f ölçümü (`.kos\kopru\video\kurulum_uret.py`): FLUX 1080x1920 PNG 25 sn, min VRAM boş 2.26 GB, min RAM boş 2.51 GB (≈%92 dolu; %85 tavanı aşıldı); Wan i2v 704x1280 73 kare 24 fps (3.04 sn) 262 sn, min VRAM boş 3.73 GB, min RAM boş 3.75 GB; iş sonu `/free`
+- VIDEO HATTI KURALI (Ömer 21 Eki): üretim tamamen yerel ve ücretsiz (ComfyUI+FLUX/Wan, Chatterbox/edge-tts, Remotion, ffmpeg); Claude yalnız senaryo + sahne listesi yazar (≤$0.10/reklam filmi)
+- Log: `.kos\kopru\indir\{comfyui,flux,wan}.log` (indirmeler tamam)
 
 ## 3. Taraf kuralı (CC ↔ Desktop/claude.ai)
 
