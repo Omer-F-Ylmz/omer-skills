@@ -36,9 +36,11 @@ def ders_onek(metin):
 
 
 ORDU_DOSYA = K / "ajan-sira.ordu"  # ORDU-1: derleyici önsözü bayrağı (onay/ordu_1.py); varsayılan kapalı
-ORDU_ONEK = ("ORDU-1 derleyici: işi böl; keşif/okuma/özet/test koşusunu alt ajana ver. Kademe: "
-             "`python tools/ordu.py sinif \"<iş>\"` (kolay=ücretsiz, orta=iki ücretsiz aile/Haiku, zor=Sonnet, imkansiz=Opus). "
-             "Sen yalnız derle, doğrula, iyileştir.\n\n")
+ORDU_ONEK = ("ORDU-1 derleyici (bu oturumda okuma/keşif/özet/log/test koşusunu KENDİN yapma): ilk araç çağrından önce "
+             "alt işleri say. Birden çok dosya okuma, kod keşfi, uzun log/doküman özeti → "
+             "`python tools/ucuz_alt.py --tur ozet \"<soru>\" .claude/ordu3/<n>.md <dosya...>` (ücretsiz; çıktı .md'yi Read ile oku; çıkış 3 → kendin yap). "
+             "Test/suit koşusu → Agent suite-kosucu, salt okuma analizi → Agent okuyucu. Sende yalnız plan, yazma, derleme, karar kalsın. "
+             "Tek dosya/tek satır işi delege edilmez.\n\n")
 
 
 def ordu_onek():

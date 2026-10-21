@@ -96,3 +96,12 @@ def test_ordu_ve_slash_dar_birlikte(tmp_path, monkeypatch):
     slash.write_text("acik dar=cekirdek")
     a, _ = ajan_sira.baslat_argv("")
     assert ajan_sira.ordu_onek().startswith("ORDU-1 derleyici") and a[a.index("--plugin-dir") + 1].endswith("slash-dar\cekirdek")
+
+
+def test_ordu_onsoz_somut_tetik():
+    """ORDU-1 d11: önsöz soyut rol değil somut tetik + çalışır komut + görev başı ayrıştırma adımı; ≤700 karakter."""
+    o = ajan_sira.ORDU_ONEK
+    assert "tools/ucuz_alt.py --tur ozet" in o and (ajan_sira.KOK / "tools/ucuz_alt.py").exists()
+    assert "Agent" in o and "ilk" in o.lower() and len(o) <= 700
+    for tetik in ("okuma", "keşif", "log", "test"):
+        assert tetik in o
