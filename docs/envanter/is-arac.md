@@ -25,7 +25,7 @@ Kısaltma: CC = Claude Code, AI = Desktop/claude.ai, `*` = son 45 günde kullan�
 
 | İş türü | Sıra (önce kurulu ve ölçülmüş olan) | Taraf notu |
 |---|---|---|
-| Video kurgu, kısa klip, altyazı | `video-cli`* (video tarama/indir) → `ffmpeg`* / `whisper-cli`* → `premiere-pro` MCP (kurgu) → `hyperframes` plugin (HTML→video) → ajanlar `vid-*`; çocuk shorts hattı: `edge-tts` (TR/EN ses) · Chatterbox Multilingual (ses klonlama, `Desktop\araclar\chatterbox`) · Remotion 4.0.537 (`Desktop\kids-shorts-sablon`) · ComfyUI (`C:\AI\ComfyUI`; Z-Image-Turbo, FLUX.2-klein-4B, Wan 2.2 TI2V-5B) | premiere-pro, hyperframes yalnız CC |
+| Video kurgu, kısa klip, altyazı | `video-cli`* (video tarama/indir) → `ffmpeg`* / `whisper-cli`* → `premiere-pro` MCP (kurgu) → `hyperframes` plugin (HTML→video) → ajanlar `vid-*`; çocuk shorts hattı: `edge-tts` (TR/EN ses) · Chatterbox Multilingual (ses klonlama, `Desktop\araclar\chatterbox`) · Remotion 4.0.537 (`Desktop\kids-shorts-sablon`) · ComfyUI (`Desktop\araclar\ComfyUI` yerel, henüz açılmadı; çalışan `C:\AI\ComfyUI`; Z-Image-Turbo, FLUX.2-klein-4B, Wan 2.2 TI2V-5B) | premiere-pro, hyperframes yalnız CC |
 | Blender, 3D model, render | `blender`* plugin (1.3.0 CC + repo) → `blender-uretim`* / `blender-oturum`* → `blender`* MCP → ajanlar `bl-*` | blender MCP ikisi; skill zip AI'de |
 | Oyun, mod | `mod-atolyesi`* → `godot` / `unity` MCP → `universal-modder` plugin → ajanlar `oyn-*` | godot/unity yalnız CC |
 | Görsel üretim, logo, ikon | `nano-banana-2`* MCP → `figma` → `logo-design` / `llm-icon-finder` plugin → `fal` MCP | fal, canva yalnız CC; ücretli çağrıda tavan şart |
