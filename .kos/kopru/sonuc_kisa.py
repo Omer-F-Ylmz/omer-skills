@@ -1,0 +1,21 @@
+import json
+import os
+import sys
+
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+D = r"C:\Projeler\omer-skills\.kos\kopru\ajan-sira"
+KISA = "--kisa" in sys.argv
+for ad in [a for a in sys.argv[1:] if a != "--kisa"]:
+    p = os.path.join(D, ad + ".json")
+    try:
+        d = json.load(open(p, encoding="utf-8"))
+    except Exception as e:
+        print("==", ad, "OKUNAMADI", e, os.path.getsize(p) if os.path.exists(p) else "yok")
+        continue
+    st = d.get("subagent_stats") or {}
+    mu = {k: round(v.get("costUSD", 0), 2) for k, v in (d.get("modelUsage") or {}).items()}
+    print(f"== {ad} · ${d.get('total_cost_usd', 0):.2f} · {mu} · turn {d.get('num_turns')} · spawned {st.get('spawned')} killed.sys {(st.get('killed') or {}).get('system')} · by_type {st.get('by_type')} · {d.get('subtype')}")
+    r = (d.get("result") or "").splitlines()
+    if KISA:
+        r = r[:6] + [x for x in r[6:] if "★" in x][:1]
+    print(chr(10).join(r)[:2200])
