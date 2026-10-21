@@ -50,6 +50,32 @@ def ordu_onek():
     return ORDU_ONEK if ORDU_DOSYA.exists() else ""
 
 
+ON_DOSYA = K / "ajan-sira.ordu-on"  # ORDU-1 d12: mekanik ön-özet bayrağı; varsayılan kapalı
+
+
+def ordu_on_ozet(ad, metin):
+    """Bayrak açık + istemde ≥3 var olan repo dosyası → ücretsiz `ucuz_alt.py --tur ozet` önceden koşar, özet isteme eklenir; hata → ''."""
+    if not ON_DOSYA.exists():
+        return ""
+    yollar = []
+    for t in re.findall(r"[\w./\\-]+\.(?:py|md|tsv|json|cs|js|ts|txt)\b", metin):
+        if t not in yollar and (KOK / t).is_file():
+            yollar.append(t)
+    if len(yollar) < 3:
+        return ""
+    cikti = KOK / ".claude/ordu3" / f"on-{ad}.md"
+    try:
+        r = subprocess.run([sys.executable, "-I", str(KOK / "tools/ucuz_alt.py"), "--tur", "ozet",
+                            "Bu dosyalarda görevle ilgili yapıyı, işlev adlarını ve satır konumlarını özetle.",
+                            str(cikti), *yollar[:8]], cwd=KOK, capture_output=True, timeout=180,
+                           creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        if r.returncode == 0 and cikti.is_file():
+            return f"[ön-özet (ücretsiz model; {', '.join(yollar[:8])}) — doğrulamadan önce kritik satırı Read ile kontrol et]\n{cikti.read_text(encoding='utf-8')}\n\n"
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return ""
+
+
 ESIK_DOSYA = K / "ajan-sira.esik" # Desktop 20 Eki 13:02 (Ömer: RAM %88-90'a kadar çıkabilir): eşik dosyadan, varsayılan 88
 
 
@@ -235,7 +261,7 @@ def main():
                     bas = basamak_sec(ad, bas)
                     model, efor = MERDIVEN[bas]
                 metin = (KOK / istem).read_text(encoding="utf-8")
-                metin = ders_onek(metin) + ordu_onek() + metin
+                metin = ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:

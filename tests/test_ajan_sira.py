@@ -134,3 +134,28 @@ def test_ordu_onsoz_somut_tetik():
     assert "Agent" in o and "ilk" in o.lower() and len(o) <= 700
     for tetik in ("okuma", "keşif", "log", "test"):
         assert tetik in o
+
+
+def test_ordu_on_ozet_bayrakli(tmp_path, monkeypatch):
+    """ORDU-1 d12: bayrak kapalı → ''; açık + ≥3 dosya → ucuz_alt çağrılır, özet eklenir; <3 dosya → çağrı yok; hata → ''."""
+    bayrak = tmp_path / "on"
+    monkeypatch.setattr(ajan_sira, "ON_DOSYA", bayrak)
+    monkeypatch.setattr(ajan_sira, "KOK", tmp_path)
+    for d in ("a.py", "b.py", "c.md"):
+        (tmp_path / d).write_text("x")
+    (tmp_path / ".claude/ordu3").mkdir(parents=True)
+    metin = "bak a.py b.py c.md ve yok.py"
+    cagri = []
+
+    def sahte(argv, **kw):
+        cagri.append(argv)
+        (tmp_path / ".claude/ordu3/on-t.md").write_text("OZET")
+        return type("R", (), {"returncode": 0})()
+    monkeypatch.setattr(ajan_sira.subprocess, "run", sahte)
+    assert ajan_sira.ordu_on_ozet("t", metin) == "" and not cagri
+    bayrak.write_text("1")
+    assert "OZET" in ajan_sira.ordu_on_ozet("t", metin) and cagri[0][-3:] == ["a.py", "b.py", "c.md"]
+    cagri.clear()
+    assert ajan_sira.ordu_on_ozet("t", "yalniz a.py b.py") == "" and not cagri
+    monkeypatch.setattr(ajan_sira.subprocess, "run", lambda *a, **k: (_ for _ in ()).throw(OSError()))
+    assert ajan_sira.ordu_on_ozet("t", metin) == ""
