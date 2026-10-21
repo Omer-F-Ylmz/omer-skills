@@ -55,3 +55,5 @@ tone-calibration: Adjusting formality, warmth, confidence, and style per context
 <!-- dizin:son -->
 
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
+
+Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): tk-log-okuma, tk-model-merdiveni.

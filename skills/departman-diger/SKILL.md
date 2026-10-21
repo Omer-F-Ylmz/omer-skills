@@ -30,3 +30,5 @@ Kaynak: `docs/envanter/is-arac.md` §2. Satırda soldan sağa: önce kurulu ve �
 - Ücretli API/üretim çağrısında sayısal tavan ("en fazla N") olmadan başlama.
 
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
+
+Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): vm-video-izle, vm-blender-dekupaj, vm-tam-sayfa-yakalama.

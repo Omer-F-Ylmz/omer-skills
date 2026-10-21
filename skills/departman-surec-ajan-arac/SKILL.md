@@ -74,3 +74,5 @@ using-superpowers: starting any conversation - establishes how to find
 <!-- dizin:son -->
 
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
+
+Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): ao-kademe-yonlendirme, ao-ucretsiz-havuz-hakem, ao-uzun-dalga, ao-kopru-yonetimi.

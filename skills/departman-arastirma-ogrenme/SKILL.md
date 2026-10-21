@@ -140,3 +140,5 @@ wait-what: Stop
 <!-- dizin:son -->
 
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
+
+Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): ar-olgu-dogrulama, ar-kutuphane-dokuman, ar-arac-degerlendirme, ar-desktop-web-kopru.

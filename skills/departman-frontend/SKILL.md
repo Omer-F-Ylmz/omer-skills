@@ -155,3 +155,5 @@ variant: Builds multiple variants of a component you're working
 <!-- dizin:son -->
 
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
+
+Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): fe-referans-diff, fe-a11y-perf-kapisi, fe-sahne-animasyon, fe-desktop-referans-devri, fe-pixeljury-yargi.

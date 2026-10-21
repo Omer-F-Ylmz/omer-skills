@@ -54,3 +54,5 @@ qual-quant-triangulation: behavioural data and research findings point different
 <!-- dizin:son -->
 
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
+
+Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): vb-ef-sorgu-optimizasyon, vb-build-teshis, vb-api-gozlemlenebilirlik, vb-supabase-sorgu.
