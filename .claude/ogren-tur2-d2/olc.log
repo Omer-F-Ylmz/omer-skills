@@ -1,0 +1,3 @@
+tk-kod-sorusu {"n": 10, "kombo": {"isabet": 8, "bayt": 35215, "sure": 30.721752405166626, "adim": 14}, "rakip": {"isabet": 9, "bayt": 25670, "sure": 0.9955978393554688, "adim": 10}}
+gv-sizinti-sast {"rakip": {"yakalanan": 3, "toplam": 6, "yakalanan_adlar": ["gizli_gh.env", "zaf_eval.py", "zaf_shell.py"], "yanlis_alarm": false, "token": 581, "sure": 15.2, "adim": 1}, "kombo": {"yakalanan": 4, "toplam": 6, "yakalanan_adlar": ["gizli_gh.env", "gizli_slack.txt", "zaf_eval.py", "zaf_shell.py"], "yanlis_alarm": false, "token": 912, "sure": 16.2, "adim": 2}}
+tq-e2e-gorsel-regresyon {"rakip": {"yakalanan": 1, "toplam": 3, "yanlis_alarm": 0, "sure": 0.19, "token": null, "adim": 1}, "kombo": {"yakalanan": 3, "toplam": 3, "yanlis_alarm": 0, "sure": 0.38, "token": null, "adim": 3}}
