@@ -42,8 +42,8 @@ Kısaltma: CC = Claude Code, AI = Desktop/claude.ai, `*` = son 45 günde kullan�
 - Remotion 4.0.537 · kurulu; şablon 1080x1920 30fps 5 sn render ✓ (`Desktop\kids-shorts-sablon\out\test.mp4`, ffprobe 1080x1920 / 5.000 sn)
 - Chatterbox-TTS 0.1.7 · MIT · torch 2.6.0+cu124 CUDA ✓ (`Desktop\araclar\chatterbox\venv`); TR/EN wav 3.84 sn / 4.32 sn; VRAM pik 3.37 GB (`olcum.py`)
 - ComfyUI v0.42.1 nvidia portable · indirme (PID 39524) → `Desktop\araclar\indir`; kurulum yolu `Desktop\araclar\ComfyUI` (henüz açılmadı; yukarıdaki `C:\AI\ComfyUI` yanlış)
-- FLUX.1-schnell fp8 · indirme sürüyor (PID 61584, 3.7 GB indi) → `Desktop\araclar\indir`; Apache-2.0
-- Wan 2.2 TI2V-5B Q5_K_M GGUF (QuantStack, Apache-2.0) · indirme sürüyor (PID 41936, 3.4 GB indi); VAE + umt5 metin kodlayıcı ayrı, henüz indirilmedi
+- FLUX.1-schnell fp8 · indirme sürüyor (PID 61584, 6.1 GB indi) → `Desktop\araclar\indir`; Apache-2.0
+- Wan 2.2 TI2V-5B Q5_K_M GGUF (QuantStack, Apache-2.0) · indirme tamam (3.6 GB, `Desktop\araclar\indir`); fp16 + VAE + umt5 `C:\AI\ComfyUI\models` altında indiriliyor (PID 28456, fp16 8.0 GB diskte)
 - Log: `.kos\kopru\indir\{comfyui,flux,wan}.log`; bitince ComfyUI headless 1f testi
 
 ## 3. Taraf kuralı (CC ↔ Desktop/claude.ai)
