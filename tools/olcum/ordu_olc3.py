@@ -62,7 +62,7 @@ def capraz(a, cikti):
         ham.write_text(json.dumps(ucretsiz_havuz.iki_aile("ozet", o.istem([a]), max_tokens=1500), ensure_ascii=False), encoding="utf-8")
     kayit = json.loads(ham.read_text(encoding="utf-8"))
     ys, aileler = [(o.json_ilk(t) or {}).get(a) for t, _, _ in kayit], [f for _, _, f in kayit]
-    kabul = ordu.kabul(ys, hakem_=hakem_onb(a, aileler, cikti))
+    kabul = ordu.kabul(ys, hakem_=hakem_onb(a, aileler, cikti), tur=o.TUR.get(a, "kesin"))
     return (kabul if kabul is not None else (ys[0] if ys else None)), kabul is not None, aileler
 
 

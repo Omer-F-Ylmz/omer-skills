@@ -129,15 +129,19 @@ def hakem(istem, a, b, aileler):
     return None
 
 
-def kabul(yanitlar, test=None, hakem_=None, gevsek=None):
-    """Orta işte iki aile yanıtı → kabul edilen (normalize) yanıt | None. Bayrak kapalı: birebir aynı. Açık: mekanik test varsa testi geçen;
-    yoksa normalize eşitlik, o da yoksa hakem_(a, b) (üçüncü aile) 'aynı' derse birinci yanıt."""
+def kabul(yanitlar, test=None, hakem_=None, gevsek=None, tur="kesin"):
+    """Orta işte iki aile yanıtı → kabul edilen yanıt | None. Bayrak kapalı: birebir aynı. Açık: mekanik test varsa testi geçen; yoksa
+    tur='kesin' (regex/sayı/kod, varsayılan): kenar boşluğu dışında birebir eşitlik, hakem yok (LLM hakem iki farklı regex'e AYNI dedi, d8);
+    tur='json': JSON/biçim farkını yutan normalize eşitlik; tur='metin': normalize eşitlik, o da yoksa hakem_(a, b) (üçüncü aile) 'aynı' derse birinci yanıt."""
     if not (KABUL_BAYRAK.exists() if gevsek is None else gevsek):
         return yanitlar[0] if len(yanitlar) == 2 and yanitlar[0] is not None and yanitlar[0] == yanitlar[1] else None
+    if tur == "kesin" and not test:
+        ys = [y.strip() if isinstance(y, str) else y for y in yanitlar]
+        return ys[0] if len(ys) == 2 and ys[0] is not None and ys[0] == ys[1] else None
     ys = [norm(y) for y in yanitlar if y is not None]
     if test:
         return next((y for y in ys if test(y)), None)
-    if len(ys) == 2 and (ys[0] == ys[1] or (hakem_ and hakem_(*ys))):
+    if len(ys) == 2 and (ys[0] == ys[1] or (tur == "metin" and hakem_ and hakem_(*ys))):
         return ys[0]
     return None
 

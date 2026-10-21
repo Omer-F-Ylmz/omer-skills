@@ -165,6 +165,7 @@ I2 = ("`def en_iyi_sira(isler)`: isler = [(sure, son_tarih, agirlik)] listesi, i
 
 GOREV = dict(zip([f"K{i}" for i in range(1, 7)] + [f"O{i}" for i in range(1, 7)] + [f"Z{i}" for i in range(1, 7)] + ["I1", "I2"],
                  [K1, K2, K3, K4, K5, K6, O1, O2, O3, O4, O5, O6, Z1, Z2, Z3, Z4, Z5, Z6, I1, I2]))
+TUR = {"O1": "metin", "O2": "metin", "O3": "json", "O4": "json", "O5": "kesin", "O6": "json"}  # ordu.kabul(tur=): d8, regex/sayı/kod → birebir
 SINIF_AD = {"K": "kolay", "O": "orta", "Z": "zor", "I": "imkansiz"}
 sinif_of = lambda a: SINIF_AD[a[0]]
 

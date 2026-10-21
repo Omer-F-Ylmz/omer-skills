@@ -86,11 +86,22 @@ def test_kabul_bayrak_kapali_birebir_ayni():
 
 
 def test_kabul_gevsek_normalize_ve_hakem():
-    assert ordu.kabul(['{"1":"a"}', {"1": "a"}], gevsek=True) == {"1": "a"}
-    assert ordu.kabul(["bir şey.", "farklı"], gevsek=True) is None
-    assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: True, gevsek=True) == "bir şey"
-    assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: None, gevsek=True) is None
-    assert ordu.kabul(["x", None], hakem_=lambda a, b: True, gevsek=True) is None  # tek yanıt kabul olmaz
+    assert ordu.kabul(['{"1":"a"}', {"1": "a"}], gevsek=True, tur="json") == {"1": "a"}
+    assert ordu.kabul(["bir şey.", "farklı"], gevsek=True, tur="metin") is None
+    assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: True, gevsek=True, tur="metin") == "bir şey"
+    assert ordu.kabul(["bir şey", "farklı"], hakem_=lambda a, b: None, gevsek=True, tur="metin") is None
+    assert ordu.kabul(["x", None], hakem_=lambda a, b: True, gevsek=True, tur="metin") is None  # tek yanıt kabul olmaz
+
+
+def test_kabul_kesin_regex_hakem_yok():
+    # d8 O5: alibaba "r'...'" sarmalı yanlış regex, openai doğru regex; LLM hakem AYNI dedi → yanlış kabul. kesin türde hakem çağrılmaz.
+    yanlis = r"r'(0[1-9]|[12]\d|3[01])\.(0[1-9]|1[0-2])\.\d{4}'"
+    dogru = r"(?:0[1-9]|[12][0-9]|3[01])\.(?:0[1-9]|1[0-2])\.\d{4}"
+    assert ordu.kabul([yanlis, dogru], hakem_=lambda a, b: True, gevsek=True) is None  # varsayılan tur = kesin
+    assert ordu.kabul([yanlis, dogru], hakem_=lambda a, b: True, gevsek=True, tur="json") is None
+    assert ordu.kabul([" " + dogru + "\n", dogru], gevsek=True) == dogru
+    assert ordu.kabul(["[A-Z]+", "[a-z]+"], gevsek=True) is None  # normalize küçük harfe indirip birleştirmez
+    assert ordu.kabul(['{"INFO": 3}', {"INFO": "3"}], gevsek=True, tur="json") is None  # sayı ≠ dizge
 
 
 def test_kabul_gevsek_test_varsa_testi_gecen():

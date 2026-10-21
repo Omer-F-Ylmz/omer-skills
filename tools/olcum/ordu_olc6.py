@@ -48,7 +48,7 @@ def olc(cikti):
                     onb.write_text(json.dumps(v), encoding="utf-8")
                 return json.loads(onb.read_text(encoding="utf-8"))
 
-            k = ordu.kabul([ys[f1], ys[f2]], hakem_=hakem, gevsek=True)
+            k = ordu.kabul([ys[f1], ys[f2]], hakem_=hakem, gevsek=True, tur=o.TUR.get(a, "kesin"))
             c = [o.dogru(a, ys[f1]), o.dogru(a, ys[f2])]
             sat.append({"is": a, "cift": [f1, f2], "dogru": c, "kabul": k is not None, "kabul_dogru": k is not None and o.dogru(a, k),
                         "hakem_cagrildi": onb.exists(), "hakem_hata": k is not None and c[0] != c[1]})
