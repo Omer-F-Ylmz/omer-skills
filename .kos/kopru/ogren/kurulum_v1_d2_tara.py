@@ -15,13 +15,19 @@ aday = sorted((x for x in satir if x[2] == "YENI" and x[3] and not x[10]), key=l
 bitti = {l.split("\t")[0] for l in open(S, encoding="utf-8")} if os.path.exists(S) else set()
 
 
-def run(cmd, t=600):
+def run(cmd, t=300):
+    # subprocess.run zaman aşımında yalnız çocuğu öldürür; torun (semgrep-core) boruyu tutup communicate'i asar
     try:
-        p = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=t,
-                           env=ENV, creationflags=0x08000000)
-        return p.returncode, p.stdout
-    except Exception as e:  # zaman aşımı vb.
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8",
+                             errors="replace", env=ENV, creationflags=0x08000000)
+    except Exception as e:
         return -1, str(e)
+    try:
+        o, _ = p.communicate(timeout=t)
+        return p.returncode, o
+    except subprocess.TimeoutExpired:
+        subprocess.run(["taskkill", "/PID", str(p.pid), "/T", "/F"], capture_output=True, creationflags=0x08000000)
+        return -1, "ZAMAN AŞIMI"
 
 
 def say(f, anahtar=None):
@@ -42,14 +48,19 @@ for x in aday:
         if c:
             open(S, "a", encoding="utf-8").write(f"{ad}\t{r}\t\t\t\t\t\tklon hata\n"); continue
     ss, gl, sg = (os.path.join(W, r.split("/")[1] + e) for e in (".ss.json", ".gl.json", ".sg.json"))
+    za = set()
     if not os.path.exists(ss):
-        run(["skillspector", "scan", d, "--no-llm", "--format", "json", "--output", ss], 900)
+        if run(["skillspector", "scan", d, "--no-llm", "--format", "json", "--output", ss], 600)[1] == "ZAMAN AŞIMI":
+            za.add("ss")
     if not os.path.exists(gl):
-        run(["gitleaks", "detect", "--no-git", "--redact", "--no-banner", "--source", d, "--report-format", "json", "--report-path", gl])
+        if run(["gitleaks", "detect", "--no-git", "--redact", "--no-banner", "--source", d, "--report-format", "json", "--report-path", gl])[1] == "ZAMAN AŞIMI":
+            za.add("gl")
     if not os.path.exists(sg):
-        c, o = run(["semgrep", "scan", "--config", "p/default", "--metrics=off", "--quiet", "--json", d], 600)
+        c, o = run(["semgrep", "scan", "--config", "p/default", "--metrics=off", "--quiet", "--json", d], 300)
         if o.strip().startswith("{"):
             open(sg, "w", encoding="utf-8").write(o)
+        elif o == "ZAMAN AŞIMI":
+            za.add("sg")
     try:
         j = open(ss, encoding="utf-8").read()
         hi, top = len(re.findall(r'"severity":\s*"(?:HIGH|CRITICAL)"', j, re.I)), len(re.findall(r'"severity"', j))
@@ -57,4 +68,4 @@ for x in aday:
         hi = top = "?"
     lic = next((f for f in os.listdir(d) if f.lower().startswith("license")), "")
     kb = sum(os.path.getsize(os.path.join(a, f)) for a, _, fs in os.walk(d) if ".git" not in a for f in fs) // 1024
-    open(S, "a", encoding="utf-8").write("\t".join(map(str, [ad, r, lic, hi, top, say(gl), say(sg, "results"), f"{kb}KB"])) + "\n")
+    open(S, "a", encoding="utf-8").write("\t".join(map(str, [ad, r, lic, "ZAMAN AŞIMI" if "ss" in za else hi, top, "ZAMAN AŞIMI" if "gl" in za else say(gl), "ZAMAN AŞIMI" if "sg" in za else say(sg, "results"), f"{kb}KB"])) + "\n")

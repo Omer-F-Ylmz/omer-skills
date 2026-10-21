@@ -14,19 +14,19 @@ Grill Me	skill	YENI	RobMitt/grill-me-skill		1018	2026-04-11	4		prompt netleştir
 Hypit	repo	YENI	hypit-ai/hypit	other	24262	2026-10-19	5		video klonlama		-	-	-
 gstack	repo	UYARLA							yazılım ekibi		-	-	-
 prompts.chat	mcp	YENI	f/prompts.chat	other	173678	2026-10-20	5		prompt kütüphanesi		-	-	-
-Postiz	repo	YENI	gitroomhq/postiz-app	agpl-3.0	37466	2026-10-20	7		sosyal medya		-	-	-
+Postiz	repo	YENI	gitroomhq/postiz-app	agpl-3.0	37466	2026-10-20	7		sosyal medya		-	ELE: AGPL-3.0 (ağ kopyaleft, kullanım koşulu) + skill değil, sosyal hesap token'lı uygulama; SS HIGH 80/semgrep 64; kazanç yok	-
 Academic Research Skills	repo	UYARLA							akademik araştırma		-	-	-
 Prime Agent	arac	YENI	PrimeIntellect-ai/prime-agent	other	22206	2026-10-20	6		otonom ajan		-	-	-
 ScrapeGraphAI	repo	UYARLA							lead toplama		-	-	-
-Munder Difflin	repo	YENI	HarnessMD/munder-difflin	mit	8936	2026-10-19	7		çoklu ajan ofisi		-	-	-
+Munder Difflin	repo	YENI	HarnessMD/munder-difflin	mit	8936	2026-10-19	7		çoklu ajan ofisi		-	ELE: 266MB çoklu ajan ofisi uygulaması, bizde karşılığı var (ordu/ajan); gitleaks 406 (400 generic-api-key, çoğu test/docs; örneklem, tam doğrulanmadı), semgrep 1691	-
 MotionSites.ai	arac	YENI-kaynaksiz					6		web site promptları		-	-	-
 Generate	skill	UYARLA							görsel video üretimi		-	-	-
 VibeWise	skill	OLU?	vibewisehq/vibewise		2	2025-07-05			öğretici kodlama		-	-	-
 Ponytail	repo	UYARLA						TOKEN-REA	gereksiz kodu önleme		-	-	-
 Google Maps Scraper Kit	repo	UYARLA							veri kazıma		-	-	-
 Founder	skill	UYARLA							iş fikri doğrulama		-	-	-
-Xtool	repo	YENI	xtool-org/xtool	mit	13084	2026-10-20	7		iOS geliştirme		-	-	-
-AirLLM	repo	YENI	lyogavin/airllm	apache-2.0	39832	2026-10-20	7		yerel LLM		-	-	-
+Xtool	repo	YENI	xtool-org/xtool	mit	13084	2026-10-20	7		iOS geliştirme		-	ELE: iOS/Swift derleme araç zinciri, Windows+CC iş akışımızda yok; SS HIGH 57, gl 0	-
+AirLLM	repo	YENI	lyogavin/airllm	apache-2.0	39832	2026-10-20	7		yerel LLM		-	ELE: SkillSpector 600 sn ZAMAN AŞIMI (tarama eksik); GPU'ya bağlı büyük model çıkarımı, ollama/OmniRoute varken kazanç yok	-
 Video Use	skill	UYARLA							video düzenleme		-	-	-
 /linkedin-roast	skill	OLU?	yogibagus/linkedin-roaster		13	2024-08-23			LinkedIn profil iyileştirme		-	-	-
 CareerOps	repo	YENI	TelivityAI/careerops	apache-2.0	54	2026-09-22	6		iş başvuru otomasyonu		-	-	-
@@ -46,7 +46,7 @@ OpenSandbox	repo	YENI	opensandbox-group/OpenSandbox	apache-2.0	15998	2026-10-20	
 TRADER	repo	YENI	timercrack/trader	apache-2.0	8467	2026-02-28	5		paper trading		-	-	-
 GODMODE	arac	UYARLA							model karşılaştırma		-	-	-
 Claude Watch	skill	UYARLA							video analizi		-	-	-
-mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	390	2026-09-26	7		3D animasyon		-	-	-
+mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	390	2026-09-26	7		3D animasyon		-	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); 3D animasyon, kazanç yok; SS HIGH 5, gl 0	-
 Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	3357	2026-10-18	7		video düzenleme		-	-	-
 Flick	skill	OLU?	metafizzy/flickity		7561	2024-05-29			video üretimi		-	-	-
 DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	6373	2026-10-20	7		dizi üretimi		-	-	-
