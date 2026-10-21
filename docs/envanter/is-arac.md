@@ -25,7 +25,7 @@ Kısaltma: CC = Claude Code, AI = Desktop/claude.ai, `*` = son 45 günde kullan�
 
 | İş türü | Sıra (önce kurulu ve ölçülmüş olan) | Taraf notu |
 |---|---|---|
-| Video kurgu, kısa klip, altyazı | `video-cli`* (video tarama/indir) → `ffmpeg`* / `whisper-cli`* → `premiere-pro` MCP (kurgu) → `hyperframes` plugin (HTML→video) → ajanlar `vid-*` | premiere-pro, hyperframes yalnız CC |
+| Video kurgu, kısa klip, altyazı | `video-cli`* (video tarama/indir) → `ffmpeg`* / `whisper-cli`* → `premiere-pro` MCP (kurgu) → `hyperframes` plugin (HTML→video) → ajanlar `vid-*`; çocuk shorts hattı: `edge-tts` (TR/EN ses) · Chatterbox Multilingual (ses klonlama, `Desktop\araclar\chatterbox`) · Remotion 4.0.537 (`Desktop\kids-shorts-sablon`) · ComfyUI (`C:\AI\ComfyUI`; Z-Image-Turbo, FLUX.2-klein-4B, Wan 2.2 TI2V-5B) | premiere-pro, hyperframes yalnız CC |
 | Blender, 3D model, render | `blender`* plugin (1.3.0 CC + repo) → `blender-uretim`* / `blender-oturum`* → `blender`* MCP → ajanlar `bl-*` | blender MCP ikisi; skill zip AI'de |
 | Oyun, mod | `mod-atolyesi`* → `godot` / `unity` MCP → `universal-modder` plugin → ajanlar `oyn-*` | godot/unity yalnız CC |
 | Görsel üretim, logo, ikon | `nano-banana-2`* MCP → `figma` → `logo-design` / `llm-icon-finder` plugin → `fal` MCP | fal, canva yalnız CC; ücretli çağrıda tavan şart |
@@ -36,6 +36,15 @@ Kısaltma: CC = Claude Code, AI = Desktop/claude.ai, `*` = son 45 günde kullan�
 | ML, değerlendirme, LLM eval | `promptfoo-evaluation` plugin → ajanlar `ml-*` → `ajn-skill-test` | yalnız CC |
 | Mobil | `expo` plugin+MCP → `android-skills` plugin → ajanlar `mob-*` | yalnız CC |
 | Dil/çatı uzmanlığı (Go, Rust, Python…) | ajanlar `dil-*` 26 (ad = dil) | yalnız CC |
+
+### KURULUM-VİDEO-1 durumu (2026-10-21)
+- edge-tts 7.3.1 · kurulu (tr.mp3/en.mp3, `Desktop\kids-shorts-test`)
+- Remotion 4.0.537 · kurulu; şablon 1080x1920 30fps 5 sn render ✓ (`Desktop\kids-shorts-sablon\out\test.mp4`, ffprobe 1080x1920 / 5.000 sn)
+- Chatterbox-TTS 0.1.7 · MIT · torch 2.6.0+cu124 CUDA ✓ (`Desktop\araclar\chatterbox\venv`); TR/EN wav 3.12 sn / 3.84 sn
+- ComfyUI v0.42.1 nvidia portable · indirme (PID 39524) → `Desktop\araclar\indir`; kurulum yolu `Desktop\araclar\ComfyUI` (henüz açılmadı; yukarıdaki `C:\AI\ComfyUI` yanlış)
+- FLUX.1-schnell fp8 · indirme (PID 61584) → `Desktop\araclar\indir`; Apache-2.0
+- Wan 2.2 TI2V-5B Q5_K_M GGUF (QuantStack, Apache-2.0) · indirme (PID 41936); VAE + umt5 metin kodlayıcı ayrı, henüz indirilmedi
+- Log: `.kos\kopru\indir\{comfyui,flux,wan}.log`; bitince ComfyUI headless 1f testi
 
 ## 3. Taraf kuralı (CC ↔ Desktop/claude.ai)
 
