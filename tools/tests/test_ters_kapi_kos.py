@@ -71,3 +71,17 @@ def test_kapi_kotu_degil_kurali():
     assert K.kapi({"skill": 0.80, "zemin": 0.82}, o(-0.02, 0.05, [-0.1, 0.05]), [])  # fark gürültü içinde
     assert not K.kapi({"skill": 0.70, "zemin": 0.82}, o(-0.12, 0.05, [-0.2, -0.04]), [])  # belirgin kötü
     assert not K.kapi({"skill": 0.95, "zemin": 0.80}, o(0.15, 0.02, [0.05, 0.2]), ["x"])  # atlanan varsa geçmez
+
+
+def test_tek_haiku_hakem_tek_oyla_yeter_ve_sabit_oy_aileyi_dusurmez(tmp_path, monkeypatch):
+    for ad, v in (("CIKTI", tmp_path), ("DUSEN", {}), ("KULLANILAN", {}), ("SABIT_OY", set()), ("YARGIC", ("anthropic",)), ("OY", 1), ("HAIKU_TAVAN", 20)):
+        monkeypatch.setattr(K, ad, v)
+    cagrilan = []
+
+    def sahte(tur, istem, aile=None, **kw):
+        cagrilan.append(aile)
+        return ('{"A":[1,1,1,1,1],"B":[1,1,1,1,1]}', aile, [])
+    monkeypatch.setattr(K.HAVUZ, "cagir", sahte)
+    h = {"ad": "x", "maddeler": [{"madde": str(i)} for i in range(5)]}
+    r = K.hakem(h, {"skill": [{"madde": "s"}], "zemin": [{"madde": "z"}]}, K.random.Random(0))
+    assert r == {"skill": 1.0, "zemin": 1.0} and cagrilan == ["anthropic"] and not K.SABIT_OY

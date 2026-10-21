@@ -1,0 +1,52 @@
+{'id': 14, 'ad': 'ink-theater', 'tur': 'js', 'kol': 'skill', 'tekrar': 1, 'c1': 0.0, 'c2': 1.0, 'c3': None, 'puan': 0.5, 'iddia': 5}
+{'id': 14, 'ad': 'ink-theater', 'tur': 'js', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.0, 'c2': 1.0, 'c3': None, 'puan': 0.5, 'iddia': 5}
+{'id': 14, 'ad': 'ink-theater', 'tur': 'js', 'kol': 'skill', 'tekrar': 2, 'c1': 0.0, 'c2': 1.0, 'c3': None, 'puan': 0.5, 'iddia': 5}
+{'id': 14, 'ad': 'ink-theater', 'tur': 'js', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 15, 'ad': 'cortex', 'tur': 'js', 'kol': 'skill', 'tekrar': 1, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 15, 'ad': 'cortex', 'tur': 'js', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 15, 'ad': 'cortex', 'tur': 'js', 'kol': 'skill', 'tekrar': 2, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 15, 'ad': 'cortex', 'tur': 'js', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 16, 'ad': 'images', 'tur': 'js', 'kol': 'skill', 'tekrar': 1, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 16, 'ad': 'images', 'tur': 'js', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 16, 'ad': 'images', 'tur': 'js', 'kol': 'skill', 'tekrar': 2, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 16, 'ad': 'images', 'tur': 'js', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 17, 'ad': 'transcript', 'tur': 'js', 'kol': 'skill', 'tekrar': 1, 'c1': 0.8, 'c2': 1.0, 'c3': None, 'puan': 0.9, 'iddia': 5}
+{'id': 17, 'ad': 'transcript', 'tur': 'js', 'kol': 'zemin', 'tekrar': 1, 'c1': 1.0, 'c2': 1.0, 'c3': None, 'puan': 1.0, 'iddia': 5}
+{'id': 17, 'ad': 'transcript', 'tur': 'js', 'kol': 'skill', 'tekrar': 2, 'c1': 1.0, 'c2': 1.0, 'c3': None, 'puan': 1.0, 'iddia': 5}
+{'id': 17, 'ad': 'transcript', 'tur': 'js', 'kol': 'zemin', 'tekrar': 2, 'c1': 1.0, 'c2': 1.0, 'c3': None, 'puan': 1.0, 'iddia': 5}
+{'id': 18, 'ad': 'presets', 'tur': 'js', 'kol': 'skill', 'tekrar': 1, 'c1': 0.6, 'c2': 1.0, 'c3': None, 'puan': 0.8, 'iddia': 5}
+{'id': 18, 'ad': 'presets', 'tur': 'js', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.6, 'c2': 1.0, 'c3': None, 'puan': 0.8, 'iddia': 5}
+{'id': 18, 'ad': 'presets', 'tur': 'js', 'kol': 'skill', 'tekrar': 2, 'c1': 0.6, 'c2': 1.0, 'c3': None, 'puan': 0.8, 'iddia': 5}
+{'id': 18, 'ad': 'presets', 'tur': 'js', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.6, 'c2': 1.0, 'c3': None, 'puan': 0.8, 'iddia': 5}
+{'id': 19, 'ad': 'Jev', 'tur': 'dotnet', 'kol': 'skill', 'tekrar': 1, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 19, 'ad': 'Jev', 'tur': 'dotnet', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 19, 'ad': 'Jev', 'tur': 'dotnet', 'kol': 'skill', 'tekrar': 2, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 19, 'ad': 'Jev', 'tur': 'dotnet', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 20, 'ad': 'Jev.Tests', 'tur': 'dotnet', 'kol': 'skill', 'tekrar': 1, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 20, 'ad': 'Jev.Tests', 'tur': 'dotnet', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 20, 'ad': 'Jev.Tests', 'tur': 'dotnet', 'kol': 'skill', 'tekrar': 2, 'c1': 0.2, 'c2': 1.0, 'c3': None, 'puan': 0.6, 'iddia': 5}
+{'id': 20, 'ad': 'Jev.Tests', 'tur': 'dotnet', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.4, 'c2': 1.0, 'c3': None, 'puan': 0.7, 'iddia': 5}
+{'id': 21, 'ad': 'NativeAotFixture', 'tur': 'dotnet', 'kol': 'skill', 'tekrar': 1, 'c1': 0.0, 'c2': 1.0, 'c3': None, 'puan': 0.5, 'iddia': 5}
+{'id': 21, 'ad': 'NativeAotFixture', 'tur': 'dotnet', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.0, 'c2': 1.0, 'c3': None, 'puan': 0.5, 'iddia': 5}
+{'id': 21, 'ad': 'NativeAotFixture', 'tur': 'dotnet', 'kol': 'skill', 'tekrar': 2, 'c1': 0.0, 'c2': 1.0, 'c3': None, 'puan': 0.5, 'iddia': 5}
+{'id': 21, 'ad': 'NativeAotFixture', 'tur': 'dotnet', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.0, 'c2': 1.0, 'c3': None, 'puan': 0.5, 'iddia': 5}
+127.0.0.1 - - [21/Oct/2026 19:24:14] "GET /animasyon-atolyesi/tarifler/giris-scroll.html HTTP/1.1" 200 -
+{'id': 22, 'ad': 'giris-scroll', 'tur': 'site', 'kol': 'skill', 'tekrar': 1, 'c1': 0.2, 'c2': 1.0, 'c3': 1.0, 'puan': 0.7333333333333334, 'iddia': 5}
+{'id': 22, 'ad': 'giris-scroll', 'tur': 'site', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.0, 'c2': 1.0, 'c3': 1.0, 'puan': 0.6666666666666666, 'iddia': 5}
+{'id': 22, 'ad': 'giris-scroll', 'tur': 'site', 'kol': 'skill', 'tekrar': 2, 'c1': 0.6, 'c2': 1.0, 'c3': 1.0, 'puan': 0.8666666666666667, 'iddia': 5}
+{'id': 22, 'ad': 'giris-scroll', 'tur': 'site', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.0, 'c2': 1.0, 'c3': 1.0, 'puan': 0.6666666666666666, 'iddia': 5}
+127.0.0.1 - - [21/Oct/2026 19:26:43] "GET /animasyon-atolyesi/tarifler/sayfa-gecisi.html HTTP/1.1" 200 -
+{'id': 23, 'ad': 'sayfa-gecisi', 'tur': 'site', 'kol': 'skill', 'tekrar': 1, 'c1': 0.4, 'c2': 1.0, 'c3': 1.0, 'puan': 0.7999999999999999, 'iddia': 5}
+{'id': 23, 'ad': 'sayfa-gecisi', 'tur': 'site', 'kol': 'zemin', 'tekrar': 1, 'c1': 0.6, 'c2': 1.0, 'c3': 1.0, 'puan': 0.8666666666666667, 'iddia': 5}
+{'id': 23, 'ad': 'sayfa-gecisi', 'tur': 'site', 'kol': 'skill', 'tekrar': 2, 'c1': 0.6, 'c2': 1.0, 'c3': 1.0, 'puan': 0.8666666666666667, 'iddia': 5}
+{'id': 23, 'ad': 'sayfa-gecisi', 'tur': 'site', 'kol': 'zemin', 'tekrar': 2, 'c1': 0.6, 'c2': 1.0, 'c3': 1.0, 'puan': 0.8666666666666667, 'iddia': 5}
+127.0.0.1 - - [21/Oct/2026 19:29:25] "GET /animasyon-atolyesi/tarifler/parcacik-three.html HTTP/1.1" 200 -
+hakem hata anthropic 
+hakem hata anthropic 
+hakem hata anthropic 
+ATLANDI (model/tavan) parcacik-three 1
+hakem hata anthropic 
+hakem hata anthropic 
+hakem hata anthropic 
+ATLANDI (model/tavan) parcacik-three 2
+ORT {'skill': 0.6933333333333334, 'zemin': 0.7083333333333333} fark -0.015000000000000003 [-0.048333333333333325, 0.023333333333333338] gecti False

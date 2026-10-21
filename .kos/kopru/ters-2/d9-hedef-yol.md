@@ -19,3 +19,6 @@ Koşucu hazır: `kapi_kos.py --hedef <json> --kok <dizin>` (sonuç `sonuc-<ad>.j
 giris-scroll.html (scroll-timeline), sayfa-gecisi.html (view-transition), parcacik-three.html (CDN three 0.186.1 — ağ gerekir, düz referans/yüklenme DENENMEDİ). Üçü için kare-0/50/100 düzlük probu henüz koşulmadı.
 
 ## Kalan (d10): GT 12×5 (ücretsiz taslak → Read), düz-referans probu, sonra d8 koşusu (yazar 56/hakem 80/Haiku ≤20; ≥25 çağrı + 15 tur ayır).
+
+## d10 sonucu
+hedef-d9.json: 11 hedef × 5 madde (alıntılar betikle birebir doğrulandı; 8 kod + 3 site, düz referans yok). REA 8/8 kanıt üretti. Koşu (Haiku tek hakem ≤20): skill 0.693 · zemin 0.708 · fark −0.015 GA95 [−0.048,+0.023] · sapma 0.035 · parcacik-three Haiku tavanı bitince atlandı (2 tekrar) → kapı kodu GEÇMEDİ (atlanan≠0); 10 hedefte "kötü değil" kuralı sağlanıyor. Sınıf: site +0.05, js −0.03, dotnet −0.03.

@@ -1,0 +1,594 @@
+{
+ "hedefler": [
+  {
+   "id": 14,
+   "ad": "ink-theater",
+   "tur": "js",
+   "yol": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-theater.js",
+   "rea_yol": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-js/ink-theater",
+   "kaynaklar": [
+    "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-theater.js"
+   ],
+   "sorular": "Ink Theater sahne oynatıcısı nasıl yapılmış?",
+   "maddeler": [
+    {
+     "madde": "Dosya API'yi sonda root.InkTheater nesnesine atayarak dışa aktarır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-theater.js",
+      "satir": 292,
+      "alinti": "root.InkTheater = {"
+     }
+    },
+    {
+     "madde": "Sabit/veri tablosu: ease tablosu settle, overshoot, bouncy ve soft olmak üzere dört farklı sönümlü yay önceden tanımlanmış parametrelerle oluşturulur.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-theater.js",
+      "satir": 156,
+      "alinti": "var ease = {"
+     }
+    },
+    {
+     "madde": "Dış bağımlılık/HTTP/ortam davranışı: Motor tarayıcı window nesnesine bağlanır, SVG için document.createElementNS kullanır ve animasyon için root.gsap ile timeline'a bağımlıdır; HTTP isteği yapmaz.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-theater.js",
+      "satir": 270,
+      "alinti": "var g = root.gsap;"
+     }
+    },
+    {
+     "madde": "Tür/örüntü envanteri: Genel API el, rng, resample, smoothD, wobblePts, inkPath, inkRibbon, boil, springEase, ease, fabrik, parts, mascot, balloon ve INK değerlerini içerir.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-theater.js",
+      "satir": 296,
+      "alinti": "parts: parts, mascot: mascot, balloon: balloon, INK: INK"
+     }
+    },
+    {
+     "madde": "FABRIK, hedef toplam uzunluktan uzaksa (ulaşılamaz) zinciri hedefe doğru düz uzatır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/openmontage/ink-theater/ink-theater.js",
+      "satir": 172,
+      "alinti": "if (dist > total) {                                // unreachable: stretch straight"
+     }
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "ad": "cortex",
+   "tur": "js",
+   "yol": "C:/Projeler/uygulamalar/colibri/web/src/lib/cortex.ts",
+   "rea_yol": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-js/cortex",
+   "kaynaklar": [
+    "C:/Projeler/uygulamalar/colibri/web/src/lib/cortex.ts"
+   ],
+   "sorular": "cortex.ts ne yapıyor, nasıl çalışıyor?",
+   "maddeler": [
+    {
+     "madde": "Akış: createCortex her karede beyin yüzeyini ve uzman düğümlerini çizer; etiket geri çağrısı çizimin sonunda, seviye etkin ve kamera mesafesi 1.5'ten küçükken yapılır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/cortex.ts",
+      "satir": 82,
+      "alinti": "onLabels(brain.level && cam.distance<1.5 ? labels : []);"
+     }
+    },
+    {
+     "madde": "Sabit/veri: Başlangıç kamerası konum (0,0,0), mesafe 3.65, yaw 0.14 ve pitch 0.87 değerleriyle tanımlıdır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/cortex.ts",
+      "satir": 8,
+      "alinti": "export const initialCamera:Camera={x:0,y:0,z:0,distance:3.65,yaw:.14,pitch:.87};"
+     }
+    },
+    {
+     "madde": "Dış bağımlılık/ortam: Animasyonun azaltılması tercihi matchMedia üzerinden okunur; tarayıcı ortamındaki değişiklik durumunu etkiler.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/cortex.ts",
+      "satir": 25,
+      "alinti": "const motion=matchMedia('(prefers-reduced-motion: reduce)');"
+     }
+    },
+    {
+     "madde": "Tür/örüntü envanteri: CortexNode, Vec ve AtlasEntry arayüzlerini birleştirerek kimlik, indeks, katman, uzman ve konu alanlarını modelleyen bir düğüm tipidir.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/cortex.ts",
+      "satir": 5,
+      "alinti": "export interface CortexNode extends Vec, AtlasEntry { id:string; index:number; layer:number; expert:number; topic:string }"
+     }
+    },
+    {
+     "madde": "Sınır/eşik: Perspektif projeksiyonu kameraya çok yakın veya arkasında kalan düğümleri eler; hesaplanan derinlik 0.06'dan küçükse düğüm null döner ve çizilmez.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/cortex.ts",
+      "satir": 41,
+      "alinti": "if(depth<.06)return null;"
+     }
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "ad": "images",
+   "tur": "js",
+   "yol": "C:/Projeler/uygulamalar/colibri/web/src/lib/images.ts",
+   "rea_yol": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-js/images",
+   "kaynaklar": [
+    "C:/Projeler/uygulamalar/colibri/web/src/lib/images.ts"
+   ],
+   "sorular": "images.ts ne yapıyor, nasıl çalışıyor?",
+   "maddeler": [
+    {
+     "madde": "Akış sırası: Boyut girdisi önce `WIDTHxHEIGHT` düzenli ifadesiyle ayrıştırılır; eşleşme olmasa işlem sonlandırılır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/images.ts",
+      "satir": 54,
+      "alinti": "const match = /^(\\d+)x(\\d+)$/.exec(text || \"\")"
+     }
+    },
+    {
+     "madde": "Sabit/veri tablosu: Geçerli kenar uzunlukları 256-2048 aralığında ve 32'nin katı olmalıdır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/images.ts",
+      "satir": 5,
+      "alinti": "export const SIDE = { min: 256, max: 2048, multiple: 32 } as const"
+     }
+    },
+    {
+     "madde": "Dış bağımlılık/ortam davranışı: Süre biçimlendirmesi varsayılan olarak İngilizce yerel ayarını kullanır ve `toLocaleString` ile ortam yerel ayarına duyarlıdır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/images.ts",
+      "satir": 107,
+      "alinti": "return `${seconds.toLocaleString(locale, { maximumFractionDigits: seconds < 10 ? 1 : 0 })} s`"
+     }
+    },
+    {
+     "madde": "Tür/örüntü envanteri: Hazır boyutlar, `ImageSize` nesnelerine oran etiketi eklenmiş salt-okunur bir dizi olarak tanımlanır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/images.ts",
+      "satir": 14,
+      "alinti": "export const SIZE_PRESETS: ReadonlyArray<ImageSize & { ratio: string }> = ["
+     }
+    },
+    {
+     "madde": "Sınır/eşik durumu: `validSide` yalnızca tam sayı, 256-2048 aralığı ve 32'ye bölünebilirlik koşullarını birlikte sağlayan değerleri kabul eder.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/images.ts",
+      "satir": 42,
+      "alinti": "return Number.isInteger(value) && value >= SIDE.min && value <= SIDE.max && value % SIDE.multiple === 0"
+     }
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "ad": "transcript",
+   "tur": "js",
+   "yol": "C:/Projeler/uygulamalar/colibri/web/src/lib/transcript.ts",
+   "rea_yol": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-js/transcript",
+   "kaynaklar": [
+    "C:/Projeler/uygulamalar/colibri/web/src/lib/transcript.ts"
+   ],
+   "sorular": "transcript.ts ne yapıyor, nasıl çalışıyor?",
+   "maddeler": [
+    {
+     "madde": "appendDelta bir mesaj balonuna delta ekler: hedef id'li mesajın content/reasoning alanına metni birleştirir, diğerlerini aynen bırakır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/transcript.ts",
+      "satir": 7,
+      "alinti": "item.id === targetId ? { ...item, [field]: (item[field] ?? \"\") + delta } : item)"
+     }
+    },
+    {
+     "madde": "Finish değeri null ise (finish_reason'sız kapanan akış) 'incomplete' olarak kaydedilir.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/transcript.ts",
+      "satir": 14,
+      "alinti": "finish: finish ?? \"incomplete\""
+     }
+    },
+    {
+     "madde": "Bir asistan turu yalnız finish değeri length/aborted/error/incomplete ise sürdürülebilir.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/transcript.ts",
+      "satir": 23,
+      "alinti": "[\"length\", \"aborted\", \"error\", \"incomplete\"].includes(message.finish ?? \"\")"
+     }
+    },
+    {
+     "madde": "continuation, sunucu reddettiği için son asistan içeriğinin sondaki boşluklarını kırpar.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/transcript.ts",
+      "satir": 35,
+      "alinti": "const trimmed = last.content.replace(/\\s+$/, \"\")"
+     }
+    },
+    {
+     "madde": "Sonda boş olmayan asistan turu yoksa continuation null döner.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/colibri/web/src/lib/transcript.ts",
+      "satir": 34,
+      "alinti": "if (!last || last.role !== \"assistant\" || !last.content.trim()) return null"
+     }
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "ad": "presets",
+   "tur": "js",
+   "yol": "C:/Projeler/uygulamalar/thinking-orbs/src/presets.ts",
+   "rea_yol": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-js/presets",
+   "kaynaklar": [
+    "C:/Projeler/uygulamalar/thinking-orbs/src/presets.ts"
+   ],
+   "sorular": "thinking-orbs presets.ts nasıl kurulu?",
+   "maddeler": [
+    {
+     "madde": "resolvePreset(state, size) bir (durum, boyut) çiftini çözümlenmiş ayara çevirir.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/thinking-orbs/src/presets.ts",
+      "satir": 90,
+      "alinti": "export function resolvePreset(state: OrbState, size: OrbSize): Resolved {"
+     }
+    },
+    {
+     "madde": "PRESETS tablosu her ModeKey için OrbSize başına bir Preset tutar (dokuz mod × iki boyut).",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/thinking-orbs/src/presets.ts",
+      "satir": 42,
+      "alinti": "export const PRESETS: Record<ModeKey, Record<OrbSize, Preset>> = {"
+     }
+    },
+    {
+     "madde": "Ayarlar engine/profiles modülündeki ModeOpts tipine dayanır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/thinking-orbs/src/presets.ts",
+      "satir": 6,
+      "alinti": "import type { ModeOpts } from './engine/profiles';"
+     }
+    },
+    {
+     "madde": "ModeKey dokuz modun birleşim tipidir (orbits, globe, rubik, wave, web, braid, ribbon, ring, morph).",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/thinking-orbs/src/presets.ts",
+      "satir": 10,
+      "alinti": "export type ModeKey ="
+     }
+    },
+    {
+     "madde": "Çözümleme PRESETS[mode][size] araması ile yapılır.",
+     "kanit": {
+      "dosya": "C:/Projeler/uygulamalar/thinking-orbs/src/presets.ts",
+      "satir": 96,
+      "alinti": "const preset = PRESETS[mode][size];"
+     }
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "ad": "Jev",
+   "tur": "dotnet",
+   "yol": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev",
+   "derlenmis": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/bin/Debug/net10.0/Jev.dll",
+   "kaynaklar": [
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/FakeJevClient.cs",
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/JevBands.cs",
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/JevClient.cs",
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/Models.cs",
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/Redaction.cs",
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/bin/Debug/net10.0/Jev.dll"
+   ],
+   "sorular": "Jev kütüphanesi nasıl çalışıyor?",
+   "maddeler": [
+    {
+     "madde": "İstek akışında state önce sabit TurkishRedactor ile redakte edilir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/JevClient.cs",
+      "satir": 60,
+      "alinti": "state = TurkishRedactor.Instance.Redact(state);"
+     }
+    },
+    {
+     "madde": "JevOptions varsayılanları: batch tavanı 5, HTTP istek tavanı 250 (tekrarlar dahil).",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/Models.cs",
+      "satir": 19,
+      "alinti": "public int MaxRequests { get; set; } = 250;"
+     }
+    },
+    {
+     "madde": "Yeniden deneme yalnız 408, 429 ve >=500 durumlarında yapılır.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/JevClient.cs",
+      "satir": 73,
+      "alinti": "var retryable = response.StatusCode is HttpStatusCode.RequestTimeout or HttpStatusCode.TooManyRequests || code >= 500;"
+     }
+    },
+    {
+     "madde": "TurkishRedactor altı örüntüyü sırayla maskeler (anahtar, iban, kart, tckn, telefon, e-posta).",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/Redaction.cs",
+      "satir": 18,
+      "alinti": "(\"anahtar\", Key()), (\"iban\", Iban()), (\"kart\", Card()), (\"tckn\", Tckn()), (\"telefon\", Phone()), (\"e-posta\", Email()),"
+     }
+    },
+    {
+     "madde": "Kart örüntüsü yalnız Luhn doğrulanırsa maskelenir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev/Redaction.cs",
+      "satir": 24,
+      "alinti": "m => kind != \"kart\" || Luhn(m.Value) ? $\"[REDAKTE:{kind}]\" : m.Value"
+     }
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "ad": "Jev.Tests",
+   "tur": "dotnet",
+   "yol": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests",
+   "derlenmis": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/bin/Debug/net10.0/Jev.Tests.dll",
+   "kaynaklar": [
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/JevTests.cs",
+    "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/bin/Debug/net10.0/Jev.Tests.dll"
+   ],
+   "sorular": "Jev.Tests testleri neyi sınıyor?",
+   "maddeler": [
+    {
+     "madde": "Toplu işlemede 201 durum için batch sınırı, herhangi bir HTTP isteği gönderilmeden önce JevLimitException ile denetlenir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/JevTests.cs",
+      "satir": 76,
+      "alinti": "await Assert.ThrowsAsync<JevLimitException>(() => c.BatchAsync(States(201), Q, TestContext.Current.CancellationToken));"
+     }
+    },
+    {
+     "madde": "Testlere sabit bir soru tablosu sağlanır; q sorusu noul türündedir ve metni “Acil mi?” olarak tanımlıdır.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/JevTests.cs",
+      "satir": 40,
+      "alinti": "static readonly Dictionary<string, JevQuestion> Q = new() { [\"q\"] = new(\"noul\", \"Acil mi?\") };"
+     }
+    },
+    {
+     "madde": "5xx HTTP yanıtı yeniden denendiğinde iki hatalı istekten sonra üçüncü istekte başarılı yanıt alınır ve toplam istek sayısı 3 olur.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/JevTests.cs",
+      "satir": 60,
+      "alinti": "Assert.Equal(3, h.Count);"
+     }
+    },
+    {
+     "madde": "Türkçe maskeleme örnekleri tür, ham değer ve beklenen maskeleme etiketi biçiminde bir TheoryData tablosundan parametrik olarak test edilir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/JevTests.cs",
+      "satir": 140,
+      "alinti": "public void Masks_pattern(string kind, string raw, string mask)"
+     }
+    },
+    {
+     "madde": "Eşik davranışında kesirli güven skoru 0,85 olduğunda sonuç Act bandına atanır.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/templates/jev-dotnet/Jev.Tests/JevTests.cs",
+      "satir": 156,
+      "alinti": "[InlineData(0.85, Band.Act)]"
+     }
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "ad": "NativeAotFixture",
+   "tur": "dotnet",
+   "yol": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot",
+   "derlenmis": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/bin/Debug/net8.0/NativeAotFixture.dll",
+   "kaynaklar": [
+    "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/Program.cs",
+    "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/bin/Debug/net8.0/NativeAotFixture.dll"
+   ],
+   "sorular": "NativeAotFixture ne yapıyor?",
+   "maddeler": [
+    {
+     "madde": "Akış sırası: Main önce dizideki seçilen probe için Dispatch, ardından DerivedProbe için DispatchInterface, sonra iki Consume çağrısını yapar ve sonucu döndürür.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/Program.cs",
+      "satir": 33,
+      "alinti": "int result = Dispatch(probes[args.Length % probes.Length], args.Length);"
+     }
+    },
+    {
+     "madde": "Sabit/veri tablosu: Probe dizisi BaseProbe ve DerivedProbe örneklerinden oluşur; ayrıca iki sabit metin bulunur: REA_NATIVEAOT_FROZEN ile sınıfların ToString değerleri.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/Program.cs",
+      "satir": 32,
+      "alinti": "BaseProbe[] probes = { new BaseProbe(), new DerivedProbe() };"
+     }
+    },
+    {
+     "madde": "Dış bağımlılık/HTTP/ortam davranışı: Program yalnızca yerel sınıfları, args dizisinin uzunluğunu ve sabit metinleri kullanır; HTTP, dosya, ağ veya başka bir dış servis çağrısı yoktur.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/Program.cs",
+      "satir": 30,
+      "alinti": "static int Main(string[] args)"
+     }
+    },
+    {
+     "madde": "Tür/örüntü envanteri: IProbe arayüzü, BaseProbe sınıfı, DerivedProbe sealed sınıfı ve statik Program sınıfı bulunur; iki Compute aşırı yüklemesi ile ToString uygulamaları vardır.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/Program.cs",
+      "satir": 12,
+      "alinti": "sealed class DerivedProbe : BaseProbe, IProbe"
+     }
+    },
+    {
+     "madde": "Sınır/eşik durumu: Probe seçimi args.Length % probes.Length ile yapılır; probes.Length 2 olduğundan sıfır argüman BaseProbe'yi, tek argüman ise DerivedProbe'yi seçer.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/.kos/kopru/ters-2/d9-dn/nativeaot/Program.cs",
+      "satir": 33,
+      "alinti": "int result = Dispatch(probes[args.Length % probes.Length], args.Length);"
+     }
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "ad": "giris-scroll",
+   "tur": "site",
+   "yol": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/giris-scroll.html",
+   "sayfa": "/animasyon-atolyesi/tarifler/giris-scroll.html",
+   "kaynaklar": [
+    "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/giris-scroll.html"
+   ],
+   "sorular": "Scroll ile sürülen giriş animasyonu nasıl yapılmış?",
+   "maddeler": [
+    {
+     "madde": "Akış sırası: Bölümler, görünüm alanına girişte başlayıp %35 kapsama kadar ilerleyen yerel scroll-driven view animasyonuyla belirir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/giris-scroll.html",
+      "satir": 99,
+      "alinti": ".bolum { animation: belir var(--egri) both; animation-timeline: view(); animation-range: entry 5% cover 35%; }"
+     }
+    },
+    {
+     "madde": "Sabit/veri tablosu: AYAR veri tablosunda her kademenin giriş süresi 900ms olarak belirlenmiştir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/giris-scroll.html",
+      "satir": 19,
+      "alinti": "\"sure\": \"900ms\","
+     }
+    },
+    {
+     "madde": "Dış bağımlılık/HTTP/ortam davranışı: Uygulama sıfır bağımlılık ilan eder; harici kütüphane veya HTTP çağrısı kullanılmaz.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/giris-scroll.html",
+      "satir": 3,
+      "alinti": "Tarif: hero kademeli giriş + scroll'a bağlı bölüm görünme + scroll ilerleme çubuğu. Sıfır bağımlılık."
+     }
+    },
+    {
+     "madde": "Tür/örüntü envanteri: Kademeli giriş öğeleri, --i sıra indeksi ile gecikme süresinin çarpımıyla zamanlanır; --i yoksa sıfır kullanılır.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/giris-scroll.html",
+      "satir": 79,
+      "alinti": "animation-delay: calc(var(--i, 0) * var(--gecikme));"
+     }
+    },
+    {
+     "madde": "Sınır/eşik durumu: Yerel view animasyonu desteklenmediğinde IntersectionObserver eşiği %20 görünürlük olarak kurulur.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/giris-scroll.html",
+      "satir": 138,
+      "alinti": "}), { threshold: .2 });"
+     }
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "ad": "sayfa-gecisi",
+   "tur": "site",
+   "yol": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/sayfa-gecisi.html",
+   "sayfa": "/animasyon-atolyesi/tarifler/sayfa-gecisi.html",
+   "kaynaklar": [
+    "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/sayfa-gecisi.html"
+   ],
+   "sorular": "Sayfa geçişi (view transition) nasıl yapılmış?",
+   "maddeler": [
+    {
+     "madde": "Akış sırası: kullanıcı kartı tıkladığında görünüm geçişi başlıyor ve detay sayfası gösteriliyor.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/sayfa-gecisi.html",
+      "satir": 125,
+      "alinti": "izgara.addEventListener('click', e => {"
+     }
+    },
+    {
+     "madde": "Geçiş süresi (550ms), gecikme (70ms) ve eğri AYAR sabit tablosundan gelir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/sayfa-gecisi.html",
+      "satir": 19,
+      "alinti": "\"sure\": \"550ms\","
+     }
+    },
+    {
+     "madde": "Dış bağımlılık/ortam davranışı: Kullanıcı tercihi (prefers-reduced-motion) kontrol edilerek animasyonlar devre dışı bırakılıyor.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/sayfa-gecisi.html",
+      "satir": 89,
+      "alinti": "@media (prefers-reduced-motion: reduce) {"
+     }
+    },
+    {
+     "madde": "Tür/örüntü envanteri: View Transition API; \"view-transition-name\" öznitelikleri kart ve detay öğelerine atanıyor.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/sayfa-gecisi.html",
+      "satir": 81,
+      "alinti": "view-transition-name: gorsel;"
+     }
+    },
+    {
+     "madde": "startViewTransition yoksa geçiş atlanır, f() doğrudan DOM değişimi olarak çağrılır.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/sayfa-gecisi.html",
+      "satir": 122,
+      "alinti": "const gecis = f => document.startViewTransition ? document.startViewTransition(f).finished : Promise.resolve(f());"
+     }
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "ad": "parcacik-three",
+   "tur": "site",
+   "yol": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/parcacik-three.html",
+   "sayfa": "/animasyon-atolyesi/tarifler/parcacik-three.html",
+   "kaynaklar": [
+    "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/parcacik-three.html"
+   ],
+   "sorular": "three.js parçacık sahnesi nasıl yapılmış?",
+   "maddeler": [
+    {
+     "madde": "Animasyon adımı dt en fazla 0.05 sn ile sınırlanır.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/parcacik-three.html",
+      "satir": 121,
+      "alinti": "const dt = Math.min(saat.getDelta(), 0.05)"
+     }
+    },
+    {
+     "madde": "Parçacık sayısı ayar tablosunda 20000'dir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/parcacik-three.html",
+      "satir": 20,
+      "alinti": "\"sayi\": 20000"
+     }
+    },
+    {
+     "madde": "three 0.186.1 jsdelivr CDN'den (import haritası) yüklenir; ağ gerekir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/parcacik-three.html",
+      "satir": 7,
+      "alinti": "\"three\": \"https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js\""
+     }
+    },
+    {
+     "madde": "Parçacıklar THREE.ShaderMaterial ile çizilir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/parcacik-three.html",
+      "satir": 60,
+      "alinti": "const mat = new THREE.ShaderMaterial("
+     }
+    },
+    {
+     "madde": "azGuc: hardwareConcurrency (yoksa 8) ≤ 4 ise düşük güç modu seçilir.",
+     "kanit": {
+      "dosya": "C:/Projeler/omer-skills/skills/animasyon-atolyesi/tarifler/parcacik-three.html",
+      "satir": 28,
+      "alinti": "const azGuc = (navigator.hardwareConcurrency || 8) <= 4"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -13,8 +13,9 @@ sys.path.insert(0, str(KOK / "tools")); import ucretsiz_havuz as HAVUZ  # noqa: 
 
 DIZ = KOK / "docs/ters/kapi"
 CIKTI = Path(os.environ["TEMP"]) / "ters-kapi"
-TAVAN = {"yazar": 80, "hakem": 130}  # hakem: yalnız ücretsiz aileler
+TAVAN = {"yazar": 56, "hakem": 80}  # hakem: yalnız ücretsiz aileler
 HAIKU_TAVAN = 0  # üçüncü hakem (Haiku) kapalı
+OY = 2  # tek oyla geçerli hakem sayısı; --haiku → 1 (ücretsiz aileler düzgün değilse tek Haiku hakem)
 TEKRAR = (1, 2)
 YARGIC = ("meta", "openai", "mistral", "google", "alibaba")  # ilk iki yanıt veren aile hakem (Cloudflare llama-3.3-70b + Groq gpt-oss-120b; kota/soğumada sıradaki aile); kullanılanlar sonuca yazılır
 KULLANILAN = {}
@@ -181,21 +182,21 @@ def hakem(h, notlar, rng):
         except Exception: return None
 
     def sabit(aile, o):  # tüm maddelere aynı oy → ayrıştırmıyor; oy geçersiz, aile düşer
-        if oy_gecerli(o): return False
+        if OY == 1 or oy_gecerli(o): return False  # tek hakemde düşürülecek aile yok
         SABIT_OY.add(aile); print("hakem ayrıştırmıyor", aile, flush=True); return True
 
     oylar, KULLANILAN_BU = [], set()
     for _ in range(3):  # yetmezse en yakın soğuma bitince yeniden dene
         for aile in YARGIC:
-            if len(oylar) == 2: break
+            if len(oylar) == OY: break
             if aile in KULLANILAN_BU or aile in SABIT_OY or DUSEN.get(aile, 0) > time.monotonic(): continue
             if (o := oy(aile)) and not sabit(aile, o): oylar.append(o); KULLANILAN_BU.add(aile); KULLANILAN[aile] = KULLANILAN.get(aile, 0) + 1
         bek = [t - time.monotonic() for t in DUSEN.values() if t > time.monotonic()]
-        if len(oylar) == 2 or not bek: break
+        if len(oylar) == OY or not bek: break
         time.sleep(min(bek) + 1)
-    if HAIKU_TAVAN and (len(oylar) < 2 or oylar[0] != oylar[1]):  # hakemler ayrıştı ya da biri yanıtsız → Haiku üçüncü
+    if HAIKU_TAVAN and OY > 1 and (len(oylar) < 2 or oylar[0] != oylar[1]):  # hakemler ayrıştı ya da biri yanıtsız → Haiku üçüncü
         if o3 := oy("anthropic"): oylar.append(o3)
-    if len(oylar) < 2: return None
+    if len(oylar) < OY: return None
     a, b = oyla(oylar)
     return {sira[0]: sum(a) / 5, sira[1]: sum(b) / 5}
 
@@ -255,7 +256,8 @@ def arg(ad):
 
 
 def main():
-    global ONEK
+    global ONEK, YARGIC, HAIKU_TAVAN, OY
+    if "--haiku" in sys.argv: YARGIC, HAIKU_TAVAN, OY = ("anthropic",), int(arg("--haiku")), 1  # d8: ücretsiz hakemler >%30 tek-oy geçersiz → tek Haiku hakem
     hf = Path(arg("--hedef")) if arg("--hedef") else DIZ / "hedefler.json"
     sonuc = DIZ / "sonuc" if not arg("--hedef") else hf.with_name("sonuc-" + hf.stem.removeprefix("hedef-"))
     H = json.loads(hf.read_text(encoding="utf-8"))["hedefler"]
