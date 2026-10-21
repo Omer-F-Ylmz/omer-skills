@@ -107,3 +107,13 @@ def test_cek_hedef_kok_disina_cikamaz_ve_bozuk_kid_atlanir(tmp_path):
     art = tmp_path / "art/makara/kum"; art.mkdir(parents=True)
     (art / "x.json").write_text(json.dumps(dict(id="../kotu", durum="bekliyor", hedef="/r/hedefler/skills/a/SKILL.md", kural="k")), encoding="utf-8")
     assert c.birlestir(tmp_path / "art", tmp_path / "m", kok) == (0, 0, 1)
+
+
+def test_bulut_repo_ortam_sonra_kayit_dosyasi(tmp_path, monkeypatch):
+    monkeypatch.delenv("MAKARA_BULUT_REPO", raising=False)
+    assert c.bulut_repo(tmp_path) is None
+    (tmp_path / ".kos").mkdir()
+    (tmp_path / ".kos/makara.json").write_text('{"bulut_repo": "a/json"}', encoding="utf-8")
+    assert c.bulut_repo(tmp_path) == "a/json"
+    monkeypatch.setenv("MAKARA_BULUT_REPO", "a/env")
+    assert c.bulut_repo(tmp_path) == "a/env"

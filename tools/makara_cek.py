@@ -1,6 +1,6 @@
 """MAKARA SLEEP-3 dönüş yolu: bulut gece koşusunun artefaktı → PC. `gh run download` (CLI önce) → öneriler .kos/makara/kum/ (KUM; gerçek skill'e asla),
 bulut uyku raporu Obsidian'a '-bulut' notu. Aynı kid = aynı dosya (çift yok); bir koşu bir kez işlenir. Kabul yine yalnız onay/makara_onay.py <id>.
-Repo: --repo ya da ortam MAKARA_BULUT_REPO (sahip/ad); yoksa sessiz çıkar (Ömer repoyu açana dek).
+Repo: --repo, sonra ortam MAKARA_BULUT_REPO, sonra .kos/makara.json (bulut_repo) (sahip/ad); hiçbiri yoksa sessiz çıkar.
   python tools/makara_cek.py [--repo sahip/ad] | kur | kaldir     # kur: saatlik, pencere yok (conhost --headless; ONLOGON yönetici ister)"""
 import argparse
 import json
@@ -70,6 +70,14 @@ def rapor_not(dizin, kasa=KASA):
     return n
 
 
+def bulut_repo(kok=KOK):
+    """MAKARA_BULUT_REPO → .kos/makara.json (bulut_repo) sırasıyla; ikisi de yoksa None."""
+    if os.environ.get("MAKARA_BULUT_REPO"):
+        return os.environ["MAKARA_BULUT_REPO"]
+    y = Path(kok) / ".kos/makara.json"
+    return json.loads(y.read_text(encoding="utf-8")).get("bulut_repo") if y.exists() else None
+
+
 def gh(*a):
     return subprocess.run(["gh", *a], capture_output=True, text=True, creationflags=NW if os.name == "nt" else 0, timeout=300)
 
@@ -112,10 +120,11 @@ def kur(sil=False):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("komut", nargs="?", choices=["kur", "kaldir"])
-    ap.add_argument("--repo", default=os.environ.get("MAKARA_BULUT_REPO"))
+    ap.add_argument("--repo")
     a = ap.parse_args(argv)
     if a.komut:
         return kur(a.komut == "kaldir")
+    a.repo = a.repo or bulut_repo()
     if not a.repo:
         return print("bulut repo ayarlı değil (MAKARA_BULUT_REPO / --repo)")
     s = cek(a.repo)
