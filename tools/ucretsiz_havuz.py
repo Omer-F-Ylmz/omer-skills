@@ -79,11 +79,11 @@ def _anahtar(kaynak):
     else:
         v = os.environ.get(kaynak)
         if not v:
-            import winreg
             try:
+                import winreg
                 with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as k:
                     v = winreg.QueryValueEx(k, kaynak)[0]
-            except OSError:
+            except (ImportError, OSError):  # ImportError: Linux (Actions runner), anahtar yalnız ortam değişkeninden
                 pass
     _ANAHTAR[kaynak] = v or None
     return _ANAHTAR[kaynak]

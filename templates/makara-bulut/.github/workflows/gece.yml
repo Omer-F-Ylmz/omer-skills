@@ -1,0 +1,35 @@
+name: makara-gece
+# ÖZEL repo şablonu (omer-skills'e bağlı değil). Cron 23:00 UTC = 02:00 TR. Dakika bütçesi ≤30 dk/gece: job 30 dk, betik 23 dk'da kendini durdurur (artefakt yüklenir).
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  gece:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repo özel olmalı (paket yanlışlıkla açığa çıkmasın)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: test "$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)" = "true"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Gece koşusu (yalnız ücretsiz havuz; Claude yok)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: python tools/makara_gece.py --bulut --girdi . --cikti out --sure 1380
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: makara-gece-${{ github.run_id }}
+          path: out
+          retention-days: 14

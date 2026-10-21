@@ -1,7 +1,8 @@
 """MAKARA döngü 2 (boşta, PC açık): gece şerit rotasyonu. Ücretsiz havuz kural önerisi üretir → held-out görevlerde mekanik + İKİ FARKLI AİLE hakem
 (ayrışırsa ya da biri yoksa at) → kabul yalnız KUM HAVUZUNA (.kos/makara/kum), gerçek dosyaya yalnız onay/makara_onay.py. Claude token 0, Haiku yok.
 Zamanlanmış görev (30 dk'da bir): conhost --headless python.exe makara_gece.py (pencere yok); şart: RAM <%80, GetLastInputInfo ≥10 dk (her öneride yeniden), günde 1 gece (5 şerit × en fazla 3 öneri, çağrı tavanı 150).
-  python tools/makara_gece.py [--kuru --serit skill --n 3] [--zorla] | kur | kaldir"""
+  python tools/makara_gece.py [--kuru --serit skill --n 3] [--zorla] | kur | kaldir
+  python tools/makara_gece.py --bulut --girdi paket --cikti out [--sure 1380]   # SLEEP-3: Actions runner (PC kapalı), girdi tools/makara_paket.py çıktısı"""
 import argparse
 import ctypes
 import glob
@@ -36,12 +37,21 @@ SERITLER = [  # (ad, glob'lar, gece başına hedef)
     ("kural", [r"C:\Projeler\omer-kurallar.md", str(HOME / ".claude/CLAUDE.md")], 1),
     ("ters", [str(KOK / "skills/tersine*/SKILL.md"), str(KOK / "docs/**/ters*.md")], 1),
 ]
+BULUT, GIRDI = False, None  # --bulut: Linux runner ya da yerel simülasyon; GIRDI = makara_paket çıktısı
+BULUT_SERIT = [  # paket kökünde hedefler/ altına aynı göreli yolla girer (omer-kurallar.md yalnız ana repo kökünün bir üstünde); ~/.claude/CLAUDE.md HİÇ gitmez
+    ("skill", ["skills/*/SKILL.md"], 2),
+    ("ogren", ["docs/ogren/**/*.md"], 2),
+    ("router", ["tools/yonlendir-kurallar.json"], 1),
+    ("kural", ["omer-kurallar.md"], 1),
+    ("ters", ["skills/tersine*/SKILL.md", "docs/**/ters*.md"], 1),
+]
 GIZLI = re.compile(r"sk-[\w-]{20,}|gh[ps]_\w{20,}|AIza[\w-]{30,}|Bearer\s+[\w.-]{20,}|(?i:api[_-]?key|secret|password)\s*[=:]")
 SONUC = re.compile(r"SONUC:\s*(A|B|EQ)\b")
 
 
 class Say:  # çağrı sayacı: tavan aşılınca None döner; claude = Haiku/Claude'dan gelen yanıt sayısı (kanıt: hep 0)
     n = claude = ert = 0
+    bitis = float("inf")  # yalnız --bulut: duvar saati sınırı (job timeout'u artefakt yüklemesini kesmesin)
     olu = set()  # bu gece yanıt vermeyen hakem aileleri (tekrar çağrılmaz)
     durdu = False  # RAM/boşta/tavan yüzünden şerit yarıda kaldı
     bos = False  # son çağrı havuzdan yanıt alamadı (tükenme) → öneri atılmaz, ertelenir
@@ -75,6 +85,8 @@ def ertelenenler():
 
 
 def ram():
+    if BULUT:
+        return 0
     class MS(ctypes.Structure):
         _fields_ = [("l", ctypes.c_ulong), ("yuk", ctypes.c_ulong)] + [(f"x{i}", ctypes.c_ulonglong) for i in range(7)]
     m = MS(); m.l = ctypes.sizeof(MS)
@@ -83,6 +95,8 @@ def ram():
 
 
 def bosta_sn():
+    if BULUT:
+        return 10**9
     class LI(ctypes.Structure):
         _fields_ = [("cb", ctypes.c_uint), ("t", ctypes.c_uint)]
     li = LI(); li.cb = ctypes.sizeof(LI)
@@ -195,8 +209,7 @@ def gece(serit, n, kuru=False, devam=False, zorla=False):
     M.mkdir(parents=True, exist_ok=True); (M / "kum").mkdir(exist_ok=True)
     (M / "durum.json").write_text(json.dumps(durum), encoding="utf-8")
     imlec0 = dict(durum.get("imlec", {}))
-    d = makara_ders.yukle()
-    dersler = [e["metin"] for e in sorted(d["dersler"].values(), key=lambda e: -e["sayac"])[:5]] or ["(henüz ders yok)"]
+    dersler = (bulut_dersler() if BULUT else [e["metin"] for e in sorted(makara_ders.yukle()["dersler"].values(), key=lambda e: -e["sayac"])[:5]]) or ["(henüz ders yok)"]
     gor = [g for g in json.loads(GOREV.read_text(encoding="utf-8"))["tasks"] if len(g["intent"]) < 900 and g["reference"]]
     gor = sorted(gor, key=lambda g: g["split"] != "val")[:T]  # val önce; öneri üretiminde görevler görülmez
     for g in gor:
@@ -212,7 +225,7 @@ def gece(serit, n, kuru=False, devam=False, zorla=False):
         ertele(p)
     liste = devir[:n] + hedefler(serit, n - len(devir[:n]), durum.setdefault("imlec", {}))
     for j, h in enumerate(liste):
-        if (not kuru and (ram() >= RAM_ES or (bosta_sn() < BOSTA and not zorla))) or Say.n >= TAVAN:  # kuru koşu yalnız raporlar; gerçek koşu her öneride RAM/boşta/tavanı yeniden sınar
+        if (not kuru and (ram() >= RAM_ES or (bosta_sn() < BOSTA and not zorla))) or Say.n >= TAVAN or (BULUT and time.time() > Say.bitis):  # kuru koşu yalnız raporlar; gerçek koşu her öneride RAM/boşta/tavanı yeniden sınar
             for r in liste[j:]:
                 ertele(r)
             Say.durdu = True
@@ -330,6 +343,26 @@ def hepsi(bugun, zorla=False):
     return bit
 
 
+def bulut_dersler():
+    """Pakete giren ders notlarından en sık tekrarlanan 5 satır (sayaç = '(×n, ...)')."""
+    sat = [s[2:] for p in sorted((GIRDI / "dersler").glob("ders-*.md")) for s in p.read_text(encoding="utf-8").splitlines() if s.startswith("- ")]
+    return sorted(sat, key=lambda s: -int((re.search(r"×(\d+)", s) or [0, 1])[1]))[:5]
+
+
+def bulut(girdi, cikti, sure=1380):
+    """--bulut: ctypes/Obsidian/~/.claude yok. girdi = makara_paket çıktısı; cikti = artefakt dizini (makara/kum/*.json, uyku-ozet.txt, rapor/, havuz/ertelenen.jsonl)."""
+    global BULUT, GIRDI, M, KASA, OZET, HAFTA, GOREV, SERITLER
+    BULUT, GIRDI, cikti = True, Path(girdi), Path(cikti)
+    M, KASA, GOREV = cikti / "makara", cikti / "rapor", GIRDI / "tasks-v2.json"
+    OZET, HAFTA = cikti / "uyku-ozet.txt", cikti / "makara-hafta-ozet.txt"
+    SERITLER = [(ad, [str(GIRDI / "hedefler" / d) for d in g], n) for ad, g, n in BULUT_SERIT]
+    H.DIZIN = cikti / "havuz"
+    H.DURUM, H.ERT, H.SONUC = H.DIZIN / "durum.json", H.DIZIN / "ertelenen.jsonl", H.DIZIN / "ertelenen-sonuc.jsonl"
+    H.ENT = [e for e in H.ENT if e.prov not in ("omniroute", "github")]  # yerel köprü/gh oturumu bulutta yok
+    Say.bitis = time.time() + sure
+    return hepsi(time.strftime("%Y-%m-%d"))
+
+
 def kur(sil=False):
     if sil:
         return subprocess.run(["schtasks", "/Delete", "/TN", AD, "/F"], capture_output=True, text=True).returncode
@@ -343,7 +376,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("komut", nargs="?", choices=["kur", "kaldir"])
     ap.add_argument("--kuru", action="store_true"); ap.add_argument("--serit", choices=[s[0] for s in SERITLER]); ap.add_argument("--n", type=int); ap.add_argument("--zorla", action="store_true")
+    ap.add_argument("--bulut", action="store_true"); ap.add_argument("--girdi", default="paket"); ap.add_argument("--cikti", default="out"); ap.add_argument("--sure", type=int, default=1380)
     a = ap.parse_args(argv)
+    if a.bulut:
+        return print("tamam:", bulut(a.girdi, a.cikti, a.sure))
     if a.komut:
         return kur(a.komut == "kaldir")
     durum = json.loads((M / "durum.json").read_text(encoding="utf-8")) if (M / "durum.json").exists() else {}
