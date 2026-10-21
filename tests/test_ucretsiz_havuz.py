@@ -147,3 +147,26 @@ def test_anahtar_sizmaz(monkeypatch):
     H._ANAHTAR["k"] = "gizliDEGER123456"
     assert "gizli" not in H._gizle("hata gizliDEGER123456 bitti")
     H._ANAHTAR.pop("k")
+
+
+def test_hata_orani_sirayi_belirler_aileyi_cikarmaz(monkeypatch):
+    e1 = H._sec("hakem", 100, None, None, set())
+    H._yaz({})
+    H._oran(e1, True)
+    assert H._durum()["oran"][e1.aile] == [1, 1]
+    for _ in range(9):
+        H._oran(e1, True)
+    assert H._sec("hakem", 100, None, None, set()).aile != e1.aile  # yüksek hata oranlı aile sona kalır
+    H._yaz({})
+    for _ in range(4):
+        H._oran(e1, True)  # 5'ten az örnek sıralamayı etkilemez
+    assert H._sec("hakem", 100, None, None, set()).aile == e1.aile
+    assert H._sec("hakem", 100, e1.aile, None, set()).aile == e1.aile  # aile verilince çıkarılmaz
+
+
+def test_cagir_istek_hatasini_ve_basariyi_kaydeder(monkeypatch):
+    sahte(monkeypatch, lambda e: (_ for _ in ()).throw(H.Hata(0, "bos")) if e.prov == "gemini" else "tamam")
+    for _ in range(6):
+        H.cagir("hakem", "x")
+    o = H._durum()["oran"]
+    assert all(h <= n for n, h in o.values()) and sum(h for _, h in o.values()) >= 1 and sum(n - h for n, h in o.values()) >= 6

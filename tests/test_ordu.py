@@ -127,3 +127,20 @@ def test_kabul_kesin_regex_hakem_yok():
 def test_kabul_gevsek_test_varsa_testi_gecen():
     assert ordu.kabul([{"1": "a"}, {"1": "b"}], test=lambda y: y == {"1": "b"}, gevsek=True) == {"1": "b"}
     assert ordu.kabul([{"1": "a"}, {"1": "a"}], test=lambda y: False, gevsek=True) is None
+
+
+def test_kabul_kesin_sarmal_soyulur_anlam_degismez():
+    # d10: salt sarmal farkı (çit, `…`, **…**, r'…', "56.0", "1 234") yükselme yaratmaz; ama soyulmuş yanlış regex/sayı hâlâ reddedilir.
+    assert ordu.kabul(["`^a+$`", "^a+$"], gevsek=True) == "^a+$"
+    assert ordu.kabul(["```\n(\d+)\n```", "(\d+)"], gevsek=True) == "(\d+)"
+    assert ordu.kabul(["```python\nx = 1\n```", "x = 1"], gevsek=True) == "x = 1"
+    assert ordu.kabul(["r'ab+'", "ab+"], gevsek=True) == "ab+"
+    assert ordu.kabul(["**56**", "56"], gevsek=True) == "56"
+    assert ordu.kabul(["56.0", "56"], gevsek=True) == "56"
+    assert ordu.kabul(["1 234", "1234"], gevsek=True) == "1234"
+    assert ordu.kabul(["`^\d{2}:[0-5]\d$`", "^(?:[01]\d|2[0-3]):[0-5]\d$"], gevsek=True) is None  # soyulmuş yanlış regex
+    assert ordu.kabul(["**56**", "**57**"], gevsek=True) is None
+    assert ordu.kabul(["1.234", "1234"], gevsek=True) is None  # nokta/virgül binlik ≡ ondalık belirsiz: soyulmaz
+    assert ordu.kabul(["1,234", "1234"], gevsek=True) is None
+    assert ordu.kabul(["Yanıt: 56", "56"], gevsek=True) is None  # açıklama metni soyulmaz
+    assert ordu.kabul(["`a` ve `b`", "a ve b"], gevsek=True) is None  # tek sarmal değil

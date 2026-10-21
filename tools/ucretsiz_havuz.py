@@ -123,6 +123,17 @@ def _yaz(d):  # shortcut: süreçler arası kilit yok, son yazan kazanır (saya�
     t = DURUM.with_suffix(".tmp"); t.write_text(json.dumps(d), encoding="utf-8"); os.replace(t, DURUM)
 
 
+def _oran(e, hata):
+    """Aile başına [istek, boş/hatalı] sayacı (d10); _sec yalnız sıralamada kullanır, aileyi çıkarmaz."""
+    with KILIT:
+        d = _durum(); v = d.setdefault("oran", {}).setdefault(e.aile, [0, 0]); v[0] += 1; v[1] += bool(hata); _yaz(d)
+
+
+def _hata_oranu(d, aile):
+    n, h = d.get("oran", {}).get(aile, [0, 0])
+    return round(h / n * 5) if n >= 5 else 0  # 5'ten az örnekte yok sayılır; 0.2'lik basamak, yük dengesi basamak içinde kalır
+
+
 def _say(d, k, bugun):
     v = d.get("say", {}).get(k)
     return v[1] if v and v[0] == bugun else 0
@@ -146,13 +157,13 @@ def _sec(tur, tahmin, aile, haric, denenen, rezerv=None):
                 continue
             if not _anahtar(SAG[e.prov][1]) or not _url(e.prov) or (e.prov == "omniroute" and not _omni_serbest()):
                 continue
-            uygun.append((_say(d, "p:" + e.prov, bugun) / SAG[e.prov][2], _say(d, ad(e), bugun), d["son"].get(ad(e), 0), e))
+            uygun.append((_hata_oranu(d, e.aile), _say(d, "p:" + e.prov, bugun) / SAG[e.prov][2], _say(d, ad(e), bugun), d["son"].get(ad(e), 0), e))
         if not uygun:
             return None
         son = d.get("sec", [])[-20:]  # son 20 seçimde yarıyı aşan sağlayıcı, alternatif varken atlanır (kapı: hiçbir sağlayıcı >%50)
-        if len({u[3].prov for u in uygun}) > 1:
-            uygun = [u for u in uygun if son.count(u[3].prov) * 2 < len(son)] or uygun
-        e = min(uygun, key=lambda x: x[:3])[3]
+        if len({u[-1].prov for u in uygun}) > 1:
+            uygun = [u for u in uygun if son.count(u[-1].prov) * 2 < len(son)] or uygun
+        e = min(uygun, key=lambda x: x[:-1])[-1]
         d["sec"] = son + [e.prov]
         d["dk"][e.kova or ad(e)].append([now, rezerv or tahmin]); d["son"][ad(e)] = now
         for k in {ad(e), e.kova or ad(e), "p:" + e.prov}:
@@ -239,13 +250,13 @@ def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=No
         try:
             y = _istek(e, istem, max_tokens, zaman)
         except Hata as h:
-            _dus(e, h); log.append(f"{ad(e)}:{h.kod}"); continue
+            _dus(e, h); _oran(e, True); log.append(f"{ad(e)}:{h.kod}"); continue
         except (OSError, ValueError) as x:  # zaman aşımı, bağlantı, bozuk gövde
-            _dus(e, Hata(599, type(x).__name__)); log.append(f"{ad(e)}:{type(x).__name__}"); continue
+            _dus(e, Hata(599, type(x).__name__)); _oran(e, True); log.append(f"{ad(e)}:{type(x).__name__}"); continue
         neden = dogrula(y) if dogrula else None
         if neden:
             log.append(f"{ad(e)}:{neden}"); continue
-        _basari(e)
+        _basari(e); _oran(e, False)
         return y, ad(e), log
     if haiku_tavan > 0 and aile in (None, "anthropic") and haric_aile != "anthropic":
         with KILIT:  # sayaç etiket başına ve GÜNLÜK sıfırlanır (havuz-1: kalıcı sayaç ilk koşuda dolup sonra Haiku'yu hep kapattı)

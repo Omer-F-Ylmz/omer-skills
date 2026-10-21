@@ -5,6 +5,7 @@ claude -p yok; ücretsiz yanıt ≤130, hakem ≤40 çağrı.
 import itertools
 import json
 import math
+import os
 import random
 import re
 import subprocess
@@ -20,7 +21,9 @@ ordu = d3.ordu
 AILELER = ("google", "openai", "mistral", "minimax", "alibaba")
 YANIT_TAVAN, HAKEM_TAVAN, CIFT = 130, 40, 4
 SON = " Araç kullanma, açıklama ekleme; yalnız istenen yanıtı yaz."
-R = random.Random(909)
+TOHUM = int(os.environ.get("ORDU_TOHUM", 909))  # d10: yeni tohum → yeni sayılar/örnekler; 909 (d9) önbellek adlarını korur
+ON = "B7" if TOHUM == 909 else f"B7s{TOHUM}"
+R = random.Random(TOHUM)
 
 
 def temiz(y):
@@ -159,7 +162,7 @@ say = {"yanit": 0, "hakem": 0}
 
 
 def yanit(a, aile, cikti):
-    ham = cikti / f"B7-yanit-{a}-{aile}.json"
+    ham = cikti / f"{ON}-yanit-{a}-{aile}.json"
     if not ham.exists():
         with kilit:
             if say["yanit"] >= YANIT_TAVAN:
@@ -191,7 +194,7 @@ def olc(cikti):
         ciftler = list(itertools.combinations(sorted(ya), 2))
         rr.shuffle(ciftler)
         for f1, f2 in ciftler[:CIFT]:
-            onb = cikti / f"B7-hakem-{a}-{f1}-{f2}.json"
+            onb = cikti / f"{ON}-hakem-{a}-{f1}-{f2}.json"
 
             def hakem(x, y):
                 if not onb.exists():
@@ -224,7 +227,7 @@ if __name__ == "__main__":
             "yanlis_kabul": sum(s["kabul"] and not s["kabul_dogru"] for s in sat), "kabul_orani": round(sum(s["kabul"] for s in sat) / max(len(sat), 1), 3),
             "yukselme_payi": round(sum(not s["kabul"] for s in sat) / max(len(sat), 1), 3), **say,
             "tur": {t: [sum(s["kabul"] for s in sat if s["tur"] == t), sum(s["tur"] == t for s in sat)] for t in turler}}
-    (cikti / "olcum7.json").write_text(json.dumps({"ozet": ozet, "sat": sat}, ensure_ascii=False, indent=1), encoding="utf-8")
+    (cikti / ("olcum7.json" if TOHUM == 909 else f"olcum7s{TOHUM}.json")).write_text(json.dumps({"ozet": ozet, "sat": sat}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(ozet, ensure_ascii=False))
     for s in sat:
         if s["kabul"] and not s["kabul_dogru"]:

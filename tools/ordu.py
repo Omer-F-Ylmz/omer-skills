@@ -7,6 +7,7 @@ Kaskad (Ömer 21 Eki, kesin): ücretsiz → Haiku medium/high → Sonnet medium/
   python tools/ordu.py kapi A.json B.json                                      → A/B kapısı ({claude_token, kalite, basarisiz})
 d3 kapısı kapi3: {claude_is, agirlikli_token, kalite}"""
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -146,14 +147,35 @@ def hakem(istem, a, b, aileler):
     return None
 
 
+SARMAL = (r"```[^\n`]*\n(.*?)\n?```", r"`([^`\n]+)`", r"\*\*([^*\n]+)\*\*", r"""r(['"])((?:(?!\1).)+)\1""")  # çit · `…` · **…** · r'…'
+
+
+def soy(y):
+    """tur='kesin' için yalnız anlam değiştirmeyen sarmalı soyar: tek çit bloğu, tek `…`, **…**, r'…' / r"…", tamsayı değerli ondalık ('56.0'),
+    boşluk/altçizgi binliği ('1 234'). Açıklama metni, ^…$ ve nokta/virgül binliği (ondalıkla belirsiz) olduğu gibi kalır."""
+    if not isinstance(y, str):
+        return y
+    s = y.strip()
+    for _ in range(4):
+        m = next((m for m in (re.fullmatch(r, s, re.S) for r in SARMAL) if m), None)
+        if not m:
+            break
+        s = m.group(m.lastindex).strip()
+    if re.fullmatch(r"-?\d+\.0+", s):
+        return s.split(".")[0]
+    if re.fullmatch(r"-?\d{1,3}(?:[ _\u00a0\u202f]\d{3})+", s):
+        return re.sub(r"[ _\u00a0\u202f]", "", s)
+    return s
+
+
 def kabul(yanitlar, test=None, hakem_=None, gevsek=None, tur="kesin"):
     """Orta işte iki aile yanıtı → kabul edilen yanıt | None. Bayrak kapalı: birebir aynı. Açık: mekanik test varsa testi geçen; yoksa
-    tur='kesin' (regex/sayı/kod, varsayılan): kenar boşluğu dışında birebir eşitlik, hakem yok (LLM hakem iki farklı regex'e AYNI dedi, d8);
+    tur='kesin' (regex/sayı/kod, varsayılan): kenar boşluğu ve anlam değiştirmeyen sarmal (soy) dışında birebir eşitlik, hakem yok (LLM hakem iki farklı regex'e AYNI dedi, d8);
     tur='json': JSON/biçim farkını yutan (norm_json: harf ve tip korunur) eşitlik; tur='metin': normalize eşitlik, o da yoksa hakem_(a, b) (üçüncü aile) 'aynı' derse birinci yanıt."""
     if not (KABUL_BAYRAK.exists() if gevsek is None else gevsek):
         return yanitlar[0] if len(yanitlar) == 2 and yanitlar[0] is not None and yanitlar[0] == yanitlar[1] else None
     if tur == "kesin" and not test:
-        ys = [y.strip() if isinstance(y, str) else y for y in yanitlar]
+        ys = [soy(y) for y in yanitlar]
         return ys[0] if len(ys) == 2 and ys[0] is not None and ys[0] == ys[1] else None
     ts = [y for y in yanitlar if y is not None]
     if tur == "json":
