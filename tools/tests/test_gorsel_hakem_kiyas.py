@@ -8,11 +8,12 @@ YOL = Path(__file__).resolve().parents[2] / ".kos" / "kopru" / "gorsel_hakem.py"
 
 
 @pytest.fixture
-def hakem(monkeypatch):
+def hakem(monkeypatch, tmp_path):
     monkeypatch.setattr(sys, "argv", ["gorsel_hakem.py"])  # main() içe aktarmada koşar; PNG yok → çıktı yok
     spec = importlib.util.spec_from_file_location("gorsel_hakem", YOL)
     m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m)
+    m.ONBELLEK = tmp_path / "hakem-onbellek.json"  # sahte yanıtlar gerçek önbelleğe yazılıp sonraki koşuda çağrıyı atlatmasın
     return m
 
 
@@ -41,14 +42,15 @@ def test_ref_iki_gorsel_gonderir_ve_kiyas_bicimi_kullanir(hakem, monkeypatch):
     assert "REFERANS" in gorulen["icerik"][0]["text"]
 
 
-def aileye_gore_yanit(hakem, monkeypatch, yanit, zamanlar=None):  # yanit: aile → metin | istisna
+def aileye_gore_yanit(hakem, monkeypatch, yanit, zamanlar=None):  # yanit: aile → metin | istisna; listelenmeyen aile GECERLI
     def sahte(e, icerik, max_tokens, zaman):
         if zamanlar is not None:
             zamanlar.append(zaman)
         aile = next(a for a, adaylar in hakem.ADAY.items() if e in adaylar)
-        if isinstance(yanit[aile], Exception):
-            raise yanit[aile]
-        return yanit[aile]
+        y = yanit.get(aile, GECERLI)
+        if isinstance(y, Exception):
+            raise y
+        return y
 
     def haiku_kapali(icerik):
         raise OSError("test: gerçek Haiku çağrısı yok")
@@ -62,25 +64,25 @@ GECERLI = '{"puan": 7, "sivi_mi": true, "plastik_gorunen": false}'
 
 
 def test_ayrisma_hatasi_kararsiz_sayilir_puan_yazilmaz(hakem, monkeypatch):
-    aileye_gore_yanit(hakem, monkeypatch, {"google": "yanıt yok", "meta": GECERLI, "nvidia": GECERLI})
+    aileye_gore_yanit(hakem, monkeypatch, {"google": "yanıt yok"})
     s = hakem.sor("aday.png", "soru")
     assert s["google"]["durum"] == "kararsiz" and "puan" not in s["google"]
-    assert s["meta"]["durum"] == s["nvidia"]["durum"] == "gecerli"
+    assert s["alibaba"]["durum"] == s["nvidia"]["durum"] == "gecerli"
 
 
 def test_tek_aile_hata_verince_yedek_aile_devreye_girer(hakem, monkeypatch):
-    aileye_gore_yanit(hakem, monkeypatch, {"google": hakem.h.Hata(503, "geçici"), "meta": GECERLI, "nvidia": GECERLI})
+    aileye_gore_yanit(hakem, monkeypatch, {"google": hakem.h.Hata(503, "geçici")})
     s = hakem.sor("aday.png", "soru")
     assert s["google"]["durum"] == "kararsiz" and "503" in s["google"]["sebep"]
     assert sum(v["durum"] == "gecerli" for v in s.values()) == hakem.CIFT
 
 
-def test_iki_aile_yoksa_haiku_tek_oy_verir(hakem, monkeypatch):
-    aileye_gore_yanit(hakem, monkeypatch, {"google": TimeoutError(), "meta": TimeoutError(), "nvidia": GECERLI})
+def test_hic_aile_toplanamazsa_haiku_tek_oy_verir(hakem, monkeypatch):
+    aileye_gore_yanit(hakem, monkeypatch, {a: TimeoutError() for a in hakem.ADAY})
     monkeypatch.setattr(hakem, "haiku_gorsel", lambda icerik: GECERLI)
     s = hakem.sor("aday.png", "soru")
     assert s["haiku"]["durum"] == "gecerli" and s["haiku"]["model"].startswith("haiku/")
-    assert sum(v["durum"] == "gecerli" for v in s.values()) == 1  # 4 deneme (google×2, meta×2) bitti; nvidia denenmedi
+    assert sum(v["durum"] == "gecerli" for v in s.values()) == 1  # 6 deneme (google×2, nvidia×2, alibaba×2) bitti; minimax/mistral denenmedi
 
 
 def test_sayi_disi_puan_reddedilir(hakem):
