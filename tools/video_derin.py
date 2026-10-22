@@ -46,7 +46,7 @@ def kod_of(u):
 
 
 def indir(url, d):
-    r = kos("yt-dlp", "-f", "worst[height>=360]/worst/best", "--no-playlist", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
+    r = kos("yt-dlp", "-f", "wv[height>=360]+wa/w[height>=360]/best", "--no-playlist", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
     v = next((p for p in d.glob("v.*") if p.suffix not in (".json",)), None)
     return v, r.stderr[-200:]
 
@@ -233,9 +233,12 @@ def isle(url):
         t2 = time.time(); adim["asr"] = t2 - t1
         ks = kareler(v, d)
         t3 = time.time(); adim["kare"] = t3 - t2
+        def acik_zamanli():  # ölçüm: açıklama süresi ayrı tutulur (ADIM satırı)
+            s = time.time(); r = gemini_aciklama(ks) or yerel_aciklama(ks); adim["acik_s"] = time.time() - s; return r
         with ThreadPoolExecutor(1) as px:  # kare açıklaması (Gemini/Ollama) OCR ile örtüşür; profilde "ocr" ikisini birden kapsar
-            acik_f = px.submit(lambda: gemini_aciklama(ks) or yerel_aciklama(ks))
+            acik_f = px.submit(acik_zamanli)
             ekran = ocr(ks)
+            adim["ocr_s"] = time.time() - t3
             acik = acik_f.result()
         t4 = time.time(); adim["ocr"] = t4 - t3
         metin = "\n".join(e["t"] for e in ekran) + "\n" + " ".join(s["t"] for s in seg)
@@ -253,6 +256,7 @@ def isle(url):
             f.write(f"{kod}\t" + "\t".join(f"{adim[x]:.1f}" for x in ("indir", "asr", "kare", "ocr", "acik")) + f"\t{len(ks)}\t{OCR_AYGIT}\n")
         CIKTI.mkdir(parents=True, exist_ok=True)
         hedef.write_text(json.dumps(veri, ensure_ascii=False, indent=1), encoding="utf-8")
+        print("ADIM " + kod + " " + json.dumps({k: round(v, 1) for k, v in adim.items()}), flush=True)  # ölçüm
         return kod, f"ok seg={len(seg)} ocr={len(ekran)} link={len(linkler)} komut={len(komutlar)}"
     finally:
         shutil.rmtree(d, ignore_errors=True)
