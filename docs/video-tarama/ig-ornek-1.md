@@ -6,9 +6,8 @@
 - Anlatıcının saydığı şeyler (transkript 0:10–0:22): prompt, kaynak kod, hazır Obsidian vault, ajanı eğiten skill'ler.
 
 ## Nasıl alındı (ekrandaki akış)
-1. Kütüphaneden şablon seç (0:07–0:10).
-2. "Copy prompt" ile prompt'u kopyala (kare 0:13), ya da "Download source code" ile kaynak kodu indir (0:14).
-3. Prompt'u AI aracına yapıştır; site üretilir (0:14–0:17). Aracın adı karelerde okunmadı.
+1. Kütüphaneden şablon seç (0:07–0:10); "Copy prompt" ile prompt'u kopyala (kare 0:13), ya da "Download source code" ile kaynak kodu indir (0:14).
+2. Prompt'u AI aracına yapıştır; site üretilir (0:14–0:17). Aracın adı karelerde okunmadı.
 
 ## Projeye nasıl takılır (önerilen; video tarif vermiyor)
 1. Prompt'u kopyalayıp üretmek yerine şablonun yapısını (bölümler, 3B sahne, etiketler) referans olarak al.
