@@ -67,7 +67,7 @@ def kareler(v, d, tavan=240):
     return ks
 
 
-WHISPER = {"cuda": ("large-v3-turbo", "float16"), "cpu": ("small", "int8")}
+WHISPER = {"cuda": ("large-v3", "float16"), "cpu": ("small", "int8")}
 _whisper = {}
 ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri bu sırada paralel sürer
 KILIT = threading.Lock()  # ilerleme dosyası ve konsol satırları
@@ -81,7 +81,7 @@ groq_durum = {"sonraki": 0.0, "kapali": 0.0}  # ücretsiz kota: 20 istek/dk; 429
 
 
 def groq_asr(wav):
-    """GPU döküm kuyruğu doluyken taşan videoyu Groq whisper-large-v3-turbo'ya (ücretsiz) gönderir; başarısızsa None."""
+    """GPU döküm kuyruğu doluyken taşan videoyu Groq whisper-large-v3'ya (ücretsiz) gönderir; başarısızsa None."""
     key = os.environ.get("GROQ_API_KEY")
     if not key or wav.stat().st_size > 15_000_000:
         return None
@@ -94,7 +94,7 @@ def groq_asr(wav):
         time.sleep(bekle)
     sinir = "vd" + str(time.time_ns())
     alan = lambda ad, de: f'--{sinir}\r\nContent-Disposition: form-data; name="{ad}"\r\n\r\n{de}\r\n'.encode()
-    govde = (alan("model", "whisper-large-v3-turbo") + alan("response_format", "verbose_json") + alan("temperature", "0")
+    govde = (alan("model", "whisper-large-v3") + alan("response_format", "verbose_json") + alan("temperature", "0")
              + f'--{sinir}\r\nContent-Disposition: form-data; name="file"; filename="a.wav"\r\nContent-Type: audio/wav\r\n\r\n'.encode()
              + wav.read_bytes() + f"\r\n--{sinir}--\r\n".encode())
     try:  # Python-urllib UA'sı Cloudflare'da 1010/403 alır: açık UA şart
@@ -115,7 +115,7 @@ def asr(v, d):
     if not (d / "a.wav").exists():
         return "", []
     if ASR_KILIT.locked() and (g := groq_asr(d / "a.wav")):  # GPU kuyruğu dolu: taşan video ücretsiz Groq kanalına
-        print("device=groq model=whisper-large-v3-turbo", flush=True)
+        print("device=groq model=whisper-large-v3", flush=True)
         return g
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
         try:
