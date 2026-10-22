@@ -117,3 +117,21 @@ def test_kosul_gorev_dosyasinda_geciyorsa_uyar(tmp_path, monkeypatch):
     assert "kendi içinde" in z.kosul_uyari("t.md::İLK VE BAĞLAYICI", "t.md")
     assert z.kosul_uyari("t.md::BAŞKA", "t.md") == ""
     assert z.kosul_uyari("", "t.md") == ""
+
+
+def test_kombin_cekirdek_ogrenme_denetimi(tmp_path, monkeypatch):
+    monkeypatch.setattr(z, "KOK", tmp_path)
+    kombin = [{"id": "s3d-hazir-sahne", "adimlar": ["varlik_indir", "gltf-transform", "threejs-3d-paket"]}]
+    kur(tmp_path, monkeypatch, "k1", "s1", LISTE[:1], False, [("Skill", {"skill": "threejs-3d-paket"}), ("Bash", {"command": "rtk git status"})])
+    (tmp_path / "k1.zorunlu.json").write_text(json.dumps({"araclar": LISTE[:1], "gorsel": False, "kombin": kombin, "tur": "site-3d", "hata": ""}), encoding="utf-8")
+    d = z.denetle("k1")
+    assert d["kombin"] == ["s3d-hazir-sahne 1/3"] and "beyin" in d["cekirdek_eksik"] and "graphify" in d["cekirdek_eksik"] and "rtk" not in d["cekirdek_eksik"]
+    assert d["ogrenme_eksik"] == ["basta", "sonda"] and "ogrenme_eksik" in d["durum"] and "arac_eksik" in d["durum"]
+
+
+def test_kombin_sec_ve_dogrula():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+    import kombin_sec
+    assert kombin_sec.dogrula() == []  # kombin + tür seti adları katalogda
+    assert len(kombin_sec.yukle(kombin_sec.KOMBIN)["kombinler"]) >= 60
+    assert kombin_sec.sec("three.js landing sayfası", 2, "site-3d")[1]

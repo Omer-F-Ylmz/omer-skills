@@ -37,7 +37,15 @@ CEKIRDEK = [  # (tür, desen, sabit çekirdek set); en çok eşleşen tür kazan
     ("video", r"(?i)\bvideo\w*", ["video-tarama", "video-uygula", "remotion-video-paket", "hyperframes-paket"]),
     ("kurulum", r"(?i)\b(kurulum\w*|install\w*)", ["awesome-rehber", "gitleaks", "semgrep"]),
 ]
+try:  # ZORUNLU-ARAÇ-3 katman 2: tools/tur_setleri.json'daki yeni türler (mevcut 4 tür aynen kalır)
+    TUR_SET = json.loads((KOK / "tools/tur_setleri.json").read_text(encoding="utf-8"))
+except (OSError, ValueError):
+    TUR_SET = {"cekirdek": {}, "desen": {}, "turler": {}}
+for _t, _d in TUR_SET["desen"].items():
+    if _t not in {c[0] for c in CEKIRDEK} and _t in TUR_SET["turler"]:
+        CEKIRDEK.append((_t, _d, TUR_SET["turler"][_t]["skill"][:3] + TUR_SET["turler"][_t]["cli"][:2]))
 CEKIRDEK_AD = {a for _, _, c in CEKIRDEK for a in c} | {a.split(":")[-1] for _, _, c in CEKIRDEK for a in c}
+KOD_TUR = {"site-3d", "kod-backend", "guvenlik", "mod", "kurulum", "render"}  # graphify çekirdeği yalnız kod işinde zorunlu
 
 
 def kapsam(metin):
@@ -129,22 +137,50 @@ def ruflo_ders(metin):
     return _calistir([sys.executable, "-I", "-c", RUFLO_KOD, "hata-dersi " + metin[:300]], 45)[:700]
 
 
+def kombinler(metin, k=2):
+    """ZORUNLU-ARAÇ-3 katman 3: tür kombinlerinden en iyi k → [{id, adimlar: [araç adları]}]; hata/tür yoksa []."""
+    try:
+        sys.path.insert(0, str(KOK / "tools"))
+        import kombin_sec
+        kap = kapsam(metin)
+        tur = tur_bul(kap)[0]
+        if tur == "diğer":
+            return []
+        ks = kombin_sec.sec(kap, k, tur)[1]
+        return [{"id": o["id"], "adimlar": [a for a, _ in o["adimlar"]]} for o in ks]
+    except Exception:
+        return []
+
+
 def blok(ad, metin):
     ar = araclar(metin)
     if not ar:
         return ""
     ders = _calistir([sys.executable, "-I", str(KOK / "tools/beyin.py"), "ara", metin[:300], "--k", "3", "--butce", "450"], 40)
     hata = ruflo_ders(metin)
-    (SIRA / f"{ad}.zorunlu.json").write_text(json.dumps({"araclar": ar, "gorsel": bool(GORSEL.search(metin))}, ensure_ascii=False), encoding="utf-8")
+    kombin = kombinler(metin)
+    (SIRA / f"{ad}.zorunlu.json").write_text(json.dumps({"araclar": ar, "gorsel": bool(GORSEL.search(metin)), "kombin": kombin,
+                                                         "tur": tur_bul(kapsam(metin))[0], "hata": hata[:200]}, ensure_ascii=False), encoding="utf-8")
     s = ["ZORUNLU ARAÇLAR (bitişte oturum dökümünden sayılır; ≥%d kullanılmazsa görev arac_eksik işaretlenir ve yeniden kuyruğa girer):" % min(3, math.ceil(len(ar) / 2))]
     s += [f"- {o['ad']} ({o['tur']}) · {o['ne']} · çağrı: {o['cagri'][:60]}" for o in ar]
     if GORSEL.search(metin):
         s.append("- gorsel_hakem (görsel iş: `python .kos/kopru/gorsel_hakem.py` çağrısı olmadan kanit_eksik)")
+    s += [f"- KOMBİN {o['id']}: " + " > ".join(o["adimlar"]) for o in kombin]
+    s.append("ÇEKİRDEK (her iş, tam): beyin · ruflo · claude-mem · rtk · headroom · context-mode · graphify(kod). "
+             "ÖĞRENME: başta ruflo pattern-search+beyin ara; sonda beyin kaydet+ruflo pattern-store+hooks_intelligence_learn")
     if ders:
         s.append("Beyin dersleri:\n" + ders[:900])
     if hata:
         s.append("Hata-dersi (ruflo): " + hata)
     return "\n".join(s) + "\n\n"
+
+
+def ajan_adlari(ad):
+    """blok()'un yazdığı <ad>.zorunlu.json'daki ajan adları; dosya yok/bozuk → ()."""
+    try:
+        return tuple(o["ad"] for o in json.loads((SIRA / f"{ad}.zorunlu.json").read_text(encoding="utf-8"))["araclar"] if o["tur"] == "ajan")
+    except (OSError, ValueError, KeyError):
+        return ()
 
 
 def _kullanimlar(sid):
@@ -195,8 +231,53 @@ def karar(liste, gorsel, k):
     return "+".join(durum) or "ok", yok
 
 
+def _ad_kullanildi(ad, k):
+    """Kombin adımı/çekirdek adı: Skill, Agent, Bash komutu ya da mcp araç adında geçiyor mu."""
+    sk, ag, mcp, sh = k
+    kisa = ad.split(":")[-1].split("/")[-1]
+    sozcuk = re.compile(r"(?i)(?<![\w-])" + re.escape(kisa) + r"(?![\w-])")
+    return (any(s.split(":")[-1] == kisa for s in sk) or kisa in ag or any(sozcuk.search(c) for c in sh)
+            or any(kisa.replace("-", "_") in m.replace("-", "_") for m in mcp))
+
+
+CEKIRDEK_KULLAN = {  # ZORUNLU-ARAÇ-3 katman 1: ad → (skill/ajan/Bash/mcp adı olarak aranan eşanlamlılar)
+    "beyin": ("beyin",), "ruflo": ("ruflo", "claude-flow", "agentdb"), "claude-mem": ("claude-mem",), "rtk": ("rtk",),
+    "headroom": ("headroom", "headroom-compress"), "context-mode": ("context-mode", "strategic-compact", "context-mode-paket"),
+    "graphify": ("graphify", "sor2"),
+}
+OGRENME_BASTA = ("pattern-search", "beyin.py ara", "beyin ara")
+OGRENME_SONDA = ("pattern-store", "beyin.py kaydet", "beyin kaydet", "hooks_intelligence_learn")
+
+
+def cekirdek_ogrenme(tur, k):
+    """(çekirdekte kullanılmayanlar, öğrenme döngüsü eksikleri) — katman 1 / 1b; graphify yalnız KOD_TUR'da zorunlu."""
+    yok = [a for a, es in CEKIRDEK_KULLAN.items() if (a != "graphify" or tur in KOD_TUR) and not any(_ad_kullanildi(e, k) for e in es)]
+    metin = " ".join(k[3] + k[2])
+    ogr = [n for n, kel in (("basta", OGRENME_BASTA), ("sonda", OGRENME_SONDA)) if not any(x in metin for x in kel)]
+    return yok, ogr
+
+
+def tekrar_hata(ad, hata):
+    """Aynı hata-dersi, daha önce *_eksik ile biten bir görevde de önümüze geldiyse True (katman 1b-d) — öneri dosyasına satır düşer."""
+    if not hata:
+        return False
+    for p in SIRA.glob("*.zorunlu.json"):
+        if p.name == f"{ad}.zorunlu.json":
+            continue
+        try:
+            if json.loads(p.read_text(encoding="utf-8")).get("hata") != hata:
+                continue
+            if "eksik" in json.loads((SIRA / p.name.replace(".zorunlu", ".denetim")).read_text(encoding="utf-8")).get("durum", ""):
+                with (KOK / ".kos/kopru/on-soz-oneri.md").open("a", encoding="utf-8") as f:
+                    f.write(f"- {ad}: aynı hata-dersi {p.name.split('.')[0]} görevinde de eksik bitti → on-söz kuralı öner: {hata[:120]}\n")
+                return True
+        except (OSError, ValueError):
+            continue
+    return False
+
+
 def denetle(ad):
-    """<ad>.json + <ad>.zorunlu.json → <ad>.denetim.json ({durum, eksik}); liste ya da döküm yoksa None."""
+    """<ad>.json + <ad>.zorunlu.json → <ad>.denetim.json ({durum, eksik, kombin, cekirdek, ogrenme}); liste ya da döküm yoksa None."""
     try:
         z = json.loads((SIRA / f"{ad}.zorunlu.json").read_text(encoding="utf-8"))
         sid = json.loads((SIRA / f"{ad}.json").read_text(encoding="utf-8")).get("session_id")
@@ -207,6 +288,12 @@ def denetle(ad):
         return None
     durum, yok = karar(z["araclar"], z["gorsel"], k)
     d = {"durum": durum, "eksik": yok}
+    if "tur" in z:  # ZORUNLU-ARAÇ-3 alanları; eski (katman-3 öncesi) dosyalarda yok
+        kul = [(o["id"], sum(_ad_kullanildi(a, k) for a in o["adimlar"]), len(o["adimlar"])) for o in z.get("kombin", [])]
+        cek, ogr = cekirdek_ogrenme(z["tur"], k)
+        d.update(kombin=[f"{i} {n}/{t}" for i, n, t in kul], cekirdek_eksik=cek, ogrenme_eksik=ogr)
+        d["durum"] = "+".join(x for x in [durum if durum != "ok" else "", "arac_eksik" * bool(cek and "arac_eksik" not in durum),
+                                          "ogrenme_eksik" * bool(ogr), "tekrar_hata" * tekrar_hata(ad, z.get("hata", ""))] if x) or "ok"
     (SIRA / f"{ad}.denetim.json").write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
     return d
 

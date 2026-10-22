@@ -1,0 +1,27 @@
+{
+  "_sema": "tur -> zorunlu cekirdek (skill/mcp/cli). 'cekirdek' her iste (katman 1). 'desen' tur tespiti (kapsam() metni). Kaynak: katalog_ara + departman-* skill'leri.",
+  "cekirdek": {"skill": ["graphify", "headroom-compress", "strategic-compact"], "mcp": ["claude-mem", "context-mode"], "cli": ["rtk", "headroom", "beyin", "ruflo"]},
+  "desen": {
+    "site-3d": "(?i)site-3d|sketchfab|objaverse|gltf|\\bglb\\b|\\b(site|landing|three(\\.js)?|webgl|3d|frontend)\\b",
+    "render": "(?i)\\b(render\\w*|blender)\\b",
+    "video": "(?i)\\bvideo\\w*",
+    "logo-gorsel": "(?i)\\b(logo\\w*|marka|ikon|illustrasyon)\\b",
+    "kurulum": "(?i)\\b(kurulum\\w*|install\\w*|aday\\w*)",
+    "kod-backend": "(?i)\\b(backend|api|dotnet|refactor\\w*)\\b",
+    "guvenlik": "(?i)\\b(güvenlik|guvenlik|security|pentest|ctf|zafiyet\\w*|semgrep|gitleaks)\\b",
+    "belge": "(?i)\\b(belge\\w*|pdf|docx|pptx|sunum|rapor\\w*)\\b",
+    "mod": "(?i)\\b(mod|minecraft|oyun)\\b"
+  },
+  "turler": {
+    "site-3d": {"skill": ["threejs-3d-paket", "gsap-skills", "web-sahne-desenleri", "frontend-craft", "animasyon-scroll-paket", "tasarim-katalog"], "mcp": ["21st", "chrome-devtools"], "cli": ["playwright-cli", "pixeljury", "gltf-transform", "lighthouse-chrome-devtools"]},
+    "render": {"skill": ["blender-uretim", "threejs-3d-paket"], "mcp": ["blender-lab-mcp"], "cli": ["blender-dogrulama", "gltf-transform", "comfyui", "pixeljury"]},
+    "video": {"skill": ["video-tarama", "video-uygula", "remotion-video-paket", "hyperframes-paket", "hareket-altyazi-3d-paket"], "mcp": ["mcp-video-analyzer"], "cli": ["ffmpeg", "yt-dlp", "whisper-cli"]},
+    "logo-gorsel": {"skill": ["tasarim-katalog", "impeccable", "adobe-paket"], "mcp": ["nano-banana-2", "open-design", "claude-design"], "cli": ["pixeljury", "jev", "comfyui"]},
+    "kurulum": {"skill": ["awesome-rehber", "skillspector", "skill-creator", "yetenek-getir"], "mcp": ["cc-kopru"], "cli": ["gitleaks", "semgrep", "gh", "skillspector"]},
+    "kod-backend": {"skill": ["departman-backend-dotnet", "test-driven-development", "systematic-debugging", "security-reviewer", "mcp-builder"], "mcp": ["codebase-memory-mcp", "code-review"], "cli": ["dotnet", "gh", "tdd-guard", "semgrep"]},
+    "guvenlik": {"skill": ["departman-guvenlik", "security-reviewer", "skillspector"], "mcp": [], "cli": ["semgrep", "gitleaks", "strix", "ecc-agentshield"]},
+    "belge": {"skill": ["departman-belge", "headroom-compress"], "mcp": ["Google Drive"], "cli": ["markitdown", "summarize"]},
+    "mod": {"skill": ["blender-uretim", "test-driven-development"], "mcp": [], "cli": ["comfyui", "gh", "rtk"]},
+    "hafiza-token": {"skill": ["strategic-compact", "context-mode-paket", "headroom-compress"], "mcp": ["claude-mem", "context-mode"], "cli": ["rtk", "headroom", "jev"]}
+  }
+}
