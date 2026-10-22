@@ -2,9 +2,12 @@
 yt-dlp -> ffmpeg (0,5 sn kare) -> faster-whisper (kelime zamanli) -> RapidOCR -> Gemini kare aciklamasi -> JSON.
 Kullanim: python tools/video_derin.py <url|kod> [...]   |  --liste <dosya> [--en N]
 Cikti: docs/video-tarama/derin/<kod>.json ; ilerleme: .kos/kopru/derin-ilerleme.txt (kaldigi yerden)."""
-import base64, json, os, re, shutil, site, subprocess, sys, tempfile, time, urllib.request
+import base64, json, os, re, shutil, site, subprocess, sys, tempfile, threading, time, urllib.request
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+
+import psutil
 
 KOK = Path(__file__).resolve().parents[1]
 CIKTI = KOK / "docs/video-tarama/derin"
@@ -39,9 +42,15 @@ def indir(url, d):
 
 
 def kareler(v, d, tavan=240):
-    (d / "k").mkdir(exist_ok=True)
-    kos("ffmpeg", "-y", "-i", v, "-vf", "fps=2,scale=640:-1", "-q:v", "4", d / "k/%04d.jpg")
-    ks = sorted((d / "k").glob("*.jpg"))
+    k = d / "k"
+    k.mkdir(exist_ok=True)
+    # sahne değişimi: fps=2'ye göre OCR kare sayısı ~10× düşer; hiç sahne değişimi yoksa (tek kare) sabit 1 kare/sn
+    kos("ffmpeg", "-y", "-i", v, "-vf", "select=eq(n\\,0)+gt(scene\\,0.3),scale=640:-1", "-fps_mode", "vfr", "-q:v", "4", k / "%04d.jpg")
+    if len(list(k.glob("*.jpg"))) < 2:
+        shutil.rmtree(k)
+        k.mkdir()
+        kos("ffmpeg", "-y", "-i", v, "-vf", "fps=1,scale=640:-1", "-q:v", "4", k / "%04d.jpg")
+    ks = sorted(k.glob("*.jpg"))
     if len(ks) > tavan:  # tavani asarsa esit aralikla ornekle
         adim = len(ks) / tavan
         ks = [ks[int(i * adim)] for i in range(tavan)]
@@ -50,6 +59,8 @@ def kareler(v, d, tavan=240):
 
 WHISPER = {"cuda": ("large-v3-turbo", "float16"), "cpu": ("small", "int8")}
 _whisper = {}
+ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri bu sırada paralel sürer
+KILIT = threading.Lock()  # ilerleme dosyası ve konsol satırları
 
 
 def asr(v, d):
@@ -59,10 +70,11 @@ def asr(v, d):
         return "", []
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
         try:
-            if aygit not in _whisper:
-                _whisper[aygit] = WhisperModel(model, device=aygit, compute_type=tip)
-            seg, info = _whisper[aygit].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True)
-            out = [{"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()} for s in seg]  # üretici tüketilmeden hata yakalanmaz
+            with ASR_KILIT:
+                if aygit not in _whisper:
+                    _whisper[aygit] = WhisperModel(model, device=aygit, compute_type=tip)
+                seg, info = _whisper[aygit].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True)  # toplu yol WER %1,8–4,2: kullanılmaz
+                out = [{"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()} for s in seg]  # üretici tüketilmeden hata yakalanmaz
             print(f"device={aygit} model={model}", flush=True)
             return info.language, out
         except Exception as e:
@@ -163,31 +175,50 @@ def isle(url):
         shutil.rmtree(d, ignore_errors=True)
 
 
+RAM_ESIK = 85  # yüzde: üstündeyken yeni video başlamaz (sınır Ömer'in RAM kuralı)
+
+
+def ram_bekle():
+    while psutil.virtual_memory().percent >= RAM_ESIK:
+        time.sleep(30)
+
+
+def calis(u):
+    ram_bekle()
+    t = time.time()
+    try:
+        kod, durum = isle(u)
+    except Exception as e:  # tek video hatası toplu işi durdurmaz
+        kod, durum = kod_of(u), f"hata: {str(e)[:120]}"
+    satir = f"{kod}\t{durum}\t{time.time() - t:.0f}s"
+    with KILIT:
+        print(satir, flush=True)
+        with ILERLEME.open("a", encoding="utf-8") as f:
+            f.write(satir + "\n")
+    return durum
+
+
 def main():
     a = sys.argv[1:]
-    en = 10**9
+    en, es = 10**9, 3
     if "--en" in a:
         i = a.index("--en"); en = int(a[i + 1]); del a[i:i + 2]
+    if "--es" in a:  # eşzamanlı video işçisi; GPU döküm sırası ASR_KILIT ile tek kalır
+        i = a.index("--es"); es = int(a[i + 1]); del a[i:i + 2]
     if a and a[0] == "--liste":
         urls = re.findall(r"https?://\S+", Path(a[1]).read_text(encoding="utf-8"))
         urls = [u.split("\t")[0] for u in dict.fromkeys(urls)]
     else:
         urls = a
-    sayac, ozet = 0, Counter()
-    for u in urls:
-        if sayac >= en:
-            break
-        t = time.time()
-        kod, durum = isle(u)
-        ozet[durum.split(":")[0]] += 1
-        if durum not in ("var", "atla"):
+    # yapılmış ve atlanacaklar baştan elenir: --en yalnız yeni işleri sayar
+    urls = [u for u in urls if not (CIKTI / f"{kod_of(u)}.json").exists() and kod_of(u) not in atla_kodlari()][:en]
+    ozet, sayac = Counter(), 0
+    with ThreadPoolExecutor(es) as ex:
+        for durum in ex.map(calis, urls):
+            ozet[durum.split(":")[0]] += 1
             sayac += 1
-        satir = f"{kod}\t{durum}\t{time.time() - t:.0f}s"
-        print(satir, flush=True)
-        with ILERLEME.open("a", encoding="utf-8") as f:
-            f.write(satir + "\n")
-        if sayac and sayac % 50 == 0 and durum not in ("var", "atla"):  # her 50 işlemde özet
-            print(f"OZET islenen={sayac} {dict(ozet)}", flush=True)
+            if sayac % 50 == 0:  # her 50 işlemde özet
+                print(f"OZET islenen={sayac} {dict(ozet)}", flush=True)
 
 
 if __name__ == "__main__":
