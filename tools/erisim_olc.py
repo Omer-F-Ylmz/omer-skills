@@ -25,10 +25,14 @@ def kos(kol):
         os.environ["CC_MCP_ERTELE"] = "0"
         kolad = kol
     argv, env = ajan_sira.baslat_argv("low", "haiku", mcp)
+    if os.environ.get("EO_PROXY"):  # teşhis: istek gövdelerini kaydeden vekil (.kos/kopru/kapi-teshis/vekil.py)
+        env["ANTHROPIC_BASE_URL"] = os.environ["EO_PROXY"]
     argv[argv.index("--output-format") + 1] = "stream-json"
     i = argv.index("--settings") + 1
     ayar = json.loads(Path(argv[i]).read_text(encoding="utf-8"))
     e = ayar.setdefault("env", {})
+    if os.environ.get("EO_PROXY"):
+        e["ANTHROPIC_BASE_URL"] = os.environ["EO_PROXY"]
     if kol != "profil":  # profil = baslat_argv'nin verdiği ayar/env aynen (gerçek köprü yolu)
         e.pop("ENABLE_TOOL_SEARCH", None)
         env.pop("ENABLE_TOOL_SEARCH", None)
@@ -48,6 +52,8 @@ def kos(kol):
     p = subprocess.run(argv, input=ISTEM, capture_output=True, text=True, encoding="utf-8", env=env, timeout=int(os.environ.get("EO_SURE", "900")), cwd=str(tmp))
     sure = time.time() - ts
     mcp.unlink(missing_ok=True); sf.unlink(missing_ok=True)
+    if os.environ.get("EO_DUMP"):  # teşhis: ham akışı kol adıyla yaz
+        Path(os.environ["EO_DUMP"] + f".{kolad}.jsonl").write_text(p.stdout, encoding="utf-8")
     ev = [json.loads(x) for x in p.stdout.splitlines() if x.startswith("{")]
     init = next((x for x in ev if x.get("type") == "system" and x.get("subtype") == "init"), {})
     araclar = init.get("tools", [])
