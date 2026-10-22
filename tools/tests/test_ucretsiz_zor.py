@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import ajan_cekirdek as ac  # noqa: E402
 import ucretsiz_havuz as uh  # noqa: E402
 
 
@@ -15,19 +16,22 @@ def _sahte(monkeypatch, gonderilen, ertelenen):
     monkeypatch.setattr(uh, "_ertele", lambda ad, is_: ertelenen.append((ad, is_)))
 
 
+def test_cekirdek_jeton_siniri():
+    assert len(ac.bolum("cekirdek")) // 3 <= 250 and len(ac.bolum("zor")) // 3 <= 250  # AJAN-AKIS-1: çekirdek ≤250 jeton (kaba tahmin)
+
+
 def test_zor_sablon_istemin_basina_eklenir(monkeypatch):
     gonderilen, ertelenen = [], []
     _sahte(monkeypatch, gonderilen, ertelenen)
     metin, kaynak, log = uh.cagir("kod-backend", "Mimariyi karşılaştır", zor=True)
-    assert gonderilen == [uh.ZOR_SABLON + "Mimariyi karşılaştır"]
-    assert len(uh.ZOR_SABLON) // 3 <= 300  # ≤300 jeton (kaba tahmin)
+    assert gonderilen == [ac.onek(zor=True) + "Mimariyi karşılaştır"]
 
 
-def test_zor_yok_ise_istem_degismez(monkeypatch):
+def test_zor_yok_ise_yalniz_cekirdek_eklenir(monkeypatch):
     gonderilen, ertelenen = [], []
     _sahte(monkeypatch, gonderilen, ertelenen)
     uh.cagir("kod-backend", "Düz istem")
-    assert gonderilen == ["Düz istem"]
+    assert gonderilen == [ac.onek() + "Düz istem"]  # AJAN-AKIS-1: zor=True koşulu kalktı, çekirdek her çağrıda
 
 
 def test_ertele_orijinal_istemi_ve_zor_bayragini_saklar(monkeypatch):

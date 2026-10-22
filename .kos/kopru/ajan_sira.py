@@ -51,6 +51,17 @@ def ordu_onek():
     return ORDU_ONEK if ORDU_DOSYA.exists() else ""
 
 
+def cekirdek_onek(model):
+    """AJAN-AKIS-1: iş-akışı çekirdeği (tools/ajan_cekirdek.md) haiku|sonnet kuyruk işine; opus'a eklenmez."""
+    sys.path.insert(0, str(KOK / "tools")); import ajan_cekirdek
+    return ajan_cekirdek.onek() if ajan_cekirdek.model_gerek(model) else ""
+
+
+def on_ek_kur(model, metin):
+    """Çekirdek istemin EN BAŞINA (sabit önek → prompt cache isabeti); model=None merdiven seçiminden sonra çağrılır."""
+    return cekirdek_onek(model) + metin
+
+
 ON_SOZ = K / "on-soz.md"  # ARAÇ-DENETİM-1: her göreve ortak ön söz; yoksa boş
 
 
@@ -296,6 +307,12 @@ def is_kaydi(ad, rc, dk, efor, model):
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
     ok = rc == 0 and j.get("subtype") == "success"
     maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, j.get("total_cost_usd", 0), ok)
+    if model == "opus" and ok and j.get("session_id"):  # AJAN-AKIS-1 2. beyin: başarılı Opus oturumundan kalıp damıt (arka plan iş parçacığı, hata kuyruğu bozmaz)
+        try:
+            import threading; sys.path.insert(0, str(KOK / "tools")); import akis_damit
+            threading.Thread(target=akis_damit.kanca, args=(j["session_id"], "tamam", "opus"), daemon=True).start()
+        except Exception:
+            pass
     return ok
 
 
@@ -383,6 +400,7 @@ def main():
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:
                     pass
+                metin = on_ek_kur(model, metin)
                 metin += "\n\n[bütçe] En fazla 60 tur kullan."
                 fo = open(CIKTI / f"{ad}.json", "w", encoding="utf-8")
                 mcp = None

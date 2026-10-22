@@ -1,5 +1,6 @@
 {
   "_sema": "tur -> zorunlu cekirdek (skill/mcp/cli). 'cekirdek' her iste (katman 1). 'desen' tur tespiti (kapsam() metni). Kaynak: katalog_ara + departman-* skill'leri.",
+  "ajan_cekirdek": {"dosya": "tools/ajan_cekirdek.md", "tur": "tum", "model_haric": ["opus", "fable"]},
   "cekirdek": {"skill": ["graphify", "headroom-compress", "strategic-compact"], "mcp": ["claude-mem", "context-mode"], "cli": ["rtk", "headroom", "beyin", "ruflo"]},
   "desen": {
     "site-3d": "(?i)site-3d|sketchfab|objaverse|gltf|\\bglb\\b|\\b(site|landing|three(\\.js)?|webgl|3d|frontend)\\b",

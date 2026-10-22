@@ -1,0 +1,37 @@
+{
+ "sonuc": {
+  "hata-ayiklama/once": {
+   "kol": "once",
+   "gecti": true,
+   "tur": 4,
+   "usd": 1.556,
+   "giris": 755933,
+   "cikis": 1143
+  },
+  "hata-ayiklama/sonra": {
+   "kol": "sonra",
+   "gecti": true,
+   "tur": 6,
+   "usd": 1.547,
+   "giris": 756407,
+   "cikis": 1234
+  },
+  "ozellik/once": {
+   "kol": "once",
+   "gecti": true,
+   "tur": 6,
+   "usd": 1.543,
+   "giris": 754671,
+   "cikis": 1240
+  },
+  "ozellik/sonra": {
+   "kol": "sonra",
+   "gecti": true,
+   "tur": 6,
+   "usd": 2.845,
+   "giris": 719456,
+   "cikis": 1319
+  }
+ },
+ "zaman": "2026-10-22 12:56"
+}

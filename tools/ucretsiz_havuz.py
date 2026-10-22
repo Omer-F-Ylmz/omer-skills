@@ -241,21 +241,18 @@ def _haiku(istem):
     return j["result"].strip()
 
 
-ZOR_SABLON = ("Zor iş: önce çerçevele (gerçek hedef, başarı ölçütü, kısıtlar). 2-3 gerçekten farklı yol öner; her birinin kazanç/risk/maliyetini yaz. "
-              "Ölçüte göre birini seç, diğerlerini neden elediğini tek satırla gerekçelendir. En olası 2 hatayı kendin eleştir. Kanıt yoksa 'bitti' deme.\n\n")
-
-
 def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None, zor=False, sablon=None):
     """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok).
     ertele=<iş kimliği>: hiçbir halka (Haiku dahil) yanıtlamazsa iş ertelenen.jsonl'e yazılır, log'a 'ertelendi' düşer.
-    zor=True: fable-dusunme şablonu (ZOR_SABLON) istemin başına eklenir.
+    AJAN-AKIS-1: iş-akışı çekirdeği (tools/ajan_cekirdek.md) HER çağrıda istemin başına eklenir; zor=True ayrıca zor-iş bölümünü ekler.
     sablon=<tür>: egitim-1 damıtma şablonu (tools/ogret/sarmal.py) + ornek-<tür>.md istemin başına eklenir."""
     ham = istem
     if sablon:
         from ogret.sarmal import onek
         istem = onek(sablon, zor) + istem
-    elif zor:
-        istem = ZOR_SABLON + istem
+    else:
+        import ajan_cekirdek
+        istem = ajan_cekirdek.onek(zor) + istem
     tahmin, log, denenen = len(istem) // 3 + max_tokens, [], set()
     while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2)):
         denenen.add(ad(e))

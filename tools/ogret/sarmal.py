@@ -31,4 +31,5 @@ def _havuzdan(tur):
 
 
 def onek(tur=None, zor=False):
-    return _oku("is-yapma-kalibi") + (_oku("dusunme-kalibi") if zor else "") + (_oku(f"ornek-{tur}") if tur else "") + _havuzdan(tur)
+    import ajan_cekirdek  # AJAN-AKIS-1: tek kaynak tools/ajan_cekirdek.md (is-yapma/dusunme kalıpları oraya taşındı)
+    return ajan_cekirdek.onek(zor) + (_oku(f"ornek-{tur}") if tur else "") + _havuzdan(tur)

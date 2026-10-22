@@ -1,0 +1,981 @@
+{
+ "ozet": {
+  "ucretsiz/once": {
+   "n": 60,
+   "dogru": 57,
+   "sonucsuz": 0,
+   "jeton": 2968,
+   "usd": 0
+  },
+  "ucretsiz/sonra": {
+   "n": 60,
+   "dogru": 58,
+   "sonucsuz": 0,
+   "jeton": 13080,
+   "usd": 0
+  }
+ },
+ "sonuc": [
+  {
+   "id": "kod0",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "kod1",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 53,
+   "usd": 0
+  },
+  {
+   "id": "kod2",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 37,
+   "usd": 0
+  },
+  {
+   "id": "kod3",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 41,
+   "usd": 0
+  },
+  {
+   "id": "kod4",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 54,
+   "usd": 0
+  },
+  {
+   "id": "kod5",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "kod6",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "kod7",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 54,
+   "usd": 0
+  },
+  {
+   "id": "kod8",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 50,
+   "usd": 0
+  },
+  {
+   "id": "kod9",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "kod10",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 53,
+   "usd": 0
+  },
+  {
+   "id": "kod11",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 43,
+   "usd": 0
+  },
+  {
+   "id": "kod12",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 50,
+   "usd": 0
+  },
+  {
+   "id": "kod13",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 43,
+   "usd": 0
+  },
+  {
+   "id": "kod14",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 45,
+   "usd": 0
+  },
+  {
+   "id": "kod15",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 43,
+   "usd": 0
+  },
+  {
+   "id": "kod16",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "kod17",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 52,
+   "usd": 0
+  },
+  {
+   "id": "kod18",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 38,
+   "usd": 0
+  },
+  {
+   "id": "kod19",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 49,
+   "usd": 0
+  },
+  {
+   "id": "cik0",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 54,
+   "usd": 0
+  },
+  {
+   "id": "cik1",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "cik2",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 54,
+   "usd": 0
+  },
+  {
+   "id": "cik3",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 53,
+   "usd": 0
+  },
+  {
+   "id": "cik4",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "cik5",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 53,
+   "usd": 0
+  },
+  {
+   "id": "cik6",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "cik7",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 55,
+   "usd": 0
+  },
+  {
+   "id": "cik8",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "cik9",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "cik10",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "cik11",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "cik12",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "cik13",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "cik14",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 54,
+   "usd": 0
+  },
+  {
+   "id": "cik15",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 54,
+   "usd": 0
+  },
+  {
+   "id": "cik16",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 54,
+   "usd": 0
+  },
+  {
+   "id": "cik17",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 53,
+   "usd": 0
+  },
+  {
+   "id": "cik18",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "cik19",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 53,
+   "usd": 0
+  },
+  {
+   "id": "man0",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "man1",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "man2",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 49,
+   "usd": 0
+  },
+  {
+   "id": "man3",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 56,
+   "usd": 0
+  },
+  {
+   "id": "man4",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "man5",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "man6",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": false,
+   "jeton": 49,
+   "usd": 0
+  },
+  {
+   "id": "man7",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 56,
+   "usd": 0
+  },
+  {
+   "id": "man8",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "man9",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "man10",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": false,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "man11",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 56,
+   "usd": 0
+  },
+  {
+   "id": "man12",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "man13",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "man14",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": false,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "man15",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 56,
+   "usd": 0
+  },
+  {
+   "id": "man16",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 44,
+   "usd": 0
+  },
+  {
+   "id": "man17",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 51,
+   "usd": 0
+  },
+  {
+   "id": "man18",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 48,
+   "usd": 0
+  },
+  {
+   "id": "man19",
+   "katman": "ucretsiz",
+   "kol": "once",
+   "ok": true,
+   "jeton": 56,
+   "usd": 0
+  },
+  {
+   "id": "kod0",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 213,
+   "usd": 0
+  },
+  {
+   "id": "kod1",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
+   "id": "kod2",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 205,
+   "usd": 0
+  },
+  {
+   "id": "kod3",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 210,
+   "usd": 0
+  },
+  {
+   "id": "kod4",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 223,
+   "usd": 0
+  },
+  {
+   "id": "kod5",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 212,
+   "usd": 0
+  },
+  {
+   "id": "kod6",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "kod7",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
+   "id": "kod8",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 218,
+   "usd": 0
+  },
+  {
+   "id": "kod9",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
+  },
+  {
+   "id": "kod10",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 221,
+   "usd": 0
+  },
+  {
+   "id": "kod11",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 212,
+   "usd": 0
+  },
+  {
+   "id": "kod12",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 218,
+   "usd": 0
+  },
+  {
+   "id": "kod13",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 211,
+   "usd": 0
+  },
+  {
+   "id": "kod14",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 213,
+   "usd": 0
+  },
+  {
+   "id": "kod15",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 211,
+   "usd": 0
+  },
+  {
+   "id": "kod16",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 213,
+   "usd": 0
+  },
+  {
+   "id": "kod17",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 221,
+   "usd": 0
+  },
+  {
+   "id": "kod18",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 207,
+   "usd": 0
+  },
+  {
+   "id": "kod19",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 218,
+   "usd": 0
+  },
+  {
+   "id": "cik0",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 223,
+   "usd": 0
+  },
+  {
+   "id": "cik1",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "cik2",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 223,
+   "usd": 0
+  },
+  {
+   "id": "cik3",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
+   "id": "cik4",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
+  },
+  {
+   "id": "cik5",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
+   "id": "cik6",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
+  },
+  {
+   "id": "cik7",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 223,
+   "usd": 0
+  },
+  {
+   "id": "cik8",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
+  },
+  {
+   "id": "cik9",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "cik10",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
+  },
+  {
+   "id": "cik11",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 216,
+   "usd": 0
+  },
+  {
+   "id": "cik12",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "cik13",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "cik14",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 223,
+   "usd": 0
+  },
+  {
+   "id": "cik15",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 223,
+   "usd": 0
+  },
+  {
+   "id": "cik16",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
+   "id": "cik17",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
+   "id": "cik18",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 216,
+   "usd": 0
+  },
+  {
+   "id": "cik19",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
+   "id": "man0",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": false,
+   "jeton": 213,
+   "usd": 0
+  },
+  {
+   "id": "man1",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "man2",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "man3",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  },
+  {
+   "id": "man4",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 213,
+   "usd": 0
+  },
+  {
+   "id": "man5",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "man6",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "man7",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  },
+  {
+   "id": "man8",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 213,
+   "usd": 0
+  },
+  {
+   "id": "man9",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "man10",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "man11",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  },
+  {
+   "id": "man12",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 213,
+   "usd": 0
+  },
+  {
+   "id": "man13",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "man14",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "man15",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  },
+  {
+   "id": "man16",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": false,
+   "jeton": 212,
+   "usd": 0
+  },
+  {
+   "id": "man17",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "man18",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 217,
+   "usd": 0
+  },
+  {
+   "id": "man19",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  }
+ ],
+ "zaman": "2026-10-22 13:08"
+}
