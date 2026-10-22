@@ -217,3 +217,14 @@ def test_cwd_sutunsuz_eski_davranis(tmp_path, monkeypatch):
     monkeypatch.setattr(ajan_sira, "ON_SOZ", soz)
     assert ajan_sira.arac_onek() == "ÖN SÖZ test\n\n"
     assert ajan_sira.arac_onek(str(tmp_path)).startswith(f"Çalışma dizini: {tmp_path}\nÖN SÖZ test")
+
+
+def test_ram_tahmin_ve_izin():
+    """RAM-1: görev türüne göre başlatma tahmini (MB) + başlatmadan sonraki RAM% eşiği aşıyorsa bekle."""
+    hafif = ajan_sira.tahmin_mb("kurulum notu yaz")
+    site = ajan_sira.tahmin_mb("site-3d landing three.js")
+    render = ajan_sira.tahmin_mb("blender render sahnesi")
+    assert hafif < site < render
+    assert not ajan_sira.ram_izin(84, 2000, 32000, 85, False)  # 84 + %6.25 > 85 → bekle
+    assert ajan_sira.ram_izin(70, 2000, 32000, 85, False)
+    assert ajan_sira.ram_izin(84, 9000, 32000, 85, True)  # hiçbir şey çalışmıyorsa kilitlenmesin

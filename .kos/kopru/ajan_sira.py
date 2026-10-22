@@ -5,7 +5,7 @@ Efor: mekanik iş (ölçüm koşusu, paketleme, birleştirme, kapı tekrarı) me
 Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlatma arası >= ARA sn. Durdurma: .kos/kopru/ajan-sira.dur
 Çıktı: .kos/kopru/ajan-sira/<ad>.json · günlük .kos/kopru/ajan-sira.log (arka.py ile koşar).
   python arka.py .kos/kopru/ajan-sira.log .kos/kopru/ajan_sira.py"""
-import ctypes, json, os, re, subprocess, sys, time
+import ctypes, json, os, re, subprocess, sys, tempfile, time
 from pathlib import Path
 
 import maliyet_defter  # maliyet.tsv: biten her iş + haftalık Haiku-zayıf türler (merdiven başlangıcı)
@@ -135,6 +135,27 @@ def ram():
     return m.dwMemoryLoad
 
 
+def ram_toplam_mb():
+    m = MEM()
+    m.dwLength = ctypes.sizeof(MEM)
+    ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(m))
+    return m.t // 2**20
+
+
+# RAM-1: ajan başına tahmini MB (docs/ram/olcum.md ölçümü): claude+bash ≈450, ajan başı stdio MCP'ler (http/paylaşımlı 0), render/blender ≈1500
+AJAN_MB, MCP_MB, RENDER_MB = 450, {"playwright": 330, "chrome-devtools": 300, "premiere-pro": 170, "ruflo": 90}, 1500
+
+
+def tahmin_mb(ham):
+    sys.path.insert(0, str(KOK / "tools")); import mcp_profil
+    return AJAN_MB + sum(MCP_MB.get(m, 0) for m in mcp_profil.sec(ham)) + (RENDER_MB if re.search(r"(?i)\b(render\w*|blender)\b", ham) else 0)
+
+
+def ram_izin(r, tahmin, toplam_mb, esik_, bos):
+    """Başlatmadan sonraki tahmini RAM% eşiği aşmıyorsa True; hiçbir iş çalışmıyorsa her zaman True (kilitlenme olmasın)."""
+    return bos or r + tahmin * 100 / toplam_mb < esik_
+
+
 def log(*a):
     print(time.strftime("%H:%M:%S"), *a, flush=True)
 
@@ -159,12 +180,15 @@ def basamak_sec(ad, bas):
     return 2 if maliyet_defter.tur(ad) in maliyet_defter.haiku_zayif(maliyet_defter.oku()) else 0
 
 
-def baslat_argv(efor, model="opus", mcp=None):
+def baslat_argv(efor, model="opus", mcp=None, ajanlar=()):
     """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
     20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus. MCP-AÇ-1: mcp= profil dosyası yolu (yoksa boş MCP)."""
     argv = [model if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
     if mcp:
         argv[argv.index("--mcp-config") + 1] = str(mcp)
+    if ajanlar and "--settings" in argv:  # ENGEL-TARAMA-1: ZORUNLU ARAÇLAR'daki ajanlar Agent(ad) deny'dan çıkar (görev başına ayrı ayar dosyası)
+        yeni = cc_profil.kur("ajan", tut_ek=ajanlar, gecici=Path(tempfile.gettempdir()) / f"cc_profil_{os.getpid()}_{abs(hash(tuple(ajanlar)))}")[0]
+        argv[argv.index("--settings") + 1] = yeni[yeni.index("--settings") + 1]
     if SLASH_DOSYA.exists():  # SLASH-ÖĞREN d1: oturum + alt ajanları Skill aracıyla skill/komut çağırabilir (varsayılan kapalı)
         argv = [("Skill," + a if argv[i - 1] == "--tools" else a) for i, a in enumerate(argv) if a != "--disable-slash-commands"]
         dar = re.search(r"dar=(\w+)", SLASH_DOSYA.read_text(encoding="utf-8"))  # d2: tam skill listesi ≈ +35k token; dar=<küme> → yalnız slash-dar/<küme> eklentisi
@@ -282,7 +306,7 @@ def main():
             log("kuyruk boş, çıkış")
             return
         r = ram()
-        if not DUR.exists() and len(calisan) + dis < tavan() and r < esik() and time.time() - son >= ARA:
+        if not DUR.exists() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if ("k", ad) not in uyari:  # ZORUNLU-ARAÇ-1 d4: koşul görev dosyasının kendinde geçiyorsa erken başlar
                     uyari.add(("k", ad))
@@ -295,6 +319,12 @@ def main():
                     if ad not in uyari:
                         log("cwd yok", ad, cwd)
                         uyari.add(ad)
+                    continue
+                tah = tahmin_mb((KOK / istem).read_text(encoding="utf-8"))
+                if not ram_izin(r, tah, ram_toplam_mb(), esik(), not (calisan or dis)):  # RAM-1: ağır iş RAM'i eşiğin üstüne taşıyacaksa bekler, hafif olan sıradan geçer
+                    if ("r", ad) not in uyari:
+                        uyari.add(("r", ad))
+                        log("RAM BEKLE", ad, f"tahmin {tah} MB · RAM %{r} · eşik %{esik()}")
                     continue
                 if model is None:
                     bas = basamak_sec(ad, bas)
@@ -316,7 +346,7 @@ def main():
                     except Exception as e:
                         mcp = None
                         log("MCP profil hatası", ad, repr(e)[:80])
-                argv, env = baslat_argv(efor, model, mcp)
+                argv, env = baslat_argv(efor, model, mcp, zorunlu_arac.ajan_adlari(ad))
                 p = subprocess.Popen(argv, cwd=str(hedef), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
@@ -326,7 +356,7 @@ def main():
                 yeniden = [y for y in yeniden if y[0] != ad]
                 (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S") + f" pid {p.pid}", encoding="utf-8")
                 son = time.time()
-                log("BAŞLAT", ad, model, efor or "-", "pid", p.pid, f"RAM %{r}", "çalışan", len(calisan) + dis)
+                log("BAŞLAT", ad, model, efor or "-", "pid", p.pid, f"RAM %{r}", f"tahmin {tah} MB", "çalışan", len(calisan) + dis)
                 break
         time.sleep(30)
 
