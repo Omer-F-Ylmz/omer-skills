@@ -31,3 +31,4 @@ Kurma yok; ayrı görev.
 - DeuYjXuEojv · genel · multi-agent orchestration; spec-driven task allocation; cost-based agent selection; automated testing; plugin development · feather
 - DeuZ4BnhCqA · genel · Claude AI prompting; Python scripting for Blender; After Effects web UI; GPU rendering; MPEG stitching · 
 - DeuaujXkcOG · genel · AI security scanning; automated bug detection; patch generation · 
+- ig-ornek-1 · ömer-site/genel · getlayers.ai (3D/etkileşimli web şablon prompt kütüphanesi; Commercial licence, ücretli) · KUR yok — lisans doğrulanamadı, ÖĞREN · https://getlayers.ai/templates
