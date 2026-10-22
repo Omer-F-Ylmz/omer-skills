@@ -14,7 +14,12 @@ for ad in [a for a in sys.argv[1:] if a != "--kisa"]:
         continue
     st = d.get("subagent_stats") or {}
     mu = {k: round(v.get("costUSD", 0), 2) for k, v in (d.get("modelUsage") or {}).items()}
-    print(f"== {ad} · ${d.get('total_cost_usd', 0):.2f} · {mu} · turn {d.get('num_turns')} · spawned {st.get('spawned')} killed.sys {(st.get('killed') or {}).get('system')} · by_type {st.get('by_type')} · {d.get('subtype')}")
+    try:  # ZORUNLU-ARAÇ-1: denetim bayrağı üst satırda
+        den = json.load(open(os.path.join(D, ad + ".denetim.json"), encoding="utf-8"))
+        bayrak = f"[{den['durum'].upper()}: {', '.join(den['eksik'])[:120]}] " if den["durum"] != "ok" else ""
+    except (OSError, ValueError, KeyError):
+        bayrak = ""
+    print(f"== {bayrak}{ad} · ${d.get('total_cost_usd', 0):.2f} · {mu} · turn {d.get('num_turns')} · spawned {st.get('spawned')} killed.sys {(st.get('killed') or {}).get('system')} · by_type {st.get('by_type')} · {d.get('subtype')}")
     r = (d.get("result") or "").splitlines()
     if KISA:
         r = r[:6] + [x for x in r[6:] if "★" in x][:1]

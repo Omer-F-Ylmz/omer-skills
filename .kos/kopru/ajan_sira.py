@@ -17,6 +17,7 @@ CLAUDE = r"C:\Users\pc\.local\bin\claude.exe"
 ESIK, TAVAN, ARA, SURE = 82, 3, 90, 10800
 TAVAN_DOSYA = K / "ajan-sira.tavan"  # Desktop 20 Eki 12:15 (Ömer: haftalık %7, token düşsün): tavan dosyadan, varsayılan 3  # Desktop 14 Eki 19:45: 88'de başlatılan işle RAM %89'a çıktı (sınır %90, yeni iş ≥%85 yok)
 sys.path.insert(0, str(KOK / "tools"))
+import zorunlu_arac  # ZORUNLU-ARAÇ-1: ön uçuş bloğu + son denetim
 import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTut deny); CC_PROFIL_ZORLA=tam geri alır
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
@@ -261,6 +262,12 @@ def main():
                     yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1, cwd))
                     tekrar.add(ad + "-r")
                     log("YENİDEN", ad, "→ bir üst basamak", MERDIVEN[bas + 1])
+                den = zorunlu_arac.denetle(ad)  # ZORUNLU-ARAÇ-1: döküm sayımı; arac_eksik → aynı görev bir kez eksik araç ekiyle yeniden
+                if den and den["durum"] != "ok":
+                    log("DENETİM", ad, den["durum"], "eksik:", ", ".join(den["eksik"]))
+                    if "arac_eksik" in den["durum"] and not ad.endswith("-a") and ad + "-a" not in tekrar:
+                        yeniden.append((ad + "-a", zorunlu_arac.yeniden_istem(ad, istem, den["eksik"]), kosul, ef, mdl, bas, cwd))
+                        tekrar.add(ad + "-a")
                 subprocess.Popen([sys.executable, str(KOK / "tools" / "beyin_kayit.py"), ad], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)  # BEYIN-KAYIT-1: ikinci beyne yaz (arka plan, beklemez)
                 del calisan[ad]
         bekleyen = yeniden + [x for x in kuyruk() if x[0] not in baslayan]
@@ -271,6 +278,10 @@ def main():
         r = ram()
         if not DUR.exists() and len(calisan) + dis < tavan() and r < esik() and time.time() - son >= ARA:
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
+                if ("k", ad) not in uyari:  # ZORUNLU-ARAÇ-1 d4: koşul görev dosyasının kendinde geçiyorsa erken başlar
+                    uyari.add(("k", ad))
+                    if u := zorunlu_arac.kosul_uyari(kosul, istem):
+                        log("KOŞUL UYARI", ad, u)
                 if not kosul_tamam(kosul):
                     continue
                 hedef = cwd_hedef(cwd)
@@ -283,7 +294,7 @@ def main():
                     bas = basamak_sec(ad, bas)
                     model, efor = MERDIVEN[bas]
                 metin = (KOK / istem).read_text(encoding="utf-8")
-                metin = arac_onek(str(hedef) if cwd else None) + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin
+                metin = arac_onek(str(hedef) if cwd else None) + zorunlu_arac.blok(ad, metin) + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin  # ZORUNLU-ARAÇ-1: ön uçuş
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:
