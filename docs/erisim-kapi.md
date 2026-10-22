@@ -36,3 +36,17 @@ kapı→`ara` ✓ · kapı→mcp-git `git_status` ✓ · kapı→ruflo `memory_s
 - CC etkileşimli ve Desktop yüzeyinde 3'er çağrı: koşulmadı (kapı kullanıcı MCP'sinde kayıtlı değil; kayıt ayrı karar).
 - auth0 zaman aşımı nedeni incelenmedi. figma/canva/claude-design OAuth (kapıdan 401) doğrudan kalır.
 - Düşünme bloğunun neden ~9,7k saydığı ve `MAX_THINKING_TOKENS` ya da effort ile kapanıp kapanmadığı açık soru.
+
+## 6. Tur 2 (22 Eki) — düşünme kolları + uçtan uca
+Kapı-tek, haiku, `mcp__kapi__ara sorgu='git'` (`EO_AYAR` ile ayar kolları, `tools/erisim_olc.py`):
+| kol | ilk → ikinci istem | not |
+|---|---|---|
+| taban (ENABLE_TOOL_SEARCH=false, köprü yolu) | 16.073 → 29.7k | sıçrama sürüyor |
+| `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING=1` / `CLAUDE_CODE_DISABLE_THINKING=1` | 16.073 → 29.7k | etkisiz |
+| `alwaysThinkingEnabled:false` + `MAX_THINKING_TOKENS=0` (3 koşu) | 29.6k · çağrısız · 29.7k | etkisiz; thinking bloğu 3/3 yine geliyor |
+| ENABLE_TOOL_SEARCH=true (ToolSearch istemci aracı) | 22.8k → 23.1–23.7k → 25.3k | sıçrama yok, ama ilk istem +6,7k |
+Yeni bulgu: araç şemasında ertelenmiş araç ve `ToolSearch` yokken bile model `server_tool_use tool_search_tool_regex` üretiyor, API çalıştırıyor (`pattern: kapi__ara|kapi`, 2 `tool_reference`); ikinci istemde önbellek öneki 14,1k→19,7k okuma + 10k yeni yazma. Sıçrama düşünme+sunucu-tarafı araç araması ikilisine bağlı; düşünme istemci ayarıyla kapanmıyor (beta başlıkları: `thinking-token-count`, `thinking-display-updates`). Kapı içinden sıfırlanamaz; kapıyı kullanmayan tek-istemli işte maliyet 0, ruflo doğrudan çağrıda +1,2k.
+Karar: değişiklik yok (ENABLE_TOOL_SEARCH=true tek-istemli işte +6,7k kaybettirir, ikinci istemde başa baş; çok istemli işte kazanç sınırlı — ayrı karar).
+
+Uçtan uca (köprü ajanı, haiku, tek koşu, 87 sn): skill yükleme 2/2 (yetenek-getir, graphify) · CLI 2/2 (rtk, markitdown) · ruflo doğrudan `memory_search` ✓ · kapı→mcp-time ✓ · kapı→mcp-git ✓ · kapı `ara` ✓ = 8/8, MCP hata 0. Testler: test_mcp_sec/paylasim/hafif_kabul/hafif_2_env 8 geçti.
+Yapılmayan (değişmedi): CC etkileşimli + Desktop yüzeyi 3'er çağrı (kapı kullanıcı MCP'sinde kayıtlı değil → kayıt ayrı karar); auth0 zaman aşımı nedeni. Kabul "ilk istem ≤ taban +%1": kapı-tek 16.073–16.096 (+%0,1) ✓; ikinci istem yükü yukarıdaki tabloda gerekçeli.

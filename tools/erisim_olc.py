@@ -40,6 +40,10 @@ def kos(kol):
         kol = kol.split("+")[1]
     if kol.split("+")[0] in ("true", "false", "auto"):
         e["ENABLE_TOOL_SEARCH"] = kol.split("+")[0]
+    if os.environ.get("EO_AYAR"):  # teşhis: ayara JSON ekle ({"alwaysThinkingEnabled":false,"env":{...}}); env alt süreç ortamına da geçer
+        ek = json.loads(os.environ["EO_AYAR"])
+        e.update(ek.pop("env", {})); env.update(e)
+        ayar.update(ek)
     sf = tmp / f"erisim-ayar-{os.getpid()}.json"
     sf.write_text(json.dumps(ayar), encoding="utf-8")
     argv[i] = str(sf)
