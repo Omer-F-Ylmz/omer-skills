@@ -5,7 +5,7 @@ Efor: mekanik iş (ölçüm koşusu, paketleme, birleştirme, kapı tekrarı) me
 Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlatma arası >= ARA sn. Durdurma: .kos/kopru/ajan-sira.dur
 Çıktı: .kos/kopru/ajan-sira/<ad>.json · günlük .kos/kopru/ajan-sira.log (arka.py ile koşar).
   python arka.py .kos/kopru/ajan-sira.log .kos/kopru/ajan_sira.py"""
-import ctypes, json, os, re, subprocess, sys, tempfile, time
+import atexit, ctypes, json, os, re, subprocess, sys, tempfile, time
 from pathlib import Path
 
 import maliyet_defter  # maliyet.tsv: biten her iş + haftalık Haiku-zayıf türler (merdiven başlangıcı)
@@ -121,6 +121,39 @@ def dis_calisan(bilinen):
         if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]):
             n += 1
     return n
+
+
+KILIT = K / "ajan-sira.kilit"  # TEKİL-YÖNETİCİ: "pid saat"; canlı bir başka ajan_sira varsa ikinci kopya çıkar
+
+
+def ajan_sira_canli(pid):
+    """Pid canlı ve komut satırında ajan_sira.py varsa True (pid'i başka süreç almışsa ayrılır)."""
+    if not pid_canli(pid):
+        return False
+    ps = f"(Get-CimInstance Win32_Process -Filter 'ProcessId={int(pid)}').CommandLine"
+    r = subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, text=True, errors="replace", creationflags=0x08000000)
+    return "ajan_sira.py" in r.stdout
+
+
+def kilit_al():
+    """Kilit yoksa, pid'i ölmüşse ya da kendi pid'i ise yazar ve True; canlı bir başka yönetici varsa False."""
+    try:
+        eski = int(KILIT.read_text(encoding="utf-8").split()[0])
+    except (OSError, ValueError, IndexError):
+        eski = 0
+    if eski not in (0, os.getpid()) and ajan_sira_canli(eski):
+        return False
+    KILIT.write_text(f"{os.getpid()} {time.strftime('%H:%M:%S')}", encoding="utf-8")
+    atexit.register(kilit_sil)
+    return True
+
+
+def kilit_sil():
+    try:
+        if KILIT.read_text(encoding="utf-8").split()[0] == str(os.getpid()):
+            KILIT.unlink()
+    except (OSError, IndexError):
+        pass
 
 
 class MEM(ctypes.Structure):
@@ -272,6 +305,9 @@ def kosul_tamam(k):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
+    if not kilit_al():  # TEKİL-YÖNETİCİ: aynı anda iki yönetici kuyruğu işlemesin
+        log("zaten çalışıyor · ikinci kopya çıkıyor")
+        return
     CIKTI.mkdir(exist_ok=True)
     calisan, baslayan, son = {}, set(), 0.0
     yeniden, tekrar, uyari = [], set(), set()  # merdiven: başarısız işin bir üst basamakta tek yeniden denemesi; uyari: "cwd yok" günlüğü bir kez

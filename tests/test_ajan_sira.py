@@ -1,6 +1,8 @@
 """TOKEN-3 K11: ajan-sira.tsv isteğe bağlı 4. sütun efor=medium|high → --effort; yoksa eski davranış."""
 import importlib.util
 import json
+import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -228,3 +230,21 @@ def test_ram_tahmin_ve_izin():
     assert not ajan_sira.ram_izin(84, 2000, 32000, 85, False)  # 84 + %6.25 > 85 → bekle
     assert ajan_sira.ram_izin(70, 2000, 32000, 85, False)
     assert ajan_sira.ram_izin(84, 9000, 32000, 85, True)  # hiçbir şey çalışmıyorsa kilitlenmesin
+
+
+def test_tekil_yonetici_kilit(tmp_path, monkeypatch):
+    """TEKİL-YÖNETİCİ: canlı bir ajan_sira.py kilidi tutuyorsa ikinci kopya almaz; pid'i ölmüş kilit devralınır."""
+    kilit = tmp_path / "ajan-sira.kilit"
+    monkeypatch.setattr(ajan_sira, "KILIT", kilit)
+    betik = tmp_path / "ajan_sira.py"
+    betik.write_text("import time\ntime.sleep(120)\n", encoding="utf-8")
+    canli = subprocess.Popen([sys.executable, str(betik)])
+    try:
+        kilit.write_text(f"{canli.pid} 00:00:00", encoding="utf-8")
+        assert ajan_sira.kilit_al() is False
+        canli.kill()
+        canli.wait()
+        assert ajan_sira.kilit_al() is True
+        assert kilit.read_text(encoding="utf-8").split()[0] == str(os.getpid())
+    finally:
+        canli.kill()
