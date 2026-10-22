@@ -8,7 +8,8 @@ verilirse sayaç dosyaları orada (test ortamı). Her hata sessizce geçer.
 MÜKEMMEL-2d: startup/clear sıfırlar, compact/resume korur.
 KANCA-SAYAÇ-1: sayaç session_id başına (eşzamanlı oturumlar ayrı); session_id yoksa
 sayılmaz; SessionStart 24 saatten eski *.txt sayaçlarını siler; transcript'teki son ana
-istek bağlamı ≥150k jeton ise DUR; ≥45'te yalnız bağlam ≥120k ise (okunamazsa yalnız sayı).
+istek bağlamı ≥150k jeton ise devir önerisi; ≥45'te yalnız bağlam ≥120k ise (okunamazsa yalnız sayı).
+SAYAC-FIX-1: AJAN_SIRA_KUYRUK=1 (ajan_sira.py) ise devir önerisi basılmaz, yalnız bilgi mesajları.
 """
 import json
 import os
@@ -81,8 +82,9 @@ def main():
         # ponytail: oku-yaz kilitsiz; paralel çağrılarda sayım kaybı kabul (KÜÇÜK-2)
         sayac.write_text(str(n), encoding="utf-8")
         c = _baglam(olay.get("transcript_path"))
-        if c >= BAGLAM_TAVAN or (n >= TAVAN and (c == 0 or c >= BAGLAM_45)):  # c 0 = okunamadı → yalnız sayı
-            mesaj = f"çağrı {n}/{TAVAN}: ara kayıt (commit, push YOK) + devir ve DUR"
+        kuyruk = os.environ.get("AJAN_SIRA_KUYRUK") == "1"  # SAYAC-FIX-1: kuyruk ajanı devir uyarısı görmez, yalnız bilgi
+        if not kuyruk and (c >= BAGLAM_TAVAN or (n >= TAVAN and (c == 0 or c >= BAGLAM_45))):  # c 0 = okunamadı → yalnız sayı
+            mesaj = f"çağrı {n}/{TAVAN}: ara kayıt (commit, push YOK) + devir önerisi"
         elif n == 40:
             mesaj = f"çağrı 40/{TAVAN}: yeni madde başlatma"
         elif n % 10 == 0:

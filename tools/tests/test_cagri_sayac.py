@@ -35,7 +35,7 @@ def _kos(kok, monkeypatch, capsys, olay):
 
 ARAC = {"hook_event_name": "PostToolUse", "tool_name": "Read", "session_id": "A"}
 BASLA = {"hook_event_name": "SessionStart", "source": "startup", "session_id": "A"}
-DUR = "ara kayıt (commit, push YOK) + devir ve DUR"
+DUR = "ara kayıt (commit, push YOK) + devir önerisi"
 
 
 def test_basla_sifirlar(tmp_path, monkeypatch, capsys):
@@ -121,6 +121,16 @@ def test_40_ve_45_mesaji(tmp_path, monkeypatch, capsys):
     out = _kos(kok, monkeypatch, capsys, {**ARAC, "hook_event_name": "PostToolUseFailure"})
     assert out == {"hookSpecificOutput": {"hookEventName": "PostToolUseFailure",
                    "additionalContext": f"çağrı 46/45: {DUR}"}}
+
+
+def test_kuyruk_ajaninda_dur_yok(tmp_path, monkeypatch, capsys):
+    # SAYAC-FIX-1: ajan_sira.py başlattığı ajanda (AJAN_SIRA_KUYRUK=1) DUR/devir uyarısı çıkmaz; sayaç yine sayar
+    monkeypatch.setenv("AJAN_SIRA_KUYRUK", "1")
+    kok = _kok(tmp_path, sayac="0")
+    cikti = [_kos(kok, monkeypatch, capsys, ARAC) for _ in range(12)]
+    assert _sayac(kok) == "12"
+    assert [o for o in cikti if o] == [{"hookSpecificOutput": {"hookEventName": "PostToolUse",
+                                        "additionalContext": "çağrı 10/45 · alt 0"}}]
 
 
 def test_hata_sessiz_gecer(tmp_path, monkeypatch, capsys):
