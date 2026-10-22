@@ -245,12 +245,16 @@ ZOR_SABLON = ("Zor iş: önce çerçevele (gerçek hedef, başarı ölçütü, k
               "Ölçüte göre birini seç, diğerlerini neden elediğini tek satırla gerekçelendir. En olası 2 hatayı kendin eleştir. Kanıt yoksa 'bitti' deme.\n\n")
 
 
-def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None, zor=False):
+def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None, zor=False, sablon=None):
     """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok).
     ertele=<iş kimliği>: hiçbir halka (Haiku dahil) yanıtlamazsa iş ertelenen.jsonl'e yazılır, log'a 'ertelendi' düşer.
-    zor=True: fable-dusunme şablonu (ZOR_SABLON) istemin başına eklenir."""
+    zor=True: fable-dusunme şablonu (ZOR_SABLON) istemin başına eklenir.
+    sablon=<tür>: egitim-1 damıtma şablonu (tools/ogret/sarmal.py) + ornek-<tür>.md istemin başına eklenir."""
     ham = istem
-    if zor:
+    if sablon:
+        from ogret.sarmal import onek
+        istem = onek(sablon, zor) + istem
+    elif zor:
         istem = ZOR_SABLON + istem
     tahmin, log, denenen = len(istem) // 3 + max_tokens, [], set()
     while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2)):
