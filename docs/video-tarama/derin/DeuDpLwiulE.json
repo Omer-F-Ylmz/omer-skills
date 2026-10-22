@@ -1,0 +1,714 @@
+{
+ "kod": "DeuDpLwiulE",
+ "url": "https://www.instagram.com/reel/DeuDpLwiulE/",
+ "dil": "tr",
+ "meta": {
+  "baslik": "Video by benburhankocabiyik",
+  "sure": null,
+  "yukleyen": "BURHAN KOCABIYIK",
+  "aciklama": "Yorumlara VIDEO yaz ✅, açık kaynak video modelinin kurulum kitini sana DM’den göndereyim.\r\rSinematik video üretmek için artık kredi satın almana gerek yok. Açık ağırlıklı bir video modeli, görüntüyü ve senkron sesi tek seferde üretiyor — hem yazıdan videoya hem görselden videoya çalışıyor. Ağırlıkları indiriyorsun, kendi bilgisayarında çalıştırıyorsun; kuyruk da yok, kare başına ücret de.\r\rEn sevdiğim tarafı: komut satırından çalıştığı için Claude Code, Codex ya da Antigravity gibi bir ajana videonun konusunu anlatıp sahneleri ona kurgulatabiliyorsun. Kurulumu ve ajana vereceğin hazır brief’i adım adım anlattığım kiti istiyorsan yorumlara VIDEO yaz."
+ },
+ "transkript": [
+  {
+   "b": 0.0,
+   "s": 6.9,
+   "t": "Artık VO3, Klink veya Sora modellerini para vermemiz de gerek yok çünkü bu video modelini ücretsiz bir şekilde bilgisayarını da çalıştırabiliyorsun."
+  },
+  {
+   "b": 7.0,
+   "s": 8.1,
+   "t": "Tamamen de ücretsiz."
+  },
+  {
+   "b": 8.2,
+   "s": 14.0,
+   "t": "İşin güzel yanı ise buna aynı zamanda CloudCode'da birleştirebilirsin ve sinematik harika gerçekçi videoları üretebilirsin."
+  },
+  {
+   "b": 14.2,
+   "s": 19.1,
+   "t": "İstediğin uzunlukta ve 4K'ya kadar içerikleri üretebilirsin ve kendi bilgisayarını kullanarak."
+  },
+  {
+   "b": 19.2,
+   "s": 24.5,
+   "t": "Modelin ismi LTX 2.3 ve hem yazıdan video oluşturabiliyorsun hem de görselden video oluşturabiliyorsun."
+  },
+  {
+   "b": 24.6,
+   "s": 28.4,
+   "t": "Ve şimdi vereceğim repo içerisinde de aslında CloudCode bunu kurmasını istediğinizde"
+  },
+  {
+   "b": 28.4,
+   "s": 32.5,
+   "t": "istediğiniz sahneleri CloudCode kendisi oluşturacak ve videoyu çevirmiş oluyor."
+  },
+  {
+   "b": 32.8,
+   "s": 37.3,
+   "t": "Ve aynı zamanda CloudCode Entegravity Codex gibi birçok platformda da çalışır."
+  },
+  {
+   "b": 37.3,
+   "s": 38.9,
+   "t": "İlla CloudCode kullanmanıza gerek yok."
+  },
+  {
+   "b": 39.1,
+   "s": 45.1,
+   "t": "İşin en güzel yanı ise görsel, video, yazı ve müziği oluşturabiliyor ve aynı tek model içerisinde."
+  },
+  {
+   "b": 45.4,
+   "s": 50.3,
+   "t": "Kendi denemek istiyorsan yorumlara video yaz, hem gita preposunu hem de bütün detayların seninle paylaşmış olayım."
+  }
+ ],
+ "ekran": [
+  {
+   "k": "0001.jpg",
+   "t": "Artik Veo 3"
+  },
+  {
+   "k": "0003.jpg",
+   "t": "Veo3"
+  },
+  {
+   "k": "0003.jpg",
+   "t": "Kling veya"
+  },
+  {
+   "k": "0004.jpg",
+   "t": "KLING AI"
+  },
+  {
+   "k": "0005.jpg",
+   "t": "Sora"
+  },
+  {
+   "k": "0005.jpg",
+   "t": "Sora modellerine"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "para vermenize"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "RODE"
+  },
+  {
+   "k": "0007.jpg",
+   "t": "gerek yok"
+  },
+  {
+   "k": "0008.jpg",
+   "t": "Cunku bu video"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "modelini"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "ucretsiz bir"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "bilgisayarinda"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "PastefromClipboard"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "LThe lenshas a strong"
+  },
+  {
+   "k": "0013.jpg",
+   "t": ":01/0:04"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "calistirabiliyorsun"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "Pastefrom Clipboard"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "oak"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "The lenshas astrong"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "92/0:04"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "betrical cluster while staring directly"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "Tamamen de"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "Paste fromClipboard"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "ward through darkness asif dropped into a tunneLAs"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "lassesleanoverand"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "oOk"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "metrical clusterwhile staring directly"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "10:92/0:04"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "ucretsiz"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "isin guzel yani"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "ise bunu ayni"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "zamanda Claude"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Code'da"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "birlestirebilirsin"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "ve sinematik"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "harika gercekci"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "videolari"
+  },
+  {
+   "k": "0028.jpg",
+   "t": "uretebilirsin"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "istedigin"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "SpacesLightricks/LTX-2-3"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "LTX-2.3Distilled(22B):FastAudio-VideoGeneration"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Fastandhighq"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "nosdell(code)"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Pushin camera on the character while he speaks and look at the"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "uzunlukta ve"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "4K'ya kadar"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "icerikleri"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "bilgisayarini"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "kullanarak"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Modelin ismi"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "Ltx"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "LTX 2.3"
+  },
+  {
+   "k": "0042.jpg",
+   "t": "2.3"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "ve hem"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "yazidan video"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "olusturabiliyorsun"
+  },
+  {
+   "k": "0047.jpg",
+   "t": "gorselden"
+  },
+  {
+   "k": "0048.jpg",
+   "t": "video"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Ve simdi"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "Gen Space"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "mVideo Editor"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "8-Q-x"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "verecegim repo"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "VideoEditor"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "8-G-X"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "icerisinde de"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "Video Editor"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "+GenSpace"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "QHX"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "aslinda Claude"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "+Gen Space"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "Code'a bunu"
+  },
+  {
+   "k": "0056.jpg",
+   "t": "GenSpace"
+  },
+  {
+   "k": "0056.jpg",
+   "t": "istediginizde"
+  },
+  {
+   "k": "0058.jpg",
+   "t": "istediginiz"
+  },
+  {
+   "k": "0060.jpg",
+   "t": "sahneleri Claude"
+  },
+  {
+   "k": "0061.jpg",
+   "t": "Code kendisi"
+  },
+  {
+   "k": "0062.jpg",
+   "t": "olusturacak"
+  },
+  {
+   "k": "0064.jpg",
+   "t": "videoya cevirmis"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Administrator:C:\\windows\\s)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Antigravity"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "cline"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Codex"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Cursor"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Deep Agents"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Firebender"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Gemini CLI"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "GitHub Copilot"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Kimi Code CLI"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "OpenCode"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Warp"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Additionalagents"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Search:"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "↓ move, space select, enter confirm"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Augment (.augment/skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "IBM Bob (.bob/skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Claude Code (.claude/skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "OpenClaw (skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "CodeBuddy (.codebuddy/skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Command Code (.commandcode/skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "oContinue (.continue/skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "oCortex Code (.cortex/skills)"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "23more"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Selected:Amp,Antigravity,Cline +9 more"
+  },
+  {
+   "k": "0067.jpg",
+   "t": "Ve ayni"
+  },
+  {
+   "k": "0068.jpg",
+   "t": "Administrator:C:(windows\\s)"
+  },
+  {
+   "k": "0068.jpg",
+   "t": "↑↓move， space select, enter confirm"
+  },
+  {
+   "k": "0068.jpg",
+   "t": "CodeBuddy(.codebuddy/skills)"
+  },
+  {
+   "k": "0068.jpg",
+   "t": "o Cortex Code (.cortex/skills)"
+  },
+  {
+   "k": "0068.jpg",
+   "t": "zamanda"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "Additional agents"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "↓ move， space select, enter confirm"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "Augment"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "（.augment/skills)"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "Claude Code （.claude/skills)"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "CodeBuddy （.codebuddy/skills)"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "↓23more"
+  },
+  {
+   "k": "0069.jpg",
+   "t": "ClaudeCode"
+  },
+  {
+   "k": "0071.jpg",
+   "t": "个↓move， space select, enter confirm"
+  },
+  {
+   "k": "0071.jpg",
+   "t": "oCodeBuddy (.codebuddy/skills)"
+  },
+  {
+   "k": "0071.jpg",
+   "t": "Command Code (.commandcode/skills）"
+  },
+  {
+   "k": "0071.jpg",
+   "t": "Codex gibi"
+  },
+  {
+   "k": "0072.jpg",
+   "t": "oAugment （.augment/skills)"
+  },
+  {
+   "k": "0072.jpg",
+   "t": "Claude Code(.claude/skills)"
+  },
+  {
+   "k": "0073.jpg",
+   "t": "oAugment (.augment/skills)"
+  },
+  {
+   "k": "0073.jpg",
+   "t": "platformda da"
+  },
+  {
+   "k": "0074.jpg",
+   "t": "个↓ move， space select, enter confirm"
+  },
+  {
+   "k": "0074.jpg",
+   "t": "(.augment/skills)"
+  },
+  {
+   "k": "0074.jpg",
+   "t": "Continue (.continue/skills)"
+  },
+  {
+   "k": "0074.jpg",
+   "t": "Cortex Code (.cortex/skills)"
+  },
+  {
+   "k": "0074.jpg",
+   "t": "23 more"
+  },
+  {
+   "k": "0075.jpg",
+   "t": "oIBM Bob （.bob/skills)"
+  },
+  {
+   "k": "0075.jpg",
+   "t": "Crush (.crush/skills)"
+  },
+  {
+   "k": "0075.jpg",
+   "t": "1more"
+  },
+  {
+   "k": "0075.jpg",
+   "t": "↓22more"
+  },
+  {
+   "k": "0075.jpg",
+   "t": "calisir"
+  },
+  {
+   "k": "0076.jpg",
+   "t": "illa Claude Code"
+  },
+  {
+   "k": "0077.jpg",
+   "t": "kullanmaniza"
+  },
+  {
+   "k": "0079.jpg",
+   "t": "isin en guzel"
+  },
+  {
+   "k": "0080.jpg",
+   "t": "Gap Fill"
+  },
+  {
+   "k": "0081.jpg",
+   "t": "yanlysa gorsel"
+  },
+  {
+   "k": "0083.jpg",
+   "t": "video yazi"
+  },
+  {
+   "k": "0084.jpg",
+   "t": "Retake"
+  },
+  {
+   "k": "0086.jpg",
+   "t": "ve muzigi"
+  },
+  {
+   "k": "0087.jpg",
+   "t": "olusturabiliyor"
+  },
+  {
+   "k": "0088.jpg",
+   "t": "Audio toVi"
+  },
+  {
+   "k": "0088.jpg",
+   "t": "Ve ayni tek model"
+  },
+  {
+   "k": "0089.jpg",
+   "t": "Audio toVide"
+  },
+  {
+   "k": "0090.jpg",
+   "t": "AudiotoVideo"
+  },
+  {
+   "k": "0090.jpg",
+   "t": "icerisinde"
+  },
+  {
+   "k": "0092.jpg",
+   "t": "Kendin de denemek"
+  },
+  {
+   "k": "0093.jpg",
+   "t": "istiyorsan"
+  },
+  {
+   "k": "0094.jpg",
+   "t": "yorumlara"
+  },
+  {
+   "k": "0095.jpg",
+   "t": "yaz"
+  },
+  {
+   "k": "0096.jpg",
+   "t": "Hem GitHub"
+  },
+  {
+   "k": "0097.jpg",
+   "t": "reposunu hem de"
+  },
+  {
+   "k": "0098.jpg",
+   "t": "butun detaylarin"
+  },
+  {
+   "k": "0100.jpg",
+   "t": "paylasmis olayim"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [
+  "Claude Code (.claude/skills)",
+  "Claude Code （.claude/skills)",
+  "Claude Code(.claude/skills)"
+ ],
+ "kare_aciklama": "Görsellerde, son teknoloji yapay zekâ video araçlarının, kurgu platformlarının ve geliştirici iş akışlarının anlatıldığı bir eğitim/tanıtım videosu yer almaktadır. Adım adım süreç ve kullanılan araçlar şu şekildedir:\n\n1. **Yeni Nesil Video Modellerinin Tanıtımı (Google Veo):** Konuşmacı, sinematik hareket kabiliyeti ve yüksek dinamizm sunan yeni nesil yapay zekâ video üretim modeli olan **Veo (Veo 3)** teknolojisini ve yeteneklerini açıklar.\n2. **Fotogerçekçi Çıktıların İncelenmesi (Prompt/Görsel Kalitesi):** Yapay zekâ ile üretilen su altı, yansıma, insan anatomisi ve balık detayları gibi karmaşık sahnelerin ulaştığı hiper-gerçekçi görsel kalite (fotorealizm) örnekle gösterilir.\n3. **LTX Studio (Ltx) Platformuna Geçiş:** Yapay zekâ destekli sinematik film ve video üretim platformu olan **LTX Studio** arayüzü ekrana getirilir; üretim alanı (*Gen Space*) ve kurgu alanı (*Video Editor*) tanıtılır.\n4. **Zaman Çizelgesi (Timeline) ve Çok Katmanlı Kurgu:** LTX Studio içinde üretilen sahnelerin zaman çizelgesine eklenmesi, sahne geçişlerinin ayarlanması ve alt kısımda ses/müzik kanallarıyla senkronize edilmesi adımı gösterilir.\n5. **Claude Code ile Kod/Otomasyon Entegrasyonu:** İş akışını otomatikleştirmek veya kendi yerel ortamında çalıştırmak isteyenler için Anthropic'in komut satırı aracı olan **Claude Code** gibi yapay zekâ kodlama araçlarına değinilir.\n6. **Açık Kaynak Kod (Repo) Paylaşımı:** İzleyicilerin bu yapay zekâ iş akışını ve kodları kendi sistemlerinde kolayca kurup çalıştırabilmesi için bir **GitHub deposunun (Repo)** sunulacağı belirtilir.",
+ "kare_sayisi": 101
+}
