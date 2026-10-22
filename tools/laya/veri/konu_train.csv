@@ -1,0 +1,698 @@
+text,label
+2. UI kütüphanesi (adı görünmüyor). Karelerde yalnız 1. (unlumen) ve 3. (Animmaster) adı var; ikincisi belirsiz.,tasarim-ui
+"20 animasyon stili listesi. Bağlantı DM'e kilitli; ders: adlı stil listesi (Swiss, kinetic type, risograph…) prompt ön ayarı olarak yön çeşitliliği verir.",tasarim-ui
+21st.dev. Zaten kurulu bileşen galerisi ve MCP; yeni bir şey yok.,tasarim-ui
+21st.dev Magic MCP. 10.000+ React/Tailwind bileşen ve şablona erişim veren MCP,tasarim-ui
+7 seviye tasarım yöntemi. referans → boşluk/tip kuralları → tekrar eden sistem,tasarim-ui
+"Animmaster Lib. Üst düzey sitelerden yeniden kuruldu iddiası kopya/lisans riski; lisans yok, ücretli zip teslim. Adres bulundu, önceki RED korunur.",tasarim-ui
+Awwwards. Ödüllü web sitelerinin vitrini; animasyonlu ürün siteleri için referans,tasarim-ui
+Bklit UI. shadcn uyumlu açık kaynak grafik/veri görselleştirme bileşenleri; tasarim-katalog/kaynak.tsv'ye dashboard grafik kaynağı satırı olarak eklenir.,tasarim-ui
+"Claude ile 3D ürün landing (vibetyper, 2 saat). Kendi tasarımı + Claude: scroll'la dağılan 3D klavye ızgarası, tek ürün hero; site linki yorumda, araç adı yok.",tasarim-ui
+Cosmos. Açılış animasyonu ürünü metinden önce anlatıyor; hero hareketi örneği.,tasarim-ui
+Cult UI. 150+ animasyonlu shadcn bileşeni; tasarim-katalog kaynak.tsv'ye bileşen kaynağı satırı olarak eklenir.,tasarim-ui
+DbKDOm4uNCJ. Magic MCP (21st.dev),tasarim-ui
+DbasXSvgVE1. Tabler Icons,tasarim-ui
+Dribbble. Tasarımcı UI çalışmaları vitrini,tasarim-ui
+Figma varyantlı slider (Change variant + Smart Animate). Figma'da varyant + etkileşimle kodsuz animasyonlu slider prototipi.,tasarim-ui
+GetLayers. Sinematik/3B site şablonlarını kopyalanabilir tek prompt olarak sunan kütüphane.,tasarim-ui
+"GetLayers AI (prompt kütüphanesi). Ücretli prompt/şablon kütüphanesi, kurulacak şey yok. Ders: hafif 3D sahne seç, ağır hero zayıf telefonda takılır.",tasarim-ui
+"Godly. en iyi tasarlanmış siteler galerisi; ekran görüntüsü al, Claude'a eşlet",tasarim-ui
+"Graphite. Düğüm tabanlı, yıkıcı olmayan prosedürel 2B grafik ve animasyon editörü (alfa)",video-medya
+"Grida. Görsel, yazı ve vektörü birleştiren açık kaynak tasarım/sunum tuvali",tasarim-ui
+"HorizonX. 1.000+ premium UI bileşeni, landing bölümü ve vibe-coding prompt kütüphanesi.",tasarim-ui
+Igloo Inc. Ana sayfa tam 3D sürükleyici deneyim; ağır WebGL hero için üst sınır örneği.,tasarim-ui
+Impeccable. Claude'a tasarım dili/zevki kazandıran skill,tasarim-ui
+"Jiro (jiro.build) tasarım prompt kütüphanesi. Ücretli prompt vitrini; ders: boş prompttan değil çalışan tasarımın prompt'undan başla, sonra kopyayı/rengi değiştir.",tasarim-ui
+Kokonut UI. Tailwind+shadcn+Motion animasyonlu bileşen kaynağı olarak docs/departmanlar/frontend.md kaynak listesine ekle.,tasarim-ui
+"Mobbin. Ücretli UI ekran galerisi, kurulacak şey yok; referans ekran bulmak için elle kullanılır.",tasarim-ui
+MotionSites. Animasyonlu site prompt'ları satan kapalı galeri,tasarim-ui
+"MotionSites.ai. Ücretli kütüphane kurulmaz. Ekrandaki prompt kalıbı alınır: tek HTML, birebir üret, uydurma bölüm/renk/font ekleme; frontend-craft brief'ine.",tasarim-ui
+OneVOneJev. Three.js tarayıcı FPS'inde Jev'e karşı 1v1,diger
+"OpenPencil. .fig/.pen dosyalarını açan, yerleşik AI'lı, programlanabilir (SDK) açık kaynak tasarım editörü",tasarim-ui
+"OriginKit. Ücretsiz animasyonlu bileşen galerisi (galeri, carousel, parçacık, sticker efektleri); lisans belirsiz, yalnız ilham.",tasarim-ui
+Pear (pear.no). Kaydırınca sahne sahne ilerleyen anlatı; fe-scroll-hikayesi için örnek.,tasarim-ui
+Penpot. Açık kaynak Figma benzeri tasarım platformu; ajanların tasarım yapması için açık MCP sunucusu var,tasarim-ui
+PhotoCraft. Saf Rust ile yazılmış açık kaynak fotoğraf düzenleyici.,video-medya
+Playwright MCP. Siteyi tarayıcıda test edip ekran görüntüsü alıyor,kodlama-ajan
+"Premium ve Shopify şablon landing karşılaştırması (Havenly, Vespera, DJI örnekleri). Yalnız ilham vitrini; premium fark: koyu tam ekran ürün görseli, ince büyük tipografi, tek CTA.",tasarim-ui
+"Prompt Motion. Claude Opus 5.5 ile yapılmış motion videoları, arkasındaki prompt/skill ile gösteren galeri",video-medya
+Promptslove Motion Graphics PRO. Sohbetle storyboard onaylatıp beat-senkron müzikli 1080p motion grafik video üreten skill,video-medya
+"Referans site + 3B model + prompt ile scroll animasyonlu ürün sitesi. Referans site, 3B model ve hizmet tanımıyla Claude'a pürüzsüz scroll/tıklama animasyonlu site yaptırma",tasarim-ui
+"Refero Styles. Katalogda zaten var; yeni yanı ""Connect to your AI"" MCP bağlantısı, kurulacak şey yok.",tasarim-ui
+Scroll'a bağlı kare dizisi (Apple tarzı). Kareleri canvas'a çizip kaydırma ilerlemesine bağlayarak ürün dönüş animasyonu,tasarim-ui
+"Shadertoy. GLSL efekt galerisi; kod alınırsa NC-SA koşulu (ticari kullanım yasak, aynı lisansla paylaş) uygulanır.",tasarim-ui
+Sinematik site prompt kütüphanesi (adsız). kopyalanabilir prompt + layout kütüphanesi,tasarim-ui
+SiteReel.ai. landing sayfası koleksiyonu + her biri için kopyalanabilir prompt,tasarim-ui
+"Skiper UI. Önceki karar korunur: vitrin/ilham kaynağı, bileşen shadcn CLI ile tek dosya kopyalanır; açık lisans yok.",tasarim-ui
+Spline community remix + embed ile 3D site. Hazır Spline sahnesini remix edip export URL'siyle gömmek en hızlı 3D hero; three.js kod yolu yerine düşük çaba seçeneği.,tasarim-ui
+ThreeUI. 160+ three.js 3D hero/ikon/hareket bileşeni,tasarim-ui
+"Unicorn Studio. Kodsuz WebGL sahne aracı, embed ile siteye girer; hero görselleri için seçenek, kurulum yok.",tasarim-ui
+VectorCraft. Saf Rust ile yazılmış açık kaynak vektör çizim aracı.,tasarim-ui
+Vengeance UI. Açılış sayfası için kopyala-yapıştır animasyonlu bileşenler.,tasarim-ui
+ad. ne,diger
+awesome-design-md. Zaten katalogda. Ünlü sitelerin tasarım sistemini DESIGN.md olarak hazır sunar; ilham için tek dosya alınır.,tasarim-ui
+"claude-web-design-skills. 25 md dosyalık web tasarım skill listesi (tipografi, boşluk, figma-mcp, playwright-tester)",tasarim-ui
+design-dna. referans sitenin tasarım DNA'sını çıkaran skill,tasarim-ui
+frontend-design. Anthropic'in ayırt edici UI üretim skill'i.,tasarim-ui
+image-to-code-skill. Görsel/ekran görüntüsünden site kodu üreten skill.,tasarim-ui
+json-render. LLM çıktısını bileşen kataloğuyla sınırlı JSON'a bağlayıp UI render eden çatı,tasarim-ui
+playwright-cli. Tarayıcıyı komut satırından sürüp ekran görüntüsü/etkileşim testi yapan CLI.,kodlama-ajan
+sterlib.dev. animasyonlu UI bileşen kütüphanesi,tasarim-ui
+"tasarla-kur-test et-ekran görüntüsü döngüsü. Düz İngilizce tariften tasarım, kod, test ve ekran görüntüsü döngüsü",tasarim-ui
+taste-skill. AI-slop görünümünü engelleyen tasarım skill'i.,tasarim-ui
+unlumen UI. React bileşenleri + WebGL arka plan/shader bölümü; ücretsiz olanlar tasarim-katalog kaynak.tsv'ye eklenir.,tasarim-ui
+web-design-guidelines. UI kodunu Vercel Web Interface Guidelines'a göre denetleyen skill.,tasarim-ui
+"Nvidia is now offering 80+ AI API Key for Completely Free with generous limits. Tek bir servis (build.nvidia.com) ücretsiz API anahtarı; kurulacak repo/skill yok, Claude Code'a model bağlama fikri mevcut kurulumla karşılaştırılır.",ai-model
+"Claude Opus 5'in sızdırılan sistem prompt'unu ücretsiz modellere vererek çıktı k. Repo/skill adı yok; sızdırılan sistem prompt'undan araç kullanımı ve güvenlik kuralları öğrenilebilir, mevcut kurallarla karşılaştırılır.",ai-model
+"windows 11'de reklam ve ipuçlarını kapatmak!. Windows 11 reklam/ipucu kapatma aracı; Claude Code, ajan veya geliştirici iş akışıyla ilgisiz, konu dışı.",diger
+"FREE prompt to make Claude Smarter. Dosya adı/repo/link yok; yapmama kurallarına dayalı talimat dosyası fikri, mevcut CLAUDE.md kurallarıyla karşılaştırılır.",kodlama-ajan
+"Binlerce Promptu Claude’a Bağla: Master Prompt. Tek somut araç var: prompt.chat, açık kaynak ve MCP ile Claude'a bağlanıyor; link verilmemiş, kurulumdan önce lisans/kurulum raporu gerekir.",ai-model
+"Copy this AGENTS.md to make your AI smarter. Kaynak linki yok; agents.md kural seti (basit çözüm, bağımlılıkları koru, dokümana bak) mevcut kurallarla karşılaştırılacak bir pratik.",kodlama-ajan
+"instagram reel. Tek somut araç Jcode (açık kaynak, Rust harness); repo linki yok, lisans ve kurulum raporu gerekir.",kodlama-ajan
+"10 Claude Github Repos that actually matter #ai #tech. 10 repodan oluşan liste; tek somut araç yok, mevcut skill/kurallarla karşılaştırılır.",kodlama-ajan
+"Claude Code just made building a $10,000 website possible with basically one com. Birkaç araçlık akış (Framer Motion, UIUX Pro Max, 21st dev); tek araç yok, bağlantı yok, tasarım akışı fikri.",tasarim-ui
+"Comment SETUP and I’ll send you the full guide 👇. Aynı UI akışı: Framer Motion + UI UX Pro Max + 21st.dev; araç listesi, URL/komut yok, lead-gen.",tasarim-ui
+"Yorumlara VİDEO yaz ✅, Veo, Kling veya Sora gibi modellere ücret ödemeden 4K kal. Tek somut araç LTX 2.3 (yerel video modeli); gerçek repo linki yok, lisans/kurulum raporu gerekir.",video-medya
+Create GSAP snap scroll animation with Claude Code in less than 10 prompts.. Claude Code ile GSAP snap scroll yapma tekniği ve CLAUDE.md prompt pratiği; kurulacak araç yok.,tasarim-ui
+"Never ever launch your game without doing Market Research! #indiegame #IndieDev . Oyun pazar araştırması (SteamDB); Claude Code/ajan/geliştirici araçlarıyla ilgisiz, konu dışı.",diger
+"✅Comment Cyber to get the full guide. 754+ siber güvenlik skill setinden söz ediliyor ama ad/repo yok; skill konusu, mevcut skill'lerle karşılaştırılır.",guvenlik
+"Siber güvenlikçiler için olmazsa olmaz üç sertifika. Siber güvenlik sertifika tavsiyesi (OSCP, CPTS, CCNA); Claude Code/ajan/geliştirici araçlarıyla ilgisiz kariyer içeriği.",guvenlik
+"https://github.com/santifer/career-ops?ysclid=mprg65ucjr922079299. Birden çok repo var ama asıl hedef claude-video watch skill'i; linki açık, yine de lisans/kurulum kontrolü gerekir.",video-medya
+"Most people still think building a premium website takes weeks, designers, and a. Tek somut kurulum yok; UI UX Pro Max, 21st.dev, Framer Motion gibi araç listesi ve tek satırlık iş akışı pratiği.",tasarim-ui
+Comment “Agent” and I will send it over YALL. İçeriksiz yorum-bekleme videosu ama konu Claude Code/ajan çevresinde; şüphede ELE değil ÖĞREN.,kodlama-ajan
+"Comment “Trade” for the Github Repo 🤞🏼📈📊. Metin boş, repo adı/link yok; içerik bilinmiyor, ELE'ye karar vermek için kanıt yok.",diger
+"Someone just open-sourced a tool that generates photorealistic 3D models of any . Açık kaynak repo cartesiancs/map3d adı/linki var; ama Claude Code ile ilgisi zayıf, lisans/uyum kontrolü gerekir.",diger
+"Comment “Matt” and I’ll send over the repo to install into Claude Code 🤞🏼. Matt Pocock'un skill deposu tek somut repo; link videoda yok, lisans+kurulum raporu gerekir.",kodlama-ajan
+"Comment OBSIDIAN and I’ll send you my full guide with prompts on how to set up O. Obsidian ile proje başına 4 dosyalık hafıza deseni; pratik/fikir, kurulacak repo yok.",kodlama-ajan
+"Yorumlara “WEB” yazın, size erişim linkini göndereyim.. Araç adı yok; tek komutla 3D site fikri, Claude Code/skill'e uyarlanabilir kavram.",tasarim-ui
+"Comment “VIDEO” and I’ll send it over.. Tek somut skill adı 'video-use' açık kaynak; ancak link videoda yok, lisans/kurulum raporu gerekir.",video-medya
+"Yoruma ""plugin"" yaz, tüm listeyi DM'den göndereyim ⚡️ Claude'u 5 dakikada altı k. 23 yetenekli plugin/araç LİSTESİ (Superpowers, Frontend Tasarım vb.); tek somut kurulum yok, link yok.",kodlama-ajan
+"Yoruma ""sistem"" yaz, linkini DM'den göndereyim ⚡️ Dünyanın en prestijli teknoloj. Tek somut araç G-Stack var ama link metinde yok. Kurmadan önce lisans ve kurulum raporu gerekir.",kodlama-ajan
+"These 7 free GitHub repos that replace thousands a month in paid software.. 7 repodan oluşan bir liste ve adlar eksik. Tek somut araç yok, konu geliştirici araçları.",diger
+"Yoruma ""sistem"" yaz, linkini DM'den göndereyim ⚡️ Dünyanın en prestijli teknoloj. Tek somut araç G-Stack (23 araç, açık kaynak) var ama link yok. Lisans ve kurulum raporu gerekir.",kodlama-ajan
+"comment “system” or dm me to learn more…. Özet içeriksiz: video metni yok, konu ve araç belirlenemiyor.",diger
+"TurboVec is a new open-source vector index built on Google Research’s TurboQuant. TurboVec açık kaynak vektör indeksi, link açık. Claude Code'a özgü değil, kurmadan önce lisans ve uygunluk gerekir.",ai-model
+"Stop building obsidian brains, do this instead. Tek somut ad 'Gbrain' (bellek kurulumu), link ve ayrıntı yok. Önce araştırma ve lisans raporu gerekir.",kodlama-ajan
+"Create 3D Animated websites with these tools 🔧. Metin şarkı sözü, araç adı ve içerik yok. Başlıktaki 3D web araçları metinden doğrulanamıyor.",tasarim-ui
+"Comment “WEB” and I’ll send you the full setup.. UI UX Pro Max skill'i anılıyor ama repo adı/linki yok; web tasarım iş akışı fikri, mevcut skill'lerle karşılaştırılır.",tasarim-ui
+"Yoruma ""claude"" yaz, kurulum linkini DM'den göndereyim ⚡️. 'Everything' adlı tek açık kaynak paket (60+ agent, 229 skill); GitHub linki DM'de, kurmadan önce lisans/kurulum raporu gerekir.",kodlama-ajan
+"Comment “VISION” to get this new free vision model.. NVIDIA açık kaynak görü modeli haberi. Model adı ve link yok, AI alanında olduğu için ELE değil.",ai-model
+"Ücretsiz Claude Code rehberi ve GitHub reposu için yoruma ""CLAUDE"" yaz! 🚀. Claude Code'u ücretsiz modellerle çalıştırma fikri. Araç adı verilmiyor, yalnızca 'GitHub'da bir araç' deniyor.",kodlama-ajan
+"Powerful websites you should know (part 1056) find almost any animated component. Animasyonlu UI bileşen sitesi tanıtımı. Site adı ve link yok, geliştirici araçlarıyla ilgili.",tasarim-ui
+"Yorumlara “Tasarım” yaz kullandığım tüm linkleri göndereyim. 👇. UI UX Pro Max skill ve 21st.dev Magic MCP adları açık, link yok. Lisans ve kurulum raporu gerekir.",tasarim-ui
+"Giving Claude Eyes 👀 This AI upgrade changes everything... wait until the end to. Skill/repo adı yok; video karelerini yerelde çıkarıp Claude'a gösterme fikri, konu Claude skill'leri.",video-medya
+10/10 Claude Skills for marketing but they get increasingly more powerful!!. Pazarlama için birden fazla Claude skill'inden oluşan liste; tek somut kurulacak araç yok.,kodlama-ajan
+Bir web sitesini tek komutla klonladım 🤯. Araç/repo adı yok; AI ile site klonlama iş akışı tekniği.,tasarim-ui
+"Top 3 UI Libraries to create Premium Animated Websites 💻 👨🏻‍💻. Üç UI kütüphanesinden oluşan liste, bağlantı yok; kurulacak tek araç yok.",tasarim-ui
+"Comment “real estate” for the RE Walkthrough Pro skill pack. Tek somut skill paketi (RE Walkthrough Pro) ve Higgsfield MCP var; repo/link yok, lisans ve kurulum raporu gerekir. Emlak odaklı ama araç somut.",video-medya
+"Comment ""CODING"" to get 9Router's GitHub repo and start running Claude Code for . Tek somut araç 9Router (sağlayıcı yönlendirme); lisans ve kurulum raporu gerekir, link yorumla veriliyor.",kodlama-ajan
+İşe Yarar Github Repoları Part 13. Tek somut repo adı (Academic Research Skills) var ama link yok; kurmadan önce lisans ve kurulum raporu gerekir.,diger
+"Comment “AI” and I’ll send the repo ↓. Ücretsiz LLM API sağlayıcıları listesi; repo adı/linki yok, liste niteliğinde.",ai-model
+Making 3D interactive scroll websites is way easier than it looks.. Claude Code + Three.js + GSAP ile 3D kaydırma sitesi yapma tekniği; kurulacak tek araç yok.,tasarim-ui
+"🚨 BUILD YOUR OWN AI AGENT 100% FREE. Tek repo ve link var, MIT lisanslı; ancak LangChain/Groq/Gemini başlangıç iskeleti, Claude Code aracı değil. Uyarlama gerekir.",kodlama-ajan
+🚀Top 10 claude skills for Designers. Skill adları verilmemiş; tasarım odaklı Claude skill listesi konusu mevcut skill'lerle karşılaştırılır.,tasarim-ui
+"AI kod asistanın aslında paranı yakıyor olabilir 🔥. Kod tabanını bilgi grafiğine çeviren MCP fikri; araç/repo adı yok, token tasarrufu tekniği olarak karşılaştırılır.",kodlama-ajan
+"Comment “Repo” and I’ll send it over!. Tek araç Postiz, açık kaynak, CLI ile ajan entegrasyonu; link yok, lisans ve kurulum kontrolü gerekir.",otomasyon
+"comment “scroll” and I’ll send you the prompts, full walkthrough, and bonus anim. Kare dizisiyle scroll animasyonu tekniği; Flow/EasyGIF araç listesi, kurulacak tek araç yok.",tasarim-ui
+"Link in Bio! Try this one-line Claude setup right now at the link in my bio!. UI UX Pro Max, 21st.dev, Framer Motion birlikte; araç listesi/iş akışı, tek repo adı ve link yok.",tasarim-ui
+"Comment ‘AI’ and I’ll send you the links to try them all.. Haftalık AI araç haberleri listesi (Hermes Skills Hub, Muse Code, Qwen); tek kurulacak araç yok.",ai-model
+"Comment “vibe” and I’ll send you my free guide with over 100 websites 🙂‍↕️ #manu. 100+ tasarım/geliştirme sitesi listesi; birkaç araç adı var, tek kurulacak araç yok.",tasarim-ui
+"Prime Agent just entered the AI agent arena.. Tek araç Prime Agent, açık kaynak iddiası; link yok, lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Comment ""CODE"" and I'll send you the direct link. 🔥. Tek araç V3Code (v3code.dev), MCP ile bağlanan yerel bellek sistemi; lisans/açık kaynak durumu ve kurulum doğrulanmalı.",kodlama-ajan
+"Build Your Own Projects 😎. Tek bir kurulacak araç yok; proje rehberleri koleksiyonu, tam URL yok. Konu kodlama ama ajan/skill aracı değil; ELE'ye şüphede ÖĞREN.",diger
+Let me show you a secret website that can save you hours on motion graphics — yo. Claude Code/ajan ile ilgisiz bir hareketli grafik web aracı tanıtımı; metin de Claude Code'a özgü entegrasyon sunmuyor.,video-medya
+"Comment “MCP” & I’ll send the setup guide for all 4👇. Dört MCP'den oluşan liste (Perplexity, Firecrawl, Playwright, Context7); araç listesi, tek araç değil.",kodlama-ajan
+"Comment “FLOW” and I’ll send you the exact workflow we use to build crazy 3D web. Somut araç/repo adı yok; 3D web için Claude Code iş akışı (hedef, tasarım, kodlama, test) anlatılıyor. Mevcut skill/kurallarla karşılaştırılır.",tasarim-ui
+"SAVE THIS FOR LATER!!!. Metin yalnızca 'Music'; araç/teknik içerik yok, #ad etiketli Manus tanıtımı. Tamamen içeriksiz.",diger
+"Comment “GRAPH” and I’ll send you the repo and the exact setup, because there’s . Tek somut araç Graphify (bağlam tasarrufu haritası); repo linki metinde yok, lisans/kurulum raporu gerekir.",kodlama-ajan
+"8 Boring Automations.. Hangi otomasyonların gösterildiği belli değil; araç/skill adı yok, yalnızca 'SELL' yorumuyla satış rehberi tanıtımı var. Teknik içerik yok.",otomasyon
+"A free, open-source GIS platform that runs in the browser, desktop, mobile, and . Konu GIS platformu, Claude Code/ajan aracı değil ama AI profilleri var; adsız, repo/link yok. Kurulacak somut araç belirsiz; fikir olarak karşılaştırılır.",diger
+"Self-healing means your setup finds the mistake it keeps repeating, and writes t. Oturumlar arası self-healing /dream skill fikri; repo/link yok, mevcut skill ve kurallarla karşılaştırılır.",kodlama-ajan
+"Some websites don’t just show the work. They become the work.. Portfolyo sitesi ilham videosu; Claude Code/ajan ile ilgisiz, teknik içerik yok, yorum bırakma çağrısı.",tasarim-ui
+"One GitHub repo.. Claude Code ajan/skill/MCP koleksiyonu; repo adı ve link yok, mevcut yapıyla karşılaştırılır.",kodlama-ajan
+"Bu haftaki proje, Gropector:. Tek somut proje Gropector (Google Maps+Gemini); repo URL'si yok, Claude Code aracı değil, lisans/kurulum raporu gerekir.",diger
+"Comment WORLD and I’ll send you the link. Canlı dünya haberleri/piyasa haritası panosu; Claude Code/ajan araçlarıyla ilgisiz, ad ve link yok.",diger
+"Inspiration is how you go from zero design skills to beating the best designers . Tasarım ilham siteleri listesi (refero, motionsites, Pinterest) ve design.md yaklaşımı; tek kurulacak araç yok.",tasarim-ui
+"Comment “Claude” for links to all 5 plugins. Beş eklenti listesi (Herder, Graphify, OmniRoute, Claude Code Setup, Task Observer); tek somut araç yok, araç LİSTESİ.",kodlama-ajan
+"Comment “CLAUDE” for my FREE Claude Code Masterclass 🚀. Yalnızca 'CLAUDE' yorumla ücretsiz masterclass'a çağrı; araç, repo ya da somut teknik içerik yok, tanıtım amaçlı.",kodlama-ajan
+"Comment “CLAUDE” and I’ll send you my FREE Claude Code Masterclass 🚀. Somut araç/repo yok; yorum karşılığı ücretsiz Claude Code masterclass duyurusu. Konu Claude Code olduğu için ELE değil, ÖĞREN.",kodlama-ajan
+"Yoruma ""gönder"" yaz, kurulum adımlarını ve topluluğumuzu DM'den göndereyim ⚡️. Tek somut kurulacak repo yok; Claude Desktop'taki hazır Small Business eklentisi tanıtımı, link/repo verilmiyor. Eklenti-skill akışı fikri karşılaştırılır.",otomasyon
+"These took me 12 years to learn the hard way. Metinde yalnızca 'Let's go!' var; konu, araç ya da Claude Code/ajan bağlantısı yok, tamamen içeriksiz.",diger
+"Do not publish your website until you do these steps. #digitalmarketing #seo #ma. Somut araç/repo yok; yayın öncesi SEO kontrol listesi fikri, skill veya kurala dönüştürülebilir, mevcut kurallarla karşılaştırılır.",diger
+"You can now run Hermes Agent completely free.. Hermes Agent + OpenCode adları var ama repo/link yok, kurulum ZIP'i yorumla erişimli; lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Yorumlara sadece ""Strix"" yaz, linki hemen mesaj olarak göndereyim.. Açık kaynak güvenlik test aracı Strix; link metinde yok, lisans ve kurulum doğrulanmalı.",guvenlik
+"Without these four, Claude is running at about 10 percent of what it can actuall. Dört MCP/araçtan oluşan liste (Perplexity, Firecrawl, Playwright, Context7); tek kurulacak araç yok.",kodlama-ajan
+"some cool portfolios that can be easily built in Claude x Higgsfield! 👩🏻‍💻. Yalnızca kapanış müziği; tamamen içeriksiz, araç veya konu yok.",diger
+"🟢 Comment “AGENT” — I’ll send the repo. Tek somut araç: açık kaynak Prime Agent harness; repo linki yok, lisans ve kurulum raporu gerekir.",kodlama-ajan
+“Şunu yapar mısın?” diyoruz ama adını bilmiyoruz. 😅. Kurulacak araç değil; UI bileşen adlarını bilip prompt'ta kullanma pratiği (NameThatUI sitesi).,tasarim-ui
+"Comment “LEADS” and I’ll send you the repo, the full setup, and the exact prompt. Tek somut araç ScrapeGraphAI; repo linki metinde yok, lisans/ToS ve kurulum raporu gerekir.",otomasyon
+"Comment «Library» to unlock this website concept ❤️‍🔥. Web sitesi konsepti tanıtımı; içeriksiz, yorum-karşılığı link çağrısı, araç/teknik adım yok.",tasarim-ui
+5 more Blender tutorials you need to watch 💻✨. Blender 3D tutorial seçkisi; Claude Code/ajan/geliştirici araçlarıyla ilgisiz.,video-medya
+"Comment “7” and I’ll send you all 7 GitHub links.. Yedi GitHub reposu listesi; linkler yorumda, tek somut araç yok.",diger
+"Some favorites. Comment design if you want a link to all the GitHub repos! #star. Favori GitHub repoları listesi, adlar/link yok; konu geliştirici araçları, içeriksiz ama ELE değil.",diger
+"👇🏼Comment “AVATAR” and I’ll send you the repo link plus the exact prompt I used . Avatar repo+prompt ile Claude Code UI örneği; repo adı/link yok, teknik/pratik fikir.",tasarim-ui
+Siz uyurken bile kendi bilgisayarınızda aralıksız çalışan koca bir yapay zeka kl. Tek somut açık kaynak repo (munder-difflin) ve adres var; lisans+kurulum raporu gerekir.,kodlama-ajan
+"Reklam değil | Animasyon şablonları bulabileceğin harika site! 🔥 Tamamen ücretli. Animasyon şablon sitesi (LotiLab) tanıtımı; Claude Code/ajan ile ilgisiz, ücretli hizmet.",tasarim-ui
+"Hit follow for more AI building tips!. Beş eklenti listesi (OmniRoute, Superpowers, Caveman, Claude Code Setup, Claude Security); araç LİSTESİ.",kodlama-ajan
+"Comment ""SMART"" and I'll send you the link to make your Claude smarter.. Repo adı yok; tek dosyalık talimat seti fikri (aşırı mühendislik/varsayım/doğrulama kuralları), mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"OpenSandbox is already #1 on GitHub Trending.. Tek somut araç OpenSandbox, repo linki ve Apache 2.0 var; MCP sunucusu mevcut ama kurulum/güvenlik raporu gerekir.",kodlama-ajan
+"Comment «REPOS» and I’ll send you the free blueprint: four repos, wired into one. Depo adı/link yok; konu finans/ajan mimarisi. Güven eşiği, benchmark fallback, LLM'i emir yolundan ayırma ilkeleri mevcut kurallarla karşılaştırılır.",diger
+"Bir milyon kullanıcı aynı anda uygulamana girse sistemin ayakta kalır mı? 👀. System Design Primer eğitim kaynağı; kurulacak araç değil, sistem tasarımı öğrenme materyali. Konu ajan odağından uzak.",diger
+"Comment "" list "". Blender eğitim videoları; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, konu dışı.",video-medya
+"🚨 100K STARS FOR A FREE AI SHORT-FORM VIDEO MACHINE. MoneyPrinterTurbo adı ve repo linki var; Claude Code aracı değil, kullanım için lisans/kurulum incelemesi ya da uyarlama gerekir.",video-medya
+"50+ AI Models in One Place for FREE.. Tek somut araç GODMODE (tek HTML dosyası); repo linki yok, lisans ve güvenlik incelemesi gerekir.",ai-model
+TOP 5 Claude Open Repo’s to make it 100x more UNSTOPPABLE. Claude repo/skill listesi vaadi var ama beş repo adı yok; konu Claude/skill olduğu için ÖĞREN.,kodlama-ajan
+"comment MARKET & I'll send you the links. İçerik yok; yalnızca yorum yazma çağrısı, konu belirsiz.",diger
+"These websites feel illegal to know. 💀. Tasarım siteleri listesi; Claude Code ile bağı zayıf, özet güvenilmez ama geliştirici/tasarım alanında, şüphede ÖĞREN.",tasarim-ui
+"Comment ""FLICK"" to get the link.. Tek somut skill/komut: /Flick (Remotion tabanlı video üretimi); link yorumla DM'de, metinde yok. Kurulum ve lisans raporu gerekir.",video-medya
+"Comment ""PROMPT"" and the exact prompt behind this site is yours 👇. Kurulacak araç/repo yok; hazır prompt kütüphanesiyle (MotionSites.ai) site üretme pratiği. Konu Claude Code'a yakın, içerik zayıf ama ELE değil.",tasarim-ui
+Comment AGENT and I’ll show you how to get started.. Araç adı yok; hazır araçları birleştirip otomasyon hizmeti satma fikri. Ajan/otomasyon alanında olduğu için ELE değil.,otomasyon
+"INSANE 🤑 —> Comment “build” to get the exact prompts + tools that I use to cook . İçerik zayıf, araç adı yok; AI ile web tasarımı prompt'ları vaadi. Alan AI kodlama olduğundan ELE değil.",tasarim-ui
+"# From Novel to Finished Drama Series, 3,800 Stars. DramaClaw reposu ve linki açık, ama romandan dizi üretimi Claude Code işiyle dolaylı ilgili; lisans ve kurulum incelenmeli.",video-medya
+"TRADER. TRADER tek somut proje; link yok, lisans dosyası ve risk uyarısı yok, kurulmadan önce lisans/güvenlik raporu gerekir.",diger
+"🔗Link in bio!. Araç adı yok; UI kalitesi/UX pratiği hakkında genel fikir. Zayıf içerik ama geliştirme alanında, ELE değil.",tasarim-ui
+"✅Comment Software for the Full guide. Ad ve link eksik; 68 ajan/280 skill'lik Claude Code uyumlu ekip, mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"Comment “KEYS” to use FREE AI.. Ücretsiz API katmanları listesi deposu; ad/link yok, araç listesi niteliğinde.",ai-model
+"6 Github Repos that make you money with AI #ai #tech. İçerik boş; başlık AI ile ilgili 6 repoluk bir liste vaat ediyor. Tek somut araç yok, AI alanında olduğu için ELE değil ÖĞREN.",diger
+"✍🏼 Drop „Claude” in the comments and I’ll send you the link to the prompts for t. Araç/repo adı yok; 3D, motion ve kod parçalarını prompt ile birleştirme fikri. Zayıf içerik ama kodlama alanında.",tasarim-ui
+"Kimi K3, 2.78 trillion parameters. One CPU. 8.24 GB of RAM. No GPU, no PyTorch, . Kimi K3 modelinin CPU'da SSD'den uzman yükleme tekniği; model haberi/teknik, kurulacak araç ve link yok.",ai-model
+"tools u NEED for vibe coding🔥. Vibe coding için beş araçlık liste (Watermelon UI, React Spring, Godly vb.); tek somut kurulum aracı yok.",tasarim-ui
+"Claude Code ile hazırladığım 100.000 TL değerindeki web sitesi projesi! 🚀. Claude Code ile web sitesi, skill dosyaları ve animasyon kurgusu anılıyor ama ad/link yok; mevcut skill'lerle karşılaştırılır.",tasarim-ui
+"POV: you discovered the cheat code for web animations.. 3D web animasyon çerçevesi anlatılıyor ama adı yok; fikir/pratik düzeyinde, web geliştirme alanında.",tasarim-ui
+"Comment “skill” to get a link to it 👇. Tek somut araç: Claude Watch (açık kaynak, Claude Code'a kurulur); link yok, Whisper API anahtarı gerekiyor. Lisans+kurulum raporu şart.",kodlama-ajan
+"Diffusion Studio Editor lets you (or your agent) edit video on a canvas while th. Tek araç: Diffusion Studio Editor, repo linki var, açık kaynak, CLI ile Claude ajanları kullanabiliyor. Lisans ve kurulum doğrulanmadan AL denmez.",video-medya
+"Yoruma ""Claude"" yaz, 5 eklentinin linklerini DM'den göndereyim ⚡️. Claude Code için beş eklentilik liste (code review, claude-mem, Obsidian vb.); tek somut araç yok, linkler verilmemiş.",kodlama-ajan
+"follow for more 🫶🏻. Yalnızca takip çağrısı; araç, fikir ya da teknik içerik yok.",diger
+"50+ Free UI libraries every developer should know 💻👨🏻‍💻. 50+ UI kütüphanesi listesi (Magic UI, React Bits vb.); araç LİSTESİ, tek kurulacak araç yok.",tasarim-ui
+"Comment ""CLAUDE"" to get this Free AI Scraper.. Açık kaynak ScrapeGraphAI adı var, Claude Code ile çalışıyor; link verilmediği için lisans ve kurulum raporu gerekir.",otomasyon
+"Yorumlara «ret» yaz, 20 maddenin tamamını itiraz metniyle göndereyim 📩. Apple App Store red maddeleri ve itiraz bilgisi; Claude Code, ajan veya skill konusuyla ilgisiz.",diger
+20 design styles every designer should know. 20 tasarım stilinin yalnızca adları sıralanıyor; Claude Code veya ajanla ilgisi yok.,tasarim-ui
+"6 Boring Automations. İçeriksiz; otomasyonların ne olduğu anlatılmıyor, yalnızca yorum karşılığı rehber vaadi var.",otomasyon
+"Comment “PHOTON” and I’ll DM you the download link for Photon Studio, the free P. Photoshop benzeri masaüstü fotoğraf editörü; Claude Code, ajan veya geliştirici araçlarıyla ilgisiz.",tasarim-ui
+"Comment ""ADS"" to get the free skill from this video.. Açık kaynak social agents deposu ve meta agent pipeline skill'i. Reklamı otonom yayına alması nedeniyle lisans ve güvenlik incelemesi gerekir.",otomasyon
+"10 UI libraries every vibe coder should know ↓. Tek araç değil, 10 UI kütüphanesinden oluşan bir liste; mevcut skill ve kurallarla karşılaştırılır.",tasarim-ui
+"Build and test multi-agent financial workflows with TradingAgents! This open-sou. TauricResearch/TradingAgents açık kaynak çok ajanlı çerçeve; tek repo adı var, kurmadan önce lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Comment 'create' to create your first render with rendair ai!!. rendair.ai mimari render hizmeti; görsel üretim SaaS'ı, Claude Code veya ajanla ilgisiz.",tasarim-ui
+"You can now run an entire company made of AI agents 🤯. Açık kaynak Paperclip, Claude Code dahil ajanları tek panelden yönetiyor; link yok, kurulum komutu çalıştırmadan önce inceleme gerekir.",kodlama-ajan
+"Comment “SKILLS” to get Anthropic’s official Claude Skill vault. Anthropic'in resmî skill deposu tanıtımı; link yok, zaten bilinen bir kaynak, mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"Automate your threat intelligence gathering for free! 🕵️‍♂️ ARES is a brilliant . Tek somut araç (ARES OSINT) adı var, repo linki yok; güvenlik aracı, kurmadan önce lisans ve kurulum raporu gerekir.",guvenlik
+"Cloudflare pointed AI at its own code and found 20,799 possible bugs. Then it op. Tek somut skill (security-audit), MIT ve açık kaynak, ama repo linki yok; kurmadan önce lisans ve kurulum raporu gerekir.",guvenlik
+"🦀 Ollaya: an open-source Rust tool that runs decision models locally — Ollama, b. Tek somut araç (Ollaya) ve repo var, açık kaynak; ama Rust/C++ ve yıldız sayısı tutarsız, kurmadan önce lisans ve kurulum raporu gerekir.",ai-model
+"Comment “VOICE” and I’ll DM you the link and the setup. Follow so the DM reaches. Tek somut açık kaynak araç (VoiceStudio), link yok; ses klonlama aracı, kurmadan önce lisans ve kurulum raporu gerekir.",ai-model
+"Comment “3D” and I’ll send over the complete guide over to you so you can learn . Yorum karşılığı kılavuz duyurusu; konu, araç ya da içerik yok, tamamen içeriksiz.",diger
+10 ways to make money with GPT-6 Astra #ai #tech. İçerik boş ama konu AI modeli haberi (GPT-6 Astra); alandaki zayıf anlatım ELE değil ÖĞREN.,ai-model
+"🚨 Company Brain: an open-source AI teammate in Slack that remembers everything y. Tek repo (supermemoryai/company-brain), açık kaynak, kalıcı ajan belleği; Slack odaklı, uyarlama ve lisans kontrolü gerekir.",kodlama-ajan
+"Comment “SKILLS” and I’ll send you the full list, all the links, how to install . 11 skill deposundan oluşan liste; tek somut araç yok, linkler yorumla veriliyor.",kodlama-ajan
+"Selling AI services? These free open-source repos turn into paid client work thi. Birden çok açık kaynak aracın listesi (Firecrawl, Twenty, Chatwoot vb.) ve AI hizmet satma fikri; tek somut kurulum yok.",diger
+"Comment 'TRADER' and I'll send it over.. Claude'u iki harici veri/işlem servisine bağlayan trading ajanı fikri; tek kurulacak araç yok, servisler muhtemelen ücretli.",diger
+"Someone turned Claude into its own Higgsfield.. Genel adlı bir 'Generate' skill fikri (çoklu model, maliyet, prompt kaydı); ad ve link eksik, konu skill.",video-medya
+"How to make Claude Code build UI that doesn't look like AI slop:. Claude Code UI kalitesi için dört araçlık liste (Impeccable, shadcn MCP, Chrome DevTools MCP, Apple Design skill); karşılaştırılır.",tasarim-ui
+"Comment “CODE” and I’ll send you the repo plus the full safe setup guide.. Tek somut araç seti (Google Mantis, 16 skill), açık kaynak ama repo linki yok; lisans ve güvenli kurulum raporu gerekir.",guvenlik
+"Comment “PYNK” and i send the workflow🤝. Marka bağlamını web sitesinden çıkarıp MCP ile yaratıcı ajana aktarma fikri; Pletor/Playtor hizmet tanıtımına yakın, link yok.",tasarim-ui
+"Over 4,000 n8n automations were leaked for free on GitHub. These workflows, norm. n8n iş akışı koleksiyonu (liste); repo adı/linki yok, tek somut araç değil. Skill/MCP fikirleri için karşılaştırılabilir.",otomasyon
+"Comment “AI” to get the link and the full list of free AI resources.. Hormozi çerçeveleri repo'su; ad/link yok, satış-pazarlama içeriği. Playbook/prompt fikri mevcut skill'lerle karşılaştırılır.",diger
+"SEO skills list to install. SEO skill paketleri tanıtılıyor ama ad/link yok; konu Claude Code skill'i, mevcut skill'lerle karşılaştırılır.",diger
+"Comment “GROK” and I’ll send you the setup.. Araç/repo adı yok; otonom trading ajanı mimarisi (veri, Kelly, işlem) fikir olarak incelenir.",diger
+"“İş hazır, müşteri nerede?” diyenlerden misin? 👀. Apollo, Leadfeeder vb. ücretli SaaS satış araçları; Claude Code/geliştirici araçlarıyla ilgisiz, link de yok.",diger
+"Agentic Al is the shift from asking Al questions to giving Al goals.. Agentic AI kavramı: hedef verme, araç kullanımı, doğrulama-düzeltme döngüsü; somut araç yok, pratik fikir.",kodlama-ajan
+"Make Claude-built websites look more custom with these 4 tools. 🌐🤖. 4 eklenti içeren liste (Emil Kowalski, Impeccable, Taste, Figma MCP+Playwright); tek araç değil, liste.",tasarim-ui
+"Comment “REPOS” for all 9 repo links sent to your DMs. 9 repo listesi, adlar/linkler yok; Claude Code limit ve compaction sorunlarına dair fikirler karşılaştırılır.",kodlama-ajan
+"4 free GitHub repos you can build a paid service on.. 4 repo listesi (AutoClip, Remotion, OpenHands, MuMu); tek araç değil, hizmet kurma fikri ağırlıklı.",diger
+"4 FREE Claude plugins to STOP AI slop 🤯 WAIT UNTIL THE END to see the one you ne. 4 eklentilik liste (Humanizer, Impeccable, 21st MCP, Claude Code Setup); tek araç değil, liste.",kodlama-ajan
+"Comment ""REPO"" and I'll send you all 5 links 🔗. 5 repo listesi (Foreman, Open-glean, Repolyze vb.); linkler yorumda, tek araç değil liste.",kodlama-ajan
+"Comment “Agent” for the link. Steinberger'in ajan kurulumu: merkezi yönerge, skill'ler, doğrulayıcı; repo/link yok, pratik mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"A human runs one backtest. A Sharpe of 3.18 on a simple idea makes them suspicio. Kendini geliştiren ajanda backtest veri sızıntısı dersi; araç yok, ajan doğrulama pratiği olarak değerli.",kodlama-ajan
+Stop shipping AI slop. These 5 free Claude skills turn Claude into a specialist . Beş skill'in LİSTESİ; kurulum komutu/link yok. Liste olduğu için tek somut araç değil.,kodlama-ajan
+"Comment 'PHRASES' and I'll send it over.. Claude Code için altı kısa prompt ifadesi (sub-agents, interview me, verify); araç/repo yok, pratik/teknik.",kodlama-ajan
+"Five open-source projects went off on GitHub this week, and almost nobody outsid. Beş projelik liste; adlar/linkler metinde yok (yorumla DM). Araç listesi, tek somut kurulacak araç yok; içerik/otomasyon fikirleri.",diger
+"50 FREE AI VIDEO GENERATORS 👇🏻. 50 ücretsiz AI video üreteci LİSTESİ; araç adı metinde yok, tek somut araç yok.",video-medya
+"Comment “Claude” for ALL Links/Playbooks to the nine repos. Dokuz repo/skill LİSTESİ, bağlantı yok; Claude Code odaklı, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Comment “PYNK” and i send the skill🤝. Claude için documentary skill fikri; repo/link yok, dosya DM ile. Skill/ajan konusu, kurulacak somut repo belirsiz.",video-medya
+This Canva Trick will be helpful next semester! 😳 #canva #presentation #studygra. Canva sunum hilesi; Claude Code/ajan/geliştirici araçlarıyla ilgisiz ve içeriksiz.,tasarim-ui
+"👇🏼Comment « VIDEO » and I’ll send you all the tool links.. Üç araçlık liste (Raylight, Shotbase, AutoAE); linkler yok, tek somut araç değil.",video-medya
+"Comment “LINKS” and I’ll DM you all 7 GitHub repos.. Yedi repo LİSTESİ, URL yok; ajan/Claude Code konusu, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Someone built an AI that **refuses to work unless it makes a profit** 🤯. Tek somut ajan (Sullivan) var ama repo linki yok, doğruluğu şüpheli; doğrulama gerekir.",diger
+"There are no excuses to still be vibe coding.. Agentic engineering iş akışı (grill me, spec, ticket, build, review); mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"Comment “X” for the MarkItDown link and setup guide.. Tek somut araç MarkItDown (Microsoft, MCP); açık kaynak ama lisans/kurulum raporu gerekir.",otomasyon
+"comment CV and I’ll send you my notes 🔗. CV optimize skill fikri; konu ajan/skill ama ad/repo yok, kişisel kariyer odaklı.",diger
+"Use free AI models in Cline with UnoRouter. Tek somut hizmet UnoRouter + Cline kurulumu; ücretsiz model yönlendirici, güvenilirlik/lisans kontrolü gerekir.",ai-model
+"Comment 'PIXEL' and I'll send it over.. Birden çok skill/MCP (impeccable, taste, Figma MCP, Playwright) birleşimi; araç listesi niteliğinde.",tasarim-ui
+"Comment 'DIE' and I'll send it over.. Birden fazla skill/MCP (Emil Kowalski, impeccable, taste, Figma MCP, Playwright) listesi; link yok, kurulum yorumla gönderilecek.",tasarim-ui
+"Comment “REPOS” and I’ll send you all 5 GitHub links.. Beş repodan oluşan araç listesi; tek somut araç yok, bağlantılar yorumla gönderiliyor.",kodlama-ajan
+Comment “GUIDE” to get my full workflow + free Manus credits!. Yalnızca kapanış cümlesi; tamamen içeriksiz.,diger
+"Comment “HTML” and I’ll send you the repo and the full setup guide.. Tek somut araç HTML Anything, açık kaynak ama repo linki yorumla gelecek; lisans ve kurulum kontrolü gerekir.",tasarim-ui
+"Learn how to master character design faster than 99% of people and finally creat. Karakter çizimi/webcomic eğitimi; Claude Code, ajan veya geliştirici araçlarıyla ilgisiz.",tasarim-ui
+"​3 haftalık bir web sitesini yapay zeka nasıl bu kadar hızlı önermeye başladı? 🤖. Kurulacak araç yok; llms.txt ve schema.org fikri/pratiği, mevcut kurallarla karşılaştırılır.",diger
+"Prototyping realtime news processing based on yesterday's implement. Still there. Kurulacak somut araç yok; Claude Code ile AI destekli ticaret/haber işleme prototipi fikri, konu ajan/kodlama alanında.",otomasyon
+🚨 STOP WASTING HOURS ON WEBSITE PROMPTS. Tek somut kaynak SceneAI (sceneai.art) prompt kütüphanesi; fiyat ve lisans kontrolü gerekir.,tasarim-ui
+Beynimin dijital bir kopyasını yapmaya başladım. 🧠💜. Obsidian + Claude ile ikinci beyin fikri/pratiği; kurulacak tek araç yok.,diger
+"Comment ""AGENT"" and I'll send you all the repo links 🔗. Birden çok araç/repo listesi (Craft, OpenMontage, code-based-memory-mcp, Agency-agents); linkler yok.",kodlama-ajan
+You already have access to your own Jarvis.. Araçlar arası ortak hafıza fikri; somut repo/skill yok.,kodlama-ajan
+Obsidian is not going to help you in the long term…. Tek kurulacak araç yok; paylaşılan canlı bilgi tabanı ve ajanlar arası iş devri fikri anlatılıyor.,kodlama-ajan
+Claude can’t do anything compared to Replit go to the link in bio and make your . İçerik boş ama konu Claude ile Replit karşılaştırması (AI kodlama alanı); şüphede ELE değil ÖĞREN.,kodlama-ajan
+"Ready to upgrade your Content ☄️. Tek somut açık kaynak araç (TrueForge agent harness) var, link yok; lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Free Open Source Higgsfield AI ✅. Higgsfield AI video üretim tanıtımı; Claude Code/ajan/geliştirici aracıyla ilgisiz, repo/link yok, içerik boş.",video-medya
+"Comment “VIDEO” and I’ll send you the full setup guide.. Adı verilmeyen senaryodan video üreten AI aracı; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, içerik yok.",video-medya
+"THIS GITHUB REPO IS A GOLDMINE FOR AI CODERS 🤯. Tek somut repo adı (Agency Agents) var, link yok; 230+ ajanı kurmadan önce lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Comment ""AGENCY"" and I'll send you the link.. Tek repo adı (agency-agents) var, link yorumla gönderiliyor; lisans ve kurulum kontrolü gerekir.",kodlama-ajan
+"Comment “AI” and I’ll send you links to all 6 tools from this week’s roundup.. Haftalık 6 araç/model listesi, URL yok; yeni Claude skill'i dahil, mevcut skill'lerle karşılaştırılır.",ai-model
+"Comment “Repo” for all links.. Genel öğrenme/mülakat repo listeleri; adlar yok, Claude Code/ajan ile ilgisiz içeriksiz tanıtım.",diger
+"Comment “STUDIO” and I’ll DM you the link to this repo.. Tek somut repo adı OpenMontage (ücretsiz, GitHub) var ama link açık değil, DM ile gelecek; lisans ve kurulum doğrulanmalı.",video-medya
+"Comment “plugin” if you want the guide on all of them!. Claude Code eklenti listesi tanıtımı; tek somut araç adı/link yok, içerik eksik. Konu alanda olduğu için ELE değil.",kodlama-ajan
+"Still don’t know how to create Interactive 3D Website!!. Grafik tasarım videosu; araç, skill ya da teknik içerik yok, Claude Code ile bağı yok.",tasarim-ui
+"Build and run your AI workflows locally! 🤖 Orca is an open-source framework that. Tek somut açık kaynak framework adı Orca var; repo linki yok, yorumla gelecek. Lisans ve kurulum raporu gerekir.",ai-model
+"Comment ""SEO"" to get these 3 Claude Code plugins to boost your SEO.. Üç SEO aracı listesi (GSC MCP, OpenSEO, GEO Optimizer Skill); tek araç değil liste, linkler yorumla gelecek.",diger
+"10 completely free ai courses 👇🏻. Genel ücretsiz AI kursu duyurusu; içerik yok, Claude Code/ajan/geliştirici araçlarıyla bağ kurulmuyor.",diger
+"Comment ‘skills’ for the links!. Claude Skills konulu ama içerik yok, ad ve link verilmiyor; konu skill olduğu için ELE değil.",kodlama-ajan
+"Claude zaten güçlü… Ama doğru skill’leri eklediğinizde bambaşka bir seviyeye çık. Yedi skill/eklenti için adsız tanıtım; isimler metinde yok, konu Claude skill alanında.",kodlama-ajan
+"Free open source repo to power teams of agents. The most powerful alternative to. Tek somut araç Paperclip (açık kaynak); repo linki yok, lisans/kurulum raporu gerekir.",kodlama-ajan
+"Comment “FLOW” to get this entire automation 👇. Araç/repo adı yok; SEO için çok ajanlı otomasyon akışı fikri, ajan alanında.",otomasyon
+"Comment “REFRAME” and I’ll send you the full workflow.. Tek somut skill 'Generate' var ama repo/link yok; kurmadan önce kaynak, lisans ve kurulum araştırılmalı.",video-medya
+"COMMENT “REPO” ILL SEND YOU THE LINKS 🔥. Çok sayıda araç/repo içeren liste; tek somut kurulum yok, linkler verilmemiş.",kodlama-ajan
+"Yorumlara PAZARLAMA yaz, DM'den göndereyim 📩Claude ile B2B bir ürün geliştiriyor. Tek repo alirezarezvani/claude-skills ve kurulum komutları açık; lisans kontrolü ve uyarlama sonrası kurulur.",kodlama-ajan
+Comment “agent” for my codex + Claude guides. İçerik doğrulanamıyor ama konu Codex/Claude ajan rehberleri; şüphede ELE değil ÖĞREN.,kodlama-ajan
+Projeyi yaptın. Peki tanıtım videosunu kim hazırlayacak? 🎬. Tek somut skill (Brag) ve repo linki var; Hyperframes bağımlılığı ve lisans/kurulum raporu gerekir.,video-medya
+"Drop comment “BlackRay” if you want to build Website like this 👇. Tamamen içeriksiz yorum-tuzağı; araç, skill ya da yöntem yok.",tasarim-ui
+"Comment ""CREATE"" and I'll send you all 5 links 🥫. Beş açık kaynak araç LİSTESİ (yt-dlp, Remotion, whisper.cpp vb.); tek somut araç değil.",video-medya
+"Create Any Claude AI Agent With just 1 YouTube Video. Araç/repo adı yok; konu Claude ajanı oluşturma, içerik zayıf ama alan içi.",kodlama-ajan
+Comment ‘Render’ to get the link for the Cinematic Product Studio add on for Ble. Blender eklentisi; Claude Code/ajan/geliştirici araçlarıyla ilgisiz.,video-medya
+"Comment ""LTX"" to get this Free AI Video Generator.. Video üretim modeli; Claude Code/ajan/geliştirici akışıyla ilgisiz.",video-medya
+COMMENT “AGENT” and I'll send you the complete GitHub list.. 5 repodan oluşan araç listesi; tek kurulacak araç yok.,kodlama-ajan
+"The most insane 3D, scroll, text & UI animation effects you’ve seen are free on . Lenis, GSAP, Vanta, React Bits animasyon kütüphaneleri listesi; tek araç değil.",tasarim-ui
+"Comment “PYNK” and i send the skill🤝. Tek somut Claude skill (yeşil ekran animasyonlu metin); dosya yorumla isteniyor, inceleme gerekir.",video-medya
+"Not every question deserves your most expensive model.. Model cascade fikri: ucuz modelden başla, güven düşükse yükselt; araç adı yok, pratik/teknik.",ai-model
+"This AI bot makes one buy-or-sell call every block on Monad, and runs in practic. Monad ticaret botu tanıtımı; repo bağlantısı yok, Claude Code ile doğrudan ilgisi zayıf ama blok başı karar/simülasyon deseni öğretici.",diger
+"Yorumlara “Skill” yaz, tüm listeyi göndereyim. Skill listesi isteniyor ama içerik yok; konu Claude Code skill'leri olduğundan ELE değil ÖĞREN.",kodlama-ajan
+"Free open source UI elements for any project. Animasyonlu UI bileşen sitesi; adı belirsiz ('Power 44'), bağlantı yok, frontend geliştirme konusu.",tasarim-ui
+"5 mobile dashboards worth studying if you design digital products.. Mobil dashboard tasarım örnekleri; araç yok, tasarım fikri olarak karşılaştırılabilir ama zayıf bağ.",tasarim-ui
+"Train your own LLM from scratch 🧠. Sıfırdan GPT eğitimi; repo adı/linki yok, kurulacak araç değil teknik bilgi.",ai-model
+Comment PRINT and I'll send you the list. Beş açık kaynak aracın listesi ve hizmet satma stratejisi; tek somut araç yok.,diger
+"Comment REPOS and I’ll send you all of them!. 32 Claude reposu listesi; repo adı ve URL yok, araç listesi niteliğinde.",kodlama-ajan
+"Comment “PART 2” if I should share more Blender tutorials like these 👀. Blender 3D eğitimi, Claude Code/ajan/geliştirici araçlarıyla ilgisiz.",video-medya
+6 Animations that instantly upgrade your websites 🚀👨🏻‍💻. Araç adı yok; animasyon türleri kontrol listesi olarak fikir düzeyinde.,tasarim-ui
+"I taught Lovart how to turn my static designs into interactive web assets 👀. Tek somut skill (Lovart Interactive Assets Skill); link yok, Lovart'a bağlı, uyarlama gerekir.",tasarim-ui
+"Your own office of AI agents. 🤖💜. Tek somut araç Munder Difflin; link yok, kurulum rehberi yorumla veriliyor, lisans kontrolü gerekir.",kodlama-ajan
+"Comment front-end to get the full list. Claude integrates five free AI tools to . Beş araçlık liste (Taste, Impeccable, Playwright CLI vb.); tek araç değil, linkler yok.",tasarim-ui
+"Comment ""PROMPT"" and I'll drop the exact prompt behind this site 👇. Tek somut kaynak MotionSites.ai prompt kütüphanesi; fiyat ve lisans kontrolü gerekir.",tasarim-ui
+"Comment “AI” and we’ll share all 10 GitHub repos in DM. 📩. Adları verilmeyen 10 repo listesi; tek somut araç yok, konu AI/LLM geliştirme.",ai-model
+"Comment “Automation” and I’ll send you the setup.. Tek somut araç adı var (Money Printer Turbo), açık kaynak ama link yok; lisans ve kurulum raporu gerekir.",otomasyon
+"Comment “DESIGN” and I’II DM you the install command for all 5 skills, plus what. Tek araç değil 5 skill'lik liste; kurulmadan önce mevcut skill'lerle karşılaştırılmalı.",tasarim-ui
+"Today’s post is about some AI Agents for Builders 🚀. İçeriksiz; ajan anlatımı yok, yalnızca tasarım araçları koleksiyonu ve hesap takibi çağrısı var.",tasarim-ui
+I Built an Entire Social Media Team With 0 Employees #reels #jev #typesafe #clau. Claude Code ile sosyal medya otomasyonu iş akışı fikri; kurulacak tek araç/repo yok.,otomasyon
+"Comment “github” below to get PDF guide for setting up these 5 open-source proje. Claude Code iş akışları içeren 30 günlük rehber; proje adları yok, fikir/pratik düzeyinde.",kodlama-ajan
+"He dared developers to build a competitor. Then his startup crossed $1B in annua. Higgsfield şirket haberi; araçlar genel kategori olarak anılıyor, somut repo adı yok, API anahtarı gerekli.",ai-model
+"Claude just became a frontend designer with these 5 free tools.. 5 araçlık liste (Tasteskill, Impeccable, Playwright CLI vb.); tek somut kurulacak araç yok, mevcut skill'lerle karşılaştırılır.",tasarim-ui
+"Reicon is an open-source SVG icon library designed for modern web and UI/UX proj. Tek somut araç Reicon, MIT, npm/CDN var; ancak ikon kütüphanesi, kurmadan önce uygunluk/kurulum raporu gerekir.",tasarim-ui
+"Most designers haven’t discovered these yet 👀. Tasarımcılara yönelik web sitesi önerileri; Claude Code, ajan veya geliştirici araçlarıyla ilgisi yok.",tasarim-ui
+"Comment plugins and get the full setup guide with all four plugins. Claude Code . Claude Code için 4 eklentilik liste (OmniRoot, Headroom, ClaudeMem, Claude Code Setup); tek araç değil, link yok.",kodlama-ajan
+"Yorumlara CLAUDE yaz, kurulum komutlarını ve GitHub repo linkini direkt DM'den g. Claude Code'u ücretsiz modellere yönlendiren açık kaynak router; repo adı/URL yok, konu Claude Code.",ai-model
+Turn Claude into a sh*tting money tap. Use these 7 free repos.. Claude ile gelir üretme için 7 repo vaadi; adlar yok ama konu Claude; zayıf içerik olsa da ELE değil.,kodlama-ajan
+"​Yapay zeka tek başına mükemmel bir site çıkaramaz; başarıyı getiren senin doğru. Araç yok; AI ile site geliştirirken aşamalı çalışma ve doğrulama pratiği anlatılıyor, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"THIS IS FU*KING INCREDIBLE. 🤯🔥. Yerel açık kaynak ElevenLabs alternatifi tanıtılıyor ama repo adı ve linki yok; adlar eksik, konu geliştirici aracı.",ai-model
+"Follow and Comment SCROLL and I’ll send you the full walkthrough. 👇. Flow, EasyGIF ve bir AI kodlama aracından oluşan teknik iş akışı; kurulacak tek araç yok, scroll animasyonu tekniği.",tasarim-ui
+"Jev ai vs laya ai comparison. İçeriksiz; yalnızca iki AI aracının karşılaştırıldığı belirtiliyor, ajan/kodlama ilgisi görünmüyor.",ai-model
+"Follow + Comment LIMIT and I’ll send you the full guide. 👇. CLAUDE.md'ye alt ajan yönlendirme kuralı ve model seçimi pratiği; kurulacak araç yok, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Your website is everything. You can make a cheap product look expensive. Male su. Genel web sitesi önemi mesajı; araç, ajan veya Claude Code içeriği yok.",tasarim-ui
+"Comment “Finder” and I’ll sent you the waitlist link. Transkript boş, yalnızca bekleme listesi bağlantısı vaadi; içeriksiz.",diger
+"Comment “Avatar” and I’ll send you the link 👇. Ücretli SaaS (HeyGen) tanıtımı, iş ortaklığı içeriği; Claude Code/geliştirici aracıyla ilgisi yok.",video-medya
+"Claude can now build an AI trading agent that monitors the market and alerts you. Claude ile trading ajanı fikri; LiquidTrade ve QuiverQuant iki harici servis, link yok, tek kurulacak araç değil.",diger
+"Comment «CONTEXT» → get the setup guide 📩. Bağlam yönetimi: CLAUDE.md, compaction, subagents, memory karşılaştırması; teknik/pratik fikir.",kodlama-ajan
+"Most people think GitHub is just for developers 🤔. Altı ayrı repodan oluşan araç listesi; tek somut kurulacak araç yok, fikir olarak mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"230+ AI agents in one GitHub repo 🤯🔥. 230+ ajanlık koleksiyon, repo adı/bağlantısı yok; mevcut ajan/skill yapısıyla karşılaştırılır.",kodlama-ajan
+"Comment “VID” to get the full setup for making videos from code.. Kodla video üretim iş akışı fikri; somut araç adı ve link yok, kurulum DM'de.",video-medya
+"You are using 10% of Claude. Here’s the other 90%.. 27 skill'i rollere göre organize etme fikri ve skill listesi; tek araç yok, linkler yok.",kodlama-ajan
+"Comment “Agent” for the link. Tek repo adı Agency Agents (MIT, 200+ ajan); metinde gerçek link yok, ajanlar özelleştirilip incelenmeli.",kodlama-ajan
+"Claude'u para basan bir makineye dönüştür 💸. 7 açık kaynak repodan oluşan liste; tek somut araç yok, linkler uydurma görünüyor.",kodlama-ajan
+"👇🏼Comment « INSPO » and I’ll send you all the links, plus my guide on how I use . Üç tasarım referans kütüphanesinden oluşan araç listesi; tek kurulacak araç yok, prompt/skill'lere fikir olarak alınır.",tasarim-ui
+Bazı fikirler o kadar basit ki “bunu ben de yapardım” diyeceksin 👀. Girişim fikri bulma önerisi; Claude Code/ajan/geliştirici araçlarıyla ilgisiz.,diger
+How to create custom LLM with your own data #ai #tech. Özel LLM oluşturma konusu AI geliştirme alanında; özet içeriksiz ama ELE yerine ÖĞREN.,ai-model
+"To build an agent that improves itself you need four things: a strategy, the dat. Kendini geliştiren ajan için veri birleştirme ve back-test fikirleri; kurulacak araç yok, ajan tasarımı pratiği.",kodlama-ajan
+"Solo founders don’t have a time problem, they have a headcount problem.. Tek somut araç Dock (çok ajanlı ekip); link yok, ücretsiz plan var. Kurulum öncesi rapor gerekir.",otomasyon
+"Comment ""PLUGIN"" to get these 11 free Claude plugins for your job role.. Anthropic'in 11 rol plugin'i; tek araç değil küme, link yok. Mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"Best UI Libraries to create premium animated websites 💻👨🏻‍💻. Beş UI kütüphanesi LİSTESİ; tek somut araç yok, linkler paylaşılmıyor.",tasarim-ui
+"Comment “UI” to get The Premium UI Kit. Tek somut kit (The Premium UI Kit), tek komutla kurulur; link yok, lisans/kurulum raporu gerekir.",tasarim-ui
+"Comment “ROUTER” → get the setup guide 📩. Kurulacak araç yok; görev/zorluğa göre model ve çaba seçen router fikri, maliyet karşılaştırması. Mevcut model seçim kurallarıyla karşılaştırılır.",ai-model
+Your CLAUDE.md might be making the new Opus worse.. CLAUDE.md'yi yeni modele göre sadeleştirme pratiği; Anthropic'in prompt-audit komutu zaten Claude'un kendi özelliği.,kodlama-ajan
+The Hermes Agent plugin catalog now has 448 free plugins. The craziest ones 🤖. Hermes Agent eklenti kataloğu ve birkaç eklentinin LİSTESİ; tek kurulacak araç yok.,kodlama-ajan
+"Stop letting Claude Code burn through your tokens — these 4 plugins can seriousl. Dört eklentilik token tasarrufu LİSTESİ (Ponytail, OmniRoute, Graphify, AgentSkills); tek araç yok.",kodlama-ajan
+"Your next website project just got a little easier.. Adsız web tasarım kaynakları listesi; kurulacak somut araç yok, tasarım skill'leri için fikir olabilir.",tasarim-ui
+"Comment “LINKS” and I’ll DM you all 10.. 10 Claude Code reposundan oluşan liste; tek somut araç yok, mevcut kurulumla karşılaştırılır.",kodlama-ajan
+"comment STRAWBERRY for the 🔗. İçeriksiz ortaklık/link-yorum çağrısı; araç, skill veya bilgi yok.",diger
+"30+ AI Video Styles You Need to Know 🤯🎬. AI video stilleri; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, araç/repo yok.",video-medya
+"Comment “AUDIT” for the full setup guide + prompts you need 📝. Tek somut skill: Cloudflare Security Audit, açık kaynak; repo linki verilmedi, lisans/kurulum raporu gerekir.",guvenlik
+"Comment SKILLS and I'll send you 300+ more with install lines. Here are the 20 C. 20 skill'lik liste ve 300+ skill vaadi; araç listesi, tek somut araç yok.",kodlama-ajan
+"Comment “STOCKS” and I’ll DM you the link to this repo.. OpenStock hisse uygulaması; Claude Code/ajan/skill ile ilgisiz ama geliştirici repo, kurulacak araç değil.",diger
+"Comment “TRADE” to get “The $0 Test Setup Kit”. Hyperliquid kripto işlem botu; Claude Code/geliştirici araçlarıyla ilgisiz, repo adı da yok.",diger
+"I’ve been getting heaps of requests asking to share more website making resource. İçerik doğrulanamıyor, adsız üç web sitesi kaynağı; geliştirici alanı, şüphede ELE değil ÖĞREN.",tasarim-ui
+"These plugins can help you create smoother animations, better effects and faster. After Effects eklentileri; Claude Code/ajan/geliştirici araçlarıyla ilgisiz.",video-medya
+Here's how to build a Brand Brain in Claude in 5 steps:. Claude projeleriyle marka sesi/DNA kurma pratiği; kurulacak araç yok. Claude Code dışı ama Claude kullanım tekniği.,ai-model
+"Overall, thanks to Reels and carousels, I’ve attracted over 59,000 followers. I . Instagram içerik üretimi eğitimi/kurs satışı; Claude Code, skill, MCP veya geliştirici aracıyla ilgisi yok.",diger
+"Comment ""SCRUB"" and I'll send you the link.. Tek açık kaynak araç (Slop Monster) var, link yok; kurulum ve lisans raporu ya da skill'e uyarlama gerekir.",kodlama-ajan
+"@manus is him. Tamamen içeriksiz motivasyon sesi; araç, repo veya teknik bilgi yok.",diger
+"Wait until the end 👀 These 5 Claude plugins can seriously upgrade your workflow!. Beş eklentilik LİSTE, gerçek bağlantılar yok.",kodlama-ajan
+"Comment “Table” for the step-by-step playbook and prompts. Skill referans dosyalarına içindekiler tablosu ekleme pratiği; araç yok, mevcut skill kurallarıyla karşılaştırılır.",kodlama-ajan
+"I gave an open source AI one channel idea and told it to make the whole video. S. Araç/repo adı yok, link yok; ajanla uçtan uca video üretimi konsepti. Fikir olarak karşılaştırılır.",video-medya
+"Comment “MOTION” and I’ll DM you the link to try Claude Motion and a short how-t. Anthropic'in Claude Motion beta özelliği tanıtımı; kurulacak repo yok, Team/Enterprise planına bağlı, haber niteliğinde.",video-medya
+"comment ""agentic"" for all 7 AI agent certificates, in the order I'd do them 🧠⁠. Ajan sertifika yol haritası; kurulacak araç yok ama konu ajan/MCP alanında, şüphede ELE değil ÖĞREN.",kodlama-ajan
+"Comment “Claude” for the link. Beş skill deposundan oluşan liste, tek bir kurulum hedefi yok. Linkler yorumla DM'den geliyor.",kodlama-ajan
+"Comment “11” to get the full setup!. Replica adlı skill var ama gerçek link yok, 11 skill paketi; kurmadan önce rapor gerekir.",kodlama-ajan
+"Eight open-source AI employees that run your marketing, sales and support routin. Sekiz AI çalışan kiti, repo bağlantısı yok; pazarlama/satış ajanı fikri, onay akışı deseni karşılaştırılır.",otomasyon
+"Comment “CLAUDE” for the Claude Content System Links. Claude Code ile içerik hattı; araç LİSTESİ, tek somut repo yok.",otomasyon
+instagram reel. Metin tek kelime ('you'); tamamen içeriksiz.,diger
+Mortiflix: A Motion Design Studio on Your Machine. Mortiflix tek somut açık kaynak repo (gtkottman/mortiflix-oss); lisans ve kurulum raporu gerekir.,video-medya
+"comment “prompt” and I’ll send the website over where you can get all these prom. Prompt/web tasarım sitesi, ad ve link yok; web tasarımı için prompt fikri, mevcut skill'lerle karşılaştırılır.",tasarim-ui
+"instagram reel. Proje/repo adı yok; ajan tabanlı video hattı fikri, onay panelli otomasyon deseni.",video-medya
+"NVIDIA open sourced Lyra 2.0, a framework that turns a single image into a 3D wo. Model/araç HABERİ, AI alanında; Claude Code ile ilgisi yok ama şüphede ELE değil.",ai-model
+"Free hosting platforms to ship your next project for $0 🚀. Ücretsiz hosting başlığı dışında içerik yok; Claude Code/ajan ile ilgisiz, içeriksiz.",diger
+"Comment “Design” for the links to all 5👇🔓. 5 araçlık liste (Taste, Impeccable, Playwright CLI, Awesome Design, img2threejs); link yok, tek araç değil.",tasarim-ui
+"Anthropic finans için 10 hazır ajan yayınladı ve kodu açık 📊. Anthropic finans ajanları 10'lu set; depo adı/link yok, finans odaklı, ajan/eklenti örneği olarak karşılaştırılır.",kodlama-ajan
+"Reverse Engineering / Authorized Penetration Testing / Security Research Skill R. Tek somut paket (Reverse Skill Router Pack) ve link var; lisans/kurulum raporu gerekir, yetkili güvenlik bağlamı.",guvenlik
+"Stop Designing Boring Sections for your Website. Save this for later!. Figma UI/UX bölüm tasarımı ipuçları; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, içeriksiz.",tasarim-ui
+"I built an office for my AI agents 🏢. Çoklu ajan 'office' mimarisi fikri (8 takım, 31 ajan); kurulum linki yok.",kodlama-ajan
+"Top 108 websites for UIUX deisgners. Genel UI/UX site listesi; adlar yok, Claude Code/ajan ile ilgisiz ve içeriksiz.",tasarim-ui
+"Comment ""PROJECTS"" and I'll DM you the Claude Code Projects setup: who can use i. Claude Code Projects özelliği tanıtımı; üçüncü taraf araç değil, paralel thread pratiği.",kodlama-ajan
+"These are the 10 fastest-growing Claude Skills on GitHub in September 2026, rank. Claude Skills trend listesi; adlar eksik ama konu skill, mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"You can now find out if your business idea makes money before you spend a single. 11 skill'lik 'Founder' sistemi; link yorumda, kurulum için doğrulanabilir repo yok, iş fikri alanı.",diger
+Comment - “Agents”. İçerik yok ama başlık ajanlarla ilgili; şüphede ELE değil ÖĞREN.,kodlama-ajan
+"Comment “REPOS” to get “The Hidden Repo List”. 18 repoluk araç listesi; Hindsight ajan hafızası ve OpenShell sandbox ilgili ama tek somut araç yok, liste.",kodlama-ajan
+"🚨 ONE DEVELOPER JUST BUILT 7 FREE ALTERNATIVES TO ADOBE APPS USING AI!. Adobe alternatifi grafik/video yazılımı; Claude Code, ajan veya geliştirici araçlarıyla ilgisiz.",tasarim-ui
+"Comment “AI” to get the link and the full list of free AI resources.. bitnet.cpp CPU'da yerel LLM çıkarımı; Claude Code/skill ile doğrudan ilgisiz, repo linki yok, AI/kodlama alanında haber niteliği.",ai-model
+"OriginKit is the largest library with over 600+ components. Web UI bileşen kütüphanesi tanıtımı; içeriksiz, Claude Code/ajanla bağlantı yok.",tasarim-ui
+3 Claude skills we make videos with. The links are below.. Üç Claude skill'i ve repo linkleri var ama birden fazla araç: liste. Tek bir kurulacak araç yok.,video-medya
+"Copy the prompt. Get the video. 🖤. AI hareket videosu prompt galerisi; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, içeriksiz.",video-medya
+You can break up with your video generation subscription. 🎬 LTX 2.5 is open weig. Açık ağırlıklı video üretim modeli; Claude Code/ajan/geliştirici araçlarıyla ilgisiz medya üretimi.,video-medya
+"Comment ""DESKS"" and I'll DM you the setup 📩. Çoklu Claude Code oturum yönetimi fikri; /desks kurulumu ve link metinde yok, somut repo yok, mevcut pratikle karşılaştırılır.",kodlama-ajan
+"Comment “PYNK” and I’ll send you the skills 🤝. Creator odaklı Claude skill'leri; adlar/repo yok, konu skill olduğundan ELE değil ÖĞREN.",kodlama-ajan
+"🤖 China is launching a new wave of AI tools that are giving users more powerful . Çin AI araçları listesi (Qwen, Kimi, DeepSeek vb.); araç listesi/haber, kodlama/ajan alanında.",ai-model
+Building custom multi-agent workflows usually requires massive orchestration cod. ChatDev 2.0 (OpenBMB/ChatDev) açık repo adı var ama Claude Code aracı değil; kurmadan önce uyarlama/lisans raporu gerekir.,kodlama-ajan
+"instagram reel. Birden çok ajan reposunun listesi (Open Viking, Browser Use vb.); tek somut araç yok, link da verilmemiş.",kodlama-ajan
+"Comment “AI” to get the link and the full list of free AI resources.. AirLLM yerel büyük model çalıştırma aracı; Claude Code/ajan/skill iş akışıyla ilgisiz, link da yok.",ai-model
+"You can test your business idea against 100 real buyers before you spend a dolla. Tek somut skill seti 'Founder' (Claude skill'leri); repo linki yok, lisans/kurulum raporu gerekir.",diger
+"Comment ""SITE"" and I'll send you the link. Şarkı sözü benzeri içerik ve yorum karşılığı link vaadi; teknik içerik yok.",diger
+"Comment ""LINK"" and I'll DM you the link to set up this free LinkedIn roast skill. Tek somut Claude skill'i (LinkedIn roast, 5 persona); link yok, kurulum öncesi inceleme gerekir.",kodlama-ajan
+"8 Unknown AI Websites You Should Know About... Genel AI web siteleri listesi; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, içeriksiz.",ai-model
+"Comment SKILLS and I’ll send you the full list of 300+ Claude Code and Codex ski. 300+ Claude Code/Codex skill listesi ve yazım skill'leri; araç listesi, tek somut araç yok.",kodlama-ajan
+"Yorumlara BAĞLA yaz ✅, dört bağlantının linklerini ve kurulum promptunu sana DM'. Dört entegrasyon (Perplexity, Firecrawl, PostHog, Composio) liste; tek araç değil, link yok.",otomasyon
+"30 Günde Claude: 22. Gün | CEO Claude bir gözcü işe aldı. Rakip takibi yapan zamanlı ajan akışı fikri (Gözcü); kurulacak somut repo yok, desen olarak incelenir.",otomasyon
+Comment “LEADS” & I’ll send you the link to check out Explee yourself👇. Kredi tabanlı satış/lead üretimi SaaS reklamı; Claude Code veya skill kullanımı öğretmiyor.,otomasyon
+"Yapay zekâya aynı projeyi kaçıncı kez baştan anlatıyorsun?. Dört eklentilik liste (Claude-Mem, Headroom, Setup, Task Observer); tek araç yok, bağlantılar yorumda.",kodlama-ajan
+"Comment ""Claude"" and I'll send you all.. Tamamen içeriksiz; yalnızca yorum yaz çağrısı, konu belirsiz.",diger
+"Comment “CYBER” and I’ll send you the PentAGI project. 🔐🤖. Tek somut araç PentAGI (açık kaynak pentest platformu); repo/linki açık değil, lisans ve kurulum raporu gerekir.",guvenlik
+"Replica, Claude için 11 skill'lik ücretsiz ve açık kaynak (MIT) bir paket. Skill. Replica adlı 11 skill'lik MIT paket; repo linki yok (kaynak arama kodu), kurulmadan önce lisans/kurulum raporu gerekir.",kodlama-ajan
+"🍯 A honey brand deserves a website that feels as pure, golden, and natural as th. Bal markası web sitesi tasarım konsepti; Claude Code/skill/MCP içeriği yok.",tasarim-ui
+"DM me “FIVE” and I’ll send you these 5 GitHub repos plus 5 more 👇. Beş repo listesi (Superpowers, Taskmaster AI vb.); tek araç değil, linkler yok.",kodlama-ajan
+Most people use Hermes completely on its own without realizing there’s an entire. Hermes ajanını güçlendiren araçlar adsız anlatılıyor; ajan alanında fikir/yaklaşım.,kodlama-ajan
+"instagram reel. Özet yok; içerik tamamen boş, değerlendirilecek bilgi bulunmuyor.",diger
+"Comment “repo”. 10 GitHub reposunun listesi; tek somut araç yok, linkler verilmemiş.",kodlama-ajan
+"Comment ""MAGPIE"" and I'll DM you the magpie link and setup steps. Follow so the . Tek somut açık kaynak araç Magpie; link DM'de, lisans/kurulum ve gizlilik incelemesi gerekir.",diger
+"Comment ""MODS"" and I'll DM you my free guide to all 9 👇. Claude Code için 9 modun tanıtımı: tek araç değil liste, kurulum ayrıntısı ve link yok.",kodlama-ajan
+Comment “CLAUDE” for my FREE Claude Code Masterclass 🚀. İçeriksiz ama konu Claude Code eğitimi; şüphede ELE değil ÖĞREN.,kodlama-ajan
+"People are tired of flat 2d webpages and random ai text. They want to experience. Prodüksiyon şirketi için interaktif web projesi tanıtımı; araç/repo yok, hizmet reklamı.",tasarim-ui
+"Comment ""TEACH"" and I'll DM you the install steps for the plugin that teaches yo. VibeWise adlı açık kaynak MIT eklenti, ama link yok, kurulum DM'de; doğrulama gerekir.",kodlama-ajan
+"Comment ""LOGO"" and I'll DM you the free guide (install + the 4 prompts that get . logo-design-skill: repo yolu, MIT lisans ve /plugin kurulum komutları metinde açık.",tasarim-ui
+"Yapay zekâya kod yazdırmak kolay. Asıl mesele, gereksiz kod yazmasını engellemek. Ponytail adlı açık kaynak GitHub projesi tek araç, ama link verilmiyor; kurulum raporu gerekir.",kodlama-ajan
+"Comment “PYNK” and i send the skill🤝. Marka DNA'sı çıkaran Claude Code skill akışı; skill'in gerçek adı/repo'su belli değil, DM ile dağıtılıyor.",tasarim-ui
+"Yorumlara VERİ yaz ✅, MarkItDown kurulum rehberini sana DM’den göndereyim.. Microsoft MarkItDown açık kaynak tek araç, ama link ve kurulum komutu metinde yok; doğrulama gerekir.",diger
+"If your vibe coded site looks like AI slop, this one free Claude skill can help . Emil Kowalski'nin Apple Design Skill'i (MIT) tek skill; depo linki yok, DM ile isteniyor.",tasarim-ui
+"🚀 Stumbled upon Postiz, the open‑source social media scheduling platform that’s . Postiz tek somut açık kaynak araç; self-host, lisans ve kurulum raporu gerekir, repo linki yok.",otomasyon
+"Another day in October, and streak continues 🔥😎. Restoran web sitesi satışı ve Google yorum iş modeli; Claude Code/ajan/geliştirici aracı içeriği yok.",diger
+"👇🏼Comment “SYSTEM” and I’ll send you the full guide.. design.md ile marka tasarım sistemi besleme tekniği; birden çok araç anılıyor (shadcn.io/design, Limora MCP), tek kurulum yok.",tasarim-ui
+"Comment SKILLS and I'll send you all 5 links.. Beş repodan oluşan araç LİSTESİ (yt-dlp, Ollama, Immich, Stirling PDF, Upscayl); tek somut araç yok, linkler yok.",diger
+"💬 Comment “LIB” and I’ll send you all links!. Awwwards UI bileşen koleksiyonu tanıtımı; yorumla link toplama içeriği. Claude Code/ajan/skill ile ilgisi yok, somut yöntem sunmuyor.",tasarim-ui
+Comment “SAVE” and I’ll DM you the link to this free mod that cuts what Claude c. Effortless eklentisi adı ve marketplace komutu açık ama yeni üçüncü taraf plugin; lisans/güvenlik incelemesi gerek.,kodlama-ajan
+"Just comment ""anatomy"" and I'll send it over.. Tamamen içeriksiz: yalnızca yorum yaz içerik gönderilecek denmiş, araç/konu yok.",diger
+"Comment “PYNK” and i send the skill🤝. Marka DNA'sından görsel üreten skill akışı; skill adı/repo yok, fikir mevcut skill'lerle karşılaştırılır.",tasarim-ui
+Need a bulletproof way to download video and audio from the command line? Check . yt-dlp tek somut açık kaynak araç; skill/iş akışına uyarlama ve lisans/kurulum kontrolü gerekir.,video-medya
+"This is how you turn Claude into your personal Instagram manager 🔥. Ootto adlı tek connector ile Claude'dan Instagram yönetimi; hizmet olabilir, lisans/güvenlik/ücret raporu gerekir.",otomasyon
+"Want scroll-driven motion that feels agency-level? GSAP is the industry standard. GSAP/ScrollTrigger tek somut kütüphane; repo linki yok, lisans ve projeye uyarlama gerekir.",tasarim-ui
+"Comment “AI” to get the link and the full list of free AI resources.. Beş açık kaynak video projesinin LİSTESİ (Infinite Talk, Hyperframes, Open Edit, VoiceStudio, Wan2); linkler yok.",video-medya
+"Comment “AI” and I’ll DM you the link to this AI agency that runs inside Claude.. Claude içinde çok ajanlı ajans fikri; araç/repo adı ve link yok, ajan tasarımı konusu.",kodlama-ajan
+"Yorumlara REPO yaz ✅, beşinin linkini ve kurulum rehberini DM’den göndereyim.. Beş repodan oluşan liste, URL yok; ajan altyapısı ve hafıza konusu, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Top-tier animation libraries for designers. İçerik boş; yalnızca tasarımcılar için animasyon kütüphanesi başlığı var, Claude Code/ajan ile ilgisi görünmüyor.",tasarim-ui
+"Comment ""CRAFT"" and I'll send them over.. Adobe alternatifi tasarım uygulamaları; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, konu dışı.",tasarim-ui
+Claude Code just got a serious upgrade. 👀. Claude Code için ajan/skill/hook paketi ama depo adı ve link yok; adı eksik olduğundan mevcut kurulumla karşılaştırılır.,kodlama-ajan
+"Comment ""HUMAN"" and I'll send you the repo.. Tek somut skill türü (humanizer) var ama repo linki yok; kurmadan önce kaynak ve lisans doğrulanmalı.",kodlama-ajan
+"Yapay zekâya 200’den fazla uzman kazandırmak ister misin?. Tek somut repo adı (agency-agents) var, link yok; 200+ ajan kurulumu için lisans ve içerik incelemesi gerekir.",kodlama-ajan
+"Web sitelerini tersine mühendislikle AI ajanları için bedava API'ye dönüştüren h. Repo adı ve link yok; web sitelerini ajan API'sine çevirme fikri Claude Code/ajan alanında, karşılaştırılır.",kodlama-ajan
+"💬 Yoruma “OLUŞTUR” yaz, Claude’u görsel ve video üretim platformuna dönüştüren b. Tek somut skill (Generate) adı var ama link/kurulum yok; kurmadan önce kaynak, lisans ve kurulum araştırılmalı.",video-medya
+Comment “SELL” and I’ll send you the build and sell guide for all 8 🔗. Satış rehberi reklamı gibi ama Claude Code skill'leri ve ajan fikirleri içeren araç/fikir listesi; şüphede ÖĞREN.,diger
+"Comment ""PROMPT"" and I'll drop the exact prompt behind this site 👇. Kurulacak repo/skill yok; AI kod editörüyle hazır prompt kütüphanesinden site üretme pratiği. AI-kodlama alanında olduğu için ELE değil.",tasarim-ui
+"Comment ""LIMIT"" and I'll DM you the link to the skill: the Haiku 5.5 helper and . Model yönlendirme (Haiku/Opus) ile limit yönetimi pratiği; skill linki yok, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"claude code just got a tool that lets it build real iphone apps and install them. Açık kaynak Xtool ve repo adresi açık, ancak Apple SDK/kimlik kurulumu gerektiriyor; AL'dan şüphe → UYARLA.",kodlama-ajan
+"Explainer studios charge $1,000 or more for a 30 second animated video.. Opus ile tek prompt'tan açıklayıcı animasyon üretme tekniği; araç/repo adı yok.",video-medya
+"This glass bubble looks alive, but it is only shader nodes in Blender. 🫧✨. Blender shader node efekti; Claude Code/ajan/geliştirici araçlarıyla ilgisiz.",video-medya
+"A 70B AI model on a 4GB graphics card. 🤯. Tek somut açık kaynak proje Air LLM; repo linki metinde yok, lisans/kurulum raporu gerekir. Claude Code ile dolaylı ilişki.",ai-model
+"Day-1 of bringing good AI resources. Tek repo (matpococ/skills, MIT) adı açık; 31 skill'lik set, mevcut skill'lerle çakışma/uyarlama ve doğrulama gerekir.",kodlama-ajan
+"Comment PLUGIN and I’ll send you all 5 links 👇. Beş eklentilik LİSTE (Awesome Design, Playwright CLI vb.); linkler DM'de, tek araç yok.",tasarim-ui
+"Comment “AI” to get the link and the full list of free AI resources.. Tek somut araç PentAGI (açık kaynak) ama link yok; kırmızı takım aracı, yetkili kullanım ve lisans/kurulum incelemesi gerekir.",guvenlik
+"These 9 free repos replace $1,680 a year in SaaS bills 🤯. Dokuz self-host SaaS alternatifi listesi; Claude Code ile ilgisi zayıf, tek araç yok, link yok.",diger
+"Follow and Comment “SKILLS” to get the resources.. Beş repoluk araç LİSTESİ (FreeLLMAPI, Strix, Claude Mem vb.); tek somut araç yok, linkler eksik.",diger
+"Comment “HARVEY” to get the link.. Tek somut araç Harvey (açık kaynak) var ama repo linki metinde yok, yorumla veriliyor; lisans/kurulum raporu gerekir.",diger
+"Comment ""PROPS"" and I'll DM you the repo link. Follow so the DM lands 📩. Tek araç 3D Asset Server (Claude Code eklentisi); repo linki DM ile veriliyor, lisans ve kurulum doğrulanmalı.",kodlama-ajan
+"10 best Github repos for Claude. Özet içeriksiz; başlık Claude için 10 repo LİSTESİ vaat ediyor. Tek somut araç yok, konu Claude alanında, bu yüzden ELE değil ÖĞREN.",kodlama-ajan
+"Comment ""DESIGN"" and I’ll send you the six-skills setup guide.. Altı skill'lik liste; tek somut araç yok, linkler eksik (github.com/…).",kodlama-ajan
+"Comment ""REVIEW"" and I'll DM you the install command. Follow so the DM lands 📩. Tek araç OpenQodex; açık kaynak ama kurulum komutu DM'de, 1.0 öncesi; lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Comment ""EDIT"" and I'll DM you the repo link for the free tool that makes Claude. Tek araç Video Use; repo linki DM'de, ElevenLabs API ve ffmpeg bağımlılığı var, lisans/kurulum kontrolü gerekir.",video-medya
+"Free Ai video generator #aitool. Araç adı yok, içeriksiz; Claude Code/ajan/geliştirici konusuyla ilgisiz genel AI video üreticisi.",video-medya
+"Comment CONNECT for the Guide. Beş MCP/bağlantıdan oluşan liste (Perplexity, Firecrawl, Playwright, PostHog, Composio); tek araç değil, liste.",kodlama-ajan
+"6 Phrases that will 10x your build time in Claude Code✴️. Claude Code için altı ifade/pratik; somut araç yok, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Claude Code just got mods. And apparently we've been using it wrong this whole t. Claude Code 'mods' fikri/tekniği: oturumlar arası iletişim, panel, ucuz modele yönlendirme; kurulacak tek repo yok.",kodlama-ajan
+"Her ay bir uygulamaya daha abone oluyor musun? 💸. 10 açık kaynak projenin listesi; tek somut kurulum hedefi yok, link ve kurulum ayrıntısı verilmiyor.",diger
+"💬 Comment “LIB” and I’ll send you all links!. Yeni araç adı yok; UI animasyon kod örnekleri. Özetteki repo adresi güvenilmez görünüyor. Alan frontend, konu dışı kesin değil.",tasarim-ui
+"Comment ""VOICE"" to get this tool.. Tek somut araç Voicebox (açık kaynak, MCP sunucusu var); repo linki metinde yok, lisans ve kurulum kontrolü gerekir.",ai-model
+"Comment ""BLOAT"" and I'll DM you the prompt that splits your CLAUDE.md into skill. CLAUDE.md'yi şişirmeyip nadir adımları skill'e bölme pratiği; mevcut kurallarla karşılaştırılacak teknik.",kodlama-ajan
+"Comment ‘Flux’ to get the link for Flux Forms Blender add on. Flux Forms bir Blender eklentisi; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, içerik yalnızca link dağıtımı.",tasarim-ui
+"Comment the word MOTION and I’ll send you the 16 free components.. Premium GSAP bileşen kütüphanesi tanıtımı, link/repo yok, açık kaynak değil. Yalnızca kopyalanabilir animasyon modülü fikri karşılaştırılabilir.",tasarim-ui
+"Comment “TENEX” and I’ll send you the links to all four plugins, plus how to set. Dört Claude eklentisinin listesi, resmi ad/link yok; Claude eklenti pratiği.",kodlama-ajan
+"Claude Code just got mods. And apparently we've been using it wrong this whole t. Claude Code 'mod' fikirleri (oturum devri, dashboard, model yönlendirme); paket adı yok.",kodlama-ajan
+"🚨 Free portfolio templates alert!. Portföy şablonu tanıtımı; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, yorum karşılığı liste reklamı.",tasarim-ui
+"Anthropic's plugin repo now has over 100 plugins for your team. The sales one ha. Anthropic plugin deposu ve eklenti listesi tanıtımı; depo adı, eklenti adları ve link yok, tek kurulacak araç belirsiz.",kodlama-ajan
+"Comment "" Repos"" below and I'll send you the repo links.. Sadece 'Repos' yorum çağrısı; araç, konu ya da içerik yok.",diger
+"Yorumlara VİDEO yaz ✅, 5 reponun kurulum kitini DM’den göndereyim.. Tek araç değil, 5 parçalık liste (Remotion, yt-dlp, Whisper, Superpowers); video üretim iş akışı fikri. Repo linki yok.",video-medya
+"Yorumlara UYGULAMA yaz ✅, ekran görüntüsünü koda çeviren aracın kurulum rehberin. Araç adı/repo yok, yorum-DM tuzağı; konu ekran görüntüsünden koda dönüşüm (geliştirici aracı), ELE değil ÖĞREN.",tasarim-ui
+"Claude'u tek başına bir yaratıcı ekibe çeviren 5 ücretsiz skill. Hepsi videoda.. 5 ücretsiz skill LİSTESİ (Remotion, Competitor Ads Extractor, Deep Research, Voice DNA); biri belirsiz, link yok.",kodlama-ajan
+"Comment “MCP” for the full MCP list sent. GHL, Apify, Miro vb. araç LİSTESİ; Claude Code ile tek terminalde birleştirme fikri, linkler paylaşılmamış.",otomasyon
+"A growing collection of viral videos made with Claude Opus 5.5 and the prompts b. Kurulacak araç değil, prompt/video koleksiyonu reposu; prompt fikirleri mevcut skill'lerle karşılaştırılır.",video-medya
+"679 likes, 37 comments - rakeshmahantiai1 on October 14, 2026. Tamamen içeriksiz: yalnızca beğeni/yorum sayısı ve başlık var, konu belirlenemiyor.",diger
+"Comment “AGENT” to get the full setup to create your own AI company.. Koordinatör ajan, ortak hafıza ve Telegram ile çok ajanlı yapı fikri; somut araç/repo adı yok.",kodlama-ajan
+"Anthropic just gave every solo founder a free team.. Repo adı/linki yok; Claude Code+skill deposu konusu, DM'den kurulum vaadi. Mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"Yorumlara “Claude” yaz bu güncellemenin detaylı kurulum rehberini sana dm’den gö. Claude Projects koordinatör/thread güncellemesi; araç kurulumu yok, ajan orkestrasyon fikri.",kodlama-ajan
+"Public APIs offers a free list of over 1,900 APIs that Claude Code can integrate. Tek araç değil 1.900+ API listesi; liste olduğu için ÖĞREN.",diger
+"Comment 'CASH' and I'll send it over.. Reklam ajansı iş modeli satışı; Higgsfield ücretli hizmet, Claude Code/geliştirici araçlarıyla ilgisiz.",video-medya
+"Comment “TOKEN” to get the repo link + the quick setup kit 👇. FreeToken adlı tek açık kaynak motor var ama repo linki yok, donanım gereksinimi; lisans/kurulum raporu gerekir.",ai-model
+"Useful Vibe Coding Tools Part 1 🔥 Comment “Bits” for the code 🔗. Site ve MCP adı verilmemiş; bileşen MCP'siyle UI üretme pratiği, Claude ile ilgili.",tasarim-ui
+"How to use GPT-6 Astra to find profitable trading strategies #ai #tech. İçerik yok (özet üretilememiş); konu trading stratejisi, Claude Code/geliştirici araçlarıyla ilgisiz.",diger
+"Claude Code has been working blind this whole time. Most people have no idea how. İki skill'in adı/repo'su yok; Claude'a video görme fikri, mevcut skill'lerle karşılaştırılır.",video-medya
+"Comment ""RULES"" and I'll DM you my free guide to all 10 skill rules 👇. Skill yazım kuralları (SKILL.md boyutu, hook kullanımı); kurulacak araç yok, mevcut skill kurallarıyla karşılaştırılır.",kodlama-ajan
+"✍🏼 Drop “Claude” in the comments and I’ll send you the link to the prompts for t. Tek kurulabilir repo/link yok; Claude ile hata ayıklama pratiği, araçlar belirsiz ve link yorumlarda. Konu ajan/kodlama alanında.",kodlama-ajan
+Comment ‘Render’ to get the link for Cinematic Product Studio add on for Blender. Blender ürün render eklentisi; Claude Code/geliştirici araçlarıyla ilgisiz.,tasarim-ui
+"Comment “OPUS” and I’ll send you the skill 👇. Basit görevleri Haiku'ya, zor olanları Opus'a yönlendiren model yönlendirme fikri; skill adı/repo yok.",ai-model
+"Comment ""CLAUDE"" to get this tool.. Claude Code prompt kütüphanesi, CLAUDE.md, Plan Mode ve slash komut pratikleri; link verilmemiş, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Scroll and Interactive Website for Contractors and Custom Home Builders. Müteahhit web sitesi vitrini/hizmet tanıtımı; araç, repo veya öğretilecek teknik içerik yok.",tasarim-ui
+"Comment ""PROMPT"" and this exact prompt lands in your DM 👇. Hazır prompt kütüphanesiyle AI kod editöründe 3D site üretme pratiği; kurulacak repo yok.",tasarim-ui
+"Comment ""PRIVATE"" and I'll send you my private team AI setup guide 👇. Tek somut açık kaynak araç: Open WebUI (GitHub); link açık değil, lisans ve kurulum raporu gerekir.",ai-model
+"Comment “HARVEY” and I’ll send everything over 👇. Tek somut araç Harvey (açık kaynak satış ajanı); repo linki metinde yok, lisans ve kurulum raporu gerekir.",otomasyon
+"Comment ""REWRITE"" and I'll DM you the link to the free /linkedin-roast skill, wh. Tek somut skill /linkedin-roast; link yok, DM ile veriliyor. Kurmadan önce lisans/kurulum incelenmeli.",diger
+"Cancel your Higgsfield subscription. Someone open sourced the same studio: 38 mo. Video üretim stüdyosu (Higgsfield alternatifi); Claude Code/ajan alanı dışı, ad ve repo yok.",video-medya
+"Comment “SKILLS” and I’ll DM you every link with the install command. Save this . 7 animasyon skill'inden oluşan bir liste; tek somut araç yok, liste olarak mevcut skill'lerle karşılaştırılır.",tasarim-ui
+"Developer portfolio intro animation. Araç adı yok; React/yaratıcı kodlama portföy animasyonu, zayıf içerik ama geliştirici alanında.",tasarim-ui
+"Everybody's installing the same Claude skills. Here are 5 that almost nobody kno. 5 skill'lik liste (Chief of Staff, Anatomy, Teach vb.); depo bilgisi yok, liste olduğundan ÖĞREN.",kodlama-ajan
+"Comment “LIMIT” to get the link!. Skill adı/repo yok; görev zorluğuna göre Haiku/Opus yönlendirme fikri, mevcut kurallarla karşılaştırılır.",ai-model
+"Comment “MCP” and I’ll send you the setup guide for all 4 + the best use case fo. 4 MCP'lik liste (Perplexity, Higgsfield, Composio, Blotato); tek araç değil, liste.",kodlama-ajan
+"Comment ""HUNT"" and I'll DM you the repo link for the free Claude skills that hun. Dört güvenlik skill'i tanıtılıyor ama repo adı/linki metinde yok (DM ile verilecek); bakımsız, olgun değil. Kurulacak somut repo belirsiz.",guvenlik
+"Comment ""SPAR"" and I'll DM you the link to the free /hiring-panel skill, where 7. Tek somut skill /hiring-panel; link yok, DM ile veriliyor. Lisans/kurulum raporu gerekir.",diger
+"Comment “HARVEY” and I’ll DM you the link to this free Claude sales agent that f. Tek somut araç Harvey (açık kaynak Claude Code satış ajanı); repo linki yok, SPF/DKIM kurulumu ve lisans raporu gerekir.",otomasyon
+"Comment ""GIANT"" and I'll DM you the link to AirLLM, the open-source library that. AirLLM adı açık, Apache-2.0; link metinde yok, GPU gereksinimi nedeniyle kurulum raporu lazım.",ai-model
+"Comment “LINKS” and I’ll DM you all seven GitHub repos.. Yedi repodan oluşan liste; tek somut kurulacak araç yok, linkler de verilmiyor.",kodlama-ajan
+"12 GitHub repositories every AI developer should know. ⭐. 12 projelik araç listesi; tek somut kurulum yok, linkler verilmiyor.",ai-model
+Every chat you’ve had with Claude is saved on your computer. That history shows . Sohbet geçmişinden skill üretme fikri; araç/repo adı yok.,kodlama-ajan
+"Comment ""TUTOR"" and I'll DM you the link to Vibewise, the free plugin that turns. Tek somut eklenti VibeWise (MIT, kurulum komutu var); repo linki yok, kurmadan önce rapor gerekir.",diger
+"10 free Claude design skills that get more niche. 🎨🤖. Birkaç tasarım skill/MCP'sinden oluşan liste; tek somut araç yok, linkler yok.",tasarim-ui
+"Claude Code recommends installing five essential plugins before use. These tools. Beş eklentilik liste; tek somut araç yok, bağlantı verilmiyor.",kodlama-ajan
+"comment “DEBT” for the link to the repo. Tek somut araç Fallow (JS/TS kod sağlığı); repo linki yok, lisans/kurulum kontrolü gerekir.",kodlama-ajan
+"Comment “MODS “and I’ll share the free repo + build roadmap.. Yalnızca 'MODS' yorum duyurusu; araç, repo adı veya içerik yok.",kodlama-ajan
+"Comment “MCP” and I’ll send you all 3 of these MCPs directly to your DM.. Üç MCP'lik liste (Firecrawl, Playwright, Chrome DevTools); tek somut araç değil.",kodlama-ajan
+"Comment ""PROJECTS"" and I'll send you the docs 📩. Claude Projects özelliği tanıtımı (paralel thread, PR, paylaşılan bellek); kurulacak repo yok, mevcut iş akışıyla karşılaştırılır.",kodlama-ajan
+"Tüm listeyi almak için yorumlara “GitHub” yaz. Beş projelik araç LİSTESİ (Superpowers, Taskmaster vb.); tek somut araç yok, mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"AI Stupid Meter: Is Your AI Model Secretly Getting Dumber?. Tek somut açık kaynak araç AI Stupid Meter, repo linki açık; ancak izleme panosu, lisans ve kurulum raporu gerekir. AL'dan şüphe edilince UYARLA.",ai-model
+"Comment ""CLAUDE"" to get these 5 Claude Code plugins to code like a senior dev.. Beş eklentilik liste (Agent Skills, Context7, Graphify, 21st MCP, Strix); tek somut araç yok, linkler verilmemiş.",kodlama-ajan
+"Claude Code offers 5 free plugins to instantly 10x your coding setup. These tool. Beş eklentilik LİSTE; tek somut araç yok, mevcut kurulum ve kurallarla karşılaştırılır.",kodlama-ajan
+"Comment ""DESIGN"" and I'll send you all the links 🎨. Açık kaynak tasarım araçları LİSTESİ (Penpot, Open-Pencil vb.); tek araç yok, link yok.",tasarim-ui
+"Comment “Look” and I’ll send you the guide + all four Claude skills.. Ad/link yok, dört Claude Code skill'i sözü var; konu alanında ama içeriksiz. ELE değil ÖĞREN.",kodlama-ajan
+Artcraft 🆚 Adobe 👀. Artcraft ile Adobe tasarım yazılımı karşılaştırması; Claude Code/ajan konusu dışında.,tasarim-ui
+Claude Code ve Codex kullanırken farkında olmadan gereksiz yere token harcıyor o. Token tasarrufu için dört araçlık liste ve pratikler; tek somut araç yok.,ai-model
+"Comment ""STACK"" and I'll send you the whole setup.. Tek repo adı 'Everything Claude Code' (286 skill, 68 sub-agent); link yok, lisans ve çakışma incelemesi gerekir.",kodlama-ajan
+comment “LINK” to get the Link 🖇️. Adsız 10 açık kaynak repo listesi; araç adı ve link yok.,diger
+"Comment ""HECKLE"" and I'll DM you the link to the free /linkedin-roast skill, whe. Tek somut skill /linkedin-roast (Claude Code); link yok, kurmadan önce inceleme gerekir.",diger
+"Comment ""WORTH"" and I'll DM you the repo link for career-ops, the free Claude jo. Tek somut açık kaynak repo CareerOps (Claude Code içinde); link yok, lisans/kurulum raporu gerekir.",diger
+"Popüler yapay zekâ araçlarının arka planda modele verdiği talimatlar tek bir açı. Sistem promptları derleme reposu; adı/linki yok. Prompt tasarımı için fikir kaynağı, mevcut kurallarla karşılaştırılır.",ai-model
+"Comment COOL for shared memory guide. Tek somut araç Hindsight (ortak ajan hafızası); repo/lisans/kurulum doğrulanmalı, link yok.",kodlama-ajan
+"Comment ""FOCUS"" and I'll DM you the repo link for I Have ADHD, the free Claude s. Tek skill (I Have ADHD), MIT ve plugin kurulumu var ama repo linki metinde yok; doğrulama gerekir.",diger
+"Comment “CLAUDE” for my FREE Claude Code Masterclass 🚀. Ücretsiz kurs için yorum-yaz tanıtımı; araç, teknik veya skill içeriği yok, tamamen içeriksiz reklam.",kodlama-ajan
+5 things I would build inside Claude in one weekend.. Claude ile hafta sonunda kurulabilecek 5 otomasyon fikri; araç/repo adı yok.,otomasyon
+"This GitHub tool changed vibe coding: no more screenshots to your AI 🤯. Tek somut araç Agentation (Claude Code MCP'li); depo linki verilmemiş, lisans ve kurulum doğrulanmalı.",kodlama-ajan
+"Cloudroom: Free Cloud Agents With Their Own Sandbox (The Catch). Tek somut araç Cloudroom (açık kaynak çekirdek, ücretli bulut kotası); repo linki yok, lisans/kurulum raporu gerekir.",kodlama-ajan
+"Microsoft, anthropic and stripe all made free github repos that make claude way . Microsoft/Anthropic/Stripe repoları genel olarak geçiyor; tek somut repo adı yok, liste niteliğinde.",kodlama-ajan
+"Comment “🙌🏻” for the link. 7 web tasarım kaynağı listesi (UI referansı); kurulacak araç değil, link yok.",tasarim-ui
+"4 GitHub repos that make Claude Code way better (the third one made this reel).. 4 Claude Code reposu listesi (Matt Pocock skills, Diagram Design, HyperFrames, text-to-cad); linkler yok.",kodlama-ajan
+"Animaciones impresionantes para tu web 👀. Spline 3B tasarım aracı tanıtımı; Claude Code/ajan/skill ile doğrudan ilgisiz, kurulacak repo yok.",tasarim-ui
+"Yorumlara CANLI yaz ✅,. Claude Code izleme için 3 eklenti; yalnız FileTree okunabiliyor, diğer adlar eksik, konu Claude Code.",kodlama-ajan
+"Comment “CITE” and I’ll DM you the repo link for Academic Research Skills, the f. Tek somut skill deposu Academic Research Skills; URL verilmemiş, kurulumdan önce lisans/kurulum raporu gerekir.",diger
+"Comment “PYNK” and i send the skill🤝. Tek somut skill 'Claude at Director'; link yok, DM ile veriliyor, kurulum/lisans kontrolü gerekir.",kodlama-ajan
+"The right Blender add-ons completely changed the way I work.. Blender eklentileri; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, adlar yok.",video-medya
+"Yoruma ""link"" yaz DM'den ileteyim 🤝. Tek somut skill paketi 'LinkedIn Agent'; link yok, hesap erişimi/otomasyon riski, kurulum raporu gerekir.",otomasyon
+"Stop asking Claude to make your Instagram reels until you've installed these 4 p. Dört eklenti/skill listesi (Ootto, Virality, Content Skills, Remotion); link yok, liste olduğundan karşılaştırılır.",video-medya
+"Comment “GitHub” for the resource doc for all these skills + more 🚀. Somut araç/repo adı yok; Claude Code skill kaynak belgesi tanıtımı, yorum-bazlı lead. Konu alanda olduğundan ELE değil ÖĞREN.",kodlama-ajan
+"Comment “AUDIT” and I’ll DM you the free skill that finds the security holes in . Cloudflare'ın açık kaynak güvenlik skill'i; repo/URL yok, kurmadan önce lisans ve kurulum kontrolü gerekir.",guvenlik
+"Yorumlara SORGU yaz ✅, adım adım göndereyim.. Tek somut skill adı 'Grill Me' var, repo adı belirsiz ('Guitar Repos') ve link yok; kurmadan önce lisans/kaynak doğrulaması gerekir.",kodlama-ajan
+You can create motion videos using Claude Opus 5.5 🤯 and there are 500+ prompts . Prompt Motion galerisi ve Claude ile motion video prompt/skill fikri; kurulacak tek araç yok.,video-medya
+"Comment “BRAG” to get the repo + install kit + Launch Day Playbook. Tek somut açık kaynak skill /brag; repo URL'si yok, kurulumdan önce lisans/kurulum raporu gerekir.",kodlama-ajan
+"You're guessing what to automate next. Your chat history knows. Every chat you h. Sohbet geçmişinden otomasyon adayı bulma pratiği; araç/repo yok, skill fikri.",otomasyon
+"sarveshthakur.ai on October 16, 2026: ""Comment ""Auto"" to get the complete guide . İçeriksiz: yalnızca 'Auto' yorumu ve DM rehberi çağrısı, teknik bilgi yok.",diger
+"Comment « IMPROVE » and I’ll send you the link and a full setup guide.. Tek somut skill: Improve/self-improve system (Build Partner plugin); link yok, kurulum raporu gerekir.",kodlama-ajan
+"Claude can now build an AI trading agent that tracks market changes in real time. Claude ile ticaret ajanı fikri; LiquidTrade/QuiverQuant bağlayıcıları, repo yok. Ajan alanında, finans odaklı.",ai-model
+"Claude’la saatler harcıyorsan yanlış yapıyorsun 👇. 311 skill/71 sub-agent içeren büyük koleksiyon; repo adı/linki yok, liste niteliğinde.",kodlama-ajan
+"Comment AGENT OS and I'll DM you the guide 👇. Tek somut araç Superset: açık kaynak, çoklu ajan çalıştırıcı; link yok, lisans/kurulum raporu gerekir.",kodlama-ajan
+"GitHub Desktop'a kodunu hiç görmeden bir Limon butonu ekledim.. Uygulamaya ajan butonu ekleme fikri; araç adı belirsiz ('REA'), repo yok.",kodlama-ajan
+"Don’t post anything until you install these 5 Claude skills! 🚀 Reels, carousels,. 52 skill'lik ücretsiz GitHub paketi var ama repo linki/adı net değil (yalnız 'Vendeo'); Instagram odaklı, lisans ve uyarlama raporu gerekir.",video-medya
+"10/10 would recommend #ai #GitHub #Claude #coding #computerscience. Yalnızca etiketler ve tek ifade; hiçbir somut içerik, araç veya fikir yok.",diger
+"Comment ""LAZY"" and I'll DM you the link to Ponytail, the free skill that makes C. Tek somut Claude Code skill'i: Ponytail; repo linki DM'de, lisans+kurulum raporu gerekir.",kodlama-ajan
+"Agency Agents offers a library of over 200 specialist AI agents, each with uniqu. Tek somut repo: Agency Agents, MIT, Claude Code'a kurulur; link yok, 200+ ajan uyarlama gerektirir.",kodlama-ajan
+"Are we DONEE?!!!!. Motion design içeriği; araç, skill veya Claude Code ile ilgisi yok, içeriksiz.",video-medya
+"Comment ""COPYIT"" and I'll send you all eleven skills.. Tek somut set (Replica, 11 skill) var ama link yok; lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Comment ""GRILL"" and I'll DM you the repo link for grill me, the free Claude skil. Grill Me skill'i (Matt Pocock, MIT) adı belli ama URL yok; kurulum öncesi rapor gerekir.",kodlama-ajan
+"Comment ""Cloudflare"" and I will DM you the full link.. Araç adı (Clef) var ama repo/link yok; Claude Code/ajan alanında karar modeli haberi. Mevcut skill'lerle karşılaştırılır.",ai-model
+"Yorumlara YOL yaz ✅, beş ücretsiz kursun linkini sana DM'den göndereyim.. Beş ücretsiz AI kursu listesi; kurulacak araç yok, AI öğrenme alanında.",diger
+"Comment ‘REPO’ and I’ll DM a full article breaking down each GitHub and how to u. Beş repodan oluşan araç listesi; tek somut kurulacak araç yok, linkler DM'de.",kodlama-ajan
+"Comment “Skill” and I’ll send you the full guide + the skill itself.. Tek somut araç: Auto Harness eklentisi; repo/link yok, kurulum ve lisans kontrolü gerekir.",kodlama-ajan
+"Claude can make your videos now, for free.. Tek somut araç: HyperFrames; link DM ile geliyor, lisans+kurulum raporu gerekir.",video-medya
+"💬 Yoruma “GOOGLE” yaz, Google Maps Scraper Kit aracının bağlantısını ve Claude i. Tek somut araç: Google Maps Scraper Kit; URL yok, scraping lisans/ToS kontrolü gerekir.",otomasyon
+"A new US lab just dropped a 501B open-weight model 🔓. AI kodlama modeli haberi (Beam, açık ağırlık); kurulacak araç değil, 280 GB donanım gerektirir.",ai-model
+"Everyone can generate a website now. That's exactly why most of them look the sa. Şablonla başla fikri; adlı araç/repo yok, kütüphane yorumla gönderiliyor, ürün reklamı gibi ama web üretimi konusu.",tasarim-ui
+"Comment ""ANSWER"" and I'll DM you the repo link for Answer me with HTML, the free. Answer Me with HTML MIT skill'i, ama repo linki verilmiyor; kurulum/lisans doğrulanmalı.",kodlama-ajan
+"Comment “Save” and I’ll send you all 3 tools plus the full guide to setting them. Araç adı/içerik yok; yalnızca yorum karşılığı DM vaadi, tamamen içeriksiz.",diger
+Comment “clone” and I’ll send you the link to clone any app with Claude so you n. Replica skill seti adı belli ama link yok; lisans ve kurulum raporu gerekir.,kodlama-ajan
+"#AIAgents #HarnessEngineering #GoogleResearch #OpenSourceAI #ArtificialIntellige. Google Harness² tek somut açık kaynak proje; link yok, inceleme/uyarlama gerekir.",kodlama-ajan
+"Four free plugins stop Claude Code from burning through your $20 plan's limit, s. Dört araçlık liste (Ponytail, RTK, Graphify, OmniRoute); araç LİSTESİ, linkler yok.",kodlama-ajan
+Content creation is the best way to attract leads and clients… but doing everyth. 12 repoluk içerik fabrikası anlatılıyor ama repo adı yok; araç listesi ve prompt fikri. Ajan/otomasyon alanında.,otomasyon
+"Task-CoEvolve: The 80% Faster AI Optimizer. Task-CoEvolve açık kaynak, GitHub linki metinde açık; ajan/skill değerlendirmesi için.",ai-model
+"Comment ""STAFFED"" and I'll DM you the repo link: 230+ ready-made Claude agents, . msitarzewski/agency-agents MIT repo adı açık; 230+ ajan toplu, seçerek uyarlama gerekir.",kodlama-ajan
+"6 Github repo blowing up this week 🔥. 6 trend repo, adlar yok; içeriksiz ama GitHub/geliştirici alanı, şüphede ÖĞREN.",diger
+Benzerini yapmak isterseniz yol şu:. Dört skill adı geçiyor (liste) ve asıl içerik Claude Code ile 3D web sitesi yapma iş akışı; tek bir kurulacak araç yok.,tasarim-ui
+Comment “AI” to get the link and the full list of free AI resources.. Açık kaynak yerel ElevenLabs alternatifi tanıtılıyor ama ad/repo linki yok; kurmadan önce lisans ve kurulum raporu gerekir.,ai-model
+"Comment ""SPLICE"" and I'll DM you the repo link for OpenCut, the open-source CapC. Tek somut araç: OpenCut (OpenCut-app/OpenCut, MIT). Doğrudan link yok, Claude skill/MCP'si yok; kurmadan önce rapor gerekir.",video-medya
+"Building websites with AI is getting TOO easy. AI ile web sitesi geliştirme konusu; araç adı verilmemiş, içerik zayıf. AI-kodlama alanında olduğu için ELE değil ÖĞREN.",tasarim-ui
+Comment “GitHub” for the full resource doc 🚀. Claude Skills temalı kaynak belgesi; içerik ve araç adları yok. Konu skill alanında olduğu için ELE değil ÖĞREN.,kodlama-ajan
+You can now run a whole company where every employee is an AI agent 🤯. Tek somut açık kaynak repo (Paperclip) var ama link yok; kurmadan önce lisans ve kurulum raporu gerekir.,kodlama-ajan
+Comment “VIDEO” for all the resources. Hypit/HyperFrames adları geçiyor ama repo linki yok; kurulum ve lisans araştırması gerekir.,video-medya
+"Designers, you need these repos 🎨. Araç/repo adı ve içerik yok; yalnızca başlık ve soru var, tamamen içeriksiz.",tasarim-ui
+"Comment “VIDEO” for all the resources. Hypit + HyperFrames ile Claude Code video üretim hattı; açık link yok, kurulum ve lisans raporu gerekir.",video-medya
+Sponsored by Bluehost #ad. Bluehost sponsorlu ücretli hosting reklamı (#ad).,diger
+"Comment ""SQUEEZE"" and I'll DM you the link to Context Mode, the plugin that stop. Tek eklenti Context Mode; lisans Elastic License 2.0 (tam açık kaynak değil), bu yüzden AL değil, lisans incelemesi gerekir.",kodlama-ajan
+"Comment SUBS and I’ll send you the link to all 7 👇. 7 açık kaynak self-host aracın listesi (Documenso, Immich, Coolify vb.); tek somut araç yok, repo linki da yok.",otomasyon
+"Comment ""PROMPT"" and the exact prompt behind this site is yours 👇. Hazır prompt şablonlarını (MotionSites.ai) kod editörüne yapıştırma iş akışı; Grok Build ile, kurulacak araç yok.",tasarim-ui
+"Today’s post is about claude motion Prompts 🚀. Claude motion promptları konusu ama içerik yok, araç adı yok. AI alanında içeriksiz görünen anlatım için ELE yerine ÖĞREN.",video-medya
+"5 Free Claude Code Plugins That Fix Your Biggest Problems. 5 eklentilik liste (OmniRoute, Claude-Mem, Headroom, Claude Code Setup, Task Observer); tek araç yok, mevcut kurulumla karşılaştırılır.",kodlama-ajan
+"Comment ""REMAKE"" and I'll DM you the repo link for ReelMimic, the open-source ap. Tek araç ReelMimic, MIT lisanslı ve Claude Code ile çalışıyor; repo linki metinde yok, kurulum doğrulaması gerekir.",video-medya
+"Tasarımcıysan bu 8 siteyi kaydet, bir daha boş sayfayla baş başa kalma :). 8 tasarım sitesinin listesi; DESIGN.md ile Claude Code'a tasarım sistemi verme fikri mevcut skill/kurallarla karşılaştırılır.",tasarim-ui
+"This GitHub repo hit 23K stars, and it clones viral videos with AI agents. This . Tek açık kaynak repo (Hypit), Claude Code ile çalışıyor; doğrudan GitHub linki yok, kurulum ve lisans doğrulaması gerekir.",video-medya
+"Comment ""CRUSH"" and I'll DM you the repo link to Context Mode, the Claude plugin. Tek somut plugin (Context Mode) var, ama repo linki yok. Lisans Elastic 2.0 (tam açık kaynak değil), lisans/kurulum raporu gerekir.",kodlama-ajan
+"Comment “TOOLS” and I’ll send you all 4 Claude skills 👇. Dört skill'lik araç listesi, repo/link yok. Mevcut tasarım skill'leriyle karşılaştırılır.",tasarim-ui
+"Comment ""ASKME"" and I'll DM you the link to grill me, the open-source Claude ski. Tek somut skill var (grill-me, Matt Pocock paketi, MIT, kurulum komutu verilmiş) ama repo linki yok; kurmadan önce lisans ve kurulum doğrulanmalı.",kodlama-ajan
+"Comment ""SKILLS"" and I'll send you all the links 🔗. Kurulacak araç yok; token tasarrufu için komut/pratik listesi. Mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Comment ""MASTER"" and I'll send you the full setup 👇. Bağlantı/repo yok; skill'leri birleştirme fikri. Konu Claude skill'leri, mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"Turnitout wipes the hidden AI watermarks and trackers out of your papers and cod. Akademik makalelerden AI filigranı/izi silme aracı; geliştirici/ajan aracı değil, tespit atlatma amaçlı ve konu dışı.",diger
+"Canvaのメニュー表から一瞬で注文サイトを作ってみた！. Kurulacak araç yok; Canva menüsünden Claude ile prototip üretme örneği, bir iş akışı pratiği.",tasarim-ui
+"Comment ""FRAMES"" and I'll DM you the repo link for HyperFrames, HeyGen's free op. Tek somut araç HyperFrames, Apache-2.0, ama repo linki metinde yok. Node 22+ ve FFmpeg gerekiyor, kurulum raporu şart.",video-medya
+"Comment “Repo” and you can check it out for yourself.. Plugin adı belirsiz (“Cloud”), repo yok; aşırı mühendislik azaltma eklentisinin eleştirel testi. Fikir/değerlendirme.",kodlama-ajan
+"Comente ""A41"" que te mando o guia completo no direct 🔥. Yedi repoluk araç LİSTESİ, linkler metinde yok. Liste olduğu için ÖĞREN.",diger
+"Comment ""FOLDERS"" and I'll send you my folder setup, prompts and a full walkthro. Kurulum yok; voice/business/audience dosyalarıyla Claude Code bağlamı kurma pratiği.",kodlama-ajan
+"This free repo has over 63,000 GitHub stars, and it lets Claude make videos for . Tek somut araç HyperFrames, Apache 2.0, ama repo linki metinde yok. Kurulum ve lisans doğrulaması gerekir.",video-medya
+"Imagine using Claude to analyse hundreds of charts, generate Pine Script, run ba. Tek somut araç TradingView MCP; repo/URL metinde yok. Kurulum ve lisans raporu gerekir.",otomasyon
+"Bin kişilik bir şehir kurdum. Hiçbiri gerçek değil.. Tek somut araç MiroFish, açık kaynak AGPL-3.0; repo linki yok, lisans ve API maliyeti kurulumdan önce incelenmeli.",ai-model
+"Dioramas is a free, open-source framework for cinematic 3D websites, where the m. Tek somut araç Dioramas, açık kaynak 3D web çerçevesi; repo linki yorumda, lisans ve kurulum raporu gerekir.",tasarim-ui
+"Amazing websites. Altyazı boş, araç veya içerik yok; yalnızca genel web sitesi seçkisi.",tasarim-ui
+Comment “AI” for the installs to everything. İçeriksiz ama #claudecode konulu; ELE yerine şüphede ÖĞREN kuralı.,kodlama-ajan
+"1 Ağustos 2026'dan beri sitelerdeki müşteri yorumları için yeni kurallar var (Re. E-ticaret yorum mevzuatı; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, araç adı yok.",diger
+"Follow me then comment “WEBSITES” and I’ll send you all 5 links plus the exact p. Beş kütüphanelik liste (Motion, Anime.js, Backlit UI, Coconut UI, Manus) ve dokümantasyonla Claude kullanma pratiği.",tasarim-ui
+#github #repo #yapayzeka #artificalintelligence #software. Genel GitHub öğrenme/API listeleri; Claude Code veya ajan araçlarıyla ilgisiz.,diger
+"Comment ""MODS"" and I'll send you the setup for both.. Somut araç auto-handoff (GitHub, ücretsiz) bağlam sıkıştırma sorununu çözüyor; repo linki yok, doğrulama gerekir.",kodlama-ajan
+"Glassy Login Form V3 — Premium Glassmorphism UI ✨. Cam efektli giriş formu UI tanıtımı; araç/repo yok, Claude Code ile bağlantısız, kod yorumla isteniyor.",tasarim-ui
+"Comment ""SCAN"" and I'll DM you the install command for NVIDIA's free scanner tha. Tek somut araç NVIDIA SkillSpector (skill güvenlik tarayıcısı); komut/link yok, kurmadan önce lisans+kurulum raporu gerekir.",guvenlik
+"Google Research just open-sourced Harness², a recursive agent framework that opt. Harness² Google/Gemini odaklı araştırma çerçevesi; fikir (harness katmanlarını optimize etme) mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"When an AI agent modifies its own prompt files and scripts to solve a hard task,. Harness^2 araştırma fikri: ajanın kendi prompt/skill değişikliklerini doğrulama; kurulacak araç yok.",kodlama-ajan
+"I built a jury of 7 Claudes to grow my Instagram. They grew it from 0 to 26,000 . Tek somut paket Auto Content Skills (30 skill), Instagram odaklı; link yok, içerik ve lisans doğrulanmalı.",video-medya
+"Comment “MOD” and I’ll send you all the mods 👇. Claude 'mods' özelliği fikirleri; somut araç/repo yok, maliyet tabanlı yönlendirme ve rol ayrımı pratiği.",kodlama-ajan
+"I fed an app to 11 agent skills and got a working clone out the other end. ⚡. Tek somut skill zinciri replica-skill; GitHub'da ücretsiz ama link yok, temiz oda klonlama için uyarlama/lisans kontrolü gerekir.",kodlama-ajan
+"Comment ""TOOLKIT"" and I'll DM you the repo link to the 19 skills Claude's own te. Anthropic'in resmi skill deposu, 19 skill'lik küme/liste; tek araç değil, mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"5 free AI repos that trade like a hedge fund. Finans/trading repoları listesi; Claude Code/ajan geliştirici araçlarıyla ilgisiz, alan dışı.",diger
+"Comment ""LEADS"" and I'll send you my setup guide plus an outreach message to tur. Tek somut MIT lisanslı Google Maps scraper deposu, Claude Code skill olarak kurulur; adı/linki yok, rapor gerekir.",otomasyon
+"Anthropic’s 11 FREE Plugins to turn Claude into a specialist for your job✴️🔥. Anthropic KnowledgeWork deposu/eklentileri tek somut kaynak; link yok, kurulum+lisans raporu gerekir.",kodlama-ajan
+"5 free repos to build your own trading bot. Algo-trading botu repoları listesi; Claude Code/ajan geliştirici araçlarıyla ilgisiz, alan dışı.",diger
+Comment “AI” and I’ll send it #ai #GitHub #aiengineering #internship. Tamamen içeriksiz; yalnızca yorum yapma çağrısı ve hashtag var.,otomasyon
+Claude Code'u yapan ekipten biri Claude'a 25 skill yazdı ve bedava dağıttı. Kuru. 'agent-skills' adlı repo geçiyor ama link yok; kurmadan önce repo bulunup lisans/kurulum doğrulanmalı.,kodlama-ajan
+"Binlerce dolarlık sunuculara gerek yok. Normal bir bilgisayarda kendi verilerinl. Soup yerel model eğitimi aracı; Claude Code/skill ile doğrudan ilgisi zayıf, link yok. Alana yakın, ELE değil.",ai-model
+"İllegal hissettiren 5 GitHub reposu. 👀. Beş repoluk liste; tek somut araç yok, liste kuralı gereği ÖĞREN.",guvenlik
+"Comment “edit” and I’ll send you my entire video editing pack, including the Ski. Video düzenleme iş akışı; skill paketi kişiye özel DM'le veriliyor, tek net repo yok. Yöntem olarak incelenir.",video-medya
+"Comment ""PUPPET"" and I'll DM you the repo link for CLI-Anything, the open-source. CLI-Anything tek somut araç, Apache-2.0, Claude Code eklentisi; repo linki yok, kurulum raporu gerekir.",kodlama-ajan
+"Need web design inspiration? 🎨 These 4 free libraries give you live websites, 12. Web tasarım ilham kütüphaneleri listesi; kurulacak tek araç yok, skill çıktısı için referans pratik.",tasarim-ui
+"Comment ""PROMPT"" and I'll send you the exact prompt behind this site 👇. MotionSites.ai prompt kütüphanesi tek somut kaynak; lisans/kullanım koşulları ve uyarlama gerekir.",tasarim-ui
+"Comment ""PSD"" and I'll DM you the repo link and the one command that lets Claude. PhotoCraft tek somut repo/MCP; link yok, erken alfa, lisans ve kurulum raporu gerekir.",kodlama-ajan
+"This repo has over 27,000 GitHub stars, and it audits your AI agent in two minut. iFix AI tek somut açık kaynak araç, Apache 2.0; ancak repo linki yok, kurulum doğrulanmalı.",guvenlik
+"Gün 161 | BURAYA DAHA DETAYLI YAZDIM.. Prompt cache süresi ve /compact, /context kullanımı; araç yok, mevcut bağlam yönetimi kurallarıyla karşılaştırılır.",kodlama-ajan
+"instagram reel. Motivasyon sözleri; Claude Code/ajan/geliştirici araçlarıyla ilgisiz, konu dışı.",diger
+"One line to your AI agent, and you get a site that looks like it won an award. M. AllWords tek somut skill; metinde link net değil (gittrend.io), lisans ve kurulum doğrulanmalı.",tasarim-ui
+"Comment ""SCULPT"" and I'll DM you the repo link that lets Claude build 3D game wo. Claude'u Blender'a bağlayan açık kaynak repo (adı metinde yok, link DM ile); Blender'da Python çalıştırdığı için güvenlik/lisans incelemesi gerekir.",kodlama-ajan
+"Comment plugin down below for the full list. Anthropic released 11 free plugins . Anthropic'in 11 mesleğe özel plugin'i listesi; tek somut araç yok, rol bazlı skill paketleri mevcut skill'lerle karşılaştırılır.",kodlama-ajan
+"Monid gives your AI agent 2,000+ tools through one key and one link, so you stop. Çağrı başı ödemeli, tek anahtarlı araç ağ geçidi hizmeti. Repo/link yok, ad tutarsız (Monid/Monad). Ajan araçlarıyla ilgili, mevcut yapıyla karşılaştırılır.",otomasyon
+"instagram reel. Kurulacak somut araç yok, yalnızca ajan türleri listesi. Ajan konusunda olduğu için ELE değil.",kodlama-ajan
+"Yoruma ""SEO"" yaz DM'den ileteyim 🤝. Birden çok araç var (Search Console MCP, Open SEO, GeoSkill), link yok. Araç listesi sayılır, mevcut skill'lerle karşılaştırılır.",otomasyon
+"claude-motion: How AI Codes Its Own Motion Design. whaleyxbt/claude-motion açık kaynak repo adı net; yine de lisans ve kurulum raporu gerekir, AL'dan şüphe edilince UYARLA.",kodlama-ajan
+"Your Claude plan can now run your outbound, free.. Harvey adlı açık kaynak giden satış ajanı; tek somut araç, repo linki DM ile, lisans ve kurulum incelemesi gerekir.",otomasyon
+"OriginKit has over 700 components and ready to copy as prompts , connect with mc. OriginKit tek somut araç: 700+ bileşen, MCP ve AI editör; URL ve lisans/fiyat belirsiz, kurmadan önce rapor gerekir.",tasarim-ui
+"Seven GitHub repositories unlock powerful AI agent capabilities with minimal set. Yedi repodan oluşan araç LİSTESİ (browser use, Open Viking vb.); tek somut araç yok, link de verilmiyor.",kodlama-ajan
+"Turn any codebase, knowledge base, or docs into an interactive knowledge graph 🦀. Understand Anything adlı açık kaynak Claude Code eklentisi; tek somut araç ama link yok, lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Comment “agent” to get the guide on all 20 agents!. 20 farklı iş akışı ajanının listesi; tek somut araç/repo yok, ajan uzmanlaştırma yaklaşımı karşılaştırılır.",kodlama-ajan
+"tcl-lsp: The Ultimate Coding Assistant. bitwisecook/tcl-lsp için repo linki var ama lisans metinde yok; Tcl nişi, Claude entegrasyonu gösterilmiyor, kurulum raporu gerekir.",kodlama-ajan
+"A 19-year-old says his Claude Code trading bot turned $68 into $750K. Here's how. Claude Code ile yazılmış arbitraj botu hikâyesi; repo/skill yok, iddialar şüpheli ama veri akışı ve risk kontrolü pratiği öğrenilebilir.",otomasyon
+The Only Claude Skill You’ll Ever Need. Tek somut skill adı: Find Skills. Repo/link verilmiyor; kurmadan önce lisans ve kurulum raporu gerekir.,kodlama-ajan
+"Comment ""DIARY"" and I'll DM you the repo link to this free long-term memory for . Claude Code için uzun süreli bellek aracı anlatılıyor ama adı ve linki yok. Konu uygun, adlar eksik.",kodlama-ajan
+"Projeni yapay zekâya sürekli baştan mı taratıyorsun? Tokenların bu yüzden bitiyo. Tek somut araç: Graphify (pip paketi, Claude Code komutu). Repo linki yok; lisans ve kurulum doğrulanmalı.",kodlama-ajan
+"Comment ""SIGNAL"" and I'll DM you the repo link that lets Claude run real apps li. Tek somut araç: HKUDS CLI-Anything, Claude Code eklentisi, Apache-2.0. Repo linki yok, ek bağımlılıklar var; kurulum raporu gerekir.",kodlama-ajan
+"Comment “VIDEO” and I’ll send you the complete GitHub links.. Proje adı yok, içerik boş. Konu video düzenleme, Claude Code/ajan ile ilgisi yok.",video-medya
+"💬 Comment “300” and I’ll send the link!. Frontend animasyon kütüphanesi reklamı. Claude Code/skill/MCP bağlantısı yok, link yorumla geliyor.",tasarim-ui
+"🚨 Aicodeking just solved the biggest headache with broken developer workflows. 🔥. Tek proje (leanrea) açık kaynak, repo URL'si var; yine de lisans/kurulum incelenmeli, özet tutarsız.",kodlama-ajan
+"Comment ""CLOSER"" and I'll DM you the link to the free sales team that runs insid. Anthropic'in 36 satış skill'lik deposu tek somut kaynak; link yok, ücretli plan ve uyarlama gerekir.",otomasyon
+"Build those websites where the animation follows your cursor, in 3 steps.. Tek somut skill: hairline (/hairline create). Repo linki yorumla DM'den geliyor; lisans ve kurulum doğrulanmalı.",tasarim-ui
+"Tek başına çalışıyorsun. Ama 6 departmanlı bir şirketin olabilir. Maaş sıfır.. 69 skill'lik bir paket fikri, tek net repo/link yok. Skill organizasyonu için mevcut yapıyla karşılaştırılır.",kodlama-ajan
+"Comment UX and I'll send you the checklist. Hick's Law is why Tinder, Snapchat a. Genel UX tasarım dersi (Hick Yasası). Claude Code/ajan/geliştirici araçlarıyla ilgisi yok.",tasarim-ui
+"👇🏼Comment “LINEAR” and I’ll send you the skill.. Tek skill (hairline/LINEAR) var ama repo/link yok, yorumla DM ile verilecek.",kodlama-ajan
+Most people install Hermes and then have no idea what to add to actually make it. Hermes ajanı için beş araçlık liste; tek somut araç ya da link yok.,kodlama-ajan
+"Follow and comment CODE, and I'll DM you every command.. İki araç (FreeLLMAPI, OmniRoute) var ama link yok; ücretsiz model yönlendirme fikri, kısıtlar var.",ai-model
+"AI ajanın artık video da çekiyor 🎬. HyperFrames açık kaynak, repo (heygen-com/hyperframes) ve kurulum komutu açık.",video-medya
+"💬 Yoruma “KONSEY” yaz, 4 farklı AI ajandan oluşan Claude Konseyi’nin kurulum reh. Çok ajanlı 'Claude Council' fikri/pratiği; repo, MCP veya skill linki yok.",kodlama-ajan
+Comment STUDIO and I'll send you the install and the first prompt 👇. Oyun stüdyosu ajan deposu tanıtımı ama repo adı ve linki yok; konu Claude ajanları.,kodlama-ajan
+"SUPRA-Tex turns one photo into a full 3D model. 3D model aracı Claude Code/skill ile ilgisiz; geliştirici aracı sayılabilir, AI alanında olduğundan ELE değil.",ai-model
+"Comment ""BATTLE"" and I'll DM you the helper file that sends Claude's easy jobs t. Basit işleri Haiku'ya yönlendirme pratiği; CLAUDE.md ile model yönlendirme tekniği, mevcut kurallarla karşılaştırılır.",ai-model
+"Comment “SKILLS” and I’ll send you all 4 links.. Dört proje listesi (araç listesi); gerçek bağlantı yok, tek somut araç değil.",kodlama-ajan
+"Claude Code’a aynı anda çalışan bir yapay zekâ ekibi eklemek ister misin? 👇. Ruflo tek somut araç, MIT, Claude Code için çoklu ajan; link metinde yok, kurulum raporu gerekir.",kodlama-ajan
+"Comment ""MODS"" and I'll DM you the link to the repo with 17 add-ons for Claude C. 17 eklentilik repo; araç listesi. Kurulum komutu var ama tek araç değil, seçili modlar değerlendirilir.",kodlama-ajan
+"If you use Claude, here are 5 connecters you definitely need ⬇️. Beş bağlayıcıdan oluşan araç listesi (Perplexity, Fire Crawl, PostHog, Playwright, Composio); tek bir kurulacak araç yok.",kodlama-ajan
+"Every AI company gives away a free allowance. Almost nobody uses all of them.. Repo adı verilmemiş; ücretsiz kotaları birleştirip modeller arası yönlendirme fikri, AI/kodlama alanında.",ai-model
+"Comment ""REPO"" and I'll send you all 10 links 📂. 10 self-hosted açık kaynak aracın listesi (Coolify, OpenHands, Dify vb.); tek somut kurulacak araç yok.",otomasyon
+"Comment “UNREAL” and I’ll send you Epic Games’ Claude Code plugin. 🎮🤖. Tek somut araç: Epic'in Unreal Claude Code eklentisi (MIT). Link verilmemiş, kurulum ve uyumluluk raporu gerekir.",kodlama-ajan
+"Someone turned Claude into a free Instagram content team, with 54 skills.. Tek somut skill paketi: Claude Content Skills (54 skill, GitHub). Link verilmemiş, lisans ve kurulum doğrulanmalı.",kodlama-ajan
+"Comment Claude and I’ll send you the link to these plugins. Claude code leverage. Beş eklenti anlatılıyor ama adları verilmemiş; konu Claude Code eklentileri, mevcut kurulumla karşılaştırılır.",kodlama-ajan
+"Comment GROW and I'll DM you the whole setup.. Tek somut araç: FavStash MCP/connector. Repo linki yok, hizmet olabilir; kurmadan önce lisans ve kurulum raporu gerekir.",kodlama-ajan
+"Comment “REPOS” and I’ll send you all four links 👇. Dört web görsel reposunun listesi (React Three Fiber, Liquid Glass React, Shader Gradient, Liquid Logo); tek araç değil.",tasarim-ui
+Comment BOARD and I'll send you the install and the first prompt 👇. Tek somut paket: Startup Board (11 skill). Linkler metinde yok; lisans ve kurulum doğrulanmadan alınamaz.,kodlama-ajan
+"Your agent guesses when its folder is empty.. Kurulacak araç yok; Claude Code proje dosya yapısı şablonu önerisi, mevcut kural/skill düzeniyle karşılaştırılır.",kodlama-ajan
+"Comment ""SENSEI"" and I'll DM you the link to the one file that makes Claude stop. Karpathy notlarından türetilmiş tek CLAUDE.md; repo linki yok, lisans/kaynak doğrulanıp mevcut kurallarla uyarlanmalı.",kodlama-ajan
+"Comment “PYNK” and i send the Skills🤝. Linksiz, adları belirsiz skill'lerin listesi; DM ile dağıtım. Kurulacak tek somut araç yok, skill kurgusu incelenebilir.",kodlama-ajan
+"Comment ""WHISPER"" and I'll send you the link.. Tek somut araç Whisper (OpenAI, açık kaynak) adı var ama link yok; Claude Code ile ilgisi zayıf, kurulum/lisans raporu gerekir.",ai-model
+"Claude Code'a ""bana site yap"" demek yerine, gerçek projelerimde bu 6 prompt'u sı. Araç yok; Claude Code ile site yapımı için 6 adımlı prompt pratiği, mevcut kurallarla karşılaştırılır.",kodlama-ajan
+"Yorumlara VIDEO yaz ✅, açık kaynak video modelinin kurulum kitini sana DM’den gö. Model/repo adı verilmiyor; ajanlarla yerel video üretim hattı fikri, kurulum kiti DM ile. Mevcut yaklaşımla karşılaştırılır.",video-medya
+"Open Source Cloned a $200M AI in 24 Hours #AI #MachineLearning #OpenSource #Tech. Claude Code ile ilgisiz kalibre sınıflandırma modeli (Leia); somut link yok, AI/ML alanında fikir/teknik anlatımı.",ai-model
+"Claude Code token harcamalarınızı ve maliyetinizi tek komutla takip eden araç!. Tek somut araç: CC Usage (ccusage), npx ile çalışır; link verilmemiş, kurmadan lisans/kurulum kontrolü gerekir.",kodlama-ajan
+Meta Reklamlarını Claude’a Yönettir. Tek somut araç: Meta resmi MCP; reklam hesabı yetkisi gerektirdiğinden kurulumdan önce kapsam/güvenlik raporu lazım.,otomasyon
+"Claude Cowork artık ekranınızı izleyip sesinizi dinleyerek tüm işlerinizi öğreni. Claude Cowork'ün ekran kaydından skill üretme özelliği haberi; kurulacak araç yok, skill oluşturma fikriyle karşılaştırılır.",kodlama-ajan

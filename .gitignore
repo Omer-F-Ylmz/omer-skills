@@ -17,3 +17,11 @@ mcp/jev/.vitest/
 .cache/
 olcum/motor-usage.jsonl
 tools/olcum/profil-*.json
+
+tools/laya/.venv/
+tools/laya/src/
+tools/laya/ck/
+tools/laya/veri/*_egitim.jsonl
+tools/laya/veri/*.zayif.csv
+tools/laya/veri/*.log
+tools/laya/*.log

@@ -6,6 +6,7 @@ claude -p bayrakları model_sec'in yalın oturumundan (CLAUDE.md/skill/hook/MCP 
   python tools/yonlendir.py sinifla "<görev tanımı>"                            → karar (JSON)
   python tools/yonlendir.py ozet [--gun 7] [--yaz]                              → tür başı başarı/yükseltme + kural önerisi"""
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -89,6 +90,12 @@ def sinifla(tanim, sor=None, k=None, haiku=_haiku):
     """Tek T1 zincir çağrısı (≤300 jeton): tür etiketi + tanımdan birebir alıntı (ucuz_alt.dogrula). Olmazsa T3/full."""
     import ucuz_alt
     k = k or kurallar()
+    if os.environ.get("LAYA_YONLENDIR") == "1":  # bayrak: yerel Laya ≥0.8 güvenle karar verirse LLM çağrısı yok
+        import laya_karar
+        l = laya_karar.karar(tanim)
+        if l and l["guven"] >= 0.8:
+            kd = {"haiku": "T1", "sonnet": "T3", "opus": "T4"}[l["model"]]
+            return {**karar(kd, "full", None, f"laya {l['model']} {l['guven']}", k), "usage": {"giris": 0, "cikis": 0}}
     secenek = list(k["tur"])
     istem = (f"Görev tanımı:\n{tanim}\n\nBu görevin iş türünü seçeneklerden seç. YALNIZ JSON:\n{ucuz_alt.SEMA['etiket']}"
              f"\nSeçenekler: {' | '.join(secenek)}")
