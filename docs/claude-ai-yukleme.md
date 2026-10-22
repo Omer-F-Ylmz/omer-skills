@@ -10,10 +10,11 @@ Kaynak: support.claude.com/en/articles/12512198 · platform.claude.com/docs/en/a
 2. `ui-ux-pro-max-claudeai.zip` — tüm data/ + scripts/ (Python) dahil.
 3. `impeccable-claudeai.zip` — SKILL.md + reference/ + LICENSE + NOTICE.md (Apache-2.0).
 4. `sdp-claudeai.zip`, `surec-claudeai.zip` — Divisima tarifleri için.
+5. `understand-*.zip` (9 adet, Understand-Anything 2.9.7, MIT; LICENSE içinde) — yalnız skill dosyaları; `/understand` pipeline'ı agents/ ve derlenmiş çekirdek paketini ister, zip'te yoktur → claude.ai'de pipeline çalışmaz, CC'de kullanılır.
 frontend-design yüklenmez: anthropics/skills'te var, claude.ai Directory'den eklenir.
 
 ## Açıklama sınırı
-- claude.ai açıklama sınırı 200 karakter (platform dokümanı 1024 der). Zip'lerde: frontend-craft 195 (kaynakta, 1.5.1) · ui-ux-pro-max 185 · impeccable 192 (bu ikisi yalnız zip kopyasında; kaynak 495/895) · sdp 94 · surec 105.
+- claude.ai açıklama sınırı 200 karakter (platform dokümanı 1024 der). Zip'lerde: frontend-craft 195 (kaynakta, 1.5.1) · ui-ux-pro-max 185 · impeccable 192 (bu ikisi yalnız zip kopyasında; kaynak 495/895) · sdp 94 · surec 105 · understand 236 · understand-figma 258 · understand-domain 215 (kısaltılmadı, >200 yükleme reddedebilir).
 
 ## claude.ai'de çalışmayacak parçalar
 - frontend-craft: `screenshot.mjs`, `audit.mjs`, `olc-renk.mjs` puppeteer ister (sandbox'ta tarayıcı belgelenmemiş, npm ağ ayarına bağlı); `serve.mjs` localhost:3000 açar, sandbox dışından görülmez. 3 genişlik screenshot döngüsü ve audit PASS kabulü yapılamaz.
