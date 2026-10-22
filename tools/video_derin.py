@@ -174,7 +174,7 @@ def yerel_aciklama(ks, n=4, model="gemma4:e4b"):  # Gemini kotası/anahtarı yok
     if not ks:
         return None
     sec = [ks[int(i * len(ks) / n)] for i in range(n)]
-    istek = {"model": model, "stream": False, "think": False, "options": {"num_ctx": 8192}, "keep_alive": 0,
+    istek = {"model": model, "stream": False, "think": False, "options": {"num_ctx": 8192}, "keep_alive": "2m",
              "messages": [{"role": "user", "content": KARE_PROMPT, "images": [base64.b64encode(k.read_bytes()).decode() for k in sec]}]}
     try:
         req = urllib.request.Request("http://127.0.0.1:11434/api/chat", json.dumps(istek).encode(), {"Content-Type": "application/json"})
@@ -183,9 +183,12 @@ def yerel_aciklama(ks, n=4, model="gemma4:e4b"):  # Gemini kotası/anahtarı yok
         return None
 
 
+gemini_durum = {"kapali": 0.0}
+
+
 def gemini_aciklama(ks, n=4):
     key = os.environ.get("GEMINI_API_KEY")
-    if not key or not ks:
+    if not key or not ks or time.time() < gemini_durum["kapali"]:
         return None
     sec = [ks[int(i * len(ks) / n)] for i in range(n)]
     parts = [{"text": KARE_PROMPT}]
@@ -196,8 +199,10 @@ def gemini_aciklama(ks, n=4):
                                          json.dumps({"contents": [{"parts": parts}]}).encode(), {"Content-Type": "application/json"})
             r = json.load(urllib.request.urlopen(req, timeout=60))
             return r["candidates"][0]["content"]["parts"][0]["text"]
-        except Exception:
-            continue
+        except Exception as e:
+            if "429" in str(e):  # günlük kota bitti (video başı 3 boş istek ~2 sn): 30 dk yerel modele geç
+                gemini_durum["kapali"] = time.time() + 1800
+                return None
     return None
 
 
@@ -228,7 +233,10 @@ def isle(url):
         t2 = time.time(); adim["asr"] = t2 - t1
         ks = kareler(v, d)
         t3 = time.time(); adim["kare"] = t3 - t2
-        ekran = ocr(ks)
+        with ThreadPoolExecutor(1) as px:  # kare açıklaması (Gemini/Ollama) OCR ile örtüşür; profilde "ocr" ikisini birden kapsar
+            acik_f = px.submit(lambda: gemini_aciklama(ks) or yerel_aciklama(ks))
+            ekran = ocr(ks)
+            acik = acik_f.result()
         t4 = time.time(); adim["ocr"] = t4 - t3
         metin = "\n".join(e["t"] for e in ekran) + "\n" + " ".join(s["t"] for s in seg)
         linkler = sorted({m.strip(".,)") for m in URL_RE.findall(metin)})
@@ -239,7 +247,7 @@ def isle(url):
             j = json.loads(ij.read_text(encoding="utf-8"))
             info = {"baslik": j.get("title"), "sure": j.get("duration"), "yukleyen": j.get("uploader"), "aciklama": (j.get("description") or "")[:800]}
         veri = {"kod": kod, "url": url, "dil": dil, "meta": info, "transkript": seg, "ekran": ekran,
-                "linkler": linkler, "komutlar": komutlar, "kare_aciklama": gemini_aciklama(ks) or yerel_aciklama(ks), "kare_sayisi": len(ks)}
+                "linkler": linkler, "komutlar": komutlar, "kare_aciklama": acik, "kare_sayisi": len(ks)}
         adim["acik"] = time.time() - t4
         with KILIT, PROFIL.open("a", encoding="utf-8") as f:
             f.write(f"{kod}\t" + "\t".join(f"{adim[x]:.1f}" for x in ("indir", "asr", "kare", "ocr", "acik")) + f"\t{len(ks)}\t{OCR_AYGIT}\n")
