@@ -159,10 +159,12 @@ def basamak_sec(ad, bas):
     return 2 if maliyet_defter.tur(ad) in maliyet_defter.haiku_zayif(maliyet_defter.oku()) else 0
 
 
-def baslat_argv(efor, model="opus"):
+def baslat_argv(efor, model="opus", mcp=None):
     """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
-    20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus."""
+    20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus. MCP-AÇ-1: mcp= profil dosyası yolu (yoksa boş MCP)."""
     argv = [model if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
+    if mcp:
+        argv[argv.index("--mcp-config") + 1] = str(mcp)
     if SLASH_DOSYA.exists():  # SLASH-ÖĞREN d1: oturum + alt ajanları Skill aracıyla skill/komut çağırabilir (varsayılan kapalı)
         argv = [("Skill," + a if argv[i - 1] == "--tools" else a) for i, a in enumerate(argv) if a != "--disable-slash-commands"]
         dar = re.search(r"dar=(\w+)", SLASH_DOSYA.read_text(encoding="utf-8"))  # d2: tam skill listesi ≈ +35k token; dar=<küme> → yalnız slash-dar/<küme> eklentisi
@@ -256,6 +258,7 @@ def main():
                     subprocess.run(["taskkill", "/T", "/F", "/PID", str(p.pid)], capture_output=True, creationflags=0x08000000)
                     log("SÜRE DOLDU", ad)
                 fo.close()
+                (CIKTI / f"{ad}.mcp.json").unlink(missing_ok=True)  # MCP-AÇ-1: profil dosyası env taşıyabilir
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
                 ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl)
                 if bas is not None and not ok and ad not in tekrar and bas + 1 < len(MERDIVEN):
@@ -301,7 +304,16 @@ def main():
                     pass
                 metin += "\n\n[bütçe] En fazla 60 tur kullan."
                 fo = open(CIKTI / f"{ad}.json", "w", encoding="utf-8")
-                argv, env = baslat_argv(efor, model)
+                mcp = None
+                if not os.environ.get("CC_MCP_BOS"):  # MCP-AÇ-1: tür bazlı MCP profili; CC_MCP_BOS=1 eski boş config'e döner
+                    try:
+                        sys.path.insert(0, str(KOK / "tools")); import mcp_profil
+                        mcp = CIKTI / f"{ad}.mcp.json"
+                        log("MCP", ad, " ".join(mcp_profil.yaz((KOK / istem).read_text(encoding="utf-8"), mcp)))  # ham görev metni: ön ek tür tespitini kirletmesin
+                    except Exception as e:
+                        mcp = None
+                        log("MCP profil hatası", ad, repr(e)[:80])
+                argv, env = baslat_argv(efor, model, mcp)
                 p = subprocess.Popen(argv, cwd=str(hedef), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
