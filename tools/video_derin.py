@@ -10,8 +10,9 @@ from pathlib import Path
 import psutil
 
 KOK = Path(__file__).resolve().parents[1]
-CIKTI = KOK / "docs/video-tarama/derin"
+CIKTI = Path(os.environ["VD_CIKTI"]) if os.environ.get("VD_CIKTI") else KOK / "docs/video-tarama/derin"  # VD_CIKTI: profil/WER koşuları gerçek çıktıya yazmaz
 ILERLEME = KOK / ".kos/kopru/derin-ilerleme.txt"
+PROFIL = KOK / ".kos/kopru/derin-profil.tsv"  # video başı adım süreleri (sn)
 ATLA_DOSYA = KOK / ".kos/kopru/video-atla.txt"  # kalıcı atlama listesi: yeniden deneme yok
 NW = 0x08000000
 # cuBLAS/cuDNN pip wheel'leri (nvidia-*-cu12) DLL'lerini nvidia/*/bin altına koyar. ctranslate2 LoadLibrary'yi
@@ -21,6 +22,15 @@ for sp in site.getsitepackages():
         if hasattr(os, "add_dll_directory"):
             os.add_dll_directory(str(bin_dir))
         os.environ["PATH"] = str(bin_dir) + os.pathsep + os.environ["PATH"]
+# onnxruntime-gpu 1.31 CUDA provider'ı cublasLt64_13.dll ister; bulamazsa sessizce CPU'ya düşer (OCR ~26x yavaş).
+# DLL torch (CUDA 13) wheel'inde bulunur: yalnız bu süreçin PATH'ine eklenir. Kalıcı PATH önerisi: rapor/cuda-kur-3-devam2.md
+CUDA13_ADAYLAR = [os.environ.get("VD_CUDA13_DIR", ""), r"C:\AI\ComfyUI\.venv\Lib\site-packages\torch\lib"]
+for ad in CUDA13_ADAYLAR:
+    if ad and Path(ad, "cublasLt64_13.dll").exists():
+        if hasattr(os, "add_dll_directory"):
+            os.add_dll_directory(ad)
+        os.environ["PATH"] = ad + os.pathsep + os.environ["PATH"]
+        break
 URL_RE = re.compile(r"(?:https?://|www\.)[^\s\"'<>]+|\b[\w.-]+\.(?:com|io|ai|dev|app|org|net|co|xyz)(?:/[^\s]*)?\b|\b[\w-]+/[\w.-]+\b(?=.*github)", re.I)
 KOMUT_RE = re.compile(r"^(?:\$\s*)?(?:npm|npx|pnpm|pip|pipx|uv|git|brew|winget|docker|curl|claude|python|node)\s+.+", re.I | re.M)
 _ocr = None
@@ -63,11 +73,50 @@ ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri b
 KILIT = threading.Lock()  # ilerleme dosyası ve konsol satırları
 
 
+GROQ_ASR = "https://api.groq.com/openai/v1/audio/transcriptions"
+GROQ_DIL = {"turkish": "tr", "english": "en", "german": "de", "spanish": "es", "french": "fr", "russian": "ru", "arabic": "ar",
+            "italian": "it", "portuguese": "pt", "hindi": "hi", "japanese": "ja", "korean": "ko", "chinese": "zh"}
+GROQ_KILIT = threading.Lock()
+groq_durum = {"sonraki": 0.0, "kapali": 0.0}  # ücretsiz kota: 20 istek/dk; 429'da 90 sn kapanır, GPU'ya döner
+
+
+def groq_asr(wav):
+    """GPU döküm kuyruğu doluyken taşan videoyu Groq whisper-large-v3-turbo'ya (ücretsiz) gönderir; başarısızsa None."""
+    key = os.environ.get("GROQ_API_KEY")
+    if not key or wav.stat().st_size > 15_000_000:
+        return None
+    with GROQ_KILIT:
+        if time.time() < groq_durum["kapali"]:
+            return None
+        bekle = groq_durum["sonraki"] - time.time()
+        groq_durum["sonraki"] = max(time.time(), groq_durum["sonraki"]) + 3.2
+    if bekle > 0:
+        time.sleep(bekle)
+    sinir = "vd" + str(time.time_ns())
+    alan = lambda ad, de: f'--{sinir}\r\nContent-Disposition: form-data; name="{ad}"\r\n\r\n{de}\r\n'.encode()
+    govde = (alan("model", "whisper-large-v3-turbo") + alan("response_format", "verbose_json") + alan("temperature", "0")
+             + f'--{sinir}\r\nContent-Disposition: form-data; name="file"; filename="a.wav"\r\nContent-Type: audio/wav\r\n\r\n'.encode()
+             + wav.read_bytes() + f"\r\n--{sinir}--\r\n".encode())
+    try:  # Python-urllib UA'sı Cloudflare'da 1010/403 alır: açık UA şart
+        req = urllib.request.Request(GROQ_ASR, govde, {"Authorization": f"Bearer {key}", "Content-Type": f"multipart/form-data; boundary={sinir}", "User-Agent": "curl/8.5.0"})
+        r = json.load(urllib.request.urlopen(req, timeout=60))
+        out = [{"b": round(s["start"], 1), "s": round(s["end"], 1), "t": s["text"].strip()} for s in r.get("segments", []) if s["text"].strip()]
+        return GROQ_DIL.get(str(r.get("language", "")).lower(), str(r.get("language", ""))), out
+    except Exception as e:
+        if "429" in str(e):
+            groq_durum["kapali"] = time.time() + 90
+        print(f"device=groq basarisiz: {str(e)[:100]}", flush=True)
+        return None
+
+
 def asr(v, d):
     from faster_whisper import WhisperModel
     kos("ffmpeg", "-y", "-i", v, "-vn", "-ac", "1", "-ar", "16000", d / "a.wav")
     if not (d / "a.wav").exists():
         return "", []
+    if ASR_KILIT.locked() and (g := groq_asr(d / "a.wav")):  # GPU kuyruğu dolu: taşan video ücretsiz Groq kanalına
+        print("device=groq model=whisper-large-v3-turbo", flush=True)
+        return g
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
         try:
             with ASR_KILIT:
@@ -83,14 +132,31 @@ def asr(v, d):
     return "", []
 
 
-def ocr(ks):
-    global _ocr
+OCR_KILIT = threading.Lock()  # tek ORT oturumu: GPU çağrıları sıralanır (kare başı ~0,2 sn)
+OCR_AYGIT = "?"
+
+
+def ocr_motor():
+    global _ocr, OCR_AYGIT
     from rapidocr_onnxruntime import RapidOCR
-    _ocr = _ocr or RapidOCR()
+    if _ocr is None:
+        try:  # CUDA sağlayıcı yüklenemezse (DLL yok) ORT sessizce CPU'ya düşer: sağlayıcı listesinden doğrula
+            m = RapidOCR(det_use_cuda=True, cls_use_cuda=True, rec_use_cuda=True)
+            prov = getattr(getattr(getattr(m, "text_det", None), "infer", None), "session", None)
+            OCR_AYGIT = "cuda" if prov is None or "CUDAExecutionProvider" in prov.get_providers() else "cpu"
+            _ocr = m if OCR_AYGIT == "cuda" else RapidOCR()
+        except Exception:
+            _ocr, OCR_AYGIT = RapidOCR(), "cpu"
+        print(f"ocr aygit={OCR_AYGIT}", flush=True)
+    return _ocr
+
+
+def ocr(ks):
     gorulen, out = set(), []
     for i, k in enumerate(ks):
         try:
-            res, _ = _ocr(str(k))
+            with OCR_KILIT:
+                res, _ = ocr_motor()(str(k))
         except Exception:
             continue
         for _, t, c in res or []:
@@ -147,6 +213,8 @@ def isle(url):
     if kod in atla_kodlari():
         return kod, "atla"
     d = Path(tempfile.mkdtemp(prefix="vd_"))
+    t0 = time.time()
+    adim = {}
     try:
         v, hata = indir(url, d)
         if not v:
@@ -155,9 +223,13 @@ def isle(url):
                     f.write(kod + "\n")
                 return kod, "atla"
             return kod, "indirilemedi: " + hata.strip().splitlines()[-1][:120] if hata.strip() else "indirilemedi"
+        t1 = time.time(); adim["indir"] = t1 - t0
         dil, seg = asr(v, d)
+        t2 = time.time(); adim["asr"] = t2 - t1
         ks = kareler(v, d)
+        t3 = time.time(); adim["kare"] = t3 - t2
         ekran = ocr(ks)
+        t4 = time.time(); adim["ocr"] = t4 - t3
         metin = "\n".join(e["t"] for e in ekran) + "\n" + " ".join(s["t"] for s in seg)
         linkler = sorted({m.strip(".,)") for m in URL_RE.findall(metin)})
         komutlar = sorted({m.strip() for m in KOMUT_RE.findall(metin)})
@@ -168,6 +240,9 @@ def isle(url):
             info = {"baslik": j.get("title"), "sure": j.get("duration"), "yukleyen": j.get("uploader"), "aciklama": (j.get("description") or "")[:800]}
         veri = {"kod": kod, "url": url, "dil": dil, "meta": info, "transkript": seg, "ekran": ekran,
                 "linkler": linkler, "komutlar": komutlar, "kare_aciklama": gemini_aciklama(ks) or yerel_aciklama(ks), "kare_sayisi": len(ks)}
+        adim["acik"] = time.time() - t4
+        with KILIT, PROFIL.open("a", encoding="utf-8") as f:
+            f.write(f"{kod}\t" + "\t".join(f"{adim[x]:.1f}" for x in ("indir", "asr", "kare", "ocr", "acik")) + f"\t{len(ks)}\t{OCR_AYGIT}\n")
         CIKTI.mkdir(parents=True, exist_ok=True)
         hedef.write_text(json.dumps(veri, ensure_ascii=False, indent=1), encoding="utf-8")
         return kod, f"ok seg={len(seg)} ocr={len(ekran)} link={len(linkler)} komut={len(komutlar)}"

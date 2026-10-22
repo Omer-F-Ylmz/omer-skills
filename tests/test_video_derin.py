@@ -41,3 +41,19 @@ def test_gecici_indirme_hatasi_atla_listesine_yazilmaz(atla, monkeypatch):
     kod, durum = video_derin.isle("https://www.youtube.com/watch?v=GECICI1")
     assert durum.startswith("indirilemedi")
     assert "GECICI1" not in atla.read_text(encoding="utf-8").split()
+
+
+def test_groq_anahtar_yoksa_none_doner(monkeypatch, tmp_path):
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
+    wav = tmp_path / "a.wav"
+    wav.write_bytes(b"x")
+    assert video_derin.groq_asr(wav) is None
+
+
+def test_groq_kota_kapaliyken_istek_atilmaz(monkeypatch, tmp_path):
+    monkeypatch.setenv("GROQ_API_KEY", "x")
+    monkeypatch.setitem(video_derin.groq_durum, "kapali", 9e18)
+    wav = tmp_path / "a.wav"
+    wav.write_bytes(b"x")
+    monkeypatch.setattr(video_derin.urllib.request, "urlopen", lambda *a, **k: pytest.fail("istek atilmamali"))
+    assert video_derin.groq_asr(wav) is None
