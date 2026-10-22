@@ -23,3 +23,9 @@ Sonuç: istek başına ~651k → ~47k (−%93). Hedef "≤ +%1" **karşılanmad�
 - Yüzey × kategori tablosu (CC etkileşimli · Desktop · alt ajan), her MCP'den 1 çağrı, 3 skill yükleme, 3 CLI: koşulmadı. Kapsama % verilemez.
 - Madde 4 (skill listesi sığmama) ve 5 (engel-tarama "kalsın" yeniden değerlendirme): yapılmadı. engel-tarama #11 (`ENABLE_TOOL_SEARCH=false`) artık yanlış: kullanıcı ayarı `false` etkileşimli CC'de de MCP'yi ertelemesiz yükletiyor olabilir — ayrıca ölçülmeli.
 - Kullanıcı ayarı (`~/.claude/settings.json`) değiştirilmedi.
+
+## 4. Devir (oturum 2, çağrı 10/45'te kanca "ara kayıt + DUR" dedi)
+Yeni ölçüm/kod yok; yalnız keşif:
+- Tanımlı 45 MCP: 28 `http`, 17 `stdio`. "Araç kapısı" proxy'si stdio'lar için yazılabilir; http sunucularda kimlik (OAuth/başlık jetonu) CC'de tutulur, proxy'ye taşınabilirliği KANITLANMADI. Kapıdan önce hangi http sunucusunun statik başlıkla çalıştığı sınanmalı.
+- Alternatif (daha ucuz): KEEP/`mcp_profil.sec` türe göre MCP sayısını azaltır (site-3d 237k→32k); "TÜM MCP açık ≤+%1" yalnız kapıyla olur.
+- Sıradaki: (a) 31k ek yükün dökümü (ad listesi vs sunucu yönergeleri; kol başına tek MCP ile `erisim_olc.py`), (b) yüzey×kategori tablosu + sunucu başına 1 çağrı, (c) madde 4–5, (d) `~/.claude/settings.json` ENABLE_TOOL_SEARCH=false kararı.
