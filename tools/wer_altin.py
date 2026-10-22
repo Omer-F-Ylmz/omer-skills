@@ -85,6 +85,8 @@ def span_haritasi(ref, diger):
 
 def oy(kodlar):
     ozet, belirsiz = {}, []
+    hakem = ALTIN / "hakem.json"
+    HAKEM = json.loads(hakem.read_text(encoding="utf-8")) if hakem.exists() else {}
     for kod in kodlar:
         t = {k: norm((ALTIN / f"{kod}.{k}.txt").read_text(encoding="utf-8")).split() for k in KAYNAK}
         ref = t["groq"]
@@ -102,6 +104,9 @@ def oy(kodlar):
                 birlesik = {"".join(c): c for c in (yer, g or (), m or ()) if c}  # yalnız boşluk farkı: bitişik (az kelimeli) yazım
                 if len(birlesik) < len({yer, g, m} - {()}):
                     karar[sp] = min(birlesik.values(), key=len)
+                    continue
+                if f"{kod}:{sp[0]}-{sp[1]}" in HAKEM:  # bağlamla elle/hakemle karara bağlanmış
+                    karar[sp] = tuple(norm(HAKEM[f"{kod}:{sp[0]}-{sp[1]}"]).split())
                     continue
                 belirsiz.append({"id": kod, "span": list(sp), "baglam": " ".join(ref[max(0, sp[0] - 6):sp[1] + 6]),
                                  "groq": " ".join(yer), "gemini": " ".join(g), "mistral": " ".join(m)})
