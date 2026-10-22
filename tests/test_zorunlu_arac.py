@@ -100,7 +100,8 @@ def test_tur_bul_esitlikte_diger():
 def test_araclar_ozel_liste_genel_kayitlar_yok():
     ar = z.araclar(GOREV_3D)
     ad = [o["ad"] for o in ar]
-    assert 0 < len(ad) <= z.N
+    assert 0 < len(ad)  # N tavanı yalnız BM25 dolgusuna; çekirdek+şablon tavansız
+    assert "departman-frontend" in ad  # site şablonu (ARAÇ-ZORUNLU-4)
     assert "web-sahne-desenleri" in ad and "threejs-3d-paket" in ad  # anılan + tür çekirdeği
     assert not {"git", "mcp-server-git"} & set(ad) and "blender-uretim" not in ad  # genel elenir, kapsam dışı tür girmez
 
@@ -169,3 +170,69 @@ def test_devam_karar_uc_isaret_iki_tur_sonra_dur():
 def test_eksik_liste_uc_kaynak():
     den = {"durum": "arac_eksik+kanit_eksik+ogrenme_eksik", "eksik": ["ffmpeg"], "cekirdek_eksik": ["rtk"], "ogrenme_eksik": ["sonda"]}
     assert z.eksik_liste(den) == ["ffmpeg", "rtk", "gorsel_hakem", "öğrenme:sonda"]
+
+
+# ---- ARAÇ-ZORUNLU-4 ----
+def test_pasif_cekirdek_ayarlardaysa_eksik_sayilmaz(tmp_path, monkeypatch):
+    ayar = tmp_path / "settings.json"
+    ayar.write_text('{"hooks": "rtk claude-mem context-mode", "env": "headroom"}', encoding="utf-8")
+    monkeypatch.setattr(z, "AYARLAR", ayar)
+    yok, _ = z.cekirdek_ogrenme("belge", ([], [], [], []))
+    assert set(yok) == {"beyin", "ruflo"}
+
+
+def test_pasif_cekirdek_ayarda_yoksa_eksik(tmp_path, monkeypatch):
+    ayar = tmp_path / "settings.json"
+    ayar.write_text("{}", encoding="utf-8")
+    monkeypatch.setattr(z, "AYARLAR", ayar)
+    yok, _ = z.cekirdek_ogrenme("belge", ([], [], [], []))
+    assert {"rtk", "headroom", "claude-mem", "context-mode"} <= set(yok)
+
+
+def test_canli_is_tam_set_ekler_degilse_bos():
+    assert z.canli_set("Siteyi canlıya al, yayın öncesi kontrol") == z.TUR_SET["canli"]["skill"] + z.TUR_SET["canli"]["cli"]
+    assert z.canli_set("yerelde bir betik düzelt") == []
+
+
+def test_sablon_ve_yaratici_kombin_katalogda_gecerli():
+    import json as j
+    import katalog_ara
+    ad = {o["ad"].split(":")[-1] for o in map(j.loads, katalog_ara.KATALOG.read_text(encoding="utf8").splitlines())}
+    for a in z.canli_set("canlıya") + [x for s in z.TUR_SET["sablon"].values() for x in s["araclar"]]:
+        assert a in ad, a
+    assert "REA" in z.yaratici("Landing site yap", "site-3d")
+
+
+def test_gecmis_yazilir_ve_ders_cikar(tmp_path, monkeypatch):
+    monkeypatch.setattr(z, "GECMIS", tmp_path / "gecmis.jsonl")
+    for i, (durum, yok) in enumerate([("arac_eksik", ["x"]), ("ok", []), ("arac_eksik", ["x", "y"])]):
+        z.gecmis_yaz(f"is{i}", "belge", [{"ad": "x"}, {"ad": "y"}, {"ad": "z"}], {"durum": durum, "eksik": yok})
+    d = z.gecmis_ders("belge")
+    assert "x 2/3" in d and "is1" in d
+    assert z.gecmis_ders("video") == ""
+
+
+def test_oran_pasif_kurali_ile_yeniden_hesaplar(tmp_path, monkeypatch):
+    ayar = tmp_path / "settings.json"
+    ayar.write_text("rtk headroom claude-mem context-mode", encoding="utf-8")
+    monkeypatch.setattr(z, "AYARLAR", ayar)
+    kur(tmp_path, monkeypatch, "o1", "s1", LISTE[:1], False, [("Skill", {"skill": "pixeljury"}), ("Bash", {"command": "beyin ara x; beyin kaydet y"}),
+                                                           ("mcp__ruflo__agentdb_pattern-search", {}), ("mcp__ruflo__agentdb_pattern-store", {})])
+    (tmp_path / "o1.zorunlu.json").write_text(json.dumps({"araclar": LISTE[:1], "gorsel": False, "tur": "belge"}), encoding="utf-8")
+    assert z.oran_yeniden(["o1"])[0] == 0
+
+
+def test_onucus_beyin_ruflo_sorgusu_kullanilmis_sayilir(tmp_path, monkeypatch):
+    ayar = tmp_path / "settings.json"
+    ayar.write_text("rtk headroom claude-mem context-mode", encoding="utf-8")
+    monkeypatch.setattr(z, "AYARLAR", ayar)
+    yok, ogr = z.cekirdek_ogrenme("belge", ([], [], [], []), onucus=("beyin", "ruflo"))
+    assert yok == [] and ogr == ["sonda"]
+
+
+def test_yeniden_istem_yalniz_eksik_adim(tmp_path, monkeypatch):
+    monkeypatch.setattr(z, "GOREV", tmp_path)
+    monkeypatch.setattr(z, "KOK", tmp_path)
+    (tmp_path / "g.md").write_text("iş", encoding="utf-8")
+    yol = z.yeniden_istem("g", "g.md", ["x"])
+    assert "baştan yapma" in (tmp_path / "g-a.md").read_text(encoding="utf-8") and yol.endswith("g-a.md")

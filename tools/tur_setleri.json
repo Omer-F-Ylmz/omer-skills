@@ -1,12 +1,36 @@
 {
   "_sema": "tur -> zorunlu cekirdek (skill/mcp/cli). 'cekirdek' her iste (katman 1). 'desen' tur tespiti (kapsam() metni). Kaynak: katalog_ara + departman-* skill'leri.",
-  "ajan_cekirdek": {"dosya": "tools/ajan_cekirdek.md", "tur": "tum", "model_haric": ["opus", "fable"]},
-  "cekirdek": {"skill": ["graphify", "headroom-compress", "strategic-compact"], "mcp": ["claude-mem", "context-mode"], "cli": ["rtk", "headroom", "beyin", "ruflo"]},
+  "ajan_cekirdek": {
+    "dosya": "tools/ajan_cekirdek.md",
+    "tur": "tum",
+    "model_haric": [
+      "opus",
+      "fable"
+    ]
+  },
+  "cekirdek": {
+    "skill": [
+      "graphify",
+      "headroom-compress",
+      "strategic-compact"
+    ],
+    "mcp": [
+      "claude-mem",
+      "context-mode"
+    ],
+    "cli": [
+      "rtk",
+      "headroom",
+      "beyin",
+      "ruflo"
+    ]
+  },
   "desen": {
     "site-3d": "(?i)site-3d|sketchfab|objaverse|gltf|\\bglb\\b|\\b(site|landing|three(\\.js)?|webgl|3d|frontend)\\b",
     "render": "(?i)\\b(render\\w*|blender)\\b",
     "video": "(?i)\\bvideo\\w*",
-    "logo-gorsel": "(?i)\\b(logo\\w*|marka|ikon|illustrasyon)\\b",
+    "logo-marka": "(?i)\\b(logo\\w*|marka\\w*|ikon\\w*|illustrasyon\\w*|brand\\w*)\\b",
+    "intro-animasyon": "(?i)\\b(intro\\w*|animasyon\\w*|motion|hareket\\w*)\\b",
     "kurulum": "(?i)\\b(kurulum\\w*|install\\w*|aday\\w*)",
     "kod-backend": "(?i)\\b(backend|api|dotnet|refactor\\w*)\\b",
     "guvenlik": "(?i)\\b(güvenlik|guvenlik|security|pentest|ctf|zafiyet\\w*|semgrep|gitleaks)\\b",
@@ -14,15 +38,277 @@
     "mod": "(?i)\\b(mod|minecraft|oyun)\\b"
   },
   "turler": {
-    "site-3d": {"skill": ["threejs-3d-paket", "gsap-skills", "web-sahne-desenleri", "frontend-craft", "animasyon-scroll-paket", "tasarim-katalog", "fable-dusunme"], "mcp": ["21st", "chrome-devtools"], "cli": ["playwright-cli", "pixeljury", "gltf-transform", "lighthouse-chrome-devtools"]},
-    "render": {"skill": ["blender-uretim", "threejs-3d-paket"], "mcp": ["blender-lab-mcp"], "cli": ["blender-dogrulama", "gltf-transform", "comfyui", "pixeljury"]},
-    "video": {"skill": ["video-tarama", "video-uygula", "remotion-video-paket", "hyperframes-paket", "hareket-altyazi-3d-paket"], "mcp": ["mcp-video-analyzer"], "cli": ["ffmpeg", "yt-dlp", "whisper-cli"]},
-    "logo-gorsel": {"skill": ["tasarim-katalog", "impeccable", "adobe-paket", "fable-dusunme"], "mcp": ["nano-banana-2", "open-design", "claude-design"], "cli": ["pixeljury", "jev", "comfyui"]},
-    "kurulum": {"skill": ["awesome-rehber", "skillspector", "skill-creator", "yetenek-getir"], "mcp": ["cc-kopru"], "cli": ["gitleaks", "semgrep", "gh", "skillspector"]},
-    "kod-backend": {"skill": ["departman-backend-dotnet", "test-driven-development", "systematic-debugging", "security-reviewer", "mcp-builder", "fable-dusunme"], "mcp": ["codebase-memory-mcp", "code-review"], "cli": ["dotnet", "gh", "tdd-guard", "semgrep"]},
-    "guvenlik": {"skill": ["departman-guvenlik", "security-reviewer", "skillspector"], "mcp": [], "cli": ["semgrep", "gitleaks", "strix", "ecc-agentshield"]},
-    "belge": {"skill": ["departman-belge", "headroom-compress"], "mcp": ["Google Drive"], "cli": ["markitdown", "summarize"]},
-    "mod": {"skill": ["blender-uretim", "test-driven-development"], "mcp": [], "cli": ["comfyui", "gh", "rtk"]},
-    "hafiza-token": {"skill": ["strategic-compact", "context-mode-paket", "headroom-compress"], "mcp": ["claude-mem", "context-mode"], "cli": ["rtk", "headroom", "jev"]}
+    "site-3d": {
+      "skill": [
+        "threejs-3d-paket",
+        "gsap-skills",
+        "web-sahne-desenleri",
+        "frontend-craft",
+        "animasyon-scroll-paket",
+        "tasarim-katalog",
+        "fable-dusunme"
+      ],
+      "mcp": [
+        "21st",
+        "chrome-devtools"
+      ],
+      "cli": [
+        "playwright-cli",
+        "pixeljury",
+        "gltf-transform",
+        "lighthouse-chrome-devtools"
+      ]
+    },
+    "render": {
+      "skill": [
+        "blender-uretim",
+        "threejs-3d-paket"
+      ],
+      "mcp": [
+        "blender-lab-mcp"
+      ],
+      "cli": [
+        "blender-dogrulama",
+        "gltf-transform",
+        "comfyui",
+        "pixeljury"
+      ]
+    },
+    "video": {
+      "skill": [
+        "video-tarama",
+        "video-uygula",
+        "remotion-video-paket",
+        "hyperframes-paket",
+        "hareket-altyazi-3d-paket"
+      ],
+      "mcp": [
+        "mcp-video-analyzer"
+      ],
+      "cli": [
+        "ffmpeg",
+        "yt-dlp",
+        "whisper-cli"
+      ]
+    },
+    "logo-marka": {
+      "skill": [
+        "illustrasyon-logo-paket",
+        "brandkit",
+        "design-dna",
+        "gorsel-uret"
+      ],
+      "mcp": [
+        "nano-banana-2",
+        "open-design",
+        "claude-design"
+      ],
+      "cli": [
+        "vtracer",
+        "gorsel_hakem"
+      ]
+    },
+    "intro-animasyon": {
+      "skill": [
+        "hyperframes-paket",
+        "remotion-video-paket",
+        "gsap-skills:gsap-core",
+        "animasyon-atolyesi",
+        "hareket-altyazi-3d-paket"
+      ],
+      "mcp": [],
+      "cli": [
+        "ffmpeg",
+        "blender-uretim"
+      ]
+    },
+    "kurulum": {
+      "skill": [
+        "awesome-rehber",
+        "skillspector",
+        "skill-creator",
+        "yetenek-getir"
+      ],
+      "mcp": [
+        "cc-kopru"
+      ],
+      "cli": [
+        "gitleaks",
+        "semgrep",
+        "gh",
+        "skillspector"
+      ]
+    },
+    "kod-backend": {
+      "skill": [
+        "departman-backend-dotnet",
+        "test-driven-development",
+        "systematic-debugging",
+        "security-reviewer",
+        "mcp-builder",
+        "fable-dusunme"
+      ],
+      "mcp": [
+        "codebase-memory-mcp",
+        "code-review"
+      ],
+      "cli": [
+        "dotnet",
+        "gh",
+        "tdd-guard",
+        "semgrep"
+      ]
+    },
+    "guvenlik": {
+      "skill": [
+        "departman-guvenlik",
+        "security-reviewer",
+        "skillspector"
+      ],
+      "mcp": [],
+      "cli": [
+        "semgrep",
+        "gitleaks",
+        "strix",
+        "ecc-agentshield"
+      ]
+    },
+    "belge": {
+      "skill": [
+        "departman-belge",
+        "headroom-compress"
+      ],
+      "mcp": [
+        "Google Drive"
+      ],
+      "cli": [
+        "markitdown",
+        "summarize"
+      ]
+    },
+    "mod": {
+      "skill": [
+        "blender-uretim",
+        "test-driven-development"
+      ],
+      "mcp": [],
+      "cli": [
+        "comfyui",
+        "gh",
+        "rtk"
+      ]
+    },
+    "hafiza-token": {
+      "skill": [
+        "strategic-compact",
+        "context-mode-paket",
+        "headroom-compress"
+      ],
+      "mcp": [
+        "claude-mem",
+        "context-mode"
+      ],
+      "cli": [
+        "rtk",
+        "headroom",
+        "jev"
+      ]
+    }
+  },
+  "pasif": [
+    "rtk",
+    "headroom",
+    "claude-mem",
+    "context-mode"
+  ],
+  "_pasif": "hook/vekil/eklenti ile kendiliğinden çalışır; dökümde tool_use olarak görünmez → ~/.claude/settings.json'da kayıtlıysa kullanılmış sayılır (yanlış alarm ayıklama)",
+  "canli": {
+    "_sema": "tur site-3d/kod-backend + canlıya/yayın deseni → tam set (Ömer 22 Eki): tasarım, görsel/edit, içerik, SEO, a11y, güvenlik, test, KVKK, yayın",
+    "desen": "(?i)canl[ıi]ya|canl[ıi] (site|yayın|ortam)|production|yayına|yayınla|deploy|kullanıcıya açık",
+    "skill": [
+      "impeccable",
+      "frontend-craft",
+      "pixeljury",
+      "copywriting",
+      "marketing-skills",
+      "seo-audit",
+      "fe-meta-seo-duzeltici",
+      "accessibility-audit",
+      "departman-guvenlik",
+      "security-reviewer",
+      "departman-test-qa",
+      "playwright-cli",
+      "sec-kvkk-gdpr-kontrol",
+      "departman-surec-git-yayin"
+    ],
+    "cli": [
+      "gitleaks",
+      "semgrep",
+      "lighthouse-chrome-devtools"
+    ]
+  },
+  "sablon": {
+    "site": {
+      "desen": "(?i)\\b(site|landing|web)\\b",
+      "araclar": [
+        "departman-frontend",
+        "frontend-craft",
+        "impeccable",
+        "pixeljury",
+        "playwright-cli",
+        "seo-audit",
+        "accessibility-audit"
+      ]
+    },
+    "uygulama": {
+      "desen": "(?i)\\b(uygulama|app|panel|dashboard)\\b",
+      "araclar": [
+        "departman-backend-dotnet",
+        "departman-test-qa",
+        "test-driven-development",
+        "security-reviewer",
+        "departman-veri-db"
+      ]
+    },
+    "video": {
+      "desen": "(?i)\\bvideo\\w*",
+      "araclar": [
+        "video-tarama",
+        "video-uygula",
+        "remotion-video-paket",
+        "pixeljury"
+      ]
+    },
+    "arac": {
+      "desen": "(?i)\\b(mcp|cli|eklenti|plugin)\\b",
+      "araclar": [
+        "mcp-builder",
+        "test-driven-development",
+        "systematic-debugging",
+        "skillspector"
+      ]
+    },
+    "otomasyon": {
+      "desen": "(?i)\\b(otomasyon|automation|pipeline|cron)\\b",
+      "araclar": [
+        "departman-surec-plan",
+        "departman-surec-git-yayin",
+        "gitleaks",
+        "semgrep"
+      ]
+    }
+  },
+  "yaratici": {
+    "site-3d": "REA ile referans sitenin bundle/sahnesini sök (analyze_web_bundle, capture_web_screenshot) + Playwright 3 genişlik SS + chrome-devtools Lighthouse + context7 güncel kütüphane dokümanı: kodu değil ekran/ağ kanıtını oku, gorsel_hakem ile yan yana pano",
+    "kod-backend": "graphify query ile dilim + context7 API dokümanı + test-driven-development (kırmızı gör) + semgrep/gitleaks + security-reviewer: kanıtla kapat",
+    "video": "watch/video-tarama ile kare+döküm (GPU Whisper, jeton 0) + ffmpeg + REA/Playwright ile referans sayfa SS + gorsel_hakem karşılaştırma",
+    "belge": "markitdown ile kaynak → headroom-compress ile kısalt → summarize ile özet → departman-belge ile üret → Playwright/REA ile çıktıyı SS'le kontrol et",
+    "kurulum": "yetenek-getir + awesome-rehber ile aday → skillspector/gitleaks/semgrep ile güvenlik → REA ile kaynak repo/sayfa sök → kurulumdan sonra tek mini koşu",
+    "guvenlik": "REA ile hedefi sök + semgrep/gitleaks/strix + security-reviewer; bulguyu Playwright ile yeniden üret, çıktıyı headroom-compress ile süz",
+    "logo-marka": "brandkit/design-dna + 21st logo araması + vtracer + gorsel_hakem; referans site varsa REA ile marka varlıklarını çıkar",
+    "intro-animasyon": "gsap/hyperframes hazır demo + Playwright kare yakalama + ffmpeg birleştirme + gorsel_hakem; referansı REA ile birebir sök",
+    "render": "Sketchfab/Poly Haven hazır model + blender-uretim headless + gltf-transform + pixeljury; REA ile referans sahneyi çıkar",
+    "mod": "graphify ile kod dilimi + test-driven-development + blender-uretim + gh kod araması; hazır mod örneğini temel al",
+    "diğer": "işe gerçekten uyan aracı yetenek-getir ile bul; REA/Playwright ile kanıt (SS/ağ), context7 ile güncel doküman, headroom-compress ile uzun çıktıyı süz"
   }
 }
