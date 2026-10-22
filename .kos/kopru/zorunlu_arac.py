@@ -1,5 +1,5 @@
 """ZORUNLU-ARAÇ-1 (Ömer 22 Eki): öğrenilen araçları görevde ZORUNLU kılar. ajan_sira.py kullanır.
-blok(ad, metin): ön uçuş → katalog_ara en uygun 8 skill/ajan/cli + `beyin ara` 3 ders + ruflo hata-dersi → isteme "ZORUNLU ARAÇLAR" bloğu; liste <ad>.zorunlu.json.
+blok(ad, metin): ön uçuş → araclar() (ZORUNLU-ARAÇ-2: anılan araçlar + tür çekirdeği + MCP profili + BM25 dolgu, ≤8 skill/ajan/cli/mcp) + `beyin ara` 3 ders + ruflo hata-dersi → isteme "ZORUNLU ARAÇLAR" bloğu; liste <ad>.zorunlu.json.
 denetle(ad): bitişte oturum dökümü (session_id → ~/.claude/projects/*/<sid>.jsonl) sayılır; listeden ≥min(3, yarısı) araç kullanılmadıysa arac_eksik,
 görsel iş türünde gorsel_hakem çağrısı yoksa kanit_eksik → <ad>.denetim.json (sonuc_kisa üst satırda gösterir).
   python zorunlu_arac.py --geri 10     son 10 görevi dökümden geriye dönük denetler (tablo)"""
@@ -28,17 +28,89 @@ def _calistir(argv, sure):
         return ""
 
 
+YENIDEN = False  # ZORUNLU-ARAÇ-2: ilk sürümde arac_eksik yalnız işaretlenir; 1 hafta isabet ölçülür, isabetliyse True
+GENEL = {"git", "mcp-server-git", "filesystem", "fetch", "memory", "time", "sequential-thinking"}
+CEKIRDEK = [  # (tür, desen, sabit çekirdek set); en çok eşleşen tür kazanır, eşitlikte tür yok
+    ("site-3d", r"(?i)site-3d|sketchfab|objaverse|gltf|\bglb\b|\b(site|landing|three(\.js)?|webgl|3d|frontend)\b",
+     ["threejs-3d-paket", "gsap-skills:gsap-core", "web-sahne-desenleri", "frontend-craft"]),
+    ("render", r"(?i)\b(render\w*|blender)\b", ["blender-uretim"]),
+    ("video", r"(?i)\bvideo\w*", ["video-tarama", "video-uygula", "remotion-video-paket", "hyperframes-paket"]),
+    ("kurulum", r"(?i)\b(kurulum\w*|install\w*)", ["awesome-rehber", "gitleaks", "semgrep"]),
+]
+CEKIRDEK_AD = {a for _, _, c in CEKIRDEK for a in c} | {a.split(":")[-1] for _, _, c in CEKIRDEK for a in c}
+
+
+def kapsam(metin):
+    """Başlık (önekli 'ad-N —' atılmış) + İLK VE BAĞLAYICI bölümü; bölüm yoksa ilk 800 karakter."""
+    satir = metin.lstrip().split("\n", 1)
+    baslik = re.sub(r"^#+\s*([\w-]+\s*[—-]\s*)?", "", satir[0])
+    m = re.search(r"(?s)## İLK VE BAĞLAYICI\s*(.*?)(?=\n## |\Z)", metin)
+    return baslik + "\n" + (m.group(1)[:1500] if m else (satir[1] if len(satir) > 1 else "")[:800])
+
+
+def tur_bul(kap):
+    """(tür adı, çekirdek set) — eşitlikte ya da eşleşme yoksa ('diğer', [])."""
+    say = sorted(((len(re.findall(d, kap)), t, c) for t, d, c in CEKIRDEK), key=lambda x: -x[0])
+    if say[0][0] == 0 or say[0][0] == say[1][0]:
+        return "diğer", []
+    return say[0][1], say[0][2]
+
+
+def _kayit(o):
+    return {"ad": o["ad"], "tur": o["tur"], "cagri": o["cagri"], "ne": (o["is"] or o["metin"])[:90]}
+
+
 def araclar(metin):
-    """katalog_ara en uygun N kayıt; ajan-sira oturumunda boş MCP (--strict-mcp-config) olduğundan mcp elenir."""
+    """ZORUNLU-ARAÇ-2, ≤N kayıt: görevde adı geçen araçlar (≤4) → tür çekirdek seti → MCP profili (mcp_profil) → BM25 (başlık+tür, eşik) dolgusu.
+    Sorgu görev metninin tamamı değil kapsam() (başlık + İLK VE BAĞLAYICI); git/mcp-server-git gibi genel kayıtlar elenir."""
     sys.path.insert(0, str(KOK / "tools"))
     try:
         import katalog_ara
-        q = metin[:600]
-        sonuc = katalog_ara.suz(katalog_ara.aday(q, N + 6), katalog_ara.yigin(q))[0]
+        import mcp_profil
+        rows = [json.loads(s) for s in katalog_ara.KATALOG.read_text(encoding="utf8").splitlines()]
     except Exception:
         return []
-    return [{"ad": o["ad"], "tur": o["tur"], "cagri": o["cagri"], "ne": (o["is"] or o["metin"])[:90]}
-            for o in sonuc if o["tur"] != "mcp" and "reposunda" not in o["metin"]][:N]
+    kap = kapsam(metin)
+    tur, cek = tur_bul(kap)
+    sira = {"skill": 0, "ajan": 1, "cli": 2}  # ad → kayıt; aynı ad/kısa adda skill önde, mcp/plugin denetlenemez
+    dizin = {}
+    for o in sorted((o for o in rows if o["tur"] in sira or o["tur"] == "arac"), key=lambda o: sira.get(o["tur"], 3)):
+        if o["ad"] not in GENEL and "reposunda" not in o["metin"]:
+            dizin.setdefault(o["ad"], o)
+            dizin.setdefault(o["ad"].split(":")[-1], o)
+    sec, goruldu = [], set()
+
+    def ekle(o):
+        k = o["ad"].split(":")[-1]
+        if k not in goruldu and len(sec) < N:
+            goruldu.add(k)
+            sec.append(_kayit(o))
+
+    kod = set(re.findall(r"`([^`\s]+)`", kap))
+    anilan = {}
+    for t in re.findall(r"[\w][\w:.-]*", kap):
+        t = t.rstrip(".:-")
+        if t in dizin and len(t) >= 5 and (re.search(r"[-_:]", t) or t in kod or t in CEKIRDEK_AD) and t not in anilan:
+            anilan[t] = kap.count(t)
+    for t in sorted(anilan, key=lambda t: -anilan[t])[:4]:
+        ekle(dizin[t])
+    for a in cek:
+        if a in dizin:
+            ekle(dizin[a])
+    tanim = mcp_profil.tanimlar()
+    for m in mcp_profil.sec(metin):  # ajan_sira --mcp-config ile aynı girdi/profil: oturumda gerçekten yüklenenler
+        if tur != "diğer" and m not in mcp_profil.TEMEL and m in tanim and len([o for o in sec if o["tur"] == "mcp"]) < 2:
+            if m not in goruldu:
+                goruldu.add(m)
+                sec.append({"ad": m, "tur": "mcp", "cagri": f"mcp__{m}__*", "ne": "MCP profilinde (görev türü)"})
+    q = f"{kap.splitlines()[0]} {tur if tur != 'diğer' else ''}"
+    puan, gerek = katalog_ara.puanla(q, satirlar=rows)
+    tepe = puan[0][0] if puan else 0
+    bm = [o for s, kap_, o in puan[:40] if s >= 0.6 * tepe and kap_ >= gerek and o["tur"] in sira and o["ad"] not in GENEL
+          and "reposunda" not in o["metin"]]
+    for o in katalog_ara.suz(bm, katalog_ara.yigin(q))[0]:
+        ekle(o)
+    return sec[:N]
 
 
 RUFLO_KOD = """import sys, os, json
@@ -105,7 +177,7 @@ def _kullanildi(o, k):
     sk, ag, mcp, sh = k
     ad = o["ad"]
     if o["tur"] in ("skill", "plugin"):
-        return any(s == ad or s.endswith(":" + ad) for s in sk)
+        return any(s.split(":")[-1] == ad.split(":")[-1] for s in sk)  # katalog adı ad-alanlı olabilir (frontend-craft:frontend-craft)
     if o["tur"] == "ajan":
         return ad in ag
     sozcuk = re.compile(r"(?i)(?<![\w-])" + re.escape(ad) + r"(?![\w-])")
@@ -165,7 +237,7 @@ def geri(n):
            if "\t" in s and not s.startswith("#")}
     adaylar = sorted((p for p in SIRA.glob("*.json") if p.stem in tsv and p.stat().st_size > 0), key=lambda p: p.stat().st_mtime)
     say = eksik = 0
-    print("ad\tliste\tkullanılan\tdurum")
+    print("ad\tliste\tkullanılan\tdurum\ttür\taday")
     for p in reversed(adaylar):
         if say == n:
             break
@@ -181,7 +253,7 @@ def geri(n):
         durum, yok = karar(ar, bool(GORSEL.search(metin)), k)
         say += 1
         eksik += durum != "ok"
-        print(f"{p.stem}\t{len(ar)}\t{len(ar) - len(yok)}\t{durum}")
+        print(f"{p.stem}\t{len(ar)}\t{len(ar) - len(yok)}\t{durum}\t{tur_bul(kapsam(metin))[0]}\t{' '.join(o['ad'] for o in ar)}")
     print(f"toplam {say} · işaretlenen {eksik}")
 
 

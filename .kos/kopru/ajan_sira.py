@@ -268,7 +268,7 @@ def main():
                 den = zorunlu_arac.denetle(ad)  # ZORUNLU-ARAÇ-1: döküm sayımı; arac_eksik → aynı görev bir kez eksik araç ekiyle yeniden
                 if den and den["durum"] != "ok":
                     log("DENETİM", ad, den["durum"], "eksik:", ", ".join(den["eksik"]))
-                    if "arac_eksik" in den["durum"] and not ad.endswith("-a") and ad + "-a" not in tekrar:
+                    if zorunlu_arac.YENIDEN and "arac_eksik" in den["durum"] and not ad.endswith("-a") and ad + "-a" not in tekrar:
                         yeniden.append((ad + "-a", zorunlu_arac.yeniden_istem(ad, istem, den["eksik"]), kosul, ef, mdl, bas, cwd))
                         tekrar.add(ad + "-a")
                 subprocess.Popen([sys.executable, str(KOK / "tools" / "beyin_kayit.py"), ad], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)  # BEYIN-KAYIT-1: ikinci beyne yaz (arka plan, beklemez)

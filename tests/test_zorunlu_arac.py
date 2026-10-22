@@ -82,6 +82,35 @@ def test_blok_ve_yeniden_istem(tmp_path, monkeypatch):
     assert z.blok("g2", "x") == ""  # katalog boş → blok yok, görev bozulmaz
 
 
+GOREV_3D = ("# ABC-2 — landing sayfası\n\n## İLK VE BAĞLAYICI\nthree.js sahnesi, `web-sahne-desenleri` ile; git ve mcp-server-git geçsin.\n"
+            "\n## SONRA\nblender render video kurulum")
+
+
+def test_kapsam_baslik_oneki_atar_ve_bolumle_sinirlar():
+    k = z.kapsam(GOREV_3D)
+    assert k.startswith("landing sayfası") and "web-sahne-desenleri" in k and "SONRA" not in k and "blender" not in k
+
+
+def test_tur_bul_esitlikte_diger():
+    assert z.tur_bul("three.js landing")[0] == "site-3d"
+    assert z.tur_bul("render ve video")[0] == "diğer"  # 1-1 eşitlik
+    assert z.tur_bul("merhaba") == ("diğer", [])
+
+
+def test_araclar_ozel_liste_genel_kayitlar_yok():
+    ar = z.araclar(GOREV_3D)
+    ad = [o["ad"] for o in ar]
+    assert 0 < len(ad) <= z.N
+    assert "web-sahne-desenleri" in ad and "threejs-3d-paket" in ad  # anılan + tür çekirdeği
+    assert not {"git", "mcp-server-git"} & set(ad) and "blender-uretim" not in ad  # genel elenir, kapsam dışı tür girmez
+
+
+def test_yeniden_kosu_kapali_ve_ad_alanli_skill_sayilir():
+    assert z.YENIDEN is False
+    k = (["slash-dar:frontend-craft"], [], [], [])
+    assert z._kullanildi({"ad": "frontend-craft:frontend-craft", "tur": "skill"}, k)
+
+
 def test_kosul_gorev_dosyasinda_geciyorsa_uyar(tmp_path, monkeypatch):
     monkeypatch.setattr(z, "KOK", tmp_path)
     (tmp_path / "t.md").write_text("İLK VE BAĞLAYICI ...", encoding="utf-8")
