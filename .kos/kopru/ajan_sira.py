@@ -224,7 +224,7 @@ def basamak_sec(ad, bas):
     return 2 if maliyet_defter.tur(ad) in maliyet_defter.haiku_zayif(maliyet_defter.oku()) else 0
 
 
-def baslat_argv(efor, model="opus", mcp=None, ajanlar=()):
+def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
     """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
     20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus. MCP-AÇ-1: mcp= profil dosyası yolu (yoksa boş MCP)."""
     argv = [model if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
@@ -255,6 +255,8 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=()):
             kayit = Path(tempfile.gettempdir()) / f"cc_ts_{os.getpid()}_{abs(hash(argv[i]))}.json"
             kayit.write_text(json.dumps(ayar), encoding="utf-8")
             argv[i] = str(kayit)
+    if butce is not None:  # BÜTÇE-KAPI-1: claude kendi bütçe bayrağıyla dururur; sonuç JSON'u yine geçerli kalır
+        argv = [*argv, "--max-budget-usd", f"{butce:g}"]
     env = taze_env()
     env["AJAN_SIRA_KUYRUK"] = "1"  # SAYAC-FIX-1: cagri_sayac.py bu ajanda devir/DUR uyarısı basmaz
     if "max-old-space-size" not in env.get("NODE_OPTIONS", ""):  # RAM-1: ajan başı node MCP'leri (rea, chrome-devtools) sınırsız heap büyütmesin
@@ -285,7 +287,35 @@ def taze_env():
     return env
 
 
-def is_kaydi(ad, rc, dk, efor, model):
+BUTCE_VARSAYILAN = 0.50  # BÜTÇE-KAPI-1: görev dosyasında "BÜTÇE ... ≤$X" satırı yoksa
+BUTCE_ASTI = set()  # bütçesi dolup durdurulan işler (error_max_budget_usd): merdiven bunları yeniden denemez
+
+
+def butce_bul(metin):
+    """BÜTÇE-KAPI-1: görev metnindeki ilk 'BÜTÇE ... ≤$X' (ondalık virgül ya da nokta) → USD; yoksa varsayılan."""
+    m = re.search(r"BÜTÇE[^\n≤]*≤\s*\$\s*(\d+(?:[.,]\d+)?)", metin)
+    return float(m.group(1).replace(",", ".")) if m else BUTCE_VARSAYILAN
+
+
+def sonuc_temizle(ad):
+    """BÜTÇE-KAPI-1: ad.json yalnız geçerli JSON satırı taşısın. claude stdout'una JSON dışı satır (ör. 'Background tasks still running' uyarısı)
+    ya da kesik parça karışırsa dosya bozulur; geçersiz satırlar ad.stray.txt'ye taşınır."""
+    yol = CIKTI / f"{ad}.json"
+    temiz, stray = [], []
+    for s in yol.read_text(encoding="utf-8", errors="replace").splitlines():
+        try:
+            json.loads(s)
+            temiz.append(s)
+        except ValueError:
+            if s.strip():
+                stray.append(s)
+    if stray:
+        yol.write_text("\n".join(temiz) + "\n", encoding="utf-8")
+        (CIKTI / f"{ad}.stray.txt").write_text("\n".join(stray) + "\n", encoding="utf-8")
+        log("JSON TEMİZLE", ad, f"{len(stray)} satır taşındı")
+
+
+def is_kaydi(ad, rc, dk, efor, model, butce=None):
     """TOKEN-3 K17: biten işin claude -p JSON'u → is-kaydi.tsv tek satır (ağırlıklı = g + 1.25·cw + 0.1·cr + 5·ç; kalite = sonuçtaki ilk 'kalite' satırı).
     Dönüş: kabul (rc 0 ve subtype success); aynı anda maliyet.tsv'ye yazılır."""
     j = {}
@@ -306,7 +336,15 @@ def is_kaydi(ad, rc, dk, efor, model):
         f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{efor or '-'}\t{dk:.0f}\t{j.get('num_turns', 0)}\t{agir:.0f}\t"
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
     ok = rc == 0 and j.get("subtype") == "success"
-    maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, j.get("total_cost_usd", 0), ok)
+    usd = j.get("total_cost_usd", 0)
+    maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, usd, ok)
+    if butce is not None:  # BÜTÇE-KAPI-1: %100 durdurma claude'un --max-budget-usd'si; burada yalnız kayıt ve son %80 uyarısı
+        durum = j.get("subtype") or f"rc{rc}"
+        maliyet_defter.yaz_butce(ad, butce, usd, durum)
+        if durum == "error_max_budget_usd":
+            BUTCE_ASTI.add(ad)
+        if usd >= 0.8 * butce:
+            log("BÜTÇE %80+", ad, f"${usd:.2f} / ${butce:.2f} · {durum}")
     if model == "opus" and ok and j.get("session_id"):  # AJAN-AKIS-1 2. beyin: başarılı Opus oturumundan kalıp damıt (arka plan iş parçacığı, hata kuyruğu bozmaz)
         try:
             import threading; sys.path.insert(0, str(KOK / "tools")); import akis_damit
@@ -344,16 +382,17 @@ def main():
         baslayan.add(f.stem)
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     while True:
-        for ad, (p, t0, fo, ef, mdl, bas, istem, kosul, cwd) in list(calisan.items()):
+        for ad, (p, t0, fo, ef, mdl, bas, istem, kosul, cwd, butce) in list(calisan.items()):
             if p.poll() is not None or time.time() - t0 > SURE:
                 if p.poll() is None:
                     subprocess.run(["taskkill", "/T", "/F", "/PID", str(p.pid)], capture_output=True, creationflags=0x08000000)
                     log("SÜRE DOLDU", ad)
                 fo.close()
                 (CIKTI / f"{ad}.mcp.json").unlink(missing_ok=True)  # MCP-AÇ-1: profil dosyası env taşıyabilir
+                sonuc_temizle(ad)  # BÜTÇE-KAPI-1: JSON dışı satırlar ayrılır, ad.json geçerli kalır
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
-                ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl)
-                if bas is not None and not ok and ad not in tekrar and bas + 1 < len(MERDIVEN):
+                ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl, butce)
+                if bas is not None and not ok and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
                     yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1, cwd))
                     tekrar.add(ad + "-r")
                     log("YENİDEN", ad, "→ bir üst basamak", MERDIVEN[bas + 1])
@@ -395,6 +434,8 @@ def main():
                     bas = basamak_sec(ad, bas)
                     model, efor = MERDIVEN[bas]
                 metin = (KOK / istem).read_text(encoding="utf-8")
+                butce = butce_bul(metin)  # BÜTÇE-KAPI-1: ham görev metninden (ön ekler karışmadan)
+                log("BÜTÇE", ad, f"${butce:.2f}")
                 metin = arac_onek(str(hedef) if cwd else None) + zorunlu_arac.blok(ad, metin) + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin  # ZORUNLU-ARAÇ-1: ön uçuş
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
@@ -412,12 +453,12 @@ def main():
                     except Exception as e:
                         mcp = None
                         log("MCP profil hatası", ad, repr(e)[:80])
-                argv, env = baslat_argv(efor, model, mcp, zorunlu_arac.ajan_adlari(ad))
+                argv, env = baslat_argv(efor, model, mcp, zorunlu_arac.ajan_adlari(ad), butce)
                 p = subprocess.Popen(argv, cwd=str(hedef), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
                 p.stdin.close()
-                calisan[ad] = (p, time.time(), fo, efor, model, bas, istem, kosul, cwd)
+                calisan[ad] = (p, time.time(), fo, efor, model, bas, istem, kosul, cwd, butce)
                 baslayan.add(ad)
                 yeniden = [y for y in yeniden if y[0] != ad]
                 (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S") + f" pid {p.pid}", encoding="utf-8")

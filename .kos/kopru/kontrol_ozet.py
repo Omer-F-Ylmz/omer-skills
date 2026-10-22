@@ -156,11 +156,17 @@ def main():
         cikti.append("+ " + ", ".join(biten[len(gosterilen):]) + " (python sonuc_kisa.py --kisa <ad>)")
     top, en_pahali = maliyet_defter.gunluk(maliyet_defter.oku(), time.strftime("%Y-%m-%d"))
     zayif = ", ".join(sorted(maliyet_defter.haiku_zayif(maliyet_defter.oku()))) or "yok"
+    asan = ", ".join(maliyet_defter.butce_asan(time.strftime("%Y-%m-%d"))) or "yok"  # BÜTÇE-KAPI-1
     cikti.append(f"bugün ${top:.2f} · en pahalı: " + ", ".join(f"{r['ad']} ${r['usd']:.2f}" for r in en_pahali)
-                 + f" · Haiku-zayıf (7g): {zayif}")
+                 + f" · Haiku-zayıf (7g): {zayif} · bütçe aşan: {asan}")
     print("\n".join(cikti[:SATIR]), file=sys.__stdout__)  # özet stdout'ta; ozet() havuz gürültüsünü stderr'e yönlendirir
     SON.write_text(str(son), encoding="utf-8")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        import traceback
+        print("HATA kontrol_ozet:\n" + traceback.format_exc()[-1200:], file=sys.__stdout__)
+    sys.__stdout__.flush()

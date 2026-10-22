@@ -6,6 +6,8 @@ from pathlib import Path
 
 DEFTER = Path(__file__).resolve().parent / "maliyet.tsv"
 BASLIK = "zaman\tad\tmodel\tusd\ttur\tsuccess\n"
+BUTCE_DEFTER = Path(__file__).resolve().parent / "butce.tsv"  # BÜTÇE-KAPI-1: iş başına bütçe/harcanan/oran (maliyet.tsv'ye dokunmaz)
+BUTCE_BASLIK = "zaman\tad\tbutce\tusd\toran\tdurum\n"
 
 
 def tur(ad):
@@ -20,6 +22,24 @@ def yaz(ad, model, usd, ok, yol=None):
         yol.write_text(BASLIK, encoding="utf-8")
     with yol.open("a", encoding="utf-8") as f:
         f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{model}\t{usd:.2f}\t{tur(ad)}\t{int(ok)}\n")
+
+
+def yaz_butce(ad, butce, usd, durum, yol=None):
+    """BÜTÇE-KAPI-1: iş başına bütçe · harcanan · oran · sonuç alt türü (error_max_budget_usd = bütçe doldu)."""
+    yol = yol or BUTCE_DEFTER
+    if not yol.exists():
+        yol.write_text(BUTCE_BASLIK, encoding="utf-8")
+    with yol.open("a", encoding="utf-8") as f:
+        f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{butce:.2f}\t{usd:.2f}\t{usd / butce:.2f}\t{durum}\n")
+
+
+def butce_asan(gun, yol=None):
+    """gun = 'YYYY-MM-DD' → o gün bütçesi dolup durdurulan iş adları."""
+    yol = yol or BUTCE_DEFTER
+    if not yol.exists():
+        return []
+    return [p[1] for p in (s.split("\t") for s in yol.read_text(encoding="utf-8").splitlines()[1:])
+            if len(p) == 6 and p[0].startswith(gun) and p[5] == "error_max_budget_usd"]
 
 
 def oku(yol=None):

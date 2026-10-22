@@ -122,6 +122,56 @@ def test_kontrol_ozet_zaman_asimi(monkeypatch):
     assert kontrol_ozet.ozetle(["a2"]) == [["hızlı"]]
 
 
+def test_butce_bul():
+    """BÜTÇE-KAPI-1: görev satırındaki ≤$X okunur (virgül ya da nokta); BÜTÇE satırı ≤$ içermezse atlanır; yoksa 0,50."""
+    assert ajan_sira.butce_bul("BÜTÇE Claude ≤$0,30 (Haiku).") == 0.30
+    assert ajan_sira.butce_bul("BÜTÇE Claude ≤$2.50 (Sonnet)") == 2.5
+    assert ajan_sira.butce_bul("3. BÜTÇE: varsayılan ≤600 token\nBÜTÇE Claude ≤$0,80") == 0.8
+    assert ajan_sira.butce_bul("bütçe satırı yok") == ajan_sira.BUTCE_VARSAYILAN == 0.50
+
+
+def test_baslat_argv_butce(tmp_path, monkeypatch):
+    """BÜTÇE-KAPI-1: bütçe verilince --max-budget-usd claude'a geçer; verilmezse argv değişmez."""
+    argv, _ = ajan_sira.baslat_argv("", "haiku", None, (), 0.3)
+    assert argv[argv.index("--max-budget-usd") + 1] == "0.3"
+    assert "--max-budget-usd" not in ajan_sira.baslat_argv("", "haiku")[0]
+
+
+def test_sonuc_temizle(tmp_path, monkeypatch):
+    """BÜTÇE-KAPI-1: erisim-tam-1d (başta CLI uyarı satırı) ve bhs5-d0 (sonda kesik parça) → ad.json geçerli JSON kalır, geri kalan ad.stray.txt'ye gider."""
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    (tmp_path / "a.json").write_text('Background tasks still running 10m\n{"subtype":"success"}\n', encoding="utf-8")
+    ajan_sira.sonuc_temizle("a")
+    assert json.loads((tmp_path / "a.json").read_text(encoding="utf-8")) == {"subtype": "success"}
+    assert (tmp_path / "a.stray.txt").read_text(encoding="utf-8") == "Background tasks still running 10m\n"
+    (tmp_path / "b.json").write_text('{"subtype":"success"}\ntent_frame_ms":2398,"result_index":0}', encoding="utf-8")
+    ajan_sira.sonuc_temizle("b")
+    assert json.loads((tmp_path / "b.json").read_text(encoding="utf-8")) == {"subtype": "success"}
+    (tmp_path / "c.json").write_text('{"subtype":"success"}\n', encoding="utf-8")
+    ajan_sira.sonuc_temizle("c")  # temiz dosyaya dokunmaz
+    assert not (tmp_path / "c.stray.txt").exists()
+
+
+def test_butce_durdurma(tmp_path, monkeypatch):
+    """BÜTÇE-KAPI-1 sahte görev: %80 uyarısı loga düşer; bütçe dolan iş (error_max_budget_usd) yeniden denenmez listesine girer ve defterde kalır."""
+    import time
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "ISKAYDI", tmp_path / "is.tsv")
+    monkeypatch.setattr(ajan_sira, "BUTCE_ASTI", set())
+    monkeypatch.setattr(ajan_sira.maliyet_defter, "DEFTER", tmp_path / "maliyet.tsv")
+    monkeypatch.setattr(ajan_sira.maliyet_defter, "BUTCE_DEFTER", tmp_path / "butce.tsv")
+    logs = []
+    monkeypatch.setattr(ajan_sira, "log", lambda *a: logs.append(" ".join(map(str, a))))
+    (tmp_path / "f80.json").write_text('{"subtype":"success","total_cost_usd":0.25}\n', encoding="utf-8")
+    assert ajan_sira.is_kaydi("f80", 0, 1.0, "", "haiku", 0.30) is True
+    assert any(s.startswith("BÜTÇE %80+ f80") for s in logs)
+    (tmp_path / "f100.json").write_text('{"subtype":"error_max_budget_usd","total_cost_usd":0.31}\n', encoding="utf-8")
+    assert ajan_sira.is_kaydi("f100", 0, 1.0, "", "haiku", 0.30) is False
+    assert ajan_sira.BUTCE_ASTI == {"f100"}
+    assert ajan_sira.maliyet_defter.butce_asan(time.strftime("%Y-%m-%d")) == ["f100"]
+    assert len((tmp_path / "butce.tsv").read_text(encoding="utf-8").splitlines()) == 3  # başlık + 2 iş
+
+
 def test_baslat_argv_slash_bayragi(tmp_path, monkeypatch):
     """SLASH-ÖĞREN d1: bayrak varsa köprü oturumu Skill aracını alır, --disable-slash-commands düşer; yoksa değişmez."""
     bayrak = tmp_path / "slash.bayrak"
