@@ -175,6 +175,9 @@ def baslat_argv(efor, model="opus", mcp=None):
             (kume / "birlesik-ayar.json").write_text(json.dumps(birlesik), encoding="utf-8")
             argv[i] = str(kume / "birlesik-ayar.json")
             argv += ["--plugin-dir", str(kume)]
+    if mcp and os.environ.get("CC_MCP_ERTELE") != "0":  # MCP-AÇ-2: KEEP dışı MCP araçları kapanır; CC_MCP_ERTELE=0 geri alır
+        sys.path.insert(0, str(KOK / "tools")); import mcp_profil
+        argv = mcp_profil.ertele(argv, mcp, os.environ.get("CC_MCP_ERTELE") == "1")
     env = taze_env()
     if not efor:
         return argv, env

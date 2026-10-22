@@ -1,5 +1,6 @@
 """TOKEN-3 K11: ajan-sira.tsv isteğe bağlı 4. sütun efor=medium|high → --effort; yoksa eski davranış."""
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -48,6 +49,24 @@ def test_baslat_argv_env(tmp_path, monkeypatch):
     assert argv[-2:] == ["--effort", "medium"] and "CLAUDE_CODE_EFFORT_LEVEL" not in env
     argv, env = ajan_sira.baslat_argv("")
     assert argv == ajan_sira.ARGV and isinstance(env, dict)
+
+
+def test_baslat_argv_mcp_ertele(tmp_path, monkeypatch):
+    """MCP-AÇ-2: mcp verilince KEEP dışı araçlar kapalı (ToolSearch/ENABLE_TOOL_SEARCH eklenmez); CC_MCP_ERTELE=0 ya da mcp yoksa eski argv."""
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+    import mcp_profil
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")
+    monkeypatch.setattr(mcp_profil, "ARACLAR", tmp_path / "araclar.json")
+    (tmp_path / "araclar.json").write_text('{"rea": ["inspect_web_page", "zz_gereksiz"], "blender": ["a"]}', encoding="utf-8")
+    mcp = tmp_path / "mcp.json"
+    mcp.write_text('{"mcpServers": {"rea": {}, "blender": {}}}', encoding="utf-8")
+    argv, _ = ajan_sira.baslat_argv("", "haiku", mcp)
+    assert "ToolSearch" not in argv[argv.index("--tools") + 1]
+    assert argv[argv.index("--disallowedTools") + 1] == "mcp__rea__zz_gereksiz"  # KEEP'te olmayan MCP (blender) tam kalır
+    assert "ENABLE_TOOL_SEARCH" not in json.loads(Path(argv[argv.index("--settings") + 1]).read_text(encoding="utf-8")).get("env", {})
+    assert ajan_sira.baslat_argv("", "haiku")[0] == [a if a != "opus" else "haiku" for a in ajan_sira.ARGV]  # mcp yok → dokunulmaz
+    monkeypatch.setenv("CC_MCP_ERTELE", "0")
+    assert "--disallowedTools" not in ajan_sira.baslat_argv("", "haiku", mcp)[0]
 
 
 def test_is_kaydi(tmp_path, monkeypatch):

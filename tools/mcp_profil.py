@@ -12,6 +12,19 @@ TUR = [  # (desen, MCP'ler); türler birleşir
     (r"(?i)\b(render\w*|blender)\b", ["blender"]),
     (r"(?i)\bvideo\w*", ["premiere-pro"]),
 ]
+KEEP = {  # MCP-AÇ-2: yalnız bu araçlar açık kalır; listede olmayan MCP'ler (blender, context7, premiere-pro) tam kalır
+    "ruflo": ["agentdb_pattern-search", "agentdb_pattern-store", "memory_search", "memory_store", "memory_retrieve"],
+    "rea": ["capture_web_screenshot", "inspect_web_page", "analyze_web_bundle", "compare_web_screenshots", "compare_web_captures",
+            "capture_browser_scenario", "list_browser_targets", "inspect_web_network_capture", "export_web_scripts", "observe_web_session",
+            "trace_web_module_imports", "trace_web_source_location", "discover_webmcp_tools", "open_binary", "close_binary"],
+    "playwright": ["browser_navigate", "browser_snapshot", "browser_take_screenshot", "browser_evaluate", "browser_click", "browser_resize",
+                   "browser_wait_for", "browser_close", "browser_console_messages", "browser_type", "browser_fill_form", "browser_press_key"],
+    "chrome-devtools": ["navigate_page", "new_page", "list_pages", "select_page", "close_page", "take_screenshot", "take_snapshot",
+                        "evaluate_script", "resize_page", "emulate", "list_console_messages", "get_console_message", "list_network_requests",
+                        "get_network_request", "click", "fill", "wait_for", "press_key", "lighthouse_audit", "get_css_styles"],
+    "21st": ["search", "search_logo", "search_picker", "get_component", "get_inspiration", "get_theme", "get_generation", "get_generation_job"],
+}
+ARACLAR = Path(__file__).resolve().parents[1] / ".kos" / "kopru" / "mcp-araclar.json"  # tools/mcp_ac2_olc.py araclar ile yenilenir
 KAYNAK = [Path.home() / ".claude.json", *sorted((Path.home() / ".claude/plugins/cache/ecc/ecc").glob("*/.mcp.json"))]
 
 
@@ -34,6 +47,22 @@ def sec(metin):
         if re.search(desen, metin):
             ad += [m for m in mcp if m not in ad]
     return ad
+
+
+def kapat(adlar):
+    """KEEP'li seçili MCP'lerin geri kalan araçları → --disallowedTools girdileri (sıralı, koşular arası aynı). Araç listesi yoksa boş."""
+    try:
+        tum = json.loads(ARACLAR.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    return [f"mcp__{m}__{a}" for m in adlar if m in KEEP for a in tum.get(m, []) if a not in KEEP[m]]
+
+
+def ertele(argv, mcp, tam=True):
+    """MCP-AÇ-2: KEEP dışı MCP araçlarını --disallowedTools ile kapatır (sıralı → istem öneki koşular arası sabit).
+    ENABLE_TOOL_SEARCH=true + ToolSearch zorlaması denendi: -p'de şemalar zaten ertelenmiş, ilk giriş +%43 (docs/token/mcp-ac-2.tsv) → eklenmez."""
+    kapali = kapat(list(json.loads(Path(mcp).read_text(encoding="utf-8"))["mcpServers"]))
+    return list(argv) + ["--disallowedTools", ",".join(kapali)] if kapali else list(argv)
 
 
 def yaz(metin, hedef):

@@ -1,0 +1,16 @@
+tarih	tur	kol	mcp	ilk_giris	ilk_okuma	top_giris	top_okuma	isabet%	sure_s	tur_say	kalite	hata
+2026-10-22 09:31	ok	eski	ruflo	14975	5340	14975	5340	35.7	5	1	-	0
+2026-10-22 09:31	ok	eski	ruflo	14975	5340	14975	5340	35.7	5	1	-	0
+2026-10-22 09:31	ok	yeni	ruflo	21487	0	21487	0	0.0	5	1	-	0
+2026-10-22 09:31	ok	yeni	ruflo	21485	11661	21485	11661	54.3	6	1	-	0
+2026-10-22 09:32	site	eski	ruflo,rea,playwright,chrome-devtools,context7,21st	15551	5340	32018	18950	59.2	16	2	1	0
+2026-10-22 09:32	site	eski	ruflo,rea,playwright,chrome-devtools,context7,21st	15547	5340	32016	18946	59.2	15	2	1	0
+2026-10-22 09:32	site	yeni	ruflo,rea,playwright,chrome-devtools,context7,21st	22949	11661	47634	11661	24.5	17	2	1	0
+2026-10-22 09:32	site	yeni	ruflo,rea,playwright,chrome-devtools,context7,21st	22951	11661	46834	32671	69.8	16	2	1	0
+2026-10-22 09:33	render	eski	ruflo,blender	16471	5340	54243	5340	9.8	12	2	1	0
+2026-10-22 09:33	render	eski	ruflo,blender	16469	5340	54221	31394	57.9	12	2	1	0
+2026-10-22 09:33	render	yeni	ruflo,blender	23536	11661	48377	24059	49.7	15	2	1	0
+2026-10-22 09:33	render	yeni	ruflo,blender	23536	11661	48510	24059	49.6	20	2	1	0
+2026-10-22 09:38	ok	yeni	ruflo	14971	5340	14971	5340	35.7	8	1	-	0
+2026-10-22 09:38	site	yeni	ruflo,rea,playwright,chrome-devtools,context7,21st	15549	5340	32025	18948	59.2	16	2	1	0
+2026-10-22 09:38	render	yeni	ruflo,blender	16469	5340	51337	5340	10.4	12	2	1	0
