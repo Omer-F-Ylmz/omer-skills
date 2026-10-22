@@ -28,7 +28,7 @@ def _calistir(argv, sure):
         return ""
 
 
-YENIDEN = False  # ZORUNLU-ARAÇ-2: ilk sürümde arac_eksik yalnız işaretlenir; 1 hafta isabet ölçülür, isabetliyse True
+YENIDEN = True  # arac_eksik → eksik araç ekiyle bir kez yeniden kuyruk (Ömer 22 Eki: bekleme yok)
 GENEL = {"git", "mcp-server-git", "filesystem", "fetch", "memory", "time", "sequential-thinking"}
 CEKIRDEK = [  # (tür, desen, sabit çekirdek set); en çok eşleşen tür kazanır, eşitlikte tür yok
     ("site-3d", r"(?i)site-3d|sketchfab|objaverse|gltf|\bglb\b|\b(site|landing|three(\.js)?|webgl|3d|frontend)\b",
@@ -43,7 +43,7 @@ except (OSError, ValueError):
     TUR_SET = {"cekirdek": {}, "desen": {}, "turler": {}}
 for _t, _d in TUR_SET["desen"].items():
     if _t not in {c[0] for c in CEKIRDEK} and _t in TUR_SET["turler"]:
-        CEKIRDEK.append((_t, _d, TUR_SET["turler"][_t]["skill"][:3] + TUR_SET["turler"][_t]["cli"][:2]))
+        CEKIRDEK.append((_t, _d, TUR_SET["turler"][_t]["skill"] + TUR_SET["turler"][_t]["cli"]))
 CEKIRDEK_AD = {a for _, _, c in CEKIRDEK for a in c} | {a.split(":")[-1] for _, _, c in CEKIRDEK for a in c}
 KOD_TUR = {"site-3d", "kod-backend", "guvenlik", "mod", "kurulum", "render"}  # graphify çekirdeği yalnız kod işinde zorunlu
 
@@ -82,15 +82,17 @@ def araclar(metin):
     tur, cek = tur_bul(kap)
     sira = {"skill": 0, "ajan": 1, "cli": 2}  # ad → kayıt; aynı ad/kısa adda skill önde, mcp/plugin denetlenemez
     dizin = {}
-    for o in sorted((o for o in rows if o["tur"] in sira or o["tur"] == "arac"), key=lambda o: sira.get(o["tur"], 3)):
+    for o in sorted((o for o in rows if o["tur"] in sira or o["tur"] == "arac"), key=lambda o: (sira.get(o["tur"], 3), ":" in o["ad"])):
         if o["ad"] not in GENEL and "reposunda" not in o["metin"]:
             dizin.setdefault(o["ad"], o)
             dizin.setdefault(o["ad"].split(":")[-1], o)
     sec, goruldu = [], set()
 
-    def ekle(o):
+    sinir = [N]  # N tavanı yalnız BM25 dolgusuna; tür çekirdeği ve anılan araçlar tavansız
+
+    def ekle(o, tavan=True):
         k = o["ad"].split(":")[-1]
-        if k not in goruldu and len(sec) < N:
+        if k not in goruldu and (not tavan or len(sec) < sinir[0]):
             goruldu.add(k)
             sec.append(_kayit(o))
 
@@ -101,10 +103,11 @@ def araclar(metin):
         if t in dizin and len(t) >= 5 and (re.search(r"[-_:]", t) or t in kod or t in CEKIRDEK_AD) and t not in anilan:
             anilan[t] = kap.count(t)
     for t in sorted(anilan, key=lambda t: -anilan[t])[:4]:
-        ekle(dizin[t])
+        ekle(dizin[t], False)
     for a in cek:
         if a in dizin:
-            ekle(dizin[a])
+            ekle(dizin[a], False)
+    sinir[0] = max(N, len(sec) + 3)
     tanim = mcp_profil.tanimlar()
     for m in mcp_profil.sec(metin):  # ajan_sira --mcp-config ile aynı girdi/profil: oturumda gerçekten yüklenenler
         if tur != "diğer" and m not in mcp_profil.TEMEL and m in tanim and len([o for o in sec if o["tur"] == "mcp"]) < 2:
@@ -116,9 +119,11 @@ def araclar(metin):
     tepe = puan[0][0] if puan else 0
     bm = [o for s, kap_, o in puan[:40] if s >= 0.6 * tepe and kap_ >= gerek and o["tur"] in sira and o["ad"] not in GENEL
           and "reposunda" not in o["metin"]]
+    if tur != "diğer" and len(bm) < 3:  # tür biliniyorsa kapı en az 3 BM25 aracı döndürür (eşik gevşer)
+        bm += [o for _, _, o in puan[:40] if o not in bm and o["tur"] in sira and o["ad"] not in GENEL and "reposunda" not in o["metin"]][:3 - len(bm)]
     for o in katalog_ara.suz(bm, katalog_ara.yigin(q))[0]:
         ekle(o)
-    return sec[:N]
+    return sec
 
 
 RUFLO_KOD = """import sys, os, json
@@ -163,6 +168,7 @@ def blok(ad, metin):
                                                          "tur": tur_bul(kapsam(metin))[0], "hata": hata[:200]}, ensure_ascii=False), encoding="utf-8")
     s = ["ZORUNLU ARAÇLAR (bitişte oturum dökümünden sayılır; ≥%d kullanılmazsa görev arac_eksik işaretlenir ve yeniden kuyruğa girer):" % min(3, math.ceil(len(ar) / 2))]
     s += [f"- {o['ad']} ({o['tur']}) · {o['ne']} · çağrı: {o['cagri'][:60]}" for o in ar]
+    s.append("PLAN TABLOSU: her araç için ilk turda tek satır `araç | kullanılacak adım / kullanılmama gerekçesi`; gerekçesiz atlama = arac_eksik.")
     if GORSEL.search(metin):
         s.append("- gorsel_hakem (görsel iş: `python .kos/kopru/gorsel_hakem.py` çağrısı olmadan kanit_eksik)")
     s += [f"- KOMBİN {o['id']}: " + " > ".join(o["adimlar"]) for o in kombin]
@@ -298,9 +304,29 @@ def denetle(ad):
     return d
 
 
-def yeniden_istem(ad, istem, eksik):
+ISARET = ("arac_eksik", "kanit_eksik", "ogrenme_eksik")
+
+
+def devam(ad, den):
+    """(devam turu adı | None, durum): üç işaretten biri varsa eksik → x-a, x-a2; ikinci devamdan sonra hâlâ eksikse (None, 'dur'); işaret yoksa (None, 'ok')."""
+    if not any(i in den["durum"] for i in ISARET):
+        return None, "ok"
+    if ad.endswith("-a2"):
+        return None, "dur"
+    return (ad[:-2] + "-a2" if ad.endswith("-a") else ad + "-a"), "devam"
+
+
+def eksik_liste(den):
+    """Denetim sonucundan devam turunda koşulacak eksiklerin sıralı listesi."""
+    e = list(den.get("eksik", [])) + list(den.get("cekirdek_eksik", []))
+    if "kanit_eksik" in den["durum"]:
+        e.append("gorsel_hakem")
+    return e + ["öğrenme:" + x for x in den.get("ogrenme_eksik", [])]
+
+
+def yeniden_istem(ad, istem, eksik, yeni=None):
     """Eksik araçlarla yeniden kuyruk için görev dosyası (KOK'a göreli yol döner)."""
-    yol = GOREV / f"{ad}-a.md"
+    yol = GOREV / f"{yeni or ad + '-a'}.md"
     yol.write_text((KOK / istem).read_text(encoding="utf-8") + f"\n\nkullanmadığın araçlar: {', '.join(eksik)} — bu turda bunları kullan.\n", encoding="utf-8")
     return str(yol.relative_to(KOK)).replace("\\", "/")
 
@@ -348,3 +374,12 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     if len(sys.argv) > 2 and sys.argv[1] == "--geri":
         geri(int(sys.argv[2]))
+    elif len(sys.argv) > 1:  # görev dosyası → tür + zorunlu araç listesi; boş liste hata
+        _m = Path(sys.argv[1]) if Path(sys.argv[1]).is_absolute() else KOK / sys.argv[1]
+        _m = _m if _m.exists() else GOREV / _m.name
+        _t = _m.read_text(encoding="utf-8")
+        _a = araclar(_t)
+        print(f"tür: {tur_bul(kapsam(_t))[0]} · {len(_a)} araç")
+        for _o in _a:
+            print(f"- {_o['ad']} ({_o['tur']}) · {_o['ne']}")
+        sys.exit(0 if _a else 1)

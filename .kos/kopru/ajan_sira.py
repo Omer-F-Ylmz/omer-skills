@@ -79,6 +79,14 @@ def arac_onek(cwd=None):
     return f"Çalışma dizini: {cwd}\n" + on if cwd else on
 
 
+def ogren_blok(metin):
+    """OGREN-OTO-1: ruflo pattern-search/store sabit bloğu; görev metni zaten içeriyorsa '' (ikinci kez eklenmez)."""
+    if "hooks_intelligence_pattern-search" in metin:
+        return ""
+    return ("Başlarken: ruflo hooks_intelligence_pattern-search (sorgu = görev adı + ilk başlık, topK 5) → uygula.\n"
+            "Bitirirken: en az 1 ders hooks_intelligence_pattern-store (type hata-dersi veya basari, confidence 0.6-0.9).\n\n")
+
+
 ON_DOSYA = K / "ajan-sira.ordu-on"  # ORDU-1 d12: mekanik ön-özet bayrağı; varsayılan kapalı
 
 
@@ -132,13 +140,34 @@ def pid_canli(pid):
     return bool(ok) and kod.value == 259
 
 
+def claude_sureci(pid, basladi):
+    """Hayalet ayıklama: pid canlı + görüntü adı claude* + süreç başlangıcı .basladi yazılışından (basladi, epoch) sonra değil."""
+    k32 = ctypes.windll.kernel32
+    k32.OpenProcess.restype = ctypes.c_void_p
+    h = k32.OpenProcess(0x1000, False, int(pid))
+    if not h:
+        return False
+    try:
+        ad = ctypes.create_unicode_buffer(520)
+        n = ctypes.c_ulong(520)
+        if not k32.QueryFullProcessImageNameW(ctypes.c_void_p(h), 0, ad, ctypes.byref(n)):
+            return False
+        t = [ctypes.c_ulonglong() for _ in range(4)]
+        if not k32.GetProcessTimes(ctypes.c_void_p(h), *(ctypes.byref(x) for x in t)):
+            return False
+        bas = t[0].value / 1e7 - 11644473600  # FILETIME → epoch
+        return os.path.basename(ad.value).lower().startswith("claude") and bas <= basladi + 5
+    finally:
+        k32.CloseHandle(ctypes.c_void_p(h))
+
+
 def dis_calisan(bilinen):
     n = 0
     for f in CIKTI.glob("*.basladi"):
         if f.stem in bilinen:
             continue
         p = f.read_text(encoding="utf-8", errors="replace").split()
-        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]):
+        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]) and claude_sureci(p[2], f.stat().st_mtime):
             n += 1
     return n
 
@@ -264,8 +293,8 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
             kayit = Path(tempfile.gettempdir()) / f"cc_ts_{os.getpid()}_{abs(hash(argv[i]))}.json"
             kayit.write_text(json.dumps(ayar), encoding="utf-8")
             argv[i] = str(kayit)
-    if butce is not None:  # BÜTÇE-KAPI-1: claude kendi bütçe bayrağıyla dururur; sonuç JSON'u yine geçerli kalır
-        argv = [*argv, "--max-budget-usd", f"{butce:g}"]
+    if butce is not None:  # 22 Eki (Ömer): bütçe HEDEFTİR, işi kesmez. Sert sınır yalnız kaçak döngüye karşı emniyet: hedefin 8 katı (≥ $3)
+        argv = [*argv, "--max-budget-usd", f"{max(3.0, butce * EMNIYET_KAT):g}"]
     env = taze_env()
     env["AJAN_SIRA_KUYRUK"] = "1"  # SAYAC-FIX-1: cagri_sayac.py bu ajanda devir/DUR uyarısı basmaz
     if "max-old-space-size" not in env.get("NODE_OPTIONS", ""):  # RAM-1: ajan başı node MCP'leri (rea, chrome-devtools) sınırsız heap büyütmesin
@@ -296,7 +325,8 @@ def taze_env():
     return env
 
 
-BUTCE_VARSAYILAN = 0.50  # BÜTÇE-KAPI-1: görev dosyasında "BÜTÇE ... ≤$X" satırı yoksa
+BUTCE_VARSAYILAN = 0.50  # BÜTÇE-KAPI-1: görev dosyasında "BÜTÇE ... ≤$X" satırı yoksa (22 Eki: HEDEF, kesme değil)
+EMNIYET_KAT = 8  # yalnız kaçak döngü emniyeti
 BUTCE_ASTI = set()  # bütçesi dolup durdurulan işler (error_max_budget_usd): merdiven bunları yeniden denemez
 
 
@@ -408,9 +438,12 @@ def main():
                 den = zorunlu_arac.denetle(ad)  # ZORUNLU-ARAÇ-1: döküm sayımı; arac_eksik → aynı görev bir kez eksik araç ekiyle yeniden
                 if den and den["durum"] != "ok":
                     log("DENETİM", ad, den["durum"], "eksik:", ", ".join(den["eksik"]))
-                    if zorunlu_arac.YENIDEN and "arac_eksik" in den["durum"] and not ad.endswith("-a") and ad + "-a" not in tekrar:
-                        yeniden.append((ad + "-a", zorunlu_arac.yeniden_istem(ad, istem, den["eksik"]), kosul, ef, mdl, bas, cwd))
-                        tekrar.add(ad + "-a")
+                    yeni, dk = zorunlu_arac.devam(ad, den)  # ARAÇ-KAPI-1: üç işaretten biri → en fazla 2 devam turu (Haiku), sonra DUR
+                    if zorunlu_arac.YENIDEN and dk == "devam" and yeni not in tekrar:
+                        yeniden.append((yeni, zorunlu_arac.yeniden_istem(ad, istem, zorunlu_arac.eksik_liste(den), yeni), kosul, None, None, 0, cwd))
+                        tekrar.add(yeni)
+                    elif dk == "dur":
+                        log("DUR", ad, "2 devam turundan sonra hâlâ eksik:", ", ".join(zorunlu_arac.eksik_liste(den)))
                 subprocess.Popen([sys.executable, str(KOK / "tools" / "beyin_kayit.py"), ad], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)  # BEYIN-KAYIT-1: ikinci beyne yaz (arka plan, beklemez)
                 del calisan[ad]
         bekleyen = yeniden + [x for x in kuyruk() if x[0] not in baslayan]
@@ -451,7 +484,9 @@ def main():
                 except Exception:
                     pass
                 metin = on_ek_kur(model, metin)
-                metin += "\n\n[bütçe] En fazla 60 tur kullan."
+                metin = ogren_blok((KOK / istem).read_text(encoding="utf-8")) + metin
+                metin += (f"\n\n[bütçe] Hedef ${butce:.2f}: az oku, az dene, ücretsiz araç önce. Hedefi aşman gerekse bile işi YARIM BIRAKMA — "
+                          "bitir, doğrula, raporla. Hedefi aştıysan raporda nedenini tek satır yaz.")
                 fo = open(CIKTI / f"{ad}.json", "w", encoding="utf-8")
                 mcp = None
                 if not os.environ.get("CC_MCP_BOS"):  # MCP-AÇ-1: tür bazlı MCP profili; CC_MCP_BOS=1 eski boş config'e döner

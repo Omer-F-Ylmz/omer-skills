@@ -133,7 +133,7 @@ def test_butce_bul():
 def test_baslat_argv_butce(tmp_path, monkeypatch):
     """BÜTÇE-KAPI-1: bütçe verilince --max-budget-usd claude'a geçer; verilmezse argv değişmez."""
     argv, _ = ajan_sira.baslat_argv("", "haiku", None, (), 0.3)
-    assert argv[argv.index("--max-budget-usd") + 1] == "0.3"
+    assert argv[argv.index("--max-budget-usd") + 1] == "3"  # 22 Eki: bütçe hedef; sert sınır max(3, 8×hedef)
     assert "--max-budget-usd" not in ajan_sira.baslat_argv("", "haiku")[0]
 
 
@@ -306,3 +306,13 @@ def test_tekil_yonetici_kilit(tmp_path, monkeypatch):
         assert kilit.read_text(encoding="utf-8").split()[0] == str(os.getpid())
     finally:
         canli.kill()
+
+
+def test_hayalet_basladi_calisan_sayilmaz(tmp_path, monkeypatch):
+    """PID yeniden kullanımı: pid canlı ama süreç claude.exe değil (explorer) → dış çalışan değil."""
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    ep = subprocess.run(["powershell", "-NoProfile", "-Command", "(Get-Process explorer | Select -First 1).Id"],
+                        capture_output=True, text=True, creationflags=0x08000000).stdout.strip()
+    (tmp_path / "sahte.basladi").write_text(f"12:00:00 pid {ep}", encoding="utf-8")
+    assert ajan_sira.pid_canli(ep)
+    assert ajan_sira.dis_calisan(set()) == 0

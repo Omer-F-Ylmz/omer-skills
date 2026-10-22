@@ -106,7 +106,7 @@ def test_araclar_ozel_liste_genel_kayitlar_yok():
 
 
 def test_yeniden_kosu_kapali_ve_ad_alanli_skill_sayilir():
-    assert z.YENIDEN is False
+    assert z.YENIDEN is True
     k = (["slash-dar:frontend-craft"], [], [], [])
     assert z._kullanildi({"ad": "frontend-craft:frontend-craft", "tur": "skill"}, k)
 
@@ -135,3 +135,37 @@ def test_kombin_sec_ve_dogrula():
     assert kombin_sec.dogrula() == []  # kombin + tür seti adları katalogda
     assert len(kombin_sec.yukle(kombin_sec.KOMBIN)["kombinler"]) >= 60
     assert kombin_sec.sec("three.js landing sayfası", 2, "site-3d")[1]
+
+
+def test_logo_marka_cekirdegin_tamami_listelenir():
+    ad = [o["ad"] for o in z.araclar("# BHS5-LOGO-2 — havalı spor markası logosu\n\n## İLK VE BAĞLAYICI\nlogo üret")]
+    assert {"illustrasyon-logo-paket", "brandkit", "design-dna", "gorsel-uret"} <= set(ad) and len(ad) >= 4 + 3
+
+
+def test_intro_animasyon_cekirdegin_tamami_listelenir():
+    ad = [o["ad"] for o in z.araclar("# INTRO-1 — site intro animasyonu\n\n## İLK VE BAĞLAYICI\nintro animasyon")]
+    assert {"hyperframes-paket", "remotion-video-paket", "animasyon-atolyesi", "hareket-altyazi-3d-paket", "ffmpeg", "blender-uretim"} <= set(ad)
+
+
+def test_plan_tablosu_gerekce_sutunu(tmp_path, monkeypatch):
+    for a, v in (("SIRA", tmp_path), ("GOREV", tmp_path), ("KOK", tmp_path)):
+        monkeypatch.setattr(z, a, v)
+    monkeypatch.setattr(z, "araclar", lambda m: LISTE)
+    monkeypatch.setattr(z, "_calistir", lambda a, s: "")
+    b = z.blok("g1", "x")
+    assert "PLAN TABLOSU" in b and "kullanılacak adım / kullanılmama gerekçesi" in b and "gerekçesiz atlama" in b
+
+
+def test_devam_karar_uc_isaret_iki_tur_sonra_dur():
+    ok = {"durum": "ok", "eksik": []}
+    assert z.devam("a", ok) == (None, "ok")
+    for isaret in ("arac_eksik", "kanit_eksik", "ogrenme_eksik", "arac_eksik+tekrar_hata"):
+        assert z.devam("a", {"durum": isaret, "eksik": ["x"]})[0] == "a-a"
+    assert z.devam("a-a", {"durum": "kanit_eksik", "eksik": []})[0] == "a-a2"
+    assert z.devam("a-a2", {"durum": "kanit_eksik", "eksik": []}) == (None, "dur")
+    assert z.devam("a", {"durum": "tekrar_hata", "eksik": []}) == (None, "ok")  # tam işaret yok → yanlış alarm 0
+
+
+def test_eksik_liste_uc_kaynak():
+    den = {"durum": "arac_eksik+kanit_eksik+ogrenme_eksik", "eksik": ["ffmpeg"], "cekirdek_eksik": ["rtk"], "ogrenme_eksik": ["sonda"]}
+    assert z.eksik_liste(den) == ["ffmpeg", "rtk", "gorsel_hakem", "öğrenme:sonda"]
