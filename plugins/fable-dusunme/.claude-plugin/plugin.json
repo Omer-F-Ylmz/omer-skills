@@ -1,0 +1,15 @@
+{
+  "name": "fable-dusunme",
+  "version": "1.0.0",
+  "description": "Zor işlerde düşünme yöntemi: çerçevele, 2-3 alternatif, gerekçeli seçim, öz-eleştiri, doğrulama. Kolay işte kullanılmaz.",
+  "author": {
+    "name": "Ömer Faruk Yılmaz"
+  },
+  "repository": "https://github.com/Omer-F-Ylmz/omer-skills",
+  "keywords": [
+    "reasoning",
+    "architecture",
+    "debugging",
+    "decision"
+  ]
+}

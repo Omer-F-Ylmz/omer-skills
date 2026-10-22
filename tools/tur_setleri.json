@@ -13,12 +13,12 @@
     "mod": "(?i)\\b(mod|minecraft|oyun)\\b"
   },
   "turler": {
-    "site-3d": {"skill": ["threejs-3d-paket", "gsap-skills", "web-sahne-desenleri", "frontend-craft", "animasyon-scroll-paket", "tasarim-katalog"], "mcp": ["21st", "chrome-devtools"], "cli": ["playwright-cli", "pixeljury", "gltf-transform", "lighthouse-chrome-devtools"]},
+    "site-3d": {"skill": ["threejs-3d-paket", "gsap-skills", "web-sahne-desenleri", "frontend-craft", "animasyon-scroll-paket", "tasarim-katalog", "fable-dusunme"], "mcp": ["21st", "chrome-devtools"], "cli": ["playwright-cli", "pixeljury", "gltf-transform", "lighthouse-chrome-devtools"]},
     "render": {"skill": ["blender-uretim", "threejs-3d-paket"], "mcp": ["blender-lab-mcp"], "cli": ["blender-dogrulama", "gltf-transform", "comfyui", "pixeljury"]},
     "video": {"skill": ["video-tarama", "video-uygula", "remotion-video-paket", "hyperframes-paket", "hareket-altyazi-3d-paket"], "mcp": ["mcp-video-analyzer"], "cli": ["ffmpeg", "yt-dlp", "whisper-cli"]},
-    "logo-gorsel": {"skill": ["tasarim-katalog", "impeccable", "adobe-paket"], "mcp": ["nano-banana-2", "open-design", "claude-design"], "cli": ["pixeljury", "jev", "comfyui"]},
+    "logo-gorsel": {"skill": ["tasarim-katalog", "impeccable", "adobe-paket", "fable-dusunme"], "mcp": ["nano-banana-2", "open-design", "claude-design"], "cli": ["pixeljury", "jev", "comfyui"]},
     "kurulum": {"skill": ["awesome-rehber", "skillspector", "skill-creator", "yetenek-getir"], "mcp": ["cc-kopru"], "cli": ["gitleaks", "semgrep", "gh", "skillspector"]},
-    "kod-backend": {"skill": ["departman-backend-dotnet", "test-driven-development", "systematic-debugging", "security-reviewer", "mcp-builder"], "mcp": ["codebase-memory-mcp", "code-review"], "cli": ["dotnet", "gh", "tdd-guard", "semgrep"]},
+    "kod-backend": {"skill": ["departman-backend-dotnet", "test-driven-development", "systematic-debugging", "security-reviewer", "mcp-builder", "fable-dusunme"], "mcp": ["codebase-memory-mcp", "code-review"], "cli": ["dotnet", "gh", "tdd-guard", "semgrep"]},
     "guvenlik": {"skill": ["departman-guvenlik", "security-reviewer", "skillspector"], "mcp": [], "cli": ["semgrep", "gitleaks", "strix", "ecc-agentshield"]},
     "belge": {"skill": ["departman-belge", "headroom-compress"], "mcp": ["Google Drive"], "cli": ["markitdown", "summarize"]},
     "mod": {"skill": ["blender-uretim", "test-driven-development"], "mcp": [], "cli": ["comfyui", "gh", "rtk"]},

@@ -241,9 +241,17 @@ def _haiku(istem):
     return j["result"].strip()
 
 
-def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None):
+ZOR_SABLON = ("Zor iş: önce çerçevele (gerçek hedef, başarı ölçütü, kısıtlar). 2-3 gerçekten farklı yol öner; her birinin kazanç/risk/maliyetini yaz. "
+              "Ölçüte göre birini seç, diğerlerini neden elediğini tek satırla gerekçelendir. En olası 2 hatayı kendin eleştir. Kanıt yoksa 'bitti' deme.\n\n")
+
+
+def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None, zor=False):
     """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok).
-    ertele=<iş kimliği>: hiçbir halka (Haiku dahil) yanıtlamazsa iş ertelenen.jsonl'e yazılır, log'a 'ertelendi' düşer."""
+    ertele=<iş kimliği>: hiçbir halka (Haiku dahil) yanıtlamazsa iş ertelenen.jsonl'e yazılır, log'a 'ertelendi' düşer.
+    zor=True: fable-dusunme şablonu (ZOR_SABLON) istemin başına eklenir."""
+    ham = istem
+    if zor:
+        istem = ZOR_SABLON + istem
     tahmin, log, denenen = len(istem) // 3 + max_tokens, [], set()
     while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2)):
         denenen.add(ad(e))
@@ -275,7 +283,7 @@ def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=No
             except (Hata, OSError, ValueError, subprocess.SubprocessError) as x:
                 log.append(f"haiku:{type(x).__name__}")
     if ertele:
-        _ertele(ertele, dict(tur=tur, istem=istem, max_tokens=max_tokens, aile=aile, haric_aile=haric_aile, haiku_tavan=haiku_tavan, etiket=etiket, zaman=zaman))
+        _ertele(ertele, dict(tur=tur, istem=ham, max_tokens=max_tokens, aile=aile, haric_aile=haric_aile, haiku_tavan=haiku_tavan, etiket=etiket, zaman=zaman, zor=zor))
         log.append("ertelendi")
     return None, None, log
 

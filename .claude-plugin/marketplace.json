@@ -16,6 +16,12 @@
       "source": "./plugins/blender",
       "version": "1.4.0",
       "category": "development"
+    },
+    {
+      "name": "fable-dusunme",
+      "source": "./plugins/fable-dusunme",
+      "version": "1.0.0",
+      "category": "development"
     }
   ]
 }
