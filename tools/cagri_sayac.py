@@ -54,6 +54,18 @@ def _baglam(yol):
     return 0
 
 
+def _adim(olay, ad, dizin_kok, jeton):
+    """HER-ADIM-1: her araç adımı tools/adim_log.jsonl'e {iş, tür, araç, sonuç, süre, jeton} (0 model jetonu)."""
+    yol = Path(dizin_kok) / "tools" / "adim_log.jsonl"
+    yol.parent.mkdir(exist_ok=True)
+    cevap = olay.get("tool_response")
+    hata = ad == "PostToolUseFailure" or (isinstance(cevap, dict) and bool(cevap.get("is_error")))
+    satir = {"t": int(time.time()), "is": olay["session_id"], "tur": os.environ.get("ADIM_TUR", ""), "arac": olay.get("tool_name"),
+             "sonuc": "hata" if hata else "ok", "sure_ms": olay.get("duration_ms"), "jeton": jeton, "alt": bool(olay.get("agent_id"))}
+    with open(yol, "a", encoding="utf-8") as f:
+        f.write(json.dumps(satir, ensure_ascii=False) + chr(10))
+
+
 def main():
     try:
         olay = json.loads(sys.stdin.read() or "{}")
@@ -75,13 +87,16 @@ def main():
                 sayac.write_text("0", encoding="utf-8")
                 alt.write_text("0", encoding="utf-8")
             return
+        kok = os.environ.get("CLAUDE_PROJECT_DIR") or "."
         if olay.get("agent_id"):
             alt.write_text(str(_oku(alt) + 1), encoding="utf-8")
+            _adim(olay, ad, kok, 0)
             return
         n = _oku(sayac) + 1
         # ponytail: oku-yaz kilitsiz; paralel çağrılarda sayım kaybı kabul (KÜÇÜK-2)
         sayac.write_text(str(n), encoding="utf-8")
         c = _baglam(olay.get("transcript_path"))
+        _adim(olay, ad, kok, c)
         kuyruk = os.environ.get("AJAN_SIRA_KUYRUK") == "1"  # SAYAC-FIX-1: kuyruk ajanı devir uyarısı görmez, yalnız bilgi
         if not kuyruk and (c >= BAGLAM_TAVAN or (n >= TAVAN and (c == 0 or c >= BAGLAM_45))):  # c 0 = okunamadı → yalnız sayı
             mesaj = f"çağrı {n}/{TAVAN}: ara kayıt (commit, push YOK) + devir önerisi"

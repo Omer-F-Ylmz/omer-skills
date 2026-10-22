@@ -25,3 +25,5 @@ tools/laya/veri/*_egitim.jsonl
 tools/laya/veri/*.zayif.csv
 tools/laya/veri/*.log
 tools/laya/*.log
+skills/omer-kutuphaneler/raf/
+tools/adim_log.jsonl

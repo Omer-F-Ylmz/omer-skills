@@ -236,3 +236,18 @@ def test_eski_sayac_dosyalari_temizlenir(tmp_path, monkeypatch, capsys):
         os.utime(d / ad, (gun_once, gun_once))
     _kos(kok, monkeypatch, capsys, BASLA)
     assert sorted(p.name for p in d.iterdir()) == ["A-alt.txt", "A.txt", "eski.md", "yeni.txt"]
+
+
+def test_adim_log_satir_yazar(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path, sayac="0")
+    _kos(kok, monkeypatch, capsys, {**ARAC, "duration_ms": 12, "tool_response": {"is_error": False}})
+    _kos(kok, monkeypatch, capsys, {**ARAC, "hook_event_name": "PostToolUseFailure", "tool_name": "Bash", "agent_id": "x"})
+    satirlar = [json.loads(s) for s in (kok / "tools" / "adim_log.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert [(s["is"], s["arac"], s["sonuc"], s["alt"]) for s in satirlar] == [("A", "Read", "ok", False), ("A", "Bash", "hata", True)]
+    assert satirlar[0]["sure_ms"] == 12 and "jeton" in satirlar[0] and "tur" in satirlar[0]
+
+
+def test_adim_log_sessizce_basla_yazmaz(tmp_path, monkeypatch, capsys):
+    kok = _kok(tmp_path)
+    _kos(kok, monkeypatch, capsys, BASLA)
+    assert not (kok / "tools" / "adim_log.jsonl").exists()
