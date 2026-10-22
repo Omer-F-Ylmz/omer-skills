@@ -1,6 +1,6 @@
 """RAM'e duyarlı ajan kuyruğu (Desktop 12 Eki 17:05): köprü tavanı (10) doluyken bekleyen görevleri köprüyle AYNI bayraklarla
 (opus · hafif: --disable-slash-commands + boş MCP · cc_profil "ajan" (ttl 5m + ajanTut) · istem stdin'den · izin atlama bayrağı YOK) kopuk
-claude -p oturumlarında başlatır. Kuyruk: .kos/kopru/ajan-sira.tsv  (ad <TAB> istem dosyası [<TAB> koşul: yol::alt dize [<TAB> efor=medium|high]]).
+claude -p oturumlarında başlatır. Kuyruk: .kos/kopru/ajan-sira.tsv  (ad <TAB> istem dosyası [<TAB> koşul: yol::alt dize [<TAB> efor=medium|high] [<TAB> cwd=<yol>]]).
 Efor: mekanik iş (ölçüm koşusu, paketleme, birleştirme, kapı tekrarı) medium; tasarım/mimari/hata ayıklama high (TOKEN-3 K11).
 Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlatma arası >= ARA sn. Durdurma: .kos/kopru/ajan-sira.dur
 Çıktı: .kos/kopru/ajan-sira/<ad>.json · günlük .kos/kopru/ajan-sira.log (arka.py ile koşar).
@@ -53,8 +53,9 @@ def ordu_onek():
 ON_SOZ = K / "on-soz.md"  # ARAÇ-DENETİM-1: her göreve ortak ön söz; yoksa boş
 
 
-def arac_onek():
-    return ON_SOZ.read_text(encoding="utf-8") + "\n" if ON_SOZ.exists() else ""
+def arac_onek(cwd=None):
+    on = ON_SOZ.read_text(encoding="utf-8") + "\n" if ON_SOZ.exists() else ""
+    return f"Çalışma dizini: {cwd}\n" + on if cwd else on
 
 
 ON_DOSYA = K / "ajan-sira.ordu-on"  # ORDU-1 d12: mekanik ön-özet bayrağı; varsayılan kapalı
@@ -146,7 +147,7 @@ def kuyruk():
             efor, model = ek.get("efor", ""), ek.get("model")  # model yok → MERDIVEN (haiku medium'dan)
             if efor not in ("", "medium", "high") or (model is not None and model not in MODELLER):
                 raise ValueError(f"geçersiz efor/model: {satir!r}")
-            s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor, model))
+            s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor, model, None, ek.get("cwd")))
     return s
 
 
@@ -223,6 +224,14 @@ def is_kaydi(ad, rc, dk, efor, model):
     return ok
 
 
+def cwd_hedef(cwd):
+    """KÖPRÜ-CWD-1: cwd= sütunu KOK'a göre çözülür; sütun yoksa KOK, klasör yoksa None (satır başlatılmaz)."""
+    if not cwd:
+        return KOK
+    h = KOK / cwd
+    return h if h.is_dir() else None
+
+
 def kosul_tamam(k):
     if not k:
         return True
@@ -235,12 +244,12 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     CIKTI.mkdir(exist_ok=True)
     calisan, baslayan, son = {}, set(), 0.0
-    yeniden, tekrar = [], set()  # merdiven: başarısız işin bir üst basamakta tek yeniden denemesi
+    yeniden, tekrar, uyari = [], set(), set()  # merdiven: başarısız işin bir üst basamakta tek yeniden denemesi; uyari: "cwd yok" günlüğü bir kez
     for f in CIKTI.glob("*.basladi"):
         baslayan.add(f.stem)
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     while True:
-        for ad, (p, t0, fo, ef, mdl, bas, istem, kosul) in list(calisan.items()):
+        for ad, (p, t0, fo, ef, mdl, bas, istem, kosul, cwd) in list(calisan.items()):
             if p.poll() is not None or time.time() - t0 > SURE:
                 if p.poll() is None:
                     subprocess.run(["taskkill", "/T", "/F", "/PID", str(p.pid)], capture_output=True, creationflags=0x08000000)
@@ -249,26 +258,32 @@ def main():
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
                 ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl)
                 if bas is not None and not ok and ad not in tekrar and bas + 1 < len(MERDIVEN):
-                    yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1))
+                    yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1, cwd))
                     tekrar.add(ad + "-r")
                     log("YENİDEN", ad, "→ bir üst basamak", MERDIVEN[bas + 1])
                 subprocess.Popen([sys.executable, str(KOK / "tools" / "beyin_kayit.py"), ad], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)  # BEYIN-KAYIT-1: ikinci beyne yaz (arka plan, beklemez)
                 del calisan[ad]
-        bekleyen = yeniden + [(*x, None) for x in kuyruk() if x[0] not in baslayan]
+        bekleyen = yeniden + [x for x in kuyruk() if x[0] not in baslayan]
         dis = dis_calisan(set(calisan))
         if not bekleyen and not calisan and not dis:
             log("kuyruk boş, çıkış")
             return
         r = ram()
         if not DUR.exists() and len(calisan) + dis < tavan() and r < esik() and time.time() - son >= ARA:
-            for ad, istem, kosul, efor, model, bas in bekleyen:
+            for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if not kosul_tamam(kosul):
+                    continue
+                hedef = cwd_hedef(cwd)
+                if hedef is None:
+                    if ad not in uyari:
+                        log("cwd yok", ad, cwd)
+                        uyari.add(ad)
                     continue
                 if model is None:
                     bas = basamak_sec(ad, bas)
                     model, efor = MERDIVEN[bas]
                 metin = (KOK / istem).read_text(encoding="utf-8")
-                metin = arac_onek() + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin
+                metin = arac_onek(str(hedef) if cwd else None) + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:
@@ -276,11 +291,11 @@ def main():
                 metin += "\n\n[bütçe] En fazla 60 tur kullan."
                 fo = open(CIKTI / f"{ad}.json", "w", encoding="utf-8")
                 argv, env = baslat_argv(efor, model)
-                p = subprocess.Popen(argv, cwd=str(KOK), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
+                p = subprocess.Popen(argv, cwd=str(hedef), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
                 p.stdin.close()
-                calisan[ad] = (p, time.time(), fo, efor, model, bas, istem, kosul)
+                calisan[ad] = (p, time.time(), fo, efor, model, bas, istem, kosul, cwd)
                 baslayan.add(ad)
                 yeniden = [y for y in yeniden if y[0] != ad]
                 (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S") + f" pid {p.pid}", encoding="utf-8")

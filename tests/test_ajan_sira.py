@@ -30,7 +30,7 @@ def test_dorduncu_sutun_efor(tmp_path, monkeypatch):
     tsv = tmp_path / "k.tsv"
     tsv.write_text("# yorum\na\ti.md\nb\ti.md\t\tefor=medium\nc\ti.md\tx::y\tefor=high\n", encoding="utf-8")
     monkeypatch.setattr(ajan_sira, "KUYRUK", tsv)
-    assert ajan_sira.kuyruk() == [("a", "i.md", "", "", None), ("b", "i.md", "", "medium", None), ("c", "i.md", "x::y", "high", None)]
+    assert ajan_sira.kuyruk() == [("a", "i.md", "", "", None, None, None), ("b", "i.md", "", "medium", None, None, None), ("c", "i.md", "x::y", "high", None, None, None)]
 
 
 def test_gecersiz_efor_reddedilir(tmp_path, monkeypatch):
@@ -173,3 +173,28 @@ def test_arac_onek_on_soz_gorevi_korur(tmp_path, monkeypatch):
 def test_arac_onek_yoksa_bos(tmp_path, monkeypatch):
     monkeypatch.setattr(ajan_sira, "ON_SOZ", tmp_path / "yok.md")
     assert ajan_sira.arac_onek() == ""
+
+
+def test_cwd_sutunu_ayrisir(tmp_path, monkeypatch):
+    tsv = tmp_path / "k.tsv"
+    tsv.write_text("a\ti.md\t\tefor=medium\tcwd=Projeler/TELVE\n", encoding="utf-8")
+    monkeypatch.setattr(ajan_sira, "KUYRUK", tsv)
+    assert ajan_sira.kuyruk() == [("a", "i.md", "", "medium", None, None, "Projeler/TELVE")]
+
+
+def test_cwd_yoksa_baslatilmaz(tmp_path):
+    assert ajan_sira.cwd_hedef(str(tmp_path / "yok")) is None  # yol yok → satır başlatılmaz
+    assert ajan_sira.cwd_hedef(str(tmp_path)) == tmp_path  # var olan klasör → başlatılır
+
+
+def test_cwd_sutunsuz_eski_davranis(tmp_path, monkeypatch):
+    tsv = tmp_path / "k.tsv"
+    tsv.write_text("a\ti.md\n", encoding="utf-8")
+    monkeypatch.setattr(ajan_sira, "KUYRUK", tsv)
+    assert ajan_sira.kuyruk() == [("a", "i.md", "", "", None, None, None)]
+    assert ajan_sira.cwd_hedef(None) == ajan_sira.KOK
+    soz = tmp_path / "on-soz.md"
+    soz.write_text("ÖN SÖZ test\n", encoding="utf-8")
+    monkeypatch.setattr(ajan_sira, "ON_SOZ", soz)
+    assert ajan_sira.arac_onek() == "ÖN SÖZ test\n\n"
+    assert ajan_sira.arac_onek(str(tmp_path)).startswith(f"Çalışma dizini: {tmp_path}\nÖN SÖZ test")
