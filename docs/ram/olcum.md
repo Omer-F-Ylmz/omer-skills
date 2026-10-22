@@ -20,3 +20,6 @@ Diğer büyük tüketiciler: Claude Desktop 4.2 GB (109 süreç) · mcp-proxy (2
 **Yetim taraması:** ajan MCP/chrome/blender kalıntısı yok; tek aday headroom `multiprocessing.spawn` çocuğu (pid 57180, 424 MB, ata ölü, 11 sa) — Ömer onayıyla kapatılabilir (kapatılmadı).
 **Kuyruk (ajan_sira.py):** `tahmin_mb` (450 + ajan başı stdio MCP + render 1500) ve `ram_izin`: başlatma sonrası tahmini RAM% eşiği aşıyorsa ağır iş bekler (log `RAM BEKLE`), hafif iş sıradan geçer; RAM eşik−10'un altındaysa tavan +3. Çalışan kuyruk yöneticisi yeniden başlatılana dek eski kodla koşar.
 **Öneri (Ömer onayı):** chrome-devtools ve rea npx sarmalayıcısı (≈160 MB/ajan) ecc eklenti .mcp.json'unda; gereksiz başlangıç: Epic Games Launcher 0.7 GB, Discord 1.2 GB.
+
+**Node heap (ram-1 son):** `baslat_argv` ajan env`ine `NODE_OPTIONS=--max-old-space-size=2048` ekler (var olan tavan korunur); test `test_node_heap_tavani`.
+**Önce/sonra (model, canlı A/B yok — ücretli ajan tavanı):** 6 site-profili iş ≈ 6×1.5–2.0 = 9–12 GB (+Desktop 4.2, proxy 2.6, headroom 1.75, Opera 3.4 → %78 tabanında 31.7 GB`ta tepe ≈ %100+). Eski: sabit tavan 6 → %88 kopma. Yeni: aday başı tahmin kapısı (eşik %85) ağır işi bekletir, hafifler (≈0.45 GB) paralel; boş RAM`de tavan +3. Canlı tepe ölçümü yönetici yeniden başlatılınca yapılmalı.

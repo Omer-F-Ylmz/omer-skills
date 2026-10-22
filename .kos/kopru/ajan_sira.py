@@ -236,6 +236,8 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=()):
         sys.path.insert(0, str(KOK / "tools")); import mcp_profil
         argv = mcp_profil.ertele(argv, mcp, os.environ.get("CC_MCP_ERTELE") == "1")
     env = taze_env()
+    if "max-old-space-size" not in env.get("NODE_OPTIONS", ""):  # RAM-1: ajan başı node MCP'leri (rea, chrome-devtools) sınırsız heap büyütmesin
+        env["NODE_OPTIONS"] = (env.get("NODE_OPTIONS", "") + " --max-old-space-size=2048").strip()
     if not efor:
         return argv, env
     env.pop("CLAUDE_CODE_EFFORT_LEVEL", None)

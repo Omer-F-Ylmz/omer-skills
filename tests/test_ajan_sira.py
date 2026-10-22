@@ -44,6 +44,14 @@ def test_gecersiz_efor_reddedilir(tmp_path, monkeypatch):
         ajan_sira.kuyruk()
 
 
+def test_node_heap_tavani(tmp_path, monkeypatch):
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")
+    monkeypatch.delenv("NODE_OPTIONS", raising=False)
+    assert "--max-old-space-size=2048" in ajan_sira.baslat_argv("")[1]["NODE_OPTIONS"]
+    monkeypatch.setenv("NODE_OPTIONS", "--max-old-space-size=512 --trace-warnings")
+    assert ajan_sira.baslat_argv("")[1]["NODE_OPTIONS"] == "--max-old-space-size=512 --trace-warnings"  # var olan tavan ezilmez
+
+
 def test_baslat_argv_env(tmp_path, monkeypatch):
     monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")  # canlı bayraktan bağımsız
     monkeypatch.setenv("CLAUDE_CODE_EFFORT_LEVEL", "high")
