@@ -60,7 +60,7 @@ def kapat(adlar):
 
 def ertele(argv, mcp, tam=True):
     """MCP-AÇ-2: KEEP dışı MCP araçlarını --disallowedTools ile kapatır (sıralı → istem öneki koşular arası sabit).
-    ENABLE_TOOL_SEARCH=true + ToolSearch zorlaması denendi: -p'de şemalar zaten ertelenmiş, ilk giriş +%43 (docs/token/mcp-ac-2.tsv) → eklenmez."""
+    ERİŞİM-TAM-1: ertelemeyi KEEP değil profiller/cc-arka.json "ajan" sağlar (ENABLE_TOOL_SEARCH=true + --tools'ta ToolSearch; docs/erisim-haritasi.md)."""
     kapali = kapat(list(json.loads(Path(mcp).read_text(encoding="utf-8"))["mcpServers"]))
     return list(argv) + ["--disallowedTools", ",".join(kapali)] if kapali else list(argv)
 

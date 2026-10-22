@@ -62,7 +62,7 @@ def test_baslat_argv_env(tmp_path, monkeypatch):
 
 
 def test_baslat_argv_mcp_ertele(tmp_path, monkeypatch):
-    """MCP-AÇ-2: mcp verilince KEEP dışı araçlar kapalı (ToolSearch/ENABLE_TOOL_SEARCH eklenmez); CC_MCP_ERTELE=0 ya da mcp yoksa eski argv."""
+    """MCP-AÇ-2: mcp verilince KEEP dışı araçlar kapalı; CC_MCP_ERTELE=0 ya da mcp yoksa eski argv."""
     sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
     import mcp_profil
     monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")
@@ -71,9 +71,9 @@ def test_baslat_argv_mcp_ertele(tmp_path, monkeypatch):
     mcp = tmp_path / "mcp.json"
     mcp.write_text('{"mcpServers": {"rea": {}, "blender": {}}}', encoding="utf-8")
     argv, _ = ajan_sira.baslat_argv("", "haiku", mcp)
-    assert "ToolSearch" not in argv[argv.index("--tools") + 1]
+    assert "ToolSearch" in argv[argv.index("--tools") + 1]  # ERİŞİM-TAM-1: ertelemeyi profil sağlar
     assert argv[argv.index("--disallowedTools") + 1] == "mcp__rea__zz_gereksiz"  # KEEP'te olmayan MCP (blender) tam kalır
-    assert "ENABLE_TOOL_SEARCH" not in json.loads(Path(argv[argv.index("--settings") + 1]).read_text(encoding="utf-8")).get("env", {})
+    assert json.loads(Path(argv[argv.index("--settings") + 1]).read_text(encoding="utf-8"))["env"]["ENABLE_TOOL_SEARCH"] == "true"
     assert ajan_sira.baslat_argv("", "haiku")[0] == [a if a != "opus" else "haiku" for a in ajan_sira.ARGV]  # mcp yok → dokunulmaz
     monkeypatch.setenv("CC_MCP_ERTELE", "0")
     assert "--disallowedTools" not in ajan_sira.baslat_argv("", "haiku", mcp)[0]
