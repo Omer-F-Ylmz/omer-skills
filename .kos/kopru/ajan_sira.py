@@ -235,7 +235,17 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=()):
     if mcp and os.environ.get("CC_MCP_ERTELE") != "0":  # MCP-AÇ-2: KEEP dışı MCP araçları kapanır; CC_MCP_ERTELE=0 geri alır
         sys.path.insert(0, str(KOK / "tools")); import mcp_profil
         argv = mcp_profil.ertele(argv, mcp, os.environ.get("CC_MCP_ERTELE") == "1")
+    if mcp and os.environ.get("CC_MCP_KAPI") != "0" and "--settings" in argv:  # ERİŞİM-TAM-1: doğrudan MCP az (kapı-tek) → ToolSearch kapalı (sabit ~6.5k jeton yükü)
+        sys.path.insert(0, str(KOK / "tools")); import mcp_profil
+        if not mcp_profil.agir(mcp):
+            i = argv.index("--settings") + 1
+            ayar = json.loads(Path(argv[i]).read_text(encoding="utf-8"))
+            ayar.setdefault("env", {})["ENABLE_TOOL_SEARCH"] = "false"
+            kayit = Path(tempfile.gettempdir()) / f"cc_ts_{os.getpid()}_{abs(hash(argv[i]))}.json"
+            kayit.write_text(json.dumps(ayar), encoding="utf-8")
+            argv[i] = str(kayit)
     env = taze_env()
+    env["AJAN_SIRA_KUYRUK"] = "1"  # SAYAC-FIX-1: cagri_sayac.py bu ajanda devir/DUR uyarısı basmaz
     if "max-old-space-size" not in env.get("NODE_OPTIONS", ""):  # RAM-1: ajan başı node MCP'leri (rea, chrome-devtools) sınırsız heap büyütmesin
         env["NODE_OPTIONS"] = (env.get("NODE_OPTIONS", "") + " --max-old-space-size=2048").strip()
     if not efor:

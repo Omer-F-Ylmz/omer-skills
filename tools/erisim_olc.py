@@ -17,8 +17,13 @@ def kos(kol):
     tmp = Path(tempfile.gettempdir())
     mcp = tmp / f"erisim-{os.getpid()}.json"
     t = mcp_profil.tanimlar()
-    mcp.write_text(json.dumps({"mcpServers": {} if kol == "bos" else t}), encoding="utf-8")
-    os.environ["CC_MCP_ERTELE"] = "0"
+    if kol.startswith("kapi"):  # kapı kolu: gerçek köprü profili (ruflo doğrudan + kapi + OAuth'lular), KEEP süzgeci açık
+        mcp_profil.yaz(ISTEM, mcp)
+        kol, kolad = kol.replace("kapi", "profil", 1), kol
+    else:
+        mcp.write_text(json.dumps({"mcpServers": {} if kol == "bos" else t}), encoding="utf-8")
+        os.environ["CC_MCP_ERTELE"] = "0"
+        kolad = kol
     argv, env = ajan_sira.baslat_argv("low", "haiku", mcp)
     argv[argv.index("--output-format") + 1] = "stream-json"
     i = argv.index("--settings") + 1
@@ -27,6 +32,8 @@ def kos(kol):
     if kol != "profil":  # profil = baslat_argv'nin verdiği ayar/env aynen (gerçek köprü yolu)
         e.pop("ENABLE_TOOL_SEARCH", None)
         env.pop("ENABLE_TOOL_SEARCH", None)
+    if kol in ("profil+auto", "profil+false", "profil+true"):  # kapı kolu + ENABLE_TOOL_SEARCH değeri
+        kol = kol.split("+")[1]
     if kol.split("+")[0] in ("true", "false", "auto"):
         e["ENABLE_TOOL_SEARCH"] = kol.split("+")[0]
     sf = tmp / f"erisim-ayar-{os.getpid()}.json"
@@ -52,7 +59,7 @@ def kos(kol):
     blok = [b for x in ev if x.get("type") == "assistant" for b in x["message"].get("content", []) if isinstance(b, dict)]
     ids = {b["id"] for b in blok if b.get("type") == "tool_use" and b["name"].startswith("mcp__")}
     hata = sum(1 for x in ev if x.get("type") == "user" for b in x["message"].get("content", []) if isinstance(b, dict) and b.get("tool_use_id") in ids and b.get("is_error"))
-    return [time.strftime("%Y-%m-%d %H:%M"), ISTEM[:12], kol, len(init.get("mcp_servers", [])), len(araclar), "ToolSearch" in araclar,
+    return [time.strftime("%Y-%m-%d %H:%M"), ISTEM[:12], kolad, len(init.get("mcp_servers", [])), len(araclar), "ToolSearch" in araclar,
             u.get("input_tokens", 0) + u.get("cache_creation_input_tokens", 0) + u.get("cache_read_input_tokens", 0),
             u.get("cache_read_input_tokens", 0), u.get("cache_creation_input_tokens", 0), str(istek), len(ids), hata, round(sure), 0 if ev else p.returncode]
 

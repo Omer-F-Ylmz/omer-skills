@@ -2,6 +2,7 @@
 Tür tespiti zorunlu_arac.GORSEL ile aynı sözlük; tanımlar ~/.claude.json + ecc eklentisi .mcp.json'dan alınır (env değerleri yalnız yeni dosyaya kopyalanır, basılmaz).
   python mcp_profil.py "<görev metni>"    seçilen MCP adları (sınama)"""
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -24,6 +25,7 @@ KEEP = {  # MCP-AÇ-2: yalnız bu araçlar açık kalır; listede olmayan MCP'le
                         "get_network_request", "click", "fill", "wait_for", "press_key", "lighthouse_audit", "get_css_styles"],
     "21st": ["search", "search_logo", "search_picker", "get_component", "get_inspiration", "get_theme", "get_generation", "get_generation_job"],
 }
+DOGRUDAN = ["figma", "canva", "claude-design"]  # OAuth'u CC tutar (kapıdan 401); katalog: tools/mcp_kapi.py katalog
 ARACLAR = Path(__file__).resolve().parents[1] / ".kos" / "kopru" / "mcp-araclar.json"  # tools/mcp_ac2_olc.py araclar ile yenilenir
 KAYNAK = [Path.home() / ".claude.json", *sorted((Path.home() / ".claude/plugins/cache/ecc/ecc").glob("*/.mcp.json"))]
 
@@ -65,11 +67,26 @@ def ertele(argv, mcp, tam=True):
     return list(argv) + ["--disallowedTools", ",".join(kapali)] if kapali else list(argv)
 
 
+def agir(mcp):
+    """ERİŞİM-TAM-1: doğrudan MCP araç sayısı > 20 ise ertelemeli yükleme (ToolSearch) kazandırır; değilse ToolSearch'ün sabit ~6.5k yükü zarar (kapı-tek: 15.8k, +ts: 22.3k)."""
+    try:
+        kat = json.loads((Path(__file__).resolve().parents[1] / ".kos" / "kopru" / "kapi-katalog.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        kat = {}
+    ad = [m for m in json.loads(Path(mcp).read_text(encoding="utf-8"))["mcpServers"] if m != "kapi"]
+    return sum(len(KEEP[m]) if m in KEEP else len(kat.get(m) if isinstance(kat.get(m), list) else [0] * 20) for m in ad) > 20
+
+
 def yaz(metin, hedef):
     """Profil dosyasını hedef'e yazar; tanımı olmayan MCP atlanır. Döner: seçilen adlar."""
     t = tanimlar()
     ad = [m for m in sec(metin) if m in t]
-    Path(hedef).write_text(json.dumps({"mcpServers": {m: t[m] for m in ad}}), encoding="utf-8")
+    sunucular = {m: t[m] for m in ad}
+    if os.environ.get("CC_MCP_KAPI") != "0":  # ERİŞİM-TAM-1: kalan tüm MCP'ler tek "kapi" arkasında (ara/cagir); OAuth'lular doğrudan
+        sunucular["kapi"] = {"command": sys.executable, "args": ["-I", str(Path(__file__).with_name("mcp_kapi.py"))], "env": {"KAPI_HARIC": ",".join(ad + DOGRUDAN)}}
+        if re.search(r"(?i)figma|canva|claude.design", metin):  # OAuth'lular yalnız anılınca (şemaları ~1.6k jeton)
+            sunucular.update({m: t[m] for m in DOGRUDAN if m in t and m not in sunucular})
+    Path(hedef).write_text(json.dumps({"mcpServers": sunucular}), encoding="utf-8")
     return ad
 
 
