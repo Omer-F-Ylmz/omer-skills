@@ -108,7 +108,7 @@ def yerel_aciklama(ks, n=4, model="gemma4:e4b"):  # Gemini kotası/anahtarı yok
     if not ks:
         return None
     sec = [ks[int(i * len(ks) / n)] for i in range(n)]
-    istek = {"model": model, "stream": False, "think": False, "options": {"num_ctx": 8192},
+    istek = {"model": model, "stream": False, "think": False, "options": {"num_ctx": 8192}, "keep_alive": 0,
              "messages": [{"role": "user", "content": KARE_PROMPT, "images": [base64.b64encode(k.read_bytes()).decode() for k in sec]}]}
     try:
         req = urllib.request.Request("http://127.0.0.1:11434/api/chat", json.dumps(istek).encode(), {"Content-Type": "application/json"})

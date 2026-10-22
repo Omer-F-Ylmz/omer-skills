@@ -103,8 +103,41 @@ def beyin():
         yaz("beyin_kanca hata:", repr(e)[:200])
 
 
+def llama_bosta(onceki, pid, cpu, simdi):
+    """ram-az-1: llama-server CPU süresi önceki gözlemden ≥60 sn beri değişmediyse boşta (saf)."""
+    return bool(onceki) and onceki["pid"] == pid and onceki["cpu"] == cpu and simdi - onceki["t"] >= 60
+
+
+def en_buyuk_bosta(liste):
+    """ram-az-1: (ad, pid, MB, cpu%) listesinden CPU'su <%1 en büyük süreç; yoksa None (saf)."""
+    adaylar = [(ad, pid, mb) for ad, pid, mb, cpu in liste if cpu < 1.0]
+    return max(adaylar, key=lambda x: x[2]) if adaylar else None
+
+
+def ram_rapor():
+    """ram-az-1: RAM %84+ ise en büyük boşta süreci ram-olay.log'a yazar (öldürmez)."""
+    import psutil
+    r = ram()
+    if r < 84:
+        return
+    ps = [p for p in psutil.process_iter(["name", "memory_info"]) if p.info["memory_info"]]
+    for p in ps:
+        p.cpu_percent(None)
+    time.sleep(1)
+    liste = []
+    for p in ps:
+        try:
+            liste.append((p.info["name"], p.pid, p.info["memory_info"].rss // 2**20, p.cpu_percent(None)))
+        except psutil.Error:
+            pass
+    b = en_buyuk_bosta(liste)
+    if b:
+        with open(os.path.join(KOK, ".kos", "kopru", "ram-olay.log"), "a", encoding="utf-8") as f:
+            f.write(time.strftime("%Y-%m-%d %H:%M:%S ") + "RAM %%%d en buyuk bosta: %s pid=%d %d MB\n" % ((r,) + b))
+
+
 def ollama_bosalt():
-    """BULUT-1: yerel modeller RAM yemesin. Yüklü model varsa boşaltır; 11434'e bağlı süreçleri (çağıran) .kos/kopru/ram-olay.log'a yazar."""
+    """BULUT-1: yerel modeller RAM yemesin. llama-server ≥60 sn boştaysa boşaltır (ram-az-1); 11434'e bağlı süreçleri (çağıran) .kos/kopru/ram-olay.log'a yazar."""
     import json
     import urllib.request
     import psutil
@@ -119,7 +152,18 @@ def ollama_bosalt():
         modeller = istek("/api/ps").get("models", [])
     except OSError:  # ollama kapalı
         return
-    if not modeller:
+    durum = os.path.join(KOK, ".kos", "kopru", "ollama-bosta.json")
+    llama = [p for p in psutil.process_iter(["name"]) if (p.info["name"] or "").lower().startswith("llama-server")]
+    if not modeller or not llama:
+        return
+    pid, cpu, simdi = llama[0].pid, round(sum(llama[0].cpu_times()[:2]), 2), time.time()
+    try:
+        onceki = json.load(open(durum, encoding="utf-8"))
+    except (OSError, ValueError):
+        onceki = None
+    if not llama_bosta(onceki, pid, cpu, simdi):
+        if not onceki or onceki["pid"] != pid or onceki["cpu"] != cpu:
+            json.dump({"pid": pid, "cpu": cpu, "t": simdi}, open(durum, "w", encoding="utf-8"))
         return
     caglar = sorted({psutil.Process(c.pid).name() + ":" + str(c.pid) for c in psutil.net_connections("tcp")
                      if c.raddr and c.raddr.port == 11434 and c.pid})
@@ -178,6 +222,10 @@ if __name__ == "__main__":
         ollama_bosalt()
     except Exception as e:
         yaz("ollama_bosalt hata:", repr(e)[:200])
+    try:
+        ram_rapor()
+    except Exception as e:
+        yaz("ram_rapor hata:", repr(e)[:200])
     main()
     try:
         saglik()
