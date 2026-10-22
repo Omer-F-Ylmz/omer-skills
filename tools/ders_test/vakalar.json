@@ -1,0 +1,9 @@
+[
+ {
+  "ad": "bhs5-referans-birebir",
+  "tur": "video",
+  "gorev": "Ömer referans ses verdi, videoda anlatım sesi üret",
+  "bekle": "64aacf",
+  "uygula": "referans.{0,40}(birebir|aynen)|birebir.{0,40}referans"
+ }
+]

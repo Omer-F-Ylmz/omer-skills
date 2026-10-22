@@ -252,7 +252,8 @@ def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=No
         istem = onek(sablon, zor) + istem
     else:
         import ajan_cekirdek
-        istem = ajan_cekirdek.onek(zor) + istem
+        import ders_dongu  # DERS-DONGU-1: çekirdekten sonra ≤5 ders (≤150 jeton); ders yok → ''
+        istem = ajan_cekirdek.onek(zor) + ders_dongu.onek(ham) + istem
     tahmin, log, denenen = len(istem) // 3 + max_tokens, [], set()
     while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2)):
         denenen.add(ad(e))

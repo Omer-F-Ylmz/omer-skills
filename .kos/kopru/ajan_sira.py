@@ -57,9 +57,18 @@ def cekirdek_onek(model):
     return ajan_cekirdek.onek() if ajan_cekirdek.model_gerek(model) else ""
 
 
+def dongu_onek(model, metin):
+    """DERS-DONGU-1: haiku|sonnet|ücretsiz ajana ≤5 ders (≤150 jeton), çekirdekten sonra sabit konum; opus'a eklenmez."""
+    try:
+        sys.path.insert(0, str(KOK / "tools")); import ajan_cekirdek, ders_dongu
+        return ders_dongu.onek(metin) if ajan_cekirdek.model_gerek(model) else ""
+    except Exception:
+        return ""
+
+
 def on_ek_kur(model, metin):
     """Çekirdek istemin EN BAŞINA (sabit önek → prompt cache isabeti); model=None merdiven seçiminden sonra çağrılır."""
-    return cekirdek_onek(model) + metin
+    return cekirdek_onek(model) + dongu_onek(model, metin) + metin
 
 
 ON_SOZ = K / "on-soz.md"  # ARAÇ-DENETİM-1: her göreve ortak ön söz; yoksa boş
