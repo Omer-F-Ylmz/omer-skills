@@ -306,6 +306,7 @@ def main():
             sayac += 1
             if sayac % 50 == 0:  # her 50 işlemde özet
                 print(f"OZET islenen={sayac} {dict(ozet)}", flush=True)
+    print(f"BITIS islenen={sayac} {dict(ozet)}", flush=True)  # gözetmen (toplu_gozetmen.py) temiz bitişi bundan anlar
 
 
 if __name__ == "__main__":
