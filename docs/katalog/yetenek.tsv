@@ -3640,3 +3640,6 @@ varlik_indir	arac	omer-skills tools/	BLENDER-ARAC-2 K2: CC0 varlık indirici —
 yukle10	arac	omer-skills tools/	KURULUM-10 C: claude.ai paketleri -> dist/yukle-10/{yeni,replace}.	load install setup	python tools/yukle10.py	repo
 yukle12b	arac	omer-skills tools/	YUKLE-12b: dist/yukle-12 aciklamalarini <=110'a indirir, cift skill'leri _cift'e ayirir, partileri 20'serli…	load download	python tools/yukle12b.py	repo
 yukle8	arac	omer-skills tools/	KURULUM-8 K1: aday envanteri + claude.ai zip'leri -> dist/yukle-8/parti-N.	load install	python tools/yukle8.py	repo
+threejs-react-three-fiber	skill	~/.claude/skills	React Three Fiber + drei ile three.js sahnesi: JSX sahne grafiği, frame loop, state/yükleme hook'ları, pointer, performans. MIT.	r3f react three fiber drei	Skill threejs-react-three-fiber	ikisi
+smooth-scroll	skill	~/.claude/skills	Lenis veya GSAP ScrollSmoother ile yumuşak kaydırma; reduced-motion uyumu. MIT (PRANEETH-VENKAT/smooth-scroll-skill).	lenis smooth scroll	Skill smooth-scroll	ikisi
+find-skills	skill	~/.claude/skills	Eksik yetenek için skills.sh ve npx skills ile arama; bulunanı kurmadan tedarik taraması şart. MIT.	find skill	Skill find-skills	ikisi
