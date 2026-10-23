@@ -358,6 +358,13 @@ class Koc(Canli):
         self.assertIn("olay", b._ozet_olay(olaylar))
         self.assertEqual(b.tur(), "ok")
 
+    def test_dizgi_zaman_damgasi_gosterge_cokertmez(self):
+        with b.OLAY.open("ab") as f:
+            f.write(b'{"t": "2026-10-23", "tur": "ders", "konu": "X"}\n')
+        olaylar, _ = b._olay_oku(0)
+        self.assertEqual(olaylar[0]["t"], 0)
+        self.assertIn("GÖSTERGE", b.gosterge([], olaylar))
+
     def test_calis_hatada_alarm_yazar_ve_tur_t_ilerler(self):
         def patla():
             raise RuntimeError("deneme")

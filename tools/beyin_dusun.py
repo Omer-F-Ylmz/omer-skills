@@ -144,7 +144,10 @@ def _olay_oku(ofset):
         except ValueError:
             continue
         if isinstance(x, dict) and x.get("tur"):  # beyin_kayit.py gibi şemasız satırlar döngüyü çökertmesin
-            out.append({"t": 0, "arac": "", "ozet": "", "hata": False, **x})
+            o = {"t": 0, "arac": "", "ozet": "", "hata": False, **x}
+            if not isinstance(o["t"], (int, float)):  # beyin_kayit.py tarih dizgisi yazabilir; sayıya zorla (döngü TypeError ile ölmesin)
+                o["t"] = 0
+            out.append(o)
     return out, ofset + bitis
 
 
