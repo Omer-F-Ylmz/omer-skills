@@ -97,6 +97,20 @@ def test_is_kaydi(tmp_path, monkeypatch):
     assert d[1].split("\t")[1:] == ["a", "haiku-medium", "1.50", "a", "1"] and d[2].split("\t")[1:] == ["b", "haiku", "0.00", "b", "0"]
 
 
+def test_is_kaydi_beyne_olay_dusurur(tmp_path, monkeypatch):
+    """BEYIN-CANLI-1: iş bitince beyin-olay.jsonl'a 'is' olayı (iş · model · $ · KABUL/DUR) düşer."""
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+    import beyin_dusun
+    monkeypatch.setattr(beyin_dusun, "OLAY", tmp_path / "olay.jsonl")
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "ISKAYDI", tmp_path / "is.tsv")
+    monkeypatch.setattr(ajan_sira.maliyet_defter, "DEFTER", tmp_path / "maliyet.tsv")
+    (tmp_path / "a.json").write_text('{"subtype":"success","num_turns":3,"total_cost_usd":0.2,"result":"tamam"}\n', encoding="utf-8")
+    assert ajan_sira.is_kaydi("a", 0, 2.0, "", "haiku") is True
+    o = [json.loads(s) for s in (tmp_path / "olay.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert o[0]["tur"] == "is" and "a · haiku · $0.20" in o[0]["ozet"] and "KABUL" in o[0]["ozet"]
+
+
 def test_basamak_sec_merdiven(tmp_path, monkeypatch):
     """MERDIVEN: model yok → haiku medium (0); son 7 günde Haiku'da başarısız tür → sonnet medium (2); yeniden deneme basamağı aynen."""
     monkeypatch.setattr(ajan_sira.maliyet_defter, "DEFTER", tmp_path / "maliyet.tsv")

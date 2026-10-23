@@ -385,6 +385,11 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None):
             BUTCE_ASTI.add(ad)
         if usd >= 0.8 * butce:
             log("BÜTÇE %80+", ad, f"${usd:.2f} / ${butce:.2f} · {durum}")
+    try:  # BEYIN-CANLI-1: iş bitişi → 2. beyin olay günlüğü (kanıtlı iş · model · $ · KABUL/DUR)
+        sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
+        beyin_dusun.is_olayi(ad, f"{model}-{efor}" if efor else model, usd, dk, ok, j)
+    except Exception:
+        pass
     if model == "opus" and ok and j.get("session_id"):  # AJAN-AKIS-1 2. beyin: başarılı Opus oturumundan kalıp damıt (arka plan iş parçacığı, hata kuyruğu bozmaz)
         try:
             import threading; sys.path.insert(0, str(KOK / "tools")); import akis_damit
@@ -421,7 +426,17 @@ def main():
     for f in CIKTI.glob("*.basladi"):
         baslayan.add(f.stem)
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
+    ara_t = 0.0
     while True:
+        if time.time() - ara_t >= 120:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
+            ara_t = time.time()
+            try:
+                sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
+                for ad_, v in list(calisan.items()):
+                    beyin_dusun.ara_olay(ad_, (ara_t - v[1]) / 60)
+                beyin_dusun.bekci(len(calisan))
+            except Exception:
+                pass
         for ad, (p, t0, fo, ef, mdl, bas, istem, kosul, cwd, butce) in list(calisan.items()):
             if p.poll() is not None or time.time() - t0 > SURE:
                 if p.poll() is None:
@@ -439,6 +454,10 @@ def main():
                 den = zorunlu_arac.denetle(ad)  # ZORUNLU-ARAÇ-1: döküm sayımı; arac_eksik → aynı görev bir kez eksik araç ekiyle yeniden
                 if den and den["durum"] != "ok":
                     log("DENETİM", ad, den["durum"], "eksik:", ", ".join(den["eksik"]))
+                    try:
+                        import beyin_dusun; beyin_dusun.olay("denetim", ad, f"{den['durum']} eksik: {', '.join(den['eksik'])}", True)  # BEYIN-CANLI-1
+                    except Exception:
+                        pass
                     yeni, dk = zorunlu_arac.devam(ad, den)  # ARAÇ-KAPI-1: üç işaretten biri → en fazla 2 devam turu (Haiku), sonra DUR
                     if zorunlu_arac.YENIDEN and dk == "devam" and yeni not in tekrar:
                         yeniden.append((yeni, zorunlu_arac.yeniden_istem(ad, istem, zorunlu_arac.eksik_liste(den), yeni), kosul, None, None, 0, cwd))
