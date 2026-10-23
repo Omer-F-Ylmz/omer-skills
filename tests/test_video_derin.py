@@ -57,3 +57,12 @@ def test_groq_kota_kapaliyken_istek_atilmaz(monkeypatch, tmp_path):
     wav.write_bytes(b"x")
     monkeypatch.setattr(video_derin.urllib.request, "urlopen", lambda *a, **k: pytest.fail("istek atilmamali"))
     assert video_derin.groq_asr(wav) is None
+
+
+def test_cerez_yalniz_instagram_icin_ve_dosya_varsa(tmp_path, monkeypatch):
+    c = tmp_path / "c.txt"
+    monkeypatch.setenv("IG_COOKIES", str(c))
+    assert video_derin.cerez_arg("https://www.instagram.com/reel/X/") == []
+    c.write_text("x")
+    assert video_derin.cerez_arg("https://www.instagram.com/reel/X/") == ["--cookies", c]
+    assert video_derin.cerez_arg("https://youtu.be/X") == []

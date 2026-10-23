@@ -45,8 +45,15 @@ def kod_of(u):
     return next((g for g in m.groups() if g), re.sub(r"\W+", "_", u)[-24:]) if m else re.sub(r"\W+", "_", u)[-24:]
 
 
+def cerez_arg(url):  # yalnız instagram.com; yol IG_COOKIES ya da .kos/ig-cookies.txt (gitignore'da), değer asla yazılmaz
+    if "instagram.com" not in url:
+        return []
+    p = Path(os.environ.get("IG_COOKIES") or Path(__file__).resolve().parent.parent / ".kos" / "ig-cookies.txt")
+    return ["--cookies", p] if p.is_file() else []
+
+
 def indir(url, d):
-    r = kos("yt-dlp", "-f", "wv[height>=360]+wa/w[height>=360]/best", "--no-playlist", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
+    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+wa/w[height>=360]/best", "--no-playlist", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
     v = next((p for p in d.glob("v.*") if p.suffix not in (".json",)), None)
     return v, r.stderr[-200:]
 
