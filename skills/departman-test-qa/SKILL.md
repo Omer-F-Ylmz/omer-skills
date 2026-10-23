@@ -44,4 +44,4 @@ Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): tq-kirmizi-on
 <!-- dizin:bas -->
 ## Dizin: adımdaki araç işe uymuyorsa `references/dizin.md` dosyasını oku, listeden adla çağır.
 <!-- dizin:son -->
-Yeni aileler (SKILL-YUKLE-1, 14): `references/yukle-1-aileler.md` — Read.
+Yeni aileler (SKILL-YUKLE-1, 14): `references/yukle-1-aileler.md`, Read. Olay/postmortem/on-call işi → incident-io ailesi (belge değil).
