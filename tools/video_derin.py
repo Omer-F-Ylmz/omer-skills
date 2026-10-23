@@ -9,6 +9,9 @@ from pathlib import Path
 
 import psutil
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ekran_duzelt
+
 KOK = Path(__file__).resolve().parents[1]
 CIKTI = Path(os.environ["VD_CIKTI"]) if os.environ.get("VD_CIKTI") else KOK / "docs/video-tarama/derin"  # VD_CIKTI: profil/WER koşuları gerçek çıktıya yazmaz
 ILERLEME = KOK / ".kos/kopru/derin-ilerleme.txt"
@@ -248,7 +251,12 @@ def isle(url):
             adim["ocr_s"] = time.time() - t3
             acik = acik_f.result()
         t4 = time.time(); adim["ocr"] = t4 - t3
-        metin = "\n".join(e["t"] for e in ekran) + "\n" + " ".join(s["t"] for s in seg)
+        ekran_m = "\n".join(e["t"] for e in ekran)
+        duzeltme = []  # ekranda yazılı araç adı ASR'de başka duyulduysa ekrandaki alınır (ölçü: ekran_adlari_olc.py)
+        for s in seg:
+            s["t"], ops = ekran_duzelt.duzelt(s["t"], ekran_m)
+            duzeltme += ops
+        metin = ekran_m + "\n" + " ".join(s["t"] for s in seg)
         linkler = sorted({m.strip(".,)") for m in URL_RE.findall(metin)})
         komutlar = sorted({m.strip() for m in KOMUT_RE.findall(metin)})
         info = {}
@@ -257,7 +265,7 @@ def isle(url):
             j = json.loads(ij.read_text(encoding="utf-8"))
             info = {"baslik": j.get("title"), "sure": j.get("duration"), "yukleyen": j.get("uploader"), "aciklama": (j.get("description") or "")[:800]}
         veri = {"kod": kod, "url": url, "dil": dil, "meta": info, "transkript": seg, "ekran": ekran,
-                "linkler": linkler, "komutlar": komutlar, "kare_aciklama": acik, "kare_sayisi": len(ks)}
+                "linkler": linkler, "komutlar": komutlar, "kare_aciklama": acik, "kare_sayisi": len(ks), "duzeltme": duzeltme}
         adim["acik"] = time.time() - t4
         with KILIT, PROFIL.open("a", encoding="utf-8") as f:
             f.write(f"{kod}\t" + "\t".join(f"{adim[x]:.1f}" for x in ("indir", "asr", "kare", "ocr", "acik")) + f"\t{len(ks)}\t{OCR_AYGIT}\n")
