@@ -1,0 +1,4 @@
+# music-ende.app
+- KAPALI/ULAŞILAMIYOR · güven: yüksek
+- Kanıt: https:// ve http:// denendi: kapalı (URLError); arşiv: ?
+- Videolar: DdY-K9oDbHl — bağlantı
