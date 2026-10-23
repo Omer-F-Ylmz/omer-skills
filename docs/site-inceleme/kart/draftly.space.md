@@ -24,3 +24,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 
 Tur: [[Siteler/3D-model]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 1054 dugum, 58 script, canvas=0
+- Algilanan altyapi: next
+- Kanit: docs/site-inceleme/rea/draftly.space.json

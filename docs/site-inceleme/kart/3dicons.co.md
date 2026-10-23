@@ -24,3 +24,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 
 Tur: [[Siteler/ikon-font-gorsel]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 1271 dugum, 41 script, canvas=0
+- Algilanan altyapi: next
+- Kanit: docs/site-inceleme/rea/3dicons.co.json

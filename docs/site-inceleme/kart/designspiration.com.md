@@ -15,3 +15,8 @@ Sonuç:
 - **Bizde kullanım:** Görsel tasarım projeleri için fikir ve konsept ilhamı toplama (skill: ilham galerisi tarama).
 
 Tur: [[Siteler/ilham galerisi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 1101 dugum, 4 script, canvas=0
+- Algilanan altyapi: belirgin kutuphane yok (paketlenmis/ozel)
+- Kanit: docs/site-inceleme/rea/designspiration.com.json

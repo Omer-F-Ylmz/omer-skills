@@ -15,3 +15,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 
 Tur: [[Siteler/component-animasyon kutuphanesi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 1680 dugum, 8 script, canvas=0
+- Algilanan altyapi: react
+- Kanit: docs/site-inceleme/rea/component.gallery.json

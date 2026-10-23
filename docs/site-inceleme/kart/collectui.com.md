@@ -15,3 +15,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 
 Tur: [[Siteler/ilham galerisi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 7036 dugum, 39 script, canvas=0
+- Algilanan altyapi: belirgin kutuphane yok (paketlenmis/ozel)
+- Kanit: docs/site-inceleme/rea/collectui.com.json

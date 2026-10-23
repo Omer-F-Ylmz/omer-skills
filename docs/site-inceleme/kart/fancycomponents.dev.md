@@ -17,3 +17,8 @@ kart-modeli: gemini/gemini-3.1-flash-lite
 *Kanıt:* "Make your website fancy with a growing library of ready-to-use react components & microinteractions. free & open source." ve GitHub linki.
 
 Tur: [[Siteler/component-animasyon kutuphanesi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 152 dugum, 25 script, canvas=0
+- Algilanan altyapi: next
+- Kanit: docs/site-inceleme/rea/fancycomponents.dev.json

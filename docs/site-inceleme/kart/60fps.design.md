@@ -27,3 +27,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 
 Tur: [[Siteler/ilham galerisi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 7507 dugum, 12 script, canvas=0
+- Algilanan altyapi: belirgin kutuphane yok (paketlenmis/ozel)
+- Kanit: docs/site-inceleme/rea/60fps.design.json

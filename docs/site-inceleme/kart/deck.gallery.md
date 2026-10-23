@@ -13,3 +13,8 @@ kart-modeli: gemini/gemini-3.5-flash-lite
 * **Bizde kullanım:** Tasarım ilhamı, sunum ve trend araştırması skill'i için.
 
 Tur: [[Siteler/ilham galerisi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 4961 dugum, 149 script, canvas=0
+- Algilanan altyapi: react
+- Kanit: docs/site-inceleme/rea/deck.gallery.json

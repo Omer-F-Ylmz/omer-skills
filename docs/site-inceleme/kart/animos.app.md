@@ -15,3 +15,8 @@ kart-modeli: gemini/gemini-3.1-flash-lite
 *   **Bizde kullanım:** Portfolyo, Dribbble veya Behance için UI/UX mockuplarını hızlıca hareketli videolara dönüştürmek için kullanılabilir.
 
 Tur: [[Siteler/sablon]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 546 dugum, 1 script, canvas=0
+- Algilanan altyapi: belirgin kutuphane yok (paketlenmis/ozel)
+- Kanit: docs/site-inceleme/rea/animos.app.json

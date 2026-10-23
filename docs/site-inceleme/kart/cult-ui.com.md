@@ -14,3 +14,8 @@ kart-modeli: gemini/gemini-3.5-flash-lite
 - Bizde kullanım: Modern arayüzler ve AI destekli ajan bileşenleri geliştirmek için component/animasyon kütüphanesikapsamında kullanılır.
 
 Tur: [[Siteler/component-animasyon kutuphanesi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 1319 dugum, 20 script, canvas=0
+- Algilanan altyapi: next
+- Kanit: docs/site-inceleme/rea/cult-ui.com.json

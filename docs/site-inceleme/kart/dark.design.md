@@ -13,3 +13,8 @@ kart-modeli: gemini/gemini-3.5-flash-lite
 - **Bizde kullanım:** Web tasarımı projelerinde koyu tema (dark mode) estetiği ve UI/UX ilhamı toplamak için ilham/referans skilli için.
 
 Tur: [[Siteler/ilham galerisi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 4974 dugum, 27 script, canvas=0
+- Algilanan altyapi: next
+- Kanit: docs/site-inceleme/rea/dark.design.json

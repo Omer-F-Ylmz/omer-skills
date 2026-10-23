@@ -15,3 +15,8 @@ Sonuç: Teknik Site Kartı
 *   **Bizde kullanım:** Arayüz tasarımlarında tipografi seçimi ve font varyasyonlarını test etmek için kullanılabilir.
 
 Tur: [[Siteler/ikon-font-gorsel]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 668 dugum, 6 script, canvas=0
+- Algilanan altyapi: belirgin kutuphane yok (paketlenmis/ozel)
+- Kanit: docs/site-inceleme/rea/fontshare.com.json

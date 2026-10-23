@@ -28,3 +28,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 
 Tur: [[Siteler/component-animasyon kutuphanesi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 5792 dugum, 5 script, canvas=0
+- Algilanan altyapi: belirgin kutuphane yok (paketlenmis/ozel)
+- Kanit: docs/site-inceleme/rea/balsa-ui.com.json

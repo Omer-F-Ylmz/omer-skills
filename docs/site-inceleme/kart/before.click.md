@@ -28,3 +28,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 
 Tur: [[Siteler/ilham galerisi]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 9923 dugum, 23 script, canvas=0
+- Algilanan altyapi: next
+- Kanit: docs/site-inceleme/rea/before.click.json

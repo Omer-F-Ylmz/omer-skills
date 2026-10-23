@@ -13,3 +13,8 @@ kart-modeli: gemini/gemini-3.5-flash-lite
 - **Bizde kullanım:** WordPress tabanlı hazır tema entegrasyonu ve özelleştirme projeleri için inceleme ve ilham kaynağı amacıyla kullanılabilir.
 
 Tur: [[Siteler/sablon]]
+
+## REA teknik (inspect_web_page, 23 Eki 2026)
+- DOM 1145 dugum, 29 script, canvas=0
+- Algilanan altyapi: belirgin kutuphane yok (paketlenmis/ozel)
+- Kanit: docs/site-inceleme/rea/clbthemes.com.json
