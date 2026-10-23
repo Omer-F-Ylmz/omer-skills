@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import puan  # noqa: E402
 import ucretsiz_havuz as uh  # noqa: E402
 
-SAG = ["gemini", "groq", "openrouter", "mistral", "nvidia", "cloudflare", "ollama", "omniroute"]
+SAG = ["gemini", "groq", "openrouter", "mistral", "nvidia", "sambanova", "cloudflare", "ollama", "omniroute"]
 SEVIYE = ["Hiç karşılamıyor / alakasız", "Çok zayıf", "Kısmen, önemli eksik", "Çoğunlukla, küçük eksik", "Tam karşılıyor",
           "Tam ve örnek nitelikte"]
 ISTEM = ("Bir yanıtı kabul ölçütüne göre puanla. Yalnızca yanıtın içeriğini yargıla (doğruluk, ölçütün karşılanması); biçim ve uzunluk değil.\n"
