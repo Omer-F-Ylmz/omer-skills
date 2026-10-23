@@ -173,9 +173,19 @@ def cagir(g):
         ucretsiz_havuz._yaz = lambda d: (yk.acquire(), _y(d), yk.release())[1]
         ucretsiz_havuz._yaz_kilitli = True
     ret = lambda y: None if isinstance(U.json_al(y), dict) else "JSON yok"
-    y, k, _ = ucretsiz_havuz.cagir("ozet", g["messages"][0]["content"], max_tokens=4000, haiku_tavan=0, dogrula=ret, zaman=120)
+    y, k, log = ucretsiz_havuz.cagir("ozet", g["messages"][0]["content"], max_tokens=4000, haiku_tavan=0, dogrula=ret, zaman=120)
     o = U.json_al(y) if y else None
-    return (o, k) if isinstance(o, dict) else (None, None)
+    return (o, k, log) if isinstance(o, dict) else (None, None, log)
+
+
+def soguma_bekle():
+    """Havuz boş: en yakın soğuma bitimine kadar bekle (sn). >900 sn (günlük kota) → None: iş önbelleksiz kalır, koşu sonra devam eder."""
+    import ucretsiz_havuz
+    now = time.time()
+    t = [v - now for v in ucretsiz_havuz._durum().get("soguma", {}).values() if v > now]
+    if t and min(t) > 900:
+        return None
+    return min(t) + 2 if t else 15
 
 
 def isle(f):
@@ -189,11 +199,15 @@ def isle(f):
         out.write_text(json.dumps({"kod": kod, "bos": True}), encoding="utf-8")
         return kod, "bos"
     g = U.govde(f"[kaynak_tam v1]\n{ISTEM}\n\n<veri>\n{metin}\n</veri>", [])
-    for deneme in range(3):
-        o, m = cagir(g)
+    for deneme in range(10):
+        o, m, log = cagir(g)
         if o is not None:
             break
-        time.sleep(15 * (deneme + 1))
+        print(f"  {kod} deneme{deneme + 1} {log}", flush=True)
+        b = soguma_bekle()
+        if b is None:
+            return kod, "kota"
+        time.sleep(b)
     else:
         return kod, "hata"
     corp = nrm(" ".join(x[2] for x in birimler(d)))
