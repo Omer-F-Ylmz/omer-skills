@@ -45,9 +45,11 @@ class CodemodeKip(unittest.TestCase):
     def test_bayrak(self):
         eski = os.environ.pop("CC_CODEMODE", None)
         try:
-            self.assertEqual(mcp_profil.codemode(), "")
+            self.assertIn("cm.py run", mcp_profil.codemode())
             os.environ["CC_CODEMODE"] = "1"
             self.assertIn("cm.py run", mcp_profil.codemode())
+            os.environ["CC_CODEMODE"] = "0"
+            self.assertEqual(mcp_profil.codemode(), "")
         finally:
             os.environ.pop("CC_CODEMODE", None)
             if eski is not None:

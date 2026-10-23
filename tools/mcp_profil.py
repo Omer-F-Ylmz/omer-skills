@@ -35,8 +35,8 @@ CODEMODE = ("[codemode K2p] 2+ ardışık araç ya da büyük çıktı (git log/
 
 
 def codemode():
-    """CODE-MODE-AB-1: CC_CODEMODE=1 → ajan istemine K2p hatırlatması (Bash ajan profilinde zaten açık). Ölçüm: Bash+cm.py kolu token −73/−90%, doğruluk 6/6 (A: 4/6)."""
-    return "\n" + CODEMODE if os.environ.get("CC_CODEMODE") == "1" else ""
+    """CODE-MODE-AB-1 (24 Eki varsayılan AÇIK; kapatmak: CC_CODEMODE=0) → ajan istemine K2p hatırlatması (Bash ajan profilinde zaten açık). Ölçüm: Bash+cm.py kolu token −73/−90%, doğruluk 6/6 (A: 4/6)."""
+    return "" if os.environ.get("CC_CODEMODE") == "0" else "\n" + CODEMODE
 
 
 def tanimlar():
