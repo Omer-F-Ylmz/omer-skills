@@ -27,3 +27,61 @@ slash: /security-review	1	ekranda	Dc_7cQ2uWSr
 slash: /rewind	1	ekranda	Dd-Xxv2H4VH
 slash: /hooks	1	ekranda	DdscwJUROKo
 slash: /usage	1	ekranda	DeeA90AASHf
+dosya: CLAUDE.md	39	ekranda	1Jb517FRX7I,5LLLxHxkCnI,DVyqBiejOh8,DW4-DC0IJ-7,DYKXe-YjOrd
+ozellik: sub-agents	30	ekranda+konuşmada	1Jb517FRX7I,3XIGcM7VICc,DVyqBiejOh8,DaagbUMP8Tg,DatZTo9ybM4
+dosya: SKILL.md	29	ekranda	DW4-DC0IJ-7,DYnMgwUup9N,DZ-wSxgkz0v,Dc3UbnBCR9I,Dct7Hc1OO5V
+dosya: AGENTS.md	21	ekranda	Da2pSOSP-gU,Db6E5RXgupy,DbUcU4Jjm1p,Dc1NYVJA8A2,DcQjXeuyFfJ
+ozellik: checkpoint	18	ekranda+konuşmada	DXpKuMtj1f5,DXxQS0AO1Km,DYM77-GFRL_,DZ2c3iuAs65,DZCgfN7jDLv
+ozellik: subagent	18	ekranda	DZ-ZlbQFZy2,DZU07JYgtX3,Dc7hhAUEvu1,Dc_cgg-ETAF,DdA-QjwAMh_
+ozellik: subagents	17	ekranda+konuşmada	DX8i0U3vTA1,DYjIcqJDCJg,DZpySOnOCxI,DapwbVQAoiY,Dc_7cQ2uWSr
+ozellik: plugin marketplace	15	ekranda	DY8EtIPtKLC,DZZr2P_k1TY,Dc1NGcnA9PB,Dd4C4cEj3Ht,DdBQrn-jV8v
+dosya: .claude/skills	13	ekranda	DatpvftE-Iq,Dc5mDOmgB0w,DcQytKYAXjb,Dd3t8ixmPHo,Dd9ZUN4DiEy
+ozellik: sub-agent	10	ekranda+konuşmada	1Jb517FRX7I,DaagbUMP8Tg,DcN-pkGBLHE,DcoU-a2D1uC,Dd1766JOkfR
+kisayol: shift+tab	10	ekranda	Dae05TSAK1l,DbsM7RMBSzo,DdW9enHTUDb,DdZMSdTksDE,DdrFmrrRT_k
+ozellik: headless	9	ekranda+konuşmada	DaIHoDKE9cT,DbkhHb9TJSQ,DbsM7RMBSzo,Dd3t8ixmPHo,DdBlwBIFGvC
+ozellik: agent teams	7	ekranda+konuşmada	DWtKXrODwnm,DaIHoDKE9cT,DdW9enHTUDb,Dd_b9M3AcSE,DdxDGbogAZV
+ozellik: slash commands	7	ekranda+konuşmada	DX8i0U3vTA1,DZpySOnOCxI,DbUcU4Jjm1p,DcJv73uBTM6,DdA-QjwAMh_
+bayrak: --help	6	ekranda	DX3iYGwM6Di,DXezZ_KjHTm,Ddq_d1bDV_Z,DePTgfoGbn6,DeSCS3FigUS
+dosya: .mcp.json	6	ekranda	DZDfQLkAvWq,DaagbUMP8Tg,DcXvWV0z077,DdZMSdTksDE,Deau8oUO4i1
+ozellik: agent team	6	ekranda+konuşmada	Db_GVNhOnQF,DbsM7RMBSzo,Dd9ZUN4DiEy,Dd_b9M3AcSE,DerD_Sqks87
+kisayol: ctrl+o	5	ekranda	DVyqBiejOh8,DZZr2P_k1TY,DdZMSdTksDE,Det34R3RYH2,DeuOHMjFGBI
+slash: /help	5	ekranda	Da2pSOSP-gU,Dc_7cQ2uWSr,DeCl4zJoFpT,DeIQfJsz2vc,DePTgfoGbn6
+ozellik: statusline	4	ekranda	1Jb517FRX7I,Dd9ZUN4DiEy,DeCHIhrk0Th,DewHApKDETC
+ozellik: checkpoints	4	ekranda+konuşmada	DYx4OuVuJuI,Db8cNRlgMG3,Dd0ZDPRjIWA,DdjdN0CCcU8
+ozellik: bypass permissions	4	ekranda	DZ2wiBNF6DU,DbsM7RMBSzo,DePMsSOxhFs,DehQ41UoYHy
+kisayol: ctrl+b	3	ekranda	DVyqBiejOh8,DeuHUPFjuvW,DeuOHMjFGBI
+dosya: settings.json	3	ekranda	DdA-QjwAMh_,DeRM7RVjZLw,DeaxjcMBKBy
+ozellik: git worktree	3	ekranda+konuşmada	DdVVF0_DcmB,DdW9enHTUDb,DdZBsjQBenn
+ozellik: status line	2	ekranda	1Jb517FRX7I,Dd9ZUN4DiEy
+ozellik: prompt caching	2	ekranda	1Jb517FRX7I,DeUDrCLhi3H
+ozellik: slash command	2	ekranda	3XIGcM7VICc,Dd9ZUN4DiEy
+slash: /status	2	ekranda	DdA-QjwAMh_,DeIQfJsz2vc
+hook: SessionStart	2	ekranda	DdeLN4ujZGN,DeR5_DYSKcG
+ozellik: permission mode	2	ekranda+konuşmada	DdrFmrrRT_k,elOexRIdA4c
+ozellik: ultrathink	1	ekranda	DVyqBiejOh8
+kisayol: ctrl+c	1	ekranda	DXxQS0AO1Km
+kisayol: ctrl+k	1	ekranda	DYfHXdPvBzQ
+ozellik: output style	1	ekranda	DZZr2P_k1TY
+ozellik: dangerously-skip-permissions	1	ekranda	DZkZtw2icLq
+env: ANTHROPIC_BASE_URL	1	ekranda	Dae05TSAK1l
+env: ANTHROPIC_AUTH_TOKEN	1	ekranda	Dae05TSAK1l
+env: ANTHROPIC_API_KEY	1	ekranda	Dae05TSAK1l
+hook: PostToolUse	1	ekranda	DbUcU4Jjm1p
+ozellik: custom command	1	ekranda	Dc5mDOmgB0w
+dosya: settings.local.json	1	ekranda	DcoaU2yjNOj
+dosya: .claude/agents	1	ekranda	DdA-QjwAMh_
+env: CLAUDE_CONFIG	1	ekranda	DewHApKDETC
+env: CLAUDE_CODE	1	ekranda	DewR3SbuNen
+kisayol: ctrl+g	1	ekranda	DewxbWfjDHB
+env: CLAUDE_PLUGIN_ROOT	1	ekranda	jf1sv2geEWo
+bayrak: --skill	8	ekranda	DYoDw9pDEil,Dd1jV3AgDiG,Dd3wMMsnz2P,Dd7WYSniFvP,DdjVME_lbWd
+slash: /build	5	ekranda	Dd4-QQgO-Hx,Ddb1UVZIakr,Deg2suCCNpI,DehIM6ljqmB,DeithvDucpZ
+slash: /setup	4	ekranda	Da2pSOSP-gU,DbUg-kOFC-C,DbevzliuW5v,Dd3xTHfALLA
+bayrak: --transport	4	ekranda	DbaXC_zDEe1,Ddc1db7Cj_D,DerG3DfgXC4,DewR3SbuNen
+bayrak: --build	2	ekranda	DZ5CcdsjRHW,DcXvWV0z077
+bayrak: --port	2	ekranda	DZ5CcdsjRHW,DcXvWV0z077
+bayrak: --start	2	ekranda	DZqNTY4jE1b,Dd0ZDPRjIWA
+slash: /write-a-skill	2	ekranda	Dcn3KY8A9Wa,DdxKYYvRysZ
+slash: /login	2	ekranda	Dd1gnAPCMGd,DdrFmrrRT_k
+slash: /test	2	ekranda	Dd4-QQgO-Hx,Ddb1UVZIakr
+slash: /install-github-skill	2	ekranda	DdO6-1QkjR-,DeMsuI4E3gJ
