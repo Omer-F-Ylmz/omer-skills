@@ -332,3 +332,22 @@ def test_gorsel_hakem_yalniz_gorsel_cikti():
     assert z.gorsel_gerek("logo-1 — marka logo üret\n## İLK VE BAĞLAYICI\nlogo render al")
     assert z.gorsel_gerek("intro — 3d render\n## İLK VE BAĞLAYICI\nlanding canlıya çıkacak, render")
     assert not z.gorsel_gerek("kart_dogrula.py düzeltmesi")
+
+
+def _zorunlu(metin):
+    return {o["ad"].split(":")[-1] for o in z.araclar(metin) if not o.get("dolgu")}
+
+
+def test_denetim_ayar_1_cikti_turu_kapilari():
+    birlestir = "# KT-3 — kaynak birleştirme\n\n## İLK VE BAĞLAYICI\nvideo dökümlerini kaynaklar.tsv içinde birleştir; video video metin."
+    assert not (_zorunlu(birlestir) & z.VIDEO_ARAC) and not z.gorsel_gerek(birlestir)
+    assert not (_zorunlu("# SD-1 — skill doğrula\n\n## İLK VE BAĞLAYICI\nkurulum kayıtlarını kontrol et, install") & z.ARAMA_ARAC)
+    uretim = "# V-1 — video\n\n## İLK VE BAĞLAYICI\nhttps://youtu.be/abc videosunu tara, video üret, out.mp4"
+    assert z.VIDEO_CIKTI.search(uretim) and z.gorsel_gerek(uretim) and z.GORSEL_DOSYA.search("kapak.png")
+    assert z.gorsel_gerek("# L-1 — logo\n\n## İLK VE BAĞLAYICI\nlogo.svg üret, notlar.md yaz")
+
+
+def test_gorsel_gerekceli_kanit_eksik_dusurur(tmp_path, monkeypatch):
+    monkeypatch.setattr(z, "SIRA", tmp_path)
+    (tmp_path / "a.json").write_text(json.dumps({"result": "gorsel_hakem atlandı: bu iş görsel çıktı üretmedi"}), encoding="utf-8")
+    assert z.gorsel_gerekceli("a") and not z.gorsel_gerekceli("yok")
